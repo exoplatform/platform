@@ -30,9 +30,7 @@
   
   def rcontext = _ctx.getRequestContext();
   def jsManager = rcontext.getJavascriptManager();
-  jsManager.importJavascript('eXo.portal.UIPortalNavigation');
-  jsManager.importJavascript('eXo.portal.UIAdminToolbar');
-  jsManager.addCustomizedOnLoadScript('eXo.portal.UIAdminToolbar.onLoad("' + uicomponent.id + '");');
+  jsmanager.addCustomizedOnLoadScript('eXo.portal.UIPortalNavigation.onLoad("' + uicomponent.id + '");');
 
   def spacesLink = NavigationURLUtils.getURLInCurrentPortal("spaces");
   def spaceNavigations = uicomponent.getSpaceNavigations();

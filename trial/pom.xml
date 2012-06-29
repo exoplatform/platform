@@ -3,10 +3,10 @@
   <modelVersion>4.0.0</modelVersion>
   <parent>
     <groupId>org.exoplatform.platform</groupId>
-    <artifactId>exo.platform.parent</artifactId>
+      <artifactId>platform</artifactId>
     <version>4.0.0.Alpha1-SNAPSHOT</version>
   </parent>
-  <artifactId>exo.platform.trial</artifactId>
+  <artifactId>platform-trial</artifactId>
   <packaging>pom</packaging>
   <name>eXo Lead Capture Config</name>
   <modules>

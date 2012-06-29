@@ -28,11 +28,8 @@
 
   def requestContext = _ctx.getRequestContext();
 
-  def jsManager = requestContext.getJavascriptManager();
   def defaultInput = _ctx.appRes("UIComposer.input.Write_Something");
 
-  jsManager.importJavascript("eXo.social.Util", LinkProvider.JAVASCRIPT_RESOURCE_URL);
-  jsManager.importJavascript("eXo.social.webui.UINavigationComposer", "/eXoPlatformResources/javascript/");
   def params = """
     {
       composerId: '${uicomponent.getChild(UIFormTextAreaInput.class).getId()}',

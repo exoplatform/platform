@@ -3,11 +3,11 @@
   <modelVersion>4.0.0</modelVersion>
   <parent>
     <groupId>org.exoplatform.platform</groupId>
-    <artifactId>exo.platform.sample.acme-website</artifactId>
+      <artifactId>platform-sample-acme-website</artifactId>
     <version>4.0.0.Alpha1-SNAPSHOT</version>
     <relativePath>../../pom.xml</relativePath>
   </parent>
-  <artifactId>exo.platform.sample.acme-website.component.navigation-rest</artifactId>
+  <artifactId>platform-sample-acme-website-component-navigation-rest</artifactId>
   <packaging>jar</packaging>
   <name>eXo Platform - Acme Website Content Navigation REST Service</name>
   <dependencies>

@@ -3,10 +3,10 @@
   <modelVersion>4.0.0</modelVersion>
   <parent>
     <groupId>org.exoplatform.platform</groupId>
-    <artifactId>exo.platform.packaging</artifactId>
+      <artifactId>platform-packaging</artifactId>
     <version>4.0.0.Alpha1-SNAPSHOT</version>
   </parent>
-  <artifactId>exo.platform.packaging.tomcat</artifactId>
+  <artifactId>platform-packaging-tomcat</artifactId>
   <packaging>pom</packaging>
   <name>eXo Platform - Packaging Tomcat</name>
   <dependencies>
@@ -55,28 +55,28 @@
     <!-- PLATFORM -->
     <dependency>
       <groupId>org.exoplatform.platform</groupId>
-      <artifactId>exo.platform.server.tomcat.patch</artifactId>
+      <artifactId>platform-server-tomcat-patch</artifactId>
       <version>${project.version}</version>
       <scope>provided</scope>
       <type>jar</type>
     </dependency>
     <dependency>
       <groupId>org.exoplatform.platform</groupId>
-      <artifactId>platform.packaging.module</artifactId>
+        <artifactId>platform.packaging.module</artifactId>
       <version>${project.version}</version>
       <scope>provided</scope>
       <type>js</type>
     </dependency>
     <dependency>
       <groupId>org.exoplatform.platform</groupId>
-      <artifactId>platform.packaging.product</artifactId>
+        <artifactId>platform.packaging.product</artifactId>
       <version>${project.version}</version>
       <scope>provided</scope>
       <type>js</type>
     </dependency>
     <dependency>
       <groupId>org.exoplatform.platform</groupId>
-      <artifactId>exo.platform.packaging.commons</artifactId>
+        <artifactId>platform-packaging-commons</artifactId>
       <version>${project.version}</version>
       <scope>provided</scope>
       <type>zip</type>
@@ -1194,126 +1194,126 @@
     </dependency>
     <dependency>
       <groupId>org.exoplatform.platform</groupId>
-      <artifactId>exo.platform.component.common</artifactId>
+        <artifactId>platform-component-common</artifactId>
       <version>${project.version}</version>
       <scope>provided</scope>
       <type>jar</type>
     </dependency>
     <dependency>
       <groupId>org.exoplatform.platform</groupId>
-      <artifactId>exo.platform.component.gadgets</artifactId>
+        <artifactId>platform-component-gadgets</artifactId>
       <version>${project.version}</version>
       <scope>provided</scope>
       <type>jar</type>
     </dependency>
     <dependency>
       <groupId>org.exoplatform.platform</groupId>
-      <artifactId>exo.platform.component.webui</artifactId>
+        <artifactId>platform-component-webui</artifactId>
       <version>${project.version}</version>
       <scope>provided</scope>
       <type>jar</type>
     </dependency>
     <dependency>
       <groupId>org.exoplatform.platform</groupId>
-      <artifactId>exo.platform.sample.acme-intranet.config</artifactId>
+        <artifactId>platform-sample-acme-intranet-config</artifactId>
       <version>${project.version}</version>
       <scope>provided</scope>
       <type>jar</type>
     </dependency>
     <dependency>
       <groupId>org.exoplatform.platform</groupId>
-      <artifactId>exo.platform.sample.acme-intranet.webapp</artifactId>
+        <artifactId>platform-sample-acme-intranet-webapp</artifactId>
       <version>${project.version}</version>
       <scope>provided</scope>
       <type>war</type>
     </dependency>
     <dependency>
       <groupId>org.exoplatform.platform</groupId>
-      <artifactId>exo.platform.sample.acme-intranet.portlet</artifactId>
+        <artifactId>platform-sample-acme-intranet-portlet</artifactId>
       <version>${project.version}</version>
       <scope>provided</scope>
       <type>war</type>
     </dependency>
     <dependency>
       <groupId>org.exoplatform.platform</groupId>
-      <artifactId>exo.platform.sample.acme-website.webapp</artifactId>
+        <artifactId>platform-sample-acme-website-webapp</artifactId>
       <version>${project.version}</version>
       <scope>provided</scope>
       <type>war</type>
     </dependency>
     <dependency>
       <groupId>org.exoplatform.platform</groupId>
-      <artifactId>exo.platform.sample.acme-website.resources</artifactId>
+      <artifactId>platform-sample-acme-website-resources</artifactId>
       <version>${project.version}</version>
       <scope>provided</scope>
       <type>war</type>
     </dependency>
     <dependency>
       <groupId>org.exoplatform.platform</groupId>
-      <artifactId>exo.platform.sample.default-website.webapp</artifactId>
+      <artifactId>platform-sample-default-website-webapp</artifactId>
       <version>${project.version}</version>
       <scope>provided</scope>
       <type>war</type>
     </dependency>
     <dependency>
       <groupId>org.exoplatform.platform</groupId>
-      <artifactId>exo.platform.extension.portlets.platformNavigation</artifactId>
+        <artifactId>platform-extension-portlets-platformNavigation</artifactId>
       <version>${project.version}</version>
       <scope>provided</scope>
       <type>war</type>
     </dependency>
     <dependency>
       <groupId>org.exoplatform.platform</groupId>
-      <artifactId>exo.platform.extension.config</artifactId>
+        <artifactId>platform-extension-config</artifactId>
       <version>${project.version}</version>
       <scope>provided</scope>
       <type>jar</type>
     </dependency>
     <dependency>
       <groupId>org.exoplatform.platform</groupId>
-      <artifactId>exo.platform.component.edition.enterprise</artifactId>
+        <artifactId>platform-component-edition-enterprise</artifactId>
       <version>${project.version}</version>
       <scope>provided</scope>
       <type>jar</type>
     </dependency>
     <dependency>
       <groupId>org.exoplatform.platform</groupId>
-      <artifactId>exo.platform.sample.acme-website.config</artifactId>
+      <artifactId>platform-sample-acme-website-config</artifactId>
       <version>${project.version}</version>
       <scope>provided</scope>
       <type>jar</type>
     </dependency>
     <dependency>
       <groupId>org.exoplatform.platform</groupId>
-      <artifactId>exo.platform.sample.acme-website.component.file-explorer</artifactId>
+        <artifactId>platform-sample-acme-website-component-file-explorer</artifactId>
       <version>${project.version}</version>
       <scope>provided</scope>
       <type>jar</type>
     </dependency>
     <dependency>
       <groupId>org.exoplatform.platform</groupId>
-      <artifactId>exo.platform.sample.acme-website.component.navigation-rest</artifactId>
+        <artifactId>platform-sample-acme-website-component-navigation-rest</artifactId>
       <version>${project.version}</version>
       <scope>provided</scope>
       <type>jar</type>
     </dependency>
     <dependency>
       <groupId>org.exoplatform.platform</groupId>
-      <artifactId>exo.platform.sample.default-website.config</artifactId>
+        <artifactId>platform-sample-default-website-config</artifactId>
       <version>${project.version}</version>
       <scope>provided</scope>
       <type>jar</type>
     </dependency>
     <dependency>
       <groupId>org.exoplatform.platform</groupId>
-      <artifactId>exo.platform.extension.webapp</artifactId>
+        <artifactId>platform-extension-webapp</artifactId>
       <version>${project.version}</version>
       <scope>provided</scope>
       <type>war</type>
     </dependency>
     <dependency>
       <groupId>org.exoplatform.platform</groupId>
-      <artifactId>exo.platform.extension.resources</artifactId>
+        <artifactId>platform-extension-resources</artifactId>
       <version>${project.version}</version>
       <scope>provided</scope>
       <type>war</type>
@@ -1600,14 +1600,14 @@
     </dependency>
     <dependency>
       <groupId>org.exoplatform.platform</groupId>
-      <artifactId>exo.platform.upgrade.plugins</artifactId>
+        <artifactId>platform-component-upgrade-plugins</artifactId>
       <version>${project.version}</version>
       <scope>provided</scope>
       <type>jar</type>
     </dependency>
     <dependency>
       <groupId>org.exoplatform.platform</groupId>
-      <artifactId>exo.platform.component.organization</artifactId>
+        <artifactId>platform-component-organization</artifactId>
       <version>${project.version}</version>
       <scope>provided</scope>
       <type>jar</type>
@@ -1615,28 +1615,28 @@
     <!-- Gadgets-->
     <dependency>
       <groupId>org.exoplatform.platform</groupId>
-      <artifactId>exo.platform.sample.gadgets-sample.gadgets</artifactId>
+      <artifactId>platform-sample-gadgets-sample-gadgets</artifactId>
       <version>${project.version}</version>
       <scope>provided</scope>
       <type>war</type>
     </dependency>
     <dependency>
       <groupId>org.exoplatform.platform</groupId>
-      <artifactId>exo.platform.sample.gadgets-sample.exo-gadget-resources</artifactId>
+      <artifactId>platform-sample-gadgets-sample-exo-gadget-resources</artifactId>
       <version>${project.version}</version>
       <scope>provided</scope>
       <type>war</type>
     </dependency>
     <dependency>
       <groupId>org.exoplatform.platform</groupId>
-      <artifactId>exo.platform.sample.gadgets-sample.service</artifactId>
+      <artifactId>platform-sample-gadgets-sample-service</artifactId>
       <version>${project.version}</version>
       <scope>provided</scope>
       <type>jar</type>
     </dependency>
     <dependency>
       <groupId>org.exoplatform.platform</groupId>
-      <artifactId>exo.platform.sample.gadgets-sample.config</artifactId>
+      <artifactId>platform-sample-gadgets-sample-config</artifactId>
       <version>${project.version}</version>
       <scope>provided</scope>
       <type>jar</type>
@@ -1644,21 +1644,21 @@
     <!-- Gadget pack -->
     <dependency>
       <groupId>org.exoplatform.platform</groupId>
-      <artifactId>gadget-pack-config</artifactId>
+        <artifactId>platform-exo-gadget-pack-config</artifactId>
       <version>${project.version}</version>
       <scope>provided</scope>
       <type>jar</type>
     </dependency>
     <dependency>
       <groupId>org.exoplatform.platform</groupId>
-      <artifactId>gadget-pack-services</artifactId>
+        <artifactId>platform-exo-gadget-pack-gadget-pack-services</artifactId>
       <version>${project.version}</version>
       <scope>provided</scope>
       <type>jar</type>
     </dependency>
     <dependency>
       <groupId>org.exoplatform.platform</groupId>
-      <artifactId>gadget-pack</artifactId>
+        <artifactId>platform-exo-gadget-pack-gadget-pack</artifactId>
       <version>${project.version}</version>
       <scope>provided</scope>
       <type>war</type>
@@ -1710,7 +1710,7 @@
                 </artifactItem>
                 <artifactItem>
                   <groupId>org.exoplatform.platform</groupId>
-                  <artifactId>exo.platform.packaging.commons</artifactId>
+                    <artifactId>platform-packaging-commons</artifactId>
                   <type>zip</type>
                   <outputDirectory>target/commons</outputDirectory>
                 </artifactItem>

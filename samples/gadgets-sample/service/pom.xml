@@ -3,10 +3,10 @@
 <modelVersion>4.0.0</modelVersion>
   <parent>
     <groupId>org.exoplatform.platform</groupId>
-    <artifactId>exo.platform.sample.gadgets-sample</artifactId>
+    <artifactId>platform-sample-gadgets-sample</artifactId>
     <version>4.0.0.Alpha1-SNAPSHOT</version>
   </parent>
-  <artifactId>exo.platform.sample.gadgets-sample.service</artifactId>
+  <artifactId>platform-sample-gadgets-sample-service</artifactId>
   <packaging>jar</packaging>
   <name>eXo Platform - Service Gadgets</name>
   <dependencies>

@@ -22,10 +22,10 @@
   <modelVersion>4.0.0</modelVersion>
   <parent>
     <groupId>org.exoplatform.platform</groupId>
-    <artifactId>exo.platform.sample.acme-intranet</artifactId>
+      <artifactId>platform-sample-acme-intranet</artifactId>
     <version>4.0.0.Alpha1-SNAPSHOT</version>
   </parent>
-  <artifactId>exo.platform.sample.acme-intranet.portlet</artifactId>
+  <artifactId>platform-sample-acme-intranet-portlet</artifactId>
   <packaging>war</packaging>
   <name>eXo Platform - Acme Intranet Space Summary Info Portlet</name>
     <dependencies>

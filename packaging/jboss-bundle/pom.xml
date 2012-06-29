@@ -3,10 +3,10 @@
   <modelVersion>4.0.0</modelVersion>
   <parent>
     <groupId>org.exoplatform.platform</groupId>
-    <artifactId>exo.platform.packaging</artifactId>
+      <artifactId>platform-packaging</artifactId>
     <version>4.0.0.Alpha1-SNAPSHOT</version>
   </parent>
-  <artifactId>exo.platform.packaging.jboss</artifactId>
+  <artifactId>platform-packaging-jboss</artifactId>
   <packaging>pom</packaging>
   <name>eXo Platform - Packaging JBoss</name>
 
@@ -16,7 +16,7 @@
 	  <dependencies>
 		<dependency>
 			<groupId>org.exoplatform.platform</groupId>
-			<artifactId>exo.platform.packaging.jbossears</artifactId>
+            <artifactId>platform-packaging-jbossears</artifactId>
 			<version>${project.version}</version>
 		    <type>zip</type>
 		</dependency>
@@ -117,7 +117,7 @@
 		           <artifactItems>
 					<artifactItem>
 						<groupId>org.exoplatform.platform</groupId>
-						<artifactId>exo.platform.packaging.jbossears</artifactId>
+                        <artifactId>platform-packaging-jbossears</artifactId>
 						<version>${project.version}</version>
 						<type>zip</type>
 					</artifactItem>

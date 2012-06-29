@@ -3,12 +3,12 @@
   <modelVersion>4.0.0</modelVersion>
   
   <parent>
-    <artifactId>exo.platform.testsuite</artifactId>
-    <groupId>org.exoplatform.platform</groupId>
+      <groupId>org.exoplatform.platform</groupId>
+      <artifactId>platform-testsuite</artifactId>
     <version>4.0.0.Alpha1-SNAPSHOT</version>
   </parent>
 
-  <artifactId>selenium</artifactId>
+  <artifactId>platform-testsuite-selenium</artifactId>
   <packaging>jar</packaging>
   <name>Selenium Sniff Test for selenium</name>
   <description>Automated UI tests for selenium</description>

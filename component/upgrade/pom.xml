@@ -1,11 +1,11 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<parent>
 	  <groupId>org.exoplatform.platform</groupId>
-	  <artifactId>exo.platform.component</artifactId>
+        <artifactId>platform-component</artifactId>
 	  <version>4.0.0.Alpha1-SNAPSHOT</version>
 	</parent>
 	<modelVersion>4.0.0</modelVersion>
-	<artifactId>exo.platform.upgrade</artifactId>
+	<artifactId>platform-component-upgrade</artifactId>
 	<packaging>pom</packaging>
 	<name>eXo Platform - Upgrade</name>
 	<url>http://www.exoplatform.org</url>

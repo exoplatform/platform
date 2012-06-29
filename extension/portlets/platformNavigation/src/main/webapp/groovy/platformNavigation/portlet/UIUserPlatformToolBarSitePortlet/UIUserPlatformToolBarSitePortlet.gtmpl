@@ -11,9 +11,7 @@
 	
 	def rcontext = _ctx.getRequestContext() ;
 	JavascriptManager jsmanager = rcontext.getJavascriptManager();
-	jsmanager.importJavascript('eXo.portal.UIPortalNavigation') ;
-	jsmanager.importJavascript('eXo.portal.UIAdminToolbar') ;
-	jsmanager.addCustomizedOnLoadScript('eXo.portal.UIAdminToolbar.onLoad("' + uicomponent.id + '");');
+    jsmanager.addCustomizedOnLoadScript('eXo.portal.UIPortalNavigation.onLoad("' + uicomponent.id + '");');
 	
 	List allPortalNames = uicomponent.getAllPortalNames();
 	boolean hasPermission = uicomponent.hasEditOrCreatePortalPermission();

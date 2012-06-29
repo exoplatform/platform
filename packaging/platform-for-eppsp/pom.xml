@@ -3,7 +3,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
 		<groupId>org.exoplatform.platform</groupId>
-		<artifactId>exo.platform.packaging</artifactId>
+        <artifactId>platform-packaging</artifactId>
 		<version>4.0.0.Alpha1-SNAPSHOT</version>
 	</parent>
 	<artifactId>exo.platform.packaging.plfeppsp</artifactId>
@@ -31,7 +31,7 @@
 									<artifactItems>
 										<artifactItem>
 											<groupId>org.exoplatform.platform</groupId>
-											<artifactId>exo.platform.packaging.jbossears</artifactId>
+                                            <artifactId>platform-packaging-jbossears</artifactId>
 											<version>${project.version}</version>                                
 											<type>zip</type>
 											<outputDirectory>${project.build.directory}/jbosseap</outputDirectory>
@@ -48,7 +48,7 @@
 										-->
 										<artifactItem>
 											<groupId>org.exoplatform.platform</groupId>
-											<artifactId>exo.platform.sample.default-website.ear</artifactId>
+											<artifactId>platform-sample-default-website-ear</artifactId>
 											<version>${project.version}</version>
 											<type>ear</type>
 											<destFileName>exo-default-portal-${project.version}.ear</destFileName>
@@ -56,7 +56,7 @@
 										</artifactItem>
 										<artifactItem>
 											<groupId>org.exoplatform.platform</groupId>
-											<artifactId>exo.platform.extension.ear</artifactId>
+                                            <artifactId>platform-extension-ear</artifactId>
 											<version>${project.version}</version>
 											<type>ear</type>
 											<destFileName>exo-platform-extension-${project.version}.ear</destFileName>
@@ -105,7 +105,7 @@
 										</artifactItem>
 										<artifactItem>
 											<groupId>org.exoplatform.platform</groupId>
-											<artifactId>exo.platform.sample.acme-website.ear</artifactId>
+											<artifactId>platform-sample-acme-website-ear</artifactId>
 											<version>${project.version}</version>
 											<type>ear</type>
 											<destFileName>exo-acme-website-${project.version}.ear</destFileName>
@@ -120,7 +120,7 @@
 										</artifactItem-->
 										<artifactItem>
 											<groupId>org.exoplatform.platform</groupId>
-											<artifactId>exo.platform.sample.acme-intranet.ear</artifactId>
+                                            <artifactId>platform-sample-acme-intranet-ear</artifactId>
 											<version>${project.version}</version>
 											<type>ear</type>
 											<destFileName>exo-social-intranet-${project.version}.ear</destFileName>

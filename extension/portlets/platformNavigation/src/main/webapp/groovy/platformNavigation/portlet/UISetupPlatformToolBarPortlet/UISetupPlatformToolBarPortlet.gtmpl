@@ -1,6 +1,7 @@
 <%
   import org.exoplatform.portal.config.model.PageNode;
   import java.util.List;
+  import org.exoplatform.web.application.JavascriptManager;
 
 %>
 <%// Begin render page nodes method
@@ -43,10 +44,8 @@
 List<PageNode> pagesNodes = uicomponent.getPageNodes();
 if(pagesNodes!=null && !pagesNodes.isEmpty()) {
   def rcontext = _ctx.getRequestContext();
-  def jsManager = rcontext.getJavascriptManager();
-  jsManager.importJavascript('eXo.portal.UIPortalNavigation');
-  jsManager.importJavascript('eXo.portal.UIAdminToolbar');
-  jsManager.addCustomizedOnLoadScript('eXo.portal.UIAdminToolbar.onLoad("' + uicomponent.id + '");');
+  JavascriptManager jsmanager = rcontext.getJavascriptManager();
+  jsmanager.addCustomizedOnLoadScript('eXo.portal.UIPortalNavigation.onLoad("' + uicomponent.id + '");');
 %>
   <ul class="UISetupPlatformToolBarPortlet UIHorizontalTabs" id="$uicomponent.id">
     <li class="UITab NormalToolbarTab">

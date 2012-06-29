@@ -3,10 +3,10 @@
   <modelVersion>4.0.0</modelVersion>
   <parent>
     <groupId>org.exoplatform.platform</groupId>
-    <artifactId>exo.platform.packaging</artifactId>
+      <artifactId>platform-packaging</artifactId>
     <version>4.0.0.Alpha1-SNAPSHOT</version>
   </parent>
-  <artifactId>exo.platform.packaging.jbossears</artifactId>
+  <artifactId>platform-packaging-jbossears</artifactId>
   <packaging>pom</packaging>
   <name>eXo Platform - Packaging JBossEAP EARs</name>
 
@@ -16,13 +16,13 @@
 	  <dependencies>
 		<dependency>
 		  <groupId>org.exoplatform.platform</groupId>
-		  <artifactId>exo.platform.packaging.commons</artifactId>
+            <artifactId>platform-packaging-commons</artifactId>
 		  <version>${project.version}</version>
 		  <type>zip</type>
 		</dependency>
 		<dependency>
 		  <groupId>org.exoplatform.platform</groupId>
-		  <artifactId>exo.platform.server.jboss.patch</artifactId>
+		  <artifactId>platform-server-jboss</artifactId>
 		  <version>${project.version}</version>
 		</dependency>
 		<!--dependency>
@@ -59,7 +59,7 @@
 					</artifactItem>
 					<artifactItem>
 					  <groupId>org.exoplatform.platform</groupId>
-					  <artifactId>exo.platform.server.jboss.patch</artifactId>
+					  <artifactId>platform-server-jboss-patch</artifactId>
 					  <version>${project.version}</version>
 					  <type>jar</type>
 					  <outputDirectory>${project.build.directory}/jboss</outputDirectory>
@@ -75,7 +75,7 @@
 					</artifactItem-->
 		            <artifactItem>
 		              <groupId>org.exoplatform.platform</groupId>
-		              <artifactId>exo.platform.packaging.commons</artifactId>
+                        <artifactId>platform-packaging-commons</artifactId>
 		              <type>zip</type>
 		              <outputDirectory>target/commons</outputDirectory>
 		            </artifactItem>
@@ -136,28 +136,28 @@
 					</artifactItem>
 					<artifactItem>
 					  <groupId>org.exoplatform.platform</groupId>
-					  <artifactId>exo.platform.extension.ear</artifactId>
+                        <artifactId>platform-extension-ear</artifactId>
 					  <version>${project.version}</version>
 					  <destFileName>exo-platform-extension-${project.version}.ear</destFileName>
 					  <type>ear</type>
 					</artifactItem>
 					<artifactItem>
 					  <groupId>org.exoplatform.platform</groupId>
-					  <artifactId>exo.platform.sample.acme-website.ear</artifactId>
+					  <artifactId>platform-sample-acme-website-ear</artifactId>
 					  <version>${project.version}</version>
 					  <destFileName>exo-acme-website-${project.version}.ear</destFileName>
 					  <type>ear</type>
 					</artifactItem>
 					<artifactItem>
 					  <groupId>org.exoplatform.platform</groupId>
-					  <artifactId>exo.platform.sample.default-website.ear</artifactId>
+					  <artifactId>platform-sample-default-website-ear</artifactId>
 					  <version>${project.version}</version>
 					  <destFileName>exo-default-portal-${project.version}.ear</destFileName>
 					  <type>ear</type>
 					</artifactItem>
 					<artifactItem>
 					  <groupId>org.exoplatform.platform</groupId>
-					  <artifactId>exo.platform.sample.acme-intranet.ear</artifactId>
+                        <artifactId>platform-sample-acme-intranet-ear</artifactId>
 					  <version>${project.version}</version>
 					  <destFileName>exo-social-intranet-${project.version}.ear</destFileName>
 					  <type>ear</type>
@@ -171,7 +171,7 @@
 					</artifactItem>
                                         <artifactItem>
 					  <groupId>org.exoplatform.platform</groupId>
-					  <artifactId>exo-gadget-pack-ear</artifactId>
+					  <artifactId>platform-exo-gadget-pack-ear</artifactId>
 					  <version>${project.version}</version>
 					  <destFileName>exo-gadget-pack-${project.version}.ear</destFileName>
 					  <type>ear</type>

@@ -4,11 +4,11 @@
   
   <parent>
     <groupId>org.exoplatform.platform</groupId>
-    <artifactId>exo-gadget-pack</artifactId>
+    <artifactId>platform-exo-gadget-pack</artifactId>
     <version>4.0.0.Alpha1-SNAPSHOT</version>
   </parent>
 
-  <artifactId>gadget-pack</artifactId>
+  <artifactId>platform-exo-gadget-pack-gadget-pack</artifactId>
   <packaging>war</packaging>
   <name>eXo Gadget Pack - Gadgets</name>
   <description>eXo gadgets</description>
@@ -31,7 +31,7 @@
                <artifactItems>
                  <artifactItem>
                    <groupId>org.exoplatform.platform</groupId>
-                   <artifactId>CalendarGadget</artifactId>
+                     <artifactId>platform-exo-gadget-pack-gwt-gadgets-calendargadget</artifactId>
                    <version>${project.version}</version>
                    <type>war</type>
                    <overWrite>false</overWrite>

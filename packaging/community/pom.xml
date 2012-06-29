@@ -3,10 +3,10 @@
   <modelVersion>4.0.0</modelVersion>
   <parent>
     <groupId>org.exoplatform.platform</groupId>
-    <artifactId>exo.platform.packaging</artifactId>
+      <artifactId>platform-packaging</artifactId>
     <version>4.0.0.Alpha1-SNAPSHOT</version>
   </parent>
-  <artifactId>exo.platform.packaging.community</artifactId>
+  <artifactId>platform-packaging-community</artifactId>
   <packaging>pom</packaging>
   <name>eXo Platform - Packaging Community</name>
 
@@ -16,14 +16,14 @@
   <dependencies>
     <dependency>
 	<groupId>org.exoplatform.platform</groupId>
-	<artifactId>exo.platform.packaging.tomcat</artifactId>
+        <artifactId>platform-packaging-tomcat</artifactId>
 	<version>${project.version}</version>
         <type>zip</type>
         <scope>provided</scope>
     </dependency>
 	<dependency>
 		<groupId>org.exoplatform.platform</groupId>
-		<artifactId>exo.platform.component.edition.community</artifactId>
+        <artifactId>platform-component-edition-community</artifactId>
 		<version>${project.version}</version>
 		<scope>provided</scope>
     </dependency>
@@ -56,7 +56,7 @@
               <artifactItems>
                 <artifactItem>
 		   <groupId>org.exoplatform.platform</groupId>
-		   <artifactId>exo.platform.packaging.tomcat</artifactId>
+                    <artifactId>platform-packaging-tomcat</artifactId>
 		   <type>zip</type>
 		   <version>${project.version}</version>
 		   <outputDirectory>${project.build.directory}/community</outputDirectory>
@@ -78,7 +78,7 @@
               <artifactItems>
                 <artifactItem>
                   <groupId>org.exoplatform.platform</groupId>
-				  <artifactId>exo.platform.component.edition.community</artifactId>
+                    <artifactId>platform-component-edition-community</artifactId>
 				  <version>${project.version}</version>
                   <outputDirectory>${project.build.directory}/community/tomcat-bundle/lib</outputDirectory>
                 </artifactItem>
@@ -107,7 +107,7 @@
 				  <fileset dir="${tomcat.lib.dir}" includes="exo-ide-*.jar" />
                   <!-- acme website -->
 				  <fileset dir="${tomcat.webapps.dir}" includes="acme-website*.war" />
-				  <fileset dir="${tomcat.lib.dir}" includes="exo.platform.sample.acme-website.*.jar" />
+				  <fileset dir="${tomcat.lib.dir}" includes="platform-sample-acme-website.*.jar" />
 				  <fileset dir="${tomcat.conf.dir}" includes="acme-website.xml" />
                   <!-- default website >
 				  <fileset dir="${tomcat.webapps.dir}" includes="default-website.war" />
@@ -117,7 +117,7 @@
 				  <fileset dir="${tomcat.webapps.dir}" includes="gadget-pack.war" />
 				  <fileset dir="${tomcat.conf.dir}" includes="gadget-pack.xml" />
 				  <fileset dir="${tomcat.lib.dir}" includes="gadget-pack-*.jar" />
-				  <fileset dir="${tomcat.lib.dir}" includes="exo.platform.component.edition.enterprise*.jar" />
+				  <fileset dir="${tomcat.lib.dir}" includes="platform-component-edition-enterprise*.jar" />
 				</delete>
                 <!-- Disable IDE configuration in platform-extension.war -->
                 <unzip src="${tomcat.webapps.dir}/platform-extension.war" dest="${tomcat.webapps.dir}/plf" />
@@ -136,7 +136,7 @@
                 <zip destfile="${tomcat.webapps.dir}/platform-extension.war" basedir="${tomcat.webapps.dir}/plf" />
                 <delete dir="${tomcat.webapps.dir}/plf" />
                 <!-- Remove IDE from UISetupPlatformToolBarPortlet -->
-                <unzip src="${tomcat.lib.dir}/exo.platform.component.common-${project.version}.jar" dest="${tomcat.lib.dir}/plf" />
+                <unzip src="${tomcat.lib.dir}/platform-component-common-${project.version}.jar" dest="${tomcat.lib.dir}/plf" />
                 <replace file="${tomcat.lib.dir}/plf/conf/portal/setup-navigation.xml">
 				  <replacetoken><![CDATA[<node>
 			<uri>ide</uri>
@@ -151,10 +151,10 @@
 			<page-reference>group::developers::ide</page-reference>
 		</node-->]]></replacevalue>
 				</replace>
-                <zip destfile="${tomcat.lib.dir}/exo.platform.component.common-${project.version}.jar" basedir="${tomcat.lib.dir}/plf" />
+                <zip destfile="${tomcat.lib.dir}/platform-component-common-${project.version}.jar" basedir="${tomcat.lib.dir}/plf" />
                 <delete dir="${tomcat.lib.dir}/plf" />                
                 <!-- Disable IDE configuration in platform config jar -->
-                <unzip src="${tomcat.lib.dir}/exo.platform.extension.config-${project.version}.jar" dest="${tomcat.lib.dir}/plf" />
+                <unzip src="${tomcat.lib.dir}/platform-extension-config-${project.version}.jar" dest="${tomcat.lib.dir}/plf" />
                 <replace file="${tomcat.lib.dir}/plf/conf/platform/configuration.xml">
 				  <replacetoken><![CDATA[<value profiles="ide,all,default">
                 <string>SmartGWT</string>
@@ -169,7 +169,7 @@
                 <string>IDE</string>
               </value-->]]></replacevalue>
 				</replace>
-                <zip destfile="${tomcat.lib.dir}/exo.platform.extension.config-${project.version}.jar" basedir="${tomcat.lib.dir}/plf" />
+                <zip destfile="${tomcat.lib.dir}/platform-extension-config-${project.version}.jar" basedir="${tomcat.lib.dir}/plf" />
                 <delete dir="${tomcat.lib.dir}/plf" />
 
                 <!-- Disable IDE page and URL -->
@@ -255,12 +255,12 @@
                 <delete dir="${tomcat.webapps.dir}/plf" />
     
                 <!-- Comment filter Terms and Conditions -->
-                <unzip src="${tomcat.lib.dir}/exo.platform.component.common-${project.version}.jar" dest="${tomcat.lib.dir}/plf" />
+                <unzip src="${tomcat.lib.dir}/platform-component-common-${project.version}.jar" dest="${tomcat.lib.dir}/plf" />
                 <replace file="${tomcat.lib.dir}/plf/conf/portal/configuration.xml">
                   <replacetoken><![CDATA[<import>jar:/conf/termsandconditions/web-filter-configuration.xml</import>]]></replacetoken>
                   <replacevalue><![CDATA[<!--<import>jar:/conf/termsandconditions/web-filter-configuration.xml</import>-->]]></replacevalue>
                 </replace>
-                <zip destfile="${tomcat.lib.dir}/exo.platform.component.common-${project.version}.jar" basedir="${tomcat.lib.dir}/plf" />
+                <zip destfile="${tomcat.lib.dir}/platform-component-common-${project.version}.jar" basedir="${tomcat.lib.dir}/plf" />
                 <delete dir="${tomcat.lib.dir}/plf" />
       
                 <!-- Replaces the default page by a new one especially for the Community Edition -->

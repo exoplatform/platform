@@ -3,16 +3,16 @@
   <modelVersion>4.0.0</modelVersion>
   <parent>
     <groupId>org.exoplatform.platform</groupId>
-    <artifactId>exo.platform.trial</artifactId>
+      <artifactId>platform-trial</artifactId>
     <version>4.0.0.Alpha1-SNAPSHOT</version>
   </parent>
-  <artifactId>exo.platform.trial.webapp</artifactId>
+  <artifactId>platform-trial-webapp</artifactId>
   <packaging>war</packaging>
   <name>eXo Trial Webapp</name>
   <dependencies>
     <dependency>
 	  <groupId>org.exoplatform.platform</groupId>
-	  <artifactId>exo.platform.trial.service</artifactId>
+	  <artifactId>platform-trial-service</artifactId>
 	  <version>${project.version}</version>
       <scope>provided</scope>
     </dependency>

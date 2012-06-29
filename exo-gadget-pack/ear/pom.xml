@@ -4,11 +4,11 @@
   
   <parent>
     <groupId>org.exoplatform.platform</groupId>
-    <artifactId>exo-gadget-pack</artifactId>
+      <artifactId>platform-exo-gadget-pack</artifactId>
     <version>4.0.0.Alpha1-SNAPSHOT</version>
   </parent>
   
-  <artifactId>exo-gadget-pack-ear</artifactId>
+  <artifactId>platform-exo-gadget-pack-ear</artifactId>
   <packaging>ear</packaging>
   <name>eXo Gadget Pack - EAR</name>
   <description>eXo gadget pack ear</description>
@@ -16,19 +16,19 @@
   <dependencies>
       <dependency>
         <groupId>org.exoplatform.platform</groupId>
-        <artifactId>gadget-pack-config</artifactId>
+          <artifactId>platform-exo-gadget-pack-config</artifactId>
         <version>${project.version}</version>
         <scope>provided</scope>
       </dependency>
       <dependency>
         <groupId>org.exoplatform.platform</groupId>
-        <artifactId>gadget-pack-services</artifactId>
+          <artifactId>platform-exo-gadget-pack-gadget-pack-services</artifactId>
         <version>${project.version}</version>
         <scope>provided</scope>
       </dependency>
       <dependency>
         <groupId>org.exoplatform.platform</groupId>
-        <artifactId>gadget-pack</artifactId>
+          <artifactId>platform-exo-gadget-pack-gadget-pack</artifactId>
         <version>${project.version}</version>
         <type>war</type>
       </dependency>
@@ -45,17 +45,17 @@
           <modules>
             <jarModule>
               <groupId>org.exoplatform.platform</groupId>
-              <artifactId>gadget-pack-config</artifactId>
+                <artifactId>platform-exo-gadget-pack-config</artifactId>
               <includeInApplicationXml>true</includeInApplicationXml>
             </jarModule>
             <jarModule>
               <groupId>org.exoplatform.platform</groupId>
-              <artifactId>gadget-pack-services</artifactId>
+                <artifactId>platform-exo-gadget-pack-gadget-pack-services</artifactId>
               <includeInApplicationXml>true</includeInApplicationXml>
             </jarModule>
             <webModule>
               <groupId>org.exoplatform.platform</groupId>
-              <artifactId>gadget-pack</artifactId>
+                <artifactId>platform-exo-gadget-pack-gadget-pack</artifactId>
               <contextRoot>exo-gadget-pack</contextRoot>
             </webModule>
           </modules>

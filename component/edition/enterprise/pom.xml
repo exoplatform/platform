@@ -3,10 +3,10 @@
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
 		<groupId>org.exoplatform.platform</groupId>
-		<artifactId>exo.platform.component.edition</artifactId>
+        <artifactId>platform-component-edition</artifactId>
 		<version>4.0.0.Alpha1-SNAPSHOT</version>
 	</parent>
-	<artifactId>exo.platform.component.edition.enterprise</artifactId>
+	<artifactId>platform-component-edition-enterprise</artifactId>
 	<packaging>jar</packaging>
 	<name>eXo Platform - Enterprise Edition Information</name>
 </project>

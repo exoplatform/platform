@@ -19,8 +19,8 @@
 
 <controller
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://www.gatein.org/xml/ns/gatein_controller_1_0 http://www.gatein.org/xml/ns/gatein_controller_1_0"
-    xmlns="http://www.gatein.org/xml/ns/gatein_controller_1_0"
+    xsi:schemaLocation="http://www.gatein.org/xml/ns/gatein_controller_1_1 http://www.gatein.org/xml/ns/gatein_controller_1_1"
+    xmlns="http://www.gatein.org/xml/ns/gatein_controller_1_1"
     separator-escape=":">
 
   <route path="/standalone/{gtn:path}">    
@@ -88,7 +88,37 @@
 	  </path-param>
   	</route>
   </route>
-
+    <!-- Script handler -->
+    <route path="/scripts/{gtn:version}/{gtn:scope}/">
+        <route-param qname="gtn:handler">
+            <value>script</value>
+        </route-param>
+        <path-param qname="gtn:version" encoding="preserve-path">
+            <pattern>[^/]*</pattern>
+        </path-param>
+        <route path="/{gtn:resource}{gtn:lang}{gtn:compress}.js">
+            <path-param qname="gtn:resource">
+                <pattern>.?</pattern>
+            </path-param>
+            <path-param qname="gtn:lang" capture-group="true">
+                <pattern>-([A-Za-z]{2}(-[A-Za-z]{2})?)|</pattern>
+            </path-param>
+            <path-param qname="gtn:compress" capture-group="true">
+                <pattern>-(min)|</pattern>
+            </path-param>
+        </route>
+        <route path="/{gtn:resource}/{gtn:module}{gtn:lang}{gtn:compress}.js">
+            <path-param qname="gtn:module">
+                <pattern>.?</pattern>
+            </path-param>
+            <path-param qname="gtn:lang" capture-group="true">
+                <pattern>-([A-Za-z]{2}(-[A-Za-z]{2})?)|</pattern>
+            </path-param>
+            <path-param qname="gtn:compress" capture-group="true">
+                <pattern>-(min)|</pattern>
+            </path-param>
+        </route>
+    </route>
   <route path="/">
 
     <!-- The portal handler -->

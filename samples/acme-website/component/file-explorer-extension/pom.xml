@@ -3,11 +3,11 @@
   <modelVersion>4.0.0</modelVersion>
   <parent>
     <groupId>org.exoplatform.platform</groupId>
-    <artifactId>exo.platform.sample.acme-website</artifactId>
+      <artifactId>platform-sample-acme-website</artifactId>
     <version>4.0.0.Alpha1-SNAPSHOT</version>
     <relativePath>../../pom.xml</relativePath>
   </parent>
-  <artifactId>exo.platform.sample.acme-website.component.file-explorer</artifactId>
+  <artifactId>platform-sample-acme-website-component-file-explorer</artifactId>
   <packaging>jar</packaging>
   <name>eXo Platform - Acme Website File Explorer Extension</name>
   <dependencies>    
@@ -49,7 +49,7 @@
     </dependency>
     <dependency>
       <groupId>org.exoplatform.platform</groupId>
-  	  <artifactId>exo.platform.component.webui</artifactId>
+        <artifactId>platform-component-webui</artifactId>
       <version>${project.version}</version>
       <scope>provided</scope>
     </dependency>    

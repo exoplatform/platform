@@ -3,10 +3,10 @@
   <modelVersion>4.0.0</modelVersion>
   <parent>
     <groupId>org.exoplatform.platform</groupId>
-    <artifactId>exo.platform.packaging</artifactId>
+      <artifactId>platform-packaging</artifactId>
     <version>4.0.0.Alpha1-SNAPSHOT</version>
   </parent>
-  <artifactId>exo.platform.packaging.trial</artifactId>
+  <artifactId>platform-packaging-trial</artifactId>
   <packaging>pom</packaging>
   <name>eXo Platform - Packaging Trial</name>
 
@@ -21,20 +21,20 @@
 <!-- lead capture filter -->
     <dependency>
       <groupId>org.exoplatform.platform</groupId>
-      <artifactId>exo.platform.trial.webapp</artifactId>
+      <artifactId>platform-trial-webapp</artifactId>
       <version>${project.version}</version>
       <type>war</type>
       <scope>provided</scope>
     </dependency>
     <dependency>
       <groupId>org.exoplatform.platform</groupId>
-      <artifactId>exo.platform.trial.service</artifactId>
+      <artifactId>platform-trial-service</artifactId>
       <version>${project.version}</version>
       <scope>provided</scope>
     </dependency>
     <dependency>
 	   <groupId>org.exoplatform.platform</groupId>
-	   <artifactId>exo.platform.packaging.tomcat</artifactId>
+        <artifactId>platform-packaging-tomcat</artifactId>
 	   <version>${project.version}</version>
        <scope>provided</scope>
        <type>zip</type>
@@ -62,7 +62,7 @@
               <artifactItems>
                 <artifactItem>
 		    <groupId>org.exoplatform.platform</groupId>
-		    <artifactId>exo.platform.packaging.tomcat</artifactId>
+                    <artifactId>platform-packaging-tomcat</artifactId>
 		    <type>zip</type>
 	            <version>${project.version}</version>
 	            <outputDirectory>${project.build.directory}</outputDirectory>
@@ -83,7 +83,7 @@
               <artifactItems>
                 <artifactItem>
                   <groupId>org.exoplatform.platform</groupId>
-				  <artifactId>exo.platform.trial.webapp</artifactId>
+				  <artifactId>platform-trial-webapp</artifactId>
 				  <version>${project.version}</version>
 				  <type>war</type>
                   <outputDirectory>${project.build.directory}/tomcat-bundle/webapps</outputDirectory>
@@ -91,7 +91,7 @@
                 </artifactItem>
                 <artifactItem>
                   <groupId>org.exoplatform.platform</groupId>
-				  <artifactId>exo.platform.trial.service</artifactId>
+				  <artifactId>platform-trial-service</artifactId>
 				  <version>${project.version}</version>
                   <outputDirectory>${project.build.directory}/tomcat-bundle/lib</outputDirectory>
                 </artifactItem>
@@ -151,12 +151,12 @@
                 <delete dir="${project.build.directory}/tomcat-bundle/webapps/plf" />
     
                 <!-- Comment filter Terms and Conditions -->
-                <unzip src="${project.build.directory}/tomcat-bundle/lib/exo.platform.component.common-${project.version}.jar" dest="${project.build.directory}/tomcat-bundle/lib/plf" />
+                <unzip src="${project.build.directory}/tomcat-bundle/lib/platform-component-common-${project.version}.jar" dest="${project.build.directory}/tomcat-bundle/lib/plf" />
                 <replace file="${project.build.directory}/tomcat-bundle/lib/plf/conf/portal/configuration.xml">
                   <replacetoken><![CDATA[<import>jar:/conf/termsandconditions/web-filter-configuration.xml</import>]]></replacetoken>
                   <replacevalue><![CDATA[<!--<import>jar:/conf/termsandconditions/web-filter-configuration.xml</import>-->]]></replacevalue>
                 </replace>
-                <zip destfile="${project.build.directory}/tomcat-bundle/lib/exo.platform.component.common-${project.version}.jar" basedir="${project.build.directory}/tomcat-bundle/lib/plf" />
+                <zip destfile="${project.build.directory}/tomcat-bundle/lib/platform-component-common-${project.version}.jar" basedir="${project.build.directory}/tomcat-bundle/lib/plf" />
                 <delete dir="${project.build.directory}/tomcat-bundle/lib/plf" />
                 
                 <!-- comment the gatein.data.dir variable out, to use one given by the cargo plugin -->

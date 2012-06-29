@@ -3,10 +3,10 @@
   <modelVersion>4.0.0</modelVersion>
   <parent>
     <groupId>org.exoplatform.platform</groupId>
-    <artifactId>exo.platform.extension</artifactId>
+      <artifactId>platform-extension</artifactId>
     <version>4.0.0.Alpha1-SNAPSHOT</version>
   </parent>
-  <artifactId>exo.platform.extension.resources</artifactId>
+  <artifactId>platform-extension-resources</artifactId>
   <packaging>war</packaging>
   <name>eXo Platform - Extension Resources</name>
   <build>

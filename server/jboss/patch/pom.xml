@@ -3,10 +3,10 @@
   <modelVersion>4.0.0</modelVersion>
   <parent>
     <groupId>org.exoplatform.platform</groupId>
-    <artifactId>exo.platform.server.jboss</artifactId>
+    <artifactId>platform-server-jboss</artifactId>
     <version>4.0.0.Alpha1-SNAPSHOT</version>
   </parent>
-  <artifactId>exo.platform.server.jboss.patch</artifactId>
+  <artifactId>platform-server-jboss-patch</artifactId>
   <packaging>jar</packaging>
   <name>eXo Platform - JBoss Server Patch</name>
   <url>http://www.exoplatform.org</url>

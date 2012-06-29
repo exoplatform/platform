@@ -4,11 +4,11 @@
   
   <parent>
     <groupId>org.exoplatform.platform</groupId>
-    <artifactId>exo-gadget-pack</artifactId>
+      <artifactId>platform-exo-gadget-pack</artifactId>
     <version>4.0.0.Alpha1-SNAPSHOT</version>
   </parent>
   
-  <artifactId>gwt-gadgets</artifactId>
+  <artifactId>platform-exo-gadget-pack-gwt-gadgets</artifactId>
   <packaging>pom</packaging>
   <name>eXo Gadget Pack - GWT Gadgets</name>
   <description>GWT gadgets</description>

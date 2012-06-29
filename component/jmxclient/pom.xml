@@ -3,10 +3,10 @@
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
 		<groupId>org.exoplatform.platform</groupId>
-		<artifactId>exo.platform.component</artifactId>
+        <artifactId>platform-component</artifactId>
 		<version>4.0.0.Alpha1-SNAPSHOT</version>
 	</parent>
-	<artifactId>exo.platform.component.jmxclient</artifactId>
+	<artifactId>platform-component-jmxclient</artifactId>
 	<packaging>jar</packaging>
 	<name>eXo Platform - JMX Client</name>
 	<build>

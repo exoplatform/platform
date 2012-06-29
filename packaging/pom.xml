@@ -3,10 +3,10 @@
   <modelVersion>4.0.0</modelVersion>
   <parent>
     <groupId>org.exoplatform.platform</groupId>
-    <artifactId>exo.platform.parent</artifactId>
+      <artifactId>platform</artifactId>
     <version>4.0.0.Alpha1-SNAPSHOT</version>
   </parent>
-  <artifactId>exo.platform.packaging</artifactId>
+  <artifactId>platform-packaging</artifactId>
   <packaging>pom</packaging>
   <name>eXo Platform - Packaging</name>
   <modules>
@@ -18,7 +18,6 @@
     <module>community</module>
     <module>jboss-eap-ears</module>
     <module>jboss-bundle</module>
-    <module>platform-for-eppsp</module>
     <!--module>enterprise</module-->
     <module>source</module>
   </modules>
