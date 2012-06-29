@@ -22,7 +22,7 @@
 		</dependency>
 		<dependency>
 		  <groupId>org.exoplatform.platform</groupId>
-		  <artifactId>platform-server-jboss</artifactId>
+		  <artifactId>platform-server-jboss-patch</artifactId>
 		  <version>${project.version}</version>
 		</dependency>
 		<!--dependency>
