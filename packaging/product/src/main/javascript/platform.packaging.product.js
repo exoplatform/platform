@@ -79,7 +79,6 @@ function getProduct(version) {
 
   /* ECMS */
 
-    product.addDependencies(ecms.web.eXoDMSResources) ;
     product.addDependencies(ecms.portlet.ecmadmin);
     product.addDependencies(ecms.portlet.ecmexplorer);
     product.addDependencies(ecms.gadgets);
@@ -89,7 +88,6 @@ function getProduct(version) {
     product.addDependencies(ecms.portlet.websearches);
     product.addDependencies(ecms.portlet.seo);
     product.addDependencies(ecms.web.eXoWCMResources) ;
-    product.addDependencies(ecms.web.eXoStaticResources) ;
     product.addDependencies(ecms.waitemplate.war);
     product.addDependencies(ecms.authoring.war);
   
