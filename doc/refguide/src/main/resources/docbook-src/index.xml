@@ -286,8 +286,31 @@ This guide is a complete reference for customization points, and available APIs,
               xmlns:xi="http://www.w3.org/2001/XInclude" />
   </chapter>
 
-  <xi:include href="org.exoplatform.jcr/docbook/en-US/modules/ws.xml"
+  <chapter xml:id="chapter-eXoWS">
+  <title>eXo Web Services</title>
+
+  <para>The Web Services module allows eXo technology to integrate with
+  external products and services.</para>
+
+  <para>It is implementation of API for RESTful Web Services with extensions,
+  Servlet and cross-domain AJAX web-frameworks and JavaBean-JSON
+  transformer.</para>
+
+  <xi:include href="org.exoplatform.jcr/docbook/en-US/modules/ws/introduction-to-rest.xml"
               xmlns:xi="http://www.w3.org/2001/XInclude" />
+
+  <xi:include href="org.exoplatform.jcr/docbook/en-US/modules/ws/overwrite-default-providers.xml"
+              xmlns:xi="http://www.w3.org/2001/XInclude" />
+
+  <xi:include href="org.exoplatform.jcr/docbook/en-US/modules/ws/restservicelist-service.xml"
+              xmlns:xi="http://www.w3.org/2001/XInclude" />
+
+  <xi:include href="org.exoplatform.jcr/docbook/en-US/modules/ws/groovy-scripts-as-rest-services.xml"
+              xmlns:xi="http://www.w3.org/2001/XInclude" />
+
+  <xi:include href="org.exoplatform.jcr/docbook/en-US/modules/ws/framework-for-cross-domain-ajax.xml"
+              xmlns:xi="http://www.w3.org/2001/XInclude" />
+</chapter>
 
  <chapter xml:id="chapter-eXoJCRWithGateIn">
 <title>eXo JCR with GateIn</title>
