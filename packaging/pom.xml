@@ -21,6 +21,8 @@
     <module>jboss-bundle</module>
     -->
     <!--module>enterprise</module-->
+      <!--
     <module>source</module>
+    -->
   </modules>
 </project>
