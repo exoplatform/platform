@@ -18,9 +18,13 @@ package org.exoplatform.platform.organization.integration;
 
 import javax.jcr.Session;
 
+import org.exoplatform.container.PortalContainer;
+import org.exoplatform.container.component.ComponentRequestLifecycle;
 import org.exoplatform.services.jcr.RepositoryService;
+import org.exoplatform.services.jcr.ext.distribution.DataDistributionManager;
 import org.exoplatform.services.organization.Membership;
 import org.exoplatform.services.organization.MembershipEventListener;
+import org.exoplatform.services.organization.OrganizationService;
 
 /**
  * This Listener is invoked when a Mambership is updated/added. Its purpose
@@ -31,10 +35,14 @@ import org.exoplatform.services.organization.MembershipEventListener;
  */
 public class NewMembershipListener extends MembershipEventListener {
 
-  private RepositoryService repositoryService;
+    private RepositoryService repositoryService;
+    private DataDistributionManager dataDistributionManager;
+    private OrganizationIntegrationService organizationIntegrationService;
+    private OrganizationService organizationService;
 
-  public NewMembershipListener(RepositoryService repositoryService) throws Exception {
-    this.repositoryService = repositoryService;
+    public NewMembershipListener(DataDistributionManager dataDistributionManager, RepositoryService repositoryService) throws Exception {
+        this.dataDistributionManager = dataDistributionManager;
+        this.repositoryService = repositoryService;
   }
 
   /**
@@ -44,17 +52,23 @@ public class NewMembershipListener extends MembershipEventListener {
     if (!isNew) {
       return;
     }
-    Session session = null;
-    try {
-      session = repositoryService.getCurrentRepository().getSystemSession(Util.WORKSPACE);
-      if (!Util.hasMembershipFolder(session, m)) {
-        Util.createMembershipFolder(session, m);
+      Session session = null;
+      try {
+          session = repositoryService.getCurrentRepository().getSystemSession(Util.WORKSPACE);
+          if (!Util.hasMembershipFolder(dataDistributionManager, session, m)) {
+              if (!Util.hasGroupFolder(dataDistributionManager, session, m.getGroupId())) {
+                  getOrganizationIntegrationService().syncGroup(m.getGroupId(), EventType.ADDED.toString());
+                  if (getOrganizationService() instanceof ComponentRequestLifecycle) {
+                      ((ComponentRequestLifecycle) organizationService).startRequest(PortalContainer.getInstance());
+                  }
+              }
+              Util.createMembershipFolder(dataDistributionManager, session, m);
+          }
+      } finally {
+          if (session != null) {
+              session.logout();
+          }
       }
-    } finally {
-      if (session != null) {
-        session.logout();
-      }
-    }
   }
 
   /**
@@ -64,8 +78,8 @@ public class NewMembershipListener extends MembershipEventListener {
     Session session = null;
     try {
       session = repositoryService.getCurrentRepository().getSystemSession(Util.WORKSPACE);
-      if (Util.hasMembershipFolder(session, m)) {
-        Util.deleteMembershipFolder(session, m);
+        if (Util.hasMembershipFolder(dataDistributionManager, session, m)) {
+            Util.deleteMembershipFolder(dataDistributionManager, session, m);
       }
     } finally {
       if (session != null) {
@@ -73,4 +87,19 @@ public class NewMembershipListener extends MembershipEventListener {
       }
     }
   }
+    private OrganizationIntegrationService getOrganizationIntegrationService() {
+        if(organizationIntegrationService == null) {
+            organizationIntegrationService = (OrganizationIntegrationService)PortalContainer.getInstance().getComponentInstanceOfType(OrganizationIntegrationService.class);
+        }
+        return organizationIntegrationService;
+
+    }
+
+    private OrganizationService getOrganizationService() {
+        if(organizationService == null) {
+            organizationService = (OrganizationService)PortalContainer.getInstance().getComponentInstanceOfType(OrganizationService.class);
+        }
+        return organizationService;
+
+    }
 }

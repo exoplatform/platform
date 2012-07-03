@@ -18,6 +18,7 @@ import org.exoplatform.platform.organization.integration.NewUserListener;
 import org.exoplatform.platform.organization.integration.OrganizationIntegrationService;
 import org.exoplatform.platform.organization.integration.Util;
 import org.exoplatform.services.jcr.RepositoryService;
+import org.exoplatform.services.jcr.ext.distribution.DataDistributionManager;
 import org.exoplatform.services.organization.Group;
 import org.exoplatform.services.organization.Membership;
 import org.exoplatform.services.organization.OrganizationService;
@@ -30,12 +31,14 @@ public class TestOrganizationIntegration extends BasicTestCase {
   PortalContainer container = null;
   RepositoryService repositoryService = null;
   OrganizationService organizationService = null;
+    DataDistributionManager dataDistributionManager = null;
 
   @Override
   protected void setUp() throws Exception {
     container = PortalContainer.getInstance();
     repositoryService = (RepositoryService) container.getComponentInstanceOfType(RepositoryService.class);
     organizationService = (OrganizationService) container.getComponentInstanceOfType(OrganizationService.class);
+      dataDistributionManager = (DataDistributionManager) container.getComponentInstanceOfType(DataDistributionManager.class);
   }
 
   public void testIntegrationService() throws Exception {
@@ -57,20 +60,29 @@ public class TestOrganizationIntegration extends BasicTestCase {
     Session session = null;
     try {
       session = repositoryService.getCurrentRepository().getSystemSession(Util.WORKSPACE);
+        verifyMembershipFoldersCreation("demo", "/platform/guests", "member", false);
+        organizationIntegrationService.syncMembership("demo", "/platform/guests",
+                EventType.ADDED.toString());
+        verifyMembershipFoldersCreation("demo", "/platform/guests", "member", true);
       organizationIntegrationService.syncGroup("/organization/management/executive-board", EventType.ADDED.toString());
       organizationIntegrationService.syncGroup("/organization/management/executive-board", EventType.DELETED.toString());
 
-      assertTrue(Util.hasGroupFolder(session, "/organization"));
-      assertTrue(Util.hasGroupFolder(session, "/organization/management"));
-      assertTrue(Util.hasGroupFolder(session, "/organization/management/executive-board"));
+        assertTrue(Util.hasGroupFolder(dataDistributionManager, session, "/organization"));
+        assertTrue(Util.hasGroupFolder(dataDistributionManager, session, "/organization/management"));
+        assertTrue(Util.hasGroupFolder(dataDistributionManager, session, "/organization/management/executive-board"));
 
       organizationIntegrationService.syncAllGroups(EventType.DELETED.toString());
 
-      assertTrue(Util.hasGroupFolder(session, "/organization"));
-      assertTrue(Util.hasGroupFolder(session, "/organization/management"));
-      assertTrue(Util.hasGroupFolder(session, "/organization/management/executive-board"));
+        assertTrue(Util.hasGroupFolder(dataDistributionManager, session, "/organization"));
+        assertTrue(Util.hasGroupFolder(dataDistributionManager, session, "/organization/management"));
+        assertTrue(Util.hasGroupFolder(dataDistributionManager, session, "/organization/management/executive-board"));
+
+        verifyUserFoldersCreation("root", false);
 
       organizationIntegrationService.syncUser("root", EventType.ADDED.toString());
+        List<Membership> rootUserMemberships = Util.getActivatedMembershipsRelatedToUser(dataDistributionManager, session, "root");
+        assertNotNull(rootUserMemberships);
+        assertEquals(rootUserMemberships.size(), 3);
 
       verifyUserFoldersCreation("root", true);
 
@@ -83,6 +95,9 @@ public class TestOrganizationIntegration extends BasicTestCase {
       organizationIntegrationService.syncMembership("root", "/organization/management/executive-board",
           EventType.DELETED.toString());
       verifyMembershipFoldersCreation("root", "/organization/management/executive-board", "member", false);
+        rootUserMemberships = Util.getActivatedMembershipsRelatedToUser(dataDistributionManager, session, "root");
+        assertNotNull(rootUserMemberships);
+        assertEquals(rootUserMemberships.size(), 2);
 
       deleteUser("root");
       organizationIntegrationService.syncUser("root", EventType.DELETED.toString());
@@ -92,35 +107,41 @@ public class TestOrganizationIntegration extends BasicTestCase {
       deleteGroup("/organization");
       organizationIntegrationService.syncGroup("/organization", EventType.DELETED.toString());
 
-      assertFalse(Util.hasGroupFolder(session, "/organization"));
-      assertFalse(Util.hasGroupFolder(session, "/organization/management"));
-      assertFalse(Util.hasGroupFolder(session, "/organization/management/executive-board"));
+        assertFalse(Util.hasGroupFolder(dataDistributionManager, session, "/organization"));
+        assertFalse(Util.hasGroupFolder(dataDistributionManager, session, "/organization/management"));
+        assertFalse(Util.hasGroupFolder(dataDistributionManager, session, "/organization/management/executive-board"));
 
       MembershipImpl membership = new MembershipImpl();
       {
         membership.setMembershipType("manager");
         membership.setUserName("john");
         membership.setGroupId("/organization/management/executive-board");
-        membership.setId(Util.computeId(membership));
+          membership.setId(Util.computeMembershipId(membership));
 
-        assertFalse(Util.hasMembershipFolder(session, membership));
+          assertFalse(Util.hasMembershipFolder(dataDistributionManager, session, membership));
       }
-
+        deleteUser("mary");
+        deleteGroup("/platform/guests");
       organizationIntegrationService.syncAll();
       verifyFoldersCreation(true);
+        deleteAllGroups();
+        deleteAllUsers();
 
+        organizationIntegrationService.syncAll();
+
+        assertEquals(Util.getActivatedGroups(session).size(), 0);
+        assertEquals(Util.getActivatedUsers(session).size(), 0);
+    } finally {
+        if (session != null) {
+            session.logout();
+        }
+    }
+  }
+
+    private void deleteAllUsers() throws Exception {
       if (organizationService instanceof ComponentRequestLifecycle) {
         ((ComponentRequestLifecycle) organizationService).startRequest(container);
       }
-      @SuppressWarnings("unchecked")
-      List<Group> groups = new ArrayList<Group>(organizationService.getGroupHandler().getAllGroups());
-      Collections.sort(groups, OrganizationIntegrationService.GROUP_COMPARATOR);
-      Collections.reverse(groups);
-
-      for (Group group : groups) {
-        organizationService.getGroupHandler().removeGroup(group, true);
-      }
-
       ListAccess<User> usersListAccess = organizationService.getUserHandler().findAllUsers();
       int i = 0;
       while (i <= usersListAccess.getSize()) {
@@ -131,22 +152,27 @@ public class TestOrganizationIntegration extends BasicTestCase {
         }
         i += 10;
       }
+        if (organizationService instanceof ComponentRequestLifecycle) {
+            ((ComponentRequestLifecycle) organizationService).endRequest(container);
+        }
+    }
+    private void deleteAllGroups() throws Exception {
 
       if (organizationService instanceof ComponentRequestLifecycle) {
-        ((ComponentRequestLifecycle) organizationService).endRequest(container);
+          ((ComponentRequestLifecycle) organizationService).startRequest(container);
       }
-      organizationIntegrationService.syncAll();
+        @SuppressWarnings("unchecked")
+        List<Group> groups = new ArrayList<Group>(organizationService.getGroupHandler().getAllGroups());
+        Collections.sort(groups, OrganizationIntegrationService.GROUP_COMPARATOR);
+        Collections.reverse(groups);
 
-      assertFalse(Util.getGroupsFolder(session).hasNodes());
-      assertFalse(Util.getMembershipsFolder(session).hasNodes());
-      assertFalse(Util.getUsersFolder(session).hasNodes());
-      assertFalse(Util.getProfilesFolder(session).hasNodes());
-    } finally {
-      if (session != null) {
-        session.logout();
+        for (Group group : groups) {
+            organizationService.getGroupHandler().removeGroup(group, true);
       }
+        if (organizationService instanceof ComponentRequestLifecycle) {
+            ((ComponentRequestLifecycle) organizationService).endRequest(container);
+        }
     }
-  }
 
   private void deleteMembership(String membershipId) throws Exception {
     if (organizationService instanceof ComponentRequestLifecycle) {
@@ -185,8 +211,8 @@ public class TestOrganizationIntegration extends BasicTestCase {
       if (organizationService instanceof ComponentRequestLifecycle) {
         ((ComponentRequestLifecycle) organizationService).startRequest(container);
       }
-      assertEquals(creationAssertionValue, Util.hasUserFolder(session, username));
-      assertEquals(creationAssertionValue, Util.hasProfileFolder(session, username));
+        assertEquals(creationAssertionValue, Util.hasUserFolder(dataDistributionManager, session, username));
+        assertEquals(creationAssertionValue, Util.hasProfileFolder(dataDistributionManager, session, username));
 
       Collection<?> memberships = organizationService.getMembershipHandler().findMembershipsByUser(username);
       if (creationAssertionValue) {// Related groups has to be
@@ -194,17 +220,19 @@ public class TestOrganizationIntegration extends BasicTestCase {
                                    // user, the group could still exists
 
         for (Object objectMembership : memberships) {
-          assertEquals(creationAssertionValue, Util.hasMembershipFolder(session, (Membership) objectMembership));
+            assertEquals(creationAssertionValue, Util.hasMembershipFolder(dataDistributionManager, session, (Membership) objectMembership));
         }
 
         @SuppressWarnings("unchecked")
         List<Group> groups = new ArrayList<Group>(organizationService.getGroupHandler().findGroupsOfUser(username));
         Collections.sort(groups, OrganizationIntegrationService.GROUP_COMPARATOR);
         for (Group group : groups) {
-          assertEquals(creationAssertionValue, Util.hasGroupFolder(session, group.getId()));
+            assertEquals(creationAssertionValue, Util.hasGroupFolder(dataDistributionManager, session, group.getId()));
         }
       } else {
-        assertTrue(memberships == null || memberships.isEmpty());
+          for (Object objectMembership : memberships) {
+              assertEquals(creationAssertionValue, Util.hasMembershipFolder(dataDistributionManager, session, (Membership) objectMembership));
+          }
       }
       if (organizationService instanceof ComponentRequestLifecycle) {
         ((ComponentRequestLifecycle) organizationService).endRequest(container);
@@ -229,12 +257,12 @@ public class TestOrganizationIntegration extends BasicTestCase {
         int length = i + 10 <= usersListAccess.getSize() ? 10 : usersListAccess.getSize() - i;
         User[] users = usersListAccess.load(i, length);
         for (User user : users) {
-          assertEquals(creationAssertionValue, Util.hasUserFolder(session, user.getUserName()));
+            assertEquals(creationAssertionValue, Util.hasUserFolder(dataDistributionManager, session, user.getUserName()));
           UserProfile profile = organizationService.getUserProfileHandler().findUserProfileByName(user.getUserName());
-          assertEquals(creationAssertionValue, Util.hasProfileFolder(session, profile.getUserName()));
+            assertEquals(creationAssertionValue, Util.hasProfileFolder(dataDistributionManager, session, profile.getUserName()));
           Collection<?> memberships = organizationService.getMembershipHandler().findMembershipsByUser(user.getUserName());
           for (Object objectMembership : memberships) {
-            assertEquals(creationAssertionValue, Util.hasMembershipFolder(session, (Membership) objectMembership));
+              assertEquals(creationAssertionValue, Util.hasMembershipFolder(dataDistributionManager, session, (Membership) objectMembership));
           }
         }
         i += 10;
@@ -243,7 +271,7 @@ public class TestOrganizationIntegration extends BasicTestCase {
       List<Group> groups = new ArrayList<Group>(organizationService.getGroupHandler().getAllGroups());
       Collections.sort(groups, OrganizationIntegrationService.GROUP_COMPARATOR);
       for (Group group : groups) {
-        assertEquals(creationAssertionValue, Util.hasGroupFolder(session, group.getId()));
+          assertEquals(creationAssertionValue, Util.hasGroupFolder(dataDistributionManager, session, group.getId()));
       }
       if (organizationService instanceof ComponentRequestLifecycle) {
         ((ComponentRequestLifecycle) organizationService).endRequest(container);
@@ -265,9 +293,9 @@ public class TestOrganizationIntegration extends BasicTestCase {
         membership.setMembershipType(membershipType);
         membership.setUserName(username);
         membership.setGroupId(groupId);
-        membership.setId(Util.computeId(membership));
+          membership.setId(Util.computeMembershipId(membership));
       }
-      assertEquals(assertionCondition, Util.hasMembershipFolder(session, membership));
+        assertEquals(assertionCondition, Util.hasMembershipFolder(dataDistributionManager, session, membership));
       session.save();
     } finally {
       if (session != null) {
