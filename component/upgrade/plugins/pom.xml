@@ -106,6 +106,12 @@
 			<scope>provided</scope>
 		</dependency>
 		<dependency>
+            <groupId>org.exoplatform.platform</groupId>
+            <artifactId>exo.platform.component.organization</artifactId>
+            <version>${project.version}</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
 			<groupId>org.gatein.shindig</groupId>
 			<artifactId>shindig-gadgets</artifactId>
 			<version>${org.gatein.shindig.version}</version>
