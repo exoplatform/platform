@@ -109,7 +109,7 @@ h2. Java APIs {anchor:id=DEV.eXoPlatformSupportedAPIs.JavaAPIs}
 
 *[Java EE 6:|http://www.oracle.com/technetwork/java/javaee/overview/index.html]* eXo Platform supports the Java EE 5 APIs, so you can develop applications using this standard.
 
-*[Cache:|../../../reference/html/Kernel.Cache.html]* An API used for data caching.
+*[Cache:|http://docs.jboss.org/exojcr/1.14.7-GA/developer/en-US/html/ch-cache.html]* An API used for data caching.
 
 *[Event and Listener:|../../../reference/html/Kernel.UnderstandingtheListenerService.html]* An API for listening and sending events within eXo Platform.
 
