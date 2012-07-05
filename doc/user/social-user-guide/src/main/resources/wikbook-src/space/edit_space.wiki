@@ -4,18 +4,24 @@ This function allows you to change the initial settings of a space if you are th
 To edit a space, first access the *Space Settings* by following one of 2 ways:
 
 *The first way*
+{docbook}
+<para>
+      <emphasis role="bold">1.</emphasis> Click <guilabel>My Spaces</guilabel> on the <emphasis role="bold">Administration</emphasis> bar to direct to the <emphasis role="bold">My Spaces</emphasis> page.</para>
+{docbook}
 
-*1.* Click *My Spaces* on the *Administration* bar to direct to the *My Spaces* page.
-
-*2.* Click *Edit* corresponding to the space which you have the *Edit* permission.
-
+{docbook}
+<para>
+   <emphasis role="bold">2.</emphasis> Click <guilabel>Edit</guilabel> corresponding to the space which you have the <emphasis role="bold">Edit</emphasis> permission.</para>
+{docbook}
 !images/Edit_space.png|align="center" width="70mm" fo:scalefit="1" html:scalefit="0"!
 
 *3.* Click !images/edit-space-icon.png|width="4mm" fo:scalefit="1" html:scalefit="0"! next to the space name.
 
 *The second way*
-
-*1.* Hover your cursor over *My Spaces* on the *Administration* bar, then select one space from the drop-down menu.
+{docbook}
+<para>
+  <emphasis role="bold">1.</emphasis> Hover your cursor over <guilabel>My Spaces</guilabel> on the <emphasis role="bold">Administration</emphasis> bar, then select one space from the drop-down menu.</para>
+{docbook}
 
 *2.* Click !images/edit-space-icon.png|width="4mm" fo:scalefit="1" html:scalefit="0"! next to the space name.
 
@@ -27,14 +33,32 @@ You only see !images/edit-space-icon.png|width="4mm" fo:scalefit="1" html:scalef
 
 h2. Change space information   {anchor:id=Soc_User_Guide.Space_Management.Edit_Space.Change_Info}
 This function allows you to edit the basic information of a space.
-
-*1.* Select the *Settings* tab in the *Space Settings* page.
+{docbook}
+<para>
+ <emphasis role="bold">1.</emphasis> Select the <guilabel>Settings</guilabel> tab in the <emphasis role="bold">Space Settings</emphasis> page.</para>
+{docbook}
 
 !images/space_settings.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
 
-*2.* Change information in the *Description* and *Priority* fields, and the space avatar. 
+{docbook}
+<para>
+            <emphasis role="bold">2.</emphasis> Change information in the <guilabel>Description</guilabel> and <guilabel>Priority</guilabel> fields, and the space avatar. </para>
+{docbook}
 
-* To change the space avatar, click !images/Space_Avatar_Upload_Form.png|width="4mm" fo:scalefit="1" html:scalefit="0"!, or directly click the current space avatar to open the *Upload an Image* form. For more details, see the [Upload your profile avatar|#Soc_User_Guide.Get_Started.User_Profile.Upload_Avatar] section.
+{docbook}
+<itemizedlist>
+            <listitem>
+              <para>To change the space avatar, click <inlinemediaobject>
+                  <imageobject role="fo">
+                    <imagedata fileref="images/Space_Avatar_Upload_Form.png" format="PNG" scalefit="1" width="4mm"/>
+                  </imageobject>
+                  <imageobject role="html">
+                    <imagedata fileref="images/Space_Avatar_Upload_Form.png" format="PNG" scalefit="0" width="4mm"/>
+                  </imageobject>
+                </inlinemediaobject>, or directly click the current space avatar to open the <guilabel>Upload an Image</guilabel> form. For more details, see the <link linkend="Soc_User_Guide.Get_Started.User_Profile.Upload_Avatar">Upload your profile avatar</link> section.</para>
+            </listitem>
+</itemizedlist>
+{docbook}
 
 {docbook}
 <note>
@@ -43,19 +67,32 @@ This function allows you to edit the basic information of a space.
 </note>
 {docbook}
 
-*3.* Click *Save* to accept your changes.
-
+{docbook}
+<para>
+   <emphasis role="bold">3.</emphasis> Click <guibutton>Save</guibutton> to accept your changes.</para>
+{docbook}
 h2. Change visibility {anchor:id=Soc_User_Guide.Space_Management.Edit_Space.Change_Visibility}
 
-*1.* Select the *Access & Edit* tab in the left pane of the *Space Settings* page.
+{docbook}
+<para>
+ <emphasis role="bold">1.</emphasis> Select the <guilabel>Access &amp; Edit</guilabel> tab in the left pane of the <emphasis role="bold">Space Settings</emphasis> page.</para>
+{docbook}
 
-*2.* Change values of *Visibility* and *Registration* if you want. For more details, see [here|#Visibility_space].
+{docbook}
+<para>
+   <emphasis role="bold">2.</emphasis> Change values of <guilabel>Visibility</guilabel> and <guilabel>Registration</guilabel> if you want. For more details, see <link linkend="Visibility_space">here</link>.</para>
+{docbook}
 
-*3.* Click *Save* to accept your changes.
+{docbook}
+<para>
+ <emphasis role="bold">3.</emphasis> Click <guibutton>Save</guibutton> to accept your changes.</para>
+{docbook}
 
 h2. Manage members {anchor:id=Soc_User_Guide.Space_Management.Edit_Space.Manage_Members}
 
-Select the *Members* tab in the left pane of the *Space Settings* page to open the *Manage members* form.
+{docbook}
+<para>Select the <guilabel>Members</guilabel> tab in the left pane of the <emphasis role="bold">Space Settings</emphasis> page to open the <guilabel>Manage members</guilabel> form.</para>
+{docbook}
 
 !images/member_tab_space.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
 
@@ -76,17 +113,34 @@ To invite multiple people, use commas to separate your multiple entered username
 
 *The second way*
 
-*1.* Click !images/Select_member_icon.png|width="4mm" fo:scalefit="1" html:scalefit="0"! to open the *Select Users* form.
-
+{docbook}
+<para>
+              <emphasis role="bold">1.</emphasis> Click <inlinemediaobject>
+                <imageobject role="fo">
+                  <imagedata fileref="images/Select_member_icon.png" format="PNG" scalefit="1" width="4mm"/>
+                </imageobject>
+                <imageobject role="html">
+                  <imagedata fileref="images/Select_member_icon.png" format="PNG" scalefit="0" width="4mm"/>
+                </imageobject>
+              </inlinemediaobject> to open the <guilabel>Select Users</guilabel> form.</para>
+{docbook}
 !images/space_settings_select_users.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
 
-*2.* Select your desired users by ticking their corresponding checkboxes, and click *Add*.
-
+{docbook}
+<para>
+<emphasis role="bold">2.</emphasis> Select your desired users by ticking their corresponding checkboxes, and click <guibutton>Add</guibutton>.</para>
+{docbook}
 You can also search for your desired members in eXo Platform, do as follows:
 
-*i.* Enter a search term into the *Search* box.
+{docbook}
+<para>
+ <emphasis role="bold">i.</emphasis> Enter a search term into the <guilabel>Search</guilabel> box.</para>
+{docbook}
 
-*ii.* Select a criterion you want to find in the combo box next to the *Search* box.
+{docbook}
+<para>
+<emphasis role="bold">ii.</emphasis> Select a criterion you want to find in the combo box next to the <guilabel>Search</guilabel> box.</para>
+{docbook}
 
 *iii.* Click !images/Find_icon.png|width="4mm" fo:scalefit="1" html:scalefit="0"! to perform searching.
 
@@ -101,12 +155,47 @@ If your invited users have not accepted your requests yet, you can revoke your i
 h3. Validate/Decline request {anchor:id=Soc_User_Guide.Space_Management.Edit_Space.Manage_Members.Validate_decline_request}
 As a manager or creator of a space, you can validate other users' requests for joining your space.
 
-* To accept a user's request for joining your space, click !images/validate_icon.png|width="18mm" fo:scalefit="1" html:scalefit="0"! in the *Action* column.
-* To decline a user's request for joining your space, click !images/decline_icon.png|width="18mm" fo:scalefit="1" html:scalefit="0"! in the *Action* column.
+{docbook}
+<itemizedlist>
+              <listitem>
+                <para>To accept a user's request for joining your space, click <inlinemediaobject>
+                    <imageobject role="fo">
+                      <imagedata fileref="images/validate_icon.png" format="PNG" scalefit="1" width="18mm"/>
+                    </imageobject>
+                    <imageobject role="html">
+                      <imagedata fileref="images/validate_icon.png" format="PNG" scalefit="0" width="18mm"/>
+                    </imageobject>
+                  </inlinemediaobject> in the <guilabel>Action</guilabel> column.</para>
+              </listitem>
+              <listitem>
+                <para>To decline a user's request for joining your space, click <inlinemediaobject>
+                    <imageobject role="fo">
+                      <imagedata fileref="images/decline_icon.png" format="PNG" scalefit="1" width="18mm"/>
+                    </imageobject>
+                    <imageobject role="html">
+                      <imagedata fileref="images/decline_icon.png" format="PNG" scalefit="0" width="18mm"/>
+                    </imageobject>
+                  </inlinemediaobject> in the <guilabel>Action</guilabel> column.</para>
+              </listitem>
+</itemizedlist>
+{docbook}
 
 h3. Promote/Demote a member{anchor:id=Soc_User_Guide.Space_Management.Edit_Space.Manage_Members.Promote_Mem}
 
-* To promote a member to the manager position, click !images/promote_plus_icon.png|width="18mm" fo:scalefit="1" html:scalefit="0"! in the *Manager* column. The user will be automatically promoted as a manager in the current space.
+{docbook}
+<itemizedlist>
+              <listitem>
+                <para>To promote a member to the manager position, click <inlinemediaobject>
+                    <imageobject role="fo">
+                      <imagedata fileref="images/promote_plus_icon.png" format="PNG" scalefit="1" width="18mm"/>
+                    </imageobject>
+                    <imageobject role="html">
+                      <imagedata fileref="images/promote_plus_icon.png" format="PNG" scalefit="0" width="18mm"/>
+                    </imageobject>
+                  </inlinemediaobject> in the <guilabel>Manager</guilabel> column. The user will be automatically promoted as a manager in the current space.</para>
+              </listitem>
+</itemizedlist>
+{docbook}
 
 * To demote a member, click !images/Demote_icon.png|width="18mm" fo:scalefit="1" html:scalefit="0"!.
 
@@ -122,7 +211,9 @@ h3. Remove a member{anchor:id=Soc_User_Guide.Space_Management.Edit_Space.Manage_
 Click !images/Remove_member_icon.png|width="18mm" fo:scalefit="1" html:scalefit="0"! corresponding to the member you want to delete in the *Members* list.
 
 h2. Manage space applications{anchor:id=Soc_User_Guide.Space_Management.Edit_Space.Manage_App}
-Select the *Applications* tab to go the *Applications* page which allows you to manage space applications.
+{docbook}
+<para>Select the <guilabel>Applications</guilabel> tab to go the <emphasis role="bold">Applications</emphasis> page which allows you to manage space applications.</para>
+{docbook}
 
 !images/space_settings_applications.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
 
@@ -130,8 +221,10 @@ Here, you can:
 * [Add a new space application|#Soc_User_Guide.Space_Management.Edit_Space.Manage_App.Add_App]
 * [Delete an application|#Soc_User_Guide.Space_Management.Edit_Space.Manage_App.Delete_App]
 h3. Add a new space application  {anchor:id=Soc_User_Guide.Space_Management.Edit_Space.Manage_App.Add_App}
-
-*1.* Click *Add Application* to open the *Space Application Installer* form.
+{docbook}
+<para>
+ <emphasis role="bold">1.</emphasis> Click <guibutton>Add Application</guibutton> to open the <guilabel>Space Application Installer</guilabel> form.</para>
+{docbook}
 
 !images/space_settings_add_applications.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
 
@@ -146,7 +239,7 @@ To remove an application, click !images/Delete_Application_icon.png|width="4mm" 
 {docbook}
 <note>
     <para>
-    You cannot delete the <emphasis role="bold">Space Setting</emphasis> application because it is configured as a mandatory space application.
+    You cannot delete the <guilabel>Space Setting</guilabel> application because it is configured as a mandatory space application.
     </para>
 </note>
 {docbook}
@@ -154,17 +247,34 @@ To remove an application, click !images/Delete_Application_icon.png|width="4mm" 
 h2. Edit space navigation   {anchor:id=Soc_User_Guide.Space_Management.Edit_Space.Edit_Space_Navigation}
 
 You can easily edit a space navigation, such as adding a new node, editing a node, replacing in the navigation, moving up/down a node, and taking other actions in the context menu as follows:
-
-*1.* Click the *Navigations* tab to open the space navigation.
+{docbook}
+<para>
+  <emphasis role="bold">1.</emphasis> Click the <guilabel>Navigations</guilabel> tab to open the space navigation.</para>
+{docbook}
 
 !images/space_settings_navigation.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
 
 You can take the following actions:
 
 * Right-click a node name (space name) and take actions in the context menu, such as adding/editing/deleting a node, editing a node's page, copying/cloning a node, and more.
-
-* Click *Add node*; Or right-click any white area to display !images/Add_new_node_icon.png|width="15mm" fo:scalefit="1" html:scalefit="0"!, then select this button. The *Add/ Edit Page Node* form appears and allows you to add information to your new node.
+{docbook}
+<itemizedlist>
+            <listitem>
+              <para>Click <guilabel>Add node</guilabel>; Or right-click any white area to display <inlinemediaobject>
+                  <imageobject role="fo">
+                    <imagedata fileref="images/Add_new_node_icon.png" format="PNG" scalefit="1" width="15mm"/>
+                  </imageobject>
+                  <imageobject role="html">
+                    <imagedata fileref="images/Add_new_node_icon.png" format="PNG" scalefit="0" width="15mm"/>
+                  </imageobject>
+                </inlinemediaobject>, then select this button. The <guilabel>Add/ Edit Page Node</guilabel> form appears and allows you to add information to your new node.</para>
+            </listitem>
+</itemizedlist>
+{docbook}
 
 For more details, see the [Manage Navigation Nodes|#Platform_User_Guide.Manage_Your_Portals.Manage_Navigation_Nodes] section.
 
-*2.* Click *Save* to accept all changes.
+{docbook}
+<para>
+ <emphasis role="bold">2.</emphasis> Click <guibutton>Save</guibutton> to accept all changes.</para>
+{docbook}
