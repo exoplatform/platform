@@ -47,11 +47,18 @@ public class LoginHistoryRestService implements ResourceContainer {
 	private static final Log LOG = ExoLogger.getLogger(LoginHistoryRestService.class);
 
 	private static final CacheControl cacheControl;
+	
 	static {
 		RuntimeDelegate.setInstance(new RuntimeDelegateImpl());
 		cacheControl = new CacheControl();
 		cacheControl.setNoCache(true);
 		cacheControl.setNoStore(true);
+	}
+	
+	protected final LoginHistoryService loginHistoryService;
+	
+	public LoginHistoryRestService(LoginHistoryService loginHistoryService) {
+	  this.loginHistoryService = loginHistoryService;
 	}
 	
 	/**
@@ -66,8 +73,7 @@ public class LoginHistoryRestService implements ResourceContainer {
 	@Produces(MediaType.APPLICATION_JSON)
 	public Response loginhistory(@PathParam("userId") String userId, @PathParam("fromTime") Long fromTime, @PathParam("toTime") Long toTime) throws Exception {
 		try {
-			LoginHistoryService _loginHistoryService = (LoginHistoryService) ExoContainerContext.getCurrentContainer().getComponentInstanceOfType(LoginHistoryService.class);		
-			List<LoginHistoryBean> loginHis = _loginHistoryService.getLoginHistory(userId, fromTime, toTime);
+			List<LoginHistoryBean> loginHis = loginHistoryService.getLoginHistory(userId, fromTime, toTime);
 									
 			List<Object> loginHisData = new ArrayList<Object>();
 			loginHisData.add(loginHis.size());
@@ -95,9 +101,8 @@ public class LoginHistoryRestService implements ResourceContainer {
 	@Produces(MediaType.APPLICATION_JSON)
 	public Response weekstats(@PathParam("userId") String userId, @PathParam("week") String week) throws Exception {
 		try {
-			LoginHistoryService _loginHistoryService = (LoginHistoryService) ExoContainerContext.getCurrentContainer().getComponentInstanceOfType(LoginHistoryService.class);		
 			SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-			List<LoginCounterBean> loginCounts = _loginHistoryService.getLoginCountPerDaysInWeek(userId, sdf.parse(week).getTime());
+			List<LoginCounterBean> loginCounts = loginHistoryService.getLoginCountPerDaysInWeek(userId, sdf.parse(week).getTime());
 						
 			List<Object> loginCountsData = new ArrayList<Object>();
 			
@@ -126,9 +131,8 @@ public class LoginHistoryRestService implements ResourceContainer {
 	@Produces(MediaType.APPLICATION_JSON)
 	public Response monthstats(@PathParam("userId") String userId, @PathParam("fromMonth") String fromMonth, @PathParam("numOfMonths") int numOfMonths) throws Exception {
 		try {
-			LoginHistoryService _loginHistoryService = (LoginHistoryService) ExoContainerContext.getCurrentContainer().getComponentInstanceOfType(LoginHistoryService.class);		
 			SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-			List<LoginCounterBean> loginCounts = _loginHistoryService.getLoginCountPerWeeksInMonths(userId, sdf.parse(fromMonth).getTime(), numOfMonths);
+			List<LoginCounterBean> loginCounts = loginHistoryService.getLoginCountPerWeeksInMonths(userId, sdf.parse(fromMonth).getTime(), numOfMonths);
 						
 			List<Object> loginCountsData = new ArrayList<Object>();
 			
@@ -157,9 +161,8 @@ public class LoginHistoryRestService implements ResourceContainer {
 	@Produces(MediaType.APPLICATION_JSON)
 	public Response yearstats(@PathParam("userId") String userId, @PathParam("year") String year) throws Exception {
 		try {
-			LoginHistoryService _loginHistoryService = (LoginHistoryService) ExoContainerContext.getCurrentContainer().getComponentInstanceOfType(LoginHistoryService.class);		
 			SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-			List<LoginCounterBean> loginCounts = _loginHistoryService.getLoginCountPerMonthsInYear(userId, sdf.parse(year).getTime());
+			List<LoginCounterBean> loginCounts = loginHistoryService.getLoginCountPerMonthsInYear(userId, sdf.parse(year).getTime());
 						
 			List<Object> loginCountsData = new ArrayList<Object>();
 			
@@ -188,8 +191,7 @@ public class LoginHistoryRestService implements ResourceContainer {
 	@Produces(MediaType.APPLICATION_JSON)
 	public Response lastlogins(@PathParam("numItems") int numItems, @PathParam("userIdFilter") String userIdFilter) throws Exception {
 		try {
-			LoginHistoryService _loginHistoryService = (LoginHistoryService) ExoContainerContext.getCurrentContainer().getComponentInstanceOfType(LoginHistoryService.class);		
-			List lastLogins = _loginHistoryService.getLastLogins(numItems, userIdFilter);
+			List lastLogins = loginHistoryService.getLastLogins(numItems, userIdFilter);
 			
 			MessageBean data = new MessageBean();
 			data.setData(lastLogins);
