@@ -23,6 +23,7 @@ import java.util.List;
 
 import javax.jcr.Node;
 import javax.jcr.NodeIterator;
+import javax.jcr.RepositoryException;
 import javax.jcr.Session;
 import javax.jcr.query.Query;
 import javax.jcr.query.QueryManager;
@@ -38,6 +39,7 @@ import org.exoplatform.services.jcr.ext.common.SessionProvider;
 import org.exoplatform.services.jcr.impl.core.query.QueryImpl;
 import org.exoplatform.services.log.ExoLogger;
 import org.exoplatform.services.log.Log;
+import org.picocontainer.Startable;
 
 
 /**
@@ -45,7 +47,7 @@ import org.exoplatform.services.log.Log;
  * Apr 21, 2011 6:19:21 PM
  */
 
-public class LoginHistoryServiceImpl implements LoginHistoryService {
+public class LoginHistoryServiceImpl implements LoginHistoryService, Startable {
 	private static final Log LOG = ExoLogger.getLogger(LoginHistoryServiceImpl.class);	
 	private static String HOME = "exo:LoginHistoryHome";
 	private static String LOGIN_HISTORY = "loginHistory";
@@ -54,53 +56,68 @@ public class LoginHistoryServiceImpl implements LoginHistoryService {
 	private static int DAYS_FOR_KEEPING_USER_STATISTIC = 0; 
 	private static int DAYS_FOR_KEEPING_GLOBAL_STATISTIC = 0; 
 	private static long DAY_IN_MILLISEC = 86400000;
-	private RepositoryService _repoService;
+	private RepositoryService repositoryService;
 
 	/**
-	 * Constructor: Init LoginHistoryServiceImpl with RepositoryService from the container
-	 *              and create JCR node "exo:loginHistoryHome" under root if necessary.
+	 * Init LoginHistoryServiceImpl with RepositoryService from the container.
 	 *
-	 * @param repoService
-	 * @throws Exception
+	 * @param repositoryService
 	 */	
-	public LoginHistoryServiceImpl(RepositoryService repoService) throws Exception{
-		this._repoService = repoService;
-		
-		if(this._repoService != null){
-			SessionProvider sProvider = SessionProvider.createSystemProvider();
-			
-			try {
-				ManageableRepository currentRepo = this._repoService.getCurrentRepository();
-				Session session = sProvider.getSession(currentRepo.getConfiguration().getDefaultWorkspaceName(), currentRepo);	
-
-				Node rootNode = session.getRootNode();
-
-				if(!rootNode.hasNode(HOME)){
-					Node homeNode = rootNode.addNode(HOME, "exo:LoginHisSvc_loginHistoryService");
-					rootNode.save();
-                    // --- PLF-2493 :   Umbrella for usability issues
-                    if(homeNode.canAddMixin("exo:hiddenable")){
-                         homeNode.addMixin("exo:hiddenable");
-                     }
-					Node globalLoginCounterNode = homeNode.addNode(ALL_USERS, "exo:LoginHisSvc_globalLoginCounter");
-					globalLoginCounterNode.setProperty("exo:LoginHisSvc_globalLoginCounter_lastIndex", 0);
-					homeNode.save();
-				}
-			}
-			catch (Exception e) {
-				LOG.debug("Error in LoginHistoryServiceImpl's constructor: " + e.getMessage(), e);
-				throw e;
-			}
-			finally {
-				sProvider.close();
-			}
-		}
-		else{
-			LOG.warn("RepositoryService is null");
-		}
+	public LoginHistoryServiceImpl(RepositoryService repositoryService) {
+		this.repositoryService = repositoryService;
 	}
 	
-	/**
+	@Override
+  public void start() {
+    // Create login history node
+	  try {
+      createHomeNode();
+    } catch (RepositoryException e) {
+      LOG.error("Error of LoginHistoryServiceImpl start: " + e.getMessage(), e);
+      throw new RuntimeException(e);
+    }
+  }
+
+  @Override
+  public void stop() {
+    // do nothing
+  }
+
+  /**
+   * Create exo:LoginHistoryHome node.
+   * @throws RepositoryException 
+   */
+  protected void createHomeNode() throws RepositoryException {
+    SessionProvider sProvider = SessionProvider.createSystemProvider();
+
+    try {
+      ManageableRepository currentRepo = this.repositoryService.getCurrentRepository();
+      Session session = sProvider.getSession(currentRepo.getConfiguration()
+                                                        .getDefaultWorkspaceName(), currentRepo);
+
+      Node rootNode = session.getRootNode();
+
+      if (!rootNode.hasNode(HOME)) {
+        Node homeNode = rootNode.addNode(HOME, "exo:LoginHisSvc_loginHistoryService");
+        rootNode.save();
+        
+        // --- PLF-2493 : Umbrella for usability issues
+        if (homeNode.canAddMixin("exo:hiddenable")) {
+          homeNode.addMixin("exo:hiddenable");
+        }
+        
+        Node globalLoginCounterNode = homeNode.addNode(ALL_USERS,
+                                                       "exo:LoginHisSvc_globalLoginCounter");
+        globalLoginCounterNode.setProperty("exo:LoginHisSvc_globalLoginCounter_lastIndex", 0);
+        homeNode.save();
+        LOG.info("Login history storage initialized.");
+      }
+    } finally {
+      sProvider.close();
+    }
+  }
+
+  /**
 	 * Apply configurations from service's xml 
 	 * 
 	 */	
@@ -550,7 +567,7 @@ public class LoginHistoryServiceImpl implements LoginHistoryService {
 	 * @throws Exception
 	 */			
 	private Session getSession(SessionProvider sessionProvider) throws Exception {
-		ManageableRepository currentRepo = this._repoService.getCurrentRepository();
+		ManageableRepository currentRepo = this.repositoryService.getCurrentRepository();
 		return sessionProvider.getSession(currentRepo.getConfiguration().getDefaultWorkspaceName(), currentRepo);
 	}
 
