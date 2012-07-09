@@ -101,6 +101,7 @@ To install eXo Platform on JBoss, follow these steps:
 - gatein-exo-ks.ear
 - gatein-wcm-extension-plf.ear
 - gatein-workflow-extension-plf.ear
+- crash.war
 
 *2.* Create a folder {{jboss-root/server/default/conf/gatein}}
 
