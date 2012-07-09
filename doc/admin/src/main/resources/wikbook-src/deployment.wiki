@@ -6,22 +6,22 @@ This chapter covers the following topics:
 <itemizedlist>
 <listitem>
 <para>
-<link linkend="ADM.Deployment.How_to_remove_sample_application">Remove sample applications</link>
+<emphasis role="bold"><link linkend="ADM.Deployment.How_to_remove_sample_application">Remove sample applications</link> </emphasis>
 </para>
 </listitem>
 <listitem>
 <para>
-<link linkend="ADM.Deployment.Deploy_custom_extension">Deploy a custom extension</link>
+<emphasis role="bold"><link linkend="ADM.Deployment.Deploy_custom_extension">Deploy a custom extension</link></emphasis>
 </para>
 </listitem>
 <listitem>
 <para>
-<link linkend="ADM.Deployment.Setup_Apache_Frontend">Set up Apache front-end</link>
+<emphasis role="bold"><link linkend="ADM.Deployment.Setup_Apache_Frontend">Set up Apache front-end</link> </emphasis>
 </para>
 </listitem>
 <listitem>
 <para>
-<link linkend="ADM.Deployment.Configure_session_time-out_for_web_server">Configure the session timeout for the web server</link>
+<emphasis role="bold"><link linkend="ADM.Deployment.Configure_session_time-out_for_web_server">Configure the session timeout for the web server</link> </emphasis>
 </para>
 </listitem>
 </itemizedlist>
