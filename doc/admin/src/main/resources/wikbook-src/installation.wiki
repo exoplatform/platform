@@ -140,8 +140,8 @@ In the normal mode, the _start\_eXo_ scripts launch eXo Platform with the follow
 | {{-Xms}} | Minimal Heap Size (defaults to 256 MB). |
 | {{-Xmx}} | Maximal Heap Size (defaults to 1 GB). |
 | {{-Djava.security.auth.login.config | Path to the JAAS security file where the security domains and JAAS authentication modules are declared. |
-| {{-Dexo.conf.dir.name}} | Path where eXo Platform will start looking at _configuration.properties_ and _configuration.xml_. |
-| {{-Dexo.profiles}} | List of comma-separated profiles of eXo Plaform to activate. |
+| {{-Dexo.conf.dir.name}} |The name of the configuration directory relatively from "catalina.home", for example, _gatein/conf_.|
+| {{-Dexo.profiles}} | List of comma-separated profiles of eXo Platform to activate. |
 
 
 In the developer mode, the _start\_eXo_ scripts launch eXo Platform in the developer mode with a few JVM options.
