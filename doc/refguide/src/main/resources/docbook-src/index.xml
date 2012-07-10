@@ -48,6 +48,9 @@ This guide is a complete reference for customization points, and available APIs,
   <xi:include href="org.exoplatform.jcr/docbook/en-US/modules/jcr/concepts/jcr-usage.xml"
               xmlns:xi="http://www.w3.org/2001/XInclude" />
 
+  <xi:include href="org.exoplatform.jcr/docbook/en-US/modules/jcr/concepts/session-leak-detected.xml"
+              xmlns:xi="http://www.w3.org/2001/XInclude" />
+
   <xi:include href="org.exoplatform.jcr/docbook/en-US/modules/jcr/concepts/jcr-extensions.xml"
               xmlns:xi="http://www.w3.org/2001/XInclude" />
 
