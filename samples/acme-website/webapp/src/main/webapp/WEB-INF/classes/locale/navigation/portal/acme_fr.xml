@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <bundle>
   <portal>
     <acme>
@@ -9,7 +9,7 @@
       <newsletters>Lettres d'information</newsletters>
       <confirmation>Confirmation de contact</confirmation>
       <detail>Détails</detail>
-	  <catalog>Catalogue</catalog>
+      <catalog>Catalogue</catalog>
       <printviewer>Imprimer la page</printviewer>
       <searchResult>Résultats de recherche</searchResult>
       <newAccount>Nouveau compte</newAccount>

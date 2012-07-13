@@ -1,13 +1,13 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <bundle>
-    <UIActionBar>
-            <tooltip>
-                <DeleteNode>Supprimer</DeleteNode>
-            </tooltip>
-	</UIActionBar>
-    <UIViewFormTabPane>
-		<label>
-			<deleteNode>Supprimer le noeud</deleteNode>
-		</label>
-	</UIViewFormTabPane>
+  <UIActionBar>
+    <tooltip>
+      <DeleteNode>Supprimer</DeleteNode>
+    </tooltip>
+  </UIActionBar>
+  <UIViewFormTabPane>
+    <label>
+      <deleteNode>Supprimer le noeud</deleteNode>
+    </label>
+  </UIViewFormTabPane>
 </bundle>

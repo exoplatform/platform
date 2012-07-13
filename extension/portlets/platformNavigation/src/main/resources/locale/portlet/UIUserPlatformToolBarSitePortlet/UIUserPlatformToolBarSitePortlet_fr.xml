@@ -1,6 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <bundle>
-	<UIUserPlatformToolBarSitePortlet>
-		<title>Mes Sites</title>
-	</UIUserPlatformToolBarSitePortlet>
+  <UIUserPlatformToolBarSitePortlet>
+    <title>Mes Sites</title>
+  </UIUserPlatformToolBarSitePortlet>
 </bundle>

@@ -1,22 +1,22 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <bundle>
-	<UISetupPlatformToolBarPortlet>
-		<label>
-			<applications>Applications</applications>
-			<content>Contenu</content>
-			<siteExplorer>Explorateur de Sites</siteExplorer>
-			<wcmAdmin>Administration de contenu</wcmAdmin>
-			<users>Utilisateurs</users>
-			<newStaff>Ajouter un utilisateur</newStaff>
-			<org-management>Groupes et rôles</org-management>
-			<portal>Portail</portal>
-			<administration>Administration</administration>
-			<groupnavigation>Sites de groupes</groupnavigation>
-			<pageManagement>Pages</pageManagement>
-			<portalnavigation>Sites</portalnavigation>
-			<servicesManagement>Gestion</servicesManagement>
-			<monitoring>Surveillance</monitoring>
-			<ide>IDE</ide>
-		</label>
-	</UISetupPlatformToolBarPortlet>
+  <UISetupPlatformToolBarPortlet>
+    <label>
+      <applications>Applications</applications>
+      <content>Contenu</content>
+      <siteExplorer>Explorateur de Sites</siteExplorer>
+      <wcmAdmin>Administration de contenu</wcmAdmin>
+      <users>Utilisateurs</users>
+      <newStaff>Ajouter des Utilisateurs</newStaff>
+      <org-management>Groupes et Rôles</org-management>
+      <portal>Portail</portal>
+      <administration>Administration</administration>
+      <groupnavigation>Sites de Groupe</groupnavigation>
+      <pageManagement>Pages</pageManagement>
+      <portalnavigation>Sites</portalnavigation>
+      <servicesManagement>Gestion</servicesManagement>
+      <monitoring>Surveillance</monitoring>
+      <ide>IDE</ide>
+    </label>
+  </UISetupPlatformToolBarPortlet>
 </bundle>
