@@ -4,42 +4,42 @@
 <itemizedlist>
   <listitem>
 	<para>
-	  <link linkend="DEV.WorkWithContent.NodeType">Node type</link>
+	  <emphasis role="bold"><link linkend="DEV.WorkWithContent.NodeType">Node type</link></emphasis>
 	</para>
   </listitem>
   <listitem>
 	<para>
-	  <link linkend="DEV.WorkWithContent.WCMTemplate">WCM template</link>
+	 <emphasis role="bold"> <link linkend="DEV.WorkWithContent.WCMTemplate">WCM template</link></emphasis>
 	</para>
   </listitem>
   <listitem>
 	<para>
-	  <link linkend="DEV.WorkWithContent.DocumentType">Document type</link>
+	  <emphasis role="bold"><link linkend="DEV.WorkWithContent.DocumentType">Document type</link> </emphasis>
 	</para>
   </listitem>
   <listitem>
 	<para>
-	  <link linkend="DEV.WorkWithContent.DialogSyntax">Dialog Syntax</link>
+	 <emphasis role="bold"> <link linkend="DEV.WorkWithContent.DialogSyntax">Dialog Syntax</link> </emphasis>
 	</para>
   </listitem>
   <listitem>
 	<para>
-	  <link linkend="DEV.WorkWithContent.CKEditor">Customize CKEditor</link>
+	 <emphasis role="bold"> <link linkend="DEV.WorkWithContent.CKEditor">Customize CKEditor</link></emphasis>
 	</para>
   </listitem>
   <listitem>
 	<para>
-	  <link linkend="DEV.WorkWithContent.Taxonomy">Taxonomy</link>
+	  <emphasis role="bold"><link linkend="DEV.WorkWithContent.Taxonomy">Taxonomy</link></emphasis>
 	</para>
   </listitem>
   <listitem>
 	<para>
-	  <link linkend="DEV.WorkWithContent.ManageTemplateService">Manage Template service</link>
+	  <emphasis role="bold"><link linkend="DEV.WorkWithContent.ManageTemplateService">Manage Template service</link></emphasis>
 	</para>
   </listitem>
   <listitem>
 	<para>
-	  <link linkend="DEV.WorkWithContent.NavigationByContent">Manage Navigation By Content</link>
+	  <emphasis role="bold"><link linkend="DEV.WorkWithContent.NavigationByContent">Manage Navigation By Content</link></emphasis>
 	</para>
   </listitem>
 </itemizedlist>
