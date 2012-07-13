@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <bundle>
   <Signin>
     <welcome>Bienvenue</welcome>
@@ -7,8 +7,7 @@
     <language>Changer de langue</language>
     <register>S'inscrire</register>
   </Signin>
-
   <ACMEPortal>
-    <label>ACME Modèle</label>
+    <label>Modèle ACME</label>
   </ACMEPortal>
 </bundle>

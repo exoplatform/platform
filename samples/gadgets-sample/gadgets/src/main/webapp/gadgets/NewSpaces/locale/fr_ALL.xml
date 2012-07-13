@@ -1,24 +1,10 @@
-<?xmfl version='1.0' encoding='UTF-8'?>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <messagebundle>
-  <msg name="title">
-    Nouveaux espaces
-  </msg> 
-  <msg name="Created">
-    Environ
-  </msg>
-  <msg name="maxtime">
-    Afficher les nouveaux espaces
-  </msg>
-  <msg name="no_space">
-    Aucun espace n'a été créé récemment
-  </msg>  
-  <msg name="showAll">
-    Montrer tout
-  </msg>
-  <msg name="join">
-    Joindre
-  </msg>
-  <msg name="join_title">
-    Rejoindre l'espace
-  </msg>
+  <msg name="title">Nouveaux espaces</msg>
+  <msg name="Created">Environ</msg>
+  <msg name="maxtime">Afficher les nouveaux espaces</msg>
+  <msg name="no_space">Aucun espace n'a été créé récemment</msg>
+  <msg name="showAll">Montrer tout</msg>
+  <msg name="join">Rejoindre</msg>
+  <msg name="join_title">Demander à Rejoindre</msg>
 </messagebundle>
