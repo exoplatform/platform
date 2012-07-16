@@ -178,10 +178,10 @@
 
               <!-- Knowledge -->
               <value profiles="knowledge,all,default">
-                <string>ksResources</string>
+                <string>forumResources</string>
               </value>
               <value profiles="knowledge,all,default">
-                <string>faq</string>
+                <string>answer</string>
               </value>
               <value profiles="knowledge,all,default">
                 <string>forum</string>
@@ -193,7 +193,7 @@
                 <string>wiki</string>
               </value>
               <value profiles="knowledge,all,default">
-                <string>ks</string>
+                <string>forum-extension</string>
               </value>
 
               <!-- IDE -->
