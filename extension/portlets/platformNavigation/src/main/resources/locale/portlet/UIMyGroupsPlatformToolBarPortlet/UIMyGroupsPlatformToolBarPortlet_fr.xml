@@ -1,7 +1,7 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <bundle>
-	<UIMyGroupsPlatformToolBarPortlet>
-		<label>Mes Groupes</label>
-		<manage>Gestion des groupes</manage>
-	</UIMyGroupsPlatformToolBarPortlet>
+  <UIMyGroupsPlatformToolBarPortlet>
+    <label>Mes Groupes</label>
+    <manage>Gestion des groupes</manage>
+  </UIMyGroupsPlatformToolBarPortlet>
 </bundle>

@@ -2,12 +2,12 @@
 <bundle>
   <UIActionBar>
     <tooltip>
-      <DeleteNode>Supprimer</DeleteNode>
+      <DeleteNode>Excluir</DeleteNode>
     </tooltip>
   </UIActionBar>
   <UIViewFormTabPane>
     <label>
-      <deleteNode>Supprimer le noeud</deleteNode>
+      <deleteNode>Excluir node</deleteNode>
     </label>
   </UIViewFormTabPane>
 </bundle>

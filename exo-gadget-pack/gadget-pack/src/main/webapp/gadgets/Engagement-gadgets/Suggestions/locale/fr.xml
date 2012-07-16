@@ -1,12 +1,5 @@
-<?xml version='1.0' encoding='UTF-8'?>
-
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <messagebundle>
-  <msg name="title">
-    Connaissez-vous ces gens?
-  </msg>
-
-
-  <msg name="mutual-friends">
-    ami(s) commun(s)
-  </msg>
+  <msg name="title">Connaissez-vous ces gens?</msg>
+  <msg name="mutual-friends">ami(s) commun(s)</msg>
 </messagebundle>
