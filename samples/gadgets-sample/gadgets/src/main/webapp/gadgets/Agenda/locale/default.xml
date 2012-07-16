@@ -51,7 +51,7 @@
     Back
   </msg>
   <msg name="calendars">
-    Calendar:
+    Calendar
   </msg>
   <msg name="setting">
     Setting
@@ -71,4 +71,7 @@
   <msg name="confirm">
     Are you sure this task completed?
   </msg>
+  <msg name="errorMsg">
+    The number of items is not valid
+  </msg>  
 </messagebundle>
