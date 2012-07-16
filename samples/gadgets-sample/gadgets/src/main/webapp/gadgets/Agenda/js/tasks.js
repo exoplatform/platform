@@ -156,19 +156,15 @@ eXoEventGadget.prototype.setLink = function(){
 	url = (url)?baseUrl + url: baseUrl + "/calendar";
 	a.href = url;
 	eXoEventGadget.adjustHeight();
-	//a.href = "http://localhost:8080/portal/intranet/calendar";
 }
 
 eXoEventGadget.prototype.createRequestUrl = function(){
 	var prefs = eXoEventGadget.getPrefs();
 	var limit = (prefs.limit && (parseInt(prefs.limit) > 0))? prefs.limit:0;
 	var subscribeurl = (prefs.subscribeurl)?prefs.subscribeurl: "/portal/rest/cs/calendar/events/personal" ;
-	var today = new Date();
-	var fiveDaysAfter = (new Date()).setDate(today.getDate()+7);
-	subscribeurl += "/Task/" + prefs.calendarId + "/" + today.getTime() + "/" + fiveDaysAfter + "/" + limit;
-	//var subscribeurl = (prefs.subscribeurl)?prefs.subscribeurl: "/portal/rest/cs/calendar/getissues" ;
-	//subscribeurl +=  "/" + DateTimeFormater.format((new Date()),"yyyymmdd") + "/Task/" + limit ;
-	//subscribeurl += "?rnd=" + (new Date()).getTime();
+	var today = (new Date()).getTime();
+        var aWeekAfter = today + 7*24*3600*1000;
+	subscribeurl += "/Task/" + prefs.calendarId + "/" + today + "/" + aWeekAfter + "/" + limit;
 	return subscribeurl;
 }
 
@@ -176,12 +172,9 @@ eXoEventGadget.prototype.createRequestUrlEvent = function(){
 	var prefs = eXoEventGadget.getPrefs();
 	var limit = (prefs.limit && (parseInt(prefs.limit) > 0))? prefs.limit:0;
 	var subscribeurl = (prefs.subscribeurl)?prefs.subscribeurl: "/portal/rest/cs/calendar/events/personal";
-	var today = new Date();
-	var fiveDaysAfter = (new Date()).setDate(today.getDate()+7);
-	subscribeurl += "/Event/" + prefs.calendarId + "/" + today.getTime() + "/" + fiveDaysAfter + "/" + limit;
-	//var subscribeurl = (prefs.subscribeurl)?prefs.subscribeurl: "/portal/rest/private/cs/calendar/getissues" ;
-	//subscribeurl +=  "/" + DateTimeFormater.format((new Date()),"yyyymmdd") + "/Event/" + limit ;
-	//subscribeurl += "?rnd=" + (new Date()).getTime();
+	var today = (new Date()).getTime();
+        var aWeekAfter = today + 7*24*3600*1000;
+	subscribeurl += "/Event/" + prefs.calendarId + "/" + today + "/" + aWeekAfter + "/" + limit;
 	return subscribeurl;
 }
 
@@ -197,7 +190,6 @@ eXoEventGadget.prototype.getFullTime = function(dateObj) {
 	var monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
         var month = monthNames[dateObj.getMonth()];
         var day = dateObj.getDate();
-        //var year = dateObj.getFullYear();
         var hourNum = dateObj.getHours();
         var hour = (hourNum > 9) ? ("" + hourNum):("0" + hourNum);
         var minuteNum = dateObj.getMinutes();
@@ -224,10 +216,8 @@ eXoEventGadget.prototype.render =  function(data){
 	var cont = document.getElementById("taskDiv");
 	var prefs = eXoEventGadget.getPrefs();
 	var gadgetPref = new gadgets.Prefs();
-	//var timemask = "h:MM TT";
 	var html = '';
 	var len = (prefs.limit && (parseInt(prefs.limit) > 0) &&  (parseInt(prefs.limit) < data.length))? prefs.limit:data.length;
-	//if(prefs.timeformat == "24h") timemask = "HH:MM";
 	for(var i = 0 ; i < len; i++){	
 		var status = "";
 		var disable = "";
@@ -236,13 +226,11 @@ eXoEventGadget.prototype.render =  function(data){
 		if(item.eventState.indexOf("completed") != -1) {
 			status = "checked";
 			className += " TaskDone";
-			//disable = "disabled";
 		}
 		var time = 0;
 		if (userTimezoneOffset != null) time = parseInt(item.fromDateTime.time) + parseInt(userTimezoneOffset) + (new Date()).getTimezoneOffset()*60*1000;
 		else time = parseInt(item.fromDateTime.time);
 		var fullDate = eXoEventGadget.getFullTime(new Date(time));
-		//time = DateTimeFormater.format(new Date(time),timemask);
 		html += '<div class="CheckBox ' + className + '">';
 		html += '<input type="checkbox" ' + status + ' id="checkbox_fd_' + i + '" name="checkbox" onclick="eXoEventGadget.doTask(this);" value="'+ item.id + '"></input>';
 		html += '<label for="checkbox_fd_' + i + '" onclick="eXoEventGadget.showDetail(this);">' + fullDate +  '<span>'+ item.summary +'</span></label>';
@@ -262,23 +250,19 @@ eXoEventGadget.prototype.renderEvent =  function(data){
 		eXoEventGadget.notifyEvent();
 		return;
 	}
-	//var msg = gadgets.Prefs().getMsg("title");
 	var numberEvent = data.length;
         $("#numEvent").html(" (" + numberEvent + ")");
   	var cont = document.getElementById("eventDiv");	
 	var prefs = eXoEventGadget.getPrefs();
 	var gadgetPref = new gadgets.Prefs();
-	//var timemask = "h:MM TT";
   	var html = '';
 	var len = (prefs.limit && (parseInt(prefs.limit) > 0) &&  (parseInt(prefs.limit) < data.length))? prefs.limit:data.length;
-	//if(prefs.timeformat == "24h") timemask = "HH:MM";
   	for(var i = 0 ; i < len; i++){	
     	        var item = data[i];
 		var time = 0;
 		if (userTimezoneOffset != null) time = parseInt(item.fromDateTime.time) + parseInt(userTimezoneOffset) + (new Date()).getTimezoneOffset()*60*1000;
 		else time = parseInt(item.fromDateTime.time);
 		var fullDate = eXoEventGadget.getFullTime(new Date(time));
-		//time = DateTimeFormater.format(new Date(time),timemask);
 		html += '<a href="javascript:void(0);" class="IconLink" onclick="eXoEventGadget.showDetailEvent(this);">' + fullDate + '<span>'+ item.summary +'</span></a>';
 		if(item.description) html += '<div class="EventDetail">' + item.description + '</div>';
   	}
@@ -477,7 +461,6 @@ eXoEventGadget.prototype.swapClass = function(obj){
 
 eXoEventGadget.prototype.notify = function(){
 	var msg = gadgets.Prefs().getMsg("notask");
-	//var msg2 = gadgets.Prefs().getMsg("titleTask");
 	document.getElementById("taskDiv").innerHTML = '<div class="light_message" style="margin-left: 5px">' + msg + '</div>';
         $("#numTask").html(" (0)");
 	eXoEventGadget.setLink();
@@ -485,7 +468,6 @@ eXoEventGadget.prototype.notify = function(){
 
 eXoEventGadget.prototype.notifyEvent = function(){
 	var msg = gadgets.Prefs().getMsg("noevent");
-	//var msg2 = gadgets.Prefs().getMsg("title");
 	document.getElementById("eventDiv").innerHTML = '<div class="light_message" style="margin-left: 5px">' + msg + '</div>';
         $("#numEvent").html(" (0)");
 	eXoEventGadget.setLink();
@@ -535,12 +517,17 @@ eXoEventGadget.prototype.showHideSetting = function(isShow){
 eXoEventGadget.prototype.saveSetting = function(){
 	var prefs = new gadgets.Prefs();
 	var frmSetting = document.getElementById("Setting");
-	var setting = eXoEventGadget.createSetting(frmSetting);
-	prefs.set("setting",setting);
-	frmSetting.style.display = "none";
+	var regex = /^\d{1,3}$/;
+	var firstLetter = parseInt(frmSetting["limit"].value.substring(0, 1));
+	if (!regex.test(frmSetting["limit"].value) || firstLetter == 0) document.getElementById("ErrorMsg").innerHTML = prefs.getMsg("errorMsg");
+	else {
+	   document.getElementById("ErrorMsg").innerHTML = "";
+	   var setting = eXoEventGadget.createSetting(frmSetting);
+	   prefs.set("setting",setting);
+	   frmSetting.style.display = "none";
+	}
 	eXoEventGadget.getData();
 	eXoEventGadget.adjustHeight();
-	//return false;
 }
 
 eXoEventGadget.prototype.createSetting = function(frmSetting){
@@ -548,18 +535,15 @@ eXoEventGadget.prototype.createSetting = function(frmSetting){
 	setting += "/calendar;";
 	setting += "/portal/rest/cs/calendar/events/personal;";
 	setting += frmSetting["limit"].value + ";";
-	//setting += frmSetting["timeformat"].options[frmSetting["timeformat"].selectedIndex].text + ";";
 	setting += frmSetting["calendars"].options[frmSetting["calendars"].selectedIndex].text + ";";
 	setting += frmSetting["calendars"].options[frmSetting["calendars"].selectedIndex].value;
 	return setting;
 }
 
 eXoEventGadget.prototype.loadSetting = function(){
+        document.getElementById("ErrorMsg").innerHTML = "";
 	var frmSetting = document.getElementById("Setting");
-	//frmSetting["url"].value = eXoEventGadget.prefs.url;
-	//frmSetting["subscribeurl"].value = eXoEventGadget.prefs.subscribeurl;
 	frmSetting["limit"].value = eXoEventGadget.prefs.limit;
-	//eXoEventGadget.selectedValue(frmSetting["timeformat"],eXoEventGadget.prefs.timeformat);
 	eXoEventGadget.selectedValue(frmSetting["calendars"],eXoEventGadget.prefs.calendars);
 }
 

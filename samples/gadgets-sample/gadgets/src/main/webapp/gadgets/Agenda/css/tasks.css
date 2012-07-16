@@ -1,3 +1,8 @@
+.ErrorMsg {
+  color: red;
+  margin: 6px 0px 0px 4px;
+}
+
 .ContentDisabled {
     background: url('skin/warningIcon.png') no-repeat scroll 10px 8px #FFFFBB;
     border-radius: 4px 4px 4px 4px;

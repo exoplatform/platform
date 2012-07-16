@@ -33,7 +33,9 @@
         </div>
         
      <form id="Setting" action="#" style="display:none;">
-      <table>
+      <div id="ErrorMsg" class="ErrorMsg"></div>
+      <div>
+       <table>
         <!--tr>
           <td><label for="url">__MSG_baseurl__</label></td>
           <td><input type="text" id="url" name="url"></td>
@@ -60,6 +62,7 @@
           </td>          
         </tr>
       </table>
+      </div>
       </form>
       
      <div class="GadCont">

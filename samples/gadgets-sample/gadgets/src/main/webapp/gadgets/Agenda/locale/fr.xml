@@ -36,13 +36,13 @@
     URL de Service:
   </msg>
   <msg name="limit">
-    Nombre d'item affichés
+    Nombre d'items affichés
   </msg>
   <msg name="format">
     Format de l'heure:
   </msg>
   <msg name="calendars">
-    Calendrier:
+    Calendrier
   </msg>
   <msg name="showall">
     Montrer mes calendriers
@@ -71,4 +71,7 @@
   <msg name="confirm">
     Êtes-vous sûr que cette tâche est terminée?
   </msg>
+  <msg name="errorMsg">
+    Le nombre d'items n'est pas valide
+  </msg>  
 </messagebundle>
