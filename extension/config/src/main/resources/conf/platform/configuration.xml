@@ -81,7 +81,7 @@
 			  
               <!-- collab -->
               <value profiles="collaboration,all,default">
-                <string>cs-extension</string>
+                <string>calendar-extension</string>
               </value>
 
               <!-- cometd -->
@@ -91,23 +91,8 @@
               <value profiles="collaboration,all,default">
                 <string>csResources</string>
               </value>
-
               <value>
                 <string>web</string>
-              </value>
-
-
-              <value profiles="collaboration,all,default">
-                <string>mail</string>
-              </value>
-              <value profiles="collaboration,all,default">
-                <string>contact</string>
-              </value>
-              <value profiles="collaboration,all,default">
-                <string>chat</string>
-              </value>
-              <value profiles="collaboration,all,default">
-                <string>chatbar</string>
               </value>
               <value profiles="collaboration,all,default">
                 <string>content</string>
@@ -115,7 +100,6 @@
               <value profiles="collaboration,all,default">
                 <string>calendar</string>
               </value>
-
 
               <!-- ECM -->
 
