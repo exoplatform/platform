@@ -193,6 +193,9 @@
                 <string>wiki</string>
               </value>
               <value profiles="knowledge,all,default">
+                <string>wiki-extension</string>
+              </value>
+              <value profiles="knowledge,all,default">
                 <string>forum-extension</string>
               </value>
 
