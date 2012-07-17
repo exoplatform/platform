@@ -794,7 +794,11 @@ To run the chat server properly, several ports must be opened in the firewall.
 h1. Office server {anchor:id=ADM.Configuration.Office_server}
 eXo Platform allows users to view various types of documents directly in the *Sites Explorer* through the office server. To do so, the office application must be available in your local device first.
 
-Then, *JODConverter* will use the [default values|#default_values] below to start the office server.
+Since eXo Platform 3.5.4, this service has been manually enabled/disabled by setting value of the *wcm.jodconverter.enable* parameter in _configuration.properties_.
+- *true*: Activate JODConverter service. It's the default value when this parameter is missing.
+- *false*: Deactivate JODConverter service. This service maybe does not work in several environment like Microsoft Windows. The performance is also gained when Office service is turned off.
+ 
+*JODConverter* will use the [default values|#default_values] below to start the office server.
 
 You can customize the default values by adding the properties below in the _configuration.properties_ file:
 
