@@ -6,7 +6,7 @@
     <version>4.0.0.Alpha1-SNAPSHOT</version>
   </parent>
   <modelVersion>4.0.0</modelVersion>
-  <artifactId>platform-component-upgrade.sample</artifactId>
+  <artifactId>platform-component-upgrade-sample</artifactId>
   <name>eXo Platform - Upgrade Sample</name>
   <url>http://www.exoplatform.org</url>
   <dependencies>
@@ -15,6 +15,12 @@
       <artifactId>commons-component-product</artifactId>
       <version>${org.exoplatform.commons.version}</version>
       <scope>provided</scope>
+    </dependency>
+    <dependency>
+        <groupId>org.exoplatform.portal</groupId>
+        <artifactId>exo.portal.component.scripting</artifactId>
+        <version>${org.exoplatform.portal.version}</version>
+        <scope>provided</scope>
     </dependency>
     <dependency>
       <groupId>org.exoplatform.kernel</groupId>
@@ -45,6 +51,11 @@
           <artifactId>exo.portal.webui.portal</artifactId>
         </exclusion>
       </exclusions>
+    </dependency>
+    <dependency>
+        <groupId>org.hsqldb</groupId>
+        <artifactId>hsqldb</artifactId>
+        <scope>test</scope>
     </dependency>
   </dependencies>
   <build>
