@@ -11,7 +11,7 @@
     </component>
 
     <component>
-        <type>org.exoplatform.services.wcm.images.RESTImagesRendererService</type>
+        <type>org.exoplatform.wcm.connector.collaboration.RESTImagesRendererService</type>
     </component>
 
     <component>
