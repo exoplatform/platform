@@ -40,12 +40,14 @@
     <key>org.exoplatform.platform.gadget.services.ForumStatistics.ForumsIntranetService</key>
     <type>org.exoplatform.platform.gadget.services.ForumStatistics.ForumsIntranetServiceImp</type>
   </component> 
-  
+
+  <!--
   <component profiles="knowledge,all,default">
     <key>org.exoplatform.platform.gadget.services.ForumStatistics.ForumsWeeklyStatisticService</key>
     <type>org.exoplatform.platform.gadget.services.ForumStatistics.ForumsWeeklyStatisticServiceImp</type>
   </component>
-  
+  -->
+
   <component profiles="knowledge,all,default">
     <type>org.exoplatform.platform.gadget.services.ForumStatistics.ForumRestService</type>
   </component> 
