@@ -3,6 +3,7 @@ import org.exoplatform.portal.webui.util.Util;
 import org.exoplatform.portal.config.model.PageNode;
 import org.exoplatform.portal.config.model.PageNavigation;
 import org.exoplatform.web.application.JavascriptManager;
+import org.exoplatform.commons.utils.HTMLEntityEncoder;
 
 def rcontext = _ctx.getRequestContext() ;
 JavascriptManager jsmanager = rcontext.getJavascriptManager();
@@ -10,7 +11,9 @@ jsmanager.importJavascript('eXo.portal.UIPortalNavigation') ;
 jsmanager.importJavascript('eXo.portal.UIAdminToolbar') ;
 jsmanager.addCustomizedOnLoadScript('eXo.portal.UIAdminToolbar.onLoad("' + uicomponent.id + '");');
 
+def encoder = HTMLEntityEncoder.getInstance();
 def user = uicomponent.getUser();
+def fullName = encoder.encode(user.getFullName());
 
 void renderLink() {
 		def portalURI = Util.getPortalRequestContext().getPortalURI();
@@ -112,7 +115,7 @@ void renderLink() {
             <div class="UITab NormalToolbarTab">
                 <div class="">
                             <a class="ArrowIcon TBIcon" href="#">
-                                   $user.fullName
+                                   $fullName
                             </a>
                 </div>
                 <% renderLink() %>
