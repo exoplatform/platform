@@ -200,6 +200,16 @@
               <value>
                 <string>platform-extension</string>
               </value>
+
+              <value>
+                <string>office-portal</string>
+              </value>
+              <value>
+                <string>acme-website</string>
+              </value>
+              <value>
+                <string>default-website</string>
+              </value>
             </collection>
           </field>
 
