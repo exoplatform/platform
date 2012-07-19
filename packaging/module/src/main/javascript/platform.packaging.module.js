@@ -69,7 +69,7 @@ function getModule(params)
    
    module.extension.portlets = {};
    module.extension.portlets.platformNavigation =  new Project("org.exoplatform.platform", "platform-extension-portlets-platformNavigation", "war", module.version);
-
+    module.extension.portlets.platformNavigation.deployName = "platformNavigation";
 
    // platform commons
    module.component = {};
