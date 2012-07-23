@@ -27,6 +27,9 @@
 								<value>
 									<string>acme-intranet</string>
 								</value>
+								<value>
+									<string>acme-intranet-portlet</string>
+								</value>
 							</collection>
 						</field>					
 					</object>

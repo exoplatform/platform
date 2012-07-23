@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+
+<gatein-resources
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.gatein.org/xml/ns/gatein_resources_1_2 http://www.gatein.org/xml/ns/gatein_resources_1_2"
+    xmlns="http://www.gatein.org/xml/ns/gatein_resources_1_2">  
+
+  <portlet-skin>
+    <application-name>acme-intranet-portlet</application-name>
+    <portlet-name>SpaceSummaryInfoPortlet</portlet-name>
+    <skin-name>Default</skin-name>
+    <css-path>/skin/SpaceSummaryInfoPortlet/DefaultSkin/Stylesheet.css</css-path>
+  </portlet-skin>
+  
+</gatein-resources>

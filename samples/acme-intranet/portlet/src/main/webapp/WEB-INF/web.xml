@@ -22,6 +22,16 @@
 <web-app>
 	<display-name>acme-intranet-portlet</display-name>
 	<description>Acme Intranet Space Summary Info Portlet</description>
+  
+  <filter>
+    <filter-name>ResourceRequestFilter</filter-name>
+    <filter-class>org.exoplatform.portal.application.ResourceRequestFilter</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>ResourceRequestFilter</filter-name>
+    <url-pattern>*.css</url-pattern>
+  </filter-mapping>
+  
 	<servlet>
 		<servlet-name>GateInServlet</servlet-name>
 		<servlet-class>org.gatein.wci.api.GateInServlet</servlet-class>

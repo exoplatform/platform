@@ -20,16 +20,21 @@
 	void renderDashboards(PortalURL nodeURL, Collection nodes) {
 		String clazz = "";
 
-		print """
-		<ul style="display:none" class="MenuItemContainer">
-		""";
-		//int idx = 0;
-		for(UserNode node : nodes) {
-			renderPageNode(nodeURL, node);
-		}
-			   print """
-		</ul>
-		""" ;
+    int size = 0;
+    if(nodes != null) {
+      if(nodes.size() > 0) {
+        print """
+        <ul style="display:none" class="MenuItemContainer">
+        """;
+        //int idx = 0;
+        for(UserNode node : nodes) {
+          renderPageNode(nodeURL, node);
+        }
+             print """
+        </ul>
+        """ ;
+      }
+    }
 	}
 
 	void renderPageNode(PortalURL nodeURL, UserNode node) {
