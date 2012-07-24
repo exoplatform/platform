@@ -40,6 +40,6 @@
   <import>war:/conf/authoring/authoring-configuration.xml</import>
   
   <!-- Terms and Conditions filter -->
-  <import>war:/conf/termsandconditions/web-filter-configuration.xml</import>
+  <!--import>war:/conf/termsandconditions/web-filter-configuration.xml</import-->
 
 </configuration>
