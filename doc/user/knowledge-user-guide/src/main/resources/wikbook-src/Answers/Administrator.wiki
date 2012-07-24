@@ -213,7 +213,7 @@ The *Page Manager* page will be displayed.
 !images/FAQ_portlet_edit.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
 
 *i.* In the *Display Category* tab, you can control what categories will be displayed.
- 
+
 !images/FAQ_portlet_edit_form.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
 
 *ii.* In the *Edit Template* tab, you can use CSS to customize the *FAQ* template.
