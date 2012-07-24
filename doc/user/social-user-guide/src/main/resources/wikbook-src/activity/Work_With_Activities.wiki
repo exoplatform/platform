@@ -71,7 +71,7 @@ h1. Share a file {anchor:id=Soc_User_Guide.Activity_Management.Share_File}
 
 !images/Browse_files_box.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
 
-*2.* Click *Select File* to open the *Select Document* form.
+*2.* Click *Select File* to open the *Select File* form.
 
 !images/Select_document_form.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
 
