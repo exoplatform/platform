@@ -19,7 +19,6 @@ package org.exoplatform.platform.organization.integration;
 import javax.jcr.Session;
 
 import org.exoplatform.services.jcr.RepositoryService;
-import org.exoplatform.services.jcr.ext.distribution.DataDistributionManager;
 import org.exoplatform.services.organization.User;
 import org.exoplatform.services.organization.UserEventListener;
 
@@ -33,11 +32,9 @@ import org.exoplatform.services.organization.UserEventListener;
 public class NewUserListener extends UserEventListener {
 
   private RepositoryService repositoryService;
-  private DataDistributionManager dataDistributionManager;
 
-  public NewUserListener(DataDistributionManager dataDistributionManager, RepositoryService repositoryService) throws Exception {
+  public NewUserListener(RepositoryService repositoryService) throws Exception {
     this.repositoryService = repositoryService;
-    this.dataDistributionManager = dataDistributionManager;
   }
 
   /**
@@ -50,8 +47,8 @@ public class NewUserListener extends UserEventListener {
     Session session = null;
     try {
       session = repositoryService.getCurrentRepository().getSystemSession(Util.WORKSPACE);
-      if (!Util.hasUserFolder(dataDistributionManager, session, user.getUserName())) {
-        Util.createUserFolder(dataDistributionManager, session, user.getUserName());
+      if (!Util.hasUserFolder(session, user.getUserName())) {
+        Util.createUserFolder(session, user.getUserName());
       }
     } finally {
       if (session != null) {
@@ -67,8 +64,8 @@ public class NewUserListener extends UserEventListener {
     Session session = null;
     try {
       session = repositoryService.getCurrentRepository().getSystemSession(Util.WORKSPACE);
-      if (Util.hasUserFolder(dataDistributionManager, session, user.getUserName())) {
-        Util.deleteUserFolder(dataDistributionManager, session, user.getUserName());
+      if (Util.hasUserFolder(session, user.getUserName())) {
+        Util.deleteUserFolder(session, user.getUserName());
       }
     } finally {
       if (session != null) {
