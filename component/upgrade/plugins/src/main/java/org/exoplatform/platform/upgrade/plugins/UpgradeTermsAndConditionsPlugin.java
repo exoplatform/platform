@@ -51,7 +51,7 @@ public class UpgradeTermsAndConditionsPlugin extends UpgradeProductPlugin {
     @Override
     public boolean shouldProceedToUpgrade(String previousVersion, String newVersion) {
 
-        return !termsAnsConditionsService.isTermsAndConditionsChecked();
+        return previousVersion == null;
 
     }
 }
