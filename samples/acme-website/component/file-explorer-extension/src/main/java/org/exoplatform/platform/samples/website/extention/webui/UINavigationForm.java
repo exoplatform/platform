@@ -321,7 +321,7 @@ public class UINavigationForm extends UIForm implements UIPopupComponent, UISele
 				boolean isClickable = false;
 				String listTargetPage = uiNavigationForm.getUIStringInput(LIST_TARGET_PAGE_STRING_INPUT).getValue();
 
-				if (navigationNode.equals("")) {
+				if (navigationNode == null || navigationNode.equals("")) {
 				  if(uiNavigationForm.getUIStringInput(INDEX) != null){
 				    index = Long.parseLong(uiNavigationForm.getUIStringInput(INDEX).getValue());
 				    }
