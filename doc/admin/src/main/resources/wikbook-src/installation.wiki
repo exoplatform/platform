@@ -208,7 +208,7 @@ By default, the number of open files is limited to "1024". You should execute th
 
 h1. Install JBoss EARs {anchor:id=ADM.Installation.Install_JBoss_EARS}
 
-eXo Platform provides EARs packages to deploy in your existing JBoss application server. They are distributed in the package named _eXo-Platform-jboss-3.5.x.zip_.
+eXo distribution for JBoss (eXo-Platform-jboss-3.5.x.zip) allows you to deploy eXo Platform on your existing JBoss EAP server located in a folder named _JBOSS\_HOME_.
 
 {docbook}
 <citetitle>
@@ -217,24 +217,31 @@ eXo Platform provides EARs packages to deploy in your existing JBoss application
 </para>
 </citetitle>
 {docbook}
-*1.* Copy the following files to _jboss-root/server/default/deploy_.
+*1.* Extract the content of the distribution to a local folder named _eXo-Platform-jboss-3.5.x_.
 
-- gatein-ds.xml
+*2.* Copy the following folders and files from _eXo-Platform-jboss-3.5.x/ears/server/default_ to _JBOSS\_HOME/server/default/deploy_:
+
+Folders
 - gatein.ear
-- gatein-wsrp-extension-$version.ear
-- starter-gatein-$version.ear
-- exo-wcm-extension-$version.ear
-- exo-workflow-extension-$version.ear
-- exo-collaboration-extension-$version.ear
-- exo-knowledge-extension-$version.ear
-- exo-social-extension-$version.ear
-- exo-platform-extension-$version.ear
-- exo-social-intranet-$version.ear
+- jbossweb.sar
+
+Files
 - exo-acme-website-$version.ear
+- exo-collaboration-extension-$version.ear
 - exo-default-portal-$version.ear
 - exo-gadget-pack-$version.ear
+- exo-knowledge-extension-$version.ear
+- exo-platform-extension-$version.ear
+- exo-social-extension-$version.ear
+- exo-social-intranet-$version.ear
+- exo-wcm-extension-$version.ear
+- exo-webos-extension-$version.ear
+- exo-workflow-extension-$version.ear
+- gatein-ds.xml
+- gatein-wsrp-extension-$version.ear
+- starter-gatein-$version.ear
 
-*2.* Create the _jboss-root/server/default/conf/gatein_ folder, then copy the following files and folders to this folder.
+*3.* Copy the following files and folders from _eXo-Platform-jboss-3.5.x/ears/server/default/conf/gatein_ to the folder _JBOSS\_HOME/server/default/conf/gatein_. You may need to create _gatein_ folder if it does not exist.
 
 - cache
 - idm
@@ -246,37 +253,49 @@ eXo Platform provides EARs packages to deploy in your existing JBoss application
 - controller.xml
 - portlet.xml
 
-*3.* Copy the _oauthkey.pem_ file to _jboss-root/server/default/data/gadgets_.
+*4.* Copy the _oauthkey.pem_ file from _eXo-Platform-jboss-3.5.x/ears/server/default/data/gadgets_ to _JBOSS\_HOME/server/default/data/gadgets_. You may need to create folders if they do not exist.
 
-*4.* Configure the JVM parameters.
+*5.* Configure the JVM parameters.
 
-* On *Linux*, add these lines to the end of _jboss-root/bin/run.conf:
+* On *Linux*, add these lines to the end of _JBOSS\_HOME/bin/run.conf:
 
 {code}
 # Platform environment variables
 EXO_PROFILES="-Dexo.profiles=default"
 EXO_OPTS="-Dexo.product.developing=false -Dexo.conf.dir.name=gatein -Dgatein.data.dir=../gatein"
-REMOTE_DEBUG="-Xdebug -Xrunjdwp:transport=dt_socket,address=8000,server=y,suspend=n -Dcom.sun.management.jmxremote -Dorg.exoplatform.container.configuration.debug"
-EXO_XML="-Djavax.xml.stream.XMLOutputFactory=com.sun.xml.stream.ZephyrWriterFactory -Djavax.xml.stream.XMLInputFactory=com.sun.xml.stream.ZephyrParserFactory -Djavax.xml.stream.XMLEventFactory=com.sun.xml.stream.events.ZephyrEventFactory"
-JAVA_OPTS="$JAVA_OPTS $EXO_OPTS $EXO_PROFILES $EXO_XML"
+IDE_OPTS="-Djavasrc=$JAVA_HOME/src.zip -Djre.lib=$JAVA_HOME/jre/lib"
+# Declare this variable in JAVA_OPTS to run in debug mode
+REMOTE_DEBUG="-Xdebug -Xrunjdwp:transport=dt_socket,address=8000,server=y,suspend=n -Dcom.sun.management.jmxremote
+-Dorg.exoplatform.container.configuration.debug"
+# Here you can define your preferred xml parser - choose one or the other, or none
+# If you run eXo Platform under IBM java, you must use the first one
+#EXO_XML="-Djavax.xml.stream.XMLOutputFactory=com.sun.xml.stream.ZephyrWriterFactory -Djavax.xml.stream.XMLInputFactory=com.sun.xml.stream.ZephyrParserFactory -Djavax.xml.stream.XMLEventFactory=com.sun.xml.stream.events.ZephyrEventFactory"
+EXO_XML="-Djavax.xml.stream.XMLOutputFactory=com.sun.xml.internal.stream.XMLOutputFactoryImpl -Djavax.xml.stream.XMLInputFactory=com.sun.xml.internal.stream.XMLInputFactoryImpl -Djavax.xml.stream.XMLEventFactory=com.sun.xml.internal.stream.events.XMLEventsFactoryImpl"
+JAVA_OPTS="$JAVA_OPTS $EXO_OPTS $IDE_OPTS $EXO_PROFILES $EXO_XML"
 {code}
 
-* On *Windows*, add these lines to the end of _jboss-root/bin/run.conf.bat_:
+* On *Windows*, add these lines to the end of _JBOSS\_HOME/bin/run.conf.bat_:
 
 {code}
 rem # Platform environment variables
 set "EXO_PROFILES=-Dexo.profiles=default"
 set "EXO_OPTS=-Dexo.product.developing=false -Dexo.conf.dir.name=gatein -Dgatein.data.dir=../gatein"
-set "REMOTE_DEBUG=-Xdebug -Xrunjdwp:transport=dt_socket,address=8000,server=y,suspend=n -Dcom.sun.management.jmxremote -Dorg.exoplatform.container.configuration.debug"
-set "EXO_XML=-Djavax.xml.stream.XMLOutputFactory=com.sun.xml.stream.ZephyrWriterFactory -Djavax.xml.stream.XMLInputFactory=com.sun.xml.stream.ZephyrParserFactory -Djavax.xml.stream.XMLEventFactory=com.sun.xml.stream.events.ZephyrEventFactory"
-set "JAVA_OPTS=%JAVA_OPTS% %EXO_OPTS% %EXO_PROFILES% %EXO_XML%"
+set "IDE_OPTS=-Djavasrc=$JAVA_HOME/src.zip -Djre.lib=$JAVA_HOME/jre/lib"
+set "REMOTE_DEBUG=-Xdebug -Xrunjdwp:transport=dt_socket,address=8000,server=y,suspend=n -Dcom.sun.management.jmxremote
+-Dorg.exoplatform.container.configuration.debug"
+rem # Here you can define your preferred xml parser - choose one or the other, or none
+rem # If you run eXo Platform under IBM java, you must use the first one
+rem # set EXO_XML=-Djavax.xml.stream.XMLOutputFactory=com.sun.xml.stream.ZephyrWriterFactory -Djavax.xml.stream.XMLInputFactory=com.sun.xml.stream.ZephyrParserFactory -Djavax.xml.stream.XMLEventFactory=com.sun.xml.stream.events.ZephyrEventFactory
+set EXO_XML=-Djavax.xml.stream.XMLOutputFactory=com.sun.xml.internal.stream.XMLOutputFactoryImpl -Djavax.xml.stream.XMLInputFactory=com.sun.xml.internal.stream.XMLInputFactoryImpl -Djavax.xml.stream.XMLEventFactory=com.sun.xml.internal.stream.events.XMLEventsFactoryImpl
+set "JAVA_OPTS=%JAVA_OPTS% %EXO_OPTS% %IDE_OPTS% %EXO_PROFILES% %EXO_XML%"
 {code}
 
-*Adapt to your needs:*
-* To use another implementation of SAX, change the class names in the _EXO\_XML_ variable. For example: _com.sun.xml.internal.stream.XMLOutputFactoryImpl_.
-* To debug the application, simply add _$REMOTE\_DEBUG_ to the _JAVA\_OPTS_ variable.
+{note:title=Customize enviroment parameters}
+* If you prefer using another implementation of SAX, change the class names in _EXO\_XML_ variable.
+* You can activate the debug mode of eXo Platfrom by adding _$REMOTE\_DEBUG_ to the _JAVA\_OPTS_ variable.
+{note}
 
-*5.* Add the eXo Platform logging categories to _jboss-root/server/default/conf/jboss-log4j.xml_.
+*6.* Add the eXo Platform logging categories to _JBOSS\_HOME/server/default/conf/jboss-log4j.xml_.
 
 {code:xml}
 <!-- Limit the JSR170 categories -->
@@ -289,9 +308,9 @@ set "JAVA_OPTS=%JAVA_OPTS% %EXO_OPTS% %EXO_PROFILES% %EXO_XML%"
 </category>
 {code}
 
-*6.* Configure the _emptySessionPath_ attribute.
+*7.* Configure the _emptySessionPath_ attribute.
 
-From JBoss AS 4 or lower, to make Wiki work properly, you have to configure the _emptySessionPath_ attribute in the _server.xml_ file. If you are running Jboss with the "default" profile, this file will be located in _server/default/deploy/jbossweb.sar/server.xml/_ path.
+From JBoss AS 4 or lower, to make Wiki work properly, you have to configure the _emptySessionPath_ attribute in the _server.xml_ file. If you are running Jboss with the "default" profile, this file will be located in _JBOSS\_HOME/default/deploy/jbossweb.sar/server.xml/_ path.
 
 Depending on the Connector you are using, you have to set the _emptySessionPath_ attribute to "true" for that Connector respectively.
 
@@ -309,7 +328,7 @@ is set via the following element in the _Context_ element in the _server/default
 <SessionCookie path="/" />
 {code}
 Session cookies are now scoped to the context by default.
-*7.* Start up the server.
+*8.* Start up the server.
 
 * On Linux and OS X:  
 
@@ -329,7 +348,7 @@ The server is started successfully when you see the following message in your lo
 INFO [org.jboss.bootstrap.microcontainer.ServerImpl] (main) JBoss (Microcontainer) [5.1.1 (build: ...)] Started in 5m:29s:259ms
 {code}
 
-*8.* Shut down the server.
+*9.* Shut down the server.
 
 * On Linux and OS X:
 
