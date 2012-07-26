@@ -141,7 +141,10 @@ public class UINavigationTreeBuilder extends UIContainer {
     Collection<?> sibbling = tree.getSibbling();
     tree.setSibbling(null);
     tree.setParentSelected(null);
-    edittedTreeNodeData.setPageRef(searchUserNodeByUri(edittedTreeNodeData.getPageNavigation(), uri).getPageRef());
+    
+    if(uri != null) {
+      edittedTreeNodeData.setPageRef(searchUserNodeByUri(edittedTreeNodeData.getPageNavigation(), uri).getPageRef());
+    }
     if (edittedTreeNodeData.getNode() != null) {
       tree.setSelected(edittedTreeNodeData.getNode());
       tree.setChildren(edittedTreeNodeData.getNode().getChildren());
