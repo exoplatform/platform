@@ -29,6 +29,7 @@ import javax.ws.rs.core.Response;
 
 import org.exoplatform.common.http.HTTPStatus;
 import org.exoplatform.commons.info.ProductInformations;
+import org.exoplatform.services.jcr.RepositoryService;
 import org.exoplatform.services.log.ExoLogger;
 import org.exoplatform.services.log.Log;
 import org.exoplatform.services.rest.resource.ResourceContainer;
@@ -61,6 +62,9 @@ public class PlatformInformationRESTService implements ResourceContainer {
     cacheControl.setNoCache(true);
     cacheControl.setNoStore(true);
     try {
+      
+     RepositoryService repoService = (RepositoryService)PortalContainer.getInstance()
+      .getComponentInstanceOfType(RepositoryService.class); 
       String plfProfile = PortalContainer.getProfiles().toString().trim();
       String runningProfile = plfProfile.substring(1,plfProfile.length()-1);
       JsonPlatformInfo jsonPlatformInfo = new JsonPlatformInfo();
@@ -69,7 +73,8 @@ public class PlatformInformationRESTService implements ResourceContainer {
       jsonPlatformInfo.setPlatformRevision(platformInformations.getRevision());
       jsonPlatformInfo.setPlatformEdition(getPlatformEdition());
       jsonPlatformInfo.setIsMobileCompliant(isMobileCompliant().toString());
-      jsonPlatformInfo.setRunningProfile(runningProfile);      
+      jsonPlatformInfo.setRunningProfile(runningProfile);    
+      jsonPlatformInfo.setCurrentRepoName(repoService.getCurrentRepository().getConfiguration().getName()) ;
       if (LOG.isDebugEnabled()) {
         LOG.debug("Getting Platform Informations: eXo Platform (v" + platformInformations.getVersion() + " - build "
             + platformInformations.getBuildNumber() + " - rev. " + platformInformations.getRevision());
@@ -106,6 +111,7 @@ public class PlatformInformationRESTService implements ResourceContainer {
     private String platformEdition;
     private String isMobileCompliant;
     private String runningProfile;
+    private String currentRepoName;
 
     public JsonPlatformInfo() {}
 
@@ -155,6 +161,14 @@ public class PlatformInformationRESTService implements ResourceContainer {
 
     public void setRunningProfile(String runningProfile) {
       this.runningProfile = runningProfile;
+    }
+
+    public String getCurrentRepoName() {
+      return currentRepoName;
+    }
+
+    public void setCurrentRepoName(String currentRepoName) {
+      this.currentRepoName = currentRepoName;
     }
 
   }
