@@ -19,8 +19,8 @@
 
 <controller
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://www.gatein.org/xml/ns/gatein_controller_1_0 http://www.gatein.org/xml/ns/gatein_controller_1_0"
-    xmlns="http://www.gatein.org/xml/ns/gatein_controller_1_0"
+    xsi:schemaLocation="http://www.gatein.org/xml/ns/gatein_controller_1_1 http://www.gatein.org/xml/ns/gatein_controller_1_1"
+    xmlns="http://www.gatein.org/xml/ns/gatein_controller_1_1"
     separator-escape=":">
 
   <route path="/standalone/{gtn:path}">    
@@ -110,7 +110,7 @@
     </route>
 
     <!-- The user access -->
-    <route path="/u/{gtn:sitename}/{gtn:path}">
+    <route path="/u/{gtn:sitename}/{gtn:path}/{gtn:wid}">
       <request-param qname="gtn:lang" name="lang" value-mapping="never-empty">
        <pattern>([A-Za-z]{2}(-[A-Za-z]{2})?)?</pattern>
       </request-param>
@@ -118,7 +118,10 @@
         <value>user</value>
       </route-param>
       <path-param qname="gtn:path" encoding="preserve-path">
-        <pattern>.*</pattern>
+        <pattern>.+?</pattern>
+      </path-param>
+      <path-param qname="gtn:wid" capture-group="true">
+        <pattern>wid_(p_.+)|</pattern>
       </path-param>
     </route>
 
