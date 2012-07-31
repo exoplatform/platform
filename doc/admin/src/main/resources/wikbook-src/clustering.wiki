@@ -6,39 +6,39 @@ This chapter covers the following topics:
 <itemizedlist>
 <listitem>
 <para>
-<link linkend="ADM.Clustering.About_Platform_Clustering">About clustering in eXo Platform</link>
+<emphasis role="bold"><link linkend="ADM.Clustering.About_Platform_Clustering">About clustering in eXo Platform</link> </emphasis>
 </para>
 </listitem>
 <listitem>
 <para>
-<link linkend="ADM.Clustering.Cluster_setup">Set up the eXo Platform cluster</link>
+<emphasis role="bold"><link linkend="ADM.Clustering.Cluster_setup">Set up the eXo Platform cluster</link> </emphasis>
 </para>
 <itemizedlist>
 <listitem>
 <para>
-<link linkend="ADM.Clustering.Shared_file_system">Shared file system</link>
+<emphasis role="bold"><link linkend="ADM.Clustering.Shared_file_system">Shared file system</link> </emphasis>
 </para>
 </listitem>
 <listitem>
 <para>
-<link linkend="ADM.Clustering.Setup_Platform_cluster">Set up eXo Platform cluster</link>
+<emphasis role="bold"><link linkend="ADM.Clustering.Setup_Platform_cluster">Set up eXo Platform cluster</link></emphasis>
 </para>
 </listitem>
 <listitem>
 <para>
-<link linkend="ADM.Clustering.Advanced_configuration">Advanced configuration</link>
+<emphasis role="bold"><link linkend="ADM.Clustering.Advanced_configuration">Advanced configuration</link></emphasis>
 </para>
 </listitem>
 <listitem>
 <para>
-<link linkend="ADM.Clustering.Local_JCR_Index">Local JCR index in cluster</link>
+<emphasis role="bold"><link linkend="ADM.Clustering.Local_JCR_Index">Local JCR index in cluster</link></emphasis>
 </para>
 </listitem>
 </itemizedlist>
 </listitem>
 <listitem>
 <para>
-<link linkend="ADM.Clustering.Clustering_FAQ">FAQs of clustering</link>
+<emphasis role="bold"><link linkend="ADM.Clustering.Clustering_FAQ">FAQs of clustering</link>  </emphasis>
 </para>
 </listitem>
 </itemizedlist>

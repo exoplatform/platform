@@ -6,72 +6,72 @@ This chapter covers the following topics:
 <itemizedlist>
 <listitem>
 <para>
-<link linkend="ADM.Configuration.eXo_Configuration">eXo Platform configuration</link>
+<emphasis role="bold"><link linkend="ADM.Configuration.eXo_Configuration">eXo Platform configuration</link></emphasis>
 </para>
 </listitem>
 <listitem>
 <para>
-<link linkend="ADM.Configuration.Database_Configuration">Database configuration</link>
+<emphasis role="bold"><link linkend="ADM.Configuration.Database_Configuration">Database configuration</link></emphasis>
 </para>
 </listitem>
 <listitem>
 <para>
-<link linkend="ADM.Configuration.File_system_paths">File system paths</link>
+<emphasis role="bold"><link linkend="ADM.Configuration.File_system_paths">File system paths</link></emphasis>
 </para>
 </listitem>
 <listitem>
 <para>
-<link linkend="ADM.Configuration.MailServer">Mail server</link>
+<emphasis role="bold"><link linkend="ADM.Configuration.MailServer">Mail server</link></emphasis>
 </para>
 </listitem>
 <listitem>
 <para>
-<link linkend="ADM.Configuration.Notification_email_config">Email-notification configuration for watching a document</link>
+<emphasis role="bold"><link linkend="ADM.Configuration.Notification_email_config">Email-notification configuration for watching a document</link></emphasis>
 </para>
 </listitem>
 <listitem>
 <para>
-<link linkend="ADM.Configuration.Mail_server">WebDAV cache control</link>
+<emphasis role="bold"><link linkend="ADM.Configuration.Mail_server">WebDAV cache control</link></emphasis>
 </para>
 </listitem>
 <listitem>
 <para>
-<link linkend="ADM.Configuration.Chat_Server">Chat server</link>
+<emphasis role="bold"><link linkend="ADM.Configuration.Chat_Server">Chat server</link></emphasis>
 </para>
 </listitem>
 <listitem>
 <para>
-<link linkend="ADM.Configuration.Office_server">OpenOffice server</link>
+<emphasis role="bold"><link linkend="ADM.Configuration.Office_server">OpenOffice server</link></emphasis>
 </para>
 </listitem>
 <listitem>
 <para>
-<link linkend="ADM.Configuration.Login">Log-in</link>
+<emphasis role="bold"><link linkend="ADM.Configuration.Login">Log-in</link></emphasis>
 </para>
 </listitem>
 <listitem>
 <para>
-<link linkend="ADM.Configuration.JCR">JCR</link>
+<emphasis role="bold"><link linkend="ADM.Configuration.JCR">JCR</link></emphasis>
 </para>
 </listitem>
 <listitem>
 <para>
-<link linkend="ADM.Configuration.CacheConfiguration">Cache configuration</link>
+<emphasis role="bold"><link linkend="ADM.Configuration.CacheConfiguration">Cache configuration</link></emphasis>
 </para>
 </listitem>
 <listitem>
 <para>
-<link linkend="ADM.Configuration.Users_configuration">Users configuration</link>
+<emphasis role="bold"><link linkend="ADM.Configuration.Users_configuration">Users configuration</link></emphasis>
 </para>
 </listitem>
 <listitem>
 <para>
-<link linkend="ADM.Configuration.Gadget_configuration">Gadget configuration</link>
+<emphasis role="bold"><link linkend="ADM.Configuration.Gadget_configuration">Gadget configuration</link></emphasis>
 </para>
 </listitem>
 <listitem>
 <para>
-<link linkend="ADM.Configuration.Other_properties">Other properties</link>
+<emphasis role="bold"><link linkend="ADM.Configuration.Other_properties">Other properties</link> </emphasis>
 </para>
 </listitem>
 </itemizedlist>
