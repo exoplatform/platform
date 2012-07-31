@@ -6,22 +6,22 @@ eXo Platform is packaged as a deployable enterprise archive defined by the Java 
 <itemizedlist>
 <listitem>
 <para>
-<link linkend="ADM.Installation.System_requirements">System requirements</link>
+<emphasis role="bold"><link linkend="ADM.Installation.System_requirements">System requirements</link></emphasis>
 </para>
 </listitem>
 <listitem>
 <para>
-<link linkend="ADM.Installation.Install_Tomcat_Bundle">Install the Tomcat bundle</link>
+<emphasis role="bold"><link linkend="ADM.Installation.Install_Tomcat_Bundle">Install the Tomcat bundle</link></emphasis>
 </para>
 </listitem>
 <listitem>
 <para>
-<link linkend="ADM.Installation.Install_JBoss_EARS">Install JBoss EARs</link>
+<emphasis role="bold"><link linkend="ADM.Installation.Install_JBoss_EARS">Install JBoss EARs</link></emphasis>
 </para>
 </listitem>
 <listitem>
 <para>
-<link linkend="ADM.Installation.eXo_profiles">Profiles of eXo Platform</link>
+<emphasis role="bold"><link linkend="ADM.Installation.eXo_profiles">Profiles of eXo Platform</link></emphasis>
 </para>
 </listitem>
 </itemizedlist>

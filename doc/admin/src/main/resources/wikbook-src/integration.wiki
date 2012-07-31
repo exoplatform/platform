@@ -1,7 +1,7 @@
 {docbook}
 <abstract>
 <para>
-The eXo Platform integration with another systems is very important. To make eXo Platform work with <emphasis>predefined organizational data</emphasis> properly, it is necessary to initialize some backend settings for each <emphasis>organizational element</emphasis>.
+The eXo Platform integration with other systems is very important. To make eXo Platform work with <emphasis>predefined organizational data</emphasis> properly, it is necessary to initialize some backend settings for each <emphasis>organizational element</emphasis>.
 Operations involved in synchronizing eXo Platform's backend settings with the organizational entities are called <emphasis role="bold">organizational model integration</emphasis>.
 </para>
 <para>
@@ -10,44 +10,44 @@ By default, the integration with an enteprise directory is done via picketlink I
 <itemizedlist>
 <listitem>
 <para>
-<link linkend="ADM.Integration.Terminology">Terminology</link>
+<emphasis role="bold"><link linkend="ADM.Integration.Terminology">Terminology</link> </emphasis>
 </para>
 </listitem>
 <listitem>
 <para>
-<link linkend="ADM.Integration.Sync_eXoPLF_with_existing_directory">Synchronize eXo Platform with an existing directory</link>
+<emphasis role="bold"><link linkend="ADM.Integration.Sync_eXoPLF_with_existing_directory">Synchronize eXo Platform with an existing directory</link></emphasis>
 </para>
 <itemizedlist>
 <listitem>
 <para>
-<link linkend="ADM.Integration.Integrate_organizational_model.Activate_Service">Activate the service</link>
+<emphasis role="bold"><link linkend="ADM.Integration.Integrate_organizational_model.Activate_Service">Activate the service</link></emphasis>
 </para>
 </listitem>
 <listitem>
 <para>
-<link linkend="ADM.Integration.Sync_at_startup">Sync at startup</link>
+<emphasis role="bold"><link linkend="ADM.Integration.Sync_at_startup">Sync at startup</link> </emphasis>
 </para>
 </listitem>
 <listitem>
 <para>
-<link linkend="ADM.Integration.Syn_at_logtime">Sync at login time</link>
+<emphasis role="bold"><link linkend="ADM.Integration.Syn_at_logtime">Sync at login time</link></emphasis>
 </para>
 </listitem>
 <listitem>
 <para>
-<link linkend="ADM.Integration.Sync_on_demand">Sync on demand</link>
+<emphasis role="bold"><link linkend="ADM.Integration.Sync_on_demand">Sync on demand</link> </emphasis>
 </para>
 </listitem>
 <listitem>
 <para>
-<link linkend="ADM.Integration.Scheduled_periodic_sync">Scheduled/Periodic sync</link>
+<emphasis role="bold"><link linkend="ADM.Integration.Scheduled_periodic_sync">Scheduled/Periodic sync</link> </emphasis>
 </para>
 </listitem>
 </itemizedlist>
 </listitem>
 <listitem>
 <para>
-<link linkend="ADM.Integration.Use_Legacy_Organization_Models">Use Legacy Organization Models</link>
+<emphasis role="bold"><link linkend="ADM.Integration.Use_Legacy_Organization_Models">Use Legacy Organization Models</link></emphasis>
 </para>
 </listitem>
 </itemizedlist>
