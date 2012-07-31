@@ -4,17 +4,17 @@
 <itemizedlist>
   <listitem>
 	<para>
-	  <link linkend="DEV.Glossary">Glossary</link>
+	  <emphasis role="bold"><link linkend="DEV.Glossary">Glossary</link></emphasis>
 	</para>
   </listitem>
   <listitem>
 	<para>
-	  <link linkend="DEV.SetupMavenSettings">Set up Maven settings</link>
+	  <emphasis role="bold"><link linkend="DEV.SetupMavenSettings">Set up Maven settings</link></emphasis>
 	</para>
   </listitem>
   <listitem>
 	<para>
-	  <link linkend="DEV.eXoArchitecturePrimer">eXo Architecture Primer</link>
+	  <emphasis role="bold"><link linkend="DEV.eXoArchitecturePrimer">eXo Architecture Primer</link></emphasis>
 	</para>
   </listitem>
 </itemizedlist>
