@@ -6,17 +6,17 @@ This chapter presents the topics related to security configuration in eXo Platfo
 <itemizedlist>
 <listitem>
 <para>
-<link linkend="ADM.Security.Change_JAAS_real">Changes on the JAAS realm</link>
+<emphasis role="bold"><link linkend="ADM.Security.Change_JAAS_real">Changes on the JAAS realm</link></emphasis>
 </para>
 </listitem>
 <listitem>
 <para>
-<link linkend="ADM.Security.Gadget_proxy_configuration">Gadget proxy configuration</link>
+<emphasis role="bold"><link linkend="ADM.Security.Gadget_proxy_configuration">Gadget proxy configuration</link></emphasis>
 </para>
 </listitem>
 <listitem>
 <para>
-<link linkend="ADM.Security.HTTPS_conf">HTTPS configuration</link>
+<emphasis role="bold"><link linkend="ADM.Security.HTTPS_conf">HTTPS configuration</link> </emphasis>
 </para>
 </listitem>
 </itemizedlist>

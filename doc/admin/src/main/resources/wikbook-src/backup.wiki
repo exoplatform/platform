@@ -6,22 +6,22 @@ The backup of eXo Platform instance involves backing up the databases and the fi
 <itemizedlist>
 <listitem>
 <para>
-<link linkend="ADM.Backup.Plan_backup">Pre-backup</link>
+<emphasis role="bold"><link linkend="ADM.Backup.Plan_backup">Pre-backup</link></emphasis>
 </para>
 </listitem>
 <listitem>
 <para>
-<link linkend="ADM.Backup.Perform_backup">Back up eXo Platform</link>
+<emphasis role="bold"><link linkend="ADM.Backup.Perform_backup">Back up eXo Platform</link></emphasis>
 </para>
 </listitem>
 <listitem>
 <para>
-<link linkend="ADM.Backup.Perform_restore">Restore</link>
+<emphasis role="bold"><link linkend="ADM.Backup.Perform_restore">Restore</link> </emphasis>
 </para>
 </listitem>
 <listitem>
 <para>
-<link linkend="ADM.Backup.Third_party_tools">Third-party tools</link>
+<emphasis role="bold"><link linkend="ADM.Backup.Third_party_tools">Third-party tools</link> </emphasis>
 </para>
 </listitem>
 </itemizedlist>

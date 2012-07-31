@@ -6,47 +6,47 @@ In this chapter, the following topics are included:
 <itemizedlist>
 <listitem>
 <para>
-<link linkend="ADM.Management.Introduction">Introduction to eXo Platform management</link>
+<emphasis role="bold"><link linkend="ADM.Management.Introduction">Introduction to eXo Platform management</link></emphasis>
 </para>
 </listitem>
 <listitem>
 <para>
-<link linkend="ADM.Management.Management_views_of_eXo_Platform">Management views of eXo Platform</link>
+<emphasis role="bold"><link linkend="ADM.Management.Management_views_of_eXo_Platform">Management views of eXo Platform</link></emphasis>
 </para>
 <itemizedlist>
 <listitem>
 <para>
-<link linkend="ADM.Management.PortalContainer_management_view">PortalContainer management view</link>
+<emphasis role="bold"><link linkend="ADM.Management.PortalContainer_management_view">PortalContainer management view</link></emphasis>
 </para>
 </listitem>
 <listitem>
 <para>
-<link linkend="ADM.Management.Cache_management_view">Cache management view</link>
+<emphasis role="bold"><link linkend="ADM.Management.Cache_management_view">Cache management view</link></emphasis>
 </para>
 </listitem>
 <listitem>
 <para>
-<link linkend="ADM.Management.eXo_Content_management_view">Content management view</link>
+<emphasis role="bold"><link linkend="ADM.Management.eXo_Content_management_view">Content management view</link></emphasis>
 </para>
 </listitem>
 <listitem>
 <para>
-<link linkend="ADM.Management.JCR_management_view">JCR management view</link>
+<emphasis role="bold"><link linkend="ADM.Management.JCR_management_view">JCR management view</link> </emphasis>
 </para>
 </listitem>
 <listitem>
 <para>
-<link linkend="ADM.Management.Portal_management_view">Portal management view</link>
+<emphasis role="bold"><link linkend="ADM.Management.Portal_management_view">Portal management view</link></emphasis>
 </para>
 </listitem>
 <listitem>
 <para>
-<link linkend="ADM.Management.eXo_Knowledge_management_view">Knowledge management view</link>
+<emphasis role="bold"><link linkend="ADM.Management.eXo_Knowledge_management_view">Knowledge management view</link></emphasis>
 </para>
 </listitem>
 <listitem>
 <para>
-<link linkend="ADM.Management.eXo_Collaboration_management_view">Collaboration management view</link>
+<emphasis role="bold"><link linkend="ADM.Management.eXo_Collaboration_management_view">Collaboration management view</link></emphasis>
 </para>
 </listitem>
 </itemizedlist>
