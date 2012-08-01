@@ -4,46 +4,46 @@
 <itemizedlist>
   <listitem>
 	<para>
-	  <link linkend="DEV.eXoPlatformSupportedAPIs.DefinitionsOfAPILevels">Definitions of API Levels</link>
+	 <emphasis role="bold"> <link linkend="DEV.eXoPlatformSupportedAPIs.DefinitionsOfAPILevels">Definitions of API Levels</link> </emphasis>
 	</para>
 	<itemizedlist>
 	  <listitem>
 		<para>
-		  <link linkend="DEV.eXoPlatformSupportedAPIs.UseProvisionalOrExperimentalAPIs">Use Provisional or Experimental APIs</link>
+		 <emphasis role="bold"> <link linkend="DEV.eXoPlatformSupportedAPIs.UseProvisionalOrExperimentalAPIs">Use Provisional or Experimental APIs</link> </emphasis>
 		</para>
 	  </listitem>
 	</itemizedlist>
   </listitem>
   <listitem>
 	<para>
-	  <link linkend="DEV.eXoPlatformSupportedAPIs.PlatformAPIs">Platform APIs</link>
+	 <emphasis role="bold"> <link linkend="DEV.eXoPlatformSupportedAPIs.PlatformAPIs">Platform APIs</link> </emphasis>
 	</para>
 	<itemizedlist>
 	  <listitem>
 		<para>
-		  <link linkend="DEV.eXoPlatformSupportedAPIs.JavaAPIs">Java APIs</link>
+		 <emphasis role="bold"> <link linkend="DEV.eXoPlatformSupportedAPIs.JavaAPIs">Java APIs</link>   </emphasis>
 		</para>
 	  </listitem>
 	  <listitem>
 		<para>
-		  <link linkend="DEV.eXoPlatformSupportedAPIs.JavaScriptAPIs">JavaScript APIs</link>
+		 <emphasis role="bold"> <link linkend="DEV.eXoPlatformSupportedAPIs.JavaScriptAPIs">JavaScript APIs</link></emphasis>
 		</para>
 	  </listitem>
 	  <listitem>
 		<para>
-		  <link linkend="DEV.eXoPlatformSupportedAPIs.WebServices">Web Services</link>
+		 <emphasis role="bold"> <link linkend="DEV.eXoPlatformSupportedAPIs.WebServices">Web Services</link> </emphasis>
 		</para>
 	  </listitem>
 	</itemizedlist>
   </listitem>
   <listitem>
 	<para>
-	  <link linkend="DEV.eXoPlatformSupportedAPIs.ProvisionalAPIs">Provisional APIs</link>
+	 <emphasis role="bold"><link linkend="DEV.eXoPlatformSupportedAPIs.ProvisionalAPIs">Provisional APIs</link></emphasis>
 	</para>
 	<itemizedlist>
 	  <listitem>
 		<para>
-		  <link linkend="DEV.eXoPlatformSupportedAPIs.ProvisionalAPIs.JavaAPIs">Java APIs</link>
+		 <emphasis role="bold"> <link linkend="DEV.eXoPlatformSupportedAPIs.ProvisionalAPIs.JavaAPIs">Java APIs</link> </emphasis>
 		</para>
 	  </listitem>
 	</itemizedlist>

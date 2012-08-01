@@ -5,42 +5,42 @@
 <itemizedlist>
   <listitem>
 	<para>
-	  <link linkend="DEV.CreateYourOwnPortal.CreateExtensionProject">Create your extension project</link>
+	  <emphasis role="bold"><link linkend="DEV.CreateYourOwnPortal.CreateExtensionProject">Create your extension project</link></emphasis>
 	</para>
   </listitem>
   <listitem>
 	<para>
-	  <link linkend="DEV.CreateYourOwnPortal.Create_default_portal">Define a default portal</link>
+	  <emphasis role="bold"><link linkend="DEV.CreateYourOwnPortal.Create_default_portal">Define a default portal</link></emphasis>
 	</para>
   </listitem>
   <listitem>
 	<para>
-	  <link linkend="DEV.CreateYourOwnPortal.StructureOfPortalPages&amp;Menus">Structure of portal, pages and menus</link>
+	  <emphasis role="bold"><link linkend="DEV.CreateYourOwnPortal.StructureOfPortalPages&amp;Menus">Structure of portal, pages and menus</link></emphasis>
 	</para>
   </listitem>
   <listitem>
 	<para>
-	  <link linkend="DEV.CreateYourOwnPortal.EnableDisableDriveCreation">Enable/Disable a drive creation during the portal creation</link>
+	  <emphasis role="bold"><link linkend="DEV.CreateYourOwnPortal.EnableDisableDriveCreation">Enable/Disable a drive creation during the portal creation</link></emphasis>
 	</para>
   </listitem>
   <listitem>
 	<para>
-	  <link linkend="DEV.CreateYourOwnPortal.AddOrRemoveLanguages">Add/Remove a language</link>
+	  <emphasis role="bold"><link linkend="DEV.CreateYourOwnPortal.AddOrRemoveLanguages">Add/Remove a language</link></emphasis>
 	</para>
   </listitem>
   <listitem>
 	<para>
-	  <link linkend="DEV.CreateYourOwnPortal.CreateCustomLookAndFeel">Create a custom look and feel</link>
+	  <emphasis role="bold"><link linkend="DEV.CreateYourOwnPortal.CreateCustomLookAndFeel">Create a custom look and feel</link></emphasis>
 	</para>
   </listitem>
   <listitem>
 	<para>
-	  <link linkend="DEV.CreateYourOwnPortal.AddJavaScriptToYourPortal">Add JavaScript to your portal</link>
+	  <emphasis role="bold"><link linkend="DEV.CreateYourOwnPortal.AddJavaScriptToYourPortal">Add JavaScript to your portal</link></emphasis>
 	</para>
   </listitem>
   <listitem>
 	<para>
-	  <link linkend="DEV.CreateYourOwnPortal.AddJavaScriptToYourPortal.Create_custom_templates_for_pages">Create custom templates for pages</link>
+	  <emphasis role="bold"><link linkend="DEV.CreateYourOwnPortal.AddJavaScriptToYourPortal.Create_custom_templates_for_pages">Create custom templates for pages</link></emphasis>
 	</para>
   </listitem>
 </itemizedlist>

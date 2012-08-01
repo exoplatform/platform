@@ -7,37 +7,37 @@
 <itemizedlist>
   <listitem>
 	<para>
-	  <link linkend="DEV.Upgrade.Prerequisites">Prerequisites</link>
+	  <emphasis role="bold"><link linkend="DEV.Upgrade.Prerequisites">Prerequisites</link>  </emphasis>
 	</para>
   </listitem>
   <listitem>
 	<para>
-	  <link linkend="DEV.Upgrade.Prepare_extension_project">Prepare your extension project</link>
+	  <emphasis role="bold"><link linkend="DEV.Upgrade.Prepare_extension_project">Prepare your extension project</link>  </emphasis>
 	</para>
   </listitem>
   <listitem>
 	<para>
-	  <link linkend="DEV.Upgrade.What_need_to_be_adapted">What needs to be adapted in eXo Platform extension</link>
+	  <emphasis role="bold"><link linkend="DEV.Upgrade.What_need_to_be_adapted">What needs to be adapted in eXo Platform extension</link> </emphasis>
 	</para>
   </listitem>
   <listitem>
 	<para>
-	  <link linkend="DEV.Upgrade.Update_project_Maven_dependencies">Update project Maven dependencies</link>
+	  <emphasis role="bold"><link linkend="DEV.Upgrade.Update_project_Maven_dependencies">Update project Maven dependencies</link>  </emphasis>
 	</para>
   </listitem>
   <listitem>
 	<para>
-	  <link linkend="DEV.Upgrade.Update_configuration">Update configurations</link>
+	  <emphasis role="bold"><link linkend="DEV.Upgrade.Update_configuration">Update configurations</link>  </emphasis>
 	</para>
   </listitem>
   <listitem>
 	<para>
-	  <link linkend="DEV.Upgrade.Update_components">Update components</link>
+	  <emphasis role="bold"><link linkend="DEV.Upgrade.Update_components">Update components</link>  </emphasis>
 	</para>
   </listitem>
   <listitem>
 	<para>
-	  <link linkend="DEV.Upgrade.Update_extension">Update extension</link>
+	  <emphasis role="bold"><link linkend="DEV.Upgrade.Update_extension">Update extension</link>  </emphasis>
 	</para>
   </listitem>
 </itemizedlist>
