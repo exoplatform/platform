@@ -185,7 +185,6 @@
               <emitDoctype>true</emitDoctype>
               <beforeBookBodyXML><![CDATA[
               <xi:include href="bookinfo.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
-			  <xi:include href="Preface.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
            ]]></beforeBookBodyXML>
               <syntaxId>confluence/1.0</syntaxId>
             </configuration>

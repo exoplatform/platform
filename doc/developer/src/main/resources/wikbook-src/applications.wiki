@@ -5,27 +5,27 @@
 <itemizedlist>
   <listitem>
 	<para>
-	  <link linkend="DEV.WorkWithApplications.ApplicationIntegration">Integrate an application</link>
+	  <emphasis role="bold"><link linkend="DEV.WorkWithApplications.ApplicationIntegration">Integrate an application</link> </emphasis>
 	</para>
   </listitem>
   <listitem>
 	<para>
-	  <link linkend="DEV.WorkWithApplications.DevelopYourOwnApplications">Develop your own application</link>
+	  <emphasis role="bold"><link linkend="DEV.WorkWithApplications.DevelopYourOwnApplications">Develop your own application</link> </emphasis>
 	</para>
 	<itemizedlist>
 	  <listitem>
 		<para>
-		  <link linkend="DEV.WorkWithContent.GadgetvsPortlet">Gadget vs Portlet</link>
+		  <emphasis role="bold"><link linkend="DEV.WorkWithContent.GadgetvsPortlet">Gadget vs Portlet</link>  </emphasis>
 		</para>
 	  </listitem>
 	  <listitem>
 		<para>
-		  <link linkend="DEV.WorkWithApplications.DevelopAGadgetForPlatform">Develop a gadget for eXo Platform</link>
+		  <emphasis role="bold"><link linkend="DEV.WorkWithApplications.DevelopAGadgetForPlatform">Develop a gadget for eXo Platform</link> </emphasis>
 		</para>
 	  </listitem>
 	  <listitem>
 		<para>
-		  <link linkend="DEV.WorkWithApplications.PortletBridges">Portlet Bridges</link>
+		  <emphasis role="bold"><link linkend="DEV.WorkWithApplications.PortletBridges">Portlet Bridges</link> </emphasis>
 		</para>
 	  </listitem>
 	</itemizedlist>

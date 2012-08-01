@@ -4,47 +4,58 @@
     <itemizedlist>
       <listitem>
         <para>
-          <link linkend="DEV.Cookbook.CopySitesContentFolderWithVersionHistory">Copy a site's content folder with its version history</link></para>
+         <emphasis role="bold"> <link linkend="DEV.Cookbook.CopySitesContentFolderWithVersionHistory">Copy a site's content folder with its version history</link></emphasis>
+         </para>
       </listitem>
       <listitem>
         <para>
-          <link linkend="DEV.Cookbook.CopyNavigationNodesOfSites">Copy navigation nodes of sites</link></para>
+         <emphasis role="bold"> <link linkend="DEV.Cookbook.CopyNavigationNodesOfSites">Copy navigation nodes of sites</link> </emphasis>
+         </para>
       </listitem>
       <listitem>
         <para>
-          <link linkend="DEV.Cookbook.CopyTemplateOfNodeType">Copy templates of node types templates</link></para>
+         <emphasis role="bold"> <link linkend="DEV.Cookbook.CopyTemplateOfNodeType">Copy templates of node types templates</link> </emphasis>
+         </para>
       </listitem>
       <listitem>
         <para>
-          <link linkend="DEV.Cookbook.CopyWCMTemplates">Copy the WCM template</link></para>
+        <emphasis role="bold">  <link linkend="DEV.Cookbook.CopyWCMTemplates">Copy the WCM template</link></emphasis>
+        </para>
       </listitem>
       <listitem>
         <para>
-          <link linkend="DEV.Cookbook.CopyTaxonomyTree">Copy a Taxonomy tree</link></para>
+         <emphasis role="bold"> <link linkend="DEV.Cookbook.CopyTaxonomyTree">Copy a Taxonomy tree</link></emphasis>
+         </para>
       </listitem>
       <listitem>
         <para>
-          <link linkend="DEV.Cookbook.CopyMetadataTemplates">Copy metadata templates</link></para>
+        <emphasis role="bold">  <link linkend="DEV.Cookbook.CopyMetadataTemplates">Copy metadata templates</link></emphasis>
+        </para>
       </listitem>
       <listitem>
         <para>
-          <link linkend="DEV.Cookbook.CopyQueries">Copy queries</link></para>
+        <emphasis role="bold">  <link linkend="DEV.Cookbook.CopyQueries">Copy queries</link></emphasis>
+        </para>
       </listitem>
       <listitem>
         <para>
-          <link linkend="DEV.Cookbook.CopyScripts">Copy scripts</link></para>
+        <emphasis role="bold">  <link linkend="DEV.Cookbook.CopyScripts">Copy scripts</link></emphasis>
+        </para>
       </listitem>
       <listitem>
         <para>
-          <link linkend="DEV.Cookbook.CopyDriveConfigurations">Copy drive configurations</link></para>
+         <emphasis role="bold"> <link linkend="DEV.Cookbook.CopyDriveConfigurations">Copy drive configurations</link></emphasis>
+         </para>
       </listitem>
       <listitem>
         <para>
-          <link linkend="DEV.Cookbook.CopyGadgets">Copy gadgets</link></para>
+         <emphasis role="bold"> <link linkend="DEV.Cookbook.CopyGadgets">Copy gadgets</link> </emphasis>
+         </para>
       </listitem>
       <listitem>
         <para>
-          <link linkend="DEV.Cookbook.RestartServer">Restart the server</link></para>
+         <emphasis role="bold"> <link linkend="DEV.Cookbook.RestartServer">Restart the server</link></emphasis>
+         </para>
       </listitem>
     </itemizedlist>
 </abstract>
