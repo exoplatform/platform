@@ -4,78 +4,78 @@
 <itemizedlist>
   <listitem>
 	<para>
-	  <link linkend="DEV.SystemIntegration.Authentication">Authentication</link>
+	  <emphasis role="bold"><link linkend="DEV.SystemIntegration.Authentication">Authentication</link> </emphasis>
 	</para>
 	<itemizedlist>
 	  <listitem>
 		<para>
-		  <link linkend="DEV.SystemIntegration.SingleSignON">Single-Sign-On (SSO)</link>
+		 <emphasis role="bold"> <link linkend="DEV.SystemIntegration.SingleSignON">Single-Sign-On (SSO)</link>  </emphasis>
 		</para>
 	  </listitem>
 	  <listitem>
 		<para>
-		  <link linkend="DEV.SystemIntegration.CenterAuthenticationService">Central Authentication Service (CAS)</link>
+		 <emphasis role="bold"> <link linkend="DEV.SystemIntegration.CenterAuthenticationService">Central Authentication Service (CAS)</link>  </emphasis>
 		</para>
 	  </listitem>
 	  <listitem>
 		<para>
-		  <link linkend="DEV.SystemIntegration.KerberosSSOOnActiveDirectory">Kerberos SSO on Active Directory</link>
+		 <emphasis role="bold"> <link linkend="DEV.SystemIntegration.KerberosSSOOnActiveDirectory">Kerberos SSO on Active Directory</link> </emphasis>
 		</para>
 	  </listitem>
 	</itemizedlist>
   </listitem>
   <listitem>
 	<para>
-	  <link linkend="DEV.SystemIntegration.UserIntegration">Users integration</link>
+	  <emphasis role="bold"><link linkend="DEV.SystemIntegration.UserIntegration">Users integration</link>  </emphasis>
 	</para>
 	<itemizedlist>
 	  <listitem>
 		<para>
-		  <link linkend="DEV.SystemIntegration.OrganizationService">Organization Service</link>
+		<emphasis role="bold">  <link linkend="DEV.SystemIntegration.OrganizationService">Organization Service</link> </emphasis>
 		</para>
 	  </listitem>
 	  <listitem>
 		<para>
-		  <link linkend="DEV.SystemIntegration.MembershipsGroupsAndUsers">Memberships, Groups and Users</link>
+		 <emphasis role="bold"> <link linkend="DEV.SystemIntegration.MembershipsGroupsAndUsers">Memberships, Groups and Users</link> </emphasis>
 		</para>
 	  </listitem>
 	  <listitem>
 		<para>
-		  <link linkend="DEV.SystemIntegration.OrganizationAPI">Organization API</link>
+		 <emphasis role="bold"> <link linkend="DEV.SystemIntegration.OrganizationAPI">Organization API</link> </emphasis>
 		</para>
 	  </listitem>
 	</itemizedlist>
   </listitem>
   <listitem>
 	<para>
-	  <link linkend="DEV.SystemIntegration.LDAPIntegration">LDAP Integration</link>
+	 <emphasis role="bold"> <link linkend="DEV.SystemIntegration.LDAPIntegration">LDAP Integration</link></emphasis>
 	</para>
 	<itemizedlist>
 	  <listitem>
 		<para>
-		  <link linkend="DEV.SystemIntegration.ConnectionSettings">Connection Settings</link>
+		<emphasis role="bold">  <link linkend="DEV.SystemIntegration.ConnectionSettings">Connection Settings</link> </emphasis>
 		</para>
 	  </listitem>
 	  <listitem>
 		<para>
-		  <link linkend="DEV.SystemIntegration.OrganizationServiceConfiguration">Organization Service Configuration</link>
+		 <emphasis role="bold"> <link linkend="DEV.SystemIntegration.OrganizationServiceConfiguration">Organization Service Configuration</link> </emphasis>
 		</para>
 	  </listitem>
 	  <listitem>
 		<para>
-		  <link linkend="DEV.SystemIntegration.ActiveDirectorySampleConfiguration">Active Directory sample configuration</link>
+		 <emphasis role="bold"> <link linkend="DEV.SystemIntegration.ActiveDirectorySampleConfiguration">Active Directory sample configuration</link></emphasis>
 		</para>
 	  </listitem>
 	  <listitem>
 		<para>
-		  <link linkend="DEV.SystemIntegration.PicketlinkIDM">Picketlink IDM</link>
+		 <emphasis role="bold"> <link linkend="DEV.SystemIntegration.PicketlinkIDM">Picketlink IDM</link> </emphasis>
 		</para>
 	  </listitem>
 	</itemizedlist>
   </listitem>
   <listitem>
 	<para>
-	  <link linkend="DEV.SystemIntegration.Email">Email</link>
+	<emphasis role="bold">  <link linkend="DEV.SystemIntegration.Email">Email</link> </emphasis>
 	</para>
   </listitem>
 </itemizedlist>

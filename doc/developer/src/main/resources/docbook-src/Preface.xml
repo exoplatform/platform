@@ -1,7 +1,4 @@
 <?xml version='1.0' encoding='utf-8' ?>
-
-<preface xml:id="AboutDeveloperGuide">
-	<title>About this guide</title>
 <abstract>
 <para>The intended readers of this document are users using eXo Platform. This user guide explains all the basic and advanced features of eXo Platform by providing a series of in-depth examples and clear explanations which help users easily benefit from the eXo Platform capabilities and features. </para>
  <para>After reading this guide, developers are expected to be able to customize their own portals and 
@@ -63,4 +60,3 @@ develop applications to run on eXo Platform 3.5 through the following topics:</p
           </listitem>
         </itemizedlist>
 </abstract>
-</preface>
