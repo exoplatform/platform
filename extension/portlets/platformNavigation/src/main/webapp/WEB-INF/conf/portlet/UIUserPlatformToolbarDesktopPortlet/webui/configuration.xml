@@ -26,8 +26,5 @@
   <application>     
     <ui-component-root>org.exoplatform.platform.component.UIUserPlatformToolbarDesktopPortlet</ui-component-root>    
     <state-manager>org.exoplatform.webui.application.portlet.ParentAppStateManager</state-manager>
-    <application-lifecycle-listeners>       
-      <listener>org.exoplatform.portal.application.PortletStatisticLifecycle</listener>       
-    </application-lifecycle-listeners>
   </application>
 </webui-configuration>
