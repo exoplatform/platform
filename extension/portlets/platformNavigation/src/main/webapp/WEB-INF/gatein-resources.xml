@@ -21,71 +21,78 @@
 
     <portlet>
         <name>PlatformAdminToolbarPortlet</name>
-        <scripts>
-            <mode>on-load</mode>
+        <module>
             <depends>
-                <scripts>navigation</scripts>
+                <module>navigation</module>
             </depends>
-        </scripts>
+        </module>
     </portlet>
     <portlet>
         <name>UIMyGroupsPlatformToolBarPortlet</name>
-        <scripts>
-            <mode>on-load</mode>
+        <module>
             <depends>
-                <scripts>navigation</scripts>
+                <module>navigation</module>
             </depends>
-        </scripts>
+        </module>
     </portlet>
     <portlet>
         <name>UIMySpacePlatformToolBarPortlet</name>
-        <scripts>
-            <mode>on-load</mode>
+        <module>
             <depends>
-                <scripts>navigation</scripts>
+                <module>navigation</module>
             </depends>
-        </scripts>
+        </module>
     </portlet>
     <portlet>
         <name>UISetupPlatformToolBarPortlet</name>
-        <scripts>
-            <mode>on-load</mode>
+        <module>
             <depends>
-                <scripts>navigation</scripts>
+                <module>navigation</module>
             </depends>
-        </scripts>
+        </module>
     </portlet>
     <portlet>
         <name>UIUserPlatformToolbarDesktopPortlet</name>
-        <scripts>
-            <mode>on-load</mode>
+        <module>           
             <depends>
-                <scripts>navigation</scripts>
+                <module>navigation</module>
             </depends>
-        </scripts>
+        </module>
     </portlet>
     <portlet>
         <name>UIUserPlatformToolBarSitePortlet</name>
-        <scripts>
-            <mode>on-load</mode>
+        <module>
             <depends>
-                <scripts>navigation</scripts>
+                <module>navigation</module>
             </depends>
-        </scripts>
+        </module>
     </portlet>
     <portlet>
         <name>UserInfoPortlet</name>
-        <scripts>
-            <mode>on-load</mode>
+        <module>
             <depends>
-                <scripts>base</scripts>
+                <module>base</module>
             </depends>
             <depends>
-                <scripts>socialcomposer</scripts>
+                <module>socialcomposer</module>
+            </depends>
+             <depends>
+                <module>social-core</module>
+            </depends>
+        </module>
+    </portlet>
+     <portlet>
+        <name>UIUserPlatformToolBarPortlet</name>
+        <module>
+            <depends>
+                <module>base</module>
             </depends>
             <depends>
-                <scripts>jsSocialUtil</scripts>
+                <module>socialcomposer</module>
             </depends>
-        </scripts>
+            <depends>
+                <module>social-core</module>
+            </depends>
+        </module>
     </portlet>
 </gatein-resources>

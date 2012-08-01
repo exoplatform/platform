@@ -25,9 +25,7 @@
   import org.exoplatform.webui.form.UIFormTextAreaInput;
   import org.exoplatform.social.webui.composer.UIComposer;
   import org.exoplatform.social.core.service.LinkProvider;
-
   def requestContext = _ctx.getRequestContext();
-
   def defaultInput = _ctx.appRes("UIComposer.input.Write_Something");
 
   def params = """
@@ -46,7 +44,6 @@
     }
   """
 
-  jsManager.addOnLoadJavascript("initNavigationUIComposer");
 %>
 
   <li class="$uicomponent.id ClearFix">

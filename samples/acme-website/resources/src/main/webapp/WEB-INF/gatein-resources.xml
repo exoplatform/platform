@@ -36,18 +36,18 @@
     <portal>
         <name>acme</name>
         <scripts>
-            <module>
+            <script>
                 <name>acme.jquery.core</name>
                 <path>/javascript/jquery-1.4.2.min.js</path>
-            </module>
-            <module>
+            </script>
+            <script>
                 <name>acme.jquery.ui</name>
                 <path>/javascript/jquery-ui-1.8.6.custom.min.js</path>
-            </module>
-            <module>
+            </script>
+            <script>
                 <name>acme.jquery.jcarousellite</name>
                 <path>/javascript/jcarousellite.js</path>
-            </module>
+            </script>
         </scripts>
     </portal>
 	

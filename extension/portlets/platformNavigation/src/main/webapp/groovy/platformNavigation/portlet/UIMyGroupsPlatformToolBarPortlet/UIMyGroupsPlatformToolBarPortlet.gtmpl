@@ -154,7 +154,7 @@
   if(groupNavigations != null && !groupNavigations.isEmpty()) {
     def rcontext = _ctx.getRequestContext();
     def jsManager = rcontext.getJavascriptManager();
-    jsmanager.addCustomizedOnLoadScript('eXo.portal.UIPortalNavigation.onLoad("' + uicomponent.id + '");');
+    jsManager.addCustomizedOnLoadScript('eXo.portal.UIPortalNavigation.onLoad("' + uicomponent.id + '");');
 
 %>
 <ul class="UIUserToolBarGroupPortlet UIHorizontalTabs" id="$uicomponent.id">

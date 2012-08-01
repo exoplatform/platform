@@ -32,15 +32,15 @@
 		<css-priority>6</css-priority>
 		<overwrite>true</overwrite>
 	</portal-skin>
-    <scripts>
+    <module>
         <name>socialcomposer</name>
-        <module>
+        <script>
             <name>eXo.social.webui.UINavigationComposer</name>
             <path>/javascript/eXo/social/webui/UINavigationComposer.js</path>
-        </module>
+        </script>
         <depends>
-            <scripts>social-core</scripts>
+            <module>social-core</module>
         </depends>
-    </scripts>
+    </module>
 	
 </gatein-resources>
