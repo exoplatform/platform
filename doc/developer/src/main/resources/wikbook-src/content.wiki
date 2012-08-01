@@ -568,69 +568,43 @@ h1. Manage Navigation By Content {anchor:id=DEV.WorkWithContent.NavigationByCont
 
 h2. Create a new Content List template  {anchor:id=DEV.WorkWithContent.CreateNewContentListTemplate}
 
-eXo Platform provide many powerful features to manipulate and expose any types of content on a page.
-This is due to the fact that eXo Platform stores the all the content in its Java Content Repository (JCR) and renders the content on a page using Groovy Templates.
+eXo Platform provides many powerful features to manipulate and expose any types of content on a page. This is due to the fact that eXo Platform stores all the content in its Java Content Repository (JCR) and renders the content on a page using Groovy Templates.
 
-In this how-to, you will learn to create and use template that are used in the *Content List* portlet. For example, in the ACME sample site you can show the content in 1 or 2 columns just by selecting different templates:
+In this section, you will learn how to create a new template that is used in the *Content List* portlet. For example, in the sample ACME site, you can show the content in One-column or Two-column display just by selecting different templates:
 
-!images/1ColumnContent.png|width="120mm" align="center" fo:scalefit="1" html:scalefit="0"!
+!images/ExampleTypesOfColumns.png|width="120mm" align="center" fo:scalefit="1" html:scalefit="0"!
 
-!images/2ColumnsContent.png|width="120mm" align="center" fo:scalefit="1" html:scalefit="0"!
+Before writing a new template, it is important to learn where templates are stored.
 
 {docbook}
 <para>
 <citetitle>
-<emphasis role="bold">Create a new Content List template</emphasis>
+<emphasis role="bold">eXo Content Service: Template Storage</emphasis>
 </citetitle>
 </para>
 {docbook}
 
-In this section, you will learn how to create a new template using eXo IDE. Before writing a new template, it is important to learn where templates are stored.
-
-*eXo Content Service: Template Storage*
-
-Like many things inside eXo Platform, the eXo JCR is used to store templates. Templates are just a special type of content.
-This allows developers to easily write and test code without having complex deployment process, but also it make the life easy to export a running configuration to another one.
-For this you just need to use the standard JCR export/import features.
+Like many things inside eXo Platform, eXo JCR is used to store templates. Templates are just a special type of content. This allows developers to easily write and test code without following a complex deployment process, but also it makes it easy to export a running configuration to another one.
+To do this, you just need to use the standard JCR export/import features.
 
 All templates and eXo Content Service configurations are stored inside a specific JCR workspace named "dms-system".
 
-Each template type (Document Type, Content List, etc) is stored in a specific location. In this case, you are going to work on the *Content List* portlet so templates are stored inside the following folder:
-
-{{/exo:ecm/views/templates/content-list-viewer/list/}}
+Each template type (for example, Document Type, or Content List) is stored in a specific location. In this case, you are going to work on the *Content List* portlet so templates are stored inside the {{/exo:ecm/views/templates/content-list-viewer/list/}} folder.
 
 The following steps allow you to inspect this folder using the eXo CRaSH utility. If you are not interested in it, you can jump to the [next section|#DEV.WorkWithContent.CreateNewContentListTemplateUsingIDE]. CRaSH is a shell for Java Content Repositories, the source of CRaSH is available on Google Code. So in the terminal window:
 
-*1.* Connect to CRaSH using telnet client:
-
 {docbook}
-<para>
-<command>
-telnet 127.0.0.1 5000
-</command>
-</para>
+<para><emphasis role="bold">1.</emphasis> Connect to CRaSH using the telnet client: <command>telnet 127.0.0.1 5000</command>.</para>
 {docbook}
 
-*2.* Connect to the JCR workspace using the following command:
-
 {docbook}
-<para>
-<command>
-connect -u root -p gtn -c portal dms-system
-</command>
-</para>
+<para><emphasis role="bold">2.</emphasis> Connect to the JCR workspace using the following command: <command>connect -u root -p gtn -c portal dms-system</command>.</para>
 {docbook}
 
 Where: {{-u}} is the user, {{-p}} is the password, {{-c}} is the Portal Container, and {{dms-system}} is the workspace to use.
 
-*3.* Move the folder that contains all templates for the *Content List* portlet:
-
 {docbook}
-<para>
-<command>
-cd /exo:ecm/views/templates/content-list-viewer/list/
-</command>
-</para>
+<para><emphasis role="bold">3.</emphasis> Move the folder that contains all templates for the <emphasis role="bold">Content List</emphasis> portlet: <command>cd /exo:ecm/views/templates/content-list-viewer/list/</command>.</para>
 {docbook}
 
 {docbook}
@@ -641,72 +615,83 @@ cd /exo:ecm/views/templates/content-list-viewer/list/
 
 You can see the list of all templates available for the *Content List* portlet.
 
-*Create a new template using eXo IDE*  {anchor:id="DEV.WorkWithContent.CreateNewContentListTemplateUsingIDE"}
+{docbook}
+<para xml:id="DEV.WorkWithContent.CreateNewContentListTemplateUsingIDE">
+<citetitle>
+<emphasis role="bold">Create a new Content List template using IDE</emphasis>
+</citetitle>
+</para>
+{docbook}
 
-Let's create a new template using eXo IDE. For this, be sure that you are connected with a user that is a part of the /Developer group. The _root_ user can be used for the simplicity reason.
+Before doing the following steps, be sure that you are connected to a user who belongs to the _/Developer_ group. The _root_ user can be used for the simplicity reason.
 
-The first important step is to go the template location by doing as follows:
+*1.* Access IDE by clicking !images/gear_icon.png|width=3mm fo:scalefit="1" html:scalefit="0"! *--> IDE*.
 
-*1.* Access the IDE: click !images/gear_icon.png|width=3mm fo:scalefit="1" html:scalefit="0"! *--> IDE*.
+*2.* Switch to the _dms\-system_ workspace by clicking *My Spaces --> on Window --> Select Workspace* from the IDE menu. Next, select the _dms\-system_ location in the dialog box and click *OK*.
 
-*2.* Switch to the dms\-system workspace:
+*3.* Navigate to the template location from the file structure on the left: {{/exo:ecm/views/templates/content-list-viewer/list/}}
 
-In the IDE menu, click *My Spaces --> on Window --> Select Workspace*. And select the dms-system location in the dialog box and click *OK*.
-
-*3.* In the file structure on the left, navigate to the template location:
-
-{{/exo:ecm/views/templates/content-list-viewer/list/}}
-
-*4.* Create a new template by clicking *File --> New --> Groovy Template* from the IDE Menu .
+*4.* Create a new template by clicking *File --> New --> Groovy Template* from the IDE menu.
 
 *5.* Save the file as "MyNewTemplate.gtmpl".
 
-*6.* Enter some basic code:
+*6.* Enter some basic codes:
 
 {code}
 <h1>This is my template</h1>
 The date is <= new Date()>
 {code}
 
-*7.* Save the template.
+*7.* Save the template, then go back to the homepage of the ACME site.
 
-*8.* Go back to the Home page of the Acme site.
+*8.* Switch to the *Edit* mode by clicking *Edit* on the *Administration* bar.
 
-*9.* Switch to the Edit mode by clicking *Edit* on the *Administration* bar.
+*9.* Hover your cursor over the top of the list of news and click !images/PreferencesIcon.png|width="3mm" fo:scalefit="1" html:scalefit="0"!.
 
-*10.* Move your mouse over the top of the list of news and click !images/PreferencesIcon.png|width="3mm" fo:scalefit="1" html:scalefit="0"!.
-
-*11.* Select "MyNewTemplate" from the list of templates and click *Save*.
-
+*10.* Select "MyNewTemplate" from the list of templates, then click *Save*.
 
 !images/SelectTemplate.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
 
 You have created your new template, and use it on a page. Now, you should add some more interesting codes to the template to really loop over the content based on the portlet configuration. But before this, you need to understand caching and code modification.
 
-*eXo Template and Cache*
+{docbook}
+<para>
+<citetitle>
+<emphasis role="bold">eXo Template and Cache</emphasis>
+</citetitle>
+</para>
+{docbook}
 
-To improve performances and a running system, the compiled version of the template is cached by default. This is the reason why when you are modifying a template, you do not see any change. There are two ways to work around this:
+To improve performance and a running system, the compiled version of the template is cached by default. This is the reason why you do not see any change when you are modifying a template. There are 2 ways to work around this:
 
-* Run eXo Platform in the Debug mode, in this case, nothing is cached.
+* Run eXo Platform in the Debug mode. In this case, nothing is cached.
 * Invalidate the cache manually using JMX.
 
-Since working with no cache at all is not an option, here is the MBean you have to use to invalidate the Template Service cache:
+Since working with no cache at all is not an option, here is the MBean you have to use for invalidating the Template Service cache:
 
-* {{exo:portal="portal",service=cache,name="TemplateService"}}, then call the {{clearCache}} operation on it.
+* {{exo:portal="portal",service=cache,name="TemplateService"}}
 
-You can use any methods to call your MBeans operation. In this guide, JConsole will be used:
+Then, call the {{clearCache}} operation on it.
+
+You can use any methods to call your MBeans operation. Here, JConsole will be used:
 
 !images/TemplateServiceCacheMbean.png|align="center" width="50mm" fo:scalefit="1" html:scalefit="0"!
 
-Do not forget to call this operation each time you modify your template to be sure eXo recompiles the template.
+Do not forget to call this operation each time you modify your template to ensure that eXo recompiles the template.
 
-*Access content in the template*
+{docbook}
+<para>
+<citetitle>
+<emphasis role="bold">Access content in the template</emphasis>
+</citetitle>
+</para>
+{docbook}
 
-The current code of the template is really simple. Now, you need to add code to print the content in the page. For this, you are going to use some eXo Content programming, once again in the IDE.
+The current code of the template is really simple. Now, you need to add code to print the content in the page. To do this, you are going to use some *Content* programmings once again in IDE.
 
-The template used by the *Content List* portlet is based on the following Java class {{org.exoplatform.wcm.webui.clv.UICLVPresentation}}, this class is responsible for setting the complete context that you can use in the template such as:
+The template used by the *Content List* portlet is based on the following Java class: {{org.exoplatform.wcm.webui.clv.UICLVPresentation}}. This class is responsible for setting the complete context that you can use in the template, such as:
 
-* The folder or category that contains the content to show. The *Folder Path* field in the preference screen.
+* The folder or category that contains the content to show. The *Folder Path* field is in the preference screen.
 * The display settings: title, number of documents, elements to show and more.
 
 Here is the code to access these preferences:
@@ -735,19 +720,19 @@ def isShowSummary = uicomponent.isShowField(UICLVPortlet.PREFERENCE_SHOW_SUMMARY
 {code}
 
 The {{uicomponent}} object is defined by the container class of the portlet that calls the template. This class contains many utility methods.
-The code above retrieves all the preferences of the portlet, since the name is self-explanatory, it is not necessary to detail them, especially when you look at the preferences screen below:
+The code above retrieves all the preferences of the portlet. Because the name is self-explanatory, it is not necessary to detail them, especially when you look at the preferences screen below:
 
 !images/ContentListPreference.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
 
 Now, the template has all the preferences, it is time to loop on the content on printing the information.
 
-The eXo Content Service provides API to manipulate the content, including pagination of content. The idea behind this is to let the Content Service manage the JCR query, sorting, caching and pagination of data.
-So in your template, you will mainly manage two classes to loop through the content to show:
+The *Content Service* provides API to manipulate the content, including pagination of content. The idea behind this is to let the Content Service manage the JCR query, sorting, caching and pagination of data.
+So in your template, you will mainly manage 2 classes to loop through the content to show:
 
-* {{uicomponent.getUIPageIterator()}} a paginator object that is configured based on the portlet preferences.
-* {{uicomponent.getCurrentPageData()}} contains a list of the content (JCR Nodes) that should print on the current page.
+* {{uicomponent.getUIPageIterator()}} - a paginator object that is configured based on the portlet preferences.
+* {{uicomponent.getCurrentPageData()}} - a list of the content (JCR Nodes) that should be printed on the current page.
 
-So let's print all the content of the page as a simple HTML list:
+So, you can print all the content of the page as a simple HTML list:
 
 {code:html}
 <ul style="margin: 20px">
@@ -760,9 +745,9 @@ So let's print all the content of the page as a simple HTML list:
 </ul>
 {code}
 
-Just copy this code in your template, save it, refresh the cache and go to your page. You should see the list of the content in a simple HTML list.
+Just copy this code to your template, save it, then refresh the cache and go to your page. You should see the list of the content in a simple HTML list.
 
-On each content (Node), eXo Content API provides some helper method to easily manipulate the content and avoid using the JCR API directly. In the following code, you can see the most important methods accessing content properties:
+On each content (Node), the *Content API* provides some helper methods to easily manipulate the content and avoid using the JCR API directly. In the following code, you can see the most important methods accessing the content properties:
 
 {code:java}
 def itemName = viewNode.getName();
@@ -776,9 +761,9 @@ def itemTitle = uicomponent.getTitle(viewNode);
 def itemSummary = uicomponent.getSummary(viewNode);
 {code}
 
-One important point is the fact that these methods are responsible for many things, for example: formatting dates, returning complete URLs depending of the context of the portlet.
+One important point is the fact that these methods are responsible for many things, for example: formatting dates, returning complete URLs that depends on the context of the portlet.
 
-Based on these methods, you can now work on the presentation of the information on the page. For example, the image and the title allows user to click to go in the detail view of the article. This is done simply by using the following code:
+Based on these methods, you can now work on the presentation of the information on the page. For example, you can  click the image and the title to go in the detailed view of the article. This is done simply by using the following code:
 
 {code:java}
 <%
@@ -805,11 +790,11 @@ Based on these methods, you can now work on the presentation of the information 
 %>
 {code}
 
-For simplicity reason, this code does not manage any null value. Also the template does not deal with the portlet preferences such as the "Header", "RSS" links and so on. Do not hesitate to do it if you want. The Website should look like the following image:
+For the simplicity reason, this code does not manage any null value. Also, the template does not deal with the portlet preferences, such as the "Header", "RSS" links. The Website should look like:
 
 !images/NewSite.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
 
-The last important point is to add the support for the in context editing that allows the user to edit the content directly from the template. Once again, this is done with a method of the {{uicomponent}} object, that creates a DIV around the content:
+The last important point is to add the support for the in-context editing that allows users to edit the content directly from the template. Once again, this is done with a method of the {{uicomponent}} object that creates a DIV around the content:
 
 {code:java}
 <%
@@ -838,16 +823,6 @@ The last important point is to add the support for the in context editing that a
 %>
 {code}
 
-The lines 15 and 19 are new in this template and provide support for the *Quick Edit* feature.
+The 15 and 19 lines are new in this template and provide support for the *Quick Edit* feature.
 
-You have finished creating a new template for eXo Platform Content Service using embedded IDE.
-
-*Conclusion*
-
-In this article you have learned how to create a new template for eXo Content Service, with some basic steps:
-
-* Create a new Groovy Template using eXo IDE.
-* Edit this template using the eXo Java Content API.
-* Configure your *Content List* portlet instance on a page to select the new template.
-
-Now, you can create your own templates and use your imagination to add cool features to your site.
+After creating your own template for *Content Service* using the embedded IDE, you are free to use your imagination for adding cool features to your site.
