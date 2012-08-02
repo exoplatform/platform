@@ -12,11 +12,12 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.UriInfo;
 
+import org.exoplatform.application.gadget.Gadget;
+import org.exoplatform.application.gadget.GadgetRegistryService;
 import org.exoplatform.application.registry.Application;
 import org.exoplatform.application.registry.ApplicationRegistryService;
 import org.exoplatform.common.http.HTTPStatus;
-import org.exoplatform.portal.config.DataStorage;
-import org.exoplatform.portal.config.UserPortalConfigService;
+import org.exoplatform.container.PortalContainer;
 import org.exoplatform.portal.config.model.ApplicationType;
 import org.exoplatform.services.log.ExoLogger;
 import org.exoplatform.services.log.Log;
@@ -33,16 +34,14 @@ public class ApplicationRESTService implements ResourceContainer {
 
   private static final Log LOG = ExoLogger.getLogger(ApplicationRESTService.class);
 
-  protected final static String WS_ROOT_PATH = "/apps";
+  protected final static String WS_ROOT_PATH = "/allapps";
   protected final static String STANDALONE_ROOT_PATH = "/standalone";
 
-  private final UserPortalConfigService userPortalConfigService;
-  private final DataStorage dataStorageService;
   private final ApplicationRegistryService appRegistryService;
+  private final GadgetRegistryService gadgetRegistryService;
   
-  public ApplicationRESTService(UserPortalConfigService userPortalConfigService, DataStorage dataStorageService, ApplicationRegistryService appRegistryService) {
-    this.userPortalConfigService = userPortalConfigService;
-    this.dataStorageService = dataStorageService;
+  public ApplicationRESTService(GadgetRegistryService gadgetRegistryService, ApplicationRegistryService appRegistryService) {
+    this.gadgetRegistryService = gadgetRegistryService;
     this.appRegistryService = appRegistryService;
   }
 
@@ -53,7 +52,6 @@ public class ApplicationRESTService implements ResourceContainer {
   
   @GET
   @Produces(MediaType.APPLICATION_JSON)
-  @SuppressWarnings("unchecked")
   public Response getDashboards(@Context UriInfo uriInfo) {
     
     CacheControl cacheControl = new CacheControl();
@@ -64,15 +62,29 @@ public class ApplicationRESTService implements ResourceContainer {
       LinkedList<JsonAppInfo> list = new LinkedList<JsonAppInfo>();
       
       List<Application> apps = this.appRegistryService.getAllApplications();
-      if(apps != null && apps.size() > 0) {
+      if(apps != null) {
+        JsonAppInfo info;
         for(Application app : apps) {
-          JsonAppInfo appInfo = new JsonAppInfo();
-          if(ApplicationType.GADGET.equals(app.getType())) {
-            appInfo.setType("gadget");
+          info = new JsonAppInfo();
+          if(ApplicationType.GADGET == app.getType()) {
+            Gadget gadget = gadgetRegistryService.getGadget(app.getContentId());
+            if(gadget != null) {
+              info.setName(gadget.getName());
+              info.setUrl((new StringBuilder()).append(PortalContainer.getCurrentPortalContainerName()).append("/standalone").append("/").append(app.getStorageId()).toString());
+              info.setIcon(gadget.getThumbnail());
+              info.setDescription(gadget.getDescription());
+            } 
+            else {
+              LOG.warn((new StringBuilder()).append("Gadget with name ").append(app.getApplicationName()).append(" is no longer registered in Gadget Registry").toString());
+            }
           }
           else {
-            appInfo.setType("portlet");
+            info.setName(app.getApplicationName());
+            info.setDescription(app.getDescription());
+            info.setIcon(app.getIconURL());
           }
+          info.setType(app.getType().getName());
+          list.add(info);
         }
       }
       
