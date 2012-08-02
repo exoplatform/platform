@@ -88,37 +88,17 @@
 	  </path-param>
   	</route>
   </route>
-    <!-- Script handler -->
-    <route path="/scripts/{gtn:version}/{gtn:scope}/">
-        <route-param qname="gtn:handler">
-            <value>script</value>
-        </route-param>
-        <path-param qname="gtn:version" encoding="preserve-path">
-            <pattern>[^/]*</pattern>
-        </path-param>
-        <route path="/{gtn:resource}{gtn:lang}{gtn:compress}.js">
-            <path-param qname="gtn:resource">
-                <pattern>.?</pattern>
-            </path-param>
-            <path-param qname="gtn:lang" capture-group="true">
-                <pattern>-([A-Za-z]{2}(-[A-Za-z]{2})?)|</pattern>
-            </path-param>
-            <path-param qname="gtn:compress" capture-group="true">
-                <pattern>-(min)|</pattern>
-            </path-param>
-        </route>
-        <route path="/{gtn:resource}/{gtn:module}{gtn:lang}{gtn:compress}.js">
-            <path-param qname="gtn:module">
-                <pattern>.?</pattern>
-            </path-param>
-            <path-param qname="gtn:lang" capture-group="true">
-                <pattern>-([A-Za-z]{2}(-[A-Za-z]{2})?)|</pattern>
-            </path-param>
-            <path-param qname="gtn:compress" capture-group="true">
-                <pattern>-(min)|</pattern>
-            </path-param>
-        </route>
-    </route>
+
+  <!-- Static resource handler needs to be before the portal handler -->
+  <route path="/{gtn:path}">
+    <route-param qname="gtn:handler">
+      <value>staticResource</value>
+    </route-param>
+    <path-param qname="gtn:path" encoding="preserve-path">
+      <pattern>.*\.(jpg|png|gif|ico|css)</pattern>
+    </path-param>
+  </route>
+
   <route path="/">
 
     <!-- The portal handler -->
@@ -129,7 +109,7 @@
     <!-- The group access -->
     <route path="/g/{gtn:sitename}/{gtn:path}">
       <request-param qname="gtn:lang" name="lang" value-mapping="never-empty">
-       <pattern>([A-Za-z]{2}(-[A-Za-z]{2})?)?</pattern>
+        <pattern>([A-Za-z]{2}(-[A-Za-z]{2})?)?</pattern>
       </request-param>
       <route-param qname="gtn:sitetype">
         <value>group</value>
@@ -142,7 +122,7 @@
     <!-- The user access -->
     <route path="/u/{gtn:sitename}/{gtn:path}">
       <request-param qname="gtn:lang" name="lang" value-mapping="never-empty">
-       <pattern>([A-Za-z]{2}(-[A-Za-z]{2})?)?</pattern>
+        <pattern>([A-Za-z]{2}(-[A-Za-z]{2})?)?</pattern>
       </request-param>
       <route-param qname="gtn:sitetype">
         <value>user</value>
@@ -158,7 +138,7 @@
         <value>portal</value>
       </route-param>
       <path-param qname="gtn:lang" encoding="preserve-path">
-       <pattern>([A-Za-z]{2}(-[A-Za-z]{2})?)?</pattern>
+        <pattern>([A-Za-z]{2}(-[A-Za-z]{2})?)?</pattern>
       </path-param>
       <path-param qname="gtn:path" encoding="preserve-path">
         <pattern>.*</pattern>
@@ -167,20 +147,42 @@
 
   </route>
 
+  <!-- Script handler -->
+  <route path="/scripts/{gtn:version}/{gtn:scope}/">
+    <route-param qname="gtn:handler">
+      <value>script</value>
+    </route-param>
+    <path-param qname="gtn:version" encoding="preserve-path">
+      <pattern>[^/]*</pattern>
+    </path-param>
+    <route path="/{gtn:resource}{gtn:lang}{gtn:compress}.js">
+      <path-param qname="gtn:resource">
+        <pattern>.+?</pattern>
+      </path-param>
+      <path-param qname="gtn:lang" capture-group="true">
+        <pattern>-([A-Za-z]{2}(-[A-Za-z]{2})?)|</pattern>
+      </path-param>
+      <path-param qname="gtn:compress" capture-group="true">
+        <pattern>-(min)|</pattern>
+      </path-param>
+    </route>
+    <route path="/{gtn:resource}/{gtn:module}{gtn:lang}{gtn:compress}.js">
+      <path-param qname="gtn:module">
+        <pattern>.+?</pattern>
+      </path-param>
+      <path-param qname="gtn:lang" capture-group="true">
+        <pattern>-([A-Za-z]{2}(-[A-Za-z]{2})?)|</pattern>
+      </path-param>
+      <path-param qname="gtn:compress" capture-group="true">
+        <pattern>-(min)|</pattern>
+      </path-param>
+    </route>
+  </route>
+
   <!-- Default handler -->
   <route path="/">
     <route-param qname="gtn:handler">
       <value>default</value>
     </route-param>
   </route> 
-
- <route path="/{gtn:path}">
-   <route-param qname="gtn:handler">
-     <value>staticResource</value>
-   </route-param>
-   <path-param qname="gtn:path" encoding="preserve-path">
-     <pattern>.*\.(jpg|png|gif|ico|css)</pattern>
-   </path-param>
- </route>
-
 </controller>
