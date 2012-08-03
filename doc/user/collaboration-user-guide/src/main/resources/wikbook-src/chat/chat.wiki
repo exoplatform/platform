@@ -1,14 +1,14 @@
 {docbook}
 <note>
-<para> 
+<para>
 Two portlets, including <emphasis role="bold">Chat</emphasis> and <emphasis role="bold">Chatbar,</emphasis> and their services are deprecated. They remain fully supported for eXo customers, however they will not receive any enhancement and will be removed from the product
 scope in the future.
 </para>
 </note>
 {docbook}
 
-The *Chat* feature is used through the *Chat* or *Chatbar* portlet. The only difference between these portlets is the arrangement of common actions. 
-In particular, actions of the *Chat* portlet are arranged in a window, meanwhile actions of the *Chatbar* portlet are put in one bar. Also, the *Chatbar* holds shortcuts to your *Calendar*, *Contact*, *Mail*. 
+The *Chat* feature is used through the *Chat* or *Chatbar* portlet. The only difference between these portlets is the arrangement of common actions.
+In particular, actions of the *Chat* portlet are arranged in a window, meanwhile actions of the *Chatbar* portlet are put in one bar. Also, the *Chatbar* holds shortcuts to your *Calendar*, *Contact*, *Mail*.
 
 *Chat portlet*
 
@@ -20,9 +20,11 @@ In particular, actions of the *Chat* portlet are arranged in a window, meanwhile
 
 To use the *Chat* feature, you first need to add the Chat portlet or the Chatbar to a specific site or page as follows:
 
-*1.* Drag and drop the application called *Chat Portlet* or *ChatBar Portlet* from the *Edit Inline Composer/Page Editor --> Applications --> Collaboration* to the body of your selected site/page. 
-You can do this step while [creating a new page|#sect-User_Guide-Page_Creation_Wizard], or [editing an existing page|#sect-User_Guide-Manage_Pages-Edit_a_Page], or [editing the portal layout.|#proc-User_Guide-Manage_Portals-Edit_Layout]
-For example, drag and drop the *Chatbar* portlet as the below illustration.
+{docbook}
+<para>
+        <emphasis role="bold">1.</emphasis> Drag and drop the application called <guilabel>Chat Portlet</guilabel>
+        or <emphasis role="bold">ChatBar Portlet</emphasis> from the <menuchoice><guimenu> Edit Inline Composer/Page Editor</guimenu><guisubmenu>Applications</guisubmenu> <menuitem>Collaboration</menuitem></menuchoice> to the body of your selected site/page.  You can do this step while <link linkend="sect-User_Guide-Page_Creation_Wizard">creating a new page</link>, or <link linkend="sect-User_Guide-Manage_Pages-Edit_a_Page">editing an existing page</link>, or <link linkend="proc-User_Guide-Manage_Portals-Edit_Layout">editing the portal layout.</link> For example, drag and drop the <guilabel>Chatbar</guilabel> portlet as the below illustration.</para>
+{docbook}
 
 !images/Chat_drag_chat_bar.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
 
@@ -30,14 +32,29 @@ For example, drag and drop the *Chatbar* portlet as the below illustration.
 
 !images/Edit_chat_bar_portlet.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
 
-*3.* Go the the *Windows Settings* tab and uncheck the following options: *Show Info Bar*, *Show Porlet Mode*, *Show Window State*. By unchecking these options, the portlet border will be hidden. This may help the Chatbar portlet look homogeneous with other components of your site/page.
+{docbook}
+<para>
+        <emphasis role="bold">3.</emphasis> Go the the <guilabel>Windows Settings</guilabel> tab and uncheck the following options: <guilabel>Show Info Bar</guilabel>, <guilabel>Show Porlet Mode</guilabel>, <guilabel>Show Window State</guilabel>. By unchecking these options, the portlet border will be hidden. This may help the Chatbar portlet look homogeneous with other components of your site/page.</para>
+{docbook}
 
 !images/Chat_bar_window_settings.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
 
-*4.* Click *Save And Close* to finish your changes and quit the Edit form of the *ChatBar Portlet*.
+{docbook}
+<para>
+        <emphasis role="bold">4.</emphasis> Click <guibutton>Save And Close</guibutton> to finish your changes and quit the Edit form of the <emphasis role="bold">ChatBar Portlet</emphasis>.</para>
+{docbook}
 
-*5.* Click !images/Edit_inline_composer_Save.png|width="4mm" fo:scalefit="1" html:scalefit="0"! to save all changes on the page/site and quit the *Edit Inline Composer/Page Editor* form.
-After that, you will see the *Chatbar* in your site/page.
+{docbook}
+<para>
+        <emphasis role="bold">5.</emphasis> Click <inlinemediaobject>
+          <imageobject role="fo">
+            <imagedata fileref="images/Edit_inline_composer_Save.png" format="PNG" scalefit="1" width="4mm"/>
+          </imageobject>
+          <imageobject role="html">
+            <imagedata fileref="images/Edit_inline_composer_Save.png" format="PNG" scalefit="0" width="4mm"/>
+          </imageobject>
+        </inlinemediaobject> to save all changes on the page/site and quit the <guilabel>Edit Inline Composer/Page Editor</guilabel> form. After that, you will see the <emphasis role="bold">Chatbar</emphasis> in your site/page.</para>
+{docbook}
 
 {docbook}
 <note>
@@ -54,7 +71,9 @@ You can search for contacts in your *Address Book* and add them to your friend l
 
 !images/chat_add_contact.png|align="center" width="40mm" fo:scalefit="1" html:scalefit="0"!
 
-The *Add Contact* form will appear.
+{docbook}
+<para>The <guilabel>Add Contact</guilabel> form will appear.</para>
+{docbook}
 
 !images/add_contact_form.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
 
@@ -62,11 +81,16 @@ The *Add Contact* form will appear.
 
 You can use the *Search* function to search for a specific contact.
 
-*3.* Click the *Add Contact* button to add your selected contacts to your friend list.
+{docbook}
+<para>
+    <emphasis role="bold">3.</emphasis> Click the <guibutton>Add Contact</guibutton> button to add your selected contacts to your friend list.</para>
+{docbook}
 
 Your invited contacts will receive the request messages.
 
-After the contacts have accepted your requests, you will receive the confirmation messages. Click *OK* to allow your contacts to see your status and add contacts to your contacts list.
+{docbook}
+<para>After the contacts have accepted your requests, you will receive the confirmation messages. Click <guibutton>OK</guibutton> to allow your contacts to see your status and add contacts to your contacts list.</para>
+{docbook}
 
 After adding your contacts successfully, the added contacts will be shown in your friend list.
 
@@ -75,11 +99,17 @@ This action is to remove a contact from your friend list.
 
 *1.* Click !images/contact_icon.png|width="4mm" fo:scalefit="1" html:scalefit="0"! on the Chatbar to show your friend list.
 
-*2.* Right-click the contact that you want to remove, then select *Remove* from the drop-down menu.
+{docbook}
+<para>
+          <emphasis role="bold">2.</emphasis> Right-click the contact that you want to remove, then select <guilabel>Remove</guilabel> from the drop-down menu.</para>
+{docbook}
 
 !images/remove_context_menu.png|align="center" width="70mm" fo:scalefit="1" html:scalefit="0"!
 
-*2.* Click *OK* in the confirmation message to accept your removal.
+{docbook}
+<para>
+          <emphasis role="bold">3.</emphasis> Click <guibutton>OK</guibutton> in the confirmation message to accept your removal.</para>
+{docbook}
 
 h1. Chat with a contact {anchor:id="CSUser_guide.How_to_use_Chat.Chat_with_contact"}
 
@@ -95,7 +125,10 @@ Sending messages in *Chat* is as simple as typing and clicking, so it is easy fo
 </citetitle>
 {docbook}
 
-*1.* Open the *Conversation* window via one of the following ways:
+{docbook}
+<para>
+ <emphasis role="bold">1.</emphasis> Open the <guilabel>Conversation</guilabel> window via one of the following ways:</para>
+{docbook}
 
 *The first way*
 
@@ -103,9 +136,21 @@ Click the contact name that you want to chat from your friend list.
 
 *The second way*
 
-Click !images/contact_icon.png|width="4mm" fo:scalefit="1" html:scalefit="0"! on the Chatbar to show your friend list, then right-click your desired contact and select *Send Message* from the drop-down menu.
+{docbook}
+<para>Click <inlinemediaobject>
+              <imageobject role="fo">
+                <imagedata fileref="images/contact_icon.png" format="PNG" scalefit="1" width="4mm"/>
+              </imageobject>
+              <imageobject role="html">
+                <imagedata fileref="images/contact_icon.png" format="PNG" scalefit="0" width="4mm"/>
+              </imageobject>
+            </inlinemediaobject> on the Chatbar to show your friend list, then right-click your desired contact and select <guilabel>Send Message</guilabel> from the drop-down menu.</para>
+{docbook}
 
-*2.* Type the message that you want to send into the message textbox, then click the *Send* button or hit the Enter key to send your message.
+{docbook}
+<para>
+  <emphasis role="bold">2.</emphasis> Type the message that you want to send into the message textbox, then click the <guibutton>Send</guibutton> button or hit the Enter key to send your message.</para>
+{docbook}
 
 !images/conversation_window.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
 
@@ -117,7 +162,23 @@ Click !images/contact_icon.png|width="4mm" fo:scalefit="1" html:scalefit="0"! on
 </citetitle>
 {docbook}
 
-Click !images/chat_minimize_icon.png|width="4mm" fo:scalefit="1" html:scalefit="0"! at the right corner of the *Conversation* window to minimize it to the Chatbar. To restore the window, simply click the minimized window (!images/minimized_window_icon.png|width="4mm" fo:scalefit="1" html:scalefit="0"!) on the Chatbar.
+{docbook}
+<para>Click <inlinemediaobject>
+              <imageobject role="fo">
+                <imagedata fileref="images/chat_minimize_icon.png" format="PNG" scalefit="1" width="4mm"/>
+              </imageobject>
+              <imageobject role="html">
+                <imagedata fileref="images/chat_minimize_icon.png" format="PNG" scalefit="0" width="4mm"/>
+              </imageobject>
+            </inlinemediaobject> at the right corner of the <guilabel>Conversation</guilabel> window to minimize it to the Chatbar. To restore the window, simply click the minimized window (<inlinemediaobject>
+              <imageobject role="fo">
+                <imagedata fileref="images/minimized_window_icon.png" format="PNG" scalefit="1" width="4mm"/>
+              </imageobject>
+              <imageobject role="html">
+                <imagedata fileref="images/minimized_window_icon.png" format="PNG" scalefit="0" width="4mm"/>
+              </imageobject>
+            </inlinemediaobject>) on the Chatbar.</para>
+{docbook}
 
 !images/chat_bar1.png|align="center" width="30mm" fo:scalefit="1" html:scalefit="0"!
 
@@ -182,22 +243,45 @@ The *Chat* application allows you to send files to your contact, such as holiday
 </citetitle>
 {docbook}
 
-*1.* Click !images/send_file_button.png|width="14mm" fo:scalefit="1" html:scalefit="0"! on the *Conversation* window.
-
+{docbook}
+<para>
+            <emphasis role="bold">1.</emphasis> Click <inlinemediaobject>
+              <imageobject role="fo">
+                <imagedata fileref="images/send_file_button.png" format="PNG" scalefit="1" width="14mm"/>
+              </imageobject>
+              <imageobject role="html">
+                <imagedata fileref="images/send_file_button.png" format="PNG" scalefit="0" width="14mm"/>
+              </imageobject>
+            </inlinemediaobject> on the <guilabel>Conversation</guilabel> window.</para>
+{docbook}
 You will be prompted to select a file from your local device.
 
-*2.* Locate and select the file you want to send in the *File Upload* form, then click *Open*.
+{docbook}
+<para>
+ <emphasis role="bold">2.</emphasis> Locate and select the file you want to send in the <guilabel>File Upload</guilabel> form, then click <guibutton>Open</guibutton>.</para>
+{docbook}
 
 Your contacts may cancel or accept the file transfer.
 
 h2. Export the Chat history {anchor:id="CSUser_guide.How_to_use_Chat.Export_chat_history"}
 The *Chat* application can archive your chat conversation and allows you to export and save your conversation history to your local device.
-
-*1.* Click !images/export_history.png|width="17mm" fo:scalefit="1" html:scalefit="0"! on the *Conversation* window.
-
+{docbook}
+<para>
+            <emphasis role="bold">1.</emphasis> Click <inlinemediaobject>
+              <imageobject role="fo">
+                <imagedata fileref="images/export_history.png" format="PNG" scalefit="1" width="17mm"/>
+              </imageobject>
+              <imageobject role="html">
+                <imagedata fileref="images/export_history.png" format="PNG" scalefit="0" width="17mm"/>
+              </imageobject>
+            </inlinemediaobject> on the <guilabel>Conversation</guilabel> window.</para>
+{docbook}
 You will be prompted to select the location to save the exported file.
 
-*2.* Select the location to save the file, then click *Save* to accept the exported file to your local device.
+{docbook}
+<para>
+            <emphasis role="bold">2.</emphasis> Select the location to save the file, then click <guibutton>Save</guibutton> to accept the exported file to your local device.</para>
+{docbook}
 
 You will have a text file containing all of your conversation messages.
 
@@ -212,12 +296,30 @@ Your chat messages history can be shown in a specific time interval.
 
 Currently, the *Chat* application shows messages in the following time ranges:
 
-* *Today*: All messages of the current date.
-* *This week*: All messages of the current week.
-* *Last 30 days*: All messages during the last 30 days.
-* *Beginning*: All instant messages from the beginning to the current time.
+{docbook}
+<itemizedlist>
+            <listitem>
+              <para>
+                <guilabel>Today</guilabel>: All messages of the current date.</para>
+            </listitem>
+            <listitem>
+              <para>
+                <guilabel>This week</guilabel>: All messages of the current week.</para>
+            </listitem>
+            <listitem>
+              <para>
+                <guilabel>Last 30 days</guilabel>: All messages during the last 30 days.</para>
+            </listitem>
+            <listitem>
+              <para>
+                <guilabel>Beginning</guilabel>: All instant messages from the beginning to the current time.</para>
+            </listitem>
+          </itemizedlist>
+{docbook}
 
-All messages with the created time and date will be shown in the *Conversation* window.
+{docbook}
+ <para>All messages with the created time and date will be shown in the <guilabel>Conversation</guilabel> window.</para>
+{docbook}
 
 h1. Create a chat room {anchor:id="CSUser_guide.How_to_use_Chat.Create_a_chat_room"}
 A chat room is a place where people with similar interests can meet and communicate with each other. People can often enter an unmoderated chat room without any verification of who they are.
@@ -236,15 +338,25 @@ With *Chat*, you also create a chat room and invite other users to join your roo
 
 !images/pop_up_menu.png|align="center" width="80mm" fo:scalefit="1" html:scalefit="0"!
 
-The *New Room* form will appear.
+{docbook}
+<para>The <guilabel>New Room</guilabel> form will appear.</para>
+{docbook}
 
 !images/new_room-form.png|align="center" width="100mm" fo:scalefit="1" html:scalefit="0"!
 
-*2.* Enter the room name in the *Name* field without any spaces, then click *OK* to accept adding your new room.
+{docbook}
+<para>
+          <emphasis role="bold">2.</emphasis> Enter the room name in the <guilabel>Name</guilabel> field without any spaces, then click <guibutton>OK</guibutton> to accept adding your new room.</para>
+{docbook}
 
-After that, the *Conversation* window and *Room Configuration* form appears.
+{docbook}
+<para>After that, the <guilabel>Conversation</guilabel> window and <guilabel>Room Configuration</guilabel> form appears.</para>
+{docbook}
 
-*3.* Configure your chat room to your desires, including *General* and *Security* settings. {anchor:id="Configure_your_chat_room"} 
+{docbook}
+<para>
+          <emphasis role="bold">3.</emphasis> Configure your chat room to your desires, including <guilabel>General</guilabel> and <guilabel>Security</guilabel> settings. <anchor id="Configure_your_chat_room"/> </para>
+{docbook}
 
 {docbook}
 <note>
@@ -254,38 +366,142 @@ If you cancel this step, the default configuration will be used.
 </note>
 {docbook}
 
-*i.* Set the *General* settings. {anchor:id="Set_the_general_settings"}
+{docbook}
+<para>
+<emphasis role="bold">i.</emphasis> Set the <guilabel>General</guilabel> settings. <anchor id="Set_the_general_settings"/>
+</para>
+{docbook}
 
 !images/Chat_room_configuration_general.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
 
 *Details:*
 
-||Field||Description||
-|*Persistent Room*|Tick the checkbox if you want to set your room always exist even if no participant takes part. |
-|*Presence Broadcast*|By default, a room is configured without any invisible members. In this field, you can select any groups (Moderator, Participant, and Visitor) to be visible or not. Moderator is the user who has created the room or a participant who is granted the moderation right. If you want users of one group are hidden in the room, simply unselect the group. For example, if you only select the *Participant* and *Visitor* groups, users who are moderators of this room will not appear in the participants list of the chat room. Users of the hidden group only take part as "listeners" who can supervise the whole conversation of this room, although users of other groups do not know their presence. |
-|*Who is*| Specific users from the selected group in the *Presence Broadcast* field. At present, there is only the "anyone" option. |
-|*Room Description*|The brief description of the chat room.|
-|*Max Users*|The maximum number of participants in the chat room.|
+{docbook}
+<informaltable>
+          <tgroup cols="2">
+            <thead>
+              <row>
+                <entry>Field</entry>
+                <entry>Description</entry>
+              </row>
+            </thead>
+            <tbody>
+              <row>
+                <entry>
+                  <guilabel>Persistent Room</guilabel>
+                </entry>
+                <entry>Tick the checkbox if you want to set your room always exist even if no participant takes part. </entry>
+              </row>
+              <row>
+                <entry>
+                  <guilabel>Presence Broadcast</guilabel>
+                </entry>
+                <entry>By default, a room is configured without any invisible members. In this field, you can select any groups (Moderator, Participant, and Visitor) to be visible or not. Moderator is the user who has created the room or a participant who is granted the moderation right. If you want users of one group are hidden in the room, simply unselect the group. For example, if you only select the <emphasis role="bold">Participant</emphasis> and <emphasis role="bold">Visitor</emphasis> groups, users who are moderators of this room will not appear in the participants list of the chat room. Users of the hidden group only take part as "listeners" who can supervise the whole conversation of this room, although users of other groups do not know their presence. </entry>
+              </row>
+              <row>
+                <entry>
+                  <guilabel>Who is</guilabel>
+                </entry>
+                <entry> Specific users from the selected group in the <emphasis role="bold">Presence Broadcast</emphasis> field. At present, there is only the "anyone" option. </entry>
+              </row>
+              <row>
+                <entry>
+                  <guilabel>Room Description</guilabel>
+                </entry>
+                <entry>The brief description of the chat room.</entry>
+              </row>
+              <row>
+                <entry>
+                  <guilabel>Max Users</guilabel>
+                </entry>
+                <entry>The maximum number of participants in the chat room.</entry>
+              </row>
+            </tbody>
+          </tgroup>
+        </informaltable>
+{docbook}
 
-*ii.* Set the *Security* settings. {anchor:id="Set_the_security_settings"}
+{docbook}
+<para>
+          <emphasis role="bold">ii.</emphasis> Set the <guilabel>Security</guilabel> settings. <anchor id="Set_the_security_settings"/>  </para>
+{docbook}
 
-Click *Show Security* in the *Room Configuration* form to show the *Security* option.
+{docbook}
+<para>Click <guilabel>Show Security</guilabel> in the <guilabel>Room Configuration</guilabel> form to show the <guilabel>Security</guilabel> option.</para>
+{docbook}
 
 !images/room_configuration.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
 
 *Details:*
 
-||Field||Description||
-|*Public Room*|When this option is checked, your room is listed in the chat rooms list for everyone to see and join this room.|
-|*Member Only*|Tick this option to limit the number of participants. It means that users need to be invited to participate in the room.|
-|*Allow Invitations*|This option is only available if the "Member Only" option is checked. If checked, the room's participants can invite others to join chat room.|
-|*Reserved Nickname*|Tick this option to prevent anonymous users from joining the chat room. If this option is checked, only registered users can enter the room.|
-|*Password Protected Room*|This option is to change the public room to a locked, secure protected room accessible only to specific individuals with the right password.|
-|*Moderated Room*|The room is moderated or not. With the moderated room, you can select the room administrators.|
-|*Room Admins*|This option is to select the administrators for the created chat room. It is only available when the *Moderated Room* option is selected. At present, there is no difference between the room moderator and regular participants.|
-|*Room Owners*|This option is to select the room's creator.|
+{docbook}
+<informaltable>
+          <tgroup cols="2">
+            <thead>
+              <row>
+                <entry>Field</entry>
+                <entry>Description</entry>
+              </row>
+            </thead>
+            <tbody>
+              <row>
+                <entry>
+                  <guilabel>Public Room</guilabel>
+                </entry>
+                <entry>When this option is checked, your room is listed in the chat rooms list for everyone to see and join this room.</entry>
+              </row>
+              <row>
+                <entry>
+                  <guilabel>Member Only</guilabel>
+                </entry>
+                <entry>Tick this option to limit the number of participants. It means that users need to be invited to participate in the room.</entry>
+              </row>
+              <row>
+                <entry>
+                  <guilabel>Allow Invitations</guilabel>
+                </entry>
+                <entry>This option is only available if the "Member Only" option is checked. If checked, the room's participants can invite others to join chat room.</entry>
+              </row>
+              <row>
+                <entry>
+                  <guilabel>Reserved Nickname</guilabel>
+                </entry>
+                <entry>Tick this option to prevent anonymous users from joining the chat room. If this option is checked, only registered users can enter the room.</entry>
+              </row>
+              <row>
+                <entry>
+                  <guilabel>Password Protected Room</guilabel>
+                </entry>
+                <entry>This option is to change the public room to a locked, secure protected room accessible only to specific individuals with the right password.</entry>
+              </row>
+              <row>
+                <entry>
+                  <guilabel>Moderated Room</guilabel>
+                </entry>
+                <entry>The room is moderated or not. With the moderated room, you can select the room administrators.</entry>
+              </row>
+              <row>
+                <entry>
+                  <guilabel>Room Admins</guilabel>
+                </entry>
+                <entry>This option is to select the administrators for the created chat room. It is only available when the <guilabel>Moderated Room</guilabel> option is selected. At present, there is no difference between the room moderator and regular participants.</entry>
+              </row>
+              <row>
+                <entry>
+                  <guilabel>Room Owners</guilabel>
+                </entry>
+                <entry>This option is to select the room's creator.</entry>
+              </row>
+            </tbody>
+          </tgroup>
+        </informaltable>
+{docbook}
 
-*4.* Click *OK* to complete the room configuration.
+{docbook}
+<para>
+          <emphasis role="bold">4.</emphasis> Click <guibutton>OK</guibutton> to complete the room configuration.</para>
+{docbook}
+
 
 h2. Add people to a room {anchor:id="CSUser_guide.How_to_use_Chat.Add_contact_to_room}
 
@@ -293,7 +509,9 @@ This function is to add people to a chat room where you already participated.
 
 *1.* Click !images/add_contact_to_chat_room_icon.png|width="13mm" fo:scalefit="1" html:scalefit="0"! on the chat room conversation window.
 
-The *Add Contact* form will appear:
+{docbook}
+<para>The <guilabel>Add Contact</guilabel> form will appear:</para>
+{docbook}
 
 !images/add_contact_to_chat_room.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
 
@@ -301,7 +519,11 @@ The *Add Contact* form will appear:
 
 Also, you can search for contacts through your *Address Book* simply entering the search term in the Search textbox. It can be the first name, last name or user name. All contacts matching the search term will be displayed in the results list.
 
-*3.* Click *Add Contact* to finish. The contacts you want to add will receive your invitation message.
+
+{docbook}
+<para>
+  <emphasis role="bold">3.</emphasis> Click <guilabel>Add Contact</guilabel> to finish. The contacts you want to add will receive your invitation message.</para>
+{docbook}
 
 h2. Join a chat room {anchor:id="CSUser_guide.How_to_use_Chat.Join_chat_room"}
 
@@ -309,13 +531,17 @@ When joining a chat room, you can learn more about a subject, ask questions and 
 
 *1.* Click !images/chat_icon.png|width="4mm" fo:scalefit="1" html:scalefit="0"! on the Chatbar, then select !images/join_room_icon.png|width="13mm" fo:scalefit="1" html:scalefit="0"! from the drop-down menu.
 
-The *Join Room* form will appear.
+{docbook}
+<para>The <guilabel>Join Room</guilabel> form will appear.</para>
+{docbook}
 
 !images/join_room_form.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
 
 *2.* Select a room in the list by checking the appropriate radio button.
-
-*3.* Click *Join Room* to join the selected room. Click the *Refresh* button if you want to clear the selected rooms.
+{docbook}
+<para>
+   <emphasis role="bold">3.</emphasis> Click <guilabel>Join Room</guilabel> to join the selected room. Click the <guibutton>Refresh</guibutton> button if you want to clear the selected rooms.</para>
+{docbook}
 
 {docbook}
 <note>
@@ -334,9 +560,19 @@ Click !images/leave_room_icon.png|width="13mm" fo:scalefit="1" html:scalefit="0"
 Your conversation window of this room will be closed and you will not receive messages from the chat room any more.
 
 h2. Configure a chat room {anchor:id="CSUser_guide.How_to_use_Chat.Configure_chat_room}
-When creating a chat room, you are required to configure it before you can start the chat room conversation. However, after the chat room was created, you can also update the room configuration at any time. 
+When creating a chat room, you are required to configure it before you can start the chat room conversation. However, after the chat room was created, you can also update the room configuration at any time.
 
-*1.* Click !images/chat_options_icon.png|width="13mm" fo:scalefit="1" html:scalefit="0"! in the *Conversation* form of the chat room.
+{docbook}
+<para>
+            <emphasis role="bold">1.</emphasis> Click <inlinemediaobject>
+              <imageobject role="fo">
+                <imagedata fileref="images/chat_options_icon.png" format="PNG" scalefit="1" width="13mm"/>
+              </imageobject>
+              <imageobject role="html">
+                <imagedata fileref="images/chat_options_icon.png" format="PNG" scalefit="0" width="13mm"/>
+              </imageobject>
+            </inlinemediaobject> in the <guilabel>Conversation</guilabel> form of the chat room.</para>
+{docbook}
 
 *2.* Set values for the fields in this form. For more details, see [here|#Configure_your_chat_room].
 
@@ -346,4 +582,4 @@ When creating a chat room, you are required to configure it before you can start
     The chat room configuration is available only if you are the owner or administrator of the chat room. You can change the room owner and select the room administrator in the <link linkend="Set_the_security_settings">Set the Security settings</link> section.
     </para>
 </note>
-{docbook} 
+{docbook}

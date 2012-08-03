@@ -24,36 +24,74 @@ h3. Edit a forum {anchor:id=Forum_Moderator.Moderate_forums.Edit_forums}
 
 *1.* Go into the relevant forum.
 
-*2.* Click !images/More_actions_btn.png|width="20mm" fo:scalefit="1" html:scalefit="0"! on the *Action* bar, then click *Edit* from the drop-down menu.
-
-*3.* Edit the forum properties. 
+{docbook}
+<para>
+              <emphasis role="bold">2.</emphasis> Click <inlinemediaobject>
+                <imageobject role="fo">
+                  <imagedata fileref="images/More_actions_btn.png" format="PNG" scalefit="1" width="20mm"/>
+                </imageobject>
+                <imageobject role="html">
+                  <imagedata fileref="images/More_actions_btn.png" format="PNG" scalefit="0" width="20mm"/>
+                </imageobject>
+              </inlinemediaobject> on the <emphasis role="bold">Action</emphasis> bar, then click <guilabel>Edit</guilabel> from the drop-down menu.</para>
+{docbook}
+*3.* Edit the forum properties.
 
 !images/admin_add_forum_tab.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
-
-*4.* Click *Save* to save all the changes.
+{docbook}
+<para>
+ <emphasis role="bold">4.</emphasis> Click <guibutton>Save</guibutton> to save all the changes.</para>
+{docbook}
 
 h3. Lock/Unlock a forum {anchor:id=Forum_Moderator.Moderate_forums.Lock-unlock_forums}
 Locking a forum will prevent all members from creating new topics and posting replies in this forum. All topics in a locked forum will be locked also, but their content is still viewable.
 Moderators can only lock/unlock the forum that they manage.
 
 *1.* Go into the forum.
-
-*2.* Click !images/More_actions_btn.png|width="20mm" fo:scalefit="1" html:scalefit="0"! on the *Action* bar, then click *Lock/Unlock* from the drop-down menu.
+{docbook}
+<para>
+              <emphasis role="bold">2.</emphasis> Click <inlinemediaobject>
+                <imageobject role="fo">
+                  <imagedata fileref="images/More_actions_btn.png" format="PNG" scalefit="1" width="20mm"/>
+                </imageobject>
+                <imageobject role="html">
+                  <imagedata fileref="images/More_actions_btn.png" format="PNG" scalefit="0" width="20mm"/>
+                </imageobject>
+              </inlinemediaobject> on the <emphasis role="bold">Action</emphasis> bar, then click <guilabel>Lock/Unlock</guilabel> from the drop-down menu.</para>
+{docbook}
 
 h3. Close/Open a forum {anchor:id=Forum_Moderator.Moderate_forums.Close-open_forums}
 Closed forums are invisible to regular users. To administrators and moderators, the content in a closed forum is still viewable, but creating topics and comments is disabled. Moderators can only close the forum that they are assigned to manage.
 
 *1.* Go into the forum you want to close or open.
-
-*2.* Click !images/More_actions_btn.png|width="20mm" fo:scalefit="1" html:scalefit="0"! on the *Action* bar, then select *Close* or *Open* from the drop-down menu.
+{docbook}
+<para>
+              <emphasis role="bold">2.</emphasis> Click <inlinemediaobject>
+                <imageobject role="fo">
+                  <imagedata fileref="images/More_actions_btn.png" format="PNG" scalefit="1" width="20mm"/>
+                </imageobject>
+                <imageobject role="html">
+                  <imagedata fileref="images/More_actions_btn.png" format="PNG" scalefit="0" width="20mm"/>
+                </imageobject>
+              </inlinemediaobject> on the <emphasis role="bold">Action</emphasis> bar, then select <guilabel>Close</guilabel> or <guilabel>Open</guilabel> from the drop-down menu.</para>
+{docbook}
 
 h3. Move a forum {anchor:id=Forum_Moderator.Moderate_forums.Move_forums}
 
 You can move a forum into another category as follows:
 
 *1.* Go into the forum you want to move.
-
-*2.* Click !images/More_actions_btn.png|width="20mm" fo:scalefit="1" html:scalefit="0"! on the *Action* bar, then select *Move* from the drop-down menu.
+{docbook}
+<para>
+              <emphasis role="bold">2.</emphasis> Click <inlinemediaobject>
+                <imageobject role="fo">
+                  <imagedata fileref="images/More_actions_btn.png" format="PNG" scalefit="1" width="20mm"/>
+                </imageobject>
+                <imageobject role="html">
+                  <imagedata fileref="images/More_actions_btn.png" format="PNG" scalefit="0" width="20mm"/>
+                </imageobject>
+              </inlinemediaobject> on the <emphasis role="bold">Action</emphasis> bar, then select <guilabel>Move</guilabel> from the drop-down menu.</para>
+{docbook}
 
 A list of existing categories will appear. Select a destination category to	which your selected forum will be moved.
 
@@ -95,38 +133,58 @@ Moderator can view the list of topics to be moderated. See [View all pending mod
 *1.* Select topics by ticking their relevant checkboxes, then click !images/Moderation_btn.png|width="20mm" fo:scalefit="1" html:scalefit="0"! on the *Action* bar if you are in a list of topics;
 
 Or, if you are in a topic, simply click !images/More_actions_btn.png|width="20mm" fo:scalefit="1" html:scalefit="0"! on the *Action* bar.
-
-*2.* Click *Approve* from the drop-down menu.
-
+{docbook}
+<para>
+<emphasis role="bold">2.</emphasis> Click <guilabel>Approve</guilabel> from the drop-down menu.</para>
+{docbook}
 *The second way*
-
-*1.* Click !images/Moderation_btn.png|width="20mm" fo:scalefit="1" html:scalefit="0"! on the *Action* bar, then click *Approve* from the drop-down menu. The *Waiting for Approval* form opens.
-
+{docbook}
+<para>
+              <emphasis role="bold">1.</emphasis> Click <inlinemediaobject>
+                <imageobject role="fo">
+                  <imagedata fileref="images/Moderation_btn.png" format="PNG" scalefit="1" width="20mm"/>
+                </imageobject>
+                <imageobject role="html">
+                  <imagedata fileref="images/Moderation_btn.png" format="PNG" scalefit="0" width="20mm"/>
+                </imageobject>
+              </inlinemediaobject> on the <emphasis role="bold">Action</emphasis> bar, then click <guilabel>Approve</guilabel> from the drop-down menu. The <guilabel>Waiting for Approval</guilabel> form opens.</para>
+{docbook}
 *2.* Select checkboxes corresponding to the posts you want to approve. You can preview the post when hovering your cursor over the post title.
 
 !images/mod_unapproved_topics.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
 
-*3.* Click *Approve* to accept your approval. Approved posts are shown normally for regular users to view and take some actions.
-
+{docbook}<para>
+ <emphasis role="bold">3.</emphasis> Click <guilabel>Approve</guilabel> to accept your approval. Approved posts are shown normally for regular users to view and take some actions.</para>
+{docbook}
 h3. Edit a topic {anchor:id=Forum_Moderator.Moderate_topics.Edit_topics}
 
 *1.* Select a topic to edit by ticking its respective checkbox.
-
-*2.* Click !images/Moderation_btn.png|width="20mm" fo:scalefit="1" html:scalefit="0"! on the *Action* bar, then click *Edit* from the drop-down menu that appears.
-
+{docbook}
+<para>
+              <emphasis role="bold">2.</emphasis> Click <inlinemediaobject>
+                <imageobject role="fo">
+                  <imagedata fileref="images/Moderation_btn.png" format="PNG" scalefit="1" width="20mm"/>
+                </imageobject>
+                <imageobject role="html">
+                  <imagedata fileref="images/Moderation_btn.png" format="PNG" scalefit="0" width="20mm"/>
+                </imageobject>
+              </inlinemediaobject> on the <emphasis role="bold">Action</emphasis> bar, then click <guilabel>Edit</guilabel> from the drop-down menu that appears.</para>
+{docbook}
 !images/mod_edit_topic.png|align="center" width="100mm" fo:scalefit="1" html:scalefit="0"!
-
-*3.* Make changes on the topic. Leave the reason for editing in the *Reason* field if needed.
-
+{docbook}
+<para>
+  <emphasis role="bold">3.</emphasis> Make changes on the topic. Leave the reason for editing in the <guilabel>Reason</guilabel> field if needed.</para>
+{docbook}
 h3. Close/Open a topic {anchor:id=Forum_Moderator.Moderate_topics.Close-Open_topics}
 Only administrators and moderators can perform these actions. Closed topics will be invisible to regular users. Moderator can only close or open topics in the category that he manages.
 
-*1.* Select a topic by ticking its relevant checkbox, then click !images/Moderation_btn.png|width="20mm" fo:scalefit="1" html:scalefit="0"! on the *Action* bar if you are in a topics list; 
+*1.* Select a topic by ticking its relevant checkbox, then click !images/Moderation_btn.png|width="20mm" fo:scalefit="1" html:scalefit="0"! on the *Action* bar if you are in a topics list;
 
 Or, click !images/More_actions_btn.png|width="20mm" fo:scalefit="1" html:scalefit="0"! on the *Action* bar if you are in a topic.
-
-*2.* Click *Close* or *Open* from the drop-down menu.
-
+{docbook}
+<para>
+<emphasis role="bold">2.</emphasis> Click <guilabel>Close</guilabel> or <guilabel>Open</guilabel> from the drop-down menu.</para>
+{docbook}
 The icon of the closed topic will be changed to !images/Closed_topic_icon.png|width="5mm" fo:scalefit="1" html:scalefit="0"! automatically.
 
 h3. Move a topic {anchor:id=Forum_Moderator.Moderate_topics.Move_topics}
@@ -135,9 +193,10 @@ Only administrators and moderators can perform this action. This function is use
 *1.* Select a topic by ticking its relevant checkbox, then click !images/Moderation_btn.png|width="20mm" fo:scalefit="1" html:scalefit="0"! on the *Action* bar if you are in a topics list;
 
 Or, click !images/More_actions_btn.png|width="20mm" fo:scalefit="1" html:scalefit="0"! on the *Action* bar if you are in a topic.
-
-*2.* Click *Move* from the drop-down menu.
-
+{docbook}
+<para>
+  <emphasis role="bold">2.</emphasis> Click <guilabel>Move</guilabel> from the drop-down menu.</para>
+{docbook}
 *3.* Click a destination forum to move.
 
 !images/mod_move_topics.png|align="center" width="80mm" fo:scalefit="1" html:scalefit="0"!
@@ -167,20 +226,24 @@ h3. Delete a topic {anchor:id=Forum_Moderator.Moderate_topics.Delete_topics}
 *1.* Select topics by ticking their corresponding checkboxes, then click !images/Moderation_btn.png|width="20mm" fo:scalefit="1" html:scalefit="0"! on the *Action* bar if you are in a topics list;
 
 Or, click !images/More_actions_btn.png|width="20mm" fo:scalefit="1" html:scalefit="0"! on the *Action* bar if you are already in a topic.
-
-*2.* Click *Delete* from the drop-down menu.
-
-*3.* Click *OK* in the confirmation message to accept your deletion.
-
+{docbook}
+<para>
+   <emphasis role="bold">2.</emphasis> Click <guilabel>Delete</guilabel> from the drop-down menu.</para>
+{docbook}
+{docbook}
+<para>
+ <emphasis role="bold">3.</emphasis> Click <guibutton>OK</guibutton> in the confirmation message to accept your deletion.</para>
+{docbook}
 h3. Lock/Unlock a topic {anchor:id=Forum_Moderator.Moderate_topics.Lock-Unlock_topics}
 This function is for administrators and moderators only to lock inappropriate topics. All posts in a clocked topic are still viewable, but posting replies will be disabled.
 
 *1.* Select a topic by ticking its corresponding checkbox, then click !images/Moderation_btn.png|width="20mm" fo:scalefit="1" html:scalefit="0"! on the *Action* bar when you are in a topics list;
 
 Or, click !images/More_actions_btn.png|width="20mm" fo:scalefit="1" html:scalefit="0"! on the *Action* bar when you are in a topic.
-
-*2.* Click *Lock* or *Unlock* from the drop-down menu.
-
+{docbook}
+<para>
+  <emphasis role="bold">2.</emphasis> Click <guilabel>Lock</guilabel> or <guilabel>Unlock</guilabel> from the drop-down menu.</para>
+{docbook}
 h3. Stick/Unstick a topic {anchor:id=Forum_Moderator.Moderate_topics.Stick-Unstick_topics}
 
 This function is for administrators and moderators only to stick topics which will be located at the top of the topics list. The topics will not fall down the list if any new posts are added.
@@ -188,15 +251,18 @@ This function is for administrators and moderators only to stick topics which wi
 *1.* Select a topic by ticking the corresponding checkbox, then click !images/Moderation_btn.png|width="20mm" fo:scalefit="1" html:scalefit="0"! on the *Action* bar when you are in a topics list.
 
 Click !images/More_actions_btn.png|width="20mm" fo:scalefit="1" html:scalefit="0"! on the *Action* bar if you are already in a topic which you want to stick/unstick.
-
-*2.* Click *Stick* or *Unstick* from the drop-down menu that appears.
+{docbook}
+<para>
+   <emphasis role="bold">2.</emphasis> Click <guilabel>Stick</guilabel> or <guilabel>Unstick</guilabel> from the drop-down menu that appears.</para>
+{docbook}
 
 You can see the sticked topic in the top of the topics list.
 
 !images/mod_stick_topics.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
-
-When creating a new topic, you can also make this topic sticked by ticking the *Sticky* checkbox in the [*Options* tab|#start_topic_options_tab].
-
+{docbook}
+<para>When creating a new topic, you can also make this topic sticked by ticking the <guilabel>Sticky</guilabel> checkbox in the <link linkend="start_topic_options_tab">
+Options tab</link>.</para>
+{docbook}
 h3. Merge topics {anchor:id=Forum_Moderator.Moderate_topics.Merge_topics}
 When there are two or more related topics, you may want to merge these topics into one.
 
@@ -205,34 +271,49 @@ When there are two or more related topics, you may want to merge these topics in
 *2.* Select more than two topics to be merged by ticking their checkboxes.
 
 *3.* Click !images/Moderation_btn.png|width="20mm" fo:scalefit="1" html:scalefit="0"! on the forum *Action* bar.
-
-*4.* Click *Merge* from the drop-down menu that appears. The *Merge Topics* form opens.
-
+{docbook}
+<para>
+  <emphasis role="bold">4.</emphasis> Click <guilabel>Merge</guilabel> from the drop-down menu that appears. The <guilabel>Merge Topics</guilabel> form opens.</para>
+{docbook}
 !images/mod_merge_topics_form.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
 
 *5.* Select a destination topic which will be the main entry of the merged topic from the list of the existing topics.
 
-*6.* Give one name for the new topic in the *New Topic Title* field if you want.
-
-*7.* Click *Save* to accept. 
-
+{docbook}
+<para>
+<emphasis role="bold">6.</emphasis> Give one name for the new topic in the <guilabel>New Topic Title</guilabel> field if you want.</para>
+{docbook}
+{docbook}
+<para>
+ <emphasis role="bold">7.</emphasis> Click <guibutton>Save</guibutton> to accept. </para>
+{docbook}
 After being merged, selected topics will be joined into one topic. All posts of the other topics are displayed as posts below the main entry.
 
 h3. Split a topic {anchor:id=Forum_Moderator.Moderate_topics.Split_topics}
 A topic with more than two posts can be split into separate topics.
 
 *1.* Go into the topic you want to split.
-
-*2.* Click !images/More_actions_btn.png|width="20mm" fo:scalefit="1" html:scalefit="0"! on the *Action* bar, and select *Split* from the drop-down menu. The *Split Topic* form opens.
-
+{docbook}
+<para>
+              <emphasis role="bold">2.</emphasis> Click <inlinemediaobject>
+                <imageobject role="fo">
+                  <imagedata fileref="images/More_actions_btn.png" format="PNG" scalefit="1" width="20mm"/>
+                </imageobject>
+                <imageobject role="html">
+                  <imagedata fileref="images/More_actions_btn.png" format="PNG" scalefit="0" width="20mm"/>
+                </imageobject>
+              </inlinemediaobject> on the <emphasis role="bold">Action</emphasis> bar, and select <guilabel>Split</guilabel> from the drop-down menu. The <guilabel>Split Topic</guilabel> form opens.</para>
+{docbook}
 !images/mod_split_topic_form.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
-
-*3.* Enter the name for the new topic in the *New Topic* field.
-
+{docbook}
+<para>
+<emphasis role="bold">3.</emphasis> Enter the name for the new topic in the <guilabel>New Topic</guilabel> field.</para>
+{docbook}
 *4.* Select posts by ticking their respective checkboxes.
-
-*5.* Click *Save* to complete.
-
+{docbook}
+<para>
+ <emphasis role="bold">5.</emphasis> Click <guibutton>Save</guibutton> to complete.</para>
+{docbook}
 The new topic will be displayed in the topics list with the new name. The last selected post will become the main entry of the new topic.
 
 h2. Moderate posts {anchor:id=Forum_user_guide.Forum_Moderator.Moderate_posts}
@@ -259,23 +340,41 @@ All posts in a topic that requires [post moderation|#posts_moderation] will not 
 
 !images/mod_approve_posts.png|align="center" width="100mm" fo:scalefit="1" html:scalefit="0"!
 
-You can select to approve a single post or multiple posts at the same time. The moderator can view the list of tasks to be moderated. 
+You can select to approve a single post or multiple posts at the same time. The moderator can view the list of tasks to be moderated.
 See [View all pending moderation tasks|#Forum-user_guide.Forum_Moderator.View_pending_tasks] for more details.
 
 *The first way*
 
 *1.* Select the posts to approve.
-
-*2.* Click !images/Moderation_btn.png|width="20mm" fo:scalefit="1" html:scalefit="0"! on the *Action* bar, and select *Approve* from the drop-down menu.
-
+{docbook}
+<para>
+              <emphasis role="bold">2.</emphasis> Click <inlinemediaobject>
+                <imageobject role="fo">
+                  <imagedata fileref="images/Moderation_btn.png" format="PNG" scalefit="1" width="20mm"/>
+                </imageobject>
+                <imageobject role="html">
+                  <imagedata fileref="images/Moderation_btn.png" format="PNG" scalefit="0" width="20mm"/>
+                </imageobject>
+              </inlinemediaobject> on the <emphasis role="bold">Action</emphasis> bar, and select <guilabel>Approve</guilabel> from the drop-down menu.</para>
+{docbook}
 *The second way*
 
-*1.* Click !images/Moderation_btn.png|width="20mm" fo:scalefit="1" html:scalefit="0"! on the *Action* bar, and click *Approve* from the drop-down menu. The *Unapproved Topics List* form opens.
-
+{docbook}
+<para>
+              <emphasis role="bold">1.</emphasis> Click <inlinemediaobject>
+                <imageobject role="fo">
+                  <imagedata fileref="images/Moderation_btn.png" format="PNG" scalefit="1" width="20mm"/>
+                </imageobject>
+                <imageobject role="html">
+                  <imagedata fileref="images/Moderation_btn.png" format="PNG" scalefit="0" width="20mm"/>
+                </imageobject>
+              </inlinemediaobject> on the <emphasis role="bold">Action</emphasis> bar, and click <guilabel>Approve</guilabel> from the drop-down menu. The <guilabel>Unapproved Topics List</guilabel> form opens.</para>
+{docbook}
 *2.* Select checkboxes corresponding to the posts you want to approve. You will see the preview of the post when hovering your cursor over the post title.
-
-*3.* Click *Approve* to accept your approval.
-
+{docbook}
+<para>
+<emphasis role="bold">3.</emphasis> Click <guilabel>Approve</guilabel> to accept your approval.</para>
+{docbook}
 Approved posts are shown normally for regular users to view and take some actions.
 
 h3. Delete a post {anchor:id=Forum_Moderator.Moderate_posts.Delete_posts}
@@ -283,33 +382,59 @@ h3. Delete a post {anchor:id=Forum_Moderator.Moderate_posts.Delete_posts}
 *The first way*
 
 *1.* Tick the checkbox corresponding to the post you want to delete.
-
-*2.* Click !images/Moderation_btn.png|width="20mm" fo:scalefit="1" html:scalefit="0"! on the *Action* bar, then select *Delete* from the drop-down menu.
-
-*3.* Click *OK* in the confirmation message to accept your deletion.
-
+{docbook}
+<para>
+              <emphasis role="bold">2.</emphasis> Click <inlinemediaobject>
+                <imageobject role="fo">
+                  <imagedata fileref="images/Moderation_btn.png" format="PNG" scalefit="1" width="20mm"/>
+                </imageobject>
+                <imageobject role="html">
+                  <imagedata fileref="images/Moderation_btn.png" format="PNG" scalefit="0" width="20mm"/>
+                </imageobject>
+              </inlinemediaobject> on the <emphasis role="bold">Action</emphasis> bar, then select <guilabel>Delete</guilabel> from the drop-down menu.</para>
+{docbook}
+{docbook}
+<para>
+<emphasis role="bold">3.</emphasis> Click <guibutton>OK</guibutton> in the confirmation message to accept your deletion.</para>
+{docbook}
 *The second way*
 
 *1.* Click !images/delete_post_btn.png|width="15mm" fo:scalefit="1" html:scalefit="0"! under the post you want to delete.
-
-*2.* Click *OK* in the confirmation message to accept your deletion.
-
+{docbook}
+<para>
+<emphasis role="bold">2.</emphasis> Click <guibutton>OK</guibutton> in the confirmation message to accept your deletion.</para>
+{docbook}
 h3. Move a post {anchor:id=Forum_Moderator.Moderate_posts.Move_posts}
 You can move posts to a topic of your choice.
 
 *1.* Select the post that you would like to move.
-
-*2.* Click !images/Moderation_btn.png|width="20mm" fo:scalefit="1" html:scalefit="0"! on the *Action* bar, then select *Move* from the drop-down menu.
-
+{docbook}
+<para>
+              <emphasis role="bold">2.</emphasis> Click <inlinemediaobject>
+                <imageobject role="fo">
+                  <imagedata fileref="images/Moderation_btn.png" format="PNG" scalefit="1" width="20mm"/>
+                </imageobject>
+                <imageobject role="html">
+                  <imagedata fileref="images/Moderation_btn.png" format="PNG" scalefit="0" width="20mm"/>
+                </imageobject>
+              </inlinemediaobject> on the <emphasis role="bold">Action</emphasis> bar, then select <guilabel>Move</guilabel> from the drop-down menu.</para>
+{docbook}
 *3.* Select a destination topic in the topics list that appears.
 
 The moderator will be checked for "Move" permission. He can only move posts inside the forum that he manages. Therefore, at the destination topics list, only the topics which the Moderator has the "move" permission, are listed.
 
 h3. Hide a post {anchor:id=Forum_Moderator.Moderate_posts.Hide_posts}
-When a post is hidden, only administrators and moderators can view and manage it. 
-
-To hide a post, select !images/Moderation_btn.png|width="20mm" fo:scalefit="1" html:scalefit="0"! on the *Action* bar, and click *Hide* from the drop-down menu.
-
+When a post is hidden, only administrators and moderators can view and manage it.
+{docbook}
+<para>To hide a post, select <inlinemediaobject>
+                <imageobject role="fo">
+                  <imagedata fileref="images/Moderation_btn.png" format="PNG" scalefit="1" width="20mm"/>
+                </imageobject>
+                <imageobject role="html">
+                  <imagedata fileref="images/Moderation_btn.png" format="PNG" scalefit="0" width="20mm"/>
+                </imageobject>
+              </inlinemediaobject> on the <emphasis role="bold">Action</emphasis> bar, and click <guilabel>Hide</guilabel> from the drop-down menu.</para>
+{docbook}
 !images/mod_hidden_posts.png|align="center" width="100mm" fo:scalefit="1" html:scalefit="0"!
 
 After being hidden, the hidden post is marked with the 'Post Hidden!' label which cannot be viewed by regular users.
@@ -318,19 +443,39 @@ h3. Show a post {anchor:id=Forum_Moderator.Moderate_posts.Show_posts}
 You can show a single or multiple hidden posts at the same time:
 
 *The first way*
-
-* Select the post to be unhidden and click !images/Moderation_btn.png|width="20mm" fo:scalefit="1" html:scalefit="0"! on the *Action* bar, then click *Show* from the drop-down menu.
-
+{docbook}
+<itemizedlist>
+              <listitem>
+                <para>Select the post to be unhidden and click <inlinemediaobject>
+                    <imageobject role="fo">
+                      <imagedata fileref="images/Moderation_btn.png" format="PNG" scalefit="1" width="20mm"/>
+                    </imageobject>
+                    <imageobject role="html">
+                      <imagedata fileref="images/Moderation_btn.png" format="PNG" scalefit="0" width="20mm"/>
+                    </imageobject>
+                  </inlinemediaobject> on the <emphasis role="bold">Action</emphasis> bar, then click <guilabel>Show</guilabel> from the drop-down menu.</para>
+              </listitem>
+</itemizedlist>
+{docbook}
 *The second way*
 
 * Follow this method to show multiple posts.
-
-*1.* Click !images/Moderation_btn.png|width="20mm" fo:scalefit="1" html:scalefit="0"! on the *Action* bar, then select *Show* from the drop-down menu.
-
+{docbook}
+<para>
+              <emphasis role="bold">1.</emphasis> Click <inlinemediaobject>
+                <imageobject role="fo">
+                  <imagedata fileref="images/Moderation_btn.png" format="PNG" scalefit="1" width="20mm"/>
+                </imageobject>
+                <imageobject role="html">
+                  <imagedata fileref="images/Moderation_btn.png" format="PNG" scalefit="0" width="20mm"/>
+                </imageobject>
+              </inlinemediaobject> on the <emphasis role="bold">Action</emphasis> bar, then select <guilabel>Show</guilabel> from the drop-down menu.</para>
+{docbook}
 *2.* Select hidden posts by ticking their checkboxes.
-
-*3.* Click *Show*.
-
+{docbook}
+<para>
+<emphasis role="bold">3.</emphasis> Click <guilabel>Show</guilabel>.</para>
+{docbook}
 h3. Uncensor a post {anchor:id=Forum_Moderator.Moderate_posts.Uncensor_posts}
 The administrators and moderators can uncensor all topics, posts containing censored keywords. These censored keywords are [specified by Administrator|#Forum_Administrator.Administrative_tasks.Define_censored_keywords]. All topics and posts
 containing these keywords will be labeled with 'Pending and Censored!' or 'Post Censored!' respectively.
@@ -340,28 +485,40 @@ containing these keywords will be labeled with 'Pending and Censored!' or 'Post 
 * Follow this method to uncensor a specific post/topic.
 
 *1.* Select censored posts/topics by ticking their checkboxes.
-
-*2.* Select !images/Moderation_btn.png|width="20mm" fo:scalefit="1" html:scalefit="0"! on the *Action* bar, then click *Censor* from the drop-down menu.
-
+{docbook}
+<para>
+              <emphasis role="bold">2.</emphasis> Select <inlinemediaobject>
+                <imageobject role="fo">
+                  <imagedata fileref="images/Moderation_btn.png" format="PNG" scalefit="1" width="20mm"/>
+                </imageobject>
+                <imageobject role="html">
+                  <imagedata fileref="images/Moderation_btn.png" format="PNG" scalefit="0" width="20mm"/>
+                </imageobject>
+              </inlinemediaobject> on the <emphasis role="bold">Action</emphasis> bar, then click <guilabel>Censor</guilabel> from the drop-down menu.</para>
+{docbook}
 *The second way*
 
 * Follow this method to uncensor posts/topics in the list of existing hidden posts/topics.
-
-*1.* Click *Moderation* on the *Action* bar, then select *Censor* from the drop-down menu. A list of hidden posts appears.
-
+{docbook}
+<para>
+ <emphasis role="bold">1.</emphasis> Click <guilabel>Moderation</guilabel> on the <emphasis role="bold">Action</emphasis> bar, then select <guilabel>Censor</guilabel> from the drop-down menu. A list of hidden posts appears.</para>
+{docbook}
 *2.* Select hidden posts by ticking their relevant checkboxes.
-
-*3.* Click *Show*.
-
+{docbook}
+<para>
+<emphasis role="bold">3.</emphasis> Click <guilabel>Show</guilabel>.</para>
+{docbook}
 h2. View all pending moderation tasks {anchor:id=Forum-user_guide.Forum_Moderator.View_pending_tasks}
 Administrators and moderators can manage all pending tasks in *Forum* easily. The total number of pending topic/posts that need to be moderated are shown right on the *User* bar/*Forum Administration* bar.
 
 !images/mod_pending_topics_number.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
+{docbook}
+<para>To open the list of pending tasks, click <guilabel>Pending</guilabel> on the <emphasis role="bold">User</emphasis> bar.</para>
+{docbook}
 
-To open the list of pending tasks, click *Pending* on the *User* bar.
-
-The pending topics and posts are shown in the *Waiting for Approval* form.
-
+{docbook}
+<para>The pending topics and posts are shown in the <guilabel>Waiting for Approval</guilabel> form.</para>
+{docbook}
 !images/mod_unapproved_topics.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
 
 This form lists all the pending topics, posts and the created dates. From here, you can approve or delete topics/posts.
@@ -379,9 +536,10 @@ This form lists all the pending topics, posts and the created dates. From here, 
 *1.* Click the topic/post title in the list.
 
 !images/mod_view_topic.png|align="center" width="80mm" fo:scalefit="1" html:scalefit="0"!
-
-*2.* Click the *Approve* button to accept approving topic/post.
-
+{docbook}
+<para>
+            <emphasis role="bold">2.</emphasis> Click the <guibutton>Approve</guibutton> button to accept approving topic/post.</para>
+{docbook}
 {docbook}
 <citetitle>
 <para>
@@ -390,8 +548,9 @@ This form lists all the pending topics, posts and the created dates. From here, 
 </citetitle>
 {docbook}
 
-Simply click the *Delete This Topic/Delete This Post* button. The pending topic/post will be removed completely from the pending list and its forum.
-
+{docbook}
+<para>Simply click the <guilabel>Delete This Topic/Delete This Post</guilabel> button. The pending topic/post will be removed completely from the pending list and its forum.</para>
+{docbook}
 h2. Ban IPs {anchor:id=Forum-user_guide.Forum_Moderator.Ban_IPs}
 This function allows banning IPs that may be used by users who abuse the forum functions or violate the forum rules and policies.
 
@@ -406,9 +565,17 @@ This function is similar to the [Ban IPs tool used by administrators|#Forum_Admi
 {docbook}
 
 *1.* Go to the forum you want to ban IP.
-
-*2.* Click !images/More_actions_btn.png|width="20mm" fo:scalefit="1" html:scalefit="0"! on the *Action* bar, then select *Banned IPs* from the drop-down menu. The *Banned IPs* form opens.
-
+{docbook}
+<para>
+            <emphasis role="bold">2.</emphasis> Click <inlinemediaobject>
+              <imageobject role="fo">
+                <imagedata fileref="images/More_actions_btn.png" format="PNG" scalefit="1" width="20mm"/>
+              </imageobject>
+              <imageobject role="html">
+                <imagedata fileref="images/More_actions_btn.png" format="PNG" scalefit="0" width="20mm"/>
+              </imageobject>
+            </inlinemediaobject> on the <emphasis role="bold">Action</emphasis> bar, then select <guilabel>Banned IPs</guilabel> from the drop-down menu. The <guilabel>Banned IPs</guilabel> form opens.</para>
+{docbook}
 !images/admin_forum_banned_IPs.png|align="center" width="100mm" fo:scalefit="1" html:scalefit="0"!
 
 *3.* Do the [same actions|#administration-ban-IPs] as the *[Ban IPs|#Forum_Administrator.Administrative_tasks.Ban_IPs]* section of Administrators.

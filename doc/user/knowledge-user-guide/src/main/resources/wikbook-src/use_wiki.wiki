@@ -35,15 +35,15 @@ Space is a set of pages, so the spaces partitioning means that spaces are indepe
 
 There are 3 space types:
 
-* *Portal wiki*: The global wiki of a portal. 
+* *Portal wiki*: The global wiki of a portal.
 
-A portal wiki is published for every user who can access that portal. 
+A portal wiki is published for every user who can access that portal.
 
-* *Group wiki*: The wiki of a space. 
+* *Group wiki*: The wiki of a space.
 
-A group wiki can be understood as a space wiki. The wiki application of a space works as a group wiki for that space ({{"/Spaces/name\_of\_space"}} group). The group wiki can be accessed by members of that group. 
+A group wiki can be understood as a space wiki. The wiki application of a space works as a group wiki for that space ({{"/Spaces/name\_of\_space"}} group). The group wiki can be accessed by members of that group.
 
-For example: 
+For example:
 
 !images/group_wiki.png|width="150mm" align="center" fo:scalefix="1" html:scalefix="0"!
 
@@ -79,21 +79,29 @@ In this way, you need to use the toolbar.
 
 *1.* Go to a Wiki space in which you want to create a page.
 
-*2.* Click *Add Page*, then select *Blank Page* or *From Template...* to add a page with a template.
+{docbook}
+<para>
+ <emphasis role="bold">2.</emphasis> Click <guilabel>Add Page</guilabel>, then select <guilabel>Blank Page</guilabel> or <guilabel>From Template...</guilabel> to add a page with a template.</para>
+{docbook}
 
 !images/add_wiki_page.png|align="center" width="50mm" fo:scalefit="1" html:scalefit="0"!
-
-If you select *From Template...*, a list of available templates will appear.
+{docbook}
+<para>If you select <guilabel>From Template...</guilabel>, a list of available templates will appear.</para>
+{docbook}
 
 !images/wiki_template.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
 
 You can:
-
-*i.* Click *Preview* corresponding to the template you want to see. The template preview appears.
+{docbook}
+<para>
+  <emphasis role="bold">i.</emphasis> Click <guilabel>Preview</guilabel> corresponding to the template you want to see. The template preview appears.</para>
+{docbook}
 
 !images/Wiki_template_preview.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
-
-*ii.* Click *Select* corresponding to the template you want to select for your new page. The selected template appears.
+{docbook}
+<para>
+ <emphasis role="bold">ii.</emphasis> Click <guilabel>Select</guilabel> corresponding to the template you want to select for your new page. The selected template appears.</para>
+{docbook}
 
 !images/wiki_available_template.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
 
@@ -101,9 +109,15 @@ You can:
 
 *4.* Enter the content of your page by using *[Wiki Markup|#KSuser.Wiki.Syntax_Help]* or the *[WYSIWYG|#KSuser.Wiki.Use_WYSIWYG_editor]* editor.
 
-*5.* Click *Preview* if you want to see how your page looks like.
+{docbook}
+<para>
+ <emphasis role="bold">5.</emphasis> Click <guilabel>Preview</guilabel> if you want to see how your page looks like.</para>
+{docbook}
 
-*6.* Click *Save* to finish.
+{docbook}
+<para>
+  <emphasis role="bold">6.</emphasis> Click <guibutton>Save</guibutton> to finish.</para>
+{docbook}
 
 *The second way* {anchor:id=KSuser.Work_with_Wiki_pages.Create_pages.Second_way}
 
@@ -125,10 +139,15 @@ For example:
 
 ||What you type|| What you get||
 |\[eXo User Guide\]|!images/undefined_link.png| width="17mm" fo:scalefit="1" html:scalefit="0"!|
+{docbook}
+<para>
+  <emphasis role="bold">2.</emphasis> Click <guibutton>Save</guibutton> to save the page containing the link. The undefined link is underlined.</para>
+{docbook}
 
-*2.* Click *Save* to save the page containing the link. The undefined link is underlined.
-
-*3.* Click this link to open the *Add Page* form.
+{docbook}
+<para>
+ <emphasis role="bold">3.</emphasis> Click this link to open the <guilabel>Add Page</guilabel> form.</para>
+{docbook}
 
 *4.* Follow the steps stated [above|#KSuser.Work_with_Wiki_pages.Create_pages.First_way] to enter the page title, content and save the page.
 
@@ -143,7 +162,9 @@ You can edit a page at any time if you have the *Edit* permission on that page.
 </citetitle>
 {docbook}
 
-To edit the whole page content, click *Edit* in the *Page Control* area. Your page will be switched to the *Edit* mode.
+{docbook}
+  <para>To edit the whole page content, click <guilabel>Edit</guilabel> in the <guilabel>Page Control</guilabel> area. Your page will be switched to the <emphasis role="bold">Edit</emphasis> mode.</para>
+{docbook}
 
 !images/page_control.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
 
@@ -185,7 +206,10 @@ h2. Move a page to another location {anchor:id=KSuser.Work_with_Wiki_pages.Move_
 
 *1.* Select a page that you want to move.
 
-*2.* Click *More* in the *Page Control* area, then select *Move Page* from the drop-down menu.
+{docbook}
+<para>
+ <emphasis role="bold">2.</emphasis> Click <guilabel>More</guilabel> in the <guilabel>Page Control</guilabel> area, then select <guilabel>Move Page</guilabel> from the drop-down menu.</para>
+{docbook}
 
 !images/wiki_move_page.png|align="center" width="50mm" fo:scalefit="1" html:scalefit="0"!
 
@@ -194,23 +218,31 @@ The form to select the destination page appears.
 !images/wiki_destination_page.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
 
 *3.* Select the destination page.
-
-*4.* Click *Move*.
+{docbook}
+<para>
+ <emphasis role="bold">4.</emphasis> Click <guibutton>Move</guibutton>.</para>
+{docbook}
 
 {note}
 The *Move page* action is not displayed when you are at the Wiki Home. You can only move pages inside a wiki space and not between spaces.
 {note}
 
 h2. Delete a page {anchor:id=KSuser.Work_with_Wiki_pages.Delete_pages}
-
-*1.* Open the page you want to delete, then select *More* in the *Page Control* area.
+{docbook}
+<para>
+  <emphasis role="bold">1.</emphasis> Open the page you want to delete, then select <guilabel>More</guilabel> in the <guilabel>Page Control</guilabel> area.</para>
+{docbook}
 
 !images/Delete_page.png|align="center" width="50mm" fo:scalefit="1" html:scalefit="0"!
 
-*2.* Click *Delete Page* from the drop-down menu.
-
-*3.* Click *OK* in the confirmation message to accept your deletion.
-
+{docbook}
+<para>
+  <emphasis role="bold">2.</emphasis> Click <guilabel>Delete Page</guilabel> from the drop-down menu.</para>
+{docbook}
+{docbook}
+<para>
+  <emphasis role="bold">3.</emphasis> Click <guibutton>OK</guibutton> in the confirmation message to accept your deletion.</para>
+{docbook}
 {docbook}
 <note>
 <para>
@@ -225,8 +257,10 @@ h2. View page information {anchor:id=KSuser.Work_with_Wiki_pages.View_page_info}
 Viewing page information is accessible to users who have the View permission on that page. The page information provides details about related pages of the current page, the hierarchy structure of the current page, the page history, and more.
 
 *1.* Select the page you want to view the information.
-
-*2.* Click *More* from the page toolbar, then select *Page Info* from the drop-down menu.
+{docbook}
+<para>
+            <emphasis role="bold">2.</emphasis> Click <guilabel>More</guilabel> from the page toolbar, then select <guilabel>Page Info</guilabel> from the drop-down menu.</para>
+{docbook}
 
 All information of the opening page, including page summary, related pages, page hierarchy, recent changes will be displayed.
 
@@ -238,10 +272,15 @@ Here, you can do the following actions:
 
 h3. Add a related page {anchor:id=KSuser.Work_with_Wiki_pages.Add_related_pages}
 This feature allows you to add pages related to your page. This function can be done in the *Page Info* view and is activated to users with the Edit permission.
+{docbook}
+<para>
+  <emphasis role="bold">1.</emphasis> Click <guilabel>Add More Relations</guilabel> in the <link linkend="KSuser.Work_with_Wiki_pages.View_page_info">Page Info</link> view, then select the related pages in the <guilabel>Select a page</guilabel> window.</para>
+{docbook}
 
-*1.* Click *Add More Relations* in the [Page Info|#KSuser.Work_with_Wiki_pages.View_page_info] view, then select the related pages in the *Select a page* window.
-
-*2.* Click *Select* to add the selected page to the list of the *Related Pages*.
+{docbook}
+<para>
+  <emphasis role="bold">2.</emphasis> Click <guibutton>Select</guibutton> to add the selected page to the list of the <guilabel>Related Pages</guilabel>.</para>
+{docbook}
 
 !images/wiki_select_page.png|align="center" width="100mm" fo:scalefit="1" html:scalefit="0"!
 
@@ -251,10 +290,12 @@ The related pages of the opening page are displayed in the side pane as below.
 
 
 h3. View a page history {anchor:id=KSuser.Work_with_Wiki_pages.View_page_history}
-
-To access the page history, just click *View Page History* in the [Page Info|#KSuser.Work_with_Wiki_pages.View_page_info] view.
+{docbook}
+<para>To access the page history, just click <guilabel>View Page History</guilabel> in the <link linkend="KSuser.Work_with_Wiki_pages.View_page_info">Page Info</link> view.</para>
+{docbook}
 
 The *History Page* appears.
+
 
 !images/page_history.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
 
@@ -282,8 +323,10 @@ Watching a page allows you to receive a notification message about any changes i
 {docbook}
 
 *1.* Open the page you want to watch.
-
-*2.* Click *More* in the *Page Control* area, then select *Watch* from the drop-down menu.
+{docbook}
+<para>
+    <emphasis role="bold">2.</emphasis> Click <guilabel>More</guilabel> in the <guilabel>Page Control</guilabel> area, then select <guilabel>Watch</guilabel> from the drop-down menu.</para>
+{docbook}
 
 !images/wiki_watch_page.png|align="center" width="60mm" fo:scalefit="1" html:scalefit="0"!
 
@@ -298,8 +341,10 @@ Watching a page allows you to receive a notification message about any changes i
 
 
 *1.* Open the page which you are watching.
-
-*2.* Click *More* in the *Page Control* area, then select *Stop Watching* from the drop-down menu.
+{docbook}
+<para>
+ <emphasis role="bold">2.</emphasis> Click <guilabel>More</guilabel> in the <guilabel>Page Control</guilabel> area, then select <guilabel>Stop Watching</guilabel> from the drop-down menu.</para>
+{docbook}
 
 !images/wiki_stop_watch_page.png|align="center" width="50mm" fo:scalefit="1" html:scalefit="0"!
 
@@ -309,12 +354,16 @@ Attachments are any files enclosed with your pages. The attachments may be image
 h2. View all attachments of a page {anchor:id=KSuser.Work_with_attachment.View_attachments}
 
 *1.* Open the page you want to view attachments.
-
-*2.* Click the *Attachment(s)* link in the *Page info* area.
+{docbook}
+<para>
+<emphasis role="bold">2.</emphasis> Click the <guilabel>Attachment(s)</guilabel> link in the <guilabel>Page info</guilabel> area.</para>
+{docbook}
 
 !images/wiki_attachment.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
 
-The *Attachment* pane of that page will appear:
+{docbook}
+<para>The <guilabel>Attachment</guilabel> pane of that page will appear:</para>
+{docbook}
 
 !images/Wiki_attachments_list.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
 
@@ -326,61 +375,111 @@ h2. Add an attachment to a page {anchor:id=KSuser.Work_with_attachment.Add_attac
 There are two ways to add an attachment to a page:
 
 *The first way* {anchor:id=Add_attachment_Attachment_pane}
-
-In this way, you need to open the *Attachment* pane of the page.
+{docbook}
+<para>In this way, you need to open the <guilabel>Attachment</guilabel> pane of the page.</para>
+{docbook}
 
 !images/Wiki_upload_attachment.png|align="center" width="100mm" fo:scalefit="1" html:scalefit="0"!
 
-*1.* Click the *Upload New File* in the attachment list pane. The upload window will appear.
+{docbook}
+<para>
+ <emphasis role="bold">1.</emphasis> Click the <guilabel>Upload New File</guilabel> in the attachment list pane. The upload window will appear.</para>
+{docbook}
 
-*2.* Select a file from your local device, then click *Open*. The file will be uploaded automatically then.
+{docbook}
+<para>
+  <emphasis role="bold">2.</emphasis> Select a file from your local device, then click <guibutton>Open</guibutton>. The file will be uploaded automatically then.</para>
+{docbook}
 
 *The second way* {anchor:id=Add_attachment_WYSIWYG editor}
+
 
 You can use this method when editing the page content by *WYSIWYG* editor (Rich Text editor).
 
 *1.* Select a page to which you want to add an attachment.
-
-*2.* Select *Edit* at the *Page Control* area. For more details, see the [Edit a page|#KSuser.Work_with_Wiki_pages.Edit_pages] section.
+{docbook}
+<para>
+<emphasis role="bold">2.</emphasis> Select <guilabel>Edit</guilabel> at the <guilabel>Page Control</guilabel> area. For more details, see the <link linkend="KSuser.Work_with_Wiki_pages.Edit_pages">Edit a page</link> section.</para>
+{docbook}
 
 *3.* Select the *Rich Text* editor on the page toolbar.
 
 !images/rich_text_editor.png|align="center" width="50mm" fo:scalefit="1" html:scalefit="0"!
 
-*4.* Click !images/Link_icon.png| width="13mm" fo:scalefit="1" html:scalefit="0"! on the toolbar of the *Rich Text* editor, then select *Attached File...* from the drop-down menu.
+{docbook}
+<para>
+            <emphasis role="bold">4.</emphasis> Click <inlinemediaobject>
+              <imageobject role="fo">
+                <imagedata fileref="images/Link_icon.png" format="PNG" scalefit="1" width="13mm"/>
+              </imageobject>
+              <imageobject role="html">
+                <imagedata fileref="images/Link_icon.png" format="PNG" scalefit="0" width="13mm"/>
+              </imageobject>
+            </inlinemediaobject> on the toolbar of the <emphasis role="bold">Rich Text</emphasis> editor, then select <guilabel>Attached File...</guilabel> from the drop-down menu.</para>
+{docbook}
 
 !images/wiki_attach_file.png|align="center" width="100mm" fo:scalefit="1" html:scalefit="0"!
 
-The *Link* form is displayed as below.
+{docbook}
+<para>The <guilabel>Link</guilabel> form is displayed as below.</para>
+{docbook}
 
 !images/wiki_link_form.png|align="center" width="100mm" fo:scalefit="1" html:scalefit="0"!
 
 *5.*  Select a file to upload. Now you can upload a new file or select one file from existing files.
 
 * *Upload a new file:*
-*i.* Double-click *Upload new file*, or click *Upload new file --> Select* in the *Current page* or *All pages* tab.
+{docbook}
+<para>
+ <emphasis role="bold">i.</emphasis> Double-click <guilabel>Upload new file</guilabel>, or click <menuchoice><guimenu>Upload new file</guimenu><menuitem>Select</menuitem></menuchoice> in the <guilabel>Current page</guilabel> or <guilabel>All pages</guilabel> tab.</para>
+{docbook}
 
-*ii.* Click *Browse* to select a file from your local device, then select *Upload*.
+{docbook}
+<para>
+<emphasis role="bold">ii.</emphasis> Click <guibutton>Browse</guibutton> to select a file from your local device, then select <guilabel>Upload</guilabel>.</para>
+{docbook}
 
-* *Select from existing files:* Click the file, then select *Select*.
-
+{docbook}
+<itemizedlist>
+            <listitem>
+              <para>
+                <emphasis role="bold">Select from existing files:</emphasis> Click the file, then select <guibutton>Select</guibutton>.</para>
+            </listitem>
+</itemizedlist>
+{docbook}
 The form to edit the link parameters appears.
 
 !images/wiki_edit_link.png|align="center" width="80mm" fo:scalefit="1" html:scalefit="0"!
 
 *6.* Provide the link label and tooltip.
-
-*7.* Click *Create Link* to update the link.
-
+{docbook}
+<para>
+ <emphasis role="bold">7.</emphasis> Click <guilabel>Create Link</guilabel> to update the link.</para>
+{docbook}
 h2. Insert an image {anchor:id=KSuser.Work_with_attachment.Link_to_image}
-
-*1.* Click !images/Image_btn.png| width="13mm" fo:scalefit="1" html:scalefit="0"! on the text editor, then select *Insert Image...*
+{docbook}
+<para>
+            <emphasis role="bold">1.</emphasis> Click <inlinemediaobject>
+              <imageobject role="fo">
+                <imagedata fileref="images/Image_btn.png" format="PNG" scalefit="1" width="13mm"/>
+              </imageobject>
+              <imageobject role="html">
+                <imagedata fileref="images/Image_btn.png" format="PNG" scalefit="0" width="13mm"/>
+              </imageobject>
+            </inlinemediaobject> on the text editor, then select <guilabel>Insert Image...</guilabel>
+ </para>
+{docbook}
 
 !images/wiki_link_to_image.png|align="center" width="100mm" fo:scalefit="1" html:scalefit="0"!
+{docbook}
+<para>
+<emphasis role="bold">2.</emphasis> Select an inserted image of the current page, or click the <guilabel>All Pages</guilabel> tab to select an image attached to another page in the space.</para>
+{docbook}
 
-*2.* Select an inserted image of the current page, or click the *All Pages* tab to select an image attached to another page in the space.
-
-*3.* Click the *Insert Image...* button.
+{docbook}
+<para>
+  <emphasis role="bold">3.</emphasis> Click the <guilabel>Insert Image...</guilabel> button.</para>
+{docbook}
 
 h1. Use the WYSIWYG Editor (Rich Text editor) {anchor:id=KSuser.Wiki.Use_WYSIWYG_editor}
 
@@ -409,7 +508,16 @@ The lateral pane can be hidden by clicking !images/Close_button.png| width="4mm"
 
 !images/Quick_notation.png|align="center" width="50mm" fo:scalefit="1" html:scalefit="0"!
 
-You can click !images/More_syntaxes.png| width="7mm" fo:scalefit="1" html:scalefit="0"! at the bottom of the short *Help Tips* form to open the *Full Syntax Notation* page.
+{docbook}
+<para>You can click <inlinemediaobject>
+            <imageobject role="fo">
+              <imagedata fileref="images/More_syntaxes.png" format="PNG" scalefit="1" width="7mm"/>
+            </imageobject>
+            <imageobject role="html">
+              <imagedata fileref="images/More_syntaxes.png" format="PNG" scalefit="0" width="7mm"/>
+            </imageobject>
+ </inlinemediaobject> at the bottom of the short <guilabel>Help Tips</guilabel> form to open the <emphasis role="bold">Full Syntax Notation</emphasis> page.</para>
+{docbook}
 
 You can insert icons, emoticons to emphasize the content. The usage is described in the *Full Syntax Notation* page with example so you can easily remember and use them.
 
@@ -422,48 +530,178 @@ By using macros, you can apply extra formatting, functionality and customization
 You can easily add macro tags by using the *Rich Text* editor.
 
 *1.* Switch to [*Rich Text* editor|#KSuser.Wiki.Use_WYSIWYG_editor].
-
-*2.* Click *Macros*, then  select *Insert Macros...* from the drop-down menu.
+{docbook}
+<para>
+  <emphasis role="bold">2.</emphasis> Click <guilabel>Macros</guilabel>, then  select <guilabel>Insert Macros...</guilabel> from the drop-down menu.</para>
+{docbook}
 
 !images/wiki_macros.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
 
-The *Insert Macros* form appears.
+{docbook}
+<para>The <guilabel>Insert Macros</guilabel> form appears.</para>
+{docbook}
 
 !images/wiki_macros_form.png|align="center" width="100mm" fo:scalefit="1" html:scalefit="0"!
 
 The macro is classified into different categories: *Content*, *Formatting*, *Navigation*.
 
 *3.* Select a macro category.
-
-*4.* Select your desired macro from the selected categories list, then click the *Select* button, or simply double-click it. For example, if you select the *Box* macro, you will go to the macro parameters form.
+{docbook}
+<para>
+<emphasis role="bold">4.</emphasis> Select your desired macro from the selected categories list, then click the <guilabel>Select</guilabel> button, or simply double-click it. For example, if you select the <guilabel>Box</guilabel> macro, you will go to the macro parameters form.</para>
+{docbook}
 
 !images/Macro_parameters_form.png|align="center" width="100mm" fo:scalefit="1" html:scalefit="0"!
-
-*5.* Enter parameters into the corresponding fields for your selected macro. Click *Insert Macro* to perform your macro insertion, or click *Previous* to return to the initial *Insert Macro* form.
+{docbook}
+<para>
+  <emphasis role="bold">5.</emphasis> Enter parameters into the corresponding fields for your selected macro. Click <guilabel>Insert Macro</guilabel> to perform your macro insertion, or click <guilabel>Previous</guilabel> to return to the initial <guilabel>Insert Macro</guilabel> form.</para>
+{docbook}
 
 The following table describes specific functions of common macros.
-
-||Macro||Function||
-|*Excerpt*| Create additional information for the current page and it can be set to "hidden" in the current page, but displayed to add more information as the summary about the page when it is used with the Page Tree macro.|
-|*Include Page*| Include the content of another page in the current page.|
-|*Box* | Draw a box around the provided content.|
-|*Color*| Change the text color. |
-|*Code*| Highlight code snippets of various programming languages. |
-|*Error Message*| Display an error message note.|
-|*Float* | Allow content to 'float' on the left or the right. |
-|*Info Message* |Display an info message.|
-|*No Format* |Keep the content displayed like you type.|
-|*Note Message*|Display a note message.|
-|*Panel* |Embrace a block of text within a fully customizable panel. |
-|*Table* {example}{example}*Table cell*{example}{example}*Table row*| Inset a table. {example}{example}Insert a table cell. {example}{example}Insert a table row.|
-|*Tip Message* |Display a tip message block.{example}{example} |
-|*Warning Message* |Display a warning message block. {example}{example} |
-|*Anchor* |Create an anchor in a page. |
-|*Children* |Display the children and descendants of a specific page in the current page. |
-|*Page Tree* |Display the hierarchy of a page in the current page. |
-|*Related Pages* |Render the related pages of the current page. |
-|*Table of Content* |Generate a table of content for the current page. |
-|*Section* & *Column* |Write the content in columns. |
+{docbook}
+ <informaltable>
+          <tgroup cols="2">
+            <thead>
+              <row>
+                <entry>Macro</entry>
+                <entry>Function</entry>
+              </row>
+            </thead>
+            <tbody>
+              <row>
+                <entry>
+                  <guilabel>Excerpt</guilabel>
+                </entry>
+                <entry> Create additional information for the current page and it can be set to "hidden" in the current page, but displayed to add more information as the summary about the page when it is used with the Page Tree macro.</entry>
+              </row>
+              <row>
+                <entry>
+                  <guilabel>Include Page</guilabel>
+                </entry>
+                <entry> Include the content of another page in the current page.</entry>
+              </row>
+              <row>
+                <entry>
+                  <guilabel>Box</guilabel> </entry>
+                <entry> Draw a box around the provided content.</entry>
+              </row>
+              <row>
+                <entry>
+                  <guilabel>Color</guilabel>
+                </entry>
+                <entry> Change the text color. </entry>
+              </row>
+              <row>
+                <entry>
+                  <guilabel>Code</guilabel>
+                </entry>
+                <entry> Highlight code snippets of various programming languages. </entry>
+              </row>
+              <row>
+                <entry>
+                  <guilabel>Error Message</guilabel>
+                </entry>
+                <entry> Display an error message note.</entry>
+              </row>
+              <row>
+                <entry>
+                  <guilabel>Float</guilabel> </entry>
+                <entry> Allow content to 'float' on the left or the right. </entry>
+              </row>
+              <row>
+                <entry>
+                  <guilabel>Info Message</guilabel> </entry>
+                <entry>Display an info message.</entry>
+              </row>
+              <row>
+                <entry>
+                  <guilabel>No Format</guilabel> </entry>
+                <entry>Keep the content displayed like you type.</entry>
+              </row>
+              <row>
+                <entry>
+                  <guilabel>Note Message</guilabel>
+                </entry>
+                <entry>Display a note message.</entry>
+              </row>
+              <row>
+                <entry>
+                  <guilabel>Panel</guilabel> </entry>
+                <entry>Embrace a block of text within a fully customizable panel. </entry>
+              </row>
+              <row>
+                <entry>
+                  <para>
+                    <guilabel>Table</guilabel> <informalexample>
+                      <informalexample/>
+                    </informalexample>
+                    <guilabel>Table cell</guilabel>
+                    <informalexample>
+                      <informalexample/>
+                    </informalexample>
+                    <guilabel>Table row</guilabel>
+                  </para>
+                </entry>
+                <entry>
+                  <para> Inset a table. <informalexample>
+                      <informalexample/>
+                    </informalexample>Insert a table cell. <informalexample>
+                      <informalexample/>
+                    </informalexample>Insert a table row.</para>
+                </entry>
+              </row>
+              <row>
+                <entry>
+                  <guilabel>Tip Message</guilabel> </entry>
+                <entry>
+                  <para>Display a tip message block.<informalexample>
+                      <informalexample/>
+                    </informalexample> </para>
+                </entry>
+              </row>
+              <row>
+                <entry>
+                  <guilabel>Warning Message</guilabel> </entry>
+                <entry>
+                  <para>Display a warning message block. <informalexample>
+                      <informalexample/>
+                    </informalexample> </para>
+                </entry>
+              </row>
+              <row>
+                <entry>
+                  <guilabel>Anchor</guilabel> </entry>
+                <entry>Create an anchor in a page. </entry>
+              </row>
+              <row>
+                <entry>
+                  <guilabel>Children</guilabel> </entry>
+                <entry>Display the children and descendants of a specific page in the current page. </entry>
+              </row>
+              <row>
+                <entry>
+                  <guilabel>Page Tree</guilabel> </entry>
+                <entry>Display the hierarchy of a page in the current page. </entry>
+              </row>
+              <row>
+                <entry>
+                  <guilabel>Related Pages</guilabel> </entry>
+                <entry>Render the related pages of the current page. </entry>
+              </row>
+              <row>
+                <entry>
+                  <guilabel>Table of Content</guilabel> </entry>
+                <entry>Generate a table of content for the current page. </entry>
+              </row>
+              <row>
+                <entry>
+                  <guilabel>Section</guilabel> &amp; <guilabel>Column</guilabel> </entry>
+                <entry>Write the content in columns. </entry>
+              </row>
+            </tbody>
+          </tgroup>
+        </informaltable>
+{docbook}
 
 h1. Work with page versions {anchor:id=KSuser.Wiki.Work_with_Page_versions}
 When editing the content of a page, *Wiki* will automatically create a version of that page after it is saved. Thanks to the page versions, you can make changes on the page safely and roll back to an earlier version without worrying about messing things up.
@@ -480,7 +718,7 @@ Each version includes the following information:
 {docbook}
 <note>
     <para>
-    All functions, including viewing, comparing and restoring, can also be done by clicking the <emphasis role="bold">Revisions</emphasis> link at the <emphasis role="bold">Page Info</emphasis> bar. One pop-up pane appears right under this bar, allowing you to do the same steps as described below.
+    All functions, including viewing, comparing and restoring, can also be done by clicking the <guilabel>Revisions</guilabel> link at the <guilabel>Page Info</guilabel> bar. One pop-up pane appears right under this bar, allowing you to do the same steps as described below.
     </para>
 </note>
 {docbook}
@@ -491,11 +729,46 @@ To view a specific version of a page, just click a version label in the *Page Hi
 !images/wiki_view_version.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
 
 At a version of the page, you can do the following actions:
-* Compare the current version with the selected one !images/no1.png|width="4mm" fo:scalefit="1" html:scalefit="0"!.
-* Replace the current version with the selected version !images/no2.png|width="4mm" fo:scalefit="1" html:scalefit="0"!.
-* Go to the *Page History* page !images/no3.png|width="4mm" fo:scalefit="1" html:scalefit="0"!.
-* View content of the previous version by selecting *Prev*.
-* View content of the next version by selecting *Next*.
+{docbook}
+<itemizedlist>
+            <listitem>
+              <para>Compare the current version with the selected one <inlinemediaobject>
+                  <imageobject role="fo">
+                    <imagedata fileref="images/no1.png" format="PNG" scalefit="1" width="4mm"/>
+                  </imageobject>
+                  <imageobject role="html">
+                    <imagedata fileref="images/no1.png" format="PNG" scalefit="0" width="4mm"/>
+                  </imageobject>
+                </inlinemediaobject>.</para>
+            </listitem>
+            <listitem>
+              <para>Replace the current version with the selected version <inlinemediaobject>
+                  <imageobject role="fo">
+                    <imagedata fileref="images/no2.png" format="PNG" scalefit="1" width="4mm"/>
+                  </imageobject>
+                  <imageobject role="html">
+                    <imagedata fileref="images/no2.png" format="PNG" scalefit="0" width="4mm"/>
+                  </imageobject>
+                </inlinemediaobject>.</para>
+            </listitem>
+            <listitem>
+              <para>Go to the <emphasis role="bold">Page History</emphasis> page <inlinemediaobject>
+                  <imageobject role="fo">
+                    <imagedata fileref="images/no3.png" format="PNG" scalefit="1" width="4mm"/>
+                  </imageobject>
+                  <imageobject role="html">
+                    <imagedata fileref="images/no3.png" format="PNG" scalefit="0" width="4mm"/>
+                  </imageobject>
+                </inlinemediaobject>.</para>
+            </listitem>
+            <listitem>
+              <para>View content of the previous version by selecting <guilabel>Prev</guilabel>.</para>
+            </listitem>
+            <listitem>
+              <para>View content of the next version by selecting <guilabel>Next</guilabel>.</para>
+            </listitem>
+          </itemizedlist>
+{docbook}
 
 h2. Compare page versions {anchor:id=KSuser.Work_with_page_version.Compare_versions}
 
@@ -539,17 +812,52 @@ h1. Work with Spaces {anchor:id=KSuser.Wiki.Work_with_Spaces}
 {code}http://hostname/$CONTAINER/$SITE/$NAV_URI/[$OWNER_TYPE/$OWNER]/$WIKI_PAGE_URI{code}
 
 {docbook}
-<para>
-</para>
+<informaltable>
+          <tgroup cols="2">
+            <thead>
+              <row>
+                <entry> Item</entry>
+                <entry> Description</entry>
+              </row>
+            </thead>
+            <tbody>
+              <row>
+                <entry>
+                  <guilabel>$CONTAINER$</guilabel>
+                </entry>
+                <entry>The portal container.</entry>
+              </row>
+              <row>
+                <entry>
+                  <guilabel>$SITE</guilabel>
+                </entry>
+                <entry>The portal site (e.g,'classic').</entry>
+              </row>
+              <row>
+                <entry>
+                  <guilabel>$NAV_URI</guilabel> </entry>
+                <entry>The URI of navigation bound to a page containing the <emphasis role="bold">Wiki</emphasis> portlet.</entry>
+              </row>
+              <row>
+                <entry>
+                  <guilabel>$OWNER_TYPE</guilabel>
+                </entry>
+                <entry> May be 'group' or 'user'.</entry>
+              </row>
+              <row>
+                <entry>
+                  <guilabel>$OWNER</guilabel> </entry>
+                <entry>The wiki owner which can be name of user or of group.</entry>
+              </row>
+              <row>
+                <entry>
+                  <guilabel>$WIKI_PAGE_URI</guilabel> </entry>
+                <entry>The URI inferred automatically from the wiki page name.</entry>
+              </row>
+            </tbody>
+          </tgroup>
+        </informaltable>
 {docbook}
-
-|| Item|| Description||
-|*$CONTAINER$*|The portal container.|
-|*$SITE*|The portal site (e.g,'classic').|
-|*$NAV\_URI* |The URI of navigation bound to a page containing the *Wiki* portlet.|
-|*$OWNER\_TYPE*| May be 'group' or 'user'.|
-|*$OWNER* |The wiki owner which can be name of user or of group.|
-|*$WIKI\_PAGE\_URI* |The URI inferred automatically from the wiki page name.|
 
 Any wiki page should be accessed by a friendly URL. For example:
 
@@ -599,17 +907,18 @@ The Advanced Search function allows you to search with a keyword in a specific s
 The search results are displayed like the illustration below.
 
 !images/wiki_advanced_search_result.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
-
-If no results matched with the keywords, the search screen informs "*there is no search result...!*"
+{docbook}
+<para>If no results matched with the keywords, the search screen informs "<guilabel>there is no search result...!</guilabel>"</para>
+{docbook}
 
 *2.* Click !images/down_arrow_icon.png| width="4mm" fo:scalefit="1" html:scalefit="0"! to select a space from the drop-down menu to define a scale where to search for the entered word.
-
-*3.* Click *Search*.
-
+{docbook}
+<para><emphasis role="bold">3.</emphasis> Click <guibutton>Search</guibutton>.</para>
+{docbook}
 h1. WebDAV support in Wiki {anchor:id=KSuser.Wiki.WebDAV}
 
-The WebDAV enables you to use the third party tools to communicate with hierarchical content servers via HTTP. 
-It is possible to add and remove documents or a set of documents from a path on the server. 
+The WebDAV enables you to use the third party tools to communicate with hierarchical content servers via HTTP.
+It is possible to add and remove documents or a set of documents from a path on the server.
 
 h2. Access your workspace using WebDAV {anchor:id=KSuser.Wiki.AccessWorkspaceUsingWebDAV}
 
@@ -623,7 +932,7 @@ For example, to access the Wiki Home of the "exo vietnam" space, enter the follo
 
 !images/Addressbar.png|align="center" width="150" fo:scalefit="1" html:scalefit="0"!
 
-You will be asked to enter your username and password. 
+You will be asked to enter your username and password.
 
 !images/Login.png|align="center" width="60" fo:scalefit="1" html:scalefit="0"!
 
@@ -672,8 +981,10 @@ For each space, you can manage page templates.
 </citetitle>
 {docbook}
 *1.* Open a *Wiki* space.
-
-*2.* Click *Browse*, then  select *Space Settings*.
+{docbook}
+<para>
+<emphasis role="bold">2.</emphasis> Click <guilabel>Browse</guilabel>, then  select <guilabel>Space Settings</guilabel>.</para>
+{docbook}
 
 !images/wiki_space_settings.png|align="center" width="70mm" fo:scalefit="1" html:scalefit="0"!
 
@@ -688,44 +999,97 @@ Now, you can:
 
 h2. Manage Permissions {anchor:id=KSuser.Wiki_Administration.Manage_permissions}
 *Wiki* gives you the choice to make a space or an individual page to be open or restricted to specific users, groups or memberships.
-There are two levels of permissions in *Wiki*: 
+There are two levels of permissions in *Wiki*:
 * [Space Permissions|#KSuser.Wiki_Administration.Manage_permissions.Space_Permission]
 * [Page Permissions|#KSuser.Wiki_Administration.Page_permissions]
 
 h3. Space Permissions  {anchor:id=KSuser.Wiki_Administration.Manage_permissions.Space_Permission}
 Each space may have its own permissions. Space permissions determine which actions a user can do within the space. A permission can be assigned to any users, groups or memberships.
-
-To change the space permission, open a space, then click *Browse* and select *Space Settings* from the drop-down list.
-Click *Permission* in the *Space Settings* page that appears.
+{docbook}
+<para>To change the space permission, open a space, then click <guibutton>Browse</guibutton> and select <guilabel>Space Settings</guilabel> from the drop-down list. Click <guilabel>Permission</guilabel> in the <guilabel>Space Settings</guilabel> page that appears.</para>
+{docbook}
 
 !images/wiki_space_permissions_page.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
 
 There are some permissions on a space as follows:
-|| Permission|| Description||
-|*View Pages*|Specify who can view and watch pages of this space, its attachments and history.|
-|*Edit Pages*|Specify who can edit pages of this space.|
-|*Admin Pages*|Specify who have the administration rights on pages of this space.|
-|*Admin Space*|Specify who can administrate the space permissions and settings|
+{docbook}
+<informaltable>
+              <tgroup cols="2">
+                <thead>
+                  <row>
+                    <entry> Permission</entry>
+                    <entry> Description</entry>
+                  </row>
+                </thead>
+                <tbody>
+                  <row>
+                    <entry>
+                      <guilabel>View Pages</guilabel>
+                    </entry>
+                    <entry>Specify who can view and watch pages of this space, its attachments and history.</entry>
+                  </row>
+                  <row>
+                    <entry>
+                      <guilabel>Edit Pages</guilabel>
+                    </entry>
+                    <entry>Specify who can edit pages of this space.</entry>
+                  </row>
+                  <row>
+                    <entry>
+                      <guilabel>Admin Pages</guilabel>
+                    </entry>
+                    <entry>Specify who have the administration rights on pages of this space.</entry>
+                  </row>
+                  <row>
+                    <entry>
+                      <guilabel>Admin Space</guilabel>
+                    </entry>
+                    <entry>Specify who can administrate the space permissions and settings</entry>
+                  </row>
+                </tbody>
+              </tgroup>
+            </informaltable>
+{docbook}
 
-In the *Space Permissions* form, you can:
+{docbook}
+<para>In the <guilabel>Space Permissions</guilabel> form, you can:</para>
+{docbook}
+
 * [Add space permissions of the users, groups and memberships|#KSuser.Wiki_Administration.Add_space_permissions].
 * [Delete space permissions of the users, groups and memberships|#KSuser.Wiki_Administration.Delete_space_permissions].
 
 h4. Add space permissions {anchor:id=KSuser.Wiki_Administration.Add_space_permissions}
-In the *Space Permissions* form, you can add permissions for individual users, groups of users or memberships.
+{docbook}
+<para>In the <guilabel>Space Permissions</guilabel> form, you can add permissions for individual users, groups of users or memberships.</para>
+{docbook}
 
 *1.* Click !images/select_permission_icon.png| width="14mm" fo:scalefit="1" html:scalefit="0"! to assign permissions to a user, a group or a membership respectively.
 
 The form to select the user, the group and the membership appears.
 
-*2.* Select a user, a group or a membership, then click  *Add*.
+{docbook}
+<para>
+<emphasis role="bold">2.</emphasis> Select a user, a group or a membership, then click  <guibutton>Add</guibutton>.</para>
+{docbook}
 
-*3.* Click !images/Add_selectors.png|width="14mm" fo:scalefit="1" html:scalefit="0"! to add the selectors to the *Owner* column in the *Space Permissions* form.
+{docbook}
+<para>
+                <emphasis role="bold">3.</emphasis> Click <inlinemediaobject>
+                  <imageobject role="fo">
+                    <imagedata fileref="images/Add_selectors.png" format="PNG" scalefit="1" width="14mm"/>
+                  </imageobject>
+                  <imageobject role="html">
+                    <imagedata fileref="images/Add_selectors.png" format="PNG" scalefit="0" width="14mm"/>
+                  </imageobject>
+                </inlinemediaobject> to add the selectors to the <guilabel>Owner</guilabel> column in the <guilabel>Space Permissions</guilabel> form.</para>
+{docbook}
 
 *4.* Tick the checkboxes corresponding to each permission you want to assign to the selectors.
 
-*5.* Click *Save* to commit.
-
+{docbook}
+<para>
+<emphasis role="bold">5.</emphasis> Click <guibutton>Save</guibutton> to commit.</para>
+{docbook}
 
 {docbook}
 <note>
@@ -737,18 +1101,32 @@ The form to select the user, the group and the membership appears.
 
 h4. Delete space permissions {anchor:id=KSuser.Wiki_Administration.Delete_space_permissions}
 
-To delete the permissions of a user, group or a membership in a space, just click !images/Delete_icon.png| width="4mm" fo:scalefit="1" html:scalefit="0"! corresponding to a user or group or membership in the *Space Permissions* form.
+{docbook}
+<para>To delete the permissions of a user, group or a membership in a space, just click <inlinemediaobject>
+                  <imageobject role="fo">
+                    <imagedata fileref="images/Delete_icon.png" format="PNG" scalefit="1" width="4mm"/>
+                  </imageobject>
+                  <imageobject role="html">
+                    <imagedata fileref="images/Delete_icon.png" format="PNG" scalefit="0" width="4mm"/>
+                  </imageobject>
+                </inlinemediaobject> corresponding to a user or group or membership in the <guilabel>Space Permissions</guilabel> form.</para>
+{docbook}
 
 h3. Page Permissions {anchor:id=KSuser.Wiki_Administration.Page_permissions}
 The *Page Permissions* allows you to set the View and Edit permissions for a specific page of a space.
 
 *1.* Open a page of the space that you want to set the permissions.
 
-*2.* Click *More* and select *Page Permissions* from the drop-down menu.
+{docbook}
+<para>
+<emphasis role="bold">2.</emphasis> Click <guilabel>More</guilabel> and select <guilabel>Page Permissions</guilabel> from the drop-down menu.</para>
+{docbook}
 
 !images/wiki_page_permissions.png|align="center" width="70mm" fo:scalefit="1" html:scalefit="0"!
 
-The *Page Permissions* form appears.
+{docbook}
+<para>The <guilabel>Page Permissions</guilabel> form appears.</para>
+{docbook}
 
 !images/wiki_page_permissions_form.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
 
@@ -763,12 +1141,14 @@ h3. Manage a page template {anchor:id=KSuser.Wiki_Administration.Manage_page_tem
 
 When adding a new page, you are not required to write the content from scratch. You can start by selecting a page template which is actually a *Wiki* page with predefined content.
 
-In the *Space Settings* form, select the *Template* tab and the form to manage templates appears.
+{docbook}
+<para>In the <guilabel>Space Settings</guilabel> form, select the <guilabel>Template</guilabel> tab and the form to manage templates appears.</para>
+{docbook}
 
 !images/wiki_setting_template.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
 
 Here, you can:
-* [Search for a template|#KSuser.Wiki_Administration.Search_templates]!images/no1.png|width="4mm" fo:scalefit="1" html:scalefit="0"! 
+* [Search for a template|#KSuser.Wiki_Administration.Search_templates]!images/no1.png|width="4mm" fo:scalefit="1" html:scalefit="0"!
 * [Create a new template|#KSuser.Wiki_Administration.Add_templates]!images/no2.png|width="4mm" fo:scalefit="1" html:scalefit="0"!
 * [Edit a template|#KSuser.Wiki_Administration.Edit_templates]!images/no3.png|width="4mm" fo:scalefit="1" html:scalefit="0"!
 * [Delete a template|#KSuser.Wiki_Administration.Delete_templates]!images/no4.png|width="4mm" fo:scalefit="1" html:scalefit="0"!
@@ -776,17 +1156,22 @@ Here, you can:
 h4. Search for a template {anchor:id=KSuser.Wiki_Administration.Search_templates}
 
 This feature allows you to find your desired template quickly from the existing list as follows:
+{docbook}
+<para>
+   <emphasis role="bold">1.</emphasis> Input a word included in the title of your desired template in the <guilabel>Search</guilabel> textbox.</para>
+{docbook}
 
-*1.* Input a word included in the title of your desired template in the *Search* textbox.
-
-*2.* Press the *Enter* key, or click the *Search* button next to the textbox to start your search.
+{docbook}
+<para>
+<emphasis role="bold">2.</emphasis> Press the <emphasis role="bold">Enter</emphasis> key, or click the <guibutton>Search</guibutton> button next to the textbox to start your search.</para>
+{docbook}
 
 All matching results which contain your entered search term are displayed right below the textbox.
 
 {docbook}
 <note>
     <para>
-    The <emphasis role="bold">Search</emphasis> function is only performed by the template titles and you must enter a complete word into the <emphasis role="bold">Search</emphasis> textbox. For example, to find the template whose title contains "daily report", you can input "report" rather than "repo", or "daily" rather "ly".
+    The <emphasis role="bold">Search</emphasis> function is only performed by the template titles and you must enter a complete word into the <guilabel>Search</guilabel> textbox. For example, to find the template whose title contains "daily report", you can input "report" rather than "repo", or "daily" rather "ly".
 
     </para>
 </note>
@@ -794,31 +1179,45 @@ All matching results which contain your entered search term are displayed right 
 
 h4. Create a new template {anchor:id=KSuser.Wiki_Administration.Add_templates}
 
-*1.* Click *Add more...* in the *Spage Settings* page and the sample template form appears.
+{docbook}
+<para>
+ <emphasis role="bold">1.</emphasis> Click <guilabel>Add more...</guilabel> in the <emphasis role="bold">Spage Settings</emphasis> page and the sample template form appears.</para>
+{docbook}
 
 !images/wiki_sample_template.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
 
 *2.* Add the title for the template.
 
-*3.* Write the description in the *Description...*.
+{docbook}
+<para>
+ <emphasis role="bold">3.</emphasis> Write the description in the <guilabel>Description...</guilabel>.</para>
+{docbook}
 
 *4.* Write the content for the template.
 
-*5.* Click *Save Template* at the *Page Control* area. A message will inform your successful template creation.
+{docbook}
+<para>
+<emphasis role="bold">5.</emphasis> Click <guilabel>Save Template</guilabel> at the <guilabel>Page Control</guilabel> area. A message will inform your successful template creation.</para>
+{docbook}
 
 h4. Edit a template {anchor:id=KSuser.Wiki_Administration.Edit_templates}
-
-*1.* Click the *Edit* icon corresponding to the template you want to edit.
+{docbook}
+<para>
+<emphasis role="bold">1.</emphasis> Click the <guilabel>Edit</guilabel> icon corresponding to the template you want to edit.</para>
+{docbook}
 
 *2.* Change the title, the description or the content as you want.
-
-*3.* Click *Save Template* at the *Page Control* area.
+{docbook}
+<para>
+ <emphasis role="bold">3.</emphasis> Click <guilabel>Save Template</guilabel> at the <guilabel>Page Control</guilabel> area.</para>
+{docbook}
 
 h4.  Delete a template {anchor:id=KSuser.Wiki_Administration.Delete_templates}
 
 *1.* Click !images/Delete_icon.png| width="4mm" fo:scalefit="1" html:scalefit="0"! corresponding to the template you want to delete.
-
-*2.* Click *OK* in the confirmation message to accept your deletion.
-
+{docbook}
+<para>
+<emphasis role="bold">2.</emphasis> Click <guibutton>OK</guibutton> in the confirmation message to accept your deletion.</para>
+{docbook}
 
 

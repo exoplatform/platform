@@ -9,13 +9,34 @@ The <emphasis role="bold">Mail</emphasis> portlet and its services are deprecate
 h1. Create a Mail account {anchor:id="CSUser_guide.How_to_use_Mail.Create_mail_account}
 To get mails from other mail services, you first need to create a mail account in the *Mail* application which connects to another mail POP3 or SMTP supported servers, such as Gmail, Yahoo! Mail, Hotmail, GMX, Cyrus, Exchange Server. The *Mail* application allows you to get mails from different mail services at one place.
 
-To create one mail account, you first need to click !images/add_mail_acount_icon.png|width="4mm" fo:scalefit="1" html:scalefit="0"!, then select *Add Account* from the drop-down menu to open the *Create New Account* form. In the *Create New Account* form, there are 5 steps with clear instructions at each step. After completing information at each step, you can:
+{docbook}
+<para>To create one mail account, you first need to click <inlinemediaobject>
+            <imageobject role="fo">
+              <imagedata fileref="images/add_mail_acount_icon.png" format="PNG" scalefit="1" width="4mm"/>
+            </imageobject>
+            <imageobject role="html">
+              <imagedata fileref="images/add_mail_acount_icon.png" format="PNG" scalefit="0" width="4mm"/>
+            </imageobject>
+          </inlinemediaobject>, then select <guilabel>Add Account</guilabel> from the drop-down menu to open the <guilabel>Create New Account</guilabel> form. In the <guilabel>Create New Account</guilabel> form, there are 5 steps with clear instructions at each step. After completing information at each step, you can:</para>
+{docbook}
 
-* Click *Next* to go to the next step, or directly left-click any number box at the left bottom of the *Create New Account* form to go to your desired step.
+{docbook}
+<itemizedlist>
+          <listitem>
+            <para>Click <guilabel>Next</guilabel> to go to the next step, or directly left-click any number box at the left bottom of the <guilabel>Create New Account</guilabel> form to go to your desired step.</para>
+          </listitem>
+</itemizedlist>
+{docbook}
 
 !images/Step_boxes.png|align="center" width="40mm" fo:scalefit="1" html:scalefit="0"!
 
-* Click *Back* to return to the previous step.
+{docbook}
+        <itemizedlist>
+          <listitem>
+            <para>Click <guilabel>Back</guilabel> to return to the previous step.</para>
+          </listitem>
+        </itemizedlist>
+{docbook}
 
 {docbook}
 <note>
@@ -34,49 +55,180 @@ To create one mail account, you first need to click !images/add_mail_acount_icon
 !images/Add_acc_step2.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
 
 *Details:*
-||Field||Description||
-|*Your Display Name*|The name to be displayed when you use the account. This name will be displayed with your email address when you compose a new message.|
-|*Email Address*|The email address corresponding to your created account. It must be in a valid format. (See more details about the *Email Address* format [here|#Create_New_Account_form_details].)|
-|*Reply-to Address*|The email address which receives all replies.|
-|*Signature*|The identification text which is automatically inserted at the bottom of your sending messages.|
+{docbook}
+<informaltable>
+          <tgroup cols="2">
+            <thead>
+              <row>
+                <entry>Field</entry>
+                <entry>Description</entry>
+              </row>
+            </thead>
+            <tbody>
+              <row>
+                <entry>
+                  <guilabel>Your Display Name</guilabel>
+                </entry>
+                <entry>The name to be displayed when you use the account. This name will be displayed with your email address when you compose a new message.</entry>
+              </row>
+              <row>
+                <entry>
+                  <guilabel>Email Address</guilabel>
+                </entry>
+                <entry>The email address corresponding to your created account. It must be in a valid format. (See more details about the <emphasis role="bold">Email Address</emphasis> format <link linkend="Create_New_Account_form_details">here</link>.)</entry>
+              </row>
+              <row>
+                <entry>
+                  <guilabel>Reply-to Address</guilabel>
+                </entry>
+                <entry>The email address which receives all replies.</entry>
+              </row>
+              <row>
+                <entry>
+                  <guilabel>Signature</guilabel>
+                </entry>
+                <entry>The identification text which is automatically inserted at the bottom of your sending messages.</entry>
+              </row>
+            </tbody>
+          </tgroup>
+</informaltable>
+{docbook}
 
 *3.* Give the server information in Step 3.
 
 !images/Add_acc_step3.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
 
 *Details:*
-||Field||Description||
-|*Server type*|Type of the mail server. Select either of two types supported by your mail server: {example}{example} - POP3 (Post Office Protocol - Version 3) which is a protocol to get emails from a remote server. This type is selected by default. {example}{example} - IMAP (Internet Message Access Protocol) which retrieves emails from a remote server over a TCP/IP connection.|
-|*Incoming Mail Server & Outgoing Mail Server*|The Incoming Mail Server (POP3) and Outgoing Mail Server (SMTP) of your current email provider. Each email provider has different Incoming Mail Server and Outgoing Mail Server settings. By default, the value of this field is "pop.gmail.com" and "smtp.gmail.com" which are the settings for Gmail. For settings of other mail servers, you can find the information on their websites. See [More about Incoming & Outgoing mail server settings|#Incoming_outgoing_reference] for more information.|
-|*Use Incoming SSL*|This option allows using SSL (Secure Sockets Layer) or not. SSL is a cryptographic protocol which provides secure communication on Internet, such as web browsing, email, Internet faxing. The Incoming SSL allows using SSL to check incoming emails.
-|*Use Outgoing SSL*|This option is to use SSL to send mail in the *Mail* application.|
+{docbook}
+<informaltable>
+          <tgroup cols="2">
+            <thead>
+              <row>
+                <entry>Field</entry>
+                <entry>Description</entry>
+              </row>
+            </thead>
+            <tbody>
+              <row>
+                <entry>
+                  <guilabel>Server type</guilabel>
+                </entry>
+                <entry>
+                  <para>Type of the mail server. Select either of two types supported by your mail server: <informalexample>
+                      <informalexample/>
+                    </informalexample> - POP3 (Post Office Protocol - Version 3) which is a protocol to get emails from a remote server. This type is selected by default. <informalexample>
+                      <informalexample/>
+                    </informalexample> - IMAP (Internet Message Access Protocol) which retrieves emails from a remote server over a TCP/IP connection.</para>
+                </entry>
+              </row>
+              <row>
+                <entry>
+                  <guilabel>Incoming Mail Server &amp; Outgoing Mail Server</guilabel>
+                </entry>
+                <entry>The Incoming Mail Server (POP3) and Outgoing Mail Server (SMTP) of your current email provider. Each email provider has different Incoming Mail Server and Outgoing Mail Server settings. By default, the value of this field is "pop.gmail.com" and "smtp.gmail.com" which are the settings for Gmail. For settings of other mail servers, you can find the information on their websites. See <link linkend="Incoming_outgoing_reference">More about Incoming &amp; Outgoing mail server settings</link> for more information.</entry>
+              </row>
+              <row>
+                <entry>
+                  <guilabel>Use Incoming SSL</guilabel>
+                </entry>
+                <entry>This option allows using SSL (Secure Sockets Layer) or not. SSL is a cryptographic protocol which provides secure communication on Internet, such as web browsing, email, Internet faxing. The Incoming SSL allows using SSL to check incoming emails.</entry>
+              </row>
+              <row>
+                <entry>
+                  <guilabel>Use Outgoing SSL</guilabel>
+                </entry>
+                <entry>This option is to use SSL to send mail in the <emphasis role="bold">Mail</emphasis> application.</entry>
+              </row>
+            </tbody>
+          </tgroup>
+</informaltable>
+{docbook}
 
 *4.* Configure another account properties in Step 4.
 
 !images/Add_acc_step4.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
 
 *Details:*
-||Field||Description||
-|*Username*|The email address which is used in the *Mail* application.|
-|*Password*|The password of your email address. It will be used to get your messages of the email address entered in the *Username* field.|
-|*Save Password| Tick the checkbox to avoid entering your password again for each mail check.|
-|*Do not download all messages (IMAP only)*|Check this option if you do not want to download all messages.|
-|*Limit to Messages Arrived Since*|Select the time to limit the downloaded messages from the drop-down calendar.|
+
+{docbook}
+<informaltable>
+          <tgroup cols="2">
+            <thead>
+              <row>
+                <entry>Field</entry>
+                <entry>Description</entry>
+              </row>
+            </thead>
+            <tbody>
+              <row>
+                <entry>
+                  <guilabel>Username</guilabel>
+                </entry>
+                <entry>The email address which is used in the <emphasis role="bold">Mail</emphasis> application.</entry>
+              </row>
+              <row>
+                <entry>
+                  <guilabel>Password</guilabel>
+                </entry>
+                <entry>The password of your email address. It will be used to get your messages of the email address entered in the <guilabel>Username</guilabel> field.</entry>
+              </row>
+              <row>
+                <entry>
+                  <guilabel>Save Password</guilabel>
+                </entry>
+                <entry> Tick the checkbox to avoid entering your password again for each mail check.</entry>
+              </row>
+              <row>
+                <entry>
+                  <guilabel>Do not download all messages (IMAP only)</guilabel>
+                </entry>
+                <entry>Check this option if you do not want to download all messages.</entry>
+              </row>
+              <row>
+                <entry>
+                  <guilabel>Limit to Messages Arrived Since</guilabel>
+                </entry>
+                <entry>Select the time to limit the downloaded messages from the drop-down calendar.</entry>
+              </row>
+            </tbody>
+          </tgroup>
+ </informaltable>
+{docbook}
 
 *5.* Verify your inputted information in Step 5.
 
 !images/Add_acc_step5.png|align="center" width="120mm" height="120mm" fo:scalefit="1" html:scalefit="0"!
 
-* Tick the *Start Downloading Messages Now* checkbox to get messages automatically right after your account is successfully created. 
+{docbook}
+<itemizedlist>
+          <listitem>
+            <para>Tick the <guilabel>Start Downloading Messages Now</guilabel> checkbox to get messages automatically right after your account is successfully created. </para>
+          </listitem>
+</itemizedlist>
+{docbook}
 
-*6.* Click *Finish* to complete your registration.
+{docbook}
+<para>
+ <emphasis role="bold">6.</emphasis> Click <guilabel>Finish</guilabel> to complete your registration.</para>
+{docbook}
 
 h2. Edit your account details {anchor:id="CSUser_guide.How_to_use_Mail.Create_mail_account.Edit_account"}
-To make changes on your account, simply click !images/add_mail_acount_icon.png|width="4mm" fo:scalefit="1" html:scalefit="0"! in the left pane, then select *Edit Account* from the drop-down menu;
+{docbook}
+<para>To make changes on your account, simply click <inlinemediaobject>
+              <imageobject role="fo">
+                <imagedata fileref="images/add_mail_acount_icon.png" format="PNG" scalefit="1" width="4mm"/>
+              </imageobject>
+              <imageobject role="html">
+                <imagedata fileref="images/add_mail_acount_icon.png" format="PNG" scalefit="0" width="4mm"/>
+              </imageobject>
+            </inlinemediaobject> in the left pane, then select <guilabel>Edit Account</guilabel> from the drop-down menu;</para>
+{docbook}
 
 Or, select !images/accounts_icon.png|width="15mm" fo:scalefit="1" html:scalefit="0"! on the *Toolbar*.
 
-The *Edit Account* form will appear, allowing you to change information in the *Identity, Incoming, Outgoing* and *Fetch Options* tabs.
+{docbook}
+<para>The <guilabel>Edit Account</guilabel> form will appear, allowing you to change information in the <guilabel>Identity, Incoming, Outgoing</guilabel> and <guilabel>Fetch Options</guilabel> tabs.</para>
+{docbook}
 
 !images/Edit_account_form.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
 
@@ -89,15 +241,38 @@ If you use multiple accounts, you can delete any unused mail accounts via either
 
 !images/Select_mail_account.png|align="center" width="40mm" fo:scalefit="1" html:scalefit="0"!
 
-*2.* Click !images/add_mail_acount_icon.png|width="4mm" fo:scalefit="1" html:scalefit="0"! in the left pane and select *Delete Account* from the drop-down menu.
+{docbook}
+<para>
+            <emphasis role="bold">2.</emphasis> Click <inlinemediaobject>
+              <imageobject role="fo">
+                <imagedata fileref="images/add_mail_acount_icon.png" format="PNG" scalefit="1" width="4mm"/>
+              </imageobject>
+              <imageobject role="html">
+                <imagedata fileref="images/add_mail_acount_icon.png" format="PNG" scalefit="0" width="4mm"/>
+              </imageobject>
+            </inlinemediaobject> in the left pane and select <guilabel>Delete Account</guilabel> from the drop-down menu.</para>
+{docbook}
 
 !images/Delete_acc_form.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
 
-*3.* Click !images/Delete_icon.png|width="11" fo:scalefit="1" html:scalefit="0"! corresponding to the account, then click *OK* in the confirmation message to accept your deletion.
+{docbook}
+<para>
+            <emphasis role="bold">3.</emphasis> Click <inlinemediaobject>
+              <imageobject role="fo">
+                <imagedata fileref="images/Delete_icon.png" format="PNG" scalefit="1" width="11"/>
+              </imageobject>
+              <imageobject role="html">
+                <imagedata fileref="images/Delete_icon.png" format="PNG" scalefit="0" width="11"/>
+              </imageobject>
+            </inlinemediaobject> corresponding to the account, then click <guilabel>OK</guilabel> in the confirmation message to accept your deletion.</para>
+{docbook}
 
 *The second way*
 
-*1.* Open the *Edit Account* form as stated in [Edit your account details|#CSUser_guide.How_to_use_Mail.Create_mail_account.Edit_account].
+{docbook}
+<para>
+  <emphasis role="bold">1.</emphasis> Open the <guilabel>Edit Account</guilabel> form as stated in <link linkend="CSUser_guide.How_to_use_Mail.Create_mail_account.Edit_account">Edit your account details</link>.</para>
+{docbook}
 
 *2.* Select the account you want to delete in the left pane. Your currently selected account is marked with !images/marked_account_icon.png|width="4mm" fo:scalefit="1" html:scalefit="0"!.
 
@@ -129,7 +304,7 @@ The following reference introduces some common Incoming and Outgoing Mail Server
 
 * MSN Incoming Mail Server (POP3): pop3.email.msn.com (port 110)
 
-* MSN Outgoing Mail Server (SMTP): smtp.email.msn.com 
+* MSN Outgoing Mail Server (SMTP): smtp.email.msn.com
 
 *AOL Mail settings*
 
@@ -140,14 +315,36 @@ The following reference introduces some common Incoming and Outgoing Mail Server
 h1. Get mails {anchor:id="CSUser_guide.How_to_use_Mail.Get_mail}
 This function is used to receive messages from the remote mail servers and forward them via SMTP, so it can be read in Mail. It supports any mail servers with POP3, IMAP, SMTP, such as Gmail, Hotmail, Yahoo! Mail, GMX, MS Exchange.
 
-*1.* Click the folder you want to check for new mails. If no folder is selected, the default folder will be *Inbox*.
+{docbook}
+<para>
+<emphasis role="bold">1.</emphasis> Click the folder you want to check for new mails. If no folder is selected, the default folder will be <guilabel>Inbox</guilabel>.</para>
+{docbook}
 
-*2.* Click !images/get_mail_icon.png|width="15mm" fo:scalefit="1" html:scalefit="0"! on the *Toolbar*. The status notification with '*Fetching email messages...*' shows that emails are being loaded. All arrived mails are shown in the messages pane. Click *Refresh* if you want to refresh the fetching mails.
+{docbook}
+<para>
+          <emphasis role="bold">2.</emphasis> Click <inlinemediaobject>
+            <imageobject role="fo">
+              <imagedata fileref="images/get_mail_icon.png" format="PNG" scalefit="1" width="15mm"/>
+            </imageobject>
+            <imageobject role="html">
+              <imagedata fileref="images/get_mail_icon.png" format="PNG" scalefit="0" width="15mm"/>
+            </imageobject>
+          </inlinemediaobject> on the <emphasis role="bold">Toolbar</emphasis>. The status notification with '<guilabel>Fetching email messages...</guilabel>' shows that emails are being loaded. All arrived mails are shown in the messages pane. Click <guilabel>Refresh</guilabel> if you want to refresh the fetching mails.</para>
+{docbook}
 
 !images/fetching_emails.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
 
 h1. Mail views {anchor:id="CSUser_guide.How_to_use_Mail.Mail_views}
-This function offers three options for viewing messages in your mailbox. Messages are displayed by date, where receipt hours are for today mails and dates are for mails received in previous days. You simply toggle between 3 views by clicking *View as* and selecting either of the views. The selected view is marked with !images/marked_account_icon.png|width="4mm" fo:scalefit="1" html:scalefit="0"!.
+{docbook}
+<para>This function offers three options for viewing messages in your mailbox. Messages are displayed by date, where receipt hours are for today mails and dates are for mails received in previous days. You simply toggle between 3 views by clicking <guilabel>View as</guilabel> and selecting either of the views. The selected view is marked with <inlinemediaobject>
+            <imageobject role="fo">
+              <imagedata fileref="images/marked_account_icon.png" format="PNG" scalefit="1" width="4mm"/>
+            </imageobject>
+            <imageobject role="html">
+              <imagedata fileref="images/marked_account_icon.png" format="PNG" scalefit="0" width="4mm"/>
+            </imageobject>
+          </inlinemediaobject>.</para>
+{docbook}
 
 !images/view_as.png|align="center" width="30mm" fo:scalefit="1" html:scalefit="0"!
 
@@ -172,7 +369,16 @@ If you want to read an email, simply click your preferred mail in the mails list
 !images/read_email.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
 
 h2. Download an attached file {anchor:id=Download_attached_files}
-If your received mail contains any attached file, you can see their details, such as file name, type, and size right in the *Attachments* pane of the currently opened message.
+{docbook}
+<para>This function offers three options for viewing messages in your mailbox. Messages are displayed by date, where receipt hours are for today mails and dates are for mails received in previous days. You simply toggle between 3 views by clicking <guilabel>View as</guilabel> and selecting either of the views. The selected view is marked with <inlinemediaobject>
+            <imageobject role="fo">
+              <imagedata fileref="images/marked_account_icon.png" format="PNG" scalefit="1" width="4mm"/>
+            </imageobject>
+            <imageobject role="html">
+              <imagedata fileref="images/marked_account_icon.png" format="PNG" scalefit="0" width="4mm"/>
+            </imageobject>
+          </inlinemediaobject>.</para>
+{docbook}
 
 !images/Attachment_details.png|align="center" width="100mm" fo:scalefit="1" html:scalefit="0"!
 
@@ -188,15 +394,25 @@ Click !images/Download_button.png|width="15mm" fo:scalefit="1" html:scalefit="0"
 
 *1.* Open the mail with attachments.
 
-*2.* Click *Save to server* to open the *Save attachment* form.
+{docbook}
+<para>
+   <emphasis role="bold">2.</emphasis> Click <guilabel>Save to server</guilabel> to open the <guilabel>Save attachment</guilabel> form.</para>
+{docbook}
 
 !images/Server_saving_folder.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
 
-*3.* Change the name of the downloaded file in the *Save file to the server* field if needed.
+{docbook}
+<para>
+    <emphasis role="bold">3.</emphasis> Change the name of the downloaded file in the <guilabel>Save file to the server</guilabel> field if needed.</para>
+{docbook}
 
-*4.* Select a drive category from the *Select Drives* drop-down menu. The number of shown drive categories depends on your role. {anchor:id="Download_attachments_Step_4_5_6"}
+{docbook}
+<para>
+  <emphasis role="bold">4.</emphasis> Select a drive category from the <guilabel>Select Drives</guilabel> drop-down menu. The number of shown drive categories depends on your role. <anchor id="Download_attachments_Step_4_5_6"/>
+</para>
+{docbook}
 
-*5.* Select one drive from the drives list to open a list of folders. 
+*5.* Select one drive from the drives list to open a list of folders.
 
 *6.* Select one folder which stores your downloaded file from the folders list.
 
@@ -210,14 +426,27 @@ Your selected location is shown in the breadcrumb.
 </note>
 {docbook}
 
-*7.* Click *Save* to finish downloading the attachment to the server.
+{docbook}
+<para>
+    <emphasis role="bold">7.</emphasis> Click <guibutton>Save</guibutton> to finish downloading the attachment to the server.</para>
+{docbook}
 
 h2. View all headers of a message {anchor:id=View_all_headers}
 By default, the header's information shows email addresses of the sender and recipients and the mail subject. If you want to view full headers of a message, do as follows:
 
 *1.* Open the message which you want to view its full headers.
 
-*2.* Click !images/down_arrow_icon.png|width="4mm" fo:scalefit="1" html:scalefit="0"! at the right corner of message's content and select *View All Headers* from the drop-down menu. All message headers are then appeared in the pop-up window.
+{docbook}
+<para>
+            <emphasis role="bold">2.</emphasis> Click <inlinemediaobject>
+              <imageobject role="fo">
+                <imagedata fileref="images/down_arrow_icon.png" format="PNG" scalefit="1" width="4mm"/>
+              </imageobject>
+              <imageobject role="html">
+                <imagedata fileref="images/down_arrow_icon.png" format="PNG" scalefit="0" width="4mm"/>
+              </imageobject>
+            </inlinemediaobject> at the right corner of message's content and select <guilabel>View All Headers</guilabel> from the drop-down menu. All message headers are then appeared in the pop-up window.</para>
+{docbook}
 
 h2. Mark/Unmark a message as read {anchor:id="Mark_Unmark_as_read"}
 In the *Mail* application, the unread mails will be recognized in the bold format in the mails list pane, meanwhile the read mails will be unbold.
@@ -234,7 +463,10 @@ In the *Mail* application, the unread mails will be recognized in the bold forma
 
 *1.* Select checkboxes corresponding to messages you want to mark as read.
 
-*2.* Click *More Actions*, then select *Mark as Read* from the drop-down menu.
+{docbook}
+<para>
+ <emphasis role="bold">2.</emphasis> Click <guilabel>More Actions</guilabel>, then select <guilabel>Mark as Read</guilabel> from the drop-down menu.</para>
+{docbook}
 
 *The second way*
 
@@ -248,7 +480,10 @@ This way is used to mark all unread messages in a specific folder.
 
 *1.* Right-click the folder which contains messages you want to mark as read.
 
-*2.* Select *Mark all as read* from the drop-down menu.
+{docbook}
+<para>
+  <emphasis role="bold">2.</emphasis> Select <guilabel>Mark all as read</guilabel> from the drop-down menu.</para>
+{docbook}
 
 After being marked as read, all unread messages inside the folder will be marked as read.
 
@@ -262,7 +497,10 @@ After being marked as read, all unread messages inside the folder will be marked
 
 *1.* Select the messages you want to mark as unread.
 
-*2.* Click *More Actions*, then select *Mark as Unread* from the drop-down menu.
+{docbook}
+<para>
+   <emphasis role="bold">2.</emphasis> Select <guilabel>Mark all as read</guilabel> from the drop-down menu.</para>
+{docbook}
 
 h2. Star/Unstar a message  {anchor:id="Star_unstar_a_message"}
 
@@ -275,8 +513,10 @@ h2. Star/Unstar a message  {anchor:id="Star_unstar_a_message"}
 {docbook}
 
 *The first way*
-
-Tick the checkboxes corresponding to messages you want to star, then click *More Actions* on the action bar and select *Star* from the drop-down menu.
+{docbook}
+<para>
+  <emphasis role="bold">2.</emphasis> Click <guilabel>More Actions</guilabel>, then select <guilabel>Mark as Unread</guilabel> from the drop-down menu.</para>
+{docbook}
 
 *The second way*
 
@@ -292,7 +532,9 @@ After being marked, the selected messages will be appended with !images/star_ico
 </citetitle>
 {docbook}
 
-Simply select *Unstar* from the *More Actions* drop-down menu on the action bar;
+{docbook}
+<para>Simply select <guilabel>Unstar</guilabel> from the <guilabel>More Actions</guilabel> drop-down menu on the action bar;</para>
+{docbook}
 
 Or, click !images/star_icon.png|width="4mm" fo:scalefit="1" html:scalefit="0"! next to the message.
 
@@ -300,21 +542,40 @@ h2. Move a message to other folders {anchor:id="Move_message_to_other_folders"}
 
 *The first way*
 
-*1.* Open the *Move Message* form via one of the following ways.
+{docbook}
+<para>
+ <emphasis role="bold">1.</emphasis> Open the <guilabel>Move Message</guilabel> form via one of the following ways.</para>
+{docbook}
 
 *The first way*
 
-Right-click the message you want to move to another folder in the messages list pane, and select *Move to Folder* from the drop-down menu; 
+{docbook}
+<para>Right-click the message you want to move to another folder in the messages list pane, and select <guilabel>Move to Folder</guilabel> from the drop-down menu; </para>
+{docbook}
 
 *The second way*
+{docbook}
+<para>Tick the checkbox corresponding to the message you want to move, then click <guilabel>More Actions</guilabel> on the action bar and select <guilabel>Move</guilabel> from the drop-down menu.</para>
+{docbook}
 
-Tick the checkbox corresponding to the message you want to move, then click *More Actions* on the action bar and select *Move* from the drop-down menu.
-
-*2.* Tick !images/down_arrow_icon1.png|width="4mm" fo:scalefit="1" html:scalefit="0"! next to the *Move To Folder* field to select your desired destination folder from the drop-down menu.
+{docbook}
+<para>
+            <emphasis role="bold">2.</emphasis> Tick <inlinemediaobject>
+              <imageobject role="fo">
+                <imagedata fileref="images/down_arrow_icon1.png" format="PNG" scalefit="1" width="4mm"/>
+              </imageobject>
+              <imageobject role="html">
+                <imagedata fileref="images/down_arrow_icon1.png" format="PNG" scalefit="0" width="4mm"/>
+              </imageobject>
+            </inlinemediaobject> next to the <guilabel>Move To Folder</guilabel> field to select your desired destination folder from the drop-down menu.</para>
+{docbook}
 
 !images/Move_message_form.png|align="center" width="110mm" fo:scalefit="1" html:scalefit="0"!
 
-*3.* Click *Save* to move messages to your selected folder.
+{docbook}
+<para>
+   <emphasis role="bold">3.</emphasis> Click <guibutton>Save</guibutton> to move messages to your selected folder.</para>
+{docbook}
 
 *The second way*
 
@@ -329,10 +590,20 @@ Simply tick the checkbox corresponding to the message you want to report as spam
 
 *The second way*
 
-Drag the message in the right mails list pane and drop it into the *Spam* folder in the left pane.
+{docbook}
+<para>Drag the message in the right mails list pane and drop it into the <guilabel>Spam</guilabel> folder in the left pane.</para>
+{docbook}
 
-* The selected email will be moved to the *Spam* folder. Go into the *Spam* folder to verify that the selected message has been moved to it.
-* All messages marked as spam will be moved to the *Spam* folder.
+{docbook}
+<itemizedlist>
+            <listitem>
+              <para>The selected email will be moved to the <guilabel>Spam</guilabel> folder. Go into the <guilabel>Spam</guilabel> folder to verify that the selected message has been moved to it.</para>
+            </listitem>
+            <listitem>
+              <para>All messages marked as spam will be moved to the <guilabel>Spam</guilabel> folder.</para>
+            </listitem>
+</itemizedlist>
+{docbook}
 
 {docbook}
 <citetitle>
@@ -343,11 +614,16 @@ Drag the message in the right mails list pane and drop it into the *Spam* folder
 </citetitle>
 {docbook}
 
-*1.* Go to the *Spam* folder, then tick the checkbox corresponding to the relevant message.
+{docbook}
+<para>
+ <emphasis role="bold">1.</emphasis> Go to the <guilabel>Spam</guilabel> folder, then tick the checkbox corresponding to the relevant message.</para>
+{docbook}
 
 *2.* Click !images/move_spam_mail_icon.png|width="5mm" fo:scalefit="1" html:scalefit="0"! on the *Action* bar.
 
-The spam message will be removed from the *Spam* folder. All messages from this sender will be received normally.
+{docbook}
+<para>The spam message will be removed from the <guilabel>Spam</guilabel> folder. All messages from this sender will be received normally.</para>
+{docbook}
 
 h2. Delete a message {anchor:id="Delete_a_message"}
 
@@ -358,21 +634,31 @@ h2. Delete a message {anchor:id="Delete_a_message"}
 </emphasis>
 </para>
 </citetitle>
-{docbook} 
+{docbook}
 
 *The first way*
 
-Right-click the message, then select *Delete* from the drop-down menu.
+{docbook}
+ <para>Right-click the message, then select <guilabel>Delete</guilabel> from the drop-down menu.</para>
+{docbook}
 
-*The second way* 
+*The second way*
 
 Tick the checkbox corresponding to the message you want to delete, then select !images/Delete_icon.png|width="4mm" fo:scalefit="1" html:scalefit="0"! on the *Action* bar.
 
 *The third way*
 
-Drag the message in the mails list pane and drop it into the *Trash* folder in the left pane.
+{docbook}
+<para>Drag the message in the mails list pane and drop it into the <guilabel>Trash</guilabel> folder in the left pane.</para>
+{docbook}
 
-* All temporarily deleted messages will be in the *Trash* folder.
+{docbook}
+<itemizedlist>
+            <listitem>
+              <para>All temporarily deleted messages will be in the <guilabel>Trash</guilabel> folder.</para>
+            </listitem>
+          </itemizedlist>
+{docbook}
 
 {docbook}
 <citetitle>
@@ -381,19 +667,25 @@ Drag the message in the mails list pane and drop it into the *Trash* folder in t
 </emphasis>
 </para>
 </citetitle>
-{docbook} 
+{docbook}
 
 {docbook}
 <note>
 <para>
-All messages which have been deleted permanently cannot be restored any longer. To delete a message permanently, the message should first be in the <emphasis role="bold">Trash</emphasis> folder. It means that the message should <link linkend="Delete_message_temporarily">have been deleted</link> temporarily. 
+All messages which have been deleted permanently cannot be restored any longer. To delete a message permanently, the message should first be in the <guilabel>Trash</guilabel> folder. It means that the message should <link linkend="Delete_message_temporarily">have been deleted</link> temporarily.
 </para>
 </note>
 {docbook}
 
-*1.* Select the *Trash* folder in the left pane to see all messages in this folder.
+{docbook}
+<para>
+ <emphasis role="bold">1.</emphasis> Select the <guilabel>Trash</guilabel> folder in the left pane to see all messages in this folder.</para>
+{docbook}
 
-*2.* Right-click the relevant message, then select *Delete* from the drop-down menu;
+{docbook}
+<para>
+ <emphasis role="bold">2.</emphasis> Right-click the relevant message, then select <guilabel>Delete</guilabel> from the drop-down menu;</para>
+{docbook}
 
 Or, tick the checkbox corresponding to the relevant message, and click !images/add_mail_acount_icon.png|width="4mm" fo:scalefit="1" html:scalefit="0"! on the action bar.
 
@@ -404,7 +696,7 @@ Or, tick the checkbox corresponding to the relevant message, and click !images/a
 </emphasis>
 </para>
 </citetitle>
-{docbook} 
+{docbook}
 
 {docbook}
 <note>
@@ -416,7 +708,10 @@ This function is only for messages which have been TEMPORARILY deleted.
 
 *The first way*
 
-*1.* Select the *Trash* folder in the left pane to see the list of temporarily deleted messages in the right mails list pane.
+{docbook}
+<para>
+ <emphasis role="bold">1.</emphasis> Select the <guilabel>Trash</guilabel> folder in the left pane to see the list of temporarily deleted messages in the right mails list pane.</para>
+{docbook}
 
 *2.* Tick the checkbox corresponding to the message you want to undelete.
 
@@ -424,36 +719,57 @@ This function is only for messages which have been TEMPORARILY deleted.
 
 *The second way*
 
-Open the *Trash* folder, then use the [Move|#Move_message_to_other_folders] function to remove the message from the *Trash* folder.
+{docbook}
+<para>Open the <guilabel>Trash</guilabel> folder, then use the <link linkend="Move_message_to_other_folders">Move</link> function to remove the message from the <guilabel>Trash</guilabel> folder.</para>
+{docbook}
 
 h1. Compose a new message {anchor:id="Compose_new_message"}
-
-*1.* Click !images/write_mail_icon.png|width="13mm" fo:scalefit="1" html:scalefit="0"! on the *Toolbar* to open the *Compose New Message* form.
-
+{docbook}
+<para>
+          <emphasis role="bold">1.</emphasis> Click <inlinemediaobject>
+            <imageobject role="fo">
+              <imagedata fileref="images/write_mail_icon.png" format="PNG" scalefit="1" width="13mm"/>
+            </imageobject>
+            <imageobject role="html">
+              <imagedata fileref="images/write_mail_icon.png" format="PNG" scalefit="0" width="13mm"/>
+            </imageobject>
+          </inlinemediaobject> on the <guilabel>Toolbar</guilabel> to open the <guilabel>Compose New Message</guilabel> form.</para>
+{docbook}
 !images/compose_message_form.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
 
-*2.* Specify the sender's email address from the From* field.
+{docbook}
+<para>
+ <emphasis role="bold">2.</emphasis> Specify the sender's email address from the <guilabel>From</guilabel> field.
+</para>
+{docbook}
 
 !images/from_email.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
 
-*3.* Enter email addresses of recipients into the *To* field.
+{docbook}
+<para>
+   <emphasis role="bold">3.</emphasis> Enter email addresses of recipients into the <guilabel>To</guilabel> field.</para>
+{docbook}
 
-The *To* box must always contain at least one address; everyone who receives your message can see the addresses in the *To* box.
+{docbook}
+<para>The <guilabel>To</guilabel> box must always contain at least one address; everyone who receives your message can see the addresses in the <guilabel>To</guilabel> box.</para>
+{docbook}
 
 {docbook}
 <note>
     <para>
-    You can use <emphasis role="bold">CC</emphasis> and <emphasis role="bold">BCC</emphasis> to send mail to more than one person easily and quickly.
+    You can use <guilabel>CC</guilabel> and <guilabel>BCC</guilabel> to send mail to more than one person easily and quickly.
     </para>
     <para>
-    Use the <emphasis role="bold">CC</emphasis> (Carbon Copy) box for the addresses of people you want to send a copy of the message to other recipients. Everyone who receives your message can also see the addresses in the CC box. If someone responds to your message using "Reply to all", the carbon-copied recipients also receive the message.
+    Use the <guilabel>CC</guilabel> (Carbon Copy) box for the addresses of people you want to send a copy of the message to other recipients. Everyone who receives your message can also see the addresses in the CC box. If someone responds to your message using "Reply to all", the carbon-copied recipients also receive the message.
     </para>
-    <para><emphasis role="bold">BCC</emphasis> (Blind Carbon Copy) mails are private to the sender and the BCC recipients. Use BCC when you want to send the message to undisclosed recipients. It means you send the message to people and they do not know about other recipients. Addresses listed in the BBC box will not receive replies sent to this message.</para>
+    <para><guilabel>BCC</guilabel> (Blind Carbon Copy) mails are private to the sender and the BCC recipients. Use BCC when you want to send the message to undisclosed recipients. It means you send the message to people and they do not know about other recipients. Addresses listed in the BBC box will not receive replies sent to this message.</para>
 </note>
 {docbook}
 
-
-*4.* Enter a few words into the *Subject* box to give the general topic to recipients.
+{docbook}
+<para>
+  <emphasis role="bold">4.</emphasis> Enter a few words into the <guilabel>Subject</guilabel> box to give the general topic to recipients.</para>
+{docbook}
 
 *5.* Enter your message in the text-input field. You can use this toolbar to format the message text.
 
@@ -466,7 +782,7 @@ Click !images/editor_icon.png|width="13mm" fo:scalefit="1" html:scalefit="0"! on
 {docbook}
 <note>
     <para>
-    Sent mails will be saved in the <emphasis role="bold">Sent</emphasis> folder. In case emails of recipients do not exist in your Address Book, they will be added automatically to the <emphasis role="bold">Collected Address</emphasis> in the <emphasis role="bold">Contact</emphasis> application.
+    Sent mails will be saved in the <guilabel>Sent</guilabel> folder. In case emails of recipients do not exist in your Address Book, they will be added automatically to the <guilabel>Collected Address</guilabel> in the <emphasis role="bold">Contact</emphasis> application.
     </para>
 </note>
 {docbook}
@@ -494,12 +810,15 @@ If your typed address matches one or more addresses in your Address Book, the li
 
 Select one or more contacts from your Address Book.
 
-*1.* Click the *To* button.
+{docbook}
+<para>
+  <emphasis role="bold">1.</emphasis> Click the <guilabel>To</guilabel> button.</para>
+{docbook}
 
 !images/to_email2.png|align="center" width="80mm" fo:scalefit="1" html:scalefit="0"!
-
-The *Contacts* window listing all of your contacts will appear.
-
+{docbook}
+<para>The <guilabel>Contacts</guilabel> window listing all of your contacts will appear.</para>
+{docbook}
 !images/contacts.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
 
 *2.* Tick the checkboxes corresponding to the contacts who will receive your message.
@@ -510,28 +829,71 @@ Also, you can
 
 *i.* Type the contact name in the search box.
 
-*ii.* Define the address book where you want to search for your entered contact name to limit the search results in the *Address Book* select-box.
+{docbook}
+<para>
+  <emphasis role="bold">ii.</emphasis> Define the address book where you want to search for your entered contact name to limit the search results in the <guilabel>Address Book</guilabel> select-box.</para>
+{docbook}
 
 !images/addressbook.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
 
 *iii.* Click !images/Search_icon.png|width="4mm" fo:scalefit="1" html:scalefit="0"! to perform your search.
 
-* Tick the *Send To All* checkbox if you want to send the email to the contacts defined in the *Address Book* select-box.
+{docbook}
+<itemizedlist>
+          <listitem>
+            <para>Tick the <guilabel>Send To All</guilabel> checkbox if you want to send the email to the contacts defined in the <guilabel>Address Book</guilabel> select-box.</para>
+          </listitem>
+</itemizedlist>
+{docbook}
 
-*3.* Click *Add* to add your selected email addresses to the *To* box, or *Replace* to replace the current email addresses in the *To* field with your newly selected ones.
+{docbook}
+<para><emphasis role="bold">3.</emphasis> Click <guilabel>Add</guilabel> to add your selected email addresses to the <guilabel>To</guilabel> box, or <guilabel>Replace</guilabel> to replace the current email addresses in the <guilabel>To</guilabel> field with your newly selected ones.</para>
+{docbook}
 
 h2. Attach a file to a message {anchor:id="Attach_attachment_to_message"}
-*1.* Click !images/attach_local_file_icon.png|width="17mm" fo:scalefit="1" html:scalefit="0"! in the *Compose New Message* form to open the *Attach Files* window.
+{docbook}<para>
+            <emphasis role="bold">1.</emphasis> Click <inlinemediaobject>
+              <imageobject role="fo">
+                <imagedata fileref="images/attach_local_file_icon.png" format="PNG" scalefit="1" width="17mm"/>
+              </imageobject>
+              <imageobject role="html">
+                <imagedata fileref="images/attach_local_file_icon.png" format="PNG" scalefit="0" width="17mm"/>
+              </imageobject>
+            </inlinemediaobject> in the <guilabel>Compose New Message</guilabel> form to open the <guilabel>Attach Files</guilabel> window.</para>
+{docbook}
+{docbook}
+<para>
+  <emphasis role="bold">2.</emphasis> Click <guibutton>Browse...</guibutton> to open the <guilabel>File Upload</guilabel> form.</para>
+{docbook}
 
-*2.* Click *Browse...* to open the *File Upload* form.
+{docbook}
+<para>
+ <emphasis role="bold">3.</emphasis> Browse the file from your device, then click <guilabel>Open</guilabel> to upload your selected file.</para>
+{docbook}
 
-*3.* Browse the file from your device, then click *Open* to upload your selected file.
+{docbook}
+<itemizedlist>
+            <listitem>
+              <para>Open more <guilabel>Attach File</guilabel> fields by simply clicking <inlinemediaobject>
+                  <imageobject role="fo">
+                    <imagedata fileref="images/Add_more_button.png" format="PNG" scalefit="1" width="13mm"/>
+                  </imageobject>
+                  <imageobject role="html">
+                    <imagedata fileref="images/Add_more_button.png" format="PNG" scalefit="0" width="13mm"/>
+                  </imageobject>
+                </inlinemediaobject>.</para>
+            </listitem>
+</itemizedlist>
+{docbook}
 
-* Open more *Attach File* fields by simply clicking !images/Add_more_button.png|width="13mm" fo:scalefit="1" html:scalefit="0"!.
+{docbook}
+<para>
+ <emphasis role="bold">4.</emphasis> Click <guibutton>Save</guibutton> to accept your attachments and go back to the <guilabel>Compose New Message</guilabel> form. </para>
+{docbook}
 
-*4.* Click *Save* to accept your attachments and go back to the *Compose New Message* form. 
-
-You will see your uploaded files in the *Attachments* area of the *Compose New Message* window.
+{docbook}
+<para>You will see your uploaded files in the <guilabel>Attachments</guilabel> area of the <guilabel>Compose New Message</guilabel> window.</para>
+{docbook}
 
 !images/Attachments_area.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
 
@@ -548,7 +910,17 @@ You will see your uploaded files in the *Attachments* area of the *Compose New M
 
 This function is only featured in eXo Platform 3.5, allowing you to browse and attach one file from your server as follows.
 
-*1.* Click !images/Down_arrow_icon2.png|width="4mm" fo:scalefit="1" html:scalefit="0"! next to the *Attach a Local File* in the *Compose New Message* form, then select *Attach a Server File* from the drop-down menu.
+{docbook}
+<para>
+            <emphasis role="bold">1.</emphasis> Click <inlinemediaobject>
+              <imageobject role="fo">
+                <imagedata fileref="images/Down_arrow_icon2.png" format="PNG" scalefit="1" width="4mm"/>
+              </imageobject>
+              <imageobject role="html">
+                <imagedata fileref="images/Down_arrow_icon2.png" format="PNG" scalefit="0" width="4mm"/>
+              </imageobject>
+            </inlinemediaobject> next to the <guilabel>Attach a Local File</guilabel> in the <guilabel>Compose New Message</guilabel> form, then select <guilabel>Attach a Server File</guilabel> from the drop-down menu.</para>
+{docbook}
 
 !images/Attach_server_file_form.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
 
@@ -558,18 +930,33 @@ This function is only featured in eXo Platform 3.5, allowing you to browse and a
 
 * Click !images/File_Upload_icon.png|width="4mm" fo:scalefit="1" html:scalefit="0"! if you want to upload a file from your device.
 
-*4.* Click *Attach* to upload your selected source file into the message;
+{docbook}
+<para>
+<emphasis role="bold">4.</emphasis> Click <guilabel>Attach</guilabel> to upload your selected source file into the message;</para>
+{docbook}
 
-Or, click *Attach Link* to get the link pointing to the selected source file that is shown in your message body. The *Attach Link* function allows your mail recipients to download the attached source file just clicking the relevant link.
+{docbook}
+<para>Or, click <guilabel>Attach Link</guilabel> to get the link pointing to the selected source file that is shown in your message body. The <emphasis role="bold">Attach Link</emphasis> function allows your mail recipients to download the attached source file just clicking the relevant link.</para>
+{docbook}
+
 
 h2. Save a message as draft {anchor:id="Save_message_as_draft"}
-If you are not ready to send your composed message, click !images/save_in_drafts_icon.png| width="17mm" fo:scalefit="1" html:scalefit="0"! to save it as draft. Your draft message will be in the *Drafts* folder for you to send whenever you like.
+{docbook}
+<para>If you are not ready to send your composed message, click <inlinemediaobject>
+              <imageobject role="fo">
+                <imagedata fileref="images/save_in_drafts_icon.png" format="PNG" scalefit="1" width="17mm"/>
+              </imageobject>
+              <imageobject role="html">
+                <imagedata fileref="images/save_in_drafts_icon.png" format="PNG" scalefit="0" width="17mm"/>
+              </imageobject>
+            </inlinemediaobject> to save it as draft. Your draft message will be in the <guilabel>Drafts</guilabel> folder for you to send whenever you like.</para>
+{docbook}
 
 h2. Set a priority level {anchor:id="Set_priority_level"}
 
 The priority levels set to a message allow recipients to define if one received message is at a high, or normal, or low importance level. It means that when a message is set at the high priority level, its recipients need to read as soon as possible.
 
-This useful tool can be done with a few clicks when you are composing a new message. 
+This useful tool can be done with a few clicks when you are composing a new message.
 
 {docbook}
 <citetitle>
@@ -581,25 +968,68 @@ Set a priority level for your composed message
 </citetitle>
 {docbook}
 
-*1.* Click !images/priority_icon.png|width="15mm" fo:scalefit="1" html:scalefit="0"! in the *Compose New Message* form.
+{docbook}
+<para>
+            <emphasis role="bold">1.</emphasis> Click <inlinemediaobject>
+              <imageobject role="fo">
+                <imagedata fileref="images/priority_icon.png" format="PNG" scalefit="1" width="15mm"/>
+              </imageobject>
+              <imageobject role="html">
+                <imagedata fileref="images/priority_icon.png" format="PNG" scalefit="0" width="15mm"/>
+              </imageobject>
+            </inlinemediaobject> in the <guilabel>Compose New Message</guilabel> form.</para>
+{docbook}
 
 *2.* Select your preferred priority from the drop-down menu.
 
-* *Low:* The exclamation icon corresponding to the mail is marked in grey in the !images/Priority_column_icon.png|width="4mm" fo:scalefit="1" html:scalefit="0"! column.
-* *Normal:* There is no the exclamation icon. By default, the message is sent with the *Normal* priority.
-* *High:* The exclamation icon is marked in red.
+{docbook}
+<itemizedlist>
+            <listitem>
+              <para>
+                <guilabel>Low:</guilabel> The exclamation icon corresponding to the mail is marked in grey in the <inlinemediaobject>
+                  <imageobject role="fo">
+                    <imagedata fileref="images/Priority_column_icon.png" format="PNG" scalefit="1" width="4mm"/>
+                  </imageobject>
+                  <imageobject role="html">
+                    <imagedata fileref="images/Priority_column_icon.png" format="PNG" scalefit="0" width="4mm"/>
+                  </imageobject>
+                </inlinemediaobject> column.</para>
+            </listitem>
+            <listitem>
+              <para>
+                <guilabel>Normal:</guilabel> There is no the exclamation icon. By default, the message is sent with the <emphasis role="bold">Normal</emphasis> priority.</para>
+            </listitem>
+            <listitem>
+              <para>
+                <guilabel>High:</guilabel> The exclamation icon is marked in red.</para>
+            </listitem>
+          </itemizedlist>
+{docbook}
 
 h2. Change the message signature {anchor:id="Change_signature_to_message"}
-A message signature is an identification text which is automatically inserted at the bottom of your sending messages. 
+A message signature is an identification text which is automatically inserted at the bottom of your sending messages.
 You can change this signature by [editing your account details|#CSUser_guide.How_to_use_Mail.Create_mail_account.Edit_account].
 
 h2. Change message preferences  {anchor:id="Change_message_preferences"}
-At present, this function only allows you to receive a notification message that the recipient has already read your message or not. 
+At present, this function only allows you to receive a notification message that the recipient has already read your message or not.
 
-*1.* Click !images/options_icon.png|width="15mm" fo:scalefit="1" html:scalefit="0"! in the *Compose New Message* form.
-
-*2.* Select the *Return Receipt* option from the drop-down menu. However, seeing the notification message or not also depends on the *[Return Receipts|#Return_Receipts_settings]* configuration of the recipient in the [Change Mail settings|#Mail_settings] section.
-
+{docbook}
+<para>
+            <emphasis role="bold">1.</emphasis> Click <inlinemediaobject>
+              <imageobject role="fo">
+                <imagedata fileref="images/options_icon.png" format="PNG" scalefit="1" width="15mm"/>
+              </imageobject>
+              <imageobject role="html">
+                <imagedata fileref="images/options_icon.png" format="PNG" scalefit="0" width="15mm"/>
+              </imageobject>
+            </inlinemediaobject> in the <guilabel>Compose New Message</guilabel> form.</para>
+{docbook}
+{docbook}
+<para>
+   <emphasis role="bold">2.</emphasis> Select the <guilabel>Return Receipt</guilabel> option from the drop-down menu. However, seeing the notification message or not also depends on the <guilabel>
+              <link linkend="Return_Receipts_settings">Return Receipts</link>
+            </guilabel> configuration of the recipient in the <link linkend="Mail_settings">Change Mail settings</link> section.</para>
+{docbook}
 
 h1. Reply to a message {anchor:id="CSUser_guide.How_to_use_Mail.Reply_to_message}
 
@@ -611,7 +1041,10 @@ h1. Reply to a message {anchor:id="CSUser_guide.How_to_use_Mail.Reply_to_message
 </citetitle>
 {docbook}
 
-*1.* Open the *Reply* form via either of 3 ways:
+{docbook}
+<para>
+          <emphasis role="bold">1.</emphasis> Open the <guilabel>Reply</guilabel> form via either of 3 ways:</para>
+{docbook}
 
 *The first way*
 
@@ -619,13 +1052,20 @@ Tick the checkbox corresponding to the message you want to reply in the mails li
 
 *The second way*
 
-Right-click the message you want to reply, then select *Reply* from the drop-down menu.
+{docbook}
+<para>Right-click the message you want to reply, then select <guilabel>Reply</guilabel> from the drop-down menu.</para>
+{docbook}
 
 *The third way*
 
 Click the message that you want to reply to display its content, then select !images/reply_mail_icon.png|width="5mm" fo:scalefit="1" html:scalefit="0"! at the upper right corner of the message content.
 
-*2.* Compose the content in the *[Compose New Message|#Compose_new_message]* window.
+{docbook}
+<para>
+          <emphasis role="bold">2.</emphasis> Compose the content in the <guilabel>
+            <link linkend="Compose_new_message">Compose New Message</link>
+          </guilabel> window.</para>
+{docbook}
 
 *3.* Click !images/send_mail_icon.png|width="13mm" fo:scalefit="1" html:scalefit="0"! to send your reply.
 
@@ -637,28 +1077,63 @@ Click the message that you want to reply to display its content, then select !im
 </citetitle>
 {docbook}
 
-*1.* Tick the checkbox corresponding to the message you want to reply, then click !images/reply_all_icon.png|width="4mm" fo:scalefit="1" html:scalefit="0"! on the *Action bar*;
+*1.* Tick the checkbox corresponding to the message you want to reply, then click !images/reply_all_icon.png|width="4mm" fo:scalefit="1" html:scalefit="0"! on the *Action* bar;
 
-Or right-click the message, then select *Reply to All* from the drop-down menu.
+{docbook}
+<para>Or right-click the message, then select <guilabel>Reply to All</guilabel> from the drop-down menu.</para>
+{docbook}
 
-*2.* Compose your reply message in the *[Compose New Message|#Compose_new_message]* window, then click !images/send_mail_icon.png|width="13mm" fo:scalefit="1" html:scalefit="0"! to send your reply.
+{docbook}
+<para>
+          <emphasis role="bold">2.</emphasis> Compose your reply message in the <guilabel>
+            <link linkend="Compose_new_message">Compose New Message</link>
+          </guilabel> window, then click <inlinemediaobject>
+            <imageobject role="fo">
+              <imagedata fileref="images/send_mail_icon.png" format="PNG" scalefit="1" width="13mm"/>
+            </imageobject>
+            <imageobject role="html">
+              <imagedata fileref="images/send_mail_icon.png" format="PNG" scalefit="0" width="13mm"/>
+            </imageobject>
+          </inlinemediaobject> to send your reply.</para>
+{docbook}
 
 h1. Forward a message {anchor:id="CSUser_guide.How_to_use_Mail.Forward_message"}
-This function allows you to resend a message, which has been delivered to your email address, to another email addresses. 
+This function allows you to resend a message, which has been delivered to your email address, to another email addresses.
 
-*1.* Open the *Compose New Message* window via either of 3 ways.
+{docbook}
+<para>
+  <emphasis role="bold">1.</emphasis> Open the <guilabel>Compose New Message</guilabel> window via either of 3 ways.</para>
+{docbook}
 
 *i.* Tick the checkbox corresponding to the message which you want to forward, then click !images/forward_mail_icon.png|width="4mm" fo:scalefit="1" html:scalefit="0"! on the action bar.
 
 !images/forward_mail.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
 
-*ii.* Or, right-click the message, then select *Forward* from the drop-down menu;
+{docbook}
+<para>
+ <emphasis role="bold">ii.</emphasis> Or, right-click the message, then select <guilabel>Forward</guilabel> from the drop-down menu;</para>
+{docbook}
 
-*iii.* Or, open the message which you want to forward, then click !images/down_arrow_icon.png|width="4mm" fo:scalefit="1" html:scalefit="0"! at the upper right corner of the message content, and select *Forward* from the drop-down menu.
+{docbook}
+<para>
+          <emphasis role="bold">iii.</emphasis> Or, open the message which you want to forward, then click <inlinemediaobject>
+            <imageobject role="fo">
+              <imagedata fileref="images/down_arrow_icon.png" format="PNG" scalefit="1" width="4mm"/>
+            </imageobject>
+            <imageobject role="html">
+              <imagedata fileref="images/down_arrow_icon.png" format="PNG" scalefit="0" width="4mm"/>
+            </imageobject>
+          </inlinemediaobject> at the upper right corner of the message content, and select <guilabel>Forward</guilabel> from the drop-down menu.</para>
+{docbook}
 
-The *Compose New Message* window will be displayed with the original content of the message you want to forward.
+{docbook}
+<para>The <guilabel>Compose New Message</guilabel> window will be displayed with the original content of the message you want to forward.</para>
+{docbook}
 
-*2.* Enter the recipient's email address in the *To* field.
+{docbook}
+<para>
+  <emphasis role="bold">2.</emphasis> Enter the recipient's email address in the <guilabel>To</guilabel> field.</para>
+{docbook}
 
 *3.* Click !images/send_mail_icon.png|width="13mm" fo:scalefit="1" html:scalefit="0"! to forward the message.
 
@@ -676,7 +1151,9 @@ This function helps you take a hard copy of the message, provided that your devi
 
 *The first way*
 
-Right-click the message which you want to print and click *Print* from the drop-down menu.
+{docbook}
+<para>Right-click the message which you want to print and click <guibutton>Print</guibutton> from the drop-down menu.</para>
+{docbook}
 
 *The second way*
 
@@ -684,44 +1161,97 @@ Tick the checkbox corresponding to the message, then click !images/print_icon.pn
 
 *The third way*
 
-Open the message, then click !images/down_arrow_icon.png|width="4mm" fo:scalefit="1" html:scalefit="0"! at the upper right corner of the message content and select *Print* from the drop-down menu.
+{docbook}
+<para>Open the message, then click
+<inlinemediaobject>
+            <imageobject role="fo">
+              <imagedata fileref="images/down_arrow_icon.png" format="PNG" scalefit="1" width="4mm"/>
+            </imageobject>
+            <imageobject role="html">
+              <imagedata fileref="images/down_arrow_icon.png" format="PNG" scalefit="0" width="4mm"/>
+            </imageobject>
+          </inlinemediaobject>  at the upper right corner of the message content and select <guibutton>Print</guibutton> from the drop-down menu.</para>
+{docbook}
 
-You will be directed to the *Print Preview* page. Here, click *Print* to start printing.
+{docbook}
+<para>You will be directed to the <emphasis role="bold">Print Preview</emphasis> page. Here, click <guibutton>Print</guibutton> to start printing.</para>
+{docbook}
 
 h1. Export a message {anchor:id="CSUser_guide.How_to_use_Mail.Export_messages}
 
 This function allows you to back up your messages, then import them into your another accounts. Messages are exported in the \*.eml file.
 
-*1.* Open the *Export Message* form via either of 3 ways.
+{docbook}
+<para>
+          <emphasis role="bold">1.</emphasis> Open the <guilabel>Export Message</guilabel> form via either of 3 ways.</para>
+{docbook}
 
-*i.* Right-click the message that you want to export, then select *Export* from the drop-down menu;
+{docbook}
+<para>
+          <emphasis role="bold">i.</emphasis> Right-click the message that you want to export, then select <guilabel>Export</guilabel> from the drop-down menu;</para>
+{docbook}
 
-*ii.* Or, tick the checkbox corresponding to the message, then click *More Actions* on the action bar and select *Export* from the drop-down menu;
+{docbook}
+<para>
+          <emphasis role="bold">ii.</emphasis> Or, tick the checkbox corresponding to the message, then click <guilabel>More Actions</guilabel> on the action bar and select <guilabel>Export</guilabel> from the drop-down menu;</para>
+{docbook}
 
-*iii.* Open the message, then click !images/down_arrow_icon.png|width="4mm" fo:scalefit="1" html:scalefit="0"! at the upper right corner of the message content and select *Export (\*.eml)* from the drop-down menu.
+{docbook}
+<para>
+          <emphasis role="bold">iii.</emphasis> Open the message, then click <inlinemediaobject>
+            <imageobject role="fo">
+              <imagedata fileref="images/down_arrow_icon.png" format="PNG" scalefit="1" width="4mm"/>
+            </imageobject>
+            <imageobject role="html">
+              <imagedata fileref="images/down_arrow_icon.png" format="PNG" scalefit="0" width="4mm"/>
+            </imageobject>
+          </inlinemediaobject> at the upper right corner of the message content and select <guilabel>Export (*.eml)</guilabel> from the drop-down menu.</para>
+{docbook}
 
-The *Export Message* form will appear.
+{docbook}
+<para>The <guilabel>Export Message</guilabel> form will appear.</para>
+{docbook}
 
 !images/export_message.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
 
-*2.* Change the file name in the *File Name* field if needed, and select the export format. At present, only the \*.eml format is supported.
+{docbook}
+<para>
+          <emphasis role="bold">2.</emphasis> Change the file name in the <guilabel>File Name</guilabel> field if needed, and select the export format. At present, only the *.eml format is supported.</para>
+{docbook}
 
-*3.* Click *Export* to accept exporting your selected message.
+{docbook}
+<para>
+          <emphasis role="bold">3.</emphasis> Click <guibutton>Export</guibutton> to accept exporting your selected message.</para>
+{docbook}
 
 h1. Import a message {anchor:id="CSUser_guide.How_to_use_Mail.Import_messages}
 The function is used to import a message from your device to your selected folder in *Mail*.
 
-*1.* Click *More Actions* on the action bar and select *Export* from the drop-down menu.
+{docbook}
+<para>
+  <emphasis role="bold">1.</emphasis> Click <guilabel>More Actions</guilabel> on the action bar and select <guilabel>Export</guilabel> from the drop-down menu.</para>
+{docbook}
 
-The *Import Message* form will appear.
+{docbook}
+<para>The <guilabel>Import Message</guilabel> form will appear.</para>
+{docbook}
 
 !images/import_message.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
 
-*2.* Click *Browse...* to get one _.eml_ file from your device.
+{docbook}
+<para>
+          <emphasis role="bold">2.</emphasis> Click <guibutton>Browse...</guibutton> to get one <emphasis role="italic">.eml</emphasis> file from your device.</para>
+{docbook}
 
-*3.* Select the folder into which you want to import the message in the *Import to Folder* field.
+{docbook}
+<para>
+          <emphasis role="bold">3.</emphasis> Select the folder into which you want to import the message in the <guilabel>Import to Folder</guilabel> field.</para>
+{docbook}
 
-*4.* Click *Import* to accept importing your selected file.
+{docbook}
+<para>
+          <emphasis role="bold">4.</emphasis> Click <guibutton>Import</guibutton> to accept importing your selected file.</para>
+{docbook}
 
 {docbook}
 <note>
@@ -734,18 +1264,61 @@ The *Import Message* form will appear.
 h1. Categorize messages by folders/tags/filters {anchor:id="CSUser_guide.How_to_use_Mail.Categorize_messages_by_folders_tags_filters}
 h2. Categorize by folder {anchor:id="CSUser_guide.How_to_use_Mail.Categorize_messages_by_folders_tags_filters.Folder}
 
-Folders help you manage your messages more easily and flexibly. Once your new mail account is created successfully, five default folders, including *Inbox, Drafts, Sent, Spam, Trash*, will be automatically generated. You cannot delete, rename or move these folders.
-
+{docbook}<para>Folders help you manage your messages more easily and flexibly. Once your new mail account is created successfully, five default folders, including <guilabel>Inbox, Drafts, Sent, Spam, Trash</guilabel>, will be automatically generated. You cannot delete, rename or move these folders.</para>
+{docbook}
 !images/Mail_folder.png|align="center" width="40mm" fo:scalefit="1" html:scalefit="0"!
 
 *Details:*
-||Folder||Description||
-|*Inbox*|Store all incoming messages.|
-|*Drafts*|Store all messages which have been composed but not sent yet.|
-|*Sent*|Store all sent messages.
-|*Spam*|Store all messages suspected of being unwanted messages.|
-|*Trash*|Store temporarily deleted messages.|
-|*Personal Folders*|Store folders which are created by yourself.|
+{docbook}
+<informaltable>
+            <tgroup cols="2">
+              <thead>
+                <row>
+                  <entry>Folder</entry>
+                  <entry>Description</entry>
+                </row>
+              </thead>
+              <tbody>
+                <row>
+                  <entry>
+                    <guilabel>Inbox</guilabel>
+                  </entry>
+                  <entry>Store all incoming messages.</entry>
+                </row>
+                <row>
+                  <entry>
+                    <guilabel>Drafts</guilabel>
+                  </entry>
+                  <entry>Store all messages which have been composed but not sent yet.</entry>
+                </row>
+                <row>
+                  <entry>
+                    <guilabel>Sent</guilabel>
+                  </entry>
+                  <entry>Store all sent messages.</entry>
+                </row>
+                <row>
+                  <entry>
+                    <guilabel>Spam</guilabel>
+                  </entry>
+                  <entry>Store all messages suspected of being unwanted messages.</entry>
+                </row>
+                <row>
+                  <entry>
+                    <guilabel>Trash</guilabel>
+                  </entry>
+                  <entry>Store temporarily deleted messages.</entry>
+                </row>
+                <row>
+                  <entry>
+                    <guilabel>Personal Folders</guilabel>
+                  </entry>
+                  <entry>Store folders which are created by yourself.</entry>
+                </row>
+              </tbody>
+            </tgroup>
+          </informaltable>
+{docbook}
 
 Categorizing by folders can be performed via:
 * [Create a new folder|#Create_new_folder]
@@ -753,22 +1326,40 @@ Categorizing by folders can be performed via:
 
 h3. Create a new folder {anchor:id="Create_new_folder"}
 
-*1.* Click !images/Down_arrow_addressbook_icon.png|width="4mm" fo:scalefit="1" html:scalefit="0"! on the *Folders* pane, then select *Add* from the drop-down menu.
+{docbook}
+<para>
+              <emphasis role="bold">1.</emphasis> Click <inlinemediaobject>
+                <imageobject role="fo">
+                  <imagedata fileref="images/Down_arrow_addressbook_icon.png" format="PNG" scalefit="1" width="4mm"/>
+                </imageobject>
+                <imageobject role="html">
+                  <imagedata fileref="images/Down_arrow_addressbook_icon.png" format="PNG" scalefit="0" width="4mm"/>
+                </imageobject>
+              </inlinemediaobject> on the <guilabel>Folders</guilabel> pane, then select <guilabel>Add</guilabel> from the drop-down menu.</para>
+{docbook}
 
-*2.* Enter the folder name into the *Folder name* field. Special characters are not accepted in this field.
+{docbook}
+<para>
+   <emphasis role="bold">2.</emphasis> Enter the folder name into the <guilabel>Folder name</guilabel> field. Special characters are not accepted in this field.</para>
+{docbook}
 
-*3.* Click *Save* to complete adding your new folder.
+{docbook}
+<para>
+              <emphasis role="bold">3.</emphasis> Click <guibutton>Save</guibutton> to complete adding your new folder.</para>
+{docbook}
 
 {docbook}
 <note>
     <para>
-    Your created folder will be displayed in the <emphasis role="bold">Personal Folders</emphasis> pane.
+    Your created folder will be displayed in the <guilabel>Personal Folders</guilabel> pane.
     </para>
 </note>
 {docbook}
 
 h3. Manage Personal Folders {anchor:id="Manage_Personal_Folders}
-Right-click any folder under the *Personal Folders* pane to show the drop-down menu. 
+{docbook}
+<para>Right-click any folder under the <guilabel>Personal Folders</guilabel> pane to show the drop-down menu. </para>
+{docbook}
 
 !images/personal-folder.png|align="center" width="40mm" fo:scalefit="1" html:scalefit="0"!
 
@@ -781,7 +1372,7 @@ Here you can manage personal folders through the following actions:
 {docbook}
 <note>
 <para>
-All above actions are only for folders/sub-folders under the <emphasis role="bold">Personal Folders</emphasis> pane.
+All above actions are only for folders/sub-folders under the <guilabel>Personal Folders</guilabel> pane.
 </para>
 </note>
 {docbook}
@@ -794,7 +1385,10 @@ All above actions are only for folders/sub-folders under the <emphasis role="bol
 </citetitle>
 {docbook}
 
-*1.* Select *New Subfolder* from the drop-down menu.
+{docbook}
+<para>
+  <emphasis role="bold">1.</emphasis> Select <guilabel>New Subfolder</guilabel> from the drop-down menu.</para>
+{docbook}
 
 *2.* Follow steps as stated in the [Create a new folder|#Create_new_folder] section.
 
@@ -806,11 +1400,20 @@ All above actions are only for folders/sub-folders under the <emphasis role="bol
 </citetitle>
 {docbook}
 
-*1.* Select *Rename* from the drop-down menu.
+{docbook}
+<para>
+  <emphasis role="bold">1.</emphasis> Select <guilabel>Rename</guilabel> from the drop-down menu.</para>
+{docbook}
 
-*2.* Enter a new name in the *New Folder Name* field of the *Remove Folder* form.
+{docbook}
+ <para>
+    <emphasis role="bold">2.</emphasis> Enter a new name in the <guilabel>New Folder Name</guilabel> field of the <guilabel>Remove Folder</guilabel> form.</para>
+{docbook}
 
-*3.* Click *Save* to finish your removal.
+{docbook}
+<para>
+   <emphasis role="bold">3.</emphasis> Click <guibutton>Save</guibutton> to finish your removal.</para>
+{docbook}
 
 {docbook}
 <citetitle>
@@ -820,9 +1423,15 @@ All above actions are only for folders/sub-folders under the <emphasis role="bol
 </citetitle>
 {docbook}
 
-*1.* Select *Remove* from the drop-down menu.
+{docbook}
+<para>
+  <emphasis role="bold">1.</emphasis> Select <guibutton>Remove</guibutton> from the drop-down menu.</para>
+{docbook}
 
-*2.* Click *OK* in the confirmation message to accept your deletion.
+{docbook}
+<para>
+  <emphasis role="bold">2.</emphasis> Click <guibutton>OK</guibutton> in the confirmation message to accept your deletion.</para>
+{docbook}
 
 {docbook}
 <citetitle>
@@ -832,7 +1441,9 @@ All above actions are only for folders/sub-folders under the <emphasis role="bol
 </citetitle>
 {docbook}
 
-This function is to mark all mails of a personal folder as read by clicking *Mark all as read* from the drop-down menu.
+{docbook}
+<para>This function is to mark all mails of a personal folder as read by clicking <guilabel>Mark all as read</guilabel> from the drop-down menu.</para>
+{docbook}
 
 h2. Categorize by tag {anchor:id="Tag"}
 
@@ -849,19 +1460,62 @@ You can categorize by tags through the following actions:
 
 h3. Create a tag {anchor:id="Create_tag"}
 
-*1.* Click !images/Down_arrow_addressbook_icon.png|width="4mm" fo:scalefit="1" html:scalefit="0"! on the *Tags* pane of the right pane and select *Add New Tag* from the drop-down menu to open the *Tag* form.
+{docbook}
+<para>
+              <emphasis role="bold">1.</emphasis> Click <inlinemediaobject>
+                <imageobject role="fo">
+                  <imagedata fileref="images/Down_arrow_addressbook_icon.png" format="PNG" scalefit="1" width="4mm"/>
+                </imageobject>
+                <imageobject role="html">
+                  <imagedata fileref="images/Down_arrow_addressbook_icon.png" format="PNG" scalefit="0" width="4mm"/>
+                </imageobject>
+              </inlinemediaobject> on the <guilabel>Tags</guilabel> pane of the right pane and select <guilabel>Add New Tag</guilabel> from the drop-down menu to open the <guilabel>Tag</guilabel> form.</para>
+{docbook}
 
 !images/tag.png|align="center" width="100mm" fo:scalefit="1" html:scalefit="0"!
 
 *Details:*
-||Field||Description|
-|*Name*|The new tag name.|
-|*Color*|The tag color.|
-|*Description*|The brief description of the tag.|
+{docbook}
+<informaltable>
+              <tgroup cols="2">
+                <thead>
+                  <row>
+                    <entry>Field</entry>
+                    <entry>Description</entry>
+                  </row>
+                </thead>
+                <tbody>
+                  <row>
+                    <entry>
+                      <guilabel>Name</guilabel>
+                    </entry>
+                    <entry>The new tag name.</entry>
+                  </row>
+                  <row>
+                    <entry>
+                      <guilabel>Color</guilabel>
+                    </entry>
+                    <entry>The tag color.</entry>
+                  </row>
+                  <row>
+                    <entry>
+                      <guilabel>Description</guilabel>
+                    </entry>
+                    <entry>The brief description of the tag.</entry>
+                  </row>
+                </tbody>
+              </tgroup>
+ </informaltable>
+{docbook}
 
-*2.* Fill in required fields, then click *Save* to finish.
+{docbook}
+<para>
+    <emphasis role="bold">2.</emphasis> Fill in required fields, then click <guibutton>Save</guibutton> to finish.</para>
+{docbook}
 
-Your newly selected tag will be updated in the *Tags* pane.
+{docbook}
+<para>Your newly selected tag will be updated in the <guilabel>Tags</guilabel> pane.</para>
+{docbook}
 
 h3. Assign a tag to a message {anchor:id="Assign_tag"}
 
@@ -873,42 +1527,70 @@ You can assign a tag to many messages simply by ticking their checkboxes first.
 </note>
 {docbook}
 
-*1.* Open the *Tag Message* form via one of the following ways.  {anchor:id="Assign_tag_Step_1"}
+{docbook}
+<para>
+              <emphasis role="bold">1.</emphasis> Open the <guilabel>Tag Message</guilabel> form via one of the following ways.  <anchor id="Assign_tag_Step_1"/></para>
+{docbook}
 
 *The first way*
 
-*i.* Tick the checkbox corresponding to the message to which you want to assign a tag, then click *More Actions* on the *Action bar*.
+{docbook}
+<para>
+   <emphasis role="bold">i.</emphasis> Tick the checkbox corresponding to the message to which you want to assign a tag, then click <guilabel>More Actions</guilabel> on the <guilabel>Action bar</guilabel>.</para>
+{docbook}
 
-*ii.* Select *Tag* from the drop-down menu.
+{docbook}
+<para>
+  <emphasis role="bold">ii.</emphasis> Select <guilabel>Tag</guilabel> from the drop-down menu.</para>
+{docbook}
 
 *The second way*
 
-Right-click your selected message, then select *Tag* from the drop-down menu;
+{docbook}
+<para>Right-click your selected message, then select <guilabel>Tag</guilabel> from the drop-down menu;</para>
+{docbook}
 
-The *Tag Message* form will be displayed.
+{docbook}
+<para>The <guilabel>Tag Message</guilabel> form will be displayed.</para>
+{docbook}
 
 !images/tag_message.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
 
-*2.* Give a new tag name in the *Tag Name* field. This field contains words and keywords which are used to describe the same messages.
+{docbook}
+<para>
+<emphasis role="bold">2.</emphasis> Give a new tag name in the <guilabel>Tag Name</guilabel> field. This field contains words and keywords which are used to describe the same messages.</para>
+{docbook}
 
 Or, tick the checkboxes corresponding to your desired tags from the tags list.
 
-*3.* Select one color for the tag from the *Color* drop-down menu.
+{docbook}
+<para>
+              <emphasis role="bold">3.</emphasis> Select one color for the tag from the <guilabel>Color</guilabel> drop-down menu.</para>
+{docbook}
 
-*4.* Click *Add* to finish assigning the tags to your selected messages;
+{docbook}
+<para>
+              <emphasis role="bold">4.</emphasis> Click <guibutton>Add</guibutton> to finish assigning the tags to your selected messages;</para>
+{docbook}
 
 {docbook}
 <citetitle>
 <para xml:id="Untag_messages">
 <emphasis role="bold">Untag a message
-</emphasis> 
+</emphasis>
 </para>
 </citetitle>
 {docbook}
 
-*1.* Select a message which has been tagged, then follow [Step 1|#Assign_tag_Step_1] to open the *Tag Message* form. 
+{docbook}
+<para>
+   <emphasis role="bold">1.</emphasis> Select a message which has been tagged, then follow <link linkend="Assign_tag_Step_1">Step 1</link> to open the <guilabel>Tag Message</guilabel> form. </para>
+{docbook}
 
-*2.* Click *Remove* to remove the assigned tag from your selected message.
+{docbook}
+<para>
+     <emphasis role="bold">2.</emphasis> Click <guilabel>Remove</guilabel> to remove the assigned tag from your selected message.</para>
+{docbook}
 
 {docbook}
 <note>
@@ -920,50 +1602,81 @@ To remove one tag from all messages, simply use the <link linkend="Empty_tag">Em
 
 h3. Edit a tag {anchor:id="Edit_tag"}
 
-*1.* Right-click a tag name in the *Tags* pane, and click *Edit* from the drop-down menu.
+{docbook}
+ <para>
+    <emphasis role="bold">1.</emphasis> Right-click a tag name in the <guilabel>Tags</guilabel> pane, and click <guilabel>Edit</guilabel> from the drop-down menu.</para>
+{docbook}
 
-The *Tag* form will appear.
+{docbook}
+<para>The <guilabel>Tag</guilabel> form will appear.</para>
+{docbook}
 
 !images/tag.png|align="center" width="100mm" fo:scalefit="1" html:scalefit="0"!
 
-*2.* Make changes on the tag, then click *Save* to save your changes.
+{docbook}
+<para>
+              <emphasis role="bold">2.</emphasis> Make changes on the tag, then click <guibutton>Save</guibutton> to save your changes.</para>
+{docbook}
 
 h3. Remove a tag {anchor:id="Remove_tag"}
 
-Right-click the tag that you want to remove in the *Tags* pane, then select *Remove* from the drop-down menu.
+{docbook}
+<para>Right-click the tag that you want to remove in the <guilabel>Tags</guilabel> pane, then select <guilabel>Remove</guilabel> from the drop-down menu.</para>
+{docbook}
 
 The selected tag will be removed from the tags list and from all messages.
 
 h3. Empty a tag {anchor:id="Empty_tag"}
 
-By using this function, you can remove one tag from all messages. 
+By using this function, you can remove one tag from all messages.
 
-*1.* Right-click the tag in the *Tags* pane.
+{docbook}
+<para>
+              <emphasis role="bold">1.</emphasis> Right-click the tag in the <guilabel>Tags</guilabel> pane.</para>
+{docbook}
 
-*2.* Select *Empty* from the drop-down menu.
+{docbook}
+<para>
+              <emphasis role="bold">2.</emphasis> Select <guilabel>Empty</guilabel> from the drop-down menu.</para>
+{docbook}
 
 h3. Change the tag color {anchor:id="Change_tag_color"}
 
-Right-click the tag in the *Tags* pane, then select your desired color from the 32-color palette.
+{docbook}
+<para>Right-click the tag in the <guilabel>Tags</guilabel> pane, then select your desired color from the 32-color palette.</para>
+{docbook}
 
 !images/tags_color.png|align="center" width="40mm" fo:scalefit="1" html:scalefit="0"!
 
 h2. Categorize by filter {anchor:id="Filter"}
-
 By default, the messages list shows all of your received messages in your inbox but you can filter to specify which message to be displayed.
 
 !images/Filter_message_dropdown.png|align="center" width="30mm" fo:scalefit="1" html:scalefit="0"!
 
 You can filter messages according to the following criteria:
+{docbook}
+<itemizedlist>
+            <listitem>
+              <para>
+                <guilabel>Unread</guilabel>: Only show unread messages.</para>
+            </listitem>
 
-* *Unread*: Only show unread messages.
+            <listitem>
+              <para>
+                <guilabel>Starred</guilabel>: Only show starred messages.</para>
+            </listitem>
 
-* *Starred*: Only show starred messages.
+            <listitem>
+              <para>
+                <guilabel>With Attachments</guilabel>: Only show messages with attachments.</para>
+            </listitem>
 
-* *With Attachments*: Only show messages with attachments.
-
-* *View All*: Show all types of messages.
-
+            <listitem>
+              <para>
+                <guilabel>View All</guilabel>: Show all types of messages.</para>
+            </listitem>
+          </itemizedlist>
+{docbook}
 You can categorize by filter through the following actions:
 
 * [Create a filter|#Create_filter]
@@ -985,30 +1698,98 @@ Create a new filter by defining all filter rules
 
 By this way, you need to manually define conditions for the new message filter.
 
-*1.* Click !images/filter_icon.png|width="12mm" fo:scalefit="1" html:scalefit="0"! on the *Toolbar* to open the *Message Filter* form.
+{docbook}
+<para>
+              <emphasis role="bold">1.</emphasis> Click <inlinemediaobject>
+                <imageobject role="fo">
+                  <imagedata fileref="images/filter_icon.png" format="PNG" scalefit="1" width="12mm"/>
+                </imageobject>
+                <imageobject role="html">
+                  <imagedata fileref="images/filter_icon.png" format="PNG" scalefit="0" width="12mm"/>
+                </imageobject>
+              </inlinemediaobject> on the <emphasis role="bold">Toolbar</emphasis> to open the <guilabel>Message Filter</guilabel> form.</para>
+{docbook}
 
 !images/message_filter.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
 
 *2.* Click !images/add_new_filter_icon.png|width="5mm" fo:scalefit="1" html:scalefit="0"! or the "Click here to add a new filter" link to create a new filter.
 
-The *Add/Edit Message Filter* will appear.
+{docbook}
+<para>The <guilabel>Add/Edit Message Filter</guilabel> will appear.</para>
+{docbook}
 
 !images/add_edit_message_filter.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
 
 *Details:*
-||Field||Description||
-|*Filter Name*|The filter name.|
-|*From*|Filter the email address of sender.|
-|*To*|Filter the email address of recipient.|
-|*Subject*|Filter the subject of incoming messages.|
-|*Body*|Filter the body of incoming messages.|
-|*Move the message to folder*|The folder to which the filtered messages will be moved.|
-|*Apply Tag*|Assign the tag to messages matching the filter rules.|
-|*Execute now*|Take the action right after editing the filter.|
+{docbook}
+<informaltable>
+              <tgroup cols="2">
+                <thead>
+                  <row>
+                    <entry>Field</entry>
+                    <entry>Description</entry>
+                  </row>
+                </thead>
+                <tbody>
+                  <row>
+                    <entry>
+                      <guilabel>Filter Name</guilabel>
+                    </entry>
+                    <entry>The filter name.</entry>
+                  </row>
+                  <row>
+                    <entry>
+                      <guilabel>From</guilabel>
+                    </entry>
+                    <entry>Filter the email address of sender.</entry>
+                  </row>
+                  <row>
+                    <entry>
+                      <guilabel>To</guilabel>
+                    </entry>
+                    <entry>Filter the email address of recipient.</entry>
+                  </row>
+                  <row>
+                    <entry>
+                      <guilabel>Subject</guilabel>
+                    </entry>
+                    <entry>Filter the subject of incoming messages.</entry>
+                  </row>
+                  <row>
+                    <entry>
+                      <guilabel>Body</guilabel>
+                    </entry>
+                    <entry>Filter the body of incoming messages.</entry>
+                  </row>
+                  <row>
+                    <entry>
+                      <guilabel>Move the message to folder</guilabel>
+                    </entry>
+                    <entry>The folder to which the filtered messages will be moved.</entry>
+                  </row>
+                  <row>
+                    <entry>
+                      <guilabel>Apply Tag</guilabel>
+                    </entry>
+                    <entry>Assign the tag to messages matching the filter rules.</entry>
+                  </row>
+                  <row>
+                    <entry>
+                      <guilabel>Execute now</guilabel>
+                    </entry>
+                    <entry>Take the action right after editing the filter.</entry>
+                  </row>
+                </tbody>
+              </tgroup>
+            </informaltable>
+{docbook}
 
 *3.* Define the rules for the new filter.
 
-*4.* Click *Save* to finish creating your new filter.
+{docbook}
+<para>
+   <emphasis role="bold">4.</emphasis> Click <guibutton>Save</guibutton> to finish creating your new filter.</para>
+{docbook}
 
 {docbook}
 <citetitle>
@@ -1020,37 +1801,78 @@ The *Add/Edit Message Filter* will appear.
 
 By this way, you could create a filter which is based on existing conditions of one existing message without defining the filter rules.
 
-*1.* Right-click a message containing the criteria you want to include in your new filter. 
+*1.* Right-click a message containing the criteria you want to include in your new filter.
 
 !images/filter_message.png|align="center" width="40mm" fo:scalefit="1" html:scalefit="0"!
 
-The *Add/Edit Message Filter* form will appear with some pre-defined filter conditions of the current selected message.
+{docbook}
+<para>The <guilabel>Add/Edit Message Filter</guilabel> form will appear with some pre-defined filter conditions of the current selected message.</para>
+{docbook}
 
 !images/add_edit_message_filter.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
 
-*2.* Modify the rule if necessary, then click *Save* to finish.
+{docbook}
+<para>
+ <emphasis role="bold">2.</emphasis> Modify the rule if necessary, then click <guibutton>Save</guibutton> to finish.</para>
+{docbook}
 
-The created filter will be displayed in the list. All messages matching the defined filter rules will be affected. 
+The created filter will be displayed in the list. All messages matching the defined filter rules will be affected.
 
 h3. Edit a filter {anchor:id="Edit_filter"}
 
-*1.* Click !images/filter_icon.png|width="12mm" fo:scalefit="1" html:scalefit="0"! on the *Toolbar* to open the *Message Filter* form.
+{docbook}
+<para>
+              <emphasis role="bold">1.</emphasis> Click <inlinemediaobject>
+                <imageobject role="fo">
+                  <imagedata fileref="images/filter_icon.png" format="PNG" scalefit="1" width="12mm"/>
+                </imageobject>
+                <imageobject role="html">
+                  <imagedata fileref="images/filter_icon.png" format="PNG" scalefit="0" width="12mm"/>
+                </imageobject>
+              </inlinemediaobject> on the <emphasis role="bold">Toolbar</emphasis> to open the <guilabel>Message Filter</guilabel> form.</para>
+{docbook}
 
 *2.* Click the filter you want to edit in the left pane. Your selected filter is marked with !images/Selected_filter_icon.png|width="4mm" fo:scalefit="1" html:scalefit="0"!.
 
-*3.* Click !images/edit_filter.png|width="4mm" fo:scalefit="1" html:scalefit="0"! on the filter bar to open the *Add/Edit Message Filter* form.
+{docbook}
+<para>
+              <emphasis role="bold">3.</emphasis> Click <inlinemediaobject>
+                <imageobject role="fo">
+                  <imagedata fileref="images/edit_filter.png" format="PNG" scalefit="1" width="4mm"/>
+                </imageobject>
+                <imageobject role="html">
+                  <imagedata fileref="images/edit_filter.png" format="PNG" scalefit="0" width="4mm"/>
+                </imageobject>
+              </inlinemediaobject> on the filter bar to open the <guilabel>Add/Edit Message Filter</guilabel> form.</para>
+{docbook}
 
 *4.* Change the filter conditions to your desires.
 
-*5.* Click *Save* to complete your changes.
+{docbook}
+<para>
+   <emphasis role="bold">5.</emphasis> Click <guibutton>Save</guibutton> to complete your changes.</para>
+{docbook}
 
 h3. Delete a filter {anchor:id="Delete_filter"}
 
-*1.* Click !images/filter_icon.png|width="12mm" fo:scalefit="1" html:scalefit="0"! on the *Toolbar* to open the *Message Filter* form.
+{docbook}
+<para>
+              <emphasis role="bold">1.</emphasis> Click <inlinemediaobject>
+                <imageobject role="fo">
+                  <imagedata fileref="images/filter_icon.png" format="PNG" scalefit="1" width="12mm"/>
+                </imageobject>
+                <imageobject role="html">
+                  <imagedata fileref="images/filter_icon.png" format="PNG" scalefit="0" width="12mm"/>
+                </imageobject>
+              </inlinemediaobject> on the <emphasis role="bold">Toolbar</emphasis> to open the <guilabel>Message Filter</guilabel> form.</para>
+{docbook}
 
 *2.* Click the filter you want to delete, then select !images/delete_filter.png|width="4mm" fo:scalefit="1" html:scalefit="0"! on the filter bar.
 
-*3.* Click *OK* in the confirmation message to accept your deletion.
+{docbook}
+<para>
+   <emphasis role="bold">3.</emphasis> Click <guibutton>OK</guibutton> in the confirmation message to accept your deletion.</para>
+{docbook}
 
 h1. Search for messages {anchor:id="Search_messages}
 The *Mail* application supports two search modes: [Quick search|#Mail_Quick_search] or [Advanced search|#Mail_Advanced_search].
@@ -1089,83 +1911,255 @@ Quick search allows you to conduct a search with specific keywords in all of you
 {docbook}
 
 The Advanced Search allows you to specify criteria to narrow your search results.
-
-*1.* Click !images/Advanced_search_icon.png|width="4mm" fo:scalefit="1" html:scalefit="0"! in the left pane to open the *Advanced Search* form.
+{docbook}
+<para>
+          <emphasis role="bold">1.</emphasis> Click <inlinemediaobject>
+            <imageobject role="fo">
+              <imagedata fileref="images/Advanced_search_icon.png" format="PNG" scalefit="1" width="4mm"/>
+            </imageobject>
+            <imageobject role="html">
+              <imagedata fileref="images/Advanced_search_icon.png" format="PNG" scalefit="0" width="4mm"/>
+            </imageobject>
+          </inlinemediaobject> in the left pane to open the <guilabel>Advanced Search</guilabel> form.</para>
+{docbook}
 
 *2.* Define the search conditions to your details, including:
 
 !images/Advanced_search_form.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
 
-* *Search in Folder*: The folder in which you want to search in the.
+{docbook}
+<itemizedlist>
+          <listitem>
+            <para>
+              <guilabel>Search in Folder</guilabel>: The folder in which you want to search in the.</para>
+          </listitem>
+          <listitem>
+            <para>
+              <guilabel>From</guilabel>: The condition corresponding to the sender's name or mail address. There are some further conditions:</para>
+          </listitem>
+</itemizedlist>
+{docbook}
 
-* *From*: The condition corresponding to the sender's name or mail address. There are some further conditions:
 
-||Condition||Function||
-|*contains*|Include the term in the search box.|
-|*doesn't contain*|Not include the term in the search box.|
-|*is*|Include exactly the term in the search box.|
-|*is not*|Not include exactly the term in the search box.|
-|*starts with*|Start with the term in the search box.|
-|*does not start with*|Not start with the term in the search box.|
+{docbook}
+<informaltable>
+          <tgroup cols="2">
+            <thead>
+              <row>
+                <entry>Condition</entry>
+                <entry>Function</entry>
+              </row>
+            </thead>
+            <tbody>
+              <row>
+                <entry>
+                  <guilabel>contains</guilabel>
+                </entry>
+                <entry>Include the term in the search box.</entry>
+              </row>
+              <row>
+                <entry>
+                  <guilabel>doesn't contain</guilabel>
+                </entry>
+                <entry>Not include the term in the search box.</entry>
+              </row>
+              <row>
+                <entry>
+                  <guilabel>is</guilabel>
+                </entry>
+                <entry>Include exactly the term in the search box.</entry>
+              </row>
+              <row>
+                <entry>
+                  <guilabel>is not</guilabel>
+                </entry>
+                <entry>Not include exactly the term in the search box.</entry>
+              </row>
+              <row>
+                <entry>
+                  <guilabel>starts with</guilabel>
+                </entry>
+                <entry>Start with the term in the search box.</entry>
+              </row>
+              <row>
+                <entry>
+                  <guilabel>does not start with</guilabel>
+                </entry>
+                <entry>Not start with the term in the search box.</entry>
+              </row>
+            </tbody>
+          </tgroup>
+        </informaltable>
+{docbook}
 
-* *To*: The condition corresponding to the recipient's name or mail address.
-* *Subject*: This condition which corresponds to the message subject.
-* *Message*: This condition which corresponds to the message content.
-* *Received Before & Received After*: The interval time when the searched messages were receipted.
-* *Has Star*:  Search for messages with star.
-* *Has Attachment*: Search for messages that have the attachment.
-* *Priority*: The priority of the search messages.
-
-*3.* Click *Search* to perform your search.
+{docbook}
+<itemizedlist>
+          <listitem>
+            <para>
+              <guilabel>To</guilabel>: The condition corresponding to the recipient's name or mail address.</para>
+          </listitem>
+          <listitem>
+            <para>
+              <guilabel>Subject</guilabel>: This condition which corresponds to the message subject.</para>
+          </listitem>
+          <listitem>
+            <para>
+              <guilabel>Message</guilabel>: This condition which corresponds to the message content.</para>
+          </listitem>
+          <listitem>
+            <para>
+              <guilabel>Received Before &amp; Received After</guilabel>: The interval time when the searched messages were receipted.</para>
+          </listitem>
+          <listitem>
+            <para>
+              <guilabel>Has Star</guilabel>:  Search for messages with star.</para>
+          </listitem>
+          <listitem>
+            <para>
+              <guilabel>Has Attachment</guilabel>: Search for messages that have the attachment.</para>
+          </listitem>
+          <listitem>
+            <para>
+              <guilabel>Priority</guilabel>: The priority of the search messages.</para>
+          </listitem>
+        </itemizedlist>
+{docbook}
+{docbook}
+<para>
+  <emphasis role="bold">3.</emphasis> Click <guibutton>Search</guibutton> to perform your search.</para>
+{docbook}
 
 h1. Add an event {anchor:id="Add_event"}
 
 If you want to invite your colleagues to join a conference or a meeting, you can create an event, invite them or make email notifications to receive reminders right in the *Mail* application.
 
-*1.* Click !images/new_event_button.png|width="14mm" fo:scalefit="1" html:scalefit="0"! on the *Toolbar* to open the *Add Event* form.
+{docbook}
+<para>
+          <emphasis role="bold">1.</emphasis> Click <inlinemediaobject>
+            <imageobject role="fo">
+              <imagedata fileref="images/new_event_button.png" format="PNG" scalefit="1" width="14mm"/>
+            </imageobject>
+            <imageobject role="html">
+              <imagedata fileref="images/new_event_button.png" format="PNG" scalefit="0" width="14mm"/>
+            </imageobject>
+          </inlinemediaobject> on the <emphasis role="bold">Toolbar</emphasis> to open the <guilabel>Add Event</guilabel> form.</para>
+{docbook}
 
-*2.* Give basic information for your event in the *Event Detail* tab, such as setting the event priority, creating repeating events, attaching files.
+{docbook}
+<para>
+  <emphasis role="bold">2.</emphasis> Give basic information for your event in the <guilabel>Event Detail</guilabel> tab, such as setting the event priority, creating repeating events, attaching files.</para>
+{docbook}
 
 !images/add_event.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
 
-*3.* Select the *Reminders* tab to create the event reminder via an email. This step is optional.
+{docbook}
+<para>
+  <emphasis role="bold">3.</emphasis> Select the <guilabel>Reminders</guilabel> tab to create the event reminder via an email. This step is optional.</para>
+{docbook}
 
 !images/add_event_reminder_tab.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
 
-*4.* Click *Save* to finish adding your event.
+{docbook}
+<para>
+          <emphasis role="bold">4.</emphasis> Click <guibutton>Save</guibutton> to finish adding your event.</para>
+{docbook}
 
 h1. Manage Address Book in Mail {anchor:id="Manage_address_books_in_Mail"}
 *Address Book* in the *Mail* application provides you with a list of contacts which can be retrieved for sending your mails. This section will explain some actions related to managing contacts and address books in *Mail*.
 
 h2. Add a new address book {anchor:id="Add_address_book"}
 
-*1.* Click !images/contacts_button.png|width="14mm" fo:scalefit="1" html:scalefit="0"! on the *Toolbar* to open the *Contacts* form.
+{docbook}
+<para>
+            <emphasis role="bold">1.</emphasis> Click <inlinemediaobject>
+              <imageobject role="fo">
+                <imagedata fileref="images/contacts_button.png" format="PNG" scalefit="1" width="14mm"/>
+              </imageobject>
+              <imageobject role="html">
+                <imagedata fileref="images/contacts_button.png" format="PNG" scalefit="0" width="14mm"/>
+              </imageobject>
+            </inlinemediaobject> on the <emphasis role="bold">Toolbar</emphasis> to open the <guilabel>Contacts</guilabel> form.</para>
+{docbook}
 
-*2.* Click *Add Address Book* to add a new address book.
+{docbook}
+<para>
+  <emphasis role="bold">2.</emphasis> Click <guilabel>Add Address Book</guilabel> to add a new address book.</para>
+{docbook}
 
-*3.* Enter values in fields of the *Add Address Book* form.
+{docbook}
+<para>
+            <emphasis role="bold">3.</emphasis> Enter values in fields of the <guilabel>Add Address Book</guilabel> form.</para>
+{docbook}
 
 !images/Add_address_book_from_Mail.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
 
 *Details:*
-||Field||Description||
-|*Name*| The name of your address book that is required.|
-|*Description*|The brief description of your address book.|
+{docbook}
+<informaltable>
+            <tgroup cols="2">
+              <thead>
+                <row>
+                  <entry>Field</entry>
+                  <entry>Description</entry>
+                </row>
+              </thead>
+              <tbody>
+                <row>
+                  <entry>
+                    <guilabel>Name</guilabel>
+                  </entry>
+                  <entry> The name of your address book that is required.</entry>
+                </row>
+                <row>
+                  <entry>
+                    <guilabel>Description</guilabel>
+                  </entry>
+                  <entry>The brief description of your address book.</entry>
+                </row>
+              </tbody>
+            </tgroup>
+          </informaltable>
+{docbook}
 
-*3.* Click *Add* to finish adding your address book.
+{docbook}
+<para>
+            <emphasis role="bold">3.</emphasis> Click <guibutton>Add</guibutton> to finish adding your address book.</para>
+{docbook}
+
+
 
 h2. Add a new contact {anchor:id="Add_new_contact"}
 The function is used to add a new contact to a group.
 
-*1.* Open the *Add New Contact* form via the following ways.
+{docbook}
+<para>
+  <emphasis role="bold">1.</emphasis> Open the <guilabel>Add New Contact</guilabel> form via the following ways.</para>{docbook}
 
 *The first way*
 
-Click !images/contacts_button.png|width="14mm" fo:scalefit="1" html:scalefit="0"!, then select !images/add_button.png|width="10mm" fo:scalefit="1" html:scalefit="0"! on the *Contacts* form.
+{docbook}
+<para>Click <inlinemediaobject>
+              <imageobject role="fo">
+                <imagedata fileref="images/contacts_button.png" format="PNG" scalefit="1" width="14mm"/>
+              </imageobject>
+              <imageobject role="html">
+                <imagedata fileref="images/contacts_button.png" format="PNG" scalefit="0" width="14mm"/>
+              </imageobject>
+            </inlinemediaobject>, then select <inlinemediaobject>
+              <imageobject role="fo">
+                <imagedata fileref="images/add_button.png" format="PNG" scalefit="1" width="10mm"/>
+              </imageobject>
+              <imageobject role="html">
+                <imagedata fileref="images/add_button.png" format="PNG" scalefit="0" width="10mm"/>
+              </imageobject>
+            </inlinemediaobject> on the <guilabel>Contacts</guilabel> form.</para>
+{docbook}
 
 *The second way*
 
-Right-click a message, then select *Add to Contacts* from the drop-down menu.
+{docbook}
+<para>Right-click a message, then select <guilabel>Add to Contacts</guilabel> from the drop-down menu.</para>
+{docbook}
 
 {docbook}
 <note>
@@ -1175,33 +2169,74 @@ This way is used to add the message sender to a specific address book.
 </note>
 {docbook}
 
-The *Contact* form will appear.
+{docbook}
+<para>The <guilabel>Contact</guilabel> form will appear.</para>
+{docbook}
 
 !images/contact_form.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
 
 *2.* Enter information for your contact. For more details, see the [Create a new contact|#CSUser_guide.How_to_use_Address_book.Create_new_contact] section.
 
-*3.* Click *Save* to finish adding your contact.
+{docbook}
+<para>
+ <emphasis role="bold">3.</emphasis> Click <guibutton>Save</guibutton> to finish adding your contact.</para>
+{docbook}
 
 h2. Edit contact details {anchor:id="Edit_contact_details"}
 The function is used to edit a contact in a specific group.
 
-*1.* Open the *Contacts* form by clicking !images/contacts_button.png|width="16mm" fo:scalefit="1" html:scalefit="0"! on the *Toolbar*.
+{docbook}
+<para>
+            <emphasis role="bold">1.</emphasis> Open the <guilabel>Contacts</guilabel> form by clicking <inlinemediaobject>
+              <imageobject role="fo">
+                <imagedata fileref="images/contacts_button.png" format="PNG" scalefit="1" width="16mm"/>
+              </imageobject>
+              <imageobject role="html">
+                <imagedata fileref="images/contacts_button.png" format="PNG" scalefit="0" width="16mm"/>
+              </imageobject>
+            </inlinemediaobject> on the <emphasis role="bold">Toolbar</emphasis>.</para>
+{docbook}
 
-*2.* Select the contact whom you want to edit in the left pane. 
+*2.* Select the contact whom you want to edit in the left pane.
 
 *3.* Click !images/edit_button.png|width="8mm" fo:scalefit="1" html:scalefit="0"!.
 
-*4.* Change the contact details, then click *Save* to finish.
+{docbook}
+<para>
+            <emphasis role="bold">4.</emphasis> Change the contact details, then click <guibutton>Save</guibutton> to finish.</para>
+{docbook}
 
 h2. Delete a contact {anchor:id="Delete_contact"}
 The function is used to delete a contact from a specific group. This contact will be removed from your address book as well.
 
-*1.* Open the *Contacts* form by clicking !images/contacts_button.png|width="14mm" fo:scalefit="1" html:scalefit="0"! on the *Toolbar*.
+{docbook}
+<para>
+            <emphasis role="bold">1.</emphasis> Open the <guilabel>Contacts</guilabel> form by clicking <inlinemediaobject>
+              <imageobject role="fo">
+                <imagedata fileref="images/contacts_button.png" format="PNG" scalefit="1" width="14mm"/>
+              </imageobject>
+              <imageobject role="html">
+                <imagedata fileref="images/contacts_button.png" format="PNG" scalefit="0" width="14mm"/>
+              </imageobject>
+            </inlinemediaobject> on the <emphasis role="bold">Toolbar</emphasis>.</para>
+{docbook}
 
-*2.* Select the contact whom you want to delete in the *Address Book* form.
+{docbook}
+<para>
+            <emphasis role="bold">2.</emphasis> Select the contact whom you want to delete in the <guilabel>Address Book</guilabel> form.</para>
+{docbook}
 
-*3.* Select !images/delete_button.png|width="12mm" fo:scalefit="1" html:scalefit="0"!, then click *OK* in the confirmation message to accept your deletion.
+{docbook}
+<para>
+            <emphasis role="bold">3.</emphasis> Select <inlinemediaobject>
+              <imageobject role="fo">
+                <imagedata fileref="images/delete_button.png" format="PNG" scalefit="1" width="12mm"/>
+              </imageobject>
+              <imageobject role="html">
+                <imagedata fileref="images/delete_button.png" format="PNG" scalefit="0" width="12mm"/>
+              </imageobject>
+            </inlinemediaobject>, then click <guibutton>OK</guibutton> in the confirmation message to accept your deletion.</para>
+{docbook}
 
 {docbook}
 <note>
@@ -1214,49 +2249,190 @@ You cannot delete your own contact from your address book.
 h1. Change Mail settings {anchor:id="Mail_settings"}
 The function allows you to change the behavior and the layout of *Mail* to your needs.
 
-*1.* Click !images/settings_button.png|width="12mm" fo:scalefit="1" html:scalefit="0"! on the *Toolbar* to open the *Settings* form.
+{docbook}
+<para>
+          <emphasis role="bold">1.</emphasis> Click <inlinemediaobject>
+            <imageobject role="fo">
+              <imagedata fileref="images/settings_button.png" format="PNG" scalefit="1" width="12mm"/>
+            </imageobject>
+            <imageobject role="html">
+              <imagedata fileref="images/settings_button.png" format="PNG" scalefit="0" width="12mm"/>
+            </imageobject>
+          </inlinemediaobject> on the <emphasis role="bold">Toolbar</emphasis> to open the <guilabel>Settings</guilabel> form.</para>
+{docbook}
 
 *2.* Change settings for the *Mail* application in 4 tabs: General, Return Receipts, Layout and Delegation.
 
-*i.* In the *General* tab, change basic information.
+{docbook}
+<para>
+          <emphasis role="bold">i.</emphasis> In the <guilabel>General</guilabel> tab, change basic information.</para>
+{docbook}
 
 !images/settings.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
 
 *Details:*
-||Field||Description||
-|*Select a Default Account*|Set the default account if you use multiple accounts.|
-|*Number of conversations per page*|Select the number of conversations which will be displayed per page from the list: 10, 20, 30, or 70 messages.|
-|*Automatically check messages every*|Select the time interval to automatically check the system, including 6 available options: Never, 5 minutes, 10 minutes, 20 minutes, 30 minutes and 1 hour.|
-|*Compose message with*|Select the editor type for composing messages, including *Rich Text* and *Plain Text*.|
-|*Reply to message with*| Select the message type to reply, including {example}{example} -  *Original message as attachment:* Reply to messages with attachments. {example}{example} - *Original message text quoted:* Reply to messages with text only.|
-|*Forward message with*| Select the message type to reply, including {example}{example} - *Original message as attachment:* Forward messages with attachment. {example}{example} - *Original message text quoted:* Forward messages with text only.|
-|*Save sent messages in the 'Sent' folder*| Tick this checkbox to save sent messages in the 'Sent' folder.|
+{docbook}
+<informaltable>
+          <tgroup cols="2">
+            <thead>
+              <row>
+                <entry>Field</entry>
+                <entry>Description</entry>
+              </row>
+            </thead>
+            <tbody>
+              <row>
+                <entry>
+                  <guilabel>Select a Default Account</guilabel>
+                </entry>
+                <entry>Set the default account if you use multiple accounts.</entry>
+              </row>
+              <row>
+                <entry>
+                  <guilabel>Number of conversations per page</guilabel>
+                </entry>
+                <entry>Select the number of conversations which will be displayed per page from the list: 10, 20, 30, or 70 messages.</entry>
+              </row>
+              <row>
+                <entry>
+                  <guilabel>Automatically check messages every</guilabel>
+                </entry>
+                <entry>Select the time interval to automatically check the system, including 6 available options: Never, 5 minutes, 10 minutes, 20 minutes, 30 minutes and 1 hour.</entry>
+              </row>
+              <row>
+                <entry>
+                  <guilabel>Compose message with</guilabel>
+                </entry>
+                <entry>Select the editor type for composing messages, including <emphasis role="bold">Rich Text</emphasis> and <emphasis role="bold">Plain Text</emphasis>.</entry>
+              </row>
+              <row>
+                <entry>
+                  <guilabel>Reply to message with</guilabel>
+                </entry>
+                <entry>
+                  <para> Select the message type to reply, including <informalexample>
+                      <informalexample/>
+                    </informalexample> -  <guilabel>Original message as attachment:</guilabel> Reply to messages with attachments. <informalexample>
+                      <informalexample/>
+                    </informalexample> - <guilabel>Original message text quoted:</guilabel> Reply to messages with text only.</para>
+                </entry>
+              </row>
+              <row>
+                <entry>
+                  <guilabel>Forward message with</guilabel>
+                </entry>
+                <entry>
+                  <para> Select the message type to reply, including <informalexample>
+                      <informalexample/>
+                    </informalexample> - <guilabel>Original message as attachment:</guilabel> Forward messages with attachment. <informalexample>
+                      <informalexample/>
+                    </informalexample> - <guilabel>Original message text quoted:</guilabel> Forward messages with text only.</para>
+                </entry>
+              </row>
+              <row>
+                <entry>
+                  <guilabel>Save sent messages in the 'Sent' folder</guilabel>
+                </entry>
+                <entry> Tick this checkbox to save sent messages in the 'Sent' folder.</entry>
+              </row>
+            </tbody>
+          </tgroup>
+        </informaltable>
+{docbook}
 
-*ii.* In the *Return Receipts* tab, set options to specify what the *Mail* application should do when it gets a "[Return Receipt|#Change_message_preferences]" request. It means that you can determine whether to send a notification of having read the message to the sender or not. {anchor:id="Return_Receipts_settings"}
+{docbook}
+<para>
+          <emphasis role="bold">ii.</emphasis> In the <guilabel>Return Receipts</guilabel> tab, set options to specify what the <emphasis role="bold">Mail</emphasis> application should do when it gets a "<link linkend="Change_message_preferences">Return Receipt</link>" request. It means that you can determine whether to send a notification of having read the message to the sender or not. <anchor id="Return_Receipts_settings"/>
+        </para>
+{docbook}
 
 !images/Mail_return_receipts.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
 
 *Details:*
-||Field||Description||
-|*Ask me when someone requests a return receipt*|If you receive a message with the *Return Receipt* request, the *Mail* application will show a pop-up message for you to decide sending a notification of having read the message to the sender or not.|
-|*Never send a return receipt*| The *Mail* application will ignore all *Return Receipt* requests from senders.|
-|*Always send a return receipt*| If you receive a message with the *Return Receipt* request, the *Mail* application will automatically send a notification of having read the message to the sender without asking for your permission.|
-
-*iii.* In the *Layout* tab, personalize the *Mail* layout by ticking another checkbox corresponding to your desired layout. The *Horizontal Split* type is set by default.
+{docbook}
+<informaltable>
+          <tgroup cols="2">
+            <thead>
+              <row>
+                <entry>Field</entry>
+                <entry>Description</entry>
+              </row>
+            </thead>
+            <tbody>
+              <row>
+                <entry>
+                  <guilabel>Ask me when someone requests a return receipt</guilabel>
+                </entry>
+                <entry>If you receive a message with the <emphasis role="bold">Return Receipt</emphasis> request, the <emphasis role="bold">Mail</emphasis> application will show a pop-up message for you to decide sending a notification of having read the message to the sender or not.</entry>
+              </row>
+              <row>
+                <entry>
+                  <guilabel>Never send a return receipt</guilabel>
+                </entry>
+                <entry> The <emphasis role="bold">Mail</emphasis> application will ignore all <emphasis role="bold">Return Receipt</emphasis> requests from senders.</entry>
+              </row>
+              <row>
+                <entry>
+                  <guilabel>Always send a return receipt</guilabel>
+                </entry>
+                <entry> If you receive a message with the <emphasis role="bold">Return Receipt</emphasis> request, the <emphasis role="bold">Mail</emphasis> application will automatically send a notification of having read the message to the sender without asking for your permission.</entry>
+              </row>
+            </tbody>
+          </tgroup>
+        </informaltable>
+{docbook}
+{docbook}
+<para>
+          <emphasis role="bold">iii.</emphasis> In the <guilabel>Layout</guilabel> tab, personalize the <guilabel>Mail</guilabel> layout by ticking another checkbox corresponding to your desired layout. The <guilabel>Horizontal Split</guilabel> type is set by default.</para>
+{docbook}
 
 !images/settings2.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
-
-*iv.* In the *Delegation* tab, delegate your account to any registered user in the system as follows:
+{docbook}
+<para>
+          <emphasis role="bold">iv.</emphasis> In the <guilabel>Delegation</guilabel> tab, delegate your account to any registered user in the system as follows:</para>
+{docbook}
 
 !images/Mail_delegation.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
 
-* Select the account you want to delegate from the *This account* list by clicking !images/down_arrow_icon1.png|width="4mm" fo:scalefit="1" html:scalefit="0"!.
+{docbook}
+<itemizedlist>
+          <listitem>
+            <para>Select the account you want to delegate from the <guilabel>This account</guilabel> list by clicking <inlinemediaobject>
+                <imageobject role="fo">
+                  <imagedata fileref="images/down_arrow_icon1.png" format="PNG" scalefit="1" width="4mm"/>
+                </imageobject>
+                <imageobject role="html">
+                  <imagedata fileref="images/down_arrow_icon1.png" format="PNG" scalefit="0" width="4mm"/>
+                </imageobject>
+              </inlinemediaobject>.</para>
+          </listitem>
+          <listitem>
+            <para>Enter the name of user to whom you want to delegate your selected account in the <guilabel>will be delegated to</guilabel> field.</para>
+          </listitem>
+          <listitem>
+            <para>Tick the <guilabel>Full</guilabel> checkbox next to <inlinemediaobject>
+                <imageobject role="fo">
+                  <imagedata fileref="images/Add_delegated_user.png" format="PNG" scalefit="1" width="4mm"/>
+                </imageobject>
+                <imageobject role="html">
+                  <imagedata fileref="images/Add_delegated_user.png" format="PNG" scalefit="0" width="4mm"/>
+                </imageobject>
+              </inlinemediaobject> if you want to assign all permissions, which can be done on your selected account, to the delegated user. If this checkbox is not selected, the user can only view mails of the delegated account.</para>
+          </listitem>
+          <listitem>
+            <para>Click <inlinemediaobject>
+                <imageobject role="fo">
+                  <imagedata fileref="images/Add_delegated_user.png" format="PNG" scalefit="1" width="4mm"/>
+                </imageobject>
+                <imageobject role="html">
+                  <imagedata fileref="images/Add_delegated_user.png" format="PNG" scalefit="0" width="4mm"/>
+                </imageobject>
+              </inlinemediaobject> to accept adding your delegated user. The delegated user will be updated in the Accounts table. In this table, you can revoke the <emphasis role="bold">Full</emphasis> permission or add the <emphasis role="bold">Full</emphasis> permission to your delegated accounts by unticking or ticking the relevant checkbox respectively in the <guilabel>Full</guilabel> column of the Accounts table.</para>
+          </listitem>
+</itemizedlist>
+{docbook}
 
-* Enter the name of user to whom you want to delegate your selected account in the *will be delegated to* field.
-
-* Tick the *Full* checkbox next to !images/Add_delegated_user.png|width="4mm" fo:scalefit="1" html:scalefit="0"! if you want to assign all permissions, which can be done on your selected account, to the delegated user. If this checkbox is not selected, the user can only view mails of the delegated account.
-
-* Click !images/Add_delegated_user.png|width="4mm" fo:scalefit="1" html:scalefit="0"! to accept adding your delegated user. The delegated user will be updated in the Accounts table. In this table, you can revoke the *Full* permission or add the *Full* permission to your delegated accounts by unticking or ticking the relevant checkbox respectively in the *Full* column of the Accounts table.
-
-*3.* Click *Save* to accept your changes.
-
+{docbook}
+<para>
+<emphasis role="bold">3.</emphasis> Click <guibutton>Save</guibutton> to accept your changes.</para>
+{docbook}
