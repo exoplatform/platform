@@ -1,6 +1,3 @@
-<?xml version='1.0' encoding='utf-8' ?>
-<preface xml:id="AboutUserGuide">
-	<title>About this guide</title>
 <abstract>
 <para>The intended readers of this document are users using eXo Platform. This user guide explains all the basic and advanced features of eXo Platform by providing a series of in-depth examples and clear explanations which help users easily benefit from the eXo Platform capabilities and features. </para>
  <para>This documentation is divided into the following chapters:</para>
@@ -49,4 +46,3 @@
           </listitem>
         </itemizedlist>
 </abstract>
-</preface>
