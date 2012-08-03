@@ -19,6 +19,11 @@ This chapter presents the topics related to security configuration in eXo Platfo
 <link linkend="ADM.Security.HTTPS_conf">HTTPS configuration</link>
 </para>
 </listitem>
+<listitem>
+<para>
+<link linkend="ADM.Security.Key_Rememberme_token">Update the password encryption key of the RememberMe token</link>
+</para>
+</listitem>
 </itemizedlist>
 </abstract>
 {docbook}
@@ -272,3 +277,31 @@ Then, change the values of _keystoreFile_ and _keystorePass_ to values of your k
 
 *3.* Restart your server.
 You can now access the portal via {{https\://<ServerAddress>:8443/portal}}.
+
+h1. Update the password encryption key of the RememberMe token {anchor:id=ADM.Security.Key_Rememberme_token}
+In eXo Platform, the password encryption key of the RememberMe token is always a default key defined in the _codeckey.txt_ file and this key is generated at the first bootstrap.
+
+{docbook}
+<citetitle>
+<para>
+<emphasis role="bold">File location</emphasis>
+</para>
+</citetitle>
+{docbook}
+
+|| File || Tomcat || Jboss ||
+| _codeckey.txt_ | _TOMCAT\-HOME/gatein/conf/codec_. | _JBOSS\-HOME/server/<PROFILE>/conf/gatein/codec_. |
+
+{docbook}
+<citetitle>
+<para>
+<emphasis role="bold">Update the key</emphasis>
+</para>
+</citetitle>
+{docbook}
+
+The administrators can simply update the key without doing any configuration as follows:
+
+*1.* Remove the _codeckey.txt_ file.
+
+*2.* Restart the server.
