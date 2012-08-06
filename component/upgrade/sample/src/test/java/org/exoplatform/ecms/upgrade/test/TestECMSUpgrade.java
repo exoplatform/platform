@@ -29,7 +29,7 @@ import org.exoplatform.commons.info.ProductInformations;
 import org.exoplatform.commons.upgrade.UpgradeProductService;
 import org.exoplatform.container.PortalContainer;
 import org.exoplatform.container.configuration.ConfigurationManager;
-import org.exoplatform.portal.webui.util.SessionProviderFactory;
+import org.exoplatform.services.wcm.utils.WCMCoreUtils;
 import org.exoplatform.services.cms.templates.TemplateService;
 import org.exoplatform.services.jcr.RepositoryService;
 import org.exoplatform.test.BasicTestCase;
@@ -90,7 +90,7 @@ public class TestECMSUpgrade extends BasicTestCase {
 
   public void testUpgradeNodeTypesTemplates() throws Exception {
     templateService.getAllDocumentNodeTypes();
-    NodeIterator iter = templateService.getAllTemplatesOfNodeType(true, "nt:file", SessionProviderFactory.createSystemProvider());
+      NodeIterator iter = templateService.getAllTemplatesOfNodeType(true, "nt:file", WCMCoreUtils.getSystemSessionProvider());
     while (iter.hasNext()) {
       Node node = (Node) iter.next();
       assertTrue(node.isNodeType(ProductInformations.MIX_VERSIONABLE));
