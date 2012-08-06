@@ -345,7 +345,7 @@
   </component>
   <external-component-plugins>
     <target-component>org.exoplatform.services.jcr.RepositoryService</target-component>
-    <component-plugin>
+    <component-plugin profiles="all,default,social">
       <name>add.namespaces</name>
       <set-method>addPlugin</set-method>
       <type>org.exoplatform.services.jcr.impl.AddNamespacesPlugin</type>
@@ -371,7 +371,7 @@
   </external-component-plugins>
   <external-component-plugins>
     <target-component>org.exoplatform.commons.chromattic.ChromatticManager</target-component>
-    <component-plugin>
+    <component-plugin profiles="all,default,social">
       <name>chromattic</name>
       <set-method>addLifeCycle</set-method>
       <type>org.exoplatform.commons.chromattic.ChromatticLifeCycle</type>
@@ -427,7 +427,7 @@
   </external-component-plugins>
   <external-component-plugins>
     <target-component>org.exoplatform.web.filter.ExtensibleFilter</target-component>
-    <component-plugin>
+    <component-plugin profiles="all,default,social">
       <name>Space Access Statistics filter Plugin</name>
       <set-method>addFilterDefinitions</set-method>
       <type>org.exoplatform.web.filter.FilterDefinitionPlugin</type>
