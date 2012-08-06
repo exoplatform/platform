@@ -660,3 +660,470 @@ The Collaboration application provides the following Job instances:
 {note}
 Currently, the REST View management of Collaboration is not exposed.
 {note}
+
+h1. Check repository integrity and consistency  {anchor:id=ADM.Management.CheckRepositoryIntegrityAndConsistency}
+
+Production and any systems may have faults some day. They may be caused by hardware and/or software problems, human faults during updates and in many other circumstances. 
+It is important to check integrity and consistency of the system if it is not backed up or stale, or it takes the recovery process much time. eXo JCR implementation offers an innovative JMX-based complex checking tool. 
+Running inspection, this tool checks every major JCR component, such as persistent data layer and index. The persistent layer includes JDBC Data Container and Value Storage if they are configured. 
+The database is verified using the set of complex specialized domain-specific queries. Value Storage tool checks the existence and access to each file. Index verification contains two-way pass cycle, existence of each node in the index checks on persistent layer along with opposite direction, when each node from Data Container is validated in the index. 
+Access to the checking tool is exposed via the JMX interface, with the following operations available:
+
+|| Operations   ||  Description ||
+| {{ checkAll()}} |	Inspect full repository data (databse, Value Storage and search index). |
+| {{checkDataBase()}} | Inspect the DB only. |
+| {{checkValueStorage()}} | Inspect the Value Storage only. |
+| {{checkIndex()}} | Inspect the SearchIndex only. |
+
+This tool also provides abilities to repair the following possible inconsistencies:
+
+* Items have no parent node: properties will be removed and the root UUID will be assigned in case of nodes.
+
+* Nodes have a single valued property with nothing declared in the VALUE table: properties will be removed if they are not required by primary type of its node.
+
+* Nodes have no primary type property: nodes and the whole subtree will be removed if node they are not required by primary type of its parent.
+
+* Value record has no related property record: value record will be removed from the database.
+
+* An item is its own parent: properties will be removed and the root UUID will be assigned in case of nodes.
+
+* Several versions of the same item: all earlier records with earlier versions will be removed from the ITEM table.
+
+* Reference properties without reference records: properties will be removed if it is not required by primary type of its node.
+
+* A node is marked as locked in the lockmanager's table but not in the ITEM table or the opposite: all locked inconsistencies will be removed from both tables.
+
+* Property's value is stored in the File System but the content is missing: a new empty file corresponding to the value will be created.
+
+|| Operations|| Description ||
+| {{repairDataBase()}} | repair the database. |
+| {{repairValueStorage()}} | repair the Value Storage. |
+
+All tool activities are stored in a file, which can be found in app directory under the _report-<repository name>-dd-MMM-yy-HH-mm.txt_ name.
+
+h1. Recommendations on how to fix corrupted JCR {anchor:id=ADM.Management.RecommendationsOnHowToFixCorruptedJCR}
+
+Please, before applying the next recommendations, remember to backup your data first. To get the JCR back to the normal mod, you may require to remove potentially valuable data. 
+It is also recommended to keep the results of queries that check data consistency. This may be needed for the support team in case of deeper restoration process.
+
+In this section, there will be a list of examples of corruptions and ways to eliminate them:
+
+{note}
+* It is assumed that queries for single and multi DB configurations differ only by the JCR\_xITEM table name, otherwise queries will be explicitly introduced.
+* In some examples, you will be asked to replace some identificator with the corresponding value. That basically means that you need to insert values, from each row of result of query executed during the issue detection stage to the corresponding place. Explicit explanation of what to do will be introduced in case replacing is needed to be fulfilled in another way.
+{note}
+
+{docbook}
+<para>
+<citetitle>
+<emphasis role="bold">
+Item has no parent node
+</emphasis>
+</citetitle>
+</para>
+{docbook}
+
+*Detect this issue*:
+
+To detect this issue, you need to execute the following query:
+{code}
+select * from JCR_SITEM I where NOT EXISTS(select * from JCR_SITEM P where P.ID = I.PARENT_ID)
+{code}
+
+*Solution*:
+
+Fix description: Assign the root as a parent node to delete later if this node is not needed anymore.
+
+To fix this issue, do as follows:
+
+* For all query results rows containing items belonging to I\_CLASS = 1 (nodes)
+
+execute the next query, replacing ${{{{ID}}}} and ${{{{CONTAINER_NAME}}}} by corresponding values:
+
+** Single DB:
+
+{code}
+update JCR_SITEM set PARENT_ID='${CONTAINER_NAME}00exo0jcr0root0uuid0000000000000' where ID = '${ID}'
+{code}
+
+** Multi DB:
+
+{code}
+update JCR_MITEM set PARENT_ID='00exo0jcr0root0uuid0000000000000' where ID = '${ID}
+{code}
+
+* For all query results rows containing items belonging to I\_CLASS = 2 (property)
+
+{code}
+delete from JCR_SREF where PROPERTY_ID = '${ID}'
+delete from JCR_SVALUE where PROPERTY_ID = '${ID}'
+delete from JCR_SITEM where PARENT_ID = '${ID}' or ID='${ID}' 
+{code}
+
+{docbook}
+<para>
+<citetitle>
+<emphasis role="bold">
+Node has a single valued properties with no declaration in VALUE table
+</emphasis>
+</citetitle>
+</para>
+{docbook}
+
+*Detect this issue*:
+
+To detect this issue you, need to execute the following query:
+
+{code}
+select * from JCR_SITEM P where P.I_CLASS=2 and P.P_MULTIVALUED=0 and NOT EXISTS (select * from JCR_SVALUE V where V.PROPERTY_ID=P.ID)
+{code}
+
+{note}
+P\_MULTIVALUED=0 should be replaced with P\_MULTIVALUED='f' for PostgreSQL.
+{note}
+
+*Solution*:
+
+Description: Simply remove corrupted properties.
+
+To fix for every row, execute next queries, replacing ${{{ID}}} by corresponding value:
+
+{code}
+delete from JCR_SREF where PROPERTY_ID = '${ID}'
+delete from JCR_SITEM where ID = '${ID}'
+{code}
+
+{docbook}
+<para>
+<citetitle>
+<emphasis role="bold">
+Node has no primary type property
+</emphasis>
+</citetitle>
+</para>
+{docbook}
+
+*Detect this issue*:
+
+To detect this issue, you need to execute the following query:
+
+{code}
+select * from JCR_SITEM N where N.I_CLASS=1 and NOT EXISTS (select * from JCR_SITEM P where P.I_CLASS=2 and P.PARENT_ID=N.ID and P.NAME='[http://www.jcp.org/jcr/1.0]primaryType')
+{code}
+
+*Solution*:
+
+Fix description: Remove this node and all its children, properties, values and reference records.
+
+To fix this issue, do as follows:
+
+* Recursively traverse to the bottom of the tree until query results in empty value. You will receive a tree structure containing a node, its children and properties:
+
+{code}
+select * from JCR_SITEM where PARENT_ID='${ID}' and I_CLASS=1
+{code}
+
+* Execute the following steps with tree structure elements in reverse order (from leaves to head).
+
+Execute the query for the tree element's ${{{{ID}}}}:
+
+{code}
+select * from JCR_SITEM where PARENT_ID='${ID}'
+{code}
+
+Execute queries for each ${{{{ID}}}} received during the query execution mentioned above:
+
+{code}
+delete from JCR_SREF where PROPERTY_ID = '${ID}'
+delete from JCR_SVALUE where PROPERTY_ID = '${ID}'
+delete from JCR_SITEM where PARENT_ID = '${ID}' or ID='${ID}' 
+{code}
+
+{docbook}
+<para>
+<citetitle>
+<emphasis role="bold">
+All value records have no related property record
+</emphasis>
+</citetitle>
+</para>
+{docbook}
+
+*Detect this issue*:
+
+To detect this issue, you need to execute the following query:
+
+{code}
+select * from JCR_SVALUE V where NOT EXISTS(select * from JCR_SITEM P where V.PROPERTY_ID = P.ID and P.I_CLASS=2)
+{code}
+
+*Solution*:
+
+Fix description: Remove these unnecessary records from JCR\_SVALUE table.
+
+To fix this issue, do as follows:
+
+For every row execute next queries replacing ${{{{ID}}}} with the corresponding value:
+
+{code}
+delete from JCR_SVALUE where ID = '${ID}'
+{code}
+
+{docbook}
+<para>
+<citetitle>
+<emphasis role="bold">
+Corrupted VALUE records. Both STORAGE_DESC and DATA fields contain not null value
+</emphasis>
+</citetitle>
+</para>
+{docbook}
+
+*Detect this issue*:
+
+To detect this issue, you need to execute the following query:
+
+{code}
+select * from JCR_SVALUE where (STORAGE_DESC is not null and DATA is not null)
+{code}
+
+*Solution*:
+
+Fix description: Set null for the STORAGE\_DESC field.
+
+To fix this issue, do as follows:
+
+For every row, execute next queries, replacing ${{{{ID}}}} with the corresponding value:
+
+{code}
+update JCR_SVALUE set STORAGE_DESC = null where ID = '${ID}'
+{code}
+
+{note}
+For Sybase database, "DATA is not null" must be replaced by "not DATA like null".
+{note}
+
+{docbook}
+<para>
+<citetitle>
+<emphasis role="bold">
+An item is its own parent
+</emphasis>
+</citetitle>
+</para>
+{docbook}
+
+*Detect this issue*:
+
+To detect this issue, you need to execute the following query:
+
+{code}
+select * from JCR_SITEM I where I.ID = I.PARENT_ID and I.NAME <> '__root_parent'
+{code}
+
+*Solution*:
+
+Fix description: Assign the root as a parent node to be able to delete later if this node is not necessary anymore.
+
+To fix this issue, do as follows:
+
+For all query results rows containing items belonging to I\_CLASS = 1 (nodes). Execute next query, replacing ${{{{ID}}}} and ${{{{CONTAINER_NAME}}}} with the corresponding values:
+
+* Single DB:
+
+{code}
+update JCR_SITEM set PARENT_ID='${CONTAINER_NAME}00exo0jcr0root0uuid0000000000000' where ID = '${ID}'
+{code}
+
+* Multi DB:
+
+{code}
+update JCR_MITEM set PARENT_ID='00exo0jcr0root0uuid0000000000000' where ID = '${ID}'
+{code}
+
+For all query results rows containing items belonging to I\_CLASS = 2 (property).
+
+{code}
+delete from JCR_SREF where PROPERTY_ID = '${ID}'
+delete from JCR_SVALUE where PROPERTY_ID = '${ID}'
+delete from JCR_SITEM where PARENT_ID = '${ID}' or ID='${ID}' 
+{code}
+
+{docbook}
+<para>
+<citetitle>
+<emphasis role="bold">
+Several versions of the same item
+</emphasis>
+</citetitle>
+</para>
+{docbook}
+
+*Detect this issue*:
+
+To detect an issue you need to execute the following query:
+
+{code}
+select * from JCR_SITEM I where EXISTS (select * from JCR_SITEM J WHERE I.CONTAINER_NAME = J.CONTAINER_NAME and I.PARENT_ID = J.PARENT_ID AND I.NAME = J.NAME and I.I_INDEX = J.I_INDEX and I.I_CLASS = J.I_CLASS and I.VERSION != J.VERSION)
+{code}
+
+*Solution*:
+
+Fix description: Keep the newest version and remove the others.
+
+To fix this issue, do as follows:
+
+* Grouping:
+
+{code}
+select max(VERSION) as MAX_VERSION, PARENT_ID, NAME, CONTAINER_NAME, I_CLASS, I_INDEX  from JCR_SITEM WHERE I_CLASS=2 GROUP BY PARENT_ID, CONTAINER_NAME, NAME, I_CLASS, I_INDEX HAVING count(VERSION) > 1
+{code}
+
+* Execute the following query, replacing ${{{{PARENT_ID}}}} and ${{{{CONTAINER_NAME}}}}, ${{{{NAME}}}}, ${{{{I_CLASS}}}}, ${{{{I_INDEX}}}}, ${{{{MAX_VERSION}}}} with the corresponding values contained in results of the query mentioned above:
+
+** Single DB:
+{code}
+select * from JCR_SITEM where I.CONTAINER_NAME='${CONTAINER_NAME}' and PARENT_ID='${PARENT_ID}' and NAME='${NAME}' and I_CLASS='${I_CLASS}' and I_INDEX='${I_INDEX}' and VERSION < ${MAX_VERSION}
+{code}
+
+** Multi DB:
+{code}
+select * from JCR_SITEM where PARENT_ID='${PARENT_ID}' and NAME='${NAME}' and I_CLASS='${I_CLASS}' and I_INDEX='${I_INDEX}' and VERSION < ${MAX_VERSION}
+{code}
+
+Execute the following queries, replacing ${{{{ID}}}} with the corresponding values of newly obtained results.
+
+{code}
+delete from JCR_SREF where PROPERTY_ID = '${ID}'
+delete from JCR_SVALUE where PROPERTY_ID = '${ID}'
+delete from JCR_SITEM where ID='${ID}'
+{code}
+
+{docbook}
+<para>
+<citetitle>
+<emphasis role="bold">
+Reference properties without reference records
+</emphasis>
+</citetitle>
+</para>
+{docbook}
+
+*Detect this issue*:
+
+To detect this issue, you need to execute the following query:
+{code}
+select * from JCR_SITEM P, JCR_SVALUE V where P.ID = V.PROPERTY_ID and P.P_TYPE=9 and NOT EXISTS (select * from JCR_SREF R where P.ID=R.PROPERTY_ID)
+{code}
+
+*Solution*:
+
+Fix description: Remove broken reference properties.
+
+To fix this issue, do as follows:
+
+Execute the query replacing ${{{{ID}}}} with the corresponding value:
+
+{code}
+delete from JCR_SVALUE where PROPERTY_ID = '${ID}'
+delete from JCR_SITEM where ID = '${ID}'
+{code}
+
+{docbook}
+<para>
+<citetitle>
+<emphasis role="bold">
+A node considered to be locked in the lockmanager data, but not locked according to the JCR data or the opposite situation
+</emphasis>
+</citetitle>
+</para>
+{docbook}
+
+*Detect this issue*:
+
+To detect this issue, you need to:
+
+* Get all locked nodes IDs in repository mentioned in JCR\_xITEM table, by executing the following query:
+
+{code}
+select distinct PARENT_ID from JCR_SITEM where I_CLASS=2 and (NAME='[http://www.jcp.org/jcr/1.0]lockOwner' or NAME='[http://www.jcp.org/jcr/1.0]lockIsDeep')
+{code}
+
+* Compare it to the nodes IDs from the LockManager's table:
+
+** JBC
+
+{note}
+* During comparing results, be aware that for single DB configurations you need to cut off ID prefix representing workspace name for results obtained from the JCR\_xITEM table.
+* Though usually a single lock table is used for the whole repository, it is possible to configure separate DB lock tables for each workspace. In this case, to obtain information over repository, you need to execute queries for each table.
+{note}
+
+*** Non-shareable:
+
+{code}
+select fqn from ${LOCK_TABLE} where parent='/$LOCKS'
+{code}
+
+*** Shareable:
+
+Replace ${{{{REPOSITORY_NAME}}}} with the corresponding value:
+{code}
+select fqn from ${LOCK_TABLE} where parent like '/${REPOSITORY_NAME}%/$LOCKS/' 
+{code}
+
+** ISPN:
+{note}
+For ISPN, lock tables are defined for each workspace separately, so to obtain information over repository, you must execute queries for all lock tables.
+{note}
+
+To get all set of locked node IDs in repository you must execute the following query for each workspace:
+
+{code}
+select ID from ${LOCK_TABLE}
+{code}
+
+*Solution*:
+
+Fix description: Remove inconsistent lock entries and properties. Remove entries in LOCK\_TABLE that have no corresponding properties in the JCR\_xITEM table and remove JCR\_xITEM properties that have no corresponding entries in the LOCK\_TABLE.
+
+To fix this issue, do as follows::
+
+* Remove property values, replace ${{{{ID}}}} with the corresponding node ID:
+
+{code}
+delete from JCR_SVALUE where PROPERTY_ID in (select ID from JCR_SITEM where PARENT_ID='${ID}' and (NAME = '[http://www.jcp.org/jcr/1.0]lockIsDeep' or NAME = '[http://www.jcp.org/jcr/1.0]lockOwner'))
+{code}
+
+* Remove property items themselves, replace ${{{{ID}}}} with the corresponding node ID:
+
+{code}
+delete from JCR_SITEM where PARENT_ID='${ID}' and (NAME = '[http://www.jcp.org/jcr/1.0]lockIsDeep' or NAME = '[http://www.jcp.org/jcr/1.0]lockOwner')
+{code}
+
+Replace ${{{{ID}}}} and ${{{{FQN}}}} with the corresponding node ID and FQN:
+
+** JBC:
+
+{code}
+delete from ${LOCK_TABLE} where fqn = '${FQN}'
+{code}
+
+** ISPN:
+
+Execute the following query for each workspace:
+
+{code}
+delete from ${LOCK_TABLE} where id = '${ID}'
+{code}
+
+{docbook}
+<para>
+<citetitle>
+<emphasis role="bold">
+A property's value is stored in the file system, but its content is missing
+</emphasis>
+</citetitle>
+</para>
+{docbook}
+
+This cannot be checked via simple SQL queries.
