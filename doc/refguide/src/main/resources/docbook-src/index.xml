@@ -22,6 +22,7 @@ This guide is a complete reference for customization points, and available APIs,
     <bookinfo>
       <title>Reference Guide / eXo JCR</title>
       <subtitle>Java Content Repository and Extension services</subtitle>
+      <xi:include href="Preface_JCR_Guide.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
     </bookinfo>
     <chapter xml:id="chapter-JCR">
       <title>eXo JCR</title>
