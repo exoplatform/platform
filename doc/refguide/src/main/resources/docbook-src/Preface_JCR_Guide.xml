@@ -1,0 +1,50 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<abstract>
+<para>The intended readers of this document are developers using eXo Platform. This document provides developers, and even beginners with the
+  comprehensive knowledge about eXo JCR which is a powerful open source implementation of the <ulink url="http://jcp.org/en/jsr/detail?id=170">Java Specification Request 170</ulink>
+  also known as the Content Repository for Java technology API. </para>
+ <para>After reading this guide, it is expected you are able to use your gained knowledge here either for portlet development or as the first step to bundle eXo Portlet Container with your own Portal implementation to reach compliance with JSR 168 and JSR 286.</para>
+  <para>The document consists of the following main topics:</para>
+  <itemizedlist>
+          <listitem>
+            <para>
+              <emphasis role="bold">
+                <link linkend="chapter-JCR">eXo JCR</link>:
+              </emphasis> Instructions on you how to configure and use eXo JCR in GateIn and standalone.</para>
+          </listitem>
+          <listitem>
+            <para>
+              <emphasis role="bold">
+                <link linkend="chapter-Kernel">eXo Kernel</link>:
+              </emphasis> Topics on eXo Kernel that is the basis of all eXo platform products and modules. The Kernel
+              module also contains a set of very low level services, therefore throughout this chapter, beginners can gain the most basic
+              knowledge about the service configuration.</para>
+          </listitem>
+		  <listitem>
+            <para>
+              <emphasis role="bold">
+                <link linkend="chapter-eXoCore">eXo Core</link>:
+              </emphasis> Topics related to eXo Core, that help you have the comprehensive knowledge about eXo Core and how to use
+            its services.</para>
+          </listitem>
+		  <listitem>
+            <para>
+              <emphasis role="bold">
+                <link linkend="chapter-eXoWS">eXo Web Services</link>:
+              </emphasis> Topics on eXo Web Services module that allow eXo technology to integrate with external products and services.</para>
+          </listitem>
+		  <listitem>
+            <para>
+              <emphasis role="bold">
+                <link linkend="chapter-eXoJCRWithGateIn">eXo JCR with GateIn</link>:
+              </emphasis> Instructions on how to extend your GateIn instance, and how to use AS Managed DataSource under JBoss AS.</para>
+          </listitem>
+		  <listitem>
+            <para>
+              <emphasis role="bold">
+                <link linkend="chapter-FrequentlyAskedQuestion">Frequently Asked Question</link>:
+              </emphasis> A list of all FAQs related to the main topics mentioned above.</para>
+          </listitem>
+        </itemizedlist>
+</abstract>
+
