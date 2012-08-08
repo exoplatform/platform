@@ -24,12 +24,17 @@ import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.CacheControl;
+import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+import javax.ws.rs.core.SecurityContext;
 
 import org.exoplatform.common.http.HTTPStatus;
 import org.exoplatform.commons.info.ProductInformations;
 import org.exoplatform.services.jcr.RepositoryService;
+import org.exoplatform.services.jcr.core.ManageableRepository;
+import org.exoplatform.services.jcr.ext.common.SessionProvider;
+import org.exoplatform.services.jcr.ext.hierarchy.NodeHierarchyCreator;
 import org.exoplatform.services.log.ExoLogger;
 import org.exoplatform.services.log.Log;
 import org.exoplatform.services.rest.resource.ResourceContainer;
@@ -57,16 +62,20 @@ public class PlatformInformationRESTService implements ResourceContainer {
   @GET
   @Path("/info")
   @Produces(MediaType.APPLICATION_JSON)
-  public Response getPlatformInformation() {
+  public Response getPlatformInformation(@Context SecurityContext sc) {
     CacheControl cacheControl = new CacheControl();
     cacheControl.setNoCache(true);
     cacheControl.setNoStore(true);
     try {
-      
-     RepositoryService repoService = (RepositoryService)PortalContainer.getInstance()
-      .getComponentInstanceOfType(RepositoryService.class); 
+      PortalContainer container = PortalContainer.getInstance();
+      SessionProvider sessionProvider = SessionProvider.createSystemProvider();
+      NodeHierarchyCreator nodeHierarchyCreator = (NodeHierarchyCreator) container.getComponentInstanceOfType(NodeHierarchyCreator.class);
+      RepositoryService repoService = (RepositoryService) container.getComponentInstanceOfType(RepositoryService.class); 
+      ManageableRepository repo = repoService.getCurrentRepository();
+
       String plfProfile = PortalContainer.getProfiles().toString().trim();
       String runningProfile = plfProfile.substring(1,plfProfile.length()-1);
+      
       JsonPlatformInfo jsonPlatformInfo = new JsonPlatformInfo();
       jsonPlatformInfo.setPlatformVersion(platformInformations.getVersion());
       jsonPlatformInfo.setPlatformBuildNumber(platformInformations.getBuildNumber());
@@ -74,7 +83,13 @@ public class PlatformInformationRESTService implements ResourceContainer {
       jsonPlatformInfo.setPlatformEdition(getPlatformEdition());
       jsonPlatformInfo.setIsMobileCompliant(isMobileCompliant().toString());
       jsonPlatformInfo.setRunningProfile(runningProfile);    
-      jsonPlatformInfo.setCurrentRepoName(repoService.getCurrentRepository().getConfiguration().getName()) ;
+      jsonPlatformInfo.setCurrentRepoName(repo.getConfiguration().getName()) ;
+      jsonPlatformInfo.setDefaultWorkSpaceName(repo.getConfiguration().getDefaultWorkspaceName());
+      if(sc.getUserPrincipal() != null) {
+        jsonPlatformInfo.setUserHomeNodePath(nodeHierarchyCreator.getUserNode(sessionProvider, sc.getUserPrincipal().getName()).getPath());
+      } else {
+        jsonPlatformInfo.setUserHomeNodePath("");
+      }
       if (LOG.isDebugEnabled()) {
         LOG.debug("Getting Platform Informations: eXo Platform (v" + platformInformations.getVersion() + " - build "
             + platformInformations.getBuildNumber() + " - rev. " + platformInformations.getRevision());
@@ -112,6 +127,8 @@ public class PlatformInformationRESTService implements ResourceContainer {
     private String isMobileCompliant;
     private String runningProfile;
     private String currentRepoName;
+    private String defaultWorkSpaceName;
+    private String userHomeNodePath;
 
     public JsonPlatformInfo() {}
 
@@ -155,6 +172,14 @@ public class PlatformInformationRESTService implements ResourceContainer {
       this.platformEdition = platformEdition;
     }
     
+    public String getUserHomeNodePath() {
+      return userHomeNodePath;
+    }
+
+    public void setUserHomeNodePath(String userHomeNodePath) {
+      this.userHomeNodePath = userHomeNodePath;
+    }
+
     public String getRunningProfile() {
       return this.runningProfile;
     }
@@ -169,6 +194,14 @@ public class PlatformInformationRESTService implements ResourceContainer {
 
     public void setCurrentRepoName(String currentRepoName) {
       this.currentRepoName = currentRepoName;
+    }
+
+    public String getDefaultWorkSpaceName() {
+      return defaultWorkSpaceName;
+    }
+
+    public void setDefaultWorkSpaceName(String defaultWorkSpaceName) {
+      this.defaultWorkSpaceName = defaultWorkSpaceName;
     }
 
   }
