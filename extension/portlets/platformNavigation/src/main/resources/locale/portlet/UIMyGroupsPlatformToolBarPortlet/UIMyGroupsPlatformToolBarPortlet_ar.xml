@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bundle>
+	<UIMyGroupsPlatformToolBarPortlet>
+		<label>مجموعاتي</label>
+		<manage>إدارة المجموعات</manage>
+	</UIMyGroupsPlatformToolBarPortlet>
+</bundle>
