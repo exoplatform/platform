@@ -33,7 +33,6 @@
 	boolean userCouldEditPortal = uicomponent.hasEditPermissionOnPortal();
 	
 %>
-<script src="/eXoWCMResources/javascript/eXo/wcm/frontoffice/private/QuickEdit.js" type="text/javascript" id="QuickEdit"></script>
 	
 <div id="<%=uicomponent.getId()%>">
 <ul class="UIAdminToolbarPortlet UIHorizontalTabs" id="<%=uicomponent.getId()%>_UL">
