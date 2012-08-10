@@ -115,9 +115,9 @@ h2. Java APIs {anchor:id=DEV.eXoPlatformSupportedAPIs.JavaAPIs}
 
 *[Organization:|../../../reference/html/Core.OrganizationService.html]* An API and SPI for accessing user, group and membership information.
 
-*[Portal Container Definition:|../../../reference/html/PortalContainer.html]* This API is used to configure your portal.
+*[Portal Container:|../../../reference/html/PortalContainer.html]* This API is used to configure your portal.
 
-*[Taxonomy:|../../../reference/html/CONTref.JavaServices.TaxonomyService.html]* An API that allows you to organize your content.
+*[TaxonomyService:|../../../reference/html/CONTref.JavaServices.TaxonomyService.html]* An API that allows you to organize your content.
 
 *[LinkManager:|../../../reference/html/CONTref.JavaServices.LinkManager.html]* An API that provides a way to manage links when developing WCM features.
 
@@ -125,7 +125,7 @@ h2. Java APIs {anchor:id=DEV.eXoPlatformSupportedAPIs.JavaAPIs}
 
 *[WCMComposer:|../../../reference/html/CONTref.JavaServices.WCMComposer.html]* An API to get content shown in the website. The cache management is used in this service, and methods to update the content cache.
 
-*[NewFolksonomy:|../../../reference/html/CONTref.JavaServices.NewFolksonomy.html]*
+*[NewFolksonomy:|../../../reference/html/CONTref.JavaServices.NewFolksonomy.html]* An API to manage all the tags and their styles. Currently, it just supports adding/editing/removing the *Private & Public* tags.
 
 *[ApplicationTemplateManager:|../../../reference/html/CONTref.JavaServices.ApplicationTemplateManager.html]*   An API to manage dynamic groovy templates for WCM-based products.
 
@@ -178,4 +178,4 @@ Java APIs
 
 *[ECM Admin and DocumentExplorer Toolbar|../../../reference/html/CONTref.Extensions.UIExtensions.AddOwnTabInECMAdministration.AddOwnUIAction.html]*
 
-*[Activity Sharing|../../../reference/html/SOCref.DevelopersReferences.ActivityStream.html]*
+*[Activity Sharing|../../../reference/html/Developer_document.Activity_plug-in.html]*
