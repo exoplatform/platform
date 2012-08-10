@@ -106,3 +106,31 @@ h4. rest.war {anchor:id=ADM.Security.rest.war}
 {code}
 
 {note}This change is very important as it allows to secure the downlaod of files via WEBDAV.{note}
+
+h2. Update the password encryption key of the RememberMe token {anchor:id=ADM.Security.Key_Rememberme_token}
+In eXo Platform, the password encryption key of the RememberMe token is always a default key defined in the _codeckey.txt_ file and this key is generated at the first bootstrap.
+
+{docbook}
+<citetitle>
+<para>
+<emphasis role="bold">File location</emphasis>
+</para>
+</citetitle>
+{docbook}
+
+|| File || Tomcat || Jboss ||
+| _codeckey.txt_ | _TOMCAT\-HOME/gatein/conf/codec_ | _JBOSS\-HOME/server/<PROFILE>/conf/gatein/codec_ |
+
+{docbook}
+<citetitle>
+<para>
+<emphasis role="bold">Update the key</emphasis>
+</para>
+</citetitle>
+{docbook}
+
+The administrators can simply update the key without doing any configuration as follows:
+
+*1.* Remove the _codeckey.txt_ file.
+
+*2.* Restart the server.
