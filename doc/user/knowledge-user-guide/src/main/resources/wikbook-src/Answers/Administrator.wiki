@@ -309,7 +309,9 @@ The *Page Manager* page will be displayed.
 <para>
 <emphasis role="bold">i.</emphasis> In the <guilabel>Display Category</guilabel> tab, you can control what categories will be displayed.</para>
 {docbook}
+
 !images/FAQ_portlet_edit_form.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
+
 {docbook}
 <para>
 <emphasis role="bold">ii.</emphasis> In the <guilabel>Edit Template</guilabel> tab, you can use CSS to customize the <emphasis role="bold">FAQ</emphasis> template.</para>
