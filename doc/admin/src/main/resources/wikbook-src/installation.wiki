@@ -328,6 +328,7 @@ is set via the following element in the _Context_ element in the _server/default
 <SessionCookie path="/" />
 {code}
 Session cookies are now scoped to the context by default.
+
 *8.* Start up the server.
 
 * On Linux and OS X:  
