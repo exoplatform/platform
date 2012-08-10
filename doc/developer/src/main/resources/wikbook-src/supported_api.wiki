@@ -143,11 +143,11 @@ h2. Java APIs {anchor:id=DEV.eXoPlatformSupportedAPIs.JavaAPIs}
 
 *[ActivityManager:|../../../reference/html/Developer_document.Java_APIs.Activity_Manager.html]* An API to manage activities (create/delete/like activity; delete/like/create comment; get activities of space/user/connection).
 
-*[IdentityManager:|../../../reference/html/SOCref.Configuration.Component.IdentityManager.html]* An API to manage identities (create identity, save profile, get connection of an identity).
+*[IdentityManager:|../../../reference/html/Developer_document.Java_APIs.Identity_Manager.html]* An API to manage identities (create identity, save profile, get connection of an identity).
 
-*[RelationshipManager:|../../../reference/html/SOCref.Configuration.RelationshipManager.html]* An API which is used to work with connections between 2 identities, interact between identities, get list access to get list of connections, incomings, outgoings.
+*[RelationshipManager:|../../../reference/html/Developer_document.Java_APIs.Relationship_manager.html]* An API which is used to work with connections between 2 identities, interact between identities, get list access to get list of connections, incomings, outgoings.
 
-*[SpaceService:|../../../reference/html/SOCref.Configuration.Component.SpaceService.html]*  An API that provides methods for working with space (create new space, delete, get space by url, groupid, display name, pretty name).
+*[SpaceService:|../../../reference/html/Developer_document.JavaAPIs.Java_APIs.SpaceService.html]*  An API that provides methods for working with space (create new space, delete, get space by url, groupid, display name, pretty name).
 
 h2. JavaScript APIs {anchor:id=DEV.eXoPlatformSupportedAPIs.JavaScriptAPIs}
 
@@ -176,8 +176,6 @@ Java APIs
 
 *[UI Extensions:|../../../reference/html/CONTref.Extensions.UIExtensions.html]* An API to plug new actions into the eXo Platform UI.
 
-*[DocumentExplorer Toolbar|../../../reference/html/CONTref.Extensions.UIExtensions.AddOwnTabInECMAdministration.AddOwnUIAction.html]*
+*[ECM Admin and DocumentExplorer Toolbar|../../../reference/html/CONTref.Extensions.UIExtensions.AddOwnTabInECMAdministration.AddOwnUIAction.html]*
 
-*[ECM Admin|../../../reference/html/CONTref.Extensions.UIExtensions.AddOwnTabInECMAdministration.html]*
-
-*[Activity Sharing|../../../reference/html/Developer_document.Create the activity plug-in.html]*
+*[Activity Sharing|../../../reference/html/SOCref.DevelopersReferences.ActivityStream.html]*
