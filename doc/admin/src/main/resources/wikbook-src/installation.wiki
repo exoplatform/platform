@@ -240,6 +240,7 @@ Files
 - gatein-ds.xml
 - gatein-wsrp-extension-$version.ear
 - starter-gatein-$version.ear
+- crash.war
 
 *3.* Copy the following files and folders from _eXo-Platform-jboss-3.5.x/ears/server/default/conf/gatein_ to the folder _JBOSS\_HOME/server/default/conf/gatein_. You may need to create _gatein_ folder if it does not exist.
 
