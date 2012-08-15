@@ -18,3 +18,10 @@
  */
 
 @import url(officeSkin/UIPortalApplicationSkin.css);
+
+.UIWizardPageSetInfo .SelectedPageInfo .UIFormWithTitle .UIFormGrid {
+    margin: auto;
+    width: auto;
+    position: static;
+}
+
