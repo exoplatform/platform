@@ -1,24 +1,24 @@
 h1. Glossary {anchor:id=Soc_User_Guide.Get_Started.Glossary}
 
-To get started with eXo Social, it is more useful to learn about some terms often used when approaching eXo Social as below.
+To get started with Social, it is more useful to learn about some terms often used when approaching Social as below.
 
-* *User profile* is an information page for each eXo Social user that includes information of account, avatar, contact, experiences.
-* *Connections* is the page displaying information about relations among eXo Social users, including established connections, incoming and outgoing invitations.
+* *User profile* is an information page for each Social user that includes information of account, avatar, contact, experiences.
+* *Connections* is the page displaying information about relations among Social users, including established connections, incoming and outgoing invitations.
 * *Connection request* is the act of asking or expressing a connection desire that can be accepted, or denied by receivers. The requests also can be canceled by inviters.
 * *Space request* is the act of asking the managers or creators of spaces to give permissions to join their spaces.
 * *Activity* is an application where users can do many actions, such as publishing their own respective activity streams, showing recent activities or updates, new connections or updating status and more.
-* *Activity Stream* is a set of recent activities, providing users with the ability to communicate in the stream of data. With this application, eXo Social allows users to organize and share information in the flow of data effectively.
+* *Activity Stream* is a set of recent activities, providing users with the ability to communicate in the stream of data. With this application, Social allows users to organize and share information in the flow of data effectively.
 * *Space* is a working environment where you can manage users and communities more conveniently. It enables you to regroup people by various interests or projects and to leverage any existing application, such as portlets or gadgets.
 * *Space manager* is a user with special rights within a space. The manager can monitor the list of members, configuration and install applications. When any user creates a space, he/she automatically becomes the space's manager who can validate space subscription requests.
 * *Dashboard* is one portlet hosting mini-applications known as gadgets. The dashboard shows data from various components which can be RSS feed, calendar, calculator, To-do and more. 
-* *Space application* is one application used in the Space application of eXo Social. One space can contain one or more applications which can be shared among users.
+* *Space application* is one application used in the Space application of Social. One space can contain one or more applications which can be shared among users.
 
 h1. Account  {anchor:id=Soc_User_Guide.Get_Started.Account}
 
 h2. Register your account {anchor:id=Soc_User_Guide.Get_Started.Account.Create_Your_Account}
-As a guest, you can visit eXo Social but are limited to some content and applications. To access more content or perform some functionalities, you first need to register by yourself and contact the portal administrator to gain certain permissions.
+As a guest, you can visit Social but are limited to some content and applications. To access more content or perform some functionalities, you first need to register by yourself and contact the portal administrator to gain certain permissions.
 
-*1.* Click *Register* on the top right corner of the eXo Social homepage.
+*1.* Click *Register* on the top right corner of the Social homepage.
 
 *2.* Fill in the *Register New Account* form. The asterisk (*) mark indicates mandatory fields.
 
@@ -62,9 +62,9 @@ Be sure to enter your email address correctly. In case of forgetting your user n
 
 h2. Sign in & Sign out   {anchor:id=Soc_User_Guide.Get_Started.Signin_Signout}
 
-To sign in to eXo Social, do as follows: 
+To sign in to Social, do as follows:
 
-*1.* Go to the eXo Social homepage by entering the appropriate URL into the address bar of your browser. For example: http://localhost:8080/socialdemo/.
+*1.* Go to the Social homepage by entering the appropriate URL into the address bar of your browser. For example: http://localhost:8080/socialdemo/.
 
 *2.* Click the *Sign in* link at the top right of the page.
 
@@ -72,7 +72,7 @@ To sign in to eXo Social, do as follows:
 
 !images/SignIn.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
 
-*4.* Select the *Remember My Login* checkbox for the first time if you want to automatically return to the eXo Social page without signing in again. This feature enables you to be automatically authenticated to avoid doing an explicit authentication when you access the eXo Social.
+*4.* Select the *Remember My Login* checkbox for the first time if you want to automatically return to the Social page without signing in again. This feature enables you to be automatically authenticated to avoid doing an explicit authentication when you access the Social.
 
 *5.* Click *Sign in* to submit the form, or *Discard* to quit.
 
@@ -80,7 +80,7 @@ To sign in to eXo Social, do as follows:
 In case the username does not exist or the username/password is invalid, you will be returned to the Sign In form with an alert message to sign in again. To attempt your login again, re-enter your username and password. 
 {note}
 
-After signing in successfully, you will be redirected to the eXo Social homepage and welcomed with your full name on the top right corner of the page.
+After signing in successfully, you will be redirected to the Social homepage and welcomed with your full name on the top right corner of the page.
 
 
 !images/Administration_bar.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
@@ -90,7 +90,7 @@ To end your authenticated session, simply hover your cursor over the eXo icon on
 !images/Sign_Out.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
 
 {note}
-From the eXo drop-down menu, you also can change language and skin of eXo Social by clicking each relevant icon.
+From the eXo drop-down menu, you also can change language and skin of Social by clicking each relevant icon.
 {note}
 
 
