@@ -179,12 +179,6 @@
     </dependency>
     <dependency>
       <groupId>org.exoplatform.ecms</groupId>
-      <artifactId>exo-ecms-upgrade-user-folder-permission</artifactId>
-      <version>${org.exoplatform.ecms.version}</version>
-      <scope>provided</scope>
-    </dependency>
-    <dependency>
-      <groupId>org.exoplatform.ecms</groupId>
       <artifactId>exo-ecms-upgrade-portlet-preferences</artifactId>
       <version>${org.exoplatform.ecms.version}</version>
       <scope>provided</scope>
