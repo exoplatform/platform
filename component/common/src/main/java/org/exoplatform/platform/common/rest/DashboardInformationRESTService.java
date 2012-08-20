@@ -254,7 +254,7 @@ public class DashboardInformationRESTService implements ResourceContainer {
   
               if(gadget != null) {
                 JsonGadgetInfo info = new JsonGadgetInfo();
-                info.setGadgetName(gadget.getName());
+                info.setGadgetName(gadget.getTitle());
                 info.setGadgetUrl(PortalContainer.getCurrentPortalContainerName() + STANDALONE_ROOT_PATH + "/" + application.getStorageId());
                 info.setGadgetIcon(gadget.getThumbnail());
                 info.setGadgetDescription(gadget.getDescription());
