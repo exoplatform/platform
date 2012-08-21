@@ -23,3 +23,15 @@ There are also direct links to login as regular users or superusers in the sampl
 </para>
 </note>
 {docbook}
+
+{docbook}
+    <para>
+        <prompt>
+            <emphasis role="bold">See also</emphasis>
+        </prompt>
+    </para>
+{docbook}
+
+* [Glossary|#Platform_User_Guide.Get_started.Glossary]
+* [Manage accounts|#Platform_User_Guide.Get_started.Accounts]
+* [Manage language|#Platform_User_Guide.Get_started.Manage_Language]
