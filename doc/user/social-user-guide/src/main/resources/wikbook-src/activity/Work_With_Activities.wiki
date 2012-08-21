@@ -121,15 +121,19 @@ h1. Share a file {anchor:id=Soc_User_Guide.Activity_Management.Share_File}
             </imageobject>
           </inlinemediaobject> to open the <guilabel>Select File</guilabel> box.</para>
 {docbook}
+
 !images/Browse_files_box.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
+
 {docbook}
 <para>
-  <emphasis role="bold">2.</emphasis> Click <guilabel>Select File</guilabel> to open the <guilabel>Select Document</guilabel> form.</para>
+  <emphasis role="bold">2.</emphasis> Click <guilabel>Select File</guilabel> to open the <guilabel>Select File</guilabel> form.</para>
 {docbook}
+
 !images/Select_document_form.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
+
 {docbook}
 <para>
-          <emphasis role="bold">3.</emphasis> Select the relevant drive category from the <guilabel>Select Drive</guilabel> drop-down menu.</para>
+    <emphasis role="bold">3.</emphasis> Select the relevant drive category from the <guilabel>Select Drive</guilabel> drop-down menu.</para>
 {docbook}
 
 {docbook}
