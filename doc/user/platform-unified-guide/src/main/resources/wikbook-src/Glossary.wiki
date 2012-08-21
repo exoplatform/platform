@@ -184,3 +184,15 @@ A type of document which is used for planning the primary records management. Al
 A special file which contains a reference to a document or a folder. By using symlinks, you can easily access specific nodes (target) to which symlinks point. In *Sites Explorer*, a symlink has a small chain symbol next to its icon.
 
 !images/symlink.png|align="center" width="30mm" fo:scalefit="1" html:scalefit="0"!
+
+{docbook}
+    <para>
+        <prompt>
+            <emphasis role="bold">See also</emphasis>
+        </prompt>
+    </para>
+{docbook}
+
+* [eXo Platform 3.5 interface|#Platform_User_Guide.Get_started.PLF_Interface]
+* [Manage accounts|#Platform_User_Guide.Get_started.Accounts]
+* [Manage language|#Platform_User_Guide.Get_started.Manage_Language]
