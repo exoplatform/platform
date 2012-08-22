@@ -1,62 +1,99 @@
 <?xml version='1.0' encoding='utf-8' ?>
 <abstract>
-<para>The intended readers of this document are users using eXo Platform. This user guide explains all the basic and advanced features of eXo Platform by providing a series of in-depth examples and clear explanations which help users easily benefit from the eXo Platform capabilities and features. </para>
- <para>After reading this guide, developers are expected to be able to customize their own portals and 
-develop applications to run on eXo Platform 3.5 through the following topics:</para>
+<para>The guide you are reading is intended to be a rich introduction to the depth of <emphasis role="bold">eXo Platform</emphasis>. 
+As a developer, you can use this guide to have a solid framework for achieving your goals on the platform. Throughout this guide,
+you will meet a high-level tour of eXo Platform and its capabilities via the following chapters:
+</para>
         <itemizedlist>
           <listitem>
             <para>
               <emphasis role="bold">
-                <link linkend="DEV.GetStarted">Get Started</link>:
-              </emphasis>Introduction to terms commonly used, how to set up Maven settings and eXo Architecture Primer.</para>
+                <link linkend="DEV.GetStarted">Get Started</link>
+			  </emphasis>	
+			</para>	
+			<para>
+              An introduction to terms commonly used, the process to set up Maven settings and understanding of eXo Architecture Primer.
+			</para>
           </listitem>
           <listitem>
             <para>
               <emphasis role="bold">
-                <link linkend="DEV.CreatingYourOwnPortal">Create Your Own Portal</link>:
-              </emphasis>Steps on how to create and customize your own portal.</para>
+                <link linkend="DEV.CreatingYourOwnPortal">Create Your Own Portal</link>
+              </emphasis>
+			</para>
+			<para>
+			A procedure that instructs you to create your extension project, define a default portal and its structure, manage languages, create a custom look and feel, add JavaScript, or create custom templates.
+			</para>
           </listitem>
 		  <listitem>
             <para>
               <emphasis role="bold">
-                <link linkend="DEV.WorkingwithContent">Work With Content</link>:
-              </emphasis>Topics related to the eXo Platform content.</para>
+                <link linkend="DEV.WorkingwithContent">Work With Content</link>
+			  </emphasis>
+			</para>
+			<para>
+				Topics which are related to creating a new content manually in eXo Platform, such as node type, dialog syntax, CKEditor, taxonomy, template service or Navigation By Content.
+			</para>
           </listitem>
 		  <listitem>
             <para>
               <emphasis role="bold">
-                <link linkend="DEV.WorkingwithApplications">Work With Applications</link>:
-              </emphasis>Instructions on how to integrate applications into your portal and how to deploy your own applications.</para>
+                <link linkend="DEV.WorkingwithApplications">Work With Applications</link>
+              </emphasis>
+			</para>
+			<para>
+			  Instructions on how to integrate, then to deploy an application into your portal.
+			</para>
           </listitem>
 		  <listitem>
             <para>
               <emphasis role="bold">
-                <link linkend="DEV.SystemIntegration">System Integration</link>:
-              </emphasis>Topics related to the eXo Platform 3.5 integration into information systems through specific topics, such as authentication, user integration, LDAP integration and Email configuration.</para>
+                <link linkend="DEV.SystemIntegration">System Integration</link>
+              </emphasis>
+			</para>
+			<para>
+				Topics related to the eXo Platform 3.5 integration into information systems through specific topics, such as authentication, user integration, LDAP integration and Email configuration.
+			</para>
           </listitem>
 		  <listitem>
             <para>
               <emphasis role="bold">
-                <link linkend="DEV.SystemIntegration">System Integration</link>:
-              </emphasis>Introduction to terms commonly used, how to set up Maven settings and eXo Architecture Primer.</para>
+                <link linkend="DEV.SystemIntegration">System Integration</link>
+              </emphasis>
+			</para>
+			<para>
+				Information of authentication and users integration, details of numerous parameters of the eXo LDAP organization service, and the way to configure the email service.
+			</para>
           </listitem>
 		  <listitem>
             <para>
               <emphasis role="bold">
-                <link linkend="DEV.eXoPlatformAPIs">eXo Platform 3.5 APIs</link>:
-              </emphasis>Information of APIs.</para>
+                <link linkend="DEV.eXoPlatformAPIs">eXo Platform 3.5 APIs</link>
+              </emphasis>
+			</para>
+			<para>
+				Definitions of API levels, and a list of eXo Platform APIs and provisional APIs.
+			</para>
           </listitem>
 		  <listitem>
             <para>
               <emphasis role="bold">
-                <link linkend="DEV.Cookbook">Cookbook</link>:
-              </emphasis>Introduction to Cookbook, particularly steps on how to copy a site to another eXo Platform server.</para>
+                <link linkend="DEV.Cookbook">Cookbook</link>
+              </emphasis>
+			</para>
+			<para>
+				Steps on how to copy a site to another eXo Platform server.
+			</para>
           </listitem>
 		  <listitem>
             <para>
               <emphasis role="bold">
-                <link linkend="DEV.Upgrade">Upgrade eXo Platform</link>:
-              </emphasis>Steps on how to upgrade eXo Platform from 3.0 to 3.5, especially when your system is an extension of eXo Platform 3.0 with many customizations related to configurations, components and added features.</para>
+                <link linkend="DEV.Upgrade">Upgrade eXo Platform</link>
+              </emphasis>
+			</para>
+			<para>
+				All requirements, what needs to be prepared/adapted in eXo Platform extension, and how to update Maven dependencies, configurations, components and extensions.
+			</para>
           </listitem>
         </itemizedlist>
 </abstract>

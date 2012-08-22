@@ -1,10 +1,13 @@
 {docbook}
 <abstract>
-<para>This chapter will show you how to integrate eXo Platform 3.5 into your information system through the specific topics below:</para>
+<para>This chapter will show you how to integrate eXo Platform 3.5 into your information system throughout the specific topics below:</para>
 <itemizedlist>
   <listitem>
 	<para>
 	  <emphasis role="bold"><link linkend="DEV.SystemIntegration.Authentication">Authentication</link> </emphasis>
+	</para>
+	<para>
+	The information which is related to the authentication, including:
 	</para>
 	<itemizedlist>
 	  <listitem>
@@ -28,6 +31,7 @@
 	<para>
 	  <emphasis role="bold"><link linkend="DEV.SystemIntegration.UserIntegration">Users integration</link>  </emphasis>
 	</para>
+	<para>The information which is related to the users integration, including:</para>
 	<itemizedlist>
 	  <listitem>
 		<para>
@@ -49,6 +53,9 @@
   <listitem>
 	<para>
 	 <emphasis role="bold"> <link linkend="DEV.SystemIntegration.LDAPIntegration">LDAP Integration</link></emphasis>
+	</para>
+	<para>
+	Explanations of numerous parameters of the eXo LDAP organization service, including:
 	</para>
 	<itemizedlist>
 	  <listitem>
@@ -77,6 +84,9 @@
 	<para>
 	<emphasis role="bold">  <link linkend="DEV.SystemIntegration.Email">Email</link> </emphasis>
 	</para>
+	<para>
+	Ways to configure the email service.
+	</para>
   </listitem>
 </itemizedlist>
 </abstract>
@@ -84,11 +94,27 @@
 
 h1. Authentication {anchor:id=DEV.SystemIntegration.Authentication}
 
-h2. Single-Sign-On (SSO) {anchor:id=DEV.SystemIntegration.SingleSignON}
+{docbook}
+<para xml:id="DEV.SystemIntegration.SingleSignON">
+<citetitle>
+<emphasis role="bold">
+Single-Sign-On (SSO)
+</emphasis>
+</citetitle>
+</para>
+{docbook}
 
 When logging into the portal, you can gain access to many systems through portlets using a single identity. However, in many cases, the portal infrastructure must be integrated with other SSO-enabled systems. There are many different Identity Management solutions available. The GateIn documentation gives detailed configuration for different SSO implementation. For more details, see [SSO - Single Sign On|../../../reference/html/chap-Reference_Guide-SSO_Single_Sign_On.html].
 
-h2. Central Authentication Service (CAS) {anchor:id=DEV.SystemIntegration.CenterAuthenticationService}
+{docbook}
+<para xml:id="DEV.SystemIntegration.CenterAuthenticationService">
+<citetitle>
+<emphasis role="bold">
+Central Authentication Service (CAS)
+</emphasis>
+</citetitle>
+</para>
+{docbook}
 
 Central Authentication Service (CAS) is a Web Single-Sign-On (WebSSO), developed by JA-SIG as an open source project. CAS enables you to work on different applications to log in only once and to be recognized and authenticated by all applications. Details about CAS can be found [here|http://www.jasig.org/cas].
 
@@ -99,8 +125,15 @@ The CAS integration consists of two steps:
 
 For more information on CAS configuration, see [here|../../../reference/html/sect-Reference_Guide-Single_Sign_On-CAS_Central_Authentication_Service.html].
 
-
-h2. Kerberos SSO on Active Directory {anchor:id=DEV.SystemIntegration.KerberosSSOOnActiveDirectory}
+{docbook}
+<para xml:id="DEV.SystemIntegration.KerberosSSOOnActiveDirectory">
+<citetitle>
+<emphasis role="bold">
+Kerberos SSO on Active Directory
+</emphasis>
+</citetitle>
+</para>
+{docbook}
 
 eXo Portal 3.5 supports the Kerberos authentication on a Microsoft Active Directory. You will need to configure both your Active Directory server and the application server.
 
@@ -108,16 +141,42 @@ The implementation makes possible to use SPNEGO or NTLM. The client will get two
 
 To learn more about how to configure Kerberos SSO, see [here|http://wiki.exoplatform.com/xwiki/bin/view/WS/Kerberos%20SSO%20on%20Active%20Directory].
 
+{docbook}
+<para>
+<prompt>
+    <emphasis role="bold">See also</emphasis>
+</prompt>
+</para>
+{docbook}
+* [Users integration|#DEV.SystemIntegration.UserIntegration]
+* [LDAP Integration|#DEV.SystemIntegration.LDAPIntegration]
+* [Email|#DEV.SystemIntegration.Email]
 
 h1. Users integration {anchor:id=DEV.SystemIntegration.UserIntegration}
 
-h2. Organization Service {anchor:id=DEV.SystemIntegration.OrganizationService}
+{docbook}
+<para xml:id="DEV.SystemIntegration.OrganizationService">
+<citetitle>
+<emphasis role="bold">
+Organization Service
+</emphasis>
+</citetitle>
+</para>
+{docbook}
 
 To specify the initial Organization configuration, the content of your extension.war in _/WEB-INF/conf/organization/organization-configuration.xml_ should be edited. This file uses the portal XML configuration schema. It lists several configuration plugins.
 
 The plugin of _org.exoplatform.services.organization.OrganizationDatabaseInitializer_ type is used to specify a list of membership types, groups and users to be created.
 
-h2. Memberships, Groups and Users {anchor:id=DEV.SystemIntegration.MembershipsGroupsAndUsers}
+{docbook}
+<para xml:id="DEV.SystemIntegration.MembershipsGroupsAndUsers">
+<citetitle>
+<emphasis role="bold">
+Memberships, Groups and Users
+</emphasis>
+</citetitle>
+</para>
+{docbook}
 
 The predefined membership types are specified in the *membershipType* field of the OrganizationConfig plugin parameter.
 
@@ -244,17 +303,87 @@ The predefined users are specified in the *membershipType* field of the Organiza
 </field>
 {code}
 
-
-h2. Organization API {anchor:id=DEV.SystemIntegration.OrganizationAPI}
+{docbook}
+<para xml:id="DEV.SystemIntegration.OrganizationAPI">
+<citetitle>
+<emphasis role="bold">
+Organization API
+</emphasis>
+</citetitle>
+</para>
+{docbook}
 
 The _exo.platform.services.organization_ package has five main components: user, user profile, group, membership type and membership. There is an additional component that serves as an entry point into Organization API - _OrganizationService_ component which provides handling functionality for five components. For more details, see the [Organization API|../../../reference/html/sect-Reference_Guide-APIs-Organization_API.html] section.
 
+{docbook}
+<para>
+<prompt>
+    <emphasis role="bold">See also</emphasis>
+</prompt>
+</para>
+{docbook}
+* [Authentication|#DEV.SystemIntegration.Authentication]
+* [LDAP Integration|#DEV.SystemIntegration.LDAPIntegration]
+* [Email|#DEV.SystemIntegration.Email]
+
 h1. LDAP Integration {anchor:id=DEV.SystemIntegration.LDAPIntegration}
+{docbook}
+<highlights>
+        <itemizedlist>
+          <listitem>
+            <para>
+              <link linkend="DEV.SystemIntegration.ConnectionSettings">Connection Settings</link>
+            </para>
+			<para>
+			Description of parameters used in the connection settings.
+			</para>
+          </listitem>
+          <listitem>
+            <para>
+              <link linkend="DEV.SystemIntegration.OrganizationServiceConfiguration">Organization Service Configuration</link>
+            </para>
+			<para>
+			Required information for configuring Organization Service that shows how the directory is structured and how to interact with it.
+			</para>
+          </listitem>
+          <listitem>
+            <para>
+              <link linkend="DEV.SystemIntegration.ActiveDirectorySampleConfiguration">Active Directory sample configuration</link>
+            </para>
+			<para>
+			Introduction to an alternative configuration for active directory, and steps to use the LDAPs protocol with the Active Directory.
+			</para>
+          </listitem>
+		  <listitem>
+            <para>
+              <link linkend="DEV.SystemIntegration.PicketlinkIDM">Picketlink IDM</link>
+            </para>
+			<para>
+			Information of the PicketLink IDM component which eXo Platform currently uses for keeping the necessary identity information, such as users, groups, memberships.
+			</para>
+          </listitem>
+        </itemizedlist>
+</highlights>
+{docbook}
+
+{note}
 If you have an existing LDAP server, the eXo predefined settings will likely not match your directory structure. eXo LDAP organization service implementation was written with flexibility in mind and can certainly be configured to meet your requirements.
 
-The configuration is done in the _ldap-configuration.xml_ file, and this part will explain the numerous parameters which it contains.
+The configuration is done in the _ldap-configuration.xml_ file which contains numerous parameters.
+{note}
 
-h2. Connection Settings {anchor:id=DEV.SystemIntegration.ConnectionSettings}
+{docbook}
+<para>
+<prompt>
+    <emphasis role="bold">See also</emphasis>
+</prompt>
+</para>
+{docbook}
+* [Authentication|#DEV.SystemIntegration.Authentication]
+* [Users integration|#DEV.SystemIntegration.UserIntegration]
+* [Email|#DEV.SystemIntegration.Email]
+
+h2. Connection Settings {anchor:id=DEV.SystemIntegration.ConnectionSettingsRoleNotInToc}
 First, start by connection settings which will tell eXo how to connect to your directory server. These settings are very close to the [JNDI API|http://java.sun.com/products/jndi] context parameters. This configuration is activated by the init-param _ldap.config_ of service _LDAPServiceImpl_.
 
 {code:xml}
@@ -297,7 +426,7 @@ First, start by connection settings which will tell eXo how to connect to your d
 * *referralMode*: one of _follow_, _ignore_, _throw_ (see [REFERRAL|http://java.sun.com/products/jndi/1.2/javadoc/javax/naming/Context.html#REFERRAL]).
 * *serverName*: you will need to set this to _active.directory_ to work with Active Directory servers. Any other value will be ignored and the service will act as on a standard LDAP.
 
-h2.  Organization Service Configuration {anchor:id=DEV.SystemIntegration.OrganizationServiceConfiguration}
+h2.  Organization Service Configuration {anchor:id=DEV.SystemIntegration.OrganizationServiceConfigurationRoleNotInToc}
 Next, you need to configure the eXo *OrganizationService* to show how the directory is structured and how to interact with it.
 This is managed by a couple of init-params: *ldap.userDN.key* and *ldap.attribute.mapping* in the _ldap-configuration.xml_ file (by default located at _portal.war/WEB-INF/conf/organization_)
 
@@ -340,8 +469,6 @@ This is managed by a couple of init-params: *ldap.userDN.key* and *ldap.attribut
 {warning}
 In Core, the ldapDescriptionAttr key is present but not consistently used everywhere in code. When using *Core*, consider that the description is always mapped to the 'description' attribute.
 {warning}
-
-Other parameters are discussed in the following sections.
 
 h3. Users {anchor:id=DEV.SystemIntegration.Users}
 
@@ -464,6 +591,7 @@ uid=marry,cn=users,ou=portal,dc=exoplatform,dc=org
   ...
 {code}
 
+
 h3. Groups {anchor:id=DEV.SystemIntegration.Groups}
 eXo Platform groups can be mapped to organizational or applicative groups defined in your directory.
 
@@ -581,7 +709,6 @@ For example, if _membershipTypeNameAttr_ is _cn_, the role name will be _manager
 
 {code}cn=manager,ou=roles,ou=portal,dc=exoplatform,dc=org {code}
 
-
 h3. Memberships {anchor:id=DEV.SystemIntegration.Membership}
 Memberships are used to assign a role within a group. They are entries that are placed under the group entry of their scope group.
 Users in this role are defined as attributes of the membership entry.
@@ -676,7 +803,7 @@ You will need the following parameters:
 * *profileURL*: base dn to store user profiles.
 * *profileLDAPClasses*: Classes used for creating user profiles.
 
-h2. Active Directory sample configuration {anchor:id=DEV.SystemIntegration.ActiveDirectorySampleConfiguration}
+h2. Active Directory sample configuration {anchor:id=DEV.SystemIntegration.ActiveDirectorySampleConfigurationRoleNotInToc}
 Here is an alternative configuration for active directory that you can find in *activedirectory-configuration.xml*.
 
 {code:xml}
@@ -741,7 +868,7 @@ Here is how to use the LDAPs protocol with the Active Directory:
 
   _{{{JAVA_OPTS="${JAVA_OPTS} -Djavax.net.ssl.trustStorePassword=changeit -Djavax.net.ssl.trustStore=/home/user/java/jdk1.6/jre/lib/security/ca"}}}_
 
-h2. Picketlink IDM {anchor:id=DEV.SystemIntegration.PicketlinkIDM}
+h2. Picketlink IDM {anchor:id=DEV.SystemIntegration.PicketlinkIDMRoleNotInToc}
 eXo Platform uses the PicketLink IDM component to keep the necessary identity information, such as users, groups, memberships.
 While the legacy interfaces are still used (org.exoplatform.services.organization) for the identity management, there is a wrapper implementation that delegates to the PicketLink IDM framework. 
 For further information, visit [here|http://jboss.org/picketlink/IDM.html].
@@ -776,7 +903,6 @@ If you want to switch between different implementations, you just need to uncomm
 <!--for organization service used ldap server which is user lookup server -->
 {code}
 
-
 h1. Email {anchor:id=DEV.SystemIntegration.Email}
 
 The email service can use any SMTP account configured in _$JBOSS\_HOME/server/default/conf/gatein/configuration.properties_ or _$TOMCAT\_HOME/gatein/conf/configuration.properties_ if you are using Tomcat.
@@ -799,4 +925,13 @@ It is pre-configured for Gmail, so any Gmail account can easily be used. You sim
 
 In corporate environments, you will want to use your corporate SMTP gateway. When using it over SSL, like in the default configuration, you may need to configure a certificate trust-store, containing your SMTP server's public certificate. Depending on the key sizes, you might also need to install Java Cryptography Extension (JCE) Unlimited Strength Jurisdiction Policy Files for your Java Runtime Environment.
 
-
+{docbook}
+<para>
+<prompt>
+    <emphasis role="bold">See also</emphasis>
+</prompt>
+</para>
+{docbook}
+* [Authentication|#DEV.SystemIntegration.Authentication]
+* [Users integration|#DEV.SystemIntegration.UserIntegration]
+* [LDAP Integration|#DEV.SystemIntegration.LDAPIntegration]

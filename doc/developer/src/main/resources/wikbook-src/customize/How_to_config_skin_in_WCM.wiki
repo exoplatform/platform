@@ -117,6 +117,7 @@ This section is related to the configuration. You can see a sample [here.|http:/
 <!-- ... -->
 {code}
 
+-----NotIncluded-----
 h1. Customize portal and page's style {anchor:id=customize-portal-and-page-style}
 
 {docbook}
