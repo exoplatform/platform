@@ -1,4 +1,23 @@
 {docbook}
+    <highlights>
+	<itemizedlist>
+		<listitem>
+			<para><link linkend="Platform_User_Guide.Organize_Content.Manage_Workflows.Holiday_Process">Holiday process</link>: Learn about the Holiday process to request a task related to your holiday.</para>
+		</listitem>
+		<listitem>
+			<para><link linkend="Platform_User_Guide.Organize_Content.Manage_Workflows.Pay_ray_process">Pay raise process</link>: Learn about the to Pay raise process to propose pay raise.</para>
+		</listitem>
+		<listitem>
+			<para><link linkend="Platform_User_Guide.Organize_Content.Manage_Workflows.Upload_Process">Upload a process</link>: Learn to upload a new process.</para>
+		</listitem>
+		<listitem>
+			<para><link linkend="Platform_User_Guide.Organize_Content.Manage_Workflows.View_Process_Detail">View process detail</link>: Learn to keep track of process details.</para>
+		</listitem>
+    </itemizedlist>
+</highlights>
+{docbook}
+
+{docbook}
 <note>
 <para>
 Two portlets, including <emphasis role="bold">Workflow Controller</emphasis> and <emphasis role="bold">Workflow Administration</emphasis>, are deprecated in eXo Platform. They remain fully supported for eXo customers, however they will not receive any enhancement and will be removed from the product scope in the future.
@@ -27,7 +46,19 @@ to the main pane. This can be done when <link linkend="sect-User_Guide-Page_Crea
 {docbook}
 !images/Workflow/workflow_controller_dagdrop.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
 
-h1. Holiday process{anchor:id=Platform_User_Guide.Organize_Content.Manage_Workflows.Holiday_Process}
+{docbook}
+<para>
+<prompt>
+    <emphasis role="bold">See also</emphasis>
+</prompt>
+</para>
+{docbook}
+
+* [Structure content|#Platform_User_Guide.Organize_Content.Structure_Content]
+* [Manage content|#Platform_User_Guide.Organize_Content.Manage_Content]
+* [Manage newsletter|#Platform_User_Guide.Organize_Content.Newsletter]
+
+h1. Holiday process{anchor:id=Platform_User_Guide.Organize_Content.Manage_Workflows.Holiday_ProcessRoleNotInToc}
 This process is used to request a task related to your holiday. If you want to have a holiday in a time interval, you should use this process.
 
 h2. Create a holiday process{anchor:id=Platform_User_Guide.Organize_Content.Manage_Workflows.Create_Holiday_Process}
@@ -169,7 +200,7 @@ Thus, if you are a member of _\*:/organization/management/human-resources_ group
 {docbook}
 
 
-h1. Pay raise process{anchor:id=Platform_User_Guide.Organize_Content.Manage_Workflows.Pay_ray_process}
+h1. Pay raise process{anchor:id=Platform_User_Guide.Organize_Content.Manage_Workflows.Pay_ray_processRoleNotInToc}
 This process is used when you want to propose raising your pay.
 
 h2. Create a pay raise process{anchor:id=Platform_User_Guide.Organize_Content.Manage_Workflows.Request_pay_raise}
@@ -269,7 +300,7 @@ Thus, if you are a member of the <emphasis>*:/organization/management/human-reso
 
 
 
-h1. Upload a process{anchor:id=Platform_User_Guide.Organize_Content.Manage_Workflows.Upload_Process}
+h1. Upload a process{anchor:id=Platform_User_Guide.Organize_Content.Manage_Workflows.Upload_ProcessRoleNotInToc}
 Besides two default process supported by system, administrators also can upload a new process as follows:
 
 {docbook}
@@ -310,7 +341,7 @@ Besides two default process supported by system, administrators also can upload 
 </para>
 {docbook}
 
-h1. View process detail{anchor:id=Platform_User_Guide.Organize_Content.Manage_Workflows.View_Process_Detail}
+h1. View process detail{anchor:id=Platform_User_Guide.Organize_Content.Manage_Workflows.View_Process_DetailRoleNotInToc}
 This function is used to help administrators keep track of process details as follows:
 
 *1.* Open the *Workflow Administration* portlet.
