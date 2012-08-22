@@ -439,3 +439,13 @@ A textual, visual or aural content that is encountered as part of the user exper
 {docbook}
 
 A container of single rooted tree which includes items.
+{docbook}
+<para>
+<prompt>
+    <emphasis role="bold">See also</emphasis>
+</prompt>
+</para>
+{docbook}
+
+* [Set up Maven settings|#DEV.SetupMavenSettings]
+* [eXo Architecture Primer|#DEV.eXoArchitecturePremer]

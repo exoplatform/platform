@@ -1,6 +1,6 @@
 {docbook}
 <abstract>
-<para>This chapter currently focuses on how to copy a work done on the eXo Platform server, such as creating navigations, node types and templates, to another eXo Platform servers through these topics:</para>
+<para>This chapter currently focuses on how to copy a work done on the eXo Platform server, such as creating navigations, node types and templates, to another eXo Platform servers throughout these topics:</para>
     <itemizedlist>
       <listitem>
         <para>

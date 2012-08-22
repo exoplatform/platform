@@ -1,45 +1,53 @@
 {docbook}
 <abstract>
-<para>This chapters represents issues related to creating a new content manually via the following topics:</para>
+<para>This chapter represents issues related to creating a new content manually via the following topics:</para>
 <itemizedlist>
   <listitem>
 	<para>
 	  <emphasis role="bold"><link linkend="DEV.WorkWithContent.NodeType">Node type</link></emphasis>
 	</para>
-  </listitem>
-  <listitem>
 	<para>
-	 <emphasis role="bold"> <link linkend="DEV.WorkWithContent.WCMTemplate">WCM template</link></emphasis>
+	Ways to define your node type and document type, as well as to select types of Content template.
 	</para>
   </listitem>
   <listitem>
 	<para>
-	  <emphasis role="bold"><link linkend="DEV.WorkWithContent.DocumentType">Document type</link> </emphasis>
+	 <emphasis role="bold"><link linkend="DEV.WorkWithContent.DialogSyntax">Dialog Syntax</link></emphasis>
 	</para>
-  </listitem>
-  <listitem>
 	<para>
-	 <emphasis role="bold"> <link linkend="DEV.WorkWithContent.DialogSyntax">Dialog Syntax</link> </emphasis>
+	Groovy Templates that generate forms by mixing static HTML fragments and Groovy calls to the components responsible for building the UI at runtime.
 	</para>
   </listitem>
   <listitem>
 	<para>
 	 <emphasis role="bold"> <link linkend="DEV.WorkWithContent.CKEditor">Customize CKEditor</link></emphasis>
 	</para>
+	<para>
+	A WYSIWYG editor (text editor) which allows you to see what the published results look like while editing your text.
+	</para>
   </listitem>
   <listitem>
 	<para>
 	  <emphasis role="bold"><link linkend="DEV.WorkWithContent.Taxonomy">Taxonomy</link></emphasis>
 	</para>
-  </listitem>
-  <listitem>
 	<para>
-	  <emphasis role="bold"><link linkend="DEV.WorkWithContent.ManageTemplateService">Manage Template service</link></emphasis>
+	A particular classification arranged in a hierarchical structure that helps you organize your content into categories.
 	</para>
   </listitem>
   <listitem>
 	<para>
-	  <emphasis role="bold"><link linkend="DEV.WorkWithContent.NavigationByContent">Manage Navigation By Content</link></emphasis>
+	  <emphasis role="bold"><link linkend="DEV.WorkWithContent.ManageTemplateService">Template Service</link></emphasis>
+	</para>
+	<para>
+	A service which allows developers to create dialogs and view templates for each node type register.
+	</para>
+  </listitem>
+  <listitem>
+	<para>
+	  <emphasis role="bold"><link linkend="DEV.WorkWithContent.NavigationByContent">Navigation By Content</link></emphasis>
+	</para>
+	<para>
+	A feature which allows developers to browse content of each page easily. With this feature, users experiencing eXo Platform 3.5 can navigate from a page to another or browse site content inside one page directly from a contextual menu.
 	</para>
   </listitem>
 </itemizedlist>
@@ -80,17 +88,43 @@ To create a content for your extension, you first need to define a node type whi
 
 By defining a supertype, you can reuse other node types and extend them with more properties (just like inheritance in Object Oriented Programming).
 
-h1. WCM template {anchor:id=DEV.WorkWithContent.WCMTemplate}
+{docbook}
+<para xml:id="DEV.WorkWithContent.DocumentType">
+<citetitle>
+<emphasis role="bold">
+Document type
+</emphasis>
+</citetitle>
+</para>
+{docbook}
 
-After defining your node type, you need to select templates which are applied to a node type or a metadata mixin type. eXo Platform provides 2 types of WCM templates, including:
+The *Document Type* checkbox is to define if the node type should be a *Document Type* or not. If this checkbox is selected, the *Sites Explorer* considers such nodes as user content and applies the following behavior:
+
+* The *View* template will be used to display the *DocumentType* nodes.
+
+* The document types nodes can be created by the *Add Content* action. The forms shown in the *Add Document* action are the corresponding *Dialog* templates of each document type.
+
+* Non-document types are hidden unless the *Show Non-document Nodes* option is checked.
+
+Templates are written using Groovy Templates and will require experiences with JCR API and HTML notions.
+
+{docbook}
+<para xml:id="DEV.WorkWithContent.WCMTemplate">
+<citetitle>
+<emphasis role="bold">
+Content template
+</emphasis>
+</citetitle>
+</para>
+{docbook}
+
+After defining your node type, you need to select templates which are applied to a node type or a metadata mixin type. eXo Platform provides 2 types of Content templates, including:
 
 * *dialogs* which are HTML forms for creating node instances.
 * *views* which are HTML fragments for displaying nodes.
 
 From the *Content Administration* portlet, the *Manage Template* module lists all existing node types that have been associated with *Dialog* and/or *View* templates.
 These templates can be attached to permissions (in the usual _membership\:group_ form), so which specific templates are displayed according to user rights (which can be useful in a content validation workflow activity).
-
-In eXo Platform, you can specify whether JavaScript is allowed to run on a field of the content template or not by using the _"option"_ parameter.
 
 {docbook}
 <para>
@@ -101,6 +135,8 @@ Enable JavaScrip
 </citetitle>
 </para>
 {docbook}
+
+In eXo Platform, you can specify whether JavaScript is allowed to run on a field of the content template or not by using the _"option"_ parameter.
 
 *1.* Go to *Content Administration --> Content Presentation --> Manage Templates*.
 
@@ -115,27 +151,62 @@ For example:
 String [] htmlArguments = ["jcrPath = / node / default.html / JCR: content / JCR: data", "options = toolbar: CompleteWCM, height: '410px ', noSanitization" htmlContent];
 {code}
 
+{note}
 By default, JavaScript is disabled for any fields of some content templates to prevent the XSS attacks.
+{note}
 
-
-h1. Document type {anchor:id=DEV.WorkWithContent.DocumentType}
-
-The *Document Type* checkbox is to define if the node type should be a *Document Type* or not. If this checkbox is selected, the *Sites Explorer* considers such nodes as user content and applies the following behavior:
-
-* The *View* template will be used to display the *DocumentType* nodes.
-
-* The document types nodes can be created by the *Add Content* action. The forms shown in the *Add Document* action are the corresponding *Dialog* templates of each document type.
-
-* Non-document types are hidden unless the *Show Non-document Nodes* option is checked.
-
-Templates are written using Groovy Templates and will require experiences with JCR API and HTML notions.
-
-
+{docbook}
+<para>
+<prompt>
+    <emphasis role="bold">See also</emphasis>
+</prompt>
+</para>
+{docbook}
+* [Dialog Syntax|#DEV.WorkWithContent.DialogSyntax]
+* [Customize CKEditor|#DEV.WorkWithContent.CKEditor]
+* [Taxonomy|#DEV.WorkWithContent.Taxonomy]
+* [Template Service|#DEV.WorkWithContent.ManageTemplateService]
+* [Navigation By Content|#DEV.WorkWithContent.NavigationByContent]
 h1. Dialog Syntax {anchor:id=DEV.WorkWithContent.DialogSyntax}
 
-Dialogs are Groovy Templates that generate forms by mixing static HTML fragments and Groovy calls to the components responsible for building the UI at runtime. As a result, you will get a simple but powerful syntax.
+{docbook}
+<highlights>
+        <itemizedlist>
+          <listitem>
+            <para>
+              <link linkend="DEV.WorkWithContent.Interceptors">Interceptors</link>
+            </para>
+			<para>
+			By placing interceptors in your template, you will be able to execute a Groovy script just before and just after saving the node. 
+			</para>
+          </listitem>
+          <listitem>
+            <para>
+              <link linkend="DEV.WorkWithContent.HiddenFields">Hidden fields</link>
+            </para>
+			<para>
+			Information of the hidden fields of Content.
+			</para>
+          </listitem>
+        </itemizedlist>
+<para>Dialogs are Groovy Templates that generate forms by mixing static HTML fragments and Groovy calls to the components responsible for building the UI at runtime. As a result, you will get a simple but powerful syntax.</para>
+</highlights>
+{docbook}
 
-h2. Interceptors {anchor:id=DEV.WorkWithContent.Interceptors}
+{docbook}
+<para>
+<prompt>
+    <emphasis role="bold">See also</emphasis>
+</prompt>
+</para>
+{docbook}
+* [Node type|#DEV.WorkWithContent.NodeType]
+* [Customize CKEditor|#DEV.WorkWithContent.CKEditor]
+* [Taxonomy|#DEV.WorkWithContent.Taxonomy]
+* [Template Service|#DEV.WorkWithContent.ManageTemplateService]
+* [Navigation By Content|#DEV.WorkWithContent.NavigationByContent]
+
+h2. Interceptors {anchor:id=DEV.WorkWithContent.InterceptorsRoleNotInToc}
 
 By placing interceptors in your template, you will be able to execute a Groovy script just before and just after saving the node. Pre-save interceptors are mostly used to validate input values and their overall meaning while the post-save interceptor can be used to do some manipulations or references for the newly created node, such as binding it with a forum discussion or wiki space.
 
@@ -189,8 +260,7 @@ public class PostNodeSaveInterceptor implements CmsScript {
 }
 {code}
 
-
-h2. Hidden fields {anchor:id=DEV.WorkWithContent.HiddenFields}
+h2. Hidden fields {anchor:id=DEV.WorkWithContent.HiddenFieldsRoleNotInToc}
 
 In the next code sample, each argument is composed of a set of keys and values. The order of arguments are not important and only the key matters. That example defines a field with the id as "hiddenField2", which will generate a hidden field. The value of this field will be automatically set to UTF-8 and no visible field will be printed on the form.
 
@@ -201,8 +271,14 @@ uicomponent.addHiddenField("hiddenInput2", hiddenField2);
 
 Once the form has been saved, the date value will be saved under the relative JCR path ./exo:image/jcr:lastModified.
 
+{docbook}
+<para xml:id="DEV.WorkWithContent.Non-ValueField">
+<citetitle>
+<emphasis role="bold">Non-value field</emphasis>
+</citetitle>
+</para>
+{docbook}
 
-h3. Non-value field {anchor:id=DEV.WorkWithContent.Non-ValueField}
 
 You cannot either see the non-value field on the form or input value for them. Its value will be automatically created or defined when you are managing templates.
 
@@ -211,8 +287,13 @@ String[] hiddenField1 = ["jcrPath=/node/jcr:content", "nodetype=nt:resource", "m
 uicomponent.addHiddenField("hiddenInput1", hiddenField1) ;
 {code}
 
-
-h3. Non-editable fields {anchor:id=DEV.WorkWithContent.Non-EditableFields}
+{docbook}
+<para xml:id="DEV.WorkWithContent.Non-EditableFields">
+<citetitle>
+<emphasis role="bold">Non-editable fields</emphasis>
+</citetitle>
+</para>
+{docbook}
 
 It is possible to create widgets that are non-editable (and then only used to print some information).
 
@@ -220,8 +301,13 @@ It is possible to create widgets that are non-editable (and then only used to pr
 String[] fieldCategories = ["jcrPath=/node/exo:category", "multiValues=true", "reference=true", "editable=false"]; uicomponent.addTextField("categories", fieldCategories);
 {code}
 
-
-h3. Create node type or mixin type {anchor:id=DEV.WorkWithContent.CreateNodeTypeOrMixinType}
+{docbook}
+<para xml:id="DEV.WorkWithContent.CreateNodeTypeOrMixinType">
+<citetitle>
+<emphasis role="bold">Create node type or mixin type</emphasis>
+</citetitle>
+</para>
+{docbook}
 
 In many cases, when creating an instance where the node is out of form, you must still specify the CMS service about the node structure. Particularly, you must define if which node type is child of the newly created node or if the current node has any mixin type attributed.
 
@@ -234,7 +320,13 @@ String[] hiddenField = ["jcrPath=/node/jcrcontent", "nodetype=nt:resource", "mix
 uicomponent.addHiddenField("hiddenInput", hiddenField) ; 
 {code}
 
-h3. Hidden field with default value {anchor:id=DEV.WorkWithContent.HiddenFieldWithDefaultValue}
+{docbook}
+<para xml:id="DEV.WorkWithContent.HiddenFieldWithDefaultValue">
+<citetitle>
+<emphasis role="bold">Hidden field with default value</emphasis>
+</citetitle>
+</para>
+{docbook}
 
 In the previous sample, the value was automatically created and set according to the current date. However, it is also possible to set a default value for a field.
 
@@ -243,7 +335,13 @@ String[] hiddenField = ["jcrPath=/node/jcrcontent/jcr:mimeType", "image/jpeg"] ;
 uicomponent.addHiddenField("hiddenInput", hiddenField) ;
 {code}
 
-h3. Visible without null fields {anchor:id=DEV.WorkWithContent.VisibleWithoutNullFields}
+{docbook}
+<para xml:id="DEV.WorkWithContent.VisibleWithoutNullFields">
+<citetitle>
+<emphasis role="bold">Visible without null fields</emphasis>
+</citetitle>
+</para>
+{docbook}
 
 It is possible to tell that a widget should be visible only if its value is not null or when the form is used to edit the node which has been existing.
 
@@ -252,7 +350,13 @@ String nameArgs[] = ["jcrPath=/node", "mixintype=mix:votable", "visible=if-not-n
 uicomponent.addMixinField("name", nameArgs ) 
 {code}
 
-h3. WYSIWYG widget {anchor:id=DEV.WorkWithContent.WYSIWYGWidget}
+{docbook}
+<para xml:id="DEV.WorkWithContent.WYSIWYGWidget">
+<citetitle>
+<emphasis role="bold">WYSIWYG widget</emphasis>
+</citetitle>
+</para>
+{docbook}
 
 Widgets are natively part of the eXo Platform product to provide a simple and easy way for users to get information and notification on their application. They complete the portlet application that focuses on more transactional behaviors. 
 
@@ -312,7 +416,13 @@ String [] descriptionArgs = ["jcrPath=/node/exo:title", "validate=empty"];
 uicomponent.addTextAreaField("description", descriptionArgs) ;
 {code}
 
-h3. Create a custom RichText editor fields  {anchor:id=DEV.WorkWithContent.Create_a_custom_Richtext_editor_fields}
+{docbook}
+<para xml:id="DEV.WorkWithContent.Create_a_custom_Richtext_editor_fields">
+<citetitle>
+<emphasis role="bold">Create a custom RichText editor fields</emphasis>
+</citetitle>
+</para>
+{docbook}
 
 In the [WYSIWYG widget|#DEV.WorkWithContent.WYSIWYGWidget] section, you already know about a set of default toolbars (CompleteWCM, Default, BasicWCM, Basic, SuperBasicWCM). In this section, you will learn how to create a *RichText* editor with custom buttons.
 
@@ -349,8 +459,13 @@ Every toolbar band is defined as a separated JavaScript array of strings. Each s
 The last toolbar band must have no comma after it.
 {note}
 
-
-h3. Simple select box widget {anchor:id=DEV.WorkWithContent.SimpleSelectBoxWidget}
+{docbook}
+<para xml:id="DEV.WorkWithContent.SimpleSelectBoxWidget">
+<citetitle>
+<emphasis role="bold">Simple select box widget</emphasis>
+</citetitle>
+</para>
+{docbook}
 
 The select box widget enables you to render a select box with static values. These values are enumerated in a comma-separated list in the "options" argument. The argument with no key (here "text/html") is selected by default.
 
@@ -363,7 +478,13 @@ As usual, the value will be stored at the relative path defined by the jcrPath d
 
 For more examples on how to create WCM templates, refer to the [WCM Templates|../../../reference/html/CONTref.InsideWCMTemplates.html] section.
 
-h3. Advanced dynamic select box {anchor:id=DEV.WorkWithContent.AdvancedDynamicSelectBox}
+{docbook}
+<para xml:id="DEV.WorkWithContent.AdvancedDynamicSelectBox">
+<citetitle>
+<emphasis role="bold">Advanced dynamic select box</emphasis>
+</citetitle>
+</para>
+{docbook}
 
 In many cases, the previous solution with static options is not good enough and one would like to have the select box checked dynamically. 
 That is what eXo Platform provide thanks to the introduction of a Groovy script as shown in the code fragment below.
@@ -415,8 +536,13 @@ public class FillSelectBoxWithWorkspaces implements CmsScript {
 It is also possible to provide a parameter to the script by using the argument "scriptParams".
 {note}
 
-h3. Widget with selector {anchor:id=DEV.WorkWithContent.WidgetWithSelector}
-
+{docbook}
+<para xml:id="DEV.WorkWithContent.WidgetWithSelector">
+<citetitle>
+<emphasis role="bold">Widget with selector</emphasis>
+</citetitle>
+</para>
+{docbook}
 
 One of the most advanced functionalities of this syntax is the ability to plug your own component that shows an interface, enabling you to select the value of the field.
 
@@ -440,33 +566,59 @@ public interface ComponentSelector {
 
 {code}
 
-
-h3. Multi-valued widget {anchor:id=DEV.WorkWithContent.Multi-valueWidget}
+{docbook}
+<para xml:id="DEV.WorkWithContent.Multi-valueWidget">
+<citetitle>
+<emphasis role="bold">Multi-valued widget</emphasis>
+</citetitle>
+</para>
+{docbook}
 
 A widget can have multiple values if you add the argument "multiValues=true" to the directive.
 
 h1. Customize CKEditor  {anchor:id=DEV.WorkWithContent.CKEditor}
-
 {include:document=CKEditor.wiki|syntax=confluence/1.0}
 
 h1. Taxonomy {anchor:id=DEV.WorkWithContent.Taxonomy}
 
-Taxonomy is a particular classification arranged in a hierarchical structure. Taxonomy trees in eXo Platform will help you organize your content into categories.
+Taxonomy is a particular classification arranged in a hierarchical structure. The Taxonomy trees in eXo Platform will help you organize your content into categories.
 
 When you create a new taxonomy tree, you will add a pre-configured _exo\:action_ (_exo\:scriptAction_ or _exo\:businessProcessAction_) to the root node of the taxonomy tree. This action is triggered when a new document is added anywhere in the taxonomy tree. The default action moves the document to the physical storage location and replaces the document in the taxonomy tree with a symlink of the _exo\:taxonomyLink_ type pointing to it. The physical storage location is defined by a workspace name, a path and the current date and time.
 
-Like adding document types, taxonomy trees can be managed through the *Content Administration* portlet, or by adding .xml configuration files.
+* Like adding document types, taxonomy trees can be managed through the *Content Administration* portlet, or by adding .xml configuration files.
 
-To configure taxonomy trees by adding configuration files in the _/webapp/WEB-INF/conf/acme-portal/wcm/taxonomy/_ directory, create a new file called _$taxonomyName-taxonomies-configuration.xml_. For example, if the name of your taxonomy tree is "acme", the file should be named _acme-taxonomies-configuration.xml_.
+{docbook}
+<para>
+<citetitle>
+<emphasis role="bold">
+Configure a taxonomy tree by adding the configuration files in the <emphasis>/webapp/WEB-INF/conf/acme-portal/wcm/taxonomy/</emphasis> directory
+</emphasis>
+</citetitle>
+</para>
+{docbook}
+Create a new file called _$taxonomyName-taxonomies-configuration.xml_. For example, if the name of your taxonomy tree is "acme", the file should be named _acme-taxonomies-configuration.xml_.
 
-You can view the file here: _$PLF-HOME\_/samples/acme-website/webapp/src/main/webapp/WEB-INF/conf/acme-portal/wcm/taxonomy/acme-taxonomies-configuration.xml_.
+* You can view the file in _$PLF-HOME\_/samples/acme-website/webapp/src/main/webapp/WEB-INF/conf/acme-portal/wcm/taxonomy/acme-taxonomies-configuration.xml_.
+** The value-params enable you to define the repository, workspace, name of the tree and its JCR path. 
+** You can then configure permissions for each group of users in the portal, and the triggered action when a new document is added to the taxonomy tree. 
+** Finally, you can describe the structure and names of the categories inside your taxonomy tree.
 
-As you can see, the value-params enable you to define the repository, workspace, name of the tree and its JCR path. You can then configure 
-permissions for each group of users in the portal, and the triggered action when a new document is added to the taxonomy tree. Finally, you can describe the structure and names of the categories inside your taxonomy tree.
+{docbook}
+<para>
+<prompt>
+    <emphasis role="bold">See also</emphasis>
+</prompt>
+</para>
+{docbook}
+* [Node type|#DEV.WorkWithContent.NodeType]
+* [Dialog Syntax|#DEV.WorkWithContent.DialogSyntax]
+* [Customize CKEditor|#DEV.WorkWithContent.CKEditor]
+* [Template Service|#DEV.WorkWithContent.ManageTemplateService]
+* [Navigation By Content|#DEV.WorkWithContent.NavigationByContent]
 
-h1. Manage Template service {anchor:id=DEV.WorkWithContent.ManageTemplateService}
+h1. Template Service {anchor:id=DEV.WorkWithContent.ManageTemplateService}
 
-The Template service enables you to create dialogs and view templates for each node type registered. Each node type may have many dialogs and view templates. The template will be used when creating or viewing nodes.
+*Template Service* enables you to create dialogs and view templates for each registered node type. Each node type may have many dialogs and view templates. The template will be used when creating or viewing nodes.
 
 You can find the template service configuration in _/webapps/ecm-wcm-core/WEB-INF/conf/wcm-core/core-services-configuration.xml_.
 
@@ -560,13 +712,76 @@ With init-parameters as:
 </init-params>    
 {code}
 
-h1. Manage Navigation By Content {anchor:id=DEV.WorkWithContent.NavigationByContent}
+{docbook}
+<para>
+<prompt>
+    <emphasis role="bold">See also</emphasis>
+</prompt>
+</para>
+{docbook}
+* [Node type|#DEV.WorkWithContent.NodeType]
+* [Dialog Syntax|#DEV.WorkWithContent.DialogSyntax]
+* [Customize CKEditor|#DEV.WorkWithContent.CKEditor]
+* [Taxonomy|#DEV.WorkWithContent.Taxonomy]
+* [Navigation By Content|#DEV.WorkWithContent.NavigationByContent]
 
-*Navigation By Content* is a feature which allows users to browse content of each page easily. With this feature, users experiencing eXo Platform 3.5 can navigate from a page to another or browse site content inside one page directly from a contextual menu.
+h1. Navigation By Content {anchor:id=DEV.WorkWithContent.NavigationByContent}
+
+{docbook}
+<highlights>
+        <itemizedlist>
+          <listitem>
+            <para>
+              <link linkend="DEV.WorkWithContent.NavigationByContent.ContentNavigation">Actual content navigation</link>
+            </para>
+			<para>Steps to add "actual content navigation" to a page, including the way to configure the right and left portlets.</para>
+          </listitem>
+          <listitem>
+            <para>
+              <link linkend="DEV.WorkWithContent.NavigationByContent.Add_content_to_the_navigation">Add content to the navigation</link>
+            </para>
+			<para>The detailed procedure to attach your root folder/node to some page nodes.</para>
+          </listitem>
+          <listitem>
+            <para>
+              <link linkend="DEV.WorkWithContent.NavigationByContent.ActionsNavigationByContent">Actions on Navigation By Content</link>
+            </para>
+			<para>Instructions on how to restrict the visibility of some content, to sort elements of the contextual menu, to restore a node to the contextual menu and attach it to another page, and to add your newly created content to the contextual menu.</para>
+          </listitem>
+		  <listitem>
+            <para>
+              <link linkend="DEV.WorkWithContent.NavigationByContent.CreateDataForNavigationByContentExamples">Create data for Navigation By Content</link>
+            </para>
+			<para>TWO typical examples of creating data for <emphasis role="bold">Navigation By Content</emphasis>, including how to create a Product page, and to develop your own Product content.</para>
+          </listitem>
+		  <listitem>
+			<para>
+			  <link linkend="DEV.WorkWithContent.CreateNewContentListTemplate">Create a new Content List template</link>
+			</para>
+			<para>
+			Knowledge and typical steps to create a new template that is used in the <emphasis role="bold">Content List</emphasis> portlet.
+			</para>
+		  </listitem>
+        </itemizedlist>
+<para><emphasis role="bold">Navigation By Content</emphasis> is a feature which allows users to browse content of each page easily. With this feature, users experiencing eXo Platform 3.5 can navigate from a page to another or browse site content inside one page directly from a contextual menu.</para>
+</highlights>
+{docbook}
+
+{docbook}
+<para>
+<prompt>
+    <emphasis role="bold">See also</emphasis>
+</prompt>
+</para>
+{docbook}
+* [Node type|#DEV.WorkWithContent.NodeType]
+* [Dialog Syntax|#DEV.WorkWithContent.DialogSyntax]
+* [Customize CKEditor|#DEV.WorkWithContent.CKEditor]
+* [Taxonomy|#DEV.WorkWithContent.Taxonomy]
+* [Template Service|#DEV.WorkWithContent.ManageTemplateService]
 
 {include:document=navigation_by_content_feature.wiki|syntax=confluence/1.0}
-
-h2. Create a new Content List template  {anchor:id=DEV.WorkWithContent.CreateNewContentListTemplate}
+h2. Create a new Content List template  {anchor:id=DEV.WorkWithContent.CreateNewContentListTemplateRoleNotInToc}
 
 eXo Platform provides many powerful features to manipulate and expose any types of content on a page. This is due to the fact that eXo Platform stores all the content in its Java Content Repository (JCR) and renders the content on a page using Groovy Templates.
 

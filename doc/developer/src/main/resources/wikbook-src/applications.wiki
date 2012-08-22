@@ -1,36 +1,25 @@
 {docbook}
 <abstract>
 <para>Applications play an important role in each eXo service, so it is necessary for you to further understand about them.</para>
-<para>In this chapter, you will know how to integrate an application into your portal, and how to develop your own application:</para>
+<para>This chapter includes the following main topics:</para>
 <itemizedlist>
   <listitem>
 	<para>
 	  <emphasis role="bold"><link linkend="DEV.WorkWithApplications.ApplicationIntegration">Integrate an application</link> </emphasis>
 	</para>
-  </listitem>
-  <listitem>
 	<para>
+	Instructions on how to add an application (especially a portlet) to your portal's paces.
+		</para>
+	  </listitem>
+	  <listitem>
+		<para>
 	  <emphasis role="bold"><link linkend="DEV.WorkWithApplications.DevelopYourOwnApplications">Develop your own application</link> </emphasis>
-	</para>
-	<itemizedlist>
-	  <listitem>
-		<para>
-		  <emphasis role="bold"><link linkend="DEV.WorkWithContent.GadgetvsPortlet">Gadget vs Portlet</link>  </emphasis>
 		</para>
-	  </listitem>
-	  <listitem>
 		<para>
-		  <emphasis role="bold"><link linkend="DEV.WorkWithApplications.DevelopAGadgetForPlatform">Develop a gadget for eXo Platform</link> </emphasis>
-		</para>
-	  </listitem>
-	  <listitem>
-		<para>
-		  <emphasis role="bold"><link linkend="DEV.WorkWithApplications.PortletBridges">Portlet Bridges</link> </emphasis>
+	Instructions on how to develop a gadget for eXo Platform, and information of Portlet Bridges.
 		</para>
 	  </listitem>
 	</itemizedlist>
-  </listitem>
-</itemizedlist>
 </abstract>
 {docbook}
 
@@ -84,24 +73,59 @@ Here is an example of the portlet configuration in the _pages.xml_ file:
 | {{show-application-mode}} | Show the change portlet mode icon. |
 | {{preferences}} | Contain a list of _preferences_ specific to each portlet. Each _preference_ has a _name_ and a _value_. You can also lock it by setting the _read-only_ element to "true". To learn more, refer to [eXo JCR and Extension Services Reference|../../../reference/html/JCRReferenceGuide.html]. |
 
+{docbook}
+<para>
+<prompt>
+    <emphasis role="bold">See also</emphasis>
+</prompt>
+</para>
+{docbook}
+* [Develop your own application|#DEV.WorkWithApplications.DevelopYourOwnApplications]
 
 h1. Develop your own application {anchor:id=DEV.WorkWithApplications.DevelopYourOwnApplications}
+{docbook}
+<highlights>
+        <itemizedlist>
+          <listitem>
+            <para>
+              <link linkend="DEV.WorkWithApplications.DevelopAGadgetForPlatform">Develop a gadget for eXo Platform</link>
+            </para>
+			<para>
+			Introduction to the resources which can be shared for all gadgets and their categories, instructions to apply for a gadget and to customize the gadget thumbnail. 
+			</para>
+          </listitem>
+          <listitem>
+            <para>
+              <link linkend="DEV.WorkWithApplications.PortletBridges">Portlet Bridges</link>
+            </para>
+			<para>
+			Adapter for a web framework to the portlet container runtime. It works ideally with framework that does not expose the servlet container with the limited support for the full portlet API.
+			</para>
+          </listitem>
+        </itemizedlist>
+</highlights>
+{docbook}
 
-h2. Gadget vs Portlet {anchor:id=DEV.WorkWithContent.GadgetvsPortlet}
+{docbook}
+<para>
+<prompt>
+    <emphasis role="bold">See also</emphasis>
+</prompt>
+</para>
+{docbook}
+* [Integrate an application|#DEV.WorkWithApplications.ApplicationIntegration]
 
-It is important to understand distinctions between gadgets and portlets. Portlets are user interface components that provide fragments of markup code from the server side, while gadgets generate dynamic web content on the client side. With Gadgets, small applications can be built quickly, and mashed up on the client side using the lightweight Web-Oriented Architecture (WOA) technologies, like REST or RSS.
+h2. Develop a gadget for eXo Platform {anchor:id=DEV.WorkWithApplications.DevelopAGadgetForPlatformRoleNotInToc}
 
 {note}
+It is important to understand distinctions between gadgets and portlets. Portlets are user interface components that provide fragments of markup code from the server side, while gadgets generate dynamic web content on the client side. With Gadgets, small applications can be built quickly, and mashed up on the client side using the lightweight Web-Oriented Architecture (WOA) technologies, like REST or RSS.
 For more information on how to develop gadgets and portlets, see the [Portlet development|../../../reference/html/chap-Reference_Guide-Portlet_development.html] and [Gadget development|../../../reference/html/chap-Reference_Guide-Gadget_development.html] sections.
 {note}
 
-h2. Develop a gadget for eXo Platform {anchor:id=DEV.WorkWithApplications.DevelopAGadgetForPlatform}
-
-Because a gadget is basically an independent HTML content, the gadget UI such as layout, font, color may be different. Thus, making consistent in the look and feel of all eXo Platform gadgets is very important.
+Because a gadget is basically an independent HTML content, the gadget UI, such as layout, font, color may be different. Thus, making consistent in the look and feel of all eXo Platform gadgets is very important.
 In this part, it is assumed that developers have already known how to write a gadget in eXo Platform. The information here helps developers make a consistent look and feel with eXo Platform skin, even when this skin may be changed in the future.
 
 {note}
-
 To get more information on how to develop gadgets, see the [Gadget development|../../../reference/html/chap-Reference_Guide-Gadget_development.html] and [Develop gadgets via a powerful web-based IDE of eXo Platform|../ide-user-guide/IDEdev.GoogleGadgetOperation.CreateGoogleGadget.html] sections.
 {note}
 
@@ -157,7 +181,6 @@ jQuery and plugins:
 The utilities scripts:
 
 * _utils/pretty.date.js_: Calculate the difference from a point of time in the past to the present and display "4 months 3 weeks ago", for example.
-
 
 h3. Apply for a gadget {anchor:id=DEV.WorkWithApplications.DevelopAGadgetForPlatform.ApplyForGadget}
 
@@ -290,7 +313,7 @@ The current size (in eXo Platform 3.5) is 80 x 80px, so you should select an ima
 
 * The image can also be one from a public website (absolute URL), for example: \<ModulePrefs title="Sample gadget" thumbnail="http://www.example.com/images/sample-icon.jpg"/>; or from an internal image (relative URL): \<ModulePrefs title="Sample gadget" thumbnail="image/sample-icon_80x80.png"/>.
 
-h2. Portlet Bridges {anchor:id=DEV.WorkWithApplications.PortletBridges}
+h2. Portlet Bridges {anchor:id=DEV.WorkWithApplications.PortletBridgesRoleNotInToc}
 
 The Portlet Bridge is an adapter for a web framework to the portlet container runtime. It works ideally with framework that does not expose the servlet container with the limited support for the full portlet API.
 

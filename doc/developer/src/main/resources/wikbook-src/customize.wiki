@@ -7,40 +7,64 @@
 	<para>
 	  <emphasis role="bold"><link linkend="DEV.CreateYourOwnPortal.CreateExtensionProject">Create your extension project</link></emphasis>
 	</para>
+	<para>
+	 Steps to deploy an extension project.
+	</para>
   </listitem>
   <listitem>
 	<para>
 	  <emphasis role="bold"><link linkend="DEV.CreateYourOwnPortal.Create_default_portal">Define a default portal</link></emphasis>
+	</para>
+	<para>
+	Required steps on how to configure a default portal.
 	</para>
   </listitem>
   <listitem>
 	<para>
 	  <emphasis role="bold"><link linkend="DEV.CreateYourOwnPortal.StructureOfPortalPages&amp;Menus">Structure of portal, pages and menus</link></emphasis>
 	</para>
+	<para>
+	Steps on how to define the structure throughout the portal navigation and visility of pages.
+	</para>
   </listitem>
   <listitem>
 	<para>
-	  <emphasis role="bold"><link linkend="DEV.CreateYourOwnPortal.EnableDisableDriveCreation">Enable/Disable a drive creation during the portal creation</link></emphasis>
+	  <emphasis role="bold"><link linkend="DEV.CreateYourOwnPortal.EnableDisableDriveCreation">Enable/Disable a drive creation</link></emphasis>
+	</para>
+	<para>
+ 	Ways to use parameters which allow developers to specify if a drive is automatically created or not.
 	</para>
   </listitem>
   <listitem>
 	<para>
 	  <emphasis role="bold"><link linkend="DEV.CreateYourOwnPortal.AddOrRemoveLanguages">Add/Remove a language</link></emphasis>
 	</para>
+	<para>
+	Steps on how to define or remove a specific language through the locale configuration file.
+	</para>
   </listitem>
   <listitem>
 	<para>
 	  <emphasis role="bold"><link linkend="DEV.CreateYourOwnPortal.CreateCustomLookAndFeel">Create a custom look and feel</link></emphasis>
+	</para>
+	<para>
+	Elements and various topics on how to create/customize a skin.
 	</para>
   </listitem>
   <listitem>
 	<para>
 	  <emphasis role="bold"><link linkend="DEV.CreateYourOwnPortal.AddJavaScriptToYourPortal">Add JavaScript to your portal</link></emphasis>
 	</para>
+	<para>
+	Instructions on how to add a JavaScript library.
+	</para>
   </listitem>
   <listitem>
 	<para>
 	  <emphasis role="bold"><link linkend="DEV.CreateYourOwnPortal.AddJavaScriptToYourPortal.Create_custom_templates_for_pages">Create custom templates for pages</link></emphasis>
+	</para>
+	<para>
+	How to create a custom page template for <emphasis role="bold">Page Creation Wizard</emphasis>.
 	</para>
   </listitem>
 </itemizedlist>
@@ -88,27 +112,41 @@ This will only work if the starter.war is the last .war file to be loaded, so yo
 
 For the JBoss deployment with more details, refer to the [GateIn Reference Guide|../../../reference/html/GateInReferenceGuide.html].
 
+{docbook}
+<para>
+<prompt>
+    <emphasis role="bold">See also</emphasis>
+</prompt>
+</para>
+{docbook}
+* [Define a default portal|#DEV.CreateYourOwnPortal.Create_default_portal]
+* [Structure of portal, pages and menus|#DEV.CreateYourOwnPortal.StructureOfPortalPages&Menus]
+* [Enable/Disable a drive creation|#DEV.CreateYourOwnPortal.EnableDisableDriveCreation]
+* [Add/Remove a language|#DEV.CreateYourOwnPortal.AddOrRemoveLanguages]
+* [Create a custom look and feel|#DEV.CreateYourOwnPortal.CreateCustomLookAndFeel]
+* [Add JavaScript to your portal|#DEV.CreateYourOwnPortal.AddJavaScriptToYourPortal]
+* [Create custom templates for pages|#DEV.CreateYourOwnPortal.AddJavaScriptToYourPortal.Create_custom_templates_for_pages]
+
 h1. Define a default portal {anchor:id=DEV.CreateYourOwnPortal.Create_default_portal}
 {include:document="customize/Create_default_portal.wiki"}
 
 h1. Structure of portal, pages and menus {anchor:id=DEV.CreateYourOwnPortal.StructureOfPortalPages&Menus}
 
-You can create multiple pages within a single portal. Permissions can be defined to make them visible only to specific groups and/or users. This chapter describes how to define this structure.
+You can create multiple pages within a single portal. Permissions can be defined to make them visible only to specific groups and/or users.
 
-h2. Portal navigation {anchor:id=DEV.CreateYourOwnPortal.PageLayout}
+{docbook}
+<para xml:id="DEV.CreateYourOwnPortal.PageLayout">
+<citetitle>
+<emphasis role="bold">Portal navigation</emphasis>
+</citetitle>
+</para>
+{docbook}
 
 The portal navigation incorporates the pages that can be accessed even when the user is not logged in assuming the applicable permissions allow the public access). For example, several portal navigations are used when a company owns multiple trademarks, and sets up a website for each of them.
 
 The configuration of the "classic" portal can be found in the _/src/main/WEB-INF/conf/portal/portal/classic_ directory of your extension webapp.
 
-
-{docbook}
-<citetitle>
-<para>
-<emphasis role="bold">portal.xml</emphasis>
-</para>
-</citetitle>
-{docbook}
+* *portal.xml*
 
 The _portal.xml_ file describes the layout and portlets that will be shown on all pages. The layout usually contains the banner, footer, menu and breadcrumbs portlets. eXo Platform 3.5 is extremely configurable as every view element (even the banner and footer) is a portlet.
 
@@ -194,13 +232,7 @@ The <page-body> </page-body> tag is a placeholder for the different pages of you
 
 The defined "classic" portal is accessible to "Everyone" (at _/portal/classic_) but only members of the group _/platform/administrators_ can edit it.
 
-{docbook}
-<citetitle>
-<para>
-<emphasis role="bold">pages.xml</emphasis>
-</para>
-</citetitle>
-{docbook}
+* *pages.xml*
 
 The structure of the _pages.xml_ configuration file is very similar to that in the _portal.xml_ of the "classic" portal and it can also contain container tags. Each application can decide whether to render the portlet border, the window state, the icons or portlet's mode.
 
@@ -260,13 +292,7 @@ This is the example of the _pages.xml_ file of the "classic" portal.
 See the [Work With Applications|#DEV.WorkingwithApplications] chapter to learn more about the portlet configuration within the _pages.xml_ file.
 {note}
 
-{docbook}
-<citetitle>
-<para>
-<emphasis role="bold">navigation.xml</emphasis>
-</para>
-</citetitle>
-{docbook}
+* *navigation.xml*
 
 The _navigation.xml_ file defines all the navigation nodes of the portal. The syntax is simply using the nested node tags. Each node refers to a page defined in the _pages.xml_ file that will be explained later.
 
@@ -303,7 +329,13 @@ This navigation tree is shown and reused in different portlets, such as sitemap,
 For the top nodes, the URI and the navigation node name must have the same value. For other nodes, the URI is composed like _<uri>contentmanagement/fileexplorer</uri>_ where 'contentmanagement' is the name of the parent node, and 'fileexplorer' is the name of node (_<name>fileexplorer</name>_).
 {note}
 
-h2. Visibility of pages {anchor:id=DEV.CreateYourOwnPortal.VisibilityPages}
+{docbook}
+<para xml:id="DEV.CreateYourOwnPortal.VisibilityPages">
+<citetitle>
+<emphasis role="bold">Visibility of pages</emphasis>
+</citetitle>
+</para>
+{docbook}
 
 When you configure the _navigation.xml_ file, sometimes you need to set the visibility of page (node).
 
@@ -343,7 +375,14 @@ eXo Platform supports 4 types of page visibility, including:
 </node-navigation>
 {code}
 
-h2. Page access permission {anchor:id=DEV.CreateYourOwnPortal.PagesAccessPermission}
+{docbook}
+<para xml:id="DEV.CreateYourOwnPortal.PagesAccessPermission">
+<citetitle>
+<emphasis role="bold">Page access permission</emphasis>
+</citetitle>
+</para>
+{docbook}
+
 You can easily restrict the access of selected pages and navigation nodes to certain groups and users. You just need to create _pages.xml_ and _navigation.xml_ files in folders named after groups and users to which you want to give permission:
 
 * _sample-ext/portal/group/group-name/your files_
@@ -367,7 +406,24 @@ For example:
   ...
 </page>
 {code}
-h1. Enable/Disable a drive creation during the portal creation {anchor:id=DEV.CreateYourOwnPortal.EnableDisableDriveCreation}
+
+{docbook}
+<para>
+<prompt>
+    <emphasis role="bold">See also</emphasis>
+</prompt>
+</para>
+{docbook}
+
+* [Create your extension project|#DEV.CreateYourOwnPortal.CreateExtensionProject]
+* [Define a default portal|#DEV.CreateYourOwnPortal.Create_default_portal]
+* [Enable/Disable a drive creation|#DEV.CreateYourOwnPortal.EnableDisableDriveCreation]
+* [Add/Remove a language|#DEV.CreateYourOwnPortal.AddOrRemoveLanguages]
+* [Create a custom look and feel|#DEV.CreateYourOwnPortal.CreateCustomLookAndFeel]
+* [Add JavaScript to your portal|#DEV.CreateYourOwnPortal.AddJavaScriptToYourPortal]
+* [Create custom templates for pages|#DEV.CreateYourOwnPortal.AddJavaScriptToYourPortal.Create_custom_templates_for_pages]
+
+h1. Enable/Disable a drive creation {anchor:id=DEV.CreateYourOwnPortal.EnableDisableDriveCreation}
 {include:document=customize/Enable_drive_creation.wiki|syntax=confluence/1.0}
 
 h1. Add/Remove a language {anchor:id=DEV.CreateYourOwnPortal.AddOrRemoveLanguages}
@@ -389,7 +445,13 @@ Developer can define new or remove a defined language through the locale configu
 
 All languages defined in the _locale-config.xml_ file are listed in the [*Interface Language Settings*|#DEV.Interface_Language_Setting_window] window.
 
-h2. Add a new language {anchor:id=DEV.CreateYourOwnPortal.AddNewLanguages}
+{docbook}
+<para xml:id="DEV.CreateYourOwnPortal.AddNewLanguages">
+<citetitle>
+<emphasis role="bold">Add a new language</emphasis>
+</citetitle>
+</para>
+{docbook}
 
 To add a new language, you need to add the corresponding language node in the _locale-config.xml_ file. Next, you must create a new _resource bundle_ file containing the suffix name as the key of the added node.
 
@@ -420,7 +482,13 @@ To check if the added language takes effect, hover the mouse over your username 
 
 !images/example_addItalian.png|align="center"  width="150mm" fo:scalefit="1" html:scalefit="0"!
 
-h2. Remove a language {anchor:id=DEV.CreateYourOwnPortal.RemoveLanguages}
+{docbook}
+<para xml:id="DEV.CreateYourOwnPortal.RemoveLanguages">
+<citetitle>
+<emphasis role="bold">Remove a language</emphasis>
+</citetitle>
+</para>
+{docbook}
 
 To remove an existing language, you need to delete the relevant language node in the _locale-config.xml_ file and all files containing the suffix name as the key of language.
 
@@ -451,6 +519,22 @@ In the *Interface Language Settings* window that appears, French is no longer li
 
 !images/example_removeFrench.png|align="center"  width="150mm" fo:scalefit="1" html:scalefit="0"!
 
+{docbook}
+<para>
+<prompt>
+    <emphasis role="bold">See also</emphasis>
+</prompt>
+</para>
+{docbook}
+
+* [Create your extension project|#DEV.CreateYourOwnPortal.CreateExtensionProject]
+* [Define a default portal|#DEV.CreateYourOwnPortal.Create_default_portal]
+* [Structure of portal, pages and menus|#DEV.CreateYourOwnPortal.StructureOfPortalPages&Menus]
+* [Enable/Disable a drive creation|#DEV.CreateYourOwnPortal.EnableDisableDriveCreation]
+* [Create a custom look and feel|#DEV.CreateYourOwnPortal.CreateCustomLookAndFeel]
+* [Add JavaScript to your portal|#DEV.CreateYourOwnPortal.AddJavaScriptToYourPortal]
+* [Create custom templates for pages|#DEV.CreateYourOwnPortal.AddJavaScriptToYourPortal.Create_custom_templates_for_pages]
+
 h1. Create a custom look and feel {anchor:id=DEV.CreateYourOwnPortal.CreateCustomLookAndFeel}
 
 {include:document="customize/platform_skinning.wiki"}
@@ -459,7 +543,7 @@ h1. Add JavaScript to your portal {anchor:id=DEV.CreateYourOwnPortal.AddJavaScri
 
 This can be done entirely within your extension by customizing the _gatein-resources.xml_ configuration.
 
-To add a JavaScript library, for example jQuery, create the _war:/WEB-INF/gatein-resources.xml_ file.
+To add a JavaScript library, for example jQuery, create the _war\:/WEB\-INF/gatein\-resources.xml_ file.
 
 {code:xml}
 <javascript>
@@ -478,6 +562,22 @@ In which:
 * _<js-path>_ is the path to your JavaScript file.
 
 * _<js-priority>_ is an optional tag. This tag is used to indicate the loading order of JavaScript files across all eXo Platform. Its value is of the integer type. If its value is not negative (>=0), the loading priority is sorted by the descending order. If its value is negative (<0), the loading priority of the JavaScript file depends on the loading order of the web app (.war file) containing the JavaScript file.
+
+{docbook}
+<para>
+<prompt>
+    <emphasis role="bold">See also</emphasis>
+</prompt>
+</para>
+{docbook}
+
+* [Create your extension project|#DEV.CreateYourOwnPortal.CreateExtensionProject]
+* [Define a default portal|#DEV.CreateYourOwnPortal.Create_default_portal]
+* [Structure of portal, pages and menus|#DEV.CreateYourOwnPortal.StructureOfPortalPages&Menus]
+* [Enable/Disable a drive creation|#DEV.CreateYourOwnPortal.EnableDisableDriveCreation]
+* [Add/Remove a language|#DEV.CreateYourOwnPortal.AddOrRemoveLanguages]
+* [Create a custom look and feel|#DEV.CreateYourOwnPortal.CreateCustomLookAndFeel]
+* [Create custom templates for pages|#DEV.CreateYourOwnPortal.AddJavaScriptToYourPortal.Create_custom_templates_for_pages]
 
 h1. Create custom templates for pages {anchor:id=DEV.CreateYourOwnPortal.AddJavaScriptToYourPortal.Create_custom_templates_for_pages}
 
@@ -558,3 +658,19 @@ Add your own stylesheet in your extension webapp:
 You can refer to the eXo Platform 3.5's default stylesheet in this path: _/web/eXoResources/src/main/webapp/skin/DefaultSkin/webui/component/UISelector/UIItemSelector/Stylesheet.css_
 
 *4*. Deploy your extension project. You will see the template and its preview image in the *Page Creation Wizard*.
+
+{docbook}
+<para>
+<prompt>
+    <emphasis role="bold">See also</emphasis>
+</prompt>
+</para>
+{docbook}
+
+* [Create your extension project|#DEV.CreateYourOwnPortal.CreateExtensionProject]
+* [Define a default portal|#DEV.CreateYourOwnPortal.Create_default_portal]
+* [Structure of portal, pages and menus|#DEV.CreateYourOwnPortal.StructureOfPortalPages&Menus]
+* [Enable/Disable a drive creation|#DEV.CreateYourOwnPortal.EnableDisableDriveCreation]
+* [Add/Remove a language|#DEV.CreateYourOwnPortal.AddOrRemoveLanguages]
+* [Create a custom look and feel|#DEV.CreateYourOwnPortal.CreateCustomLookAndFeel]
+* [Add JavaScript to your portal|#DEV.CreateYourOwnPortal.AddJavaScriptToYourPortal]

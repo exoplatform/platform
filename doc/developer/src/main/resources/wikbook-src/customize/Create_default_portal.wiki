@@ -33,3 +33,19 @@ The sample code below is the configuration of the portal named "_default_".
 *Init-param*
 ||Name||Type||Value|| Description||
 |default.portal|String|default| The name of the default portal to which you are redirected when accessing the portal.|
+
+{docbook}
+<para>
+<prompt>
+    <emphasis role="bold">See also</emphasis>
+</prompt>
+</para>
+{docbook}
+
+* [Create your extension project|#DEV.CreateYourOwnPortal.CreateExtensionProject]
+* [Structure of portal, pages and menus|#DEV.CreateYourOwnPortal.StructureOfPortalPages&Menus]
+* [Enable/Disable a drive creation during the portal creation|#DEV.CreateYourOwnPortal.EnableDisableDriveCreation]
+* [Add/Remove a language|#DEV.CreateYourOwnPortal.AddOrRemoveLanguages]
+* [Create a custom look and feel|#DEV.CreateYourOwnPortal.CreateCustomLookAndFeel]
+* [Add JavaScript to your portal|#DEV.CreateYourOwnPortal.AddJavaScriptToYourPortal]
+* [Create custom templates for pages|#DEV.CreateYourOwnPortal.AddJavaScriptToYourPortal.Create_custom_templates_for_pages]
