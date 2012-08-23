@@ -8,21 +8,25 @@ eXo Platform is packaged as a deployable enterprise archive defined by the Java 
 <para>
 <emphasis role="bold"><link linkend="ADM.Installation.System_requirements">System requirements</link></emphasis>
 </para>
+<para>Specifications which are required for running eXo Platform 3.5.</para>
 </listitem>
 <listitem>
 <para>
 <emphasis role="bold"><link linkend="ADM.Installation.Install_Tomcat_Bundle">Install the Tomcat bundle</link></emphasis>
 </para>
+<para>Instructions on how to start up/shut down the server, or to customize variables in Tomcat.</para>
 </listitem>
 <listitem>
 <para>
 <emphasis role="bold"><link linkend="ADM.Installation.Install_JBoss_EARS">Install JBoss EARs</link></emphasis>
 </para>
+<para>Steps to install eXo Platform on JBoss.</para>
 </listitem>
 <listitem>
 <para>
 <emphasis role="bold"><link linkend="ADM.Installation.eXo_profiles">Profiles of eXo Platform</link></emphasis>
 </para>
+<para>The runtime profiles which are used to enable/disable modules of eXo Platform.</para>
 </listitem>
 </itemizedlist>
 </abstract>
@@ -39,6 +43,17 @@ To run eXo Platform 3.5, your system is required to meet the following specifica
 * Browser: Firefox 3.5, 3.6 and 4 or Internet Explorer 7, 8 and 9
 
 The eXo server will run on the 8080 portal, so make sure this port is not currently in use.
+
+{docbook}
+<para>
+<prompt>
+    <emphasis role="bold">See also</emphasis>
+</prompt>
+</para>
+{docbook}
+* [Install the Tomcat bundle|#ADM.Installation.Install_Tomcat_Bundle]
+* [Install JBoss EARs|#ADM.Installation.Install_JBoss_EARS]
+* [Profiles of eXo Platform|#ADM.Installation.eXo_profiles]
 
 h1. Install the Tomcat bundle {anchor:id=ADM.Installation.Install_Tomcat_Bundle}
 
@@ -95,7 +110,7 @@ $TOMCAT_HOME/stop_eXo.sh
 %TOMCAT_HOME%\\stop_eXo.bat
 {code}
 
-If you receive the message when you try to stop Tomcat as below, you must stop Tomcat by pressing *Ctrl+C* or by killing with the *-9* command. To perform the *kill* action automatically, you can run _stop\_eXo.sh \-force_ that is only available on Linux and OS X systems.
+If you receive the message when you try to stop Tomcat as below, you must stop Tomcat by pressing *CtrlC* or by killing with the *-9* command. To perform the *kill* action automatically, you can run _stop\_eXo.sh \-force_ that is only available on Linux and OS X systems.
 
 {code}
 Tomcat did not stop in time. The PID file was not removed.
@@ -205,6 +220,17 @@ export CATALINA_OPTS
 In Linux environments, the ulimit limits the system-wide resource used. When running eXo Platform, you may get the error message about "Too many open files" because the ulimit had limited the opened files.
 By default, the number of open files is limited to "1024". You should execute the command "ulimit \-n 8196" as root before starting the server to avoid this issue.
 {note}
+
+{docbook}
+<para>
+<prompt>
+    <emphasis role="bold">See also</emphasis>
+</prompt>
+</para>
+{docbook}
+* [System requirements|#ADM.Installation.System_requirements]
+* [Install JBoss EARs|#ADM.Installation.Install_JBoss_EARS]
+* [Profiles of eXo Platform|#ADM.Installation.eXo_profiles]
 
 h1. Install JBoss EARs {anchor:id=ADM.Installation.Install_JBoss_EARS}
 
@@ -369,6 +395,16 @@ The server has been stopped successfully when you see the following message in y
 INFO  [org.jboss.bootstrap.microcontainer.ServerImpl] (JBoss Shutdown Hook) Shutdown complete
 {code}
 
+{docbook}
+<para>
+<prompt>
+    <emphasis role="bold">See also</emphasis>
+</prompt>
+</para>
+{docbook}
+* [System requirements|#ADM.Installation.System_requirements]
+* [Install the Tomcat bundle|#ADM.Installation.Install_Tomcat_Bundle]
+* [Profiles of eXo Platform|#ADM.Installation.eXo_profiles]
 
 h1. Profiles of eXo Platform {anchor:id=ADM.Installation.eXo_profiles}
 
@@ -390,13 +426,13 @@ The following profiles are supported:
 
 Additionally, you can use these composite profiles: 
 || Profile || Description ||
-| {{minimal}} | Contains GateIn + Content. |
+| {{minimal}} | Contains GateIn  Content. |
 | {{default}} | Contains all modules except workflow and webos (GateIn, eXo IDE, Collaboration, Social, Knowledge).|
 | {{all}} | All available modules. |
 
 For example:
 
-* Start default modules + workflow:
+* Start default modules  workflow:
 
 {code}
 ./start_eXo.sh default,workflow
@@ -427,3 +463,14 @@ For example:
 {code}
 .\\start_eXo.bat -debug [profiles]
 {code}
+
+{docbook}
+<para>
+<prompt>
+    <emphasis role="bold">See also</emphasis>
+</prompt>
+</para>
+{docbook}
+* [System requirements|#ADM.Installation.System_requirements]
+* [Install the Tomcat bundle|#ADM.Installation.Install_Tomcat_Bundle]
+* [Install JBoss EARs|#ADM.Installation.Install_JBoss_EARS]
