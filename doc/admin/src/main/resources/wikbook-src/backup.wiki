@@ -6,22 +6,34 @@ The backup of eXo Platform instance involves backing up the databases and the fi
 <itemizedlist>
 <listitem>
 <para>
-<emphasis role="bold"><link linkend="ADM.Backup.Plan_backup">Pre-backup</link></emphasis>
+	<emphasis role="bold"><link linkend="ADM.Backup.Plan_backup">Pre-backup</link></emphasis>
+</para>
+<para>
+Preparations for backing up JCR data, Organization service database, and Transaction service files; basic principles of eXo Platform backup and how to create your backup implementation.
 </para>
 </listitem>
 <listitem>
 <para>
 <emphasis role="bold"><link linkend="ADM.Backup.Perform_backup">Back up eXo Platform</link></emphasis>
 </para>
+<para>
+Instructions on how to back up eXo Platform.
+</para>
 </listitem>
 <listitem>
 <para>
 <emphasis role="bold"><link linkend="ADM.Backup.Perform_restore">Restore</link> </emphasis>
 </para>
+<para>
+Instructions on how to restore from the backup that can be used in the failure or site duplication cases.
+</para>
 </listitem>
 <listitem>
 <para>
 <emphasis role="bold"><link linkend="ADM.Backup.Third_party_tools">Third-party tools</link> </emphasis>
+</para>
+<para>
+Additional information of third-party tools which can be used in the backup period, such as <emphasis>rsync</emphasis> tool for Unix platforms, or the Backup utility for Microsoft Windows.
 </para>
 </listitem>
 </itemizedlist>
@@ -143,8 +155,18 @@ For the files backup, eXo Platform provides a shell script running on the eXo Pl
 Examples of the script implementation are out of the scope of this guide.
 {note}
 
-h1. Back up eXo Platform {anchor:id=ADM.Backup.Perform_backup}
+{docbook}
+<para>
+<prompt>
+    <emphasis role="bold">See also</emphasis>
+</prompt>
+</para>
+{docbook}
+* [Back up eXo Platform|#ADM.Backup.Perform_backup]
+* [Restore|#ADM.Backup.Perform_restore]
+* [Third-party tools|#ADM.Backup.Third_party_tools]
 
+h1. Back up eXo Platform {anchor:id=ADM.Backup.Perform_backup}
 
 *1.* Stop the whole eXo Platform instance by using the shell command: _stop\_eXo_. To see more details, see the [Installation and Startup|#ADM.Installation_and_Startup] chapter.
 
@@ -163,6 +185,17 @@ h1. Back up eXo Platform {anchor:id=ADM.Backup.Perform_backup}
 {note}
 In case of the eXo Platform clustering, start the backup to the steps described in the [Clustering|#ADM.Clustering] chapter.
 {note}
+
+{docbook}
+<para>
+<prompt>
+    <emphasis role="bold">See also</emphasis>
+</prompt>
+</para>
+{docbook}
+* [Pre-backup|#ADM.Backup.Plan_backup]
+* [Restore|#ADM.Backup.Perform_restore]
+* [Third-party tools|#ADM.Backup.Third_party_tools]
 
 h1. Restore {anchor:id=ADM.Backup.Perform_restore} 
 
@@ -185,7 +218,18 @@ Restoring from the backup can be used in several cases, such as failure, or site
 {note}
 In case of the eXo Platform clustering, start restoring to the steps described in the [Clustering|#ADM.Clustering] chapter.
 {note}
- 
+
+{docbook}
+<para>
+<prompt>
+    <emphasis role="bold">See also</emphasis>
+</prompt>
+</para>
+{docbook}
+* [Pre-backup|#ADM.Backup.Plan_backup]
+* [Back up eXo Platform|#ADM.Backup.Perform_backup]
+* [Third-party tools|#ADM.Backup.Third_party_tools]
+
 h1. Third-party tools {anchor:id=ADM.Backup.Third_party_tools}
 
 Steps described above are based on the whole backup of data. However, the [incremental backup approach|http://en.wikipedia.org/wiki/Incremental_backup] allows you to
@@ -202,3 +246,14 @@ In case of the example, it is possible to organize the full backup weekly (on Su
 {note}
 It is also possible to use the ready solutions as [backula.org.|http://www.bacula.org/]
 {note}
+
+{docbook}
+<para>
+<prompt>
+    <emphasis role="bold">See also</emphasis>
+</prompt>
+</para>
+{docbook}
+* [Pre-backup|#ADM.Backup.Plan_backup]
+* [Back up eXo Platform|#ADM.Backup.Perform_backup]
+* [Restore|#ADM.Backup.Perform_restore]
