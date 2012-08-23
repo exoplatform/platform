@@ -1,4 +1,6 @@
 <%
+import org.exoplatform.wcm.webui.clv.UICLVPortlet;
+
 	 /**
 	 	* Created by The eXo Platform MEA
 	 	* Author : eXoPlatform
@@ -63,6 +65,9 @@
 
 	 }
 	}
+def header = uicomponent.getHeader();
+def isShowHeader = uicomponent.isShowField(UICLVPortlet.PREFERENCE_SHOW_HEADER) && header != null && header.trim().length() != 0;
+if (header ==null) header=_ctx.appRes("UICLVContainer.msg.non-contents");
 %>
 <style type="text/css">
 .ACMEParameterizedTDContainer {
@@ -77,7 +82,11 @@ width:auto !important;
 
 	<div class="UIContainer" id="ACMECategories">
 		<div class="CategoriesContainer">
+		<%
+			if (isShowHeader) { 
+		%>
 			<div class="CategT"><%=uicomponent.getHeader()%></div>
+		<% } %>
 			<div class="CategC">	
 		<%
 			def categories = uicomponent.getCategories();
