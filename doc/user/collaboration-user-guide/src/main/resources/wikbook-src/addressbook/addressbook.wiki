@@ -1,4 +1,86 @@
 {docbook}
+    <highlights>
+        <itemizedlist>
+            <listitem>
+                <para>
+                   <link linkend="CSUser_guide.How_to_use_Address_book.View_contacts">View contacts</link>: Learn about the view modes in Address Book.
+                </para>
+            </listitem>
+            <listitem>
+                <para>
+                   <link linkend="CSUser_guide.How_to_use_Address_book.Create_new_contact">Create a new contact</link>: Learn to create and add the new contact to Address Book.
+                </para>
+            </listitem>
+            <listitem>
+                <para>
+                   <link linkend="CSUser_guide.How_to_use_Address_book.Edit_contact_details">Edit contact details</link>: Learn to update the contact's information.
+                </para>
+            </listitem>
+			<listitem>
+                <para>
+                   <link linkend="CSUser_guide.How_to_use_Address_book.Tag_contact">Tag a contact</link>:  Learn to use tag to categorize contacts.
+                </para>
+            </listitem>
+			<listitem>
+                <para>
+                   <link linkend="CSUser_guide.How_to_use_Address_book.Send_mail_to_contact">Send a mail to a contact</link>: Learn to compose and send mails to contacts in address book
+                </para>
+            </listitem>
+			<listitem>
+                <para>
+                   <link linkend="CSUser_guide.How_to_use_Address_book.Copy_paste_contact">Copy/Paste a contact</link>: Learn to copy/paste contacts.
+                </para>
+            </listitem>
+			<listitem>
+                <para>
+                   <link linkend="CSUser_guide.How_to_use_Address_book.Move_contact">Move a contact</link>:  Learn to move contacts between personal address books.
+                </para>
+            </listitem>
+			<listitem>
+                <para>
+                   <link linkend="CSUser_guide.How_to_use_Address_book.Delete_contact">Delete a contact</link>:  Learn to remove contacts from address books.
+                </para>
+            </listitem>
+            <listitem>
+                <para>
+                   <link linkend="CSUser_guide.How_to_use_Address_book.Export_contacts">Export contacts</link>: Learn to export one or more contacts into a file to be used in another address book applications.
+                </para>
+            </listitem>
+            <listitem>
+                <para>
+                   <link linkend="CSUser_guide.How_to_use_Address_book.Import_contacts">Import contacts</link>: Learn to import one or more contacts from your device to a selected address book.
+                </para>
+            </listitem>
+            <listitem>
+                <para>
+                   <link linkend="CSUser_guide.How_to_use_Address_book.Print_contacts">Print contacts</link>:  Learn to print information of one or more selected contacts.
+                </para>
+            </listitem>
+             <listitem>
+                <para>
+                   <link linkend="CSUser_guide.How_to_use_Address_book.Print_address_book">Print an Address Book</link>:  Learn to print the summary information of contacts of an address book in the form of name cards.
+                </para>
+            </listitem>
+            <listitem>
+                <para>
+                   <link linkend="CSUser_guide.How_to_use_Address_book.Share_contacts">Share contacts</link>: Learn to to share contacts with other users or groups. The shared users/groups may have <emphasis role="bold">View or Edit permissions</emphasis> on the shared contacts.
+                </para>
+            </listitem>
+            <listitem>
+                <para>
+                   <link linkend="CSUser_guide.How_to_use_Address_book.Search_for_contacts">Search for contacts</link>: Learn to use <emphasis role="bold">Quick Search</emphasis> and <emphasis role="bold">Advanced Search</emphasis> to find contacts.
+                </para>
+            </listitem>
+            <listitem>
+                <para>
+                   <link linkend="CSUser_guide.How_to_use_Address_book.Manage_address.book">Manage Address Books</link>: Learn to perform common actions for address book management: create, edit, remove, export/import, share address books and grant permission.
+                </para>
+            </listitem>
+        </itemizedlist>
+    </highlights>
+{docbook}
+
+{docbook}
 <note>
 <para>
 The <emphasis role="bold">Address Book</emphasis> portlet and its services are deprecated. It remains fully supported for eXo customers, however it will not receive any enhancement and will be removed from the product scope in the future.
@@ -21,7 +103,19 @@ Before starting to use *Address Book*, you should familiarize yourself with the 
 The layout can also be customized. You can hide or show specific parts of the *Address Book* interface.
 To change the layout, click !images/layout_button.png|width="17mm" fo:scalefit="1" html:scalefit="0"! on the main toolbar, then select the layout you want to hide or display from the drop-down menu.
 
-h1. View contacts {anchor:id="CSUser_guide.How_to_use_Address_book.View_contacts"}
+{docbook}
+<para>
+<prompt>
+    <emphasis role="bold">See also</emphasis>
+</prompt>
+</para>
+{docbook}
+
+* [Manage your calendar|#Platform_User_Guide.Collaboration.Manage_calendar]
+* [Email your contacts|#Platform_User_Guide.Collaboration.Communicate_with_Contacts.Email_Contacts]
+* [Chat with your contacts|#Platform_User_Guide.Collaboration.Communicate_with_Contacts.Chat]
+
+h1. View contacts {anchor:id="CSUser_guide.How_to_use_Address_book.View_contactsRoleNotInToc"}
 At present, your contacts can be viewed in 2 modes: *List* or *VCards*.
 
 !images/Contact_View_menu.png|align="center" width="200" fo:scalefit="1" html:scalefit="0"!
@@ -60,7 +154,7 @@ The contacts are displayed in separate cards as below:
 
 !images/Contact_Vcard_View_example.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
 
-h1. Create a new contact {anchor:id="CSUser_guide.How_to_use_Address_book.Create_new_contact"}
+h1. Create a new contact {anchor:id="CSUser_guide.How_to_use_Address_book.Create_new_contactRoleNotInToc"}
 
 {docbook}
 <para>
@@ -259,7 +353,7 @@ In these tabs, you can further provide many information related to the contact's
  <emphasis role="bold">3.</emphasis> Click <guibutton>Save</guibutton> to accept adding a new contact.</para>
 {docbook}
 
-h1. Edit contact details {anchor:id="CSUser_guide.How_to_use_Address_book.Edit_contact_details"}
+h1. Edit contact details {anchor:id="CSUser_guide.How_to_use_Address_book.Edit_contact_detailsRoleNotInToc"}
 This function allows you to update information of contacts whenever you like.
 
 {docbook}
@@ -288,7 +382,7 @@ You can also edit contact details in Mail. For more information, see the <link l
 </tip>
 {docbook}
 
-h1. Tag a contact {anchor:id="CSUser_guide.How_to_use_Address_book.Tag_contact"}
+h1. Tag a contact {anchor:id="CSUser_guide.How_to_use_Address_book.Tag_contactRoleNotInToc"}
 
 *The first way*
 
@@ -328,8 +422,14 @@ To add a new tag quickly, click <guilabel>Add</guilabel> in the <guilabel>Tag</g
 </tip>
 {docbook}
 
+{docbook}
+<citetitle>
+    <para xml:id="CSUser_guide.How_to_use_Address_book.Edit_tag">
+        <emphasis role="bold">Edit a tag</emphasis>
+    </para>
+</citetitle>
+{docbook}
 
-h1. Edit a tag {anchor:id="CSUser_guide.How_to_use_Address_book.Edit_tag"}
 {docbook}
 <para>
 <emphasis role="bold">1.</emphasis> Right-click a tag in the tag area, then select <guilabel>Edit</guilabel> from the drop-down menu.</para>
@@ -340,7 +440,13 @@ h1. Edit a tag {anchor:id="CSUser_guide.How_to_use_Address_book.Edit_tag"}
 <emphasis role="bold">2.</emphasis> Make changes in the <guilabel>Edit Tag</guilabel> form, then click <guibutton>Save</guibutton> to accept your changes.</para>
 {docbook}
 
-h1. Delete a tag {anchor:id="CSUser_guide.How_to_use_Address_book.Delete_tag"}
+{docbook}
+<citetitle>
+    <para xml:id="CSUser_guide.How_to_use_Address_book.Delete_tag">
+        <emphasis role="bold">Delete a tag</emphasis>
+    </para>
+</citetitle>
+{docbook}
 
 {docbook}
 <para>
@@ -351,7 +457,7 @@ h1. Delete a tag {anchor:id="CSUser_guide.How_to_use_Address_book.Delete_tag"}
 <para>
 <emphasis role="bold">2.</emphasis> Click <guibutton>OK</guibutton> in the confirmation to accept your deletion.</para>
 {docbook}
-h1. Send a mail to a contact {anchor:id="CSUser_guide.How_to_use_Address_book.Send_mail_to_contact"}
+h1. Send a mail to a contact {anchor:id="CSUser_guide.How_to_use_Address_book.Send_mail_to_contactRoleNotInToc"}
 
 {docbook}
 <note>
@@ -415,7 +521,7 @@ You just need to enter one character included in your desired email address. The
 <para>
 <emphasis role="bold">4.</emphasis> Click the <guibutton>Send Mail</guibutton> button.</para>
 {docbook}
-h1. Copy/Paste a contact {anchor:id="CSUser_guide.How_to_use_Address_book.Copy_paste_contact"}
+h1. Copy/Paste a contact {anchor:id="CSUser_guide.How_to_use_Address_book.Copy_paste_contactRoleNotInToc"}
 
 This function allows you to make the copies of contacts from an address book and to store in another ones.
 
@@ -473,7 +579,7 @@ This way is to copy all contacts of an address book.
 <emphasis role="bold">2.</emphasis> Click <guilabel>Paste</guilabel> to accept moving your contacts.</para>
 {docbook}
 
-h1. Move a contact {anchor:id="CSUser_guide.How_to_use_Address_book.Move_contact"}
+h1. Move a contact {anchor:id="CSUser_guide.How_to_use_Address_book.Move_contactRoleNotInToc"}
 It is simple to move one or more contacts from one address book to another.
 
 *The first way*
@@ -507,7 +613,7 @@ The drag-and-drop function is done more easily in the VCards view.
 </note>
 {docbook}
 
-h1. Delete a contact {anchor:id="CSUser_guide.How_to_use_Address_book.Delete_contact"}
+h1. Delete a contact {anchor:id="CSUser_guide.How_to_use_Address_book.Delete_contactRoleNotInToc"}
 *The first way*
 
 {docbook}
@@ -536,7 +642,7 @@ This way allows you to delete multiple contacts.
 <emphasis role="bold">2.</emphasis> Click <guibutton>OK</guibutton> in the confirmation message to accept your deletion.</para>
 {docbook}
 
-h1. Export contacts {anchor:id="CSUser_guide.How_to_use_Address_book.Export_contacts"}
+h1. Export contacts {anchor:id="CSUser_guide.How_to_use_Address_book.Export_contactsRoleNotInToc"}
 This feature allows you to export one or more contacts into a file to be used in another address book applications. These exported contacts will have the same information in all address books you use. You can export a single contact or multiple contacts flexibly.
 
 {docbook}
@@ -560,7 +666,7 @@ This feature allows you to export one or more contacts into a file to be used in
 <para>Or, click the <guibutton>Export Selected Only</guibutton> button to export your selected contacts only.</para>
 {docbook}
 
-h1. Import contacts {anchor:id="CSUser_guide.How_to_use_Address_book.Import_contacts"}
+h1. Import contacts {anchor:id="CSUser_guide.How_to_use_Address_book.Import_contactsRoleNotInToc"}
 This function allows you to import one or more contacts from your device to a selected address book.
 {docbook}
 <para>
@@ -608,7 +714,7 @@ Or, click !images/plus_icon.png|width="4mm" fo:scalefit="1" html:scalefit="0"! t
 <emphasis role="bold">6.</emphasis> Click <guibutton>Save</guibutton> to finish your import.</para>
 {docbook}
 
-h1. Print contacts {anchor:id="CSUser_guide.How_to_use_Address_book.Print_contacts"}
+h1. Print contacts {anchor:id="CSUser_guide.How_to_use_Address_book.Print_contactsRoleNotInToc"}
 The *Print* function allows you to print information of your selected contacts. You can print one or more contacts at the same time.
 
 {docbook}
@@ -657,7 +763,7 @@ The *Print Preview* page will appear with their summary information.
 {docbook}<para>
  <emphasis role="bold">2.</emphasis> Click <guibutton>Print</guibutton> to print information of your selected contacts.</para>
 {docbook}
-h1. Print an Address Book {anchor:id="CSUser_guide.How_to_use_Address_book.Print_address_book"}
+h1. Print an Address Book {anchor:id="CSUser_guide.How_to_use_Address_book.Print_address_bookRoleNotInToc"}
 This function allows you to print the summary information of contacts in form of name cards. You can also print all contacts in an address book at the same time.
 
 {docbook}
@@ -681,7 +787,7 @@ The *Print Preview* page will appear.
   <emphasis role="bold">2.</emphasis> Click <guibutton>Print</guibutton> to start printing.</para>
 {docbook}
 
-h1. Share contacts {anchor:id="CSUser_guide.How_to_use_Address_book.Share_contacts"}
+h1. Share contacts {anchor:id="CSUser_guide.How_to_use_Address_book.Share_contactsRoleNotInToc"}
 This function allows you to share contacts with other users or groups. The shared users/groups may have *View* or *Edit* permissions on the shared contacts.
 
 * The *View* permission allows users to view, copy, export, print, delete but cannot move your shared contacts. The shared users cannot make changes on the information of the shared contacts or move your shared contacts if they only have the *View* permission.
@@ -766,7 +872,7 @@ The shared users/groups will be updated in the Shared Users/Groups table of the 
 {docbook}
 
 
-h1. Search for contacts {anchor:id="CSUser_guide.How_to_use_Address_book.Search_for_contacts"}
+h1. Search for contacts {anchor:id="CSUser_guide.How_to_use_Address_book.Search_for_contactsRoleNotInToc"}
 
 This function allows you to find contacts easily and quickly via 2 types:
 * [Quick search|#CSUser_guide.How_to_use_Address_book.Quick_search]
@@ -819,7 +925,7 @@ With this mode, you can refine your search by using a variety of criteria. Your 
  <emphasis role="bold">3.</emphasis> Click the <guibutton>Search</guibutton> button to search. All contacts matching your criteria will be shown in the <guilabel>Search Result</guilabel> dialog.</para>
 {docbook}
 
-h1. Manage Address Books {anchor:id="CSUser_guide.How_to_use_Address_book.Manage_address.book"}
+h1. Manage Address Books {anchor:id="CSUser_guide.How_to_use_Address_book.Manage_address.bookRoleNotInToc"}
 By default, there are 3 Address Book categories:
 
 * *Personal* contains contacts/address books which are created by yourself. Each group may contain more than one contact.
@@ -828,7 +934,14 @@ By default, there are 3 Address Book categories:
 * *Shared* contains contacts/address books which have been shared with you by another users. You can view and update the shared contacts if you are granted the *Edit* permission.
 * *Public Groups* contains address books of groups to which you belong. Each group contains all default contacts of group members that can be viewed only.
 
-h2. Create an address book {anchor:id="CSUser_guide.How_to_use_Address_book.Create_address_book"}
+{docbook}
+<citetitle>
+    <para xml:id="CSUser_guide.How_to_use_Address_book.Create_address_book">
+        <emphasis role="bold">Create an address book</emphasis>
+    </para>
+</citetitle>
+{docbook}
+
 {docbook}
 <para>
   <emphasis role="bold">1.</emphasis> Open the <guilabel>Add/Edit Address Book</guilabel> form via one of the following ways.</para>
@@ -869,7 +982,14 @@ Click !images/address_book_button.png|width="17mm" fo:scalefit="1" html:scalefit
 </tip>
 {docbook}
 
-h2. Edit an address book {anchor:id="CSUser_guide.How_to_use_Address_book.Edit_address_book"}
+{docbook}
+<citetitle>
+    <para xml:id="CSUser_guide.How_to_use_Address_book.Edit_address_book">
+        <emphasis role="bold">Edit an address book</emphasis>
+    </para>
+</citetitle>
+{docbook}
+
 {docbook}
 <para>
 <emphasis role="bold">1.</emphasis> Right-click an existing address book, and select <guilabel>Edit</guilabel> from the drop-down menu.</para>
@@ -887,7 +1007,14 @@ h2. Edit an address book {anchor:id="CSUser_guide.How_to_use_Address_book.Edit_a
 </note>
 {docbook}
 
-h2. Remove an address book {anchor:id="CSUser_guide.How_to_use_Address_book.Remove_address_book"}
+{docbook}
+<citetitle>
+    <para xml:id="CSUser_guide.How_to_use_Address_book.Remove_address_book">
+        <emphasis role="bold">Remove an address book</emphasis>
+    </para>
+</citetitle>
+{docbook}
+
 {docbook}<para>
 <emphasis role="bold">1.</emphasis> Right-click an existing address book, then select <guilabel>Delete</guilabel> from the drop-down menu.</para>
 {docbook}
@@ -903,8 +1030,14 @@ h2. Remove an address book {anchor:id="CSUser_guide.How_to_use_Address_book.Remo
 </note>
 {docbook}
 
+{docbook}
+<citetitle>
+    <para xml:id="CSUser_guide.How_to_use_Address_book.Export_address_book">
+        <emphasis role="bold">Export an address book</emphasis>
+    </para>
+</citetitle>
+{docbook}
 
-h2. Export an address book {anchor:id="CSUser_guide.How_to_use_Address_book.Export_address_book"}
 {docbook}<para>
   <emphasis role="bold">1.</emphasis> Open the <guilabel>Export Address Books</guilabel> form via one of the following ways.</para>
 {docbook}
@@ -940,7 +1073,14 @@ Click !images/export_button.png|width="15mm" fo:scalefit="1" html:scalefit="0"! 
   <emphasis role="bold">4.</emphasis> Click <guibutton>Export All</guibutton> to start exporting all the address books or click <guilabel>Export Selected Only</guilabel> to export your selected ones only.</para>
 {docbook}
 
-h2. Import an address book {anchor:id="CSUser_guide.How_to_use_Address_book.Import_address_book"}
+{docbook}
+<citetitle>
+    <para xml:id="CSUser_guide.How_to_use_Address_book.Import_address_book">
+        <emphasis role="bold">Import an address book</emphasis>
+    </para>
+</citetitle>
+{docbook}
+
 Once you have exported your address books, you can retrieve them easily at any time. Others can also import your address book to store in their address book. The process to import address books is simple as exporting address books.
 {docbook}
 <para>
@@ -992,8 +1132,13 @@ Or, click !images/plus_icon.png|width="4mm" fo:scalefit="1" html:scalefit="0"! t
   <emphasis role="bold">6.</emphasis> Click <guibutton>Save</guibutton> to finish. You will see a notification of your successful import on the top right corner.</para>
 {docbook}
 
-
-h2. Share a personal address book {anchor:id="CSUser_guide.How_to_use_Address_book.Share_personal_address_book"}
+{docbook}
+<citetitle>
+    <para xml:id="CSUser_guide.How_to_use_Address_book.Share_personal_address_book">
+        <emphasis role="bold">Share a personal address book</emphasis>
+    </para>
+</citetitle>
+{docbook}
 
 This feature allows you to share personal address books with specific users or groups. The shared users/groups can view, export, add, edit or delete a shared address book (if they have the *Edit* permission). The shared address book is distinguished from other address books by a hand symbol.
 
@@ -1021,9 +1166,13 @@ This feature allows you to share personal address books with specific users or g
    <emphasis role="bold">4.</emphasis> Click <guibutton>Save</guibutton> to finish. </para>
 {docbook}
 
-
-
-h2. Grant permissions on a public address book {anchor:id="CSUser_guide.How_to_use_Address_book.Grant_permissions_public_address_book"}
+{docbook}
+<citetitle>
+    <para xml:id="CSUser_guide.How_to_use_Address_book.Grant_permissions_public_address_book">
+        <emphasis role="bold">Grant permissions on a public address book</emphasis>
+    </para>
+</citetitle>
+{docbook}
 
 You can grant the *Read/Manage* permission on your managed public address books to specific users, groups or memberships.
 
@@ -1033,13 +1182,8 @@ You can grant the *Read/Manage* permission on your managed public address books 
 
 By default, any member of a group has the *Read* permission and the group manager has the *Manage* permission.
 
-{docbook}
-<citetitle>
-<para>
-<emphasis role="bold">Grant a permission on a public address book</emphasis>
-</para>
-</citetitle>
-{docbook}
+*Grant a permission on a public address book*
+
 {docbook}
 <para>
    <emphasis role="bold">1.</emphasis> Right-click your managed public address book, and select <guilabel>Permission</guilabel> from the drop-down menu.</para>

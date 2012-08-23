@@ -435,7 +435,10 @@
    <replacetoken><![CDATA[<section id="sect-User_Guide-Newsletters">]]></replacetoken>
    <replacevalue><![CDATA[<section id="Platform_User_Guide.Organize_Content.Newsletter">]]></replacevalue>
 		</replace>
-
+		<replace file="${docbook.source}/index.xml">
+             <replacetoken><![CDATA[RoleNotInToc"]]></replacetoken>
+             <replacevalue><![CDATA[" role="NotInToc"]]></replacevalue>
+        </replace>
               </target>
             </configuration>
             <goals>

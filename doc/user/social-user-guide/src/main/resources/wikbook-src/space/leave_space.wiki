@@ -1,4 +1,4 @@
-h1. Join/Leave a space {anchor:id=Soc_User_Guide.Space_Management.Join_Space}
+h1. Join/Leave a space {anchor:id=Soc_User_Guide.Space_Management.Join_SpaceRoleNotInToc}
 
 {docbook}
 <citetitle>
@@ -76,7 +76,7 @@ If you are the only leader of that space, the message which informs that you can
 </note>
 {docbook}
 
-h1. View details of a space {anchor:id=Soc_User_Guide.Space_Management.View_Details_Of_Space}
+h1. View details of a space {anchor:id=Soc_User_Guide.Space_Management.View_Details_Of_SpaceRoleNotInToc}
 
 To view one detailed page of a space, you must become its member first. Then, do either of the two following ways to view the space.
 
@@ -98,6 +98,14 @@ To view one detailed page of a space, you must become its member first. Then, do
 {docbook}
 !images/Space_name_link.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
 
+{docbook}
+<citetitle>
+<para xml:id="Soc_User_Guide.Space_Management.Delete_SpaceRoleNotInToc">
+Only the space managers can delete their spaces by clicking <guilabel>Delete</guilabel>  under the space name. All information and navigations related to that space are also deleted.
+</para>
+</citetitle>
+{docbook}
+
 The detailed page of the space displays information about the space. The functions you can perform depend on your granted permissions or whether you are the space's creator or not.
 
 As a normal user, you can:
@@ -118,12 +126,9 @@ Besides the actions above, as a space manager or creator, you can:
 
 * [Remove members from your space|#Soc_User_Guide.Space_Management.Edit_Space.Manage_Members.Remove_Mem].
 
-h1. Delete a space {anchor:id=Soc_User_Guide.Space_Management.Delete_Space}
-{docbook}<para>
-Only the space managers can delete their spaces by clicking <guilabel>Delete</guilabel>  under the space name. All information and navigations related to that space are also deleted.
-</para>
-{docbook}
-h1. Search for spaces      {anchor:id=Soc_User_Guide.Space_Management.Join_Space.Search}
+
+
+h1. Search for spaces      {anchor:id=Soc_User_Guide.Space_Management.Join_Space.SearchRoleNotInToc}
 {docbook}
 <para>The <emphasis role="bold">Search</emphasis> function in the <guilabel>Spaces</guilabel> application helps you easily find spaces from one of the tabs in the <link linkend="space_navigation">Space navigation</link>.</para>
 {docbook}
@@ -169,7 +174,7 @@ Simply click a specific letter.
 <para>Only spaces whose names start with the search letter are listed in the <guilabel>Spaces Found</guilabel> pane.</para>
 {docbook}
 
-h1. Accept/Ignore invitations{anchor:id=Soc_User_Guide.Space_Management.Edit_Space.Manage_Members.Accept_Mem}
+h1. Accept/Ignore invitations{anchor:id=Soc_User_Guide.Space_Management.Edit_Space.Manage_Members.Accept_MemRoleNotInToc}
 {docbook}
 <para>This function allows you to accept and/or deny invitations that you received from others. You can see all spaces which are being waited for your acceptance in the <guilabel>Invitations Received</guilabel> tab, or in the <guilabel>My invitations</guilabel> tab in the left pane of the Intranet homepage.</para>
 {docbook}

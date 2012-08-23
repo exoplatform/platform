@@ -1,4 +1,4 @@
-h1. Edit a space       {anchor:id=Soc_User_Guide.Space_Management.Edit_Space}
+h1. Edit a space       {anchor:id=Soc_User_Guide.Space_Management.Edit_SpaceRoleNotInToc}
 This function allows you to change the initial settings of a space if you are the creator or have the *Manage* permission on it.
 
 To edit a space, first access the *Space Settings* by following one of 2 ways:
