@@ -1,4 +1,42 @@
 {docbook}
+    <highlights>
+        <itemizedlist>
+            <listitem>
+                <para>
+                   <link linkend="search_contacts">Search for contacts</link>: Learn to use the <emphasis role="bold">Search</emphasis> to find connections.
+                </para>
+            </listitem>
+            <listitem>
+                <para>
+                   <link linkend="view_profile_of_contacts">View profiles of other contacts</link>: Learn to view profiles of connections.
+                </para>
+            </listitem>
+            <listitem>
+                <para>
+                   <link linkend="Send_connection_requests">Send connection requests</link>: Learn to send connection request to other people.
+                </para>
+            </listitem>
+			<listitem>
+                <para>
+                   <link linkend="Revoke_connection_request">Revoke a connection request</link>: Learn to revoke a sent request.
+                </para>
+            </listitem>
+            <listitem>
+                <para>
+                   <link linkend="Accept_deny_request">Accept/Deny a connection request</link>: Learn to accept/deny a connection request.
+                </para>
+            </listitem>
+            <listitem>
+                <para>
+                   <link linkend="Disconect">Disconnect from your contacts</link>: Learn to remove connections.
+                </para>
+            </listitem>
+        </itemizedlist>
+    </highlights>
+{docbook}
+
+
+{docbook}
 <para>To build your connections, you first need to hover your cursor over the display name on the <emphasis role="bold">Administration</emphasis> bar and select <guilabel>My Connections</guilabel> from the drop-down menu.</para>
 {docbook}
 !images/Select_network.png|align="center" width="60mm" fo:scalefit="1" html:scalefit="0"!
@@ -33,7 +71,19 @@ This page consists of the following tabs:
       </itemizedlist>
 {docbook}
 
-h1. Search for contacts {anchor:id=search_contacts}
+{docbook}
+<para>
+<prompt>
+    <emphasis role="bold">See also</emphasis>
+</prompt>
+</para>
+{docbook}
+
+* [Manage your profile|#Platform_User_Guide.Social.Manage_Profile]
+* [Manage spaces|#Platform_User_Guide.Social.Manage_Spaces]
+* [Follow activities in your organization|#Platform_User_Guide.Social.Follow_Activities]
+
+h1. Search for contacts {anchor:id=search_contactsRoleNotInToc}
 
 This function allows you to find your desired contact quickly by searching by name, and/or searching by role (by position, and/or work skills), and searching by alphabets.
 
@@ -81,7 +131,7 @@ This function allows you to find your desired contact quickly by searching by na
           </itemizedlist>
 {docbook}
 
-h1. View profiles of other contacts {anchor:id="view_profile_of_contacts"}
+h1. View profiles of other contacts {anchor:id="view_profile_of_contactsRoleNotInToc"}
 To view the profile of a contact, simply click the contact name. You will be directed to his/her profile.
 
 !images/other_profile.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
@@ -105,7 +155,7 @@ From his/her profile, you can see all his/her activities and connections.
 Regardless of being an administrator, you do not have right to edit profiles of other contacts.
 {note}
 
-h1. Send connection requests {anchor:id=Send_connection_requests}
+h1. Send connection requests {anchor:id=Send_connection_requestsRoleNotInToc}
 After [specifying your desired contact|#search_contacts], you can send a connection request via one of two ways.
 
 !images/Ways_sending_invitation.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
@@ -132,7 +182,7 @@ If you follow the first way, the <guilabel>Connect</guilabel> text will become <
 {docbook}
 
 
-h1. Revoke a connection request {anchor:id=Revoke_connection_request}
+h1. Revoke a connection request {anchor:id=Revoke_connection_requestRoleNotInToc}
 {docbook}
 <para>After sending connection requests to other users, you still can remove the requests by selecting the <guilabel>Requests Sent</guilabel> tab and do one of two following ways.</para>
 {docbook}
@@ -150,7 +200,7 @@ h1. Revoke a connection request {anchor:id=Revoke_connection_request}
 
 !images/Revoke_request.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
 
-h1. Accept/Deny a connection request {anchor:id=Accept_deny_request}
+h1. Accept/Deny a connection request {anchor:id=Accept_deny_requestRoleNotInToc}
 You can perform these actions via one of the following way:
 
 *The first way*
@@ -190,7 +240,7 @@ You can perform these actions via one of the following way:
         </itemizedlist>
 {docbook}
 
-h1. Disconnect from your contacts {anchor:id=Disconect}
+h1. Disconnect from your contacts {anchor:id=DisconectRoleNotInToc}
 
 {docbook}
  <para>In the <guilabel>My Connections</guilabel> or <guilabel>Everyone</guilabel> tab, you can remove the connections between you and the users who are as your contacts via one of two following ways.</para>

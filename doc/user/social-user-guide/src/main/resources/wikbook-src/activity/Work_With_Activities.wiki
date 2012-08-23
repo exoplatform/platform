@@ -1,3 +1,45 @@
+{docbook}
+    <highlights>
+        <itemizedlist>
+            <listitem>
+                <para>
+                   <link linkend="Soc_User_Guide.Activity_Management.Update_Status">Update status</link>: Learn update your status on <emphasis role="bold">Activity Stream</emphasis>.
+                </para>
+            </listitem>
+            <listitem>
+                <para>
+                   <link linkend="Soc_User_Guide.Activity_Management.Share_Link">Share a link</link>: Learn to add a link to your status and share it on the <emphasis role="bold">Activity Stream</emphasis>.
+                </para>
+            </listitem>
+            <listitem>
+                <para>
+                   <link linkend="Soc_User_Guide.Activity_Management.Share_File">Share a file</link>: Learn to add a file to your status and share it on the <emphasis role="bold">Activity Stream</emphasis>.
+                </para>
+            </listitem>
+            <listitem>
+                <para>
+                   <link linkend="Soc_User_Guide.Activity_Management.Delete_Activity">Delete activities/comments</link>: Learn to remove a activity or comment from the <emphasis role="bold">Activity Stream</emphasis>.
+                </para>
+            </listitem>
+            <listitem>
+                <para>
+                   <link linkend="Soc_User_Guide.Activity_Management.Comment">Comment on activities</link>: Learn to comment on an activity.
+                </para>
+            </listitem>
+            <listitem>
+                <para>
+                   <link linkend="Soc_User_Guide.Activity_Management.Like_Activity">Like/Unlike activities</link>: Learn to show you reaction towards an activity.
+                </para>
+            </listitem>
+            <listitem>
+                <para>
+                   <link linkend="Soc_User_Guide.Activity_Management_tags">Create rich activities with allowed HTML tags</link>: Learn to use HTML tags when posting your status.
+                </para>
+            </listitem>
+        </itemizedlist>
+    </highlights>
+{docbook}
+
 All activities of a user are displayed in the user's and Space's Activity Stream.
 {docbook}
 <para>To enter the <emphasis role="bold">Activity Stream</emphasis> page<anchor id="go_to_activity_stream"/>, hover your cursor over your display name (for example, John Smith) on the <emphasis role="bold">Administration</emphasis> bar and select <guilabel>Activity Stream</guilabel>.</para>
@@ -8,7 +50,7 @@ All activities of a user are displayed in the user's and Space's Activity Stream
 The *Activity Stream* page consists of the following tabs:
 {docbook}
 <itemizedlist>
-        <listitem>
+        <listitem>                                                           a
           <para>
             <guilabel>All Updates:</guilabel> lists all updates of yours, of your connections, and of your spaces.</para>
         </listitem>
@@ -35,7 +77,19 @@ In addition, you can keep track of activities of a space application. For exampl
 
 The actions described in this section are those which you can do on activity streams of yours, of your connections or of any spaces where you are a member or manager, depending on the accessed tab.
 
-h1. Update status {anchor:id=Soc_User_Guide.Activity_Management.Update_Status}
+{docbook}
+<para>
+<prompt>
+    <emphasis role="bold">See also</emphasis>
+</prompt>
+</para>
+{docbook}
+
+* [Manage your profile|#Platform_User_Guide.Social.Manage_Profile]
+* [Manage spaces|#Platform_User_Guide.Social.Manage_Spaces]
+* [Manage connections|#Platform_User_Guide.Social.Manage_connections]
+
+h1. Update status {anchor:id=Soc_User_Guide.Activity_Management.Update_StatusRoleNotInToc}
 
 By entering your status message, you can tell people what are you doing on or ask for their helps or ideas. Thereafter, your colleagues who are connected with you can see your updates in their connections.
 
@@ -72,9 +126,9 @@ There are 2 ways to post your status.
 {docbook}
 
 {note}
-You can use some HTML tags when updating your status. See more details in the [Create rich activities with allowed HTML tags|#Soc_User_Guide.Activity_Management.HTML_tags] section.
+You can use some HTML tags when updating your status. See more details in the [Create rich activities with allowed HTML tags|#Soc_User_Guide.Activity_Management_tags] section.
 {note}
-h1. Share a link  {anchor:id=Soc_User_Guide.Activity_Management.Share_Link}
+h1. Share a link  {anchor:id=Soc_User_Guide.Activity_Management.Share_LinkRoleNotInToc}
 
 *1.* Click !images/Share_link_icon.png|width="13mm" fo:scalefit="1" html:scalefit="0"!.
 
@@ -109,7 +163,7 @@ If the link address is correct, it will be attached, then shown with the overall
           </inlinemediaobject> again to remove your entered link.</para>
 {docbook}
 
-h1. Share a file {anchor:id=Soc_User_Guide.Activity_Management.Share_File}
+h1. Share a file {anchor:id=Soc_User_Guide.Activity_Management.Share_FileRoleNotInToc}
 {docbook}
 <para>
           <emphasis role="bold">1.</emphasis> Click <inlinemediaobject>
@@ -173,7 +227,7 @@ You can also click <inlinemediaobject>
 * To remove your uploaded file, simply click !images/Remove_file_icon.png|width="4mm" fo:scalefit="1" html:scalefit="0"! next to your selected file, or click !images/Share_file_icon.png|width="11mm" fo:scalefit="1" html:scalefit="0"! again.
 
 
-h1. Delete activities/comments  {anchor:id=Soc_User_Guide.Activity_Management.Delete_Activity}
+h1. Delete activities/comments  {anchor:id=Soc_User_Guide.Activity_Management.Delete_ActivityRoleNotInToc}
 
 You are allowed to delete your activities/comments that you created, and those in your activity stream and in the space where your are the manager.
 {docbook}
@@ -192,7 +246,7 @@ You are allowed to delete your activities/comments that you created, and those i
           <emphasis role="bold">3.</emphasis> Click <guibutton>OK</guibutton> in the confirmation message to accept your deletion.</para>
 {docbook}
 
-h1. Comment on activities  {anchor:id=Soc_User_Guide.Activity_Management.Comment}
+h1. Comment on activities  {anchor:id=Soc_User_Guide.Activity_Management.CommentRoleNotInToc}
 This action allows you to get ideas, answers, and any additional information when your collaborators respond to your status updates. Besides, you yourself give your ideas about any contacts' status update as follows:
 
 *1.* Select an activity on which you want to comment.
@@ -208,10 +262,10 @@ This action allows you to get ideas, answers, and any additional information whe
 Your comment will be displayed right below the profile.
 
 {note}
-You can use some HTML tags when commenting on activities. See more details in the [Create rich activities with allowed HTML tags|#Soc_User_Guide.Activity_Management.HTML_tags] section.
+You can use some HTML tags when commenting on activities. See more details in the [Create rich activities with allowed HTML tags|#Soc_User_Guide.Activity_Management_tags] section.
 {note}
 
-h1. Like/Unlike activities  {anchor:id=Soc_User_Guide.Activity_Management.Like_Activity}
+h1. Like/Unlike activities  {anchor:id=Soc_User_Guide.Activity_Management.Like_ActivityRoleNotInToc}
 The function allows you to show your interest by selecting *Like* and/or *Unlike* activities.
 
 
@@ -250,7 +304,7 @@ You only can *Unlike* an activity after you liked it.
 <emphasis role="bold">2.</emphasis> Click <guilabel>Unlike</guilabel> beside the activity.</para>
 {docbook}
 
-h1. Create rich activities with allowed HTML tags    {anchor:id=Soc_User_Guide.Activity_Management.HTML_tags}
+h1. Create rich activities with allowed HTML tags    {anchor:id=Soc_User_Guide.Activity_Management_tagsRoleNotInToc}
 When updating the status or writing a comment, you can use the following HTML tags:
 
 {docbook}
