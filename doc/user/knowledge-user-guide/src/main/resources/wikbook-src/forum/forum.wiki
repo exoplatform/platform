@@ -1,3 +1,25 @@
+{docbook}
+    <highlights>
+        <itemizedlist>
+            <listitem>
+                <para>
+                   <link linkend="Forum_user_guide.Forum_Administrator">Administrator</link>: Learn to perform common tasks for Administrator: manage categories, manage forums, manage users and other administrative tasks.
+                </para>
+            </listitem>
+            <listitem>
+                <para>
+                   <link linkend="Forum_user_guide.Regular_user">Regular users</link>: Learn to perform common actions for regular users: create topics and posts, subscribe, use BBCode, change user settings.
+                </para>
+            </listitem>
+            <listitem>
+                <para>
+                   <link linkend="Forum_user_guide.Moderator">Moderator</link>: Learn to perform common tasks for Moderators: moderate forums, moderate topics, moderate posts.
+                </para>
+            </listitem>
+        </itemizedlist>
+    </highlights>
+{docbook}
+
 The section provides you a guide to use all *Forum* features or to configure the *Forum* portlet to make it work in your desired manner.
 
 In *Forum*, the role of each user group is clear and very important. Each role has a set of tasks that they can execute. Administrators and moderators are responsible for setting up and maintaining *Forum*. With the highest rights, the administrators are in charge of the entire management tasks, including form configurations, users management, permissions, categories, forums, topics and messages. With sub-sets of administrative permissions, the moderators will manage the respective sub-sets of the forum.
@@ -88,3 +110,14 @@ Before reading, please notice that this document is divided into 3 parts which c
 * Forum user guide for [Regular users|#Forum_user_guide.Regular_user]
 * Forum user guide for [Moderators|#Forum_user_guide.Moderator]
 * Forum user guide for [Administrators|#Forum_user_guide.Forum_Administrator]
+
+{docbook}
+<para>
+<prompt>
+    <emphasis role="bold">See also</emphasis>
+</prompt>
+</para>
+{docbook}
+
+* [Build a wiki|#Platform_User_Guide.Knowledge.Build_Wiki]
+* [Build an Answers & FAQs system|#Platform_User_Guide.Knowledge.Build_FAQs]

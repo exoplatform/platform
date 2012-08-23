@@ -1,16 +1,5 @@
-h1. Regular users {anchor:id=Forum_user_guide.Regular_user}
+h1. Regular users {anchor:id=Forum_user_guide.Regular_userRoleNotInToc}
 This section describes actions that a regular user can perform in the *Forum* application of eXo Platform.
-
-{docbook}
-<para>
-<prompt>
-    <emphasis role="bold">See also</emphasis>
-</prompt>
-</para>
-{docbook}
-
-* Actions for [Moderators|#Forum_user_guide.Moderator]
-* Actions for [Administrators|#Forum_user_guide.Forum_Administrator]
 
 h2. View details of the Forum application {anchor:id=Forum_user_guide.Regular_user.View_details}
 Once clicking *Forum* on the *Administration* bar, you will be directed to the *Forum* homepage. Here, you can see categories of *Forum*, forums in each category, forum statistics as shown below:
