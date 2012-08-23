@@ -62,6 +62,7 @@ h2. Build a forum{anchor:id=Platform_User_Guide.Knowledge.Build_Forums}
 {include:document="knowledge/wikbook-src/forum/forum_regular_user.wiki"}
 {include:document="knowledge/wikbook-src/forum/forum_moderator.wiki"}
 h2. Build an Answers & FAQs system {anchor:id=Platform_User_Guide.Knowledge.Build_FAQs}
+{include:document="knowledge/wikbook-src/Answers/Overview.wiki"}
 {include:document="knowledge/wikbook-src/Answers/Administrator.wiki"}
 {include:document="knowledge/wikbook-src/Answers/Moderator.wiki"}
 {include:document="knowledge/wikbook-src/Answers/Regular_user.wiki"}

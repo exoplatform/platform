@@ -1,4 +1,31 @@
 {docbook}
+    <highlights>
+        <itemizedlist>
+            <listitem>
+                <para>
+                   <link linkend="CSUser_guide.How_to_use_Chat.Create_a_chat_room.Add_contact_to_friends_list">Add contacts to your friend list</link>: Learn to add a contact to your contact list.
+                </para>
+            </listitem>
+            <listitem>
+                <para>
+                   <link linkend="CSUser_guide.How_to_use_Chat.Remove_contact">Remove a contact</link>: Learn to remove a contact from your contact list.
+                </para>
+            </listitem>
+            <listitem>
+                <para>
+                   <link linkend="CSUser_guide.How_to_use_Chat.Chat_with_contact">Chat with a contact</link>: Learn how to start a conversation with a contact and perform other related actions: set the online status, send files, export or show the chat history.
+                </para>
+            </listitem>
+            <listitem>
+                <para>
+                   <link linkend="CSUser_guide.How_to_use_Chat.Create_a_chat_room">Create a chat room</link>: Learn to create a chat room and perform other related actions: add people to a chat room, join/leave a chat room and change chat room preferences.
+                </para>
+            </listitem>
+        </itemizedlist>
+    </highlights>
+{docbook}
+
+{docbook}
 <note>
 <para>
 Two portlets, including <emphasis role="bold">Chat</emphasis> and <emphasis role="bold">Chatbar,</emphasis> and their services are deprecated. They remain fully supported for eXo customers, however they will not receive any enhancement and will be removed from the product
@@ -64,7 +91,19 @@ To use the *Chat* feature, you first need to add the Chat portlet or the Chatbar
 </note>
 {docbook}
 
-h1. Add contacts to your friend list {anchor:id="CSUser_guide.How_to_use_Chat.Create_a_chat_room.Add_contact_to_friends_list"}
+{docbook}
+<para>
+<prompt>
+    <emphasis role="bold">See also</emphasis>
+</prompt>
+</para>
+{docbook}
+
+* [Manage your calendar|#Platform_User_Guide.Collaboration.Manage_calendar]
+* [Manage your contacts|#Platform_User_Guide.Collaboration.Communicate_with_Contacts.Manage_Contacts]
+* [Email your contacts|#Platform_User_Guide.Collaboration.Communicate_with_Contacts.Email_Contacts]
+
+h1. Add contacts to your friend list {anchor:id="CSUser_guide.How_to_use_Chat.Create_a_chat_room.Add_contact_to_friends_listRoleNotInToc"}
 You can search for contacts in your *Address Book* and add them to your friend list.
 
 *1.* Click !images/contact_icon.png|width="4mm" fo:scalefit="1" html:scalefit="0"! on the *Chatbar*, then click !images/chat_add_contact_button.png|width="13mm" fo:scalefit="1" html:scalefit="0"! from the pop-up menu.
@@ -94,7 +133,7 @@ Your invited contacts will receive the request messages.
 
 After adding your contacts successfully, the added contacts will be shown in your friend list.
 
-h1. Remove a contact {anchor:id="CSUser_guide.How_to_use_Chat.Remove_contact"}
+h1. Remove a contact {anchor:id="CSUser_guide.How_to_use_Chat.Remove_contactRoleNotInToc"}
 This action is to remove a contact from your friend list.
 
 *1.* Click !images/contact_icon.png|width="4mm" fo:scalefit="1" html:scalefit="0"! on the Chatbar to show your friend list.
@@ -111,7 +150,7 @@ This action is to remove a contact from your friend list.
           <emphasis role="bold">3.</emphasis> Click <guibutton>OK</guibutton> in the confirmation message to accept your removal.</para>
 {docbook}
 
-h1. Chat with a contact {anchor:id="CSUser_guide.How_to_use_Chat.Chat_with_contact"}
+h1. Chat with a contact {anchor:id="CSUser_guide.How_to_use_Chat.Chat_with_contactRoleNotInToc"}
 
 h2. Send messages {anchor:id="CSUser_guide.How_to_use_Chat.Send_messages"}
 
@@ -321,7 +360,7 @@ Currently, the *Chat* application shows messages in the following time ranges:
  <para>All messages with the created time and date will be shown in the <guilabel>Conversation</guilabel> window.</para>
 {docbook}
 
-h1. Create a chat room {anchor:id="CSUser_guide.How_to_use_Chat.Create_a_chat_room"}
+h1. Create a chat room {anchor:id="CSUser_guide.How_to_use_Chat.Create_a_chat_roomRoleNotInToc"}
 A chat room is a place where people with similar interests can meet and communicate with each other. People can often enter an unmoderated chat room without any verification of who they are.
 
 With *Chat*, you also create a chat room and invite other users to join your room. In this way, you can organize and manage your group activities efficiently. It is convenient in the corporate environment when you can communicate in multiple chat rooms, each may have different topics and members. *Chat* supports up to 30 users to join a chat room.

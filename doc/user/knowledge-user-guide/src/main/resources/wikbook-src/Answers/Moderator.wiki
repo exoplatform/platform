@@ -1,4 +1,4 @@
-h1. Moderator  {anchor:id=Answer_user_guide.Moderator}
+h1. Moderator  {anchor:id=Answer_user_guide.ModeratorRoleNotInToc}
 Moderators in *Answers* manage the content of questions and answers before and after they are posted to a moderated category.
 The Moderator can read new content (editing or removing if necessary), approve or activate answers, and more. The moderator has the category-specific role.
 

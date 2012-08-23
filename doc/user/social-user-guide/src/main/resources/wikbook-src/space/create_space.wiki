@@ -1,3 +1,46 @@
+{docbook}
+    <highlights>
+        <itemizedlist>
+            <listitem>
+                <para>
+                   <link linkend="Soc_User_Guide.Space_Management.Create_Space">Create a space</link>: Learn to create a new space with new settings, permission and members.
+                </para>
+            </listitem>
+            <listitem>
+                <para>
+                   <link linkend="Soc_User_Guide.Space_Management.Edit_Space">Edit a space</link>: Learn to modify the space information and preferences.
+                </para>
+            </listitem>
+            <listitem>
+                <para>
+                   <link linkend="Soc_User_Guide.Space_Management.Join_Space">Join/Leave a space</link>: Learn to join/leave a space.
+                </para>
+            </listitem>
+            <listitem>
+                <para>
+                   <link linkend="Soc_User_Guide.Space_Management.View_Details_Of_Space">View details of a space</link>: Learn to view all spaces that you are the member or manager.
+                </para>
+            </listitem>
+            <listitem>
+                <para>
+                   <link linkend="Soc_User_Guide.Space_Management.Delete_Space">Delete a space</link>: Learn to delete a space that you manage.
+                </para>
+            </listitem>
+            <listitem>
+                <para>
+                   <link linkend="Soc_User_Guide.Space_Management.Join_Space.Search">Search for spaces</link>: Learn to use the <emphasis role="bold">Search</emphasis> function to find spaces.
+                </para>
+            </listitem>
+              <listitem>
+                <para>
+                   <link linkend="Soc_User_Guide.Space_Management.Edit_Space.Manage_Members.Accept_Mem">Accept/Ignore invitations</link>: Learn to accept or ignore a request/invitation.
+                </para>
+            </listitem>
+        </itemizedlist>
+    </highlights>
+{docbook}
+
+
 The concept "team work" becomes very familiar in business environment. By establishing one specific team or group, you and your collaborators can work together on important projects. Based on the importance of team working, eXo Platform develops the
 *Space* application, allowing you to collaborate with specific people. This means that if you want to work on a team project, you can create a space for your team members to make organizations, share links and information related to the project.
 
@@ -44,7 +87,19 @@ The *My Spaces* page appears as below.
 </note>
 {docbook}
 
-h1. Create a space   {anchor:id=Soc_User_Guide.Space_Management.Create_Space}
+{docbook}
+<para>
+<prompt>
+    <emphasis role="bold">See also</emphasis>
+</prompt>
+</para>
+{docbook}
+
+* [Manage your profile|#Platform_User_Guide.Social.Manage_Profile]
+* [Manage connections|#Platform_User_Guide.Social.Manage_connections]
+* [Follow activities in your organization|#Platform_User_Guide.Social.Follow_Activities]
+
+h1. Create a space   {anchor:id=Soc_User_Guide.Space_Management.Create_SpaceRoleNotInToc}
 After redirecting to the *Space* application, you can add a new space so that you and your collaborators can work together or discuss specific topics as follows:
 
 *1.* Click !images/Add_new_space_icon.png|width="17mm" fo:scalefit="1" html:scalefit="0"! at the left corner of the *Space* page.
