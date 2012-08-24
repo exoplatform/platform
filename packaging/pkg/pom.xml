@@ -11,6 +11,12 @@
   <name>eXo Platform - Packaging Assembly</name>
   <dependencies>
     <dependency>
+      <groupId>org.exoplatform.ecms</groupId>
+      <artifactId>exo-ecms-upgrade</artifactId>
+      <version>${org.exoplatform.ecms.version}</version>
+      <type>jar</type>
+    </dependency>
+    <dependency>
       <groupId>org.exoplatform.tool</groupId>
       <artifactId>exopackage</artifactId>
       <version>${org.exoplatform.exopackage.version}</version>
