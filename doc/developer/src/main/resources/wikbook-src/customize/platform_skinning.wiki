@@ -23,7 +23,7 @@ The portal skin contains styles for the HTML tags (for example, div, th, td) and
 {docbook}
 The CSS styles are associated with the portlet window decorators. The window decorators contain control buttons and borders surrounding each portlet. Individual portlets can have their own window decorators selected, or be rendered without one.
 
-!images/window_decoration.jpg|align="center" width="100mm" fo:scalefit="1" html:scalefit="0"!
+!images/window_decoration.jpg|align="center" width="80mm" fo:scalefit="1" html:scalefit="0"!
 
 {docbook}
 <citetitle>
@@ -194,7 +194,7 @@ h2. Create a new skin web archive {anchor:id=DEV.CreateYourOwnPortal.CreateNewSk
 {docbook}
 To create a new skin (called "MySkin"), you should create a new skin web archive with the following structure:
 
-!images/FolderStructure.png|align="center" fo:scalefit="1" html:scalefit="0"!
+!images/FolderStructure.png|align="center" fo:scalefit="1" html:scalefit="0" width="80mm"!
 
 * The _web.xml_ is the file that you will define the ResourceRequestFilter.
 * The _gatein-resource.xml_ will define your new skin (for portal, portlet or window style).
@@ -227,7 +227,7 @@ h2. Create the skin preview icon {anchor:id=DEV.CreateYourOwnPortal.PortalSkinPr
 
 When selecting a skin it is possible to see a preview of what the skin will look like. The current skin needs to know about the skin icons for all the available skins, otherwise it will not be able to show the previews. When creating a new portal it is recommended to include the preview icons of the other skins and to update the other skins with your new portal skin preview.
 
-!images/Skin_preview.png|align="center" fo:scalefit="1" html:scalefit="0"!
+!images/Skin_preview.png|align="center" fo:scalefit="1" html:scalefit="0" width="120mm"!
 
 For any portal skin, the paths to the preview images are specified in CSS class UIChangeSkinForm:
 
@@ -546,7 +546,7 @@ This section is related to the configuration. You can see a sample [here.|http:/
 
 * Like _portal.xml_, you can define the layout for each page in your site as shown in the following example:
 
-!images/sample_page.jpg|align="center"  width="80mm" fo:scalefit="1" html:scalefit="0"!
+!images/sample_page.jpg|align="center"  width="60mm" fo:scalefit="1" html:scalefit="0"!
 
 {code:xml}
 <!-- ... -->
@@ -579,7 +579,7 @@ Followings are two examples of configuration, one to remove a portlet, the other
 
 h3. Remove a content from the Admin bar {anchor:id=DEV.CreateYourOwnPortal.RemoveAdminbarContent}
 
-!images/admin_bar_portlets.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
+!images/admin_bar_portlets.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
 
 *Portlets on the Admin bar*
 
@@ -640,7 +640,7 @@ The current color of the *Admin* bar is gray gradient. However, you can change t
 
 The default *Administration* style:
 
-!images/admin_bar.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
+!images/admin_bar.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
 
 The style of the *Admin* bar is defined in the *stylesheet.css* located in _extension/resources/src/main/webapp/skin/platformSkin/UIToolbarContainer_.
 
@@ -648,7 +648,7 @@ Edit this CSS file to customize the *Admin* bar to your preferred color scheme.
 
 The CSS code below shows how to modify the Admin bar to look like this:
 
-!images/modified_admin_bar.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
+!images/modified_admin_bar.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
 
 {code:css}
 .UIWorkingWorkspace #UIToolbarContainer .HomeLinkTDContainer {
