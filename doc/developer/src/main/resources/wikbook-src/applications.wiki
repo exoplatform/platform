@@ -192,7 +192,7 @@ A gadget should use static resources available in _exo-gadget-resources_ instead
 
 The sample gadget:
 
-!images/sample_gadget.png|align="center" width="100mm" fo:scalefit="1" html:scalefit="0"!
+!images/sample_gadget.png|align="center" width="80mm" fo:scalefit="1" html:scalefit="0"!
 
 {docbook}
 <citetitle>
@@ -279,7 +279,7 @@ The following gadget gives the demo of a user settings screen which uses eXo Pla
 </Module> 
 {code}
 
-!images/setting_demo_form.png|align="center" width="100mm" fo:scalefit="1" html:scalefit="0"!
+!images/setting_demo_form.png|align="center" width="80mm" fo:scalefit="1" html:scalefit="0"!
 
 h3. Customize the gadget thumbnail {anchor:id=DEV.WorkWithApplications.DevelopAGadgetForPlatform.CustomizeGadgetThumnail}
 

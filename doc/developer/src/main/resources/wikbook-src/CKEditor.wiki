@@ -33,7 +33,7 @@ To upgrade an existing CKEditor installation, do as follows:
 
 h1. File and Folder Structure {anchor:id=DEV.WorkWithContent.CKEditor.FileAndFolderStructure}
 h2. Inside CKEditor  {anchor:id=DEV.WorkWithContent.CKEditor.InsideCKEditor}
-!images/ckeditor_folder.png|align="center" width="80m" scalefit:fo="1" scalefit:html="0"!
+!images/ckeditor_folder.png|align="center" width="120m" scalefit:fo="1" scalefit:html="0"!
 
 There are the following folders:
 ||Folders|| Description||
@@ -64,7 +64,7 @@ h2. CKEditor in Context of eXo Platform  {anchor:id=DEV.WorkWithContent.CKEditor
 There is a _.war_ package named _eXoStaticResources_ which integrates the CKEditor application into eXo Platform.
 The source code is placed inside the _apps/resources-static/src/main/webapp_ folder.
 
-!images/static_resources.png|align="center" width="80mm" scalefit:fo="1" scalefit:html="0"!
+!images/static_resources.png|align="center" width="70mm" scalefit:fo="1" scalefit:html="0"!
 
 Its structure consists of the folders and files below:
 
@@ -178,7 +178,7 @@ For example, to show  the new toolbar on the content field of HTML file, you nee
 {code}
 By adding a new HTML file, you will see the new toolbar (MyToolbar) on the content field:
 
-!images/MyToolbar.png|align="center" width="150mm" scalefit:fo="1" scalefit:html="0"!
+!images/MyToolbar.png|align="center" width="120mm" scalefit:fo="1" scalefit:html="0"!
 
 h2. How to create a plugin for CKEditor {anchor:id=DEV.WorkWithContent.CKEditor.CreatePluginForCKEditor}
 This section shows you how to create a basic CKEditor plugin.
@@ -232,4 +232,4 @@ To use the created plugin, plug it to CKEditor by using the following code:
 
 The following is the illustration about the Timestamp plugin added to the CKEditor.
 
-!images/Timestamp.png|align="center" width="150mm" scalefit:fo="1" scalefit:html="0"!
+!images/Timestamp.png|align="center" width="120mm" scalefit:fo="1" scalefit:html="0"!

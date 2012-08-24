@@ -25,7 +25,7 @@ In this example, all contents in the _/Sites Management/acme/events/All_ node wi
 
 *i. Configure the left portlet as follows*:
 
-!images/navigation_by_content_feature/browseByCLV.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
+!images/navigation_by_content_feature/browseByCLV.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
 
 In which:
 
@@ -38,7 +38,7 @@ In which:
 
 *ii. Configure the right portlet as follows*:
 
-!images/navigation_by_content_feature/showListCLV.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
+!images/navigation_by_content_feature/showListCLV.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
 
 In which:
 
@@ -73,7 +73,7 @@ h1. Add content to the navigation {anchor:id=DEV.WorkWithContent.NavigationByCon
 
 *3.* Fill values into the *Content Navigation* form:
 
-!images/navigation_by_content_feature/Navigation_form.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
+!images/navigation_by_content_feature/Navigation_form.png|align="center" width="100mm" fo:scalefit="1" html:scalefit="0"!
 
 In which:
 
@@ -225,11 +225,11 @@ Select the *X-Ray* content and see the newly implemented content using new visua
 
 * Coverflow section:
 
-!images/navigation_by_content_feature/coverflow.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
+!images/navigation_by_content_feature/coverflow.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
 
 * Related documents:
 
-!images/navigation_by_content_feature/relatedDocuments.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
+!images/navigation_by_content_feature/relatedDocuments.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
 
 
 h1. Examples of creating data for Navigation By Content {anchor:id=DEV.WorkWithContent.NavigationByContent.CreateDataForNavigationByContentExamples}
@@ -289,11 +289,11 @@ Your newly created product is now ready to be displayed in some pages.
 
 *9.* Publish your newly created product. Note that you can select this content from a CLV:
 
-!images/navigation_by_content_feature/sampleProductCLV.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
+!images/navigation_by_content_feature/sampleProductCLV.png|align="center" width="100mm" fo:scalefit="1" html:scalefit="0"!
 
 As a result, the content will be displayed in a detailed page as follows:
 
-!images/navigation_by_content_feature/sampleProductDetail.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
+!images/navigation_by_content_feature/sampleProductDetail.png|align="center" width="100mm" fo:scalefit="1" html:scalefit="0"!
 
 
 h2. Develop your own Product content {anchor:id=DEV.WorkWithContent.NavigationByContent.CreateDataForNavigationByContentExamples.DevelopProductContent}
