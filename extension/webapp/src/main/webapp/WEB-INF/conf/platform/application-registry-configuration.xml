@@ -334,40 +334,12 @@
                     </object>
                   </value><value>
                     <object type="org.exoplatform.application.registry.Application">
-                      <field name="applicationName"><string>ContactPortlet</string></field>
-                      <field name="categoryName"><string>collaboration</string></field>
-                      <field name="displayName"><string>Address Book</string></field>
-                      <field name="description"><string>Contact Portlet</string></field>
-                      <field name="type"><string>portlet</string></field>
-                      <field name="contentId"><string>contact/ContactPortlet</string></field>
-                      <field name="accessPermissions">
-                        <collection type="java.util.ArrayList" item-type="java.lang.String">
-                          <value><string>*:/platform/users</string></value>
-                        </collection>
-                      </field>
-                    </object>
-                  </value><value>
-                    <object type="org.exoplatform.application.registry.Application">
                       <field name="applicationName"><string>FAQPortlet</string></field>
                       <field name="categoryName"><string>collaboration</string></field>
                       <field name="displayName"><string>FAQ</string></field>
                       <field name="description"><string>FAQ Portlet</string></field>
                       <field name="type"><string>portlet</string></field>
                       <field name="contentId"><string>answer/FAQPortlet</string></field>
-                      <field name="accessPermissions">
-                        <collection type="java.util.ArrayList" item-type="java.lang.String">
-                          <value><string>*:/platform/users</string></value>
-                        </collection>
-                      </field>
-                    </object>
-                  </value><value>
-                    <object type="org.exoplatform.application.registry.Application">
-                      <field name="applicationName"><string>MailPortlet</string></field>
-                      <field name="categoryName"><string>collaboration</string></field>
-                      <field name="displayName"><string>Mail</string></field>
-                      <field name="description"><string>Mail Portlet</string></field>
-                      <field name="type"><string>portlet</string></field>
-                      <field name="contentId"><string>mail/MailPortlet</string></field>
                       <field name="accessPermissions">
                         <collection type="java.util.ArrayList" item-type="java.lang.String">
                           <value><string>*:/platform/users</string></value>
