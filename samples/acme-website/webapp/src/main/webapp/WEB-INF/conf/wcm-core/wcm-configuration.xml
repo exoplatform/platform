@@ -112,38 +112,6 @@
     </component>
 
     <component>
-        <key>org.exoplatform.services.jcr.ext.classify.NodeClassifyService</key>
-        <type>org.exoplatform.services.jcr.ext.classify.impl.NodeClassifyServiceImpl</type>
-        <component-plugins>
-            <component-plugin>
-                <name>AlphabetClassifyPlugin</name>
-                <set-method>addClassifyPlugin</set-method>
-                <type>org.exoplatform.services.jcr.ext.classify.impl.AlphabetClassifyPlugin</type>
-            </component-plugin>
-            <component-plugin>
-                <name>DateTimeClassifyPlugin</name>
-                <set-method>addClassifyPlugin</set-method>
-                <type>org.exoplatform.services.jcr.ext.classify.impl.DateTimeClassifyPlugin</type>
-                <init-params>
-                    <properties-param>
-                        <name>plugin-params</name>
-                        <description>service-params</description>
-                        <property name="DateTimeTemplate" value="YYYY-#{YYYY+4}/MM" />
-                        <property name="DateTimePropertyName" value="" />
-                        <property name="StartTime" value="2002-2" />
-                        <property name="EndTime" value="2020-9" />
-                    </properties-param>
-                </init-params>
-            </component-plugin>
-            <component-plugin>
-                <name>TypeClassifyPlugin</name>
-                <set-method>addClassifyPlugin</set-method>
-                <type>org.exoplatform.services.jcr.ext.classify.impl.TypeClassifyPlugin</type>
-            </component-plugin>
-        </component-plugins>
-    </component>
-
-    <component>
         <key>org.exoplatform.services.jcr.ext.distribution.DataDistributionManager</key>
         <type>org.exoplatform.services.jcr.ext.distribution.impl.DataDistributionManagerImpl</type>
     </component>
