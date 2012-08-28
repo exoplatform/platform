@@ -209,7 +209,6 @@ function getModule(params)
    addDependency(new Project("org.exoplatform.ecms","ecms-upgrade-favorite","jar", ecmsVersion)).
    addDependency(new Project("org.exoplatform.ecms","ecms-upgrade-templates","jar", ecmsVersion)).
    addDependency(new Project("org.exoplatform.calendar","calendar-upgrade","jar", calendarVersion)).
-   addDependency(new Project("org.exoplatform.wiki","wiki-upgrade","jar", wikiVersion)).
    addDependency(new Project("org.exoplatform.forum","forum-component-upgrade","jar", forumVersion));
 
    return module;

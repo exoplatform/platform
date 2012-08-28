@@ -936,11 +936,6 @@
       <version>${org.exoplatform.calendar.version}</version>
     </dependency>
     <dependency>
-      <groupId>org.exoplatform.wiki</groupId>
-      <artifactId>wiki-upgrade</artifactId>
-      <version>${org.exoplatform.wiki.version}</version>
-    </dependency>
-    <dependency>
         <groupId>org.exoplatform.forum</groupId>
         <artifactId>forum-component-upgrade</artifactId>
         <version>${org.exoplatform.forum.version}</version>
