@@ -147,6 +147,10 @@ public class UIMySpacePlatformToolBarPortlet extends UIPortletApplication {
       }
       Space space = spaceService.getSpaceByUrl(spaceUrl);
       if (space != null) {
+        // node has no page.
+        if (applicationNode.getPageRef() == null) {
+          return false;
+        }
         if (spaceService.hasSettingPermission(space, remoteUser)) {
           return true;
         }
