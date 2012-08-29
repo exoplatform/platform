@@ -610,20 +610,6 @@
                   </value>
                   <value>
                     <object type="org.exoplatform.application.registry.Application">
-                      <field name="applicationName"><string>messageslist</string></field>
-                      <field name="categoryName"><string>tools</string></field>
-                      <field name="displayName"><string>Unread Messages</string></field>
-                      <field name="description"><string>Unread Messages.</string></field>
-                      <field name="type"><string>gadget</string></field>
-                      <field name="contentId"><string>messageslist</string></field>
-                      <field name="accessPermissions">
-                        <collection type="java.util.ArrayList" item-type="java.lang.String">
-                          <value><string>*:/platform/users</string></value>
-                        </collection>
-                      </field>
-                    </object>
-                  </value><value>
-                    <object type="org.exoplatform.application.registry.Application">
                       <field name="applicationName"><string>WhoIsOnline</string></field>
                       <field name="categoryName"><string>tools</string></field>
                       <field name="displayName"><string>Who Is Online ?</string></field>
