@@ -2,7 +2,7 @@ h1. Engagement gadgets {anchor:id=GadgetUserguide.AngagementGadgets}
 *Engagement* gadgets include gadgets designed to aid users in engagement activities and events.
 These gadgets analyze the existing communications and community engagement in your organization, then show what is going on by providing statistics.
 
-eXo Platform currently provides 3 types of *Engagement* gadget as follows:
+eXo Platform currently provides 4 types of *Engagement* gadget as follows:
 * [Latest Forum Posts|#GadgetUserguide.AngagementGadgets.LatestForumPosts]
 * [Top Voted Topics|#GadgetUserguide.AngagementGadgets.TopVotedTopics]
 * [Forum Statistics|#GadgetUserguide.AngagementGadgets.ForumStatistics]
