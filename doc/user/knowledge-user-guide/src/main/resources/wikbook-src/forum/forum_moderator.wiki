@@ -527,7 +527,7 @@ This form lists all the pending topics, posts and the created dates. From here, 
 !images/mod_view_topic.png|align="center" width="80mm" fo:scalefit="1" html:scalefit="0"!
 {docbook}
 <para>
-            <emphasis role="bold">2.</emphasis> Click the <guibutton>Approve</guibutton> button to accept approving topic/post.</para>
+            <emphasis role="bold">2.</emphasis> Click <guibutton>Approve</guibutton> to accept approving topic/post.</para>
 {docbook}
 {docbook}
 <citetitle>

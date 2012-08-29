@@ -3,45 +3,57 @@
         <itemizedlist>
             <listitem>
                 <para>
-                   <link linkend="Soc_User_Guide.Space_Management.Create_Space">Create a space</link>: Learn to create a new space with new settings, permission and members.
+                   <link linkend="Soc_User_Guide.Space_Management.Create_Space">Create a space</link>
+				</para>
+				<para>
+					Steps to create a new space with new settings, permission and members.
                 </para>
             </listitem>
             <listitem>
                 <para>
-                   <link linkend="Soc_User_Guide.Space_Management.Edit_Space">Edit a space</link>: Learn to modify the space information and preferences.
+                   <link linkend="Soc_User_Guide.Space_Management.Edit_Space">Edit a space</link>
+				</para>
+				<para>
+					Ways to access <emphasis role="bold">Space Settings</emphasis> and steps to modify the space information and visibility, to manage members and space applications, or to edit space navigation.
                 </para>
             </listitem>
             <listitem>
                 <para>
-                   <link linkend="Soc_User_Guide.Space_Management.Join_Space">Join/Leave a space</link>: Learn to join/leave a space.
+                   <link linkend="Soc_User_Guide.Space_Management.Join_Space">Join/Leave a space</link>
+				</para>
+				<para>
+					Instructions on how to join/leave a space, or to revoke your request.
                 </para>
             </listitem>
             <listitem>
                 <para>
-                   <link linkend="Soc_User_Guide.Space_Management.View_Details_Of_Space">View details of a space</link>: Learn to view all spaces that you are the member or manager.
+                   <link linkend="Soc_User_Guide.Space_Management.View_Details_Of_Space">View details of a space</link>
+				</para>
+				<para>
+					Ways to view the detailed page of spaces where you are the member or manager.
                 </para>
             </listitem>
             <listitem>
                 <para>
-                   <link linkend="Soc_User_Guide.Space_Management.Delete_Space">Delete a space</link>: Learn to delete a space that you manage.
-                </para>
-            </listitem>
-            <listitem>
-                <para>
-                   <link linkend="Soc_User_Guide.Space_Management.Join_Space.Search">Search for spaces</link>: Learn to use the <emphasis role="bold">Search</emphasis> function to find spaces.
+                   <link linkend="Soc_User_Guide.Space_Management.Join_Space.Search">Search for spaces</link>
+				</para>
+				<para>
+					Steps to find spaces by Name and Description or Alphabets.
                 </para>
             </listitem>
               <listitem>
                 <para>
-                   <link linkend="Soc_User_Guide.Space_Management.Edit_Space.Manage_Members.Accept_Mem">Accept/Ignore invitations</link>: Learn to accept or ignore a request/invitation.
+                   <link linkend="Soc_User_Guide.Space_Management.Edit_Space.Manage_Members.Accept_Mem">Accept/Ignore invitations</link>
+				</para>
+				<para>
+					Steps to accept or ignore a request/invitation.
                 </para>
             </listitem>
         </itemizedlist>
     </highlights>
 {docbook}
 
-
-The concept "team work" becomes very familiar in business environment. By establishing one specific team or group, you and your collaborators can work together on important projects. Based on the importance of team working, eXo Platform develops the
+The "team work" concept becomes very familiar in business environment. By establishing one specific team or group, you and your collaborators can work together on important projects. Based on the importance of team working, eXo Platform develops the
 *Space* application, allowing you to collaborate with specific people. This means that if you want to work on a team project, you can create a space for your team members to make organizations, share links and information related to the project.
 
 {docbook}

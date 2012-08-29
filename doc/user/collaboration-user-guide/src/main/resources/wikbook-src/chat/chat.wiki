@@ -3,22 +3,34 @@
         <itemizedlist>
             <listitem>
                 <para>
-                   <link linkend="CSUser_guide.How_to_use_Chat.Create_a_chat_room.Add_contact_to_friends_list">Add contacts to your friend list</link>: Learn to add a contact to your contact list.
+                   <link linkend="CSUser_guide.How_to_use_Chat.Create_a_chat_room.Add_contact_to_friends_list">Add contacts to your friend list</link>
+				</para>
+				<para>
+				Steps to add a contact to your contact list.
                 </para>
             </listitem>
             <listitem>
                 <para>
-                   <link linkend="CSUser_guide.How_to_use_Chat.Remove_contact">Remove a contact</link>: Learn to remove a contact from your contact list.
+                   <link linkend="CSUser_guide.How_to_use_Chat.Remove_contact">Remove a contact</link>
+				</para>
+				<para>
+				Steps to remove a contact from your contact list.
                 </para>
             </listitem>
             <listitem>
                 <para>
-                   <link linkend="CSUser_guide.How_to_use_Chat.Chat_with_contact">Chat with a contact</link>: Learn how to start a conversation with a contact and perform other related actions: set the online status, send files, export or show the chat history.
+                   <link linkend="CSUser_guide.How_to_use_Chat.Chat_with_contact">Chat with a contact</link>
+				</para>
+				<para>
+				How to start a conversation with a contact and to perform many related actions, such as setting the online status, sending files, exporting or showing the chat history.
                 </para>
             </listitem>
             <listitem>
                 <para>
-                   <link linkend="CSUser_guide.How_to_use_Chat.Create_a_chat_room">Create a chat room</link>: Learn to create a chat room and perform other related actions: add people to a chat room, join/leave a chat room and change chat room preferences.
+                   <link linkend="CSUser_guide.How_to_use_Chat.Create_a_chat_room">Create a chat room</link>
+				</para>
+				<para>
+					Steps to create a chat room and perform many related actions, including: adding people, joining/leaving a chat room and changing the chat room preferences.
                 </para>
             </listitem>
         </itemizedlist>
@@ -50,7 +62,7 @@ To use the *Chat* feature, you first need to add the Chat portlet or the Chatbar
 {docbook}
 <para>
         <emphasis role="bold">1.</emphasis> Drag and drop the application called <guilabel>Chat Portlet</guilabel>
-        or <emphasis role="bold">ChatBar Portlet</emphasis> from the <menuchoice><guimenu> Edit Inline Composer/Page Editor</guimenu><guisubmenu>Applications</guisubmenu> <menuitem>Collaboration</menuitem></menuchoice> to the body of your selected site/page.  You can do this step while <link linkend="sect-User_Guide-Page_Creation_Wizard">creating a new page</link>, or <link linkend="sect-User_Guide-Manage_Pages-Edit_a_Page">editing an existing page</link>, or <link linkend="proc-User_Guide-Manage_Portals-Edit_Layout">editing the portal layout.</link> For example, drag and drop the <guilabel>Chatbar</guilabel> portlet as the below illustration.</para>
+        or <emphasis role="bold">ChatBar Portlet</emphasis> from the <menuchoice><guimenu> Edit Inline Composer/Page Editor</guimenu><guisubmenu>Applications</guisubmenu> <guimenuitem>Collaboration</guimenuitem></menuchoice> to the body of your selected site/page.  You can do this step while <link linkend="sect-User_Guide-Page_Creation_Wizard">creating a new page</link>, or <link linkend="sect-User_Guide-Manage_Pages-Edit_a_Page">editing an existing page</link>, or <link linkend="proc-User_Guide-Manage_Portals-Edit_Layout">editing the portal layout.</link> For example, drag and drop the <guilabel>Chatbar</guilabel> portlet as the below illustration.</para>
 {docbook}
 
 !images/Chat_drag_chat_bar.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
@@ -122,7 +134,7 @@ You can use the *Search* function to search for a specific contact.
 
 {docbook}
 <para>
-    <emphasis role="bold">3.</emphasis> Click the <guibutton>Add Contact</guibutton> button to add your selected contacts to your friend list.</para>
+    <emphasis role="bold">3.</emphasis> Click <guibutton>Add Contact</guibutton> to add your selected contacts to your friend list.</para>
 {docbook}
 
 Your invited contacts will receive the request messages.
@@ -564,7 +576,15 @@ Also, you can search for contacts through your *Address Book* simply entering th
   <emphasis role="bold">3.</emphasis> Click <guilabel>Add Contact</guilabel> to finish. The contacts you want to add will receive your invitation message.</para>
 {docbook}
 
-h2. Join a chat room {anchor:id="CSUser_guide.How_to_use_Chat.Join_chat_room"}
+h2. Join/Leave a chat room {anchor:id="CSUser_guide.How_to_use_Calendar.Join_Leave_chat_room"}
+
+{docbook}
+<para xml:id="CSUser_guide.How_to_use_Chat.Join_chat_room">
+<citetitle>
+<emphasis role="bold">Join a chat room</emphasis>
+</citetitle>
+</para>
+{docbook}
 
 When joining a chat room, you can learn more about a subject, ask questions and talk with others having common interests. Joining a chat room is just few clicks away.
 
@@ -590,7 +610,13 @@ When joining a chat room, you can learn more about a subject, ask questions and 
 </note>
 {docbook}
 
-h2. Leave a chat room {anchor:id="CSUser_guide.How_to_use_Calendar.Leave_chat_room"}
+{docbook}
+<para xml:id="CSUser_guide.How_to_use_Calendar.Leave_chat_room">
+<citetitle>
+<emphasis role="bold">Leave a chat room</emphasis>
+</citetitle>
+</para>
+{docbook}
 
 Click !images/leave_room_icon.png|width="13mm" fo:scalefit="1" html:scalefit="0"! on the room conversation window.
 
