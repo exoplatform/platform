@@ -3,72 +3,122 @@
         <itemizedlist>
             <listitem>
                 <para>
-                   <link linkend="CSUser_guide.How_to_use_Mail.Create_mail_account">Create a Mail account</link>: Learn to create a mail account that connects to another mail POP3 or SMTP supported servers.
+                   <link linkend="CSUser_guide.How_to_use_Mail.Create_mail_account">Create a Mail account</link>
+				</para>
+				<para>
+				Steps to create a mail account that connects to another mail POP3 or SMTP supported servers and ways to edit/delete your account as well more information of Incoming and Outcoming mail server settings.
                 </para>
             </listitem>
             <listitem>
                 <para>
-                   <link linkend="CSUser_guide.How_to_use_Mail.Get_mail">Get mails</link>: Learn to fetch messages from the remote mail servers and forward them via SMTP, so it can be read in Mail.
+                   <link linkend="CSUser_guide.How_to_use_Mail.Get_mail">Get mails</link>
+				</para>
+				<para>
+					Steps to fetch messages from the remote mail servers and forward them via SMTP, so it can be read in <emphasis role="bold">Mail</emphasis>.
                 </para>
             </listitem>
             <listitem>
                 <para>
-                   <link linkend="CSUser_guide.How_to_use_Mail.Mail_views">Mail views</link>: Learn about different view modes in Mail.
+                   <link linkend="CSUser_guide.How_to_use_Mail.Mail_views">Mail views</link>
+				</para>
+				<para>
+					Introduction to the different view modes in <emphasis role="bold">Mail</emphasis>.
                 </para>
             </listitem>
             <listitem>
                 <para>
-                   <link linkend="CSUser_guide.How_to_use_Mail.Read_email">Read an email</link>: Learn to open an email and perform other actions, such as download attachments, mark as read, star messages, move to folder, mark as spam, delete messages.
+                   <link linkend="CSUser_guide.How_to_use_Mail.Read_email">Read an email</link>
+				</para>
+				<para>
+				Instructions on how to open an email and to perform other actions, such as downloading attachments, marking as read, staring messages, moving to folder, marking as spam, deleting messages.
                 </para>
             </listitem>
             <listitem>
                 <para>
-                   <link linkend="Compose_new_message">Compose a new message</link>: Learn to compose a new message and perform other actions: add attachments, save as draft, set priority level, change message signatures, change message preferences.
+                   <link linkend="Compose_new_message">Compose a new message</link>
+				</para>
+				<para>
+				Steps to compose a new message and to perform other actions: adding attachments, saving as draft, setting priority level, changing message signatures and message preferences.
                 </para>
             </listitem>
             <listitem>
                 <para>
-                   <link linkend="CSUser_guide.How_to_use_Mail.Reply_to_message">Reply to a message</link>: Learn to reply to a message.
+                   <link linkend="CSUser_guide.How_to_use_Mail.Reply_to_message">Reply to a message</link>
+				</para>
+				<para>
+				Steps and ways to reply to the sender only or to all recipients of the message.
                 </para>
             </listitem>
             <listitem>
                 <para>
-                   <link linkend="CSUser_guide.How_to_use_Mail.Forward_message">Forward a message</link>: Learn to re-send messages to other people.
+                   <link linkend="CSUser_guide.How_to_use_Mail.Forward_message">Forward a message</link>
+				</para>
+				<para>
+				Steps to re-send messages to other people.
                 </para>
             </listitem>
             <listitem>
                 <para>
-                   <link linkend="CSUser_guide.How_to_use_Mail.Print_message">Print a message</link>: Learn to take a hard copy of the message, provided that your device is connected to a printer, either directly or through a network connection.
+                   <link linkend="CSUser_guide.How_to_use_Mail.Print_message">Print a message</link>
+				</para>
+				<para>
+					Steps to take a hard copy of the message, provided that your device is connected to a printer, either directly or through a network connection.
                 </para>
             </listitem>
             <listitem>
                 <para>
-                   <link linkend="CSUser_guide.How_to_use_Mail.Export_messages">Export a message</link>: Learn to back up your messages, then import them into your another accounts.
+                   <link linkend="CSUser_guide.How_to_use_Mail.Export_messages">Export a message</link>
+				</para>
+				<para>
+					Steps to back up your messages, then import them into your another accounts.
                 </para>
             </listitem>
             <listitem>
                 <para>
-                   <link linkend="CSUser_guide.How_to_use_Mail.Import_messages">Import a message</link>: Learn to import a message from your device to your selected folder.
+                   <link linkend="CSUser_guide.How_to_use_Mail.Import_messages">Import a message</link>
+				</para>
+				<para>
+				Steps to import a message from your device to your selected folder.
                 </para>
             </listitem>
             <listitem>
                 <para>
-                   <link linkend="CSUser_guide.How_to_use_Mail.Categorize_messages_by_folders_tags_filters">Categorize messages by folders/tags/filters</link>: Learn to manage message by using folders, tags or creating a filter to categorize message.
+                   <link linkend="CSUser_guide.How_to_use_Mail.Categorize_messages_by_folders_tags_filters">Categorize messages by folders/tags/filters</link>
+				</para>
+				<para>
+				Ways to manage message by using folders, tags or by creating a filter to categorize message.
                 </para>
             </listitem>
             <listitem>
                 <para>
-                   <link linkend="Search_messages">Search for messages</link>: Learn to use <emphasis role="bold">Quick Search</emphasis> and <emphasis role="bold">Advanced Search</emphasis> to find messages.
+                   <link linkend="Search_messages">Search for messages</link>
+				</para>
+				<para>
+				Introduction to 2 search modes (Quick and Advanced) supported by the <emphasis role="bold">Mail</emphasis> application, and ways to use them.
                 </para>
             </listitem>
             <listitem>
                 <para>
-                   <link linkend="Add_event">Add an event</link>: Learn to invite your colleagues to join events. You can create events, invite them by sending message or make email notifications to receive reminders right in the Mail application.
+                   <link linkend="Add_event">Add an event</link>
+				</para>
+				<para>
+					Steps to invite your colleagues to join events. You can create events, invite them by sending message or make email notifications to receive reminders right in the <emphasis role="bold">Mail</emphasis> application.
                 </para>
             </listitem>
+			<listitem>
+				<para>
+					<link linkend="Manage_address_books_in_Mail">Manage Address Book in <emphasis role="bold">Mail</emphasis></link>
+				</para>
+				<para>
+					Introduction to some actions related to managing contacts and address books in <emphasis role="bold">Mail</emphasis>, and steps to perform them, including: adding a new address book/contact, editing contact details and deleting a contact.
+				</para>
+			</listitem>
             <listitem>
                 <para>
-                   <link linkend="Mail_settings">Change Mail settings</link>: Learn to change the <emphasis role="bold">Mail</emphasis> settings to your preferences.
+                   <link linkend="Mail_settings">Change <emphasis role="bold">Mail</emphasis> settings</link>
+				</para>
+				<para>
+					Steps and details to change the <emphasis role="bold">Mail</emphasis> settings to your preferences, including basic information, options when <emphasis role="bold">Mail</emphasis> gets a "Return Receipt" request, the <emphasis role="bold">Mail</emphasis> layout, and delegation of your account to any registered user in the system.
                 </para>
             </listitem>
         </itemizedlist>
@@ -78,7 +128,7 @@
 {docbook}
 <note>
 <para>
-The <emphasis role="bold">Mail</emphasis> portlet and its services are deprecated. It remains fully supported for eXo customers, however it will not receive any enhancement and will be removed from the product scope in the future.
+The <emphasis role="bold">Mail</emphasis> portlet and its services are deprecated. It remains fully supported for eXo customers, however it will not receive any enhancement and will be removed from the product scope in future.
 </para>
 </note>
 {docbook}
@@ -2214,14 +2264,7 @@ If you want to invite your colleagues to join a conference or a meeting, you can
           <emphasis role="bold">4.</emphasis> Click <guibutton>Save</guibutton> to finish adding your event.</para>
 {docbook}
 
-{docbook}
-<citetitle>
-    <para xml:id="Manage_address_books_in_Mail">
-        <emphasis role="bold">Manage Address Book in Mail</emphasis>
-    </para>
-</citetitle>
-{docbook}
-
+h1. Manage Address Book in Mail {anchor:id="Manage_address_books_in_MailRoleNotInToc"}
 *Address Book* in the *Mail* application provides you with a list of contacts which can be retrieved for sending your mails. This section will explain some actions related to managing contacts and address books in *Mail* via the following topics:
 
 * [Add a new address book|#Add_address_book]

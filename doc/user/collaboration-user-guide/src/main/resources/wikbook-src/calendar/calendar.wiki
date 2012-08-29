@@ -3,62 +3,98 @@
         <itemizedlist>
             <listitem>
                 <para>
-                   <link linkend="CSUser_guide.How_to_use_Calendar.Calendar_views">Calendar views</link>: Get used to the Calendar interface.
+                   <link linkend="CSUser_guide.How_to_use_Calendar.Calendar_views">Calendar views</link>
+				</para>
+				<para>
+				Introduction to the Calendar interface and its components.
                 </para>
             </listitem>
             <listitem>
                 <para>
-                   <link linkend="CSUser_guide.How_to_use_Calendar.Manage_calendar_groups">Manage a calendar group</link>: Learn to create, edit and remove calendar group.
+                   <link linkend="CSUser_guide.How_to_use_Calendar.Manage_calendar_groups">Manage a calendar group</link>
+				</para>
+				<para>
+				Steps to create, edit and remove a calendar group.
                 </para>
             </listitem>
             <listitem>
                 <para>
-                   <link linkend="CSUser_guide.How_to_use_Calendar.Create_calendars">Create a calendar</link>: Learn to create a personal calendar, calendar for a group or a remote calendar.
+                   <link linkend="CSUser_guide.How_to_use_Calendar.Create_calendars">Create a calendar</link>
+				</para>
+				<para>
+					Steps to create a personal calendar, calendar for a group or a remote calendar.
                 </para>
             </listitem>
 			<listitem>
                 <para>
-                   <link linkend="CSUser_guide.How_to_use_Calendar.Edit_calendar">Edit a calendar</link>: Learn to edit a calendar details and properties.
+                   <link linkend="CSUser_guide.How_to_use_Calendar.Edit_calendar">Edit a calendar</link>
+				</para>
+				<para>
+					Steps to edit details and properties of a calendar, to set the calendar color, and to delete a calendar.
                 </para>
             </listitem>
             <listitem>
                 <para>
-                   <link linkend="Export_and_import_calendar">Export/Import a calendar</link>: Learn to import calendars or export calendars to a calendar application that supports ICalendar format.
+                   <link linkend="Export_and_import_calendar">Export/Import a calendar</link>
+				</para>
+				<para>
+				Steps to import calendars or export calendars to a calendar application that supports ICalendar format.
                 </para>
             </listitem>
 			<listitem>
                 <para>
-                   <link linkend="CSUser_guide.How_to_use_Calendar.Share_calendar">Share a personal calendar</link>: Learn to share your personal calendar with other users, so that they can participate in all activities of this calendar.
+                   <link linkend="CSUser_guide.How_to_use_Calendar.Share_calendar">Share a personal calendar</link>
+				</para>
+				<para>
+					Information of setting permissions on your shared calendar, steps to share your personal calendar with other users so that they can participate in all activities of this calendar.
                 </para>
             </listitem>
             <listitem>
                 <para>
-                   <link linkend="CSUser_guide.How_to_use_Calendar.Schedule_event">Schedule an event</link>: Learn to perform common actions with events in Calendar: Create, edit, delete, import and export events.
+                   <link linkend="CSUser_guide.How_to_use_Calendar.Schedule_event">Schedule an event</link>
+				</para>
+				<para>
+					Steps to perform common actions with events in Calendar: Create, edit, delete, import and export events.
                 </para>
             </listitem>
             <listitem>
                 <para>
-                   <link linkend="CSUser_guide.How_to_use_Calendar.Schedule_task">Schedule a task</link>: Learn to perform common actions with events in Calendar: Create, edit, delete, import and export tasks.
+                   <link linkend="CSUser_guide.How_to_use_Calendar.Schedule_task">Schedule a task</link>
+				</para>
+				<para>
+				Steps to perform common actions with events in Calendar: Create, edit, delete, import and export tasks.
                 </para>
             </listitem>
             <listitem>
                 <para>
-                   <link linkend="CSUser_guide.How_to_use_Calendar.Search_for_events_tasks">Search for events/tasks</link>: Learn to find existing events/tasks according to specific search conditions.
+                   <link linkend="CSUser_guide.How_to_use_Calendar.Search_for_events_tasks">Search for events/tasks</link>
+				</para>
+				<para>
+					Steps to find existing events/tasks according to specific search conditions.
                 </para>
             </listitem>
             <listitem>
                 <para>
-                   <link linkend="CSUser_guide.How_to_use_Calendar.More_actions">More actions</link>: Learn to perform other useful actions in Calendar to take advantage of all productivity features.
+                   <link linkend="CSUser_guide.How_to_use_Calendar.More_actions">More actions</link>
+				</para>
+				<para>
+					Steps to perform other useful actions in Calendar to take advantage of all productivity features.
                 </para>
             </listitem>
             <listitem>
                 <para>
-                   <link linkend="CSUser_guide.How_to_use_Calendar.Agenda_gadget">Add My Agenda gadget to your page</link>: Learn to add <emphasis role="bold">My Agenda</emphasis> gadget to your page to list upcoming events and tasks from your personal calendar.
+                   <link linkend="CSUser_guide.How_to_use_Calendar.Agenda_gadget">Add My Agenda gadget to your page</link>
+				</para>
+				<para>
+					Steps to add <emphasis role="bold">My Agenda</emphasis> gadget to your page to list upcoming events and tasks from your personal calendar.
                 </para>
             </listitem>
             <listitem>
                 <para>
-                   <link linkend="CSUser_guide.How_to_use_Calendar.My_tasks">Add My Tasks gadget to your page</link>: Learn to add <emphasis role="bold">My Tasks</emphasis> gadget to your page to list upcoming tasks of the current day from your personal calendar.
+                   <link linkend="CSUser_guide.How_to_use_Calendar.My_tasks">Add My Tasks gadget to your page</link>
+				</para>
+				<para>
+					Steps to add the <emphasis role="bold">My Tasks</emphasis> gadget to your page to list upcoming tasks of the current day from your personal calendar.
                 </para>
             </listitem>
         </itemizedlist>
@@ -1052,7 +1088,7 @@ Click the appropriate time slot in the calendar view pane. Drag your cursor to a
                   </row>
                   <row>
                     <entry>
-                      <guilabel>>Description</guilabel>
+                      <guilabel>Description</guilabel>
                     </entry>
                     <entry>The detailed description of the event.</entry>
                   </row>
@@ -1093,7 +1129,7 @@ Click the appropriate time slot in the calendar view pane. Drag your cursor to a
 
 {docbook}
 <para>
-<emphasis role="bold">2.</emphasis> Give information for your event. Click the <guilabel>More Details</guilabel> button to show the event in more details that allows you to define more properties of the event.</para>
+<emphasis role="bold">2.</emphasis> Give information for your event. Click <guilabel>More Details</guilabel> to show the event in more details that allows you to define more properties of the event.</para>
 {docbook}
 
 {docbook}
@@ -1414,7 +1450,7 @@ Here, you can define the repeating time for your event as follows:
 
 {docbook}
 <para>
-<emphasis role="bold">3.</emphasis> Click the <guibutton>Add</guibutton> button to add your selected emails, or click the <guibutton>Replace</guibutton> button to replace existing emails with your selected emails.</para>
+<emphasis role="bold">3.</emphasis> Click <guibutton>Add</guibutton> to add your selected emails, or click <guibutton>Replace</guibutton> to replace existing emails with your selected emails.</para>
 {docbook}
 
 {docbook}
@@ -2349,7 +2385,7 @@ This function allows you to make a search with multiple criteria.
 
 {docbook}
 <para>
-<emphasis role="bold">3.</emphasis> Click the <guibutton>Search</guibutton> button to perform your search. All events/tasks matching with your criteria will be listed in the results form.</para>
+<emphasis role="bold">3.</emphasis> Click <guibutton>Search</guibutton> to perform your search. All events/tasks matching with your criteria will be listed in the results form.</para>
 {docbook}
 
 {docbook}
@@ -2393,7 +2429,7 @@ Click directly !images/RSS_icon2.png|width="13mm" fo:scalefit="1" html:scalefit=
 
 {docbook}
 <para>
-<emphasis role="bold">2.</emphasis> Click the <guibutton>Add</guibutton> button to open the <guilabel>Edit Feed</guilabel> form.</para>
+<emphasis role="bold">2.</emphasis> Click <guibutton>Add</guibutton> to open the <guilabel>Edit Feed</guilabel> form.</para>
 {docbook}
 
 !images/edit_feed.png|align="center" width="120mm"  fo:scalefit="1" html:scalefit="0"!

@@ -3,44 +3,66 @@
         <itemizedlist>
             <listitem>
                 <para>
-                   <link linkend="Soc_User_Guide.Activity_Management.Update_Status">Update status</link>: Learn update your status on <emphasis role="bold">Activity Stream</emphasis>.
+                   <link linkend="Soc_User_Guide.Activity_Management.Update_Status">Update status</link>
+				</para>
+				<para>
+					Ways to post your new status on <emphasis role="bold">Activity Stream</emphasis>.
                 </para>
             </listitem>
             <listitem>
                 <para>
-                   <link linkend="Soc_User_Guide.Activity_Management.Share_Link">Share a link</link>: Learn to add a link to your status and share it on the <emphasis role="bold">Activity Stream</emphasis>.
+                   <link linkend="Soc_User_Guide.Activity_Management.Share_Link">Share a link</link>
+				</para>
+				<para>
+					Steps to add a link to your status and share it on <emphasis role="bold">Activity Stream</emphasis>.
                 </para>
             </listitem>
             <listitem>
                 <para>
-                   <link linkend="Soc_User_Guide.Activity_Management.Share_File">Share a file</link>: Learn to add a file to your status and share it on the <emphasis role="bold">Activity Stream</emphasis>.
+                   <link linkend="Soc_User_Guide.Activity_Management.Share_File">Share a file</link>
+				</para>
+				<para>
+					Steps to add a file to your status and share it on <emphasis role="bold">Activity Stream</emphasis>.
                 </para>
             </listitem>
             <listitem>
                 <para>
-                   <link linkend="Soc_User_Guide.Activity_Management.Delete_Activity">Delete activities/comments</link>: Learn to remove a activity or comment from the <emphasis role="bold">Activity Stream</emphasis>.
+                   <link linkend="Soc_User_Guide.Activity_Management.Delete_Activity">Delete activities/comments</link>
+				</para>
+				<para>
+					Steps to remove activities or comments from <emphasis role="bold">Activity Stream</emphasis>.
                 </para>
             </listitem>
             <listitem>
                 <para>
-                   <link linkend="Soc_User_Guide.Activity_Management.Comment">Comment on activities</link>: Learn to comment on an activity.
+                   <link linkend="Soc_User_Guide.Activity_Management.Comment">Comment on activities</link>
+				</para>
+				<para>
+					Steps to comment on an activity that allows you to get ideas, answers, and any additional information.
                 </para>
             </listitem>
             <listitem>
                 <para>
-                   <link linkend="Soc_User_Guide.Activity_Management.Like_Activity">Like/Unlike activities</link>: Learn to show you reaction towards an activity.
+                   <link linkend="Soc_User_Guide.Activity_Management.Like_Activity">Like/Unlike activities</link>
+				</para>
+				<para>
+					Steps to show you reaction (like/unlike) towards an activity.
                 </para>
             </listitem>
             <listitem>
                 <para>
-                   <link linkend="Soc_User_Guide.Activity_Management_tags">Create rich activities with allowed HTML tags</link>: Learn to use HTML tags when posting your status.
+                   <link linkend="Soc_User_Guide.Activity_Management_tags">Create rich activities with allowed HTML tags</link>
+				</para>
+				<para>
+					Introduction to the HTML tags which you can use to create rich activities.
                 </para>
             </listitem>
         </itemizedlist>
     </highlights>
 {docbook}
 
-All activities of a user are displayed in the user's and Space's Activity Stream.
+All activities of a user are displayed in *Activity Stream* of a user and *Space*.
+
 {docbook}
 <para>To enter the <emphasis role="bold">Activity Stream</emphasis> page<anchor id="go_to_activity_stream"/>, hover your cursor over your display name (for example, John Smith) on the <emphasis role="bold">Administration</emphasis> bar and select <guilabel>Activity Stream</guilabel>.</para>
 {docbook}
@@ -50,7 +72,7 @@ All activities of a user are displayed in the user's and Space's Activity Stream
 The *Activity Stream* page consists of the following tabs:
 {docbook}
 <itemizedlist>
-        <listitem>                                                           a
+        <listitem>                                                 
           <para>
             <guilabel>All Updates:</guilabel> lists all updates of yours, of your connections, and of your spaces.</para>
         </listitem>

@@ -3,77 +3,122 @@
         <itemizedlist>
             <listitem>
                 <para>
-                   <link linkend="CSUser_guide.How_to_use_Address_book.View_contacts">View contacts</link>: Learn about the view modes in Address Book.
+                   <link linkend="CSUser_guide.How_to_use_Address_book.View_contacts">View contacts</link>
+				</para>
+				<para>
+				Introduction to the view modes in <emphasis role="bold">Address Book</emphasis>.
                 </para>
             </listitem>
             <listitem>
                 <para>
-                   <link linkend="CSUser_guide.How_to_use_Address_book.Create_new_contact">Create a new contact</link>: Learn to create and add the new contact to Address Book.
+                   <link linkend="CSUser_guide.How_to_use_Address_book.Create_new_contact">Create a new contact</link>
+				</para>
+				<para>
+				Ways to create and add the new contact to <emphasis role="bold">Address Book</emphasis>.
                 </para>
             </listitem>
             <listitem>
                 <para>
-                   <link linkend="CSUser_guide.How_to_use_Address_book.Edit_contact_details">Edit contact details</link>: Learn to update the contact's information.
+                   <link linkend="CSUser_guide.How_to_use_Address_book.Edit_contact_details">Edit contact details</link>
+				</para>
+				<para>
+				Steps to update the contact's information.
                 </para>
             </listitem>
 			<listitem>
                 <para>
-                   <link linkend="CSUser_guide.How_to_use_Address_book.Tag_contact">Tag a contact</link>:  Learn to use tag to categorize contacts.
+                   <link linkend="CSUser_guide.How_to_use_Address_book.Tag_contact">Tag a contact</link>
+				</para>
+				<para>
+				Ways and steps to use the tag to categorize contacts, including adding/editing/deleting a tag.
                 </para>
             </listitem>
 			<listitem>
                 <para>
-                   <link linkend="CSUser_guide.How_to_use_Address_book.Send_mail_to_contact">Send a mail to a contact</link>: Learn to compose and send mails to contacts in address book
+                   <link linkend="CSUser_guide.How_to_use_Address_book.Send_mail_to_contact">Send a mail to a contact</link>
+				</para>
+				<para>
+				Steps to compose and send mails to contacts in <emphasis role="bold">Address Book</emphasis>.
                 </para>
             </listitem>
 			<listitem>
                 <para>
-                   <link linkend="CSUser_guide.How_to_use_Address_book.Copy_paste_contact">Copy/Paste a contact</link>: Learn to copy/paste contacts.
+                   <link linkend="CSUser_guide.How_to_use_Address_book.Copy_paste_contact">Copy/Paste a contact</link>
+				</para>
+				<para>
+				Ways and steps to copy/paste contacts.
                 </para>
             </listitem>
 			<listitem>
                 <para>
-                   <link linkend="CSUser_guide.How_to_use_Address_book.Move_contact">Move a contact</link>:  Learn to move contacts between personal address books.
+                   <link linkend="CSUser_guide.How_to_use_Address_book.Move_contact">Move a contact</link>
+				</para>
+				<para>
+					Ways and steps to move contacts between personal address books.
                 </para>
             </listitem>
 			<listitem>
                 <para>
-                   <link linkend="CSUser_guide.How_to_use_Address_book.Delete_contact">Delete a contact</link>:  Learn to remove contacts from address books.
+                   <link linkend="CSUser_guide.How_to_use_Address_book.Delete_contact">Delete a contact</link>
+				</para>
+				<para>
+				Ways and steps to remove contacts from address books.
                 </para>
             </listitem>
             <listitem>
                 <para>
-                   <link linkend="CSUser_guide.How_to_use_Address_book.Export_contacts">Export contacts</link>: Learn to export one or more contacts into a file to be used in another address book applications.
+                   <link linkend="CSUser_guide.How_to_use_Address_book.Export_contacts">Export contacts</link>
+				</para>
+				<para>
+					Step-by-step instructions on how to export one or more contacts into a file to be used in another address book applications.
                 </para>
             </listitem>
             <listitem>
                 <para>
-                   <link linkend="CSUser_guide.How_to_use_Address_book.Import_contacts">Import contacts</link>: Learn to import one or more contacts from your device to a selected address book.
+                   <link linkend="CSUser_guide.How_to_use_Address_book.Import_contacts">Import contacts</link>
+				</para>
+				<para>
+					Step-by-step instructions on how to import one or more contacts from your device to a selected address book.
                 </para>
             </listitem>
             <listitem>
                 <para>
-                   <link linkend="CSUser_guide.How_to_use_Address_book.Print_contacts">Print contacts</link>:  Learn to print information of one or more selected contacts.
+                   <link linkend="CSUser_guide.How_to_use_Address_book.Print_contacts">Print contacts</link>
+				</para>
+				<para>
+					The ways to print information of one or more selected contacts.
                 </para>
             </listitem>
              <listitem>
                 <para>
-                   <link linkend="CSUser_guide.How_to_use_Address_book.Print_address_book">Print an Address Book</link>:  Learn to print the summary information of contacts of an address book in the form of name cards.
+                   <link linkend="CSUser_guide.How_to_use_Address_book.Print_address_book">Print an Address Book</link>
+				</para>
+				<para>
+					Steps to print the summary information of contacts of an address book in the form of name cards.
                 </para>
             </listitem>
             <listitem>
                 <para>
-                   <link linkend="CSUser_guide.How_to_use_Address_book.Share_contacts">Share contacts</link>: Learn to to share contacts with other users or groups. The shared users/groups may have <emphasis role="bold">View or Edit permissions</emphasis> on the shared contacts.
+                   <link linkend="CSUser_guide.How_to_use_Address_book.Share_contacts">Share contacts</link>
+				</para>
+				<para>
+					Steps to share contacts with other users or groups. The shared users/groups may have <emphasis role="bold">View or Edit permissions</emphasis> on the shared contacts.
                 </para>
             </listitem>
             <listitem>
                 <para>
-                   <link linkend="CSUser_guide.How_to_use_Address_book.Search_for_contacts">Search for contacts</link>: Learn to use <emphasis role="bold">Quick Search</emphasis> and <emphasis role="bold">Advanced Search</emphasis> to find contacts.
+                   <link linkend="CSUser_guide.How_to_use_Address_book.Search_for_contacts">Search for contacts</link>
+				</para>
+				<para>
+					Steps to use <emphasis role="bold">Quick Search</emphasis> and <emphasis role="bold">Advanced Search</emphasis> to find contacts.
                 </para>
             </listitem>
             <listitem>
                 <para>
-                   <link linkend="CSUser_guide.How_to_use_Address_book.Manage_address.book">Manage Address Books</link>: Learn to perform common actions for address book management: create, edit, remove, export/import, share address books and grant permission.
+                   <link linkend="CSUser_guide.How_to_use_Address_book.Manage_address.book">Manage Address Books</link>
+				</para>
+				<para>
+				Steps to perform common actions for the <emphasis role="bold">Address Book</emphasis> management: creating, editing, removing, exporting/importing, sharing address books and granting permission.
                 </para>
             </listitem>
         </itemizedlist>
@@ -663,7 +708,7 @@ This feature allows you to export one or more contacts into a file to be used in
    <emphasis role="bold">4.</emphasis> Click <guibutton>Export All</guibutton> to export all contacts in all pages; </para>
 {docbook}
 {docbook}
-<para>Or, click the <guibutton>Export Selected Only</guibutton> button to export your selected contacts only.</para>
+<para>Or, click <guibutton>Export Selected Only</guibutton> to export your selected contacts only.</para>
 {docbook}
 
 h1. Import contacts {anchor:id="CSUser_guide.How_to_use_Address_book.Import_contactsRoleNotInToc"}
@@ -733,7 +778,7 @@ The single Contact Print Preview will appear with the detailed information:
 !images/detailed_information.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
 {docbook}
 <para>
-<emphasis role="bold">2.</emphasis> Click the <guibutton>Print</guibutton> button to print.</para>
+<emphasis role="bold">2.</emphasis> Click <guibutton>Print</guibutton> to print.</para>
 {docbook}
 
 {docbook}
@@ -922,7 +967,7 @@ With this mode, you can refine your search by using a variety of criteria. Your 
 *2.* Define your search criteria. You can set the search criteria by: Text, Full Name, First Name, Last Name, Nick Name, Job Title, Email and Gender.
 {docbook}
 <para>
- <emphasis role="bold">3.</emphasis> Click the <guibutton>Search</guibutton> button to search. All contacts matching your criteria will be shown in the <guilabel>Search Result</guilabel> dialog.</para>
+ <emphasis role="bold">3.</emphasis> Click <guibutton>Search</guibutton> to perform your search. All contacts matching your criteria will be shown in the <guilabel>Search Result</guilabel> dialog.</para>
 {docbook}
 
 h1. Manage Address Books {anchor:id="CSUser_guide.How_to_use_Address_book.Manage_address.bookRoleNotInToc"}

@@ -3,17 +3,26 @@
         <itemizedlist>
             <listitem>
                 <para>
-                   <link linkend="Answer_user_guide.Administrator">Administrator</link>: Learn to perform common tasks for Administrators, such as set up <emphasis role="bold">Answer</emphasis> and <emphasis role="bold">FAQ</emphasis> portlets.
+                   <link linkend="Answer_user_guide.Administrator">Administrator</link>
+				</para>
+				<para>
+				Introduction to actions that are for administrators only and steps to perform them, such as setting up <emphasis role="bold">Answers</emphasis> and <emphasis role="bold">FAQ</emphasis> portlets.
                 </para>
             </listitem>
             <listitem>
                 <para>
-                   <link linkend="Answer_user_guide.Moderator">Moderator</link>: Learn to perform common tasks for Moderators, such as manage categories, moderate questions and answers.
+                   <link linkend="Answer_user_guide.Moderator">Moderator</link>
+				</para>
+				<para>
+					Introduction to tasks that are for moderators and steps to perform them, such as managing categories, moderating questions and answers.
                 </para>
             </listitem>
             <listitem>
                 <para>
-                   <link linkend="Answer_user_guide.Regular_user">Regular user</link>: Learn to perform common actions for regular users, such as   submit questions, answer questions, comment questions, share questions, search edit, user settings.
+                   <link linkend="Answer_user_guide.Regular_user">Regular user</link>
+				</para>
+				<para>
+					Introduction to the common actions that are for regular users and step-by-step instructions on how to perform them, such as submitting/answering/commenting/sharing questions, searching, or editing user settings.
                 </para>
             </listitem>
         </itemizedlist>
@@ -70,7 +79,6 @@ The following table summarizes actions which each user group can execute in Answ
 </note>
 {docbook}
 
-
 {docbook}
 <para>
 <prompt>
@@ -78,6 +86,7 @@ The following table summarizes actions which each user group can execute in Answ
 </prompt>
 </para>
 {docbook}
-
-* [Build an wiki|#Platform_User_Guide.Knowledge.Build_Wiki]
+* [About user roles|#KSuser.about_role]
+* [Access Knowledge applications|#KSuser.access_knowledge]
+* [Build a wiki|#Platform_User_Guide.Knowledge.Build_Wiki]
 * [Build a forum|#Platform_User_Guide.Knowledge.Build_Forums]
