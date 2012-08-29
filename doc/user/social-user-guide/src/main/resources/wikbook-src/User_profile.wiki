@@ -3,17 +3,25 @@
         <itemizedlist>
             <listitem>
                 <para>
-                   <link linkend="Soc_User_Guide.Get_Started.User_Profile.Edit_Information">Edit your information</link>: Learn to edit your contact and experience information.
+                   <link linkend="Soc_User_Guide.Get_Started.User_Profile.Edit_Information">Edit your information</link>
+				</para>
+				<para>
+					Steps to change your information, and details of basic information, contact and experience.
                 </para>
             </listitem>
             <listitem>
                 <para>
-                   <link linkend="Soc_User_Guide.Get_Started.User_Profile.Upload_Avatar">Upload your profile avatar</link>: Learn to change you profile avatar.
+                   <link linkend="Soc_User_Guide.Get_Started.User_Profile.Upload_Avatar">Upload your profile avatar</link>
+				</para>
+				<para>
+					Steps to upload a photo to your profile or to the spaces which you have created or have the Manage permission.
                 </para>
             </listitem>
             <listitem>
                 <para>
-                   <link linkend="Soc_User_Guide.Get_Started.User_Profile.Update_Current_Position">Update your current position</link>: Learn to update your current working position information.
+                   <link linkend="Soc_User_Guide.Get_Started.User_Profile.Update_Current_Position">Update your current position</link>
+				</para>
+				<para>Steps to update your current working position information.
                 </para>
             </listitem>
         </itemizedlist>

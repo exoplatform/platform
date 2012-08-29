@@ -98,14 +98,6 @@ To view one detailed page of a space, you must become its member first. Then, do
 {docbook}
 !images/Space_name_link.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
 
-{docbook}
-<citetitle>
-<para xml:id="Soc_User_Guide.Space_Management.Delete_SpaceRoleNotInToc">
-Only the space managers can delete their spaces by clicking <guilabel>Delete</guilabel>  under the space name. All information and navigations related to that space are also deleted.
-</para>
-</citetitle>
-{docbook}
-
 The detailed page of the space displays information about the space. The functions you can perform depend on your granted permissions or whether you are the space's creator or not.
 
 As a normal user, you can:
@@ -119,23 +111,27 @@ As a normal user, you can:
 Besides the actions above, as a space manager or creator, you can:
 
 * [Edit the space settings, including description, priority level, and avatar|#Soc_User_Guide.Space_Management.Edit_Space].
-
 * [Change the visibility of your space|#Soc_User_Guide.Space_Management.Edit_Space.Change_Visibility].
-
 * [Promote/Demote roles of space members|#Soc_User_Guide.Space_Management.Edit_Space.Manage_Members.Promote_Mem].
-
 * [Remove members from your space|#Soc_User_Guide.Space_Management.Edit_Space.Manage_Members.Remove_Mem].
+* [Delete a space|#Soc_User_Guide.Space_Management.Delete_Space]
 
+{docbook}
+<para xml:id="Soc_User_Guide.Space_Management.Delete_Space">
+<citetitle>
+<emphasis role="bold">Delete a space</emphasis>
+</citetitle>
+</para>
+{docbook}
 
+Only the space managers can delete their spaces by clicking <guilabel>Delete</guilabel> under the space name. All information and navigations related to that space are also deleted.
 
-h1. Search for spaces      {anchor:id=Soc_User_Guide.Space_Management.Join_Space.SearchRoleNotInToc}
+h1. Search for spaces {anchor:id=Soc_User_Guide.Space_Management.Join_Space.SearchRoleNotInToc}
 {docbook}
 <para>The <emphasis role="bold">Search</emphasis> function in the <guilabel>Spaces</guilabel> application helps you easily find spaces from one of the tabs in the <link linkend="space_navigation">Space navigation</link>.</para>
 {docbook}
 
-
 After accessing your desired spaces tab, you can search for spaces by *Name* and *Description* or *Alphabets*.
-
 
 {docbook}
 <citetitle>

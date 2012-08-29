@@ -3,17 +3,26 @@
         <itemizedlist>
             <listitem>
                 <para>
-                   <link linkend="Forum_user_guide.Forum_Administrator">Administrator</link>: Learn to perform common tasks for Administrator: manage categories, manage forums, manage users and other administrative tasks.
+                   <link linkend="Forum_user_guide.Forum_Administrator">Administrator</link>
+				</para>
+				<para>
+				Introduction to a list of common tasks which are for administrators only, and steps to manage categories/forums/users and other administrative tasks.
                 </para>
             </listitem>
             <listitem>
                 <para>
-                   <link linkend="Forum_user_guide.Regular_user">Regular users</link>: Learn to perform common actions for regular users: create topics and posts, subscribe, use BBCode, change user settings.
+                   <link linkend="Forum_user_guide.Regular_user">Regular users</link>
+				</para>
+				<para>
+					Detailed instructions on how to do common actions that are for regular users, such as creating topics and posts, subscribing, using BBCode, or changing user settings.
                 </para>
             </listitem>
             <listitem>
                 <para>
-                   <link linkend="Forum_user_guide.Moderator">Moderator</link>: Learn to perform common tasks for Moderators: moderate forums, moderate topics, moderate posts.
+                   <link linkend="Forum_user_guide.Moderator">Moderator</link>
+				</para>
+				<para>
+					Introduction to the Moderation tasks that are for moderators, and steps to perform them, including: moderating forums/topics/posts, viewing all pending moderation tasks, or banning IPs.
                 </para>
             </listitem>
         </itemizedlist>
@@ -118,6 +127,7 @@ Before reading, please notice that this document is divided into 3 parts which c
 </prompt>
 </para>
 {docbook}
-
+* [About user roles|#KSuser.about_role]
+* [Access Knowledge applications|#KSuser.access_knowledge]
 * [Build a wiki|#Platform_User_Guide.Knowledge.Build_Wiki]
 * [Build an Answers & FAQs system|#Platform_User_Guide.Knowledge.Build_FAQs]

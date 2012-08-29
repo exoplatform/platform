@@ -3,38 +3,54 @@
         <itemizedlist>
             <listitem>
                 <para>
-                   <link linkend="search_contacts">Search for contacts</link>: Learn to use the <emphasis role="bold">Search</emphasis> to find connections.
+                   <link linkend="search_contacts">Search for contacts</link>
+				</para>
+				<para>
+					Steps to find your desired contacts quickly by searching by name, by role (by position, and/or work skills), and by alphabets.
                 </para>
             </listitem>
             <listitem>
                 <para>
-                   <link linkend="view_profile_of_contacts">View profiles of other contacts</link>: Learn to view profiles of connections.
+                   <link linkend="view_profile_of_contacts">View profiles of other contacts</link>
+				</para>
+				<para>
+					Simple instructions on how to view profiles of one contact, including his/her activities and connections.
                 </para>
             </listitem>
             <listitem>
                 <para>
-                   <link linkend="Send_connection_requests">Send connection requests</link>: Learn to send connection request to other people.
+                   <link linkend="Send_connection_requests">Send connection requests</link>
+				</para>
+				<para>
+					Ways to send connection request to other people.
                 </para>
             </listitem>
 			<listitem>
                 <para>
-                   <link linkend="Revoke_connection_request">Revoke a connection request</link>: Learn to revoke a sent request.
+                   <link linkend="Revoke_connection_request">Revoke a connection request</link>
+				</para>
+				<para>
+					Ways to revoke your sent request.
                 </para>
             </listitem>
             <listitem>
                 <para>
-                   <link linkend="Accept_deny_request">Accept/Deny a connection request</link>: Learn to accept/deny a connection request.
+                   <link linkend="Accept_deny_request">Accept/Deny a connection request</link>
+				</para>
+				<para>Ways to accept/deny a connection request.
                 </para>
             </listitem>
             <listitem>
                 <para>
-                   <link linkend="Disconect">Disconnect from your contacts</link>: Learn to remove connections.
+                   <link linkend="Disconect">Disconnect from your contacts</link>
+				</para>
+				<para>
+					Ways to remove the connections between you and the users who are your contacts.
                 </para>
             </listitem>
         </itemizedlist>
     </highlights>
 {docbook}
-
 
 {docbook}
 <para>To build your connections, you first need to hover your cursor over the display name on the <emphasis role="bold">Administration</emphasis> bar and select <guilabel>My Connections</guilabel> from the drop-down menu.</para>
@@ -228,7 +244,7 @@ You can perform these actions via one of the following way:
 
 !images/my_invitations_homepage.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
 
-*2.* Click the contact name in the list to go his/her profile page.
+*2.* Click the contact name in the list to go to his/her profile page.
 {docbook}
 <itemizedlist>
           <listitem>

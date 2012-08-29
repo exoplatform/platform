@@ -3,52 +3,82 @@
         <itemizedlist>
             <listitem>
                 <para>
-                   <link linkend="KSuser.Work_with_Wiki_pages">Work with Wiki pages</link>: Learn to perform actions on a Wiki page: create, edit, move, delete, view page information and watch a page.
+                   <link linkend="KSuser.Work_with_Wiki_pages">Work with Wiki pages</link>
+				</para>
+				<para>
+					Steps to perform actions on a Wiki page, including: creating, editing, moving, deleting, viewing page information and watching a page.
                 </para>
             </listitem>
             <listitem>
                 <para>
-                   <link linkend="KSuser.Work_with_attachment">Work with attachments</link>: Learn to perform actions related to attachments: view all attachments in a page, add attachments, insert images.
+                   <link linkend="KSuser.Work_with_attachment">Work with attachments</link>
+				</para>
+				<para>
+				Instructions on how to perform actions related to attachments: viewing all attachments in a page, adding attachments, and inserting images.
                 </para>
             </listitem>
             <listitem>
                 <para>
-                   <link linkend="KSuser.Wiki.Use_WYSIWYG_editor">Use the WYSIWYG Editor (Rich Text editor)</link>: Learn to use the <emphasis role="bold">Rich Text</emphasis> editor in editing a Wiki page.
+                   <link linkend="KSuser.Wiki.Use_WYSIWYG_editor">Use the WYSIWYG Editor (Rich Text editor)</link>
+				</para>
+				<para>
+				Introduction to the <emphasis role="bold">WYSIWYG</emphasis> editor that allows you to edit a wiki page using the <emphasis role="bold">Rich Text</emphasis> editor.
                 </para>
             </listitem>
 			 <listitem>
                 <para>
-                   <link linkend="KSuser.Wiki.Syntax_Help">Syntax Help</link>: Learn about the <emphasis role="bold">Syntax Help</emphasis> feature of Wiki.
+                   <link linkend="KSuser.Wiki.Syntax_Help">Syntax Help</link>
+				</para>
+				<para>
+					Introduction to the <emphasis role="bold">Syntax Help</emphasis> feature of Wiki.
                 </para>
             </listitem>
             <listitem>
                 <para>
-                   <link linkend="KSuser.Wiki.Work_with_Macros">Work with Macros</link>: Learn to use Macros to format and customize your page content.
+                   <link linkend="KSuser.Wiki.Work_with_Macros">Work with Macros</link>
+				</para>
+				<para>
+				Steps to use Macros to apply extra formatting, functionality and customization to your content.
                 </para>
             </listitem>
             <listitem>
                 <para>
-                   <link linkend="KSuser.Wiki.Work_with_Page_versions">Work with page versions</link>: Learn to compare pages of different versions or restore pages to a version.
+                   <link linkend="KSuser.Wiki.Work_with_Page_versions">Work with page versions</link>
+				</para>
+				<para>
+					Introduction to the <emphasis role="bold">Page History</emphasis> view, and steps to view versions of a page, compare different versions of a page, or restore pages to a version.
                 </para>
             </listitem>
 			 <listitem>
                 <para>
-                   <link linkend="KSuser.Wiki.Work_with_Spaces">Work with Spaces</link>: Learn about Space Wiki.
+                   <link linkend="KSuser.Wiki.Work_with_Spaces">Work with Spaces</link>
+				</para>
+				<para>
+					Introduction to the permanent bookmarkable URLs to all wiki pages.
                 </para>
             </listitem>
             <listitem>
                 <para>
-                   <link linkend="KSuser.Wiki.Search">Search</link>: Learn to use the <emphasis role="bold">Quick Search</emphasis> and <emphasis role="bold">Advanced Search</emphasis> to find pages and content.
+                   <link linkend="KSuser.Wiki.Search">Search</link>
+				</para>
+				<para>
+					Steps to do <emphasis role="bold">Quick Search</emphasis> and <emphasis role="bold">Advanced Search</emphasis> supported in the <emphasis role="bold">Wiki</emphasis> application.
                 </para>
             </listitem>
             <listitem>
                 <para>
-                   <link linkend="KSuser.Wiki.WebDAV">WebDAV support in Wiki</link>: Learn to use WebDav to access your Wiki Space and edit Wiki pages.
+                   <link linkend="KSuser.Wiki.WebDAV">WebDAV support in Wiki</link>
+				</para>
+				<para>
+					Introduction to the <emphasis role="bold">WebDAV</emphasis> support in <emphasis role="bold">Wiki</emphasis>, steps to access your workspace and to edit a page by using <emphasis role="bold">WebDAV</emphasis>.
                 </para>
             </listitem>
 			<listitem>
                 <para>
-                   <link linkend="KSuser.Wiki.Wiki_Administration">Wiki Administration</link>: Learn to change Space settings and manage Permissions.
+                   <link linkend="KSuser.Wiki.Wiki_Administration">Wiki Administration</link>
+				</para>
+				<para>
+					Steps to change Space settings and manage Permissions that are for administrators only.
                 </para>
             </listitem>
         </itemizedlist>
@@ -130,50 +160,12 @@ For example:
 </prompt>
 </para>
 {docbook}
-
+* [About user roles|#KSuser.about_role]
+* [Access Knowledge applications|#KSuser.access_knowledge]
 * [Build a forum|#Platform_User_Guide.Knowledge.Build_Forums]
 * [Build an Answers & FAQs system|#Platform_User_Guide.Knowledge.Build_FAQs]
 
 h1. Work with Wiki pages {anchor:id=KSuser.Work_with_Wiki_pagesRoleNotInToc}
-
-*The following topics are covered:*
-
-{docbook}
-    <highlights>
-        <itemizedlist>
-            <listitem>
-                <para>
-                   <link linkend="KSuser.Work_with_Wiki_pages.Create_pages">Create a page</link>: Learn how to create a new blank wiki page or create a page from template
-                </para>
-            </listitem>
-            <listitem>
-                <para>
-                   <link linkend="KSuser.Work_with_Wiki_pages.Edit_pages">Edit a page</link>: Learn how to edit a wiki page content.
-                </para>
-            </listitem>
-            <listitem>
-                <para>
-                   <link linkend="KSuser.Work_with_Wiki_pages.Move_pages">Move a page to another location</link>:
-                </para>
-            </listitem>
-            <listitem>
-                <para>
-                   <link linkend="KSuser.Work_with_Wiki_pages.Delete_pages">Delete a page</link>:
-                </para>
-            </listitem>
-            <listitem>
-                <para>
-                   <link linkend="KSuser.Work_with_Wiki_pages.View_page_info">View page information</link>:
-                </para>
-            </listitem>
-            <listitem>
-                <para>
-                   <link linkend="KSuser.Work_with_Wiki_pages.Watch_pages">Watch a page</link>:
-                </para>
-            </listitem>
-        </itemizedlist>
-    </highlights>
-{docbook}
 
 Pages are places where information in *Wiki* is stored and shared. Pages are stored within a space. Actions that a user can perform on a specific wiki page depends on permissions assigned by the administrator. See the [Page Permissions|#KSuser.Wiki_Administration.Page_permissions] for detailed permissions.
 
@@ -245,7 +237,8 @@ In the *Wiki* application of eXo Platform, you can add a link pointing to a page
 For example:
 
 ||What you type|| What you get||
-|\[eXo User Guide\]|!images/undefined_link.png| width="17mm" fo:scalefit="1" html:scalefit="0"!|
+|\[eXo User Guide\]|!images/undefined_link.png|width="17mm" fo:scalefit="1" html:scalefit="0"!|
+
 {docbook}
 <para>
   <emphasis role="bold">2.</emphasis> Click <guibutton>Save</guibutton> to save the page containing the link. The undefined link is underlined.</para>
@@ -551,7 +544,7 @@ You can use this method when editing the page content by *WYSIWYG* editor (Rich 
 * *Upload a new file:*
 {docbook}
 <para>
- <emphasis role="bold">i.</emphasis> Double-click <guilabel>Upload new file</guilabel>, or click <menuchoice><guimenu>Upload new file</guimenu><menuitem>Select</menuitem></menuchoice> in the <guilabel>Current page</guilabel> or <guilabel>All pages</guilabel> tab.</para>
+ <emphasis role="bold">i.</emphasis> Double-click <guilabel>Upload new file</guilabel>, or click <menuchoice><guimenu>Upload new file</guimenu><guimenuitem>Select</guimenuitem></menuchoice> in the <guilabel>Current page</guilabel> or <guilabel>All pages</guilabel> tab.</para>
 {docbook}
 
 {docbook}
@@ -613,7 +606,7 @@ h1. Use the WYSIWYG Editor (Rich Text editor) {anchor:id=KSuser.Wiki.Use_WYSIWYG
 
 *WYSIWYG* stands for What You See Is What You Get. The *WYSIWYG* editor allows you to edit an wiki page directly in the wiki markup language. This has the advantage of being faster than the Rich Text Editor for some formatting tasks.
 
-You can switch between the *Source* and *WYSIWYG* editors at any time by clicking !images/rich_text_editor.png| width="40mm" fo:scalefit="1" html:scalefit="0"! or !images/source_editor_btn.png| width="20mm" fo:scalefit="1" html:scalefit="0"!. In the *Source* editor, which is selected by default when you edit a page, you have to use the wiki markup language for text formatting, while the *WYSIWYG* editor enables the content to be appeared during editing that is very similar to the published result. Thanks to available tools on this editor, you can format your content visually without using wiki markups.
+You can switch between the *Source* and *WYSIWYG* editors at any time by clicking !images/rich_text_editor.png|width="40mm" fo:scalefit="1" html:scalefit="0"! or !images/source_editor_btn.png|width="20mm" fo:scalefit="1" html:scalefit="0"!. In the *Source* editor, which is selected by default when you edit a page, you have to use the wiki markup language for text formatting, while the *WYSIWYG* editor enables the content to be appeared during editing that is very similar to the published result. Thanks to available tools on this editor, you can format your content visually without using wiki markups.
 
 !images/wiki_wysiwyg_editor.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
 
