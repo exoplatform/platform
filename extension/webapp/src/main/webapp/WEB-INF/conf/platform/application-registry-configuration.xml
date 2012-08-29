@@ -464,20 +464,6 @@
                     </object>
                   </value><value>
                     <object type="org.exoplatform.application.registry.Application">
-                      <field name="applicationName"><string>FastContentCreatorBasicPortletStandard</string></field>
-                      <field name="categoryName"><string>content</string></field>
-                      <field name="displayName"><string>Standard Content Creator</string></field>
-                      <field name="description"><string>Standard Content Creator</string></field>
-                      <field name="type"><string>portlet</string></field>
-                      <field name="contentId"><string>formgenerator/FastContentCreatorBasicPortletStandard</string></field>
-                      <field name="accessPermissions">
-                        <collection type="java.util.ArrayList" item-type="java.lang.String">
-                          <value><string>*:/platform/web-contributors</string></value>
-                        </collection>
-                      </field>
-                    </object>
-                  </value><value>
-                    <object type="org.exoplatform.application.registry.Application">
                       <field name="applicationName"><string>WCMAdvanceSearchPortlet</string></field>
                       <field name="categoryName"><string>content</string></field>
                       <field name="displayName"><string>Advanced Search</string></field>
