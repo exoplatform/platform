@@ -552,20 +552,6 @@
                     </object>
                   </value><value>
                     <object type="org.exoplatform.application.registry.Application">
-                      <field name="applicationName"><string>Currency</string></field>
-                      <field name="categoryName"><string>tools</string></field>
-                      <field name="displayName"><string>Currency Convertor</string></field>
-                      <field name="description"><string>Currency Convertor.</string></field>
-                      <field name="type"><string>gadget</string></field>
-                      <field name="contentId"><string>Currency</string></field>
-                      <field name="accessPermissions">
-                        <collection type="java.util.ArrayList" item-type="java.lang.String">
-                          <value><string>*:/platform/users</string></value>
-                        </collection>
-                      </field>
-                    </object>
-                  </value><value>
-                    <object type="org.exoplatform.application.registry.Application">
                       <field name="applicationName"><string>FavoriteDocument</string></field>
                       <field name="categoryName"><string>tools</string></field>
                       <field name="displayName"><string>Favorite Documents</string></field>
