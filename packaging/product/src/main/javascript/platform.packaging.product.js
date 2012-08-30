@@ -11,7 +11,8 @@ function getProduct(version) {
   product.useWorkflow = false;
   product.useContentvalidation = false;
 
-
+  //com.sun.xml.stream
+  product.sunXmlStreamVersion = "${version.sun.xml.stream}";
   var kernel = Module.GetModule("kernel") ;
   var core = Module.GetModule("core") ;
   var ws = Module.GetModule("ws", {kernel : kernel, core : core});
@@ -175,6 +176,7 @@ function getProduct(version) {
 
   product.addDependencies(new Project("commons-httpclient", "commons-httpclient", "jar", "3.1"));
   product.addDependencies(new Project("findbugs", "annotations", "jar", "1.0.0"));
+  product.addDependencies(new Project("com.sun.xml.stream", "sjsxp", "jar", product.sunXmlStreamVersion));
 
   product.module = portal ;
   product.dependencyModule = [kernel, core, ws, eXoJcr, calendar, FORUM, wiki, social, ecms];

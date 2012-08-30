@@ -1695,6 +1695,14 @@
       <version>${org.exoplatform.ecms.version}</version>
       <type>war</type>
       </dependency>
+      <!-- com.sun.xml.stream.sjsxp for XML parser -->
+      <dependency>
+          <groupId>com.sun.xml.stream</groupId>
+          <artifactId>sjsxp</artifactId>
+          <version>${version.sun.xml.stream}</version>
+          <scope>provided</scope>
+          <type>jar</type>
+      </dependency>
   </dependencies>
 
   <build>
