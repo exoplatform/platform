@@ -1044,7 +1044,7 @@ This key will be used in case the OAuth gadgets do not indicate a key.
 
 * If you are using Tomcat, the _oauthkey.pem_ file is found at the _TOMCAT\_HOME/gatein/gadgets_ path.
 
-* If you are using Jboss, the _oauthkey.pem_ file is found at the _JBOSS\_HOME/server/<PROFILE>/conf/gatein/gadgets_ path.
+* If you are using Jboss, the _oauthkey.pem_ file is found at the _JBOSS\_HOME/server/<PROFILE>/data/gadgets_ path.
 
 It is strongly recommended that you create your own _oauthkey.pem_ file by using the *openssl* tool and some commands as follows:
 
@@ -1053,7 +1053,7 @@ openssl req -newkey rsa:1024 -days 365 -nodes -x509 -keyout testkey.pem -out tes
 openssl pkcs8 -in testkey.pem -out oauthkey.pem -topk8 -nocrypt -outform PEM
 {code}
 
-After creating the new _oauthkey.pem_ file, you can use it to replace the default _oauthkey.pem_ file in the _gatein/gadgets/_ folder.
+After creating the new _oauthkey.pem_ file, you can use it to replace the default _oauthkey.pem_ file in the _data/gadgets/_ folder.
 
 h1. Other properties {anchor:id=ADM.Configuration.Other_properties}
 

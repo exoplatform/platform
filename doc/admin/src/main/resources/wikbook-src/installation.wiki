@@ -234,13 +234,19 @@ eXo Platform provides EARs packages to deploy in your existing JBoss application
 - exo-default-portal-$version.ear
 - exo-gadget-pack-$version.ear
 
-*2.* Create the _jboss-root/server/default/conf/gatein_ folder, then copy these files to this folder.
+*2.* Create the _jboss-root/server/default/conf/gatein_ folder, then copy the following files and folders to this folder.
 
+- cache
+- idm
+- jcr
+- jgroups
+- portal
 - configuration.properties
-
 - configuration.xml
+- controller.xml
+- portlet.xml
 
-*3.* Copy the _oauthkey.pem_ file to _jboss-root/server/default/conf/gatein/gadgets_.
+*3.* Copy the _oauthkey.pem_ file to _jboss-root/server/default/data/gadgets_.
 
 *4.* Configure the JVM parameters.
 
