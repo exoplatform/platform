@@ -38,4 +38,5 @@
   <import>war:/conf/acme-portal/wcm/deployment/acme-deployment-configuration.xml</import>
   <import>war:/conf/acme-portal/wcm/taxonomy/acme-taxonomies-configuration.xml</import>
   <import>war:/conf/acme-portal/wcm/taxonomy/events-taxonomies-configuration.xml</import>
+  <import>war:/conf/acme-portal/wcm/deployment/templates/template-acme-deployment-configuration.xml</import>
 </configuration>

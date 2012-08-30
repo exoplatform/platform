@@ -158,12 +158,6 @@
 						<field name="portalTemplates">
 							<collection type="java.util.HashSet">
 								<value>
-									<string>acme</string>
-								</value>
-								<value>
-									<string>intranet</string>
-								</value>
-								<value>
 									<string>empty</string>
 								</value>
 							</collection>
