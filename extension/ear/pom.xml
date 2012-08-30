@@ -930,6 +930,51 @@
             </exclusion>
         </exclusions>
     </dependency>
+      <dependency>
+          <groupId>org.exoplatform.ecms</groupId>
+          <artifactId>ecms-upgrade-user-folder-permission</artifactId>
+          <version>${org.exoplatform.ecms.version}</version>
+          <exclusions>
+              <exclusion>
+                  <groupId>org.exoplatform.jcr</groupId>
+                  <artifactId>exo.jcr.component.ext</artifactId>
+              </exclusion>
+              <exclusion>
+                  <groupId>org.exoplatform.ecms</groupId>
+                  <artifactId>ecms-core-services</artifactId>
+              </exclusion>
+          </exclusions>
+      </dependency>
+      <dependency>
+          <groupId>org.exoplatform.ecms</groupId>
+          <artifactId>ecms-upgrade-portlet-preferences</artifactId>
+          <version>${org.exoplatform.ecms.version}</version>
+          <exclusions>
+              <exclusion>
+                  <groupId>org.exoplatform.jcr</groupId>
+                  <artifactId>exo.jcr.component.ext</artifactId>
+              </exclusion>
+              <exclusion>
+                  <groupId>org.exoplatform.ecms</groupId>
+                  <artifactId>ecms-core-services</artifactId>
+              </exclusion>
+          </exclusions>
+      </dependency>
+      <dependency>
+          <groupId>org.exoplatform.ecms</groupId>
+          <artifactId>ecms-upgrade-publication-publication-nodetype</artifactId>
+          <version>${org.exoplatform.ecms.version}</version>
+          <exclusions>
+              <exclusion>
+                  <groupId>org.exoplatform.jcr</groupId>
+                  <artifactId>exo.jcr.component.ext</artifactId>
+              </exclusion>
+              <exclusion>
+                  <groupId>org.exoplatform.ecms</groupId>
+                  <artifactId>ecms-core-services</artifactId>
+              </exclusion>
+          </exclusions>
+      </dependency>
     <dependency>
       <groupId>org.exoplatform.calendar</groupId>
       <artifactId>calendar-upgrade</artifactId>

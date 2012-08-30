@@ -208,6 +208,9 @@ function getModule(params)
    addDependency(new Project("org.exoplatform.ecms","ecms-upgrade-thumbnails","jar", ecmsVersion)).
    addDependency(new Project("org.exoplatform.ecms","ecms-upgrade-favorite","jar", ecmsVersion)).
    addDependency(new Project("org.exoplatform.ecms","ecms-upgrade-templates","jar", ecmsVersion)).
+       addDependency(new Project("org.exoplatform.ecms","exo-ecms-upgrade-user-folder-permission","jar", ecmsVersion)).
+       addDependency(new Project("org.exoplatform.ecms","exo-ecms-upgrade-portlet-preferences","jar", ecmsVersion)).
+       addDependency(new Project("org.exoplatform.ecms","exo-ecms-upgrade-publication-publication-nodetype","jar", ecmsVersion)).
    addDependency(new Project("org.exoplatform.calendar","calendar-upgrade","jar", calendarVersion)).
    addDependency(new Project("org.exoplatform.forum","forum-component-upgrade","jar", forumVersion));
 
