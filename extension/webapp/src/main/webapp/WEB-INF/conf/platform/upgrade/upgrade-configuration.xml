@@ -14,7 +14,20 @@
 	</component>
 	<external-component-plugins>
 		<target-component>org.exoplatform.commons.upgrade.UpgradeProductService</target-component>
-		<component-plugin profiles="social,all,default">
+        <component-plugin>
+            <name>UpgradeNamespaceJosPlugin</name>
+            <set-method>addUpgradePlugin</set-method>
+            <type>org.exoplatform.platform.upgrade.plugins.UpgradeNamespaceJosPlugin</type>
+            <description>eXo Namespace Jos Upgrade Plugin</description>
+            <init-params>
+                <value-param>
+                    <name>product.group.id</name>
+                    <description>The groupId of the product</description>
+                    <value>org.exoplatform.platform</value>
+                </value-param>
+            </init-params>
+        </component-plugin>
+        <component-plugin profiles="social,all,default">
 			<name>Upgrade-Spaces-Home-page</name>
 			<set-method>addUpgradePlugin</set-method>
 			<type>org.exoplatform.platform.upgrade.plugins.UpgradeSpacePlugin</type>
