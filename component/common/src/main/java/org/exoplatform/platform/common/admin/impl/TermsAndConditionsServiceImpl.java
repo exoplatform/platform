@@ -29,7 +29,6 @@ public class TermsAndConditionsServiceImpl implements TermsAndConditionsService 
   private static final String TC_NODE_NAME = "TermsAndConditions";
   private ChromatticLifeCycle lifeCycle;
   private NodeHierarchyCreator nodeHierarchyCreator;
-  private static final ThreadLocal<ChromatticSession> session = new ThreadLocal<ChromatticSession>();
 
   
   /*=======================================================================
@@ -37,10 +36,7 @@ public class TermsAndConditionsServiceImpl implements TermsAndConditionsService 
    *======================================================================*/
   
   public ChromatticSession getSession() {
-    if(session.get() == null) {
-      session.set(lifeCycle.getChromattic().openSession());
-    }
-    return (ChromatticSession)session.get();
+      return lifeCycle.getChromattic().openSession();
   }
 
   public TermsAndConditionsServiceImpl(ChromatticManager chromatticManager, NodeHierarchyCreator nodeHierarchyCreator) {
