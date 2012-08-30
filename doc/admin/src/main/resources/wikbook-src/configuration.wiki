@@ -111,7 +111,7 @@ Each instance can be configured and customized independently via files located a
 
 {note}
 The name of the configuration file can be altered.
-Please refer to the [PortalContainer|../../reference/html/ch-service-configuration-for-beginners.html#d0e11786] section in the Kernel reference for more details on portal containers and other options to modify the location of the properties.
+Please refer to the [PortalContainer|../../reference/html/PortalContainer.html] section in the Kernel reference for more details on portal containers and other options to modify the location of the properties.
 {note}
 
 Services that run inside a portal container are declared via the xml configuration files like _configuration.xml_. Such files exist in jars, wars and below _exo.conf.dir_.
@@ -150,7 +150,7 @@ This file contains the built-in configuration for the "portal" portal container.
 * In case you do not want to use "portal" as the default portal for your project, this file can be used to import another PortalContainerDefinition into the root container.
 
 {note}
-To learn more about how to configure a new portal container, please refer to the [Kernel reference guide|../../reference/html/part-kernel.html].
+To learn more about how to configure a new portal container, please refer to the [Kernel reference guide|../../reference/html/chapter-Kernel.html].
 {note}
 
 {docbook}
@@ -399,7 +399,7 @@ You may want to rename the data source as follows:
 
 *i.* Open and edit the configuration.properties path.
 
-In this step, indicate to eXo name of the data sources.
+In this step, indicate to eXo name of the data sources. Optionaly point to a database schema name using {{{gatein.idm.datasource.schema}}} property.
 
 {code}
 # JNDI name of the datasource that will be used by eXo JCR
@@ -407,7 +407,10 @@ gatein.jcr.datasource.name=java:/comp/env/exojcr
 ...
 # JNDI Name of the IDM datasource
 gatein.idm.datasource.name=java:/comp/env/exo-idm
-{code}               
+
+# Optional database schema for use with IDM tables (empty by default), uncomment this line to specify required schema name
+#gatein.idm.datasource.schema=EXO1
+{code}
 
 {note}
 eXo Platform automatically appends the portal container name ("\_\portal" by default) to these values before performing a JNDI lookup.
@@ -655,76 +658,37 @@ The value of email address should be in a valid format.
 h1. Email-notification configuration for watching a document {anchor:id=ADM.Configuration.Notification_email_config}
 
 eXo Platform 3.5 provides the *Watch document* function in *Sites Explorer* that allows you to receive email notifications of changes on your selected documents.
-In this section, you will know how to configure such an email notification.
 
-The email notification is configured in an _.xml_ file.
+To customize the email notification, simply change the configuration in the _configuration.properties_ file.
+This file is defined at:
+* For Jboss: _/server/default/conf/gatein/configuration.properties_
+* For Tomcat: _$TOMCAT\_HOME/gatein/conf/configuration.properties_
 
-{docbook}
-<para>
-<citetitle>
-<emphasis role="bold">Configure the email notification</emphasis>
-</citetitle>
-</para>
-{docbook}
-
-*1.* Create a new .xml file (e.g. _WEB-INF/conf/sample-portal/wcm/watch-document-configuration.xml_) with the following external component plugin, then import it to the _configuration.xml_ file defined at _/WEB-INF/conf/_ path;
-{code}
-<import>war:/conf/sample-portal/wcm/watch-document-configuration.xml</import>
-{code}
-Or, add this plugin directly to the _configuration.xml_ file.
-{code}
-<external-component-plugins>
-    <target-component>org.exoplatform.services.cms.watch.WatchDocumentService</target-component>
-    <component-plugin>
-      <name>watching document notification email contents setting</name>
-      <set-method>initializeMessageConfig</set-method>
-      <type>org.exoplatform.services.cms.watch.impl.MessageConfigPlugin</type>
-      <description>Initialize the settings for watching document notification email contents</description>
-      <init-params>
-        <object-param>
-          <name>messageConfig</name>
-          <description>Message Configuration</description>
-          <object type="org.exoplatform.services.cms.watch.impl.MessageConfig">
-            <field name="sender"><string>support@exoplatform.com</string></field>
-            <field name="subject"><string>Your watching document is changed</string></field>
-            <field name="mimeType"><string>text/html</string></field>
-            <field name="content">
-              <string><![CDATA[
-                    Dear $user_name,<br>
-                    <br>
-                    The document $doc_name ($doc_title) has changed.<br>
-                    <br>
-                    Please go to <a href="$doc_url">$doc_title</a> to see this change.<br>
-                    <br>
-                    ]]>
-              </string>
-            </field>
-          </object>
-        </object-param>
-      </init-params>
-    </component-plugin>
-</external-component-plugins>
+The relevant section looks like:
+{code:java}
+# Email content for WatchDocumentService
+gatein.ecms.watchdocument.sender=support@exoplatform.com
+gatein.ecms.watchdocument.subject=Your watching document is changed
+gatein.ecms.watchdocument.mimetype=text/html
+gatein.ecms.watchdocument.content=<![CDATA[Dear $user_name,<br><br>The document $doc_name ($doc_title) has changed.<br>
+<br>Please go to <a href="$doc_url">$doc_title</a> to see this change.<br><br>]]>
 {code}
 
-In which:
-* *target-component*: _org.exoplatform.services.cms.watch.WatchDocumentService_
-* *set-method*: _initializeMessageConfig_
-* *type*: _org.exoplatform.services.cms.watch.impl.MessageConfigPlugin_
+*Details:*
+||Property || Default value{anchor:id="watching-document-default-values"} || Description ||
+|*gatein.ecms.watchdocument.sender*|support@exoplatform.com |The email address of the sender. |
+|*gatein.ecms.watchdocument.subject* |Your watching document is changed|The subject of the notification email. |
+|*gatein.ecms.watchdocument.mimetype*|text/html |The mimeType which is used to write the notification email. There are two types: *text/html* and *text/plain*. |
+|*gatein.ecms.watchdocument.content* |<!\[CDATA\[Dear $user\_name,<br><br>The document $doc\_name ($doc\_title) has changed.<br><br>Please go to <a href="$doc\_url">$doc\_title</a> to see this change.<br><br>\]\]>|The content of the notification email. |
 
-*2.* Customize the following fields in the _messageConfig_ init-param of the _MessageConfigPlugin_.
-
-* *sender*: The email address of the sender.
-* *subject*: The subject of the notification email.
-* *mimeType*: The mimeType used to writing the notification email. There are two types: *text/html* and *text/plain*.
-* *content*: The content of the notification email.
-
-At present, eXo Platform provides 4 parameters below in the *content* of the email:
+At present, eXo Platform provides 4 parameters below in the *gatein.ecms.watchdocument.content* property of the email:
 * *$user\_name*: The full name of the receiver.
 * *$doc\_name*: The name of the document.
 * *$doc\_title*: The title of the document.
 * *$doc\_url*: The link to view the document in *Sites Explorer*.
-
-*3.* Save the file.
+{note}
+If the values above are not set in the _configuration.properties_ file, the server will use the [default values|#watching-document-default-values] defined in an _.xml_ file.
+{note}
 
 h1. WebDAV cache control {anchor:id=ADM.Configuration.Mail_server}
 
@@ -829,28 +793,29 @@ To run the chat server properly, several ports must be opened in the firewall.
 h1. Office server {anchor:id=ADM.Configuration.Office_server}
 eXo Platform allows users to view various types of documents directly in the *Sites Explorer* through the office server. To do so, the office application must be available in your local device first.
 
-Then, *JobConverter* will use the [default values|#default_values] below to start the office server.
+Then, *JODConverter* will use the [default values|#default_values] below to start the office server.
 
 You can customize the default values by adding the properties below in the _configuration.properties_ file:
 
 {code}
 # JODConverter 3.0
-#jodconverter.portNumbers=8100, 8101, 8102, 8103, 8104
-#jodconverter.officeHome=/usr/lib/libreoffice
-#jodconverter.taskQueueTimeout=30000
-#jodconverter.taskExecutionTimeout=120000
-#jodconverter.maxTasksPerProcess=200
-#jodconverter.retryTimeout=120000
+wcm.jodconverter.portnumbers=8100,8101,8102,8103,8104
+wcm.jodconverter.officehome=/usr/lib/libreoffice
+wcm.jodconverter.taskqueuetimeout=30000
+wcm.jodconverter.taskexecutiontimeout=120000
+wcm.jodconverter.maxtasksperprocess=200
+wcm.jodconverter.retrytimeout=120000
 {code}
 
 
 ||Key || Default value{anchor:default_values} || Description ||
-|jodconverter.portNumbers |2002|The number of ports to connect with the office server. You can add more ports, separated by commas. The number of office instances will match with the number of ports. |
-|jodconverter.officeHome|See [here|#Office_home] |The absolute path to the office home on the current local device. It means that the office needs to be installed in the local device before using it. |
-|jodconverter.taskQueueTimeout |30000 |The maximum living time of a task in the conversation queue. The task will be removed out of the queue if the waiting time is longer than _taskQueueTimeout_. |
-|jodconverter.taskExecutionTimeout |120000 |The maximum time to process a task. If the processing time of a task is longer than _taskExecutionTimeout_, this task will be aborted and the next task is processed. |
-|jodconverter.maxTasksPerProcess |200 |The maximum number of tasks are processed. |
-|jodconverter.retryTimeout|120000 |The interval time to try to restart the office services in case they unexpectedly stop. |
+|wcm.jodconverter.portnumbers |2002|List of ports, separated by commas, those used by each JODConverter processing thread. The number of office instances is equal to the number of ports. |
+|wcm.jodconverter.officehome|See [here|#Office_home] |The absolute path to the office home on the current local device. It means that the office needs to be installed in the local device before using it. |
+|wcm.jodconverter.taskqueuetimeout |30000 |The maximum living time of a task in the conversation queue. The task will be removed out of the queue if the waiting time is longer than _taskQueueTimeout_. |
+|wcm.jodconverter.taskexecutiontimeout |120000 |The maximum time to process a task. If the processing time of a task is longer than _taskExecutionTimeout_, this task will be aborted and the next task is processed. |
+|wcm.jodconverter.maxtasksperprocess |200 |The maximum number of tasks are processed. |
+|wcm.jodconverter.retrytimeout|120000 |The interval time to try to restart the office services after an unexpected crash. |
+
 
 *The default office home* {anchor:id="Office_home"}
 * *Linux*
@@ -931,7 +896,7 @@ gatein.jcr.jgroups.config=file:${gatein.jgroups.config}
 | *{{gatein.jgroups.config}}* | Path to the JGroups configuration to use for the cluster mode of eXo Cache and PicketLink IDM organization service (see below in _IDM caches_). |
 | *{{gatein.jcr.jgroups.config}}* | Path to the JGroups configuration to use for the cluster mode. |
 
-For more details on configuring these files, please refer to the [eXo JCR Reference Guide|../../reference/html/bk01.html].
+For more details on configuring these files, please refer to the [eXo JCR Reference Guide|../../reference/html/chapter-JCR.html].
 
 
 h1. Cache configuration {anchor:id=ADM.Configuration.CacheConfiguration}
@@ -1103,6 +1068,8 @@ gatein.portlet.config=${gatein.conf.dir}/portlet.xml
 # portal name will be appended to this name before the JNDI lookup
 # example : java:/comp/env/exo-idm in "portal" portal will result in a JNDI lookup on context : java:/comp/env/exo-idm_portal 
 gatein.idm.datasource.name=java:exo-idm
+# Optional database schema for use with IDM tables (empty by default), uncomment this line to specify required schema name
+#gatein.idm.datasource.schema=EXO1
 
 # IDM 
 gatein.portal.idm.createuserportal=false

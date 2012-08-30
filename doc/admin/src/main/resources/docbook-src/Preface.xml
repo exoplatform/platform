@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8' ?>
-<preface>
+<preface xml:id="AboutAdministratorGuide">
 <title>About this guide</title>
 <abstract>
     <para>This guide describes how to get started with eXo Platform 3.5, especially for:</para>
@@ -37,7 +37,7 @@
 </listitem>
 <listitem>
 <para>
-<link linkend="ADM.Backup">Backup</link>: Backup of database and file systems for the JCR index and value storage.
+<link linkend="ADM.Backup">Backup and Restore</link>: Backup of database and file systems for the JCR index and value storage.
 </para>
 </listitem>
 <listitem>

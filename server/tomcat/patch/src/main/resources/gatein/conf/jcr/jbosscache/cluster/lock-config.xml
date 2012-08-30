@@ -32,8 +32,7 @@
     <preload>
       <node fqn="/" />
     </preload>
-    <loader class="org.exoplatform.services.jcr.impl.core.lock.jbosscache.JDBCCacheLoader" async="false" fetchPersistentState="false"
-      ignoreModifications="false" purgeOnStartup="false">
+    <loader class="org.exoplatform.services.jcr.impl.core.lock.jbosscache.JDBCCacheLoader" async="false" fetchPersistentState="false" ignoreModifications="false" purgeOnStartup="false">
       <properties>
         cache.jdbc.table.name=${jbosscache-cl-cache.jdbc.table.name}
         cache.jdbc.table.create=${jbosscache-cl-cache.jdbc.table.create}

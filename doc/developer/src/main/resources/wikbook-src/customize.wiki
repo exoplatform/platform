@@ -81,7 +81,7 @@ This will only work if the starter.war is the last .war file to be loaded, so yo
 
 *5.* Add the .jar file named _exo.portal.sample.extension.jar-X.Y.Z.jar_ from _sample/extension/jar/target/_ to the _tomcat/lib_ directory.
 
-For the JBoss deployment with more details, refer to the [GateIn Reference Guide|../../../reference/html/bk02.html].
+For the JBoss deployment with more details, refer to the [GateIn Reference Guide|../../../reference/html/GateInReferenceGuide.html].
 
 h1. Define a default portal {anchor:id=DEV.CreateYourOwnPortal.Create_default_portal}
 {include:document="customize/Create_default_portal.wiki"}
@@ -179,7 +179,7 @@ The _portal.xml_ file describes the layout and portlets that will be shown on al
 </portal-config>
 {code}
 
-Each portlet can be configured with a set of preferences, which will be further detailed in [Chapter 5|#DEV.WorkingwithApplications].
+Each portlet can be configured with a set of preferences, which will be further detailed in the [Work With Applications|#DEV.WorkingwithApplications] chapter.
 
 It is also possible to apply a nested container that can also contain portlets. Row, column or tab containers are then responsible for the layout of their child portlets.
 
@@ -252,7 +252,7 @@ This is the example of the _pages.xml_ file of the "classic" portal.
 {code}
 
 {note}
-See [Chapter 5|#DEV.WorkingwithApplications] to learn more about the portlet configuration within the _pages.xml_ file.
+See the [Work With Applications|#DEV.WorkingwithApplications] chapter to learn more about the portlet configuration within the _pages.xml_ file.
 {note}
 
 {docbook}

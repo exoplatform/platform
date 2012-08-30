@@ -182,11 +182,12 @@ commons.upgrade.Upgrade-Navigations.enable=true
 #Space home page template plugin, it is required
 commons.upgrade.Upgrade-Spaces-Home-page.enable=true
 
-#This Configuration is optional. If you do not want to re-import the contents, set commons.upgrade.Upgrade-WCM-Contents.enable=false and commons.upgrade.Upgrade-WCM-Contents.enable=true
+##This Configuration is optional. If you do not want to re-import the contents, set commons.upgrade.Upgrade-WCM-Contents.enable=false
+commons.upgrade.Upgrade-WCM-Contents.enable=true
 
 ## indicates the desired execution order (names of upgrade plugins separated with commas ",")
-Spaces-Home-page,Upgrade-Gadgets,Upgrade-Navigations,Upgrade-WCM-Contents,UpgradeVotingNodeTypePlugin,FavoriteActionUpgradePlugin,ThumbnailNodeTypeUpgradePlugin,UpgradeToMOSPlugin,UpgradeTemplatePlugin,UpgradeAnswerPlugin,UpgradeWikiPlugin,UpgradeForumPlugin,UpgradeCalendarPlugin,NodeTypeTemplateUpgradePlugin,QueryUpgradePlugin,ScriptUpgradePlugin,SiteExplorerTemplateUpgradePlugin,WCMTemplateUpgradePlugin,UserViewUpgradePlugin
- 
+commons.upgrade.plugins.order=Spaces-Home-page,Upgrade-Gadgets,Upgrade-Navigations,Upgrade-WCM-Contents,UpgradeVotingNodeTypePlugin,FavoriteActionUpgradePlugin,ThumbnailNodeTypeUpgradePlugin,UpgradeToMOSPlugin,UpgradeTemplatePlugin,UpgradeAnswerPlugin,UpgradeWikiPlugin,UpgradeForumPlugin,UpgradeCalendarPlugin,NodeTypeTemplateUpgradePlugin,QueryUpgradePlugin,ScriptUpgradePlugin,SiteExplorerTemplateUpgradePlugin,WCMTemplateUpgradePlugin,UserViewUpgradePlugin 
+
 ## Proceed to the upgrade if it is the first time you run this service
 commons.upgrade.proceedIfFirstRun=true
 {code}
@@ -654,7 +655,7 @@ Step 4. Finish your migration.
 
 *1.* Stop server and remove the migration configurations through the following sub-steps:
 
-*i.* Disable all migration plugins in file _$PLF-3.5-TOMCAT\_HOME/gatein/conf/configuration.properties_ (or _$PLF-3.5-JBOSS\_HOME/server/default/conf/gatein/configuration.properties_):
+*i.* Disable all migration plugins in the _$PLF-3.5-TOMCAT\_HOME/gatein/conf/configuration.properties_ file (or _$PLF-3.5-JBOSS\_HOME/server/default/conf/gatein/configuration.properties_):
 
 {code}
 ############
@@ -795,7 +796,7 @@ They are:
 * _commons.upgrade.UserViewUpgradePlugin_
 
 {note}
-By default, all the ECMS templates will be automatically migrated. In case you want to migrate a specific template manually, you need to specify your desired template in the _configuration.properties* file.	
+By default, all the ECMS templates will be automatically migrated. In case you want to migrate a specific template manually, you need to specify your desired template in the _configuration.properties_ file.	
 {note}
 
 * With _commons.upgrade.NodeTypeTemplateUpgradePlugin_: Upgrade ecms node type template. 

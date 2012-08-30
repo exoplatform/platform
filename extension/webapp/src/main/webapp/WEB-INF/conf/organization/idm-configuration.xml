@@ -45,6 +45,7 @@
         <property name="hibernate.cache.provider_class" value="org.hibernate.cache.HashtableCacheProvider" />
         <property name="hibernate.connection.datasource" value="${gatein.idm.datasource.name}${container.name.suffix}" />
         <property name="hibernate.connection.autocommit" value="true" />
+        <property name="hibernate.default_schema" value="${gatein.idm.datasource.schema:}"/>
         <!--
         Should be automatically detected. Force otherwise 
         <property name="hibernate.dialect" value="org.hibernate.dialect.XXXDialect"/>

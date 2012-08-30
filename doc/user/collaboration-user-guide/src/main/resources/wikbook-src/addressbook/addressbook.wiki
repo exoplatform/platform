@@ -508,7 +508,7 @@ In this form, select the group in the left pane, and its child group in the righ
 
 The shared users/groups will be updated in the Shared Users/Groups table of the [Share a contact with other users|#Share_contact_with_other_users_form] form.
 
-* Click !images/print_icon.png|width="5mm" fo:scalefit="1" html:scalefit="0"! if you want to change the *Edit* permission of specific users/groups. Click !images/remove_icon1.png|width="5mm" fo:scalefit="1" html:scalefit="0"! to remove the shared users/groups.
+* Click !images/edit_icon.png|width="5mm" fo:scalefit="1" html:scalefit="0"! if you want to change the *Edit* permission of specific users/groups. Click !images/remove_icon1.png|width="5mm" fo:scalefit="1" html:scalefit="0"! to remove the shared users/groups.
 
 *4.* Click *Save* to accept your sharing.
 

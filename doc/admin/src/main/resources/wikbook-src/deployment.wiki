@@ -34,7 +34,7 @@ eXo Platform comes with two sample portals that show the capabilities of the pro
 
 The following instructions are used in cases where the hsqldb embedded database configuration is used.
 
-h2. Remove Acme website/Acme Social Intranet {anchor:id=ADM.Clustering.Remove_Acme/SocialIntranet}
+h2. Remove Acme website/Acme Social Intranet {anchor:id=ADM.Clustering.Remove_Acme_SocialIntranet}
 
 Both Acme website and Acme Social Intranet are sample extensions demonstrating the intranet that you can implement with eXo Platform.
 
@@ -245,11 +245,7 @@ In the example above, you can change _WORKER\_NAME_ to any value.
 h1. Configure the session timeout for the web server {anchor:id=ADM.Clustering.Configure_session_time-out_for_web_server}
 
 The session timeout defines the validation period of a session.
-In the portal environment, such as eXo Platform, it is highly recommended that all web applications have the same session timeout value:
-
-* Tomcat
-
-* JBoss
+In the portal environment, such as eXo Platform, it is highly recommended that all web applications have the same session timeout value.
 
 The session timeout is configurable individually for each web application in the _web.xml_ file:
 

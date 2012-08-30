@@ -217,8 +217,6 @@ However, the REST View managements of Cache instances and CacheManager are not c
 
 h2. Content management view {anchor:id=ADM.Management.eXo_Content_management_view}
 
-The Content application provides a management view for three following services:
-
 h3. WCMComposer {anchor:id=ADM.Management.WCMComposer}
 
 WCMComposer is responsible for assembling pages, and is key for serving pages efficiently. 
@@ -256,9 +254,9 @@ FriendlyService is to make URIs more friendly.
 
 
 ||Operation||Description||
-|{{addFriendly(friendlyUri, unfriendlyUri)}}|Add a new Frienly Uri to the list with two parameters: friendlyUri and unfrienlyUri. The value entered in the *friendlyUri* field replaces that of the *unfriendlyUri* field.|
+|{{addFriendly(friendlyUri, unfriendlyUri)}}|Add a new Friendly Uri to the list with two parameters: friendlyUri and unfriendlyUri. The value entered in the *friendlyUri* field replaces that of the *unfriendlyUri* field.|
 |{{removeFriendly(friendlyUri)}}|Remove a friendly URI from the list by entering that Uri into the *friendlyUri* field.|
-|{{isEnabled}}|Check if the service is enabled or not. If the value is returned as "True", the service is enabled. If "False", the serive is disabled.|
+|{{isEnabled}}|Check if the service is enabled or not. If the value is returned as "True", the service is enabled. If "False", the service is disabled.|
 |{{setEnabled(isEnabled)}}|Set the service as activated or deactivated by entering "True" or "False" respectively into the *isEnabled* field.|
 |{{getServletName}}|Return the name of servlet referenced in the service.|
 |{{getFriendlies}}|Return the list of registered friendly URIs.|
@@ -595,7 +593,7 @@ h4. BBCodePlugin {anchor:id=ADM.Management.BBCidePlugin}
 
 h4. ForumInitialDataPlugin {anchor:id=ADM.Management.ForumInitialDataPlugin}
 
-* The JMX name template of ForumInitialDataPlugin MBeans: _exo\:portal="portal",service=forum,view=plugins,name={Name}_.
+* The JMX name template of ForumInitialDataPlugin MBeans: _exo\:portal="portal",service=forum,view=plugins,name={{{{Name}}}}_.
 
 ||Attribute||Description||
 |{{Location}}|The location where the Forum export file is stored.|
