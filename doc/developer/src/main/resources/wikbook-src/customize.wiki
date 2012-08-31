@@ -81,6 +81,11 @@ This will only work if the starter.war is the last .war file to be loaded, so yo
 
 *5.* Add the .jar file named _exo.portal.sample.extension.jar-X.Y.Z.jar_ from _sample/extension/jar/target/_ to the _tomcat/lib_ directory.
 
+*6.* Create a sample-ext.xml file (this file is [a Context Descriptor|http://tomcat.apache.org/tomcat-6.0-doc/deployer-howto.html#A_word_on_Contexts] to configure a context within Tomcat server and to ensure that the extension gets loaded before the starter.war). Then add this file to the _tomcat/conf/Catalina/localhost_ directory with the following content.
+{code:xml}
+<Context path="/sample-ext" docBase="sample-ext" debug="0" reloadable="true" crossContext="true"/>
+{code}
+
 For the JBoss deployment with more details, refer to the [GateIn Reference Guide|../../../reference/html/GateInReferenceGuide.html].
 
 h1. Define a default portal {anchor:id=DEV.CreateYourOwnPortal.Create_default_portal}
