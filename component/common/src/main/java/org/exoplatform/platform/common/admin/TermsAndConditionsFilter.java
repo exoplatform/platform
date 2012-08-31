@@ -38,6 +38,7 @@ public class TermsAndConditionsFilter implements Filter {
   private static final String INITIAL_URI_PARAM_NAME = "tacURI";
   private static final String LOGIN_URI = "/login";
   private static final String DOLOGIN_URI = "/dologin";
+    private static final String REST_URI = "/rest";
 
   public TermsAndConditionsFilter() {}
 
@@ -57,8 +58,9 @@ public class TermsAndConditionsFilter implements Filter {
     String loginRequestUri = httpServletRequest.getContextPath() + LOGIN_URI;
     String dologinRequestUri = httpServletRequest.getContextPath() + DOLOGIN_URI;
     boolean isLoginUri = (requestUri.contains(loginRequestUri) || requestUri.contains(dologinRequestUri));
+      boolean isRestUri = (requestUri.contains(REST_URI));
     
-    if(! isLoginUri && ! tcChecked) {
+    if(! isLoginUri && ! isRestUri && ! tcChecked) {
       // Get full url
       String reqUri = httpServletRequest.getRequestURI().toString();
       String queryString = httpServletRequest.getQueryString();
