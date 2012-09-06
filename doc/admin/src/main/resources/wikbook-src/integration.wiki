@@ -174,7 +174,7 @@ You need to login as an administrator first, then use one of those links:
 |EVENT|Select one of the following values. {example} {example} - *ADDED* - Select this option if the user is not yet integrated into eXo Platform. This will integrate the use and his/her memberships and groups. {example}{example} - *UPDATED* - Select this option if the user field or membership has been modified/added/deleted. This will update the user profiles integrated into eXo Platform and all related memberships. {example} {example} - *DELETED* - Select this option if the user has been deleted from the organization data source. So the user profile will be deleted from eXo Platform.|
 
 
-* _/portal/rest/management/orgsync/syncAllUser?eventType=EVENT_
+* _/portal/rest/management/orgsync/syncAllUsers?eventType=EVENT_
 
 ||Para-value||Description||
 |EVENT|Select one of the following values: {example} {example} - *ADDED* - Search for users who are added to the Organization data source, but not yet integrated. Those users will then be synchronized. {example} {example} - *UPDATED* - Search for users that are present in the Organization data source and already integrated into eXo Platform. Those profiles will be updated. {example} {example} - *DELETED* - Search for users that are deleted from the Organization data source, but their profiles are still always existing in eXo Platform. Those profiles are then deleted.|
