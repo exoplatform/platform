@@ -258,15 +258,11 @@ The session timeout is configurable individually for each web application in the
 </session-config>
 {code}
 
-h2. Tomcat server {anchor:id=ADM.Deployment.TomcatServer}
-
-In the Tomcat bundle, this file is located at _$TOMCAT\_HOME/conf/web.xml_.
-
 {docbook}
 <para>
 <citetitle>
 <emphasis role="bold">
-Configure the session timeout of Server Tomcat
+Configure the session timeout of Tomcat and JBoss server
 </emphasis>
 </citetitle>
 </para>
@@ -278,26 +274,9 @@ Configure the session timeout of Server Tomcat
 
 *3.* Change the value of the session-timeout.
 
-*4.* Save and then restart the server by the _gatein.sh_ command.
+*4.* Save and then restart the server.
 
-h2. JBoss server {anchor:id=ADM.Deployment.JBossServer}
+*Files location*
 
-In the JBoss server, this file is located at _$Jboss\_home/server/default/deployers/jbossweb.deployer/web.xml_.
-
-{docbook}
-<para>
-<citetitle>
-<emphasis role="bold">
-Configure the session timeout of the JBoss server
-</emphasis>
-</citetitle>
-</para>
-{docbook}
-
-*1.* Stop the server by using the _shutdown.sh_ command.
-
-*2.* Open the _web.xml_ file.
-
-*3.* Change the value of the session timeout.
-
-*4.* Save and restart the server.
+|| File || Tomcat || JBoss||
+| _*web.xml*_ |  _$TOMCAT\_HOME/conf/web.xml_. | _$Jboss\_home/server/default/deployers/jbossweb.deployer/web.xml_. |
