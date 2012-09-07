@@ -56,6 +56,9 @@
         <!--dependencies which org.xwiki.platform:xwiki-core-properties depends on-->
         <javax.validation.version>1.0.0.GA</javax.validation.version>
         <hibernate-validator.version>4.2.0.Final</hibernate-validator.version>
+        <itext.version>2.1.7</itext.version>
+        <flying-saucer-core.version>9.0.1</flying-saucer-core.version>
+        <flying-saucer-pdf.version>9.0.1</flying-saucer-pdf.version>
         <!-- End wiki properties -->
 
 		<!-- default workflow engine is bonita. Can also be jbpm -->

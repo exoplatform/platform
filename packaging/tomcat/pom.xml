@@ -1528,11 +1528,29 @@
           <scope>provided</scope>
       </dependency>
       <dependency>
+          <groupId>org.xhtmlrenderer</groupId>
+          <artifactId>flying-saucer-core</artifactId>
+          <version>${flying-saucer-core.version}</version>
+      </dependency>
+      <dependency>
+          <groupId>org.xhtmlrenderer</groupId>
+          <artifactId>flying-saucer-pdf</artifactId>
+          <version>${flying-saucer-pdf.version}</version>
+      </dependency>
+      <dependency>
+          <groupId>com.lowagie</groupId>
+          <artifactId>itext</artifactId>
+          <version>${itext.version}</version>
+          <type>jar</type>
+      </dependency>
+      <!--
+      <dependency>
           <groupId>org.wikimodel</groupId>
           <artifactId>org.wikimodel.wem</artifactId>
           <version>${org.wikimodel.version}</version>
           <scope>provided</scope>
       </dependency>
+      -->
     <dependency>
       <groupId>org.suigeneris</groupId>
       <artifactId>jrcs.diff</artifactId>
