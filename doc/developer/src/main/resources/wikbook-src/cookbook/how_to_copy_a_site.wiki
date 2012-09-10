@@ -1,11 +1,11 @@
 The procedure of each step will be detailed as follows:
 
 {docbook}
- <citetitle>
  <para xml:id="DEV.Cookbook.CopySitesContentFolderWithVersionHistory">
+<citetitle>
  <emphasis role="bold">Step 1. Copy a site's content folder with its version history.</emphasis>
- </para>
  </citetitle>
+</para>
 {docbook}
 
 *1.* Go to the *Sites Management* drive.
@@ -27,11 +27,11 @@ The procedure of each step will be detailed as follows:
 One pop-up message will appear to inform that you have imported successfully.
 
 {docbook}
-<citetitle>
 <para xml:id="DEV.Cookbook.CopyNavigationNodesOfSites">
+<citetitle>
 <emphasis role="bold">Step 2. Copy navigation nodes of sites.</emphasis>
-</para>
 </citetitle>
+</para>
 {docbook}
 
 *1.* Go to the *Content Administration* page and add a new drive to both target and source servers.
@@ -47,11 +47,11 @@ One pop-up message will appear to inform that you have imported successfully.
 !images/how_to_copy_a_site/import_site_navigations.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
 
 {docbook}
-<citetitle>
 <para xml:id="DEV.Cookbook.CopyTemplateOfNodeType">
+<citetitle>
 <emphasis role="bold">Step 3. Copy templates of node types.</emphasis>
-</para>
 </citetitle>
+</para>
 {docbook}
 
 *1.* Add the *System* drive to both servers.
@@ -79,11 +79,11 @@ If you have some specific JCR namespaces and node types, you need to import them
 {note}
 
 {docbook}
-<citetitle>
 <para xml:id="DEV.Cookbook.CopyWCMTemplates">
+<citetitle>
 <emphasis role="bold">Step 4. Copy the WCM template.</emphasis>
-</para>
 </citetitle>
+</para>
 {docbook}
 
 *1.* Open the *DMS Administration* drive.
@@ -117,13 +117,12 @@ If you have some specific WCM (CLV/PCLV) views and/or templates of node types, y
 
 
 {docbook}
-<citetitle>
 <para xml:id="DEV.Cookbook.CopyTaxonomyTree">
+<citetitle>
 <emphasis role="bold">Step 5. Copy a Taxonomy tree.</emphasis>
-</para>
 </citetitle>
+</para>
 {docbook}
-
 
 By importing the whole site as described in the [*Copy a site's content folder with its version history*|#DEV.Cookbook.CopySitesContentFolderWithVersionHistory] section, you will also have the Taxonomy tree imported. The default location where the site's Taxonomy is placed in a sub-folder is named *category*. So, you do not need to export or import them because this step is automatically done. But the Taxonomy tree definition is still not fully imported in the new server. What you need to do is to add this Taxonomy tree definition by following these steps:
 
@@ -148,13 +147,12 @@ In some cases, to see changes, you need to clear the cache by disconnecting or r
 !images/how_to_copy_a_site/TaxonomyTree_added_successfully.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
 
 {docbook}
-<citetitle>
 <para xml:id="DEV.Cookbook.CopyMetadataTemplates">
+<citetitle>
 <emphasis role="bold">Step 6. Copy metadata templates.</emphasis>
-</para>
 </citetitle>
+</para>
 {docbook}
-
 
 *1.* Open the *DMS Administration* drive in the new server.
 
@@ -163,11 +161,11 @@ In some cases, to see changes, you need to clear the cache by disconnecting or r
 *3.* Export and import it in the same location in the new server again.
 
 {docbook}
-<citetitle>
 <para xml:id="DEV.Cookbook.CopyQueries">
+<citetitle>
 <emphasis role="bold">Step 7. Copy queries.</emphasis>
-</para>
 </citetitle>
+</para>
 {docbook}
 
 *1.* Open the *DMS Administration* drive in the new server.
@@ -177,11 +175,11 @@ In some cases, to see changes, you need to clear the cache by disconnecting or r
 *3.* Export and import it in the same location in the new server again.
 
 {docbook}
-<citetitle>
 <para xml:id="DEV.Cookbook.CopyScripts">
+<citetitle>
 <emphasis role="bold">Step 8. Copy scripts.</emphasis>
-</para>
 </citetitle>
+</para>
 {docbook}
 
 *1.* Open the *DMS Administration* drive in the new server.
@@ -199,11 +197,11 @@ You will find three folders referring to the three types of groovy scripts in eX
 *3.* Export your customized script in the same location in the new server.
 
 {docbook}
-<citetitle>
 <para xml:id="DEV.Cookbook.CopyDriveConfigurations">
+<citetitle>
 <emphasis role="bold">Step 9. Copy drive configurations.</emphasis>
-</para>
 </citetitle>
+</para>
 {docbook}
 
 *1.* Open the *DMS Administration* drive in the new server.
@@ -213,11 +211,11 @@ You will find three folders referring to the three types of groovy scripts in eX
 *3.* Export and import it in the same location in the new server again.
 
 {docbook}
-<citetitle>
 <para xml:id="DEV.Cookbook.CopyGadgets">
+<citetitle>
 <emphasis role="bold">Step 10. Copy gadgets.</emphasis>
-</para>
 </citetitle>
+</para>
 {docbook}
 
 *1.* Open the drive that points into the *Portal-System* Workspace.
@@ -227,13 +225,12 @@ You will find three folders referring to the three types of groovy scripts in eX
 *3.* Export and import it in the same location in the new server again.
 
 {docbook}
-<citetitle>
 <para xml:id="DEV.Cookbook.RestartServer">
+<citetitle>
 <emphasis role="bold">Step 11. Restart the server.</emphasis>
-</para>
 </citetitle>
+</para>
 {docbook}
-
 
 After importing the site navigation nodes, the site may look quite broken, so you need to restart the server first. After the server is restarted, the site will look like:
 

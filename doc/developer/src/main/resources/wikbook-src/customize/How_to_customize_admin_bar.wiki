@@ -65,8 +65,6 @@ _eXoResources/skin/DefaultSkin/portal/webui/component/view/UIToolbarContainer/St
 }
 {code}
 
-      
-
 h2. Change the color scheme {anchor:id=DEV.CreateYourOwnPortal.ChangeColorScheme}
 The current color of *Administration* bar is gray gradient. However, you can change the color to match your brand colors.
 

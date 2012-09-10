@@ -77,6 +77,5 @@ By default, the number of open files is limited to "1024". You should execute th
 </para>
 {docbook}
 
-[Create your extension project|#DEV.CreateYourOwnPortal.CreateExtensionProject]
-
-[Create custom look and feel|#DEV.CreateYourOwnPortal.CreateCustomLookAndFeel]
+* [Glossary|#DEV.Glossary]
+* [eXo Architecture Primer|#DEV.eXoArchitecturePremer]

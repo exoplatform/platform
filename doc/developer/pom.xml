@@ -212,6 +212,21 @@
                   <goal>run</goal>
                 </goals>
               </execution>
+			  <execution>
+				<id>f-add-role</id>
+				<phase>generate-sources</phase>
+				<configuration>
+				  <target>
+					<replace file="${docbook.source}/index.xml">
+					  <replacetoken><![CDATA[RoleNotInToc"]]></replacetoken>
+					  <replacevalue><![CDATA[" role="NotInToc"]]></replacevalue>
+					</replace>
+				  </target>
+				</configuration>
+				<goals>
+				  <goal>run</goal>
+				</goals>
+			  </execution>
             </executions>
           </plugin>
            <!--

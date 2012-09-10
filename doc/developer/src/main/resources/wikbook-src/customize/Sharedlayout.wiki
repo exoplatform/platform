@@ -1,17 +1,30 @@
-h2. Existing configurations of sharedlayout.xml {anchor:id=DEV.CreateYourOwnPortal.ExistingConfigurationsOfSharedlayout}
-For now, there are four configurations of _sharedLayout.xml_:
+{docbook}
+<para xml:id="DEV.CreateYourOwnPortal.ExistingConfigurationsOfSharedlayout">
+<citetitle>
+<emphasis role="bold">Existing configurations of sharedlayout.xml</emphasis>
+</citetitle>
+</para>
+{docbook}
+
+There are currently 4 configurations of _sharedLayout.xml_ in eXo Platform:
 * _portal/WEB-INF/conf/portal/portal/sharedlayout.xml_
 * _webos-ext/WEB-INF/conf/portal/portal/sharedlayout.xml_
 * _ecm-wcm-extension/WEB-INF/conf/portal/portal/sharedlayout.xml_
 * _platform-extension/WEB-INF/conf/portal/portal/sharedlayout.xml_
 
-The order of _sharedlayout.xml_ loading is important. The last extension loaded defines _sharedlayout.xml_ used by the system to define portlets displayed in the Admin bar.
+The order of _sharedlayout.xml_ loading is important. The last loaded extension defines the _sharedlayout.xml_ file which the system uses to define portlets displayed in the *Admin* bar.
 
-To make sure your extension is last loaded, look at this configuration file jar:_/conf/configuration.xml_. The component *PortalContainerConfig* can be used to define
-the order of war loading.
+To make sure your extension is last loaded, look at the configuration file: _jar\:/conf/configuration.xml_. The *PortalContainerConfig* component can be used to define the order of war loading.
 
-h2. How it works {anchor:id=DEV.CreateYourOwnPortal.HowItWorks}
-The code which is responsible for _sharedlayout.xml_ loading is located into class _POMDataStorage.java_ from portal.
+{docbook}
+<para xml:id="DEV.CreateYourOwnPortal.HowItWorks">
+<citetitle>
+<emphasis role="bold">How it works?</emphasis>
+</citetitle>
+</para>
+{docbook}
+
+The code which is responsible for _sharedlayout.xml_ loading is located in the _POMDataStorage.java_ class from portal.
 
 {code:java}
    public Container getSharedLayout() throws Exception
@@ -28,16 +41,149 @@ The code which is responsible for _sharedlayout.xml_ loading is located into cla
    }
 {code}
 
-You can see the path is hard-coded. 
+You can see the path is hard-coded. Once the good configuration file is chosen by the portal container, this one will use it to add portlets to the *Admin* bar. You can see that all sharedlayout portlets are configured with the _show-info-bar_ parameter set to "true".
 
-Once the good configuration file is chosen by the portal container, this one uses it to add portlets to the admin bar:
+{docbook}
+<para xml:id="DEV.CreateYourOwnPortal.Overriding">
+<citetitle>
+<emphasis role="bold">Override Sharedlayout.xml</emphasis>
+</citetitle>
+</para>
+{docbook}
 
-!images/admin_bar_portlets_visible.png|align="center"!
+To override the _sharedlayout.xml_ file, you need to add your configuration file into the _custom-extension.war/WEB-INF/conf/portal/portal/Sharedlayout.xml_ file.
 
-In this illustration, you can see all sharedlayout portlets are configured with parameter _show-info-bar_ set to "true".
+{note}
+Remember to configure your extension loaded to override the other _sharedlayout.xml_ configuration.
+{note}
 
-h2. Sharedlayout.xml overriding {anchor:id=DEV.CreateYourOwnPortal.Overriding}
+{docbook}
+<para xml:id="DEV.CreateYourOwnPortal.CustomizeAdminbar">
+<citetitle>
+<emphasis role="bold">Example of the Sharedlayout.xml configuration: Customize the Admin bar</emphasis>
+</citetitle>
+</para>
+{docbook}
 
-To override _sharedlayout.xml_, you need to add your configuration file located by example into _custom-extension.war/WEB-INF/conf/portal/portal/Sharedlayout.xml_
+The *Admin* bar is a special container which is composed of portlets and defined in _WEB-INF/conf/portal/portal/sharedlayout.xml_.
 
-Do not forget to configure your extension loaded to override other _sharedlayout.xml_ configuration.
+If you want to redefine these portlets, you need to override this file by creating your own _sharedlayout.xml_ located into your extension: _custom-extension.war!WEB-INF/conf/portal/portal/sharedlayout.xml_.
+
+Followings are 3 typical examples of the Admin bar configuration: removing a portlet, adding a new portlet and changing the color scheme.
+
+*Remove a portlet from the Admin bar* {anchor:id=DEV.CreateYourOwnPortal.RemoveAdminbarContent}
+
+!images/admin_bar_portlets.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
+
+In the illustration above, each circle represents a portlet defined in the *Admin* bar and configured in _sharedlayout.xml_.
+
+The _sharedlayout.xml_ file configures the current displayed portlets on the *Admin* bar. For example, to remove the *Dashboard* menu, you will need to remove the following block:
+
+{code:xml}
+...
+<container id="UserToolBarDashboardPortlet" template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
+  <portlet-application>
+    <portlet>
+      <application-ref>exoadmin</application-ref>
+      <portlet-ref>UserToolbarDashboardPortlet</portlet-ref>
+    </portlet>
+    <access-permissions>Everyone</access-permissions>
+    <show-info-bar>false</show-info-bar>
+  </portlet-application>
+</container>
+ ...
+{code}
+
+*Add a portlet to the Admin bar* {anchor:id=DEV.CreateYourOwnPortal.AddAdminbarContent}
+
+In the same way you removed a portlet from the Admin bar, you can add your own portlet by editing your _sharedlayout.xml_.
+
+{code:xml}
+...
+<container id="UILogoutPortlet" template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
+  <access-permissions>*:/platform/users</access-permissions>
+  <portlet-application>
+    <portlet>
+      <application-ref>platformNavigation</application-ref>
+      <portlet-ref>UILogoutPortlet</portlet-ref>
+    </portlet>
+    <access-permissions>*:/platform/users</access-permissions>
+    <show-info-bar>false</show-info-bar>
+  </portlet-application>
+</container>
+...
+{code}
+
+The style of portlet container can be changed by editing the CSS file: _eXoResources/skin/DefaultSkin/portal/webui/component/view/UIToolbarContainer/Stylesheet.css_.
+
+{code:css}
+.UIToolbarContainer .UILogoutPortletTDContainer {
+	float: right; /* orientation=lt */
+	float: left; /* orientation=rt */
+}
+{code}
+
+*Change the color scheme* {anchor:id=DEV.CreateYourOwnPortal.ChangeColorScheme}
+
+The current color of the *Admin* bar is gray gradient. However, you can change the color to match your brand colors.
+
+The default style of the *Admin* bar.
+
+!images/admin_bar.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
+
+The style of the *Admin* bar is defined in the *stylesheet.css* located in _extension/resources/src/main/webapp/skin/platformSkin/UIToolbarContainer_.
+
+Edit this CSS file to customize the *Admin* bar to your preferred color scheme.
+
+The CSS code below shows how to modify the *Admin* bar to look like this:
+
+!images/modified_admin_bar.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
+
+{code:css}
+.UIWorkingWorkspace #UIToolbarContainer .HomeLinkTDContainer {
+	line-height: 31px;
+    margin: 0px 5px;
+    vertical-align: middle;
+}
+
+.UIWorkingWorkspace .UIToolbarContainer .ToolbarContainer {
+	/*background: url(background/BgToolbarContainer.gif) repeat-x left top;*/
+	height: 31px;
+	border: none;
+}
+
+.UIWorkingWorkspace .UIToolbarContainer .ToolbarContainer .UITab .MenuItemContainer .MenuItem a {
+	padding: 0 22px 0 22px;
+	font-size: 12px!important;
+	color: #4c4c4c;
+	display: block;
+	font-weight: normal;
+	white-space: nowrap;
+}
+
+.UIToolbarContainer .ToolbarContainer .PinLink {
+    padding: 0px;
+}
+
+.UIWorkingWorkspace .UIToolbarContainer .ToolbarContainer a.TBIcon {
+	/*color: #2f3334;*/
+	font-weight: normal;
+	padding: 0 20px;
+	display: block;
+	white-space: nowrap;
+	background: none;
+	margin-left: 0;
+	zoom: 1;
+	font-size:14px!important;
+	font-family: verdana;
+	border: 1px solid transparent;
+	border-bottom: none;
+	line-height: 29px;
+	height: 29px;
+}
+
+.UIWorkingWorkspace .UIToolbarContainer .ToolbarContainer a.SetupMenuItem  {
+	padding: 0 8px;
+	line-height:25px;
+ }
+{code}
