@@ -2003,7 +2003,7 @@ By this way, you could create a filter which is based on existing conditions of 
 
 *1.* Right-click a message containing the criteria you want to include in your new filter.
 
-!images/filter_message.png|align="center" width="40mm" fo:scalefit="1" html:scalefit="0"!
+!images/filter_message.png|align="center" width="100mm" fo:scalefit="1" html:scalefit="0"!
 
 {docbook}
 <para>The <guilabel>Add/Edit Message Filter</guilabel> form will appear with some pre-defined filter conditions of the current selected message.</para>
@@ -2412,7 +2412,7 @@ The function is used to edit a contact in a specific group.
 <para>
             <emphasis role="bold">1.</emphasis> Open the <guilabel>Contacts</guilabel> form by clicking <inlinemediaobject>
               <imageobject role="fo">
-                <imagedata fileref="images/contacts_button.png" format="PNG" scalefit="1" width="16mm"/>
+                <imagedata fileref="images/contacts_button.png" format="PNG" scalefit="1" width="18mm"/>
               </imageobject>
               <imageobject role="html">
                 <imagedata fileref="images/contacts_button.png" format="PNG" scalefit="0" width="16mm"/>
@@ -2422,7 +2422,7 @@ The function is used to edit a contact in a specific group.
 
 *2.* Select the contact whom you want to edit in the left pane.
 
-*3.* Click !images/edit_button.png|width="8mm" fo:scalefit="1" html:scalefit="0"!.
+*3.* Click !images/edit_button.png|width="10mm" fo:scalefit="1" html:scalefit="0"!.
 
 {docbook}
 <para>
@@ -2443,7 +2443,7 @@ The function is used to delete a contact from a specific group. This contact wil
 <para>
             <emphasis role="bold">1.</emphasis> Open the <guilabel>Contacts</guilabel> form by clicking <inlinemediaobject>
               <imageobject role="fo">
-                <imagedata fileref="images/contacts_button.png" format="PNG" scalefit="1" width="14mm"/>
+                <imagedata fileref="images/contacts_button.png" format="PNG" scalefit="1" width="18mm"/>
               </imageobject>
               <imageobject role="html">
                 <imagedata fileref="images/contacts_button.png" format="PNG" scalefit="0" width="14mm"/>
@@ -2498,7 +2498,7 @@ The function allows you to change the behavior and the layout of *Mail* to your 
           <emphasis role="bold">i.</emphasis> In the <guilabel>General</guilabel> tab, change basic information.</para>
 {docbook}
 
-!images/settings.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
+!images/settings.png|align="center" width="130mm" fo:scalefit="1" html:scalefit="0"!
 
 *Details:*
 {docbook}

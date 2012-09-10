@@ -681,7 +681,7 @@ The *Advanced search* allows you to do a search with multiple criteria correspon
 </itemizedlist>
 {docbook}
 
-       !images/search_both_answers.png|align="center" width="130mm" fo:scalefit="1" html:scalefit="0"!
+!images/search_both_answers.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
 
 {docbook}
  <itemizedlist>
@@ -691,7 +691,7 @@ The *Advanced search* allows you to do a search with multiple criteria correspon
  </itemizedlist>
 {docbook}
 
-!images/Category_search_answers.png|align="center" width="130mm" fo:scalefit="1" html:scalefit="0"!
+!images/Category_search_answers.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
 {docbook}
 <itemizedlist>
               <listitem>
@@ -700,7 +700,7 @@ The *Advanced search* allows you to do a search with multiple criteria correspon
 </itemizedlist>
 {docbook}
 
-        !images/Search_entries_answers.png|align="center" width="130mm" fo:scalefit="1" html:scalefit="0"!
+!images/Search_entries_answers.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
 
 {docbook}
  <para>

@@ -382,7 +382,7 @@ This function is used to help administrators keep track of process details as fo
 
 *2.* Click !images/Workflow/view-icon1.png|width="4mm" fo:scalefit="1" html:scalefit="0"! to view requested process list from users as below.
 
-!images/Workflow/Process_Detail.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
+!images/Workflow/Process_Detail.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
 
 {docbook}
 <note>
@@ -407,7 +407,7 @@ To remove all completed processes from the list in the <guilabel>Completed</guil
           </inlinemediaobject> corresponding to your desired process to view its details (including all actions from different users on this task). The <guilabel>List Tasks of Instance</guilabel> form will appear.
 </para>
 {docbook}
-!images/Workflow/list_task_instance.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
+!images/Workflow/list_task_instance.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
 
 {docbook}
 <para>To delete a process from the requested process list in the <guilabel>Process Detail</guilabel> form, click <inlinemediaobject>

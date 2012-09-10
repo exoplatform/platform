@@ -965,7 +965,7 @@ Every forum member has a publicly viewable profile. This includes information pr
 <para>Whenever you see a member's name in a topic, you can view his public profile quickly by clicking his username or avatar and select <guilabel>View Public Profile</guilabel> from the drop-down menu.</para>
 {docbook}
 
-!images/view_public_profile.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
+!images/view_public_profile.png|align="center" width="80mm" fo:scalefit="1" html:scalefit="0"!
 {docbook}
 <para>The <guilabel>View User Profile</guilabel> form will be displayed.</para>
 {docbook}

@@ -312,7 +312,7 @@ As a moderator, you have some specific rights on a post. To moderate a post, you
 
 Next, click !images/Moderation_btn.png|width="20mm" fo:scalefit="1" html:scalefit="0"! on the *Action* bar and select your desired action from the drop-down menu. All the moderation actions will be reached via this menu.
 
-!images/mod_moderation.png|align="center" width="60mm" fo:scalefit="1" html:scalefit="0"!
+!images/mod_moderation.png|align="center" width="30mm" fo:scalefit="1" html:scalefit="0"!
 
 The followings are actions that a moderator can perform on a post:
 
@@ -500,7 +500,7 @@ containing these keywords will be labeled with 'Pending and Censored!' or 'Post 
 h2. View all pending moderation tasks {anchor:id=Forum-user_guide.Forum_Moderator.View_pending_tasks}
 Administrators and moderators can manage all pending tasks in *Forum* easily. The total number of pending topic/posts that need to be moderated are shown right on the *User* bar/*Forum Administration* bar.
 
-!images/mod_pending_topics_number.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
+!images/mod_pending_topics_number.png|align="center" width="100mm" fo:scalefit="1" html:scalefit="0"!
 {docbook}
 <para>To open the list of pending tasks, click <guilabel>Pending</guilabel> on the <emphasis role="bold">User</emphasis> bar.</para>
 {docbook}
@@ -508,7 +508,7 @@ Administrators and moderators can manage all pending tasks in *Forum* easily. Th
 {docbook}
 <para>The pending topics and posts are shown in the <guilabel>Waiting for Approval</guilabel> form.</para>
 {docbook}
-!images/mod_unapproved_topics.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
+!images/mod_unapproved_topics.png|align="center" width="100mm" fo:scalefit="1" html:scalefit="0"!
 
 This form lists all the pending topics, posts and the created dates. From here, you can approve or delete topics/posts.
 
@@ -524,7 +524,7 @@ This form lists all the pending topics, posts and the created dates. From here, 
 
 *1.* Click the topic/post title in the list.
 
-!images/mod_view_topic.png|align="center" width="80mm" fo:scalefit="1" html:scalefit="0"!
+!images/mod_view_topic.png|align="center" width="100mm" fo:scalefit="1" html:scalefit="0"!
 {docbook}
 <para>
             <emphasis role="bold">2.</emphasis> Click <guibutton>Approve</guibutton> to accept approving topic/post.</para>

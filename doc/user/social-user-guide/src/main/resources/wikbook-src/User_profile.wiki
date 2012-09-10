@@ -265,7 +265,7 @@ You easily upload a photo to your profile or to the spaces which you have create
      <emphasis role="bold">1.</emphasis> Click the <guilabel>Change Picture</guilabel> link, or directly click your current avatar in the left pane to open the <guilabel>Upload an Image</guilabel> form.</para>
 {docbook}
 
-!images/Avatar_upload_form.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
+!images/Avatar_upload_form.png|align="center" width="100mm" fo:scalefit="1" html:scalefit="0"!
 
 {docbook}
 <para>
@@ -282,7 +282,7 @@ You easily upload a photo to your profile or to the spaces which you have create
 <emphasis role="bold">4.</emphasis> Click <guibutton>Confirm</guibutton> to open the <guilabel>Image Preview</guilabel> form to see some related information, such as file name, file type, and image size.</para>
 {docbook}
 
-!images/Avatar_preview_form.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
+!images/Avatar_preview_form.png|align="center" width="100mm" fo:scalefit="1" html:scalefit="0"!
 
 {docbook}
 <para>

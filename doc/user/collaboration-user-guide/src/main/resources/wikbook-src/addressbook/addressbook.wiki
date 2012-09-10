@@ -163,7 +163,7 @@ To change the layout, click !images/layout_button.png|width="17mm" fo:scalefit="
 h1. View contacts {anchor:id="CSUser_guide.How_to_use_Address_book.View_contactsRoleNotInToc"}
 At present, your contacts can be viewed in 2 modes: *List* or *VCards*.
 
-!images/Contact_View_menu.png|align="center" width="200" fo:scalefit="1" html:scalefit="0"!
+!images/Contact_View_menu.png|align="center" width="40mm" fo:scalefit="1" html:scalefit="0"!
 
 *List view*:
 
@@ -555,7 +555,7 @@ Select the contacts that you want to send mail by ticking their respective check
 {docbook}
 You just need to enter one character included in your desired email address. There will be a list of addresses matching your entered character for you to select quickly.
 
-!images/to_email3.png|align="center" width="250" fo:scalefit="1" html:scalefit="0"!
+!images/to_email3.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
 
 {docbook}
 <para>
@@ -640,7 +640,7 @@ Select contacts you want to move, then click !images/move_button.png|width="15" 
 {docbook}
 <para>The <guilabel>Move Contact</guilabel> form will appear, allowing you to select a destination address book where your moved contacts are stored.</para>
 {docbook}
-!images/move_contact.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
+!images/move_contact.png|align="center" width="100mm" fo:scalefit="1" html:scalefit="0"!
 
 *The third way*
 

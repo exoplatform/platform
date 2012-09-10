@@ -150,7 +150,7 @@ This function allows you to find your desired contact quickly by searching by na
 h1. View profiles of other contacts {anchor:id="view_profile_of_contactsRoleNotInToc"}
 To view the profile of a contact, simply click the contact name. You will be directed to his/her profile.
 
-!images/other_profile.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
+!images/other_profile.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
 
 From his/her profile, you can see all his/her activities and connections.
 {docbook}
