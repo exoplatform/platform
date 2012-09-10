@@ -1,4 +1,4 @@
-h1. Regular user {anchor:id=Answer_user_guide.Regular_user}
+h1. Regular user {anchor:id=Answer_user_guide.Regular_userRoleNotInToc}
 
 h2. View details of Answers {anchor:id=Answer_user_guide.View_details}
 After accessing *Answers*, the left pane is hidden by default. To toggle the left pane, click !images/Answer_toogle_panel.png|width="4mm" fo:scalefit="1" html:scalefit="0"! on the *Action* bar. To view details of a category, simply left-click it to open its details in the right pane.
@@ -653,17 +653,6 @@ h3. Quick search {anchor:id=KSuser.Answer_Regular_user.Basic_search}
 |!images/category_icon.png|width="4mm" fo:scalefit="1" html:scalefit="0"!|The category containing your entered keywords.|
 |!images/Watch_icon.png|width="4mm" fo:scalefit="1" html:scalefit="0"!|Click this icon to go into a question or a category.|
 
-{docbook}
-<para>
-<prompt>
-    <emphasis role="bold">See also</emphasis>
-</prompt>
-</para>
-{docbook}
-
-* [View details of Answers|#Answer_user_guide.View_details]
-* [Advanced search|#KSuser.Answer_Regular_user.Advanced_search]
-
 h3. Advanced search {anchor:id=KSuser.Answer_Regular_user.Advanced_search}
 
 The *Advanced search* allows you to do a search with multiple criteria corresponding to the object that is expected to be found. Using the advanced search, you can find questions/categories more exactly.
@@ -692,7 +681,7 @@ The *Advanced search* allows you to do a search with multiple criteria correspon
 </itemizedlist>
 {docbook}
 
-       !images/search_both_answers.png|align="center" width="130mm" fo:scalefit="1" html:scalefit="0"!
+!images/search_both_answers.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
 
 {docbook}
  <itemizedlist>
@@ -702,7 +691,7 @@ The *Advanced search* allows you to do a search with multiple criteria correspon
  </itemizedlist>
 {docbook}
 
-!images/Category_search_answers.png|align="center" width="130mm" fo:scalefit="1" html:scalefit="0"!
+!images/Category_search_answers.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
 {docbook}
 <itemizedlist>
               <listitem>
@@ -711,23 +700,12 @@ The *Advanced search* allows you to do a search with multiple criteria correspon
 </itemizedlist>
 {docbook}
 
-        !images/Search_entries_answers.png|align="center" width="130mm" fo:scalefit="1" html:scalefit="0"!
+!images/Search_entries_answers.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
 
 {docbook}
  <para>
-  <emphasis role="bold">3.</emphasis> Click the <guibutton>Search</guibutton> button to launch the search. All items matching your criteria will be listed in the search results pane below the <guilabel>Search</guilabel> form.</para>
+  <emphasis role="bold">3.</emphasis> Click <guibutton>Search</guibutton> to launch the search. All items matching your criteria will be listed in the search results pane below the <guilabel>Search</guilabel> form.</para>
 {docbook}
-
-{docbook}
-<para>
-<prompt>
-    <emphasis role="bold">See also</emphasis>
-</prompt>
-</para>
-{docbook}
-
-* [View details of Answers|#Answer_user_guide.View_details]
-* [Quick search|#KSuser.Answer_Regular_user.Basic_search]
 
 h2. Print {anchor:id=Answer_user_guide.View_details.Print}
 {docbook}
@@ -750,7 +728,7 @@ h2. Print {anchor:id=Answer_user_guide.View_details.Print}
 
 {docbook}
 <para>
- <emphasis role="bold">3.</emphasis> Click the <guibutton>Print</guibutton> button to accept printing or <guibutton>Close</guibutton> to quit the <guilabel>Print Preview</guilabel> form without printing.</para>
+ <emphasis role="bold">3.</emphasis> Click <guibutton>Print</guibutton> to accept printing or <guibutton>Close</guibutton> to quit the <guilabel>Print Preview</guilabel> form without printing.</para>
 {docbook}
 
 {docbook}

@@ -1,12 +1,152 @@
 {docbook}
+    <highlights>
+        <itemizedlist>
+            <listitem>
+                <para>
+                   <link linkend="CSUser_guide.How_to_use_Mail.Create_mail_account">Create a Mail account</link>
+				</para>
+				<para>
+				Steps to create a mail account that connects to another mail POP3 or SMTP supported servers and ways to edit/delete your account as well more information of Incoming and Outcoming mail server settings.
+                </para>
+            </listitem>
+            <listitem>
+                <para>
+                   <link linkend="CSUser_guide.How_to_use_Mail.Get_mail">Get mails</link>
+				</para>
+				<para>
+					Steps to fetch messages from the remote mail servers and forward them via SMTP, so it can be read in <emphasis role="bold">Mail</emphasis>.
+                </para>
+            </listitem>
+            <listitem>
+                <para>
+                   <link linkend="CSUser_guide.How_to_use_Mail.Mail_views">Mail views</link>
+				</para>
+				<para>
+					Introduction to the different view modes in <emphasis role="bold">Mail</emphasis>.
+                </para>
+            </listitem>
+            <listitem>
+                <para>
+                   <link linkend="CSUser_guide.How_to_use_Mail.Read_email">Read an email</link>
+				</para>
+				<para>
+				Instructions on how to open an email and to perform other actions, such as downloading attachments, marking as read, staring messages, moving to folder, marking as spam, deleting messages.
+                </para>
+            </listitem>
+            <listitem>
+                <para>
+                   <link linkend="Compose_new_message">Compose a new message</link>
+				</para>
+				<para>
+				Steps to compose a new message and to perform other actions: adding attachments, saving as draft, setting priority level, changing message signatures and message preferences.
+                </para>
+            </listitem>
+            <listitem>
+                <para>
+                   <link linkend="CSUser_guide.How_to_use_Mail.Reply_to_message">Reply to a message</link>
+				</para>
+				<para>
+				Steps and ways to reply to the sender only or to all recipients of the message.
+                </para>
+            </listitem>
+            <listitem>
+                <para>
+                   <link linkend="CSUser_guide.How_to_use_Mail.Forward_message">Forward a message</link>
+				</para>
+				<para>
+				Steps to re-send messages to other people.
+                </para>
+            </listitem>
+            <listitem>
+                <para>
+                   <link linkend="CSUser_guide.How_to_use_Mail.Print_message">Print a message</link>
+				</para>
+				<para>
+					Steps to take a hard copy of the message, provided that your device is connected to a printer, either directly or through a network connection.
+                </para>
+            </listitem>
+            <listitem>
+                <para>
+                   <link linkend="CSUser_guide.How_to_use_Mail.Export_messages">Export a message</link>
+				</para>
+				<para>
+					Steps to back up your messages, then import them into your another accounts.
+                </para>
+            </listitem>
+            <listitem>
+                <para>
+                   <link linkend="CSUser_guide.How_to_use_Mail.Import_messages">Import a message</link>
+				</para>
+				<para>
+				Steps to import a message from your device to your selected folder.
+                </para>
+            </listitem>
+            <listitem>
+                <para>
+                   <link linkend="CSUser_guide.How_to_use_Mail.Categorize_messages_by_folders_tags_filters">Categorize messages by folders/tags/filters</link>
+				</para>
+				<para>
+				Ways to manage message by using folders, tags or by creating a filter to categorize message.
+                </para>
+            </listitem>
+            <listitem>
+                <para>
+                   <link linkend="Search_messages">Search for messages</link>
+				</para>
+				<para>
+				Introduction to 2 search modes (Quick and Advanced) supported by the <emphasis role="bold">Mail</emphasis> application, and ways to use them.
+                </para>
+            </listitem>
+            <listitem>
+                <para>
+                   <link linkend="Add_event">Add an event</link>
+				</para>
+				<para>
+					Steps to invite your colleagues to join events. You can create events, invite them by sending message or make email notifications to receive reminders right in the <emphasis role="bold">Mail</emphasis> application.
+                </para>
+            </listitem>
+			<listitem>
+				<para>
+					<link linkend="Manage_address_books_in_Mail">Manage Address Book in <emphasis role="bold">Mail</emphasis></link>
+				</para>
+				<para>
+					Introduction to some actions related to managing contacts and address books in <emphasis role="bold">Mail</emphasis>, and steps to perform them, including: adding a new address book/contact, editing contact details and deleting a contact.
+				</para>
+			</listitem>
+            <listitem>
+                <para>
+                   <link linkend="Mail_settings">Change <emphasis role="bold">Mail</emphasis> settings</link>
+				</para>
+				<para>
+					Steps and details to change the <emphasis role="bold">Mail</emphasis> settings to your preferences, including basic information, options when <emphasis role="bold">Mail</emphasis> gets a "Return Receipt" request, the <emphasis role="bold">Mail</emphasis> layout, and delegation of your account to any registered user in the system.
+                </para>
+            </listitem>
+        </itemizedlist>
+    </highlights>
+{docbook}
+
+{docbook}
 <note>
 <para>
-The <emphasis role="bold">Mail</emphasis> portlet and its services are deprecated. It remains fully supported for eXo customers, however it will not receive any enhancement and will be removed from the product scope in the future.
+The <emphasis role="bold">Mail</emphasis> portlet and its services are deprecated. It remains fully supported for eXo customers, however it will not receive any enhancement and will be removed from the product scope in future.
 </para>
 </note>
 {docbook}
 
-h1. Create a Mail account {anchor:id="CSUser_guide.How_to_use_Mail.Create_mail_account}
+{docbook}
+<para>
+<prompt>
+    <emphasis role="bold">See also</emphasis>
+</prompt>
+</para>
+{docbook}
+
+* [Manage your calendar|#Platform_User_Guide.Collaboration.Manage_calendar]
+* [Manage your contacts|#Platform_User_Guide.Collaboration.Communicate_with_Contacts.Manage_Contacts]
+* [Chat with your contacts|#Platform_User_Guide.Collaboration.Communicate_with_Contacts.Chat]
+
+
+h1. Create a Mail account {anchor:id="CSUser_guide.How_to_use_Mail.Create_mail_accountRoleNotInToc"}
 To get mails from other mail services, you first need to create a mail account in the *Mail* application which connects to another mail POP3 or SMTP supported servers, such as Gmail, Yahoo! Mail, Hotmail, GMX, Cyrus, Exchange Server. The *Mail* application allows you to get mails from different mail services at one place.
 
 {docbook}
@@ -312,7 +452,7 @@ The following reference introduces some common Incoming and Outgoing Mail Server
 
 * AOL Outgoing Mail Server - smtp.aol.com
 
-h1. Get mails {anchor:id="CSUser_guide.How_to_use_Mail.Get_mail}
+h1. Get mails {anchor:id="CSUser_guide.How_to_use_Mail.Get_mailRoleNotInToc"}
 This function is used to receive messages from the remote mail servers and forward them via SMTP, so it can be read in Mail. It supports any mail servers with POP3, IMAP, SMTP, such as Gmail, Hotmail, Yahoo! Mail, GMX, MS Exchange.
 
 {docbook}
@@ -334,7 +474,7 @@ This function is used to receive messages from the remote mail servers and forwa
 
 !images/fetching_emails.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
 
-h1. Mail views {anchor:id="CSUser_guide.How_to_use_Mail.Mail_views}
+h1. Mail views {anchor:id="CSUser_guide.How_to_use_Mail.Mail_viewsRoleNotInToc"}
 {docbook}
 <para>This function offers three options for viewing messages in your mailbox. Messages are displayed by date, where receipt hours are for today mails and dates are for mails received in previous days. You simply toggle between 3 views by clicking <guilabel>View as</guilabel> and selecting either of the views. The selected view is marked with <inlinemediaobject>
             <imageobject role="fo">
@@ -348,22 +488,43 @@ h1. Mail views {anchor:id="CSUser_guide.How_to_use_Mail.Mail_views}
 
 !images/view_as.png|align="center" width="30mm" fo:scalefit="1" html:scalefit="0"!
 
-h2. List view {anchor:id="CSUser_guide.How_to_use_Mail.Mail_views.List_view}
+{docbook}
+<citetitle>
+    <para xml:id="CSUser_guide.How_to_use_Mail.Mail_views.List_view">
+        <emphasis role="bold">List view</emphasis>
+    </para>
+</citetitle>
+{docbook}
+
 In this view mode, all messages are arranged as a list.
 
 !images/list_view.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
 
-h2. Thread view {anchor:id="CSUser_guide.How_to_use_Mail.Mail_views.Thread_view}
+{docbook}
+<citetitle>
+    <para xml:id="CSUser_guide.How_to_use_Mail.Mail_views.Thread_view">
+        <emphasis role="bold">Thread view</emphasis>
+    </para>
+</citetitle>
+{docbook}
+
 Messages are arranged as a tree structure. All replies are shown as sub-nodes. When you click one message, its content is displayed in the message details pane with block quotes containing content of the parent messages.
 
 !images/thread_view.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
 
-h2. Conversation view {anchor:id="CSUser_guide.How_to_use_Mail.Mail_views.Conversation_view}
+{docbook}
+<citetitle>
+    <para xml:id="CSUser_guide.How_to_use_Mail.Mail_views.Conversation_view">
+        <emphasis role="bold">Conversation view</emphasis>
+    </para>
+</citetitle>
+{docbook}
+
 When this view mode is selected, only the subject of parent message and the number of replies in the conversation are displayed in the messages list pane. When being opened, all messages are shown in the message details pane with separate reading pane which can be expanded by left-clicking the relevant reading pane.
 
 !images/conversation_view.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
 
-h1. Read an email {anchor:id="CSUser_guide.How_to_use_Mail.Read_email}
+h1. Read an email {anchor:id="CSUser_guide.How_to_use_Mail.Read_emailRoleNotInToc"}
 If you want to read an email, simply click your preferred mail in the mails list and scroll down to read your selected email in the details pane.
 
 !images/read_email.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
@@ -723,7 +884,23 @@ This function is only for messages which have been TEMPORARILY deleted.
 <para>Open the <guilabel>Trash</guilabel> folder, then use the <link linkend="Move_message_to_other_folders">Move</link> function to remove the message from the <guilabel>Trash</guilabel> folder.</para>
 {docbook}
 
-h1. Compose a new message {anchor:id="Compose_new_message"}
+h1. Compose a new message {anchor:id="Compose_new_messageRoleNotInToc"}
+
+In this section, you will know to [compose a message|#CSUser_guide.How_to_use_Calendar.Compose_message], [send message to multiple recipients|#CSUser_guide.How_to_use_Calendar.Send_message_to_multiple_recipients] and perform useful tasks when composing a message:
+* [Attach a file to a message|#Attach_attachment_to_message]
+* [Save a message as draft|#Save_message_as_draft]
+* [Set a priority level|#Set_priority_level]
+* [Change the message signature|#Change_signature_to_message]
+* [Change message preferences|#Change_message_preferences]
+
+{docbook}
+<citetitle>
+    <para xml:id="CSUser_guide.How_to_use_Calendar.Compose_message">
+        <emphasis role="bold">Compose a message</emphasis>
+    </para>
+</citetitle>
+{docbook}
+
 {docbook}
 <para>
           <emphasis role="bold">1.</emphasis> Click <inlinemediaobject>
@@ -789,8 +966,9 @@ Click !images/editor_icon.png|width="13mm" fo:scalefit="1" html:scalefit="0"! on
 
 {docbook}
 <citetitle>
-<para>
-<emphasis role="bold">Select more email addresses in the "To" field
+<para xml:id="CSUser_guide.How_to_use_Calendar.Send_message_to_multiple_recipients">
+<emphasis role="bold">
+Send message to multiple recipients
 </emphasis>
 </para>
 </citetitle>
@@ -850,7 +1028,16 @@ Also, you can
 <para><emphasis role="bold">3.</emphasis> Click <guilabel>Add</guilabel> to add your selected email addresses to the <guilabel>To</guilabel> box, or <guilabel>Replace</guilabel> to replace the current email addresses in the <guilabel>To</guilabel> field with your newly selected ones.</para>
 {docbook}
 
-h2. Attach a file to a message {anchor:id="Attach_attachment_to_message"}
+{docbook}
+<citetitle>
+    <para xml:id="Attach_attachment_to_message">
+        <emphasis role="bold">Attach a file to a message</emphasis>
+    </para>
+</citetitle>
+{docbook}
+
+*Attach a local file*
+
 {docbook}<para>
             <emphasis role="bold">1.</emphasis> Click <inlinemediaobject>
               <imageobject role="fo">
@@ -900,13 +1087,7 @@ h2. Attach a file to a message {anchor:id="Attach_attachment_to_message"}
 * Click !images/Download_icon.png|width="4mm" fo:scalefit="1" html:scalefit="0"! to download or see if your uploaded file is correct or not without browsing the file on your device.
 * Click !images/add_mail_acount_icon.png|width="4mm" fo:scalefit="1" html:scalefit="0"! next to the attached file to remove it from your message.
 
-{docbook}
-<citetitle>
-<para xml:id="Attach_server_file">
-<emphasis role="bold">Attach a server file</emphasis>
-</para>
-</citetitle>
-{docbook}
+*Attach a server file*
 
 This function is only featured in eXo Platform 3.5, allowing you to browse and attach one file from your server as follows.
 
@@ -939,8 +1120,14 @@ This function is only featured in eXo Platform 3.5, allowing you to browse and a
 <para>Or, click <guilabel>Attach Link</guilabel> to get the link pointing to the selected source file that is shown in your message body. The <emphasis role="bold">Attach Link</emphasis> function allows your mail recipients to download the attached source file just clicking the relevant link.</para>
 {docbook}
 
+{docbook}
+<citetitle>
+    <para xml:id="Save_message_as_draft">
+        <emphasis role="bold">Save a message as draft</emphasis>
+    </para>
+</citetitle>
+{docbook}
 
-h2. Save a message as draft {anchor:id="Save_message_as_draft"}
 {docbook}
 <para>If you are not ready to send your composed message, click <inlinemediaobject>
               <imageobject role="fo">
@@ -952,21 +1139,17 @@ h2. Save a message as draft {anchor:id="Save_message_as_draft"}
             </inlinemediaobject> to save it as draft. Your draft message will be in the <guilabel>Drafts</guilabel> folder for you to send whenever you like.</para>
 {docbook}
 
-h2. Set a priority level {anchor:id="Set_priority_level"}
+{docbook}
+<citetitle>
+    <para xml:id="Set_priority_level">
+        <emphasis role="bold">Set a priority level</emphasis>
+    </para>
+</citetitle>
+{docbook}
 
 The priority levels set to a message allow recipients to define if one received message is at a high, or normal, or low importance level. It means that when a message is set at the high priority level, its recipients need to read as soon as possible.
 
 This useful tool can be done with a few clicks when you are composing a new message.
-
-{docbook}
-<citetitle>
-<para>
-<emphasis role="bold">
-Set a priority level for your composed message
-</emphasis>
-</para>
-</citetitle>
-{docbook}
 
 {docbook}
 <para>
@@ -1006,11 +1189,25 @@ Set a priority level for your composed message
           </itemizedlist>
 {docbook}
 
-h2. Change the message signature {anchor:id="Change_signature_to_message"}
+{docbook}
+<citetitle>
+    <para xml:id="Change_signature_to_message">
+        <emphasis role="bold">Change the message signature</emphasis>
+    </para>
+</citetitle>
+{docbook}
+
 A message signature is an identification text which is automatically inserted at the bottom of your sending messages.
 You can change this signature by [editing your account details|#CSUser_guide.How_to_use_Mail.Create_mail_account.Edit_account].
 
-h2. Change message preferences  {anchor:id="Change_message_preferences"}
+{docbook}
+<citetitle>
+    <para xml:id="Change_message_preferences">
+        <emphasis role="bold">Change message preferences</emphasis>
+    </para>
+</citetitle>
+{docbook}
+
 At present, this function only allows you to receive a notification message that the recipient has already read your message or not.
 
 {docbook}
@@ -1031,7 +1228,7 @@ At present, this function only allows you to receive a notification message that
             </guilabel> configuration of the recipient in the <link linkend="Mail_settings">Change Mail settings</link> section.</para>
 {docbook}
 
-h1. Reply to a message {anchor:id="CSUser_guide.How_to_use_Mail.Reply_to_message}
+h1. Reply to a message {anchor:id="CSUser_guide.How_to_use_Mail.Reply_to_messageRoleNotInToc"}
 
 {docbook}
 <citetitle>
@@ -1097,7 +1294,7 @@ Click the message that you want to reply to display its content, then select !im
           </inlinemediaobject> to send your reply.</para>
 {docbook}
 
-h1. Forward a message {anchor:id="CSUser_guide.How_to_use_Mail.Forward_message"}
+h1. Forward a message {anchor:id="CSUser_guide.How_to_use_Mail.Forward_messageRoleNotInToc"}
 This function allows you to resend a message, which has been delivered to your email address, to another email addresses.
 
 {docbook}
@@ -1145,7 +1342,7 @@ Before forwarding a message, you can edit it to your desires that is similar to 
 </note>
 {docbook}
 
-h1. Print a message {anchor:id="CSUser_guide.How_to_use_Mail.Print_message}
+h1. Print a message {anchor:id="CSUser_guide.How_to_use_Mail.Print_messageRoleNotInToc"}
 
 This function helps you take a hard copy of the message, provided that your device is connected to a printer, either directly or through a network connection.
 
@@ -1177,7 +1374,7 @@ Tick the checkbox corresponding to the message, then click !images/print_icon.pn
 <para>You will be directed to the <emphasis role="bold">Print Preview</emphasis> page. Here, click <guibutton>Print</guibutton> to start printing.</para>
 {docbook}
 
-h1. Export a message {anchor:id="CSUser_guide.How_to_use_Mail.Export_messages}
+h1. Export a message {anchor:id="CSUser_guide.How_to_use_Mail.Export_messagesRoleNotInToc"}
 
 This function allows you to back up your messages, then import them into your another accounts. Messages are exported in the \*.eml file.
 
@@ -1224,7 +1421,7 @@ This function allows you to back up your messages, then import them into your an
           <emphasis role="bold">3.</emphasis> Click <guibutton>Export</guibutton> to accept exporting your selected message.</para>
 {docbook}
 
-h1. Import a message {anchor:id="CSUser_guide.How_to_use_Mail.Import_messages}
+h1. Import a message {anchor:id="CSUser_guide.How_to_use_Mail.Import_messagesRoleNotInToc"}
 The function is used to import a message from your device to your selected folder in *Mail*.
 
 {docbook}
@@ -1261,7 +1458,10 @@ The function is used to import a message from your device to your selected folde
 </note>
 {docbook}
 
-h1. Categorize messages by folders/tags/filters {anchor:id="CSUser_guide.How_to_use_Mail.Categorize_messages_by_folders_tags_filters}
+h1. Categorize messages by folders/tags/filters {anchor:id="CSUser_guide.How_to_use_Mail.Categorize_messages_by_folders_tags_filtersRoleNotInToc"}
+
+
+
 h2. Categorize by folder {anchor:id="CSUser_guide.How_to_use_Mail.Categorize_messages_by_folders_tags_filters.Folder}
 
 {docbook}<para>Folders help you manage your messages more easily and flexibly. Once your new mail account is created successfully, five default folders, including <guilabel>Inbox, Drafts, Sent, Spam, Trash</guilabel>, will be automatically generated. You cannot delete, rename or move these folders.</para>
@@ -1803,7 +2003,7 @@ By this way, you could create a filter which is based on existing conditions of 
 
 *1.* Right-click a message containing the criteria you want to include in your new filter.
 
-!images/filter_message.png|align="center" width="40mm" fo:scalefit="1" html:scalefit="0"!
+!images/filter_message.png|align="center" width="100mm" fo:scalefit="1" html:scalefit="0"!
 
 {docbook}
 <para>The <guilabel>Add/Edit Message Filter</guilabel> form will appear with some pre-defined filter conditions of the current selected message.</para>
@@ -1874,7 +2074,7 @@ h3. Delete a filter {anchor:id="Delete_filter"}
    <emphasis role="bold">3.</emphasis> Click <guibutton>OK</guibutton> in the confirmation message to accept your deletion.</para>
 {docbook}
 
-h1. Search for messages {anchor:id="Search_messages}
+h1. Search for messages {anchor:id="Search_messagesRoleNotInToc"}
 The *Mail* application supports two search modes: [Quick search|#Mail_Quick_search] or [Advanced search|#Mail_Advanced_search].
 
 {docbook}
@@ -2029,7 +2229,7 @@ The Advanced Search allows you to specify criteria to narrow your search results
   <emphasis role="bold">3.</emphasis> Click <guibutton>Search</guibutton> to perform your search.</para>
 {docbook}
 
-h1. Add an event {anchor:id="Add_event"}
+h1. Add an event {anchor:id="Add_eventRoleNotInToc"}
 
 If you want to invite your colleagues to join a conference or a meeting, you can create an event, invite them or make email notifications to receive reminders right in the *Mail* application.
 
@@ -2064,10 +2264,21 @@ If you want to invite your colleagues to join a conference or a meeting, you can
           <emphasis role="bold">4.</emphasis> Click <guibutton>Save</guibutton> to finish adding your event.</para>
 {docbook}
 
-h1. Manage Address Book in Mail {anchor:id="Manage_address_books_in_Mail"}
-*Address Book* in the *Mail* application provides you with a list of contacts which can be retrieved for sending your mails. This section will explain some actions related to managing contacts and address books in *Mail*.
+h1. Manage Address Book in Mail {anchor:id="Manage_address_books_in_MailRoleNotInToc"}
+*Address Book* in the *Mail* application provides you with a list of contacts which can be retrieved for sending your mails. This section will explain some actions related to managing contacts and address books in *Mail* via the following topics:
 
-h2. Add a new address book {anchor:id="Add_address_book"}
+* [Add a new address book|#Add_address_book]
+* [Add a new contact|#Add_new_contact]
+* [Edit contact details|#Edit_contact_details]
+* [Delete a contact|#Delete_contact]
+
+{docbook}
+<citetitle>
+    <para xml:id="Add_address_book">
+        <emphasis role="bold">Add a new address book</emphasis>
+    </para>
+</citetitle>
+{docbook}
 
 {docbook}
 <para>
@@ -2126,9 +2337,14 @@ h2. Add a new address book {anchor:id="Add_address_book"}
             <emphasis role="bold">3.</emphasis> Click <guibutton>Add</guibutton> to finish adding your address book.</para>
 {docbook}
 
+{docbook}
+<citetitle>
+    <para xml:id="Add_new_contact">
+        <emphasis role="bold">Add a new contact</emphasis>
+    </para>
+</citetitle>
+{docbook}
 
-
-h2. Add a new contact {anchor:id="Add_new_contact"}
 The function is used to add a new contact to a group.
 
 {docbook}
@@ -2182,14 +2398,21 @@ This way is used to add the message sender to a specific address book.
  <emphasis role="bold">3.</emphasis> Click <guibutton>Save</guibutton> to finish adding your contact.</para>
 {docbook}
 
-h2. Edit contact details {anchor:id="Edit_contact_details"}
+{docbook}
+<citetitle>
+    <para xml:id="Edit_contact_details">
+        <emphasis role="bold">Edit contact details</emphasis>
+    </para>
+</citetitle>
+{docbook}
+
 The function is used to edit a contact in a specific group.
 
 {docbook}
 <para>
             <emphasis role="bold">1.</emphasis> Open the <guilabel>Contacts</guilabel> form by clicking <inlinemediaobject>
               <imageobject role="fo">
-                <imagedata fileref="images/contacts_button.png" format="PNG" scalefit="1" width="16mm"/>
+                <imagedata fileref="images/contacts_button.png" format="PNG" scalefit="1" width="18mm"/>
               </imageobject>
               <imageobject role="html">
                 <imagedata fileref="images/contacts_button.png" format="PNG" scalefit="0" width="16mm"/>
@@ -2199,21 +2422,28 @@ The function is used to edit a contact in a specific group.
 
 *2.* Select the contact whom you want to edit in the left pane.
 
-*3.* Click !images/edit_button.png|width="8mm" fo:scalefit="1" html:scalefit="0"!.
+*3.* Click !images/edit_button.png|width="10mm" fo:scalefit="1" html:scalefit="0"!.
 
 {docbook}
 <para>
             <emphasis role="bold">4.</emphasis> Change the contact details, then click <guibutton>Save</guibutton> to finish.</para>
 {docbook}
 
-h2. Delete a contact {anchor:id="Delete_contact"}
+{docbook}
+<citetitle>
+    <para xml:id="Delete_contact">
+        <emphasis role="bold">Delete a contact</emphasis>
+    </para>
+</citetitle>
+{docbook}
+
 The function is used to delete a contact from a specific group. This contact will be removed from your address book as well.
 
 {docbook}
 <para>
             <emphasis role="bold">1.</emphasis> Open the <guilabel>Contacts</guilabel> form by clicking <inlinemediaobject>
               <imageobject role="fo">
-                <imagedata fileref="images/contacts_button.png" format="PNG" scalefit="1" width="14mm"/>
+                <imagedata fileref="images/contacts_button.png" format="PNG" scalefit="1" width="18mm"/>
               </imageobject>
               <imageobject role="html">
                 <imagedata fileref="images/contacts_button.png" format="PNG" scalefit="0" width="14mm"/>
@@ -2246,7 +2476,7 @@ You cannot delete your own contact from your address book.
 </note>
 {docbook}
 
-h1. Change Mail settings {anchor:id="Mail_settings"}
+h1. Change Mail settings {anchor:id="Mail_settingsRoleNotInToc"}
 The function allows you to change the behavior and the layout of *Mail* to your needs.
 
 {docbook}
@@ -2268,7 +2498,7 @@ The function allows you to change the behavior and the layout of *Mail* to your 
           <emphasis role="bold">i.</emphasis> In the <guilabel>General</guilabel> tab, change basic information.</para>
 {docbook}
 
-!images/settings.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
+!images/settings.png|align="center" width="130mm" fo:scalefit="1" html:scalefit="0"!
 
 *Details:*
 {docbook}

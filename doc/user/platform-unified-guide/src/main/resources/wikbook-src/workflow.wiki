@@ -1,4 +1,27 @@
 {docbook}
+    <highlights>
+	<itemizedlist>
+		<listitem>
+			<para><link linkend="Platform_User_Guide.Organize_Content.Manage_Workflows.Holiday_Process">Holiday process</link></para>
+			<para>Introduction to a sample Holiday process, and steps to request a task related to your holiday and to manage this process.</para>
+		</listitem>
+		<listitem>
+			<para><link linkend="Platform_User_Guide.Organize_Content.Manage_Workflows.Pay_ray_process">Pay raise process</link></para>
+			<para>Introduction to a sample Pay raise process, steps to create and manage this process.</para>
+		</listitem>
+		<listitem>
+			<para><link linkend="Platform_User_Guide.Organize_Content.Manage_Workflows.Upload_Process">Upload a process</link></para>
+			<para>Steps to upload a new process that is for administrators.</para>
+		</listitem>
+		<listitem>
+			<para><link linkend="Platform_User_Guide.Organize_Content.Manage_Workflows.View_Process_Detail">View process detail</link></para>
+			<para>Instructions on how to keep track of process details.</para>
+		</listitem>
+    </itemizedlist>
+</highlights>
+{docbook}
+
+{docbook}
 <note>
 <para>
 Two portlets, including <emphasis role="bold">Workflow Controller</emphasis> and <emphasis role="bold">Workflow Administration</emphasis>, are deprecated in eXo Platform. They remain fully supported for eXo customers, however they will not receive any enhancement and will be removed from the product scope in the future.
@@ -27,10 +50,31 @@ to the main pane. This can be done when <link linkend="sect-User_Guide-Page_Crea
 {docbook}
 !images/Workflow/workflow_controller_dagdrop.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
 
-h1. Holiday process{anchor:id=Platform_User_Guide.Organize_Content.Manage_Workflows.Holiday_Process}
+{docbook}
+<para>
+<prompt>
+    <emphasis role="bold">See also</emphasis>
+</prompt>
+</para>
+{docbook}
+
+* [Structure content|#Platform_User_Guide.Organize_Content.Structure_Content]
+* [Manage content|#Platform_User_Guide.Organize_Content.Manage_Content]
+* [Manage newsletter|#Platform_User_Guide.Organize_Content.Newsletter]
+
+h1. Holiday process{anchor:id=Platform_User_Guide.Organize_Content.Manage_Workflows.Holiday_ProcessRoleNotInToc}
 This process is used to request a task related to your holiday. If you want to have a holiday in a time interval, you should use this process.
 
-h2. Create a holiday process{anchor:id=Platform_User_Guide.Organize_Content.Manage_Workflows.Create_Holiday_Process}
+{docbook}
+<para xml:id="Platform_User_Guide.Organize_Content.Manage_Workflows.Create_Holiday_Process">
+<citetitle>
+<emphasis role="bold">
+Create a holiday process
+</emphasis>
+</citetitle>
+</para>
+{docbook}
+
 {docbook}
 <para>
  <emphasis role="bold">1.</emphasis> Select the <guilabel>BP Definition Controller</guilabel> tab to bring up the process list.
@@ -72,8 +116,6 @@ In which:
 
 !images/Workflow/task_manager_request|align="center" width="100mm" fo:scalefit="1" html:scalefit="0"!
 
-
-
 In which:
 {docbook}
 <itemizedlist>
@@ -102,8 +144,16 @@ In this form, you need to set a time interval in the <guilabel>Start</guilabel> 
 {docbook}
 After being submitted, this task will be sent to members of _\*:/organization/management/executive-board_ group for waiting to be approved/disapproved or refused.
 
+{docbook}
+<para xml:id="Platform_User_Guide.Organize_Content.Manage_Workflows.Manage_Process">
+<citetitle>
+<emphasis role="bold">
+Manage a holiday process
+</emphasis>
+</citetitle>
+</para>
+{docbook}
 
-h2. Manage a holiday process{anchor:id=Platform_User_Guide.Organize_Content.Manage_Workflows.Manage_Process}
 If you are a member of _\*:/organization/management/executive-board_ group, you have a responsibility to evaluate received tasks. To take this action, do as follows:
 
 {docbook}
@@ -169,12 +219,21 @@ Thus, if you are a member of _\*:/organization/management/human-resources_ group
 {docbook}
 
 
-h1. Pay raise process{anchor:id=Platform_User_Guide.Organize_Content.Manage_Workflows.Pay_ray_process}
+h1. Pay raise process{anchor:id=Platform_User_Guide.Organize_Content.Manage_Workflows.Pay_ray_processRoleNotInToc}
 This process is used when you want to propose raising your pay.
 
-h2. Create a pay raise process{anchor:id=Platform_User_Guide.Organize_Content.Manage_Workflows.Request_pay_raise}
 {docbook}
-<para><emphasis role="bold">1.</emphasis> Select the <guilabel>BP Definition Controller</guilabel> tab to bring up process list. </para>
+<para xml:id="Platform_User_Guide.Organize_Content.Manage_Workflows.Request_pay_raise">
+<citetitle>
+<emphasis role="bold">
+Create a pay raise process
+</emphasis>
+</citetitle>
+</para>
+{docbook}
+
+{docbook}
+<para><emphasis role="bold">1.</emphasis> Select the <guilabel>BP Definition Controller</guilabel> tab to bring up the processes list. </para>
 {docbook}
 
 {docbook}
@@ -207,7 +266,15 @@ h2. Create a pay raise process{anchor:id=Platform_User_Guide.Organize_Content.Ma
 {docbook}
 This task will be sent to members of the _\*:/organization/management/executive-board_ group that manage it.
 
-h2. Manage a pay raise process{anchor:id=Platform_User_Guide.Organize_Content.Manage_Workflows.Manage_pay_raise}
+{docbook}
+<para xml:id="Platform_User_Guide.Organize_Content.Manage_Workflows.Manage_pay_raise">
+<citetitle>
+<emphasis role="bold">
+Manage a pay raise process
+</emphasis>
+</citetitle>
+</para>
+{docbook}
 
 If you are a member of _\*:/organization/management/executive-board_ group, you have a responsibility to evaluate received tasks. To do this action, do as follows:
 
@@ -254,7 +321,6 @@ Thus, if you are a member of the <emphasis>*:/organization/management/human-reso
 </para>
 {docbook}
 
-
 !images/Workflow/update_salary.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
 
 {docbook}
@@ -267,9 +333,7 @@ Thus, if you are a member of the <emphasis>*:/organization/management/human-reso
 <para> If you do not agree with this request, click the <guibutton>Deny</guibutton> button. This request will be removed.</para>
 {docbook}
 
-
-
-h1. Upload a process{anchor:id=Platform_User_Guide.Organize_Content.Manage_Workflows.Upload_Process}
+h1. Upload a process{anchor:id=Platform_User_Guide.Organize_Content.Manage_Workflows.Upload_ProcessRoleNotInToc}
 Besides two default process supported by system, administrators also can upload a new process as follows:
 
 {docbook}
@@ -279,7 +343,6 @@ Besides two default process supported by system, administrators also can upload 
 </para>
 {docbook}
 !images/Workflow/workflow_administration_dagdrop.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
-
 
 *2.* Open the *Workflow Administration* portlet.
 
@@ -310,7 +373,7 @@ Besides two default process supported by system, administrators also can upload 
 </para>
 {docbook}
 
-h1. View process detail{anchor:id=Platform_User_Guide.Organize_Content.Manage_Workflows.View_Process_Detail}
+h1. View process detail{anchor:id=Platform_User_Guide.Organize_Content.Manage_Workflows.View_Process_DetailRoleNotInToc}
 This function is used to help administrators keep track of process details as follows:
 
 *1.* Open the *Workflow Administration* portlet.
@@ -319,7 +382,7 @@ This function is used to help administrators keep track of process details as fo
 
 *2.* Click !images/Workflow/view-icon1.png|width="4mm" fo:scalefit="1" html:scalefit="0"! to view requested process list from users as below.
 
-!images/Workflow/Process_Detail.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
+!images/Workflow/Process_Detail.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
 
 {docbook}
 <note>
@@ -344,7 +407,7 @@ To remove all completed processes from the list in the <guilabel>Completed</guil
           </inlinemediaobject> corresponding to your desired process to view its details (including all actions from different users on this task). The <guilabel>List Tasks of Instance</guilabel> form will appear.
 </para>
 {docbook}
-!images/Workflow/list_task_instance.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
+!images/Workflow/list_task_instance.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
 
 {docbook}
 <para>To delete a process from the requested process list in the <guilabel>Process Detail</guilabel> form, click <inlinemediaobject>

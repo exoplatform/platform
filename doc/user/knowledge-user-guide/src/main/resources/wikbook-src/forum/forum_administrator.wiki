@@ -1,18 +1,6 @@
-h1. Administrator {anchor:id=Forum_user_guide.Forum_Administrator}
-With the highest rights, administrators are in charge of the entire management tasks, including [configuring and customizing the Forum portlet|#Forum_user_guide.Forum_Administrator.Set_up_Forums_portlet], [backing up data|#Forum_Administrator.Administrative_tasks.Back_up_categories_forums], [managing users and granting permissions|#Forum_user_guide.Forum_Administrator.Manage_Users], [managing categories|#Forum_user_guide.Forum_Administrator.Manage_categories] and [forums|#Forum_user_guide.Forum_Administrator.Manage_forums].
-Administrator has the global role.
-
-
-{docbook}
-<para>
-<prompt>
-    <emphasis role="bold">See also</emphasis>
-</prompt>
-</para>
-{docbook}
-
-* Forum user guide for [Regular users|#Forum_user_guide.Regular_user]
-* Forum user guide for [Moderators|#Forum_user_guide.Moderator]
+h1. Administrator {anchor:id=Forum_user_guide.Forum_AdministratorRoleNotInToc}
+With the highest rights, administrators are in charge of the entire management tasks. 
+In another words, administrators have the global role of doing significant jobs, including: configuring and customizing the <emphasis role="bold">Forum</emphasis> portlet, backing up data, managing users and granting permissions, managing categories and forums.
 
 h2. Set up the Forum portlet {anchor:id=Forum_user_guide.Forum_Administrator.Set_up_Forums_portlet}
 
@@ -534,7 +522,7 @@ h3. Ban users {anchor:id=Forum_Administrator.Manage_Users.Ban_users}
 h2. Administrative tasks {anchor:id=Forum_user_guide.Forum_Administrator.Administrative_tasks}
 All of administrative tasks can be reached via the menu that appears after clicking !images/Aministration_btn.png|width="20mm" fo:scalefit="1" html:scalefit="0"! on the *Forum Administration* bar. You can select a desired action from the following drop-down menu.
 
-!images/admin_forum_administration_tasks.png|align="center" width="50mm" fo:scalefit="1" html:scalefit="0"!
+!images/admin_forum_administration_tasks.png|align="center" width="70mm" fo:scalefit="1" html:scalefit="0"!
 
 The administrative tasks include the following actions:
 * [Set up Sort Settings|#Forum_Administrator.Administrative_tasks.Set_up_sort_settings]
@@ -559,7 +547,7 @@ h3. Set up Sort Settings {anchor:id=Forum_Administrator.Administrative_tasks.Set
 {docbook}
 Now, you can set properties for how forums and topics are sorted in *Forum*.
 
-!images/admin_forum_sort_setting.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
+!images/admin_forum_sort_setting.png|align="center" width="100mm" fo:scalefit="1" html:scalefit="0"!
 
 {docbook}
 <itemizedlist>
@@ -966,7 +954,7 @@ The topic type is the visual indication for other users to know what is topic ab
                 </imageobject>
               </inlinemediaobject> on the <emphasis role="bold">Forum Administration</emphasis> bar and click <guilabel>Topic Types</guilabel> from the drop-down menu to open the <guilabel>Topic Type Manager</guilabel> form.</para>
 {docbook}
-!images/admin_forum_topic_type_manager.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!       {anchor:id="topic-type-management"}
+!images/admin_forum_topic_type_manager.png|align="center" width="100mm" fo:scalefit="1" html:scalefit="0"!       {anchor:id="topic-type-management"}
 
 {docbook}
 <para>Click <inlinemediaobject>

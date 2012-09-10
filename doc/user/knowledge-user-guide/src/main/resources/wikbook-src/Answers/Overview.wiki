@@ -1,3 +1,34 @@
+{docbook}
+    <highlights>
+        <itemizedlist>
+            <listitem>
+                <para>
+                   <link linkend="Answer_user_guide.Administrator">Administrator</link>
+				</para>
+				<para>
+				Introduction to actions that are for administrators only and steps to perform them, such as setting up <emphasis role="bold">Answers</emphasis> and <emphasis role="bold">FAQ</emphasis> portlets.
+                </para>
+            </listitem>
+            <listitem>
+                <para>
+                   <link linkend="Answer_user_guide.Moderator">Moderator</link>
+				</para>
+				<para>
+					Introduction to tasks that are for moderators and steps to perform them, such as managing categories, moderating questions and answers.
+                </para>
+            </listitem>
+            <listitem>
+                <para>
+                   <link linkend="Answer_user_guide.Regular_user">Regular user</link>
+				</para>
+				<para>
+					Introduction to the common actions that are for regular users and step-by-step instructions on how to perform them, such as submitting/answering/commenting/sharing questions, searching, or editing user settings.
+                </para>
+            </listitem>
+        </itemizedlist>
+    </highlights>
+{docbook}
+
 Before using the features in *Answers*, you should get familiar with the *Answers* interface. Once you have logged in and accessed *Answers*, the interface looks like this:
 
 !images/Answer_screen.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
@@ -13,7 +44,6 @@ Remember that this interface may look different for each user group. Some action
 The following table summarizes actions which each user group can execute in Answers.
 || Features || Description ||  Administrator  ||  Moderator  ||  Owner  ||   User   ||  Guest  ||
 | [View details of the Answers application|#Answer_user_guide.View_details] | See all categories in Answer and their activated questions, details of a question (its content, its answers, uploaded files, image preview). | !images/Yes_icon2.png|width="4mm" fo:scalefit="1" html:scalefit="0"! | !images/Yes_icon2.png|width="4mm" fo:scalefit="1" html:scalefit="0"! | !images/Yes_icon2.png|width="4mm" fo:scalefit="1" html:scalefit="0"! | !images/Yes_icon2.png|width="4mm" fo:scalefit="1" html:scalefit="0"! | !images/Yes_icon2.png|width="4mm" fo:scalefit="1" html:scalefit="0"! |
-| [Download attachments|#Answer_user_guide.View_details] | Download attachments included in questions or answers. | !images/Yes_icon2.png|width="4mm" fo:scalefit="1" html:scalefit="0"! | !images/Yes_icon2.png|width="4mm" fo:scalefit="1" html:scalefit="0"! | !images/Yes_icon2.png|width="4mm" fo:scalefit="1" html:scalefit="0"! | !images/Yes_icon2.png|width="4mm" fo:scalefit="1" html:scalefit="0"! | !images/Yes_icon2.png|width="4mm" fo:scalefit="1" html:scalefit="0"! |
 | [Submit a question|#KSuser.Answer_Regular_user.Submit_question] | Submit a question with an attachment in multiple languages. | !images/Yes_icon2.png|width="4mm" fo:scalefit="1" html:scalefit="0"! | !images/Yes_icon2.png|width="4mm" fo:scalefit="1" html:scalefit="0"! | !images/Yes_icon2.png|width="4mm" fo:scalefit="1" html:scalefit="0"! | !images/Yes_icon2.png|width="4mm" fo:scalefit="1" html:scalefit="0"! | !images/Yes_icon2.png|width="4mm" fo:scalefit="1" html:scalefit="0"! |
 | [Send a question|#KSuser.Answer_Regular_user.Send_questions] | Send a question via email. | !images/Yes_icon2.png|width="4mm" fo:scalefit="1" html:scalefit="0"! | !images/Yes_icon2.png|width="4mm" fo:scalefit="1" html:scalefit="0"! | !images/Yes_icon2.png|width="4mm" fo:scalefit="1" html:scalefit="0"! | !images/Yes_icon2.png|width="4mm" fo:scalefit="1" html:scalefit="0"! | !images/Yes_icon2.png|width="4mm" fo:scalefit="1" html:scalefit="0"! |
 | [Print|#Answer_user_guide.View_details.Print] | Print all questions with their answers of a category and of its sub-categories, or print details of a question. | !images/Yes_icon2.png|width="4mm" fo:scalefit="1" html:scalefit="0"! | !images/Yes_icon2.png|width="4mm" fo:scalefit="1" html:scalefit="0"! | !images/Yes_icon2.png|width="4mm" fo:scalefit="1" html:scalefit="0"! | !images/Yes_icon2.png|width="4mm" fo:scalefit="1" html:scalefit="0"! | !images/Yes_icon2.png|width="4mm" fo:scalefit="1" html:scalefit="0"! |
@@ -48,3 +78,15 @@ The following table summarizes actions which each user group can execute in Answ
     </para>
 </note>
 {docbook}
+
+{docbook}
+<para>
+<prompt>
+    <emphasis role="bold">See also</emphasis>
+</prompt>
+</para>
+{docbook}
+* [About user roles|#KSuser.about_role]
+* [Access Knowledge applications|#KSuser.access_knowledge]
+* [Build a wiki|#Platform_User_Guide.Knowledge.Build_Wiki]
+* [Build a forum|#Platform_User_Guide.Knowledge.Build_Forums]

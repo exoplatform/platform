@@ -1,4 +1,4 @@
-h1. Edit a space       {anchor:id=Soc_User_Guide.Space_Management.Edit_Space}
+h1. Edit a space {anchor:id=Soc_User_Guide.Space_Management.Edit_SpaceRoleNotInToc}
 This function allows you to change the initial settings of a space if you are the creator or have the *Manage* permission on it.
 
 To edit a space, first access the *Space Settings* by following one of 2 ways:
@@ -13,7 +13,7 @@ To edit a space, first access the *Space Settings* by following one of 2 ways:
 <para>
    <emphasis role="bold">2.</emphasis> Click <guilabel>Edit</guilabel> corresponding to the space which you have the <emphasis role="bold">Edit</emphasis> permission.</para>
 {docbook}
-!images/Edit_space.png|align="center" width="70mm" fo:scalefit="1" html:scalefit="0"!
+!images/Edit_space.png|align="center" width="50mm" fo:scalefit="1" html:scalefit="0"!
 
 *3.* Click !images/edit-space-icon.png|width="4mm" fo:scalefit="1" html:scalefit="0"! next to the space name.
 
@@ -31,7 +31,16 @@ To edit a space, first access the *Space Settings* by following one of 2 ways:
 You only see !images/edit-space-icon.png|width="4mm" fo:scalefit="1" html:scalefit="0"! for spaces which you have the Edit permission.
 {note}
 
-h2. Change space information   {anchor:id=Soc_User_Guide.Space_Management.Edit_Space.Change_Info}
+h2. Change space information/visibility {anchor:id=Soc_User_Guide.Space_Management.Edit_Space.Change_Info_Visibility}
+
+{docbook}
+<para xml:id="Soc_User_Guide.Space_Management.Edit_Space.Change_Info">
+	<citetitle>
+		<emphasis role="bold">Change space information</emphasis>
+	</citetitle>
+</para>
+{docbook}
+
 This function allows you to edit the basic information of a space.
 {docbook}
 <para>
@@ -71,7 +80,14 @@ This function allows you to edit the basic information of a space.
 <para>
    <emphasis role="bold">3.</emphasis> Click <guibutton>Save</guibutton> to accept your changes.</para>
 {docbook}
-h2. Change visibility {anchor:id=Soc_User_Guide.Space_Management.Edit_Space.Change_Visibility}
+
+{docbook}
+<para xml:id="Soc_User_Guide.Space_Management.Edit_Space.Change_Visibility">
+	<citetitle>
+		<emphasis role="bold">Change visibility</emphasis>
+	</citetitle>
+</para>
+{docbook}
 
 {docbook}
 <para>
@@ -262,12 +278,12 @@ You can take the following actions:
             <listitem>
               <para>Click <guilabel>Add node</guilabel>; Or right-click any white area to display <inlinemediaobject>
                   <imageobject role="fo">
-                    <imagedata fileref="images/Add_new_node_icon.png" format="PNG" scalefit="1" width="15mm"/>
+                    <imagedata fileref="images/Add_new_node_icon_Social.png" format="PNG" scalefit="1" width="10mm"/>
                   </imageobject>
                   <imageobject role="html">
-                    <imagedata fileref="images/Add_new_node_icon.png" format="PNG" scalefit="0" width="15mm"/>
+                    <imagedata fileref="images/Add_new_node_icon_Social.png" format="PNG" scalefit="0" width="10mm"/>
                   </imageobject>
-                </inlinemediaobject>, then select this button. The <guilabel>Add/ Edit Page Node</guilabel> form appears and allows you to add information to your new node.</para>
+                </inlinemediaobject>, then select this button. The <guilabel>Add/Edit Page Node</guilabel> form appears and allows you to add information to your new node.</para>
             </listitem>
 </itemizedlist>
 {docbook}

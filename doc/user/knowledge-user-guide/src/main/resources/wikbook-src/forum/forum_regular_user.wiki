@@ -1,16 +1,5 @@
-h1. Regular users {anchor:id=Forum_user_guide.Regular_user}
+h1. Regular users {anchor:id=Forum_user_guide.Regular_userRoleNotInToc}
 This section describes actions that a regular user can perform in the *Forum* application of eXo Platform.
-
-{docbook}
-<para>
-<prompt>
-    <emphasis role="bold">See also</emphasis>
-</prompt>
-</para>
-{docbook}
-
-* Actions for [Moderators|#Forum_user_guide.Moderator]
-* Actions for [Administrators|#Forum_user_guide.Forum_Administrator]
 
 h2. View details of the Forum application {anchor:id=Forum_user_guide.Regular_user.View_details}
 Once clicking *Forum* on the *Administration* bar, you will be directed to the *Forum* homepage. Here, you can see categories of *Forum*, forums in each category, forum statistics as shown below:
@@ -110,7 +99,8 @@ Based on the criteria you want to search, such as category, forum or post, the s
 
 {docbook}
 <para>
-              <emphasis role="bold">3.</emphasis> Click the <guibutton>Search</guibutton> button to do search. Also, click the <guibutton>Clear Fields</guibutton> button to reset the inputted values.</para>
+ <emphasis role="bold">3.</emphasis> Click <guibutton>Search</guibutton> to do search. Also, click <guibutton>Clear Fields</guibutton> to reset the inputted values.
+</para>
 {docbook}
 {docbook}
 <para>Matched results will be shown in the <guilabel>Search Result</guilabel> form. There will be an alert message when there is no object matching with the search criteria.</para>
@@ -975,7 +965,7 @@ Every forum member has a publicly viewable profile. This includes information pr
 <para>Whenever you see a member's name in a topic, you can view his public profile quickly by clicking his username or avatar and select <guilabel>View Public Profile</guilabel> from the drop-down menu.</para>
 {docbook}
 
-!images/view_public_profile.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
+!images/view_public_profile.png|align="center" width="80mm" fo:scalefit="1" html:scalefit="0"!
 {docbook}
 <para>The <guilabel>View User Profile</guilabel> form will be displayed.</para>
 {docbook}
@@ -1058,7 +1048,7 @@ When you have received a private message, there will be a notification on your *
 h2. Bookmarks {anchor:id=Forum_regular_user.Public_user_profile.Bookmarks}
 In the *Forum* application, the *Bookmark* function is to collect links to a category, forum or topic you have visited, so that you can return to that category, forum or topic directly. Bookmarks can be created and managed by yourself through the following actions:
 * [Add a bookmark|#Public_user_profile.Bookmarks.Add_bookmarks]
-* [View bookmarks|#Public_user_profile.Bookmarks.View_bookmarks]
+* [View a bookmark|#Public_user_profile.Bookmarks.View_bookmarks]
 * [Delete a bookmark|#Public_user_profile.Bookmarks.Delete_bookmarks]
 
 h3. Add a bookmark {anchor:id=Public_user_profile.Bookmarks.Add_bookmarks}
@@ -1071,9 +1061,9 @@ This function is for all logged-in users to save links to categories, forums or 
 {docbook}
 <para>Or, right-click the object title and select <guilabel>Bookmark</guilabel> from the drop-down menu. The bookmarked link will be added to your bookmarks list.</para>
 {docbook}
-h3. View bookmarks {anchor:id=Public_user_profile.Bookmarks.View_bookmarks}
+h3. View a bookmark {anchor:id=Public_user_profile.Bookmarks.View_bookmarks}
 {docbook}
-<para>To view bookmarks, click <inlinemediaobject>
+<para>To view a bookmark, click <inlinemediaobject>
                 <imageobject role="fo">
                   <imagedata fileref="images/View_bookmarks.png" format="PNG" scalefit="1" width="16mm"/>
                 </imageobject>

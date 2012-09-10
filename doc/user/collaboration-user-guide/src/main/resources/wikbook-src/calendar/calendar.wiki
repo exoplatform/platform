@@ -1,4 +1,119 @@
-h1. Calendar views {anchor:id="CSUser_guide.How_to_use_Calendar.Calendar_views"}
+{docbook}
+    <highlights>
+        <itemizedlist>
+            <listitem>
+                <para>
+                   <link linkend="CSUser_guide.How_to_use_Calendar.Calendar_views">Calendar views</link>
+				</para>
+				<para>
+				Introduction to the Calendar interface and its components.
+                </para>
+            </listitem>
+            <listitem>
+                <para>
+                   <link linkend="CSUser_guide.How_to_use_Calendar.Manage_calendar_groups">Manage a calendar group</link>
+				</para>
+				<para>
+				Steps to create, edit and remove a calendar group.
+                </para>
+            </listitem>
+            <listitem>
+                <para>
+                   <link linkend="CSUser_guide.How_to_use_Calendar.Create_calendars">Create a calendar</link>
+				</para>
+				<para>
+					Steps to create a personal calendar, calendar for a group or a remote calendar.
+                </para>
+            </listitem>
+			<listitem>
+                <para>
+                   <link linkend="CSUser_guide.How_to_use_Calendar.Edit_calendar">Edit a calendar</link>
+				</para>
+				<para>
+					Steps to edit details and properties of a calendar, to set the calendar color, and to delete a calendar.
+                </para>
+            </listitem>
+            <listitem>
+                <para>
+                   <link linkend="Export_and_import_calendar">Export/Import a calendar</link>
+				</para>
+				<para>
+				Steps to import calendars or export calendars to a calendar application that supports ICalendar format.
+                </para>
+            </listitem>
+			<listitem>
+                <para>
+                   <link linkend="CSUser_guide.How_to_use_Calendar.Share_calendar">Share a personal calendar</link>
+				</para>
+				<para>
+					Information of setting permissions on your shared calendar, steps to share your personal calendar with other users so that they can participate in all activities of this calendar.
+                </para>
+            </listitem>
+            <listitem>
+                <para>
+                   <link linkend="CSUser_guide.How_to_use_Calendar.Schedule_event">Schedule an event</link>
+				</para>
+				<para>
+					Steps to perform common actions with events in Calendar: Create, edit, delete, import and export events.
+                </para>
+            </listitem>
+            <listitem>
+                <para>
+                   <link linkend="CSUser_guide.How_to_use_Calendar.Schedule_task">Schedule a task</link>
+				</para>
+				<para>
+				Steps to perform common actions with events in Calendar: Create, edit, delete, import and export tasks.
+                </para>
+            </listitem>
+            <listitem>
+                <para>
+                   <link linkend="CSUser_guide.How_to_use_Calendar.Search_for_events_tasks">Search for events/tasks</link>
+				</para>
+				<para>
+					Steps to find existing events/tasks according to specific search conditions.
+                </para>
+            </listitem>
+            <listitem>
+                <para>
+                   <link linkend="CSUser_guide.How_to_use_Calendar.More_actions">More actions</link>
+				</para>
+				<para>
+					Steps to perform other useful actions in Calendar to take advantage of all productivity features.
+                </para>
+            </listitem>
+            <listitem>
+                <para>
+                   <link linkend="CSUser_guide.How_to_use_Calendar.Agenda_gadget">Add My Agenda gadget to your page</link>
+				</para>
+				<para>
+					Steps to add <emphasis role="bold">My Agenda</emphasis> gadget to your page to list upcoming events and tasks from your personal calendar.
+                </para>
+            </listitem>
+            <listitem>
+                <para>
+                   <link linkend="CSUser_guide.How_to_use_Calendar.My_tasks">Add My Tasks gadget to your page</link>
+				</para>
+				<para>
+					Steps to add the <emphasis role="bold">My Tasks</emphasis> gadget to your page to list upcoming tasks of the current day from your personal calendar.
+                </para>
+            </listitem>
+        </itemizedlist>
+    </highlights>
+{docbook}
+
+{docbook}
+<para>
+<prompt>
+    <emphasis role="bold">See also</emphasis>
+</prompt>
+</para>
+{docbook}
+
+* [Manage your contacts|#Platform_User_Guide.Collaboration.Communicate_with_Contacts.Manage_Contacts]
+* [Email your contacts|#Platform_User_Guide.Collaboration.Communicate_with_Contacts.Email_Contacts]
+* [Chat with your contacts|#Platform_User_Guide.Collaboration.Communicate_with_Contacts.Chat]
+
+h1. Calendar views {anchor:id="CSUser_guide.How_to_use_Calendar.Calendar_viewsRoleNotInToc"}
 
 The Calendar interface has 5 basic components.
 
@@ -24,10 +139,17 @@ The Calendar interface has 5 basic components.
 </note>
 {docbook}
 
-h1. Manage a calendar group {anchor:id="CSUser_guide.How_to_use_Calendar.Manage_calendar_groups}
+h1. Manage a calendar group {anchor:id="CSUser_guide.How_to_use_Calendar.Manage_calendar_groupsRoleNotInToc}
 The calendar groups allow you to categorize your calendar types easily. Each calendar group may contain one or more calendars added by users. There will be a default calendar group named *My Group* in the *Personal Calendars* category.
 
-h2. Add a new calendar group {anchor:id="CSUser_guide.How_to_use_Calendar.Add_new_calendar_group}
+{docbook}
+<citetitle>
+    <para xml:id="CSUser_guide.How_to_use_Calendar.Add_new_calendar_group">
+        <emphasis role="bold">Add a new calendar group</emphasis>
+    </para>
+</citetitle>
+{docbook}
+
 This function allows you to organize and personalize calendars in your own way.
 {docbook}
 <para>
@@ -78,7 +200,14 @@ This function allows you to organize and personalize calendars in your own way.
 </note>
 {docbook}
 
-h2. Edit a calendar group {anchor:id="CSUser_guide.How_to_use_Calendar.Edit_calendar_group}
+{docbook}
+<citetitle>
+    <para xml:id="CSUser_guide.How_to_use_Calendar.Edit_calendar_group">
+        <emphasis role="bold">Edit a calendar group</emphasis>
+    </para>
+</citetitle>
+{docbook}
+
 This function allows you to change the name and description of a specific calendar group.
 
 *1.* Hover your cursor over the calendar group that you want to edit, then click !images/Calendar-gear-icon.png|width="4mm" fo:scalefit="1" html:scalefit="0"! that appears.
@@ -95,7 +224,14 @@ This function allows you to change the name and description of a specific calend
  </para>
 {docbook}
 
-h2. Delete a calendar group {anchor:id="CSUser_guide.How_to_use_Calendar.Delete_calendar_group}
+{docbook}
+<citetitle>
+    <para xml:id="CSUser_guide.How_to_use_Calendar.Delete_calendar_group">
+        <emphasis role="bold">Delete a calendar group</emphasis>
+    </para>
+</citetitle>
+{docbook}
+
 Once a calendar group is deleted, all calendars inside it are also deleted.
 
 *The first way*
@@ -131,11 +267,17 @@ Once a calendar group is deleted, all calendars inside it are also deleted.
 {docbook}
 
 The deleted calendar group will be removed from the *Groups* table.
-h1. Create a calendar {anchor:id="CSUser_guide.How_to_use_Calendar.Create_calendars"}
+h1. Create a calendar {anchor:id="CSUser_guide.How_to_use_Calendar.Create_calendarsRoleNotInToc"}
 
 You may create a [personal calendar|#Create_personal_calendar] or [group calendar|#Create_group_calendar] that can be shared with specific users or groups to your desires. You can also create a calendar which is synchronized with a [remote calendar|#Create_remote_calendar].
 
-h2. Create a personal calendar {anchor:id="Create_personal_calendar"}
+{docbook}
+<citetitle>
+    <para xml:id="Create_personal_calendar">
+        <emphasis role="bold">Create a personal calendar</emphasis>
+    </para>
+</citetitle>
+{docbook}
 
 {docbook}
 <note>
@@ -181,7 +323,7 @@ All personal calendars will be put in the <emphasis role="bold">Personal Calenda
 </para>
 {docbook}
 
-!images/Calendar_form.png|align="center" width="120mm"  fo:scalefit="1" html:scalefit="0"!
+!images/Calendar_form.png|align="center" width="100mm"  fo:scalefit="1" html:scalefit="0"!
 
 *Details:*
 
@@ -263,7 +405,13 @@ All personal calendars will be put in the <emphasis role="bold">Personal Calenda
 </para>
 {docbook}
 
-h2. Create a group calendar {anchor:id="Create_group_calendar"}
+{docbook}
+<citetitle>
+    <para xml:id="Create_group_calendar">
+        <emphasis role="bold">Create a group calendar</emphasis>
+    </para>
+</citetitle>
+{docbook}
 
 {docbook}
 <note>
@@ -281,7 +429,7 @@ All group calendars will be put in the <emphasis role="bold">Group Calendars</em
 </para>
 {docbook}
 
-!images/Groups_tab.png|align="center" width="120mm"  fo:scalefit="1" html:scalefit="0"!
+!images/Groups_tab.png|align="center" width="100mm"  fo:scalefit="1" html:scalefit="0"!
 
 *3.* Tick checkboxes corresponding to groups that contain your created calendar. The users of the selected groups can only view this calendar.
 
@@ -301,7 +449,7 @@ to open the <guilabel>User Selector</guilabel> form. This form will help you sel
 </para>
 {docbook}
 
-!images/Calendar_user_selector.png|align="center" width="120mm"  fo:scalefit="1" html:scalefit="0"!
+!images/Calendar_user_selector.png|align="center" width="80mm"  fo:scalefit="1" html:scalefit="0"!
 
 
 *ii* Click the user you want to share the *Edit* permission.
@@ -340,7 +488,13 @@ to open the <guilabel>User Selector</guilabel> form. </para>
 
 Your newly added calendar will appear in the shared groups.
 
-h2. Create a remote calendar {anchor:id="Create_remote_calendar"}
+{docbook}
+<citetitle>
+    <para xml:id="Create_remote_calendar">
+        <emphasis role="bold">Create a remote calendar</emphasis>
+    </para>
+</citetitle>
+{docbook}
 
 {docbook}
 <note>
@@ -439,7 +593,7 @@ For example:
 
 https://www.google.com/calendar/dav/hoavuvn@gmail.com/events/
 
-h1. Edit a calendar {anchor:id="CSUser_guide.How_to_use_Calendar.Edit_calendar"}
+h1. Edit a calendar {anchor:id="CSUser_guide.How_to_use_Calendar.Edit_calendarRoleNotInToc"}
 
 {docbook}
 <note>
@@ -476,7 +630,13 @@ Meanwhile, for shared calendars, you cannot edit them. If you are granted the <e
 <emphasis role="bold">3.</emphasis> Make changes on the calendar, then click <guibutton>Save</guibutton> to accept your changes.</para>
 {docbook}
 
-h2. Set the calendar color {anchor:id="Set_calendar_color"}
+{docbook}
+<citetitle>
+    <para xml:id="Set_calendar_color">
+        <emphasis role="bold">Set the calendar color</emphasis>
+    </para>
+</citetitle>
+{docbook}
 
 The *Calendar* application allows you to select different colors for all types of calendars to recognize them easily.
 
@@ -484,7 +644,14 @@ The *Calendar* application allows you to select different colors for all types o
 
 *2.* Select one color from the available 32-color palette.
 
-h2. Delete a calendar {anchor:id="CSUser_guide.How_to_use_Calendar.Delete_calendar}
+{docbook}
+<citetitle>
+    <para xml:id="CSUser_guide.How_to_use_Calendar.Delete_calendar">
+        <emphasis role="bold">Delete a calendar</emphasis>
+    </para>
+</citetitle>
+{docbook}
+
 This function allows you to remove any calendars and all their events/tasks.
 
 {docbook}
@@ -508,7 +675,7 @@ You cannot delete group calendars created by ANOTHER users if you are not grante
 <emphasis role="bold">3.</emphasis> Click <guibutton>OK</guibutton> in the confirmation message to accept your deletion.</para>
 {docbook}
 
-h1. Export/Import a calendar {anchor:id="Export_and_import_calendar}
+h1. Export/Import a calendar {anchor:id="Export_and_import_calendarRoleNotInToc}
 
 {docbook}
 <note>
@@ -536,7 +703,7 @@ This function allows you to export a calendar and its events/tasks into a separa
 </para>
 {docbook}
 
-!images/export_calendars.png|align="center" width="120mm"  fo:scalefit="1" html:scalefit="0"!
+!images/export_calendars.png|align="center" width="100mm"  fo:scalefit="1" html:scalefit="0"!
 
 {docbook}
 <para>
@@ -690,7 +857,7 @@ at the right top of the calendars list, then select <guilabel>Import</guilabel> 
 <emphasis role="bold">6.</emphasis> Click <guibutton>Save</guibutton> to complete.
 </para>
 {docbook}
-h1. Share a personal calendar {anchor:id="CSUser_guide.How_to_use_Calendar.Share_calendar"}
+h1. Share a personal calendar {anchor:id="CSUser_guide.How_to_use_Calendar.Share_calendarRoleNotInToc"}
 
 This function allows you to share your personal calendar with other users, so that they can participate in all activities of this calendar.
 
@@ -827,9 +994,10 @@ iCal provides a link that allows users to download a _\*.ics_ file which contain
 </para>
 {docbook}
 
-h1. Schedule an event {anchor:id="CSUser_guide.How_to_use_Calendar.Schedule_event"}
-h2. View details of an event {anchor:id="CSUser_guide.How_to_use_Calendar.View_event_details"}
-To view an event of a specific calendar with more details, you have two ways:
+h1. Schedule an event {anchor:id="CSUser_guide.How_to_use_Calendar.Schedule_eventRoleNotInToc"}
+
+{anchor:id="CSUser_guide.How_to_use_Calendar.View_event_details"}
+Before learning to schedule an event, you should know how to view an event of a specific calendar with its details:
 
 *The first way*
 
@@ -843,7 +1011,7 @@ Hover your cursor over the event to see its detailed view.
 <para>Right-click the event in the <guilabel>Calendar View pane</guilabel>, then select <guilabel>View</guilabel> from the drop-down menu.</para>
 {docbook}
 
-!images/view_detailed_event2.png|align="center" width="40mm" fo:scalefit="1" html:scalefit="0"!
+!images/view_detailed_event2.png|align="center" width="100mm" fo:scalefit="1" html:scalefit="0"!
 
 {docbook}
 <para>The <emphasis role="bold">Preview</emphasis> form will appear.</para>
@@ -920,7 +1088,7 @@ Click the appropriate time slot in the calendar view pane. Drag your cursor to a
                   </row>
                   <row>
                     <entry>
-                      <guilabel>>Description</guilabel>
+                      <guilabel>Description</guilabel>
                     </entry>
                     <entry>The detailed description of the event.</entry>
                   </row>
@@ -961,7 +1129,7 @@ Click the appropriate time slot in the calendar view pane. Drag your cursor to a
 
 {docbook}
 <para>
-<emphasis role="bold">2.</emphasis> Give information for your event. Click the <guilabel>More Details</guilabel> button to show the event in more details that allows you to define more properties of the event.</para>
+<emphasis role="bold">2.</emphasis> Give information for your event. Click <guilabel>More Details</guilabel> to show the event in more details that allows you to define more properties of the event.</para>
 {docbook}
 
 {docbook}
@@ -1094,7 +1262,7 @@ The event will be updated in your *Activity Stream* with its brief information, 
 <para>In the <guilabel>Detail</guilabel> tab, tick the <guilabel>Repeat</guilabel> checkbox to open the <guilabel>Repeating event</guilabel> form.</para>
 {docbook}
 
-!images/Repeat_event_form.png|align="center" width="100mm"  fo:scalefit="1" html:scalefit="0"!
+!images/Repeat_event_form.png|align="center" width="90mm"  fo:scalefit="1" html:scalefit="0"!
 
 Here, you can define the repeating time for your event as follows:
 
@@ -1282,7 +1450,7 @@ Here, you can define the repeating time for your event as follows:
 
 {docbook}
 <para>
-<emphasis role="bold">3.</emphasis> Click the <guibutton>Add</guibutton> button to add your selected emails, or click the <guibutton>Replace</guibutton> button to replace existing emails with your selected emails.</para>
+<emphasis role="bold">3.</emphasis> Click <guibutton>Add</guibutton> to add your selected emails, or click <guibutton>Replace</guibutton> to replace existing emails with your selected emails.</para>
 {docbook}
 
 {docbook}
@@ -1404,7 +1572,7 @@ Here, you can select contacts from your Address Book or users who have registere
 
 The participants will receive an invitation mail, for example with the following content, which allows you to import the event directly into their calendars. {anchor:id="Mail.Accept_deny_import_event"}
 
-!images/invitation_mail.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
+!images/invitation_mail.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
 
 {docbook}
 <itemizedlist>
@@ -1695,7 +1863,7 @@ This function allows you to remove events from a calendar.
 
 *2.* Click !images/delete_checked_button.png|width="12mm" fo:scalefit="1" html:scalefit="0"! on the *Month* information bar.
 
-!images/month_view_calendar_panel.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
+!images/month_view_calendar_panel.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
 
 {docbook}
 <para>
@@ -1710,8 +1878,9 @@ This function allows you to remove events from a calendar.
 </note>
 {docbook}
 
-h1. Schedule a task {anchor:id="CSUser_guide.How_to_use_Calendar.Schedule_task"}
-h2. View task details {anchor:id="CSUser_guide.How_to_use_Calendar.View_task_details"}
+h1. Schedule a task {anchor:id="CSUser_guide.How_to_use_Calendar.Schedule_taskRoleNotInToc"}
+
+Before learning to schedule a task, you should know how to view a task with its details.
 
 To view details of a task, do one of the following ways:
 
@@ -1719,7 +1888,7 @@ To view details of a task, do one of the following ways:
 
 Hover your cursor over the task to open the task preview pane.
 
-!images/view_tasks_details1.png|align="center" width="70mm" fo:scalefit="1" html:scalefit="0"!
+!images/view_tasks_details1.png|align="center" width="90mm" fo:scalefit="1" html:scalefit="0"!
 
 *The second way*
 
@@ -1738,10 +1907,6 @@ Hover your cursor over the task to open the task preview pane.
 {docbook}
 <para>At the <guilabel>Preview</guilabel> form, if the task includes attachments, you can download them by directly clicking its title. If the attachment is an image, you can also click <guilabel>View</guilabel> to preview it.</para>
 {docbook}
-
-
-
-
 
 h2. Create a new task {anchor:id="CSUser_guide.How_to_use_Calendar.Create_new_task"}
 You have 2 ways to add a new task:
@@ -1783,7 +1948,7 @@ Select !images/Task_button_icon.png|width="10mm" fo:scalefit="1" html:scalefit="
  </para>
 {docbook}
 
-!images/Quick_add_task_form.png|align="center" width="120mm"  fo:scalefit="1" html:scalefit="0"!
+!images/Quick_add_task_form.png|align="center" width="100mm"  fo:scalefit="1" html:scalefit="0"!
 
 *Details:*
 
@@ -2053,7 +2218,7 @@ h2. Export/Import a task {anchor:id="CSUser_guide.How_to_use_Calendar.Export_imp
 <para>The <guilabel>Export Calendars</guilabel> form will appear.</para>
 {docbook}
 
-!images/export_calendars1.png|align="center" width="120mm"  fo:scalefit="1" html:scalefit="0"!
+!images/export_calendars1.png|align="center" width="100mm"  fo:scalefit="1" html:scalefit="0"!
 
 *2.* Enter the file name and export format.
 
@@ -2112,7 +2277,7 @@ Delete a task in the Month view
 </note>
 {docbook}
 
-h1. Search for events/tasks {anchor:id="CSUser_guide.How_to_use_Calendar.Search_for_events_tasks}
+h1. Search for events/tasks {anchor:id="CSUser_guide.How_to_use_Calendar.Search_for_events_tasksRoleNotInToc"}
 This function allows finding existing events/tasks according to specific search conditions easily. There are 2 search types: *Quick search* and *Advanced search*.
 
 {docbook}
@@ -2220,7 +2385,7 @@ This function allows you to make a search with multiple criteria.
 
 {docbook}
 <para>
-<emphasis role="bold">3.</emphasis> Click the <guibutton>Search</guibutton> button to perform your search. All events/tasks matching with your criteria will be listed in the results form.</para>
+<emphasis role="bold">3.</emphasis> Click <guibutton>Search</guibutton> to perform your search. All events/tasks matching with your criteria will be listed in the results form.</para>
 {docbook}
 
 {docbook}
@@ -2231,7 +2396,10 @@ This function allows you to make a search with multiple criteria.
 </note>
 {docbook}
 
-h1. More actions {anchor:id="CSUser_guide.How_to_use_Calendar.More_actions}
+h1. More actions {anchor:id="CSUser_guide.How_to_use_Calendar.More_actionsRoleNotInToc"}
+
+In Calendar, you can perform other actions that will help you take advantage of all Calendar productivity features. You can keep track of all events with RSS, change the Calendar settings to your own preferences or use categories to manage tasks and events.
+
 h2. Generate RSS {anchor:id="CSUser_guide.How_to_use_Calendar.Generate_rss}
 This function allows you to publish your calendar as an RSS feed. It will build a URL that helps you keep track of all events via the RSS reader.
 
@@ -2257,14 +2425,14 @@ Click directly !images/RSS_icon2.png|width="13mm" fo:scalefit="1" html:scalefit=
             </inlinemediaobject> on the toolbar to open the <guilabel>Calendar Settings</guilabel> form, then select the <guilabel>Feeds</guilabel> tab.</para>
 {docbook}
 
-!images/calendar_setting.png|align="center" width="120mm"  fo:scalefit="1" html:scalefit="0"!
+!images/calendar_setting.png|align="center" width="100mm"  fo:scalefit="1" html:scalefit="0"!
 
 {docbook}
 <para>
-<emphasis role="bold">2.</emphasis> Click the <guibutton>Add</guibutton> button to open the <guilabel>Edit Feed</guilabel> form.</para>
+<emphasis role="bold">2.</emphasis> Click <guibutton>Add</guibutton> to open the <guilabel>Edit Feed</guilabel> form.</para>
 {docbook}
 
-!images/edit_feed.png|align="center" width="120mm"  fo:scalefit="1" html:scalefit="0"!
+!images/edit_feed.png|align="center" width="100mm"  fo:scalefit="1" html:scalefit="0"!
 
 *Details:*
 {docbook}
@@ -2489,7 +2657,7 @@ h3. Add a new category {anchor:id="CSUser_guide.How_to_use_Calendar.Add_new_cate
 </para>
 {docbook}
 
-!images/event_categories_form.png|align="center" width="100mm"  fo:scalefit="1" html:scalefit="0"!
+!images/event_categories_form.png|align="center" width="80mm"  fo:scalefit="1" html:scalefit="0"!
 
 {docbook}
 <para>
@@ -2510,7 +2678,7 @@ This function allows you to change name and description of a selected category.
  <emphasis role="bold">3.</emphasis> Click <guibutton>Save</guibutton> to finish editing/deleting your selected category.</para>
 {docbook}
 
-h1. Add My Agenda gadget to your page {anchor:id="CSUser_guide.How_to_use_Calendar.Agenda_gadget"}
+h1. Add My Agenda gadget to your page {anchor:id="CSUser_guide.How_to_use_Calendar.Agenda_gadgetRoleNotInToc"}
 
 The *My Agenda* gadget is a utility associated with the *Calendar* application. This gadget is used for listing upcoming events and tasks from your personal calendar.
 
@@ -2551,7 +2719,7 @@ Configure the My Agenda gadget
 
 *1.* Click !images/Calendar-gear-icon.png|width="4mm" fo:scalefit="1" html:scalefit="0"! to open the *Agenda* gadget settings.
 
-!images/Agenda_gadget_settings.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
+!images/Agenda_gadget_settings.png|align="center" width="100mm" fo:scalefit="1" html:scalefit="0"!
 
 {docbook}
 <informaltable>
@@ -2596,7 +2764,7 @@ Configure the My Agenda gadget
 {docbook}
 
 
-h1. Add My Tasks gadget to your page {anchor:id="CSUser_guide.How_to_use_Calendar.My_tasks"}
+h1. Add My Tasks gadget to your page {anchor:id="CSUser_guide.How_to_use_Calendar.My_tasksRoleNotInToc"}
 The *My Tasks* gadget is a utility associated with the *Calendar* application. This gadget is used for listing upcoming tasks of the current day from your personal calendar.
 
 {docbook}
