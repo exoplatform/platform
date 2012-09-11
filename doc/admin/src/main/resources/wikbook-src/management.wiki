@@ -9,7 +9,7 @@ In this chapter, the following topics are included:
 <emphasis role="bold"><link linkend="ADM.Management.Introduction">Introduction to eXo Platform management</link></emphasis>
 </para>
 <para>
-Overall information of managing resources of eXo Platform, JMX and REST interfaces.
+Overall information about managing resources of eXo Platform, JMX and REST interfaces.
 </para>
 </listitem>
 <listitem>

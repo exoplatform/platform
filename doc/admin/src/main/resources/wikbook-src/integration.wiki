@@ -5,7 +5,7 @@ The eXo Platform integration with other systems is very important. To make eXo P
 Operations involved in synchronizing eXo Platform's backend settings with the organizational entities are called <emphasis role="bold">organizational model integration</emphasis>.
 </para>
 <para>
-By default, the integration with an enteprise directory is done via picketlink IDM. You can refer to the <ulink url="../../reference/html/sect-Reference_Guide-PicketLink_IDM_integration.html">PicketLink IDM Integration</ulink> section for further details. The goal of this chapter is to instruct you how to connect eXo Platform to a populated organizational data source, such as LDAP Server, MS ActiveDirectory, or Database, via the following topics:
+By default, the integration with an enterprise directory is done via picketlink IDM. You can refer to the <ulink url="../../reference/html/sect-Reference_Guide-PicketLink_IDM_integration.html">PicketLink IDM Integration</ulink> section for further details. The goal of this chapter is to instruct you how to connect eXo Platform to a populated organizational data source, such as LDAP Server, MS ActiveDirectory, or Database, via the following topics:
 </para>
 <itemizedlist>
 <listitem>
@@ -78,7 +78,7 @@ h1. Synchronize eXo Platform with an existing directory {anchor:id=ADM.Integrati
 		  <link linkend="ADM.Integration.Sync_usecases">Sync usecases</link>
 		</para>
 		<para>
-		Instructions on how to synchorize at startup, login time, and on demand.
+		Instructions on how to synchrorize at startup, login time, and on demand.
 		</para>
 	  </listitem>
 	  <listitem>

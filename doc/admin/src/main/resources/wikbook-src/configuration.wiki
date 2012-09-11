@@ -41,7 +41,7 @@ The configuration of workspaces for the JCR repository.
 <emphasis role="bold"><link linkend="ADM.Configuration.JCR_TransactionService">Transaction Service</link></emphasis>
 </para>
 <para>
-Information of the default timeout value of JCR transaction, and the value when your application runs longer transactions.
+Information about the default timeout value of JCR transaction, and the value when your application runs longer transactions.
 </para>
 </listitem>
 <listitem>
@@ -73,7 +73,7 @@ Introduction to the embedded WebDAV server that lets you control the cache-contr
 <emphasis role="bold"><link linkend="ADM.Configuration.Chat_Server">Chat server</link></emphasis>
 </para>
 <para>
-Information of XMPPMessenger, and Chat server configuration.
+Information about XMPPMessenger, and Chat server configuration.
 </para>
 </listitem>
 <listitem>
@@ -97,7 +97,7 @@ Introduction to the log-in of eXo Platform, and where to configure this function
 <emphasis role="bold"><link linkend="ADM.Configuration.JCR">JCR</link></emphasis>
 </para>
 <para>
-Details of the set of properties which control the JCR behaviour.
+Details of the set of properties which control the JCR behavior.
 </para>
 </listitem>
 <listitem>
@@ -105,7 +105,7 @@ Details of the set of properties which control the JCR behaviour.
 <emphasis role="bold"><link linkend="ADM.Configuration.CacheConfiguration">Cache configuration</link></emphasis>
 </para>
 <para>
-Overall introduction of the Cache configuration of eXo Platform, including: Portal, Social, and ECMS.
+Overall introduction to the Cache configuration of eXo Platform, including: Portal, Social, and ECMS.
 </para>
 </listitem>
 <listitem>
@@ -121,7 +121,7 @@ Instructions on how to configure a super-user and to grant users access to toolb
 <emphasis role="bold"><link linkend="ADM.Configuration.Gadget_configuration">Gadget configuration</link></emphasis>
 </para>
 <para>
-Information of the OAuth key that will be used in case the OAuth gadgets do not indicate a key.
+Information about the OAuth key that will be used in case the OAuth gadgets do not indicate a key.
 </para>
 </listitem>
 <listitem>

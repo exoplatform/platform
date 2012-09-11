@@ -16,7 +16,7 @@
 	  <emphasis role="bold"><link linkend="DEV.WorkWithApplications.DevelopYourOwnApplications">Develop your own application</link> </emphasis>
 		</para>
 		<para>
-	Instructions on how to develop a gadget for eXo Platform, and information of Portlet Bridges.
+	Instructions on how to develop a gadget for eXo Platform, and information about Portlet Bridges.
 		</para>
 	  </listitem>
 	</itemizedlist>
@@ -91,7 +91,7 @@ h1. Develop your own application {anchor:id=DEV.WorkWithApplications.DevelopYour
               <link linkend="DEV.WorkWithApplications.DevelopAGadgetForPlatform">Develop a gadget for eXo Platform</link>
             </para>
 			<para>
-			Introduction to the resources which can be shared for all gadgets and their categories, instructions to apply for a gadget and to customize the gadget thumbnail. 
+			Introduction to the resources which can be shared for all gadgets and their categories, instructions on how to apply for a gadget and to customize the gadget thumbnail. 
 			</para>
           </listitem>
           <listitem>

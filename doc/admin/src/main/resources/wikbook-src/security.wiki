@@ -33,7 +33,7 @@ Steps to configure the HTTPS configuration to run in the HTTPS mode.
 <emphasis role="bold"><link linkend="ADM.Security.Key_Rememberme_token">Update the password encryption key of the RememberMe token</link></emphasis>
 </para>
 <para>
-Information of the file location and steps to update the key of the <emphasis role="bold">RememberMe</emphasis> token.
+Information about the file location and steps to update the key of the <emphasis role="bold">RememberMe</emphasis> token.
 </para>
 </listitem>
 </itemizedlist>

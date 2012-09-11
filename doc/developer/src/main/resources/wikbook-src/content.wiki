@@ -185,7 +185,7 @@ h1. Dialog Syntax {anchor:id=DEV.WorkWithContent.DialogSyntax}
               <link linkend="DEV.WorkWithContent.HiddenFields">Hidden fields</link>
             </para>
 			<para>
-			Information of the hidden fields of Content.
+			Information about the hidden fields of Content.
 			</para>
           </listitem>
         </itemizedlist>
