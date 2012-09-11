@@ -270,17 +270,42 @@
             <id>f-include-ecms</id>
             <phase>generate-sources</phase>
             <configuration>
-              <target>
+              <target>			  			  
+			  <replace file="${docbook.source}/index.xml">
+                  <replacetoken><![CDATA[<title>Retreive account and password</title>]]></replacetoken>
+		  <replacevalue><![CDATA[<title>Retreive account and password</title>
+<xi:include href="gatein/modules/account/Account_and_Password_Retrieval.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+]]></replacevalue>
+			  </replace>
+			  <!-- Gatein Userguide/Manage account replace files-->			  
               <replace file="${docbook.source}/index.xml">
                   <replacetoken><![CDATA[<title>Manage accounts</title>]]></replacetoken>
 		  <replacevalue><![CDATA[<title>Manage accounts</title>
+<xi:include href="gatein/modules/account/Introduction_Account.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
 <xi:include href="gatein/modules/account/Register_New_Accounts.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
 <xi:include href="gatein/modules/account/Sign_in_and_Sign_out.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
 <xi:include href="gatein/modules/account/Change_Account_Settings.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
 <xi:include href="gatein/modules/account/Account_and_Password_Retrieval.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
 ]]></replacevalue>
-				</replace>
-
+		  </replace>
+		  <!-- Gatein Userguide/Manage account/ replace IDs -->
+		<replace file="${docbook.source}/gatein/modules/account/Register_New_Accounts.xml">
+				<replacetoken><![CDATA[<section id="sect-User_Guide-Register_New_Accounts">]]></replacetoken>
+				<replacevalue><![CDATA[<section id="Platform_User_Guide.Get_started.Account.Register_new_account">]]></replacevalue>
+		</replace>
+		<replace file="${docbook.source}/gatein/modules/account/Sign_in_and_Sign_out.xml">
+				<replacetoken><![CDATA[<section id="sect-User_Guide-Sign_In_and_Sign_Out">]]></replacetoken>
+				<replacevalue><![CDATA[<section id="Platform_User_Guide.Get_started.Account.Sign_in_and_sign_out">]]></replacevalue>
+		</replace>	
+		<replace file="${docbook.source}/gatein/modules/account/Change_Account_Settings.xml">
+				<replacetoken><![CDATA[<section id="sect-User_Guide-Change_Account_Settings">]]></replacetoken>
+				<replacevalue><![CDATA[<section id="Platform_User_Guide.Get_started.Account.Change_Account_Settings">]]></replacevalue>
+		</replace>	
+		<replace file="${docbook.source}/gatein/modules/account/Account_and_Password_Retrieval.xml">
+				<replacetoken><![CDATA[<section id="sect-User_Guide-Account_and_Password_Retrieval">]]></replacetoken>
+				<replacevalue><![CDATA[<section id="Platform_User_Guide.Get_started.Account.Retreive_Account_and_Password">]]></replacevalue>
+		</replace>			
+			<!-- Gatein Userguide/Manage Organization replace files & IDs-->  	 			
  <replace file="${docbook.source}/index.xml">
    <replacetoken><![CDATA[<section id="Platform_User_Guide.Manage_Organization.Add_user">
       <title>Add a user</title>
@@ -384,8 +409,16 @@
    <replacetoken><![CDATA[<section id="sect-User_Guide-Manage_Pages">]]></replacetoken>
    <replacevalue><![CDATA[<section id="Platform_User_Guide.Manage_Your_Portals.Manage_Pages">]]></replacevalue>
 		</replace>
-
+		<!-- Include Manage Applications chapter | GateIn userguide -->
+	<replace file="${docbook.source}/index.xml">
+                  <replacetoken><![CDATA[<title>Manage applications</title>]]></replacetoken>
+		  <replacevalue><![CDATA[<title>Manage applications</title>
+<xi:include href="gatein/modules/gadgetsAdmin/Introduction_Manage_applications.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+]]></replacevalue>
+		  </replace>
+		  
        <replace file="${docbook.source}/index.xml">
+	   
        <replacetoken><![CDATA[<title>Inside a portal</title>]]></replacetoken>
 				  <replacevalue><![CDATA[<title>Inside a portal</title>
 <xi:include href="gatein/modules/gadgetsAdmin/Manage_Portlets_and_Gadgets.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
@@ -408,6 +441,7 @@
          <replace file="${docbook.source}/index.xml">
 				  <replacetoken><![CDATA[<title>Manage content</title>]]></replacetoken>
 				  <replacevalue><![CDATA[<title>Manage content</title>
+<xi:include href="ecms/modules/Basics/Introdution_Manage_content.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />				  
 <xi:include href="ecms/modules/Basics/Contribute_Content.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
 <xi:include href="ecms/modules/Basics/Content_By_Query.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
 <xi:include href="ecms/modules/Basics/Content_Inside_Categories.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
@@ -435,7 +469,10 @@
    <replacetoken><![CDATA[<section id="sect-User_Guide-Newsletters">]]></replacetoken>
    <replacevalue><![CDATA[<section id="Platform_User_Guide.Organize_Content.Newsletter">]]></replacevalue>
 		</replace>
-
+		<replace file="${docbook.source}/index.xml">
+             <replacetoken><![CDATA[RoleNotInToc"]]></replacetoken>
+             <replacevalue><![CDATA[" role="NotInToc"]]></replacevalue>
+        </replace>
               </target>
             </configuration>
             <goals>

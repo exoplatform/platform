@@ -6,3 +6,15 @@ To create and manage the content more effectively and dynamically, you need to p
 * *Illustration* is an image which is used to clarify or explain the content. Also, a summary also can be added to this image.
 * *default.css* contains CSS data which are used to present the web content, such as layout, font, color, and more.
 * *default.js* contains JS data which are used to make web content more animating and dynamic.
+
+{docbook}
+    <para>
+        <promt>
+            <emphasis role="bold">See also</emphasis>
+        </promt>
+    </para>
+{docbook}
+
+* [Manage content|#Platform_User_Guide.Organize_Content.Manage_Content]
+* [Manage newsletters|#Platform_User_Guide.Organize_Content.Newsletter]
+* [Manage workflows|#Platform_User_Guide.Organize_Content.Manage_Workflows]

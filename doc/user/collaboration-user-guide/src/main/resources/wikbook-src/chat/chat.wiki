@@ -1,4 +1,43 @@
 {docbook}
+    <highlights>
+        <itemizedlist>
+            <listitem>
+                <para>
+                   <link linkend="CSUser_guide.How_to_use_Chat.Create_a_chat_room.Add_contact_to_friends_list">Add contacts to your friend list</link>
+				</para>
+				<para>
+				Steps to add a contact to your contact list.
+                </para>
+            </listitem>
+            <listitem>
+                <para>
+                   <link linkend="CSUser_guide.How_to_use_Chat.Remove_contact">Remove a contact</link>
+				</para>
+				<para>
+				Steps to remove a contact from your contact list.
+                </para>
+            </listitem>
+            <listitem>
+                <para>
+                   <link linkend="CSUser_guide.How_to_use_Chat.Chat_with_contact">Chat with a contact</link>
+				</para>
+				<para>
+				How to start a conversation with a contact and to perform many related actions, such as setting the online status, sending files, exporting or showing the chat history.
+                </para>
+            </listitem>
+            <listitem>
+                <para>
+                   <link linkend="CSUser_guide.How_to_use_Chat.Create_a_chat_room">Create a chat room</link>
+				</para>
+				<para>
+					Steps to create a chat room and perform many related actions, including: adding people, joining/leaving a chat room and changing the chat room preferences.
+                </para>
+            </listitem>
+        </itemizedlist>
+    </highlights>
+{docbook}
+
+{docbook}
 <note>
 <para>
 Two portlets, including <emphasis role="bold">Chat</emphasis> and <emphasis role="bold">Chatbar,</emphasis> and their services are deprecated. They remain fully supported for eXo customers, however they will not receive any enhancement and will be removed from the product
@@ -23,7 +62,7 @@ To use the *Chat* feature, you first need to add the Chat portlet or the Chatbar
 {docbook}
 <para>
         <emphasis role="bold">1.</emphasis> Drag and drop the application called <guilabel>Chat Portlet</guilabel>
-        or <emphasis role="bold">ChatBar Portlet</emphasis> from the <menuchoice><guimenu> Edit Inline Composer/Page Editor</guimenu><guisubmenu>Applications</guisubmenu> <menuitem>Collaboration</menuitem></menuchoice> to the body of your selected site/page.  You can do this step while <link linkend="sect-User_Guide-Page_Creation_Wizard">creating a new page</link>, or <link linkend="sect-User_Guide-Manage_Pages-Edit_a_Page">editing an existing page</link>, or <link linkend="proc-User_Guide-Manage_Portals-Edit_Layout">editing the portal layout.</link> For example, drag and drop the <guilabel>Chatbar</guilabel> portlet as the below illustration.</para>
+        or <emphasis role="bold">ChatBar Portlet</emphasis> from the <menuchoice><guimenu> Edit Inline Composer/Page Editor</guimenu><guisubmenu>Applications</guisubmenu> <guimenuitem>Collaboration</guimenuitem></menuchoice> to the body of your selected site/page.  You can do this step while <link linkend="sect-User_Guide-Page_Creation_Wizard">creating a new page</link>, or <link linkend="sect-User_Guide-Manage_Pages-Edit_a_Page">editing an existing page</link>, or <link linkend="proc-User_Guide-Manage_Portals-Edit_Layout">editing the portal layout.</link> For example, drag and drop the <guilabel>Chatbar</guilabel> portlet as the below illustration.</para>
 {docbook}
 
 !images/Chat_drag_chat_bar.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
@@ -64,7 +103,19 @@ To use the *Chat* feature, you first need to add the Chat portlet or the Chatbar
 </note>
 {docbook}
 
-h1. Add contacts to your friend list {anchor:id="CSUser_guide.How_to_use_Chat.Create_a_chat_room.Add_contact_to_friends_list"}
+{docbook}
+<para>
+<prompt>
+    <emphasis role="bold">See also</emphasis>
+</prompt>
+</para>
+{docbook}
+
+* [Manage your calendar|#Platform_User_Guide.Collaboration.Manage_calendar]
+* [Manage your contacts|#Platform_User_Guide.Collaboration.Communicate_with_Contacts.Manage_Contacts]
+* [Email your contacts|#Platform_User_Guide.Collaboration.Communicate_with_Contacts.Email_Contacts]
+
+h1. Add contacts to your friend list {anchor:id="CSUser_guide.How_to_use_Chat.Create_a_chat_room.Add_contact_to_friends_listRoleNotInToc"}
 You can search for contacts in your *Address Book* and add them to your friend list.
 
 *1.* Click !images/contact_icon.png|width="4mm" fo:scalefit="1" html:scalefit="0"! on the *Chatbar*, then click !images/chat_add_contact_button.png|width="13mm" fo:scalefit="1" html:scalefit="0"! from the pop-up menu.
@@ -83,7 +134,7 @@ You can use the *Search* function to search for a specific contact.
 
 {docbook}
 <para>
-    <emphasis role="bold">3.</emphasis> Click the <guibutton>Add Contact</guibutton> button to add your selected contacts to your friend list.</para>
+    <emphasis role="bold">3.</emphasis> Click <guibutton>Add Contact</guibutton> to add your selected contacts to your friend list.</para>
 {docbook}
 
 Your invited contacts will receive the request messages.
@@ -94,7 +145,7 @@ Your invited contacts will receive the request messages.
 
 After adding your contacts successfully, the added contacts will be shown in your friend list.
 
-h1. Remove a contact {anchor:id="CSUser_guide.How_to_use_Chat.Remove_contact"}
+h1. Remove a contact {anchor:id="CSUser_guide.How_to_use_Chat.Remove_contactRoleNotInToc"}
 This action is to remove a contact from your friend list.
 
 *1.* Click !images/contact_icon.png|width="4mm" fo:scalefit="1" html:scalefit="0"! on the Chatbar to show your friend list.
@@ -111,7 +162,7 @@ This action is to remove a contact from your friend list.
           <emphasis role="bold">3.</emphasis> Click <guibutton>OK</guibutton> in the confirmation message to accept your removal.</para>
 {docbook}
 
-h1. Chat with a contact {anchor:id="CSUser_guide.How_to_use_Chat.Chat_with_contact"}
+h1. Chat with a contact {anchor:id="CSUser_guide.How_to_use_Chat.Chat_with_contactRoleNotInToc"}
 
 h2. Send messages {anchor:id="CSUser_guide.How_to_use_Chat.Send_messages"}
 
@@ -321,7 +372,7 @@ Currently, the *Chat* application shows messages in the following time ranges:
  <para>All messages with the created time and date will be shown in the <guilabel>Conversation</guilabel> window.</para>
 {docbook}
 
-h1. Create a chat room {anchor:id="CSUser_guide.How_to_use_Chat.Create_a_chat_room"}
+h1. Create a chat room {anchor:id="CSUser_guide.How_to_use_Chat.Create_a_chat_roomRoleNotInToc"}
 A chat room is a place where people with similar interests can meet and communicate with each other. People can often enter an unmoderated chat room without any verification of who they are.
 
 With *Chat*, you also create a chat room and invite other users to join your room. In this way, you can organize and manage your group activities efficiently. It is convenient in the corporate environment when you can communicate in multiple chat rooms, each may have different topics and members. *Chat* supports up to 30 users to join a chat room.
@@ -525,7 +576,15 @@ Also, you can search for contacts through your *Address Book* simply entering th
   <emphasis role="bold">3.</emphasis> Click <guilabel>Add Contact</guilabel> to finish. The contacts you want to add will receive your invitation message.</para>
 {docbook}
 
-h2. Join a chat room {anchor:id="CSUser_guide.How_to_use_Chat.Join_chat_room"}
+h2. Join/Leave a chat room {anchor:id="CSUser_guide.How_to_use_Calendar.Join_Leave_chat_room"}
+
+{docbook}
+<para xml:id="CSUser_guide.How_to_use_Chat.Join_chat_room">
+<citetitle>
+<emphasis role="bold">Join a chat room</emphasis>
+</citetitle>
+</para>
+{docbook}
 
 When joining a chat room, you can learn more about a subject, ask questions and talk with others having common interests. Joining a chat room is just few clicks away.
 
@@ -551,7 +610,13 @@ When joining a chat room, you can learn more about a subject, ask questions and 
 </note>
 {docbook}
 
-h2. Leave a chat room {anchor:id="CSUser_guide.How_to_use_Calendar.Leave_chat_room"}
+{docbook}
+<para xml:id="CSUser_guide.How_to_use_Calendar.Leave_chat_room">
+<citetitle>
+<emphasis role="bold">Leave a chat room</emphasis>
+</citetitle>
+</para>
+{docbook}
 
 Click !images/leave_room_icon.png|width="13mm" fo:scalefit="1" html:scalefit="0"! on the room conversation window.
 

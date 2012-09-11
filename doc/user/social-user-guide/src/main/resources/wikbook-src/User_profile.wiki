@@ -1,4 +1,34 @@
 {docbook}
+    <highlights>
+        <itemizedlist>
+            <listitem>
+                <para>
+                   <link linkend="Soc_User_Guide.Get_Started.User_Profile.Edit_Information">Edit your information</link>
+				</para>
+				<para>
+					Steps to change your information, and details of basic information, contact and experience.
+                </para>
+            </listitem>
+            <listitem>
+                <para>
+                   <link linkend="Soc_User_Guide.Get_Started.User_Profile.Upload_Avatar">Upload your profile avatar</link>
+				</para>
+				<para>
+					Steps to upload a photo to your profile or to the spaces which you have created or have the Manage permission.
+                </para>
+            </listitem>
+            <listitem>
+                <para>
+                   <link linkend="Soc_User_Guide.Get_Started.User_Profile.Update_Current_Position">Update your current position</link>
+				</para>
+				<para>Steps to update your current working position information.
+                </para>
+            </listitem>
+        </itemizedlist>
+    </highlights>
+{docbook}
+
+{docbook}
 <para>By default, your profile is just initialized with the basic account information entered in the <guilabel>Registration</guilabel> form. Therefore, if you only want to view or edit the basic information on account and password, simply hover your cursor over your display name on the top right corner of the page, and select <guilabel>My Account</guilabel>.</para>
 {docbook}
 
@@ -38,7 +68,19 @@ The *My Profile* page is displayed that allows you to [edit your information|#So
 
 !images/Profile_page.png|align="center" width="140mm" fo:scalefit="1" html:scalefit="0"!
 
-h1. Edit your information {anchor:id=Soc_User_Guide.Get_Started.User_Profile.Edit_Information}
+{docbook}
+<para>
+<prompt>
+    <emphasis role="bold">See also</emphasis>
+</prompt>
+</para>
+{docbook}
+
+* [Manage spaces|#Platform_User_Guide.Social.Manage_Spaces]
+* [Manage connections|#Platform_User_Guide.Social.Manage_connections]
+* [Follow activities in your organization|#Platform_User_Guide.Social.Follow_Activities]
+
+h1. Edit your information {anchor:id=Soc_User_Guide.Get_Started.User_Profile.Edit_InformationRoleNotInToc}
 
 Your own information is visible to all people using the network. You can change your information as follows:
 {docbook}
@@ -214,18 +256,7 @@ The followings are changeable information in each pane.
         </informaltable>
 {docbook}
 
-{docbook}
-<para>
-<prompt>
-    <emphasis role="bold">See also</emphasis>
-</prompt>
-</para>
-{docbook}
-
-* [Upload your profile avatar|#Soc_User_Guide.Get_Started.User_Profile.Upload_Avatar]
-* [Update your current position|#Soc_User_Guide.Get_Started.User_Profile.Update_Current_Position]
-
-h1. Upload your profile avatar{anchor:id=Soc_User_Guide.Get_Started.User_Profile.Upload_Avatar}
+h1. Upload your profile avatar{anchor:id=Soc_User_Guide.Get_Started.User_Profile.Upload_AvatarRoleNotInToc}
 
 You easily upload a photo to your profile or to the spaces which you have created or have the *Manage* permission.
 
@@ -265,7 +296,7 @@ You easily upload a photo to your profile or to the spaces which you have create
     </para>
 </note>
 {docbook}
-h1. Update your current position{anchor:id=Soc_User_Guide.Get_Started.User_Profile.Update_Current_Position}
+h1. Update your current position{anchor:id=Soc_User_Guide.Get_Started.User_Profile.Update_Current_PositionRoleNotInToc}
 
 {docbook}
         <para>

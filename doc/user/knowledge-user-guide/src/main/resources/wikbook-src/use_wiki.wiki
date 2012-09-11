@@ -1,3 +1,90 @@
+{docbook}
+    <highlights>
+        <itemizedlist>
+            <listitem>
+                <para>
+                   <link linkend="KSuser.Work_with_Wiki_pages">Work with Wiki pages</link>
+				</para>
+				<para>
+					Steps to perform actions on a Wiki page, including: creating, editing, moving, deleting, viewing page information and watching a page.
+                </para>
+            </listitem>
+            <listitem>
+                <para>
+                   <link linkend="KSuser.Work_with_attachment">Work with attachments</link>
+				</para>
+				<para>
+				Instructions on how to perform actions related to attachments: viewing all attachments in a page, adding attachments, and inserting images.
+                </para>
+            </listitem>
+            <listitem>
+                <para>
+                   <link linkend="KSuser.Wiki.Use_WYSIWYG_editor">Use the WYSIWYG Editor (Rich Text editor)</link>
+				</para>
+				<para>
+				Introduction to the <emphasis role="bold">WYSIWYG</emphasis> editor that allows you to edit a wiki page using the <emphasis role="bold">Rich Text</emphasis> editor.
+                </para>
+            </listitem>
+			 <listitem>
+                <para>
+                   <link linkend="KSuser.Wiki.Syntax_Help">Syntax Help</link>
+				</para>
+				<para>
+					Introduction to the <emphasis role="bold">Syntax Help</emphasis> feature of Wiki.
+                </para>
+            </listitem>
+            <listitem>
+                <para>
+                   <link linkend="KSuser.Wiki.Work_with_Macros">Work with Macros</link>
+				</para>
+				<para>
+				Steps to use Macros to apply extra formatting, functionality and customization to your content.
+                </para>
+            </listitem>
+            <listitem>
+                <para>
+                   <link linkend="KSuser.Wiki.Work_with_Page_versions">Work with page versions</link>
+				</para>
+				<para>
+					Introduction to the <emphasis role="bold">Page History</emphasis> view, and steps to view versions of a page, compare different versions of a page, or restore pages to a version.
+                </para>
+            </listitem>
+			 <listitem>
+                <para>
+                   <link linkend="KSuser.Wiki.Work_with_Spaces">Work with Spaces</link>
+				</para>
+				<para>
+					Introduction to the permanent bookmarkable URLs to all wiki pages.
+                </para>
+            </listitem>
+            <listitem>
+                <para>
+                   <link linkend="KSuser.Wiki.Search">Search</link>
+				</para>
+				<para>
+					Steps to do <emphasis role="bold">Quick Search</emphasis> and <emphasis role="bold">Advanced Search</emphasis> supported in the <emphasis role="bold">Wiki</emphasis> application.
+                </para>
+            </listitem>
+            <listitem>
+                <para>
+                   <link linkend="KSuser.Wiki.WebDAV">WebDAV support in Wiki</link>
+				</para>
+				<para>
+					Introduction to the <emphasis role="bold">WebDAV</emphasis> support in <emphasis role="bold">Wiki</emphasis>, steps to access your workspace and to edit a page by using <emphasis role="bold">WebDAV</emphasis>.
+                </para>
+            </listitem>
+			<listitem>
+                <para>
+                   <link linkend="KSuser.Wiki.Wiki_Administration">Wiki Administration</link>
+				</para>
+				<para>
+					Steps to change Space settings and manage Permissions that are for administrators only.
+                </para>
+            </listitem>
+        </itemizedlist>
+    </highlights>
+{docbook}
+
 This section provides you with instructions on how to use all *Wiki* features and configure the *Wiki* application to make it work in your desired way.
 Before going further, you should know some basic concepts about *Wiki* through [accessing the *Wiki* application|#KSuser.access_knowledge]. You will be directed to the *Wiki* homepage as below:
 
@@ -66,8 +153,20 @@ For example:
 </note>
 {docbook}
 
+{docbook}
+<para>
+<prompt>
+    <emphasis role="bold">See also</emphasis>
+</prompt>
+</para>
+{docbook}
+* [About user roles|#KSuser.about_role]
+* [Access Knowledge applications|#KSuser.access_knowledge]
+* [Build a forum|#Platform_User_Guide.Knowledge.Build_Forums]
+* [Build an Answers & FAQs system|#Platform_User_Guide.Knowledge.Build_FAQs]
 
-h1. Work with Wiki pages {anchor:id=KSuser.Work_with_Wiki_pages}
+h1. Work with Wiki pages {anchor:id=KSuser.Work_with_Wiki_pagesRoleNotInToc}
+
 Pages are places where information in *Wiki* is stored and shared. Pages are stored within a space. Actions that a user can perform on a specific wiki page depends on permissions assigned by the administrator. See the [Page Permissions|#KSuser.Wiki_Administration.Page_permissions] for detailed permissions.
 
 h2. Create a page {anchor:id=KSuser.Work_with_Wiki_pages.Create_pages}
@@ -138,7 +237,8 @@ In the *Wiki* application of eXo Platform, you can add a link pointing to a page
 For example:
 
 ||What you type|| What you get||
-|\[eXo User Guide\]|!images/undefined_link.png| width="17mm" fo:scalefit="1" html:scalefit="0"!|
+|\[eXo User Guide\]|!images/undefined_link.png|width="17mm" fo:scalefit="1" html:scalefit="0"!|
+
 {docbook}
 <para>
   <emphasis role="bold">2.</emphasis> Click <guibutton>Save</guibutton> to save the page containing the link. The undefined link is underlined.</para>
@@ -348,10 +448,16 @@ Watching a page allows you to receive a notification message about any changes i
 
 !images/wiki_stop_watch_page.png|align="center" width="50mm" fo:scalefit="1" html:scalefit="0"!
 
-h1. Work with attachments {anchor:id=KSuser.Work_with_attachment}
+h1. Work with attachments {anchor:id=KSuser.Work_with_attachmentRoleNotInToc}
 Attachments are any files enclosed with your pages. The attachments may be images, documents, presentation or multimedia files.
 
-h2. View all attachments of a page {anchor:id=KSuser.Work_with_attachment.View_attachments}
+{docbook}
+<citetitle>
+    <para xml:id="KSuser.Work_with_attachment.View_attachments">
+        <emphasis role="bold">View all attachments of a page</emphasis>
+    </para>
+</citetitle>
+{docbook}
 
 *1.* Open the page you want to view attachments.
 {docbook}
@@ -371,7 +477,14 @@ Here, you can:
 * Download an attachment by simply clicking the attachment name.
 * Delete an attachment by simply clicking !images/Wiki_attachment_delete_icon.png| width="3mm" fo:scalefit="1" html:scalefit="0"!.
 
-h2. Add an attachment to a page {anchor:id=KSuser.Work_with_attachment.Add_attachment}
+{docbook}
+<citetitle>
+    <para xml:id="KSuser.Work_with_attachment.Add_attachment">
+        <emphasis role="bold">Add an attachment to a page</emphasis>
+    </para>
+</citetitle>
+{docbook}
+
 There are two ways to add an attachment to a page:
 
 *The first way* {anchor:id=Add_attachment_Attachment_pane}
@@ -431,7 +544,7 @@ You can use this method when editing the page content by *WYSIWYG* editor (Rich 
 * *Upload a new file:*
 {docbook}
 <para>
- <emphasis role="bold">i.</emphasis> Double-click <guilabel>Upload new file</guilabel>, or click <menuchoice><guimenu>Upload new file</guimenu><menuitem>Select</menuitem></menuchoice> in the <guilabel>Current page</guilabel> or <guilabel>All pages</guilabel> tab.</para>
+ <emphasis role="bold">i.</emphasis> Double-click <guilabel>Upload new file</guilabel>, or click <menuchoice><guimenu>Upload new file</guimenu><guimenuitem>Select</guimenuitem></menuchoice> in the <guilabel>Current page</guilabel> or <guilabel>All pages</guilabel> tab.</para>
 {docbook}
 
 {docbook}
@@ -456,7 +569,15 @@ The form to edit the link parameters appears.
 <para>
  <emphasis role="bold">7.</emphasis> Click <guilabel>Create Link</guilabel> to update the link.</para>
 {docbook}
-h2. Insert an image {anchor:id=KSuser.Work_with_attachment.Link_to_image}
+
+{docbook}
+<citetitle>
+    <para xml:id="KSuser.Work_with_attachment.Link_to_image">
+        <emphasis role="bold">Insert an image</emphasis>
+    </para>
+</citetitle>
+{docbook}
+
 {docbook}
 <para>
             <emphasis role="bold">1.</emphasis> Click <inlinemediaobject>
@@ -481,11 +602,11 @@ h2. Insert an image {anchor:id=KSuser.Work_with_attachment.Link_to_image}
   <emphasis role="bold">3.</emphasis> Click the <guilabel>Insert Image...</guilabel> button.</para>
 {docbook}
 
-h1. Use the WYSIWYG Editor (Rich Text editor) {anchor:id=KSuser.Wiki.Use_WYSIWYG_editor}
+h1. Use the WYSIWYG Editor (Rich Text editor) {anchor:id=KSuser.Wiki.Use_WYSIWYG_editorRoleNotInToc}
 
 *WYSIWYG* stands for What You See Is What You Get. The *WYSIWYG* editor allows you to edit an wiki page directly in the wiki markup language. This has the advantage of being faster than the Rich Text Editor for some formatting tasks.
 
-You can switch between the *Source* and *WYSIWYG* editors at any time by clicking !images/rich_text_editor.png| width="40mm" fo:scalefit="1" html:scalefit="0"! or !images/source_editor_btn.png| width="20mm" fo:scalefit="1" html:scalefit="0"!. In the *Source* editor, which is selected by default when you edit a page, you have to use the wiki markup language for text formatting, while the *WYSIWYG* editor enables the content to be appeared during editing that is very similar to the published result. Thanks to available tools on this editor, you can format your content visually without using wiki markups.
+You can switch between the *Source* and *WYSIWYG* editors at any time by clicking !images/rich_text_editor.png|width="40mm" fo:scalefit="1" html:scalefit="0"! or !images/source_editor_btn.png|width="20mm" fo:scalefit="1" html:scalefit="0"!. In the *Source* editor, which is selected by default when you edit a page, you have to use the wiki markup language for text formatting, while the *WYSIWYG* editor enables the content to be appeared during editing that is very similar to the published result. Thanks to available tools on this editor, you can format your content visually without using wiki markups.
 
 !images/wiki_wysiwyg_editor.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
 
@@ -502,7 +623,7 @@ You can switch between the *Source* and *WYSIWYG* editors at any time by clickin
 
 To learn more about the *WYSIWYG* editor, you can refer to the [*WYSIWYG* editor user guide|http://platform.xwiki.org/xwiki/bin/view/Features/WysiwygEditor].
 
-h1. Syntax Help {anchor:id=KSuser.Wiki.Syntax_Help}
+h1. Syntax Help {anchor:id=KSuser.Wiki.Syntax_HelpRoleNotInToc}
 If you do not know how to use a syntax, you can use the *Syntax Help* function. The *Syntax Help* is displayed by clicking !images/Wiki_help_btn.png| width="30" fo:scalefit="1" html:scalefit="0"! from the page toolbar. When being clicked, a lateral pane beside the editing area will show all the Confluence syntax information.
 The lateral pane can be hidden by clicking !images/Close_button.png| width="4mm" fo:scalefit="1" html:scalefit="0"! in the upper right corner or by clicking !images/Wiki_help_btn.png| width="30" fo:scalefit="1" html:scalefit="0"! again.
 
@@ -525,7 +646,7 @@ You can insert icons, emoticons to emphasize the content. The usage is described
 
 !images/Smiley_special_notation.png|align="center" width="80mm" fo:scalefit="1" html:scalefit="0"!
 
-h1. Work with Macros {anchor:id=KSuser.Wiki.Work_with_Macros}
+h1. Work with Macros {anchor:id=KSuser.Wiki.Work_with_MacrosRoleNotInToc}
 By using macros, you can apply extra formatting, functionality and customization to your content.
 You can easily add macro tags by using the *Rich Text* editor.
 
@@ -703,7 +824,7 @@ The following table describes specific functions of common macros.
         </informaltable>
 {docbook}
 
-h1. Work with page versions {anchor:id=KSuser.Wiki.Work_with_Page_versions}
+h1. Work with page versions {anchor:id=KSuser.Wiki.Work_with_Page_versionsRoleNotInToc}
 When editing the content of a page, *Wiki* will automatically create a version of that page after it is saved. Thanks to the page versions, you can make changes on the page safely and roll back to an earlier version without worrying about messing things up.
 
 In the [Page History|#KSuser.Work_with_Wiki_pages.View_page_history] view, you can see all versions of a page.
@@ -723,7 +844,14 @@ Each version includes the following information:
 </note>
 {docbook}
 
-h2. View versions of a page {anchor:id=KSuser.Work_with_page_version.View_versions}
+{docbook}
+<citetitle>
+    <para xml:id="KSuser.Work_with_page_version.View_versions">
+        <emphasis role="bold">View versions of a page</emphasis>
+    </para>
+</citetitle>
+{docbook}
+
 To view a specific version of a page, just click a version label in the *Page History* page. The selected version of that page will be displayed.
 
 !images/wiki_view_version.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
@@ -770,7 +898,14 @@ At a version of the page, you can do the following actions:
           </itemizedlist>
 {docbook}
 
-h2. Compare page versions {anchor:id=KSuser.Work_with_page_version.Compare_versions}
+
+{docbook}
+<citetitle>
+    <para xml:id="KSuser.Work_with_page_version.Compare_versions">
+        <emphasis role="bold">Compare page versions</emphasis>
+    </para>
+</citetitle>
+{docbook}
 
 *Wiki* keeps track of histories of changes on a page by maintaining a version of the page each time it is modified. To compare two versions, select two checkboxes corresponding to each relevant version, then click !images/Compare_selected_button.png| width="25mm" fo:scalefit="1" html:scalefit="0"!.
 
@@ -793,7 +928,14 @@ The changes between two versions will be marked with colors:
 </note>
 {docbook}
 
-h2. Restore a page version to the current version  {anchor:id=KSuser.Work_with_page_version.Restore_page_version}
+{docbook}
+<citetitle>
+    <para xml:id="Restore a page version to the current version">
+        <emphasis role="bold">Restore a page version to the current version</emphasis>
+    </para>
+</citetitle>
+{docbook}
+
 When you notice that there are changes in the current page version that you are not satisfied, you can rollback to an older version of that page quickly.
 
 To restore an older version, click !images/Restore_button.png| width="30" fo:scalefit="1" html:scalefit="0"! corresponding to your desired version in the *Page History* page.
@@ -806,7 +948,7 @@ To restore an older version, click !images/Restore_button.png| width="30" fo:sca
 </note>
 {docbook}
 
-h1. Work with Spaces {anchor:id=KSuser.Wiki.Work_with_Spaces}
+h1. Work with Spaces {anchor:id=KSuser.Wiki.Work_with_SpacesRoleNotInToc}
 *Wiki* provides permanent bookmarkable URLs to all wiki pages. *Wiki* will resolve wiki pages by inspecting the URL used to call it. URLs are in the following form:
 
 {code}http://hostname/$CONTAINER/$SITE/$NAV_URI/[$OWNER_TYPE/$OWNER]/$WIKI_PAGE_URI{code}
@@ -865,7 +1007,7 @@ Any wiki page should be accessed by a friendly URL. For example:
 * Group wiki URL: http://hostname/portal/classic/wiki/group/platform/Administrators/Admin+Guide.
 * Personal wiki page URL: http://hostname/portal/classic/wiki/user/john/Sandbox.
 
-h1. Search {anchor:id=KSuser.Wiki.Search}
+h1. Search {anchor:id=KSuser.Wiki.SearchRoleNotInToc}
 In *Wiki*, you can search for spaces, or pages in a space, or attached files via either of 2 types:
 * [Quick Search|#KSuser.Wiki.Search.Quick_search]
 * [Advanced Search|#KSuser.Wiki.Advanced_Search]
@@ -915,12 +1057,18 @@ The search results are displayed like the illustration below.
 {docbook}
 <para><emphasis role="bold">3.</emphasis> Click <guibutton>Search</guibutton>.</para>
 {docbook}
-h1. WebDAV support in Wiki {anchor:id=KSuser.Wiki.WebDAV}
+h1. WebDAV support in Wiki {anchor:id=KSuser.Wiki.WebDAVRoleNotInToc}
 
 The WebDAV enables you to use the third party tools to communicate with hierarchical content servers via HTTP.
 It is possible to add and remove documents or a set of documents from a path on the server.
 
-h2. Access your workspace using WebDAV {anchor:id=KSuser.Wiki.AccessWorkspaceUsingWebDAV}
+{docbook}
+<citetitle>
+    <para xml:id="KSuser.Wiki.AccessWorkspaceUsingWebDAV">
+        <emphasis role="bold">Access your workspace using WebDAV</emphasis>
+    </para>
+</citetitle>
+{docbook}
 
 To access any workspaces of your repository, you can use the following URL format:
 
@@ -943,7 +1091,13 @@ After login succesfully, you will see all content in that Wiki space.
 * Each folder is a wiki page. The folder name is the same as the wiki page title.
 * The "Content" file is the file storing the page content.
 
-h2. Edit a page using WebDAV {anchor:id=KSuser.Wiki.EditPageUsingWebDAV}
+{docbook}
+<citetitle>
+    <para xml:id="KSuser.Wiki.EditPageUsingWebDAV">
+        <emphasis role="bold">Edit a page using WebDAV</emphasis>
+    </para>
+</citetitle>
+{docbook}
 
 *1.* Go to the folder that contains the content you want to edit.
 
@@ -955,9 +1109,7 @@ h2. Edit a page using WebDAV {anchor:id=KSuser.Wiki.EditPageUsingWebDAV}
 * You can copy/move/delete a page by copying/moving/deleting the corresponding folder.
 {note}
 
-
-h1. Wiki Administration {anchor:id=KSuser.Wiki.Wiki_Administration}
-
+h1. Wiki Administration {anchor:id=KSuser.Wiki.Wiki_AdministrationRoleNotInToc}
 
 {docbook}
 <note>
