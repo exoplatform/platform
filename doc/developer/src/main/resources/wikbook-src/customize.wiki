@@ -24,7 +24,7 @@
 	  <emphasis role="bold"><link linkend="DEV.CreateYourOwnPortal.StructureOfPortalPages&amp;Menus">Structure of portal, pages and menus</link></emphasis>
 	</para>
 	<para>
-	Steps on how to define the structure throughout the portal navigation and visility of pages.
+	Steps on how to define the structure throughout the portal navigation and visibility of pages.
 	</para>
   </listitem>
   <listitem>

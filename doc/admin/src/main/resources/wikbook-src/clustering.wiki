@@ -37,7 +37,7 @@ h1. Set up the eXo Platform cluster {anchor:id=ADM.Clustering.Cluster_setup}
  <link linkend="ADM.Clustering.Shared_file_system">Shared file system</link>
  </para>
  <para>
-  Introduction to the shared file system which is neccesary for the embedded JCR server.
+  Introduction to the shared file system which is necesary for the embedded JCR server.
  </para>
  </listitem>
  <listitem>

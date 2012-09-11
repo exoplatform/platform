@@ -1,6 +1,6 @@
 {docbook}
 <abstract>
-<para>This chapter will show you how to integrate eXo Platform 3.5 into your information system throughout the specific topics below:</para>
+<para>This chapter will show you how to integrate eXo Platform 3.5 into your system throughout the specific topics below:</para>
 <itemizedlist>
   <listitem>
 	<para>
@@ -359,7 +359,7 @@ h1. LDAP Integration {anchor:id=DEV.SystemIntegration.LDAPIntegration}
               <link linkend="DEV.SystemIntegration.PicketlinkIDM">Picketlink IDM</link>
             </para>
 			<para>
-			Information of the PicketLink IDM component which eXo Platform currently uses for keeping the necessary identity information, such as users, groups, memberships.
+			Information about the PicketLink IDM component which eXo Platform currently uses for keeping the necessary identity information, such as users, groups, memberships.
 			</para>
           </listitem>
         </itemizedlist>

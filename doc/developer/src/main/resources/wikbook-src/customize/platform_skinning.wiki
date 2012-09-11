@@ -6,7 +6,7 @@
 	  <emphasis role="bold"><link linkend="DEV.CreateYourOwnPortal.PageSkinElemnets">Platform skin elements</link></emphasis>
 	</para>
 	<para>
-	The complete skinning of eXo Platform that can be decomposed into three main parts: Portal skin, Window style, Portlet skin.
+	The complete skinning of eXo Platform that can be decomposed into 3 main parts: Portal skin, Window style, Portlet skin, and further details of SkinService, ResourceRequestFilter and default skin. 
 	</para>
 	</listitem>
 	<listitem>
@@ -38,7 +38,7 @@
 	  <emphasis role="bold"><link linkend="DEV.CreateYourOwnPortal.Configure_portlet_skin">Configure Platform skin</link></emphasis>
 	</para>
 	<para>
-	The detailed topics that allows you to configure the eXo Platform skin effectively, such as how to select skins or to customize layouts, styles, templates or shared layouts.
+	The detailed topics which allow you to configure the eXo Platform skin effectively, such as how to select skins or to customize layouts, styles, templates or shared layouts.
 	</para>
 	</listitem>
 	<listitem>

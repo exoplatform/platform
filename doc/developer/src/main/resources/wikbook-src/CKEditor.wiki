@@ -14,7 +14,7 @@
               <link linkend="DEV.WorkWithContent.CKEditor.FileAndFolderStructure">File and Folder Structure</link>
             </para>
 			<para>
-			Information of file and folder structure inside CKEditor and introduction to CKEditor in eXo Platform.
+			Information about the file and folder structure inside CKEditor and introduction to CKEditor in eXo Platform.
 			</para>
           </listitem>
           <listitem>
