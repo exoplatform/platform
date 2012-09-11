@@ -78,7 +78,7 @@ h1. Synchronize eXo Platform with an existing directory {anchor:id=ADM.Integrati
 		  <link linkend="ADM.Integration.Sync_usecases">Sync usecases</link>
 		</para>
 		<para>
-		Instructions on how to synchrorize at startup, login time, and on demand.
+		Instructions on how to synchronize at startup, login time, and on demand.
 		</para>
 	  </listitem>
 	  <listitem>
