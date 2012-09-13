@@ -317,16 +317,21 @@ public class DashboardInformationRESTService implements ResourceContainer {
    * @throws Exception
    */
   private UserPortal getUserPortal(String userId) throws Exception {
-    UserPortalConfig portalConfig = userPortalConfigService.getUserPortalConfig(userPortalConfigService.getDefaultPortal(),
-        userId, NULL_CONTEXT);
-    return portalConfig.getUserPortal();
+      UserPortalConfig portalConfig = null;
+      for (String s : userPortalConfigService.getAllPortalNames()) {
+          portalConfig = userPortalConfigService.getUserPortalConfig(s,
+                  userId, NULL_CONTEXT);
+      }
+      ;
+
+      return portalConfig.getUserPortal();
   }
 
   /**
    * DTO Object used to create JSON response
    * <p>
    * Represents a Dashboard
-   * 
+   *
    * @author Clement
    *
    */
@@ -335,7 +340,7 @@ public class DashboardInformationRESTService implements ResourceContainer {
     String label;
     String html;
     String link;
-    
+
     public String getId() {
       return id;
     }
@@ -366,7 +371,7 @@ public class DashboardInformationRESTService implements ResourceContainer {
    * DTO Object used to create JSON response
    * <p>
    * Represents a Gadget
-   * 
+   *
    * @author Clement
    *
    */
@@ -375,7 +380,7 @@ public class DashboardInformationRESTService implements ResourceContainer {
     String gadgetUrl;
     String gadgetIcon;
     String gadgetDescription;
-    
+
     public String getGadgetName() {
       return gadgetName;
     }
