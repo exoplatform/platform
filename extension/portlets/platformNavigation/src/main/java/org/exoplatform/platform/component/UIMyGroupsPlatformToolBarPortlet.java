@@ -62,9 +62,9 @@ public class UIMyGroupsPlatformToolBarPortlet extends UIPortletApplication {
     nodesToDisplay.clear();
     cachedValidChildrenNodesToDisplay.clear();
     for (UserNavigation navigation : allNavigations) {
-      UserNode rootNode = userPortal.getNode(navigation, Scope.ALL, myGroupsFilterConfig, null);
       if ((navigation.getKey().getTypeName().equals(PortalConfig.GROUP_TYPE))
           && (navigation.getKey().getName().indexOf("spaces") < 0)) {
+        UserNode rootNode = userPortal.getNode(navigation, Scope.ALL, myGroupsFilterConfig, null);
         Collection<UserNode> children = getNodesNotInSetupMenu(rootNode.getChildren());
         if (children == null || children.isEmpty()) {
           continue;
