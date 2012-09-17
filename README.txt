@@ -22,11 +22,10 @@ When no profile is specified it will build only entreprise Tomcat bundle.
 
 The various profiles used inside platform are :
 
-- pkg-tomcat     : generate the tomcat entreprise bundle.
 - pkg-jboss      : generate the jboss eap entreprise bundle
 - pkg-community  : generate the tomcat community bundle
 - pkg-trial      : generate the tomcat trial bundle
-- distrib        : generate documentations + EAR platform
+- distrib        : generate documentations + EAR distribution
 
 2) Database configuration
 
@@ -60,7 +59,7 @@ But that's only usable for development since in order to be able to run platform
 
 Platform can be packaged with different web / application servers. The specific server to use is selected by using an appropriate profile.
 
-  Packaging with JBoss-EAP -5.1.0.GA
+  Packaging with JBoss-AS
   --------------------------------
 
 If you don’t have an existing JBoss AS distribution, the build can automatically download it for you.
@@ -82,20 +81,20 @@ To start it, go to jboss directory, and run 'bin/run.sh' ('bin\run.bat' on Windo
 Access the portal at: http://localhost:8080/portal
 
 
-  Packaging Community bundle with Tomcat 6.x.x
+  Packaging Community bundle with Tomcat 6.0.32
   ---------------------------
 
-If you don’t have an existing Tomcat 6.x.x distribution, the build can automatically download it for you.
+If you don’t have an existing Tomcat 6.0.32 distribution, the build can automatically download it for you.
 
 Issue the following command:
 
 mvn install -Ppkg-community -Pdownload
 
-If you have an existing Tomcat 6.x.x distribution, unpack it into SERVERS_DIR directory so that you get SERVERS_DIR/apache-tomcat-6.x.x directory.
+If you have an existing Tomcat 6.0.32 distribution, unpack it into SERVERS_DIR directory so that you get SERVERS_DIR/apache-tomcat-6.0.32 directory.
 
 In this case you can issue the following command:
 
-mvn install -Ppkg-community-DskipTests -Dservers.dir=$SERVERS_DIR -Dgatein.dev=tomcat6 -Dserver.name=apache-tomcat-6.x.x
+mvn install -Ppkg-community-DskipTests -Dservers.dir=$SERVERS_DIR -Dgatein.dev=tomcat6 -Dserver.name=apache-tomcat-6.0.32
 
 
 The packaged Platform is available in packaging/tomcat/target/tomcat.
@@ -204,19 +203,6 @@ Going Further
 =============
 Your next stop will depend on who you are:
 
-    * Developers: learn how to build your own portal, gadgets, REST services or eXo-based applications in the Developer Guide [http://docs.exoplatform.org/PLF35/topic/org.exoplatform.doc.35/bk03.html] and the Reference Documentation [http://docs.exoplatform.org/PLF35/topic/org.exoplatform.doc.35/bk05.html]
-   * Administrators: learn how to install eXo Platform on a server in the Administrator Guide: http://docs.exoplatform.org/PLF35/topic/org.exoplatform.doc.35/bk02.html
-    * End Users: learn more about using the features in the User Manuals: http://docs.exoplatform.org/PLF35/topic/org.exoplatform.doc.35/bk01.html
-
-
-External Resources
-==================
-
-Support			http://support.exoplatform.com
-Training			http://www.exoplatform.com/company/public/website/services/development/development-training
-Consulting		http://www.exoplatform.com/company/public/website/services/development/development-consulting
-Corporate Website	http://www.exoplatform.com
-Blog			http://blog.exoplatform.org
-Community Website	http://community.exoplatform.org
-Forum			http://forum.exoplatform.org
-
+   * Developers: learn how to build your own portal, gadgets, REST services or eXo-based applications in the Developer Guide [http://docs.exoplatform.com/PLF35/topic/org.exoplatform.doc.35/DeveloperGuide.html] and the Reference Documentation [http://docs.exoplatform.com/PLF35/topic/org.exoplatform.doc.35/GateInReferenceGuide.html]
+   * Administrators: learn how to install eXo Platform on a server in the Administrator Guide: http://docs.exoplatform.com/PLF35/topic/org.exoplatform.doc.35/AdministratorGuide.html
+   * End Users: learn more about using the features in the User Manuals: http://docs.exoplatform.com/PLF35/topic/org.exoplatform.doc.35/UserGuide.html
