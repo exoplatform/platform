@@ -270,7 +270,7 @@
               <target>			  			  
 			  <replace file="${docbook.source}/index.xml">
                   <replacetoken><![CDATA[<title>Retreive account and password</title>]]></replacetoken>
-		  <replacevalue><![CDATA[<title>Retreive account and password</title>
+		  <replacevalue><![CDATA[<title>Retrieve account and password</title>
 <xi:include href="gatein/modules/account/Account_and_Password_Retrieval.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
 ]]></replacevalue>
 			  </replace>
@@ -418,9 +418,20 @@
 	   
        <replacetoken><![CDATA[<title>Inside a portal</title>]]></replacetoken>
 				  <replacevalue><![CDATA[<title>Inside a portal</title>
-<xi:include href="gatein/modules/gadgetsAdmin/Manage_Portlets_and_Gadgets.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+        <xi:include href="gatein/modules/GadgetsAdmin.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
 <xi:include href="gatein/modules/portletsUser/Dashboard_Portlet.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />]]></replacevalue>
 				</replace>
+
+                <replace file="${docbook.source}/gatein/modules/GadgetsAdmin.xml">
+                  <replacetoken><![CDATA[<chapter id="chap-User_Guide-Gadgets_Administration">]]></replacetoken>
+                  <replacevalue><![CDATA[<section id="chap-UserGuide-Gadgets_Administration">]]></replacevalue>
+                </replace>
+
+                <replace file="${docbook.source}/gatein/modules/GadgetsAdmin.xml">
+                  <replacetoken><![CDATA[</chapter>]]></replacetoken>
+                  <replacevalue><![CDATA[</section>]]></replacevalue>
+                </replace>
+
 
  <replace file="${docbook.source}/index.xml">
    <replacetoken><![CDATA[<section id="Platform_User_Guide.Organize_Content.Structure_Content">
