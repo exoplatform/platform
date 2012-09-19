@@ -6,7 +6,7 @@
                    <link linkend="CSUser_guide.How_to_use_Mail.Create_mail_account">Create a Mail account</link>
 				</para>
 				<para>
-				Steps to create a mail account that connects to another mail POP3 or SMTP supported servers and ways to edit/delete your account as well more information of Incoming and Outcoming mail server settings.
+				Steps to create a mail account that connects to another mail POP3 or SMTP supported servers and ways to edit/delete your account as well further information about Incoming and Outcoming mail server settings.
                 </para>
             </listitem>
             <listitem>

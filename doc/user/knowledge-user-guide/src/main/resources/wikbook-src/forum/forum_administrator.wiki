@@ -1,6 +1,6 @@
 h1. Administrator {anchor:id=Forum_user_guide.Forum_AdministratorRoleNotInToc}
 With the highest rights, administrators are in charge of the entire management tasks. 
-In another words, administrators have the global role of doing significant jobs, including: configuring and customizing the <emphasis role="bold">Forum</emphasis> portlet, backing up data, managing users and granting permissions, managing categories and forums.
+In another words, administrators have the global role of doing significant jobs, including: configuring and customizing the *Forum* portlet, backing up data, managing users and granting permissions, managing categories and forums.
 
 h2. Set up the Forum portlet {anchor:id=Forum_user_guide.Forum_Administrator.Set_up_Forums_portlet}
 
