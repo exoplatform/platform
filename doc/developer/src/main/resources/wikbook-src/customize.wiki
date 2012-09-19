@@ -480,7 +480,7 @@ To check if the added language takes effect, hover the mouse over your username 
 
 {anchor:id="DEV.Interface_Language_Setting_window"}
 
-!images/example_addItalian.png|align="center"  width="150mm" fo:scalefit="1" html:scalefit="0"!
+!images/example_addItalian.png|align="center"  width="100mm" fo:scalefit="1" html:scalefit="0"!
 
 {docbook}
 <para xml:id="DEV.CreateYourOwnPortal.RemoveLanguages">
@@ -517,7 +517,7 @@ To check if French is removed, hover the mouse over your username on the *Admini
 
 In the *Interface Language Settings* window that appears, French is no longer listed.
 
-!images/example_removeFrench.png|align="center"  width="150mm" fo:scalefit="1" html:scalefit="0"!
+!images/example_removeFrench.png|align="center"  width="100mm" fo:scalefit="1" html:scalefit="0"!
 
 {docbook}
 <para>
@@ -599,7 +599,7 @@ Create a custom page template
 
 Add it to this path: _/examples/extension/war/src/main/webapp/WEB-INF/conf/uiconf/portal/webui/page/PageConfigOptions.groovy_
 
-!images/PageConfigOptions.groovy.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
+!images/PageConfigOptions.groovy.png|align="center" width="60mm" fo:scalefit="1" html:scalefit="0"!
 
 Sample code:
 
@@ -613,7 +613,7 @@ samplePageConfigs.addSelectItemOption(new SelectItemOption("samplePage.FourRowsL
 
 *2.* Add your template file into the _/examples/extension/war/src/main/webapp/WEB-INF/conf/portal/template/pages/four-rows/page.xml_ file.
 
-!images/page.xml.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
+!images/page.xml.png|align="center" width="60mm" fo:scalefit="1" html:scalefit="0"!
 
 Sample code:
 
