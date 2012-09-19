@@ -46,7 +46,7 @@
                    <link linkend="CSUser_guide.How_to_use_Calendar.Share_calendar">Share a personal calendar</link>
 				</para>
 				<para>
-					Information of setting permissions on your shared calendar, steps to share your personal calendar with other users so that they can participate in all activities of this calendar.
+					Information about setting permissions on your shared calendar, steps to share your personal calendar with other users so that they can participate in all activities of this calendar.
                 </para>
             </listitem>
             <listitem>

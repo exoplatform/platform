@@ -24,7 +24,7 @@
             <link linkend="Platform_User_Guide.Organize_Content.Newsletter">Manage newsletters</link>
           </emphasis>
 		</para>
-		<para>Information of newsletter viewer and newsletter manager, and actions which can be done on the newsletter manager.</para>
+		<para>Information about the newsletter viewer and manager, and actions which can be done on the newsletter manager.</para>
       </listitem>
       <listitem>
         <para>

@@ -291,7 +291,7 @@ If you are a member of _\*:/organization/management/executive-board_ group, you 
 </para>
 {docbook}
 
-!images/evaluate_payraise.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
+!images/Workflow/evaluate_payraise.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
 
 *3.* Select one of the followings.
 

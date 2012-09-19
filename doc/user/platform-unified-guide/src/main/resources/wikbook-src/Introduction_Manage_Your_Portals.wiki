@@ -20,6 +20,16 @@
 			Steps to create/edit/delete a portal, and to switch between various portals.
 		</para>
     </listitem>
+	<listitem>
+        <para>
+          <emphasis role="bold">
+            <link linkend="Platform_User_Guide.Manage_Your_Portals.Manage_sites.SampleAccessibleWeb">Manage a sample accessible website</link>
+          </emphasis>
+		</para>
+		<para>
+			Introduction to a sample accessible website and its features, as well instructions on how to create/access an accessible site.
+		</para>
+    </listitem>
     <listitem>
         <para>
           <emphasis role="bold">
