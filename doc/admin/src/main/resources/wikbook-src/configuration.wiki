@@ -806,9 +806,11 @@ h1. Email-notification configuration for watching a document {anchor:id=ADM.Conf
 eXo Platform 3.5 provides the *Watch document* function in *Sites Explorer* that allows you to receive email notifications of changes on your selected documents.
 
 To customize the email notification, simply change the configuration in the _configuration.properties_ file.
-This file is defined at:
-* For Jboss: _/server/default/conf/gatein/configuration.properties_
-* For Tomcat: _$TOMCAT\_HOME/gatein/conf/configuration.properties_
+
+*Files location*
+
+|| File || Tomcat || JBoss ||
+| _*configuration.properties*_ | _$TOMCAT\_HOME/gatein/conf/configuration.properties_ | _/server/default/conf/gatein/configuration.properties_ |
 
 The relevant section looks like:
 {code:java}
@@ -1343,10 +1345,6 @@ exo.super.user=root
 *2.* Make sure the user whom you want to set as the "super-user" already exists into your configuration. By default, the users including "john", "demo", "james" and "mary" are created.
 
 *3.* Remove the "root" user declaration defined in the _organization-configuration.xml_ file:
-* For Tomcat: 
-_$TOMCAT\_HOME/webapps/platform-extension/WEB-INF/conf/organization/organization-configuration.xml_
-* For JBoss: 
-_$JBOSS\_HOME/default/deploy/exo-platform-extension-$PLF\_Version.ear/WEB-INF/conf/organization/organization-configuration.xml_
 
 {code:xml}
 <field name="user">
@@ -1379,10 +1377,11 @@ _$JBOSS\_HOME/default/deploy/exo-platform-extension-$PLF\_Version.ear/WEB-INF/co
 {code}
 
 *4.* Add some privileges to your user into the _organization-configuration.xml_ file.
-* For Tomcat: 
-_$TOMCAT\_HOME/webapps/acme-website/WEB-INF/conf/acme-portal/organization/organization-configuration.xml_
-* For JBoss: 
-_$JBOSS\_HOME/default/deploy/exo-acme-website-$PLF\_Version.ear/WEB-INF/conf/organization/organization-configuration.xml_
+
+*Files location*
+
+|| File || Tomcat || JBoss||
+| _*organization-configuration.xml*_ | _$TOMCAT\_HOME/webapps/platform-extension/WEB-INF/conf/organization/_ |  _$JBOSS\_HOME/default/deploy/exo-platform-extension-$PLF\_Version.ear/WEB-INF/conf/organization/_ |
 
 *For example:*
 * Set the "demo" user as a super-user.
@@ -1432,11 +1431,6 @@ Default OAuth key configuration
 In eXo Platform, OAuth gadgets use a OAuth key to authorize with external service providers.
 There is always a default key defined in the _oauthkey.pem_ file.
 This key will be used in case the OAuth gadgets do not indicate a key.
-
-* If you are using Tomcat, the _oauthkey.pem_ file is found at the _TOMCAT\_HOME/gatein/gadgets_ path.
-
-* If you are using Jboss, the _oauthkey.pem_ file is found at the _JBOSS\_HOME/server/<PROFILE>/data/gadgets_ path.
-
 It is strongly recommended that you create your own _oauthkey.pem_ file by using the *openssl* tool and some commands as follows:
 
 {code}
@@ -1445,6 +1439,11 @@ openssl pkcs8 -in testkey.pem -out oauthkey.pem -topk8 -nocrypt -outform PEM
 {code}
 
 After creating the new _oauthkey.pem_ file, you can use it to replace the default _oauthkey.pem_ file in the _data/gadgets/_ folder.
+
+*Files location*
+
+||File||Tomcat||JBoss||
+|_*oauthkey.pem*_|_TOMCAT\_HOME/gatein/gadgets_|_JBOSS\_HOME/server/<PROFILE>/data/gadgets_|
 
 {docbook}
 <para>
