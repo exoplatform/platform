@@ -73,7 +73,7 @@ Followings are 3 typical examples of the Admin bar configuration: removing a por
 
 *Remove a portlet from the Admin bar* {anchor:id=DEV.CreateYourOwnPortal.RemoveAdminbarContent}
 
-!images/admin_bar_portlets.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
+!images/admin_bar_portlets.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
 
 In the illustration above, each circle represents a portlet defined in the *Admin* bar and configured in _sharedlayout.xml_.
 
@@ -129,7 +129,7 @@ The current color of the *Admin* bar is gray gradient. However, you can change t
 
 The default style of the *Admin* bar.
 
-!images/admin_bar.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
+!images/admin_bar.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
 
 The style of the *Admin* bar is defined in the *stylesheet.css* located in _extension/resources/src/main/webapp/skin/platformSkin/UIToolbarContainer_.
 
@@ -137,7 +137,7 @@ Edit this CSS file to customize the *Admin* bar to your preferred color scheme.
 
 The CSS code below shows how to modify the *Admin* bar to look like this:
 
-!images/modified_admin_bar.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
+!images/modified_admin_bar.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
 
 {code:css}
 .UIWorkingWorkspace #UIToolbarContainer .HomeLinkTDContainer {
