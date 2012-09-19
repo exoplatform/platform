@@ -619,6 +619,9 @@ public class OrganizationIntegrationService implements Startable {
           session = repositoryService.getCurrentRepository().getSystemSession(Util.WORKSPACE);
           if (!isNew || !Util.hasUserFolder(dataDistributionManager, session, username)) {
             User user = organizationService.getUserHandler().findUserByName(username);
+              if(user==null){
+                  break;
+              }
             if (user.getCreatedDate() == null) {
               user.setCreatedDate(new Date());
             }
