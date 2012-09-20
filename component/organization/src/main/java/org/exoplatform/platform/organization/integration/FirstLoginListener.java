@@ -22,12 +22,14 @@ import org.exoplatform.services.log.ExoLogger;
 import org.exoplatform.services.log.Log;
 import org.exoplatform.services.security.ConversationRegistry;
 import org.exoplatform.services.security.ConversationState;
+import org.exoplatform.services.listener.Asynchronous;
 
 /**
  * After a user login first time, this listener gets his data initialized.
  * 
  * @author Boubaker KHANFIR
  */
+@Asynchronous
 public class FirstLoginListener extends Listener<ConversationRegistry, ConversationState> {
 
   private static final Log LOG = ExoLogger.getLogger(FirstLoginListener.class);
