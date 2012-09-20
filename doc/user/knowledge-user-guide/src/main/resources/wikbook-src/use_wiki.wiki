@@ -237,7 +237,7 @@ In the *Wiki* application of eXo Platform, you can add a link pointing to a page
 For example:
 
 ||What you type|| What you get||
-|\[eXo User Guide\]|!images/undefined_link.png|width="17mm" fo:scalefit="1" html:scalefit="0"!|
+| \[eXo User Guide\] | !images/undefined_link.png|width="17mm" fo:scalefit="1" html:scalefit="0"! |
 
 {docbook}
 <para>
