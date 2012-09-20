@@ -375,6 +375,11 @@ h1. Profiles of eXo Platform {anchor:id=ADM.Installation.eXo_profiles}
 
 eXo Platform comes with different runtime profiles, enabling you to customize which modules you want to enable/disable in each eXo Platform instance.
 
+{warning}
+Before modifying and developing eXo Platform, you should choose carefully the profiles that are suitable to your requirements. 
+In particular, after you have done any modifications/developments on the server that you started up with your selected profiles, and then switched to another new profiles, you will not see such modifications/developments on eXo Platform.
+{warning}
+
 * When using Tomcat, you can use a comma-separated list of profiles.
 
 * When using JBoss, you just need to edit _EXO\_PROFILES_ in the _run.conf(.bat)_ file.
