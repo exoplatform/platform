@@ -613,6 +613,10 @@ public class OrganizationIntegrationService implements Startable {
           session = repositoryService.getCurrentRepository().getSystemSession(Util.WORKSPACE);
           if (!isNew || !Util.hasUserFolder(session, username)) {
             User user = organizationService.getUserHandler().findUserByName(username);
+              if(user==null){
+                  LOG.info("\t\tFailed to synchronize " + username + " : Doesn't exist " );
+                  break;
+              }
             if (user.getCreatedDate() == null) {
               user.setCreatedDate(new Date());
             }
