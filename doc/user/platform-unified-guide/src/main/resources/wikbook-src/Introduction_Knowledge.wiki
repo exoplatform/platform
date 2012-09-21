@@ -64,8 +64,9 @@ h1. Access Knowledge applications {anchor:id=KSuser.access_knowledge}
 
 There are 2 ways to access either of the Knowledge applications of a space:
 
-Hover your cursor over *My Spaces --> SpaceName*, then click the application that you want to access.
-
+{docbook}
+<para>Hover your cursor over <menuchoice><guimenu>My Spaces</guimenu><guimenuitem>SpaceName</guimenuitem></menuchoice>, then click the application that you want to access.</para>
+{docbook}
 !images/Space_menu_application2.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
 
 Or, hover your cursor over *My Spaces*, then select your space name and click the application name on the Space navigation.
@@ -76,7 +77,7 @@ Or, hover your cursor over *My Spaces*, then select your space name and click th
 <note>
 <para>In case you do not see the <emphasis role="bold">Forum, Answers or Wiki</emphasis> applications, it means that they are not activated or not added to the current page or space. To use these applications,
 
-you need to add them to a page by dragging and dropping them from <emphasis role="bold">Page Editor/Edit Inline Composer --> Applications --> Collaboration --> Forum/Answers/Wiki</emphasis> to the main page. This can be done when <link linkend="sect-User_Guide-Page_Creation_Wizard">creating a new page</link>, <link linkend="sect-User_Guide-Manage_Pages-Edit_a_Page">editing an existing page</link>, or <link linkend="proc-User_Guide-Manage_Portals-Edit_Layout">editing the layout of a portal</link>.
+you need to add them to a page by dragging and dropping them from <menuchoice><guimenu>Page Editor/Edit Inline Composer</guimenu><guisubmenu> Applications</guisubmenu><guisubmenu>Collaboration</guisubmenu><guimenuitem>Forum/Answers/Wiki</guimenuitem></menuchoice> to the main page. This can be done when <link linkend="sect-User_Guide-Page_Creation_Wizard">creating a new page</link>, <link linkend="sect-User_Guide-Manage_Pages-Edit_a_Page">editing an existing page</link>, or <link linkend="proc-User_Guide-Manage_Portals-Edit_Layout">editing the layout of a portal</link>.
 
 You can also configure the portlets as in the <link linkend="sect-User_Guide-Dashboard_Portlet-Edit_Specific_Portlet">edit a specific portlet</link> section. </para>
 </note>
