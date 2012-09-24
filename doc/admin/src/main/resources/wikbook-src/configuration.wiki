@@ -399,7 +399,7 @@ You may want to rename the data source as follows:
 
 *i.* Open and edit the configuration.properties path.
 
-In this step, indicate to eXo name of the data sources. Optionaly point to a database schema name using {{{gatein.idm.datasource.schema}}} property.
+In this step, indicate eXo name of the data sources. The database schema of Hibernate service for IDM tables is optionaly defined by {{{gatein.idm.datasource.schema}}} property.
 
 {code}
 # JNDI name of the datasource that will be used by eXo JCR
