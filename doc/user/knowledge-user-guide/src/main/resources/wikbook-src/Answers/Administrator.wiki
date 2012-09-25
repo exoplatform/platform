@@ -272,7 +272,7 @@ h2. Set up the FAQ portlet {anchor:id=KSuser.Answer_Moderator.Set_up_FAQ_portlet
 
 The *FAQ* portlet can be added to a page for users to view questions and answers quickly and easily.
 
-!images/FAQ_screen.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
+!images/FAQ_screen.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
 
 The *Edit Mode* of the *FAQ* portlet allows you to set the properties to display questions and answers in the View mode.
 
