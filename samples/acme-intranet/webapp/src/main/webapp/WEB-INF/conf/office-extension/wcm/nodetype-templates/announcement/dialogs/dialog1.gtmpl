@@ -7,7 +7,8 @@
   def String cssFormId = "ContentCSS[" + uicomponent.hashCode() + "]";
   def String jsFormId = "ContentJS[" + uicomponent.hashCode() + "]";
   def jsManager = rcontext.getJavascriptManager();
-  jsManager.addOnLoadJavascript("eXo.ecm.CKEditor.insertCSS('" + htmlWYSIWYGFormId + "', '" + cssFormId + "')");
+  //jsManager.addOnLoadJavascript("eXo.ecm.CKEditor.insertCSS('" + htmlWYSIWYGFormId + "', '" + cssFormId + "')");
+  jsManager.require("SHARED/wcm-utils", "util").addScripts("util.CKEditor.insertCSS('" + htmlWYSIWYGFormId + "', '" + cssFormId + "');");
   private String getDisplayTab(String selectedTab) {
     if ((uicomponent.getSelectedTab() == null && selectedTab.equals("mainWebcontent"))
         || selectedTab.equals(uicomponent.getSelectedTab())) {

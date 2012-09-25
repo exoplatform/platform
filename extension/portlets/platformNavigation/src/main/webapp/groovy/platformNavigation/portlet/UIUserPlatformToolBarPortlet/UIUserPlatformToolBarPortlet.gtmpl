@@ -8,8 +8,8 @@ import org.exoplatform.platform.webui.NavigationURLUtils;
 
 def rcontext = _ctx.getRequestContext() ;
 JavascriptManager jsmanager = rcontext.getJavascriptManager();
-jsmanager.addCustomizedOnLoadScript('eXo.portal.UIPortalNavigation.onLoad("' + uicomponent.id + '");');
-
+//jsmanager.addCustomizedOnLoadScript('eXo.portal.UIPortalNavigation.onLoad("' + uicomponent.id + '");');
+jsmanager.require("SHARED/navigation", "navigation").addScripts('navigation.UIPortalNavigation.onLoad("' + uicomponent.id + '");');
 def user = uicomponent.getUser();
 
 def labelActivities = _ctx.appRes("UIUserPlatformToolBarPortlet.label.activities");

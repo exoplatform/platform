@@ -33,6 +33,7 @@
         <overwrite>true</overwrite>
 	</portal-skin>
 
+    <!--
     <portal>
         <name>acme</name>
         <scripts>
@@ -50,5 +51,6 @@
             </script>
         </scripts>
     </portal>
+    -->
 	
 </gatein-resources>

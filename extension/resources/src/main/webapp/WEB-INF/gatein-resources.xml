@@ -34,10 +34,12 @@
 	</portal-skin>
     <module>
         <name>socialcomposer</name>
+        <!--
         <script>
             <name>eXo.social.webui.UINavigationComposer</name>
             <path>/javascript/eXo/social/webui/UINavigationComposer.js</path>
         </script>
+        -->
         <depends>
             <module>social-core</module>
         </depends>

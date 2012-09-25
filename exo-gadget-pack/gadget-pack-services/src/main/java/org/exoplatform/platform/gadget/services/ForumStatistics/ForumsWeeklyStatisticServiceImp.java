@@ -17,9 +17,9 @@
 package org.exoplatform.platform.gadget.services.ForumStatistics;
 
 import org.exoplatform.container.xml.InitParams;
-import org.exoplatform.ks.common.jcr.KSDataLocation;
-import org.exoplatform.ks.common.jcr.PropertyReader;
-import org.exoplatform.ks.common.jcr.SessionManager;
+import org.exoplatform.forum.common.jcr.KSDataLocation;
+import org.exoplatform.forum.common.jcr.PropertyReader;
+import org.exoplatform.forum.common.jcr.SessionManager;
 import org.exoplatform.services.jcr.ext.common.SessionProvider;
 import org.exoplatform.services.jcr.ext.hierarchy.NodeHierarchyCreator;
 import org.exoplatform.services.log.ExoLogger;
