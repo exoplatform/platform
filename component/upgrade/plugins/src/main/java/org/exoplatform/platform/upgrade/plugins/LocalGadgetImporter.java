@@ -8,6 +8,7 @@ import java.net.URLConnection;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.shindig.gadgets.spec.ModulePrefs;
 import org.chromattic.ext.ntdef.NTFolder;
 import org.chromattic.ext.ntdef.Resource;
 import org.exoplatform.application.gadget.EncodingDetector;
@@ -255,5 +256,10 @@ public class LocalGadgetImporter extends GadgetImporter {
       mimeType = container.getPortalContext().getMimeType(fileName);
     }
     return mimeType;
+  }
+
+  @Override
+  protected void processMetadata(ModulePrefs prefs, GadgetDefinition def) throws Exception {
+    //We store no metadata for local gadget
   }
 }
