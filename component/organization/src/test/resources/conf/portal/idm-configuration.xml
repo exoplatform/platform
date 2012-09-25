@@ -25,11 +25,29 @@
    xsi:schemaLocation="http://www.exoplatform.org/xml/ns/kernel_1_2.xsd http://www.exoplatform.org/xml/ns/kernel_1_2.xsd"
    xmlns="http://www.exoplatform.org/xml/ns/kernel_1_2.xsd">
 
+
   <component>
     <key>org.exoplatform.services.organization.idm.PicketLinkIDMCacheService</key>
     <type>org.exoplatform.services.organization.idm.PicketLinkIDMCacheService</type>
-  </component> 
-
+  </component>
+    <component>
+        <key>org.gatein.common.transaction.JTAUserTransactionLifecycleService</key>
+        <type>org.gatein.common.transaction.JTAUserTransactionLifecycleServiceImpl</type>
+    </component>
+    <component>
+        <key>org.jboss.cache.transaction.TransactionManagerLookup</key>
+        <type>org.jboss.cache.transaction.JBossStandaloneJTAManagerLookup</type>
+    </component>
+    <component>
+        <key>org.exoplatform.services.transaction.TransactionService</key>
+        <type>org.exoplatform.services.transaction.jbosscache.JBossTransactionsService</type>
+        <init-params>
+            <value-param>
+                <name>timeout</name>
+                <value>300</value>
+            </value-param>
+        </init-params>
+    </component>
   <component>
     <key>org.exoplatform.services.organization.idm.PicketLinkIDMService</key>
     <type>org.exoplatform.services.organization.idm.PicketLinkIDMServiceImpl</type>
