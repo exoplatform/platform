@@ -13,6 +13,12 @@
     <type>org.exoplatform.platform.gadget.services.test.MockForumService</type>
   </component>
 
+    <component profiles="knowledge,all,default">
+        <key>org.exoplatform.platform.gadget.services.ForumStatistics.ForumsWeeklyStatisticService</key>
+        <type>org.exoplatform.platform.gadget.services.ForumStatistics.ForumsWeeklyStatisticServiceImp</type>
+    </component>
+
+
   <component>
     <key>org.exoplatform.forum.common.jcr.KSDataLocation</key>
     <type>org.exoplatform.forum.common.jcr.KSDataLocation</type>
