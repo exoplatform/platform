@@ -319,7 +319,7 @@ All personal calendars will be put in the <emphasis role="bold">Personal Calenda
 </para>
 {docbook}
 
-!images/Calendar_form.png|align="center" width="120mm"  fo:scalefit="1" html:scalefit="0"!
+!images/Calendar_form.png|align="center" width="100mm"  fo:scalefit="1" html:scalefit="0"!
 
 *Details:*
 
@@ -425,7 +425,7 @@ All group calendars will be put in the <emphasis role="bold">Group Calendars</em
 </para>
 {docbook}
 
-!images/Groups_tab.png|align="center" width="120mm"  fo:scalefit="1" html:scalefit="0"!
+!images/Groups_tab.png|align="center" width="100mm"  fo:scalefit="1" html:scalefit="0"!
 
 *3.* Tick checkboxes corresponding to groups that contain your created calendar. The users of the selected groups can only view this calendar.
 
@@ -445,7 +445,7 @@ to open the <guilabel>User Selector</guilabel> form. This form will help you sel
 </para>
 {docbook}
 
-!images/Calendar_user_selector.png|align="center" width="120mm"  fo:scalefit="1" html:scalefit="0"!
+!images/Calendar_user_selector.png|align="center" width="80mm"  fo:scalefit="1" html:scalefit="0"!
 
 
 *ii* Click the user you want to share the *Edit* permission.
@@ -699,7 +699,7 @@ This function allows you to export a calendar and its events/tasks into a separa
 </para>
 {docbook}
 
-!images/export_calendars.png|align="center" width="120mm"  fo:scalefit="1" html:scalefit="0"!
+!images/export_calendars.png|align="center" width="100mm"  fo:scalefit="1" html:scalefit="0"!
 
 {docbook}
 <para>
@@ -1007,7 +1007,7 @@ Hover your cursor over the event to see its detailed view.
 <para>Right-click the event in the <guilabel>Calendar View pane</guilabel>, then select <guilabel>View</guilabel> from the drop-down menu.</para>
 {docbook}
 
-!images/view_detailed_event2.png|align="center" width="40mm" fo:scalefit="1" html:scalefit="0"!
+!images/view_detailed_event2.png|align="center" width="100mm" fo:scalefit="1" html:scalefit="0"!
 
 {docbook}
 <para>The <emphasis role="bold">Preview</emphasis> form will appear.</para>
@@ -1258,7 +1258,7 @@ The event will be updated in your *Activity Stream* with its brief information, 
 <para>In the <guilabel>Detail</guilabel> tab, tick the <guilabel>Repeat</guilabel> checkbox to open the <guilabel>Repeating event</guilabel> form.</para>
 {docbook}
 
-!images/Repeat_event_form.png|align="center" width="100mm"  fo:scalefit="1" html:scalefit="0"!
+!images/Repeat_event_form.png|align="center" width="90mm"  fo:scalefit="1" html:scalefit="0"!
 
 Here, you can define the repeating time for your event as follows:
 
@@ -1568,7 +1568,7 @@ Here, you can select contacts from your Address Book or users who have registere
 
 The participants will receive an invitation mail, for example with the following content, which allows you to import the event directly into their calendars. {anchor:id="Mail.Accept_deny_import_event"}
 
-!images/invitation_mail.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
+!images/invitation_mail.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
 
 {docbook}
 <itemizedlist>
@@ -1859,7 +1859,7 @@ This function allows you to remove events from a calendar.
 
 *2.* Click !images/delete_checked_button.png|width="12mm" fo:scalefit="1" html:scalefit="0"! on the *Month* information bar.
 
-!images/month_view_calendar_panel.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
+!images/month_view_calendar_panel.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
 
 {docbook}
 <para>
@@ -1884,7 +1884,7 @@ To view details of a task, do one of the following ways:
 
 Hover your cursor over the task to open the task preview pane.
 
-!images/view_tasks_details1.png|align="center" width="70mm" fo:scalefit="1" html:scalefit="0"!
+!images/view_tasks_details1.png|align="center" width="90mm" fo:scalefit="1" html:scalefit="0"!
 
 *The second way*
 
@@ -1944,7 +1944,7 @@ Select !images/Task_button_icon.png|width="10mm" fo:scalefit="1" html:scalefit="
  </para>
 {docbook}
 
-!images/Quick_add_task_form.png|align="center" width="120mm"  fo:scalefit="1" html:scalefit="0"!
+!images/Quick_add_task_form.png|align="center" width="100mm"  fo:scalefit="1" html:scalefit="0"!
 
 *Details:*
 
@@ -2214,7 +2214,7 @@ h2. Export/Import a task {anchor:id="CSUser_guide.How_to_use_Calendar.Export_imp
 <para>The <guilabel>Export Calendars</guilabel> form will appear.</para>
 {docbook}
 
-!images/export_calendars1.png|align="center" width="120mm"  fo:scalefit="1" html:scalefit="0"!
+!images/export_calendars1.png|align="center" width="100mm"  fo:scalefit="1" html:scalefit="0"!
 
 *2.* Enter the file name and export format.
 
@@ -2421,14 +2421,14 @@ Click directly !images/RSS_icon2.png|width="13mm" fo:scalefit="1" html:scalefit=
             </inlinemediaobject> on the toolbar to open the <guilabel>Calendar Settings</guilabel> form, then select the <guilabel>Feeds</guilabel> tab.</para>
 {docbook}
 
-!images/calendar_setting.png|align="center" width="120mm"  fo:scalefit="1" html:scalefit="0"!
+!images/calendar_setting.png|align="center" width="100mm"  fo:scalefit="1" html:scalefit="0"!
 
 {docbook}
 <para>
 <emphasis role="bold">2.</emphasis> Click <guibutton>Add</guibutton> to open the <guilabel>Edit Feed</guilabel> form.</para>
 {docbook}
 
-!images/edit_feed.png|align="center" width="120mm"  fo:scalefit="1" html:scalefit="0"!
+!images/edit_feed.png|align="center" width="100mm"  fo:scalefit="1" html:scalefit="0"!
 
 *Details:*
 {docbook}
@@ -2653,7 +2653,7 @@ h3. Add a new category {anchor:id="CSUser_guide.How_to_use_Calendar.Add_new_cate
 </para>
 {docbook}
 
-!images/event_categories_form.png|align="center" width="100mm"  fo:scalefit="1" html:scalefit="0"!
+!images/event_categories_form.png|align="center" width="80mm"  fo:scalefit="1" html:scalefit="0"!
 
 {docbook}
 <para>
@@ -2715,7 +2715,7 @@ Configure the My Agenda gadget
 
 *1.* Click !images/Calendar-gear-icon.png|width="4mm" fo:scalefit="1" html:scalefit="0"! to open the *Agenda* gadget settings.
 
-!images/Agenda_gadget_settings.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
+!images/Agenda_gadget_settings.png|align="center" width="100mm" fo:scalefit="1" html:scalefit="0"!
 
 {docbook}
 <informaltable>

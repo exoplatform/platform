@@ -205,7 +205,7 @@ h1. Share a file {anchor:id=Soc_User_Guide.Activity_Management.Share_FileRoleNot
   <emphasis role="bold">2.</emphasis> Click <guilabel>Select File</guilabel> to open the <guilabel>Select File</guilabel> form.</para>
 {docbook}
 
-!images/Select_document_form.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
+!images/Select_document_form.png|align="center" width="100mm" fo:scalefit="1" html:scalefit="0"!
 
 {docbook}
 <para>
@@ -257,7 +257,7 @@ You are allowed to delete your activities/comments that you created, and those i
 <emphasis role="bold">1.</emphasis> Select <guilabel>All Updates</guilabel> or <guilabel>My Status</guilabel> to view all your own activities.</para>
 {docbook}
 
-!images/Updates_tabs.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
+!images/Updates_tabs.png|align="center" width="100mm" fo:scalefit="1" html:scalefit="0"!
 
 *2.* Select the activity you want to delete, then click !images/Delete_activity_icon.png|width="4mm" fo:scalefit="1" html:scalefit="0"!.
 

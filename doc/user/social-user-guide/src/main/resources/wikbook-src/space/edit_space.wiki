@@ -13,7 +13,7 @@ To edit a space, first access the *Space Settings* by following one of 2 ways:
 <para>
    <emphasis role="bold">2.</emphasis> Click <guilabel>Edit</guilabel> corresponding to the space which you have the <emphasis role="bold">Edit</emphasis> permission.</para>
 {docbook}
-!images/Edit_space.png|align="center" width="70mm" fo:scalefit="1" html:scalefit="0"!
+!images/Edit_space.png|align="center" width="50mm" fo:scalefit="1" html:scalefit="0"!
 
 *3.* Click !images/edit-space-icon.png|width="4mm" fo:scalefit="1" html:scalefit="0"! next to the space name.
 

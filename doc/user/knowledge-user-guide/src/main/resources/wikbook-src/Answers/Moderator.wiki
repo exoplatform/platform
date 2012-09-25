@@ -442,7 +442,7 @@ h3. Delete an answer {anchor:id=KSuser.Answer_Moderator.Delete_answers}
 {docbook}
  <para>To delete an answer, click <inlinemediaobject>
                 <imageobject role="fo">
-                  <imagedata fileref="images/Delete_icon.png" format="PNG" scalefit="1" width="4"/>
+                  <imagedata fileref="images/Delete_icon.png" format="PNG" scalefit="1" width="4mm"/>
                 </imageobject>
                 <imageobject role="html">
                   <imagedata fileref="images/Delete_icon.png" format="PNG" scalefit="0" width="4"/>

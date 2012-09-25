@@ -1078,15 +1078,15 @@ dav://host:port/rest/jcrwiki/{RepositoryName}/{WorkspaceName}/{Path}
 
 For example, to access the Wiki Home of the "exo vietnam" space, enter the following URL in the address bar of your OS's explorer (Nautilus is used in this example):
 
-!images/Addressbar.png|align="center" width="150" fo:scalefit="1" html:scalefit="0"!
+!images/Addressbar.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
 
 You will be asked to enter your username and password.
 
-!images/Login.png|align="center" width="60" fo:scalefit="1" html:scalefit="0"!
+!images/Login.png|align="center" width="80mm" fo:scalefit="1" html:scalefit="0"!
 
 After login succesfully, you will see all content in that Wiki space.
 
-!images/Wiki_webdav.png|align="center" width="150" fo:scalefit="1" html:scalefit="0"!
+!images/Wiki_webdav.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
 
 * Each folder is a wiki page. The folder name is the same as the wiki page title.
 * The "Content" file is the file storing the page content.
@@ -1231,7 +1231,7 @@ The form to select the user, the group and the membership appears.
                     <imagedata fileref="images/Add_selectors.png" format="PNG" scalefit="1" width="14mm"/>
                   </imageobject>
                   <imageobject role="html">
-                    <imagedata fileref="images/Add_selectors.png" format="PNG" scalefit="0" width="14mm"/>
+                    <imagedata fileref="images/Add_selectors.png" format="PNG" scalefit="0" width="12mm"/>
                   </imageobject>
                 </inlinemediaobject> to add the selectors to the <guilabel>Owner</guilabel> column in the <guilabel>Space Permissions</guilabel> form.</para>
 {docbook}
