@@ -29,6 +29,7 @@ public class TermsAndConditionsServiceImpl implements TermsAndConditionsService 
   private static final String TC_NODE_NAME = "TermsAndConditions";
   private ChromatticLifeCycle lifeCycle;
   private NodeHierarchyCreator nodeHierarchyCreator;
+    private static boolean hasTermsAndConditionsNode = false;
   
   /*=======================================================================
    * Component access
@@ -89,16 +90,26 @@ public class TermsAndConditionsServiceImpl implements TermsAndConditionsService 
   }
 
   private boolean hasTermsAndConditions() {
-    boolean hasNode = false;
-    try {
-      Node publicApplicationNode = nodeHierarchyCreator.getPublicApplicationNode(SessionProvider.createSystemProvider());
-      if(publicApplicationNode.hasNode(TC_NODE_NAME)) {
-        hasNode = true;
+
+      try {
+            // --- Initial hasTermsAndConditionsNode is false  we nedd to get flag from JCR
+            if (hasTermsAndConditionsNode)  {
+                // --- Flag loaded only once from JCR (the next loading will be done after you restart the server)
+                return hasTermsAndConditionsNode;
+            } else {
+                // --- Get TermsAndConditions node from jcr
+                Node publicApplicationNode = nodeHierarchyCreator.getPublicApplicationNode(SessionProvider.createSystemProvider());
+                // --- If it's exist (case of restart of the server) return true else the first start of platform return false
+                if(publicApplicationNode.hasNode(TC_NODE_NAME)) {
+                    hasTermsAndConditionsNode = true;
+                } else {
+                    hasTermsAndConditionsNode = false;
+                }
+            }
+      } catch(Exception e) {
+            logger.error("Terms and conditions: cannot get node", e);
       }
-    }
-    catch(Exception e) {
-      logger.error("Terms and conditions: cannot get node", e);
-    }
-    return hasNode;
+
+      return hasTermsAndConditionsNode;
   }
 }
