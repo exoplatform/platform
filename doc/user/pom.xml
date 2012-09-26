@@ -11,13 +11,12 @@
   <packaging>pom</packaging>
   <name>eXo Platform - User Guides</name>
   <!-- 
-   | ECMS and IDE user guides are stored in their respective projects.
+   ECMS and IDE user guides are stored in their respective projects.
   -->
   <modules>
     <module>social-user-guide</module>
     <module>knowledge-user-guide</module>
     <module>collaboration-user-guide</module>
-    <!--module>gatein-user-guide</module-->
     <module>platform-unified-guide</module>
   </modules>
 </project>

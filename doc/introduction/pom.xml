@@ -1,5 +1,5 @@
-
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <parent>
     <groupId>org.exoplatform.platform</groupId>
@@ -9,23 +9,29 @@
   <artifactId>exo.platform.doc.introduction</artifactId>
   <packaging>pom</packaging>
   <name>eXo Platform - Introduction</name>
-  <properties>
-    <org.exoplatform.doc-style.version>1</org.exoplatform.doc-style.version>
-    <docbook.source>${project.build.directory}/docbook-src</docbook.source>
-  </properties>
   <profiles>
     <profile>
       <id>distrib</id>
+      <properties>
+        <docbook.source>${project.build.directory}/docbook-src</docbook.source>
+      </properties>
+      <dependencies>
+        <dependency>
+          <groupId>org.exoplatform.doc</groupId>
+          <artifactId>doc-style</artifactId>
+          <version>${doc-style.version}</version>
+          <type>jar</type>
+        </dependency>
+      </dependencies>
       <build>
         <plugins>
-    <!--
-    1/
-     - download common style
-     - unpack them in /target
-    -->
-  <plugin>
+          <!--
+          1) Unpack the Common style resources
+          -->
+          <plugin>
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-dependency-plugin</artifactId>
+            <version>${maven-dependency-plugin.version}</version>
             <executions>
               <execution>
                 <id>a-unpack</id>
@@ -34,36 +40,27 @@
                   <goal>unpack</goal>
                 </goals>
                 <configuration>
-                  <artifactItems>                   
-                    <!-- wikbook and common style -->
+                  <artifactItems>
                     <artifactItem>
-                      <groupId>org.wikbook</groupId>
-                      <artifactId>wikbook.docbkxstyle</artifactId>
-                      <version>${version.wikbook.plugin}</version>
+                      <groupId>org.exoplatform.doc</groupId>
+                      <artifactId>doc-style</artifactId>
+                      <version>${doc-style.version}</version>
                       <outputDirectory>${docbook.source}</outputDirectory>
                       <includes>**</includes>
                       <excludes>META-INF/**</excludes>
                     </artifactItem>
-             	    <artifactItem>
-                       <groupId>org.exoplatform.doc</groupId>
-                       <artifactId>doc-style</artifactId>
-                       <version>${doc-style.version}</version>
-                       <outputDirectory>${docbook.source}</outputDirectory>
-                       <includes>**</includes>
-                       <excludes>META-INF/**</excludes>
-            	    </artifactItem>
                   </artifactItems>
                 </configuration>
               </execution>
             </executions>
           </plugin>
-    <!--
-    2/
-     - move the xml, xsl, css and images from src/main/ to target/plf/
-    -->
+          <!--
+          2) Copy source to target
+          -->
           <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-resources-plugin</artifactId>
-            <version>2.4.3</version>
+            <version>${maven-resources-plugin.version}</version>
             <executions>
               <execution>
                 <id>b-copy-resources</id>
@@ -77,7 +74,8 @@
                     <resource>
                       <directory>src/main/resources</directory>
                       <excludes>
-                       <exclude>background/**</exclude>
+                        <exclude>images/**</exclude>
+                        <exclude>background/**</exclude>
                       </excludes>
                     </resource>
                   </resources>
@@ -95,25 +93,23 @@
                     <resource>
                       <directory>src/main/resources</directory>
                       <excludes>
-                       <exclude>docbook-src/**</exclude>
+                        <exclude>docbook-src/**</exclude>
                       </excludes>
                     </resource>
                   </resources>
                 </configuration>
               </execution>
             </executions>
-          </plugin>		 
-	
-    <!--
-    3/
-     - process all the xml files (plf + other products) from target/
-     - in the end, generate the html
-    -->   
-	    
+          </plugin>
+
+          <!--
+          3) Process all the XML files to generate HTML and PDF formats
+          -->
+
           <plugin>
             <groupId>org.jboss.maven.plugins</groupId>
             <artifactId>maven-jdocbook-plugin</artifactId>
-            <version>2.1.1</version>			
+            <version>${maven-jdocbook-plugin.version}</version>
             <executions>
               <execution>
                 <id>e-jdocbook-resources</id>
@@ -153,15 +149,15 @@
                   <finalName>index.html</finalName>
                 </format>
                 <format>
-                 <formatName>pdf</formatName>
-                 <stylesheetResource>file:${docbook.source}/xsl/pdf.xsl</stylesheetResource>
-                 <finalName>${project.artifactId}-${project.version}.pdf</finalName>
-               </format>
+                  <formatName>pdf</formatName>
+                  <stylesheetResource>file:${docbook.source}/xsl/pdf.xsl</stylesheetResource>
+                  <finalName>${project.artifactId}-${project.version}.pdf</finalName>
+                </format>
               </formats>
               <options>
                 <xincludeSupported>true</xincludeSupported>
                 <xmlTransformerType>saxon</xmlTransformerType>
-                <docbookVersion>1.76.1</docbookVersion>
+                <docbookVersion>${docbook.version}</docbookVersion>
               </options>
             </configuration>
             <extensions>true</extensions>
@@ -169,24 +165,18 @@
               <dependency>
                 <groupId>org.exoplatform.doc</groupId>
                 <artifactId>exo-docbook-xslt</artifactId>
-                <version>${org.exoplatform.doc-style.version}</version>
-              </dependency>
-              <dependency>
-                <groupId>org.exoplatform.doc</groupId>
-                <artifactId>exo-jdocbook-style</artifactId>
-                <version>${org.exoplatform.doc-style.version}</version>
-                <type>jdocbook-style</type>
+                <version>${docbook-xslt.version}</version>
               </dependency>
             </dependencies>
           </plugin>
-          
-          <!-- Attach the HTML zip -->
+
+          <!--  5) Assemble and attach HTML, PDF, DOCBOOK -->
           <plugin>
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-assembly-plugin</artifactId>
             <executions>
               <execution>
-		        <id>g-assemble-archives</id>
+                <id>g-assemble-archives</id>
                 <phase>package</phase>
                 <goals>
                   <goal>single</goal>
@@ -201,28 +191,30 @@
               </execution>
             </executions>
           </plugin>
-		  <plugin>
-		    <groupId>org.codehaus.mojo</groupId>
-		    <artifactId>build-helper-maven-plugin</artifactId>
-		    <version>1.7</version>
-		    <executions>
-		      <execution>
-		        <id>h-attach-pdf</id>
-		        <phase>package</phase>
-		        <goals>
-		          <goal>attach-artifact</goal>
-		        </goals>
-		        <configuration>
-		          <artifacts>
-		            <artifact>
-		              <file>${project.build.directory}/docbook/publish/en-US/pdf/${project.artifactId}-${project.version}.pdf</file>
+          <plugin>
+            <groupId>org.codehaus.mojo</groupId>
+            <artifactId>build-helper-maven-plugin</artifactId>
+            <version>${helper-maven-plugin.version}</version>
+            <executions>
+              <execution>
+                <id>h-attach-pdf</id>
+                <phase>package</phase>
+                <goals>
+                  <goal>attach-artifact</goal>
+                </goals>
+                <configuration>
+                  <artifacts>
+                    <artifact>
+                      <file>
+                        ${project.build.directory}/docbook/publish/en-US/pdf/${project.artifactId}-${project.version}.pdf
+                      </file>
                       <type>pdf</type>
-		            </artifact>
-		          </artifacts>
-		        </configuration>
-		      </execution>
-		    </executions>
-		  </plugin>
+                    </artifact>
+                  </artifacts>
+                </configuration>
+              </execution>
+            </executions>
+          </plugin>
         </plugins>
       </build>
     </profile>
