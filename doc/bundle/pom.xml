@@ -13,7 +13,7 @@
     <profile>
       <id>distrib</id>
       <dependencies>
-        <!-- Admin guide -->
+        <!-- Admin Guide -->
         <dependency>
           <groupId>${project.groupId}</groupId>
           <artifactId>exo.platform.doc.admin</artifactId>
@@ -27,7 +27,7 @@
           <version>${project.version}</version>
           <type>pdf</type>
         </dependency>
-        <!-- Dev guide -->
+        <!-- Dev Guide -->
         <dependency>
           <groupId>${project.groupId}</groupId>
           <artifactId>exo.platform.doc.developer</artifactId>
@@ -48,7 +48,7 @@
           <type>pdf</type>
           <classifier>ide</classifier>
         </dependency>
-        <!-- Ref guide -->
+        <!-- Ref Guide -->
         <dependency>
           <groupId>${project.groupId}</groupId>
           <artifactId>exo.platform.doc.refguide</artifactId>
@@ -70,7 +70,7 @@
           <classifier>html</classifier>
           <type>zip</type>
         </dependency>
-        <!-- Introduction guide -->
+        <!-- Introduction Guide -->
         <dependency>
           <groupId>${project.groupId}</groupId>
           <artifactId>exo.platform.doc.introduction</artifactId>
@@ -89,7 +89,7 @@
         <finalName>eXo-Platform-docs-${project.version}</finalName>
         <plugins>
           <!--
-            1) Unpack the Zip archives that contain HTML files
+            1) Unpack the Zip archives that contain the HTML files
            -->
 		  <plugin>
 		    <groupId>org.apache.maven.plugins</groupId>
@@ -112,7 +112,7 @@
                        <type>zip</type>
 		               <outputDirectory>${project.build.directory}/work/admin-guide/html</outputDirectory>
 		             </artifactItem>
-                     <!-- Developers Guide -->
+                     <!-- Dev Guide -->
 		             <artifactItem>
                        <groupId>${project.groupId}</groupId>
                        <artifactId>exo.platform.doc.developer</artifactId>
@@ -121,7 +121,7 @@
                        <type>zip</type>
 		               <outputDirectory>${project.build.directory}/work/developer-guide/html</outputDirectory>
 		             </artifactItem>
-                     <!-- Reference Guide -->
+                     <!-- Ref Guide -->
 		             <artifactItem>
                        <groupId>${project.groupId}</groupId>
                        <artifactId>exo.platform.doc.refguide</artifactId>
@@ -139,7 +139,7 @@
 		               <type>zip</type>
 		               <outputDirectory>${project.build.directory}/work/user-guide/html</outputDirectory>
 		             </artifactItem>
-                     <!-- Introduction Guide -->
+                     <!-- Intro Guide -->
 		             <artifactItem>
                        <groupId>${project.groupId}</groupId>
                        <artifactId>exo.platform.doc.introduction</artifactId>
@@ -152,7 +152,7 @@
 		         </configuration>
 		       </execution>
           <!--
-            2) Copy the PDFs files
+            2) Copy the PDF files
            -->
 		      <execution>
 		        <id>02-copy</id>
@@ -171,7 +171,7 @@
 		               <outputDirectory>${project.build.directory}/work/admin-guide/pdf</outputDirectory>
 		               <destFileName>eXo-Administration-Guide.pdf</destFileName>
 		             </artifactItem>
-                     <!-- Developers Guide -->
+                     <!-- Dev Guide -->
 		             <artifactItem>
                        <groupId>${project.groupId}</groupId>
                        <artifactId>exo.platform.doc.developer</artifactId>
@@ -189,7 +189,7 @@
 		               <outputDirectory>${project.build.directory}/work/developer-guide/pdf</outputDirectory>
 		              <destFileName>eXo-IDE-User-Guide.pdf</destFileName>
 		             </artifactItem>
-                     <!-- Reference Guide -->
+                     <!-- PLF Ref Guide -->
 		             <artifactItem>
                        <groupId>${project.groupId}</groupId>
                        <artifactId>exo.platform.doc.refguide</artifactId>
@@ -206,7 +206,7 @@
 		               <type>pdf</type>
 		               <outputDirectory>${project.build.directory}/work/user-guide/pdf</outputDirectory>
 		             </artifactItem>
-                    <!-- Introduction Guide -->
+                    <!-- Intro Guide -->
 		             <artifactItem>
                        <groupId>${project.groupId}</groupId>
                        <artifactId>exo.platform.doc.introduction</artifactId>

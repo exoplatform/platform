@@ -19,7 +19,8 @@
     02110-1301 USA, or see the FSF site: http://www.fsf.org.
 
 -->
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <parent>
     <groupId>org.exoplatform.platform</groupId>
@@ -28,48 +29,43 @@
   </parent>
   <artifactId>exo.platform.doc.developer</artifactId>
   <packaging>pom</packaging>
-  <name>eXo Platform - Developers Guide</name>
+  <name>eXo Platform - Developer Guide</name>
 
   <profiles>
     <profile>
       <id>distrib</id>
 
-  <dependencies>
-    <dependency>
-      <groupId>org.wikbook</groupId>
-      <artifactId>wikbook.docbkxstyle</artifactId>
-      <version>${version.wikbook.plugin}</version>
-    </dependency>
-    <dependency>
-      <groupId>org.exoplatform.doc</groupId>
-      <artifactId>doc-style</artifactId>
-      <version>${doc-style.version}</version>
-      <type>jar</type>
-    </dependency>
-    <dependency>
-      <groupId>org.exoplatform.ide</groupId>
-      <artifactId>exo-ide-user-guide</artifactId>
-      <version>${org.exoplatform.ide.version}</version>
-	  <classifier>doc</classifier>
-      <type>zip</type>
-    </dependency>
-  </dependencies>
+      <dependencies>
+        <dependency>
+          <groupId>org.exoplatform.doc</groupId>
+          <artifactId>doc-style</artifactId>
+          <version>${doc-style.version}</version>
+          <type>jar</type>
+        </dependency>
+        <dependency>
+          <groupId>org.exoplatform.ide</groupId>
+          <artifactId>exo-ide-user-guide</artifactId>
+          <version>${org.exoplatform.ide.version}</version>
+          <classifier>doc</classifier>
+          <type>zip</type>
+        </dependency>
+      </dependencies>
 
-  <properties>
-    <org.exoplatform.doc-style.version>1</org.exoplatform.doc-style.version>
-    <wikbook.source>${project.basedir}/src/main/resources/wikbook-src</wikbook.source>
-    <docbook.source>${project.build.directory}/docbook-src</docbook.source>
-    <ide.source>${project.build.directory}/ide-doc</ide.source>
-  </properties>
+      <properties>
+        <wikbook.source>${project.basedir}/src/main/resources/wikbook-src</wikbook.source>
+        <docbook.source>${project.build.directory}/docbook-src</docbook.source>
+        <ide.source>${project.build.directory}/ide-doc</ide.source>
+      </properties>
 
-  <build>    
-     <plugins>
+      <build>
+        <plugins>
           <!-- 
-           1)  Unpacks the docbook and common style resources
+            1)  Unpack the Common style and IDE resources
           -->
           <plugin>
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-dependency-plugin</artifactId>
+            <version>${maven-dependency-plugin.version}</version>
             <executions>
               <execution>
                 <id>a-unpack</id>
@@ -79,14 +75,6 @@
                 </goals>
                 <configuration>
                   <artifactItems>
-                    <artifactItem>
-                      <groupId>org.wikbook</groupId>
-                      <artifactId>wikbook.docbkxstyle</artifactId>
-                      <version>${version.wikbook.plugin}</version>
-                      <outputDirectory>${docbook.source}</outputDirectory>
-                      <includes>**</includes>
-                      <excludes>META-INF/**</excludes>
-                    </artifactItem>
                     <artifactItem>
                       <groupId>org.exoplatform.doc</groupId>
                       <artifactId>doc-style</artifactId>
@@ -99,7 +87,7 @@
                       <groupId>org.exoplatform.ide</groupId>
                       <artifactId>exo-ide-user-guide</artifactId>
                       <version>${org.exoplatform.ide.version}</version>
-					  <classifier>doc</classifier>
+                      <classifier>doc</classifier>
                       <type>zip</type>
                       <outputDirectory>${ide.source}</outputDirectory>
                       <includes>**</includes>
@@ -110,12 +98,13 @@
               </execution>
             </executions>
           </plugin>
-         <!--
-           2) copy the wikbook and docbook sources to target/
+          <!--
+           2a) Copy the Wikbook and Docbook sources to target
           -->
           <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-resources-plugin</artifactId>
-            <version>2.4.3</version>
+            <version>${maven-resources-plugin.version}</version>
             <executions>
               <execution>
                 <id>b-copy-resources</id>
@@ -129,15 +118,15 @@
                     <resource>
                       <directory>src/main/resources</directory>
                       <excludes>
-                       <exclude>images/**</exclude>
-                       <exclude>background/**</exclude>
+                        <exclude>images/**</exclude>
+                        <exclude>background/**</exclude>
                       </excludes>
                     </resource>
                   </resources>
                 </configuration>
               </execution>
-             <!--
-              2b) copy the images and background icons to docbook sources directory
+              <!--
+              2b) Copy the images and background icons to the Docbook sources directory
               -->
               <execution>
                 <id>c-copy-images</id>
@@ -151,8 +140,8 @@
                     <resource>
                       <directory>src/main/resources</directory>
                       <excludes>
-                       <exclude>docbook-src/**</exclude>
-                       <exclude>wikbook-src/**</exclude>
+                        <exclude>docbook-src/**</exclude>
+                        <exclude>wikbook-src/**</exclude>
                       </excludes>
                     </resource>
                   </resources>
@@ -162,11 +151,12 @@
           </plugin>
 
           <!--
-           3)  The wikbook maven plugin generates the docbook document from the wiki source 
+            3)  The Wikbook Maven plugin generates the Docbook document from the Wiki source
           -->
           <plugin>
             <groupId>org.wikbook</groupId>
             <artifactId>wikbook.maven</artifactId>
+            <version>${version.wikbook.plugin}</version>
             <executions>
               <execution>
                 <id>d-generate-docbook</id>
@@ -189,209 +179,184 @@
               <syntaxId>confluence/1.0</syntaxId>
             </configuration>
           </plugin>
-       <!--
-        4/
-        - fix path to images in IDE user guide
-        -->
+          <!--
+          4/ Use Antrun to replace RoleNotInToc
+          -->
           <plugin>
             <artifactId>maven-antrun-plugin</artifactId>
             <version>1.6</version>
             <executions>
               <execution>
-                <id>e-fix-images-path</id>
+                <id>f-add-role</id>
                 <phase>generate-sources</phase>
                 <configuration>
                   <target>
-                    <replace file="${ide.source}/org.exoplatform.ide.user/index.xml">
-                      <replacetoken><![CDATA[ fileref="]]></replacetoken>
-            		  <replacevalue><![CDATA[ fileref="images/]]></replacevalue>
-		            </replace>
+                    <replace file="${docbook.source}/index.xml">
+                      <replacetoken><![CDATA[RoleNotInToc"]]></replacetoken>
+                      <replacevalue><![CDATA[" role="NotInToc"]]></replacevalue>
+                    </replace>
                   </target>
                 </configuration>
                 <goals>
                   <goal>run</goal>
                 </goals>
               </execution>
-			  <execution>
-				<id>f-add-role</id>
-				<phase>generate-sources</phase>
-				<configuration>
-				  <target>
-					<replace file="${docbook.source}/index.xml">
-					  <replacetoken><![CDATA[RoleNotInToc"]]></replacetoken>
-					  <replacevalue><![CDATA[" role="NotInToc"]]></replacevalue>
-					</replace>
-				  </target>
-				</configuration>
-				<goals>
-				  <goal>run</goal>
-				</goals>
-			  </execution>
             </executions>
           </plugin>
-           <!--
-           5) process all the xml files
-              to generate the html and the pdf
-            -->
-         <plugin>
+          <!--
+            5) Process all the XML files to generate HTML and PDF formats
+          -->
+          <plugin>
             <groupId>org.jboss.maven.plugins</groupId>
             <artifactId>maven-jdocbook-plugin</artifactId>
-            <version>2.1.1</version>
+            <version>${maven-jdocbook-plugin.version}</version>
             <extensions>true</extensions>
             <dependencies>
-               <dependency>
-                  <groupId>org.exoplatform.doc</groupId>
-                  <artifactId>exo-docbook-xslt</artifactId>
-                  <version>1</version>
-               </dependency>
-               <dependency>
-                  <groupId>org.exoplatform.doc</groupId>
-                  <artifactId>exo-jdocbook-style</artifactId>
-                  <version>1</version>
-                  <type>jdocbook-style</type>
-               </dependency>
+              <dependency>
+                <groupId>org.exoplatform.doc</groupId>
+                <artifactId>exo-docbook-xslt</artifactId>
+                <version>${docbook-xslt.version}</version>
+              </dependency>
             </dependencies>
             <executions>
-           <!--
-            5-1) Dev Guide resources
-            -->
-             <execution>
+              <!--
+              5a) The Dev Guide resources
+              -->
+              <execution>
                 <id>f-jdocbook-resources-dev</id>
                 <phase>process-resources</phase>
                 <goals>
                   <goal>resources</goal>
                 </goals>
-    	        <configuration>
-                   <sourceDirectory>${docbook.source}</sourceDirectory>
-    	           <imageResource>
-	                  <directory>${docbook.source}</directory>
-	                  <includes>
-	                     <include>images/**</include>
-	                     <include>background/**</include>
-    	              </includes>
-	               </imageResource>
-	               <cssResource>
-	                 <directory>${docbook.source}</directory>
-	                 <includes>
-	                    <include>css/**</include>
-    	              </includes>
-	              </cssResource>
-    	        </configuration>
+                <configuration>
+                  <sourceDirectory>${docbook.source}</sourceDirectory>
+                  <imageResource>
+                    <directory>${docbook.source}</directory>
+                    <includes>
+                      <include>images/**</include>
+                      <include>background/**</include>
+                    </includes>
+                  </imageResource>
+                  <cssResource>
+                    <directory>${docbook.source}</directory>
+                    <includes>
+                      <include>css/**</include>
+                    </includes>
+                  </cssResource>
+                </configuration>
               </execution>
-           <!--
-            5-2) IDE resources
-            -->
-             <execution>
+              <!--
+              5b) The IDE resources
+              -->
+              <execution>
                 <id>f-jdocbook-resources-ide</id>
                 <phase>process-resources</phase>
                 <goals>
                   <goal>resources</goal>
                 </goals>
-    	        <configuration>
-                   <sourceDirectory>${ide.source}/org.exoplatform.ide.user</sourceDirectory>
-                   <publishDirectory>${project.build.directory}/docbook/publish/ide-user-guide/</publishDirectory>
-    	           <imageResource>
-	                  <directory>${ide.source}/org.exoplatform.ide.user</directory>
-	                  <includes>
-	                     <include>images/**</include>
-    	              </includes>
-	               </imageResource>
-	               <cssResource>
-	                 <directory>${docbook.source}</directory>
-	                 <includes>
-	                    <include>css/**</include>
-    	              </includes>
-	              </cssResource>
-    	        </configuration>
+                <configuration>
+                  <sourceDirectory>${ide.source}/org.exoplatform.ide.user</sourceDirectory>
+                  <publishDirectory>${project.build.directory}/docbook/publish/ide-user-guide/</publishDirectory>
+                  <imageResource>
+                    <directory>${ide.source}/org.exoplatform.ide.user</directory>
+                    <includes>
+                      <include>images/**</include>
+                    </includes>
+                  </imageResource>
+                  <cssResource>
+                    <directory>${docbook.source}</directory>
+                    <includes>
+                      <include>css/**</include>
+                    </includes>
+                  </cssResource>
+                </configuration>
               </execution>
-           <!--
-            5-3) Dev Guide compilation
+              <!--
+              5c) The Dev Guide compilation
+              -->
+              <execution>
+                <id>f-generate-docs-dev</id>
+                <goals>
+                  <goal>generate</goal>
+                </goals>
+                <phase>compile</phase>
+                <configuration>
+                  <sourceDirectory>${docbook.source}</sourceDirectory>
+                  <imageResource>
+                    <directory>${docbook.source}</directory>
+                    <includes>
+                      <include>images/**</include>
+                      <include>background/**</include>
+                    </includes>
+                  </imageResource>
+                  <cssResource>
+                    <directory>${docbook.source}</directory>
+                    <includes>
+                      <include>css/**</include>
+                    </includes>
+                  </cssResource>
+                </configuration>
+              </execution>
+              <!--
+              5d) The IDE compilation
+              -->
+              <execution>
+                <id>f-generate-docs-ide</id>
+                <goals>
+                  <goal>generate</goal>
+                </goals>
+                <phase>compile</phase>
+                <configuration>
+                  <sourceDirectory>${ide.source}/org.exoplatform.ide.user</sourceDirectory>
+                  <publishDirectory>${project.build.directory}/docbook/publish/ide-user-guide/</publishDirectory>
+                  <imageResource>
+                    <directory>${ide.source}/org.exoplatform.ide.user</directory>
+                    <includes>
+                      <include>images/**</include>
+                    </includes>
+                  </imageResource>
+                  <cssResource>
+                    <directory>${docbook.source}</directory>
+                    <includes>
+                      <include>css/**</include>
+                    </includes>
+                  </cssResource>
+                </configuration>
+              </execution>
+            </executions>
+            <!--
+            6) Common configurations
             -->
-             <execution>
-               <id>f-generate-docs-dev</id>
-               <goals>
-                 <goal>generate</goal>
-               </goals>
-               <phase>compile</phase>
-    	        <configuration>
-                   <sourceDirectory>${docbook.source}</sourceDirectory>
-    	           <imageResource>
-	                  <directory>${docbook.source}</directory>
-	                  <includes>
-	                     <include>images/**</include>
-	                     <include>background/**</include>
-    	              </includes>
-	               </imageResource>
-	               <cssResource>
-	                 <directory>${docbook.source}</directory>
-	                 <includes>
-	                    <include>css/**</include>
-    	              </includes>
-	              </cssResource>
-    	        </configuration>
-               </execution>
-           <!--
-            5-4) IDE compilation
-            -->
-             <execution>
-               <id>f-generate-docs-ide</id>
-               <goals>
-                 <goal>generate</goal>
-               </goals>
-               <phase>compile</phase>
-    	        <configuration>
-                   <sourceDirectory>${ide.source}/org.exoplatform.ide.user</sourceDirectory>
-                   <publishDirectory>${project.build.directory}/docbook/publish/ide-user-guide/</publishDirectory>
-    	           <imageResource>
-	                  <directory>${ide.source}/org.exoplatform.ide.user</directory>
-	                  <includes>
-	                     <include>images/**</include>
-    	              </includes>
-	               </imageResource>
-	               <cssResource>
-	                 <directory>${docbook.source}</directory>
-	                 <includes>
-	                    <include>css/**</include>
-    	              </includes>
-	              </cssResource>
-    	        </configuration>
-               </execution>
-             </executions>
-           <!--
-            common configuration
-            -->
-	        <configuration>
-	           <sourceDocumentName>index.xml</sourceDocumentName>
-	           <options>
-	              <xincludeSupported>true</xincludeSupported>
-	              <xmlTransformerType>saxon</xmlTransformerType>
-	              <docbookVersion>1.76.1</docbookVersion>
-	           </options>
-               <formats>
-                 <format>
-    		       <formatName>pdf</formatName>
-  	    	       <stylesheetResource>file:${docbook.source}/xsl/pdf.xsl</stylesheetResource>
-    		       <finalName>${project.artifactId}-${project.version}.pdf</finalName>
-	     	     </format>
-                 <format>
-	               <formatName>html</formatName>
-	               <stylesheetResource>file:${docbook.source}/xsl/xhtml.xsl</stylesheetResource>
-	               <finalName>index.html</finalName>
-	             </format>
-               </formats>
-	        </configuration>
-         </plugin>
+            <configuration>
+              <sourceDocumentName>index.xml</sourceDocumentName>
+              <options>
+                <xincludeSupported>true</xincludeSupported>
+                <xmlTransformerType>saxon</xmlTransformerType>
+                <docbookVersion>${docbook.version}</docbookVersion>
+              </options>
+              <formats>
+                <format>
+                  <formatName>pdf</formatName>
+                  <stylesheetResource>file:${docbook.source}/xsl/pdf.xsl</stylesheetResource>
+                  <finalName>${project.artifactId}-${project.version}.pdf</finalName>
+                </format>
+                <format>
+                  <formatName>html</formatName>
+                  <stylesheetResource>file:${docbook.source}/xsl/xhtml.xsl</stylesheetResource>
+                  <finalName>index.html</finalName>
+                </format>
+              </formats>
+            </configuration>
+          </plugin>
           <!--
-            6) assemble and attach the final artifacts (html, docbook, pdf)
+            6) Assemble and attach the final artifacts (HTML, Docbook, PDF)
            -->
           <plugin>
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-assembly-plugin</artifactId>
-            <dependencies>
-            </dependencies>
             <executions>
               <execution>
-		        <id>g-assemble-archives</id>
+                <id>g-assemble-archives</id>
                 <phase>package</phase>
                 <goals>
                   <goal>single</goal>
@@ -406,33 +371,37 @@
               </execution>
             </executions>
           </plugin>
-		  <plugin>
-		    <groupId>org.codehaus.mojo</groupId>
-		    <artifactId>build-helper-maven-plugin</artifactId>
-		    <version>1.7</version>
-		    <executions>
-		      <execution>
-		        <id>h-attach-pdf</id>
-		        <phase>package</phase>
-		        <goals>
-		          <goal>attach-artifact</goal>
-		        </goals>
-		        <configuration>
-		          <artifacts>
-		            <artifact>
-		              <file>${project.build.directory}/docbook/publish/en-US/pdf/${project.artifactId}-${project.version}.pdf</file>
+          <plugin>
+            <groupId>org.codehaus.mojo</groupId>
+            <artifactId>build-helper-maven-plugin</artifactId>
+            <version>${helper-maven-plugin.version}</version>
+            <executions>
+              <execution>
+                <id>h-attach-pdf</id>
+                <phase>package</phase>
+                <goals>
+                  <goal>attach-artifact</goal>
+                </goals>
+                <configuration>
+                  <artifacts>
+                    <artifact>
+                      <file>
+                        ${project.build.directory}/docbook/publish/en-US/pdf/${project.artifactId}-${project.version}.pdf
+                      </file>
                       <type>pdf</type>
-		            </artifact>
-		            <artifact>
-		              <file>${project.build.directory}/docbook/publish/ide-user-guide/en-US/pdf/${project.artifactId}-${project.version}.pdf</file>
+                    </artifact>
+                    <artifact>
+                      <file>
+                        ${project.build.directory}/docbook/publish/ide-user-guide/en-US/pdf/${project.artifactId}-${project.version}.pdf
+                      </file>
                       <type>pdf</type>
                       <classifier>ide</classifier>
-		            </artifact>
-		          </artifacts>
-		        </configuration>
-		      </execution>
-		    </executions>
-		  </plugin>
+                    </artifact>
+                  </artifacts>
+                </configuration>
+              </execution>
+            </executions>
+          </plugin>
         </plugins>
       </build>
     </profile>

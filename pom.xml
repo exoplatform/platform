@@ -75,8 +75,14 @@
 		<org.slf4j.version>1.5.8</org.slf4j.version>
 		<org.apache.jackrabbit.version>1.6.4</org.apache.jackrabbit.version><!-- needed for cs -->
 		<org.hsqldb.version>2.0.0</org.hsqldb.version>
-		<!-- 3rd parties for docs generation -->
+		<!-- eXo documentations -->
 		<doc-style.version>1.0.8-SNAPSHOT</doc-style.version>
+    <docbook-xslt.version>1</docbook-xslt.version>
+    <docbook.version>1.76.1</docbook.version>
+    <helper-maven-plugin.version>1.7</helper-maven-plugin.version>
+    <maven-resources-plugin.version>2.4.3</maven-resources-plugin.version>
+    <maven-jdocbook-plugin.version>2.1.1</maven-jdocbook-plugin.version>
+    <maven-dependency-plugin.version>2.1</maven-dependency-plugin.version>
 		<!-- Begin wiki properties -->
 		<org.xwiki.platform.version>2.7.1</org.xwiki.platform.version>
 		<org.wikimodel.version>2.0.7-20101027</org.wikimodel.version>
@@ -121,7 +127,7 @@
 		<version.surefire.plugin>2.6</version.surefire.plugin>
 		<version.versions.plugin>1.2</version.versions.plugin>
 		<version.war.plugin>2.1</version.war.plugin>
-		<version.wikbook.plugin>0.9.37</version.wikbook.plugin>
+		<version.wikbook.plugin>0.9.41</version.wikbook.plugin>
 		<version.xml.plugin>1.0-beta-3</version.xml.plugin>
 		<version.sun.xml.stream>1.0.1</version.sun.xml.stream>
 		<!-- ********************* -->
