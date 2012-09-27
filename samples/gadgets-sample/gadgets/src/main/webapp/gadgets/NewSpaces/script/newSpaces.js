@@ -22,12 +22,7 @@
     }
         
     eXoNewSpaceGadget.prototype.setSpaceUrl = function(){
-      var spaceURL = "";
-      if(typeof(parent.eXo) != "undefined") {
-        spaceURL = parent.parent.eXo.env.server.context + "/" + parent.parent.eXo.env.portal.accessMode + "/" + parent.eXo.env.portal.portalName + "/all-spaces";
-      } else {
-          spaceURL = parent.parent.eXo.env.portal.context + "/"+ parent.parent.eXo.env.portal.portalName +"/all-spaces";
-      }
+      var spaceURL = parent.parent.eXo.env.portal.context + "/"+ parent.parent.eXo.env.portal.portalName +"/all-spaces";
       var a = document.getElementById("ShowAll");
       a.href = spaceURL;
     }      
