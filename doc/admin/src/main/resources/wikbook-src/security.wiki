@@ -345,7 +345,7 @@ In eXo Platform, the password encryption key of the RememberMe token is always a
 {docbook}
 
 || File || Tomcat || Jboss ||
-| _codeckey.txt_ | _TOMCAT\-HOME/gatein/conf/codec_. | _JBOSS\-HOME/server/<PROFILE>/conf/gatein/codec_. |
+| _codeckey.txt_ | _$PLATFORM\_TOMCAT\_HOME/gatein/conf/codec_. | _$PLATFORM\_JBOSS\_HOME/server/<PROFILE>/conf/gatein/codec_. |
 
 {docbook}
 <citetitle>

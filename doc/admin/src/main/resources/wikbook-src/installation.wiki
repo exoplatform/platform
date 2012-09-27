@@ -360,13 +360,13 @@ Session cookies are now scoped to the context by default.
 * On Linux and OS X:  
 
 {code}
-$JBOSS_HOME/bin/run.sh
+$PLATFORM_JBOSS_HOME/bin/run.sh
 {code}
 
 * On Windows:          
 
 {code}
-%JBOSS_HOME%\\bin\\run.bat
+%PLATFORM_JBOSS_HOME%\\bin\\run.bat
 {code}
 
 The server is started successfully when you see the following message in your log/console:
@@ -380,13 +380,13 @@ INFO [org.jboss.bootstrap.microcontainer.ServerImpl] (main) JBoss (Microcontaine
 * On Linux and OS X:
 
 {code}
-$JBOSS_HOME/bin/shutdown.sh
+$PLATFORM_JBOSS_HOME/bin/shutdown.sh
 {code}
 
 * On Windows: 
 
 {code}
-%JBOSS_HOME%\\bin\\shutdown.bat
+%PLATFORM_JBOSS_HOME%\\bin\\shutdown.bat
 {code}
 
 The server has been stopped successfully when you see the following message in your log/console:
