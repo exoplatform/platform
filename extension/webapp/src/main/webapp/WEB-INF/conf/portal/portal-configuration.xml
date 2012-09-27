@@ -342,7 +342,7 @@
               <int>${cache.exo.portal.MOPSessionManager.Capacity:5000}</int>
             </field>
             <field name="liveTime">
-              <long>${cache.exo.portal.MOPSessionManager.TimeToLive:60000}</long>
+              <long>${cache.exo.portal.MOPSessionManager.TimeToLive:600}</long>
             </field>
             <field name="implementation">
               <string>org.exoplatform.services.cache.concurrent.ConcurrentFIFOExoCache</string>
@@ -365,7 +365,7 @@
               <string>MOPSessionManager</string>
             </field>
             <field name="expirationTimeout">
-              <long>${cache.exo.portal.MOPSessionManager.ExpirationTimeout:60000}</long>
+              <long>${cache.exo.portal.MOPSessionManager.ExpirationTimeout:600000}</long>
             </field>
             <field name="maxNodes">
              <int>${cache.exo.portal.MOPSessionManager.Capacity:5000}</int>
