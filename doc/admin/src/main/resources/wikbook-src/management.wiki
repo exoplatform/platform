@@ -57,6 +57,11 @@ Introduction to the following set of management view types of eXo Platform and t
 </listitem>
 </itemizedlist>
 </listitem>
+<listitem>
+<para>
+<emphasis role="bold"><link linkend="ADM.Management.CheckRepositoryIntegrityAndConsistency">Check repository integrity and consistency</link></emphasis>
+</para>
+</listitem>
 </itemizedlist>
 </abstract>
 {docbook}

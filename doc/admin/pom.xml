@@ -49,6 +49,17 @@
                 </goals>
                 <configuration>
                   <artifactItems>
+			<!-- Download jcr -->
+				  <artifactItem>
+                    <groupId>org.exoplatform.jcr</groupId>
+                    <artifactId>reference-docs-en</artifactId>
+                    <version>${org.exoplatform.jcr.version}</version>
+					<type>jar</type>
+                    <classifier>sources</classifier>
+                    <outputDirectory>${docbook.source}/org.exoplatform.jcr</outputDirectory>
+                    <includes>**</includes>
+				  </artifactItem>	
+				  
                     <artifactItem>
                       <groupId>org.wikbook</groupId>
                       <artifactId>wikbook.docbkxstyle</artifactId>
@@ -147,6 +158,45 @@
            ]]></beforeBookBodyXML>
               <syntaxId>confluence/1.0</syntaxId>
             </configuration>
+          </plugin>
+				<!-- Add a JCR file to the Management chapter -->
+          <plugin>
+             <artifactId>maven-antrun-plugin</artifactId>
+             <version>1.6</version>
+             <executions>
+               <execution>
+                 <id>f-add-jcr</id>
+                 <phase>generate-sources</phase>
+                 <configuration>
+                   <target>
+                     <replace file="${docbook.source}/index.xml">
+                       <replacetoken><![CDATA[<section id="ADM.Management.CheckRepositoryIntegrityAndConsistency">
+      <title>Check repository integrity and consistency</title>
+    </section>]]>
+                       </replacetoken>
+                       <replacevalue><![CDATA[
+                         <xi:include href="org.exoplatform.jcr/docbook/en-US/modules/jcr/repository-check-controller.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+                       ]]></replacevalue>
+                     </replace>
+
+                     <replace file="${docbook.source}/org.exoplatform.jcr/docbook/en-US/modules/jcr/repository-check-controller.xml">
+                       <replacetoken><![CDATA[<section id="JCR.RepositoryCheckController">]]></replacetoken>
+                       <replacevalue>
+                         <![CDATA[<section id="ADM.Management.CheckRepositoryIntegrityAndConsistency">]]></replacevalue>
+                     </replace>
+
+                     <replace file="${docbook.source}/org.exoplatform.jcr/docbook/en-US/modules/jcr/repository-check-controller.xml">
+                       <replacetoken><![CDATA[<title>Checking repository integrity and consistency</title>]]></replacetoken>
+                       <replacevalue>
+                         <![CDATA[<title>Check repository integrity and consistency</title>]]></replacevalue>
+                     </replace>
+                   </target>
+                 </configuration>
+				 <goals>
+                   <goal>run</goal>
+                 </goals>
+               </execution>
+             </executions>
           </plugin>
 
 			<plugin>

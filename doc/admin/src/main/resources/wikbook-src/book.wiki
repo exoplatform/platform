@@ -9,6 +9,7 @@ h1. Configuration {anchor:id=ADM.Configuration}
 h1. Management {anchor:id=ADM.Management}
 
 {include:document=management.wiki|syntax=confluence/1.0}
+h2. Check repository integrity and consistency{anchor:id=ADM.Management.CheckRepositoryIntegrityAndConsistency}
 
 h1. Security {anchor:id=ADM.Security}
 
