@@ -185,6 +185,7 @@ Java APIs
 
 * *[SpaceService:|../../../reference/html/Developer_document.JavaAPIs.Java_APIs.SpaceService.html]*  An API that provides methods for working with space (create new space, delete, get space by url, groupid, display name, pretty name).
 
+* *[PageRenderingCacheService:|../../../reference/html/KSref.DeveloperReference.WikiService.PageRenderingCacheService.html]* An API which is used to get the rendered content of a wiki page with the support of the cache.
 {docbook}
 <para xml:id="DEV.eXoPlatformSupportedAPIs.JavaScriptAPIs">
 <citetitle>
