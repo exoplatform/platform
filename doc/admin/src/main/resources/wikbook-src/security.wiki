@@ -60,7 +60,7 @@ Tomcat
 </para>
 {docbook}
 
-In the Tomcat bundle, the JAAS configuration is controled by the _$TOMCAT\_HOME/conf/jaas.conf_:
+In the Tomcat bundle, the JAAS configuration is controled by the _$PLATFORM\_TOMCAT\_HOME/conf/jaas.conf_:
 
 {code}
 gatein-domain {
@@ -287,7 +287,7 @@ keytool -importkeystore -srckeystore server.keystore -destkeystore $JAVA_HOME/jr
 
 *2.* Set up the Jboss configuration to use your new key.
 
-*i.* Comment the following lines in _JBOSS\_HOME/server/<PROFILE>/deploy/jbossweb.sar/server.xml_:
+*i.* Comment the following lines in _PLATFORM\_JBOSS\_HOME/server/<PROFILE>/deploy/jbossweb.sar/server.xml_:
 {code:xml}
  <Connector port="8080" protocol="HTTP/1.1" maxHttpHeaderSize="8192"
 

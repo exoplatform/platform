@@ -356,7 +356,7 @@ Configure the session timeout of the Tomcat and JBoss servers
 *Files location*
 
 ||File||Tomcat||JBoss||
-|_*web.xml*_|_$TOMCAT\_HOME/conf/web.xml_|_$Jboss\_home/server/default/deployers/jbossweb.deployer/web.xml_|
+|_*web.xml*_|_$PLATFORM\_TOMCAT\_HOME/conf/web.xml_|_$Jboss\_home/server/default/deployers/jbossweb.deployer/web.xml_|
 
 *3.* Change the value of the session-timeout.
 
