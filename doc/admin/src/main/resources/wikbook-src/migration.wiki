@@ -43,8 +43,8 @@ h1. Migrate with transparent configuration {anchor:id=ADM.Migration.Migrate_Tran
 {note}
 This section discusses how to migrate eXo Platform with only one server start-up.
 Every configuration will be put in 2 files: 
-* With Tomcat bundle, they are in _$TOMCAT\_HOME/gatein/conf/configuration.properties_ and _$TOMCAT\_HOME/gatein/conf/portal/portal/configuration.xml_
-* With Jboss bundle, they are in _$JBOSS\_HOME/server/default/conf/gatein/configuration.properties_ and _$JBOSS\_HOME/server/default/conf/gatein/portal/portal/configuration.xml_ 
+* With Tomcat bundle, they are in _$PLATFORM\_TOMCAT\_HOME/gatein/conf/configuration.properties_ and _$PLATFORM\_TOMCAT\_HOME/gatein/conf/portal/portal/configuration.xml_
+* With Jboss bundle, they are in _$PLATFORM\_JBOSS\_HOME/server/default/conf/gatein/configuration.properties_ and _$PLATFORM\_JBOSS\_HOME/server/default/conf/gatein/portal/portal/configuration.xml_
 {note}
 
 {docbook}
@@ -61,9 +61,9 @@ Step 1. Prepare an environment.
 
 *2.* Configure eXo Platform 3.5 to run with the eXo Platform 3.0 data as follows:
 
-*i.* With Tomcat bundle, copy 2 folders "index" and "value" from _$PLF-3.0-TOMCAT\_HOME/gatein/data/jcr_ to _$PLF-3.5-TOMCAT\_HOME/gatein/data/jcr_. With Jboss bundle, copy 2 folders "index" and "value" from _$PLF-3.0-JBOSS\_HOME/gatein/jcr_ to _$PLF-3.5-JBOSS\_HOME/server/default/data/gatein/jcr_.
+*i.* With Tomcat bundle, copy 2 folders "index" and "value" from _$PLATFORM\_TOMCAT\_HOME/gatein/data/jcr_ to _$PLATFORM\_TOMCAT\_HOME/gatein/data/jcr_. With Jboss bundle, copy 2 folders "index" and "value" from _$PLATFORM\_JBOSS\_HOME/gatein/jcr_ to _$PLATFORM\_JBOSS\_HOME/server/default/data/gatein/jcr_.
 
-*ii.* With Tomcat bundle, configure the database connections in the _$PLATFORM-3.5-TOMCAT\_HOME/conf/server.xml_ file to point to the eXo Platform 3.0 database. 
+*ii.* With Tomcat bundle, configure the database connections in the _$PLATFORM\_TOMCAT\_HOME/conf/server.xml_ file to point to the eXo Platform 3.0 database.
 
 For example, if your eXo Platform 3.0 runs on mySQL database, you need to configure the _server.xml_ file as below:
 
@@ -83,7 +83,7 @@ For example, if your eXo Platform 3.0 runs on mySQL database, you need to config
 			url="jdbc:mysql://${db.host}:${db.port}/${db.idm.name}"/>
 {code}
 
-With Jboss bundle, configure the _$PLF-3.5-JBOSS\_HOME/server/default/deploy/gatein-ds.xml_ file.
+With Jboss bundle, configure the _$PLATFORM\_JBOSS\_HOME/server/default/deploy/gatein-ds.xml_ file.
 
 {code:xml}
     <!-- eXo IDM for portal -->
@@ -126,7 +126,7 @@ Step 2. Configure to migrate the eXo Platform data from 3.0 to 3.5.
 </para>
 {docbook}
 
-*1.* Add the following code to the _$PLATFORM-3.5-TOMCAT\_HOME/gatein/conf/configuration.properties_ or _$PLF-3.5-JBOSS\_HOME/server/default/conf/gatein/configuration.properties_ file.
+*1.* Add the following code to the _$PLATFORM_\TOMCAT\_HOME/gatein/conf/configuration.properties_ or _$PLATFORM\_JBOSS\_HOME/server/default/conf/gatein/configuration.properties_ file.
 
 {code}
 ############
@@ -192,7 +192,7 @@ commons.upgrade.plugins.order=Spaces-Home-page,Upgrade-Gadgets,Upgrade-Navigatio
 commons.upgrade.proceedIfFirstRun=true
 {code}
 
-*2.* Add the following code to the _$PLATFORM-3.5-TOMCAT\_HOME/gatein/conf/portal/portal/configuration.xml_ or _$PLF-3.5-JBOSS\_HOME/server/default/conf/gatein/configuration.xml_ file. 
+*2.* Add the following code to the _$PLATFORM\_TOMCAT\_HOME/gatein/conf/portal/portal/configuration.xml_ or _$PLATFORM\_JBOSS\_HOME/server/default/conf/gatein/configuration.xml_ file.
 
 {code:xml}
 <?xml version="1.0" encoding="UTF-8"?>
@@ -623,13 +623,13 @@ If this file has not been existing, you need to create it first.
 
 *3.* Increase the JCR session time-out and JVM Xmx if you have a lot of data in eXo Platform 3.0. For example, in your current eXo Platform 3.0, there are about 200 users, 2 Gigabytes in the _gatein/data/jcr/values_ folder, and 1 Gigabyte in the _mySQL_ data, you will need to:
 
-*i.* Configure the _$PLATFORM-3.5-TOMCAT\_HOME/gatein/conf/configuration.properties_ or _$PLF-3.5-JBOSS\_HOME/server/default/conf/gatein/configuration.properties_ file by adding the following configuration.
+*i.* Configure the _$PLATFORM\_TOMCAT\_HOME/gatein/conf/configuration.properties_ or _$PLATFORM\_JBOSS\_HOME/server/default/conf/gatein/configuration.properties_ file by adding the following configuration.
 
 {code}
 gatein.jcr.transaction.timeout=10000
 {code}
 
-*ii.* Update JAVA\_OPTS Xmx: with Tomcat bundle, in _$PLF-3.5-TOMCAT\_HOME/bin/setenv.sh_ or .bat file, update JVM Xmx to 4G. With Jboss bundle, update JAVA\_OPTS Xmx in the _$PLF-3.5-JBOSS\_HOME/bin/run.conf_ file.
+*ii.* Update JAVA\_OPTS Xmx: with Tomcat bundle, in _$PLATFORM\_TOMCAT\_HOME/bin/setenv.sh_ or .bat file, update JVM Xmx to 4G. With Jboss bundle, update JAVA\_OPTS Xmx in the _$PLATFORM\_JBOSS\_HOME/bin/run.conf_ file.
 
 {docbook}
 <para>
@@ -655,7 +655,7 @@ Step 4. Finish your migration.
 
 *1.* Stop server and remove the migration configurations through the following sub-steps:
 
-*i.* Disable all migration plugins in the _$PLF-3.5-TOMCAT\_HOME/gatein/conf/configuration.properties_ file (or _$PLF-3.5-JBOSS\_HOME/server/default/conf/gatein/configuration.properties_):
+*i.* Disable all migration plugins in the _$PLATFORM\_TOMCAT\_HOME/gatein/conf/configuration.properties_ file (or _$PLATFORM\_JBOSS\_HOME/server/default/conf/gatein/configuration.properties_):
 
 {code}
 ############
@@ -713,9 +713,9 @@ commons.upgrade.plugins.order=Upgrade-Spaces-Home-page,Upgrade-Gadgets,Upgrade-N
 commons.upgrade.proceedIfFirstRun=true
 {code}
 
-*ii.* Delete configurations that were added before the migration in _$PLF-3.5-TOMCAT\_HOME/gatein/conf/portal/portal/configuration.xml_ or _$PLF-3.5-JBOSS\_HOME/server/default/conf/gatein/configuration.xml_ file.
+*ii.* Delete configurations that were added before the migration in _$PLATFORM\_TOMCAT\_HOME/gatein/conf/portal/portal/configuration.xml_ or _$PLATFORM\_JBOSS\_HOME/server/default/conf/gatein/configuration.xml_ file.
 
-If you do not run the JCR user directories structure migration, you need to keep the _$PLATFORM-3.5-TOMCAT\_HOME/gatein/conf/portal/portal/configuration.xml_ or _$PLF-3.5-JBOSS\_HOME/server/default/conf/gatein/configuration.xml_ file with the content as below:
+If you do not run the JCR user directories structure migration, you need to keep the _$PLATFORM-3.5-TOMCAT\_HOME/gatein/conf/portal/portal/configuration.xml_ or _$PLATFORM\_JBOSS\_HOME/server/default/conf/gatein/configuration.xml_ file with the content as below:
 
 {code:xml}
 <?xml version="1.0" encoding="UTF-8"?>
@@ -926,7 +926,7 @@ Gadgets
 </para>
 {docbook}
 
-* _commons.upgrade.Upgrade-Gadgets_: update gadgets with new skin and services. The list of gadgets to be updated is defined in the _$PLF-3.5-TOMCAT\_HOME/gatein/conf/portal/portal/configuration.xml_ or _$PLF-3.5-JBOSS\_HOME/server/default/conf/gatein/configuration.xml_ file, for example:
+* _commons.upgrade.Upgrade-Gadgets_: update gadgets with new skin and services. The list of gadgets to be updated is defined in the _$PLATFORM\_TOMCAT\_HOME/gatein/conf/portal/portal/configuration.xml_ or _$PLATFORM\_JBOSS\_HOME/server/default/conf/gatein/configuration.xml_ file, for example:
 
 {code:xml}
 <component-plugin>
@@ -1128,7 +1128,7 @@ WCM contents
 </para>
 {docbook}
 
-* _commons.upgrade.Upgrade-WCM-Contents_: Import new content of eXo Platform 3.5 from the XML content file in webapps. If the content has been existing in eXo Platform 3.0, they will be overwritten. The list of webapps containing the XML content to be overridden is defined in the _$PLF-3.5-TOMCAT\_HOME/gatein/conf/portal/portal/configuration.xml_ or _$PLF-3.5-JBOSS\_HOME/server/default/conf/gatein/configuration.xml_ file. For example:
+* _commons.upgrade.Upgrade-WCM-Contents_: Import new content of eXo Platform 3.5 from the XML content file in webapps. If the content has been existing in eXo Platform 3.0, they will be overwritten. The list of webapps containing the XML content to be overridden is defined in the _$PLATFORM\_TOMCAT\_HOME/gatein/conf/portal/portal/configuration.xml_ or _$PLATFORM\_JBOSS\_HOME/server/default/conf/gatein/configuration.xml_ file. For example:
 
 {code:xml}
 <component-plugin>
@@ -1245,7 +1245,7 @@ Formula: (_Platform 3.5 value_ - _Platform 3.0 value_) * 100 / _Platform 3.0 val
 
 It can be seen that with a larger number of users, the new user directory structure performs faster than the old one, especially when accessing the user directory directly.
 
-To enable the migration, set these 2 flags in the _$PLF-3.5-TOMCAT\_HOME/gatein/conf/configuration.properties_ file (or _$PLF\-3.5-JBOSS\_HOME/server/default/conf/gatein/configuration.properties_) as below:
+To enable the migration, set these 2 flags in the _$PLATFORM\_TOMCAT\_HOME/gatein/conf/configuration.properties_ file (or _$PLATFORM\_JBOSS\_HOME/server/default/conf/gatein/configuration.properties_) as below:
 
 {code}
 use-old-user-distribution=false
@@ -1253,12 +1253,12 @@ run-jcr-user-directories-migrate=true
 {code}
 
 JCR user directory structure migration will take much time, so you need to increase the JCR session time-out.
-Measure the amount of data in your current eXo Platform 3.0 and use a right session time-out. For example, if there are 1000 users in current eXo Platform 3.0, you should set configuration in the _$PLF\-3.5-TOMCAT\_HOME/gatein/conf/configuration.properties_ (or _$PLF\-3.5-JBOSS\_HOME/server/default/conf/gatein/configuration.properties_) file as below:
+Measure the amount of data in your current eXo Platform 3.0 and use a right session time-out. For example, if there are 1000 users in current eXo Platform 3.0, you should set configuration in the _$PLATFORM\_TOMCAT\_HOME/gatein/conf/configuration.properties_ (or _$PLATFORM\_JBOSS\_HOME/server/default/conf/gatein/configuration.properties_) file as below:
 
 {code}
 gatein.jcr.transaction.timeout=10000
 {code}
 
 The time you need to migrate the JCR user directories structure depends on the amount of eXo Platform user data and your system speed.
-This migration also consumes memory, so you need to make sure to have enough resource on your server and configure enough memory to update the Xmx Java option (in the _$PLF3.5-TOMCAT\_HOME/bin/setenv.sh or $PLF-3.5-JBOSS\_HOME/bin/run.conf_ file) before running. 
+This migration also consumes memory, so you need to make sure to have enough resource on your server and configure enough memory to update the Xmx Java option (in the _$PLATFORM\_TOMCAT\_HOME/bin/setenv.sh or $PLATFORM\_JBOSS\_HOME/bin/run.conf_ file) before running.
 For example, you can use 6 Gigabyte RAM to migrate 5000 users.

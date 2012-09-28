@@ -122,7 +122,7 @@ There are 2 typical ways to achieve this:
 *Files location*
 
 || File || Tomcat || JBoss ||
-| _*configuration.xml*_| _$TOMCAT\_HOME/gatein/conf/portal/portal/configuration.xml_ | _$JBOSS\_HOME/server/default/conf/gatein/portal/portal/configuration.xml_ |
+| _*configuration.xml*_| _$PLATFORM\_TOMCAT\_HOME/gatein/conf/portal/portal/configuration.xml_ | _$PLATFORM\_JBOSS\_HOME/server/default/conf/gatein/portal/portal/configuration.xml_ |
 
 * *The second way*: Add the entry below to the _WEB-INF/conf/configuration.xml_ file through a custom extension. The path to the file is independent on JBoss and Tomcat:
 {code:xml}

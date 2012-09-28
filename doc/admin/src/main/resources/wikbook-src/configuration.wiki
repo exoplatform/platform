@@ -390,7 +390,7 @@ Edit the server.xml file
 </citetitle>
 {docbook}
 
-*1.* Open the _$TOMCAT\_\HOME/conf/server.xml_ file.
+*1.* Open the _$PLATFORM\_TOMCAT\_\HOME/conf/server.xml_ file.
 
 *2.* Declare the binding of the data sources in the GlobalNaming context:
 
@@ -417,7 +417,7 @@ The code now should look like:
 {code}
 
 *3.* Add the JDBC driver.
-In this step, you need to add the MySQL connector to Tomcat by adding _mysql-connector-java-5.1.x.jar_ to _$TOMCAT\_\HOME/lib/_.
+In this step, you need to add the MySQL connector to Tomcat by adding _mysql-connector-java-5.1.x.jar_ to _$PLATFORM\_TOMCAT\_\HOME/lib/_.
 
 
 *JBoss*: {anchor:id=ADM.Configuration.JBoss}
@@ -437,7 +437,7 @@ Configure the data source for eXo Platform under JBoss
 
 *1.* Edit the _gatein-ds.xml_ file.
 
-*i.* Open the _$JBOSS\_\HOME/server/default/deploy/gatein-ds.xml_ file.
+*i.* Open the _$PLATFORM\_JBOSS\_\HOME/server/default/deploy/gatein-ds.xml_ file.
 
 *ii.* Declare the binding of the data sources in the GlobalNaming context:
 
@@ -480,7 +480,7 @@ The configuration should now look like:
 {code}
 
 *2.* Add the JDBC driver.
-In this step, you need to add the MySQL connector library in JBoss by adding _mysql-connector-java-5.1.x.jar_ to _$JBOSS\_\HOME/server/default/lib/_.
+In this step, you need to add the MySQL connector library in JBoss by adding _mysql-connector-java-5.1.x.jar_ to _$PLATFORM\_JBOSS\_\HOME/server/default/lib/_.
 
 {tip}You can get the latest MySQL connector [here|http://dev.mysql.com/downloads/connector/j/].{tip}
 
@@ -740,7 +740,7 @@ The *Mail* portlet and its services are deprecated. It remains fully supported f
 
 eXo Platform requires the SMTP server to send emails, such as notifications or password reminders.
 
-The Email service can use any SMTP account that needs to be configured in _/server/default/conf/gatein/configuration.properties_ (Or _$TOMCAT\_\HOME/
+The Email service can use any SMTP account that needs to be configured in _/server/default/conf/gatein/configuration.properties_ (Or _$PLATFORM\_TOMCAT\_\HOME/
 gatein/conf/configuration.properties_ if you are using Tomcat).
 
 The relevant section looks like:
@@ -810,7 +810,7 @@ To customize the email notification, simply change the configuration in the _con
 *Files location*
 
 || File || Tomcat || JBoss ||
-| _*configuration.properties*_ | _$TOMCAT\_HOME/gatein/conf/configuration.properties_ | _/server/default/conf/gatein/configuration.properties_ |
+| _*configuration.properties*_ | _$PLARFORM\_TOMCAT\_HOME/gatein/conf/configuration.properties_ | _/server/default/conf/gatein/configuration.properties_ |
 
 The relevant section looks like:
 {code:java}
@@ -1381,7 +1381,7 @@ exo.super.user=root
 *Files location*
 
 || File || Tomcat || JBoss||
-| _*organization-configuration.xml*_ | _$TOMCAT\_HOME/webapps/platform-extension/WEB-INF/conf/organization/_ |  _$JBOSS\_HOME/default/deploy/exo-platform-extension-$PLF\_Version.ear/WEB-INF/conf/organization/_ |
+| _*organization-configuration.xml*_ | _$PLATFORM\_TOMCAT\_HOME/webapps/platform-extension/WEB-INF/conf/organization/_ |  _$PLATFORM\_JBOSS\_HOME/default/deploy/exo-platform-extension-$PLF\_Version.ear/WEB-INF/conf/organization/_ |
 
 *For example:*
 * Set the "demo" user as a super-user.
@@ -1443,7 +1443,7 @@ After creating the new _oauthkey.pem_ file, you can use it to replace the defaul
 *Files location*
 
 ||File||Tomcat||JBoss||
-|_*oauthkey.pem*_|_TOMCAT\_HOME/gatein/gadgets_|_JBOSS\_HOME/server/<PROFILE>/data/gadgets_|
+|_*oauthkey.pem*_|_$PLATFORM\_TOMCAT\_HOME/gatein/gadgets_|_$PLATFORM\_JBOSS\_HOME/server/<PROFILE>/data/gadgets_|
 
 {docbook}
 <para>

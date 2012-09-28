@@ -73,13 +73,13 @@ eXo Platform leverages the application server on which it is deployed. This mean
 * On Linux and OS X:   
 
 {code}
-$TOMCAT_HOME/start_eXo.sh
+$PLATFORM_TOMCAT_HOME/start_eXo.sh
 {code}
 
 * On Windows:       
 
 {code}
-%TOMCAT_HOME%\\start_eXo.bat
+%PLATFORM_TOMCAT_HOME%\\start_eXo.bat
 {code}
 
 The server is started successfully when you see the following message in your log/console:
@@ -101,13 +101,13 @@ Shut down the server
 * On Linux and OS X: 
 
 {code}
-$TOMCAT_HOME/stop_eXo.sh
+$PLATFORM_TOMCAT_HOME/stop_eXo.sh
 {code}
 
 * On Windows:        
 
 {code}
-%TOMCAT_HOME%\\stop_eXo.bat
+%PLATFORM_TOMCAT_HOME%\\stop_eXo.bat
 {code}
 
 If you receive the message when you try to stop Tomcat as below, you must stop Tomcat by pressing *CtrlC* or by killing with the *-9* command. To perform the *kill* action automatically, you can run _stop\_eXo.sh \-force_ that is only available on Linux and OS X systems.
@@ -192,13 +192,13 @@ This file is located in:
 * Linux & OS X:
 
 {code}
-$TOMCAT_HOME/bin/setenv.sh
+$PLATFORM_TOMCAT_HOME/bin/setenv.sh
 {code}
 
 * Windows: 
 
 {code}
-$TOMCAT_HOME\\bin\\setenv.bat
+$PLATFORM_TOMCAT_HOME\\bin\\setenv.bat
 {code}
 
 The following is the content of this file:
@@ -245,7 +245,7 @@ eXo distribution for JBoss (eXo-Platform-jboss-3.5.x.zip) allows you to deploy e
 {docbook}
 *1.* Extract the content of the distribution to a local folder named _eXo-Platform-jboss-3.5.x_.
 
-*2.* Copy the following folders and files from _eXo-Platform-jboss-3.5.x/ears/server/default_ to _JBOSS\_HOME/server/default/deploy_:
+*2.* Copy the following folders and files from _eXo-Platform-jboss-3.5.x/ears/server/default_ to _$PLATFORM\_JBOSS\_HOME/server/default/deploy_:
 
 Folders
 - gatein.ear
@@ -267,7 +267,7 @@ Files
 - gatein-wsrp-extension-$version.ear
 - starter-gatein-$version.ear
 
-*3.* Copy the following files and folders from _eXo-Platform-jboss-3.5.x/ears/server/default/conf/gatein_ to the folder _JBOSS\_HOME/server/default/conf/gatein_. You may need to create _gatein_ folder if it does not exist.
+*3.* Copy the following files and folders from _eXo-Platform-jboss-3.5.x/ears/server/default/conf/gatein_ to the folder _$PLATFORM\_JBOSS\_HOME/server/default/conf/gatein_. You may need to create _gatein_ folder if it does not exist.
 
 - cache
 - idm
@@ -279,11 +279,11 @@ Files
 - controller.xml
 - portlet.xml
 
-*4.* Copy the _oauthkey.pem_ file from _eXo-Platform-jboss-3.5.x/ears/server/default/data/gadgets_ to _JBOSS\_HOME/server/default/data/gadgets_. You may need to create folders if they do not exist.
+*4.* Copy the _oauthkey.pem_ file from _eXo-Platform-jboss-3.5.x/ears/server/default/data/gadgets_ to _$PLATFORM\_JBOSS\_HOME/server/default/data/gadgets_. You may need to create folders if they do not exist.
 
 *5.* Configure the JVM parameters.
 
-* On *Linux*, add these lines to the end of _JBOSS\_HOME/bin/run.conf:
+* On *Linux*, add these lines to the end of _$PLATFORM\_JBOSS\_HOME/bin/run.conf:
 
 {code}
 # Platform environment variables
@@ -300,7 +300,7 @@ EXO_XML="-Djavax.xml.stream.XMLOutputFactory=com.sun.xml.internal.stream.XMLOutp
 JAVA_OPTS="$JAVA_OPTS $EXO_OPTS $IDE_OPTS $EXO_PROFILES $EXO_XML"
 {code}
 
-* On *Windows*, add these lines to the end of _JBOSS\_HOME/bin/run.conf.bat_:
+* On *Windows*, add these lines to the end of _$PLATFORM\_JBOSS\_HOME/bin/run.conf.bat_:
 
 {code}
 rem # Platform environment variables
@@ -321,7 +321,7 @@ set "JAVA_OPTS=%JAVA_OPTS% %EXO_OPTS% %IDE_OPTS% %EXO_PROFILES% %EXO_XML%"
 * You can activate the debug mode of eXo Platfrom by adding _$REMOTE\_DEBUG_ to the _JAVA\_OPTS_ variable.
 {note}
 
-*6.* Add the eXo Platform logging categories to _JBOSS\_HOME/server/default/conf/jboss-log4j.xml_.
+*6.* Add the eXo Platform logging categories to _$PLATFORM\_JBOSS\_HOME/server/default/conf/jboss-log4j.xml_.
 
 {code:xml}
 <!-- Limit the JSR170 categories -->
@@ -336,7 +336,7 @@ set "JAVA_OPTS=%JAVA_OPTS% %EXO_OPTS% %IDE_OPTS% %EXO_PROFILES% %EXO_XML%"
 
 *7.* Configure the _emptySessionPath_ attribute.
 
-From JBoss AS 4 or lower, to make Wiki work properly, you have to configure the _emptySessionPath_ attribute in the _server.xml_ file. If you are running Jboss with the "default" profile, this file will be located in _JBOSS\_HOME/default/deploy/jbossweb.sar/server.xml/_ path.
+From JBoss AS 4 or lower, to make Wiki work properly, you have to configure the _emptySessionPath_ attribute in the _server.xml_ file. If you are running Jboss with the "default" profile, this file will be located in _$PLATFORM\_JBOSS\_HOME/default/deploy/jbossweb.sar/server.xml/_ path.
 
 Depending on the Connector you are using, you have to set the _emptySessionPath_ attribute to "true" for that Connector respectively.
 
