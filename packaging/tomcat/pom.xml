@@ -621,13 +621,6 @@
     </dependency>
     <dependency>
       <groupId>org.exoplatform.ecms</groupId>
-      <artifactId>ecms-apps-resources-static</artifactId>
-      <version>${org.exoplatform.ecms.version}</version>
-      <scope>provided</scope>
-      <type>war</type>
-    </dependency>
-    <dependency>
-      <groupId>org.exoplatform.ecms</groupId>
       <artifactId>ecms-core-webui-administration</artifactId>
       <version>${org.exoplatform.ecms.version}</version>
       <scope>provided</scope>
@@ -790,13 +783,7 @@
       <scope>provided</scope>
       <type>jar</type>
     </dependency>
-    <dependency>
-      <groupId>org.exoplatform.ecms</groupId>
-      <artifactId>ecms-apps-resources-dms</artifactId>
-      <version>${org.exoplatform.ecms.version}</version>
-      <scope>provided</scope>
-      <type>war</type>
-    </dependency>
+
     <dependency>
       <groupId>org.exoplatform.ecms</groupId>
       <artifactId>ecms-core-webui-explorer</artifactId>
