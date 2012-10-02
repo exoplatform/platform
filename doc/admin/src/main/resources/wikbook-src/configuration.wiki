@@ -1270,6 +1270,28 @@ cache.exo.ecms.WCMComposer.TimeToLive=3600
 {code}
 
 {docbook}
+<para xml:id="ADM.Configuration.CacheConfiguration.PageRenderingCache">
+<citetitle>
+<emphasis role="bold">
+PageRenderingCache Configuration
+</emphasis>
+</citetitle>
+</para>
+{docbook}
+
+{code}
+# Page rendering cache setting
+cache.exo.wiki.PageRenderingCache.Capacity=1000
+cache.exo.wiki.PageRenderingCache.TimeToLive=-1
+{code}
+{docbook}
+<para> </para>
+{docbook}
+
+||Cache Name||Description||
+|{{PageRenderingCache}}| Cache a rendered content of a wiki page. |
+
+{docbook}
 <para>
 <prompt>
     <emphasis role="bold">See also</emphasis>
@@ -1281,7 +1303,7 @@ cache.exo.ecms.WCMComposer.TimeToLive=3600
 * [File system paths|#ADM.Configuration.File_system_paths]
 * [Users configuration|#ADM.Configuration.Users_configuration]
 * [Gadget configuration|#ADM.Configuration.Gadget_configuration]
- 
+
 h1. Users configuration {anchor:id=ADM.Configuration.Users_configuration}
 
 {docbook}
