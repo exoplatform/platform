@@ -16,7 +16,9 @@
 
 <profiles>
   <profile>
-  <id>distrib</id>
+<!-- TRIAL PACKAGING MUST BE IMPROVED IN THE FUTURE, THIS ONE IS DEACTIVATED BY DEFAULT -->
+    <id>create-trial-package</id>
+<!--  <id>distrib</id> -->
   <dependencies>
 <!-- lead capture filter -->
     <dependency>
