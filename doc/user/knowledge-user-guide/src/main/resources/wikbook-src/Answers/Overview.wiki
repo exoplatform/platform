@@ -1,32 +1,39 @@
 {docbook}
-    <highlights>
-        <itemizedlist>
-            <listitem>
-                <para>
-                   <link linkend="Answer_user_guide.Administrator">Administrator</link>
-				</para>
-				<para>
-				Introduction to actions that are for administrators only and steps to perform them, such as setting up <emphasis role="bold">Answers</emphasis> and <emphasis role="bold">FAQ</emphasis> portlets.
-                </para>
-            </listitem>
-            <listitem>
-                <para>
-                   <link linkend="Answer_user_guide.Moderator">Moderator</link>
-				</para>
-				<para>
-					Introduction to tasks that are for moderators and steps to perform them, such as managing categories, moderating questions and answers.
-                </para>
-            </listitem>
-            <listitem>
-                <para>
-                   <link linkend="Answer_user_guide.Regular_user">Regular user</link>
-				</para>
-				<para>
-					Introduction to the common actions that are for regular users and step-by-step instructions on how to perform them, such as submitting/answering/commenting/sharing questions, searching, or editing user settings.
-                </para>
-            </listitem>
-        </itemizedlist>
-    </highlights>
+<highlights>
+  <itemizedlist>
+
+    <listitem>
+      <para>
+        <link linkend="Answer_user_guide.Regular_user">Regular user</link>
+      </para>
+      <para>
+        Introduction to the common actions that are for regular users and step-by-step instructions on how to perform
+        them, such as submitting/answering/commenting/sharing questions, searching, or editing user settings.
+      </para>
+    </listitem>
+    <listitem>
+      <para>
+        <link linkend="Answer_user_guide.Moderator">Moderator</link>
+      </para>
+      <para>
+        Introduction to tasks that are for moderators and steps to perform them, such as managing categories, moderating
+        questions and answers.
+      </para>
+    </listitem>
+    <listitem>
+      <para>
+        <link linkend="Answer_user_guide.Administrator">Administrator</link>
+      </para>
+      <para>
+        Introduction to actions that are for administrators only and steps to perform them, such as setting up
+        <emphasis role="bold">Answers</emphasis>
+        and
+        <emphasis role="bold">FAQ</emphasis>
+        portlets.
+      </para>
+    </listitem>
+  </itemizedlist>
+</highlights>
 {docbook}
 
 Before using the features in *Answers*, you should get familiar with the *Answers* interface. Once you have logged in and accessed *Answers*, the interface looks like this:
