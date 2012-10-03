@@ -19,8 +19,6 @@
 #
 
 
-# Catalina PID
-export CATALINA_PID=${CATALINA_HOME}/temp/catalina.pid
 # Sets some variables
 LOG_OPTS="-Dorg.apache.commons.logging.Log=org.apache.commons.logging.impl.SimpleLog"
 SECURITY_OPTS="-Djava.security.auth.login.config=$CATALINA_HOME/conf/jaas.conf"

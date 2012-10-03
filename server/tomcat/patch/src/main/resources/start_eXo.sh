@@ -42,7 +42,7 @@ PRGDIR=`dirname "$PRG"`
 
 # set PID in the file /temp/catalina.tmp
 PID=$$
-echo $PID > "$CATALINA_TEMP"/temp/catalina.pid
+echo $PID > "$CATALINA_TEMP"/temp/catalina.tmp
 
 echo Starting eXo ...
 

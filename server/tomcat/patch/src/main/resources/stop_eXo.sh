@@ -41,7 +41,7 @@ PRGDIR=`dirname "$PRG"`
 [ -z "$CATALINA_TEMP" ] && CATALINA_TEMP=`cd "$PRGDIR" >/dev/null; pwd`
 
 # set CATALINA_PID
-CATALINA_PID="$CATALINA_TEMP"/temp/catalina.pid
+CATALINA_PID="$CATALINA_TEMP"/temp/catalina.tmp
 export CATALINA_PID
 
 echo Stopping eXo ...
