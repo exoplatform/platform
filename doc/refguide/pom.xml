@@ -232,6 +232,61 @@
               </execution>
             </executions>
           </plugin>
+		  
+		  <!--Use ant tasks to make links between Ref guides work -->
+		  <plugin>
+				<artifactId>maven-antrun-plugin</artifactId>
+				<version>1.6</version>
+				<executions>
+				  <execution>
+					<id>f-add-role</id>
+					<phase>generate-sources</phase>
+					<configuration>
+						<target>						
+						<!-- ECMS -->
+							<replace file="${docbook.source}/org.exoplatform.ecms/exo-ecms-docs-refguide.xml">
+								<replacetoken><![CDATA[reference/html/]]></replacetoken>
+								<replacevalue><![CDATA[en-US/html/]]></replacevalue>
+							</replace>
+							<replace file="${docbook.source}/org.exoplatform.ecms/Preface.ext">
+								<replacetoken><![CDATA[reference/html/]]></replacetoken>
+								<replacevalue><![CDATA[en-US/html/]]></replacevalue>
+							</replace>
+						<!-- KS -->
+							<replace file="${docbook.source}/org.exoplatform.ks/exo.ks.docs.refguide.xml">
+								<replacetoken><![CDATA[reference/html/]]></replacetoken>
+								<replacevalue><![CDATA[en-US/html/]]></replacevalue>
+							</replace>
+							<replace file="${docbook.source}/org.exoplatform.ks/Preface.xml">
+								<replacetoken><![CDATA[reference/html/]]></replacetoken>
+								<replacevalue><![CDATA[en-US/html/]]></replacevalue>
+							</replace>
+						<!-- CS-->
+							<replace file="${docbook.source}/org.exoplatform.cs/exo.cs.docs.refguide.xml">
+								<replacetoken><![CDATA[reference/html/]]></replacetoken>
+								<replacevalue><![CDATA[en-US/html/]]></replacevalue>
+							</replace>
+							<replace file="${docbook.source}/org.exoplatform.cs/Preface.xml">
+								<replacetoken><![CDATA[reference/html/]]></replacetoken>
+								<replacevalue><![CDATA[en-US/html/]]></replacevalue>
+							</replace>
+						<!-- SOC -->	
+							<replace file="${docbook.source}/org.exoplatform.social/exo.social.docs.refguide.xml">
+								<replacetoken><![CDATA[reference/html/]]></replacetoken>
+								<replacevalue><![CDATA[en-US/html/]]></replacevalue>
+							</replace>
+							<replace file="${docbook.source}/org.exoplatform.social/About.xml">
+								<replacetoken><![CDATA[reference/html/]]></replacetoken>
+								<replacevalue><![CDATA[en-US/html/]]></replacevalue>
+							</replace>
+						</target>
+					</configuration>
+					<goals>
+					  <goal>run</goal>
+					</goals>
+				  </execution>
+				</executions>
+			</plugin>
     <!--
     3/
      - process all the xml files (plf + other products) from target/
