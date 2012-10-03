@@ -3,14 +3,6 @@
         <itemizedlist>
             <listitem>
                 <para>
-                   <link linkend="Forum_user_guide.Forum_Administrator">Administrator</link>
-				</para>
-				<para>
-				Introduction to a list of common tasks which are for administrators only, and steps to manage categories/forums/users and other administrative tasks.
-                </para>
-            </listitem>
-            <listitem>
-                <para>
                    <link linkend="Forum_user_guide.Regular_user">Regular users</link>
 				</para>
 				<para>
@@ -23,6 +15,14 @@
 				</para>
 				<para>
 					Introduction to the Moderation tasks that are for moderators, and steps to perform them, including: moderating forums/topics/posts, viewing all pending moderation tasks, or banning IPs.
+                </para>
+            </listitem>
+        <listitem>
+                <para>
+                   <link linkend="Forum_user_guide.Forum_Administrator">Administrator</link>
+				</para>
+				<para>
+				Introduction to a list of common tasks which are for administrators only, and steps to manage categories/forums/users and other administrative tasks.
                 </para>
             </listitem>
         </itemizedlist>
@@ -49,7 +49,7 @@ The user interface will indicate which features are available to you, based on y
 !images/forum_home.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
 
 
-To have an overall look of actions which users of each role can do in the *Forum* application, see the following table: 
+To have an overall look of actions which users of each role can do in the *Forum* application, see the following table:
 
 || Features || Description ||  Administrator  ||  Moderator ||   Regular user   ||  Guest  ||
 |[View details of Forum|#Forum_user_guide.Regular_user.View_details]|View categories, forums and many another information.|!images/Yes_icon2.png|width="4mm" fo:scalefit="1" html:scalefit="0"!|!images/Yes_icon2.png|width="4mm" fo:scalefit="1" html:scalefit="0"!|!images/Yes_icon2.png|width="4mm" fo:scalefit="1" html:scalefit="0"!|!images/Yes_icon2.png|width="4mm" fo:scalefit="1" html:scalefit="0"!|
