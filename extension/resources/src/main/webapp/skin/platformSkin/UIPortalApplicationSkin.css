@@ -249,3 +249,8 @@ a {
 	background: url('/ecmexplorer/skin/webui/component/explorer/control/DefaultSkin/background/DetailViewSelected.png') no-repeat center !important;
 	display: block;
 }
+
+.UIVote .VoteResultContainer {
+   float: left;
+   width: auto !important;
+}
