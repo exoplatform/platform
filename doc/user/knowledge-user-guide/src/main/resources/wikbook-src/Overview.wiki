@@ -1,6 +1,6 @@
-h1. About eXo Knowledge {anchor:id=KSuser.Overview.AboutKS}
-h2. What is eXo Knowledge? {anchor:id=KSuser.Overview.WhateXoKnowledge}
-eXo Knowledge is one of eXo Platform applications. This is a suite of applications, which contains everything you need for the knowledge management. eXo Knowledge is made up of three main portlets: Forum, Answers and Wiki where you can share information, seek supports through helpful answers and post your ideas.  
+h1. About Knowledge {anchor:id=KSuser.Overview.AboutKS}
+h2. What is Knowledge? {anchor:id=KSuser.Overview.WhateXoKnowledge}
+Knowledge is one of eXo Platform applications. This is a suite of applications, which contains everything you need for the knowledge management. Knowledge is made up of three main portlets: Forum, Answers and Wiki where you can share information, seek supports through helpful answers and post your ideas.  
 
 *Answers and FAQ*
 
@@ -12,16 +12,16 @@ eXo Knowledge is one of eXo Platform applications. This is a suite of applicatio
 
 *Wiki*
 
-Wiki is an enterprise wiki application focused on content productivity for portal users as a tool to forge the unstructured knowledge. Wiki allows you to create and edit pages by using a simplified markup language or a WYSIWYG editor. With this application, your company can use Wiki as an internal reference, such as work policy, or a public wiki for a comprehensive product information. Wiki along with other eXo Knowledge applications, such as Answers and Forum will complete the ideal combination that helps users enhance their experiences on collaboration activities and build valuable knowledge center for clients.
+Wiki is an enterprise wiki application focused on content productivity for portal users as a tool to forge the unstructured knowledge. Wiki allows you to create and edit pages by using a simplified markup language or a WYSIWYG editor. With this application, your company can use Wiki as an internal reference, such as work policy, or a public wiki for a comprehensive product information. Wiki along with other Knowledge applications, such as Answers and Forum will complete the ideal combination that helps users enhance their experiences on collaboration activities and build valuable knowledge center for clients.
  
 h3. About this document  {anchor:id=KSuser.Overview.AboutDocument}
 
-This guide aims at instructing users to use eXo Knowledge features through in-depth examples and explanations. This guide is for all regular users and advanced users who have the administration and moderation privileges. 
+This guide aims at instructing users to use Knowledge features through in-depth examples and explanations. This guide is for all regular users and advanced users who have the administration and moderation privileges. 
 
 This user guide is divided into four main parts: 
 
 ||Chapters||Main content||
-|[Overview Of eXo Knowledge|#KS_overview]|Introduction to eXo Knowledge and user roles in different groups, the ways to access various applications of eXo Knowledge.|
+|[Overview Of Knowledge|#KS_overview]|Introduction to Knowledge and user roles in different groups, the ways to access various applications of Knowledge.|
 |[How To Use Answers?|#Answer_user_guide]|Actions in the Answers application, such as submiting, commenting or answering a question and more.|
 |[How To Use Forum?|#Forum_user_guide]|Actions in the Forum application, related to topics, posts, bookmarks and more.|
 |[How To Use Wiki?|#Wiki_user_guide]|Introduction to Wiki, such as page hierarchy, syntaxes and how to work with pages, attachments and more.|
@@ -32,47 +32,47 @@ h3. References {anchor:id=KSuser.Overview.References}
 
 *Information*
 - [eXo Homepage|http://www.exoplatform.com]
-- [eXo Wiki|http://wiki.exoplatform.com]
+- [Wiki|http://wiki.exoplatform.com]
 
 *Support*
 - [Forums|http://forums.exoplatform.org]
 - [Suport/Training/Consulting services|http://exoplatform.com/company/public/website/services]
 
 *Download*
-- [eXo Content|http://www.exoplatform.com/company/public/website/platform/exo-core-services/exo-content]
-- [eXo Development tools|http://www.exoplatform.com/company/public/website/platform/exo-core-services/exo-development-tools]
+- [Content|http://www.exoplatform.com/company/public/website/platform/exo-core-services/exo-content]
+- [Development tools|http://www.exoplatform.com/company/public/website/platform/exo-core-services/exo-development-tools]
 - [GateIn Portal Framework|http://www.exoplatform.com/company/public/website/platform/exo-core-services/gatein-portal-framework]
-- [eXo Collaboration|http://www.exoplatform.com/company/public/website/platform/exo-extended-services/exo-collaboration]
-- [eXo Knowledge|http://www.exoplatform.com/company/public/website/platform/exo-extended-services/exo-knowledge]
-- [eXo Social|http://www.exoplatform.com/company/public/website/platform/exo-extended-services/exo-social]
+- [Collaboration|http://www.exoplatform.com/company/public/website/platform/exo-extended-services/exo-collaboration]
+- [Knowledge|http://www.exoplatform.com/company/public/website/platform/exo-extended-services/exo-knowledge]
+- [Social|http://www.exoplatform.com/company/public/website/platform/exo-extended-services/exo-social]
 
 *Resource Center*
 - [Video demos, tutorials, webinar archives, features & benefits tables more|http://www.exoplatform.com/company/public/website/resource-center].
 
-h1. Get started with eXo Knowledge {anchor:id=KSuser.Overview.GetStartedWitheXoKnowledge}
+h1. Get started with Knowledge {anchor:id=KSuser.Overview.GetStartedWitheXoKnowledge}
 h2. User roles {anchor:id=KSuser.Overview.User_roles}
-In eXo Knowledge, user groups may have different privileges to perform actions. Some actions can be limited to some specific user groups. 
-eXo Knowledge uses a concept of User group, which is designed to give the advanced users the ability to control and assign what functions or features that other users can and cannot do within the application. There are four user groups: administrator, moderator, regular user and guest.
+In Knowledge, user groups may have different privileges to perform actions. Some actions can be limited to some specific user groups. 
+Knowledge uses a concept of User group, which is designed to give the advanced users the ability to control and assign what functions or features that other users can and cannot do within the application. There are four user groups: administrator, moderator, regular user and guest.
 
-*Administrator* is an advanced user, who typically has the highest right when using eXo Knowledge. The Administrator can manage user privileges and he has rights to perform all possible capabilities. For example, in Forum, an administrator can create categories, close/delete, lock/unlock forums; promote a regular user to moderator or create a category that is restricted to a specific user group. 
+*Administrator* is an advanced user, who typically has the highest right when using Knowledge. The Administrator can manage user privileges and he has rights to perform all possible capabilities. For example, in Forum, an administrator can create categories, close/delete, lock/unlock forums; promote a regular user to moderator or create a category that is restricted to a specific user group. 
 
 *Moderator* obtains a subset of administrator's rights that means he has certain allowed capabilities and may perform these advanced actions in a specific area only. For example, a moderator in of a category in Forum can only perform advanced actions in the category that he is assigned as the moderator. The moderator role is assigned by the administrator. 
 
-*Regular user* is defined as a logged-in user who can only use the basic features of eXo Knowledge. The regular user can be promoted to the advanced user by the administrator.
+*Regular user* is defined as a logged-in user who can only use the basic features of Knowledge. The regular user can be promoted to the advanced user by the administrator.
 
-*Guest (anonymous user)* is an unregistered/unlogged-in user who is often limited to a very few features only of eXo Knowledge. For instance, a guest can view topics in Forum but he cannot reply or create new topics. 
+*Guest (anonymous user)* is an unregistered/unlogged-in user who is often limited to a very few features only of Knowledge. For instance, a guest can view topics in Forum but he cannot reply or create new topics. 
 
 {Note}
 Notice that there will be no section dedicated to this user role. For the actions that an anonymous user can perform, you can refer to the table that summarizes all the actions in each applications.
 {Note}
 
-h2. Access applications of eXo Knowledge {anchor:id=KSuser.Overview.Access_applications}
+h2. Access applications of Knowledge {anchor:id=KSuser.Overview.Access_applications}
 
-When eXo Knowledge is deployed as standalone, applications are often displayed right on the administration bar. To access it, simply click one specific application name shown as below: 
+When Knowledge is deployed as standalone, applications are often displayed right on the administration bar. To access it, simply click one specific application name shown as below: 
 
 !images/Access_applications.png|align="center" width="400" height="30" fo: scalefit="1" html:scalefit="0"!
 
-When being integrated into eXo Platform, you should access eXo Knowledge applications, such as Forum, Wiki, through a space by hovering your cursor over *My Spaces*, then clicking the relevant application from the drop-down menu.
+When being integrated into eXo Platform, you should access Knowledge applications, such as Forum, Wiki, through a space by hovering your cursor over *My Spaces*, then clicking the relevant application from the drop-down menu.
 
 !images/Access_applications_from_space.png|align="center"!
 

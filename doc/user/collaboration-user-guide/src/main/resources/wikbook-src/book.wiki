@@ -1,4 +1,4 @@
-h1. Get Started With eXo Collaboration {anchor:id="CSUser_guide.Get_started"}
+h1. Get Started With Collaboration {anchor:id="CSUser_guide.Get_started"}
 {include:document="get_started.wiki"}
 h1. How To Use Mail? {anchor:id="CSUser_guide.How_to_use_Mail"}
 {include:document="mail/mail.wiki"}
