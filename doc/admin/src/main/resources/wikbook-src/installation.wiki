@@ -33,12 +33,11 @@ eXo Platform is packaged as a deployable enterprise archive defined by the Java 
 {docbook}
 
 h1. System requirements {anchor:id=ADM.Installation.System_requirements}
-To run eXo Platform 3.5, your system is required to meet the following specifications or higher.
-* CPU: Multi\-core recommended, 2 GHz Minimum
-* Memory: 4GB physical RAM, at least 1 GB free for JVM's max heap memory (see the JVM settings detailed in the [Install the Tomcat bundle|#ADM.Installation.Install_Tomcat_Bundle] section)
+To run eXo Platform 3.5, your system is required to meet the following specifications or higher:
+* CPU: Multi\-core recommended, 2GHz Minimum
+* Memory: 4GB physical RAM, at least 1GB free for JVM's max heap memory (see the JVM settings detailed in the [Install the Tomcat bundle|#ADM.Installation.Install_Tomcat_Bundle] section)
 * Disk: 1GB
 * Java 6 (Set the JAVA\_HOME environment variable)
-* The eXo server will run on the 8080 portal, so make sure this port is not currently in use.
 * Browser Compatibility:
 ** Mozilla Firefox 3.6+
 ** Internet Explorer 7.0+
