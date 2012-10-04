@@ -196,7 +196,7 @@ function getModule(params)
    module.integ.ecmsSocial = new Project("org.exoplatform.integration", "integ-ecms-social", "jar", integVersion).
    addDependency(new Project("org.exoplatform.integration", "integ-forum-social", "jar", integVersion)).
    addDependency(new Project("org.exoplatform.integration", "integ-calendar-social", "jar", integVersion)).
-   addDependency(new Project("org.exoplatform.integration", "integ-social-ecms", "jar", integVersion));
+   addDependency(new Project("org.exoplatform.integration", "integ-social-ecms", "jar", integVersion)).
    addDependency(new Project("org.exoplatform.integration", "integ-wiki-social", "jar", integVersion));
 
    // upgrade plugins
