@@ -8,7 +8,7 @@ h2. Manage accounts{anchor:id=Platform_User_Guide.Get_started.Accounts}
 h2. Manage language{anchor:id=Platform_User_Guide.Get_started.Manage_Language}
 {include:document="Manage_language.wiki"}
 
-h1. Build Social Network{anchor:id=Platform_User_Guide.Social}
+h1. Build Your Social Network{anchor:id=Platform_User_Guide.Social}
 {include:document="Introduction_Social.wiki"}
 h2. Manage your profile{anchor:id=Platform_User_Guide.Social.Manage_Profile}
 {include:document="social/wikbook-src/User_profile.wiki"}
@@ -32,6 +32,7 @@ h2. Build a forum{anchor:id=Platform_User_Guide.Knowledge.Build_Forums}
 {include:document="knowledge/wikbook-src/forum/forum_administrator.wiki"}
 
 h2. Build an Answers & FAQs system {anchor:id=Platform_User_Guide.Knowledge.Build_FAQs}
+{include:document="knowledge/wikbook-src/Answers/Overview.wiki"}
 {include:document="knowledge/wikbook-src/Answers/Regular_user.wiki"}
 {include:document="knowledge/wikbook-src/Answers/Moderator.wiki"}
 {include:document="knowledge/wikbook-src/Answers/Administrator.wiki"}
