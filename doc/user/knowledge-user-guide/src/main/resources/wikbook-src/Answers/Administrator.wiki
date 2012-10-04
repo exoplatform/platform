@@ -1,5 +1,7 @@
 h1. Administrator {anchor:id=Answer_user_guide.AdministratorRoleNotInToc}
+{note}
 The administrators have the global role and take care of the entire management tasks.
+{note}
 
 h2. Set up the Answers portlet {anchor:id=KSuser.Answer_Administrator.Set_up_Answers_portlet}
 

@@ -626,7 +626,14 @@ With the *Search* function, you can find your desired item, such as categories, 
 * [Quick search|#KSuser.Answer_Regular_user.Basic_search]
 * [Advanced search|#KSuser.Answer_Regular_user.Advanced_search]
 
-h3. Quick search {anchor:id=KSuser.Answer_Regular_user.Basic_search}
+{docbook}
+<para xml:id="KSuser.Answer_Regular_user.Basic_search">
+	<citetitle>
+	<emphasis role="bold">Do a quick search</emphasis>
+</citetitle>
+</para>
+{docbook}
+
 {docbook}
 <para>You can do quick searches easily by entering specific keywords into the <guilabel>Search</guilabel> area. All items containing the text matching your search term will be returned in the <guilabel>Search Results</guilabel> form.</para>
 {docbook}
@@ -653,7 +660,13 @@ h3. Quick search {anchor:id=KSuser.Answer_Regular_user.Basic_search}
 |!images/category_icon.png|width="4mm" fo:scalefit="1" html:scalefit="0"!|The category containing your entered keywords.|
 |!images/Watch_icon.png|width="4mm" fo:scalefit="1" html:scalefit="0"!|Click this icon to go into a question or a category.|
 
-h3. Advanced search {anchor:id=KSuser.Answer_Regular_user.Advanced_search}
+{docbook}
+<para xml:id="KSuser.Answer_Regular_user.Advanced_search">
+	<citetitle>
+	<emphasis role="bold">Do an advanced search</emphasis>
+</citetitle>
+</para>
+{docbook}
 
 The *Advanced search* allows you to do a search with multiple criteria corresponding to the object that is expected to be found. Using the advanced search, you can find questions/categories more exactly.
 

@@ -10,9 +10,6 @@ h2. Search {anchor:id=Forum_user_guide.Forum_regular_user.Search}
 
 Like in *Answers*, you can do either of two search types (*Quick Search* or *Advanced Search*) anywhere in the *Forum* application, right on the homepage or inside each specific forum or topic that makes it easy to find the expected information.
 
-This function can be performed via:
-* [Quick search|#Forum_user_guide.Forum_regular_user.Quick_search]
-* [Advanced search|#Forum_user_guide.Forum_regular_user.Advanced_search]
 h3. Quick search {anchor:id=Forum_user_guide.Forum_regular_user.Quick_search}
 {docbook}
 <para>With <emphasis role="bold">Quick Search</emphasis>, users can directly type a search term in the textbox. All the categories, forums, topics and posts that have the keyword matching the search term will be quickly displayed in the <guilabel>Search Result</guilabel> form.</para>
@@ -427,12 +424,7 @@ Find in posts
 * [Quick search|#Forum_user_guide.Forum_regular_user.Quick_search]
 
 h2. Topics {anchor:id=Forum_user_guide.Forum_regular_user.Topics}
-Regular users can do many topic-related actions, including:
-* [Start a topic|#Forum_regular_user.Topics.Start_topics]
-* [Edit a topic|#Forum_regular_user.Topics.Edit_topics]
-* [Create a poll|#Forum_regular_user.Topics.Create_poll]
-* [Rate a topic|#Forum_regular_user.Topics.Rate_topics]
-* [Tag/Untag a topic|#Forum_regular_user.Topics.Tag-Untag_topics]
+
 h3. Start a topic {anchor:id=Forum_regular_user.Topics.Start_topics}
 
 *1.* Go into the forum where you want to start a new topic.
@@ -973,11 +965,15 @@ Every forum member has a publicly viewable profile. This includes information pr
 !images/view_user_profile.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
 
 h2. Private messages {anchor:id=Forum_user_guide.Forum_regular_user.Private_messages}
-Private messages will not be moderated and only viewable for recipients. Only logged-in users can do actions on private messages, including:
-* [Send a private message|#Forum_regular_user.Private_messages.Send_private_message]
-* [Receive a private message|#Forum_regular_user.Private_messages.Receive_private_message]
+Private messages will not be moderated and only viewable for recipients. Only logged-in users can do the following actions on private messages:
 
-h3. Send a private message {anchor:id=Forum_regular_user.Private_messages.Send_private_message}
+{docbook}
+<para xml:id="Forum_regular_user.Private_messages.Send_private_message">
+	<citetitle>
+		<emphasis role="bold">Send a private message</emphasis>
+	</citetitle>
+</para>
+{docbook}
 
 {docbook}<para>
 <emphasis role="bold">1.</emphasis> Click the username or avatar of the user you want to send message, then select <guilabel>Send Private Message</guilabel> from the drop-down menu.</para>
@@ -1001,7 +997,14 @@ h3. Send a private message {anchor:id=Forum_regular_user.Private_messages.Send_p
 <para>
  <emphasis role="bold">4.</emphasis> Click <guibutton>Save</guibutton> to send the message.</para>
 {docbook}
-h3. Receive a private message {anchor:id=Forum_regular_user.Private_messages.Receive_private_message}
+
+{docbook}
+<para xml:id="Forum_regular_user.Private_messages.Receive_private_message">
+	<citetitle>
+		<emphasis role="bold">Receive a private message</emphasis>
+	</citetitle>
+</para>
+{docbook}
 
 When you have received a private message, there will be a notification on your *User* bar.
 
@@ -1047,11 +1050,15 @@ When you have received a private message, there will be a notification on your *
 {docbook}
 h2. Bookmarks {anchor:id=Forum_regular_user.Public_user_profile.Bookmarks}
 In the *Forum* application, the *Bookmark* function is to collect links to a category, forum or topic you have visited, so that you can return to that category, forum or topic directly. Bookmarks can be created and managed by yourself through the following actions:
-* [Add a bookmark|#Public_user_profile.Bookmarks.Add_bookmarks]
-* [View a bookmark|#Public_user_profile.Bookmarks.View_bookmarks]
-* [Delete a bookmark|#Public_user_profile.Bookmarks.Delete_bookmarks]
 
-h3. Add a bookmark {anchor:id=Public_user_profile.Bookmarks.Add_bookmarks}
+{docbook}
+<para xml:id="Public_user_profile.Bookmarks.Add_bookmarks">
+	<citetitle>
+		<emphasis role="bold">Add a bookmark</emphasis>
+	</citetitle>
+</para>
+{docbook}
+
 This function is for all logged-in users to save links to categories, forums or topics into the Forum Bookmark.
 
 *1.* Go into the object (category, forum or topic) you want to bookmark.
@@ -1061,7 +1068,15 @@ This function is for all logged-in users to save links to categories, forums or 
 {docbook}
 <para>Or, right-click the object title and select <guilabel>Bookmark</guilabel> from the drop-down menu. The bookmarked link will be added to your bookmarks list.</para>
 {docbook}
-h3. View a bookmark {anchor:id=Public_user_profile.Bookmarks.View_bookmarks}
+
+{docbook}
+<para xml:id="Public_user_profile.Bookmarks.View_bookmarks">
+	<citetitle>
+		<emphasis role="bold">View a bookmark</emphasis>
+	</citetitle>
+</para>
+{docbook}
+
 {docbook}
 <para>To view a bookmark, click <inlinemediaobject>
                 <imageobject role="fo">
@@ -1074,7 +1089,13 @@ h3. View a bookmark {anchor:id=Public_user_profile.Bookmarks.View_bookmarks}
 {docbook}
 !images/my_bookmarks.png|align="center" width="300" fo:scalefit="1" html:scalefit="0"!
 
-h3. Delete a bookmark {anchor:id=Public_user_profile.Bookmarks.Delete_bookmarks}
+{docbook}
+<para xml:id="Public_user_profile.Bookmarks.Delete_bookmarks">
+	<citetitle>
+		<emphasis role="bold">Delete a bookmark</emphasis>
+	</citetitle>
+</para>
+{docbook}
 
 Simply click !images/Delete_icon.png|width="4mm" fo:scalefit="1" html:scalefit="0"! corresponding to the link that you want to delete.
 
@@ -1173,11 +1194,14 @@ You may configure your settings yourself, such as personal profile, forum settin
               </imageobject>
             </inlinemediaobject> on the <emphasis role="bold">User</emphasis> bar to go to the <guilabel>Settings</guilabel> form. Once you opened the <guilabel>Settings</guilabel> form, you can control your personal settings, options and preferences via the following actions:</para>
 {docbook}
-* [Edit your profile|#Forum_regular_user.User_settings.Edit_profile]
-* [Change forum settings|#Forum_regular_user.User_settings.Change_forum_settings]
-* [Edit your subscription|#Forum_regular_user.User_settings.Manage_subscriptions]
 
-h3. Edit your profile {anchor:id=Forum_regular_user.User_settings.Edit_profile}
+{docbook}
+<para xml:id="Forum_regular_user.User_settings.Edit_profile">
+	<citetitle>
+		<emphasis role="bold">Edit your profile</emphasis>
+	</citetitle>
+</para>
+{docbook}
 
 {docbook}
 <para>By selecting the <guilabel>Profile</guilabel> tab, you can see your personal information and other preferences.</para>
@@ -1204,7 +1228,14 @@ Here, you can:
               </listitem>
             </itemizedlist>
 {docbook}
-h3. Change forum settings {anchor:id=Forum_regular_user.User_settings.Change_forum_settings}
+
+{docbook}
+<para xml:id="Forum_regular_user.User_settings.Change_forum_settings">
+	<citetitle>
+		<emphasis role="bold">Change forum settings</emphasis>
+	</citetitle>
+</para>
+{docbook}
 
 {docbook}
 <para>Go to the <guilabel>Forum Settings</guilabel> tab in the <guilabel>Settings</guilabel> form. You can change preferences, such as time zone, date and time formats, and other display options.</para>
@@ -1215,7 +1246,14 @@ h3. Change forum settings {anchor:id=Forum_regular_user.User_settings.Change_for
 <para>Check/Uncheck the <guilabel>Show Forum Jump</guilabel> if you want to show/hide the <guilabel>Forum quick navigation</guilabel> at the bottom of the <emphasis role="bold">Forum</emphasis> page.</para>
 {docbook}
 
-h3. Edit your subscription {anchor:id=Forum_regular_user.User_settings.Manage_subscriptions}
+{docbook}
+<para xml:id="Forum_regular_user.User_settings.Manage_subscriptions">
+	<citetitle>
+		<emphasis role="bold">Edit your subscription</emphasis>
+	</citetitle>
+</para>
+{docbook}
+
 {docbook}
 <para>Go to the <guilabel>My Subscriptions</guilabel> tab in the <guilabel>Settings</guilabel> form, where you can update or delete existing subscriptions.</para>
 {docbook}

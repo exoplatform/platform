@@ -2,12 +2,10 @@ h1. Moderator {anchor:id=Forum_user_guide.ModeratorRoleNotInToc}
 Moderators in *Forum* are responsible for managing content of posts and replies before and after they are posted to the category where they are assigned as moderators.
 
 h2. Moderate forums {anchor:id=Forum_user_guide.Forum_Moderator.Moderate_forums}
-Moderators can manage all the forums inside their assigned categories. If you are a moderator of any category, you can do the following actions:
 
-* [Edit a forum|#Forum_Moderator.Moderate_forums.Edit_forums]
-* [Lock/Unlock a forum|#Forum_Moderator.Moderate_forums.Lock-unlock_forums]
-* [Close/Open a forum|#Forum_Moderator.Moderate_forums.Close-open_forums]
-* [Move a forum|#Forum_Moderator.Moderate_forums.Move_forums]
+{note}
+Moderators can manage all the forums inside their assigned categories.
+{note}
 
 h3. Edit a forum {anchor:id=Forum_Moderator.Moderate_forums.Edit_forums}
 
@@ -87,18 +85,6 @@ A list of existing categories will appear. Select a destination category to	whic
 !images/move_forum_form.png|align="center" width="70mm" fo:scalefit="1" html:scalefit="0"!
 
 h2. Moderate topics {anchor:id=Forum_user_guide.Forum_Moderator.Moderate_topics}
-Topics are moderated via the following actions:
-
-* [Approve a topic|#Forum_Moderator.Moderate_topics.Approve_topics]
-* [Edit a topic|#Forum_Moderator.Moderate_topics.Edit_topics]
-* [Move a topic|#Forum_Moderator.Moderate_topics.Move_topics]
-* [Delete a topic|#Forum_Moderator.Moderate_topics.Delete_topics]
-* [Close/Open a topic|#Forum_Moderator.Moderate_topics.Close-Open_topics]
-* [Lock/Unlock a topic|#Forum_Moderator.Moderate_topics.Lock-Unlock_topics]
-* [Stick/Unstick a topic|#Forum_Moderator.Moderate_topics.Stick-Unstick_topics]
-* [Merge topics|#Forum_Moderator.Moderate_topics.Merge_topics]
-* [Split a topic|#Forum_Moderator.Moderate_topics.Split_topics]
-
 
 h3. Approve a topic {anchor:id=Forum_Moderator.Moderate_topics.Approve_topics}
 Moderators can approve pending topics in forums that enable the '[Moderate Topic|#admin_moderate_topics]' option. All new topics added to these forums will be pending for approval. It means that nobody can view these topics except administrators and moderators of the forums. Pending topics are only viewable when they are approved.
@@ -313,15 +299,6 @@ As a moderator, you have some specific rights on a post. To moderate a post, you
 Next, click !images/Moderation_btn.png|width="20mm" fo:scalefit="1" html:scalefit="0"! on the *Action* bar and select your desired action from the drop-down menu. All the moderation actions will be reached via this menu.
 
 !images/mod_moderation.png|align="center" width="30mm" fo:scalefit="1" html:scalefit="0"!
-
-The followings are actions that a moderator can perform on a post:
-
-* [Approve a post|#Forum_Moderator.Moderate_posts.Approve_posts]
-* [Delete a post|#Forum_Moderator.Moderate_posts.Delete_posts]
-* [Move a post|#Forum_Moderator.Moderate_posts.Move_posts]
-* [Hide a post|#Forum_Moderator.Moderate_posts.Hide_posts]
-* [Show a post|#Forum_Moderator.Moderate_posts.Show_posts]
-* [Uncensor a post|#Forum_Moderator.Moderate_posts.Uncensor_posts]
 
 h3. Approve a post {anchor:id=Forum_Moderator.Moderate_posts.Approve_posts}
 

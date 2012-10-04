@@ -113,12 +113,15 @@ h2. Manage members {anchor:id=Soc_User_Guide.Space_Management.Edit_Space.Manage_
 !images/member_tab_space.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
 
 Here, you can do many actions on members as follows:
-* [Invite new members|#Soc_User_Guide.Space_Management.Edit_Space.Manage_Members.Invite_Mem]
-* [Revoke your invitations|#Soc_User_Guide.Space_Management.Edit_Space.Manage_Members.Revoke]
-* [Validate/Decline request|#Soc_User_Guide.Space_Management.Edit_Space.Manage_Members.Validate_decline_request]
-* [Promote/Demote a member|#Soc_User_Guide.Space_Management.Edit_Space.Manage_Members.Promote_Mem]
-* [Remove a member|#Soc_User_Guide.Space_Management.Edit_Space.Manage_Members.Remove_Mem]
-h3. Invite new members {anchor:id=Soc_User_Guide.Space_Management.Edit_Space.Manage_Members.Invite_Mem}
+
+{docbook}
+<para xml:id="Soc_User_Guide.Space_Management.Edit_Space.Manage_Members.Invite_Mem">
+	<citetitle>
+		<emphasis role="bold">Invite new members</emphasis>
+	</citetitle>
+</para>
+{docbook}
+
 You can invite other users to join your spaces as follows:
 
 *The first way*
@@ -164,11 +167,24 @@ You can also search for your desired members in eXo Platform, do as follows:
 
  After that, you will see the list of invited users.
 
+{docbook}
+<para xml:id="Soc_User_Guide.Space_Management.Edit_Space.Manage_Members.Revoke">
+	<citetitle>
+		<emphasis role="bold">Revoke your invitations</emphasis>
+	</citetitle>
+</para>
+{docbook}
 
-h3. Revoke your invitations       {anchor:id=Soc_User_Guide.Space_Management.Edit_Space.Manage_Members.Revoke}
 If your invited users have not accepted your requests yet, you can revoke your invitations by clicking !images/Cancel_request_icon.png|width="18mm" fo:scalefit="1" html:scalefit="0"!. The users will be removed from the *Invited* list.
 
-h3. Validate/Decline request {anchor:id=Soc_User_Guide.Space_Management.Edit_Space.Manage_Members.Validate_decline_request}
+{docbook}
+<para xml:id="Soc_User_Guide.Space_Management.Edit_Space.Manage_Members.Validate_decline_request">
+	<citetitle>
+		<emphasis role="bold">Validate/Decline request</emphasis>
+	</citetitle>
+</para>
+{docbook}
+
 As a manager or creator of a space, you can validate other users' requests for joining your space.
 
 {docbook}
@@ -196,7 +212,13 @@ As a manager or creator of a space, you can validate other users' requests for j
 </itemizedlist>
 {docbook}
 
-h3. Promote/Demote a member{anchor:id=Soc_User_Guide.Space_Management.Edit_Space.Manage_Members.Promote_Mem}
+{docbook}
+<para xml:id="Soc_User_Guide.Space_Management.Edit_Space.Manage_Members.Promote_Mem">
+	<citetitle>
+		<emphasis role="bold">Promote/Demote a member</emphasis>
+	</citetitle>
+</para>
+{docbook}
 
 {docbook}
 <itemizedlist>
@@ -223,7 +245,14 @@ Be careful not to remove the rights for yourself; otherwise, you will not be abl
 </note>
 {docbook}
 
-h3. Remove a member{anchor:id=Soc_User_Guide.Space_Management.Edit_Space.Manage_Members.Remove_Mem}
+{docbook}
+<para xml:id="Soc_User_Guide.Space_Management.Edit_Space.Manage_Members.Remove_Mem">
+	<citetitle>
+		<emphasis role="bold">Remove a member</emphasis>
+	</citetitle>
+</para>
+{docbook}
+
 Click !images/Remove_member_icon.png|width="18mm" fo:scalefit="1" html:scalefit="0"! corresponding to the member you want to delete in the *Members* list.
 
 h2. Manage space applications{anchor:id=Soc_User_Guide.Space_Management.Edit_Space.Manage_App}
@@ -234,9 +263,15 @@ h2. Manage space applications{anchor:id=Soc_User_Guide.Space_Management.Edit_Spa
 !images/space_settings_applications.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
 
 Here, you can:
-* [Add a new space application|#Soc_User_Guide.Space_Management.Edit_Space.Manage_App.Add_App]
-* [Delete an application|#Soc_User_Guide.Space_Management.Edit_Space.Manage_App.Delete_App]
-h3. Add a new space application  {anchor:id=Soc_User_Guide.Space_Management.Edit_Space.Manage_App.Add_App}
+
+{docbook}
+<para xml:id="Soc_User_Guide.Space_Management.Edit_Space.Manage_App.Add_App">
+	<citetitle>
+		<emphasis role="bold">Add a new space application</emphasis>
+	</citetitle>
+</para>
+{docbook}
+
 {docbook}
 <para>
  <emphasis role="bold">1.</emphasis> Click <guibutton>Add Application</guibutton> to open the <guilabel>Space Application Installer</guilabel> form.</para>
@@ -248,9 +283,15 @@ h3. Add a new space application  {anchor:id=Soc_User_Guide.Space_Management.Edit
 
 If there is no available application, ask your system administrator to gain the access right.
 
-h3. Delete an application {anchor:id=Soc_User_Guide.Space_Management.Edit_Space.Manage_App.Delete_App}
-To remove an application, click !images/Delete_Application_icon.png|width="4mm" fo:scalefit="1" html:scalefit="0"! corresponding to the application name.
+{docbook}
+<para xml:id="Soc_User_Guide.Space_Management.Edit_Space.Manage_App.Delete_App">
+	<citetitle>
+		<emphasis role="bold">Delete an application</emphasis>
+	</citetitle>
+</para>
+{docbook}
 
+To remove an application, click !images/Delete_Application_icon.png|width="4mm" fo:scalefit="1" html:scalefit="0"! corresponding to the application name.
 
 {docbook}
 <note>

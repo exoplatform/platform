@@ -1024,9 +1024,6 @@ Hover your cursor over the event to see its detailed view.
 {docbook}
 
 h2. Create a new event {anchor:id="CSUser_guide.How_to_use_Calendar.Create_new_event"}
-You can create a new event through either of 2 ways:
-* [Quick add an event|#Quick_add_events]
-* [Add a detailed event|#Add_detailed_events]
 h3. Quick add an event {anchor:id="Quick_add_events"}
 
 {docbook}
@@ -2641,10 +2638,6 @@ In the *Calendar* application, you can change default values for its settings.
 
 h2. Manage categories {anchor:id="CSUser_guide.How_to_use_Calendar.Manage_categories}
 Categories are used to classify events and tasks. For example, you could use a 'Meeting' category for all meetings with your colleagues or customers in your company. By default, Calendar provides 5 available categories: Calls, Meeting, Holiday, Clients, Anniversary. You can add and view events/tasks in default categories. In addition, you also can edit, delete default categories or create new categories by yourself.
-
-Managing categories can be performed via the following actions:
-* [Add a new category|#CSUser_guide.How_to_use_Calendar.Add_new_category]
-* [Edit/Delete a category|#CSUser_guide.How_to_use_Calendar.Edit_delete_category]
 
 h3. Add a new category {anchor:id="CSUser_guide.How_to_use_Calendar.Add_new_category}
 

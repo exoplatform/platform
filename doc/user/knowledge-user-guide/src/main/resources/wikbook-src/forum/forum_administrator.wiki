@@ -38,15 +38,28 @@ The *Page Manager* page will be displayed.
 {docbook}
 !images/admin_forum_edit_mode.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
 
-This form allows you to configure the *Forum* portlet in various aspects, including:
-* [Specify the category scoping|#Forum_Administrator.Set_up_Forums.Specify_category_scoping]
-* [Enable/Disable Forum components|#Forum_Administrator.Set_up_Forums.Enable-Disable_Forum-components]
-* [Enable/Disable a bookmarkable Forum URL|#Forum_Administrator.Set_up_Forums.Enable-Disable_bookmarkable_Forum_URLs]
-h3. Specify the category scoping {anchor:id=Forum_Administrator.Set_up_Forums.Specify_category_scoping}
+This form allows you to configure the *Forum* portlet in various aspects via the following actions:
+
+{docbook}
+<para xml:id="Forum_Administrator.Set_up_Forums.Specify_category_scoping">
+<citetitle>
+<emphasis role="bold">Specify the category scoping</emphasis>
+</citetitle>
+</para>
+{docbook}
+
 {docbook}
  <para>In the <guilabel>Scoping</guilabel> tab, you can show/hide categories and forums in the <emphasis role="bold">Forum</emphasis> portlet by selecting or deselecting their respective checkboxes.</para>
 {docbook}
-h3. Enable/Disable Forum components {anchor:id=Forum_Administrator.Set_up_Forums.Enable-Disable_Forum-components}
+
+{docbook}
+<para xml:id="Forum_Administrator.Set_up_Forums.Enable-Disable_Forum-components">
+<citetitle>
+<emphasis role="bold">Enable/Disable Forum components</emphasis>
+</citetitle>
+</para>
+{docbook}
+
 {docbook}
 <para>In the <guilabel>Panels</guilabel> tab, you can enable/disable some components in the Forum portlet.</para>
 {docbook}
@@ -73,7 +86,13 @@ For example, if you have the *Moderators* or *Show Statistics* panel enabled, yo
 
 !images/Forum_statistic_panel.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
 
-h3. Enable/Disable a bookmarkable Forum URL {anchor:id=Forum_Administrator.Set_up_Forums.Enable-Disable_bookmarkable_Forum_URLs}
+{docbook}
+<para xml:id="Forum_Administrator.Set_up_Forums.Enable-Disable_bookmarkable_Forum_URLs">
+<citetitle>
+<emphasis role="bold">Enable/Disable a bookmarkable Forum URL</emphasis>
+</citetitle>
+</para>
+{docbook}
 
 Before doing this function, you first need to have a knowledge of Ajax. Ajax (Asynchronous JavaScript and XML) is used in the *Forum* application, aiming at updating a whole webpage or a part of the webpage.
 
@@ -89,11 +108,6 @@ h2. Manage categories {anchor:id=Forum_user_guide.Forum_Administrator.Manage_cat
 Only administrators can do categories-related management tasks. To manage forums better, the administrators usually build a good forum structure using categories. So, a category is a set of forums containing all discussions about the same subject. See the following diagram to learn about one typical *Forum* structure.
 
 !images/forum_portlet_structure.png|align="center" width="100mm" fo:scalefit="1" html:scalefit="0"!
-
-Managing categories can be performed through the following specific actions:
-* [Add a new category|#Forum_Administrator.Manage_categories.Add_categories]
-* [Edit a category|#Forum_Administrator.Manage_categories.Edit_categories]
-* [Delete a category|#Forum_Administrator.Manage_categories.Delete_categories]
 
 h3. Add a new category {anchor:id=Forum_Administrator.Manage_categories.Add_categories}
 Only when you are assigned as an *administrator*, you can do this function. Normally, one category is created as public and it allows everyone to access without any restrictions. Meanwhile, one [restricted category|#Manage_categories.Add_categories.Add_restricted_categories] only allows specific users/groups/memberships to access. Also, you can assign moderators to your category and specify a set of permissions for members in the category.
@@ -205,17 +219,13 @@ When a category is removed, all its forums are also removed.
 
 h2.  Manage forums {anchor:id=Forum_user_guide.Forum_Administrator.Manage_forums}
 Managing forums can be performed through the following actions:
-* [Add a new forum|#Forum_Administrator.Manage_forums.Add_forums]
-* [Delete a forum|#Forum_Administrator.Manage_forums.Delete_forums]
-
-h3. Add a new forum {anchor:id=Forum_Administrator.Manage_forums.Add_forums}
 
 {docbook}
-<citetitle>
-<para>
-    <emphasis role="bold">Add a new forum to a specific category</emphasis>
+<para xml:id="Forum_Administrator.Manage_forums.Add_forums">
+	<citetitle>
+		<emphasis role="bold">Add a new forum to a specific category</emphasis>
+	</citetitle>
 </para>
-</citetitle>
 {docbook}
 
 *1.* Go into the category to which you want to add a new forum.
@@ -316,7 +326,14 @@ When creating a forum, you can set moderation-related options.
 </informaltable>
 {docbook}
 
-h3. Delete a forum {anchor:id=Forum_Administrator.Manage_forums.Delete_forums}
+{docbook}
+<para xml:id="Forum_Administrator.Manage_forums.Delete_forums">
+	<citetitle>
+		<emphasis role="bold">Delete a forum</emphasis>
+	</citetitle>
+</para>
+{docbook}
+
 Only administrators can perform this action. When a forum is removed, all of its topics will then be deleted.
 
 *1.* Go into the forum you want to remove.
