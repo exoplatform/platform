@@ -1,9 +1,9 @@
-h1. Overview of eXo Social {anchor:id=Soc_User_Guide.Overview}
+h1. Overview of Social {anchor:id=Soc_User_Guide.Overview}
 
-h2. About eXo Social {anchor:id=Soc_User_Guide.About_Social}
+h2. About Social {anchor:id=Soc_User_Guide.About_Social}
 {include:document="AboutSocial.wiki"}
 
-h2. Get Started with eXo Social {anchor:id=Soc_User_Guide.Get_Started_With_eXoSocial}
+h2. Get Started with Social {anchor:id=Soc_User_Guide.Get_Started_With_eXoSocial}
 {include:document="Get_started.wiki"}
 
 h1. Work with Connections   {anchor:id=Soc_User_Guide.Work_With_Connections}
