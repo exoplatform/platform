@@ -226,8 +226,6 @@ Each portlet can be configured with a set of preferences, which will be further 
 
 It is also possible to apply a nested container that can also contain portlets. Row, column or tab containers are then responsible for the layout of their child portlets.
 
-Each application references a portlet using the id: _{{{portal#{portalName}:/{portletWarName}/{portletName}/{uniqueId}}}}_
-
 The <page-body> </page-body> tag is a placeholder for the different pages of your portal, it defines where Platform should render the current page. When the user opens a new portal page, all portlets of the portal layout (_portal.xml_) are remained, whereas the content of <page-body> switches to the page opened by the user.
 
 The defined "classic" portal is accessible to "Everyone" (at _/portal/classic_) but only members of the group _/platform/administrators_ can edit it.
