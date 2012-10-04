@@ -1460,8 +1460,6 @@ The function is used to import a message from your device to your selected folde
 
 h1. Categorize messages by folders/tags/filters {anchor:id="CSUser_guide.How_to_use_Mail.Categorize_messages_by_folders_tags_filtersRoleNotInToc"}
 
-
-
 h2. Categorize by folder {anchor:id="CSUser_guide.How_to_use_Mail.Categorize_messages_by_folders_tags_filters.Folder}
 
 {docbook}<para>Folders help you manage your messages more easily and flexibly. Once your new mail account is created successfully, five default folders, including <guilabel>Inbox, Drafts, Sent, Spam, Trash</guilabel>, will be automatically generated. You cannot delete, rename or move these folders.</para>
@@ -1520,11 +1518,15 @@ h2. Categorize by folder {anchor:id="CSUser_guide.How_to_use_Mail.Categorize_mes
           </informaltable>
 {docbook}
 
-Categorizing by folders can be performed via:
-* [Create a new folder|#Create_new_folder]
-* [Manage Personal Folders|#Manage_Personal_Folders]
+Categorizing by folders can be performed via the following actions:
 
-h3. Create a new folder {anchor:id="Create_new_folder"}
+{docbook}
+<para xml:id="Create_new_folder">
+	<citetitle>
+		<emphasis role="bold">Create a new folder</emphasis>
+	</citetitle>
+</para>
+{docbook}
 
 {docbook}
 <para>
@@ -1556,9 +1558,8 @@ h3. Create a new folder {anchor:id="Create_new_folder"}
 </note>
 {docbook}
 
-h3. Manage Personal Folders {anchor:id="Manage_Personal_Folders}
 {docbook}
-<para>Right-click any folder under the <guilabel>Personal Folders</guilabel> pane to show the drop-down menu. </para>
+<para xml:id="Manage_Personal_Folders">By right-clicking any folder under the <guilabel>Personal Folders</guilabel> pane, you will see the drop-down menu as follows. </para>
 {docbook}
 
 !images/personal-folder.png|align="center" width="40mm" fo:scalefit="1" html:scalefit="0"!
@@ -1651,14 +1652,13 @@ Tags are used as labels for filtering or categorizing messages from different fo
 
 You can categorize by tags through the following actions:
 
-* [Create a tag|#Create_tag]
-* [Assign a tag to a message|#Assign_tag]
-* [Edit a tag|#Edit_tag]
-* [Remove a tag|#Remove_tag]
-* [Empty a tag|#Empty_tag]
-* [Change the tag color|#Change_tag_color]
-
-h3. Create a tag {anchor:id="Create_tag"}
+{docbook}
+<para xml:id="Create_tag">
+	<citetitle>
+		<emphasis role="bold">Create a tag</emphasis>
+	</citetitle>
+</para>
+{docbook}
 
 {docbook}
 <para>
@@ -1717,7 +1717,13 @@ h3. Create a tag {anchor:id="Create_tag"}
 <para>Your newly selected tag will be updated in the <guilabel>Tags</guilabel> pane.</para>
 {docbook}
 
-h3. Assign a tag to a message {anchor:id="Assign_tag"}
+{docbook}
+<para xml:id="Assign_tag">
+	<citetitle>
+		<emphasis role="bold">Assign a tag to a message</emphasis>
+	</citetitle>
+</para>
+{docbook}
 
 {docbook}
 <note>
@@ -1774,12 +1780,11 @@ Or, tick the checkboxes corresponding to your desired tags from the tags list.
 {docbook}
 
 {docbook}
-<citetitle>
 <para xml:id="Untag_messages">
-<emphasis role="bold">Untag a message
-</emphasis>
+	<citetitle>
+		<emphasis role="bold">Untag a message</emphasis>
+	</citetitle>
 </para>
-</citetitle>
 {docbook}
 
 {docbook}
@@ -1800,7 +1805,13 @@ To remove one tag from all messages, simply use the <link linkend="Empty_tag">Em
 </note>
 {docbook}
 
-h3. Edit a tag {anchor:id="Edit_tag"}
+{docbook}
+<para xml:id="Edit_tag">
+	<citetitle>
+		<emphasis role="bold">Edit a tag</emphasis>
+	</citetitle>
+</para>
+{docbook}
 
 {docbook}
  <para>
@@ -1818,7 +1829,13 @@ h3. Edit a tag {anchor:id="Edit_tag"}
               <emphasis role="bold">2.</emphasis> Make changes on the tag, then click <guibutton>Save</guibutton> to save your changes.</para>
 {docbook}
 
-h3. Remove a tag {anchor:id="Remove_tag"}
+{docbook}
+<para xml:id="Remove_tag">
+	<citetitle>
+		<emphasis role="bold">Remove a tag</emphasis>
+	</citetitle>
+</para>
+{docbook}
 
 {docbook}
 <para>Right-click the tag that you want to remove in the <guilabel>Tags</guilabel> pane, then select <guilabel>Remove</guilabel> from the drop-down menu.</para>
@@ -1826,7 +1843,13 @@ h3. Remove a tag {anchor:id="Remove_tag"}
 
 The selected tag will be removed from the tags list and from all messages.
 
-h3. Empty a tag {anchor:id="Empty_tag"}
+{docbook}
+<para xml:id="Empty_tag">
+	<citetitle>
+		<emphasis role="bold">Empty a tag</emphasis>
+	</citetitle>
+</para>
+{docbook}
 
 By using this function, you can remove one tag from all messages.
 
@@ -1840,7 +1863,13 @@ By using this function, you can remove one tag from all messages.
               <emphasis role="bold">2.</emphasis> Select <guilabel>Empty</guilabel> from the drop-down menu.</para>
 {docbook}
 
-h3. Change the tag color {anchor:id="Change_tag_color"}
+{docbook}
+<para xml:id="Change_tag_color">
+	<citetitle>
+		<emphasis role="bold">Change the tag color</emphasis>
+	</citetitle>
+</para>
+{docbook}
 
 {docbook}
 <para>Right-click the tag in the <guilabel>Tags</guilabel> pane, then select your desired color from the 32-color palette.</para>
@@ -1879,21 +1908,12 @@ You can filter messages according to the following criteria:
 {docbook}
 You can categorize by filter through the following actions:
 
-* [Create a filter|#Create_filter]
-* [Edit a filter|#Edit_filter]
-* [Delete a filter|#Delete_filter]
-
-h3. Create a filter {anchor:id="Create_filter"}
-There are 2 ways to create a new filter:
-
 {docbook}
-<citetitle>
 <para xml:id="Create_new_filter">
-<emphasis role="bold">
-Create a new filter by defining all filter rules
-</emphasis>
+	<citetitle>
+		<emphasis role="bold">Create a new filter by defining all filter rules</emphasis>
+	</citetitle>
 </para>
-</citetitle>
 {docbook}
 
 By this way, you need to manually define conditions for the new message filter.
@@ -1992,11 +2012,11 @@ By this way, you need to manually define conditions for the new message filter.
 {docbook}
 
 {docbook}
-<citetitle>
 <para xml:id="Create_filter_from_message">
-<emphasis role="bold">Create a filter from a message</emphasis>
+	<citetitle>
+		<emphasis role="bold">Create a filter from a message</emphasis>
+	</citetitle>
 </para>
-</citetitle>
 {docbook}
 
 By this way, you could create a filter which is based on existing conditions of one existing message without defining the filter rules.
@@ -2018,7 +2038,13 @@ By this way, you could create a filter which is based on existing conditions of 
 
 The created filter will be displayed in the list. All messages matching the defined filter rules will be affected.
 
-h3. Edit a filter {anchor:id="Edit_filter"}
+{docbook}
+<para xml:id="Edit_filter">
+	<citetitle>
+		<emphasis role="bold">Edit a filter</emphasis>
+	</citetitle>
+</para>
+{docbook}
 
 {docbook}
 <para>
@@ -2053,7 +2079,13 @@ h3. Edit a filter {anchor:id="Edit_filter"}
    <emphasis role="bold">5.</emphasis> Click <guibutton>Save</guibutton> to complete your changes.</para>
 {docbook}
 
-h3. Delete a filter {anchor:id="Delete_filter"}
+{docbook}
+<para xml:id="Delete_filter">
+	<citetitle>
+		<emphasis role="bold">Delete a filter</emphasis>
+	</citetitle>
+</para>
+{docbook}
 
 {docbook}
 <para>

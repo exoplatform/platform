@@ -3,23 +3,20 @@ h1. Engagement gadgets {anchor:id=GadgetUserguide.AngagementGadgets}
 These gadgets analyze the existing communications and community engagement in your organization, then show what is going on by providing statistics.
 
 eXo Platform currently provides 4 types of *Engagement* gadget as follows:
-* [Latest Forum Posts|#GadgetUserguide.AngagementGadgets.LatestForumPosts]
-* [Top Voted Topics|#GadgetUserguide.AngagementGadgets.TopVotedTopics]
-* [Forum Statistics|#GadgetUserguide.AngagementGadgets.ForumStatistics]
-* [Friend Suggestions|#GadgetUserguide.EngagementGadgets.FriendSuggestions]
-h2. Latest Forum Posts  {anchor:id=GadgetUserguide.AngagementGadgets.LatestForumPosts}
+
+{docbook}
+<para xml:id="GadgetUserguide.AngagementGadgets.LatestForumPosts">
+	<citetitle>
+		<emphasis role="bold">Latest Forum</emphasis>
+	</citetitle>
+</para>
+{docbook}
 
 The *Latest Forum Posts* gadget shows the latest posts in Forum. You can decide the specified number of the latest posts to be shown. This gadget helps you always stay updated with what is going on in the forum.
 
 !images/Latest_forum_posts_gadget.png|align="center" width="70mm" fo:scalefit="1" html:scalefit="0"!
-{docbook}
-<citetitle>
-<para><emphasis role="bold">
-Latest Forum Posts settings
-</emphasis>
-</para>
-</citetitle>
-{docbook}
+
+* *Latest Forum Posts settings:*
 
 {docbook}
 <para>
@@ -45,7 +42,13 @@ Latest Forum Posts settings
 <emphasis role="bold">2.</emphasis> Input the values for all the fields, then click <guibutton>Save</guibutton> to accept your changes.</para>
 {docbook}
 
-h2. Top Voted Topics {anchor:id=GadgetUserguide.AngagementGadgets.TopVotedTopics}
+{docbook}
+<para xml:id="GadgetUserguide.AngagementGadgets.TopVotedTopics">
+	<citetitle>
+		<emphasis role="bold">Top Voted Topics</emphasis>
+	</citetitle>
+</para>
+{docbook}
 
 The *Top Voted Topics* gadget lists the highest rated topics in a forum. You can decide the maximum number of posts to be shown.
 
@@ -53,14 +56,8 @@ The *Top Voted Topics* gadget lists the highest rated topics in a forum. You can
 
 By clicking the post previewed-content, you will go to that post in the forum.
 
-{docbook}
-<citetitle>
-<para><emphasis role="bold">
-Top Voted Topics gadget settings
-</emphasis>
-</para>
-</citetitle>
-{docbook}
+
+* *Top Voted Topics gadget settings:*
 
 {docbook}
 <para>
@@ -83,7 +80,13 @@ Top Voted Topics gadget settings
 </para>
 {docbook}
 
-h2. Forum Statistics {anchor:id=GadgetUserguide.AngagementGadgets.ForumStatistics}
+{docbook}
+<para xml:id="GadgetUserguide.AngagementGadgets.ForumStatistics">
+	<citetitle>
+		<emphasis role="bold">Forum Statistics</emphasis>
+	</citetitle>
+</para>
+{docbook}
 
 The *Forum Statistics* gadget displays statistics about the forum's activity. This gadget is especially useful for administrators who always need global as well as detailed view about how the forum is going on.
 Based on these statistics, the administrators can find the solution to increase the forum activities.
@@ -92,30 +95,13 @@ The statistics include the total number of the topics, posts, members, active me
 
 You can switch between different views:
 
-{docbook}
-<citetitle>
-<para><emphasis role="bold">
-Global statistics view
-</emphasis>
-</para>
-</citetitle>
-{docbook}
-
-*Global statistics* is the default view.
+* *Global statistics view:* This is the default view.
 
 !images/Forums_statistics_gadget.png|align="center" width="70mm" fo:scalefit="1" html:scalefit="0"!
 
-{docbook}
-<citetitle>
-<para><emphasis role="bold">
-Weekly statistics view
-</emphasis>
-</para>
-</citetitle>
-{docbook}
-
-* Click !images/Calendar_weekly_stat_icon.png| scalefit="1" width="4mm"! to switch to the *Weekly statistics* view.
-* Click !images/Calendar_global_stat_icon.png|scalefit="1" width="4mm"! to back to the *Global statistics* view.
+* *Weekly statistics view:*
+** Click !images/Calendar_weekly_stat_icon.png| scalefit="1" width="4mm"! to switch to the *Weekly statistics* view.
+** Click !images/Calendar_global_stat_icon.png|scalefit="1" width="4mm"! to back to the *Global statistics* view.
 
 After switching to the *Weekly statistics* view, you can display the statistics in a list or a chart.
 
@@ -132,7 +118,13 @@ After switching to the *Weekly statistics* view, you can display the statistics 
 
 * Click !images/Calendar_weekly_list_icon.png|scalefit="1" width="4mm"! to go back to the *List* view.
 
-h2. Friend Suggestions  {anchor:id=GadgetUserguide.EngagementGadgets.FriendSuggestions}
+{docbook}
+<para xml:id="GadgetUserguide.EngagementGadgets.FriendSuggestions">
+	<citetitle>
+		<emphasis role="bold">Friend Suggestions</emphasis>
+	</citetitle>
+</para>
+{docbook}
 
 The *Friend Suggestions* gadget will suggest you to connect with people that have mutual friends with you.
 
@@ -146,14 +138,14 @@ h1. Management and Monitoring Gadgets {anchor:id=GadgetUserguide.ManagementMOnit
 The *Management and Monitoring* gadgets include gadgets designed for providing the overall vision of the system. These gadgets monitor the system and provide the current system performance statistics which are especially useful for the system administrators and developers.
 
 eXo Platform provides 7 types of *Management and Monitoring* gadget as follows:
-* [Memory Charts|#GadgetUserguide.ManagementMonitoringGadget.MemoryCharts]
-* [Cache Levels|#GadgetUserguide.ManagementMonitoringGadget.CacheLevels]
-* [Applications Statistics|#GadgetUserguide.ManagementMonitoringGadget.ApplicationStatistics]
-* [All Template Statistics|#GadgetUserguide.ManagementMonitoringGadget.AllTemplateStatistics]
-* [10 Slowest Templates|#GadgetUserguide.ManagementMonitoringGadget.10SlowestTemplates]
-* [Services Management|#GadgetUserguide.ManagementMonitoringGadget.ServiceManagement]
-* [eXo Scripting Console|#GadgetUserguide.ManagementMonitoringGadget.GroovyConsole]
-h2. Memory Charts {anchor:id=GadgetUserguide.ManagementMonitoringGadget.MemoryCharts}
+
+{docbook}
+<para xml:id="GadgetUserguide.ManagementMonitoringGadget.MemoryCharts">
+	<citetitle>
+		<emphasis role="bold">Memory Charts</emphasis>
+	</citetitle>
+</para>
+{docbook}
 
 The *Memory Charts* gadget provides the chart of memory used during runtime.
 
@@ -163,7 +155,13 @@ The chart shows:
 * The ratio between free and used heap memory.
 * The ratio between free and used non-heap memory.
 
-h2. Cache Levels  {anchor:id=GadgetUserguide.ManagementMonitoringGadget.CacheLevels}
+{docbook}
+<para xml:id="GadgetUserguide.ManagementMonitoringGadget.CacheLevels">
+	<citetitle>
+		<emphasis role="bold">Cache Levels</emphasis>
+	</citetitle>
+</para>
+{docbook}
 
 The *Cache Levels* gadget displays the eXo cache levels and settings. Based on these statistics, the administrators can configure the cache settings properly to get better performance:
 
@@ -208,7 +206,13 @@ In which:
 </itemizedlist>
 {docbook}
 
-h2. Applications Statistics {anchor:id=GadgetUserguide.ManagementMonitoringGadget.ApplicationStatistics}
+{docbook}
+<para xml:id="GadgetUserguide.ManagementMonitoringGadget.ApplicationStatistics">
+	<citetitle>
+		<emphasis role="bold">Applications Statistics</emphasis>
+	</citetitle>
+</para>
+{docbook}
 
 The *Application Statistics* gadget displays how fast applications are. It shows administrators and developers which applications should be optimized.
 
@@ -224,7 +228,13 @@ Each application is provided with these statistics:
 * The minimum execution time (min).
 * The maximum execution time (max).
 
-h2. All Template Statistics {anchor:id=GadgetUserguide.ManagementMonitoringGadget.AllTemplateStatistics}
+{docbook}
+<para xml:id="GadgetUserguide.ManagementMonitoringGadget.AllTemplateStatistics">
+	<citetitle>
+		<emphasis role="bold">All Template Statistics</emphasis>
+	</citetitle>
+</para>
+{docbook}
 
 The *All Template Statistics* gadget displays how fast templates are. It shows administrators and developers which templates should be optimized.
 
@@ -237,7 +247,13 @@ Each template is provided with these statistics:
 * The maximum execution time (max).
 * The average execution time (avg).
 
-h2. 10 Slowest Templates {anchor:id=GadgetUserguide.ManagementMonitoringGadget.10SlowestTemplates}
+{docbook}
+<para xml:id="GadgetUserguide.ManagementMonitoringGadget.10SlowestTemplates">
+	<citetitle>
+		<emphasis role="bold">10 Slowest Templatesstics</emphasis>
+	</citetitle>
+</para>
+{docbook}
 
 The *10 Slowest Templates* gadget displays the 10 slowest groovy templates and their speed statistics. It helps administrators and developers specify what templates are slowing down the system performance most.
 
@@ -250,7 +266,13 @@ Similar to the *All Template Statistics* gadget, each template is provided with 
 * The maximum execution time (max).
 * The average execution time (avg).
 
-h2. Services Management {anchor:id=GadgetUserguide.ManagementMonitoringGadget.ServiceManagement}
+{docbook}
+<para xml:id="GadgetUserguide.ManagementMonitoringGadget.ServiceManagement">
+	<citetitle>
+		<emphasis role="bold">Services Management</emphasis>
+	</citetitle>
+</para>
+{docbook}
 
 The *Services Management* gadget provides an easy access to REST management API.
 
@@ -259,15 +281,8 @@ The *Services Management* gadget provides an easy access to REST management API.
 * Select the service from the *Services* drop-down list. For each selected service, its respective methods and properties are shown.
 * Click !images/Service_management_help.png|scalefit="1" width="4mm"! to get the description of the selected service.
 
+* *Manage a remote service on another Platform settings:*
 
-{docbook}
-<citetitle>
-<para><emphasis role="bold">
-Manage a remote service on another Platform settings
-</emphasis>
-</para>
-</citetitle>
-{docbook}
 
 {docbook}
 <para>
@@ -285,10 +300,17 @@ The form to edit the gadget settings appears.
 
 !images/Service_management_settings.png|align="center" width="70mm" fo:scalefit="1" html:scalefit="0"!
 {docbook}
-<para>Enter the link to the service in the <guilabel>Services URL</guilabel> field, then click <guibutton>Save</guibutton> to accept your changes.</para>
+<para>2. Enter the link to the service in the <guilabel>Services URL</guilabel> field, then click <guibutton>Save</guibutton> to accept your changes.</para>
 {docbook}
 
-h2. eXo Scripting Console {anchor:id=GadgetUserguide.ManagementMonitoringGadget.GroovyConsole}
+{docbook}
+<para xml:id="GadgetUserguide.ManagementMonitoringGadget.GroovyConsole">
+	<citetitle>
+		<emphasis role="bold">eXo Scripting Console</emphasis>
+	</citetitle>
+</para>
+{docbook}
+
 The *eXo Scripting Console* gadget provides a Groovy console that developers can use to interact with the runtime. This gadget is useful when you want to experiment on code.
 It accepts eXo API and can access eXo components deployed in the portal container, so this can be used as a tool for drafting code, testing or exploring eXo API/components/data interactively on a live system.
 The eXo Scripting Console gadget is better viewed on the entire screen. You should configure an entire page or a Dashboard tab for it.
@@ -303,7 +325,15 @@ h1. Audit & Collab gadgets {anchor:id=GadgetUserguide.AuditGadgets.CollabGadgets
 eXo Platform currently provides:
 * One type of *Audit* gadget that is named [Login History|#GadgetUserguide.AuditGadgets.UserLoginHistory].
 * One type of *Collab* gadget that is named [eXo Calendar Gadget|#GadgetUserguide.CollabGadgets.Calendar_gadget].
-h2. Login History {anchor:id=GadgetUserguide.AuditGadgets.UserLoginHistory}
+
+{docbook}
+<para xml:id="GadgetUserguide.AuditGadgets.UserLoginHistory">
+	<citetitle>
+		<emphasis role="bold">Login History</emphasis>
+	</citetitle>
+</para>
+{docbook}
+
 Under the group of Audit gadgets, *Login History* records user login history and provides statistics.
 
 !images/Login_history_gadget.png|align="center" width="70mm" fo:scalefit="1" html:scalefit="0"!
@@ -330,7 +360,14 @@ Under the group of Audit gadgets, *Login History* records user login history and
 
 !images/Login_history_history.png|align="center" width="70mm" fo:scalefit="1" html:scalefit="0"!
 
-h2. eXo Calendar Gadget {anchor:id=GadgetUserguide.CollabGadgets.Calendar_gadget}
+{docbook}
+<para xml:id="GadgetUserguide.CollabGadgets.Calendar_gadget">
+	<citetitle>
+		<emphasis role="bold">eXo Calendar Gadget</emphasis>
+	</citetitle>
+</para>
+{docbook}
+
 Under the group of *Collab* gadgets which are designed for collaborative activities, the *eXo Calendar* gadget displays a mini calendar and allows you to quickly add an event.
 
 !images/eXo_Calendar_gadget.png|align="center" width="70mm" fo:scalefit="1" html:scalefit="0"!
@@ -339,14 +376,7 @@ Under the group of *Collab* gadgets which are designed for collaborative activit
 <para>There are three tabs in this gadget, including <guilabel>Appearance, Quick add,</guilabel> and <guilabel>Refresh</guilabel>.</para>
 {docbook}
 
-{docbook}
-<citetitle>
-<para><emphasis role="bold">
-Appearance
-</emphasis>
-</para>
-</citetitle>
-{docbook}
+* *Appearance:*
 
 !images/eXo_Calendar_gadget_appearance.png|align="center" width="70mm" fo:scalefit="1" html:scalefit="0"!
 
@@ -354,14 +384,7 @@ Appearance
 <para>If you have more than one personal calendar, you can select which calendar to display. Select the calendars from the list, then click <guibutton>save</guibutton>. Only the event in the calendar of your choice will be displayed. </para>
 {docbook}
 
-{docbook}
-<citetitle>
-<para><emphasis role="bold">
-Quick add
-</emphasis>
-</para>
-</citetitle>
-{docbook}
+* *Quick add:*
 
 {docbook}
 <para>You can add a new event to your personal calendar in this gadget by simply entering the date, time and description, then selecting <guibutton>add</guibutton>.</para>
