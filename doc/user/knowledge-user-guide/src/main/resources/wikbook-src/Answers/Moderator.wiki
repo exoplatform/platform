@@ -24,13 +24,6 @@ If you are already in a category that you moderate, you can perform all actions 
 
 !images/Category_menu.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
 
-Managing categories includes the following specific actions:
-* [Add a new category|#KSuser.Answer_Moderator.Add_categories]
-* [Edit category properties|#KSuser.Answer_Moderator.Edit_category]
-* [Delete a category|#KSuser.Answer_Moderator.Delete_categories]
-* [Move a category|#KSuser.Answer_Moderator.Move_categories]
-* [Export/Import a category|#KSuser.Answer_Moderator.Export&import_categories]
-
 {docbook}
 <para>
 <prompt>
@@ -219,14 +212,6 @@ After being imported, all categories and questions will be displayed in the *Ans
 
 h2. Moderate questions {anchor:id=KSuser.Answer_Moderator.Moderate_question}
 
-In this section, the following topics are covered:
-- [View all questions|#KSuser.Answer_Moderator.Moderate_question.View_all_questions]
-- [Edit a question|#Answer_Moderator.Moderate_question.Edit_questions]
-- [Approve/Disapprove a question|#Answer_Moderator.Moderate_question.Approve&disapprove_questions]
-- [Activate/Deactivate a question|#Answer_Moderator.Moderate_question.Activate&Deactivate_questions]
-- [Delete a question|#Answer_Moderator.Moderate_question.Delete_questions]
-- [Move a question|#Answer_Moderator.Moderate_question.Move_questions]
-
 h3. View all questions {anchor:id=KSuser.Answer_Moderator.Moderate_question.View_all_questions}
 
 Each question may be displayed in different ways, depending on the preset properties when it is created or edited.
@@ -402,16 +387,17 @@ h3. Move a question {anchor:id=Answer_Moderator.Moderate_question.Move_questions
 
 h2. Moderate an answer {anchor:id=KSuser.Answer_Moderator.Moderate_answers}
 
-In this section, the following topics are covered:
-
-* [Approve/Disapprove an answer|#KSuser.Answer_Moderator.Approve_answers]
-* [Activate/Deactivate an answer|#KSuser.Answer_Moderator.Activate_answers]
-* [Delete an answer|#KSuser.Answer_Moderator.Delete_answers]
-* [Promote a comment as answer|#KSuser.Answer_Moderator.Promote_comments]
-
+{note}
 On the top right of an answer, you will see icons that represent actions you can do on that answer.
+{note}
 
-h3. Approve/Disapprove an answer {anchor:id=KSuser.Answer_Moderator.Approve_answers}
+{docbook}
+<para xml:id="KSuser.Answer_Moderator.Approve_answers">
+	<citetitle>
+		<emphasis role="bold">Approve/Disapprove an answer</emphasis>
+	</citetitle>
+</para>
+{docbook}
 
 Click !images/Disapprove_Answer_icon.png|width="11" fo:scalefit="1" html:scalefit="0"! / !images/Approve_Answer_icon.png|width="10" fo:scalefit="1" html:scalefit="0"! on the top right of the answer content to approve/disapprove that answer.
 
@@ -423,8 +409,13 @@ Click !images/Disapprove_Answer_icon.png|width="11" fo:scalefit="1" html:scalefi
 </note>
 {docbook}
 
-
-h3. Activate/Deactivate an answer {anchor:id=KSuser.Answer_Moderator.Activate_answers}
+{docbook}
+<para xml:id="KSuser.Answer_Moderator.Activate_answers">
+	<citetitle>
+		<emphasis role="bold">Activate/Deactivate an answer</emphasis>
+	</citetitle>
+</para>
+{docbook}
 
 Click !images/Deactive_answer_icon.png|width="11" fo:scalefit="1" html:scalefit="0"! / !images/Active_answer_icon.png|width="10" fo:scalefit="1" html:scalefit="0"! on the top right of the answer content to activate/deactivate that answer.
 
@@ -437,8 +428,14 @@ Click !images/Deactive_answer_icon.png|width="11" fo:scalefit="1" html:scalefit=
 </note>
 {docbook}
 
+{docbook}
+<para xml:id="KSuser.Answer_Moderator.Delete_answers">
+	<citetitle>
+		<emphasis role="bold">Delete an answer</emphasis>
+	</citetitle>
+</para>
+{docbook}
 
-h3. Delete an answer {anchor:id=KSuser.Answer_Moderator.Delete_answers}
 {docbook}
  <para>To delete an answer, click <inlinemediaobject>
                 <imageobject role="fo">
@@ -449,11 +446,6 @@ h3. Delete an answer {anchor:id=KSuser.Answer_Moderator.Delete_answers}
                 </imageobject>
               </inlinemediaobject> on the top right of the answer content, then click <guibutton>OK</guibutton> in the confirmation message.</para>
 {docbook}
-h3. Promote a comment as answer {anchor:id=KSuser.Answer_Moderator.Promote_comments}
-
-This function enables users to log in and give comments on specific questions.
-
-If the comment is considered as the best answer for the question, it can be promoted to the answer.
 
 {docbook}
 <citetitle>
@@ -462,6 +454,8 @@ If the comment is considered as the best answer for the question, it can be prom
 </para>
 </citetitle>
 {docbook}
+
+This function enables users to log in and give comments on specific questions.
 
 *1.* Follow one of the following two ways:
 
@@ -488,7 +482,8 @@ Promote a comment as answer
 </para>
 {docbook}
 
-Simply click !images/promote_answer_icon.png|width="4mm" fo:scalefit="1" html:scalefit="0"! on the top right of the comments panel.
+
+If the comment is considered as the best answer for the question, it can be promoted to the answer. To do this, simply click !images/promote_answer_icon.png|width="4mm" fo:scalefit="1" html:scalefit="0"! on the top right of the comments panel.
 
 {docbook}
 <note>
