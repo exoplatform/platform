@@ -191,6 +191,12 @@
     </dependency>
     <dependency>
       <groupId>org.exoplatform.ecms</groupId>
+      <artifactId>exo-ecms-upgrade-drive-data</artifactId>
+      <version>${org.exoplatform.ecms.version}</version>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.exoplatform.ecms</groupId>
       <artifactId>workflow.packaging.module</artifactId>
       <version>${org.exoplatform.ecms.version}</version>
       <scope>provided</scope>
