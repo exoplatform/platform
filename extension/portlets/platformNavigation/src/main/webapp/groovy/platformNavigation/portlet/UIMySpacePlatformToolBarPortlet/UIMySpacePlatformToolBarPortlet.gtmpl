@@ -186,7 +186,7 @@
       	if (navigation.getKey().getName().indexOf("spaces") <0 || mySpacesDisplayed == -1){  
       		break;
       	}
-      	if(mySpacesDisplayed < uicomponent.MY_SPACES_MAX_NUMBER){
+      	if(mySpacesDisplayed < uicomponent.getMySpacesMaxNumber()){
       		mySpacesDisplayed += 1;
       		renderGroupPageNavigation(navigation);
       	}else{
