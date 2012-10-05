@@ -8,15 +8,6 @@ package org.exoplatform.platform.component;
  * To change this template use File | Settings | File Templates.
  */
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.Iterator;
-import java.util.LinkedList;
-import java.util.List;
-
 import org.exoplatform.commons.utils.ListAccess;
 import org.exoplatform.platform.common.space.statistic.SpaceAccessService;
 import org.exoplatform.portal.config.UserACL;
@@ -34,6 +25,7 @@ import org.exoplatform.services.log.Log;
 import org.exoplatform.services.organization.Membership;
 import org.exoplatform.services.organization.OrganizationService;
 import org.exoplatform.social.core.space.SpaceException;
+import org.exoplatform.social.core.space.SpaceUtils;
 import org.exoplatform.social.core.space.model.Space;
 import org.exoplatform.social.core.space.spi.SpaceService;
 import org.exoplatform.webui.application.WebuiRequestContext;
@@ -44,12 +36,16 @@ import org.exoplatform.webui.core.lifecycle.UIApplicationLifecycle;
 import org.exoplatform.webui.event.Event;
 import org.exoplatform.webui.event.EventListener;
 
+import java.util.*;
+
+
 @ComponentConfig(lifecycle = UIApplicationLifecycle.class, template = "app:/groovy/platformNavigation/portlet/UIMySpacePlatformToolBarPortlet/UIMySpacePlatformToolBarPortlet.gtmpl", events = { @EventConfig(listeners = UIMySpacePlatformToolBarPortlet.NavigationChangeActionListener.class) })
 public class UIMySpacePlatformToolBarPortlet extends UIPortletApplication {
 
   private static final Log LOG = ExoLogger.getLogger(UIMySpacePlatformToolBarPortlet.class);
   
   private static final String SPACE_SETTINGS = "settings";
+  private static final int MY_SPACES_MAX_NUMBER = 10;
 
   private SpaceService spaceService = null;
   private OrganizationService organizationService = null;
@@ -107,29 +103,13 @@ public class UIMySpacePlatformToolBarPortlet extends UIPortletApplication {
     if (spaceService != null) {
       String remoteUser = getUserId();
       UserPortal userPortal = getUserPortal();
-      List<UserNavigation> allNavigations = userPortal.getNavigations();
-      computedNavigations = new ArrayList<UserNavigation>(allNavigations);
+      computedNavigations = new ArrayList<UserNavigation>();
+
       ListAccess<Space> spacesListAccess = spaceService.getAccessibleSpacesWithListAccess(remoteUser);
-      List<Space> spaces = Arrays.asList(spacesListAccess.load(0, spacesListAccess.getSize()));
-      Iterator<UserNavigation> navigationItr = computedNavigations.iterator();
-      String ownerId;
-      String[] navigationParts;
-      Space space;
-      while (navigationItr.hasNext()) {
-        ownerId = navigationItr.next().getKey().getName();
-        if (ownerId.startsWith("/spaces/")) {
-          navigationParts = ownerId.split("/");
-          if (navigationParts.length < 3) {
-            continue;
-          }
-          space = spaceService.getSpaceByUrl(navigationParts[2]);
-          if (space == null)
-            navigationItr.remove();
-          if (!navigationParts[1].equals("spaces") && !spaces.contains(space))
-            navigationItr.remove();
-        } else { // not spaces navigation
-          navigationItr.remove();
-        }
+      List<Space> spaces = Arrays.asList(spacesListAccess.load(0, MY_SPACES_MAX_NUMBER));
+
+      for(Space space: spaces ){
+        computedNavigations.add(SpaceUtils.getGroupNavigation(space.getGroupId()));
       }
       if (spacesSortedByAccesscount != null && !spacesSortedByAccesscount.isEmpty()) {
         Collections.sort(computedNavigations, spaceAccessComparator);
@@ -246,6 +226,10 @@ public class UIMySpacePlatformToolBarPortlet extends UIPortletApplication {
 
   public boolean hasPermission() throws Exception {
     return groupNavigationPermitted;
+  }
+
+  public int getMySpacesMaxNumber(){
+    return MY_SPACES_MAX_NUMBER;
   }
 
   public static class NavigationChangeActionListener extends EventListener<UIMySpacePlatformToolBarPortlet> {
