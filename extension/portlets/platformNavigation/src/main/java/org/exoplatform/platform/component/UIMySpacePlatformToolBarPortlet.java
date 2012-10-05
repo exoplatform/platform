@@ -45,7 +45,7 @@ public class UIMySpacePlatformToolBarPortlet extends UIPortletApplication {
   private static final Log LOG = ExoLogger.getLogger(UIMySpacePlatformToolBarPortlet.class);
   
   private static final String SPACE_SETTINGS = "settings";
-  public static final int MY_SPACES_MAX_NUMBER = 10;
+  private static final int MY_SPACES_MAX_NUMBER = 10;
 
   private SpaceService spaceService = null;
   private OrganizationService organizationService = null;
@@ -106,7 +106,7 @@ public class UIMySpacePlatformToolBarPortlet extends UIPortletApplication {
       computedNavigations = new ArrayList<UserNavigation>();
 
       ListAccess<Space> spacesListAccess = spaceService.getAccessibleSpacesWithListAccess(remoteUser);
-      List<Space> spaces = Arrays.asList(spacesListAccess.load(0, MY_SPACES_MAX_NUMBER > spacesListAccess.getSize() ? spacesListAccess.getSize() : MY_SPACES_MAX_NUMBER + 1 ));
+      List<Space> spaces = Arrays.asList(spacesListAccess.load(0, MY_SPACES_MAX_NUMBER));
 
       for(Space space: spaces ){
         computedNavigations.add(SpaceUtils.getGroupNavigation(space.getGroupId()));
@@ -222,6 +222,10 @@ public class UIMySpacePlatformToolBarPortlet extends UIPortletApplication {
 
   public boolean hasPermission() throws Exception {
     return groupNavigationPermitted;
+  }
+
+  public int getMySpacesMaxNumber(){
+    return MY_SPACES_MAX_NUMBER;
   }
 
   public static class NavigationChangeActionListener extends EventListener<UIMySpacePlatformToolBarPortlet> {
