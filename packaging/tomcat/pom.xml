@@ -1503,6 +1503,12 @@
           <scope>provided</scope>
       </dependency>
       <dependency>
+          <groupId>org.xwiki.rendering</groupId>
+          <artifactId>xwiki-rendering-macro-jira</artifactId>
+          <version>${org.xwiki.rendering.version}</version>
+          <scope>provided</scope>
+      </dependency>
+      <dependency>
           <groupId>org.xwiki.platform</groupId>
           <artifactId>xwiki-platform-wysiwyg-client</artifactId>
           <version>${org.xwiki.platform.version}</version>
