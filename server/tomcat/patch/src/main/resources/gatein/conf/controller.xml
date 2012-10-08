@@ -118,7 +118,7 @@
         <value>user</value>
       </route-param>
       <path-param qname="gtn:path" encoding="preserve-path">
-        <pattern>.+?</pattern>
+        <pattern>.+?|</pattern>
       </path-param>
       <path-param qname="gtn:wid" capture-group="true">
         <pattern>wid_(p_.+)|</pattern>
