@@ -905,7 +905,12 @@ If you want to switch between different implementations, you just need to uncomm
 
 h1. Email {anchor:id=DEV.SystemIntegration.Email}
 
-The email service can use any SMTP account configured in _$JBOSS\_HOME/server/default/conf/gatein/configuration.properties_ or _$TOMCAT\_HOME/gatein/conf/configuration.properties_ if you are using Tomcat.
+The email service can use any SMTP account configured in the _configuration.properties_ file.
+
+*File location*
+
+|| File || Tomcat || JBoss ||
+| _*configuration.properties*_ | _$PLATFOORM\_TOMCAT\_HOME/gatein/conf/configuration.properties_ | _$PLATFORM\_JBOSS\_HOME/server/default/conf/gatein/configuration.properties_ |
 
 The relevant section looks like:
 
