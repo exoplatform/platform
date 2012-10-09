@@ -6,26 +6,27 @@ h1. Configuration {anchor:id=ADM.Configuration}
 
 {include:document=configuration.wiki|syntax=confluence/1.0}
 
+h1. Deployment {anchor:id=ADM.Deployment}
+
+{include:document=deployment.wiki|syntax=confluence/1.0}
+
 h1. Management {anchor:id=ADM.Management}
 
 {include:document=management.wiki|syntax=confluence/1.0}
-
-h1. Security {anchor:id=ADM.Security}
-
-{include:document=security.wiki|syntax=confluence/1.0}
-
-h1. Backup and Restore {anchor:id=ADM.Backup}
-
-{include:document=backup.wiki|syntax=confluence/1.0}
 
 h1. Clustering {anchor:id=ADM.Clustering}
 
 {include:document=clustering.wiki|syntax=confluence/1.0}
 
-h1. Deployment {anchor:id=ADM.Deployment}
-
-{include:document=deployment.wiki|syntax=confluence/1.0}
-
 h1. Organization Integration {anchor:id=ADM.Integration}
 
 {include:document=integration.wiki|syntax=confluence/1.0}
+
+h1. Backup and Restore {anchor:id=ADM.Backup}
+
+{include:document=backup.wiki|syntax=confluence/1.0}
+
+h1. Security {anchor:id=ADM.Security}
+
+{include:document=security.wiki|syntax=confluence/1.0}
+
