@@ -118,6 +118,7 @@
                       <artifactId>wiki-docs-refguide </artifactId>
                       <version>${org.exoplatform.wiki.version}</version>
                       <type>zip</type>
+                      <classifier>html</classifier>
                       <outputDirectory>${docbook.source}</outputDirectory>
                       <includes>**</includes>
                     </artifactItem>

@@ -281,7 +281,7 @@
               <replace file="${docbook.source}/index.xml">
                   <replacetoken><![CDATA[<title>Manage accounts</title>]]></replacetoken>
 		  <replacevalue><![CDATA[<title>Manage accounts</title>
-<xi:include href="gatein/modules/account/Introduction_Account.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+<xi:include href="modules/Introduction_Account.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
 <xi:include href="gatein/modules/account/Register_New_Accounts.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
 <xi:include href="gatein/modules/account/Sign_in_and_Sign_out.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
 <xi:include href="gatein/modules/account/Change_Account_Settings.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
@@ -413,7 +413,7 @@
 	<replace file="${docbook.source}/index.xml">
                   <replacetoken><![CDATA[<title>Manage applications</title>]]></replacetoken>
 		  <replacevalue><![CDATA[<title>Manage applications</title>
-<xi:include href="gatein/modules/gadgetsAdmin/Introduction_Manage_applications.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+<xi:include href="modules/Introduction_Manage_applications.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
 ]]></replacevalue>
 		  </replace>
 		  
