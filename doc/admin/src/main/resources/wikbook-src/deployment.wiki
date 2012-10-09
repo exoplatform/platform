@@ -61,6 +61,7 @@ Both Acme website and Acme Social Intranet are sample extensions demonstrating t
 *1.* Stop the server using the _shutdown.sh_ command.
 
 *2.* Delete the following relevant files:
+
 *Tomcat*
 * For the Acme website: _webapps/acme-website.war_, _lib/exo.platform.sample.acme-website.config.jar_, _Tomcat/conf/Catalina/localhost/acme-website.xml_ and _gatein/data_.
 * For the Acme Social Intranet: _webapps/acme-intranet.war_, _lib/exo.platform.sample.acme-intranet.config.jar_, _Tomcat/conf/Catalina/localhost/acme-intranet.xml_ and _gatein/data_.
