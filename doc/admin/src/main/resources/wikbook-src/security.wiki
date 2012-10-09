@@ -128,6 +128,7 @@ To learn more about the JBoss security configuration, refer to [JBoss Web Docs|h
 Finally, you need to do some common changes on both app servers as follows:
 
 *configuration.properties* {anchor:id="ADM.Security.Configuration.properties"}
+
 First, change the JAAS realm to match your own security constraints and then identify the entry named _exo.security.domain_ inside the _configuration.properties_ file.
 
 {code}
