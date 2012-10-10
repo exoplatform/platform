@@ -17,6 +17,12 @@
 <profiles>
   <profile>
   <id>distrib</id>
+  <activation>
+    <property>
+      <name>env</name>
+      <value>release.candidate</value>
+    </property>
+  </activation>  
   <dependencies>
 <!-- lead capture filter -->
     <dependency>
