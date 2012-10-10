@@ -1860,6 +1860,12 @@
  -->
     <profile>
       <id>distrib</id>
+      <activation>
+        <property>
+          <name>env</name>
+          <value>release.candidate</value>
+        </property>
+      </activation>      
       <build>
         <plugins>
           <!-- create zip archives -->
