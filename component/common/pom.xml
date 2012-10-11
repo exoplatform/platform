@@ -37,7 +37,7 @@
       <dependency>
           <groupId>org.exoplatform.commons</groupId>
           <artifactId>commons-component-common</artifactId>
-          <version>${org.exoplatform.ecms.version}</version>
+          <version>${org.exoplatform.commons.version}</version>
           <scope>provided</scope>
       </dependency>
     <dependency>
