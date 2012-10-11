@@ -2,12 +2,16 @@ package org.exoplatform.platform.common.admin;
 
 import java.io.IOException;
 
+
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.exoplatform.container.PortalContainer;
+import java.net.URI;
+import java.net.URISyntaxException;
+
 import org.exoplatform.services.log.ExoLogger;
 import org.exoplatform.services.log.Log;
 
@@ -37,6 +41,8 @@ public class TermsAndConditionsActionServlet extends HttpServlet {
 
     // Get usefull parameters
     String initialURI = request.getParameter(TermsAndConditionsViewServlet.INITIAL_URI_PARAM);
+    String defaultURI = PortalContainer.getCurrentPortalContainerName();
+    defaultURI = "/"+ defaultURI; 
     Boolean checkTc = false;
     try {
       checkTc = Boolean.valueOf(request.getParameter(PARAM_CHECKTC));
@@ -46,9 +52,24 @@ public class TermsAndConditionsActionServlet extends HttpServlet {
     }
     
     if(initialURI == null || initialURI.length() == 0) {
-      initialURI = request.getContextPath();
+      initialURI = defaultURI;
     }
-    
+
+    try
+    {
+      URI uri = new URI(initialURI);
+      if (uri.isAbsolute() && !(uri.getHost().equals(request.getServerName())))
+      {
+         logger.warn("Cannot redirect to an URI outside of the current host. Redirecting to default context.");
+         initialURI = defaultURI;
+      }
+    }
+    catch  (URISyntaxException e)
+    {
+      logger.warn("Initial URI in link is malformed. Redirecting to default context.");
+      initialURI = defaultURI;
+    }
+
     // Check tc with service
     if(checkTc) {
       getTermsAndConditionsService().checkTermsAndConditions();
