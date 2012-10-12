@@ -33,9 +33,8 @@
 	boolean userCouldEditPortal = uicomponent.hasEditPermissionOnPortal();
 	
 %>
-	
-<div id="<%=uicomponent.getId()%>">
-<ul class="UIAdminToolbarPortlet UIHorizontalTabs" id="<%=uicomponent.getId()%>_UL">
+
+<ul class="UIAdminToolbarPortlet UIHorizontalTabs" id="$uicomponent.id">
 	<li class="UITab NormalToolbarTab">
 		<a class="EditorIcon TBIcon" href="#">$editorLabel</a>
 		<ul class="MenuItemContainer" style="display:none;">
@@ -95,5 +94,4 @@
 		</ul>
 	</li>
 </ul>
-	<%uicomponent.renderChildren();%>
-</div>
+<%uicomponent.renderChildren();%>
