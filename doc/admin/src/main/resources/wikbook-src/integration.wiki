@@ -119,7 +119,7 @@ There are 2 typical ways to achieve this:
 <import>war:/conf/platform/organization-integration-configuration.xml</import>
 {code}
 
-*Files location*
+*Files location* {anchor:id="configuration_file_location"}
 
 || File || Tomcat || JBoss ||
 | _*configuration.xml*_| _$PLATFORM\_TOMCAT\_HOME/gatein/conf/portal/portal/configuration.xml_ | _$PLATFORM\_JBOSS\_HOME/server/default/conf/gatein/portal/portal/configuration.xml_ |
@@ -288,6 +288,42 @@ The name of the MBean is: exo:portal="portal",service=extensions,name=Organizati
 
 !images/integration/jmx_console.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
 
+h2. Upgrade User JCR data {anchor:id=ADM.Integration.How_to_upgrade_user_jcr_dataRoleNotInToc}
+In eXo Platform 3.5.4, a performance improvement for the synchronization of large user databases has been introduced. This requires a change on the data structure that stores the synchronization status. A new upgrade plugin named _UpgradeOrganizationIntegrationDataPlugin_ has been provided to upgrade the JCR data structure from the old hierarchy (under the _OrganizationIntegrationService_ node) to the new one (under the _integration\_data_ node).
+
+As the Organization Integration Service is not activated out-of-the-box, the corresponding upgrade plugin will be also deactivated out-of-the-box. In order to activate this plugin, you can typically follow one of two following ways:
+
+* *The first way:* Add directly the configuration below to the _[configuration.xml|#configuration_file_location]_ file:
+
+{code:xml}
+<external-component-plugins>
+	<target-component>org.exoplatform.commons.upgrade.UpgradeProductService</target-component>
+	<component-plugin>
+		<name>Upgrade-OrganizationItegration</name>
+		<set-method>addUpgradePlugin</set-method>
+		<type>org.exoplatform.platform.upgrade.plugins.UpgradeOrganizationIntegrationDataPlugin</type>
+		<description>OrganizationItegration Data Upgrade Plugin</description>
+		<init-params>
+			<value-param>
+				<name>product.group.id</name>
+				<description>The groupId of the product</description>
+				<value>org.exoplatform.platform</value>
+			</value-param>
+			<value-param>
+				<name>plugin.execution.order</name>
+				<description>The plugin execution order</description>
+				<value>2</value>
+			</value-param>
+		</init-params>
+	</component-plugin>
+</external-component-plugins>
+{code}
+
+* *The second way:* Add the configuration above to the _WEB-INF/conf/configuration.xml_ file through a custom extension in both of eXo Platform Tomcat and Jboss.
+
+{note}
+It is mandatory to activate the _UpgradeOrganizationIntegrationDataPlugin_ while upgrading from eXo Platform 3.5.3 or previous version to eXo Platform 3.5.4 or later version on a system that is connected to an LDAP user directory.
+{note}
 
 h1. Use Legacy Organization Models {anchor:id=ADM.Integration.Use_Legacy_Organization_Models}
 
