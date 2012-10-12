@@ -19,7 +19,8 @@
     02110-1301 USA, or see the FSF site: http://www.fsf.org.
 
 -->
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <parent>
     <groupId>org.exoplatform.platform</groupId>
@@ -28,26 +29,25 @@
   </parent>
   <artifactId>exo.platform.doc.refguide</artifactId>
   <packaging>pom</packaging>
-  <name>eXo Platform - Developers Reference</name>
-  <properties>
-    <org.exoplatform.doc-style.version>1</org.exoplatform.doc-style.version>
-    <docbook.source>${project.build.directory}/docbook-src</docbook.source>
-    <jcr.source>${project.build.directory}/docbook-src/org.exoplatform.jcr</jcr.source>
-  </properties>
+  <name>eXo Platform - Reference Guides</name>
+
   <profiles>
     <profile>
       <id>distrib</id>
+      <properties>
+        <docbook.source>${project.build.directory}/docbook-src</docbook.source>
+        <jcr.source>${project.build.directory}/docbook-src/org.exoplatform.jcr</jcr.source>
+      </properties>
       <build>
         <plugins>
-    <!--
-    1/
-     - download the ref guides of other products
-     - unpack them in /target
-    -->
           <plugin>
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-dependency-plugin</artifactId>
+            <version>${maven-dependency-plugin.version}</version>
             <executions>
+              <!--
+				1) Download the Ref guides of products and unpack them in target
+			  -->
               <execution>
                 <id>a-unpack</id>
                 <phase>generate-sources</phase>
@@ -56,110 +56,88 @@
                 </goals>
                 <configuration>
                   <artifactItems>
-                    <!-- jcr -->
+                    <!-- JCR -->
                     <artifactItem>
-                          <groupId>org.exoplatform.jcr</groupId>
-                          <artifactId>reference-docs-en</artifactId>
-                          <version>${org.exoplatform.jcr.version}</version>
-                          <type>jar</type>
-                          <classifier>sources</classifier>
-                          <outputDirectory>${docbook.source}/org.exoplatform.jcr</outputDirectory>
-                          <includes>**</includes>
-                        </artifactItem>
-                    <!-- gatein -->
+                      <groupId>org.exoplatform.jcr</groupId>
+                      <artifactId>reference-docs-en</artifactId>
+                      <version>${org.exoplatform.jcr.version}</version>
+                      <type>jar</type>
+                      <classifier>sources</classifier>
+                      <outputDirectory>${docbook.source}/org.exoplatform.jcr</outputDirectory>
+                      <includes>**</includes>
+                    </artifactItem>
+                    <!-- GateIn -->
                     <artifactItem>
-                          <groupId>org.gatein.doc</groupId>
-                          <artifactId>gatein-reference-guide-en</artifactId>
-                          <version>${org.exoplatform.portal.version}</version>
-                          <type>jar</type>
-                          <classifier>sources</classifier>
-                          <outputDirectory>${docbook.source}/org.gatein.doc</outputDirectory>
-                          <includes>**</includes>
-                        </artifactItem>
-                    <!-- ecms -->
+                      <groupId>org.gatein.doc</groupId>
+                      <artifactId>gatein-reference-guide-en</artifactId>
+                      <version>${org.exoplatform.portal.version}</version>
+                      <classifier>sources</classifier>
+                      <type>zip</type>
+                      <outputDirectory>${docbook.source}</outputDirectory>
+                      <includes>**</includes>
+                    </artifactItem>
+                    <!-- Content -->
                     <artifactItem>
                       <groupId>org.exoplatform.ecms</groupId>
                       <artifactId>exo-ecms-docs-refguide</artifactId>
                       <version>${org.exoplatform.ecms.version}</version>
+                      <classifier>html-docs</classifier>
                       <type>zip</type>
                       <outputDirectory>${docbook.source}</outputDirectory>
                       <includes>**</includes>
                     </artifactItem>
-                    <!-- ecms cmis admin -->
-                    <artifactItem>
-                      <groupId>org.exoplatform.ecms</groupId>
-                      <artifactId>exo-ecms-ext-xcmis-admin-guide</artifactId>
-                      <version>${org.exoplatform.ecms.version}</version>
-                      <type>zip</type>
-                      <outputDirectory>${docbook.source}</outputDirectory>
-                      <includes>**</includes>
-                    </artifactItem>
-                    <!-- ecms cmis developer -->
-                    <artifactItem>
-                      <groupId>org.exoplatform.ecms</groupId>
-                      <artifactId>exo-ecms-ext-xcmis-developer-guide</artifactId>
-                      <version>${org.exoplatform.ecms.version}</version>
-                      <type>zip</type>
-                      <outputDirectory>${docbook.source}</outputDirectory>
-                      <includes>**</includes>
-                    </artifactItem>
-                    <!-- cs -->
+
+                    <!-- Collaboration -->
                     <artifactItem>
                       <groupId>org.exoplatform.cs</groupId>
                       <artifactId>exo.cs.docs.refguide</artifactId>
                       <version>${org.exoplatform.cs.version}</version>
+                      <classifier>html-zip</classifier>
                       <type>zip</type>
                       <outputDirectory>${docbook.source}</outputDirectory>
                       <includes>**</includes>
                     </artifactItem>
-                    <!-- ks -->
+                    <!-- Knowledge -->
                     <artifactItem>
                       <groupId>org.exoplatform.ks</groupId>
                       <artifactId>exo.ks.docs.refguide</artifactId>
                       <version>${org.exoplatform.ks.version}</version>
+                      <classifier>html-zip</classifier>
                       <type>zip</type>
                       <outputDirectory>${docbook.source}</outputDirectory>
                       <includes>**</includes>
                     </artifactItem>
-                    <!-- social -->
+                    <!-- Social -->
                     <artifactItem>
                       <groupId>org.exoplatform.social</groupId>
                       <artifactId>exo.social.docs.refguide</artifactId>
                       <version>${org.exoplatform.social.version}</version>
                       <classifier>html-zip</classifier>
-		      <type>zip</type>
+                      <type>zip</type>
                       <outputDirectory>${docbook.source}</outputDirectory>
                       <includes>**</includes>
                     </artifactItem>
-                    <!-- wikbook and common style -->
+                    <!-- Common style -->
                     <artifactItem>
-                      <groupId>org.wikbook</groupId>
-                      <artifactId>wikbook.docbkxstyle</artifactId>
-                      <version>${version.wikbook.plugin}</version>
+                      <groupId>org.exoplatform.doc</groupId>
+                      <artifactId>doc-style</artifactId>
+                      <version>${doc-style.version}</version>
                       <outputDirectory>${docbook.source}</outputDirectory>
                       <includes>**</includes>
                       <excludes>META-INF/**</excludes>
                     </artifactItem>
-             	    <artifactItem>
-                       <groupId>org.exoplatform.doc</groupId>
-                       <artifactId>doc-style</artifactId>
-                       <version>${doc-style.version}</version>
-                       <outputDirectory>${docbook.source}</outputDirectory>
-                       <includes>**</includes>
-                       <excludes>META-INF/**</excludes>
-            	    </artifactItem>
                   </artifactItems>
                 </configuration>
               </execution>
             </executions>
           </plugin>
-    <!--
-    2/
-     - move the xml, xsl, css and images from src/main/ to target/plf/
-    -->
+          <!--
+          2) Copy resources (images, background, docbook-src) to target
+          -->
           <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-resources-plugin</artifactId>
-            <version>2.4.3</version>
+            <version>${maven-resources-plugin.version}</version>
             <executions>
               <execution>
                 <id>b-copy-resources</id>
@@ -173,7 +151,7 @@
                     <resource>
                       <directory>src/main/resources</directory>
                       <excludes>
-                       <exclude>background/**</exclude>
+                        <exclude>background/**</exclude>
                       </excludes>
                     </resource>
                   </resources>
@@ -188,9 +166,6 @@
                 <configuration>
                   <outputDirectory>${docbook.source}/images</outputDirectory>
                   <resources>
-                    <resource>
-                      <directory>${docbook.source}/org.exoplatform.xcmis.admin/images</directory>
-                    </resource>
                     <resource>
                       <directory>${docbook.source}/org.exoplatform.social/images</directory>
                     </resource>
@@ -224,7 +199,7 @@
                     <resource>
                       <directory>src/main/resources</directory>
                       <excludes>
-                       <exclude>docbook-src/**</exclude>
+                        <exclude>docbook-src/**</exclude>
                       </excludes>
                     </resource>
                   </resources>
@@ -232,15 +207,13 @@
               </execution>
             </executions>
           </plugin>
-    <!--
-    3/
-     - process all the xml files (plf + other products) from target/
-     - in the end, generate the html
-    -->
+          <!--
+          3) Process all the XML files to generate HTML and PDF formats
+          -->
           <plugin>
             <groupId>org.jboss.maven.plugins</groupId>
             <artifactId>maven-jdocbook-plugin</artifactId>
-            <version>2.1.1</version>
+            <version>${maven-jdocbook-plugin.version}</version>
             <executions>
               <execution>
                 <id>f-jdocbook-resources</id>
@@ -280,15 +253,15 @@
                   <finalName>index.html</finalName>
                 </format>
                 <format>
-                 <formatName>pdf</formatName>
-                 <stylesheetResource>file:${docbook.source}/xsl/pdf.xsl</stylesheetResource>
-                 <finalName>${project.artifactId}-${project.version}.pdf</finalName>
-               </format>
+                  <formatName>pdf</formatName>
+                  <stylesheetResource>file:${docbook.source}/xsl/pdf.xsl</stylesheetResource>
+                  <finalName>${project.artifactId}-${project.version}.pdf</finalName>
+                </format>
               </formats>
               <options>
                 <xincludeSupported>true</xincludeSupported>
                 <xmlTransformerType>saxon</xmlTransformerType>
-                <docbookVersion>1.76.1</docbookVersion>
+                <docbookVersion>${docbook.version}</docbookVersion>
               </options>
             </configuration>
             <extensions>true</extensions>
@@ -296,24 +269,18 @@
               <dependency>
                 <groupId>org.exoplatform.doc</groupId>
                 <artifactId>exo-docbook-xslt</artifactId>
-                <version>${org.exoplatform.doc-style.version}</version>
-              </dependency>
-              <dependency>
-                <groupId>org.exoplatform.doc</groupId>
-                <artifactId>exo-jdocbook-style</artifactId>
-                <version>${org.exoplatform.doc-style.version}</version>
-                <type>jdocbook-style</type>
+                <version>${docbook-xslt.version}</version>
               </dependency>
             </dependencies>
           </plugin>
-          
-          <!-- Attach the HTML zip -->
+
+          <!-- 4) Assemble and attach the final artifacts (HTML, Docbook, PDF) -->
           <plugin>
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-assembly-plugin</artifactId>
             <executions>
               <execution>
-		        <id>h-assemble-archives</id>
+                <id>h-assemble-archives</id>
                 <phase>package</phase>
                 <goals>
                   <goal>single</goal>
@@ -328,28 +295,30 @@
               </execution>
             </executions>
           </plugin>
-		  <plugin>
-		    <groupId>org.codehaus.mojo</groupId>
-		    <artifactId>build-helper-maven-plugin</artifactId>
-		    <version>1.7</version>
-		    <executions>
-		      <execution>
-		        <id>i-attach-pdf</id>
-		        <phase>package</phase>
-		        <goals>
-		          <goal>attach-artifact</goal>
-		        </goals>
-		        <configuration>
-		          <artifacts>
-		            <artifact>
-		              <file>${project.build.directory}/docbook/publish/en-US/pdf/${project.artifactId}-${project.version}.pdf</file>
+          <plugin>
+            <groupId>org.codehaus.mojo</groupId>
+            <artifactId>build-helper-maven-plugin</artifactId>
+            <version>${helper-maven-plugin.version}</version>
+            <executions>
+              <execution>
+                <id>i-attach-pdf</id>
+                <phase>package</phase>
+                <goals>
+                  <goal>attach-artifact</goal>
+                </goals>
+                <configuration>
+                  <artifacts>
+                    <artifact>
+                      <file>
+                        ${project.build.directory}/docbook/publish/en-US/pdf/${project.artifactId}-${project.version}.pdf
+                      </file>
                       <type>pdf</type>
-		            </artifact>
-		          </artifacts>
-		        </configuration>
-		      </execution>
-		    </executions>
-		  </plugin>
+                    </artifact>
+                  </artifacts>
+                </configuration>
+              </execution>
+            </executions>
+          </plugin>
         </plugins>
       </build>
     </profile>
