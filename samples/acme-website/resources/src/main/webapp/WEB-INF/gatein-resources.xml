@@ -41,7 +41,13 @@
                 <as>$</as>
             </depends>
             <depends>
+                <module>wcm-navigation</module>
+            </depends>
+            <depends>
                 <module>wcm-search</module>
+            </depends>
+            <depends>
+                <module>wcm-breadcrumb</module>
             </depends>
             <depends>
                 <module>jcarousellite</module>
