@@ -33,6 +33,34 @@
         <overwrite>true</overwrite>
 	</portal-skin>
 
+    <portal>
+        <name>acme</name>
+        <module>
+            <depends>
+                <module>jquery</module>
+                <as>$</as>
+            </depends>
+            <depends>
+                <module>wcm-search</module>
+            </depends>
+            <depends>
+                <module>jcarousellite</module>
+            </depends>
+        </module>
+    </portal>
+
+    <module>
+        <name>jcarousellite</name>
+        <script>
+            <name>acme.jquery.jcarousellite</name>
+            <path>/javascript/jcarousellite.js</path>
+        </script>
+        <depends>
+            <module>jquery</module>
+            <as>jQuery</as>
+        </depends>
+    </module>
+
     <!--
     <portal>
         <name>acme</name>
