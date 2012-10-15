@@ -26,6 +26,12 @@
         import org.exoplatform.ecm.webui.utils.LockUtil;
         import org.exoplatform.webui.application.portlet.PortletRequestContext;
         import org.exoplatform.webui.application.WebuiRequestContext;
+        import org.exoplatform.web.application.JavascriptManager;
+        import org.exoplatform.portal.application.PortalRequestContext;
+        import org.exoplatform.portal.webui.util.Util ;
+
+        PortalRequestContext pcontext = Util.getPortalRequestContext();
+        JavascriptManager jsmanager = pcontext.getJavascriptManager();
 
         def currentNode = uicomponent.getNode();
         def originalNode = currentNode;
@@ -302,13 +308,17 @@
           %>
         </div>
     </div>
-
+<%
+ jsmanager.require("SHARED/jquery", "jQuery").addScripts("jQuery(document).ready(function() { jQuery('#sectionsTabs').tabs();});");
+%>
+<!--
     <script type="text/javascript">
         jQuery.noConflict();
         jQuery(document).ready(function() {
             jQuery("#sectionsTabs").tabs();
         });
     </script>
+-->
 
     <!-- Begin render related pictures /node/medias/images -->
     <%
@@ -420,7 +430,10 @@
             </div>
         </div>
     </div>
-
+<%
+jsmanager.require("SHARED/jquery", "jQuery").addScripts("jQuery(document).ready(function() { jQuery ('.jCarouselLite').jCarouselLite({btnNext:'.jQprev',btnPrev:'.jQnext'});});");
+%>
+<!--
         <script type="text/javascript">
         jQuery.noConflict();
            jQuery(document).ready(function(){
@@ -433,6 +446,7 @@
         });
      });
         </script>
+-->
         <%
             }
         }
