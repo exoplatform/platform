@@ -156,7 +156,7 @@ function getModule(params)
        new Project("org.exoplatform.webos", "webos-portlet-webosadmin", "war", webosVersion);
    module.webos.webosadmin.deployName = "webosadmin";
    module.webos.webosResources =
-       new Project("org.exoplatform.webos", "webos-webosResources", "war", webosVersion);
+       new Project("org.exoplatform.webos", "webos-resources", "war", webosVersion);
    module.webos.webosResources.deployName = "webosResources";   
    module.webos.ext =
        new Project("org.exoplatform.webos", "webos-extension-war", "war", webosVersion).

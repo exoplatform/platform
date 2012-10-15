@@ -1342,7 +1342,7 @@
     </dependency>
     <dependency>
       <groupId>org.exoplatform.webos</groupId>
-      <artifactId>webos-webosResources</artifactId>
+      <artifactId>webos-resources</artifactId>
       <version>${org.exoplatform.webos.version}</version>
       <scope>provided</scope>
       <type>war</type>
