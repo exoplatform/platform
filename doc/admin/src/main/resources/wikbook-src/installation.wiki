@@ -242,14 +242,14 @@ In the normal mode, the _setenv_ scripts launch eXo Platform with the following 
 {code}
 
 *Details*:
-|-Xms  |  Initial Heap Size  (the default is 256 MB).  |
-| -Xmx  | Maximal Heap Size (the default is 1 GB). |
-|-Djava.security.auth.login.config  |The path to the JAAS security file where the security domains and JAAS authentication modules are declared. |
-|-Dexo.conf.dir.name  |The path where eXo Platform will start looking at _configuration.properties_ and _configuration.xml_. |
-|-Dexo.profiles  |List of comma-separated profiles of eXo Platform to activate. |
-| -Dorg.apache.commons.logging.Log  |A simple logging interface abstracting logging APIs. |
-|-Djavasrc  | The patch to the java source code.|
-| -Djre.lib  |The patch to jre lib. |
+|{{-Xms}}|Initial Heap Size (the default is 256 MB).|
+|{{-Xmx}}|Maximal Heap Size (the default is 1 GB).|
+|{{-Djava.security.auth.login.config}}|The path to the JAAS security file where the security domains and JAAS authentication modules are declared.|
+|{{-Dexo.conf.dir.name}}|The path where eXo Platform will start looking at _configuration.properties_ and _configuration.xml_.|
+|{{-Dexo.profiles}}|List of comma-separated profiles of eXo Platform to activate.|
+|{{-Dorg.apache.commons.logging.Log  |A simple logging interface abstracting logging APIs.}}|
+|{{-Djavasrc}}| The path to the JAVA source code.|
+|{{-Djre.lib}}|The path to the JRE library. |
 
 *About EXO\_XML*: it defines the preferred XML Parser.
 * If you run eXo Platform on *IBM Java*, you must use the following:
@@ -263,8 +263,8 @@ EXO_XML="-Djavax.xml.stream.XMLOutputFactory=com.sun.xml.internal.stream.XMLOutp
 {code}
 
 {note}
-In Linux environments, the ulimit limits the system-wide resource used. When running eXo Platform, you may get the error message about "Too many open files" because the ulimit had limited the opened files.
-By default, the number of open files is limited to "1024". You should execute the command "ulimit \-n 8196" as root before starting the server to avoid this issue.
+In Linux environments, the {{ulimit}} limits the system-wide resource used. When running eXo Platform, you may get the error message about "Too many open files" because the {{ulimit}} has limited the opened files.
+By default, the number of opened files is limited to "1024". You should execute the command: "ulimit \-n 8196" as root before starting the server to avoid this issue.
 {note}
 
 {docbook}
