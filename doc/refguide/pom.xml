@@ -207,9 +207,34 @@
               </execution>
             </executions>
           </plugin>
-          <!--
+
+          <!-- Make the links between reference guides work -->
+          <plugin>
+            <artifactId>maven-antrun-plugin</artifactId>
+            <executions>
+              <execution>
+                <id>j-update-links</id>
+                <phase>process-classes</phase>
+                <configuration>
+                  <target>
+                    <replaceregexp match="(../../../reference/html/)" replace="" flags="g" byline="true">
+                      <fileset dir="${project.build.directory}/docbook/publish/en-US/html" includes="**/*.html"/>
+                    </replaceregexp>
+                    <replaceregexp match="(../../reference/html/)" replace="" flags="g" byline="true">
+                      <fileset dir="${project.build.directory}/docbook/publish/en-US/html" includes="**/*.html"/>
+                    </replaceregexp>
+                  </target>
+                </configuration>
+                <goals>
+                  <goal>run</goal>
+                </goals>
+              </execution>
+
+            </executions>
+          </plugin>
+		<!--
           3) Process all the XML files to generate HTML and PDF formats
-          -->
+        -->
           <plugin>
             <groupId>org.jboss.maven.plugins</groupId>
             <artifactId>maven-jdocbook-plugin</artifactId>
