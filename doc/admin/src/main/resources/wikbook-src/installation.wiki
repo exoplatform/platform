@@ -247,9 +247,9 @@ In the normal mode, the _setenv_ scripts launch eXo Platform with the following 
 |{{-Djava.security.auth.login.config}}|The path to the JAAS security file where the security domains and JAAS authentication modules are declared.|
 |{{-Dexo.conf.dir.name}}|The path where eXo Platform will start looking at _configuration.properties_ and _configuration.xml_.|
 |{{-Dexo.profiles}}|List of comma-separated profiles of eXo Platform to activate.|
-|{{-Dorg.apache.commons.logging.Log  |A simple logging interface abstracting logging APIs.}}|
+|{{-Dorg.apache.commons.logging.Log}}|A simple logging interface abstracting logging APIs.|
 |{{-Djavasrc}}| The path to the JAVA source code.|
-|{{-Djre.lib}}|The path to the JRE library. |
+|{{-Djre.lib}}|The path to the JRE library.|
 
 *About EXO\_XML*: it defines the preferred XML Parser.
 * If you run eXo Platform on *IBM Java*, you must use the following:
