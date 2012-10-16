@@ -208,21 +208,63 @@ $PLATFORM_TOMCAT_HOME\\bin\\setenv.bat
 The following is the content of this file:
 
 {code}
+# Sets some variables
 LOG_OPTS="-Dorg.apache.commons.logging.Log=org.apache.commons.logging.impl.SimpleLog"
 SECURITY_OPTS="-Djava.security.auth.login.config=../conf/jaas.conf"
-EXO_OPTS="-Dexo.product.developing=false -Dexo.conf.dir.name=gatein/conf"
+EXO_OPTS="-Dexo.conf.dir.name=gatein/conf"
 IDE_OPTS="-Djavasrc=$JAVA_HOME/src.zip -Djre.lib=$JAVA_HOME/jre/lib"
-if [ "$EXO_PROFILES" = "" -o "$EXO_PROFILES" = "-Dexo.profiles=default" ] ; then 
-	EXO_PROFILES="-Dexo.profiles=default"
+if [ "$EXO_PROFILES" = "" -o "$EXO_PROFILES" = "-Dexo.profiles=default" ] ; then
+EXO_PROFILES="-Dexo.profiles=default"
 fi
 
-CATALINA_OPTS="-Xms256m -Xmx1024m -XX:MaxPermSize=256m $CATALINA_OPTS $LOG_OPTS $SECURITY_OPTS $EXO_OPTS $IDE_OPTS $EXO_PROFILES"
+##### For XML Parser ####
+# Define the preferred XML Parser
+# If you run eXo Platform on IBM Java, you must use the first one
+#EXO_XML="-Djavax.xml.stream.XMLOutputFactory=com.sun.xml.stream.ZephyrWriterFactory -Djavax.xml.stream.XMLInputFactory=com.sun.xml.stream.ZephyrParserFactory -Djavax.xml.stream.XMLEventFactory=com.sun.xml.stream.events.ZephyrEventFactory"
+EXO_XML="-Djavax.xml.stream.XMLOutputFactory=com.sun.xml.internal.stream.XMLOutputFactoryImpl -Djavax.xml.stream.XMLInputFactory=com.sun.xml.internal.stream.XMLInputFactoryImpl -Djavax.xml.stream.XMLEventFactory=com.sun.xml.internal.stream.events.XMLEventsFactoryImpl"
+#########################
+
+CATALINA_OPTS="-Xms256m -Xmx1024m -XX:MaxPermSize=256m $CATALINA_OPTS $LOG_OPTS $SECURITY_OPTS $EXO_OPTS $IDE_OPTS $EXO_PROFILES $EXO_XML"
 export CATALINA_OPTS
 {code}
 
+In the normal mode, the _setenv_ scripts launch eXo Platform with the following JVM options:
+{code}
+-Xms256m
+-Xmx1024m
+-XX:MaxPermSize=256m
+-Djava.security.auth.login.config=../conf/jaas.conf
+-Dexo.conf.dir.name=gatein/conf
+-Dexo.profiles=default
+-Dorg.apache.commons.logging.Log=org.apache.commons.logging.impl.SimpleLog
+-Djavasrc=$JAVA_HOME/src.zip
+-Djre.lib=$JAVA_HOME/jre/lib
+{code}
+
+*Details*:
+|{{-Xms}}|Initial Heap Size (the default is 256 MB).|
+|{{-Xmx}}|Maximal Heap Size (the default is 1 GB).|
+|{{-Djava.security.auth.login.config}}|The path to the JAAS security file where the security domains and JAAS authentication modules are declared.|
+|{{-Dexo.conf.dir.name}}|The path where eXo Platform will start looking at _configuration.properties_ and _configuration.xml_.|
+|{{-Dexo.profiles}}|List of comma-separated profiles of eXo Platform to activate.|
+|{{-Dorg.apache.commons.logging.Log  |A simple logging interface abstracting logging APIs.}}|
+|{{-Djavasrc}}| The path to the JAVA source code.|
+|{{-Djre.lib}}|The path to the JRE library. |
+
+*About EXO\_XML*: it defines the preferred XML Parser.
+* If you run eXo Platform on *IBM Java*, you must use the following:
+{code}
+EXO_XML="-Djavax.xml.stream.XMLOutputFactory=com.sun.xml.stream.ZephyrWriterFactory -Djavax.xml.stream.XMLInputFactory=com.sun.xml.stream.ZephyrParserFactory -Djavax.xml.stream.XMLEventFactory=com.sun.xml.stream.events.ZephyrEventFactory"
+{code}
+
+* Otherwise, you can use the following:
+{code}
+EXO_XML="-Djavax.xml.stream.XMLOutputFactory=com.sun.xml.internal.stream.XMLOutputFactoryImpl -Djavax.xml.stream.XMLInputFactory=com.sun.xml.internal.stream.XMLInputFactoryImpl -Djavax.xml.stream.XMLEventFactory=com.sun.xml.internal.stream.events.XMLEventsFactoryImpl"
+{code}
+
 {note}
-In Linux environments, the ulimit limits the system-wide resource used. When running eXo Platform, you may get the error message about "Too many open files" because the ulimit had limited the opened files.
-By default, the number of open files is limited to "1024". You should execute the command "ulimit \-n 8196" as root before starting the server to avoid this issue.
+In Linux environments, the {{ulimit}} limits the system-wide resource used. When running eXo Platform, you may get the error message about "Too many open files" because the {{ulimit}} has limited the opened files.
+By default, the number of opened files is limited to "1024". You should execute the command: "ulimit \-n 8196" as root before starting the server to avoid this issue.
 {note}
 
 {docbook}
