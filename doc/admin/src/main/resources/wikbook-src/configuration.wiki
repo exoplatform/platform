@@ -6,72 +6,130 @@ This chapter covers the following topics:
 <itemizedlist>
 <listitem>
 <para>
-<link linkend="ADM.Configuration.eXo_Configuration">eXo Platform configuration</link>
+<emphasis role="bold"><link linkend="ADM.Configuration.eXo_Configuration">eXo Platform configuration</link></emphasis>
+</para>
+<para>
+Explanation of eXo Platform configuration, its directory and some parts of eXo Platform internals.
 </para>
 </listitem>
 <listitem>
 <para>
-<link linkend="ADM.Configuration.Database_Configuration">Database configuration</link>
+<emphasis role="bold"><link linkend="ADM.Configuration.Database_Configuration">Database configuration</link></emphasis>
+</para>
+<para>
+Introduction to a database configuration, steps to connect to a production database, and FAQs of database configuration.
 </para>
 </listitem>
 <listitem>
 <para>
-<link linkend="ADM.Configuration.File_system_paths">File system paths</link>
+<emphasis role="bold"><link linkend="ADM.Configuration.File_system_paths">File system paths</link></emphasis>
+</para>
+<para>
+Explanations of several paths in the local file system.
 </para>
 </listitem>
 <listitem>
 <para>
-<link linkend="ADM.Configuration.MailServer">Mail server</link>
+<emphasis role="bold"><link linkend="ADM.Configuration.JCR_Workspaces">JCR system and default workspaces</link></emphasis>
+</para>
+<para>
+The configuration of workspaces for the JCR repository.
 </para>
 </listitem>
 <listitem>
 <para>
-<link linkend="ADM.Configuration.Notification_email_config">Email-notification configuration for watching a document</link>
+<emphasis role="bold"><link linkend="ADM.Configuration.JCR_TransactionService">Transaction Service</link></emphasis>
+</para>
+<para>
+Information about the default timeout value of JCR transaction, and the value when your application runs longer transactions.
 </para>
 </listitem>
 <listitem>
 <para>
-<link linkend="ADM.Configuration.Mail_server">WebDAV cache control</link>
+<emphasis role="bold"><link linkend="ADM.Configuration.MailServer">Mail server</link></emphasis>
+</para>
+<para>
+Introduction to the Email service of eXo Platform that requires the SMTP server to send emails, such as notifications or password reminders.
 </para>
 </listitem>
 <listitem>
 <para>
-<link linkend="ADM.Configuration.Chat_Server">Chat server</link>
+<emphasis role="bold"><link linkend="ADM.Configuration.Notification_email_config">Email-notification configuration for watching a document</link></emphasis>
+</para>
+<para>
+Instructions on how to customize the email notification that allows you to receive email notifications of changes on your selected documents.
 </para>
 </listitem>
 <listitem>
 <para>
-<link linkend="ADM.Configuration.Office_server">OpenOffice server</link>
+<emphasis role="bold"><link linkend="ADM.Configuration.Mail_server">WebDAV cache control</link></emphasis>
+</para>
+<para>
+Introduction to the embedded WebDAV server that lets you control the cache-control HTTP header.
 </para>
 </listitem>
 <listitem>
 <para>
-<link linkend="ADM.Configuration.Login">Log-in</link>
+<emphasis role="bold"><link linkend="ADM.Configuration.Chat_Server">Chat server</link></emphasis>
+</para>
+<para>
+Information about XMPPMessenger, and Chat server configuration.
 </para>
 </listitem>
 <listitem>
 <para>
-<link linkend="ADM.Configuration.JCR">JCR</link>
+<emphasis role="bold"><link linkend="ADM.Configuration.Office_server">Office server</link></emphasis>
+</para>
+<para>
+Instructions on how to start the Office server through which users can view various types of documents directly in the Sites Explorer.
 </para>
 </listitem>
 <listitem>
 <para>
-<link linkend="ADM.Configuration.CacheConfiguration">Cache configuration</link>
+<emphasis role="bold"><link linkend="ADM.Configuration.Login">Log-in</link></emphasis>
+</para>
+<para>
+Introduction to the log-in of eXo Platform, and where to configure this function.
 </para>
 </listitem>
 <listitem>
 <para>
-<link linkend="ADM.Configuration.Users_configuration">Users configuration</link>
+<emphasis role="bold"><link linkend="ADM.Configuration.JCR">JCR</link></emphasis>
+</para>
+<para>
+Details of the set of properties which control the JCR behavior.
 </para>
 </listitem>
 <listitem>
 <para>
-<link linkend="ADM.Configuration.Gadget_configuration">Gadget configuration</link>
+<emphasis role="bold"><link linkend="ADM.Configuration.CacheConfiguration">Cache configuration</link></emphasis>
+</para>
+<para>
+Overall introduction to the Cache configuration of eXo Platform, including: Portal, Social, and ECMS.
 </para>
 </listitem>
 <listitem>
 <para>
-<link linkend="ADM.Configuration.Other_properties">Other properties</link>
+<emphasis role="bold"><link linkend="ADM.Configuration.Users_configuration">Users configuration</link></emphasis>
+</para>
+<para>
+Instructions on how to configure a super-user and to grant users access to toolbar.
+</para>
+</listitem>
+<listitem>
+<para>
+<emphasis role="bold"><link linkend="ADM.Configuration.Gadget_configuration">Gadget configuration</link></emphasis>
+</para>
+<para>
+Information about the OAuth key that will be used in case the OAuth gadgets do not indicate a key.
+</para>
+</listitem>
+<listitem>
+<para>
+<emphasis role="bold"><link linkend="ADM.Configuration.Other_properties">Other properties</link> </emphasis>
+</para>
+<para>
+Introduction to other properties, such as Navigation Controller, JNDI, IDM.
 </para>
 </listitem>
 </itemizedlist>
@@ -93,8 +151,6 @@ So the main entry point for the eXo Platform configuration is _/gatein/conf/_. T
 * _configuration.xml_: contains the default portal container configuration.
 
 * _portal/portal/configuration.xml_: the main external customization entry point for the default portal container.
-
-
 
 
 This section explains some parts of the eXo Platform internals so that you can understand the roles of these configuration files.
@@ -199,13 +255,55 @@ For example, you can change the default WebDAV update policy by adding the follo
   </component>
 {code}
 
+{docbook}
+<para>
+<prompt>
+    <emphasis role="bold">See also</emphasis>
+</prompt>
+</para>
+{docbook}
+* [Database configuration|#ADM.Configuration.Database_Configuration]
+* [File system paths|#ADM.Configuration.File_system_paths]
+
 h1. Database configuration {anchor:id=ADM.Configuration.Database_Configuration}
 
+{docbook}
+<highlights>
+        <itemizedlist>
+          <listitem>
+            <para>
+              <link linkend="ADM.Configuration.Connect_To_A_Production_Database">Connect to a production database</link>
+            </para>
+			<para>
+			Steps to prepare your database server and to configure eXo Platform.
+			</para>
+          </listitem>
+          <listitem>
+            <para>
+              <link linkend="ADM.Configuration.FAQDatabaseConfiguration">FAQs of database configuration</link>
+            </para>
+			<para>
+			Questions and answers about configuring eXo Platform to connect to other database systems, removing the idle MySQL connections, and enabling managed DataSource.
+			</para>
+          </listitem>
+        </itemizedlist>
+</highlights>
+{docbook}
 
 eXo Platform relies on the application server for its database access, so the database must be configured as a data source at the AS level.
 The data source is obtained by accessing the Enterprise Naming Context (ENC) through the Java Naming and Directory Interface (JNDI) service.
 
-h2. Connect to a production database {anchor:id=ADM.Configuration.Connect_To_A_Production_Database}
+{docbook}
+<para>
+<prompt>
+    <emphasis role="bold">See also</emphasis>
+</prompt>
+</para>
+{docbook}
+* [eXo Platform configuration|#ADM.Configuration.eXo_Configuration]
+* [File system paths|#ADM.Configuration.File_system_paths]
+
+h2. Connect to a production database {anchor:id=ADM.Configuration.Connect_To_A_Production_DatabaseRoleNotInToc}
 
 If you intend to bring your eXo Platform to production, the embedded hsql database will not be appropriate and you will need to configure your app server to use another one.
 You need to learn how to configure eXo Platform data sources and your app server. If you need to change the data sources name, read the [Rename the data source|#rename_data_source] section below.
@@ -292,8 +390,7 @@ Edit the server.xml file
 </citetitle>
 {docbook}
 
-
-*1.* Open the file following the _$TOMCAT\_\HOME/conf/server.xml_ path.
+*1.* Open the _$TOMCAT\_\HOME/conf/server.xml_ file.
 
 *2.* Declare the binding of the data sources in the GlobalNaming context:
 
@@ -340,7 +437,7 @@ Configure the data source for eXo Platform under JBoss
 
 *1.* Edit the _gatein-ds.xml_ file.
 
-*i.* Open the file following the _$JBOSS\_\HOME/server/default/deploy/gatein-ds.xml_ path.
+*i.* Open the _$JBOSS\_\HOME/server/default/deploy/gatein-ds.xml_ file.
 
 *ii.* Declare the binding of the data sources in the GlobalNaming context:
 
@@ -397,9 +494,9 @@ By default, eXo Platform defines two data sources:
 
 You may want to rename the data source as follows:
 
-*i.* Open and edit the configuration.properties path.
+*i.* Open and edit the _configuration.properties_ file.
 
-In this step, indicate to eXo name of the data sources. Optionaly point to a database schema name using {{{gatein.idm.datasource.schema}}} property.
+In this step, indicate eXo name of the data sources. The database schema of Hibernate service for IDM tables is optionally defined by the {{{gatein.idm.datasource.schema}}} property.
 
 {code}
 # JNDI name of the datasource that will be used by eXo JCR
@@ -420,7 +517,8 @@ eXo Platform automatically appends the portal container name ("\_\portal" by def
 
 In this step, you need to change the name under which the data sources are bound in the JNDI tree by the app server. This is a dependent application sever.
 
-h2. FAQs of database configuration {anchor:id=ADM.Configuration.FAQDatabaseConfiguration}
+h2. FAQs of database configuration {anchor:id=ADM.Configuration.FAQDatabaseConfigurationRoleNotInToc}
+
 {docbook}
 <citetitle>
 <para xml:id="ADM.Configuration.FAQDatabaseConfiguration.Connect_to_other_database_system">
@@ -432,7 +530,7 @@ Q1. How to configure eXo Platform to connect to other database systems?
 {docbook}
 
 
-Configuring eXo Platform to connect to other database can be done easily. eXo Platform provides sample configuration files in the folders:
+Configuring eXo Platform to connect to other database can be done easily. eXo Platform provides sample configuration files in the following folders:
 
 * *eXo Platform-3.5.x.zip/conf/db/*
 ** mysql
@@ -441,9 +539,9 @@ Configuring eXo Platform to connect to other database can be done easily. eXo Pl
 
 In each folder, you will find two sample xml files: _gatein-ds.xml_ for JBoss and _server.xml_ for Tomcat.
 
-Each file contains 2 preconfigured datasources. For example (JCR datasource in _mysql/server.xml_):
+Each file contains 2 preconfigured data sources. For example: JCR data source in _mysql/server.xml_:
 
-{code}
+{code:xml}
 <Resource name="exo-jcr_portal" auth="Container" type="javax.sql.DataSource"
           maxActive="128" maxIdle="32" maxWait="10000"
           testWhileIdle="true" timeBetweenEvictionRunsMillis="30000" validationQuery="SELECT 1" 
@@ -455,13 +553,13 @@ You simply replace the variables with the expected values:
 
 || Variables || Expected values ||
 | db.username | The username that connects to the database. |
-| db.password | The password for the above user. |
+| db.password | The password for the above username. |
 | db.host | The hostname or IP address of the DB server. |
 | db.port | The port to connect to the DB. |
 | db.jcr.name | The DB name for the JCR datasource. |
 | db.idm.name | The DB name for the IDM datasource. |
 
-Please remember to add the JDBC connector JAR in the classpath of your application server.
+Please remember to add the JDBC connector JAR to the classpath of your application server.
 
 You can download the official JDBC connector JARs from the following websites:
 
@@ -487,11 +585,11 @@ at org.hibernate.impl.AbstractSessionImpl.errorIfClosed(AbstractSessionImpl.java
 at org.hibernate.impl.SessionImpl.getTransaction(SessionImpl.java:1342)
 {code}
 
-To avoid this, you can use DBCP to monitor the idle connections and drop them when they are invalid, with the parameters *testWhileIdle*, *timeBetweenEvictionRunsMillis* and *validationQuery*.
+To avoid this, you can use DBCP to monitor the idle connections and drop them when they are invalid, with the *testWhileIdle*, *timeBetweenEvictionRunsMillis*, and *validationQuery* parameters.
 
 The validation query is specific to your RDBMS. For example, on MySQL, you would use:
 
-{code}
+{code:java}
 testWhileIdle="true" timeBetweenEvictionRunsMillis="30000" validationQuery="SELECT 1"
 {code}
 
@@ -501,13 +599,13 @@ In which:
 * *timeBetweenEvictionRunsMillis* defines the time interval between two checks in milliseconds (5 minutes in the example).
 * *validationQuery* provides a simple SQL command to validate the connection to the RDBMS.
 
-You can add these parameters to the data source configuration file of your application server, for example: conf/server.xml on Tomcat.
+You can add these parameters to the data source configuration file of your application server, for example, _conf/server.xml_ on Tomcat.
 
-For more details on the configuration, or some examples on other RDBMS and applications servers, please refer to:
+For more details on the configuration, or some examples on other RDBMS and applications servers, please refer to the following websites:
 
 * http://markmail.org/message/a3bszoyqbvi5qer4
 * http://stackoverflow.com/questions/15949/javatomcat-dying-databse-connection
-* http://confluence.atlassian.com/display/JIRA/Surviving+Connection+Closures
+* http://confluence.atlassian.com/display/JIRA/SurvivingConnectionClosures
 
 
 {docbook}
@@ -519,8 +617,8 @@ Q3. How to enable managed DataSource?
 </para>
 </citetitle>
 {docbook}
-When you want to use a managed data source (which is the case under JBoss), set "true" for the {{gatein.jcr.datasource.managed}} property in the {{configuration.properties}} file
-{code}
+When you want to use a managed data source (which is the case under JBoss), set "true" for the {{gatein.jcr.datasource.managed}} property in the {{configuration.properties}} file.
+{code:java}
 # indicates if the jcr datasource is using managed transactions. 
 # false by default. 
 gatein.jcr.datasource.managed=true
@@ -580,7 +678,17 @@ The default configuration combines them to obtain a compact tree:
     /jta      
 {code}
 
-h1. JCR system and default Workspaces {anchor:id=ADM.Configuration.JCR_Workspaces}
+{docbook}
+<para>
+<prompt>
+    <emphasis role="bold">See also</emphasis>
+</prompt>
+</para>
+{docbook}
+* [eXo Platform configuration|#ADM.Configuration.eXo_Configuration]
+* [Database configuration|#ADM.Configuration.Database_Configuration]
+
+h1. JCR system and default workspaces {anchor:id=ADM.Configuration.JCR_Workspaces}
 The following is the configuration of workspaces (default and system) for JCR repository.
 {code:java}
 # JCR system and default workspaces
@@ -589,17 +697,43 @@ gatein.jcr.workspace.default=collaboration
 gatein.jcr.workspace.system=system
 {code}
 
+{docbook}
+<para>
+<prompt>
+    <emphasis role="bold">See also</emphasis>
+</prompt>
+</para>
+{docbook}
+* [eXo Platform configuration|#ADM.Configuration.eXo_Configuration]
+* [Database configuration|#ADM.Configuration.Database_Configuration]
+* [File system paths|#ADM.Configuration.File_system_paths]
+* [Transaction Service|#ADM.Configuration.JCR_TransactionService]
+* [JCR|#ADM.Configuration.JCR]
 
 h1. Transaction Service {anchor:id=ADM.Configuration.JCR_TransactionService}
 
 JCR transaction default timeout configured for 7 mins (420 sec) by default. If your application runs longer transactions, you might need a bigger timeout.
-{code}
+{code:java}
 # JCR Transaction Service
 # TransactionService default timeout (in seconds), set it to one hour here:
 gatein.jcr.transaction.timeout=3600
 {code}
 
+{docbook}
+<para>
+<prompt>
+    <emphasis role="bold">See also</emphasis>
+</prompt>
+</para>
+{docbook}
+* [eXo Platform configuration|#ADM.Configuration.eXo_Configuration]
+* [Database configuration|#ADM.Configuration.Database_Configuration]
+* [File system paths|#ADM.Configuration.File_system_paths]
+* [JCR system and default workspaces|#ADM.Configuration.JCR_Workspaces]
+* [JCR|#ADM.Configuration.JCR]
+
 h1. Mail server {anchor:id=ADM.Configuration.MailServer}
+
 {note}
 The *Mail* portlet and its services are deprecated. It remains fully supported for eXo customers, however it will not receive any enhancement and will be removed from the product scope in the future.
 {note}
@@ -611,7 +745,7 @@ gatein/conf/configuration.properties_ if you are using Tomcat).
 
 The relevant section looks like:
 
-{code}
+{code:java}
 #EMail
 # Domain name: Help for sending links from email notifications. The default domain name is http://localhost:8080.
 gatein.email.domain.url=http://localhost:8080
@@ -646,7 +780,7 @@ To see more details, refer to [JavaMail API documentation|http://java.sun.com/pr
 
 For Knowledge, you have to modify the following properties to the configuration file _/gatein/conf/configuration.properties_ to make sure that this mail service works with the authenticated SMTP systems:
 
-{code}
+{code:java}
 gatein.email.domain.url=http://localhost:8080
 gatein.email.smtp.from=noreply@exoplatform.com
 {code}
@@ -655,14 +789,28 @@ gatein.email.smtp.from=noreply@exoplatform.com
 The value of email address should be in a valid format.
 {note}
 
+{docbook}
+<para>
+<prompt>
+    <emphasis role="bold">See also</emphasis>
+</prompt>
+</para>
+{docbook}
+* [eXo Platform configuration|#ADM.Configuration.eXo_Configuration]
+* [Database configuration|#ADM.Configuration.Database_Configuration]
+* [File system paths|#ADM.Configuration.File_system_paths]
+* [Email-notification configuration for watching a document|#ADM.Configuration.Notification_email_config]
+
 h1. Email-notification configuration for watching a document {anchor:id=ADM.Configuration.Notification_email_config}
 
 eXo Platform 3.5 provides the *Watch document* function in *Sites Explorer* that allows you to receive email notifications of changes on your selected documents.
 
 To customize the email notification, simply change the configuration in the _configuration.properties_ file.
-This file is defined at:
-* For Jboss: _/server/default/conf/gatein/configuration.properties_
-* For Tomcat: _$TOMCAT\_HOME/gatein/conf/configuration.properties_
+
+*Files location*
+
+|| File || Tomcat || JBoss ||
+| _*configuration.properties*_ | _$TOMCAT\_HOME/gatein/conf/configuration.properties_ | _/server/default/conf/gatein/configuration.properties_ |
 
 The relevant section looks like:
 {code:java}
@@ -690,9 +838,21 @@ At present, eXo Platform provides 4 parameters below in the *gatein.ecms.watchdo
 If the values above are not set in the _configuration.properties_ file, the server will use the [default values|#watching-document-default-values] defined in an _.xml_ file.
 {note}
 
+{docbook}
+<para>
+<prompt>
+    <emphasis role="bold">See also</emphasis>
+</prompt>
+</para>
+{docbook}
+* [eXo Platform configuration|#ADM.Configuration.eXo_Configuration]
+* [Database configuration|#ADM.Configuration.Database_Configuration]
+* [File system paths|#ADM.Configuration.File_system_paths]
+* [Mail server|#ADM.Configuration.MailServer]
+
 h1. WebDAV cache control {anchor:id=ADM.Configuration.Mail_server}
 
-The embedded WebDAV server lets you control the cache-control http header that transmits to clients by the MIME type.
+The embedded WebDAV server lets you control the cache-control HTTP header that transmits to clients by the MIME type.
 This is useful for fine-tuning your website.
 
 The configuration property is _exo.webdav.cache-control_.
@@ -703,12 +863,32 @@ exo.webdav.cache-control=text/*:max-age=3600;image/*:max-age=1800;*/*:no-cache;
 
 The property expects a comma-separated list of key=pair values, where keys are a list of MIME types followed by the cache-control value to set.
 
+{docbook}
+<para>
+<prompt>
+    <emphasis role="bold">See also</emphasis>
+</prompt>
+</para>
+{docbook}
+* [eXo Platform configuration|#ADM.Configuration.eXo_Configuration]
+* [Database configuration|#ADM.Configuration.Database_Configuration]
+* [File system paths|#ADM.Configuration.File_system_paths]
+* [Cache configuration|#ADM.Configuration.CacheConfiguration]
+
 h1. Chat server {anchor:id=ADM.Configuration.Chat_Server}
 {note}
 The *Chat* portlet and its services are deprecated. It remains fully supported for eXo customers, however it will not receive any enhancement and will be removed from the product scope in the future.
 {note}
 
-h2. XMPPMessenger {anchor:id=ADM.Configuration.XMPPMessenger}
+{docbook}
+<para xml:id="ADM.Configuration.XMPPMessenger">
+<citetitle>
+<emphasis role="bold">
+XMPPMessenger
+</emphasis>
+</citetitle>
+</para>
+{docbook}
 
 If you change the host name and port for the Chat server, you will need to edit two properties:
 
@@ -720,7 +900,15 @@ exo.chat.server=127.0.0.1
 exo.chat.port=5222
 {code}
 
-h2. Chat server configuration {anchor:id=ADM.Configuration.Chat_server_configuration}
+{docbook}
+<para xml:id="ADM.Configuration.Chat_server_configuration">
+<citetitle>
+<emphasis role="bold">
+Chat server configuration
+</emphasis>
+</citetitle>
+</para>
+{docbook}
 
 The standalone Chat server is configured in the _$CHATSERVER/conf/openfire.xml_ file.
 
@@ -773,27 +961,33 @@ The following properties are used to configure it.
 | *groupsCountURL* | URL to count groups. | organization/xml/group/count |
 | *groupsCountMethod*  | HTTP method for group/count. | GET |
 
-{docbook}
-<para xml:id="ADM.Configuration.Ports">
-<citetitle>
-<emphasis role="bold">
-Ports
-</emphasis>
-</citetitle>
-</para>
-{docbook}
-
-To run the chat server properly, several ports must be opened in the firewall.
+{anchor:id="ADM.Configuration.Ports"}
+*Ports*: To run the chat server properly, several ports must be opened in the firewall.
 
 || Port || Type || Description ||
 | 5222 (1) | Client to server (xmpp) | The standard port for clients is to connect to the server. Connections may or may not be encrypted. You can update the security settings for this port with the _exo.chat.port_ property. |
 | 9090 & 9091 | Admin Console (http) | The ports used for accessing the unsecured and secured Openfire Admin Console respectively. |
 | 3478 & 3479 | STUN service | The port used for the service that ensures connectivity between entities behind a NAT. |
 
+{docbook}
+<para>
+<prompt>
+    <emphasis role="bold">See also</emphasis>
+</prompt>
+</para>
+{docbook}
+* [eXo Platform configuration|#ADM.Configuration.eXo_Configuration]
+* [Database configuration|#ADM.Configuration.Database_Configuration]
+* [File system paths|#ADM.Configuration.File_system_paths]
+
 h1. Office server {anchor:id=ADM.Configuration.Office_server}
 eXo Platform allows users to view various types of documents directly in the *Sites Explorer* through the office server. To do so, the office application must be available in your local device first.
 
-Then, *JODConverter* will use the [default values|#default_values] below to start the office server.
+Since eXo Platform 3.5.4, this service has been manually enabled/disabled by setting value of the *wcm.jodconverter.enable* parameter in _configuration.properties_.
+- *true*: Activate JODConverter service. It's the default value when this parameter is missing.
+- *false*: Deactivate JODConverter service. This service maybe does not work in several environment like Microsoft Windows. The performance is also gained when Office service is turned off.
+ 
+*JODConverter* will use the [default values|#default_values] below to start the office server.
 
 You can customize the default values by adding the properties below in the _configuration.properties_ file:
 
@@ -838,6 +1032,17 @@ wcm.jodconverter.retrytimeout=120000
 "/Applications/LibreOffice.app/Contents"
 {code}
 
+{docbook}
+<para>
+<prompt>
+    <emphasis role="bold">See also</emphasis>
+</prompt>
+</para>
+{docbook}
+* [eXo Platform configuration|#ADM.Configuration.eXo_Configuration]
+* [Database configuration|#ADM.Configuration.Database_Configuration]
+* [File system paths|#ADM.Configuration.File_system_paths]
+
 h1. Log-in {anchor:id=ADM.Configuration.Login}
 
 The login to eXo Platform is controlled by the [Java Logging API|http://docs.oracle.com/javase/6/docs/technotes/guides/logging/index.html].
@@ -848,6 +1053,17 @@ By default, the login is configured to:
 * logs _/gatein/logs/gatein-YYYY-MM-DD.log_.
 
 In Tomcat, the login is configured via the _conf/logging.properties_ file. Please refer to [Tomcat's Logging Documentation|http://tomcat.apache.org/tomcat-6.0-doc/logging.html] for more information on how to adjust this file to your needs.
+
+{docbook}
+<para>
+<prompt>
+    <emphasis role="bold">See also</emphasis>
+</prompt>
+</para>
+{docbook}
+* [eXo Platform configuration|#ADM.Configuration.eXo_Configuration]
+* [Database configuration|#ADM.Configuration.Database_Configuration]
+* [File system paths|#ADM.Configuration.File_system_paths]
 
 h1. JCR {anchor:id=ADM.Configuration.JCR}
 
@@ -898,12 +1114,33 @@ gatein.jcr.jgroups.config=file:${gatein.jgroups.config}
 
 For more details on configuring these files, please refer to the [eXo JCR Reference Guide|../../reference/html/chapter-JCR.html].
 
+{docbook}
+<para>
+<prompt>
+    <emphasis role="bold">See also</emphasis>
+</prompt>
+</para>
+{docbook}
+* [eXo Platform configuration|#ADM.Configuration.eXo_Configuration]
+* [Database configuration|#ADM.Configuration.Database_Configuration]
+* [File system paths|#ADM.Configuration.File_system_paths]
 
 h1. Cache configuration {anchor:id=ADM.Configuration.CacheConfiguration}
 
+{note}
 Please refer to the [Cache management view|#ADM.Management.Cache_management_view] section to see the description about the cache configuration.
+{note}
 
-h2. Portal Cache Configuration {anchor:id=ADM.Configuration.CacheConfiguration.PortalCacheConfig}
+{docbook}
+<para xml:id="ADM.Configuration.CacheConfiguration.PortalCacheConfig">
+<citetitle>
+<emphasis role="bold">
+Portal Cache Configuration
+</emphasis>
+</citetitle>
+</para>
+{docbook}
+
 {code}
 # Portal Cache Configuration - TemplateService
 cache.exo.portal.TemplateService.capacity=3000
@@ -919,7 +1156,16 @@ cache.exo.portal.MOPSessionManager.TimeToLive=60000
 cache.exo.portal.MOPSessionManager.ExpirationTimeout=60000
 {code}
 
-h2. Social Cache Configuration  {anchor:id=ADM.Configuration.CacheConfiguration.SocialCacheConfig}
+{docbook}
+<para xml:id="ADM.Configuration.CacheConfiguration.SocialCacheConfig">
+<citetitle>
+<emphasis role="bold">
+Social Cache Configuration
+</emphasis>
+</citetitle>
+</para>
+{docbook}
+
 {code}
 # Social Cache Configuration - IdentityCache
 cache.exo.social.IdentityCache.Capacity:300
@@ -987,7 +1233,16 @@ cache.exo.social.SpacesCache.TimeToLive:86400
 
 {code}
 
-h2. ECMS Cache Configuration {anchor:id=ADM.Configuration.CacheConfiguration.ECMSCacheConfig}
+{docbook}
+<para xml:id="ADM.Configuration.CacheConfiguration.ECMSCacheConfig">
+<citetitle>
+<emphasis role="bold">
+ECMS Cache Configuration
+</emphasis>
+</citetitle>
+</para>
+{docbook}
+
 {code}
 # ECMS Cache Configuration - Viewer
 cache.exo.ecms.Viewer.PDFViewer.Capacity=300
@@ -1013,19 +1268,154 @@ cache.exo.ecms.Webcontent.InitialWebContentPlugin.TimeToLive=600
 cache.exo.ecms.WCMComposer.Capacity=1000
 cache.exo.ecms.WCMComposer.TimeToLive=3600
 {code}
+
+{docbook}
+<para>
+<prompt>
+    <emphasis role="bold">See also</emphasis>
+</prompt>
+</para>
+{docbook}
+* [eXo Platform configuration|#ADM.Configuration.eXo_Configuration]
+* [Database configuration|#ADM.Configuration.Database_Configuration]
+* [File system paths|#ADM.Configuration.File_system_paths]
+* [Users configuration|#ADM.Configuration.Users_configuration]
+* [Gadget configuration|#ADM.Configuration.Gadget_configuration]
  
 h1. Users configuration {anchor:id=ADM.Configuration.Users_configuration}
 
-h2. Super-user configuration {anchor:id=ADM.Configuration.Super_user_configuration}
+{docbook}
+<highlights>
+        <itemizedlist>
+          <listitem>
+            <para>
+              <link linkend="ADM.Configuration.Super_user_configuration">Super-user configuration</link>
+            </para>
+			<para>
+			Definition of a super-user and the way to set a user account as the super-user.
+			</para>
+          </listitem>
+          <listitem>
+            <para>
+              <link linkend="ADM.Configuration.Users_configuration.Grant_access_toolbar">Grant users access to toolbar</link>
+            </para>
+			<para>
+			Steps to grant users access to toolbar in 2 usecases: access to toolbar but not CMS, and access to both the toolbar and the underlying CMS implementation.
+			</para>
+		  </listitem>
+		</itemizedlist>
+</highlights>
+{docbook}
 
-In eXo Platform, the user "root" is defined as the super-admin by default.
-You could override this configuration by modifying the system property named _exo.super.user_ defined in configuration.properties.
-
-h2. Default users list definition of eXo Platform {anchor:id=ADM.Configuration.eXo_Platform_default_users_list_definition}
-
+{note}
 In eXo Platform, the default users, excluding Super-admin user, are defined in "Acme WebSite" and "Office Intranet" extensions. By deleting those extensions, the users "john", "demo", "james" and "mary" will not be created.
+{note}
 
-h2. Grant users access to toolbar  {anchor:id=ADM.Configuration.Users_configuration.Grant_access_toolbar}
+{docbook}
+<para>
+<prompt>
+    <emphasis role="bold">See also</emphasis>
+</prompt>
+</para>
+{docbook}
+* [eXo Platform configuration|#ADM.Configuration.eXo_Configuration]
+* [Database configuration|#ADM.Configuration.Database_Configuration]
+* [File system paths|#ADM.Configuration.File_system_paths]
+
+h2. Super-user configuration {anchor:id=ADM.Configuration.Super_user_configurationRoleNotInToc}
+
+Super-user is a special user who has full privileges and can do anything. However, only one user account may be declared as the super-user.
+By default, the super-user is set to the "_root_" user. The "_root_" user is preconfigured as below:
+* Account details: Root, Root, root@localhost.
+* Memberships: _member\:/organization/management/executive-board_, _\*:/platform/administrators_, _\*:/platform/users_, _\*:/platform/web-contributors_, _\*:/organization/employees_.
+* All permissions on folders and other users.
+* Permission to use some locked features in eXo Platform.
+
+For example, if you want to set a user account as the super-user, you can configure it as follows:
+{note}
+You must do this configuration before the first boot of eXo Platform.
+{note}
+
+*1.* Modify the system property named _exo.super.user_ defined in _configuration.properties_ before starting eXo platform.
+{code:java}
+# Super User declaration
+exo.super.user=root
+{code}
+
+*2.* Make sure the user whom you want to set as the "super-user" already exists into your configuration. By default, the users including "john", "demo", "james" and "mary" are created.
+
+*3.* Remove the "root" user declaration defined in the _organization-configuration.xml_ file:
+
+{code:xml}
+<field name="user">
+  <collection type="java.util.ArrayList">
+    <value>
+      <object type="org.exoplatform.services.organization.OrganizationConfig$User">
+        <field name="userName">
+          <string>${exo.super.user}</string>
+        </field>
+        <field name="password">
+          <string>gtn</string>
+        </field>
+        <field name="firstName">
+          <string>Root</string>
+        </field>
+        <field name="lastName">
+          <string>Root</string>
+        </field>
+        <field name="email">
+          <string>root@localhost</string>
+        </field>
+        <field name="groups">
+          <string>*:/platform/administrators,*:/platform/users,*:/platform/web-contributors,*:/organization/employees
+          </string>
+        </field>
+      </object>
+    </value>
+  </collection>
+</field>
+{code}
+
+*4.* Add some privileges to your user into the _organization-configuration.xml_ file.
+
+*Files location*
+
+|| File || Tomcat || JBoss||
+| _*organization-configuration.xml*_ | _$TOMCAT\_HOME/webapps/platform-extension/WEB-INF/conf/organization/_ |  _$JBOSS\_HOME/default/deploy/exo-platform-extension-$PLF\_Version.ear/WEB-INF/conf/organization/_ |
+
+*For example:*
+* Set the "demo" user as a super-user.
+{code:java}
+# Super User declaration
+exo.super.user=demo
+{code}
+* Assign some privileges to the "demo" user:
+{code:xml}
+<value>
+    <object type="org.exoplatform.services.organization.OrganizationConfig$User">
+      <field name="userName">
+        <string>demo</string>
+      </field>
+      <field name="password">
+        <string>gtn</string>
+      </field>
+      <field name="firstName">
+        <string>Jack</string>
+      </field>
+      <field name="lastName">
+        <string>Miller</string>
+      </field>
+      <field name="email">
+        <string>jack.miller@acme.exoplatform.com</string>
+      </field>
+      <field name="groups">
+        <string>*:/platform/administrators,*:/platform/users,*:/platform/web-contributors,*:/organization/employees</string>
+      </field>
+    </object>
+</value>
+{code}
+
+h2. Grant users access to toolbar  {anchor:id=ADM.Configuration.Users_configuration.Grant_access_toolbarRoleNotInToc}
 {include:document=accesstoolbar.wiki|syntax=confluence/1.0}
 
 h1. Gadget configuration {anchor:id=ADM.Configuration.Gadget_configuration}
@@ -1041,11 +1431,6 @@ Default OAuth key configuration
 In eXo Platform, OAuth gadgets use a OAuth key to authorize with external service providers.
 There is always a default key defined in the _oauthkey.pem_ file.
 This key will be used in case the OAuth gadgets do not indicate a key.
-
-* If you are using Tomcat, the _oauthkey.pem_ file is found at the _TOMCAT\_HOME/gatein/gadgets_ path.
-
-* If you are using Jboss, the _oauthkey.pem_ file is found at the _JBOSS\_HOME/server/<PROFILE>/data/gadgets_ path.
-
 It is strongly recommended that you create your own _oauthkey.pem_ file by using the *openssl* tool and some commands as follows:
 
 {code}
@@ -1054,6 +1439,22 @@ openssl pkcs8 -in testkey.pem -out oauthkey.pem -topk8 -nocrypt -outform PEM
 {code}
 
 After creating the new _oauthkey.pem_ file, you can use it to replace the default _oauthkey.pem_ file in the _data/gadgets/_ folder.
+
+*Files location*
+
+||File||Tomcat||JBoss||
+|_*oauthkey.pem*_|_TOMCAT\_HOME/gatein/gadgets_|_JBOSS\_HOME/server/<PROFILE>/data/gadgets_|
+
+{docbook}
+<para>
+<prompt>
+    <emphasis role="bold">See also</emphasis>
+</prompt>
+</para>
+{docbook}
+* [eXo Platform configuration|#ADM.Configuration.eXo_Configuration]
+* [Database configuration|#ADM.Configuration.Database_Configuration]
+* [File system paths|#ADM.Configuration.File_system_paths]
 
 h1. Other properties {anchor:id=ADM.Configuration.Other_properties}
 
@@ -1083,3 +1484,14 @@ gatein.idm.store.cache.config=file:${gatein.conf.dir}/idm/jbosscache/${gatein.jc
 gatein.gadgets.securitytokenkeyfile=${exo.shared.dir}/gadgets/key.txt
 gatein.gadgets.signingkeyfile=${exo.shared.dir}/gadgets/oauthkey.pem
 {code}
+
+{docbook}
+<para>
+<prompt>
+    <emphasis role="bold">See also</emphasis>
+</prompt>
+</para>
+{docbook}
+* [eXo Platform configuration|#ADM.Configuration.eXo_Configuration]
+* [Database configuration|#ADM.Configuration.Database_Configuration]
+* [File system paths|#ADM.Configuration.File_system_paths]

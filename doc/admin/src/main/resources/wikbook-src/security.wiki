@@ -6,24 +6,41 @@ This chapter presents the topics related to security configuration in eXo Platfo
 <itemizedlist>
 <listitem>
 <para>
-<link linkend="ADM.Security.Change_JAAS_real">Changes on the JAAS realm</link>
+<emphasis role="bold"><link linkend="ADM.Security.Change_JAAS_real">Changes on the JAAS realm</link></emphasis>
+</para>
+<para>
+Changes on the JAAS realm in the Tomcat bundle, and common changes in <emphasis role="bold">configuration.properties</emphasis>, <emphasis role="bold">portal.war</emphasis>, and <emphasis role="bold">rest.war</emphasis>.
 </para>
 </listitem>
 <listitem>
 <para>
-<link linkend="ADM.Security.Gadget_proxy_configuration">Gadget proxy configuration</link>
+<emphasis role="bold"><link linkend="ADM.Security.Gadget_proxy_configuration">Gadget proxy configuration</link></emphasis>
+</para>
+<para>
+Instructions on how to configure the ProxyFilterServie, and information of how the proxy service works.
 </para>
 </listitem>
 <listitem>
 <para>
-<link linkend="ADM.Security.HTTPS_conf">HTTPS configuration</link>
+<emphasis role="bold"><link linkend="ADM.Security.HTTPS_conf">HTTPS configuration</link> </emphasis>
+</para>
+<para>
+Steps to configure the HTTPS configuration to run in the HTTPS mode.
+</para>
+</listitem>
+<listitem>
+<para>
+<emphasis role="bold"><link linkend="ADM.Security.Key_Rememberme_token">Update the password encryption key of the RememberMe token</link></emphasis>
+</para>
+<para>
+Information about the file location and steps to update the key of the <emphasis role="bold">RememberMe</emphasis> token.
 </para>
 </listitem>
 </itemizedlist>
 </abstract>
 {docbook}
 
-h1. Change the JAAS realm {anchor:id=ADM.Security.Change_JAAS_real}
+h1. Changes on the JAAS realm {anchor:id=ADM.Security.Change_JAAS_real}
 
 eXo Platform relies on JAAS for propagating the user identity and roles to the different applications deployed on the server.
 
@@ -33,8 +50,15 @@ By default, eXo Platform uses the JAAS realm named "gatein-domain". If your IT o
 
 Since the security configuration is highly dependent of the app server, each application sever is represented separately.
 
-
-h2. Tomcat {anchor:id=ADM.Security.Tomcat}
+{docbook}
+<para xml:id="ADM.Security.Tomcat">
+<citetitle>
+<emphasis role="bold">
+Tomcat
+</emphasis>
+</citetitle>
+</para>
+{docbook}
 
 In the Tomcat bundle, the JAAS configuration is controled by the _$TOMCAT\_HOME/conf/jaas.conf_:
 
@@ -93,18 +117,17 @@ Additionally, you need to edit the application-policy to match the security-doma
 To learn more about the JBoss security configuration, refer to [JBoss Web Docs|http://docs.redhat.com/docs/en-US/JBoss_Enterprise_Web_Platform/5/html-single/Getting_Started_Guide/index.html#Basic_Configuration_Issues-Security_Service].
 {tip}
 
-h2. Common changes {anchor:id=ADM.Security.Common_Changes}
-
-Finally, you need to do some common changes on both app servers as follows:
-
 {docbook}
-<para xml:id="ADM.Security.Configuration.properties">
+<para xml:id="ADM.Security.Common_Changes">
 <citetitle>
-<emphasis role="bold">configuration.properties</emphasis>
+<emphasis role="bold">Common changes</emphasis>
 </citetitle>
 </para>
 {docbook}
 
+Finally, you need to do some common changes on both app servers as follows:
+
+*configuration.properties* {anchor:id="ADM.Security.Configuration.properties"}
 First, change the JAAS realm to match your own security constraints and then identify the entry named _exo.security.domain_ inside the _configuration.properties_ file.
 
 {code}
@@ -116,13 +139,7 @@ exo.security.domain=gatein-domain
 Internally, eXo Platform uses this setting to set a new variable named "portal.container.realm" that is then used in the Kernel configuration files, such as _platform-extension/WEB-INF/conf/platform/repository-configuration.xml_.
 {note}
 
-{docbook}
-<para xml:id="ADM.Security.Portal.war">
-<citetitle>
-<emphasis role="bold">portal.war</emphasis>
-</citetitle>
-</para>
-{docbook}
+*portal.war* {anchor:id="ADM.Security.Portal.war"}
 
 Inside _portal.war_, you should declare the Realm name in the _web.xml_ file:
 
@@ -136,13 +153,7 @@ Inside _portal.war_, you should declare the Realm name in the _web.xml_ file:
 </login-config>
 {code}
 
-{docbook}
-<para xml:id="ADM.Security.rest.war">
-<citetitle>
-<emphasis role="bold">rest.war</emphasis>
-</citetitle>
-</para>
-{docbook}
+*rest.war* {anchor:id="ADM.Security.rest.war"}
 
 You also need to modify _rest.war_ to provide secured REST services properly.
 
@@ -157,13 +168,32 @@ You also need to modify _rest.war_ to provide secured REST services properly.
 This change is very important, allowing you to secure the file downloads via WEBDAV.
 {note}
 
+{docbook}
+<para>
+<prompt>
+    <emphasis role="bold">See also</emphasis>
+</prompt>
+</para>
+{docbook}
+* [Gadget proxy configuration|#ADM.Security.Gadget_proxy_configuration]
+* [HTTPS configuration|#ADM.Security.HTTPS_conf]
+* [Update the password encryption key of the RememberMe token|#ADM.Security.Key_Rememberme_token]
+
 h1. Gadget proxy configuration {anchor:id=ADM.Security.Gadget_proxy_configuration}
 
-h2. Overview {anchor:id=ADM.Security.Gadget_proxy_configuration.Overview}
 In eXo Platform, you could allow gadgets to load remote resources. However, this could be a potential security risk, as it will make the Gadget deployed as an open web proxy.
-So, you can set up the anonymous proxy to accept or deny certain hosts via configuring the _ProxyFilterService_.
+So, you can set up the anonymous proxy to accept or deny certain hosts via configuring the _ProxyFilterService_. {anchor:id=ADM.Security.Gadget_proxy_configuration.Overview}
 
-h2. Configure the ProxyFilterServie {anchor:id=ADM.Security.Gadget_proxy_configuration.Configuration}
+{docbook}
+<para xml:id="ADM.Security.Gadget_proxy_configuration.Configuration">
+<citetitle>
+<emphasis role="bold">
+Configure the ProxyFilterServie
+</emphasis>
+</citetitle>
+</para>
+{docbook}
+
 By default, the proxy is closed to any host except the domain on which the gadget server is installed.
 
 To modify the filtering of domain names, modify the _portal.war/WEB-INF/conf/common/common-configuration.xml_ file.
@@ -190,7 +220,15 @@ The default configuration is set as below:
 {code}
 
 
-h2. How does it work? {anchor:id=ADM.Security.Gadget_proxy_configuration.How_does_it_work}
+{docbook}
+<para xml:id="ADM.Security.Gadget_proxy_configuration.How_does_it_work">
+<citetitle>
+<emphasis role="bold">
+How does it work?
+</emphasis>
+</citetitle>
+</para>
+{docbook}
 
 The proxy service will deny access to any domain that is in the blacklist. If the domain name does not match any of the blacklist, the proxy filter will verify if the domain name is on the white list.
 If the domain name is not defined in either the white list or black list, access will be denied.
@@ -215,6 +253,17 @@ The following is an example of a valid configuration: {anchor:id=ADM.Configurati
   </init-params>
 </component>
 {code}
+
+{docbook}
+<para>
+<prompt>
+    <emphasis role="bold">See also</emphasis>
+</prompt>
+</para>
+{docbook}
+* [Changes on the JAAS realm|#ADM.Security.Change_JAAS_real]
+* [HTTPS configuration|#ADM.Security.HTTPS_conf]
+* [Update the password encryption key of the RememberMe token|#ADM.Security.Key_Rememberme_token]
 
 h1. HTTPS configuration {anchor:id=ADM.Security.HTTPS_conf}
 By default, eXo Platform runs in the HTTP mode. However, for the security purposes, you can configure it to run in the HTTPS mode.
@@ -266,9 +315,59 @@ keytool -importkeystore -srckeystore server.keystore -destkeystore $JAVA_HOME/jr
 
          keystoreFile="${jboss.server.home.dir}/conf/chap8.keystore"
 
-         keystorePass="rmi+ssl" sslProtocol = "TLS" />
+         keystorePass="rmissl" sslProtocol = "TLS" />
 {code}
 Then, change the values of _keystoreFile_ and _keystorePass_ to values of your key.
 
 *3.* Restart your server.
 You can now access the portal via {{https\://<ServerAddress>:8443/portal}}.
+
+{docbook}
+<para>
+<prompt>
+    <emphasis role="bold">See also</emphasis>
+</prompt>
+</para>
+{docbook}
+* [Changes on the JAAS realm|#ADM.Security.Change_JAAS_real]
+* [Gadget proxy configuration|#ADM.Security.Gadget_proxy_configuration]
+* [Update the password encryption key of the RememberMe token|#ADM.Security.Key_Rememberme_token]
+
+h1. Update the password encryption key of the RememberMe token {anchor:id=ADM.Security.Key_Rememberme_token}
+In eXo Platform, the password encryption key of the RememberMe token is always a default key defined in the _codeckey.txt_ file and this key is generated at the first bootstrap.
+
+{docbook}
+<citetitle>
+<para>
+<emphasis role="bold">File location</emphasis>
+</para>
+</citetitle>
+{docbook}
+
+|| File || Tomcat || Jboss ||
+| _codeckey.txt_ | _TOMCAT\-HOME/gatein/conf/codec_. | _JBOSS\-HOME/server/<PROFILE>/conf/gatein/codec_. |
+
+{docbook}
+<citetitle>
+<para>
+<emphasis role="bold">Update the key</emphasis>
+</para>
+</citetitle>
+{docbook}
+
+The administrators can simply update the key without doing any configuration as follows:
+
+*1.* Remove the _codeckey.txt_ file.
+
+*2.* Restart the server.
+
+{docbook}
+<para>
+<prompt>
+    <emphasis role="bold">See also</emphasis>
+</prompt>
+</para>
+{docbook}
+* [Changes on the JAAS realm|#ADM.Security.Change_JAAS_real]
+* [Gadget proxy configuration|#ADM.Security.Gadget_proxy_configuration]
+* [HTTPS configuration|#ADM.Security.HTTPS_conf]

@@ -10,19 +10,23 @@ This chapter presents the following topics:
 </para>
 <itemizedlist>
 <listitem>
-<para><link linkend="Platform_User_Guide.Social.Manage_Profile">Manage your profile</link> through step-by-step instructions. In this section, you can build your profile with full personal information, such as contact information, work experience, current position, and more.
+<para><emphasis role="bold"><link linkend="Platform_User_Guide.Social.Manage_Profile">Manage your profile</link></emphasis></para>
+<para>Step-by-step instructions on how to build your profile with full personal information, such as contact information, work experience, current position, and more.
 </para>
 </listitem>
 <listitem>
-<para><link linkend="Platform_User_Guide.Social.Manage_Spaces">Manage spaces</link> which shows you how to create/edit/join/leave/delete a space, or to view its details, or to search for spaces and to accept/deny invitations.
+<para><emphasis role="bold"><link linkend="Platform_User_Guide.Social.Manage_Spaces">Manage spaces</link></emphasis></para>
+<para>How to create/edit/join/leave/delete a space, or to view its details, or to search for spaces and to accept/deny invitations.
 </para>
 </listitem>
 <listitem>
-<para><link linkend="Platform_User_Guide.Social.Manage_connections">Manage connections</link> which includes actions related to searching for contacts and sending connection requests.
+<para><emphasis role="bold"><link linkend="Platform_User_Guide.Social.Manage_connections">Manage connections</link></emphasis></para>
+<para>Actions related to searching for contacts and sending connection requests.
 </para>
 </listitem>
 <listitem>
-<para><link linkend="Platform_User_Guide.Social.Follow_Activities">Follow activities in your organization</link> which allows you to update status, share links, delete activities/comments, comment on activities, or like/unlike activities.
+<para><emphasis role="bold"><link linkend="Platform_User_Guide.Social.Follow_Activities">Follow activities in your organization</link></emphasis></para>
+<para>How to update status, share links, delete activities/comments, comment on activities, or like/unlike activities.
 </para>
 </listitem>
 </itemizedlist>

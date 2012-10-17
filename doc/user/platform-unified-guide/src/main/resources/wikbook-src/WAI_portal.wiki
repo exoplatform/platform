@@ -17,7 +17,9 @@ Create an accessible site
 </para>
 {docbook}
 
-To create an accessible site, simply follow steps described in the [Create a new portal|#sect-User_Guide-Create_a_New_Portal] section. Next, in the *Portal Templates* tab, select *Sample Accessible Website* from the templates list.
+{docbook}
+<para>To create an accessible site, simply follow steps described in the <link linkend="sect-User_Guide-Create_a_New_Portal">Create a new portal</link> section. Next, in the <guilabel>Portal Templates</guilabel> tab, select <guilabel>Sample Accessible Website</guilabel> from the templates list.</para>
+{docbook}
 
 {docbook}
 <para>
@@ -29,8 +31,9 @@ Access an accessible site
 </para>
 {docbook}
 
-After creating the accessible site, you can access the site by hovering your cursor over *My Sites* on the *Administration* bar, then selecting the newly created accessible portal from the drop-down menu.
-
+{docbook}
+<para>After creating the accessible site, you can access the site by hovering your cursor over <guilabel>My Sites</guilabel> on the <guilabel>Administration</guilabel> bar, then selecting the newly created accessible portal from the drop-down menu. </para>
+{docbook}
 The homepage of the accessible portal appears as below.
 
 !images/WAIPortal/WAI_interface.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
@@ -55,3 +58,17 @@ The accessible portal provides you with some following features:
 * *Search* !images/6.png|width="4mm" fo:scalefit="1" html:scalefit="0"!: Allow you to search for accessible content in the website.
 * *Breadcrumb* !images/7.png|width="4mm" fo:scalefit="1" html:scalefit="0"!: Allow you to ease and keep a consistent navigation. With the breadcrumb, you can easily navigate in an accessible website.
 * *Navigation without JavaScript*: One of the successful criteria of a website is to have accessible links and menu before the content when it is displayed like a screen reader. If JavaScript is disabled, you are still able to navigate, and the menu is expanded by default in this case.
+
+{docbook}
+<para>
+  <prompt>
+	 <emphasis role="bold">See also</emphasis>
+  </prompt>
+</para>
+{docbook}
+
+* [Manage permissions|#Platform_User_Guide.Manage_Your_Portals.Manage_Permission]
+* [Manage sites|#Platform_User_Guide.Manage_Your_Portals.Manage_sites]
+* [Manage navigation nodes|#Platform_User_Guide.Manage_Your_Portals.Manage_sites.SampleAccessibleWeb]
+* [Manage pages|#Platform_User_Guide.Manage_Your_Portals.Manage_Pages]
+* [Manage applications|#Platform_User_Guide.Manage_Your_Portals.Manage_Applications]

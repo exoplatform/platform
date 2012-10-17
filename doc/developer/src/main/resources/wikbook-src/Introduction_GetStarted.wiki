@@ -1,21 +1,53 @@
 {docbook}
 <abstract>
-<para>This chapter will provide you the basic knowledge of eXo Platform 3.5 through the following topics:</para>
+<para>Before jumping directly into the development tasks, you need to learn about the basic knowledge of eXo Platform 3.5 via the following sections:</para>
 <itemizedlist>
   <listitem>
 	<para>
-	  <link linkend="DEV.Glossary">Glossary</link>
+	  <emphasis role="bold"><link linkend="DEV.Glossary">Glossary</link></emphasis>
+	</para>
+	<para>
+	Technical terms which are used throughout the documentation.
 	</para>
   </listitem>
   <listitem>
 	<para>
-	  <link linkend="DEV.SetupMavenSettings">Set up Maven settings</link>
+	  <emphasis role="bold"><link linkend="DEV.SetupMavenSettings">Set up Maven settings</link></emphasis>
 	</para>
+	 <para>
+	  Requirements and how to install a Maven project.
+	 </para>
   </listitem>
   <listitem>
 	<para>
-	  <link linkend="DEV.eXoArchitecturePrimer">eXo Architecture Primer</link>
+	  <emphasis role="bold"><link linkend="DEV.eXoArchitecturePremer">eXo Architecture Primer</link></emphasis>
 	</para>
+	<para>
+	Introduction to the eXo architecture, including:
+	</para>
+  <itemizedlist>
+  <listitem>
+   <para><emphasis role="bold"><link linkend="DEV.eXoArchitecturePremer.Kernel">Kernel</link></emphasis>
+   </para>
+   <para>Concepts of containers, services, plugins and configuration loading sequence.</para>
+  </listitem>
+  <listitem>
+	<para>
+	  <emphasis role="bold"><link linkend="DEV.eXoArchitecturePremer.GateInExtensions">GateIn extensions</link></emphasis>
+	</para>
+	<para>
+	The special <emphasis>.war</emphasis> files that are recognized by eXo Platform and contribute to custom configurations to the PortalContainer. 
+	</para>
+  </listitem>
+    <listitem>
+	<para>
+	  <emphasis role="bold"><link linkend="DEV.eXoArchitecturePremer.JavaContentRepository">Java Content Repository</link></emphasis>
+	</para>
+	<para>
+	A Java Content Repository (JCR) where all data of eXo Platform are stored.
+	</para>
+  </listitem>
+ </itemizedlist>
   </listitem>
 </itemizedlist>
 </abstract>

@@ -1,55 +1,27 @@
 {docbook}
 <abstract>
 <para>
-This chapter covers the following topics:
+Clustering allows eXo Platfrom users to run various portal instances on several parallel servers which are also called nodes. The load is distributed across different servers, so the portal is still accessible via other cluster nodes in case of any failed servers.
+Thanks to adding more nodes to the cluster, eXo Platform's performance can be much improved. In this chapter, you will see the following topics:
 </para>
 <itemizedlist>
 <listitem>
 <para>
-<link linkend="ADM.Clustering.About_Platform_Clustering">About clustering in eXo Platform</link>
+<emphasis role="bold"><link linkend="ADM.Clustering.Cluster_setup">Set up eXo Platform cluster</link></emphasis>
 </para>
+<para>Information and characteristics of eXo Platform cluster, and steps to do a typical setup.</para>
 </listitem>
 <listitem>
 <para>
-<link linkend="ADM.Clustering.Cluster_setup">Set up the eXo Platform cluster</link>
+<emphasis role="bold"><link linkend="ADM.Clustering.Clustering_FAQ">FAQs of clustering</link></emphasis>
 </para>
-<itemizedlist>
-<listitem>
-<para>
-<link linkend="ADM.Clustering.Shared_file_system">Shared file system</link>
-</para>
-</listitem>
-<listitem>
-<para>
-<link linkend="ADM.Clustering.Setup_Platform_cluster">Set up eXo Platform cluster</link>
-</para>
-</listitem>
-<listitem>
-<para>
-<link linkend="ADM.Clustering.Advanced_configuration">Advanced configuration</link>
-</para>
-</listitem>
-<listitem>
-<para>
-<link linkend="ADM.Clustering.Local_JCR_Index">Local JCR index in cluster</link>
-</para>
-</listitem>
-</itemizedlist>
-</listitem>
-<listitem>
-<para>
-<link linkend="ADM.Clustering.Clustering_FAQ">FAQs of clustering</link>
-</para>
+<para>Common questions and answers that are useful for administrators when doing a clustering on eXo Platform.</para>
 </listitem>
 </itemizedlist>
 </abstract>
 {docbook}
 
-h1. About clustering in eXo Platform {anchor:id=ADM.Clustering.About_Platform_Clustering}
-Clustering allows eXo Platfrom users to run various portal instances on several parallel servers which are also called nodes.
-The load is distributed across different servers, so the portal is still accessible via other cluster nodes in case of any failed servers.
-Thanks to adding more nodes to the cluster, eXo Platform's performance can be much improved.
-A cluster is a set of nodes which is managed together and participate in the workload management. Installing eXo Platform in the cluster mode is considered in the following main cases:
+A cluster is a set of nodes which are managed together and participate in the workload management. Installing eXo Platform in the cluster mode is considered in the following main cases:
 * Load Balancing: when a single server node is not enough for handling the load.
 * High Availability: if one of nodes is failed, the rest of nodes in the cluster can assume the workload of the system. It means that no access is interrupted.
 
@@ -57,8 +29,55 @@ These characteristics should be handled by the overall architecture of your syst
 Also, the High Availability on the data layer can be typically achieved using the native replication implemented by Relation Database Management System (RDBMS) or Shared File Systems, such as SAN and NAS.
 
 h1. Set up the eXo Platform cluster {anchor:id=ADM.Clustering.Cluster_setup}
+{docbook}
+<highlights>
+ <itemizedlist>
+ <listitem>
+ <para>
+ <link linkend="ADM.Clustering.Shared_file_system">Shared file system</link>
+ </para>
+ <para>
+  Introduction to the shared file system which is necesary for the embedded JCR server.
+ </para>
+ </listitem>
+ <listitem>
+ <para>
+  <link linkend="ADM.Clustering.Setup_Platform_cluster">Typical setup</link>
+ </para>
+ <para>
+  Steps to do a typical setup of eXo Platform cluster.
+</para>
+ </listitem>
+ <listitem>
+ <para>
+ <link linkend="ADM.Clustering.Advanced_configuration">Advanced configuration</link>
+ </para>
+ <para>
+	Introduction to the advanced configuration which is optional and not required in general cases, including JBossCache and shared file system.
+  </para>
+ </listitem>
+ <listitem>
+ <para>
+ <link linkend="ADM.Clustering.Local_JCR_Index">Local JCR index in cluster</link>
+ </para>
+ <para>
+	Description of changes which will be applied if the cluster is used with the local JCR index on each node.
+ </para>
+ </listitem>
+ </itemizedlist>
+</highlights>
+{docbook}
 
-h2. Shared file system {anchor:id=ADM.Clustering.Shared_file_system}
+{docbook}
+<para>
+<prompt>
+    <emphasis role="bold">See also</emphasis>
+</prompt>
+</para>
+{docbook}
+* [FAQs of clustering|#ADM.Clustering.Clustering_FAQ]
+
+h2. Shared file system {anchor:id=ADM.Clustering.Shared_file_systemRoleNotInToc}
 
 In eXo Platform, the persistence mostly relies on JCR, which is a middleware between the eXo Platform applications (including the Portal) and the database. Hence, this component must be configured to work in the cluster mode.
 
@@ -73,8 +92,8 @@ Since Platform 3.5, a local JCR index can be used on each node of the cluster. I
 All nodes must have the read/write access to the shared file system.
 {info}It is strongly recommended that you use a mount point on a SAN.{info}
 
-h2. Set up eXo Platform cluster {anchor:id=ADM.Clustering.Setup_Platform_cluster}
-The following steps describe a typical setup of Platform cluster:
+h2. Typical setup {anchor:id=ADM.Clustering.Setup_Platform_clusterRoleNotInToc}
+The following steps describe a typical setup of eXo Platform cluster:
 * Switch to a _cluster_ configuration.
 This step is done in the _configuration.properties_ file. This _configuration.properties_ file must be set in the same way on all the cluster nodes.
 First, point the _exo.shared.dir_ variable to a directory shared between cluster nodes.
@@ -103,12 +122,14 @@ This constraint is only for the initial start.
 As above, you can start the cluster in any order, but it should be started fully from the single node. After that, others can start in any order or in parallel.
 {note}
 * Start up and shut down.
+
 {note}
-Always start the cluster from a single node, as on initial startup, and then start all others in any order or in parallel.
+It is recommended that you always start the cluster from a single node, as on initial startup, and then start all others in any order or in parallel.
 Nodes of the cluster will automatically try to join others at startup. Once they have discovered each other, they will synchronize their state.
 During the synchronization, the node is not ready to serve requests.
 {note}
-h2. Advanced configuration {anchor:id=ADM.Clustering.Advanced_configuration}
+
+h2. Advanced configuration {anchor:id=ADM.Clustering.Advanced_configurationRoleNotInToc}
 
 The cluster mode is preconfigured to work out of the box. The eXo Platform clustering fully relies on the JBossCache replication which  uses JGroups internally.
 The default configuration of JBossCache lies in _exo.portal.component.common-x.x.x.jar_.
@@ -122,7 +143,15 @@ Since eXo Platform 3.5, the JCR's JBossCache configuration is externalized to th
 The advanced configuration is optional and is not required in general cases. It is recommended to do an advanced configuration only in case of a need.
 {note}
 
-h3. JBossCache {anchor:id=ADM.Clustering.Advanced_configuration.JBossCache}
+{docbook}
+<para xml:id="ADM.Clustering.Advanced_configuration.JBossCache">
+<citetitle>
+<emphasis role="bold">
+JBossCache
+</emphasis>
+</citetitle>
+</para>
+{docbook}
 
 The JBossCache configuration is done in the _configuration.properties_ file using following properties:
 {code}
@@ -146,7 +175,15 @@ gatein.jcr.jgroups.config=file:${gatein.jgroups.config}
 
 By default, the nodes discovery is based on _UDP_, in which *JGroups* is responsible for the nodes identification through the UDP transport. The administrator can change the configuration of detection and ports in _jgroups-udp.xml_.
 
-h3. Shared file system {anchor:id=ADM.Clustering.Advanced_configuration.Shared_file_system}
+{docbook}
+<para xml:id="ADM.Clustering.Advanced_configuration.Shared_file_system">
+<citetitle>
+<emphasis role="bold">
+Shared file system
+</emphasis>
+</citetitle>
+</para>
+{docbook}
 
 Optionally, if you need separate physical storage for JCR indexes and value storage files, it is possible to configure related paths, each to a separate shared file system:
 {code}
@@ -154,7 +191,7 @@ gatein.jcr.storage.data.dir=/PATH/TO/SHARED/VALUES_FS/values
 gatein.jcr.index.data.dir=/PATH/TO/SHARED/INDEX_FS/index
 {code}
 
-h2. Local JCR index in cluster {anchor:id="ADM.Clustering.Local_JCR_Index"}
+h2. Local JCR index in cluster {anchor:id=ADM.Clustering.Local_JCR_IndexRoleNotInToc}
 
 {note}
 JCR clustering with local index on each node is a new feature. Find more information about _Indexing in clustered environment_ in JCR reference documentation.
@@ -185,7 +222,7 @@ Q1. How to migrate from local to the cluster mode?
 </para>
 </citetitle>
 {docbook}
-If you intend to migrate your production system from local (non-cluster) to the cluster mode, follow these steps:
+If you intend to migrate your production system from the local (non-cluster) to the cluster mode, follow these steps:
 
 *1.* Update the configuration to the cluster mode as explained above on your main server.
 
@@ -211,13 +248,13 @@ On Linux, your startup is failed if you encounter the following error:
 [INFO] Caused by: java.lang.IllegalArgumentException: Port value out of range: 65536
 {code}
 
-This problem happens under specific circumstances when JGroups-the networking library behind the clustering attempts to detect the IP to use for communication with other nodes.
+This problem happens under specific circumstances when the JGroups networking library behind the clustering attempts to detect the IP to communicate with other nodes.
 
 You need to verify:
 
-* The host name is a valid IP address, served by one of the network devices, such as eth0, eth1.
+* The host name is a valid IP address, served by one of the network devices, such as _eth0_, and _eth1_.
 
-* The host name is NOT defined as localhost or 127.0.0.1.
+* The host name is NOT defined as _localhost_ or 127.0.0.1.
 
 
 {docbook}
@@ -237,7 +274,7 @@ SEVERE: failed sending message to null (44 bytes)
 java.lang.Exception: dest=/228.10.10.10:45588 (47 bytes)
 {code}
 
-Be aware that clustering on Linux only works with IPv4. Therefore, when using a cluster under Linux, add the following property to JVM parameters:
+Be aware that clustering on Linux only works with IPv4. Therefore, when using a cluster under Linux, add the following property to the JVM parameters:
 {code} -Djava.net.preferIPv4Stack=true {code}
 
 {docbook}
@@ -249,8 +286,8 @@ Q3. How to hide JGroups protocol warnings in the log?
 </para>
 </citetitle>
 {docbook}
-In cluster mode several Platform subsystems, such as JCR, various caches, organization service, use shared JGroups transport.
-And in case of used by default UDP transport it might cause a side effect - lot of warnings, like these below:
+In the cluster mode, several eXo Platform subsystems, such as JCR, various caches, and organization service use shared JGroups transport;
+and in case of being used by the default UDP transport, it might cause a side effect (a lot of warnings) like these below:
 
 {code}
 WARNING: discarded message from different group "gatein-idm-api-cluster" (our group is "gatein-idm-store-cluster"). Sender was 192.168.1.55:54232
@@ -259,20 +296,24 @@ WARNING: discarded message from different group "gatein-idm-store-cluster" (our 
 Dec 16, 2011 4:46:10 PM org.jgroups.protocols.TP passMessageUp
 {code}
 
-To hide such warnings need configure the Application Server logger in appropriate way:
-* Apache Tomcat, in {{{${CATALINA_HOME}/conf/logging.properties}}} add following lines
-{code}
+To hide such warnings, need to configure the Application Server logger in an appropriate way:
+* Apache Tomcat: add the following lines to the _{{{${CATALINA_HOME}/conf/logging.properties}}}_ file:
+{code:java}
 org.jgroups.level = SEVERE
 org.jgroups.handlers = java.util.logging.ConsoleHandler,6gatein.org.apache.juli.FileHandler
 {code}
-* JBoss Application Server, for server profile _all_, add in {{{${jboss_server}/server/all/conf/jboss-log4j.xml}}} following
-{code}
+* JBoss Application Server: for the "_all_" server profile, add the following lines to the _{{{${jboss_server}/server/all/conf/jboss-log4j.xml}}}_ file:
+{code:xml}
   <category name="org.jgroups.protocols.UDP">
     <priority value="ERROR"/>
   </category>
 {code}
 
-
-
-
-
+{docbook}
+<para>
+<prompt>
+    <emphasis role="bold">See also</emphasis>
+</prompt>
+</para>
+{docbook}
+* [Set up the eXo Platform cluster|#ADM.Clustering.Cluster_setup]

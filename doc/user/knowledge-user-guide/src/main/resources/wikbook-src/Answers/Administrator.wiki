@@ -1,9 +1,9 @@
-h1. Administrator {anchor:id=Answer_user_guide.Administrator} 
+h1. Administrator {anchor:id=Answer_user_guide.AdministratorRoleNotInToc}
 The administrators have the global role and take care of the entire management tasks.
 
 h2. Set up the Answers portlet {anchor:id=KSuser.Answer_Administrator.Set_up_Answers_portlet}
 
-When adding the *Answwers* portlet to a page, you have to configure this portlet to make it work in your desired way.
+When adding the *Answers* portlet to a page, you have to configure this portlet to make it work in your desired way.
 
 {docbook}
 <citetitle>
@@ -17,9 +17,17 @@ When adding the *Answwers* portlet to a page, you have to configure this portlet
 *1.* Open the page edit mode via one of the following ways:
 
 * *The first way*
-
-*i.* Click !images/Setting_gear.png|width="4mm" fo:scalefit="1" html:scalefit="0"! *--> Portal --> Page* on the *Administration* bar.
-
+{docbook}
+<para>
+            <emphasis role="bold">i.</emphasis> Click <menuchoice><guiicon><inlinemediaobject>
+              <imageobject role="fo">
+                <imagedata fileref="images/Setting_gear.png" format="PNG" scalefit="1" width="4mm"/>
+              </imageobject>
+              <imageobject role="html">
+                <imagedata fileref="images/Setting_gear.png" format="PNG" scalefit="0" width="4mm"/>
+              </imageobject>
+            </inlinemediaobject></guiicon> <guisubmenu>Portal</guisubmenu><guimenuitem>Page</guimenuitem></menuchoice> on the <emphasis role="bold">Administration</emphasis> bar.</para>
+{docbook}
 !images/edit_pages1.png|align="center" width="50mm" fo:scalefit="1" html:scalefit="0"!
 
 *ii.* Click !images/Edit_icon.png|width="4mm" fo:scalefit="1" html:scalefit="0"! that corresponds to the page containing the *Answers* portlet in the *Page Management* page.
@@ -29,9 +37,11 @@ When adding the *Answwers* portlet to a page, you have to configure this portlet
 * *The second way*
 
 *i.* Select a portal that contains a page with the *Answers* portlet, then open the page.
-
-*ii.* Hover your cursor over *Edit --> Page*, then click *Layout*.
-
+{docbook}
+<para>
+<emphasis role="bold">ii.</emphasis> Hover your cursor over <menuchoice><guimenuitem>
+  Edit</guimenuitem><guisubmenu>Page</guisubmenu><guimenuitem>Layout</guimenuitem></menuchoice>.</para>
+{docbook}
 !images/Answer_page_layout.png|align="center" width="50mm" fo:scalefit="1" html:scalefit="0"!
 
 Now, you should be in the *Edit* mode of the page.
@@ -39,9 +49,10 @@ Now, you should be in the *Edit* mode of the page.
 !images/Answer_portlet_edit_mode.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
 
 *3.* Hover your cursor over the *Answers* portlet, then click !images/edit_icon3.png|width="4mm" fo:scalefit="1" html:scalefit="0"! on the quick toolbar that appears.
-
-*4.* Make changes in the *Answer Portlet* form.
-
+{docbook}
+<para>
+<emphasis role="bold">4.</emphasis> Make changes in the <guilabel>Answer Portlet</guilabel> form.</para>
+{docbook}
 !images/Answer_porlet_edit_form.png|align="center" width="130mm" fo:scalefit="1" html:scalefit="0"!
 
 In this form, you can:
@@ -51,24 +62,68 @@ In this form, you can:
 * [Define the default category for discussions|#KSuser.Answer_Moderator.Define_discuss_category]
 
 h3. Change the display mode {anchor:id=KSuser.Answer_Moderator.Change_display_mode}
-
-In the *Display Mode* tab, you can set all the default display properties of the *Answers* application, including:
-
-* *Display*: Display all entries in the *Answers* application for administrators and moderators.
-** *All*: All entries, including approved and unapproved entries/questions, are displayed in a list when administrators and moderators view.
-** *Approved*: Only approved entries are displayed in the list when administrators and moderators view.
-* *Order by*: The order to display all questions in the *Answers* application.
-** *Created Date*: Entries in the list are displayed to the entries's created date order.
-** *Alphabet/Index*: Entries in the list are displayed to the alphabet order.
-
-The type of sorting entries in the list may be: *Ascending* or *Descending*. 
-
-* *Enable Votes and Comments*: Enable votes and comments to be available in *Answers*. If this checkbox is selected, users can comment and vote in *Answers*. If not, these functions are disabled.
-* *Anonymous users may submit questions*: Enable anonymous users to submit questions in *Answers* or not. If this checkbox is selected, anonymous users are entitled to submit questions. If not, they cannot submit questions.
-* *Enable Automatic RSS*: Enable the RSS feeds function to be available in Answers or not. If this option is selected, users can get RSS information in *Answers*.
-* *Display Avatars*: Enable avatars to be viewed in *Answers* or not. If this checkbox is selected, the avatar of eXo members are shown in *Answers*.
-* *Allow users to post questions in the root category:* Enable users to post questions in the root category or not.
-
+{docbook}
+<para>In the <guilabel>Display Mode</guilabel> tab, you can set all the default display properties of the <emphasis role="bold">Answers</emphasis> application, including:</para>
+{docbook}
+{docbook}
+<itemizedlist>
+              <listitem>
+                <para>
+                  <guilabel>Display</guilabel>: Display all entries in the <emphasis role="bold">Answers</emphasis> application for administrators and moderators.</para>
+                <itemizedlist>
+                  <listitem>
+                    <para>
+                      <guilabel>All</guilabel>: All entries, including approved and unapproved entries/questions, are displayed in a list when administrators and moderators view.</para>
+                  </listitem>
+                  <listitem>
+                    <para>
+                      <guilabel>Approved</guilabel>: Only approved entries are displayed in the list when administrators and moderators view.</para>
+                  </listitem>
+                </itemizedlist>
+              </listitem>
+              <listitem>
+                <para>
+                  <guilabel>Order by</guilabel>: The order to display all questions in the <emphasis role="bold">Answers</emphasis> application.</para>
+                <itemizedlist>
+                  <listitem>
+                    <para>
+                      <guilabel>Created Date</guilabel>: Entries in the list are displayed to the entries's created date order.</para>
+                  </listitem>
+                  <listitem>
+                    <para>
+                      <guilabel>Alphabet/Index</guilabel>: Entries in the list are displayed to the alphabet order.</para>
+                  </listitem>
+                </itemizedlist>
+              </listitem>
+ </itemizedlist>
+{docbook}
+{docbook}
+<para>The type of sorting entries in the list may be: <guilabel>Ascending</guilabel> or <guilabel>Descending</guilabel>. </para>
+{docbook}
+{docbook}
+ <itemizedlist>
+              <listitem>
+                <para>
+                  <guilabel>Enable Votes and Comments</guilabel>: Enable votes and comments to be available in <emphasis role="bold">Answers</emphasis>. If this checkbox is selected, users can comment and vote in <emphasis role="bold">Answers</emphasis>. If not, these functions are disabled.</para>
+              </listitem>
+              <listitem>
+                <para>
+                  <guilabel>Anonymous users may submit questions</guilabel>: Enable anonymous users to submit questions in <emphasis role="bold">Answers</emphasis> or not. If this checkbox is selected, anonymous users are entitled to submit questions. If not, they cannot submit questions.</para>
+              </listitem>
+              <listitem>
+                <para>
+                  <guilabel>Enable Automatic RSS</guilabel>: Enable the RSS feeds function to be available in Answers or not. If this option is selected, users can get RSS information in <emphasis role="bold">Answers</emphasis>.</para>
+              </listitem>
+              <listitem>
+                <para>
+                  <guilabel>Display Avatars</guilabel>: Enable avatars to be viewed in <emphasis role="bold">Answers</emphasis> or not. If this checkbox is selected, the avatar of eXo members are shown in <emphasis role="bold">Answers</emphasis>.</para>
+              </listitem>
+              <listitem>
+                <para>
+                  <guilabel>Allow users to post questions in the root category:</guilabel> Enable users to post questions in the root category or not.</para>
+              </listitem>
+            </itemizedlist>
+{docbook}
 {docbook}
 <para>
 <prompt>
@@ -82,29 +137,50 @@ The type of sorting entries in the list may be: *Ascending* or *Descending*.
 * [Customize the email notification template|#KSuser.Answer_Moderator.Customize_Email_template]
 * [Enable the "Discuss in Forum" feature|#KSuser.Answer_Moderator.Enable_discuss_in_forum]
 * [Define the default category for discussions|#KSuser.Answer_Moderator.Define_discuss_category]
-	
+
 h3. Customize the email notification template {anchor:id=KSuser.Answer_Moderator.Customize_Email_template}
 When there are new questions or answers in the category or topic that a user has watched, the user will receive the email notification.
-In the *Email Notifications* tab, change the content of the email notification manually or edit the template for each email notification. 
-
+{docbook}
+<para>In the <guilabel>Email Notifications</guilabel> tab, change the content of the email notification manually or edit the template for each email notification. </para>
+{docbook}
 !images/Answer_porlet_edit_form2.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
-
-* *New Question* tab: The content of the email notification.
-* *Edit/Answer* tab: The content of the email notification that has been answered or edited.
-* *Move Question* tab: The content of the email notification that notifies about the question that has been moved to another category.
-
+{docbook}
+<itemizedlist>
+              <listitem>
+                <para>
+                  <guilabel>New Question</guilabel> tab: The content of the email notification.</para>
+              </listitem>
+              <listitem>
+                <para>
+                  <guilabel>Edit/Answer</guilabel> tab: The content of the email notification that has been answered or edited.</para>
+              </listitem>
+              <listitem>
+                <para>
+                  <guilabel>Move Question</guilabel> tab: The content of the email notification that notifies about the question that has been moved to another category.</para>
+              </listitem>
+            </itemizedlist>
+{docbook}
 The followings are variables that you can use in your template:
-
-*&categoryName\_*: will be replaced with the watched category.
-
-*&questionContent\_*: will be replaced with the content of the new question.
-
-*&questionResponse\_*: will be replaced with the content of the new question's reply.
-
-*&questionLink\_*: will be replaced with the link for going to new questions.
-
-*&answerNowLink\_*: will be replaced with the link for going to new questions and open a pop-up form which allows you to answer the question..
-
+{docbook}
+<para>
+<guilabel>&amp;categoryName_</guilabel>: will be replaced with the watched category.</para>
+{docbook}
+{docbook}
+<para>
+<guilabel>&amp;questionContent_</guilabel>: will be replaced with the content of the new question.</para>
+{docbook}
+{docbook}
+<para>
+<guilabel>&amp;questionResponse_</guilabel>: will be replaced with the content of the new question's reply.</para>
+{docbook}
+{docbook}
+<para>
+<guilabel>&amp;questionLink_</guilabel>: will be replaced with the link for going to new questions.</para>
+{docbook}
+{docbook}
+<para>
+ <guilabel>&amp;answerNowLink_</guilabel>: will be replaced with the link for going to new questions and open a pop-up form which allows you to answer the question.</para>
+{docbook}
 
 These variables are used to load the content dynamically. Thus, you should not edit them. In case the template is changed unexpectedly, you can go back to the default template by clicking !images/Back_to_default_btn.png|width="4mm" fo:scalefit="1" html:scalefit="0"!.
 You can use the text editor to format the template as you wish.
@@ -124,9 +200,9 @@ You can use the text editor to format the template as you wish.
 * [Define the default category for discussions|#KSuser.Answer_Moderator.Define_discuss_category]
 
 h3. Enable the "Discuss in Forum" feature {anchor:id=KSuser.Answer_Moderator.Enable_discuss_in_forum}
-
-In the *Discussion* tab, enable/disable the *Discuss in Forum* function in *Answers* and set the default forum for this function by selecting/deselecting the checkbox.
-
+{docbook}
+<para>In the <guilabel>Discussion</guilabel> tab, enable/disable the <emphasis role="bold">Discuss in Forum</emphasis> function in <emphasis role="bold">Answers</emphasis> and set the default forum for this function by selecting/deselecting the checkbox.</para>
+{docbook}
 !images/Answer_porlet_edit_form3.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
 
 {docbook}
@@ -144,15 +220,24 @@ In the *Discussion* tab, enable/disable the *Discuss in Forum* function in *Answ
 * [Define the default category for discussions|#KSuser.Answer_Moderator.Define_discuss_category]
 
 h3. Define the default category for discussions {anchor:id=KSuser.Answer_Moderator.Define_discuss_category}
-
-*1.* Click !images/Plus_icon.png|width="4mm" fo:scalefit="1" html:scalefit="0"! next to the *Select a forum* field to open the *Select a forum* form in the *Discussion* tab.
-
+{docbook}
+<para>
+              <emphasis role="bold">1.</emphasis> Click <inlinemediaobject>
+                <imageobject role="fo">
+                  <imagedata fileref="images/Plus_icon.png" format="PNG" scalefit="1" width="4mm"/>
+                </imageobject>
+                <imageobject role="html">
+                  <imagedata fileref="images/Plus_icon.png" format="PNG" scalefit="0" width="4mm"/>
+                </imageobject>
+              </inlinemediaobject> next to the <guilabel>Select a forum</guilabel> field to open the <guilabel>Select a forum</guilabel> form in the <guilabel>Discussion</guilabel> tab.</para>
+{docbook}
 !images/Select_forum_form.png|align="center" width="80mm" fo:scalefit="1" html:scalefit="0"!
 
 *2.* Click a specific category/forum title to select it.
-
-*3.* Click *Save* to accept saving changes in the *Discussion* tab.
-
+{docbook}
+<para>
+<emphasis role="bold">3.</emphasis> Click <guibutton>Save</guibutton> to accept saving changes in the <guilabel>Discussion</guilabel> tab.</para>
+{docbook}
 
 {docbook}
 <citetitle>
@@ -162,12 +247,13 @@ h3. Define the default category for discussions {anchor:id=KSuser.Answer_Moderat
 </citetitle>
 {docbook}
 
-In the *Category Scoping* tab, show/hide categories in *Answers*. The hidden category is not displayed in *Answers*.
-
+{docbook}
+<para>In the <guilabel>Category Scoping</guilabel> tab, show/hide categories in <emphasis role="bold">Answers</emphasis>. The hidden category is not displayed in <emphasis role="bold">Answers</emphasis>.</para>
+{docbook}
 !images/Answer_porlet_edit_form4.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
-
-To hide/show any category, simply deselect/select its checkbox and click *Save*.
-
+{docbook}
+<para>To hide/show any category, simply deselect/select its checkbox and click <guibutton>Save</guibutton>.</para>
+{docbook}
 {docbook}
 <para>
 <prompt>
@@ -197,9 +283,17 @@ The *Edit Mode* of the *FAQ* portlet allows you to set the properties to display
 </para>
 </citetitle>
 {docbook}
-
-*1.* Click !images/Setting_gear.png|width="4mm" fo:scalefit="1" html:scalefit="0"! *--> Portal --> Pages*.
-
+{docbook}
+<para>
+            <emphasis role="bold">1.</emphasis> Click <menuchoice> <inlinemediaobject>
+              <imageobject role="fo">
+                <imagedata fileref="images/Setting_gear.png" format="PNG" scalefit="1" width="4mm"/>
+              </imageobject>
+              <imageobject role="html">
+                <imagedata fileref="images/Setting_gear.png" format="PNG" scalefit="0" width="4mm"/>
+              </imageobject>
+            </inlinemediaobject><guisubmenu>Portal</guisubmenu><guimenuitem>Pages</guimenuitem></menuchoice>.</para>
+{docbook}
 !images/edit_pages1.png|align="center" width="50mm" fo:scalefit="1" html:scalefit="0"!
 
 The *Page Manager* page will be displayed.
@@ -212,20 +306,26 @@ The *Page Manager* page will be displayed.
 
 !images/FAQ_portlet_edit.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
 
-*i.* In the *Display Category* tab, you can control what categories will be displayed.
- 
+{docbook}
+<para>
+<emphasis role="bold">i.</emphasis> In the <guilabel>Display Category</guilabel> tab, you can control what categories will be displayed.</para>
+{docbook}
+
 !images/FAQ_portlet_edit_form.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
 
-*ii.* In the *Edit Template* tab, you can use CSS to customize the *FAQ* template.
-
+{docbook}
+<para>
+<emphasis role="bold">ii.</emphasis> In the <guilabel>Edit Template</guilabel> tab, you can use CSS to customize the <emphasis role="bold">FAQ</emphasis> template.</para>
+{docbook}
 !images/FAQ_portlet_edit_form2.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
 
 This is an example of the *FAQ* template after applying the new style.
 
 !images/FAQ_template_edit.png|align="center" width="140mm" fo:scalefit="1" html:scalefit="0"!
-
-*iii.* In the *Preference* tab, you can enable or disable the bookmarkable URLs in *FAQ*.
-
+{docbook}
+<para>
+<emphasis role="bold">iii.</emphasis> In the <guilabel>Preference</guilabel> tab, you can enable or disable the bookmarkable URLs in <emphasis role="bold">FAQ</emphasis>.</para>
+{docbook}
 !images/FAQ_portlet_edit_form3.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
 
 By not using Ajax, the *FAQ* will generate plain URLs in the links. The added benefit will be bookmarkability and better SEO as the links will be permalinks.
@@ -238,7 +338,6 @@ Using Ajax, the links will be JavaScript-based and generate Ajax calls. This sho
 </prompt>
 </para>
 {docbook}
-
 
 * [View details of Answers|#Answer_user_guide.View_details]
 * [Set up the Answers portlet|#KSuser.Answer_Administrator.Set_up_Answers_portlet]

@@ -10,7 +10,7 @@ h2. Set up Maven settings {anchor:id=DEV.SetupMavenSettings}
 
 {include:document=Set_up_project.wiki|syntax=confluence/1.0}
 
-h2. eXo Architecture Primer {anchor:id=DEV.eXoArchitecturePrimer}
+h2. eXo Architecture Primer {anchor:id=DEV.eXoArchitecturePremer}
 
 {include:document=architecture.wiki|syntax=confluence/1.0}
 
@@ -37,7 +37,7 @@ h1. eXo Platform 3.5 APIs {anchor:id=DEV.eXoPlatformAPIs}
 h1. Cookbook {anchor:id=DEV.Cookbook}
 
 {include:document=Introduction-cookbook.wiki|syntax=confluence/1.0}
-{include:document=cookbook.wiki|syntax=confluence/1.0}
+{include:document=cookbook/how_to_copy_a_site.wiki|syntax=confluence/1.0}
 
 h1. Upgrade eXo Platform {anchor:id=DEV.Upgrade}
 

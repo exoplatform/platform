@@ -1,8 +1,90 @@
-h1. Platform skin elements  {anchor:id=DEV.CreateYourOwnPortal.PageSkinElemnets}
+{docbook}
+<highlights>
+<itemizedlist>
+	<listitem>
+	<para>
+	  <emphasis role="bold"><link linkend="DEV.CreateYourOwnPortal.PageSkinElemnets">Platform skin elements</link></emphasis>
+	</para>
+	<para>
+	The complete skinning of eXo Platform that can be decomposed into 3 main parts: Portal skin, Window style, Portlet skin, and further details of SkinService, ResourceRequestFilter and default skin. 
+	</para>
+	</listitem>
+	<listitem>
+	<para>
+	  <emphasis role="bold"><link linkend="DEV.CreateYourOwnPortal.Skin_the_portlet">Skin the portlet</link></emphasis>
+	</para>
+	<para>
+	How to define additional stylesheets for each portlet, and to change its icon.
+	</para>
+	</listitem>
+	<listitem>
+	<para>
+	  <emphasis role="bold"><link linkend="DEV.CreateYourOwnPortal.OverrideSkinsWithExtension">Override skins with extension</link></emphasis>
+	</para>
+	<para>
+	The way to replace a skin definition with the skin resource configured in the extension-deployed web application, and steps to override skins with extension.
+	</para>
+	</listitem>
+	<listitem>
+	<para>
+	  <emphasis role="bold"><link linkend="DEV.CreateYourOwnPortal.CreateNewSkins">Create a new skin</link></emphasis>
+	</para>
+	<para>
+	Steps to create a new skin web archive and preview icon, to skin the window style as well as to configure the right-to-left skin.
+	</para>
+	</listitem>
+	<listitem>
+	<para>
+	  <emphasis role="bold"><link linkend="DEV.CreateYourOwnPortal.Configure_portlet_skin">Configure Platform skin</link></emphasis>
+	</para>
+	<para>
+	The detailed topics which allow you to configure the eXo Platform skin effectively, such as how to select skins or to customize layouts, styles, templates or shared layouts.
+	</para>
+	</listitem>
+	<listitem>
+	<para>
+	  <emphasis role="bold"><link linkend="DEV.CreateYourOwnPortal.CustomizeDocumentSkin">Customize Document's skin</link></emphasis>
+	</para>
+	<para>
+	Instructions on how to create a new document definition and configure it, to create templates, to create and export content into XML files, and finally to set up a deployment for importing the XML files into database.
+	</para>
+	</listitem>
+	<listitem>
+	<para>
+	  <emphasis role="bold"><link linkend="DEV.CreateYourOwnPortal.BestPracticeToCustomizeSkin">Best practices to customize a skin</link></emphasis>
+	</para>
+	<para>
+	Conventions and best ways to ease the integration of the design in eXo Platform.
+	</para>
+	</listitem>
+</itemizedlist>
+<para>
+By following the information detailed in this section, you are able to customize a look and feel of your project effectively.
+</para>
+</highlights>
+{docbook}
+
+{docbook}
+<para>
+<prompt>
+    <emphasis role="bold">See also</emphasis>
+</prompt>
+</para>
+{docbook}
+
+* [Create your extension project|#DEV.CreateYourOwnPortal.CreateExtensionProject]
+* [Define a default portal|#DEV.CreateYourOwnPortal.Create_default_portal]
+* [Structure of portal, pages and menus|#DEV.CreateYourOwnPortal.StructureOfPortalPages&Menus]
+* [Enable/Disable a drive creation|#DEV.CreateYourOwnPortal.EnableDisableDriveCreation]
+* [Add/Remove a language|#DEV.CreateYourOwnPortal.AddOrRemoveLanguages]
+* [Add JavaScript to your portal|#DEV.CreateYourOwnPortal.AddJavaScriptToYourPortal]
+* [Create custom templates for pages|#DEV.CreateYourOwnPortal.AddJavaScriptToYourPortal.Create_custom_templates_for_pages]
+
+h1. Platform skin elements  {anchor:id=DEV.CreateYourOwnPortal.PageSkinElemnetsRoleNotInToc}
 
 Platform provides support for skinning the entire portal User Interface (UI) including your own portlets. Skins are designed to help you pack and reuse common graphic resources.
 
-The complete skinning of can be decomposed into three main parts: Portal skin, Window style, Portlet skin.
+The complete skinning of eXo Platform can be decomposed into three main parts: Portal skin, Window style, Portlet skin.
 
 {docbook}
 <citetitle>
@@ -23,7 +105,7 @@ The portal skin contains styles for the HTML tags (for example, div, th, td) and
 {docbook}
 The CSS styles are associated with the portlet window decorators. The window decorators contain control buttons and borders surrounding each portlet. Individual portlets can have their own window decorators selected, or be rendered without one.
 
-!images/window_decoration.jpg|align="center" width="100mm" fo:scalefit="1" html:scalefit="0"!
+!images/window_decoration.jpg|align="center" width="80mm" fo:scalefit="1" html:scalefit="0"!
 
 {docbook}
 <citetitle>
@@ -49,12 +131,35 @@ The window decorators and the default portlet specification CSS classes should b
 A portlet skin does not need  to be  included as a part of the portal skin and can be included within the portlets web application.
 {note}
 
+{docbook}
+<highlights>
+ <para>More details of the eXo Platform skin elements are described in:</para>
+        <itemizedlist>
+          <listitem>
+            <para>
+              <link linkend="DEV.CreateYourOwnPortal.SkinService">SkinService</link>
+            </para>
+          </listitem>
+          <listitem>
+            <para>
+              <link linkend="DEV.CreateYourOwnPortal.ResourceRequestFilter">ResourceRequestFilter</link>
+            </para>
+          </listitem>
+          <listitem>
+            <para>
+              <link linkend="DEV.CreateYourOwnPortal.DefaultSkin">Default skin</link>
+            </para>
+          </listitem>
+        </itemizedlist>
+</highlights>
+{docbook}
+
 h2. SkinService {anchor:id=DEV.CreateYourOwnPortal.SkinService}
 Platform skin is processed by the SkinService. It is used to discover and deploy skins into the portal.
 
 * *Configure skins* {anchor:id=DEV.CreateYourOwnPortal.ConfigureSkins}
 
-In eXo Platform 3.5 has a file descriptor for skins (WEB-INF/gatein-resources.xml) which is to specify which portal, portlet and window decorators will be deployed into the skin service. Platform can automatically discover web archives containing this file gatein-resource.xml.
+eXo Platform 3.5 has a file descriptor for skins (WEB-INF/gatein-resources.xml) which is to specify which portal, portlet and window decorators will be deployed into the skin service. Platform can automatically discover web archives containing this file gatein-resource.xml.
 The full schema can be found in the lib directory: _exo.portal.component.portal.jar/gatein\_resources\_1\_0.xsd_.
 
 Here is the _gatein-resources.xml_ file of a sample skin (called "MySkin") which defines the portal skin with its CSS location, window style and its portlet skins:
@@ -115,7 +220,7 @@ Hence, the display-name element in _web.xml_ needs to be coherent with the appli
 {note}
 
 
-h2. The default skin {anchor:id=DEV.CreateYourOwnPortal.DefaultSkin}
+h2. Default skin {anchor:id=DEV.CreateYourOwnPortal.DefaultSkin}
 The default skin of eXo Platform 3.5 is in the _eXoResource.war_ file. The main files associated with the skin are:
 * _WEB-INF/gatein-resources.xml_ defines the skin settings to use.
 * _WEB-INF/web.xml_ contains the resource filter with the display-name set.
@@ -153,7 +258,50 @@ To reuse a CSS stylesheet from the default portal skin, you need to refer to the
 When the portal skin is added to the page, it merges all CSS stylesheets into a single file.
 {note}
 
-h1. Override skins with extension {anchor:id=DEV.CreateYourOwnPortal.OverrideSkinsWithExtension}
+h1. Skin the portlet {anchor:id=DEV.CreateYourOwnPortal.Skin_the_portletRoleNotInToc}
+
+Portlets often require additional styles that may not be defined by the portal skin. eXo Platform 3.5 defines additional stylesheets for each portlet and will append the corresponding link tags to the head. The ID attribute of <link> element will be in the _portletAppName/PortletName_ form.
+For example, the ContentPortlet in content.war takes "content/ContentPortlet" as ID.
+To define a new CSS file to be included whenever a portlet is available on a portal page, the following fragment needs to be added in the _gatein-resources.xml_ file.
+
+{code:xml}
+<portlet-skin>
+  <application-name>portletAppName</application-name>
+  <portlet-name>PortletName</portlet-name>
+  <skin-name>Default</skin-name>
+  <css-path>/skin/DefaultStylesheet.css</css-path>
+</portlet-skin>
+<portlet-skin>
+  <application-name>portletAppName</application-name>
+  <portlet-name>PortletName</portlet-name>
+  <skin-name>OtherSkin</skin-name>
+  <css-path>/skin/OtherSkinStylesheet.css</css-path>
+</portlet-skin>
+{code}
+
+This action will load DefaultStylesheet.css or OtherSkinStylesheet.css when the DefaultSkin or OtherSkin is used respectively.
+
+{note}
+If the current portal skin is not defined as part of the supported skins, the portlet CSS class will not be loaded. The portlet skins should be updated whenever a new portal skin is created.
+{note}
+
+{docbook}
+<para xml:id="DEV.CreateYourOwnPortal.ChangePortletIcons">
+<citetitle>
+<emphasis role="bold">Change portlet icons</emphasis>
+</citetitle>
+</para>
+{docbook}
+
+Each portlet can be represented by a unique icon that you can see in the portlet registry or page editor. This icon can be changed by adding an image to the directory of portlet web application: _skin/DefaultSkin/portletIcons/icon\_name.png_.
+The icon must be named after the portlet.
+For example, the icon of account portlet must be named AccountPortlet and located at: _skin/DefaultSkin/portletIcons/AccountPortlet.png_.
+
+{note}
+You must use _skin/DefaultSkin/portletIcons/_ for the directory to store the portlet icon regardless of using any skins.
+{note}
+
+h1. Override skins with extension {anchor:id=DEV.CreateYourOwnPortal.OverrideSkinsWithExtensionRoleNotInToc}
 
 The extension mechanism of eXo Platform 3.5 enables the skin definition to be replaced with the skin resource configured in the extension-deployed web application. This is the example where the CSS path of default portal skin needs to be modified without touching the Platform's files.
 
@@ -182,19 +330,25 @@ The extension mechanism of eXo Platform 3.5 enables the skin definition to be re
 
 *2.* Ensure that once the server has deployed the artifact, it does not load any web application with _gatein-resources.xml_ configuring the same portal skin.
 
-h1. Create new skins {anchor:id=DEV.CreateYourOwnPortal.CreateNewSkins}
+h1. Create a new skin {anchor:id=DEV.CreateYourOwnPortal.CreateNewSkinsRoleNotInToc}
 
-h2. Create a new skin web archive {anchor:id=DEV.CreateYourOwnPortal.CreateNewSkins.WebArchive}
+Creating a new skin is not a simple topic because this task requires many steps to have a wished skin for your product.
+There are many options for you to create a new skin that depends on your various demands. A typical procedure of creating a new skin includes certain main steps, for example:
+* [Create a new skin web archive|#DEV.CreateYourOwnPortal.CreateNewSkins.WebArchive]
+* [Create the skin preview icon|#DEV.CreateYourOwnPortal.PortalSkinPreviewIcon]
+* [Skin the window style|#DEV.CreateYourOwnPortal.Skin_the_window_style]
+* [Configure the right-to-left skin|#DEV.CreateYourOwnPortal.Configure_RTL_skin]
+
 {docbook}
-<para xml:id="DEV.CreateYourOwnPortal.CreateNewPortalSkins">
+<para xml:id="DEV.CreateYourOwnPortal.CreateNewSkins.WebArchive">
 <citetitle>
-<emphasis role="bold">Create new portal skins</emphasis>
+<emphasis role="bold">Create a new skin web archive</emphasis>
 </citetitle>
 </para>
 {docbook}
 To create a new skin (called "MySkin"), you should create a new skin web archive with the following structure:
 
-!images/FolderStructure.png|align="center" fo:scalefit="1" html:scalefit="0"!
+!images/FolderStructure.png|align="center" fo:scalefit="1" html:scalefit="0" width="80mm"!
 
 * The _web.xml_ is the file that you will define the ResourceRequestFilter.
 * The _gatein-resource.xml_ will define your new skin (for portal, portlet or window style).
@@ -223,11 +377,17 @@ The CSS for the portal skin needs to contain CSS for all window decorators and p
 eXo Platform provides the "CSS priority" concept  which controls the loading order of skins. The skin with lower "css-priority" value will be loaded first.
 {note}
 
-h2. Create the skin preview icon {anchor:id=DEV.CreateYourOwnPortal.PortalSkinPreviewIcon}
+{docbook}
+<para xml:id="DEV.CreateYourOwnPortal.PortalSkinPreviewIcon">
+<citetitle>
+<emphasis role="bold">Create the skin preview icon</emphasis>
+</citetitle>
+</para>
+{docbook}
 
 When selecting a skin it is possible to see a preview of what the skin will look like. The current skin needs to know about the skin icons for all the available skins, otherwise it will not be able to show the previews. When creating a new portal it is recommended to include the preview icons of the other skins and to update the other skins with your new portal skin preview.
 
-!images/Skin_preview.png|align="center" fo:scalefit="1" html:scalefit="0"!
+!images/Skin_preview.png|align="center" fo:scalefit="1" html:scalefit="0" width="120mm"!
 
 For any portal skin, the paths to the preview images are specified in CSS class UIChangeSkinForm:
 
@@ -258,7 +418,13 @@ cursor: pointer ;
 }
 {code}
 
-h2. Skin the window style {anchor:id=DEV.CreateYourOwnPortal.Skin_the_window_style}
+{docbook}
+<para xml:id="DEV.CreateYourOwnPortal.Skin_the_window_style">
+<citetitle>
+<emphasis role="bold">Skin the window style</emphasis>
+</citetitle>
+</para>
+{docbook}
 
 Window style is the CSS applied to the window decorator. When the administrator selects a new application to add to a page, he can decide which style of decorator surrounding the window if any.
 
@@ -298,7 +464,13 @@ To set the default window style for a portal, you need to specify the CSS classe
 You do not need to specify the DefaultTheme in the _gatein-resources.xml_ file.
 {note}
 
-h2. Configure the right-to-left skin {anchor:id=DEV.CreateYourOwnPortal.Configure_RTL_skin}
+{docbook}
+<para xml:id="DEV.CreateYourOwnPortal.Configure_RTL_skin">
+<citetitle>
+<emphasis role="bold">Configure the right-to-left skin</emphasis>
+</citetitle>
+</para>
+{docbook}
 
 The SkinService handles stylesheet rewriting to accommodate the orientation. It works by appending _-lt_ or _-rt_ to the stylesheet name.
 For example, _/web/skin/portal/webui/component/UIFooterPortlet/DefaultStylesheet-rt.css_ will return the same stylesheet as _/web/skin/portal/webui/component/UIFooterPortlet/DefaultStylesheet.css_ but processed for the RT orientation. The _-lt_ suffix is optional.
@@ -356,50 +528,23 @@ line-height: 24px;
 padding: 0px 0px 0px 5px; /* orientation=rt */
 {code}
 
-h1. Skin the portlet {anchor:id=DEV.CreateYourOwnPortal.Skin_the_portlet}
-
-Portlets often require additional styles that may not be defined by the portal skin. eXo Platform 3.5 defines additional stylesheets for each portlet and will append the corresponding link tags to the head. The ID attribute of <link> element will be in the _portletAppName/PortletName_ form.
-For example, the ContentPortlet in content.war takes "content/ContentPortlet" as ID.
-To define a new CSS file to be included whenever a portlet is available on a portal page, the following fragment needs to be added in the _gatein-resources.xml_ file.
-
-{code:xml}
-<portlet-skin>
-  <application-name>portletAppName</application-name>
-  <portlet-name>PortletName</portlet-name>
-  <skin-name>Default</skin-name>
-  <css-path>/skin/DefaultStylesheet.css</css-path>
-</portlet-skin>
-<portlet-skin>
-  <application-name>portletAppName</application-name>
-  <portlet-name>PortletName</portlet-name>
-  <skin-name>OtherSkin</skin-name>
-  <css-path>/skin/OtherSkinStylesheet.css</css-path>
-</portlet-skin>
-{code}
-
-This action will load DefaultStylesheet.css or OtherSkinStylesheet.css when the DefaultSkin or OtherSkin is used respectively.
-
-{note}
-If the current portal skin is not defined as part of the supported skins, the portlet CSS class will not be loaded. The portlet skins should be updated whenever a new portal skin is created.
-{note}
+h1. Configure Platform skin {anchor:id=DEV.CreateYourOwnPortal.Configure_portlet_skinRoleNotInToc}
 
 {docbook}
-<para xml:id="DEV.CreateYourOwnPortal.ChangePortletIcons">
-<citetitle>
-<emphasis role="bold">Change portlet icons</emphasis>
-</citetitle>
+<para>
+<prompt>
+    <emphasis role="bold">See also</emphasis>
+</prompt>
 </para>
 {docbook}
 
-Each portlet can be represented by a unique icon that you can see in the portlet registry or page editor. This icon can be changed by adding an image to the directory of portlet web application: _skin/DefaultSkin/portletIcons/icon\_name.png_.
-The icon must be named after the portlet.
-For example, the icon of account portlet must be named AccountPortlet and located at: _skin/DefaultSkin/portletIcons/AccountPortlet.png_.
+* [Platform skin elements|#DEV.CreateYourOwnPortal.PageSkinElemnets]
+* [Skin the portlet|#DEV.CreateYourOwnPortal.Skin_the_portlet]
+* [Override skins with extension|#DEV.CreateYourOwnPortal.OverrideSkinsWithExtension]
+* [Create a new skin|#DEV.CreateYourOwnPortal.CreateNewSkins]
+* [Customize Document's skin|#DEV.CreateYourOwnPortal.CustomizeDocumentSkin]
+* [Best practices to customize a skin|#DEV.CreateYourOwnPortal.BestPracticeToCustomizeSkin]
 
-{note}
-You must use _skin/DefaultSkin/portletIcons/_ for the directory to store the portlet icon regardless of using any skins.
-{note}
-
-h1. Configure Platform skin {anchor:id=DEV.CreateYourOwnPortal.Configure_portlet_skin}
 h2. Select skins within the configuration files {anchor:id=DEV.CreateYourOwnPortal.SelectSkinWithinConfigurationFiles}
 The default skin can be set in the portal configuration files. The skin configured as default is used by Platform as the administrator starts/restarts the server.
 
@@ -460,7 +605,7 @@ This section is related to the configuration. You can see a sample [here.|http:/
 
 For example, you will have a layout like this:
 
-!images/samplelayout.jpg|align="center" width="100mm" fo:scalefit="1" html:scalefit="0"!
+!images/samplelayout.jpg|align="center" width="80mm" fo:scalefit="1" html:scalefit="0"!
 
 In which:
 
@@ -546,7 +691,7 @@ This section is related to the configuration. You can see a sample [here.|http:/
 
 * Like _portal.xml_, you can define the layout for each page in your site as shown in the following example:
 
-!images/sample_page.jpg|align="center"  width="80mm" fo:scalefit="1" html:scalefit="0"!
+!images/sample_page.jpg|align="center"  width="60mm" fo:scalefit="1" html:scalefit="0"!
 
 {code:xml}
 <!-- ... -->
@@ -563,150 +708,61 @@ This section is related to the configuration. You can see a sample [here.|http:/
 <!-- ... -->
 {code}
 
-h2. Customize the Admin bar {anchor:id=DEV.CreateYourOwnPortal.CustomizeAdminBar}
-This section shows you how to customize the *Admin* bar via the following topics:
-* [sharedlayout.xml|#DEV.CreateYourOwnPortal.Sharedlayout]
-* [Remove a content from the Admin bar|#DEV.CreateYourOwnPortal.RemoveAdminbarContent]
-* [Add a content to the Admin bar|#DEV.CreateYourOwnPortal.AddAdminbarContent]
-* [Change the color scheme|#DEV.CreateYourOwnPortal.ChangeColorScheme]
+h2. Customize portal and page's style {anchor:id=customize-portal-and-page-style}
 
-h3. sharedlayout.xml    {anchor:id=DEV.CreateYourOwnPortal.Sharedlayout}
-The *Admin* bar is a special container composed of portlets and defined in _WEB-INF/conf/portal/portal/sharedlayout.xml_.
+{docbook}
+<para>
+<citetitle>
+<emphasis role="bold">
+Apply your skin into all pages
+</emphasis>
+</citetitle>
+</para>
+{docbook}
 
-If you want to redefine these portlets, you need to override this file by creating your own _sharedlayout.xml_ located into your extension: _custom-extension.war!WEB-INF/conf/portal/portal/sharedlayout.xml_.
+*1.* Go to *Sites Explorer -->* *Shared* drive *--> CSS* folder.
 
-Followings are two examples of configuration, one to remove a portlet, the other to add a new portlet to the *Admin* bar.
+*2.* Create a new CSS document which contains your stylesheet. You can use any name for this document and put a priority number.
 
-h3. Remove a content from the Admin bar {anchor:id=DEV.CreateYourOwnPortal.RemoveAdminbarContent}
+{docbook}
+<para>
+<citetitle>
+<emphasis role="bold">
+Apply your skin into your MySite page only
+</emphasis>
+</citetitle>
+</para>
+{docbook}
 
-!images/admin_bar_portlets.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
 
-*Portlets on the Admin bar*
+*1.* Click !images/gear_icon.png|width="5mm" fo:scalefit="1" html:scalefit="0"! *--> Sites Explorer--> Sites Management drive --> MySite/css* folder.
 
-In the illustration above, each circle represents a portlet defined in the *Admin* bar and configured in _sharedlayout.xml_.
+*2.* Create a new CSS document which contains your stylesheet for the portal and the page layout. You can use any name for this document and put a priority number.
 
-The _sharedlayout.xml_ file configures the current displayed portlets on the *Admin* bar. For example, to remove the *Dashboard* menu, you will need to remove the following block:
+{note}
+This document should contain ONLY one stylesheet for the page and portal level.
+{note}
 
-{code:xml}
-...
-<container id="UserToolBarDashboardPortlet" template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
-  <portlet-application>
-    <portlet>
-      <application-ref>exoadmin</application-ref>
-      <portlet-ref>UserToolbarDashboardPortlet</portlet-ref>
-    </portlet>
-    <access-permissions>Everyone</access-permissions>
-    <show-info-bar>false</show-info-bar>
-  </portlet-application>
-</container>
- ...
-{code}
-
-h3. Add content to the Admin bar {anchor:id=DEV.CreateYourOwnPortal.AddAdminbarContent}
-
-*Add a portlet to the Admin bar to logout user*
-
-In the same way you removed a portlet from the admin bar, you can add your own portlet by editing your _sharedlayout.xml_.
-
-{code:xml}
-...
-<container id="UILogoutPortlet" template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
-  <access-permissions>*:/platform/users</access-permissions>
-  <portlet-application>
-    <portlet>
-      <application-ref>platformNavigation</application-ref>
-      <portlet-ref>UILogoutPortlet</portlet-ref>
-    </portlet>
-    <access-permissions>*:/platform/users</access-permissions>
-    <show-info-bar>false</show-info-bar>
-  </portlet-application>
-</container>
-...
-{code}
-
-Style of portlet container can be changed by editing this css file:
-
-_eXoResources/skin/DefaultSkin/portal/webui/component/view/UIToolbarContainer/Stylesheet.css_
+The following is the sample stylesheet:
 
 {code:css}
-.UIToolbarContainer .UILogoutPortletTDContainer {
-	float: right; /* orientation=lt */
-	float: left; /* orientation=rt */
+/* ... */
+.LeftColumnTDContainer { 
+/* ... */
+  
 }
+
+.RightColumnTDContainer { 
+/* ... */
+  
+}
+
+/* ... */
 {code}
 
-h3. Change the color scheme {anchor:id=DEV.CreateYourOwnPortal.ChangeColorScheme}
-The current color of the *Admin* bar is gray gradient. However, you can change the color to match your brand colors.
-
-The default *Administration* style:
-
-!images/admin_bar.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
-
-The style of the *Admin* bar is defined in the *stylesheet.css* located in _extension/resources/src/main/webapp/skin/platformSkin/UIToolbarContainer_.
-
-Edit this CSS file to customize the *Admin* bar to your preferred color scheme.
-
-The CSS code below shows how to modify the Admin bar to look like this:
-
-!images/modified_admin_bar.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
-
-{code:css}
-.UIWorkingWorkspace #UIToolbarContainer .HomeLinkTDContainer {
-	line-height: 31px;
-    margin: 0px 5px;
-    vertical-align: middle;
-}
-
-.UIWorkingWorkspace .UIToolbarContainer .ToolbarContainer {
-	/*background: url(background/BgToolbarContainer.gif) repeat-x left top;*/
-	height: 31px;
-	border: none;
-}
-
-.UIWorkingWorkspace .UIToolbarContainer .ToolbarContainer .UITab .MenuItemContainer .MenuItem a {
-	padding: 0 22px 0 22px;
-	font-size: 12px!important;
-	color: #4c4c4c;
-	display: block;
-	font-weight: normal;
-	white-space: nowrap;
-}
-
-.UIToolbarContainer .ToolbarContainer .PinLink {
-    padding: 0px;
-}
-
-.UIWorkingWorkspace .UIToolbarContainer .ToolbarContainer a.TBIcon {
-	/*color: #2f3334;*/
-	font-weight: normal;
-	padding: 0 20px;
-	display: block;
-	white-space: nowrap;
-	background: none;
-	margin-left: 0;
-	zoom: 1;
-	font-size:14px!important;
-	font-family: verdana;
-	border: 1px solid transparent;
-	border-bottom: none;
-	line-height: 29px;
-	height: 29px;
-}
-
-.UIWorkingWorkspace .UIToolbarContainer .ToolbarContainer a.SetupMenuItem  {
-	padding: 0 8px;
-	line-height:25px;
- }
-{code}
-
-
-h1. Configure skin in WCM {anchor:id=DEV.CreateYourOwnPortal.ConfigureSkinInWCM}
-
-This tutorial will help you to create a new layout and skin, and give some best practices when creating a new layout and skin for your portal and page.
-Instructions described here are based on the following assumptions:
-* You have an extension named "MyPortal", and you need to create a site called "MySite" inside this portal.
-* The _{{{<myportal_path>}}}_ below is replaced with the based path of your "MyPortal" extension.
-* If you see any folder/file which does not exist, you should create a new one.
+{note}
+The order of applying CSS files (of site and web content) depends on their own *priority* property value. It means that we can apply the site CSS first and then web content CSS, or vice versa.
+{note}
 
 h2. Customize CLV portlet's template {anchor:id=DEV.CreateYourOwnPortal.CustomizeCLVPortletTemplate}
 
@@ -797,7 +853,10 @@ This document should contain ONLY one stylesheet for THIS template. If you have 
 
 Please check out [this tutorial|http://wiki.exoplatform.com/xwiki/bin/view/WCM/How+to+create+and+deploy+pre-defined+contents+in+WCM] to know how to import this XML into the database.
 
-h1. Customize Document's skin {anchor:id=DEV.CreateYourOwnPortal.CustomizeDocuemntSkin}
+h2. Configure a shared layout {anchor:id=DEV.CreateYourOwnPortal.Sharedlayout}
+{include:document="Sharedlayout.wiki"}
+
+h1. Customize Document's skin {anchor:id=DEV.CreateYourOwnPortal.CustomizeDocumentSkinRoleNotInToc}
 
 {note}
 This section is related to the configuration. You can see a sample [here.|http://svn.exoplatform.org/projects/ecms/tags/2.1.0-GA/packaging/wcm/webapp/src/main/webapp/WEB-INF/conf/wcm-extension/wcm/nodetypes-configuration.xml]
@@ -1012,11 +1071,7 @@ To import this XML into database, you can set up the deployment like this:
 </external-component-plugins>
 {code}
 
-
-
-
-
-h1. Best practices to customize a skin {anchor:id=DEV.CreateYourOwnPortal.BestPracticeToCustomizeSkin}
+h1. Best practices to customize a skin {anchor:id=DEV.CreateYourOwnPortal.BestPracticeToCustomizeSkinRoleNotInToc}
 The skin folder structure must be prepared once you start the design. Follow these conventions and best practices to ease the integration of your design in eXo Platform.
 
 *Name files and folders* {anchor:id=DEV.CreateYourOwnPortal.NameFiles&Folder}
@@ -1033,7 +1088,7 @@ For example, the UI portlet will be named as UIFooterPortlet, or UIBannerPortlet
 </citetitle>
 {docbook}
 
-The portal skin will appear as a single link to a CSS file. This link will contain contents from all the portal skin classes merged into one file. This enables the portal skin to be transferred more quickly as a single file instead of many smaller files included with every page render.
+The portal skin will appear as a single link to a CSS file. This link will contain content from all the portal skin classes merged into one file. This enables the portal skin to be transferred more quickly as a single file instead of many smaller files included with every page render.
 
 * *The general folder structure for portal skin:*
 

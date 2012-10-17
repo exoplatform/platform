@@ -1,7 +1,64 @@
-The concept "team work" becomes very familiar in business environment. By establishing one specific team or group, you and your collaborators can work together on important projects. Based on the importance of team working, eXo Platform develops the
+{docbook}
+    <highlights>
+        <itemizedlist>
+            <listitem>
+                <para>
+                   <link linkend="Soc_User_Guide.Space_Management.Create_Space">Create a space</link>
+				</para>
+				<para>
+					Steps to create a new space with new settings, permission and members.
+                </para>
+            </listitem>
+            <listitem>
+                <para>
+                   <link linkend="Soc_User_Guide.Space_Management.Edit_Space">Edit a space</link>
+				</para>
+				<para>
+					Ways to access <emphasis role="bold">Space Settings</emphasis> and steps to modify the space information and visibility, to manage members and space applications, or to edit space navigation.
+                </para>
+            </listitem>
+            <listitem>
+                <para>
+                   <link linkend="Soc_User_Guide.Space_Management.Join_Space">Join/Leave a space</link>
+				</para>
+				<para>
+					Instructions on how to join/leave a space, or to revoke your request.
+                </para>
+            </listitem>
+            <listitem>
+                <para>
+                   <link linkend="Soc_User_Guide.Space_Management.View_Details_Of_Space">View details of a space</link>
+				</para>
+				<para>
+					Ways to view the detailed page of spaces where you are the member or manager.
+                </para>
+            </listitem>
+            <listitem>
+                <para>
+                   <link linkend="Soc_User_Guide.Space_Management.Join_Space.Search">Search for spaces</link>
+				</para>
+				<para>
+					Steps to find spaces by Name and Description or Alphabets.
+                </para>
+            </listitem>
+              <listitem>
+                <para>
+                   <link linkend="Soc_User_Guide.Space_Management.Edit_Space.Manage_Members.Accept_Mem">Accept/Ignore invitations</link>
+				</para>
+				<para>
+					Steps to accept or ignore a request/invitation.
+                </para>
+            </listitem>
+        </itemizedlist>
+    </highlights>
+{docbook}
+
+The "team work" concept becomes very familiar in business environment. By establishing one specific team or group, you and your collaborators can work together on important projects. Based on the importance of team working, eXo Platform develops the
 *Space* application, allowing you to collaborate with specific people. This means that if you want to work on a team project, you can create a space for your team members to make organizations, share links and information related to the project.
 
-To access a space, click *My Spaces* on the *Administration* bar.
+{docbook}
+<para>To access a space, click <guilabel>My Spaces</guilabel> on the <emphasis role="bold">Administration</emphasis> bar.</para>
+{docbook}
 
 !images/spaces.png|align="center" width="100mm" fo:scalefit="1" html:scalefit="0"!
 
@@ -9,12 +66,30 @@ The *My Spaces* page appears as below.
 
 !images/space_page.png|align="center" width="140mm" fo:scalefit="1" html:scalefit="0"!
 
-The *Space navigation* includes the following tabs:  {anchor: id="space_navigation"}
+{docbook}
+<para>The <guilabel>Space navigation</guilabel> includes the following tabs:  <anchor id="space_navigation"/></para>
+{docbook}
 
-* *All Spaces*: all spaces, including your spaces, [visible spaces|#visible_space], and [hidden spaces|#hidden_space] where you are invited to become members.
-* *My Spaces*: spaces where you have the role as a member or a manager. 
-* *Invitations Received*: spaces where you are invited to become members by space managers.
-* *Requests Pending*: spaces where you have requested for becoming their members.
+{docbook}
+<itemizedlist>
+        <listitem>
+          <para>
+            <guilabel>All Spaces:</guilabel> all spaces, including your spaces, <link linkend="visible_space">visible spaces</link>, and <link linkend="hidden_space">hidden spaces</link> where you are invited to become members.</para>
+        </listitem>
+        <listitem>
+          <para>
+            <guilabel>My Spaces:</guilabel> spaces where you have the role as a member or a manager. </para>
+        </listitem>
+        <listitem>
+          <para>
+            <guilabel>Invitations Received:</guilabel> spaces where you are invited to become members by space managers.</para>
+        </listitem>
+        <listitem>
+          <para>
+            <guilabel>Requests Pending:</guilabel> spaces where you have requested for becoming their members.</para>
+        </listitem>
+</itemizedlist>
+{docbook}
 
 {docbook}
 <note>
@@ -24,40 +99,88 @@ The *Space navigation* includes the following tabs:  {anchor: id="space_navigati
 </note>
 {docbook}
 
-h1. Create a space   {anchor:id=Soc_User_Guide.Space_Management.Create_Space}
+{docbook}
+<para>
+<prompt>
+    <emphasis role="bold">See also</emphasis>
+</prompt>
+</para>
+{docbook}
+
+* [Manage your profile|#Platform_User_Guide.Social.Manage_Profile]
+* [Manage connections|#Platform_User_Guide.Social.Manage_connections]
+* [Follow activities in your organization|#Platform_User_Guide.Social.Follow_Activities]
+
+h1. Create a space   {anchor:id=Soc_User_Guide.Space_Management.Create_SpaceRoleNotInToc}
 After redirecting to the *Space* application, you can add a new space so that you and your collaborators can work together or discuss specific topics as follows:
 
 *1.* Click !images/Add_new_space_icon.png|width="17mm" fo:scalefit="1" html:scalefit="0"! at the left corner of the *Space* page.
 
-*2.* Enter a space name, description and select the priority level in the *Settings* tab of the *Add New Space* form.
-There are 3 levels: *High*, *Intermediate*, and *Low* with textual explanations corresponding to each selected preference value.
+{docbook}
+ <para>
+  <emphasis role="bold">2.</emphasis> Enter a space name, description and select the priority level in the <guilabel>Settings</guilabel> tab of the <guilabel>Add New Space</guilabel> form. There are 3 levels: <guilabel>High</guilabel>, <guilabel>Intermediate</guilabel>, and <guilabel>Low</guilabel> with textual explanations corresponding to each selected preference value.</para>
+{docbook}
 
 !images/add_new_space_settings.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
 
-*3.* Select an access level in the *Access & Edit* tab. {anchor:id=Visibility_space}
+{docbook}
+<para>
+   <emphasis role="bold">3.</emphasis> Select an access level in the <guilabel>Access &amp; Edit</guilabel> tab. <anchor id="Visibility_space"/>
+</para>
+{docbook}
 
 !images/add_new_space_visibility.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
 
-* *Visibility*: By default, the *Visibility* value is set to be *Visible*. {anchor:id="visibility"}
-** Visible:{anchor:id="visible_space"} The space is always visible in the public spaces list.
-** Hidden:{anchor:id="hidden_space"} The space is not visible in the public spaces list.
-* *Registration*: By default, the *Registration* value is set as *Validation*.
-** Open: The users sending their requests can join the space without any validation.
-** Validation: The membership must be validated by the space manager.
-** Close: The user cannot request for joining, but only the space manager can invite him.
+{docbook}
+<itemizedlist>
+          <listitem>
+            <para>
+              <guilabel>Visibility:</guilabel> By default, the <guilabel>Visibility</guilabel> value is set to be <guilabel>Visible</guilabel>. <anchor id="visibility"/>
+            </para>
+            <itemizedlist>
+              <listitem>
+                <para>Visible:<anchor id="visible_space"/> The space is always visible in the public spaces list.</para>
+              </listitem>
+              <listitem>
+                <para>Hidden:<anchor id="hidden_space"/> The space is not visible in the public spaces list.</para>
+              </listitem>
+            </itemizedlist>
+          </listitem>
+          <listitem>
+            <para>
+              <guilabel>Registration:</guilabel> By default, the <guilabel>Registration</guilabel> value is set as <guilabel>Validation</guilabel>.</para>
+            <itemizedlist>
+              <listitem>
+                <para>Open: The users sending their requests can join the space without any validation.</para>
+              </listitem>
+              <listitem>
+                <para>Validation: The membership must be validated by the space manager.</para>
+              </listitem>
+              <listitem>
+                <para>Close: The user cannot request for joining, but only the space manager can invite him.</para>
+              </listitem>
+            </itemizedlist>
+          </listitem>
+ </itemizedlist>
+{docbook}
 
-*4.* Select all members of a specific group for your space where you are already 'manager' in the *Invite users from group* tab.
+{docbook}
+<para>
+  <emphasis role="bold">4.</emphasis> Select all members of a specific group for your space where you are already 'manager' in the <guilabel>Invite users from group</guilabel> tab.</para>
+{docbook}
 
 One of the two following cases occurs when you select this tab.
 
-* *The first instance*: You have been already the manager of a group. It means that you have created at least a space. 
-
-The *Invite users from group* tab will be displayed as below.
+* *The first instance*: You have been already the manager of a group. It means that you have created at least a space.
+{docbook}
+ <para>The <guilabel>Invite users from group</guilabel> tab will be displayed as below.</para>
+{docbook}
 
 !images/add_new_space_invite_users.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
-
-*i.* Tick the *Select a target group for this space* checkbox to open the selection form.
-
+{docbook}
+<para>
+  <emphasis role="bold">i.</emphasis> Tick the <guilabel>Select a target group for this space</guilabel> checkbox to open the selection form.</para>
+{docbook}
 *ii.* Select the group in the left pane, then its child group in the right pane.
 
 !images/add_new_space_select_user.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
@@ -70,7 +193,7 @@ You will see your selected group as below.
 {docbook}
 <note>
     <para>
-    To remove the selected groups, untick the <emphasis role="bold">Select a target group for this space</emphasis> checkbox.
+    To remove the selected groups, untick the <guilabel>Select a target group for this space</guilabel> checkbox.
     </para>
 </note>
 {docbook}
@@ -81,14 +204,25 @@ After you have selected one existing group, all users in that group will be invi
 
 !images/add_new_space_invite_users1.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
 
-*5.* Click *Create* to finish adding your new space.
+{docbook}
+<para>
+  <emphasis role="bold">5.</emphasis> Click <guibutton>Create</guibutton> to finish adding your new space.</para>
+{docbook}
 
 The new space appears.
 
 !images/new_space.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
 
-* Click each application on the space *Navigation* bar to use its functions.
-* When a new space is created, a forum with the same name as this space is also created in the *Forum* application. In case this forum is removed from the *Forum* application, all members of the space cannot see the space's forum anymore when clicking *Discussions* on the space *Navigation* bar.
+{docbook}
+<itemizedlist>
+          <listitem>
+            <para>Click each application on the space <emphasis role="bold">Navigation</emphasis> bar to use its functions.</para>
+          </listitem>
+          <listitem>
+            <para>When a new space is created, a forum with the same name as this space is also created in the <emphasis role="bold">Forum</emphasis> application. In case this forum is removed from the <emphasis role="bold">Forum</emphasis> application, all members of the space cannot see the space's forum anymore when clicking <guilabel>Discussions</guilabel> on the space <emphasis role="bold">Navigation</emphasis> bar.</para>
+          </listitem>
+</itemizedlist>
+{docbook}
 
 {docbook}
 <note>
@@ -96,7 +230,7 @@ The new space appears.
     When more than two space characters are input between words in the space name, these spaces will be converted to ONLY ONE space when being displayed. With space characters at the beginning and end of space names, these space characters will be also omitted.
     </para>
     <para>
-    After being created, your space will be automatically added to the <emphasis role="bold">My Spaces</emphasis> button on the <emphasis role="bold">Administration</emphasis> bar. Therefore, you can access your space by clicking <emphasis role="bold">My Spaces --> [Space Name]</emphasis> from the drop-down menu.
+    After being created, your space will be automatically added to the <guilabel>My Spaces</guilabel> button on the <emphasis role="bold">Administration</emphasis> bar. Therefore, you can access your space by clicking <menuchoice><guimenu>My Spaces</guimenu><guisubmenu>[Space Name]</guisubmenu></menuchoice> from the drop-down menu.
     </para>
 </note>
 {docbook}

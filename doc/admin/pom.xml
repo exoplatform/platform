@@ -144,11 +144,33 @@
               <emitDoctype>true</emitDoctype>
               <beforeBookBodyXML><![CDATA[
               <xi:include href="bookinfo.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
-			  <xi:include href="Preface.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
            ]]></beforeBookBodyXML>
               <syntaxId>confluence/1.0</syntaxId>
             </configuration>
           </plugin>
+
+			<plugin>
+				<artifactId>maven-antrun-plugin</artifactId>
+				<version>1.6</version>
+				<executions>
+				  <execution>
+					<id>f-add-role</id>
+					<phase>generate-sources</phase>
+					<configuration>
+						<target>
+							<replace file="${docbook.source}/index.xml">
+								<replacetoken><![CDATA[RoleNotInToc"]]></replacetoken>
+								<replacevalue><![CDATA[" role="NotInToc"]]></replacevalue>
+							</replace>
+						</target>
+					</configuration>
+					<goals>
+					  <goal>run</goal>
+					</goals>
+				  </execution>
+				</executions>
+			</plugin>
+
            <!--
            4) process all the xml files
               to generate the html and the pdf

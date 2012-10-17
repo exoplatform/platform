@@ -2,7 +2,7 @@ h1. Engagement gadgets {anchor:id=GadgetUserguide.AngagementGadgets}
 *Engagement* gadgets include gadgets designed to aid users in engagement activities and events.
 These gadgets analyze the existing communications and community engagement in your organization, then show what is going on by providing statistics.
 
-eXo Platform currently provides 3 types of *Engagement* gadget as follows:
+eXo Platform currently provides 4 types of *Engagement* gadget as follows:
 * [Latest Forum Posts|#GadgetUserguide.AngagementGadgets.LatestForumPosts]
 * [Top Voted Topics|#GadgetUserguide.AngagementGadgets.TopVotedTopics]
 * [Forum Statistics|#GadgetUserguide.AngagementGadgets.ForumStatistics]
@@ -21,8 +21,18 @@ Latest Forum Posts settings
 </citetitle>
 {docbook}
 
-*1.* Click !images/edit_gadget.png|scalefit="1" width="4mm"! in the *Title* bar to open the form to edit the gadget settings.
-
+{docbook}
+<para>
+              <emphasis role="bold">1.</emphasis> Click <inlinemediaobject>
+                <imageobject role="fo">
+                  <imagedata fileref="images/edit_gadget.png" format="PNG" scalefit="1" width="4mm"/>
+                </imageobject>
+                <imageobject role="html">
+                  <imagedata fileref="images/edit_gadget.png" format="PNG" scalefit="1" width="4mm"/>
+                </imageobject>
+              </inlinemediaobject> in the <guilabel>Title</guilabel> bar to open the form to edit the gadget settings.
+</para>
+{docbook}
 *Details:*
 
 || Field || Description ||
@@ -30,7 +40,10 @@ Latest Forum Posts settings
 | *Forum portlet* | The URL pointing to the Forum portlet. |
 | *Subscription url* | The link to the service which you request to get data from (in this case, the data are last posts). For example: http://mycompany.com:8080/portal/rest/ks/forum/getmessage. |
 
-*2.* Input the values for all the fields, then click *Save* to accept your changes.
+{docbook}
+<para>
+<emphasis role="bold">2.</emphasis> Input the values for all the fields, then click <guibutton>Save</guibutton> to accept your changes.</para>
+{docbook}
 
 h2. Top Voted Topics {anchor:id=GadgetUserguide.AngagementGadgets.TopVotedTopics}
 
@@ -49,15 +62,30 @@ Top Voted Topics gadget settings
 </citetitle>
 {docbook}
 
-*1.* Click !images/edit_gadget.png| scalefit="1" width="4mm"! in the *Title* bar to open the form to edit the gadget settings.
+{docbook}
+<para>
+              <emphasis role="bold">1.</emphasis> Click <inlinemediaobject>
+                <imageobject role="fo">
+                  <imagedata fileref="images/edit_gadget.png" format="PNG" scalefit="1" width="4mm"/>
+                </imageobject>
+                <imageobject role="html">
+                  <imagedata fileref="images/edit_gadget.png" format="PNG" scalefit="1" width="4mm"/>
+                </imageobject>
+              </inlinemediaobject> in the <guilabel>Title</guilabel> bar to open the form to edit the gadget settings.
+</para>
+{docbook}
 
 !images/Top_voted_raring_topic_setting.png|align="center" width="70mm" fo:scalefit="1" html:scalefit="0"!
 
-*2.* Select the maximum number of topics to be displayed in the *Maximum to display* drop-down list, then click *Save* to accept your changes.
+{docbook}
+<para>
+<emphasis role="bold">2.</emphasis> Select the maximum number of topics to be displayed in the <guilabel>Maximum to display</guilabel> drop-down list, then click <guibutton>Save</guibutton> to accept your changes.
+</para>
+{docbook}
 
 h2. Forum Statistics {anchor:id=GadgetUserguide.AngagementGadgets.ForumStatistics}
 
-The *Forum Statistics* gadget displays statistics about the forum's activity. This gadget is especially useful for administrators who always need global as well as detailed view about how the forum is going on. 
+The *Forum Statistics* gadget displays statistics about the forum's activity. This gadget is especially useful for administrators who always need global as well as detailed view about how the forum is going on.
 Based on these statistics, the administrators can find the solution to increase the forum activities.
 
 The statistics include the total number of the topics, posts, members, active members and the maximum number of online users.
@@ -104,14 +132,14 @@ After switching to the *Weekly statistics* view, you can display the statistics 
 
 * Click !images/Calendar_weekly_list_icon.png|scalefit="1" width="4mm"! to go back to the *List* view.
 
-
 h2. Friend Suggestions  {anchor:id=GadgetUserguide.EngagementGadgets.FriendSuggestions}
 
-The *Friend Suggestions* gadget will suggest you to connect with people that have mutual friends with you. 
+The *Friend Suggestions* gadget will suggest you to connect with people that have mutual friends with you.
 
 !images/Friend_suggestion_gadget.png|align="center" width="70mm" fo:scalefit="1" html:scalefit="0"!
-
-To send the invitation to connect with the suggested people right on this gadget, simply click *Send invitation* under their usernames.
+{docbook}
+<para>To send the invitation to connect with the suggested people right on this gadget, simply click <guilabel>Send invitation</guilabel> under their usernames.</para>
+{docbook}
 
 h1. Management and Monitoring Gadgets {anchor:id=GadgetUserguide.ManagementMOnitoringGadget}
 
@@ -145,20 +173,40 @@ The *Cache Levels* gadget displays the eXo cache levels and settings. Based on t
 
 !images/Caches_gadget.png|align="center" width="70mm" fo:scalefit="1" html:scalefit="0"!
 
-* The *Consumption* tab shows the overall cache consumption in the system.
-* The *Hit ratio* tab shows the ratio between requested data fetched from cache and data fetched from database.
-
+{docbook}
+<itemizedlist>
+              <listitem>
+                <para>The <guilabel>Consumption</guilabel> tab shows the overall cache consumption in the system.</para>
+              </listitem>
+              <listitem>
+                <para>The <guilabel>Hit ratio</guilabel> tab shows the ratio between requested data fetched from cache and data fetched from database.</para>
+              </listitem>
+</itemizedlist>
+{docbook}
 !images/Caches_gadget_hitratio.png|align="center" width="70mm" fo:scalefit="1" html:scalefit="0"!
 
-* The *Details* tab shows the cache level and the current cache settings.
-
+{docbook}
+<para> The <guilabel>Details</guilabel> tab shows the cache level and the current cache settings.</para>
+{docbook}
 !images/Caches_gadget_details.png|align="center" width="70mm" fo:scalefit="1" html:scalefit="0"!
 
 In which:
-
-* *Max size*: The maximum size of the cache.
-* *Time to live*: The lifetime (in seconds) of cache entries before being cleared.
-* *Hit/Missed*: The percentage of data fetched from cache versus the percentage of data fetched from database.
+{docbook}
+<itemizedlist>
+              <listitem>
+                <para>
+                  <guilabel>Max size</guilabel>: The maximum size of the cache.</para>
+              </listitem>
+              <listitem>
+                <para>
+                  <guilabel>Time to live</guilabel>: The lifetime (in seconds) of cache entries before being cleared.</para>
+              </listitem>
+              <listitem>
+                <para>
+                  <guilabel>Hit/Missed</guilabel>: The percentage of data fetched from cache versus the percentage of data fetched from database.</para>
+              </listitem>
+</itemizedlist>
+{docbook}
 
 h2. Applications Statistics {anchor:id=GadgetUserguide.ManagementMonitoringGadget.ApplicationStatistics}
 
@@ -220,18 +268,30 @@ Manage a remote service on another Platform settings
 </para>
 </citetitle>
 {docbook}
-*1.* Click !images/edit_gadget.png|scalefit="1" width="4mm"! in the *Title* bar.
 
+{docbook}
+<para>
+              <emphasis role="bold">1.</emphasis> Click <inlinemediaobject>
+                <imageobject role="fo">
+                  <imagedata fileref="images/edit_gadget.png" format="PNG" scalefit="1" width="4mm"/>
+                </imageobject>
+                <imageobject role="html">
+                  <imagedata fileref="images/edit_gadget.png" format="PNG" scalefit="1" width="4mm"/>
+                </imageobject>
+              </inlinemediaobject> in the <guilabel>Title</guilabel> bar.
+</para>
+{docbook}
 The form to edit the gadget settings appears.
 
 !images/Service_management_settings.png|align="center" width="70mm" fo:scalefit="1" html:scalefit="0"!
-
-*2.* Enter the link to the service in the *Services URL* field, then click *Save* to accept your changes.
+{docbook}
+<para>Enter the link to the service in the <guilabel>Services URL</guilabel> field, then click <guibutton>Save</guibutton> to accept your changes.</para>
+{docbook}
 
 h2. eXo Scripting Console {anchor:id=GadgetUserguide.ManagementMonitoringGadget.GroovyConsole}
-The *eXo Scripting Console* gadget provides a Groovy console that developers can use to interact with the runtime. This gadget is useful when you want to experiment on code. 
-It accepts eXo API and can access eXo components deployed in the portal container, so this can be used as a tool for drafting code, testing or exploring eXo API/components/data interactively on a live system. 
-The eXo Scripting Console gadget is better viewed on the entire screen. You should configure an entire page or a Dashboard tab for it. 
+The *eXo Scripting Console* gadget provides a Groovy console that developers can use to interact with the runtime. This gadget is useful when you want to experiment on code.
+It accepts eXo API and can access eXo components deployed in the portal container, so this can be used as a tool for drafting code, testing or exploring eXo API/components/data interactively on a live system.
+The eXo Scripting Console gadget is better viewed on the entire screen. You should configure an entire page or a Dashboard tab for it.
 
 !images/GroovyConsole.png|align="center" width="70mm" fo:scalefit="1" html:scalefit="0"!
 
@@ -248,11 +308,22 @@ Under the group of Audit gadgets, *Login History* records user login history and
 
 !images/Login_history_gadget.png|align="center" width="70mm" fo:scalefit="1" html:scalefit="0"!
 
-You can look up a specific user by entering his username in the *User* field and click *Find*. 
+{docbook}
+<para>You can look up a specific user by entering his username in the <guilabel>User</guilabel> field and click <guilabel>Find</guilabel>. </para>
+{docbook}
 
-Click *Reset* to clear the *User* field and return the default list of users who have signed in.
+{docbook}
+<para> Click <guibutton>Reset</guibutton> to clear the <guilabel>User</guilabel> field and return the default list of users who have signed in.</para>
+{docbook}
 
-* Click the *Statistics* and *History* links to view the global statistics and global history respectively.
+{docbook}
+<itemizedlist>
+              <listitem>
+                <para>Click the <guilabel>Statistics</guilabel> and <guilabel>History</guilabel> links to view the global statistics and global history respectively.</para>
+              </listitem>
+</itemizedlist>
+{docbook}
+
 * Click !images/Calendar_weekly_chart_icon.png|scalefit="1" width="4mm"! corresponding to the user to view his login statistics.
 !images/Login_history_statistic.png|align="center" width="70mm" fo:scalefit="1" html:scalefit="0"!
 * Click !images/Calendar_weekly_list_icon.png|scalefit="1" width="4mm"! corresponding to the user to view his login history.
@@ -264,7 +335,10 @@ Under the group of *Collab* gadgets which are designed for collaborative activit
 
 !images/eXo_Calendar_gadget.png|align="center" width="70mm" fo:scalefit="1" html:scalefit="0"!
 
-There are three tabs in this gadget, including *Appearance*, *Quick add*, and *Refresh*.
+{docbook}
+<para>There are three tabs in this gadget, including <guilabel>Appearance, Quick add,</guilabel> and <guilabel>Refresh</guilabel>.</para>
+{docbook}
+
 {docbook}
 <citetitle>
 <para><emphasis role="bold">
@@ -276,7 +350,10 @@ Appearance
 
 !images/eXo_Calendar_gadget_appearance.png|align="center" width="70mm" fo:scalefit="1" html:scalefit="0"!
 
-If you have more than one personal calendar, you can select which calendar to display. Select the calendars from the list, then click *save*. Only the event in the calendar of your choice will be displayed. 
+{docbook}
+<para>If you have more than one personal calendar, you can select which calendar to display. Select the calendars from the list, then click <guibutton>save</guibutton>. Only the event in the calendar of your choice will be displayed. </para>
+{docbook}
+
 {docbook}
 <citetitle>
 <para><emphasis role="bold">
@@ -286,6 +363,8 @@ Quick add
 </citetitle>
 {docbook}
 
-You can add a new event to your personal calendar in this gadget by simply entering the date, time and description, then selecting *add*.
+{docbook}
+<para>You can add a new event to your personal calendar in this gadget by simply entering the date, time and description, then selecting <guibutton>add</guibutton>.</para>
+{docbook}
 
 !images/eXo_Calendar_gadget_quickadd.png|align="center" width="70mm" fo:scalefit="1" html:scalefit="0"!

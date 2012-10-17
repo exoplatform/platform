@@ -8,4 +8,5 @@
     <year>2009-2012</year>
     <holder>eXo Platform SAS</holder>
   </copyright>
+  <xi:include href="Preface.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
 </bookinfo>

@@ -34,9 +34,9 @@ An applicative component pluggable to a portal through which users can access so
 
 A node tree (so-called menus) which contains hyperlinks to other parts of a portal. The default navigation menus in eXo Platform are located in the *Administration* bar with the following navigation types:
 
-* *My Sites:* This menu lets you access the different sites hosted by the portal. The navigation of the current portal is displayed as a sub-menu. This functionality allows different sites to individually control some portal-related aspects, such as portlets, while maintaining other content standardized with the parent portal.
+!images/navigation_bar.png|align="center" width="100mm" fo:scalefit="1" html:scalefit="0"!
 
-!images/MySitesPortlet.png|align="center" width="100mm" fo:scalefit="1" html:scalefit="0"!
+* *My Sites:* This menu lets you access the different sites hosted by the portal. The navigation of the current portal is displayed as a sub-menu. This functionality allows different sites to individually control some portal-related aspects, such as portlets, while maintaining other content standardized with the parent portal.
 
 * *My Groups:* This menu contains the navigations binding to groups that you belong to. When being out of the box, this menu does not appear, but a portal administrator can assign you to a functional group. It means that you are granted the access to restricted pages of this group.
 ** If you are logged in as a user account, this navigation holds personal links set up by yourself.
@@ -44,19 +44,11 @@ A node tree (so-called menus) which contains hyperlinks to other parts of a port
 ** If you are logged in as an administrator account, the navigation adds further management capabilities, such as Internationalization and community management. 
 * *My Spaces:* This menu lets you access spaces that you created or spaces that you are a member. The navigation of a space is displayed as a sub-menu which lets you access the space's applications.
 
-!images/MySpacePortlet.png|align="center" width="100mm" fo:scalefit="1" html:scalefit="0"!
-
 * *Dashboard:* This navigation contains links and portlets (or gadgets) selected by yourself. This user navigation is created automatically when your account registration is successful. This navigation only can be deleted when you are removed.
-
-!images/DashboardPortlet.png|align="center" width="100mm" fo:scalefit="1" html:scalefit="0"!
 
 * *Desktop:* The desktop gives you access to applications of the portal in a free-form windowed layout.
 
-!images/Desktop_portlet.png|align="center" width="100mm" fo:scalefit="1" html:scalefit="0"!
-
 * *Edit:* This navigation type appears when you logged in as an administrator or a web-contributor. In spaces, it also appears when you are a space manager. This navigation contains links to add new pages to a portal, to edit a page or to change the portal's layout and navigation.
-
-!images/EditorPortlet.png|align="center" width="100mm" fo:scalefit="1" html:scalefit="0"!
 
 * *User Menu*: The main menu (located under your display name) to change your account information, the portal language or to sign out, and more.
 
@@ -192,3 +184,15 @@ A type of document which is used for planning the primary records management. Al
 A special file which contains a reference to a document or a folder. By using symlinks, you can easily access specific nodes (target) to which symlinks point. In *Sites Explorer*, a symlink has a small chain symbol next to its icon.
 
 !images/symlink.png|align="center" width="30mm" fo:scalefit="1" html:scalefit="0"!
+
+{docbook}
+    <para>
+        <prompt>
+            <emphasis role="bold">See also</emphasis>
+        </prompt>
+    </para>
+{docbook}
+
+* [eXo Platform 3.5 interface|#Platform_User_Guide.Get_started.PLF_Interface]
+* [Manage accounts|#Platform_User_Guide.Get_started.Accounts]
+* [Manage language|#Platform_User_Guide.Get_started.Manage_Language]

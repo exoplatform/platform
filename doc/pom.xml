@@ -9,6 +9,9 @@
   <artifactId>platform-doc</artifactId>
   <packaging>pom</packaging>
   <name>eXo Platform - Docs</name>
+  <properties>
+    <org.exoplatform.portal.version>3.2.5-PLF</org.exoplatform.portal.version>
+  </properties>
   <modules>
     <module>admin</module>
     <module>developer</module>

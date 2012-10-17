@@ -1,14 +1,13 @@
-h1. Actual content navigation {anchor:id=DEV.WorkWithContent.NavigationByContent.ContentNavigation}
+h1. Actual content navigation {anchor:id=DEV.WorkWithContent.NavigationByContent.ContentNavigationRoleNotInToc}
 
-One of the powerful features of Enterprise Content Management System (ECMS) that comes out with eXo Platform 3.5 is the ability to navigate in site contents using taxonomies.
+One of the powerful features of Enterprise Content Management System (ECMS) that comes out with eXo Platform 3.5 is the ability to navigate in site content using taxonomies.
 This functionality can easily be added in a page with the help of two *Content List Viewer* (CLV) portlets. The pre-configured example can be found in the *News* page of the sample ACME website.
-In this example, all contents in the _/Sites Management/acme/events/All_ node will be used.
+In this example, all content in the _/Sites Management/acme/events/All_ node will be used.
 
 {docbook}
 <citetitle>
 <para>
-<emphasis role="bold">Add "Actual content navigation" to a page
-</emphasis>
+<emphasis role="bold">Add "Actual content navigation" to a page</emphasis>
 </para>
 </citetitle>
 {docbook}
@@ -25,12 +24,12 @@ In this example, all contents in the _/Sites Management/acme/events/All_ node wi
 
 *i. Configure the left portlet as follows*:
 
-!images/navigation_by_content_feature/browseByCLV.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
+!images/navigation_by_content_feature/browseByCLV.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
 
 In which:
 
 * *Folder path* = _/Sites Management/acme/events/All_: The path to the folder that contains the content.
-* *Header* = _Browse by_: The title of all contents that are listed in the content list viewer.
+* *Header* = _Browse by_: The title of all content that is listed in the content list viewer.
 * *Template* = _CategoryTree.gtmpl_: The template used for displaying the content list.
 * *Contextual Folder* = _Disabled_: The Contextual Content property is set to "Disable", the Advanced pane is closed by default and a single content will be opened by an URL containing the content path. 
 * *Show in page* =_Events_: A single content in CLV will be shown in the *Events* page.
@@ -38,7 +37,7 @@ In which:
 
 *ii. Configure the right portlet as follows*:
 
-!images/navigation_by_content_feature/showListCLV.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
+!images/navigation_by_content_feature/showListCLV.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
 
 In which:
 
@@ -52,11 +51,12 @@ As a result, the created *Events* page will look like:
 
 !images/navigation_by_content_feature/eventsPage.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
 
-You can now navigate from the left portlet to see contents displayed in the right portlet.
+You can now navigate from the left portlet to see content displayed in the right portlet.
 
 The new *Navigation By Content* feature will traduce this example in a contextual menu.
 
-h1. Add content to the navigation {anchor:id=DEV.WorkWithContent.NavigationByContent.Add_content_to_the_navigation}
+
+h1. Add content to the navigation {anchor:id=DEV.WorkWithContent.NavigationByContent.Add_content_to_the_navigationRoleNotInToc}
 
 {docbook}
 <citetitle>
@@ -73,7 +73,7 @@ h1. Add content to the navigation {anchor:id=DEV.WorkWithContent.NavigationByCon
 
 *3.* Fill values into the *Content Navigation* form:
 
-!images/navigation_by_content_feature/Navigation_form.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
+!images/navigation_by_content_feature/Navigation_form.png|align="center" width="100mm" fo:scalefit="1" html:scalefit="0"!
 
 In which:
 
@@ -101,7 +101,7 @@ In which:
 
 * *Page for list*: The list of child nodes (if a child node is *directory/folder*) will be rendered in the following page.
 
-Click the *Earth* menu item from the contextual menu, you will see that contents of the *Earth* directory are rendered in a separate page (catalog):
+Click the *Earth* menu item from the contextual menu, you will see that content of the *Earth* directory are rendered in a separate page (catalog):
 
 !images/navigation_by_content_feature/listEarth.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
 
@@ -111,12 +111,12 @@ Select the *Power 1 - Fire* menu item from the contextual menu to see the *Fire*
 
 !images/navigation_by_content_feature/Power1_fire_item.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
 
-h1. Actions on Navigation By Content {anchor:id=DEV.WorkWithContent.NavigationByContent.ActionsNavigationByContent}
+h1. Actions on Navigation By Content {anchor:id=DEV.WorkWithContent.NavigationByContent.ActionsNavigationByContentRoleNotInToc}
 
 {docbook}
 <citetitle>
 <para>
-<emphasis role="bold">Restrict the visibility of some contents</emphasis>
+<emphasis role="bold">Restrict the visibility of some content</emphasis>
 </para>
 </citetitle>
 {docbook}
@@ -191,7 +191,7 @@ However, if you want to add your newly created content directly to the contextua
 {docbook}
 <citetitle>
 <para>
-<emphasis role="bold">Add your newly created contents to the contextual menu</emphasis>
+<emphasis role="bold">Add your newly created content to the contextual menu</emphasis>
 </para>
 </citetitle>
 {docbook}
@@ -213,7 +213,7 @@ The sample ACME website comes with a configured navigation by content menu:
 
 !images/navigation_by_content_feature/productsMenu.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
 
-You can click the *Vision* sub-menu and see contents of *Vision* directory rendered in the *catalog* page:
+You can click the *Vision* sub-menu and see content of *Vision* directory rendered in the *catalog* page:
 
 !images/navigation_by_content_feature/visionSubMenuList.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
 
@@ -225,15 +225,38 @@ Select the *X-Ray* content and see the newly implemented content using new visua
 
 * Coverflow section:
 
-!images/navigation_by_content_feature/Coverflow.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
+!images/navigation_by_content_feature/coverflow.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
 
 * Related documents:
 
-!images/navigation_by_content_feature/relatedDocuments.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
+!images/navigation_by_content_feature/relatedDocuments.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
 
+h1. Create data for Navigation By Content {anchor:id=DEV.WorkWithContent.NavigationByContent.CreateDataForNavigationByContentExamplesRoleNotInToc}
 
-h1. Examples of creating data for Navigation By Content {anchor:id=DEV.WorkWithContent.NavigationByContent.CreateDataForNavigationByContentExamples}
-h2. Create a Product page {anchor:id=DEV.WorkWithContent.NavigationByContent.CreateDataForNavigationByContentExamples.CreateNewProductPage}
+{docbook}
+<para>
+<itemizedlist>
+          <listitem>
+            <para>
+              <link linkend="DEV.WorkWithContent.NavigationByContent.CreateDataForNavigationByContentExamples.CreateNewProductPage">Create a Product page</link>
+            </para>
+			<para>Steps to create content and to add media files to enrich the Product page.</para>
+          </listitem>
+		   <listitem>
+            <para>
+              <link linkend="DEV.WorkWithContent.NavigationByContent.CreateDataForNavigationByContentExamples.DevelopProductContent">Develop your own Product content</link>
+            </para>
+			<para>Steps to create fields in the Product content type, and to develop the Product's view form.</para>
+          </listitem>
+</itemizedlist>
+</para>
+{docbook}
+
+{note}
+By following 2 typical examples above, you can create data for Navigation By Content easily.
+{note}
+
+h2. Create a Product page {anchor:id=DEV.WorkWithContent.NavigationByContent.CreateDataForNavigationByContentExamples.CreateNewProductPageRoleNotInToc}
 
 {docbook}
 <citetitle>
@@ -289,14 +312,13 @@ Your newly created product is now ready to be displayed in some pages.
 
 *9.* Publish your newly created product. Note that you can select this content from a CLV:
 
-!images/navigation_by_content_feature/sampleProductCLV.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
+!images/navigation_by_content_feature/sampleProductCLV.png|align="center" width="100mm" fo:scalefit="1" html:scalefit="0"!
 
 As a result, the content will be displayed in a detailed page as follows:
 
-!images/navigation_by_content_feature/sampleProductDetail.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
+!images/navigation_by_content_feature/sampleProductDetail.png|align="center" width="100mm" fo:scalefit="1" html:scalefit="0"!
 
-
-h2. Develop your own Product content {anchor:id=DEV.WorkWithContent.NavigationByContent.CreateDataForNavigationByContentExamples.DevelopProductContent}
+h2. Develop your own Product content {anchor:id=DEV.WorkWithContent.NavigationByContent.CreateDataForNavigationByContentExamples.DevelopProductContentRoleNotInToc}
 
 The sample *Product* page is composed of the following fields and folders:
 

@@ -1,46 +1,42 @@
 {docbook}
 <abstract>
-<para>This chapter aims at instructing you how to upgrade eXo Platform from 3.0 to 3.5, especially when your system is an extension of eXo Platform 3.0 with many customizations related to configurations, components and added features.</para>
-<para>The following topics are covered:</para>
+<para>Upgrading eXo Platform from 3.0 to 3.5 is generally a procedure which includes 2 steps:</para>
+<para xml:id="Step1_UpgradeProjectExtensions"><emphasis role="bold">Step 1.</emphasis> Upgrade the project extensions.</para>
+<para xml:id="Step2_UpgradeProject_ProductData"><emphasis role="bold">Step 2.</emphasis> Upgrade the project and the product data.</para>
+<para>This chapter aims at instructing you how to archive <link linkend="Step1_UpgradeProjectExtensions">Step 1</link> via the following topics:</para>
 <itemizedlist>
   <listitem>
 	<para>
-	  <link linkend="DEV.Upgrade.Prerequisites">Prerequisites</link>
+	  <emphasis role="bold"><link linkend="DEV.Upgrade.Prerequisites">Prerequisites</link>  </emphasis>
+	</para>
+	<para>
+	Questions that help developers to gather all requirements for their upgraded project, required preparations of an extension project, and steps which need to be adpated in eXo Platform.
 	</para>
   </listitem>
   <listitem>
 	<para>
-	  <link linkend="DEV.Upgrade.Prepare_extension_project">Prepare your extension project</link>
+	  <emphasis role="bold"><link linkend="DEV.Upgrade.Update_MavenDependenciesConfigurationsComponents">Update Maven dependencies, configurations and components</link></emphasis>
+	</para>
+	<para>
+	How to update Maven dependencies, configurations and components.
 	</para>
   </listitem>
   <listitem>
 	<para>
-	  <link linkend="DEV.Upgrade.What_need_to_be_adapted">What needs to be adapted in eXo Platform extension</link>
+	  <emphasis role="bold"><link linkend="DEV.Upgrade.Update_extension">Update extensions</link></emphasis>
 	</para>
-  </listitem>
-  <listitem>
 	<para>
-	  <link linkend="DEV.Upgrade.Update_project_Maven_dependencies">Update project Maven dependencies</link>
-	</para>
-  </listitem>
-  <listitem>
-	<para>
-	  <link linkend="DEV.Upgrade.Update_configuration">Update configurations</link>
-	</para>
-  </listitem>
-  <listitem>
-	<para>
-	  <link linkend="DEV.Upgrade.Update_components">Update components</link>
-	</para>
-  </listitem>
-  <listitem>
-	<para>
-	  <link linkend="DEV.Upgrade.Update_extension">Update extension</link>
+	How to update your custom eXo Platform extensions, including updating Kernel XML Schema, portal and APIs.
 	</para>
   </listitem>
 </itemizedlist>
 </abstract>
 {docbook}
+
+{note}
+Upgrading data can be strongly dependent on both your deployments and environments, so it is recommended that you contact [http://support.exoplatform.com|eXo Support] to bootstrap the [Step 2|#Step2_UpgradeProject_ProductData].
+{note}
+
 h1. Prerequisites {anchor:id=DEV.Upgrade.Prerequisites}
 
 Before upgrading, you first need to understand how to create a project which is based on eXo Platform 3.5. For more details, refer to [Create Your Own Portal|#DEV.CreatingYourOwnPortal].
@@ -56,7 +52,15 @@ And now, you need to gather all requirements for your upgraded project by clarif
 * Have you disabled any services of eXo Platform?
 * Which Kernel configurations have you customized?
 
-h1. Prepare your extension project {anchor:id=DEV.Upgrade.Prepare_extension_project}
+{docbook}
+<para xml:id="DEV.Upgrade.Prepare_extension_project">
+<citetitle>
+<emphasis role="bold">
+Prepare for your extension project
+</emphasis>
+</citetitle>
+</para>
+{docbook}
 
 You need to create a new branch for eXo Platform 3.5 extension project, then clone your source code of eXo Platform 3.0 with that of eXo Platform 3.5.
 
@@ -66,18 +70,68 @@ For more details on how to create your extension project, refer to the [Create Y
 Because there are not any changes on the eXo Platform 3.5 extension mechanism, your extensions should be mostly compatible.
 However, if your extension was overriding either of the eXo Platform 3.0 built-in files, you should check that the file has not been changed in eXo Platform 3.5 and update it if any.
 
-h1. What needs to be adapted in eXo Platform extension {anchor:id=DEV.Upgrade.What_need_to_be_adapted}
+{docbook}
+<para xml:id="DEV.Upgrade.What_need_to_be_adapted">
+<citetitle>
+<emphasis role="bold">
+What needs to be adapted in eXo Platform extension
+</emphasis>
+</citetitle>
+</para>
+{docbook}
 
 There are 4 main steps which need to be defined for updating eXo Platform extension from 3.0 to 3.5:
-
 * Update your project Maven dependencies in the _POM_ files.
 * Update your eXo Platform 3.5 configurations.
 * Update components in your eXo Platform extension to use components of Platform 3.5
 * Update your eXo Platform extension which are customised features/components (were added new/ modified/ delete in eXo Platform 3.0 extension), and make sure they can work well in eXo Platform 3.5 environment.
 
-h1. Update project Maven dependencies {anchor:id=DEV.Upgrade.Update_project_Maven_dependencies}
+{docbook}
+<para>
+<prompt>
+    <emphasis role="bold">See also</emphasis>
+</prompt>
+</para>
+{docbook}
+* [Update Maven dependencies, configurations and components|#DEV.Upgrade.Update_MavenDependenciesConfigurationsComponents]
+* [Update extensions|#DEV.Upgrade.Update_extension]
 
-eXo Platform include many components, so if you want to update your eXo Platform extension to use eXo Platform 3.5, you need to update all dependencies version in the _POM_ files, and select dependencies version which are compatible with the eXo Platform 3.5.
+h1. Update Maven dependencies, configurations and components {anchor:id=DEV.Upgrade.Update_MavenDependenciesConfigurationsComponents}
+
+{docbook}
+<highlights>
+<para>After gathering all requirements, and preparing for your extension project and adaptions in eXo Platform extension, you then need to update:</para>
+        <itemizedlist>
+          <listitem>
+            <para>
+              <link linkend="DEV.Upgrade.Update_project_Maven_dependencies">Maven dependencies</link>
+            </para>
+          </listitem>
+          <listitem>
+            <para>
+              <link linkend="DEV.Upgrade.Update_configuration">Configurations</link>
+            </para>
+          </listitem>
+		  <listitem>
+            <para>
+              <link linkend="DEV.Upgrade.Update_components">Components</link>
+            </para>
+          </listitem>
+        </itemizedlist>
+</highlights>
+{docbook}
+
+{docbook}
+<para xml:id="DEV.Upgrade.Update_project_Maven_dependencies">
+<citetitle>
+<emphasis role="bold">
+Maven dependencies
+</emphasis>
+</citetitle>
+</para>
+{docbook}
+
+eXo Platform includes many components, so if you want to update your eXo Platform extension to use eXo Platform 3.5, you need to update the version of all dependencies in the _POM_ files, and select the version of dependencies which are compatible with eXo Platform 3.5.
 For example, eXo Platform 3.5.1 needs to have the following main dependencies:
 
 {code:xml}
@@ -178,8 +232,17 @@ For example, eXo Platform 3.5.1 needs to have the following main dependencies:
 </dependency>
 {code}
 
-h1. Update configurations {anchor:id=DEV.Upgrade.Update_configuration}
-After updating Maven dependencies, you need to update configurations via answering two questions:
+{docbook}
+<para xml:id="DEV.Upgrade.Update_configuration">
+<citetitle>
+<emphasis role="bold">
+Configurations
+</emphasis>
+</citetitle>
+</para>
+{docbook}
+
+After updating Maven dependencies, you need to update configurations via answering 2 questions:
 * In your eXo Platform extension, did you override anything in _$PLATFORM-TOMCAT-HOME/gatein/conf_?
 ** If NO, you can skip this step, and simply keep all configurations in _$PLATFORM-TOMCAT-HOME/gatein/conf_.
 ** If YES, you first need to keep all configurations of eXo Platform 3.5, then define which configurations you want to add/remove/update.
@@ -197,7 +260,15 @@ There are some new configurations in _$PLATFORM-TOMCAT-HOME/gatein/conf/_ which 
 _$PLATFORM-TOMCAT-HOME/bin/gatein.sh_ and _$PLATFORM-TOMCAT-HOME/bin/gatein.bat_ are no longer used. Therefore, you should add your customized configurations in a more official way to set environment variables via _setenv.sh_ or _setenv.bat_.
 {note}
 
-h1. Update components {anchor:id=DEV.Upgrade.Update_components}
+{docbook}
+<para xml:id="DEV.Upgrade.Update_components">
+<citetitle>
+<emphasis role="bold">
+Components
+</emphasis>
+</citetitle>
+</para>
+{docbook}
 
 There are many components in eXo Platform, so if you update your eXo Platform extension to eXo Platform 3.5, you need to update the version of all eXo Platform 3.5's components. 
 To do so, simply configure the Maven POM file that allows you to use the artifacts (eXo Platform 3.5 and its components). For more details, see the [Update project Maven dependencies|#DEV.Upgrade.Update_project_Maven_dependencies] section.
@@ -207,11 +278,50 @@ There are some new components in eXo Platform 3.5 that have not been existing in
 
 In eXo Platform 3.5, the "intranet" portal is defined in the _acme-intranet.war_ file (not in the _office-portal.war_ file of eXo Platform 3.0). So if you have overridden anything in the "intranet" portal, you need to synchronize your extension with the _acme-intranet.war_ file of eXo Platform-3.5.
 
-h1. Update extension {anchor:id=DEV.Upgrade.Update_extension}
+{docbook}
+<para>
+<prompt>
+    <emphasis role="bold">See also</emphasis>
+</prompt>
+</para>
+{docbook}
+* [Prerequisites|#DEV.Upgrade.Prerequisites]
+* [Update extensions|#DEV.Upgrade.Update_extension]
 
-This section details how to update your custom eXo Platform extension, including updating [Kernel XML Schema|DEV.Upgrade.Update_extension.Update_Kernel_XML_Schema.html], [portal|DEV.Upgrade.Update_extension.Update_portal.html] and [APIs|DEV.Upgrade.Update_extension.Update_APIs.html].
+h1. Update extensions {anchor:id=DEV.Upgrade.Update_extension}
 
-h2. Update Kernel XML Schema {anchor:id=DEV.Upgrade.Update_extension.Update_Kernel_XML_Schema}
+{docbook}
+<highlights>
+ <para>The next procedure of upgrading eXo Platform is to update your custom eXo Platform extensions, including:</para>
+        <itemizedlist>
+          <listitem>
+            <para>
+              <link linkend="DEV.Upgrade.Update_extension.Update_Kernel_XML_Schema">Kernel XML Schema</link>
+            </para>
+          </listitem>
+          <listitem>
+            <para>
+              <link linkend="DEV.Upgrade.Update_extension.Update_portal">Portal</link>
+            </para>
+          </listitem>
+          <listitem>
+            <para>
+              <link linkend="DEV.Upgrade.Update_extension.Update_APIs">APIs</link>
+            </para>
+          </listitem>
+        </itemizedlist>
+</highlights>
+{docbook}
+
+{docbook}
+<para xml:id="DEV.Upgrade.Update_extension.Update_Kernel_XML_Schema">
+<citetitle>
+<emphasis role="bold">
+Kernel XML Schema
+</emphasis>
+</citetitle>
+</para>
+{docbook}
 
 * Simply upgrade the version from _kernel\_1\_0.xsd_ to _kernel\_1\_2.xsd_ in all _.xml_ configurations files.
 
@@ -223,9 +333,17 @@ h2. Update Kernel XML Schema {anchor:id=DEV.Upgrade.Update_extension.Update_Kern
 </configuration>
 {code}
 
-h2. Update portal {anchor:id=DEV.Upgrade.Update_extension.Update_portal}
+{docbook}
+<para xml:id="DEV.Upgrade.Update_extension.Update_portal">
+<citetitle>
+<emphasis role="bold">
+Portal
+</emphasis>
+</citetitle>
+</para>
+{docbook}
 
-h3. Portal data import {anchor:id=DEV.Upgrade.Update_extension.Update_portal.Portal_data_import}
+* *Portal data import* {anchor:id=DEV.Upgrade.Update_extension.Update_portal.Portal_data_import}
 
 {note}
 It is recommended you have the knowledge of the import mechanism by referring to the [Data Import Strategy|../../../reference/html/sect-Reference_Guide-Import_Strategy.html] section.
@@ -236,15 +354,7 @@ Processing the portal data import includes the following tasks:
 * Deploy an extension after you have initialized the portal that allows the extension to contribute its entities to an existing site.
 * Reimport data by overwriting an existing entire configuration at each startup.
 
-{docbook}
-<para>
-<citetitle>
-<emphasis role="bold">
-What's new?
-</emphasis>
-</citetitle>
-</para>
-{docbook}
+*_What's new?_*
 
 {docbook}
 <informaltable>
@@ -328,14 +438,12 @@ For example, if you want to merge the new portal navigation from the configurati
 When a mode is not specified, the default mode will be *conserve*.
 {note}
 
-h3. Authentication {anchor:id=DEV.Upgrade.Update_extension.Update_portal.Authentication}
-
-eXo Platform 3.5 uses a new authentication mechanism so-called the WCI authentication mechanism. This change from GateIn into the WCI module is because:
-* Authentication is commonly part of Java EE and happens at the Servlet Container layer, while WCI is the layer of integration between our stack and the Servlet Container. 
-* WCI provides an easier integration of SSO providers that allows the SSO module to depend on the WCI module instead of integrating directly with the GateIn module. Its main benefit is to improve the quality of SSO and to decouple SSO from GateIn.
-* The GateIn stack wants to support and leverage specifications of both Servlet 3.0 and Servlet 2.5 that are not supported by the GateIn module. Meanwhile, WCI can serve both.
-* The Servlet 3.0 provides a programmatic login feature which can be used to implement WCI.
-* WCI provides the stronger guaranty of the authentication quality, meanwhile the authentication of GateIn was not unit tested. By moving the GateIn to WCI module, the test can be made against several implementations.
+* *Authentication*: eXo Platform 3.5 uses a new authentication mechanism so-called the WCI authentication mechanism. This change from GateIn into the WCI module is because: {anchor:id=DEV.Upgrade.Update_extension.Update_portal.Authentication}
+** Authentication is commonly part of Java EE and happens at the Servlet Container layer, while WCI is the layer of integration between our stack and the Servlet Container. 
+** WCI provides an easier integration of SSO providers that allows the SSO module to depend on the WCI module instead of integrating directly with the GateIn module. Its main benefit is to improve the quality of SSO and to decouple SSO from GateIn.
+** The GateIn stack wants to support and leverage specifications of both Servlet 3.0 and Servlet 2.5 that are not supported by the GateIn module. Meanwhile, WCI can serve both.
+** The Servlet 3.0 provides a programmatic login feature which can be used to implement WCI.
+** WCI provides the stronger guaranty of the authentication quality, meanwhile the authentication of GateIn was not unit tested. By moving the GateIn to WCI module, the test can be made against several implementations.
 
 If there are other new portal containers in your eXo Platform extension, you need to update the authentication mechanism in the _$PLATFORM-TOMCAT-HOME/conf/jaas.conf_ file. 
 For example, in case you have added a new portal container named "company" to eXo Platform, you need to configure the new authentication module for the new portal container as follows:
@@ -364,9 +472,26 @@ gatein-domain-company {
 
 For more details, see the [Change the JAAS realm|../../../admin-guide/html/ADM.Security.Change_JAAS_real.html] section.
 
-h2. Update APIs {anchor:id=DEV.Upgrade.Update_extension.Update_APIs}
+{docbook}
+<para xml:id="DEV.Upgrade.Update_extension.Update_APIs">
+<citetitle>
+<emphasis role="bold">
+APIs
+</emphasis>
+</citetitle>
+</para>
+{docbook}
 
 eXo Platform 3.5 has many changes on the data model and APIs. Therefore, if there are any new customized components in your eXo Platform extension that use eXo Platform 3.0 APIs, you need to check if they can work well in eXo Platform 3.5 or not.
 For more details, see the [eXo Platform 3.5 APIs|#DEV.eXoPlatformAPIs] section. 
 
 Finally, you need to update your customized components if needed. 
+{docbook}
+<para>
+<prompt>
+    <emphasis role="bold">See also</emphasis>
+</prompt>
+</para>
+{docbook}
+* [Prerequisites|#DEV.Upgrade.Prerequisites]
+* [Update Maven dependencies, configurations and components|#DEV.Upgrade.Update_MavenDependenciesConfigurationsComponents]

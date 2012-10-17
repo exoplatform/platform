@@ -1,4 +1,131 @@
 {docbook}
+    <highlights>
+        <itemizedlist>
+            <listitem>
+                <para>
+                   <link linkend="CSUser_guide.How_to_use_Address_book.View_contacts">View contacts</link>
+				</para>
+				<para>
+				Introduction to the view modes in <emphasis role="bold">Address Book</emphasis>.
+                </para>
+            </listitem>
+            <listitem>
+                <para>
+                   <link linkend="CSUser_guide.How_to_use_Address_book.Create_new_contact">Create a new contact</link>
+				</para>
+				<para>
+				Ways to create and add the new contact to <emphasis role="bold">Address Book</emphasis>.
+                </para>
+            </listitem>
+            <listitem>
+                <para>
+                   <link linkend="CSUser_guide.How_to_use_Address_book.Edit_contact_details">Edit contact details</link>
+				</para>
+				<para>
+				Steps to update the contact's information.
+                </para>
+            </listitem>
+			<listitem>
+                <para>
+                   <link linkend="CSUser_guide.How_to_use_Address_book.Tag_contact">Tag a contact</link>
+				</para>
+				<para>
+				Ways and steps to use the tag to categorize contacts, including adding/editing/deleting a tag.
+                </para>
+            </listitem>
+			<listitem>
+                <para>
+                   <link linkend="CSUser_guide.How_to_use_Address_book.Send_mail_to_contact">Send a mail to a contact</link>
+				</para>
+				<para>
+				Steps to compose and send mails to contacts in <emphasis role="bold">Address Book</emphasis>.
+                </para>
+            </listitem>
+			<listitem>
+                <para>
+                   <link linkend="CSUser_guide.How_to_use_Address_book.Copy_paste_contact">Copy/Paste a contact</link>
+				</para>
+				<para>
+				Ways and steps to copy/paste contacts.
+                </para>
+            </listitem>
+			<listitem>
+                <para>
+                   <link linkend="CSUser_guide.How_to_use_Address_book.Move_contact">Move a contact</link>
+				</para>
+				<para>
+					Ways and steps to move contacts between personal address books.
+                </para>
+            </listitem>
+			<listitem>
+                <para>
+                   <link linkend="CSUser_guide.How_to_use_Address_book.Delete_contact">Delete a contact</link>
+				</para>
+				<para>
+				Ways and steps to remove contacts from address books.
+                </para>
+            </listitem>
+            <listitem>
+                <para>
+                   <link linkend="CSUser_guide.How_to_use_Address_book.Export_contacts">Export contacts</link>
+				</para>
+				<para>
+					Step-by-step instructions on how to export one or more contacts into a file to be used in another address book applications.
+                </para>
+            </listitem>
+            <listitem>
+                <para>
+                   <link linkend="CSUser_guide.How_to_use_Address_book.Import_contacts">Import contacts</link>
+				</para>
+				<para>
+					Step-by-step instructions on how to import one or more contacts from your device to a selected address book.
+                </para>
+            </listitem>
+            <listitem>
+                <para>
+                   <link linkend="CSUser_guide.How_to_use_Address_book.Print_contacts">Print contacts</link>
+				</para>
+				<para>
+					The ways to print information of one or more selected contacts.
+                </para>
+            </listitem>
+             <listitem>
+                <para>
+                   <link linkend="CSUser_guide.How_to_use_Address_book.Print_address_book">Print an Address Book</link>
+				</para>
+				<para>
+					Steps to print the summary information of contacts of an address book in the form of name cards.
+                </para>
+            </listitem>
+            <listitem>
+                <para>
+                   <link linkend="CSUser_guide.How_to_use_Address_book.Share_contacts">Share contacts</link>
+				</para>
+				<para>
+					Steps to share contacts with other users or groups. The shared users/groups may have <emphasis role="bold">View or Edit permissions</emphasis> on the shared contacts.
+                </para>
+            </listitem>
+            <listitem>
+                <para>
+                   <link linkend="CSUser_guide.How_to_use_Address_book.Search_for_contacts">Search for contacts</link>
+				</para>
+				<para>
+					Steps to use <emphasis role="bold">Quick Search</emphasis> and <emphasis role="bold">Advanced Search</emphasis> to find contacts.
+                </para>
+            </listitem>
+            <listitem>
+                <para>
+                   <link linkend="CSUser_guide.How_to_use_Address_book.Manage_address.book">Manage Address Books</link>
+				</para>
+				<para>
+				Steps to perform common actions for the <emphasis role="bold">Address Book</emphasis> management: creating, editing, removing, exporting/importing, sharing address books and granting permission.
+                </para>
+            </listitem>
+        </itemizedlist>
+    </highlights>
+{docbook}
+
+{docbook}
 <note>
 <para>
 The <emphasis role="bold">Address Book</emphasis> portlet and its services are deprecated. It remains fully supported for eXo customers, however it will not receive any enhancement and will be removed from the product scope in the future.
@@ -21,14 +148,35 @@ Before starting to use *Address Book*, you should familiarize yourself with the 
 The layout can also be customized. You can hide or show specific parts of the *Address Book* interface.
 To change the layout, click !images/layout_button.png|width="17mm" fo:scalefit="1" html:scalefit="0"! on the main toolbar, then select the layout you want to hide or display from the drop-down menu.
 
-h1. View contacts {anchor:id="CSUser_guide.How_to_use_Address_book.View_contacts"}
+{docbook}
+<para>
+<prompt>
+    <emphasis role="bold">See also</emphasis>
+</prompt>
+</para>
+{docbook}
+
+* [Manage your calendar|#Platform_User_Guide.Collaboration.Manage_calendar]
+* [Email your contacts|#Platform_User_Guide.Collaboration.Communicate_with_Contacts.Email_Contacts]
+* [Chat with your contacts|#Platform_User_Guide.Collaboration.Communicate_with_Contacts.Chat]
+
+h1. View contacts {anchor:id="CSUser_guide.How_to_use_Address_book.View_contactsRoleNotInToc"}
 At present, your contacts can be viewed in 2 modes: *List* or *VCards*.
 
 !images/Contact_View_menu.png|align="center" width="200" fo:scalefit="1" html:scalefit="0"!
 
 *List view*:
 
-The list view displays all contacts in the list pane and detailed information of the selected contact in the Contact view pane. On the toolbar, click !images/View_button.png|width="15mm" fo:scalefit="1" html:scalefit="0"!, then select *List* from the drop-down menu.
+{docbook}
+<para>The list view displays all contacts in the list pane and detailed information of the selected contact in the Contact view pane. On the toolbar, click <inlinemediaobject>
+            <imageobject role="fo">
+              <imagedata fileref="images/View_button.png" format="PNG" scalefit="1" width="15mm"/>
+            </imageobject>
+            <imageobject role="html">
+              <imagedata fileref="images/View_button.png" format="PNG" scalefit="0" width="15mm"/>
+            </imageobject>
+          </inlinemediaobject>, then select <guilabel>List</guilabel> from the drop-down menu.</para>
+{docbook}
 
 The contacts are displayed in a list as below.
 
@@ -36,15 +184,27 @@ The contacts are displayed in a list as below.
 
 *VCards view*:
 
-VCard is a file format standard for electronic business cards. It is a powerful new means of Personal Data Interchange that is automating the traditional business card. On the *Toolbar*, click !images/View_button.png|width="15mm" fo:scalefit="1" html:scalefit="0"!, then select *VCards* from the drop-down menu.
+{docbook}
+<para>VCard is a file format standard for electronic business cards. It is a powerful new means of Personal Data Interchange that is automating the traditional business card. On the <emphasis role="bold">Toolbar</emphasis>, click <inlinemediaobject>
+            <imageobject role="fo">
+              <imagedata fileref="images/View_button.png" format="PNG" scalefit="1" width="15mm"/>
+            </imageobject>
+            <imageobject role="html">
+              <imagedata fileref="images/View_button.png" format="PNG" scalefit="0" width="15mm"/>
+            </imageobject>
+          </inlinemediaobject>, then select <guilabel>VCards</guilabel> from the drop-down menu.</para>
+{docbook}
 
 The contacts are displayed in separate cards as below:
 
 !images/Contact_Vcard_View_example.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
 
-h1. Create a new contact {anchor:id="CSUser_guide.How_to_use_Address_book.Create_new_contact"}
+h1. Create a new contact {anchor:id="CSUser_guide.How_to_use_Address_book.Create_new_contactRoleNotInToc"}
 
-*1.* Open the *Add/Edit Contact* form by following either of two ways:
+{docbook}
+<para>
+<emphasis role="bold">1.</emphasis> Open the <guilabel>Add/Edit Contact</guilabel> form by following either of two ways:</para>
+{docbook}
 
 *The first way*
 
@@ -52,7 +212,9 @@ Click !images/add_contact_button.png|width="15mm" fo:scalefit="1" html:scalefit=
 
 *The second way*
 
-Right-click an address book in the *Address Books* pane, then select *Add* from the drop-down menu.
+{docbook}
+<para>Right-click an address book in the <guilabel>Address Books</guilabel> pane, then select <guilabel>Add</guilabel> from the drop-down menu.</para>
+{docbook}
 
 {docbook}
 <tip>
@@ -62,23 +224,82 @@ You can also add a new contact from the <emphasis role="bold">Mail</emphasis> ap
 </tip>
 {docbook}
 
-*2.* Input information into fields of each tab in the *Add/Edit Contact* form.
+{docbook}
+<para>
+<emphasis role="bold">2.</emphasis> Input information into fields of each tab in the <guilabel>Add/Edit Contact</guilabel> form.</para>
+{docbook}
 
 !images/add_edit_contact.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
 
 *Details:*
 
-*i.* The *Profile* tab
+{docbook}
+<para>
+<emphasis role="bold">i.</emphasis> The <guilabel>Profile</guilabel> tab</para>
+{docbook}
 
-||Field||Description||
-|*Asterisk (*)*|This mark next to each field means that it is required to enter values in the field.|
-|*First Name*|The first name of your contact which must be between 1 and 40 characters.|
-|*Last Name*|The last name of your contact. Its length must be between 1 and 40 characters.|
-|*Nick Name*|The nick name of your contact with any unlimited length.|
-|*Gender*|Gender of your contact. Simply tick the two available checkboxes: Male or Female.|
-|*Birthday*|Birthday of your contact. Click the relevant down arrows to select the day, month and year from the drop-down menu.|
-|*Job Title*|The job title of your contact. Its length must be between 0 and 40 characters.|
-|*Email*|The email address of your contact.|
+{docbook}
+<informaltable>
+          <tgroup cols="2">
+            <thead>
+              <row>
+                <entry>Field</entry>
+                <entry>Description</entry>
+              </row>
+            </thead>
+            <tbody>
+              <row>
+                <entry>
+                  <guilabel>Asterisk (*)</guilabel>
+                </entry>
+                <entry>This mark next to each field means that it is required to enter values in the field.</entry>
+              </row>
+              <row>
+                <entry>
+                  <guilabel>First Name</guilabel>
+                </entry>
+                <entry>The first name of your contact which must be between 1 and 40 characters.</entry>
+              </row>
+              <row>
+                <entry>
+                  <guilabel>Last Name</guilabel>
+                </entry>
+                <entry>The last name of your contact. Its length must be between 1 and 40 characters.</entry>
+              </row>
+              <row>
+                <entry>
+                  <guilabel>Nick Name</guilabel>
+                </entry>
+                <entry>The nick name of your contact with any unlimited length.</entry>
+              </row>
+              <row>
+                <entry>
+                  <guilabel>Gender</guilabel>
+                </entry>
+                <entry>Gender of your contact. Simply tick the two available checkboxes: Male or Female.</entry>
+              </row>
+              <row>
+                <entry>
+                  <guilabel>Birthday</guilabel>
+                </entry>
+                <entry>Birthday of your contact. Click the relevant down arrows to select the day, month and year from the drop-down menu.</entry>
+              </row>
+              <row>
+                <entry>
+                  <guilabel>Job Title</guilabel>
+                </entry>
+                <entry>The job title of your contact. Its length must be between 0 and 40 characters.</entry>
+              </row>
+              <row>
+                <entry>
+                  <guilabel>Email</guilabel>
+                </entry>
+                <entry>The email address of your contact.</entry>
+              </row>
+            </tbody>
+          </tgroup>
+        </informaltable>
+{docbook}
 
 {docbook}
   <citetitle>
@@ -88,8 +309,16 @@ You can also add a new contact from the <emphasis role="bold">Mail</emphasis> ap
   </citetitle>
 {docbook}
 
-* Click *Update* below the avatar to upload photos from your device.
-* Remove your uploaded image by simply clicking *Delete* below the avatar.
+{docbook}
+<itemizedlist>
+          <listitem>
+            <para>Click <guilabel>Update</guilabel> below the avatar to upload photos from your device.</para>
+          </listitem>
+          <listitem>
+            <para>Remove your uploaded image by simply clicking <guilabel>Delete</guilabel> below the avatar.</para>
+          </listitem>
+        </itemizedlist>
+{docbook}
 
 {docbook}
 <citetitle>
@@ -99,8 +328,30 @@ You can also add a new contact from the <emphasis role="bold">Mail</emphasis> ap
 </citetitle>
 {docbook}
 
-* Enter the email address into the *Email* field. If you want to add more email addresses, simply click !images/plus_icon.png|width="4mm" fo:scalefit="1" html:scalefit="0"! to show another *Email* field.
-* Remove your email address by clicking !images/Delete_icon.png|width="4mm" fo:scalefit="1" html:scalefit="0"!.
+{docbook}
+<itemizedlist>
+          <listitem>
+            <para>Enter the email address into the <guilabel>Email</guilabel> field. If you want to add more email addresses, simply click <inlinemediaobject>
+                <imageobject role="fo">
+                  <imagedata fileref="images/plus_icon.png" format="PNG" scalefit="1" width="4mm"/>
+                </imageobject>
+                <imageobject role="html">
+                  <imagedata fileref="images/plus_icon.png" format="PNG" scalefit="0" width="4mm"/>
+                </imageobject>
+              </inlinemediaobject> to show another <guilabel>Email</guilabel> field.</para>
+          </listitem>
+          <listitem>
+            <para>Remove your email address by clicking <inlinemediaobject>
+                <imageobject role="fo">
+                  <imagedata fileref="images/Delete_icon.png" format="PNG" scalefit="1" width="4mm"/>
+                </imageobject>
+                <imageobject role="html">
+                  <imagedata fileref="images/Delete_icon.png" format="PNG" scalefit="0" width="4mm"/>
+                </imageobject>
+              </inlinemediaobject>.</para>
+          </listitem>
+        </itemizedlist>
+{docbook}
 
 {docbook}
 <citetitle>
@@ -110,28 +361,55 @@ You can also add a new contact from the <emphasis role="bold">Mail</emphasis> ap
 </citetitle>
 {docbook}
 
-* The *Work* tab
+{docbook}
+<itemizedlist>
+          <listitem>
+            <para>The <guilabel>Work</guilabel> tab</para>
+          </listitem>
+</itemizedlist>
+{docbook}
 
 All fields in this tab are optional. In this tab, you can provide the contact's job-related information without any limitations of character types or length.
 
-* The *IM Contact* 
+{docbook}
+<itemizedlist>
+          <listitem>
+            <para>The <guilabel>IM Contact</guilabel> </para>
+          </listitem>
+</itemizedlist>
+{docbook}
 
 In this tab, you can enter information about the contact chat identity (IM stands for Instant Message). The default text messaging service is the *Chat* application of eXo Platform, but you can select other services by clicking !images/plus_down_arrow.png|width="18" fo:scalefit="1" html:scalefit="0"! to open the drop-down menu.
 
 !images/add_edit_contact_IM.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
 
-* The *Work*, *Home* and *Note* tabs
+{docbook}
+<itemizedlist>
+          <listitem>
+            <para>The <guilabel>Work</guilabel>, <guilabel>Home</guilabel> and <guilabel>Note</guilabel> tabs</para>
+          </listitem>
+</itemizedlist>
+{docbook}
 
 In these tabs, you can further provide many information related to the contact's work, home and note.
 
-*3.* Click *Save* to accept adding a new contact.
+{docbook}
+<para>
+ <emphasis role="bold">3.</emphasis> Click <guibutton>Save</guibutton> to accept adding a new contact.</para>
+{docbook}
 
-h1. Edit contact details {anchor:id="CSUser_guide.How_to_use_Address_book.Edit_contact_details"}
-This function allows you to update information of contacts whenever you like. 
+h1. Edit contact details {anchor:id="CSUser_guide.How_to_use_Address_book.Edit_contact_detailsRoleNotInToc"}
+This function allows you to update information of contacts whenever you like.
 
-*1.* Right-click your desired contact in the list, then select *Edit* from the drop-down menu. The *Add/Edit Contact* form will appear with the selected contact's current information that is similar when [creating a new contact|#CSUser_guide.How_to_use_Address_book.Create_new_contact].
+{docbook}
+<para>
+<emphasis role="bold">1.</emphasis> Right-click your desired contact in the list, then select <guilabel>Edit</guilabel> from the drop-down menu. The <guilabel>Add/Edit Contact</guilabel> form will appear with the selected contact's current information that is similar when <link linkend="CSUser_guide.How_to_use_Address_book.Create_new_contact">creating a new contact</link>.</para>
+{docbook}
 
-*2.* Make your desired changes on fields, then click *Save* to accept.
+{docbook}
+<para>
+<emphasis role="bold">2.</emphasis> Make your desired changes on fields, then click <guibutton>Save</guibutton> to accept.</para>
+{docbook}
 
 {docbook}
 <note>
@@ -149,21 +427,25 @@ You can also edit contact details in Mail. For more information, see the <link l
 </tip>
 {docbook}
 
-h1. Tag a contact {anchor:id="CSUser_guide.How_to_use_Address_book.Tag_contact"}
+h1. Tag a contact {anchor:id="CSUser_guide.How_to_use_Address_book.Tag_contactRoleNotInToc"}
 
 *The first way*
 
-Right-click the relevant contact, and select *Tag* from the drop-down menu.
+{docbook}
+<para>Right-click the relevant contact, and select <guilabel>Tag</guilabel> from the drop-down menu.</para>
+{docbook}
 
 *The second way*
 
-Select the contacts by ticking their respective checkboxes, then click !images/tag_contacts_icon.png|width="5mm" fo:scalefit="1" html:scalefit="0"! on the *Action bar*.
+Select the contacts by ticking their respective checkboxes, then click !images/tag_contacts_icon.png|width="5mm" fo:scalefit="1" html:scalefit="0"! on the *Action* bar.
 
 !images/tag_contact.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
 
 *The third way*
 
-Drag and drop contacts to a specific tag in the *Tags* list in the left pane to open the *Add/Remove Tag* form.
+{docbook}
+<para>Drag and drop contacts to a specific tag in the <emphasis role="bold">Tags</emphasis> list in the left pane to open the <guilabel>Add/Remove Tag</guilabel> form.</para>
+{docbook}
 
 !images/add_remove_tag.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
 
@@ -172,7 +454,7 @@ In this form, you can add a new tag, remove or reassign a tag to a contact.
 {docbook}
 <tip>
 <para>
-To add a new tag quickly, click <emphasis role="bold">Add</emphasis> in the <emphasis role="bold">Tag</emphasis> pane.
+To add a new tag quickly, click <guilabel>Add</guilabel> in the <guilabel>Tag</guilabel> pane.
 </para>
 <mediaobject>
 <imageobject role="html">
@@ -185,18 +467,42 @@ To add a new tag quickly, click <emphasis role="bold">Add</emphasis> in the <emp
 </tip>
 {docbook}
 
+{docbook}
+<citetitle>
+    <para xml:id="CSUser_guide.How_to_use_Address_book.Edit_tag">
+        <emphasis role="bold">Edit a tag</emphasis>
+    </para>
+</citetitle>
+{docbook}
 
-h1. Edit a tag {anchor:id="CSUser_guide.How_to_use_Address_book.Edit_tag"}
-*1.* Right-click a tag in the tag area, then select *Edit* from the drop-down menu.
+{docbook}
+<para>
+<emphasis role="bold">1.</emphasis> Right-click a tag in the tag area, then select <guilabel>Edit</guilabel> from the drop-down menu.</para>
+{docbook}
 
-*2.* Make changes in the *Edit Tag* form, then click *Save* to accept your changes.
+{docbook}
+<para>
+<emphasis role="bold">2.</emphasis> Make changes in the <guilabel>Edit Tag</guilabel> form, then click <guibutton>Save</guibutton> to accept your changes.</para>
+{docbook}
 
-h1. Delete a tag {anchor:id="CSUser_guide.How_to_use_Address_book.Delete_tag"}
-*1.* Right-click a tag you want to delete, then click *Delete* from the drop-down menu.
+{docbook}
+<citetitle>
+    <para xml:id="CSUser_guide.How_to_use_Address_book.Delete_tag">
+        <emphasis role="bold">Delete a tag</emphasis>
+    </para>
+</citetitle>
+{docbook}
 
-*2.* Click *OK* in the confirmation to accept your deletion.
+{docbook}
+<para>
+<emphasis role="bold">1.</emphasis> Right-click a tag you want to delete, then click <guilabel>Delete</guilabel> from the drop-down menu.</para>
+{docbook}
 
-h1. Send a mail to a contact {anchor:id="CSUser_guide.How_to_use_Address_book.Send_mail_to_contact"}
+{docbook}
+<para>
+<emphasis role="bold">2.</emphasis> Click <guibutton>OK</guibutton> in the confirmation to accept your deletion.</para>
+{docbook}
+h1. Send a mail to a contact {anchor:id="CSUser_guide.How_to_use_Address_book.Send_mail_to_contactRoleNotInToc"}
 
 {docbook}
 <note>
@@ -217,35 +523,50 @@ h1. Send a mail to a contact {anchor:id="CSUser_guide.How_to_use_Address_book.Se
 </citetitle>
 {docbook}
 
+
 *1.* Open the *Email* function by following either of 3 ways:
+
 
 *The first way*
 
-Right-click the contact to whom you want to send mail, then select *Email* from the drop-down menu.
+{docbook}
+<para>Right-click the contact to whom you want to send mail, then select <guilabel>Email</guilabel> from the drop-down menu.</para>
+{docbook}
 
 *The second way*
 
-Select the contacts that you want to send mail by ticking their respective checkboxes, then click !images/mail_icon.png|width="5mm" fo:scalefit="1" html:scalefit="0"! on the *Action bar*.
+Select the contacts that you want to send mail by ticking their respective checkboxes, then click !images/mail_icon.png|width="5mm" fo:scalefit="1" html:scalefit="0"! on the *Action* bar.
 
 *The third way*
 
-Right-click the address book and select *Email* from the drop-down menu. By this way, you will send mail to all contacts in that address book.
+{docbook}
+<para>Right-click the address book and select <guilabel>Email</guilabel> from the drop-down menu. By this way, you will send mail to all contacts in that address book.</para>
+{docbook}
 
-The *Send Email* form will appear.
+{docbook}
+<para>The <guilabel>Send Email</guilabel> form will appear.</para>
+{docbook}
 
 !images/Send_email_form.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
 
-*2.* Input the recipients' email addresses in the *To* field if needed.
-
+{docbook}
+<para>
+<emphasis role="bold">2.</emphasis> Input the recipients' email addresses in the <guilabel>To</guilabel> field if needed.</para>
+{docbook}
 You just need to enter one character included in your desired email address. There will be a list of addresses matching your entered character for you to select quickly.
 
 !images/to_email3.png|align="center" width="250" fo:scalefit="1" html:scalefit="0"!
 
-*3.* Enter the subject and content of your message in the *Subject* field and mail body respectively.
+{docbook}
+<para>
+<emphasis role="bold">3.</emphasis> Enter the subject and content of your message in the <guilabel>Subject</guilabel> field and mail body respectively.</para>
+{docbook}
 
-*4.* Click the *Send Mail* button.
-
-h1. Copy/Paste a contact {anchor:id="CSUser_guide.How_to_use_Address_book.Copy_paste_contact"}
+{docbook}
+<para>
+<emphasis role="bold">4.</emphasis> Click the <guibutton>Send Mail</guibutton> button.</para>
+{docbook}
+h1. Copy/Paste a contact {anchor:id="CSUser_guide.How_to_use_Address_book.Copy_paste_contactRoleNotInToc"}
 
 This function allows you to make the copies of contacts from an address book and to store in another ones.
 
@@ -261,7 +582,7 @@ This function allows you to make the copies of contacts from an address book and
 
 *1.* Select contacts by ticking their respective checkboxes.
 
-*2.* Click !images/paste_icon.png|width="4mm" fo:scalefit="1" html:scalefit="0"! on the *Action bar*.
+*2.* Click !images/paste_icon.png|width="4mm" fo:scalefit="1" html:scalefit="0"! on the *Action* bar.
 
 *The second way*
 
@@ -275,7 +596,10 @@ This way is to copy all contacts of an address book.
 
 *1.* Right-click one address book.
 
-*2.* Select *Copy* from the drop-down menu. 
+{docbook}
+<para>
+<emphasis role="bold">2.</emphasis> Select <guilabel>Copy</guilabel> from the drop-down menu. </para>
+{docbook}
 
 {docbook}
 <citetitle>
@@ -288,28 +612,34 @@ This way is to copy all contacts of an address book.
 {docbook}
 <note>
     <para>
-    The <emphasis role="bold">Paste</emphasis> action is only activated after your desired contacts have been copied.
+    The <guilabel>Paste</guilabel> action is only activated after your desired contacts have been copied.
     </para>
 </note>
 {docbook}
 
 *1.* Right-click one destination address book to which you want to move your copied contacts.
 
-*2.* Click *Paste* to accept moving your contacts.
+{docbook}
+<para>
+<emphasis role="bold">2.</emphasis> Click <guilabel>Paste</guilabel> to accept moving your contacts.</para>
+{docbook}
 
-h1. Move a contact {anchor:id="CSUser_guide.How_to_use_Address_book.Move_contact"}
+h1. Move a contact {anchor:id="CSUser_guide.How_to_use_Address_book.Move_contactRoleNotInToc"}
 It is simple to move one or more contacts from one address book to another.
 
 *The first way*
 
-Right-click a contact and select *Move* from the drop-down menu.
+{docbook}
+<para>Right-click a contact and select <guilabel>Move</guilabel> from the drop-down menu.</para>
+{docbook}
 
 *The second way*
 
-Select contacts you want to move, then click !images/move_button.png|width="15" fo:scalefit="1" html:scalefit="0"! on the *Action bar*.
- 
-The *Move Contact* form will appear, allowing you to select a destination address book where your moved contacts are stored.
+Select contacts you want to move, then click !images/move_button.png|width="15" fo:scalefit="1" html:scalefit="0"! on the *Action* bar.
 
+{docbook}
+<para>The <guilabel>Move Contact</guilabel> form will appear, allowing you to select a destination address book where your moved contacts are stored.</para>
+{docbook}
 !images/move_contact.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
 
 *The third way*
@@ -328,13 +658,18 @@ The drag-and-drop function is done more easily in the VCards view.
 </note>
 {docbook}
 
-h1. Delete a contact {anchor:id="CSUser_guide.How_to_use_Address_book.Delete_contact"}
+h1. Delete a contact {anchor:id="CSUser_guide.How_to_use_Address_book.Delete_contactRoleNotInToc"}
 *The first way*
 
-*1.* Right-click a contact you want to remove, then select *Delete* from the drop-down menu.
+{docbook}
+<para>
+ <emphasis role="bold">1.</emphasis> Right-click a contact you want to remove, then select <guilabel>Delete</guilabel> from the drop-down menu.</para>
+{docbook}
 
-*2.* Click *OK* in the confirmation message to accept your deletion.
-
+{docbook}
+<para>
+<emphasis role="bold">2.</emphasis> Click <guibutton>OK</guibutton> in the confirmation message to accept your deletion.</para>
+{docbook}
 *The second way*
 
 {docbook}
@@ -345,56 +680,86 @@ This way allows you to delete multiple contacts.
 </note>
 {docbook}
 
-*1.* Tick checkboxes corresponding to contacts you want to delete, then click !images/Delete_icon.png|width="4mm" fo:scalefit="1" html:scalefit="0"! on the *Action bar*.
+*1.* Tick checkboxes corresponding to contacts you want to delete, then click !images/Delete_icon.png|width="4mm" fo:scalefit="1" html:scalefit="0"! on the *Action* bar.
 
-*2.* Click *OK* in the confirmation message to accept your deletion.
+{docbook}
+<para>
+<emphasis role="bold">2.</emphasis> Click <guibutton>OK</guibutton> in the confirmation message to accept your deletion.</para>
+{docbook}
 
-h1. Export contacts {anchor:id="CSUser_guide.How_to_use_Address_book.Export_contacts"}
+h1. Export contacts {anchor:id="CSUser_guide.How_to_use_Address_book.Export_contactsRoleNotInToc"}
 This feature allows you to export one or more contacts into a file to be used in another address book applications. These exported contacts will have the same information in all address books you use. You can export a single contact or multiple contacts flexibly.
 
-*1.* Right-click one contact, or address book if you want to export all contacts of the address book, then select *Export* from the drop-down menu.
+{docbook}
+<para>
+<emphasis role="bold">1.</emphasis> Right-click one contact, or address book if you want to export all contacts of the address book, then select <guilabel>Export</guilabel> from the drop-down menu.</para>
+{docbook}
 
-The *Export Address Books* form will appear.
-
+{docbook}
+<para>The <guilabel>Export Address Books</guilabel> form will appear.</para>
+{docbook}
 !images/export_contacts.png|align="center" width="100mm" fo:scalefit="1" html:scalefit="0"!
 
 *2.* Select contacts to export by ticking their respective checkboxes.
 
 *3.* Enter the file name and select the export format. At present, only *x-vcard* is supported.
+{docbook}
+<para>
+   <emphasis role="bold">4.</emphasis> Click <guibutton>Export All</guibutton> to export all contacts in all pages; </para>
+{docbook}
+{docbook}
+<para>Or, click <guibutton>Export Selected Only</guibutton> to export your selected contacts only.</para>
+{docbook}
 
-*4.* Click *Export All* to export all contacts in all pages; 
-
-Or, click the *Export Selected Only* button to export your selected contacts only.
-
-
-h1. Import contacts {anchor:id="CSUser_guide.How_to_use_Address_book.Import_contacts"}
+h1. Import contacts {anchor:id="CSUser_guide.How_to_use_Address_book.Import_contactsRoleNotInToc"}
 This function allows you to import one or more contacts from your device to a selected address book.
+{docbook}
+<para>
+<emphasis role="bold">1.</emphasis> Open the <guilabel>Import Contacts</guilabel> form via either of the following ways:</para>
+{docbook}
 
-*1.* Open the *Import Contacts* form via either of the following ways:
-
-*The first way* 
+*The first way*
 
 Click !images/import_button.png|width="15mm" fo:scalefit="1" html:scalefit="0"! on the toolbar.
 
 *The second way*
-
-Right-click a personal or shared address book which you have the *Edit* permission, then click *Import* from the drop-down menu. By this way, you can quickly select the destination address book for the imported contacts.
+{docbook}
+<para>Right-click a personal or shared address book which you have the <emphasis role="bold">Edit</emphasis> permission, then click <guilabel>Import</guilabel> from the drop-down menu. By this way, you can quickly select the destination address book for the imported contacts.</para>
+{docbook}
 
 !images/import_contacts.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
+{docbook}
+<para>
+          <emphasis role="bold">2.</emphasis> Click <inlinemediaobject>
+            <imageobject role="fo">
+              <imagedata fileref="images/down_arrow_icon1.png" format="PNG" scalefit="1" width="4mm"/>
+            </imageobject>
+            <imageobject role="html">
+              <imagedata fileref="images/down_arrow_icon1.png" format="PNG" scalefit="0" width="4mm"/>
+            </imageobject>
+          </inlinemediaobject> in the <guilabel>Address Book</guilabel> field, then select your desired address book into which you want to import your contacts from the drop-down menu;</para>
+{docbook}
+Or, click !images/plus_icon.png|width="4mm" fo:scalefit="1" html:scalefit="0"! to quickly create a new address book.
 
-*2.* Click !images/down_arrow_icon1.png|width="4mm" fo:scalefit="1" html:scalefit="0"! in the *Address Book* field, then select your desired address book into which you want to import your contacts from the drop-down menu;
+{docbook}
+<para>
+<emphasis role="bold">3.</emphasis> Select the file format in the <guilabel>Import Format</guilabel> field. At present, only <guilabel>x-vcard</guilabel> is supported.</para>
+{docbook}
 
-Or, click !images/plus_icon.png|width="4mm" fo:scalefit="1" html:scalefit="0"! to quickly create a new address book. 
+{docbook}
+<para>
+<emphasis role="bold">4.</emphasis> Click <guibutton>Browse...</guibutton> to open the <guilabel>File Upload</guilabel> form.</para>
+{docbook}
+{docbook}
+<para>
+<emphasis role="bold">5.</emphasis> Select the file you want to import from your device, then click <guibutton>Open</guibutton> to upload your selected file.</para>
+{docbook}
+{docbook}
+<para>
+<emphasis role="bold">6.</emphasis> Click <guibutton>Save</guibutton> to finish your import.</para>
+{docbook}
 
-*3.* Select the file format in the *Import Format* field. At present, only *x-vcard* is supported.
-
-*4.* Click *Browse...* to open the *File Upload* form.
-
-*5.* Select the file you want to import from your device, then click *Open* to upload your selected file.
-
-*6.* Click *Save* to finish your import.
-
-h1. Print contacts {anchor:id="CSUser_guide.How_to_use_Address_book.Print_contacts"}
+h1. Print contacts {anchor:id="CSUser_guide.How_to_use_Address_book.Print_contactsRoleNotInToc"}
 The *Print* function allows you to print information of your selected contacts. You can print one or more contacts at the same time.
 
 {docbook}
@@ -404,19 +769,22 @@ The *Print* function allows you to print information of your selected contacts. 
 </para>
 </citetitle>
 {docbook}
-
-*1.* Right-click the contact you want to print, then select *Print* from the drop-down menu.
-
+{docbook}
+<para>
+<emphasis role="bold">1.</emphasis> Right-click the contact you want to print, then select <guilabel>Print</guilabel> from the drop-down menu.</para>
+{docbook}
 The single Contact Print Preview will appear with the detailed information:
 
 !images/detailed_information.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
-
-*2.* Click the *Print* button to print.
+{docbook}
+<para>
+<emphasis role="bold">2.</emphasis> Click <guibutton>Print</guibutton> to print.</para>
+{docbook}
 
 {docbook}
 <note>
 <para>
-When you are in the <emphasis role="bold">VCards</emphasis> view, the print process is a quite different. You first need to click <emphasis role="bold">View Details</emphasis> to display the contact's details. After that, click <emphasis role="bold">Print Preview</emphasis> to open the Preview page, then select the <emphasis role="bold">Print</emphasis> button.
+When you are in the <guilabel>VCards</guilabel> view, the print process is a quite different. You first need to click <guilabel>View Details</guilabel> to display the contact's details. After that, click <guilabel>Print Preview</guilabel> to open the Preview page, then select the <guibutton>Print</guibutton> button.
 </para>
 </note>
 {docbook}
@@ -429,7 +797,7 @@ When you are in the <emphasis role="bold">VCards</emphasis> view, the print proc
 </citetitle>
 {docbook}
 
-*1.* Select contacts you want to print by ticking their respective checkboxes, then click !images/print_icon.png|width="4mm" fo:scalefit="1" html:scalefit="0"! on the *Action bar*.
+*1.* Select contacts you want to print by ticking their respective checkboxes, then click !images/print_icon.png|width="4mm" fo:scalefit="1" html:scalefit="0"! on the *Action* bar.
 
 !images/print_contacts.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
 
@@ -437,9 +805,10 @@ The *Print Preview* page will appear with their summary information.
 
 !images/print_preview.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
 
-*2.* Click *Print* to print information of your selected contacts.
-
-h1. Print an Address Book {anchor:id="CSUser_guide.How_to_use_Address_book.Print_address_book"}
+{docbook}<para>
+ <emphasis role="bold">2.</emphasis> Click <guibutton>Print</guibutton> to print information of your selected contacts.</para>
+{docbook}
+h1. Print an Address Book {anchor:id="CSUser_guide.How_to_use_Address_book.Print_address_bookRoleNotInToc"}
 This function allows you to print the summary information of contacts in form of name cards. You can also print all contacts in an address book at the same time.
 
 {docbook}
@@ -450,15 +819,20 @@ This function allows you to print the summary information of contacts in form of
 </citetitle>
 {docbook}
 
-*1.* Right-click the address book which you want to print, and select *Print* from the drop-down menu.
+{docbook}
+<para>
+ <emphasis role="bold">1.</emphasis> Right-click the address book which you want to print, and select <guilabel>Print</guilabel> from the drop-down menu.</para>
+{docbook}
 
 The *Print Preview* page will appear.
 
 !images/print_preview1.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
+{docbook}
+<para>
+  <emphasis role="bold">2.</emphasis> Click <guibutton>Print</guibutton> to start printing.</para>
+{docbook}
 
-*2.* Click *Print* to start printing.
-
-h1. Share contacts {anchor:id="CSUser_guide.How_to_use_Address_book.Share_contacts"}
+h1. Share contacts {anchor:id="CSUser_guide.How_to_use_Address_book.Share_contactsRoleNotInToc"}
 This function allows you to share contacts with other users or groups. The shared users/groups may have *View* or *Edit* permissions on the shared contacts.
 
 * The *View* permission allows users to view, copy, export, print, delete but cannot move your shared contacts. The shared users cannot make changes on the information of the shared contacts or move your shared contacts if they only have the *View* permission.
@@ -468,8 +842,8 @@ This function allows you to share contacts with other users or groups. The share
 {docbook}
 <note>
     <para>
-    The shared users can move or delete the shared contact only from their address books. It means that the shared contact still exists in the <emphasis role="bold">Shared</emphasis> address book of another shared users and of the creator/author. 
-	The shared contact will be permanently deleted in the <emphasis role="bold">Shared</emphasis> address books of the shared users or cannot be shared with other users if it is removed by the creator/author.
+    The shared users can move or delete the shared contact only from their address books. It means that the shared contact still exists in the <guilabel>Shared</guilabel> address book of another shared users and of the creator/author.
+	The shared contact will be permanently deleted in the <guilabel>Shared</guilabel> address books of the shared users or cannot be shared with other users if it is removed by the creator/author.
     </para>
 </note>
 {docbook}
@@ -482,37 +856,68 @@ This function allows you to share contacts with other users or groups. The share
 </citetitle>
 {docbook}
 
-*1.* Right-click the contact you want to share, then select *Share* from the drop-down menu;
+{docbook}
+<para>
+<emphasis role="bold">1.</emphasis> Right-click the contact you want to share, then select <guilabel>Share</guilabel> from the drop-down menu;</para>
+{docbook}
 
-Or, drag and drop this contact to the *Shared* address book in the *Address Books* pane.
+{docbook}
+<para>Or, drag and drop this contact to the <guilabel>Shared</guilabel> address book in the <guilabel>Address Books</guilabel> pane.</para>
+{docbook}
 
-The *Share a contact with other users* form will appear. {anchor:id="Share_contact_with_other_users_form"}
+{docbook}
+<para>The <guilabel>Share a contact with other users</guilabel> form will appear. <anchor id="Share_contact_with_other_users_form"/>  </para>
+{docbook}
 
 !images/Share_contact_with_others_form.png|align="center" width="80mm" fo:scalefit="1" html:scalefit="0"!
 
-*2.* Select users or groups that you want to share. {anchor:id="Share_selected_users_and_groups"}
-
-*i.* Click !images/user_selector_icon.png|width="10" fo:scalefit="1" html:scalefit="0"! to open the *User Selector* form;
+2.* Select users or groups that you want to share. {anchor:id="Share_selected_users_and_groups"}
+{docbook}
+<para>
+          <emphasis role="bold">i.</emphasis> Click <inlinemediaobject>
+            <imageobject role="fo">
+              <imagedata fileref="images/user_selector_icon.png" format="PNG" scalefit="1" width="10"/>
+            </imageobject>
+            <imageobject role="html">
+              <imagedata fileref="images/user_selector_icon.png" format="PNG" scalefit="0" width="10"/>
+            </imageobject>
+          </inlinemediaobject> to open the <guilabel>User Selector</guilabel> form;</para>
+{docbook}
 
 !images/user_selector.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
+{docbook}
+<para>In this form, tick the checkboxes corresponding to your desired users, then click <guibutton>Add</guibutton>. Also, you can use the <emphasis role="bold">Search</emphasis> function to look for your desired users quickly.</para>
+{docbook}
 
-In this form, tick the checkboxes corresponding to your desired users, then click *Add*. Also, you can use the *Search* function to look for your desired users quickly.
-
-*ii.* Or, click !images/group_selector_icon.png|width="4mm" fo:scalefit="1" html:scalefit="0"! to open the *Group Selector* form.
-
+{docbook}
+<para>
+          <emphasis role="bold">ii.</emphasis> Or, click <inlinemediaobject>
+            <imageobject role="fo">
+              <imagedata fileref="images/group_selector_icon.png" format="PNG" scalefit="1" width="4mm"/>
+            </imageobject>
+            <imageobject role="html">
+              <imagedata fileref="images/group_selector_icon.png" format="PNG" scalefit="0" width="4mm"/>
+            </imageobject>
+          </inlinemediaobject> to open the <guilabel>Group Selector</guilabel> form.</para>
+{docbook}
 !images/group_selector.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
 
 In this form, select the group in the left pane, and its child group in the right pane.
-
-*3.* Tick the *Edit Permission* checkbox if you want to grant the edit permission to your selected users or groups.
+{docbook}
+<para>
+  <emphasis role="bold">3.</emphasis> Tick the <guilabel>Edit Permission</guilabel> checkbox if you want to grant the edit permission to your selected users or groups.</para>
+{docbook}
 
 The shared users/groups will be updated in the Shared Users/Groups table of the [Share a contact with other users|#Share_contact_with_other_users_form] form.
 
 * Click !images/edit_icon.png|width="5mm" fo:scalefit="1" html:scalefit="0"! if you want to change the *Edit* permission of specific users/groups. Click !images/remove_icon1.png|width="5mm" fo:scalefit="1" html:scalefit="0"! to remove the shared users/groups.
 
-*4.* Click *Save* to accept your sharing.
+{docbook}<para>
+          <emphasis role="bold">4.</emphasis> Click <guibutton>Save</guibutton> to accept your sharing.</para>
+{docbook}
 
-h1. Search for contacts {anchor:id="CSUser_guide.How_to_use_Address_book.Search_for_contacts"}
+
+h1. Search for contacts {anchor:id="CSUser_guide.How_to_use_Address_book.Search_for_contactsRoleNotInToc"}
 
 This function allows you to find contacts easily and quickly via 2 types:
 * [Quick search|#CSUser_guide.How_to_use_Address_book.Quick_search]
@@ -526,13 +931,18 @@ This function allows you to find contacts easily and quickly via 2 types:
 </citetitle>
 {docbook}
 
-This function allows you to do a quick search with specific keywords in all your contacts. All contacts having the text matching your search term will be displayed in the *Search Result* dialog.
-
-*1.* Enter your search term in the *Search* textbox in the left pane.
+{docbook}
+<para>This function allows you to do a quick search with specific keywords in all your contacts. All contacts having the text matching your search term will be displayed in the <guilabel>Search Result</guilabel> dialog.</para>
+{docbook}
+{docbook}
+<para>
+<emphasis role="bold">1.</emphasis> Enter your search term in the <guibutton>Search</guibutton> textbox in the left pane.</para>
+{docbook}
 
 *2.* Click !images/search_icon.png|width="4mm" fo:scalefit="1" html:scalefit="0"! to perform your search.
 
 Your search results will be displayed in the right *Search Result* pane.
+
 
 {docbook}
 <citetitle>
@@ -543,14 +953,24 @@ Your search results will be displayed in the right *Search Result* pane.
 {docbook}
 
 With this mode, you can refine your search by using a variety of criteria. Your search results will be limited as follows:
-
-*1.* Click !images/advanced_search_icon.png|width="4mm" fo:scalefit="1" html:scalefit="0"! next to the search box to open the *Advanced Search* form.
-
+{docbook}
+<para>
+          <emphasis role="bold">1.</emphasis> Click <inlinemediaobject>
+            <imageobject role="fo">
+              <imagedata fileref="images/advanced_search_icon.png" format="PNG" scalefit="1" width="4mm"/>
+            </imageobject>
+            <imageobject role="html">
+              <imagedata fileref="images/advanced_search_icon.png" format="PNG" scalefit="0" width="4mm"/>
+            </imageobject>
+          </inlinemediaobject> next to the search box to open the <guilabel>Advanced Search</guilabel> form.</para>
+{docbook}
 *2.* Define your search criteria. You can set the search criteria by: Text, Full Name, First Name, Last Name, Nick Name, Job Title, Email and Gender.
+{docbook}
+<para>
+ <emphasis role="bold">3.</emphasis> Click <guibutton>Search</guibutton> to perform your search. All contacts matching your criteria will be shown in the <guilabel>Search Result</guilabel> dialog.</para>
+{docbook}
 
-*3.* Click the *Search* button to search. All contacts matching your criteria will be shown in the *Search Result* dialog.
-
-h1. Manage Address Books {anchor:id="CSUser_guide.How_to_use_Address_book.Manage_address.book"}
+h1. Manage Address Books {anchor:id="CSUser_guide.How_to_use_Address_book.Manage_address.bookRoleNotInToc"}
 By default, there are 3 Address Book categories:
 
 * *Personal* contains contacts/address books which are created by yourself. Each group may contain more than one contact.
@@ -559,26 +979,45 @@ By default, there are 3 Address Book categories:
 * *Shared* contains contacts/address books which have been shared with you by another users. You can view and update the shared contacts if you are granted the *Edit* permission.
 * *Public Groups* contains address books of groups to which you belong. Each group contains all default contacts of group members that can be viewed only.
 
+{docbook}
+<citetitle>
+    <para xml:id="CSUser_guide.How_to_use_Address_book.Create_address_book">
+        <emphasis role="bold">Create an address book</emphasis>
+    </para>
+</citetitle>
+{docbook}
 
-h2. Create an address book {anchor:id="CSUser_guide.How_to_use_Address_book.Create_address_book"}
-
-*1.* Open the *Add/Edit Address Book* form via one of the following ways.
-
+{docbook}
+<para>
+  <emphasis role="bold">1.</emphasis> Open the <guilabel>Add/Edit Address Book</guilabel> form via one of the following ways.</para>
+{docbook}
 *The first way*
 
 Click !images/address_book_button.png|width="17mm" fo:scalefit="1" html:scalefit="0"! on the *Toolbar*.
 
 *The second way*
-
-Click !images/Down_arrow_addressbook_icon.png|width="4mm" fo:scalefit="1" html:scalefit="0"! in the *Address Book* pane, and select *Add* from the drop-down menu.
+{docbook}
+ <para>Click <inlinemediaobject>
+              <imageobject role="fo">
+                <imagedata fileref="images/Down_arrow_addressbook_icon.png" format="PNG" scalefit="1" width="4mm"/>
+              </imageobject>
+              <imageobject role="html">
+                <imagedata fileref="images/Down_arrow_addressbook_icon.png" format="PNG" scalefit="0" width="4mm"/>
+              </imageobject>
+            </inlinemediaobject> in the <guilabel>Address Book</guilabel> pane, and select <guilabel>Add</guilabel> from the drop-down menu.</para>
+{docbook}
 
 !images/add_contact.png|align="center" width="40mm" fo:scalefit="1" html:scalefit="0"!
-
-*2.* Type name and description for your new address book in the *Name* and *Description* fields respectively in the *Add/Edit Address Book* form. {anchor:id="Add_edit_address_book_form"}
-
+{docbook}
+<para>
+<emphasis role="bold">2.</emphasis> Type name and description for your new address book in the <guilabel>Name</guilabel> and <guilabel>Description</guilabel> fields respectively in the <guilabel>Add/Edit Address Book</guilabel> form. <anchor id="Add_edit_address_book_form"/>
+</para>
+{docbook}
 !images/add_edit_address_book.png|align="center" width="100mm" fo:scalefit="1" html:scalefit="0"!
-
-*3.* Click *Save* to accept adding your address book.
+{docbook}
+<para>
+<emphasis role="bold">3.</emphasis> Click <guibutton>Save</guibutton> to accept adding your address book.</para>
+{docbook}
 
 {docbook}
 <tip>
@@ -588,14 +1027,23 @@ Click !images/Down_arrow_addressbook_icon.png|width="4mm" fo:scalefit="1" html:s
 </tip>
 {docbook}
 
-h2. Edit an address book {anchor:id="CSUser_guide.How_to_use_Address_book.Edit_address_book"}
+{docbook}
+<citetitle>
+    <para xml:id="CSUser_guide.How_to_use_Address_book.Edit_address_book">
+        <emphasis role="bold">Edit an address book</emphasis>
+    </para>
+</citetitle>
+{docbook}
 
-*1.* Right-click an existing address book, and select *Edit* from the drop-down menu.
-
+{docbook}
+<para>
+<emphasis role="bold">1.</emphasis> Right-click an existing address book, and select <guilabel>Edit</guilabel> from the drop-down menu.</para>
+{docbook}
 *2.* Make changes on information of your address book in the [Add/Edit Address Book form|#Add_edit_address_book_form].
-
-*3.* Click *Save* to accept your changes.
-
+{docbook}
+<para>
+  <emphasis role="bold">3.</emphasis> Click <guibutton>Save</guibutton> to accept your changes.</para>
+{docbook}
 {docbook}
 <note>
     <para>
@@ -604,11 +1052,21 @@ h2. Edit an address book {anchor:id="CSUser_guide.How_to_use_Address_book.Edit_a
 </note>
 {docbook}
 
-h2. Remove an address book {anchor:id="CSUser_guide.How_to_use_Address_book.Remove_address_book"}
-*1.* Right-click an existing address book, then select *Delete* from the drop-down menu.
+{docbook}
+<citetitle>
+    <para xml:id="CSUser_guide.How_to_use_Address_book.Remove_address_book">
+        <emphasis role="bold">Remove an address book</emphasis>
+    </para>
+</citetitle>
+{docbook}
 
-*2.* Click *OK* in the confirmation message to accept your deletion.
-
+{docbook}<para>
+<emphasis role="bold">1.</emphasis> Right-click an existing address book, then select <guilabel>Delete</guilabel> from the drop-down menu.</para>
+{docbook}
+{docbook}
+<para>
+ <emphasis role="bold">2.</emphasis> Click <guibutton>OK</guibutton> in the confirmation message to accept your deletion.</para>
+{docbook}
 {docbook}
 <note>
     <para>
@@ -617,79 +1075,149 @@ h2. Remove an address book {anchor:id="CSUser_guide.How_to_use_Address_book.Remo
 </note>
 {docbook}
 
+{docbook}
+<citetitle>
+    <para xml:id="CSUser_guide.How_to_use_Address_book.Export_address_book">
+        <emphasis role="bold">Export an address book</emphasis>
+    </para>
+</citetitle>
+{docbook}
 
-
-h2. Export an address book {anchor:id="CSUser_guide.How_to_use_Address_book.Export_address_book"}
-*1.* Open the *Export Address Books* form via one of the following ways.
-
+{docbook}<para>
+  <emphasis role="bold">1.</emphasis> Open the <guilabel>Export Address Books</guilabel> form via one of the following ways.</para>
+{docbook}
 *The first way*
 
 Click !images/export_button.png|width="15mm" fo:scalefit="1" html:scalefit="0"! in the *Toolbar*.
 
 *The second way*
+{docbook}
+<para>Click <inlinemediaobject>
+              <imageobject role="fo">
+                <imagedata fileref="images/Down_arrow_addressbook_icon.png" format="PNG" scalefit="1" width="4mm"/>
+              </imageobject>
+              <imageobject role="html">
+                <imagedata fileref="images/Down_arrow_addressbook_icon.png" format="PNG" scalefit="0" width="4mm"/>
+              </imageobject>
+            </inlinemediaobject> in the <guilabel>Address Books</guilabel> pane, and select <guilabel>Export</guilabel> from the drop-down menu.</para>
+{docbook}
 
-Click !images/Down_arrow_addressbook_icon.png|width="4mm" fo:scalefit="1" html:scalefit="0"! in the *Address Books* pane, and select *Export* from the drop-down menu.
+{docbook}
+<para>The <guilabel>Export Address Books</guilabel> form will appear with a list of all existing address books.</para>
+{docbook}
 
-The *Export Address Books* form will appear with a list of all existing address books.
+{docbook}<para>
+ <emphasis role="bold">2.</emphasis> Tick checkboxes corresponding to address books that you want to export. If you want to select all the address books, tick the checkbox next to <guilabel>Name</guilabel>.</para>
+{docbook}
+{docbook}
+<para>
+ <emphasis role="bold">3.</emphasis> Enter the file name in the <guilabel>Name</guilabel> field, and select the export format from the <guilabel>Export Format</guilabel> form. At present, only <guilabel>x-vcard</guilabel> is supported.</para>
+{docbook}
+{docbook}
+  <para>
+  <emphasis role="bold">4.</emphasis> Click <guibutton>Export All</guibutton> to start exporting all the address books or click <guilabel>Export Selected Only</guilabel> to export your selected ones only.</para>
+{docbook}
 
-*2.* Tick checkboxes corresponding to address books that you want to export. If you want to select all the address books, tick the checkbox next to *Name*.
+{docbook}
+<citetitle>
+    <para xml:id="CSUser_guide.How_to_use_Address_book.Import_address_book">
+        <emphasis role="bold">Import an address book</emphasis>
+    </para>
+</citetitle>
+{docbook}
 
-*3.* Enter the file name in the *Name* field, and select the export format from the *Export Format* form. At present, only *x-vcard* is supported.
-
-*4.* Click *Export All* to start exporting all the address books or click *Export Selected Only* to export your selected ones only.
-
-
-h2. Import an address book {anchor:id="CSUser_guide.How_to_use_Address_book.Import_address_book"}
 Once you have exported your address books, you can retrieve them easily at any time. Others can also import your address book to store in their address book. The process to import address books is simple as exporting address books.
-
-*1.* Open the *Import Address Books* form via one of the following ways.
-
+{docbook}
+<para>
+ <emphasis role="bold">1.</emphasis> Open the <guilabel>Import Address Books</guilabel> form via one of the following ways.</para>
+{docbook}
 *The first way*
-
-Click the *Import* button in the *Toolbar*.
-
+{docbook}
+<para>Click the <guibutton>Import</guibutton> button in the <emphasis role="bold">Toolbar</emphasis>.</para>
+{docbook}
 *The second way*
+{docbook}
+<para>Click <inlinemediaobject>
+              <imageobject role="fo">
+                <imagedata fileref="images/Down_arrow_addressbook_icon.png" format="PNG" scalefit="1" width="4mm"/>
+              </imageobject>
+              <imageobject role="html">
+                <imagedata fileref="images/Down_arrow_addressbook_icon.png" format="PNG" scalefit="0" width="4mm"/>
+              </imageobject>
+            </inlinemediaobject> in the <guilabel>Address Books</guilabel> pane, then select <guilabel>Import</guilabel> from the drop-down menu.</para>
+{docbook}
 
-Click !images/Down_arrow_addressbook_icon.png|width="4mm" fo:scalefit="1" html:scalefit="0"! in the *Address Books* pane, then select *Import* from the drop-down menu.
-
-The *Import Address Books* form will be displayed.
+{docbook}
+<para>The <guilabel>Import Address Books</guilabel> form will be displayed.</para>
+{docbook}
 
 !images/import_address_books.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
 
-*2.* Select the address book which stores your imported address book contact from the *Address Book* drop-down menu; 
+{docbook}
+<para>
+<emphasis role="bold">2.</emphasis> Select the address book which stores your imported address book contact from the <guilabel>Address Book</guilabel> drop-down menu; </para>
+{docbook}
 
-Or, click !images/plus_icon.png|width="4mm" fo:scalefit="1" html:scalefit="0"! to [create a new address book|#CSUser_guide.How_to_use_Address_book.Create_address_book]. 
+Or, click !images/plus_icon.png|width="4mm" fo:scalefit="1" html:scalefit="0"! to [create a new address book|#CSUser_guide.How_to_use_Address_book.Create_address_book].
+
 
 *3.* Select the import format. At present, only *x-card* is supported.
+{docbook}
+<para>
+  <emphasis role="bold">4.</emphasis> Click <guibutton>Browse...</guibutton> to open the <guilabel>File Upload</guilabel> form. </para>
+{docbook}
 
-*4.* Click *Browse...* to open the *File Upload* form. 
+{docbook}
+<para>
+ <emphasis role="bold">5.</emphasis> Select the address book file to import from your device, then click <guibutton>Open</guibutton> to upload your selected file.</para>
+{docbook}
 
-*5.* Select the address book file to import from your device, then click *Open* to upload your selected file.
+{docbook}
+<para>
+  <emphasis role="bold">6.</emphasis> Click <guibutton>Save</guibutton> to finish. You will see a notification of your successful import on the top right corner.</para>
+{docbook}
 
-*6.* Click *Save* to finish. You will see a notification of your successful import on the top right corner.
-
-h2. Share a personal address book {anchor:id="CSUser_guide.How_to_use_Address_book.Share_personal_address_book"}
+{docbook}
+<citetitle>
+    <para xml:id="CSUser_guide.How_to_use_Address_book.Share_personal_address_book">
+        <emphasis role="bold">Share a personal address book</emphasis>
+    </para>
+</citetitle>
+{docbook}
 
 This feature allows you to share personal address books with specific users or groups. The shared users/groups can view, export, add, edit or delete a shared address book (if they have the *Edit* permission). The shared address book is distinguished from other address books by a hand symbol.
 
 !images/Shared_address_book.png|align="center" width="50mm" fo:scalefit="1" html:scalefit="0"!
-
-*1.* Right-click the address book you want to share, and select *Share* from the drop-down menu.
-
-The *Share an Address Book with other users* form will appear. {anchor:id="Share_Address_Book_form"}
-
+{docbook}
+<para>
+ <emphasis role="bold">1.</emphasis> Right-click the address book you want to share, and select <guilabel>Share</guilabel> from the drop-down menu.</para>
+{docbook}
+{docbook}
+<para>The <guilabel>Share an Address Book with other users</guilabel> form will appear. <anchor id="Share_Address_Book_form"/>
+</para>
+{docbook}
 !images/Share_Address_book_form.png|align="center" width="80mm" fo:scalefit="1" html:scalefit="0"!
 
 *2.* Select users or groups that you want to share. For more details, see [here.|#Share_selected_users_and_groups]
 
 * The shared users/groups will be updated in the Shared Users/Groups table of the [Share an Address Book with other users|#Share_Address_Book_form] form.
 * Click !images/edit_icon.png|width="4mm" fo:scalefit="1" html:scalefit="0"! to change the *Edit* permission or !images/remove_icon1.png|width="4mm" fo:scalefit="1" html:scalefit="0"! to remove specific users/groups from the Share Users/Groups table.
+{docbook}
+<para>
+  <emphasis role="bold">3.</emphasis> Tick the <guilabel>Edit Permission</guilabel> checkbox if you want to grant the <emphasis role="bold">Edit</emphasis> permission to your selected users/groups. </para>
+{docbook}
+{docbook}
+<para>
+   <emphasis role="bold">4.</emphasis> Click <guibutton>Save</guibutton> to finish. </para>
+{docbook}
 
-*3.* Tick the *Edit Permission* checkbox if you want to grant the *Edit* permission to your selected users/groups. 
-
-*4.* Click *Save* to finish. 
-
-h2. Grant permissions on a public address book {anchor:id="CSUser_guide.How_to_use_Address_book.Grant_permissions_public_address_book"}
+{docbook}
+<citetitle>
+    <para xml:id="CSUser_guide.How_to_use_Address_book.Grant_permissions_public_address_book">
+        <emphasis role="bold">Grant permissions on a public address book</emphasis>
+    </para>
+</citetitle>
+{docbook}
 
 You can grant the *Read/Manage* permission on your managed public address books to specific users, groups or memberships.
 
@@ -699,20 +1227,20 @@ You can grant the *Read/Manage* permission on your managed public address books 
 
 By default, any member of a group has the *Read* permission and the group manager has the *Manage* permission.
 
+*Grant a permission on a public address book*
+
 {docbook}
-<citetitle>
 <para>
-<emphasis role="bold">Grant a permission on a public address book</emphasis>
-</para>
-</citetitle>
+   <emphasis role="bold">1.</emphasis> Right-click your managed public address book, and select <guilabel>Permission</guilabel> from the drop-down menu.</para>
 {docbook}
-
-*1.* Right-click your managed public address book, and select *Permission* from the drop-down menu.
-
-The *Permissions* form appears.
-
+{docbook}
+<para>The <guilabel>Permissions</guilabel> form appears.</para>
+{docbook}
 !images/Permissions_form.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
 
 *2.* Select certain users or groups you want to grant permissions. For more details, see [here.|#Share_selected_users_and_groups]
+{docbook}
+<para>
+<emphasis role="bold">3.</emphasis> Tick the <guilabel>Can manage?</guilabel> checkbox if you want to grant the <emphasis role="bold">Manage</emphasis> permission to your selected users/group.</para>
+{docbook}
 
-*3.* Tick the *Can manage?* checkbox if you want to grant the *Manage* permission to your selected users/group.
