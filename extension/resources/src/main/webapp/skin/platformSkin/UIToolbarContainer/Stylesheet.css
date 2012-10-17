@@ -18,7 +18,8 @@
  */
 
 .UIToolbarContainer {
-	width:100%;/*fix for pin button*/
+  width: 100%;
+  z-index: 3;
 }
  
 .UIToolbarContainer .TRContainer {
