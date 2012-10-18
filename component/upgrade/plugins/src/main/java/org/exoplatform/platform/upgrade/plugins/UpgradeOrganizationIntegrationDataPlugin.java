@@ -28,6 +28,7 @@ import javax.jcr.Session;
 
 import org.exoplatform.commons.upgrade.UpgradeProductPlugin;
 import org.exoplatform.container.xml.InitParams;
+import org.exoplatform.container.PortalContainer;
 import org.exoplatform.platform.organization.integration.OrganizationIntegrationService;
 import org.exoplatform.platform.organization.integration.Util;
 import org.exoplatform.services.jcr.RepositoryService;
@@ -35,6 +36,7 @@ import org.exoplatform.services.jcr.ext.distribution.DataDistributionManager;
 import org.exoplatform.services.log.ExoLogger;
 import org.exoplatform.services.log.Log;
 import org.exoplatform.services.organization.idm.MembershipImpl;
+
 
 /**
  * @author <a href="kmenzli@exoplatform.com">Kmenzli</a>
@@ -56,16 +58,21 @@ public class UpgradeOrganizationIntegrationDataPlugin extends UpgradeProductPlug
     private DataDistributionManager dataDistributionManager;
     private OrganizationIntegrationService organizationIntegrationService;
 
-    public UpgradeOrganizationIntegrationDataPlugin(OrganizationIntegrationService organizationIntegrationService,
-                                                    DataDistributionManager dataDistributionManager, RepositoryService repositoryService, InitParams initParams) {
+    public UpgradeOrganizationIntegrationDataPlugin(DataDistributionManager dataDistributionManager, RepositoryService repositoryService, InitParams initParams) {
         super(initParams);
         this.repositoryService = repositoryService;
         this.dataDistributionManager = dataDistributionManager;
-        this.organizationIntegrationService = organizationIntegrationService;
     }
 
     @Override
     public boolean shouldProceedToUpgrade(String previousVersion, String newVersion) {
+
+        try {
+            organizationIntegrationService = getService(OrganizationIntegrationService.class);
+        } catch (Exception E) {
+            LOG.error("Cannot load OrganizationIntegrationService!",E);
+        }
+
         if (organizationIntegrationService.isSynchronizeGroups()) {
             LOG.warn("Caution: synchronization of groups is activated for OrganizationIntegrationService. It shouldn't be enabled when upgrading!");
         }
@@ -228,5 +235,9 @@ public class UpgradeOrganizationIntegrationDataPlugin extends UpgradeProductPlug
             nodeNameList.put(node.getName(), node.getPath());
         }
         return nodeNameList;
+    }
+
+    protected <T> T getService(Class<T> clazz) {
+        return clazz.cast(PortalContainer.getInstance().getComponentInstanceOfType(clazz));
     }
 }
