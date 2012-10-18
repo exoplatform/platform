@@ -320,8 +320,96 @@
 						</field>
 					</object>
 				</object-param>
-			</init-params>
-		</component-plugin>
+              <object-param>
+                <name>My Agenda</name>
+                <object type="org.exoplatform.platform.upgrade.plugins.GadgetUpgrade">
+                  <field name="name">
+                    <string>Agenda</string>
+                  </field>
+                  <field name="path">
+                    <string>war:/gadgets/Agenda/Agenda.xml</string>
+                  </field>
+                </object>
+              </object-param>
+              <object-param>
+                <name>Bookmarks</name>
+                <object type="org.exoplatform.platform.upgrade.plugins.GadgetUpgrade">
+                  <field name="name">
+                    <string>Bookmark</string>
+                  </field>
+                  <field name="path">
+                    <string>war:/gadgets/Bookmark/Bookmark.xml</string>
+                  </field>
+                </object>
+              </object-param>
+              <object-param>
+                <name>Favorite Documents</name>
+                <object type="org.exoplatform.platform.upgrade.plugins.GadgetUpgrade">
+                  <field name="name">
+                    <string>FavoriteDocument</string>
+                  </field>
+                  <field name="path">
+                    <string>war:/gadgets/FavoriteDocument/FavoriteDocument.xml</string>
+                  </field>
+                </object>
+              </object-param>
+              <object-param>
+                <name>Featured Poll</name>
+                <object type="org.exoplatform.platform.upgrade.plugins.GadgetUpgrade">
+                  <field name="name">
+                    <string>FeaturedPoll</string>
+                  </field>
+                  <field name="path">
+                    <string>war:/gadgets/FeaturedPoll/Poll.xml</string>
+                  </field>
+                </object>
+              </object-param>
+              <object-param>
+                <name>Invitations</name>
+                <object type="org.exoplatform.platform.upgrade.plugins.GadgetUpgrade">
+                  <field name="name">
+                    <string>Invitations</string>
+                  </field>
+                  <field name="path">
+                    <string>war:/gadgets/Invitations/Invitations.xml</string>
+                  </field>
+                </object>
+              </object-param>
+              <object-param>
+                <name>My Profile</name>
+                <object type="org.exoplatform.platform.upgrade.plugins.GadgetUpgrade">
+                  <field name="name">
+                    <string>Profile</string>
+                  </field>
+                  <field name="path">
+                    <string>war:/gadgets/MyProfile/Profile.xml</string>
+                  </field>
+                </object>
+              </object-param>
+              <object-param>
+                <name>New Spaces</name>
+                <object type="org.exoplatform.platform.upgrade.plugins.GadgetUpgrade">
+                  <field name="name">
+                    <string>NewSpaces</string>
+                  </field>
+                  <field name="path">
+                    <string>war:/gadgets/NewSpaces/NewSpace.xml</string>
+                  </field>
+                </object>
+              </object-param>
+              <object-param>
+                <name>Who Is Online</name>
+                <object type="org.exoplatform.platform.upgrade.plugins.GadgetUpgrade">
+                  <field name="name">
+                    <string>WhoIsOnline</string>
+                  </field>
+                  <field name="path">
+                    <string>war:/gadgets/WhoisOnline/WhoisOnline.xml</string>
+                  </field>
+                </object>
+              </object-param>
+            </init-params>
+        </component-plugin>
         <component-plugin>
             <name>Upgrade-TermsAndConditions</name>
             <set-method>addUpgradePlugin</set-method>
