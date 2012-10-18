@@ -99,7 +99,7 @@
 		<org.apache.jackrabbit.version>1.6.4</org.apache.jackrabbit.version><!-- needed for cs -->
 		<org.hsqldb.version>2.0.0</org.hsqldb.version>
 		<!-- 3rd parties for docs generation -->
-		<doc-style.version>1.0.7-SNAPSHOT</doc-style.version>
+		<doc-style.version>1.0.8-SNAPSHOT</doc-style.version>
 		<guava.version>r07</guava.version>
 		<httpcomponents.httpclient.version>4.0</httpcomponents.httpclient.version>
 		<commons-httpclient.version>3.1</commons-httpclient.version>
