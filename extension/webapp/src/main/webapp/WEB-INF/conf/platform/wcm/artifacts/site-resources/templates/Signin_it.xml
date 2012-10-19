@@ -18,7 +18,7 @@
          xmlns:app="http://www.gatein.org/jcr/application-registry/1.0/" 
          xmlns:exoide="http://exoplatform.org/ide/1.1.x/" 
          xmlns:Re="http://www.exoplatform.com/jcr/Re/1.1/" 
-         xmlns:cia="http://www.bull.com/fr/aladinng/cia/1.0" 
+         
          xmlns:cmis="http://www.exoplatform.com/jcr/cmis/1.0" 
          xmlns:lgn="http://www.gatein.org/jcr/autologin/1.0/" 
          xmlns:mop="http://www.gatein.org/jcr/mop/1.0/" 
