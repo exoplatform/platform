@@ -28,7 +28,8 @@
       <sitemapvisible>Visible in sitemap</sitemapvisible>
 	  <isInherited>Inherited from parent page</isInherited>
       <priority>Priority: </priority>
-      <frequency>Frequency: </frequency>  
+      <frequency>Frequency: </frequency>
+      <select-language>Select a language</select-language>
       <option>
         <Always>Always</Always>
         <Hourly>Hourly</Hourly>
@@ -50,8 +51,10 @@
       <repository-exception>An unexpected error occurred! Cannot save page meta data.</repository-exception>	
     </msg>
 	<help> 
-		<priority>The priority of this URL relative to other URLs on your site. Valid values range from 0.0 to 1.0. This value does not affect how your pages are compared to pages on other sites—it only lets the search engines know which pages you deem most important for the crawlers. The default priority of a page is 0.5.</priority>
-	</help>	  
+	  <priority>Valid values range from 0.0 to 1.0.</priority>
+	  <description>Help searchers to let them know what the following page has a link with what they are looking for.</description>
+	  <keywords>Most important terms in the page separated by a comma.</keywords>		  
+    </help>  
   </UISEOForm>
   <UISEOPopupWindow>
   	<title>
@@ -68,5 +71,13 @@
       <Invalid-number>The field Priority is invalid float number. Valid values range from 0.0 to 1.0.</Invalid-number>
     </msg>
   </FloatNumberValidator>
+  
+  <Locale>
+    <label>      
+      <it>Italian</it>      
+      <fr>French</fr>
+      <en>English</en>      
+    </label>
+  </Locale>
   
 </bundle>

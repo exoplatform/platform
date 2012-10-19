@@ -27,7 +27,8 @@
       <sitemapvisible>Visibile nella mappa del sito</sitemapvisible>
 	  <isInherited>Ereditato dalla pagina padre</isInherited>
       <priority>Priorità: </priority>
-      <frequency>Ferequenza: </frequency>  
+      <frequency>Ferequenza: </frequency>
+      <select-language>Select a language</select-language>  
       <option>
         <Always>Sempre</Always>
         <Hourly>Ogni ora</Hourly>
@@ -49,14 +50,10 @@
       <repository-exception>Un errore inaspettato! Impossibile salvare i meta dati della pagina.</repository-exception>	
     </msg>
 	<help> 
-		<priority>
-		    Priorità di questo URL realativo ad altri URL del vostro sito.
-		    Intervallo valori validi da 0.0 a 1.0.
-		    Questo valore non influisce su come le sue pagine sono comparate alle pagine di altri siti - permette solo a
-		    motori di ricerca di sapere quale pagina ritiene la più importante per i crawlers.
-		    Priorità default di una pagina è 0.5.
-		</priority>
-	</help>	  
+	  <priority>Valid values range from 0.0 to 1.0.</priority>
+	  <description>Help searchers to let them know what the following page has a link with what they are looking for.</description>
+	  <keywords>Most important terms in the page separated by a comma.</keywords>		  
+    </help>  
   </UISEOForm>
   <UISEOPopupWindow>
   	<title>
@@ -74,4 +71,11 @@
     </msg>
   </FloatNumberValidator>
   
+  <Locale>
+    <label>      
+      <it>Italian</it>      
+      <fr>French</fr>
+      <en>English</en>      
+    </label>
+  </Locale>
 </bundle>
