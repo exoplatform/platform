@@ -96,15 +96,13 @@ If you have some specific JCR namespaces and node types, you need to import them
 
 !images/how_to_copy_a_site/import_node_type_templates.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
 
-Also, for the CLV/PCLV templates, you can find all template views defined in the _dms-system\:/exo\:ecm/views_ path with:
+Also, for the CLV template, you can find all template views defined in the _dms-system\:/exo\:ecm/views_ path with:
 
 * userviews: this folder contains views of Sites Explorer with a set of actions.
 * templates: where you can find all gtmpl templates of:
 ** Category Navigation Portlet templates.
 ** Content List Viewer (CLV) templates and its paginator templates.
-** content-browser templates (Deprecated Portlet).
 ** ecm-explorer templates define how to display nodes in the Sites Explorer portlet, such as CoverFlow template, IconView template.
-** Parameterized Content List Viewer (PCLV) templates and its paginator templates.
 ** *WCM Advanced Search* is used in the *WCM Search* portlet to define the form, layout, result and result's paginator.
 
 If you want to reuse one of the non-predefined templates above, simply export and import it into the new server at the same place.
@@ -112,7 +110,7 @@ If you want to reuse one of the non-predefined templates above, simply export an
 !images/how_to_copy_a_site/WCM_templates.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
 
 {note}
-If you have some specific WCM (CLV/PCLV) views and/or templates of node types, you will need to import them into the new server.
+If you have some specific WCM (CLV) views and/or templates of node types, you will need to import them into the new server.
 {note}
 
 

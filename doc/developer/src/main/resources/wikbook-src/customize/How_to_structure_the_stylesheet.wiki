@@ -1,2 +1,0 @@
-h1. Page skin Elements {anchor:id=DEV.CreateYourOwnPortal.PageSkinElemnets} 
-

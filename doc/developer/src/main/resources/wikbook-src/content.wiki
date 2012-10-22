@@ -629,7 +629,7 @@ You can find the template service configuration in _/webapps/ecm-wcm-core/WEB-IN
 </component>
 {code}
 
-As usual, one can register a plugin inside the service. This plugin initializes default dialogs and views template of any node type as nt:file, exo:article, exo:workflowAction, exo:sendMailAction, and more.
+As usual, one can register a plugin inside the service. This plugin initializes default dialogs and views template of any node type as nt:file, exo:article, exo:sendMailAction, and more.
 
 {code:xml}
 <component-plugins>
