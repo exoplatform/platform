@@ -477,8 +477,8 @@ The following profiles are supported:
 
 Additionally, you can use these composite profiles: 
 || Profile || Description ||
-| {{minimal}} | Contains GateIn  Content. |
-| {{default}} | Contains all modules except workflow and webos (GateIn, eXo IDE, Collaboration, Social, Knowledge).|
+| {{minimal}} | Contain GateIn  Content. |
+| {{default}} | Contain all modules except workflow and webos (GateIn, eXo IDE, Collaboration, Social, Knowledge).|
 | {{all}} | All available modules. |
 
 For example:
