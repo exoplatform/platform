@@ -5,11 +5,11 @@
 		<groupId>org.exoplatform</groupId>
 		<artifactId>exo.parent</artifactId>
 		<version>7.1</version>
-		<relativePath/>
+		<relativePath />
 	</parent>
 	<groupId>org.exoplatform.platform</groupId>
 	<artifactId>exo.platform.parent</artifactId>
-	<version>3.5.5-SNAPSHOT</version>
+	<version>3.5.5-CR01</version>
 	<packaging>pom</packaging>
 	<name>eXo Platform</name>
 	<description>Parent POM for platform projects.</description>

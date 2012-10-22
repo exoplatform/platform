@@ -19,13 +19,12 @@
     02110-1301 USA, or see the FSF site: http://www.fsf.org.
 
 -->
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <parent>
     <groupId>org.exoplatform.platform</groupId>
     <artifactId>exo.platform.doc</artifactId>
-    <version>3.5.5-SNAPSHOT</version>
+    <version>3.5.5-CR01</version>
   </parent>
   <artifactId>exo.platform.doc.refguide</artifactId>
   <packaging>pom</packaging>
@@ -218,10 +217,10 @@
                 <configuration>
                   <target>
                     <replaceregexp match="(../../../reference/html/)" replace="" flags="g" byline="true">
-                      <fileset dir="${project.build.directory}/docbook/publish/en-US/html" includes="**/*.html"/>
+                      <fileset dir="${project.build.directory}/docbook/publish/en-US/html" includes="**/*.html" />
                     </replaceregexp>
                     <replaceregexp match="(../../reference/html/)" replace="" flags="g" byline="true">
-                      <fileset dir="${project.build.directory}/docbook/publish/en-US/html" includes="**/*.html"/>
+                      <fileset dir="${project.build.directory}/docbook/publish/en-US/html" includes="**/*.html" />
                     </replaceregexp>
                   </target>
                 </configuration>
