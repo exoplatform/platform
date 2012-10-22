@@ -262,7 +262,6 @@ Files
 - exo-social-intranet-$version.ear
 - exo-wcm-extension-$version.ear
 - exo-webos-extension-$version.ear
-- exo-workflow-extension-$version.ear
 - gatein-ds.xml
 - gatein-wsrp-extension-$version.ear
 - starter-gatein-$version.ear
@@ -426,22 +425,15 @@ The following profiles are supported:
 | {{collaboration}} | Enable the Collaboration module. |
 | {{knowledge}} | Enable the Knowledge module.|
 | {{social}} | Enable the Social module. |
-| {{workflow}} | Enable the Workflow add-ons within the Content module.|
 | {{webos}} | Enable the eXo WebOS module.|
 
 Additionally, you can use these composite profiles: 
 || Profile || Description ||
 | {{minimal}} | Contains GateIn  Content. |
-| {{default}} | Contains all modules except workflow and webos (GateIn, eXo IDE, Collaboration, Social, Knowledge).|
+| {{default}} | Contains all modules except webos (GateIn, eXo IDE, Collaboration, Social, Knowledge).|
 | {{all}} | All available modules. |
 
 For example:
-
-* Start default modules  workflow:
-
-{code}
-./start_eXo.sh default,workflow
-{code}
 
 * Start eXo Platform with GateIn, Content, Collaboration and Knowledge enabled.
 

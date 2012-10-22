@@ -901,7 +901,6 @@ The Collaboration application provides the following Job instances:
 ||Job Name||Description||
 |{{PopupReminderJob}}|Show pop-up reminders in the Calendar application.|
 |{{ReminderJob}}|Send email reminders in the Calendar application.|
-|{{messageToHistoricalMessageJob}}|Save messages in the Chat application in the data storage of Collaboration.|
 
 {note}
 Currently, the REST View management of Collaboration is not exposed.

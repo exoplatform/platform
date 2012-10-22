@@ -46,14 +46,6 @@ Information about the default timeout value of JCR transaction, and the value wh
 </listitem>
 <listitem>
 <para>
-<emphasis role="bold"><link linkend="ADM.Configuration.MailServer">Mail server</link></emphasis>
-</para>
-<para>
-Introduction to the Email service of eXo Platform that requires the SMTP server to send emails, such as notifications or password reminders.
-</para>
-</listitem>
-<listitem>
-<para>
 <emphasis role="bold"><link linkend="ADM.Configuration.Notification_email_config">Email-notification configuration for watching a document</link></emphasis>
 </para>
 <para>
@@ -66,14 +58,6 @@ Instructions on how to customize the email notification that allows you to recei
 </para>
 <para>
 Introduction to the embedded WebDAV server that lets you control the cache-control HTTP header.
-</para>
-</listitem>
-<listitem>
-<para>
-<emphasis role="bold"><link linkend="ADM.Configuration.Chat_Server">Chat server</link></emphasis>
-</para>
-<para>
-Information about XMPPMessenger, and Chat server configuration.
 </para>
 </listitem>
 <listitem>
@@ -732,75 +716,6 @@ gatein.jcr.transaction.timeout=3600
 * [JCR system and default workspaces|#ADM.Configuration.JCR_Workspaces]
 * [JCR|#ADM.Configuration.JCR]
 
-h1. Mail server {anchor:id=ADM.Configuration.MailServer}
-
-{note}
-The *Mail* portlet and its services are deprecated. It remains fully supported for eXo customers, however it will not receive any enhancement and will be removed from the product scope in the future.
-{note}
-
-eXo Platform requires the SMTP server to send emails, such as notifications or password reminders.
-
-The Email service can use any SMTP account that needs to be configured in _/server/default/conf/gatein/configuration.properties_ (Or _$TOMCAT\_\HOME/
-gatein/conf/configuration.properties_ if you are using Tomcat).
-
-The relevant section looks like:
-
-{code:java}
-#EMail
-# Domain name: Help for sending links from email notifications. The default domain name is http://localhost:8080.
-gatein.email.domain.url=http://localhost:8080
-# Email display in "from" field of email notification.
-gatein.email.smtp.from=noreply@exoplatform.com
-gatein.email.smtp.username=
-gatein.email.smtp.password=
-gatein.email.smtp.host=smtp.gmail.com
-gatein.email.smtp.port=465
-gatein.email.smtp.starttls.enable=true
-gatein.email.smtp.auth=true
-gatein.email.smtp.socketFactory.port=465
-gatein.email.smtp.socketFactory.class=javax.net.ssl.SSLSocketFactory
-{code}
-
-Some authenticated SMTP systems, such as GMail, GMX, MS Exchange, require the value for 'sender' or 'from' in the email message that must be identical to the SMTP user and host.
-
-The Forum application uses it in the notification phase as the default sender. If it is not set, the sender will be empty.
-
-| {{{gatein.email.domain.url}}} | Domain name. |
-| {{{gatein.email.smtp.from}}} | Sender's email address. |
-| {{{gatein.email.smtp.host}}} | SMTP hostname. |
-| {{{gatein.email.smtp.port}}} | SMTP port. |
-| {{{gatein.email.smtp.starttls.enable}}} | True to enable the secure (TLS) SMTP. See  RFC 3207. |
-| {{{gatein.email.smtp.auth}}} | True to enable the SMTP authentication. |
-| {{{gatein.email.smtp.username}}} | Username to send for authentication. |
-| {{{gatein.email.smtp.password}}} | Password to send for authentication. |
-| {{{gatein.email.smtp.socketFactory.port}}} | Specify the port to connect to when using the specified socket factory. |
-| {{{gatein.email.smtp.socketFactory.class}}} | This class will be used to create SMTP sockets. |
-
-To see more details, refer to [JavaMail API documentation|http://java.sun.com/products/javamail/javadocs/com/sun/mail/smtp/package-summary.html].
-
-For Knowledge, you have to modify the following properties to the configuration file _/gatein/conf/configuration.properties_ to make sure that this mail service works with the authenticated SMTP systems:
-
-{code:java}
-gatein.email.domain.url=http://localhost:8080
-gatein.email.smtp.from=noreply@exoplatform.com
-{code}
-
-{note}
-The value of email address should be in a valid format.
-{note}
-
-{docbook}
-<para>
-<prompt>
-    <emphasis role="bold">See also</emphasis>
-</prompt>
-</para>
-{docbook}
-* [eXo Platform configuration|#ADM.Configuration.eXo_Configuration]
-* [Database configuration|#ADM.Configuration.Database_Configuration]
-* [File system paths|#ADM.Configuration.File_system_paths]
-* [Email-notification configuration for watching a document|#ADM.Configuration.Notification_email_config]
-
 h1. Email-notification configuration for watching a document {anchor:id=ADM.Configuration.Notification_email_config}
 
 eXo Platform 3.5 provides the *Watch document* function in *Sites Explorer* that allows you to receive email notifications of changes on your selected documents.
@@ -848,7 +763,6 @@ If the values above are not set in the _configuration.properties_ file, the serv
 * [eXo Platform configuration|#ADM.Configuration.eXo_Configuration]
 * [Database configuration|#ADM.Configuration.Database_Configuration]
 * [File system paths|#ADM.Configuration.File_system_paths]
-* [Mail server|#ADM.Configuration.MailServer]
 
 h1. WebDAV cache control {anchor:id=ADM.Configuration.Mail_server}
 
@@ -874,111 +788,6 @@ The property expects a comma-separated list of key=pair values, where keys are a
 * [Database configuration|#ADM.Configuration.Database_Configuration]
 * [File system paths|#ADM.Configuration.File_system_paths]
 * [Cache configuration|#ADM.Configuration.CacheConfiguration]
-
-h1. Chat server {anchor:id=ADM.Configuration.Chat_Server}
-{note}
-The *Chat* portlet and its services are deprecated. It remains fully supported for eXo customers, however it will not receive any enhancement and will be removed from the product scope in the future.
-{note}
-
-{docbook}
-<para xml:id="ADM.Configuration.XMPPMessenger">
-<citetitle>
-<emphasis role="bold">
-XMPPMessenger
-</emphasis>
-</citetitle>
-</para>
-{docbook}
-
-If you change the host name and port for the Chat server, you will need to edit two properties:
-
-{code}
-# IP or hostname for the eXo Chat XMPP server
-exo.chat.server=127.0.0.1
-
-# TCP port for where the eXo Chat server listens for XMPP calls
-exo.chat.port=5222
-{code}
-
-{docbook}
-<para xml:id="ADM.Configuration.Chat_server_configuration">
-<citetitle>
-<emphasis role="bold">
-Chat server configuration
-</emphasis>
-</citetitle>
-</para>
-{docbook}
-
-The standalone Chat server is configured in the _$CHATSERVER/conf/openfire.xml_ file.
-
-Configuration is based on properties expressed in the XML syntax. For example, to set the _prop.name.is.blah=value_ property, you would write this xml snippet:
-
-{code:xml}
-<prop>
-  <name>
-    <is>
-      <blah>value</blah>
-    </is>
-  </name>
-</prop>
-{code}
-
-
-Openfire has an extensive list of configuration properties. Please read the list of all properties in [Openfire documentation | http://community.igniterealtime.org/docs/DOC-1061] for more details.
-
-The Chat server is an Openfire server bundled with plugins and configurations that allow connectivity to eXo Platform.
-The following properties are used to configure it.
-
-|| Property || Description || Default value ||
-| *env*|  |  |
-| *serverbaseURL* | Base URL for all URLs below. | http://localhost:8080/ |
-| *restContextName* | Name of the rest context. | rest |
-| *provider* |  |  |
-| *authorizedUser.name* | Username to authenticate against the HTTP REST service. | root  |
-| *authorizedUser.password* | Password matching with provider.authorizeduser.name. | password  |
-| *eXoAuthProvider* |  |  |
-| *authenticationURL* | URL to authenticate users. | /organization/authenticate/ |
-| *authenticationMethod* | HTTP method used to pass parameters. | POST |
-| *eXoUserProvider* |  |  |
-| *findUsersURL* | URL to find all users. | /organization/xml/user/find-all/  |
-| *findUsersMethod* | HTTP method for user/find-all. | GET  |
-| *getUsersURL* | URL to retrieve a range of users. | /organization/xml/user/view-range/ |
-| *getUsersMethod* | HTTP method for user/view-range. | GET  |
-| *usersCountURL* | URL to count users. | /organization/xml/user/count/  |
-| *usersCountMethod* | HTTP method for user/count. | GET |
-| *userInfoURL* | URL to get user information. | /organization/xml/user/info/  |
-| *userInfoMethod* | HTTP method for user/information. | GET  |
-| *eXoGroupProvider* |  |  |
-| *groupInfoURL* | URL to get group information. | /organization/xml/group/info/ |
-| *groupInfoMethod* | HTTP method for information. | GET  |
-| *getGroupsAllURL* | URL to view all groups. | /organization/xml/group/view-all/ |
-| *getGroupsAllMethod* | HTTP method for group/view-all. | GET |
-| *getGroupsRangeURL* | URL to view a group range. | /organization/xml/group/view-from-to/ |
-| *getGroupsRangeMethod* | HTTP method for group/view-from-to. | GET |
-| *getGroupsForUserURL* | URL to get groups for a user. | /organization/xml/group/groups-for-user/ |
-| *getGroupsForUserMethod* |HTTP method for groups-for-user. | GET |
-| *groupsCountURL* | URL to count groups. | organization/xml/group/count |
-| *groupsCountMethod*  | HTTP method for group/count. | GET |
-
-{anchor:id="ADM.Configuration.Ports"}
-*Ports*: To run the chat server properly, several ports must be opened in the firewall.
-
-|| Port || Type || Description ||
-| 5222 (1) | Client to server (xmpp) | The standard port for clients is to connect to the server. Connections may or may not be encrypted. You can update the security settings for this port with the _exo.chat.port_ property. |
-| 9090 & 9091 | Admin Console (http) | The ports used for accessing the unsecured and secured Openfire Admin Console respectively. |
-| 3478 & 3479 | STUN service | The port used for the service that ensures connectivity between entities behind a NAT. |
-
-{docbook}
-<para>
-<prompt>
-    <emphasis role="bold">See also</emphasis>
-</prompt>
-</para>
-{docbook}
-* [eXo Platform configuration|#ADM.Configuration.eXo_Configuration]
-* [Database configuration|#ADM.Configuration.Database_Configuration]
-* [File system paths|#ADM.Configuration.File_system_paths]
 
 h1. Office server {anchor:id=ADM.Configuration.Office_server}
 eXo Platform allows users to view various types of documents directly in the *Sites Explorer* through the office server. To do so, the office application must be available in your local device first.
