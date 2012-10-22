@@ -35,6 +35,7 @@ import org.exoplatform.services.jcr.ext.distribution.DataDistributionManager;
 import org.exoplatform.services.log.ExoLogger;
 import org.exoplatform.services.log.Log;
 import org.exoplatform.services.organization.idm.MembershipImpl;
+import org.exoplatform.container.PortalContainer;
 
 /**
  * @author <a href="kmenzli@exoplatform.com">Kmenzli</a>
@@ -66,10 +67,19 @@ public class UpgradeOrganizationIntegrationDataPlugin extends UpgradeProductPlug
 
     @Override
     public boolean shouldProceedToUpgrade(String previousVersion, String newVersion) {
-        if (organizationIntegrationService.isSynchronizeGroups()) {
-            LOG.warn("Caution: synchronization of groups is activated for OrganizationIntegrationService. It shouldn't be enabled when upgrading!");
+
+        try {
+            organizationIntegrationService = getService(OrganizationIntegrationService.class);
+            if (organizationIntegrationService.isSynchronizeGroups()) {
+                LOG.warn("Caution: synchronization of groups is activated for OrganizationIntegrationService. It shouldn't be enabled when upgrading!");
+            }
+        } catch (Exception E) {
+            LOG.error("The organization Integration Service is not loaded, Please activate when running the the corresponding upgrade plugin!!!",E);
+            return false;
         }
+
         Session session = null;
+
         try {
             session = repositoryService.getCurrentRepository().getSystemSession(Util.WORKSPACE);
             boolean isUpgrade = false;
@@ -228,5 +238,9 @@ public class UpgradeOrganizationIntegrationDataPlugin extends UpgradeProductPlug
             nodeNameList.put(node.getName(), node.getPath());
         }
         return nodeNameList;
+    }
+
+    protected <T> T getService(Class<T> clazz) {
+        return clazz.cast(PortalContainer.getInstance().getComponentInstanceOfType(clazz));
     }
 }
