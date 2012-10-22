@@ -62,7 +62,7 @@ Instructions on how to customize the email notification that allows you to recei
 </listitem>
 <listitem>
 <para>
-<emphasis role="bold"><link linkend="ADM.Configuration.Mail_server">WebDAV cache control</link></emphasis>
+<emphasis role="bold"><link linkend="ADM.Configuration.WedDAV_cache_control">WebDAV cache control</link></emphasis>
 </para>
 <para>
 Introduction to the embedded WebDAV server that lets you control the cache-control HTTP header.
@@ -850,7 +850,7 @@ If the values above are not set in the _configuration.properties_ file, the serv
 * [File system paths|#ADM.Configuration.File_system_paths]
 * [Mail server|#ADM.Configuration.MailServer]
 
-h1. WebDAV cache control {anchor:id=ADM.Configuration.Mail_server}
+h1. WebDAV cache control {anchor:id=ADM.Configuration.WedDAV_cache_control}
 
 The embedded WebDAV server lets you control the cache-control HTTP header that transmits to clients by the MIME type.
 This is useful for fine-tuning your website.
