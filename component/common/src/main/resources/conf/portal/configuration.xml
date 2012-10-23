@@ -12,7 +12,7 @@
   <component profiles="all,default,social">
     <type>org.exoplatform.platform.common.space.statistic.SpaceAccessService</type>
   </component>
-  <component profiles="all,default,social">
+  <component>
     <key>org.exoplatform.platform.common.admin.TermsAndConditionsService</key>
     <type>org.exoplatform.platform.common.admin.impl.TermsAndConditionsServiceImpl</type>
   </component>
