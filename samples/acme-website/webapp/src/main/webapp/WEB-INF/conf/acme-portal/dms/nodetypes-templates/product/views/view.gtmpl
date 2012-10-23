@@ -27,12 +27,30 @@
         import org.exoplatform.webui.application.portlet.PortletRequestContext;
         import org.exoplatform.webui.application.WebuiRequestContext;
         import org.exoplatform.web.application.JavascriptManager;
+        import org.exoplatform.web.application.RequireJS;
         import org.exoplatform.portal.application.PortalRequestContext;
         import org.exoplatform.portal.webui.util.Util ;
 
         PortalRequestContext pcontext = Util.getPortalRequestContext();
         JavascriptManager jsmanager = pcontext.getJavascriptManager();
+	RequireJS requireJS = jsmanager.getRequireJS();
 
+requireJS.require("SHARED/jquery", "jQuery");
+requireJS.require("SHARED/jcarousellite", "jqC");
+//*****Select tabs effect*****//
+//jsmanager.addOnLoadJavascript("Query('#sectionsTabs').tabs") ; 
+//workaround for error in addOnLoadJavascript
+  requireJS.require("SHARED/base","base");
+  id = Integer.toString(Math.abs(new String("sectionsTabs.setTabs").hashCode()));  
+  requireJS.addScripts("base.Browser.addOnLoadCallback('mid"+id+"',function(){ jQuery('#sectionsTabs').tabs();});") ;
+
+//*****jCarouselLite effect*****//
+//jsmanager.addOnLoadJavascript("function(){jQuery ('.jCarouselLite').jCarouselLite({btnNext:'.jQprev',btnPrev:'.jQnext'});}") ; 
+//workaround for error in addOnLoadJavascript
+  requireJS.require("SHARED/base","base");
+  id = Integer.toString(Math.abs(new String("jCarouselLite.SetPrevNext").hashCode()));  
+  requireJS.addScripts("base.Browser.addOnLoadCallback('mid"+id+"',function(){jQuery ('.jCarouselLite').jCarouselLite({btnNext:'.jQprev',btnPrev:'.jQnext'});});") ;
+		
         def currentNode = uicomponent.getNode();
         def originalNode = currentNode;
 
@@ -308,9 +326,7 @@
           %>
         </div>
     </div>
-<%
- jsmanager.require("SHARED/jquery", "jQuery").addScripts("jQuery(document).ready(function() { jQuery('#sectionsTabs').tabs();});");
-%>
+
 <!--
     <script type="text/javascript">
         jQuery.noConflict();
@@ -430,9 +446,8 @@
             </div>
         </div>
     </div>
-<%
-jsmanager.require("SHARED/jquery", "jQuery").addScripts("jQuery(document).ready(function() { jQuery ('.jCarouselLite').jCarouselLite({btnNext:'.jQprev',btnPrev:'.jQnext'});});");
-%>
+
+
 <!--
         <script type="text/javascript">
         jQuery.noConflict();
@@ -645,3 +660,4 @@ jsmanager.require("SHARED/jquery", "jQuery").addScripts("jQuery(document).ready(
     %>
     <!-- End render related videos /node/medias/videos -->
     </div>
+
