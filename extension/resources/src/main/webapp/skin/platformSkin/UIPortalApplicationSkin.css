@@ -249,3 +249,11 @@ a {
 	background: url('/ecmexplorer/skin/webui/component/explorer/control/DefaultSkin/background/DetailViewSelected.png') no-repeat center !important;
 	display: block;
 }
+
+.UIProfile .UIBasicInfoSection .UIForm td.FieldLabel {
+    vertical-align: middle !important;
+}
+
+.UIForm .UIFormGrid td.FieldLabel {
+    vertical-align: middle;
+}
