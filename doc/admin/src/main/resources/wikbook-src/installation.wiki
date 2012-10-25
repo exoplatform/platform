@@ -473,17 +473,17 @@ The following profiles are supported:
 | {{knowledge}} | Enable the Knowledge module.|
 | {{social}} | Enable the Social module. |
 | {{workflow}} | Enable the Workflow add-ons within the Content module.|
-| {{webos}} | Enable the eXo WebOS module.|
+| {{webos}} | Enable the WebOS module.|
 
 Additionally, you can use these composite profiles: 
 || Profile || Description ||
-| {{minimal}} | Contain GateIn  Content. |
-| {{default}} | Contain all modules except workflow and webos (GateIn, eXo IDE, Collaboration, Social, Knowledge).|
+| {{minimal}} | Contain GateIn and Content. |
+| {{default}} | Contain all modules except Workflow and WebOS (GateIn, IDE, Collaboration, Social, Knowledge).|
 | {{all}} | All available modules. |
 
 For example:
 
-* Start default modules  workflow:
+* Start default modules and Workflow:
 
 {code}
 ./start_eXo.sh default,workflow
