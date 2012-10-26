@@ -26,7 +26,7 @@
 				<emphasis role="bold"><link linkend="ADM.Configuration">Configuration</link></emphasis>
 			</para>
 			<para>
-				Understanding of configuration related to database, cache, users and gadget proxy, file system paths, mail server, WebDAV Cache Control, Chat Server, OpenOffice Server, Log-in, JCR.
+				Understanding of configuration related to database, cache, users and gadget proxy, file system paths, mail server, WebDAV Cache Control, Chat Server, OpenOffice Server, Logs, JCR.
 			</para>
 		</listitem>
         <listitem>
