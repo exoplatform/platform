@@ -63,3 +63,8 @@
 .CustomImage:hover {
   cursor:pointer;
 }
+
+.on, .off
+{
+  margin-top:3px;
+}
