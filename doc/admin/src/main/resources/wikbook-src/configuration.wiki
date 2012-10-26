@@ -86,10 +86,10 @@ Instructions on how to start the Office server through which users can view vari
 </listitem>
 <listitem>
 <para>
-<emphasis role="bold"><link linkend="ADM.Configuration.Login">Log-in</link></emphasis>
+<emphasis role="bold"><link linkend="ADM.Configuration.Logs">Logs</link></emphasis>
 </para>
 <para>
-Introduction to the log-in of eXo Platform, and where to configure this function.
+Introduction to the logs of eXo Platform, and where to configure this function.
 </para>
 </listitem>
 <listitem>
@@ -1043,16 +1043,16 @@ wcm.jodconverter.retrytimeout=120000
 * [Database configuration|#ADM.Configuration.Database_Configuration]
 * [File system paths|#ADM.Configuration.File_system_paths]
 
-h1. Log-in {anchor:id=ADM.Configuration.Login}
+h1. Logs {anchor:id=ADM.Configuration.Logs}
 
-The login to eXo Platform is controlled by the [Java Logging API|http://docs.oracle.com/javase/6/docs/technotes/guides/logging/index.html].
+The logs of eXo Platform are controlled by the [Java Logging API|http://docs.oracle.com/javase/6/docs/technotes/guides/logging/index.html].
 
-By default, the login is configured to:
+By default, the logs are configured to:
 
 * log errors and warnings on the console.
 * logs _/gatein/logs/gatein-YYYY-MM-DD.log_.
 
-In Tomcat, the login is configured via the _conf/logging.properties_ file. Please refer to [Tomcat's Logging Documentation|http://tomcat.apache.org/tomcat-6.0-doc/logging.html] for more information on how to adjust this file to your needs.
+In Tomcat, the logs are configured via the _conf/logging.properties_ file. Please refer to [Tomcat's Logging Documentation|http://tomcat.apache.org/tomcat-6.0-doc/logging.html] for more information on how to adjust this file to your needs.
 
 {docbook}
 <para>
