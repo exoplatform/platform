@@ -1050,7 +1050,7 @@ The logs of eXo Platform are controlled by the [Java Logging API|http://docs.ora
 By default, the logs are configured to:
 
 * log errors and warnings on the console.
-* logs _/gatein/logs/gatein-YYYY-MM-DD.log_.
+* log _/gatein/logs/gatein-YYYY-MM-DD.log_.
 
 In Tomcat, the logs are configured via the _conf/logging.properties_ file. Please refer to [Tomcat's Logging Documentation|http://tomcat.apache.org/tomcat-6.0-doc/logging.html] for more information on how to adjust this file to your needs.
 
