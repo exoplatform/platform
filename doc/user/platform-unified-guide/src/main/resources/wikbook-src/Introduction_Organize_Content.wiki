@@ -18,22 +18,6 @@
 		</para>
 		<para>How to contribute content, and to manage content (for example, creating/editing/publishing/deleting content).</para>
       </listitem>
-      <listitem>
-        <para>
-          <emphasis role="bold">
-            <link linkend="Platform_User_Guide.Organize_Content.Newsletter">Manage newsletters</link>
-          </emphasis>
-		</para>
-		<para>Information about the newsletter viewer and manager, and actions which can be done on the newsletter manager.</para>
-      </listitem>
-      <listitem>
-        <para>
-          <emphasis role="bold">
-            <link linkend="Platform_User_Guide.Organize_Content.Manage_Workflows">Manage workflows</link>
-          </emphasis>
-		</para>
-		<para>Introduction to the default processes, including holiday and pay raise, and how to create and manage these processes. Also, this section also focuses on how to upload or view details of a process.</para>
-      </listitem>
     </itemizedlist>
 </abstract>
 {docbook}

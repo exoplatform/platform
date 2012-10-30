@@ -109,10 +109,6 @@
 </para>
 {docbook}
 
-* [Manage your contacts|#Platform_User_Guide.Collaboration.Communicate_with_Contacts.Manage_Contacts]
-* [Email your contacts|#Platform_User_Guide.Collaboration.Communicate_with_Contacts.Email_Contacts]
-* [Chat with your contacts|#Platform_User_Guide.Collaboration.Communicate_with_Contacts.Chat]
-
 h1. Calendar views {anchor:id="CSUser_guide.How_to_use_Calendar.Calendar_viewsRoleNotInToc"}
 
 The Calendar interface has 5 basic components.
