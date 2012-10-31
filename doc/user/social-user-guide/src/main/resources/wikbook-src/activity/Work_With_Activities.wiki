@@ -241,12 +241,37 @@ You can also click <inlinemediaobject>
 {docbook}
 <para>You will see your uploaded file in the <guilabel>Select File</guilabel> box as below.</para>
 {docbook}
-!images/Uploaded_file_form.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
+!images/Uploaded_file_form.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
 {docbook}
 <para>
   <emphasis role="bold">5.</emphasis> Click <guibutton>Share</guibutton> to share your uploaded file with your connections.</para>
 {docbook}
 * To remove your uploaded file, simply click !images/Remove_file_icon.png|width="4mm" fo:scalefit="1" html:scalefit="0"! next to your selected file, or click !images/Share_file_icon.png|width="11mm" fo:scalefit="1" html:scalefit="0"! again.
+
+The shared file is published on the activity stream.
+
+!images/Actions_on_published_file.png|align="center" width="100mm" fo:scalefit="1" html:scalefit="0"!
+
+For the file published on the activity stream, you can do some following actions:
+{docbook}
+<itemizedlist>
+<listitem>
+<para><emphasis role="bold"><link linkend="Soc_User_Guide.Activity_Management.Comment">Comment</link></emphasis></para>
+</listitem>
+<listitem>
+<para><emphasis role="bold"><link linkend="Soc_User_Guide.Activity_Management.Like_Activity">Like</link></emphasis></para>
+</listitem>
+<listitem>
+<para><emphasis role="bold">Download the published file</emphasis> to your local device by clicking <guilabel>Download</guilabel>.</para>
+</listitem>
+<listitem>
+<para><emphasis role="bold">View the published file</emphasis> on a pop-up window by clicking <guilabel>View</guilabel>. You can also download it from this window.</para>
+</listitem>
+<listitem>
+<para><emphasis role="bold">Go to the folder containing the published file</emphasis> in <guilabel>Sites Explorer</guilabel> by clicking <guilabel>Go to folder</guilabel>.</para>
+</listitem>
+</itemizedlist>
+{docbook}
 
 
 h1. Delete activities/comments  {anchor:id=Soc_User_Guide.Activity_Management.Delete_ActivityRoleNotInToc}
