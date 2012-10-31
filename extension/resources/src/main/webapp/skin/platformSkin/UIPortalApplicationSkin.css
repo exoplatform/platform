@@ -249,3 +249,7 @@ a {
 	background: url('/ecmexplorer/skin/webui/component/explorer/control/DefaultSkin/background/DetailViewSelected.png') no-repeat center !important;
 	display: block;
 }
+
+.UITrees .Node .NodeIcon, .UITrees .Node .ExpandIcon, .UITrees .Node {
+    width: auto;
+}
