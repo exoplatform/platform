@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<parent>
-		<groupId>org.exoplatform</groupId>
-		<artifactId>exo.parent</artifactId>
-		<version>7.1</version>
-                <relativePath/>
-	</parent>
+  <parent>
+    <groupId>org.exoplatform</groupId>
+    <artifactId>maven-parent-pom</artifactId>
+    <version>9-SNAPSHOT</version>
+    <relativePath />
+  </parent>
 	<groupId>org.exoplatform.platform</groupId>
     <artifactId>platform</artifactId>
 	<version>4.0.0.Alpha1-SNAPSHOT</version>
@@ -19,6 +19,17 @@
 		<url>https://fisheye.exoplatform.com/browse/platform</url>
 	</scm>
 	<properties>
+    <!-- **************************************** -->
+    <!-- Jira Settings                            -->
+    <!-- **************************************** -->
+    <jira.project.key>PLF</jira.project.key>
+    <!-- **************************************** -->
+    <!-- Jenkins Settings                         -->
+    <!-- **************************************** -->
+    <jenkins.job.name>platform-master-ci</jenkins.job.name>
+    <!-- **************************************** -->
+    <!-- Project Dependencies                     -->
+    <!-- **************************************** -->
 		<!-- ********************* -->
 		<!-- Dependencies versions -->
 		<!-- ********************* -->
@@ -105,77 +116,13 @@
 		<commons-httpclient.version>3.1</commons-httpclient.version>
 		<commons-pool.version>1.5.5</commons-pool.version>
 		<commons-dbcp.version>1.2.2</commons-dbcp.version>
-		<!-- ***************************************************** -->
-		<!-- Plugin versions (waiting for an upgrade in exo parent -->
-		<!-- ***************************************************** -->
-		<version.antrun.plugin>1.5</version.antrun.plugin>
-		<!-- Slower than 2.1 version but we require some new features like classifier support in dependencySet ... -->
-		<!-- See http://jira.exoplatform.org/browse/PAR-103 -->
-		<version.assembly.plugin>2.2-beta-5</version.assembly.plugin>
-		<version.archetype.plugin>2.0-alpha-5</version.archetype.plugin>
-		<version.buildhelper.plugin>1.5</version.buildhelper.plugin>
-                <version.buildnumber.plugin>1.1</version.buildnumber.plugin>
-		<version.clean.plugin>2.4.1</version.clean.plugin>
-		<version.compiler.plugin>2.3.1</version.compiler.plugin>
-		<version.deploy.plugin>2.5</version.deploy.plugin>
-		<version.docbkx.plugin>2.0.13</version.docbkx.plugin>
-		<version.ear.plugin>2.4.2</version.ear.plugin>
-		<version.exec.plugin>1.2</version.exec.plugin>
-		<version.install.plugin>2.3.1</version.install.plugin>
-		<version.jar.plugin>2.3.1</version.jar.plugin>
-		<version.jmeter.plugin>1.0</version.jmeter.plugin>
-		<version.jodconverter.plugin>2.2.1</version.jodconverter.plugin>
-		<version.release.plugin>2.2.1</version.release.plugin>
-		<version.resources.plugin>2.4.3</version.resources.plugin>
-		<version.surefire.plugin>2.6</version.surefire.plugin>
-		<version.versions.plugin>1.2</version.versions.plugin>
-		<version.war.plugin>2.1</version.war.plugin>
-		<version.wikbook.plugin>0.9.37</version.wikbook.plugin>
-		<version.xml.plugin>1.0-beta-3</version.xml.plugin>
-        <version.sun.xml.stream>1.0.1</version.sun.xml.stream>
+    <version.sun.xml.stream>1.0.1</version.sun.xml.stream>
 		<!-- ********************* -->
 		<!-- Build settings        -->
 		<!-- ********************* -->
 		<!-- maven-release-plugin -->
-		<arguments>-Prelease,distrib -Dgatein.working.dir=target -Dmaven.wagon.provider.http=httpclient -Dcargo.timeout=800000</arguments>
+		<arguments>-Pdistrib -Dgatein.working.dir=target -Dcargo.timeout=800000</arguments>
 	</properties>
-	<build>
-		<pluginManagement>
-			<!-- They aren't yet in parent pom -->
-			<plugins>
-				<plugin>
-					<groupId>org.apache.maven.plugins</groupId>
-					<artifactId>maven-archetype-plugin</artifactId>
-					<version>${version.archetype.plugin}</version>
-				</plugin>
-				<plugin>
-					<groupId>org.wikbook</groupId>
-					<artifactId>wikbook.maven</artifactId>
-					<version>${version.wikbook.plugin}</version>
-				</plugin>
-				<plugin>
-					<groupId>com.agilejava.docbkx</groupId>
-					<artifactId>docbkx-maven-plugin</artifactId>
-					<version>${version.docbkx.plugin}</version>
-				</plugin>
-				<plugin>
-					<groupId>com.artofsolving</groupId>
-					<artifactId>jodconverter-maven-plugin</artifactId>
-					<version>${version.jodconverter.plugin}</version>
-				</plugin>
-				<plugin>
-					<groupId>org.apache.jmeter</groupId>
-					<artifactId>maven-jmeter-plugin</artifactId>
-					<version>${version.jmeter.plugin}</version>
-				</plugin>
-				<plugin>
-					<groupId>org.codehaus.mojo</groupId>
-					<artifactId>xml-maven-plugin</artifactId>
-					<version>${version.xml.plugin}</version>
-				</plugin>
-			</plugins>
-		</pluginManagement>
-	</build>
 	<dependencyManagement>
 		<dependencies>
 			<dependency>
@@ -196,42 +143,6 @@
 			</dependency>
 		</dependencies>
 	</dependencyManagement>
-
-	<profiles>
-		<profile>
-			<id>release</id>
-			<build>
-				<plugins>          
-					<plugin>
-						<artifactId>maven-assembly-plugin</artifactId>
-						<dependencies>
-							<dependency>
-								<groupId>org.apache.apache.resources</groupId>
-								<artifactId>apache-source-release-assembly-descriptor</artifactId>
-								<version>1.0.2</version>
-							</dependency>
-						</dependencies>
-						<executions>
-							<execution>
-								<id>source-release-assembly</id>
-								<phase>package</phase>
-								<goals>
-									<goal>single</goal>
-								</goals>
-								<configuration>
-									<runOnlyAtExecutionRoot>true</runOnlyAtExecutionRoot>
-									<descriptorRefs>
-										<descriptorRef>source-release</descriptorRef>
-									</descriptorRefs>
-									<tarLongFileFormat>gnu</tarLongFileFormat>
-								</configuration>
-							</execution>
-						</executions>
-					</plugin>
-				</plugins>
-			</build>
-		</profile>
-	</profiles>
 
 	<modules>
 		<module>component</module>

@@ -9,7 +9,6 @@
   <artifactId>platform-server-tomcat-patch</artifactId>
   <packaging>jar</packaging>
   <name>eXo Platform - Tomcat Server Patch</name>
-  <url>http://www.exoplatform.org</url>
   <!--dependencies>
     <dependency>
       <groupId>org.exoplatform.portal</groupId>
@@ -43,14 +42,6 @@
     </dependency>
   </dependencies-->
   <build>
-    <resources>
-      <resource>
-        <directory>src/main/resources</directory>
-        <includes>
-          <include>**/*</include>
-        </includes>
-      </resource>
-    </resources>
     <!--plugins>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>

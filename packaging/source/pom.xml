@@ -11,7 +11,7 @@
   <name>eXo Platform - Packaging Source</name>
   <profiles>
   <profile>
-  <id>release</id>
+  <id>exo-release</id>
   <build>
   <plugins>
    <plugin>
@@ -139,8 +139,6 @@
        <plugin>
              <groupId>org.apache.maven.plugins</groupId>
              <artifactId>maven-assembly-plugin</artifactId>
-             <dependencies>             
-             </dependencies>
              <executions>
                <execution>
                  <id>source</id>

@@ -54,32 +54,4 @@
       <scope>provided</scope>
     </dependency>    
   </dependencies>
-  <build>
-    <resources>
-      <resource>
-        <directory>src/main/java</directory>
-        <includes>
-          <include>**/*.xml</include>
-        </includes>
-      </resource>
-      <resource>
-        <directory>src/main/resources</directory>
-        <includes>
-          <include>**/*.properties</include>
-          <include>**/*.xml</include>
-          <include>**/*.doc</include>
-          <include>**/*.xls</include>
-          <include>**/*.txt</include>
-          <include>**/*.jar</include>
-          <include>**/*.pom</include>
-          <include>**/*.sha1</include>
-          <include>**/*.conf</include>
-          <include>**/*.gtmpl</include>
-          <include>**/*.gif</include>
-          <include>**/*.jpg</include>
-          <include>**/*.png</include>
-        </includes>
-      </resource>
-    </resources>
-  </build>
 </project>

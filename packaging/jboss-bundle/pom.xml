@@ -62,7 +62,6 @@
 		  <!-- Copy the reference JBoss EAP to target -->
 		  <plugin>
 		    <artifactId>maven-resources-plugin</artifactId>
-		    <version>2.4.3</version>
 		    <executions>
 		      <execution>
 		        <id>01-copy-jbosseap-package</id>

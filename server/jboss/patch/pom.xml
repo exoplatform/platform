@@ -9,18 +9,8 @@
   <artifactId>platform-server-jboss-patch</artifactId>
   <packaging>jar</packaging>
   <name>eXo Platform - JBoss Server Patch</name>
-  <url>http://www.exoplatform.org</url>
-  <dependencies />
-  
+
 <build>
-    <resources>
-      <resource>
-        <directory>src/main/resources</directory>
-        <includes>
-          <include>**/*</include>
-        </includes>
-      </resource>
-    </resources>
     <plugins>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>

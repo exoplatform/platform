@@ -14,12 +14,11 @@
   <description>GWT gadgets</description>
 
   <properties>
+      <!-- Does not support recent version -->
+      <version.gwt.plugin>2.1.0</version.gwt.plugin>
       <!-- Convenience property to set the GWT version -->
       <gwtVersion>2.1.0</gwtVersion>
       <gwt.gadget.version>1.2.0</gwt.gadget.version>
-      <!-- GWT needs at least java 1.5 -->
-      <maven.compiler.source>1.5</maven.compiler.source>
-      <maven.compiler.target>1.5</maven.compiler.target>
   </properties>
 
   <dependencies>

@@ -8,7 +8,6 @@
 	<artifactId>platform-component-upgrade</artifactId>
 	<packaging>pom</packaging>
 	<name>eXo Platform - Upgrade</name>
-	<url>http://www.exoplatform.org</url>
 	<modules>
 		<module>plugins</module>
 		<module>sample</module>

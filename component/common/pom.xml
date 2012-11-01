@@ -66,36 +66,4 @@
       <scope>provided</scope>
     </dependency>
   </dependencies>
-  <properties>
-    <timestamp>${maven.build.timestamp}</timestamp>
-  </properties>
-  <build>
-    <plugins>
-      <plugin>
-        <groupId>org.codehaus.mojo</groupId>
-        <artifactId>buildnumber-maven-plugin</artifactId>
-        <executions>
-          <execution>
-            <phase>initialize</phase>
-            <goals>
-              <goal>create</goal>
-            </goals>
-          </execution>
-        </executions>
-        <configuration>
-          <timestampFormat>{0, date,yyyyMMdd}</timestampFormat>
-        </configuration>
-      </plugin>
-    </plugins>
-    <resources>
-      <resource>
-        <directory>src/main/resources</directory>
-        <filtering>true</filtering>
-        <includes>
-          <include>**/*.xml</include>
-          <include>**/*.properties</include>
-        </includes>
-      </resource>
-    </resources>
-  </build>
 </project>

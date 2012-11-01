@@ -7,7 +7,6 @@
 	<modelVersion>4.0.0</modelVersion>
 	<artifactId>platform-component-organization</artifactId>
 	<name>eXo Platform - Organization Model Integration</name>
-	<url>http://www.exoplatform.org</url>
 	<dependencies>
 		<dependency>
 			<groupId>org.exoplatform.core</groupId>
@@ -58,7 +57,7 @@
 				<artifactId>maven-surefire-plugin</artifactId>
 				<configuration>
 					<systemPropertyVariables>
-						<exo.properties.url>classpath:/conf/configuration.properties </exo.properties.url>
+						<exo.properties.url>classpath:/conf/configuration.properties</exo.properties.url>
 					</systemPropertyVariables>
 				</configuration>
 			</plugin>

@@ -32,7 +32,6 @@
   <properties>
     <org.exoplatform.doc-style.version>1</org.exoplatform.doc-style.version>
     <docbook.source>${project.build.directory}/docbook-src</docbook.source>
-    <jcr.source>${project.build.directory}/docbook-src/org.exoplatform.jcr</jcr.source>
   </properties>
   <profiles>
     <profile>
@@ -63,7 +62,7 @@
                           <version>${org.exoplatform.jcr.version}</version>
                           <type>jar</type>
                           <classifier>sources</classifier>
-                          <outputDirectory>${docbook.source}/org.exoplatform.jcr</outputDirectory>
+                          <outputDirectory>${docbook.source}/en-US/org.exoplatform.jcr</outputDirectory>
                           <includes>**</includes>
                         </artifactItem>
                     <!-- gatein -->
@@ -73,7 +72,7 @@
                           <version>${org.exoplatform.portal.version}</version>
                           <type>jar</type>
                           <classifier>sources</classifier>
-                          <outputDirectory>${docbook.source}/org.gatein.doc</outputDirectory>
+                          <outputDirectory>${docbook.source}/en-US/org.gatein.doc</outputDirectory>
                           <includes>**</includes>
                         </artifactItem>
                     <!-- ecms -->
@@ -82,7 +81,7 @@
                       <artifactId>ecms-docs-refguide</artifactId>
                       <version>${org.exoplatform.ecms.version}</version>
                       <type>zip</type>
-                      <outputDirectory>${docbook.source}</outputDirectory>
+                      <outputDirectory>${docbook.source}/en-US</outputDirectory>
                       <includes>**</includes>
                     </artifactItem>
                     <!-- ecms cmis admin -->
@@ -91,7 +90,7 @@
                       <artifactId>ecms-ext-xcmis-admin-guide</artifactId>
                       <version>${org.exoplatform.ecms.version}</version>
                       <type>zip</type>
-                      <outputDirectory>${docbook.source}</outputDirectory>
+                      <outputDirectory>${docbook.source}/en-US</outputDirectory>
                       <includes>**</includes>
                     </artifactItem>
                     <!-- ecms cmis developer -->
@@ -100,7 +99,7 @@
                       <artifactId>ecms-ext-xcmis-developer-guide</artifactId>
                       <version>${org.exoplatform.ecms.version}</version>
                       <type>zip</type>
-                      <outputDirectory>${docbook.source}</outputDirectory>
+                      <outputDirectory>${docbook.source}/en-US</outputDirectory>
                       <includes>**</includes>
                     </artifactItem>
                     <!-- cs -->
@@ -109,7 +108,7 @@
                       <artifactId>calendar-docs-refguide</artifactId>
                       <version>${org.exoplatform.calendar.version}</version>
                       <type>zip</type>
-                      <outputDirectory>${docbook.source}</outputDirectory>
+                      <outputDirectory>${docbook.source}/en-US</outputDirectory>
                       <includes>**</includes>
                     </artifactItem>
                     <!-- ks -->
@@ -119,7 +118,7 @@
                       <version>${org.exoplatform.wiki.version}</version>
                       <type>zip</type>
                       <classifier>html</classifier>
-                      <outputDirectory>${docbook.source}</outputDirectory>
+                      <outputDirectory>${docbook.source}/en-US</outputDirectory>
                       <includes>**</includes>
                     </artifactItem>
                     <!-- social -->
@@ -127,9 +126,8 @@
                       <groupId>org.exoplatform.social</groupId>
                       <artifactId>social-docs-refguide</artifactId>
                       <version>${org.exoplatform.social.version}</version>
-                      <classifier>html-zip</classifier>
 		      <type>zip</type>
-                      <outputDirectory>${docbook.source}</outputDirectory>
+                      <outputDirectory>${docbook.source}/en-US</outputDirectory>
                       <includes>**</includes>
                     </artifactItem>
                     <!-- wikbook and common style -->
@@ -137,7 +135,7 @@
                       <groupId>org.wikbook</groupId>
                       <artifactId>wikbook.docbkxstyle</artifactId>
                       <version>${version.wikbook.plugin}</version>
-                      <outputDirectory>${docbook.source}</outputDirectory>
+                      <outputDirectory>${docbook.source}/en-US</outputDirectory>
                       <includes>**</includes>
                       <excludes>META-INF/**</excludes>
                     </artifactItem>
@@ -145,7 +143,7 @@
                        <groupId>org.exoplatform.doc</groupId>
                        <artifactId>doc-style</artifactId>
                        <version>${doc-style.version}</version>
-                       <outputDirectory>${docbook.source}</outputDirectory>
+                       <outputDirectory>${docbook.source}/en-US</outputDirectory>
                        <includes>**</includes>
                        <excludes>META-INF/**</excludes>
             	    </artifactItem>
@@ -160,7 +158,6 @@
     -->
           <plugin>
             <artifactId>maven-resources-plugin</artifactId>
-            <version>2.4.3</version>
             <executions>
               <execution>
                 <id>b-copy-resources</id>
@@ -187,28 +184,28 @@
                   <goal>copy-resources</goal>
                 </goals>
                 <configuration>
-                  <outputDirectory>${docbook.source}/images</outputDirectory>
+                  <outputDirectory>${docbook.source}/en-US/images</outputDirectory>
                   <resources>
                     <resource>
-                      <directory>${docbook.source}/org.exoplatform.xcmis.admin/images</directory>
+                      <directory>${docbook.source}/en-US/org.exoplatform.xcmis.admin/images</directory>
                     </resource>
                     <resource>
-                      <directory>${docbook.source}/org.exoplatform.social/images</directory>
+                      <directory>${docbook.source}/en-US/org.exoplatform.social/images</directory>
                     </resource>
                     <resource>
-                      <directory>${docbook.source}/org.exoplatform.ecms/images</directory>
+                      <directory>${docbook.source}/en-US/org.exoplatform.ecms/images</directory>
                     </resource>
                     <resource>
-                      <directory>${docbook.source}/org.exoplatform.ks/images</directory>
+                      <directory>${docbook.source}/en-US/org.exoplatform.ks/images</directory>
                     </resource>
                     <resource>
-                      <directory>${docbook.source}/org.exoplatform.cs/images</directory>
+                      <directory>${docbook.source}/en-US/org.exoplatform.cs/images</directory>
                     </resource>
                     <resource>
-                      <directory>${docbook.source}/org.exoplatform.jcr/resources/images</directory>
+                      <directory>${docbook.source}/en-US/org.exoplatform.jcr/resources/images</directory>
                     </resource>
                     <resource>
-                      <directory>${docbook.source}/org.gatein.doc/images</directory>
+                      <directory>${docbook.source}/en-US/org.gatein.doc/images</directory>
                     </resource>
                   </resources>
                 </configuration>
@@ -220,7 +217,7 @@
                   <goal>copy-resources</goal>
                 </goals>
                 <configuration>
-                  <outputDirectory>${docbook.source}</outputDirectory>
+                  <outputDirectory>${docbook.source}/en-US</outputDirectory>
                   <resources>
                     <resource>
                       <directory>src/main/resources</directory>
@@ -233,6 +230,7 @@
               </execution>
             </executions>
           </plugin>
+
     <!--
     3/
      - process all the xml files (plf + other products) from target/
@@ -241,7 +239,6 @@
           <plugin>
             <groupId>org.jboss.maven.plugins</groupId>
             <artifactId>maven-jdocbook-plugin</artifactId>
-            <version>2.1.1</version>
             <executions>
               <execution>
                 <id>f-jdocbook-resources</id>
@@ -262,13 +259,13 @@
               <sourceDirectory>${docbook.source}</sourceDirectory>
               <sourceDocumentName>index.xml</sourceDocumentName>
               <cssResource>
-                <directory>${docbook.source}</directory>
+                <directory>${docbook.source}/en-US</directory>
                 <includes>
                   <include>css/**</include>
                 </includes>
               </cssResource>
               <imageResource>
-                <directory>${docbook.source}</directory>
+                <directory>${docbook.source}/en-US</directory>
                 <includes>
                   <include>background/**</include>
                   <include>images/**</include>
@@ -277,12 +274,12 @@
               <formats>
                 <format>
                   <formatName>html</formatName>
-                  <stylesheetResource>file:${docbook.source}/xsl/xhtml.xsl</stylesheetResource>
+                  <stylesheetResource>file:${docbook.source}/en-US/xsl/xhtml.xsl</stylesheetResource>
                   <finalName>index.html</finalName>
                 </format>
                 <format>
                  <formatName>pdf</formatName>
-                 <stylesheetResource>file:${docbook.source}/xsl/pdf.xsl</stylesheetResource>
+                 <stylesheetResource>file:${docbook.source}/en-US/xsl/pdf.xsl</stylesheetResource>
                  <finalName>${project.artifactId}-${project.version}.pdf</finalName>
                </format>
               </formats>
@@ -292,7 +289,6 @@
                 <docbookVersion>1.76.1</docbookVersion>
               </options>
             </configuration>
-            <extensions>true</extensions>
             <dependencies>
               <dependency>
                 <groupId>org.exoplatform.doc</groupId>
@@ -305,7 +301,7 @@
                 <version>${org.exoplatform.doc-style.version}</version>
                 <type>jdocbook-style</type>
               </dependency>
-            </dependencies>
+            </dependencies>          
           </plugin>
           
           <!-- Attach the HTML zip -->
@@ -332,7 +328,6 @@
 		  <plugin>
 		    <groupId>org.codehaus.mojo</groupId>
 		    <artifactId>build-helper-maven-plugin</artifactId>
-		    <version>1.7</version>
 		    <executions>
 		      <execution>
 		        <id>i-attach-pdf</id>

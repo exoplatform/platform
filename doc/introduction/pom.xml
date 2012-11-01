@@ -1,4 +1,3 @@
-
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <parent>
@@ -40,7 +39,7 @@
                       <groupId>org.wikbook</groupId>
                       <artifactId>wikbook.docbkxstyle</artifactId>
                       <version>${version.wikbook.plugin}</version>
-                      <outputDirectory>${docbook.source}</outputDirectory>
+                      <outputDirectory>${docbook.source}/en-US</outputDirectory>
                       <includes>**</includes>
                       <excludes>META-INF/**</excludes>
                     </artifactItem>
@@ -48,7 +47,7 @@
                        <groupId>org.exoplatform.doc</groupId>
                        <artifactId>doc-style</artifactId>
                        <version>${doc-style.version}</version>
-                       <outputDirectory>${docbook.source}</outputDirectory>
+                       <outputDirectory>${docbook.source}/en-US</outputDirectory>
                        <includes>**</includes>
                        <excludes>META-INF/**</excludes>
             	    </artifactItem>
@@ -63,7 +62,6 @@
     -->
           <plugin>
             <artifactId>maven-resources-plugin</artifactId>
-            <version>2.4.3</version>
             <executions>
               <execution>
                 <id>b-copy-resources</id>
@@ -90,7 +88,7 @@
                   <goal>copy-resources</goal>
                 </goals>
                 <configuration>
-                  <outputDirectory>${docbook.source}</outputDirectory>
+                  <outputDirectory>${docbook.source}/en-US</outputDirectory>
                   <resources>
                     <resource>
                       <directory>src/main/resources</directory>
@@ -113,7 +111,6 @@
           <plugin>
             <groupId>org.jboss.maven.plugins</groupId>
             <artifactId>maven-jdocbook-plugin</artifactId>
-            <version>2.1.1</version>			
             <executions>
               <execution>
                 <id>e-jdocbook-resources</id>
@@ -134,13 +131,13 @@
               <sourceDirectory>${docbook.source}</sourceDirectory>
               <sourceDocumentName>index.xml</sourceDocumentName>
               <cssResource>
-                <directory>${docbook.source}</directory>
+                <directory>${docbook.source}/en-US</directory>
                 <includes>
                   <include>css/**</include>
                 </includes>
               </cssResource>
               <imageResource>
-                <directory>${docbook.source}</directory>
+                <directory>${docbook.source}/en-US</directory>
                 <includes>
                   <include>background/**</include>
                   <include>images/**</include>
@@ -149,12 +146,12 @@
               <formats>
                 <format>
                   <formatName>html</formatName>
-                  <stylesheetResource>file:${docbook.source}/xsl/xhtml.xsl</stylesheetResource>
+                  <stylesheetResource>file:${docbook.source}/en-US/xsl/xhtml.xsl</stylesheetResource>
                   <finalName>index.html</finalName>
                 </format>
                 <format>
                  <formatName>pdf</formatName>
-                 <stylesheetResource>file:${docbook.source}/xsl/pdf.xsl</stylesheetResource>
+                 <stylesheetResource>file:${docbook.source}/en-US/xsl/pdf.xsl</stylesheetResource>
                  <finalName>${project.artifactId}-${project.version}.pdf</finalName>
                </format>
               </formats>
@@ -164,7 +161,6 @@
                 <docbookVersion>1.76.1</docbookVersion>
               </options>
             </configuration>
-            <extensions>true</extensions>
             <dependencies>
               <dependency>
                 <groupId>org.exoplatform.doc</groupId>
@@ -204,7 +200,6 @@
 		  <plugin>
 		    <groupId>org.codehaus.mojo</groupId>
 		    <artifactId>build-helper-maven-plugin</artifactId>
-		    <version>1.7</version>
 		    <executions>
 		      <execution>
 		        <id>h-attach-pdf</id>

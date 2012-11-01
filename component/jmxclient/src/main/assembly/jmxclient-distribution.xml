@@ -7,7 +7,7 @@
 	<includeBaseDirectory>false</includeBaseDirectory>
 	<fileSets>
 		<fileSet>
-			<directory>src/main/assembly</directory>
+			<directory>src/main/resources</directory>
 			<outputDirectory>/</outputDirectory>
 			<includes>
 				<include>README.txt</include>

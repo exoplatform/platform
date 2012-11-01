@@ -16,8 +16,8 @@
       <build>
         <plugins>
           <plugin>
-            <groupId>org.apache.jmeter</groupId>
-            <artifactId>maven-jmeter-plugin</artifactId>
+            <groupId>com.lazerycode.jmeter</groupId>
+            <artifactId>jmeter-maven-plugin</artifactId>
             <configuration>
               <reportDir>${project.build.directory}/jmeter-reports</reportDir>
               <jmeterUserProperties>

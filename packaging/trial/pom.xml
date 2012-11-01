@@ -205,7 +205,6 @@
       <plugin>
         <groupId>org.codehaus.cargo</groupId>
         <artifactId>cargo-maven2-plugin</artifactId>
-        <version>1.0.5</version>
         <executions>
 			<execution>
 <!--

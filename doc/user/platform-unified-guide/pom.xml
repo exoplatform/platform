@@ -154,7 +154,6 @@
     -->
           <plugin>
             <artifactId>maven-resources-plugin</artifactId>
-            <version>2.4.3</version>
             <executions>
               <execution>
                 <id>b-copy-resources</id>
@@ -235,7 +234,6 @@
          <plugin>
             <groupId>org.wikbook</groupId>
             <artifactId>wikbook.maven</artifactId>
-            <version>${version.wikbook.plugin}</version>
             <executions>
               <execution>
                 <id>e-generate-docbook</id>
@@ -264,7 +262,6 @@
     -->
       <plugin>
         <artifactId>maven-antrun-plugin</artifactId>
-        <version>1.6</version>
         <executions>
           <execution>
             <id>f-include-ecms</id>
@@ -478,8 +475,6 @@
          <plugin>
             <groupId>org.jboss.maven.plugins</groupId>
             <artifactId>maven-jdocbook-plugin</artifactId>
-            <version>2.1.1</version>
-            <extensions>true</extensions>
             <dependencies>
                <dependency>
                   <groupId>org.exoplatform.doc</groupId>
