@@ -24,6 +24,7 @@ import org.exoplatform.webui.form.UIFormCheckBoxInput;
 import org.exoplatform.webui.form.UIFormStringInput;
 import org.exoplatform.webui.form.ext.UIFormInputSetWithAction;
 import org.exoplatform.webui.form.validator.NumberFormatValidator;
+import org.exoplatform.webui.form.validator.MandatoryValidator;
 
 @ComponentConfig(lifecycle = UIFormLifecycle.class, template = "classpath:groovy/webui/component/explorer/extention/UINavigationForm.gtmpl", events = {
 		@EventConfig(listeners = UINavigationForm.SaveActionListener.class),
@@ -211,7 +212,7 @@ public class UINavigationForm extends UIForm implements UIPopupComponent, UISele
 
 		UIFormInputSetWithAction navigationNodeInputSet = new UIFormInputSetWithAction(NAVIGATION_NODE_INPUT_SET);
 		navigationNodeInputSet.setActionInfo(NAVIGATION_NODE_STRING_INPUT, new String[] { "SelectNavigationNode", "RemoveNavigationNode" });
-		navigationNodeInputSet.addUIFormInput(uiFormNavigationNodeValueStringInput);
+		navigationNodeInputSet.addUIFormInput(uiFormNavigationNodeValueStringInput.addValidator(MandatoryValidator.class));
 
 		/** index field */
 		UIFormStringInput uiFormIndexValueStringInput = new UIFormStringInput(INDEX, INDEX, String.valueOf(index_));
