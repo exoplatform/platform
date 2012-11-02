@@ -34,6 +34,9 @@ while [ -h "$PRG" ]; do
   fi
 done
 
+# Get absolute path of eXo product
+PRG=`readlink -f $PRG`
+
 # Get standard environment variables
 PRGDIR=`dirname "$PRG"`
 
@@ -79,4 +82,4 @@ export EXO_PROFILES
 export CATALINA_OPTS
 
 # Launches the server
-exec "$PRGDIR"./bin/catalina.sh run "$@"
+exec "$PRGDIR"/bin/catalina.sh run "$@"
