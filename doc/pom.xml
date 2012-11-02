@@ -13,8 +13,6 @@
     <org.exoplatform.portal.version>3.2.5-PLF</org.exoplatform.portal.version>
   </properties>
   <modules>
-    <module>admin</module>
-    <module>developer</module>
     <module>refguide</module>
     <module>user</module>
     <module>introduction</module>
