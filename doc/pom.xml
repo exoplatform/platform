@@ -16,6 +16,6 @@
     <module>refguide</module>
     <module>user</module>
     <module>introduction</module>
-    <module>bundle</module>
+    <!--<module>bundle</module>-->
   </modules>
 </project>
