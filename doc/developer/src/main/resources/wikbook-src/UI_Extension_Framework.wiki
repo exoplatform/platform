@@ -1,19 +1,17 @@
-eXo developed a framework called UI Extension that allows the customization and extensibility of eXo applications through simple plugins. As this framework allows developers to plug and unplug UI Components simply by configuration, you will see it is used in many places in eXo Platform. 
-This section will describe the UI Extension framework from theory to practice to help you understand its concept and work with it easily.
-
 {docbook}
-<prompt>
-	<para>
-		<emphasis role="bold">See also</emphasis>
-	</para>
-</prompt>
+<highlights>
+<itemizedlist>
+	<listitem>
+		<para><emphasis role="bold"><link linkend="DEV.UI_Extension_Framework.UI_Extension_components">UI Extension components</link></emphasis></para>
+		<para>Necessary information about UIExtensionManager, UIExtensionPlugin, introduction to UI Extension definition and its class, parent UI components, and details about filters of each UI Extension.</para>
+	</listitem>
+	<listitem>
+		<para><emphasis role="bold"><link linkend="DEV.UI_Extension_Framework.Mechanism">Mechanism</link></emphasis></para>
+		<para>Details about the working process of each UI Extension, including: setting up, loading and activating.</para>
+	</listitem>
+</itemizedlist>
+</highlights>
 {docbook}
-
-* [How to create an activity plugin for Social?|../../../reference/html/SOCref.DevelopersReferences.UIExtensions.html]
-* [How to make your own ECMS UI Extensions?|../../../reference/html/CONTref.Extensions.ExtendUIExtension.html]
-* [How to add action extensions to Wiki?|../../../reference/html/KSref.DeveloperReference.Extend_actions_over_a_wiki_page_from_external_jars.html]
-
-h1. Concept {anchor:id=DEV.UI_Extension_Framework.Concept}
 {docbook}
 	<citetitle>
 		<para>
@@ -25,7 +23,7 @@ h1. Concept {anchor:id=DEV.UI_Extension_Framework.Concept}
 {docbook}
 
 UI Extension is an extension of UI Component. As you know, extension is an object that contains programming for extending the capabilities of data available to a more basic program.
-Here, UI Extension helps expanding the dynamic children of UI Component. With UI Extension, you can add, change or remove a lot of children in UI Component more easily than traditional ways.
+Here, UI Extension helps expanding the dynamic children of UI Component. With UI Extension, you can add, change or remove a lot of children in UI Component more easily than in traditional ways.
 
 {docbook}
 	<citetitle>
@@ -43,10 +41,22 @@ Thus, UI Extension framework was created to solve the management dynamic compone
 The main goals of this framework are:
 
 * Create simple child UI Components.
-* Apply filter on each components for variety purposes more easily.
+* Apply a filter on each component for a variety of purposes more easily.
 * Add or remove extensions simply by configuration.
 
-h1. What does UI Extension include? {anchor:id=DEV.UI_Extension_Framework.UI_Extension_Class}
+{docbook}
+<prompt>
+	<para>
+		<emphasis role="bold">See also</emphasis>
+	</para>
+</prompt>
+{docbook}
+
+* [How to create an activity plugin for Social?|../../../reference/html/SOCref.DevelopersReferences.UIExtensions.html]
+* [How to make your own ECMS UI Extensions?|../../../reference/html/CONTref.Extensions.ExtendUIExtension.html]
+* [How to add action extensions to Wiki?|../../../reference/html/KSref.DeveloperReference.Extend_actions_over_a_wiki_page_from_external_jars.html]
+
+h1. UI Extension components {anchor:id=DEV.UI_Extension_Framework.UI_Extension_componentsRoleNotInToc}
 
 {docbook}
 	<citetitle>
@@ -130,7 +140,7 @@ In which:
 	</citetitle>
 {docbook}
 
-Use to define filter, Actions and Template of UI Extension:
+This class is used to define filters, actions and templates of UI Extension:
 
 {code:java}@ComponentConfig( 
   events =
@@ -206,19 +216,19 @@ Internal filters are a part of the business logic of your component. For example
     // TODO Auto-generated method stub 
   }{code}
 
-Your filter will define which type of filter it belongs to (in _UIExtensionFilterType_). There are 4 types :
+Your filter will define which type of filter it belongs to (in _UIExtensionFilterType_). There are 4 types:
 
-* *MANDATORY*: used to know if the action related to the extension can be launched and if the component related to the extension can be added to the webui tree. This filter is required to launch the action and add the component related to the extension to the webui tree. If it succeeds, we will check the other filters. If it fails, we will stop.
-* *REQUISITE*: used to know if the action related to the extension can be launched. This filter is required to launch the action to the webui tree. If it succeeds, we will check the other filters. If it fails, we will stop.
-* *REQUIRED*: used to know if the action related to the extension can be launched can be used to add warnings. This filter is required to launch the action. If it succeeds or fails, we will check the other filters.
-* *OPTIONAL*: used to know if the action related to the extension can be launched and can be used for auditing purpose. This filter is not required to launch the action. If it succeeds or fails, we will check the other filters.
+||Types||Description||
+|*MANDATORY*|Check if the action related to the extension can be launched and if the component related to the extension can be added to the WebUI tree. This filter is required to launch the action and add the component related to the extension to the WebUI tree. If it succeeds, you need to check the other filters. If it fails, you need to stop.|
+|*REQUISITE*|Check if the action related to the extension can be launched. This filter is required to launch the action to the WebUI tree. If it succeeds, you need to check the other filters. If it fails, you need to stop.|
+|*REQUIRED*|Check if the action related to the extension can be launched and can be used for adding warnings. This filter is required to launch the action. If it succeeds or fails, you need to check the other filters.|
+|*OPTIONAL*|Check if the action related to the extension can be launched and can be used for the auditing purpose. This filter is not required to launch the action. If it succeeds or fails, you need to check the other filters.|
 
-Condition for filtering: Accept and onDeny. 
+There are 2 conditions for filtering: Accept and onDeny. 
+* *Accept*: Describe the "Accept" condition, and how an UI Extension can accept by a context.
+* *onDeny*: What you will do after the filter denies an UI Extension by a specific context (generating a message for pop-up form, for example).
 
-* *Accept*: describe accept conditions, how an UI Extension can accept by a context.
-* *onDeny*: what you will do after the filter denies an UI Extension by a specific context (generating a message for pop up, for example).
-
-You have known how and where filter is put in an UI Component, but when it is gonna fire?
+You have known how and where the filter is put in an UI Component, but when it is gonna fire?
 
 It falls into 2 situations: when you get it and when it is action fire. Thus, you should ensure that your UI Extension is always trapped by its filter.
 
@@ -302,54 +312,54 @@ For example, to make the EditPage action only be used by _manager:\/platform\/ad
   </object>
 </object-param>{code}
 
-h1. Mechanism {anchor:id=DEV.UI_Extension_Framework.Mechanism}
+h1. Mechanism {anchor:id=DEV.UI_Extension_Framework.MechanismRoleNotInToc}
 The UI Extension's working process is divided into 3 phases:
 
-* [Setup|#DEV.UI_Extension_Framework.Mechanism.Setup]
-* [Load|#DEV.UI_Extension_Framework.Mechanism.Load]
-* [Active|#DEV.UI_Extension_Framework.Mechanism.Active]
+* [Setting up|#DEV.UI_Extension_Framework.Mechanism.Setup]
+* [Loading|#DEV.UI_Extension_Framework.Mechanism.Load]
+* [Activating|#DEV.UI_Extension_Framework.Mechanism.Active]
 
 {docbook}
 	<citetitle>
 		<para xml:id="DEV.UI_Extension_Framework.Mechanism.Setup">
 			<emphasis role="bold">
-			Setup
+			Setting up
 			</emphasis>
 		</para>	
 	</citetitle>
 {docbook}
 
-At first, you must add Dependencies in _pom.xml_. In this phase, you are going to install all elements of UI Extension framework in the _configuration.xml_ file:
+At first, you must add Dependencies to _pom.xml_. In this phase, you are going to install all elements of UI Extension framework in the _configuration.xml_ file:
 
 * _UIExtensionManager_ is implemented by _UIExtensionManagerImpl_.
-* Plug _UIExtensionPlugin_ in _UIExtensionManager_ by using the {{registerUIExtensionPlugin()}} method
-* List all the UI Extension's definitions. You can also to define your own External filter (optional).
+* Plug _UIExtensionPlugin_ in _UIExtensionManager_ by using the {{registerUIExtensionPlugin()}} method.
+* List all the UI Extension's definitions. You can also define your own external filter (optional).
 * Create the parent UI Component class.
 * Create the UI Extension class.
-* Create the Internal filters.
+* Create the internal filters.
 
 {docbook}
 	<citetitle>
 		<para xml:id="DEV.UI_Extension_Framework.Mechanism.Load">
 			<emphasis role="bold">
-			Load
+			Loading
 			</emphasis>
 		</para>	
 	</citetitle>
 {docbook}
 
-_UIExtensionPlugin_ is responsible for looking up all UI Extension Definition , thus you can use it to obtain all UI Extension then plug it into _UIExtensionManager_. For now, all UI Extension in your project will be managed by _UIExtensionManager_. 
-Now you can get UI Extension everywhere by invoking the {{getUIExtensions(String objectType)}} method.
+_UIExtensionPlugin_ is responsible for looking up all UI Extension definitions, thus you can use it to obtain all UI Extensions, then plug it into _UIExtensionManager_. At present, all UI Extensions in your project will be managed by _UIExtensionManager_. 
+Now you can get UI Extensions everywhere by invoking the {{getUIExtensions(String objectType)}} method.
 
 In the UI Component class, implement a function which:
 
-* Retrieve collection of UI Extension which belongs to it by _UIExtensionManager_:
+* Retrieve a collection of UI Extensions which belongs to it by _UIExtensionManager_:
 
 {code}
 List<UIExtension> extensions = manager.getUIExtensions("org.exoplatform.wiki.UIPageToolBar");
 {code}
 
-* Transform them into _UIComponent_ and add to the parent UI Component:
+* Transform them into _UIComponent_ and add them to the parent UI Component:
 
 {code}// You are free to create a context
 Map<String, Object> context = new HashMap<String, Object>();
@@ -359,20 +369,20 @@ UIComponent component = manager.addUIExtension(extension, context, this);{code}
 
 The {{addUIExtension()}} method is responsible for adding extensions to an UI Component. It depends on:
 
-* UIExtension, more exactly it depends on UIExtension's filter. Either Internal filter or External filter has the {{accept}} method, thus the adding process will success if {{accept}} returns 'true' and vice versa.
+* UIExtension, in particular, the UIExtension's filter. Either internal filter or external filter has the {{accept}} method, thus the adding process will be successful if {{accept}} returns 'true' and vice versa.
 * Context will be the parameter of the {{accept}} method.
 
 {docbook}
 	<citetitle>
 		<para xml:id="DEV.UI_Extension_Framework.Mechanism.Active">
 			<emphasis role="bold">
-			Active
+			Activating
 			</emphasis>
 		</para>	
 	</citetitle>
 {docbook}
 
-The final step is presenting UI Extension in a Template.
+The final step is to present UI Extension in a template.
 
 As all UI Extensions are presently becoming children of UI Component, you can implement UI Component's action thanks to UI Extension's action. For example:
 
@@ -384,4 +394,6 @@ As all UI Extensions are presently becoming children of UI Component, you can im
   <a href="$link" class="$action" title="$action" %>"><%= action %></a>
 <%}%>{code}
 
+{note}
 You are free to customize your action's Stylesheet.
+{note}
