@@ -4,7 +4,7 @@
   <parent>
     <groupId>org.exoplatform.platform</groupId>
       <artifactId>platform-extension</artifactId>
-    <version>4.0.0.Alpha1-SNAPSHOT</version>
+    <version>4.0.0.Alpha1-kill-exobuild-SNAPSHOT</version>
   </parent>
   <artifactId>platform-extension-config</artifactId>
   <packaging>jar</packaging>
