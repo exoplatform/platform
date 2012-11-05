@@ -151,7 +151,7 @@ public class DashboardInformationRESTService implements ResourceContainer {
   
   @GET
   @Path("/{userName}/{dashboardName}")
-  @Produces(MediaType.APPLICATION_JSON)
+  @Produces({MediaType.APPLICATION_JSON + ";charset=utf-8"})
   @SuppressWarnings("unchecked")
   public Response getGadgetInformation(@PathParam("userName") String userName, 
                                        @PathParam("dashboardName") String dashboardName,
