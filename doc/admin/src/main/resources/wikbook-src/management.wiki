@@ -626,7 +626,7 @@ TokenStore
 </para>
 {docbook}
 
-* The JMX name template of TokenStore MBeans: _exo\:service=TokenStore, name={Name}_ where _Name_ is the name of each specific token.
+* The JMX name template of TokenStore MBeans: _exo\:service=TokenStore, name={{{{Name}}}}_ where _Name_ is the name of each specific token.
 
 ||Attribute||Description||
 |{{Name}}|The name of one specific token.|
