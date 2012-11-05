@@ -355,7 +355,9 @@ Under the group of Audit gadgets, *Login History* records user login history and
 {docbook}
 
 * Click !images/Calendar_weekly_chart_icon.png|fo:scalefit="1" width="4mm"! corresponding to the user to view his login statistics.
-!images/Login_history_statistic.png|fo:align="center" width="70mm" fo:scalefit="1" html:scalefit="0"!
+
+!images/Login_history_statistic.png|align="center" width="70mm" fo:scalefit="1" html:scalefit="0"!
+
 * Click !images/Calendar_weekly_list_icon.png|fo:scalefit="1" width="4mm"! corresponding to the user to view his login history.
 
 !images/Login_history_history.png|align="center" width="70mm" fo:scalefit="1" html:scalefit="0"!
@@ -395,7 +397,7 @@ Under the group of *Collab* gadgets which are designed for collaborative activit
 
 h1. Intranet gadgets {anchor:id=GadgetUserguide.IntranetGadgets}
 
-Intranet gadgets are gadgets that come with the Intranet homepage, they are:
+Intranet gadgets are ones which come with the [Intranet homepage|#Access_intranet], including:
 
 * [My Profile gadget|#GadgetUserguide.IntranetGadgets.MyProfile]
 * [My Invitations gadget|#GadgetUserguide.IntranetGadgets.MyInvitations]
@@ -404,10 +406,6 @@ Intranet gadgets are gadgets that come with the Intranet homepage, they are:
 * [Who is online? gadget|#GadgetUserguide.IntranetGadgets.WhoIsOnline]
 * [Bookmarks gadget|#GadgetUserguide.IntranetGadgets.Bookmarks]
 * [Favorite Documents gadget|#GadgetUserguide.IntranetGadgets.FavoriteDocuments]
-
-By default, these gadgets are in the following layout:
-
-!images/Intranet_homepage_gadgets.png|align="center" width="170mm" fo:scalefit="1" html:scalefit="0"!
 
 {note}
 Intranet gadgets only work in the Intranet context.
@@ -423,7 +421,7 @@ Intranet gadgets only work in the Intranet context.
 
 !images/My_Profile_gadget.png|align="center" width="90mm" fo:scalefit="1" html:scalefit="0"!
 
-*My Profile* gadget provides a quick access to your profile page where can update your profile information.
+*My Profile* gadget provides a quick access to your profile page where you can update your profile information.
 
 {docbook}
 <para xml:id="GadgetUserguide.IntranetGadgets.MyInvitations">
@@ -450,14 +448,14 @@ You can click the *People*/*Space* to view invitations from people/space or you 
 
 *My Agenda* gadget displays the upcoming events and tasks created in your calendars.
 
-*My agenda settings:*
-
-Click !images/Gadget_setting_button.png|width="4mm" fo:scalefit="1" html:scalefit="0"! to open the gadget settings.
+* To change the *My Agenda* settings, click !images/Gadget_setting_button.png|width="4mm" fo:scalefit="1" html:scalefit="0"!.
 
 !images/My_Agenda_settings.png|align="center" width="90mm" fo:scalefit="1" html:scalefit="0"!
 
+Here, you can:
+
 || Field || Description ||
-| *Number of Items to Display* | Set the maximum number of tasks and events to display. |
+| *Number of Items to Display* | Set the maximum number of tasks and events to be displayed. |
 | *Calendar* | Choose the calendar that you want to show tasks and events. |
 | *Save*/*Cancel* | Save/Discard changes. |
 | *Show My Calendars* | Show your calendars in the *Calendar* application. |
@@ -472,13 +470,13 @@ Click !images/Gadget_setting_button.png|width="4mm" fo:scalefit="1" html:scalefi
 
 !images/Featured_poll_gadget.png|align="center" width="90mm" fo:scalefit="1" html:scalefit="0"!
 
-*Featured Poll* gadget displays the poll created in the *Forum* application that you have permission to vote. You can directly vote and see results on the gadget. This gadget also provides links to create your own poll or discuss about the poll topic in the Forum.
+*Featured Poll* gadget displays the poll created in the *Forum* or *Poll* application that you have permission to vote. You can directly vote and see results on the gadget. This gadget also provides links to create your own poll or discuss about the poll topic in the Forum.
 
-*Vote for a specific poll:*
-
-Normally, the latest poll will be displayed on this gadget, however, you can indicate another poll to vote by clicking !images/Gadget_setting_button.png|width="4mm" fo:scalefit="1" html:scalefit="0"! then choose one from the drop-down list.
+* *Vote for a specific poll:* Normally, the latest poll will be displayed on this gadget. However, you can indicate another poll to vote by clicking !images/Gadget_setting_button.png|width="4mm" fo:scalefit="1" html:scalefit="0"!, then choose one from the drop-down list.
 
 !images/Featured_Poll_settings.png|align="center" width="90mm" fo:scalefit="1" html:scalefit="0"!
+
+Here, you can:
 
 || Field || Description ||
 | *Vote*/*Vote Again* | Vote for option(s)/ Change your vote (appeared when the option "Change your vote" is enabled).|
@@ -498,8 +496,8 @@ Normally, the latest poll will be displayed on this gadget, however, you can ind
 *Who is online?* gadget displays people that are currently connected to the Intranet.
 
 || Fields || Description ||
-| *My Connections* | Display social connections and their avatars, full names and excerpt of their last posted status. Click the link on a name will lead to the profile of that person. |
-| *Others* | Display names of other persons that are not social connections. Only the name is displayed. Click the link on a name will lead to the profile of that person. |
+| *My Connections* | Display social connections and their avatars, full names and excerpt of their last posted status. Clicking the link on a name will lead to the profile of that person. |
+| *Others* | Display names of other people who are not in social connections. Only their names are displayed. Clicking the link on a name will lead to the profile of that person. |
 
 {docbook}
 <para xml:id="GadgetUserguide.IntranetGadgets.Bookmarks">
@@ -511,13 +509,13 @@ Normally, the latest poll will be displayed on this gadget, however, you can ind
 
 !images/Bookmarks_gadget.png|align="center" width="90mm" fo:scalefit="1" html:scalefit="0"!
 
-*Bookmarks* gadget is a simple link management gadget which displays your quick links. You can add or remove any links as you wish.
+*Bookmarks* gadget is a simple link management gadget which displays your quick links. You can add or remove any links.
 
-*Bookmarks gadget settings:*
-
-Click !images/Gadget_setting_button.png|width="4mm" fo:scalefit="1" html:scalefit="0"! to open the gadget settings.
+* To change the Bookmarks gadget settings, click !images/Gadget_setting_button.png|width="4mm" fo:scalefit="1" html:scalefit="0"!.
 
 !images/Bookmarks_settings.png|align="center" width="90mm" fo:scalefit="1" html:scalefit="0"!
+
+Here, you can:
 
 || Field || Description ||
 | *Add bookmark* | Add a new bookmark. |
@@ -536,9 +534,9 @@ Click !images/Gadget_setting_button.png|width="4mm" fo:scalefit="1" html:scalefi
 
 !images/Favorite_Documents_gadget.png|align="center" width="90mm" fo:scalefit="1" html:scalefit="0"!
 
-*Favourite Documents* gadget displays your favorite documents in the *Sites Explorer* so you can quickly access them.
+*Favorite Documents* gadget lists your favorite documents in the *Sites Explorer* so you can quickly access them.
 
 || Field || Description ||
 | *My Favorites* | Show a list of favorite documents by created date. |
-| *My Documents* | Show a list of you document by created date. |
+| *My Documents* | Show a list of your document by created date. |
 | *Show all* | Show all your favorite documents in *Sites Explorer*. |
