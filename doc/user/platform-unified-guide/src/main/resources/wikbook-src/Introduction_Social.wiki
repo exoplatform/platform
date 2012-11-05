@@ -39,4 +39,6 @@ In this chapter, most Social-related actions are demonstrated through the *Intra
 
 After entering *Intranet*, you will be directed to the *Intranet* homepage as below.
 
-!images/Intranet_homepage.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
+!images/Intranet_homepage_gadgets.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
+
+Find more information in [Intranet gadgets|#GadgetUserguide.IntranetGadgets].
