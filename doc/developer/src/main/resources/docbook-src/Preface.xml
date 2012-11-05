@@ -58,16 +58,6 @@ you will meet a high-level tour of eXo Platform and its capabilities via the fol
 		  <listitem>
             <para>
               <emphasis role="bold">
-                <link linkend="DEV.SystemIntegration">System Integration</link>
-              </emphasis>
-			</para>
-			<para>
-				Information of authentication and users integration, details of numerous parameters of the eXo LDAP organization service, and the way to configure the email service.
-			</para>
-          </listitem>
-		  <listitem>
-            <para>
-              <emphasis role="bold">
                 <link linkend="DEV.eXoPlatformAPIs">eXo Platform 3.5 APIs</link>
               </emphasis>
 			</para>
