@@ -252,27 +252,27 @@ The shared file is published on the activity stream.
 
 !images/Actions_on_published_file.png|align="center" width="100mm" fo:scalefit="1" html:scalefit="0"!
 
-For the file published on the activity stream, you can do some following actions:
+You can do some actions on the shared file as follows:
+
 {docbook}
 <itemizedlist>
 <listitem>
-<para><emphasis role="bold"><link linkend="Soc_User_Guide.Activity_Management.Comment">Comment</link></emphasis></para>
+<para>Give your idea about the shared file by clicking <emphasis role="bold"><link linkend="Soc_User_Guide.Activity_Management.Comment">Comment.</link></emphasis></para>
 </listitem>
 <listitem>
-<para><emphasis role="bold"><link linkend="Soc_User_Guide.Activity_Management.Like_Activity">Like</link></emphasis></para>
+<para>Show your interest in the shared file by clicking <emphasis role="bold"><link linkend="Soc_User_Guide.Activity_Management.Like_Activity">Like.</link></emphasis></para>
 </listitem>
 <listitem>
-<para><emphasis role="bold">Download the published file</emphasis> to your local device by clicking <guilabel>Download</guilabel>.</para>
+<para>Download the published file to your local device by clicking <guilabel>Download</guilabel>.</para>
 </listitem>
 <listitem>
-<para><emphasis role="bold">View the published file</emphasis> on a pop-up window by clicking <guilabel>View</guilabel>. You can also download it from this window.</para>
+<para>View the published file on a pop-up window by clicking <guilabel>View</guilabel>. You can also download it from this window.</para>
 </listitem>
 <listitem>
-<para><emphasis role="bold">Go to the folder containing the published file</emphasis> in <guilabel>Sites Explorer</guilabel> by clicking <guilabel>Go to folder</guilabel>.</para>
+<para>Navigate to the folder containing the published file in <guilabel>Sites Explorer</guilabel> by clicking <guilabel>Go to folder</guilabel>.</para>
 </listitem>
 </itemizedlist>
 {docbook}
-
 
 h1. Delete activities/comments  {anchor:id=Soc_User_Guide.Activity_Management.Delete_ActivityRoleNotInToc}
 
