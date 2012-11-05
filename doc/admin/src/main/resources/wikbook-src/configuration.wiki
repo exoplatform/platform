@@ -445,7 +445,7 @@ Configure the data source for eXo Platform under JBoss
 
 * Change the username and password to the values set earlier.
 
-* Change the URL to access your database: _<connection-url>jdbc:hsqldb:${jboss.server.data.dir}${/}exo${/}hypersonic${/}exo-xxx_portal-localDB</connection-url>_ to _<connection-url>jdbc:mysql://_$host_:3306/_$dbname_</connection-url>_.
+* Change the URL to access your database: _{{{<connection-url>jdbc:hsqldb:${jboss.server.data.dir}/exo/hypersonic/exo-xxx_portal-localDB</connection-url>}}}_ to _<connection-url>jdbc:mysql://_$host_:3306/_$dbname_</connection-url>_.
 
 The configuration should now look like:
 
