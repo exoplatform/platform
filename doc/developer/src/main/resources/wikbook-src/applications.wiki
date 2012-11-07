@@ -19,6 +19,15 @@
 	Instructions on how to develop a gadget for eXo Platform, and information about Portlet Bridges.
 		</para>
 	  </listitem>
+	<listitem>
+	<para>
+	  <emphasis role="bold"><link linkend="DEV.ExtendeXoApplications">Extend eXo applications</link></emphasis>
+	</para>
+	<para>
+	Concept and mechanism of UI Extension framework which allows the customization and extensibility of eXo applications through simple plugins.
+	</para>
+  </listitem>
+	
 	</itemizedlist>
 </abstract>
 {docbook}
@@ -81,6 +90,7 @@ Here is an example of the portlet configuration in the _pages.xml_ file:
 </para>
 {docbook}
 * [Develop your own application|#DEV.WorkWithApplications.DevelopYourOwnApplications]
+* [Extend eXo applications|#DEV.ExtendeXoApplications]
 
 h1. Develop your own application {anchor:id=DEV.WorkWithApplications.DevelopYourOwnApplications}
 {docbook}
@@ -114,6 +124,7 @@ h1. Develop your own application {anchor:id=DEV.WorkWithApplications.DevelopYour
 </para>
 {docbook}
 * [Integrate an application|#DEV.WorkWithApplications.ApplicationIntegration]
+* [Extend eXo applications|#DEV.ExtendeXoApplications]
 
 h2. Develop a gadget for eXo Platform {anchor:id=DEV.WorkWithApplications.DevelopAGadgetForPlatformRoleNotInToc}
 
@@ -322,3 +333,7 @@ The JavaTM Specification Request 168 Portlet Specification (JSR 168) standardize
 For example, the JSF Bridge allows you to transparently deploy your existing JSF Applications as a Portlet Application or Web Application. For more details, see http://wiki.apache.org/myfaces/PortletBridge.
 
 The JBoss implementation of the Portlet Bridge has enhancements to support other web frameworks, such as RichFaces and Seam. For more details, see http://jboss.org/portletbridge/docs.html.
+
+h1. Extend eXo applications {anchor:id=DEV.ExtendeXoApplications}
+
+{include:document=Extend_eXo_applications.wiki|syntax=confluence/1.0}

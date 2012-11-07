@@ -14,10 +14,6 @@ h2. eXo Architecture Primer {anchor:id=DEV.eXoArchitecturePremer}
 
 {include:document=architecture.wiki|syntax=confluence/1.0}
 
-h2. UI Extension framework {anchor:id=DEV.UI_Extension_Framework}
-
-{include:document=UI_Extension_Framework.wiki|syntax=confluence/1.0}
-
 h1. Create Your Own Portal {anchor:id=DEV.CreatingYourOwnPortal}
 
 {include:document=customize.wiki|syntax=confluence/1.0}
