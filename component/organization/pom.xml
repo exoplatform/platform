@@ -1,7 +1,8 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<parent>
 		<groupId>org.exoplatform.platform</groupId>
-        <artifactId>platform-component</artifactId>
+		<artifactId>platform-component</artifactId>
 		<version>4.0.0.Alpha1-kill-exobuild-SNAPSHOT</version>
 	</parent>
 	<modelVersion>4.0.0</modelVersion>
@@ -9,44 +10,89 @@
 	<name>eXo Platform - Organization Model Integration</name>
 	<dependencies>
 		<dependency>
+			<groupId>org.exoplatform.kernel</groupId>
+			<artifactId>exo.kernel.container</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.exoplatform.kernel</groupId>
+			<artifactId>exo.kernel.commons</artifactId>
+		</dependency>
+		<dependency>
 			<groupId>org.exoplatform.core</groupId>
 			<artifactId>exo.core.component.organization.api</artifactId>
-			<version>${org.exoplatform.core.version}</version>
-			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.exoplatform.core</groupId>
+			<artifactId>exo.core.component.security.core</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.exoplatform.kernel</groupId>
+			<artifactId>exo.kernel.component.common</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>org.exoplatform.jcr</groupId>
 			<artifactId>exo.jcr.component.core</artifactId>
-			<version>${org.exoplatform.jcr.version}</version>
-			<scope>provided</scope>
 		</dependency>
-		<dependency>
-			<groupId>org.exoplatform.jcr</groupId>
-			<artifactId>exo.jcr.component.ext</artifactId>
-			<version>${org.exoplatform.jcr.version}</version>
-			<scope>provided</scope>
-		</dependency>
-		<dependency>
-			<groupId>org.exoplatform.portal</groupId>
-			<artifactId>exo.portal.component.portal</artifactId>
-			<version>${org.exoplatform.portal.version}</version>
-			<scope>provided</scope>
-		</dependency>
-		<dependency>
+<!-- Verify if need in runtime -->
+		<!--dependency>
 			<groupId>org.slf4j</groupId>
 			<artifactId>slf4j-simple</artifactId>
-			<version>${org.slf4j.version}</version>
-			<scope>provided</scope>
-		</dependency>
+			<scope>compile</scope>
+		</dependency-->
+		<dependency>
+			<groupId>org.exoplatform.portal</groupId>
+			<artifactId>exo.portal.component.identity</artifactId>
+		</dependency>		
 		<dependency>
 			<groupId>org.slf4j</groupId>
 			<artifactId>slf4j-api</artifactId>
-			<version>${org.slf4j.version}</version>
-			<scope>provided</scope>
 		</dependency>
+		<dependency>
+			<groupId>javax.jcr</groupId>
+			<artifactId>jcr</artifactId>
+			<scope>compile</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.picketlink.idm</groupId>
+			<artifactId>picketlink-idm-spi</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.picketlink.idm</groupId>
+			<artifactId>picketlink-idm-api</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.picketlink.idm</groupId>
+			<artifactId>picketlink-idm-core</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.picketlink.idm</groupId>
+			<artifactId>picketlink-idm-hibernate</artifactId>
+		</dependency>		
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-core</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>picocontainer</groupId>
+			<artifactId>picocontainer</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>xstream</groupId>
+			<artifactId>xstream</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.jibx</groupId>
+			<artifactId>jibx-run</artifactId>
+		</dependency>
+
 		<dependency>
 			<groupId>org.hsqldb</groupId>
 			<artifactId>hsqldb</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.exoplatform.tool</groupId>
+			<artifactId>exo.tool.framework.junit</artifactId>
 			<scope>test</scope>
 		</dependency>
 	</dependencies>

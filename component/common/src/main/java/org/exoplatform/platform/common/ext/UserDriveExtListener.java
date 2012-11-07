@@ -1,6 +1,5 @@
 package org.exoplatform.platform.common.ext;
 
-import org.exoplatform.services.cms.CmsService;
 import org.exoplatform.services.cms.link.LinkManager;
 import org.exoplatform.services.jcr.RepositoryService;
 import org.exoplatform.services.jcr.access.AccessControlEntry;
@@ -10,13 +9,11 @@ import org.exoplatform.services.jcr.core.ExtendedNode;
 import org.exoplatform.services.jcr.core.ManageableRepository;
 import org.exoplatform.services.jcr.ext.common.SessionProvider;
 import org.exoplatform.services.jcr.ext.hierarchy.NodeHierarchyCreator;
-import org.exoplatform.services.listener.ListenerService;
 import org.exoplatform.services.log.ExoLogger;
 import org.exoplatform.services.log.Log;
 import org.exoplatform.services.organization.User;
 import org.exoplatform.services.organization.UserEventListener;
 import org.exoplatform.services.security.IdentityConstants;
-import org.exoplatform.services.wcm.utils.WCMCoreUtils;
 
 import javax.jcr.*;
 import java.security.AccessControlException;

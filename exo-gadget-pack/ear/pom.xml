@@ -16,20 +16,15 @@
   <dependencies>
       <dependency>
         <groupId>org.exoplatform.platform</groupId>
-          <artifactId>platform-exo-gadget-pack-config</artifactId>
-        <version>${project.version}</version>
-        <scope>provided</scope>
+        <artifactId>platform-exo-gadget-pack-config</artifactId>
       </dependency>
       <dependency>
         <groupId>org.exoplatform.platform</groupId>
-          <artifactId>platform-exo-gadget-pack-gadget-pack-services</artifactId>
-        <version>${project.version}</version>
-        <scope>provided</scope>
+        <artifactId>platform-exo-gadget-pack-gadget-pack-services</artifactId>
       </dependency>
       <dependency>
         <groupId>org.exoplatform.platform</groupId>
-          <artifactId>platform-exo-gadget-pack-gadget-pack</artifactId>
-        <version>${project.version}</version>
+        <artifactId>platform-exo-gadget-pack-gadget-pack</artifactId>
         <type>war</type>
       </dependency>
   </dependencies>

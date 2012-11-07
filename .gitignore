@@ -16,6 +16,7 @@
 /bin
 /target
 /temp
+*~
 
 # /component/
 /component/.settings

@@ -13,34 +13,24 @@
   <name>eXo Gadget Pack - GWT Gadgets</name>
   <description>GWT gadgets</description>
 
-  <properties>
-      <!-- Does not support recent version -->
-      <version.gwt.plugin>2.1.0</version.gwt.plugin>
-      <!-- Convenience property to set the GWT version -->
-      <gwtVersion>2.1.0</gwtVersion>
-      <gwt.gadget.version>1.2.0</gwt.gadget.version>
-  </properties>
 
   <dependencies>
     <dependency>
       <groupId>com.google.gwt</groupId>
       <artifactId>gwt-user</artifactId>
-      <version>${gwtVersion}</version>
-      <scope>provided</scope>
-    </dependency>
-    <dependency>
-      <groupId>com.google.gwt</groupId>
-      <artifactId>gwt-dev</artifactId>
-      <version>${gwtVersion}</version>
-      <scope>test</scope>
+      <scope>compile</scope>
     </dependency>
     <dependency>
       <groupId>com.google.gwt.google-apis</groupId>
       <artifactId>gwt-gadgets</artifactId>
-      <version>${gwt.gadget.version}</version>
-      <scope>provided</scope>
+      <scope>compile</scope>
     </dependency>
   </dependencies>
+  <!--dependency>
+     <groupId>com.google.gwt</groupId>
+     <artifactId>gwt-dev</artifactId>
+     <scope>test</scope>
+  </dependency-->
   
   <!-- MODULES -->
   <modules>

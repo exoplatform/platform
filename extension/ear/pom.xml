@@ -13,39 +13,31 @@
     <dependency>
       <groupId>org.exoplatform.platform</groupId>
       <artifactId>platform-extension-config</artifactId>
-      <version>${project.version}</version>
     </dependency>
     <dependency>
       <groupId>org.exoplatform.platform</groupId>
-        <artifactId>platform-component-edition-enterprise</artifactId>
-      <version>${project.version}</version>
+      <artifactId>platform-component-edition-enterprise</artifactId>
     </dependency>
     <dependency>
       <groupId>org.exoplatform.platform</groupId>
         <artifactId>platform-extension-portlets-platformNavigation</artifactId>
-      <version>${project.version}</version>
       <type>war</type>
     </dependency>
     <dependency>
       <groupId>org.exoplatform.platform</groupId>
       <artifactId>platform-component-common</artifactId>
-      <version>${project.version}</version>
     </dependency>
     <dependency>
       <groupId>org.exoplatform.platform</groupId>
         <artifactId>platform-component-webui</artifactId>
-      <version>${project.version}</version>
     </dependency>
     <dependency>
       <groupId>org.exoplatform.platform</groupId>
         <artifactId>platform-component-gadgets</artifactId>
-      <version>${project.version}</version>
     </dependency>
     <dependency>
       <groupId>org.exoplatform.platform</groupId>
       <artifactId>platform-component-upgrade-plugins</artifactId>
-      <version>${project.version}</version>
-      <type>jar</type>
       <exclusions>
         <exclusion>
           <groupId>org.exoplatform.doc</groupId>
@@ -60,26 +52,21 @@
     <dependency>
       <groupId>org.exoplatform.platform</groupId>
         <artifactId>platform-component-organization</artifactId>
-      <version>${project.version}</version>
-      <type>jar</type>
     </dependency>
     <dependency>
       <groupId>org.exoplatform.platform</groupId>
         <artifactId>platform-extension-webapp</artifactId>
-      <version>${project.version}</version>
       <type>war</type>
     </dependency>
     <dependency>
       <groupId>org.exoplatform.platform</groupId>
         <artifactId>platform-extension-resources</artifactId>
-      <version>${project.version}</version>
       <type>war</type>
     </dependency>
     <!-- Commons -->
     <dependency>
       <groupId>org.exoplatform.commons</groupId>
       <artifactId>commons-component-product</artifactId>
-      <version>${org.exoplatform.commons.version}</version>
       <exclusions>
         <exclusion>
           <groupId>org.exoplatform.jcr</groupId>
@@ -102,7 +89,6 @@
     <dependency>
       <groupId>org.exoplatform.commons</groupId>
       <artifactId>commons-component-upgrade</artifactId>
-      <version>${org.exoplatform.commons.version}</version>
       <exclusions>
         <exclusion>
           <groupId>org.slf4j</groupId>
@@ -113,19 +99,15 @@
     <dependency>
       <groupId>org.exoplatform.commons</groupId>
       <artifactId>commons-extension-webapp</artifactId>
-      <version>${org.exoplatform.commons.version}</version>
       <type>war</type>
-	  <scope>provided</scope>
     </dependency>
     <dependency>
       <groupId>org.exoplatform.commons</groupId>
       <artifactId>commons-webui-ext</artifactId>
-      <version>${org.exoplatform.commons.version}</version>
     </dependency>
     <dependency>
       <groupId>org.exoplatform.commons</groupId>
       <artifactId>commons-webui-component</artifactId>
-      <version>${org.exoplatform.commons.version}</version>
       <exclusions>
         <exclusion>
           <groupId>org.slf4j</groupId>
@@ -136,20 +118,16 @@
     <dependency>
       <groupId>org.exoplatform.commons</groupId>
       <artifactId>commons-comet-webapp</artifactId>
-      <version>${org.exoplatform.commons.version}</version>
       <type>war</type>
     </dependency>
     <dependency>
       <groupId>org.exoplatform.commons</groupId>
       <artifactId>commons-webui-resources</artifactId>
-      <version>${org.exoplatform.commons.version}</version>
       <type>war</type>
     </dependency>
     <dependency>
       <groupId>org.exoplatform.commons</groupId>
       <artifactId>commons-comet-service</artifactId>
-      <version>${org.exoplatform.commons.version}</version>
-      <type>jar</type>
       <exclusions>
         <exclusion>
           <groupId>javax.ws.rs</groupId>
@@ -193,29 +171,26 @@
         </exclusion>
       </exclusions>
     </dependency>
+    <!-- TODO: to verify if FCK is removed -->
     <dependency>
       <groupId>org.exoplatform.commons</groupId>
       <artifactId>commons-fck</artifactId>
-      <version>${org.exoplatform.commons.version}</version>
       <type>war</type>
     </dependency>
     <!-- IDE dependencies -->
     <dependency>
       <groupId>org.exoplatform.gwt</groupId>
       <artifactId>exo-gwtframework-smartgwt</artifactId>
-      <version>${org.exoplatform.gwtframework.version}</version>
       <type>war</type>
     </dependency>
     <dependency>
       <groupId>org.exoplatform.ide</groupId>
       <artifactId>exo-ide-client-gadget </artifactId>
-      <version>${org.exoplatform.ide.version}</version>
       <type>war</type>
     </dependency>
     <dependency>
       <groupId>org.exoplatform.ide</groupId>
       <artifactId>exo-ide-server</artifactId>
-      <version>${org.exoplatform.ide.version}</version>
       <type>jar</type>
       <exclusions>
         <exclusion>
@@ -307,7 +282,6 @@
     <dependency>
       <groupId>org.exoplatform.core</groupId>
       <artifactId>exo.core.component.script.groovy</artifactId>
-      <version>${org.exoplatform.core.version}</version>
       <type>jar</type>
       <exclusions>
         <exclusion>
@@ -327,7 +301,6 @@
     <dependency>
       <groupId>org.exoplatform.ide</groupId>
       <artifactId>exo-ide-extension-gadget-server</artifactId>
-      <version>${org.exoplatform.ide.version}</version>
       <type>jar</type>
       <exclusions>
         <exclusion>
@@ -399,7 +372,6 @@
     <dependency>
       <groupId>org.exoplatform.ide</groupId>
       <artifactId>exo-ide-extension-netvibes-server</artifactId>
-      <version>${org.exoplatform.ide.version}</version>
       <type>jar</type>
       <exclusions>
         <exclusion>
@@ -507,7 +479,6 @@
     <dependency>
       <groupId>org.exoplatform.ide</groupId>
       <artifactId>exo-ide-extension-groovy-server</artifactId>
-      <version>${org.exoplatform.ide.version}</version>
       <type>jar</type>
       <exclusions>
         <exclusion>
@@ -599,8 +570,6 @@
     <dependency>
       <groupId>org.exoplatform.ide</groupId>
       <artifactId>exo-ide-extension-chromattic-server</artifactId>
-      <version>${org.exoplatform.ide.version}</version>
-      <type>jar</type>
       <exclusions>
         <exclusion>
           <groupId>javax.jcr</groupId>
@@ -695,8 +664,6 @@
     <dependency>
       <groupId>org.chromattic</groupId>
       <artifactId>chromattic.groovy</artifactId>
-      <version>${org.chromattic.version}</version>
-      <type>jar</type>
       <exclusions>
         <exclusion>
           <groupId>org.chromattic</groupId>
@@ -747,7 +714,6 @@
     <dependency>
       <groupId>org.chromattic</groupId>
       <artifactId>chromattic.dataobject</artifactId>
-      <version>${org.chromattic.version}</version>
       <type>jar</type>
       <exclusions>
         <exclusion>
@@ -797,61 +763,46 @@
     <dependency>
         <groupId>org.exoplatform.integration</groupId>
         <artifactId>integ-ecms-social</artifactId>
-        <version>${org.exoplatform.integ.version}</version>
-        <type>jar</type>
     </dependency>
     <dependency>
         <groupId>org.exoplatform.integration</groupId>
         <artifactId>integ-social-ecms</artifactId>
-        <version>${org.exoplatform.integ.version}</version>
-        <type>jar</type>
     </dependency>
     <dependency>
         <groupId>org.exoplatform.integration</groupId>
         <artifactId>integ-calendar-social</artifactId>
-        <version>${org.exoplatform.integ.version}</version>
-        <type>jar</type>
     </dependency>
     <dependency>
         <groupId>org.exoplatform.integration</groupId>
         <artifactId>integ-forum-social</artifactId>
-        <version>${org.exoplatform.integ.version}</version>
-        <type>jar</type>
     </dependency>
     <dependency>
         <groupId>org.exoplatform.integration</groupId>
         <artifactId>integ-wiki-social</artifactId>
-        <version>${org.exoplatform.integ.version}</version>
-        <type>jar</type>
     </dependency>
 
     <!-- Gadgets on the intranet homepage -->
     <dependency>
       <groupId>org.exoplatform.platform</groupId>
       <artifactId>platform-sample-gadgets-sample-gadgets</artifactId>
-      <version>${project.version}</version>
       <type>war</type>
     </dependency>
     <dependency>
       <groupId>org.exoplatform.platform</groupId>
       <artifactId>platform-sample-gadgets-sample-service</artifactId>
-      <version>${project.version}</version>
     </dependency>
     <dependency>
       <groupId>org.exoplatform.platform</groupId>
       <artifactId>platform-sample-gadgets-sample-config</artifactId>
-      <version>${project.version}</version>
     </dependency>
     <dependency>
       <groupId>org.exoplatform.platform</groupId>
       <artifactId>platform-sample-gadgets-sample-exo-gadget-resources</artifactId>
-      <version>${project.version}</version>
       <type>war</type>
     </dependency>    
     <dependency>
       <groupId>org.exoplatform.social</groupId>
       <artifactId>social-extras-migration</artifactId>
-      <version>${org.exoplatform.social.version}</version>
       <exclusions>
       	<exclusion>
           <groupId>org.staxnav</groupId>
@@ -862,7 +813,6 @@
     <dependency>
       <groupId>org.exoplatform.social</groupId>
       <artifactId>social-extras-updater</artifactId>
-      <version>${org.exoplatform.social.version}</version>
       <exclusions>
       	<exclusion>
           <groupId>org.exoplatform.portal</groupId>
@@ -873,7 +823,6 @@
     <dependency>
       <groupId>org.exoplatform.ecms</groupId>
       <artifactId>ecms-upgrade-voting-nodetype</artifactId>
-      <version>${org.exoplatform.ecms.version}</version>
       <exclusions>
       	<exclusion>
           <groupId>org.exoplatform.jcr</groupId>
@@ -888,7 +837,6 @@
     <dependency>
       <groupId>org.exoplatform.ecms</groupId>
       <artifactId>ecms-upgrade-thumbnails</artifactId>
-      <version>${org.exoplatform.ecms.version}</version>
       <exclusions>
       	<exclusion>
           <groupId>org.exoplatform.jcr</groupId>
@@ -903,7 +851,6 @@
     <dependency>
       <groupId>org.exoplatform.ecms</groupId>
       <artifactId>ecms-upgrade-favorite</artifactId>
-      <version>${org.exoplatform.ecms.version}</version>
       <exclusions>
       	<exclusion>
           <groupId>org.exoplatform.jcr</groupId>
@@ -918,7 +865,6 @@
     <dependency>
         <groupId>org.exoplatform.ecms</groupId>
         <artifactId>ecms-upgrade-templates</artifactId>
-        <version>${org.exoplatform.ecms.version}</version>
         <exclusions>
             <exclusion>
                 <groupId>org.exoplatform.jcr</groupId>
@@ -933,7 +879,6 @@
       <dependency>
           <groupId>org.exoplatform.ecms</groupId>
           <artifactId>ecms-upgrade-user-folder-permission</artifactId>
-          <version>${org.exoplatform.ecms.version}</version>
           <exclusions>
               <exclusion>
                   <groupId>org.exoplatform.jcr</groupId>
@@ -948,7 +893,6 @@
       <dependency>
           <groupId>org.exoplatform.ecms</groupId>
           <artifactId>ecms-upgrade-portlet-preferences</artifactId>
-          <version>${org.exoplatform.ecms.version}</version>
           <exclusions>
               <exclusion>
                   <groupId>org.exoplatform.jcr</groupId>
@@ -963,7 +907,6 @@
       <dependency>
           <groupId>org.exoplatform.ecms</groupId>
           <artifactId>ecms-upgrade-publication-publication-nodetype</artifactId>
-          <version>${org.exoplatform.ecms.version}</version>
           <exclusions>
               <exclusion>
                   <groupId>org.exoplatform.jcr</groupId>
@@ -978,25 +921,21 @@
     <dependency>
       <groupId>org.exoplatform.calendar</groupId>
       <artifactId>calendar-upgrade</artifactId>
-      <version>${org.exoplatform.calendar.version}</version>
     </dependency>
     <dependency>
         <groupId>org.exoplatform.forum</groupId>
         <artifactId>forum-component-upgrade</artifactId>
-        <version>${org.exoplatform.forum.version}</version>
     </dependency>
     <!-- WAI portal template-->
     <dependency>
       <groupId>org.exoplatform.ecms</groupId>
       <artifactId>ecms-apps-wai-template</artifactId>
-      <version>${org.exoplatform.ecms.version}</version>
       <type>war</type>
     </dependency>
       <!-- com.sun.xml.stream -->
       <dependency>
           <groupId>com.sun.xml.stream</groupId>
           <artifactId>sjsxp</artifactId>
-          <version>${version.sun.xml.stream}</version>
           <exclusions>
               <exclusion>
                   <groupId>javax.xml.stream</groupId>
