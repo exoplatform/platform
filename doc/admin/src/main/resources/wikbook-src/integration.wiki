@@ -114,9 +114,12 @@ need to synchronize this remote directory by activating a Kernel component named
 
 There are 2 typical ways to activate it.
 
-* *The first way*: Adding the entry below to _$PLATFORM\_TOMCAT\_HOME/gatein/conf/portal/portal/configuration.xml_ (eXo Platform Tomcat) or _$PLATFORM\_JBOSS\_HOME/server/default/conf/gatein/portal/portal/configuration.xml_ (eXo Platform Jboss) (You might create the new file if it doesn't exist).
-{code:xml}
-  <component>
+* *The first way*: Adding the entry below to the _configuration.xml_ file which is in the following paths:
+
+||Tomcat||JBoss||
+|_$PLATFORM\_TOMCAT\_HOME/gatein/conf/portal/portal/configuration.xml_|_$PLATFORM\_JBOSS\_HOME/server/default/conf/gatein/portal/portal/configuration.xml_|
+
+{code:xml}<component>
     <type>org.exoplatform.platform.organization.integration.OrganizationIntegrationService</type>
       <init-params>
         <value-param>
@@ -132,10 +135,13 @@ There are 2 typical ways to activate it.
           <value>true</value>
         </value-param>
       </init-params>
-  </component>
-{code}
+</component>{code}
 
-* *The second way*: Add the same entry as the first way to the _WEB-INF/conf/configuration.xml_ file through a custom extension. The path to the file is independent on JBoss and Tomcat (You might create the new file if it doesn't exist).
+* *The second way*: Add the same entry as in the first way to the _WEB-INF/conf/configuration.xml_ file through a custom extension. The path to the file is independent on JBoss and Tomcat. 
+
+{note}
+In case the _configuration.xml_ file does not exist, you might create a new one.
+{note}
 
 Next, you can start synchronizing your directory with eXo Platform by using one of the methods described below.
 
@@ -153,10 +159,11 @@ Sync at startup
 
 At the start-up of eXo Platform, all groups are synchronized. This means that the groups which have been added/deleted will be integrated. This operation is mandatory because some of eXo Platform features require some system groups to be integrated, such as the system group of Social *spaces*.
 
-We recommend that administrator needs to disable groups synchronization, either during upgrade phase (to reduce upgrade time) or during start-up from the second time and proceed manually to the system groups synchronization. It is typically done by modifing the _synchronizeGroups_ parameter as below in the configuration to activate _OrganizationIntegrationService_. 
+{note}
+It is recommended that administrators disable the groups synchronization, during either the upgrade (to reduce upgrade time) or the start-up from the second time and proceed manually to the system groups synchronization. It is typically done by modifing the _synchronizeGroups_ parameter as below in the configuration to activate _OrganizationIntegrationService_. 
+{note}
 
-{code:xml}
-<component>
+{code:xml}<component>
   <type>org.exoplatform.platform.organization.integration.OrganizationIntegrationService</type>
   <init-params>
     ...
@@ -165,8 +172,7 @@ We recommend that administrator needs to disable groups synchronization, either 
       <value>false</value>
     </value-param>
   </init-params>
-</component>
-{code}
+</component>{code}
 
 {docbook}
 <para xml:id="ADM.Integration.Syn_at_logtime">
