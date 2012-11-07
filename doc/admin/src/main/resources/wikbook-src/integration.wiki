@@ -112,21 +112,25 @@ h2. Activate the service {anchor:id=ADM.Integration.Integrate_organizational_mod
 Out of the box, eXo Platform is configured to leverage the IDM database. If you want to integrate eXo Platform with a user directory, you will
 need to synchronize this remote directory by activating a Kernel component named _OrganizationIntegrationService_.
 
-There are 2 typical ways to achieve this:
-
-* *The first way*: Directly add the entry below to the _configuration.xml_ file:
+This is typically done by adding the entry below to _$PLATFORM\_TOMCAT\_HOME/gatein/conf/portal/portal/configuration.xml_ (eXo Platform Tomcat) or _$PLATFORM\_JBOSS\_HOME/server/default/conf/gatein/portal/portal/configuration.xml_ (eXo Platform Jboss) (You might create the new file if it doesn't exist).
 {code:xml}
-<import>war:/conf/platform/organization-integration-configuration.xml</import>
-{code}
-
-*Files location*
-
-|| File || Tomcat || JBoss ||
-| _*configuration.xml*_| _$PLATFORM\_TOMCAT\_HOME/gatein/conf/portal/portal/configuration.xml_ | _$PLATFORM\_JBOSS\_HOME/server/default/conf/gatein/portal/portal/configuration.xml_ |
-
-* *The second way*: Add the entry below to the _WEB-INF/conf/configuration.xml_ file through a custom extension. The path to the file is independent on JBoss and Tomcat:
-{code:xml}
-<import>war:/conf/platform/organization-integration-configuration.xml</import>
+  <component>
+    <type>org.exoplatform.platform.organization.integration.OrganizationIntegrationService</type>
+      <init-params>
+        <value-param>
+          <name>workspace</name>
+          <value>collaboration</value>
+        </value-param>
+        <value-param>
+          <name>homePath</name>
+          <value>/</value>
+        </value-param>
+        <value-param>
+          <name>synchronizeGroups</name>
+          <value>true</value>
+        </value-param>
+      </init-params>
+  </component>
 {code}
 
 Next, you can start synchronizing your directory with eXo Platform by using one of the methods described below.
@@ -143,7 +147,7 @@ Sync at startup
 </para>
 {docbook}
 
-At the start-up of eXo Platform, all groups are synchronized. This means that the groups which have been added/deleted will be integrated. This operation is mandatory because some of eXo Platform features require some system groups to be integrated, such as the system group of Social *spaces*.
+At the start-up of eXo Platform, all groups are synchronized. This means that the groups which have been added/deleted will be integrated. This operation is mandatory because some of eXo Platform features require some system groups to be integrated, such as the system group of Social *spaces*. We recommend that admin needs to disable _synchronizeGroups_, either during upgrade phase (to reduce upgrade time) or during start-up from the second time.
 
 In case you want to disable groups synchronization at start-up, and proceed manually to the system groups synchronization, you must modify an init param of _OrganizationIntegrationService_:
 
