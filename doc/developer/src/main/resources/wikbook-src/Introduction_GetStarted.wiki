@@ -49,14 +49,6 @@
   </listitem>
  </itemizedlist>
   </listitem>
-   <listitem>
-	<para>
-	  <emphasis role="bold"><link linkend="DEV.UI_Extension_Framework">UI Extension framework</link></emphasis>
-	</para>
-	<para>
-	Concept and mechanism of UI Extension framework which allows the customization and extensibility of eXo applications through simple plugins.
-	</para>
-  </listitem>
 </itemizedlist>
 </abstract>
 {docbook}
