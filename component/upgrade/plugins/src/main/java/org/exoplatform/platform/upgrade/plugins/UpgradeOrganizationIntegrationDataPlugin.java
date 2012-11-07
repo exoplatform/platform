@@ -69,9 +69,12 @@ public class UpgradeOrganizationIntegrationDataPlugin extends UpgradeProductPlug
 
         try {
             organizationIntegrationService = getService(OrganizationIntegrationService.class);
-            if (organizationIntegrationService.isSynchronizeGroups()) {
-                LOG.warn("Caution: synchronization of groups is activated for OrganizationIntegrationService. It shouldn't be enabled when upgrading!");
+            if (organizationIntegrationService != null) {
+                if (organizationIntegrationService.isSynchronizeGroups()) {
+                    LOG.warn("Caution: synchronization of groups is activated for OrganizationIntegrationService. It shouldn't be enabled when upgrading!");
+                }
             }
+
         } catch (Exception E) {
             LOG.error("The Organization Integration Service is not loaded. Please activate it when running the corresponding upgrade plugin.",E);
             return false;
