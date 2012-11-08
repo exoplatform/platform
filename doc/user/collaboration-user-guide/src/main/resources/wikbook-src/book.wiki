@@ -1,2 +1,0 @@
-h1. How To Use Calendar? {anchor:id="CSUser_guide.How_to_use_Calendar"}
-{include:document="calendar/calendar.wiki"}
