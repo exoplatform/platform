@@ -160,7 +160,7 @@ Sync at startup
 At the start-up of eXo Platform, all groups are synchronized. This means that the groups which have been added/deleted will be integrated. This operation is mandatory because some of eXo Platform features require some system groups to be integrated, such as the system group of Social *spaces*.
 
 {note}
-It is recommended that administrators disable the groups synchronization, during either the upgrade (to reduce upgrade time) or the start-up from the second time and proceed manually to the system groups synchronization. It is typically done by modifing the _synchronizeGroups_ parameter as below in the configuration to activate _OrganizationIntegrationService_. 
+You can skip the synchronization when restarting the server by modifying the _synchronizeGroups_ parameter as below in the configuration to activate _OrganizationIntegrationService_. 
 {note}
 
 {code:xml}<component>
