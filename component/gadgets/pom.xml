@@ -15,32 +15,26 @@
 		<dependency>
 			<groupId>org.exoplatform.kernel</groupId>
 			<artifactId>exo.kernel.container</artifactId>
-			<scope>provided</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.exoplatform.kernel</groupId>
 			<artifactId>exo.kernel.commons</artifactId>
-			<scope>provided</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.exoplatform.core</groupId>
 			<artifactId>exo.core.component.organization.api</artifactId>
-			<scope>provided</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.exoplatform.portal</groupId>
 			<artifactId>exo.portal.component.portal</artifactId>
-			<scope>provided</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.exoplatform.portal</groupId>
 			<artifactId>exo.portal.component.application-registry</artifactId>
-			<scope>provided</scope>
 		</dependency>
 		<dependency>
 			<groupId>picocontainer</groupId>
 			<artifactId>picocontainer</artifactId>
-			<scope>compile</scope>
 		</dependency>
 	</dependencies>
 </project>

@@ -18,12 +18,10 @@
     <dependency>
       <groupId>com.google.gwt</groupId>
       <artifactId>gwt-user</artifactId>
-      <scope>compile</scope>
     </dependency>
     <dependency>
       <groupId>com.google.gwt.google-apis</groupId>
       <artifactId>gwt-gadgets</artifactId>
-      <scope>compile</scope>
     </dependency>
   </dependencies>
   <!--dependency>

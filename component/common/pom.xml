@@ -14,122 +14,99 @@
 		<dependency>
 			<groupId>org.exoplatform.core</groupId>
 			<artifactId>exo.core.component.security.core</artifactId>
-			<scope>compile</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.exoplatform.core</groupId>
 			<artifactId>exo.core.component.organization.api</artifactId>
-			<scope>compile</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.exoplatform.kernel</groupId>
 			<artifactId>exo.kernel.container</artifactId>
-			<scope>compile</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.exoplatform.kernel</groupId>
 			<artifactId>exo.kernel.commons</artifactId>
-			<scope>compile</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.exoplatform.ws</groupId>
 			<artifactId>exo.ws.rest.core</artifactId>
-			<scope>compile</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.exoplatform.jcr</groupId>
 			<artifactId>exo.jcr.component.core</artifactId>
-			<scope>compile</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.exoplatform.jcr</groupId>
 			<artifactId>exo.jcr.component.ext</artifactId>
-			<scope>compile</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.exoplatform.commons</groupId>
 			<artifactId>commons-component-product</artifactId>
-			<scope>compile</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.exoplatform.portal</groupId>
 			<artifactId>exo.portal.component.web.api</artifactId>
-			<scope>compile</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.exoplatform.portal</groupId>
 			<artifactId>exo.portal.component.common</artifactId>
-			<scope>compile</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.exoplatform.portal</groupId>
 			<artifactId>exo.portal.component.portal</artifactId>
-			<scope>compile</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.exoplatform.portal</groupId>
 			<artifactId>exo.portal.component.application-registry</artifactId>
-			<scope>compile</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.gatein.common</groupId>
 			<artifactId>common-common</artifactId>
-			<scope>compile</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.gatein.pc</groupId>
 			<artifactId>pc-api</artifactId>
-			<scope>compile</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.exoplatform.ecms</groupId>
 			<artifactId>ecms-core-services</artifactId>
-			<scope>compile</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.exoplatform.commons</groupId>
 			<artifactId>commons-component-common</artifactId>
-			<scope>compile</scope>
 		</dependency>		
 		<dependency>
 			<groupId>org.exoplatform.social</groupId>
 			<artifactId>social-component-core</artifactId>
-			<scope>compile</scope>
-		</dependency>		
-		<dependency><!--need for compile social-component-core-->
+		</dependency>
+		<!--need for compile social-component-core-->
+		<dependency>
 			<groupId>org.exoplatform.social</groupId>
 			<artifactId>social-component-common</artifactId>
-			<scope>compile</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.chromattic</groupId>
 			<artifactId>chromattic.api</artifactId>
-			<scope>compile</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.chromattic</groupId>
 			<artifactId>chromattic.spi</artifactId>
-			<scope>compile</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.chromattic</groupId>
 			<artifactId>chromattic.apt</artifactId>
-			<scope>compile</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.chromattic</groupId>
 			<artifactId>chromattic.ext</artifactId>
-			<scope>compile</scope>
 		</dependency>
 		<dependency>
 			<groupId>commons-lang</groupId>
 			<artifactId>commons-lang</artifactId>
-			<scope>compile</scope>
 		</dependency>
 		<dependency>
 			<groupId>javax.jcr</groupId>
 			<artifactId>jcr</artifactId>
-			<scope>compile</scope>
 		</dependency>
 		<dependency>
 			<groupId>javax.portlet</groupId>
@@ -142,16 +119,13 @@
 			<artifactId>servlet-api</artifactId>
 			<scope>provided</scope>
 		</dependency>
-
 		<dependency>
 			<groupId>javax.ws.rs</groupId>
 			<artifactId>jsr311-api</artifactId>
-			<scope>compile</scope>
 		</dependency>
 		<dependency>
 			<groupId>picocontainer</groupId>
 			<artifactId>picocontainer</artifactId>
-			<scope>compile</scope>
 		</dependency>
 		<dependency>
 			<groupId>junit</groupId>
