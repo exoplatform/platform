@@ -19,7 +19,6 @@ package org.exoplatform.platform.organization.integration;
 import javax.jcr.Session;
 
 import org.exoplatform.services.jcr.RepositoryService;
-import org.exoplatform.services.jcr.ext.distribution.DataDistributionManager;
 import org.exoplatform.services.organization.Group;
 import org.exoplatform.services.organization.GroupEventListener;
 
@@ -33,11 +32,9 @@ import org.exoplatform.services.organization.GroupEventListener;
 public class NewGroupListener extends GroupEventListener {
 
   private RepositoryService repositoryService;
-  private DataDistributionManager dataDistributionManager;
 
-  public NewGroupListener(DataDistributionManager dataDistributionManager, RepositoryService repositoryService) throws Exception {
+  public NewGroupListener(RepositoryService repositoryService) throws Exception {
     this.repositoryService = repositoryService;
-    this.dataDistributionManager = dataDistributionManager;
   }
 
   /**
@@ -50,8 +47,8 @@ public class NewGroupListener extends GroupEventListener {
     Session session = null;
     try {
       session = repositoryService.getCurrentRepository().getSystemSession(Util.WORKSPACE);
-      if (!Util.hasGroupFolder(dataDistributionManager, session, group.getId())) {
-        Util.createGroupFolder(dataDistributionManager, session, group.getId());
+      if (!Util.hasGroupFolder(session, group.getId())) {
+        Util.createGroupFolder(session, group.getId());
       }
     } finally {
       if (session != null) {
@@ -67,8 +64,8 @@ public class NewGroupListener extends GroupEventListener {
     Session session = null;
     try {
       session = repositoryService.getCurrentRepository().getSystemSession(Util.WORKSPACE);
-      if (Util.hasGroupFolder(dataDistributionManager, session, group.getId())) {
-        Util.deleteGroupFolder(dataDistributionManager, session, group.getId());
+      if (Util.hasGroupFolder(session, group.getId())) {
+        Util.deleteGroupFolder(session, group.getId());
       }
     } finally {
       if (session != null) {
