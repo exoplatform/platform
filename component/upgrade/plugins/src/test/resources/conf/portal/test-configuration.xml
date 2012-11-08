@@ -14,23 +14,6 @@
 		<type>org.exoplatform.application.gadget.impl.SourceStorageImpl</type>
 	</component>
 	<component>
-        <type>org.exoplatform.platform.organization.integration.OrganizationIntegrationService</type>
-        <init-params>
-            <value-param>
-                <name>workspace</name>
-                <value>collaboration</value>
-            </value-param>
-            <value-param>
-                <name>homePath</name>
-                <value>/</value>
-            </value-param>
-            <value-param>
-                <name>synchronizeGroups</name>
-                <value>false</value>
-            </value-param>
-        </init-params>
-    </component>
-    <component>
 		<key>org.exoplatform.application.gadget.GadgetRegistryService</key>
 		<type>org.exoplatform.application.gadget.impl.GadgetRegistryServiceImpl</type>
 		<init-params>
@@ -448,8 +431,6 @@
 			</init-params>
 		</component-plugin>
 	</external-component-plugins>
-    <import>classpath:/conf/portal/idm-configuration.xml</import>
-    <import>classpath:/conf/portal/organization-configuration.xml</import>
 	<import>classpath:/conf/jcr/test-jcr-configuration.xml</import>
 	<remove-configuration>org.exoplatform.services.deployment.ContentInitializerService</remove-configuration>
 	<remove-configuration>org.exoplatform.platform.common.module.ModuleRegistry</remove-configuration>

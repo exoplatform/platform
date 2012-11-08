@@ -19,7 +19,6 @@ package org.exoplatform.platform.organization.integration;
 import javax.jcr.Session;
 
 import org.exoplatform.services.jcr.RepositoryService;
-import org.exoplatform.services.jcr.ext.distribution.DataDistributionManager;
 import org.exoplatform.services.organization.UserProfile;
 import org.exoplatform.services.organization.UserProfileEventListener;
 
@@ -33,11 +32,9 @@ import org.exoplatform.services.organization.UserProfileEventListener;
 public class NewProfileListener extends UserProfileEventListener {
 
   private RepositoryService repositoryService;
-  private DataDistributionManager dataDistributionManager;
 
-  public NewProfileListener(DataDistributionManager dataDistributionManager, RepositoryService repositoryService) throws Exception {
+  public NewProfileListener(RepositoryService repositoryService) throws Exception {
     this.repositoryService = repositoryService;
-    this.dataDistributionManager = dataDistributionManager;
   }
 
   /**
@@ -50,8 +47,8 @@ public class NewProfileListener extends UserProfileEventListener {
     Session session = null;
     try {
       session = repositoryService.getCurrentRepository().getSystemSession(Util.WORKSPACE);
-      if (!Util.hasProfileFolder(dataDistributionManager, session, user.getUserName())) {
-        Util.createProfileFolder(dataDistributionManager, session, user.getUserName());
+      if (!Util.hasProfileFolder(session, user.getUserName())) {
+        Util.createProfileFolder(session, user.getUserName());
       }
     } finally {
       if (session != null) {
@@ -67,8 +64,8 @@ public class NewProfileListener extends UserProfileEventListener {
     Session session = null;
     try {
       session = repositoryService.getCurrentRepository().getSystemSession(Util.WORKSPACE);
-      if (Util.hasProfileFolder(dataDistributionManager, session, user.getUserName())) {
-        Util.deleteProfileFolder(dataDistributionManager, session, user.getUserName());
+      if (Util.hasProfileFolder(session, user.getUserName())) {
+        Util.deleteProfileFolder(session, user.getUserName());
       }
     } finally {
       if (session != null) {
