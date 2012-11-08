@@ -80,6 +80,7 @@
 			<artifactId>social-component-core</artifactId>
 		</dependency>
 		<!--need for compile social-component-core-->
+		<!-- TODO: social-component-common have to be transitive by social-component-core ?-->
 		<dependency>
 			<groupId>org.exoplatform.social</groupId>
 			<artifactId>social-component-common</artifactId>
@@ -111,8 +112,6 @@
 		<dependency>
 			<groupId>javax.portlet</groupId>
 			<artifactId>portlet-api</artifactId>
-			<scope>provided</scope>
-			<type>jar</type>
 		</dependency>
 		<dependency>
 			<groupId>javax.servlet</groupId>
@@ -135,7 +134,7 @@
 		<dependency>
 			<groupId>org.slf4j</groupId>
 			<artifactId>slf4j-simple</artifactId>
-			<scope>runtime</scope>
+			<scope>test</scope>
 		</dependency>
 	</dependencies>
 </project>

@@ -64,6 +64,11 @@
 			<artifactId>hsqldb</artifactId>
 			<scope>test</scope>
 		</dependency>
+		<dependency>
+	      	<groupId>org.slf4j</groupId>
+	      	<artifactId>slf4j-simple</artifactId>
+	      	<scope>test</scope>
+	    </dependency>	    
 		<!--dependency>
 			<groupId>org.exoplatform.core</groupId>
 			<artifactId>exo.core.component.security.core</artifactId>
