@@ -131,6 +131,7 @@ function getProduct(version) {
   product.addDependencies(social.component.webui); // # exo.social.component.webui.jar
   product.addDependencies(social.webapp.opensocial) ; // social.war
   product.addDependencies(social.webapp.portlet); // social-portlet.war
+  product.addDependencies(social.webapp.juzu.portlet); // juzu-portlet 
   product.addDependencies(social.webapp.resources); // social-resources.war
   product.addDependencies(social.extras.feedmash); // # exo.social.extras.feedmash-1.0.0-GA.jar
   product.addDependencies(social.extras.linkComposerPlugin); // #exo.social.extras.link-composer-plugin-1.1.0-SNAPSHOT.jar
