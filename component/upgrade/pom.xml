@@ -9,7 +9,6 @@
 	<packaging>pom</packaging>
 	<name>eXo Platform - Upgrade</name>
 	<modules>
-		<module>plugins</module>
 		<module>sample</module>
 	</modules>
 </project>
