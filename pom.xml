@@ -48,7 +48,7 @@
         <org.exoplatform.wiki.version>4.0.0.Alpha1-relooking-SNAPSHOT</org.exoplatform.wiki.version>
 		<org.exoplatform.ecms.version>4.0.0.Alpha1-relooking-SNAPSHOT</org.exoplatform.ecms.version>
 		<org.exoplatform.social.version>4.0.0.Alpha1-relooking-SNAPSHOT</org.exoplatform.social.version>
-		<org.exoplatform.integ.version>4.0.0.Alpha1-SNAPSHOT</org.exoplatform.integ.version>
+		<org.exoplatform.integ.version>4.0.0.Alpha1-relooking-SNAPSHOT</org.exoplatform.integ.version>
 		<org.exoplatform.leadcapture.version>3.4</org.exoplatform.leadcapture.version>
         <org.crsh.version>1.1.0</org.crsh.version>
 		<org.exoplatform.exopackage.version>1.1.4</org.exoplatform.exopackage.version>
