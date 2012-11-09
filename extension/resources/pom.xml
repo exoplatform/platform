@@ -1,15 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-  <modelVersion>4.0.0</modelVersion>
-  <parent>
-    <groupId>org.exoplatform.platform</groupId>
-      <artifactId>platform-extension</artifactId>
-    <version>4.0.0.Alpha1-relooking-SNAPSHOT</version>
-  </parent>
-  <artifactId>platform-extension-resources</artifactId>
-  <packaging>war</packaging>
-  <name>eXo Platform - Extension Resources</name>
-  <build>
-    <finalName>eXoPlatformResources</finalName>
-  </build>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>org.exoplatform.platform</groupId>
+		<artifactId>platform-extension</artifactId>
+		<version>4.0.0.Alpha1-relooking-SNAPSHOT</version>
+	</parent>
+	<artifactId>platform-extension-resources</artifactId>
+	<packaging>war</packaging>
+	<name>eXo Platform - Extension Resources</name>
+	<build>
+		<finalName>eXoPlatformResources</finalName>
+		<plugins>
+			<plugin>
+				<groupId>org.lesscss</groupId>
+				<artifactId>lesscss-maven-plugin</artifactId>
+				<version>1.3.0</version>
+				<configuration>
+					<sourceDirectory>${project.basedir}/src/main/webapp/skin/less</sourceDirectory>
+					<outputDirectory>${project.build.directory}/${project.build.finalName}/skin</outputDirectory>
+					<compress>false</compress>
+					<includes>
+						<include>sample.less</include>
+					</includes>
+				</configuration>
+				<executions>
+					<execution>
+						<goals>
+							<goal>compile</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
 </project>
