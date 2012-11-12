@@ -19,7 +19,8 @@
    </UIAdminToolbarPortlet>
 
   <UISEOForm>
-    <label>	  
+    <label>
+      <title>Title: </title> 
       <description>Description: </description>
       <keywords>Keywords: </keywords>
       <language>Language: </language>
@@ -40,9 +41,7 @@
         <Never>Never</Never>
       </option> 
     </label>
-    <tip>
-		<priority>Valid values range from 0.0 to 1.0</priority>
-	</tip>	 	  
+     
     <action>
       <Save>Save</Save>
       <Cancel>Cancel</Cancel>
