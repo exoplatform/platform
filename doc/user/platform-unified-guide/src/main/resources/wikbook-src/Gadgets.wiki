@@ -444,7 +444,7 @@ You can click the *People*/*Space* to view invitations from people/space or you 
 </para>
 {docbook}
 
-!images/My_agenda_gadget.png|align="center" width="90mm" fo:scalefit="1" html:scalefit="0"!
+!images/My_Agenda_gadget.png|align="center" width="90mm" fo:scalefit="1" html:scalefit="0"!
 
 *My Agenda* gadget displays the upcoming events and tasks created in your calendars.
 
@@ -468,7 +468,7 @@ Here, you can:
 </para>
 {docbook}
 
-!images/Featured_poll_gadget.png|align="center" width="90mm" fo:scalefit="1" html:scalefit="0"!
+!images/Featured_Poll_gadget.png|align="center" width="90mm" fo:scalefit="1" html:scalefit="0"!
 
 *Featured Poll* gadget displays the poll created in the *Forum* or *Poll* application that you have permission to vote. You can directly vote and see results on the gadget. This gadget also provides links to create your own poll or discuss about the poll topic in the Forum.
 
