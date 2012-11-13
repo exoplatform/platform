@@ -164,8 +164,7 @@ The full schema can be found in the lib directory: _exo.portal.component.portal.
 
 Here is the _gatein-resources.xml_ file of a sample skin (called "MySkin") which defines the portal skin with its CSS location, window style and its portlet skins:
 
-{code:xml}
-<gatein-resources>
+{code:xml}<gatein-resources>
 <!-- define the portal skin -->
 <portal-skin>
     <skin-name>MySkin</skin-name>
@@ -193,15 +192,13 @@ Here is the _gatein-resources.xml_ file of a sample skin (called "MySkin") which
       <theme-name>MyThemeRed</theme-name>
     </style-theme>
 </window-style>
-</gatein-resources>
-{code}
+</gatein-resources>{code}
 
 h2. ResourceRequestFilter {anchor:id=DEV.CreateYourOwnPortal.ResourceRequestFilter}
 The ResourceRequestFilter is used to map process skin request mapping from portal, portlet to the exact skin that was defined in portal.
 ResourceRequestFilter is configured in the _web.xml_ file in the skin web archive.
 
-{code:xml}
-<webapp>
+{code:xml}<webapp>
 <display-name>eXoResources</display-name>
 <filter>
   <filter-name>ResourceRequestFilter</filter-name>
@@ -211,8 +208,7 @@ ResourceRequestFilter is configured in the _web.xml_ file in the skin web archiv
   <filter-name>ResourceRequestFilter</filter-name>
   <url-pattern>*.css</url-pattern>
 </filter-mapping>
-</webapp>
-{code}
+</webapp>{code}
 
 {note}
 The configuration of Portlet Skin takes an optional parameter application-name, which is the web application wrapping skinned portlet.
@@ -233,12 +229,10 @@ To get a new portal skin declared in _gatein-resources.xml_ loaded successfully,
 
 The following block of CSS illustrates content of the _skin/Stylesheet.css_ file:
 
-{code:css}
-@import url(DefaultSkin/portal/webui/component/UIPortalApplicationSkin.css); (1)
+{code:css}@import url(DefaultSkin/portal/webui/component/UIPortalApplicationSkin.css); (1)
 @import url(DefaultSkin/webui/component/Stylesheet.css); (2)
 @import url(PortletThemes/Stylesheet.css); (3)
-@import url(Portlet/Stylesheet.css); (4)
-{code}
+@import url(Portlet/Stylesheet.css); (4){code}
 
 In which:
 
@@ -250,9 +244,7 @@ In which:
 To make a default skin flexible and highly reusable, instead of defining all CSS classes in this file, CSS classes are arranged in nested stylesheet files, based on the @import statement. This makes easier for new skins to reuse parts of the default skin.
 To reuse a CSS stylesheet from the default portal skin, you need to refer to the default skin from eXoResources. For example, to include the window decorators from the default skin within a new portal skin, you need to use the following import:
 
-{code:css}
-@import url(/eXoResources/skin/Portlet/Stylesheet.css);
-{code}
+{code:css}@import url(/eXoResources/skin/Portlet/Stylesheet.css);{code}
 
 {note}
 When the portal skin is added to the page, it merges all CSS stylesheets into a single file.
@@ -264,8 +256,7 @@ Portlets often require additional styles that may not be defined by the portal s
 For example, the ContentPortlet in content.war takes "content/ContentPortlet" as ID.
 To define a new CSS file to be included whenever a portlet is available on a portal page, the following fragment needs to be added in the _gatein-resources.xml_ file.
 
-{code:xml}
-<portlet-skin>
+{code:xml}<portlet-skin>
   <application-name>portletAppName</application-name>
   <portlet-name>PortletName</portlet-name>
   <skin-name>Default</skin-name>
@@ -276,8 +267,7 @@ To define a new CSS file to be included whenever a portlet is available on a por
   <portlet-name>PortletName</portlet-name>
   <skin-name>OtherSkin</skin-name>
   <css-path>/skin/OtherSkinStylesheet.css</css-path>
-</portlet-skin>
-{code}
+</portlet-skin>{code}
 
 This action will load DefaultStylesheet.css or OtherSkinStylesheet.css when the DefaultSkin or OtherSkin is used respectively.
 
@@ -305,16 +295,14 @@ h1. Override skins with extension {anchor:id=DEV.CreateYourOwnPortal.OverrideSki
 
 The extension mechanism of eXo Platform 3.5 enables the skin definition to be replaced with the skin resource configured in the extension-deployed web application. This is the example where the CSS path of default portal skin needs to be modified without touching the Platform's files.
 
-{code:xml}
-<gatein-resources>
+{code:xml}<gatein-resources>
   <portal-skin>
     <skin-name>Default</skin-name>
     <css-path>/skin/Defaultskin/Stylesheet.css</css-path>
     <overwrite>false</overwrite>
     <css-priority>0</css-priority>
   </portal-skin>
-</gatein-resources>
-{code}
+</gatein-resources>{code}
 
 (The css-path specifies the stylesheet of the new skin.)
 
@@ -358,16 +346,14 @@ To create a new skin (called "MySkin"), you should create a new skin web archive
 
 You need to specify the new portal skin in the _gatein-resources.xml_ file. You also need to specify the name of new skin, where to locate its CSS stylesheet file and whether to overwrite the existing portal theme with the same name.
 
-{code:xml}
-<gatein-resources>
+{code:xml}<gatein-resources>
   <portal-skin>
     <skin-name>MySkin</skin-name>
     <css-path>/skin/myskin.css</css-path>
     <overwrite>false</overwrite>
     <css-priority>0</css-priority>
   </portal-skin>
-</gatein-resources>
-{code}
+</gatein-resources>{code}
 
 The default portal skin and window styles are defined in the _eXoResources.war/WEB-INF/gatein-resources.xml_ file.
 
@@ -395,9 +381,7 @@ For any portal skin, the paths to the preview images are specified in CSS class 
 
 For the portal named MySkin, it is required to define the following CSS classes:
 
-{code:css}
-.UIChangeSkinForm .UIItemSelector .TemplateContainer .MySkinImage
-{code}
+{code:css}.UIChangeSkinForm .UIItemSelector .TemplateContainer .MySkinImage{code}
 
 The default skin would be aware of skin icons if the preview screenshot is placed in:
 
@@ -409,14 +393,12 @@ For the skin named MySkin, it is required to update the following:
 
 Now, amending the deployed package eXoResources is inevitable (modifying the default war/jar breaches development convention of Platform-based products). The problem would be resolved in future eXo Platform versions in which different skin modules are fully independent, for example, there will be no preview image duplication.
 
-{code:css}
-.UIChangeSkinForm .UIItemSelector .TemplateContainer .MySkinImage {
+{code:css}.UIChangeSkinForm .UIItemSelector .TemplateContainer .MySkinImage {
 margin: auto;
 width: 329px; height:204px;
 background: url('background/MySkin.jpg') no-repeat top;
 cursor: pointer ;
-}
-{code}
+}{code}
 
 {docbook}
 <para xml:id="DEV.CreateYourOwnPortal.Skin_the_window_style">
@@ -433,8 +415,7 @@ Window style is the CSS applied to the window decorator. When the administrator 
 Window style is defined within the _gatein-resources.xml_ file used by the SkinService to deploy the window style. Window styles can belong to a window style category. This category and window styles need to be specified in the resources file.
 For example, the following _gatein-resource.xml_ fragment will add MyThemeBlue and MyThemeRed to the MyTheme category.
 
-{code:xml}
-<window-style>
+{code:xml}<window-style>
   <style-name>MyTheme</style-name>
   <style-theme>
     <theme-name>MyThemeBlue</theme-name>
@@ -442,8 +423,7 @@ For example, the following _gatein-resource.xml_ fragment will add MyThemeBlue a
   <style-theme>
     <theme-name>MyThemeRed</theme-name>
   </style-theme>
-</window-style>
-{code}
+</window-style>{code}
 
 The windows style of the default skin is configured in the _eXoResources.war/WEB-INF/gatein-resources.xml_ file.
 
@@ -478,55 +458,43 @@ Stylesheet authors can annotate their stylesheet to create content that depends 
 
 Example 1. This example uses the orientation to modify the float attribute that will make the horizontal tabs either float on left or on right:
 
-{code:css}
-float: left; /* orientation=lt */
+{code:css}float: left; /* orientation=lt */
 float: right; /* orientation=rt */
 font-weight: bold;
 text-align: center;
-white-space: nowrap;
-{code}
+white-space: nowrap;{code}
 
 The LT produced output will be:
 
-{code:css}
-float: left; /* orientation=lt */
+{code:css}float: left; /* orientation=lt */
 font-weight: bold;
 text-align: center;
-white-space: nowrap;
-{code}
+white-space: nowrap;{code}
 
 The RT produced output will be:
-{code:css}
-float: right; /* orientation=rt */
+{code:css}float: right; /* orientation=rt */
 font-weight: bold;
 text-align: center;
-white-space: nowrap;
-{code}
+white-space: nowrap;{code}
 
 Example 2. In this example, you need to modify the padding based on the orientation:
 
-{code:css}
-color: white;
+{code:css}color: white;
 line-height: 24px;
 padding: 0px 5px 0px 0px; /* orientation=lt */
-padding: 0px 0px 0px 5px; /* orientation=rt */
-{code}
+padding: 0px 0px 0px 5px; /* orientation=rt */{code}
 
 The LT produced output will be:
 
-{code:css}
-color: white;
+{code:css}color: white;
 line-height: 24px;
-padding: 0px 5px 0px 0px; /* orientation=lt */
-{code}
+padding: 0px 5px 0px 0px; /* orientation=lt */{code}
 
 The RT produced output will be:
 
-{code:css}
-color: white;
+{code:css}color: white;
 line-height: 24px;
-padding: 0px 0px 0px 5px; /* orientation=rt */
-{code}
+padding: 0px 0px 0px 5px; /* orientation=rt */{code}
 
 h1. Configure Platform skin {anchor:id=DEV.CreateYourOwnPortal.Configure_portlet_skinRoleNotInToc}
 
@@ -552,16 +520,14 @@ Simply add a skin tag to the _portal.war/WEB-INF/conf/portal/portal/classic/port
 
 To change skin to YourSkin, use the following code:
 
-{code:xml}
-<portal-config>
+{code:xml}<portal-config>
   <portal-name>classic</portal-name>
   <locale>en</locale>
   <access-permissions>Everyone</access-permissions>
   <edit-permission>*:/platform/administrators</edit-permission>
   <skin>MySkin</skin>
   ...
-</portal-config>
-{code}
+</portal-config>{code}
 
 
 h2. Skins in the page markup {anchor:id=DEV.CreateYourOwnPortal.SkinsInThePageMarkup}
@@ -571,8 +537,7 @@ There are two main types of CSS links which appear in the head tag: one to the p
 * *Portlet Skin* only appears as the link on the page if that portlet is loaded on the current page. A page may contain many CSS links of portlet skins or none.
 In the code fragment below, you can see two types of links:
 
-{code:html}
-<head>
+{code:html}<head>
   ...
   <!-- The portal skin -->
   <link id="CoreSkin" rel="stylesheet" type="text/css" href="/eXoResources/skin/Stylesheet.css" />
@@ -590,8 +555,7 @@ webui/component/UIHomePagePortlet/DefaultStylesheet.css" />
     href="/web/skin/portal/webui/
 component/UIBannerPortlet/DefaultStylesheet.css" />
   ...
-</head>
-{code}
+</head>{code}
 
 {note}
 Window styles and portlet specification CSS classes are included within the portal skin.
@@ -619,8 +583,7 @@ A table column container with three nested containers:
 
 And here is the fragment of _portal.xml_ located in this path: _<myportal\_path>/src/main/webapp/WEB-INF/conf/myportal/portal/portal/mysite/portal.xml_.
 
-{code:xml}
-<!-- ... -->
+{code:xml}<!-- ... -->
 
 <portlet-application>
   <!-- Branding application. You can use WCM web content *exo:webContent* for the content and SCV portlet to display -->
@@ -653,33 +616,26 @@ And here is the fragment of _portal.xml_ located in this path: _<myportal\_path>
   <!-- Footer application. You can use WCM web content *exo:webContent* for the content and SCV portlet to display -->
 </portlet-application>
 
-<!-- ... -->
-{code}
+<!-- ... -->{code}
 
 As you see in the _portal.xml_ file above, every *container* tag has an *id* attribute, for example "<container id = '*RightColumn*'>". When you create a CSS file, the property applied for this container should have the following name manner:
 
-{code}
-${container_id}TDContainer
-{code}
+{code}${container_id}TDContainer{code}
 
 and the details of this container:
 
-{code}
-RightColumnTDContainer
-{code}
+{code}RightColumnTDContainer{code}
 
 The reason is, when you have a look in the file system: _/groovy/portal/webui/container/UITableColumnContainer.gtmpl_ shown above, you will see this code fragment:
 
-{code:html}
-<table class="UITableColumnContainer"
+{code:html}<table class="UITableColumnContainer"
   style="table-layout: fixed; margin: 0px auto;">
   <tr class="TRContainer">
     <% for(uiChild in uicomponent.getChildren()) {%>
     <td class="${uiChild.id}TDContainer TDContainer"><%
       uicomponent.renderUIComponent(uiChild) %></td> <% } %>
   </tr>
-</table>
-{code}
+</table>{code}
 
 So, in the *table* element (which represents the outer container), there are many *td* elements, each of which has the *class* attribute that equals to the *id* of the corresponding child component plus the "TDContainer" string literal.
 
@@ -693,8 +649,7 @@ This section is related to the configuration. You can see a sample [here.|http:/
 
 !images/sample_page.jpg|align="center"  width="60mm" fo:scalefit="1" html:scalefit="0"!
 
-{code:xml}
-<!-- ... -->
+{code:xml}<!-- ... -->
 
 <portlet-application> <!-- A custom document for content and SCV portlet to display -->
 </portlet-application>
@@ -705,8 +660,7 @@ This section is related to the configuration. You can see a sample [here.|http:/
 <portlet-application> <!-- A CLV portlet with another custom template. -->
 </portlet-application>
 
-<!-- ... -->
-{code}
+<!-- ... -->{code}
 
 h2. Customize portal and page's style {anchor:id=customize-portal-and-page-style}
 
@@ -745,8 +699,7 @@ This document should contain ONLY one stylesheet for the page and portal level.
 
 The following is the sample stylesheet:
 
-{code:css}
-/* ... */
+{code:css}/* ... */
 .LeftColumnTDContainer { 
 /* ... */
   
@@ -757,8 +710,7 @@ The following is the sample stylesheet:
   
 }
 
-/* ... */
-{code}
+/* ... */{code}
 
 {note}
 The order of applying CSS files (of site and web content) depends on their own *priority* property value. It means that we can apply the site CSS first and then web content CSS, or vice versa.
@@ -776,20 +728,17 @@ For example:
 
 _<myportal\_path>/src/main/webapp/WEB-INF/conf/myportal/customized/template/list/ACustomizedCLVTemplate.gtmpl_
 
-{code:html}
-<div id="$uicomponent.id" class="ACustomizedCLVTemplate">
+{code:html}<div id="$uicomponent.id" class="ACustomizedCLVTemplate">
   <div class="ListContents">
     <!-- something here -->
   </div>
-</div>
-{code}
+</div>{code}
 
 * Now, you need to import this template to the database.
 
 _<myportal\_path>/src/main/webapp/WEB-INF/conf/myportal/customized/template/configuration.xml_
 
-{code:xml}
-<external-component-plugins>
+{code:xml}<external-component-plugins>
   <target-component>org.exoplatform.services.cms.views.ApplicationTemplateManagerService</target-component>
   <component-plugin>
     <name>ACustomizedCLVTemplate</name>
@@ -819,8 +768,7 @@ _<myportal\_path>/src/main/webapp/WEB-INF/conf/myportal/customized/template/conf
       </object-param>
     </init-params>
   </component-plugin>
-</external-component-plugins>
-{code}
+</external-component-plugins>{code}
 
 h2. Customize CLV template's style {anchor:id=DEV.CreateYourOwnPortal.CustomizeCLVTemplateStyle}
 
@@ -834,8 +782,7 @@ This document should contain ONLY one stylesheet for THIS template. If you have 
 
 * The following is the sample stylesheet:
 
-{code:css}
-/* ... */
+{code:css}/* ... */
 .ACustomizedCLVTemplate {
 /* ... */
 
@@ -846,8 +793,7 @@ This document should contain ONLY one stylesheet for THIS template. If you have 
 
 }
 
-/* ... */
-{code}
+/* ... */{code}
 
 *3.* Export the document and now you have an XML file.
 
@@ -866,17 +812,14 @@ First, you need to create a new document definition.
 
 * _<myportal\_path>/src/main/webapp/WEB-INF/conf/myportal/customized/document/ACustomizedDocument.xml_
 
-{code}
-	node type name :exo:customizedDocument
-	properties: exo:name(type : String), exo:title(type : String), exo:content(type : String)
-{code}
+{code}code type name :exo:customizedDocument
+properties: exo:name(type : String), exo:title(type : String), exo:content(type : String){code}
 
 You also need to configure it to make sure it is imported to the database.
 
 * _<myportal\_path>/src/main/webapp/WEB-INF/conf/myportal/customized/document/definition-configuration.xml_
 
-{code:xml}
-<external-component-plugins>
+{code:xml}<external-component-plugins>
   <target-component>org.exoplatform.services.jcr.RepositoryService</target-component>
   <component-plugin>
     <name>ACustomizedDocument</name>
@@ -891,8 +834,7 @@ You also need to configure it to make sure it is imported to the database.
       </values-param>
     </init-params>
   </component-plugin>
-</external-component-plugins>
-{code}
+</external-component-plugins>{code}
 
 Next, create the templates for this document, including:
 
@@ -900,23 +842,19 @@ Next, create the templates for this document, including:
 
 _<myportal\_path>/src/main/webapp/WEB-INF/conf/myportal/customized/document/dialog.gtmpl_
 
-{code:html}
-<div class="UIForm ACustomizedDocument">
+{code:html}<div class="UIForm ACustomizedDocument">
   <% uiform.begin() %>
   <!-- Document dialog content is here -->
-  <% uiform.end() %>
-{code}
+  <% uiform.end() %>{code}
 
 * View: see the sample [here.|http://svn.exoplatform.org/projects/ecms/tags/2.1.0-GA/packaging/wcm/webapp/src/main/webapp/WEB-INF/conf/dms-extension/dms/artifacts/templates/article/views/view1.gtmpl]
 
 _<myportal\_path>/src/main/webapp/WEB-INF/conf/myportal/customized/document/view.gtmpl_
 
-{code:html}
-<style>
+{code:html}<style>
   <% _ctx.include(uicomponent.getTemplateSkin("exo:customizedDocument", "Stylesheet")); %>
 </style>
-<!-- Document view template content is here -->
-{code}
+<!-- Document view template content is here -->{code}
 
 * Stylesheet: see the sample [here.|http://svn.exoplatform.org/projects/ecms/tags/2.1.0-GA/packaging/wcm/webapp/src/main/webapp/WEB-INF/conf/dms-extension/dms/artifacts/templates/article/skins/Stylesheet-lt.css]
 
@@ -927,22 +865,19 @@ This document should contain ONLY the stylesheet for THIS template.
 _<myportal\_path>/src/main/webapp/WEB-INF/conf/myportal/customized/document/stylesheet.css_
 
 
-{code:css}
-/* ... */
+{code:css}/* ... */
 
 .ACustomizedDocument {
   /* ... */
 }
 
-/* ... */
-{code}
+/* ... */{code}
 
 * You also need to import them to the database.
 
 _<myportal\_path>/src/main/webapp/WEB-INF/conf/myportal/customized/document/template-configuration.xml_
 
-{code:xml}
-<external-component-plugins>
+{code:xml}<external-component-plugins>
   <target-component>org.exoplatform.services.cms.templates.TemplateService</target-component>
   <component-plugin>
     <name>addTemplates</name>
@@ -1028,15 +963,13 @@ _<myportal\_path>/src/main/webapp/WEB-INF/conf/myportal/customized/document/temp
       </object-param>
     </init-params>
   </component-plugin>
-</external-component-plugins>
-{code}
+</external-component-plugins>{code}
 
 Finally, you should create some initial contents and export them to XML files.
 
 To import this XML into database, you can set up the deployment like this:
 
-{code:xml}
-<external-component-plugins>
+{code:xml}<external-component-plugins>
   <target-component>org.exoplatform.services.wcm.deployment.WCMContentInitializerService</target-component>
   <component-plugin>
     <name>Content Initializer Service</name>
@@ -1068,8 +1001,7 @@ To import this XML into database, you can set up the deployment like this:
       </object-param>
     </init-params>
   </component-plugin>
-</external-component-plugins>
-{code}
+</external-component-plugins>{code}
 
 h1. Best practices to customize a skin {anchor:id=DEV.CreateYourOwnPortal.BestPracticeToCustomizeSkinRoleNotInToc}
 The skin folder structure must be prepared once you start the design. Follow these conventions and best practices to ease the integration of your design in eXo Platform.
@@ -1130,8 +1062,7 @@ For example:
 
 In summary, the folder structure for a new portal skin should be:
 
-{code}
-webapp
+{code}webapp
 |- skin
 |--- NameOfPortalSkin
 |----- stylesheet.css
@@ -1140,8 +1071,7 @@ webapp
 |------------ UIComponentName
 |--------------- NameOfPortalSkin.css
 |--------------- NameOfPortalSkin
-|------------------ background
-{code}
+|------------------ background{code}
 
 {docbook}
 <citetitle>
@@ -1173,7 +1103,7 @@ For example:
 
 Main entry CSS:
 
-* _/webapp/skin/PortletThemes/Stylesheet.css_
+* _/webapp/skin/PortletThemes/Stylesheet.css_           s
 
 * _/webapp/skin/PortletThemes/background_
 

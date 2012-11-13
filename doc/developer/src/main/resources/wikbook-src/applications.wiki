@@ -38,8 +38,7 @@ To add a portlet to one of your portal's pages, you should configure the _pages.
 
 Here is an example of the portlet configuration in the _pages.xml_ file:
 
-{code:xml}
-<portlet-application>
+{code:xml}<portlet-application>
   <portlet>
     <application-ref>presentation</application-ref>
     <portlet-ref>SingleContentViewer</portlet-ref>
@@ -67,8 +66,7 @@ Here is an example of the portlet configuration in the _pages.xml_ file:
   <show-info-bar>false</show-info-bar>
   <show-application-state>false</show-application-state>
   <show-application-mode>false</show-application-mode>
-</portlet-application>
-{code}
+</portlet-application>{code}
 
 *Details:*
 
@@ -145,8 +143,7 @@ h3. Resources {anchor:id=DEV.WorkWithApplications.DevelopAGadgetForPlatform.Reso
 To achieve the consistent look and feel, you have to collect the common features of all gadgets as much as possible and put in a place where it can be shared for all gadgets. You will use exo-gadget-resources for this purpose. 
 It is a _.war_ file that contains commonly used static resources (stylesheets, images, JavaScript libraries, and more) available for all gadgets in eXo Platform at runtime: 
 
-{code}
-/exo-gadget-resources 
+{code}/exo-gadget-resources
  |__skin 
  |   |__exo-gadget 
  |   |   |__images 
@@ -157,8 +154,7 @@ It is a _.war_ file that contains commonly used static resources (stylesheets, i
     |  |__1.6.2 
     |  |__...(other jQuery versions) 
     |  |__plugins 
-    |__utils 
-{code}
+    |__utils{code}
 
 The resources are divided into 2 categories: skin and script.
 
@@ -197,8 +193,7 @@ h3. Apply for a gadget {anchor:id=DEV.WorkWithApplications.DevelopAGadgetForPlat
 
 A gadget should use static resources available in _exo-gadget-resources_ instead of including them in their own package. This helps reduce packaging size, avoid duplication (considering that every gadget includes a version of jQuery is in its own package) and take advantages of automatic skin changing/updating when the resources of _exo-gadget-resources_ are updated to the new eXo Platform skin. To make it work, the applied gadget must use the CSS classes defined in _gadget-common.css_ (at least for the gadget title) like the sample gadget below:
 
-{code:xml}
-<Module> 
+{code:xml}<Module>
 <ModulePrefs title="Sample gadget" /> 
 <Content type="html"> 
   <head> 
@@ -221,8 +216,7 @@ A gadget should use static resources available in _exo-gadget-resources_ instead
     </div> 
   </body> 
 </Content> 
-</Module>
-{code}
+</Module>{code}
 
 The sample gadget:
 
@@ -238,8 +232,7 @@ The sample gadget:
 
 The following gadget gives the demo of a user settings screen which uses eXo Platform standard icons (setting button, list item bullet, and more) that are defined in the _gadget-common.css_.
 
-{code:xml}
-<Module> 
+{code:xml}<Module>
 <ModulePrefs title="Setting demo"> 
   <Require feature="dynamic-height"/> 
   <Require feature="setprefs"/> 
@@ -310,8 +303,7 @@ The following gadget gives the demo of a user settings screen which uses eXo Pla
     </div> 
   </body> 
 </Content> 
-</Module> 
-{code}
+</Module>{code}
 
 !images/setting_demo_form.png|align="center" width="80mm" fo:scalefit="1" html:scalefit="0"!
 

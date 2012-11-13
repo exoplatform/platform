@@ -134,8 +134,7 @@ Maven dependencies
 eXo Platform includes many components, so if you want to update your eXo Platform extension to use eXo Platform 3.5, you need to update the version of all dependencies in the _POM_ files, and select the version of dependencies which are compatible with eXo Platform 3.5.
 For example, eXo Platform 3.5.1 needs to have the following main dependencies:
 
-{code:xml}
-<!-- kernel -->
+{code:xml}<!-- kernel -->
 <dependency>
 	<groupId>org.exoplatform.kernel</groupId>
 	<artifactId>kernel-parent</artifactId>
@@ -229,8 +228,7 @@ For example, eXo Platform 3.5.1 needs to have the following main dependencies:
   <groupId>org.exoplatform.integration</groupId>
   <artifactId>integ</artifactId>
   <version>1.0.5</version>
-</dependency>
-{code}
+</dependency>{code}
 
 {docbook}
 <para xml:id="DEV.Upgrade.Update_configuration">
@@ -325,13 +323,11 @@ Kernel XML Schema
 
 * Simply upgrade the version from _kernel\_1\_0.xsd_ to _kernel\_1\_2.xsd_ in all _.xml_ configurations files.
 
-{code:xml}
-<configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+{code:xml}<configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.exoplatform.org/xml/ns/kernel_1_2.xsd http://www.exoplatform.org/xml/ns/kernel_1_2.xsd"
 	xmlns="http://www.exoplatform.org/xml/ns/kernel_1_2.xsd">
 	.....
-</configuration>
-{code}
+</configuration>{code}
 
 {docbook}
 <para xml:id="DEV.Upgrade.Update_extension.Update_portal">
@@ -412,8 +408,7 @@ Processing the portal data import includes the following tasks:
 
 For example, if you want to merge the new portal navigation from the configuration file and the existing portal navigation into the current eXo Platform, you can configure as below:
 
-{code:xml}
-<object-param>
+{code:xml}<object-param>
   <name>portal.configuration</name>
   <object type="org.exoplatform.portal.config.NewPortalConfig">
     <field name="predefinedOwner">
@@ -431,8 +426,7 @@ For example, if you want to merge the new portal navigation from the configurati
       <string>merge</string>
     </field>
   </object>
-</object-param>
-{code}
+</object-param>{code}
 
 {note}
 When a mode is not specified, the default mode will be *conserve*.
@@ -448,8 +442,7 @@ When a mode is not specified, the default mode will be *conserve*.
 If there are other new portal containers in your eXo Platform extension, you need to update the authentication mechanism in the _$PLATFORM-TOMCAT-HOME/conf/jaas.conf_ file. 
 For example, in case you have added a new portal container named "company" to eXo Platform, you need to configure the new authentication module for the new portal container as follows:
 
-{code}
-<!--this configuration for defaul portal container with name "portal"-->
+{code}<!--this configuration for defaul portal container with name "portal"-->
 gatein-domain {
   org.gatein.wci.security.WCILoginModule optional;
   org.exoplatform.services.security.jaas.SharedStateLoginModule required;
@@ -467,8 +460,7 @@ gatein-domain-company {
   org.exoplatform.services.security.j2ee.TomcatLoginModule required
     portalContainerName="company"
   	realmName="gatein-domain-company";
-};
-{code}
+};{code}
 
 For more details, see the [Change the JAAS realm|../../../admin-guide/html/ADM.Security.Change_JAAS_real.html] section.
 

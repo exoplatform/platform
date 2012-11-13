@@ -169,21 +169,17 @@ CKEditor comes with a rich set of configuration options that make it possible to
 By default, this file is mostly empty. To change the CKEditor configuration, add the settings that you want to modify to the _config.js_ file.
 
 For example:
-{code:java}
-CKEDITOR.editorConfig = function( config )
+{code:java}CKEDITOR.editorConfig = function( config )
 {
     config.language = 'en';
     config.uiColor = '#AADC6E';
-};
-{code}
+};{code}
 Instead of using the default _config.js_ file, you can create a copy of that file in anywhere in your website and simply point the editor instances to load it. For example, in eXo Platform, the configuration file for CKEditor is placed at _/webapps/eXoStaticResources/eXoConfig.js_, so the content of the _config.js_ file will be:
 
-{code:java}
-CKEDITOR.editorConfig = function( config )
+{code:java}CKEDITOR.editorConfig = function( config )
 {
     config.customConfig = "../eXoConfig.js";
-};
-{code}
+};{code}
 
 {docbook}
 <para xml:id="DEV.WorkWithContent.CKEditor.Skin">
@@ -200,10 +196,8 @@ You can change the CKEditor skin by adjusting a single configuration option. In 
 *1.* Open the _/webapps/eXoStaticResources/eXoConfig.js_ configuration file of CKEditor.
 
 *2.* Set up a skin for CKEditor. It may be the name of the skin folder inside the editor installation path, or the name and the path separated by a comma.
-{code}
-    config.skin = 'v2';
-    config.skin = 'myskin,/customstuff/myskin/';
-{code}
+{code}config.skin = 'v2';
+config.skin = 'myskin,/customstuff/myskin/';{code}
 
 By default, CKEditor has 3 skins for users to select: *v2*, *kama*, and *office2003*. They are placed in the _/webapps/eXoStaticResources/ckeditor/skins_ folder.
 
@@ -222,8 +216,7 @@ CKEditor is a full-featured WYSIWYG editor, but not all of its options are neede
 {anchor:id="DEV.WorkWithContent.CKEditor.ToolbarDefinition"}
 * *Toolbar Definition* is a JavaScript array which contains the elements to be displayed in all toolbar rows available in the editor. In eXo Platform, the toolbar definition is placed in the _/webapps/eXoStaticResources/eXoConfig.js_ file. The following code snippet contains the default CKEditor toolbar set in eXo Platform.
 
-{code:java}
-config.toolbar_Default = [
+{code:java}config.toolbar_Default = [
      ['Source','Templates'],
      ['Cut','Copy','PasteText','-','SpellCheck'],
      ['Undo','Redo','-','RemoveFormat'],
@@ -235,27 +228,22 @@ config.toolbar_Default = [
      ['TextColor','BGColor'],
      ['Maximize', 'ShowBlocks'],
      ['Style','Format','Font','FontSize']
-] ;
-{code}
+] ;{code}
 
 {anchor:id="DEV.WorkWithContent.CKEditor.AddNewToolbar"}
 
 * To add a new toolbar in eXo Platform, open the _/webapps/eXoStaticResources/eXoConfig.js_ configuration file of CKEditor, then add the following code snippet to it.
 
-{code:java}
-config.toolbar_MyToolbar =
+{code:java}config.toolbar_MyToolbar =
 [
  ['Bold', 'Italic', '-', 'NumberedList', 'BulletedList', '-', 'Link', 'Unlink','-','About']
-];
-{code}
+];{code}
 
 * To show the newly added toolbar, you have to add it to a field of a WCM template.
 For example, to show  the new toolbar on the content field of HTML file, you need to modify the dialog template of HTML file as follows:
 
-{code:java}
-        String[] fieldSummary = ["jcrPath=/node/jcr:content/jcr:data", "", "options=toolbar:MyToolbar, noSanitization"] ;
-        uicomponent.addRichtextField("contentHtml", fieldSummary) ;
-{code}
+{code:java}String[] fieldSummary = ["jcrPath=/node/jcr:content/jcr:data", "", "options=toolbar:MyToolbar, noSanitization"] ;
+uicomponent.addRichtextField("contentHtml", fieldSummary) ;{code}
 By adding a new HTML file, you will see the new toolbar (MyToolbar) on the content field:
 
 !images/MyToolbar.png|align="center" width="120mm" scalefit:fo="1" scalefit:html="0"!
@@ -281,8 +269,7 @@ Also, you will need a toolbar icon for the plugin by adding an _images_ folder a
 
 The following is the code used to create a simple plugin named _timestamp_:
 
-{code:java}
-CKEDITOR.plugins.add( 'timestamp',
+{code:java}CKEDITOR.plugins.add( 'timestamp',
 {
  init: function( editor )
  {
@@ -301,21 +288,18 @@ CKEDITOR.plugins.add( 'timestamp',
    icon: this.path + 'images/timestamp.png'
   } );
  }
-} );
-{code}
+} );{code}
 
 To use the created plugin, plug it to CKEditor by using the following code:
 
-{code:java}
- (function() {CKEDITOR.plugins.addExternal('timestamp',CKEDITOR.eXoPath+'eXoPlugins/timestamp/','plugin.js');})();
+{code:java} (function() {CKEDITOR.plugins.addExternal('timestamp',CKEDITOR.eXoPath+'eXoPlugins/timestamp/','plugin.js');})();
     ....
     config.extraPlugins = 'content,insertGadget,insertPortalLink,timestamp';
     ....
     config.toolbar_MyToolbar =
     [
                    ['Bold', 'Italic', '-', 'NumberedList', 'BulletedList', '-', 'Link', 'Unlink','-','About','Timestamp']
-    ];
-{code}
+    ];{code}
 
 The following is the illustration about the Timestamp plugin added to the CKEditor.
 

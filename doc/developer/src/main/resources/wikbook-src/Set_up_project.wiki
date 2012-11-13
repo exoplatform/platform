@@ -30,14 +30,10 @@ You need to add a system environment variable _MAVEN\_OPTS_ (it could be in a _.
 
 * Windows:*
 
-{code}
-set MAVEN_OPTS=-Xshare:auto -Xms128M -Xmx1G -XX:MaxPermSize=256M
-{code}
+{code}set MAVEN_OPTS=-Xshare:auto -Xms128M -Xmx1G -XX:MaxPermSize=256M{code}
 
 * Linux/MacOS:
-{code}
-export MAVEN_OPTS="-Xshare:auto -Xms128M -Xmx1G -XX:MaxPermSize=256M"
-{code}
+{code}export MAVEN_OPTS="-Xshare:auto -Xms128M -Xmx1G -XX:MaxPermSize=256M"{code}
 
 {docbook}
 <citetitle>

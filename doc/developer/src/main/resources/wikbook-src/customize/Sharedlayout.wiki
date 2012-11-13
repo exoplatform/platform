@@ -26,8 +26,7 @@ To make sure your extension is last loaded, look at the configuration file: _jar
 
 The code which is responsible for _sharedlayout.xml_ loading is located in the _POMDataStorage.java_ class from portal.
 
-{code:java}
-   public Container getSharedLayout() throws Exception
+{code:java}public Container getSharedLayout() throws Exception
    {
       String path = "war:/conf/portal/portal/sharedlayout.xml";
       String out = IOUtil.getStreamContentAsString(confManager_.getInputStream(path));
@@ -38,8 +37,7 @@ The code which is responsible for _sharedlayout.xml_ loading is located in the _
       Container container = (Container)uctx.unmarshalElement();
       generateStorageName(container);
       return container;
-   }
-{code}
+   }{code}
 
 You can see the path is hard-coded. Once the good configuration file is chosen by the portal container, this one will use it to add portlets to the *Admin* bar. You can see that all sharedlayout portlets are configured with the _show-info-bar_ parameter set to "true".
 
@@ -79,8 +77,7 @@ In the illustration above, each circle represents a portlet defined in the *Admi
 
 The _sharedlayout.xml_ file configures the current displayed portlets on the *Admin* bar. For example, to remove the *Dashboard* menu, you will need to remove the following block:
 
-{code:xml}
-...
+{code:xml}...
 <container id="UserToolBarDashboardPortlet" template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
   <portlet-application>
     <portlet>
@@ -91,15 +88,13 @@ The _sharedlayout.xml_ file configures the current displayed portlets on the *Ad
     <show-info-bar>false</show-info-bar>
   </portlet-application>
 </container>
- ...
-{code}
+ ...{code}
 
 *Add a portlet to the Admin bar* {anchor:id=DEV.CreateYourOwnPortal.AddAdminbarContent}
 
 In the same way you removed a portlet from the Admin bar, you can add your own portlet by editing your _sharedlayout.xml_.
 
-{code:xml}
-...
+{code:xml}...
 <container id="UILogoutPortlet" template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
   <access-permissions>*:/platform/users</access-permissions>
   <portlet-application>
@@ -111,17 +106,14 @@ In the same way you removed a portlet from the Admin bar, you can add your own p
     <show-info-bar>false</show-info-bar>
   </portlet-application>
 </container>
-...
-{code}
+...{code}
 
 The style of portlet container can be changed by editing the CSS file: _eXoResources/skin/DefaultSkin/portal/webui/component/view/UIToolbarContainer/Stylesheet.css_.
 
-{code:css}
-.UIToolbarContainer .UILogoutPortletTDContainer {
+{code:css}.UIToolbarContainer .UILogoutPortletTDContainer {
 	float: right; /* orientation=lt */
 	float: left; /* orientation=rt */
-}
-{code}
+}{code}
 
 *Change the color scheme* {anchor:id=DEV.CreateYourOwnPortal.ChangeColorScheme}
 
@@ -139,8 +131,7 @@ The CSS code below shows how to modify the *Admin* bar to look like this:
 
 !images/modified_admin_bar.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
 
-{code:css}
-.UIWorkingWorkspace #UIToolbarContainer .HomeLinkTDContainer {
+{code:css}.UIWorkingWorkspace #UIToolbarContainer .HomeLinkTDContainer {
 	line-height: 31px;
     margin: 0px 5px;
     vertical-align: middle;
@@ -185,5 +176,4 @@ The CSS code below shows how to modify the *Admin* bar to look like this:
 .UIWorkingWorkspace .UIToolbarContainer .ToolbarContainer a.SetupMenuItem  {
 	padding: 0 8px;
 	line-height:25px;
- }
-{code}
+ }{code}

@@ -180,8 +180,7 @@ Memberships, Groups and Users
 
 The predefined membership types are specified in the *membershipType* field of the OrganizationConfig plugin parameter.
 
-{code:xml}
-<field name="membershipType">
+{code:xml}<field name="membershipType">
   <collection type="java.util.ArrayList">
     <value>
       <object type="org.exoplatform.services.organization.OrganizationConfig$MembershipType">
@@ -204,13 +203,11 @@ The predefined membership types are specified in the *membershipType* field of t
       </object>
     </value>
   </collection>
-</field>
-{code}
+</field>{code}
 
 The predefined groups are specified in the *group* field of the OrganizationConfig plugin parameter.
 
-{code:xml}
-<field name="group">
+{code:xml}<field name="group">
   <collection type="java.util.ArrayList">
     <value>
       <object type="org.exoplatform.services.organization.OrganizationConfig$Group">
@@ -246,13 +243,11 @@ The predefined groups are specified in the *group* field of the OrganizationConf
     </value>
     ...
   </collection>
-</field>
-{code}
+</field>{code}
 
 The predefined users are specified in the *membershipType* field of the OrganizationConfig plugin parameter.
 
-{code:xml}
-<field name="user">
+{code:xml}<field name="user">
   <collection type="java.util.ArrayList">
     <value>
       <object type="org.exoplatform.services.organization.OrganizationConfig$User">
@@ -300,8 +295,7 @@ The predefined users are specified in the *membershipType* field of the Organiza
     </value>
     ...
   </collection>
-</field>
-{code}
+</field>{code}
 
 {docbook}
 <para xml:id="DEV.SystemIntegration.OrganizationAPI">
@@ -386,8 +380,7 @@ The configuration is done in the _ldap-configuration.xml_ file which contains nu
 h2. Connection Settings {anchor:id=DEV.SystemIntegration.ConnectionSettingsRoleNotInToc}
 First, start by connection settings which will tell eXo how to connect to your directory server. These settings are very close to the [JNDI API|http://java.sun.com/products/jndi] context parameters. This configuration is activated by the init-param _ldap.config_ of service _LDAPServiceImpl_.
 
-{code:xml}
-<component>
+{code:xml}<component>
   <key>org.exoplatform.services.ldap.LDAPService</key>
   <type>org.exoplatform.services.ldap.impl.LDAPServiceImpl</type>
   <init-params>
@@ -415,8 +408,7 @@ First, start by connection settings which will tell eXo how to connect to your d
       </object>
     </object-param>
   </init-params>
-</component>
-{code}
+</component>{code}
 
 * *providerURL*: LDAP server URL (see [PROVIDER URL|http://java.sun.com/products/jndi/1.2/javadoc/javax/naming/Context.html#PROVIDER_URL]). For multiple LDAP servers, use comma separated list of host:port (For example, ldap://127.0.0.1:389,10.0.0.1:389).
 * *rootdn*: distinguished name of user that will be used by the service to authenticate on the server (see [SECURITY PRINCIPAL|http://java.sun.com/products/jndi/1.2/javadoc/javax/naming/Context.html#SECURITY_PRINCIPAL]).
@@ -430,8 +422,7 @@ h2.  Organization Service Configuration {anchor:id=DEV.SystemIntegration.Organiz
 Next, you need to configure the eXo *OrganizationService* to show how the directory is structured and how to interact with it.
 This is managed by a couple of init-params: *ldap.userDN.key* and *ldap.attribute.mapping* in the _ldap-configuration.xml_ file (by default located at _portal.war/WEB-INF/conf/organization_)
 
-{code:xml}
-<component>
+{code:xml}<component>
   <key>org.exoplatform.services.organization.OrganizationService</key>
   <type>org.exoplatform.services.organization.ldap.OrganizationServiceImpl</type>
   [...]
@@ -449,19 +440,16 @@ This is managed by a couple of init-params: *ldap.userDN.key* and *ldap.attribut
     </object-param>
   </init-params>
   [...]
-</component>
-{code}
+</component>{code}
 
 *ldap.attribute.mapping* maps your LDAP to eXo. At first, there are two main parameters to configure in it:
 
-{code:xml}
-<field name="baseURL">
+{code:xml}<field name="baseURL">
   <string>dc=exoplatform,dc=org</string>
 </field>
 <field name="ldapDescriptionAttr">
   <string>description</string>
-</field>
-{code}
+</field>{code}
 
 * *baseURL*: root dn for eXo organizational entities. This entry cannot be created by eXo and must have existed in the directory already.
 * *ldapDescriptionAttr*: Name of a common attribute that will be used as description for groups and membership types.
@@ -484,8 +472,7 @@ Main parameters
 
 Here are the main parameters to map eXo users to your directory:
 
-{code:xml}
-<field name="userURL">
+{code:xml}<field name="userURL">
   <string>ou=users,ou=portal,dc=exoplatform,dc=org</string>
 </field>
 <field name="userObjectClassFilter">
@@ -493,8 +480,7 @@ Here are the main parameters to map eXo users to your directory:
 </field>
 <field name="userLDAPClasses">
   <string>top,person,organizationalPerson,inetOrgPerson</string>
-</field>
-{code}
+</field>{code}
 
 * *userURL*: base dn for users. Users are created in a flat structure under this base with a *dn* of the form: *ldap.userDN.key=username,userURL*.
 
@@ -508,8 +494,7 @@ Example: {code}uid=tom,ou=France,ou=EMEA,cn=People,o=MyCompany,c=com{code}
 
 Example: _john_ and _tom_ will be recognized as valid eXo users but _EMEA_ and _France_ entries will be ignored in the following subtree:
 
-{code}
-uid=john,cn=People,o=MyCompany,c=com
+{code}uid=john,cn=People,o=MyCompany,c=com
   objectClass: person
   ...
 ou=EMEA,cn=People,o=MyCompany,c=com
@@ -520,8 +505,7 @@ ou=EMEA,cn=People,o=MyCompany,c=com
       ...
         uid=tom,ou=EMEA,cn=People,o=MyCompany,c=com
           objectClass: person
-          ...
-{code}
+          ...{code}
 
 * *userLDAPClasses*: commas are used to separate list of classes used for creating users. 
 When a new user is created, an entry will be created with the given _objectClass_ attributes. 
@@ -529,14 +513,12 @@ The classes must at least define _cn_ and any attribute referenced in the user m
 
 For example, adding the user _Marry Simons_ could produce:
 
-{code}
-uid=marry,cn=users,ou=portal,dc=exoplatform,dc=org
+{code}uid=marry,cn=users,ou=portal,dc=exoplatform,dc=org
   objectclass: top
   objectClass: person
   objectClass: organizationalPerson
   objectClass: inetOrgPerson
-  ...
-{code}
+  ...{code}
 
 {docbook}
 <para xml:id="DEV.SystemIntegration.UserMapping">
@@ -550,8 +532,7 @@ User mapping
 
 The following parameters maps LDAP attributes to eXo User Java objects attributes.
 
-{code:xml}
-<field name="userUsernameAttr">
+{code:xml}<field name="userUsernameAttr">
   <string>uid</string>
 </field>
 <field name="userPassword">
@@ -568,8 +549,7 @@ The following parameters maps LDAP attributes to eXo User Java objects attribute
 </field>
 <field name="userMailAttr">
   <string>mail</string>
-</field>
-{code}
+</field>{code}
 
 * *userUsernameAttr*: username (login)
 * *userPassword*: password (used when the portal authentication is done by eXo login module)
@@ -580,23 +560,20 @@ The following parameters maps LDAP attributes to eXo User Java objects attribute
 
 In the example above, the user _Marry Simons_ could produce:
 
-{code}
-uid=marry,cn=users,ou=portal,dc=exoplatform,dc=org
+{code}uid=marry,cn=users,ou=portal,dc=exoplatform,dc=org
   userPassword: XXXX
   givenName: Marry
   sn: Simons
   displayName: Marry Simons
   mail: marry.simons@example.org
   uid: marry
-  ...
-{code}
+  ...{code}
 
 
 h3. Groups {anchor:id=DEV.SystemIntegration.Groups}
 eXo Platform groups can be mapped to organizational or applicative groups defined in your directory.
 
-{code:xml}
-<field name="groupsURL">
+{code:xml}<field name="groupsURL">
   <string>ou=groups,ou=portal,dc=exoplatform,dc=org</string>
 </field>
 <field name="groupLDAPClasses">
@@ -604,22 +581,19 @@ eXo Platform groups can be mapped to organizational or applicative groups define
 </field>
 <field name="groupObjectClassFilter">
   <string>objectClass=organizationalUnit</string>
-</field>
-{code}
+</field>{code}
 
 * *groupsURL*: base dn for eXo groups
 Groups can be structured hierarchically under _groupsURL_.
             
 For example, groups, including _communication_, _communication/marketing_ and _communication/press_, would map to:
             
-{code}
-ou=communication,ou=groups,ou=portal,dc=exoplatform,dc=org
+{code}ou=communication,ou=groups,ou=portal,dc=exoplatform,dc=org
 ...
   ou=marketing,ou=communication,ou=groups,ou=portal,dc=exoplatform,dc=org
   ...            
   ou=press,ou=communication,ou=groups,ou=portal,dc=exoplatform,dc=org                          
-  ...
-{code}        
+  ...{code}
 
 * *groupLDAPClasses*: commas are used to separate list of classes used for group creation. 
 When a new group is created, an entry will be also created with the given objectClass attributes.
@@ -631,22 +605,19 @@ The *l* attribute corresponds to the *City* property in OU property editor.
                         
 For example, adding the _human-resources_ group could produce: 
 
-{code}                       
-ou=human-resources,ou=groups,ou=portal,dc=exoplatform,dc=org
+{code}ou=human-resources,ou=groups,ou=portal,dc=exoplatform,dc=org
   objectclass: top
   objectClass: organizationalunit
   ou: human-resources
   description: The human resources department
   l: Human Resources
-  ...
-{code}
+  ...{code}
 
 * *groupObjectClassFilter*: This filter is used under the _groupsURL_ branch to distinguish eXo groups from other entries. You can also use a complex filter if you need.
             
 Example: groups _WebDesign_, _WebDesign/Graphists_ and _sales_ could be retrieved in:
 
-{code}           
-l=Paris,dc=sites,dc=mycompany,dc=com
+{code}l=Paris,dc=sites,dc=mycompany,dc=com
   ...
   ou=WebDesign,l=Paris,dc=sites,dc=mycompany,dc=com
   ...
@@ -655,14 +626,12 @@ l=Paris,dc=sites,dc=mycompany,dc=com
 l=London,dc=sites,dc=mycompany,dc=com
   ...
   ou=Sales,l=London,dc=sites,dc=mycompany,dc=com
-  ...
-{code}
+  ...{code}
 
 h3. Membership types {anchor:id=DEV.SystemIntegration.MembershipTypes}
 Membership types are the possible roles that can be assigned to users in groups.
 
-{code:xml}
-<field name="membershipTypeURL">
+{code:xml}<field name="membershipTypeURL">
   <string>ou=memberships,ou=portal,dc=exoplatform,dc=org</string>
 </field>
 <field name="membershipTypeLDAPClasses">
@@ -670,14 +639,12 @@ Membership types are the possible roles that can be assigned to users in groups.
 </field>
 <field name="membershipTypeNameAttr">
   <string>cn</string>
-</field>
-{code}          
+</field>{code}
 
 * *membershipTypeURL*: base dn for membership types storage.
 eXo stores membership types in a flat structure under _membershipTypeURL_. For example, roles, including _manager_, _user_, _admin_ and _editor_ could be defined by the subtree:
 
-{code}           
-ou=roles,ou=portal,dc=exoplatform,dc=org
+{code}ou=roles,ou=portal,dc=exoplatform,dc=org
 ...
   cn=manager,ou=roles,ou=portal,dc=exoplatform,dc=org
   ...
@@ -686,8 +653,7 @@ ou=roles,ou=portal,dc=exoplatform,dc=org
   cn=admin,ou=roles,ou=portal,dc=exoplatform,dc=org               
   ...
   cn=editor,ou=roles,ou=portal,dc=exoplatform,dc=org
-  ...
-{code}             
+  ...{code}
 
 * *membershipTypeLDAPClasses*: commas are used to separate list of classes for creating membership types.
 When a new membership type is created, an entry will be also created with the given _objectClass_ attributes.
@@ -695,12 +661,10 @@ The classes must define the required attributes: *description*, *cn*.
 
 For example, adding the membership type _validator_ would produce: 
 
-{code}          
-cn=validator,ou=roles,ou=portal,dc=exoplatform,dc=org
+{code}cn=validator,ou=roles,ou=portal,dc=exoplatform,dc=org
   objectclass: top
   objectClass: organizationalRole
-  ...                       
-{code}
+  ...{code}
 
 * *membershipTypeNameAttr*: Attribute will be used as the name of the role.
           
@@ -715,18 +679,15 @@ Users in this role are defined as attributes of the membership entry.
             
 * For example, to designate _tom_ as the _manager_ of the group _human-resources_: 
 
-{code}          
-ou=human-resources,ou=groups,ou=portal,dc=exoplatform,dc=org
+{code}ou=human-resources,ou=groups,ou=portal,dc=exoplatform,dc=org
   ...
   cn=manager,ou=human-resources,ou=groups,ou=portal,dc=exoplatform,dc=org
     member: uid=tom,ou=users,ou=portal,dc=exoplatform,dc=org
-    ...                
-{code}
+    ...{code}
 
 The parameters to configure memberships are:
 
-{code:xml}
-<field name="membershipLDAPClasses">
+{code:xml}<field name="membershipLDAPClasses">
   <string>top,groupOfNames</string>
 </field>
 <field name="membershipTypeMemberValue">
@@ -737,8 +698,7 @@ The parameters to configure memberships are:
 </field>
 <field name="membershipTypeObjectClassFilter">
   <string>objectClass=organizationalRole</string>
-</field>
-{code}
+</field>{code}
 
 * *membershipLDAPClasses*: the commas are used to separate the list of classes for creating memberships.
 When a new membership is created, an entry will be also created with the given _objectClass_ attributes.
@@ -746,32 +706,26 @@ The classes must at least define the attribute designated by _membershipTypeMemb
           
 Example: Adding membership _validator_ would produce:
 
-{code}           
-cn=validator,ou=human-resources,ou=groups,ou=portal,dc=exoplatform,dc=org
+{code}cn=validator,ou=human-resources,ou=groups,ou=portal,dc=exoplatform,dc=org
   objectclass: top
   objectClass: groupOfNames
-  ...
-{code}
+  ...{code}
 
 * *membershipTypeMemberValue*: Multi-valued attribute is used in memberships to reference users that have the role in the group. 
 Values should be a user dn.
 
 Example: _james_ and _root_, who have _admin_ role within the group _human-resources_, would give:
 
-{code}
-cn=admin,ou=human-resources,ou=groups,ou=portal,dc=exoplatform,dc=org
+{code}cn=admin,ou=human-resources,ou=groups,ou=portal,dc=exoplatform,dc=org
   member: cn=james,ou=users,ou=portal,dc=exoplatform,dc=org
   member: cn=root,ou=users,ou=portal,dc=exoplatform,dc=org
-  ...
-{code}                   
+  ...{code}
 
 * *membershipTypeRoleNameAttr*: Attribute of the membership entry whose value refers to the membership type.
             
 For example, in the following membership entry:
             
-{code}
-cn=manager,ou=human-resources,ou=groups,ou=portal,dc=exoplatform,dc=org
-{code}
+{code}cn=manager,ou=human-resources,ou=groups,ou=portal,dc=exoplatform,dc=org{code}
           
 The _cn_ attribute is used to designate the _manager_ membership type. In other words, the name of role is given by the 'cn' attribute.
 
@@ -791,14 +745,12 @@ h3. User profiles {anchor:id=DEV.SystemIntegration.UserProfiles}
 eXo User profiles also have entries in the LDAP but the actual storage is still done with the hibernate service.
 You will need the following parameters:
 
-{code:xml}
-<field name="profileURL">
+{code:xml}<field name="profileURL">
   <string>ou=profiles,ou=portal,dc=exoplatform,dc=org</string>
 </field>
 <field name="profileLDAPClasses">
   <string>top,organizationalPerson</string>
-</field>
-{code}
+</field>{code}
 
 * *profileURL*: base dn to store user profiles.
 * *profileLDAPClasses*: Classes used for creating user profiles.
@@ -806,8 +758,7 @@ You will need the following parameters:
 h2. Active Directory sample configuration {anchor:id=DEV.SystemIntegration.ActiveDirectorySampleConfigurationRoleNotInToc}
 Here is an alternative configuration for active directory that you can find in *activedirectory-configuration.xml*.
 
-{code:xml}
-[...]
+{code:xml}[...]
 <component>
   <key>org.exoplatform.services.ldap.LDAPService</key>
   [..]
@@ -845,8 +796,7 @@ Here is an alternative configuration for active directory that you can find in *
     <field  name="membershipObjectClassFilter"><string>objectClass=group</string></field>
   </object>
   [...]  
-</component>  
-{code}
+</component>{code}
 
 {info}
 There is a Microsoft limitation: the password cannot be set in AD via unsecured connection, you have to use the LDAPs protocol.
@@ -876,8 +826,7 @@ For further information, visit [here|http://jboss.org/picketlink/IDM.html].
 The project exo.core defines the API for Organization Service and the eXo Platform implementation of API. For the Organization Service plugged in the eXo Platform product, you are flexible in switching between: eXo Organization Service, PicketLink and your own implementation.
 The configuration to switch between various Organization Service implementations can be found in _portal.war/WEB-INF/conf/configuration.xml_:
 
-{code:xml}
-<!--PicketLink IDM integration -->
+{code:xml}<!--PicketLink IDM integration -->
 <import>war:/conf/organization/idm-configuration.xml</import>
 
 <!--Former exo implementations -->
@@ -886,13 +835,11 @@ The configuration to switch between various Organization Service implementations
 <!--for organization service used active directory which is user lookup server -->
 <!-- <import>war:/conf/organization/exoactivedirectory-configuration.xml</import> -->
 <!--for organization service used ldap server which is user lookup server -->
-<!-- <import>war:/conf/ldap-configuration.xml</import> -->
-{code}
+<!-- <import>war:/conf/ldap-configuration.xml</import> -->{code}
 
 If you want to switch between different implementations, you just need to uncomment the corresponding <import> and leave others commented:
 
-{code:xml}
-<!--PicketLink IDM integration -->
+{code:xml}<!--PicketLink IDM integration -->
 <import>war:/conf/ldap-configuration.xml</import>
 <!-- <import>war:/conf/organization/idm-configuration.xml</import> -->
 <!--Former exo implementations -->
@@ -900,8 +847,7 @@ If you want to switch between different implementations, you just need to uncomm
 <!-- <import>war:/conf/organization/exo/jdbc-configuration.xml</import> -->
 <!--for organization service used active directory which is user lookup server -->
 <!-- <import>war:/conf/organization/exoactivedirectory-configuration.xml</import> -->
-<!--for organization service used ldap server which is user lookup server -->
-{code}
+<!--for organization service used ldap server which is user lookup server -->{code}
 
 h1. Email {anchor:id=DEV.SystemIntegration.Email}
 
@@ -914,8 +860,7 @@ The email service can use any SMTP account configured in the _configuration.prop
 
 The relevant section looks like:
 
-{code}
-# EMail
+{code}# EMail
 gatein.email.smtp.username=
 gatein.email.smtp.password=
 gatein.email.smtp.host=smtp.gmail.com
@@ -923,8 +868,7 @@ gatein.email.smtp.port=465
 gatein.email.smtp.starttls.enable=true
 gatein.email.smtp.auth=true
 gatein.email.smtp.socketFactory.port=465
-gatein.email.smtp.socketFactory.class=javax.net.ssl.SSLSocketFactory
-{code}
+gatein.email.smtp.socketFactory.class=javax.net.ssl.SSLSocketFactory{code}
 
 It is pre-configured for Gmail, so any Gmail account can easily be used. You simply need to use the full Gmail address as username, and fill in the password.
 
