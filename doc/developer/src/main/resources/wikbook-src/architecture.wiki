@@ -56,8 +56,7 @@ The _PortalContainer_ is created for each portal (one or several portals). All s
 
 In your code, if you need to invoke a service of a container, you can use the _ExoContainerContext_ helper from any location. The code below shows you a utility method that you can use to invoke any eXo Platform services.
 
-{code:java}
-public class ExoUtils {
+{code:java}public class ExoUtils {
   /**
   * Get a service from the portal container
   * @param type : component type
@@ -66,14 +65,11 @@ public class ExoUtils {
   public <T>T getService(Class<T> type) {
     return (T)ExoContainerContext.getCurrentContainer().getComponentInstanceOfType(type);
   }
-}
-{code}
+}{code}
 
 Then, invoking becomes as easy as:
 
-{code:java}
-OrganizationService orgService = ExoUtils.getService(OrganizationService.class)
-{code}
+{code:java}OrganizationService orgService = ExoUtils.getService(OrganizationService.class){code}
 
 h2. Services {anchor:id=DEV.eXoArchitecturePremer.Services}
 
@@ -109,13 +105,11 @@ The service configuration is performed in:
 
 The containers configuration files must comply with the kernel configuration grammar. Thus, all configurations will contain an XSD declaration like this:
 
-{code:xml}
-<configuration
+{code:xml}<configuration
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://www.exoplatform.org/xml/ns/kernel_1_1.xsd http://www.exoplatform.org/xml/ns/kernel_1_1.xsd"
   xmlns="http://www.exoplatform.org/xml/ns/kernel_1_1.xsd">
-</configuration>
-{code}
+</configuration>{code}
 
 The _kernel\_1\_1.xsd_ file mentioned in the example above can be found inside {{exo.kernel.container-x.y.z.jar!org/exoplatform/container/configuration/}} along with other versions.
 
@@ -131,13 +125,10 @@ The service registration within the container is done with the _<component>_ ele
 
 For example, open the _/webapps/exo-wcm-core/WEB-INF/conf/wcm-core/core-services-configuration.xml_ file. You will see the following code:
 
-{code:xml}
-    <component>
-        <key>org.exoplatform.services.cms.CmsService</key>
-        <type>org.exoplatform.services.cms.impl.CmsServiceImpl</type>
-    </component>
-
-{code}
+{code:xml}<component>
+   <key>org.exoplatform.services.cms.CmsService</key>
+   <type>org.exoplatform.services.cms.impl.CmsServiceImpl</type>
+</component>{code}
 
 Each component has a _key_ which matches with the qualified Java interface name (_org.exoplatform.services.cms.CmsService_).
 
@@ -158,8 +149,7 @@ You can provide initial parameters for your service by defining them in the conf
 {anchor:id="DEV.eXoArchitecturePremer.Value-param"}
 * *Value-param:* You can use the value-param to pass a single value to the service.
 
-{code:xml}
-<component>
+{code:xml}<component>
   <key>org.exoplatform.services.resources.LocaleConfigService</key>
   <type>org.exoplatform.services.resources.impl.LocaleConfigServiceImpl</type>
   <init-params>
@@ -168,13 +158,11 @@ You can provide initial parameters for your service by defining them in the conf
       <value>war:/conf/common/locales-config.xml</value>
     </value-param>
   </init-params>
-</component>
-{code}
+</component>{code}
 
 The _LocaleConfigService_ service accesses the value of value-param in its constructor.
 
-{code:java}
-package org.exoplatform.services.resources.impl;
+{code:java}package org.exoplatform.services.resources.impl;
 public class LocaleConfigServiceImpl implements LocaleConfigService {
   public LocaleConfigServiceImpl(InitParams params, ConfigurationManager cmanager) throws Exception {
     configs_ = new HashMap<String, LocaleConfig>(10);
@@ -182,14 +170,12 @@ public class LocaleConfigServiceImpl implements LocaleConfigService {
     InputStream is = cmanager.getInputStream(confResource);
     parseConfiguration(is);
   }
-}
-{code}
+}{code}
 
 {anchor:id="DEV.eXoArchitecturePremer.Object-param"}
 * *Object-param:* For the object-param component, you can look at the LDAP service:
 
-{code:xml}
-<component>
+{code:xml}<component>
   <key>org.exoplatform.services.ldap.LDAPService</key>
   <type>org.exoplatform.services.ldap.impl.LDAPServiceImpl</type>
   <init-params>
@@ -208,15 +194,13 @@ public class LocaleConfigServiceImpl implements LocaleConfigService {
       </object>
     </object-param>
   </init-params>
-</component>
-{code}
+</component>{code}
 
 The object-param is used to create an object (which is actually a Java Bean) passed as a parameter to the service. This object-param is defined by a name, a description and exactly one object. The object tag defines the type of the object, while the field tags define parameters for that object.
 
 You can see how the service accesses the object in the code below:
 
-{code:java}
-package org.exoplatform.services.ldap.impl;
+{code:java}package org.exoplatform.services.ldap.impl;
 
 public class LDAPServiceImpl implements LDAPService {
   // ...
@@ -225,13 +209,11 @@ public class LDAPServiceImpl implements LDAPService {
     ...
   }
   // ...
-}
-{code}
+}{code}
 
 The passed object is _LDAPConnectionConfig_, which is a classic Java Bean. It contains all fields defined in the configuration files and also the appropriate getters and setters (not listed here). You also can provide default values. The container creates a new instance of your Java Bean and calls all setters whose values are configured in the configuration file.
 
-{code:java}
-package org.exoplatform.services.ldap.impl;
+{code:java}package org.exoplatform.services.ldap.impl;
 
 public class LDAPConnectionConfig {
   private String providerURL = "ldap://127.0.0.1:389";
@@ -244,8 +226,7 @@ public class LDAPConnectionConfig {
   private int maxConnection;
   private String referralMode = "follow";
   // ...
-}
-{code}
+}{code}
 
 {anchor:id="DEV.eXoArchitecturePremer.RestOfParameterTypes"}
 * *Rest of parameter types:* Other possible parameter types are Collection, Map and Native Array. See the exhaustive reference in the Kernel reference guide.
@@ -259,8 +240,7 @@ Plugins enable you to provide the structured configuration outside the original 
 
 You can have a look at the configuration of the TaxonomyPlugin of the TaxonomyService as below:
 
-{code:xml}
-<external-component-plugins>
+{code:xml}<external-component-plugins>
   <target-component>org.exoplatform.services.cms.taxonomy.TaxonomyService</target-component>
   <component-plugin>
     <name>predefinedTaxonomyPlugin</name>
@@ -268,8 +248,7 @@ You can have a look at the configuration of the TaxonomyPlugin of the TaxonomySe
     <type>org.exoplatform.services.cms.taxonomy.impl.TaxonomyPlugin</type>
     <init-params><!-- ... --></init-params>
   </component-plugin>
-</external-component-plugins>
-{code}
+</external-component-plugins>{code}
 
 The <target-component> defines components that host the extension point. The configuration is injected by the container using the method defined in <set-method> (addTaxonomyPlugin(). The method accepts exactly one argument of the _org.exoplatform.services.
 cms.categories.impl.TaxonomyPlugin_ type.
@@ -355,20 +334,17 @@ If you need to customize your portal by adding a new extension and/or a new port
 
 First, you need to tell eXo Platform to load _WEB-INF/conf/configuration.xml_ of your extension, you need to declare it as a _PortalContainerConfigOwner_. Next, open the file _WEB-INF/web.xml_ of your extension and add a listener:
 
-{code:xml}
-<web-app>
+{code:xml}<web-app>
   <display-name>my-portal</display-name>
     <listener>
       <listener-class>org.exoplatform.container.web.PortalContainerConfigOwner</listener-class>
     </listener>
   <!-- ... -->
-</web-app>
-{code}
+</web-app>{code}
 
 You need to register your extension in the portal container. This is done by the *.xml* configuration file like this: 
 
-{code:xml}
-<external-component-plugins>
+{code:xml}<external-component-plugins>
   <target-component>org.exoplatform.container.definition.PortalContainerConfig</target-component>
   <component-plugin>
     <name>Change PortalContainer Definitions</name>
@@ -396,8 +372,7 @@ You need to register your extension in the portal container. This is done by the
       </value-param>       
     </init-params>
   </component-plugin>
-</external-component-plugins>
-{code}
+</external-component-plugins>{code}
 
 A _PortalContainerDefinitionChangePlugin_ plugin is defined to the _PortalContainerConfig_. The plugin declares a list of dependencies that are webapps. The _apply.default=true_ indicates that your extension is actually extending _portal.war_. You  need to package your extension into a *.war* file and put it to the tomcat webapps folder, then restart the server.
 
@@ -407,8 +382,7 @@ In your portal, if you want to add your own property file to support localizatio
 
 - Add an external plugin declaration to the _.xml_ configuration file.	  
 
-{code:xml}
-<external-component-plugins>
+{code:xml}<external-component-plugins>
   <!-- The full qualified name of the ResourceBundleService -->
   <target-component>org.exoplatform.services.resources.ResourceBundleService</target-component>
   <component-plugin>
@@ -437,8 +411,7 @@ In your portal, if you want to add your own property file to support localizatio
       </values-param>
     </init-params>
   </component-plugin>
-</external-component-plugins>
-{code}
+</external-component-plugins>{code}
 
 h1. Java Content Repository {anchor:id=DEV.eXoArchitecturePremer.JavaContentRepositoryRoleNotInToc}
 
@@ -465,8 +438,7 @@ Access the repository's content from a service
 {docbook}
 
 *1.* Get the session object.
-{code:java}
-import javax.jcr.Session;
+{code:java}import javax.jcr.Session;
 
 import org.exoplatform.services.jcr.RepositoryService;
 import org.exoplatform.services.jcr.core.ManageableRepository;
@@ -477,8 +449,7 @@ import org.exoplatform.services.wcm.utils.WCMCoreUtils;
 RepositoryService repositoryService = WCMCoreUtils.getService(RepositoryService.class);
 ManageableRepository manageableRepository = repositoryService.getRepository(repository);
 SessionProvider sessionProvider = WCMCoreUtils.getSessionProvider();
-Session session = sessionProvider.getSession(workspace, manageableRepository);
-{code}
+Session session = sessionProvider.getSession(workspace, manageableRepository);{code}
 
 *i.* Obtain the _javax.jcr.Repository_ object via one of the following ways:
 
@@ -487,32 +458,26 @@ Session session = sessionProvider.getSession(workspace, manageableRepository);
 Call the _getRepository()_ method of _RepositoryService_.
 
 
-{code:java}
-RepositoryService repositoryService = (RepositoryService) container.getComponentInstanceOfType(RepositoryService.class);
-Repository repository = repositoryService.getRepository("repositoryName");
-{code}
+{code:java}RepositoryService repositoryService = (RepositoryService) container.getComponentInstanceOfType(RepositoryService.class);
+Repository repository = repositoryService.getRepository("repositoryName");{code}
 
 *The second way*
 
 Call the _getCurrentRepository()_ method, especially when you plan to use a single repository which covers more than 90% of usecases.
 
-{code:java}
-// set current repository at initial time
+{code:java}// set current repository at initial time
 RepositoryService repositoryService = (RepositoryService) container.getComponentInstanceOfType(RepositoryService.class);
 repositoryService.setCurrentRepositoryName("repositoryName");
 ....
 // retrieve and use this  repository
-Repository repository = repositoryService.getCurrentRepository();
-{code}
+Repository repository = repositoryService.getCurrentRepository();{code}
 
 *The third way*
 
 Using JNDI as specified in [JSR-170|http://jcp.org/aboutJava/communityprocess/final/jsr170/index.html].
 
-{code:java}
-Context ctx = new InitialContext();
-Repository repository =(Repository) ctx.lookup("repositoryName");
-{code}
+{code:java}Context ctx = new InitialContext();
+Repository repository =(Repository) ctx.lookup("repositoryName");{code}
 
 *ii.* Log in the server to get a Session object by either of two ways:
 
@@ -520,19 +485,15 @@ Repository repository =(Repository) ctx.lookup("repositoryName");
 
 Create a Credential object, for example:
 
-{code:java}
-Credentials credentials = new SimpleCredentials("exo", "exo".toCharArray());
+{code:java}Credentials credentials = new SimpleCredentials("exo", "exo".toCharArray());
 
-Session jcrSession = repository.login(credentials, "production");
-{code}
+Session jcrSession = repository.login(credentials, "production");{code}
 
 *The second way*
 
 Log in the server without using a Credential object.
 
-{code:java}
-Session jcrSession = repository.login("production");
-{code}
+{code:java}Session jcrSession = repository.login("production");{code}
 
 This way is only applied when you run an implementation of eXo Platform. The eXo Platform implementation will directly
 leverage the organization and security services that rely on LDAP or DB storage and JAAS login modules.
@@ -552,8 +513,6 @@ When designing your application, you should take care of the Session policy insi
 
 *2.* Retrieve your node content of the session object.
 
-{code:java}
-String path = "/"; // put your node path here
+{code:java}String path = "/"; // put your node path here
 
-Node node = (Node) session.getItem(path);
-{code}
+Node node = (Node) session.getItem(path);{code}

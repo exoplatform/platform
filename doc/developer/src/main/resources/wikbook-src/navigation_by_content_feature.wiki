@@ -343,8 +343,7 @@ The sample *Product* page is composed of the following fields and folders:
 * *Name*
 Other content folders are created within the product content when the *Name* field is created. This can be achieved (from the .gtmpl product dialog) as follows:
 
-{code:html}
-<tr>
+{code:html}<tr>
 	<td class="FieldLabel"><%=_ctx.appRes("Product.dialog.label.name")%></td>
 	<td class="FieldComponent">
 	<%
@@ -360,16 +359,14 @@ Other content folders are created within the product content when the *Name* fie
 	uicomponent.addHiddenField("videoFolder", videoFolder);
 	%>
 	</td>
-</tr>
-{code}
+</tr>{code}
 
 
 *Other fields are created almost in the same way:*
 
 * *Title:*
 
-{code:html}
-<tr>
+{code:html}<tr>
 	<td class="FieldLabel"><%=_ctx.appRes("Product.dialog.label.title")%></td>
 	<td class="FieldComponent">
 	<%
@@ -377,13 +374,11 @@ Other content folders are created within the product content when the *Name* fie
 		uicomponent.addTextField("title", productFieldTitle) ;
 	%>
 	</td>
-</tr>
-{code}
+</tr>{code}
 
 * *Illustration image*:
 
-{code:html}
-<%
+{code:html}<%
 private void setUploadFields(name) {
 	String[] illustrationHiddenField1 = ["jcrPath=/node/medias/images/illustration", "nodetype=nt:file", "mixintype=mix:referenceable", "defaultValues=illustration"];
 	String[] illustrationHiddenField2 = ["jcrPath=/node/medias/images/illustration/jcr:content", "nodetype=nt:resource", "mixintype=dc:elementSet", "visible=false"];
@@ -426,13 +421,11 @@ private void setUploadFields(name) {
 			}
 		%>
 	</td>
-</tr>
-{code}
+</tr>{code}
 
 * *Summary:*
 
-{code:html}
-<tr>
+{code:html}<tr>
 	<td class="FieldLabel"><%=_ctx.appRes("Product.dialog.label.summary")%></td>
 	<td class="FieldComponent">
 	<%
@@ -440,13 +433,11 @@ private void setUploadFields(name) {
 		uicomponent.addRichtextField("summary", fieldSummary) ;
 	%>
 	</td>
-</tr>
-{code}
+</tr>{code}
 
 * *Benefits:*
 
-{code:html}
-<tr>
+{code:html}<tr>
 	<td class="FieldLabel"><%=_ctx.appRes("Product.dialog.label.benefits")%></td>
 	<td class="FieldComponent">
 	<div class="UIFCKEditor">
@@ -456,13 +447,11 @@ private void setUploadFields(name) {
 	%>
 	</div>
 	</td>
-</tr>
-{code}
+</tr>{code}
 
 * *Features:*
 
-{code:html}
-<tr>
+{code:html}<tr>
 	<td class="FieldLabel"><%=_ctx.appRes("Product.dialog.label.features")%></td>
 	<td class="FieldComponent">
 	<div class="UIFCKEditor">
@@ -472,8 +461,7 @@ private void setUploadFields(name) {
 	%>
 	</div>
 	</td>
-</tr>
-{code}
+</tr>{code}
 
 
 {docbook}
@@ -486,8 +474,7 @@ private void setUploadFields(name) {
 
 *The illustration image, title and summary are grouped together:*
 
-{code:html}
-<!-- Hot news -->
+{code:html}<!-- Hot news -->
 <div class="BigNews ClearFix">
 	<!-- Begin illustrative image -->
 		<%
@@ -522,8 +509,7 @@ private void setUploadFields(name) {
 		%>
 	<!-- End summary -->
 	</div>
-</div>
-{code}
+</div>{code}
 
 In which:
 
@@ -536,8 +522,7 @@ In which:
 
 *Benefits and Features fields are rendered in two tabs using the jQuery library (already integrated into eXo Platform 3.5).*
 
-{code:html}
-<div id="sectionsTabs" class="ui-tabs">
+{code:html}<div id="sectionsTabs" class="ui-tabs">
 	<ul class="ui-tabs-nav ClearFix">
 		<li class="ui-state-default">
 			<!-- Begin Benefits head section -->
@@ -573,13 +558,11 @@ In which:
 	jQuery(document).ready(function() {
 		jQuery("#sectionsTabs").tabs();
 	});
-</script>
-{code}
+</script>{code}
 
 * The jQuery-based feature is used to display the product's images (in the coverflow view) from the images folder.*
 
-{code:html}
-<div class="jQProBoxC">
+{code:html}<div class="jQProBoxC">
 <!-- Begin jCarouselLite part -->
 <button class="jQprev">&nbsp;</button>
 <div class="jCarouselLite">
@@ -611,8 +594,7 @@ jQuery.noConflict();
 	//speed: 500
 });
 });
-</script>
-{code}
+</script>{code}
 
 * Documents and videos are simply displayed within the view form as follows:*
 
@@ -624,16 +606,13 @@ Labels and/or messages are displayed in the dialog and the view form are localiz
 
 The use of this instruction is described as below:
 
-{code:html}
-<td class="FieldLabel"><%=_ctx.appRes("Product.dialog.label.summary")%></td>
+{code:html}<td class="FieldLabel"><%=_ctx.appRes("Product.dialog.label.summary")%></td>
 (...)
-<h1><%=_ctx.appRes("Product.view.label.seeItInAction")%></h1>
-{code}
+<h1><%=_ctx.appRes("Product.view.label.seeItInAction")%></h1>{code}
 
 This can be achieved by adding locale files. For example:
 
-{code:xml}
-<Product>
+{code:xml}<Product>
   <view>
     <label>
       <benefits>Benefits</benefits>
@@ -643,12 +622,9 @@ This can be achieved by adding locale files. For example:
       <videos>Videos</videos>
     </label>
   </view>
-</Product>
-{code}
+</Product>{code}
 
 Make sure that locale files are added to the resource bundle configuration. If locale files (dialogs and views) are under the _classes/locale/wcm_ directory, use the following code:
 
-{code:xml}
-<value>locale.wcm.dialogs</value>
-<value>locale.wcm.views</value>
-{code}
+{code:xml}<value>locale.wcm.dialogs</value>
+<value>locale.wcm.views</value>{code}

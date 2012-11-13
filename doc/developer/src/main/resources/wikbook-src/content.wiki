@@ -67,8 +67,7 @@ To create a content for your extension, you first need to define a node type whi
 * Via the *Content Administration* portlet. For more details on how to create a note type via the *Content Administration* portlet, see the *[Manage node types|../../../user-guide/html/sect-User_Guide-Content_Types-Manage_Node_Types.html]* in the eXo Platform 3.5 user guide.
 * Via the .xml configuration files by creating a _nodetypes-configuration.xml_ file in your extension as below.
 
-{code:xml}
-<nodeType name="exo:newnodetype" isMixin="true" hasOrderableChildNodes="false" primaryItemName=""> 
+{code:xml}<nodeType name="exo:newnodetype" isMixin="true" hasOrderableChildNodes="false" primaryItemName="">
   <supertypes>
     <supertype>exo:article</supertype>
   </supertypes>
@@ -83,8 +82,7 @@ To create a content for your extension, you first need to define a node type whi
     </propertyDefinition>
 
   </propertyDefinitions>
-</nodeType>
-{code}
+</nodeType>{code}
 
 By defining a supertype, you can reuse other node types and extend them with more properties (just like inheritance in Object Oriented Programming).
 
@@ -147,9 +145,7 @@ In eXo Platform, you can specify whether JavaScript is allowed to run on a field
 *4.* Add _option = noSanitization_ to the code in the *Main* field as the example below.
 
 For example:
-{code}
-String [] htmlArguments = ["jcrPath = / node / default.html / JCR: content / JCR: data", "options = toolbar: CompleteWCM, height: '410px ', noSanitization" htmlContent];
-{code}
+{code}String [] htmlArguments = ["jcrPath = / node / default.html / JCR: content / JCR: data", "options = toolbar: CompleteWCM, height: '410px ', noSanitization" htmlContent];{code}
 
 {note}
 By default, JavaScript is disabled for any fields of some content templates to prevent the XSS attacks.
@@ -212,14 +208,11 @@ By placing interceptors in your template, you will be able to execute a Groovy s
 
 To place interceptors, use the following fragment:
 
-{code:groovy}
-<% uicomponent.addInterceptor("ecm-explorer/interceptor/PreNodeSaveInterceptor.groovy", "prev");%>
-{code}
+{code:groovy}<% uicomponent.addInterceptor("ecm-explorer/interceptor/PreNodeSaveInterceptor.groovy", "prev");%>{code}
 
 Interceptor Groovy scripts are managed in the 'Manage Script' section in the ECM admin portlet. They must implement the CmsScript interface. Pre-save interceptors obtain input values within the context:
 
-{code:java}
-public class PreNodeSaveInterceptor implements CmsScript {
+{code:java}public class PreNodeSaveInterceptor implements CmsScript {
 
   public PreNodeSaveInterceptor() {
   }
@@ -236,13 +229,11 @@ public class PreNodeSaveInterceptor implements CmsScript {
   public void setParams(String[] params) {
   }
 
-}
-{code}
+}{code}
 
 Whereas the post-save interceptor is passed the path of the saved node in the context:
 
-{code:java}
-<% uicomponent.addInterceptor("ecm-explorer/interceptor/PostNodeSaveInterceptor.groovy", "post");%>
+{code:java}<% uicomponent.addInterceptor("ecm-explorer/interceptor/PostNodeSaveInterceptor.groovy", "post");%>
 
 public class PostNodeSaveInterceptor implements CmsScript {
 
@@ -257,17 +248,14 @@ public class PostNodeSaveInterceptor implements CmsScript {
 
   public void setParams(String[] params) {
   }
-}
-{code}
+}{code}
 
 h2. Hidden fields {anchor:id=DEV.WorkWithContent.HiddenFieldsRoleNotInToc}
 
 In the next code sample, each argument is composed of a set of keys and values. The order of arguments are not important and only the key matters. That example defines a field with the id as "hiddenField2", which will generate a hidden field. The value of this field will be automatically set to UTF-8 and no visible field will be printed on the form.
 
-{code:groovy}
-String[] hiddenField2 = ["jcrPath=/node/jcr:content/jcr:encoding", "visible=false", "UTF-8"];
-uicomponent.addHiddenField("hiddenInput2", hiddenField2);
-{code}
+{code:groovy}String[] hiddenField2 = ["jcrPath=/node/jcr:content/jcr:encoding", "visible=false", "UTF-8"];
+uicomponent.addHiddenField("hiddenInput2", hiddenField2);{code}
 
 Once the form has been saved, the date value will be saved under the relative JCR path ./exo:image/jcr:lastModified.
 
@@ -282,10 +270,8 @@ Once the form has been saved, the date value will be saved under the relative JC
 
 You cannot either see the non-value field on the form or input value for them. Its value will be automatically created or defined when you are managing templates.
 
-{code:groovy}
-String[] hiddenField1 = ["jcrPath=/node/jcr:content", "nodetype=nt:resource", "mixintype=dc:elementSet", "visible=false"] ;
-uicomponent.addHiddenField("hiddenInput1", hiddenField1) ;
-{code}
+{code:groovy}String[] hiddenField1 = ["jcrPath=/node/jcr:content", "nodetype=nt:resource", "mixintype=dc:elementSet", "visible=false"] ;
+uicomponent.addHiddenField("hiddenInput1", hiddenField1) ;{code}
 
 {docbook}
 <para xml:id="DEV.WorkWithContent.Non-EditableFields">
@@ -297,9 +283,7 @@ uicomponent.addHiddenField("hiddenInput1", hiddenField1) ;
 
 It is possible to create widgets that are non-editable (and then only used to print some information).
 
-{code:java}
-String[] fieldCategories = ["jcrPath=/node/exo:category", "multiValues=true", "reference=true", "editable=false"]; uicomponent.addTextField("categories", fieldCategories);
-{code}
+{code:java}String[] fieldCategories = ["jcrPath=/node/exo:category", "multiValues=true", "reference=true", "editable=false"]; uicomponent.addTextField("categories", fieldCategories);{code}
 
 {docbook}
 <para xml:id="DEV.WorkWithContent.CreateNodeTypeOrMixinType">
@@ -315,10 +299,8 @@ By defining these arguments, the node and its children are created with the corr
 
 See the following example:
 
-{code:groovy}
-String[] hiddenField = ["jcrPath=/node/jcrcontent", "nodetype=nt:resource", "mixintype=exo:rss-enable", "visible=false"] ;
-uicomponent.addHiddenField("hiddenInput", hiddenField) ; 
-{code}
+{code:groovy}String[] hiddenField = ["jcrPath=/node/jcrcontent", "nodetype=nt:resource", "mixintype=exo:rss-enable", "visible=false"] ;
+uicomponent.addHiddenField("hiddenInput", hiddenField) ;{code}
 
 {docbook}
 <para xml:id="DEV.WorkWithContent.HiddenFieldWithDefaultValue">
@@ -330,10 +312,8 @@ uicomponent.addHiddenField("hiddenInput", hiddenField) ;
 
 In the previous sample, the value was automatically created and set according to the current date. However, it is also possible to set a default value for a field.
 
-{code:groovy}
-String[] hiddenField = ["jcrPath=/node/jcrcontent/jcr:mimeType", "image/jpeg"] ;
-uicomponent.addHiddenField("hiddenInput", hiddenField) ;
-{code}
+{code:groovy}String[] hiddenField = ["jcrPath=/node/jcrcontent/jcr:mimeType", "image/jpeg"] ;
+uicomponent.addHiddenField("hiddenInput", hiddenField) ;{code}
 
 {docbook}
 <para xml:id="DEV.WorkWithContent.VisibleWithoutNullFields">
@@ -345,10 +325,8 @@ uicomponent.addHiddenField("hiddenInput", hiddenField) ;
 
 It is possible to tell that a widget should be visible only if its value is not null or when the form is used to edit the node which has been existing.
 
-{code:groovy}
-String nameArgs[] = ["jcrPath=/node", "mixintype=mix:votable", "visible=if-not-null"];
-uicomponent.addMixinField("name", nameArgs ) 
-{code}
+{code:groovy}String nameArgs[] = ["jcrPath=/node", "mixintype=mix:votable", "visible=if-not-null"];
+uicomponent.addMixinField("name", nameArgs ){code}
 
 {docbook}
 <para xml:id="DEV.WorkWithContent.WYSIWYGWidget">
@@ -362,16 +340,12 @@ Widgets are natively part of the eXo Platform product to provide a simple and ea
 
 WYSIWYG stands for What You See Is What You Get. This widget is one of the most powerful tools. It renders an advanced JavaScript text editor with many functionalities, including the ability to dynamically upload images or flash assets into a JCR workspace and then to refer to them from the created HTML text.
 
-{code:groovy}
-String[] fieldSummary = ["jcrPath=/node/exo:summary", "options=basic"] ;
-uicomponent.addWYSIWYGField("summary", fieldSummary) ;
-{code}
+{code:groovy}String[] fieldSummary = ["jcrPath=/node/exo:summary", "options=basic"] ;
+uicomponent.addWYSIWYGField("summary", fieldSummary) ;{code}
 
 
-{code:groovy}
-String[] fieldContent = ["jcrPath=/node/exo:text", "options=toolbar:CompleteWCM,'height:410px'", ""] ;
-uicomponent.addRichtextField("content", fieldContent)
-{code}
+{code:groovy}String[] fieldContent = ["jcrPath=/node/exo:text", "options=toolbar:CompleteWCM,'height:410px'", ""] ;
+uicomponent.addRichtextField("content", fieldContent){code}
 
 The "options" argument is used to tell the component which toolbar should be used.
 
@@ -411,10 +385,8 @@ The following buttons are shown: Source, Bold, Italic, Underline, Justify Left, 
 
 There is also a simple text area widget, which has text-input area only: 
 
-{code:groovy}
-String [] descriptionArgs = ["jcrPath=/node/exo:title", "validate=empty"];
-uicomponent.addTextAreaField("description", descriptionArgs) ;
-{code}
+{code:groovy}String [] descriptionArgs = ["jcrPath=/node/exo:title", "validate=empty"];
+uicomponent.addTextAreaField("description", descriptionArgs) ;{code}
 
 {docbook}
 <para xml:id="DEV.WorkWithContent.Create_a_custom_Richtext_editor_fields">
@@ -430,8 +402,7 @@ Just edit the configuration file and modify or add new items to the configuratio
 
 Take a look at the eXoConfig.js file to see a definition of a custom toolbar named "MyCustomToolbar":
 
-{code:java}
-FCKConfig.ToolbarSets["MyCustomToolbar"] = [
+{code:java}FCKConfig.ToolbarSets["MyCustomToolbar"] = [
   ['Source','Templates','-','FitWindow','ShowBlocks'],
  ['Cut','Copy','PasteText','-','SpellCheck','-','Undo','Redo'],
  ['WCMInsertGadget','Flash','Table','SpecialChar', 'WCMInsertContent'],
@@ -440,8 +411,7 @@ FCKConfig.ToolbarSets["MyCustomToolbar"] = [
  ['Link','WCMInsertPortalLink','Unlink','Anchor'],
  '/',
  ['Style','FontFormat','FontName','FontSize']
-] ;
-{code}
+] ;{code}
 
 Every toolbar set is composed of a series of "toolbar bands" that are grouped in the final toolbar layout. The bands items move together on new rows when resizing the editor.
 
@@ -469,10 +439,8 @@ The last toolbar band must have no comma after it.
 
 The select box widget enables you to render a select box with static values. These values are enumerated in a comma-separated list in the "options" argument. The argument with no key (here "text/html") is selected by default.
 
-{code:groovy}
-String[] mimetype = ["jcrPath=/node/jcrcontent/jcr:mimeType", "text/html", "options=text/html,text/plain"] ;
-uicomponent.addSelectBoxField("mimetype", mimetype) ;
-{code}
+{code:groovy}String[] mimetype = ["jcrPath=/node/jcrcontent/jcr:mimeType", "text/html", "options=text/html,text/plain"] ;
+uicomponent.addSelectBoxField("mimetype", mimetype) ;{code}
 
 As usual, the value will be stored at the relative path defined by the jcrPath directive argument.
 
@@ -489,15 +457,12 @@ For more examples on how to create WCM templates, refer to the [WCM Templates|..
 In many cases, the previous solution with static options is not good enough and one would like to have the select box checked dynamically. 
 That is what eXo Platform provide thanks to the introduction of a Groovy script as shown in the code fragment below.
 
-{code:groovy}
-String[] args = ["jcrPath=/node/exodestWorkspace", "script=ecm-explorer/widget/FillSelectBoxWithWorkspaces:groovy", "scriptParams=production"];
-uicomponent.addSelectBoxField("destWorkspace", args) ;
-{code}
+{code:groovy}String[] args = ["jcrPath=/node/exodestWorkspace", "script=ecm-explorer/widget/FillSelectBoxWithWorkspaces:groovy", "scriptParams=production"];
+uicomponent.addSelectBoxField("destWorkspace", args) ;{code}
 
 The script itself implements the CMS Script interface and the cast is done to get the select box object as shown in the script code which fills the select box with the existing JCR workspaces.
 
-{code:java}
-import java.util.List ;
+{code:java}import java.util.List ;
 import java.util.ArrayList ;
 
 import org.exoplatform.services.jcr.RepositoryService;
@@ -529,8 +494,7 @@ public class FillSelectBoxWithWorkspaces implements CmsScript {
 
   public void setParams(String[] params) {
   }
-}
-{code}
+}{code}
 
 {note}
 It is also possible to provide a parameter to the script by using the argument "scriptParams".
@@ -548,23 +512,18 @@ One of the most advanced functionalities of this syntax is the ability to plug y
 
 In the generated form, you will see an icon which is configurable thanks to the selectorIcon argument. The syntax is a bit more complex but not much.
 
-{code:groovy}
-String[] groupArgs = ["jcrPath=/node/exogroup", "selectorClass=org:exoplatform:ecm:webui:selector:UIGroupMemberSelector"];
-uicomponent.addActionField("group", groupArgs);
-{code}
+{code:groovy}String[] groupArgs = ["jcrPath=/node/exogroup", "selectorClass=org:exoplatform:ecm:webui:selector:UIGroupMemberSelector"];
+uicomponent.addActionField("group", groupArgs);{code}
 
 You can plug your own component using the selectorClass argument. It must follow the eXo UIComponent mechanism and implements the interface ComponentSelector:
 
-{code:java}
-package org.exoplatform.ecm.webui.selector;
+{code:java}package org.exoplatform.ecm.webui.selector;
 
 import org.exoplatform.webui.core.UIComponent;
 public interface ComponentSelector {
   public UIComponent getSourceComponent() ;
   public void setSourceComponent(UIComponent uicomponent, String[] initParams) ;    
-}
-
-{code}
+}{code}
 
 {docbook}
 <para xml:id="DEV.WorkWithContent.Multi-valueWidget">
@@ -622,30 +581,23 @@ h1. Template Service {anchor:id=DEV.WorkWithContent.ManageTemplateService}
 
 You can find the template service configuration in _/webapps/ecm-wcm-core/WEB-INF/conf/wcm-core/core-services-configuration.xml_.
 
-{code:xml}
-<component>
+{code:xml}<component>
   <key>org.exoplatform.services.cms.templates.TemplateService</key>
   <type>org.exoplatform.services.cms.templates.impl.TemplateServiceImpl</type>
-</component>
-{code}
-
+</component>{code}
 As usual, one can register a plugin inside the service. This plugin initializes default dialogs and views template of any node type as nt:file, exo:article, exo:workflowAction, exo:sendMailAction, and more.
 
-{code:xml}
-<component-plugins>
+{code:xml}<component-plugins>
   <component-plugin>
     <name>addTemplates</name>
     <set-method>addTemplates</set-method>
     <type>org.exoplatform.services.cms.templates.impl.TemplatePlugin</type>
     .........
   </component-plugin>
-</component-plugins>
-{code}
-
+</component-plugins>{code}
 With init-parameters as:
 
-{code:xml}
-<init-params>
+{code:xml}<init-params>
   <value-param>
     <name>autoCreateInNewRepository</name>
     <value>true</value>
@@ -709,8 +661,7 @@ With init-parameters as:
       </field>
     </object>
   </object-param>
-</init-params>    
-{code}
+</init-params>{code}
 
 {docbook}
 <para>
@@ -852,10 +803,8 @@ Before doing the following steps, be sure that you are connected to a user who b
 
 *6.* Enter some basic codes:
 
-{code}
-<h1>This is my template</h1>
-The date is <= new Date()>
-{code}
+{code}<h1>This is my template</h1>
+The date is <= new Date()>{code}
 
 *7.* Save the template, then go back to the homepage of the ACME site.
 
@@ -911,8 +860,7 @@ The template used by the *Content List* portlet is based on the following Java c
 
 Here is the code to access these preferences:
 
-{code:java}
-// import all the classes need in the template
+{code:java}// import all the classes need in the template
 import javax.jcr.Node;
 import org.exoplatform.wcm.webui.paginator.UICustomizeablePaginator;
 import org.exoplatform.wcm.webui.clv.UICLVPortlet;
@@ -931,8 +879,7 @@ def isShowDate = uicomponent.isShowField(UICLVPortlet.PREFERENCE_SHOW_DATE_CREAT
 def isShowLink = uicomponent.isShowField(UICLVPortlet.PREFERENCE_SHOW_LINK);
 def isShowReadmore = uicomponent.isShowField(UICLVPortlet.PREFERENCE_SHOW_READMORE);
 def isShowImage = uicomponent.isShowField(UICLVPortlet.PREFERENCE_SHOW_ILLUSTRATION) ;
-def isShowSummary = uicomponent.isShowField(UICLVPortlet.PREFERENCE_SHOW_SUMMARY);
-{code}
+def isShowSummary = uicomponent.isShowField(UICLVPortlet.PREFERENCE_SHOW_SUMMARY);{code}
 
 The {{uicomponent}} object is defined by the container class of the portlet that calls the template. This class contains many utility methods.
 The code above retrieves all the preferences of the portlet. Because the name is self-explanatory, it is not necessary to detail them, especially when you look at the preferences screen below:
@@ -949,23 +896,20 @@ So in your template, you will mainly manage 2 classes to loop through the conten
 
 So, you can print all the content of the page as a simple HTML list:
 
-{code:html}
-<ul style="margin: 20px">
+{code:html}<ul style="margin: 20px">
 <%
       for (viewNode in uicomponent.getCurrentPageData()) {
         def title = viewNode.getProperty("exo:title").getString()
         print("<li>$title</li>");
       }
 %>
-</ul>
-{code}
+</ul>{code}
 
 Just copy this code to your template, save it, then refresh the cache and go to your page. You should see the list of the content in a simple HTML list.
 
 On each content (Node), the *Content API* provides some helper methods to easily manipulate the content and avoid using the JCR API directly. In the following code, you can see the most important methods accessing the content properties:
 
-{code:java}
-def itemName = viewNode.getName();
+{code:java}def itemName = viewNode.getName();
 def itemLink = uicomponent.getURL(viewNode);
 def webdDavLink = uicomponent.getWebdavURL(viewNode);
 def itemDateCreated = uicomponent.getCreatedDate(viewNode);
@@ -973,15 +917,13 @@ def itemModifiedDate = uicomponent.getModifiedDate(viewNode);
 def itemAuthor = uicomponent.getAuthor(viewNode);
 def imgSrc = uicomponent.getIllustrativeImage(viewNode);
 def itemTitle = uicomponent.getTitle(viewNode);
-def itemSummary = uicomponent.getSummary(viewNode);
-{code}
+def itemSummary = uicomponent.getSummary(viewNode);{code}
 
 One important point is the fact that these methods are responsible for many things, for example: formatting dates, returning complete URLs that depends on the context of the portlet.
 
 Based on these methods, you can now work on the presentation of the information on the page. For example, you can  click the image and the title to go in the detailed view of the article. This is done simply by using the following code:
 
-{code:java}
-<%
+{code:java}<%
   for (viewNode in uicomponent.getCurrentPageData()) {
     def itemName = viewNode.getName();
     def itemLink = uicomponent.getURL(viewNode);
@@ -1002,8 +944,7 @@ Based on these methods, you can now work on the presentation of the information 
 
 <%
   }
-%>
-{code}
+%>{code}
 
 For the simplicity reason, this code does not manage any null value. Also, the template does not deal with the portlet preferences, such as the "Header", "RSS" links. The Website should look like:
 
@@ -1011,8 +952,7 @@ For the simplicity reason, this code does not manage any null value. Also, the t
 
 The last important point is to add the support for the in-context editing that allows users to edit the content directly from the template. Once again, this is done with a method of the {{uicomponent}} object that creates a DIV around the content:
 
-{code:java}
-<%
+{code:java}<%
   for (viewNode in uicomponent.getCurrentPageData()) {
     def itemName = viewNode.getName();
     def itemLink = uicomponent.getURL(viewNode);
@@ -1035,8 +975,7 @@ The last important point is to add the support for the in-context editing that a
 
 <%
   }
-%>
-{code}
+%>{code}
 
 The 15 and 19 lines are new in this template and provide support for the *Quick Edit* feature.
 

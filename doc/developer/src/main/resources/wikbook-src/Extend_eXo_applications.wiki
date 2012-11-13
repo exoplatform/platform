@@ -355,9 +355,7 @@ In the UI Component class, implement a function which:
 
 * Retrieve a collection of UI Extensions which belongs to it by _UIExtensionManager_:
 
-{code}
-List<UIExtension> extensions = manager.getUIExtensions("org.exoplatform.wiki.UIPageToolBar");
-{code}
+{code}List<UIExtension> extensions = manager.getUIExtensions("org.exoplatform.wiki.UIPageToolBar");{code}
 
 * Transform them into _UIComponent_ and add them to the parent UI Component:
 

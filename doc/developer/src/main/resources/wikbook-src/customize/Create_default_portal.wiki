@@ -3,13 +3,10 @@ When entering the link of the portal in the address bar of the browser without d
 To configure the default portal, the portal must already exist first. Then, you just use the _NewPortalConfigListener_ plugin as the sample code below.
 
 To use this plugin in the component configuration, you must use the following target-component:
-{code:xml}
-<target-component>org.exoplatform.portal.config.UserPortalConfigService</target-component>
-{code}
+{code:xml}<target-component>org.exoplatform.portal.config.UserPortalConfigService</target-component>{code}
 
 The sample code below is the configuration of the portal named "_default_".
-{code:xml}
-<external-component-plugins>
+{code:xml}<external-component-plugins>
 		<target-component>org.exoplatform.portal.config.UserPortalConfigService</target-component>
 		<component-plugin>
 			<name>default.portal.config.user.listener</name>
@@ -27,8 +24,7 @@ The sample code below is the configuration of the portal named "_default_".
 				</object-param>
 			</init-params>
 		</component-plugin>
-	</external-component-plugins>
-{code}
+</external-component-plugins>{code}
 
 *Init-param*
 ||Name||Type||Value|| Description||
