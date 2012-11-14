@@ -67,8 +67,7 @@ Step 1. Prepare an environment.
 
 For example, if your eXo Platform 3.0 runs on mySQL database, you need to configure the _server.xml_ file as below:
 
-{code}
-<!-- eXo JCR Datasource for portal -->
+{code}<!-- eXo JCR Datasource for portal -->
 	<Resource name="exo-jcr_portal" auth="Container" type="javax.sql.DataSource"
 		maxActive="128" maxIdle="32" maxWait="10000"
 		testWhileIdle="true" timeBetweenEvictionRunsMillis="30000" validationQuery="SELECT 1"
@@ -80,13 +79,11 @@ For example, if your eXo Platform 3.0 runs on mySQL database, you need to config
 	   maxActive="128" maxIdle="32" maxWait="10000"
 	   testWhileIdle="true" timeBetweenEvictionRunsMillis="30000" validationQuery="SELECT 1"
 	   username="${db.username}" password="${db.password}" driverClassName="com.mysql.jdbc.Driver"
-			url="jdbc:mysql://${db.host}:${db.port}/${db.idm.name}"/>
-{code}
+			url="jdbc:mysql://${db.host}:${db.port}/${db.idm.name}"/>{code}
 
 With Jboss bundle, configure the _$PLATFORM\_JBOSS\_HOME/server/default/deploy/gatein-ds.xml_ file.
 
-{code:xml}
-    <!-- eXo IDM for portal -->
+{code:xml}<!-- eXo IDM for portal -->
     <no-tx-datasource>
       <jndi-name>exo-idm_portal</jndi-name>
       <connection-url>jdbc:mysql://_$host_:3306/_$dbname-idm_</connection-url>
@@ -110,8 +107,7 @@ With Jboss bundle, configure the _$PLATFORM\_JBOSS\_HOME/server/default/deploy/g
       <max-pool-size>20</max-pool-size>
       <idle-timeout-minutes>0</idle-timeout-minutes>
       <prepared-statement-cache-size>32</prepared-statement-cache-size>
-   </no-tx-datasource>
-{code}
+   </no-tx-datasource>{code}
 
 *iii.* Delete the _JCR\_CONFIG_ table in the JCR database: "jdbc\:mysql\://${{{ {db.host} }}}:${{{ {db.port} }}}/${{{ {db.jcr.name} }}}"
 
@@ -189,13 +185,11 @@ commons.upgrade.Upgrade-WCM-Contents.enable=true
 commons.upgrade.plugins.order=Spaces-Home-page,Upgrade-Gadgets,Upgrade-Navigations,Upgrade-WCM-Contents,UpgradeVotingNodeTypePlugin,FavoriteActionUpgradePlugin,ThumbnailNodeTypeUpgradePlugin,UpgradeToMOSPlugin,UpgradeTemplatePlugin,UpgradeAnswerPlugin,UpgradeWikiPlugin,UpgradeForumPlugin,UpgradeCalendarPlugin,NodeTypeTemplateUpgradePlugin,QueryUpgradePlugin,ScriptUpgradePlugin,SiteExplorerTemplateUpgradePlugin,WCMTemplateUpgradePlugin,UserViewUpgradePlugin 
 
 ## Proceed to the upgrade if it is the first time you run this service
-commons.upgrade.proceedIfFirstRun=true
-{code}
+commons.upgrade.proceedIfFirstRun=true{code}
 
 *2.* Add the following code to the _$PLATFORM\_TOMCAT\_HOME/gatein/conf/portal/portal/configuration.xml_ or _$PLATFORM\_JBOSS\_HOME/server/default/conf/gatein/configuration.xml_ file.
 
-{code:xml}
-<?xml version="1.0" encoding="UTF-8"?>
+{code:xml}<?xml version="1.0" encoding="UTF-8"?>
 <configuration
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:schemaLocation="http://www.exoplatform.org/xml/ns/kernel_1_2.xsd http://www.exoplatform.org/xml/ns/kernel_1_2.xsd"
@@ -614,8 +608,7 @@ commons.upgrade.proceedIfFirstRun=true
       </init-params>
     </component-plugin>
   </external-component-plugins>
-</configuration>
-{code}
+</configuration>{code}
 
 {note}
 If this file has not been existing, you need to create it first.
@@ -625,9 +618,7 @@ If this file has not been existing, you need to create it first.
 
 *i.* Configure the _$PLATFORM\_TOMCAT\_HOME/gatein/conf/configuration.properties_ or _$PLATFORM\_JBOSS\_HOME/server/default/conf/gatein/configuration.properties_ file by adding the following configuration.
 
-{code}
-gatein.jcr.transaction.timeout=10000
-{code}
+{code}gatein.jcr.transaction.timeout=10000{code}
 
 *ii.* Update JAVA\_OPTS Xmx: with Tomcat bundle, in _$PLATFORM\_TOMCAT\_HOME/bin/setenv.sh_ or .bat file, update JVM Xmx to 4G. With Jboss bundle, update JAVA\_OPTS Xmx in the _$PLATFORM\_JBOSS\_HOME/bin/run.conf_ file.
 
@@ -657,8 +648,7 @@ Step 4. Finish your migration.
 
 *i.* Disable all migration plugins in the _$PLATFORM\_TOMCAT\_HOME/gatein/conf/configuration.properties_ file (or _$PLATFORM\_JBOSS\_HOME/server/default/conf/gatein/configuration.properties_):
 
-{code}
-############
+{code}############
 # Upgrades #
 ############
 # JCR user directories structure migration configuration
@@ -710,15 +700,13 @@ commons.upgrade.Upgrade-WCM-Contents.enable=false
 commons.upgrade.plugins.order=Upgrade-Spaces-Home-page,Upgrade-Gadgets,Upgrade-Navigations,Upgrade-WCM-Contents,UpgradeVotingNodeTypePlugin,FavoriteActionUpgradePlugin,ThumbnailNodeTypeUpgradePlugin,UpgradeToMOSPlugin,UpgradeTemplatePlugin,UpgradeAnswerPlugin,UpgradeWikiPlugin,UpgradeForumPlugin,UpgradeCalendarPlugin,NodeTypeTemplateUpgradePlugin,QueryUpgradePlugin,ScriptUpgradePlugin,SiteExplorerTemplateUpgradePlugin,WCMTemplateUpgradePlugin,UserViewUpgradePlugin
 
 ## Proceed to the upgrade if it's first time you run this service
-commons.upgrade.proceedIfFirstRun=true
-{code}
+commons.upgrade.proceedIfFirstRun=true{code}
 
 *ii.* Delete configurations that were added before the migration in _$PLATFORM\_TOMCAT\_HOME/gatein/conf/portal/portal/configuration.xml_ or _$PLATFORM\_JBOSS\_HOME/server/default/conf/gatein/configuration.xml_ file.
 
 If you do not run the JCR user directories structure migration, you need to keep the _$PLATFORM-3.5-TOMCAT\_HOME/gatein/conf/portal/portal/configuration.xml_ or _$PLATFORM\_JBOSS\_HOME/server/default/conf/gatein/configuration.xml_ file with the content as below:
 
-{code:xml}
-<?xml version="1.0" encoding="UTF-8"?>
+{code:xml}<?xml version="1.0" encoding="UTF-8"?>
 <configuration
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://www.exoplatform.org/xml/ns/kernel_1_2.xsd http://www.exoplatform.org/xml/ns/kernel_1_2.xsd"
@@ -733,8 +721,7 @@ If you do not run the JCR user directories structure migration, you need to keep
         </value-param>
      </init-params>
 </component>
-</configuration>
-{code}
+</configuration>{code}
 
 *2.* Restart the server again. The migration process is done.
 
@@ -750,9 +737,7 @@ Plugins can be enabled/disabled via _$PLATFORM-3.5-TOMCAT\_HOME/gatein/conf/conf
 
 To enable or disable a plugin, set the "enable" properties to "true" or "false" respectively, for example:
 
-{code}
-commons.upgrade.UpgradeVotingNodeTypePlugin.enable=true
-{code}
+{code}commons.upgrade.UpgradeVotingNodeTypePlugin.enable=true{code}
 
 When not specified, the plugins will be enabled by default.
 
@@ -802,78 +787,54 @@ By default, all the ECMS templates will be automatically migrated. In case you w
 * With _commons.upgrade.NodeTypeTemplateUpgradePlugin_: Upgrade ecms node type template. 
 
 Specify the node type templates which you do not want to upgrade with the following syntax:
-{code}
-unchanged-nodetype-templates=<node name list>
-{code}
+{code}unchanged-nodetype-templates=<node name list>{code}
 For example:
-{code}
-unchanged-nodetype-templates=nt:file, exo:article
-{code}
+{code}unchanged-nodetype-templates=nt:file, exo:article{code}
 
 * With _commons.upgrade.QueryUpgradePlugin_: Upgrade pre-defined queries.
 
 Specify the pre-defined queries which you do not want to upgrade with the following syntax: 
 
-{code}
-unchanged-queries=<query name list>
-{code}
+{code}unchanged-queries=<query name list>{code}
 For example:
-{code}
-unchanged-queries=Created Documents
-{code}
+{code}unchanged-queries=Created Documents{code}
 
 * With _commons.upgrade.ScriptUpgradePlugin_: Upgrade pre-defined scripts.
 
 Specify the pre-defined scripts which you do not want to upgrade with the following syntax:
 
-{code}
-unchanged-scripts=<script name list>
-{code}
+{code}unchanged-scripts=<script name list>{code}
 
 For example:
 
-{code}
-unchanged-scripts=action/AddMetadataScript.groovy, action/AddTaxonomyActionScript.groovy
-{code}
+{code}unchanged-scripts=action/AddMetadataScript.groovy, action/AddTaxonomyActionScript.groovy{code}
 
 * With _commons.upgrade.SiteExplorerTemplateUpgradePlugin_: Upgrade site-explorer-templates.
 
 Specify templates of *Sites Explorer* with the following syntax:
 
-{code}
-unchanged-site-explorer-templates=<templates name list>
-{code}
+{code}unchanged-site-explorer-templates=<templates name list>{code}
 For example:
-{code}
-unchanged-site-explorer-templates=ThumbnailsView, ContentView
-{code}
+{code}unchanged-site-explorer-templates=ThumbnailsView, ContentView{code}
 
 
 * With _commons.upgrade.UserViewUpgradePlugin_: Upgrade user view templates of *Sites Explorer*. 
 
 Specify views of *Sites Explorer* with the following syntax:
-{code}
-unchanged-site-explorer-views=<view name list>
-{code}
+{code}unchanged-site-explorer-views=<view name list>{code}
 For example:
-{code}
-unchanged-site-explorer-views=anonymous-view
-{code}
+{code}unchanged-site-explorer-views=anonymous-view{code}
 
 
 Use the following templates to specify the templates of the *Content List Viewer* and *Search* portlets:
 
-{code}
-unchanged-clv-templates=<template name list>
-unchanged-wcm-search-templates=<template name list>
-{code}
+{code}unchanged-clv-templates=<template name list>
+unchanged-wcm-search-templates=<template name list>{code}
 
 For example:
 
-{code}
-unchanged-clv-templates=list/BigHotNewsTemplateCLV.gtmpl,navigation/CategoryList.gtmpl
-unchanged-wcm-search-templates=search-form/UIDefaultSearchForm.gtmpl
-{code}
+{code}unchanged-clv-templates=list/BigHotNewsTemplateCLV.gtmpl,navigation/CategoryList.gtmpl
+unchanged-wcm-search-templates=search-form/UIDefaultSearchForm.gtmpl{code}
 
 
 {docbook}
@@ -928,8 +889,7 @@ Gadgets
 
 * _commons.upgrade.Upgrade-Gadgets_: update gadgets with new skin and services. The list of gadgets to be updated is defined in the _$PLATFORM\_TOMCAT\_HOME/gatein/conf/portal/portal/configuration.xml_ or _$PLATFORM\_JBOSS\_HOME/server/default/conf/gatein/configuration.xml_ file, for example:
 
-{code:xml}
-<component-plugin>
+{code:xml}<component-plugin>
     <name>Upgrade-Gadgets</name>
     <set-method>addUpgradePlugin</set-method>
     <type>org.exoplatform.platform.upgrade.plugins.UpgradeLocalGadgetsPlugin</type>
@@ -1100,8 +1060,7 @@ Gadgets
             </object>
         </object-param>
     </init-params>
-</component-plugin>
-{code}
+</component-plugin>{code}
 
 
 h2. Optional plugins {anchor:id=ADM.Migration.Upgrade_plugins_details.List_plugins.Optional_plugins}
@@ -1130,8 +1089,7 @@ WCM contents
 
 * _commons.upgrade.Upgrade-WCM-Contents_: Import new content of eXo Platform 3.5 from the XML content file in webapps. If the content has been existing in eXo Platform 3.0, they will be overwritten. The list of webapps containing the XML content to be overridden is defined in the _$PLATFORM\_TOMCAT\_HOME/gatein/conf/portal/portal/configuration.xml_ or _$PLATFORM\_JBOSS\_HOME/server/default/conf/gatein/configuration.xml_ file. For example:
 
-{code:xml}
-<component-plugin>
+{code:xml}<component-plugin>
     <name>Upgrade-WCM-Contents</name>
     <set-method>addUpgradePlugin</set-method>
     <type>org.exoplatform.platform.upgrade.plugins.UpgradeContentPlugin</type>
@@ -1217,8 +1175,7 @@ WCM contents
             <value>workflow</value>
         </values-param>
     </init-params>
-</component-plugin>
-{code}
+</component-plugin>{code}
 
 {docbook}
 <para>
@@ -1247,17 +1204,13 @@ It can be seen that with a larger number of users, the new user directory struct
 
 To enable the migration, set these 2 flags in the _$PLATFORM\_TOMCAT\_HOME/gatein/conf/configuration.properties_ file (or _$PLATFORM\_JBOSS\_HOME/server/default/conf/gatein/configuration.properties_) as below:
 
-{code}
-use-old-user-distribution=false
-run-jcr-user-directories-migrate=true
-{code}
+{code}use-old-user-distribution=false
+run-jcr-user-directories-migrate=true{code}
 
 JCR user directory structure migration will take much time, so you need to increase the JCR session time-out.
 Measure the amount of data in your current eXo Platform 3.0 and use a right session time-out. For example, if there are 1000 users in current eXo Platform 3.0, you should set configuration in the _$PLATFORM\_TOMCAT\_HOME/gatein/conf/configuration.properties_ (or _$PLATFORM\_JBOSS\_HOME/server/default/conf/gatein/configuration.properties_) file as below:
 
-{code}
-gatein.jcr.transaction.timeout=10000
-{code}
+{code}gatein.jcr.transaction.timeout=10000{code}
 
 The time you need to migrate the JCR user directories structure depends on the amount of eXo Platform user data and your system speed.
 This migration also consumes memory, so you need to make sure to have enough resource on your server and configure enough memory to update the Xmx Java option (in the _$PLATFORM\_TOMCAT\_HOME/bin/setenv.sh or $PLATFORM\_JBOSS\_HOME/bin/run.conf_ file) before running.

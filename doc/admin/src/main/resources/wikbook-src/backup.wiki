@@ -45,9 +45,7 @@ The _gatein.data.dir_ variable is defined in the _configuration.properties_ file
 
 You can use the .tar command for the file backup from your application server home dir: 
 
-{code}
-tar cvjf gatein-backup.tar.bz gatein/data
-{code}
+{code}tar cvjf gatein-backup.tar.bz gatein/data{code}
 
 
 h1. Pre-backup {anchor:id=ADM.Backup.Plan_backup}

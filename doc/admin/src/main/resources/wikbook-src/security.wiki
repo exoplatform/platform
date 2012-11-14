@@ -62,13 +62,11 @@ Tomcat
 
 In the Tomcat bundle, the JAAS configuration is controled by the _$PLATFORM\_TOMCAT\_HOME/conf/jaas.conf_:
 
-{code}
-gatein-domain {
+{code}gatein-domain {
   org.gatein.wci.security.WCILoginModule optional;
   org.exoplatform.services.security.jaas.SharedStateLoginModule required;
   org.exoplatform.services.security.j2ee.TomcatLoginModule required; 
-};
-{code}
+};{code}
 
 Replace gatein-domain with your own domain name.
 
@@ -84,16 +82,13 @@ To learn more about the syntax, or realms in Tomcat, refer to the [JAAS tutorial
 
 For JBoss, you need to edit the default JAAS security domain in the _portal.war!WEB-INF/jboss-web.xml_ file.
 
-{code:xml}
-<jboss-web>
+{code:xml}<jboss-web>
   <security-domain>java:/jaas/gatein-domain</security-domain>
-</jboss-web>
-{code}
+</jboss-web>{code}
 
 Additionally, you need to edit the application-policy to match the security-domain in the _gatein.ear!META-INF/gatein-jboss-beans.xml_.
 
-{code:xml}
-<deployment xmlns="urn:jboss:bean-deployer:2.0">
+{code:xml}<deployment xmlns="urn:jboss:bean-deployer:2.0">
   <application-policy xmlns="urn:jboss:security-beans:1.0" name="gatein-domain">
     <authentication>
       <login-module code="org.exoplatform.web.security.PortalLoginModule" flag="required">
@@ -110,8 +105,7 @@ Additionally, you need to edit the application-policy to match the security-doma
       </login-module>
     </authentication>
   </application-policy>
-</deployment> 
-{code}
+</deployment> {code}
 
 {tip}
 To learn more about the JBoss security configuration, refer to [JBoss Web Docs|http://docs.redhat.com/docs/en-US/JBoss_Enterprise_Web_Platform/5/html-single/Getting_Started_Guide/index.html#Basic_Configuration_Issues-Security_Service].
@@ -131,10 +125,8 @@ Finally, you need to do some common changes on both app servers as follows:
 
 First, change the JAAS realm to match your own security constraints and then identify the entry named _exo.security.domain_ inside the _configuration.properties_ file.
 
-{code}
-# Realm name
-exo.security.domain=gatein-domain
-{code}
+{code}# Realm name
+exo.security.domain=gatein-domain{code}
 
 {note}
 Internally, eXo Platform uses this setting to set a new variable named "portal.container.realm" that is then used in the Kernel configuration files, such as _platform-extension/WEB-INF/conf/platform/repository-configuration.xml_.
@@ -144,26 +136,22 @@ Internally, eXo Platform uses this setting to set a new variable named "portal.c
 
 Inside _portal.war_, you should declare the Realm name in the _web.xml_ file:
 
-{code:xml}
-<login-config>
+{code:xml}<login-config>
   <auth-method>FORM</auth-method> 
   <realm-name>gatein-domain</realm-name> 
   <form-login-config>
     ...
   </form-login-config>
-</login-config>
-{code}
+</login-config>{code}
 
 *rest.war* {anchor:id="ADM.Security.rest.war"}
 
 You also need to modify _rest.war_ to provide secured REST services properly.
 
-{code:xml}
-<login-config>
+{code:xml}<login-config>
   <auth-method>BASIC</auth-method> 
   <realm-name>gatein-domain</realm-name> 		
-</login-config>
-{code}
+</login-config>{code}
 
 {note}
 This change is very important, allowing you to secure the file downloads via WEBDAV.
@@ -201,8 +189,7 @@ To modify the filtering of domain names, modify the _portal.war/WEB-INF/conf/com
 
 The default configuration is set as below:
 
-{code:xml}
-<component>
+{code:xml}<component>
   <key>org.exoplatform.web.security.proxy.ProxyFilterService</key>
   <type>org.exoplatform.web.security.proxy.ProxyFilterService</type>
   <init-params>
@@ -217,8 +204,7 @@ The default configuration is set as below:
       <value></value>
     </values-param>
   </init-params>
-</component>
-{code}
+</component>{code}
 
 
 {docbook}
@@ -237,8 +223,7 @@ Multiple values can be added for each list and wildcards can also be used.
 
 The following is an example of a valid configuration: {anchor:id=ADM.Configuration.Gadget_proxy_configuration.Example}
 
-{code:xml}
-<component>
+{code:xml}<component>
   <key>org.exoplatform.web.security.proxy.ProxyFilterService</key>
   <type>org.exoplatform.web.security.proxy.ProxyFilterService</type>
   <init-params>
@@ -252,8 +237,7 @@ The following is an example of a valid configuration: {anchor:id=ADM.Configurati
       <value>evil.example.com</value>
     </values-param>
   </init-params>
-</component>
-{code}
+</component>{code}
 
 {docbook}
 <para>
@@ -275,22 +259,17 @@ This section explains how to configure HTTPS mode.
 If you do not have an X.509 certificate, you can make a simple certificate using the _keytool_ command.
 
 *i.* Change the variables in the following command to suit your circumstances, then run it a terminal:
-{code}
-keytool -genkey -alias serverkeys -keyalg RSA -keystore server.keystore -storepass 123456 -keypass 123456 -dname "CN=localhost, OU=MYOU, O=MYORG, L=MYCITY, ST=MYSTATE, C=MY"
-{code}
+{code}keytool -genkey -alias serverkeys -keyalg RSA -keystore server.keystore -storepass 123456 -keypass 123456 -dname "CN=localhost, OU=MYOU, O=MYORG, L=MYCITY, ST=MYSTATE, C=MY"{code}
 
 Your key will be stored in _server.keystore_.
 
 *ii.* Import your key into the Sun JDK keystore (this is required to help running gadget features) with the following command:
-{code}
-keytool -importkeystore -srckeystore server.keystore -destkeystore $JAVA_HOME/jre/lib/security/cacerts
-{code}
+{code}keytool -importkeystore -srckeystore server.keystore -destkeystore $JAVA_HOME/jre/lib/security/cacerts{code}
 
 *2.* Set up the Jboss configuration to use your new key.
 
 *i.* Comment the following lines in _PLATFORM\_JBOSS\_HOME/server/<PROFILE>/deploy/jbossweb.sar/server.xml_:
-{code:xml}
- <Connector port="8080" protocol="HTTP/1.1" maxHttpHeaderSize="8192"
+{code:xml}<Connector port="8080" protocol="HTTP/1.1" maxHttpHeaderSize="8192"
 
          maxThreads="150" minSpareThreads="25" maxSpareThreads="75"
 
@@ -304,11 +283,9 @@ keytool -importkeystore -srckeystore server.keystore -destkeystore $JAVA_HOME/jr
 
          noCompressionUserAgents=".*MSIE 6.*"
 
-         compressableMimeType="text/html,text/xml,text/plain,text/css,text/javascript"/>
-{code}
+         compressableMimeType="text/html,text/xml,text/plain,text/css,text/javascript"/>{code}
 *ii.* Uncomment the following line:
-{code:xml}
-<Connector protocol="HTTP/1.1" SSLEnabled="true"
+{code:xml}<Connector protocol="HTTP/1.1" SSLEnabled="true"
 
          port="8443" address="${jboss.bind.address}"
 
@@ -316,8 +293,8 @@ keytool -importkeystore -srckeystore server.keystore -destkeystore $JAVA_HOME/jr
 
          keystoreFile="${jboss.server.home.dir}/conf/chap8.keystore"
 
-         keystorePass="rmissl" sslProtocol = "TLS" />
-{code}
+         keystorePass="rmissl" sslProtocol = "TLS" />{code}
+         
 Then, change the values of _keystoreFile_ and _keystorePass_ to values of your key.
 
 *3.* Restart your server.

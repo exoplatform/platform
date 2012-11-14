@@ -214,8 +214,7 @@ h2. Scheduled/Periodic sync {anchor:id=ADM.Integration.Scheduled_periodic_syncRo
 
 You can select the periodic integration of the whole _organizational elements_ which are not integrated yet. This feature is not activated automatically in the eXo Platform distribution. To do so, you will have to add this configuration: 
 
-{code:xml}
-<external-component-plugins>
+{code:xml}<external-component-plugins>
   <target-component>org.exoplatform.services.scheduler.JobSchedulerService</target-component>
 	<component-plugin>
 		<name>OrgInitializerCronJob</name>
@@ -233,8 +232,7 @@ You can select the periodic integration of the whole _organizational elements_ w
 			</properties-param>
 		</init-params>
 	</component-plugin>
-</external-component-plugins>
-{code}
+</external-component-plugins>{code}
 
 You need to modify the *expression* property value to change the period according to the [CRON Expression documentation|http://www.quartz-scheduler.org/docs/tutorial/TutorialLesson06.html]. The value presented above means that this job is executed at 23:45:00 everyday.
 
@@ -319,8 +317,7 @@ Configure Legacy Organization Services
 
 *1.* Add a new file named _configuration.xml_ in _{{{${exo.conf.dir.name}/portal/portal/}}}_ with the following configuration.
 
-{code:xml}
-<configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+{code:xml}<configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 		   xsi:schemaLocation="http://www.exoplaform.org/xml/ns/kernel_1_2.xsd http://www.exoplaform.org/xml/ns/kernel_1_2.xsd"
 		   xmlns="http://www.exoplaform.org/xml/ns/kernel_1_2.xsd">
 		   
@@ -329,8 +326,7 @@ Configure Legacy Organization Services
 	<!-- Remove unnecessary Picket LINK Services -->
 	<remove-configuration>org.exoplatform.services.organization.idm.PicketLinkIDMCacheService</remove-configuration>
 	<remove-configuration>org.exoplatform.services.organization.idm.PicketLinkIDMService</remove-configuration>
-</configuration>
-{code}
+</configuration>{code}
 
 *2.* Add a new file named _legacy-organization-configuration.xml_ in _{{{${exo.conf.dir.name}/portal/portal}}}_ with one of the contents below.
 
@@ -345,8 +341,7 @@ Hibernate Organization Service configuration
 </citetitle>
 {docbook}
 
-{code:xml}
-<configuration
+{code:xml}<configuration
    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
    xsi:schemaLocation="http://www.exoplaform.org/xml/ns/kernel_1_2.xsd http://www.exoplaform.org/xml/ns/kernel_1_2.xsd"
    xmlns="http://www.exoplaform.org/xml/ns/kernel_1_2.xsd">
@@ -373,8 +368,7 @@ Hibernate Organization Service configuration
     </component-plugin>
   </external-component-plugins>
   <import>classpath:/conf/portal/organization-configuration.xml</import>    
-</configuration>  
-{code}
+</configuration>{code}
 
 
 {docbook}
@@ -387,8 +381,7 @@ Configure LDAP Organization Service
 </citetitle>
 {docbook}
 
-{code:xml}
-<configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.exoplaform.org/xml/ns/kernel_1_2.xsd" xsi:schemaLocation="http://www.exoplaform.org/xml/ns/kernel_1_2.xsd http://www.exoplaform.org/xml/ns/kernel_1_2.xsd">
+{code:xml}<configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.exoplaform.org/xml/ns/kernel_1_2.xsd" xsi:schemaLocation="http://www.exoplaform.org/xml/ns/kernel_1_2.xsd http://www.exoplaform.org/xml/ns/kernel_1_2.xsd">
 	<component>
 		<key>org.exoplatform.services.ldap.LDAPService</key>
 		<type>org.exoplatform.services.ldap.impl.LDAPServiceImpl</type>
@@ -478,8 +471,7 @@ Configure LDAP Organization Service
 			</init-params>
 		</component-plugin>
 	</external-component-plugins>
-</configuration>
-{code}
+</configuration>{code}
 
 
 {docbook}
@@ -492,8 +484,7 @@ AD Organization Service configuration
 </citetitle>
 {docbook}
 
-{code:xml}
-<configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.exoplaform.org/xml/ns/kernel_1_2.xsd" xsi:schemaLocation="http://www.exoplaform.org/xml/ns/kernel_1_2.xsd http://www.exoplaform.org/xml/ns/kernel_1_2.xsd">
+{code:xml}<configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.exoplaform.org/xml/ns/kernel_1_2.xsd" xsi:schemaLocation="http://www.exoplaform.org/xml/ns/kernel_1_2.xsd http://www.exoplaform.org/xml/ns/kernel_1_2.xsd">
   <component>
     <key>org.exoplatform.services.ldap.LDAPService</key>
     <type>org.exoplatform.services.ldap.impl.LDAPServiceImpl</type>
@@ -577,8 +568,7 @@ AD Organization Service configuration
       </init-params>
     </component-plugin>
   </external-component-plugins>
-</configuration>
-{code}
+</configuration>{code}
 
 {docbook}
 <para>

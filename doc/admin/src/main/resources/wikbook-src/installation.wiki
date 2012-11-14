@@ -76,21 +76,15 @@ eXo Platform leverages the application server on which it is deployed. This mean
 
 * On Linux and OS X:   
 
-{code}
-$PLATFORM_TOMCAT_HOME/start_eXo.sh
-{code}
+{code}$PLATFORM_TOMCAT_HOME/start_eXo.sh{code}
 
 * On Windows:       
 
-{code}
-%PLATFORM_TOMCAT_HOME%\\start_eXo.bat
-{code}
+{code}%PLATFORM_TOMCAT_HOME%\\start_eXo.bat{code}
 
 The server is started successfully when you see the following message in your log/console:
 
-{code}
-INFO: Server startup in 353590 ms
-{code}
+{code}INFO: Server startup in 353590 ms{code}
 
 
 {docbook}
@@ -104,27 +98,19 @@ Shut down the server
 
 * On Linux and OS X: 
 
-{code}
-$PLATFORM_TOMCAT_HOME/stop_eXo.sh
-{code}
+{code}$PLATFORM_TOMCAT_HOME/stop_eXo.sh{code}
 
 * On Windows:        
 
-{code}
-%PLATFORM_TOMCAT_HOME%\\stop_eXo.bat
-{code}
+{code}%PLATFORM_TOMCAT_HOME%\\stop_eXo.bat{code}
 
 If you receive the message when you try to stop Tomcat as below, you must stop Tomcat by pressing *CtrlC* or by killing with the *-9* command. To perform the *kill* action automatically, you can run _stop\_eXo.sh \-force_ that is only available on Linux and OS X systems.
 
-{code}
-Tomcat did not stop in time. The PID file was not removed.
-{code}
+{code}Tomcat did not stop in time. The PID file was not removed.{code}
 
 The server has been stopped successfully when you see the following message in your log/console:
 
-{code}
-INFO: Stopping Coyote HTTP/1.1 on http-8080
-{code}
+{code}INFO: Stopping Coyote HTTP/1.1 on http-8080{code}
 
 {docbook}
 <citetitle>
@@ -145,14 +131,12 @@ You can start up eXo Platform by running one of the following built-in startup s
 
 In the normal mode, the _start\_eXo_ scripts launch eXo Platform with the following JVM options:
 
-{code}
--Xms256m 
+{code}-Xms256m 
 -Xmx1024m 
 -XX:MaxPermSize=256m 
 -Djava.security.auth.login.config=../conf/jaas.conf  
 -Dexo.conf.dir.name=gatein/conf 
--Dexo.profiles=default
-{code}
+-Dexo.profiles=default{code}
 
 *Details:*
 
@@ -165,12 +149,10 @@ In the normal mode, the _start\_eXo_ scripts launch eXo Platform with the follow
 
 In the developer mode, the _start\_eXo_ scripts launch eXo Platform in the developer mode with a few JVM options.
 
-{code}
--Xdebug -Xrunjdwp:transport=dt_socket,address=8000,server=y,suspend=n 
+{code}-Xdebug -Xrunjdwp:transport=dt_socket,address=8000,server=y,suspend=n 
 -Dcom.sun.management.jmxremote 
 -Dorg.exoplatform.container.configuration.debug 
--Dexo.product.developing=true 
-{code}
+-Dexo.product.developing=true {code}
 
 *Details*:
 
@@ -195,20 +177,15 @@ Previously, users got used to changing the _gatein.sh_ file, but this file is no
 This file is located in:
 * Linux & OS X:
 
-{code}
-$PLATFORM_TOMCAT_HOME/bin/setenv.sh
-{code}
+{code}$PLATFORM_TOMCAT_HOME/bin/setenv.sh{code}
 
 * Windows: 
 
-{code}
-$PLATFORM_TOMCAT_HOME\\bin\\setenv.bat
-{code}
+{code}$PLATFORM_TOMCAT_HOME\\bin\\setenv.bat{code}
 
 The following is the content of this file:
 
-{code}
-# Sets some variables
+{code}# Sets some variables
 LOG_OPTS="-Dorg.apache.commons.logging.Log=org.apache.commons.logging.impl.SimpleLog"
 SECURITY_OPTS="-Djava.security.auth.login.config=../conf/jaas.conf"
 EXO_OPTS="-Dexo.conf.dir.name=gatein/conf"
@@ -225,12 +202,10 @@ EXO_XML="-Djavax.xml.stream.XMLOutputFactory=com.sun.xml.internal.stream.XMLOutp
 #########################
 
 CATALINA_OPTS="-Xms256m -Xmx1024m -XX:MaxPermSize=256m $CATALINA_OPTS $LOG_OPTS $SECURITY_OPTS $EXO_OPTS $IDE_OPTS $EXO_PROFILES $EXO_XML"
-export CATALINA_OPTS
-{code}
+export CATALINA_OPTS{code}
 
 In the normal mode, the _setenv_ scripts launch eXo Platform with the following JVM options:
-{code}
--Xms256m
+{code}-Xms256m
 -Xmx1024m
 -XX:MaxPermSize=256m
 -Djava.security.auth.login.config=../conf/jaas.conf
@@ -238,8 +213,7 @@ In the normal mode, the _setenv_ scripts launch eXo Platform with the following 
 -Dexo.profiles=default
 -Dorg.apache.commons.logging.Log=org.apache.commons.logging.impl.SimpleLog
 -Djavasrc=$JAVA_HOME/src.zip
--Djre.lib=$JAVA_HOME/jre/lib
-{code}
+-Djre.lib=$JAVA_HOME/jre/lib{code}
 
 *Details*:
 |{{-Xms}}|Initial Heap Size (the default is 256 MB).|
@@ -253,14 +227,10 @@ In the normal mode, the _setenv_ scripts launch eXo Platform with the following 
 
 *About EXO\_XML*: it defines the preferred XML Parser.
 * If you run eXo Platform on *IBM Java*, you must use the following:
-{code}
-EXO_XML="-Djavax.xml.stream.XMLOutputFactory=com.sun.xml.stream.ZephyrWriterFactory -Djavax.xml.stream.XMLInputFactory=com.sun.xml.stream.ZephyrParserFactory -Djavax.xml.stream.XMLEventFactory=com.sun.xml.stream.events.ZephyrEventFactory"
-{code}
+{code}EXO_XML="-Djavax.xml.stream.XMLOutputFactory=com.sun.xml.stream.ZephyrWriterFactory -Djavax.xml.stream.XMLInputFactory=com.sun.xml.stream.ZephyrParserFactory -Djavax.xml.stream.XMLEventFactory=com.sun.xml.stream.events.ZephyrEventFactory"{code}
 
 * Otherwise, you can use the following:
-{code}
-EXO_XML="-Djavax.xml.stream.XMLOutputFactory=com.sun.xml.internal.stream.XMLOutputFactoryImpl -Djavax.xml.stream.XMLInputFactory=com.sun.xml.internal.stream.XMLInputFactoryImpl -Djavax.xml.stream.XMLEventFactory=com.sun.xml.internal.stream.events.XMLEventsFactoryImpl"
-{code}
+{code}EXO_XML="-Djavax.xml.stream.XMLOutputFactory=com.sun.xml.internal.stream.XMLOutputFactoryImpl -Djavax.xml.stream.XMLInputFactory=com.sun.xml.internal.stream.XMLInputFactoryImpl -Djavax.xml.stream.XMLEventFactory=com.sun.xml.internal.stream.events.XMLEventsFactoryImpl"{code}
 
 {note}
 In Linux environments, the {{ulimit}} limits the system-wide resource used. When running eXo Platform, you may get the error message about "Too many open files" because the {{ulimit}} has limited the opened files.
@@ -331,8 +301,7 @@ Files
 
 * On *Linux*, add these lines to the end of _$PLATFORM\_JBOSS\_HOME/bin/run.conf:
 
-{code}
-# Platform environment variables
+{code}# Platform environment variables
 EXO_PROFILES="-Dexo.profiles=default"
 EXO_OPTS="-Dexo.product.developing=false -Dexo.conf.dir.name=gatein -Dgatein.data.dir=../gatein"
 IDE_OPTS="-Djavasrc=$JAVA_HOME/src.zip -Djre.lib=$JAVA_HOME/jre/lib"
@@ -343,13 +312,11 @@ REMOTE_DEBUG="-Xdebug -Xrunjdwp:transport=dt_socket,address=8000,server=y,suspen
 # If you run eXo Platform under IBM java, you must use the first one
 #EXO_XML="-Djavax.xml.stream.XMLOutputFactory=com.sun.xml.stream.ZephyrWriterFactory -Djavax.xml.stream.XMLInputFactory=com.sun.xml.stream.ZephyrParserFactory -Djavax.xml.stream.XMLEventFactory=com.sun.xml.stream.events.ZephyrEventFactory"
 EXO_XML="-Djavax.xml.stream.XMLOutputFactory=com.sun.xml.internal.stream.XMLOutputFactoryImpl -Djavax.xml.stream.XMLInputFactory=com.sun.xml.internal.stream.XMLInputFactoryImpl -Djavax.xml.stream.XMLEventFactory=com.sun.xml.internal.stream.events.XMLEventsFactoryImpl"
-JAVA_OPTS="$JAVA_OPTS $EXO_OPTS $IDE_OPTS $EXO_PROFILES $EXO_XML"
-{code}
+JAVA_OPTS="$JAVA_OPTS $EXO_OPTS $IDE_OPTS $EXO_PROFILES $EXO_XML"{code}
 
 * On *Windows*, add these lines to the end of _$PLATFORM\_JBOSS\_HOME/bin/run.conf.bat_:
 
-{code}
-rem # Platform environment variables
+{code}rem # Platform environment variables
 set "EXO_PROFILES=-Dexo.profiles=default"
 set "EXO_OPTS=-Dexo.product.developing=false -Dexo.conf.dir.name=gatein -Dgatein.data.dir=../gatein"
 set "IDE_OPTS=-Djavasrc=$JAVA_HOME/src.zip -Djre.lib=$JAVA_HOME/jre/lib"
@@ -359,8 +326,7 @@ rem # Here you can define your preferred xml parser - choose one or the other, o
 rem # If you run eXo Platform under IBM java, you must use the first one
 rem # set EXO_XML=-Djavax.xml.stream.XMLOutputFactory=com.sun.xml.stream.ZephyrWriterFactory -Djavax.xml.stream.XMLInputFactory=com.sun.xml.stream.ZephyrParserFactory -Djavax.xml.stream.XMLEventFactory=com.sun.xml.stream.events.ZephyrEventFactory
 set EXO_XML=-Djavax.xml.stream.XMLOutputFactory=com.sun.xml.internal.stream.XMLOutputFactoryImpl -Djavax.xml.stream.XMLInputFactory=com.sun.xml.internal.stream.XMLInputFactoryImpl -Djavax.xml.stream.XMLEventFactory=com.sun.xml.internal.stream.events.XMLEventsFactoryImpl
-set "JAVA_OPTS=%JAVA_OPTS% %EXO_OPTS% %IDE_OPTS% %EXO_PROFILES% %EXO_XML%"
-{code}
+set "JAVA_OPTS=%JAVA_OPTS% %EXO_OPTS% %IDE_OPTS% %EXO_PROFILES% %EXO_XML%"{code}
 
 {note:title=Customize enviroment parameters}
 * If you prefer using another implementation of SAX, change the class names in _EXO\_XML_ variable.
@@ -369,16 +335,14 @@ set "JAVA_OPTS=%JAVA_OPTS% %EXO_OPTS% %IDE_OPTS% %EXO_PROFILES% %EXO_XML%"
 
 *6.* Add the eXo Platform logging categories to _$PLATFORM\_JBOSS\_HOME/server/default/conf/jboss-log4j.xml_.
 
-{code:xml}
-<!-- Limit the JSR170 categories -->
+{code:xml}<!-- Limit the JSR170 categories -->
 <category name="exo.jcr">
   <priority value="INFO" />
 </category>
 <!-- Limit the JSR-168 and JSR-286 categories -->
 <category name="org.exoplatform.services">
   <priority value="INFO" />
-</category>
-{code}
+</category>{code}
 
 *7.* Configure the _emptySessionPath_ attribute.
 
@@ -388,58 +352,42 @@ Depending on the Connector you are using, you have to set the _emptySessionPath_
 
 For example, if you are using the AJP Connector, the configuration should be as follows:
 
-{code}
-<!-- Define an AJP 1.3 Connector on port 8009 -->
+{code}<!-- Define an AJP 1.3 Connector on port 8009 -->
 <Connector port="8009" address="${jboss.bind.address}" protocol="AJP/1.3"
-    emptySessionPath="true" enableLookups="false" redirectPort="8443" />
-{code}
+    emptySessionPath="true" enableLookups="false" redirectPort="8443" />{code}
 
 However, from JBoss AS 5 or higher, _emptySessionPath="true"_ no longer sets the cookie path / by default. Instead, the cookie path
 is set via the following element in the _Context_ element in the _server/default/deploy/jbossweb.sar/context.xml_ file.
-{code}
-<SessionCookie path="/" />
-{code}
+{code}<SessionCookie path="/" />{code}
 Session cookies are now scoped to the context by default.
 
 *8.* Start up the server.
 
 * On Linux and OS X:  
 
-{code}
-$PLATFORM_JBOSS_HOME/bin/run.sh
-{code}
+{code}$PLATFORM_JBOSS_HOME/bin/run.sh{code}
 
 * On Windows:          
 
-{code}
-%PLATFORM_JBOSS_HOME%\\bin\\run.bat
-{code}
+{code}%PLATFORM_JBOSS_HOME%\\bin\\run.bat{code}
 
 The server is started successfully when you see the following message in your log/console:
 
-{code}
-INFO [org.jboss.bootstrap.microcontainer.ServerImpl] (main) JBoss (Microcontainer) [5.1.1 (build: ...)] Started in 5m:29s:259ms
-{code}
+{code}INFO [org.jboss.bootstrap.microcontainer.ServerImpl] (main) JBoss (Microcontainer) [5.1.1 (build: ...)] Started in 5m:29s:259ms{code}
 
 *9.* Shut down the server.
 
 * On Linux and OS X:
 
-{code}
-$PLATFORM_JBOSS_HOME/bin/shutdown.sh
-{code}
+{code}$PLATFORM_JBOSS_HOME/bin/shutdown.sh{code}
 
 * On Windows: 
 
-{code}
-%PLATFORM_JBOSS_HOME%\\bin\\shutdown.bat
-{code}
+{code}%PLATFORM_JBOSS_HOME%\\bin\\shutdown.bat{code}
 
 The server has been stopped successfully when you see the following message in your log/console:
 
-{code}
-INFO  [org.jboss.bootstrap.microcontainer.ServerImpl] (JBoss Shutdown Hook) Shutdown complete
-{code}
+{code}INFO  [org.jboss.bootstrap.microcontainer.ServerImpl] (JBoss Shutdown Hook) Shutdown complete{code}
 
 {docbook}
 <para>
@@ -485,35 +433,25 @@ For example:
 
 * Start default modules  workflow:
 
-{code}
-./start_eXo.sh default,workflow
-{code}
+{code}./start_eXo.sh default,workflow{code}
 
 * Start eXo Platform with GateIn, Content, Collaboration and Knowledge enabled.
 
-{code}
-./start_eXo.sh collaboration,knowledge
-{code}
+{code}./start_eXo.sh collaboration,knowledge{code}
 
 * Start with Social, GateIn and Content.
 
-{code}
-./start_eXo.sh minimal,social
-{code}
+{code}./start_eXo.sh minimal,social{code}
 
 *For the developer mode*
 
 * Start eXo Platform with your selected profiles in Linux and OS X:
 
-{code}
-./start_eXo.sh -debug [profiles]
-{code}
+{code}./start_eXo.sh -debug [profiles]{code}
 
 * Start eXo Platform with your selected profiles in Windows:
 
-{code}
-.\\start_eXo.bat -debug [profiles]
-{code}
+{code}.\\start_eXo.bat -debug [profiles]{code}
 
 {docbook}
 <para>
