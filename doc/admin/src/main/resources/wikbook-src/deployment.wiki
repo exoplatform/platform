@@ -163,12 +163,10 @@ Base configuration for Apache
 
 First, you need to configure a new virtual host in Apache HTTPD for the application server. This is the simplest example of a virtual host:
 
-{code}
-<VirtualHost *:80>
+{code}<VirtualHost *:80>
   ServerName      Enter your server DNS name here
   RedirectMatch permanent "^/?$" "/portal/"
-</VirtualHost>
-{code}
+</VirtualHost>{code}
 You can find more information on the Apache HTTP daemon host [here|http://httpd.apache.org/docs/2.2/vhosts/].
 
 {docbook}
@@ -190,11 +188,9 @@ For this connection type, you need to include the *mod{{{_}}}proxy* module in th
 This can be found in the _httpd.conf_ file, which is usually located at _/etc/httpd/conf/_. However, depending on your OS, this path may vary.
 You will then need to add some directives to your virtual host configuration.
 
-{code}
-ProxyRequests   Off
+{code}ProxyRequests   Off
 ProxyPass	 "/" http://YOUR_AS_HOST:AS_HTTP_PORT/
-ProxyPassReverse "/" http://YOUR_AS_HOST:AS_HTTP_PORT/
-{code}
+ProxyPassReverse "/" http://YOUR_AS_HOST:AS_HTTP_PORT/{code}
 
 Details:
 
@@ -203,15 +199,13 @@ Details:
 
 In the above example, the HTTP daemon will work in the *reverse proxy* mode (ProxyRequests Off) and will redirect all requests to the tcp port 8080 on the localhost.
 So, the configuration of a virtual host looks like the following:
-{code}
-<VirtualHost *:80>
+{code}<VirtualHost *:80>
   ServerName      Enter your server DNS name here
   RedirectMatch	permanent "^/?$" "/portal/"
   ProxyRequests   Off
   ProxyPass	 "/" http://localhost:8080/
   ProxyPassReverse "/" http://localhost:8080/
-</VirtualHost>
-{code}
+</VirtualHost>{code}
 For more detail on *mod{{{_}}}proxy*, refer to this [documentation|http://httpd.apache.org/docs/2.2/mod/mod_proxy.html].
 
 h2. Connect via AJP protocol {anchor:id=ADM.Deployment.Connection_via_AJP_protocolRoleNotInToc}
@@ -239,20 +233,16 @@ AJP proxy module
 Make sure that _mod\_proxy\_ajp.so_ is included in the list of loadable modules.
 Add the following to your virtual host configuration setting:
 
-{code}
-ProxyPass / ajp://localhost:8009/
-{code}
+{code}ProxyPass / ajp://localhost:8009/{code}
 
 In this example, the app server is located on the same host as the Apache HTTP daemon, and accepts incoming connections on the port 8009 (the default setting for the Tomcat application server).
 You can find the full list of virtual host configurations here:
-{code}
-<VirtualHost *:80>
+{code}<VirtualHost *:80>
   ServerName      Enter your server DNS name here
   RedirectMatch	permanent "^/?$" "/portal/"
   ProxyRequests   Off
   ProxyPass	/ ajp://localhost:8009/
-</VirtualHost>
-{code}
+</VirtualHost>{code}
 
 {docbook}
 <para xml:id="ADM.Deployment.Apache_Tomcat's_AJP_connector">
@@ -270,8 +260,7 @@ Apache Tomcat's AJP connector
 
 *3.* Create the configuration file for the _mod\_jk.conf_ module.
 
-{code}
-LoadModule    jk_module  modules/mod_jk.so
+{code}LoadModule    jk_module  modules/mod_jk.so
 <IfModule jk_module>
   # ---- Where to find workers.properties
         JkWorkersFile   conf.d/workers.properties
@@ -284,8 +273,7 @@ LoadModule    jk_module  modules/mod_jk.so
   JkRequestLogFormat "%w %R %T"
   # ---- Send everything for context /examples to worker named worker1 (ajp13)
   JkMountFileReload       "0"
-</IfModule>
-{code}
+</IfModule>{code}
 
 For more details, see the [Tomcat documentation|http://tomcat.apache.org/connectors-doc/reference/apache.html].
 
@@ -293,8 +281,7 @@ For more details, see the [Tomcat documentation|http://tomcat.apache.org/connect
 
 *5.* Create the _workers.properties_ file, which defines the [AJP workers|http://tomcat.apache.org/connectors-doc/generic_howto/workers.html] for the HTTP daemon.
 
-{code}
-worker.list=status, WORKER_NAME
+{code}worker.list=status, WORKER_NAME
 # Main status worker
 worker.stat.type=status
 worker.stat.read_only=true
@@ -304,8 +291,7 @@ worker.WORKER_NAME.type=ajp13
 worker.WORKER_NAME.host=localhost
 worker.WORKER_NAME.port=8109
 worker.WORKER_NAME.socket_timeout=120
-worker.WORKER_NAME.socket_keepalive=true
-{code}
+worker.WORKER_NAME.socket_keepalive=true{code}
 
 {note}
 In the example above, you can change _WORKER\_NAME_ to any value.
@@ -315,14 +301,12 @@ In the example above, you can change _WORKER\_NAME_ to any value.
 
 *7.* Update the virtual host configuration.
 
-{code}
-<VirtualHost *:80>
+{code}<VirtualHost *:80>
   ServerName      Enter your server DNS name here
   RedirectMatch	permanent "^/?$" "/portal/"
   ProxyRequests   Off
   JkMount         /*	WORKER_NAME
-</VirtualHost>
-{code}
+</VirtualHost>{code}
 
 h1. Configure the session timeout for the web server {anchor:id=ADM.Deployment.Configure_session_time-out_for_web_server}
 
@@ -331,14 +315,12 @@ In the portal environment, such as eXo Platform, it is highly recommended that a
 
 The session timeout is configurable individually for each web application in the _web.xml_ file:
 
-{code:xml}
-<!-- ==================== Default Session Configuration ================= --> 
+{code:xml}<!-- ==================== Default Session Configuration ================= --> 
 <!-- You can set the default session timeout (in minutes) for all newly   --> 
 <!-- created sessions by modifying the value below.                       --> 
 <session-config> 
   <session-timeout>30</session-timeout> 
-</session-config>
-{code}
+</session-config>{code}
 
 {docbook}
 <para xml:id="ADM.Deployment.TomcatJBossServer">

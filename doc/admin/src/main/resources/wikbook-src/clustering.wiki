@@ -97,24 +97,16 @@ The following steps describe a typical setup of eXo Platform cluster:
 * Switch to a _cluster_ configuration.
 This step is done in the _configuration.properties_ file. This _configuration.properties_ file must be set in the same way on all the cluster nodes.
 First, point the _exo.shared.dir_ variable to a directory shared between cluster nodes.
-{code}
-exo.shared.dir=/PATH/TO/SHARED/FS
-{code}
+{code}exo.shared.dir=/PATH/TO/SHARED/FS{code}
 The path is shared, so all nodes will need the _read/write_ access to this path.
 Then, switch the JCR to the cluster mode.
-{code}
-gatein.jcr.config.type=cluster
-{code}
+{code}gatein.jcr.config.type=cluster{code}
 In this step, JCR enables the automatic network replication and discovery between other cluster nodes.
 * Switch to the _cluster_ profile.
 You need to indicate the _cluster_ kernel profile to eXo Platform. This can be done by editing the startup script in the _bin/gatein.sh_ folder as below:
-{code}
-EXO_PROFILES="-Dexo.profiles=default,cluster"
-{code}
+{code}EXO_PROFILES="-Dexo.profiles=default,cluster"{code}
 or use the _start\_eXo.sh_ script with such parameters:
-{code}
-./start_eXo.sh default,cluster
-{code}
+{code}./start_eXo.sh default,cluster{code}
 * Do the initial startup.
 For the initial startup of your JCR cluster, you should only start a single node. This node will initialize the internal JCR database and create the system workspace. Once the initial node is definitely started, you can start the other nodes.
 {note}
@@ -154,8 +146,7 @@ JBossCache
 {docbook}
 
 The JBossCache configuration is done in the _configuration.properties_ file using following properties:
-{code}
-# JCR cache configuration
+{code}# JCR cache configuration
 gatein.jcr.cache.config=file:${gatein.conf.dir}/jcr/jbosscache/${gatein.jcr.config.type}/cache-config.xml
 gatein.jcr.cache.expiration.time=15m
 
@@ -170,8 +161,7 @@ gatein.jgroups.jmxstatistics.enable=true
 # for eXo Cache and IDM org-service (in cluster cache-config.xml files)
 gatein.jgroups.config=${gatein.conf.dir}/jgroups/jgroups-udp.xml
 # for JCR
-gatein.jcr.jgroups.config=file:${gatein.jgroups.config}
-{code}
+gatein.jcr.jgroups.config=file:${gatein.jgroups.config}{code}
 
 By default, the nodes discovery is based on _UDP_, in which *JGroups* is responsible for the nodes identification through the UDP transport. The administrator can change the configuration of detection and ports in _jgroups-udp.xml_.
 
@@ -186,10 +176,8 @@ Shared file system
 {docbook}
 
 Optionally, if you need separate physical storage for JCR indexes and value storage files, it is possible to configure related paths, each to a separate shared file system:
-{code}
-gatein.jcr.storage.data.dir=/PATH/TO/SHARED/VALUES_FS/values
-gatein.jcr.index.data.dir=/PATH/TO/SHARED/INDEX_FS/index
-{code}
+{code}gatein.jcr.storage.data.dir=/PATH/TO/SHARED/VALUES_FS/values
+gatein.jcr.index.data.dir=/PATH/TO/SHARED/INDEX_FS/index{code}
 
 h2. Local JCR index in cluster {anchor:id=ADM.Clustering.Local_JCR_IndexRoleNotInToc}
 
@@ -199,17 +187,11 @@ JCR clustering with local index on each node is a new feature. Find more informa
 
 If the cluster is used with the local JCR index on each node, apply the following changes to the steps described above:
 * configure index data to a local directory on each node:
-{code}
-gatein.jcr.index.data.dir=/PATH/TO/LOCAL/INDEX
-{code}
+{code}gatein.jcr.index.data.dir=/PATH/TO/LOCAL/INDEX{code}
 * run the cluster with the additional profile named "{{cluster-index-local}}" by adding the following profile to the startup script in the _bin/gatein.sh_ file;
-{code}
-EXO_PROFILES="-Dexo.profiles=default,cluster,cluster-index-local"
-{code}
+{code}EXO_PROFILES="-Dexo.profiles=default,cluster,cluster-index-local"{code}
 Or, by using the following command with this additional profile.
-{code}
-./start_eXo.sh default,cluster,cluster-index-local
-{code}
+{code}./start_eXo.sh default,cluster,cluster-index-local{code}
 
 h1. FAQs of clustering {anchor:id=ADM.Clustering.Clustering_FAQ}
 
@@ -244,9 +226,7 @@ Q2. Why is startup failed with the "Port value out of range" error?
 {docbook}
 On Linux, your startup is failed if you encounter the following error:
 
-{code}
-[INFO] Caused by: java.lang.IllegalArgumentException: Port value out of range: 65536
-{code}
+{code}[INFO] Caused by: java.lang.IllegalArgumentException: Port value out of range: 65536{code}
 
 This problem happens under specific circumstances when the JGroups networking library behind the clustering attempts to detect the IP to communicate with other nodes.
 
@@ -268,11 +248,9 @@ Q3. How to solve the "failed sending message to null" error?
 {docbook}
 If you encounter the following error when starting up in the cluster mode on Linux:
 
-{code}
-Dec 15, 2010 6:11:31 PM org.jgroups.protocols.TP down
+{code}Dec 15, 2010 6:11:31 PM org.jgroups.protocols.TP down
 SEVERE: failed sending message to null (44 bytes)
-java.lang.Exception: dest=/228.10.10.10:45588 (47 bytes)
-{code}
+java.lang.Exception: dest=/228.10.10.10:45588 (47 bytes){code}
 
 Be aware that clustering on Linux only works with IPv4. Therefore, when using a cluster under Linux, add the following property to the JVM parameters:
 {code} -Djava.net.preferIPv4Stack=true {code}
@@ -298,16 +276,12 @@ Dec 16, 2011 4:46:10 PM org.jgroups.protocols.TP passMessageUp
 
 To hide such warnings, need to configure the Application Server logger in an appropriate way:
 * Apache Tomcat: add the following lines to the _{{{${CATALINA_HOME}/conf/logging.properties}}}_ file:
-{code:java}
-org.jgroups.level = SEVERE
-org.jgroups.handlers = java.util.logging.ConsoleHandler,6gatein.org.apache.juli.FileHandler
-{code}
+{code:java}org.jgroups.level = SEVERE
+org.jgroups.handlers = java.util.logging.ConsoleHandler,6gatein.org.apache.juli.FileHandler{code}
 * JBoss Application Server: for the "_all_" server profile, add the following lines to the _{{{${jboss_server}/server/all/conf/jboss-log4j.xml}}}_ file:
-{code:xml}
-  <category name="org.jgroups.protocols.UDP">
+{code:xml}<category name="org.jgroups.protocols.UDP">
     <priority value="ERROR"/>
-  </category>
-{code}
+</category>{code}
 
 {docbook}
 <para>

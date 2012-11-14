@@ -140,9 +140,7 @@ h1. eXo Platform configuration {anchor:id=ADM.Configuration.eXo_Configuration}
 
 In eXo Platform, the configuration is performed in a folder whose location is controlled by a system property named _exo.conf.dir_. By default, the _gatein.sh_ startup script sets this property as follows:
 
-{code}
--Dexo.conf.dir.name=gatein/conf
-{code}
+{code}-Dexo.conf.dir.name=gatein/conf{code}
 
 So the main entry point for the eXo Platform configuration is _/gatein/conf/_. This directory contains the following files:
 
@@ -226,34 +224,32 @@ This may turn handy services or configurations that are not exposed in _configur
 
 For example, you can change the default WebDAV update policy by adding the following code to this _configuration.xml_ file:
 
-{code:xml}
-  <component>
-    <key>org.exoplatform.services.jcr.webdav.WebDavServiceImpl</key>
-    <type>org.exoplatform.services.jcr.webdav.WebDavServiceImpl</type>
-    <init-params>
-      <value-param>
-        <name>auto-mix-lockable</name>
-        <value>false</value>
-      </value-param>
-      <value-param>
-        <name>def-folder-node-type</name>
-        <value>nt:folder</value>
-      </value-param>
-      <value-param>
-        <name>def-file-node-type</name>
-        <value>nt:file</value>
-      </value-param>
-      <value-param>
-        <name>def-file-mimetype</name>
-        <value>text/plain</value>
-      </value-param>
-      <value-param>
-        <name>update-policy</name>
-        <value>replace</value>
-      </value-param>
-    </init-params>
-  </component>
-{code}
+{code:xml}<component>
+  <key>org.exoplatform.services.jcr.webdav.WebDavServiceImpl</key>
+  <type>org.exoplatform.services.jcr.webdav.WebDavServiceImpl</type>
+  <init-params>
+    <value-param>
+      <name>auto-mix-lockable</name>
+      <value>false</value>
+    </value-param>
+    <value-param>
+      <name>def-folder-node-type</name>
+      <value>nt:folder</value>
+    </value-param>
+    <value-param>
+      <name>def-file-node-type</name>
+      <value>nt:file</value>
+    </value-param>
+    <value-param>
+      <name>def-file-mimetype</name>
+      <value>text/plain</value>
+    </value-param>
+    <value-param>
+      <name>update-policy</name>
+      <value>replace</value>
+    </value-param>
+  </init-params>
+</component>{code}
 
 {docbook}
 <para>
@@ -322,21 +318,15 @@ You need to prepare two database schema, then do as follows:
 
 *1.* Connect to your database server using the *ssh* command: 
 
-{code}
-ssh root@db.example.org
-{code}
+{code}ssh root@db.example.org{code}
 
 *2.* Verify that MySQL is running: 
 
-{code}
-sudo /etc/init.d/mysqld status
-{code}
+{code}sudo /etc/init.d/mysqld status{code}
 
 *3.* Connect to MySQL: 
 
-{code}
-mysql -u root -p
-{code}
+{code}mysql -u root -p{code}
 
 In this step, you will be prompted for entering your password.
 
@@ -344,23 +334,17 @@ In this step, you will be prompted for entering your password.
 
 *i.* Create the first database.
  
-{code}
-create database _$dbname_;
-{code}
+{code}create database _$dbname_;{code}
 
 *ii.* Configure the user who has the remote access right (not only from the host server):
 
-{code}
-grant all on _$dbname_.* to '_$username_'@'_$IP_' identified by '_$password_';
-{code}
+{code}grant all on _$dbname_.* to '_$username_'@'_$IP_' identified by '_$password_';{code}
 
 In which, $IP = AS host name, $IP = IP with wildcard (eg 192.168.1.% = all IPs on 192.168.1.x network) and $username = username that eXo Platform will connect with (i.e. 'dbname_user').
 
 *5.* Verify that both databases were created successfully.
 
-{code}
-show databases;
-{code}
+{code}show databases;{code}
 
 *6.* Quit the server with the *exit* command.
 
@@ -400,8 +384,7 @@ Edit the server.xml file
 
 The code now should look like:
 
-{code:xml}
-<!-- eXo JCR Datasource for portal -->
+{code:xml}<!-- eXo JCR Datasource for portal -->
 <Resource name="exo-jcr_portal" auth="Container" type="javax.sql.DataSource"
                maxActive="20" maxIdle="10" maxWait="10000"
 			   removeAbandoned="true" removeAbandonedTimeout="10" logAbandoned="true" minEvictableIdleTimeMillis="60000"
@@ -413,8 +396,7 @@ The code now should look like:
                maxActive="20" maxIdle="10" maxWait="10000"
 			   removeAbandoned="true" removeAbandonedTimeout="10" logAbandoned="true" minEvictableIdleTimeMillis="60000"
                username="_$username_" password="_$password_" driverClassName="com.mysql.jdbc.Driver"
-               url="jdbc:mysql://_$host_:3306/_$dbname-idm_"/>   
-{code}
+               url="jdbc:mysql://_$host_:3306/_$dbname-idm_"/>{code}
 
 *3.* Add the JDBC driver.
 In this step, you need to add the MySQL connector to Tomcat by adding _mysql-connector-java-5.1.x.jar_ to _$PLATFORM\_TOMCAT\_\HOME/lib/_.
@@ -449,8 +431,7 @@ Configure the data source for eXo Platform under JBoss
 
 The configuration should now look like:
 
-{code:xml}
-<datasources>
+{code:xml}<datasources>
     <no-tx-datasource>
       <jndi-name>exo-idm_portal</jndi-name>
       <connection-url>jdbc:mysql://_$host_:3306/_$dbname-idm_</connection-url>
@@ -476,8 +457,7 @@ The configuration should now look like:
       <idle-timeout-minutes>0</idle-timeout-minutes>
       <prepared-statement-cache-size>32</prepared-statement-cache-size>
    </no-tx-datasource>
-</datasources>
-{code}
+</datasources>{code}
 
 *2.* Add the JDBC driver.
 In this step, you need to add the MySQL connector library in JBoss by adding _mysql-connector-java-5.1.x.jar_ to _$PLATFORM\_JBOSS\_\HOME/server/default/lib/_.
@@ -498,16 +478,14 @@ You may want to rename the data source as follows:
 
 In this step, indicate eXo name of the data sources. The database schema of Hibernate service for IDM tables is optionally defined by the {{{gatein.idm.datasource.schema}}} property.
 
-{code}
-# JNDI name of the datasource that will be used by eXo JCR
+{code}# JNDI name of the datasource that will be used by eXo JCR
 gatein.jcr.datasource.name=java:/comp/env/exojcr
 ...
 # JNDI Name of the IDM datasource
 gatein.idm.datasource.name=java:/comp/env/exo-idm
 
 # Optional database schema for use with IDM tables (empty by default), uncomment this line to specify required schema name
-#gatein.idm.datasource.schema=EXO1
-{code}
+#gatein.idm.datasource.schema=EXO1{code}
 
 {note}
 eXo Platform automatically appends the portal container name ("\_\portal" by default) to these values before performing a JNDI lookup.
@@ -541,13 +519,11 @@ In each folder, you will find two sample xml files: _gatein-ds.xml_ for JBoss an
 
 Each file contains 2 preconfigured data sources. For example: JCR data source in _mysql/server.xml_:
 
-{code:xml}
-<Resource name="exo-jcr_portal" auth="Container" type="javax.sql.DataSource"
+{code:xml}<Resource name="exo-jcr_portal" auth="Container" type="javax.sql.DataSource"
           maxActive="128" maxIdle="32" maxWait="10000"
           testWhileIdle="true" timeBetweenEvictionRunsMillis="30000" validationQuery="SELECT 1" 
           username="${db.username}" password="${db.password}" driverClassName="com.mysql.jdbc.Driver"
-          url="jdbc:mysql://${db.host}:${db.port}/${db.jcr.name}"/>
-{code}
+          url="jdbc:mysql://${db.host}:${db.port}/${db.jcr.name}"/>{code}
 
 You simply replace the variables with the expected values:
 
@@ -579,19 +555,15 @@ Q2. How to remove the idle MySQL connections?
 {docbook}
 Some RDBMSs, like MySQL, close the idle connections after a period (8 hours on MySQL by default). Thus, a connection from the pool will be invalid and any application SQL command will fail, resulting in errors as below:
 
-{code}
-org.hibernate.SessionException: Session is closed!
+{code}org.hibernate.SessionException: Session is closed!
 at org.hibernate.impl.AbstractSessionImpl.errorIfClosed(AbstractSessionImpl.java:72)
-at org.hibernate.impl.SessionImpl.getTransaction(SessionImpl.java:1342)
-{code}
+at org.hibernate.impl.SessionImpl.getTransaction(SessionImpl.java:1342){code}
 
 To avoid this, you can use DBCP to monitor the idle connections and drop them when they are invalid, with the *testWhileIdle*, *timeBetweenEvictionRunsMillis*, and *validationQuery* parameters.
 
 The validation query is specific to your RDBMS. For example, on MySQL, you would use:
 
-{code:java}
-testWhileIdle="true" timeBetweenEvictionRunsMillis="30000" validationQuery="SELECT 1"
-{code}
+{code:java}testWhileIdle="true" timeBetweenEvictionRunsMillis="30000" validationQuery="SELECT 1"{code}
 
 In which:
 
@@ -618,17 +590,14 @@ Q3. How to enable managed DataSource?
 </citetitle>
 {docbook}
 When you want to use a managed data source (which is the case under JBoss), set "true" for the {{gatein.jcr.datasource.managed}} property in the {{configuration.properties}} file.
-{code:java}
-# indicates if the jcr datasource is using managed transactions. 
+{code:java}# indicates if the jcr datasource is using managed transactions. 
 # false by default. 
-gatein.jcr.datasource.managed=true
-{code}
+gatein.jcr.datasource.managed=true{code}
 
 h1. File system paths {anchor:id=ADM.Configuration.File_system_paths}
 eXo Platform requires the read/write access to several paths in the local file system.
 
-{code}
-# Arjuna configuration
+{code}# Arjuna configuration
 com.arjuna.ats.arjuna.objectstore.objectStoreDir=${gatein.data.dir}/jta
 .....
 
@@ -652,8 +621,7 @@ gatein.jcr.data.dir=${gatein.data.dir}/jcr
 gatein.jcr.storage.data.dir=${gatein.jcr.data.dir}/values
 
 # path for the jcr index
-gatein.jcr.index.data.dir=${gatein.jcr.data.dir}/index
-{code}
+gatein.jcr.index.data.dir=${gatein.jcr.data.dir}/index{code}
 
 The following table explains what goes in which path. The *Temporary* column indicates if the data are temporary or persistent (V: temporary, X: persistent).
 
@@ -667,16 +635,14 @@ The following table explains what goes in which path. The *Temporary* column ind
 Each variable can be defined as an absolute or a relative path.
 The default configuration combines them to obtain a compact tree:
 
-{code}
-/gatein       # gatein.data.dir
+{code}/gatein       # gatein.data.dir
   /data
     /hsql
     /jcr      # gatein.jcr.data.dir
       /index  # gatein.jcr.index.data.dir    
       /swap
       /values # gatein.jcr.storage.data.dir    
-    /jta      
-{code}
+    /jta{code}
 
 {docbook}
 <para>
@@ -690,12 +656,10 @@ The default configuration combines them to obtain a compact tree:
 
 h1. JCR system and default workspaces {anchor:id=ADM.Configuration.JCR_Workspaces}
 The following is the configuration of workspaces (default and system) for JCR repository.
-{code:java}
-# JCR system and default workspaces
+{code:java}# JCR system and default workspaces
 gatein.jcr.repository.default=repository
 gatein.jcr.workspace.default=collaboration
-gatein.jcr.workspace.system=system
-{code}
+gatein.jcr.workspace.system=system{code}
 
 {docbook}
 <para>
@@ -713,11 +677,9 @@ gatein.jcr.workspace.system=system
 h1. Transaction Service {anchor:id=ADM.Configuration.JCR_TransactionService}
 
 JCR transaction default timeout configured for 7 mins (420 sec) by default. If your application runs longer transactions, you might need a bigger timeout.
-{code:java}
-# JCR Transaction Service
+{code:java}# JCR Transaction Service
 # TransactionService default timeout (in seconds), set it to one hour here:
-gatein.jcr.transaction.timeout=3600
-{code}
+gatein.jcr.transaction.timeout=3600{code}
 
 {docbook}
 <para>
@@ -745,8 +707,7 @@ gatein/conf/configuration.properties_ if you are using Tomcat).
 
 The relevant section looks like:
 
-{code:java}
-#EMail
+{code:java}#EMail
 # Domain name: Help for sending links from email notifications. The default domain name is http://localhost:8080.
 gatein.email.domain.url=http://localhost:8080
 # Email display in "from" field of email notification.
@@ -758,8 +719,7 @@ gatein.email.smtp.port=465
 gatein.email.smtp.starttls.enable=true
 gatein.email.smtp.auth=true
 gatein.email.smtp.socketFactory.port=465
-gatein.email.smtp.socketFactory.class=javax.net.ssl.SSLSocketFactory
-{code}
+gatein.email.smtp.socketFactory.class=javax.net.ssl.SSLSocketFactory{code}
 
 Some authenticated SMTP systems, such as GMail, GMX, MS Exchange, require the value for 'sender' or 'from' in the email message that must be identical to the SMTP user and host.
 
@@ -780,10 +740,8 @@ To see more details, refer to [JavaMail API documentation|http://java.sun.com/pr
 
 For Knowledge, you have to modify the following properties to the configuration file _/gatein/conf/configuration.properties_ to make sure that this mail service works with the authenticated SMTP systems:
 
-{code:java}
-gatein.email.domain.url=http://localhost:8080
-gatein.email.smtp.from=noreply@exoplatform.com
-{code}
+{code:java}gatein.email.domain.url=http://localhost:8080
+gatein.email.smtp.from=noreply@exoplatform.com{code}
 
 {note}
 The value of email address should be in a valid format.
@@ -813,14 +771,12 @@ To customize the email notification, simply change the configuration in the _con
 | _*configuration.properties*_ | _$PLARFORM\_TOMCAT\_HOME/gatein/conf/configuration.properties_ | _/server/default/conf/gatein/configuration.properties_ |
 
 The relevant section looks like:
-{code:java}
-# Email content for WatchDocumentService
+{code:java}# Email content for WatchDocumentService
 gatein.ecms.watchdocument.sender=support@exoplatform.com
 gatein.ecms.watchdocument.subject=Your watching document is changed
 gatein.ecms.watchdocument.mimetype=text/html
 gatein.ecms.watchdocument.content=<![CDATA[Dear $user_name,<br><br>The document $doc_name ($doc_title) has changed.<br>
-<br>Please go to <a href="$doc_url">$doc_title</a> to see this change.<br><br>]]>
-{code}
+<br>Please go to <a href="$doc_url">$doc_title</a> to see this change.<br><br>]]>{code}
 
 *Details:*
 ||Property || Default value{anchor:id="watching-document-default-values"} || Description ||
@@ -857,9 +813,7 @@ This is useful for fine-tuning your website.
 
 The configuration property is _exo.webdav.cache-control_.
 
-{code}
-exo.webdav.cache-control=text/*:max-age=3600;image/*:max-age=1800;*/*:no-cache;
-{code}
+{code}exo.webdav.cache-control=text/*:max-age=3600;image/*:max-age=1800;*/*:no-cache;{code}
 
 The property expects a comma-separated list of key=pair values, where keys are a list of MIME types followed by the cache-control value to set.
 
@@ -892,13 +846,11 @@ XMPPMessenger
 
 If you change the host name and port for the Chat server, you will need to edit two properties:
 
-{code}
-# IP or hostname for the eXo Chat XMPP server
+{code}# IP or hostname for the eXo Chat XMPP server
 exo.chat.server=127.0.0.1
 
 # TCP port for where the eXo Chat server listens for XMPP calls
-exo.chat.port=5222
-{code}
+exo.chat.port=5222{code}
 
 {docbook}
 <para xml:id="ADM.Configuration.Chat_server_configuration">
@@ -914,15 +866,13 @@ The standalone Chat server is configured in the _$CHATSERVER/conf/openfire.xml_ 
 
 Configuration is based on properties expressed in the XML syntax. For example, to set the _prop.name.is.blah=value_ property, you would write this xml snippet:
 
-{code:xml}
-<prop>
+{code:xml}<prop>
   <name>
     <is>
       <blah>value</blah>
     </is>
   </name>
-</prop>
-{code}
+</prop>{code}
 
 
 Openfire has an extensive list of configuration properties. Please read the list of all properties in [Openfire documentation | http://community.igniterealtime.org/docs/DOC-1061] for more details.
@@ -991,15 +941,13 @@ Since eXo Platform 3.5.4, this service has been manually enabled/disabled by set
 
 You can customize the default values by adding the properties below in the _configuration.properties_ file:
 
-{code}
-# JODConverter 3.0
+{code}# JODConverter 3.0
 wcm.jodconverter.portnumbers=8100,8101,8102,8103,8104
 wcm.jodconverter.officehome=/usr/lib/libreoffice
 wcm.jodconverter.taskqueuetimeout=30000
 wcm.jodconverter.taskexecutiontimeout=120000
 wcm.jodconverter.maxtasksperprocess=200
-wcm.jodconverter.retrytimeout=120000
-{code}
+wcm.jodconverter.retrytimeout=120000{code}
 
 
 ||Key || Default value{anchor:default_values} || Description ||
@@ -1013,24 +961,18 @@ wcm.jodconverter.retrytimeout=120000
 
 *The default office home* {anchor:id="Office_home"}
 * *Linux*
-{code}
-"/opt/openoffice.org3"
+{code}"/opt/openoffice.org3"
 "/opt/libreoffice"
 "/usr/lib/openoffice"
-"/usr/lib/libreoffice"
-{code}
+"/usr/lib/libreoffice"{code}
 
 * *Windows*
-{code}
-"<SYSTEM_PROGRAMFILES>/OpenOffice.org 3"
-"<SYSTEM_PROGRAMFILES>/LibreOffice 3"
-{code}
+{code}"<SYSTEM_PROGRAMFILES>/OpenOffice.org 3"
+"<SYSTEM_PROGRAMFILES>/LibreOffice 3"{code}
 
 * *Mac*
-{code}
-"/Applications/OpenOffice.org.app/Contents"
-"/Applications/LibreOffice.app/Contents"
-{code}
+{code}"/Applications/OpenOffice.org.app/Contents"
+"/Applications/LibreOffice.app/Contents"{code}
 
 {docbook}
 <para>
@@ -1069,8 +1011,7 @@ h1. JCR {anchor:id=ADM.Configuration.JCR}
 
 The set of properties controls the JCR behaviour.
 
-{code}
-# Type of JCR configuration to use. Possible values are:
+{code}# Type of JCR configuration to use. Possible values are:
 # local : local JBC configuration
 # cluster : cluster JBC configuration
 gatein.jcr.config.type=local
@@ -1099,8 +1040,7 @@ gatein.jcr.index.cache.config=file:${gatein.conf.dir}/jcr/jbosscache/${gatein.jc
 # for eXo Cache and IDM org-service (in cluster cache-config.xml files)
 gatein.jgroups.config=${gatein.conf.dir}/jgroups/jgroups-udp.xml
 # for JCR
-gatein.jcr.jgroups.config=file:${gatein.jgroups.config}
-{code}
+gatein.jcr.jgroups.config=file:${gatein.jgroups.config}{code}
 
 *Details:*
 
@@ -1141,8 +1081,7 @@ Portal Cache Configuration
 </para>
 {docbook}
 
-{code}
-# Portal Cache Configuration - TemplateService
+{code}# Portal Cache Configuration - TemplateService
 cache.exo.portal.TemplateService.capacity=3000
 cache.exo.portal.TemplateService.liveTime=600
 
@@ -1153,8 +1092,7 @@ cache.exo.portal.ResourceBundleData.liveTime=600
 # Portal Cache Configuration - MOPSessionManager
 cache.exo.portal.MOPSessionManager.Capacity=5000
 cache.exo.portal.MOPSessionManager.TimeToLive=60000
-cache.exo.portal.MOPSessionManager.ExpirationTimeout=60000
-{code}
+cache.exo.portal.MOPSessionManager.ExpirationTimeout=60000{code}
 
 {docbook}
 <para xml:id="ADM.Configuration.CacheConfiguration.SocialCacheConfig">
@@ -1166,8 +1104,7 @@ Social Cache Configuration
 </para>
 {docbook}
 
-{code}
-# Social Cache Configuration - IdentityCache
+{code}# Social Cache Configuration - IdentityCache
 cache.exo.social.IdentityCache.Capacity:300
 cache.exo.social.IdentityCache.TimeToLive:-1
 
@@ -1230,7 +1167,6 @@ cache.exo.social.SpacesCountCache.TimeToLive:86400
 # Social Cache Configuration - SpacesCache
 cache.exo.social.SpacesCache.Capacity:2000
 cache.exo.social.SpacesCache.TimeToLive:86400
-
 {code}
 
 {docbook}
@@ -1243,8 +1179,7 @@ ECMS Cache Configuration
 </para>
 {docbook}
 
-{code}
-# ECMS Cache Configuration - Viewer
+{code}# ECMS Cache Configuration - Viewer
 cache.exo.ecms.Viewer.PDFViewer.Capacity=300
 cache.exo.ecms.Viewer.PDFViewer.TimeToLive=3600
 
@@ -1266,8 +1201,7 @@ cache.exo.ecms.Webcontent.InitialWebContentPlugin.TimeToLive=600
 
 # ECMS Cache Configuration - WCM Composer
 cache.exo.ecms.WCMComposer.Capacity=1000
-cache.exo.ecms.WCMComposer.TimeToLive=3600
-{code}
+cache.exo.ecms.WCMComposer.TimeToLive=3600{code}
 
 {docbook}
 <para xml:id="ADM.Configuration.CacheConfiguration.PageRenderingCache">
@@ -1279,11 +1213,9 @@ PageRenderingCache Configuration
 </para>
 {docbook}
 
-{code}
-# Page rendering cache setting
+{code}# Page rendering cache setting
 cache.exo.wiki.PageRenderingCache.Capacity=1000
-cache.exo.wiki.PageRenderingCache.TimeToLive=-1
-{code}
+cache.exo.wiki.PageRenderingCache.TimeToLive=-1{code}
 {docbook}
 <para> </para>
 {docbook}
@@ -1359,17 +1291,14 @@ You must do this configuration before the first boot of eXo Platform.
 {note}
 
 *1.* Modify the system property named _exo.super.user_ defined in _configuration.properties_ before starting eXo platform.
-{code:java}
-# Super User declaration
-exo.super.user=root
-{code}
+{code:java}# Super User declaration
+exo.super.user=root{code}
 
 *2.* Make sure the user whom you want to set as the "super-user" already exists into your configuration. By default, the users including "john", "demo", "james" and "mary" are created.
 
 *3.* Remove the "root" user declaration defined in the _organization-configuration.xml_ file:
 
-{code:xml}
-<field name="user">
+{code:xml}<field name="user">
   <collection type="java.util.ArrayList">
     <value>
       <object type="org.exoplatform.services.organization.OrganizationConfig$User">
@@ -1395,8 +1324,7 @@ exo.super.user=root
       </object>
     </value>
   </collection>
-</field>
-{code}
+</field>{code}
 
 *4.* Add some privileges to your user into the _organization-configuration.xml_ file.
 
@@ -1407,13 +1335,10 @@ exo.super.user=root
 
 *For example:*
 * Set the "demo" user as a super-user.
-{code:java}
-# Super User declaration
-exo.super.user=demo
-{code}
+{code:java}# Super User declaration
+exo.super.user=demo{code}
 * Assign some privileges to the "demo" user:
-{code:xml}
-<value>
+{code:xml}<value>
     <object type="org.exoplatform.services.organization.OrganizationConfig$User">
       <field name="userName">
         <string>demo</string>
@@ -1434,8 +1359,7 @@ exo.super.user=demo
         <string>*:/platform/administrators,*:/platform/users,*:/platform/web-contributors,*:/organization/employees</string>
       </field>
     </object>
-</value>
-{code}
+</value>{code}
 
 h2. Grant users access to toolbar  {anchor:id=ADM.Configuration.Users_configuration.Grant_access_toolbarRoleNotInToc}
 {include:document=accesstoolbar.wiki|syntax=confluence/1.0}
@@ -1455,10 +1379,8 @@ There is always a default key defined in the _oauthkey.pem_ file.
 This key will be used in case the OAuth gadgets do not indicate a key.
 It is strongly recommended that you create your own _oauthkey.pem_ file by using the *openssl* tool and some commands as follows:
 
-{code}
-openssl req -newkey rsa:1024 -days 365 -nodes -x509 -keyout testkey.pem -out testkey.pem -subj '/CN=mytestkey'
-openssl pkcs8 -in testkey.pem -out oauthkey.pem -topk8 -nocrypt -outform PEM
-{code}
+{code}openssl req -newkey rsa:1024 -days 365 -nodes -x509 -keyout testkey.pem -out testkey.pem -subj '/CN=mytestkey'
+openssl pkcs8 -in testkey.pem -out oauthkey.pem -topk8 -nocrypt -outform PEM{code}
 
 After creating the new _oauthkey.pem_ file, you can use it to replace the default _oauthkey.pem_ file in the _data/gadgets/_ folder.
 
@@ -1480,8 +1402,7 @@ After creating the new _oauthkey.pem_ file, you can use it to replace the defaul
 
 h1. Other properties {anchor:id=ADM.Configuration.Other_properties}
 
-{code}
-# navigation controller file
+{code}# navigation controller file
 gatein.portal.controller.config=${gatein.conf.dir}/controller.xml
 
 # global portlet.xml
@@ -1504,8 +1425,7 @@ gatein.idm.store.cache.config=file:${gatein.conf.dir}/idm/jbosscache/${gatein.jc
 
 # Key files for gadget
 gatein.gadgets.securitytokenkeyfile=${exo.shared.dir}/gadgets/key.txt
-gatein.gadgets.signingkeyfile=${exo.shared.dir}/gadgets/oauthkey.pem
-{code}
+gatein.gadgets.signingkeyfile=${exo.shared.dir}/gadgets/oauthkey.pem{code}
 
 {docbook}
 <para>
