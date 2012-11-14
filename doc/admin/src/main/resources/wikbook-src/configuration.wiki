@@ -1067,10 +1067,6 @@ For more details on configuring these files, please refer to the [eXo JCR Refere
 
 h1. Cache configuration {anchor:id=ADM.Configuration.CacheConfiguration}
 
-{note}
-Please refer to the [Cache management view|#ADM.Management.Cache_management_view] section to see the description about the cache configuration.
-{note}
-
 {docbook}
 <para xml:id="ADM.Configuration.CacheConfiguration.PortalCacheConfig">
 <citetitle>
@@ -1093,6 +1089,11 @@ cache.exo.portal.ResourceBundleData.liveTime=600
 cache.exo.portal.MOPSessionManager.Capacity=5000
 cache.exo.portal.MOPSessionManager.TimeToLive=60000
 cache.exo.portal.MOPSessionManager.ExpirationTimeout=60000{code}
+
+||Cache Name||Description||
+|{{TemplateService}}|Cache all Groovy templates of portal by its template path and ResourceResolver.|
+|{{ResourceBundleData}}|Cache all resource bundles by name and locale.|
+|{{MOPSessionManager}}|Cache all model objects of portal by storageId, such as pages, navigations, and preferences.|
 
 {docbook}
 <para xml:id="ADM.Configuration.CacheConfiguration.SocialCacheConfig">
@@ -1169,6 +1170,24 @@ cache.exo.social.SpacesCache.Capacity:2000
 cache.exo.social.SpacesCache.TimeToLive:86400
 {code}
 
+||Cache Name||Description||
+|{{IdentityCache}}| Cache identity by _IdentityKey_ (based on the identity ID) . |
+|{{IdentityIndexCache}}| Cache identity index by _IdentityCompositeKey_ (based on the provider ID and the remote ID). |
+|{{ProfileCache}}| Cache profile by _IdentityKey_ (based on the identity ID). |
+|{{IdentitiesCountCache}}| Cache identity count by _IdentityFilterKey_ (based on the provider ID, remote ID, name, positon, company, skills, first character of the identity, and the List<IdentityKey>). |
+|{{IdentitiesCache}}| Cache identity list by _ListIdentitiesKey_ (based on IdentityFilterKey, offset, limit). |
+|{{RelationshipCache}}| Cache relationship by _RelationshipKey_ (based on the ID of the relationship). |
+|{{RelationshipFromIdentityCache}}| Cache relationship key  by _RelationshipIdentityKey_ (based on the identity ID of 2 users which have relationship). |
+|{{RelationshipsCountCache}}| Cache relationship count by _RelationshipCountKey_. |
+|{{RelationshipsCache}}| Cache list identity wich have relation by _ListRelationshipsKey_. |
+|{{ActivityCache}}| Cache activity by ActivityKey (based on the activity ID). |
+|{{ActivitiesCountCache}}| Cache count of activities by activity ID, identity ID (the identity who makes request) and the type of activity.|
+|{{ActivitiesCache}}| Cache activities list by _ListActivitiesKey_.|
+|{{SpaceCache}}| Cache space by _SpaceKey_ (based on the space ID). |
+|{{SpaceRefCache}}| Cache ref space by _SpaceRefKey_ (base on the display name, pretty name, group ID and the space URL). |
+|{{SpacesCountCache}}| Cache spaces count by _spaceFilterKey_ (based on the user ID, the first character of space name, the space name search condition, and space type (MEMBER,PENDING,INVITED,PUBLIC,ACCESSIBLE, VISIBLE, EDITABLE, ALL)). |
+|{{SpacesCache}}| Cache list space by _ListSpacesKey_ (based on _SpaceFilterKey_, offset and limit). |
+
 {docbook}
 <para xml:id="ADM.Configuration.CacheConfiguration.ECMSCacheConfig">
 <citetitle>
@@ -1202,6 +1221,19 @@ cache.exo.ecms.Webcontent.InitialWebContentPlugin.TimeToLive=600
 # ECMS Cache Configuration - WCM Composer
 cache.exo.ecms.WCMComposer.Capacity=1000
 cache.exo.ecms.WCMComposer.TimeToLive=3600{code}
+
+||Cache Name||Description||
+|{{PDFViewerREST}}|Cache data of PDF files by the ObjectKey object.|
+|{{ManageDrive}}|Cache all drives of Sites Explorer by the drive group name (String constant).|
+|{{ScriptService}}|Cache all Groovy script files by the script name.|
+|{{TemplateService}}|Cache all Groovy templates by the mechanism of org.exoplatform.groovyscript. text.TemplateService.|
+|{{InitialWebContentPlugin}}|Cache all artifact data by sourcePath of deploymentDescriptor. These data are reused when a new portal is deployed.|
+|{{WCMComposer}}|Cache published contents by the hash generated from path, version, remoteUser, language, recursive, orderBy, orderType, primaryType of cached nodes in Content.|
+
+{note}
+To further understand about the cache configuration, refer to the [Cache Levels|#GadgetUserguide.ManagementMonitoringGadget.CacheLevels]content in [eXo Platform User Guide|../../../user-guide/html/UserGuide.html]
+and the [Cache management view|#ADM.Management.Cache_management_view] section in this document.
+{note}
 
 {docbook}
 <para xml:id="ADM.Configuration.CacheConfiguration.PageRenderingCache">
