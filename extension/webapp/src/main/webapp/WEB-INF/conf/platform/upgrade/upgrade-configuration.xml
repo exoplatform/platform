@@ -201,18 +201,7 @@
 						</field>
 					</object>
 				</object-param>
-				<object-param>
-					<name>messageslist</name>
-					<object type="org.exoplatform.platform.upgrade.plugins.GadgetUpgrade">
-						<field name="name">
-							<string>messageslist</string>
-						</field>
-						<field name="path">
-							<string>war:/gadgets/messages/Messages.xml</string>
-						</field>
-					</object>
-				</object-param>
-				<object-param>
+				<object-param>					
 					<name>To-do</name>
 					<object type="org.exoplatform.platform.upgrade.plugins.GadgetUpgrade">
 						<field name="name">
