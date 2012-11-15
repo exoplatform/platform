@@ -36,6 +36,7 @@ function getModule(params)
    var calendarVersion = "${org.exoplatform.calendar.version}";
    var forumVersion = "${org.exoplatform.forum.version}";
    var wikiVersion = "${org.exoplatform.wiki.version}";
+   var platformUIVersion = "${org.exoplatform.platform-ui.version}";
 
 
    // fck editor required for WIKI, FORUM & CALENDAR
@@ -91,6 +92,14 @@ function getModule(params)
    module.patch.tomcat =
       new Project("org.exoplatform.platform", "platform-server-tomcat-patch", "jar", module.version);
    
+  //Platform UI
+  module.platformUI = {};
+  module.platformUI.webuiCore = 
+	new Project("org.exoplatform.platform-ui", "platform-ui-webui-core", "jar", platformUIVersion);
+   module.platformUI.eXoResources =
+       new Project("org.exoplatform.platform-ui", "platform-ui-web-eXoResources", "war", platformUIVersion);
+   module.platformUI.eXoResources.deployName = "eXoResources";
+
    // eXo IDE
    module.ide = {};
    

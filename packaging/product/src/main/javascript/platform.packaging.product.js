@@ -92,7 +92,7 @@ function getProduct(version) {
     product.addDependencies(ecms.waitemplate.war);
     product.addDependencies(ecms.authoring.war);
   
-  // rest-ecmdemo.war not deployed
+  // rest-ecmdemo.war not deployed  
 
   /* CALENDAR */
     product.addDependencies(calendar.calendar); // exo.cs.eXoApplication.calendar.service-2.0.0-SNAPSHOT.jar + calendar.war
@@ -137,7 +137,7 @@ function getProduct(version) {
   product.addDependencies(social.extension.war) ; // social-ext.war
   
   // integration project
-  product.addDependencies(platform.integ.ecmsSocial) ; // integration ecms-social
+  product.addDependencies(platform.integ.ecmsSocial) ; // integration ecms-social  
 
   product.addServerPatch("tomcat", platform.patch.tomcat) ;
 //  product.addServerPatch("tomcat", portal.server.tomcat.patch) ;
@@ -155,6 +155,13 @@ function getProduct(version) {
 	
 	// upgrade plugins
   product.addDependencies(platform.upgrade.platform);
+
+  //Platform UI
+  //Replace GateIn's jar with platform-ui jar
+  product.removeDependency(portal.web.eXoResources);
+  product.removeDependency(portal.webui.core);
+  product.addDependencies(platform.platformUI.webuiCore);
+  product.addDependencies(platform.platformUI.eXoResources);
 
   /* cleanup duplicated lib */
   product.removeDependency(new Project("commons-httpclient", "commons-httpclient", "jar", "3.0"));

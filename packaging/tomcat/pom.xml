@@ -1647,6 +1647,21 @@
       <scope>provided</scope>
       <type>jar</type>
     </dependency>
+    <!-- Platform UI-->
+    <dependency>
+      <groupId>org.exoplatform.platform-ui</groupId>
+        <artifactId>platform-ui-webui-core</artifactId>
+      <version>${org.exoplatform.platform-ui.version}</version>
+      <scope>provided</scope>
+      <type>jar</type>
+    </dependency>
+    <dependency>
+      <groupId>org.exoplatform.platform-ui</groupId>
+        <artifactId>platform-ui-web-eXoResources</artifactId>
+      <version>${org.exoplatform.platform-ui.version}</version>
+      <scope>provided</scope>
+      <type>war</type>
+    </dependency>
     <!-- Gadgets-->
     <dependency>
       <groupId>org.exoplatform.platform</groupId>
