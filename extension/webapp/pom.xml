@@ -4,7 +4,7 @@
   <parent>
     <groupId>org.exoplatform.platform</groupId>
       <artifactId>platform-extension</artifactId>
-    <version>4.0.0.Alpha1-relooking-SNAPSHOT</version>
+    <version>4.0.0.Alpha1-plf-relooking-SNAPSHOT</version>
   </parent>
   <artifactId>platform-extension-webapp</artifactId>
   <packaging>war</packaging>
