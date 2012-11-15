@@ -1,19 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
-  
   <parent>
+    <artifactId>platform-exo-gadget-pack</artifactId>
     <groupId>org.exoplatform.platform</groupId>
-      <artifactId>platform-exo-gadget-pack</artifactId>
     <version>4.0.0.Alpha1-kill-exobuild-SNAPSHOT</version>
   </parent>
-  
   <artifactId>platform-exo-gadget-pack-gwt-gadgets</artifactId>
   <packaging>pom</packaging>
   <name>eXo Gadget Pack - GWT Gadgets</name>
   <description>GWT gadgets</description>
-
-
+  <!--dependency>
+     <groupId>com.google.gwt</groupId>
+     <artifactId>gwt-dev</artifactId>
+     <scope>test</scope>
+  </dependency-->
+  <!-- MODULES -->
+  <modules>
+    <module>eXoCalendar</module>
+  </modules>
   <dependencies>
     <dependency>
       <groupId>com.google.gwt</groupId>
@@ -24,14 +29,4 @@
       <artifactId>gwt-gadgets</artifactId>
     </dependency>
   </dependencies>
-  <!--dependency>
-     <groupId>com.google.gwt</groupId>
-     <artifactId>gwt-dev</artifactId>
-     <scope>test</scope>
-  </dependency-->
-  
-  <!-- MODULES -->
-  <modules>
-    <module>eXoCalendar</module>
-  </modules>
 </project>

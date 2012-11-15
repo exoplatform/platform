@@ -1,80 +1,78 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-	<modelVersion>4.0.0</modelVersion>
-	<parent>
-		<groupId>org.exoplatform.platform</groupId>
-		<artifactId>platform-sample-gadgets-sample</artifactId>
-		<version>4.0.0.Alpha1-kill-exobuild-SNAPSHOT</version>
-	</parent>
-	<artifactId>platform-sample-gadgets-sample-service</artifactId>
-	<packaging>jar</packaging>
-	<name>eXo Platform - Service Gadgets</name>
-	<dependencies>
-		<dependency>
-			<groupId>org.exoplatform.kernel</groupId>
-			<artifactId>exo.kernel.container</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.exoplatform.kernel</groupId>
-			<artifactId>exo.kernel.commons</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.exoplatform.core</groupId>
-			<artifactId>exo.core.component.security.core</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.exoplatform.ws</groupId>
-			<artifactId>exo.ws.rest.core</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.exoplatform.jcr</groupId>
-			<artifactId>exo.jcr.component.ext</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.exoplatform.jcr</groupId>
-			<artifactId>exo.jcr.component.core</artifactId>
-		</dependency>		
-		<dependency>
-			<groupId>org.exoplatform.forum</groupId>
-			<artifactId> forum-forum-service</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.exoplatform.social</groupId>
-			<artifactId>social-component-common</artifactId>
-		</dependency>
-
-		<dependency>
-			<groupId>org.exoplatform.ecms</groupId>
-			<artifactId>ecms-core-services</artifactId>
-		</dependency>
-
-		<dependency>
-			<groupId>org.exoplatform.commons</groupId>
-			<artifactId>commons-webui-component</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.exoplatform.social</groupId>
-			<artifactId>social-component-core</artifactId>
-		</dependency>
-		<dependency><!-- need org.gatein.shindig.social.opensocial.model.Activity for OnlineRestService-->
-			<groupId>org.gatein.shindig</groupId>
-			<artifactId>shindig-social-api</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.json</groupId>
-			<artifactId>json</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>javax.ws.rs</groupId>
-			<artifactId>jsr311-api</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>javax.jcr</groupId>
-			<artifactId>jcr</artifactId>
-		</dependency>
-<!-- Need to verify on runtime -->
-<!--
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <artifactId>platform-sample-gadgets-sample</artifactId>
+    <groupId>org.exoplatform.platform</groupId>
+    <version>4.0.0.Alpha1-kill-exobuild-SNAPSHOT</version>
+  </parent>
+  <artifactId>platform-sample-gadgets-sample-service</artifactId>
+  <packaging>jar</packaging>
+  <name>eXo Platform - Service Gadgets</name>
+  <dependencies>
+    <dependency>
+      <groupId>org.exoplatform.kernel</groupId>
+      <artifactId>exo.kernel.container</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.exoplatform.kernel</groupId>
+      <artifactId>exo.kernel.commons</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.exoplatform.core</groupId>
+      <artifactId>exo.core.component.security.core</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.exoplatform.ws</groupId>
+      <artifactId>exo.ws.rest.core</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.exoplatform.jcr</groupId>
+      <artifactId>exo.jcr.component.ext</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.exoplatform.jcr</groupId>
+      <artifactId>exo.jcr.component.core</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.exoplatform.forum</groupId>
+      <artifactId>forum-forum-service</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.exoplatform.social</groupId>
+      <artifactId>social-component-common</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.exoplatform.ecms</groupId>
+      <artifactId>ecms-core-services</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.exoplatform.commons</groupId>
+      <artifactId>commons-webui-component</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.exoplatform.social</groupId>
+      <artifactId>social-component-core</artifactId>
+    </dependency>
+    <dependency>
+      <!-- need org.gatein.shindig.social.opensocial.model.Activity for OnlineRestService-->
+      <groupId>org.gatein.shindig</groupId>
+      <artifactId>shindig-social-api</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.json</groupId>
+      <artifactId>json</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>javax.ws.rs</groupId>
+      <artifactId>jsr311-api</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>javax.jcr</groupId>
+      <artifactId>jcr</artifactId>
+    </dependency>
+    <!-- Need to verify on runtime -->
+    <!--
 	    <dependency> 
 		<groupId>org.exoplatform.portal</groupId> 
 		<artifactId>exo.portal.webui.portal</artifactId> 		
@@ -101,5 +99,5 @@
 		  <scope>runtime</scope
 	    </dependency>
 -->
-	</dependencies>
+  </dependencies>
 </project>

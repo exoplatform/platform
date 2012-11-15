@@ -2,18 +2,17 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <parent>
+    <artifactId>platform-sample-acme-website</artifactId>
     <groupId>org.exoplatform.platform</groupId>
-      <artifactId>platform-sample-acme-website</artifactId>
     <version>4.0.0.Alpha1-kill-exobuild-SNAPSHOT</version>
   </parent>
   <artifactId>platform-sample-acme-website-ear</artifactId>
   <packaging>ear</packaging>
   <name>eXo Platform - Acme Website EAR</name>
-
   <dependencies>
     <dependency>
       <groupId>org.exoplatform.platform</groupId>
-        <artifactId>platform-sample-acme-website-webapp</artifactId>
+      <artifactId>platform-sample-acme-website-webapp</artifactId>
       <type>war</type>
     </dependency>
     <dependency>
@@ -26,18 +25,16 @@
       <artifactId>platform-sample-acme-website-component-file-explorer</artifactId>
     </dependency>
     <dependency>
-      	<groupId>org.exoplatform.platform</groupId>
-        <artifactId>platform-sample-acme-website-component-navigation-rest</artifactId>
+      <groupId>org.exoplatform.platform</groupId>
+      <artifactId>platform-sample-acme-website-component-navigation-rest</artifactId>
     </dependency>
     <dependency>
-      	<groupId>org.exoplatform.platform</groupId>
-      	<artifactId>platform-sample-acme-website-config</artifactId>
+      <groupId>org.exoplatform.platform</groupId>
+      <artifactId>platform-sample-acme-website-config</artifactId>
     </dependency>
   </dependencies>
-
   <build>
     <finalName>acme-website</finalName>
-
     <plugins>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
@@ -53,17 +50,17 @@
             </jarModule>
             <jarModule>
               <groupId>org.exoplatform.platform</groupId>
-                <artifactId>platform-sample-acme-website-component-file-explorer</artifactId>
+              <artifactId>platform-sample-acme-website-component-file-explorer</artifactId>
               <includeInApplicationXml>true</includeInApplicationXml>
             </jarModule>
             <jarModule>
               <groupId>org.exoplatform.platform</groupId>
-                <artifactId>platform-sample-acme-website-component-navigation-rest</artifactId>
+              <artifactId>platform-sample-acme-website-component-navigation-rest</artifactId>
               <includeInApplicationXml>true</includeInApplicationXml>
             </jarModule>
             <webModule>
               <groupId>org.exoplatform.platform</groupId>
-                <artifactId>platform-sample-acme-website-webapp</artifactId>
+              <artifactId>platform-sample-acme-website-webapp</artifactId>
               <contextRoot>acme-website</contextRoot>
               <bundleFileName>acme-website.war</bundleFileName>
             </webModule>
