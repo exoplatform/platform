@@ -44,6 +44,11 @@
                 <read-only>false</read-only>
               </preference>
               <preference>
+                <name>nodeDrive</name>
+                <value>Managed Sites</value>
+                <read-only>false</read-only>
+              </preference>
+              <preference>
                 <name>nodeIdentifier</name>
                 <value>/sites content/live/default/web contents/site artifacts/welcome</value>
                 <read-only>false</read-only>
