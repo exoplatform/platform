@@ -47,8 +47,12 @@
       <Cancel>Cancel</Cancel>
     </action>
     <msg>
-      <repository-exception>An unexpected error occurred! Cannot save page meta data.</repository-exception>	
+      <repository-exception>An unexpected error occurred! Cannot save page meta data.</repository-exception>
+      <confirm-delete>Are you sure you want to delete these SEO data?</confirm-delete>	
     </msg>
+    <title>
+    	<seo-delete>Delete</seo-delete>
+    </title>
 	<help> 
 	  <priority>Valid values range from 0.0 to 1.0.</priority>
 	  <description>Help searchers to let them know what the following page has a link with what they are looking for.</description>
