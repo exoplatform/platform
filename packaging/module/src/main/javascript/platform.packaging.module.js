@@ -203,6 +203,7 @@ function getModule(params)
    addDependency(new Project("org.exoplatform.social","exo.social.extras.migration","jar", socialVersion)).
    addDependency(new Project("org.exoplatform.social","exo.social.extras.updater","jar", socialVersion)).
    addDependency(new Project("org.exoplatform.ecms","exo-ecms-upgrade-voting-nodetype","jar", ecmsVersion)).
+   addDependency(new Project("org.exoplatform.ecms","exo-ecms-upgrade-waiportal-translations","jar", ecmsVersion)).
    addDependency(new Project("org.exoplatform.ecms","exo-ecms-upgrade-thumbnails","jar", ecmsVersion)).
    addDependency(new Project("org.exoplatform.ecms","exo-ecms-upgrade-favorite","jar", ecmsVersion)).
    addDependency(new Project("org.exoplatform.ecms","exo-ecms-upgrade-templates","jar", ecmsVersion)).
