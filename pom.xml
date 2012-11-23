@@ -642,6 +642,46 @@
         <version>${project.version}</version>
         <type>war</type>
       </dependency>
+      <!-- Upgrade plugin dependencies -->
+      <!--
+			<dependency>
+				<groupId>org.exoplatform.portal</groupId>
+				<artifactId>exo.portal.component.portal</artifactId>
+				<version>${org.exoplatform.portal.version}</version>
+				<type>test-jar</type>
+			</dependency>
+			<dependency>
+				<groupId>org.gatein.mop</groupId>
+				<artifactId>mop-api</artifactId>
+				<version>${org.gatein.mop.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>stax</groupId>
+				<artifactId>stax-api</artifactId>
+				<version>${stax.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>xpp3</groupId>
+				<artifactId>xpp3</artifactId>
+				<version>${xpp3.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.apache.geronimo.specs</groupId>
+				<artifactId>geronimo-stax-api_1.0_spec</artifactId>
+				<version>${org.apache.geronimo.specs.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>javax.xml.stream</groupId>
+				<artifactId>stax-api</artifactId>
+				<version>${javax.xml.stream.version}</version>
+			</dependency>			
+			-->
+      <dependency>
+        <groupId>org.exoplatform.platform</groupId>
+        <artifactId>platform-exo-gadget-pack-gadget-pack</artifactId>
+        <version>${project.version}</version>
+        <classifier>classes</classifier>
+      </dependency>
       <dependency>
         <groupId>org.exoplatform.platform</groupId>
         <artifactId>platform-exo-gadget-pack-gadget-pack-services</artifactId>
@@ -672,7 +712,25 @@
       </dependency>
       <dependency>
         <groupId>org.exoplatform.platform</groupId>
+        <artifactId>platform-extension-portlets-platformNavigation</artifactId>
+        <version>${project.version}</version>
+        <classifier>classes</classifier>
+      </dependency>
+      <dependency>
+        <groupId>org.exoplatform.platform</groupId>
         <artifactId>platform-extension-resources</artifactId>
+        <version>${project.version}</version>
+        <type>war</type>
+      </dependency>
+      <dependency>
+        <groupId>org.exoplatform.platform</groupId>
+        <artifactId>platform-extension-resources</artifactId>
+        <version>${project.version}</version>
+        <classifier>classes</classifier>
+      </dependency>
+      <dependency>
+        <groupId>org.exoplatform.platform</groupId>
+        <artifactId>platform-extension-webapp</artifactId>
         <version>${project.version}</version>
         <type>war</type>
       </dependency>
@@ -680,7 +738,7 @@
         <groupId>org.exoplatform.platform</groupId>
         <artifactId>platform-extension-webapp</artifactId>
         <version>${project.version}</version>
-        <type>war</type>
+        <classifier>classes</classifier>
       </dependency>
       <dependency>
         <groupId>org.exoplatform.platform</groupId>
@@ -713,9 +771,21 @@
       </dependency>
       <dependency>
         <groupId>org.exoplatform.platform</groupId>
+        <artifactId>platform-sample-acme-intranet-portlet</artifactId>
+        <version>${project.version}</version>
+        <classifier>classes</classifier>
+      </dependency>
+      <dependency>
+        <groupId>org.exoplatform.platform</groupId>
         <artifactId>platform-sample-acme-intranet-webapp</artifactId>
         <version>${project.version}</version>
         <type>war</type>
+      </dependency>
+      <dependency>
+        <groupId>org.exoplatform.platform</groupId>
+        <artifactId>platform-sample-acme-intranet-webapp</artifactId>
+        <version>${project.version}</version>
+        <classifier>classes</classifier>
       </dependency>
       <dependency>
         <groupId>org.exoplatform.platform</groupId>
@@ -746,9 +816,21 @@
       </dependency>
       <dependency>
         <groupId>org.exoplatform.platform</groupId>
+        <artifactId>platform-sample-acme-website-resources</artifactId>
+        <version>${project.version}</version>
+        <classifier>classes</classifier>
+      </dependency>
+      <dependency>
+        <groupId>org.exoplatform.platform</groupId>
         <artifactId>platform-sample-acme-website-webapp</artifactId>
         <version>${project.version}</version>
         <type>war</type>
+      </dependency>
+      <dependency>
+        <groupId>org.exoplatform.platform</groupId>
+        <artifactId>platform-sample-acme-website-webapp</artifactId>
+        <version>${project.version}</version>
+        <classifier>classes</classifier>
       </dependency>
       <dependency>
         <groupId>org.exoplatform.platform</groupId>
@@ -769,6 +851,12 @@
       </dependency>
       <dependency>
         <groupId>org.exoplatform.platform</groupId>
+        <artifactId>platform-sample-default-website-webapp</artifactId>
+        <version>${project.version}</version>
+        <classifier>classes</classifier>
+      </dependency>
+      <dependency>
+        <groupId>org.exoplatform.platform</groupId>
         <artifactId>platform-sample-gadgets-sample-config</artifactId>
         <version>${project.version}</version>
       </dependency>
@@ -780,9 +868,21 @@
       </dependency>
       <dependency>
         <groupId>org.exoplatform.platform</groupId>
+        <artifactId>platform-sample-gadgets-sample-exo-gadget-resources</artifactId>
+        <version>${project.version}</version>
+        <classifier>classes</classifier>
+      </dependency>
+      <dependency>
+        <groupId>org.exoplatform.platform</groupId>
         <artifactId>platform-sample-gadgets-sample-gadgets</artifactId>
         <version>${project.version}</version>
         <type>war</type>
+      </dependency>
+      <dependency>
+        <groupId>org.exoplatform.platform</groupId>
+        <artifactId>platform-sample-gadgets-sample-gadgets</artifactId>
+        <version>${project.version}</version>
+        <classifier>classes</classifier>
       </dependency>
       <dependency>
         <groupId>org.exoplatform.platform</groupId>
@@ -1051,40 +1151,6 @@
         <artifactId>xstream</artifactId>
         <version>${xstream.version}</version>
       </dependency>
-      <!-- Upgrade plugin dependencies -->
-      <!--
-			<dependency>
-				<groupId>org.exoplatform.portal</groupId>
-				<artifactId>exo.portal.component.portal</artifactId>
-				<version>${org.exoplatform.portal.version}</version>
-				<type>test-jar</type>
-			</dependency>
-			<dependency>
-				<groupId>org.gatein.mop</groupId>
-				<artifactId>mop-api</artifactId>
-				<version>${org.gatein.mop.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>stax</groupId>
-				<artifactId>stax-api</artifactId>
-				<version>${stax.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>xpp3</groupId>
-				<artifactId>xpp3</artifactId>
-				<version>${xpp3.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>org.apache.geronimo.specs</groupId>
-				<artifactId>geronimo-stax-api_1.0_spec</artifactId>
-				<version>${org.apache.geronimo.specs.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>javax.xml.stream</groupId>
-				<artifactId>stax-api</artifactId>
-				<version>${javax.xml.stream.version}</version>
-			</dependency>			
-			-->
     </dependencies>
   </dependencyManagement>
   <build>
