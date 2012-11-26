@@ -18,7 +18,8 @@
    </UIAdminToolbarPortlet>
 
   <UISEOForm>
-    <label>	  
+    <label>
+      <title>Title: </title>
       <description>Descrizione: </description>
       <keywords>Parole Chiave: </keywords>
       <language>Lingua: </language>
@@ -39,16 +40,18 @@
         <Never>Mai</Never>
       </option> 
     </label>
-    <tip>
-		<priority>Intervallo valori validi da 0.0 a 1.0</priority>
-	</tip>	 	  
+	 	  
     <action>
       <Save>Salva</Save>
       <Cancel>Annulla</Cancel>
     </action>
     <msg>
-      <repository-exception>Un errore inaspettato! Impossibile salvare i meta dati della pagina.</repository-exception>	
+      <repository-exception>Un errore inaspettato! Impossibile salvare i meta dati della pagina.</repository-exception>
+      <confirm-delete>Are you sure you want to delete these SEO data?</confirm-delete>	
     </msg>
+    <title>
+    	<seo-delete>Delete</seo-delete>
+    </title>
 	<help> 
 	  <priority>Valid values range from 0.0 to 1.0.</priority>
 	  <description>Help searchers to let them know what the following page has a link with what they are looking for.</description>

@@ -20,7 +20,6 @@
     <module>samples</module>
     <module>trial</module>
     <module>exo-gadget-pack</module>
-    <!--<module>doc</module> -->
     <module>packaging</module>
     <module>testsuite</module>
   </modules>
@@ -41,14 +40,11 @@
     <!-- **************************************** -->
     <!-- Project Dependencies -->
     <!-- **************************************** -->
-    <!-- ********************* -->
-    <!-- Dependencies versions -->
-    <!-- ********************* -->
-    <org.exoplatform.kernel.version>2.3.9-GA-SNAPSHOT</org.exoplatform.kernel.version>
-    <org.exoplatform.core.version>2.4.9-GA-SNAPSHOT</org.exoplatform.core.version>
-    <org.exoplatform.ws.version>2.2.9-GA-SNAPSHOT</org.exoplatform.ws.version>
-    <org.exoplatform.jcr.version>1.14.9-GA-SNAPSHOT</org.exoplatform.jcr.version>
-    <org.exoplatform.jcr-services.version>1.14.9-GA-SNAPSHOT</org.exoplatform.jcr-services.version>
+    <org.exoplatform.kernel.version>2.3.10-GA-SNAPSHOT</org.exoplatform.kernel.version>
+    <org.exoplatform.core.version>2.4.10-GA-SNAPSHOT</org.exoplatform.core.version>
+    <org.exoplatform.ws.version>2.2.10-GA-SNAPSHOT</org.exoplatform.ws.version>
+    <org.exoplatform.jcr.version>1.14.10-GA-SNAPSHOT</org.exoplatform.jcr.version>
+    <org.exoplatform.jcr-services.version>1.14.10-GA-SNAPSHOT</org.exoplatform.jcr-services.version>
     <org.exoplatform.tool.version>1.2.2-GA</org.exoplatform.tool.version>
     <org.exoplatform.portal.version>3.4.0.Final</org.exoplatform.portal.version>
     <org.gatein.common.version>2.0.4-GA</org.gatein.common.version>
@@ -169,8 +165,7 @@
     <!-- Build settings -->
     <!-- ********************* -->
     <!-- maven-release-plugin -->
-    <arguments>-Pdistrib -Dgatein.working.dir=target
-			-Dcargo.timeout=800000</arguments>
+    <arguments>-Pdistrib -Dgatein.working.dir=target -Dcargo.timeout=800000</arguments>
   </properties>
   <dependencyManagement>
     <dependencies>

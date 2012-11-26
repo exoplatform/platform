@@ -19,42 +19,43 @@
    </UIAdminToolbarPortlet>
   
   <UISEOForm>
-    <label>	  
+    <label>
+      <title>Titre: </title> 
       <description>Description: </description>
-      <keywords>Keywords: </keywords>
-      <language>Language: </language>
+      <keywords>Mots clés: </keywords>
+      <language>Langue: </language>
       <robots>Robots: </robots>
       <sitemap>Sitemap: </sitemap>
-      <sitemapvisible>Visible in sitemap</sitemapvisible>
-	  <isInherited>Inherited from parent page</isInherited>
-      <priority>Priority: </priority>
-      <frequency>Frequency: </frequency>
-      <select-language>Select a language</select-language>
+      <sitemapvisible>Visible dans le sitemap</sitemapvisible>
+      <priority>Priorité: </priority>
+      <frequency>Fréquence: </frequency>
+      <select-language>Sélectionnez une langue</select-language>  
       <option>
-        <Always>Always</Always>
-        <Hourly>Hourly</Hourly>
-        <Daily>Daily</Daily>
-        <Weekly>Weekly</Weekly>
-        <Monthly>Monthly</Monthly>
-        <Yearly>Yearly</Yearly>
-        <Never>Never</Never>
+        <Always>Toujours</Always>
+        <Hourly>Toutes les heures</Hourly>
+        <Daily>Journalier</Daily>
+        <Weekly>Hebdomadaire</Weekly>
+        <Monthly>Mensuel</Monthly>
+        <Yearly>Annuel</Yearly>
+        <Never>Jamais</Never>
       </option> 
-    </label>
-    <tip>
-		<priority>Valid values range from 0.0 to 1.0</priority>
-	</tip>	 	  
+    </label>    	  
     <action>
-      <Save>Save</Save>
-      <Cancel>Cancel</Cancel>
+      <Save>Sauvegarder</Save>
+      <Cancel>Annuler</Cancel>
     </action>
     <msg>
-      <repository-exception>An unexpected error occurred! Cannot save page meta data.</repository-exception>	
+      <repository-exception>Une erreure inattendue est apparue! Sauvegarde impossible des métadonnées..</repository-exception>
+      <confirm-delete>Êtes-vous sûr de vouloir supprimer les données SEO?</confirm-delete>	
     </msg>
+    <title>
+    	<seo-delete>Supprimer</seo-delete>
+    </title>
 	<help> 
-	  <priority>Valid values range from 0.0 to 1.0.</priority>
-	  <description>Help searchers to let them know what the following page has a link with what they are looking for.</description>
-	  <keywords>Most important terms in the page separated by a comma.</keywords>		  
-    </help> 
+	  <priority>Valeurs valides de 0.0 à 1.0.</priority>
+	  <description>Aide les utilisateurs a savoir en quoi cette page a un lien avec ce qu'ils cherchent.</description>
+	  <keywords>Termes les plus importants de la page séparés par une virgule.</keywords>		  
+    </help>	 	  
   </UISEOForm>
   <UISEOPopupWindow>
   	<title>
@@ -68,14 +69,16 @@
   </UISEOToolbarForm>  
   <FloatNumberValidator>
     <msg>
-      <Invalid-number>The field Priority is invalid float number. Valid values range from 0.0 to 1.0.</Invalid-number>
+      <Invalid-number>Le champ '{0}' est un nombre invalide (float).</Invalid-number>
     </msg>
   </FloatNumberValidator>
+  
   <Locale>
     <label>      
-      <it>Italian</it>      
-      <fr>French</fr>
-      <en>English</en>      
+      <it>Italien</it>      
+      <fr>Français</fr>
+      <en>Anglais</en>      
     </label>
   </Locale>
+  
 </bundle>
