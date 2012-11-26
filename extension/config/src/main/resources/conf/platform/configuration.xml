@@ -34,10 +34,10 @@
           <field name="dependencies">
             <collection type="java.util.ArrayList">
               <value>
-                <string>eXoResources</string>
+                <string>portal</string>
               </value>
               <value>
-                <string>portal</string>
+                <string>eXoResources</string>
               </value>
               <value>
                 <string>dashboard</string>
