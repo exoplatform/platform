@@ -73,18 +73,5 @@
       <groupId>org.gatein.common</groupId>
       <artifactId>common-common</artifactId>
     </dependency>
-    <!-- need to verify in runtime -->
-    <!-- 		
-		<dependency>
-			<groupId>org.exoplatform.ecms</groupId>
-			<artifactId>ecms-core-webui</artifactId>
-			<scope>runtime</scope>
-		</dependency>
-		<dependency>
-			<groupId>org.exoplatform.portal</groupId>
-			<artifactId>exo.portal.webui.eXo</artifactId>
-			<scope>runtime</scope>
-		</dependency>
--->
   </dependencies>
 </project>
