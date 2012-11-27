@@ -45,8 +45,12 @@
       <Cancel>Annuler</Cancel>
     </action>
     <msg>
-      <repository-exception>Une erreure inattendue est apparue! Sauvegarde impossible des métadonnées..</repository-exception>	
+      <repository-exception>Une erreure inattendue est apparue! Sauvegarde impossible des métadonnées..</repository-exception>
+      <confirm-delete>Êtes-vous sûr de vouloir supprimer les données SEO?</confirm-delete>	
     </msg>
+    <title>
+    	<seo-delete>Supprimer</seo-delete>
+    </title>
 	<help> 
 	  <priority>Valeurs valides de 0.0 à 1.0.</priority>
 	  <description>Aide les utilisateurs a savoir en quoi cette page a un lien avec ce qu'ils cherchent.</description>
