@@ -94,12 +94,6 @@
       <groupId>org.exoplatform.portal</groupId>
       <artifactId>exo.portal.component.web.api</artifactId>
     </dependency>
-    <!--need for compile social-component-core-->
-    <!-- TODO: social-component-common have to be transitive by social-component-core ?-->
-    <dependency>
-      <groupId>org.exoplatform.social</groupId>
-      <artifactId>social-component-common</artifactId>
-    </dependency>
     <dependency>
       <groupId>org.exoplatform.social</groupId>
       <artifactId>social-component-core</artifactId>
