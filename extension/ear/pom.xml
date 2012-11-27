@@ -10,120 +10,117 @@
   <packaging>ear</packaging>
   <name>eXo Platform - Extension EAR</name>
   <dependencies>
+    <!-- com.sun.xml.stream -->
     <dependency>
-      <groupId>org.exoplatform.platform</groupId>
-      <artifactId>platform-extension-config</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>org.exoplatform.platform</groupId>
-      <artifactId>platform-component-edition-enterprise</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>org.exoplatform.platform</groupId>
-      <artifactId>platform-extension-portlets-platformNavigation</artifactId>
-      <type>war</type>
-    </dependency>
-    <dependency>
-      <groupId>org.exoplatform.platform</groupId>
-      <artifactId>platform-component-common</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>org.exoplatform.platform</groupId>
-      <artifactId>platform-component-webui</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>org.exoplatform.platform</groupId>
-      <artifactId>platform-component-gadgets</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>org.exoplatform.platform</groupId>
-      <artifactId>platform-component-upgrade-plugins</artifactId>
+      <groupId>com.sun.xml.stream</groupId>
+      <artifactId>sjsxp</artifactId>
       <exclusions>
         <exclusion>
-          <artifactId>doc-style</artifactId>
-          <groupId>org.exoplatform.doc</groupId>
-        </exclusion>
-        <exclusion>
-          <artifactId>chromattic.core</artifactId>
-          <groupId>org.chromattic</groupId>
+          <artifactId>stax-api</artifactId>
+          <groupId>javax.xml.stream</groupId>
         </exclusion>
       </exclusions>
     </dependency>
     <dependency>
-      <groupId>org.exoplatform.platform</groupId>
-      <artifactId>platform-component-organization</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>org.exoplatform.platform</groupId>
-      <artifactId>platform-extension-webapp</artifactId>
-      <type>war</type>
-    </dependency>
-    <dependency>
-      <groupId>org.exoplatform.platform</groupId>
-      <artifactId>platform-extension-resources</artifactId>
-      <type>war</type>
-    </dependency>
-    <!-- Commons -->
-    <dependency>
-      <groupId>org.exoplatform.commons</groupId>
-      <artifactId>commons-component-product</artifactId>
+      <groupId>org.chromattic</groupId>
+      <artifactId>chromattic.dataobject</artifactId>
+      <type>jar</type>
       <exclusions>
         <exclusion>
-          <artifactId>exo.jcr.component.core</artifactId>
-          <groupId>org.exoplatform.jcr</groupId>
+          <artifactId>reflext.jlr</artifactId>
+          <groupId>org.reflext</groupId>
+        </exclusion>
+        <exclusion>
+          <artifactId>jcr</artifactId>
+          <groupId>javax.jcr</groupId>
+        </exclusion>
+        <exclusion>
+          <artifactId>jsr311-api</artifactId>
+          <groupId>javax.ws.rs</groupId>
+        </exclusion>
+        <exclusion>
+          <artifactId>chromattic.api</artifactId>
+          <groupId>org.chromattic</groupId>
+        </exclusion>
+        <exclusion>
+          <artifactId>chromattic.metamodel</artifactId>
+          <groupId>org.chromattic</groupId>
+        </exclusion>
+        <exclusion>
+          <artifactId>chromattic.common</artifactId>
+          <groupId>org.chromattic</groupId>
+        </exclusion>
+        <exclusion>
+          <artifactId>chromattic.apt</artifactId>
+          <groupId>org.chromattic</groupId>
         </exclusion>
         <exclusion>
           <artifactId>exo.jcr.component.ext</artifactId>
           <groupId>org.exoplatform.jcr</groupId>
         </exclusion>
         <exclusion>
-          <artifactId>exo.kernel.commons</artifactId>
-          <groupId>org.exoplatform.kernel</groupId>
+          <artifactId>exo.ws.rest.ext</artifactId>
+          <groupId>org.exoplatform.ws</groupId>
         </exclusion>
         <exclusion>
-          <artifactId>slf4j-simple</artifactId>
-          <groupId>org.slf4j</groupId>
+          <artifactId>exo.ws.rest.core</artifactId>
+          <groupId>org.exoplatform.ws</groupId>
         </exclusion>
       </exclusions>
     </dependency>
     <dependency>
-      <groupId>org.exoplatform.commons</groupId>
-      <artifactId>commons-component-upgrade</artifactId>
+      <groupId>org.chromattic</groupId>
+      <artifactId>chromattic.groovy</artifactId>
       <exclusions>
         <exclusion>
-          <artifactId>slf4j-simple</artifactId>
-          <groupId>org.slf4j</groupId>
+          <artifactId>chromattic.core</artifactId>
+          <groupId>org.chromattic</groupId>
         </exclusion>
-      </exclusions>
-    </dependency>
-    <dependency>
-      <groupId>org.exoplatform.commons</groupId>
-      <artifactId>commons-extension-webapp</artifactId>
-      <type>war</type>
-    </dependency>
-    <dependency>
-      <groupId>org.exoplatform.commons</groupId>
-      <artifactId>commons-webui-ext</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>org.exoplatform.commons</groupId>
-      <artifactId>commons-webui-component</artifactId>
-      <exclusions>
         <exclusion>
-          <artifactId>slf4j-simple</artifactId>
-          <groupId>org.slf4j</groupId>
+          <artifactId>chromattic.api</artifactId>
+          <groupId>org.chromattic</groupId>
+        </exclusion>
+        <exclusion>
+          <artifactId>chromattic.spi</artifactId>
+          <groupId>org.chromattic</groupId>
+        </exclusion>
+        <exclusion>
+          <artifactId>chromattic.common</artifactId>
+          <groupId>org.chromattic</groupId>
+        </exclusion>
+        <exclusion>
+          <artifactId>chromattic.metamodel</artifactId>
+          <groupId>org.chromattic</groupId>
+        </exclusion>
+        <exclusion>
+          <artifactId>chromattic.cglib</artifactId>
+          <groupId>org.chromattic</groupId>
+        </exclusion>
+        <exclusion>
+          <artifactId>chromattic.apt</artifactId>
+          <groupId>org.chromattic</groupId>
+        </exclusion>
+        <exclusion>
+          <artifactId>jcr</artifactId>
+          <groupId>javax.jcr</groupId>
+        </exclusion>
+        <exclusion>
+          <artifactId>junit</artifactId>
+          <groupId>junit</groupId>
+        </exclusion>
+        <exclusion>
+          <artifactId>groovy-all</artifactId>
+          <groupId>org.codehaus.groovy</groupId>
+        </exclusion>
+        <exclusion>
+          <artifactId>javaparser</artifactId>
+          <groupId>com.google.code.javaparser</groupId>
         </exclusion>
       </exclusions>
     </dependency>
     <dependency>
-      <groupId>org.exoplatform.commons</groupId>
-      <artifactId>commons-comet-webapp</artifactId>
-      <type>war</type>
-    </dependency>
-    <dependency>
-      <groupId>org.exoplatform.commons</groupId>
-      <artifactId>commons-webui-resources</artifactId>
-      <type>war</type>
+      <groupId>org.exoplatform.calendar</groupId>
+      <artifactId>calendar-upgrade</artifactId>
     </dependency>
     <dependency>
       <groupId>org.exoplatform.commons</groupId>
@@ -171,90 +168,22 @@
         </exclusion>
       </exclusions>
     </dependency>
-    <!-- TODO: to verify if FCK is removed -->
     <dependency>
       <groupId>org.exoplatform.commons</groupId>
-      <artifactId>commons-fck</artifactId>
+      <artifactId>commons-comet-webapp</artifactId>
       <type>war</type>
     </dependency>
-    <!-- IDE dependencies -->
+    <!-- Commons -->
     <dependency>
-      <groupId>org.exoplatform.gwt</groupId>
-      <artifactId>exo-gwtframework-smartgwt</artifactId>
-      <type>war</type>
-    </dependency>
-    <dependency>
-      <groupId>org.exoplatform.ide</groupId>
-      <artifactId>exo-ide-client-gadget</artifactId>
-      <type>war</type>
-    </dependency>
-    <dependency>
-      <groupId>org.exoplatform.ide</groupId>
-      <artifactId>exo-ide-server</artifactId>
-      <type>jar</type>
+      <groupId>org.exoplatform.commons</groupId>
+      <artifactId>commons-component-product</artifactId>
       <exclusions>
-        <exclusion>
-          <artifactId>servlet-api</artifactId>
-          <groupId>javax.servlet</groupId>
-        </exclusion>
-        <exclusion>
-          <artifactId>jsr311-api</artifactId>
-          <groupId>javax.ws.rs</groupId>
-        </exclusion>
-        <exclusion>
-          <artifactId>jcr</artifactId>
-          <groupId>javax.jcr</groupId>
-        </exclusion>
-        <exclusion>
-          <artifactId>exo.ws.frameworks.servlet</artifactId>
-          <groupId>org.exoplatform.ws</groupId>
-        </exclusion>
-        <exclusion>
-          <artifactId>exo.jcr.framework.web</artifactId>
-          <groupId>org.exoplatform.jcr</groupId>
-        </exclusion>
-        <exclusion>
-          <artifactId>exo-jcr-services</artifactId>
-          <groupId>org.exoplatform</groupId>
-        </exclusion>
-        <exclusion>
-          <artifactId>commons-beanutils</artifactId>
-          <groupId>commons-beanutils</groupId>
-        </exclusion>
-        <exclusion>
-          <artifactId>commons-codec</artifactId>
-          <groupId>commons-codec</groupId>
-        </exclusion>
-        <exclusion>
-          <artifactId>commons-chain</artifactId>
-          <groupId>commons-chain</groupId>
-        </exclusion>
-        <exclusion>
-          <artifactId>jsr250-api</artifactId>
-          <groupId>javax.annotation</groupId>
-        </exclusion>
-        <exclusion>
-          <artifactId>carol</artifactId>
-          <groupId>org.objectweb.carol</groupId>
-        </exclusion>
-        <exclusion>
-          <artifactId>exo.ws.rest.core</artifactId>
-          <groupId>org.exoplatform.ws</groupId>
-        </exclusion>
-        <exclusion>
-          <artifactId>exo.core.component.security.core</artifactId>
-          <groupId>org.exoplatform.core</groupId>
-        </exclusion>
-        <exclusion>
-          <artifactId>exo.jcr.component.ext</artifactId>
-          <groupId>org.exoplatform.jcr</groupId>
-        </exclusion>
         <exclusion>
           <artifactId>exo.jcr.component.core</artifactId>
           <groupId>org.exoplatform.jcr</groupId>
         </exclusion>
         <exclusion>
-          <artifactId>exo.jcr.component.webdav</artifactId>
+          <artifactId>exo.jcr.component.ext</artifactId>
           <groupId>org.exoplatform.jcr</groupId>
         </exclusion>
         <exclusion>
@@ -262,22 +191,50 @@
           <groupId>org.exoplatform.kernel</groupId>
         </exclusion>
         <exclusion>
-          <artifactId>commons-fileupload</artifactId>
-          <groupId>commons-fileupload</groupId>
-        </exclusion>
-        <exclusion>
-          <artifactId>commons-logging</artifactId>
-          <groupId>commons-logging</groupId>
-        </exclusion>
-        <exclusion>
-          <artifactId>tika-parsers</artifactId>
-          <groupId>org.apache.tika</groupId>
-        </exclusion>
-        <exclusion>
-          <artifactId>tika-core</artifactId>
-          <groupId>org.apache.tika</groupId>
+          <artifactId>slf4j-simple</artifactId>
+          <groupId>org.slf4j</groupId>
         </exclusion>
       </exclusions>
+    </dependency>
+    <dependency>
+      <groupId>org.exoplatform.commons</groupId>
+      <artifactId>commons-component-upgrade</artifactId>
+      <exclusions>
+        <exclusion>
+          <artifactId>slf4j-simple</artifactId>
+          <groupId>org.slf4j</groupId>
+        </exclusion>
+      </exclusions>
+    </dependency>
+    <dependency>
+      <groupId>org.exoplatform.commons</groupId>
+      <artifactId>commons-extension-webapp</artifactId>
+      <type>war</type>
+    </dependency>
+    <!-- TODO: to verify if FCK is removed -->
+    <dependency>
+      <groupId>org.exoplatform.commons</groupId>
+      <artifactId>commons-fck</artifactId>
+      <type>war</type>
+    </dependency>
+    <dependency>
+      <groupId>org.exoplatform.commons</groupId>
+      <artifactId>commons-webui-component</artifactId>
+      <exclusions>
+        <exclusion>
+          <artifactId>slf4j-simple</artifactId>
+          <groupId>org.slf4j</groupId>
+        </exclusion>
+      </exclusions>
+    </dependency>
+    <dependency>
+      <groupId>org.exoplatform.commons</groupId>
+      <artifactId>commons-webui-ext</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.exoplatform.commons</groupId>
+      <artifactId>commons-webui-resources</artifactId>
+      <type>war</type>
     </dependency>
     <dependency>
       <groupId>org.exoplatform.core</groupId>
@@ -295,6 +252,219 @@
         <exclusion>
           <artifactId>exo.kernel.container</artifactId>
           <groupId>org.exoplatform.kernel</groupId>
+        </exclusion>
+      </exclusions>
+    </dependency>
+    <!-- WAI portal template-->
+    <dependency>
+      <groupId>org.exoplatform.ecms</groupId>
+      <artifactId>ecms-apps-wai-template</artifactId>
+      <type>war</type>
+    </dependency>
+    <dependency>
+      <groupId>org.exoplatform.ecms</groupId>
+      <artifactId>ecms-upgrade-favorite</artifactId>
+      <exclusions>
+        <exclusion>
+          <artifactId>exo.jcr.component.ext</artifactId>
+          <groupId>org.exoplatform.jcr</groupId>
+        </exclusion>
+        <exclusion>
+          <artifactId>ecms-core-services</artifactId>
+          <groupId>org.exoplatform.ecms</groupId>
+        </exclusion>
+      </exclusions>
+    </dependency>
+    <dependency>
+      <groupId>org.exoplatform.ecms</groupId>
+      <artifactId>ecms-upgrade-portlet-preferences</artifactId>
+      <exclusions>
+        <exclusion>
+          <artifactId>exo.jcr.component.ext</artifactId>
+          <groupId>org.exoplatform.jcr</groupId>
+        </exclusion>
+        <exclusion>
+          <artifactId>ecms-core-services</artifactId>
+          <groupId>org.exoplatform.ecms</groupId>
+        </exclusion>
+      </exclusions>
+    </dependency>
+    <dependency>
+      <groupId>org.exoplatform.ecms</groupId>
+      <artifactId>ecms-upgrade-publication-publication-nodetype</artifactId>
+      <exclusions>
+        <exclusion>
+          <artifactId>exo.jcr.component.ext</artifactId>
+          <groupId>org.exoplatform.jcr</groupId>
+        </exclusion>
+        <exclusion>
+          <artifactId>ecms-core-services</artifactId>
+          <groupId>org.exoplatform.ecms</groupId>
+        </exclusion>
+      </exclusions>
+    </dependency>
+    <dependency>
+      <groupId>org.exoplatform.ecms</groupId>
+      <artifactId>ecms-upgrade-templates</artifactId>
+      <exclusions>
+        <exclusion>
+          <artifactId>exo.jcr.component.ext</artifactId>
+          <groupId>org.exoplatform.jcr</groupId>
+        </exclusion>
+        <exclusion>
+          <artifactId>ecms-core-services</artifactId>
+          <groupId>org.exoplatform.ecms</groupId>
+        </exclusion>
+      </exclusions>
+    </dependency>
+    <dependency>
+      <groupId>org.exoplatform.ecms</groupId>
+      <artifactId>ecms-upgrade-thumbnails</artifactId>
+      <exclusions>
+        <exclusion>
+          <artifactId>exo.jcr.component.ext</artifactId>
+          <groupId>org.exoplatform.jcr</groupId>
+        </exclusion>
+        <exclusion>
+          <artifactId>ecms-core-services</artifactId>
+          <groupId>org.exoplatform.ecms</groupId>
+        </exclusion>
+      </exclusions>
+    </dependency>
+    <dependency>
+      <groupId>org.exoplatform.ecms</groupId>
+      <artifactId>ecms-upgrade-user-folder-permission</artifactId>
+      <exclusions>
+        <exclusion>
+          <artifactId>exo.jcr.component.ext</artifactId>
+          <groupId>org.exoplatform.jcr</groupId>
+        </exclusion>
+        <exclusion>
+          <artifactId>ecms-core-services</artifactId>
+          <groupId>org.exoplatform.ecms</groupId>
+        </exclusion>
+      </exclusions>
+    </dependency>
+    <dependency>
+      <groupId>org.exoplatform.ecms</groupId>
+      <artifactId>ecms-upgrade-voting-nodetype</artifactId>
+      <exclusions>
+        <exclusion>
+          <artifactId>exo.jcr.component.ext</artifactId>
+          <groupId>org.exoplatform.jcr</groupId>
+        </exclusion>
+        <exclusion>
+          <artifactId>ecms-core-services</artifactId>
+          <groupId>org.exoplatform.ecms</groupId>
+        </exclusion>
+      </exclusions>
+    </dependency>
+    <dependency>
+      <groupId>org.exoplatform.forum</groupId>
+      <artifactId>forum-component-upgrade</artifactId>
+    </dependency>
+    <!-- IDE dependencies -->
+    <dependency>
+      <groupId>org.exoplatform.gwt</groupId>
+      <artifactId>exo-gwtframework-smartgwt</artifactId>
+      <type>war</type>
+    </dependency>
+    <dependency>
+      <groupId>org.exoplatform.ide</groupId>
+      <artifactId>exo-ide-client-gadget</artifactId>
+      <type>war</type>
+    </dependency>
+    <dependency>
+      <groupId>org.exoplatform.ide</groupId>
+      <artifactId>exo-ide-extension-chromattic-server</artifactId>
+      <exclusions>
+        <exclusion>
+          <artifactId>jcr</artifactId>
+          <groupId>javax.jcr</groupId>
+        </exclusion>
+        <exclusion>
+          <artifactId>jsr311-api</artifactId>
+          <groupId>javax.ws.rs</groupId>
+        </exclusion>
+        <exclusion>
+          <artifactId>servlet-api</artifactId>
+          <groupId>javax.servlet</groupId>
+        </exclusion>
+        <exclusion>
+          <artifactId>exo.kernel.commons</artifactId>
+          <groupId>org.exoplatform.kernel</groupId>
+        </exclusion>
+        <exclusion>
+          <artifactId>exo.ws.frameworks.json</artifactId>
+          <groupId>org.exoplatform.ws</groupId>
+        </exclusion>
+        <exclusion>
+          <artifactId>exo.ws.rest.ext</artifactId>
+          <groupId>org.exoplatform.ws</groupId>
+        </exclusion>
+        <exclusion>
+          <artifactId>exo.ws.rest.core</artifactId>
+          <groupId>org.exoplatform.ws</groupId>
+        </exclusion>
+        <exclusion>
+          <artifactId>exo.core.component.database</artifactId>
+          <groupId>org.exoplatform.core</groupId>
+        </exclusion>
+        <exclusion>
+          <artifactId>exo.core.component.document</artifactId>
+          <groupId>org.exoplatform.core</groupId>
+        </exclusion>
+        <exclusion>
+          <artifactId>exo.core.component.organization.api</artifactId>
+          <groupId>org.exoplatform.core</groupId>
+        </exclusion>
+        <exclusion>
+          <artifactId>exo.core.component.organization.jdbc</artifactId>
+          <groupId>org.exoplatform.core</groupId>
+        </exclusion>
+        <exclusion>
+          <artifactId>exo.core.component.security.core</artifactId>
+          <groupId>org.exoplatform.core</groupId>
+        </exclusion>
+        <exclusion>
+          <artifactId>exo.core.component.xml-processing</artifactId>
+          <groupId>org.exoplatform.core</groupId>
+        </exclusion>
+        <exclusion>
+          <artifactId>exo.jcr.component.ext</artifactId>
+          <groupId>org.exoplatform.jcr</groupId>
+        </exclusion>
+        <exclusion>
+          <artifactId>exo.jcr.component.core</artifactId>
+          <groupId>org.exoplatform.jcr</groupId>
+        </exclusion>
+        <exclusion>
+          <artifactId>exo.jcr.component.webdav</artifactId>
+          <groupId>org.exoplatform.jcr</groupId>
+        </exclusion>
+        <exclusion>
+          <artifactId>commons-fileupload</artifactId>
+          <groupId>commons-fileupload</groupId>
+        </exclusion>
+        <exclusion>
+          <artifactId>commons-chain</artifactId>
+          <groupId>commons-chain</groupId>
+        </exclusion>
+        <exclusion>
+          <artifactId>commons-collections</artifactId>
+          <groupId>commons-collections</groupId>
+        </exclusion>
+        <exclusion>
+          <artifactId>jsr250-api</artifactId>
+          <groupId>javax.annotation</groupId>
+        </exclusion>
+        <exclusion>
+          <artifactId>groovy-all</artifactId>
+          <groupId>org.codehaus.groovy</groupId>
+        </exclusion>
+        <exclusion>
+          <artifactId>chromattic.ext</artifactId>
+          <groupId>org.chromattic</groupId>
         </exclusion>
       </exclusions>
     </dependency>
@@ -366,6 +536,97 @@
         <exclusion>
           <artifactId>exo.ws.rest.core</artifactId>
           <groupId>org.exoplatform.ws</groupId>
+        </exclusion>
+      </exclusions>
+    </dependency>
+    <dependency>
+      <groupId>org.exoplatform.ide</groupId>
+      <artifactId>exo-ide-extension-groovy-server</artifactId>
+      <type>jar</type>
+      <exclusions>
+        <exclusion>
+          <artifactId>jcr</artifactId>
+          <groupId>javax.jcr</groupId>
+        </exclusion>
+        <exclusion>
+          <artifactId>jsr311-api</artifactId>
+          <groupId>javax.ws.rs</groupId>
+        </exclusion>
+        <exclusion>
+          <artifactId>servlet-api</artifactId>
+          <groupId>javax.servlet</groupId>
+        </exclusion>
+        <exclusion>
+          <artifactId>exo.kernel.commons</artifactId>
+          <groupId>org.exoplatform.kernel</groupId>
+        </exclusion>
+        <exclusion>
+          <artifactId>exo.ws.frameworks.json</artifactId>
+          <groupId>org.exoplatform.ws</groupId>
+        </exclusion>
+        <exclusion>
+          <artifactId>exo.ws.rest.ext</artifactId>
+          <groupId>org.exoplatform.ws</groupId>
+        </exclusion>
+        <exclusion>
+          <artifactId>exo.ws.rest.core</artifactId>
+          <groupId>org.exoplatform.ws</groupId>
+        </exclusion>
+        <exclusion>
+          <artifactId>exo.core.component.database</artifactId>
+          <groupId>org.exoplatform.core</groupId>
+        </exclusion>
+        <exclusion>
+          <artifactId>exo.core.component.document</artifactId>
+          <groupId>org.exoplatform.core</groupId>
+        </exclusion>
+        <exclusion>
+          <artifactId>exo.core.component.organization.api</artifactId>
+          <groupId>org.exoplatform.core</groupId>
+        </exclusion>
+        <exclusion>
+          <artifactId>exo.core.component.organization.jdbc</artifactId>
+          <groupId>org.exoplatform.core</groupId>
+        </exclusion>
+        <exclusion>
+          <artifactId>exo.core.component.security.core</artifactId>
+          <groupId>org.exoplatform.core</groupId>
+        </exclusion>
+        <exclusion>
+          <artifactId>exo.core.component.xml-processing</artifactId>
+          <groupId>org.exoplatform.core</groupId>
+        </exclusion>
+        <exclusion>
+          <artifactId>exo.jcr.component.ext</artifactId>
+          <groupId>org.exoplatform.jcr</groupId>
+        </exclusion>
+        <exclusion>
+          <artifactId>exo.jcr.component.core</artifactId>
+          <groupId>org.exoplatform.jcr</groupId>
+        </exclusion>
+        <exclusion>
+          <artifactId>exo.jcr.component.webdav</artifactId>
+          <groupId>org.exoplatform.jcr</groupId>
+        </exclusion>
+        <exclusion>
+          <artifactId>commons-fileupload</artifactId>
+          <groupId>commons-fileupload</groupId>
+        </exclusion>
+        <exclusion>
+          <artifactId>commons-chain</artifactId>
+          <groupId>commons-chain</groupId>
+        </exclusion>
+        <exclusion>
+          <artifactId>commons-collections</artifactId>
+          <groupId>commons-collections</groupId>
+        </exclusion>
+        <exclusion>
+          <artifactId>jsr250-api</artifactId>
+          <groupId>javax.annotation</groupId>
+        </exclusion>
+        <exclusion>
+          <artifactId>groovy-all</artifactId>
+          <groupId>org.codehaus.groovy</groupId>
         </exclusion>
       </exclusions>
     </dependency>
@@ -478,59 +739,59 @@
     </dependency>
     <dependency>
       <groupId>org.exoplatform.ide</groupId>
-      <artifactId>exo-ide-extension-groovy-server</artifactId>
+      <artifactId>exo-ide-server</artifactId>
       <type>jar</type>
       <exclusions>
         <exclusion>
-          <artifactId>jcr</artifactId>
-          <groupId>javax.jcr</groupId>
+          <artifactId>servlet-api</artifactId>
+          <groupId>javax.servlet</groupId>
         </exclusion>
         <exclusion>
           <artifactId>jsr311-api</artifactId>
           <groupId>javax.ws.rs</groupId>
         </exclusion>
         <exclusion>
-          <artifactId>servlet-api</artifactId>
-          <groupId>javax.servlet</groupId>
+          <artifactId>jcr</artifactId>
+          <groupId>javax.jcr</groupId>
         </exclusion>
         <exclusion>
-          <artifactId>exo.kernel.commons</artifactId>
-          <groupId>org.exoplatform.kernel</groupId>
-        </exclusion>
-        <exclusion>
-          <artifactId>exo.ws.frameworks.json</artifactId>
+          <artifactId>exo.ws.frameworks.servlet</artifactId>
           <groupId>org.exoplatform.ws</groupId>
         </exclusion>
         <exclusion>
-          <artifactId>exo.ws.rest.ext</artifactId>
-          <groupId>org.exoplatform.ws</groupId>
+          <artifactId>exo.jcr.framework.web</artifactId>
+          <groupId>org.exoplatform.jcr</groupId>
+        </exclusion>
+        <exclusion>
+          <artifactId>exo-jcr-services</artifactId>
+          <groupId>org.exoplatform</groupId>
+        </exclusion>
+        <exclusion>
+          <artifactId>commons-beanutils</artifactId>
+          <groupId>commons-beanutils</groupId>
+        </exclusion>
+        <exclusion>
+          <artifactId>commons-codec</artifactId>
+          <groupId>commons-codec</groupId>
+        </exclusion>
+        <exclusion>
+          <artifactId>commons-chain</artifactId>
+          <groupId>commons-chain</groupId>
+        </exclusion>
+        <exclusion>
+          <artifactId>jsr250-api</artifactId>
+          <groupId>javax.annotation</groupId>
+        </exclusion>
+        <exclusion>
+          <artifactId>carol</artifactId>
+          <groupId>org.objectweb.carol</groupId>
         </exclusion>
         <exclusion>
           <artifactId>exo.ws.rest.core</artifactId>
           <groupId>org.exoplatform.ws</groupId>
         </exclusion>
         <exclusion>
-          <artifactId>exo.core.component.database</artifactId>
-          <groupId>org.exoplatform.core</groupId>
-        </exclusion>
-        <exclusion>
-          <artifactId>exo.core.component.document</artifactId>
-          <groupId>org.exoplatform.core</groupId>
-        </exclusion>
-        <exclusion>
-          <artifactId>exo.core.component.organization.api</artifactId>
-          <groupId>org.exoplatform.core</groupId>
-        </exclusion>
-        <exclusion>
-          <artifactId>exo.core.component.organization.jdbc</artifactId>
-          <groupId>org.exoplatform.core</groupId>
-        </exclusion>
-        <exclusion>
           <artifactId>exo.core.component.security.core</artifactId>
-          <groupId>org.exoplatform.core</groupId>
-        </exclusion>
-        <exclusion>
-          <artifactId>exo.core.component.xml-processing</artifactId>
           <groupId>org.exoplatform.core</groupId>
         </exclusion>
         <exclusion>
@@ -546,217 +807,30 @@
           <groupId>org.exoplatform.jcr</groupId>
         </exclusion>
         <exclusion>
-          <artifactId>commons-fileupload</artifactId>
-          <groupId>commons-fileupload</groupId>
-        </exclusion>
-        <exclusion>
-          <artifactId>commons-chain</artifactId>
-          <groupId>commons-chain</groupId>
-        </exclusion>
-        <exclusion>
-          <artifactId>commons-collections</artifactId>
-          <groupId>commons-collections</groupId>
-        </exclusion>
-        <exclusion>
-          <artifactId>jsr250-api</artifactId>
-          <groupId>javax.annotation</groupId>
-        </exclusion>
-        <exclusion>
-          <artifactId>groovy-all</artifactId>
-          <groupId>org.codehaus.groovy</groupId>
-        </exclusion>
-      </exclusions>
-    </dependency>
-    <dependency>
-      <groupId>org.exoplatform.ide</groupId>
-      <artifactId>exo-ide-extension-chromattic-server</artifactId>
-      <exclusions>
-        <exclusion>
-          <artifactId>jcr</artifactId>
-          <groupId>javax.jcr</groupId>
-        </exclusion>
-        <exclusion>
-          <artifactId>jsr311-api</artifactId>
-          <groupId>javax.ws.rs</groupId>
-        </exclusion>
-        <exclusion>
-          <artifactId>servlet-api</artifactId>
-          <groupId>javax.servlet</groupId>
-        </exclusion>
-        <exclusion>
           <artifactId>exo.kernel.commons</artifactId>
           <groupId>org.exoplatform.kernel</groupId>
         </exclusion>
         <exclusion>
-          <artifactId>exo.ws.frameworks.json</artifactId>
-          <groupId>org.exoplatform.ws</groupId>
-        </exclusion>
-        <exclusion>
-          <artifactId>exo.ws.rest.ext</artifactId>
-          <groupId>org.exoplatform.ws</groupId>
-        </exclusion>
-        <exclusion>
-          <artifactId>exo.ws.rest.core</artifactId>
-          <groupId>org.exoplatform.ws</groupId>
-        </exclusion>
-        <exclusion>
-          <artifactId>exo.core.component.database</artifactId>
-          <groupId>org.exoplatform.core</groupId>
-        </exclusion>
-        <exclusion>
-          <artifactId>exo.core.component.document</artifactId>
-          <groupId>org.exoplatform.core</groupId>
-        </exclusion>
-        <exclusion>
-          <artifactId>exo.core.component.organization.api</artifactId>
-          <groupId>org.exoplatform.core</groupId>
-        </exclusion>
-        <exclusion>
-          <artifactId>exo.core.component.organization.jdbc</artifactId>
-          <groupId>org.exoplatform.core</groupId>
-        </exclusion>
-        <exclusion>
-          <artifactId>exo.core.component.security.core</artifactId>
-          <groupId>org.exoplatform.core</groupId>
-        </exclusion>
-        <exclusion>
-          <artifactId>exo.core.component.xml-processing</artifactId>
-          <groupId>org.exoplatform.core</groupId>
-        </exclusion>
-        <exclusion>
-          <artifactId>exo.jcr.component.ext</artifactId>
-          <groupId>org.exoplatform.jcr</groupId>
-        </exclusion>
-        <exclusion>
-          <artifactId>exo.jcr.component.core</artifactId>
-          <groupId>org.exoplatform.jcr</groupId>
-        </exclusion>
-        <exclusion>
-          <artifactId>exo.jcr.component.webdav</artifactId>
-          <groupId>org.exoplatform.jcr</groupId>
-        </exclusion>
-        <exclusion>
           <artifactId>commons-fileupload</artifactId>
           <groupId>commons-fileupload</groupId>
         </exclusion>
         <exclusion>
-          <artifactId>commons-chain</artifactId>
-          <groupId>commons-chain</groupId>
+          <artifactId>commons-logging</artifactId>
+          <groupId>commons-logging</groupId>
         </exclusion>
         <exclusion>
-          <artifactId>commons-collections</artifactId>
-          <groupId>commons-collections</groupId>
+          <artifactId>tika-parsers</artifactId>
+          <groupId>org.apache.tika</groupId>
         </exclusion>
         <exclusion>
-          <artifactId>jsr250-api</artifactId>
-          <groupId>javax.annotation</groupId>
-        </exclusion>
-        <exclusion>
-          <artifactId>groovy-all</artifactId>
-          <groupId>org.codehaus.groovy</groupId>
-        </exclusion>
-        <exclusion>
-          <artifactId>chromattic.ext</artifactId>
-          <groupId>org.chromattic</groupId>
+          <artifactId>tika-core</artifactId>
+          <groupId>org.apache.tika</groupId>
         </exclusion>
       </exclusions>
     </dependency>
     <dependency>
-      <groupId>org.chromattic</groupId>
-      <artifactId>chromattic.groovy</artifactId>
-      <exclusions>
-        <exclusion>
-          <artifactId>chromattic.core</artifactId>
-          <groupId>org.chromattic</groupId>
-        </exclusion>
-        <exclusion>
-          <artifactId>chromattic.api</artifactId>
-          <groupId>org.chromattic</groupId>
-        </exclusion>
-        <exclusion>
-          <artifactId>chromattic.spi</artifactId>
-          <groupId>org.chromattic</groupId>
-        </exclusion>
-        <exclusion>
-          <artifactId>chromattic.common</artifactId>
-          <groupId>org.chromattic</groupId>
-        </exclusion>
-        <exclusion>
-          <artifactId>chromattic.metamodel</artifactId>
-          <groupId>org.chromattic</groupId>
-        </exclusion>
-        <exclusion>
-          <artifactId>chromattic.cglib</artifactId>
-          <groupId>org.chromattic</groupId>
-        </exclusion>
-        <exclusion>
-          <artifactId>chromattic.apt</artifactId>
-          <groupId>org.chromattic</groupId>
-        </exclusion>
-        <exclusion>
-          <artifactId>jcr</artifactId>
-          <groupId>javax.jcr</groupId>
-        </exclusion>
-        <exclusion>
-          <artifactId>junit</artifactId>
-          <groupId>junit</groupId>
-        </exclusion>
-        <exclusion>
-          <artifactId>groovy-all</artifactId>
-          <groupId>org.codehaus.groovy</groupId>
-        </exclusion>
-        <exclusion>
-          <artifactId>javaparser</artifactId>
-          <groupId>com.google.code.javaparser</groupId>
-        </exclusion>
-      </exclusions>
-    </dependency>
-    <dependency>
-      <groupId>org.chromattic</groupId>
-      <artifactId>chromattic.dataobject</artifactId>
-      <type>jar</type>
-      <exclusions>
-        <exclusion>
-          <artifactId>reflext.jlr</artifactId>
-          <groupId>org.reflext</groupId>
-        </exclusion>
-        <exclusion>
-          <artifactId>jcr</artifactId>
-          <groupId>javax.jcr</groupId>
-        </exclusion>
-        <exclusion>
-          <artifactId>jsr311-api</artifactId>
-          <groupId>javax.ws.rs</groupId>
-        </exclusion>
-        <exclusion>
-          <artifactId>chromattic.api</artifactId>
-          <groupId>org.chromattic</groupId>
-        </exclusion>
-        <exclusion>
-          <artifactId>chromattic.metamodel</artifactId>
-          <groupId>org.chromattic</groupId>
-        </exclusion>
-        <exclusion>
-          <artifactId>chromattic.common</artifactId>
-          <groupId>org.chromattic</groupId>
-        </exclusion>
-        <exclusion>
-          <artifactId>chromattic.apt</artifactId>
-          <groupId>org.chromattic</groupId>
-        </exclusion>
-        <exclusion>
-          <artifactId>exo.jcr.component.ext</artifactId>
-          <groupId>org.exoplatform.jcr</groupId>
-        </exclusion>
-        <exclusion>
-          <artifactId>exo.ws.rest.ext</artifactId>
-          <groupId>org.exoplatform.ws</groupId>
-        </exclusion>
-        <exclusion>
-          <artifactId>exo.ws.rest.core</artifactId>
-          <groupId>org.exoplatform.ws</groupId>
-        </exclusion>
-      </exclusions>
+      <groupId>org.exoplatform.integration</groupId>
+      <artifactId>integ-calendar-social</artifactId>
     </dependency>
     <!-- INTEGRATION PROJECTS -->
     <dependency>
@@ -765,19 +839,77 @@
     </dependency>
     <dependency>
       <groupId>org.exoplatform.integration</groupId>
-      <artifactId>integ-social-ecms</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>org.exoplatform.integration</groupId>
-      <artifactId>integ-calendar-social</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>org.exoplatform.integration</groupId>
       <artifactId>integ-forum-social</artifactId>
     </dependency>
     <dependency>
       <groupId>org.exoplatform.integration</groupId>
+      <artifactId>integ-social-ecms</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.exoplatform.integration</groupId>
       <artifactId>integ-wiki-social</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.exoplatform.platform</groupId>
+      <artifactId>platform-component-common</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.exoplatform.platform</groupId>
+      <artifactId>platform-component-edition-enterprise</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.exoplatform.platform</groupId>
+      <artifactId>platform-component-gadgets</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.exoplatform.platform</groupId>
+      <artifactId>platform-component-organization</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.exoplatform.platform</groupId>
+      <artifactId>platform-component-upgrade-plugins</artifactId>
+      <exclusions>
+        <exclusion>
+          <artifactId>doc-style</artifactId>
+          <groupId>org.exoplatform.doc</groupId>
+        </exclusion>
+        <exclusion>
+          <artifactId>chromattic.core</artifactId>
+          <groupId>org.chromattic</groupId>
+        </exclusion>
+      </exclusions>
+    </dependency>
+    <dependency>
+      <groupId>org.exoplatform.platform</groupId>
+      <artifactId>platform-component-webui</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.exoplatform.platform</groupId>
+      <artifactId>platform-extension-config</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.exoplatform.platform</groupId>
+      <artifactId>platform-extension-portlets-platformNavigation</artifactId>
+      <type>war</type>
+    </dependency>
+    <dependency>
+      <groupId>org.exoplatform.platform</groupId>
+      <artifactId>platform-extension-resources</artifactId>
+      <type>war</type>
+    </dependency>
+    <dependency>
+      <groupId>org.exoplatform.platform</groupId>
+      <artifactId>platform-extension-webapp</artifactId>
+      <type>war</type>
+    </dependency>
+    <dependency>
+      <groupId>org.exoplatform.platform</groupId>
+      <artifactId>platform-sample-gadgets-sample-config</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.exoplatform.platform</groupId>
+      <artifactId>platform-sample-gadgets-sample-exo-gadget-resources</artifactId>
+      <type>war</type>
     </dependency>
     <!-- Gadgets on the intranet homepage -->
     <dependency>
@@ -788,15 +920,6 @@
     <dependency>
       <groupId>org.exoplatform.platform</groupId>
       <artifactId>platform-sample-gadgets-sample-service</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>org.exoplatform.platform</groupId>
-      <artifactId>platform-sample-gadgets-sample-config</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>org.exoplatform.platform</groupId>
-      <artifactId>platform-sample-gadgets-sample-exo-gadget-resources</artifactId>
-      <type>war</type>
     </dependency>
     <dependency>
       <groupId>org.exoplatform.social</groupId>
@@ -815,129 +938,6 @@
         <exclusion>
           <artifactId>exo.portal.component.common</artifactId>
           <groupId>org.exoplatform.portal</groupId>
-        </exclusion>
-      </exclusions>
-    </dependency>
-    <dependency>
-      <groupId>org.exoplatform.ecms</groupId>
-      <artifactId>ecms-upgrade-voting-nodetype</artifactId>
-      <exclusions>
-        <exclusion>
-          <artifactId>exo.jcr.component.ext</artifactId>
-          <groupId>org.exoplatform.jcr</groupId>
-        </exclusion>
-        <exclusion>
-          <artifactId>ecms-core-services</artifactId>
-          <groupId>org.exoplatform.ecms</groupId>
-        </exclusion>
-      </exclusions>
-    </dependency>
-    <dependency>
-      <groupId>org.exoplatform.ecms</groupId>
-      <artifactId>ecms-upgrade-thumbnails</artifactId>
-      <exclusions>
-        <exclusion>
-          <artifactId>exo.jcr.component.ext</artifactId>
-          <groupId>org.exoplatform.jcr</groupId>
-        </exclusion>
-        <exclusion>
-          <artifactId>ecms-core-services</artifactId>
-          <groupId>org.exoplatform.ecms</groupId>
-        </exclusion>
-      </exclusions>
-    </dependency>
-    <dependency>
-      <groupId>org.exoplatform.ecms</groupId>
-      <artifactId>ecms-upgrade-favorite</artifactId>
-      <exclusions>
-        <exclusion>
-          <artifactId>exo.jcr.component.ext</artifactId>
-          <groupId>org.exoplatform.jcr</groupId>
-        </exclusion>
-        <exclusion>
-          <artifactId>ecms-core-services</artifactId>
-          <groupId>org.exoplatform.ecms</groupId>
-        </exclusion>
-      </exclusions>
-    </dependency>
-    <dependency>
-      <groupId>org.exoplatform.ecms</groupId>
-      <artifactId>ecms-upgrade-templates</artifactId>
-      <exclusions>
-        <exclusion>
-          <artifactId>exo.jcr.component.ext</artifactId>
-          <groupId>org.exoplatform.jcr</groupId>
-        </exclusion>
-        <exclusion>
-          <artifactId>ecms-core-services</artifactId>
-          <groupId>org.exoplatform.ecms</groupId>
-        </exclusion>
-      </exclusions>
-    </dependency>
-    <dependency>
-      <groupId>org.exoplatform.ecms</groupId>
-      <artifactId>ecms-upgrade-user-folder-permission</artifactId>
-      <exclusions>
-        <exclusion>
-          <artifactId>exo.jcr.component.ext</artifactId>
-          <groupId>org.exoplatform.jcr</groupId>
-        </exclusion>
-        <exclusion>
-          <artifactId>ecms-core-services</artifactId>
-          <groupId>org.exoplatform.ecms</groupId>
-        </exclusion>
-      </exclusions>
-    </dependency>
-    <dependency>
-      <groupId>org.exoplatform.ecms</groupId>
-      <artifactId>ecms-upgrade-portlet-preferences</artifactId>
-      <exclusions>
-        <exclusion>
-          <artifactId>exo.jcr.component.ext</artifactId>
-          <groupId>org.exoplatform.jcr</groupId>
-        </exclusion>
-        <exclusion>
-          <artifactId>ecms-core-services</artifactId>
-          <groupId>org.exoplatform.ecms</groupId>
-        </exclusion>
-      </exclusions>
-    </dependency>
-    <dependency>
-      <groupId>org.exoplatform.ecms</groupId>
-      <artifactId>ecms-upgrade-publication-publication-nodetype</artifactId>
-      <exclusions>
-        <exclusion>
-          <artifactId>exo.jcr.component.ext</artifactId>
-          <groupId>org.exoplatform.jcr</groupId>
-        </exclusion>
-        <exclusion>
-          <artifactId>ecms-core-services</artifactId>
-          <groupId>org.exoplatform.ecms</groupId>
-        </exclusion>
-      </exclusions>
-    </dependency>
-    <dependency>
-      <groupId>org.exoplatform.calendar</groupId>
-      <artifactId>calendar-upgrade</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>org.exoplatform.forum</groupId>
-      <artifactId>forum-component-upgrade</artifactId>
-    </dependency>
-    <!-- WAI portal template-->
-    <dependency>
-      <groupId>org.exoplatform.ecms</groupId>
-      <artifactId>ecms-apps-wai-template</artifactId>
-      <type>war</type>
-    </dependency>
-    <!-- com.sun.xml.stream -->
-    <dependency>
-      <groupId>com.sun.xml.stream</groupId>
-      <artifactId>sjsxp</artifactId>
-      <exclusions>
-        <exclusion>
-          <artifactId>stax-api</artifactId>
-          <groupId>javax.xml.stream</groupId>
         </exclusion>
       </exclusions>
     </dependency>

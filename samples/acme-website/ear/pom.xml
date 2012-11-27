@@ -12,16 +12,6 @@
   <dependencies>
     <dependency>
       <groupId>org.exoplatform.platform</groupId>
-      <artifactId>platform-sample-acme-website-webapp</artifactId>
-      <type>war</type>
-    </dependency>
-    <dependency>
-      <groupId>org.exoplatform.platform</groupId>
-      <artifactId>platform-sample-acme-website-resources</artifactId>
-      <type>war</type>
-    </dependency>
-    <dependency>
-      <groupId>org.exoplatform.platform</groupId>
       <artifactId>platform-sample-acme-website-component-file-explorer</artifactId>
     </dependency>
     <dependency>
@@ -31,6 +21,16 @@
     <dependency>
       <groupId>org.exoplatform.platform</groupId>
       <artifactId>platform-sample-acme-website-config</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.exoplatform.platform</groupId>
+      <artifactId>platform-sample-acme-website-resources</artifactId>
+      <type>war</type>
+    </dependency>
+    <dependency>
+      <groupId>org.exoplatform.platform</groupId>
+      <artifactId>platform-sample-acme-website-webapp</artifactId>
+      <type>war</type>
     </dependency>
   </dependencies>
   <build>

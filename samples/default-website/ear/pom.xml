@@ -12,12 +12,12 @@
   <dependencies>
     <dependency>
       <groupId>org.exoplatform.platform</groupId>
-      <artifactId>platform-sample-default-website-webapp</artifactId>
-      <type>war</type>
+      <artifactId>platform-sample-default-website-config</artifactId>
     </dependency>
     <dependency>
       <groupId>org.exoplatform.platform</groupId>
-      <artifactId>platform-sample-default-website-config</artifactId>
+      <artifactId>platform-sample-default-website-webapp</artifactId>
+      <type>war</type>
     </dependency>
   </dependencies>
   <build>

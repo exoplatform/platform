@@ -10,12 +10,8 @@
   <name>eXo Platform - Organization Model Integration</name>
   <dependencies>
     <dependency>
-      <groupId>org.exoplatform.kernel</groupId>
-      <artifactId>exo.kernel.container</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>org.exoplatform.kernel</groupId>
-      <artifactId>exo.kernel.commons</artifactId>
+      <groupId>javax.jcr</groupId>
+      <artifactId>jcr</artifactId>
     </dependency>
     <dependency>
       <groupId>org.exoplatform.core</groupId>
@@ -26,24 +22,32 @@
       <artifactId>exo.core.component.security.core</artifactId>
     </dependency>
     <dependency>
+      <groupId>org.exoplatform.jcr</groupId>
+      <artifactId>exo.jcr.component.core</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.exoplatform.kernel</groupId>
+      <artifactId>exo.kernel.commons</artifactId>
+    </dependency>
+    <dependency>
       <groupId>org.exoplatform.kernel</groupId>
       <artifactId>exo.kernel.component.common</artifactId>
     </dependency>
     <dependency>
-      <groupId>org.exoplatform.jcr</groupId>
-      <artifactId>exo.jcr.component.core</artifactId>
+      <groupId>org.exoplatform.kernel</groupId>
+      <artifactId>exo.kernel.container</artifactId>
     </dependency>
     <dependency>
       <groupId>org.exoplatform.portal</groupId>
       <artifactId>exo.portal.component.identity</artifactId>
     </dependency>
     <dependency>
-      <groupId>javax.jcr</groupId>
-      <artifactId>jcr</artifactId>
+      <groupId>org.hibernate</groupId>
+      <artifactId>hibernate-core</artifactId>
     </dependency>
     <dependency>
-      <groupId>org.picketlink.idm</groupId>
-      <artifactId>picketlink-idm-spi</artifactId>
+      <groupId>org.jibx</groupId>
+      <artifactId>jibx-run</artifactId>
     </dependency>
     <dependency>
       <groupId>org.picketlink.idm</groupId>
@@ -58,8 +62,8 @@
       <artifactId>picketlink-idm-hibernate</artifactId>
     </dependency>
     <dependency>
-      <groupId>org.hibernate</groupId>
-      <artifactId>hibernate-core</artifactId>
+      <groupId>org.picketlink.idm</groupId>
+      <artifactId>picketlink-idm-spi</artifactId>
     </dependency>
     <dependency>
       <groupId>picocontainer</groupId>
@@ -70,17 +74,13 @@
       <artifactId>xstream</artifactId>
     </dependency>
     <dependency>
-      <groupId>org.jibx</groupId>
-      <artifactId>jibx-run</artifactId>
+      <groupId>org.exoplatform.tool</groupId>
+      <artifactId>exo.tool.framework.junit</artifactId>
+      <scope>test</scope>
     </dependency>
     <dependency>
       <groupId>org.hsqldb</groupId>
       <artifactId>hsqldb</artifactId>
-      <scope>test</scope>
-    </dependency>
-    <dependency>
-      <groupId>org.exoplatform.tool</groupId>
-      <artifactId>exo.tool.framework.junit</artifactId>
       <scope>test</scope>
     </dependency>
   </dependencies>
