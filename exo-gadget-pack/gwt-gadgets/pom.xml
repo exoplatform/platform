@@ -10,12 +10,6 @@
   <packaging>pom</packaging>
   <name>eXo Gadget Pack - GWT Gadgets</name>
   <description>GWT gadgets</description>
-  <!--dependency>
-     <groupId>com.google.gwt</groupId>
-     <artifactId>gwt-dev</artifactId>
-     <scope>test</scope>
-  </dependency-->
-  <!-- MODULES -->
   <modules>
     <module>eXoCalendar</module>
   </modules>
