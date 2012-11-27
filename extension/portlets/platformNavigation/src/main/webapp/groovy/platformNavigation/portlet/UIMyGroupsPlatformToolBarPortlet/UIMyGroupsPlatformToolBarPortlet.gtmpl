@@ -88,7 +88,7 @@
   	String navTitle = _ctx.appRes("UIPageNavigation.label.titleBar") ;
   	navTitle = navTitle.replace("{0}", OrganizationUtils.getGroupLabel(ownerId));
           print """
-  	<li class="TitleBar" title="$ownerId">$navTitle</li>
+  	<li class="TitleBar"  style="cursor:default;" title="$ownerId">$navTitle</li>
   		""" ;
   		int idx = 0;
   		for(UserNode node : nodes) {
@@ -127,7 +127,7 @@
   							print """<a class="ItemIcon $icon" href="$href" $title>$label</a>""";
   
   					} else {
-  							print """<a class="ItemIcon $icon" href="#" $title>$label</a>""";
+  							print """<a class="ItemIcon $icon" href="#" style="cursor:default;" $title>$label</a>""";
   					}
   	if(hasChild) {
   		print """
