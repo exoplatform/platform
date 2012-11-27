@@ -161,11 +161,6 @@
     <!-- test framework -->
     <org.testng.version>5.10</org.testng.version>
     <junit.version>3.8.2</junit.version>
-    <!-- ********************* -->
-    <!-- Build settings -->
-    <!-- ********************* -->
-    <!-- maven-release-plugin -->
-    <arguments>-Pdistrib -Dgatein.working.dir=target -Dcargo.timeout=800000</arguments>
   </properties>
   <dependencyManagement>
     <dependencies>
