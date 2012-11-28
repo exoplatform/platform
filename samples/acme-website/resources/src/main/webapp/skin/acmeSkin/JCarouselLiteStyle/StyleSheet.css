@@ -75,12 +75,12 @@ button.jQnext:hover {
 button.jQprev:hover {
 	background-image: url("background/NavLeftHover.gif");
 }
-
+/*
 button:hover, button:active {
 	border: none;
 	outline: none;
 }
-
+*/
 .jCarouselLite {
 	float: left;
 	background-color: #d1d1d1;
