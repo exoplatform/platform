@@ -10,6 +10,18 @@
   <packaging>war</packaging>
   <name>eXo Gadget Pack - Gadgets</name>
   <description>eXo gadgets</description>
+  <dependencies>
+    <dependency>
+      <groupId>org.exoplatform.kernel</groupId>
+      <artifactId>exo.kernel.component.common</artifactId>
+      <scope>runtime</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.exoplatform.platform</groupId>
+      <artifactId>platform-exo-gadget-pack-gadget-pack-services</artifactId>
+      <scope>runtime</scope>
+    </dependency>
+  </dependencies>
   <build>
     <finalName>gadget-pack</finalName>
     <plugins>
