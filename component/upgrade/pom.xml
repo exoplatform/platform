@@ -2,7 +2,7 @@
 	<parent>
 	  <groupId>org.exoplatform.platform</groupId>
         <artifactId>platform-component</artifactId>
-	  <version>4.0.0.Alpha1-plf-relooking-SNAPSHOT</version>
+	  <version>platform-4.0.0.Alpha1-plf-relooking-SNAPSHOT</version>
 	</parent>
 	<modelVersion>4.0.0</modelVersion>
 	<artifactId>platform-component-upgrade</artifactId>
