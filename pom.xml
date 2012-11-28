@@ -1083,8 +1083,8 @@
         <!-- Don't include apache tomcat artifacts to avoid conflicts in a tomcat appserver -->
         <exclusions>
           <exclusion>
-            <groupId>org.apache.tomcat</groupId>
             <artifactId>el-api</artifactId>
+            <groupId>org.apache.tomcat</groupId>
           </exclusion>
         </exclusions>
       </dependency>
