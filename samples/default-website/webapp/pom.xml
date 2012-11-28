@@ -9,6 +9,18 @@
   <artifactId>platform-sample-default-website-webapp</artifactId>
   <packaging>war</packaging>
   <name>eXo Platform - default Sample Webapp</name>
+  <dependencies>
+    <dependency>
+      <groupId>org.exoplatform.ecms</groupId>
+      <artifactId>ecms-core-services</artifactId>
+      <scope>runtime</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.exoplatform.portal</groupId>
+      <artifactId>exo.portal.component.portal</artifactId>
+      <scope>runtime</scope>
+    </dependency>
+  </dependencies>
   <build>
     <finalName>default-website</finalName>
   </build>
