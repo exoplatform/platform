@@ -132,7 +132,7 @@
     <org.jboss.version>2.2.9.GA</org.jboss.version>
     <!-- TODO: remove doc -->
     <!-- 3rd parties for docs generation -->
-    <doc-style.version>1.0.8-SNAPSHOT</doc-style.version>
+    <doc-style.version>1.0.9-SNAPSHOT</doc-style.version>
     <guava.version>r07</guava.version>
     <httpcomponents.httpclient.version>4.0</httpcomponents.httpclient.version>
     <commons-lang.version>2.6</commons-lang.version>
