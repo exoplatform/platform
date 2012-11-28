@@ -63,7 +63,7 @@
     <org.exoplatform.calendar.version>4.0.0.Alpha1-kill-exobuild-SNAPSHOT</org.exoplatform.calendar.version>
     <org.exoplatform.integ.version>4.0.0.Alpha1-kill-exobuild-SNAPSHOT</org.exoplatform.integ.version>
     <org.exoplatform.gwtframework.version>1.1.2</org.exoplatform.gwtframework.version>
-    <org.exoplatform.ide.version>1.1.8-SNAPSHOT</org.exoplatform.ide.version>
+    <org.exoplatform.ide.version>1.1.9-SNAPSHOT</org.exoplatform.ide.version>
     <org.exoplatform.leadcapture.version>3.4</org.exoplatform.leadcapture.version>
     <org.exoplatform.exopackage.version>1.1.4</org.exoplatform.exopackage.version>
     <!-- Begin wiki properties -->
