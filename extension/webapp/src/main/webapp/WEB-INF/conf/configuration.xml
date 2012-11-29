@@ -8,8 +8,11 @@
   <!-- builtin configuration -->
   <import>war:/conf/platform/jcr-configuration.xml</import>
   <import>war:/conf/platform/dms/dms-configuration.xml</import>
+  <!--
+  Not FOUND
+  TODO : FIX OR REMOVE
   <import>war:/conf/platform/chat/chat-configuration.xml</import>
-
+  -->
   <!-- IDE -->
   <import>war:/conf/platform/ide-jcr-configuration.xml</import>
   <import>war:/conf/platform/ide-jcr-component-plugins-configuration.xml</import>
@@ -22,8 +25,11 @@
   <!-- Configure User Dashboard  -->
   <!--  <import>war:/conf/platform/portal/users-dashboard-configuration.xml</import>-->
   <!-- Configure the profile contact provider -->
+  <!--
+  Not FOUND
+  TODO : FIX OR REMOVE
   <import>war:/conf/platform/ks/profile-configuration.xml</import>
-
+  -->
   <!-- Add portal templates artifacts -->
   <import>war:/conf/platform/wcm/deployment/template-empty-deployment-configuration.xml</import>
 

@@ -12,6 +12,10 @@
 			</value-param>
 		</init-params>
 	</component>
+  <!--
+  Not FOUND
+  TODO : FIX OR REMOVE
+
 	<external-component-plugins>
 		<target-component>org.exoplatform.commons.upgrade.UpgradeProductService</target-component>
         <component-plugin>
@@ -323,4 +327,5 @@
 			</init-params>
 		</component-plugin>
 	</external-component-plugins>
+	-->
 </configuration>

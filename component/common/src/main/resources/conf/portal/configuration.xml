@@ -452,7 +452,8 @@
   </external-component-plugins>
   
   <!-- Terms and Conditions filter -->
+  <!-- TODO : REMOVE OR FIX
   <import>jar:/conf/termsandconditions/web-filter-configuration.xml</import>
-  
+  -->
   
 </configuration>
