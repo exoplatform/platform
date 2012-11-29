@@ -902,8 +902,32 @@
       </dependency>
       <dependency>
         <groupId>org.exoplatform.platform</groupId>
+        <artifactId>platform-server-tomcat-integration-webapp</artifactId>
+        <version>${project.version}</version>
+        <type>war</type>
+      </dependency>
+      <dependency>
+        <groupId>org.exoplatform.platform</groupId>
+        <artifactId>platform-server-tomcat-integration-webapp</artifactId>
+        <version>${project.version}</version>
+        <classifier>classes</classifier>
+      </dependency>
+      <dependency>
+        <groupId>org.exoplatform.platform</groupId>
         <artifactId>platform-server-tomcat-pc-creator</artifactId>
         <version>${project.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.exoplatform.platform</groupId>
+        <artifactId>platform-server-tomcat-root-webapp</artifactId>
+        <version>${project.version}</version>
+        <type>war</type>
+      </dependency>
+      <dependency>
+        <groupId>org.exoplatform.platform</groupId>
+        <artifactId>platform-server-tomcat-root-webapp</artifactId>
+        <version>${project.version}</version>
+        <classifier>classes</classifier>
       </dependency>
       <dependency>
         <groupId>org.exoplatform.platform</groupId>
@@ -1103,6 +1127,11 @@
         <groupId>org.gatein.shindig</groupId>
         <artifactId>shindig-social-api</artifactId>
         <version>${org.gatein.shindig.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.gatein.wci</groupId>
+        <artifactId>wci-tomcat6</artifactId>
+        <version>${org.gatein.wci.version}</version>
       </dependency>
       <dependency>
         <groupId>org.hibernate</groupId>
