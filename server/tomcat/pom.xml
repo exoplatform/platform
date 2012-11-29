@@ -10,6 +10,7 @@
   <packaging>pom</packaging>
   <name>eXo Platform - Tomcat Server</name>
   <modules>
+    <module>pc-creator</module>
     <module>patch</module>
   </modules>
 </project>

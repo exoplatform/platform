@@ -161,6 +161,7 @@
     <!-- test framework -->
     <org.testng.version>5.10</org.testng.version>
     <junit.version>3.8.2</junit.version>
+    <org.apache.tomcat.version>7.0.33</org.apache.tomcat.version>
   </properties>
   <dependencyManagement>
     <dependencies>
@@ -219,6 +220,11 @@
         <artifactId>jmeter</artifactId>
         <version>${org.apache.jmeter.version}</version>
         <type>zip</type>
+      </dependency>
+      <dependency>
+        <groupId>org.apache.tomcat</groupId>
+        <artifactId>tomcat-catalina</artifactId>
+        <version>${org.apache.tomcat.version}</version>
       </dependency>
       <dependency>
         <groupId>org.bouncycastle</groupId>
@@ -892,6 +898,11 @@
       <dependency>
         <groupId>org.exoplatform.platform</groupId>
         <artifactId>platform-server-jboss-patch</artifactId>
+        <version>${project.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.exoplatform.platform</groupId>
+        <artifactId>platform-server-tomcat-pc-creator</artifactId>
         <version>${project.version}</version>
       </dependency>
       <dependency>
