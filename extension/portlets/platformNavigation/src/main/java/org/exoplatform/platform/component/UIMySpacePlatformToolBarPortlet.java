@@ -103,34 +103,17 @@ public class UIMySpacePlatformToolBarPortlet extends UIPortletApplication {
   }
 
   public List<UserNavigation> getGroupNavigations() throws Exception {
-    List<UserNavigation> computedNavigations = null;
+    List<UserNavigation> computedNavigations = new ArrayList<UserNavigation>();
     if (spaceService != null) {
       String remoteUser = getUserId();
       UserPortal userPortal = getUserPortal();
-      List<UserNavigation> allNavigations = userPortal.getNavigations();
-      computedNavigations = new ArrayList<UserNavigation>(allNavigations);
       ListAccess<Space> spacesListAccess = spaceService.getAccessibleSpacesWithListAccess(remoteUser);
-      List<Space> spaces = Arrays.asList(spacesListAccess.load(0, spacesListAccess.getSize()));
-      Iterator<UserNavigation> navigationItr = computedNavigations.iterator();
-      String ownerId;
-      String[] navigationParts;
-      Space space;
-      while (navigationItr.hasNext()) {
-        ownerId = navigationItr.next().getKey().getName();
-        if (ownerId.startsWith("/spaces/")) {
-          navigationParts = ownerId.split("/");
-          if (navigationParts.length < 3) {
-            continue;
-          }
-          space = spaceService.getSpaceByUrl(navigationParts[2]);
-          if (space == null)
-            navigationItr.remove();
-          if (!navigationParts[1].equals("spaces") && !spaces.contains(space))
-            navigationItr.remove();
-        } else { // not spaces navigation
-          navigationItr.remove();
-        }
+      Iterator<Space> it = Arrays.asList(spacesListAccess.load(0, spacesListAccess.getSize())).iterator();
+      while (it.hasNext()) {
+        computedNavigations.add(userPortal.getNavigation(SiteKey.group(it.next().getGroupId())));
       }
+      
+      //
       if (spacesSortedByAccesscount != null && !spacesSortedByAccesscount.isEmpty()) {
         Collections.sort(computedNavigations, spaceAccessComparator);
       }
