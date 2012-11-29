@@ -493,11 +493,6 @@
       </dependency>
       <dependency>
         <groupId>org.exoplatform.ide</groupId>
-        <artifactId>exo-ide-extension-chromattic-server</artifactId>
-        <version>${org.exoplatform.ide.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>org.exoplatform.ide</groupId>
         <artifactId>exo-ide-extension-gadget-server</artifactId>
         <version>${org.exoplatform.ide.version}</version>
       </dependency>
