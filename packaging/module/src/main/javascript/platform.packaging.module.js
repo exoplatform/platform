@@ -84,7 +84,8 @@ function getModule(params)
    module.common.resources = new Project("org.exoplatform.commons", "commons-webui-resources", "war", commonsVersion);
    module.common.resources.deployName = "CommonsResources";
 
-   module.common.extension = new Project("org.exoplatform.commons", "commons-extension-webapp", "war", commonsVersion);
+   module.common.extension = new Project("org.exoplatform.commons", "commons-extension-webapp", "war", commonsVersion).
+       addDependency(new Project("org.exoplatform.commons", "commons-api", "jar", commonsVersion));
    module.common.extension.deployName = "commons-extension";
 
    module.patch = {};
