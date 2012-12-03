@@ -228,10 +228,7 @@ public class SpaceCustomizationService {
       // containers and applications
       editChildrenAccesPermisions(customSpaceHomePage.getChildren(), customSpaceHomePage.getAccessPermissions());
       // dataStorageService.save(customSpaceHomePage);
-      // mandatory preference "Space_URL" should be added to the home page
-      // applications
-      editSpaceURLPreference(customSpaceHomePage.getChildren(), spacePrettyName);
-      // gets the welcome SingleContentViewer Portlet
+     // gets the welcome SingleContentViewer Portlet
       Application<Portlet> welcomeSCVPortlet = getPortletApplication(customSpaceHomePage.getChildren(), SCV_PORTLEt_NAME);
       // configures the welcome SingleContentViewer Portlet
       editSCVPreference(welcomeSCVPortlet, spaceGroupId, welcomeSCVCustomPreferences);
@@ -272,33 +269,6 @@ public class SpaceCustomizationService {
         preferenceValue = preferenceValue.replace(SPACE_GROUP_ID_PREFERENCE, prefValue);
       }
       prefs.putPreference(new Preference(preferenceName, preferenceValue, false));
-    }
-  }
-
-  @SuppressWarnings("unchecked")
-  private void editSpaceURLPreference(List<ModelObject> children, String prefValue) throws Exception {
-    if (children == null || children.size() == 0) {
-      if (LOG.isDebugEnabled()) {
-        LOG.debug("Can not get a portlet application from children.\nChildren == null or have no items");
-      }
-    }
-    // parses the children list
-    for (ModelObject modelObject : children) {
-      // if a container, check for its children
-      if (modelObject instanceof Container) {
-        editSpaceURLPreference(((Container) modelObject).getChildren(), prefValue);
-      } else {
-        // if a portlet application, set the preference value
-        if (modelObject instanceof Application && ((Application<?>) modelObject).getType().equals(ApplicationType.PORTLET)) {
-          Application<Portlet> application = (Application<Portlet>) modelObject;
-          Portlet portletPreference = dataStorageService.load(application.getState(), ApplicationType.PORTLET);
-          if (portletPreference == null) {
-            portletPreference = new Portlet();
-          }
-          portletPreference.putPreference(new Preference(SpaceUtils.SPACE_URL, prefValue, false));
-
-        }
-      }
     }
   }
 

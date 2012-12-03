@@ -30,10 +30,8 @@ def uicomponentId = uicomponent.getId();
 <div class="UISpaceSummaryInfoPortlet" id="$uicomponentId">
 	<%
 	if(!isSpace){
-	%>
-		<div class="UIHeaderSection">
-			<h2><%=_ctx.appRes("${uicomponentId}.label.warning")%></h2>
-		</div>
+	%>		
+			<%=_ctx.appRes("UISpacePortlet.label.OutOfSpaceContext")%>
 	<%
 	}else{
 		UIPageIterator iteratorAdministrators = uicomponent.getIteratorAdministrators();
