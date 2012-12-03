@@ -129,6 +129,59 @@
   <import>war:/conf/platform/ide-jcr-component-plugins-configuration.xml</import>
   <import>war:/conf/platform/ide-configuration.xml</import-->]]></replacevalue>
 				</replace>
+                <!-- Remove Monitoring tab -->
+                <replace file="${tomcat.webapps.dir}/plf/WEB-INF/conf/portal/group/platform/administrators/pages.xml">
+                  <replacetoken><![CDATA[<page>
+    <name>monitoring</name>
+    <title>Monitoring</title>]]>
+                  </replacetoken>
+                  <replacevalue><![CDATA[<!--page>
+    <name>monitoring</name>
+    <title>Monitoring</title>]]>
+                  </replacevalue>
+                </replace>
+                <replace file="${tomcat.webapps.dir}/plf/WEB-INF/conf/portal/group/platform/administrators/pages.xml">
+                  <replacetoken><![CDATA[<value>local://ApplicationsStatistics</value>
+                <read-only>false</read-only>
+              </preference>
+            </preferences>
+          </portlet>
+          <title>Gadget Portlet</title>
+          <access-permissions>manager:/platform/administrators</access-permissions>
+          <show-info-bar>false</show-info-bar>
+          <show-application-state>true</show-application-state>
+        </portlet-application>
+      </container>
+    </container>
+  </page>]]>
+                  </replacetoken>
+                  <replacevalue><![CDATA[<value>local://ApplicationsStatistics</value>
+                <read-only>false</read-only>
+              </preference>
+            </preferences>
+          </portlet>
+          <title>Gadget Portlet</title>
+          <access-permissions>manager:/platform/administrators</access-permissions>
+          <show-info-bar>false</show-info-bar>
+          <show-application-state>true</show-application-state>
+        </portlet-application>
+      </container>
+    </container>
+  </page -->]]>
+                  </replacevalue>
+                </replace>
+                <replace file="${tomcat.webapps.dir}/plf/WEB-INF/conf/portal/group/platform/administrators/pages.xml">
+                  <replacetoken><![CDATA[<!-- MemoryCharts gadget -->]]>
+                  </replacetoken>                
+                  <replacevalue><![CDATA[ ]]>
+                  </replacevalue>
+                </replace>
+                <replace file="${tomcat.webapps.dir}/plf/WEB-INF/conf/portal/group/platform/administrators/pages.xml">
+                  <replacetoken><![CDATA[<!-- ApplicationsStatistics gadget -->]]>
+                  </replacetoken>
+                  <replacevalue><![CDATA[ ]]>
+                  </replacevalue>
+                </replace>
                 <!-- Add Sites Explorer and Editor pages -->
                 <copy file="${project.basedir}/src/main/resources/pages.xml" tofile="${tomcat.webapps.dir}/plf/WEB-INF/conf/portal/group/platform/web-contributors/pages.xml" overwrite="true" />
                 <copy file="${project.basedir}/src/main/resources/navigation.xml" tofile="${tomcat.webapps.dir}/plf/WEB-INF/conf/portal/group/platform/web-contributors/navigation.xml" overwrite="true" />
