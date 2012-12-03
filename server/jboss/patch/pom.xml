@@ -9,6 +9,13 @@
   <artifactId>platform-server-jboss-patch</artifactId>
   <packaging>jar</packaging>
   <name>eXo Platform - JBoss Server Patch</name>
+  <dependencies>
+    <dependency>
+      <groupId>org.exoplatform.platform</groupId>
+      <artifactId>platform-component-common</artifactId>
+      <scope>runtime</scope>
+    </dependency>
+  </dependencies>
   <build>
     <plugins>
       <plugin>

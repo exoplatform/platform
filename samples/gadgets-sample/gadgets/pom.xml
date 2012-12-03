@@ -9,6 +9,18 @@
   <artifactId>platform-sample-gadgets-sample-gadgets</artifactId>
   <packaging>war</packaging>
   <name>eXo Platform - Gadgets</name>
+  <dependencies>
+    <dependency>
+      <groupId>org.exoplatform.platform</groupId>
+      <artifactId>platform-sample-gadgets-sample-config</artifactId>
+      <scope>runtime</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.exoplatform.platform</groupId>
+      <artifactId>platform-sample-gadgets-sample-service</artifactId>
+      <scope>runtime</scope>
+    </dependency>
+  </dependencies>
   <build>
     <finalName>intranet-gadgets</finalName>
   </build>
