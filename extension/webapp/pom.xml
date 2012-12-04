@@ -55,6 +55,32 @@
       <artifactId>exo-ide-server</artifactId>
       <scope>runtime</scope>
     </dependency>
+    <!-- INTEGRATION PROJECTS -->
+    <dependency>
+      <groupId>org.exoplatform.integration</groupId>
+      <artifactId>integ-calendar-social</artifactId>
+      <scope>runtime</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.exoplatform.integration</groupId>
+      <artifactId>integ-ecms-social</artifactId>
+      <scope>runtime</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.exoplatform.integration</groupId>
+      <artifactId>integ-forum-social</artifactId>
+      <scope>runtime</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.exoplatform.integration</groupId>
+      <artifactId>integ-social-ecms</artifactId>
+      <scope>runtime</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.exoplatform.integration</groupId>
+      <artifactId>integ-wiki-social</artifactId>
+      <scope>runtime</scope>
+    </dependency>
     <dependency>
       <groupId>org.exoplatform.jcr</groupId>
       <artifactId>exo.jcr.component.core</artifactId>
