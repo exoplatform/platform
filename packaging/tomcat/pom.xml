@@ -411,6 +411,12 @@
     </dependency>
     <dependency>
       <groupId>org.exoplatform.commons</groupId>
+      <artifactId>commons-api</artifactId>
+      <version>${org.exoplatform.commons.version}</version>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.exoplatform.commons</groupId>
       <artifactId>commons-fck</artifactId>
       <version>${org.exoplatform.commons.version}</version>
       <scope>provided</scope>
