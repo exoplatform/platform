@@ -120,7 +120,7 @@
                     <artifactItem>
                       <groupId>org.exoplatform.doc</groupId>
                       <artifactId>doc-style</artifactId>
-                      <version>${doc-style.version}</version>
+                      <version>${org.exoplatform.doc.doc-style.version}</version>
                       <outputDirectory>${docbook.source}</outputDirectory>
                       <includes>**</includes>
                       <excludes>META-INF/**</excludes>
