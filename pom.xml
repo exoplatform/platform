@@ -53,7 +53,6 @@
     <org.exoplatform.portal.version>3.4.0.Final</org.exoplatform.portal.version>
     <org.exoplatform.social.version>4.0.0.Alpha1-kill-exobuild-SNAPSHOT</org.exoplatform.social.version>
     <org.exoplatform.tool.version>1.2.2-GA</org.exoplatform.tool.version>
-    <org.exoplatform.webos.version>4.0.0.Alpha1-SNAPSHOT</org.exoplatform.webos.version>
     <org.exoplatform.ws.version>2.2.10-GA-SNAPSHOT</org.exoplatform.ws.version>
     <org.gatein.common.version>2.0.4-GA</org.gatein.common.version>
     <org.gatein.pc.version>2.3.2-GA</org.gatein.pc.version>
@@ -582,11 +581,6 @@
         <groupId>org.exoplatform.tool</groupId>
         <artifactId>exo.tool.framework.junit</artifactId>
         <version>${org.exoplatform.tool.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>org.exoplatform.webos</groupId>
-        <artifactId>webos-webui</artifactId>
-        <version>${org.exoplatform.webos.version}</version>
       </dependency>
       <!-- To be replaced by an import of WS parent POM -->
       <dependency>

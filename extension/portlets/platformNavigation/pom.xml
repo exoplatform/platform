@@ -75,10 +75,6 @@
       <artifactId>social-component-webui</artifactId>
     </dependency>
     <dependency>
-      <groupId>org.exoplatform.webos</groupId>
-      <artifactId>webos-webui</artifactId>
-    </dependency>
-    <dependency>
       <groupId>org.gatein.common</groupId>
       <artifactId>common-common</artifactId>
     </dependency>

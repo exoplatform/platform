@@ -42,7 +42,7 @@ import org.exoplatform.portal.mop.user.UserPortal;
 import org.exoplatform.portal.webui.util.Util;
 import org.exoplatform.services.log.ExoLogger;
 import org.exoplatform.services.log.Log;
-import org.exoplatform.webos.webui.page.UIDesktopPage;
+//import org.exoplatform.webos.webui.page.UIDesktopPage;
 import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.config.annotation.EventConfig;
@@ -106,7 +106,9 @@ public class UIUserPlatformToolbarDesktopPortlet extends UIPortletApplication {
     }
     DataStorage ds = getApplicationComponent(DataStorage.class);
     Page page = ds.getPage(pageRef);
-    return page == null || UIDesktopPage.DESKTOP_FACTORY_ID.equals(page.getFactoryId());
+//    return page == null || UIDesktopPage.DESKTOP_FACTORY_ID.equals(page.getFactoryId());
+    return page == null;
+
   }
 
    public String getDashboardURL() throws Exception {
@@ -124,12 +126,12 @@ public class UIUserPlatformToolbarDesktopPortlet extends UIPortletApplication {
     return NavigationURLUtils.getURL(SiteKey.user(WebuiRequestContext.getCurrentInstance().getRemoteUser()), DEFAULT_TAB_NAME);
   }
 
-  public boolean isWebOSCreated() throws Exception {
-    WebuiRequestContext context = WebuiRequestContext.getCurrentInstance();
-    DataStorage storage = getApplicationComponent(DataStorage.class);
-    Page page = storage.getPage(PortalConfig.USER_TYPE + "::" + context.getRemoteUser() + "::" + UIDesktopPage.PAGE_ID);
-    return page != null;
-  }
+//  public boolean isWebOSCreated() throws Exception {
+//    WebuiRequestContext context = WebuiRequestContext.getCurrentInstance();
+//    DataStorage storage = getApplicationComponent(DataStorage.class);
+//    Page page = storage.getPage(PortalConfig.USER_TYPE + "::" + context.getRemoteUser() + "::" + UIDesktopPage.PAGE_ID);
+//    return page != null;
+//  }
 
  /* private UserNode getFirstNonWebOSNode(Collection<UserNode> nodes) throws Exception {
     for (UserNode node : nodes) {
