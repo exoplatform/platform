@@ -40,21 +40,6 @@
     <!-- **************************************** -->
     <!-- Project Dependencies -->
     <!-- **************************************** -->
-    <!-- Does not support more recent version for now -->
-    <version.gwt.plugin>2.1.0</version.gwt.plugin>
-    <gwtVersion>${version.gwt.plugin}</gwtVersion>
-    <gwt.gadget.version>1.2.0</gwt.gadget.version>
-    <com.sun.xml.stream.version>1.0.1</com.sun.xml.stream.version>
-    <commons-codec.version>1.4</commons-codec.version>
-    <commons-lang.version>2.6</commons-lang.version>
-    <javax.jcr.version>1.0</javax.jcr.version>
-    <javax.portlet.version>2.0</javax.portlet.version>
-    <javax.servlet.version>2.5</javax.servlet.version>
-    <javax.ws.rs.version>1.0</javax.ws.rs.version>
-    <junit.version>3.8.2</junit.version>
-    <org.apache.tomcat.version>7.0.33</org.apache.tomcat.version>
-    <org.bouncycastle.version>1.45</org.bouncycastle.version>
-    <org.chromattic.version>1.1.4</org.chromattic.version>
     <org.exoplatform.calendar.version>4.0.0.Alpha1-kill-exobuild-SNAPSHOT</org.exoplatform.calendar.version>
     <org.exoplatform.commons.version>4.0.0.Alpha1-kill-exobuild-SNAPSHOT</org.exoplatform.commons.version>
     <org.exoplatform.core.version>2.4.10-GA-SNAPSHOT</org.exoplatform.core.version>
@@ -74,172 +59,48 @@
     <org.gatein.pc.version>2.3.2-GA</org.gatein.pc.version>
     <org.gatein.shindig.version>2.0.2-CP01</org.gatein.shindig.version>
     <org.gatein.wci.version>2.2.0-Beta02</org.gatein.wci.version>
-    <org.hibernate.version>3.3.2.GA</org.hibernate.version>
-    <org.hsqldb.version>2.0.0</org.hsqldb.version>
-    <org.jibx.version>1.2.2</org.jibx.version>
-    <org.json.version>20070829</org.json.version>
-    <org.picketlink.idm.version>1.3.2.CR02</org.picketlink.idm.version>
-    <org.slf4j.version>1.5.8</org.slf4j.version>
-    <picocontainer.version>1.1</picocontainer.version>
-    <quartz.version>1.5.2</quartz.version>
-    <xstream.version>1.0.2</xstream.version>
+    <!-- Does not support more recent version for now -->
+    <version.gwt.plugin>2.1.0</version.gwt.plugin>
+    <com.google.gwt.version>${version.gwt.plugin}</com.google.gwt.version>
   </properties>
   <dependencyManagement>
     <dependencies>
+      <!-- Does not support more recent version for now defined in maven-depmgt-pom -->
+      <dependency>
+        <groupId>com.google.gwt</groupId>
+        <artifactId>gwt-servlet</artifactId>
+        <version>${com.google.gwt.version}</version>
+      </dependency>
       <dependency>
         <groupId>com.google.gwt</groupId>
         <artifactId>gwt-user</artifactId>
-        <version>${gwtVersion}</version>
+        <version>${com.google.gwt.version}</version>
       </dependency>
+      <!-- Import versions of external dependencies to use -->
       <dependency>
-        <groupId>com.google.gwt.google-apis</groupId>
-        <artifactId>gwt-gadgets</artifactId>
-        <version>${gwt.gadget.version}</version>
+        <groupId>org.exoplatform</groupId>
+        <artifactId>maven-depmgt-pom</artifactId>
+        <version>1-SNAPSHOT</version>
+        <type>pom</type>
+        <scope>import</scope>
       </dependency>
-      <dependency>
-        <groupId>com.sun.xml.stream</groupId>
-        <artifactId>sjsxp</artifactId>
-        <version>${com.sun.xml.stream.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>commons-codec</groupId>
-        <artifactId>commons-codec</artifactId>
-        <version>${commons-codec.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>commons-lang</groupId>
-        <artifactId>commons-lang</artifactId>
-        <version>${commons-lang.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>javax.jcr</groupId>
-        <artifactId>jcr</artifactId>
-        <version>${javax.jcr.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>javax.portlet</groupId>
-        <artifactId>portlet-api</artifactId>
-        <version>${javax.portlet.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>javax.servlet</groupId>
-        <artifactId>servlet-api</artifactId>
-        <version>${javax.servlet.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>javax.ws.rs</groupId>
-        <artifactId>jsr311-api</artifactId>
-        <version>${javax.ws.rs.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>junit</groupId>
-        <artifactId>junit</artifactId>
-        <version>${junit.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>org.apache.tomcat</groupId>
-        <artifactId>tomcat-catalina</artifactId>
-        <version>${org.apache.tomcat.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>org.bouncycastle</groupId>
-        <artifactId>bcprov-jdk15</artifactId>
-        <version>${org.bouncycastle.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>org.chromattic</groupId>
-        <artifactId>chromattic.api</artifactId>
-        <version>${org.chromattic.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>org.chromattic</groupId>
-        <artifactId>chromattic.apt</artifactId>
-        <version>${org.chromattic.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>org.chromattic</groupId>
-        <artifactId>chromattic.dataobject</artifactId>
-        <version>${org.chromattic.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>org.chromattic</groupId>
-        <artifactId>chromattic.ext</artifactId>
-        <version>${org.chromattic.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>org.chromattic</groupId>
-        <artifactId>chromattic.groovy</artifactId>
-        <version>${org.chromattic.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>org.chromattic</groupId>
-        <artifactId>chromattic.spi</artifactId>
-        <version>${org.chromattic.version}</version>
-      </dependency>
+      <!-- Import versions from calendar project -->
       <dependency>
         <groupId>org.exoplatform.calendar</groupId>
-        <artifactId>calendar-upgrade</artifactId>
+        <artifactId>calendar</artifactId>
         <version>${org.exoplatform.calendar.version}</version>
+        <type>pom</type>
+        <scope>import</scope>
       </dependency>
+      <!-- Import versions from commons project -->
       <dependency>
         <groupId>org.exoplatform.commons</groupId>
-        <artifactId>commons-api</artifactId>
+        <artifactId>commons</artifactId>
         <version>${org.exoplatform.commons.version}</version>
+        <type>pom</type>
+        <scope>import</scope>
       </dependency>
-      <dependency>
-        <groupId>org.exoplatform.commons</groupId>
-        <artifactId>commons-comet-service</artifactId>
-        <version>${org.exoplatform.commons.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>org.exoplatform.commons</groupId>
-        <artifactId>commons-comet-webapp</artifactId>
-        <version>${org.exoplatform.commons.version}</version>
-        <type>war</type>
-      </dependency>
-      <dependency>
-        <groupId>org.exoplatform.commons</groupId>
-        <artifactId>commons-component-common</artifactId>
-        <version>${org.exoplatform.commons.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>org.exoplatform.commons</groupId>
-        <artifactId>commons-component-product</artifactId>
-        <version>${org.exoplatform.commons.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>org.exoplatform.commons</groupId>
-        <artifactId>commons-component-upgrade</artifactId>
-        <version>${org.exoplatform.commons.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>org.exoplatform.commons</groupId>
-        <artifactId>commons-extension-webapp</artifactId>
-        <version>${org.exoplatform.commons.version}</version>
-        <type>war</type>
-      </dependency>
-      <dependency>
-        <groupId>org.exoplatform.commons</groupId>
-        <artifactId>commons-fck</artifactId>
-        <version>${org.exoplatform.commons.version}</version>
-        <type>war</type>
-      </dependency>
-      <dependency>
-        <groupId>org.exoplatform.commons</groupId>
-        <artifactId>commons-webui-component</artifactId>
-        <version>${org.exoplatform.commons.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>org.exoplatform.commons</groupId>
-        <artifactId>commons-webui-ext</artifactId>
-        <version>${org.exoplatform.commons.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>org.exoplatform.commons</groupId>
-        <artifactId>commons-webui-resources</artifactId>
-        <version>${org.exoplatform.commons.version}</version>
-        <type>war</type>
-      </dependency>
+      <!-- To be replaced by an import of core parent POM -->
       <dependency>
         <groupId>org.exoplatform.core</groupId>
         <artifactId>exo.core.component.database</artifactId>
@@ -260,99 +121,30 @@
         <artifactId>exo.core.component.security.core</artifactId>
         <version>${org.exoplatform.core.version}</version>
       </dependency>
+      <!-- Import versions from ecms project -->
       <dependency>
         <groupId>org.exoplatform.ecms</groupId>
-        <artifactId>ecms-apps-wai-template</artifactId>
+        <artifactId>ecms</artifactId>
         <version>${org.exoplatform.ecms.version}</version>
-        <type>war</type>
+        <type>pom</type>
+        <scope>import</scope>
       </dependency>
-      <dependency>
-        <groupId>org.exoplatform.ecms</groupId>
-        <artifactId>ecms-core-publication</artifactId>
-        <version>${org.exoplatform.ecms.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>org.exoplatform.ecms</groupId>
-        <artifactId>ecms-core-services</artifactId>
-        <version>${org.exoplatform.ecms.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>org.exoplatform.ecms</groupId>
-        <artifactId>ecms-core-webui</artifactId>
-        <version>${org.exoplatform.ecms.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>org.exoplatform.ecms</groupId>
-        <artifactId>ecms-core-webui-administration</artifactId>
-        <version>${org.exoplatform.ecms.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>org.exoplatform.ecms</groupId>
-        <artifactId>ecms-core-webui-explorer</artifactId>
-        <version>${org.exoplatform.ecms.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>org.exoplatform.ecms</groupId>
-        <artifactId>ecms-core-webui-seo</artifactId>
-        <version>${org.exoplatform.ecms.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>org.exoplatform.ecms</groupId>
-        <artifactId>ecms-upgrade-favorite</artifactId>
-        <version>${org.exoplatform.ecms.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>org.exoplatform.ecms</groupId>
-        <artifactId>ecms-upgrade-portlet-preferences</artifactId>
-        <version>${org.exoplatform.ecms.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>org.exoplatform.ecms</groupId>
-        <artifactId>ecms-upgrade-publication-publication-nodetype</artifactId>
-        <version>${org.exoplatform.ecms.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>org.exoplatform.ecms</groupId>
-        <artifactId>ecms-upgrade-templates</artifactId>
-        <version>${org.exoplatform.ecms.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>org.exoplatform.ecms</groupId>
-        <artifactId>ecms-upgrade-thumbnails</artifactId>
-        <version>${org.exoplatform.ecms.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>org.exoplatform.ecms</groupId>
-        <artifactId>ecms-upgrade-user-folder-permission</artifactId>
-        <version>${org.exoplatform.ecms.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>org.exoplatform.ecms</groupId>
-        <artifactId>ecms-upgrade-voting-nodetype</artifactId>
-        <version>${org.exoplatform.ecms.version}</version>
-      </dependency>
+      <!-- Import versions from forum project -->
       <dependency>
         <groupId>org.exoplatform.forum</groupId>
-        <artifactId>forum-component-common</artifactId>
+        <artifactId>forum</artifactId>
         <version>${org.exoplatform.forum.version}</version>
+        <type>pom</type>
+        <scope>import</scope>
       </dependency>
-      <dependency>
-        <groupId>org.exoplatform.forum</groupId>
-        <artifactId>forum-component-upgrade</artifactId>
-        <version>${org.exoplatform.forum.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>org.exoplatform.forum</groupId>
-        <artifactId>forum-forum-service</artifactId>
-        <version>${org.exoplatform.forum.version}</version>
-      </dependency>
-      <!-- IDE dependencies -->
+      <!-- To be replaced by an import of gwtframework parent POM -->
       <dependency>
         <groupId>org.exoplatform.gwt</groupId>
         <artifactId>exo-gwtframework-smartgwt</artifactId>
         <version>${org.exoplatform.gwtframework.version}</version>
         <type>war</type>
       </dependency>
+      <!-- To be replaced by an import of ide parent POM -->
       <dependency>
         <groupId>org.exoplatform.ide</groupId>
         <artifactId>exo-ide-client-gadget</artifactId>
@@ -384,36 +176,15 @@
         <artifactId>exo-ide-server</artifactId>
         <version>${org.exoplatform.ide.version}</version>
       </dependency>
+      <!-- Import versions from integration project -->
       <dependency>
         <groupId>org.exoplatform.integration</groupId>
-        <artifactId>integ-calendar-social</artifactId>
+        <artifactId>integ</artifactId>
         <version>${org.exoplatform.integ.version}</version>
-        <type>jar</type>
+        <type>pom</type>
+        <scope>import</scope>
       </dependency>
-      <dependency>
-        <groupId>org.exoplatform.integration</groupId>
-        <artifactId>integ-ecms-social</artifactId>
-        <version>${org.exoplatform.integ.version}</version>
-        <type>jar</type>
-      </dependency>
-      <dependency>
-        <groupId>org.exoplatform.integration</groupId>
-        <artifactId>integ-forum-social</artifactId>
-        <version>${org.exoplatform.integ.version}</version>
-        <type>jar</type>
-      </dependency>
-      <dependency>
-        <groupId>org.exoplatform.integration</groupId>
-        <artifactId>integ-social-ecms</artifactId>
-        <version>${org.exoplatform.integ.version}</version>
-        <type>jar</type>
-      </dependency>
-      <dependency>
-        <groupId>org.exoplatform.integration</groupId>
-        <artifactId>integ-wiki-social</artifactId>
-        <version>${org.exoplatform.integ.version}</version>
-        <type>jar</type>
-      </dependency>
+      <!-- To be replaced by an import of jcr parent POM -->
       <dependency>
         <groupId>org.exoplatform.jcr</groupId>
         <artifactId>exo.jcr.component.core</artifactId>
@@ -424,6 +195,7 @@
         <artifactId>exo.jcr.component.ext</artifactId>
         <version>${org.exoplatform.jcr.version}</version>
       </dependency>
+      <!-- To be replaced by an import of kernel parent POM -->
       <dependency>
         <groupId>org.exoplatform.kernel</groupId>
         <artifactId>exo.kernel.commons</artifactId>
@@ -444,6 +216,7 @@
         <artifactId>exo.kernel.container</artifactId>
         <version>${org.exoplatform.kernel.version}</version>
       </dependency>
+      <!-- Our own project modules -->
       <dependency>
         <groupId>org.exoplatform.platform</groupId>
         <artifactId>platform</artifactId>
@@ -743,6 +516,7 @@
         <artifactId>platform-trial-service</artifactId>
         <version>${project.version}</version>
       </dependency>
+      <!-- To be replaced by an import of GateIn Portal parent POM -->
       <dependency>
         <groupId>org.exoplatform.portal</groupId>
         <artifactId>exo.portal.component.application-registry</artifactId>
@@ -803,29 +577,10 @@
         <artifactId>exo.portal.webui.portlet</artifactId>
         <version>${org.exoplatform.portal.version}</version>
       </dependency>
+      <!-- To be replaced by an import of social parent POM -->
       <dependency>
         <groupId>org.exoplatform.social</groupId>
         <artifactId>social-component-common</artifactId>
-        <version>${org.exoplatform.social.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>org.exoplatform.social</groupId>
-        <artifactId>social-component-core</artifactId>
-        <version>${org.exoplatform.social.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>org.exoplatform.social</groupId>
-        <artifactId>social-component-webui</artifactId>
-        <version>${org.exoplatform.social.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>org.exoplatform.social</groupId>
-        <artifactId>social-extras-migration</artifactId>
-        <version>${org.exoplatform.social.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>org.exoplatform.social</groupId>
-        <artifactId>social-extras-updater</artifactId>
         <version>${org.exoplatform.social.version}</version>
       </dependency>
       <dependency>
@@ -838,6 +593,7 @@
         <artifactId>webos-webui</artifactId>
         <version>${org.exoplatform.webos.version}</version>
       </dependency>
+      <!-- To be replaced by an import of WS parent POM -->
       <dependency>
         <groupId>org.exoplatform.ws</groupId>
         <artifactId>exo.ws.rest.core</artifactId>
@@ -848,16 +604,19 @@
         <artifactId>exo.ws.rest.ext</artifactId>
         <version>${org.exoplatform.ws.version}</version>
       </dependency>
+      <!-- To be replaced by an import of GateIn Common parent POM -->
       <dependency>
         <groupId>org.gatein.common</groupId>
         <artifactId>common-common</artifactId>
         <version>${org.gatein.common.version}</version>
       </dependency>
+      <!-- To be replaced by an import of GateIn PC parent POM -->
       <dependency>
         <groupId>org.gatein.pc</groupId>
         <artifactId>pc-api</artifactId>
         <version>${org.gatein.pc.version}</version>
       </dependency>
+      <!-- To be replaced by an import of GateIn Shinding parent POM -->
       <dependency>
         <groupId>org.gatein.shindig</groupId>
         <artifactId>shindig-gadgets</artifactId>
@@ -875,70 +634,11 @@
         <artifactId>shindig-social-api</artifactId>
         <version>${org.gatein.shindig.version}</version>
       </dependency>
+      <!-- To be replaced by an import of GateIn WCI parent POM -->
       <dependency>
         <groupId>org.gatein.wci</groupId>
         <artifactId>wci-tomcat6</artifactId>
         <version>${org.gatein.wci.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>org.hibernate</groupId>
-        <artifactId>hibernate-core</artifactId>
-        <version>${org.hibernate.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>org.hsqldb</groupId>
-        <artifactId>hsqldb</artifactId>
-        <version>${org.hsqldb.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>org.jibx</groupId>
-        <artifactId>jibx-run</artifactId>
-        <version>${org.jibx.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>org.json</groupId>
-        <artifactId>json</artifactId>
-        <version>${org.json.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>org.picketlink.idm</groupId>
-        <artifactId>picketlink-idm-api</artifactId>
-        <version>${org.picketlink.idm.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>org.picketlink.idm</groupId>
-        <artifactId>picketlink-idm-core</artifactId>
-        <version>${org.picketlink.idm.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>org.picketlink.idm</groupId>
-        <artifactId>picketlink-idm-hibernate</artifactId>
-        <version>${org.picketlink.idm.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>org.picketlink.idm</groupId>
-        <artifactId>picketlink-idm-spi</artifactId>
-        <version>${org.picketlink.idm.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>org.slf4j</groupId>
-        <artifactId>slf4j-simple</artifactId>
-        <version>${org.slf4j.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>picocontainer</groupId>
-        <artifactId>picocontainer</artifactId>
-        <version>${picocontainer.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>quartz</groupId>
-        <artifactId>quartz</artifactId>
-        <version>${quartz.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>xstream</groupId>
-        <artifactId>xstream</artifactId>
-        <version>${xstream.version}</version>
       </dependency>
     </dependencies>
   </dependencyManagement>
