@@ -119,10 +119,6 @@
       </exclusions>
     </dependency>
     <dependency>
-      <groupId>org.exoplatform.calendar</groupId>
-      <artifactId>calendar-upgrade</artifactId>
-    </dependency>
-    <dependency>
       <groupId>org.exoplatform.commons</groupId>
       <artifactId>commons-comet-service</artifactId>
       <exclusions>
@@ -260,108 +256,6 @@
       <groupId>org.exoplatform.ecms</groupId>
       <artifactId>ecms-apps-wai-template</artifactId>
       <type>war</type>
-    </dependency>
-    <dependency>
-      <groupId>org.exoplatform.ecms</groupId>
-      <artifactId>ecms-upgrade-favorite</artifactId>
-      <exclusions>
-        <exclusion>
-          <artifactId>exo.jcr.component.ext</artifactId>
-          <groupId>org.exoplatform.jcr</groupId>
-        </exclusion>
-        <exclusion>
-          <artifactId>ecms-core-services</artifactId>
-          <groupId>org.exoplatform.ecms</groupId>
-        </exclusion>
-      </exclusions>
-    </dependency>
-    <dependency>
-      <groupId>org.exoplatform.ecms</groupId>
-      <artifactId>ecms-upgrade-portlet-preferences</artifactId>
-      <exclusions>
-        <exclusion>
-          <artifactId>exo.jcr.component.ext</artifactId>
-          <groupId>org.exoplatform.jcr</groupId>
-        </exclusion>
-        <exclusion>
-          <artifactId>ecms-core-services</artifactId>
-          <groupId>org.exoplatform.ecms</groupId>
-        </exclusion>
-      </exclusions>
-    </dependency>
-    <dependency>
-      <groupId>org.exoplatform.ecms</groupId>
-      <artifactId>ecms-upgrade-publication-publication-nodetype</artifactId>
-      <exclusions>
-        <exclusion>
-          <artifactId>exo.jcr.component.ext</artifactId>
-          <groupId>org.exoplatform.jcr</groupId>
-        </exclusion>
-        <exclusion>
-          <artifactId>ecms-core-services</artifactId>
-          <groupId>org.exoplatform.ecms</groupId>
-        </exclusion>
-      </exclusions>
-    </dependency>
-    <dependency>
-      <groupId>org.exoplatform.ecms</groupId>
-      <artifactId>ecms-upgrade-templates</artifactId>
-      <exclusions>
-        <exclusion>
-          <artifactId>exo.jcr.component.ext</artifactId>
-          <groupId>org.exoplatform.jcr</groupId>
-        </exclusion>
-        <exclusion>
-          <artifactId>ecms-core-services</artifactId>
-          <groupId>org.exoplatform.ecms</groupId>
-        </exclusion>
-      </exclusions>
-    </dependency>
-    <dependency>
-      <groupId>org.exoplatform.ecms</groupId>
-      <artifactId>ecms-upgrade-thumbnails</artifactId>
-      <exclusions>
-        <exclusion>
-          <artifactId>exo.jcr.component.ext</artifactId>
-          <groupId>org.exoplatform.jcr</groupId>
-        </exclusion>
-        <exclusion>
-          <artifactId>ecms-core-services</artifactId>
-          <groupId>org.exoplatform.ecms</groupId>
-        </exclusion>
-      </exclusions>
-    </dependency>
-    <dependency>
-      <groupId>org.exoplatform.ecms</groupId>
-      <artifactId>ecms-upgrade-user-folder-permission</artifactId>
-      <exclusions>
-        <exclusion>
-          <artifactId>exo.jcr.component.ext</artifactId>
-          <groupId>org.exoplatform.jcr</groupId>
-        </exclusion>
-        <exclusion>
-          <artifactId>ecms-core-services</artifactId>
-          <groupId>org.exoplatform.ecms</groupId>
-        </exclusion>
-      </exclusions>
-    </dependency>
-    <dependency>
-      <groupId>org.exoplatform.ecms</groupId>
-      <artifactId>ecms-upgrade-voting-nodetype</artifactId>
-      <exclusions>
-        <exclusion>
-          <artifactId>exo.jcr.component.ext</artifactId>
-          <groupId>org.exoplatform.jcr</groupId>
-        </exclusion>
-        <exclusion>
-          <artifactId>ecms-core-services</artifactId>
-          <groupId>org.exoplatform.ecms</groupId>
-        </exclusion>
-      </exclusions>
-    </dependency>
-    <dependency>
-      <groupId>org.exoplatform.forum</groupId>
-      <artifactId>forum-component-upgrade</artifactId>
     </dependency>
     <!-- IDE dependencies -->
     <dependency>
@@ -920,26 +814,6 @@
     <dependency>
       <groupId>org.exoplatform.platform</groupId>
       <artifactId>platform-sample-gadgets-sample-service</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>org.exoplatform.social</groupId>
-      <artifactId>social-extras-migration</artifactId>
-      <exclusions>
-        <exclusion>
-          <artifactId>staxnav.core</artifactId>
-          <groupId>org.staxnav</groupId>
-        </exclusion>
-      </exclusions>
-    </dependency>
-    <dependency>
-      <groupId>org.exoplatform.social</groupId>
-      <artifactId>social-extras-updater</artifactId>
-      <exclusions>
-        <exclusion>
-          <artifactId>exo.portal.component.common</artifactId>
-          <groupId>org.exoplatform.portal</groupId>
-        </exclusion>
-      </exclusions>
     </dependency>
   </dependencies>
   <build>
