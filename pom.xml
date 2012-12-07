@@ -40,128 +40,49 @@
     <!-- **************************************** -->
     <!-- Project Dependencies -->
     <!-- **************************************** -->
-    <org.exoplatform.kernel.version>2.3.10-GA-SNAPSHOT</org.exoplatform.kernel.version>
-    <org.exoplatform.core.version>2.4.10-GA-SNAPSHOT</org.exoplatform.core.version>
-    <org.exoplatform.ws.version>2.2.10-GA-SNAPSHOT</org.exoplatform.ws.version>
-    <org.exoplatform.jcr.version>1.14.10-GA-SNAPSHOT</org.exoplatform.jcr.version>
-    <org.exoplatform.jcr-services.version>1.14.10-GA-SNAPSHOT</org.exoplatform.jcr-services.version>
-    <org.exoplatform.tool.version>1.2.2-GA</org.exoplatform.tool.version>
-    <org.exoplatform.portal.version>3.4.0.Final</org.exoplatform.portal.version>
-    <org.gatein.common.version>2.0.4-GA</org.gatein.common.version>
-    <org.gatein.pc.version>2.3.2-GA</org.gatein.pc.version>
-    <org.exoplatform.webos.version>4.0.0.Alpha1-kill-exobuild-SNAPSHOT</org.exoplatform.webos.version>
-    <org.gatein.wci.version>2.2.0-Beta02</org.gatein.wci.version>
-    <!-- upgraded since switched to portal 3.2 -->
-    <org.gatein.shindig.version>2.0.2-CP01</org.gatein.shindig.version>
-    <org.gatein.mop.version>1.1.1-GA</org.gatein.mop.version>
-    <org.chromattic.version>1.1.4</org.chromattic.version>
-    <org.exoplatform.commons.version>4.0.0.Alpha1-kill-exobuild-SNAPSHOT</org.exoplatform.commons.version>
-    <org.exoplatform.forum.version>4.0.0.Alpha1-kill-exobuild-SNAPSHOT</org.exoplatform.forum.version>
-    <org.exoplatform.wiki.version>4.0.0.Alpha1-kill-exobuild-SNAPSHOT</org.exoplatform.wiki.version>
-    <org.exoplatform.ecms.version>4.0.0.Alpha1-kill-exobuild-SNAPSHOT</org.exoplatform.ecms.version>
-    <org.exoplatform.social.version>4.0.0.Alpha1-kill-exobuild-SNAPSHOT</org.exoplatform.social.version>
-    <org.exoplatform.calendar.version>4.0.0.Alpha1-kill-exobuild-SNAPSHOT</org.exoplatform.calendar.version>
-    <org.exoplatform.integ.version>4.0.0.Alpha1-kill-exobuild-SNAPSHOT</org.exoplatform.integ.version>
-    <org.exoplatform.gwtframework.version>1.1.2</org.exoplatform.gwtframework.version>
-    <org.exoplatform.ide.version>1.1.9-SNAPSHOT</org.exoplatform.ide.version>
-    <org.exoplatform.leadcapture.version>3.4</org.exoplatform.leadcapture.version>
-    <org.exoplatform.exopackage.version>1.1.4</org.exoplatform.exopackage.version>
-    <!-- Begin wiki properties -->
-    <org.jdom.version>2.0.2</org.jdom.version>
-    <org.xwiki.platform.version>4.1.3</org.xwiki.platform.version>
-    <org.xwiki.commons.version>4.1.3</org.xwiki.commons.version>
-    <org.xwiki.rendering.version>4.1.3</org.xwiki.rendering.version>
-    <org.wikimodel.version>2.0.7-SNAP-rev-532</org.wikimodel.version>
-    <net.sourceforge.htmlcleaner.version>2.2</net.sourceforge.htmlcleaner.version>
-    <!--dependencies which Code Macro depends on -->
-    <jython-standalone.version>2.5.2-xwiki</jython-standalone.version>
-    <pygments.version>1.4-xwiki</pygments.version>
-    <org.suigeneris.version>0.4.2</org.suigeneris.version>
-    <ecs.version>1.4.2</ecs.version>
-    <!--dependencies which org.xwiki.platform:xwiki-core-properties depends 
-			on -->
-    <javax.validation.version>1.0.0.GA</javax.validation.version>
-    <hibernate-validator.version>4.2.0.Final</hibernate-validator.version>
-    <org.hibernate.version>3.3.2.GA</org.hibernate.version>
-    <itext.version>2.1.7</itext.version>
-    <flying-saucer-core.version>9.0.1</flying-saucer-core.version>
-    <flying-saucer-pdf.version>9.0.1</flying-saucer-pdf.version>
-    <!-- End wiki properties -->
-    <!-- TODO: remove workflow in PLF4 -->
-    <!-- Begin workflow properties -->
-    <!-- default workflow engine is bonita. Can also be jbpm -->
-    <exo.workflow.engine>jbpm</exo.workflow.engine>
-    <!-- workflow implementations -->
-    <org.jbpm.jbpm3>3.2.8</org.jbpm.jbpm3>
-    <bonita.version>4.1</bonita.version>
-    <!-- End workflow properties -->
-    <!-- Begin CometD properties -->
-    <org.mortbay.jetty.cometd-bayeux.version>6.1.11</org.mortbay.jetty.cometd-bayeux.version>
-    <org.mortbay.jetty.cometd-api.version>0.9.20080221</org.mortbay.jetty.cometd-api.version>
-    <org.mortbay.jetty.jetty-util.version>6.1.11</org.mortbay.jetty.jetty-util.version>
-    <!-- END CometD properties -->
-    <net.oauth.version>20100527</net.oauth.version>
-    <net.oauth-consumer.version>20090617</net.oauth-consumer.version>
-    <net.oauth-httpclient.version>20090913</net.oauth-httpclient.version>
-    <org.reflext.version>1.1.0</org.reflext.version>
-    <org.jvnet.jaxb2.maven2.version>0.1</org.jvnet.jaxb2.maven2.version>
-    <org.jsecurity.version>0.9.0</org.jsecurity.version>
-    <cglib.version>2.2</cglib.version>
-    <jcr.version>1.0</jcr.version>
-    <stax.version>1.0</stax.version>
-    <findbugs.version>1.0.0</findbugs.version>
-    <html-parser.version>1.6</html-parser.version>
-    <ical4j.version>1.0-beta5</ical4j.version>
-    <xml-apis.version>1.3.04</xml-apis.version>
-    <asm.version>1.5.3</asm.version>
-    <jcrom.version>1.2</jcrom.version>
-    <!-- Used by CS -->
-    <bsh.version>2.0b1</bsh.version>
-    <org.slf4j.version>1.5.8</org.slf4j.version>
-    <org.jibx.version>1.2.2</org.jibx.version>
-    <org.apache.jackrabbit.version>1.6.4</org.apache.jackrabbit.version>
-    <!-- needed for cs -->
-    <org.apache.geronimo.specs.version>1.0.1</org.apache.geronimo.specs.version>
-    <org.apache.jmeter.version>1.0.1</org.apache.jmeter.version>
-    <org.hsqldb.version>2.0.0</org.hsqldb.version>
-    <org.json.version>20070829</org.json.version>
-    <org.bouncycastle.version>1.45</org.bouncycastle.version>
-    <org.picketlink.idm.version>1.3.2.CR02</org.picketlink.idm.version>
-    <org.crsh.version>1.1.0</org.crsh.version>
-    <!-- Servers -->
-    <org.jboss.version>2.2.9.GA</org.jboss.version>
-    <!-- TODO: remove doc -->
-    <!-- 3rd parties for docs generation -->
-    <doc-style.version>1.0.9-SNAPSHOT</doc-style.version>
-    <guava.version>r07</guava.version>
-    <httpcomponents.httpclient.version>4.0</httpcomponents.httpclient.version>
-    <commons-lang.version>2.6</commons-lang.version>
-    <commons-httpclient.version>3.1</commons-httpclient.version>
-    <commons-pool.version>1.5.5</commons-pool.version>
-    <commons-dbcp.version>1.2.2</commons-dbcp.version>
-    <commons-digester.version>1.8.1</commons-digester.version>
+    <!-- Does not support more recent version for now -->
+    <version.gwt.plugin>2.1.0</version.gwt.plugin>
+    <gwtVersion>${version.gwt.plugin}</gwtVersion>
+    <gwt.gadget.version>1.2.0</gwt.gadget.version>
+    <com.sun.xml.stream.version>1.0.1</com.sun.xml.stream.version>
     <commons-codec.version>1.4</commons-codec.version>
+    <commons-lang.version>2.6</commons-lang.version>
     <javax.jcr.version>1.0</javax.jcr.version>
     <javax.portlet.version>2.0</javax.portlet.version>
     <javax.servlet.version>2.5</javax.servlet.version>
     <javax.ws.rs.version>1.0</javax.ws.rs.version>
-    <javax.xml.stream.version>1.0</javax.xml.stream.version>
-    <picocontainer.version>1.1</picocontainer.version>
-    <com.sun.xml.stream.version>1.0.1</com.sun.xml.stream.version>
-    <xstream.version>1.0.2</xstream.version>
-    <xpp3.version>1.1.4c</xpp3.version>
-    <quartz.version>1.5.2</quartz.version>
-    <!-- BEGIN gwt-gadgets properties -->
-    <!-- Does not support recent version -->
-    <version.gwt.plugin>2.1.0</version.gwt.plugin>
-    <!-- Convenience property to set the GWT version -->
-    <gwtVersion>2.1.0</gwtVersion>
-    <gwt.gadget.version>1.2.0</gwt.gadget.version>
-    <!-- END gwt-gadgets properties -->
-    <!-- test framework -->
-    <org.testng.version>5.10</org.testng.version>
     <junit.version>3.8.2</junit.version>
     <org.apache.tomcat.version>7.0.33</org.apache.tomcat.version>
+    <org.bouncycastle.version>1.45</org.bouncycastle.version>
+    <org.chromattic.version>1.1.4</org.chromattic.version>
+    <org.exoplatform.calendar.version>4.0.0.Alpha1-kill-exobuild-SNAPSHOT</org.exoplatform.calendar.version>
+    <org.exoplatform.commons.version>4.0.0.Alpha1-kill-exobuild-SNAPSHOT</org.exoplatform.commons.version>
+    <org.exoplatform.core.version>2.4.10-GA-SNAPSHOT</org.exoplatform.core.version>
+    <org.exoplatform.ecms.version>4.0.0.Alpha1-kill-exobuild-SNAPSHOT</org.exoplatform.ecms.version>
+    <org.exoplatform.forum.version>4.0.0.Alpha1-kill-exobuild-SNAPSHOT</org.exoplatform.forum.version>
+    <org.exoplatform.gwtframework.version>1.1.2</org.exoplatform.gwtframework.version>
+    <org.exoplatform.ide.version>1.1.9-SNAPSHOT</org.exoplatform.ide.version>
+    <org.exoplatform.integ.version>4.0.0.Alpha1-kill-exobuild-SNAPSHOT</org.exoplatform.integ.version>
+    <org.exoplatform.jcr.version>1.14.10-GA-SNAPSHOT</org.exoplatform.jcr.version>
+    <org.exoplatform.kernel.version>2.3.10-GA-SNAPSHOT</org.exoplatform.kernel.version>
+    <org.exoplatform.portal.version>3.4.0.Final</org.exoplatform.portal.version>
+    <org.exoplatform.social.version>4.0.0.Alpha1-kill-exobuild-SNAPSHOT</org.exoplatform.social.version>
+    <org.exoplatform.tool.version>1.2.2-GA</org.exoplatform.tool.version>
+    <org.exoplatform.webos.version>4.0.0.Alpha1-kill-exobuild-SNAPSHOT</org.exoplatform.webos.version>
+    <org.exoplatform.ws.version>2.2.10-GA-SNAPSHOT</org.exoplatform.ws.version>
+    <org.gatein.common.version>2.0.4-GA</org.gatein.common.version>
+    <org.gatein.pc.version>2.3.2-GA</org.gatein.pc.version>
+    <org.gatein.shindig.version>2.0.2-CP01</org.gatein.shindig.version>
+    <org.gatein.wci.version>2.2.0-Beta02</org.gatein.wci.version>
+    <org.hibernate.version>3.3.2.GA</org.hibernate.version>
+    <org.hsqldb.version>2.0.0</org.hsqldb.version>
+    <org.jibx.version>1.2.2</org.jibx.version>
+    <org.json.version>20070829</org.json.version>
+    <org.picketlink.idm.version>1.3.2.CR02</org.picketlink.idm.version>
+    <org.slf4j.version>1.5.8</org.slf4j.version>
+    <picocontainer.version>1.1</picocontainer.version>
+    <quartz.version>1.5.2</quartz.version>
+    <xstream.version>1.0.2</xstream.version>
   </properties>
   <dependencyManagement>
     <dependencies>
@@ -216,12 +137,6 @@
         <version>${junit.version}</version>
       </dependency>
       <dependency>
-        <groupId>org.apache.jmeter</groupId>
-        <artifactId>jmeter</artifactId>
-        <version>${org.apache.jmeter.version}</version>
-        <type>zip</type>
-      </dependency>
-      <dependency>
         <groupId>org.apache.tomcat</groupId>
         <artifactId>tomcat-catalina</artifactId>
         <version>${org.apache.tomcat.version}</version>
@@ -239,11 +154,6 @@
       <dependency>
         <groupId>org.chromattic</groupId>
         <artifactId>chromattic.apt</artifactId>
-        <version>${org.chromattic.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>org.chromattic</groupId>
-        <artifactId>chromattic.core</artifactId>
         <version>${org.chromattic.version}</version>
       </dependency>
       <dependency>
@@ -268,26 +178,8 @@
       </dependency>
       <dependency>
         <groupId>org.exoplatform.calendar</groupId>
-        <artifactId>calendar</artifactId>
-        <version>${org.exoplatform.calendar.version}</version>
-        <type>zip</type>
-      </dependency>
-      <dependency>
-        <groupId>org.exoplatform.calendar</groupId>
-        <artifactId>calendar-extension-ear</artifactId>
-        <version>${org.exoplatform.calendar.version}</version>
-        <type>ear</type>
-      </dependency>
-      <dependency>
-        <groupId>org.exoplatform.calendar</groupId>
         <artifactId>calendar-upgrade</artifactId>
         <version>${org.exoplatform.calendar.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>org.exoplatform.commons</groupId>
-        <artifactId>commons</artifactId>
-        <version>${org.exoplatform.commons.version}</version>
-        <type>zip</type>
       </dependency>
       <dependency>
         <groupId>org.exoplatform.commons</groupId>
@@ -350,12 +242,6 @@
       </dependency>
       <dependency>
         <groupId>org.exoplatform.core</groupId>
-        <artifactId>core-parent</artifactId>
-        <version>${org.exoplatform.core.version}</version>
-        <type>zip</type>
-      </dependency>
-      <dependency>
-        <groupId>org.exoplatform.core</groupId>
         <artifactId>exo.core.component.database</artifactId>
         <version>${org.exoplatform.core.version}</version>
       </dependency>
@@ -373,12 +259,6 @@
         <groupId>org.exoplatform.core</groupId>
         <artifactId>exo.core.component.security.core</artifactId>
         <version>${org.exoplatform.core.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>org.exoplatform.ecms</groupId>
-        <artifactId>ecms</artifactId>
-        <version>${org.exoplatform.ecms.version}</version>
-        <type>zip</type>
       </dependency>
       <dependency>
         <groupId>org.exoplatform.ecms</groupId>
@@ -415,12 +295,6 @@
         <groupId>org.exoplatform.ecms</groupId>
         <artifactId>ecms-core-webui-seo</artifactId>
         <version>${org.exoplatform.ecms.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>org.exoplatform.ecms</groupId>
-        <artifactId>ecms-packaging-wcm-ear</artifactId>
-        <version>${org.exoplatform.ecms.version}</version>
-        <type>ear</type>
       </dependency>
       <dependency>
         <groupId>org.exoplatform.ecms</groupId>
@@ -469,20 +343,8 @@
       </dependency>
       <dependency>
         <groupId>org.exoplatform.forum</groupId>
-        <artifactId>forum-extension-ear</artifactId>
-        <version>${org.exoplatform.forum.version}</version>
-        <type>ear</type>
-      </dependency>
-      <dependency>
-        <groupId>org.exoplatform.forum</groupId>
         <artifactId>forum-forum-service</artifactId>
         <version>${org.exoplatform.forum.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>org.exoplatform.gwt</groupId>
-        <artifactId>exo-gwtframework-parent</artifactId>
-        <version>${org.exoplatform.gwtframework.version}</version>
-        <type>zip</type>
       </dependency>
       <!-- IDE dependencies -->
       <dependency>
@@ -521,12 +383,6 @@
         <groupId>org.exoplatform.ide</groupId>
         <artifactId>exo-ide-server</artifactId>
         <version>${org.exoplatform.ide.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>org.exoplatform.integration</groupId>
-        <artifactId>integ</artifactId>
-        <version>${org.exoplatform.integ.version}</version>
-        <type>zip</type>
       </dependency>
       <dependency>
         <groupId>org.exoplatform.integration</groupId>
@@ -569,12 +425,6 @@
         <version>${org.exoplatform.jcr.version}</version>
       </dependency>
       <dependency>
-        <groupId>org.exoplatform.jcr</groupId>
-        <artifactId>jcr-parent</artifactId>
-        <version>${org.exoplatform.jcr.version}</version>
-        <type>zip</type>
-      </dependency>
-      <dependency>
         <groupId>org.exoplatform.kernel</groupId>
         <artifactId>exo.kernel.commons</artifactId>
         <version>${org.exoplatform.kernel.version}</version>
@@ -593,12 +443,6 @@
         <groupId>org.exoplatform.kernel</groupId>
         <artifactId>exo.kernel.container</artifactId>
         <version>${org.exoplatform.kernel.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>org.exoplatform.kernel</groupId>
-        <artifactId>kernel-parent</artifactId>
-        <version>${org.exoplatform.kernel.version}</version>
-        <type>zip</type>
       </dependency>
       <dependency>
         <groupId>org.exoplatform.platform</groupId>
@@ -653,40 +497,6 @@
         <version>${project.version}</version>
         <type>war</type>
       </dependency>
-      <!-- Upgrade plugin dependencies -->
-      <!--
-			<dependency>
-				<groupId>org.exoplatform.portal</groupId>
-				<artifactId>exo.portal.component.portal</artifactId>
-				<version>${org.exoplatform.portal.version}</version>
-				<type>test-jar</type>
-			</dependency>
-			<dependency>
-				<groupId>org.gatein.mop</groupId>
-				<artifactId>mop-api</artifactId>
-				<version>${org.gatein.mop.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>stax</groupId>
-				<artifactId>stax-api</artifactId>
-				<version>${stax.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>xpp3</groupId>
-				<artifactId>xpp3</artifactId>
-				<version>${xpp3.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>org.apache.geronimo.specs</groupId>
-				<artifactId>geronimo-stax-api_1.0_spec</artifactId>
-				<version>${org.apache.geronimo.specs.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>javax.xml.stream</groupId>
-				<artifactId>stax-api</artifactId>
-				<version>${javax.xml.stream.version}</version>
-			</dependency>			
-			-->
       <dependency>
         <groupId>org.exoplatform.platform</groupId>
         <artifactId>platform-exo-gadget-pack-gadget-pack</artifactId>
@@ -754,12 +564,6 @@
       <dependency>
         <groupId>org.exoplatform.platform</groupId>
         <artifactId>platform-packaging-commons</artifactId>
-        <version>${project.version}</version>
-        <type>zip</type>
-      </dependency>
-      <dependency>
-        <groupId>org.exoplatform.platform</groupId>
-        <artifactId>platform-packaging-jbossears</artifactId>
         <version>${project.version}</version>
         <type>zip</type>
       </dependency>
@@ -971,16 +775,6 @@
       </dependency>
       <dependency>
         <groupId>org.exoplatform.portal</groupId>
-        <artifactId>exo.portal.component.test.core</artifactId>
-        <version>${org.exoplatform.portal.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>org.exoplatform.portal</groupId>
-        <artifactId>exo.portal.component.test.jcr</artifactId>
-        <version>${org.exoplatform.portal.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>org.exoplatform.portal</groupId>
         <artifactId>exo.portal.component.web.api</artifactId>
         <version>${org.exoplatform.portal.version}</version>
       </dependency>
@@ -988,17 +782,6 @@
         <groupId>org.exoplatform.portal</groupId>
         <artifactId>exo.portal.component.web.controller</artifactId>
         <version>${org.exoplatform.portal.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>org.exoplatform.portal</groupId>
-        <artifactId>exo.portal.packaging.assembly</artifactId>
-        <version>${org.exoplatform.portal.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>org.exoplatform.portal</groupId>
-        <artifactId>exo.portal.parent</artifactId>
-        <version>${org.exoplatform.portal.version}</version>
-        <type>zip</type>
       </dependency>
       <dependency>
         <groupId>org.exoplatform.portal</groupId>
@@ -1021,17 +804,6 @@
         <version>${org.exoplatform.portal.version}</version>
       </dependency>
       <dependency>
-        <groupId>org.exoplatform.portal</groupId>
-        <artifactId>starter-gatein</artifactId>
-        <version>${org.exoplatform.portal.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>org.exoplatform.social</groupId>
-        <artifactId>social</artifactId>
-        <version>${org.exoplatform.social.version}</version>
-        <type>zip</type>
-      </dependency>
-      <dependency>
         <groupId>org.exoplatform.social</groupId>
         <artifactId>social-component-common</artifactId>
         <version>${org.exoplatform.social.version}</version>
@@ -1045,12 +817,6 @@
         <groupId>org.exoplatform.social</groupId>
         <artifactId>social-component-webui</artifactId>
         <version>${org.exoplatform.social.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>org.exoplatform.social</groupId>
-        <artifactId>social-extension-ear</artifactId>
-        <version>${org.exoplatform.social.version}</version>
-        <type>ear</type>
       </dependency>
       <dependency>
         <groupId>org.exoplatform.social</groupId>
@@ -1069,20 +835,8 @@
       </dependency>
       <dependency>
         <groupId>org.exoplatform.webos</groupId>
-        <artifactId>webos-packaging-ear</artifactId>
-        <version>${org.exoplatform.webos.version}</version>
-        <type>ear</type>
-      </dependency>
-      <dependency>
-        <groupId>org.exoplatform.webos</groupId>
         <artifactId>webos-webui</artifactId>
         <version>${org.exoplatform.webos.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>org.exoplatform.wiki</groupId>
-        <artifactId>wiki</artifactId>
-        <version>${org.exoplatform.wiki.version}</version>
-        <type>zip</type>
       </dependency>
       <dependency>
         <groupId>org.exoplatform.ws</groupId>
@@ -1095,21 +849,9 @@
         <version>${org.exoplatform.ws.version}</version>
       </dependency>
       <dependency>
-        <groupId>org.exoplatform.ws</groupId>
-        <artifactId>ws-parent</artifactId>
-        <version>${org.exoplatform.ws.version}</version>
-        <type>zip</type>
-      </dependency>
-      <dependency>
         <groupId>org.gatein.common</groupId>
         <artifactId>common-common</artifactId>
         <version>${org.gatein.common.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>org.gatein.integration</groupId>
-        <artifactId>extension-ear-as5</artifactId>
-        <version>${org.exoplatform.portal.version}</version>
-        <type>ear</type>
       </dependency>
       <dependency>
         <groupId>org.gatein.pc</groupId>
@@ -1177,11 +919,6 @@
         <groupId>org.picketlink.idm</groupId>
         <artifactId>picketlink-idm-spi</artifactId>
         <version>${org.picketlink.idm.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>org.slf4j</groupId>
-        <artifactId>slf4j-api</artifactId>
-        <version>${org.slf4j.version}</version>
       </dependency>
       <dependency>
         <groupId>org.slf4j</groupId>
