@@ -40,21 +40,26 @@
     <!-- **************************************** -->
     <!-- Project Dependencies -->
     <!-- **************************************** -->
-    <org.exoplatform.kernel.version>2.3.10-GA-SNAPSHOT</org.exoplatform.kernel.version>
-    <org.exoplatform.core.version>2.4.10-GA-SNAPSHOT</org.exoplatform.core.version>
-    <org.exoplatform.ws.version>2.2.10-GA-SNAPSHOT</org.exoplatform.ws.version>
-    <org.exoplatform.jcr.version>1.14.10-GA-SNAPSHOT</org.exoplatform.jcr.version>
-    <org.exoplatform.jcr-services.version>1.14.10-GA-SNAPSHOT</org.exoplatform.jcr-services.version>
+    <org.exoplatform.kernel.version>2.4.0-GA</org.exoplatform.kernel.version>
+    <org.exoplatform.core.version>2.5.0-GA</org.exoplatform.core.version>
+    <org.exoplatform.ws.version>2.3.0-GA</org.exoplatform.ws.version>
+    <org.exoplatform.jcr.version>1.15.0-GA</org.exoplatform.jcr.version>
     <org.exoplatform.tool.version>1.2.2-GA</org.exoplatform.tool.version>
-    <org.exoplatform.portal.version>3.4.0.Final</org.exoplatform.portal.version>
-    <org.gatein.common.version>2.0.4-GA</org.gatein.common.version>
-    <org.gatein.pc.version>2.3.2-GA</org.gatein.pc.version>
+    <org.exoplatform.portal.version>3.5.0.Final</org.exoplatform.portal.version>
+    <org.gatein.common.version>2.1.0.Final</org.gatein.common.version>
+    <org.gatein.pc.version>2.4.0.Final</org.gatein.pc.version>
+      <org.gatein.sso.version>1.3.0.Final</org.gatein.sso.version>
+      <org.gatein.wsrp.version>2.2.0.Final</org.gatein.wsrp.version>
+      <org.gatein.mgmt.version>1.1.0.Final</org.gatein.mgmt.version>
     <org.exoplatform.webos.version>4.0.0.Alpha1-kill-exobuild-SNAPSHOT</org.exoplatform.webos.version>
-    <org.gatein.wci.version>2.2.0-Beta02</org.gatein.wci.version>
+    <org.gatein.wci.version>2.3.0.Final</org.gatein.wci.version>
+      <nl.captcha.simplecaptcha.version>1.1.1.Final-gatein-3</nl.captcha.simplecaptcha.version>
+      <rhino.version>1.6R5</rhino.version>
+      <org.codehaus.groovy.version>1.7.6</org.codehaus.groovy.version>
     <!-- upgraded since switched to portal 3.2 -->
-    <org.gatein.shindig.version>2.0.2-CP01</org.gatein.shindig.version>
-    <org.gatein.mop.version>1.1.1-GA</org.gatein.mop.version>
-    <org.chromattic.version>1.1.4</org.chromattic.version>
+    <org.gatein.shindig.version>2.0.2.Final-gatein-3</org.gatein.shindig.version>
+    <org.gatein.mop.version>1.2.0.Final</org.gatein.mop.version>
+    <org.chromattic.version>1.2.0</org.chromattic.version>
     <org.exoplatform.commons.version>4.0.0.Alpha1-kill-exobuild-SNAPSHOT</org.exoplatform.commons.version>
     <org.exoplatform.forum.version>4.0.0.Alpha1-kill-exobuild-SNAPSHOT</org.exoplatform.forum.version>
     <org.exoplatform.wiki.version>4.0.0.Alpha1-kill-exobuild-SNAPSHOT</org.exoplatform.wiki.version>
@@ -82,7 +87,7 @@
 			on -->
     <javax.validation.version>1.0.0.GA</javax.validation.version>
     <hibernate-validator.version>4.2.0.Final</hibernate-validator.version>
-    <org.hibernate.version>3.3.2.GA</org.hibernate.version>
+    <org.hibernate.version>4.1.6.Final</org.hibernate.version>
     <itext.version>2.1.7</itext.version>
     <flying-saucer-core.version>9.0.1</flying-saucer-core.version>
     <flying-saucer-pdf.version>9.0.1</flying-saucer-pdf.version>
@@ -104,10 +109,12 @@
     <net.oauth-consumer.version>20090617</net.oauth-consumer.version>
     <net.oauth-httpclient.version>20090913</net.oauth-httpclient.version>
     <org.reflext.version>1.1.0</org.reflext.version>
+      <org.staxnav.version>0.9.6</org.staxnav.version>
     <org.jvnet.jaxb2.maven2.version>0.1</org.jvnet.jaxb2.maven2.version>
     <org.jsecurity.version>0.9.0</org.jsecurity.version>
     <cglib.version>2.2</cglib.version>
     <jcr.version>1.0</jcr.version>
+      <jcip.version>1.0</jcip.version>
     <stax.version>1.0</stax.version>
     <findbugs.version>1.0.0</findbugs.version>
     <html-parser.version>1.6</html-parser.version>
@@ -117,7 +124,7 @@
     <jcrom.version>1.2</jcrom.version>
     <!-- Used by CS -->
     <bsh.version>2.0b1</bsh.version>
-    <org.slf4j.version>1.5.8</org.slf4j.version>
+    <org.slf4j.version>1.6.1</org.slf4j.version>
     <org.jibx.version>1.2.2</org.jibx.version>
     <org.apache.jackrabbit.version>1.6.4</org.apache.jackrabbit.version>
     <!-- needed for cs -->
@@ -126,10 +133,11 @@
     <org.hsqldb.version>2.0.0</org.hsqldb.version>
     <org.json.version>20070829</org.json.version>
     <org.bouncycastle.version>1.45</org.bouncycastle.version>
-    <org.picketlink.idm.version>1.3.2.CR02</org.picketlink.idm.version>
+    <org.picketlink.idm.version>1.4.0.Final</org.picketlink.idm.version>
     <org.crsh.version>1.1.0</org.crsh.version>
     <!-- Servers -->
     <org.jboss.version>2.2.9.GA</org.jboss.version>
+      <org.jboss.portletbridge.version>3.1.0.Final</org.jboss.portletbridge.version>
     <!-- TODO: remove doc -->
     <!-- 3rd parties for docs generation -->
     <doc-style.version>1.0.9-SNAPSHOT</doc-style.version>
@@ -148,6 +156,7 @@
     <javax.xml.stream.version>1.0</javax.xml.stream.version>
     <picocontainer.version>1.1</picocontainer.version>
     <com.sun.xml.stream.version>1.0.1</com.sun.xml.stream.version>
+      <com.google.javascript.version>r1592</com.google.javascript.version>
     <xstream.version>1.0.2</xstream.version>
     <xpp3.version>1.1.4c</xpp3.version>
     <quartz.version>1.5.2</quartz.version>
@@ -940,88 +949,88 @@
         <version>${project.version}</version>
       </dependency>
       <dependency>
-        <groupId>org.exoplatform.portal</groupId>
+        <groupId>org.gatein.portal</groupId>
         <artifactId>exo.portal.component.application-registry</artifactId>
         <version>${org.exoplatform.portal.version}</version>
       </dependency>
       <dependency>
-        <groupId>org.exoplatform.portal</groupId>
+        <groupId>org.gatein.portal</groupId>
         <artifactId>exo.portal.component.common</artifactId>
         <version>${org.exoplatform.portal.version}</version>
       </dependency>
       <dependency>
-        <groupId>org.exoplatform.portal</groupId>
+        <groupId>org.gatein.portal</groupId>
         <artifactId>exo.portal.component.identity</artifactId>
         <version>${org.exoplatform.portal.version}</version>
       </dependency>
       <dependency>
-        <groupId>org.exoplatform.portal</groupId>
+        <groupId>org.gatein.portal</groupId>
         <artifactId>exo.portal.component.portal</artifactId>
         <version>${org.exoplatform.portal.version}</version>
       </dependency>
       <dependency>
-        <groupId>org.exoplatform.portal</groupId>
+        <groupId>org.gatein.portal</groupId>
         <artifactId>exo.portal.component.resources</artifactId>
         <version>${org.exoplatform.portal.version}</version>
       </dependency>
       <dependency>
-        <groupId>org.exoplatform.portal</groupId>
+        <groupId>org.gatein.portal</groupId>
         <artifactId>exo.portal.component.scripting</artifactId>
         <version>${org.exoplatform.portal.version}</version>
       </dependency>
       <dependency>
-        <groupId>org.exoplatform.portal</groupId>
+        <groupId>org.gatein.portal</groupId>
         <artifactId>exo.portal.component.test.core</artifactId>
         <version>${org.exoplatform.portal.version}</version>
       </dependency>
       <dependency>
-        <groupId>org.exoplatform.portal</groupId>
+        <groupId>org.gatein.portal</groupId>
         <artifactId>exo.portal.component.test.jcr</artifactId>
         <version>${org.exoplatform.portal.version}</version>
       </dependency>
       <dependency>
-        <groupId>org.exoplatform.portal</groupId>
+        <groupId>org.gatein.portal</groupId>
         <artifactId>exo.portal.component.web.api</artifactId>
         <version>${org.exoplatform.portal.version}</version>
       </dependency>
       <dependency>
-        <groupId>org.exoplatform.portal</groupId>
+        <groupId>org.gatein.portal</groupId>
         <artifactId>exo.portal.component.web.controller</artifactId>
         <version>${org.exoplatform.portal.version}</version>
       </dependency>
       <dependency>
-        <groupId>org.exoplatform.portal</groupId>
+        <groupId>org.gatein.portal</groupId>
         <artifactId>exo.portal.packaging.assembly</artifactId>
         <version>${org.exoplatform.portal.version}</version>
       </dependency>
       <dependency>
-        <groupId>org.exoplatform.portal</groupId>
+        <groupId>org.gatein.portal</groupId>
         <artifactId>exo.portal.parent</artifactId>
         <version>${org.exoplatform.portal.version}</version>
         <type>zip</type>
       </dependency>
       <dependency>
-        <groupId>org.exoplatform.portal</groupId>
+        <groupId>org.gatein.portal</groupId>
         <artifactId>exo.portal.webui.core</artifactId>
         <version>${org.exoplatform.portal.version}</version>
       </dependency>
       <dependency>
-        <groupId>org.exoplatform.portal</groupId>
+        <groupId>org.gatein.portal</groupId>
         <artifactId>exo.portal.webui.framework</artifactId>
         <version>${org.exoplatform.portal.version}</version>
       </dependency>
       <dependency>
-        <groupId>org.exoplatform.portal</groupId>
+        <groupId>org.gatein.portal</groupId>
         <artifactId>exo.portal.webui.portal</artifactId>
         <version>${org.exoplatform.portal.version}</version>
       </dependency>
       <dependency>
-        <groupId>org.exoplatform.portal</groupId>
+        <groupId>org.gatein.portal</groupId>
         <artifactId>exo.portal.webui.portlet</artifactId>
         <version>${org.exoplatform.portal.version}</version>
       </dependency>
       <dependency>
-        <groupId>org.exoplatform.portal</groupId>
+        <groupId>org.gatein.portal</groupId>
         <artifactId>starter-gatein</artifactId>
         <version>${org.exoplatform.portal.version}</version>
       </dependency>
@@ -1135,7 +1144,7 @@
       </dependency>
       <dependency>
         <groupId>org.gatein.wci</groupId>
-        <artifactId>wci-tomcat6</artifactId>
+        <artifactId>wci-tomcat7</artifactId>
         <version>${org.gatein.wci.version}</version>
       </dependency>
       <dependency>

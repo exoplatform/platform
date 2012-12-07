@@ -499,7 +499,7 @@
         </exclusion>
         <exclusion>
           <artifactId>exo.portal.component.application-registry</artifactId>
-          <groupId>org.exoplatform.portal</groupId>
+          <groupId>org.gatein.portal</groupId>
         </exclusion>
         <exclusion>
           <artifactId>aopalliance</artifactId>
@@ -937,7 +937,7 @@
       <exclusions>
         <exclusion>
           <artifactId>exo.portal.component.common</artifactId>
-          <groupId>org.exoplatform.portal</groupId>
+          <groupId>org.gatein.portal</groupId>
         </exclusion>
       </exclusions>
     </dependency>

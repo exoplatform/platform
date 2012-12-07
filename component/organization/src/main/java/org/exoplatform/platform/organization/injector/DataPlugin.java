@@ -40,7 +40,7 @@ public class DataPlugin extends BaseComponentPlugin {
     LOG.info("  Init Group Data injection");
 
     @SuppressWarnings("unchecked")
-    List<OrganizationConfig.Group> groups = config.getGroup();
+    List<OrganizationConfig.Group> groups = (List<OrganizationConfig.Group>)config.getGroup();
     if (groups == null || groups.isEmpty()) {
       return;
     }
@@ -74,7 +74,7 @@ public class DataPlugin extends BaseComponentPlugin {
     LOG.info("  Init  MembershipType  Data ijection");
 
     @SuppressWarnings("unchecked")
-    List<OrganizationConfig.MembershipType> types = config.getMembershipType();
+    List<OrganizationConfig.MembershipType> types = (List<OrganizationConfig.MembershipType>)config.getMembershipType();
     if (types == null || types.isEmpty()) {
       return;
     }
@@ -94,7 +94,7 @@ public class DataPlugin extends BaseComponentPlugin {
   @SuppressWarnings({ "unchecked" })
   private void createUsers() throws Exception {
     LOG.info("  Init  User  Data injection");
-    List<OrganizationConfig.User> users = config.getUser();
+    List<OrganizationConfig.User> users = (List<OrganizationConfig.User>)config.getUser();
     if (users == null || users.isEmpty()) {
       return;
     }
