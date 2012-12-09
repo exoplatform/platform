@@ -761,20 +761,6 @@
     </dependency>
     <dependency>
       <groupId>org.exoplatform.platform</groupId>
-      <artifactId>platform-component-upgrade-plugins</artifactId>
-      <exclusions>
-        <exclusion>
-          <artifactId>doc-style</artifactId>
-          <groupId>org.exoplatform.doc</groupId>
-        </exclusion>
-        <exclusion>
-          <artifactId>chromattic.core</artifactId>
-          <groupId>org.chromattic</groupId>
-        </exclusion>
-      </exclusions>
-    </dependency>
-    <dependency>
-      <groupId>org.exoplatform.platform</groupId>
       <artifactId>platform-component-webui</artifactId>
     </dependency>
     <dependency>
