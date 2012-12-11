@@ -79,7 +79,7 @@
       <dependency>
         <groupId>org.exoplatform</groupId>
         <artifactId>maven-depmgt-pom</artifactId>
-        <version>1-SNAPSHOT</version>
+        <version>1</version>
         <type>pom</type>
         <scope>import</scope>
       </dependency>
