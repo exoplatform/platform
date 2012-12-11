@@ -142,11 +142,11 @@ public class UIUserPlatformToolbarDesktopPortlet extends UIPortletApplication {
 
     throw new NullPointerException("There is no dashboard node. The dashboard node existing should be checked before");
   }
-  */
+  
 
   public boolean isWebOsProfileActivated() {
     return (ExoContainer.getProfiles().contains("webos") || ExoContainer.getProfiles().contains("all"));
-  }
+  }*/
 
   static public class NavigationChangeActionListener extends EventListener<UIUserPlatformToolbarDesktopPortlet> {
     private static final Log LOG = ExoLogger.getExoLogger(NavigationChangeActionListener.class);
