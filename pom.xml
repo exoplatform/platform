@@ -510,11 +510,13 @@
         <artifactId>platform-trial-service</artifactId>
         <version>${project.version}</version>
       </dependency>
-      <!-- To be replaced by an import of social parent POM -->
+      <!-- Import versions from social project -->
       <dependency>
         <groupId>org.exoplatform.social</groupId>
-        <artifactId>social-component-common</artifactId>
+        <artifactId>social</artifactId>
         <version>${org.exoplatform.social.version}</version>
+        <type>pom</type>
+        <scope>import</scope>
       </dependency>
       <dependency>
         <groupId>org.exoplatform.tool</groupId>
