@@ -43,6 +43,18 @@
       <artifactId>platform-component-webui</artifactId>
     </dependency>
     <dependency>
+      <groupId>org.exoplatform.social</groupId>
+      <artifactId>social-component-core</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.exoplatform.social</groupId>
+      <artifactId>social-component-webui</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.gatein.common</groupId>
+      <artifactId>common-common</artifactId>
+    </dependency>
+    <dependency>
       <groupId>org.gatein.portal</groupId>
       <artifactId>exo.portal.component.portal</artifactId>
     </dependency>
@@ -65,22 +77,6 @@
     <dependency>
       <groupId>org.gatein.portal</groupId>
       <artifactId>exo.portal.webui.portlet</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>org.exoplatform.social</groupId>
-      <artifactId>social-component-core</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>org.exoplatform.social</groupId>
-      <artifactId>social-component-webui</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>org.exoplatform.webos</groupId>
-      <artifactId>webos-webui</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>org.gatein.common</groupId>
-      <artifactId>common-common</artifactId>
     </dependency>
     <dependency>
       <groupId>javax.servlet</groupId>

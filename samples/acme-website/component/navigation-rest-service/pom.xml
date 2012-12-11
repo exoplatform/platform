@@ -52,10 +52,6 @@
       <artifactId>exo.kernel.container</artifactId>
     </dependency>
     <dependency>
-      <groupId>org.gatein.portal</groupId>
-      <artifactId>exo.portal.component.scripting</artifactId>
-    </dependency>
-    <dependency>
       <groupId>org.exoplatform.ws</groupId>
       <artifactId>exo.ws.rest.core</artifactId>
       <exclusions>
@@ -65,6 +61,9 @@
         </exclusion>
       </exclusions>
     </dependency>
-
+    <dependency>
+      <groupId>org.gatein.portal</groupId>
+      <artifactId>exo.portal.component.scripting</artifactId>
+    </dependency>
   </dependencies>
 </project>

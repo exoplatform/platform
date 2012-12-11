@@ -10,6 +10,10 @@
   <name>eXo Platform - Organization Model Integration</name>
   <dependencies>
     <dependency>
+      <groupId>com.thoughtworks.xstream</groupId>
+      <artifactId>xstream</artifactId>
+    </dependency>
+    <dependency>
       <groupId>javax.jcr</groupId>
       <artifactId>jcr</artifactId>
     </dependency>
@@ -68,10 +72,6 @@
     <dependency>
       <groupId>picocontainer</groupId>
       <artifactId>picocontainer</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>xstream</groupId>
-      <artifactId>xstream</artifactId>
     </dependency>
     <dependency>
       <groupId>org.exoplatform.tool</groupId>

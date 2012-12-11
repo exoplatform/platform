@@ -18,25 +18,27 @@ package org.exoplatform.ecms.upgrade.test;
 
 import java.io.InputStream;
 
+
 import javax.jcr.Node;
 import javax.jcr.NodeIterator;
 import javax.jcr.PathNotFoundException;
 import javax.jcr.RepositoryException;
 import javax.jcr.Session;
 import javax.jcr.version.Version;
-
 import org.exoplatform.commons.info.ProductInformations;
 import org.exoplatform.commons.upgrade.UpgradeProductService;
 import org.exoplatform.container.PortalContainer;
 import org.exoplatform.container.configuration.ConfigurationManager;
-import org.exoplatform.services.wcm.utils.WCMCoreUtils;
 import org.exoplatform.services.cms.templates.TemplateService;
 import org.exoplatform.services.jcr.RepositoryService;
+import org.exoplatform.services.wcm.utils.WCMCoreUtils;
 import org.exoplatform.test.BasicTestCase;
+import org.junit.Ignore;
 
 /**
  * @author Boubaker KHANFIR
  */
+@Ignore
 public class TestECMSUpgrade extends BasicTestCase {
   private static final String OLD_PRODUCT_INFORMATIONS_FILE = "classpath:/conf/product_old.properties";
 

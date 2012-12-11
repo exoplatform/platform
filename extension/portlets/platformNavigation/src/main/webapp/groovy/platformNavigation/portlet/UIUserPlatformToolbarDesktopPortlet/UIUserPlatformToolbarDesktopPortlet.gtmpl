@@ -97,7 +97,7 @@
 
 <%
 	def userNodes = uicomponent.getUserNodes(uicomponent.getCurrentUserNavigation());
-	boolean webosProfile = uicomponent.isWebOsProfileActivated();
+	// boolean webosProfile = uicomponent.iswebosProfileActivated();
     String dashboardLink;
     
     PortalURL dashboardUrl = nodeurl();
@@ -135,9 +135,4 @@
 		
 		
 	</li>
-<%if(webosProfile) {%>		
-	<li class="UITab NormalToolbarTab">
-			<a class="DashboardIcon TBIcon" href="<%= desktopLink %>"><%=_ctx.appRes("UIUserPlatformToolbarDesktopPortlet.header.desktop")%></a>
-	</li>
-<% } %>
 </ul>
