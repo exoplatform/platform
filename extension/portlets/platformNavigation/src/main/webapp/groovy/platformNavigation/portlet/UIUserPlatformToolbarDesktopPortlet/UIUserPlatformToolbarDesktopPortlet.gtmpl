@@ -97,7 +97,7 @@
 
 <%
 	def userNodes = uicomponent.getUserNodes(uicomponent.getCurrentUserNavigation());
-	/* boolean webosProfile = uicomponent.iswebosProfileActivated(); */
+	// boolean webosProfile = uicomponent.iswebosProfileActivated();
     String dashboardLink;
     
     PortalURL dashboardUrl = nodeurl();
