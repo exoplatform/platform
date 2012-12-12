@@ -250,7 +250,7 @@ public class UINavigationTreeBuilder extends UIContainer {
    * uicomponent
    * 
    * @param uri the path
-   * @param requestContext the request context
+   * @param context the request context
    * @throws Exception the exception
    */
   public void changeNode(String uri, Object context) throws Exception {
@@ -263,7 +263,7 @@ public class UINavigationTreeBuilder extends UIContainer {
    * Broadcast on change.
    * 
    * @param navigationNode the node
-   * @param requestContext the request context
+   * @param context the request context
    * @throws Exception the exception
    */
   public void broadcastOnChange(UserNode navigationNode, Object context) throws Exception {
@@ -304,7 +304,7 @@ public class UINavigationTreeBuilder extends UIContainer {
    * the changeNodeAction event occurs, that object's appropriate
    * method is invoked.
    * 
-   * @see ChangeNodeActionEvent
+   * @see ChangeNodeActionListener
    */
   static public class ChangeNodeActionListener extends EventListener<UITree> {
 
