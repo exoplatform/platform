@@ -108,7 +108,7 @@ public class UIMyGroupsPlatformToolBarPortlet extends UIPortletApplication {
       cachedValidChildrenNodesToDisplay.put(userNode.getId(), validChidNodes);
 
       // Test if this node have a "page reference" not set in 'Setup Menu'
-      if (userNode.getPageRef() != null && !userNode.getPageRef().isEmpty() && !isUserNodeInSetupMenu(userNode)) {
+      if (userNode.getPageRef() != null && !isUserNodeInSetupMenu(userNode)) {
         validNodes.add(userNode);
         continue;
       }
@@ -122,7 +122,7 @@ public class UIMyGroupsPlatformToolBarPortlet extends UIPortletApplication {
   }
 
   public boolean isUserNodeInSetupMenu(UserNode userNode) {
-    String pageReference = userNode.getPageRef();
+    String pageReference = userNode.getPageRef().format();
     if (pageReference != null && !pageReference.isEmpty()) {
       return setupMenuPageReferences.contains(pageReference);
     }

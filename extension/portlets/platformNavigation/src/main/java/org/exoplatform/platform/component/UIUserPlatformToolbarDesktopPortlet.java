@@ -100,7 +100,7 @@ public class UIUserPlatformToolbarDesktopPortlet extends UIPortletApplication {
     if (userNode == null) {
       return false;
     }
-    String pageRef = userNode.getPageRef();
+    String pageRef = userNode.getPageRef().format();
     if (pageRef == null) {
       return false;
     }
