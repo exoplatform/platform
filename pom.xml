@@ -70,7 +70,7 @@
 		<org.chromattic.version>1.0.4</org.chromattic.version>
 		<org.gatein.pc.version>2.2.0-GA</org.gatein.pc.version>
 		<org.gatein.common.version>2.0.3-GA</org.gatein.common.version>
-		<org.gatein.wci.version>2.0.2-GA</org.gatein.wci.version>
+		<org.gatein.wci.version>2.1.0-GA</org.gatein.wci.version>
 		<org.jboss.version>2.2.9.GA</org.jboss.version>
 		<org.gatein.shindig.version>1.0-r790473-Patch04</org.gatein.shindig.version>
 		<org.testng.version>5.10</org.testng.version>
