@@ -19,19 +19,7 @@
 
 package org.exoplatform.platform.webui.navigation;
 
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.Date;
-import java.util.EnumSet;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Locale;
-import java.util.Map;
-import java.util.MissingResourceException;
-import java.util.ResourceBundle;
+import java.util.*;
 
 import org.exoplatform.container.ExoContainer;
 import org.exoplatform.container.ExoContainerContext;
@@ -43,6 +31,10 @@ import org.exoplatform.portal.config.model.Page;
 import org.exoplatform.portal.mop.Described;
 import org.exoplatform.portal.mop.SiteType;
 import org.exoplatform.portal.mop.Visibility;
+import org.exoplatform.portal.mop.page.PageContext;
+import org.exoplatform.portal.mop.page.PageKey;
+import org.exoplatform.portal.mop.page.PageService;
+import org.exoplatform.portal.mop.page.PageState;
 import org.exoplatform.portal.mop.user.UserNavigation;
 import org.exoplatform.portal.webui.page.UIPageSelector;
 import org.exoplatform.portal.webui.page.UIWizardPageSetInfo;
@@ -525,16 +517,38 @@ public class UIPageNodeForm extends UIFormTabPane
          if (pageSelector.getPage() == null)
          {
             pageSelector.setValue(null);
-         }
-         else
-         {
-            Page page = pageSelector.getPage();
-            DataStorage storage = uiPageNodeForm.getApplicationComponent(DataStorage.class);
-            if (storage.getPage(page.getPageId()) == null)
-            {
-               storage.create(page);
-               pageSelector.setValue(page.getPageId());
-            }
+         } else {
+
+             PageContext pageContext = pageSelector.getPage();
+             DataStorage storage = uiPageNodeForm.getApplicationComponent(DataStorage.class);
+             PageService pageService = uiPageNodeForm.getApplicationComponent(PageService.class);
+             if (pageService.loadPage(pageContext.getKey()) == null) {
+                 pageService.savePage(pageContext);
+
+                 //
+                 Page page = new Page();
+                 page.setOwnerType(pageContext.getKey().getSite().getTypeName());
+                 page.setOwnerId(pageContext.getKey().getSite().getName());
+                 page.setName(pageContext.getKey().getName());
+                 String title = pageContext.getState().getDisplayName();
+                 String[] accessPermission = pageContext.getState().getAccessPermissions() == null ? null : pageContext
+                         .getState().getAccessPermissions()
+                         .toArray(new String[pageContext.getState().getAccessPermissions().size()]);
+                 if (title == null || title.trim().length() < 1) {
+                     title = page.getName();
+                 }
+                 page.setTitle(title);
+                 page.setShowMaxWindow(false);
+                 page.setAccessPermissions(accessPermission);
+                 page.setEditPermission(pageContext.getState().getEditPermission());
+                 page.setModifiable(true);
+                 if (page.getChildren() == null) {
+                     page.setChildren(new ArrayList<ModelObject>());
+                 }
+
+                 storage.save(page);
+                 pageSelector.setValue(page.getPageId());
+             }
          }
          
 		 if (pageNode.getLabel() == null)
@@ -710,37 +724,18 @@ public class UIPageNodeForm extends UIFormTabPane
          UIFormStringInput uiPageName = uiInputSet.getChildById("pageName");
          UIFormStringInput uiPageTitle = uiInputSet.getChildById("pageTitle");
 
-         Page page = new Page();
-         page.setOwnerType(uiForm.getOwnerType().getName());
-         page.setOwnerId(ownerId);
-         page.setName(uiPageName.getValue());
-         String title = uiPageTitle.getValue();
-         if (title == null || title.trim().length() < 1)
-            title = page.getName();
-         page.setTitle(title);
-
-         page.setShowMaxWindow(false);
-
-         page.setAccessPermissions(accessPermission);
-         page.setEditPermission(editPermission);
-
-         userACL.hasPermission(page);
-
-         page.setModifiable(true);
-         if (page.getChildren() == null)
-            page.setChildren(new ArrayList<ModelObject>());
+         PageState pageState = new PageState(uiPageTitle.getValue(), null, false, null, accessPermission != null ? Arrays.asList(accessPermission) : null, editPermission);
 
          // check page is exist
-         DataStorage dataService = uiForm.getApplicationComponent(DataStorage.class);
-         Page existPage = dataService.getPage(page.getPageId());
-         if (existPage != null)
-         {
-            uiPortalApp.addMessage(new ApplicationMessage("UIPageForm.msg.sameName", null));
-            pcontext.addUIComponentToUpdateByAjax(uiPortalApp.getUIPopupMessages());
-            return;
+         PageKey pageKey = PageKey.parse(uiForm.getOwnerType().getName() + "::" + ownerId + "::" + uiPageName.getValue());
+         PageService pageService = uiForm.getApplicationComponent(PageService.class);
+         PageContext existPage = pageService.loadPage(pageKey);
+         if (existPage != null) {
+             uiPortalApp.addMessage(new ApplicationMessage("UIPageForm.msg.sameName", null));
+             return;
          }
-
-         pageSelector.setPage(page);
+         pageSelector.setPage(new PageContext(pageKey, pageState));
+         event.getRequestContext().addUIComponentToUpdateByAjax(pageSelector);
       }
    }
    

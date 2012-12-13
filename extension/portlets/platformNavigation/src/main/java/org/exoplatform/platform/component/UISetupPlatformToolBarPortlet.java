@@ -15,6 +15,7 @@ import org.exoplatform.portal.config.UserPortalConfig;
 import org.exoplatform.portal.config.UserPortalConfigService;
 import org.exoplatform.portal.config.model.Page;
 import org.exoplatform.portal.config.model.PageNode;
+import org.exoplatform.portal.mop.page.PageContext;
 import org.exoplatform.portal.mop.user.UserNode;
 import org.exoplatform.portal.mop.user.UserPortal;
 import org.exoplatform.portal.webui.util.Util;
@@ -56,9 +57,9 @@ public class UISetupPlatformToolBarPortlet extends UIPortletApplication {
       // hasPermission information isn't cached yet
       if (hasPermission == null) {
         UserNode userNode = getOriginalUserNode(pageNode.getPageReference());
-        if (userNode != null) {
-          Page page = portalConfigService.getPage(userNode.getPageRef(), Util.getPortalRequestContext().getRemoteUser());
-          if (page != null) {
+        if (userNode != null && userNode.getPageRef() != null) {
+            PageContext pageContext = portalConfigService.getPage(userNode.getPageRef());
+          if (pageContext != null) {
             hasPermission = true;
           }
         }

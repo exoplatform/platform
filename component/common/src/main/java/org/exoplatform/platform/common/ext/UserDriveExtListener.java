@@ -4,7 +4,6 @@ import org.exoplatform.services.cms.link.LinkManager;
 import org.exoplatform.services.jcr.RepositoryService;
 import org.exoplatform.services.jcr.access.AccessControlEntry;
 import org.exoplatform.services.jcr.access.PermissionType;
-import org.exoplatform.services.jcr.access.SystemIdentity;
 import org.exoplatform.services.jcr.core.ExtendedNode;
 import org.exoplatform.services.jcr.core.ManageableRepository;
 import org.exoplatform.services.jcr.ext.common.SessionProvider;
@@ -14,7 +13,6 @@ import org.exoplatform.services.log.Log;
 import org.exoplatform.services.organization.User;
 import org.exoplatform.services.organization.UserEventListener;
 import org.exoplatform.services.security.IdentityConstants;
-
 import javax.jcr.*;
 import java.security.AccessControlException;
 import java.util.ArrayList;
@@ -109,7 +107,7 @@ public class UserDriveExtListener  extends UserEventListener {
 
             linkNode = createLink(symLinkParent,SYMLIN_TYPE,targetNode,SYMLINK_NAME);
 
-            ((ExtendedNode)linkNode).setPermission(SystemIdentity.ANY, new String[]{PermissionType.READ});
+            ((ExtendedNode)linkNode).setPermission(IdentityConstants.ANY, new String[]{PermissionType.READ});
 
             linkNode.save();
 

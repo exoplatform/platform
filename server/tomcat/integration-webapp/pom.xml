@@ -12,7 +12,7 @@
   <dependencies>
     <dependency>
       <groupId>org.gatein.wci</groupId>
-      <artifactId>wci-tomcat6</artifactId>
+      <artifactId>wci-tomcat7</artifactId>
       <!-- Don't include apache tomcat artifacts to avoid conflicts in a tomcat appserver -->
       <exclusions>
         <exclusion>
