@@ -15,9 +15,8 @@
   </modules>
   <dependencies>
     <dependency>
-      <groupId>com.google.gwt</groupId>
-      <artifactId>gwt-servlet</artifactId>
-      <scope>runtime</scope>
+      <groupId>com.google.gwt.google-apis</groupId>
+      <artifactId>gwt-gadgets</artifactId>
     </dependency>
     <dependency>
       <groupId>com.google.gwt</groupId>
@@ -25,8 +24,9 @@
       <scope>provided</scope>
     </dependency>
     <dependency>
-      <groupId>com.google.gwt.google-apis</groupId>
-      <artifactId>gwt-gadgets</artifactId>
+      <groupId>com.google.gwt</groupId>
+      <artifactId>gwt-servlet</artifactId>
+      <scope>runtime</scope>
     </dependency>
   </dependencies>
 </project>
