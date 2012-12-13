@@ -77,13 +77,13 @@
 										<artifactItem>
 											<groupId>org.gatein.integration</groupId>
 											<artifactId>extension-ear-as5</artifactId>
-											<destFileName>gatein-wsrp-extension-${org.exoplatform.portal.version}.ear</destFileName>
+											<destFileName>gatein-wsrp-extension-${org.gatein.portal.version}.ear</destFileName>
 											<type>ear</type>
 										</artifactItem>										
 										<artifactItem>
 											<groupId>org.exoplatform.portal</groupId>
 											<artifactId>starter-gatein</artifactId>
-											<destFileName>starter-gatein-${org.exoplatform.portal.version}.ear</destFileName>
+											<destFileName>starter-gatein-${org.gatein.portal.version}.ear</destFileName>
 											<type>ear</type>
 										</artifactItem>
 										<artifactItem>

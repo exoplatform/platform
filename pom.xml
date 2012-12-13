@@ -50,7 +50,7 @@
     <org.exoplatform.integ.version>4.0.0.Alpha1-kill-exobuild-SNAPSHOT</org.exoplatform.integ.version>
     <org.exoplatform.jcr.version>1.14.10-GA-SNAPSHOT</org.exoplatform.jcr.version>
     <org.exoplatform.kernel.version>2.3.10-GA-SNAPSHOT</org.exoplatform.kernel.version>
-    <org.exoplatform.portal.version>3.4.0.Final</org.exoplatform.portal.version>
+    <org.gatein.portal.version>3.4.0.Final</org.gatein.portal.version>
     <org.exoplatform.social.version>4.0.0.Alpha1-kill-exobuild-SNAPSHOT</org.exoplatform.social.version>
     <org.exoplatform.ws.version>2.2.10-GA-SNAPSHOT</org.exoplatform.ws.version>
     <org.gatein.common.version>2.0.4-GA</org.gatein.common.version>
@@ -513,62 +513,62 @@
       <dependency>
         <groupId>org.exoplatform.portal</groupId>
         <artifactId>exo.portal.component.application-registry</artifactId>
-        <version>${org.exoplatform.portal.version}</version>
+        <version>${org.gatein.portal.version}</version>
       </dependency>
       <dependency>
         <groupId>org.exoplatform.portal</groupId>
         <artifactId>exo.portal.component.common</artifactId>
-        <version>${org.exoplatform.portal.version}</version>
+        <version>${org.gatein.portal.version}</version>
       </dependency>
       <dependency>
         <groupId>org.exoplatform.portal</groupId>
         <artifactId>exo.portal.component.identity</artifactId>
-        <version>${org.exoplatform.portal.version}</version>
+        <version>${org.gatein.portal.version}</version>
       </dependency>
       <dependency>
         <groupId>org.exoplatform.portal</groupId>
         <artifactId>exo.portal.component.portal</artifactId>
-        <version>${org.exoplatform.portal.version}</version>
+        <version>${org.gatein.portal.version}</version>
       </dependency>
       <dependency>
         <groupId>org.exoplatform.portal</groupId>
         <artifactId>exo.portal.component.resources</artifactId>
-        <version>${org.exoplatform.portal.version}</version>
+        <version>${org.gatein.portal.version}</version>
       </dependency>
       <dependency>
         <groupId>org.exoplatform.portal</groupId>
         <artifactId>exo.portal.component.scripting</artifactId>
-        <version>${org.exoplatform.portal.version}</version>
+        <version>${org.gatein.portal.version}</version>
       </dependency>
       <dependency>
         <groupId>org.exoplatform.portal</groupId>
         <artifactId>exo.portal.component.web.api</artifactId>
-        <version>${org.exoplatform.portal.version}</version>
+        <version>${org.gatein.portal.version}</version>
       </dependency>
       <dependency>
         <groupId>org.exoplatform.portal</groupId>
         <artifactId>exo.portal.component.web.controller</artifactId>
-        <version>${org.exoplatform.portal.version}</version>
+        <version>${org.gatein.portal.version}</version>
       </dependency>
       <dependency>
         <groupId>org.exoplatform.portal</groupId>
         <artifactId>exo.portal.webui.core</artifactId>
-        <version>${org.exoplatform.portal.version}</version>
+        <version>${org.gatein.portal.version}</version>
       </dependency>
       <dependency>
         <groupId>org.exoplatform.portal</groupId>
         <artifactId>exo.portal.webui.framework</artifactId>
-        <version>${org.exoplatform.portal.version}</version>
+        <version>${org.gatein.portal.version}</version>
       </dependency>
       <dependency>
         <groupId>org.exoplatform.portal</groupId>
         <artifactId>exo.portal.webui.portal</artifactId>
-        <version>${org.exoplatform.portal.version}</version>
+        <version>${org.gatein.portal.version}</version>
       </dependency>
       <dependency>
         <groupId>org.exoplatform.portal</groupId>
         <artifactId>exo.portal.webui.portlet</artifactId>
-        <version>${org.exoplatform.portal.version}</version>
+        <version>${org.gatein.portal.version}</version>
       </dependency>
       <!-- Import versions from social project -->
       <dependency>
