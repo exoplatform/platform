@@ -57,6 +57,7 @@
     <org.gatein.pc.version>2.4.0.Final</org.gatein.pc.version>
     <org.gatein.shindig.version>2.0.2.Final-gatein-3</org.gatein.shindig.version>
     <org.gatein.wci.version>2.3.0.Final</org.gatein.wci.version>
+    <org.gatein.web.version>3.4.0.Final</org.gatein.web.version>
     <!-- Does not support more recent version for now -->
     <version.gwt.plugin>2.1.0</version.gwt.plugin>
     <com.google.gwt.version>${version.gwt.plugin}</com.google.gwt.version>
@@ -252,6 +253,11 @@
             <artifactId>log4j</artifactId>
             <groupId>log4j</groupId>
           </exclusion>
+          <exclusion>
+            <!-- To be fixed in the original project -->
+            <artifactId>servlet-api</artifactId>
+            <groupId>javax.servlet</groupId>
+          </exclusion>
         </exclusions>
       </dependency>
       <!-- Import versions from integration project -->
@@ -326,6 +332,20 @@
           </exclusion>
         </exclusions>
       </dependency>
+      <!-- DON'T REMOVE : used for packaging -->
+      <!-- used by org.exoplatform.portal:exo.portal.web.portal and org.exoplatform.portal:exo.portal.web.rest but not declared -->
+      <dependency>
+        <groupId>org.exoplatform.jcr</groupId>
+        <artifactId>exo.jcr.framework.web</artifactId>
+        <version>${org.exoplatform.jcr.version}</version>
+        <exclusions>
+          <exclusion>
+            <!-- commons-logging is forbidden and must be replaced by org.slf4j:jcl-over-slf4j -->
+            <artifactId>commons-logging</artifactId>
+            <groupId>commons-logging</groupId>
+          </exclusion>
+        </exclusions>
+      </dependency>
       <!-- To be replaced by an import of kernel parent POM -->
       <dependency>
         <groupId>org.exoplatform.kernel</groupId>
@@ -378,6 +398,12 @@
             <groupId>org.exoplatform.tool</groupId>
           </exclusion>
         </exclusions>
+      </dependency>
+      <!-- DON'T REMOVE : used for packaging -->
+      <dependency>
+        <groupId>org.exoplatform.kernel</groupId>
+        <artifactId>exo.kernel.component.ext.cache.impl.jboss.v3</artifactId>
+        <version>${org.exoplatform.kernel.version}</version>
       </dependency>
       <dependency>
         <groupId>org.exoplatform.kernel</groupId>
@@ -745,6 +771,12 @@
         <artifactId>common-common</artifactId>
         <version>${org.gatein.common.version}</version>
       </dependency>
+      <!-- Forced upgrade to fix a bug in GateIn commons-logging to discover SLF4J -->
+      <dependency>
+        <groupId>org.gatein.common</groupId>
+        <artifactId>common-logging</artifactId>
+        <version>${org.gatein.common.version}</version>
+      </dependency>
       <!-- To be replaced by an import of GateIn PC parent POM -->
       <dependency>
         <groupId>org.gatein.pc</groupId>
@@ -792,6 +824,20 @@
         <artifactId>exo.portal.component.identity</artifactId>
         <version>${org.gatein.portal.version}</version>
       </dependency>
+      <!-- DON'T REMOVE : used for packaging -->
+      <!-- org.exoplatform.management.RestManagementProvider used but not declared in GateIn ? -->
+      <dependency>
+        <groupId>org.exoplatform.portal</groupId>
+        <artifactId>exo.portal.component.management</artifactId>
+        <version>${org.gatein.portal.version}</version>
+        <exclusions>
+          <exclusion>
+            <!-- To remove from org.exoplatform.ws:exo.ws.rest.core:jar (Issue to open) -->
+            <artifactId>servlet-api</artifactId>
+            <groupId>javax.servlet</groupId>
+          </exclusion>
+        </exclusions>
+      </dependency>
       <dependency>
         <groupId>org.gatein.portal</groupId>
         <artifactId>exo.portal.component.portal</artifactId>
@@ -801,6 +847,11 @@
             <!-- To be fixed in the original project -->
             <artifactId>servlet-api</artifactId>
             <groupId>javax.servlet</groupId>
+          </exclusion>
+          <exclusion>
+            <!-- To be fixed in the original project -->
+            <artifactId>jsp-api</artifactId>
+            <groupId>javax.servlet.jsp</groupId>
           </exclusion>
           <exclusion>
             <!-- To be fixed in the original project -->
@@ -848,6 +899,62 @@
         <groupId>org.gatein.portal</groupId>
         <artifactId>exo.portal.component.web.controller</artifactId>
         <version>${org.gatein.portal.version}</version>
+      </dependency>
+      <!-- DON'T REMOVE : used for packaging -->
+      <dependency>
+        <groupId>org.exoplatform.portal</groupId>
+        <artifactId>exo.portal.eXoGadgets</artifactId>
+        <version>${org.gatein.portal.version}</version>
+        <type>war</type>
+      </dependency>
+      <!-- DON'T REMOVE : used for packaging -->
+      <dependency>
+        <groupId>org.exoplatform.portal</groupId>
+        <artifactId>exo.portal.gadgets-server</artifactId>
+        <version>${org.gatein.portal.version}</version>
+        <type>war</type>
+      </dependency>
+      <!-- DON'T REMOVE : used for packaging -->
+      <dependency>
+        <groupId>org.exoplatform.portal</groupId>
+        <artifactId>exo.portal.portlet.dashboard</artifactId>
+        <version>${org.gatein.portal.version}</version>
+        <type>war</type>
+      </dependency>
+      <!-- DON'T REMOVE : used for packaging -->
+      <dependency>
+        <groupId>org.exoplatform.portal</groupId>
+        <artifactId>exo.portal.portlet.exoadmin</artifactId>
+        <version>${org.gatein.portal.version}</version>
+        <type>war</type>
+      </dependency>
+      <!-- DON'T REMOVE : used for packaging -->
+      <dependency>
+        <groupId>org.exoplatform.portal</groupId>
+        <artifactId>exo.portal.portlet.web</artifactId>
+        <version>${org.gatein.portal.version}</version>
+        <type>war</type>
+      </dependency>
+      <!-- DON'T REMOVE : used for packaging -->
+      <dependency>
+        <groupId>org.exoplatform.portal</groupId>
+        <artifactId>exo.portal.web.eXoResources</artifactId>
+        <version>${org.gatein.portal.version}</version>
+        <type>war</type>
+      </dependency>
+      <!-- DON'T REMOVE : used for packaging -->
+      <dependency>
+        <groupId>org.exoplatform.portal</groupId>
+        <artifactId>exo.portal.web.portal</artifactId>
+        <version>${org.gatein.portal.version}</version>
+        <type>war</type>
+      </dependency>
+      <!-- DON'T REMOVE : used for packaging -->
+      <dependency>
+        <groupId>org.exoplatform.portal</groupId>
+        <artifactId>exo.portal.web.rest</artifactId>
+        <version>${org.gatein.portal.version}</version>
+        <type>war</type>
       </dependency>
       <dependency>
         <groupId>org.gatein.portal</groupId>
@@ -923,6 +1030,12 @@
         <groupId>org.gatein.wci</groupId>
         <artifactId>wci-tomcat7</artifactId>
         <version>${org.gatein.wci.version}</version>
+      </dependency>
+      <!-- Coming from gateIn ??? - org.gatein.web.redirect.implementation.RedirectHandlerImpl -->
+      <dependency>
+        <groupId>org.gatein.web</groupId>
+        <artifactId>redirect</artifactId>
+        <version>${org.gatein.web.version}</version>
       </dependency>
     </dependencies>
   </dependencyManagement>
