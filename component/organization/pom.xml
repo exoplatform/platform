@@ -13,6 +13,11 @@
       <groupId>com.thoughtworks.xstream</groupId>
       <artifactId>xstream</artifactId>
     </dependency>
+    <!-- To replace the old xstream:xstream version from picocontainer -->
+    <dependency>
+      <groupId>com.thoughtworks.xstream</groupId>
+      <artifactId>xstream</artifactId>
+    </dependency>
     <dependency>
       <groupId>javax.jcr</groupId>
       <artifactId>jcr</artifactId>
@@ -92,12 +97,6 @@
           <groupId>jmock</groupId>
         </exclusion>
       </exclusions>
-    </dependency>
-    <!-- To replace the old xstream:xstream version from picocontainer -->
-    <dependency>
-      <groupId>com.thoughtworks.xstream</groupId>
-      <artifactId>xstream</artifactId>
-      <scope>runtime</scope>
     </dependency>
     <dependency>
       <groupId>org.exoplatform.tool</groupId>
