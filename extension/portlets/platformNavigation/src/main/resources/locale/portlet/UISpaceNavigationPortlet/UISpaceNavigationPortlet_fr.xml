@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bundle>
+    <UISpaceNavigationPortlet>
+        <label>
+            <Spaces>Espaces</Spaces>
+            <Join>Joindre un espace</Join>
+        </label>
+        <msg>
+            <filter-spaces>Filtrer les spaces</filter-spaces>
+        </msg>
+    </UISpaceNavigationPortlet>
+</bundle>

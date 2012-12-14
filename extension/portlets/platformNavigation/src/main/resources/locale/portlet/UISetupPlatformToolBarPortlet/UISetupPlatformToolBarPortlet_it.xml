@@ -16,7 +16,10 @@
 			<portalnavigation>Siti</portalnavigation>
 			<servicesManagement>Gestione</servicesManagement>
 			<monitoring>Monitoraggio</monitoring>
+			<spaces>Spazi</spaces>
+			<Branding>Branding</Branding>
 			<ide>IDE</ide>
+			<search>Search</search>
 		</label>
 	</UISetupPlatformToolBarPortlet>
 </bundle>

@@ -559,3 +559,9 @@
 .UIToolbarContainer .MenuItemContainer .MenuItem .SEOMenuItem{
     height:24px;
 }
+.UIToolbarContainer .UIHorizontalTabs .UITab:hover > ul > li > a {
+    color: #20263f;
+    position: relative;
+    z-index: 2;
+    background: #ffffff;
+}
