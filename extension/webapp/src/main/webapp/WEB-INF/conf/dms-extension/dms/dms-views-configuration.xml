@@ -237,51 +237,6 @@
             <field name="warPath"><string>/ecm-explorer/SlideShowView.gtmpl</string></field>
           </object>
         </object-param>		      
-        <object-param>        
-          <name>Path Template</name>
-          <description>Template for display Content Browser Portlet by JCRPath</description>
-          <object type="org.exoplatform.services.cms.views.TemplateConfig">            	
-            <field name="type"><string>pathTemplate</string></field>
-            <field name="name"><string>PathList</string></field>
-            <field name="warPath"><string>/content-browser/path-templates/UsePathView.gtmpl</string></field>
-          </object>
-        </object-param>
-        <object-param>        
-          <name>Tree Template</name>
-          <description>Template for display Content Browser Portlet by JCRPath</description>
-          <object type="org.exoplatform.services.cms.views.TemplateConfig">            	
-            <field name="type"><string>pathTemplate</string></field>
-            <field name="name"><string>TreeList</string></field>
-            <field name="warPath"><string>/content-browser/path-templates/UseTreeView.gtmpl</string></field>
-          </object>
-        </object-param>
-        <object-param>        
-          <name>UseJCRQuery Template</name>
-          <description>Template for display Content Browser Portlet by Query</description>
-          <object type="org.exoplatform.services.cms.views.TemplateConfig">            	
-            <field name="type"><string>queryTemplate</string></field>
-            <field name="name"><string>QueryList</string></field>
-            <field name="warPath"><string>/content-browser/query-templates/UseJCRQueryView.gtmpl</string></field>
-          </object>
-        </object-param>          
-        <object-param>        
-          <name>Script Template</name>
-          <description>Template for display Content Browser Portlet by Query</description>
-          <object type="org.exoplatform.services.cms.views.TemplateConfig">            	
-            <field name="type"><string>scriptTemplate</string></field>
-            <field name="name"><string>ScriptList</string></field>
-            <field name="warPath"><string>/content-browser/script-templates/UseScriptView.gtmpl</string></field>
-          </object>
-        </object-param>          
-        <object-param>        
-          <name>Detail View Template</name>
-          <description>Template for display a document</description>
-          <object type="org.exoplatform.services.cms.views.TemplateConfig">            	
-            <field name="type"><string>detailViewTemplate</string></field>
-            <field name="name"><string>DocumentView</string></field>
-            <field name="warPath"><string>/content-browser/detail-view-templates/DocumentView.gtmpl</string></field>
-          </object>
-        </object-param>         
       </init-params>	
     </component-plugin> 
   </external-component-plugins>
