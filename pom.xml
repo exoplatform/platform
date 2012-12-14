@@ -58,23 +58,9 @@
     <org.gatein.shindig.version>2.0.2.Final-gatein-3</org.gatein.shindig.version>
     <org.gatein.wci.version>2.3.0.Final</org.gatein.wci.version>
     <org.gatein.web.version>3.5.0.Final</org.gatein.web.version>
-    <!-- Does not support more recent version for now -->
-    <version.gwt.plugin>2.1.0</version.gwt.plugin>
-    <com.google.gwt.version>${version.gwt.plugin}</com.google.gwt.version>
   </properties>
   <dependencyManagement>
     <dependencies>
-      <!-- Does not support more recent version for now defined in maven-depmgt-pom -->
-      <dependency>
-        <groupId>com.google.gwt</groupId>
-        <artifactId>gwt-servlet</artifactId>
-        <version>${com.google.gwt.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>com.google.gwt</groupId>
-        <artifactId>gwt-user</artifactId>
-        <version>${com.google.gwt.version}</version>
-      </dependency>
       <!-- Import versions of external dependencies to use -->
       <dependency>
         <groupId>org.exoplatform</groupId>
