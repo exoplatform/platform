@@ -9,10 +9,6 @@
   <artifactId>platform-component-organization</artifactId>
   <name>eXo Platform - Organization Model Integration</name>
   <dependencies>
-    <dependency>
-      <groupId>com.thoughtworks.xstream</groupId>
-      <artifactId>xstream</artifactId>
-    </dependency>
     <!-- To replace the old xstream:xstream version from picocontainer -->
     <dependency>
       <groupId>com.thoughtworks.xstream</groupId>
