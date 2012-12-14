@@ -2,8 +2,8 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <parent>
+    <artifactId>platform-sample-acme-intranet</artifactId>
     <groupId>org.exoplatform.platform</groupId>
-      <artifactId>platform-sample-acme-intranet</artifactId>
     <version>4.0.0.Alpha1-plf-relooking-SNAPSHOT</version>
   </parent>
   <artifactId>platform-sample-acme-intranet-ear</artifactId>
@@ -12,25 +12,21 @@
   <dependencies>
     <dependency>
       <groupId>org.exoplatform.platform</groupId>
-        <artifactId>platform-sample-acme-intranet-webapp</artifactId>
-      <version>${project.version}</version>
+      <artifactId>platform-sample-acme-intranet-config</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.exoplatform.platform</groupId>
+      <artifactId>platform-sample-acme-intranet-portlet</artifactId>
       <type>war</type>
     </dependency>
     <dependency>
       <groupId>org.exoplatform.platform</groupId>
-        <artifactId>platform-sample-acme-intranet-portlet</artifactId>
-      <version>${project.version}</version>
+      <artifactId>platform-sample-acme-intranet-webapp</artifactId>
       <type>war</type>
-    </dependency>
-    <dependency>
-      <groupId>org.exoplatform.platform</groupId>
-        <artifactId>platform-sample-acme-intranet-config</artifactId>
-      <version>${project.version}</version>
     </dependency>
   </dependencies>
   <build>
     <finalName>acme-intranet</finalName>
-
     <plugins>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
@@ -41,18 +37,18 @@
           <modules>
             <jarModule>
               <groupId>org.exoplatform.platform</groupId>
-                <artifactId>platform-sample-acme-intranet-config</artifactId>
+              <artifactId>platform-sample-acme-intranet-config</artifactId>
               <includeInApplicationXml>true</includeInApplicationXml>
             </jarModule>
             <webModule>
               <groupId>org.exoplatform.platform</groupId>
-                <artifactId>platform-sample-acme-intranet-webapp</artifactId>
+              <artifactId>platform-sample-acme-intranet-webapp</artifactId>
               <contextRoot>acme-intranet</contextRoot>
               <bundleFileName>acme-intranet.war</bundleFileName>
             </webModule>
             <webModule>
               <groupId>org.exoplatform.platform</groupId>
-                <artifactId>platform-sample-acme-intranet-portlet</artifactId>
+              <artifactId>platform-sample-acme-intranet-portlet</artifactId>
               <contextRoot>acme-intranet-portlet</contextRoot>
               <bundleFileName>acme-intranet-portlet.war</bundleFileName>
             </webModule>

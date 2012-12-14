@@ -30,15 +30,13 @@
                                 <artifactItem>
 					<groupId>org.exoplatform.ecms</groupId>
 					<artifactId>ecms</artifactId>
-					<version>${org.exoplatform.ecms.version}</version>
 					<type>zip</type>
                                         <outputDirectory>${project.build.directory}/source</outputDirectory>
 					<classifier>source-release</classifier>
 				</artifactItem>
 				<artifactItem>
 					<groupId>org.exoplatform.platform</groupId>
-                    <artifactId>platform</artifactId>
-					<version>${project.version}</version>
+                    			<artifactId>platform</artifactId>
 					<type>zip</type>
                                         <outputDirectory>${project.build.directory}/source</outputDirectory>					          
                                         <classifier>source-release</classifier>
@@ -46,7 +44,6 @@
                                 <artifactItem>
 					<groupId>org.exoplatform.social</groupId>
 					<artifactId>social</artifactId>
-					<version>${org.exoplatform.social.version}</version>
 					<type>zip</type>
                                         <outputDirectory>${project.build.directory}/source</outputDirectory>
 					<classifier>source-release</classifier>
@@ -54,7 +51,6 @@
                                 <artifactItem>
 					<groupId>org.exoplatform.calendar</groupId>
 					<artifactId>calendar</artifactId>
-					<version>${org.exoplatform.calendar.version}</version>
 					<type>zip</type>
                                         <outputDirectory>${project.build.directory}/source</outputDirectory>
 					<classifier>source-release</classifier>
@@ -62,7 +58,6 @@
                                 <artifactItem>
 					<groupId>org.exoplatform.wiki</groupId>
 					<artifactId>wiki</artifactId>
-					<version>${org.exoplatform.wiki.version}</version>
 					<type>zip</type>
                                         <outputDirectory>${project.build.directory}/source</outputDirectory>
 					<classifier>source-release</classifier>
@@ -70,7 +65,6 @@
                                 <artifactItem>
 					<groupId>org.exoplatform.commons</groupId>
 					<artifactId>commons</artifactId>
-					<version>${org.exoplatform.commons.version}</version>
 					<type>zip</type>
                                         <outputDirectory>${project.build.directory}/source</outputDirectory>
 					<classifier>source-release</classifier>
@@ -86,7 +80,6 @@
                                 <artifactItem>
 					<groupId>org.exoplatform.gwt</groupId>
 					<artifactId>exo-gwtframework-parent</artifactId>
-					<version>${org.exoplatform.gwtframework.version}</version>
 					<type>zip</type>
                                         <outputDirectory>${project.build.directory}/source</outputDirectory>
 					<classifier>source-release</classifier>
@@ -94,7 +87,6 @@
                                 <artifactItem>
 					<groupId>org.exoplatform.jcr</groupId>
  					<artifactId>jcr-parent</artifactId>
- 					<version>${org.exoplatform.jcr.version}</version>
  					<type>zip</type>
                                          <outputDirectory>${project.build.directory}/source</outputDirectory>
  					<classifier>source-release</classifier>
@@ -102,7 +94,6 @@
                                  <artifactItem>
  					<groupId>org.exoplatform.kernel</groupId>
  					<artifactId>kernel-parent</artifactId>
- 					<version>${org.exoplatform.kernel.version}</version>
  					<type>zip</type>
                                          <outputDirectory>${project.build.directory}/source</outputDirectory>
  					<classifier>source-release</classifier>
@@ -110,7 +101,6 @@
                                  <artifactItem>
  					<groupId>org.exoplatform.ws</groupId>
  					<artifactId>ws-parent</artifactId>
- 					<version>${org.exoplatform.ws.version}</version>
  					<type>zip</type>
                                          <outputDirectory>${project.build.directory}/source</outputDirectory>
  					<classifier>source-release</classifier>
@@ -118,7 +108,6 @@
                                 <artifactItem>
 					<groupId>org.exoplatform.portal</groupId>
 					<artifactId>exo.portal.parent</artifactId>
-					<version>${org.exoplatform.portal.version}</version>
 					<type>zip</type>
                                         <outputDirectory>${project.build.directory}/source</outputDirectory>
 					<classifier>source-release</classifier>
@@ -126,7 +115,6 @@
                                 <artifactItem>
 					<groupId>org.exoplatform.integration</groupId>
 					<artifactId>integ</artifactId>
-					<version>${org.exoplatform.integ.version}</version>
 					<type>zip</type>
                                         <outputDirectory>${project.build.directory}/source</outputDirectory>
 					<classifier>source-release</classifier>

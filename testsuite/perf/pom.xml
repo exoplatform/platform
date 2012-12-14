@@ -2,8 +2,8 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <parent>
-    <groupId>org.exoplatform.platform</groupId>
     <artifactId>platform-testsuite</artifactId>
+    <groupId>org.exoplatform.platform</groupId>
     <version>4.0.0.Alpha1-plf-relooking-SNAPSHOT</version>
   </parent>
   <artifactId>platform-testsuite-perf</artifactId>
@@ -18,6 +18,15 @@
           <plugin>
             <groupId>com.lazerycode.jmeter</groupId>
             <artifactId>jmeter-maven-plugin</artifactId>
+            <executions>
+              <execution>
+                <id>jmeter-tests</id>
+                <phase>verify</phase>
+                <goals>
+                  <goal>jmeter</goal>
+                </goals>
+              </execution>
+            </executions>
             <configuration>
               <reportDir>${project.build.directory}/jmeter-reports</reportDir>
               <jmeterUserProperties>
@@ -28,19 +37,18 @@
                 <duration>10</duration>
               </jmeterUserProperties>
             </configuration>
-            <executions>
-              <execution>
-                <id>jmeter-tests</id>
-                <phase>verify</phase>
-                <goals>
-                  <goal>jmeter</goal>
-                </goals>
-              </execution>
-            </executions>
           </plugin>
           <plugin>
             <groupId>org.codehaus.mojo</groupId>
             <artifactId>xml-maven-plugin</artifactId>
+            <executions>
+              <execution>
+                <phase>verify</phase>
+                <goals>
+                  <goal>transform</goal>
+                </goals>
+              </execution>
+            </executions>
             <configuration>
               <transformationSets>
                 <transformationSet>
@@ -56,14 +64,6 @@
                 </transformationSet>
               </transformationSets>
             </configuration>
-            <executions>
-              <execution>
-                <phase>verify</phase>
-                <goals>
-                  <goal>transform</goal>
-                </goals>
-              </execution>
-            </executions>
           </plugin>
           <!-- make sure the jmeter icons are copied to the site folder -->
           <plugin>
@@ -71,18 +71,18 @@
             <executions>
               <execution>
                 <phase>verify</phase>
-                <configuration>
-                  <tasks>
-                    <copy file="src/test_resources/expand.png" todir="target/site/jmeter-reports/" />
-                    <copy file="src/test_resources/collapse.png" todir="target/site/jmeter-reports/" />
-                    <copy file="src/test_resources/jquery.min.js" todir="target/site/jmeter-reports/" />
-                    <copy file="src/test_resources/jquery.flot.min.js" todir="target/site/jmeter-reports/" />
-                    <copy file="src/test_resources/jquery.flot.threshold.min.js" todir="target/site/jmeter-reports/" />
-                  </tasks>
-                </configuration>
                 <goals>
                   <goal>run</goal>
                 </goals>
+                <configuration>
+                  <tasks>
+                    <copy file="src/test_resources/expand.png" todir="target/site/jmeter-reports/"></copy>
+                    <copy file="src/test_resources/collapse.png" todir="target/site/jmeter-reports/"></copy>
+                    <copy file="src/test_resources/jquery.min.js" todir="target/site/jmeter-reports/"></copy>
+                    <copy file="src/test_resources/jquery.flot.min.js" todir="target/site/jmeter-reports/"></copy>
+                    <copy file="src/test_resources/jquery.flot.threshold.min.js" todir="target/site/jmeter-reports/"></copy>
+                  </tasks>
+                </configuration>
               </execution>
             </executions>
           </plugin>

@@ -2,13 +2,25 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <parent>
-    <groupId>org.exoplatform.platform</groupId>
     <artifactId>platform-sample-gadgets-sample</artifactId>
+    <groupId>org.exoplatform.platform</groupId>
     <version>4.0.0.Alpha1-plf-relooking-SNAPSHOT</version>
   </parent>
   <artifactId>platform-sample-gadgets-sample-gadgets</artifactId>
   <packaging>war</packaging>
   <name>eXo Platform - Gadgets</name>
+  <dependencies>
+    <dependency>
+      <groupId>org.exoplatform.platform</groupId>
+      <artifactId>platform-sample-gadgets-sample-config</artifactId>
+      <scope>runtime</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.exoplatform.platform</groupId>
+      <artifactId>platform-sample-gadgets-sample-service</artifactId>
+      <scope>runtime</scope>
+    </dependency>
+  </dependencies>
   <build>
     <finalName>intranet-gadgets</finalName>
   </build>

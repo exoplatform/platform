@@ -1,15 +1,16 @@
 package org.exoplatform.platform.security;
 
+import org.exoplatform.services.log.ExoLogger;
+import org.exoplatform.services.log.Log;
 import org.exoplatform.services.organization.OrganizationService;
 import org.exoplatform.services.organization.User;
 import org.exoplatform.services.organization.UserEventListener;
 import org.exoplatform.services.security.PasswordEncrypter;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+
 
 public class PasswordEncrypterUserListener extends UserEventListener {
 
-  protected static final Logger LOG = LoggerFactory.getLogger(PasswordEncrypterUserListener.class);
+  private static final Log LOG = ExoLogger.getLogger(PasswordEncrypterUserListener.class);
 
   private PasswordEncrypter     passwordEncrypter;
 

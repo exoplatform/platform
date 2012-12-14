@@ -58,18 +58,6 @@
               <value>
                 <string>fck</string>
               </value>
-              
-              <!-- webos -->
-			  <value profiles="webos,all">
-				<string>webos-ext</string>
-			  </value>
-			  <value profiles="webos,all">
-				<string>webosadmin</string>
-			  </value>
-			  <value profiles="webos,all">
-				<string>webosResources</string>
-			  </value>	
-			  
 			  
               <!-- commons -->
               <value profiles="collaboration,knowledge,all,default">

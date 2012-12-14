@@ -16,9 +16,8 @@
 	  <dependencies>
 		<dependency>
 			<groupId>org.exoplatform.platform</groupId>
-            <artifactId>platform-packaging-jbossears</artifactId>
-			<version>${project.version}</version>
-		    <type>zip</type>
+            		<artifactId>platform-packaging-jbossears</artifactId>
+		    	<type>zip</type>
 		</dependency>
 	  </dependencies>
 	  <build>
@@ -116,8 +115,7 @@
 		           <artifactItems>
 					<artifactItem>
 						<groupId>org.exoplatform.platform</groupId>
-                        <artifactId>platform-packaging-jbossears</artifactId>
-						<version>${project.version}</version>
+                        			<artifactId>platform-packaging-jbossears</artifactId>
 						<type>zip</type>
 					</artifactItem>
 		           </artifactItems>
