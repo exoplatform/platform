@@ -17,7 +17,6 @@
         <artifactId>lesscss-maven-plugin</artifactId>
         <configuration>
           <outputDirectory>${project.build.directory}/${project.build.finalName}/skin</outputDirectory>
-          <compress>false</compress>
           <includes>
             <include>platform.less</include>
           </includes>
