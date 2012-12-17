@@ -1,6 +1,6 @@
 <%	
 	import java.util.List;
-
+	import java.util.Collections;
 	import org.exoplatform.portal.mop.user.UserNavigation;
 	import org.exoplatform.portal.mop.user.UserNode;
 	import org.exoplatform.web.application.JavascriptManager;
@@ -121,7 +121,9 @@
 			</a>
 		</li>
 	</ul>
-<% } else if(allPortalNames.size() > 1) { %>
+<% } else if(allPortalNames.size() > 1) { 
+	Collections.sort(allPortalNames,String.CASE_INSENSITIVE_ORDER);
+%>
 	<ul class="UIUserToolBarSitePortlet UIHorizontalTabs" id="$uicomponent.id">
 		<li class="UITab NormalToolbarTab">
 			<a class="ArrowIcon TBIcon" href="#">
