@@ -281,7 +281,16 @@
             <field name="name"><string>DocumentView</string></field>
             <field name="warPath"><string>/content-browser/detail-view-templates/DocumentView.gtmpl</string></field>
           </object>
-        </object-param>         
+        </object-param>
+        <object-param>        
+          <name>File Management Template</name>
+          <description>Template for display binary files in list style</description>
+          <object type="org.exoplatform.services.cms.views.TemplateConfig">              
+            <field name="type"><string>ecmExplorerTemplate</string></field>
+            <field name="name"><string>FileView</string></field>
+            <field name="warPath"><string>/ecm-explorer/FileView.gtmpl</string></field>              
+          </object>
+        </object-param>                 
       </init-params>	
     </component-plugin> 
   </external-component-plugins>

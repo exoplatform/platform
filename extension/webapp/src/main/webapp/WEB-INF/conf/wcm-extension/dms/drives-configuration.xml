@@ -54,7 +54,7 @@
               <string></string>
             </field>
             <field name="views">
-              <string>wcm-view</string>
+              <string>wcm-view, file-view</string>
             </field>
             <field name="viewPreferences">
               <boolean>false</boolean>
