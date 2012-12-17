@@ -2,78 +2,85 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <parent>
+    <artifactId>platform-extension-portlets</artifactId>
     <groupId>org.exoplatform.platform</groupId>
-      <artifactId>platform-extension-portlets</artifactId>
     <version>4.0.0.Alpha1-SNAPSHOT</version>
   </parent>
   <artifactId>platform-extension-portlets-platformNavigation</artifactId>
   <packaging>war</packaging>
   <name>eXo Platform - Navigation Portlet</name>
   <dependencies>
-	<dependency>
-		<groupId>org.exoplatform.commons</groupId>
-		<artifactId>commons-webui-ext</artifactId>
-		<version>${org.exoplatform.commons.version}</version>
-		<scope>provided</scope>
-	</dependency>
+    <dependency>
+      <groupId>javax.portlet</groupId>
+      <artifactId>portlet-api</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.exoplatform.core</groupId>
+      <artifactId>exo.core.component.organization.api</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.exoplatform.ecms</groupId>
+      <artifactId>ecms-core-webui</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.exoplatform.ecms</groupId>
+      <artifactId>ecms-core-webui-seo</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.exoplatform.kernel</groupId>
+      <artifactId>exo.kernel.commons</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.exoplatform.kernel</groupId>
+      <artifactId>exo.kernel.container</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.exoplatform.platform</groupId>
+      <artifactId>platform-component-common</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.exoplatform.platform</groupId>
+      <artifactId>platform-component-webui</artifactId>
+    </dependency>
     <dependency>
       <groupId>org.exoplatform.portal</groupId>
-      <artifactId>exo.portal.component.web.api</artifactId>
-      <version>${org.exoplatform.portal.version}</version>
-      <scope>provided</scope>
+      <artifactId>exo.portal.component.portal</artifactId>
     </dependency>
-	<dependency>
+    <dependency>
+      <groupId>org.exoplatform.portal</groupId>
+      <artifactId>exo.portal.component.web.controller</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.exoplatform.portal</groupId>
+      <artifactId>exo.portal.webui.core</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.exoplatform.portal</groupId>
+      <artifactId>exo.portal.webui.framework</artifactId>
+    </dependency>
+    <dependency>
       <groupId>org.exoplatform.portal</groupId>
       <artifactId>exo.portal.webui.portal</artifactId>
-      <version>${org.exoplatform.portal.version}</version>
-      <scope>provided</scope>
     </dependency>
     <dependency>
-      <groupId>org.exoplatform.webos</groupId>
-      <artifactId>webos-webui</artifactId>
-      <version>${org.exoplatform.webos.version}</version>
-      <scope>provided</scope>
-    </dependency>
-    <dependency>
-	  <groupId>org.exoplatform.social</groupId>
-	  <artifactId>social-component-webui</artifactId>
-      <version>${org.exoplatform.social.version}</version>
-      <scope>provided</scope>
+      <groupId>org.exoplatform.portal</groupId>
+      <artifactId>exo.portal.webui.portlet</artifactId>
     </dependency>
     <dependency>
       <groupId>org.exoplatform.social</groupId>
       <artifactId>social-component-core</artifactId>
-      <version>${org.exoplatform.social.version}</version>
-      <scope>provided</scope>
-    </dependency>
-	<dependency>
-		<groupId>org.exoplatform.ecms</groupId>
-		<artifactId>ecms-core-webui</artifactId>
-		<version>${org.exoplatform.ecms.version}</version>
-		<scope>provided</scope>
-	</dependency>
-	<dependency>
-		<groupId>org.exoplatform.ecms</groupId>
-		<artifactId>ecms-core-webui-seo</artifactId>
-		<version>${org.exoplatform.ecms.version}</version>
-		<scope>provided</scope>
-	</dependency>
-    <dependency>
-      <groupId>org.exoplatform.platform</groupId>
-        <artifactId>platform-component-webui</artifactId>
-      <version>${project.version}</version>
-      <scope>provided</scope>
     </dependency>
     <dependency>
-      <groupId>org.exoplatform.platform</groupId>
-        <artifactId>platform-component-common</artifactId>
-      <version>${project.version}</version>
-      <scope>provided</scope>
+      <groupId>org.exoplatform.social</groupId>
+      <artifactId>social-component-webui</artifactId>
     </dependency>
     <dependency>
-      <groupId>org.gatein.shindig</groupId>
-      <artifactId>shindig-social-api</artifactId>
-      <version>${org.gatein.shindig.version}</version>
+      <groupId>org.gatein.common</groupId>
+      <artifactId>common-common</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>javax.servlet</groupId>
+      <artifactId>servlet-api</artifactId>
       <scope>provided</scope>
     </dependency>
   </dependencies>

@@ -109,7 +109,6 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xs
                     <artifactItem>
                       <groupId>org.apache.jmeter</groupId>
                       <artifactId>jmeter</artifactId>
-                      <version>${jmeter-version}</version>
                       <type>zip</type>
                     </artifactItem>
                   </artifactItems>
@@ -127,7 +126,6 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xs
                     <artifactItem>
                       <groupId>org.apache.jmeter</groupId>
                       <artifactId>jmeter-plugins</artifactId>
-                      <version>${jmeter-plugins-version}</version>
                       <type>zip</type>
                     </artifactItem>
                   </artifactItems>
@@ -146,7 +144,6 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xs
                     <artifactItem>
                       <groupId>org.apache.jmeter</groupId>
                       <artifactId>jmeter-plugins</artifactId>
-                      <version>${jmeter-plugins-version}</version>
                       <type>zip</type>
                     </artifactItem>
                   </artifactItems>

@@ -43,7 +43,7 @@ import org.exoplatform.social.core.space.spi.SpaceService;
 import org.exoplatform.wcm.webui.Utils;
 import org.exoplatform.wcm.webui.seo.UISEOToolbarForm;
 import org.exoplatform.web.application.ApplicationMessage;
-import org.exoplatform.webos.webui.page.UIDesktopPage;
+//import org.exoplatform.webos.webui.page.UIDesktopPage;
 import org.exoplatform.webui.application.WebuiApplication;
 import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.application.portlet.PortletRequestContext;
@@ -190,8 +190,10 @@ public class UIAdminToolbarContainer extends UIPortletApplication {
   private boolean canAcceedMenu() throws Exception {
     UIPortalApplication portalApp = Util.getUIPortalApplication();
     UIPage uiPage = portalApp.findFirstComponentOfType(UIPage.class);
-    boolean canAccessMenu = (!(uiPage instanceof UIDesktopPage))
-        && (hasEditPermissionOnNavigation() || hasEditPermissionOnPage() || hasEditPermissionOnPortal());
+//    boolean canAccessMenu = (!(uiPage instanceof UIDesktopPage))
+//        && (hasEditPermissionOnNavigation() || hasEditPermissionOnPage() || hasEditPermissionOnPortal());
+    boolean canAccessMenu = (hasEditPermissionOnNavigation() || hasEditPermissionOnPage() || hasEditPermissionOnPortal());
+    
     return canAccessMenu;
   }
 

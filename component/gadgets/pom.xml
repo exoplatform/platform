@@ -1,51 +1,56 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-	<modelVersion>4.0.0</modelVersion>
-	<parent>
-		<groupId>org.exoplatform.platform</groupId>
-        <artifactId>platform-component</artifactId>
-		<version>4.0.0.Alpha1-SNAPSHOT</version>
-	</parent>
-	<artifactId>platform-component-gadgets</artifactId>
-	<packaging>jar</packaging>
-	<name>eXo Platform - Component Gadgets</name>
-	<description>Populate gadgets for user dashboard and GadgetRegistry</description>
-	<dependencies>
-		<dependency>
-			<groupId>javax.jcr</groupId>
-			<artifactId>jcr</artifactId>
-			<version>${jcr.version}</version>
-			<scope>provided</scope>
-		</dependency>
-		<dependency>
-			<groupId>org.exoplatform.ws</groupId>
-			<artifactId>exo.ws.rest.core</artifactId>
-			<version>${org.exoplatform.ws.version}</version>
-			<scope>provided</scope>
-		</dependency>
-		<dependency>
-			<groupId>org.exoplatform.kernel</groupId>
-			<artifactId>exo.kernel.container</artifactId>
-			<version>${org.exoplatform.kernel.version}</version>
-			<scope>provided</scope>
-		</dependency>
-		<dependency>
-			<groupId>org.exoplatform.core</groupId>
-			<artifactId>exo.core.component.organization.api</artifactId>
-			<version>${org.exoplatform.core.version}</version>
-			<scope>provided</scope>
-		</dependency>
-	    <dependency>
-	      <groupId>org.exoplatform.portal</groupId>
-	      <artifactId>exo.portal.webui.portal</artifactId>
-	      <version>${org.exoplatform.portal.version}</version>
-	      <scope>provided</scope>
-	    </dependency>
-		<dependency>
-			<groupId>org.exoplatform.portal</groupId>
-			<artifactId>exo.portal.component.application-registry</artifactId>
-			<version>${org.exoplatform.portal.version}</version>
-			<scope>provided</scope>
-		</dependency>
-	</dependencies>
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <artifactId>platform-component</artifactId>
+    <groupId>org.exoplatform.platform</groupId>
+    <version>4.0.0.Alpha1-SNAPSHOT</version>
+  </parent>
+  <artifactId>platform-component-gadgets</artifactId>
+  <packaging>jar</packaging>
+  <name>eXo Platform - Component Gadgets</name>
+  <description>Populate gadgets for user dashboard and GadgetRegistry</description>
+  <dependencies>
+    <dependency>
+      <groupId>org.exoplatform.core</groupId>
+      <artifactId>exo.core.component.organization.api</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.exoplatform.kernel</groupId>
+      <artifactId>exo.kernel.commons</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.exoplatform.kernel</groupId>
+      <artifactId>exo.kernel.container</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.exoplatform.portal</groupId>
+      <artifactId>exo.portal.component.application-registry</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.exoplatform.portal</groupId>
+      <artifactId>exo.portal.component.portal</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>picocontainer</groupId>
+      <artifactId>picocontainer</artifactId>
+      <exclusions>
+        <exclusion>
+          <artifactId>xstream</artifactId>
+          <groupId>xstream</groupId>
+        </exclusion>
+        <exclusion>
+          <artifactId>jmock</artifactId>
+          <groupId>jmock</groupId>
+        </exclusion>
+      </exclusions>
+    </dependency>
+    <!-- To replace the old xstream:xstream version from picocontainer -->
+    <dependency>
+      <groupId>com.thoughtworks.xstream</groupId>
+      <artifactId>xstream</artifactId>
+      <scope>runtime</scope>
+    </dependency>
+
+  </dependencies>
 </project>
