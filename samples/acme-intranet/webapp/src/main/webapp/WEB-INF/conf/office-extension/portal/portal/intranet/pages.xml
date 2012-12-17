@@ -30,123 +30,7 @@
 		<edit-permission>*:/platform/administrators</edit-permission>
 		<container id="Officebody" template="system:/groovy/portal/webui/container/UITableColumnContainer.gtmpl">
 			<access-permissions>*:/platform/users</access-permissions>
-			<container id="OfficeLeft" template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
-				<access-permissions>*:/platform/users</access-permissions>
-                                <!-- My Profile gadget -->
-		                <portlet-application>
-					<portlet>
-						<application-ref>dashboard</application-ref>
-						<portlet-ref>GadgetPortlet</portlet-ref>
-						<preferences>
-							<preference>
-								<name>url</name>
-								<value>local://Profile</value>
-								<read-only>false</read-only>
-							</preference>
-						</preferences>
-					</portlet>
-					<title>My Profile</title>
-					<access-permissions>*:/platform/users</access-permissions>
-					<show-info-bar>false</show-info-bar>
-					<show-application-state>true</show-application-state>
-				</portlet-application>
-				
-				<!-- Invitations gadget -->
-		                <portlet-application>
-					<portlet>
-						<application-ref>dashboard</application-ref>
-						<portlet-ref>GadgetPortlet</portlet-ref>
-						<preferences>
-							<preference>
-								<name>url</name>
-								<value>local://Invitations</value>
-								<read-only>false</read-only>
-							</preference>
-						</preferences>
-					</portlet>
-					<title>Invitations</title>
-					<access-permissions>*:/platform/users</access-permissions>
-					<show-info-bar>false</show-info-bar>
-					<show-application-state>true</show-application-state>
-				</portlet-application>
-				
-                                <!-- Agenda gadget -->
-		                <portlet-application>
-					<portlet>
-						<application-ref>dashboard</application-ref>
-						<portlet-ref>GadgetPortlet</portlet-ref>
-						<preferences>
-							<preference>
-								<name>url</name>
-								<value>local://Agenda</value>
-								<read-only>false</read-only>
-							</preference>
-						</preferences>
-					</portlet>
-					<title>Agenda</title>
-					<access-permissions>*:/platform/users</access-permissions>
-					<show-info-bar>false</show-info-bar>
-					<show-application-state>true</show-application-state>
-				</portlet-application>
 
-                                <!-- Feature poll gadget -->
-		                <portlet-application>
-					<portlet>
-						<application-ref>dashboard</application-ref>
-						<portlet-ref>GadgetPortlet</portlet-ref>
-						<preferences>
-							<preference>
-								<name>url</name>
-								<value>local://FeaturedPoll</value>
-								<read-only>false</read-only>
-							</preference>
-						</preferences>
-					</portlet>
-					<title>Polls</title>
-					<access-permissions>*:/platform/users</access-permissions>
-					<show-info-bar>false</show-info-bar>
-					<show-application-state>true</show-application-state>
-				</portlet-application>
-				<!-- My spaces gadget -->
-				<!--portlet-application>
-					<portlet>
-						<application-ref>dashboard</application-ref>
-						<portlet-ref>GadgetPortlet</portlet-ref>
-						<preferences>
-							<preference>
-								<name>url</name>
-								<value>local://MySpaces</value>
-								<read-only>false</read-only>
-							</preference>
-						</preferences>
-					</portlet>
-					<title>Gadget Portlet</title>
-					<access-permissions>*:/platform/users</access-permissions>
-					<show-info-bar>false</show-info-bar>
-					<show-application-state>true</show-application-state>
-				</portlet-application-->
-				<!-- My task gadget -->
-				<!--portlet-application>
-					<portlet>
-						<application-ref>dashboard</application-ref>
-						<portlet-ref>GadgetPortlet</portlet-ref>
-						<preferences>
-							<preference>
-								<name>url</name>
-								<value>local://taskslist</value>
-								<read-only>false</read-only>
-							</preference>
-						</preferences>
-					</portlet>
-					<title>Gadget Portlet</title>
-					<access-permissions>*:/platform/users</access-permissions>
-					<show-info-bar>false</show-info-bar>
-					<show-application-state>true</show-application-state>
-				</portlet-application-->
-
-
-
-			</container>
 
 
 	<container id="OfficeMiddle"  template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
@@ -292,113 +176,50 @@
 
 			<container id="OfficeRight"  template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
 				<access-permissions>Everyone</access-permissions>
-								<!-- upcoming Events gadget -->
-				<!--portlet-application>
-					<portlet>
-						<application-ref>dashboard</application-ref>
-						<portlet-ref>GadgetPortlet</portlet-ref>
-						<preferences>
-							<preference>
-								<name>url</name>
-								<value>local://eventslist</value>
-								<read-only>false</read-only>
-							</preference>
-						</preferences>
-					</portlet>
-					<title>Gadget Portlet</title>
-					<access-permissions>*:/platform/users</access-permissions>
-					<show-info-bar>false</show-info-bar>
-					<show-application-state>true</show-application-state>
-				</portlet-application-->
-<!--
-					<portlet-application>
-					<portlet>
-						<application-ref>construction</application-ref>
-						<portlet-ref>ConstructionPortlet</portlet-ref>
-					</portlet>
-					<title>Profile</title>
-					<access-permissions>*:/platform/users</access-permissions>
-					<show-info-bar>false</show-info-bar>
-					<show-application-state>true</show-application-state>
-				   </portlet-application>
--->
-                                <!-- Who is online gadget -->
-				<portlet-application>
-					<portlet>
-						<application-ref>dashboard</application-ref>
-						<portlet-ref>GadgetPortlet</portlet-ref>
-						<preferences>
-							<preference>
-								<name>url</name>
-								<value>local://WhoIsOnline</value>
-								<read-only>false</read-only>
-							</preference>
-						</preferences>
-					</portlet>
-					<title>Who Is Online</title>
-					<access-permissions>*:/platform/users</access-permissions>
-					<show-info-bar>false</show-info-bar>
-					<show-application-state>true</show-application-state>
-				</portlet-application>
-				
-                                <!-- Bookmark gadget -->
-				<portlet-application>
-					<portlet>
-						<application-ref>dashboard</application-ref>
-						<portlet-ref>GadgetPortlet</portlet-ref>
-						<preferences>
-							<preference>
-								<name>url</name>
-								<value>local://Bookmark</value>
-								<read-only>false</read-only>
-							</preference>
-						</preferences>
-					</portlet>
-					<title>Bookmarks</title>
-					<access-permissions>*:/platform/users</access-permissions>
-					<show-info-bar>false</show-info-bar>
-					<show-application-state>true</show-application-state>
-				</portlet-application>				
+                <portlet-application>
+                    <portlet>
+                        <application-ref>homepage-portlets</application-ref>
+                        <portlet-ref>GettingStartedPortlet</portlet-ref>
+                    </portlet>
+                    <title>Getting Started</title>
+                    <access-permissions>*:/platform/users</access-permissions>
+                    <show-info-bar>false</show-info-bar>
+                    <show-application-state>false</show-application-state>
+                    <show-application-mode>false</show-application-mode>
+                </portlet-application>
 
-                                <!-- Favorites Documents gadget -->
-				<portlet-application>
-					<portlet>
-						<application-ref>dashboard</application-ref>
-						<portlet-ref>GadgetPortlet</portlet-ref>
-						<preferences>
-							<preference>
-								<name>url</name>
-								<value>local://FavoriteDocument</value>
-								<read-only>false</read-only>
-							</preference>
-						</preferences>
-					</portlet>
-					<title>Favorite Documents</title>
-					<access-permissions>*:/platform/users</access-permissions>
-					<show-info-bar>false</show-info-bar>
-					<show-application-state>true</show-application-state>
-				</portlet-application>
-				
-                                <!-- New Spaces gadget -->
-				<!--
-				<portlet-application>
-					<portlet>
-						<application-ref>dashboard</application-ref>
-						<portlet-ref>GadgetPortlet</portlet-ref>
-						<preferences>
-							<preference>
-								<name>url</name>
-								<value>local://NewSpaces</value>
-								<read-only>false</read-only>
-							</preference>
-						</preferences>
-					</portlet>
-					<title>Recent new Spaces</title>
-					<access-permissions>*:/platform/users</access-permissions>
-					<show-info-bar>false</show-info-bar>
-					<show-application-state>true</show-application-state>
-				</portlet-application>
-				-->
+
+
+                <portlet-application>
+                    <portlet>
+                        <application-ref>dashboard</application-ref>
+                        <portlet-ref>GadgetPortlet</portlet-ref>
+                        <preferences>
+                            <preference>
+                                <name>url</name>
+                                <value>local://SuggestPeopleGadget</value>
+                                <read-only>false</read-only>
+                            </preference>
+                        </preferences>
+                    </portlet>
+                    <title>SuggestPeopleGadget</title>
+                    <access-permissions>*:/platform/users</access-permissions>
+                    <show-info-bar>false</show-info-bar>
+                    <show-application-state>true</show-application-state>
+                </portlet-application>
+
+
+                <portlet-application>
+                    <portlet>
+                        <application-ref>homepage-portlets</application-ref>
+                        <portlet-ref>WhoIsOnLinPortlet</portlet-ref>
+                    </portlet>
+                    <title>Who is on line</title>
+                    <access-permissions>*:/platform/users</access-permissions>
+                    <show-info-bar>false</show-info-bar>
+                    <show-application-state>false</show-application-state>
+                    <show-application-mode>false</show-application-mode>
+                </portlet-application>
 			</container>
 		</container>
 

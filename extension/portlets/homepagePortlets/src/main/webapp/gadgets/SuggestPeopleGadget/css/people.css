@@ -1,0 +1,62 @@
+#PeopleGadget {
+ border: dashed 1px #E2DDC7;
+ margin-right: 15px;
+ -moz-border-radius: 3px;
+ -webkit-border-radius: 3px;
+  padding: 10px 15px 5px 15px;
+}
+
+
+
+
+#PeopleGadget ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0px;
+}
+
+
+#PeopleGadget ul li{
+    height: 30px;
+    margin-top: 10px; 
+    margin-bottom: 10px; 
+}
+
+
+
+.peopleList img{
+    width: 24px;
+    height: 24px;
+    border-width: 0px;
+}
+
+.peopleHeader {  
+  font-weight: bold; 
+  margin-bottom: 12px;
+  padding-top: 5px;
+}
+
+.peopleName {
+  font-weight: bold; 
+}
+
+.peopleAction {
+  font-size: 10px; 
+}
+
+.peopleInfo {
+  float: left;
+  padding-left: 10px;
+  width: 160px;
+  overflow: hidden;
+}
+
+.peoplePicture {
+  float: left;
+  padding-top: 2px;
+}
+
+#emptyMessage {
+  padding: 5px;
+  font-weight: bold;
+}

@@ -1,0 +1,58 @@
+#SpaceGadget {
+ border: dashed 1px #E2DDC7;
+ margin-right: 15px;
+ -moz-border-radius: 3px;
+ -webkit-border-radius: 3px;
+  padding: 10px 15px 5px 15px;
+  overflow: hidden;
+}
+
+
+
+
+#SpaceGadget ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0px;
+}
+
+
+#SpaceGadget ul li{
+    height: 30px;
+    margin-top: 10px; 
+    margin-bottom: 10px; 
+}
+
+
+
+.spaceList img{
+    width: 24px;
+    height: 24px;
+    border-width: 0px;
+}
+
+.spaceHeader {  
+  font-weight: bold; 
+  margin-bottom: 12px;
+  padding-top: 5px;
+}
+
+.spaceName {
+  font-weight: bold; 
+}
+
+.spaceAction {
+  font-size: 10px; 
+}
+
+.spaceInfo {
+  float: left;
+  padding-left: 10px;
+  width: 160px;
+  overflow: hidden;
+}
+
+.spacePicture {
+  float: left;
+  padding-top: 2px;
+}

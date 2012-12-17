@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Module>
+  <ModulePrefs title="GettingStarted">
+    <Require feature="opensocial-0.8" />
+    <Require feature="dynamic-height"/>
+  </ModulePrefs>
+  <Content type="html">
+    <![CDATA[ 
+    
+    <head>
+      <link type="text/css" rel="stylesheet" href="/exo-gadget-resources/skin/exo-gadget/gadget-common.css" />
+      <link type="text/css" rel="stylesheet" href="css/gettingstarted.css" />    
+      <script language="javascript" type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+      <script type="text/javascript">
+        
+        
+        function callRestAndUpdate(){
+          $.getJSON("/rest/homepage/intranet/getting-started/get", function(items){
+            var rate = 0;            
+            $.each(items, function(i, item){                                 
+              var id = item.name.substring(4);                            
+              if(item.value == "true"){                     
+                $("#"+id).addClass("done");  
+                rate +=20;
+              }
+              else {
+                $("#"+id).removeClass("done");  
+              }                                      
+            });
+            updateProgress(rate); 
+          });   
+        }
+        
+        function updateProgress(rate){
+          if (rate > 100){
+            rate = 100;
+          }
+          var width= Math.round(160/100*rate);
+          $("#progress-rate").attr("style", "width: "+width+"px;");  
+          $("#progress-label").html(rate+"%");       
+        }
+        
+        function init() {
+          
+          
+          $("#gs_mobile").live("click", function(){
+            $.getJSON("/rest/homepage/intranet/getting-started/set/exo:gs_mobile/true", callRestAndUpdate);
+          });
+          
+          
+          callRestAndUpdate();           
+          gadgets.window.adjustHeight();
+          loadProfile();                  
+        }
+        
+        function loadProfile() {
+          var opts = {};
+          opts[opensocial.DataRequest.PeopleRequestFields.PROFILE_DETAILS] = [opensocial.Person.Field.PROFILE_URL];        
+          var req = opensocial.newDataRequest();
+          req.add(req.newFetchPersonRequest(opensocial.IdSpec.PersonId.VIEWER, opts), 'viewer');
+          req.send(onLoadProfile);
+        }
+        
+        function onLoadProfile(data) {
+          this.viewer = data.get('viewer').getData();
+          var profileTempUrl = this.viewer.getField(opensocial.Person.Field.PROFILE_URL);
+          var eXoUserID = profileTempUrl.substr(profileTempUrl.lastIndexOf('/') + 1); 
+          var profileUrl = '/portal/intranet/profile/' + eXoUserID;
+          var dashboardUrl = '/portal/u/' + eXoUserID;
+          $("#gs_profile a").attr("href",profileUrl);
+          $("#gs_dashboard a").attr("href",dashboardUrl);
+        }
+        
+        gadgets.util.registerOnLoadHandler(init);
+        
+      </script>         
+      
+    </head>
+    
+    <body id="GettingStarted">
+      
+      <div class="UIGadgetThemes">
+        
+        
+        <div class="gadgetTitle">Getting Started</div>
+        
+        <div id="progress-block">
+          <div id="progress-shell">
+            <div id="progress-rate" ></div>
+          </div>                    
+          <div id="progress-label">0 %</div>
+        </div>
+        
+        <div id="list-block">
+          
+          <ul id="gsList">
+            <li id="gs_profile"><a href="" target="_parent">Add a Picture to Your Profile</a></li>
+            <li id="gs_connect"><a href="/portal/intranet/people" target="_parent">Connect with Colleagues</a></li>
+            <li id="gs_space"><a href="/portal/intranet/all-spaces" target="_parent">Join a Space</a></li>
+            <li id="gs_dashboard"><a href="/portal/intranet/all-spaces" target="_parent">Customize Your Dashboard</a></li>
+            <li id="gs_mobile"><a href="http://www.exoplatform.com/company/en/products/mobile" target="_blank">Get the eXo Mobile App</a></li>
+          </ul>
+          
+        </div>
+      </div> 
+    </body>
+    
+    
+    ]]></Content></Module>

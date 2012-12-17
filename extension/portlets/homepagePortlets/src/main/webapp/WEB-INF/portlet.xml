@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<portlet-app xmlns="http://java.sun.com/xml/ns/portlet/portlet-app_2_0.xsd"
+             version="2.0"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://java.sun.com/xml/ns/portlet/portlet-app_2_0.xsd
+   http://java.sun.com/xml/ns/portlet/portlet-app_2_0.xsd">
+    <portlet>
+        <portlet-name>WhoIsOnLinPortlet</portlet-name>
+        <display-name xml:lang="EN">Who is on Line</display-name>
+        <portlet-class>org.exoplatform.platform.portlet.juzu.whosonline.WhosonlinePortlet</portlet-class>
+        <init-param>
+            <name>juzu.run_mode</name>
+            <value>prod</value>
+        </init-param>
+        <init-param>
+            <name>juzu.inject</name>
+            <value>spring</value>
+        </init-param>
+        <supports>
+            <mime-type>text/html</mime-type>
+        </supports>
+        <portlet-info>
+            <title>Who is on line</title>
+            <keywords>juzu</keywords>
+        </portlet-info>
+    </portlet>
+    <portlet>
+        <portlet-name>GettingStartedPortlet</portlet-name>
+        <display-name xml:lang="EN">Getting Started</display-name>
+        <portlet-class>org.exoplatform.platform.portlet.juzu.gettingstarted.GettingstartedPortlet</portlet-class>
+        <init-param>
+            <name>juzu.run_mode</name>
+            <value>prod</value>
+        </init-param>
+        <supports>
+            <mime-type>text/html</mime-type>
+        </supports>
+        <portlet-info>
+            <title>getting Started</title>
+            <keywords>Home_Page_Portlets</keywords>
+        </portlet-info>
+    </portlet>
+</portlet-app>

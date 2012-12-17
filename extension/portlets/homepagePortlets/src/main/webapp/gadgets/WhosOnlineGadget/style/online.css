@@ -1,0 +1,60 @@
+#OnlineGadget .uigadgetthemes .GadCont {
+  padding: 0px;
+
+}
+
+
+#OnlineGadget .title {
+    padding-left: 30px;
+    text-transform:uppercase;
+    font-weight: bold;    
+}
+
+#OnlineGadget ul {
+ 
+ padding-left:30px;
+ padding-right: 30px;
+  
+}
+
+#OnlineGadget .gallery li {
+        display: inline;
+        list-style: none;
+        width: 40px;
+        height: 40px;
+        float: left;
+        margin: 0 5px 5px 0;
+        text-align: center;
+  }
+
+#OnlineGadget .gallery li img {
+ 
+ height: 40px;
+ width: 40px;
+  
+}
+
+.tooltip{ 
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 3;
+  display: none;
+  border: 0 none;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  color: #115EAD;
+  max-width: 100px;
+  width: auto;
+  background-color: white;
+  padding: 5px 10px 5px 10px;
+  border: solid 1px #115EAD;
+}
+
+.tooltip div{
+    color: #115EAD; 
+}
+
+#tipName {
+ font-weight: bold; 
+}
