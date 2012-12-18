@@ -58,6 +58,7 @@
     <org.gatein.shindig.version>2.0.2-CP01</org.gatein.shindig.version>
     <org.gatein.wci.version>2.2.0-Beta02</org.gatein.wci.version>
     <org.gatein.web.version>3.4.0.Final</org.gatein.web.version>
+    <org.codehaus.jackson.version>1.9.7</org.codehaus.jackson.version>
   </properties>
   <dependencyManagement>
     <dependencies>
@@ -85,6 +86,31 @@
         <type>pom</type>
         <scope>import</scope>
       </dependency>
+      <dependency>
+        <groupId>org.exoplatform.commons</groupId>
+        <artifactId>commons-component-search-service</artifactId>
+        <version>${org.exoplatform.commons.version}</version>
+        <type>jar</type>
+      </dependency>
+      <dependency>
+        <groupId>org.exoplatform.commons</groupId>
+        <artifactId>commons-component-search-portlet</artifactId>
+        <version>${org.exoplatform.commons.version}</version>
+        <type>war</type>
+      </dependency>
+      <dependency>
+        <groupId>org.codehaus.jackson</groupId>
+        <artifactId>jackson-core-asl</artifactId>
+        <version>${org.codehaus.jackson.version}</version>
+        <type>jar</type>
+      </dependency>
+      <dependency>
+        <groupId>org.codehaus.jackson</groupId>
+        <artifactId>jackson-mapper-asl</artifactId>
+        <version>${org.codehaus.jackson.version}</version>
+        <type>jar</type>
+      </dependency>
+
       <!-- To be replaced by an import of core parent POM -->
       <dependency>
         <groupId>org.exoplatform.core</groupId>
