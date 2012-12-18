@@ -25,16 +25,16 @@
 }	
 
 .uiGroupsNavigationPortlet .title a {
-	font-weight: bold;
-	font-size: 14px;
-	text-transform: uppercase;
-	color: #2f5e92;
-	background: url(background/header.png) repeat-x center;
-	height: 42px; line-height: 42px;
-	padding: 0 10px;
-	margin: 0;
-	box-shadow: 0 0 1px rgba(0, 0, 0, 0.2) inset;
-	display: block;
+
+    font-weight: bold;
+    font-size: 14px;
+    text-transform: uppercase;
+    color: #2f5e92;
+    background: url(background/header.png) repeat-x center;
+    height: 42px; line-height: 42px;
+    padding: 0 10px;
+    margin: 0;
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0.2) inset;
 }
 	
 .uiGroupsNavigationPortlet .groupNavigation {

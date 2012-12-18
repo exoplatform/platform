@@ -78,7 +78,8 @@
 
             println """
 				<li class="groupItem">
-					<a class="groupIcon arrowIcon" href="$href" title="$node.resolvedLabel">$label</a>
+					<div class="groupIcon arrowIcon" > icon </div>
+                    <a class="groupIcon" href="$href" title="$node.resolvedLabel">$label</a>
                     <ul class="childrenContainer" style="display: none">
 					""";
 
