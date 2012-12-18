@@ -1,0 +1,24 @@
+package org.exoplatform.platform.portlet.juzu.suggestions;
+
+import juzu.Path;
+import juzu.View;
+
+import javax.inject.Inject;
+
+/**
+ * @author <a href="rtouzi@exoplatform.com">rtouzi</a>
+ * @date 07/12/12
+ */
+public class SuggestionsPeopleSpace {
+
+    @Inject
+    @Path("list.gtmpl")
+    org.exoplatform.platform.portlet.juzu.suggestions.templates.list list;
+
+    @View
+    public void index() {
+
+        list.render();
+
+    }
+}

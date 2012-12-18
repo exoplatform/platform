@@ -41,6 +41,26 @@
         </portlet-info>
     </portlet>
     <portlet>
+        <portlet-name>SuggestionsPeopleSpace</portlet-name>
+        <display-name xml:lang="EN">Suggestions Portlet</display-name>
+        <portlet-class>org.exoplatform.platform.portlet.juzu.suggestions.SuggestionsPortlet</portlet-class>
+        <init-param>
+            <name>juzu.run_mode</name>
+            <value>prod</value>
+        </init-param>
+        <init-param>
+            <name>juzu.inject</name>
+            <value>spring</value>
+        </init-param>
+        <supports>
+            <mime-type>text/html</mime-type>
+        </supports>
+        <portlet-info>
+            <title>Suggestions</title>
+            <keywords>juzu</keywords>
+        </portlet-info>
+    </portlet>
+    <portlet>
         <portlet-name>Invitations</portlet-name>
         <display-name xml:lang="EN">Invitations</display-name>
         <portlet-class>org.exoplatform.platform.portlet.juzu.invitations.InvitationsPortlet</portlet-class>

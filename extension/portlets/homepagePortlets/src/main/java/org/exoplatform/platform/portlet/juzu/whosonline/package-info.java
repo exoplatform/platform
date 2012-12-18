@@ -6,8 +6,8 @@
 @Application
 @Portlet
 @Assets(
-        scripts = {@Script(src = "js/jquery.tipTip.minified.js"),@Script(id = "jquery", src = "js/jquery-1.3.2.min.js")},
-        stylesheets = {@Stylesheet(src = "style/online.css"),@Stylesheet(src = "style/tipTip.css") })
+        scripts = {@Script(src = "js/whoIsOnLine/jquery.tipTip.minified.js"),@Script(id = "jquery", src = "js/jquery-1.3.2.min.js"),@Script(src = "js/whoIsOnLine/whoisonline.js")},
+        stylesheets = {@Stylesheet(src = "style/whoIsOnLine/online.css"),@Stylesheet(src = "style/whoIsOnLine/tipTip.css") })
 
 
 package org.exoplatform.platform.portlet.juzu.whosonline;
