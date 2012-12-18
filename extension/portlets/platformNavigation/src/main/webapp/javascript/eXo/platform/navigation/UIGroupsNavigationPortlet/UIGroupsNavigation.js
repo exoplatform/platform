@@ -20,7 +20,7 @@
 function initGroupNavigationPortlet(id)
 {
     require(['SHARED/jquery'], function($){
-        $("#" + id).on("click", "img.GroupsNavigationExpandIcon, img.GroupsNavigationCollapseIcon", function(event) {
+        $("#" + id).on("click", "div", function(event) {
             collapseExpand(this);
 
             event.stopPropagation();
@@ -31,24 +31,13 @@ function initGroupNavigationPortlet(id)
         {
             var jqNode = $(node);
 
-            var subGroup = jqNode.parent().parent().children("div.ChildrenContainer");
+            var subGroup = jqNode.parent().children("ul.childrenContainer");
             if(subGroup.css("display") == "none")
             {
-                if(jqNode.hasClass("GroupsNavigationExpandIcon"))
-                {
-                    jqNode.attr("class", "GroupsNavigationCollapseIcon ClearFix");
-                    jqNode.parent().children("img").attr("src","/platformNavigation/skin/platformNavigation/UIGroupsNavigationPortlet/background/icon_collapse.png");
-                }
                 subGroup.css("display", "block");
             }
             else
             {
-                if(jqNode.hasClass("GroupsNavigationCollapseIcon"))
-                {
-                    jqNode.attr("class", "GroupsNavigationExpandIcon ClearFix");
-                    jqNode.parent().children("img").attr("src","/platformNavigation/skin/platformNavigation/UIGroupsNavigationPortlet/background/icon_expand.gif");
-                }
-
                 subGroup.css("display", "none");
             }
         };
