@@ -29,7 +29,7 @@
                    onkeypress="eXo.search.SearchAdminToolbar.quickSearchadminOnEnter(event);" type="text"/>
             <a href="#" class="TBIcon FR">
                 <img alt="Search"
-                     src="/eXoPlatformResources/skin/platformSkin/UIToolbarContainer/background/Search.png"/>
+                     src="/platformNavigation/skin/platformNavigation/UISearchPlatformToolbarPortlet/background/Search.png"/>
             </a>
         </li>
     </ul>

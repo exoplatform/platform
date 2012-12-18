@@ -3,11 +3,9 @@
         import org.exoplatform.platform.common.navigation.NavigationServiceHandler;
 
 
-        String imgSrc = "";
+        String imgSrc = "/eXoPlatformResources/skin/platformSkin/UIToolbarContainer/background/HomeIcon.png";
         String path = NavigationServiceHandler.getHomePageLogoURI();
-        if(path == null)
-        imgSrc = "/eXoPlatformResources/skin/platformSkin/UIToolbarContainer/background/HomeIcon.png";
-        else
+        if(path != null)
         imgSrc = "/portal/rest/jcr/repository/collaboration" + path;
 %>
 
