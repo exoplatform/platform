@@ -40,4 +40,24 @@
             <keywords>Home_Page_Portlets</keywords>
         </portlet-info>
     </portlet>
+    <portlet>
+        <portlet-name>Invitations</portlet-name>
+        <display-name xml:lang="EN">Invitations</display-name>
+        <portlet-class>org.exoplatform.platform.portlet.juzu.invitations.InvitationsPortlet</portlet-class>
+        <init-param>
+            <name>juzu.run_mode</name>
+            <value>dev</value>
+        </init-param>
+        <init-param>
+            <name>juzu.inject</name>
+            <value>spring</value>
+        </init-param>
+        <supports>
+            <mime-type>text/html</mime-type>
+        </supports>
+        <portlet-info>
+            <title>Invitations</title>
+            <keywords>juzu</keywords>
+        </portlet-info>
+    </portlet>
 </portlet-app>

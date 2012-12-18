@@ -1,4 +1,4 @@
-/*
+/**
  * Copyright (C) 2012 eXo Platform SAS.
  *
  * This is free software; you can redistribute it and/or modify it
@@ -16,29 +16,30 @@
  * Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
  * 02110-1301 USA, or see the FSF site: http://www.fsf.org.
  */
-@Application
-@Portlet
-@Bindings(
-        @Binding(value = org.exoplatform.services.jcr.ext.hierarchy.NodeHierarchyCreator.class, implementation=GateInMetaProvider.class)
-)
-@Assets(
-        scripts = {
-                @Script(id="jquery", src = "gettingStarted/js/jquery-1.8.3.js"),
-               @Script( src = "gettingStarted/js/gettingStarted.js")
 
-        } ,
-        stylesheets = {
-                @Stylesheet(src = "gettingStarted/css/gettingstarted.css")
+package org.exoplatform.platform.portlet.juzu.invitations;
 
-        }
-)
+import juzu.Controller;
+import juzu.Path;
+import juzu.View;
 
-package org.exoplatform.platform.portlet.juzu.gettingstarted;
+import javax.inject.Inject;
 
-import juzu.Application;
-import juzu.plugin.asset.Assets;
-import juzu.plugin.asset.Script;
-import juzu.plugin.asset.Stylesheet;
-import juzu.plugin.binding.Binding;
-import juzu.plugin.binding.Bindings;
-import juzu.plugin.portlet.Portlet;
+/**
+ * @author <a href="hzekri@exoplatform.com">hzekri</a>
+ * @date 10/12/12
+ */
+
+public class Invitations extends Controller {
+
+    @Inject
+    @Path("invitations.gtmpl")
+    org.exoplatform.platform.portlet.juzu.invitations.templates.invitations index;
+
+
+
+    @View
+    public void index() {
+        index.render();
+    }
+}
