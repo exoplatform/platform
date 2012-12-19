@@ -21,9 +21,7 @@ $(function() {
                     pos = ['-20', '30'];
 
                 $onlineContact.tipTip({
-                    content: '<table id="tipName"><tbody><tr><td style="width: 50px;"><img src="'+contact.avatarUrl+'" alt="image" /></td><td>'+contact.name+'<div style="font-weight: normal;">'+contact.title+'</div></td></tr></tbody></table><blockquote>'+contact.activity+'</blockquote>',
-
-                    defaultPosition: "left"
+                    content: '<table id="tipName"><tbody><tr><td style="width: 50px;"><img src="'+contact.avatarUrl+'" alt="image" /></td><td>'+contact.name+'<div style="font-weight: normal;">'+contact.title+'</div></td></tr></tbody></table><blockquote>'+contact.activity+'</blockquote>',defaultPosition: "left"
                 });
 
 

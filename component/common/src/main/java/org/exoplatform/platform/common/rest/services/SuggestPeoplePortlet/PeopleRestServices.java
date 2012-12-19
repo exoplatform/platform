@@ -215,47 +215,60 @@ public class PeopleRestServices implements ResourceContainer {
   @GET
   @Path("contacts/suggestions")
   public Response getSuggestions(@Context SecurityContext sc, @Context UriInfo uriInfo) {
-    
-    try {
-    
-    String userId = getUserId(sc, uriInfo);  
-    if(userId == null) {
-        return Response.status(HTTPStatus.INTERNAL_ERROR).cacheControl(cacheControl).build();
-    }
-        
-    IdentityManager identityManager = (IdentityManager) ExoContainerContext.getCurrentContainer().getComponentInstanceOfType(IdentityManager.class);
-    Identity identity = identityManager.getOrCreateIdentity(OrganizationIdentityProvider.NAME, userId);
-    RelationshipManager relationshipManager = (RelationshipManager) ExoContainerContext.getCurrentContainer().getComponentInstanceOfType(RelationshipManager.class);  
 
-    ProfileFilter profileFilter = new ProfileFilter();
-    ListAccess<Identity> connectionList = relationshipManager.getConnections(identity);
-    ListAccess<Identity> incomingList = relationshipManager.getIncomingWithListAccess(identity);
-    ListAccess<Identity> outgoingList = relationshipManager.getOutgoing(identity);
-    
-    List<Identity> allIdentities = new ArrayList<Identity>(Arrays.asList(connectionList.load(0, connectionList.getSize())));
-    allIdentities.addAll(Arrays.asList(incomingList.load(0, incomingList.getSize())));
-    allIdentities.addAll(Arrays.asList(outgoingList.load(0, outgoingList.getSize())));
-    allIdentities.add(identity);
- 
-    profileFilter.setExcludedIdentityList(allIdentities);
-    List<Identity> suggestions = identityManager.getIdentitiesByProfileFilter(OrganizationIdentityProvider.NAME, profileFilter);
-    
-    JSONArray jsonArray = new JSONArray();
+      try {
 
-    for (Identity id : suggestions) {
-      
-      if(id.getRemoteId().equals("root")) continue;  
-         
-      JSONObject json = new JSONObject(); 
-      String avatar = id.getProfile().getAvatarImageSource();
-      if (avatar == null) {avatar = "/social-resources/skin/ShareImages/Avatar.gif"; }
-      
-      json.put("suggestionName", id.getProfile().getFullName());
-      json.put("suggestionId", id.getId());
-      json.put("contacts", relationshipManager.getConnections(id).getSize());
-      json.put("avatar", avatar);
-      json.put("profile", id.getProfile().getUrl());
-      jsonArray.put(json);    
+          String userId = getUserId(sc, uriInfo);
+          if(userId == null) {
+              return Response.status(HTTPStatus.INTERNAL_ERROR).cacheControl(cacheControl).build();
+          }
+
+          IdentityManager identityManager = (IdentityManager) ExoContainerContext.getCurrentContainer().getComponentInstanceOfType(IdentityManager.class);
+          Identity identity = identityManager.getOrCreateIdentity(OrganizationIdentityProvider.NAME, userId);
+          RelationshipManager relationshipManager = (RelationshipManager) ExoContainerContext.getCurrentContainer().getComponentInstanceOfType(RelationshipManager.class);
+
+          ProfileFilter profileFilter = new ProfileFilter();
+          ListAccess<Identity> connectionList = relationshipManager.getConnections(identity);
+          ListAccess<Identity> incomingList = relationshipManager.getIncomingWithListAccess(identity);
+          ListAccess<Identity> outgoingList = relationshipManager.getOutgoing(identity);
+
+          List<Identity> allIdentities = new ArrayList<Identity>(Arrays.asList(connectionList.load(0, connectionList.getSize())));
+          allIdentities.addAll(Arrays.asList(incomingList.load(0, incomingList.getSize())));
+          allIdentities.addAll(Arrays.asList(outgoingList.load(0, outgoingList.getSize())));
+          allIdentities.add(identity);
+
+          profileFilter.setExcludedIdentityList(allIdentities);
+          List<Identity> suggestions = identityManager.getIdentitiesByProfileFilter(OrganizationIdentityProvider.NAME, profileFilter);
+
+          JSONArray jsonArray = new JSONArray();
+
+          for (Identity id : suggestions) {
+              ListAccess<Identity> SugggestconnectionList = relationshipManager.getConnections(id);
+              List<Identity> SuggestallIdentities = new ArrayList<Identity>(Arrays.asList(SugggestconnectionList.load(0, SugggestconnectionList.getSize())));
+              int k=0;
+              for(Identity i:SuggestallIdentities)  {
+                  for   (Identity j:allIdentities) {
+                      if(j.equals(i)) {
+                          k++;
+                      }
+                  }
+
+              }
+              if(id.getRemoteId().equals("root")) continue;
+
+              JSONObject json = new JSONObject();
+              String avatar = id.getProfile().getAvatarImageSource();
+              if (avatar == null) {avatar = "/social-resources/skin/ShareImages/Avatar.gif"; }
+              String position = id.getProfile().getPosition();
+              if (position == null) {position = "";}
+              json.put("suggestionName", id.getProfile().getFullName());
+              json.put("suggestionId", id.getId());
+              json.put("contacts", relationshipManager.getConnections(id).getSize());
+              json.put("avatar", avatar);
+              json.put("profile", id.getProfile().getUrl());
+              json.put("title", position);
+              json.put("number", k);
+              jsonArray.put(json);
     }
       
     return Response.ok(jsonArray.toString(), MediaType.APPLICATION_JSON).cacheControl(cacheControl).build();

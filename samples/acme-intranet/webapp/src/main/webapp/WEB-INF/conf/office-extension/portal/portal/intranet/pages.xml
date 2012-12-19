@@ -176,7 +176,7 @@
 
 			<container id="OfficeRight"  template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
 				<access-permissions>Everyone</access-permissions>
-                <!--portlet-application>
+                <portlet-application>
                     <portlet>
                         <application-ref>homepage-portlets</application-ref>
                         <portlet-ref>GettingStartedPortlet</portlet-ref>
@@ -186,14 +186,34 @@
                     <show-info-bar>false</show-info-bar>
                     <show-application-state>false</show-application-state>
                     <show-application-mode>false</show-application-mode>
-                </portlet-application-->
+                </portlet-application>
+
+                <portlet-application>
+                    <portlet>
+                        <application-ref>homepage-portlets</application-ref>
+                        <portlet-ref>Invitations</portlet-ref>
+                    </portlet>
+                    <title>Invitations</title>
+                    <access-permissions>*:/platform/users</access-permissions>
+                    <show-info-bar>false</show-info-bar>
+                    <show-application-state>false</show-application-state>
+                    <show-application-mode>false</show-application-mode>
+                </portlet-application>
+
+                <portlet-application>
+                    <portlet>
+                        <application-ref>homepage-portlets</application-ref>
+                        <portlet-ref>SuggestionsPeopleSpace</portlet-ref>
+                    </portlet>
+                    <title>SuggestionsPeopleSpace</title>
+                    <access-permissions>*:/platform/users</access-permissions>
+                    <show-info-bar>false</show-info-bar>
+                    <show-application-state>false</show-application-state>
+                    <show-application-mode>false</show-application-mode>
+                </portlet-application>
 
 
-
-
-
-
-                <!--portlet-application>
+                <portlet-application>
                     <portlet>
                         <application-ref>homepage-portlets</application-ref>
                         <portlet-ref>WhoIsOnLinPortlet</portlet-ref>
@@ -203,7 +223,7 @@
                     <show-info-bar>false</show-info-bar>
                     <show-application-state>false</show-application-state>
                     <show-application-mode>false</show-application-mode>
-                </portlet-application-->
+                </portlet-application>
 			</container>
 		</container>
 

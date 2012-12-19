@@ -7,6 +7,9 @@ import org.exoplatform.services.log.ExoLogger;
 import org.exoplatform.services.log.Log;
 import org.exoplatform.services.rest.impl.RuntimeDelegateImpl;
 import org.exoplatform.services.rest.resource.ResourceContainer;
+import org.exoplatform.social.core.identity.model.Identity;
+import org.exoplatform.social.core.identity.provider.OrganizationIdentityProvider;
+import org.exoplatform.social.core.manager.IdentityManager;
 import org.exoplatform.social.core.space.model.Space;
 import org.exoplatform.social.core.space.spi.SpaceService;
 import org.json.JSONArray;
@@ -19,6 +22,7 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.*;
 import javax.ws.rs.ext.RuntimeDelegate;
 import java.net.URI;
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -81,39 +85,57 @@ public class SpaceRestServices implements ResourceContainer {
   @GET
   @Path("suggestions")
   public Response getSuggestions(@Context SecurityContext sc, @Context UriInfo uriInfo) {
-    
-    try {
-    
-    String userId = getUserId(sc, uriInfo);
-    if(userId == null) {
-        return Response.status(HTTPStatus.INTERNAL_ERROR).cacheControl(cacheControl).build();
-    }
-    
-    SpaceService spaceService = (SpaceService) ExoContainerContext.getCurrentContainer().getComponentInstanceOfType(SpaceService.class);   
-    List<Space> suggestedSpaces = spaceService.getPublicSpaces(userId);
-    
-    
-    JSONArray jsonArray = new JSONArray();
-   
-    for (Space space : suggestedSpaces) {
-      
-      if(space.getVisibility().equals(Space.HIDDEN))
-       continue;
-      if(space.getRegistration().equals(Space.CLOSE))
-       continue;
 
-      String avatar = space.getAvatarUrl();
-      if (avatar == null) {avatar = "/social-resources/skin/ShareImages/SpaceImages/SpaceLogoDefault_61x61.gif"; }      
-        
-      JSONObject json = new JSONObject();                    
-      json.put("name", space.getName());
-      json.put("spaceId", space.getId()); 
-      json.put("displayName", space.getDisplayName());
-      json.put("spaceUrl", space.getUrl());   
-      json.put("avatarUrl", avatar);
-      json.put("registration", space.getRegistration());
-      json.put("members", space.getMembers().length);   
-      jsonArray.put(json);    
+      try {
+
+          String userId = getUserId(sc, uriInfo);
+          if(userId == null) {
+              return Response.status(HTTPStatus.INTERNAL_ERROR).cacheControl(cacheControl).build();
+          }
+
+          SpaceService spaceService = (SpaceService) ExoContainerContext.getCurrentContainer().getComponentInstanceOfType(SpaceService.class);
+          List<Space> suggestedSpaces = spaceService.getPublicSpaces(userId);
+          IdentityManager identityManager = (IdentityManager) ExoContainerContext.getCurrentContainer().getComponentInstanceOfType(IdentityManager.class);
+          Identity identity = identityManager.getOrCreateIdentity(OrganizationIdentityProvider.NAME, userId);
+          List<Identity> connections= identityManager.getConnections(identity)  ;
+
+          JSONArray jsonArray = new JSONArray();
+
+          for (Space space : suggestedSpaces) {
+
+              if(space.getVisibility().equals(Space.HIDDEN))
+                  continue;
+              if(space.getRegistration().equals(Space.CLOSE))
+                  continue;
+              List<Identity> identityListMember = new ArrayList<Identity>();
+              String avatar = space.getAvatarUrl();
+              if (avatar == null) {avatar = "/social-resources/skin/ShareImages/SpaceImages/SpaceLogoDefault_61x61.gif"; }
+              for(String mem:space.getMembers())  {
+                  Identity identityMem = identityManager.getOrCreateIdentity(OrganizationIdentityProvider.NAME, mem);
+                  identityListMember.add(identityMem)  ;
+              }
+
+
+              int k=0;
+              for(Identity i:identityListMember)  {
+                  for   (Identity j:connections) {
+                      if(j.equals(i)) {
+                          k++;
+                      }
+                  }
+
+              }
+              JSONObject json = new JSONObject();
+              json.put("name", space.getName());
+              json.put("spaceId", space.getId());
+              json.put("displayName", space.getDisplayName());
+              json.put("spaceUrl", space.getUrl());
+              json.put("avatarUrl", avatar);
+              json.put("registration", space.getRegistration());
+              json.put("members", space.getMembers().length);
+              json.put("privacy", space.getVisibility());
+              json.put("number", k);
+              jsonArray.put(json);
     }
 
     return Response.ok(jsonArray.toString(), MediaType.APPLICATION_JSON).cacheControl(cacheControl).build();
