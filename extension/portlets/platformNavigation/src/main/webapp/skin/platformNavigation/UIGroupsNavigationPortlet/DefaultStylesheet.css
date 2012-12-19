@@ -24,8 +24,8 @@
 	line-height: 20px;
 }	
 
-.uiGroupsNavigationPortlet .title a {
-
+.uiGroupsNavigationPortlet .title {
+	display:block;
     font-weight: bold;
     font-size: 14px;
     text-transform: uppercase;
@@ -40,7 +40,7 @@
 .uiGroupsNavigationPortlet .groupNavigation {
 	list-style: none;
 	margin: 0;
-	padding: 10px 25px;
+	padding: 10px 10px;
 }
 
 .uiGroupsNavigationPortlet .groupNavigation .groupItem {
@@ -48,13 +48,21 @@
 	display: block;
 }
 
+.uiGroupsNavigationPortlet .groupNavigation .icon {
+	padding: 3px 5px;
+}
+
 .uiGroupsNavigationPortlet .groupNavigation .arrowIcon {
 	background: url(background/arrow.png) no-repeat left 8px;
+}
+
+.uiGroupsNavigationPortlet .groupNavigation .childrenContainer {
+	padding-left: 15px;
 }
 
 .uiGroupsNavigationPortlet .groupNavigation .groupIcon {
 	display: inline-block;
 	width: auto;
 	color: #808080;
-	padding-left: 15px;
+	padding-left: 5px;
 }

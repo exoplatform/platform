@@ -20,7 +20,7 @@
 function initGroupNavigationPortlet(id)
 {
     require(['SHARED/jquery'], function($){
-        $("#" + id).on("click", "div", function(event) {
+        $("#" + id).on("click", "span", function(event) {
             collapseExpand(this);
 
             event.stopPropagation();
