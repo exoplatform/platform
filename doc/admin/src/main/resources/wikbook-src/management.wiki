@@ -215,7 +215,7 @@ h2. Cache management view  {anchor:id=ADM.Management.Cache_management_viewRoleNo
 
 eXo Platform uses caches at several levels. Monitoring them can provide the critical performance information, especially useful for tuning the server. Each cache is exposed with statistics and management operations. 
 
-* The JMX name template of Cache MBeans: _exo:service=cache,name= {{{ {CacheName} }}}_ where _CacheName_ is the name of each cache instance.
+* The JMX name template of Cache MBeans: _exo:service=cache,name= {{{ {CacheName} }}}_ where _CacheName_ is the name of each [cache instance|#ADM.Configuration.CacheConfiguration].
 
 ||Attribute||Description||
 |{{Name}}|The name of the cache.|
@@ -236,64 +236,6 @@ eXo Platform uses caches at several levels. Monitoring them can provide the crit
 |{{getMaxSize}}|Return the maximum capacity of the cache.|
 |{{setMaxSize}}|Set the maximum capacity of the cache.|
 |{{getCacheSize}}|Return the number of entries in the cache.|
-
-{docbook}
-<para xml:id="ADM.Management.Cache_instances">
-<citetitle>
-<emphasis role="bold">
-Cache instances
-</emphasis>
-</citetitle>
-</para>
-{docbook}
-
-* *Portal*
-
-
-||Cache Name||Description||
-|{{MOPSessionManager}}|Cache all model objects of portal by storageId, such as pages, navigations, and preferences.|
-|{{ResourceBundleData}}|Cache all resource bundles by name and locale.|
-|{{TemplateService}}|Cache all Groovy templates of portal by its template path and ResourceResolver.|
-
-
-* *JCR*
-
-
-||Cache Name||Description||
-|{{org.exoplatform.services.jcr.impl.core. lock.LockManagerImpl}}|Cache lockData by the lockToken. {example}Cache lockData by the internal identifier of node.{example}|
-
-
-* *Content*
-
-
-||Cache Name||Description||
-|{{org.exoplatform.ecm.REST.viewer. PDFViewerRESTService}}|Cache data of PDF files by the ObjectKey object.|
-|{{org.exoplatform.services.cms.drives. ManageDriveService}}|Cache all drives of Sites Explorer by the drive group name (String constant).|
-|{{org.exoplatform.services.cms.scripts. impl.ScriptService}}|Cache all Groovy script files by the script name.|
-|{{org.exoplatform.services.cms.templates. TemplateService}}|Cache all Groovy templates by the mechanism of org.exoplatform.groovyscript. text.TemplateService.|
-|{{org.exoplatform.services.wcm. webcontent.InitialWebContentPlugin}}|Cache all artifact data by sourcePath of deploymentDescriptor. These data are reused when a new portal is deployed.|
-|{{wcm.composer}}|Cache published contents by the hash generated from path, version, remoteUser, language, recursive, orderBy, orderType, primaryType of cached nodes in Content.|
-
-
-* *Social*
-
-||Cache Name||Description||
-|{{ActivitiesCache}}| Cache activities list by _ListActivitiesKey_.|
-|{{ActivitiesCountCache}}| Cache count of activities by activity ID, identity ID (the identity who makes request) and the type of activity.|
-|{{ActivityCache}}| Cache activity by ActivityKey (based on the activity ID). |
-|{{IdentitiesCache}}| Cache identity list by _ListIdentitiesKey_ (based on IdentityFilterKey, offset, limit). |
-|{{IdentitiesCountCache}}| Cache identity count by _IdentityFilterKey_ (based on the provider ID, remote ID, name, positon, company, skills, first character of the identity, and the List<IdentityKey>). |
-|{{IdentityCache}}| Cache identity by _IdentityKey_ (based on the identity ID) . |
-|{{IdentityIndexCache}}| Cache identity index by _IdentityCompositeKey_ (based on the provider ID and the remote ID). |
-|{{ProfileCache}}| Cache profile by _IdentityKey_ (based on the identity ID). |
-|{{RelationshipCache}}| Cache relationship by _RelationshipKey_ (based on the ID of the relationship). |
-|{{RelationshipFromIdentityCache}}| Cache relationship key  by _RelationshipIdentityKey_ (based on the identity ID of 2 users which have relationship). |
-|{{RelationshipsCache}}| Cache list identity wich have relation by _ListRelationshipsKey_. |
-|{{RelationshipsCountCache}}| Cache relationship count by _RelationshipCountKey_. |
-|{{SpaceCache}}| Cache space by _SpaceKey_ (based on the space ID). |
-|{{SpaceRefCache}}| Cache ref space by _SpaceRefKey_ (base on the display name, pretty name, group ID and the space URL). |
-|{{SpacesCache}}| Cache list space by _ListSpacesKey_ (based on _SpaceFilterKey_, offset and limit). |
-|{{SpacesCountCache}}| Cache spaces count by _spaceFilterKey_ (based on the user ID, the first character of space name, the space name search condition, and space type (MEMBER,PENDING,INVITED,PUBLIC,ACCESSIBLE, VISIBLE, EDITABLE, ALL)). |
 
 {docbook}
 <para xml:id="ADM.Management.Chache_manager">
