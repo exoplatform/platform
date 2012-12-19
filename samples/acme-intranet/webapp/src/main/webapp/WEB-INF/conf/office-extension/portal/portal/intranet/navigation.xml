@@ -216,5 +216,13 @@
       <label>#{portal.intranet.wiki}</label>
       <page-reference>portal::intranet::wiki</page-reference>
     </node>
+   
+    <node>
+      <uri>search</uri>
+      <name>search</name>
+      <label>Search</label>
+      <page-reference>portal::intranet::search</page-reference>
+    </node>
+
   </page-nodes>
   </node-navigation>
