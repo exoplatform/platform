@@ -58,15 +58,12 @@
     <module>
         <name>jcarousellite</name>
         <script>
-            <name>acme.jquery.jcarousellite</name>
             <path>/javascript/jcarousellite.js</path>
         </script>
         <script>
-            <name>acme.jquery.ui</name>
             <path>/javascript/jquery-ui-1.8.6.custom.min.js</path>
         </script>
         <depends>
-            <module>jquery</module>
             <as>jQuery</as>
         </depends>
     </module>
