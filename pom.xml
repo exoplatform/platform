@@ -89,8 +89,7 @@
       <dependency>
         <groupId>org.exoplatform.commons</groupId>
         <artifactId>commons-component-search-service</artifactId>
-        <version>${org.exoplatform.commons.version}</version>
-        <type>jar</type>
+        <version>${org.exoplatform.commons.version}</version>        
       </dependency>
       <dependency>
         <groupId>org.exoplatform.commons</groupId>
@@ -99,16 +98,20 @@
         <type>war</type>
       </dependency>
       <dependency>
+        <groupId>org.exoplatform.commons</groupId>
+        <artifactId>commons-component-search-portlet</artifactId>
+        <version>${org.exoplatform.commons.version}</version>
+        <type>pom</type>
+      </dependency>
+      <dependency>
         <groupId>org.codehaus.jackson</groupId>
         <artifactId>jackson-core-asl</artifactId>
         <version>${org.codehaus.jackson.version}</version>
-        <type>jar</type>
       </dependency>
       <dependency>
         <groupId>org.codehaus.jackson</groupId>
         <artifactId>jackson-mapper-asl</artifactId>
         <version>${org.codehaus.jackson.version}</version>
-        <type>jar</type>
       </dependency>
 
       <!-- To be replaced by an import of core parent POM -->
