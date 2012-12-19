@@ -4,7 +4,7 @@
   <parent>
     <artifactId>maven-parent-pom</artifactId>
     <groupId>org.exoplatform</groupId>
-    <version>9-alpha-3</version>
+    <version>9-SNAPSHOT</version>
     <relativePath></relativePath>
   </parent>
   <groupId>org.exoplatform.platform</groupId>
@@ -476,7 +476,7 @@
         <groupId>org.exoplatform.platform</groupId>
         <artifactId>platform-exo-gadget-pack-gadget-pack</artifactId>
         <version>${project.version}</version>
-        <classifier>classes</classifier>
+        <type>pom</type>
       </dependency>
       <dependency>
         <groupId>org.exoplatform.platform</groupId>
@@ -510,7 +510,7 @@
         <groupId>org.exoplatform.platform</groupId>
         <artifactId>platform-extension-portlets-platformNavigation</artifactId>
         <version>${project.version}</version>
-        <classifier>classes</classifier>
+        <type>pom</type>
       </dependency>
       <dependency>
         <groupId>org.exoplatform.platform</groupId>
@@ -522,7 +522,7 @@
         <groupId>org.exoplatform.platform</groupId>
         <artifactId>platform-extension-resources</artifactId>
         <version>${project.version}</version>
-        <classifier>classes</classifier>
+        <type>pom</type>
       </dependency>
       <dependency>
         <groupId>org.exoplatform.platform</groupId>
@@ -534,7 +534,7 @@
         <groupId>org.exoplatform.platform</groupId>
         <artifactId>platform-extension-webapp</artifactId>
         <version>${project.version}</version>
-        <classifier>classes</classifier>
+        <type>pom</type>
       </dependency>
       <dependency>
         <groupId>org.exoplatform.platform</groupId>
@@ -563,7 +563,7 @@
         <groupId>org.exoplatform.platform</groupId>
         <artifactId>platform-sample-acme-intranet-portlet</artifactId>
         <version>${project.version}</version>
-        <classifier>classes</classifier>
+        <type>pom</type>
       </dependency>
       <dependency>
         <groupId>org.exoplatform.platform</groupId>
@@ -575,7 +575,7 @@
         <groupId>org.exoplatform.platform</groupId>
         <artifactId>platform-sample-acme-intranet-webapp</artifactId>
         <version>${project.version}</version>
-        <classifier>classes</classifier>
+        <type>pom</type>
       </dependency>
       <dependency>
         <groupId>org.exoplatform.platform</groupId>
@@ -608,7 +608,7 @@
         <groupId>org.exoplatform.platform</groupId>
         <artifactId>platform-sample-acme-website-resources</artifactId>
         <version>${project.version}</version>
-        <classifier>classes</classifier>
+        <type>pom</type>
       </dependency>
       <dependency>
         <groupId>org.exoplatform.platform</groupId>
@@ -620,7 +620,7 @@
         <groupId>org.exoplatform.platform</groupId>
         <artifactId>platform-sample-acme-website-webapp</artifactId>
         <version>${project.version}</version>
-        <classifier>classes</classifier>
+        <type>pom</type>
       </dependency>
       <dependency>
         <groupId>org.exoplatform.platform</groupId>
@@ -643,7 +643,7 @@
         <groupId>org.exoplatform.platform</groupId>
         <artifactId>platform-sample-default-website-webapp</artifactId>
         <version>${project.version}</version>
-        <classifier>classes</classifier>
+        <type>pom</type>
       </dependency>
       <dependency>
         <groupId>org.exoplatform.platform</groupId>
@@ -660,7 +660,7 @@
         <groupId>org.exoplatform.platform</groupId>
         <artifactId>platform-sample-gadgets-sample-exo-gadget-resources</artifactId>
         <version>${project.version}</version>
-        <classifier>classes</classifier>
+        <type>pom</type>
       </dependency>
       <dependency>
         <groupId>org.exoplatform.platform</groupId>
@@ -672,7 +672,7 @@
         <groupId>org.exoplatform.platform</groupId>
         <artifactId>platform-sample-gadgets-sample-gadgets</artifactId>
         <version>${project.version}</version>
-        <classifier>classes</classifier>
+        <type>pom</type>
       </dependency>
       <dependency>
         <groupId>org.exoplatform.platform</groupId>
@@ -694,7 +694,7 @@
         <groupId>org.exoplatform.platform</groupId>
         <artifactId>platform-server-tomcat-integration-webapp</artifactId>
         <version>${project.version}</version>
-        <classifier>classes</classifier>
+        <type>pom</type>
       </dependency>
       <dependency>
         <groupId>org.exoplatform.platform</groupId>
@@ -711,7 +711,7 @@
         <groupId>org.exoplatform.platform</groupId>
         <artifactId>platform-server-tomcat-root-webapp</artifactId>
         <version>${project.version}</version>
-        <classifier>classes</classifier>
+        <type>pom</type>
       </dependency>
       <dependency>
         <groupId>org.exoplatform.platform</groupId>
