@@ -6,7 +6,7 @@
 @Application
 @Portlet
 @Assets(
-        scripts = {@Script(src = "js/jquery.text-overflow.js"),@Script(id = "jquery", src = "js/jquery-1.3.2.min.js"),@Script( src = "js/suggestionsPeopleSpace/suggest.js")},
+        scripts = {@Script(id = "jquery", src = "js/jquery-1.7.2.min.js"),@Script( src = "js/suggestionsPeopleSpace/suggest.js")},
         stylesheets = {@Stylesheet(src = "style/suggestionsPeopleSpace/people.css"),@Stylesheet(src = "style/suggestionsPeopleSpace/space.css") })
 
 

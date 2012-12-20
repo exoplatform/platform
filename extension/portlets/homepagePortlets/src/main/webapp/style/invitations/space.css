@@ -37,41 +37,43 @@
     padding-top: 5px;
 }
 
-.spaceName {
+.spaceInviteName {
     font-weight: bold;
 }
 
-.spaceAction {
+.spaceInviteAction {
     white-space:nowrap;
     font-size: 10px;
 }
 
-.spaceInfo {
-    float: left;
+.spaceInviteInfo {
+    /*float: left;*/
     padding-left: 10px;
-    width: 250px;
+    width: 157px;
     overflow: hidden;
 }
 
-.spacePicture {
+.spaceInvitePicture {
     float: left;
     padding-top: 2px;
 }
 
 .spacevisibility{
-    width:250px;
+    width:157px;
     float:left;
     white-space:nowrap;
     overflow: hidden;
     text-overflow:ellipsis;
 }
 
-.actionAppears {
-    width:130px;
+.actionSpaceAppears {
+    width:40px;
     float:left;
     white-space:nowrap;
     overflow: hidden;
     text-overflow:ellipsis;
 }
 
-
+.spaceInvitePicture img {
+    width: 50px;
+}

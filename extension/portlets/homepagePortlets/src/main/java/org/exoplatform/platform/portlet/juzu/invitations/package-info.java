@@ -21,9 +21,9 @@
 @Portlet
 @Assets(
         scripts = {@Script(id = "jquery", src = "js/jquery-1.7.2.min.js"),
-                 @Script( src = "js/invitations.js") },
-        stylesheets = {@Stylesheet(src = "style/people.css"),
-                       @Stylesheet(src = "style/space.css"),
+                 @Script( src = "js/invitations/invitations.js") },
+        stylesheets = {@Stylesheet(src = "style/invitations/people.css"),
+                       @Stylesheet(src = "style/invitations/space.css"),
                        @Stylesheet(src = "/exo-gadget-resources/skin/exo-gadget/gadget-common.css")
         }
 )

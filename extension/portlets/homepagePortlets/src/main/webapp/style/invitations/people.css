@@ -36,50 +36,54 @@
     padding-top: 5px;
 }
 
-.peopleName {
+.peopleInviteName {
     font-weight: bold;
 }
 .name {
-    width:250px;
+    width:157px;
     float:left;
     white-space:nowrap;
     overflow: hidden;
     text-overflow:ellipsis;
 }
 
-.actionAppears {
-    width:130px;
+.actionInviteAppears {
+    width:40px;
     float:left;
     white-space:nowrap;
     overflow: hidden;
     text-overflow:ellipsis;
 }
 
-.peoplePosition {
-    width:250px;
+.peopleInvitePosition {
+    width:157px;
     white-space:nowrap;
     overflow: hidden;
     text-overflow:ellipsis;
 }
 
 
-.peopleAction {
+.peopleInviteAction {
     white-space:nowrap;
     font-size: 10px;
 }
 
-.peopleInfo {
+.peopleInviteInfo {
     padding-left: 10px;
-    width: 250px;
+    width: 157px;
     overflow: hidden;
 }
 
-.peoplePicture {
+.peopleInvitePicture {
     float: left;
     padding-top: 2px;
 }
 
-#emptyMessage {
+.peopleInvitePicture img {
+    width: 50px;
+}
+
+#emptyInviteMessage {
     padding: 5px;
     font-weight: bold;
 }
