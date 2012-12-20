@@ -40,7 +40,7 @@
                     <field name="tabName"><string>Admin</string></field>
                     <field name="buttons">
                       <string>
-                        upload; addFolder; viewMetadatas; deleteNode; editDocument; manageActions; manageRelations; viewProperties; manageAuditing; showJCRStructure; viewReferences
+                        upload; addFolder; overloadThumbnail; viewMetadatas; deleteNode; editDocument; manageActions; manageRelations; viewProperties; manageAuditing; showJCRStructure; viewReferences
                       </string>
                     </field>
                   </object>
@@ -49,39 +49,7 @@
             </field>	          
           </object>
         </object-param>
-        <object-param>
-          <name>Simple-View</name>
-          <description>View configuration for user</description>
-          <object type="org.exoplatform.services.cms.views.ViewConfig">
-            <field name="name"><string>simple-view</string></field>
-            <field name="permissions"><string>*:/platform/users</string></field>
-            <field name="template"><string>/exo:ecm/views/templates/ecm-explorer/ThumbnailsView</string></field>
-            <field name="tabList">
-              <collection type="java.util.ArrayList">
-                <value>
-                  <object type="org.exoplatform.services.cms.views.ViewConfig$Tab">
-                    <field name="tabName"><string>Actions</string></field>
-                    <field name="buttons">
-                      <string>
-                        addFolder; addCategory; addDocument; editDocument; upload; overloadThumbnail; addSymLink; managePublications
-                      </string>
-                    </field>
-                  </object>
-                </value>
-                <value>
-                  <object type="org.exoplatform.services.cms.views.ViewConfig$Tab">
-                    <field name="tabName"><string>Collaboration</string></field>
-                    <field name="buttons">
-                      <string>
-                        watchDocument; taggingDocument; multiLanguage; vote; Comment
-                      </string>
-                    </field>
-                  </object>
-                </value>
-              </collection>
-            </field>
-          </object>
-        </object-param>
+
         <object-param>	      
           <name>Icons</name>
           <description>View configuration for user</description>
@@ -106,52 +74,6 @@
           </object>		        
         </object-param>		      
         <object-param>	      
-          <name>Cover Flow</name>
-          <description>View configuration for user</description>
-          <object type="org.exoplatform.services.cms.views.ViewConfig">		        	
-            <field name="name"><string>d_cover-flow</string></field>
-            <field name="permissions"><string>*:/platform/users</string></field>
-            <field name="template"><string>/exo:ecm/views/templates/ecm-explorer/CoverFlow</string></field>
-            <field name="tabList">
-              <collection type="java.util.ArrayList">
-                <value>
-                  <object type="org.exoplatform.services.cms.views.ViewConfig$Tab">
-                    <field name="tabName"><string>CoverFlow</string></field>
-                    <field name="buttons">
-                      <string>
-                        upload; addFolder; viewMetadatas; deleteNode; editDocument; taggingDocument; vote; watchDocument; Comment; manageVersions
-                      </string>
-                    </field>
-                  </object>
-                </value>
-              </collection>
-            </field>
-          </object>		        
-        </object-param>
-        <object-param>	      
-          <name>Timeline</name>
-          <description>View configuration for System workspace</description>
-          <object type="org.exoplatform.services.cms.views.ViewConfig">		          
-            <field name="name"><string>a_timeline-view</string></field>
-            <field name="permissions"><string>*:/platform/users</string></field>
-            <field name="template"><string>/exo:ecm/views/templates/ecm-explorer/TimelineView</string></field>	
-            <field name="tabList">
-              <collection type="java.util.ArrayList">
-                <value>
-                  <object type="org.exoplatform.services.cms.views.ViewConfig$Tab">
-                    <field name="tabName"><string>Timeline</string></field>
-                    <field name="buttons">
-                      <string>
-                        upload; addFolder; viewMetadatas; deleteNode; editDocument; taggingDocument; vote; watchDocument; Comment; manageVersions
-                      </string>
-                    </field>
-                  </object>
-                </value>
-              </collection>
-            </field>
-          </object>
-        </object-param>
-        <object-param>	      
           <name>List</name>
           <description>View configuration for List</description>
           <object type="org.exoplatform.services.cms.views.ViewConfig">		        	
@@ -165,7 +87,7 @@
                     <field name="tabName"><string>List</string></field>
                     <field name="buttons">
                       <string>
-                        upload; addFolder; viewMetadatas; deleteNode; editDocument; taggingDocument; vote; watchDocument; Comment; manageVersions
+                        upload; addFolder; overloadThumbnail; viewMetadatas; deleteNode; editDocument; taggingDocument; vote; watchDocument; Comment; manageVersions
                       </string>                    	
                     </field>
                   </object>
@@ -174,15 +96,7 @@
             </field>
           </object>		        
         </object-param>
-        <object-param>	      
-          <name>System Template</name>
-          <description>Template for display documents in list style</description>
-          <object type="org.exoplatform.services.cms.views.TemplateConfig">		        	
-            <field name="type"><string>ecmExplorerTemplate</string></field>
-            <field name="name"><string>SystemView</string></field>
-            <field name="warPath"><string>/ecm-explorer/SystemView.gtmpl</string></field>              
-          </object>
-        </object-param>
+
         <object-param>	      
           <name>List Template</name>
           <description>Template for display documents in list style</description>
@@ -192,24 +106,7 @@
             <field name="warPath"><string>/ecm-explorer/ListView.gtmpl</string></field>              
           </object>
         </object-param>		      
-        <object-param>	      
-          <name>Cover flow Template</name>
-          <description>Template for display documents in cover flow style</description>
-          <object type="org.exoplatform.services.cms.views.TemplateConfig">		        	
-            <field name="type"><string>ecmExplorerTemplate</string></field>
-            <field name="name"><string>CoverFlow</string></field>
-            <field name="warPath"><string>/ecm-explorer/CoverFlowView.gtmpl</string></field>
-          </object>
-        </object-param>
-        <object-param>	      
-          <name>Icon Template</name>
-          <description>Template for display documents in icon style</description>
-          <object type="org.exoplatform.services.cms.views.TemplateConfig">		        	
-            <field name="type"><string>ecmExplorerTemplate</string></field>
-            <field name="name"><string>IconView</string></field>
-            <field name="warPath"><string>/ecm-explorer/IconView.gtmpl</string></field>
-          </object>
-        </object-param>
+
         <object-param>	      
           <name>Thumbnails Template</name>
           <description>Template for display documents in thumbnails style</description>
@@ -219,24 +116,7 @@
             <field name="warPath"><string>/ecm-explorer/ThumbnailsView.gtmpl</string></field>
           </object>
         </object-param>
-        <object-param>	      
-          <name>Timeline Template</name>
-          <description>Template for display documents in timeline style</description>
-          <object type="org.exoplatform.services.cms.views.TemplateConfig">		        	
-            <field name="type"><string>ecmExplorerTemplate</string></field>
-            <field name="name"><string>TimelineView</string></field>
-            <field name="warPath"><string>/ecm-explorer/TimelineView.gtmpl</string></field>
-          </object>
-        </object-param>	
-        <object-param>	      
-          <name>Slide show Template</name>
-          <description>Template for display documents in timeline style</description>
-          <object type="org.exoplatform.services.cms.views.TemplateConfig">		        	
-            <field name="type"><string>ecmExplorerTemplate</string></field>
-            <field name="name"><string>SlideShowView</string></field>
-            <field name="warPath"><string>/ecm-explorer/SlideShowView.gtmpl</string></field>
-          </object>
-        </object-param>		      
+     
       </init-params>	
     </component-plugin> 
   </external-component-plugins>

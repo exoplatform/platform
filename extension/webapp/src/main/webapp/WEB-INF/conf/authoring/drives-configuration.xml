@@ -38,7 +38,7 @@
           <name>Collaboration</name>
           <description>Collaboration Workspace</description>
           <object type="org.exoplatform.services.cms.drives.DriveData">
-            <field  name="name"><string>collaboration</string></field>
+            <field  name="name"><string>Collaboration</string></field>
             <field  name="workspace"><string>collaboration</string></field>
             <field  name="permissions"><string>*:/platform/web-contributors,*:/platform/administrators</string></field>
             <field  name="homePath"><string>/</string></field>
@@ -50,6 +50,24 @@
             <field  name="showHiddenNode"><boolean>false</boolean></field>
             <field  name="allowCreateFolders"><string>nt:folder,nt:unstructured</string></field>
             <field  name="allowNodeTypesOnTree"><string>*</string></field>       
+          </object>
+        </object-param>
+								<object-param>        
+          <name>Events</name>
+          <description>Events</description>
+          <object type="org.exoplatform.services.cms.drives.DriveData">
+            <field  name="name"><string>Events</string></field>
+            <field  name="workspace"><string>collaboration</string></field>
+            <field  name="permissions"><string>*:/platform/web-contributors</string></field>
+            <field  name="homePath"><string>/sites content/live/acme/events</string></field>
+            <field  name="icon"><string></string></field>
+            <field  name="views"><string>wcm-category-view</string></field>
+            <field  name="viewPreferences"><boolean>false</boolean></field>
+            <field  name="viewNonDocument"><boolean>true</boolean></field>
+            <field  name="viewSideBar"><boolean>true</boolean></field>
+            <field  name="showHiddenNode"><boolean>false</boolean></field>
+            <field  name="allowCreateFolders"><string>nt:folder,nt:unstructured</string></field>
+            <field  name="allowNodeTypesOnTree"><string>exo:taxonomy</string></field>       
           </object>
         </object-param>
       </init-params>

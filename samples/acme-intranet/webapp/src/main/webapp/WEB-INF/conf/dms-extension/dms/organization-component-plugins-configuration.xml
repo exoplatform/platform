@@ -302,7 +302,7 @@
 	      </value-param>
 	      <object-param>
 	        <name>configuration</name>
-	        <description>description</description>
+	        <description>My Documents</description>
 	        <object type="org.exoplatform.services.cms.queries.impl.NewUserConfig">
 	          <field name="template"><string>template</string></field>
 	          <field name="users">
@@ -314,9 +314,9 @@
 	                    <collection type="java.util.ArrayList">
 	                      <value>
 	                        <object type="org.exoplatform.services.cms.queries.impl.NewUserConfig$Query">
-	                          <field name="queryName"><string>allArticles</string></field>
+	                          <field name="queryName"><string>My Documents</string></field>
 	                          <field name="language"><string>xpath</string></field>
-	                          <field name="query"><string>//element(*, exo:article)</string></field>
+	                          <field name="query"><string>//*[@jcr:primaryType = 'nt:file' and @exo:owner='${UserId}$'] order by @exo:dateCreated descending</string></field>
 	                        </object>
 	                      </value>
 	                    </collection>
