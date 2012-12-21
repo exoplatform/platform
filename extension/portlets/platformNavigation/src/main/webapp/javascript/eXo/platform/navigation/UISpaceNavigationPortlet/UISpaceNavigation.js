@@ -29,7 +29,7 @@ UISpaceNavigation.prototype.init = function(uicomponentId, mySpaceRestUrl, defau
 
     var me = eXo.navigation.UISpaceNavigation;
     var navigationSpaceSearch = document.getElementById(uicomponentId);
-    var textField = $(navigationSpaceSearch).find("input.SpaceSearchText")[0];
+    var textField = $(navigationSpaceSearch).find("input.searchText")[0];
     textField.value = defaultValueForTextSearch;
 
     textField.onkeydown = function() {
@@ -48,7 +48,7 @@ UISpaceNavigation.prototype.init = function(uicomponentId, mySpaceRestUrl, defau
         if (textField.value == me.defaultValueForTextSearch) {
             textField.value = "";
         }
-        textField.className="SpaceSearchText Focus"
+        textField.className="searchText Focus"
     };
 
     textField.onclick = function(event) {
@@ -64,14 +64,14 @@ UISpaceNavigation.prototype.init = function(uicomponentId, mySpaceRestUrl, defau
     textField.onblur = function() {
         if (textField.value == "") {
             textField.value = me.defaultValueForTextSearch;
-            textField.className="SpaceSearchText LostFocus";
+            textField.className="searchText LostFocus";
         }
     };
 
 };
 UISpaceNavigation.prototype.requestData = function(keyword, uicomponentId) {
     var me = eXo.navigation.UISpaceNavigation;
-	
+
     $.ajax({
         async : false,
         url : me.mySpaceRestUrl + "?keyword=" + keyword,
@@ -81,14 +81,14 @@ UISpaceNavigation.prototype.requestData = function(keyword, uicomponentId) {
             me.render(data, uicomponentId);
         }
     });
-	
+
 };
 UISpaceNavigation.prototype.render = function(dataList, uicomponentId) {
     var me = eXo.navigation.UISpaceNavigation;
     me.dataList = dataList;
 
     var navigationSpaceSearch = document.getElementById(uicomponentId);
-    var spacesListREsult = $(navigationSpaceSearch).find('div.ListNavigationSpaces')[0];
+    var spacesListREsult = $(navigationSpaceSearch).find('ul.spaceNavigation')[0];
     //var spaces = dataList.jsonList;
     var spaces = dataList;
     var groupSpaces = '';
@@ -96,32 +96,32 @@ UISpaceNavigation.prototype.render = function(dataList, uicomponentId) {
         var spaceId = spaces[i].id;
         var spaceUrl = window.location.protocol + "//" + window.location.host + "/" + spaces[i].url;
         var name = spaces[i].displayName;
-		var imageUrl=spaces[i].avatarUrl;
-		 if (imageUrl == null) {
-          imageUrl = "/social-resources/skin/ShareImages/SpaceImages/SpaceLogoDefault_61x61.gif";
+        var imageUrl=spaces[i].avatarUrl;
+        if (imageUrl == null) {
+            imageUrl = "/social-resources/skin/ShareImages/SpaceImages/SpaceLogoDefault_61x61.gif";
         }
-        var spaceDiv = "<div class='SpaceItem'><img src='"+imageUrl+"'/>"+"<a class='ItemIcon'"
-            + "' href='" + spaceUrl + "'>"
-            + name + "</a></div><br/>";
+        var spaceDiv = "<li class='spaceItem'>"+"<a class='spaceIcon'"
+            + "' href='" + spaceUrl + "'><img src='"+imageUrl+"'/>"
+            + name + "</a></li><br/>";
         groupSpaces += spaceDiv;
     }
-	if(groupSpaces!=''){
-    spacesListREsult.innerHTML = groupSpaces;
-	}else{
-	spacesListREsult.innerHTML='No spaces'
-	}
-     
+    if(groupSpaces!=''){
+        spacesListREsult.innerHTML = groupSpaces;
+    }else{
+        spacesListREsult.innerHTML='No spaces'
+    }
+
 };
 UISpaceNavigation.prototype.onTextSearchChange = function(uicomponentId) {
     var me = eXo.navigation.UISpaceNavigation;
     var navigationSpaceSearch = document.getElementById(uicomponentId);
-    var textSearch = $(navigationSpaceSearch).find("input.SpaceSearchText")[0].value;
-	
+    var textSearch = $(navigationSpaceSearch).find("input.searchText")[0].value;
+
     if (textSearch != me.lastSearchKeyword) {
         me.lastSearchKeyword = textSearch;
         me.requestData(textSearch, uicomponentId);
-		
-    }	
+
+    }
 };
 
 eXo.navigation.UISpaceNavigation = new UISpaceNavigation();
