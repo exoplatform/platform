@@ -1,11 +1,8 @@
 
 <body>
-    <div id="content" >
-    <div id="PeopleGadget" class="UIGadgetThemes">
-    <div id="emptyInviteMessage">Send invitations to connect with your coworkers!</div>
-
-    <div style="display:none;" class="peopleInviteList" id="peopleInvite">
-        <div class='peopleInviteHeader'>Invitations (<span id='inviteCounter'></span>)
+    <div id="InvitationsPortlet" class="UIInvitationsPortlet" style="display:none;">
+    <div  class="InviteList">
+        <div class='InviteHeader'>Invitations (<span id='inviteCounter'></span>)
         </div>
         <ul id='requests'></ul>
     </div>

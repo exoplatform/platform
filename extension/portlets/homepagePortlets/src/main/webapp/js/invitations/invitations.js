@@ -3,8 +3,7 @@ function initIncoming() {
   $.getJSON("/rest/homepage/intranet/invitations/allInvitations", function(items){
 
     if (items.length > 0){
-      $("#peopleInvite").show();
-      $("#emptyInviteMessage").hide();
+      $("#InvitationsPortlet").show();
     }
 
     $.each(items, function(i, item){
@@ -28,9 +27,9 @@ function initIncoming() {
           $.getJSON("/rest/homepage/intranet/people/contacts/confirm/"+item.relationId, null);
 
           if($("#requests").children().length == 1) {
-            $("#peopleInvite").fadeOut(500, function () {
+            $("#InvitationsPortlet").fadeOut(500, function () {
               $("#"+item.relationId).remove();
-              $("#peopleInvite").hide();
+              $("#InvitationsPortlet").hide();
             });
           }
           else {
@@ -46,9 +45,9 @@ function initIncoming() {
           $.getJSON("/rest/homepage/intranet/people/contacts/deny/"+item.relationId, null);
 
           if($("#requests").children().length == 1) {
-            $("#peopleInvite").fadeOut(500, function () {
+            $("#InvitationsPortlet").fadeOut(500, function () {
               $("#"+item.relationId).remove();
-              $("#peopleInvite").hide();
+              $("#InvitationsPortlet").hide();
             });
           }
           else {
@@ -80,9 +79,9 @@ function initIncoming() {
           $.getJSON("/rest/homepage/intranet/spaces/accept/"+item.spaceId, null);
 
           if($("#requests").children().length == 1) {
-            $("#peopleInvite").fadeOut(500, function () {
+            $("#InvitationsPortlet").fadeOut(500, function () {
               $("#"+item.spaceId).remove();
-              $("#peopleInvite").hide();
+              $("#InvitationsPortlet").hide();
 
             });
           }
@@ -99,9 +98,9 @@ function initIncoming() {
           $.getJSON("/rest/homepage/intranet/spaces/deny/"+item.spaceId, null);
 
           if($("#requests").children().length == 1) {
-            $("#peopleInvite").fadeOut(500, function () {
+            $("#InvitationsPortlet").fadeOut(500, function () {
               $("#"+item.spaceId).remove();
-              $("#peopleInvite").hide();
+              $("#InvitationsPortlet").hide();
             });
           }
           else {
@@ -120,10 +119,9 @@ function initIncoming() {
   });
 }
 
-  $(document).ready(function() {
-    initIncoming();
-  });
-
+$(document).ready(function() {
+  initIncoming();
+});
 
 
 

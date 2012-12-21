@@ -1,4 +1,4 @@
-#PeopleGadget {
+#InvitationsPortlet {
     border: dashed 1px #E2DDC7;
     margin-right: 15px;
     -moz-border-radius: 3px;
@@ -6,31 +6,25 @@
     padding: 10px 15px 5px 15px;
 }
 
-
-
-
-#PeopleGadget ul {
+#InvitationsPortlet ul {
     list-style-type: none;
     padding: 0;
     margin: 0px;
 }
 
-
-#PeopleGadget ul li{
+#InvitationsPortlet ul li{
     height: 50px;
     margin-top: 10px;
     margin-bottom: 10px;
 }
 
-
-
-.peopleList img{
+.InviteList img{
     width: 24px;
     height: 24px;
     border-width: 0px;
 }
 
-.peopleHeader {
+.InviteHeader {
     font-weight: bold;
     margin-bottom: 12px;
     padding-top: 5px;
@@ -39,8 +33,9 @@
 .peopleInviteName {
     font-weight: bold;
 }
+
 .name {
-    width:157px;
+    width:172px;
     float:left;
     white-space:nowrap;
     overflow: hidden;
@@ -48,7 +43,7 @@
 }
 
 .actionInviteAppears {
-    width:40px;
+    width:68px;
     float:left;
     white-space:nowrap;
     overflow: hidden;
@@ -56,12 +51,11 @@
 }
 
 .peopleInvitePosition {
-    width:157px;
+    width:172px;
     white-space:nowrap;
     overflow: hidden;
     text-overflow:ellipsis;
 }
-
 
 .peopleInviteAction {
     white-space:nowrap;
@@ -70,7 +64,7 @@
 
 .peopleInviteInfo {
     padding-left: 10px;
-    width: 157px;
+    width: 172px;
     overflow: hidden;
 }
 
@@ -79,12 +73,39 @@
     padding-top: 2px;
 }
 
-.peopleInvitePicture img {
-    width: 50px;
-}
-
-#emptyInviteMessage {
-    padding: 5px;
+.spaceInviteName {
     font-weight: bold;
 }
 
+.spaceInviteAction {
+    white-space:nowrap;
+    font-size: 10px;
+}
+
+.spaceInviteInfo {
+    /*float: left;*/
+    padding-left: 10px;
+    width: 172px;
+    overflow: hidden;
+}
+
+.spaceInvitePicture {
+    float: left;
+    padding-top: 2px;
+}
+
+.spacevisibility{
+    width:172px;
+    float:left;
+    white-space:nowrap;
+    overflow: hidden;
+    text-overflow:ellipsis;
+}
+
+.actionSpaceAppears {
+    width:68px;
+    float:left;
+    white-space:nowrap;
+    overflow: hidden;
+    text-overflow:ellipsis;
+}

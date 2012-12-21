@@ -22,8 +22,7 @@
 @Assets(
         scripts = {@Script(id = "jquery", src = "js/jquery-1.7.2.min.js"),
                  @Script( src = "js/invitations/invitations.js") },
-        stylesheets = {@Stylesheet(src = "style/invitations/people.css"),
-                       @Stylesheet(src = "style/invitations/space.css"),
+        stylesheets = {@Stylesheet(src = "style/invitations/invitations.css"),
                        @Stylesheet(src = "/exo-gadget-resources/skin/exo-gadget/gadget-common.css")
         }
 )
