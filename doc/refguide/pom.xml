@@ -36,6 +36,8 @@
       <properties>
         <docbook.source>${project.build.directory}/docbook-src</docbook.source>
         <jcr.source>${project.build.directory}/docbook-src/org.exoplatform.jcr</jcr.source>
+        <!-- Override version of JCR to get the new structure and so the artifact from platform-documentation -->
+	    <org.exoplatform.jcr.version>3.5.6-SNAPSHOT</org.exoplatform.jcr.version>
       </properties>
       <build>
         <plugins>
@@ -57,8 +59,8 @@
                   <artifactItems>
                     <!-- JCR -->
                     <artifactItem>
-                      <groupId>org.exoplatform.jcr</groupId>
-                      <artifactId>reference-docs-en</artifactId>
+                      <groupId>com.exoplatform.platform.documentation</groupId>
+                      <artifactId>platform-documentation-refguide-jcr</artifactId>
                       <version>${org.exoplatform.jcr.version}</version>
                       <type>jar</type>
                       <classifier>sources</classifier>
@@ -85,7 +87,6 @@
                       <outputDirectory>${docbook.source}</outputDirectory>
                       <includes>**</includes>
                     </artifactItem>
-
                     <!-- Collaboration -->
                     <artifactItem>
                       <groupId>org.exoplatform.cs</groupId>
