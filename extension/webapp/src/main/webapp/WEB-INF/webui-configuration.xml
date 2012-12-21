@@ -39,6 +39,7 @@
       <listener>org.exoplatform.webui.application.MonitorApplicationLifecycle</listener>
       <listener>org.exoplatform.portal.application.UserProfileLifecycle</listener>
       <listener>org.exoplatform.portal.application.localization.LocalizationLifecycle</listener>
+      <listener>org.exoplatform.wiki.service.impl.WikiSpaceAccessLifecycle</listener>
       <listener>org.exoplatform.social.webui.space.access.SpaceAccessApplicationLifecycle</listener>  
     </application-lifecycle-listeners>
 
