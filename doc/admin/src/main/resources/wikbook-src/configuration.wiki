@@ -1087,8 +1087,7 @@ cache.exo.portal.ResourceBundleData.liveTime=600
 
 # Portal Cache Configuration - MOPSessionManager
 cache.exo.portal.MOPSessionManager.Capacity=5000
-cache.exo.portal.MOPSessionManager.TimeToLive=60000
-cache.exo.portal.MOPSessionManager.ExpirationTimeout=60000{code}
+cache.exo.portal.MOPSessionManager.TimeToLive=600{code}
 
 ||Cache Name||Description||
 |{{TemplateService}}|Cache all Groovy templates of portal by its template path and ResourceResolver.|
