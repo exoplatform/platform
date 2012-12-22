@@ -241,9 +241,6 @@ This guide is a complete reference for customization points, and available APIs,
   <xi:include href="org.exoplatform.jcr/docbook/en-US/modules/kernel/manageability.xml"
               xmlns:xi="http://www.w3.org/2001/XInclude" />
 
-  <xi:include href="org.exoplatform.jcr/docbook/en-US/modules/kernel/listener-service.xml"
-              xmlns:xi="http://www.w3.org/2001/XInclude" />
-
    </chapter>
     <chapter xml:id="chapter-eXoCore">
       <title>eXo Core</title>
