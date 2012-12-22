@@ -27,12 +27,12 @@
       <scope>runtime</scope>
     </dependency>
     <dependency>
-      <groupId>org.exoplatform.wiki</groupId>
+      <groupId>org.exoplatform.social</groupId>
       <artifactId>social-component-webui</artifactId>
       <scope>runtime</scope>
     </dependency>
     <dependency>
-      <groupId>org.exoplatform.social</groupId>
+      <groupId>org.exoplatform.wiki</groupId>
       <artifactId>wiki-service</artifactId>
       <scope>runtime</scope>
     </dependency>
