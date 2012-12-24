@@ -64,6 +64,7 @@
             <path>/javascript/jquery-ui-1.8.6.custom.min.js</path>
         </script>
         <depends>
+            <module>jquery</module>
             <as>jQuery</as>
         </depends>
     </module>
