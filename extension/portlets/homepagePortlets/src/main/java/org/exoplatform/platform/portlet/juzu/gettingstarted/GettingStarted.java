@@ -80,5 +80,6 @@ public class GettingStarted extends Controller {
         parameters.put("upload","portal/intranet/documents");
         parameters.put("uploadLabel","Upload a Document");
         gettingStarted.render(parameters);
+
     }
 }
