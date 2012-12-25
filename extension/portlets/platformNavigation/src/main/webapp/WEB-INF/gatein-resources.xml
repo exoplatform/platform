@@ -68,7 +68,7 @@
         </module>
     </portlet>
     <portlet>
-        <name>UserInfoPortlet</name>
+        <name>UIUserInfoPortlet</name>
         <module>
             <depends>
                 <module>base</module>
