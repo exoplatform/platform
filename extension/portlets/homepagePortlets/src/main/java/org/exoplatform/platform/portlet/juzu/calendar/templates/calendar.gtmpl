@@ -1,0 +1,139 @@
+<%
+import java.text.SimpleDateFormat;
+import org.exoplatform.calendar.service.CalendarEvent;
+%>
+
+<%
+    def settingLabel = "Settings";
+%>
+<div class="CalendarPortlet">
+    <div class="DateContainer">
+        <div class="PrevDateLink">
+            <a  href="@{decDate(nbClick='1')}">prev</a>
+        </div>
+
+        <div class="CurrentDateContainer">
+            <a href="#">${date_act}</a>
+        </div>
+
+        <div class="NextDateLink">
+            <a href="@{incDate(nbClick='1')}">next</a>
+        </div>
+    </div>
+
+
+    <div id="CalendarContainer" class="MyCalendars">
+
+        <% if (displayedCalendar != null) {
+
+            displayedCalendar.each { cal ->
+        %>
+        <p class="flottante" style="background-color:  ${cal.calendarColor}" class="" id="${cal.id}">${cal.name}</p>
+        <% }
+        }
+        %>
+        <div class="spacer">&nbsp;</div>
+    </div>
+
+    <div class="Events">
+        <div class="EventsTitle">
+            Events
+        </div>
+
+        <div class="EventsList ">
+
+            <%
+                def allDayLabel = "ALL DAY";
+                sdf1 = new SimpleDateFormat("MM/dd/yyyy");
+                sdf2 = new SimpleDateFormat("HH:mm")
+                def from;
+                def to;
+                if ((eventsDisplayedList != null) || (eventsDisplayedList.size() == 0)) {
+
+                    eventsDisplayedList.each { event ->
+                        def color = calendarDisplayedMap[event.calendarId].calendarColor;
+                        def eventCss = "";
+                        if (new Date().compareTo(event.toDateTime) > 0) eventCss = "PastEvent";
+                        else eventCss = "EventLink"
+            %>
+            <div class="${eventCss}" style="height:40px;border-radius:11px;border-style: solid;border-color:  ${color}"
+                 class="" id="${event.id}">
+                <p class="flottante">
+                    <a href="/portal/intranet/calendar">${event.summary}</a>
+                </p>
+
+                <p style="float:right">
+                    <% if (event.toDateTime.getTime() - event.fromDateTime.getTime() == 86400000) { %>
+                    <span>${allDayLabel}</span>
+                    <% } else if (event.toDateTime.getTime() - event.fromDateTime.getTime() > 86400000) {
+                        from = sdf1.format(event.fromDateTime);
+                        to = sdf1.format(event.toDateTime);
+                    %>
+
+                    <span>
+                        FROM:  ${from}
+                    </span>
+
+                    <span>
+                        To:  ${to}
+                    </span>
+                    <% } else if (event.toDateTime.getTime() - event.fromDateTime.getTime() < 86400000) {
+                        from = sdf2.format(event.fromDateTime);
+                        to = sdf2.format(event.toDateTime);
+                    %>
+
+                    <span>
+                        FROM:  ${from}
+                    </span>
+
+                    <span>
+                        TO:  ${to}
+                    </span>
+                    <% } %>
+                </p>
+
+                <div class="spacer">&nbsp;
+                </div>
+
+            </div>
+            <% }
+            }
+            %>
+        </div>
+    </div>
+
+
+
+    <% if ((tasksDisplayedList != null) && (tasksDisplayedList.size() != 0)) { %>
+    <div class="Tasks ">
+
+        <div class="TasksTitle">
+            Tasks
+        </div>
+
+        <div class="TasksList">
+            <% def cssClass = "";
+                if (tasksDisplayedList != null) {
+
+                    tasksDisplayedList.each { task ->
+                        if (task.status.equals(CalendarEvent.COMPLETED)) cssClass = "TaskCompleted";
+                        else if ((task.status.equals(CalendarEvent.NEEDS_ACTION)) && (task.toDateTime.compareTo(new Date()) < 0)) cssClass = "taskNotCompleted";
+                        else cssClass = "TaskLateNotCompleted"
+            %>
+            <div>
+
+                <a href="/portal/intranet/calendar" class="${cssClass}">${task.summary} ${task.status} task</a>
+
+            </div>
+            <% }
+            } %>
+        </div>
+    </div>
+    <% } %>
+    <div class="SettingsContainer" style="height: 30px;">
+        <div style="display: none">
+            <a class="SettingsLink" id="SettingId" href="@{setting()}">${settingLabel}</a>
+        </div>
+    </div>
+</div>
+</div>

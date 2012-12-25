@@ -80,4 +80,20 @@
             <keywords>juzu</keywords>
         </portlet-info>
     </portlet>
+    <portlet>
+        <portlet-name>HomePageCalendarPortlet</portlet-name>
+        <display-name xml:lang="EN">Calendar Portlet</display-name>
+        <portlet-class>org.exoplatform.platform.portlet.juzu.calendar.CalendarPortlet</portlet-class>
+        <init-param>
+            <name>juzu.run_mode</name>
+            <value>prod</value>
+        </init-param>
+        <supports>
+            <mime-type>text/html</mime-type>
+        </supports>
+        <portlet-info>
+            <title>Calendar Portlet</title>
+            <keywords>Home_Page_Portlets_Calendar</keywords>
+        </portlet-info>
+    </portlet>
 </portlet-app>

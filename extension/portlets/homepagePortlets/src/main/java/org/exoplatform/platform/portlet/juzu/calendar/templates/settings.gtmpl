@@ -1,0 +1,109 @@
+<style>
+.CalendarItemSelected {
+    float: left;
+}
+
+.CalendarItem {
+
+}
+
+.flottante {
+
+    margin: 2px;
+    float: left;
+
+    text-align: center;
+}
+
+.conteneur {
+    width: 100%;
+}
+
+.spacer {
+    clear: both;
+}
+
+.settingsTitle {
+    text-align: center;
+}
+  .SettingsContainerTitle{
+      background-color: silver;
+  }
+    .SEARCHCONTAINER{
+        background-color: #959595;
+    }
+</style>
+
+
+<div id="SettingsContainer">
+<div id="SettingsContainerTitle">
+   <p class="settingsTitle">Settings</p>
+</div>
+
+<div id="DisplayedCalendarTitle">
+   <p>Displayed Calendar</p>
+</div>
+
+<div id="DisplayedCalendarContainer">
+
+        <% if (displayedCalendar != null) {
+
+            displayedCalendar.each { cal ->
+        %>
+        <div class= "CalendarItem" id="${cal.id}">
+            <p class="flottante" style="background-color:  ${cal.calendarColor}" class="" id="${cal.id}">${cal.name}</p>
+
+            <form action="@{deleteCalendar()}" method="post">
+                <input type="hidden" name="calendarId" value="${cal.id}"/>
+
+                <p class="flottante"><button type="submit">delete</button></p>
+            </form>
+        </div>
+        <% }
+        }
+        %>
+        <div class="spacer">&nbsp;</div>
+
+    </div>
+
+    <div id="nonDisplayedCalendarTitle">
+        <p>Display Additionnal Calendar:</p>
+    </div>
+
+    <div class="searchContainer">
+        <%def searchLabel="search your calendar"%>
+        <input type="text" class="PLFcalendarSearchKey" value="${searchLabel}"/>
+
+        <div  class="NonDisplayedCalendar"></div>
+    </div>
+
+    <div  id="nonDisplayedCalendarContainer" style="display: block">
+        <% if (nonDisplayedCalendar != null) {
+
+            nonDisplayedCalendar.each { cal ->
+        %>
+        <div id="${cal.id}" class="CalendarItem">
+            <form action="@{addCalendar()}" method="post">
+
+                <input type="hidden" name="calendarId" value="${cal.id}"/>
+
+                <p style="float:left; height:20px;width:20px;background-color:  ${cal.calendarColor}"/>
+
+                <p style="float:left; ">${cal.name}</p>
+
+                <p class="addButton" style="float:left;display: none;"><button type="submit" value="ADD">ADD</button></p>
+
+                <div class="spacer">
+                    &nbsp;
+                </div>
+            </form>
+        </div>
+        <% }
+
+        }
+
+        %>
+
+    </div>
+    <a href="@{index()}">OK</a>
+</div>

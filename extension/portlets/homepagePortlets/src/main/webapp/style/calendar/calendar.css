@@ -1,0 +1,100 @@
+.CalendarPortlet{
+
+}
+
+.CalendarItem {
+
+}
+.CalendarContainer{
+
+}
+.DateContainer{
+    background-color: silver;
+    height: 20px;
+    text-align: center;
+    width: 100%;
+}
+.PrevDateLink{
+    float: left;
+}
+.NextDateLink  {
+   float: right;
+}
+.CurrentDateContainer{
+    float:left;
+    text-decoration-style: solid;
+    text-align: center;
+}
+.flottante {
+
+    margin: 2px;
+    float: left;
+
+    text-align: center;
+}
+
+.conteneur {
+    width: 100%;
+}
+
+.spacer {
+    clear: both;
+}
+
+.TaskCompleted{
+    margin: 10px 0px 10px 0px;
+    padding-left: 15px;
+    text-decoration: line-through;
+    background:url('img/check.png') no-repeat left !important;
+}
+.TaskLateNotCompleted{
+    margin: 10px 0px 10px 0px;
+    padding-left: 15px;
+    font-style: italic;
+    background:url('img/rec.png') no-repeat left !important;
+}
+.taskNotCompleted{
+    margin: 10px 0px 10px 0px;
+    padding-left: 15px;
+    text-decoration: solid;
+    background:url('img/check.png') no-repeat left !important;
+}
+ .SettingsLink{
+     height: 30px;
+     width: 40px;
+     background:url('img/Setting.png') no-repeat right ;
+ }
+ .TasksTitle{
+     text-decoration-style: solid;
+       background-color:silver;
+     height: 20px;
+     text-align: center;
+ }
+ .TasksList{
+
+ }
+ .Events{
+
+ }
+ .EventsList{
+
+ }
+ .EventsTitle{
+     text-decoration-style: solid;
+     background-color: silver;
+     height: 20px;
+     text-align: center;
+ }
+
+ .PastEvent{
+        background-color: #d3d3d3;
+ }
+
+ .EventLink{
+
+        text-decoration: #444444;
+ }
+ .SettingsContainer{
+             float: right;
+ }
+
