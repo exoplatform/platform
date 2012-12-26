@@ -52,10 +52,18 @@
     <key>org.exoplatform.services.organization.idm.PicketLinkIDMService</key>
     <type>org.exoplatform.services.organization.idm.PicketLinkIDMServiceImpl</type>
     <init-params>
-      <value-param>
-        <name>config</name>
-        <value>jar:/conf/portal/idm-config.xml</value>
-      </value-param>
+        <value-param>
+            <name>config</name>
+            <value>classpath:/conf/portal/picketlink-idm-config.xml</value>
+        </value-param>
+        <value-param>
+            <name>apiCacheConfig</name>
+            <value>classpath:/conf/cache/infinispan.xml</value>
+        </value-param>
+        <value-param>
+            <name>skipExpirationOfStructureCacheEntries</name>
+            <value>true</value>
+        </value-param>
     </init-params>
   </component>
 
@@ -124,10 +132,12 @@
         <!--<property name="hibernate.format_sql" value="true"/>-->
         <property name="hibernate.current_session_context_class" value="thread"/>
         <property name="hibernate.jdbc.batch_size" value="0"/>
-        <property name="hibernate.cache.use_second_level_cache" value="true"/>
-        <property name="hibernate.cache.use_query_cache" value="true"/>
+        <property name="hibernate.cache.use_second_level_cache" value="false"/>
+        <property name="hibernate.cache.use_query_cache" value="false"/>
         <!--CHANGEME HashtableCacheProvider shold not be used in production env-->
-        <property name="hibernate.cache.provider_class" value="org.hibernate.cache.HashtableCacheProvider"/>
+        <!--
+          <property name="hibernate.cache.provider_class" value="org.hibernate.cache.HashtableCacheProvider"/>
+        -->
         <property name="hibernate.connection.url" value="jdbc:hsqldb:file:${basedir}/target/temp/data/exodb${container.name.suffix}"/>
         <property name="hibernate.connection.driver_class" value="org.hsqldb.jdbcDriver"/>
         <property name="hibernate.connection.autocommit" value="true"/>

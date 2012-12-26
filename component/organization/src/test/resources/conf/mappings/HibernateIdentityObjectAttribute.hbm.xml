@@ -1,0 +1,55 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+  <class name="org.picketlink.idm.impl.model.hibernate.HibernateIdentityObjectAttribute"
+         table="jbid_io_attr">
+    <cache usage="read-write"/>
+    <id name="id"
+        type="java.lang.Long"
+        access="field">
+      <column name="ATTRIBUTE_ID"/>
+      <generator class="native"/>
+    </id>
+    <many-to-one name="identityObject"
+                 class="org.picketlink.idm.impl.model.hibernate.HibernateIdentityObject"
+                 access="field"
+                 fetch="join">
+      <column name="IDENTITY_OBJECT_ID" not-null="true" unique-key="id"/>
+    </many-to-one>
+    <property name="name"
+              type="java.lang.String"
+              access="property"
+              lazy="false">
+      <column name="NAME"
+              unique-key="id"/>
+    </property>
+    <property name="type"
+              type="java.lang.String"
+              access="field"
+              lazy="false"
+              not-null="true">
+      <column name="ATTRIBUTE_TYPE"/>
+    </property>
+    <set name="textValues"
+         table="jbid_io_attr_text_values"
+         cascade="all, delete-orphan"
+         access="field"
+         lazy="extra"
+         fetch="subselect">
+      <cache usage="read-write"/>
+      <key column="TEXT_ATTR_VALUE_ID"/>
+      <element type="string"
+               column="ATTR_VALUE"/>
+    </set>
+    <many-to-one name="binaryValue"
+                 class="org.picketlink.idm.impl.model.hibernate.HibernateIdentityObjectAttributeBinaryValue"
+                 not-null="false"
+                 column="BIN_VALUE_ID"
+                 unique="false"
+                 lazy="proxy"
+                 access="field"
+                 fetch="select"
+                 cascade="all"/>
+  </class>
+</hibernate-mapping>
