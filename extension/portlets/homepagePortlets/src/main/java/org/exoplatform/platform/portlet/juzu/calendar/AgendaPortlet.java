@@ -7,9 +7,11 @@ import org.exoplatform.services.log.ExoLogger;
 import org.exoplatform.services.log.Log;
 import org.exoplatform.services.organization.Group;
 import org.exoplatform.services.organization.OrganizationService;
+import org.exoplatform.web.application.RequestContext;
+import org.gatein.common.text.EntityEncoder;
 
 import javax.inject.Inject;
-import java.text.SimpleDateFormat;
+import java.text.DateFormat;
 import java.util.*;
 import java.util.Calendar;
 
@@ -53,26 +55,29 @@ public class AgendaPortlet extends Controller {
     @Path("search.gtmpl")
     org.exoplatform.platform.portlet.juzu.calendar.templates.search search;
 
+
     @View
     public void index() throws Exception {
-
         eventsDisplayedList.clear();
         calendarDisplayedMap.clear();
         calendarDisplayedList.clear();
         tasksDisplayedList.clear();
+
+        /*Date Localization i18n*/
+
+        Locale locale = RequestContext.getCurrentInstance().getLocale();
+
+        DateFormat d = DateFormat.getDateInstance(DateFormat.SHORT, locale);
 
         String username = renderContext.getSecurityContext().getRemoteUser();
         Long date = new Date().getTime();
         int int_nb_click = Integer.parseInt(nbclick);
         if (int_nb_click != 0) date = incDecJour(date, int_nb_click);
 
-        SimpleDateFormat sdf = null;
-        CalendarSetting set = getCalendarSetting(username);
-        if (set != null) sdf = new SimpleDateFormat(set.getDateFormat());
-        else sdf = new SimpleDateFormat("MM/dd/yy");
-        String date_act = sdf.format(new Date(date));
 
-        Date comp = sdf.parse(date_act);
+        String date_act = d.format(new Date(date));
+
+        Date comp = d.parse(date_act);
 
         List<CalendarEvent> userEvents = getEvents(username);
 
@@ -81,8 +86,8 @@ public class AgendaPortlet extends Controller {
             while (itr.hasNext()) {
 
                 CalendarEvent event = (CalendarEvent) itr.next();
-                Date from = sdf.parse(sdf.format(event.getFromDateTime()));
-                Date to = sdf.parse(sdf.format(event.getToDateTime()));
+                Date from = d.parse(d.format(event.getFromDateTime()));
+                Date to = d.parse(d.format(event.getToDateTime()));
 
                 if ((from.compareTo(comp) <= 0) && (to.compareTo(comp) >= 0)) {
 
@@ -107,26 +112,52 @@ public class AgendaPortlet extends Controller {
                 calendarNonDisplayedList.add(c);
             }
         }
-
+        HashMap parameters = new HashMap();
         String dateLabel = "";
-        if (int_nb_click == 0) dateLabel = "TODAY"+": " ;
-        else if (int_nb_click == -1) dateLabel = "YESTERDAY"+": ";
-        else if (int_nb_click == 1) dateLabel = "TOMORROW"+": ";
-        else dateLabel = "";
-        dateLabel = dateLabel +  date_act;
+        try {
+            ResourceBundle rs = ResourceBundle.getBundle("calendar/calendar", locale);
+            parameters.put("tasklabel", EntityEncoder.FULL.encode(rs.getString("tasks.calendar.label")));
+            parameters.put("eventsLabel", EntityEncoder.FULL.encode(rs.getString("events.calendar.label")));
+            parameters.put("toLabel", EntityEncoder.FULL.encode(rs.getString("to.label")));
+            parameters.put("fromLabel", EntityEncoder.FULL.encode(rs.getString("from.label")));
+            if (int_nb_click == 0) dateLabel = rs.getString("today.label") + ": ";
+            else if (int_nb_click == -1) dateLabel = rs.getString("yesterday.label") + ": ";
+            else if (int_nb_click == 1) dateLabel = rs.getString("tomorrow.label") + ": ";
+            else dateLabel = "";
+        } catch (MissingResourceException ex) {
+            if (int_nb_click == 0) dateLabel = "today.label" + ": ";
+            else if (int_nb_click == -1) dateLabel = "yesterday.label" + ": ";
+            else if (int_nb_click == 1) dateLabel = "tomorrow.label" + ": ";
+            else dateLabel = "";
+        }
+        EntityEncoder.FULL.encode(dateLabel);
+        dateLabel = dateLabel + date_act;
+
 
         calendar.with().set("displayedCalendar", calendarDisplayedList).
                 set("nonDisplayedCalendar", calendarNonDisplayedList).
                 set("calendarDisplayedMap", calendarDisplayedMap).
                 set("eventsDisplayedList", eventsDisplayedList).
                 set("tasksDisplayedList", tasksDisplayedList).
-                set("date_act", dateLabel).render();
+                set("date_act", dateLabel).set("bundle",parameters).render();
     }
-
 
     @View
     public void setting() throws Exception {
-        setting.with().set("displayedCalendar", calendarDisplayedList).set("nonDisplayedCalendar", calendarNonDisplayedList).render();
+        HashMap parameters = new HashMap();
+        try {
+            Locale locale = RequestContext.getCurrentInstance().getLocale();
+            ResourceBundle rs = ResourceBundle.getBundle("calendar/calendar", locale);
+            parameters.put("displayedLabel", EntityEncoder.FULL.encode(rs.getString("displayed.calendar.label")));
+            parameters.put("settingLabel", EntityEncoder.FULL.encode(rs.getString("settings.label")));
+            parameters.put("additionalCalendarLabel", EntityEncoder.FULL.encode(rs.getString("display.additional.calendar.label")));
+            parameters.put("searchLabel", EntityEncoder.FULL.encode(rs.getString("search.calendar.label")));
+        } catch (MissingResourceException ex) {
+             log.trace(ex.getMessage());
+        }
+        setting.with().set("displayedCalendar", calendarDisplayedList).
+                set("nonDisplayedCalendar", calendarNonDisplayedList).
+                set("bundle",parameters).render();
     }
 
     @Action
@@ -235,6 +266,7 @@ public class AgendaPortlet extends Controller {
     }
 
     String[] getCalendarsIdList(String username) {
+
 
         StringBuilder sb = new StringBuilder();
         List<GroupCalendarData> listgroupCalendar = null;

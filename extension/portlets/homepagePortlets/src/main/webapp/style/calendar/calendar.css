@@ -59,11 +59,7 @@
     text-decoration: solid;
     background:url('img/check.png') no-repeat left !important;
 }
- .SettingsLink{
-     height: 30px;
-     width: 40px;
-     background:url('img/Setting.png') no-repeat right ;
- }
+
  .TasksTitle{
      text-decoration-style: solid;
        background-color:silver;
@@ -97,4 +93,8 @@
  .SettingsContainer{
              float: right;
  }
+
+.SettingsLink{
+    background:url('img/Setting.png') no-repeat right ;
+}
 

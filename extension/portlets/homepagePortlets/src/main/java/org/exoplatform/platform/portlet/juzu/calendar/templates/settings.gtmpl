@@ -37,11 +37,11 @@
 
 <div id="SettingsContainer">
 <div id="SettingsContainerTitle">
-   <p class="settingsTitle">Settings</p>
+   <p class="settingsTitle">${bundle["settingLabel"]}</p>
 </div>
 
 <div id="DisplayedCalendarTitle">
-   <p>Displayed Calendar</p>
+   <p>${bundle["displayedLabel"]}</p>
 </div>
 
 <div id="DisplayedCalendarContainer">
@@ -67,12 +67,12 @@
     </div>
 
     <div id="nonDisplayedCalendarTitle">
-        <p>Display Additionnal Calendar:</p>
+        <p>${bundle["additionalCalendarLabel"]}</p>
     </div>
 
     <div class="searchContainer">
-        <%def searchLabel="search your calendar"%>
-        <input type="text" class="PLFcalendarSearchKey" value="${searchLabel}"/>
+        <%def searchLabel= bundle["searchLabel"]  %>
+        <input type="text"  class="PLFcalendarSearchKey" value="${searchLabel}"/>
 
         <div  class="NonDisplayedCalendar"></div>
     </div>

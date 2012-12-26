@@ -1,10 +1,11 @@
 <%
-import java.text.SimpleDateFormat;
+import java.text.DateFormat;
 import org.exoplatform.calendar.service.CalendarEvent;
+import org.exoplatform.web.application.RequestContext;
+import java.util.Locale;
 %>
-
 <%
-    def settingLabel = "Settings";
+
 %>
 <div class="CalendarPortlet">
     <div class="DateContainer">
@@ -37,15 +38,19 @@ import org.exoplatform.calendar.service.CalendarEvent;
 
     <div class="Events">
         <div class="EventsTitle">
-            Events
+            ${bundle["eventsLabel"]}
         </div>
 
         <div class="EventsList ">
 
             <%
                 def allDayLabel = "ALL DAY";
-                sdf1 = new SimpleDateFormat("MM/dd/yyyy");
-                sdf2 = new SimpleDateFormat("HH:mm")
+
+                Locale locale= RequestContext.getCurrentInstance().getLocale();
+
+                sdf1= DateFormat.getDateInstance(DateFormat.SHORT,locale);
+
+                sdf2= DateFormat.getTimeInstance(DateFormat.SHORT,locale);
                 def from;
                 def to;
                 if ((eventsDisplayedList != null) || (eventsDisplayedList.size() == 0)) {
@@ -71,11 +76,11 @@ import org.exoplatform.calendar.service.CalendarEvent;
                     %>
 
                     <span>
-                        FROM:  ${from}
+                    ${bundle["fromLabel"]}  ${from}
                     </span>
 
                     <span>
-                        To:  ${to}
+                        ${bundle["toLabel"]}  ${to}
                     </span>
                     <% } else if (event.toDateTime.getTime() - event.fromDateTime.getTime() < 86400000) {
                         from = sdf2.format(event.fromDateTime);
@@ -83,11 +88,11 @@ import org.exoplatform.calendar.service.CalendarEvent;
                     %>
 
                     <span>
-                        FROM:  ${from}
+                    ${bundle["fromLabel"]}  ${from}
                     </span>
 
                     <span>
-                        TO:  ${to}
+                        ${bundle["toLabel"]}  ${to}
                     </span>
                     <% } %>
                 </p>
@@ -108,7 +113,7 @@ import org.exoplatform.calendar.service.CalendarEvent;
     <div class="Tasks ">
 
         <div class="TasksTitle">
-            Tasks
+            ${bundle["taskLabel"]}
         </div>
 
         <div class="TasksList">
@@ -116,13 +121,13 @@ import org.exoplatform.calendar.service.CalendarEvent;
                 if (tasksDisplayedList != null) {
 
                     tasksDisplayedList.each { task ->
-                        if (task.status.equals(CalendarEvent.COMPLETED)) cssClass = "TaskCompleted";
-                        else if ((task.status.equals(CalendarEvent.NEEDS_ACTION)) && (task.toDateTime.compareTo(new Date()) < 0)) cssClass = "taskNotCompleted";
+                        if ((task.status).equals(CalendarEvent.COMPLETED)) cssClass = "TaskCompleted";
+                        else if (((task.status).equals(CalendarEvent.NEEDS_ACTION)) && (task.toDateTime.compareTo(new Date()) < 0)) cssClass = "taskNotCompleted";
                         else cssClass = "TaskLateNotCompleted"
             %>
             <div>
 
-                <a href="/portal/intranet/calendar" class="${cssClass}">${task.summary} ${task.status} task</a>
+                <a href="/portal/intranet/calendar" class="${cssClass}">${task.summary} ${task.status} <%= task.getStatus()%> task</a>
 
             </div>
             <% }
@@ -132,7 +137,7 @@ import org.exoplatform.calendar.service.CalendarEvent;
     <% } %>
     <div class="SettingsContainer" style="height: 30px;">
         <div style="display: none">
-            <a class="SettingsLink" id="SettingId" href="@{setting()}">${settingLabel}</a>
+            <a class="SettingsLink" id="SettingId" href="@{setting()}"> Setting </a>
         </div>
     </div>
 </div>

@@ -28,7 +28,7 @@
 
         } ,
         stylesheets = {
-                @Stylesheet(src = "css/gettingStarted/gettingstarted.css")
+                @Stylesheet(src = "style/gettingStarted/gettingstarted.css")
 
         }
 )

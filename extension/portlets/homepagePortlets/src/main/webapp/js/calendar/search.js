@@ -1,11 +1,13 @@
 
 $(function () {
 
+     function init(initKey){
+
     $('input.PLFcalendarSearchKey').on( "click", function() {
         $("#nonDisplayedCalendarContainer").css("display","none");
         var seakey=$(this).val();
 
-        if (seakey == "search your calendar") {
+        if (seakey == initKey) {
             seakey="";
             $(this).val("");
         }
@@ -60,14 +62,14 @@ $(function () {
             {"key":seakey});
     });
     $('input.PLFcalendarSearchKey').on("focus" ,function() {
-        if ($(this).val() == "search your calendar") {
+        if ($(this).val() == initKey) {
             $(this).val("");
         }
     });
 
     $('input.PLFcalendarSearchKey').on("blur",function() {
         if ($(this).val() == "") {
-            $(this).val("search your calendar") ;
+            $(this).val(initKey) ;
         }
     });
     $('.CalendarItem').mouseover(function() {
@@ -87,5 +89,10 @@ $(function () {
     $('.CalendarPortlet').mouseout(function() {
         $('.SettingsContainer').children("div").css("display","none");
     });
+     };
 
+    $(document).ready(function(){
+        var initKey=$('input.PLFcalendarSearchKey').val();
+        init(initKey) ;
+    });
 });

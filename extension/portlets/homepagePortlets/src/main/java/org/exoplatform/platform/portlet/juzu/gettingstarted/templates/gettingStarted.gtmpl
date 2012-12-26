@@ -16,13 +16,23 @@
  * Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
  * 02110-1301 USA, or see the FSF site: http://www.fsf.org.
  */ %>
-<%if (show == "true") {%>
+<%
+      import org.exoplatform.commons.utils.ExpressionUtil;
+      import java.util.Locale;
+      import java.util.ResourceBundle;
+      import org.exoplatform.web.application.RequestContext;
+%>
+<%
+    Locale locale = RequestContext.getCurrentInstance().getLocale();
+    ResourceBundle rs = ResourceBundle.getBundle("gettingStarted/gettingStarted", locale);
+    def titleLabel=rs.getString("title.Label");
+    if (show == "true") {%>
 
 <div id="GettingStarted" style="display: block">
     <div class="UIGadgetThemes">
 
 
-        <div class="gadgetTitle">Getting Started</div>
+        <div class="gadgetTitle">${titleLabel}</div>
 
         <div id="progress-block">
             <div id="progress-shell">
