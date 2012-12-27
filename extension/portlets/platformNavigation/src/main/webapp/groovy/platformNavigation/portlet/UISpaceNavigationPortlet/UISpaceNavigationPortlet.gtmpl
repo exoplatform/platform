@@ -112,11 +112,12 @@
   String defaultValueForTextSearch = _ctx.appRes("UISpaceNavigationPortlet.msg.filter-spaces");
   def moreSpacesLabel = _ctx.appRes("UISpaceNavigationPortlet.label.more");
   def seeSpacesLabel = _ctx.appRes("UISpaceNavigationPortlet.label.see");
+  String noSpace = _ctx.appRes("UISpaceNavigationPortlet.msg.no-space");
   String selectSpaceAction = URLEncoder.encode(uicomponent.event(uicomponent.LOAD_NAVIGATION_ACTION), "utf-8");
   def rcontext = _ctx.getRequestContext() ;
   def requireJs = rcontext.getJavascriptManager().getRequireJS();
   requireJs.require("SHARED/navigation-spaces-search", "spacesSearch");
-  requireJs.addScripts("spacesSearch.UISpaceNavigation.init('" + uicomponent.id  + "','" + restUrl + "','" + defaultValueForTextSearch + "','" + selectSpaceAction + "');");
+  requireJs.addScripts("spacesSearch.UISpaceNavigation.init('" + uicomponent.id  + "','" + restUrl + "','" + defaultValueForTextSearch +"','" + noSpace + "','" + selectSpaceAction + "');");
 %>
 
 <div class="uiSpaceNavigationPortlet" id="$uicomponent.id">

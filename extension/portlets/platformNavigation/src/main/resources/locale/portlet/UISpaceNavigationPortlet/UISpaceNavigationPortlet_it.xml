@@ -9,6 +9,7 @@
         </label>
         <msg>
             <filter-spaces>Rechercher des espaces</filter-spaces>
+            <no-space>Aucun espace trouvé</no-space>
         </msg>
     </UISpaceNavigationPortlet>
 </bundle>

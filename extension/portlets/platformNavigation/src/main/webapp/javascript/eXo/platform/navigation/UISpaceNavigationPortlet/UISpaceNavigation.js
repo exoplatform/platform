@@ -20,13 +20,13 @@ if (!eXo.navigation)
     eXo.navigation = {};
 function UISpaceNavigation() {
 };
-UISpaceNavigation.prototype.init = function(uicomponentId, mySpaceRestUrl, defaultValueForTextSearch, selectSpaceAction) {
+UISpaceNavigation.prototype.init = function(uicomponentId, mySpaceRestUrl, defaultValueForTextSearch,noSpace, selectSpaceAction) {
     var me = eXo.navigation.UISpaceNavigation;
     me.mySpaceRestUrl = mySpaceRestUrl;
     me.lastSearchKeyword = "";
     me.defaultValueForTextSearch = defaultValueForTextSearch;
     me.selectSpaceAction = selectSpaceAction;
-
+    me.noSpace=noSpace;
     var me = eXo.navigation.UISpaceNavigation;
     var navigationSpaceSearch = document.getElementById(uicomponentId);
     var textField = $(navigationSpaceSearch).find("input.searchText")[0];
@@ -108,7 +108,7 @@ UISpaceNavigation.prototype.render = function(dataList, uicomponentId) {
     if(groupSpaces!=''){
         spacesListREsult.innerHTML = groupSpaces;
     }else{
-        spacesListREsult.innerHTML='No spaces'
+        spacesListREsult.innerHTML= me.noSpace  ;
     }
 
 };
