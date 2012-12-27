@@ -79,7 +79,7 @@
             println """
 				<li class="groupItem">
 					<span class="icon arrowIcon"></span>
-                    <a class="groupIcon" href="$href" title="$node.resolvedLabel">$label</a>
+                    <a class="groupIcon $icon" href="$href" title="$node.resolvedLabel">$label</a>
                     <ul class="childrenContainer" style="display: none">
 					""";
 
@@ -101,7 +101,7 @@
             println """
 				<li class=" groupItem ClearFix">
 					<span class="icon"></span>
-					<a class="groupIcon" href="$href" title="$node.resolvedLabel">$label</a>
+					<a class="groupIcon $icon" href="$href" title="$node.resolvedLabel">$label</a>
 				</li>
 
 				""";
