@@ -110,6 +110,8 @@
 <%
   String restUrl = uicomponent.getRestUrl();
   String defaultValueForTextSearch = _ctx.appRes("UISpaceNavigationPortlet.msg.filter-spaces");
+  def moreSpacesLabel = _ctx.appRes("UISpaceNavigationPortlet.label.more");
+  def seeSpacesLabel = _ctx.appRes("UISpaceNavigationPortlet.label.see");
   String selectSpaceAction = URLEncoder.encode(uicomponent.event(uicomponent.LOAD_NAVIGATION_ACTION), "utf-8");
   def rcontext = _ctx.getRequestContext() ;
   def requireJs = rcontext.getJavascriptManager().getRequireJS();
@@ -118,10 +120,10 @@
 %>
 
 <div class="uiSpaceNavigationPortlet" id="$uicomponent.id">
-  <h5 class="title"><%=_ctx.appRes("UISpaceNavigationPortlet.label.Spaces")%> <span class="numbers">($spaceTotal)</span></h5> 
+  <h5 class="title"><%=_ctx.appRes("UISpaceNavigationPortlet.label.Spaces")%> <span class="numbers">($spaceTotal)</span></h5>
   <!-- Merge exoadmin:  navigation-->
     <div class="searchInput"><input type="text" class="searchText LostFocus" value="Search Spaces"/></div>
-	
+
 	<ul class="spaceNavigation">
 
     <%
@@ -139,14 +141,13 @@
 		    def spaceNotDisplayed=spaceTotal - mySpacesDisplayed;
 
       		mySpacesDisplayed = -1;
-      		def moreSpacesLabel = _ctx.appRes("UIMySpacePlatformToolBarPortlet.more");
       		def moreSpacesLink = uicomponent.event("Increment");
 			if(spaceNotDisplayed>0){
       		print """
       			<li class="MenuItem">
       				""" ;
       				print """
-      				<a href="$moreSpacesLink" onclick="">$moreSpacesLabel ($spaceNotDisplayed)</a>
+      				<a href="$moreSpacesLink" onclick="">$seeSpacesLabel $spaceNotDisplayed $moreSpacesLabel</a>
       				""" ;
       				print """
       			</li>
@@ -160,7 +161,7 @@
 	</ul>
 </div>
 
- <div> 
+ <div>
 	<img title="" alt="" src="/eXoPlatformResources/skin/platformSkin/icons/icon_join.jpg" /><a class="EditorIcon TBIcon" href="<%= findSpacesLink %>">
 	<%=_ctx.appRes("UISpaceNavigationPortlet.label.Join")%></a></div>
 </div>

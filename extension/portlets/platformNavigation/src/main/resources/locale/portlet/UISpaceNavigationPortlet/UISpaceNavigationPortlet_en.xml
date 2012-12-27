@@ -4,6 +4,8 @@
         <label>
             <Spaces>Spaces</Spaces>
             <Join> Join a space</Join>
+            <more>More Spaces</more>
+            <see>See</see>
         </label>
         <msg>
             <filter-spaces>Search Spaces</filter-spaces>
