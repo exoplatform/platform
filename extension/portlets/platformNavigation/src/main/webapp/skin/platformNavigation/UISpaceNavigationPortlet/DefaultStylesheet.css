@@ -51,6 +51,8 @@
 	list-style: none;
 	margin: 0;
 	padding: 10px 25px;
+    max-height: 331px;
+    overflow-y: auto;
 }
 
 .uiSpaceNavigationPortlet .spaceNavigation .spaceItem {
