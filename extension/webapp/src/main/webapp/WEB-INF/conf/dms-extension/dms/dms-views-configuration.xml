@@ -40,7 +40,7 @@
                     <field name="tabName"><string>Admin</string></field>
                     <field name="buttons">
                       <string>
-                        upload; addFolder; overloadThumbnail; viewMetadatas; deleteNode; editDocument; manageActions; manageRelations; viewProperties; manageAuditing; showJCRStructure; viewReferences
+                        upload; addFolder; overloadThumbnail; viewMetadatas; editDocument; manageActions; manageRelations; viewProperties; manageAuditing; showJCRStructure; viewReferences
                       </string>
                     </field>
                   </object>
@@ -64,7 +64,7 @@
                     <field name="tabName"><string>Icons</string></field>
                     <field name="buttons">
                       <string>
-                        upload; addFolder; viewMetadatas; deleteNode; editDocument; taggingDocument; vote; overloadThumbnail; watchDocument; Comment; manageVersions
+                        upload; addFolder; viewMetadatas; editDocument; taggingDocument; vote; overloadThumbnail; watchDocument; Comment; manageVersions
                       </string>
                     </field>
                   </object>
@@ -87,7 +87,7 @@
                     <field name="tabName"><string>List</string></field>
                     <field name="buttons">
                       <string>
-                        upload; addFolder; overloadThumbnail; viewMetadatas; deleteNode; editDocument; taggingDocument; vote; watchDocument; Comment; manageVersions
+                        upload; addFolder; overloadThumbnail; viewMetadatas; editDocument; taggingDocument; vote; watchDocument; Comment; manageVersions
                       </string>                    	
                     </field>
                   </object>
