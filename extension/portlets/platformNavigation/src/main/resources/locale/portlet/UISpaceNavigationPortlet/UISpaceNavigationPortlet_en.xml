@@ -6,7 +6,7 @@
             <Join> Join a space</Join>
         </label>
         <msg>
-            <filter-spaces>Filter spaces</filter-spaces>
+            <filter-spaces>Search Spaces</filter-spaces>
         </msg>
     </UISpaceNavigationPortlet>
 </bundle>
