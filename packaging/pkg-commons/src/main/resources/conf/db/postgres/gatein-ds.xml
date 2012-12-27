@@ -23,7 +23,7 @@
   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 
 <datasources>
-    <no-tx-datasource>
+    <local-tx-datasource>
       <jndi-name>exo-idm_portal</jndi-name>
       <connection-url>jdbc:postgresql://${db.host}:${db.port}/${db.idm.name}</connection-url>
       <driver-class>org.postgresql.Driver</driver-class>
@@ -33,9 +33,9 @@
       <max-pool-size>128</max-pool-size>
       <idle-timeout-minutes>0</idle-timeout-minutes>
       <prepared-statement-cache-size>32</prepared-statement-cache-size>
-   </no-tx-datasource>
+   </local-tx-datasource>
   
-   <no-tx-datasource>
+   <local-tx-datasource>
       <jndi-name>exo-jcr_portal</jndi-name>
       <connection-url>jdbc:postgresql://${db.host}:${db.port}/${db.jcr.name}</connection-url>
       <driver-class>org.postgresql.Driver</driver-class>
@@ -45,5 +45,5 @@
       <max-pool-size>128</max-pool-size>
       <idle-timeout-minutes>0</idle-timeout-minutes>
       <prepared-statement-cache-size>32</prepared-statement-cache-size>
-   </no-tx-datasource>
+   </local-tx-datasource>
 </datasources>
