@@ -15,6 +15,5 @@
     <module>acme-website</module>
     <module>blank</module>
     <module>gadgets-sample</module>
-    <module>ide-extension</module>
   </modules>
 </project>

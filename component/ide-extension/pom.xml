@@ -3,10 +3,15 @@
   <modelVersion>4.0.0</modelVersion>
   <parent>
     <groupId>org.exoplatform.platform</groupId>
-	<artifactId>platform-sample-ide-extension</artifactId>
+	<artifactId>platform-component</artifactId>
     <version>4.0.0.Alpha1-SNAPSHOT</version>
   </parent>
-  <artifactId>platform-sample-ide-extension-config</artifactId>
-  <packaging>jar</packaging>
-  <name>eXo Platform - IDE Extension Container Config</name>
+  <artifactId>platform-component-ide-extension</artifactId>
+  <packaging>pom</packaging>
+  <name>eXo Platform - IDE Extension</name>
+  <modules>
+    <module>config</module>
+    <module>webapp</module>
+    <module>ear</module>
+  </modules>
 </project>

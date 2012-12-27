@@ -3,16 +3,16 @@
   <modelVersion>4.0.0</modelVersion>
   <parent>
     <groupId>org.exoplatform.platform</groupId>
-    <artifactId>platform-sample-ide-extension</artifactId>
+    <artifactId>platform-component-ide-extension</artifactId>
     <version>4.0.0.Alpha1-SNAPSHOT</version>
   </parent>
-  <artifactId>platform-sample-ide-extension-webapp</artifactId>
+  <artifactId>platform-component-ide-extension-webapp</artifactId>
   <packaging>war</packaging>
   <name>eXo Platform - IDE Webapp</name>
     <dependencies>
         <dependency>
             <groupId>${project.groupId}</groupId>
-            <artifactId>platform-sample-ide-extension-config</artifactId>
+            <artifactId>platform-component-ide-extension-config</artifactId>
             <scope>runtime</scope>
         </dependency>
     </dependencies>
