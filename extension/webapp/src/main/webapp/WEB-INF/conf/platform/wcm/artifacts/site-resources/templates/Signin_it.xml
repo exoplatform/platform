@@ -29,7 +29,7 @@
           
          xmlns:pc="http://www.gatein.org/jcr/pc/1.0/" 
           
-         xmlns:kfx="http://www.exoplatform.com/jcr/kfx/1.1/" 
+        
          xmlns:portlet="http://www.gatein.org/jcr/portlet/1.0/" 
          xmlns:rep="internal" sv:name="Signin"
 >
