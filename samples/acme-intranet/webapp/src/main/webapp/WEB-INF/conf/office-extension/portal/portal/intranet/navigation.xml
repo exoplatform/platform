@@ -39,10 +39,10 @@
         </node>
 
         <node>
-            <uri>calendar</uri>
-            <name>calendar</name>
-            <label>#{portal.intranet.calendar}</label>
-            <page-reference>portal::intranet::calendar</page-reference>
+            <uri>wiki</uri>
+            <name>wiki</name>
+            <label>#{portal.intranet.wiki}</label>
+            <page-reference>portal::intranet::wiki</page-reference>
         </node>
 
         <node>
@@ -60,10 +60,10 @@
         </node>
 
         <node>
-            <uri>wiki</uri>
-            <name>wiki</name>
-            <label>#{portal.intranet.wiki}</label>
-            <page-reference>portal::intranet::wiki</page-reference>
+            <uri>calendar</uri>
+            <name>calendar</name>
+            <label>#{portal.intranet.calendar}</label>
+            <page-reference>portal::intranet::calendar</page-reference>
         </node>
 
         <node>
