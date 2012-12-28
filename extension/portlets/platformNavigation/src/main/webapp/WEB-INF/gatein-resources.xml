@@ -18,7 +18,48 @@
         xsi:schemaLocation="http://www.gatein.org/xml/ns/gatein_resources_1_2_1 http://www.gatein.org/xml/ns/gatein_resources_1_2_1"
         xmlns="http://www.gatein.org/xml/ns/gatein_resources_1_2_1">
 
-
+    <portlet-skin>
+        <application-name>platformNavigation</application-name>
+        <portlet-name>UICompanyNavigationPortlet</portlet-name>
+        <skin-name>Default</skin-name>
+        <css-path>/skin/platformNavigation/UICompanyNavigationPortlet/DefaultStylesheet.css</css-path>
+    </portlet-skin>
+    <portlet-skin>
+        <application-name>platformNavigation</application-name>
+        <portlet-name>UIBreadCrumbsNavigationPortlet</portlet-name>
+        <skin-name>Default</skin-name>
+        <css-path>/skin/platformNavigation/UIBreadCrumbsNavigationPortlet/DefaultStylesheet.css</css-path>
+    </portlet-skin>
+    <portlet-skin>
+        <application-name>platformNavigation</application-name>
+        <portlet-name>UIGroupsNavigationPortlet</portlet-name>
+        <skin-name>Default</skin-name>
+        <css-path>/skin/platformNavigation/UIGroupsNavigationPortlet/DefaultStylesheet.css</css-path>
+    </portlet-skin>
+    <portlet-skin>
+        <application-name>platformNavigation</application-name>
+        <portlet-name>UIHelpPlatformToolbarPortlet</portlet-name>
+        <skin-name>Default</skin-name>
+        <css-path>/skin/platformNavigation/UIHelpPlatformToolbarPortlet/DefaultStylesheet.css</css-path>
+    </portlet-skin>
+    <portlet-skin>
+        <application-name>platformNavigation</application-name>
+        <portlet-name>UISearchPlatformToolbarPortlet</portlet-name>
+        <skin-name>Default</skin-name>
+        <css-path>/skin/platformNavigation/UISearchPlatformToolbarPortlet/DefaultStylesheet.css</css-path>
+    </portlet-skin>
+    <portlet-skin>
+        <application-name>platformNavigation</application-name>
+        <portlet-name>UISpaceNavigationPortlet</portlet-name>
+        <skin-name>Default</skin-name>
+        <css-path>/skin/platformNavigation/UISpaceNavigationPortlet/DefaultStylesheet.css</css-path>
+    </portlet-skin>
+    <portlet-skin>
+        <application-name>platformNavigation</application-name>
+        <portlet-name>UIUserNavigationPortlet</portlet-name>
+        <skin-name>Default</skin-name>
+        <css-path>/skin/platformNavigation/UIUserNavigationPortlet/DefaultStylesheet.css</css-path>
+    </portlet-skin>
     <portlet>
         <name>PlatformAdminToolbarPortlet</name>
         <module>
@@ -28,39 +69,7 @@
         </module>
     </portlet>
     <portlet>
-        <name>UIMyGroupsPlatformToolBarPortlet</name>
-        <module>
-            <depends>
-                <module>navigation</module>
-            </depends>
-        </module>
-    </portlet>
-    <portlet>
-        <name>UIMySpacePlatformToolBarPortlet</name>
-        <module>
-            <depends>
-                <module>navigation</module>
-            </depends>
-        </module>
-    </portlet>
-    <portlet>
         <name>UISetupPlatformToolBarPortlet</name>
-        <module>
-            <depends>
-                <module>navigation</module>
-            </depends>
-        </module>
-    </portlet>
-    <portlet>
-        <name>UIUserPlatformToolbarDesktopPortlet</name>
-        <module>           
-            <depends>
-                <module>navigation</module>
-            </depends>
-        </module>
-    </portlet>
-    <portlet>
-        <name>UIUserPlatformToolBarSitePortlet</name>
         <module>
             <depends>
                 <module>navigation</module>
@@ -78,25 +87,107 @@
                 <module>socialcomposer</module>
             </depends>
             -->
-             <depends>
+            <depends>
                 <module>social-core</module>
             </depends>
         </module>
     </portlet>
-     <portlet>
+    <portlet>
         <name>UIUserPlatformToolBarPortlet</name>
         <module>
             <depends>
                 <module>base</module>
             </depends>
-            <!--
-            <depends>
-                <module>socialcomposer</module>
-            </depends>
-            -->
             <depends>
                 <module>social-core</module>
             </depends>
         </module>
     </portlet>
+    <portlet>
+        <name>UICreatePlatformToolBarPortlet</name>
+        <module>
+            <depends>
+                <module>navigation</module>
+            </depends>
+            <depends>
+                <module>base</module>
+            </depends>
+            <depends>
+                <module>social-core</module>
+            </depends>
+        </module>
+    </portlet>
+    <!--Begin-->
+    <portlet>
+        <name>UIHelpPlatformToolBarPortlet</name>
+        <module>
+            <depends>
+                <module>base</module>
+            </depends>
+
+            <depends>
+                <module>social-core</module>
+            </depends>
+        </module>
+    </portlet>
+    <!--END-->
+    <portlet>
+        <name>UIUserNavigationPortlet</name>
+        <module>
+            <depends>
+                <module>webui-ext</module>
+            </depends>
+        </module>
+    </portlet>
+    <portlet>
+        <name>UICompanyNavigationPortlet</name>
+        <module>
+            <depends>
+                <module>navigation</module>
+            </depends>
+        </module>
+    </portlet>
+    <portlet>
+        <name>UISearchPlatformToolbarPortlet</name>
+        <module>
+            <script>
+                <name>eXo.search.SearchAdminToolbar</name>
+                <path>/javascript/eXo/platform/search/Search.js</path>
+            </script>
+            <depends>
+                <module>jquery</module>
+            </depends>
+        </module>
+    </portlet>
+    <portlet>
+        <name>UIGroupsNavigationPortlet</name>
+        <scripts>
+            <script>
+                <name>eXo.webui.UIGroupsNavigation</name>
+                <path>/javascript/eXo/platform/navigation/UIGroupsNavigationPortlet/UIGroupsNavigation.js</path>
+            </script>
+            <depends>
+                <scripts>bootstrap</scripts>
+            </depends>
+        </scripts>
+    </portlet>
+    <portlet>
+        <name>UIBreadCrumbsNavigationPortlet</name>
+        <module>
+            <depends>
+                <module>navigation</module>
+            </depends>
+        </module>
+    </portlet>
+    <module>
+        <name>navigation-spaces-search</name>
+        <script>
+            <name>eXo.navigation.UISpaceNavigation</name>
+            <path>/javascript/eXo/platform/navigation/UISpaceNavigationPortlet/UISpaceNavigation.js</path>
+        </script>
+        <depends>
+            <module>jquery</module>
+        </depends>
+    </module>
+
 </gatein-resources>
