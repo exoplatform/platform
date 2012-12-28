@@ -1,0 +1,62 @@
+ <%
+     /**
+      * Copyright ( C ) 2012 eXo Platform SAS.
+      *
+      * This is free software; you can redistribute it and/or modify it
+      * under the terms of the GNU Lesser General Public License as
+      * published by the Free Software Foundation; either version 2.1 of
+      * the License, or (at your option) any later version.
+      *
+      * This software is distributed in the hope that it will be useful,
+      * but WITHOUT ANY WARRANTY; without even the implied warranty of
+      * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+      * Lesser General Public License for more details.
+      *
+      * You should have received a copy of the GNU Lesser General Public
+      * License along with this software; if not, write to the Free
+      * Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
+      * 02110-1301 USA, or see the FSF site: http://www.fsf.org.
+      */
+
+ %>
+<%
+import org.exoplatform.web.application.JavascriptManager;
+
+
+def labelTopic = _ctx.appRes("UIUserPlatformToolBarCreatePortlet.label.topic");
+def labelPoll = _ctx.appRes("UIUserPlatformToolBarCreatePortlet.label.poll");
+def labelEvent = _ctx.appRes("UIUserPlatformToolBarCreatePortlet.label.eventtask");
+def labelUpload = _ctx.appRes("UIUserPlatformToolBarCreatePortlet.label.upload");
+def labelWiki = _ctx.appRes("UIUserPlatformToolBarCreatePortlet.label.wiki");
+//def doc="javascript:ajaxGet(eXo.env.server.createPortalURL('UIDocActivityComposer','SelectDocument',true));"
+
+def rcontext = _ctx.getRequestContext() ;
+JavascriptManager jsmanager = rcontext.getJavascriptManager();
+//jsmanager.addCustomizedOnLoadScript('eXo.portal.UIPortalNavigation.onLoad("' + uicomponent.id + '");');
+jsmanager.require("SHARED/navigation", "nav").addScripts("nav.UIPortalNavigation.onLoad('" + uicomponent.id + "');");
+%>
+<div id="$uicomponent.id">
+		<% if(uicomponent.getChildren().size()==0){%>
+		
+			<li class="MenuItem">
+				<a href="<%=uicomponent.event("Topic","Topic")%>" class="ToolBarActivityIcon">$labelTopic</a>
+			</li>       
+             <li class="MenuItem">
+				<a href="<%=uicomponent.event("Poll","Poll")%>" class="ToolBarActivityIcon">$labelPoll</a>
+			</li>               
+             <li class="MenuItem">
+				<a href="<%=uicomponent.event("AddEvent","AddEvent")%>" class="ToolBarActivityIcon">$labelEvent</a>
+			</li>    
+			<li class="MenuItem">
+				<a href="<%=uicomponent.event("Wiki","Wiki")%>" class="ToolBarActivityIcon">$labelWiki</a>
+			</li>        
+			<li class="MenuItem">
+				<a href="<%=uicomponent.event("Upload","Upload")%>" class="ToolBarActivityIcon">$labelUpload</a>
+			</li> 
+			
+		<%} %>
+		    <li class="MenuItem">
+	            <%uicomponent.renderChildren();%>	
+			</li>
+				
+</div>

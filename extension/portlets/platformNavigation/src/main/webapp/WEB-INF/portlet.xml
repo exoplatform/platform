@@ -1,185 +1,272 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <portlet-app version="2.0"
-	xmlns="http://java.sun.com/xml/ns/portlet/portlet-app_2_0.xsd"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://java.sun.com/xml/ns/portlet/portlet-app_2_0.xsd http://java.sun.com/xml/ns/portlet/portlet-app_2_0.xsd">	
-	
-   <portlet>
-      <description xml:lang="EN">Administration Toolbar Portlet</description>
-      <portlet-name>PlatformAdminToolbarPortlet</portlet-name>
-      <display-name xml:lang="EN">Platform Administration Toolbar Portlet</display-name>
-      <portlet-class>org.exoplatform.webui.application.portlet.PortletApplicationController</portlet-class>
+             xmlns="http://java.sun.com/xml/ns/portlet/portlet-app_2_0.xsd"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://java.sun.com/xml/ns/portlet/portlet-app_2_0.xsd http://java.sun.com/xml/ns/portlet/portlet-app_2_0.xsd">
 
-      <init-param>
-         <name>webui.configuration</name>
-         <value>/WEB-INF/conf/portlet/AdminToolbarPortlet/webui/configuration.xml</value>
-      </init-param>
-
-      <expiration-cache>0</expiration-cache>
-      <supports>
-         <mime-type>text/html</mime-type>
-         <portlet-mode>help</portlet-mode>
-      </supports>
-      <supported-locale>en</supported-locale>
-      <resource-bundle>locale.portlet.UIAdminToolbarPortlet.AdminToolbarPortlet</resource-bundle>
-      <portlet-info>
-         <title>Platform Administration Toolbar Portlet</title>
-         <short-title>Platform Administration Toolbar</short-title>
-         <keywords>gatein_internal</keywords>
-      </portlet-info>
-   </portlet>
-	
-	<portlet>
-		<description xml:lang="EN">PlatformNavigation Portlet</description>
-		<portlet-name>UIUserInfoPortlet</portlet-name><!--PLF-308-->
-		<display-name xml:lang="EN">UIUserPlatformToolBarPortlet</display-name>
-		<portlet-class>org.exoplatform.webui.application.portlet.PortletApplicationController</portlet-class>
-		<init-param>
-			<name>webui.configuration</name>
-			<!-- must match the path to configuration file -->
-			<value>/WEB-INF/conf/portlet/UIUserPlatformToolBarPortlet/configuration.xml</value>
-		</init-param>
-		<expiration-cache>0</expiration-cache>
-		<supports>
-			<mime-type>text/html</mime-type>
-			<portlet-mode>help</portlet-mode>
-		</supports>
-		<supported-locale>en</supported-locale>
-		<resource-bundle>locale.portlet.UIUserPlatformToolBarPortlet.UIUserPlatformToolBarPortlet</resource-bundle>
-		<portlet-info>
-			<title>UIUserPlatformToolBarPortlet</title>
-			<short-title>UIUserPlatformToolBarPortlet</short-title>
-		</portlet-info>
-	</portlet>
-    <!-- PLF-488 : Simplified Shared layout -->
     <portlet>
-		<description xml:lang="EN">PlatformNavigation Portlet</description>
-		<portlet-name>UIMySpacePlatformToolBarPortlet</portlet-name>
-		<display-name xml:lang="EN">UIMySpacePlatformToolBarPortlet</display-name>
-		<portlet-class>org.exoplatform.webui.application.portlet.PortletApplicationController</portlet-class>
-		<init-param>
-			<name>webui.configuration</name>
-			<!-- must match the path to configuration file -->
-			<value>/WEB-INF/conf/portlet/UIMySpacePlatformToolBarPortlet/configuration.xml</value>
-		</init-param>
-		<expiration-cache>0</expiration-cache>
-		<supports>
-			<mime-type>text/html</mime-type>
-			<portlet-mode>help</portlet-mode>
-		</supports>
-		<supported-locale>en</supported-locale>
-		<resource-bundle>locale.portlet.UIMySpacePlatformToolBarPortlet.UIMySpacePlatformToolBarPortlet</resource-bundle>
-		<portlet-info>
-			<title>UIMySpacePlatformToolBarPortlet</title>
-			<short-title>UIMySpacePlatformToolBarPortlet</short-title>
-		</portlet-info>
-		<supported-processing-event>
-			<name>NavigationChange</name>
-		</supported-processing-event>
-	</portlet>
-    <!-- FIN PLF-488-->
+        <description xml:lang="EN">Administration Toolbar Portlet</description>
+        <portlet-name>PlatformAdminToolbarPortlet</portlet-name>
+        <display-name xml:lang="EN">Platform Administration Toolbar Portlet</display-name>
+        <portlet-class>org.exoplatform.webui.application.portlet.PortletApplicationController</portlet-class>
+
+        <init-param>
+            <name>webui.configuration</name>
+            <value>/WEB-INF/conf/portlet/AdminToolbarPortlet/webui/configuration.xml</value>
+        </init-param>
+
+        <expiration-cache>0</expiration-cache>
+        <supports>
+            <mime-type>text/html</mime-type>
+            <portlet-mode>help</portlet-mode>
+        </supports>
+        <supported-locale>en</supported-locale>
+        <resource-bundle>locale.portlet.UIAdminToolbarPortlet.AdminToolbarPortlet</resource-bundle>
+        <portlet-info>
+            <title>Platform Administration Toolbar Portlet</title>
+            <short-title>Platform Administration Toolbar</short-title>
+            <keywords>gatein_internal</keywords>
+        </portlet-info>
+    </portlet>
+
     <portlet>
-		<description xml:lang="EN">PlatformNavigation Portlet</description>
-		<portlet-name>UIMyGroupsPlatformToolBarPortlet</portlet-name>
-		<display-name xml:lang="EN">UIMyGroupsPlatformToolBarPortlet</display-name>
-		<portlet-class>org.exoplatform.webui.application.portlet.PortletApplicationController</portlet-class>
-		<init-param>
-			<name>webui.configuration</name>
-			<!-- must match the path to configuration file -->
-			<value>/WEB-INF/conf/portlet/UIMyGroupsPlatformToolBarPortlet/configuration.xml</value>
-		</init-param>
-		<expiration-cache>0</expiration-cache>
-		<supports>
-			<mime-type>text/html</mime-type>
-			<portlet-mode>help</portlet-mode>
-		</supports>
-		<supported-locale>en</supported-locale>
-		<resource-bundle>locale.portlet.UIMyGroupsPlatformToolBarPortlet.UIMyGroupsPlatformToolBarPortlet</resource-bundle>
-		<portlet-info>
-			<title>UIMyGroupsPlatformToolBarPortlet</title>
-			<short-title>UIMyGroupsPlatformToolBarPortlet</short-title>
-		</portlet-info>
-	</portlet>
-	
+        <description xml:lang="EN">PlatformNavigation Portlet</description>
+        <portlet-name>UserInfoPortlet</portlet-name>
+        <!--PLF-308-->
+        <display-name xml:lang="EN">UIUserPlatformToolBarPortlet</display-name>
+        <portlet-class>org.exoplatform.webui.application.portlet.PortletApplicationController</portlet-class>
+        <init-param>
+            <name>webui.configuration</name>
+            <!-- must match the path to configuration file -->
+            <value>/WEB-INF/conf/portlet/UIUserPlatformToolBarPortlet/configuration.xml</value>
+        </init-param>
+        <expiration-cache>0</expiration-cache>
+        <supports>
+            <mime-type>text/html</mime-type>
+            <portlet-mode>help</portlet-mode>
+        </supports>
+        <supported-locale>en</supported-locale>
+        <resource-bundle>locale.portlet.UIUserPlatformToolBarPortlet.UIUserPlatformToolBarPortlet</resource-bundle>
+        <portlet-info>
+            <title>UIUserPlatformToolBarPortlet</title>
+            <short-title>UIUserPlatformToolBarPortlet</short-title>
+        </portlet-info>
+    </portlet>
+
+
     <portlet>
-		<description xml:lang="EN">Setup Menu Portlet</description>
-		<portlet-name>UISetupPlatformToolBarPortlet</portlet-name>
-		<display-name xml:lang="EN">UISetupPlatformToolBarPortlet</display-name>
-		<portlet-class>org.exoplatform.webui.application.portlet.PortletApplicationController</portlet-class>
-		<init-param>
-			<name>webui.configuration</name>
-			<!-- must match the path to configuration file -->
-			<value>/WEB-INF/conf/portlet/UISetupPlatformToolBarPortlet/configuration.xml</value>
-		</init-param>
-		<expiration-cache>0</expiration-cache>
-		<supports>
-			<mime-type>text/html</mime-type>
-			<portlet-mode>help</portlet-mode>
-		</supports>
-		<supported-locale>en</supported-locale>
-		<resource-bundle>locale.portlet.UISetupPlatformToolBarPortlet.UISetupPlatformToolBarPortlet</resource-bundle>
-		<portlet-info>
-			<title>UISetupPlatformToolBarPortlet</title>
-			<short-title>UISetupPlatformToolBarPortlet</short-title>
-		</portlet-info>
-	</portlet>
-	
-	<portlet>
-	<description xml:lang="EN">PlatformNavigation Portlet</description>
-	<portlet-name>UIUserPlatformToolBarSitePortlet</portlet-name>
-	<display-name xml:lang="EN">UIUserPlatformToolBarSitePortlet</display-name>
-	<portlet-class>org.exoplatform.webui.application.portlet.PortletApplicationController</portlet-class>
-	<init-param>
-		<name>webui.configuration</name>
-		<!-- must match the path to configuration file -->
-		<value>/WEB-INF/conf/portlet/UIUserPlatformToolBarSitePortlet/configuration.xml</value>
-	</init-param>
-	<expiration-cache>0</expiration-cache>
-	<supports>
-		<mime-type>text/html</mime-type>
-		<portlet-mode>help</portlet-mode>
-	</supports>
-	<supported-locale>en</supported-locale>
-	<resource-bundle>locale.portlet.UIUserPlatformToolBarSitePortlet.UIUserPlatformToolBarSitePortlet</resource-bundle>
-	<portlet-info>
-		<title>UIUserPlatformToolBarSitePortlet</title>
-		<short-title>UIUserPlatformToolBarSitePortlet</short-title>
-	</portlet-info>
-	</portlet>
-   <portlet>
-      <description xml:lang="EN">Desktop Portlet</description>
-      <portlet-name>UIUserPlatformToolbarDesktopPortlet</portlet-name>
-      <display-name xml:lang="EN">Platform Toolbar Desktop Portlet</display-name>
-      <portlet-class>org.exoplatform.webui.application.portlet.PortletApplicationController</portlet-class>
+        <description xml:lang="EN">Setup Menu Portlet</description>
+        <portlet-name>UISetupPlatformToolBarPortlet</portlet-name>
+        <display-name xml:lang="EN">UISetupPlatformToolBarPortlet</display-name>
+        <portlet-class>org.exoplatform.webui.application.portlet.PortletApplicationController</portlet-class>
+        <init-param>
+            <name>webui.configuration</name>
+            <!-- must match the path to configuration file -->
+            <value>/WEB-INF/conf/portlet/UISetupPlatformToolBarPortlet/configuration.xml</value>
+        </init-param>
+        <expiration-cache>0</expiration-cache>
+        <supports>
+            <mime-type>text/html</mime-type>
+            <portlet-mode>help</portlet-mode>
+        </supports>
+        <supported-locale>en</supported-locale>
+        <resource-bundle>locale.portlet.UISetupPlatformToolBarPortlet.UISetupPlatformToolBarPortlet</resource-bundle>
+        <portlet-info>
+            <title>UISetupPlatformToolBarPortlet</title>
+            <short-title>UISetupPlatformToolBarPortlet</short-title>
+        </portlet-info>
+    </portlet>
 
-      <init-param>
-         <name>webui.configuration</name>
-         <value>/WEB-INF/conf/portlet/UIUserPlatformToolbarDesktopPortlet/webui/configuration.xml</value>
-      </init-param>
+    <portlet>
+        <description xml:lang="EN">Create Menu Portlet</description>
+        <portlet-name>UICreatePlatformToolBarPortlet</portlet-name>
+        <display-name xml:lang="EN">UICreatePlatformToolBarPortlet</display-name>
+        <portlet-class>org.exoplatform.webui.application.portlet.PortletApplicationController</portlet-class>
 
-      <expiration-cache>0</expiration-cache>
-      <supports>
-         <mime-type>text/html</mime-type>
-         <portlet-mode>help</portlet-mode>
-      </supports>
-      <supported-locale>en</supported-locale>
-	  <resource-bundle>locale.portlet.UIUserPlatformToolbarDesktopPortlet.UIUserPlatformToolbarDesktopPortlet</resource-bundle>
-      <portlet-info>
-         <title>User Platform ToolBar Desktop Portlet</title>
-         <short-title>Desktop Portlet</short-title>
-         <keywords>gatein_internal</keywords>
-      </portlet-info>
+        <init-param>
+            <name>webui.configuration</name>
+            <value>/WEB-INF/conf/portlet/UICreatePlatformToolBarPortlet/configuration.xml</value>
+        </init-param>
 
-      <security-role-ref>
-         <role-name>admin</role-name>
-         <role-link>admin</role-link>
-      </security-role-ref>
+        <expiration-cache>0</expiration-cache>
+        <supports>
+            <mime-type>text/html</mime-type>
+            <portlet-mode>help</portlet-mode>
+        </supports>
+        <supported-locale>en</supported-locale>
+        <resource-bundle>locale.portlet.UICreatePlatformToolBarPortlet.UICreatePlatformToolBarPortlet
+        </resource-bundle>
+        <portlet-info>
+            <title>UICreatePlatformToolBarPortlet</title>
+            <short-title>UICreatePlatformToolBarPortlet</short-title>
+        </portlet-info>
+    </portlet>
+    <!-- help BEGIN-->
+    <portlet>
+        <description xml:lang="EN">Help Portlet</description>
+        <portlet-name>UIHelpPlatformToolbarPortlet</portlet-name>
+        <display-name xml:lang="EN">UIHelpPlatformToolbarPortlet</display-name>
+        <portlet-class>org.exoplatform.webui.application.portlet.PortletApplicationController</portlet-class>
+        <init-param>
+            <name>webui.configuration</name>
+            <!-- must match the path to configuration file -->
+            <value>/WEB-INF/conf/portlet/UIHelpPlatformToolbarPortlet/configuration.xml</value>
+        </init-param>
+        <expiration-cache>0</expiration-cache>
+        <supports>
+            <mime-type>text/html</mime-type>
+            <portlet-mode>help</portlet-mode>
+        </supports>
+        <supported-locale>en</supported-locale>
+        <resource-bundle>locale.portlet.UIHelpPlatformToolbarPortlet.UIHelpPlatformToolbarPortlet</resource-bundle>
+        <portlet-info>
+            <title>UIHelpPlatformToolbarPortlet</title>
+            <short-title>UIHelpPlatformToolbarPortlet</short-title>
+        </portlet-info>
+        <supported-processing-event>
+            <name>NavigationChange</name>
+        </supported-processing-event>
+    </portlet>
 
-      <supported-processing-event>
-         <name>NavigationChange</name>
-      </supported-processing-event>
-   </portlet>	
-	<event-definition>
-	  <name>NavigationChange</name>
-	</event-definition>
+    <portlet>
+        <description xml:lang="EN">Search Portlet</description>
+        <portlet-name>UISearchPlatformToolbarPortlet</portlet-name>
+        <display-name xml:lang="EN">UISearchPlatformToolbarPortlet</display-name>
+        <portlet-class>org.exoplatform.webui.application.portlet.PortletApplicationController</portlet-class>
+        <init-param>
+            <name>webui.configuration</name>
+            <!-- must match the path to configuration file -->
+            <value>/WEB-INF/conf/portlet/UISearchPlatformToolbarPortlet/configuration.xml</value>
+        </init-param>
+        <expiration-cache>0</expiration-cache>
+        <supports>
+            <mime-type>text/html</mime-type>
+            <portlet-mode>help</portlet-mode>
+        </supports>
+        <supported-locale>en</supported-locale>
+        <resource-bundle>locale.portlet.UISearchPlatformToolbarPortlet.UISearchPlatformToolbarPortlet</resource-bundle>
+        <portlet-info>
+            <title>UISearchPlatformToolbarPortlet</title>
+            <short-title>UISearchPlatformToolbarPortlet</short-title>
+        </portlet-info>
+    </portlet>
+
+    <portlet>
+        <description xml:lang="EN">PlatformNavigation Portlet</description>
+        <portlet-name>UIUserNavigationPortlet</portlet-name>
+        <!--PLF-308-->
+        <display-name xml:lang="EN">UIUserNavigationPortlet</display-name>
+        <portlet-class>org.exoplatform.webui.application.portlet.PortletApplicationController</portlet-class>
+        <init-param>
+            <name>webui.configuration</name>
+            <!-- must match the path to configuration file -->
+            <value>/WEB-INF/conf/portlet/UIUserNavigationPortlet/configuration.xml</value>
+        </init-param>
+        <expiration-cache>0</expiration-cache>
+        <supports>
+            <mime-type>text/html</mime-type>
+            <portlet-mode>help</portlet-mode>
+        </supports>
+        <supported-locale>en</supported-locale>
+        <resource-bundle>locale.portlet.UIUserNavigationPortlet.UIUserNavigationPortlet</resource-bundle>
+        <portlet-info>
+            <title>UIUserNavigationPortlet</title>
+            <short-title>UIUserNavigationPortlet</short-title>
+        </portlet-info>
+    </portlet>
+    <!-- help END-->
+    <portlet>
+        <description xml:lang="EN">PlatformNavigation Portlet</description>
+        <portlet-name>UICompanyNavigationPortlet</portlet-name>
+        <display-name xml:lang="EN">UICompanyNavigationPortlet</display-name>
+        <portlet-class>org.exoplatform.webui.application.portlet.PortletApplicationController</portlet-class>
+        <init-param>
+            <name>webui.configuration</name>
+            <!-- must match the path to configuration file -->
+            <value>/WEB-INF/conf/portlet/UICompanyNavigationPortlet/configuration.xml</value>
+        </init-param>
+        <expiration-cache>0</expiration-cache>
+        <supports>
+            <mime-type>text/html</mime-type>
+            <portlet-mode>help</portlet-mode>
+        </supports>
+        <supported-locale>en</supported-locale>
+        <resource-bundle>locale.portlet.UICompanyNavigationPortlet.UICompanyNavigationPortlet</resource-bundle>
+        <portlet-info>
+            <title>UICompanyNavigationPortlet</title>
+            <short-title>UICompanyNavigationPortlet</short-title>
+        </portlet-info>
+    </portlet>
+
+    <portlet>
+        <description xml:lang="EN">Space PlatformNavigation Portlet</description>
+        <portlet-name>UISpaceNavigationPortlet</portlet-name>
+        <display-name xml:lang="EN">UISpaceNavigationPortlet</display-name>
+        <portlet-class>org.exoplatform.webui.application.portlet.PortletApplicationController</portlet-class>
+        <init-param>
+            <name>webui.configuration</name>
+            <!-- must match the path to configuration file -->
+            <value>/WEB-INF/conf/portlet/UISpaceNavigationPortlet/configuration.xml</value>
+        </init-param>
+        <expiration-cache>0</expiration-cache>
+        <supports>
+            <mime-type>text/html</mime-type>
+            <portlet-mode>help</portlet-mode>
+        </supports>
+        <supported-locale>en</supported-locale>
+        <resource-bundle>locale.portlet.UISpaceNavigationPortlet.UISpaceNavigationPortlet</resource-bundle>
+        <portlet-info>
+            <title>UISpaceNavigationPortlet</title>
+            <short-title>UISpaceNavigationPortlet</short-title>
+        </portlet-info>
+    </portlet>
+
+    <portlet>
+        <description xml:lang="EN">PlatformNavigation Portlet</description>
+        <portlet-name>UIGroupsNavigationPortlet</portlet-name>
+        <display-name xml:lang="EN">UIGroupsNavigationPortlet</display-name>
+        <portlet-class>org.exoplatform.webui.application.portlet.PortletApplicationController</portlet-class>
+        <init-param>
+            <name>webui.configuration</name>
+            <!-- must match the path to configuration file -->
+            <value>/WEB-INF/conf/portlet/UIGroupsNavigationPortlet/configuration.xml</value>
+        </init-param>
+        <expiration-cache>0</expiration-cache>
+        <supports>
+            <mime-type>text/html</mime-type>
+            <portlet-mode>help</portlet-mode>
+        </supports>
+        <supported-locale>en</supported-locale>
+        <resource-bundle>locale.portlet.UIGroupsNavigationPortlet.UIGroupsNavigationPortlet</resource-bundle>
+        <portlet-info>
+            <title>UIGroupsNavigationPortlet</title>
+            <short-title>UIGroupsNavigationPortlet</short-title>
+        </portlet-info>
+    </portlet>
+
+    <portlet>
+        <description xml:lang="EN">BreadCrumbs Navigation Portlet</description>
+        <portlet-name>UIBreadCrumbsNavigationPortlet</portlet-name>
+        <display-name xml:lang="EN">UIBreadCrumbsNavigationPortlet</display-name>
+        <portlet-class>org.exoplatform.webui.application.portlet.PortletApplicationController</portlet-class>
+        <init-param>
+            <name>webui.configuration</name>
+            <!-- must match the path to configuration file -->
+            <value>/WEB-INF/conf/portlet/UIBreadCrumbsNavigationPortlet/configuration.xml</value>
+        </init-param>
+        <expiration-cache>0</expiration-cache>
+        <supports>
+            <mime-type>text/html</mime-type>
+            <portlet-mode>help</portlet-mode>
+        </supports>
+        <supported-locale>en</supported-locale>
+        <resource-bundle>locale.portlet.UIBreadCrumbsNavigationPortlet.UIBreadCrumbsNavigationPortlet</resource-bundle>
+        <portlet-info>
+            <title>UIBreadCrumbsNavigationPortlet</title>
+            <short-title>UIBreadCrumbsNavigationPortlet</short-title>
+        </portlet-info>
+    </portlet>
+    <event-definition>
+        <name>NavigationChange</name>
+    </event-definition>
 </portlet-app>

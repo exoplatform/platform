@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<bundle>
+	<UIUserPlatformToolBarCreatePortlet>
+		<label>
+			<topic>Sujet</topic>
+			<poll>Vote</poll>
+			<eventtask>Evénement/tâche</eventtask>
+			<upload>Upload Fichier</upload>
+			<wiki>Page Wiki</wiki>
+			
+		</label>
+	</UIUserPlatformToolBarCreatePortlet>
+</bundle>

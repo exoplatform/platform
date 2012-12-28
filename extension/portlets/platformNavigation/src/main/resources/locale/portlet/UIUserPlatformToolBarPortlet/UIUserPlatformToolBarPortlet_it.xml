@@ -5,9 +5,10 @@
     		<activities>Flussi Attività</activities>
     		<profile>Mio Profilo</profile>
     		<network>Mio Network</network>
-    		<find>Cerca Persone</find>
-    		<account>Mio Account</account>
+    		<wiki>Mio Wiki</wiki>
+    		<account>Impostazioni</account>
     		<language>Cambia Lingua</language>
+            <dashboard>Mio Dashboard</dashboard>
     		<logout>Esci</logout>		
 		</label>
 	</UIUserPlatformToolBarPortlet>

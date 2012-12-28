@@ -1,0 +1,79 @@
+<%
+    /**
+     * Copyright ( C ) 2012 eXo Platform SAS.
+     *
+     * This is free software; you can redistribute it and/or modify it
+     * under the terms of the GNU Lesser General Public License as
+     * published by the Free Software Foundation; either version 2.1 of
+     * the License, or (at your option) any later version.
+     *
+     * This software is distributed in the hope that it will be useful,
+     * but WITHOUT ANY WARRANTY; without even the implied warranty of
+     * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+     * Lesser General Public License for more details.
+     *
+     * You should have received a copy of the GNU Lesser General Public
+     * License along with this software; if not, write to the Free
+     * Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
+     * 02110-1301 USA, or see the FSF site: http://www.fsf.org.
+     */
+
+%>
+<%
+    import org.exoplatform.portal.mop.user.UserNode;
+    import org.gatein.common.text.EntityEncoder;
+    import org.exoplatform.platform.webui.NavigationURLUtils;
+%>
+<%
+    void renderCurrentPortal() {
+        def nodes = uicomponent.getUserNodes(uicomponent.getCurrentPortalNavigation());
+        print """
+			<ul class="uiCompanyNavigations" >
+		""";
+        for(UserNode node in nodes) {
+            renderPageNode(node);
+        }
+        print """
+			</ul>
+		""";
+    }
+
+    void renderPageNode(UserNode node) {
+        UserNode selectedNode = uicomponent.getSelectedPageNode();
+        String tabStyleNavigation = "navItem";
+        if(selectedNode != null && node.getURI() == selectedNode.getURI()) {
+            tabStyleNavigation = "navItemSelected";
+        }
+        String icon=node.getIcon();
+        String	href = NavigationURLUtils.getURL(node);
+        boolean toolong = (node.resolvedLabel.length() > 60);
+        String label = ( toolong ? node.resolvedLabel.substring(0, 57) + "..." : node.resolvedLabel);
+        String title = "";
+        if(toolong) title = "title='$node.resolvedLabel'";
+        else title = "";
+        EntityEncoder entityEncoder = EntityEncoder.FULL;
+        label = entityEncoder.encode(label);
+
+        if ((icon == null)||(icon.equals(""))) icon = "DefaultPageIcon";
+        print """
+			<li class="$tabStyleNavigation">
+		""";
+        if(node.pageRef != null) {
+            print """<a class="navIcon $icon" href="$href" $title>$label</a>""";
+        } else {
+            print """<a  class="navIcon $icon" href="#" $title>$label</a>""";
+        }
+        print """
+			</li>
+		""" ;
+    }
+%>
+<div class="uiCompanyNavigationPortlet">
+    <h5 class="title">
+        <%= _ctx.appRes("UICompanyNavigationPortlet.CompanyBar")  %>
+    </h5>
+        <%
+            renderCurrentPortal();
+        %>
+</div>
+
