@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!--
+
+  Copyright (C) 2012 eXo Platform SAS.
+
+  This is free software; you can redistribute it and/or modify it
+  under the terms of the GNU Lesser General Public License as
+  published by the Free Software Foundation; either version 2.1 of
+  the License, or (at your option) any later version.
+
+  This software is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+  Lesser General Public License for more details.
+
+  You should have received a copy of the GNU Lesser General Public
+  License along with this software; if not, write to the Free
+  Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
+  02110-1301 USA, or see the FSF site: http://www.fsf.org.
+
+-->
+<configuration
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.exoplatform.org/xml/ns/kernel_1_2.xsd http://www.exoplatform.org/xml/ns/kernel_1_2.xsd"
+        xmlns="http://www.exoplatform.org/xml/ns/kernel_1_2.xsd">
+    <component>
+        <key>org.exoplatform.platform.navigation.component.help.HelpService</key>
+        <type>org.exoplatform.platform.navigation.component.help.impl.HelpServiceImpl</type>
+
+        <init-params>
+            <properties-param>
+                <name>help.pages</name>
+                <description>Help Pages match definition</description>
+                <!-- social -->
+                <property name="spaces"
+                          value="http://docs.exoplatform.com/PLF35/index.jsp?topic=%2Forg.exoplatform.doc.35%2FPlatform_User_Guide.Social.Manage_Spaces.html"/>
+                <property name="all-spaces"
+                          value="http://docs.exoplatform.com/PLF35/index.jsp?topic=%2Forg.exoplatform.doc.35%2FSoc_User_Guide.Space_Management.Join_Space.Search.html"/>
+                <!--site acme pages-->
+                <property name="default" value="http://docs.exoplatform.com/"/>
+                <property name="news"
+                          value="http://docs.exoplatform.com/PLF35/index.jsp?topic=%2Forg.exoplatform.doc.35%2FIDEUserGuide.html"/>
+                <property name="products"
+                          value="http://docs.exoplatform.com/PLF35/index.jsp?topic=%2Forg.exoplatform.doc.35%2FPlatform_User_Guide.Organize_Content.html"/>
+                <!--setup menu: manage your organisation-->
+                <property name="newStaff"
+                          value="http://docs.exoplatform.com/PLF35/index.jsp?topic=%2Forg.exoplatform.doc.35%2FPlatform_User_Guide.Manage_Organization.html"/>
+                <property name="newAccount"
+                          value="http://docs.exoplatform.com/PLF35/index.jsp?topic=%2Forg.exoplatform.doc.35%2FPlatform_User_Guide.Manage_Organization.html"/>
+                <property name="management"
+                          value="http://docs.exoplatform.com/PLF35/index.jsp?topic=%2Forg.exoplatform.doc.35%2FPlatform_User_Guide.Manage_Organization.html"/>
+                <property name="monitoring"
+                          value="http://docs.exoplatform.com/PLF35/index.jsp?topic=%2Forg.exoplatform.doc.35%2FPlatform_User_Guide.Get_started.html"/>
+                <!--setup menu: manage your portal-->
+                <property name="pageManagement"
+                          value="http://docs.exoplatform.com/PLF35/index.jsp?topic=%2Forg.exoplatform.doc.35%2FPlatform_User_Guide.Manage_Your_Portals.html"/>
+                <property name="portalnavigation"
+                          value="http://docs.exoplatform.com/PLF35/index.jsp?topic=%2Forg.exoplatform.doc.35%2FPlatform_User_Guide.Manage_Your_Portals.Manage_sites.html"/>
+                <property name="groupnavigation"
+                          value="http://docs.exoplatform.com/PLF35/index.jsp?topic=%2Forg.exoplatform.doc.35%2FPlatform_User_Guide.Manage_Your_Portals.Manage_Pages.html"/>
+                <!-- setup menu: manage your contents-->
+                <property name="wcmAdmin"
+                          value="http://docs.exoplatform.com/PLF35/index.jsp?topic=%2Forg.exoplatform.doc.35%2FPlatform_User_Guide.Organize_Content.Structure_Content.html"/>
+                <property name="siteExplorer"
+                          value="http://docs.exoplatform.com/PLF35/index.jsp?topic=%2Forg.exoplatform.doc.35%2FPlatform_User_Guide.Organize_Content.Manage_Content.html"/>
+                <!-- setup menu: manage applications-->
+                <property name="registry"
+                          value="http://docs.exoplatform.com/PLF35/index.jsp?topic=%2Forg.exoplatform.doc.35%2Fsect-User_Guide-Manage_Portlets_and_Gadgets.html"/>
+                <!--webOS-->
+                <property name="classicWebosPage"
+                          value="http://docs.exoplatform.com/PLF35/index.jsp?topic=%2Forg.exoplatform.doc.35%2FGateInReferenceGuide.html"/>
+
+                <!--   -->
+                <!--<property name="servicesManagement"        value="http://docs.exoplatform.com/PLF35/index.jsp"  />
+                <property name="monitoring"        value="http://docs.exoplatform.com/PLF35/index.jsp"  />     -->
+
+
+            </properties-param>
+        </init-params>
+    </component>
+    <component>
+        <key>org.exoplatform.platform.navigation.component.breadcrumb.UserNavigationHandlerService</key>
+        <type>org.exoplatform.platform.navigation.component.breadcrumb.impl.UserNavigationHandlerServiceImpl</type>
+        <init-params>
+            <values-param>
+                <name>user.navigation.uri</name>
+                <value>profile</value>
+                <value>connections</value>
+                <value>activities</value>
+                <value>mywiki</value>
+                <value>connections/all-people</value>
+                <value>connections/network</value>
+                <value>connections/receivedInvitations</value>
+                <value>connections/pendingRequests</value>
+                <value>connections/yours</value>
+                <value>connections/invitations</value>
+                <value>connections/requests</value>
+            </values-param>
+        </init-params>
+    </component>
+
+
+</configuration>
