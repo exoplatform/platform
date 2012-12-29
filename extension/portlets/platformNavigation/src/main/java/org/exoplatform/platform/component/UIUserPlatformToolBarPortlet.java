@@ -16,11 +16,8 @@
  */
 package org.exoplatform.platform.component;
 
-import java.util.Collection;
-import java.util.Collections;
-
 import org.exoplatform.container.ExoContainer;
-import org.exoplatform.platform.component.social.UINavigationComposer;
+import org.exoplatform.platform.webui.NavigationURLUtils;
 import org.exoplatform.portal.config.UserPortalConfig;
 import org.exoplatform.portal.mop.SiteKey;
 import org.exoplatform.portal.mop.navigation.Scope;
@@ -30,9 +27,16 @@ import org.exoplatform.portal.mop.user.UserPortal;
 import org.exoplatform.portal.webui.util.Util;
 import org.exoplatform.services.organization.OrganizationService;
 import org.exoplatform.services.organization.User;
+import org.exoplatform.social.core.identity.model.Identity;
+import org.exoplatform.social.core.identity.provider.OrganizationIdentityProvider;
+import org.exoplatform.social.core.service.LinkProvider;
+import org.exoplatform.social.webui.Utils;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.core.UIPortletApplication;
 import org.exoplatform.webui.core.lifecycle.UIApplicationLifecycle;
+
+import java.util.Collection;
+import java.util.Collections;
 
 /**
  * Portlet manages profile.<br>
@@ -42,23 +46,17 @@ import org.exoplatform.webui.core.lifecycle.UIApplicationLifecycle;
 template = "app:/groovy/platformNavigation/portlet/UIUserPlatformToolBarPortlet/UIUserPlatformToolBarPortlet.gtmpl")
 public class UIUserPlatformToolBarPortlet extends UIPortletApplication {
 
-  private String currentPortalName = null;
-  private boolean socialPortal = false;
+    private String currentPortalName = null;
+    private boolean socialPortal = false;
+    private static final String USER = "/user/";
+    private static final String WIKI_HOME = "/WikiHome";
+    private static final String WIKI_REF = "mywiki";
 
   public UIUserPlatformToolBarPortlet() throws Exception {
-    if (isSocialPortal()) {
-      addChild(UINavigationComposer.class, null, null);
-    }
+
   }
 
-  public void renderNavigationComposer() throws Exception {
-    if (isSocialPortal()) {
-      if (getChild(UINavigationComposer.class) == null) {
-        addChild(UINavigationComposer.class, null, null);
-      }
-      renderChild(UINavigationComposer.class);
-    }
-  }
+
 
   public User getUser() throws Exception {
     OrganizationService service = getApplicationComponent(OrganizationService.class);
@@ -109,4 +107,18 @@ public class UIUserPlatformToolBarPortlet extends UIPortletApplication {
     }
     return Collections.emptyList();
   }
+
+    public String getAvatarURL() {
+        Identity identity = Utils.getIdentityManager().getOrCreateIdentity(OrganizationIdentityProvider.NAME,
+                Util.getPortalRequestContext().getRemoteUser(), true);
+        String ownerAvatar = identity.getProfile().getAvatarUrl();
+        if (ownerAvatar == null || ownerAvatar.isEmpty()) {
+            ownerAvatar = LinkProvider.PROFILE_DEFAULT_AVATAR_URL;
+        }
+        return ownerAvatar;
+    }
+
+    public String getWikiURL() {
+        return NavigationURLUtils.getURLInCurrentPortal(WIKI_REF) + USER + Utils.getOwnerIdentity(true).getRemoteId() + WIKI_HOME;
+    }
 }

@@ -1,0 +1,56 @@
+
+  <%
+      /**
+       * Copyright ( C ) 2012 eXo Platform SAS.
+       *
+       * This is free software; you can redistribute it and/or modify it
+       * under the terms of the GNU Lesser General Public License as
+       * published by the Free Software Foundation; either version 2.1 of
+       * the License, or (at your option) any later version.
+       *
+       * This software is distributed in the hope that it will be useful,
+       * but WITHOUT ANY WARRANTY; without even the implied warranty of
+       * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+       * Lesser General Public License for more details.
+       *
+       * You should have received a copy of the GNU Lesser General Public
+       * License along with this software; if not, write to the Free
+       * Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
+       * 02110-1301 USA, or see the FSF site: http://www.fsf.org.
+       */
+
+  %>
+
+<%
+import org.exoplatform.portal.webui.util.Util;
+import org.exoplatform.portal.mop.user.UserNavigation;
+import org.exoplatform.portal.mop.user.UserNode;
+import org.exoplatform.web.application.JavascriptManager;
+import org.exoplatform.platform.webui.NavigationURLUtils;
+import org.exoplatform.webui.core.UIPopupContainer;
+import org.exoplatform.platform.component.UICreateList;
+import org.exoplatform.cs.event.UICreateEvent;
+import org.exoplatform.platform.component.UICreateForm;
+
+def rcontext = _ctx.getRequestContext() ;
+JavascriptManager jsmanager = rcontext.getJavascriptManager();
+//jsmanager.addCustomizedOnLoadScript('eXo.portal.UIPortalNavigation.onLoad("' + uicomponent.id + '");');
+jsmanager.require("SHARED/navigation", "nav").addScripts("nav.UIPortalNavigation.onLoad('" + uicomponent.id + "');");
+
+ if(uicomponent.isSocialPortal()){
+%>
+
+<ul class="UICreateToolBarPortlet UIHorizontalTabs" id="$uicomponent.id">
+	<li id="CreateNavigationTabsContainer" class="UITab NormalToolbarTab">
+		 <a href="#" class="TBIcon"><img src="/eXoPlatformResources/skin/platformSkin/icons/bullet-toggle-plus-icon.png" alt="Create" /></a>
+		<ul style="display:none;" class="MenuItemContainer">  
+		
+				   <%uicomponent.renderChild(UICreateList.class);%> 
+		</ul>
+	</li>
+</ul>
+
+<%uicomponent.renderChild(UIPopupContainer.class);%>
+<%}%>
+
+

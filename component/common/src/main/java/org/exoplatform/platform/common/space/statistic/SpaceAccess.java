@@ -28,10 +28,10 @@ import org.chromattic.ext.format.BaseEncodingObjectFormatter;
 @NamingPrefix("plf")
 public abstract class SpaceAccess {
 
-  @Name
-  public abstract String getName();
+    @Name
+    public abstract String getName();
 
-  @Property(name = "plf:mostAccessedSpaces")
-  public abstract String[] getMostAccessedSpaces();
-  public abstract void setMostAccessedSpaces(String[] mostAccessedSpaces);
+    @Property(name = "plf:spaceAccessList")
+    public abstract String[] getSpaceAccessList();
+    public abstract void setSpaceAccessList(String[] spaceAccessList);
 }
