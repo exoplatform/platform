@@ -120,7 +120,7 @@ public class UIGroupsNavigationPortlet extends UIPortletApplication {
             Collection<UserNode> validChidNodes = getUXPNodesNotInSetupMenu(userNode.getChildren(), childLevel);
             cachedValidChildrenNodesToDisplay.put(userNode.getId(), validChidNodes);
 
-            if (userNode.getPageRef() != null && !userNode.getPageRef().isEmpty() && !isUserNodeInSetupMenu(userNode)) {
+            if (userNode.getPageRef() != null && !isUserNodeInSetupMenu(userNode)) {
                 validNodes.add(userNode);
                 continue;
             }
@@ -132,7 +132,7 @@ public class UIGroupsNavigationPortlet extends UIPortletApplication {
     }
 
     public  boolean isUserNodeInSetupMenu(UserNode userNode) {
-        String pageReference = userNode.getPageRef();
+        String pageReference = userNode.getPageRef().format();
         if (pageReference != null && !pageReference.isEmpty()) {
             return setupMenuPageReferences.contains(pageReference);
         }
