@@ -142,7 +142,7 @@ public class UISetupPlatformToolBarPortlet extends UIPortletApplication {
       return null;
     }
     for (UserNode userNode : setupMenuUserNodes) {
-      if (userNode.getPageRef().equals(pageReference)) {
+      if (userNode.getPageRef().format().equals(pageReference)) {
         return userNode;
       }
     }
