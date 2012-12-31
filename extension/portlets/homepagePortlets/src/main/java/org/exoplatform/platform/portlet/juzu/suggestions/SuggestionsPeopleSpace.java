@@ -2,6 +2,7 @@ package org.exoplatform.platform.portlet.juzu.suggestions;
 
 import juzu.Path;
 import juzu.View;
+import juzu.template.Template;
 
 import javax.inject.Inject;
 
@@ -13,7 +14,7 @@ public class SuggestionsPeopleSpace {
 
     @Inject
     @Path("list.gtmpl")
-    org.exoplatform.platform.portlet.juzu.suggestions.templates.list list;
+    Template list;
 
     @View
     public void index() {

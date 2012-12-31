@@ -6,7 +6,7 @@
 @Application
 @Portlet
 @Assets(
-        scripts = {@Script(id = "jquery", src = "js/jquery-1.7.2.min.js"),@Script( src = "js/suggestionsPeopleSpace/suggest.js")},
+        scripts = { @Script(id= "jquery", src = "jquery-1.7.2.min.js"),@Script( src = "suggest.js")},
         stylesheets = {@Stylesheet(src = "style/suggestionsPeopleSpace/people.css"),@Stylesheet(src = "style/suggestionsPeopleSpace/space.css") })
 
 

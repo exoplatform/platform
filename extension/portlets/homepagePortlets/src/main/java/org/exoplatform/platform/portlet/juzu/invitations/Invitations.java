@@ -19,9 +19,9 @@
 
 package org.exoplatform.platform.portlet.juzu.invitations;
 
-import juzu.Controller;
 import juzu.Path;
 import juzu.View;
+import juzu.template.Template;
 
 import javax.inject.Inject;
 
@@ -30,11 +30,11 @@ import javax.inject.Inject;
  * @date 10/12/12
  */
 
-public class Invitations extends Controller {
+public class Invitations {
 
     @Inject
     @Path("invitations.gtmpl")
-    org.exoplatform.platform.portlet.juzu.invitations.templates.invitations index;
+    Template index;
 
 
 

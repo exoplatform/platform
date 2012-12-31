@@ -6,7 +6,7 @@
 @Application
 @Portlet
 @Assets(
-        scripts = {@Script(src = "js/whoIsOnLine/jquery.tipTip.minified.js"),@Script(id = "jquery", src = "js/jquery-1.7.2.min.js"),@Script(src = "js/whoIsOnLine/whoisonline.js")},
+        scripts = {@Script(src = "jquery.tipTip.minified.js"), @Script(id= "jquery", src = "jquery-1.7.2.min.js"),@Script(src = "whoisonline.js")},
         stylesheets = {@Stylesheet(src = "style/whoIsOnLine/online.css"),@Stylesheet(src = "style/whoIsOnLine/tipTip.css") })
 
 

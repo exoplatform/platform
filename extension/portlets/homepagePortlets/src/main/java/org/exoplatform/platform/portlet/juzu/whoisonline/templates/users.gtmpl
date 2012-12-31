@@ -1,0 +1,21 @@
+
+  <% users.each { user -> %>
+  <%   def imagesource=user.getAvatarImageSource();
+       def title="";
+   	    if(user.getPosition()!=null){
+   		 title=user.getPosition();
+   		}
+        if(imagesource != null) {    %>
+         <li id="${user.getId()}"><a target="_parent" href="${user.getUrl()}"><img src="${user.getAvatarImageSource()}" alt="image" /></a></li>
+        <%}else{%>
+         <li id="${user.getId()}"><a target="_parent" href="${user.getUrl()}"><img src="/social-resources/skin/ShareImages/Avatar.gif" alt="image" /></a></li>
+        <%}%>
+
+   <script type="text/javascript">
+    $(function() {
+       $( "#"+user.getId()).tipTip({
+          content: '<table id="tipName"><tbody><tr><td style="width: 50px;"><img src="'+user.avatarUrl+'" alt="image" /></td><td>'+user.getFullName()+'<div style="font-weight: normal;">'+title+'</div></td></tr></tbody></table><blockquote>'+title+'</blockquote>',defaultPosition: "left"
+        });
+    });
+ </script>
+  <%}%>

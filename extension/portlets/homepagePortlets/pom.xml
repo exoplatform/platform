@@ -7,73 +7,79 @@
     <version>4.0.0.Alpha1-SNAPSHOT</version>
   </parent>
   <artifactId>platform-extension-portlets-homepage</artifactId>
-  <packaging>war</packaging>
+  <packaging>jar</packaging>
   <name>eXo Platform - HomePage Portlets </name>
 
     <dependencies>
         <dependency>
             <groupId>org.juzu</groupId>
-            <artifactId>juzu-builder</artifactId>
-            <version>0.5.1</version>
-            <exclusions>
-                <exclusion>
-                    <!-- To be fixed in the original project -->
-                    <artifactId>commons-logging</artifactId>
-                    <groupId>commons-logging</groupId>
-                </exclusion>
-            </exclusions>
-
+            <artifactId>juzu-bom-core</artifactId>
+            <version>0.6.0-beta5</version>
         </dependency>
         <dependency>
             <groupId>org.juzu</groupId>
-            <artifactId>juzu-plugins-less</artifactId>
-            <version>0.5.1</version>
+            <artifactId>juzu-core</artifactId>
+            <version>0.6.0-beta5</version>
         </dependency>
         <dependency>
             <groupId>org.juzu</groupId>
             <artifactId>juzu-plugins-portlet</artifactId>
-            <version>0.5.1</version>
+            <version>0.6.0-beta5</version>
         </dependency>
-
         <dependency>
-            <groupId>org.exoplatform.portal</groupId>
-            <artifactId>exo.portal.webui.portal</artifactId>
-
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.8.2</version>
+            <scope>test</scope>
         </dependency>
+        <dependency>
+            <groupId>org.juzu</groupId>
+            <artifactId>juzu-bom-arquillian</artifactId>
+            <version>0.6.0-beta5</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.juzu</groupId>
+            <artifactId>juzu-bom-arquillian-tomcat7</artifactId>
+            <version>0.6.0-beta5</version>
+            <scope>test</scope>
+        </dependency>
+
+
         <dependency>
             <groupId>org.exoplatform.kernel</groupId>
             <artifactId>exo.kernel.container</artifactId>
-
+            <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>org.exoplatform.commons</groupId>
             <artifactId>commons-component-product</artifactId>
-
+            <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>org.exoplatform.portal</groupId>
             <artifactId>exo.portal.component.web.api</artifactId>
-
+            <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>org.exoplatform.ecms</groupId>
             <artifactId>ecms-core-services</artifactId>
-
+            <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>org.exoplatform.commons</groupId>
             <artifactId>commons-component-common</artifactId>
-
+            <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>org.exoplatform.social</groupId>
             <artifactId>social-component-common</artifactId>
-
+            <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>org.exoplatform.social</groupId>
             <artifactId>social-component-core</artifactId>
-
+            <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>javax.portlet</groupId>
@@ -87,57 +93,62 @@
         <dependency>
             <groupId>org.exoplatform.calendar</groupId>
             <artifactId>calendar-service</artifactId>
-
+            <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>org.exoplatform.calendar</groupId>
             <artifactId>calendar-webservice</artifactId>
-
+            <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>org.exoplatform.forum</groupId>
             <artifactId>forum-forum-service</artifactId>
-
+            <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>org.gatein.shindig</groupId>
             <artifactId>shindig-social-api</artifactId>
-
+            <scope>provided</scope>
         </dependency>
     </dependencies>
-  <build>
-    <finalName>homepage-portlets</finalName>
-      <plugins>
-
-      <plugin>
-          <artifactId>maven-assembly-plugin</artifactId>
-          <dependencies>
-              <dependency>
-                  <groupId>org.juzu</groupId>
-                  <artifactId>juzu-builder</artifactId>
-                  <version>0.5.1</version>
-              </dependency>
-          </dependencies>
-		  <configuration>
-          <attach>true</attach>
-          <appendAssemblyId>false</appendAssemblyId>
-        </configuration>
-          <executions>
-              <execution>
-                  <id>gatein</id>
-                  <goals>
-                      <goal>single</goal>
-                  </goals>
-                  <phase>package</phase>
-                  <configuration>
-                      <finalName>${project.build.finalName}</finalName>			  
-                      <descriptorRefs>
-                          <descriptorRef>gatein</descriptorRef>
-                      </descriptorRefs>
-                  </configuration>
-              </execution>
-          </executions>
-      </plugin>
-      </plugins>
-  </build>
+    <build>
+        <finalName>homepage-portlets</finalName>
+        <plugins>
+            <plugin>
+                <artifactId>maven-assembly-plugin</artifactId>
+                <dependencies>
+                    <dependency>
+                        <groupId>org.juzu</groupId>
+                        <artifactId>juzu-bom-core</artifactId>
+                        <version>0.6.0-beta5</version>
+                    </dependency>
+                </dependencies>
+                <configuration>
+                    <attach>true</attach>
+                    <appendAssemblyId>false</appendAssemblyId>
+                </configuration>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>single</goal>
+                        </goals>
+                        <phase>package</phase>
+                        <configuration>
+                            <descriptorRefs>
+                                <descriptorRef>gatein-spring</descriptorRef>
+                            </descriptorRefs>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <target>1.5</target>
+                    <source>1.5</source>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 </project>

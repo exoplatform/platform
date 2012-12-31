@@ -20,10 +20,9 @@
 @Application
 @Portlet
 @Assets(
-        scripts = {@Script(id = "jquery", src = "js/jquery-1.7.2.min.js"),
-                 @Script( src = "js/invitations/invitations.js") },
-        stylesheets = {@Stylesheet(src = "style/invitations/invitations.css"),
-                       @Stylesheet(src = "/exo-gadget-resources/skin/exo-gadget/gadget-common.css")
+        scripts = { @Script(id= "jquery", src = "jquery-1.7.2.min.js"),
+                 @Script( src = "invitations.js") },
+        stylesheets = {@Stylesheet(src = "invitations/invitations.css")
         }
 )
 package org.exoplatform.platform.portlet.juzu.invitations;
