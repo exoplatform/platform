@@ -58,6 +58,7 @@
     <org.gatein.shindig.version>2.0.2-CP01</org.gatein.shindig.version>
     <org.gatein.wci.version>2.2.0-Beta02</org.gatein.wci.version>
     <org.gatein.web.version>3.4.0.Final</org.gatein.web.version>
+    <org.juzu.version>0.6.0-beta5</org.juzu.version>
   </properties>
   <dependencyManagement>
     <dependencies>
@@ -1035,6 +1036,22 @@
         <artifactId>redirect</artifactId>
         <version>${org.gatein.web.version}</version>
       </dependency>
+        <dependency>
+            <groupId>org.juzu</groupId>
+            <artifactId>juzu-core</artifactId>
+            <version>${org.juzu.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.juzu</groupId>
+            <artifactId>juzu-bom-core</artifactId>
+            <version>${org.juzu.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.juzu</groupId>
+            <artifactId>juzu-plugins-portlet</artifactId>
+            <version>${org.juzu.version}</version>
+        </dependency>
+
     </dependencies>
   </dependencyManagement>
   <build>
