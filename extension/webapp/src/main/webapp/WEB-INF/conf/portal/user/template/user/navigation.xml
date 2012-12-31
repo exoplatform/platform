@@ -32,10 +32,6 @@
       <label>Tab_Default</label>
       <page-reference>user::@owner@::Tab_Default</page-reference>
     </node>
-    <node>
-      <name>wiki</name>
-      <label>Wiki</label>>
-      <page-reference>user::@owner@::wiki</page-reference>
-    </node>
+
   </page-nodes>
 </node-navigation>

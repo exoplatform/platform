@@ -5,9 +5,10 @@
 		<activities>Mes Activités</activities>
 		<profile>Mon Profil</profile>
 		<network>Mes Connexions</network>
-		<find>Trouver des Connexions</find>
-		<account>Mon Compte</account>
+		<wiki>Mon Wiki</wiki>
+		<account>Paramétres</account>
 		<language>Changer de Langue</language>
+        <dashboard>Mon tableau de bord</dashboard>
 		<logout>Se Déconnecter</logout>
 		</label>
 	</UIUserPlatformToolBarPortlet>
