@@ -1,15 +1,19 @@
 package org.exoplatform.platform.portlet.juzu.whoisonline;
 
-import juzu.*;
+import juzu.Path;
+import juzu.Resource;
+import juzu.Response;
+import juzu.View;
 import juzu.plugin.ajax.Ajax;
 import juzu.template.Template;
-import org.exoplatform.social.core.identity.model.Profile;
 import org.exoplatform.web.application.RequestContext;
-
 import javax.inject.Inject;
 import java.util.List;
 
-/** @author <a href="mailto:julien.viet@exoplatform.com">Julien Viet</a> */
+/**
+ * @author <a href="rtouzi@exoplatform.com">rtouzi</a>
+ * @date 07/12/12
+ */
 public class WhoIsOnLineController {
 
   @Inject
@@ -25,20 +29,16 @@ public class WhoIsOnLineController {
 
   @View
   public Response.Render index() {
-     // PortalRequestContext pcontext = (PortalRequestContext)(WebuiRequestContext.getCurrentInstance());
-      //String userId = pcontext.getRequest().getRemoteUser();
-     // String userId =  renderContext.getSecurityContext().getRemoteUser();
       String userId= RequestContext.getCurrentInstance().getRemoteUser();
-      List<Profile> friends = whoIsOnline.getFriends(userId);
+      List<User> friends = whoIsOnline.getFriends(userId);
     return index.with().set("users", friends).render();
   }
 
   @Ajax
   @Resource
   public Response.Render users() {
-      System.out.println("RESOURCING");
       String userId= RequestContext.getCurrentInstance().getRemoteUser();
-      List<Profile>  friends = whoIsOnline.getFriends(userId);
+      List<User> friends = whoIsOnline.getFriends(userId);
     return users.with().set("users", friends).render();
   }
 }

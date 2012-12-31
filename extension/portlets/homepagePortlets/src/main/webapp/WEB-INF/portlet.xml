@@ -7,7 +7,7 @@
     <portlet>
         <portlet-name>WhoIsOnLinPortlet</portlet-name>
         <display-name xml:lang="EN">Who is on Line</display-name>
-        <portlet-class>org.exoplatform.platform.portlet.juzu.whosonline.WhosonlinePortlet</portlet-class>
+        <portlet-class>org.exoplatform.platform.portlet.juzu.whoisonline.WhoIsOnlinePortlet</portlet-class>
         <init-param>
             <name>juzu.run_mode</name>
             <value>prod</value>

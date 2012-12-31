@@ -61,7 +61,7 @@ $(function() {
                         $("#"+item.relationId).remove();
                         $("#peopleSuggest").hide();
                         if ($("#spaceSuggest").is(":hidden")){
-                            $("#content").hidden();
+                            $("#content").hide();
                         }
 
 
@@ -83,7 +83,7 @@ $(function() {
                         $("#"+item.relationId).remove();
                         $("#peopleSuggest").hide();
                         if ($("#spaceSuggest").is(":hidden")){
-                            $("#content").hidden();
+                            $("#content").hide();
                         }
 
 
@@ -168,7 +168,7 @@ $(function() {
                         $("#"+item.spaceId).remove();
                         $("#spaceSuggest").hide();
                         if ($("#peopleSuggest").is(":hidden")){
-                            $("#content").hidden();
+                            $("#content").hide();
                         }
 
 
@@ -190,7 +190,7 @@ $(function() {
                         $("#"+item.spaceId).remove();
                         $("#spaceSuggest").hide();
                         if ($("#peopleSuggest").is(":hidden")){
-                            $("#content").hidden();
+                            $("#content").hide();
                         }
 
 

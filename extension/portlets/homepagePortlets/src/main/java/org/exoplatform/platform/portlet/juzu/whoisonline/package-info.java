@@ -1,9 +1,9 @@
 @Portlet
 @Application(name = "WhoIsOnline")
 @Assets(scripts = {
-    @Script(id= "jquery", src = "jquery-1.7.2.min.js", location = AssetLocation.SERVER),
-    @Script(src = "whoisonline.js", depends = "jquery", location = AssetLocation.CLASSPATH) ,@Script(src = "js/assets/jquery.tipTip.minified.js" ,depends = "jquery", location = AssetLocation.CLASSPATH)},
-    stylesheets = {@Stylesheet(src = "style/assets/online.css"),@Stylesheet(src = "style/assets/tipTip.css") }
+    @Script(id= "jquery", src = "jquery-1.7.2.min.js"),
+    @Script(src = "whoisonline.js", depends = "jquery", location = AssetLocation.CLASSPATH) ,@Script(src = "jquery.tipTip.minified.js" ,depends = "jquery", location = AssetLocation.CLASSPATH)},
+    stylesheets = {@Stylesheet(src = "online.css"),@Stylesheet(src = "tipTip.css") }
 )
 package org.exoplatform.platform.portlet.juzu.whoisonline;
 
