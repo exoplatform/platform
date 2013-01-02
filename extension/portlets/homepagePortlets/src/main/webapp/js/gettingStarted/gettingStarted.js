@@ -19,7 +19,6 @@
 
 $(function() {
 
-
     setTimeout(function()
         {
             $('.list-block').jzLoad("GettingStarted.getGsList()");
@@ -27,5 +26,5 @@ $(function() {
         ,100);
     setInterval(function(){
         $('.list-block').jzLoad("GettingStarted.getGsList()");
-    },3000);
+    },300000);
 });
