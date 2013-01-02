@@ -3,6 +3,24 @@ $(function () {
 
      function init(initKey){
 
+    $('span.addButtonSpan').on("click", function() {
+
+        var calId=$(this).parent().children("input").val();
+
+        $('div.SettingsContainer').jzLoad(
+            "AgendaPortlet.addCalendar()",
+            {"calendarId":calId});
+
+    });
+         $('span.deleteButtonSpan').on("click", function() {
+
+             var calId=$(this).parent().children("input").val();
+
+             $('div.SettingsContainer').jzLoad(
+                 "AgendaPortlet.deleteCalendar()",
+                 {"calendarId":calId});
+
+         });
     $('input.PLFcalendarSearchKey').on( "click", function() {
         $("#nonDisplayedCalendarContainer").css("display","none");
         var seakey=$(this).val();
@@ -73,13 +91,13 @@ $(function () {
         }
     });
     $('.CalendarItem').mouseover(function() {
-        var button= $(this).children("form").children("p.addButton");
+        var button= $(this).children("p.addButton");
 
         button.css("display","block");
 
     });
     $('.CalendarItem').mouseout(function() {
-        var button= $(this).children("form").children("p.addButton");
+        var button= $(this).children("p.addButton");
         button.css("display","none");
     });
     $('.CalendarPortlet').mouseover(function() {
@@ -89,6 +107,22 @@ $(function () {
     $('.CalendarPortlet').mouseout(function() {
         $('.SettingsContainer').children("div").css("display","none");
     });
+         $('span.PrevDateLink').on("click", function() {
+
+             $('div.CalendarPortlet').jzLoad(
+                 "AgendaPortlet.decDate()",
+                 {"nbClick":"1"});
+
+         });
+         $('span.NextDateLink').on("click", function() {
+
+
+
+             $('div.CalendarPortlet').jzLoad(
+                 "AgendaPortlet.incDate()",
+                 {"nbClick":"1"});
+
+         });
      };
 
     $(document).ready(function(){

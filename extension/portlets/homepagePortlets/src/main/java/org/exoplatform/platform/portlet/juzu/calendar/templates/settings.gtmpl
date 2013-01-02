@@ -33,9 +33,118 @@
     background-color: #959595;
 }
 </style>
+<script>
 
 
-<div id="SettingsContainer">
+        function init(initKey){
+
+            $('span.addButtonSpan').on("click", function() {
+
+                var calId=$(this).parent().children("input").val();
+
+                $('div.SettingsContainer').jzLoad(
+                        "AgendaPortlet.addCalendar()",
+                        {"calendarId":calId});
+
+            });
+            $('span.deleteButtonSpan').on("click", function() {
+
+                var calId=$(this).parent().children("input").val();
+
+                $('div.SettingsContainer').jzLoad(
+                        "AgendaPortlet.deleteCalendar()",
+                        {"calendarId":calId});
+
+            });
+            $('input.PLFcalendarSearchKey').on( "click", function() {
+                $("#nonDisplayedCalendarContainer").css("display","none");
+                var seakey=$(this).val();
+
+                if (seakey == initKey) {
+                    seakey="";
+                    $(this).val("");
+                }
+
+                $('div.NonDisplayedCalendar').jzLoad(
+                        "AgendaPortlet.getSearchResult()",
+                        {"key":seakey});
+
+            });
+            $('input.PLFcalendarSearchKey').on('show', function () {
+                $("#nonDisplayedCalendarContainer").css("display","none");
+                var seakey=$(this).val();
+                $('div.NonDisplayedCalendar').jzLoad(
+                        "AgendaPortlet.getSearchResult()",
+                        {"key":seakey});
+            });
+            $('input.PLFcalendarSearchKey').change(function() {
+                $("#nonDisplayedCalendarContainer").css("display","none");
+                var seakey=$(this).val();
+                $('div.NonDisplayedCalendar').jzLoad(
+                        "AgendaPortlet.getSearchResult()",
+                        {"key":seakey});
+            });
+            $('input.PLFcalendarSearchKey').keypress(function() {
+                $("#nonDisplayedCalendarContainer").css("display","none");
+                var seakey=$(this).val();
+                $('div.NonDisplayedCalendar').jzLoad(
+                        "AgendaPortlet.getSearchResult()",
+                        {"key":seakey});
+            });
+            $('input.PLFcalendarSearchKey').on("keydown",function() {
+                $("#nonDisplayedCalendarContainer").css("display","none");
+                var seakey=$(this).val();
+                $('div.NonDisplayedCalendar').jzLoad(
+                        "AgendaPortlet.getSearchResult()",
+                        {"key":seakey});
+            });
+
+            $('input.PLFcalendarSearchKey').on("keypress",function() {
+                $("#nonDisplayedCalendarContainer").css("display","none");
+                var seakey=$(this).val();
+                $('div.NonDisplayedCalendar').jzLoad(
+                        "AgendaPortlet.getSearchResult()",
+                        {"key":seakey});
+            });
+
+            $('input.PLFcalendarSearchKey').on("keyup" ,function() {
+                $("#nonDisplayedCalendarContainer").css("display","none");
+                var seakey=$(this).val();
+                $('div.NonDisplayedCalendar').jzLoad(
+                        "AgendaPortlet.getSearchResult()",
+                        {"key":seakey});
+            });
+            $('input.PLFcalendarSearchKey').on("focus" ,function() {
+                if ($(this).val() == initKey) {
+                    $(this).val("");
+                }
+            });
+
+            $('input.PLFcalendarSearchKey').on("blur",function() {
+                if ($(this).val() == "") {
+                    $(this).val(initKey) ;
+                }
+            });
+
+
+        };
+
+        $(document).ready(function(){
+            var initKey=$('input.PLFcalendarSearchKey').val();
+            init(initKey) ;
+        });
+        $('.CalendarItem').mouseover(function() {
+            var button= $(this).children("p.addButton");
+
+            button.css("display","block");
+
+        });
+        $('.CalendarItem').mouseout(function() {
+            var button= $(this).children("p.addButton");
+            button.css("display","none");
+        });
+</script>
+<div>
     <div id="SettingsContainerTitle">
         <p class="settingsTitle">${bundle["settingLabel"]}</p>
     </div>
@@ -44,7 +153,8 @@
         <p>${bundle["displayedLabel"]}</p>
     </div>
 
-    <div id="DisplayedCalendarContainer">
+<div class="SettingsContainer" id="SettingsContainer">
+    <div class= "DisplayedCalendarContainer" id="DisplayedCalendarContainer">
 
         <% if (displayedCalendar != null) {
 
@@ -58,13 +168,13 @@
                 }
         %>
         <div class= "CalendarItem" id="${cal.id}">
-            <p class="flottante" style="background-color:  ${cal.calendarColor}" class="" id="${cal.id}">${calendarName}</p>
+            <p class="flottante" style="background-color:${cal.calendarColor}" class="" id="${cal.id}">${calendarName}</p>
 
-            <form action="@{deleteCalendar()}" method="post">
-                <input type="hidden" name="calendarId" value="${cal.id}"/>
+                <p class="flottante">
+                    <span class="deleteButtonSpan">delete</span>
+                    <input type="hidden" name="calendarId" value="${cal.id}"/>
+                </p>
 
-                <p class="flottante"><button type="submit">delete</button></p>
-            </form>
         </div>
         <% }
         }
@@ -84,7 +194,7 @@
         <div  class="NonDisplayedCalendar"></div>
     </div>
 
-    <div  id="nonDisplayedCalendarContainer" style="display: block">
+    <div  class="nonDisplayedCalendarContainer" id="nonDisplayedCalendarContainer" style="display: block">
         <% if (nonDisplayedCalendar != null) {
 
             nonDisplayedCalendar.each { cal ->
@@ -96,20 +206,19 @@
                 }
         %>
         <div id="${cal.id}" class="CalendarItem">
-            <form action="@{addCalendar()}" method="post">
-
-                <input type="hidden" name="calendarId" value="${cal.id}"/>
 
                 <p style="float:left; height:20px;width:20px;background-color:  ${cal.calendarColor}"/>
 
                 <p style="float:left; ">${calendarName}</p>
 
-                <p class="addButton" style="float:left;display: none;"><button type="submit" value="ADD">ADD</button></p>
+                <p class="addButton" style="float:left;display: none;">
+                    <input type="hidden" name="calendarId" value="${cal.id}"/>
+                    <span  class="addButtonSpan">ADD</span>
+                </p>
 
                 <div class="spacer">
                     &nbsp;
                 </div>
-            </form>
         </div>
         <% }
 
@@ -119,4 +228,5 @@
 
     </div>
     <a href="@{index()}">OK</a>
+</div>
 </div>
