@@ -100,6 +100,7 @@
 }
 .SettingsContainer{
     float: right;
+    height: 30px;
 }
 
 .SettingsLink{

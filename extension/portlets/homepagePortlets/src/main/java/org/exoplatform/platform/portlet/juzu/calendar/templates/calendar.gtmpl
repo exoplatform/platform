@@ -31,8 +31,15 @@ import java.util.Locale;
         <% if (displayedCalendar != null) {
 
             displayedCalendar.each { cal ->
+                def   calendarName= cal.name;
+                if(calendarName.indexOf("default") != -1) calendarName = "Default Calendar";
+                if (cal.groups != null) {
+                    def group = cal.groups[0];
+                    def grpName = " (" + group.substring(group.lastIndexOf("/") + 1) + ")";
+                    calendarName += grpName;
+                }
         %>
-        <p class="flottante" style="background-color:  ${cal.calendarColor}" class="" id="${cal.id}">${cal.name}</p>
+        <p class="flottante" style="background-color:  ${cal.calendarColor}" class="" id="${cal.id}">${calendarName}</p>
         <% }
         }
         %>
@@ -138,7 +145,7 @@ import java.util.Locale;
         </div>
     </div>
     <% } %>
-    <div class="SettingsContainer" style="height: 30px;">
+    <div class="SettingsContainer" >
         <div style="display: none">
             <a class="SettingsLink" id="SettingId" href="@{setting()}"> Setting </a>
         </div>

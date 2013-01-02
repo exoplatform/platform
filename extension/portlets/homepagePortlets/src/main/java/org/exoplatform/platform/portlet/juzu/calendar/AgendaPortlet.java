@@ -54,8 +54,8 @@ public class AgendaPortlet  {
     @View
     public void index() throws Exception {
         eventsDisplayedList.clear();
-        calendarDisplayedMap.clear();
-        calendarDisplayedList.clear();
+        //calendarDisplayedMap.clear();
+        //calendarDisplayedList.clear();
         tasksDisplayedList.clear();
 
         /*Date Localization i18n*/

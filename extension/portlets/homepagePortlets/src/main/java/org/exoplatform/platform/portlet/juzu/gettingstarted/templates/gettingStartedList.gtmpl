@@ -1,0 +1,18 @@
+
+<div id="progress-block">
+    <div id="progress-shell">
+        <div id="progress-rate" style="width: ${width}px"></div>
+    </div>
+    <div id="progress-label" > ${progress}</div>
+
+</div>
+
+<div style="height: 200px;width: 100%;" class="list">
+    <ul class ="gsList" id="gsList">
+        <li class="${status['gs_profile']}" ><a  target="_parent" href=${profile} >${profileLabel}</a></li>
+        <li class="${status['gs_connect']}" ><a  target="_parent" href=${connect} >${connectLabel}</a></li>
+        <li class="${status['gs_space']}" ><a target="_parent" href=${space} >${spaceLabel}</a></li>
+        <li class="${status['gs_activities']}" ><a target="_parent" href=${activity} > ${activityLabel} </a></li>
+        <li class="${status['gs_document']}" ><a target="_parent" href=${upload}> ${uploadLabel} </a></li>
+    </ul>
+</div>
