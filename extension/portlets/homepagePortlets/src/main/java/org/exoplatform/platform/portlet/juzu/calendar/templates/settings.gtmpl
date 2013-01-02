@@ -1,7 +1,4 @@
 <style>
-.CalendarItemSelected {
-    float: left;
-}
 
 .CalendarItem {
 
@@ -11,12 +8,7 @@
 
     margin: 2px;
     float: left;
-
     text-align: center;
-}
-
-.conteneur {
-    width: 100%;
 }
 
 .spacer {
@@ -42,7 +34,7 @@
 
                 var calId=$(this).parent().children("input").val();
 
-                $('div.SettingsContainer').jzLoad(
+                $('div.SettingsContainerData').jzLoad(
                         "AgendaPortlet.addCalendar()",
                         {"calendarId":calId});
 
@@ -51,7 +43,7 @@
 
                 var calId=$(this).parent().children("input").val();
 
-                $('div.SettingsContainer').jzLoad(
+                $('div.SettingsContainerData').jzLoad(
                         "AgendaPortlet.deleteCalendar()",
                         {"calendarId":calId});
 
@@ -71,20 +63,6 @@
 
             });
             $('input.PLFcalendarSearchKey').on('show', function () {
-                $("#nonDisplayedCalendarContainer").css("display","none");
-                var seakey=$(this).val();
-                $('div.NonDisplayedCalendar').jzLoad(
-                        "AgendaPortlet.getSearchResult()",
-                        {"key":seakey});
-            });
-            $('input.PLFcalendarSearchKey').change(function() {
-                $("#nonDisplayedCalendarContainer").css("display","none");
-                var seakey=$(this).val();
-                $('div.NonDisplayedCalendar').jzLoad(
-                        "AgendaPortlet.getSearchResult()",
-                        {"key":seakey});
-            });
-            $('input.PLFcalendarSearchKey').keypress(function() {
                 $("#nonDisplayedCalendarContainer").css("display","none");
                 var seakey=$(this).val();
                 $('div.NonDisplayedCalendar').jzLoad(
@@ -125,7 +103,16 @@
                     $(this).val(initKey) ;
                 }
             });
+            $('.CalendarItem').mouseover(function() {
+                var button= $(this).children("p.addButton");
 
+                button.css("display","block");
+
+            });
+            $('.CalendarItem').mouseout(function() {
+                var button= $(this).children("p.addButton");
+                button.css("display","none");
+            });
 
         };
 
@@ -133,32 +120,25 @@
             var initKey=$('input.PLFcalendarSearchKey').val();
             init(initKey) ;
         });
-        $('.CalendarItem').mouseover(function() {
-            var button= $(this).children("p.addButton");
 
-            button.css("display","block");
-
-        });
-        $('.CalendarItem').mouseout(function() {
-            var button= $(this).children("p.addButton");
-            button.css("display","none");
-        });
 </script>
-<div>
-    <div id="SettingsContainerTitle">
-        <p class="settingsTitle">${bundle["settingLabel"]}</p>
-    </div>
 
-    <div id="DisplayedCalendarTitle">
-        <p>${bundle["displayedLabel"]}</p>
-    </div>
+    <div class="SettingsContainer" >
+         <div class="SettingsContainerData" >
+             <div class="SettingsContainerTitle">
+                 <p class="settingsTitle">${bundle["settingLabel"]}</p>
+             </div>
 
-<div class="SettingsContainer" id="SettingsContainer">
-    <div class= "DisplayedCalendarContainer" id="DisplayedCalendarContainer">
+             <div class="DisplayedCalendarTitle">
+                <p>${bundle["displayedLabel"]}</p>
+             </div>
 
-        <% if (displayedCalendar != null) {
 
-            displayedCalendar.each { cal ->
+             <div class= "DisplayedCalendarContainer" >
+
+                       <% if (displayedCalendar != null) {
+
+                displayedCalendar.each { cal ->
                 def   calendarName= cal.name;
                 if(calendarName.indexOf("default") != -1) calendarName = "Default Calendar";
                 if (cal.groups != null) {
@@ -166,67 +146,69 @@
                     def grpName = " (" + group.substring(group.lastIndexOf("/") + 1) + ")";
                     calendarName += grpName;
                 }
-        %>
-        <div class= "CalendarItem" id="${cal.id}">
-            <p class="flottante" style="background-color:${cal.calendarColor}" class="" id="${cal.id}">${calendarName}</p>
+                      %>
+                      <div class= "CalendarItem" id="${cal.id}">
+                            <p class="flottante" style="background-color:${cal.calendarColor}" class="" id="${cal.id}">${calendarName}</p>
 
-                <p class="flottante">
-                    <span class="deleteButtonSpan">delete</span>
-                    <input type="hidden" name="calendarId" value="${cal.id}"/>
-                </p>
+                            <p class="flottante">
+                                <span class="deleteButtonSpan">delete</span>
+                                <input type="hidden" name="calendarId" value="${cal.id}"/>
+                            </p>
 
-        </div>
-        <% }
-        }
-        %>
-        <div class="spacer">&nbsp;</div>
+                      </div>
+                                <% }
+                                 }
+                                 %>
+                <div class="spacer">&nbsp;</div>
 
-    </div>
+             </div>
 
-    <div id="nonDisplayedCalendarTitle">
-        <p>${bundle["additionalCalendarLabel"]}</p>
-    </div>
+             <div class="nonDisplayedCalendarTitle">
+                    <p>${bundle["additionalCalendarLabel"]}</p>
+             </div>
 
-    <div class="searchContainer">
-        <%def searchLabel= bundle["searchLabel"]  %>
-        <input type="text"  class="PLFcalendarSearchKey" value="${searchLabel}"/>
+             <div class="searchContainer">
+                    <%def searchLabel= bundle["searchLabel"]  %>
+                        <input type="text"  class="PLFcalendarSearchKey" value="${searchLabel}"/>
 
-        <div  class="NonDisplayedCalendar"></div>
-    </div>
+                        <div  class="NonDisplayedCalendar"></div>
+             </div>
 
-    <div  class="nonDisplayedCalendarContainer" id="nonDisplayedCalendarContainer" style="display: block">
-        <% if (nonDisplayedCalendar != null) {
+            <div  id="nonDisplayedCalendarContainer"  style="display: block">
+                 <% if (nonDisplayedCalendar != null) {
 
-            nonDisplayedCalendar.each { cal ->
-                def   calendarName= cal.name;
-                if (cal.groups != null) {
-                    def group = cal.groups[0];
-                    def grpName = " (" + group.substring(group.lastIndexOf("/") + 1) + ")";
-                    calendarName += grpName;
-                }
-        %>
-        <div id="${cal.id}" class="CalendarItem">
+                    nonDisplayedCalendar.each { cal ->
+                        def   calendarName= cal.name;
+                        if (cal.groups != null) {
+                        def group = cal.groups[0];
+                        def grpName = " (" + group.substring(group.lastIndexOf("/") + 1) + ")";
+                        calendarName += grpName;
+                         }
+                   %>
+                                <div id="${cal.id}" class="CalendarItem">
 
-                <p style="float:left; height:20px;width:20px;background-color:  ${cal.calendarColor}"/>
+                                    <p style="float:left; height:20px;width:20px;background-color:  ${cal.calendarColor}"/>
 
-                <p style="float:left; ">${calendarName}</p>
+                                    <p style="float:left; ">${calendarName}</p>
 
-                <p class="addButton" style="float:left;display: none;">
-                    <input type="hidden" name="calendarId" value="${cal.id}"/>
-                    <span  class="addButtonSpan">ADD</span>
-                </p>
+                                    <p class="addButton" style="float:left;display: none;">
+                                        <input type="hidden" name="calendarId" value="${cal.id}"/>
+                                        <span  class="addButtonSpan"> ADD </span>
+
+                                    </p>
 
                 <div class="spacer">
                     &nbsp;
                 </div>
-        </div>
+                                </div>
         <% }
 
         }
 
         %>
 
+            </div>
+             <a href="@{index()}">OK</a>
     </div>
-    <a href="@{index()}">OK</a>
-</div>
-</div>
+
+    </div>

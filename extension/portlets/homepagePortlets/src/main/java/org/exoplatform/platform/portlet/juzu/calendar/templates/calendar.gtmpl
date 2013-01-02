@@ -8,7 +8,7 @@ import java.util.Locale;
 <script>
      $('span.PrevDateSpan').on("click", function() {
 
-     $('div.CalendarPortlet').jzLoad(
+     $('div.CalendarPortletData').jzLoad(
                 "AgendaPortlet.decDate()",
                 {"nbClick":"1"});
 
@@ -17,7 +17,7 @@ import java.util.Locale;
 
 
 
-        $('div.CalendarPortlet').jzLoad(
+        $('div.CalendarPortletData').jzLoad(
                 "AgendaPortlet.incDate()",
                 {"nbClick":"1"});
 
@@ -161,9 +161,9 @@ import java.util.Locale;
     <% } %>
 
 </div>
-<div class="SettingsContainer" >
+<div class="SettingsContainerPage" >
     <div style="display: none">
-        <a class="SettingsLink" id="SettingId" href="@{setting()}"> Setting </a>
+        <a class="SettingsLink"  href="@{setting()}"> Settings </a>
     </div>
 </div>
 </div>
