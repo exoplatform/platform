@@ -60,6 +60,14 @@
         <script>
             <path>/javascript/jcarousellite.js</path>
         </script>
+	<depends>
+            <module>jqueryui</module>
+            <as>jqueryui</as>
+        </depends>
+     </module>
+    
+    <module>
+        <name>jqueryui</name>
         <script>
             <path>/javascript/jquery-ui-1.8.6.custom.min.js</path>
         </script>
@@ -67,7 +75,7 @@
             <module>jquery</module>
             <as>jQuery</as>
         </depends>
-    </module>
+    </module>    
 
     <!--
     <portal>
