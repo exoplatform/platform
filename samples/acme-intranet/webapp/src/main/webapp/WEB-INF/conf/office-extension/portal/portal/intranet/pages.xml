@@ -1230,7 +1230,7 @@
 				<access-permissions>*:/platform/users</access-permissions>
 				<portlet-application>
 					<portlet>
-						<application-ref>social-juzu-portlet</application-ref>
+						<application-ref>social-portlet</application-ref>
 						<portlet-ref>SpaceAccessPortlet</portlet-ref>
 					</portlet>
 					<title>space-access</title>
