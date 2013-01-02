@@ -23,9 +23,6 @@
       import org.exoplatform.web.application.RequestContext;
 %>
 <%
-    Locale locale = RequestContext.getCurrentInstance().getLocale();
-    ResourceBundle rs = ResourceBundle.getBundle("gettingStarted/gettingStarted", locale);
-    def titleLabel=rs.getString("title.Label");
     if (show == "true") {%>
 
 <div id="GettingStarted" style="display: block">

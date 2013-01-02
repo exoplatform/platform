@@ -24,5 +24,11 @@
 
     <bean id="login" class="org.exoplatform.platform.portlet.juzu.whoisonline.WhoIsOnlineImpl">
     </bean>
+    <bean id="nodeHierarchyBean" class="org.exoplatform.platform.portlet.juzu.gettingstarted.NodeHierarchyCreatorProvider">
+    </bean>
+    <bean id="spaceServiceBean" class="org.exoplatform.platform.portlet.juzu.calendar.providers.OrganisationServiceProvider">
+    </bean>
+    <bean id="calendarServiceBean" class="org.exoplatform.platform.portlet.juzu.calendar.providers.CalendarServiceProvider">
+    </bean>
 
 </beans>

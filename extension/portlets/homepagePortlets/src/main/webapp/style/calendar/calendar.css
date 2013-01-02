@@ -10,20 +10,28 @@
 }
 .DateContainer{
     background-color: silver;
-    height: 20px;
     text-align: center;
+    top: 3px;
     width: 100%;
+    overflow: hidden;
+    min-height: 36px;
+    position: relative;
+
 }
 .PrevDateLink{
-    float: left;
+    position: absolute;
+    left: 0px;  top: 0px;
+    width: 13px;
 }
 .NextDateLink  {
-   float: right;
+    position: absolute;
+    right: 0px;  top: 0px;
+    /* top: 3px; width: 13px;*/
 }
 .CurrentDateContainer{
-    float:left;
-    text-decoration-style: solid;
+    margin: 0 auto;
     text-align: center;
+    /*width: 300px;*/
 }
 .flottante {
 
@@ -60,41 +68,40 @@
     background:url('img/check.png') no-repeat left !important;
 }
 
- .TasksTitle{
-     text-decoration-style: solid;
-       background-color:silver;
-     height: 20px;
-     text-align: center;
- }
- .TasksList{
+.TasksTitle{
+    text-decoration-style: solid;
+    background-color:silver;
+    height: 20px;
+    text-align: center;
+}
+.TasksList{
 
- }
- .Events{
+}
+.Events{
 
- }
- .EventsList{
+}
+.EventsList{
 
- }
- .EventsTitle{
-     text-decoration-style: solid;
-     background-color: silver;
-     height: 20px;
-     text-align: center;
- }
+}
+.EventsTitle{
+    text-decoration-style: solid;
+    background-color: silver;
+    height: 20px;
+    text-align: center;
+}
 
- .PastEvent{
-        background-color: #d3d3d3;
- }
+.PastEvent{
+    background-color: #d3d3d3;
+}
 
- .EventLink{
+.EventLink{
 
-        text-decoration: #444444;
- }
- .SettingsContainer{
-             float: right;
- }
+    text-decoration: #444444;
+}
+.SettingsContainer{
+    float: right;
+}
 
 .SettingsLink{
     background:url('img/Setting.png') no-repeat right ;
 }
-

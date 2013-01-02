@@ -8,9 +8,12 @@ import java.util.Locale;
 
 %>
 <div class="CalendarPortlet">
+
+
+
     <div class="DateContainer">
         <div class="PrevDateLink">
-            <a  href="@{decDate(nbClick='1')}">prev</a>
+            <a  href="@{decDate(nbClick='1')}">Prev</a>
         </div>
 
         <div class="CurrentDateContainer">
@@ -18,7 +21,7 @@ import java.util.Locale;
         </div>
 
         <div class="NextDateLink">
-            <a href="@{incDate(nbClick='1')}">next</a>
+            <a href="@{incDate(nbClick='1')}">Next</a>
         </div>
     </div>
 
@@ -53,7 +56,7 @@ import java.util.Locale;
                 sdf2= DateFormat.getTimeInstance(DateFormat.SHORT,locale);
                 def from;
                 def to;
-                if ((eventsDisplayedList != null) || (eventsDisplayedList.size() == 0)) {
+                if ((eventsDisplayedList != null) || (eventsDisplayedList.size() != 0)) {
 
                     eventsDisplayedList.each { event ->
                         def color = calendarDisplayedMap[event.calendarId].calendarColor;

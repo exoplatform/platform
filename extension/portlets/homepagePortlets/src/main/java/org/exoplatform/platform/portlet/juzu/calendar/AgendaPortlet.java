@@ -20,7 +20,7 @@ import java.util.Calendar;
  * @date 13/12/12
  */
 @SessionScoped
-public class AgendaPortlet extends Controller {
+public class AgendaPortlet  {
     static Map<String, org.exoplatform.calendar.service.Calendar> calendarDisplayedMap = new HashMap<String, org.exoplatform.calendar.service.Calendar>();
     static Map<String, org.exoplatform.calendar.service.Calendar> calendarNonDisplayedMap = new HashMap<String, org.exoplatform.calendar.service.Calendar>();
 
@@ -31,17 +31,12 @@ public class AgendaPortlet extends Controller {
     static Set<org.exoplatform.calendar.service.Calendar> searchResult = new HashSet<org.exoplatform.calendar.service.Calendar>();
     static String nbclick = "0";
 
-    CalendarService calendarService_;
-    OrganizationService organization_;
-    private static Log log = ExoLogger.getLogger(AgendaPortlet.class);
-
-
     @Inject
-    public AgendaPortlet(CalendarService calendarService, OrganizationService organization) {
-        calendarService_ = calendarService;
-        organization_ = organization;
-    }
+    CalendarService calendarService_;
+    @Inject
+    OrganizationService organization_;
 
+    private static Log log = ExoLogger.getLogger(AgendaPortlet.class);
 
     @Inject
     @Path("calendar.gtmpl")
@@ -69,7 +64,7 @@ public class AgendaPortlet extends Controller {
 
         DateFormat d = DateFormat.getDateInstance(DateFormat.SHORT, locale);
 
-        String username = renderContext.getSecurityContext().getRemoteUser();
+        String username = RequestContext.getCurrentInstance().getRemoteUser();
         Long date = new Date().getTime();
         int int_nb_click = Integer.parseInt(nbclick);
         if (int_nb_click != 0) date = incDecJour(date, int_nb_click);

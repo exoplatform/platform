@@ -173,7 +173,7 @@
             <container id="OfficeRight" template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
                 <access-permissions>Everyone</access-permissions>
                 <!-- Problem in push -->
-                <!--portlet-application>
+                <portlet-application>
                     <portlet>
                         <application-ref>homepage-portlets</application-ref>
                         <portlet-ref>GettingStartedPortlet</portlet-ref>
@@ -183,7 +183,19 @@
                     <show-info-bar>false</show-info-bar>
                     <show-application-state>false</show-application-state>
                     <show-application-mode>false</show-application-mode>
-                </portlet-application-->
+                </portlet-application>
+
+                <portlet-application>
+                    <portlet>
+                        <application-ref>homepage-portlets</application-ref>
+                        <portlet-ref>HomePageCalendarPortlet</portlet-ref>
+                    </portlet>
+                    <title>Calendar Portlet</title>
+                    <access-permissions>*:/platform/users</access-permissions>
+                    <show-info-bar>false</show-info-bar>
+                    <show-application-state>false</show-application-state>
+                    <show-application-mode>false</show-application-mode>
+                </portlet-application>
 
                 <portlet-application>
                     <portlet>

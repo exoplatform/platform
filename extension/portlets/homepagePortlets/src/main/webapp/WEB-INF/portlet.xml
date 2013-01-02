@@ -32,6 +32,10 @@
             <name>juzu.run_mode</name>
             <value>prod</value>
         </init-param>
+        <init-param>
+            <name>juzu.inject</name>
+            <value>spring</value>
+        </init-param>
         <supports>
             <mime-type>text/html</mime-type>
         </supports>
@@ -87,6 +91,10 @@
         <init-param>
             <name>juzu.run_mode</name>
             <value>prod</value>
+        </init-param>
+        <init-param>
+            <name>juzu.inject</name>
+            <value>spring</value>
         </init-param>
         <supports>
             <mime-type>text/html</mime-type>

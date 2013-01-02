@@ -18,7 +18,6 @@
  */
 package org.exoplatform.platform.portlet.juzu.gettingstarted;
 
-import juzu.Controller;
 import juzu.Path;
 import juzu.View;
 import juzu.template.Template;
@@ -41,15 +40,12 @@ import java.util.ResourceBundle;
  * @author <a href="fbradai@exoplatform.com">Fbradai</a>
  * @date 07/12/12
  */
-public class GettingStarted extends Controller {
+public class GettingStarted {
 
     private static Log logger = ExoLogger.getLogger(GettingStarted.class);
-    NodeHierarchyCreator nodeHierarchyCreator_;
 
     @Inject
-    public GettingStarted(NodeHierarchyCreator nodeHierarchyCreator) {
-        nodeHierarchyCreator_ = nodeHierarchyCreator;
-    }
+    NodeHierarchyCreator nodeHierarchyCreator_;
 
     @Inject
     @Path("gettingStarted.gtmpl")
@@ -58,7 +54,7 @@ public class GettingStarted extends Controller {
     @View
     public void index() throws Exception {
         boolean del = false;
-        String remoteUser = renderContext.getSecurityContext().getRemoteUser();
+        String remoteUser = RequestContext.getCurrentInstance().getRemoteUser();;
         SessionProvider sProvider = SessionProvider.createSystemProvider();
         Node userPrivateNode = nodeHierarchyCreator_.getUserNode(sProvider, remoteUser).getNode("ApplicationData");
         if (userPrivateNode.hasNode("GsGadget")) {
@@ -74,13 +70,14 @@ public class GettingStarted extends Controller {
     @View
     public void index(String show)  {
         Locale locale = RequestContext.getCurrentInstance().getLocale();
-        String remoteUser = renderContext.getSecurityContext().getRemoteUser();
+        String remoteUser = RequestContext.getCurrentInstance().getRemoteUser();
 
         String profileLabel = "";
         String documentLabel = "";
         String connectLabel = "";
         String activityLabel = "";
         String spaceLabel = "";
+        String titleLabel= "";
 
         try{
         ResourceBundle rs = ResourceBundle.getBundle("gettingStarted/gettingStarted", locale);
@@ -94,6 +91,8 @@ public class GettingStarted extends Controller {
             EntityEncoder.FULL.encode(activityLabel);
             documentLabel = rs.getString("Document.Label");
             EntityEncoder.FULL.encode(documentLabel);
+            titleLabel=rs.getString("title.Label");
+            EntityEncoder.FULL.encode(titleLabel);
         }
         catch(MissingResourceException ex){
             profileLabel=  "Upload.label";
@@ -101,10 +100,12 @@ public class GettingStarted extends Controller {
             spaceLabel ="Space.label";
             activityLabel="Activity.label" ;
             documentLabel="document.label";
+            titleLabel="title.Label";
         }
         finally {
             HashMap parameters = new HashMap();
             parameters.put("show", show);
+            parameters.put("titleLabel", titleLabel);
             parameters.put("profile", LinkProvider.getUserProfileUri(remoteUser));
             parameters.put("profileLabel", profileLabel);
             parameters.put("connect", LinkProvider.getUserConnectionsUri(remoteUser));
