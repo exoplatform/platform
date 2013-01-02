@@ -45,7 +45,7 @@ a {
 }
 
 .UIWorkingWorkspace .UIPageBody .VIEW-PAGEBODY {
-    background: transparent;
+    /*background: transparent;*/
     padding: 0px;
 }
 
@@ -196,7 +196,7 @@ a {
 }
 
 .UITableColumnContainer .UIPopupWindow .PopupContent {
-    position: inherit;
+    /*position: inherit;*/
 }
 
 #MonitoringTable {
