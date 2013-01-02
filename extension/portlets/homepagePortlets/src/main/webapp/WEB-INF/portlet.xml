@@ -19,6 +19,8 @@
         <supports>
             <mime-type>text/html</mime-type>
         </supports>
+       <supported-locale>en</supported-locale>
+       <resource-bundle>whoisonline.whoisonline</resource-bundle>
         <portlet-info>
             <title>Who is on line</title>
             <keywords>juzu</keywords>
@@ -59,6 +61,8 @@
         <supports>
             <mime-type>text/html</mime-type>
         </supports>
+       <supported-locale>en</supported-locale>
+       <resource-bundle>suggestions.suggestions</resource-bundle>
         <portlet-info>
             <title>Suggestions</title>
             <keywords>juzu</keywords>

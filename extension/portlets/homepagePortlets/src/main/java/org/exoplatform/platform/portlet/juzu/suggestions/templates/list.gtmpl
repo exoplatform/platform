@@ -19,11 +19,9 @@
        */
 
   %>
-
-
 <div style="display:none;" id="content">
 
-<div class='peopleHeader'>Connection Suggestions</div>
+<div class='peopleHeader'>${headerLabel}</div>
           <div style="display:none;" class="peopleList" id="peopleSuggest">
               <ul id='suggestions'></ul>
           </div>

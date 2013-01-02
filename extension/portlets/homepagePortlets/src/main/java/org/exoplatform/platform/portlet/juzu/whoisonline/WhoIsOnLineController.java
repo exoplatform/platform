@@ -7,8 +7,11 @@ import juzu.View;
 import juzu.plugin.ajax.Ajax;
 import juzu.template.Template;
 import org.exoplatform.web.application.RequestContext;
+
 import javax.inject.Inject;
 import java.util.List;
+import java.util.Locale;
+import java.util.ResourceBundle;
 
 /**
  * @author <a href="rtouzi@exoplatform.com">rtouzi</a>
@@ -29,9 +32,12 @@ public class WhoIsOnLineController {
 
   @View
   public Response.Render index() {
+      Locale locale = RequestContext.getCurrentInstance().getLocale();
+      ResourceBundle rs = ResourceBundle.getBundle("whoisonline/whoisonline", locale);
+      String headerLabel = rs.getString("header.label");
       String userId= RequestContext.getCurrentInstance().getRemoteUser();
       List<User> friends = whoIsOnline.getFriends(userId);
-    return index.with().set("users", friends).render();
+    return index.with().set("users", friends).set("headerLabel",headerLabel).render();
   }
 
   @Ajax

@@ -19,7 +19,7 @@
 
 <div id="OnlinePortlet">
 <div id="onlineContent">
-<div class="onlineHeader">Who is online?</div>
+<div class="onlineHeader">${headerLabel}</div>
 <ul id="onlineList" class="gallery">
   #{include path=users.gtmpl}#{/include}
 </ul>
