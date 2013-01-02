@@ -1,13 +1,13 @@
 (function($) {
     var UISpaceNavigation = {
         init: function(uicomponentId, mySpaceRestUrl, defaultValueForTextSearch,noSpace, selectSpaceAction) {
-            var me = UISpaceNavigation;
+            var me = this;
             me.mySpaceRestUrl = mySpaceRestUrl;
             me.lastSearchKeyword = "";
             me.defaultValueForTextSearch = defaultValueForTextSearch;
             me.selectSpaceAction = selectSpaceAction;
             me.noSpace=noSpace;
-            var me = UISpaceNavigation;
+            var me = this;
             var navigationSpaceSearch = document.getElementById(uicomponentId);
             var textField = $(navigationSpaceSearch).find("input.searchText")[0];
             textField.value = defaultValueForTextSearch;
@@ -50,7 +50,7 @@
 
         },
         requestData: function(keyword, uicomponentId) {
-            var me = UISpaceNavigation;
+            var me = this;
 
             $.ajax({
                 async : false,
@@ -63,7 +63,7 @@
             });
         },
         render: function(dataList, uicomponentId) {
-            var me = UISpaceNavigation;
+            var me = this;
             me.dataList = dataList;
 
             var navigationSpaceSearch = document.getElementById(uicomponentId);
@@ -91,7 +91,7 @@
             }
         },
         onTextSearchChange: function(uicomponentId) {
-            var me = UISpaceNavigation;
+            var me = this;
             var navigationSpaceSearch = document.getElementById(uicomponentId);
             var textSearch = $(navigationSpaceSearch).find("input.searchText")[0].value;
 

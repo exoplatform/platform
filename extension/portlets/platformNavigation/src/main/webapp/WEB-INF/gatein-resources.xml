@@ -154,6 +154,7 @@
             </script>
             <depends>
                 <module>jquery</module>
+                <as>$</as>
             </depends>
         </module>
     </portlet>
@@ -186,5 +187,4 @@
             <as>$</as>
         </depends>
     </module>
-
 </gatein-resources>
