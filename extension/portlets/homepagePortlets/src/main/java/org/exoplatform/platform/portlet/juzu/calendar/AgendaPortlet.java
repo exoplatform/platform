@@ -54,8 +54,8 @@ public class AgendaPortlet  {
     @View
     public void index() throws Exception {
         eventsDisplayedList.clear();
-        calendarDisplayedMap.clear();
-        calendarDisplayedList.clear();
+        //calendarDisplayedMap.clear();
+        //calendarDisplayedList.clear();
         tasksDisplayedList.clear();
 
         /*Date Localization i18n*/
@@ -155,7 +155,8 @@ public class AgendaPortlet  {
                 set("bundle",parameters).render();
     }
 
-    @Action
+    @Ajax
+    @Resource
     public void addCalendar(String calendarId) throws Exception {
 
         org.exoplatform.calendar.service.Calendar calendar = calendarNonDisplayedMap.get(calendarId);
@@ -166,11 +167,13 @@ public class AgendaPortlet  {
             calendarNonDisplayedMap.remove(calendarId);
         }
 
-        setting.with().set("displayedCalendar", calendarDisplayedList).
-                set("nonDisplayedCalendar", calendarNonDisplayedList).render();
+        /*setting.with().set("displayedCalendar", calendarDisplayedList).
+                set("nonDisplayedCalendar", calendarNonDisplayedList).render();   */
+        setting();
     }
 
-    @Action
+    @Ajax
+    @Resource
     public void deleteCalendar(String calendarId) throws Exception {
 
         org.exoplatform.calendar.service.Calendar calendar = calendarDisplayedMap.get(calendarId);
@@ -181,25 +184,28 @@ public class AgendaPortlet  {
             calendarNonDisplayedMap.put(calendarId, calendar);
         }
 
-        setting.with().set("displayedCalendar", calendarDisplayedList).
-                set("nonDisplayedCalendar", calendarNonDisplayedList).set("searchResultList", searchResult).render();
+        /*setting.with().set("displayedCalendar", calendarDisplayedList).
+                set("nonDisplayedCalendar", calendarNonDisplayedList).set("searchResultList", searchResult).render();  */
+        setting();
     }
 
 
-    @Action
-    public Response incDate(String nbClick) {
+    @Ajax
+    @Resource
+    public void incDate(String nbClick) throws Exception {
         int int_nb_click = Integer.parseInt(nbclick);
         int_nb_click++;
         nbclick = new Integer(int_nb_click).toString();
-        return AgendaPortlet_.index();
+        index();
     }
 
-    @Action
-    public Response decDate(String nbClick) {
+    @Ajax
+    @Resource
+    public void decDate(String nbClick) throws Exception {
         int int_nb_click = Integer.parseInt(nbclick);
         int_nb_click--;
         nbclick = new Integer(int_nb_click).toString();
-        return AgendaPortlet_.index();
+        index();
     }
 
     @Ajax

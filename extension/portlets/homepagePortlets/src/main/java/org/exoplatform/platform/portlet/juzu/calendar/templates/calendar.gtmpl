@@ -4,16 +4,30 @@ import org.exoplatform.calendar.service.CalendarEvent;
 import org.exoplatform.web.application.RequestContext;
 import java.util.Locale;
 %>
-<%
 
-%>
+<script>
+     $('span.PrevDateSpan').on("click", function() {
+
+     $('div.CalendarPortletData').jzLoad(
+                "AgendaPortlet.decDate()",
+                {"nbClick":"1"});
+
+    });
+    $('span.NextDateSpan').on("click", function() {
+
+
+
+        $('div.CalendarPortletData').jzLoad(
+                "AgendaPortlet.incDate()",
+                {"nbClick":"1"});
+
+    });
+</script>
 <div class="CalendarPortlet">
-
-
-
+<div class="CalendarPortletData">
     <div class="DateContainer">
         <div class="PrevDateLink">
-            <a  href="@{decDate(nbClick='1')}">Prev</a>
+            <span class="PrevDateSpan">Prev</span>
         </div>
 
         <div class="CurrentDateContainer">
@@ -21,7 +35,7 @@ import java.util.Locale;
         </div>
 
         <div class="NextDateLink">
-            <a href="@{incDate(nbClick='1')}">Next</a>
+            <span class="NextDateSpan">Next</span>
         </div>
     </div>
 
@@ -31,8 +45,15 @@ import java.util.Locale;
         <% if (displayedCalendar != null) {
 
             displayedCalendar.each { cal ->
+                def   calendarName= cal.name;
+                if(calendarName.indexOf("default") != -1) calendarName = "Default Calendar";
+                if (cal.groups != null) {
+                    def group = cal.groups[0];
+                    def grpName = " (" + group.substring(group.lastIndexOf("/") + 1) + ")";
+                    calendarName += grpName;
+                }
         %>
-        <p class="flottante" style="background-color:  ${cal.calendarColor}" class="" id="${cal.id}">${cal.name}</p>
+        <p class="flottante" style="background-color:  ${cal.calendarColor}" class="" id="${cal.id}">${calendarName}</p>
         <% }
         }
         %>
@@ -138,10 +159,11 @@ import java.util.Locale;
         </div>
     </div>
     <% } %>
-    <div class="SettingsContainer" style="height: 30px;">
-        <div style="display: none">
-            <a class="SettingsLink" id="SettingId" href="@{setting()}"> Setting </a>
-        </div>
+
+</div>
+<div class="SettingsContainerPage" >
+    <div style="display: none">
+        <a class="SettingsLink"  href="@{setting()}"> Settings </a>
     </div>
 </div>
 </div>

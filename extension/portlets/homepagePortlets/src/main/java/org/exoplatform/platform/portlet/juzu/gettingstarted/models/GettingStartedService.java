@@ -39,7 +39,7 @@ public class GettingStartedService {
 
             LinkManager linkManager = (LinkManager)ExoContainerContext.getCurrentContainer().getComponentInstanceOfType(LinkManager.class);
             String primaryType = userPrivateNode.getProperty("jcr:primaryType").getString();
-            if (primaryType.contains("nt:file") ) {  //|| linkManager.isLink(userPrivateNode)
+            if (primaryType.contains("nt:file") ) {
                 return true;
             }
             else
@@ -113,6 +113,8 @@ public class GettingStartedService {
                 else if ((hasAvatar(userId)) && (hasContacts(userId)) && (!hasSpaces(userId)) && (activities.getSize() >= 4))
                     return true;
                 else if ((hasAvatar(userId)) && (!hasContacts(userId)) && (hasSpaces(userId)) && (activities.getSize() >= 3))
+                    return true;
+                else if ((!hasAvatar(userId)) && (hasContacts(userId)) && (!hasSpaces(userId)) && (activities.getSize() >= 2))
                     return true;
 
                 else if ((!hasAvatar(userId)) && (hasContacts(userId)) && (hasSpaces(userId)) && (activities.getSize() >= 4))

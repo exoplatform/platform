@@ -1,14 +1,32 @@
 <script type="text/javascript">
 
     $('.CalendarItem').mouseover(function() {
-        var button= $(this).children("form").children("p.addButton");
+        var button= $(this).children("p.addButton");
 
         button.css("display","block");
 
     });
     $('.CalendarItem').mouseout(function() {
-        var button= $(this).children("form").children("p.addButton");
+        var button= $(this).children("p.addButton");
         button.css("display","none");
+    });
+    $('span.addButtonSpan').on("click", function() {
+
+        var calId=$(this).parent().children("input").val();
+
+        $('div.SettingsContainerData').jzLoad(
+                "AgendaPortlet.addCalendar()",
+                {"calendarId":calId});
+
+    });
+    $('span.deleteButtonSpan').on("click", function() {
+
+        var calId=$(this).parent().children("input").val();
+
+        $('div.SettingsContainerData').jzLoad(
+                "AgendaPortlet.deleteCalendar()",
+                {"calendarId":calId});
+
     });
 </script>
 
@@ -20,22 +38,28 @@
 <% if (searchResultList != null) {
 
     searchResultList.each { cal ->
+        def   calendarName= cal.name;
+        if(calendarName.indexOf("default") != -1) calendarName = "Default Calendar";
+        if (cal.groups != null) {
+            def group = cal.groups[0];
+            def grpName = " (" + group.substring(group.lastIndexOf("/") + 1) + ")";
+            calendarName += grpName;
+        }
 %>
 <div id="${cal.id}" class="CalendarItem">
-    <form action="@{addCalendar()}" method="post">
 
+    <p style="float:left; height:20px;width:20px;background-color:  ${cal.calendarColor}"/>
+
+    <p style="float:left; ">${calendarName}</p>
+
+    <p class="addButton" style="float:left;display: none;">
         <input type="hidden" name="calendarId" value="${cal.id}"/>
+        <span  class="addButtonSpan">ADD</span>
+    </p>
 
-        <p style="float:left; height:20px;width:20px;background-color:  ${cal.calendarColor}"/>
-
-        <p style="float:left; ">${cal.name}</p>
-
-        <p class="addButton" style="float:left;display: none;"><button type="submit" value="ADD">ADD</button></p>
-
-        <div class="spacer">
-            &nbsp;
-        </div>
-    </form>
+    <div class="spacer">
+        &nbsp;
+    </div>
 </div>
 <% }
 

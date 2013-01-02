@@ -98,10 +98,15 @@
 
     text-decoration: #444444;
 }
-.SettingsContainer{
-    float: right;
+.SettingsContainerPage{
+
+    height: 30px;
+    background-color: #FFFFFF;
 }
 
 .SettingsLink{
-    background:url('img/Setting.png') no-repeat right ;
+    background:url('img/Setting.png') no-repeat right;
+    height: 50px;
+    width: 50px;
+    float: right;
 }
