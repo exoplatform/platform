@@ -78,6 +78,17 @@ public class GettingStarted  {
                 del = gettingStartedNode.getProperty("exo:gs_deleteGadget").getBoolean();
             }
         }
+        else {
+            Node gettingStartedNode = userPrivateNode.addNode("GsGadget");
+            userPrivateNode.save();
+            gettingStartedNode.setProperty("exo:gs_deleteGadget", false);
+            gettingStartedNode.setProperty("exo:gs_profile", false);
+            gettingStartedNode.setProperty("exo:gs_connect", false);
+            gettingStartedNode.setProperty("exo:gs_space", false);
+            gettingStartedNode.setProperty("exo:gs_activities", false);
+            gettingStartedNode.setProperty("exo:gs_document", false);
+            gettingStartedNode.save();
+        }
         if (del) index("false");
         else index("true");
     }
@@ -115,12 +126,14 @@ public class GettingStarted  {
 
         SessionProvider sProvider = SessionProvider.createSystemProvider();
         Node userPrivateNode = nodeHierarchyCreator_.getUserNode(sProvider, remoteUser).getNode("ApplicationData");
+        if (userPrivateNode.hasNode("GsGadget")) {
         Node gettingStartedNode = userPrivateNode.getNode("GsGadget");
         gettingStartedNode.setProperty("exo:gs_profile", GettingStartedService.hasAvatar(remoteUser));
         gettingStartedNode.setProperty("exo:gs_connect", GettingStartedService.hasContacts(remoteUser));
         gettingStartedNode.setProperty("exo:gs_space", GettingStartedService.hasSpaces(remoteUser));
         gettingStartedNode.setProperty("exo:gs_activities", GettingStartedService.hasActivities(remoteUser));
         gettingStartedNode.setProperty("exo:gs_document", GettingStartedService.hasDocuments(null, remoteUser));
+        }
         try{
             ResourceBundle rs = ResourceBundle.getBundle("gettingStarted/gettingStarted", locale);
             profileLabel = rs.getString("Upload.label");
