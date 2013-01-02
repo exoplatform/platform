@@ -1,0 +1,96 @@
+ <%
+     /**
+      * Copyright ( C ) 2012 eXo Platform SAS.
+      *
+      * This is free software; you can redistribute it and/or modify it
+      * under the terms of the GNU Lesser General Public License as
+      * published by the Free Software Foundation; either version 2.1 of
+      * the License, or (at your option) any later version.
+      *
+      * This software is distributed in the hope that it will be useful,
+      * but WITHOUT ANY WARRANTY; without even the implied warranty of
+      * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+      * Lesser General Public License for more details.
+      *
+      * You should have received a copy of the GNU Lesser General Public
+      * License along with this software; if not, write to the Free
+      * Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
+      * 02110-1301 USA, or see the FSF site: http://www.fsf.org.
+      */
+
+ %>
+<%
+import org.exoplatform.platform.component.UICreateList;
+import org.exoplatform.web.application.JavascriptManager;
+
+def rcontext = _ctx.getRequestContext();	 
+JavascriptManager jsmanager = rcontext.getJavascriptManager();
+//jsmanager.addCustomizedOnLoadScript('eXo.portal.UIPortalNavigation.onLoad("' + uicomponent.id + "_UL" + '");');
+jsmanager.require("SHARED/navigation", "nav").addScripts("nav.UIPortalNavigation.onLoad('" + uicomponent.id + "');");
+
+def Topic="javascript:eXo.webui.UIForm.submitForm('UITopicContainer','AddTopic',true);"
+def message=UICreateList.getParStatus();
+def addpage="/portal/intranet/wiki#AddPage";
+def Poll="javascript:eXo.webui.UIForm.submitForm('UITopicDetail','AddPoll',true);"
+%>
+
+<div id="$uicomponent.id">
+  
+     <div class="HorizontalLayout">
+       <div class="FormContainer">
+         <table class="UIFormGrid">
+	      <tbody>
+            <div> Create a new $message</div>
+             <tr>
+                 
+	         </tr>
+		 </tbody>
+         </table>
+       </div>
+    </div>
+   
+
+      <%//Rerender this  component with the new structure%>
+      <%// start render action%>
+ <% if(uicomponent.getActions() != null) { %>
+  <div class="$uicomponent.id">
+    <div class="UIAction">
+      <table class="ActionContainer" align="center">
+      	<tr>
+      		<td align="center">
+				<%if(message=="Topic"){		%>
+					<a href="$Topic" class="ActionButton LightBlueStyle" >
+				<%}else if(message=="Poll"){%>
+				   <a href="$Poll" class="ActionButton LightBlueStyle" >	
+				<%}else{%>
+				   <a href="$addpage" class="ActionButton LightBlueStyle" >	
+					 <%}%>
+					  <div class="ButtonLeft">
+						<div class="ButtonRight">
+						  <div class="ButtonMiddle">
+							  <%=_ctx.appRes(uicomponent.getId() + ".action." + "Next")%>
+						  </div>
+						</div>
+					  </div>
+					</a>	        
+			</td>
+			<td align="center">	       
+              <a href="<%=uicomponent.event("Cancel")%>" class="ActionButton LightBlueStyle" >
+              <div class="ButtonLeft">
+                <div class="ButtonRight">
+                  <div class="ButtonMiddle">
+                      <%=_ctx.appRes(uicomponent.getId() + ".action." + "Cancel")%>
+                  </div>
+                </div>
+              </div>
+            </a>	        
+			</td>
+		</tr>
+      </table>
+    </div>
+  </div>
+<% }%>
+      <%// end render action%>
+	
+
+</div>

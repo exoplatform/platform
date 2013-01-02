@@ -40,24 +40,5 @@
       <show-application-state>true</show-application-state>
     </portlet-application>
   </page>
-
-  <!-- The default user wiki page -->
-  <page>
-    <name>wiki</name>
-    <title>Wiki</title>
-    <portlet-application>
-      <portlet>
-        <application-ref>wiki</application-ref>
-        <portlet-ref>WikiPortlet</portlet-ref>
-      </portlet>
-      <title>Wiki Portlet</title>
-      <access-permissions>Everyone</access-permissions>
-      <show-info-bar>false</show-info-bar>
-      <show-application-state>false</show-application-state>
-      <show-application-mode>false</show-application-mode>
-    </portlet-application>
-  </page>
-
-
 </page-set>
 

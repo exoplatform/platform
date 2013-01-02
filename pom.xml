@@ -455,6 +455,16 @@
         <artifactId>platform-component-webui</artifactId>
         <version>${project.version}</version>
       </dependency>
+        <dependency>
+            <groupId>org.exoplatform.platform</groupId>
+            <artifactId>platform-component-uxpnavigation</artifactId>
+            <version>${project.version}</version>
+       </dependency>
+        <dependency>
+            <groupId>org.exoplatform.calendar</groupId>
+            <artifactId>calendar-component-create</artifactId>
+            <version>${org.exoplatform.calendar.version}</version>
+        </dependency>
       <dependency>
         <groupId>org.exoplatform.platform</groupId>
         <artifactId>platform-exo-gadget-pack-config</artifactId>
