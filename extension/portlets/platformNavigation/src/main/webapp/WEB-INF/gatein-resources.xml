@@ -183,6 +183,7 @@
         </script>
         <depends>
             <module>jquery</module>
+            <as>$</as>
         </depends>
     </module>
 
