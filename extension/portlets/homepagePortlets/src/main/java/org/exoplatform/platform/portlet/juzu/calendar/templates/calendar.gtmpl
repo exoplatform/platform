@@ -159,11 +159,11 @@ import java.util.Locale;
         </div>
     </div>
     <% } %>
-
-</div>
-<div class="SettingsContainerPage" >
-    <div style="display: none">
-        <a class="SettingsLink"  href="@{setting()}"> Settings </a>
+    <div class="SettingsContainerPage" >
+        <div style="display: none">
+            <a class="SettingsLink"  href="@{setting()}"> Settings </a>
+        </div>
     </div>
 </div>
+
 </div>

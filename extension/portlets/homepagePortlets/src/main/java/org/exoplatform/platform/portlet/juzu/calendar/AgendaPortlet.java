@@ -24,13 +24,13 @@ public class AgendaPortlet  {
     static Map<String, org.exoplatform.calendar.service.Calendar> calendarDisplayedMap = new HashMap<String, org.exoplatform.calendar.service.Calendar>();
     static Map<String, org.exoplatform.calendar.service.Calendar> calendarNonDisplayedMap = new HashMap<String, org.exoplatform.calendar.service.Calendar>();
 
-    static Set<org.exoplatform.calendar.service.Calendar> calendarDisplayedList = new HashSet<org.exoplatform.calendar.service.Calendar>();
-    static Set<org.exoplatform.calendar.service.Calendar> calendarNonDisplayedList = new HashSet<org.exoplatform.calendar.service.Calendar>();
-    static Set<CalendarEvent> eventsDisplayedList = new HashSet<CalendarEvent>();
-    static Set<CalendarEvent> tasksDisplayedList = new HashSet<CalendarEvent>();
-    static Set<org.exoplatform.calendar.service.Calendar> searchResult = new HashSet<org.exoplatform.calendar.service.Calendar>();
-    static String nbclick = "0";
-
+     Set<org.exoplatform.calendar.service.Calendar> calendarDisplayedList = new HashSet<org.exoplatform.calendar.service.Calendar>();
+     Set<org.exoplatform.calendar.service.Calendar> calendarNonDisplayedList = new HashSet<org.exoplatform.calendar.service.Calendar>();
+     Set<CalendarEvent> eventsDisplayedList = new HashSet<CalendarEvent>();
+     Set<CalendarEvent> tasksDisplayedList = new HashSet<CalendarEvent>();
+     Set<org.exoplatform.calendar.service.Calendar> searchResult = new HashSet<org.exoplatform.calendar.service.Calendar>();
+     String nbclick = "0";
+     //String usernameCach="";
     @Inject
     CalendarService calendarService_;
     @Inject
@@ -50,21 +50,33 @@ public class AgendaPortlet  {
     @Path("search.gtmpl")
     org.exoplatform.platform.portlet.juzu.calendar.templates.search search;
 
+    /*static {
+        usernameCach= RequestContext.getCurrentInstance().getRemoteUser();
+    }   */
 
     @View
     public void index() throws Exception {
+
+        String username = RequestContext.getCurrentInstance().getRemoteUser();
         eventsDisplayedList.clear();
         //calendarDisplayedMap.clear();
         //calendarDisplayedList.clear();
         tasksDisplayedList.clear();
-
+        calendarNonDisplayedList.remove(calendarService_.getUserCalendar(username, Utils.getDefaultCalendarId(username)));
+        calendarNonDisplayedMap.remove(calendarService_.getUserCalendar(username, Utils.getDefaultCalendarId(username)));
         /*Date Localization i18n*/
-
+/*        if(!username.equals(usernameCach)) {
+            calendarDisplayedMap.clear();
+            calendarDisplayedList.clear();
+            calendarNonDisplayedMap.clear();
+            calendarNonDisplayedList.clear();
+            usernameCach=username;
+        }     */
         Locale locale = RequestContext.getCurrentInstance().getLocale();
 
         DateFormat d = DateFormat.getDateInstance(DateFormat.SHORT, locale);
 
-        String username = RequestContext.getCurrentInstance().getRemoteUser();
+
         Long date = new Date().getTime();
         int int_nb_click = Integer.parseInt(nbclick);
         if (int_nb_click != 0) date = incDecJour(date, int_nb_click);
@@ -248,6 +260,7 @@ public class AgendaPortlet  {
         List<String> calIds = new ArrayList<String>();
         for (GroupCalendarData g : lgcd) {
             for (org.exoplatform.calendar.service.Calendar c : g.getCalendars()) {
+
                 if (!calIds.contains(c.getId())) {
                     calIds.add(c.getId());
                     calList.add(c);

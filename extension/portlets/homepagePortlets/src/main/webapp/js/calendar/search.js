@@ -2,6 +2,14 @@ $(function () {
 
     function init(initKey) {
 
+    /*    setTimeout(function()
+            {
+                $('div.NonDisplayedCalendar').jzLoad(
+                    "AgendaPortlet.getSearchResult()",
+                    {"key":""});
+            }
+            ,100);  */
+
         $('span.addButtonSpan').on("click", function () {
 
             var calId = $(this).parent().children("input").val();
