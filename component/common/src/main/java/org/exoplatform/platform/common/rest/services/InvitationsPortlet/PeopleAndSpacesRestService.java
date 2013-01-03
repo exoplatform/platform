@@ -103,6 +103,7 @@ public class PeopleAndSpacesRestService implements ResourceContainer {
                 json.put("spaceId", space.getId());
                 json.put("number", space.getMembers().length);
                 json.put("visibility", space.getVisibility());
+                json.put("registration", space.getRegistration());
                 jsonArray.put(json);
             }
 

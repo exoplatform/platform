@@ -1,5 +1,5 @@
 function initIncoming() {
-
+  var visibility;
   $.getJSON("/rest/homepage/intranet/invitations/allInvitations", function(items){
 
     if (items.length > 0){
@@ -63,12 +63,15 @@ function initIncoming() {
 
       }
       else{
-        console.log(item.displayName);
         var link = "<li id='"+item.spaceId+"'>";
         link += "<div class='spaceInvitePicture' ><a href='#'><img src='"+item.avatarUrl+"'></a></div>";
         link += "<div class='spaceInviteInfo'>";
         link += "<div class='spaceInviteName'><a href='/portal/intranet/invitationSpace' target='_parent'>"+item.displayName+"</a></div>";
-        link += "<div class='spaceproperties'><div class='spacevisibility'>"+item.visibility+" space - "+item.number+" Members </div><div class='spaceInviteAction' style='visibility:hidden;' ><button type='button' class='accept'>Accept</button> | <a class='deny' href='#' onclick='return false'><img src='/homepage-portlets/style/images/deny.png'></a></div> </div>"
+        if(item.registration == "open")
+            visibility = "public";
+        else
+            visibility = "private";
+        link += "<div class='spaceproperties'><div class='spacevisibility'>"+visibility+" space - "+item.number+" Members </div><div class='spaceInviteAction' style='visibility:hidden;' ><button type='button' class='accept'>Accept</button> | <a class='deny' href='#' onclick='return false'><img src='/homepage-portlets/style/images/deny.png'></a></div> </div>"
         link += "</div></li>";
 
         $("#requests").append(link);
