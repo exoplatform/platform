@@ -60,9 +60,9 @@
         <script>
             <path>/javascript/jcarousellite.js</path>
         </script>
-	<depends>
-            <module>jqueryui</module>
-            <as>jqueryui</as>
+        <depends>
+            <module>jquery</module>
+            <as>jQuery</as>
         </depends>
      </module>
     
