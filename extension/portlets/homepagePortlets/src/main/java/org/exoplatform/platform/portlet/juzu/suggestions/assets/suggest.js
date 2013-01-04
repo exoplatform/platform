@@ -38,7 +38,7 @@ $(function() {
             link += "<div class='peopleInfo'>";
             link += "<div class='peopleName'><a href='"+item.profile+"' target='_parent'>"+item.suggestionName+"</a></div>";
             link += "<div style='display:none;' class='peopleAction' ><a class='connect' href='#' onclick='return false'>Connect</a> | <a class='ignore' href='#' onclick='return false'><img src='/homepage-portlets/style/images/deny.png' alt='' title=''></a></div>";
-            link +="<div class='peoplePosition'>"+item.title+"</div><div class='peopleConnection'>"+item.number+"connections in common</div>";
+            link +="<div class='peoplePosition'>"+item.title+"</div><div class='peopleConnection'>"+item.number+" connections in common</div>";
             link += "</div></li>";
 
             $("#suggestions").append(link);
@@ -132,14 +132,14 @@ $(function() {
             link += "<div class='spacePicture' ><a href='#'><img src='"+item.avatarUrl+"'></a></div>";
             link += "<div class='spaceInfo'>";
             link += "<div class='spaceName'><a href='/portal/intranet/all-spaces' target='_parent'>"+item.displayName+"</a></div>";
-            link += "<div class='spacePrivacy'>"+item.privacy+"Space-"+item.members+"members</div>";
+            link += "<div class='spacePrivacy'><img src='/homepage-portlets/style/images/user_group.png'>"+item.privacy+" Space-"+item.members+" members</div>";
             if(item.registration == "open")
                 link += "<div class='spaceAction' ><a class='connect' href='#' onclick='return false'>Join</a>";
             else
                 link += "<div class='spaceAction' ><a class='connect' href='#' onclick='return false'>Request</a>";
 
             link += "<a class='ignore' href='#' onclick='return false'><img src='/homepage-portlets/style/images/deny.png' alt='' title=''></a></div>";
-            link += "<div class='spaceCommon'>"+item.number+"connections are members</div>";
+            link += "<div class='spaceCommon'>"+item.number+" connections are members</div>";
             link += "</div></li>";
 
             $("#suggestionsspace").append(link);

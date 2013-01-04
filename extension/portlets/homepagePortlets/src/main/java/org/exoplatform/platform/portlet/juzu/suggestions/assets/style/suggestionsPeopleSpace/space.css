@@ -44,6 +44,8 @@
 .spaceAction {
     white-space:nowrap;
     font-size: 10px;
+    height: 25px;
+    margin-top: 5px;
 }
 
 .spaceInfo {
@@ -64,6 +66,8 @@
     white-space:nowrap;
     overflow: hidden;
     text-overflow:ellipsis;
+    height: 25px;
+    margin-top: 5px;
 
 }
 .actionspaceAppears {
@@ -77,4 +81,11 @@ a:link {
 
 #spaceSuggest {
     padding-left: 10px;
+}
+.spaceList ul li {
+    border-bottom: 1px solid #DBDBDB;
+}
+
+.spaceCommon{
+margin-bottom: 10px;
 }

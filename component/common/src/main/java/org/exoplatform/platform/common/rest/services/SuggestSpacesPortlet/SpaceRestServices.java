@@ -125,6 +125,12 @@ public class SpaceRestServices implements ResourceContainer {
                   }
 
               }
+               String spaceType="";
+              if(space.getRegistration().equals(Space.OPEN)) {
+                spaceType="Public" ;
+              }else{
+                  spaceType= "Private";
+              }
               JSONObject json = new JSONObject();
               json.put("name", space.getName());
               json.put("spaceId", space.getId());
@@ -133,7 +139,7 @@ public class SpaceRestServices implements ResourceContainer {
               json.put("avatarUrl", avatar);
               json.put("registration", space.getRegistration());
               json.put("members", space.getMembers().length);
-              json.put("privacy", space.getVisibility());
+              json.put("privacy", spaceType);
               json.put("number", k);
               jsonArray.put(json);
     }

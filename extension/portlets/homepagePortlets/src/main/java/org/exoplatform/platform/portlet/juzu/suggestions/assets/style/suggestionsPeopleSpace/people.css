@@ -54,7 +54,19 @@
     white-space:nowrap;
     overflow: hidden;
     text-overflow:ellipsis;
+    color:#808080;
 }
+.peopleConnection {
+    color:#808080;
+    margin-bottom: 10px;
+}
+
+.peopleList ul li {
+    border-bottom: 1px solid #DBDBDB;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
 
 
 .peopleAction {
@@ -110,8 +122,6 @@
     display:inline-block;
     color:#777777;
     font-family:arial;
-
-   ;
     padding:1px 5px;
     text-decoration:none;
     text-shadow:1px 1px 0px #ffffff;
