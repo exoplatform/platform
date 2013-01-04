@@ -86,34 +86,10 @@ public class PeopleAndSpacesRestService implements ResourceContainer {
             JSONArray jsonArray = new JSONArray();
 
 
-            for (Space space : invitedSpaces) {
-
-                String avatar = space.getAvatarUrl();
-                if (avatar == null) {
-                    avatar = "/social-resources/skin/ShareImages/SpaceImages/SpaceLogoDefault_61x61.gif";
-                }
-
-                JSONObject json = new JSONObject();
-                json.put("invitationType", "space");
-                json.put("name", space.getName());
-                json.put("displayName", space.getDisplayName());
-                json.put("type", space.getType());
-                json.put("spaceUrl", space.getUrl());
-                json.put("avatarUrl", avatar);
-                json.put("spaceId", space.getId());
-                json.put("number", space.getMembers().length);
-                json.put("visibility", space.getVisibility());
-                jsonArray.put(json);
-            }
-
             for (Relationship relation : relations) {
 
                 Identity senderId = relation.getSender();
                 String avatar = senderId.getProfile().getAvatarImageSource();
-                if (avatar == null) {
-                    avatar = "/social-resources/skin/ShareImages/Avatar.gif";
-                }
-
                 JSONObject json = new JSONObject();
                 json.put("invitationType", "people");
                 json.put("senderName", senderId.getProfile().getFullName());
@@ -121,6 +97,21 @@ public class PeopleAndSpacesRestService implements ResourceContainer {
                 json.put("avatar", avatar);
                 json.put("profile", senderId.getProfile().getUrl());
                 json.put("position", senderId.getProfile().getPosition());
+                jsonArray.put(json);
+            }
+
+            for (Space space : invitedSpaces) {
+
+                String avatar = space.getAvatarUrl();
+                JSONObject json = new JSONObject();
+                json.put("invitationType", "space");
+                json.put("name", space.getName());
+                json.put("displayName", space.getDisplayName());
+                json.put("spaceUrl", space.getUrl());
+                json.put("avatarUrl", avatar);
+                json.put("spaceId", space.getId());
+                json.put("number", space.getMembers().length);
+                json.put("registration", space.getRegistration());
                 jsonArray.put(json);
             }
 

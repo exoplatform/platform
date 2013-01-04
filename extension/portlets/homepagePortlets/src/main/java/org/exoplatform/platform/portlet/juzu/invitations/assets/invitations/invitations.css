@@ -30,10 +30,13 @@
 }
 
 .peopleInviteName {
-    font-weight: bold;
+    height: 20px;
+
 }
 
 .name {
+    color: #226AB4;
+    font-weight: bold;
     width:172px;
     float:left;
     white-space:nowrap;
@@ -42,7 +45,7 @@
 }
 
 .actionInviteAppears {
-    width:68px;
+    width:90px;
     float:left;
     white-space:nowrap;
     overflow: hidden;
@@ -54,6 +57,7 @@
     white-space:nowrap;
     overflow: hidden;
     text-overflow:ellipsis;
+    color: #696969;
 }
 
 .peopleInviteAction {
@@ -73,6 +77,8 @@
 }
 
 .spaceInviteName {
+    height : 20px;
+    color: #226AB4;
     font-weight: bold;
 }
 
@@ -99,10 +105,11 @@
     white-space:nowrap;
     overflow: hidden;
     text-overflow:ellipsis;
+    color: #696969;
 }
 
 .actionSpaceAppears {
-    width:68px;
+    width:90px;
     float:left;
     white-space:nowrap;
     overflow: hidden;
