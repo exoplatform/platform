@@ -20,21 +20,11 @@
       import org.exoplatform.commons.utils.ExpressionUtil;
       import org.exoplatform.web.application.RequestContext;
 %>
-<%
-    if (show == "true") {%>
 
-<div id="GettingStarted" style="display: block">
-    <div class="UIGadgetThemes">
-        <div class="gadgetTitle">${titleLabel}</div>
-        <div style="height: 200px;width: 100%;" class="list-block">
+<div class="GettingStartedContainer" style="display: block">
+    <span class="DeleteIcon" style="display: none;color: white;">delete</span>
+    <div class="GettingStarted">
 
-
-        </div>
-        <div id="DeleteLink" style="display: none">
-
-            <a class="delete-action"  onclick="$.getJSON('/rest/homepage/intranet/getting-started/delete');" href="@{index(show = "false")}">Delete the Portlet</a>
-
-        </div>
     </div>
+
 </div>
-<%}%>

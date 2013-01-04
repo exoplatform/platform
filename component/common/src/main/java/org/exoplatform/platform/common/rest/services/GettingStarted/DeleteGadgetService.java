@@ -46,6 +46,8 @@ public class DeleteGadgetService implements ResourceContainer {
 
     @GET
     @Path("delete")
+    @Produces(MediaType.APPLICATION_JSON)
+
     public Response delete() throws Exception {
         try {
 
@@ -82,6 +84,8 @@ public class DeleteGadgetService implements ResourceContainer {
 
     @GET
     @Path("setDelete")
+    @Produces(MediaType.APPLICATION_JSON)
+
     public Response setDelete() throws Exception {
         try {
             String userId = ConversationState.getCurrent().getIdentity().getUserId();
@@ -157,4 +161,45 @@ public class DeleteGadgetService implements ResourceContainer {
         return Util.getUIPortal().getSelectedUserNode();
     }
     */
+
+
+    @GET
+    @Path("IsDelete")
+    @Produces(MediaType.APPLICATION_JSON)
+
+    public Response IsDelete() throws Exception {
+        try {
+            String userId = ConversationState.getCurrent().getIdentity().getUserId();
+
+            if (userId == null) {
+                return Response.status(HTTPStatus.INTERNAL_ERROR).build();
+            }
+
+            NodeHierarchyCreator nodeCreator = (NodeHierarchyCreator) ExoContainerContext.getCurrentContainer()
+                    .getComponentInstanceOfType(NodeHierarchyCreator.class);
+
+            SessionProvider sProvider = SessionProvider.createSystemProvider();
+
+            Node userPrivateNode = nodeCreator.getUserNode(sProvider, userId).getNode("ApplicationData");
+
+            if (userPrivateNode.hasNode("GsGadget")) {
+
+                Node gettingStartedNode = userPrivateNode.getNode("GsGadget");
+
+                if (gettingStartedNode.hasProperty("exo:gs_deleteGadget")) {
+
+                    Boolean del=gettingStartedNode.getProperty("exo:gs_deleteGadget").getBoolean();
+
+                    return Response.ok(del.toString()).build();
+
+                } else return Response.ok("no Property exo:gs_deleteGadget ").build();
+
+            } else return Response.ok("no Node GsGadget ").build();
+
+        } catch (Exception e) {
+
+            return Response.status(HTTPStatus.INTERNAL_ERROR).build();
+
+        }
+    }
 }

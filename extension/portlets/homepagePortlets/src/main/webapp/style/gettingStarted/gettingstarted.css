@@ -114,5 +114,9 @@ top: 0;
  font-weight: bold;
 }
 
-
+.DeleteIcon{
+    text-decoration-color: white;
+    padding: 3px 5px;
+    background: url("img/del.png") no-repeat right 8px ;
+}
 

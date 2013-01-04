@@ -48,11 +48,15 @@ import java.util.ResourceBundle;
 
 public class GettingStarted  {
 
-    private static Log logger = ExoLogger.getLogger(GettingStarted.class);
+private static Log logger = ExoLogger.getLogger(GettingStarted.class);
     static String remoteUser="";
-    static HashMap parameters = new HashMap();
-    static HashMap<String,String> status =new HashMap();
-    static Locale locale=null;
+    static String remoteUserCach="";
+    HashMap parameters = new HashMap();
+    static HashMap bundle = new HashMap();
+    HashMap<String,String> status =new HashMap();
+    Locale locale=null;
+
+
 
     @Inject
     NodeHierarchyCreator nodeHierarchyCreator_;
@@ -67,16 +71,125 @@ public class GettingStarted  {
 
     @View
     public void index() throws Exception {
-        boolean del = false;
-        if(locale==null) locale= RequestContext.getCurrentInstance().getLocale();
         remoteUser= RequestContext.getCurrentInstance().getRemoteUser();
+        if(remoteUserCach.equals("")) remoteUserCach=remoteUser;
+        SessionProvider sProvider = SessionProvider.createSystemProvider();
+        Node userPrivateNode = nodeHierarchyCreator_.getUserNode(sProvider, remoteUser).getNode("ApplicationData");
+        if (!userPrivateNode.hasNode("GsGadget")) {
+
+            Node gettingStartedNode = userPrivateNode.addNode("GsGadget");
+            userPrivateNode.save();
+            gettingStartedNode.setProperty("exo:gs_deleteGadget", false);
+            gettingStartedNode.setProperty("exo:gs_profile", false);
+            gettingStartedNode.setProperty("exo:gs_connect", false);
+            gettingStartedNode.setProperty("exo:gs_space", false);
+            gettingStartedNode.setProperty("exo:gs_activities", false);
+            gettingStartedNode.setProperty("exo:gs_document", false);
+            gettingStartedNode.save();
+        }
+        if((bundle.size()==0)||(!remoteUser.equals(remoteUserCach))){
+            String profileLabel = "";
+            String documentLabel = "";
+            String connectLabel = "";
+            String activityLabel = "";
+            String spaceLabel = "";
+            String titleLabel= "";
+            try {
+                locale=RequestContext.getCurrentInstance().getLocale();
+                ResourceBundle rs = ResourceBundle.getBundle("gettingStarted/gettingStarted", locale);
+                profileLabel = rs.getString("Upload.label");
+                EntityEncoder.FULL.encode(profileLabel);
+                connectLabel = rs.getString("Connect.Label");
+                EntityEncoder.FULL.encode(connectLabel);
+                spaceLabel = rs.getString("Space.Label");
+                EntityEncoder.FULL.encode(spaceLabel);
+                activityLabel = rs.getString("Activity.Label");
+                EntityEncoder.FULL.encode(activityLabel);
+                documentLabel = rs.getString("Document.Label");
+                EntityEncoder.FULL.encode(documentLabel);
+                titleLabel=rs.getString("title.Label");
+                EntityEncoder.FULL.encode(titleLabel);
+
+            } catch (MissingResourceException ex) {
+                profileLabel = "Upload.label";
+                connectLabel = "Connect.label";
+                spaceLabel = "Space.label";
+                activityLabel = "Activity.label";
+                documentLabel = "document.label";
+                titleLabel="title.Label";
+
+            } finally {
+
+                bundle.put("profile", LinkProvider.getUserProfileUri(remoteUser));
+                bundle.put("profileLabel", profileLabel);
+                bundle.put("connect", LinkProvider.getUserConnectionsUri(remoteUser));
+                bundle.put("connectLabel", connectLabel);
+                bundle.put("space", "/portal/intranet/all-spaces");
+                bundle.put("spaceLabel", spaceLabel);
+                bundle.put("activity", "#");
+                bundle.put("activityLabel", activityLabel);
+                bundle.put("upload", "/portal/intranet/documents");
+                bundle.put("uploadLabel", documentLabel);
+                bundle.put("titleLabel", titleLabel);
+            }
+        }
+        gettingStarted.render();
+    }
+
+    @Ajax
+    @Resource
+    public void delete() throws Exception {
+        //set Delete
+        String userId = RequestContext.getCurrentInstance().getRemoteUser();
+
+        SessionProvider sProvider = SessionProvider.createSystemProvider();
+
+        Node userPrivateNode = nodeHierarchyCreator_.getUserNode(sProvider, userId).getNode("ApplicationData");
+
+        if (userPrivateNode.hasNode("GsGadget")) {
+
+            Node gettingStartedNode = userPrivateNode.getNode("GsGadget");
+
+            if (gettingStartedNode.hasProperty("exo:gs_deleteGadget")) {
+
+                gettingStartedNode.setProperty("exo:gs_deleteGadget", true);
+
+                gettingStartedNode.save();
+            }
+        }
+        gettingStarted.render();
+    }
+
+    @Ajax
+    @Resource
+    public void getGsList() throws Exception {
+
+
+        Boolean Isshow = true;
+
+        PropertyIterator propertiesIt = null;
+        int progress = 0;
+
         SessionProvider sProvider = SessionProvider.createSystemProvider();
         Node userPrivateNode = nodeHierarchyCreator_.getUserNode(sProvider, remoteUser).getNode("ApplicationData");
         if (userPrivateNode.hasNode("GsGadget")) {
             Node gettingStartedNode = userPrivateNode.getNode("GsGadget");
-            if (gettingStartedNode.hasProperty("exo:gs_deleteGadget")) {
-                del = gettingStartedNode.getProperty("exo:gs_deleteGadget").getBoolean();
+            gettingStartedNode.setProperty("exo:gs_profile", GettingStartedService.hasAvatar(remoteUser));
+            gettingStartedNode.setProperty("exo:gs_connect", GettingStartedService.hasContacts(remoteUser));
+            gettingStartedNode.setProperty("exo:gs_space", GettingStartedService.hasSpaces(remoteUser));
+            gettingStartedNode.setProperty("exo:gs_activities", GettingStartedService.hasActivities(remoteUser));
+            gettingStartedNode.setProperty("exo:gs_document", GettingStartedService.hasDocuments(null, remoteUser));
+            propertiesIt = userPrivateNode.getNode("GsGadget").getProperties("exo:gs_*");
+            while (propertiesIt.hasNext()) {
+                String clazz = "";
+                Property prop = (Property) propertiesIt.next();
+                if (prop.getString().equals("true")) {
+                    progress += 20;
+                    clazz = "done";
+                }
+                status.put(prop.getName().substring(4), clazz);
             }
+            if (progress == 100) Isshow = false;
         }
         else {
             Node gettingStartedNode = userPrivateNode.addNode("GsGadget");
@@ -89,99 +202,14 @@ public class GettingStarted  {
             gettingStartedNode.setProperty("exo:gs_document", false);
             gettingStartedNode.save();
         }
-        if (del) index("false");
-        else index("true");
-    }
-
-    @View
-    public void index(String show)  {
-        String titleLabel= "";
-
-        try{
-            ResourceBundle rs = ResourceBundle.getBundle("gettingStarted/gettingStarted", locale);
-
-            titleLabel=rs.getString("title.Label");
-            EntityEncoder.FULL.encode(titleLabel);
-        }
-        catch(MissingResourceException ex){
-
-            titleLabel="title.Label";
-        }
-        finally {
-            gettingStarted.with().set("show",show).set("titleLabel", titleLabel).render();
-        }
-        }
-
-    @Ajax
-    @Resource
-    public void getGsList() throws Exception {
-
-        String profileLabel = "";
-        String documentLabel = "";
-        String connectLabel = "";
-        String activityLabel = "";
-        String spaceLabel = "";
-
-        int progress=0;
-
-        SessionProvider sProvider = SessionProvider.createSystemProvider();
-        Node userPrivateNode = nodeHierarchyCreator_.getUserNode(sProvider, remoteUser).getNode("ApplicationData");
-        if (userPrivateNode.hasNode("GsGadget")) {
-        Node gettingStartedNode = userPrivateNode.getNode("GsGadget");
-        gettingStartedNode.setProperty("exo:gs_profile", GettingStartedService.hasAvatar(remoteUser));
-        gettingStartedNode.setProperty("exo:gs_connect", GettingStartedService.hasContacts(remoteUser));
-        gettingStartedNode.setProperty("exo:gs_space", GettingStartedService.hasSpaces(remoteUser));
-        gettingStartedNode.setProperty("exo:gs_activities", GettingStartedService.hasActivities(remoteUser));
-        gettingStartedNode.setProperty("exo:gs_document", GettingStartedService.hasDocuments(null, remoteUser));
-        }
-        try{
-            ResourceBundle rs = ResourceBundle.getBundle("gettingStarted/gettingStarted", locale);
-            profileLabel = rs.getString("Upload.label");
-            EntityEncoder.FULL.encode(profileLabel);
-            connectLabel = rs.getString("Connect.Label");
-            EntityEncoder.FULL.encode(connectLabel);
-            spaceLabel = rs.getString( "Space.Label");
-            EntityEncoder.FULL.encode(spaceLabel);
-            activityLabel = rs.getString("Activity.Label");
-            EntityEncoder.FULL.encode(activityLabel);
-            documentLabel = rs.getString("Document.Label");
-            EntityEncoder.FULL.encode(documentLabel);
-
-        }
-        catch(MissingResourceException ex){
-            profileLabel=  "Upload.label";
-            connectLabel="Connect.label";
-            spaceLabel ="Space.label";
-            activityLabel="Activity.label" ;
-            documentLabel="document.label";
-
-        }
-        finally {
-            PropertyIterator propertiesIt = userPrivateNode.getNode("GsGadget").getProperties("exo:gs_*");
-            while (propertiesIt.hasNext()) {
-                String clazz="" ;
-                Property prop = (Property) propertiesIt.next();
-                if (prop.getString().equals("true"))
-                {
-                    progress+=20;
-                    clazz="done";
-                }
-                status.put(prop.getName().substring(4),clazz);
-            }
-            parameters.put("profile", LinkProvider.getUserProfileUri(remoteUser));
-            parameters.put("profileLabel", profileLabel);
-            parameters.put("connect", LinkProvider.getUserConnectionsUri(remoteUser));
-            parameters.put("connectLabel", connectLabel);
-            parameters.put("space", "/portal/intranet/all-spaces");
-            parameters.put("spaceLabel", spaceLabel);
-            parameters.put("activity", "#");
-            parameters.put("activityLabel", activityLabel);
-            parameters.put("upload", "/portal/intranet/documents");
-            parameters.put("uploadLabel", documentLabel);
-            parameters.put("progress",new Integer(progress));
-            parameters.put("width", new Integer(Math.round(160/100*progress)));
-            parameters.put("status",status);
+        String[] width =new Integer((160 * progress )/ 100 ).toString().split(".");
+            parameters.putAll(bundle);
+            parameters.put("progress", new Integer(progress));
+            parameters.put("width", new Integer((Math.round((160 * progress )/ 100 ))).toString());
+            parameters.put("status", status);
+            parameters.put("show", Isshow.toString());
             gettingStartedList.render(parameters);
         }
     }
-}
+
+

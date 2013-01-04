@@ -17,14 +17,39 @@
  * 02110-1301 USA, or see the FSF site: http://www.fsf.org.
  */
 
-$(function() {
+$(function () {
+    $('.GettingStartedContainer').mouseover(function () {
+        $('.DeleteIcon').css("display", "block");
+    });
+    $('.GettingStartedContainer').mouseout(function () {
+        $('.DeleteIcon').css("display", "none");
+    });
+    $('.DeleteIcon').on("click", function () {
+        $.getJSON('/rest/homepage/intranet/getting-started/delete');
 
-    setTimeout(function()
-        {
-            $('.list-block').jzLoad("GettingStarted.getGsList()");
-        }
-        ,100);
-    setInterval(function(){
-        $('.list-block').jzLoad("GettingStarted.getGsList()");
-    },300000);
+        $('.GettingStartedContainer').jzLoad("GettingStarted.delete()");
+
+    });
+    $('.DeleteAction').on("click", function () {
+
+        $.getJSON('/rest/homepage/intranet/getting-started/delete');
+        $('.GettingStartedContainer').jzLoad("GettingStarted.delete()");
+
+    });
+
+    $.getJSON('/rest/homepage/intranet/getting-started/deletePortlet/IsDelete', function (del) {
+        setTimeout(function () {
+                if (del == false) {
+                    $('.GettingStarted').jzLoad("GettingStarted.getGsList()");
+                }
+            }
+            , 100);
+        setInterval(function () {
+            if (del == false) {
+                $('.GettingStarted').jzLoad("GettingStarted.getGsList()");
+            }
+        }, 300000);
+    });
+
 });
+
