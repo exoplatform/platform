@@ -23,7 +23,7 @@
 <body>
     <div id="InvitationsPortlet" class="UIInvitationsPortlet" style="display:none;">
     <div  class="InviteList">
-        <div class='InviteHeader'>Invitations (<span id='inviteCounter'></span>)
+        <div class='InviteHeader'>${invitationsLabel} (<span id='inviteCounter'></span>)
         </div>
         <ul id='requests'></ul>
     </div>

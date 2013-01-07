@@ -19,11 +19,14 @@
 
 package org.exoplatform.platform.portlet.juzu.invitations;
 
+import org.exoplatform.web.application.RequestContext;
 import juzu.Path;
 import juzu.View;
 import juzu.template.Template;
 
 import javax.inject.Inject;
+import java.util.Locale;
+import java.util.ResourceBundle;
 
 /**
  * @author <a href="hzekri@exoplatform.com">hzekri</a>
@@ -40,6 +43,9 @@ public class Invitations {
 
     @View
     public void index() {
-        index.render();
+        Locale locale = RequestContext.getCurrentInstance().getLocale();
+        ResourceBundle rs = ResourceBundle.getBundle("invitations/invitations", locale);
+        String invitationsLabel = rs.getString("invitations.label");
+        index.with().set("invitationsLabel",invitationsLabel).render();
     }
 }
