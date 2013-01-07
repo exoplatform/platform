@@ -40,6 +40,10 @@
     /*vertical-align: middle;*/
 }
 
+#HomeLink {
+    margin-top: 2px;
+}
+
 .UIToolbarContainer .NormalContainerBlock .ToolbarContainer {
     background: url(background/BgToolbarContainer.gif) repeat-x left top;
     height: 31px;
