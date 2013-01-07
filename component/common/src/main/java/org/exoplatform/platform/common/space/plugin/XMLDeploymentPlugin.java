@@ -101,4 +101,13 @@ public class XMLDeploymentPlugin extends SpaceListenerPlugin {
 
   @Override
   public void spaceRemoved(SpaceLifeCycleEvent arg0) {}
+
+  @Override
+  public void spaceRenamed(SpaceLifeCycleEvent event) {}
+
+  @Override
+  public void spaceDescriptionEdited(SpaceLifeCycleEvent event) {}
+
+  @Override
+  public void spaceAvatarEdited(SpaceLifeCycleEvent event) {}
 }
