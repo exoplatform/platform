@@ -239,5 +239,12 @@
             <visibility>SYSTEM</visibility>
             <page-reference>portal::intranet::mywiki</page-reference>
         </node>
+		<node>
+			<uri>space-access</uri>
+			<name>space-access</name>
+			<label>#{portal.intranet.spaces}</label>
+			<visibility>SYSTEM</visibility>
+			<page-reference>portal::intranet::space-access</page-reference>
+		</node>
     </page-nodes>
 </node-navigation>
