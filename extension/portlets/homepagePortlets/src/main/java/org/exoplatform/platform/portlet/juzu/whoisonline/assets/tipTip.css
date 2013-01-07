@@ -113,7 +113,7 @@
 blockquote {
     font-family:Georgia,"Times New Roman",Times,serif;
     font-style:italic;
-    background:url(../images/right-quote.gif) no-repeat right bottom;
+    background:url(/homepage-portlets/style/images/right-quote.gif) no-repeat right bottom;
     text-indent:-25px;
     padding-right:25px;
     padding-left:25px;
@@ -123,7 +123,7 @@ blockquote {
 }
 
 blockquote:first-letter {
-    background:url(../images/left-quote.gif) no-repeat left top;
+    background:url(/homepage-portlets/style/images/left-quote.gif) no-repeat left top;
     padding-left:25px;
     font-size:1.4em;
 }
@@ -131,4 +131,11 @@ blockquote:first-letter {
 #tipName img {
     width: 39px;
     padding-right: 10px;
+}
+
+#connectMessge {
+    background-color: #D9D9D9;
+    color: #999999;
+    white-space: nowrap;
+    width: 230px;
 }

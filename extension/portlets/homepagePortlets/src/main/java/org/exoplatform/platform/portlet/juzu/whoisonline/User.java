@@ -17,6 +17,8 @@ public class User {
   /** . */
 
     private String avatar;
+    private String status;
+    private String identity;
 
     public User(final String userName) {
     this.userName = userName;
@@ -46,8 +48,13 @@ public class User {
     public void setAvatar(final String avatar) {
         this.avatar = avatar;
     }
+    public void setStatus(String status) {
+        this.status=status;
+    }
 
-
+    public final String getStatus() {
+        return status;
+    }
     public final String getAvatar() {
         return avatar;
     }
@@ -65,5 +72,13 @@ public class User {
     }
     public final String getPosition() {
         return position;
+    }
+
+
+    public void setIdentity(String identity) {
+        this.identity=identity;
+    }
+    public final String getIdentity() {
+        return identity;
     }
 }
