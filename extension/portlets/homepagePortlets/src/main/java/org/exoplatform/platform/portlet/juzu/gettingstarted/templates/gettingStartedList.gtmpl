@@ -55,6 +55,7 @@
             <%
                 if (show == "true") {
             %>
+            <br>
         <!--    <div style="height: 200px;width: 100%;" class="list">         -->
                 <ul class ="gsList" id="gsList">
                     <li class="${status['gs_profile']}" ><a  target="_parent" href=${profile} >${profileLabel}</a></li>
