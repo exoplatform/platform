@@ -22,7 +22,10 @@
 %>
 
 <div class="GettingStartedContainer" style="display: block">
-    <span class="DeleteIcon" style="display: none;color: white;">delete</span>
+
+
+    <span class="DeleteIcon" style="display: none;color: white;height:18px">delete</span>
+
     <div class="GettingStarted">
 
     </div>

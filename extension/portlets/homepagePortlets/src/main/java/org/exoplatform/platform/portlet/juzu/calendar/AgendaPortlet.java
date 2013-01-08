@@ -106,6 +106,7 @@ public class AgendaPortlet {
         Date comp = d.parse(date_act);
         SettingValue settingNode = settingService_.get(Context.USER, Scope.APPLICATION, "IntranetHomePageCalendarSettings");
 
+        //This section serves to extract the user setting (non displayed calendar) from the jcr
         if ((settingNode != null)&&(settingNode.getValue().toString().split(":").length==2)) {
             if(calendarDisplayedList.isEmpty())  {
             int i = 0;
@@ -123,7 +124,7 @@ public class AgendaPortlet {
             }
         }
 
-
+        // read of the user events
         List<CalendarEvent> userEvents = getEvents(username);
         if ((userEvents != null) && (!userEvents.isEmpty())) {
                 Iterator itr = userEvents.iterator();
@@ -137,31 +138,34 @@ public class AgendaPortlet {
                         org.exoplatform.calendar.service.Calendar calendar = calendarService_.getUserCalendar(username, event.getCalendarId());
                         if (calendar == null) calendar = calendarService_.getGroupCalendar(event.getCalendarId());
                         displayedCalendar.add(calendar);
-                       /* if (!(calendarDisplayedMap.containsKey(event.getCalendarId()))) {
-
-                            calendarDisplayedMap.put(calendar.getId(), calendar);
-                            calendarDisplayedList.add(calendar);
-
-                        }   */
                     }
                 }
                 Collections.sort(eventsDisplayedList, eventsComparator);
             }
 
+        // this test serves when user connect with settingNode != null
+        if((calendarDisplayedList.isEmpty())&&(settingNode!=null)){
             Iterator itr1 = getAllCal(username).iterator();
-            //StringBuilder cals = new StringBuilder();
-
-        if ((settingNode==null)/*(||(settingNode.getValue().toString().split(":").length<2)*/)
-        {
             while (itr1.hasNext()) {
                 org.exoplatform.calendar.service.Calendar c = (org.exoplatform.calendar.service.Calendar) itr1.next();
-                if ((calendarDisplayedMap.get(c.getId()) == null) /*&& !(calendarNonDisplayedMap.containsKey(c.getId()))*/) {
+                if((calendarDisplayedMap.get(c.getId()) == null)&&(!calendarNonDisplayedMap.containsKey(c.getId()))) {
                     calendarDisplayedMap.put(c.getId(), c);
                     calendarDisplayedList.add(c);
-                    //cals.append(c.getId()).append(",");
                 }
             }
-            //settingService_.set(Context.USER, Scope.APPLICATION, "IntranetHomePageCalendarSettings", SettingValue.create("NonDisplayedCalendar:" +cals.toString()));
+        }
+
+        //this test is for the use case CALENDAR_21	By Default, all of the user's calendars are displayed in the gadget.
+        if (settingNode==null)
+        {
+            Iterator itr1 = getAllCal(username).iterator();
+            while (itr1.hasNext()) {
+                org.exoplatform.calendar.service.Calendar c = (org.exoplatform.calendar.service.Calendar) itr1.next();
+                if (calendarDisplayedMap.get(c.getId()) == null)  {
+                    calendarDisplayedMap.put(c.getId(), c);
+                    calendarDisplayedList.add(c);
+                }
+            }
         }
         HashMap parameters = new HashMap();
         String dateLabel = "";
