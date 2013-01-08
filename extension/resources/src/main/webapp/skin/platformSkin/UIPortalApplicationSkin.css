@@ -280,10 +280,18 @@ a {
 }
 .UISpaceNavigationPortletTab NormalToolbarTab{
 }
+
+.TDContainer{
+	vertical-align: top;
+}
+
 .LeftNavigationTDContainer{
     width: 250px;
     box-shadow: 0 0 1px rgba(0, 0, 0, 0.2) inset;
     background: #F5F5F5;
     border-right: 1px solid #c7c7c7;
     vertical-align: top;
+}
+.RightBodyTDContainer {
+	vertical-align: top;
 }
