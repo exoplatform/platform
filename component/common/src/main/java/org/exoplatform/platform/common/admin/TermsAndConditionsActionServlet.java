@@ -22,7 +22,6 @@ public class TermsAndConditionsActionServlet extends HttpServlet {
   private static final long serialVersionUID = 6467955354840693802L;
   
   private static Log logger = ExoLogger.getLogger(TermsAndConditionsActionServlet.class);
-  private final static String PARAM_CHECKTC = "checktc";
   
   private TermsAndConditionsService termsAndConditionsService;
   public TermsAndConditionsService getTermsAndConditionsService() {
@@ -38,21 +37,12 @@ public class TermsAndConditionsActionServlet extends HttpServlet {
     // Get usefull parameters
     String initialURI = request.getParameter(TermsAndConditionsViewServlet.INITIAL_URI_PARAM);
     Boolean checkTc = false;
-    try {
-      checkTc = Boolean.valueOf(request.getParameter(PARAM_CHECKTC));
-    }
-    catch(Exception e) {
-      logger.error("Terms and conditions: impossible to get parameter " + PARAM_CHECKTC, e);
-    }
-    
+
     if(initialURI == null || initialURI.length() == 0) {
       initialURI = request.getContextPath();
     }
-    
-    // Check tc with service
-    if(checkTc) {
-      getTermsAndConditionsService().checkTermsAndConditions();
-    }
+
+    getTermsAndConditionsService().checkTermsAndConditions();
     
     // Redirect to requested page
     response.sendRedirect(initialURI);

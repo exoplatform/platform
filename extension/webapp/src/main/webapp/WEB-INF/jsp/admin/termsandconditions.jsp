@@ -34,6 +34,7 @@
     ResourceBundleService service = (ResourceBundleService) PortalContainer.getCurrentInstance(session.getServletContext()).getComponentInstanceOfType(ResourceBundleService.class);
     ResourceBundle res = service.getResourceBundle(service.getSharedResourceBundleNames(), request.getLocale()) ;
 
+
     String uri = (String)request.getAttribute("org.gatein.portal.login.initial_uri");
 
     response.setCharacterEncoding("UTF-8");
@@ -161,6 +162,12 @@ p, h1, h2, h3, h4, h5, h6 {
     cursor: pointer;
     display: inline-block;
     margin: 0 3px;
+}
+.SubmitButton {
+    background: url("/eXoResources/skin/DefaultSkin/webui/component/UIBarDecorator/UIAction/background/LightBlueStyle.gif") repeat-x scroll center center transparent;
+    cursor: pointer;
+    text-align: center;
+    white-space: nowrap;
 }
 
 
@@ -2006,43 +2013,9 @@ h6{padding-top:12pt;line-height:1.2;text-align:left;color:#000000;font-size:11pt
             <a class="ActionButton LightBlueStyle inactive" id="continueButton"  href="javascript:void(0)"  onclick="WelcomeScreens.validateTermsAndCondition(event);">Continue</a>
         </div>
         <div class="UIAction FL">
-            <input type="checkbox" id="agreement" name="checktc" value="false" onclick="toggleState();" />
+            <input type="checkbox" id="agreement" name="checktc" value="false" onclick="WelcomeScreens.toggleState();" />
             <label for="agreement">I agree with this terms and conditions agreement.</label>
         </div>
-        <script type='text/javascript'>
-            function validate() {
-                var eltAgreement = document.getElementById("agreement");
-                if(eltAgreement.checked == true) {
-                    document.tcForm.submit();
-                }
-            }
-            function toggleState() {
-                var eltAgreement = document.getElementById("agreement");
-
-                if(eltAgreement.checked == false) {
-                    // Uncheck
-                    eltAgreement.value = false;
-                    setInactive();
-                }
-                else {
-                    // Check
-                    eltAgreement.value = true;
-                    setActive();
-                }
-            }
-            function setInactive() {
-                var elt = document.getElementById("continueButton");
-                var classValue = elt.className;
-                var newClassValue = classValue.replace("active", "inactive");
-                elt.className = newClassValue;
-            }
-            function setActive() {
-                var elt = document.getElementById("continueButton");
-                var classValue = elt.className;
-                var newClassValue = classValue.replace("inactive", "active");
-                elt.className = newClassValue;
-            }
-        </script>
     </form>
 </div>
 </div>
@@ -2053,9 +2026,65 @@ h6{padding-top:12pt;line-height:1.2;text-align:left;color:#000000;font-size:11pt
 <div class="item" id="AccountSetup">
 
     <div class="UIFormBox StartedStep content" name="" >
-        <h3>Step 2: Account Setup</h3>
-        <p>Account Setup</p>
-        <div class="Link"><a href="#" onclick="WelcomeScreens.exit();" class="Link">Valider >></a></div>
+        <h3>Create Your account</h3>
+        <table class="BorderDot">
+            <tbody>
+            <tr>
+                <td class="FieldLabel UserInput">Username</td>
+                <td class="FieldComment FieldMini" colspan='3'>
+                    <input type="text" id="userNameAccount" placeholder="User name">
+                </td>
+            </tr>
+            <tr>
+                <td class="FieldLabel UserInput">Fullname</td>
+                <td class="FieldComment FieldMini">
+                    <input type="text" id="firstNameAccount" placeholder="First name">
+                </td>
+                <td class="FieldComment FieldMini" colspan='3'>
+                    <input type="text" id="lastNameAccount" placeholder="Last name">
+                </td>
+            </tr>
+            <tr>
+                <td class="FieldLabel UserInput">Email</td>
+                <td class="FieldComment FieldMini" colspan='3'>
+                    <input type="text" id="emailAccount" >
+                </td>
+            </tr>
+            <tr>
+                <td class="FieldLabel UserInput">Password</td>
+                <td class="FieldComment FieldMini">
+                    <input type="password" id="userPasswordAccount"/>
+                </td>
+                <td class="FieldLabel UserInput">Confirm</td>
+                <td class="FieldComment FieldMini">
+                    <input type="password" id="confirmUserPasswordAccount"/>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+        <h3>Admin password</h3>
+        <table class="BorderDot" cols="4">
+            <tbody>
+            <tr>
+                <td class="FieldLabel UserInput">Username</td>
+                <td class="FieldComment FieldMini" colspan='2'>
+                    <input type="text" id="adminFirstName" placeholder="root"/>
+                </td>
+            </tr>
+            <tr>
+                <td class="FieldLabel UserInput">Password</td>
+                <td class="FieldComment FieldMini" colspan='2'>
+                    <input type="password" id="adminPassword"/>
+                </td>
+                <td class="FieldLabel UserInput">Confirm</td>
+                <td class="FieldComment FieldMini" colspan='2'>
+                    <input type="password" id="confirmAdminPassword"/>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+
+        <a class="SubmitButton" id="continueButton"  href="#"  onclick="WelcomeScreens.exit();">Submit</a>
     </div>
 
 </div>
