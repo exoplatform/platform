@@ -1,5 +1,16 @@
 function sortByContacts(a, b){
-    return b.contacts - a.contacts;
+    return b.number - a.number;
+}
+function dynamicSort(property) {
+    var sortOrder = 1;
+    if(property[0] === "-") {
+        sortOrder = -1;
+        property = property.substr(1, property.length - 1);
+    }
+    return function (a,b) {
+        var result = (a[property] < b[property]) ? -1 : (a[property] > b[property]) ? 1 : 0;
+        return result * sortOrder;
+    }
 }
 
 Array.prototype.shuffle = function() {
@@ -22,9 +33,9 @@ $(function() {
 
         }
 
-        items.shuffle();
+        items.sort(dynamicSort("suggestionName"));
         // sort my most contacts instead of random
-        // items.sort(sortByContacts);
+        items.sort(sortByContacts);
 
         $.each(items, function(i, item){
 
@@ -118,7 +129,10 @@ $(function() {
         }
 
         items.shuffle();
-        //items.sort(sortByMembers);
+
+        items.sort(dynamicSort("displayName"));
+        // sort my most contacts instead of random
+        items.sort(sortByContacts);
 
         $.each(items, function(i, item){
 
