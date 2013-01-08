@@ -35,13 +35,13 @@
               <property name="db-structure-type" value="isolated" />
               <property name="update-storage" value="true" />
               <property name="max-buffer-size" value="204800" />
-              <property name="swap-directory" value="${gatein.test.tmp.dir}/jcr/swap/system" />
+              <property name="swap-directory" value="target/${gatein.test.tmp.dir}/jcr/swap/system" />
             </properties>
 						<value-storages>
 							<value-storage id="system" class="org.exoplatform.services.jcr.impl.storage.value.fs.TreeFileValueStorage">
 								<properties>
                   <property name="path"
-                    value="${gatein.test.tmp.dir}/jcr/values/system" />
+                    value="target/${gatein.test.tmp.dir}/jcr/values/system" />
                 </properties>
 								<filters>
 									<filter property-type="Binary"/>
@@ -68,7 +68,7 @@
             class="org.exoplatform.services.jcr.impl.core.query.lucene.SearchIndex">
             <properties>
               <property name="index-dir"
-                value="${gatein.test.tmp.dir}/jcr/jcrlucenedb/system" />
+                value="target/${gatein.test.tmp.dir}/jcr/jcrlucenedb/system" />
             </properties>
           </query-handler>
           <lock-manager
@@ -92,14 +92,14 @@
               <property name="update-storage" value="true" />
               <property name="max-buffer-size" value="204800" />
               <property name="swap-directory"
-                value="${gatein.test.tmp.dir}/jcr/swap/collaboration" />
+                value="target/${gatein.test.tmp.dir}/jcr/swap/collaboration" />
             </properties>
             <value-storages>
               <value-storage id="collaboration"
                 class="org.exoplatform.services.jcr.impl.storage.value.fs.TreeFileValueStorage">
                 <properties>
                   <property name="path"
-                    value="${gatein.test.tmp.dir}/jcr/values/collaboration" />
+                    value="target/${gatein.test.tmp.dir}/jcr/values/collaboration" />
                 </properties>
                 <filters>
                   <filter property-type="Binary" />
@@ -126,7 +126,7 @@
             class="org.exoplatform.services.jcr.impl.core.query.lucene.SearchIndex">
             <properties>
               <property name="index-dir"
-                value="${gatein.test.tmp.dir}/jcr/jcrlucenedb/collaboration" />
+                value="target/${gatein.test.tmp.dir}/jcr/jcrlucenedb/collaboration" />
             </properties>
           </query-handler>
           <lock-manager
@@ -152,14 +152,14 @@
               <property name="update-storage" value="true" />
               <property name="max-buffer-size" value="204800" />
               <property name="swap-directory"
-                value="${gatein.test.tmp.dir}/jcr/swap/portal-system" />
+                value="target/${gatein.test.tmp.dir}/jcr/swap/portal-system" />
             </properties>
             <value-storages>
               <value-storage id="portal-system"
                 class="org.exoplatform.services.jcr.impl.storage.value.fs.TreeFileValueStorage">
                 <properties>
                   <property name="path"
-                    value="${gatein.test.tmp.dir}/jcr/values/portal-system" />
+                    value="target/${gatein.test.tmp.dir}/jcr/values/portal-system" />
                 </properties>
                 <filters>
                   <filter property-type="Binary" />
@@ -186,7 +186,7 @@
             class="org.exoplatform.services.jcr.impl.core.query.lucene.SearchIndex">
             <properties>
               <property name="index-dir"
-                value="${gatein.test.tmp.dir}/jcr/jcrlucenedb/portal-system" />
+                value="target/${gatein.test.tmp.dir}/jcr/jcrlucenedb/portal-system" />
             </properties>
           </query-handler>
           <lock-manager
