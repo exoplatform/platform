@@ -23,10 +23,20 @@
     left: 0px;  top: 0px;
     width: 13px;
 }
+.PrevDateSpan{
+    background: url("img/prev.gif") no-repeat left 3px;;
+    width: 20px;
+    height: 20px;
+}
 .NextDateLink  {
     position: absolute;
     right: 0px;  top: 0px;
     /* top: 3px; width: 13px;*/
+}
+.NextDateSpan{
+    background: url("img/next.gif") no-repeat left 3px;;
+    width: 20px;
+    height: 20px;
 }
 .CurrentDateContainer{
     margin: 0 auto;
@@ -83,15 +93,27 @@
 .EventsList{
 
 }
-.EventsTitle{
-    text-decoration-style: solid;
-    background-color: silver;
-    height: 20px;
-    text-align: center;
-}
 
 .PastEvent{
     background-color: #d3d3d3;
+}
+
+.EventSummary {
+
+    margin: auto;
+    /* white-space: nowrap; */
+    font-size: 12px;
+    display: block;
+    text-overflow: ellipsis;
+    max-height: 25px;
+    overflow: hidden;
+}
+.CalendarName{
+    width: 45px;
+}
+
+.NonDisp{
+    text-overflow: ellipsis;
 }
 
 .EventLink{
@@ -105,8 +127,23 @@
 }
 
 .SettingsLink{
-    background:url('img/Setting.png') no-repeat right;
-    height: 50px;
-    width: 50px;
+    background: url("img/Setting.png") no-repeat scroll right 0 transparent;
     float: right;
+    height: 30px;
+    padding: 1px;
+    width: 50px;
+}
+
+.icon{
+    padding: 2px 8px;
+}
+
+.deleteButtonSpan{
+    background: url("img/del.png") no-repeat left 3px;;
+    width: 20px;
+    height: 20px;
+}
+.addButtonSpan{
+    background: silver  right 8px;
+    padding-left: 10px;
 }

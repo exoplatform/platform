@@ -29,7 +29,14 @@
 
     });
 </script>
+<style type="text/css">
+.addButtonSpan{
+    background: url("/homepage-portlets/style/calendar/img/add.png") no-repeat right 8px;
+    padding-left: 10px;
 
+}
+
+</style>
 <div>
 
 

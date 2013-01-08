@@ -30,5 +30,7 @@
     </bean>
     <bean id="calendarServiceBean" class="org.exoplatform.platform.portlet.juzu.calendar.providers.CalendarServiceProvider">
     </bean>
+    <bean id="settingServiceBean" class="org.exoplatform.platform.portlet.juzu.calendar.providers.SettingServiceProvider">
+    </bean>
 
 </beans>

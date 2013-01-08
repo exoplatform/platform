@@ -21,9 +21,10 @@
 .SettingsContainerTitle{
     background-color: silver;
 }
-.SEARCHCONTAINER{
-    background-color: #959595;
-}
+    .NonDisp{
+        text-overflow: ellipsis;
+    }
+
 </style>
 <script>
 
@@ -148,10 +149,10 @@
                 }
                       %>
                       <div class= "CalendarItem" id="${cal.id}">
-                            <p class="flottante" style="background-color:${cal.calendarColor}" class="" id="${cal.id}">${calendarName}</p>
+                            <p class="flottante" style="background-color:${cal.calendarColor}"  id="${cal.id}">${calendarName}</p>
 
                             <p class="flottante">
-                                <span class="deleteButtonSpan">delete</span>
+                                <span class="deleteButtonSpan icon"></span>
                                 <input type="hidden" name="calendarId" value="${cal.id}"/>
                             </p>
 
@@ -186,7 +187,7 @@
                         calendarName += grpName;
                          }
       %>
-                                <div id="${cal.id}" class="CalendarItem">
+                                <div id="${cal.id}" class="CalendarItem NonDisp">
 
                                     <p style="float:left; height:20px;width:20px;background-color:  ${cal.calendarColor}"/>
 
@@ -209,8 +210,11 @@
       %>
 
             </div>
-
-             <a href="@{index()}">OK</a>
+           <div style="height:25px;width:100%;">
+             <a href="@{index()}" style="float:right" >OK</a>
+             <div>
     </div>
 
     </div>
+             </div>
+</div>

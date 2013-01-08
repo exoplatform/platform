@@ -27,7 +27,7 @@ import java.util.Locale;
 <div class="CalendarPortletData">
     <div class="DateContainer">
         <div class="PrevDateLink">
-            <span class="PrevDateSpan">Prev</span>
+            <span class="PrevDateSpan icon"></span>
         </div>
 
         <div class="CurrentDateContainer">
@@ -35,7 +35,7 @@ import java.util.Locale;
         </div>
 
         <div class="NextDateLink">
-            <span class="NextDateSpan">Next</span>
+            <span class="NextDateSpan icon"></span>
         </div>
     </div>
 
@@ -61,14 +61,11 @@ import java.util.Locale;
     </div>
 
     <div class="Events">
-        <div class="EventsTitle">
-            ${bundle["eventsLabel"]}
-        </div>
 
         <div class="EventsList ">
 
             <%
-                def allDayLabel = "ALL DAY";
+                def allDayLabel = bundle["allDayLabel"];
 
                 Locale locale= RequestContext.getCurrentInstance().getLocale();
 
@@ -87,37 +84,36 @@ import java.util.Locale;
             %>
             <div class="${eventCss}" style="height:40px;border-radius:11px;border-style: solid;border-color:  ${color}"
                  class="" id="${event.id}">
-                <p class="flottante">
+                <p class="flottante EventSummary" style="padding:5px;width:100px;">
                     <a href="/portal/intranet/calendar">${event.summary}</a>
                 </p>
 
                 <p style="float:right">
-                    <% if (event.toDateTime.getTime() - event.fromDateTime.getTime() == 86400000) { %>
+                    <% if (event.toDateTime.getTime() - event.fromDateTime.getTime() == 86399999) { %>
                     <span>${allDayLabel}</span>
-                    <% } else if (event.toDateTime.getTime() - event.fromDateTime.getTime() > 86400000) {
+                    <% } else if (event.toDateTime.getTime() - event.fromDateTime.getTime() > 86399999) {
                         from = sdf1.format(event.fromDateTime);
+                        if(from.substring(2,3).equals("00"))   from=from.substring(0,2)
                         to = sdf1.format(event.toDateTime);
                     %>
 
-                    <span>
+                    <span style="display: inline;">
                     ${bundle["fromLabel"]}  ${from}
                     </span>
 
-                    <span>
+                    <span style="display: inline;">
                         ${bundle["toLabel"]}  ${to}
                     </span>
-                    <% } else if (event.toDateTime.getTime() - event.fromDateTime.getTime() < 86400000) {
+                    <% } else if (event.toDateTime.getTime() - event.fromDateTime.getTime() < 86399999) {
                         from = sdf2.format(event.fromDateTime);
                         to = sdf2.format(event.toDateTime);
                     %>
 
                     <span>
-                    ${bundle["fromLabel"]}  ${from}
+                      ${from} - ${to}
                     </span>
 
-                    <span>
-                        ${bundle["toLabel"]}  ${to}
-                    </span>
+
                     <% } %>
                 </p>
 
@@ -137,7 +133,7 @@ import java.util.Locale;
     <div class="Tasks ">
 
         <div class="TasksTitle">
-            ${bundle["taskLabel"]}
+            ${bundle["tasklabel"]}
         </div>
 
         <div class="TasksList">
@@ -151,7 +147,7 @@ import java.util.Locale;
             %>
             <div>
 
-                <a href="/portal/intranet/calendar" class="${cssClass}">${task.summary} ${task.status} <%= task.getStatus()%> task</a>
+                <a href="/portal/intranet/calendar" class="EventSummary ${cssClass}">${task.summary} ${task.status} <%= task.getStatus()%> task</a>
 
             </div>
             <% }
@@ -161,7 +157,7 @@ import java.util.Locale;
     <% } %>
     <div class="SettingsContainerPage" >
         <div style="display: none">
-            <a class="SettingsLink"  href="@{setting()}"> Settings </a>
+            <a class="SettingsLink"  href="@{setting()}"> </a>
         </div>
     </div>
 </div>
