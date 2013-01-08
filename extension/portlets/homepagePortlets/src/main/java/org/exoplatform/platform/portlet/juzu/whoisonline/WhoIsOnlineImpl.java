@@ -1,10 +1,10 @@
 package org.exoplatform.platform.portlet.juzu.whoisonline;
 
-import org.exoplatform.commons.utils.ListAccess;
 import org.exoplatform.container.ExoContainerContext;
 import org.exoplatform.forum.service.ForumService;
 import org.exoplatform.services.log.ExoLogger;
 import org.exoplatform.services.log.Log;
+import org.exoplatform.social.common.RealtimeListAccess;
 import org.exoplatform.social.core.activity.model.ExoSocialActivity;
 import org.exoplatform.social.core.identity.model.Identity;
 import org.exoplatform.social.core.identity.model.Profile;
@@ -15,7 +15,6 @@ import org.exoplatform.social.core.manager.RelationshipManager;
 import org.exoplatform.social.core.relationship.model.Relationship;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -42,15 +41,27 @@ public class WhoIsOnlineImpl implements WhoIsOnline {
             List<Profile> parameters = new ArrayList<Profile>();
             List<User> listUser = new ArrayList<User>();
             for (String user : users) {
-
+                String activity = "";
                 User utilisateur = new User(user);
                 Identity userIdentity = identityManager.getOrCreateIdentity(OrganizationIdentityProvider.NAME, user);
                 if (userIdentity.equals(myIdentity))
                     continue;
-                List<ExoSocialActivity> activitiesList = activityManager.getActivities(userIdentity);
-                ListAccess<Identity> listAccess = relationshipManager.getOutgoing(myIdentity);
-                Identity[] pendingIdentities = listAccess.load(0, listAccess.getSize());
-                List<Identity> pendingList = Arrays.asList(pendingIdentities);
+                RealtimeListAccess<ExoSocialActivity> act = activityManager.getActivitiesWithListAccess(userIdentity);
+                int count = 10;
+                int i = 0;
+                for (ExoSocialActivity activite : act.loadAsList(i, count)) {
+                    i++;
+                    if (activite.getType().equals("DEFAULT_ACTIVITY")) {
+                        activity = activite.getTitle();
+                        break;
+                    }
+                    if (i == 9 && activity.equals("")) {
+                        count += 10;
+                    }
+                }
+                if (activity.length() > 90) {
+                    activity = activity.substring(0, 87).concat("...");
+                }
                 String status = "";
                 if (relationshipManager.getStatus(userIdentity, myIdentity) == null) {
                     status = "";
@@ -69,14 +80,6 @@ public class WhoIsOnlineImpl implements WhoIsOnline {
                             status = "ignored";
                         }
                     }
-                }
-                String activity = "";
-                if (activitiesList.size() > 0) {
-                    activity = activitiesList.get(0).getTitle();
-                    if(activity.length()>99)  {
-                       activity=activity.substring(0,94).concat("...");
-                    }
-
                 }
                 Profile userProfile = userIdentity.getProfile();
                 String avatar = userProfile.getAvatarImageSource();
