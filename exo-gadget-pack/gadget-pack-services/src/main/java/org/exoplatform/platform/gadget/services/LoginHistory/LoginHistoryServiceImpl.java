@@ -31,13 +31,13 @@ import javax.jcr.query.QueryResult;
 import org.exoplatform.container.ExoContainerContext;
 import org.exoplatform.container.xml.InitParams;
 import org.exoplatform.container.xml.ValueParam;
-import org.exoplatform.forum.service.ForumService;
 import org.exoplatform.services.jcr.RepositoryService;
 import org.exoplatform.services.jcr.core.ManageableRepository;
 import org.exoplatform.services.jcr.ext.common.SessionProvider;
 import org.exoplatform.services.jcr.impl.core.query.QueryImpl;
 import org.exoplatform.services.log.ExoLogger;
 import org.exoplatform.services.log.Log;
+import org.exoplatform.services.organization.OrganizationService;
 
 
 /**
@@ -167,12 +167,10 @@ public class LoginHistoryServiceImpl implements LoginHistoryService {
 			List<LastLoginBean> lastLogins = new ArrayList<LastLoginBean>();
 			Node node;
 			String userId, userName;
-			//ForumService forumService = (ForumService)ExoContainerContext.getCurrentContainer().getComponentInstanceOfType(ForumService.class); 
 			while(nodeIterator.hasNext()){
 				node = nodeIterator.nextNode();
 				LastLoginBean lastLoginBean = new LastLoginBean();
 				userId = node.getName();
-				//userName = forumService.getUserInfo(userId).getFullName();
 				userName = node.getProperty("exo:LoginHisSvc_userName").getString();
 				lastLoginBean.setUserId(userId);
 				lastLoginBean.setUserName(userName.isEmpty() ? userId : userName);
@@ -206,8 +204,7 @@ public class LoginHistoryServiceImpl implements LoginHistoryService {
 			Node homeNode = session.getRootNode().getNode(HOME);
 
 			Node userNode, loginHistoryNode, loginCounterNode, globalLoginCounterNode;
-			ForumService forumService = (ForumService)ExoContainerContext.getCurrentContainer().getComponentInstanceOfType(ForumService.class);
-			String userName = forumService.getUserInfo(userId).getFullName(); 
+			String userName = getUserFullName(userId);
 			if(!homeNode.hasNode(userId)){
 				userNode = homeNode.addNode(userId, "exo:LoginHisSvc_userProfile");
 				userNode.setProperty("exo:LoginHisSvc_userId", userId);
@@ -368,12 +365,11 @@ public class LoginHistoryServiceImpl implements LoginHistoryService {
 			List<LoginHistoryBean> list = new ArrayList<LoginHistoryBean>();
 			Node node;
 			String uId, uName;
-			ForumService forumService = (ForumService)ExoContainerContext.getCurrentContainer().getComponentInstanceOfType(ForumService.class); 
 			while(nodeIterator.hasNext()){
 				node = nodeIterator.nextNode();
 				LoginHistoryBean loginHistory = new LoginHistoryBean();
 				uId = node.getProperty("exo:LoginHisSvc_loginHistoryItem_userId").getString();
-				uName = forumService.getUserInfo(uId).getFullName();
+				uName = getUserFullName(uId);
 				loginHistory.setUserId(uId);
 				loginHistory.setUserName(uName.isEmpty() ? uId : uName);
 				loginHistory.setLoginTime(node.getProperty("exo:LoginHisSvc_loginHistoryItem_loginTime").getLong());
@@ -565,5 +561,15 @@ public class LoginHistoryServiceImpl implements LoginHistoryService {
 	    now.add(Calendar.DAY_OF_YEAR, days);
 		return now.getTimeInMillis();
 	}
+	
+  private String getUserFullName(String userId) {
+    try {
+      OrganizationService service = (OrganizationService) ExoContainerContext.getCurrentContainer()
+                                          .getComponentInstanceOfType(OrganizationService.class);
+      return service.getUserHandler().findUserByName(userId).getFullName();
+    } catch (Exception e) {
+      return userId;
+    }
+  }
 }
 
