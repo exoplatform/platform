@@ -67,8 +67,8 @@ import org.exoplatform.webui.core.UIPopupWindow;
 	<div class="uiBreadcumbsNavigationPortlet" id="$uicomponent.id">
 	 <% uicomponent.renderChild(UIPopupWindow.class); %>
 	  <div class="BreadcumbEntry">
-	  <img title="$nodeName" alt="$nodeName" src="$srcImage" />
-	  $nodeName
+		  <img title="$nodeName" alt="$nodeName" src="$srcImage" />
+		  <span class="name">$nodeName</span>
 	  
 	  <!-- in new design we don't have change picture label I think when we click in avatar we can change avatar
 	   <%if (uicomponent.isOwner() && isUserUrl) { %>
