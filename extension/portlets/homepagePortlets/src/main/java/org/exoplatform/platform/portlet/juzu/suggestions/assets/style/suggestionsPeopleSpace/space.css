@@ -51,7 +51,7 @@
 .spaceInfo {
 
   padding-left: 10px;
-  width: 180px;
+  width: 185px;
   overflow: hidden;
 }
 
@@ -61,22 +61,22 @@
 }
 
 .spacePrivacy {
-    width:180px;
+    width:185px;
     float:left;
     white-space:nowrap;
     overflow: hidden;
     text-overflow:ellipsis;
     height: 25px;
     margin-top: 5px;
+    color:#808080;
 
 }
 .actionspaceAppears {
-    width: 80px;
+    width: 85px;
 }
 
 a:link {
     color: #226AB4;
-    text-decoration: none;
 }
 
 #spaceSuggest {
@@ -88,4 +88,5 @@ a:link {
 
 .spaceCommon{
 margin-bottom: 10px;
+ color:#808080;
 }

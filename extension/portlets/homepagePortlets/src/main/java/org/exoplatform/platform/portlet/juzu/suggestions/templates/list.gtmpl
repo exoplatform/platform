@@ -31,3 +31,6 @@
             </div>
 
 </div>
+
+<div class="var" data-connect="${connectLabel}" data-member="${memberLabel}" data-connection="${connectionLabel}"  data-private="${privateLabel}" data-public="${publicLabel}" data-spacemember="${spacemember}" data-join="${joinSpace}" data-request="${requestSpace}">
+</div>

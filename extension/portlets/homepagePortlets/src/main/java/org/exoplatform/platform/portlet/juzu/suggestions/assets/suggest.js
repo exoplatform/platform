@@ -25,6 +25,28 @@ Array.prototype.shuffle = function() {
 };
 
 $(function() {
+    var member;
+    var connect ;
+    var connection;
+    var private;
+    var public;
+    var spacemember;
+    var request;
+    var join;
+    $(".var").each(function() {
+        member = $(this).data("member");
+        connect = $(this).data("connect");
+        connection = $(this).data("connection");
+        private = $(this).data("private");
+        public=  $(this).data("public");
+        spacemember=  $(this).data("spacemember");
+        join=  $(this).data("join");
+        request=  $(this).data("request");
+
+    });
+
+
+
     $.getJSON("/rest/homepage/intranet/people/contacts/suggestions", function(items){
 
         if (items.length > 0){
@@ -48,8 +70,8 @@ $(function() {
             link += "<div class='peoplePicture' ><a href='#'><img src='"+item.avatar+"'></a></div>";
             link += "<div class='peopleInfo'>";
             link += "<div class='peopleName'><a href='"+item.profile+"' target='_parent'>"+item.suggestionName+"</a></div>";
-            link += "<div style='display:none;' class='peopleAction' ><a class='connect' href='#' onclick='return false'>Connect</a> | <a class='ignore' href='#' onclick='return false'><img src='/homepage-portlets/style/images/deny.png' alt='' title=''></a></div>";
-            link +="<div class='peoplePosition'>"+item.title+"</div><div class='peopleConnection'>"+item.number+" connections in common</div>";
+            link += "<div style='display:none;' class='peopleAction' ><a class='connect' href='#' onclick='return false'>"+connect+"</a> | <a class='ignore' href='#' onclick='return false'><img src='/homepage-portlets/style/images/deny.png' alt='' title=''></a></div>";
+            link +="<div class='peoplePosition'>"+item.title+"</div><div class='peopleConnection'>"+item.number+"&nbsp;"+connection+"</div>";
             link += "</div></li>";
 
             $("#suggestions").append(link);
@@ -146,14 +168,17 @@ $(function() {
             link += "<div class='spacePicture' ><a href='#'><img src='"+item.avatarUrl+"'></a></div>";
             link += "<div class='spaceInfo'>";
             link += "<div class='spaceName'><a href='/portal/intranet/all-spaces' target='_parent'>"+item.displayName+"</a></div>";
-            link += "<div class='spacePrivacy'><img src='/homepage-portlets/style/images/user_group.png'>"+item.privacy+" Space-"+item.members+" members</div>";
-            if(item.registration == "open")
-                link += "<div class='spaceAction' ><a class='connect' href='#' onclick='return false'>Join</a>";
+            if(item.privacy=="Private")
+            link += "<div class='spacePrivacy'><img src='/homepage-portlets/style/images/user_group.png'>"+private+"&nbsp;-&nbsp;"+item.members+"&nbsp;"+spacemember+"</div>";
             else
-                link += "<div class='spaceAction' ><a class='connect' href='#' onclick='return false'>Request</a>";
+                link += "<div class='spacePrivacy'><img src='/homepage-portlets/style/images/user_group.png'>"+public+"&nbsp;-&nbsp;"+item.members+"&nbsp;"+spacemember+"</div>";
+            if(item.registration == "open")
+                link += "<div class='spaceAction' ><a class='connect' href='#' onclick='return false'>"+join+"</a>";
+            else
+                link += "<div class='spaceAction' ><a class='connect' href='#' onclick='return false'>"+request+"</a>";
 
             link += "<a class='ignore' href='#' onclick='return false'><img src='/homepage-portlets/style/images/deny.png' alt='' title=''></a></div>";
-            link += "<div class='spaceCommon'>"+item.number+" connections are members</div>";
+            link += "<div class='spaceCommon'>"+item.number+"&nbsp;"+member+"</div>";
             link += "</div></li>";
 
             $("#suggestionsspace").append(link);
