@@ -39,6 +39,9 @@ $(function () {
     });
 
     $.getJSON('/rest/homepage/intranet/getting-started/deletePortlet/IsDelete', function (del) {
+
+        if(del == true)        $('.GettingStartedContainer').css("display","none") ;
+
         setTimeout(function () {
                 if (del == false) {
                     $('.GettingStarted').jzLoad("GettingStarted.getGsList()");
