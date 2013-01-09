@@ -141,13 +141,13 @@ import java.util.Locale;
                 if (tasksDisplayedList != null) {
 
                     tasksDisplayedList.each { task ->
-                        if ((task.status).equals(CalendarEvent.COMPLETED)) cssClass = "TaskCompleted";
-                        else if (((task.status).equals(CalendarEvent.NEEDS_ACTION)) && (task.toDateTime.compareTo(new Date()) < 0)) cssClass = "taskNotCompleted";
-                        else cssClass = "TaskLateNotCompleted"
+                        if ((task.eventState).equals(CalendarEvent.COMPLETED)) cssClass = "TaskCompleted";
+                        else if (((task.eventState).equals(CalendarEvent.NEEDS_ACTION)) && (task.toDateTime.compareTo(new Date()) > 0)) cssClass = "taskNotCompleted";
+                        else if (((task.eventState).equals(CalendarEvent.NEEDS_ACTION)) && (task.toDateTime.compareTo(new Date()) < 0))cssClass = "TaskLateNotCompleted"
             %>
             <div>
 
-                <a href="/portal/intranet/calendar" class="EventSummary ${cssClass}">${task.summary} ${task.status} <%= task.getStatus()%> task</a>
+                <a href="/portal/intranet/calendar" class="EventSummary ${cssClass}">${task.summary}</a>
 
             </div>
             <% }
