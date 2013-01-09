@@ -27,7 +27,7 @@ import java.util.Locale;
 <div class="CalendarPortletData">
     <div class="DateContainer">
         <div class="PrevDateLink">
-            <span class="PrevDateSpan icon"></span>
+            <span class="PrevDateSpan"></span>
         </div>
 
         <div class="CurrentDateContainer">
@@ -35,7 +35,7 @@ import java.util.Locale;
         </div>
 
         <div class="NextDateLink">
-            <span class="NextDateSpan icon"></span>
+            <span class="NextDateSpan"></span>
         </div>
     </div>
 
