@@ -36,11 +36,11 @@
      def connect="";
 	 def message;
   if(user.getStatus().equals("") || user.getStatus().equals("ignored")|| user.getStatus().equals("received")){
-  connect='<div id="'+user.getId()+'connect" class="connectAction" ><a class="connect" href="#">Connect</a></div>';
+  connect='<div id="'+user.getId()+'connect" class="connectAction" ><a class="connect" href="#">'+connectLabel+'</a></div>';
 
 }else{
 if(user.getStatus().equals("pending"))
-connect='<div id="connectMessge">You have sent a connection request</div>';
+connect='<div id="connectMessge">'+messageLabel+'</div>';
 }%>
          <li id="${user.getId()}"><img src="${user.getAvatar()}" alt="image" /></li>
   <script type="text/javascript">

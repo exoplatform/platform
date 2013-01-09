@@ -36,6 +36,10 @@
 
 }
 
+.CalendarItem:hover {
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0.2) inset;
+    background-color: #f0f0f0;
+}
 </style>
 <div>
 
@@ -61,7 +65,7 @@
 
     <p class="addButton" style="float:left;display: none;">
         <input type="hidden" name="calendarId" value="${cal.id}"/>
-        <span  class="addButtonSpan">ADD</span>
+        <span   class="addButtonSpan">ADD</span>
     </p>
 
     <div class="spacer">
