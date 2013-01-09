@@ -28,12 +28,13 @@ $(function () {
         $.getJSON('/rest/homepage/intranet/getting-started/delete');
 
         $('.GettingStartedContainer').jzLoad("GettingStarted.delete()");
-
+        $('.GettingStartedContainer').css("display","none") ;
     });
     $('.DeleteAction').on("click", function () {
 
         $.getJSON('/rest/homepage/intranet/getting-started/delete');
         $('.GettingStartedContainer').jzLoad("GettingStarted.delete()");
+        $('.GettingStartedContainer').css("display","none") ;
 
     });
 
