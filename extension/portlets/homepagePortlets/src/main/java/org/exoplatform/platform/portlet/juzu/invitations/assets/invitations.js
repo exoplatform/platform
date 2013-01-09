@@ -1,6 +1,21 @@
 function initIncoming() {
     var visibility;
     var link;
+    var acceptlabel;
+    var memberslabel;
+    var spacelabel;
+    var publiclabel;
+    var privatelabel;
+
+    $(".invitlabel").each(function() {
+        acceptlabel = $(this).data("acceptlabel");
+        memberslabel = $(this).data("memberslabel");
+        spacelabel = $(this).data("spacelabel");
+        publiclabel = $(this).data("publiclabel");
+        privatelabel = $(this).data("privatelabel");
+
+    });
+
     $.getJSON("/rest/homepage/intranet/invitations/allInvitations", function(items){
 
         if (items.length > 0){
@@ -23,7 +38,7 @@ function initIncoming() {
                 link += "<div class='peopleInvitePicture' ><img src='"+peopleAvatar+"'></div>";
                 link += "<div class='peopleInviteInfo'>";
 
-                link += "<div class='peopleInviteName'><div class='name'>"+item.senderName+"</div><div class='peopleInviteAction' style='visibility:hidden;'><a class='connect' href='#' onclick='return false'>Accept</a> <a class='deny' href='#' onclick='return false'><img src='/homepage-portlets/style/images/deny.png'></a></div></div>";
+                link += "<div class='peopleInviteName'><div class='name'>"+item.senderName+"</div><div class='peopleInviteAction' style='visibility:hidden;'><a class='connect' href='#' onclick='return false'>"+acceptlabel+"</a> <a class='deny' href='#' onclick='return false'><img src='/homepage-portlets/style/images/deny.png'></a></div></div>";
 
                 if (item.position != undefined)
                     link += "<div class='peopleInvitePosition'>"+item.position+"</div>";
@@ -89,10 +104,13 @@ function initIncoming() {
                 link += "<div class='spaceInviteInfo'>";
                 link += "<div class='spaceInviteName'>"+item.displayName+"</div>";
                 if(item.registration == "open")
-                    visibility = "public";
+                    visibility = publiclabel;
                 else
-                    visibility = "private";
-                link += "<div class='spaceproperties'><div class='spacevisibility'>"+visibility+" space - "+item.number+" Members </div><div class='spaceInviteAction' style='visibility:hidden;' ><a class='connect' href='#' onclick='return false'>Accept</a>  <a class='deny' href='#' onclick='return false'><img src='/homepage-portlets/style/images/deny.png'></a></div> </div>"
+                    visibility = privatelabel;
+                if (spacelabel == "Space")
+                link += "<div class='spaceproperties'><div class='spacevisibility'>"+visibility+" "+spacelabel+" - " +item.number+" "+memberslabel+"</div><div class='spaceInviteAction' style='visibility:hidden;' ><a class='connect' href='#' onclick='return false'>"+acceptlabel+"</a>  <a class='deny' href='#' onclick='return false'><img src='/homepage-portlets/style/images/deny.png'></a></div> </div>"
+                else
+                link += "<div class='spaceproperties'><div class='spacevisibility'>"+spacelabel+" "+visibility+" - " +item.number+" "+memberslabel+"</div><div class='spaceInviteAction' style='visibility:hidden;' ><a class='connect' href='#' onclick='return false'>"+acceptlabel+"</a>  <a class='deny' href='#' onclick='return false'><img src='/homepage-portlets/style/images/deny.png'></a></div> </div>"
                 link += "</div></li>";
 
                 $("#requests").append(link);
