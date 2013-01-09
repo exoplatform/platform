@@ -25,6 +25,7 @@ import juzu.View;
 import juzu.template.Template;
 
 import javax.inject.Inject;
+import java.util.HashMap;
 import java.util.Locale;
 import java.util.ResourceBundle;
 
@@ -43,9 +44,22 @@ public class Invitations {
 
     @View
     public void index() {
+        HashMap parameters = new HashMap();
         Locale locale = RequestContext.getCurrentInstance().getLocale();
         ResourceBundle rs = ResourceBundle.getBundle("invitations/invitations", locale);
-        String invitationsLabel = rs.getString("invitations.label");
-        index.with().set("invitationsLabel",invitationsLabel).render();
+        String invitationsHeaderLabel = rs.getString("invitations.header.label");
+        String invitationsAcceptLabel = rs.getString("invitations.accept.label");
+        String invitationsMembersLabel = rs.getString("invitations.members.label");
+        String invitationsSpaceLabel = rs.getString("invitations.space.label");
+        String invitationsPublicLabel = rs.getString("invitations.public.label");
+        String invitationsPrivateLabel = rs.getString("invitations.private.label");
+
+        index.with().set("invitationsHeaderLabel",invitationsHeaderLabel).
+                     set("invitationsAcceptLabel",invitationsAcceptLabel).
+                     set("invitationsMembersLabel",invitationsMembersLabel).
+                     set("invitationsSpaceLabel",invitationsSpaceLabel).
+                     set("invitationsPublicLabel",invitationsPublicLabel).
+                     set("invitationsPrivateLabel",invitationsPrivateLabel)
+                    .render();
     }
 }

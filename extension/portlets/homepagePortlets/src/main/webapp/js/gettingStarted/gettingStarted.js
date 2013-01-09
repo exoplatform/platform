@@ -28,16 +28,20 @@ $(function () {
         $.getJSON('/rest/homepage/intranet/getting-started/delete');
 
         $('.GettingStartedContainer').jzLoad("GettingStarted.delete()");
-
+        $('.GettingStartedContainer').css("display","none") ;
     });
     $('.DeleteAction').on("click", function () {
 
         $.getJSON('/rest/homepage/intranet/getting-started/delete');
         $('.GettingStartedContainer').jzLoad("GettingStarted.delete()");
+        $('.GettingStartedContainer').css("display","none") ;
 
     });
 
     $.getJSON('/rest/homepage/intranet/getting-started/deletePortlet/IsDelete', function (del) {
+
+        if(del == true)        $('.GettingStartedContainer').css("display","none") ;
+
         setTimeout(function () {
                 if (del == false) {
                     $('.GettingStarted').jzLoad("GettingStarted.getGsList()");

@@ -23,9 +23,10 @@
 <body>
     <div id="InvitationsPortlet" class="UIInvitationsPortlet" style="display:none;">
     <div  class="InviteList">
-        <div class='InviteHeader'>${invitationsLabel} (<span id='inviteCounter'></span>)
+        <div class='InviteHeader'>${invitationsHeaderLabel} (<span id='inviteCounter'></span>)
         </div>
         <ul id='requests'></ul>
-    </div>
+       <div class="invitlabel" data-acceptlabel="${invitationsAcceptLabel}" data-memberslabel="${invitationsMembersLabel}" data-spacelabel="${invitationsSpaceLabel}"  data-publiclabel="${invitationsPublicLabel}" data-privatelabel="${invitationsPrivateLabel}">
+       </div>
 
 </body>
