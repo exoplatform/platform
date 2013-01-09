@@ -65,7 +65,7 @@
 
     <p class="addButton" style="float:left;display: none;">
         <input type="hidden" name="calendarId" value="${cal.id}"/>
-        <span  style="float:right" class="addButtonSpan">ADD</span>
+        <span   class="addButtonSpan">ADD</span>
     </p>
 
     <div class="spacer">
