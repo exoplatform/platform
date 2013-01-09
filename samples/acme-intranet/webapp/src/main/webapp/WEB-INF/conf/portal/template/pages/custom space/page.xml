@@ -23,65 +23,7 @@
 		</portlet-application>
 	</container>
 	<container id="SpaceApplications" template="system:/groovy/portal/webui/container/UITableColumnContainer.gtmpl">
-		<container id="SummaryInfoPortlet" template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
-			<portlet-application>
-				<portlet>
-				  <application-ref>acme-intranet-portlet</application-ref>
-				  <portlet-ref>SpaceSummaryInfoPortlet</portlet-ref>
-				  <preferences>
-					<preference>
-					  <name>SPACE_URL</name>
-					  <value>{spaceName}</value>
-					  <read-only>false</read-only>
-					</preference>
-				  </preferences>
-				</portlet>
-				<show-info-bar>false</show-info-bar>
-			</portlet-application>
-			<portlet-application>
-				<portlet>
-				  <application-ref>presentation</application-ref>
-				  <portlet-ref>SingleContentViewer</portlet-ref>
-				  <preferences>
-					<preference>
-					  <name>repository</name>
-					  <value>repository</value>
-					  <read-only>false</read-only>
-					</preference>
-					<preference>
-					  <name>workspace</name>
-					  <value>collaboration</value>
-					  <read-only>false</read-only>
-					</preference>
-					<preference>
-					  <name>nodeIdentifier</name>
-					  <value/>
-					  <read-only>false</read-only>
-					</preference>
-					<preference>
-					  <name>ShowQuickEdit</name>
-					  <value>true</value>
-					  <read-only>false</read-only>
-					</preference>
-					<preference>
-					  <name>ShowPrintAction</name>
-					  <value>false</value>
-					  <read-only>false</read-only>
-					</preference>
-					<preference>
-					  <name>ShowTitle</name>
-					  <value>false</value>
-					  <read-only>false</read-only>
-					</preference>
-				  </preferences>
-				</portlet>
-				<title/>
-				<show-info-bar>false</show-info-bar>
-				<show-application-state>false</show-application-state>
-				<show-application-mode>false</show-application-mode>
-			</portlet-application>
-		</container>
-    	<container id="ActivityStreamPortlet" template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
+   <container id="ActivityStreamPortlet" template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
 			<portlet-application>
 				<portlet>
 				  <application-ref>social-portlet</application-ref>
