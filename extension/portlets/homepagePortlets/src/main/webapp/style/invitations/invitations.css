@@ -1,20 +1,15 @@
-#InvitationsPortlet {
-    border: dashed 1px #E2DDC7;
-    -moz-border-radius: 3px;
-    -webkit-border-radius: 3px;
-    padding: 10px 15px 5px 15px;
-}
 
 #InvitationsPortlet ul {
     list-style-type: none;
-    padding: 0;
+    padding-left: 10px;
     margin: 0px;
 }
 
 #InvitationsPortlet ul li{
     height: 50px;
-    margin-top: 10px;
-    margin-bottom: 10px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #DBDBDB;
 }
 
 .InviteList img{
@@ -24,10 +19,16 @@
 }
 
 .InviteHeader {
+    background: none repeat scroll 0 0 #F8F8F8;
+    border: 1px solid #E1E1E1;
+    border-radius: 3px 3px 3px 3px;
+    color: #2F3334;
+    line-height: 25px;
+    padding: 0 5px 0 8px;
     font-weight: bold;
-    margin-bottom: 12px;
-    padding-top: 5px;
+    margin-bottom: 5px;
 }
+
 
 .peopleInviteName {
     height: 20px;
@@ -37,7 +38,7 @@
 .name {
     color: #226AB4;
     font-weight: bold;
-    width:172px;
+    width:190px;
     float:left;
     white-space:nowrap;
     overflow: hidden;
@@ -45,7 +46,7 @@
 }
 
 .actionInviteAppears {
-    width:90px;
+    width:100px;
     float:left;
     white-space:nowrap;
     overflow: hidden;
@@ -53,7 +54,7 @@
 }
 
 .peopleInvitePosition {
-    width:172px;
+    width:190px;
     white-space:nowrap;
     overflow: hidden;
     text-overflow:ellipsis;
@@ -67,7 +68,7 @@
 
 .peopleInviteInfo {
     padding-left: 10px;
-    width: 172px;
+    width: 190px;
     overflow: hidden;
 }
 
@@ -90,7 +91,7 @@
 .spaceInviteInfo {
     /*float: left;*/
     padding-left: 10px;
-    width: 172px;
+    width: 190px;
     overflow: hidden;
 }
 
@@ -100,7 +101,7 @@
 }
 
 .spacevisibility{
-    width:172px;
+    width:190px;
     float:left;
     white-space:nowrap;
     overflow: hidden;
@@ -109,7 +110,7 @@
 }
 
 .actionSpaceAppears {
-    width:90px;
+    width:100px;
     float:left;
     white-space:nowrap;
     overflow: hidden;
