@@ -53,7 +53,7 @@
   font-family: verdana, arial,sans-serif;
   font-size: 12px;
   line-height: 23px;
-  background:url('img/ArrowRight.gif') no-repeat left;
+  background:url('/homepage-portlets/style/images/gettingStarted/ArrowRight.gif') no-repeat left;
 }
 
 #gsList li a {
@@ -65,7 +65,7 @@
 
 .done {  
   text-decoration: line-through;
-  background:url('img/check.png') no-repeat left !important;
+  background:url('/homepage-portlets/style/images/gettingStarted/check.png') no-repeat left !important;
 }
 
 .done a {
@@ -101,7 +101,7 @@ background-color: white;
 
 #progress-rate {
 height: 16px;
-background-image: url('img/getting-started-progress.png');
+background-image: url('/homepage-portlets/style/images/gettingStarted/getting-started-progress.png');
 background-repeat: repeat-x;
 position: absolute;
 left: 0;
@@ -117,6 +117,6 @@ top: 0;
 .DeleteIcon{
     text-decoration-color: white;
     padding: 3px 5px;
-    background: url("img/del.png") no-repeat right 8px ;
+    background: url("/homepage-portlets/style/images/gettingStarted/del.png") no-repeat right 8px ;
 }
 

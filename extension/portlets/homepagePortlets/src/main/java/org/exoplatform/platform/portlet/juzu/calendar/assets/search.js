@@ -5,7 +5,7 @@ $(function () {
     /*    setTimeout(function()
             {
                 $('div.NonDisplayedCalendar').jzLoad(
-                    "AgendaPortlet.getSearchResult()",
+                    "CalendarPortletController.getSearchResult()",
                     {"key":""});
             }
             ,100);  */
@@ -15,7 +15,7 @@ $(function () {
             var calId = $(this).parent().children("input").val();
 
             $('div.SettingsContainerData').jzLoad(
-                "AgendaPortlet.addCalendar()",
+                "CalendarPortletController.addCalendar()",
                 {"calendarId":calId});
 
         });
@@ -24,7 +24,7 @@ $(function () {
             var calId = $(this).parent().children("input").val();
 
             $('div.SettingsContainerData').jzLoad(
-                "AgendaPortlet.deleteCalendar()",
+                "CalendarPortletController.deleteCalendar()",
                 {"calendarId":calId});
 
         });
@@ -38,7 +38,7 @@ $(function () {
             }
 
             $('div.NonDisplayedCalendar').jzLoad(
-                "AgendaPortlet.getSearchResult()",
+                "CalendarPortletController.getSearchResult()",
                 {"key":seakey});
 
         });
@@ -46,14 +46,14 @@ $(function () {
             $("#nonDisplayedCalendarContainer").css("display", "none");
             var seakey = $(this).val();
             $('div.NonDisplayedCalendar').jzLoad(
-                "AgendaPortlet.getSearchResult()",
+                "CalendarPortletController.getSearchResult()",
                 {"key":seakey});
         });
         $('input.PLFcalendarSearchKey').on("keydown", function () {
             $("#nonDisplayedCalendarContainer").css("display", "none");
             var seakey = $(this).val();
             $('div.NonDisplayedCalendar').jzLoad(
-                "AgendaPortlet.getSearchResult()",
+                "CalendarPortletController.getSearchResult()",
                 {"key":seakey});
         });
 
@@ -61,7 +61,7 @@ $(function () {
             $("#nonDisplayedCalendarContainer").css("display", "none");
             var seakey = $(this).val();
             $('div.NonDisplayedCalendar').jzLoad(
-                "AgendaPortlet.getSearchResult()",
+                "CalendarPortletController.getSearchResult()",
                 {"key":seakey});
         });
 
@@ -69,7 +69,7 @@ $(function () {
             $("#nonDisplayedCalendarContainer").css("display", "none");
             var seakey = $(this).val();
             $('div.NonDisplayedCalendar').jzLoad(
-                "AgendaPortlet.getSearchResult()",
+                "CalendarPortletController.getSearchResult()",
                 {"key":seakey});
         });
         $('input.PLFcalendarSearchKey').on("focus", function () {
@@ -103,22 +103,26 @@ $(function () {
         $('span.PrevDateSpan').on("click", function () {
 
             $('div.CalendarPortletData').jzLoad(
-                "AgendaPortlet.decDate()",
+                "CalendarPortletController.decDate()",
                 {"nbClick":"1"});
 
         });
         $('span.NextDateSpan').on("click", function () {
             $('div.CalendarPortletData').jzLoad(
-                "AgendaPortlet.incDate()",
+                "CalendarPortletController.incDate()",
                 {"nbClick":"1"});
 
         });
-    }
-
-    ;
+    };
 
     $(document).ready(function () {
         var initKey = $('input.PLFcalendarSearchKey').val();
         init(initKey);
     });
+    function eventDetail(id)
+    {
+        window.location = "/portal/intranet/calendar" ;
+        var href="'UICalendarView','View','&objectId="+id+"',true);"
+        eXo.webui.UIForm.submitForm(href,true) ;
+    } ;
 });

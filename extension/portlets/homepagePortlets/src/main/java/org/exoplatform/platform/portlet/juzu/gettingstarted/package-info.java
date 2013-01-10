@@ -20,19 +20,20 @@
 @Portlet
 @Assets(
         scripts = {
-                @Script(id="jquery", src = "js/jquery-1.8.3.js"),
-               @Script( src = "js/gettingStarted/gettingStarted.js")
+                @Script(id="jquery", src = "js/common/jquery-1.8.3.js" , location = juzu.asset.AssetLocation.SERVER),
+               @Script( src = "gettingStarted.js",  location = AssetLocation.CLASSPATH)
 
         } ,
         stylesheets = {
-                @Stylesheet(src = "style/gettingStarted/gettingstarted.css")
+                @Stylesheet(src = "style/gettingstarted.css", location = AssetLocation.CLASSPATH)
 
-        }  , location = juzu.asset.AssetLocation.SERVER
+        }
 )
 
 package org.exoplatform.platform.portlet.juzu.gettingstarted;
 
 import juzu.Application;
+import juzu.asset.AssetLocation;
 import juzu.plugin.asset.Assets;
 import juzu.plugin.asset.Script;
 import juzu.plugin.asset.Stylesheet;

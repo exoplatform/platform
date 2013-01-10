@@ -16,27 +16,28 @@
  * Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
  * 02110-1301 USA, or see the FSF site: http://www.fsf.org.
  */
-package org.exoplatform.platform.portlet.juzu.calendar.providers;
+package org.exoplatform.platform.portlet.juzu.gettingstarted.providers;
 
 import org.exoplatform.container.PortalContainer;
-import org.exoplatform.services.organization.OrganizationService;
+import org.exoplatform.services.jcr.ext.hierarchy.NodeHierarchyCreator;
 import org.springframework.beans.factory.FactoryBean;
 
 /**
  * @author <a href="fbradai@exoplatform.com">Fbradai</a>
  * @date 12/31/12
  */
-public class OrganisationServiceProvider implements FactoryBean<OrganizationService> {
+public class NodeHierarchyCreatorProvider implements FactoryBean<NodeHierarchyCreator> {
 
-    public OrganizationService getObject() throws Exception {
-        return (OrganizationService) PortalContainer.getInstance().getComponentInstanceOfType(OrganizationService.class);
+    public NodeHierarchyCreator getObject() throws Exception {
+        return (NodeHierarchyCreator) PortalContainer.getInstance().getComponentInstanceOfType(NodeHierarchyCreator.class);
     }
 
-    public Class<?> getObjectType() {
-        return OrganizationService.class;
+    public Class<NodeHierarchyCreator> getObjectType() {
+        return NodeHierarchyCreator.class;
     }
 
     public boolean isSingleton() {
         return true;
     }
+
 }

@@ -24,6 +24,7 @@ import juzu.View;
 import juzu.plugin.ajax.Ajax;
 import juzu.template.Template;
 import org.exoplatform.platform.portlet.juzu.gettingstarted.models.GettingStartedService;
+import org.exoplatform.platform.portlet.juzu.gettingstarted.models.GettingStartedUtils;
 import org.exoplatform.services.jcr.ext.common.SessionProvider;
 import org.exoplatform.services.jcr.ext.hierarchy.NodeHierarchyCreator;
 import org.exoplatform.services.log.ExoLogger;
@@ -46,17 +47,15 @@ import java.util.ResourceBundle;
  * @date 07/12/12
  */
 
-public class GettingStarted  {
+public class GettingStarted {
 
-private static Log logger = ExoLogger.getLogger(GettingStarted.class);
-    static String remoteUser="";
-    static String remoteUserCach="";
+    private static Log logger = ExoLogger.getLogger(GettingStarted.class);
+    static String remoteUser = "";
+    static String remoteUserCach = "";
     HashMap parameters = new HashMap();
     static HashMap bundle = new HashMap();
-    HashMap<String,String> status =new HashMap();
-    Locale locale=null;
-
-
+    HashMap<String, String> status = new HashMap();
+    Locale locale = null;
 
     @Inject
     NodeHierarchyCreator nodeHierarchyCreator_;
@@ -71,66 +70,49 @@ private static Log logger = ExoLogger.getLogger(GettingStarted.class);
 
     @View
     public void index() throws Exception {
-        remoteUser= RequestContext.getCurrentInstance().getRemoteUser();
-        if(remoteUserCach.equals("")) remoteUserCach=remoteUser;
+        remoteUser = RequestContext.getCurrentInstance().getRemoteUser();
+        if (remoteUserCach.equals("")) remoteUserCach = remoteUser;
         SessionProvider sProvider = SessionProvider.createSystemProvider();
-        Node userPrivateNode = nodeHierarchyCreator_.getUserNode(sProvider, remoteUser).getNode("ApplicationData");
-        if (!userPrivateNode.hasNode("GsGadget")) {
+        Node userPrivateNode = nodeHierarchyCreator_.getUserNode(sProvider, remoteUser).getNode(GettingStartedUtils.JCR_APPLICATION_NODE);
+        if (!userPrivateNode.hasNode(GettingStartedUtils.JCR_GS_NODE)) {
 
-            Node gettingStartedNode = userPrivateNode.addNode("GsGadget");
+            Node gettingStartedNode = userPrivateNode.addNode(GettingStartedUtils.JCR_GS_NODE);
             userPrivateNode.save();
-            gettingStartedNode.setProperty("exo:gs_deleteGadget", false);
-            gettingStartedNode.setProperty("exo:gs_profile", false);
-            gettingStartedNode.setProperty("exo:gs_connect", false);
-            gettingStartedNode.setProperty("exo:gs_space", false);
-            gettingStartedNode.setProperty("exo:gs_activities", false);
-            gettingStartedNode.setProperty("exo:gs_document", false);
+            gettingStartedNode.setProperty(GettingStartedUtils.JCR_DELETE_GADGET_PROPERTY_NAME, false);
+            gettingStartedNode.setProperty(GettingStartedUtils.JCR_PROFILE_PROPERTY_NAME, false);
+            gettingStartedNode.setProperty(GettingStartedUtils.JCR_CONNECT_PROPERTY_NAME, false);
+            gettingStartedNode.setProperty(GettingStartedUtils.JCR_SPACE_PROPERTY_NAME, false);
+            gettingStartedNode.setProperty(GettingStartedUtils.JCR_ACTIVITY_PROPERTY_NAME, false);
+            gettingStartedNode.setProperty(GettingStartedUtils.JCR_DOCUMENT_PROPERTY_NAME, false);
             gettingStartedNode.save();
         }
-        if((bundle.size()==0)||(!remoteUser.equals(remoteUserCach))){
+        if ((bundle.size() == 0) || (!remoteUser.equals(remoteUserCach))) {
             String profileLabel = "";
             String documentLabel = "";
             String connectLabel = "";
             String activityLabel = "";
             String spaceLabel = "";
-            String titleLabel= "";
+            String titleLabel = "";
             try {
-                locale=RequestContext.getCurrentInstance().getLocale();
+
+                locale = RequestContext.getCurrentInstance().getLocale();
+
                 ResourceBundle rs = ResourceBundle.getBundle("gettingStarted/gettingStarted", locale);
-                profileLabel = rs.getString("Upload.label");
-                EntityEncoder.FULL.encode(profileLabel);
-                connectLabel = rs.getString("Connect.Label");
-                EntityEncoder.FULL.encode(connectLabel);
-                spaceLabel = rs.getString("Space.Label");
-                EntityEncoder.FULL.encode(spaceLabel);
-                activityLabel = rs.getString("Activity.Label");
-                EntityEncoder.FULL.encode(activityLabel);
-                documentLabel = rs.getString("Document.Label");
-                EntityEncoder.FULL.encode(documentLabel);
-                titleLabel=rs.getString("title.Label");
-                EntityEncoder.FULL.encode(titleLabel);
-
-            } catch (MissingResourceException ex) {
-                profileLabel = "Upload.label";
-                connectLabel = "Connect.label";
-                spaceLabel = "Space.label";
-                activityLabel = "Activity.label";
-                documentLabel = "document.label";
-                titleLabel="title.Label";
-
-            } finally {
 
                 bundle.put("profile", LinkProvider.getUserProfileUri(remoteUser));
-                bundle.put("profileLabel", profileLabel);
+                bundle.put("profileLabel", EntityEncoder.FULL.encode(rs.getString("Upload.label")));
                 bundle.put("connect", LinkProvider.getUserConnectionsUri(remoteUser));
-                bundle.put("connectLabel", connectLabel);
-                bundle.put("space", "/portal/intranet/all-spaces");
-                bundle.put("spaceLabel", spaceLabel);
+                bundle.put("connectLabel", EntityEncoder.FULL.encode(rs.getString("Connect.Label")));
+                bundle.put("space", GettingStartedUtils.SPACE_URL);
+                bundle.put("spaceLabel", EntityEncoder.FULL.encode(rs.getString("Space.Label")));
                 bundle.put("activity", "#");
-                bundle.put("activityLabel", activityLabel);
-                bundle.put("upload", "/portal/intranet/documents");
-                bundle.put("uploadLabel", documentLabel);
-                bundle.put("titleLabel", titleLabel);
+                bundle.put("activityLabel", EntityEncoder.FULL.encode(rs.getString("Activity.Label")));
+                bundle.put("upload", GettingStartedUtils.UPLOAD_URL);
+                bundle.put("uploadLabel", EntityEncoder.FULL.encode(rs.getString("Document.Label")));
+                bundle.put("titleLabel", EntityEncoder.FULL.encode(rs.getString("title.Label")));
+
+            } catch (MissingResourceException ex) {
+                logger.warn("##Missing Labels of GettingStarted Portlet");
             }
         }
         gettingStarted.render();
@@ -138,24 +120,20 @@ private static Log logger = ExoLogger.getLogger(GettingStarted.class);
 
     @Ajax
     @Resource
-    public void delete() throws Exception {
+    public void delete() throws Exception
+    {
         //set Delete
         String userId = RequestContext.getCurrentInstance().getRemoteUser();
-
         SessionProvider sProvider = SessionProvider.createSystemProvider();
-
-        Node userPrivateNode = nodeHierarchyCreator_.getUserNode(sProvider, userId).getNode("ApplicationData");
-
-        if (userPrivateNode.hasNode("GsGadget")) {
-
-            Node gettingStartedNode = userPrivateNode.getNode("GsGadget");
-
-            if (gettingStartedNode.hasProperty("exo:gs_deleteGadget")) {
-
-                gettingStartedNode.setProperty("exo:gs_deleteGadget", true);
-
-                gettingStartedNode.save();
-            }
+        Node userPrivateNode = nodeHierarchyCreator_.getUserNode(sProvider, userId).getNode(GettingStartedUtils.JCR_APPLICATION_NODE);
+        if (userPrivateNode.hasNode(GettingStartedUtils.JCR_GS_NODE))
+        {
+            Node gettingStartedNode = userPrivateNode.getNode(GettingStartedUtils.JCR_GS_NODE);
+                if (gettingStartedNode.hasProperty(GettingStartedUtils.JCR_DELETE_GADGET_PROPERTY_NAME))
+                {
+                    gettingStartedNode.setProperty(GettingStartedUtils.JCR_DELETE_GADGET_PROPERTY_NAME, true);
+                    gettingStartedNode.save();
+                }
         }
         gettingStarted.render();
     }
@@ -164,52 +142,53 @@ private static Log logger = ExoLogger.getLogger(GettingStarted.class);
     @Resource
     public void getGsList() throws Exception {
 
-
         Boolean Isshow = true;
-
         PropertyIterator propertiesIt = null;
         int progress = 0;
 
         SessionProvider sProvider = SessionProvider.createSystemProvider();
-        Node userPrivateNode = nodeHierarchyCreator_.getUserNode(sProvider, remoteUser).getNode("ApplicationData");
-        if (userPrivateNode.hasNode("GsGadget")) {
-            Node gettingStartedNode = userPrivateNode.getNode("GsGadget");
-            gettingStartedNode.setProperty("exo:gs_profile", GettingStartedService.hasAvatar(remoteUser));
-            gettingStartedNode.setProperty("exo:gs_connect", GettingStartedService.hasContacts(remoteUser));
-            gettingStartedNode.setProperty("exo:gs_space", GettingStartedService.hasSpaces(remoteUser));
-            gettingStartedNode.setProperty("exo:gs_activities", GettingStartedService.hasActivities(remoteUser));
-            gettingStartedNode.setProperty("exo:gs_document", GettingStartedService.hasDocuments(null, remoteUser));
-            propertiesIt = userPrivateNode.getNode("GsGadget").getProperties("exo:gs_*");
-            while (propertiesIt.hasNext()) {
+        Node userPrivateNode = nodeHierarchyCreator_.getUserNode(sProvider, remoteUser).getNode(GettingStartedUtils.JCR_APPLICATION_NODE);
+        if (userPrivateNode.hasNode(GettingStartedUtils.JCR_GS_NODE))
+        {
+            Node gettingStartedNode = userPrivateNode.getNode(GettingStartedUtils.JCR_GS_NODE);
+            gettingStartedNode.setProperty(GettingStartedUtils.JCR_PROFILE_PROPERTY_NAME, GettingStartedService.hasAvatar(remoteUser));
+            gettingStartedNode.setProperty(GettingStartedUtils.JCR_CONNECT_PROPERTY_NAME, GettingStartedService.hasContacts(remoteUser));
+            gettingStartedNode.setProperty(GettingStartedUtils.JCR_SPACE_PROPERTY_NAME, GettingStartedService.hasSpaces(remoteUser));
+            gettingStartedNode.setProperty(GettingStartedUtils.JCR_ACTIVITY_PROPERTY_NAME, GettingStartedService.hasActivities(remoteUser));
+            gettingStartedNode.setProperty(GettingStartedUtils.JCR_DOCUMENT_PROPERTY_NAME, GettingStartedService.hasDocuments(null, remoteUser));
+            propertiesIt = userPrivateNode.getNode(GettingStartedUtils.JCR_GS_NODE).getProperties("exo:gs_*");
+            while (propertiesIt.hasNext())
+            {
                 String clazz = "";
                 Property prop = (Property) propertiesIt.next();
-                if (prop.getString().equals("true")) {
+                if (prop.getString().equals(GettingStartedUtils.TRUE))
+                {
                     progress += 20;
-                    clazz = "done";
+                    clazz = GettingStartedUtils.DONE;
                 }
                 status.put(prop.getName().substring(4), clazz);
             }
             if (progress == 100) Isshow = false;
-        }
-        else {
-            Node gettingStartedNode = userPrivateNode.addNode("GsGadget");
+        } else
+        {
+            Node gettingStartedNode = userPrivateNode.addNode(GettingStartedUtils.JCR_GS_NODE);
             userPrivateNode.save();
-            gettingStartedNode.setProperty("exo:gs_deleteGadget", false);
-            gettingStartedNode.setProperty("exo:gs_profile", false);
-            gettingStartedNode.setProperty("exo:gs_connect", false);
-            gettingStartedNode.setProperty("exo:gs_space", false);
-            gettingStartedNode.setProperty("exo:gs_activities", false);
-            gettingStartedNode.setProperty("exo:gs_document", false);
+            gettingStartedNode.setProperty(GettingStartedUtils.JCR_DELETE_GADGET_PROPERTY_NAME, false);
+            gettingStartedNode.setProperty(GettingStartedUtils.JCR_PROFILE_PROPERTY_NAME, false);
+            gettingStartedNode.setProperty(GettingStartedUtils.JCR_CONNECT_PROPERTY_NAME, false);
+            gettingStartedNode.setProperty(GettingStartedUtils.JCR_SPACE_PROPERTY_NAME, false);
+            gettingStartedNode.setProperty(GettingStartedUtils.JCR_ACTIVITY_PROPERTY_NAME, false);
+            gettingStartedNode.setProperty(GettingStartedUtils.JCR_DOCUMENT_PROPERTY_NAME, false);
             gettingStartedNode.save();
         }
-        String[] width =new Integer((160 * progress )/ 100 ).toString().split(".");
-            parameters.putAll(bundle);
-            parameters.put("progress", new Integer(progress));
-            parameters.put("width", new Integer((Math.round((160 * progress )/ 100 ))).toString());
-            parameters.put("status", status);
-            parameters.put("show", Isshow.toString());
-            gettingStartedList.render(parameters);
-        }
+
+        parameters.putAll(bundle);
+        parameters.put(GettingStartedUtils.PROGRESS, new Integer(progress));
+        parameters.put(GettingStartedUtils.WIDTH, new Integer((Math.round((160 * progress) / 100))).toString());
+        parameters.put(GettingStartedUtils.STATUS, status);
+        parameters.put(GettingStartedUtils.SHOW, Isshow.toString());
+        gettingStartedList.render(parameters);
     }
+}
 
 

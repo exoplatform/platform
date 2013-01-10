@@ -1,3 +1,22 @@
+/**
+         * Copyright ( C ) 2012 eXo Platform SAS.
+         *
+         * This is free software; you can redistribute it and/or modify it
+         * under the terms of the GNU Lesser General Public License as
+         * published by the Free Software Foundation; either version 2.1 of
+         * the License, or (at your option) any later version.
+         *
+         * This software is distributed in the hope that it will be useful,
+         * but WITHOUT ANY WARRANTY; without even the implied warranty of
+         * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+         * Lesser General Public License for more details.
+         *
+         * You should have received a copy of the GNU Lesser General Public
+         * License along with this software; if not, write to the Free
+         * Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
+         * 02110-1301 USA, or see the FSF site: http://www.fsf.org.
+         */
+
 .CalendarPortlet{
 
 }
@@ -21,7 +40,7 @@
     overflow: hidden;
     min-height: 25px;
     position: relative;
-    background: url(img/back.png) repeat-x center;
+    background: url("/homepage-portlets/style/images/calendar/back.png") repeat-x center;
     box-shadow: 0 0 1px rgba(0, 0, 0, 0.2) inset;
     font-size: 14px;
     padding-top: 10px;
@@ -49,7 +68,7 @@
     width: 13px;
 }
 .PrevDateSpan{
-    background: url("img/prev.png") no-repeat left 3px;;
+    background: url("/homepage-portlets/style/images/calendar/prev.png") no-repeat left 3px;;
     width: 20px;
     height: 20px;
     padding: 5px 20px 20px;
@@ -62,7 +81,7 @@
     width: 20px;
 }
 .NextDateSpan{
-    background: url("img/next.png") no-repeat left 3px;;
+    background: url("/homepage-portlets/style/images/calendar/next.png") no-repeat left 3px;;
     height: 20px;
     padding: 9px 11px 20px;
     width: 20px;
@@ -92,19 +111,19 @@
     margin: 10px 0px 10px 0px;
     padding-left: 15px;
     text-decoration: line-through;
-    background:url('img/check.png') no-repeat left !important;
+    background:url('/homepage-portlets/style/images/calendar/check.png') no-repeat left !important;
 }
 .TaskLateNotCompleted{
     margin: 10px 0px 10px 0px;
     padding-left: 15px;
     font-style: italic;
-    background:url('img/rec.png') no-repeat left !important;
+    background:url('/homepage-portlets/style/images/calendar/rec.png') no-repeat left !important;
 }
 .taskNotCompleted{
     margin: 10px 0px 10px 0px;
     padding-left: 15px;
     font-weight: bold;
-    background:url('img/rec.png') no-repeat left !important;
+    background:url('/homepage-portlets/style/images/calendar/rec.png') no-repeat left !important;
 }
 
 .TasksTitle{
@@ -156,7 +175,7 @@
 }
 
 .SettingsLink{
-    background: url("img/Setting.png") no-repeat scroll right 0 transparent;
+    background: url("/homepage-portlets/style/images/calendar/Setting.png") no-repeat scroll right 0 transparent;
     float: right;
     height: 30px;
     padding: 1px;
@@ -168,7 +187,7 @@
 }
 
 .deleteButtonSpan{
-    background: url("img/del.png") no-repeat left 3px;;
+    background: url("/homepage-portlets/style/images/calendar/del.png") no-repeat left 3px;;
     width: 20px;
     height: 20px;
 }
