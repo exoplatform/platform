@@ -65,12 +65,12 @@ public class AgendaPortlet {
     Map<String, org.exoplatform.calendar.service.Calendar> calendarDisplayedMap = new HashMap<String, org.exoplatform.calendar.service.Calendar>();
     Map<String, org.exoplatform.calendar.service.Calendar> calendarNonDisplayedMap = new HashMap<String, org.exoplatform.calendar.service.Calendar>();
 
-    Set<org.exoplatform.calendar.service.Calendar> calendarDisplayedList = new HashSet<org.exoplatform.calendar.service.Calendar>();
-    Set<org.exoplatform.calendar.service.Calendar> calendarNonDisplayedList = new HashSet<org.exoplatform.calendar.service.Calendar>();
+    List<org.exoplatform.calendar.service.Calendar> calendarDisplayedList = new ArrayList<org.exoplatform.calendar.service.Calendar>();
+    List<org.exoplatform.calendar.service.Calendar> calendarNonDisplayedList = new ArrayList<org.exoplatform.calendar.service.Calendar>();
     List<CalendarEvent> eventsDisplayedList = new ArrayList<CalendarEvent>();
-    Set<org.exoplatform.calendar.service.Calendar> displayedCalendar = new HashSet<org.exoplatform.calendar.service.Calendar>();
+    List<org.exoplatform.calendar.service.Calendar> displayedCalendar = new ArrayList<org.exoplatform.calendar.service.Calendar>();
     List<CalendarEvent> tasksDisplayedList = new ArrayList<CalendarEvent>();
-    Set<org.exoplatform.calendar.service.Calendar> searchResult = new HashSet<org.exoplatform.calendar.service.Calendar>();
+    List<org.exoplatform.calendar.service.Calendar> searchResult = new ArrayList<org.exoplatform.calendar.service.Calendar>();
     String nbclick = "0";
 
 
@@ -132,27 +132,6 @@ public class AgendaPortlet {
             }
         }
 
-        // read the user events
-        List<CalendarEvent> userEvents = getEvents(username);
-        if ((userEvents != null) && (!userEvents.isEmpty())) {
-                Iterator itr = userEvents.iterator();
-                while (itr.hasNext()) {
-                    CalendarEvent event = (CalendarEvent) itr.next();
-                    Date from = d.parse(d.format(event.getFromDateTime()));
-                    Date to = d.parse(d.format(event.getToDateTime()));
-                    if (!(calendarNonDisplayedMap.containsKey(event.getCalendarId())) ) {
-                        if ((event.getEventType().equals(CalendarEvent.TYPE_EVENT))&&(from.compareTo(comp) <= 0) && (to.compareTo(comp) >= 0)) eventsDisplayedList.add(event);
-                        else if((event.getEventType().equals(CalendarEvent.TYPE_TASK))&&
-                                (((from.compareTo(comp) <= 0) && (to.compareTo(comp) >= 0))||((event.getEventState().equals(CalendarEvent.NEEDS_ACTION))&&(to.compareTo(comp)<0)))) tasksDisplayedList.add(event);
-                        org.exoplatform.calendar.service.Calendar calendar = calendarService_.getUserCalendar(username, event.getCalendarId());
-                        if (calendar == null) calendar = calendarService_.getGroupCalendar(event.getCalendarId());
-                        displayedCalendar.add(calendar);
-                    }
-                }
-                Collections.sort(eventsDisplayedList, eventsComparator);
-            Collections.sort(tasksDisplayedList, tasksComparator) ;
-            }
-
         // this test serves when user connect with settingNode != null
         if((calendarDisplayedList.isEmpty())&&(settingNode!=null)){
             Iterator itr1 = getAllCal(username).iterator();
@@ -164,6 +143,39 @@ public class AgendaPortlet {
                 }
             }
         }
+
+        // read the user events
+        List<CalendarEvent> userEvents = getEvents(username);
+        if ((userEvents != null) && (!userEvents.isEmpty())) {
+                Iterator itr = userEvents.iterator();
+                while (itr.hasNext()) {
+                    CalendarEvent event = (CalendarEvent) itr.next();
+                    Date from = d.parse(d.format(event.getFromDateTime()));
+                    Date to = d.parse(d.format(event.getToDateTime()));
+                    if (!(calendarNonDisplayedMap.containsKey(event.getCalendarId())) ) {
+
+                        org.exoplatform.calendar.service.Calendar calendar = calendarService_.getUserCalendar(username, event.getCalendarId());
+                        if (calendar == null) calendar = calendarService_.getGroupCalendar(event.getCalendarId());
+
+                        if ((event.getEventType().equals(CalendarEvent.TYPE_EVENT))&&(from.compareTo(comp) <= 0) && (to.compareTo(comp) >= 0))
+                        {
+                            eventsDisplayedList.add(event);
+                            displayedCalendar.add(calendar);
+                        }
+
+                        else if((event.getEventType().equals(CalendarEvent.TYPE_TASK))&&
+                                (((from.compareTo(comp) <= 0) && (to.compareTo(comp) >= 0))||((event.getEventState().equals(CalendarEvent.NEEDS_ACTION))&&(to.compareTo(comp)<0))))
+                        {
+                            displayedCalendar.add(calendar);
+                            tasksDisplayedList.add(event);
+                        }
+                    }
+                }
+                Collections.sort(eventsDisplayedList, eventsComparator);
+            Collections.sort(tasksDisplayedList, tasksComparator) ;
+            }
+
+
 
         //this test is for the use case CALENDAR_21	By Default, all of the user's calendars are displayed in the gadget.
         if (settingNode==null)

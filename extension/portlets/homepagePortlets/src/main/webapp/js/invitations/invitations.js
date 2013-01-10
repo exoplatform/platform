@@ -108,9 +108,9 @@ function initIncoming() {
                 else
                     visibility = privatelabel;
                 if (spacelabel == "Space")
-                link += "<div class='spaceproperties'><div class='spacevisibility'>"+visibility+" "+spacelabel+" - " +item.number+" "+memberslabel+"</div><div class='spaceInviteAction' style='visibility:hidden;' ><a class='connect' href='#' onclick='return false'>"+acceptlabel+"</a>  <a class='deny' href='#' onclick='return false'><img src='/homepage-portlets/style/images/deny.png'></a></div> </div>"
+                link += "<div class='spaceproperties'><div class='spacevisibility'><img src='/homepage-portlets/style/images/user_group.png'> "+visibility+" "+spacelabel+" - " +item.number+" "+memberslabel+"</div><div class='spaceInviteAction' style='visibility:hidden;' ><a class='connect' href='#' onclick='return false'>"+acceptlabel+"</a>  <a class='deny' href='#' onclick='return false'><img src='/homepage-portlets/style/images/deny.png'></a></div> </div>"
                 else
-                link += "<div class='spaceproperties'><div class='spacevisibility'>"+spacelabel+" "+visibility+" - " +item.number+" "+memberslabel+"</div><div class='spaceInviteAction' style='visibility:hidden;' ><a class='connect' href='#' onclick='return false'>"+acceptlabel+"</a>  <a class='deny' href='#' onclick='return false'><img src='/homepage-portlets/style/images/deny.png'></a></div> </div>"
+                link += "<div class='spaceproperties'><div class='spacevisibility'><img src='/homepage-portlets/style/images/user_group.png'> "+spacelabel+" "+visibility+" - " +item.number+" "+memberslabel+"</div><div class='spaceInviteAction' style='visibility:hidden;' ><a class='connect' href='#' onclick='return false'>"+acceptlabel+"</a>  <a class='deny' href='#' onclick='return false'><img src='/homepage-portlets/style/images/deny.png'></a></div> </div>"
                 link += "</div></li>";
 
                 $("#requests").append(link);
