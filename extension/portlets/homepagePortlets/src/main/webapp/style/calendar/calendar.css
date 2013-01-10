@@ -103,8 +103,8 @@
 .taskNotCompleted{
     margin: 10px 0px 10px 0px;
     padding-left: 15px;
-    text-decoration: solid;
-    background:url('img/check.png') no-repeat left !important;
+    font-weight: bold;
+    background:url('img/rec.png') no-repeat left !important;
 }
 
 .TasksTitle{
