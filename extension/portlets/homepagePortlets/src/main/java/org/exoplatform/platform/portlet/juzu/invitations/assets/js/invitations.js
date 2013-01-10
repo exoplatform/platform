@@ -31,17 +31,17 @@ function initIncoming() {
                 else
                     link += "<li style='display:none;' id='"+item.relationId+"'>";
                 var peopleAvatar;
-                if (item.avatar == undefined)
+                if (item.senderAvatarUrl == undefined)
                     peopleAvatar = "/social-resources/skin/ShareImages/Avatar.gif";
                 else
-                    peopleAvatar = item.avatar;
+                    peopleAvatar = item.senderAvatarUrl;
                 link += "<div class='peopleInvitePicture' ><img src='"+peopleAvatar+"'></div>";
                 link += "<div class='peopleInviteInfo'>";
 
                 link += "<div class='peopleInviteName'><div class='name'>"+item.senderName+"</div><div class='peopleInviteAction' style='visibility:hidden;'><a class='connect' href='#' onclick='return false'>"+acceptlabel+"</a> <a class='deny' href='#' onclick='return false'><img src='/homepage-portlets/style/images/deny.png'></a></div></div>";
 
-                if (item.position != undefined)
-                    link += "<div class='peopleInvitePosition'>"+item.position+"</div>";
+                if (item.senderPosition != undefined)
+                    link += "<div class='peopleInvitePosition'>"+item.senderPosition+"</div>";
                 link += "</div></li>";
 
                 $("#requests").append(link);
@@ -96,21 +96,21 @@ function initIncoming() {
                 else
                     link += "<li style='display:none;' id='"+item.spaceId+"'>";
                 var spaceAvatar;
-                if (item.avatar == undefined)
+                if (item.spaceAvatarUrl == undefined)
                     spaceAvatar =  "/social-resources/skin/ShareImages/SpaceImages/SpaceLogoDefault_61x61.gif";
                 else
-                    spaceAvatar = item.avatar;
+                    spaceAvatar = item.spaceAvatarUrl;
                 link += "<div class='spaceInvitePicture' ><img src='"+spaceAvatar+"'></div>";
                 link += "<div class='spaceInviteInfo'>";
-                link += "<div class='spaceInviteName'>"+item.displayName+"</div>";
-                if(item.registration == "open")
+                link += "<div class='spaceInviteName'>"+item.spaceDisplayName+"</div>";
+                if(item.spaceRegistration == "open")
                     visibility = publiclabel;
                 else
                     visibility = privatelabel;
                 if (spacelabel == "Space")
-                link += "<div class='spaceproperties'><div class='spacevisibility'><img src='/homepage-portlets/style/images/user_group.png'> "+visibility+" "+spacelabel+" - " +item.number+" "+memberslabel+"</div><div class='spaceInviteAction' style='visibility:hidden;' ><a class='connect' href='#' onclick='return false'>"+acceptlabel+"</a>  <a class='deny' href='#' onclick='return false'><img src='/homepage-portlets/style/images/deny.png'></a></div> </div>"
+                    link += "<div class='spaceproperties'><div class='spacevisibility'><img src='/homepage-portlets/style/images/user_group.png'> "+visibility+" "+spacelabel+" - " +item.membersNumber+" "+memberslabel+"</div><div class='spaceInviteAction' style='visibility:hidden;' ><a class='connect' href='#' onclick='return false'>"+acceptlabel+"</a>  <a class='deny' href='#' onclick='return false'><img src='/homepage-portlets/style/images/deny.png'></a></div> </div>"
                 else
-                link += "<div class='spaceproperties'><div class='spacevisibility'><img src='/homepage-portlets/style/images/user_group.png'> "+spacelabel+" "+visibility+" - " +item.number+" "+memberslabel+"</div><div class='spaceInviteAction' style='visibility:hidden;' ><a class='connect' href='#' onclick='return false'>"+acceptlabel+"</a>  <a class='deny' href='#' onclick='return false'><img src='/homepage-portlets/style/images/deny.png'></a></div> </div>"
+                    link += "<div class='spaceproperties'><div class='spacevisibility'><img src='/homepage-portlets/style/images/user_group.png'> "+spacelabel+" "+visibility+" - " +item.membersNumber+" "+memberslabel+"</div><div class='spaceInviteAction' style='visibility:hidden;' ><a class='connect' href='#' onclick='return false'>"+acceptlabel+"</a>  <a class='deny' href='#' onclick='return false'><img src='/homepage-portlets/style/images/deny.png'></a></div> </div>"
                 link += "</div></li>";
 
                 $("#requests").append(link);

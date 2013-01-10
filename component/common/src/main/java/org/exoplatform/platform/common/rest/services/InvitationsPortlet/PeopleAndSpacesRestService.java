@@ -53,6 +53,19 @@ public class PeopleAndSpacesRestService implements ResourceContainer {
     private static Log log = ExoLogger.getLogger(PeopleAndSpacesRestService.class);
 
     private static final CacheControl cacheControl;
+    private static final String OPENSOCIAL_VIEWER_ID = "opensocial_viewer_id" ;
+    private static final String INVITATION_TYPE = "invitationType" ;
+    private static final String PEOPLE_INVITATION_TYPE = "people" ;
+    private static final String SPACE_INVITATION_TYPE = "space" ;
+    private static final String SENDER_NAME = "senderName" ;
+    private static final String RELATION_ID = "relationId";
+    private static final String SENDER_AVATAR_URL = "senderAvatarUrl";
+    private static final String SENDER_POSITION = "senderPosition";
+    private static final String SPACE_DISPLAY_NAME = "spaceDisplayName";
+    private static final String SPACE_ID = "spaceId";
+    private static final String SPACE_AVATAR_URL = "spaceAvatarUrl";
+    private static final String MEMBERS_NUMBER = "membersNumber";
+    private static final String SPACE_REGISTRATION = "spaceRegistration";
 
     static {
         RuntimeDelegate.setInstance(new RuntimeDelegateImpl());
@@ -91,12 +104,11 @@ public class PeopleAndSpacesRestService implements ResourceContainer {
                 Identity senderId = relation.getSender();
                 String avatar = senderId.getProfile().getAvatarImageSource();
                 JSONObject json = new JSONObject();
-                json.put("invitationType", "people");
-                json.put("senderName", senderId.getProfile().getFullName());
-                json.put("relationId", relation.getId());
-                json.put("avatar", avatar);
-                json.put("profile", senderId.getProfile().getUrl());
-                json.put("position", senderId.getProfile().getPosition());
+                json.put(INVITATION_TYPE, PEOPLE_INVITATION_TYPE);
+                json.put(SENDER_NAME, senderId.getProfile().getFullName());
+                json.put(RELATION_ID, relation.getId());
+                json.put(SENDER_AVATAR_URL, avatar);
+                json.put(SENDER_POSITION, senderId.getProfile().getPosition());
                 jsonArray.put(json);
             }
 
@@ -104,14 +116,12 @@ public class PeopleAndSpacesRestService implements ResourceContainer {
 
                 String avatar = space.getAvatarUrl();
                 JSONObject json = new JSONObject();
-                json.put("invitationType", "space");
-                json.put("name", space.getName());
-                json.put("displayName", space.getDisplayName());
-                json.put("spaceUrl", space.getUrl());
-                json.put("avatarUrl", avatar);
-                json.put("spaceId", space.getId());
-                json.put("number", space.getMembers().length);
-                json.put("registration", space.getRegistration());
+                json.put(INVITATION_TYPE, SPACE_INVITATION_TYPE);
+                json.put(SPACE_DISPLAY_NAME, space.getDisplayName());
+                json.put(SPACE_AVATAR_URL, avatar);
+                json.put(SPACE_ID, space.getId());
+                json.put(MEMBERS_NUMBER, space.getMembers().length);
+                json.put(SPACE_REGISTRATION, space.getRegistration());
                 jsonArray.put(json);
             }
 
@@ -139,7 +149,7 @@ public class PeopleAndSpacesRestService implements ResourceContainer {
         if (requestString == null) return null;
         String[] queryParts = requestString.split("&");
         for (String queryPart : queryParts) {
-            if (queryPart.startsWith("opensocial_viewer_id")) {
+            if (queryPart.startsWith(OPENSOCIAL_VIEWER_ID)) {
                 return queryPart.substring(queryPart.indexOf("=") + 1, queryPart.length());
             }
         }
