@@ -18,55 +18,48 @@
    */ %>
 
   <%
-      if(users.empty){  %>
+    if(users.empty){  %>
      <script type="text/javascript">
        $(function() {
        $("#OnlinePortlet").hide();
        });
      </script>
 
-   <% } else{
-  users.each { user -> %>
+  <%}else{%>
   <script type="text/javascript">
          $(function() {
-         $("#OnlinePortlet").show();
+           $("#OnlinePortlet").show();
          });
   </script>
+  <%}%>
+  <%users.each { user -> %>
+
   <%
-     def connect="";
-	 def message;
-  if(user.getStatus().equals("") || user.getStatus().equals("ignored")|| user.getStatus().equals("received")){
-  connect='<div id="'+user.getId()+'connect" class="connectAction" ><a class="connect" href="#">'+connectLabel+'</a></div>';
+    def connect="";
+	def message="";
+	if(user.getStatus().equals("") || user.getStatus().equals("ignored")|| user.getStatus().equals("received")){
+		connect='<div id="'+user.getId()+'connect" class="connectAction" ><a class="connect" href="#">'+connectLabel+'</a></div>';
 
-}else{
-if(user.getStatus().equals("pending"))
-connect='<div id="connectMessge">'+messageLabel+'</div>';
-}%>
-         <li id="${user.getId()}"><img src="${user.getAvatar()}" alt="image" /></li>
-  <script type="text/javascript">
-      $(function() {
-         $( "#${user.getId()}").tipTip({
-            content: '<table id="tipName"><tbody><tr><td style="width: 50px;"><a target="_parent" href="${user.getProfileUrl()}"><img src="${user.getAvatar()}" alt="image" /></a></td><td>${user.getFullName()}<div style="font-weight: normal;">${user.getPosition()}</div></td></tr></tbody></table><blockquote>${user.getActivity()}</blockquote>${connect}',defaultPosition: "left",keepAlive: true ,maxWidth: "240px"
-          });
-      });
-
-
-	  $("#${user.getId()}connect a.connect").live("click", function(){
-    $.getJSON("/rest/homepage/intranet/people/contacts/connect/${user.getIdentity()}", null);
-	 $("#${user.getId()}connect").fadeOut(500, function () {
-                        $("#${user.getId()}connect").html('<div id="connectMessge">You have sent a connection request</div>');
-                        $("#${user.getId()}connect").fadeIn(500, function() {});
-
-                    });
-
-    $("#onlineList").each(function() {
-               $(this).jzLoad("WhoIsOnLineController.users()");
-           });
+	}else{
+		if(user.getStatus().equals("pending"))
+			connect='<div id="connectMessge">'+messageLabel+'</div>';
+	}%>
+    <li id="${user.getId()}"><img src="${user.getAvatar()}" alt="image" /></li>
+	<script type="text/javascript">
+		$(function() {
+			$("#${user.getId()}").tipTip({
+				content: '<table id="tipName"><tbody><tr><td style="width: 50px;"><a target="_parent" href="${user.getProfileUrl()}"><img src="${user.getAvatar()}" alt="image" /></a></td><td>${user.getFullName()}<div style="font-weight: normal;">${user.getPosition()}</div></td></tr></tbody></table><blockquote>${user.getActivity()}</blockquote>${connect}',defaultPosition: "left",keepAlive: true ,maxWidth: "240px"
+			});
+		});
 
 
+		$("#${user.getId()}connect a.connect").live("click", function(){
+			$.getJSON("/rest/homepage/intranet/people/contacts/connect/${user.getIdentity()}", null);
+			$("#${user.getId()}connect").fadeOut(500, function () {
+                $("#${user.getId()}connect").html('<div id="connectMessge">${messageLabel}</div>');
+                $("#${user.getId()}connect").fadeIn(500, function() {});
+            });
 
-});
-
-
+		});
    </script>
-  <%}}%>
+  <%}%>

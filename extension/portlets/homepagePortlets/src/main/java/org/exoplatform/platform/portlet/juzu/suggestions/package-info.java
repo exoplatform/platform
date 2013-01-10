@@ -6,12 +6,19 @@
 @Application
 @Portlet
 @Assets(
-        scripts = { @Script(id= "jquery", src = "jquery-1.7.2.min.js"),@Script( src = "suggest.js")},
-        stylesheets = {@Stylesheet(src = "style/suggestionsPeopleSpace/people.css"),@Stylesheet(src = "style/suggestionsPeopleSpace/space.css") })
+        scripts = {
+                @Script(id = "jquery",src ="js/common/jquery-1.8.3.js",location = AssetLocation.SERVER),
+                @Script( src = "js/suggest.js")},
+        stylesheets = {
+                @Stylesheet(src = "css/people.css"),
+                @Stylesheet(src = "css/space.css")
+        }
+)
 
 
 package org.exoplatform.platform.portlet.juzu.suggestions;
 import juzu.Application;
+import juzu.asset.AssetLocation;
 import juzu.plugin.asset.Assets;
 import juzu.plugin.asset.Script;
 import juzu.plugin.asset.Stylesheet;
