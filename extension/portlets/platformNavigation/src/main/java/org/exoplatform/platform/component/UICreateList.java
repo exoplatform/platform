@@ -1,5 +1,8 @@
 package org.exoplatform.platform.component;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.exoplatform.cs.event.UICreateEvent;
 import org.exoplatform.forum.create.UICreatePoll;
 import org.exoplatform.forum.create.UICreateTopic;
@@ -14,9 +17,6 @@ import org.exoplatform.webui.core.UIComponent;
 import org.exoplatform.webui.core.UIContainer;
 import org.exoplatform.webui.event.Event;
 import org.exoplatform.webui.event.EventListener;
-
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * @author <a href="rtouzi@exoplatform.com">rtouzi</a>
@@ -92,7 +92,9 @@ public class UICreateList extends UIContainer {
       parStatus = event.getRequestContext().getRequestParameter(OBJECTID);
       UICreateList uisource = event.getSource();
       remove(uisource);
-      uisource.addChild(UICreatePoll.class, null, null).setRendered(true);
+      UICreatePoll createPoll = uisource.addChild(UICreatePoll.class, null, null);
+      createPoll.setRendered(true);
+      createPoll.setParStatus(parStatus);
       event.getRequestContext().addUIComponentToUpdateByAjax(uisource);
     }
 
@@ -106,7 +108,9 @@ public class UICreateList extends UIContainer {
       parStatus = event.getRequestContext().getRequestParameter(OBJECTID);
       UICreateList uisource = event.getSource();
       remove(uisource);
-      uisource.addChild(UICreateTopic.class, null, null).setRendered(true);
+      UICreateTopic createTopic = uisource.addChild(UICreateTopic.class, null, null);
+      createTopic.setRendered(true);
+      createTopic.setParStatus(parStatus);
       event.getRequestContext().addUIComponentToUpdateByAjax(uisource);
     }
   }
