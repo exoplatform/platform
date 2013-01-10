@@ -3,6 +3,8 @@ package org.exoplatform.platform.portlet.juzu.suggestions;
 import juzu.Path;
 import juzu.View;
 import juzu.template.Template;
+import org.exoplatform.services.log.ExoLogger;
+import org.exoplatform.services.log.Log;
 import org.exoplatform.web.application.RequestContext;
 import org.gatein.common.text.EntityEncoder;
 
@@ -18,6 +20,9 @@ import java.util.ResourceBundle;
  */
 public class SuggestionsPeopleSpace {
 
+    private static Locale locale = null;
+    private static ResourceBundle rs = null;
+    private static Log log = ExoLogger.getLogger(SuggestionsPeopleSpace.class);
     @Inject
     @Path("list.gtmpl")
     Template list;
@@ -25,65 +30,45 @@ public class SuggestionsPeopleSpace {
 
     @View
     public void index() {
-        Locale locale = RequestContext.getCurrentInstance().getLocale();
-        ResourceBundle rs = ResourceBundle.getBundle("suggestions/suggestions", locale);
-        String connectionLabel = "";
-        String connectLabel = "";
-        String privateLabel = "";
-        String memberLabel = "";
-        String headerLabel = "";
-        String spacemember = "";
-        String publicLabel = "";
-        String requestSpace = "";
-        String join = "";
-
-
+        locale = RequestContext.getCurrentInstance().getLocale();
+        rs = ResourceBundle.getBundle("suggestions/suggestions", locale);
         try {
 
-            connectionLabel = rs.getString("connection.label");
-            EntityEncoder.FULL.encode(connectionLabel);
-            connectLabel = rs.getString("Connect.Label");
-            EntityEncoder.FULL.encode(connectLabel);
-            memberLabel = rs.getString("member.Label");
-            EntityEncoder.FULL.encode(memberLabel);
-            privateLabel = rs.getString("private.Label");
-            EntityEncoder.FULL.encode(privateLabel);
-            headerLabel = rs.getString("suggestions.label");
-            EntityEncoder.FULL.encode(headerLabel);
-            spacemember = rs.getString("spacemember.Label");
-            EntityEncoder.FULL.encode(spacemember);
-            publicLabel = rs.getString("public.label");
-            EntityEncoder.FULL.encode(publicLabel);
-            requestSpace = rs.getString("request.label");
-            EntityEncoder.FULL.encode(requestSpace);
-            join = rs.getString("join.label");
-            EntityEncoder.FULL.encode(join);
+            if (rs.getString("connection.label") != null && rs.getString("connection.label").length() > 0) {
+                bundle.put("connectionLabel", EntityEncoder.FULL.encode(rs.getString("connection.label")));
+            }
+            if (rs.getString("Connect.Label") != null && rs.getString("Connect.Label").length() > 0) {
+                bundle.put("connectLabel", EntityEncoder.FULL.encode(rs.getString("Connect.Label")));
+            }
+
+            if (rs.getString("private.Label") != null && rs.getString("private.Label").length() > 0) {
+                bundle.put("privateLabel", EntityEncoder.FULL.encode(rs.getString("private.Label")));
+            }
+            if (rs.getString("member.Label") != null && rs.getString("member.Label").length() > 0) {
+                bundle.put("memberLabel", EntityEncoder.FULL.encode(rs.getString("member.Label")));
+            }
+            if (rs.getString("suggestions.label") != null && rs.getString("suggestions.label").length() > 0) {
+                bundle.put("headerLabel", EntityEncoder.FULL.encode(rs.getString("suggestions.label")));
+            }
+            if (rs.getString("spacemember.Label") != null && rs.getString("spacemember.Label").length() > 0) {
+                bundle.put("spacemember", EntityEncoder.FULL.encode(rs.getString("spacemember.Label")));
+            }
+
+            if (rs.getString("public.label") != null && rs.getString("public.label").length() > 0) {
+                bundle.put("publicLabel", EntityEncoder.FULL.encode(rs.getString("public.label")));
+            }
+
+            if (rs.getString("request.label") != null && rs.getString("request.label").length() > 0) {
+                bundle.put("requestSpace", EntityEncoder.FULL.encode(rs.getString("request.label")));
+            }
+
+            if (rs.getString("join.label") != null && rs.getString("join.label").length() > 0) {
+                bundle.put("joinSpace", EntityEncoder.FULL.encode(rs.getString("join.label")));
+            }
 
 
         } catch (MissingResourceException ex) {
-            connectionLabel = "connection.label";
-            connectLabel = "Connect.label";
-            memberLabel = "member.label";
-            privateLabel = "private.label";
-            headerLabel = "suggestions.label";
-            spacemember = "spacemember.label";
-            publicLabel = "public.label";
-            requestSpace = "request.label";
-            join = "join.label";
-        } finally {
-
-
-            bundle.put("connectionLabel", connectionLabel);
-            bundle.put("connectLabel", connectLabel);
-            bundle.put("privateLabel", privateLabel);
-            bundle.put("memberLabel", memberLabel);
-            bundle.put("headerLabel", headerLabel);
-            bundle.put("spacemember", spacemember);
-            bundle.put("publicLabel", publicLabel);
-            bundle.put("requestSpace", requestSpace);
-            bundle.put("joinSpace", join);
-
-
+            log.error("Error In Suggestions Resource Bundle: " + ex.getMessage(), ex);
         }
 
         list.render(bundle);

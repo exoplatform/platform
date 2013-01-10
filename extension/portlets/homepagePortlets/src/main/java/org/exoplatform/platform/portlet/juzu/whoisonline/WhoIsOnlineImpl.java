@@ -13,6 +13,7 @@ import org.exoplatform.social.core.manager.ActivityManager;
 import org.exoplatform.social.core.manager.IdentityManager;
 import org.exoplatform.social.core.manager.RelationshipManager;
 import org.exoplatform.social.core.relationship.model.Relationship;
+import org.exoplatform.social.core.service.LinkProvider;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,7 +23,19 @@ import java.util.List;
  * @date 07/12/12
  */
 public class WhoIsOnlineImpl implements WhoIsOnline {
+
     private static Log log = ExoLogger.getLogger(WhoIsOnlineImpl.class);
+    private static final String CONFIRMED = "confirmed";
+    private static final String PENDING = "pending";
+    private static final String RECEIVED = "received";
+    private static final String IGNORED = "ignored";
+    private static final String DEFAULT_ACTIVITY = "DEFAULT_ACTIVITY";
+    private static final int COUNT = 10;
+    private static final int MAX_CHAR = 90;
+    private static final int INDEX_CHAR = 87;
+    private static final String THREE_DOTS = "...";
+    private static final int MAX_USER = 18;
+    private static final int INDEX_USER = 17;
 
     public List<User> getFriends(String userId) {
         try {
@@ -31,85 +44,104 @@ public class WhoIsOnlineImpl implements WhoIsOnline {
             }
             ForumService forumService = (ForumService) ExoContainerContext.getCurrentContainer().getComponentInstanceOfType(ForumService.class);
             IdentityManager identityManager = (IdentityManager) ExoContainerContext.getCurrentContainer().getComponentInstanceOfType(IdentityManager.class);
-            RelationshipManager relationshipManager = (RelationshipManager) ExoContainerContext.getCurrentContainer().getComponentInstanceOfType(RelationshipManager.class);
-            ActivityManager activityManager = (ActivityManager) ExoContainerContext.getCurrentContainer().getComponentInstanceOfType(ActivityManager.class);
             Identity myIdentity = identityManager.getOrCreateIdentity(OrganizationIdentityProvider.NAME, userId);
             List<String> users = forumService.getOnlineUsers();
-            if (users.size() > 18) {
-                users = users.subList(0, 17);
+
+            if (users.size() > MAX_USER) {
+                users = users.subList(0, INDEX_USER);
             }
-            List<Profile> parameters = new ArrayList<Profile>();
-            List<User> listUser = new ArrayList<User>();
+
+            List<User> userOnLineList = new ArrayList<User>();
+            String lastActivity = "";
+            User userOnLine = null;
+            String userStatus = "";
+
             for (String user : users) {
-                String activity = "";
-                User utilisateur = new User(user);
+                userOnLine = new User(user);
                 Identity userIdentity = identityManager.getOrCreateIdentity(OrganizationIdentityProvider.NAME, user);
+
                 if (userIdentity.equals(myIdentity))
                     continue;
-                RealtimeListAccess<ExoSocialActivity> act = activityManager.getActivitiesWithListAccess(userIdentity);
-                int count = 10;
-                int i = 0;
-                for (ExoSocialActivity activite : act.loadAsList(i, count)) {
-                    i++;
-                    if (activite.getType().equals("DEFAULT_ACTIVITY")) {
-                        activity = activite.getTitle();
-                        break;
-                    }
-                    if (i == 9 && activity.equals("")) {
-                        count += 10;
-                    }
-                }
-                if (activity.length() > 90) {
-                    activity = activity.substring(0, 87).concat("...");
-                }
-                String status = "";
-                if (relationshipManager.getStatus(userIdentity, myIdentity) == null) {
-                    status = "";
-                } else {
-                    if (relationshipManager.getStatus(myIdentity, userIdentity).equals(Relationship.Type.CONFIRMED)) {
-                        status = "confirmed";
-                    } else {
-                        if (relationshipManager.getStatus(userIdentity, myIdentity).equals(Relationship.Type.PENDING)) {
 
-                            if (relationshipManager.getRelationship(userIdentity, myIdentity).getSender().equals(myIdentity)) {
-                                status = "pending";
-                            } else {
-                                status = "received";
-                            }
-                        } else {
-                            status = "ignored";
-                        }
-                    }
-                }
+                lastActivity = getLastActivity(userIdentity);
+                userStatus = getStatus(myIdentity, userIdentity);
+
                 Profile userProfile = userIdentity.getProfile();
                 String avatar = userProfile.getAvatarImageSource();
                 if (avatar == null) {
-                    avatar = "/social-resources/skin/ShareImages/Avatar.gif";
+                    avatar = LinkProvider.PROFILE_DEFAULT_AVATAR_URL;
                 }
-                utilisateur.setAvatar(avatar);
+
                 String position = userProfile.getPosition();
                 if (position == null) {
                     position = "";
                 }
-                utilisateur.setPosition(position);
-                utilisateur.setFullName(userProfile.getFullName());
-                utilisateur.setId(userProfile.getId());
-                utilisateur.setProfileUrl(userProfile.getUrl());
-                utilisateur.setIdentity(userIdentity.getId());
-                utilisateur.setActivity(activity);
-                utilisateur.setStatus(status);
-                listUser.add(utilisateur);
-                log.info(userProfile.getFullName());
+
+                userOnLine.setAvatar(avatar);
+                userOnLine.setPosition(position);
+                userOnLine.setFullName(userProfile.getFullName());
+                userOnLine.setId(userProfile.getId());
+                userOnLine.setProfileUrl(userProfile.getUrl());
+                userOnLine.setIdentity(userIdentity.getId());
+                userOnLine.setActivity(lastActivity);
+                userOnLine.setStatus(userStatus);
+                userOnLineList.add(userOnLine);
             }
-
-
-            return listUser;
+            return userOnLineList;
 
         } catch (Exception e) {
-            log.error("Error in who's online rest service: " + e.getMessage(), e);
+            log.error("Error in who's online  service: " + e.getMessage(), e);
             return null;
         }
-
-        //throw new UnsupportedOperationException("Not implemented");
     }
+
+
+    private String getStatus(Identity identity1, Identity identity2) {
+        String status = "";
+        RelationshipManager relationshipManager = (RelationshipManager) ExoContainerContext.getCurrentContainer().getComponentInstanceOfType(RelationshipManager.class);
+        if (relationshipManager.getStatus(identity1, identity2) == null) {
+            status = "";
+        } else {
+            if (relationshipManager.getStatus(identity1, identity2).equals(Relationship.Type.CONFIRMED)) {
+                status = CONFIRMED;
+            } else {
+                if (relationshipManager.getStatus(identity1, identity2).equals(Relationship.Type.PENDING)) {
+
+                    if (relationshipManager.getRelationship(identity2, identity1).getSender().equals(identity1)) {
+                        status = PENDING;
+                    } else {
+                        status = RECEIVED;
+                    }
+                } else {
+                    status = IGNORED;
+                }
+            }
+        }
+        System.out.println("######### TTTTTTTTTTTTTTT YYYYYYYYYYY " + status);
+        return status;
+    }
+
+    private String getLastActivity(Identity identity) {
+        String activity = "";
+        int count = COUNT;
+        int i = 0;
+        ActivityManager activityManager = (ActivityManager) ExoContainerContext.getCurrentContainer().getComponentInstanceOfType(ActivityManager.class);
+        RealtimeListAccess<ExoSocialActivity> activityList = activityManager.getActivitiesWithListAccess(identity);
+        for (ExoSocialActivity act : activityList.loadAsList(i, count)) {
+            i++;
+            if (act.getType().equals(DEFAULT_ACTIVITY)) {
+                activity = act.getTitle();
+                break;
+            }
+            if (i == 9 && activity.equals("")) {
+                count += COUNT;
+            }
+        }
+        if (activity.length() > MAX_CHAR) {
+            activity = activity.substring(0, INDEX_CHAR).concat(THREE_DOTS);
+        }
+        return activity;
+
+    }
+
 }
