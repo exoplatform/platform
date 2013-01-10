@@ -30,7 +30,7 @@
     color: #555555;
 
     padding: 4px 8px;
-    border: 1px solid rgba(255,255,255,0.25);
+    border: 1px solid rgba(255, 255, 255, 0.25);
     background-color: #F8F8F8;
     border-radius: 3px;
     -webkit-border-radius: 3px;
@@ -103,30 +103,32 @@
         padding: 4px 8px 5px 8px;
         background-color: #F8F8F8;
     }
+
     #tiptip_holder.tip_bottom #tiptip_arrow_inner {
         border-bottom-color: #F8F8F8;
     }
+
     #tiptip_holder.tip_top #tiptip_arrow_inner {
         border-top-color: #F8F8F8;
     }
 }
 
 blockquote {
-    font-family:Georgia,"Times New Roman",Times,serif;
-    font-style:italic;
-    background:url(/homepage-portlets/style/images/right-quote.gif) no-repeat right bottom;
-    text-indent:-25px;
-    padding-right:25px;
-    padding-left:25px;
-    color:brown;
-    text-align:justify;
+    font-family: Georgia, "Times New Roman", Times, serif;
+    font-style: italic;
+    background: url(/homepage-portlets/style/images/right-quote.gif) no-repeat right bottom;
+    text-indent: -25px;
+    padding-right: 25px;
+    padding-left: 25px;
+    color: brown;
+    text-align: justify;
     border-left: medium none;
 }
 
 blockquote:first-letter {
-    background:url(/homepage-portlets/style/images/left-quote.gif) no-repeat left top;
-    padding-left:25px;
-    font-size:1.4em;
+    background: url(/homepage-portlets/style/images/left-quote.gif) no-repeat left top;
+    padding-left: 25px;
+    font-size: 1.4em;
 }
 
 #tipName img {
