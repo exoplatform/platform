@@ -80,12 +80,13 @@ import java.util.Locale;
                         def color = calendarDisplayedMap[event.calendarId].calendarColor;
                         def eventCss = "";
                         if (new Date().compareTo(event.toDateTime) > 0) eventCss = "PastEvent";
-                        else eventCss = "EventLink"
+                        else eventCss = "EventLink" ;
+                def href="/portal/intranet/calendar/details/"+event.id;
             %>
             <div class="${eventCss}" style="height:40px;border-radius:11px;border-style: solid;border-color:  ${color}"
                  class="" id="${event.id}">
                 <p class="flottante EventSummary" style="padding:5px;width:100px;">
-                    <a href="/portal/intranet/calendar">${event.summary}</a>
+                    <a href="${href}">${event.summary}</a>
                 </p>
 
                 <p style="float:right">
@@ -143,11 +144,12 @@ import java.util.Locale;
                     tasksDisplayedList.each { task ->
                         if ((task.eventState).equals(CalendarEvent.COMPLETED)) cssClass = "TaskCompleted";
                         else if (((task.eventState).equals(CalendarEvent.NEEDS_ACTION)) && (task.toDateTime.compareTo(new Date()) > 0)) cssClass = "taskNotCompleted";
-                        else if (((task.eventState).equals(CalendarEvent.NEEDS_ACTION)) && (task.toDateTime.compareTo(new Date()) < 0))cssClass = "TaskLateNotCompleted"
+                        else if (((task.eventState).equals(CalendarEvent.NEEDS_ACTION)) && (task.toDateTime.compareTo(new Date()) < 0))cssClass = "TaskLateNotCompleted"  ;
+                        def href="/portal/intranet/calendar/details/"+task.id;
             %>
             <div>
 
-                <a href="/portal/intranet/calendar" class="EventSummary ${cssClass}">${task.summary}</a>
+                <a href="${href}" class="EventSummary ${cssClass}">${task.summary}</a>
 
             </div>
             <% }
