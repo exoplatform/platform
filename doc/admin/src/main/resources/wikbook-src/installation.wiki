@@ -261,11 +261,10 @@ eXo distribution for JBoss (eXo-Platform-jboss-3.5.x.zip) allows you to deploy e
 {docbook}
 *1.* Extract the content of the distribution to a local folder named _eXo-Platform-jboss-3.5.x_.
 
-*2.* Copy the following folders and files from _eXo-Platform-jboss-3.5.x/ears/server/default_ to _$PLATFORM\_JBOSS\_HOME/server/default/deploy_:
+*2.* Copy the following folder and files from _eXo-Platform-jboss-3.5.x/ears/server/default/deploy_ to _$PLATFORM\_JBOSS\_HOME/server/default/deploy_:
 
-Folders
+Folder
 - gatein.ear
-- jbossweb.sar
 
 Files
 - exo-acme-website-$version.ear
@@ -283,7 +282,9 @@ Files
 - gatein-wsrp-extension-$version.ear
 - starter-gatein-$version.ear
 
-*3.* Copy the following files and folders from _eXo-Platform-jboss-3.5.x/ears/server/default/conf/gatein_ to the folder _$PLATFORM\_JBOSS\_HOME/server/default/conf/gatein_. You may need to create _gatein_ folder if it does not exist.
+*3.* Copy 2 files named _context.xml_ and _server.xml_ from _eXo-Platform-jboss-3.5.x/ears/server/default/deploy/jbossweb.sar_ to _$PLATFORM\_JBOSS\_HOME/server/default/deploy/jbossweb.sar_.
+
+*4.* Copy the following files and folders from _eXo-Platform-jboss-3.5.x/ears/server/default/conf/gatein_ to the folder _$PLATFORM\_JBOSS\_HOME/server/default/conf/gatein_. You may need to create _gatein_ folder if it does not exist.
 
 - cache
 - idm
@@ -295,9 +296,9 @@ Files
 - controller.xml
 - portlet.xml
 
-*4.* Copy the _oauthkey.pem_ file from _eXo-Platform-jboss-3.5.x/ears/server/default/data/gadgets_ to _$PLATFORM\_JBOSS\_HOME/server/default/data/gadgets_. You may need to create folders if they do not exist.
+*5.* Copy the _oauthkey.pem_ file from _eXo-Platform-jboss-3.5.x/ears/server/default/data/gadgets_ to _$PLATFORM\_JBOSS\_HOME/server/default/data/gadgets_. You may need to create folders if they do not exist.
 
-*5.* Configure the JVM parameters.
+*6.* Configure the JVM parameters.
 
 * On *Linux*, add these lines to the end of _$PLATFORM\_JBOSS\_HOME/bin/run.conf:
 
@@ -333,7 +334,7 @@ set "JAVA_OPTS=%JAVA_OPTS% %EXO_OPTS% %IDE_OPTS% %EXO_PROFILES% %EXO_XML%"{code}
 * You can activate the debug mode of eXo Platfrom by adding _$REMOTE\_DEBUG_ to the _JAVA\_OPTS_ variable.
 {note}
 
-*6.* Add the eXo Platform logging categories to _$PLATFORM\_JBOSS\_HOME/server/default/conf/jboss-log4j.xml_.
+*7.* Add the eXo Platform logging categories to _$PLATFORM\_JBOSS\_HOME/server/default/conf/jboss-log4j.xml_.
 
 {code:xml}<!-- Limit the JSR170 categories -->
 <category name="exo.jcr">
@@ -344,7 +345,7 @@ set "JAVA_OPTS=%JAVA_OPTS% %EXO_OPTS% %IDE_OPTS% %EXO_PROFILES% %EXO_XML%"{code}
   <priority value="INFO" />
 </category>{code}
 
-*7.* Configure the _emptySessionPath_ attribute.
+*8.* Configure the _emptySessionPath_ attribute.
 
 From JBoss AS 4 or lower, to make Wiki work properly, you have to configure the _emptySessionPath_ attribute in the _server.xml_ file. If you are running Jboss with the "default" profile, this file will be located in _$PLATFORM\_JBOSS\_HOME/default/deploy/jbossweb.sar/server.xml/_ path.
 
@@ -361,7 +362,7 @@ is set via the following element in the _Context_ element in the _server/default
 {code}<SessionCookie path="/" />{code}
 Session cookies are now scoped to the context by default.
 
-*8.* Start up the server.
+*9.* Start up the server.
 
 * On Linux and OS X:  
 
@@ -375,7 +376,7 @@ The server is started successfully when you see the following message in your lo
 
 {code}INFO [org.jboss.bootstrap.microcontainer.ServerImpl] (main) JBoss (Microcontainer) [5.1.1 (build: ...)] Started in 5m:29s:259ms{code}
 
-*9.* Shut down the server.
+*10.* Shut down the server.
 
 * On Linux and OS X:
 
