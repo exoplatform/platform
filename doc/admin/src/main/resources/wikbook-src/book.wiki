@@ -18,7 +18,7 @@ h1. Clustering {anchor:id=ADM.Clustering}
 
 {include:document=clustering.wiki|syntax=confluence/1.0}
 
-h1. Organization Integration {anchor:id=ADM.Integration}
+h1. Manage Organization Directories {anchor:id=ADM.Integration}
 
 {include:document=integration.wiki|syntax=confluence/1.0}
 

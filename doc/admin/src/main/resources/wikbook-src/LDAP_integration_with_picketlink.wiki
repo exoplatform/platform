@@ -1,0 +1,172 @@
+eXo Platform uses the PicketLink IDM component to keep the necessary identity information, such as users, groups, memberships. While the legacy interfaces are still used (org.exoplatform.services.organization) for the identity management, there is a wrapper 
+implementation that delegates to the PicketLink IDM framework. For further information about Picketlink, visit [here|http://jboss.org/picketlink/IDM.html].
+
+You are flexible in switching between: PicketLink, eXo Organization Service, and your own implementation. 
+
+{docbook}
+<para>
+<prompt>
+    <emphasis role="bold">See also</emphasis>
+</prompt>
+</para>
+{docbook}
+
+* [Use eXo Legacy Organization Models|#ADM.Integration.Use_Legacy_Organization_Models]
+* [Synchronize with an external directory|#ADM.Integration.Sync_eXoPLF_with_external_directory]
+
+h1. LDAP in read-only mode {anchor:id=ADM.Integration.Integration_with_picketlink.LDAP_in_read_only_mode}
+
+This section will show you how to add LDAP in read-only mode. This means that user data entries will be consumed though the Directory 
+Server and LDAP services, but written to the underlying database. The only exception is that passwords updated via 
+the UI will also be propagated into the appropriate LDAP entry.
+
+{docbook}
+	<para xml:id="ADM.Integration.Integration_with_picketlink.Setup_LDAP_in_read_only_mode">	
+		<citetitle>		
+			<emphasis role="bold">Set up LDAP read-only mode</emphasis>		
+		</citetitle>
+	</para>
+{docbook} 
+
+*1.* Open the _idm-configuration.xml_ file located in _eXo\-PLF-3.5.x-tomcat-bundle/webapps/platform-extension/WEB-INF/conf/organization_.
+
+*2.* Comment out the default Picketlink config value:
+
+{code:xml}<value>war:/conf/organization/picketlink-idm/picketlink-idm-config.xml</value>{code}
+
+and add this tag:
+
+{code:xml}<value>war:/conf/organization/picketlink-idm/picketlink-idm-ldap-config.xml</value>{code}
+
+*3.* Uncomment the appropriate sample configuration values as described below, depending on which Directory Server you are implementing:
+
+*OpenDS:*
+	
+* Uncomment the line under 'Read Only "ACME" LDAP Example':
+{code:xml}<!--Read Only "ACME" LDAP Example-->
+<value>war:/conf/organization/picketlink-idm/examples/picketlink-idm-LDAP-acme-config.xml</value>{code}
+		
+* Uncomment the  groupTypeMappings under "Uncomment for ACME LDAP example":
+
+{code:xml}<!-- Uncomment for ACME LDAP example -->
+<entry>
+ <key><string>/acme/roles/*</string></key>
+ <value><string>acme_roles_type</string></value>
+</entry>
+<entry>
+ <key><string>/acme/organization_units/*</string></key>
+ <value><string>acme_ou_type</string></value>
+</entry>{code}		
+
+* Then continue to [Step 4|#ADM.Integration.LDAP_integration_with_picketlink.step4].
+
+*Microsoft Active Directory:*
+		
+* Uncomment the line under " MSAD Read Only "ACME" LDAP Example":
+{code:xml}<!--MSAD Read Only "ACME" LDAP Example-->
+<value>war:/conf/organization/picketlink-idm/examples/picketlink-idm-msad-readonly-config.xml</value>{code}		
+* Uncomment the  groupTypeMappings under " Uncomment for MSAD ReadOnly LDAP example":
+{code:xml}<!-- Uncomment for MSAD ReadOnly LDAP example -->
+<entry>
+  <key><string>/acme/roles/*</string></key>
+  <value><string>msad_roles_type</string></value>
+</entry>{code}					
+* Then continue to [Step 4|#ADM.Integration.LDAP_integration_with_picketlink.step4].
+
+*OpenLDAP:*
+
+* Install your LDAP server. 		
+* Uncomment the line under "OpenLDAP ReadOnly ACME LDAP Example":
+{code:xml}<!--OpenLDAP ReadOnly "ACME" LDAP Example-->
+<value>war:/conf/organization/picketlink-idm/examples/picketlink-idm-openLDAP-acme-config.xml</value>{code}
+
+* Uncomment the  groupTypeMappings under " Uncomment for ACME LDAP example":
+{code:xml}<!-- Uncomment for ACME LDAP example -->
+<entry>
+ <key><string>/acme/roles/*</string></key>
+ <value><string>acme_roles_type</string></value>
+</entry>
+<entry>
+ <key><string>/acme/organization_units/*</string></key>
+ <value><string>acme_ou_type</string></value>
+</entry>{code}
+
+* Then continue to [Step 4|#ADM.Integration.LDAP_integration_with_picketlink.step4].
+
+*4.* To use a different LDAP server or directory data, edit the DS-specific .xml file you uncommented above and change the values to suit your requirements. {anchor:id=ADM.Integration.LDAP_integration_with_picketlink.step4}
+
+*5.* Start the server.
+
+*6.* Navigate to the portal homepage ( http://localhost:8080/portal) and log in as an administrator.
+
+*7.* Navigate to *Group --> Organization --> Users* and groups management.
+
+* Create a new group called "acme" under the root node.
+* For RHDS, OpenDS and OpenLDAP: Create two sub-groups called "roles" and "organization\_units".
+* For MSAD: Create a subgroup called "roles".
+
+Users defined in LDAP should be visible in "Users and groups management" and groups from LDAP should be present as children of _/acme/roles_ and _/acme/organization\_units_.
+
+h1. LDAP as Default Store {anchor:id=ADM.Integration.Integration_with_picketlink.LDAP_as_Default_Store}
+
+Follow the procedure below to set LDAP up as the default identity store for Platform. All default accounts and some of groups that comes with 
+JBoss Enterprise Portal Platform will be created in the LDAP store.
+
+The LDAP server will be configured to store part of the Platform group tree. This means that groups under specified part of the tree will be 
+stored in directory server while all others will be stored in database.
+
+{docbook}
+<para>
+<citetitle>
+	<emphasis role="bold">Set up LDAP as Default Indentity Store</emphasis> 
+</citetitle>	
+</para>
+{docbook}
+
+*1.* Install your LDAP server if you have not done it. 
+
+*2.* Open the _idm-configuration.xml_ file.
+
+*3.* Comment out the default Picketlink config value: 
+
+{code:xml}<value>war:/conf/organization/picketlink-idm/picketlink-idm-config.xml</value>{code}
+
+*4.* Uncomment the appropriate LDAP configuration entry depending on your LDAP server:
+
+*For RHDS and OpenDS:*
+* Expose the entry under "Sample LDAP config":
+{code:xml}<!--Sample LDAP config-->
+<value>war:/conf/organization/picketlink-idm/examples/picketlink-idm-LDAP-config.xml</value>{code}
+
+* Then continue to [Step 5|#ADM.Integration.LDAP_integration_with_picketlink.step5].
+
+*For MSAD:*
+
+* Expose the entry under "MSAD LDAP Example":
+{code:xml}<!--MSAD LDAP Example-->
+<value>war:/conf/organization/picketlink-idm/examples/picketlink-idm-msad-config.xml</value>{code}
+
+* Then continue to [Step 5|#ADM.Integration.LDAP_integration_with_picketlink.step5].
+
+*For OpenLDAP:*
+* Expose the entry under "OpenLDAP LDAP config":
+{code:xml}<!--OpenLDAP LDAP config-->
+<value>war:/conf/organization/picketlink-idm/examples/picketlink-idm-openLDAP-config.xml</value>{code}
+
+* Then continue to [Step 5|#ADM.Integration.LDAP_integration_with_picketlink.step5].
+
+*5.* Uncomment the _groupTypeMappings_ under "Uncomment for sample LDAP configuration": {anchor:id=ADM.Integration.LDAP_integration_with_picketlink.step5}
+{code:xml}<entry>
+ <key><string>/platform/*</string></key>
+ <value><string>platform_type</string></value>
+</entry>
+<entry>
+ <key><string>/organization/*</string></key>
+ <value><string>organization_type</string></value>
+</entry>{code}
+
+*6.* To use a different LDAP server or directory data, edit the DS-specific  _.xml_ file you uncommented in Step 4 above and change the values to suit your requirements.
+
+*7.* Start the server.
+
+*8.* Navigate to the portal homepage (http://localhost:8080/portal) and log in as an administrator.
