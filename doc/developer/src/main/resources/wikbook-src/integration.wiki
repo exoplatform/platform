@@ -49,37 +49,7 @@
 		</para>
 	  </listitem>
 	</itemizedlist>
-  </listitem>
-  <listitem>
-	<para>
-	 <emphasis role="bold"> <link linkend="DEV.SystemIntegration.LDAPIntegration">LDAP Integration</link></emphasis>
-	</para>
-	<para>
-	Explanations of numerous parameters of the eXo LDAP organization service, including:
-	</para>
-	<itemizedlist>
-	  <listitem>
-		<para>
-		<emphasis role="bold">  <link linkend="DEV.SystemIntegration.ConnectionSettings">Connection Settings</link> </emphasis>
-		</para>
-	  </listitem>
-	  <listitem>
-		<para>
-		 <emphasis role="bold"> <link linkend="DEV.SystemIntegration.OrganizationServiceConfiguration">Organization Service Configuration</link> </emphasis>
-		</para>
-	  </listitem>
-	  <listitem>
-		<para>
-		 <emphasis role="bold"> <link linkend="DEV.SystemIntegration.ActiveDirectorySampleConfiguration">Active Directory sample configuration</link></emphasis>
-		</para>
-	  </listitem>
-	  <listitem>
-		<para>
-		 <emphasis role="bold"> <link linkend="DEV.SystemIntegration.PicketlinkIDM">Picketlink IDM</link> </emphasis>
-		</para>
-	  </listitem>
-	</itemizedlist>
-  </listitem>
+  </listitem>  
   <listitem>
 	<para>
 	<emphasis role="bold">  <link linkend="DEV.SystemIntegration.Email">Email</link> </emphasis>
