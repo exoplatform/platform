@@ -17,6 +17,10 @@
   * 02110-1301 USA, or see the FSF site: http://www.fsf.org.
 */
 
+
+@import url('../../css/UISpaceNavigationPortlet/UISpaceNavigationPortlet.css');
+
+
 .uiSpaceNavigationPortlet {
 	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 	font-size: 13px;

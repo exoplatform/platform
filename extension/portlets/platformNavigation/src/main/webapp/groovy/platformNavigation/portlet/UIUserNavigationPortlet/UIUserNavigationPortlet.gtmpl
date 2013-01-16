@@ -27,8 +27,8 @@
     def uicomponentId = uicomponent.id;
 %>
 
-<div class="UIUserNAvigationPortlet ClearFix" id="$uicomponentId">
-    <%
+<div class="uiUserNavigationPortlet ClearFix" id="$uicomponentId">
+   <!-- <%
         String[] urlList = uicomponent.getURLAsList();
         def i = 0;
         def pageURL;
@@ -71,4 +71,39 @@
         i++;
     }
     %>
+    -->
+    
+    <ul class="nav nav-tabs userNavigation" style="">
+    	<li class="active">
+    		<a data-toggle="tab" href="#">
+    			<img src="/platformNavigation/skin/platformNavigation/UIUserNavigationPortlet/background/myProfile.png" alt="" onError="" />
+    			<span class="tabName">My Profile</span>
+    		</a>
+    	</li>
+    	<li>
+    		<a data-toggle="tab" href="#">
+    			<img src="/platformNavigation/skin/platformNavigation/UIUserNavigationPortlet/background/myActivityStream.png" alt="" onError="" />
+    			<span class="tabName">My Activity Stream</span>
+    		</a>
+    	</li>
+    	<li>
+    		<a data-toggle="tab" href="#">
+    			<img src="/platformNavigation/skin/platformNavigation/UIUserNavigationPortlet/background/myConnections.png" alt="" onError="" />
+    			<span class="tabName">My Connections</span>
+    		</a>
+    	</li>
+    	<li>
+    		<a data-toggle="tab" href="#">
+    			<img src="/platformNavigation/skin/platformNavigation/UIUserNavigationPortlet/background/myWiki.png" alt="" onError="" />
+    			<span class="tabName">My Wiki</span>
+    		</a>
+    	</li>
+    	<li>
+    		<a data-toggle="tab" href="#">
+    			<img src="/platformNavigation/skin/platformNavigation/UIUserNavigationPortlet/background/myDashboard.png" alt="" onError="" />
+    			<span class="tabName">My Dashboard</span>
+    		</a>
+    	</li>
+    </ul>
+    
 </div>

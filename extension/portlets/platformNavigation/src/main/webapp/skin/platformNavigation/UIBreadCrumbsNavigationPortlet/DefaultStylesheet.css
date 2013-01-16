@@ -16,6 +16,8 @@
   * Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
   * 02110-1301 USA, or see the FSF site: http://www.fsf.org.
 */
+@import url('../../css/UIBreadCrumbsNavigationPortlet/UIBreadCrumbsNavigationPortlet.css');
+
 .uiBreadcumbsNavigationPortlet {
     background: none repeat scroll 0 0 #E6E6E6;
     border-bottom: 1px solid #C7C7C7;
