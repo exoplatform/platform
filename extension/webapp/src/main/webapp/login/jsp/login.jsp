@@ -24,27 +24,31 @@
 <%@ page import="org.exoplatform.container.PortalContainer"%>
 <%@ page import="org.exoplatform.services.resources.ResourceBundleService"%>
 <%@ page import="java.util.ResourceBundle"%>
-<%@ page import="org.exoplatform.web.login.InitiateLoginServlet"%>
 <%@ page import="org.gatein.common.text.EntityEncoder"%>
 <%@ page language="java" %>
 <%
   String contextPath = request.getContextPath() ;
 
-  String username = request.getParameter("j_username");
-  if(username == null) username = "";
- 	String password = request.getParameter("j_password");
- 	if(password == null) password = "";
+  String username = request.getParameter("username");
+  if(username == null) {
+      username = "";
+  } else {
+      EntityEncoder encoder = EntityEncoder.FULL;
+      username = encoder.encode(username);
+  }
 
   ResourceBundleService service = (ResourceBundleService) PortalContainer.getCurrentInstance(session.getServletContext())
   														.getComponentInstanceOfType(ResourceBundleService.class);
   ResourceBundle res = service.getResourceBundle(service.getSharedResourceBundleNames(), request.getLocale()) ;
   
-  Cookie cookie = new Cookie(InitiateLoginServlet.COOKIE_NAME, "");
+  Cookie cookie = new Cookie(org.exoplatform.web.login.LoginServlet.COOKIE_NAME, "");
 	cookie.setPath(request.getContextPath());
 	cookie.setMaxAge(0);
 	response.addCookie(cookie);
 
+  //
   String uri = (String)request.getAttribute("org.gatein.portal.login.initial_uri");
+  boolean error = request.getAttribute("org.gatein.portal.login.error") != null;
 
   response.setCharacterEncoding("UTF-8"); 
   response.setContentType("text/html; charset=UTF-8");
@@ -160,10 +164,7 @@
 				<div style="line-height: 12px; padding: 6px 3px 0 0; height: 27px; font-size: 11px;">
 					<%/*Begin form*/%>
           <%
-            if(username.length() > 0 || password.length() > 0) {
-               EntityEncoder encoder = EntityEncoder.FULL;
-               username = encoder.encode(username);
-
+                if(error) {
           %>
           <font color="red"><%=res.getString("UILoginForm.label.SigninFail")%></font><%}%>
 				</div>

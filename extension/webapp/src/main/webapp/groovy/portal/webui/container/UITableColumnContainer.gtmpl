@@ -19,7 +19,8 @@
 	if (uiPortalApp.isEditing())
 	{
 	   JavascriptManager jsManager = rcontext.getJavascriptManager();
-	  	jsManager.require("SHARED/portal", "portal").addScripts("portal.PortalDragDrop.init(['UIContainer']);")
+	  	jsManager.require("SHARED/portal", "portal").require("SHARED/portalDragDrop", "portalDragDrop")
+	  				.addScripts("portalDragDrop.init(['UIContainer']);")
 	  				.addScripts("portal.UIPortal.initMouseHover('" + uicomponent.id + "');");
 %>  
 <div class="UIContainer UITableColumnContainer EdittingContainer <%=hasPermission?"":"ProtectedContainer"%>" 
