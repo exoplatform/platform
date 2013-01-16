@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+  <class name="org.picketlink.idm.impl.model.hibernate.HibernateIdentityObjectAttributeBinaryValue"
+         table="jbid_attr_bin_value">
+    <cache usage="read-write"/>
+    <id name="id"
+        type="java.lang.Long"
+        access="field">
+      <column name="BIN_VALUE_ID"/>
+      <generator class="native"/>
+    </id>
+    <property name="value"
+              type="org.hibernate.type.PrimitiveByteArrayBlobType"
+              access="field"
+              lazy="false"
+              not-null="true">
+      <column name="VALUE" length="10240000"/>
+    </property>
+  </class>
+</hibernate-mapping>

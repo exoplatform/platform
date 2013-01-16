@@ -1,19 +1,22 @@
-<?xml version="1.0" encoding="ISO-8859-1" ?> 
-<!DOCTYPE web-app PUBLIC "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
-                 "http://java.sun.com/dtd/web-app_2_3.dtd">
-<web-app>
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<web-app
+      version="3.0"
+      metadata-complete="true"
+      xmlns="http://java.sun.com/xml/ns/javaee"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd">
   <display-name>acme-website</display-name>
 
   <context-param>
+    <description>Binary assets workspace name</description>
     <param-name>org.exoplatform.frameworks.jcr.command.web.fckeditor.digitalAssetsWorkspace</param-name>
     <param-value>portal</param-value>
-    <description>Binary assets workspace name</description>
   </context-param>
 
   <context-param>
+    <description>Binary assets path</description>
     <param-name>org.exoplatform.frameworks.jcr.command.web.fckeditor.digitalAssetsPath</param-name>
     <param-value>/</param-value>
-    <description>Binary assets path</description>
   </context-param>
 
 

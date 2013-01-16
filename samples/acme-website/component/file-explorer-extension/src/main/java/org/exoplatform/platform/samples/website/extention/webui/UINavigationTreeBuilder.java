@@ -141,7 +141,7 @@ public class UINavigationTreeBuilder extends UIContainer {
     Collection<?> sibbling = tree.getSibbling();
     tree.setSibbling(null);
     tree.setParentSelected(null);
-    edittedTreeNodeData.setPageRef(searchUserNodeByUri(edittedTreeNodeData.getPageNavigation(), uri).getPageRef());
+    edittedTreeNodeData.setPageRef(searchUserNodeByUri(edittedTreeNodeData.getPageNavigation(), uri).getPageRef().format());
     if (edittedTreeNodeData.getNode() != null) {
       tree.setSelected(edittedTreeNodeData.getNode());
       tree.setChildren(edittedTreeNodeData.getNode().getChildren());
@@ -190,7 +190,7 @@ public class UINavigationTreeBuilder extends UIContainer {
       if (tree.getParentSelected() == null) {
         tree.setParentSelected(userNode);
       }
-      edittedTreeNodeData.getParent().setPageRef(userNode.getPageRef());
+      edittedTreeNodeData.getParent().setPageRef(userNode.getPageRef().format());
       return returnUserNode;
     }
     return null;
@@ -250,7 +250,7 @@ public class UINavigationTreeBuilder extends UIContainer {
    * uicomponent
    * 
    * @param uri the path
-   * @param requestContext the request context
+   * @param context the request context
    * @throws Exception the exception
    */
   public void changeNode(String uri, Object context) throws Exception {
@@ -263,7 +263,7 @@ public class UINavigationTreeBuilder extends UIContainer {
    * Broadcast on change.
    * 
    * @param navigationNode the node
-   * @param requestContext the request context
+   * @param context the request context
    * @throws Exception the exception
    */
   public void broadcastOnChange(UserNode navigationNode, Object context) throws Exception {
@@ -304,7 +304,7 @@ public class UINavigationTreeBuilder extends UIContainer {
    * the changeNodeAction event occurs, that object's appropriate
    * method is invoked.
    * 
-   * @see ChangeNodeActionEvent
+   * @see ChangeNodeActionListener
    */
   static public class ChangeNodeActionListener extends EventListener<UITree> {
 

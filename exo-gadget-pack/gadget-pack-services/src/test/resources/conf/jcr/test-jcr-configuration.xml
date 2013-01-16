@@ -17,7 +17,7 @@
 				<name>working-conf</name>
 				<description>working-conf</description>
 				<property name="source-name" value="jdbcexo"/>
-				<property name="dialect" value="hsqldb"/>
+				<property name="dialect" value="auto"/>
 				<property name="persister-class-name" value="org.exoplatform.services.jcr.impl.config.JDBCConfigurationPersister"/>
 			</properties-param>
 		</init-params>
