@@ -6,9 +6,11 @@
     <component>
         <type>org.exoplatform.platform.common.rest.DashboardInformationRESTService</type>
     </component>
+    <!--
     <component>
         <type>org.exoplatform.platform.common.space.SpaceCustomizationService</type>
     </component>
+    -->
     <component profiles="all,default,social">
         <type>org.exoplatform.platform.common.space.rest.SpaceRestServiceImpl</type>
     </component>
