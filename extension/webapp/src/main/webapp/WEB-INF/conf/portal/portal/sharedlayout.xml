@@ -40,7 +40,7 @@
                 <portlet-application>
                     <portlet>
                         <application-ref>platformNavigation</application-ref>
-                        <portlet-ref>UserInfoPortlet</portlet-ref>
+                        <portlet-ref>UIUserInfoPortlet</portlet-ref>
 
                     </portlet>
                     <access-permissions>*:/platform/users</access-permissions>

@@ -10,7 +10,7 @@
             <properties>
               <property name="source-name" value="${gatein.jcr.datasource.name}${container.name.suffix}"/>
               <property name="dialect" value="${gatein.jcr.datasource.dialect}"/>
-              <property name="multi-db" value="false"/>
+              <property name="db-structure-type" value="${gatein.jcr.db-structure-type}"/>
               <property name="update-storage" value="true"/>
               <property name="max-buffer-size" value="200k"/>
               <property name="swap-directory" value="${gatein.jcr.data.dir}/swap/dev-monit${container.name.suffix}"/>

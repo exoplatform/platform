@@ -13,10 +13,9 @@
  02110-1301 USA, or see the FSF site: http://www.fsf.org.
 -->
 
-<gatein-resources
-        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-        xsi:schemaLocation="http://www.gatein.org/xml/ns/gatein_resources_1_2_1 http://www.gatein.org/xml/ns/gatein_resources_1_2_1"
-        xmlns="http://www.gatein.org/xml/ns/gatein_resources_1_2_1">
+<gatein-resources xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                  xsi:schemaLocation="http://www.gatein.org/xml/ns/gatein_resources_1_3 http://www.gatein.org/xml/ns/gatein_resources_1_3"
+                  xmlns="http://www.gatein.org/xml/ns/gatein_resources_1_3">
 
     <portlet-skin>
         <application-name>platformNavigation</application-name>
@@ -77,7 +76,7 @@
         </module>
     </portlet>
     <portlet>
-        <name>UserInfoPortlet</name>
+        <name>UIUserInfoPortlet</name>
         <module>
             <depends>
                 <module>base</module>
@@ -151,11 +150,11 @@
         <name>UISearchPlatformToolbarPortlet</name>
         <module>
             <script>
-                <name>eXo.search.SearchAdminToolbar</name>
                 <path>/javascript/eXo/platform/search/Search.js</path>
             </script>
             <depends>
                 <module>jquery</module>
+                <as>$</as>
             </depends>
         </module>
     </portlet>
@@ -163,7 +162,6 @@
         <name>UIGroupsNavigationPortlet</name>
         <scripts>
             <script>
-                <name>eXo.webui.UIGroupsNavigation</name>
                 <path>/javascript/eXo/platform/navigation/UIGroupsNavigationPortlet/UIGroupsNavigation.js</path>
             </script>
             <depends>
@@ -182,12 +180,11 @@
     <module>
         <name>navigation-spaces-search</name>
         <script>
-            <name>eXo.navigation.UISpaceNavigation</name>
             <path>/javascript/eXo/platform/navigation/UISpaceNavigationPortlet/UISpaceNavigation.js</path>
         </script>
         <depends>
             <module>jquery</module>
+            <as>$</as>
         </depends>
     </module>
-
 </gatein-resources>

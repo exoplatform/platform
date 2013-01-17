@@ -115,9 +115,8 @@
   String noSpace = _ctx.appRes("UISpaceNavigationPortlet.msg.no-space");
   String selectSpaceAction = URLEncoder.encode(uicomponent.event(uicomponent.LOAD_NAVIGATION_ACTION), "utf-8");
   def rcontext = _ctx.getRequestContext() ;
-  def requireJs = rcontext.getJavascriptManager().getRequireJS();
-  requireJs.require("SHARED/navigation-spaces-search", "spacesSearch");
-  requireJs.addScripts("spacesSearch.UISpaceNavigation.init('" + uicomponent.id  + "','" + restUrl + "','" + defaultValueForTextSearch +"','" + noSpace + "','" + selectSpaceAction + "');");
+  def jsManager = rcontext.getJavascriptManager();
+  jsManager.require("SHARED/navigation-spaces-search", "search").addScripts("search.init('" + uicomponent.id  + "','" + restUrl + "','" + defaultValueForTextSearch +"','" + noSpace + "','" + selectSpaceAction + "');");
 %>
 
 <div class="uiSpaceNavigationPortlet" id="$uicomponent.id">
