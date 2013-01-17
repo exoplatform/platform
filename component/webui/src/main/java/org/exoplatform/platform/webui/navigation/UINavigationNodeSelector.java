@@ -36,6 +36,9 @@ import org.exoplatform.portal.mop.description.DescriptionService;
 import org.exoplatform.portal.mop.navigation.NavigationError;
 import org.exoplatform.portal.mop.navigation.NavigationServiceException;
 import org.exoplatform.portal.mop.navigation.Scope;
+import org.exoplatform.portal.mop.page.PageContext;
+import org.exoplatform.portal.mop.page.PageKey;
+import org.exoplatform.portal.mop.page.PageService;
 import org.exoplatform.portal.mop.user.UserNavigation;
 import org.exoplatform.portal.mop.user.UserNode;
 import org.exoplatform.portal.mop.user.UserNodeFilterConfig;
@@ -100,7 +103,9 @@ public class UINavigationNodeSelector extends UIContainer {
 
   private Map<String, Map<Locale, State>> userNodeLabels;
 
-  private static final Scope NODE_SCOPE = Scope.GRANDCHILDREN;
+  private static final Scope DEFAULT_SCOPE = Scope.GRANDCHILDREN;
+
+  private Scope navigationScope = DEFAULT_SCOPE;
 
   public UINavigationNodeSelector() throws Exception {
     UIRightClickPopupMenu rightClickPopup = addChild(UIRightClickPopupMenu.class, "UINavigationNodeSelectorPopupMenu", null)
@@ -142,11 +147,11 @@ public class UINavigationNodeSelector extends UIContainer {
     }
 
     try {
-      this.rootNode = new TreeNode(edittedNavigation, userPortal.getNode(edittedNavigation, NODE_SCOPE, filterConfig, null));
+      this.rootNode = new TreeNode(edittedNavigation, userPortal.getNode(edittedNavigation, navigationScope, filterConfig, null));
 
       TreeNode node = this.rootNode;
       if (this.rootNode.getChildren().size() > 0) {
-        node = rebaseNode(this.rootNode.getChild(0), NODE_SCOPE);
+        node = rebaseNode(this.rootNode.getChild(0), navigationScope);
         if (node == null) {
           initTreeData();
           return;
@@ -266,6 +271,13 @@ public class UINavigationNodeSelector extends UIContainer {
     }
     return getRootNode().findNode(nodeID);
   }
+  public void setScope(Scope scope) {
+    this.navigationScope = scope;
+  }
+
+  public Scope getScope() {
+    return this.navigationScope;
+  }
 
   private void invokeI18NizedLabels(TreeNode node) {
     DescriptionService descriptionService = this.getApplicationComponent(DescriptionService.class);
@@ -279,9 +291,9 @@ public class UINavigationNodeSelector extends UIContainer {
     }
   }
 
-  static public abstract class BaseActionListener<T> extends EventListener<T> {
+  public abstract static class BaseActionListener<T> extends EventListener<T> {
     protected TreeNode rebaseNode(TreeNode node, UINavigationNodeSelector selector) throws Exception {
-      return rebaseNode(node, UINavigationNodeSelector.NODE_SCOPE, selector);
+      return rebaseNode(node, selector.getScope(), selector);
     }
 
     protected TreeNode rebaseNode(TreeNode node, Scope scope, UINavigationNodeSelector selector) throws Exception {
@@ -378,19 +390,24 @@ public class UINavigationNodeSelector extends UIContainer {
     }
   }
 
-  static public class EditPageNodeActionListener extends EventListener<UIRightClickPopupMenu> {
+  static public class EditPageNodeActionListener extends BaseActionListener<UIRightClickPopupMenu> {
     public void execute(Event<UIRightClickPopupMenu> event) throws Exception {
-      // get nodeID
-      String nodeID = event.getRequestContext().getRequestParameter(UIComponent.OBJECTID);
-
-      // get UINavigationNodeSelector
-      UIRightClickPopupMenu uiPopupMenu = event.getSource();
-      UINavigationNodeSelector uiNodeSelector = uiPopupMenu.getAncestorOfType(UINavigationNodeSelector.class);
-
-      // get Selected Node
-      TreeNode selectedPageNode = uiNodeSelector.findNode(nodeID);
 
       UIPortalApplication uiApp = Util.getUIPortalApplication();
+      UIRightClickPopupMenu popupMenu = event.getSource();
+      UINavigationNodeSelector uiNodeSelector = popupMenu.getAncestorOfType(UINavigationNodeSelector.class);
+      String nodeID = event.getRequestContext().getRequestParameter(UIComponent.OBJECTID);
+      // get Selected Node
+      TreeNode selectedPageNode = uiNodeSelector.findNode(nodeID);
+      try {
+          selectedPageNode = rebaseNode(selectedPageNode, uiNodeSelector);
+            if (selectedPageNode == null)
+                return;
+      } catch (NavigationServiceException ex) {
+            handleError(ex.getError(), uiNodeSelector);
+            return;
+      }
+
       if (selectedPageNode == null || selectedPageNode.getPageRef() == null) {
         uiApp.addMessage(new ApplicationMessage("UIPageNodeSelector.msg.notAvailable", null));
         return;
@@ -400,41 +417,43 @@ public class UINavigationNodeSelector extends UIContainer {
 
       // get selected page
       String pageId = selectedPageNode.getPageRef();
-      Page selectPage = (pageId != null) ? userService.getPage(pageId) : null;
-      if (selectPage != null) {
-        UserACL userACL = uiApp.getApplicationComponent(UserACL.class);
-        if (!userACL.hasEditPermission(selectPage)) {
-          uiApp.addMessage(new ApplicationMessage("UIPageBrowser.msg.UserNotPermission", new String[] { pageId }, 1));
-          return;
-        }
+      PageContext pageContext = (pageId != null) ? userService.getPageService().loadPage(PageKey.parse(pageId)) : null;
 
-        uiApp.setModeState(UIPortalApplication.APP_BLOCK_EDIT_MODE);
-        // uiWorkingWS.setRenderedChild(UIPortalToolPanel.class);
-        // uiWorkingWS.addChild(UIPortalComposer.class, "UIPageEditor",
-        // null);
+      if (pageContext != null) {
+          UserACL userACL = uiApp.getApplicationComponent(UserACL.class);
+          if (!userACL.hasEditPermission(pageContext)) {
+              uiApp.addMessage(new ApplicationMessage("UIPageBrowser.msg.UserNotPermission", new String[] { pageId }, 1));
+              return;
+          }
+          uiApp.setModeState(UIPortalApplication.APP_BLOCK_EDIT_MODE);
 
-        UIWorkingWorkspace uiWorkingWS = uiApp.getChildById(UIPortalApplication.UI_WORKING_WS_ID);
-        UIPortalToolPanel uiToolPanel = uiWorkingWS.findFirstComponentOfType(UIPortalToolPanel.class).setRendered(true);
-        uiWorkingWS.setRenderedChild(UIEditInlineWorkspace.class);
+          UIWorkingWorkspace uiWorkingWS = uiApp.getChildById(UIPortalApplication.UI_WORKING_WS_ID);
+          UIPortalToolPanel uiToolPanel = uiWorkingWS.findFirstComponentOfType(UIPortalToolPanel.class).setRendered(true);
+          uiWorkingWS.setRenderedChild(UIEditInlineWorkspace.class);
 
-        UIPortalComposer portalComposer = uiWorkingWS.findFirstComponentOfType(UIPortalComposer.class).setRendered(true);
-        portalComposer.setShowControl(true);
-        portalComposer.setEditted(false);
-        portalComposer.setCollapse(false);
-        portalComposer.setId("UIPageEditor");
-        portalComposer.setComponentConfig(UIPortalComposer.class, "UIPageEditor");
+          UIPortalComposer portalComposer = uiWorkingWS.findFirstComponentOfType(UIPortalComposer.class).setRendered(true);
+          portalComposer.setShowControl(true);
+          portalComposer.setEditted(false);
+          portalComposer.setCollapse(false);
+          portalComposer.setId("UIPageEditor");
+          portalComposer.setComponentConfig(UIPortalComposer.class, "UIPageEditor");
 
-        uiToolPanel.setShowMaskLayer(false);
-        uiToolPanel.setWorkingComponent(UIPage.class, null);
-        UIPage uiPage = (UIPage) uiToolPanel.getUIComponent();
+          uiToolPanel.setShowMaskLayer(false);
+          uiToolPanel.setWorkingComponent(UIPage.class, null);
+          UIPage uiPage = (UIPage) uiToolPanel.getUIComponent();
 
-        if (selectPage.getTitle() == null)
-          selectPage.setTitle(selectedPageNode.getLabel());
+          if (pageContext.getState().getDisplayName() == null){
+              pageContext.getState().builder().displayName(selectedPageNode.getLabel());
+          }
 
-        // convert Page to UIPage
-        PortalDataMapper.toUIPage(uiPage, selectPage);
-        Util.getPortalRequestContext().addUIComponentToUpdateByAjax(uiWorkingWS);
-        Util.getPortalRequestContext().setFullRender(true);
+          Page page = userService.getDataStorage().getPage(pageId);
+          pageContext.update(page);
+
+          // convert Page to UIPage
+          PortalDataMapper.toUIPage(uiPage, page);
+          Util.getPortalRequestContext().addUIComponentToUpdateByAjax(uiWorkingWS);
+          Util.getPortalRequestContext().ignoreAJAXUpdateOnPortlets(true);
+
       } else {
         uiApp.addMessage(new ApplicationMessage("UIPageNodeSelector.msg.notAvailable", null));
       }
@@ -461,7 +480,8 @@ public class UINavigationNodeSelector extends UIContainer {
       UIApplication uiApp = context.getUIApplication();
       UserPortalConfigService service = uiApp.getApplicationComponent(UserPortalConfigService.class);
       String pageId = node.getPageRef();
-      Page page = (pageId != null) ? service.getPage(pageId) : null;
+      //Page page = (pageId != null) ? service.getPage(pageId) : null;
+      PageContext page = (pageId != null) ? service.getPageService().loadPage(PageKey.parse(pageId)) : null;
       if (page != null) {
         UserACL userACL = uiApp.getApplicationComponent(UserACL.class);
         if (!userACL.hasPermission(page)) {
@@ -561,11 +581,9 @@ public class UINavigationNodeSelector extends UIContainer {
   }
 
   static public class PasteNodeActionListener extends BaseActionListener<UIRightClickPopupMenu> {
-    private UINavigationNodeSelector uiNodeSelector;
+      private UINavigationNodeSelector uiNodeSelector;
 
-    private DataStorage dataStorage;
-
-    private UserPortalConfigService service;
+      private PageService pageService;
 
     public void execute(Event<UIRightClickPopupMenu> event) throws Exception {
       WebuiRequestContext context = event.getRequestContext();
@@ -617,8 +635,7 @@ public class UINavigationNodeSelector extends UIContainer {
         return;
       }
 
-      service = uiNodeSelector.getApplicationComponent(UserPortalConfigService.class);
-      dataStorage = uiNodeSelector.getApplicationComponent(DataStorage.class);
+      pageService = uiNodeSelector.getApplicationComponent(PageService.class);
       pasteNode(sourceNode, targetNode, sourceNode.isCloneNode());
       uiNodeSelector.selectNode(targetNode);
     }
@@ -650,10 +667,11 @@ public class UINavigationNodeSelector extends UIContainer {
     private String clonePageFromNode(TreeNode node, String pageName, SiteKey siteKey) throws Exception {
       String pageId = node.getPageRef();
       if (pageId != null) {
-        Page page = service.getPage(pageId);
+          PageKey sourceKey = PageKey.parse(pageId);
+          PageContext page = pageService.loadPage(sourceKey);
         if (page != null) {
-          page = dataStorage.clonePage(pageId, siteKey.getTypeName(), siteKey.getName(), pageName);
-          return page.getPageId();
+            page = pageService.clone(sourceKey, siteKey.page(pageName));
+            return page.getKey().format();
         }
       }
       return null;

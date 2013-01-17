@@ -106,7 +106,7 @@
  					<classifier>source-release</classifier>
  				</artifactItem>
                                 <artifactItem>
-					<groupId>org.exoplatform.portal</groupId>
+					<groupId>org.gatein.portal</groupId>
 					<artifactId>exo.portal.parent</artifactId>
 					<type>zip</type>
                                         <outputDirectory>${project.build.directory}/source</outputDirectory>
