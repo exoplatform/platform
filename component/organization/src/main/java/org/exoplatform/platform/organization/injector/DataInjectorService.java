@@ -99,7 +99,7 @@ public class DataInjectorService implements Startable {
       }
       if (!isArchive) {
         for (DataPlugin dataPlugin : dataPlugins) {
-          List<OrganizationConfig.User> users = dataPlugin.getConfig().getUser();
+          List<OrganizationConfig.User> users = (List<OrganizationConfig.User>)dataPlugin.getConfig().getUser();
           if (users == null || users.isEmpty()) {
             continue;
           }

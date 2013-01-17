@@ -190,11 +190,16 @@ public class UINavigationForm extends UIForm implements UIPopupComponent, UISele
 		}
 
 	}
-
-	public void activate() throws Exception {
+    @Override
+	public void activate() {
 		UIJCRExplorer uiExplorer = getAncestorOfType(UIJCRExplorer.class);
-		currentNode = uiExplorer.getCurrentNode();
-		initParams();
+		try {
+            currentNode = uiExplorer.getCurrentNode();
+            initParams();
+        } catch (Exception E) {
+            return ;
+
+        }
 
 		/** node field */
 		UIFormStringInput uiFormNameValueStringInput = new UIFormStringInput(NODE, NODE, nameValue_);
@@ -215,7 +220,11 @@ public class UINavigationForm extends UIForm implements UIPopupComponent, UISele
 
 		/** index field */
 		UIFormStringInput uiFormIndexValueStringInput = new UIFormStringInput(INDEX, INDEX, String.valueOf(index_));
-		uiFormIndexValueStringInput.addValidator(NumberFormatValidator.class);
+        try {
+		    uiFormIndexValueStringInput.addValidator(NumberFormatValidator.class);
+        } catch (Exception E) {
+            //TODO : add log
+        }
 
 		/** clickable field */
 		UIFormCheckBoxInput<Boolean> uiFormClickableValueCheckBoxInput = new UIFormCheckBoxInput<Boolean>(IS_CLICKABLE, IS_CLICKABLE, false);
@@ -263,7 +272,7 @@ public class UINavigationForm extends UIForm implements UIPopupComponent, UISele
 	/**
    * 
    */
-	public void deActivate() throws Exception {
+	public void deActivate() {
 
 	}
 
