@@ -114,7 +114,7 @@ public class DashboardInformationRESTService implements ResourceContainer {
             URI dashboardURI = null;
             if(nodes != null) {
               for(UserNode node : nodes){
-                Application<Portlet> appDashboard = (Application<Portlet>) extractDashboard(dataStorageService.getPage(node.getPageRef()));
+                Application<Portlet> appDashboard = (Application<Portlet>) extractDashboard(dataStorageService.getPage(node.getPageRef().format()));
                 
                 if(appDashboard == null) {
                   continue;
@@ -128,7 +128,7 @@ public class DashboardInformationRESTService implements ResourceContainer {
                   info.setLabel(node.getEncodedResolvedLabel());
                   
                   // Create URI to WS REST
-                  wsSubPath = PortalContainer.getCurrentRestContextName() + "/private" + WS_ROOT_PATH + "/" + userId + "/" + getPageName(node.getPageRef());
+                  wsSubPath = PortalContainer.getCurrentRestContextName() + "/private" + WS_ROOT_PATH + "/" + userId + "/" + getPageName(node.getPageRef().format());
                   wsURI = uriInfo.getBaseUriBuilder().replaceMatrix(wsSubPath).build();
                   
                   // Create URI to dashboard into portal

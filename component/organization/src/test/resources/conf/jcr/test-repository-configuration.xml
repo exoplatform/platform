@@ -4,16 +4,20 @@
 	<repositories>
 		<repository name="repository" system-workspace="collaboration" default-workspace="collaboration">
 			<security-domain>gatein-domain</security-domain>
-			<access-control>optional</access-control>
+            <access-control>optional</access-control>
 			<authentication-policy>org.exoplatform.services.jcr.impl.core.access.JAASAuthenticator</authentication-policy>
 			<workspaces>
 				<!-- ECM Collaboration -->
 				<workspace name="collaboration">
-					<container class="org.exoplatform.services.jcr.impl.storage.jdbc.JDBCWorkspaceDataContainer">
+					<!--
+                    <container class="org.exoplatform.services.jcr.impl.storage.jdbc.JDBCWorkspaceDataContainer">
+                    -->
+                    <container class="org.exoplatform.services.jcr.impl.storage.jdbc.optimisation.CQJDBCWorkspaceDataContainer">
 						<properties>
 							<property name="source-name" value="jdbcexo"/>
 							<property name="dialect" value="hsqldb"/>
-							<property name="multi-db" value="false"/>
+                            <property name="db-structure-type" value="isolated"/>
+                            <property name="update-storage" value="true"/>
 							<property name="max-buffer-size" value="200k"/>
 							<property name="swap-directory" value="target/temp/swap/collaboration_portal"/>
 						</properties>
@@ -34,12 +38,22 @@
 							<property name="root-permissions" value="any read;*:/platform/administrators read;*:/platform/administrators add_node;*:/platform/administrators set_property;*:/platform/administrators remove"/>
 						</properties>
 					</initializer>
-					<cache enabled="true" class="org.exoplatform.services.jcr.impl.dataflow.persistent.LinkedWorkspaceStorageCacheImpl">
+					<!--
+                    <cache enabled="true" class="org.exoplatform.services.jcr.impl.dataflow.persistent.LinkedWorkspaceStorageCacheImpl">
 						<properties>
 							<property name="max-size" value="20k"/>
 							<property name="live-time" value="1h"/>
 						</properties>
 					</cache>
+					-->
+                    <cache enabled="true"
+                           class="org.exoplatform.services.jcr.impl.dataflow.persistent.jbosscache.JBossCacheWorkspaceStorageCache">
+                        <properties>
+                            <property name="jbosscache-configuration"
+                                      value="jcr/exo.portal.component.test.jcr-jbosscache-config.xml"/>
+                        </properties>
+                    </cache>
+                    <!--
 					<query-handler class="org.exoplatform.services.jcr.impl.core.query.lucene.SearchIndex">
 						<properties>
 							<property name="index-dir" value="target/temp/jcrlucenedb/collaboration_portal"/>
@@ -49,7 +63,14 @@
 							<property name="synonymprovider-class" value="org.exoplatform.services.jcr.impl.core.query.lucene.synonym.WordNetSynonyms"/>
 						</properties>
 					</query-handler>
-					<lock-manager>
+					-->
+                    <query-handler class="org.exoplatform.services.jcr.impl.core.query.lucene.SearchIndex">
+                        <properties>
+                            <property name="index-dir" value="target/temp/jcrlucenedb/collaboration_portal"/>
+                        </properties>
+                    </query-handler>
+					<!--
+                    <lock-manager>
 						<time-out>15m</time-out>
 						<persister class="org.exoplatform.services.jcr.impl.core.lock.FileSystemLockPersister">
 							<properties>
@@ -57,6 +78,14 @@
 							</properties>
 						</persister>
 					</lock-manager>
+					-->
+                    <lock-manager class="org.exoplatform.services.jcr.impl.core.lock.jbosscache.CacheableLockManagerImpl">
+                        <properties>
+                            <property name="time-out" value="15m"/>
+                            <property name="jbosscache-configuration"
+                                      value="jcr/exo.portal.component.test.jcr-jbosscache-lock-config.xml"/>
+                        </properties>
+                    </lock-manager>
 				</workspace>
 			</workspaces>
 		</repository>

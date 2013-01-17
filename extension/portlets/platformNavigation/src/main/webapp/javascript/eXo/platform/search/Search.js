@@ -1,27 +1,10 @@
-/**
- * Copyright (C) 2012 eXo Platform SAS.
- *
- * This is free software; you can redistribute it and/or modify it
- * under the terms of the GNU Lesser General Public License as
- * published by the Free Software Foundation; either version 2.1 of
- * the License, or (at your option) any later version.
- *
- * This software is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
- * Lesser General Public License for more details.
- *
- * You should have received a copy of the GNU Lesser General Public
- * License along with this software; if not, write to the Free
- * Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
- * 02110-1301 USA, or see the FSF site: http://www.fsf.org.
- */
+(function($) {
+if (!eXo.search) {
+    eXo.search = {};
+};
 
-if (!eXo.search)
-  eXo.search = {};
 function SearchAdminToolbar() {
-}
-;
+};
 
 $(document).ready(function () {
   var isAlt = false;
@@ -45,7 +28,7 @@ $(document).ready(function () {
       $("#adminkeyword").hide();
     }
     else
-      eXo.search.SearchAdminToolbar.quickSearchOnClick();
+      this.quickSearchOnClick();
 
   });
   $("#adminkeyword").focus(function () {
@@ -96,7 +79,7 @@ SearchAdminToolbar.prototype.getHostName = function () {
 };
 
 SearchAdminToolbar.prototype.quickSearchadminOnEnter = function (event, resultPageURI) {
-  var keyNum = eXo.search.SearchAdminToolbar.getKeynum(event);
+  var keyNum = this.getKeynum(event);
   if (keyNum == 13) {
     var searchBox = document.getElementById("adminkeyword");
     var keyword = encodeURI(searchBox.value);
@@ -107,7 +90,7 @@ SearchAdminToolbar.prototype.quickSearchadminOnEnter = function (event, resultPa
     if (keyword != "") {
       var resultPageURIDefault = "searchResult";
       var params = "portal=" + eXo.env.portal.portalName + "&keyword=" + keyword;
-      var baseURI = eXo.search.SearchAdminToolbar.getHostName() + eXo.env.portal.context + "/" + eXo.env.portal.portalName;
+      var baseURI = this.getHostName() + eXo.env.portal.context + "/" + eXo.env.portal.portalName;
       if (resultPageURI != undefined) {
         baseURI = baseURI + "/" + resultPageURI;
       } else {
@@ -128,7 +111,7 @@ SearchAdminToolbar.prototype.quickSearchOnClick = function (resultPageURI) {
   if (keyword != "") {
     var resultPageURIDefault = "searchResult";
     var params = "portal=" + eXo.env.portal.portalName + "&keyword=" + keyword;
-    var baseURI = eXo.search.SearchAdminToolbar.getHostName() + eXo.env.portal.context + "/" + eXo.env.portal.portalName;
+    var baseURI = this.getHostName() + eXo.env.portal.context + "/" + eXo.env.portal.portalName;
     if (resultPageURI != undefined) {
       baseURI = baseURI + "/" + resultPageURI;
     } else {
@@ -139,4 +122,7 @@ SearchAdminToolbar.prototype.quickSearchOnClick = function (resultPageURI) {
 };
 
 eXo.search.SearchAdminToolbar = new SearchAdminToolbar();
-_module.SearchAdminToolbar = eXo.search.SearchAdminToolbar;
+    return {
+        SearchAdminToolbar : eXo.search.SearchAdminToolbar
+    };
+})($);
