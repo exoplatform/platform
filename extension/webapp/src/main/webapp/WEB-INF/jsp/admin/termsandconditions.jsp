@@ -24,7 +24,6 @@
 <%@ page import="org.exoplatform.container.PortalContainer"%>
 <%@ page import="org.exoplatform.services.resources.ResourceBundleService"%>
 <%@ page import="java.util.ResourceBundle"%>
-<%@ page import="org.exoplatform.web.login.InitiateLoginServlet"%>
 <%@ page import="org.gatein.common.text.EntityEncoder"%>
 <%@ page language="java" %>
 <%
@@ -39,6 +38,8 @@
 
     response.setCharacterEncoding("UTF-8");
     response.setContentType("text/html; charset=UTF-8");
+
+
 %>
 <!DOCTYPE html
 PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
@@ -2005,9 +2006,9 @@ h6{padding-top:12pt;line-height:1.2;text-align:left;color:#000000;font-size:11pt
 <div class="BottomBox ClearFix">
     <form name="tcForm" action="<%= contextPath + "/terms-and-conditions-action"%>" method="post" style="margin: 0px;">
 
-        <% if (uri != null) { %>
+            <% if (uri != null) { %>
         <input type="hidden" name="tacURI" value="<%=uri%>" />
-        <% } %>
+            <% } %>
 
         <div class="UIAction FR">
             <a class="ActionButton LightBlueStyle inactive" id="continueButton"  href="javascript:void(0)"  onclick="WelcomeScreens.validateTermsAndCondition(event);">Continue</a>
@@ -2016,7 +2017,6 @@ h6{padding-top:12pt;line-height:1.2;text-align:left;color:#000000;font-size:11pt
             <input type="checkbox" id="agreement" name="checktc" value="false" onclick="WelcomeScreens.toggleState();" />
             <label for="agreement">I agree with this terms and conditions agreement.</label>
         </div>
-    </form>
 </div>
 </div>
 </div>
@@ -2032,32 +2032,32 @@ h6{padding-top:12pt;line-height:1.2;text-align:left;color:#000000;font-size:11pt
             <tr>
                 <td class="FieldLabel UserInput">Username</td>
                 <td class="FieldComment FieldMini" colspan='3'>
-                    <input type="text" id="userNameAccount" placeholder="User name">
+                    <input type="text" name="userNameAccount" id="userNameAccount" placeholder="User name">
                 </td>
             </tr>
             <tr>
                 <td class="FieldLabel UserInput">Fullname</td>
                 <td class="FieldComment FieldMini">
-                    <input type="text" id="firstNameAccount" placeholder="First name">
+                    <input type="text" name="firstNameAccount" id="firstNameAccount" placeholder="First name">
                 </td>
                 <td class="FieldComment FieldMini" colspan='3'>
-                    <input type="text" id="lastNameAccount" placeholder="Last name">
+                    <input type="text" name="lastNameAccount" id="lastNameAccount" placeholder="Last name">
                 </td>
             </tr>
             <tr>
                 <td class="FieldLabel UserInput">Email</td>
                 <td class="FieldComment FieldMini" colspan='3'>
-                    <input type="text" id="emailAccount" >
+                    <input type="text" name="emailAccount" id="emailAccount" >
                 </td>
             </tr>
             <tr>
                 <td class="FieldLabel UserInput">Password</td>
                 <td class="FieldComment FieldMini">
-                    <input type="password" id="userPasswordAccount"/>
+                    <input type="password" name="userPasswordAccount" id="userPasswordAccount"/>
                 </td>
                 <td class="FieldLabel UserInput">Confirm</td>
                 <td class="FieldComment FieldMini">
-                    <input type="password" id="confirmUserPasswordAccount"/>
+                    <input type="password" name="confirmUserPasswordAccount" id="confirmUserPasswordAccount"/>
                 </td>
             </tr>
             </tbody>
@@ -2068,25 +2068,26 @@ h6{padding-top:12pt;line-height:1.2;text-align:left;color:#000000;font-size:11pt
             <tr>
                 <td class="FieldLabel UserInput">Username</td>
                 <td class="FieldComment FieldMini" colspan='2'>
-                    <input type="text" id="adminFirstName" placeholder="root"/>
+                    <input type="text" name="adminFirstName" id="adminFirstName" placeholder="root"/>
                 </td>
             </tr>
             <tr>
                 <td class="FieldLabel UserInput">Password</td>
                 <td class="FieldComment FieldMini" colspan='2'>
-                    <input type="password" id="adminPassword"/>
+                    <input type="password" name="adminPassword" id="adminPassword"/>
                 </td>
                 <td class="FieldLabel UserInput">Confirm</td>
                 <td class="FieldComment FieldMini" colspan='2'>
-                    <input type="password" id="confirmAdminPassword"/>
+                    <input type="password" name="confirmAdminPassword" id="confirmAdminPassword"/>
                 </td>
             </tr>
             </tbody>
         </table>
 
         <a class="SubmitButton" id="continueButton"  href="#"  onclick="WelcomeScreens.exit();">Submit</a>
-    </div>
 
+    </div>
+    </form>
 </div>
 </div>
 </div>
