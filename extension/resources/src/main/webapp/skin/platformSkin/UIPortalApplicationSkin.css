@@ -291,7 +291,9 @@ a {
     background: #F5F5F5;
     border-right: 1px solid #c7c7c7;
     vertical-align: top;
+    padding: 0px;
 }
+
 .RightBodyTDContainer {
 	vertical-align: top;
 }

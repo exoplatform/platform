@@ -115,12 +115,13 @@
   String noSpace = _ctx.appRes("UISpaceNavigationPortlet.msg.no-space");
   String selectSpaceAction = URLEncoder.encode(uicomponent.event(uicomponent.LOAD_NAVIGATION_ACTION), "utf-8");
   def rcontext = _ctx.getRequestContext() ;
-  def jsManager = rcontext.getJavascriptManager();
-  jsManager.require("SHARED/navigation-spaces-search", "search").addScripts("search.init('" + uicomponent.id  + "','" + restUrl + "','" + defaultValueForTextSearch +"','" + noSpace + "','" + selectSpaceAction + "');");
+  def requireJs = rcontext.getJavascriptManager().getRequireJS();
+  requireJs.require("SHARED/navigation-spaces-search", "spacesSearch");
+  requireJs.addScripts("spacesSearch.UISpaceNavigation.init('" + uicomponent.id  + "','" + restUrl + "','" + defaultValueForTextSearch +"','" + noSpace + "','" + selectSpaceAction + "');");
 %>
 
 <div class="uiSpaceNavigationPortlet" id="$uicomponent.id">
-  <h5 class="title"><%=_ctx.appRes("UISpaceNavigationPortlet.label.Spaces")%> <span class="numbers">($spaceTotal)</span></h5>
+  <h5 class="title"><%=_ctx.appRes("UISpaceNavigationPortlet.label.Spaces")%> <span class="badge">$spaceTotal</span></h5>
   <!-- Merge exoadmin:  navigation-->
     <div class="searchInput"><input type="text" class="searchText LostFocus" value="Search Spaces"/></div>
 
@@ -144,10 +145,10 @@
       		def moreSpacesLink = uicomponent.event("Increment");
 			if(spaceNotDisplayed>0){
       		print """
-      			<li class="MenuItem">
+      			<li class="spaceItem">
       				""" ;
       				print """
-      				<a href="$moreSpacesLink" onclick="">$seeSpacesLabel $spaceNotDisplayed $moreSpacesLabel</a>
+      				<a href="$moreSpacesLink" class="moreSpace" onclick="">$seeSpacesLabel $spaceNotDisplayed $moreSpacesLabel</a>
       				""" ;
       				print """
       			</li>
