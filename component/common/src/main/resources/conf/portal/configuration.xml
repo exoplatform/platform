@@ -455,7 +455,7 @@
         </component-plugin>
     </external-component-plugins>
 
-    
+    <import>classpath:/conf/portal/welcome-screens-config.xml</import>
 
 
 </configuration>

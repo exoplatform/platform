@@ -1,21 +1,3 @@
-/**
- * Copyright (C) 2012 eXo Platform SAS.
- *
- * This is free software; you can redistribute it and/or modify it
- * under the terms of the GNU Lesser General Public License as
- * published by the Free Software Foundation; either version 2.1 of
- * the License, or (at your option) any later version.
- *
- * This software is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
- * Lesser General Public License for more details.
- *
- * You should have received a copy of the GNU Lesser General Public
- * License along with this software; if not, write to the Free
- * Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
- * 02110-1301 USA, or see the FSF site: http://www.fsf.org.
- */
 package org.exoplatform.platform.common.welcomescreens;
 
 import org.apache.commons.codec.binary.Base64;
@@ -25,28 +7,26 @@ import org.exoplatform.container.xml.InitParams;
 import org.exoplatform.container.xml.ValueParam;
 import org.exoplatform.services.log.ExoLogger;
 import org.exoplatform.services.log.Log;
-import org.exoplatform.web.filter.Filter;
 import org.picocontainer.Startable;
 
-import javax.servlet.*;
+import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.File;
 import java.io.IOException;
-import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
-import java.net.URL;
 import java.util.Calendar;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 
 /**
- * @author <a href="kmenzli@exoplatform.com">Kmenzli</a>
- * @date 04/01/13
+ * @author <a href="fbradai@exoplatform.com">Fbradai</a>
+ * @date 1/17/13
  */
-public class TrialService  implements Startable {
+public class TrialService implements Startable {
+
+
     private static final Log LOG = ExoLogger.getExoLogger(TrialService.class);
     private static String registrationFormUrl = null;
     private static String extendFormUrl = null;
@@ -55,13 +35,21 @@ public class TrialService  implements Startable {
     private static String productNameAndVersion = null;
     private static String productCode = null;
     private static String KEY_CONTENT = null;
+
+    /* A verifier si elle sert à quelque chose dans la nouvelle spec*/
     private static boolean loopfuseFormDisplayed = false;
     private static boolean outdated = false;
-    private static boolean dismissed = false;
-    private static boolean firstStart = false;
+
+    /*plus besoin de cette information (elle etait faite pour afficher le bouton continuer ou startEvaluation dans registration.jsp )  */
+    //private static boolean dismissed = false;
+    //private static boolean firstStart = false;
     private static int delayPeriod = Utils.DEFAULT_DELAY_PERIOD;
     private static int nbDaysBeforeExpiration = 0;
+    private static int nbDaysAfterExpiration = 0;
     private static Calendar remindDate;
+
+
+
     private ScheduledExecutorService executor;
 
     public TrialService(ProductInformations productInformations, InitParams params) throws MissingProductInformationException {
@@ -78,13 +66,33 @@ public class TrialService  implements Startable {
     public void start() {
         String productNameAndVersionHashed = Utils.getModifiedMD5Code(productNameAndVersion.getBytes());
         if (!new File(Utils.HOME_CONFIG_FILE_LOCATION).exists()) {
-            firstStart = true;
+            /*Dans la nouvelle spec il y a plus le bouton startEvaluation
+            * avant en cliquant sur startEvaluation on ecrit pour la premierer fois le REMIND_DATE
+            * maintenant le premier accées au portail déclenche le compteur et les 30jours d'evaluation
+            * */
+            String rdate = TrialService.computeRemindDateFromTodayBase64();
+
             productCode = generateProductCode();
             Utils.writeToFile(Utils.PRODUCT_NAME, productNameAndVersionHashed, Utils.HOME_CONFIG_FILE_LOCATION);
             Utils.writeToFile(Utils.PRODUCT_CODE, productCode, Utils.HOME_CONFIG_FILE_LOCATION);
-            Utils.writeToFile(Utils.REMIND_DATE, "", Utils.HOME_CONFIG_FILE_LOCATION);
+            /*
+            ecrire la REMIND_DATE à la creation fu fichier d'évaluation
+             */
+            // Utils.writeToFile(Utils.REMIND_DATE, "", Utils.HOME_CONFIG_FILE_LOCATION);
+            Utils.writeToFile(Utils.REMIND_DATE, rdate, Utils.HOME_CONFIG_FILE_LOCATION);
             Utils.writeToFile(Utils.LOOP_FUSE_FORM_DISPLAYED, "false", Utils.HOME_CONFIG_FILE_LOCATION);
-            return;
+
+            /*
+            COMPUTE UNLOCKED INFORMATION: initialisation (pour afficher: vous avez 30jours trial)
+             */
+            /*try {
+                remindDate = Utils.parseDateBase64(rdate);
+                computeUnlockedInformation();
+            } catch (Exception exception) {
+                delayPeriod = 0;
+                outdated = true;
+            }                         */
+            //return;
         }
         // Test the file informations
         String productNameAndVersionReadFromFile = Utils.readFromFile(Utils.PRODUCT_NAME, Utils.HOME_CONFIG_FILE_LOCATION);
@@ -95,56 +103,120 @@ public class TrialService  implements Startable {
         // Read: Product code
         productCode = Utils.readFromFile(Utils.PRODUCT_CODE, Utils.HOME_CONFIG_FILE_LOCATION);
 
-        // Read: loopfuse form displayed
-        String loopfuseFormDisplayedString = Utils.readFromFile(Utils.LOOP_FUSE_FORM_DISPLAYED, Utils.HOME_CONFIG_FILE_LOCATION);
-        if (loopfuseFormDisplayedString != null && !loopfuseFormDisplayedString.isEmpty()) {
-            loopfuseFormDisplayed = Boolean.parseBoolean(loopfuseFormDisplayedString);
-        }
+        // Read: loopfuse form displayed   Averifier la usibility
+        /* String loopfuseFormDisplayedString = Utils.readFromFile(Utils.LOOP_FUSE_FORM_DISPLAYED, Utils.HOME_CONFIG_FILE_LOCATION);
+ if (loopfuseFormDisplayedString != null && !loopfuseFormDisplayedString.isEmpty()) {
+     loopfuseFormDisplayed = Boolean.parseBoolean(loopfuseFormDisplayedString);
+ }       */
 
         // Read: Remind date
         String remindDateString = Utils.readFromFile(Utils.REMIND_DATE, Utils.HOME_CONFIG_FILE_LOCATION);
-        if (remindDateString == null || remindDateString.isEmpty()) {
-            firstStart = true;
-            // No trial delay was requested
-            return;
-        } else {
-            // Trial delay was already requested
-            remindDate = Utils.parseDateBase64(remindDateString);
-            computeUnlockedInformation();
 
-            // Copute delay period every day
-            executor = Executors.newSingleThreadScheduledExecutor();
-            executor.scheduleWithFixedDelay(new Runnable() {
-                public void run() {
-                    // Have to click on dismiss each Day.
-                    dismissed = false;
-                    computeUnlockedInformation();
-                }
-            }, 1, 1, TimeUnit.DAYS);
-        }
-
+        // Trial delay was already requested
+        remindDate = Utils.parseDateBase64(remindDateString);
+        computeUnlockedInformation();
+        // Copute delay period every day
+        executor = Executors.newSingleThreadScheduledExecutor();
+        executor.scheduleWithFixedDelay(new Runnable() {
+            public void run() {
+                // Have to click on dismiss each Day.
+                //dismissed = false;
+                //String remindDateString = Utils.readFromFile(Utils.REMIND_DATE, Utils.HOME_CONFIG_FILE_LOCATION);
+                //remindDate = Utils.parseDateBase64(remindDateString);
+                computeUnlockedInformation();
+            }
+        }, 1, 1, TimeUnit.MINUTES);
     }
+
     public void stop() {
         if (executor != null) {
             executor.shutdown();
         }
     }
+
+    public static String computeRemindDateFromTodayBase64() {
+        if (delayPeriod <= 0 || outdated) {
+            return "";
+        }
+        Calendar remindDate = Calendar.getInstance();
+        remindDate.add(Calendar.DAY_OF_MONTH, delayPeriod);
+        return Utils.formatDateBase64(remindDate);
+    }
+
+    public static String getRegistrationFormUrl() {
+        return registrationFormUrl;
+    }
+
+    public static String getProductNameAndVersion() {
+        return productNameAndVersion;
+    }
+
+    public static int getDelayPeriod() {
+        return delayPeriod;
+    }
+
+    public static int getNbDaysBeforeExpiration() {
+        return nbDaysBeforeExpiration;
+    }
+
+    public static int getNbDaysAfterExpiration() {
+        return nbDaysAfterExpiration;
+    }
+
+    public static boolean isLoopfuseFormDisplayed() {
+        return loopfuseFormDisplayed;
+    }
+
+    public static boolean isOutdated() {
+        return outdated;
+    }
+
+    public static String getPingBackUrl() {
+        return pingBackUrl;
+    }
+
+    public static Calendar getRemindDate() {
+        return remindDate;
+    }
+
+    public ScheduledExecutorService getExecutor() {
+        return this.executor;
+    }
+
+    public static String getCalledUrl() {
+        return calledUrl;
+    }
+
+    public static String getExtendFormUrl() {
+        return extendFormUrl;
+    }
+
+    public static String getProductCode() {
+        return productCode;
+    }
+
     private static String generateProductCode() {
         String productCode = productNameAndVersion + Math.random() + KEY_CONTENT;
         return Utils.getModifiedMD5Code(productCode.getBytes());
     }
+
+
+
     private static void computeUnlockedInformation() {
         Calendar today = Calendar.getInstance();
         today.set(Calendar.HOUR, 0);
         today.set(Calendar.MINUTE, 0);
         today.set(Calendar.SECOND, 0);
         today.set(Calendar.MILLISECOND, 0);
-        if (remindDate.compareTo(today) <= 0 || delayPeriod <= 0) { // Reminder
+        if (remindDate.compareTo(today) < 0 || delayPeriod <= 0) { // Reminder
             // Date is
             // outdated
+            nbDaysBeforeExpiration=0;
+            nbDaysAfterExpiration= nbDaysAfterExpiration + (int) TimeUnit.MILLISECONDS.toDays(remindDate.getTimeInMillis() - today.getTimeInMillis());
             remindDate = today;
             delayPeriod = 0;
             outdated = true;
+
         } else { // Reminder Date is not yet outdated
             outdated = false;
             nbDaysBeforeExpiration = (int) TimeUnit.MILLISECONDS.toDays(remindDate.getTimeInMillis() - today.getTimeInMillis());
@@ -164,16 +236,7 @@ public class TrialService  implements Startable {
         int period = Integer.parseInt(periodString) / 3;
         return period;
     }
-
-    private static String computeRemindDateFromTodayBase64() {
-        if (delayPeriod <= 0 || outdated) {
-            return "";
-        }
-        Calendar remindDate = Calendar.getInstance();
-        remindDate.add(Calendar.DAY_OF_MONTH, delayPeriod);
-        return Utils.formatDateBase64(remindDate);
-    }
-
+    /*
     public static class TrialFilter implements Filter {
 
         public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException,
@@ -182,14 +245,13 @@ public class TrialService  implements Startable {
             HttpServletResponse httpServletResponse = (HttpServletResponse) response;
             boolean isIgnoringRequest = isIgnoredRequest(httpServletRequest.getSession(true).getServletContext(),
                     httpServletRequest.getRequestURI());
-            if ((!outdated && dismissed) || isIgnoringRequest) {
+            if ((!outdated) || isIgnoringRequest) {
                 chain.doFilter(request, response);
                 return;
             }
-            if (TrialService.calledUrl == null) {
-                TrialService.calledUrl = httpServletRequest.getRequestURI();
+            if (TrialServicee.calledUrl == null) {
+                TrialServicee.calledUrl = httpServletRequest.getRequestURI();
             }
-            httpServletResponse.sendRedirect("/trial/jsp/registration.jsp");
         }
 
         private boolean isIgnoredRequest(ServletContext context, String url) {
@@ -198,20 +260,13 @@ public class TrialService  implements Startable {
             return mimeType != null;
         }
     }
-
+    */
     public static class UnlockServlet extends HttpServlet {
         private static final long serialVersionUID = -4806814673109318163L;
 
         @Override
         protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-            String dismiss = request.getParameter("dismiss");
-            if (dismiss != null && dismiss.equals("true")) {
-                if (!outdated && remindDate != null) {
-                    dismissed = true;
-                }
-                response.sendRedirect(TrialService.calledUrl);
-                return;
-            }
+
             String rdate = request.getParameter("rdate");
             if (rdate == null || rdate.isEmpty()) { // UnlockRequest
                 String hashMD5Added = request.getParameter("hashMD5");
@@ -239,8 +294,6 @@ public class TrialService  implements Startable {
                 remindDate = Utils.parseDateBase64(rdate);
                 computeUnlockedInformation();
                 if (!outdated) {
-                    firstStart = false;
-                    dismissed = true;
                     Utils.writeRemindDate(rdate, Utils.HOME_CONFIG_FILE_LOCATION);
                 }
                 response.sendRedirect(TrialService.calledUrl);
@@ -261,6 +314,7 @@ public class TrialService  implements Startable {
 
     }
 
+    /*
     public static class PingBackServlet extends HttpServlet {
         private static final long serialVersionUID = 6467955354840693802L;
 
@@ -286,13 +340,13 @@ public class TrialService  implements Startable {
                 urlConn.connect();
                 return (HttpURLConnection.HTTP_NOT_FOUND != urlConn.getResponseCode());
             } catch (MalformedURLException e) {
-                LOG.error("Welcome Screen : Error creating HTTP connection to the server : " + pingServerURL);
+                LOG.error("LeadCapture : Error creating HTTP connection to the server : " + pingServerURL);
 
             } catch (IOException e) {
-                LOG.error("Welcome Screen : Error creating HTTP connection to the server : " + pingServerURL);
+                LOG.error("LeadCapture : Error creating HTTP connection to the server : " + pingServerURL);
             }
             return false;
         }
-    }
+    } */
 
 }

@@ -1,0 +1,53 @@
+<%
+    import org.exoplatform.platform.common.welcomescreens.TrialService;
+    import org.exoplatform.platform.common.welcomescreens.Utils;
+%>
+<%
+    def rdate = TrialService.computeRemindDateFromTodayBase64();
+    def rday= TrialService.getNbDaysBeforeExpiration();
+    boolean outdated = TrialService.isOutdated();
+%>
+<style type="text/css">
+.WLCFooter{
+    width: 100%;
+    height: 50px;
+    position : fixed;
+    paddingBottom:31px;
+}
+.removeButton{
+    float:right;
+    padding: 10px;
+    width :80px;
+    height: 20px;
+    border: #151515;
+}
+.backoutdated{
+    background-color: red;
+}
+.backNotOutdated{
+    background-color: silver;
+}
+</style>
+
+<div id="<%=uicomponent.id%>">
+
+    <%
+        css="backNotOutdated";
+        label1="You have";
+        label2="days left in your evaluation";
+        def labelRemove="Remove This Banner"
+
+        if (outdated)  {
+            def css="backOutdated";
+            def label1= "Your evaluation has expired"  ;
+            def label2= "days ago";
+            rday = TrialService.getNbDaysAfterExpiration();
+        }
+    %>
+    <div >
+        <div class="WLCFooter <%=css  %>">
+            <%=label1 %> <%=rday%> <%=label2 %>
+            <a class="removeButton" href="/platform-extension/jsp/unlockTrial.jsp"><%= labelRemove %></a>
+        </div>
+    </div>
+</div>
