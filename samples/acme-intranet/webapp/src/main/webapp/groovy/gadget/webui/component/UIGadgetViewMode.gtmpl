@@ -1,0 +1,33 @@
+<%
+	import org.exoplatform.web.application.JavascriptManager;
+	import org.exoplatform.portal.webui.application.UIGadget;
+	import org.exoplatform.portal.webui.application.GadgetUtil;
+	import org.exoplatform.webui.application.portlet.PortletRequestContext;
+	import org.exoplatform.portal.webui.application.UIPortlet;
+
+	def hostName = GadgetUtil.getGadgetServerUrl();
+	def rcontext = _ctx.getRequestContext() ;
+	def windowId = rcontext.getWindowId();
+	def id = uicomponent.getId() + "-" + windowId ;
+	def isLossData = uicomponent.getParent().isLossData();
+
+	if(!isLossData) {
+	    def url = uicomponent.getParent().getUrl();
+	  	def metadata = uicomponent.getParent().getMetadata();
+	  	def userPref = uicomponent.getParent().getUserPref();
+	  	def noCache = uicomponent.getParent().isNoCache();
+	  	def isDebug = uicomponent.getParent().isDebug();
+	  	JavascriptManager jsmanager = rcontext.getJavascriptManager();
+	  	def requireJS = jsmanager.require("SHARED/gadget", "gadget").addScripts("gadget.UIGadget.createGadget('$url','$id', $metadata, $userPref, 'canvas', '$hostName', " + (isDebug ? 1 : 0) + ", " + (noCache ? 1 : 0) + ");");
+
+	  	if(UIPortlet.getCurrentUIPortlet().getHeight() == null && uicomponent.getParent().isFillUpFreeSpace()) {
+	  	 requireJS.addScripts("gadget.UIGadget.resizeFullHeight('$id');");
+	  	}
+  	}
+%>
+
+<div class="UIGadgetViewMode" id="$id" style="height: auto;">
+	<% if(isLossData) { %>
+			<span><%=_ctx.appRes("UIGadget.error.NotAvailable");%></span>
+	<% } %>
+</div>
