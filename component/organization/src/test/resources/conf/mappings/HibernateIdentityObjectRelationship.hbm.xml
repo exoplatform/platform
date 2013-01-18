@@ -1,0 +1,63 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+  <class name="org.picketlink.idm.impl.model.hibernate.HibernateIdentityObjectRelationship"
+         table="jbid_io_rel">
+    <cache usage="read-write"/>
+    <id name="id"
+        type="java.lang.Long"
+        access="field">
+      <column name="ID"/>
+      <generator class="native"/>
+    </id>
+    <many-to-one name="fromIdentityObject"
+                 class="org.picketlink.idm.impl.model.hibernate.HibernateIdentityObject"
+                 access="field"
+                 fetch="select"
+                 lazy="proxy">
+      <column name="FROM_IDENTITY"
+              not-null="true"
+              unique-key="id"/>
+    </many-to-one>
+    <many-to-one name="name"
+                 class="org.picketlink.idm.impl.model.hibernate.HibernateIdentityObjectRelationshipName"
+                 access="field"
+                 fetch="join"
+                 lazy="proxy">
+      <column name="NAME"
+              unique-key="id"/>
+    </many-to-one>
+    <many-to-one name="toIdentityObject"
+                 class="org.picketlink.idm.impl.model.hibernate.HibernateIdentityObject"
+                 access="field"
+                 fetch="select"
+                 lazy="proxy">
+      <column name="TO_IDENTITY"
+              not-null="true"
+              unique-key="id"/>
+    </many-to-one>
+    <many-to-one name="type"
+                 class="org.picketlink.idm.impl.model.hibernate.HibernateIdentityObjectRelationshipType"
+                 access="field"
+                 fetch="select"
+                 lazy="proxy">
+      <column name="REL_TYPE"
+              not-null="true"
+              unique-key="id"/>
+    </many-to-one>
+    <map name="properties"
+         table="jbid_io_rel_props"
+         cascade="all, delete-orphan"
+         fetch="subselect"
+         lazy="extra">
+      <cache usage="read-write"/>
+      <key column="PROP_ID"/>
+      <map-key type="string"
+               column="PROP_NAME"/>
+      <element type="string"
+               column="PROP_VALUE"
+               not-null="true"/>
+    </map>
+  </class>
+</hibernate-mapping>

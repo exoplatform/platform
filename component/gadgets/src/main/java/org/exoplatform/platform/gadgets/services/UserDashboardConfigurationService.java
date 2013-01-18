@@ -196,7 +196,7 @@ public class UserDashboardConfigurationService {
       if (tabNode == null) {
         tabNode = rootNode.addChild(DEFAULT_TAB_NAME);
         tabNode.setLabel(DEFAULT_TAB_NAME);
-        tabNode.setPageRef(page.getPageId());
+        tabNode.setPageRef(page.getPageKey());
         userPortal.saveNode(rootNode, null);
       }
     } catch (Exception e) {

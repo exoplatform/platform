@@ -42,23 +42,22 @@
     <!-- **************************************** -->
     <org.exoplatform.calendar.version>4.0.0.Alpha1-SNAPSHOT</org.exoplatform.calendar.version>
     <org.exoplatform.commons.version>4.0.0.Alpha1-SNAPSHOT</org.exoplatform.commons.version>
-    <org.exoplatform.core.version>2.4.10-GA-SNAPSHOT</org.exoplatform.core.version>
+    <org.exoplatform.core.version>2.5.0-GA</org.exoplatform.core.version>
     <org.exoplatform.ecms.version>4.0.0.Alpha1-SNAPSHOT</org.exoplatform.ecms.version>
     <org.exoplatform.forum.version>4.0.0.Alpha1-SNAPSHOT</org.exoplatform.forum.version>
     <org.exoplatform.gwtframework.version>1.1.2</org.exoplatform.gwtframework.version>
     <org.exoplatform.ide.version>1.1.9-SNAPSHOT</org.exoplatform.ide.version>
     <org.exoplatform.integ.version>4.0.0.Alpha1-SNAPSHOT</org.exoplatform.integ.version>
-    <org.exoplatform.jcr.version>1.14.10-GA-SNAPSHOT</org.exoplatform.jcr.version>
-    <org.exoplatform.kernel.version>2.3.10-GA-SNAPSHOT</org.exoplatform.kernel.version>
-    <org.gatein.portal.version>3.4.0.Final</org.gatein.portal.version>
+    <org.exoplatform.jcr.version>1.15.0-GA</org.exoplatform.jcr.version>
+    <org.exoplatform.kernel.version>2.4.0-GA</org.exoplatform.kernel.version>
+    <org.gatein.portal.version>3.5.0.Final</org.gatein.portal.version>
     <org.exoplatform.social.version>4.0.0.Alpha1-SNAPSHOT</org.exoplatform.social.version>
-    <org.exoplatform.ws.version>2.2.10-GA-SNAPSHOT</org.exoplatform.ws.version>
+    <org.exoplatform.ws.version>2.3.0-GA</org.exoplatform.ws.version>
     <org.gatein.common.version>2.1.0.Final</org.gatein.common.version>
-    <org.gatein.pc.version>2.3.2-GA</org.gatein.pc.version>
-    <org.gatein.shindig.version>2.0.2-CP01</org.gatein.shindig.version>
-    <org.gatein.wci.version>2.2.0-Beta02</org.gatein.wci.version>
-    <org.gatein.web.version>3.4.0.Final</org.gatein.web.version>
-    <org.juzu.version>0.6.0-beta5</org.juzu.version>
+    <org.gatein.pc.version>2.4.0.Final</org.gatein.pc.version>
+    <org.gatein.shindig.version>2.0.2.Final-gatein-3</org.gatein.shindig.version>
+    <org.gatein.wci.version>2.3.0.Final</org.gatein.wci.version>
+    <org.gatein.web.version>3.5.0.Final</org.gatein.web.version>
   </properties>
   <dependencyManagement>
     <dependencies>
@@ -66,7 +65,7 @@
       <dependency>
         <groupId>org.exoplatform</groupId>
         <artifactId>maven-depmgt-pom</artifactId>
-        <version>1</version>
+        <version>2-SNAPSHOT</version>
         <type>pom</type>
         <scope>import</scope>
       </dependency>
@@ -320,7 +319,7 @@
         </exclusions>
       </dependency>
       <!-- DON'T REMOVE : used for packaging -->
-      <!-- used by org.exoplatform.portal:exo.portal.web.portal and org.exoplatform.portal:exo.portal.web.rest but not declared -->
+      <!-- used by org.gatein.portal:exo.portal.web.portal and org.gatein.portal:exo.portal.web.rest but not declared -->
       <dependency>
         <groupId>org.exoplatform.jcr</groupId>
         <artifactId>exo.jcr.framework.web</artifactId>
@@ -517,18 +516,6 @@
         <version>${project.version}</version>
         <type>war</type>
       </dependency>
-        <dependency>
-            <groupId>org.exoplatform.platform</groupId>
-            <artifactId>platform-extension-portlets-homepage</artifactId>
-            <version>${project.version}</version>
-            <type>war</type>
-        </dependency>
-        <dependency>
-            <groupId>org.exoplatform.platform</groupId>
-            <artifactId>platform-extension-portlets-homepage</artifactId>
-            <version>${project.version}</version>
-            <type>pom</type>
-        </dependency>
       <dependency>
         <groupId>org.exoplatform.platform</groupId>
         <artifactId>platform-extension-portlets-platformNavigation</artifactId>
@@ -741,212 +728,6 @@
         <artifactId>platform-trial-service</artifactId>
         <version>${project.version}</version>
       </dependency>
-      <!-- To be replaced by an import of GateIn Portal parent POM -->
-      <dependency>
-        <groupId>org.exoplatform.portal</groupId>
-        <artifactId>exo.portal.component.application-registry</artifactId>
-        <version>${org.gatein.portal.version}</version>
-        <exclusions>
-          <exclusion>
-            <!-- To be fixed in the original project -->
-            <artifactId>commons-logging</artifactId>
-            <groupId>commons-logging</groupId>
-          </exclusion>
-        </exclusions>
-      </dependency>
-      <dependency>
-        <groupId>org.exoplatform.portal</groupId>
-        <artifactId>exo.portal.component.common</artifactId>
-        <version>${org.gatein.portal.version}</version>
-        <exclusions>
-          <exclusion>
-            <!-- To be fixed in the original project -->
-            <artifactId>exo.tool.framework.junit</artifactId>
-            <groupId>org.exoplatform.tool</groupId>
-          </exclusion>
-        </exclusions>
-      </dependency>
-      <dependency>
-        <groupId>org.exoplatform.portal</groupId>
-        <artifactId>exo.portal.component.identity</artifactId>
-        <version>${org.gatein.portal.version}</version>
-      </dependency>
-      <!-- DON'T REMOVE : used for packaging -->
-      <!-- org.exoplatform.management.RestManagementProvider used but not declared in GateIn ? -->
-      <dependency>
-        <groupId>org.exoplatform.portal</groupId>
-        <artifactId>exo.portal.component.management</artifactId>
-        <version>${org.gatein.portal.version}</version>
-        <exclusions>
-          <exclusion>
-            <!-- To remove from org.exoplatform.ws:exo.ws.rest.core:jar (Issue to open) -->
-            <artifactId>servlet-api</artifactId>
-            <groupId>javax.servlet</groupId>
-          </exclusion>
-        </exclusions>
-      </dependency>
-      <dependency>
-        <groupId>org.exoplatform.portal</groupId>
-        <artifactId>exo.portal.component.portal</artifactId>
-        <version>${org.gatein.portal.version}</version>
-        <exclusions>
-          <exclusion>
-            <!-- To be fixed in the original project -->
-            <artifactId>servlet-api</artifactId>
-            <groupId>javax.servlet</groupId>
-          </exclusion>
-          <exclusion>
-            <!-- To be fixed in the original project -->
-            <artifactId>jsp-api</artifactId>
-            <groupId>javax.servlet.jsp</groupId>
-          </exclusion>
-          <exclusion>
-            <!-- To be fixed in the original project -->
-            <artifactId>log4j</artifactId>
-            <groupId>log4j</groupId>
-          </exclusion>
-          <exclusion>
-            <!-- To be fixed in the original project -->
-            <artifactId>xstream</artifactId>
-            <groupId>xstream</groupId>
-          </exclusion>
-          <exclusion>
-            <!-- To be fixed in the original project -->
-            <artifactId>jmock</artifactId>
-            <groupId>jmock</groupId>
-          </exclusion>
-          <exclusion>
-            <!-- To be fixed in the original project -->
-            <artifactId>commons-logging</artifactId>
-            <groupId>commons-logging</groupId>
-          </exclusion>
-          <exclusion>
-            <!-- To be fixed in the original project -->
-            <artifactId>exo.tool.framework.junit</artifactId>
-            <groupId>org.exoplatform.tool</groupId>
-          </exclusion>
-        </exclusions>
-      </dependency>
-      <dependency>
-        <groupId>org.exoplatform.portal</groupId>
-        <artifactId>exo.portal.component.resources</artifactId>
-        <version>${org.gatein.portal.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>org.exoplatform.portal</groupId>
-        <artifactId>exo.portal.component.scripting</artifactId>
-        <version>${org.gatein.portal.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>org.exoplatform.portal</groupId>
-        <artifactId>exo.portal.component.web.api</artifactId>
-        <version>${org.gatein.portal.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>org.exoplatform.portal</groupId>
-        <artifactId>exo.portal.component.web.controller</artifactId>
-        <version>${org.gatein.portal.version}</version>
-      </dependency>
-      <!-- DON'T REMOVE : used for packaging -->
-      <dependency>
-        <groupId>org.exoplatform.portal</groupId>
-        <artifactId>exo.portal.eXoGadgets</artifactId>
-        <version>${org.gatein.portal.version}</version>
-        <type>war</type>
-      </dependency>
-      <!-- DON'T REMOVE : used for packaging -->
-      <dependency>
-        <groupId>org.exoplatform.portal</groupId>
-        <artifactId>exo.portal.gadgets-server</artifactId>
-        <version>${org.gatein.portal.version}</version>
-        <type>war</type>
-      </dependency>
-      <!-- DON'T REMOVE : used for packaging -->
-      <dependency>
-        <groupId>org.exoplatform.portal</groupId>
-        <artifactId>exo.portal.portlet.dashboard</artifactId>
-        <version>${org.gatein.portal.version}</version>
-        <type>war</type>
-      </dependency>
-      <!-- DON'T REMOVE : used for packaging -->
-      <dependency>
-        <groupId>org.exoplatform.portal</groupId>
-        <artifactId>exo.portal.portlet.exoadmin</artifactId>
-        <version>${org.gatein.portal.version}</version>
-        <type>war</type>
-      </dependency>
-      <!-- DON'T REMOVE : used for packaging -->
-      <dependency>
-        <groupId>org.exoplatform.portal</groupId>
-        <artifactId>exo.portal.portlet.web</artifactId>
-        <version>${org.gatein.portal.version}</version>
-        <type>war</type>
-      </dependency>
-      <!-- DON'T REMOVE : used for packaging -->
-      <dependency>
-        <groupId>org.exoplatform.portal</groupId>
-        <artifactId>exo.portal.web.eXoResources</artifactId>
-        <version>${org.gatein.portal.version}</version>
-        <type>war</type>
-      </dependency>
-      <!-- DON'T REMOVE : used for packaging -->
-      <dependency>
-        <groupId>org.exoplatform.portal</groupId>
-        <artifactId>exo.portal.web.portal</artifactId>
-        <version>${org.gatein.portal.version}</version>
-        <type>war</type>
-      </dependency>
-      <!-- DON'T REMOVE : used for packaging -->
-      <dependency>
-        <groupId>org.exoplatform.portal</groupId>
-        <artifactId>exo.portal.web.rest</artifactId>
-        <version>${org.gatein.portal.version}</version>
-        <type>war</type>
-      </dependency>
-      <dependency>
-        <groupId>org.exoplatform.portal</groupId>
-        <artifactId>exo.portal.webui.core</artifactId>
-        <version>${org.gatein.portal.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>org.exoplatform.portal</groupId>
-        <artifactId>exo.portal.webui.framework</artifactId>
-        <version>${org.gatein.portal.version}</version>
-        <exclusions>
-          <exclusion>
-            <!-- To be fixed in the original project -->
-            <artifactId>commons-logging</artifactId>
-            <groupId>commons-logging</groupId>
-          </exclusion>
-        </exclusions>
-      </dependency>
-      <dependency>
-        <groupId>org.exoplatform.portal</groupId>
-        <artifactId>exo.portal.webui.portal</artifactId>
-        <version>${org.gatein.portal.version}</version>
-        <exclusions>
-          <exclusion>
-            <!-- To be fixed in the original project -->
-            <artifactId>commons-logging</artifactId>
-            <groupId>commons-logging</groupId>
-          </exclusion>
-          <exclusion>
-            <!-- To be fixed in the original project -->
-            <artifactId>servlet-api</artifactId>
-            <groupId>javax.servlet</groupId>
-          </exclusion>
-          <exclusion>
-            <!-- To be fixed in the original project -->
-            <artifactId>exo.tool.framework.junit</artifactId>
-            <groupId>org.exoplatform.tool</groupId>
-          </exclusion>
-        </exclusions>
-      </dependency>
-      <dependency>
-        <groupId>org.exoplatform.portal</groupId>
-        <artifactId>exo.portal.webui.portlet</artifactId>
-        <version>${org.gatein.portal.version}</version>
-      </dependency>
       <!-- Import versions from social project -->
       <dependency>
         <groupId>org.exoplatform.social</groupId>
@@ -1009,6 +790,215 @@
           </exclusion>
         </exclusions>
       </dependency>
+      <!-- To be replaced by an import of GateIn Portal parent POM -->
+      <dependency>
+        <groupId>org.gatein.portal</groupId>
+        <artifactId>exo.portal.component.application-registry</artifactId>
+        <version>${org.gatein.portal.version}</version>
+        <exclusions>
+          <exclusion>
+            <!-- To be fixed in the original project -->
+            <artifactId>commons-logging</artifactId>
+            <groupId>commons-logging</groupId>
+          </exclusion>
+        </exclusions>
+      </dependency>
+      <dependency>
+        <groupId>org.gatein.portal</groupId>
+        <artifactId>exo.portal.component.common</artifactId>
+        <version>${org.gatein.portal.version}</version>
+        <exclusions>
+          <exclusion>
+            <!-- To be fixed in the original project -->
+            <artifactId>exo.tool.framework.junit</artifactId>
+            <groupId>org.exoplatform.tool</groupId>
+          </exclusion>
+        </exclusions>
+      </dependency>
+      <dependency>
+        <groupId>org.gatein.portal</groupId>
+        <artifactId>exo.portal.component.identity</artifactId>
+        <version>${org.gatein.portal.version}</version>
+      </dependency>
+      <!-- DON'T REMOVE : used for packaging -->
+      <!-- org.exoplatform.management.RestManagementProvider used but not declared in GateIn ? -->
+      <dependency>
+        <groupId>org.gatein.portal</groupId>
+        <artifactId>exo.portal.component.management</artifactId>
+        <version>${org.gatein.portal.version}</version>
+        <exclusions>
+          <exclusion>
+            <!-- To remove from org.exoplatform.ws:exo.ws.rest.core:jar (Issue to open) -->
+            <artifactId>servlet-api</artifactId>
+            <groupId>javax.servlet</groupId>
+          </exclusion>
+        </exclusions>
+      </dependency>
+      <dependency>
+        <groupId>org.gatein.portal</groupId>
+        <artifactId>exo.portal.component.portal</artifactId>
+        <version>${org.gatein.portal.version}</version>
+        <exclusions>
+          <exclusion>
+            <!-- To be fixed in the original project -->
+            <artifactId>servlet-api</artifactId>
+            <groupId>javax.servlet</groupId>
+          </exclusion>
+          <exclusion>
+            <!-- To be fixed in the original project -->
+            <artifactId>jsp-api</artifactId>
+            <groupId>javax.servlet.jsp</groupId>
+          </exclusion>
+          <exclusion>
+            <!-- To be fixed in the original project -->
+            <artifactId>log4j</artifactId>
+            <groupId>log4j</groupId>
+          </exclusion>
+          <exclusion>
+            <!-- To be fixed in the original project -->
+            <artifactId>xstream</artifactId>
+            <groupId>xstream</groupId>
+          </exclusion>
+          <exclusion>
+            <!-- To be fixed in the original project -->
+            <artifactId>jmock</artifactId>
+            <groupId>jmock</groupId>
+          </exclusion>
+          <exclusion>
+            <!-- To be fixed in the original project -->
+            <artifactId>commons-logging</artifactId>
+            <groupId>commons-logging</groupId>
+          </exclusion>
+          <exclusion>
+            <!-- To be fixed in the original project -->
+            <artifactId>exo.tool.framework.junit</artifactId>
+            <groupId>org.exoplatform.tool</groupId>
+          </exclusion>
+        </exclusions>
+      </dependency>
+      <dependency>
+        <groupId>org.gatein.portal</groupId>
+        <artifactId>exo.portal.component.resources</artifactId>
+        <version>${org.gatein.portal.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.gatein.portal</groupId>
+        <artifactId>exo.portal.component.scripting</artifactId>
+        <version>${org.gatein.portal.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.gatein.portal</groupId>
+        <artifactId>exo.portal.component.web.api</artifactId>
+        <version>${org.gatein.portal.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.gatein.portal</groupId>
+        <artifactId>exo.portal.component.web.controller</artifactId>
+        <version>${org.gatein.portal.version}</version>
+      </dependency>
+      <!-- DON'T REMOVE : used for packaging -->
+      <dependency>
+        <groupId>org.gatein.portal</groupId>
+        <artifactId>exo.portal.eXoGadgets</artifactId>
+        <version>${org.gatein.portal.version}</version>
+        <type>war</type>
+      </dependency>
+      <!-- DON'T REMOVE : used for packaging -->
+      <dependency>
+        <groupId>org.gatein.portal</groupId>
+        <artifactId>exo.portal.gadgets-server</artifactId>
+        <version>${org.gatein.portal.version}</version>
+        <type>war</type>
+      </dependency>
+      <!-- DON'T REMOVE : used for packaging -->
+      <dependency>
+        <groupId>org.gatein.portal</groupId>
+        <artifactId>exo.portal.portlet.dashboard</artifactId>
+        <version>${org.gatein.portal.version}</version>
+        <type>war</type>
+      </dependency>
+      <!-- DON'T REMOVE : used for packaging -->
+      <dependency>
+        <groupId>org.gatein.portal</groupId>
+        <artifactId>exo.portal.portlet.exoadmin</artifactId>
+        <version>${org.gatein.portal.version}</version>
+        <type>war</type>
+      </dependency>
+      <!-- DON'T REMOVE : used for packaging -->
+      <dependency>
+        <groupId>org.gatein.portal</groupId>
+        <artifactId>exo.portal.portlet.web</artifactId>
+        <version>${org.gatein.portal.version}</version>
+        <type>war</type>
+      </dependency>
+      <!-- DON'T REMOVE : used for packaging -->
+      <dependency>
+        <groupId>org.gatein.portal</groupId>
+        <artifactId>exo.portal.web.eXoResources</artifactId>
+        <version>${org.gatein.portal.version}</version>
+        <type>war</type>
+      </dependency>
+      <!-- DON'T REMOVE : used for packaging -->
+      <dependency>
+        <groupId>org.gatein.portal</groupId>
+        <artifactId>exo.portal.web.portal</artifactId>
+        <version>${org.gatein.portal.version}</version>
+        <type>war</type>
+      </dependency>
+      <!-- DON'T REMOVE : used for packaging -->
+      <dependency>
+        <groupId>org.gatein.portal</groupId>
+        <artifactId>exo.portal.web.rest</artifactId>
+        <version>${org.gatein.portal.version}</version>
+        <type>war</type>
+      </dependency>
+      <dependency>
+        <groupId>org.gatein.portal</groupId>
+        <artifactId>exo.portal.webui.core</artifactId>
+        <version>${org.gatein.portal.version}</version>
+      </dependency>
+      <!-- DON'T REMOVE : used for packaging -->
+      <dependency>
+        <groupId>org.gatein.portal</groupId>
+        <artifactId>exo.portal.webui.framework</artifactId>
+        <version>${org.gatein.portal.version}</version>
+        <exclusions>
+          <exclusion>
+            <!-- To be fixed in the original project -->
+            <artifactId>commons-logging</artifactId>
+            <groupId>commons-logging</groupId>
+          </exclusion>
+        </exclusions>
+      </dependency>
+      <!-- DON'T REMOVE : used for packaging -->
+      <dependency>
+        <groupId>org.gatein.portal</groupId>
+        <artifactId>exo.portal.webui.portal</artifactId>
+        <version>${org.gatein.portal.version}</version>
+        <exclusions>
+          <exclusion>
+            <!-- To be fixed in the original project -->
+            <artifactId>commons-logging</artifactId>
+            <groupId>commons-logging</groupId>
+          </exclusion>
+          <exclusion>
+            <!-- To be fixed in the original project -->
+            <artifactId>servlet-api</artifactId>
+            <groupId>javax.servlet</groupId>
+          </exclusion>
+          <exclusion>
+            <!-- To be fixed in the original project -->
+            <artifactId>exo.tool.framework.junit</artifactId>
+            <groupId>org.exoplatform.tool</groupId>
+          </exclusion>
+        </exclusions>
+      </dependency>
+      <!-- DON'T REMOVE : used for packaging -->
+      <dependency>
+        <groupId>org.gatein.portal</groupId>
+        <artifactId>exo.portal.webui.portlet</artifactId>
+        <version>${org.gatein.portal.version}</version>
+      </dependency>
       <!-- To be replaced by an import of GateIn Shinding parent POM -->
       <dependency>
         <groupId>org.gatein.shindig</groupId>
@@ -1037,7 +1027,7 @@
       <!-- To be replaced by an import of GateIn WCI parent POM -->
       <dependency>
         <groupId>org.gatein.wci</groupId>
-        <artifactId>wci-tomcat6</artifactId>
+        <artifactId>wci-tomcat7</artifactId>
         <version>${org.gatein.wci.version}</version>
       </dependency>
       <!-- Coming from gateIn ??? - org.gatein.web.redirect.implementation.RedirectHandlerImpl -->
@@ -1046,22 +1036,6 @@
         <artifactId>redirect</artifactId>
         <version>${org.gatein.web.version}</version>
       </dependency>
-        <dependency>
-            <groupId>org.juzu</groupId>
-            <artifactId>juzu-core</artifactId>
-            <version>${org.juzu.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.juzu</groupId>
-            <artifactId>juzu-bom-core</artifactId>
-            <version>${org.juzu.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.juzu</groupId>
-            <artifactId>juzu-plugins-portlet</artifactId>
-            <version>${org.juzu.version}</version>
-        </dependency>
-
     </dependencies>
   </dependencyManagement>
   <build>
