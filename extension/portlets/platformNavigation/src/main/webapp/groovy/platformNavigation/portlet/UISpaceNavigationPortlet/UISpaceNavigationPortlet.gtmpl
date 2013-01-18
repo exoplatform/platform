@@ -116,13 +116,13 @@
   String selectSpaceAction = URLEncoder.encode(uicomponent.event(uicomponent.LOAD_NAVIGATION_ACTION), "utf-8");
   def rcontext = _ctx.getRequestContext() ;
   def jsManager = rcontext.getJavascriptManager();
-  jsManager.require("SHARED/navigation-spaces-search", "search").addScripts("search.init('" + uicomponent.id  + "','" + restUrl + "','" + defaultValueForTextSearch +"','" + noSpace + "','" + selectSpaceAction + "');");
+  jsManager.require("SHARED/navigation-spaces-search", "navigationSpaceSearch").addScripts("navigationSpaceSearch.init('" + uicomponent.id  + "','" + restUrl + "','" + defaultValueForTextSearch +"','" + noSpace + "','" + selectSpaceAction + "');");
 %>
 
 <div class="uiSpaceNavigationPortlet" id="$uicomponent.id">
   <h5 class="title"><%=_ctx.appRes("UISpaceNavigationPortlet.label.Spaces")%> <span class="numbers">($spaceTotal)</span></h5>
   <!-- Merge exoadmin:  navigation-->
-    <div class="searchInput"><input type="text" class="searchText LostFocus" value="Search Spaces"/></div>
+    <div class="searchInput"><input type="text" class="searchText LostFocus" placeholder="Search Spaces"/></div>
 
 	<ul class="spaceNavigation">
 
