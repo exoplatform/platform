@@ -1,8 +1,5 @@
 package org.exoplatform.platform.component;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import org.exoplatform.cs.event.UICreateEvent;
 import org.exoplatform.forum.create.UICreatePoll;
 import org.exoplatform.forum.create.UICreateTopic;
@@ -17,6 +14,9 @@ import org.exoplatform.webui.core.UIComponent;
 import org.exoplatform.webui.core.UIContainer;
 import org.exoplatform.webui.event.Event;
 import org.exoplatform.webui.event.EventListener;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @author <a href="rtouzi@exoplatform.com">rtouzi</a>
@@ -80,7 +80,7 @@ public class UICreateList extends UIContainer {
             remove(uisource);
             uisource.addChild(UICreateEvent.class, null, null).setRendered(true);
             event.getRequestContext().addUIComponentToUpdateByAjax(uisource);
-            event.getRequestContext().addUIComponentToUpdateByAjax(uiForm);
+           // event.getRequestContext().addUIComponentToUpdateByAjax(uiForm);
         }
 
     }
@@ -95,6 +95,7 @@ public class UICreateList extends UIContainer {
       UICreatePoll createPoll = uisource.addChild(UICreatePoll.class, null, null);
       createPoll.setRendered(true);
       createPoll.setParStatus(parStatus);
+        System.out.println(parStatus+"###########");
       event.getRequestContext().addUIComponentToUpdateByAjax(uisource);
     }
 
@@ -126,7 +127,7 @@ public class UICreateList extends UIContainer {
             remove(uisource);
             uisource.addChild(UICreateForm.class, null, null).setRendered(true);
             event.getRequestContext().addUIComponentToUpdateByAjax(uisource);
-            event.getRequestContext().addUIComponentToUpdateByAjax(uiForm);
+        //   event.getRequestContext().addUIComponentToUpdateByAjax(uiForm);
         }
     }
 
@@ -159,7 +160,8 @@ public class UICreateList extends UIContainer {
             WebuiRequestContext context = event.getRequestContext();
             remove(uiparent);
             context.addUIComponentToUpdateByAjax(uiparent);
-            context.addUIComponentToUpdateByAjax(uiForm);
+           //context.addUIComponentToUpdateByAjax(uiForm);
+        // context.getJavascriptManager().require("SHARED/navigation-toolbar", "toolbarnav").addScripts("toolbarnav.UIPortalNavigation.cancelNextClik('"+uiForm.getId()+"');");
 
 
         }
