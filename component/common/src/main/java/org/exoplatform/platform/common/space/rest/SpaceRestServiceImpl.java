@@ -18,7 +18,16 @@
  */
 package org.exoplatform.platform.common.space.rest;
 
-import org.exoplatform.common.http.HTTPStatus;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import javax.ws.rs.GET;
+import javax.ws.rs.Path;
+import javax.ws.rs.QueryParam;
+import javax.ws.rs.core.CacheControl;
+import javax.ws.rs.core.Context;
+import javax.ws.rs.core.Response;
+import javax.ws.rs.core.SecurityContext;
 import org.exoplatform.container.PortalContainer;
 import org.exoplatform.services.log.ExoLogger;
 import org.exoplatform.services.log.Log;
@@ -27,14 +36,6 @@ import org.exoplatform.social.core.space.SpaceFilter;
 import org.exoplatform.social.core.space.SpaceListAccess;
 import org.exoplatform.social.core.space.model.Space;
 import org.exoplatform.social.core.space.spi.SpaceService;
-
-import javax.ws.rs.GET;
-import javax.ws.rs.Path;
-import javax.ws.rs.QueryParam;
-import javax.ws.rs.core.*;
-import java.util.Arrays;
-import java.util.List;
-
 /**
  * @author <a href="kmenzli@exoplatform.com">kmenzli</a>
  * @date 01/12/12
@@ -47,7 +48,10 @@ public class SpaceRestServiceImpl implements ResourceContainer {
     private final SpaceService spaceService;
 
     private final CacheControl cacheControl;
+    private static final int MAX_LOADED_SPACES_BY_REQUEST = 20;
+
     SpaceListAccess listAccess;
+
     public SpaceRestServiceImpl(SpaceService spaceService) {
         this.spaceService = spaceService;
         cacheControl = new CacheControl();
@@ -58,52 +62,65 @@ public class SpaceRestServiceImpl implements ResourceContainer {
     @GET
     @Path("/user/searchSpace/")
     public Response searchSpaces(@QueryParam("keyword") String keyword,@Context SecurityContext sc) {
-
         StringBuffer baseSpaceURL = null;
-
-        try {
-
+        try
+        {
             String userId = sc.getUserPrincipal().getName();
             if (userId == null) {
-                return Response.status(HTTPStatus.INTERNAL_ERROR).cacheControl(cacheControl).build();
+                return Response.status(500).cacheControl(cacheControl).build();
             }
-               if(keyword==null || keyword.equals("") )    {
-                   listAccess = spaceService.getVisibleSpacesWithListAccess(userId, null);
-               }else{
-             listAccess = spaceService.getVisibleSpacesWithListAccess(userId, new SpaceFilter(keyword));
-               }
-            List<Space> spaces = Arrays.asList(listAccess.load(0, 10));
-
+            if ((keyword == null) || (keyword.equals(""))) {
+                listAccess = spaceService.getVisibleSpacesWithListAccess(userId, null);
+            } else {
+                listAccess = spaceService.getVisibleSpacesWithListAccess(userId, new SpaceFilter(keyword));
+            }
+            List<Space> spacesSearched = Arrays.asList(listAccess.load(0, MAX_LOADED_SPACES_BY_REQUEST));
+            List<Space> spaces = spaceService.getLastAccessedSpace(userId, null, 0, MAX_LOADED_SPACES_BY_REQUEST);
+            List<Space> removedSpaces = new ArrayList<Space>();
             for (Space space : spaces) {
-
                 baseSpaceURL = new StringBuffer();
-                //TODO Found solution to build spaces Link
 
                 baseSpaceURL.append(PortalContainer.getCurrentPortalContainerName()+ "/g/:spaces:") ;
                 String groupId = space.getGroupId();
                 String permanentSpaceName = groupId.split("/")[2];
-
-                if (permanentSpaceName.equals(space.getPrettyName())) {
-                    //work-around for SOC-2366 when delete space after that create new space with the same name
+                if ((filterSpace(space.getId(), spacesSearched)) && (permanentSpaceName.startsWith(keyword)))
+                {
+                    if (permanentSpaceName.equals(space.getPrettyName()))
+                    {
                     baseSpaceURL.append(permanentSpaceName) ;
                     baseSpaceURL.append("/");
                     baseSpaceURL.append(permanentSpaceName) ;
-
-                } else {
+                    }
+                    else {
                     baseSpaceURL.append(space.getPrettyName()) ;
                     baseSpaceURL.append("/");
                     baseSpaceURL.append(space.getPrettyName()) ;
-
                 }
+
                 space.setUrl(baseSpaceURL.toString());
             }
+                else {
+                    removedSpaces.add(space);
+                }
 
-            return Response.ok(spaces, MediaType.APPLICATION_JSON).cacheControl(cacheControl).build();
+            }
+
+            spaces.removeAll(removedSpaces);
+            return Response.ok(spaces, "application/json").cacheControl(cacheControl).build();
         } catch (Exception ex) {
-            if (logger.isWarnEnabled()) {
+            if (logger.isWarnEnabled())
                 logger.warn("An exception happens when searchSpaces", ex);
             }
-            return Response.status(HTTPStatus.INTERNAL_ERROR).cacheControl(cacheControl).build();
-        }
+        return Response.status(500).cacheControl(cacheControl).build();
     }
+    private static boolean filterSpace(String spaceId, List<Space> spacesSearched) {
+        for (Space space : spacesSearched) {
+            if (space.getId().equals(spaceId)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+
 }
