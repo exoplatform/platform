@@ -63,7 +63,7 @@
               <boolean>true</boolean>
             </field>
             <field name="viewSideBar">
-              <boolean>true</boolean>
+              <boolean>false</boolean>
             </field>
             <field name="showHiddenNode">
               <boolean>false</boolean>

@@ -46,7 +46,7 @@
             <field  name="views"><string>e_admin-view, authoring-view</string></field>
             <field  name="viewPreferences"><boolean>false</boolean></field>
             <field  name="viewNonDocument"><boolean>true</boolean></field>
-            <field  name="viewSideBar"><boolean>true</boolean></field>
+            <field  name="viewSideBar"><boolean>false</boolean></field>
             <field  name="showHiddenNode"><boolean>false</boolean></field>
             <field  name="allowCreateFolders"><string>nt:folder,nt:unstructured</string></field>
             <field  name="allowNodeTypesOnTree"><string>*</string></field>       
