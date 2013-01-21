@@ -60,7 +60,7 @@
               <value>
                 <object type="org.exoplatform.ide.groovy.codeassistant.bean.JarEntry">
                   <field name="jarPath">
-                    <string>${jre.lib}${file.separator}rt.jar</string>
+                    <string>${java.home}${file.separator}..${file.separator}jre${file.separator}lib${file.separator}rt.jar</string>
                   </field>
                   <field name="includePkg">
                     <collection type="java.util.ArrayList">
@@ -81,7 +81,7 @@
               <value>
                 <object type="org.exoplatform.ide.groovy.codeassistant.bean.JarEntry">
                   <field name="jarPath">
-                    <string>${javasrc}</string>
+                    <string>${java.home}${file.separator}..${file.separator}src.zip</string>
                   </field>
                   <field name="includePkg">
                     <collection type="java.util.ArrayList">
