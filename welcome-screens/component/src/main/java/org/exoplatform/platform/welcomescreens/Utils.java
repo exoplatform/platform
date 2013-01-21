@@ -1,4 +1,4 @@
-package org.exoplatform.platform.common.welcomescreens;
+package org.exoplatform.platform.welcomescreens;
 
 import org.apache.commons.codec.binary.Base64;
 import org.bouncycastle.jce.provider.BouncyCastleProvider;

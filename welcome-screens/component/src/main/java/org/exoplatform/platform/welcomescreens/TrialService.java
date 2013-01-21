@@ -1,4 +1,4 @@
-package org.exoplatform.platform.common.welcomescreens;
+package org.exoplatform.platform.welcomescreens;
 
 import org.apache.commons.codec.binary.Base64;
 import org.exoplatform.commons.info.MissingProductInformationException;
@@ -7,9 +7,10 @@ import org.exoplatform.container.xml.InitParams;
 import org.exoplatform.container.xml.ValueParam;
 import org.exoplatform.services.log.ExoLogger;
 import org.exoplatform.services.log.Log;
+import org.exoplatform.web.filter.Filter;
 import org.picocontainer.Startable;
 
-import javax.servlet.ServletException;
+import javax.servlet.*;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -123,7 +124,7 @@ public class TrialService implements Startable {
                 //dismissed = false;
                 //String remindDateString = Utils.readFromFile(Utils.REMIND_DATE, Utils.HOME_CONFIG_FILE_LOCATION);
                 //remindDate = Utils.parseDateBase64(remindDateString);
-                computeUnlockedInformation();
+               computeUnlockedInformation();
             }
         }, 1, 1, TimeUnit.MINUTES);
     }
@@ -208,11 +209,11 @@ public class TrialService implements Startable {
         today.set(Calendar.MINUTE, 0);
         today.set(Calendar.SECOND, 0);
         today.set(Calendar.MILLISECOND, 0);
-        if (remindDate.compareTo(today) < 0 || delayPeriod <= 0) { // Reminder
+        if (remindDate.compareTo(today) <= 0 || delayPeriod <= 0) { // Reminder
             // Date is
             // outdated
             nbDaysBeforeExpiration=0;
-            nbDaysAfterExpiration= nbDaysAfterExpiration + (int) TimeUnit.MILLISECONDS.toDays(remindDate.getTimeInMillis() - today.getTimeInMillis());
+            nbDaysAfterExpiration= nbDaysAfterExpiration + (int) TimeUnit.MILLISECONDS.toDays(today.getTimeInMillis()-remindDate.getTimeInMillis());
             remindDate = today;
             delayPeriod = 0;
             outdated = true;
@@ -236,7 +237,7 @@ public class TrialService implements Startable {
         int period = Integer.parseInt(periodString) / 3;
         return period;
     }
-    /*
+
     public static class TrialFilter implements Filter {
 
         public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException,
@@ -249,8 +250,8 @@ public class TrialService implements Startable {
                 chain.doFilter(request, response);
                 return;
             }
-            if (TrialServicee.calledUrl == null) {
-                TrialServicee.calledUrl = httpServletRequest.getRequestURI();
+            if (TrialService.calledUrl == null) {
+                TrialService.calledUrl = httpServletRequest.getRequestURI();
             }
         }
 
@@ -260,20 +261,16 @@ public class TrialService implements Startable {
             return mimeType != null;
         }
     }
-    */
+
     public static class UnlockServlet extends HttpServlet {
         private static final long serialVersionUID = -4806814673109318163L;
 
         @Override
         protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-            String rdate = request.getParameter("rdate");
-            if (rdate == null || rdate.isEmpty()) { // UnlockRequest
+                String rdate=null;
                 String hashMD5Added = request.getParameter("hashMD5");
-                if (hashMD5Added == null) {
-                    response.sendRedirect(TrialService.calledUrl);
-                    return;
-                }
+                if (hashMD5Added != null) {
                 try {
                     delayPeriod = decodeEvaluationKey(productCode, hashMD5Added);
                 } catch (Exception exception) {
@@ -282,7 +279,7 @@ public class TrialService implements Startable {
                 if (delayPeriod <= 0) {
                     outdated = true;
                     request.setAttribute("errorMessage", "Sorry this evaluation key is not valid.");
-                    request.getRequestDispatcher("/jsp/extend.jsp").include(request, response);
+                    request.getRequestDispatcher("/jsp/expired.jsp").include(request, response);
                     return;
                 }
                 productCode = generateProductCode();

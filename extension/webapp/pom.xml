@@ -10,6 +10,10 @@
   <packaging>war</packaging>
   <name>eXo Platform - Extension Webapp</name>
   <dependencies>
+      <dependency>
+          <groupId>org.exoplatform.platform</groupId>
+          <artifactId>platform-welcome-screens-component</artifactId>
+      </dependency>
     <dependency>
       <groupId>org.chromattic</groupId>
       <artifactId>chromattic.dataobject</artifactId>

@@ -22,6 +22,7 @@
     <module>exo-gadget-pack</module>
     <module>packaging</module>
     <module>testsuite</module>
+      <module>welcome-screens</module>
   </modules>
   <scm>
     <connection>scm:git:git://github.com/exoplatform/platform.git</connection>
@@ -465,6 +466,11 @@
             <version>${project.version}</version>
        </dependency>
         <dependency>
+            <groupId>org.exoplatform.platform</groupId>
+            <artifactId>platform-welcome-screens-component</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
             <groupId>org.exoplatform.calendar</groupId>
             <artifactId>calendar-component-create</artifactId>
             <version>${org.exoplatform.calendar.version}</version>
@@ -732,6 +738,18 @@
         <artifactId>platform-trial-service</artifactId>
         <version>${project.version}</version>
       </dependency>
+        <dependency>
+            <groupId>org.exoplatform.platform</groupId>
+            <artifactId>platform-welcome-screens-webapp</artifactId>
+            <version>${project.version}</version>
+            <type>war</type>
+        </dependency>
+        <dependency>
+            <groupId>org.exoplatform.platform</groupId>
+            <artifactId>platform-welcome-screens-webapp</artifactId>
+            <version>${project.version}</version>
+            <type>pom</type>
+        </dependency>
       <!-- Import versions from social project -->
       <dependency>
         <groupId>org.exoplatform.social</groupId>

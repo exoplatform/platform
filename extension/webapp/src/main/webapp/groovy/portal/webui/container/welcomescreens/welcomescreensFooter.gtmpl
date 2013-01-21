@@ -1,6 +1,6 @@
 <%
-    import org.exoplatform.platform.common.welcomescreens.TrialService;
-    import org.exoplatform.platform.common.welcomescreens.Utils;
+    import org.exoplatform.platform.welcomescreens.TrialService;
+    import org.exoplatform.platform.welcomescreens.Utils;
 %>
 <%
     def rdate = TrialService.computeRemindDateFromTodayBase64();
@@ -32,22 +32,22 @@
 <div id="<%=uicomponent.id%>">
 
     <%
-        css="backNotOutdated";
-        label1="You have";
-        label2="days left in your evaluation";
+        def css="backNotOutdated";
+        def label1="You have";
+        def label2="days left in your evaluation";
         def labelRemove="Remove This Banner"
 
         if (outdated)  {
-            def css="backOutdated";
-            def label1= "Your evaluation has expired"  ;
-            def label2= "days ago";
+            css="backOutdated";
+            label1= "Your evaluation has expired"  ;
+            label2= "days ago";
             rday = TrialService.getNbDaysAfterExpiration();
         }
     %>
     <div >
         <div class="WLCFooter <%=css  %>">
             <%=label1 %> <%=rday%> <%=label2 %>
-            <a class="removeButton" href="/platform-extension/jsp/unlockTrial.jsp"><%= labelRemove %></a>
+            <a class="removeButton" href="jsp/unlockTrial.jsp"><%= labelRemove %></a>
         </div>
     </div>
 </div>

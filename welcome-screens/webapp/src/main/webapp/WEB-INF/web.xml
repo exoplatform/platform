@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<web-app
+        version="3.0"
+        metadata-complete="true"
+        xmlns="http://java.sun.com/xml/ns/javaee"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd">
+    <display-name>trial</display-name>
+    <servlet>
+        <servlet-name>UnlockServlet</servlet-name>
+        <servlet-class>org.exoplatform.platform.welcomescreens.TrialService$UnlockServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>UnlockServlet</servlet-name>
+        <url-pattern>/UnlockServlet</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>TermsAndConditionsViewServlet</servlet-name>
+        <servlet-class>org.exoplatform.platform.welcomescreens.admin.TermsAndConditionsViewServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>TermsAndConditionsActionServlet</servlet-name>
+        <servlet-class>org.exoplatform.platform.welcomescreens.admin.TermsAndConditionsActionServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>TermsAndConditionsViewServlet</servlet-name>
+        <url-pattern>/terms-and-conditions</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>TermsAndConditionsActionServlet</servlet-name>
+        <url-pattern>/terms-and-conditions-action</url-pattern>
+    </servlet-mapping>
+</web-app>
