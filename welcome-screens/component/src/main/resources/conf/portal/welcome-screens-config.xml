@@ -17,7 +17,7 @@
             </value-param>
             <value-param>
                 <name>registrationFormUrl</name>
-                <value>http://www.exoplatform.com/exo-platform-4-subscribtions</value>
+                <value>http://www.exoplatform.com/exo-platform-35-subscribtions</value>
             </value-param>
             <value-param>
                 <name>extendFormUrl</name>
@@ -89,7 +89,7 @@
             </init-params>
         </component-plugin>
     </external-component-plugins>
-  <!--  <external-component-plugins>
+    <external-component-plugins>
         <target-component>org.exoplatform.web.filter.ExtensibleFilter</target-component>
         <component-plugin>
             <name>Trial Filter</name>
@@ -113,5 +113,5 @@
                 </object-param>
             </init-params>
         </component-plugin>
-    </external-component-plugins>   -->
+    </external-component-plugins>
 </configuration>
