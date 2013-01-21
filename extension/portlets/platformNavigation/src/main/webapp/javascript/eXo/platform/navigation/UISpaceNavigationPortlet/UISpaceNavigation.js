@@ -1,80 +1,110 @@
-(function ($) {
+(function($) {
     var UISpaceNavigation = {
-        textField: null,
-        mySpaceRestUrl: '',
-        selectSpaceAction: '',
-        noSpace: '',
-        lastSearchKeyword: '',
-        init: function (uicomponentId, mySpaceRestUrl, defaultValueForTextSearch, noSpace, selectSpaceAction) {
+        init: function(uicomponentId, mySpaceRestUrl, defaultValueForTextSearch,noSpace, selectSpaceAction) {
+            var me = this;
+            me.mySpaceRestUrl = mySpaceRestUrl;
+            me.lastSearchKeyword = "";
+            me.defaultValueForTextSearch = defaultValueForTextSearch;
+            me.selectSpaceAction = selectSpaceAction;
+            me.noSpace=noSpace;
+            var me = this;
+            var navigationSpaceSearch = document.getElementById(uicomponentId);
+            var textField = $(navigationSpaceSearch).find("input.searchText")[0];
+            textField.value = defaultValueForTextSearch;
+            textField.onkeydown = function() {
+                me.onTextSearchChange(uicomponentId);
+            };
 
-          var me = UISpaceNavigation;
-          me.mySpaceRestUrl = mySpaceRestUrl;
-          me.lastSearchKeyword = "";
-          me.selectSpaceAction = selectSpaceAction;
-          me.noSpace = noSpace;
+            textField.onkeypress = function() {
+                me.onTextSearchChange(uicomponentId);
+            };
 
-          me.textField = $('#' + me.uicomponentId).find("input.searchText");
+            textField.onkeyup = function() {
+                me.onTextSearchChange(uicomponentId);
+            };
 
-          me.textField.on('keyup', function (e) {
-              me.onTextSearchChange(this);
-          });
+            textField.onfocus = function() {
+                if (textField.value == me.defaultValueForTextSearch) {
+                    textField.value = "";
+                }
+                textField.className="searchText Focus"
+            };
 
-          me.textField.on('focus', function () {
-              $(this).attr('class', 'searchText Focus');
-          });
+            textField.onclick = function(event) {
 
-          me.textField.on('blur', function () {
-              $(this).attr('class', 'searchText LostFocus');
-          });
+                if (event.stopPropagation){
+                    event.stopPropagation();
+                } else if(window.event){
+                    window.event.cancelBubble=true;
+                }
+            };
 
-          me.textField.on('click', function (e) {
-              e.stopPropagation();
-          });
+            // When textField lost focus
+            textField.onblur = function() {
+                if (textField.value == "") {
+                    textField.value = me.defaultValueForTextSearch;
+                    textField.className="searchText LostFocus";
+                }
+            };
+
 
         },
-        requestData: function (keyword) {
+        requestData: function(keyword, uicomponentId) {
+            var me = this;
 
-            var url = UISpaceNavigation.mySpaceRestUrl + "?keyword=" + keyword;
-            $.getJSON(url, {}, function (data) {
-                UISpaceNavigation.render(data);
+            $.ajax({
+                async : false,
+                url : me.mySpaceRestUrl + "?keyword=" + keyword,
+                type : 'GET',
+                data : '',
+                success : function(data) {
+                    me.render(data, uicomponentId);
+                }
             });
         },
-        render: function (dataList) {
-            UISpaceNavigation.dataList = dataList;
-            var spacesListREsult = textField.find('ul.spaceNavigation:first');
+        render: function(dataList, uicomponentId) {
+            var me = this;
+            me.dataList = dataList;
+
+            var navigationSpaceSearch = document.getElementById(uicomponentId);
+            var spacesListREsult = $(navigationSpaceSearch).find('ul.spaceNavigation')[0];
             //var spaces = dataList.jsonList;
             var spaces = dataList;
             var groupSpaces = '';
-            var spaceUrl = window.location.protocol + "//" + window.location.host + "/";
             for (i = 0; i < spaces.length; i++) {
                 var spaceId = spaces[i].id;
+                var spaceUrl = window.location.protocol + "//" + window.location.host + "/" + spaces[i].url;
                 var name = spaces[i].displayName;
-                var imageUrl = spaces[i].avatarUrl;
-                if (!imageUrl) {
+                var imageUrl=spaces[i].avatarUrl;
+                if (imageUrl == null) {
                     imageUrl = "/social-resources/skin/ShareImages/SpaceImages/SpaceLogoDefault_61x61.gif";
                 }
-                var spaceDiv = '<li class="spaceItem">' + 
-                               '  <a class="spaceIcon"' + '" href="' + (spaceUrl + spaces[i].url) + '">' +
-                               '    <img src="' + imageUrl + '"/>' + name + 
-                               '  </a>' +
-                               '</li><br/>';
+                var spaceDiv = "<li class='spaceItem'>"+"<a class='spaceIcon'"
+                        + "' href='" + spaceUrl + "'><img src='"+imageUrl+"'/>"
+                        + name + "</a></li><br/>";
                 groupSpaces += spaceDiv;
             }
-
-            if (groupSpaces != '') {
-                spacesListREsult.html(groupSpaces);
-            } else {
-                spacesListREsult.html(UISpaceNavigation.noSpace);
+            if(groupSpaces!=''){
+                spacesListREsult.innerHTML = groupSpaces;
+            }else{
+                spacesListREsult.innerHTML= me.noSpace  ;
             }
         },
-        onTextSearchChange: function (elm) {
-            var textSearch = $(elm).val();
+        onTextSearchChange: function(uicomponentId) {
+            var me = this;
+            var navigationSpaceSearch = document.getElementById(uicomponentId);
+            var textSearch = $(navigationSpaceSearch).find("input.searchText")[0].value;
 
-            if (textSearch != UISpaceNavigation.lastSearchKeyword) {
-                UISpaceNavigation.lastSearchKeyword = textSearch;
-                UISpaceNavigation.requestData(textSearch);
+            if (textSearch != me.lastSearchKeyword) {
+                me.lastSearchKeyword = textSearch;
+                me.requestData(textSearch, uicomponentId);
+
             }
+        },
+        ajaxRedirect: function (url) {
+            window.parent.location.href = url ;
         }
     };
+
     return UISpaceNavigation;
 })($);
