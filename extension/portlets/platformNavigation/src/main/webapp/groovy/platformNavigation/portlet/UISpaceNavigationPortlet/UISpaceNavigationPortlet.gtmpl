@@ -160,10 +160,13 @@
     <!-- FIN -->
 
 	</ul>
+	<div style="border: 1px solid red">
+		<img title="" alt="" src="/eXoPlatformResources/skin/platformSkin/icons/icon_join.jpg" />
+		<a class="EditorIcon TBIcon" href="<%= findSpacesLink %>">
+		<%=_ctx.appRes("UISpaceNavigationPortlet.label.Join")%>
+		</a>
+	</div>
 </div>
 
- <div>
-	<img title="" alt="" src="/eXoPlatformResources/skin/platformSkin/icons/icon_join.jpg" /><a class="EditorIcon TBIcon" href="<%= findSpacesLink %>">
-	<%=_ctx.appRes("UISpaceNavigationPortlet.label.Join")%></a></div>
-</div>
+ 
 <% } %>

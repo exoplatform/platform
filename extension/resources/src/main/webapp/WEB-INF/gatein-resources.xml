@@ -24,7 +24,7 @@
 	<portal-skin>
 		<skin-name>Default</skin-name>
 		<skin-module>Platform-css</skin-module>
-		<css-path>/skin/platform.css</css-path>
+		<css-path>/skin/css/platform.css</css-path>
 		<css-priority>7</css-priority>
 		<overwrite>true</overwrite>
 	</portal-skin>
