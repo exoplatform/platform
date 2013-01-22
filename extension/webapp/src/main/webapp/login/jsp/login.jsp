@@ -153,6 +153,13 @@
 			  background: url('/platform-extension/login/jsp/images/LoginBackground.gif') center bottom;
 			}
 
+            #platformInfoDiv {
+                color: #FFFFFF;
+                font-size: 11px;
+                background:#808080;
+                padding-left: 15px;
+                font-weight:bold;
+            }
 		</style>
     <script type="text/javascript" src="/eXoResources/javascript/eXo.js"></script>
     <script type="text/javascript" src="/eXoResources/javascript/eXo/portal/UIPortalControl.js"></script>
@@ -232,6 +239,6 @@
       </div>
     </div>
 
-    <div id="platformInfoDiv" style="font-size: 11px; color: #3f3f3f; text-align: center"></div>
+    <div id="platformInfoDiv"></div>
   </body>
 </html>

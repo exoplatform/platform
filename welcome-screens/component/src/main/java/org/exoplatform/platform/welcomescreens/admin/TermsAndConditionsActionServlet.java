@@ -80,7 +80,7 @@ public class TermsAndConditionsActionServlet extends HttpServlet {
         try {
             userHandler.createUser(user, true);
         } catch (Exception e) {
-            logger.error("Can not create User");
+            logger.error("Can not create User", e);
         }
 
         // Assign the membership "member:/platform/administrators"  to the created user
@@ -90,17 +90,16 @@ public class TermsAndConditionsActionServlet extends HttpServlet {
             MembershipType membershipType = membershipTypeHandler.findMembershipType(MEMBERSHIP_TYPE_Member);
             orgService.getMembershipHandler().linkMembership(user, group, membershipType, true);
         } catch (Exception e) {
-            logger.error("Can not assign member:/platform/administrators membership to the created user");
+            logger.error("Can not assign member:/platform/administrators membership to the created user", e);
         }
 
         // Set password for admin user
         try {
             User adminUser = userHandler.findUserByName(ADMIN_FIRST_NAME);
             adminUser.setPassword(adminPassword);
-            String pwd = adminUser.getPassword();
             orgService.getUserHandler().saveUser(adminUser, false);
         } catch (Exception e) {
-            logger.error("Can not set password to the created user");
+            logger.error("Can not set password to the created user", e);
         }
 
         if (initialURI == null || initialURI.length() == 0) {
