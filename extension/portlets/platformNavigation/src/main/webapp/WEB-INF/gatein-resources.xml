@@ -81,6 +81,9 @@
             <depends>
                 <module>base</module>
             </depends>
+           <depends>
+              <module>navigation-toolbar</module>
+           </depends>
             <!--
             <depends>
                 <module>socialcomposer</module>
@@ -91,17 +94,7 @@
             </depends>
         </module>
     </portlet>
-    <portlet>
-        <name>UIUserPlatformToolBarPortlet</name>
-        <module>
-            <depends>
-                <module>base</module>
-            </depends>
-            <depends>
-                <module>social-core</module>
-            </depends>
-        </module>
-    </portlet>
+
     <portlet>
         <name>UICreatePlatformToolBarPortlet</name>
         <module>

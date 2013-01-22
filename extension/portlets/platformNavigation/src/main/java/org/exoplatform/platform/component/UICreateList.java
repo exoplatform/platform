@@ -95,7 +95,6 @@ public class UICreateList extends UIContainer {
       UICreatePoll createPoll = uisource.addChild(UICreatePoll.class, null, null);
       createPoll.setRendered(true);
       createPoll.setParStatus(parStatus);
-        System.out.println(parStatus+"###########");
       event.getRequestContext().addUIComponentToUpdateByAjax(uisource);
     }
 

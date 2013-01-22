@@ -1,10 +1,10 @@
-(function($, base, uiPopup) {
+(function ($, base, uiPopup) {
     var uiPopupMenu = {
 
         // Elements that must be hidden
-        elementsToHide : [],
+        elementsToHide:[],
         // Elements that must be kept visible
-        currentVisibleContainers : [],
+        currentVisibleContainers:[],
 
         /**
          * initialize UIPopupMenu
@@ -14,7 +14,7 @@
          * @param {Object}
                 *          container
          */
-        init : function(popupMenu, container) {
+        init:function (popupMenu, container) {
             this.superClass = uiPopup;
             this.superClass.init(popupMenu, container.id);
         },
@@ -30,7 +30,7 @@
          * @param {boolean}
                 *          isRTL right to left flag
          */
-        setPosition : function(popupMenu, x, y, isRTL) {
+        setPosition:function (popupMenu, x, y, isRTL) {
             this.superClass.setPosition(popupMenu, x, y, isRTL);
         },
         /**
@@ -43,19 +43,19 @@
          * @param {Number}
                 *          h height
          */
-        setSize : function(popup, w, h) {
+        setSize:function (popup, w, h) {
             this.superClass.setSize(popupMenu, w, h);
         },
 
-        pushVisibleContainer : function(containerId) {
+        pushVisibleContainer:function (containerId) {
             uiPopupMenu.currentVisibleContainers.push(containerId);
         },
 
-        popVisibleContainer : function() {
+        popVisibleContainer:function () {
             uiPopupMenu.currentVisibleContainers.pop();
         },
 
-        pushHiddenContainer : function(containerId) {
+        pushHiddenContainer:function (containerId) {
             uiPopupMenu.elementsToHide.push(containerId);
         },
         /**
@@ -63,7 +63,7 @@
          * time (or 100ms by default) after which the elements in elementsToHide will
          * be hidden
          */
-        setCloseTimeout : function(time) {
+        setCloseTimeout:function (time) {
             if (!time)
                 time = 100;
             setTimeout(uiPopupMenu.doOnMenuItemOut, time);
@@ -72,9 +72,9 @@
          * Adds an onCLick event to link elements If they are http links, changes the
          * url in the browser If they are javascript links, executes the javascript
          */
-        createLink : function(menuItem, link) {
+        createLink:function (menuItem, link) {
             if (link && link.href) {
-                menuItem.onclick = function(e) {
+                menuItem.onclick = function (e) {
                     if (link.href.substr(0, 7) == "http://")
                         window.location.href = link.href;
                     else
@@ -93,7 +93,7 @@
          * The callback function called when timeout is finished Hides the submenus
          * that are no longer pointed at
          */
-        doOnMenuItemOut : function() {
+        doOnMenuItemOut:function () {
             while (uiPopupMenu.elementsToHide.length > 0) {
                 var container = document
                         .getElementById(uiPopupMenu.elementsToHide.shift());
@@ -114,7 +114,7 @@
             }
         },
 
-        showMenuItemContainer : function(menuItemContainer, x, y) {
+        showMenuItemContainer:function (menuItemContainer, x, y) {
             /*
              * menuItemContainer.style.display = "block" ; var x = menuItem.offsetWidth +
              * menuItem.offsetLeft; var y = menuItem.offsetTop; var rootX =
@@ -134,7 +134,7 @@
          * @param {Object}
                 *          object to hide
          */
-        hide : function(object) {
+        hide:function (object) {
             if (typeof (object) == "string")
                 object = document.getElementById(object);
             object.style.display = "none";
@@ -146,13 +146,13 @@
          * @param {Object}
                 *          object to hide
          */
-        show : function(object) {
+        show:function (object) {
             this.superClass.show(object);
             object.style.visibility = "";
         }
     };
 
-    var ScrollManager = function(id) {
+    var ScrollManager = function (id) {
         if (typeof (id) == "string") id = document.getElementById(id);
         this.mainContainer = id; // The HTML DOM element that contains the tabs, the arrows, etc
         this.elements = new Array(); // the array containing the elements
@@ -165,18 +165,20 @@
         this.rightArrow = null; // the right arrow dom node
         this.arrowsContainer = null // The HTML DOM element that contains the arrows
         var scroll = this;
-        this.refresh = setTimeout(function() {scroll.checkResize()}, 700);
+        this.refresh = setTimeout(function () {
+            scroll.checkResize()
+        }, 700);
     };
 
     /**
      * Initializes the scroll manager, with some default parameters
      */
-    ScrollManager.prototype.init = function() {
+    ScrollManager.prototype.init = function () {
         this.maxSpace = 0;
         this.firstVisibleIndex = 0;
         this.lastVisibleIndex = -1;
 
-        if(!this.arrowsContainer)  {
+        if (!this.arrowsContainer) {
             // Adds the tab elements to the manager
             var arrowsContainer = $(this.mainContainer).find(".ScrollButtons");
             if (arrowsContainer.length) {
@@ -191,8 +193,8 @@
         }
 
         // Hides the arrows by default
-        if(this.arrowsContainer)  {
-            this.arrowsContainer.style.display =  "none";
+        if (this.arrowsContainer) {
+            this.arrowsContainer.style.display = "none";
             this.arrowsContainer.space = null;
         }
     };
@@ -201,7 +203,7 @@
      * Loads the tabs in the scroll manager, depending on their css class
      * If clean is true, calls cleanElements to remove the space property of each element
      */
-    ScrollManager.prototype.loadElements = function(elementClass, clean) {
+    ScrollManager.prototype.loadElements = function (elementClass, clean) {
         if (clean) this.cleanElements();
         this.elements = $(this.mainContainer).find("." + elementClass);
     };
@@ -211,7 +213,7 @@
      *  . mouse listeners
      *  . css class and other parameters
      */
-    ScrollManager.prototype.initArrowButton = function(arrow, dir, normalClass, overClass, disabledClass) {
+    ScrollManager.prototype.initArrowButton = function (arrow, dir, normalClass, overClass, disabledClass) {
         if (arrow) {
             arrow = $(arrow);
             arrow[0].direction = dir; // "left" or "right" (up or down)
@@ -230,7 +232,7 @@
     /**
      * Disables or enables the arrow
      */
-    ScrollManager.prototype.enableArrow = function(arrow, enabled) {
+    ScrollManager.prototype.enableArrow = function (arrow, enabled) {
         if (arrow && !enabled) { // disables the arrow
             arrow.className = arrow.disabledClass;
         } else if (arrow && enabled) { // enables the arrow
@@ -241,7 +243,7 @@
      * Sets the mouse over css style of the arrow (this)
      * only if it is enabled
      */
-    ScrollManager.prototype.mouseOverArrow = function(e) {
+    ScrollManager.prototype.mouseOverArrow = function (e) {
         var arrow = this;
         if (arrow.className == arrow.styleClass) {
             arrow.className = arrow.overClass;
@@ -251,7 +253,7 @@
      * Sets the mouse out css style of the arrow (this)
      * only if it is enabled
      */
-    ScrollManager.prototype.mouseOutArrow = function(e) {
+    ScrollManager.prototype.mouseOutArrow = function (e) {
         var arrow = this;
         if (arrow.className == arrow.overClass) {
             arrow.className = arrow.styleClass;
@@ -267,16 +269,16 @@
      * At the end, each visible element has an isVisible property set to true, the other elements are set to false,
      * the firstVisibleIndex is 0, the lastVisibleIndex is the last element with isVisible to true
      */
-    ScrollManager.prototype.checkAvailableSpace = function() { // in pixels
+    ScrollManager.prototype.checkAvailableSpace = function () { // in pixels
         if (!this.maxSpace) {
             this.maxSpace = $(this.mainContainer).width() - this.getElementSpace(this.arrowsContainer);
         }
         var elementsSpace = 0, margin = 0;
-        var length =  this.elements.length;
+        var length = this.elements.length;
         if (!this.currDirection) {
             for (var i = this.firstVisibleIndex; i < length; i++) {
                 elementsSpace += this.getElementSpace(this.elements[i]);
-                if (elementsSpace  < this.maxSpace) {
+                if (elementsSpace < this.maxSpace) {
                     this.elements[i].isVisible = true;
                     this.lastVisibleIndex = i;
                 } else {
@@ -286,7 +288,7 @@
         } else {
             for (var i = this.lastVisibleIndex; i >= 0; i--) {
                 elementsSpace += this.getElementSpace(this.elements[i]);
-                if (elementsSpace  < this.maxSpace) {
+                if (elementsSpace < this.maxSpace) {
                     this.elements[i].isVisible = true;
                     this.firstVisibleIndex = i;
                 } else {
@@ -307,8 +309,10 @@
      * the same element again, this value is returned directly to avoid another calcul
      * To remove this value, use the cleanElements function, or set space to null manually
      */
-    ScrollManager.prototype.getElementSpace = function(element) {
-        if (element && element.space) { return element.space; }
+    ScrollManager.prototype.getElementSpace = function (element) {
+        if (element && element.space) {
+            return element.space;
+        }
         var elementSpace = 0;
         if (element) {
             if (this.axis == 0) { // horizontal tabs
@@ -328,7 +332,7 @@
     /**
      * Clean the elements of the array : set the space property to null
      */
-    ScrollManager.prototype.cleanElements = function() {
+    ScrollManager.prototype.cleanElements = function () {
         for (var i = 0; i < this.elements.length; i++) {
             this.elements[i].space = null;
             if (this.elements[i].decorator) this.elements[i].decorator.space = null;
@@ -343,7 +347,7 @@
      *  . clear the otherHiddenElements array
      *  . calls the appropriate scroll function (left or right)
      */
-    ScrollManager.prototype.scroll = function(e) {
+    ScrollManager.prototype.scroll = function (e) {
         var src = this;
         if (src.className !== src.disableClass) {
             if (src.direction == "left") src.scrollMgr.scrollLeft();
@@ -352,7 +356,7 @@
         return false;
     };
 
-    ScrollManager.prototype.scrollLeft = function() { // Same for scrollUp
+    ScrollManager.prototype.scrollLeft = function () { // Same for scrollUp
         if (this.firstVisibleIndex > 0) {
             this.currDirection = 0;
             this.firstVisibleIndex--;
@@ -360,7 +364,7 @@
         }
     };
 
-    ScrollManager.prototype.scrollUp = function() {
+    ScrollManager.prototype.scrollUp = function () {
         if (this.scrollMgr) this.scrollMgr.scrollLeft();
     };
     /**
@@ -371,19 +375,19 @@
      *  . set the new last visible element to visible
      * Simulates a move to the right of the tabs
      */
-    ScrollManager.prototype.scrollRight = function() { // Same for scrollDown
-        if (this.lastVisibleIndex < this.elements.length-1) {
+    ScrollManager.prototype.scrollRight = function () { // Same for scrollDown
+        if (this.lastVisibleIndex < this.elements.length - 1) {
             this.currDirection = 1;
             this.lastVisibleIndex++;
             this.renderElements();
         }
     };
 
-    ScrollManager.prototype.scrollDown = function() {
+    ScrollManager.prototype.scrollDown = function () {
         if (this.scrollMgr) this.scrollMgr.scrollRight();
     };
 
-    ScrollManager.prototype.renderElements = function() {
+    ScrollManager.prototype.renderElements = function () {
         this.checkAvailableSpace();
 
         for (var i = 0; i < this.elements.length; i++) {
@@ -404,12 +408,12 @@
     /**
      * Renders the arrows. If we reach the end of the tabs, this end arrow is disabled
      */
-    ScrollManager.prototype.renderArrows = function() {
+    ScrollManager.prototype.renderArrows = function () {
         // Enables/Disables the arrow buttons depending on the elements to show
         if (this.firstVisibleIndex == 0) this.enableArrow(this.leftArrow, false);
         else this.enableArrow(this.leftArrow, true);
 
-        if (this.lastVisibleIndex == this.elements.length-1) this.enableArrow(this.rightArrow, false);
+        if (this.lastVisibleIndex == this.elements.length - 1) this.enableArrow(this.rightArrow, false);
         else this.enableArrow(this.rightArrow, true);
     };
 
@@ -418,13 +422,13 @@
      * If these parameters are null, calculates the space for all the elements of the array
      * Uses the getElementSpace function
      */
-    ScrollManager.prototype.getElementsSpace = function(indexStart, indexEnd) {
+    ScrollManager.prototype.getElementsSpace = function (indexStart, indexEnd) {
         if (indexStart == null && indexEnd == null) {
             indexStart = 0;
-            indexEnd = this.elements.length-1 ;
+            indexEnd = this.elements.length - 1;
         }
         var elementsSpace = 0;
-        if (indexStart >= 0 && indexEnd <= this.elements.length-1) {
+        if (indexStart >= 0 && indexEnd <= this.elements.length - 1) {
             for (var i = indexStart; i <= indexEnd; i++) {
                 elementsSpace += this.getElementSpace(this.elements[i]);
             }
@@ -432,7 +436,7 @@
         return elementsSpace;
     };
 
-    ScrollManager.prototype.checkResize = function() {
+    ScrollManager.prototype.checkResize = function () {
         if (this.mainContainer) {
             var tmp = $("#" + this.mainContainer.id);
             if (!tmp.length) {
@@ -455,12 +459,14 @@
             }
         }
         var scroll = this;
-        this.refresh = setTimeout(function() {scroll.checkResize()}, 700);
+        this.refresh = setTimeout(function () {
+            scroll.checkResize()
+        }, 700);
     };
 
     var portalNavigation = {
-        hideMenuTimeoutIds : {},
-        scrollMgr : null,
+        hideMenuTimeoutIds:{},
+        scrollMgr:null,
 
         /**
          * Sets some parameters :
@@ -468,7 +474,7 @@
          *  . the css style classes
          * and calls the buildMenu function
          */
-        init : function(popupMenu, container) {
+        init:function (popupMenu, container) {
             this.superClass = uiPopupMenu;
             this.superClass.init(popupMenu, container);
             //UIPopup.js will add onclick event that increase z-index
@@ -478,18 +484,22 @@
             this.tabStyleClass = "MenuItem";
 
             this.buildMenu(popupMenu);
+
         },
 
         /**
          * Calls the init function when the page loads
          */
-        onLoad : function(baseId) {
+        onLoad:function (baseId) {
             var uiNavPortlet = $("#" + baseId);
-            if(uiNavPortlet.hasClass("UIHorizontalTabs")) portalNavigation.init(uiNavPortlet[0], uiNavPortlet[0]);
+            if (uiNavPortlet.hasClass("UIHorizontalTabs")) portalNavigation.init(uiNavPortlet[0], uiNavPortlet[0]);
 
             if (baseId === "UIHorizontalNavigation") {
-                $(".UIHorizontalNavigation").slice(1).each(function() {$(this).hide();});
+                $(".UIHorizontalNavigation").slice(1).each(function () {
+                    $(this).hide();
+                });
             }
+
         },
 
         /**
@@ -504,122 +514,120 @@
          *  . set onmouseover to onMenuItemOver and onmouseout to onMenuItemOut
          *  . adds onclick event if the item contains a link, so a click on this item will call the link
          */
-        buildMenu : function(popupMenu) {
+
+        buildMenu:function (popupMenu) {
             var portalNav = portalNavigation;
             var topContainer = $(popupMenu);
 
             // Top menu items
-            topContainer.children(".UITab").each(function()
-            {
+            topContainer.children(".UITab").each(function () {
                 var tab = $(this);
-                var tabLink=tab.find("a:first");
-                var actualClass="";
+                var tabLink = tab.find("a:first");
+
                 var highlightClass = "UITab HighlightNavigationTab";
+                var actualClass = "UITab NormalToolbarTab";
 
-                tabLink.toggle(function()
-                {
-                    tab.on("focus",function(){}) ;
-                    portalNav.mouseEnterTab(tab, highlightClass);
 
-                },function()
-                {    tab.on("blur",function(){}) ;
-                    actualClass = tab.attr("class");
-                    portalNav.mouseLeaveTab(tab, actualClass);
+                tabLink.click(function () {
+
+
+                    if (tab.attr("class") !== "UITab HighlightNavigationTab") {
+                        $(".UITab").each(function () {
+
+                            portalNav.mouseLeaveTab($(this), actualClass);
+                        });
+
+                        portalNav.mouseEnterTab(tab, highlightClass);
+                    }
+                    else {
+                        portalNav.mouseLeaveTab(tab, actualClass);
+                    }
                 });
 
-                tab.on("blur",function()
-                {   actualClass = tab.attr("class");
-                    portalNav.mouseLeaveTab(tab, actualClass);
+
+                tab.click(function (e) {
+                    e.stopPropagation();
                 });
 
 
-                tab.find("." + portalNav.containerStyleClass).first().css("minWidth", tab.width());
+                $(document).click(function () {
+
+
+                    topContainer.children(".UITab").each(function () {
+                        portalNav.mouseLeaveTab($(this), actualClass);
+                    });
+
+                });
+                tab.find("." + portalNav.containerStyleClass).first().css("width", "auto");
             });
 
 
             var itemConts = topContainer.find("." + this.containerStyleClass);
-            itemConts.each(function()
-            {
-                if (!this.id)
-                {
+            itemConts.each(function () {
+                if (!this.id) {
                     this.id = eXo.generateId("PortalNavigationContainer");
                 }
-                this.resized = false;
+                this.resized = true;
 
                 var jObj = $(this);
                 var items = jObj.find("." + portalNav.tabStyleClass);
-                if (items.length == 0)
-                {
+                if (items.length == 0) {
                     jObj.remove();
                 }
-                else
-                {
-                    jObj.on({"mouseenter" : portalNav.onMenuItemOver, "mouseleave" : portalNav.onMenuItemOut
-                        }, "." + portalNav.tabStyleClass);
+                else {
+                    jObj.on({"mouseenter":portalNav.onMenuItemOver, "mouseleave":portalNav.onMenuItemOut
+                    }, "." + portalNav.tabStyleClass);
                 }
             });
         },
 
-        cancelNextClik:function(containerId){
-            var uiId = $("#" + containerId);
-
+        cancelNextClick:function (ComponentId, baseId, message) {
+            var component = $("#" + ComponentId);
+            var parent = $("#" + baseId);
 
             var portalNav = portalNavigation;
 
-
             // Top menu items
-            uiId.children(".UITab").each(function()
-            {
+            parent.children(".UITab").each(function () {
                 var tab = $(this);
                 var highlightClass = "UITab HighlightNavigationTab";
                 portalNav.mouseEnterTab(tab, highlightClass);
-
-
-
-
-
                 tab.find("." + portalNav.containerStyleClass).first().css("minWidth", tab.width());
             });
 
-            var itemConts = uiId.find("." + this.containerStyleClass);
-            itemConts.each(function()
-            {
-                if (!this.id)
-                {
+            var itemConts = parent.find("." + this.containerStyleClass);
+            itemConts.each(function () {
+                if (!this.id) {
                     this.id = eXo.generateId("PortalNavigationContainer");
                 }
-                this.resized = false;
-
+                this.resized = true;
 
             });
 
-
-        }  ,
-
+            component.hide();
+            parent.find("span").html(message).css('display', 'inline').fadeOut(2000, function () {
+                component.show()
+            });
+        },
         /**
          * Method triggered as mouse cursor enter a navigation node showed on navigation tab.
          *
          * @param tab
          * @param newClass
          */
-        mouseEnterTab : function(tab, newClass)
-        {
+        mouseEnterTab:function (tab, newClass) {
             var portalNav = portalNavigation;
 
             var getNodeURL = tab.attr("exo:getNodeURL");
             var menuItemContainer = tab.find("." + portalNav.containerStyleClass).first();
-            if (getNodeURL && !menuItemContainer.length)
-            {
+            if (getNodeURL && !menuItemContainer.length) {
                 var jsChilds = ajaxAsyncGetRequest(getNodeURL, false)
-                try
-                {
+                try {
                     var data = $.parseJSON(jsChilds);
                 }
-                catch (e)
-                {
+                catch (e) {
                 }
-                if (!data || !data.length)
-                {
+                if (!data || !data.length) {
                     return;
                 }
                 tab.append(portalNav.generateContainer(data));
@@ -627,8 +635,7 @@
             tab.attr("class", newClass);
 
             menuItemContainer = tab.find("." + portalNav.containerStyleClass).first();
-            if (menuItemContainer.length)
-            {
+            if (menuItemContainer.length) {
                 portalNav.cancelHideMenuContainer(menuItemContainer.attr("id"));
                 portalNav.showMenu(tab, menuItemContainer);
             }
@@ -641,15 +648,15 @@
          * @param tab
          * @param oldClass
          */
-        mouseLeaveTab : function(tab, oldClass)
-        {
+        mouseLeaveTab:function (tab, oldClass) {
             var portalNav = portalNavigation;
 
             tab.attr("class", oldClass);
             var conts = tab.find("." + portalNav.containerStyleClass);
-            if (conts.length)
-            {
-                portalNav.hideMenuTimeoutIds[conts[0].id] = window.setTimeout(function() {portalNav.hideMenu(conts[0].id); }, 0);
+            if (conts.length) {
+                portalNav.hideMenuTimeoutIds[conts[0].id] = window.setTimeout(function () {
+                    portalNav.hideMenu(conts[0].id);
+                }, 0);
             }
             return false;
         },
@@ -659,16 +666,16 @@
          * Sets the width of the submenu (the first time it is shown) to fix a bug in IE
          * Sets the currentOpenedMenu to the menu being opened
          */
-        showMenu : function(tab, menuItemContainer) {
+        showMenu:function (tab, menuItemContainer) {
             var portalNav = portalNavigation;
             var browser = base.Browser;
             portalNav.superClass.pushVisibleContainer(menuItemContainer.attr("id"));
 
-            menuItemContainer.css({"display" : "block", "position" : "absolute"});
+            menuItemContainer.css({"display":"block", "position":"absolute"});
             var offParent = menuItemContainer.offsetParent();
             var y = tab.height() + browser.findPosYInContainer(tab[0], offParent[0]);
             var x = browser.findPosXInContainer(tab[0], offParent[0]) + 2;
-            if(base.I18n.isRT()) {
+            if (base.I18n.isRT()) {
                 x = browser.findPosXInContainer(tab[0], offParent[0], true);
             }
             portalNav.superClass.setPosition(menuItemContainer[0], x, y, base.I18n.isRT());
@@ -677,31 +684,31 @@
             menuItemContainer.css("width", menuItemContainer.width() + "px");
 
             var posXinBrowser = menuItemContainer.offset().left;
-            if(base.I18n.isLT()) {
-                if(posXinBrowser + menuItemContainer.width() >= $(window).width()) {
-                    x += (tab.width() - menuItemContainer.width()) ;
+            if (base.I18n.isLT()) {
+                if (posXinBrowser + menuItemContainer.width() >= $(window).width()) {
+                    x += (tab.width() - menuItemContainer.width());
                     menuItemContainer.css("left", x + "px");
                 }
             } else {
-                if(posXinBrowser + tab.width() < menuItemContainer.width()) {
-                    x += (tab.width() - menuItemContainer.width()) ;
+                if (posXinBrowser + tab.width() < menuItemContainer.width()) {
+                    x += (tab.width() - menuItemContainer.width());
                     menuItemContainer.css("right", x + "px");
                 }
             }
         },
 
-        cancelHideMenuContainer : function(containerId) {
+        cancelHideMenuContainer:function (containerId) {
             var timeout = portalNavigation.hideMenuTimeoutIds[containerId];
             portalNavigation.hideMenuTimeoutIds[containerId] = null;
             if (timeout) {
-                window.clearTimeout(timeout) ;
+                window.clearTimeout(timeout);
             }
         },
 
         /**
          * Changes the style of the parent button when a submenu has to be hidden
          */
-        hideMenu : function(containerId) {
+        hideMenu:function (containerId) {
             var portalNav = portalNavigation;
             portalNav.hideMenuTimeoutIds[containerId] = null;
 
@@ -720,7 +727,7 @@
          * Check if this menu item has a sub menu, if yes, opens it
          * Changes the style of the button
          */
-        onMenuItemOver : function() {
+        onMenuItemOver:function () {
             var menuItem = $(this);
             var portalNav = portalNavigation;
 
@@ -743,7 +750,7 @@
             subContainer = menuItem.find("." + portalNav.containerStyleClass).first();
             if (subContainer.length) {
                 portalNav.superClass.pushVisibleContainer(subContainer.attr("id"));
-                portalNav.showMenuItemContainer(menuItem, subContainer) ;
+                portalNav.showMenuItemContainer(menuItem, subContainer);
                 if (!subContainer.data("firstTime")) {
                     subContainer.css("width", subContainer.width() + 2 + "px");
                     subContainer.data("firstTime", true);
@@ -754,14 +761,14 @@
         /**
          * Shows a sub menu, uses the methods from superClass (eXo.webui.UIPopupMenu)
          */
-        showMenuItemContainer : function(menuItem, menuItemContainer) {
+        showMenuItemContainer:function (menuItem, menuItemContainer) {
             var x = menuItem.width();
             var y = menuItem.position().top;
             this.superClass.show(menuItemContainer[0]);
-            var posRight = $(window).width() - base.Browser.findPosX(menuItem[0], true) ;
-            var rootX = (base.I18n.isLT() ? base.Browser.findPosX(menuItem[0]) : posRight) ;
+            var posRight = $(window).width() - base.Browser.findPosX(menuItem[0], true);
+            var rootX = (base.I18n.isLT() ? base.Browser.findPosX(menuItem[0]) : posRight);
             if (x + menuItemContainer.width() + rootX > $(window).width()) {
-                x -= (menuItemContainer.width() + menuItem.width()) ;
+                x -= (menuItemContainer.width() + menuItem.width());
             }
             this.superClass.setPosition(menuItemContainer[0], x, y, base.I18n.isRT());
         },
@@ -770,7 +777,7 @@
          * When the mouse goes out a menu item from the main nav menu
          * Checks if this item has a sub menu, if yes calls methods from superClass to hide it
          */
-        onMenuItemOut : function() {
+        onMenuItemOut:function () {
             var menuItem = $(this);
             var portalNav = portalNavigation;
 
@@ -779,7 +786,7 @@
                 var id = subContainer.attr("id");
                 portalNav.superClass.pushHiddenContainer(id);
                 var index = $.inArray(id, portalNav.superClass.currentVisibleContainers);
-                if(index !== -1) {
+                if (index !== -1) {
                     portalNav.superClass.currentVisibleContainers.splice(index, 1);
                 }
                 portalNav.superClass.setCloseTimeout(200);
@@ -792,7 +799,7 @@
          *  . Creates the scroll manager
          *  . Adds the tabs to the scroll manager
          */
-        loadScroll : function(portalNavId) {
+        loadScroll:function (portalNavId) {
             var uiNav = portalNavigation;
             var portalNav = $("#" + portalNavId);
             if (!portalNav.length) return;
@@ -806,7 +813,7 @@
             uiNav.scrollMgr.renderElements();
         },
 
-        generateContainer : function(data) {
+        generateContainer:function (data) {
             var htmlFrags = "<ul class='" + this.containerStyleClass + "' style='display: none;' id='";
             htmlFrags += eXo.generateId("PortalNavigationContainer") + "' resized='false'>";
 
@@ -818,7 +825,7 @@
                 htmlFrags += (node.hasChild ? (" exo:getNodeURL='" + node.getNodeURL + "' ") : "" );
                 htmlFrags += ("' title='" + node.label + "'>");
                 htmlFrags += ("<a class='ItemIcon " + (node.icon ? node.icon : "DefaultPageIcon") + "'" +
-                        "href='" + actionLink + "'>" + (node.label.length > 40 ? node.label.substring(0,37) + "..." : node.label) + "</a>");
+                        "href='" + actionLink + "'>" + (node.label.length > 40 ? node.label.substring(0, 37) + "..." : node.label) + "</a>");
                 if (node.childs.length) {
                     htmlFrags += portalNavigation.generateContainer(node.childs);
                 }
@@ -830,8 +837,8 @@
     };
 
     return {
-        ScrollManager : ScrollManager,
-        UIPopupMenu : uiPopupMenu,
-        UIPortalNavigation : portalNavigation
+        ScrollManager:ScrollManager,
+        UIPopupMenu:uiPopupMenu,
+        UIPortalNavigation:portalNavigation
     };
 })($, base, uiPopup);
