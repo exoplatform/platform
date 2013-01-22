@@ -117,7 +117,7 @@
   def rcontext = _ctx.getRequestContext() ;
   def requireJs = rcontext.getJavascriptManager().getRequireJS();
   requireJs.require("SHARED/navigation-spaces-search", "spacesSearch");
-  requireJs.addScripts("spacesSearch\.init('" + uicomponent.id  + "','" + restUrl + "','" + defaultValueForTextSearch +"','" + noSpace + "','" + selectSpaceAction + "');");
+  requireJs.addScripts("spacesSearch.init('" + uicomponent.id  + "','" + restUrl + "','" + defaultValueForTextSearch +"','" + noSpace + "','" + selectSpaceAction + "');");
 %>
 
 <div class="uiSpaceNavigationPortlet" id="$uicomponent.id">
