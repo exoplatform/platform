@@ -1,21 +1,23 @@
 package org.exoplatform.platform.welcomescreens;
 
 import org.apache.commons.codec.binary.Base64;
+import org.exoplatform.common.http.client.HttpURLConnection;
 import org.exoplatform.commons.info.MissingProductInformationException;
 import org.exoplatform.commons.info.ProductInformations;
 import org.exoplatform.container.xml.InitParams;
 import org.exoplatform.container.xml.ValueParam;
 import org.exoplatform.services.log.ExoLogger;
 import org.exoplatform.services.log.Log;
-import org.exoplatform.web.filter.Filter;
 import org.picocontainer.Startable;
 
-import javax.servlet.*;
+import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.File;
 import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.Calendar;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
@@ -92,7 +94,11 @@ public class TrialService implements Startable {
         // Read: Product code
         productCode = Utils.readFromFile(Utils.PRODUCT_CODE, Utils.HOME_CONFIG_FILE_LOCATION);
 
-        // Read: loopfuse form displayed   Averifier la usibility
+        // Read: loopfuse form displayed
+        String loopfuseFormDisplayedString = Utils.readFromFile(Utils.LOOP_FUSE_FORM_DISPLAYED, Utils.HOME_CONFIG_FILE_LOCATION);
+        if (loopfuseFormDisplayedString != null && !loopfuseFormDisplayedString.isEmpty()) {
+            loopfuseFormDisplayed = Boolean.parseBoolean(loopfuseFormDisplayedString);
+        }
         // Read: Remind date
         String remindDateString = Utils.readFromFile(Utils.REMIND_DATE, Utils.HOME_CONFIG_FILE_LOCATION);
         remindDate = Utils.parseDateBase64(remindDateString);
@@ -141,7 +147,7 @@ public class TrialService implements Startable {
         return nbDaysAfterExpiration;
     }
 
-    public static boolean isLoopfuseFormDisplayed() {
+    public static boolean isLandingPageDisplayed() {
         return loopfuseFormDisplayed;
     }
 
@@ -212,19 +218,19 @@ public class TrialService implements Startable {
         int period = Integer.parseInt(periodString) / 3;
         return period;
     }
-
+    /*
     public static class TrialFilter implements Filter {
 
         public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException,
                 ServletException {
             HttpServletRequest httpServletRequest = (HttpServletRequest) request;
             HttpServletResponse httpServletResponse = (HttpServletResponse) response;
-            /*boolean isIgnoringRequest = isIgnoredRequest(httpServletRequest.getSession(true).getServletContext(),
+            boolean isIgnoringRequest = isIgnoredRequest(httpServletRequest.getSession(true).getServletContext(),
                     httpServletRequest.getRequestURI());
             if ((!outdated) || isIgnoringRequest) {
                 chain.doFilter(request, response);
                 return;
-            }    */
+            }
             if (TrialService.calledUrl == null) {
                 TrialService.calledUrl = httpServletRequest.getRequestURI();
             }
@@ -232,12 +238,12 @@ public class TrialService implements Startable {
             return;
         }
 
-        /*private boolean isIgnoredRequest(ServletContext context, String url) {
+        private boolean isIgnoredRequest(ServletContext context, String url) {
             String fileName = url.substring(url.indexOf("/"));
             String mimeType = context.getMimeType(fileName);
             return mimeType != null;
-        }                  */
-    }
+        }
+    } */
 
     public static class UnlockServlet extends HttpServlet {
         private static final long serialVersionUID = -4806814673109318163L;
@@ -270,6 +276,7 @@ public class TrialService implements Startable {
                     Utils.writeRemindDate(rdate, Utils.HOME_CONFIG_FILE_LOCATION);
                 }
                 response.sendRedirect(TrialService.calledUrl);
+                return;
             } catch (Exception exception) {
                 delayPeriod = 0;
                 outdated = true;
@@ -279,17 +286,16 @@ public class TrialService implements Startable {
                 return;
             }
         }
-            response.sendRedirect(TrialService.calledUrl);
-            return;
+            TrialService.calledUrl=request.getRequestURI();
+            request.getRequestDispatcher("WEB-INF/jsp/unlockTrial.jsp").include(request, response);
         }
         @Override
         protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
             doPost(request, response);
         }
-
     }
 
-    /*
+
     public static class PingBackServlet extends HttpServlet {
         private static final long serialVersionUID = 6467955354840693802L;
 
@@ -322,6 +328,6 @@ public class TrialService implements Startable {
             }
             return false;
         }
-    } */
+    }
 
 }
