@@ -66,14 +66,6 @@
             <page-reference>portal::intranet::calendar</page-reference>
         </node>
 	
-        <!-- Temporary node for unified search testing -->
-        <node>
-            <uri>search</uri>
-            <name>search</name>
-            <label>Search</label>
-            <page-reference>portal::intranet::search</page-reference>
-        </node>
-
         <node>
             <uri>welcome</uri>
             <name>welcome</name>
