@@ -120,11 +120,11 @@ import java.util.Locale;
                         to = sdf1.format(event.toDateTime);
                     %>
 
-                    <span style="display: inline;">
+                    <span>
                     ${bundle["fromLabel"]}  ${from}
                     </span>
-
-                    <span style="display: inline;">
+                    <br>
+                    <span>
                         ${bundle["toLabel"]}  ${to}
                     </span>
                     <% } else if (event.toDateTime.getTime() - event.fromDateTime.getTime() < 86399999) {
