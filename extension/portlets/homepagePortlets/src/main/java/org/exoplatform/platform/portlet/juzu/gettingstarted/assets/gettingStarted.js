@@ -52,7 +52,7 @@ $(function () {
             if (del == false) {
                 $('.GettingStarted').jzLoad("GettingStarted.getGsList()");
             }
-        }, 300000);
+        }, 500);
     });
 
 });
