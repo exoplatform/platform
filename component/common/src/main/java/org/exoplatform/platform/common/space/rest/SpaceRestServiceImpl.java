@@ -83,44 +83,41 @@ public class SpaceRestServiceImpl implements ResourceContainer {
                 baseSpaceURL.append(PortalContainer.getCurrentPortalContainerName()+ "/g/:spaces:") ;
                 String groupId = space.getGroupId();
                 String permanentSpaceName = groupId.split("/")[2];
-                if ((filterSpace(space.getId(), spacesSearched)) && (permanentSpaceName.startsWith(keyword)))
-                {
-                    if (permanentSpaceName.equals(space.getPrettyName()))
-                    {
-                    baseSpaceURL.append(permanentSpaceName) ;
-                    baseSpaceURL.append("/");
-                    baseSpaceURL.append(permanentSpaceName) ;
+                if ((filterSpace(space.getId(), spacesSearched))) {
+                    if (permanentSpaceName.equals(space.getPrettyName())) {
+                        baseSpaceURL.append(permanentSpaceName) ;
+                        baseSpaceURL.append("/");
+                        baseSpaceURL.append(permanentSpaceName) ;
+                    } else {
+                        baseSpaceURL.append(space.getPrettyName()) ;
+                        baseSpaceURL.append("/");
+                        baseSpaceURL.append(space.getPrettyName()) ;
                     }
-                    else {
-                    baseSpaceURL.append(space.getPrettyName()) ;
-                    baseSpaceURL.append("/");
-                    baseSpaceURL.append(space.getPrettyName()) ;
-                }
 
-                space.setUrl(baseSpaceURL.toString());
-            }
+                    space.setUrl(baseSpaceURL.toString());
+                }
                 else {
                     removedSpaces.add(space);
                 }
-
             }
 
             spaces.removeAll(removedSpaces);
+
             return Response.ok(spaces, "application/json").cacheControl(cacheControl).build();
+
         } catch (Exception ex) {
-            if (logger.isWarnEnabled())
+            if (logger.isWarnEnabled()) {
                 logger.warn("An exception happens when searchSpaces", ex);
             }
+        }
         return Response.status(500).cacheControl(cacheControl).build();
     }
     private static boolean filterSpace(String spaceId, List<Space> spacesSearched) {
         for (Space space : spacesSearched) {
-            if (space.getId().equals(spaceId)) {
+            if (space.getId().equalsIgnoreCase(spaceId)) {
                 return true;
             }
         }
         return false;
     }
-
-
 }

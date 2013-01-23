@@ -80,7 +80,7 @@
                     imageUrl = "/social-resources/skin/ShareImages/SpaceImages/SpaceLogoDefault_61x61.gif";
                 }
                 var spaceDiv = "<li class='spaceItem'>"+"<a class='spaceIcon'"
-                        + "' href='" + spaceUrl + "'><img src='"+imageUrl+"'/>"
+                        + "' href='" + spaceUrl + "' title='" + name + "'><img src='"+imageUrl+"'/>"
                         + name + "</a></li><br/>";
                 groupSpaces += spaceDiv;
             }

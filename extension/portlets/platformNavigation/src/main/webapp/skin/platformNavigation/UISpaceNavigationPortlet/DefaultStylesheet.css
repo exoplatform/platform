@@ -58,6 +58,7 @@
 .uiSpaceNavigationPortlet .spaceNavigation .spaceItem {
 	padding: 5px 0;
 	display: block;
+    text-overflow:ellipsis;
 }
 
 .uiSpaceNavigationPortlet .spaceNavigation .spaceIcon {
