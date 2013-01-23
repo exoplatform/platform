@@ -57,7 +57,14 @@
     padding-left: 10px;
 
 }
-
+.CalendarName {
+    max-height: 1.3em;
+    max-width: 90px;
+    overflow: hidden;
+    text-align: center;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
 .CalendarItem:hover {
     box-shadow: 0 0 1px rgba(0, 0, 0, 0.2) inset;
     background-color: #f0f0f0;
@@ -83,7 +90,7 @@
 
     <p style="float:left; height:20px;width:20px;background-color:  ${cal.calendarColor}"/>
 
-    <p style="float:left; ">${calendarName}</p>
+    <p class="CalendarName" style="float:left; ">${calendarName}</p>
 
     <p class="addButton" style="float:left;display: none;">
         <input type="hidden" name="calendarId" value="${cal.id}"/>
