@@ -1,0 +1,95 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+  <class name="org.picketlink.idm.impl.model.hibernate.HibernateIdentityObject"
+         table="jbid_io">
+    <cache usage="read-write"/>
+    <id name="id"
+        type="java.lang.Long"
+        access="field">
+      <column name="ID"/>
+      <generator class="native"/>
+    </id>
+    <set name="attributes"
+         inverse="true"
+         cascade="all, delete-orphan"
+         lazy="extra"
+         fetch="subselect">
+      <cache usage="read-write"/>
+      <key>
+        <column name="IDENTITY_OBJECT_ID"/>
+      </key>
+      <one-to-many class="org.picketlink.idm.impl.model.hibernate.HibernateIdentityObjectAttribute"/>
+    </set>
+    <set name="credentials"
+         inverse="true"
+         cascade="all, delete-orphan"
+         lazy="extra"
+         fetch="subselect">
+      <cache usage="read-write"/>
+      <key>
+        <column name="IDENTITY_OBJECT_ID"/>
+      </key>
+      <one-to-many class="org.picketlink.idm.impl.model.hibernate.HibernateIdentityObjectCredential"/>
+    </set>
+    <set name="fromRelationships"
+         inverse="true"
+         lazy="extra"
+         fetch="subselect">
+      <cache usage="read-write"/>
+      <key>
+        <column name="FROM_IDENTITY"/>
+      </key>
+      <one-to-many class="org.picketlink.idm.impl.model.hibernate.HibernateIdentityObjectRelationship"/>
+    </set>
+    <many-to-one name="identityType"
+                 class="org.picketlink.idm.impl.model.hibernate.HibernateIdentityObjectType"
+                 access="field"
+                 fetch="join"
+                 lazy="false">
+      <column name="IDENTITY_TYPE"
+              not-null="true"
+              unique-key="id"/>
+    </many-to-one>
+    <property name="name"
+              type="java.lang.String"
+              access="field"
+              lazy="false">
+      <column name="NAME"
+              not-null="true"
+              unique-key="id"/>
+    </property>
+    <map name="properties"
+         table="jbid_io_props"
+         cascade="all, delete-orphan"
+         lazy="extra"
+         fetch="subselect">
+      <cache usage="read-write"/>
+      <key column="PROP_ID"/>
+      <map-key type="string"
+               column="PROP_NAME"/>
+      <element type="string"
+               column="PROP_VALUE"
+               not-null="true"/>
+    </map>
+    <many-to-one name="realm"
+                 class="org.picketlink.idm.impl.model.hibernate.HibernateRealm"
+                 access="field"
+                 fetch="select">
+      <column name="REALM"
+              not-null="true"
+              unique-key="id"/>
+    </many-to-one>
+    <set name="toRelationships"
+         inverse="true"
+         lazy="extra"
+         fetch="subselect">
+      <cache usage="read-write"/>
+      <key>
+        <column name="TO_IDENTITY"/>
+      </key>
+      <one-to-many class="org.picketlink.idm.impl.model.hibernate.HibernateIdentityObjectRelationship"/>
+    </set>
+  </class>
+</hibernate-mapping>

@@ -2,6 +2,7 @@ package org.exoplatform.platform.common.space;
 
 import java.io.InputStream;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import javax.jcr.ImportUUIDBehavior;
@@ -23,6 +24,12 @@ import org.exoplatform.portal.config.model.Container;
 import org.exoplatform.portal.config.model.ModelObject;
 import org.exoplatform.portal.config.model.Page;
 import org.exoplatform.portal.config.model.PortalConfig;
+import org.exoplatform.portal.mop.SiteKey;
+import org.exoplatform.portal.mop.navigation.NavigationContext;
+import org.exoplatform.portal.mop.page.PageContext;
+import org.exoplatform.portal.mop.page.PageKey;
+import org.exoplatform.portal.mop.page.PageService;
+import org.exoplatform.portal.mop.page.PageState;
 import org.exoplatform.portal.pom.spi.portlet.Portlet;
 import org.exoplatform.portal.pom.spi.portlet.Preference;
 import org.exoplatform.services.cms.BasePath;
@@ -55,12 +62,13 @@ public class SpaceCustomizationService {
   private RepositoryService repositoryService = null;
   private ConfigurationManager configurationManager = null;
   private DataStorage dataStorageService = null;
+  PageService pageService = null;
   private UserPortalConfigService userPortalConfigService = null;
   private SpaceService spaceService = null;
   private UserACL userACL = null;
   private String groupsPath;
 
-  public SpaceCustomizationService(DataStorage dataStorageService_, UserPortalConfigService userPortalConfigService_,
+  public SpaceCustomizationService(DataStorage dataStorageService_,PageService pageService_, UserPortalConfigService userPortalConfigService_,
       NodeHierarchyCreator nodeHierarchyCreator_, DMSConfiguration dmsConfiguration_, RepositoryService repositoryService_,
       ConfigurationManager configurationManager_, UserACL userACL_) {
     this.nodeHierarchyCreator = nodeHierarchyCreator_;
@@ -69,6 +77,7 @@ public class SpaceCustomizationService {
     this.userACL = userACL_;
     this.configurationManager = configurationManager_;
     this.dataStorageService = dataStorageService_;
+      this.pageService = pageService_;
     this.userPortalConfigService = userPortalConfigService_;
     groupsPath = nodeHierarchyCreator.getJcrPath(GROUPS_PATH);
     if (groupsPath.lastIndexOf("/") == groupsPath.length() - 1) {
@@ -210,10 +219,13 @@ public class SpaceCustomizationService {
     RequestLifeCycle.begin(PortalContainer.getInstance());
     try {
       LOG.info("Updating '" + spaceGroupId + "' Space Home Page");
+      
       // creates the new home page
-
       Page oldSpaceHomePage = dataStorageService.getPage(PortalConfig.GROUP_TYPE + "::" + spaceGroupId + "::"
           + getSpaceService().getSpaceApplicationConfigPlugin().getHomeApplication().getPortletName());
+      PageContext pageContext = pageService.loadPage(PageKey.parse(oldSpaceHomePage.getPageId()));
+      pageContext.update(oldSpaceHomePage);
+      
       // creates the customized home page for the space and set few fields
       // with values from the old home page
       Page customSpaceHomePage = userPortalConfigService.createPageTemplate(SPACE_NEW_HOME_PAGE_TEMPLATE,
@@ -235,8 +247,23 @@ public class SpaceCustomizationService {
       Application<Portlet> welcomeSCVPortlet = getPortletApplication(customSpaceHomePage.getChildren(), SCV_PORTLEt_NAME);
       // configures the welcome SingleContentViewer Portlet
       editSCVPreference(welcomeSCVPortlet, spaceGroupId, welcomeSCVCustomPreferences);
+      
+      //
+      NavigationContext navContext = SpaceUtils.createGroupNavigation(spaceGroupId);
+      
+      SiteKey siteKey = navContext.getKey();
+      PageKey pageKey = new PageKey(siteKey, customSpaceHomePage.getName());
+      PageState pageState = new PageState(
+                                          customSpaceHomePage.getTitle(), 
+                                          customSpaceHomePage.getDescription(), 
+                                          customSpaceHomePage.isShowMaxWindow(), 
+                                          customSpaceHomePage.getFactoryId(), 
+                                          customSpaceHomePage.getAccessPermissions() != null ? 
+                                          Arrays.asList(customSpaceHomePage.getAccessPermissions()) : null, 
+                                          customSpaceHomePage.getEditPermission());
+      
+      pageService.savePage(new PageContext(pageKey, pageState));
       dataStorageService.save(customSpaceHomePage);
-
     } catch (Exception e) {
       LOG.error("Error while customizing the Space home page for space: " + spaceGroupId, e);
     } finally {

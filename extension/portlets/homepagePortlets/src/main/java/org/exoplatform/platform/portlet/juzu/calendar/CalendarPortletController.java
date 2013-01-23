@@ -76,7 +76,7 @@ public class CalendarPortletController {
     };
     private Comparator<CalendarEvent> tasksComparator = new Comparator<CalendarEvent>() {
         public int compare(CalendarEvent e1, CalendarEvent e2) {
-            return (int) (e1.getFromDateTime().getTime() - e2.getFromDateTime().getTime());
+            return (int) (e2.getFromDateTime().getTime() - e1.getFromDateTime().getTime());
         }
     };
 
@@ -166,16 +166,15 @@ public class CalendarPortletController {
         }
 
         //this test is for the use case CALENDAR_21	By Default, all of the user's calendars are displayed in the gadget.
-        if (settingNode == null) {
+        // always extract displayed calendar (to get les nouvelles calendrier ajouté depuis calendarPortlet)
             Iterator itr1 = getAllCal(username).iterator();
             while (itr1.hasNext()) {
                 org.exoplatform.calendar.service.Calendar c = (org.exoplatform.calendar.service.Calendar) itr1.next();
-                if (calendarDisplayedMap.get(c.getId()) == null) {
+                if ((calendarDisplayedMap.get(c.getId()) == null)&&(calendarNonDisplayedMap.get(c.getId()) == null)) {
                     calendarDisplayedMap.put(c.getId(), c);
                     calendarDisplayedList.add(c);
                 }
             }
-        }
 
         // read the user events
         List<CalendarEvent> userEvents = getEvents(username);
@@ -201,7 +200,8 @@ public class CalendarPortletController {
                             displayedCalendar.add(calendar);
                         }
                     } else if ((event.getEventType().equals(CalendarEvent.TYPE_TASK)) &&
-                            (((from.compareTo(comp) <= 0) && (to.compareTo(comp) >= 0)) || ((event.getEventState().equals(CalendarEvent.NEEDS_ACTION)) && (to.compareTo(comp) < 0)))) {
+                            (((from.compareTo(comp) <= 0) && (to.compareTo(comp) >= 0)) ||
+                                    ((event.getEventState().equals(CalendarEvent.NEEDS_ACTION)) && (to.compareTo(comp) < 0)))) {
                         if(!displayedCalendarMap.containsKey(calendar.getId()))
                         {
                             displayedCalendarMap.put(calendar.getId(),calendar);
@@ -224,6 +224,7 @@ public class CalendarPortletController {
             parameters.put("toLabel", EntityEncoder.FULL.encode(rs.getString("to.label")));
             parameters.put("fromLabel", EntityEncoder.FULL.encode(rs.getString("from.label")));
             parameters.put("allDayLabel", EntityEncoder.FULL.encode(rs.getString("all.day.label")));
+            parameters.put("noEventsLabel", EntityEncoder.FULL.encode(rs.getString("no.events.label")));
             if (clickNumber == 0) dateLabel = rs.getString("today.label") + ": ";
             else if (clickNumber == -1) dateLabel = rs.getString("yesterday.label") + ": ";
             else if (clickNumber == 1) dateLabel = rs.getString("tomorrow.label") + ": ";

@@ -27,10 +27,8 @@
 }
 
 .flottante {
-
     margin: 2px;
     float: left;
-    text-align: center;
 }
 
 .spacer {
@@ -171,7 +169,7 @@
                 }
                       %>
                       <div class= "CalendarItem" id="${cal.id}">
-                            <p class="flottante" style="background-color:${cal.calendarColor}"  id="${cal.id}">${calendarName}</p>
+                            <p class="flottante CalendarName" style="background-color:${cal.calendarColor}"  id="${cal.id}">${calendarName}</p>
 
                             <p class="flottante">
                                 <span class="deleteButtonSpan icon"></span>
@@ -198,7 +196,7 @@
              </div>
 
 
-      <div  id="nonDisplayedCalendarContainer"  style="display: block">
+      <div  id="nonDisplayedCalendarContainer"  class="nonDisplayedCalendarContainer" style="display: block">
                  <% if (nonDisplayedCalendar != null) {
 
                     nonDisplayedCalendar.each { cal ->
@@ -213,7 +211,7 @@
 
                                     <p style="float:left; height:20px;width:20px;background-color:  ${cal.calendarColor}"/>
 
-                                    <p style="float:left; ">${calendarName}</p>
+                                    <p class="CalendarName" style="float:left; ">${calendarName}</p>
 
                                     <p class="addButton" style="float:left;display: none;">
                                         <input type="hidden" name="calendarId" value="${cal.id}"/>

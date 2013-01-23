@@ -98,6 +98,18 @@ public class PeopleAndSpacesRestService implements ResourceContainer {
 
             JSONArray jsonArray = new JSONArray();
 
+            for (Space space : invitedSpaces) {
+
+                String avatar = space.getAvatarUrl();
+                JSONObject json = new JSONObject();
+                json.put(INVITATION_TYPE, SPACE_INVITATION_TYPE);
+                json.put(SPACE_DISPLAY_NAME, space.getDisplayName());
+                json.put(SPACE_AVATAR_URL, avatar);
+                json.put(SPACE_ID, space.getId());
+                json.put(MEMBERS_NUMBER, space.getMembers().length);
+                json.put(SPACE_REGISTRATION, space.getRegistration());
+                jsonArray.put(json);
+            }
 
             for (Relationship relation : relations) {
 
@@ -109,19 +121,6 @@ public class PeopleAndSpacesRestService implements ResourceContainer {
                 json.put(RELATION_ID, relation.getId());
                 json.put(SENDER_AVATAR_URL, avatar);
                 json.put(SENDER_POSITION, senderId.getProfile().getPosition());
-                jsonArray.put(json);
-            }
-
-            for (Space space : invitedSpaces) {
-
-                String avatar = space.getAvatarUrl();
-                JSONObject json = new JSONObject();
-                json.put(INVITATION_TYPE, SPACE_INVITATION_TYPE);
-                json.put(SPACE_DISPLAY_NAME, space.getDisplayName());
-                json.put(SPACE_AVATAR_URL, avatar);
-                json.put(SPACE_ID, space.getId());
-                json.put(MEMBERS_NUMBER, space.getMembers().length);
-                json.put(SPACE_REGISTRATION, space.getRegistration());
                 jsonArray.put(json);
             }
 

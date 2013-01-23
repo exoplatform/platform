@@ -115,6 +115,7 @@ top: 0;
 }
 
 .DeleteIcon{
+    cursor: pointer;
     text-decoration-color: white;
     padding: 3px 5px;
     background: url("/homepage-portlets/style/images/gettingStarted/del.png") no-repeat right 8px ;

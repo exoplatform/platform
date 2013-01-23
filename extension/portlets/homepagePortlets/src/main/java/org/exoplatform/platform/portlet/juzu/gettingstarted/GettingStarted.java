@@ -51,7 +51,6 @@ public class GettingStarted {
 
     private static Log logger = ExoLogger.getLogger(GettingStarted.class);
     static String remoteUser = "";
-    static String remoteUserCach = "";
     HashMap parameters = new HashMap();
     static HashMap bundle = new HashMap();
     HashMap<String, String> status = new HashMap();
@@ -71,7 +70,6 @@ public class GettingStarted {
     @View
     public void index() throws Exception {
         remoteUser = RequestContext.getCurrentInstance().getRemoteUser();
-        if (remoteUserCach.equals("")) remoteUserCach = remoteUser;
         SessionProvider sProvider = SessionProvider.createSystemProvider();
         Node userPrivateNode = nodeHierarchyCreator_.getUserNode(sProvider, remoteUser).getNode(GettingStartedUtils.JCR_APPLICATION_NODE);
         if (!userPrivateNode.hasNode(GettingStartedUtils.JCR_GS_NODE)) {
@@ -86,7 +84,6 @@ public class GettingStarted {
             gettingStartedNode.setProperty(GettingStartedUtils.JCR_DOCUMENT_PROPERTY_NAME, false);
             gettingStartedNode.save();
         }
-        if ((bundle.size() == 0) || (!remoteUser.equals(remoteUserCach))) {
             String profileLabel = "";
             String documentLabel = "";
             String connectLabel = "";
@@ -114,7 +111,6 @@ public class GettingStarted {
             } catch (MissingResourceException ex) {
                 logger.warn("##Missing Labels of GettingStarted Portlet");
             }
-        }
         gettingStarted.render();
     }
 

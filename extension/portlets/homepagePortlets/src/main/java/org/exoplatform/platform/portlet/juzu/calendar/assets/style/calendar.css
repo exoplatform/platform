@@ -66,6 +66,7 @@
     position: absolute;
     left: 0px;  top: 0px;
     width: 13px;
+    cursor: pointer;
 }
 .PrevDateSpan{
     background: url("/homepage-portlets/style/images/calendar/prev.png") no-repeat left 3px;;
@@ -79,6 +80,7 @@
     right: 7px;
     top: 3px;
     width: 20px;
+    cursor: pointer;
 }
 .NextDateSpan{
     background: url("/homepage-portlets/style/images/calendar/next.png") no-repeat left 3px;;
@@ -96,7 +98,6 @@
     margin: 2px;
     float: left;
 
-    text-align: center;
 }
 
 .conteneur {
@@ -122,7 +123,6 @@
 .taskNotCompleted{
     margin: 10px 0px 10px 0px;
     padding-left: 15px;
-    font-weight: bold;
     background:url('/homepage-portlets/style/images/calendar/rec.png') no-repeat left !important;
 }
 
@@ -130,7 +130,6 @@
     text-decoration-style: solid;
     background-color:silver;
     height: 20px;
-    text-align: center;
 }
 .TasksList{
 
@@ -142,13 +141,15 @@
 
 }
 
+.nonDisplayedCalendarContainer{
+    max-height: 350px;
+    overflow-y: auto;
+}
 .PastEvent{
     background-color: #d3d3d3;
 }
 
 .EventSummary {
-
-    margin: auto;
     /* white-space: nowrap; */
     font-size: 12px;
     display: block;
@@ -156,8 +157,13 @@
     max-height: 25px;
     overflow: hidden;
 }
-.CalendarName{
-    width: 45px;
+.CalendarName {
+    max-height: 1.3em;
+    max-width: 90px;
+    overflow: hidden;
+    text-align: center;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
 .NonDisp{
