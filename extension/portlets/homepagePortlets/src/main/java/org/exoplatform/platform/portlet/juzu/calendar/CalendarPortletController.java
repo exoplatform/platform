@@ -166,16 +166,15 @@ public class CalendarPortletController {
         }
 
         //this test is for the use case CALENDAR_21	By Default, all of the user's calendars are displayed in the gadget.
-        if (settingNode == null) {
+        // always extract displayed calendar (to get les nouvelles calendrier ajouté depuis calendarPortlet)
             Iterator itr1 = getAllCal(username).iterator();
             while (itr1.hasNext()) {
                 org.exoplatform.calendar.service.Calendar c = (org.exoplatform.calendar.service.Calendar) itr1.next();
-                if (calendarDisplayedMap.get(c.getId()) == null) {
+                if ((calendarDisplayedMap.get(c.getId()) == null)&&(calendarNonDisplayedMap.get(c.getId()) == null)) {
                     calendarDisplayedMap.put(c.getId(), c);
                     calendarDisplayedList.add(c);
                 }
             }
-        }
 
         // read the user events
         List<CalendarEvent> userEvents = getEvents(username);
@@ -201,7 +200,8 @@ public class CalendarPortletController {
                             displayedCalendar.add(calendar);
                         }
                     } else if ((event.getEventType().equals(CalendarEvent.TYPE_TASK)) &&
-                            (((from.compareTo(comp) <= 0) && (to.compareTo(comp) >= 0)) || ((event.getEventState().equals(CalendarEvent.NEEDS_ACTION)) && (to.compareTo(comp) < 0)))) {
+                            (((from.compareTo(comp) <= 0) && (to.compareTo(comp) >= 0)) ||
+                                    ((event.getEventState().equals(CalendarEvent.NEEDS_ACTION)) && (to.compareTo(comp) < 0)))) {
                         if(!displayedCalendarMap.containsKey(calendar.getId()))
                         {
                             displayedCalendarMap.put(calendar.getId(),calendar);

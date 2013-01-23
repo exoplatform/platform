@@ -75,7 +75,7 @@ import java.util.Locale;
                     calendarName += grpName;
                 }
         %>
-        <p class="flottante" style="background-color:  ${cal.calendarColor}" class="" id="${cal.id}">${calendarName}</p>
+        <p class="flottante CalendarName" style="background-color:  ${cal.calendarColor}" class="" id="${cal.id}">${calendarName}</p>
         <% }
         }
         %>

@@ -142,6 +142,10 @@
 
 }
 
+.nonDisplayedCalendarContainer{
+    max-height: 350px;
+    overflow-y: auto;
+}
 .PastEvent{
     background-color: #d3d3d3;
 }
@@ -156,8 +160,13 @@
     max-height: 25px;
     overflow: hidden;
 }
-.CalendarName{
-    width: 45px;
+.CalendarName {
+    max-height: 1.3em;
+    max-width: 90px;
+    overflow: hidden;
+    text-align: center;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
 .NonDisp{
