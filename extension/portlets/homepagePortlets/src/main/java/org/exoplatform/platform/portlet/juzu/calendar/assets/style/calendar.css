@@ -122,7 +122,6 @@
 .taskNotCompleted{
     margin: 10px 0px 10px 0px;
     padding-left: 15px;
-    font-weight: bold;
     background:url('/homepage-portlets/style/images/calendar/rec.png') no-repeat left !important;
 }
 
