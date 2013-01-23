@@ -25,6 +25,7 @@ import org.exoplatform.services.jcr.ext.hierarchy.NodeHierarchyCreator;
 import org.exoplatform.services.log.ExoLogger;
 import org.exoplatform.services.log.Log;
 import org.exoplatform.social.common.RealtimeListAccess;
+import org.exoplatform.social.core.activity.model.ExoSocialActivity;
 import org.exoplatform.social.core.identity.model.Identity;
 import org.exoplatform.social.core.identity.model.Profile;
 import org.exoplatform.social.core.identity.provider.OrganizationIdentityProvider;
@@ -37,6 +38,7 @@ import org.exoplatform.social.core.space.spi.SpaceService;
 
 import javax.jcr.Node;
 import javax.jcr.NodeIterator;
+import java.util.Iterator;
 import java.util.List;
 
 /**
@@ -46,33 +48,31 @@ import java.util.List;
 public class GettingStartedService {
     private static final Log log = ExoLogger.getLogger(GettingStartedService.class);
 
-    public static Boolean  hasDocuments(Node node,String userId)  {
+    public static Boolean hasDocuments(Node node, String userId) {
         SessionProvider sProvider = SessionProvider.createSystemProvider();
-        NodeHierarchyCreator nodeHierarchyCreator_=(NodeHierarchyCreator)  ExoContainerContext.getCurrentContainer().getComponentInstanceOfType(NodeHierarchyCreator.class);
-        boolean docFound= false;
+        NodeHierarchyCreator nodeHierarchyCreator_ = (NodeHierarchyCreator) ExoContainerContext.getCurrentContainer().getComponentInstanceOfType(NodeHierarchyCreator.class);
+        boolean docFound = false;
         try {
-            Node userPrivateNode=node;
-            if (userPrivateNode==null)
-                userPrivateNode= nodeHierarchyCreator_.getUserNode(sProvider, userId).getNode("Private");
+            Node userPrivateNode = node;
+            if (userPrivateNode == null)
+                userPrivateNode = nodeHierarchyCreator_.getUserNode(sProvider, userId).getNode("Private");
 
-            LinkManager linkManager = (LinkManager)ExoContainerContext.getCurrentContainer().getComponentInstanceOfType(LinkManager.class);
+            LinkManager linkManager = (LinkManager) ExoContainerContext.getCurrentContainer().getComponentInstanceOfType(LinkManager.class);
             String primaryType = userPrivateNode.getProperty("jcr:primaryType").getString();
-            if (primaryType.contains("nt:file") ) {
+            if (primaryType.contains("nt:file")) {
                 return true;
-            }
-            else
-            {
-                if (userPrivateNode.hasNodes()){
+            } else {
+                if (userPrivateNode.hasNodes()) {
                     NodeIterator childNodes = userPrivateNode.getNodes();
-                    while ((childNodes.hasNext())&&(!docFound)) {
+                    while ((childNodes.hasNext()) && (!docFound)) {
                         Node childNode = childNodes.nextNode();
-                        docFound=hasDocuments(childNode, userId);
+                        docFound = hasDocuments(childNode, userId);
                     }
                 }
             }
         } catch (Exception e) {
             e.printStackTrace();
-            return  false;
+            return false;
         }
         return docFound;
     }
@@ -114,7 +114,7 @@ public class GettingStartedService {
     }
 
     @SuppressWarnings("deprecation")
-    public static  boolean hasActivities(String userId) {
+    public static boolean hasActivities(String userId) {
         try {
             IdentityManager identityManager = (IdentityManager) ExoContainerContext.getCurrentContainer()
                     .getComponentInstanceOfType(IdentityManager.class);
@@ -122,36 +122,27 @@ public class GettingStartedService {
                     userId);
             ActivityManager activityService = (ActivityManager) ExoContainerContext.getCurrentContainer()
                     .getComponentInstanceOfType(ActivityManager.class);
-            RealtimeListAccess activities = activityService.getActivitiesWithListAccess(identity);
-
-            if (activities.getSize() != 0) {
-
-                if ((hasAvatar(userId)) && (hasContacts(userId)) && (hasSpaces(userId)) && (activities.getSize() >= 5))
-                    return true;
-                else if ((hasAvatar(userId)) && (hasContacts(userId)) && (!hasSpaces(userId)) && (activities.getSize() >= 4))
-                    return true;
-                else if ((hasAvatar(userId)) && (!hasContacts(userId)) && (hasSpaces(userId)) && (activities.getSize() >= 3))
-                    return true;
-                else if ((!hasAvatar(userId)) && (hasContacts(userId)) && (!hasSpaces(userId)) && (activities.getSize() >= 2))
-                    return true;
-
-                else if ((!hasAvatar(userId)) && (hasContacts(userId)) && (hasSpaces(userId)) && (activities.getSize() >= 4))
-                    return true;
-                else if ((!hasAvatar(userId)) && (!hasContacts(userId)) && (hasSpaces(userId)) && (activities.getSize() >= 2))
-                    return true;
-                else if ((!hasAvatar(userId)) && (!hasContacts(userId)) && (!hasSpaces(userId)) && (activities.getSize() >= 1))
-                    return true;
-                else return false;
+            RealtimeListAccess<ExoSocialActivity> activities = activityService.getActivitiesWithListAccess(identity);
+            List listAct = activities.loadAsList(0, 20);
+            Iterator iterator = null;
+            if (listAct != null) iterator = listAct.iterator();
+            if (iterator != null) {
+                while (iterator.hasNext()) {
+                    ExoSocialActivity activity = (ExoSocialActivity) iterator.next();
+                    if (activity.getType().equals(GettingStartedUtils.DEFAULT_ACTIVITY)) {
+                        return true;
+                    }
+                }
             }
-            else return false;
+            return false;
         } catch (Exception e) {
-            log.debug("Error in gettingStarted REST service: " + e.getMessage(), e);
+            log.debug("Error in gettingStarted service: " + e.getMessage(), e);
             return false;
         }
     }
 
     @SuppressWarnings("deprecation")
-    public static boolean  hasContacts(String userId) {
+    public static boolean hasContacts(String userId) {
         try {
 
             IdentityManager identityManager = (IdentityManager) ExoContainerContext.getCurrentContainer()
