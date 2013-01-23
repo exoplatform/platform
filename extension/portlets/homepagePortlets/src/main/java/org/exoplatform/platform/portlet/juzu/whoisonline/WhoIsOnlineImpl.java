@@ -16,6 +16,7 @@ import org.exoplatform.social.core.relationship.model.Relationship;
 import org.exoplatform.social.core.service.LinkProvider;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -34,7 +35,7 @@ public class WhoIsOnlineImpl implements WhoIsOnline {
     private static final int MAX_CHAR = 90;
     private static final int INDEX_CHAR = 87;
     private static final String THREE_DOTS = "...";
-    private static final int MAX_USER = 18;
+    private static final int MAX_USER = 17;
     private static final int INDEX_USER = 17;
 
     public List<User> getFriends(String userId) {
@@ -46,7 +47,7 @@ public class WhoIsOnlineImpl implements WhoIsOnline {
             IdentityManager identityManager = (IdentityManager) ExoContainerContext.getCurrentContainer().getComponentInstanceOfType(IdentityManager.class);
             Identity myIdentity = identityManager.getOrCreateIdentity(OrganizationIdentityProvider.NAME, userId);
             List<String> users = forumService.getOnlineUsers();
-
+            Collections.reverse(users);
             if (users.size() > MAX_USER) {
                 users = users.subList(0, INDEX_USER);
             }
@@ -81,7 +82,7 @@ public class WhoIsOnlineImpl implements WhoIsOnline {
                 userOnLine.setPosition(position);
                 userOnLine.setFullName(userProfile.getFullName());
                 userOnLine.setId(userProfile.getId());
-                userOnLine.setProfileUrl(userProfile.getUrl());
+                userOnLine.setProfileUrl(LinkProvider.getUserActivityUri(user));
                 userOnLine.setIdentity(userIdentity.getId());
                 userOnLine.setActivity(lastActivity);
                 userOnLine.setStatus(userStatus);
@@ -117,7 +118,7 @@ public class WhoIsOnlineImpl implements WhoIsOnline {
                 }
             }
         }
-        System.out.println("######### TTTTTTTTTTTTTTT YYYYYYYYYYY " + status);
+
         return status;
     }
 

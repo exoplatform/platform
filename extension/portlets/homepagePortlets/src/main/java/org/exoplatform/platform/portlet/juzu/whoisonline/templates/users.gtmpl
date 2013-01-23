@@ -37,13 +37,16 @@
   <%
     def connect="";
 	def message="";
-	if(user.getStatus().equals("") || user.getStatus().equals("ignored")|| user.getStatus().equals("received")){
+	if(user.getStatus().equals("") || user.getStatus().equals("ignored")){
 		connect='<div id="'+user.getId()+'connect" class="connectAction" ><a class="connect" href="#">'+connectLabel+'</a></div>';
 
 	}else{
+	if( user.getStatus().equals("received")) {
+	  connect='<div id="'+user.getId()+'connect" class="connectAction" ><a class="accept" href="#">'+connectLabel+'</a></div>';
+	} else{
 		if(user.getStatus().equals("pending"))
 			connect='<div id="connectMessge">'+messageLabel+'</div>';
-	}%>
+	}}%>
     <li id="${user.getId()}"><img src="${user.getAvatar()}" alt="image" /></li>
 	<script type="text/javascript">
 		$(function() {
@@ -61,5 +64,10 @@
             });
 
 		});
+		$("#${user.getId()}connect a.accept").live("click", function(){
+        			$.getJSON("/rest/homepage/intranet/people/contacts/confirm/${user.getIdentity()}", null);
+        			$("#${user.getId()}connect").hide();
+
+        		});
    </script>
   <%}%>
