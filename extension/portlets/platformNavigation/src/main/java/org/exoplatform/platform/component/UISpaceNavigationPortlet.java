@@ -37,6 +37,9 @@ public class UISpaceNavigationPortlet extends UIPortletApplication {
     private static final String MY_SPACE_REST_URL = "/space/user/searchSpace/";
     public static final String LOAD_NAVIGATION_ACTION = "LoadNavigation";
     private static final int MAX_LOADED_SPACES_BY_REQUEST = 30;
+    private static final String OBJECT_ID = "objectId";
+    private static final String SPACE_URL_PATTERN = ":spaces";
+
     private SpaceService spaceService = null;
 
     private String userId = null;
@@ -45,13 +48,16 @@ public class UISpaceNavigationPortlet extends UIPortletApplication {
 
     static int loadingCapacity = 10;
 
+    static private String portalContainerName = "";
+
     public UISpaceNavigationPortlet() throws Exception {
         try {
-            this.spaceService = ((SpaceService)getApplicationComponent(SpaceService.class));
+            spaceService = ((SpaceService)getApplicationComponent(SpaceService.class));
+            portalContainerName = PortalContainer.getCurrentPortalContainerName();
         } catch (Exception exception) {
             LOG.error("SpaceService could be 'null' when the Social profile isn't activated ", exception);
         }
-        if (this.spaceService == null)
+        if (spaceService == null)
             return;
     }
 
@@ -142,14 +148,20 @@ public class UISpaceNavigationPortlet extends UIPortletApplication {
 
             UISpaceNavigationPortlet uisource = (UISpaceNavigationPortlet)event.getSource();
             PortalRequestContext pContext = Util.getPortalRequestContext();
-            String portalContainer = PortalContainer.getCurrentPortalContainerName();
+            String spaceName = event.getRequestContext().getRequestParameter(OBJECT_ID);
             String fullUrl = ((HttpServletRequest) pContext.getRequest()).getRequestURL().toString();
-            String subUrl = fullUrl.substring(0, fullUrl.indexOf(portalContainer) + portalContainer.length());
-            String spaceName = event.getRequestContext().getRequestParameter("objectId");
-            subUrl +="/"+ spaceName;
+            String applicationDisplayed = "";
+            String subUrl = "";
+            if (fullUrl.contains(SPACE_URL_PATTERN)) {
+                applicationDisplayed = fullUrl.substring(fullUrl.lastIndexOf("/"));
+                subUrl = fullUrl.substring(0, fullUrl.indexOf(portalContainerName) + portalContainerName.length());
+                subUrl +="/"+ spaceName+applicationDisplayed;
+            } else {
+                subUrl = fullUrl.substring(0, fullUrl.indexOf(portalContainerName) + portalContainerName.length());
+                subUrl +="/"+ spaceName;
+            }
+
             event.getRequestContext().getJavascriptManager().getRequireJS().require("SHARED/navigation-spaces-search", "spaceSearchNavigationPortlet").addScripts("spaceSearchNavigationPortlet.ajaxRedirect('"+subUrl+"');");
-
-
         }
     }
 
