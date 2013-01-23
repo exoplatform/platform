@@ -83,7 +83,7 @@ import java.util.Locale;
     </div>
 
     <div class="Events">
-
+            <%if ((eventsDisplayedList != null) && (eventsDisplayedList.size() != 0)) {%>
         <div class="EventsList ">
 
             <%
@@ -96,9 +96,7 @@ import java.util.Locale;
                 sdf2= DateFormat.getTimeInstance(DateFormat.SHORT,locale);
                 def from;
                 def to;
-                if ((eventsDisplayedList != null) || (eventsDisplayedList.size() != 0)) {
-
-                    eventsDisplayedList.each { event ->
+                        eventsDisplayedList.each { event ->
                         def color = calendarDisplayedMap[event.calendarId].calendarColor;
                         def eventCss = "";
                         if (new Date().compareTo(event.toDateTime) > 0) eventCss = "PastEvent";
@@ -145,9 +143,13 @@ import java.util.Locale;
 
             </div>
             <% }
-            }
+
             %>
         </div>
+        <%} else{
+        %>
+        <span style="text-align: center"> ${bundle["noEventsLabel"]} </span>
+        <%}%>
         <br>
     </div>
 

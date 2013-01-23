@@ -224,6 +224,7 @@ public class CalendarPortletController {
             parameters.put("toLabel", EntityEncoder.FULL.encode(rs.getString("to.label")));
             parameters.put("fromLabel", EntityEncoder.FULL.encode(rs.getString("from.label")));
             parameters.put("allDayLabel", EntityEncoder.FULL.encode(rs.getString("all.day.label")));
+            parameters.put("noEventsLabel", EntityEncoder.FULL.encode(rs.getString("no.events.label")));
             if (clickNumber == 0) dateLabel = rs.getString("today.label") + ": ";
             else if (clickNumber == -1) dateLabel = rs.getString("yesterday.label") + ": ";
             else if (clickNumber == 1) dateLabel = rs.getString("tomorrow.label") + ": ";

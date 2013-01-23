@@ -66,6 +66,7 @@
     position: absolute;
     left: 0px;  top: 0px;
     width: 13px;
+    cursor: pointer;
 }
 .PrevDateSpan{
     background: url("/homepage-portlets/style/images/calendar/prev.png") no-repeat left 3px;;
