@@ -22,7 +22,8 @@ function initIncoming() {
             $("#InvitationsPortlet").show();
         }
 
-        $.each(items, function(i, item){
+        var reversedItems = items.slice().reverse();
+        $.each(reversedItems, function(i, item){
             link = "";
             if(item.invitationType == "people"){
 
