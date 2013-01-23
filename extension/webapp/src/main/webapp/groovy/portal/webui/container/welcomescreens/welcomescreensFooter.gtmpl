@@ -3,10 +3,12 @@
     import org.exoplatform.platform.welcomescreens.Utils;
 %>
 <%
-    def rdate = TrialService.computeRemindDateFromTodayBase64();
     def rday= TrialService.getNbDaysBeforeExpiration();
     boolean outdated = TrialService.isOutdated();
+    boolean isUnlocked = TrialService.isUnlocked();
+    if(!isUnlocked){
 %>
+
 <style type="text/css">
 .WLCFooter{
     width: 100%;
@@ -47,7 +49,19 @@
     <div >
         <div class="WLCFooter <%=css  %>">
             <%=label1 %> <%=rday%> <%=label2 %>
-            <a class="removeButton" href="/welcome-screens/jsp/unlockTrial.jsp"><%= labelRemove %></a>
+            <a class="removeButton" href="/welcome-screens/UnlockServlet"><%= labelRemove %></a>
         </div>
     </div>
 </div>
+<% 	if(!TrialService.isLandingPageDisplayed()){ %>
+<iframe src="<%=TrialService.getPingBackUrl()%>" style="display:none;" id="pingBackUrlFrame" onload="setFormDisplayed()"></iframe>
+<iframe src="about:blank" style="display:none;" id="pingBackUrlActivation"></iframe>
+<script>
+    function setFormDisplayed() {
+        var pingBackUrlActivationElement = document.getElementById("pingBackUrlActivation");
+        pingBackUrlActivationElement.src="/welcome-screens/PingBackServlet";
+    }
+</script>
+<% }
+
+}%>

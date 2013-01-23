@@ -1,6 +1,7 @@
 package org.exoplatform.platform.welcomescreens;
 
 import org.apache.commons.codec.binary.Base64;
+import org.exoplatform.common.http.client.HttpURLConnection;
 import org.exoplatform.commons.info.MissingProductInformationException;
 import org.exoplatform.commons.info.ProductInformations;
 import org.exoplatform.container.xml.InitParams;
@@ -16,6 +17,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.File;
 import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.Calendar;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
@@ -36,14 +39,9 @@ public class TrialService implements Startable {
     private static String productNameAndVersion = null;
     private static String productCode = null;
     private static String KEY_CONTENT = null;
-
-    /* A verifier si elle sert à quelque chose dans la nouvelle spec*/
     private static boolean loopfuseFormDisplayed = false;
+    private static boolean isUnlocked;
     private static boolean outdated = false;
-
-    /*plus besoin de cette information (elle etait faite pour afficher le bouton continuer ou startEvaluation dans registration.jsp )  */
-    //private static boolean dismissed = false;
-    //private static boolean firstStart = false;
     private static int delayPeriod = Utils.DEFAULT_DELAY_PERIOD;
     private static int nbDaysBeforeExpiration = 0;
     private static int nbDaysAfterExpiration = 0;
@@ -67,32 +65,30 @@ public class TrialService implements Startable {
     public void start() {
         String productNameAndVersionHashed = Utils.getModifiedMD5Code(productNameAndVersion.getBytes());
         if (!new File(Utils.HOME_CONFIG_FILE_LOCATION).exists()) {
-            /*Dans la nouvelle spec il y a plus le bouton startEvaluation
-            * avant en cliquant sur startEvaluation on ecrit pour la premierer fois le REMIND_DATE
-            * maintenant le premier accées au portail déclenche le compteur et les 30jours d'evaluation
-            * */
             String rdate = TrialService.computeRemindDateFromTodayBase64();
-
             productCode = generateProductCode();
             Utils.writeToFile(Utils.PRODUCT_NAME, productNameAndVersionHashed, Utils.HOME_CONFIG_FILE_LOCATION);
             Utils.writeToFile(Utils.PRODUCT_CODE, productCode, Utils.HOME_CONFIG_FILE_LOCATION);
-            /*
-            ecrire la REMIND_DATE à la creation fu fichier d'évaluation
-             */
             Utils.writeToFile(Utils.REMIND_DATE, rdate, Utils.HOME_CONFIG_FILE_LOCATION);
             Utils.writeToFile(Utils.LOOP_FUSE_FORM_DISPLAYED, "false", Utils.HOME_CONFIG_FILE_LOCATION);
-
+            Utils.writeToFile(Utils.IS_UNLOCKED, "false", Utils.HOME_CONFIG_FILE_LOCATION);
         }
-        // Test the file informations
         String productNameAndVersionReadFromFile = Utils.readFromFile(Utils.PRODUCT_NAME, Utils.HOME_CONFIG_FILE_LOCATION);
         if (!productNameAndVersionHashed.equals(productNameAndVersionReadFromFile)) {
             throw new IllegalStateException("Inconsistent product informations.");
         }
-
-        // Read: Product code
         productCode = Utils.readFromFile(Utils.PRODUCT_CODE, Utils.HOME_CONFIG_FILE_LOCATION);
 
-        // Read: loopfuse form displayed   Averifier la usibility
+        // Read: loopfuse form displayed
+        String loopfuseFormDisplayedString = Utils.readFromFile(Utils.LOOP_FUSE_FORM_DISPLAYED, Utils.HOME_CONFIG_FILE_LOCATION);
+        if (loopfuseFormDisplayedString != null && !loopfuseFormDisplayedString.isEmpty()) {
+            loopfuseFormDisplayed = Boolean.parseBoolean(loopfuseFormDisplayedString);
+        }
+        //Read if unlocked
+        String isUnlockedString = Utils.readFromFile(Utils.IS_UNLOCKED, Utils.HOME_CONFIG_FILE_LOCATION);
+        if (isUnlockedString != null && !isUnlockedString.isEmpty()) {
+            isUnlocked = Boolean.parseBoolean(isUnlockedString);
+        }
         // Read: Remind date
         String remindDateString = Utils.readFromFile(Utils.REMIND_DATE, Utils.HOME_CONFIG_FILE_LOCATION);
         remindDate = Utils.parseDateBase64(remindDateString);
@@ -102,6 +98,10 @@ public class TrialService implements Startable {
         executor.scheduleWithFixedDelay(new Runnable() {
             public void run() {
                 computeUnlockedInformation();
+                if(outdated && isUnlocked) {
+                  isUnlocked=false;
+                  Utils.writeToFile(Utils.IS_UNLOCKED, "false", Utils.HOME_CONFIG_FILE_LOCATION);
+                }
             }
         }, 1, 1, TimeUnit.MINUTES);
     }
@@ -141,8 +141,12 @@ public class TrialService implements Startable {
         return nbDaysAfterExpiration;
     }
 
-    public static boolean isLoopfuseFormDisplayed() {
+    public static boolean isLandingPageDisplayed() {
         return loopfuseFormDisplayed;
+    }
+
+    public static boolean isUnlocked() {
+        return isUnlocked;
     }
 
     public static boolean isOutdated() {
@@ -195,6 +199,7 @@ public class TrialService implements Startable {
 
         } else { // Reminder Date is not yet outdated
             outdated = false;
+            nbDaysAfterExpiration=0;
             nbDaysBeforeExpiration = (int) TimeUnit.MILLISECONDS.toDays(remindDate.getTimeInMillis() - today.getTimeInMillis());
         }
     }
@@ -214,29 +219,23 @@ public class TrialService implements Startable {
     }
 
     public static class TrialFilter implements Filter {
-
         public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException,
                 ServletException {
             HttpServletRequest httpServletRequest = (HttpServletRequest) request;
-            HttpServletResponse httpServletResponse = (HttpServletResponse) response;
-            /*boolean isIgnoringRequest = isIgnoredRequest(httpServletRequest.getSession(true).getServletContext(),
+
+            boolean isIgnoringRequest = isIgnoredRequest(httpServletRequest.getSession(true).getServletContext(),
                     httpServletRequest.getRequestURI());
-            if ((!outdated) || isIgnoringRequest) {
-                chain.doFilter(request, response);
-                return;
-            }    */
-            if (TrialService.calledUrl == null) {
+            if (!isIgnoringRequest) {
                 TrialService.calledUrl = httpServletRequest.getRequestURI();
             }
             chain.doFilter(request, response);
             return;
         }
-
-        /*private boolean isIgnoredRequest(ServletContext context, String url) {
+        private boolean isIgnoredRequest(ServletContext context, String url) {
             String fileName = url.substring(url.indexOf("/"));
             String mimeType = context.getMimeType(fileName);
-            return mimeType != null;
-        }                  */
+            return ((mimeType != null)||(url.contains("rest")));
+        }
     }
 
     public static class UnlockServlet extends HttpServlet {
@@ -268,8 +267,11 @@ public class TrialService implements Startable {
                 computeUnlockedInformation();
                 if (!outdated) {
                     Utils.writeRemindDate(rdate, Utils.HOME_CONFIG_FILE_LOCATION);
+                    Utils.writeToFile(Utils.IS_UNLOCKED, "true", Utils.HOME_CONFIG_FILE_LOCATION);
+                    isUnlocked=true;
                 }
                 response.sendRedirect(TrialService.calledUrl);
+                return;
             } catch (Exception exception) {
                 delayPeriod = 0;
                 outdated = true;
@@ -279,17 +281,15 @@ public class TrialService implements Startable {
                 return;
             }
         }
-            response.sendRedirect(TrialService.calledUrl);
-            return;
+            request.getRequestDispatcher("WEB-INF/jsp/unlockTrial.jsp").include(request, response);
         }
         @Override
         protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
             doPost(request, response);
         }
-
     }
 
-    /*
+
     public static class PingBackServlet extends HttpServlet {
         private static final long serialVersionUID = 6467955354840693802L;
 
@@ -322,6 +322,6 @@ public class TrialService implements Startable {
             }
             return false;
         }
-    } */
+    }
 
 }
