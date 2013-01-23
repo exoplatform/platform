@@ -326,9 +326,14 @@ h6{padding-top:12pt;line-height:1.2;text-align:left;color:#000000;font-size:11pt
     padding: 4px 24px;
     text-align: center;
 }
+
+.accountSetupError{
+    color: red;
+    padding-bottom: 10px;
+}
 </style>
 <link href="<%=request.getContextPath()%>/css/Style.css" rel="stylesheet" type="text/css" />
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/javascript/jquery-1.7.2.min.js"></script>
 <script type="text/javascript" src="<%=request.getContextPath()%>/javascript/jquery.scrollTo.js"></script>
 <script type="text/javascript" src="<%=request.getContextPath()%>/javascript/welcomescreens.js"></script>
 
@@ -2028,13 +2033,13 @@ h6{padding-top:12pt;line-height:1.2;text-align:left;color:#000000;font-size:11pt
         <h3>Create Your account</h3>
         <table class="BorderDot">
             <tbody>
-            <tr>
+            <tr id ="usernameId">
                 <td class="FieldLabel UserInput">Username</td>
                 <td class="FieldComment FieldMini" colspan='3'>
                     <input type="text" name="userNameAccount" id="userNameAccount" placeholder="User name">
                 </td>
             </tr>
-            <tr>
+            <tr id="fullnameId">
                 <td class="FieldLabel UserInput">Fullname</td>
                 <td class="FieldComment FieldMini">
                     <input type="text" name="firstNameAccount" id="firstNameAccount" placeholder="First name">
@@ -2043,13 +2048,13 @@ h6{padding-top:12pt;line-height:1.2;text-align:left;color:#000000;font-size:11pt
                     <input type="text" name="lastNameAccount" id="lastNameAccount" placeholder="Last name">
                 </td>
             </tr>
-            <tr>
+            <tr id="emailId">
                 <td class="FieldLabel UserInput">Email</td>
                 <td class="FieldComment FieldMini" colspan='3'>
                     <input type="text" name="emailAccount" id="emailAccount" >
                 </td>
             </tr>
-            <tr>
+            <tr id="passwordId">
                 <td class="FieldLabel UserInput">Password</td>
                 <td class="FieldComment FieldMini">
                     <input type="password" name="userPasswordAccount" id="userPasswordAccount"/>
@@ -2064,13 +2069,13 @@ h6{padding-top:12pt;line-height:1.2;text-align:left;color:#000000;font-size:11pt
         <h3>Admin password</h3>
         <table class="BorderDot" cols="4">
             <tbody>
-            <tr>
+            <tr id="adminUsernameId">
                 <td class="FieldLabel UserInput">Username</td>
                 <td class="FieldComment FieldMini" colspan='2'>
                     <input type="text" name="adminFirstName" id="adminFirstName" placeholder="root"/>
                 </td>
             </tr>
-            <tr>
+            <tr id="adminPasswordId">
                 <td class="FieldLabel UserInput">Password</td>
                 <td class="FieldComment FieldMini" colspan='2'>
                     <input type="password" name="adminPassword" id="adminPassword"/>
