@@ -54,7 +54,7 @@
         EntityEncoder entityEncoder = EntityEncoder.FULL;
         label = entityEncoder.encode(label);
 
-        if ((icon == null)||(icon.equals(""))) icon = "uiIconDefault";
+        if ((icon == null)||(icon.equals(""))) icon = "Style.less";
         print """
 			<li class="$tabStyleNavigation">
 		""";
