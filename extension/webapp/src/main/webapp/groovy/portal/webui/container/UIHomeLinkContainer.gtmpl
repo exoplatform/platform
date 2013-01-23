@@ -9,8 +9,6 @@
         imgSrc = "/portal/rest/jcr/repository/collaboration" + path;
 %>
 
-<div id="<%=uicomponent.id%>">
-<a href="<%=NavigationURLUtils.getCurrentPortalURL()%>" class="HomeLink">
+<a href="<%=NavigationURLUtils.getCurrentPortalURL()%>" id="<%=uicomponent.id%>" class="homeLink">
     <img src="$imgSrc" alt="Home" />
 </a>
-</div>

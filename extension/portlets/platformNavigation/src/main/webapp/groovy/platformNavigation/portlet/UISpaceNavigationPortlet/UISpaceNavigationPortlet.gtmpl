@@ -117,7 +117,7 @@
   def rcontext = _ctx.getRequestContext() ;
   def requireJs = rcontext.getJavascriptManager().getRequireJS();
   requireJs.require("SHARED/navigation-spaces-search", "spacesSearch");
-  requireJs.addScripts("spacesSearch.init('" + uicomponent.id  + "','" + restUrl + "','" + defaultValueForTextSearch +"','" + noSpace + "','" + selectSpaceAction + "');");
+  requireJs.addScripts("spacesSearch.UISpaceNavigation.init('" + uicomponent.id  + "','" + restUrl + "','" + defaultValueForTextSearch +"','" + noSpace + "','" + selectSpaceAction + "');");
 %>
 
 <div class="uiSpaceNavigationPortlet" id="$uicomponent.id">
@@ -160,9 +160,9 @@
     <!-- FIN -->
 
 	</ul>
-	<div style="border: 1px solid red">
-		<img title="" alt="" src="/eXoPlatformResources/skin/platformSkin/icons/icon_join.jpg" />
-		<a class="EditorIcon TBIcon" href="<%= findSpacesLink %>">
+	<div class="joinSpace">
+		<a class="" href="<%= findSpacesLink %>">
+			<i class="uiIconPLFMan"></i>
 		<%=_ctx.appRes("UISpaceNavigationPortlet.label.Join")%>
 		</a>
 	</div>

@@ -39,17 +39,17 @@
     margin: 3px 5px;
     /*vertical-align: middle;*/
 }
-
+/*
 .UIToolbarContainer .NormalContainerBlock .ToolbarContainer {
     background: url(background/BgToolbarContainer.gif) repeat-x left top;
     height: 31px;
     border: none;
 }
-
+*/
 .UIToolbarContainer .MenuItemContainer .MenuItem a {
     padding: 0 22px 0 22px;
     font-size: 12px!important;
-    color: #4c4c4c;
+   /* color: #4c4c4c;*/
     display: block;
     font-weight: normal;
     white-space: nowrap;
@@ -59,11 +59,11 @@
     color: #4c4c4c;
     background-color: transparent;
 }
-
+/*
 .UIToolbarContainer .UIHorizontalTabs {
     height: 31px;
 }
-
+*/
 .UIToolbarContainer .UIHorizontalTabs .UITab {
     background: none;
     line-height: 31px;
