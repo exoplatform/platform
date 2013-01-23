@@ -76,7 +76,7 @@ public class CalendarPortletController {
     };
     private Comparator<CalendarEvent> tasksComparator = new Comparator<CalendarEvent>() {
         public int compare(CalendarEvent e1, CalendarEvent e2) {
-            return (int) (e1.getFromDateTime().getTime() - e2.getFromDateTime().getTime());
+            return (int) (e2.getFromDateTime().getTime() - e1.getFromDateTime().getTime());
         }
     };
 
