@@ -79,6 +79,7 @@
     right: 7px;
     top: 3px;
     width: 20px;
+    cursor: pointer;
 }
 .NextDateSpan{
     background: url("/homepage-portlets/style/images/calendar/next.png") no-repeat left 3px;;
