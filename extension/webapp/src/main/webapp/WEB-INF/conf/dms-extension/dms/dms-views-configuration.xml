@@ -32,7 +32,8 @@
           <object type="org.exoplatform.services.cms.views.ViewConfig">		          
             <field name="name"><string>e_admin-view</string></field>
             <field name="permissions"><string>*:/platform/administrators</string></field>
-            <field name="template"><string>/exo:ecm/views/templates/ecm-explorer/ListView</string></field>	
+            <field name="hideExplorerPanel"><boolean>true</boolean></field>
+            <field name="template"><string>/exo:ecm/views/templates/ecm-explorer/FileView</string></field>	
             <field name="tabList">
               <collection type="java.util.ArrayList">   
                 <value>
@@ -157,7 +158,8 @@
           <object type="org.exoplatform.services.cms.views.ViewConfig">		        	
             <field name="name"><string>b_list-view</string></field>
             <field name="permissions"><string>*:/platform/users</string></field>
-            <field name="template"><string>/exo:ecm/views/templates/ecm-explorer/ListView</string></field>
+            <field name="hideExplorerPanel"><boolean>true</boolean></field>
+            <field name="template"><string>/exo:ecm/views/templates/ecm-explorer/FileView</string></field>
             <field name="tabList">
               <collection type="java.util.ArrayList">
                 <value>
