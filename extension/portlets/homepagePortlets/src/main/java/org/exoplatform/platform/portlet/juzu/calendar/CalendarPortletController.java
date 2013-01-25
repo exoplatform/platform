@@ -362,7 +362,15 @@ public class CalendarPortletController {
         searchResult.clear();
         while (itr.hasNext()) {
             org.exoplatform.calendar.service.Calendar c = (org.exoplatform.calendar.service.Calendar) itr.next();
-            if (c.getName().startsWith(key)) searchResult.add(c);
+            if (c.getName().toLowerCase().startsWith(key.toLowerCase())) searchResult.add(c);
+            String[] calWords=c.getName().split(" ");
+            int i=0;
+            while(i<calWords.length){
+               if (calWords[i].toLowerCase().startsWith(key.toLowerCase()))  {
+                     if(!searchResult.contains(c)) searchResult.add(c);
+               }
+                   i++;
+            }
         }
         search.with().set("searchResultList", searchResult).render();
     }
