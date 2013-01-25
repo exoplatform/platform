@@ -57,39 +57,40 @@
     String clazz = "";
     String createDashboardLink = DashboardUtils.getDashboardURL();
 %>
-<ul class="UIUserToolBarPortlet UIHorizontalTabs" id="$uicomponent.id">
-    <li id="UserNavigationTabsContainer" class="UITab">
-        <a class="TBIcon" href="#">
+<div class="uiUserToolBarPortlet uiDropdownWithIcon dropdown pull-right" id="$uicomponent.id">
+    
+        <a class="dropdown-toggle" data-toggle="dropdown">
             <img src="<%=uicomponent.getAvatarURL()%>" alt="avatar"/> $user.fullName
         </a>
-        <ul style="display:none;" class="MenuItemContainer">
+        <ul class="dropdown-menu">
             <% if (uicomponent.isSocialPortal()) { %>
 
             <li>
-                <ul class="ClearFix">
-                    <li class="MenuItem $clazz">
-                        <a href="$profileLink" class="ToolBarProfileIcon">$labelProfile</a>
-                        <a href="$activitiesLink" class="ToolBarActivityIcon">$labelActivities</a>
-                        <a href="$connectionLink" class="ToolBarNetworkIcon">$labelnetwork</a>
-                        <a href="$wikiLink" class="FindPeopleIcon">Wiki</a>
-                        <a class="FindPeopleIcon" href="<%=createDashboardLink%>">Dashboard</a>
-                    </li>
-
-                </ul>
+              <a href="$profileLink"><i class="uiIconPLFProfile"></i>$labelProfile</a>
             </li>
+            <li>
+              <a href="$activitiesLink"><i class="uiIconPLFActivityStream"></i>$labelActivities</a>
+            </li>
+           	<li>
+              <a href="$connectionLink"><i class="uiIconPLFMyConnection"></i>$labelnetwork</a>
+            </li>
+            <li>
+              <a href="$wikiLink"><i class="uiIconWikiWiki"></i>Wiki</a>
+            </li>
+            <li>
+              <a href="<%=createDashboardLink%>"><i class="uiIconPLFDashboard"></i>Dashboard</a>
+            </li>
+
             <% } %>
             <li>
-                <ul class="ClearFix">
-                    <li class="MenuItem $clazz">
-                        <a href="$accountSetting" class="AccountSettingIcon">$labelaccount</a>
-                        <a href="$changeLanguageAction" class="ChangeLanguageIcon">$labellanguage</a>
-                    </li>
-
-                </ul>
+              <a href="$accountSetting"><i class="uiIconSetting"></i>$labelaccount</a>
             </li>
-            <li class="MenuItem $clazz" onclick="eXo.portal.logout();">
-                <a href="#" class="LogoutIcon">$labellogout</a>
+            <li>
+              <a href="$changeLanguageAction"><i class="uiIconFlags"></i>$labellanguage</a>     
+            </li>
+            <li onclick="eXo.portal.logout();">
+                <a href="#"><i class="uiIconPLFLogout"></i>$labellogout</a>
             </li>
         </ul>
-    </li>
-</ul>
+   
+</div>

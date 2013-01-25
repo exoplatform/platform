@@ -40,15 +40,10 @@ jsmanager.require("SHARED/navigation", "nav").addScripts("nav.UIPortalNavigation
  if(uicomponent.isSocialPortal()){
 %>
 
-<ul class="UICreateToolBarPortlet UIHorizontalTabs" id="$uicomponent.id">
-	<li id="CreateNavigationTabsContainer" class="UITab NormalToolbarTab">
-		 <a href="#" class="TBIcon"><img src="/eXoPlatformResources/skin/platformSkin/icons/bullet-toggle-plus-icon.png" alt="Create" /></a>
-		<ul style="display:none;" class="MenuItemContainer">  
-		
-				   <%uicomponent.renderChild(UICreateList.class);%> 
-		</ul>
-	</li>
-</ul>
+<div class="uiCreateToolBarPortlet uiDropdownWithIcon dropdown pull-right" id="$uicomponent.id">
+	<a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="uiIconPLF24x24Add"></i></a>
+	<%uicomponent.renderChild(UICreateList.class);%>
+</div>
 
 <%uicomponent.renderChild(UIPopupContainer.class);%>
 <%}%>

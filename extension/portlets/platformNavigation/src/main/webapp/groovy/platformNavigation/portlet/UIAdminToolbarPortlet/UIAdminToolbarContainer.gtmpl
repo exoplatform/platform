@@ -34,64 +34,82 @@
 	
 %>
 
-<ul class="UIAdminToolbarPortlet UIHorizontalTabs" id="$uicomponent.id">
-	<li class="UITab NormalToolbarTab">
-		<a class="EditorIcon TBIcon" href="#">$editorLabel</a>
-		<ul class="MenuItemContainer" style="display:none;">
-            <% if(uicomponent.isSpaceManager()) { %>
-			<li class="MenuItem">
-				<a href="<%=uicomponent.event("ChangeEditing")%>" title="" class="ItemIcon $quiEditClass">$quickEditLabel</a>
+<div class="uiAdminToolbarPortlet uiDropdownWithIcon dropdown" id="$uicomponent.id">
+	<a class="dropdown-toggle" data-toggle="dropdown">
+		<i class="uiIconPLF24x24Edit"></i>$editorLabel
+	</a>
+	
+		<ul class="dropdown-menu">
+      <% if(uicomponent.isSpaceManager()) { %>
+			<li>
+				<a href="<%=uicomponent.event("ChangeEditing")%>">
+					<i class="uiIconPLF$quiEditClass uiIconFile"></i>$quickEditLabel
+				</a>
 			</li>
-            <% } %>
+      <% } %>
 			<% if(userCouldEditPage){ %>
-			<li class="MenuItem ArrowIcon">
-				<a href="#" class="ItemIcon DefaultPageIcon"><%=_ctx.appRes("UIAdminToolbarPortlet.action.Page")%></a>
-				<ul class="MenuItemContainer">
-                    <%
-                      String editPageRequest = "javascript:ajaxGet(eXo.env.server.createPortalURL('" + uicomponent.getUIPageId() + "', 'EditCurrentPage', true))";
-                    %>
-					<li class="MenuItem">
-						<a href="$editPageRequest" title="" class="ItemIcon EditPageIcon">$editPageLabel</a>
+			<li class="dropdown-submenu">
+				<a href="#" tabindex="-1">
+					<i class="uiIconPLFEdit uiIconFile"></i><%=_ctx.appRes("UIAdminToolbarPortlet.action.Page")%>
+				</a>
+				<ul class="dropdown-menu">
+        <%
+          String editPageRequest = "javascript:ajaxGet(eXo.env.server.createPortalURL('" + uicomponent.getUIPageId() + "', 'EditCurrentPage', true))";
+        %>
+					<li>
+						<a href="$editPageRequest">
+							<i class="uiIconPLFEdit uiIconFile"></i>$editPageLabel
+						</a>
 					</li>
-					<li class="MenuItem SEOMenuItem">
-                        <div class="seolabel FL">
-                          <%=seoLabel %>
-                        </div>
-						<div class="FL SEOImgBlock">
+					<li>
+						<div class="seoImgBlock">
 							<%uicomponent.renderChild(UISEOToolbarForm.class);%>
 						</div>
+						<div class="seolabel">
+              <%=seoLabel %>
+            </div>
 					</li>	  				
-					<li class="HorizontalLine">&nbsp;</li>
-					<li class="MenuItem">	
-						<a href="javascript:ajaxGet(eXo.env.server.createPortalURL('UIWorkingWorkspace', 'PageCreationWizard', true))" title="" class="ItemIcon AddPageIcon">$addPageLabel</a>
+					<li class="divider">&nbsp;</li>
+					<li>	
+						<a href="javascript:ajaxGet(eXo.env.server.createPortalURL('UIWorkingWorkspace', 'PageCreationWizard', true))">
+							<i class="uiIconPLFAddPage uiIconFile"></i>$addPageLabel
+						</a>
 					</li>
 				</ul>
 			</li>
 			<% } %>
 			<% if(userCouldEditPortal || userCouldEditNavigation) { %>
-			<li class="MenuItem ArrowIcon">
-				<a href="#" class="ItemIcon DefaultPageIcon">$siteLabel</a>
-				<ul class="MenuItemContainer">
+			<li class="dropdown-submenu">
+				<a href="#" tabindex="-1">
+					<i class="uiIconPLFAddSite uiIconFile"></i>$siteLabel
+				</a>
+				<ul class="dropdown-menu">
 					<% if(userCouldEditPortal){ %>
-					<li class="MenuItem">	
-						<a href="javascript:ajaxGet(eXo.env.server.createPortalURL('UIWorkingWorkspace', 'EditInline', true))" title="" class="ItemIcon EditSiteIcon">$editSiteLayout</a>
+					<li>	
+						<a href="javascript:ajaxGet(eXo.env.server.createPortalURL('UIWorkingWorkspace', 'EditInline', true))">
+							<i class="uiIconPLFEditSide uiIconFile"></i>$editSiteLayout
+						</a>
 					</li>
 					<% } %>
 					<% if(userCouldEditNavigation){ %>
-					<li class="MenuItem">	
-						<a href="<%=uicomponent.event("EditNavigation", null);%>" title="" class="ItemIcon Navigation">$editNavigation</a>
+					<li>	
+						<a href="<%=uicomponent.event("EditNavigation", null);%>">
+							<i class="uiIconNavigation uiIconFile"></i>$editNavigation
+						</a>
 					</li>
 					<% } %>
 					<% if(userCouldEditPortal){ %>
-					<li class="HorizontalLine">&nbsp;</li>
-					<li class="MenuItem">	
-						<a href="javascript:void(0);" onclick="javascript:ajaxGet(eXo.env.server.createPortalURL('UIWorkingWorkspace', 'CreatePortal', true))" title="" class="ItemIcon AddSiteIcon">$addSiteLabel</a>
+					<li class="divider">&nbsp;</li>
+					<li>	
+						<a href="javascript:void(0);" onclick="javascript:ajaxGet(eXo.env.server.createPortalURL('UIWorkingWorkspace', 'CreatePortal', true))">
+							<i class="uiIconPLFAddSite uiIconFile"></i>$addSiteLabel
+						</a>
 					</li>
 					<% } %>
 				</ul>
 			</li>
 			<% } %>
 		</ul>
-	</li>
-</ul>
+		
+</div>
 <%uicomponent.renderChildren();%>

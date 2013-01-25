@@ -4,11 +4,92 @@
 		#gradient > .vertical(#5b5b5b, #474747);
 		height: 41px;
 		border: none;
+		border-bottom: 1px solid #2c3440;
 		.TRContainer {
 			height: 41px;
 		}
-		.ToolbarContainer a.TBIcon {
-			color: white;
+	}
+	
+	.uiDropdownWithIcon {
+		background: url(/eXoPlatformResources/skin/platformSkin/images/ToolbarContainer/line.png) no-repeat left;
+		padding-left: 2px;
+	 	> a {
+		padding: 0 10px 0 11px;
+		line-height: 41px;
+		display: inline-block;
+		color: white;
+			> i.uiIconPLF24x24Edit,
+			> i.uiIconPLF24x24Setup {
+				margin-right: 5px;
+			}
+		}
+		> a:hover,.uiDropdownWithIcon.open > a {
+			background: #3f3f3f;
+		}
+		
+	}
+	
+	.uiDropdownWithIcon .dropdown-menu {
+		.uiIconPLFProfile,
+		.uiIconPLFActivityStream,
+		.uiIconPLFMyConnection,
+		.uiIconPLFDashboard,
+		.uiIconPLFLogout,
+		.uiIconPLFEventTask {
+				background-image: url("/eXoPlatformResources/skin/platformSkin/images/icons/uiIconsPLFLightGray.png");
 		}
 	}
+	
+	.uiDropdownWithIcon .dropdown-submenu [class^="uiIconPLF"]:hover {
+		background-image: url("/eXoPlatformResources/skin/platformSkin/images/icons/uiIconsPLFWhite.png") !important;
+	}
+	
+	.uiDropdownWithIcon .dropdown-submenu:hover > a  {
+		> .uiIconPLFProfile,
+		> .uiIconPLFActivityStream,
+		> .uiIconPLFMyConnection,
+		> .uiIconPLFDashboard,
+		> .uiIconPLFLogout,
+		> .uiIconPLFEventTask {
+				background-image: url("/eXoPlatformResources/skin/platformSkin/images/icons/uiIconsPLFWhite.png") !important;
+		}
+	}
+	
+	.uiSearchPlatformToolBarPortlet {
+		> input[type=text] {
+		margin: -2px 0 0 12px;
+		}
+	} 
+	
+	.uiCreateToolBarPortlet {
+		.createFormContent {
+			padding: 10px;
+		}
+		.uiAction {
+			padding: 15px 0;
+		}
+	}
+	
+	.uiAdminToolbarPortlet {
+		.seoImgBlock,
+		.seolabel {
+			display: inline-block;
+			.UISEOToolbarPorlet .SEOToolbar .Enable {
+				padding: 0 5px;
+				margin-left: 2px;
+			}
+		}
+	}
+	
+	.homeLink {
+		display: inline-block;
+		padding: 8px 10px;
+	}
+	
+	.uiUserToolBarPortlet > a > img {
+		width: 26px;
+		height: 26px;
+	}	
+	
 }
+

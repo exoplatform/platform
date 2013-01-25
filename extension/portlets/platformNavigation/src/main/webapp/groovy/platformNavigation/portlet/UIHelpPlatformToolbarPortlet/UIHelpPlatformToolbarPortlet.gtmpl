@@ -19,8 +19,8 @@
 %>
 <%  def labelHelp = _ctx.appRes("UIHelpPlatformToolbarPortlet.Title");
 %>
-<div>
-    <a  href="<%=uicomponent.getHelpPage()%>"  TARGET="_blank">
-        <img class="UIHelpIcon" src="/platformNavigation/skin/platformNavigation/UIHelpPlatformToolbarPortlet/background/help.png" alt="$labelHelp" />
-    </a>
+<div class="uiHelpPLFToolbarPortlet uiDropdownWithIcon">
+	<a href="<%=uicomponent.getHelpPage()%>" TARGET="_blank" class="dropdown-toggle">
+    <i class="uiIconPLF24x24Help" rel="$labelHelp" title="$labelHelp"></i>
+	</a>
 </div>

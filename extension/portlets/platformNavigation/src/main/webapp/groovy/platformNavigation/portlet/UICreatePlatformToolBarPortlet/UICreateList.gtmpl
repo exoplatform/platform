@@ -35,28 +35,37 @@ JavascriptManager jsmanager = rcontext.getJavascriptManager();
 //jsmanager.addCustomizedOnLoadScript('eXo.portal.UIPortalNavigation.onLoad("' + uicomponent.id + '");');
 jsmanager.require("SHARED/navigation", "nav").addScripts("nav.UIPortalNavigation.onLoad('" + uicomponent.id + "');");
 %>
-<div id="$uicomponent.id">
-		<% if(uicomponent.getChildren().size()==0){%>
+<ul id="$uicomponent.id" class="dropdown-menu">
+	<% if(uicomponent.getChildren().size()==0){%>
 		
-			<li class="MenuItem">
-				<a href="<%=uicomponent.event("Topic","Topic")%>" class="ToolBarActivityIcon">$labelTopic</a>
-			</li>       
-             <li class="MenuItem">
-				<a href="<%=uicomponent.event("Poll","Poll")%>" class="ToolBarActivityIcon">$labelPoll</a>
-			</li>               
-             <li class="MenuItem">
-				<a href="<%=uicomponent.event("AddEvent","AddEvent")%>" class="ToolBarActivityIcon">$labelEvent</a>
-			</li>    
-			<li class="MenuItem">
-				<a href="<%=uicomponent.event("Wiki","Wiki")%>" class="ToolBarActivityIcon">$labelWiki</a>
-			</li>        
-			<li class="MenuItem">
-				<a href="<%=uicomponent.event("Upload","Upload")%>" class="ToolBarActivityIcon">$labelUpload</a>
-			</li> 
+	<li>
+		<a href="<%=uicomponent.event("Topic","Topic")%>">
+			<i class="uiIconForum"></i>$labelTopic
+		</a>
+	</li>       
+  <li>
+		<a href="<%=uicomponent.event("Poll","Poll")%>">
+			<i class="uiIconPoll"></i>$labelPoll
+		</a>
+	</li>               
+  <li>
+		<a href="<%=uicomponent.event("AddEvent","AddEvent")%>">
+			<i class="uiIconPLFEventTask"></i>$labelEvent</a>
+	</li>    
+	<li>
+		<a href="<%=uicomponent.event("Wiki","Wiki")%>">
+			<i class="uiIconWikiWiki"></i>$labelWiki
+		</a>
+	</li>        
+	<li>
+		<a href="<%=uicomponent.event("Upload","Upload")%>">
+			<i class="uiIconUpload"></i>$labelUpload
+		</a>
+	</li> 
 			
-		<%} %>
-		    <li class="MenuItem">
-	            <%uicomponent.renderChildren();%>	
-			</li>
+	<%} %>
+  <li>
+    <%uicomponent.renderChildren();%>	
+	</li>
 				
-</div>
+</ul>

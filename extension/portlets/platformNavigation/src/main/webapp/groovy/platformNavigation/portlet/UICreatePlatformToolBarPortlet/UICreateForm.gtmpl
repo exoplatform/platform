@@ -34,60 +34,34 @@ def addpage="/portal/intranet/wiki#AddPage";
 def Poll="javascript:eXo.webui.UIForm.submitForm('UITopicDetail','AddPoll',true);"
 %>
 
-<div id="$uicomponent.id">
+<div id="$uicomponent.id" class="uiCreateForm">
   
-     <div class="HorizontalLayout">
-       <div class="FormContainer">
-         <table class="UIFormGrid">
-	      <tbody>
-            <div> Create a new $message</div>
-             <tr>
-                 
-	         </tr>
-		 </tbody>
-         </table>
-       </div>
-    </div>
+  <div class="createFormContent">
+  	<h6> Create a new $message</h6>
+  </div>
+            
    
 
       <%//Rerender this  component with the new structure%>
       <%// start render action%>
  <% if(uicomponent.getActions() != null) { %>
-  <div class="$uicomponent.id">
-    <div class="UIAction">
-      <table class="ActionContainer" align="center">
-      	<tr>
-      		<td align="center">
-				<%if(message=="Topic"){		%>
-					<a href="$Topic" class="ActionButton LightBlueStyle" >
-				<%}else if(message=="Poll"){%>
-				   <a href="$Poll" class="ActionButton LightBlueStyle" >	
-				<%}else{%>
-				   <a href="$addpage" class="ActionButton LightBlueStyle" >	
-					 <%}%>
-					  <div class="ButtonLeft">
-						<div class="ButtonRight">
-						  <div class="ButtonMiddle">
-							  <%=_ctx.appRes(uicomponent.getId() + ".action." + "Next")%>
-						  </div>
-						</div>
-					  </div>
-					</a>	        
-			</td>
-			<td align="center">	       
-              <a href="<%=uicomponent.event("Cancel")%>" class="ActionButton LightBlueStyle" >
-              <div class="ButtonLeft">
-                <div class="ButtonRight">
-                  <div class="ButtonMiddle">
-                      <%=_ctx.appRes(uicomponent.getId() + ".action." + "Cancel")%>
-                  </div>
-                </div>
-              </div>
-            </a>	        
-			</td>
-		</tr>
-      </table>
-    </div>
+  <div class="uiAction uiActionBorder">
+      
+	<%if(message=="Topic"){		%>
+		<button type="button" onclick="$Topic" class="btn">
+	<%}else if(message=="Poll"){%>
+	  <button type="button" onclick="$Poll" class="btn">	
+	<%}else{%>
+	  <button type="button" onclick="$addpage" class="btn">	
+	<%}%>
+		<%=_ctx.appRes(uicomponent.getId() + ".action." + "Next")%>
+			 
+		</button>	        
+		    
+    <button type="button" onclick="<%=uicomponent.event("Cancel")%>" class="btn" >
+      <%=_ctx.appRes(uicomponent.getId() + ".action." + "Cancel")%>
+    </button>	        
+			
   </div>
 <% }%>
       <%// end render action%>

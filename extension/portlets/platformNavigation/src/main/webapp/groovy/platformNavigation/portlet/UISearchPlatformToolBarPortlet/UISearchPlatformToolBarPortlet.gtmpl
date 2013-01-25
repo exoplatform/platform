@@ -21,17 +21,10 @@
         %>
 <%  def labelSearch = _ctx.appRes("UISearchPlatformToolbarPortlet.Search");%>
 
-<ul class="UISearchPlatformToolBarPortlet UIHorizontalTabs" id="$uicomponent.id">
-<li id="SearchNavigationTabsContainer" class="UITab NormalToolbarTab">
-    <ul>
-        <li id="ToolBarSearch">
-            <input id="adminkeyword" class="FL" name="adminkeyword" value="$labelSearch"
-                   onkeypress="eXo.search.SearchAdminToolbar.quickSearchadminOnEnter(event);" type="text"/>
-            <a href="#" class="TBIcon FR">
-                <img alt="Search"
-                     src="/platformNavigation/skin/platformNavigation/UISearchPlatformToolbarPortlet/background/Search.png"/>
-            </a>
-        </li>
-    </ul>
-</li>
-</ul>
+<div class="uiSearchPlatformToolBarPortlet uiDropdownWithIcon dropdown" id="ToolBarSearch">
+		<input id="adminkeyword" name="adminkeyword" value="$labelSearch"
+		       onkeypress="eXo.search.SearchAdminToolbar.quickSearchadminOnEnter(event);" type="text"/>
+		<a href="#" class="dropdown-toggle">
+			<i class="uiIconPLF24x24Search"></i>
+		</a>
+</div>
