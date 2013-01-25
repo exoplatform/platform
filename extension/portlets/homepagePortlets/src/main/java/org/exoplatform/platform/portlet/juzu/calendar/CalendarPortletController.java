@@ -76,6 +76,14 @@ public class CalendarPortletController {
     };
     private Comparator<CalendarEvent> tasksComparator = new Comparator<CalendarEvent>() {
         public int compare(CalendarEvent e1, CalendarEvent e2) {
+             if(((e2.getEventState().equals(CalendarEvent.NEEDS_ACTION)) && (e2.getToDateTime().compareTo(displayedDate) < 0))&&
+                     ((!e1.getEventState().equals(CalendarEvent.NEEDS_ACTION)&&(e1.getToDateTime().compareTo(displayedDate)< 0))||(!e1.getEventState().equals(CalendarEvent.NEEDS_ACTION))))  {
+                      return -1;
+             }
+            if(((e1.getEventState().equals(CalendarEvent.NEEDS_ACTION)) && (e1.getToDateTime().compareTo(displayedDate) < 0))&&
+                    ((!e2.getEventState().equals(CalendarEvent.NEEDS_ACTION)&&(e2.getToDateTime().compareTo(displayedDate)< 0))||(!e2.getEventState().equals(CalendarEvent.NEEDS_ACTION))))  {
+                return 1;
+            }
             return (int) (e2.getFromDateTime().getTime() - e1.getFromDateTime().getTime());
         }
     };
@@ -91,6 +99,7 @@ public class CalendarPortletController {
     List<CalendarEvent> tasksDisplayedList = new ArrayList<CalendarEvent>();
     List<org.exoplatform.calendar.service.Calendar> searchResult = new ArrayList<org.exoplatform.calendar.service.Calendar>();
     String nbclick = "0";
+    Date displayedDate;
 
 
     @Inject
@@ -133,6 +142,7 @@ public class CalendarPortletController {
         if (clickNumber != 0) date = incDecJour(date, clickNumber);
         String date_act = d.format(new Date(date));
         Date comp = d.parse(date_act);
+        displayedDate=comp;
         SettingValue settingNode = settingService_.get(Context.USER, Scope.APPLICATION, CalendarPortletUtils.HOME_PAGE_CALENDAR_SETTINGS);
 
         //This section serves to extract the user setting (non displayed calendar) from the jcr

@@ -114,8 +114,9 @@ import java.util.Locale;
                     <span>${allDayLabel}</span>
                     <% } else if (event.toDateTime.getTime() - event.fromDateTime.getTime() > 86399999) {
                         from = sdf1.format(event.fromDateTime);
-                        if(from.substring(2,3).equals("00"))   from=from.substring(0,2)
+                        if(from.substring(2,3).equals("00"))   from=from.substring(0,2) ;
                         to = sdf1.format(event.toDateTime);
+                        if(to.substring(2,3).equals("00"))   to=to.substring(0,2) ;
                     %>
 
                     <span>
