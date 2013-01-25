@@ -141,7 +141,7 @@ public class GettingStarted {
         Boolean Isshow = true;
         PropertyIterator propertiesIt = null;
         int progress = 0;
-
+        remoteUser = RequestContext.getCurrentInstance().getRemoteUser();
         SessionProvider sProvider = SessionProvider.createSystemProvider();
         Node userPrivateNode = nodeHierarchyCreator_.getUserNode(sProvider, remoteUser).getNode(GettingStartedUtils.JCR_APPLICATION_NODE);
         if (userPrivateNode.hasNode(GettingStartedUtils.JCR_GS_NODE))
