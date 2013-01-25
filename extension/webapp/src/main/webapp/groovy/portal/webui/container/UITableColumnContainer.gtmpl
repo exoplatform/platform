@@ -1,20 +1,4 @@
- <module>
-      <name>left-navigation</name>
-      <script>
-         <path>/javascript/eXo/Platform/LeftNavigation/UILeftNavigation.js</path>
-      </script>
-      <depends>
-         <module>jquery</module>
-         <as>$</as>
-      </depends>
-   </module>
-
-
-
-
-
-
-   <%
+ <%
 	import org.exoplatform.commons.utils.ExpressionUtil;
 	import org.exoplatform.portal.webui.workspace.UIPortalApplication;
 	import org.exoplatform.web.application.JavascriptManager;
@@ -108,17 +92,3 @@ rcontext.getJavascriptManager().require("SHARED/platform-left-navigation", "plat
 		<%} %>
 	</div>
 </div>
-
-
-
-
-
-(function($) {
-    var UILeftNavigation = {
-        resize: function() {
-            var myHeight = $(document).height()-42;
-            $('.LeftNavigationTDContainer').attr('height',myHeight+'px');
-        }
-    };
-    return UILeftNavigation;
-})($);
