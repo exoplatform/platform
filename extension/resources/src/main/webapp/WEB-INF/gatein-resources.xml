@@ -36,5 +36,15 @@
 			<module>social-core</module>
 		</depends>
 	</module>
+   <module>
+      <name>platform-left-navigation</name>
+      <script>
+         <path>/javascript/eXo/platform/leftnavigation/UILeftNavigation.js</path>
+      </script>
+      <depends>
+         <module>jquery</module>
+         <as>$</as>
+      </depends>
+   </module>
 
 </gatein-resources>

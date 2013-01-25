@@ -1,41 +1,58 @@
-<%	
+ <module>
+      <name>left-navigation</name>
+      <script>
+         <path>/javascript/eXo/Platform/LeftNavigation/UILeftNavigation.js</path>
+      </script>
+      <depends>
+         <module>jquery</module>
+         <as>$</as>
+      </depends>
+   </module>
+
+
+
+
+
+
+   <%
 	import org.exoplatform.commons.utils.ExpressionUtil;
 	import org.exoplatform.portal.webui.workspace.UIPortalApplication;
 	import org.exoplatform.web.application.JavascriptManager;
-	
-	def rcontext = _ctx.getRequestContext(); 
-	ResourceBundle res = rcontext.getApplicationResourceBundle(); 
-	
+
+	def rcontext = _ctx.getRequestContext();
+	ResourceBundle res = rcontext.getApplicationResourceBundle();
+
 	UIPortalApplication uiPortalApp = rcontext.getUIApplication();
 	boolean hasPermission = uicomponent.hasPermission();
 	if(!uiPortalApp.isEditing() && !hasPermission) return;
-	
+
 	/** Trim the prefix UIContainer- if any, this hardcoded part is needed to update nested container via Ajax */
 	String componentId = uicomponent.getId();
 	if(componentId.startsWith("UIContainer-")){
 		uicomponent.setId(componentId.substring("UIContainer-".length()));
 	}
 
+rcontext.getJavascriptManager().require("SHARED/platform-left-navigation", "platformLeftNavigation").addScripts("platformLeftNavigation.resize();");
 	if (uiPortalApp.isEditing())
 	{
 	   JavascriptManager jsManager = rcontext.getJavascriptManager();
 	  	jsManager.require("SHARED/portal", "portal").require("SHARED/portalDragDrop", "portalDragDrop")
 	  				.addScripts("portalDragDrop.init(['UIContainer']);")
 	  				.addScripts("portal.UIPortal.initMouseHover('" + uicomponent.id + "');");
-%>  
-<div class="UIContainer UITableColumnContainer EdittingContainer <%=hasPermission?"":"ProtectedContainer"%>" 
+%>
+<div class="UIContainer UITableColumnContainer EdittingContainer <%=hasPermission?"":"ProtectedContainer"%>"
 				id="${uicomponent.id}">
 <%
   }
   else
-  {   
+  {
 %>
 <div class="UIContainer UITableColumnContainer <%=hasPermission?"":"ProtectedContainer"%>" id="${uicomponent.id}">
 <%
   }
 %>
 	<div class="NormalContainerBlock UIComponentBlock">
-		<% 
+		<%
 			int portalMode = uiPortalApp.getModeState();
 			String style = "";
 			String width	= uicomponent.getWidth();
@@ -49,22 +66,22 @@
 		<div class="VIEW-CONTAINER VIEW-BLOCK">
 		<%} %>
 			<div>
-				<%if(hasPermission) {%>		
+				<%if(hasPermission) {%>
 				<table class="UITableColumn" style="table-layout: fixed; margin: 0px auto; $style">
 					<tr class="TRContainer">
 						<% for(uiChild in uicomponent.getChildren()) {
 						   if (uiChild.hasPermission()) {%>
 							<td class="${uiChild.id}TDContainer TDContainer" <% if(uiChild.getWidth()) { %> width="<%= uiChild.getWidth(); %>" <% } %>><% uicomponent.renderUIComponent(uiChild) %></td>
-						 
+
 						<%}
 						}%>
 					</tr>
 				</table>
 				<%} else {print "<div class='ProtectedContent'>"+_ctx.appRes("UIPortlet.label.protectedContent")+"</div>";}%>
-			</div>		
+			</div>
 		</div>
 		<%/*Debug On IE	-----For DND */%>
-		
+
 		<%if(portalMode != UIPortalApplication.NORMAL_MODE){%>
 		<div class="EDITION-BLOCK EDITION-CONTAINER" style="display: none;position: relative;">
 			<div style="position: absolute; top: -86px;">
@@ -73,7 +90,7 @@
 					<%/*Begin InfoBar*/%>
 					<div class="BlueRoundedStyle ClearFix">
 						<div class="DragControlArea" title="<%=_ctx.appRes("UITableColumnContainer.title.DragControlArea")%>"><span></span></div>
-						<% 
+						<%
 							String strTitle = uicomponent.getTitle() != null ?
 										ExpressionUtil.getExpressionValue(res, uicomponent.getTitle()) :
 										_ctx.appRes("UITableColumnContainer.title.Container");
@@ -91,3 +108,17 @@
 		<%} %>
 	</div>
 </div>
+
+
+
+
+
+(function($) {
+    var UILeftNavigation = {
+        resize: function() {
+            var myHeight = $(document).height()-42;
+            $('.LeftNavigationTDContainer').attr('height',myHeight+'px');
+        }
+    };
+    return UILeftNavigation;
+})($);
