@@ -53,7 +53,7 @@
 
             </div>
             <%
-                if (show == "true") {
+            //    if (show == "true") {
             %>
             <br>
         <!--    <div style="height: 200px;width: 100%;" class="list">         -->
@@ -67,12 +67,12 @@
           <!--  </div>                    -->
 
         </div>
-
-        <%}else if(show=="false"){%>
+         <br>
+        <%/*}else */if(show=="false"){%>
         <div id="DeleteLink" style="display: block">
 
 
-            <span class="DeleteAction">Delete the Portlet</span>
+            <span style="text-align: center;background-color: silver;" class="DeleteAction">Delete the Portlet</span>
 
         </div>
         <%}%>
