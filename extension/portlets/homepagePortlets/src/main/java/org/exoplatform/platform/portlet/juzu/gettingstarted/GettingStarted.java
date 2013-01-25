@@ -50,9 +50,9 @@ import java.util.ResourceBundle;
 public class GettingStarted {
 
     private static Log logger = ExoLogger.getLogger(GettingStarted.class);
-    static String remoteUser = "";
+    String remoteUser = "";
     HashMap parameters = new HashMap();
-    static HashMap bundle = new HashMap();
+    HashMap bundle = new HashMap();
     HashMap<String, String> status = new HashMap();
     Locale locale = null;
 
