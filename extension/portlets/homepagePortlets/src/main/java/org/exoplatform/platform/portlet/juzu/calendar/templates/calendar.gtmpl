@@ -68,14 +68,14 @@ import java.util.Locale;
 
             displayedCalendar.each { cal ->
                 def   calendarName= cal.name;
-                if(calendarName.indexOf("default") != -1) calendarName = "Default Calendar";
+                def hover= "";
+                if((calendarName.indexOf("default") != -1)&&(cal.groups==null))  hover="Default Personnal Calendar";
                 if (cal.groups != null) {
                     def group = cal.groups[0];
-                    def grpName = " (" + group.substring(group.lastIndexOf("/") + 1) + ")";
-                    calendarName += grpName;
+                    hover = " (" + group.substring(group.lastIndexOf("/") + 1) + ")";
                 }
         %>
-        <p class="flottante CalendarName" style="background-color:  ${cal.calendarColor}" class="" id="${cal.id}">${calendarName}</p>
+        <p class="flottante CalendarName" style="background-color:  ${cal.calendarColor}" class="" id="${cal.id}" title="${hover}">${calendarName}</p>
         <% }
         }
         %>
@@ -114,8 +114,9 @@ import java.util.Locale;
                     <span>${allDayLabel}</span>
                     <% } else if (event.toDateTime.getTime() - event.fromDateTime.getTime() > 86399999) {
                         from = sdf1.format(event.fromDateTime);
-                        if(from.substring(2,3).equals("00"))   from=from.substring(0,2)
+                        if(from.substring(2,3).equals("00"))   from=from.substring(0,2) ;
                         to = sdf1.format(event.toDateTime);
+                        if(to.substring(2,3).equals("00"))   to=to.substring(0,2) ;
                     %>
 
                     <span>
