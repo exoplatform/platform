@@ -140,7 +140,10 @@
 .EventsList{
 
 }
-
+.searchContainer{
+    max-height: 350px;
+    overflow-y: auto;
+}
 .nonDisplayedCalendarContainer{
     max-height: 350px;
     overflow-y: auto;
