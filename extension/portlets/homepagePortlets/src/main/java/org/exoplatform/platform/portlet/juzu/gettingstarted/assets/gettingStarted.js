@@ -28,13 +28,13 @@ $(function () {
         $.getJSON('/rest/homepage/intranet/getting-started/deletePortlet/delete');
         $('.GettingStartedContainer').jzLoad("GettingStarted.delete()");
         $('.GettingStartedContainer').css("display","none") ;
-
+        window.location.reload();
     });
     $('.DeleteAction').on("click", function () {
         $.getJSON('/rest/homepage/intranet/getting-started/deletePortlet/delete');
         $('.GettingStartedContainer').jzLoad("GettingStarted.delete()");
         $('.GettingStartedContainer').css("display","none") ;
-
+        window.location.reload()
     });
 
     $.getJSON('/rest/homepage/intranet/getting-started/deletePortlet/IsDelete', function (del) {
