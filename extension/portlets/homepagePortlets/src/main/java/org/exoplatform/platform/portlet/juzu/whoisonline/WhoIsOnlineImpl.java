@@ -36,13 +36,14 @@ public class WhoIsOnlineImpl implements WhoIsOnline {
     private static final int INDEX_CHAR = 87;
     private static final String THREE_DOTS = "...";
     private static final int MAX_USER = 17;
-    private static final int INDEX_USER = 17;
+    private static final int INDEX_USER = 18;
 
     public List<User> getFriends(String userId) {
         try {
             if (userId == null) {
                 return null;
             }
+            RelationshipManager relationshipManager = (RelationshipManager) ExoContainerContext.getCurrentContainer().getComponentInstanceOfType(RelationshipManager.class);
             ForumService forumService = (ForumService) ExoContainerContext.getCurrentContainer().getComponentInstanceOfType(ForumService.class);
             IdentityManager identityManager = (IdentityManager) ExoContainerContext.getCurrentContainer().getComponentInstanceOfType(IdentityManager.class);
             Identity myIdentity = identityManager.getOrCreateIdentity(OrganizationIdentityProvider.NAME, userId);
@@ -77,6 +78,10 @@ public class WhoIsOnlineImpl implements WhoIsOnline {
                 if (position == null) {
                     position = "";
                 }
+                String relation="";
+                if(userStatus.equals(RECEIVED)) {
+                    relation=relationshipManager.getRelationship(myIdentity,userIdentity).getId();
+                }
 
                 userOnLine.setAvatar(avatar);
                 userOnLine.setPosition(position);
@@ -86,6 +91,7 @@ public class WhoIsOnlineImpl implements WhoIsOnline {
                 userOnLine.setIdentity(userIdentity.getId());
                 userOnLine.setActivity(lastActivity);
                 userOnLine.setStatus(userStatus);
+                userOnLine.setRelationId(relation);
                 userOnLineList.add(userOnLine);
             }
             return userOnLineList;

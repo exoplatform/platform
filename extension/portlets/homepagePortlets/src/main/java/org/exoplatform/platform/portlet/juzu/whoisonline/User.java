@@ -19,6 +19,7 @@ public class User {
     private String avatar;
     private String status;
     private String identity;
+    private String relationId;
 
     public User(final String userName) {
     this.userName = userName;
@@ -81,4 +82,13 @@ public class User {
     public final String getIdentity() {
         return identity;
     }
+
+    public void setRelationId(String relationId) {
+
+        this.relationId=relationId;
+    }
+    public final String getRelationId() {
+        return relationId;
+    }
+
 }
