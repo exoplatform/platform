@@ -52,7 +52,7 @@ public class GettingStarted {
     private static Log logger = ExoLogger.getLogger(GettingStarted.class);
     String remoteUser = "";
     HashMap parameters = new HashMap();
-    HashMap bundle = new HashMap();
+    static HashMap bundle = new HashMap();
     HashMap<String, String> status = new HashMap();
     Locale locale = null;
 
