@@ -50,11 +50,8 @@ import java.util.ResourceBundle;
 public class GettingStarted {
 
     private static Log logger = ExoLogger.getLogger(GettingStarted.class);
-    String remoteUser = "";
     HashMap parameters = new HashMap();
-    static HashMap bundle = new HashMap();
     HashMap<String, String> status = new HashMap();
-    Locale locale = null;
 
     @Inject
     NodeHierarchyCreator nodeHierarchyCreator_;
@@ -69,7 +66,7 @@ public class GettingStarted {
 
     @View
     public void index() throws Exception {
-        remoteUser = RequestContext.getCurrentInstance().getRemoteUser();
+        String remoteUser = RequestContext.getCurrentInstance().getRemoteUser();
         SessionProvider sProvider = SessionProvider.createSystemProvider();
         Node userPrivateNode = nodeHierarchyCreator_.getUserNode(sProvider, remoteUser).getNode(GettingStartedUtils.JCR_APPLICATION_NODE);
         if (!userPrivateNode.hasNode(GettingStartedUtils.JCR_GS_NODE)) {
@@ -84,33 +81,6 @@ public class GettingStarted {
             gettingStartedNode.setProperty(GettingStartedUtils.JCR_DOCUMENT_PROPERTY_NAME, false);
             gettingStartedNode.save();
         }
-            String profileLabel = "";
-            String documentLabel = "";
-            String connectLabel = "";
-            String activityLabel = "";
-            String spaceLabel = "";
-            String titleLabel = "";
-            try {
-
-                locale = RequestContext.getCurrentInstance().getLocale();
-
-                ResourceBundle rs = ResourceBundle.getBundle("gettingStarted/gettingStarted", locale);
-
-                bundle.put("profile", LinkProvider.getUserProfileUri(remoteUser));
-                bundle.put("profileLabel", EntityEncoder.FULL.encode(rs.getString("Upload.label")));
-                bundle.put("connect", LinkProvider.getUserConnectionsUri(remoteUser));
-                bundle.put("connectLabel", EntityEncoder.FULL.encode(rs.getString("Connect.Label")));
-                bundle.put("space", GettingStartedUtils.SPACE_URL);
-                bundle.put("spaceLabel", EntityEncoder.FULL.encode(rs.getString("Space.Label")));
-                bundle.put("activity", "#");
-                bundle.put("activityLabel", EntityEncoder.FULL.encode(rs.getString("Activity.Label")));
-                bundle.put("upload", GettingStartedUtils.UPLOAD_URL);
-                bundle.put("uploadLabel", EntityEncoder.FULL.encode(rs.getString("Document.Label")));
-                bundle.put("titleLabel", EntityEncoder.FULL.encode(rs.getString("title.Label")));
-
-            } catch (MissingResourceException ex) {
-                logger.warn("##Missing Labels of GettingStarted Portlet");
-            }
         gettingStarted.render();
     }
 
@@ -125,11 +95,11 @@ public class GettingStarted {
         if (userPrivateNode.hasNode(GettingStartedUtils.JCR_GS_NODE))
         {
             Node gettingStartedNode = userPrivateNode.getNode(GettingStartedUtils.JCR_GS_NODE);
-                if (gettingStartedNode.hasProperty(GettingStartedUtils.JCR_DELETE_GADGET_PROPERTY_NAME))
-                {
-                    gettingStartedNode.setProperty(GettingStartedUtils.JCR_DELETE_GADGET_PROPERTY_NAME, true);
-                    gettingStartedNode.save();
-                }
+            if (gettingStartedNode.hasProperty(GettingStartedUtils.JCR_DELETE_GADGET_PROPERTY_NAME))
+            {
+                gettingStartedNode.setProperty(GettingStartedUtils.JCR_DELETE_GADGET_PROPERTY_NAME, true);
+                gettingStartedNode.save();
+            }
         }
         gettingStarted.render();
     }
@@ -137,11 +107,12 @@ public class GettingStarted {
     @Ajax
     @Resource
     public void getGsList() throws Exception {
-
+        HashMap bundle = new HashMap();
+        Locale locale = null;
         Boolean Isshow = true;
         PropertyIterator propertiesIt = null;
         int progress = 0;
-        remoteUser = RequestContext.getCurrentInstance().getRemoteUser();
+        String remoteUser = RequestContext.getCurrentInstance().getRemoteUser();
         SessionProvider sProvider = SessionProvider.createSystemProvider();
         Node userPrivateNode = nodeHierarchyCreator_.getUserNode(sProvider, remoteUser).getNode(GettingStartedUtils.JCR_APPLICATION_NODE);
         if (userPrivateNode.hasNode(GettingStartedUtils.JCR_GS_NODE))
@@ -178,6 +149,23 @@ public class GettingStarted {
             gettingStartedNode.save();
         }
 
+        try {
+            locale = RequestContext.getCurrentInstance().getLocale();
+            ResourceBundle rs = ResourceBundle.getBundle("gettingStarted/gettingStarted", locale);
+            bundle.put("profile", LinkProvider.getUserProfileUri(remoteUser));
+            bundle.put("profileLabel", EntityEncoder.FULL.encode(rs.getString("Upload.label")));
+            bundle.put("connect", LinkProvider.getUserConnectionsUri(remoteUser));
+            bundle.put("connectLabel", EntityEncoder.FULL.encode(rs.getString("Connect.Label")));
+            bundle.put("space", GettingStartedUtils.SPACE_URL);
+            bundle.put("spaceLabel", EntityEncoder.FULL.encode(rs.getString("Space.Label")));
+            bundle.put("activity", "#");
+            bundle.put("activityLabel", EntityEncoder.FULL.encode(rs.getString("Activity.Label")));
+            bundle.put("upload", GettingStartedUtils.UPLOAD_URL);
+            bundle.put("uploadLabel", EntityEncoder.FULL.encode(rs.getString("Document.Label")));
+            bundle.put("titleLabel", EntityEncoder.FULL.encode(rs.getString("title.Label")));
+        } catch (MissingResourceException ex) {
+            logger.warn("##Missing Labels of GettingStarted Portlet");
+        }
         parameters.putAll(bundle);
         parameters.put(GettingStartedUtils.PROGRESS, new Integer(progress));
         parameters.put(GettingStartedUtils.WIDTH, new Integer((Math.round((160 * progress) / 100))).toString());
