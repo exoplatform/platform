@@ -57,7 +57,8 @@
     <org.gatein.pc.version>2.4.0.Final</org.gatein.pc.version>
     <org.gatein.shindig.version>2.0.2.Final-gatein-3</org.gatein.shindig.version>
     <org.gatein.wci.version>2.3.0.Final</org.gatein.wci.version>
-    <org.gatein.web.version>3.5.0.Final</org.gatein.web.version>   
+    <org.gatein.web.version>3.5.0.Final</org.gatein.web.version>
+    <org.juzu.version>0.6.0-beta5</org.juzu.version>
     <org.exoplatform.platform-ui.version>1.0.0-SNAPSHOT</org.exoplatform.platform-ui.version>
   </properties>
   <dependencyManagement>
@@ -517,6 +518,18 @@
         <version>${project.version}</version>
         <type>war</type>
       </dependency>
+      <dependency>
+        <groupId>org.exoplatform.platform</groupId>
+            <artifactId>platform-extension-portlets-homepage</artifactId>
+            <version>${project.version}</version>
+            <type>war</type>
+        </dependency>
+        <dependency>
+            <groupId>org.exoplatform.platform</groupId>
+            <artifactId>platform-extension-portlets-homepage</artifactId>
+            <version>${project.version}</version>
+            <type>pom</type>
+        </dependency>
       <dependency>
         <groupId>org.exoplatform.platform</groupId>
         <artifactId>platform-extension-portlets-platformNavigation</artifactId>
@@ -1037,6 +1050,22 @@
         <artifactId>redirect</artifactId>
         <version>${org.gatein.web.version}</version>
       </dependency>
+        <dependency>
+            <groupId>org.juzu</groupId>
+            <artifactId>juzu-core</artifactId>
+            <version>${org.juzu.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.juzu</groupId>
+            <artifactId>juzu-bom-core</artifactId>
+            <version>${org.juzu.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.juzu</groupId>
+            <artifactId>juzu-plugins-portlet</artifactId>
+            <version>${org.juzu.version}</version>
+        </dependency>
+
     </dependencies>
   </dependencyManagement>
   <build>

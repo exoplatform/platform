@@ -1,0 +1,118 @@
+
+#InvitationsPortlet ul {
+    list-style-type: none;
+    padding-left: 10px;
+    margin: 0px;
+}
+
+#InvitationsPortlet ul li{
+    height: 50px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #DBDBDB;
+}
+
+.InviteList img{
+    width: 24px;
+    height: 24px;
+    border-width: 0px;
+}
+
+.InviteHeader {
+    background: none repeat scroll 0 0 #F8F8F8;
+    border: 1px solid #E1E1E1;
+    border-radius: 3px 3px 3px 3px;
+    color: #2F3334;
+    line-height: 25px;
+    padding: 0 5px 0 8px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+
+.peopleInviteName {
+    height: 20px;
+
+}
+
+.name {
+    color: #226AB4;
+    font-weight: bold;
+    width:190px;
+    float:left;
+    white-space:nowrap;
+    overflow: hidden;
+    text-overflow:ellipsis;
+}
+
+.actionInviteAppears {
+    width:100px;
+    float:left;
+    white-space:nowrap;
+    overflow: hidden;
+    text-overflow:ellipsis;
+}
+
+.peopleInvitePosition {
+    width:190px;
+    white-space:nowrap;
+    overflow: hidden;
+    text-overflow:ellipsis;
+    color: #696969;
+}
+
+.peopleInviteAction {
+    white-space:nowrap;
+    font-size: 10px;
+}
+
+.peopleInviteInfo {
+    padding-left: 10px;
+    width: 190px;
+    overflow: hidden;
+}
+
+.peopleInvitePicture {
+    float: left;
+    padding-top: 2px;
+}
+
+.spaceInviteName {
+    height : 20px;
+    color: #226AB4;
+    font-weight: bold;
+}
+
+.spaceInviteAction {
+    white-space:nowrap;
+    font-size: 10px;
+}
+
+.spaceInviteInfo {
+    /*float: left;*/
+    padding-left: 10px;
+    width: 190px;
+    overflow: hidden;
+}
+
+.spaceInvitePicture {
+    float: left;
+    padding-top: 2px;
+}
+
+.spacevisibility{
+    width:190px;
+    float:left;
+    white-space:nowrap;
+    overflow: hidden;
+    text-overflow:ellipsis;
+    color: #696969;
+}
+
+.actionSpaceAppears {
+    width:100px;
+    float:left;
+    white-space:nowrap;
+    overflow: hidden;
+    text-overflow:ellipsis;
+}

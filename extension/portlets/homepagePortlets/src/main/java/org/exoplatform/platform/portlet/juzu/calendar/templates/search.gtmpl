@@ -1,0 +1,109 @@
+<%
+    /**
+     * Copyright ( C ) 2012 eXo Platform SAS.
+     *
+     * This is free software; you can redistribute it and/or modify it
+     * under the terms of the GNU Lesser General Public License as
+     * published by the Free Software Foundation; either version 2.1 of
+     * the License, or (at your option) any later version.
+     *
+     * This software is distributed in the hope that it will be useful,
+     * but WITHOUT ANY WARRANTY; without even the implied warranty of
+     * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+     * Lesser General Public License for more details.
+     *
+     * You should have received a copy of the GNU Lesser General Public
+     * License along with this software; if not, write to the Free
+     * Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
+     * 02110-1301 USA, or see the FSF site: http://www.fsf.org.
+     */
+
+%>
+
+<script type="text/javascript">
+
+    $('.CalendarItem').mouseover(function() {
+        var button= $(this).children("p.addButton");
+
+        button.css("display","block");
+
+    });
+    $('.CalendarItem').mouseout(function() {
+        var button= $(this).children("p.addButton");
+        button.css("display","none");
+    });
+    $('span.addButtonSpan').on("click", function() {
+
+        var calId=$(this).parent().children("input").val();
+
+        $('div.SettingsContainerData').jzLoad(
+                "CalendarPortletController.addCalendar()",
+                {"calendarId":calId});
+
+    });
+    $('span.deleteButtonSpan').on("click", function() {
+
+        var calId=$(this).parent().children("input").val();
+
+        $('div.SettingsContainerData').jzLoad(
+                "CalendarPortletController.deleteCalendar()",
+                {"calendarId":calId});
+
+    });
+</script>
+<style type="text/css">
+.addButtonSpan{
+    background: url("/homepage-portlets/style/calendar/img/add.png") no-repeat right 8px;
+    padding-left: 10px;
+
+}
+.CalendarName {
+    max-height: 1.3em;
+    max-width: 90px;
+    overflow: hidden;
+    text-align: center;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.CalendarItem:hover {
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0.2) inset;
+    background-color: #f0f0f0;
+}
+</style>
+<div>
+
+
+</div>
+
+<% if (searchResultList != null) {
+
+    searchResultList.each { cal ->
+        def   calendarName= cal.name;
+        def hover="";
+         if((calendarName.indexOf("default") != -1)&&(cal.groups==null))  hover="Default Personnal Calendar";
+        if (cal.groups != null) {
+            def group = cal.groups[0];
+            //calendarName += grpName;
+            hover= " (" + group.substring(group.lastIndexOf("/") + 1) + ")";
+        }
+%>
+<div id="${cal.id}" class="CalendarItem" title="${hover}">
+
+    <p style="float:left; height:20px;width:20px;background-color:  ${cal.calendarColor}" />
+
+    <p class="CalendarName" style="float:left; ">${calendarName}</p>
+
+    <p class="addButton" style="float:left;display:none;padding-left: 65px">
+        <input type="hidden" name="calendarId" value="${cal.id}"/>
+        <span   class="addButtonSpan">ADD</span>
+    </p>
+
+    <div class="spacer">
+        &nbsp;
+    </div>
+</div>
+<% }
+
+}
+
+%>

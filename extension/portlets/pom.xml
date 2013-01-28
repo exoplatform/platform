@@ -11,5 +11,6 @@
   <name>eXo Platform - Extension Portlets</name>
   <modules>
     <module>platformNavigation</module>
+    <module>homepagePortlets</module>
   </modules>
 </project>
