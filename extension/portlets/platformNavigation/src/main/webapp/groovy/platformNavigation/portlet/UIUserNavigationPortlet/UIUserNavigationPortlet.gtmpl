@@ -19,21 +19,15 @@
      */
 %>
 <%
-    import org.exoplatform.portal.webui.util.Util;
-    import org.exoplatform.social.webui.Utils;
-    import org.exoplatform.social.core.service.LinkProvider;
-    import org.exoplatform.platform.webui.NavigationURLUtils;
-    import org.exoplatform.webui.core.UIPopupWindow;
     def uicomponentId = uicomponent.id;
 %>
 
 <div class="uiUserNavigationPortlet ClearFix" id="$uicomponentId">
-   <!-- <%
+   <ul class="nav nav-tabs userNavigation" style="">
+   <%
         String[] urlList = uicomponent.getURLAsList();
         def i = 0;
         def pageURL;
-        def imgPath="/platformNavigation/skin/platformNavigation/UIUserNavigationPortlet/background/";
-        def imgUrl;
         for (node in uicomponent.getUserNodesAsList()) {
             def nodeLabel;
             def str="UIUserNavigationPortlet.label."+node;
@@ -41,69 +35,29 @@
             else   str="UIUserNavigationPortlet.label."+node;
             nodeLabel = _ctx.appRes(str);
             pageURL = urlList[i];
-            imgUrl=imgPath+node+".jpg";
-            def navigationTabClass = "UIUserNAvigationPortletTab";
-            if ((uicomponent.isSelectedUserNavigation(node))||((node.equals(uicomponent.DASHBOARD_URI))&&(uicomponent.isSelectedUserNavigation("/u/")))) {
-                navigationTabClass = "UIUserNAvigationPortletTabSelected";
-            }
     %>
+
     <% if  (node.equals(uicomponent.DASHBOARD_URI)) {
         if (uicomponent.isProfileOwner()) { %>
-    <div class="$navigationTabClass FL">
-        <a href="$pageURL">
-            <img title="<%=nodeLabel%>" alt="<%=nodeLabel%>" src="$imgUrl">
-            <h4>
-                <%=nodeLabel%>
-            </h4>
-        </a>
-    </div>
+
+		<li class="active">
+			<a href="$pageURL">
+				<div class="uiIconDefaultApp uiIcon<%=node%>"></div>
+				<span class="tabName"><%=nodeLabel%></span>
+			</a>
+		</li>
     <% }
     } else { %>
-    <div class="$navigationTabClass FL">
-        <a title="<%=nodeLabel%>" href="$pageURL" >
-            <img alt="<%= nodeLabel %>" src="$imgUrl">
-            <h4 >
-                <%=nodeLabel%>
-            </h4>
-        </a>
-    </div>
+		<li class="active">
+			<a href="$pageURL">
+				<div class="uiIconDefaultApp uiIcon<%=node%>"></div>
+				<span class="tabName"><%=nodeLabel%></span>
+			</a>
+		</li>
     <% }
         i++;
     }
     %>
-    -->
-    
-    <ul class="nav nav-tabs userNavigation" style="">
-    	<li class="active">
-    		<a data-toggle="tab" href="#">
-    			<img src="/platformNavigation/skin/platformNavigation/UIUserNavigationPortlet/background/myProfile.png" alt="" onError="" />
-    			<span class="tabName">My Profile</span>
-    		</a>
-    	</li>
-    	<li>
-    		<a data-toggle="tab" href="#">
-    			<img src="/platformNavigation/skin/platformNavigation/UIUserNavigationPortlet/background/myActivityStream.png" alt="" onError="" />
-    			<span class="tabName">My Activity Stream</span>
-    		</a>
-    	</li>
-    	<li>
-    		<a data-toggle="tab" href="#">
-    			<img src="/platformNavigation/skin/platformNavigation/UIUserNavigationPortlet/background/myConnections.png" alt="" onError="" />
-    			<span class="tabName">My Connections</span>
-    		</a>
-    	</li>
-    	<li>
-    		<a data-toggle="tab" href="#">
-    			<img src="/platformNavigation/skin/platformNavigation/UIUserNavigationPortlet/background/myWiki.png" alt="" onError="" />
-    			<span class="tabName">My Wiki</span>
-    		</a>
-    	</li>
-    	<li>
-    		<a data-toggle="tab" href="#">
-    			<img src="/platformNavigation/skin/platformNavigation/UIUserNavigationPortlet/background/myDashboard.png" alt="" onError="" />
-    			<span class="tabName">My Dashboard</span>
-    		</a>
-    	</li>
-    </ul>
-    
+	</ul>
+
 </div>
