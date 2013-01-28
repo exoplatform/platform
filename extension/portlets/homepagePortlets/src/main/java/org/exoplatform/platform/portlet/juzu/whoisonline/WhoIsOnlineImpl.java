@@ -48,6 +48,9 @@ public class WhoIsOnlineImpl implements WhoIsOnline {
             IdentityManager identityManager = (IdentityManager) ExoContainerContext.getCurrentContainer().getComponentInstanceOfType(IdentityManager.class);
             Identity myIdentity = identityManager.getOrCreateIdentity(OrganizationIdentityProvider.NAME, userId);
             List<String> users = forumService.getOnlineUsers();
+            if(users.contains(userId)){
+                users.remove(userId);
+            }
             Collections.reverse(users);
             if (users.size() > MAX_USER) {
                 users = users.subList(0, INDEX_USER);
