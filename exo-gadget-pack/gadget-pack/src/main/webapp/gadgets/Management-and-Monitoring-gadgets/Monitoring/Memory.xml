@@ -23,7 +23,7 @@
       <script language="javascript" type="text/javascript" src="/exo-gadget-resources/script/jquery/1.6.2/jquery.min.js"></script>
       <script language="javascript" type="text/javascript" src="script/memory-utils.js"></script>
       <script language="javascript" type="text/javascript" src="/exo-gadget-resources/script/jquery/plugins/jquery.timers/1.2/jquery.timers.js"></script>
-      <!--[if IE]><script language="javascript" type="text/javascript" src="script/excanvas.min.js"></script><![endif]-->
+      <!--[if IE]><script language="javascript" type="text/javascript" src="/exo-gadget-resources/script/jquery/plugins/jqplot/1.0.0/excanvas.min.js"></script><![endif]-->
       <script language="javascript" type="text/javascript" src="/exo-gadget-resources/script/jquery/plugins/jqplot/1.0.0/jquery.jqplot.min.js"></script>
       <script language="javascript" type="text/javascript" src="/exo-gadget-resources/script/jquery/plugins/jqplot/1.0.0/plugins/jqplot.pieRenderer.min.js"></script>
       <script language="javascript" type="text/javascript" src="/exo-gadget-resources/script/jquery/plugins/jqplot/1.0.0/plugins/jqplot.highlighter.min.js"></script>
