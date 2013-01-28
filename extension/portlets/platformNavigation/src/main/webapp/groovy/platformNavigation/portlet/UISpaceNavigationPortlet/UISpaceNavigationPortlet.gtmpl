@@ -145,7 +145,7 @@
       		def moreSpacesLink = uicomponent.event("Increment");
 			if(spaceNotDisplayed>0){
       		print """
-      			<li class="spaceItem">
+      			<li class="moreSpace">
       				""" ;
       				print """
       				<a href="$moreSpacesLink" class="moreSpace" onclick="">$seeSpacesLabel $spaceNotDisplayed $moreSpacesLabel</a>
