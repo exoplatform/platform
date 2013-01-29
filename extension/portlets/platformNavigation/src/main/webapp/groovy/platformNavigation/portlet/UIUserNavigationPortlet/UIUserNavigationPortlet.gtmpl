@@ -35,12 +35,16 @@
             else   str="UIUserNavigationPortlet.label."+node;
             nodeLabel = _ctx.appRes(str);
             pageURL = urlList[i];
+            def navigationTabClass = "";
+            if ((uicomponent.isSelectedUserNavigation(node))||((node.equals(uicomponent.DASHBOARD_URI))&&(uicomponent.isSelectedUserNavigation("/u/")))) {
+                navigationTabClass = "active";
+            }
     %>
 
     <% if  (node.equals(uicomponent.DASHBOARD_URI)) {
         if (uicomponent.isProfileOwner()) { %>
 
-		<li class="active">
+		<li class="<%=navigationTabClass%>">
 			<a href="$pageURL">
 				<div class="uiIconDefaultApp uiIcon<%=node%>"></div>
 				<span class="tabName"><%=nodeLabel%></span>
@@ -48,7 +52,7 @@
 		</li>
     <% }
     } else { %>
-		<li class="active">
+		<li class="<%=navigationTabClass%>">
 			<a href="$pageURL">
 				<div class="uiIconDefaultApp uiIcon<%=node%>"></div>
 				<span class="tabName"><%=nodeLabel%></span>
