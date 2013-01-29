@@ -29,21 +29,19 @@ import java.util.Locale;
 
 <script>
      $('span.PrevDateSpan').on("click", function() {
-
-     $('div.CalendarPortletData').jzLoad(
+        $('div.CalendarPortletData').jzLoad(
                 "CalendarPortletController.decDate()",
                 {"nbClick":"1"});
-
     });
     $('span.NextDateSpan').on("click", function() {
-
-
-
         $('div.CalendarPortletData').jzLoad(
                 "CalendarPortletController.incDate()",
                 {"nbClick":"1"});
-
     });
+     $('.SettingsLink').on("click", function(){
+         $('.CalendarPortlet').jzLoad(
+                 "CalendarPortletController.setting()");
+     });
 </script>
 <div class="CalendarPortlet">
     <div class="CalendarPortletData">

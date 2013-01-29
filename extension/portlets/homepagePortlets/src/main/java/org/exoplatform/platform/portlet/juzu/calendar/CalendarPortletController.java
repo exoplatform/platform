@@ -256,7 +256,8 @@ public class CalendarPortletController {
                 render();
     }
 
-    @View
+    @Ajax
+    @Resource
     public void setting() throws Exception {
         HashMap parameters = new HashMap();
         try {

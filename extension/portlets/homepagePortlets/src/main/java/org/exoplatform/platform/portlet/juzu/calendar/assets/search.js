@@ -2,14 +2,10 @@ $(function () {
 
     function init(initKey) {
 
-    /*    setTimeout(function()
-            {
-                $('div.NonDisplayedCalendar').jzLoad(
-                    "CalendarPortletController.getSearchResult()",
-                    {"key":""});
-            }
-            ,100);  */
-
+        $('.SettingsLink').on("click", function(){
+            $('.CalendarPortlet').jzLoad(
+                "CalendarPortletController.setting()");
+        });
         $('span.addButtonSpan').on("click", function () {
 
             var calId = $(this).parent().children("input").val();
@@ -77,7 +73,6 @@ $(function () {
                 $(this).val("");
             }
         });
-
         $('input.PLFcalendarSearchKey').on("blur", function () {
             if ($(this).val() == "") {
                 $(this).val(initKey);
@@ -85,9 +80,7 @@ $(function () {
         });
         $('.CalendarItem').mouseover(function () {
             var button = $(this).children("p.addButton");
-
             button.css("display", "block");
-
         });
         $('.CalendarItem').mouseout(function () {
             var button = $(this).children("p.addButton");
@@ -101,17 +94,14 @@ $(function () {
             $('.SettingsContainerPage').children("div").css("display", "none");
         });
         $('span.PrevDateSpan').on("click", function () {
-
             $('div.CalendarPortletData').jzLoad(
                 "CalendarPortletController.decDate()",
                 {"nbClick":"1"});
-
         });
         $('span.NextDateSpan').on("click", function () {
             $('div.CalendarPortletData').jzLoad(
                 "CalendarPortletController.incDate()",
                 {"nbClick":"1"});
-
         });
     };
 
@@ -119,10 +109,4 @@ $(function () {
         var initKey = $('input.PLFcalendarSearchKey').val();
         init(initKey);
     });
-    function eventDetail(id)
-    {
-        window.location = "/portal/intranet/calendar" ;
-        var href="'UICalendarView','View','&objectId="+id+"',true);"
-        eXo.webui.UIForm.submitForm(href,true) ;
-    } ;
 });
