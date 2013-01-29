@@ -18,7 +18,7 @@
  */
 package org.exoplatform.platform.portlet.juzu.calendar.providers;
 
-import org.exoplatform.commons.settings.api.SettingService;
+import org.exoplatform.commons.api.settings.SettingService;
 import org.exoplatform.container.PortalContainer;
 import org.springframework.beans.factory.FactoryBean;
 
