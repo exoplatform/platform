@@ -44,7 +44,7 @@ $(function () {
             if (del == false) {
                 $('.GettingStarted').jzLoad("GettingStarted.getGsList()");
             }
-        }, 2000);
+        }, 60000);
     });
 
 });
