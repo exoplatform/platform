@@ -51,7 +51,7 @@
 
                             <preference>
                                 <name>formViewTemplatePath</name>
-                                <value>/exo:ecm/views/templates/content-list-viewer/list/announcement.gtmpl</value>
+                                <value>/exo:ecm/views/templates/content-list-viewer/list/Announcement.gtmpl</value>
                                 <read-only>false</read-only>
                             </preference>
 
@@ -1063,22 +1063,22 @@
                     </preference>
                     <preference>
                         <name>searchFormTemplatePath</name>
-                        <value>/exo:ecm/views/templates/WCM Advance Search/search-form/UIDefaultSearchForm.gtmpl</value>
+                        <value>/exo:ecm/views/templates/search/search-form/Form.gtmpl</value>
                         <read-only>false</read-only>
                     </preference>
                     <preference>
                         <name>searchResultTemplatePath</name>
-                        <value>/exo:ecm/views/templates/WCM Advance Search/search-result/UIDefaultSearchResult.gtmpl</value>
+                        <value>/exo:ecm/views/templates/search/search-result/Results.gtmpl</value>
                         <read-only>false</read-only>
                     </preference>
                     <preference>
                         <name>searchPaginatorTemplatePath</name>
-                        <value>/exo:ecm/views/templates/WCM Advance Search/search-paginator/UIDefaultSearchPaginator.gtmpl</value>
+                        <value>/exo:ecm/views/templates/search/search-paginator/Paginator.gtmpl</value>
                         <read-only>false</read-only>
                     </preference>
                     <preference>
                         <name>searchPageLayoutTemplatePath</name>
-                        <value>/exo:ecm/views/templates/WCM Advance Search/search-page-layout/UISearchPageLayoutDefault.gtmpl</value>
+                        <value>/exo:ecm/views/templates/search/search-page-layout/PageLayout.gtmpl</value>
                         <read-only>false</read-only>
                     </preference>
                     <preference>

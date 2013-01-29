@@ -47,8 +47,11 @@
           <name>announcement.list.viewer</name>
           <description>Default folder list viewer groovy template with Big Image</description>
           <object type="org.exoplatform.services.cms.views.PortletTemplatePlugin$PortletTemplateConfig">
+            <field name="title">
+              <string>Announcement</string>
+            </field>
             <field name="templateName">
-              <string>announcement.gtmpl</string>
+              <string>Announcement.gtmpl</string>
             </field>
             <field name="category">
               <string>list</string>
