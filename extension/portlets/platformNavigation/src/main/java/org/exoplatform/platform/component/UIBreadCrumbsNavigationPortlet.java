@@ -119,6 +119,16 @@ public class UIBreadCrumbsNavigationPortlet extends UIPortletApplication {
                 userName = urlPart[urlPart.length - 1];
             }
         }
+        
+        // if got username is not existing then return current logged in username info
+        if (userName != null) {
+          Identity identity = Utils.getIdentityManager().getOrCreateIdentity(OrganizationIdentityProvider.NAME,
+                                                                             userName, false);
+          if (identity == null) {
+            return Utils.getViewerRemoteId();
+          }
+        }
+        
         return userName;
     }
 
