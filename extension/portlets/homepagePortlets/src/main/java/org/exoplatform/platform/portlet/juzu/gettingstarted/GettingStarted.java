@@ -135,6 +135,7 @@ public class GettingStarted {
                 }
                 status.put(prop.getName().substring(4), clazz);
             }
+            if(progress>100) progress=100;
             if (progress == 100) Isshow = false;
         } else
         {
