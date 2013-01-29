@@ -21,14 +21,14 @@
 %>
 
 <%
-import java.text.DateFormat;
-import org.exoplatform.calendar.service.CalendarEvent;
-import org.exoplatform.web.application.RequestContext;
-import java.util.Locale;
+    import java.text.DateFormat;
+    import org.exoplatform.calendar.service.CalendarEvent;
+    import org.exoplatform.web.application.RequestContext;
+    import java.util.Locale;
 %>
 
 <script>
-     $('span.PrevDateSpan').on("click", function() {
+    $('span.PrevDateSpan').on("click", function() {
         $('div.CalendarPortletData').jzLoad(
                 "CalendarPortletController.decDate()",
                 {"nbClick":"1"});
@@ -38,10 +38,17 @@ import java.util.Locale;
                 "CalendarPortletController.incDate()",
                 {"nbClick":"1"});
     });
-     $('.SettingsLink').on("click", function(){
-         $('.CalendarPortlet').jzLoad(
-                 "CalendarPortletController.setting()");
-     });
+    $('.SettingsLink').on("click", function(){
+        $('.CalendarPortlet').jzLoad(
+                "CalendarPortletController.setting()");
+    });
+    $('.CalendarPortlet').mouseover(function () {
+        $('.SettingsContainerPage').children("div").css("display", "block");
+
+    });
+    $('.CalendarPortlet').mouseout(function () {
+        $('.SettingsContainerPage').children("div").css("display", "none");
+    });
 </script>
 <div class="CalendarPortlet">
     <div class="CalendarPortletData">

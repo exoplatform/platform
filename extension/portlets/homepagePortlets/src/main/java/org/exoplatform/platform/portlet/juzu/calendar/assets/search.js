@@ -1,7 +1,18 @@
 $(function () {
 
     function init(initKey) {
+        setTimeout(function()
+            {
+                $('div.CalendarPortletContainer').jzLoad(
+                    "CalendarPortletController.calendarHome()");
+            }
+            ,100);
 
+        //not taken effects must be deplaced to
+        $('.SettingValidationButton').on('click',function(){
+            $('div.CalendarPortletContainer').jzLoad(
+                "CalendarPortletController.calendarHome()");
+        });
         $('.SettingsLink').on("click", function(){
             $('.CalendarPortlet').jzLoad(
                 "CalendarPortletController.setting()");

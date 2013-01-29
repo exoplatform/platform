@@ -122,11 +122,18 @@ public class CalendarPortletController {
     @Path("search.gtmpl")
     org.exoplatform.platform.portlet.juzu.calendar.templates.search search;
 
-
+    @Inject
+    @Path("calendarPortletContainer.gtmpl")
+    org.exoplatform.platform.portlet.juzu.calendar.templates.calendarPortletContainer container;
 
     @View
-    public void index() throws Exception {
+    public void index(){
+        container.render();
+    }
 
+    @Ajax
+    @Resource
+    public void calendarHome() throws Exception {
         displayedCalendar.clear();
         displayedCalendarMap.clear();
         tasksDisplayedList.clear();
@@ -340,7 +347,7 @@ public class CalendarPortletController {
         int clickNumber = Integer.parseInt(nbclick);
         clickNumber++;
         nbclick = new Integer(clickNumber).toString();
-        index();
+        calendarHome();
     }
 
     @Ajax
@@ -349,7 +356,7 @@ public class CalendarPortletController {
         int clickNumber = Integer.parseInt(nbclick);
         clickNumber--;
         nbclick = new Integer(clickNumber).toString();
-        index();
+        calendarHome();
     }
 
     @Ajax
