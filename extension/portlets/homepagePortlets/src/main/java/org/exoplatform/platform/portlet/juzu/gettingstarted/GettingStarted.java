@@ -164,6 +164,7 @@ public class GettingStarted {
             bundle.put("upload", GettingStartedUtils.UPLOAD_URL);
             bundle.put("uploadLabel", EntityEncoder.FULL.encode(rs.getString("Document.Label")));
             bundle.put("titleLabel", EntityEncoder.FULL.encode(rs.getString("title.Label")));
+            bundle.put("closeLabel", EntityEncoder.FULL.encode(rs.getString("close.Label")));
         } catch (MissingResourceException ex) {
             logger.warn("##Missing Labels of GettingStarted Portlet");
         }

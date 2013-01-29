@@ -72,7 +72,7 @@
         <div id="DeleteLink" style="display: block">
 
 
-            <span style="text-align: center;background-color: silver;" class="DeleteAction">Delete the Portlet</span>
+            <span style="text-align: center;background-color: silver;" class="DeleteAction">${closeLabel}</span>
 
         </div>
         <%}%>
