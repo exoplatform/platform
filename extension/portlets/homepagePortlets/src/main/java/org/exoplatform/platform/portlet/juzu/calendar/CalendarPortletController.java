@@ -66,25 +66,26 @@ public class CalendarPortletController {
             else if ((d1 == CalendarPortletUtils.JOUR_MS) && (d2 == CalendarPortletUtils.JOUR_MS)) return 0;
             else if ((d1 < CalendarPortletUtils.JOUR_MS) && (d2 < CalendarPortletUtils.JOUR_MS))
             {
-
-                if (e1.getFromDateTime().compareTo(e2.getFromDateTime()) < 0) return -1;
-                else if (e1.getFromDateTime().compareTo(e2.getFromDateTime()) > 0) return 1;
-                else if (e1.getFromDateTime().compareTo(e2.getFromDateTime()) == 0) return -Math.round(d1 - d2);
+                return ((int)(e1.getFromDateTime().compareTo(e2.getFromDateTime())));
             }
             return 0;
         }
     };
     private Comparator<CalendarEvent> tasksComparator = new Comparator<CalendarEvent>() {
         public int compare(CalendarEvent e1, CalendarEvent e2) {
-             if(((e2.getEventState().equals(CalendarEvent.NEEDS_ACTION)) && (e2.getToDateTime().compareTo(displayedDate) < 0))&&
-                     ((!e1.getEventState().equals(CalendarEvent.NEEDS_ACTION)&&(e1.getToDateTime().compareTo(displayedDate)< 0))||(!e1.getEventState().equals(CalendarEvent.NEEDS_ACTION))))  {
-                      return -1;
-             }
-            if(((e1.getEventState().equals(CalendarEvent.NEEDS_ACTION)) && (e1.getToDateTime().compareTo(displayedDate) < 0))&&
-                    ((!e2.getEventState().equals(CalendarEvent.NEEDS_ACTION)&&(e2.getToDateTime().compareTo(displayedDate)< 0))||(!e2.getEventState().equals(CalendarEvent.NEEDS_ACTION))))  {
+            if(((e2.getEventState().equals(CalendarEvent.NEEDS_ACTION)) && (e2.getToDateTime().compareTo(new Date()) < 0))&&
+                    ((e1.getEventState().equals(CalendarEvent.NEEDS_ACTION)&&(e1.getToDateTime().compareTo(new Date())>= 0))||(!e1.getEventState().equals(CalendarEvent.NEEDS_ACTION))))  {
                 return 1;
             }
-            return (int) (e2.getFromDateTime().getTime() - e1.getFromDateTime().getTime());
+            else if(((e1.getEventState().equals(CalendarEvent.NEEDS_ACTION)) && (e1.getToDateTime().compareTo(new Date()) < 0))&&
+                    ((e2.getEventState().equals(CalendarEvent.NEEDS_ACTION)&&(e2.getToDateTime().compareTo(new Date())>=0))||(!e2.getEventState().equals(CalendarEvent.NEEDS_ACTION))))  {
+                return -1;
+            }
+            else if(((e1.getEventState().equals(CalendarEvent.NEEDS_ACTION)) && (e1.getToDateTime().compareTo(new Date()) < 0))&&
+                    (((e2.getEventState().equals(CalendarEvent.NEEDS_ACTION)) && (e2.getToDateTime().compareTo(new Date()) < 0)))) {
+                return (int) (e2.getFromDateTime().getTime() - e1.getFromDateTime().getTime());
+            }
+            else return (int) (e2.getFromDateTime().getTime() - e1.getFromDateTime().getTime());
         }
     };
 
@@ -99,8 +100,6 @@ public class CalendarPortletController {
     List<CalendarEvent> tasksDisplayedList = new ArrayList<CalendarEvent>();
     List<org.exoplatform.calendar.service.Calendar> searchResult = new ArrayList<org.exoplatform.calendar.service.Calendar>();
     String nbclick = "0";
-    Date displayedDate;
-
 
     @Inject
     CalendarService calendarService_;
@@ -142,7 +141,6 @@ public class CalendarPortletController {
         if (clickNumber != 0) date = incDecJour(date, clickNumber);
         String date_act = d.format(new Date(date));
         Date comp = d.parse(date_act);
-        displayedDate=comp;
         SettingValue settingNode = settingService_.get(Context.USER, Scope.APPLICATION, CalendarPortletUtils.HOME_PAGE_CALENDAR_SETTINGS);
 
         //This section serves to extract the user setting (non displayed calendar) from the jcr
