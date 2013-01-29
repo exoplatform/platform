@@ -46,6 +46,9 @@
           <name>Category Tree</name>
           <description>Category Tree</description>
           <object type="org.exoplatform.services.cms.views.PortletTemplatePlugin$PortletTemplateConfig">
+            <field name="title">
+              <string>Acme Category Tree</string>
+            </field>
             <field name="templateName">
               <string>AcmeCategoryTree.gtmpl</string>
             </field>
@@ -54,10 +57,13 @@
             </field>
           </object>
         </object-param>
-		<object-param>
+		      <object-param>
           <name>Powers Category Tree</name>
           <description>Powers Category Tree</description>
           <object type="org.exoplatform.services.cms.views.PortletTemplatePlugin$PortletTemplateConfig">
+            <field name="title">
+              <string>Acme Powers Category Tree</string>
+            </field>
             <field name="templateName">
               <string>AcmePowersCategoryTree.gtmpl</string>
             </field>
@@ -70,20 +76,26 @@
           <name>Big Hot News</name>
           <description>Big Hot News</description>
           <object type="org.exoplatform.services.cms.views.PortletTemplatePlugin$PortletTemplateConfig">
+            <field name="title">
+              <string>Acme Big Hot News</string>
+            </field>
             <field name="templateName">
-              <string>AcmeBigHotNewsTemplateCLV.gtmpl</string>
+              <string>AcmeBigHotNews.gtmpl</string>
             </field>
             <field name="category">
               <string>list</string>
             </field>
           </object>
         </object-param>
-		<object-param>
+		      <object-param>
           <name>Powers</name>
           <description>Powers</description>
           <object type="org.exoplatform.services.cms.views.PortletTemplatePlugin$PortletTemplateConfig">
+            <field name="title">
+              <string>Acme Powers</string>
+            </field>
             <field name="templateName">
-              <string>AcmePowersTemplateCLV.gtmpl</string>
+              <string>AcmePowers.gtmpl</string>
             </field>
             <field name="category">
               <string>list</string>

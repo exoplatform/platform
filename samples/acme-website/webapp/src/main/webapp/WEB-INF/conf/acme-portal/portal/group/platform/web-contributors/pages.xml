@@ -99,7 +99,7 @@
         <preferences>
     			<preference>
     				<name>driveName</name>     
-    				<value>collaboration</value>        
+    				<value>Collaboration</value>        
     				<read-only>false</read-only>
     			</preference>        	
     			<preference>

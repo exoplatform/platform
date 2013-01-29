@@ -46,7 +46,7 @@
         </value-param>
         <value-param>
           <name>treeName</name>
-          <value>acme</value>
+          <value>Powers</value>
 		</value-param>
         <object-param>
           <name>permission.configuration</name>
@@ -140,7 +140,7 @@
                       <string></string>
                     </field>
                     <field name="homePath">
-                      <string>collaboration:/sites content/live/acme/categories/acme</string>
+                      <string>collaboration:/sites content/live/acme/categories/Powers</string>
                     </field>
                     <field name="targetWspace">
                       <string>collaboration</string>

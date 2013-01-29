@@ -111,12 +111,12 @@
               </preference>
               <preference>
                 <name>formViewTemplatePath</name>
-                <value>/exo:ecm/views/templates/content-list-viewer/list/TwoColumnsCLVTemplate.gtmpl</value>
+                <value>/exo:ecm/views/templates/content-list-viewer/list/TwoColumns.gtmpl</value>
                 <read-only>false</read-only>
               </preference>
               <preference>
                 <name>paginatorTemplatePath</name>
-                <value>/exo:ecm/views/templates/content-list-viewer/paginators/UIPaginatorEmpty.gtmpl</value>
+                <value>/exo:ecm/views/templates/content-list-viewer/paginators/EmptyPaginator.gtmpl</value>
                 <read-only>false</read-only>
               </preference>
               <preference>
@@ -189,7 +189,7 @@
               </preference>
               <preference>
                 <name>formViewTemplatePath</name>
-                <value>/exo:ecm/views/templates/content-list-viewer/list/OneColumnCLVTemplate.gtmpl</value>
+                <value>/exo:ecm/views/templates/content-list-viewer/list/OneColumn.gtmpl</value>
                 <read-only>false</read-only>
               </preference>
               <preference>
@@ -260,12 +260,12 @@
               </preference>
               <preference>
                 <name>formViewTemplatePath</name>
-                <value>/exo:ecm/views/templates/content-list-viewer/list/OneColumnCLVTemplate.gtmpl</value>
+                <value>/exo:ecm/views/templates/content-list-viewer/list/OneColumn.gtmpl</value>
                 <read-only>false</read-only>
               </preference>
               <preference>
                 <name>paginatorTemplatePath</name>
-                <value>/exo:ecm/views/templates/content-list-viewer/paginators/UIPaginatorEmpty.gtmpl</value>
+                <value>/exo:ecm/views/templates/content-list-viewer/paginators/EmptyPaginator.gtmpl</value>
                 <read-only>false</read-only>
               </preference>
               <preference>
@@ -318,7 +318,7 @@
               </preference>
               <preference>
                 <name>formViewTemplatePath</name>
-                <value>/exo:ecm/views/templates/content-list-viewer/list/DocumentsTemplate.gtmpl</value>
+                <value>/exo:ecm/views/templates/content-list-viewer/list/Documents.gtmpl</value>
                 <read-only>false</read-only>
               </preference>
               <preference>
@@ -473,7 +473,7 @@
               </preference>
               <preference>
                 <name>formViewTemplatePath</name>
-                <value>/exo:ecm/views/templates/content-list-viewer/list/AcmeBigHotNewsTemplateCLV.gtmpl</value>
+                <value>/exo:ecm/views/templates/content-list-viewer/list/AcmeBigHotNews.gtmpl</value>
                 <read-only>false</read-only>
               </preference>
               <preference>
@@ -634,12 +634,12 @@
               </preference>
               <preference>
                 <name>paginatorTemplatePath</name>
-                <value>/exo:ecm/views/templates/content-list-viewer/paginators/UIPaginatorEmpty.gtmpl</value>
+                <value>/exo:ecm/views/templates/content-list-viewer/paginators/EmptyPaginator.gtmpl</value>
                 <read-only>false</read-only>
               </preference>
               <preference>
                 <name>formViewTemplatePath</name>
-                <value>/exo:ecm/views/templates/content-list-viewer/list/OneColumnCLVTemplate.gtmpl</value>
+                <value>/exo:ecm/views/templates/content-list-viewer/list/OneColumn.gtmpl</value>
                 <read-only>false</read-only>
               </preference>
               <preference>
@@ -762,22 +762,22 @@
           </preference>
           <preference>
             <name>searchFormTemplatePath</name>
-            <value>/exo:ecm/views/templates/WCM Advance Search/search-form/UIDefaultSearchForm.gtmpl</value>
+            <value>/exo:ecm/views/templates/search/search-form/Form.gtmpl</value>
             <read-only>false</read-only>
           </preference>
           <preference>
             <name>searchResultTemplatePath</name>
-            <value>/exo:ecm/views/templates/WCM Advance Search/search-result/UIDefaultSearchResult.gtmpl</value>
+            <value>/exo:ecm/views/templates/search/search-result/Results.gtmpl</value>
             <read-only>false</read-only>
           </preference>
           <preference>
             <name>searchPaginatorTemplatePath</name>
-            <value>/exo:ecm/views/templates/WCM Advance Search/search-paginator/UIDefaultSearchPaginator.gtmpl</value>
+            <value>/exo:ecm/views/templates/search/search-paginator/Paginator.gtmpl</value>
             <read-only>false</read-only>
           </preference>
           <preference>
             <name>searchPageLayoutTemplatePath</name>
-            <value>/exo:ecm/views/templates/WCM Advance Search/search-page-layout/UISearchPageLayoutDefault.gtmpl</value>
+            <value>/exo:ecm/views/templates/search/search-page-layout/PageLayout.gtmpl</value>
             <read-only>false</read-only>
           </preference>
           <preference>
@@ -892,12 +892,12 @@
               </preference>
               <preference>
                 <name>formViewTemplatePath</name>
-                <value>/exo:ecm/views/templates/content-list-viewer/list/OneColumnCLVTemplate.gtmpl</value>
+                <value>/exo:ecm/views/templates/content-list-viewer/list/OneColumn.gtmpl</value>
                 <read-only>false</read-only>
               </preference>
 			  <preference>
                 <name>paginatorTemplatePath</name>
-                <value>/exo:ecm/views/templates/content-list-viewer/paginators/UIPaginatorDefault.gtmpl</value>
+                <value>/exo:ecm/views/templates/content-list-viewer/paginators/DefaultPaginator.gtmpl</value>
                 <read-only>false</read-only>
               </preference>
               <preference>
