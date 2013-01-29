@@ -25,11 +25,11 @@
 
         } ,
         stylesheets = {
-                @Stylesheet(src = "style/gettingstarted.css", location = AssetLocation.CLASSPATH)
-
+                @Stylesheet(src = "css/started.css"),
+                @Stylesheet(src = "style/gettingstarted.css", location = AssetLocation.CLASSPATH)                
         }
 )
-
+@Less(value = "css/started.less", minify = true)
 package org.exoplatform.platform.portlet.juzu.gettingstarted;
 
 import juzu.Application;
@@ -38,3 +38,4 @@ import juzu.plugin.asset.Assets;
 import juzu.plugin.asset.Script;
 import juzu.plugin.asset.Stylesheet;
 import juzu.plugin.portlet.Portlet;
+import juzu.plugin.less.Less;
