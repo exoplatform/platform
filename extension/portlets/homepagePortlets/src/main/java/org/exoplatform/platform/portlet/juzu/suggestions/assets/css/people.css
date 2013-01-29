@@ -1,0 +1,131 @@
+#SuggestPortlet {
+    border: dashed 1px #E2DDC7;
+    margin-right: 15px;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    padding: 10px 15px 5px 15px;
+}
+
+#SuggestPortlet ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0px;
+}
+
+#SuggestPortlet ul li {
+    height: 60px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #DBDBDB;
+}
+
+.peopleList img {
+    width: 24px;
+    height: 24px;
+    border-width: 0px;
+}
+
+.peopleName {
+    font-weight: bold;
+    width: 182px;
+    float: left;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    height: 25px;
+}
+
+.actionAppears {
+    width: 100px;
+}
+
+.peoplePosition {
+    width: 250px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: #808080;
+}
+
+.peopleConnection {
+    color: #808080;
+    margin-bottom: 10px;
+}
+
+.peopleList ul li {
+    border-bottom: 1px solid #DBDBDB;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+.peopleAction {
+    white-space: nowrap;
+    font-size: 10px;
+}
+
+.peopleInfo {
+    padding-left: 10px;
+    width: 182px;
+    overflow: hidden;
+}
+
+.peoplePicture {
+    float: left;
+    padding-top: 2px;
+}
+
+#emptyMessage {
+    padding: 5px;
+    font-weight: bold;
+}
+
+.peopleHeader {
+    background: none repeat scroll 0 0 #F8F8F8;
+    border: 1px solid #E1E1E1;
+    border-radius: 3px 3px 3px 3px;
+    color: #2F3334;
+    line-height: 25px;
+    padding: 0 5px 0 8px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.connect {
+    -moz-box-shadow: inset 0px 1px 0px 0px #ffffff;
+    -webkit-box-shadow: inset 0px 1px 0px 0px #ffffff;
+    box-shadow: inset 0px 1px 0px 0px #ffffff;
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #ededed), color-stop(1, #dfdfdf));
+    background: -moz-linear-gradient(center top, #ededed 5%, #dfdfdf 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr = '#ededed', endColorstr = '#dfdfdf');
+    background-color: #ededed;
+    -moz-border-radius: 6px;
+    -webkit-border-radius: 6px;
+    border-radius: 6px;
+    border: 1px solid #dcdcdc;
+    display: inline-block;
+    color: #777777;
+    font-family: arial;
+    padding: 1px 5px;
+    text-decoration: none;
+    text-shadow: 1px 1px 0px #ffffff;
+}
+
+.connect:hover {
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #dfdfdf), color-stop(1, #ededed));
+    background: -moz-linear-gradient(center top, #dfdfdf 5%, #ededed 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr = '#dfdfdf', endColorstr = '#ededed');
+    background-color: #dfdfdf;
+}
+
+.connect:active {
+    position: relative;
+    top: 1px;
+}
+
+.ignore img {
+    width: 20px;
+}
+
+#peopleSuggest {
+    padding-left: 10px;
+}
