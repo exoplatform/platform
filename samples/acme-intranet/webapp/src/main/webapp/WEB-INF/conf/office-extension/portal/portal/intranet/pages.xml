@@ -169,67 +169,75 @@
 
 
             </container>
-            <!--
+
             <container id="OfficeRight" template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
                 <access-permissions>Everyone</access-permissions>
+
                 <portlet-application>
                     <portlet>
-                        <application-ref>dashboard</application-ref>
-                        <portlet-ref>GadgetPortlet</portlet-ref>
-                        <preferences>
-                            <preference>
-                                <name>url</name>
-                                <value>local://WhoIsOnline</value>
-                                <read-only>false</read-only>
-                            </preference>
-                        </preferences>
+                        <application-ref>homepage-portlets</application-ref>
+                        <portlet-ref>GettingStartedPortlet</portlet-ref>
                     </portlet>
-                    <title>Who Is Online</title>
+                    <title>Getting Started</title>
                     <access-permissions>*:/platform/users</access-permissions>
                     <show-info-bar>false</show-info-bar>
-                    <show-application-state>true</show-application-state>
+                    <show-application-state>false</show-application-state>
+                    <show-application-mode>false</show-application-mode>
+                </portlet-application>
+
+                <portlet-application>
+                    <portlet>
+                        <application-ref>homepage-portlets</application-ref>
+                        <portlet-ref>HomePageCalendarPortlet</portlet-ref>
+                    </portlet>
+                    <title>Calendar Portlet</title>
+                    <access-permissions>*:/platform/users</access-permissions>
+                    <show-info-bar>false</show-info-bar>
+                    <show-application-state>false</show-application-state>
+                    <show-application-mode>false</show-application-mode>
+                </portlet-application>
+
+                <portlet-application>
+                    <portlet>
+                        <application-ref>homepage-portlets</application-ref>
+                        <portlet-ref>Invitations</portlet-ref>
+                    </portlet>
+                    <title>Invitations</title>
+                    <access-permissions>*:/platform/users</access-permissions>
+                    <show-info-bar>false</show-info-bar>
+                    <show-application-state>false</show-application-state>
+                    <show-application-mode>false</show-application-mode>
+                </portlet-application>
+
+                <portlet-application>
+                    <portlet>
+                        <application-ref>homepage-portlets</application-ref>
+                        <portlet-ref>SuggestionsPeopleSpace</portlet-ref>
+                    </portlet>
+                    <title>SuggestionsPeopleSpace</title>
+                    <access-permissions>*:/platform/users</access-permissions>
+                    <show-info-bar>false</show-info-bar>
+                    <show-application-state>false</show-application-state>
+                    <show-application-mode>false</show-application-mode>
                 </portlet-application>
 
 
                 <portlet-application>
                     <portlet>
-                        <application-ref>dashboard</application-ref>
-                        <portlet-ref>GadgetPortlet</portlet-ref>
-                        <preferences>
-                            <preference>
-                                <name>url</name>
-                                <value>local://Bookmark</value>
-                                <read-only>false</read-only>
-                            </preference>
-                        </preferences>
+                        <application-ref>homepage-portlets</application-ref>
+                        <portlet-ref>WhoIsOnLinPortlet</portlet-ref>
                     </portlet>
-                    <title>Bookmarks</title>
+                    <title>Who is on line</title>
                     <access-permissions>*:/platform/users</access-permissions>
                     <show-info-bar>false</show-info-bar>
-                    <show-application-state>true</show-application-state>
-                </portlet-application>
-
-
-                <portlet-application>
-                    <portlet>
-                        <application-ref>dashboard</application-ref>
-                        <portlet-ref>GadgetPortlet</portlet-ref>
-                        <preferences>
-                            <preference>
-                                <name>url</name>
-                                <value>local://FavoriteDocument</value>
-                                <read-only>false</read-only>
-                            </preference>
-                        </preferences>
-                    </portlet>
-                    <title>Favorite Documents</title>
-                    <access-permissions>*:/platform/users</access-permissions>
-                    <show-info-bar>false</show-info-bar>
-                    <show-application-state>true</show-application-state>
+                    <show-application-state>false</show-application-state>
+                    <show-application-mode>false</show-application-mode>
                 </portlet-application>
             </container>
-           -->
         </container>
+
+
+
 
     </page>
 
