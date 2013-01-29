@@ -609,6 +609,29 @@
                 component.show()
             });
         },
+       ClickActionButton:function ( baseId) {
+
+            var parent = $("#" + baseId);
+
+            var portalNav = portalNavigation;
+
+            // Top menu items
+            parent.children(".UITab").each(function () {
+                var tab = $(this);
+                var highlightClass = "UITab HighlightNavigationTab";
+                portalNav.mouseEnterTab(tab, highlightClass);
+                tab.find("." + portalNav.containerStyleClass).first().css("minWidth", tab.width());
+            });
+
+            var itemConts = parent.find("." + this.containerStyleClass);
+            itemConts.each(function () {
+                if (!this.id) {
+                    this.id = eXo.generateId("PortalNavigationContainer");
+                }
+                this.resized = true;
+
+            });
+        },
         /**
          * Method triggered as mouse cursor enter a navigation node showed on navigation tab.
          *
