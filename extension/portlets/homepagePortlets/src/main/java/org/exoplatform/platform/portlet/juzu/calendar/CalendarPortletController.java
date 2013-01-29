@@ -242,37 +242,25 @@ public class CalendarPortletController {
                 CalendarEvent event = (CalendarEvent) itr.next();
                 Date from = d.parse(d.format(event.getFromDateTime()));
                 Date to = d.parse(d.format(event.getToDateTime()));
-                if (!(calendarNonDisplayedMap.containsKey(event.getCalendarId()))) {
-
-                    /*org.exoplatform.calendar.service.Calendar calendar = calendarService_.getUserCalendar(username, event.getCalendarId());
-                    if (calendar == null)
-                    {
-                        calendar = calendarService_.getGroupCalendar(event.getCalendarId());
-                    }     */
-
-                    org.exoplatform.calendar.service.Calendar calendar=calendarDisplayedMap.get(event.getCalendarId()) ;
                     if ((event.getEventType().equals(CalendarEvent.TYPE_EVENT)) && (from.compareTo(comp) <= 0) && (to.compareTo(comp) >= 0)) {
+                        if (!calendarNonDisplayedMap.containsKey(event.getCalendarId())) {
+                        org.exoplatform.calendar.service.Calendar calendar=calendarDisplayedMap.get(event.getCalendarId()) ;
                         eventsDisplayedList.add(event);
                         if(!displayedCalendarMap.containsKey(calendar.getId()))
                         {
                             displayedCalendarMap.put(calendar.getId(),calendar);
                             displayedCalendar.add(calendar);
                         }
+                        }
                     } else if ((event.getEventType().equals(CalendarEvent.TYPE_TASK)) &&
                             (((from.compareTo(comp) <= 0) && (to.compareTo(comp) >= 0)) ||
                                     ((event.getEventState().equals(CalendarEvent.NEEDS_ACTION)) && (to.compareTo(comp) < 0)))) {
-                        if(!displayedCalendarMap.containsKey(calendar.getId()))
-                        {
-                            displayedCalendarMap.put(calendar.getId(),calendar);
-                            displayedCalendar.add(calendar);
-                        }
                         tasksDisplayedList.add(event);
                     }
                 }
-            }
             Collections.sort(eventsDisplayedList, eventsComparator);
             Collections.sort(tasksDisplayedList, tasksComparator);
-        }
+            }
         calendar.with().
                 set("displayedCalendar", displayedCalendar).
                 set("calendarDisplayedMap", calendarDisplayedMap).
