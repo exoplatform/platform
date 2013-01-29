@@ -7,10 +7,12 @@
         @Script(src = "js/jquery.tipTip.minified.js" ,depends = "jquery", location = AssetLocation.CLASSPATH)
     },
     stylesheets = {
+         @Stylesheet(src = "css/whoisonline.css"),
          @Stylesheet(src = "css/online.css"),
          @Stylesheet(src = "css/tipTip.css")
     }
 )
+@Less(value = "css/whoisonline.less", minify = true)
 package org.exoplatform.platform.portlet.juzu.whoisonline;
 
 import juzu.Application;
@@ -19,3 +21,4 @@ import juzu.plugin.asset.Assets;
 import juzu.plugin.asset.Script;
 import juzu.plugin.asset.Stylesheet;
 import juzu.plugin.portlet.Portlet;
+import juzu.plugin.less.Less;

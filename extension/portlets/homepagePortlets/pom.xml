@@ -27,6 +27,11 @@
             <version>${org.juzu.version}</version>
         </dependency>
         <dependency>
+            <groupId>org.juzu</groupId>
+            <artifactId>juzu-plugins-less</artifactId>
+            <version>${org.juzu.version}</version>
+        </dependency>
+        <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
             <version>4.8.2</version>
