@@ -13,6 +13,7 @@
   <UICreateList>
     <label>
       <CreateANew>Create a new {1}</CreateANew>
+      <RequireSelectForum>Please, select a forum.</RequireSelectForum>
     </label>
     <action>
       <Next>Next</Next>

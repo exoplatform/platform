@@ -58,15 +58,33 @@
     <org.gatein.shindig.version>2.0.2.Final-gatein-3</org.gatein.shindig.version>
     <org.gatein.wci.version>2.3.0.Final</org.gatein.wci.version>
     <org.gatein.web.version>3.5.0.Final</org.gatein.web.version>
-    <org.juzu.version>0.6.0-beta5</org.juzu.version>
     <commons-fileupload.version>1.2.1</commons-fileupload.version>
   </properties>
   <dependencyManagement>
     <dependencies>
+      <!-- Import versions of external dependencies to use -->
+      <dependency>
+        <groupId>org.exoplatform</groupId>
+        <artifactId>maven-depmgt-pom</artifactId>
+        <version>2-SNAPSHOT</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+      <!-- Import versions from calendar project -->
       <dependency>
         <groupId>org.exoplatform.calendar</groupId>
-        <artifactId>calendar-component-create</artifactId>
+        <artifactId>calendar</artifactId>
         <version>${org.exoplatform.calendar.version}</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+      <!-- Import versions from commons project -->
+      <dependency>
+        <groupId>org.exoplatform.commons</groupId>
+        <artifactId>commons</artifactId>
+        <version>${org.exoplatform.commons.version}</version>
+        <type>pom</type>
+        <scope>import</scope>
       </dependency>
       <!-- To be replaced by an import of core parent POM -->
       <dependency>
@@ -150,6 +168,22 @@
           </exclusion>
         </exclusions>
       </dependency>
+      <!-- Import versions from ecms project -->
+      <dependency>
+        <groupId>org.exoplatform.ecms</groupId>
+        <artifactId>ecms</artifactId>
+        <version>${org.exoplatform.ecms.version}</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+      <!-- Import versions from forum project -->
+      <dependency>
+        <groupId>org.exoplatform.forum</groupId>
+        <artifactId>forum</artifactId>
+        <version>${org.exoplatform.forum.version}</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
       <!-- To be replaced by an import of gwtframework parent POM -->
       <dependency>
         <groupId>org.exoplatform.gwt</groupId>
@@ -211,11 +245,19 @@
             <artifactId>servlet-api</artifactId>
             <groupId>javax.servlet</groupId>
           </exclusion>
-          <exclusion>
-            <artifactId>exo.ws.frameworks.servlet</artifactId>
-            <groupId>org.exoplatform.ws</groupId>
-          </exclusion>
+           <exclusion>
+              <artifactId>exo.ws.frameworks.servlet</artifactId>
+              <groupId>org.exoplatform.ws</groupId>
+           </exclusion>
         </exclusions>
+      </dependency>
+      <!-- Import versions from integration project -->
+      <dependency>
+        <groupId>org.exoplatform.integration</groupId>
+        <artifactId>integ</artifactId>
+        <version>${org.exoplatform.integ.version}</version>
+        <type>pom</type>
+        <scope>import</scope>
       </dependency>
       <!-- To be replaced by an import of jcr parent POM -->
       <dependency>
@@ -415,13 +457,18 @@
       </dependency>
       <dependency>
         <groupId>org.exoplatform.platform</groupId>
-        <artifactId>platform-component-uxpnavigation</artifactId>
+        <artifactId>platform-component-webui</artifactId>
         <version>${project.version}</version>
       </dependency>
       <dependency>
         <groupId>org.exoplatform.platform</groupId>
-        <artifactId>platform-component-webui</artifactId>
+        <artifactId>platform-component-uxpnavigation</artifactId>
         <version>${project.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.exoplatform.calendar</groupId>
+        <artifactId>calendar-component-create</artifactId>
+        <version>${org.exoplatform.calendar.version}</version>
       </dependency>
       <dependency>
         <groupId>org.exoplatform.platform</groupId>
@@ -476,16 +523,16 @@
       </dependency>
       <dependency>
         <groupId>org.exoplatform.platform</groupId>
-            <artifactId>platform-extension-portlets-homepage</artifactId>
-            <version>${project.version}</version>
-            <type>war</type>
-        </dependency>
-        <dependency>
-            <groupId>org.exoplatform.platform</groupId>
-            <artifactId>platform-extension-portlets-homepage</artifactId>
-            <version>${project.version}</version>
-            <type>pom</type>
-        </dependency>
+        <artifactId>platform-extension-portlets-homepage</artifactId>
+        <version>${project.version}</version>
+        <type>war</type>
+      </dependency>
+      <dependency>
+        <groupId>org.exoplatform.platform</groupId>
+        <artifactId>platform-extension-portlets-homepage</artifactId>
+        <version>${project.version}</version>
+        <type>pom</type>
+      </dependency>
       <dependency>
         <groupId>org.exoplatform.platform</groupId>
         <artifactId>platform-extension-portlets-platformNavigation</artifactId>
@@ -711,6 +758,14 @@
         <groupId>org.exoplatform.platform</groupId>
         <artifactId>platform-trial-service</artifactId>
         <version>${project.version}</version>
+      </dependency>
+      <!-- Import versions from social project -->
+      <dependency>
+        <groupId>org.exoplatform.social</groupId>
+        <artifactId>social</artifactId>
+        <version>${org.exoplatform.social.version}</version>
+        <type>pom</type>
+        <scope>import</scope>
       </dependency>
       <!-- To be replaced by an import of WS parent POM -->
       <dependency>
@@ -1012,104 +1067,7 @@
         <artifactId>redirect</artifactId>
         <version>${org.gatein.web.version}</version>
       </dependency>
-      <dependency>
-        <groupId>org.juzu</groupId>
-        <artifactId>juzu-bom-core</artifactId>
-        <version>${org.juzu.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>org.juzu</groupId>
-        <artifactId>juzu-core</artifactId>
-        <version>${org.juzu.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>org.juzu</groupId>
-        <artifactId>juzu-plugins-less</artifactId>
-        <version>${org.juzu.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>org.juzu</groupId>
-        <artifactId>juzu-plugins-portlet</artifactId>
-        <version>${org.juzu.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>org.juzu</groupId>
-        <artifactId>juzu-plugins-upload</artifactId>
-        <version>${org.juzu.version}</version>
-      </dependency>
-      <!-- Import versions of external dependencies to use -->
-      <dependency>
-        <groupId>org.exoplatform</groupId>
-        <artifactId>maven-depmgt-pom</artifactId>
-        <version>2-SNAPSHOT</version>
-        <type>pom</type>
-        <scope>import</scope>
-      </dependency>
-      <!-- Import versions from calendar project -->
-      <dependency>
-        <groupId>org.exoplatform.calendar</groupId>
-        <artifactId>calendar</artifactId>
-        <version>${org.exoplatform.calendar.version}</version>
-        <type>pom</type>
-        <scope>import</scope>
-      </dependency>
-      <!-- Import versions from commons project -->
-      <dependency>
-        <groupId>org.exoplatform.commons</groupId>
-        <artifactId>commons</artifactId>
-        <version>${org.exoplatform.commons.version}</version>
-        <type>pom</type>
-        <scope>import</scope>
-      </dependency>
-      <!-- Import versions from ecms project -->
-      <dependency>
-        <groupId>org.exoplatform.ecms</groupId>
-        <artifactId>ecms</artifactId>
-        <version>${org.exoplatform.ecms.version}</version>
-        <type>pom</type>
-        <scope>import</scope>
-      </dependency>
-      <!-- Import versions from forum project -->
-      <dependency>
-        <groupId>org.exoplatform.forum</groupId>
-        <artifactId>forum</artifactId>
-        <version>${org.exoplatform.forum.version}</version>
-        <type>pom</type>
-        <scope>import</scope>
-      </dependency>
-      <!-- Import versions from integration project -->
-      <dependency>
-        <groupId>org.exoplatform.integration</groupId>
-        <artifactId>integ</artifactId>
-        <version>${org.exoplatform.integ.version}</version>
-        <type>pom</type>
-        <scope>import</scope>
-      </dependency>
-      <!-- Import versions from social project -->
-      <dependency>
-        <groupId>org.exoplatform.social</groupId>
-        <artifactId>social</artifactId>
-        <version>${org.exoplatform.social.version}</version>
-        <type>pom</type>
-        <scope>import</scope>
-      </dependency>
-        <dependency>
-            <groupId>org.juzu</groupId>
-            <artifactId>juzu-core</artifactId>
-            <version>${org.juzu.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.juzu</groupId>
-            <artifactId>juzu-bom-core</artifactId>
-            <version>${org.juzu.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.juzu</groupId>
-            <artifactId>juzu-plugins-portlet</artifactId>
-            <version>${org.juzu.version}</version>
-        </dependency>
-
-    </dependencies>
+   </dependencies>
   </dependencyManagement>
   <build>
     <pluginManagement>

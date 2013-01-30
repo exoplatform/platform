@@ -3,10 +3,10 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
-		<artifactId>platform-extension-portlets</artifactId>
-		<groupId>org.exoplatform.platform</groupId>
-		<version>4.0.0.Alpha1-SNAPSHOT</version>
-	</parent>
+    <groupId>org.exoplatform.platform</groupId>
+    <artifactId>platform-extension-portlets</artifactId>
+    <version>4.0.0.Alpha1-SNAPSHOT</version>
+  </parent>
 	<artifactId>platform-extension-portlet-branding</artifactId>
 	<packaging>war</packaging>
 	<name>eXo Platform - Branding Portlet</name>
@@ -32,9 +32,39 @@
 			<artifactId>juzu-bom-core</artifactId>
 		</dependency>
 		<dependency>
-			<groupId>org.juzu</groupId>
-			<artifactId>juzu-core</artifactId>
-		</dependency>
+      <groupId>org.juzu</groupId>
+      <artifactId>juzu-bom-core</artifactId>
+      <exclusions>
+        <exclusion>
+          <groupId>org.jboss.weld</groupId>
+          <artifactId>weld-core</artifactId>
+        </exclusion>
+        <exclusion>
+          <groupId>org.springframework</groupId>
+          <artifactId>spring-core</artifactId>
+        </exclusion>
+        <exclusion>
+          <groupId>org.springframework</groupId>
+          <artifactId>spring-beans</artifactId>
+        </exclusion>
+        <exclusion>
+          <groupId>org.springframework</groupId>
+          <artifactId>spring-web</artifactId>
+        </exclusion>
+        <exclusion>
+          <groupId>org.slf4j</groupId>
+          <artifactId>slf4j-simple</artifactId>
+        </exclusion>
+        <exclusion>
+          <groupId>org.slf4j</groupId>
+          <artifactId>slf4j-ext</artifactId>
+        </exclusion>
+        <exclusion>
+          <groupId>commons-logging</groupId>
+          <artifactId>commons-logging</artifactId>
+        </exclusion>
+      </exclusions>
+    </dependency>
 		<dependency>
 			<groupId>org.juzu</groupId>
 			<artifactId>juzu-plugins-less</artifactId>
@@ -68,32 +98,33 @@
 				</configuration>
 			</plugin>
 			<plugin>
-				<artifactId>maven-assembly-plugin</artifactId>
-				<executions>
-					<execution>
-						<phase>package</phase>
-						<goals>
-							<goal>single</goal>
-						</goals>
-						<configuration>
-							<appendAssemblyId>false</appendAssemblyId>
-							<descriptorRefs>
-								<descriptorRef>platform-spring</descriptorRef>
-							</descriptorRefs>
-						</configuration>
-					</execution>
-				</executions>
-				<dependencies>
-					<dependency>
-						<groupId>org.exoplatform.commons</groupId>
-						<artifactId>commons-juzu-packaging</artifactId>
-						<version>${org.exoplatform.commons.version}</version>
-					</dependency>
-				</dependencies>
-				<configuration>
-					<attach>true</attach>
-				</configuration>
-			</plugin>
+        <artifactId>maven-assembly-plugin</artifactId>
+        <dependencies>
+          <dependency>
+            <groupId>org.exoplatform.commons</groupId>
+            <artifactId>commons-juzu</artifactId>
+            <version>${org.exoplatform.commons.version}</version>
+          </dependency>
+        </dependencies>
+        <configuration>
+          <attach>true</attach>
+        </configuration>
+        <executions>
+          <execution>
+            <goals>
+              <goal>single</goal>
+            </goals>
+            <phase>package</phase>
+            <configuration>
+              <appendAssemblyId>false</appendAssemblyId>
+              <descriptorRefs>
+                <descriptorRef>platform-juzu</descriptorRef>
+              </descriptorRefs>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+			
 		</plugins>
 	</build>
 	<profiles>

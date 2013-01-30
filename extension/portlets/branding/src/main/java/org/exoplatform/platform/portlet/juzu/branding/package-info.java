@@ -26,9 +26,18 @@
                 @Script(src = "branding.js", depends={"form","firedrop"}, location = AssetLocation.CLASSPATH)
         }  
 )
+
+
+@Bindings({
+ @Binding(SettingService.class)
+ })
 package org.exoplatform.platform.portlet.juzu.branding;
 import juzu.Application;
 import juzu.asset.AssetLocation;
 import juzu.plugin.asset.Assets;
 import juzu.plugin.asset.Script;
+import juzu.plugin.binding.Binding;
+import juzu.plugin.binding.Bindings;
 import juzu.plugin.portlet.Portlet;
+import org.exoplatform.commons.api.settings.SettingService;
+

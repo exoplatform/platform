@@ -23,14 +23,15 @@ import org.apache.commons.fileupload.FileItem;
 import org.exoplatform.container.ExoContainerContext;
 import org.exoplatform.services.jcr.RepositoryService;
 import org.exoplatform.services.jcr.ext.common.SessionProvider;
-
+import org.picocontainer.Startable;
 
 
 /**
  * Created by The eXo Platform SAS Author : Nguyen Viet Bang
  * bangnv@exoplatform.com Jan 22, 2013
  */
-public class DataStorageService {
+
+public class DataStorageService implements Startable{
      static String fileName="logo.png";
   RepositoryService repositoryService;
 
@@ -73,6 +74,16 @@ public class DataStorageService {
     } finally {
       sessionProvider.close();
     }
+  }
+
+  @Override
+  public void start() {
+    
+  }
+
+  @Override
+  public void stop() {
+    
   }
 
 }
