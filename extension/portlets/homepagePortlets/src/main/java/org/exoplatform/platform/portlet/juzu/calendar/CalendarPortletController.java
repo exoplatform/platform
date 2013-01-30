@@ -19,13 +19,22 @@
 
 package org.exoplatform.platform.portlet.juzu.calendar;
 
+import java.text.DateFormat;
+import java.util.*;
+
+
+import javax.inject.Inject;
 import juzu.Path;
 import juzu.Resource;
 import juzu.SessionScoped;
 import juzu.View;
 import juzu.plugin.ajax.Ajax;
 import org.apache.commons.lang.ArrayUtils;
-import org.exoplatform.calendar.service.*;
+import org.exoplatform.calendar.service.CalendarEvent;
+import org.exoplatform.calendar.service.CalendarService;
+import org.exoplatform.calendar.service.EventQuery;
+import org.exoplatform.calendar.service.GroupCalendarData;
+import org.exoplatform.calendar.service.Utils;
 import org.exoplatform.commons.api.settings.SettingService;
 import org.exoplatform.commons.api.settings.SettingValue;
 import org.exoplatform.commons.api.settings.data.Context;
@@ -37,11 +46,6 @@ import org.exoplatform.services.organization.Group;
 import org.exoplatform.services.organization.OrganizationService;
 import org.exoplatform.web.application.RequestContext;
 import org.gatein.common.text.EntityEncoder;
-
-import javax.inject.Inject;
-import java.text.DateFormat;
-import java.util.*;
-import java.util.Calendar;
 
 /**
  * @author <a href="fbradai@exoplatform.com">Fbradai</a>
