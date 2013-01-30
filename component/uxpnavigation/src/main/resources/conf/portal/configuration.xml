@@ -31,50 +31,43 @@
             <properties-param>
                 <name>help.pages</name>
                 <description>Help Pages match definition</description>
-                <!-- social -->
-                <property name="spaces"
-                          value="http://docs.exoplatform.com/PLF35/index.jsp?topic=%2Forg.exoplatform.doc.35%2FPlatform_User_Guide.Social.Manage_Spaces.html"/>
-                <property name="all-spaces"
-                          value="http://docs.exoplatform.com/PLF35/index.jsp?topic=%2Forg.exoplatform.doc.35%2FSoc_User_Guide.Space_Management.Join_Space.Search.html"/>
-                <!--site acme pages-->
-                <property name="default" value="http://docs.exoplatform.com/"/>
-                <property name="news"
-                          value="http://docs.exoplatform.com/PLF35/index.jsp?topic=%2Forg.exoplatform.doc.35%2FIDEUserGuide.html"/>
-                <property name="products"
-                          value="http://docs.exoplatform.com/PLF35/index.jsp?topic=%2Forg.exoplatform.doc.35%2FPlatform_User_Guide.Organize_Content.html"/>
-                <!--setup menu: manage your organisation-->
-                <property name="newStaff"
-                          value="http://docs.exoplatform.com/PLF35/index.jsp?topic=%2Forg.exoplatform.doc.35%2FPlatform_User_Guide.Manage_Organization.html"/>
-                <property name="newAccount"
-                          value="http://docs.exoplatform.com/PLF35/index.jsp?topic=%2Forg.exoplatform.doc.35%2FPlatform_User_Guide.Manage_Organization.html"/>
-                <property name="management"
-                          value="http://docs.exoplatform.com/PLF35/index.jsp?topic=%2Forg.exoplatform.doc.35%2FPlatform_User_Guide.Manage_Organization.html"/>
-                <property name="monitoring"
-                          value="http://docs.exoplatform.com/PLF35/index.jsp?topic=%2Forg.exoplatform.doc.35%2FPlatform_User_Guide.Get_started.html"/>
-                <!--setup menu: manage your portal-->
-                <property name="pageManagement"
-                          value="http://docs.exoplatform.com/PLF35/index.jsp?topic=%2Forg.exoplatform.doc.35%2FPlatform_User_Guide.Manage_Your_Portals.html"/>
-                <property name="portalnavigation"
-                          value="http://docs.exoplatform.com/PLF35/index.jsp?topic=%2Forg.exoplatform.doc.35%2FPlatform_User_Guide.Manage_Your_Portals.Manage_sites.html"/>
-                <property name="groupnavigation"
-                          value="http://docs.exoplatform.com/PLF35/index.jsp?topic=%2Forg.exoplatform.doc.35%2FPlatform_User_Guide.Manage_Your_Portals.Manage_Pages.html"/>
-                <!-- setup menu: manage your contents-->
-                <property name="wcmAdmin"
-                          value="http://docs.exoplatform.com/PLF35/index.jsp?topic=%2Forg.exoplatform.doc.35%2FPlatform_User_Guide.Organize_Content.Structure_Content.html"/>
-                <property name="siteExplorer"
-                          value="http://docs.exoplatform.com/PLF35/index.jsp?topic=%2Forg.exoplatform.doc.35%2FPlatform_User_Guide.Organize_Content.Manage_Content.html"/>
-                <!-- setup menu: manage applications-->
-                <property name="registry"
-                          value="http://docs.exoplatform.com/PLF35/index.jsp?topic=%2Forg.exoplatform.doc.35%2Fsect-User_Guide-Manage_Portlets_and_Gadgets.html"/>
-                <!--webOS-->
-                <property name="classicWebosPage"
-                          value="http://docs.exoplatform.com/PLF35/index.jsp?topic=%2Forg.exoplatform.doc.35%2FGateInReferenceGuide.html"/>
-
-                <!--   -->
-                <!--<property name="servicesManagement"        value="http://docs.exoplatform.com/PLF35/index.jsp"  />
-                <property name="monitoring"        value="http://docs.exoplatform.com/PLF35/index.jsp"  />     -->
-
-
+                <property name="Company Context Home"
+                          value="http://docs.exoplatform.com/PLF35/topic/org.exoplatform.doc.35/Platform_User_Guide.Social.html"/>
+                <property name="Company Context Calendar"
+                          value="http://docs.exoplatform.com/PLF35/topic/org.exoplatform.doc.35/Platform_User_Guide.Collaboration.Manage_calendar.html"/>
+                <property name="Company Context Wiki" value="http://docs.exoplatform.com/PLF35/topic/org.exoplatform.doc.35/Platform_User_Guide.Knowledge.Build_Wiki.html"/>
+                <property name="Company Context Forum"
+                          value="http://docs.exoplatform.com/PLF35/topic/org.exoplatform.doc.35/Platform_User_Guide.Knowledge.Build_Forums.html"/>
+                <property name="Company Context FAQ:Answers"
+                          value="http://docs.exoplatform.com/PLF35/topic/org.exoplatform.doc.35/Platform_User_Guide.Knowledge.Build_FAQs.html"/>
+                <property name="Company Context Documents"
+                          value="http://docs.exoplatform.com/PLF35/topic/org.exoplatform.doc.35/Platform_User_Guide.Organize_Content.Structure_Content.html"/>
+                <property name="personnal:all-spaces"
+                          value="http://docs.exoplatform.com/PLF35/topic/org.exoplatform.doc.35/Platform_User_Guide.Social.Manage_Spaces.html"/>
+                <property name="personnal:connections"
+                          value="http://docs.exoplatform.com/PLF35/topic/org.exoplatform.doc.35/Platform_User_Guide.Social.Manage_connections.html"/>
+                <property name="personnal:profile"
+                          value="http://docs.exoplatform.com/PLF35/topic/org.exoplatform.doc.35/Platform_User_Guide.Social.Manage_Profile.html"/>
+                <property name="personnal:wiki"
+                          value="http://docs.exoplatform.com/PLF35/topic/org.exoplatform.doc.35/Platform_User_Guide.Knowledge.Build_Wiki.html"/>
+                <property name="dashboard"
+                          value="http://docs.exoplatform.com/PLF35/topic/org.exoplatform.doc.35/Platform_User_Guide.Manage_Your_Portals.Manage_Applications.Gadgets.html"/>
+                <property name="space:activity_stream"
+                          value="http://docs.exoplatform.com/PLF35/topic/org.exoplatform.doc.35/Platform_User_Guide.Social.html"/>
+                <property name="space:manager"
+                          value="http://docs.exoplatform.com/PLF35/topic/org.exoplatform.doc.35/Soc_User_Guide.Space_Management.Edit_Space.html"/>
+                <property name="space:wiki"
+                          value="http://docs.exoplatform.com/PLF35/topic/org.exoplatform.doc.35/Platform_User_Guide.Knowledge.Build_Wiki.html"/>
+                <property name="space:forum"
+                          value="http://docs.exoplatform.com/PLF35/topic/org.exoplatform.doc.35/Platform_User_Guide.Knowledge.Build_Forums.html"/>
+                <property name="space:calendar"
+                          value="http://docs.exoplatform.com/PLF35/topic/org.exoplatform.doc.35/Platform_User_Guide.Collaboration.Manage_calendar.html"/>
+                <property name="space:faq_annswer"
+                          value="http://docs.exoplatform.com/PLF35/topic/org.exoplatform.doc.35/Platform_User_Guide.Knowledge.Build_FAQs.html"/>
+                <property name="space:document"
+                          value="http://docs.exoplatform.com/PLF35/topic/org.exoplatform.doc.35/Platform_User_Guide.Organize_Content.Structure_Content.html"/>
+                <property name="default"
+                          value="http://docs.exoplatform.com/PLF35/index.jsp?topic=%2Forg.exoplatform.doc.35%2FUserGuide.html"/>
             </properties-param>
         </init-params>
     </component>
