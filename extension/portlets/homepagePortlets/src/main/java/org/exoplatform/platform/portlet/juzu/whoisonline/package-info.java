@@ -7,13 +7,11 @@
         @Script(src = "js/jquery.tipTip.minified.js", depends = "jquery", location = AssetLocation.CLASSPATH)
     },
     stylesheets = {
-        @Stylesheet(src = "css/whoisonline.css"),
         @Stylesheet(src = "css/online.css"),
         @Stylesheet(src = "css/tipTip.css")
     }
 )
 @Bindings(@Binding(value = WhoIsOnline.class, implementation = WhoIsOnlineImpl.class))
-@Less(value = "css/whoisonline.less", minify = true)
 package org.exoplatform.platform.portlet.juzu.whoisonline;
 
 import juzu.Application;

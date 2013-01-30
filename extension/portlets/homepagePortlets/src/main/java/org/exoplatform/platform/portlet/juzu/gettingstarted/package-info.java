@@ -26,12 +26,10 @@
 
     },
     stylesheets = {
-        @Stylesheet(src = "css/started.css"),
         @Stylesheet(src = "style/gettingstarted.css", location = AssetLocation.CLASSPATH)
     }
 )
 @Bindings(@Binding(NodeHierarchyCreator.class))
-@Less(value = "css/started.less", minify = true)
 package org.exoplatform.platform.portlet.juzu.gettingstarted;
 
 import juzu.Application;
