@@ -16,20 +16,20 @@
  * Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
  * 02110-1301 USA, or see the FSF site: http://www.fsf.org.
  */
+
 @Application
 @Portlet
 @Assets(
-        scripts = {
-                @Script(id="jquery", src = "js/common/jquery-1.8.3.js" , location = juzu.asset.AssetLocation.SERVER),
-               @Script( src = "gettingStarted.js",  location = AssetLocation.CLASSPATH)
+    scripts = {
+        @Script(id = "jquery", src = "js/common/jquery-1.8.3.js", location = juzu.asset.AssetLocation.SERVER),
+        @Script(src = "gettingStarted.js", location = AssetLocation.CLASSPATH)
 
-        } ,
-        stylesheets = {
-                @Stylesheet(src = "style/gettingstarted.css", location = AssetLocation.CLASSPATH)
-
-        }
+    },
+    stylesheets = {
+        @Stylesheet(src = "style/gettingstarted.css", location = AssetLocation.CLASSPATH)
+    }
 )
-
+@Bindings(@Binding(NodeHierarchyCreator.class))
 package org.exoplatform.platform.portlet.juzu.gettingstarted;
 
 import juzu.Application;
@@ -37,4 +37,8 @@ import juzu.asset.AssetLocation;
 import juzu.plugin.asset.Assets;
 import juzu.plugin.asset.Script;
 import juzu.plugin.asset.Stylesheet;
+import juzu.plugin.binding.Binding;
+import juzu.plugin.binding.Bindings;
 import juzu.plugin.portlet.Portlet;
+import org.exoplatform.services.jcr.ext.hierarchy.NodeHierarchyCreator;
+
