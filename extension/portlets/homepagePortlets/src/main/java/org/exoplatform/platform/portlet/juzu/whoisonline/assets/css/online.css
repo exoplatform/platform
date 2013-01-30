@@ -27,29 +27,9 @@
 
 #OnlinePortlet .gallery li img {
     margin-bottom: 5px;
-    height: 40px;
-    width: 30px;
-}
-
-.tooltip {
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 3;
-    display: none;
-    border: 0 none;
-    -moz-border-radius: 3px;
-    -webkit-border-radius: 3px;
-    color: #115EAD;
-    max-width: 100px;
-    width: auto;
-    background-color: white;
-    padding: 5px 10px 5px 10px;
-    border: solid 1px #115EAD;
-}
-
-.tooltip div {
-    color: #115EAD;
+    height: 36px;
+    width: 36px;
+    border-radius: 3px;
 }
 
 #tipName {
@@ -62,8 +42,12 @@
 
 }
 
+
 .connectAction {
     text-align: center;
+    background: #f0f0f0;
+    margin: -10px;
+    padding: 10px;
 }
 
 

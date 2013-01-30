@@ -17,10 +17,10 @@
    * 02110-1301 USA, or see the FSF site: http://www.fsf.org.
    */ %>
 
-<div id="OnlinePortlet">
-    <div id="onlineContent">
-        <div class="onlineHeader">${headerLabel}</div>
-        <ul id="onlineList" class="gallery">
+<div id="OnlinePortlet" class="onlinePortlet">
+    <div id="onlineContent" class="uiBox">
+        <h6 class="title">${headerLabel}</h6>
+        <ul id="onlineList" class="gallery uiContentBox">
          #{include path=users.gtmpl}#{/include}
         </ul>
     </div>
