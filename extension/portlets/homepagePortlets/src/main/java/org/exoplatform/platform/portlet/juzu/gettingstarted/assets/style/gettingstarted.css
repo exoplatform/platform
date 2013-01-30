@@ -40,6 +40,11 @@
   margin-bottom: 5px;
 }
 
+.list-block {
+	padding: 15px 15px 0 15px;
+}
+
+
 #gsList {
   padding-left: 0px;
   margin-top: 0px;
@@ -47,26 +52,12 @@
 }
 
 
-
-#gsList li {
-  list-style-type: none;
-  font-family: verdana, arial,sans-serif;
-  font-size: 12px;
-  line-height: 23px;
-  background:url('/homepage-portlets/style/images/gettingStarted/ArrowRight.gif') no-repeat left;
-}
-
 #gsList li a {
   margin: 10px 0px 10px 0px;
   padding-left: 15px;
   cursor: pointer;
 }
 
-
-.done {  
-  text-decoration: line-through;
-  background:url('/homepage-portlets/style/images/gettingStarted/check.png') no-repeat left !important;
-}
 
 .done a {
  color: #808080; 
@@ -79,6 +70,7 @@
 .gadgetTitle {
   font-weight: bold;
   margin-bottom: 8px;
+  padding: 15px;
 }
 
 
@@ -93,20 +85,11 @@ float: left;
 margin-right: 6px;
 margin-top: 2px;
 margin-bottom: 8px;
-
 position: relative;
 background-color: white;
 
 }
 
-#progress-rate {
-height: 16px;
-background-image: url('/homepage-portlets/style/images/gettingStarted/getting-started-progress.png');
-background-repeat: repeat-x;
-position: absolute;
-left: 0;
-top: 0;
-}
 
 #progress-label {
  float: left;
@@ -121,3 +104,19 @@ top: 0;
     background: url("/homepage-portlets/style/images/gettingStarted/del.png") no-repeat right 8px ;
 }
 
+
+.gsList li {
+ padding: 0 0 0 10px;
+ margin: 0 0 5px 0;
+ cursor: pointer;
+ background: url("/homepage-portlets/style/images/gettingStarted/gettingStartedCheck.png") no-repeat left -43px;
+}
+
+.gsList li ,.gsList li  a {
+ color: #333333;
+}
+
+.gsList li.done {
+	background-position: 0 5px;
+	text-decoration: line-through;
+}

@@ -38,16 +38,14 @@
 </script>
 
 
+    <div class="UIGadgetThemes uiBox">
+        <h6 class="gadgetTitle title center">${titleLabel}</h6>
 
-
-    <div class="UIGadgetThemes">
-        <div class="gadgetTitle">${titleLabel}</div>
-
-        <div  class="list-block">
+        <div class="list-block">
 
             <div id="progress-block">
-                <div id="progress-shell">
-                    <div id="progress-rate" style="width: ${width}px"></div>
+                <div id="progress-shell" class="progress">
+                    <div id="progress-rate" class="bar" style="width: ${width}px"></div>
                 </div>
                 <div id="progress-label" > ${progress} %</div>
 
