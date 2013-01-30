@@ -1,4 +1,4 @@
-/**
+/*
  * Copyright (C) 2012 eXo Platform SAS.
  *
  * This is free software; you can redistribute it and/or modify it
@@ -20,10 +20,10 @@
 @Application
 @Portlet
 @Assets(
-        scripts = { @Script(id = "jquery",src ="js/common/jquery-1.8.3.js",location = AssetLocation.SERVER),
-                 @Script( src = "js/invitations.js",depends = "jquery") },
-        stylesheets = {@Stylesheet(src = "style/invitations.css")
-        }
+    scripts = {@Script(id = "jquery", src = "js/common/jquery-1.8.3.js", location = AssetLocation.SERVER),
+        @Script(src = "js/invitations.js", depends = "jquery")},
+    stylesheets = {@Stylesheet(src = "style/invitations.css")
+    }
 )
 package org.exoplatform.platform.portlet.juzu.invitations;
 
@@ -34,7 +34,3 @@ import juzu.plugin.asset.Script;
 import juzu.plugin.asset.Stylesheet;
 import juzu.plugin.portlet.Portlet;
 
-/**
- * @author <a href="hzekri@exoplatform.com">hzekri</a>
- * @date 10/12/12
- */

@@ -18,6 +18,16 @@
  */
 package org.exoplatform.platform.portlet.juzu.gettingstarted;
 
+import java.util.HashMap;
+import java.util.Locale;
+import java.util.MissingResourceException;
+import java.util.ResourceBundle;
+
+
+import javax.inject.Inject;
+import javax.jcr.Node;
+import javax.jcr.Property;
+import javax.jcr.PropertyIterator;
 import juzu.Path;
 import juzu.Resource;
 import juzu.View;
@@ -32,15 +42,6 @@ import org.exoplatform.services.log.Log;
 import org.exoplatform.social.core.service.LinkProvider;
 import org.exoplatform.web.application.RequestContext;
 import org.gatein.common.text.EntityEncoder;
-
-import javax.inject.Inject;
-import javax.jcr.Node;
-import javax.jcr.Property;
-import javax.jcr.PropertyIterator;
-import java.util.HashMap;
-import java.util.Locale;
-import java.util.MissingResourceException;
-import java.util.ResourceBundle;
 
 /**
  * @author <a href="fbradai@exoplatform.com">Fbradai</a>
