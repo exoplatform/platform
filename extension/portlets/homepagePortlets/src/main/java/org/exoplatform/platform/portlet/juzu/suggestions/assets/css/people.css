@@ -20,9 +20,11 @@
 }
 
 .peopleList img {
-    width: 24px;
-    height: 24px;
+    width: 36px;
+    height: 36px;
     border-width: 0px;
+	border-radius: 2px;
+	-webkit-border-radius: 2px;
 }
 
 .peopleName {
@@ -32,7 +34,7 @@
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    height: 25px;
+    height: 20px;
 }
 
 .actionAppears {
@@ -48,30 +50,52 @@
 }
 
 .peopleConnection {
-    color: #808080;
-    margin-bottom: 10px;
+    color: #999;
 }
 
 .peopleList ul li {
-    border-bottom: 1px solid #DBDBDB;
     margin-bottom: 20px;
     margin-top: 20px;
+}
+
+.peopleList ul li:nth-child(2n+2){
+    border-bottom: 1px solid #cfcfcf;
+	padding-bottom: 20px;
+}
+
+.peopleList ul li:last-child{
+	border-bottom: none;
 }
 
 .peopleAction {
     white-space: nowrap;
     font-size: 10px;
+	position: absolute;
+	right: 5px;
+	top: 12px;
+	width: 125px;
+	text-align: right;
+	height: 55px;
+	background: -moz-linear-gradient(left, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, right top, color-stop(0%,rgba(255,255,255,0)), color-stop(100%,rgba(255,255,255,1))); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(left, rgba(255,255,255,0) 0%,rgba(255,255,255,1) 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(left, rgba(255,255,255,0) 0%,rgba(255,255,255,1) 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(left, rgba(255,255,255,0) 0%,rgba(255,255,255,1) 100%); /* IE10+ */
+	background: linear-gradient(to right, rgba(255,255,255,0) 0%,rgba(255,255,255,1) 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', endColorstr='#ffffff',GradientType=1 ); /* IE6-9 */
 }
 
 .peopleInfo {
-    padding-left: 10px;
+    padding-left: 15px;
     width: 182px;
     overflow: hidden;
+	position: relative;
 }
 
 .peoplePicture {
     float: left;
     padding-top: 2px;
+	margin-left: 15px;
 }
 
 #emptyMessage {
@@ -79,53 +103,7 @@
     font-weight: bold;
 }
 
-.peopleHeader {
-    background: none repeat scroll 0 0 #F8F8F8;
-    border: 1px solid #E1E1E1;
-    border-radius: 3px 3px 3px 3px;
-    color: #2F3334;
-    line-height: 25px;
-    padding: 0 5px 0 8px;
-    font-weight: bold;
-    margin-bottom: 5px;
-}
-
-.connect {
-    -moz-box-shadow: inset 0px 1px 0px 0px #ffffff;
-    -webkit-box-shadow: inset 0px 1px 0px 0px #ffffff;
-    box-shadow: inset 0px 1px 0px 0px #ffffff;
-    background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #ededed), color-stop(1, #dfdfdf));
-    background: -moz-linear-gradient(center top, #ededed 5%, #dfdfdf 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr = '#ededed', endColorstr = '#dfdfdf');
-    background-color: #ededed;
-    -moz-border-radius: 6px;
-    -webkit-border-radius: 6px;
-    border-radius: 6px;
-    border: 1px solid #dcdcdc;
-    display: inline-block;
-    color: #777777;
-    font-family: arial;
-    padding: 1px 5px;
-    text-decoration: none;
-    text-shadow: 1px 1px 0px #ffffff;
-}
-
-.connect:hover {
-    background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #dfdfdf), color-stop(1, #ededed));
-    background: -moz-linear-gradient(center top, #dfdfdf 5%, #ededed 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr = '#dfdfdf', endColorstr = '#ededed');
-    background-color: #dfdfdf;
-}
-
-.connect:active {
-    position: relative;
-    top: 1px;
-}
-
 .ignore img {
     width: 20px;
 }
 
-#peopleSuggest {
-    padding-left: 10px;
-}
