@@ -179,6 +179,10 @@ Only when you are assigned as an *administrator*, you can do this function. Norm
 <emphasis role="bold">3.</emphasis> Click <guibutton>Save</guibutton> to finish.</para>
 {docbook}
 
+{note}
+You cannot create categories within space forums.
+{note}
+
 h3. Edit a category {anchor:id=Forum_Administrator.Manage_categories.Edit_categories}
 
 *1.* Select a category to edit from the *Forum* homepage, then click !images/Manage_category_btn.png|width="22mm" fo:scalefit="1" html:scalefit="0"! on the *Action* bar when you are in the categories list.
