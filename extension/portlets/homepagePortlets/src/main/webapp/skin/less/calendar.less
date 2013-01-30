@@ -1,2 +1,105 @@
 @import "variables.less"; 
 @import "mixins.less";
+
+
+/**
+         * Copyright ( C ) 2012 eXo Platform SAS.
+         *
+         * This is free software; you can redistribute it and/or modify it
+         * under the terms of the GNU Lesser General Public License as
+         * published by the Free Software Foundation; either version 2.1 of
+         * the License, or (at your option) any later version.
+         *
+         * This software is distributed in the hope that it will be useful,
+         * but WITHOUT ANY WARRANTY; without even the implied warranty of
+         * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+         * Lesser General Public License for more details.
+         *
+         * You should have received a copy of the GNU Lesser General Public
+         * License along with this software; if not, write to the Free
+         * Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
+         * 02110-1301 USA, or see the FSF site: http://www.fsf.org.
+         */
+
+.calendarPortlet  {
+	.calendarPortletData {
+		a {
+			color: @grayDark;
+		}
+		.uiContentBox {
+			padding: 15px;
+		}
+		.title  .actionIcon {
+			line-height: 14px;
+			padding: 1px;
+		}
+		.calendarName {
+			.border-radius(@borderRadiusSmall);
+			color: @white;
+			display: inline-block;
+			font-size: @baseFontSize - 2;
+			padding: 2px 10px;
+			margin: 0 5px 8px 0;
+		}
+		.eventsList {
+			li {
+				.border-radius(@borderRadiusSmall);
+				background-color: @grayWhiteSmoke;
+				border: 1px solid transparent;
+				padding: 5px 8px;
+				margin: 0 0 10px 0;
+				&.pastEvent {
+					opacity: 0.75;
+				}
+				&:hover  {
+					border: 1px solid @borderColor;
+					cursor: pointer;
+				}
+				&:last-child {
+					margin-bottom: 0;
+				}
+			}
+			.eventSummary {
+				width: 50%;
+				text-overflow: ellipsis;
+				overflow: hidden;
+				white-space: nowrap;
+			}
+			.time {
+				width: 50%;
+				font-size: @baseFontSize - 1;
+			}
+			
+		}
+		
+		.tasksList {
+			li {
+				padding: 0 0 0 20px;
+				margin: 0 0 5px 0;
+				cursor: pointer;
+				background: url(/homepage-portlets/style/images/calendar/calendar-porlet.png) no-repeat;
+			}
+			a {
+				color: @grayDark;
+			}
+			.taskCompleted {
+				background-position: 0 5px;
+				text-decoration:line-through;
+			}
+			.taskNotCompleted {
+				background-position: 0 -43px;
+			}
+			.taskLateNotCompleted {
+				background-position: 0 -91px;
+			}
+			
+		}
+		.settingsContainerPage {
+			margin:-20px 10px 10px 10px ;
+		}
+	}
+	
+}
+
+
+
