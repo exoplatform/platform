@@ -38,17 +38,18 @@ public class TermsAndConditionsActionServlet extends HttpServlet {
 
 
     private static Log logger = ExoLogger.getLogger(TermsAndConditionsActionServlet.class);
-    protected final static String USER_NAME_ACCOUNT = "userNameAccount";
+    protected final static String USER_NAME_ACCOUNT = "username";
     protected final static String FIRST_NAME_ACCOUNT = "firstNameAccount";
     protected final static String LAST_NAME_ACCOUNT = "lastNameAccount";
     protected final static String EMAIL_ACCOUNT = "emailAccount";
-    protected final static String USER_PASSWORD_ACCOUNT = "userPasswordAccount";
+    protected final static String USER_PASSWORD_ACCOUNT = "password";
     protected final static String ADMIN_FIRST_NAME = "root";
     protected final static String ADMIN_PASSWORD = "adminPassword";
     protected final static String PLATFORM_ADMINISTRATORS_GROUP = "/platform/administrators";
     protected final static String MEMBERSHIP_TYPE_Member = "member";
 
     private TermsAndConditionsService termsAndConditionsService;
+
 
     public TermsAndConditionsService getTermsAndConditionsService() {
         if (this.termsAndConditionsService == null) {
@@ -77,6 +78,7 @@ public class TermsAndConditionsActionServlet extends HttpServlet {
         user.setFirstName(firstNameAccount);
         user.setLastName(lastNameAccount);
         user.setEmail(emailAccount);
+        String queryString = request.getQueryString();
         try {
             userHandler.createUser(user, true);
         } catch (Exception e) {
@@ -107,9 +109,13 @@ public class TermsAndConditionsActionServlet extends HttpServlet {
         }
 
         getTermsAndConditionsService().checkTermsAndConditions();
-
         // Redirect to requested page
-        response.sendRedirect(initialURI);
+        String redirectURI =  "/"+PortalContainer.getCurrentPortalContainerName()+"/login?"+"username="+userNameAccount+"&password="+userPasswordAccount+"&initialURI="+initialURI ;
+        //String redirectURI =  "/"+PortalContainer.getCurrentPortalContainerName()+"/login";
+        //getServletContext().getContext("/portal").getRequestDispatcher("/login").forward(request, response);
+        //response.sendRedirect(response.encodeRedirectURL(redirectURI));
+       //response.sendRedirect(redirectURI);
+        response.sendRedirect(redirectURI);
     }
 
     @Override

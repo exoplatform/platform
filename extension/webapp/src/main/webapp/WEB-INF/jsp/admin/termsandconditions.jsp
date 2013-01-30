@@ -2007,7 +2007,7 @@ h6{padding-top:12pt;line-height:1.2;text-align:left;color:#000000;font-size:11pt
     <form name="tcForm" action="<%= contextPath + "/terms-and-conditions-action"%>" method="post" style="margin: 0px;">
 
             <% if (uri != null) { %>
-        <input type="hidden" name="tacURI" value="<%=uri%>" />
+        <input type="hidden" name="initialURI" value="<%=uri%>" />
             <% } %>
 
         <div class="UIAction FR">
@@ -2032,7 +2032,7 @@ h6{padding-top:12pt;line-height:1.2;text-align:left;color:#000000;font-size:11pt
             <tr>
                 <td class="FieldLabel UserInput">Username</td>
                 <td class="FieldComment FieldMini" colspan='3'>
-                    <input type="text" name="userNameAccount" id="userNameAccount" placeholder="User name">
+                    <input type="text" name="username" id="userNameAccount" placeholder="User name">
                 </td>
             </tr>
             <tr>
@@ -2053,7 +2053,7 @@ h6{padding-top:12pt;line-height:1.2;text-align:left;color:#000000;font-size:11pt
             <tr>
                 <td class="FieldLabel UserInput">Password</td>
                 <td class="FieldComment FieldMini">
-                    <input type="password" name="userPasswordAccount" id="userPasswordAccount"/>
+                    <input type="password" name="password" id="userPasswordAccount"/>
                 </td>
                 <td class="FieldLabel UserInput">Confirm</td>
                 <td class="FieldComment FieldMini">
