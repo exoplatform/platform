@@ -58,7 +58,6 @@
     <org.gatein.shindig.version>2.0.2.Final-gatein-3</org.gatein.shindig.version>
     <org.gatein.wci.version>2.3.0.Final</org.gatein.wci.version>
     <org.gatein.web.version>3.5.0.Final</org.gatein.web.version>
-    <org.juzu.version>0.6.0-beta5</org.juzu.version>
   </properties>
   <dependencyManagement>
     <dependencies>
@@ -460,16 +459,16 @@
         <artifactId>platform-component-webui</artifactId>
         <version>${project.version}</version>
       </dependency>
-        <dependency>
-            <groupId>org.exoplatform.platform</groupId>
-            <artifactId>platform-component-uxpnavigation</artifactId>
-            <version>${project.version}</version>
-       </dependency>
-        <dependency>
-            <groupId>org.exoplatform.calendar</groupId>
-            <artifactId>calendar-component-create</artifactId>
-            <version>${org.exoplatform.calendar.version}</version>
-        </dependency>
+      <dependency>
+        <groupId>org.exoplatform.platform</groupId>
+        <artifactId>platform-component-uxpnavigation</artifactId>
+        <version>${project.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.exoplatform.calendar</groupId>
+        <artifactId>calendar-component-create</artifactId>
+        <version>${org.exoplatform.calendar.version}</version>
+      </dependency>
       <dependency>
         <groupId>org.exoplatform.platform</groupId>
         <artifactId>platform-exo-gadget-pack-config</artifactId>
@@ -523,16 +522,16 @@
       </dependency>
       <dependency>
         <groupId>org.exoplatform.platform</groupId>
-            <artifactId>platform-extension-portlets-homepage</artifactId>
-            <version>${project.version}</version>
-            <type>war</type>
-        </dependency>
-        <dependency>
-            <groupId>org.exoplatform.platform</groupId>
-            <artifactId>platform-extension-portlets-homepage</artifactId>
-            <version>${project.version}</version>
-            <type>pom</type>
-        </dependency>
+        <artifactId>platform-extension-portlets-homepage</artifactId>
+        <version>${project.version}</version>
+        <type>war</type>
+      </dependency>
+      <dependency>
+        <groupId>org.exoplatform.platform</groupId>
+        <artifactId>platform-extension-portlets-homepage</artifactId>
+        <version>${project.version}</version>
+        <type>pom</type>
+      </dependency>
       <dependency>
         <groupId>org.exoplatform.platform</groupId>
         <artifactId>platform-extension-portlets-platformNavigation</artifactId>
@@ -1070,23 +1069,7 @@
         <artifactId>redirect</artifactId>
         <version>${org.gatein.web.version}</version>
       </dependency>
-        <dependency>
-            <groupId>org.juzu</groupId>
-            <artifactId>juzu-core</artifactId>
-            <version>${org.juzu.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.juzu</groupId>
-            <artifactId>juzu-bom-core</artifactId>
-            <version>${org.juzu.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.juzu</groupId>
-            <artifactId>juzu-plugins-portlet</artifactId>
-            <version>${org.juzu.version}</version>
-        </dependency>
-
-    </dependencies>
+   </dependencies>
   </dependencyManagement>
   <build>
     <pluginManagement>
