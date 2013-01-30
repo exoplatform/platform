@@ -1,0 +1,30 @@
+<!DOCTYPE web-app PUBLIC "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+                 "http://java.sun.com/dtd/web-app_2_3.dtd">
+<web-app>
+<servlet>
+        <servlet-name>JuzuServlet</servlet-name>
+        <servlet-class>juzu.bridge.servlet.JuzuServlet</servlet-class>
+        <init-param>
+            <param-name>juzu.inject</param-name>
+            <param-value>spring</param-value>
+        </init-param>
+    </servlet>
+  <servlet>
+    <servlet-name>AssetServlet</servlet-name>
+    <servlet-class>juzu.impl.asset.AssetServlet</servlet-class>
+    <load-on-startup>0</load-on-startup>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>JuzuServlet</servlet-name>
+    <url-pattern>/</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>AssetServlet</servlet-name>
+    <url-pattern>/assets/*</url-pattern>
+  </servlet-mapping>
+</web-app>
+
+
+
+
+

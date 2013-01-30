@@ -1,0 +1,59 @@
+<h3>
+<div id="result"> </div>
+<h3>
+
+<br>
+<br>
+<br>
+<br>	
+
+<h3>Select Logo</h3>
+<hr/>  
+<form id="form" enctype="multipart/form-data" action="${url}"  method="POST">
+   <input type='file' id='file' name='file'  /> 
+   <input type='hidden' id='style' name='style'  /> 
+</form>
+
+
+<br>
+<br>
+<div>
+Preview
+</div>
+<img id="preview_image" alt="" src="${imageUrl}" width="300px" height="80px"> 
+<br>
+
+<br/>
+<div>
+<h3>Select navigation bar style</h3>
+<hr/>  
+<select id="navigationStyle">
+<option value="Dark">Dark</option>
+<option value="Light">Light</option>
+</select>
+</div>
+
+<h3>
+Preview
+</h3>
+<hr/>  
+<div id="StylePreview">
+</div> 
+ 
+  <br/>
+  <br/>
+  <br/>
+  <br/>
+  <br/>
+  <br/>
+<br>    
+  
+  
+<hr/>  
+<br/>
+
+
+  
+<input id="save" type="button" value="Save"/>
+<input id="cancel" type="button" value="Cancel"/>
+

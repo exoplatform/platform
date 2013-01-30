@@ -67,8 +67,7 @@ public class NavigationServiceHandler extends BaseWebSchemaHandler {
             Node publicApplicationNode = nodeCreator.getPublicApplicationNode(sProvider);
             Session session = publicApplicationNode.getSession();
             Node rootNode = session.getRootNode();
-            String portalName = Util.getPortalRequestContext().getPortalOwner();
-            String path = "sites content/live/" + portalName + "/ApplicationData/logo/";
+            String path = "Application Data/logos/";
             Node logoNode = rootNode.getNode(path);
             if (logoNode.hasNodes()) {
                 for (NodeIterator iterator = logoNode.getNodes(); iterator.hasNext(); ) {
@@ -95,11 +94,11 @@ public class NavigationServiceHandler extends BaseWebSchemaHandler {
                 }
             }
         } catch (Exception e) {
-            logger.error("Get logo : Can not Find node", e);
+         //   logger.error("Get logo : Can not Find node", e);
         }
         if (isavailable == true) {
             try {
-                pathImageNode = imageNode.getPath();
+                pathImageNode = imageNode.getPath()+"?"+System.currentTimeMillis();
             } catch (RepositoryException e) {
                 logger.error("Get logo : Can not Find the path of node", e);
             }
