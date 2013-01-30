@@ -29,7 +29,6 @@
 
 .peopleName {
     font-weight: bold;
-    width: 182px;
     float: left;
     white-space: nowrap;
     overflow: hidden;
@@ -87,7 +86,6 @@
 
 .peopleInfo {
     padding-left: 15px;
-    width: 182px;
     overflow: hidden;
 	position: relative;
 }
