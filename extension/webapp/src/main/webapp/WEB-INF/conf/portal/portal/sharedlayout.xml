@@ -51,7 +51,7 @@
                 <portlet-application>
                     <portlet>
                         <application-ref>unified-search</application-ref>
-                        <portlet-ref>UnifiedsearchPortlet</portlet-ref>
+                        <portlet-ref>QuicksearchPortlet</portlet-ref>
                     </portlet>
                     <access-permissions>*:/platform/users</access-permissions>
                     <show-info-bar>false</show-info-bar>
