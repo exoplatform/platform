@@ -84,7 +84,7 @@
                               <string>/announcement/dialogs/dialog1.gtmpl</string>
                             </field>
                             <field name="roles">
-                              <string>webdesigner:/platform/web-contributors</string>
+                              <string>*:/platform/web-contributors</string>
                             </field>
                           </object>
                         </value>

@@ -27,7 +27,7 @@
                     <object type="org.exoplatform.services.cms.actions.impl.ActionConfig$Action">
                       <field  name="type"><string>exo:populateToMenu</string></field>
                       <field  name="name"><string>populateToHomePageMenu</string></field>                  
-                      <field  name="description"><string>populate content to home page menu</string></field>
+                      <field  name="description"><string>Populate content to home page menu</string></field>
                       <field  name="srcWorkspace"><string>collaboration</string></field>
                       <field  name="srcPath"><string>/sites content/live/acme/categories</string></field>
                       <field  name="isDeep"><boolean>true</boolean></field>
@@ -48,7 +48,7 @@
                            <object type="org.exoplatform.services.cms.actions.impl.ActionConfig$Mixin">
                             <field  name="name"><string>mix:affectedNodeTypes</string></field>
                             <field  name="properties">
-                             <string>exo:affectedNodeTypeNames=exo:taxonomy,exo:taxonomyLink,exo:webContent,exo:product</string>
+                             <string>exo:affectedNodeTypeNames=exo:taxonomy,exo:taxonomyLink,exo:webContent,acme:product</string>
                             </field>
                            </object>
                           </value>    
