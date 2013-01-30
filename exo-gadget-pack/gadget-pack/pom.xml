@@ -29,33 +29,6 @@
   </dependencies>
   <build>
     <finalName>gadget-pack</finalName>
-    <plugins>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-dependency-plugin</artifactId>
-        <executions>
-          <execution>
-            <id>unpack</id>
-            <phase>prepare-package</phase>
-            <goals>
-              <goal>unpack</goal>
-            </goals>
-            <configuration>
-              <artifactItems>
-                <artifactItem>
-                  <groupId>org.exoplatform.platform</groupId>
-                  <artifactId>platform-exo-gadget-pack-gwt-gadgets-calendargadget</artifactId>
-                  <type>war</type>
-                  <overWrite>false</overWrite>
-                  <outputDirectory>${project.build.directory}/gadget-pack/gadgets/Collab-gadgets/eXoCalendar/gadget</outputDirectory>
-                  <includes>**/*.*</includes>
-                  <excludes></excludes>
-                </artifactItem>
-              </artifactItems>
-            </configuration>
-          </execution>
-        </executions>
-      </plugin>
-    </plugins>
+
   </build>
 </project>

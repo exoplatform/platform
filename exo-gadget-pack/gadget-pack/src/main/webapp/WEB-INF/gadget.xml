@@ -49,11 +49,6 @@
   <gadget name="eXoScriptingConsole">
     <path>/gadgets/Management-and-Monitoring-gadgets/eXoScriptingConsole/eXoScriptingConsole.xml</path>
   </gadget>
-    
-  <gadget name="CalendarGadget">
-    <path>/gadgets/Collab-gadgets/eXoCalendar/gadget/calendargadget/org.exoplatform.calendar.client.CalendarGadget.gadget.xml</path>
-  </gadget>
-
   <gadget name="LoginHistory">
     <path>/gadgets/Audit-gadgets/LoginHistory/LoginHistory.xml</path>
   </gadget>
