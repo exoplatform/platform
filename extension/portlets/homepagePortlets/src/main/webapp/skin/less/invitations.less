@@ -1,2 +1,54 @@
 @import "variables.less"; 
 @import "mixins.less";
+
+
+.uiInvitations{
+
+	ul li{
+	    margin-top: 15px;
+	    margin-bottom: 15px;
+		position: relative;
+		
+		&:nth-child(2n+2){
+		    border-bottom: 1px solid #cfcfcf;
+			padding-bottom: 15px;
+		}
+		
+		&:last-child{
+			border-bottom: none;
+		}
+	}
+
+	.name {
+		font-weight: bold;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+		width: 95%;
+		color: @linkColor;
+	}
+
+	.peopleInvitePicture{
+		margin-left: 15px;
+    	padding-top: 2px;
+	}
+
+	.peopleInviteAction {
+		white-space: nowrap;
+		font-size: 10px;
+		position: absolute;
+		right: 5px;
+		top: 12px;
+		width: 125px;
+		text-align: right;
+		height: 45px;
+		#gradient .horizontal(rgba(255,255,255,0),rgba(255,255,255,1));
+		background-color: transparent;
+	}
+	
+	.peopleInviteInfo {
+	    margin-left: 65px;
+    	position: relative;
+	}
+
+}

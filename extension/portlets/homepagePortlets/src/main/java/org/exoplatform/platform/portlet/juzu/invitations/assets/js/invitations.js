@@ -28,15 +28,15 @@ function initIncoming() {
             if(item.invitationType == "people"){
 
                 if (i < 4)
-                    link += "<li id='"+item.relationId+"'>";
+                    link += "<li class='clearfix' id='"+item.relationId+"'>";
                 else
-                    link += "<li style='display:none;' id='"+item.relationId+"'>";
+                    link += "<li class='clearfix' style='display:none;' id='"+item.relationId+"'>";
                 var peopleAvatar;
                 if (item.senderAvatarUrl == undefined)
                     peopleAvatar = "/social-resources/skin/ShareImages/Avatar.gif";
                 else
                     peopleAvatar = item.senderAvatarUrl;
-                link += "<div class='peopleInvitePicture' ><img src='"+peopleAvatar+"'></div>";
+                link += "<div class='peopleInvitePicture pull-left' ><a href='#' class='avatarXSmall'><img src='"+peopleAvatar+"'></a></div>";
                 link += "<div class='peopleInviteInfo'>";
 
                 link += "<div class='peopleInviteName'><div class='name'>"+item.senderName+"</div><div class='peopleInviteAction' style='visibility:hidden;'><a class='connect btn-primary btn btn-mini' href='#' onclick='return false'>"+acceptlabel+"</a> <a class='deny' href='#' onclick='return false'><i class='uiIconClose'></i></a></div></div>";
@@ -93,9 +93,9 @@ function initIncoming() {
             }
             else{
                 if (i < 4)
-                    link += "<li id='"+item.spaceId+"'>";
+                    link += "<li class='clearfix' id='"+item.spaceId+"'>";
                 else
-                    link += "<li style='display:none;' id='"+item.spaceId+"'>";
+                    link += "<li class='clearfix' style='display:none;' id='"+item.spaceId+"'>";
                 var spaceAvatar;
                 if (item.spaceAvatarUrl == undefined)
                     spaceAvatar =  "/social-resources/skin/ShareImages/SpaceImages/SpaceLogoDefault_61x61.gif";
