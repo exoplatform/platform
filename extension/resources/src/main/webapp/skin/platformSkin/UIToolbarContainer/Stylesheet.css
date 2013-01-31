@@ -1749,3 +1749,21 @@
 .UIToolbarContainerLight .UserInfoPortletTDContainer {
     float: right;
 }
+
+.UIToolbarContainer .UIWikiSpaceSwitcher_CreateWiki {
+    position: relative;
+    z-index: 1;
+    float:left;
+    background: #ececec;
+    padding: 0px 8px;
+    color:#707070;
+}
+
+.UIToolbarContainer .UIWikiSpaceSwitcher_CreateWiki:hover {
+    color:#000000;
+    cursor: pointer;
+}
+.UIToolbarContainer .UIWikiSpaceSwitcher_CreateWiki .SpaceChooser {
+    background: url('background/BrowseDownIcon.png') no-repeat right center;
+    padding-right: 12px;
+}

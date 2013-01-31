@@ -15,6 +15,10 @@
       <artifactId>portlet-api</artifactId>
     </dependency>
     <dependency>
+        <groupId>org.exoplatform.wiki</groupId>
+        <artifactId>wiki-service</artifactId>
+     </dependency>
+    <dependency>
       <groupId>org.exoplatform.core</groupId>
       <artifactId>exo.core.component.organization.api</artifactId>
     </dependency>

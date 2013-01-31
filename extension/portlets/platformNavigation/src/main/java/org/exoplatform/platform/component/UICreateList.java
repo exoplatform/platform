@@ -145,10 +145,6 @@ public class UICreateList extends UIContainer {
     }
 
 
-    /**
-     * *
-     */
-
     static public class UploadActionListener extends EventListener<UICreateList> {
 
         public void execute(Event<UICreateList> event) throws Exception {
