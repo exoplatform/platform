@@ -36,4 +36,10 @@
       <FilterForums>Filter forums</FilterForums>
     </label>
   </UICreatePoll>
+   <UICreateWiki>
+      <label>
+         <title>Create a new Wiki Page</title>
+         <location>In location</location>
+      </label>
+   </UICreateWiki>
 </bundle>

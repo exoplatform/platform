@@ -10,4 +10,36 @@
 			
 		</label>
 	</UIUserPlatformToolBarCreatePortlet>
+   <UICreateList>
+      <label>
+         <CreateANew>Créer un {1}</CreateANew>
+         <RequireSelectForum>Choisir un forum</RequireSelectForum>
+      </label>
+      <action>
+         <Next>Suivant</Next>
+         <Cancel>Annuler</Cancel>
+      </action>
+   </UICreateList>
+   <UICreateTopic>
+      <label>
+         <SelectAForum>Choisir un forum</SelectAForum>
+         <location>In location</location>
+         <forumId>et Forum</forumId>
+         <FilterForums>Filtrer forums</FilterForums>
+      </label>
+   </UICreateTopic>
+   <UICreatePoll>
+      <label>
+         <SelectAForum>Choisir un Forum</SelectAForum>
+         <location>In location</location>
+         <forumId>et Forum</forumId>
+         <FilterForums>Filtrer forums</FilterForums>
+      </label>
+   </UICreatePoll>
+   <UICreateWiki>
+      <label>
+         <title>Create une page Wiki</title>
+         <location>In location</location>
+      </label>
+   </UICreateWiki>
 </bundle>

@@ -25,6 +25,7 @@ import org.exoplatform.wiki.service.WikiService;
 import org.exoplatform.wiki.mow.core.api.wiki.PageImpl;
 import org.exoplatform.wiki.mow.api.Wiki;
 import org.exoplatform.wiki.service.WikiPageParams;
+
 import java.net.URLEncoder;
 
 /**
@@ -56,6 +57,7 @@ public class UICreateForm extends UIContainer {
     public static final String SPACE_SWITCHER = "UIWikiSpaceSwitcher_CreateWiki";
     private static final String CREATE_FORM_CONTAINER = "UICreateForm";
     private static final String ADD_WIKI_PAGE = "#AddPage";
+    private String urlWiki = "";
 
     private static Log log = ExoLogger.getLogger(UICreateForm.class);
 
@@ -71,6 +73,14 @@ public class UICreateForm extends UIContainer {
         return new String[]{"Next", "Cancel"};
     }
 
+    public String getUrlWiki() {
+        return urlWiki;
+    }
+
+    public void setUrlWiki(String urlWiki) {
+        this.urlWiki = urlWiki;
+    }
+
     static public class NextActionListener extends EventListener<UICreateForm> {
 
         public void execute(Event<UICreateForm> event) throws Exception {
@@ -78,10 +88,15 @@ public class UICreateForm extends UIContainer {
             UICreateForm uiCreateWiki = event.getSource();
             UISpacesSwitcher uiWikiSpaceSwitcher = uiCreateWiki.getChildById(SPACE_SWITCHER);
             WikiService wikiService = (WikiService) PortalContainer.getComponent(WikiService.class);
-            Wiki wiki = wikiService.getWikiById(uiWikiSpaceSwitcher.getCurrentSpaceName());
+            Wiki wiki = null;
+            if (uiWikiSpaceSwitcher.getCurrentSpaceName().equals(Util.getPortalRequestContext().getPortalOwner())) {
+                wiki = wikiService.getWikiById("/"+PortalContainer.getCurrentPortalContainerName()+"/"+Util.getPortalRequestContext().getPortalOwner());
+
+            } else {
+                wiki = wikiService.getWikiById(uiCreateWiki.getUrlWiki());
+            }
             if (wiki != null) {
                 PageImpl wikiHome = (PageImpl) wiki.getWikiHome();
-                // String permalink = org.exoplatform.wiki.utils.Utils.getPermanlink(new WikiPageParams(wiki.getType(), wiki.getOwner(), wikiHome.getName()));
                 String permalink = getPermanlink(new WikiPageParams(wiki.getType(), wiki.getOwner(), wikiHome.getName()));
                 permalink += ADD_WIKI_PAGE;
                 event.getRequestContext().getJavascriptManager().getRequireJS().addScripts("(function(){ window.location.href = '" + permalink + "';})();");
@@ -97,8 +112,7 @@ public class UICreateForm extends UIContainer {
 
     }
 
-
-    static public class CancelActionListener extends EventListener<UICreateForm> {
+   public static class CancelActionListener extends EventListener<UICreateForm> {
 
         public void execute(Event<UICreateForm> event)
                 throws Exception {
@@ -112,24 +126,55 @@ public class UICreateForm extends UIContainer {
         }
     }
 
+    /**
+     * SwitchSpace should be implemented when UISpaceSwitcher is used
+     */
     public static class SwitchSpaceActionListener extends EventListener<UICreateForm> {
 
         public void execute(Event<UICreateForm> event) throws Exception {
             UICreatePlatformToolBarPortlet uiParent = (UICreatePlatformToolBarPortlet) event.getSource().getAncestorOfType(UICreatePlatformToolBarPortlet.class);
-            String wikiId = event.getRequestContext().getRequestParameter(UISpacesSwitcher.SPACE_ID_PARAMETER);
             UICreateForm uiCreateWiki = event.getSource();
+            StringBuffer wikiUrlPattern =  new  StringBuffer();
+
+            // --- get The Id of the selected wiki (company | User | Space)
+            String wikiId = event.getRequestContext().getRequestParameter(UISpacesSwitcher.SPACE_ID_PARAMETER);
+            // --- workaround to load the correct company wiki
+            if (Util.getPortalRequestContext().getPortalOwner().equals(wikiId)) {
+                wikiUrlPattern.append("/"+PortalContainer.getCurrentPortalContainerName()+"/").append(wikiId);
+            } else {
+                wikiUrlPattern.append(wikiId);
+            }
+
+            WikiService wikiService = (WikiService) PortalContainer.getComponent(WikiService.class);
+            // --- get the real name of the selected wiki (label to display)
+            String wikiName = wikiService.getWikiNameById(wikiUrlPattern.toString());
+            // --- set the wiki navigation URL
+            uiCreateWiki.setUrlWiki(wikiUrlPattern.toString());
+            // --- Update Selected wiki in UISpaceSwitcher
             UISpacesSwitcher uiWikiSpaceSwitcher = uiCreateWiki.getChildById(SPACE_SWITCHER);
-            uiWikiSpaceSwitcher.setCurrentSpaceName(wikiId);
+            uiWikiSpaceSwitcher.setCurrentSpaceName(wikiName);
+            // --- Update Front Office Container
             event.getRequestContext().addUIComponentToUpdateByAjax(uiCreateWiki);
             event.getRequestContext().addUIComponentToUpdateByAjax(uiParent);
             event.getRequestContext().getJavascriptManager().require("SHARED/navigation-toolbar", "toolbarnav").addScripts("toolbarnav.UIPortalNavigation.ClickActionButton('"+uiParent.getId()+"') ;");
         }
     }
 
+    /**
+     *
+     * @return
+     * @throws Exception
+     */
     public static String getCurrentWiki() throws Exception {
         return "intranet";
     }
 
+    /**
+     *
+     * @param params
+     * @return
+     * @throws Exception
+     */
     private static String getPermanlink(WikiPageParams params) throws Exception {
 
         WikiService wikiService = (WikiService) PortalContainer.getComponent(WikiService.class);
@@ -154,6 +199,11 @@ public class UICreateForm extends UIContainer {
 
         return getDomainUrl() + fillPortalName(sb.toString());
     }
+
+    /**
+     *
+     * @return
+     */
     private static String getDomainUrl() {
         PortalRequestContext portalRequestContext = Util.getPortalRequestContext();
         StringBuilder domainUrl = new StringBuilder();
@@ -169,6 +219,11 @@ public class UICreateForm extends UIContainer {
         return domainUrl.toString();
     }
 
+    /**
+     *
+     * @param url
+     * @return
+     */
     private static String fillPortalName(String url) {
         RequestContext ctx = RequestContext.getCurrentInstance();
         NodeURL nodeURL =  ctx.createURL(NodeURL.TYPE);
@@ -176,6 +231,12 @@ public class UICreateForm extends UIContainer {
         return nodeURL.setResource(resource).toString();
     }
 
+    /**
+     *
+     * @param wikiType
+     * @param wikiOwner
+     * @return
+     */
     private static String validateWikiOwner(String wikiType, String wikiOwner){
         if(wikiType != null && wikiType.equals(PortalConfig.GROUP_TYPE)) {
             if(wikiOwner == null || wikiOwner.length() == 0){
