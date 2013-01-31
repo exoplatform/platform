@@ -15,6 +15,6 @@
     <module>component/navigation-rest-service</module>
     <module>resources</module>
     <module>webapp</module>
-    <module>ear</module>
+    <!--<module>ear</module>-->
   </modules>
 </project>
