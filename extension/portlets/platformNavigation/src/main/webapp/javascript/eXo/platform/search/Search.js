@@ -11,7 +11,6 @@ $(document).ready(function () {
   var value = $("#adminkeyword").val();
   var isDefault = false;
 
-  $("#adminkeyword").hide();
   $('#ToolBarSearch > a').click(function () {
 
     if ($("#adminkeyword").is(':hidden')) {
