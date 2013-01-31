@@ -1,2 +1,41 @@
 @import "variables.less"; 
 @import "mixins.less";
+
+
+.uiGettingStarted{
+
+	.listBlock {
+		padding: 15px;
+	}
+	
+	.gsList li {
+		 padding: 0 0 0 23px;
+		 margin: 0 0 5px 0;
+		 cursor: pointer;
+		 background: url("/homepage-portlets/style/images/gettingStarted/gettingStartedCheck.png") no-repeat left -43px;
+		 
+		 &.done {
+			background-position: 0 5px;
+			text-decoration: line-through;
+		}
+		
+		 a {
+			color: #333333;
+		}
+		
+	}
+	
+	/*** progress bar**/
+	
+	#progress-shell {
+		width: 200px;
+	}
+	
+	.progessLabel {
+		 margin-top: 4px; 
+		 font-weight: bold;
+		 margin-left: 15px;
+		 color: @grayLight;
+	}
+
+}

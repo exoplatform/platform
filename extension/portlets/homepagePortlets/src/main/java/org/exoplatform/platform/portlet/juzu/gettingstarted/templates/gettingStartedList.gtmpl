@@ -23,7 +23,7 @@
 %>
 
 <script type="text/javascript">
-    $('.DeleteIcon').on("click", function () {
+    $('.uiIconClose').on("click", function () {
         $.getJSON('/rest/homepage/intranet/getting-started/delete');
 
         $('.GettingStartedContainer').jzLoad("GettingStarted.delete()");
@@ -38,22 +38,21 @@
 </script>
 
 
-    <div class="UIGadgetThemes uiBox">
-        <h6 class="gadgetTitle title center">${titleLabel}</h6>
+    <div class="UIGadgetThemes uiBox uiGettingStarted">
+        <h6 class="gadgetTitle title center">${titleLabel} <a onclick="" data-placement="bottom" rel="tooltip" title="Close Window" class="uiIconClose pull-right"></a></h6>
 
-        <div class="list-block">
+        <div class="listBlock">
 
-            <div id="progress-block">
-                <div id="progress-shell" class="progress">
+            <div id="progress-block" class="clearfix">
+                <div id="progress-shell" class="progress progessStart pull-left">
                     <div id="progress-rate" class="bar" style="width: ${width}px"></div>
                 </div>
-                <div id="progress-label" > ${progress} %</div>
+                <div id="progress-label" class="pull-left progessLabel"> ${progress} %</div>
 
             </div>
             <%
             //    if (show == "true") {
             %>
-            <br>
         <!--    <div style="height: 200px;width: 100%;" class="list">         -->
                 <ul class ="gsList" id="gsList">
                     <li class="${status['gs_profile']}" ><a  target="_parent" href=${profile} >${profileLabel}</a></li>
@@ -65,7 +64,6 @@
           <!--  </div>                    -->
 
         </div>
-         <br>
         <%/*}else */if(show=="false"){%>
         <div id="DeleteLink" style="display: block">
 
