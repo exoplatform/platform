@@ -180,7 +180,7 @@ Only when you are assigned as an *administrator*, you can do this function. Norm
 {docbook}
 
 {note}
-You cannot create categories within space forums.
+In eXo Platform 3.5, each space forum belongs to a category named "spaces" and there is only one forum per space. You cannot therefore create new categories within each space forum.
 {note}
 
 h3. Edit a category {anchor:id=Forum_Administrator.Manage_categories.Edit_categories}
