@@ -70,7 +70,7 @@ public class BrandingControler {
                            Scope.GLOBAL,
                            BAR_NAVIGATION_STYLE_KEY)==null) {
       
-      style = "Dark";
+      style = "Light";
       
     }
     else{
