@@ -46,7 +46,7 @@ public class Helper {
         return present;
     }
 
-    public static String getCurrentNavigation(SpaceService spaceService) throws Exception {
+    public static String getCurrentNavigation(SpaceService spaceService){
         try {
             String nav=Util.getUIPortal().getNavPath().getName();
             String url = Util.getPortalRequestContext().getRequest().getRequestURL().toString();

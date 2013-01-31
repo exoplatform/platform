@@ -1750,7 +1750,7 @@
     float: right;
 }
 
-.UIToolbarContainer .UIWikiSpaceSwitcher_CreateWiki {
+#UIToolbarContainer .UIWikiSpaceSwitcher_CreateWiki {
     position: relative;
     z-index: 1;
     float:left;
@@ -1759,11 +1759,11 @@
     color:#707070;
 }
 
-.UIToolbarContainer .UIWikiSpaceSwitcher_CreateWiki:hover {
+#UIToolbarContainer .UIWikiSpaceSwitcher_CreateWiki:hover {
     color:#000000;
     cursor: pointer;
 }
-.UIToolbarContainer .UIWikiSpaceSwitcher_CreateWiki .SpaceChooser {
+#UIToolbarContainer .UIWikiSpaceSwitcher_CreateWiki .SpaceChooser {
     background: url('background/BrowseDownIcon.png') no-repeat right center;
     padding-right: 12px;
 }
