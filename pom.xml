@@ -88,20 +88,20 @@
         <scope>import</scope>
       </dependency>
       <dependency>
-        <groupId>org.exoplatform.commons</groupId>
-        <artifactId>commons-component-search-service</artifactId>
-        <version>${org.exoplatform.commons.version}</version>        
+        <groupId>org.exoplatform.integration</groupId>
+        <artifactId>integ-search-service</artifactId>
+        <version>${org.exoplatform.integ.version}</version>        
       </dependency>
       <dependency>
-        <groupId>org.exoplatform.commons</groupId>
-        <artifactId>commons-component-search-portlet</artifactId>
-        <version>${org.exoplatform.commons.version}</version>
+        <groupId>org.exoplatform.integration</groupId>
+        <artifactId>integ-search-portlet</artifactId>
+        <version>${org.exoplatform.integ.version}</version>
         <type>war</type>
       </dependency>
       <dependency>
-        <groupId>org.exoplatform.commons</groupId>
-        <artifactId>commons-component-search-portlet</artifactId>
-        <version>${org.exoplatform.commons.version}</version>
+        <groupId>org.exoplatform.integration</groupId>
+        <artifactId>integ-search-portlet</artifactId>
+        <version>${org.exoplatform.integ.version}</version>
         <type>pom</type>
       </dependency>
       <dependency>
