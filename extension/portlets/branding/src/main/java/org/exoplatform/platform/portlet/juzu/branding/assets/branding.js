@@ -1,77 +1,73 @@
 $(function() {
 
 	var fileUpload;
-	getAndUpdateStyleNavigationByAjax();
-	
-//clone Toolbar Administrator and add to Preview
-	
+	UpdateStyleSelect();
+
+	// clone Toolbar Administrator and add to Preview
 	$("#PlatformAdminToolbarContainer").clone().appendTo($("#StylePreview"));
-	
+
 	fixSearchInput();
-	$('img').each(
-			function() {
-				$(this)
-						.attr(
-								'src',
-								$(this).attr('src') + '?'
-										+ (new Date()).getTime());
-			});
 
 	$("#cancel").on(
 			"click",
 			function() {
-				getAndUpdateStyleNavigationByAjax();
+				UpdateStyleSelect();
 				getAndUpdateLogoByAjax();
 				$("div#result").text(
 						"Changes in branding settings have been cancelled");
 			});
 	$("#save").on("click", function() {
-	
 		var valueSelected = ($('#navigationStyle option:selected').val());
 		$("#style").val(valueSelected);
-		 $('#result').jzLoad("BrandingControler.saveParameter()", {
-		 "style" : valueSelected
-		 });
-		$('#form').submit();
+		var result = $('#form').submit();
+		return result;
+		// $('#result').jzLoad("BrandingControler.saveParameter()", {
+		// "style" : valueSelected
+		// });
 	});
 
 	$("input#file").on("change", function() {
 		preview(this);
 	});
+	
+	
 
 	$('#form').submit(function() {
 		$(this).ajaxSubmit({
-			target : '#result'
+			beforeSubmit: function(data){
+				$("#ajaxUploading").show();
+			},
+			target : '#result',
+			success: function(data){
+				UpdateBarNavigation();
+				$("#ajaxUploading").hide();
+			}
 		});
+	
 		return false;
 	});
 
 	$('.target').change(function() {
-		//		alert ($('.target option:selected').val());
 		var valueSelected = ($('.target option:selected').val());
 	});
-	
-	/*Change CSS by selecting */	
+
+	/* Change CSS by selecting */
 	$("#navigationStyle").change(function() {
 		var style = $("#navigationStyle").val();
 		changePreviewStyle(style);
-		
+
 	});
-	
-	function changePreviewStyle(style){
+
+	function changePreviewStyle(style) {
 		var idContainer = $("#StylePreview #UIToolbarContainer");
 		idContainer.removeAttr("class");
-		idContainer.addClass("UIToolbarContainer"+style);
-		idContainer.addClass("UIContainer");
+		idContainer.addClass("UIToolbarContainer" + style + " UIContainer");
 	}
-	function changePreviewStyleDefaut(style){
-		var idContainer = $("#StylePreview #UIToolbarContainer");
-		idContainer.removeAttr("class");
-		idContainer.addClass("UIToolbarContainer"+style);
-		idContainer.addClass("UIContainer");  
-	}
-	function fixSearchInput(){
-		$("#StylePreview #UIToolbarContainer #SearchNavigationTabsContainer input").remove();
+
+	function fixSearchInput() {
+		$(
+				"#StylePreview #UIToolbarContainer #SearchNavigationTabsContainer input")
+				.remove();
 	}
 	function preview(input) {
 		fileUpload = input;
@@ -85,15 +81,9 @@ $(function() {
 			// validated
 			var reader = new FileReader();
 			reader.onload = function(e) {
-				$('#preview_image').attr('src', e.target.result).width(300)
-						.height(80);
-//				$('#preview1').attr('src', e.target.result);
-//				$('#preview2').attr('src', e.target.result);
-	$("#StylePreview #UIToolbarContainer #HomeLink img").attr('src', e.target.result);
-				
+				previewPhoto(e.target.result);
 			};
 			reader.readAsDataURL(input.files[0]);
-
 			$("div#result").text("");
 		}
 	}
@@ -111,29 +101,54 @@ $(function() {
 		return valide;
 	}
 
+	function previewPhoto(data) {
+		$('#preview_image').attr('src', data);
+		$('#StylePreview #HomeLink img').attr('src', data).width(25).height(21);
+	}
+
 	function getAndUpdateLogoByAjax() {
 		$("#preview_image").jzAjax({
 			url : "BrandingControler.getLogoUrlByAjax()",
 			success : function(data) {
-				$('#preview_image').attr('src', data).width(300).height(80);
-				$('#StylePreview #HomeLink img').attr('src', data).width(300).height(80);
-				StylePreview
-//				$('#preview1').attr('src', data);
-//				$('#preview2').attr('src', data);
+				previewPhoto(data);
 			}
 		});
 	}
 
-	function getAndUpdateStyleNavigationByAjax() {
-		
-		
+	function UpdateStyleSelect() {
 		$("#navigationStyle").jzAjax({
 			url : "BrandingControler.getStyleValue()",
 			success : function(data) {
-				changePreviewStyleDefaut(data);
+				changePreviewStyle(data);
 				$("#navigationStyle").val(data).attr('selected', 'selected');
 			}
 		});
+	}
+	function UpdateBarNavigation() {
+		$("#PlatformAdminToolbarContainer .HomeLink img").jzAjax(
+				{
+					url : "BrandingControler.getLogoUrlByAjax()",
+					success : function(data) {
+						$("#PlatformAdminToolbarContainer .HomeLink img:first")
+								.attr('src', data).width(25).height(21);
+					}
+				});
+
+		$("#PlatformAdminToolbarContainer #UIToolbarContainer")
+				.jzAjax(
+						{
+							url : "BrandingControler.getStyleValue()",
+							success : function(data) {
+								$(
+										"#PlatformAdminToolbarContainer #UIToolbarContainer:first")
+										.removeAttr("class");
+								$(
+										"#PlatformAdminToolbarContainer #UIToolbarContainer:first")
+										.addClass(
+												"UIToolbarContainer" + data
+														+ " UIContainer");
+							}
+						});
 	}
 
 });

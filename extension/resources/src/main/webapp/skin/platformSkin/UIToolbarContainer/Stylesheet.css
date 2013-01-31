@@ -592,7 +592,7 @@
 
 .UIToolbarContainerDark .TRContainer {
     height: 31px;
-    background-color:black;
+    background-color:#817F7F;
 
 }
 
@@ -787,7 +787,7 @@
 }
 
 .UIToolbarContainerDark .ToolbarContainer a.TBIcon {
-    color: #2f3334;
+    color: #E5EFF1;
     font-weight: normal;
     padding: 0 20px;
     display: block;

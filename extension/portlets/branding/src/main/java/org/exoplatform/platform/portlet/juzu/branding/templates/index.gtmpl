@@ -1,11 +1,12 @@
+
+<img id="ajaxUploading" alt="" src="/eXoPlatformResources/skin/platformSkin/icons/ajax-loader.gif"  style="display:none" >
 <h3>
-<div id="result"> </div>
+<div id="result">
+</div>
 <h3>
 
 <br>
 <br>
-<br>
-<br>	
 
 <h3>Select Logo</h3>
 <hr/>  
@@ -13,7 +14,6 @@
    <input type='file' id='file' name='file'  /> 
    <input type='hidden' id='style' name='style'  /> 
 </form>
-
 
 <br>
 <br>
@@ -40,20 +40,9 @@ Preview
 <div id="StylePreview">
 </div> 
  
-  <br/>
-  <br/>
-  <br/>
-  <br/>
-  <br/>
-  <br/>
-<br>    
-  
-  
+<br/>
 <hr/>  
 <br/>
-
-
-  
 <input id="save" type="button" value="Save"/>
 <input id="cancel" type="button" value="Cancel"/>
 
