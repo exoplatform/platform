@@ -1749,3 +1749,8 @@
 .UIToolbarContainerLight .UserInfoPortletTDContainer {
     float: right;
 }
+
+.UICreateToolBarPortlet .UIQuickAddEvent .UIFormGrid .FieldComponent .Date input {
+    font-size: 11px;
+    width: 104px;
+}
