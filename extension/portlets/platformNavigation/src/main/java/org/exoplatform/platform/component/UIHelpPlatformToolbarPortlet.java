@@ -51,8 +51,9 @@ public class UIHelpPlatformToolbarPortlet extends UIPortletApplication {
         }
     }
 
-    public String getHelpPage() throws Exception {
-        /**
+
+    public String getHelpPage() {
+
         currentNavigation = Helper.getCurrentNavigation(spaceService);
 
         if (Helper.present(currentNavigation) && ((helpService != null))) {
@@ -66,8 +67,6 @@ public class UIHelpPlatformToolbarPortlet extends UIPortletApplication {
         }
 
         return helpPage;
-         */
-        return "";
     }
 
 
