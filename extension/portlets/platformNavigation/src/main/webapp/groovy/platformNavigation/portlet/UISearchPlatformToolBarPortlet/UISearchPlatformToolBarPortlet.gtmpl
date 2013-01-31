@@ -26,7 +26,7 @@
     <ul>
         <li id="ToolBarSearch">
             <input id="adminkeyword" class="FL" name="adminkeyword" value="$labelSearch"
-                   onkeypress="eXo.search.SearchAdminToolbar.quickSearchadminOnEnter(event);" type="text"/>
+                   onkeypress="eXo.search.SearchAdminToolbar.quickSearchadminOnEnter(event);" type="text" style="display:none;"/>
             <a href="#" class="TBIcon FR">
                 <img alt="Search"
                      src="/platformNavigation/skin/platformNavigation/UISearchPlatformToolbarPortlet/background/Search.png"/>

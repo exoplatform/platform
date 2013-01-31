@@ -18,10 +18,15 @@
  */
 package org.exoplatform.platform.navigation.component.help;
 
-
+import org.exoplatform.platform.navigation.component.utils.DashboardUtils;
+import org.exoplatform.portal.mop.SiteKey;
+import org.exoplatform.portal.mop.user.UserNode;
 import org.exoplatform.portal.webui.util.Util;
 import org.exoplatform.services.log.ExoLogger;
 import org.exoplatform.services.log.Log;
+import org.exoplatform.social.core.space.model.Space;
+import org.exoplatform.social.core.space.spi.SpaceService;
+import org.exoplatform.social.webui.Utils;
 
 /**
  * @author <a href="kmenzli@exoplatform.com">Kmenzli</a>
@@ -31,7 +36,7 @@ import org.exoplatform.services.log.Log;
 public class Helper {
 
     private static final Log LOG = ExoLogger.getExoLogger(Helper.class);
-    public static final String DEFAULT_HELP_PAGE= "http://docs.exoplatform.com";
+    public static final String DEFAULT_HELP_PAGE= " http://docs.exoplatform.com/PLF35/index.jsp?topic=%2Forg.exoplatform.doc.35%2FUserGuide.html";
 
     public static boolean present (String theString) {
         boolean present = false;
@@ -41,17 +46,94 @@ public class Helper {
         return present;
     }
 
-    public static String getCurrentNavigation() {
+    public static String getCurrentNavigation(SpaceService spaceService){
         try {
-
-            return  Util.getUIPortal().getNavPath().getName();
-
+            String nav=Util.getUIPortal().getNavPath().getName();
+            String url = Util.getPortalRequestContext().getRequest().getRequestURL().toString();
+            if((url.contains("/:spaces:"))||(url.contains("/spaces/")))   {
+                if(url.contains("documents"))  {
+                    return "space:document";
+                }
+                else if(url.contains("wiki")) {
+                    return "space:wiki";
+                }
+                else if((url.contains("AnswersPortlet"))||(url.contains("FAQPortlet"))) {
+                    return "space:faq_annswer";
+                }
+                else if(url.contains("calendar")) {
+                    return "space:calendar";
+                }
+                else if(url.contains("forum")) {
+                    return "space:forum";
+                }
+                else if(nav.equals("settings")) {
+                    String spaceUrl;
+                    if((spaceUrl=getSelectedPageNode().getURI()).contains("/")){
+                        spaceUrl = spaceUrl.split("/")[0];
+                        Space space = spaceService.getSpaceByUrl(spaceUrl);
+                        if(spaceService.isManager(space, Util.getPortalRequestContext().getRemoteUser() )){
+                            return "space:manager";
+                        }
+                    }
+                }
+                else {
+                        String spaceUrl=getSelectedPageNode().getURI();
+                        Space space = spaceService.getSpaceByUrl(spaceUrl);
+                        if(space.getPrettyName().equals(nav)){
+                            return "space:activity_stream";
+                        }
+                    }
+                }
+            else if(url.contains("mywiki")&&(isProfileOwner())){
+                return "personnal:wiki";
+            }
+            else if((url.contains("profile"))&&(isProfileOwner())){
+                return "personnal:profile";
+            }
+            else if((url.contains("connections"))&&(isProfileOwner())){
+                return "personnal:connections";
+            }
+            else if(url.contains("all-spaces")){
+                return "personnal:all-spaces";
+            }
+            else if((nav!=null)&&(nav.equals("home"))){
+             if((SiteKey.portal(getCurrentPortal())!=null) &&(SiteKey.portal(getCurrentPortal()).getName().equals("intranet"))){
+                    return "Company Context Home";
+              }
+            }
+            else if((nav!=null)&&(nav.equals("calendar"))){
+                return "Company Context Calendar";
+            }
+            else if((nav!=null)&&(nav.equals("forum"))){
+                return "Company Context Forum";
+            }
+            else if((nav!=null)&&(nav.equals("wiki"))){
+                return "Company Context Wiki";
+            }
+            else if((nav!=null)&&(nav.equals("documents"))){
+                return "Company Context Documents";
+            }
+            else if((nav!=null)&&((nav.equals("FAQ"))||(nav.equals("answers")))){
+                return "Company Context FAQ:Answers";
+            }
+            else if((url.contains(DashboardUtils.getDashboardURL()))&&(isProfileOwner())){
+                return "dashboard";
+            }
+             return  Util.getUIPortal().getNavPath().getName();
         } catch (Exception E) {
-
             LOG.warn("Can not load the currentNavigation ",E);
             E.printStackTrace();
             return null;
         }
-
+    }
+    public static boolean isProfileOwner() {
+        return Utils.isOwner();
+    }
+    public static String getCurrentPortal()
+    {
+        return Util.getPortalRequestContext().getPortalOwner();
+    }
+    public static UserNode getSelectedPageNode() throws Exception {
+        return Util.getUIPortal().getSelectedUserNode();
     }
 }

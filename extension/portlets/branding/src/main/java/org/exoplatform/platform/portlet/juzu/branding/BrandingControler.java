@@ -70,7 +70,7 @@ public class BrandingControler {
                            Scope.GLOBAL,
                            BAR_NAVIGATION_STYLE_KEY)==null) {
       
-      style = "Dark";
+      style = "Light";
       
     }
     else{
@@ -83,9 +83,16 @@ public class BrandingControler {
 
   @Resource
   @Route("/resource")
-  public Response.Content save(FileItem file) throws IOException {
+  public Response.Content save(FileItem file,String style) throws IOException {
     if (file != null && file.getContentType().startsWith("image/")) {
       dataStorageService.saveFile(file);
+    }
+    if (style != null && style != "") {
+      settingService.set(Context.GLOBAL,
+                         Scope.GLOBAL,
+                         BAR_NAVIGATION_STYLE_KEY,
+                         SettingValue.create(style));
+      this.style = style;
     }
     return Response.ok("Changes in branding settings have been saved ");
   }
@@ -95,20 +102,18 @@ public class BrandingControler {
   public Response index(HttpContext httpContext) {
 
     Map<String, Object> parameters = new HashMap<String, Object>();
-    parameters.put("url", BrandingControler_.save());
+    parameters.put("url", BrandingControler_.save(null));
     String logoUrl = getLogoUrl(httpContext);
-    if (!verifyUrl(logoUrl)) {
+    if (!isExiste(logoUrl)) {
       parameters.put("imageUrl",
                      "/eXoPlatformResources/skin/platformSkin/UIToolbarContainer/background/HomeIcon.png");
     } else {
       parameters.put("imageUrl", logoUrl);
     }
-    parameters.put("style",
-                   settingService.get(Context.GLOBAL, Scope.GLOBAL, BAR_NAVIGATION_STYLE_KEY));
     return index.render(parameters);
   }
 
-  public boolean verifyUrl(String logoUrl) {
+  public boolean isExiste(String logoUrl) {
     int code;
     try {
       URL u = new URL(logoUrl);
@@ -139,16 +144,9 @@ public class BrandingControler {
     return logoUrl;
   }
 
-  @Ajax
-  @Resource
-  public Response.Content saveParameter(String style) throws IOException {
-    if (style != null && style != "") {
-      settingService.set(Context.GLOBAL,
-                         Scope.GLOBAL,
-                         BAR_NAVIGATION_STYLE_KEY,
-                         SettingValue.create(style));
-      this.style = style;
-    }
-    return Response.ok("Changes in branding settings have been saved ");
-  }
+//  @Ajax
+//  @Resource
+//  public Response.Content saveParameter(String style) throws IOException {
+//   
+//  }
 }

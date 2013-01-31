@@ -26,7 +26,9 @@ import org.exoplatform.services.log.Log;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.core.UIPortletApplication;
 import org.exoplatform.webui.core.lifecycle.UIApplicationLifecycle;
-
+import org.exoplatform.social.core.space.SpaceException;
+import org.exoplatform.social.core.space.model.Space;
+import org.exoplatform.social.core.space.spi.SpaceService;
 /**
  * @author <a href="kmenzli@exoplatform.com">Kmenzli</a>
  * @date 05/11/12
@@ -39,14 +41,20 @@ public class UIHelpPlatformToolbarPortlet extends UIPortletApplication {
     private String currentNavigation = "";
     private String helpPage = Helper.DEFAULT_HELP_PAGE;
     private HelpService helpService = null;
-
+    private SpaceService spaceService=null;
     public UIHelpPlatformToolbarPortlet() throws Exception {
         helpService = getApplicationComponent(HelpService.class);
+        try {
+            spaceService = getApplicationComponent(SpaceService.class);
+        } catch (Exception exception) {
+            // spaceService should be "null" because the Social profile isn't activated
+        }
     }
+
 
     public String getHelpPage() {
 
-        currentNavigation = Helper.getCurrentNavigation();
+        currentNavigation = Helper.getCurrentNavigation(spaceService);
 
         if (Helper.present(currentNavigation) && ((helpService != null))) {
 

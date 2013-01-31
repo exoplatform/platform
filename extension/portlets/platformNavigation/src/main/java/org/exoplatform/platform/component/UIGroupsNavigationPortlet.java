@@ -27,6 +27,7 @@ import org.exoplatform.portal.mop.user.UserNavigation;
 import org.exoplatform.portal.mop.user.UserNode;
 import org.exoplatform.portal.mop.user.UserNodeFilterConfig;
 import org.exoplatform.portal.mop.user.UserPortal;
+import org.exoplatform.portal.webui.portal.UIPortal;
 import org.exoplatform.portal.webui.util.Util;
 import org.exoplatform.webui.application.WebuiApplication;
 import org.exoplatform.webui.application.WebuiRequestContext;
@@ -98,6 +99,7 @@ public class UIGroupsNavigationPortlet extends UIPortletApplication {
     }
 
     public List<UserNavigation> getGroupNavigations() {
+
         return navigationsToDisplay;
     }
 
@@ -144,5 +146,16 @@ public class UIGroupsNavigationPortlet extends UIPortletApplication {
         return portalConfig.getUserPortal();
     }
 
-
+    public boolean isSelectedNavigation(String name) throws Exception {
+        UIPortal uiPortal = Util.getUIPortal();
+        UserNode selectedNode = uiPortal.getSelectedUserNode();
+        if (selectedNode.getName().equals(name)) return true;
+        else return false;
+    }
+    public boolean isUnfoldedNavigation(UserNode node) throws Exception {
+        UIPortal uiPortal = Util.getUIPortal();
+        UserNode selectedNode = uiPortal.getSelectedUserNode();
+        if (node.getChild(selectedNode.getName())!=null) return true;
+        else return false;
+    }
 }
