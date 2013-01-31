@@ -19,7 +19,7 @@
        */
 
   %>
-<div style="display:none;" class="uiBox" id="content">
+<div style="display:none;" class="uiBox uiSuggestions" id="content">
 	<h6 class="title center">${headerLabel}</h6>
 	<div style="display:none;" class="peopleList" id="peopleSuggest">
 		<ul id='suggestions'></ul>

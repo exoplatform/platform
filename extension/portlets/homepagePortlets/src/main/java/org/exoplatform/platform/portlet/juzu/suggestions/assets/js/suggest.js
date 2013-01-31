@@ -63,11 +63,11 @@ $(function() {
 
             var link = "";
             if (i < 2)
-            { link += "<li id='"+item.suggestionId+"'>";}
+            { link += "<li class='clearfix' id='"+item.suggestionId+"'>";}
             else
-            { link += "<li style='display:none;' id='"+item.suggestionId+"'>" }
+            { link += "<li class='clearfix' style='display:none;' id='"+item.suggestionId+"'>" }
 
-            link += "<div class='peoplePicture' ><a href='#'><img src='"+item.avatar+"'></a></div>";
+            link += "<div class='peoplePicture pull-left'><a href='#' class='avatarXSmall'><img src='"+item.avatar+"'></a></div>";
             link += "<div class='peopleInfo'>";
             link += "<div class='peopleName'><a href='"+item.profile+"' target='_parent'>"+item.suggestionName+"</a></div>";
             link += "<div style='display:none;' class='peopleAction' ><a class='connect btn-primary btn btn-mini' href='#' onclick='return false'>"+connect+"</a><a class='ignore' href='#' onclick='return false'><i class='uiIconClose'></i></a></div>";
@@ -161,9 +161,9 @@ $(function() {
             var link = "";
 
             if (i < 2)
-            { link += "<li id='"+item.spaceId+"'>";}
+            { link += "<li class='clearfix' id='"+item.spaceId+"'>";}
             else
-            { link += "<li style='display:none;' id='"+item.spaceId+"'>" }
+            { link += "<li class='clearfix'' style='display:none;' id='"+item.spaceId+"'>" }
 
             link += "<div class='spacePicture' ><a href='#'><img src='"+item.avatarUrl+"'></a></div>";
             link += "<div class='spaceInfo'>";
