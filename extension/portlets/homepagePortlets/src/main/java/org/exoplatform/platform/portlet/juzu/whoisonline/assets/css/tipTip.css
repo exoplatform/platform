@@ -99,8 +99,9 @@
 /* Webkit Hacks  */
 @media screen and (-webkit-min-device-pixel-ratio:0) {
     #tiptip_content {
-        padding: 4px 8px 5px 8px;
-        background-color: #F8F8F8;
+        padding: 10px;
+        background-color: white;
+        border-radius: 0 0 3px 3px;
     }
 
     #tiptip_holder.tip_bottom #tiptip_arrow_inner {

@@ -64,20 +64,17 @@ import org.exoplatform.webui.core.UIPopupWindow;
 		}
 
         %>
-	<div class="uiBreadcumbsNavigationPortlet" id="$uicomponent.id">
+	<div class="uiBreadcumbsNavigationPortlet clearfix" id="$uicomponent.id">
 	 <% uicomponent.renderChild(UIPopupWindow.class); %>
-	  <div class="BreadcumbEntry">
-		  <img title="$nodeName" alt="$nodeName" src="$srcImage" />
-		  <span class="name">$nodeName</span>
-	  
-
+	  <div class="pull-left">
+	  	<img title="$nodeName" alt="$nodeName" src="$srcImage" />
+	  </div>
+		<div class="breadcumbEntry">
+		  <div class="name">$nodeName</div>
 	   <%if (uicomponent.isOwner() && isUserUrl) { %>
-
-          <div class="ChangeAvatar">
-            <a onclick="<%=uicomponent.event("ChangePicture")%>; return false;" href="javascript:void(0)">$changePictureLabel</a>
-          </div>
+			<a class="changeAvatar" onclick="<%=uicomponent.event("ChangePicture")%>; return false;" href="javascript:void(0)">$changePictureLabel</a>
+       
       <% } %>
-
 	  </div>
 	</div>
 
