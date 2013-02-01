@@ -139,13 +139,13 @@ Java APIs
 
 * *[JAX-RS:|../../../reference/html/WS.RestServicesList.html] (JSR 311)* A standard API that provides support for creating REST-like services.
 
-* *[JCR (JSR 170):|../../../reference/html/JCR.WhyuseJCR.WhatJCR.html]* A standard API that provides access to a content repository.
+* *[JCR (JSR 170):|../../../reference/html/chapter-JCR.html]* A standard API that provides access to a content repository.
 
 * *[JCR Service Extensions:|../../../reference/html/JCR.Extensions.html]* A set of APIs that provide extended functionalities for the JCR, such as observation, permissions, and access to a repository.
 
 * *[Java EE 6:|http://www.oracle.com/technetwork/java/javaee/overview/index.html]* eXo Platform supports the Java EE 5 APIs, so you can develop applications using this standard.
 
-* *[Cache:|http://docs.jboss.org/exojcr/1.14.7-GA/developer/en-US/html/ch-cache.html]* An API used for data caching.
+* *[Cache:|../../../reference/html/Kernel.Cache.html]* An API used for data caching.
 
 * *[Event and Listener:|../../../reference/html/Kernel.UnderstandingtheListenerService.html]* An API for listening and sending events within eXo Platform.
 

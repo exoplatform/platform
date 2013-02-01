@@ -1052,7 +1052,7 @@ gatein.jcr.jgroups.config=file:${gatein.jgroups.config}{code}
 | *{{gatein.jgroups.config}}* | Path to the JGroups configuration to use for the cluster mode of eXo Cache and PicketLink IDM organization service (see below in _IDM caches_). |
 | *{{gatein.jcr.jgroups.config}}* | Path to the JGroups configuration to use for the cluster mode. |
 
-For more details on configuring these files, please refer to the [eXo JCR Reference Guide|../../reference/html/chapter-JCR.html].
+For more details on configuring these files, please refer to the [eXo JCR Reference Guide|../../reference/html/JCRReferenceGuide.html].
 
 {docbook}
 <para>
