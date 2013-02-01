@@ -80,7 +80,7 @@ eXo Platform indicates to one Portal application in this context, which is set b
 Information provided in this chapter only describes the backup of the single-portal Platform. The backup can be repeated for each portal in your system. 
 Only two types of JCR files are important in the backup: index and value storages. 
 
-The _gatein.jcr.data.dir_ folder (_$gatein.data.dir/jcr_ by default) also contains the _swap_ sub-folder. The _swap_ folder is used for temporary files in case BLOBs are stored in the database and has no meaning for backup. For more details, see the [eXo JCR configuration|../../reference/html/JCR.eXoJCRconfiguration.html] section. 
+The _gatein.jcr.data.dir_ folder (_$gatein.data.dir/jcr_ by default) also contains the _swap_ sub-folder. The _swap_ folder is used for temporary files in case BLOBs are stored in the database and has no meaning for backup. For more details, see the [eXo JCR configuration|../../reference/html/JCRref.Configuration.BasicConfiguration.html] section.
 {note}
 
 To learn more about the basic principles of eXo Platform backup and how to create your backup implementation, see the following *Backup Planning* example:
