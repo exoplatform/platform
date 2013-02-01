@@ -4,8 +4,8 @@
         <label>
             <Spaces>Mes Espaces</Spaces>
             <Join>Joindre un espace</Join>
-            <more>Plus d'espaces</more>
-            <see>Voir</see>
+            <more>espaces de plus</more>
+            <see>Charger</see>
         </label>
         <msg>
             <filter-spaces>Rechercher des espaces</filter-spaces>
