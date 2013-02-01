@@ -19,22 +19,13 @@
 
 package org.exoplatform.platform.portlet.juzu.calendar;
 
-import java.text.DateFormat;
-import java.util.*;
-
-
-import javax.inject.Inject;
 import juzu.Path;
 import juzu.Resource;
 import juzu.SessionScoped;
 import juzu.View;
 import juzu.plugin.ajax.Ajax;
 import org.apache.commons.lang.ArrayUtils;
-import org.exoplatform.calendar.service.CalendarEvent;
-import org.exoplatform.calendar.service.CalendarService;
-import org.exoplatform.calendar.service.EventQuery;
-import org.exoplatform.calendar.service.GroupCalendarData;
-import org.exoplatform.calendar.service.Utils;
+import org.exoplatform.calendar.service.*;
 import org.exoplatform.calendar.service.impl.NewUserListener;
 import org.exoplatform.commons.settings.api.SettingService;
 import org.exoplatform.commons.settings.api.SettingValue;
@@ -47,6 +38,12 @@ import org.exoplatform.services.organization.Group;
 import org.exoplatform.services.organization.OrganizationService;
 import org.exoplatform.web.application.RequestContext;
 import org.gatein.common.text.EntityEncoder;
+
+import javax.inject.Inject;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.*;
+import java.util.Calendar;
 
 /**
  * @author <a href="fbradai@exoplatform.com">Fbradai</a>
@@ -152,6 +149,10 @@ public class CalendarPortletController {
         int clickNumber = Integer.parseInt(nbclick);
         if (clickNumber != 0) date = incDecJour(date, clickNumber);
         String date_act = d.format(new Date(date));
+        SimpleDateFormat yearFormat=new SimpleDateFormat("yyyy");
+        String year=yearFormat.format(new Date(date));
+        String[] dateSplit =date_act.split("/");
+            if(dateSplit.length!=0) date_act=dateSplit[0]+"/"+dateSplit[1]+"/"+year;
         Date comp = d.parse(date_act);
         SettingValue settingNode = settingService_.get(Context.USER, Scope.APPLICATION, CalendarPortletUtils.HOME_PAGE_CALENDAR_SETTINGS);
         String defaulCalendarLabel="Default";
@@ -166,6 +167,7 @@ public class CalendarPortletController {
             parameters.put("fromLabel", EntityEncoder.FULL.encode(rs.getString("from.label")));
             parameters.put("allDayLabel", EntityEncoder.FULL.encode(rs.getString("all.day.label")));
             parameters.put("noEventsLabel", EntityEncoder.FULL.encode(rs.getString("no.events.label")));
+            parameters.put("defaultPersonnal", EntityEncoder.FULL.encode(rs.getString("default.personal.label")));
             if (clickNumber == 0) dateLabel = rs.getString("today.label") + ": ";
             else if (clickNumber == -1) dateLabel = rs.getString("yesterday.label") + ": ";
             else if (clickNumber == 1) dateLabel = rs.getString("tomorrow.label") + ": ";
@@ -287,6 +289,7 @@ public class CalendarPortletController {
             parameters.put("settingLabel", EntityEncoder.FULL.encode(rs.getString("settings.label")));
             parameters.put("additionalCalendarLabel", EntityEncoder.FULL.encode(rs.getString("display.additional.calendar.label")));
             parameters.put("searchLabel", EntityEncoder.FULL.encode(rs.getString("search.calendar.label")));
+            parameters.put("defaultPersonnal", EntityEncoder.FULL.encode(rs.getString("default.personal.label")));
 
         } catch (MissingResourceException ex) {
             log.trace(ex.getMessage());
@@ -391,7 +394,16 @@ public class CalendarPortletController {
                    i++;
             }
         }
-        search.with().set("searchResultList", searchResult).render();
+        String label= "Default Personal Calendar" ;
+        try{
+            Locale locale = RequestContext.getCurrentInstance().getLocale();
+            ResourceBundle rs = ResourceBundle.getBundle("calendar/calendar", locale);
+            label=rs.getString("default.personal.label");
+        }
+        catch (MissingResourceException e)  {
+
+        }
+        search.with().set("searchResultList", searchResult).set("defaultPersonnal", EntityEncoder.FULL.encode(label)).render();
     }
 
 

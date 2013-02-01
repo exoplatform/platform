@@ -150,7 +150,7 @@
                 displayedCalendar.each { cal ->
                     def   calendarName= cal.name;
                     def hover="";
-                    if((calendarName.indexOf("default") != -1)&&(cal.groups==null))  hover="Default Personnal Calendar";
+                    if(((calendarName.indexOf("Default") != -1)||(calendarName.indexOf("Défault") != -1))&&(cal.groups==null))  hover=bundle["defaultPersonnal"];
                     if (cal.groups != null) {
                         def group = cal.groups[0];
                         hover = " (" + group.substring(group.lastIndexOf("/") + 1) + ")";
@@ -189,13 +189,14 @@
 
                 nonDisplayedCalendar.each { cal ->
                     def   calendarName= cal.name;
-                    def grpName = "";
+                    def hover="";
+                    if(((calendarName.indexOf("Default") != -1)||(calendarName.indexOf("Défault") != -1))&&(cal.groups==null))  hover=bundle["defaultPersonnal"];
                     if (cal.groups != null) {
                         def group = cal.groups[0];
-                        grpName = "(" + group.substring(group.lastIndexOf("/") + 1) + ")";
+                        hover = "(" + group.substring(group.lastIndexOf("/") + 1) + ")";
                     }
             %>
-            <div id="${cal.id}" class="CalendarItem NonDisp" title="${grpName}">
+            <div id="${cal.id}" class="CalendarItem NonDisp" title="${hover}">
 
                 <p style="float:left; height:20px;width:20px;background-color:  ${cal.calendarColor}"/>
 

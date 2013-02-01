@@ -25,6 +25,7 @@
     import org.exoplatform.calendar.service.CalendarEvent;
     import org.exoplatform.web.application.RequestContext;
     import java.util.Locale;
+
 %>
 
 <script>
@@ -72,9 +73,9 @@
             <% if (displayedCalendar != null) {
 
                 displayedCalendar.each { cal ->
-                    def   calendarName= cal.name;
+                    def calendarName= cal.name;
                     def hover= "";
-                    if((calendarName.indexOf("default") != -1)&&(cal.groups==null))  hover="Default Personnal Calendar";
+                    if(((calendarName.indexOf("Default") != -1)||(calendarName.indexOf("Défault") != -1))&&(cal.groups==null))  hover=bundle["defaultPersonnal"];
                     if (cal.groups != null) {
                         def group = cal.groups[0];
                         hover = " (" + group.substring(group.lastIndexOf("/") + 1) + ")";
@@ -111,23 +112,30 @@
                 <div class="${eventCss}" style="height:40px;border-radius:11px;border-style: solid;border-color:  ${color}"
                      class="" id="${event.id}">
                     <p class="flottante EventSummary" style="padding:5px;width:100px;">
-                        <a href="${href}">${event.summary}</a>
+                        <a style="font-size: 1em" href="${href}">${event.summary}</a>
                     </p>
 
                     <p style="float:right">
                         <% if (event.toDateTime.getTime() - event.fromDateTime.getTime() == 86399999) { %>
                         <span>${allDayLabel}</span>
                         <% } else if (event.toDateTime.getTime() - event.fromDateTime.getTime() > 86399999) {
+
                             from = sdf1.format(event.fromDateTime);
+                            String year=event.fromDateTime.format("yyyy");
+                            String[] dateSplit = from.split("/");
+                            if(dateSplit.length!=0) from=dateSplit[0]+"/"+dateSplit[1]+"/"+year;
                             to = sdf1.format(event.toDateTime);
+                            year=event.toDateTime.format("yyyy");
+                            dateSplit =from.split("/");
+                            if(dateSplit.length!=0) to=dateSplit[0]+"/"+dateSplit[1]+"/"+year;
 
                         %>
 
-                        <span>
+                        <span style="font-size: 1em">
                             ${bundle["fromLabel"]}  ${from}
                         </span>
                         <br>
-                        <span>
+                        <span style="font-size: 1em">
                             ${bundle["toLabel"]}  ${to}
                         </span>
                         <% } else if (event.toDateTime.getTime() - event.fromDateTime.getTime() < 86399999) {
@@ -141,7 +149,7 @@
                             }
                         %>
 
-                        <span>
+                        <span style="font-size: 1em">
                             ${from} - ${to}
                         </span>
 
