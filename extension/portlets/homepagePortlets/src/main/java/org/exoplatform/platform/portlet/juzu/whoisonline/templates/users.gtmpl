@@ -63,11 +63,26 @@
                 $("#${user.getId()}connect").html('<div id="connectMessge">${messageLabel}</div>');
                 $("#${user.getId()}connect").fadeIn(500, function() {});
             });
+            var refresh = function() {
+                $("#onlineList").each(function() {
+                  $(this).jzLoad("WhoIsOnLineController.users()");
+                });
+              };
+
+              setTimeout(refresh, 500);
+
 
 		});
 		$("#${user.getId()}accept a.connect").live("click", function(){
         			$.getJSON("/rest/homepage/intranet/people/contacts/confirm/${user.getRelationId()}", null);
         			$("#${user.getId()}accept").hide();
+        			var refresh = function() {
+                                    $("#onlineList").each(function() {
+                                      $(this).jzLoad("WhoIsOnLineController.users()");
+                                    });
+                                  };
+
+                                  setTimeout(refresh, 500);
 
         		});
    </script>
