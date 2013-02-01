@@ -42,4 +42,14 @@
          <location>In location</location>
       </label>
    </UICreateWiki>
+   <UICreateEvent>
+      <label>
+         <Title>Title</Title>
+         <Choix>Choice</Choix>
+         <EndEvent>End Date</EndEvent>
+         <StartEvent>Start Date</StartEvent>
+         <Calendar>Calendars</Calendar>
+
+      </label>
+   </UICreateEvent>
 </bundle>
