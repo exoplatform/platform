@@ -50,11 +50,11 @@ jsmanager.require("SHARED/navigation-toolbar", "toolbarnav").addScripts("toolbar
 				<a href="<%=uicomponent.event("AddEvent","AddEvent")%>" class="ToolBarActivityIcon">$labelEvent</a>
 			</li>
 			<li class="MenuItem">
-				<a href="<%=uicomponent.event("Wiki","Wiki")%>" class="ToolBarActivityIcon">$labelWiki</a>
-			</li>
-			<li class="MenuItem">
 				<a href="<%=uicomponent.event("Upload","Upload")%>" class="ToolBarActivityIcon">$labelUpload</a>
 			</li>
+			<li class="MenuItem">
+            	<a href="<%=uicomponent.event("Wiki","Wiki")%>" class="ToolBarActivityIcon">$labelWiki</a>
+            </li>
 
 		<%}else{%>
 
