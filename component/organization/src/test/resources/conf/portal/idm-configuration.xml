@@ -81,13 +81,21 @@
           <field name="associationMembershipType">
             <string>member</string>
           </field>
-          <!-- if "associationMembershipType" option is used and this option is set to true
-                then Membership with MembershipType configured to be stored as PicketLink IDM association
-                will not be stored as PicketLink IDM Role -->
-          <field name="ignoreMappedMembershipType">
-            <boolean>false</boolean>
+          <field name="ignoreMappedMembershipTypeGroupList">
+           <collection type="java.util.ArrayList" item-type="java.lang.String">
+             <value>
+               <string>/platform/*</string>
+             </value>
+             <value>
+               <string>/organization/acme/france</string>
+             </value>
+             <value>
+               <string>/toto/*</string>
+             </value>
+           </collection>
           </field>
-        </object>
+
+       </object>
       </object-param>
     </init-params>
   </component>
