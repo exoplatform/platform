@@ -1,38 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <bundle>
     <UIUserNavigationPortlet>
-        <My>
-            Mes
-        </My>
+        <My>Mes</My>
         <label>
-            <activities>
-                Flux d'Activités
-            </activities>
-            <profile>
-                Profile
-            </profile>
-            <connections>
-                Connections
-            </connections>
-            <wiki>
-                Wiki
-            </wiki>
-
-            <Myactivities>
-                Mon Flux d'Activités
-            </Myactivities>
-            <Myprofile>
-                Mon Profile
-            </Myprofile>
-            <Myconnections>
-                Mes Connections
-            </Myconnections>
-            <Mywiki>
-                Mon Wiki
-            </Mywiki>
-            <Mydashboard>
-                Mon Dashboard
-            </Mydashboard>
+            <activities>Flux d'Activités</activities>
+            <profile>Profile</profile>
+            <connections>Connexions</connections>
+            <wiki>Wiki</wiki>
+            <Myactivities>Mon Flux d'Activités</Myactivities>
+            <Myprofile>Mon Profile</Myprofile>
+            <Myconnections>Mes Connections</Myconnections>
+            <Mywiki>Mon Wiki</Mywiki>
+            <Mydashboard>Mon Dashboard</Mydashboard>
         </label>
     </UIUserNavigationPortlet>
 </bundle>
