@@ -165,13 +165,13 @@ $(function() {
             else
             { link += "<li class='clearfix'' style='display:none;' id='"+item.spaceId+"'>" }
 
-            link += "<div class='spacePicture' ><a href='#'><img src='"+item.avatarUrl+"'></a></div>";
+            link += "<div class='spacePicture pull-left'><a href='#' class='avatarXSmall'><img src='"+item.avatarUrl+"'></a></div>";
             link += "<div class='spaceInfo'>";
             link += "<div class='spaceName'><a href='/portal/intranet/all-spaces' target='_parent'>"+item.displayName+"</a></div>";
             if(item.privacy=="Private")
-            link += "<div class='spacePrivacy'><img src='/homepage-portlets/style/images/user_group.png'>"+private+"&nbsp;-&nbsp;"+item.members+"&nbsp;"+spacemember+"</div>";
+            link += "<div class='spacePrivacy'><i class='uiIconSocGroup uiIconSocLightGray'></i>"+private+"&nbsp;-&nbsp;"+item.members+"&nbsp;"+spacemember+"</div>";
             else
-                link += "<div class='spacePrivacy'><img src='/homepage-portlets/style/images/user_group.png'>"+public+"&nbsp;-&nbsp;"+item.members+"&nbsp;"+spacemember+"</div>";
+                link += "<div class='spacePrivacy'><i class='uiIconSocGroup uiIconSocLightGray'></i>"+public+"&nbsp;-&nbsp;"+item.members+"&nbsp;"+spacemember+"</div>";
             if(item.registration == "open")
                 link += "<div class='spaceAction' ><a class='connect btn-primary btn btn-mini' href='#' onclick='return false'>"+join+"</a>";
             else

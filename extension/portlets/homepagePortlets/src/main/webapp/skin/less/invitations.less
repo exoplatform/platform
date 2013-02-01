@@ -19,7 +19,7 @@
 		}
 	}
 
-	.name {
+	.name, .spaceInviteName {
 		font-weight: bold;
 		overflow: hidden;
 		text-overflow: ellipsis;
@@ -28,12 +28,12 @@
 		color: @linkColor;
 	}
 
-	.peopleInvitePicture{
+	.peopleInvitePicture, .spaceInvitePicture{
 		margin-left: 15px;
     	padding-top: 2px;
 	}
 
-	.peopleInviteAction {
+	.peopleInviteAction, .spaceInviteAction {
 		white-space: nowrap;
 		font-size: 10px;
 		position: absolute;
@@ -46,9 +46,17 @@
 		background-color: transparent;
 	}
 	
-	.peopleInviteInfo {
+	.peopleInviteInfo, .spaceInviteInfo {
 	    margin-left: 65px;
     	position: relative;
 	}
+	
+	.spacePrivacy {
+	    white-space: nowrap;
+	    overflow: hidden;
+	    text-overflow: ellipsis;
+	    color: @grayLight;
+	}
+	
 
 }

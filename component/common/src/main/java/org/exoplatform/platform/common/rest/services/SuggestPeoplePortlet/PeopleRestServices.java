@@ -256,7 +256,7 @@ public class PeopleRestServices implements ResourceContainer {
                 JSONObject json = new JSONObject();
                 String avatar = id.getProfile().getAvatarImageSource();
                 if (avatar == null) {
-                    avatar = "/social-resources/skin/ShareImages/Avatar.gif";
+                    avatar = "/social-resources/skin/images/ShareImages/UserAvtDefault.png";
                 }
                 String position = id.getProfile().getPosition();
                 if (position == null) {

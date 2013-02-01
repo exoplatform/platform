@@ -6,15 +6,6 @@
 		ul li {
 		    margin-bottom: 15px;
 		    margin-top: 15px;
-		    
-		    &:nth-child(2n+2){
-			    border-bottom: 1px solid #cfcfcf;
-				padding-bottom: 15px;
-			}
-			
-			&:last-child{
-				border-bottom: none;
-			}
 		}
 		
 		.peopleName {
@@ -42,7 +33,7 @@
 			position: absolute;
 			right: 5px;
 			top: 12px;
-			width: 125px;
+			width: 200px;
 			text-align: right;
 			height: 45px;
 			#gradient .horizontal(rgba(255,255,255,0),rgba(255,255,255,1));
@@ -66,6 +57,61 @@
 	#emptyMessage {
 	    padding: 5px;
 	    font-weight: bold;
+	}
+	
+		
+	.spaceList{
+		border-top: solid 1px #cfcfcf;
+	
+		ul li {
+		    margin-bottom: 15px;
+		    margin-top: 15px;
+		}
+	
+		.spaceHeader {
+		    font-weight: bold;
+		    margin-bottom: 12px;
+		    padding-top: 5px;
+		}
+		
+		.spaceName {
+		    font-weight: bold;
+		}
+		
+		.spaceAction {
+	     	white-space: nowrap;
+		    font-size: 10px;
+			position: absolute;
+			right: 5px;
+			top: 12px;
+			width: 200px;
+			text-align: right;
+			height: 45px;
+			#gradient .horizontal(rgba(255,255,255,0),rgba(255,255,255,1));
+			background-color: transparent;
+		}
+		
+		.spaceInfo {
+			margin-left: 65px;
+			position: relative;
+		}
+		
+		.spacePicture {
+		    padding-top: 2px;
+			margin-left: 15px;
+		}
+		
+		.spacePrivacy {
+		    white-space: nowrap;
+		    overflow: hidden;
+		    text-overflow: ellipsis;
+		    color: @grayLight;
+		}
+
+		.spaceCommon {
+		    color: @grayLight;
+		}
+	
 	}
 	
 }

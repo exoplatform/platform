@@ -69,7 +69,7 @@ public class SpaceRestServices implements ResourceContainer {
                 List<Identity> identityListMember = new ArrayList<Identity>();
                 String avatar = space.getAvatarUrl();
                 if (avatar == null) {
-                    avatar = "/social-resources/skin/ShareImages/SpaceImages/SpaceLogoDefault_61x61.gif";
+                    avatar = "/social-resources/skin/images/ShareImages/UserAvtDefault.png";
                 }
                 for (String mem : space.getMembers()) {
                     Identity identityMem = identityManager.getOrCreateIdentity(OrganizationIdentityProvider.NAME, mem);

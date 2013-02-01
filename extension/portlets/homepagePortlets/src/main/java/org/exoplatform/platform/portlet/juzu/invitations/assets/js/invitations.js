@@ -33,7 +33,7 @@ function initIncoming() {
                     link += "<li class='clearfix' style='display:none;' id='"+item.relationId+"'>";
                 var peopleAvatar;
                 if (item.senderAvatarUrl == undefined)
-                    peopleAvatar = "/social-resources/skin/ShareImages/Avatar.gif";
+                    peopleAvatar = "/social-resources/skin/images/ShareImages/UserAvtDefault.png";
                 else
                     peopleAvatar = item.senderAvatarUrl;
                 link += "<div class='peopleInvitePicture pull-left' ><a href='#' class='avatarXSmall'><img src='"+peopleAvatar+"'></a></div>";
@@ -98,10 +98,10 @@ function initIncoming() {
                     link += "<li class='clearfix' style='display:none;' id='"+item.spaceId+"'>";
                 var spaceAvatar;
                 if (item.spaceAvatarUrl == undefined)
-                    spaceAvatar =  "/social-resources/skin/ShareImages/SpaceImages/SpaceLogoDefault_61x61.gif";
+                    spaceAvatar =  "/social-resources/skin/images/ShareImages/UserAvtDefault.png";
                 else
                     spaceAvatar = item.spaceAvatarUrl;
-                link += "<div class='spaceInvitePicture' ><img src='"+spaceAvatar+"'></div>";
+                link += "<div class='spaceInvitePicture pull-left' ><a href='#' class='avatarXSmall'><img src='"+spaceAvatar+"'></a></div>";
                 link += "<div class='spaceInviteInfo'>";
                 link += "<div class='spaceInviteName'>"+item.spaceDisplayName+"</div>";
                 if(item.spaceRegistration == "open")
@@ -109,9 +109,9 @@ function initIncoming() {
                 else
                     visibility = privatelabel;
                 if (spacelabel == "Space")
-                    link += "<div class='spaceproperties'><div class='spacevisibility'><img src='/homepage-portlets/style/images/user_group.png'> "+visibility+" "+spacelabel+" - " +item.membersNumber+" "+memberslabel+"</div><div class='spaceInviteAction' style='visibility:hidden;' ><a class='connect  btn-primary btn btn-mini' href='#' onclick='return false'>"+acceptlabel+"</a>  <a class='deny' href='#' onclick='return false'><i class='uiIconClose'></i></a></div> </div>"
+                    link += "<div class='spaceproperties'><div class='spacevisibility'><i class='uiIconSocGroup uiIconSocLightGray'></i> "+visibility+" "+spacelabel+" - " +item.membersNumber+" "+memberslabel+"</div><div class='spaceInviteAction' style='visibility:hidden;' ><a class='connect  btn-primary btn btn-mini' href='#' onclick='return false'>"+acceptlabel+"</a>  <a class='deny' href='#' onclick='return false'><i class='uiIconClose'></i></a></div> </div>"
                 else
-                    link += "<div class='spaceproperties'><div class='spacevisibility'><img src='/homepage-portlets/style/images/user_group.png'> "+spacelabel+" "+visibility+" - " +item.membersNumber+" "+memberslabel+"</div><div class='spaceInviteAction' style='visibility:hidden;' ><a class='connect  btn-primary btn btn-mini' href='#' onclick='return false'>"+acceptlabel+"</a>  <a class='deny' href='#' onclick='return false'><i class='uiIconClose'></i></a></div> </div>"
+                    link += "<div class='spaceproperties'><div class='spacevisibility'><i class='uiIconSocGroup uiIconSocLightGray'></i> "+spacelabel+" "+visibility+" - " +item.membersNumber+" "+memberslabel+"</div><div class='spaceInviteAction' style='visibility:hidden;' ><a class='connect  btn-primary btn btn-mini' href='#' onclick='return false'>"+acceptlabel+"</a>  <a class='deny' href='#' onclick='return false'><i class='uiIconClose'></i></a></div> </div>"
                 link += "</div></li>";
 
                 $("#requests").append(link);
