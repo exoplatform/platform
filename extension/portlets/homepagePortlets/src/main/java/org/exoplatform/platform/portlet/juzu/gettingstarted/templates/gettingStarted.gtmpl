@@ -29,5 +29,5 @@
     <div class="GettingStarted">
 
     </div>
-
+    <div style="display:none" class="TmpGettingStarted"></div>
 </div>

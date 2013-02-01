@@ -36,15 +36,20 @@ $(function () {
 
         setTimeout(function () {
                 if (del == false) {
-                    $('.GettingStarted').jzLoad("GettingStarted.getGsList()");
+                    $('.GettingStarted').jzLoad("GettingStarted.getGsList()", {"reload":"true"});
                 }
             }
             , 100);
         setInterval(function () {
             if (del == false) {
-                $('.GettingStarted').jzLoad("GettingStarted.getGsList()");
+                $('.TmpGettingStarted').jzLoad("GettingStarted.getGsList()", {"reload":"false"});
+                var ct = $('.TmpGettingStarted').html();
+                if(ct!="") {
+                    $('.GettingStarted').html(ct);
+                    $('.TmpGettingStarted').html('');
+                }
             }
-        }, 60000);
+        }, 1000);
     });
 
 });
