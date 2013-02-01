@@ -12,7 +12,7 @@
   </UIUserPlatformToolBarCreatePortlet>
   <UICreateList>
     <label>
-      <CreateANew>Create a new {1}</CreateANew>
+      <CreateANew>Create a new {1}:</CreateANew>
       <RequireSelectForum>Please, select a forum.</RequireSelectForum>
     </label>
     <action>
@@ -38,7 +38,7 @@
   </UICreatePoll>
    <UICreateWiki>
       <label>
-         <title>Create a new Wiki Page</title>
+         <title>Create a new Wiki Page:</title>
          <location>In location</location>
       </label>
    </UICreateWiki>

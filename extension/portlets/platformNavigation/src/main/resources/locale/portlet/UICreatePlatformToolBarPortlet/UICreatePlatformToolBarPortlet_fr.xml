@@ -12,7 +12,7 @@
 	</UIUserPlatformToolBarCreatePortlet>
    <UICreateList>
       <label>
-         <CreateANew>Créer un {1}</CreateANew>
+         <CreateANew>Créer un {1}:</CreateANew>
          <RequireSelectForum>Choisir un forum</RequireSelectForum>
       </label>
       <action>
@@ -23,7 +23,7 @@
    <UICreateTopic>
       <label>
          <SelectAForum>Choisir un forum</SelectAForum>
-         <location>In location</location>
+         <location>Emplacement</location>
          <forumId>et Forum</forumId>
          <FilterForums>Filtrer forums</FilterForums>
       </label>
@@ -31,15 +31,15 @@
    <UICreatePoll>
       <label>
          <SelectAForum>Choisir un Forum</SelectAForum>
-         <location>In location</location>
+         <location>Emplacement</location>
          <forumId>et Forum</forumId>
          <FilterForums>Filtrer forums</FilterForums>
       </label>
    </UICreatePoll>
    <UICreateWiki>
       <label>
-         <title>Create une page Wiki</title>
-         <location>In location</location>
+         <title>Créer une page Wiki:</title>
+         <location>Emplacement</location>
       </label>
    </UICreateWiki>
    <UICreateEvent>
