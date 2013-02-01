@@ -1,55 +1,50 @@
 $(function() {
-
 	var fileUpload;
-	UpdateStyleSelect();
-
+	UpdatePreviewLogoAndStyle(true);
 	// clone Toolbar Administrator and add to Preview
 	$("#PlatformAdminToolbarContainer").clone().appendTo($("#StylePreview"));
-
 	fixSearchInput();
-
+	scaleToFitPreviewImg($('#PreviewImg'));
 	$("#cancel").on(
 			"click",
 			function() {
-				UpdateStyleSelect();
-				getAndUpdateLogoByAjax();
+				$("#ajaxUploading").show();
+				UpdatePreviewLogoAndStyle(false);
 				$("div#result").text(
 						"Changes in branding settings have been cancelled");
 			});
 	$("#save").on("click", function() {
-		var valueSelected = ($('#navigationStyle option:selected').val());
-		$("#style").val(valueSelected);
+		$("#style").val(($('#navigationStyle option:selected').val()));
 		var result = $('#form').submit();
 		return result;
-		// $('#result').jzLoad("BrandingControler.saveParameter()", {
-		// "style" : valueSelected
-		// });
 	});
 
 	$("input#file").on("change", function() {
-		preview(this);
+		previewLogoBycontent(this);
 	});
-	
-	
 
 	$('#form').submit(function() {
 		$(this).ajaxSubmit({
-			beforeSubmit: function(data){
+			beforeSubmit : function(data) {
+				if (validate($("input#file"))){
 				$("#ajaxUploading").show();
+				}
 			},
 			target : '#result',
-			success: function(data){
-				UpdateBarNavigation();
+			success : function(data) {
+				UpdateTopBarNavigation(data);
 				$("#ajaxUploading").hide();
+				$("div#result").text(
+				"Changes in branding settings have been saved");
 			}
 		});
-	
+
 		return false;
 	});
 
-	$('.target').change(function() {
-		var valueSelected = ($('.target option:selected').val());
-	});
+//	$('.target').change(function() {
+//		var valueSelected = ($('.target option:selected').val());
+//	});
 
 	/* Change CSS by selecting */
 	$("#navigationStyle").change(function() {
@@ -69,13 +64,12 @@ $(function() {
 				"#StylePreview #UIToolbarContainer #SearchNavigationTabsContainer input")
 				.remove();
 	}
-	function preview(input) {
+	function previewLogoBycontent(input) {
 		fileUpload = input;
 		var checkValide = validate(input);
 		if (checkValide == false) {
 			// not validated
 			$("div#result").text("the file must be in photo format png ");
-			$("#file").replaceWith($("#file").val("").clone(true));
 			return;
 		} else {
 			// validated
@@ -87,68 +81,63 @@ $(function() {
 			$("div#result").text("");
 		}
 	}
+	
+	
+	
 
 	function validate(input) {
-		var valide = false;
 		if (input != null && input.files && input.files[0]) {
 			var fileName = input.value;
-			var extension = fileName.substring(fileName.lastIndexOf('.') + 1)
-					.toLowerCase();
+			var extension=fileName.split('.').pop().toLowerCase();
+//			var extension = fileName.substring(fileName.lastIndexOf('.') + 1)
+//					.toLowerCase();
 			if (extension == "png") {
-				valide = true;
+			return true;
 			}
 		}
-		return valide;
+		$("#file").replaceWith($("#file").val("").clone(true));
+		return false;
+	}
+
+	function scaleToFitPreviewImg(elt) {
+		$(elt).imgscale({
+			parent : '.non-immediate-parent-container',
+			fade : 1000
+		});
 	}
 
 	function previewPhoto(data) {
-		$('#preview_image').attr('src', data);
+		$('#PreviewImg').attr('src', data);
+		scaleToFitPreviewImg($('#PreviewImg'));
 		$('#StylePreview #HomeLink img').attr('src', data).width(25).height(21);
 	}
 
-	function getAndUpdateLogoByAjax() {
-		$("#preview_image").jzAjax({
-			url : "BrandingControler.getLogoUrlByAjax()",
-			success : function(data) {
-				previewPhoto(data);
-			}
-		});
-	}
-
-	function UpdateStyleSelect() {
+	function UpdatePreviewLogoAndStyle(firstTime) {
 		$("#navigationStyle").jzAjax({
-			url : "BrandingControler.getStyleValue()",
+			
+			url : "BrandingControler.getResource()",
+			beforeSend: function(){
+//				alert("beforesend");
+				if(!firstTime) {
+					$("#ajaxUploading").show();
+				}
+			},
 			success : function(data) {
-				changePreviewStyle(data);
-				$("#navigationStyle").val(data).attr('selected', 'selected');
+				// update the logo url in preview zone and preview navigation bar
+				previewPhoto(data.logoUrl);
+				// update the navigation style and style selected;
+				changePreviewStyle(data.style);
+				$("#navigationStyle").val(data.style).attr('selected', 'selected');
+				$("#ajaxUploading").hide();
 			}
 		});
 	}
-	function UpdateBarNavigation() {
-		$("#PlatformAdminToolbarContainer .HomeLink img").jzAjax(
-				{
-					url : "BrandingControler.getLogoUrlByAjax()",
-					success : function(data) {
-						$("#PlatformAdminToolbarContainer .HomeLink img:first")
-								.attr('src', data).width(25).height(21);
-					}
-				});
-
-		$("#PlatformAdminToolbarContainer #UIToolbarContainer")
-				.jzAjax(
-						{
-							url : "BrandingControler.getStyleValue()",
-							success : function(data) {
-								$(
-										"#PlatformAdminToolbarContainer #UIToolbarContainer:first")
-										.removeAttr("class");
-								$(
-										"#PlatformAdminToolbarContainer #UIToolbarContainer:first")
-										.addClass(
-												"UIToolbarContainer" + data
-														+ " UIContainer");
-							}
-						});
+	function UpdateTopBarNavigation(data) {
+		$("#PlatformAdminToolbarContainer .HomeLink img:first").attr('src',
+				data.logoUrl).width(25).height(21);
+		$("#PlatformAdminToolbarContainer #UIToolbarContainer:first")
+				.removeAttr("class");
+		$("#PlatformAdminToolbarContainer #UIToolbarContainer:first").addClass(
+				"UIToolbarContainer" + data.style + " UIContainer");
 	}
-
 });

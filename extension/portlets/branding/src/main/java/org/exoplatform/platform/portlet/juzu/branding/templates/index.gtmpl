@@ -20,7 +20,11 @@
 <div>
 Preview
 </div>
-<img id="preview_image" alt="" src="${imageUrl}" width="300px" height="80px"> 
+
+<div id="PreviewImgDiv" class="non-immediate-parent-container">
+<img id="PreviewImg" alt="" src="${imageUrl}" > 
+</div>
+
 <br>
 
 <br/>

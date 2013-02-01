@@ -20,6 +20,7 @@ import java.io.IOException;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.Map;
 import javax.inject.Inject;
 import juzu.Path;
@@ -27,6 +28,7 @@ import juzu.Resource;
 import juzu.Response;
 import juzu.Route;
 import juzu.View;
+import juzu.io.Stream;
 import juzu.plugin.ajax.Ajax;
 import juzu.request.HttpContext;
 import juzu.template.Template;
@@ -82,8 +84,7 @@ public class BrandingControler {
   }
 
   @Resource
-  @Route("/resource")
-  public Response.Content save(FileItem file,String style) throws IOException {
+  public Response.Content save(HttpContext httpContext,FileItem file,String style) throws IOException {
     if (file != null && file.getContentType().startsWith("image/")) {
       dataStorageService.saveFile(file);
     }
@@ -94,7 +95,7 @@ public class BrandingControler {
                          SettingValue.create(style));
       this.style = style;
     }
-    return Response.ok("Changes in branding settings have been saved ");
+    return getResource(httpContext);
   }
 
   @View
@@ -143,6 +144,70 @@ public class BrandingControler {
         + "/rest/jcr/repository/collaboration/Application%20Data/logos/logo.png?"+System.currentTimeMillis();
     return logoUrl;
   }
+  
+  
+  
+  @Ajax
+  @Resource
+  public Response.Content<Stream.Char>  getResource(HttpContext httpContext) {
+    Map<String, String> result = new HashMap<String, String>();
+    String style = "";
+    if (settingService.get(Context.GLOBAL, Scope.GLOBAL, BAR_NAVIGATION_STYLE_KEY) == null) {
+
+      style = "Light";
+    } else {
+      style = (String) settingService.get(Context.GLOBAL, Scope.GLOBAL, BAR_NAVIGATION_STYLE_KEY)
+                                     .getValue();
+    }
+
+    result.put("style", style);
+
+    String portalName = ExoContainerContext.getCurrentContainer()
+                                           .getContext()
+                                           .getPortalContainerName();
+    String logoUrl = httpContext.getScheme() + "://" + httpContext.getServerName() + ":"
+        + httpContext.getServerPort() + "/" + portalName
+        + "/rest/jcr/repository/collaboration/Application%20Data/logos/logo.png?"
+        + System.currentTimeMillis();
+
+    result.put("logoUrl", logoUrl);
+    return createJSON(result);
+  }
+  
+  
+  private Response.Content<Stream.Char> createJSON(final Map<String, String> data)
+  {
+     Response.Content<Stream.Char> json = new Response.Content<Stream.Char>(200, Stream.Char.class)
+     {
+
+        @Override
+        public String getMimeType()
+        {
+           return "application/json";
+        }
+
+        @Override
+        public void send(Stream.Char stream) throws IOException
+        {
+           stream.append("{");
+           Iterator<Map.Entry<String, String>> i = data.entrySet().iterator();
+           while(i.hasNext())
+           {
+              Map.Entry<String, String> entry = i.next();
+              stream.append("\"" + entry.getKey() + "\"");
+              stream.append(":");
+              stream.append("\"" + entry.getValue() + "\"");
+              if(i.hasNext())
+              {
+                 stream.append(",");
+              }
+           }
+           stream.append("}");
+        }
+     };
+     return json;
+  }
+  
 
 //  @Ajax
 //  @Resource
