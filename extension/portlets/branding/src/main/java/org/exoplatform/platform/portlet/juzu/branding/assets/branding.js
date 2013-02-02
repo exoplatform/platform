@@ -5,6 +5,8 @@ $(function() {
 	$("#PlatformAdminToolbarContainer").clone().appendTo($("#StylePreview"));
 	fixSearchInput();
 	scaleToFitPreviewImg($('#PreviewImg'));
+	runDragandDrop();
+	
 	$("#cancel").on(
 			"click",
 			function() {
@@ -23,6 +25,10 @@ $(function() {
 		previewLogoBycontent(this);
 	});
 
+	$("input#dragfile").on("change", function() {
+		previewLogoBycontent(this);
+	});
+	
 	$('#form').submit(function() {
 		$(this).ajaxSubmit({
 			beforeSubmit : function(data) {
@@ -140,4 +146,120 @@ $(function() {
 		$("#PlatformAdminToolbarContainer #UIToolbarContainer:first").addClass(
 				"UIToolbarContainer" + data.style + " UIContainer");
 	}
+	
+	
+	
+	/*drag and drop*/
+	function runDragandDrop(){
+	    var maxPercentLocalUpload = 1;
+	    var idOf = function(prefix,file) {
+	        return (prefix+file.name).replace(/[. ]/g,'');
+	    }
+
+	    // FireReader event handlers
+	    var fr = (function() {
+	        return {
+	              load: function(file) {
+	                return function(e) {
+	                    var progressBar = $('#'+idOf('pg',file));
+	                    progressBar.val(maxPercentLocalUpload);
+	                    // show thumbnail
+	                    var img = $('#'+idOf('img',file));
+	                    img.attr('src',e.target.result);	                    
+	                    $('#PreviewImg').attr('src', e.target.result).width(300).height(34);
+	                    // store to local storage
+	                    localStorage[idOf('ls',file)] = JSON.stringify({
+	                        file: file,
+	                        data: e.target.result
+	                    });
+	                }
+	            },
+	        };
+	    })();
+
+	    var handleDragOver = function(evt) {
+	        evt.stopPropagation();
+	        evt.preventDefault();
+	    };
+	    var handleDrop = function(evt) {
+	        evt.stopPropagation();
+	        evt.preventDefault();
+	        $("input#file").change(evt); 
+	        var files = evt.dataTransfer.files; 	        
+	        for (var i = 0, f; f = files[i]; i++) {
+	            if (!f.type.match('image.*')) {
+	                console.log(f.name+' is not image: '+f.type );
+	                alert("must be JPEG. your upload is "+f.type);
+	                continue;
+	            }
+	            var f = files[0];
+	            var reader = new FileReader();
+	            reader.onload      = fr.load(f);
+	            reader.readAsDataURL(f);
+	        }
+	    };
+	    var dropArea = document.getElementById("drop-area");
+	    dropArea.addEventListener('dragover', handleDragOver, false);
+	    dropArea.addEventListener('drop',     handleDrop, false);
+	    
+	    
+	    var dropZoneId = "drop-zone";
+	    var buttonId = "clickHere";
+	    var mouseOverClass = "mouse-over";
+
+	    var dropZone = $("#" + dropZoneId);
+	    var ooleft = dropZone.offset().left;
+	    var ooright = dropZone.outerWidth() + ooleft;
+	    var ootop = dropZone.offset().top;
+	    var oobottom = dropZone.outerHeight() + ootop;
+	    var inputFile = dropZone.find("input");
+	    
+	    document.getElementById(dropZoneId).addEventListener("dragover", function (e) {
+	        e.preventDefault();
+	        e.stopPropagation();
+	        dropZone.addClass(mouseOverClass);
+	        var x = e.pageX;
+	        var y = e.pageY;
+
+	        if (!(x < ooleft || x > ooright || y < ootop || y > oobottom)) {
+	            inputFile.offset({ top: y - 15, left: x - 100 });
+	        } else {
+	            inputFile.offset({ top: -400, left: -400 });
+	        }
+
+	    }, true);
+
+	    if (buttonId != "") {
+	        var clickZone = $("#" + buttonId);
+
+	        var oleft = clickZone.offset().left;
+	        var oright = clickZone.outerWidth() + oleft;
+	        var otop = clickZone.offset().top;
+	        var obottom = clickZone.outerHeight() + otop;
+
+	        $("#" + buttonId).mousemove(function (e) {
+	            var x = e.pageX;
+	            var y = e.pageY;
+	            if (!(x < oleft || x > oright || y < otop || y > obottom)) {
+	                inputFile.offset({ top: y - 15, left: x - 160 });
+	            } else {
+	                inputFile.offset({ top: -400, left: -400 });
+	            }
+	            
+	            if ($("#dragfile").val() != ""){     
+		        $("#dragfile").clone().insertAfter("#form #file"); 
+		        $("#originalForm #file").remove();
+		        $("#originalForm #dragfile").attr("id","file");
+		        $("#originalForm #file").attr("style","");
+		        $("#dragfile").val("");		        
+	            }
+	        });
+	    }
+	    document.getElementById(dropZoneId).addEventListener("drop", function (e) {
+	        $("#" + dropZoneId).removeClass(mouseOverClass);	        
+	    }, true);	    
+	    
+	}
+
+	
 });

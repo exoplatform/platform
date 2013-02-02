@@ -9,28 +9,40 @@
 <br>
 
 <h3>Select Logo</h3>
-<hr/>  
+<hr/>
+<div id="originalForm">
 <form id="form" enctype="multipart/form-data" action="${url}"  method="POST">
-   <input type='file' id='file' name='file'  /> 
-   <input type='hidden' id='style' name='style'  /> 
+   <input type='file' id='file' name='file'  />
+   <input type='hidden' id='style' name='style'  />
 </form>
-
+</div>
 <br>
 <br>
 <div>
 Preview
 </div>
 
-<div id="PreviewImgDiv" class="non-immediate-parent-container">
-<img id="PreviewImg" alt="" src="${imageUrl}" > 
+<div id="drop-zone" style=" width: 300px; height: 100px">
+  <div id="clickHere" style=" width: 300px; height: 80px">
+  <form id="DragForm" enctype="multipart/form-data" action="${url}"  method="POST">
+     <input type='file' id='dragfile' name='file'  style="opacity:0"/>
+  </form>
+    <div id="drop-area">
+                  <div id="PreviewImgDiv" class="non-immediate-parent-container">
+                  <img id="PreviewImg" alt="" src="${imageUrl}" >
+                  </div>
+     </div>
+  </div>
 </div>
+
+
 
 <br>
 
 <br/>
 <div>
 <h3>Select navigation bar style</h3>
-<hr/>  
+<hr/>
 <select id="navigationStyle">
 <option value="Dark">Dark</option>
 <option value="Light">Light</option>
@@ -40,12 +52,12 @@ Preview
 <h3>
 Preview
 </h3>
-<hr/>  
+<hr/>
 <div id="StylePreview">
-</div> 
+</div>
  
 <br/>
-<hr/>  
+<hr/>
 <br/>
 <input id="save" type="button" value="Save"/>
 <input id="cancel" type="button" value="Cancel"/>
