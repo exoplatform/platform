@@ -151,31 +151,6 @@ $(function() {
 	
 	/*drag and drop*/
 	function runDragandDrop(){
-	    var maxPercentLocalUpload = 1;
-	    var idOf = function(prefix,file) {
-	        return (prefix+file.name).replace(/[. ]/g,'');
-	    }
-
-	    // FireReader event handlers
-	    var fr = (function() {
-	        return {
-	              load: function(file) {
-	                return function(e) {
-	                    var progressBar = $('#'+idOf('pg',file));
-	                    progressBar.val(maxPercentLocalUpload);
-	                    // show thumbnail
-	                    var img = $('#'+idOf('img',file));
-	                    img.attr('src',e.target.result);	                    
-	                    $('#PreviewImg').attr('src', e.target.result).width(300).height(34);
-	                    // store to local storage
-	                    localStorage[idOf('ls',file)] = JSON.stringify({
-	                        file: file,
-	                        data: e.target.result
-	                    });
-	                }
-	            },
-	        };
-	    })();
 
 	    var handleDragOver = function(evt) {
 	        evt.stopPropagation();
@@ -184,24 +159,19 @@ $(function() {
 	    var handleDrop = function(evt) {
 	        evt.stopPropagation();
 	        evt.preventDefault();
-	        $("input#file").change(evt); 
+	      //  $("input#file").change(evt); 
 	        var files = evt.dataTransfer.files; 	        
-	        for (var i = 0, f; f = files[i]; i++) {
-	            if (!f.type.match('image.*')) {
-	                console.log(f.name+' is not image: '+f.type );
-	                alert("must be JPEG. your upload is "+f.type);
-	                continue;
-	            }
-	            var f = files[0];
-	            var reader = new FileReader();
-	            reader.onload      = fr.load(f);
-	            reader.readAsDataURL(f);
-	        }
+	        var f = files[0];
+            var reader = new FileReader();
+	        reader.onload = function(e) {
+				previewPhoto(e.target.result);
+			};
+			reader.readAsDataURL(f);
 	    };
+	    
 	    var dropArea = document.getElementById("drop-area");
 	    dropArea.addEventListener('dragover', handleDragOver, false);
 	    dropArea.addEventListener('drop',     handleDrop, false);
-	    
 	    
 	    var dropZoneId = "drop-zone";
 	    var buttonId = "clickHere";
@@ -245,7 +215,6 @@ $(function() {
 	            } else {
 	                inputFile.offset({ top: -400, left: -400 });
 	            }
-	            
 	            if ($("#dragfile").val() != ""){     
 		        $("#dragfile").clone(true).insertAfter("#form #file"); 
 		        $("#originalForm #file").remove();
