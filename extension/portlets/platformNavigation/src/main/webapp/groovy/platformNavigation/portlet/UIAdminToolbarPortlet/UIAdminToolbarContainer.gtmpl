@@ -50,7 +50,7 @@
 			<% if(userCouldEditPage){ %>
 			<li class="dropdown-submenu">
 				<a href="#" tabindex="-1">
-					<i class="uiIconPLFEdit uiIconFile"></i><%=_ctx.appRes("UIAdminToolbarPortlet.action.Page")%>
+					<i class="uiIconFile"></i><%=_ctx.appRes("UIAdminToolbarPortlet.action.Page")%>
 				</a>
 				<ul class="dropdown-menu">
         <%
@@ -58,7 +58,7 @@
         %>
 					<li>
 						<a href="$editPageRequest">
-							<i class="uiIconPLFEdit uiIconFile"></i>$editPageLabel
+							<i class="uiIconFile"></i>$editPageLabel
 						</a>
 					</li>
 					<li>
@@ -72,7 +72,7 @@
 					<li class="divider">&nbsp;</li>
 					<li>	
 						<a href="javascript:ajaxGet(eXo.env.server.createPortalURL('UIWorkingWorkspace', 'PageCreationWizard', true))">
-							<i class="uiIconPLFAddPage uiIconFile"></i>$addPageLabel
+							<i class="uiIconFile"></i>$addPageLabel
 						</a>
 					</li>
 				</ul>
@@ -81,20 +81,20 @@
 			<% if(userCouldEditPortal || userCouldEditNavigation) { %>
 			<li class="dropdown-submenu">
 				<a href="#" tabindex="-1">
-					<i class="uiIconPLFAddSite uiIconFile"></i>$siteLabel
+					<i class="uiIconFile"></i>$siteLabel
 				</a>
 				<ul class="dropdown-menu">
 					<% if(userCouldEditPortal){ %>
 					<li>	
 						<a href="javascript:ajaxGet(eXo.env.server.createPortalURL('UIWorkingWorkspace', 'EditInline', true))">
-							<i class="uiIconPLFEditSide uiIconFile"></i>$editSiteLayout
+							<i class="uiIconFile"></i>$editSiteLayout
 						</a>
 					</li>
 					<% } %>
 					<% if(userCouldEditNavigation){ %>
 					<li>	
 						<a href="<%=uicomponent.event("EditNavigation", null);%>">
-							<i class="uiIconNavigation uiIconFile"></i>$editNavigation
+							<i class="uiIconFile"></i>$editNavigation
 						</a>
 					</li>
 					<% } %>
@@ -102,7 +102,7 @@
 					<li class="divider">&nbsp;</li>
 					<li>	
 						<a href="javascript:void(0);" onclick="javascript:ajaxGet(eXo.env.server.createPortalURL('UIWorkingWorkspace', 'CreatePortal', true))">
-							<i class="uiIconPLFAddSite uiIconFile"></i>$addSiteLabel
+							<i class="uiIconFile"></i>$addSiteLabel
 						</a>
 					</li>
 					<% } %>

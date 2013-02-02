@@ -46,7 +46,7 @@
 
 		<li class="<%=navigationTabClass%>">
 			<a href="$pageURL">
-				<div class="uiIconDefaultApp uiIcon<%=node%>"></div>
+				<div class="uiIconApp<%=node%> uiIconDefaultApp"></div>
 				<span class="tabName"><%=nodeLabel%></span>
 			</a>
 		</li>
@@ -54,7 +54,7 @@
     } else { %>
 		<li class="<%=navigationTabClass%>">
 			<a href="$pageURL">
-				<div class="uiIconDefaultApp uiIcon<%=node%>"></div>
+				<div class="uiIconApp<%=node%> uiIconDefaultApp"></div>
 				<span class="tabName"><%=nodeLabel%></span>
 			</a>
 		</li>
