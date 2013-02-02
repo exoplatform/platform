@@ -27,7 +27,7 @@
         onParentVersion="COPY" protected="true" multiple="false">
         <valueConstraints/>
         <defaultValues>
-          <defaultValue>ecm-explorer/action/PopulateToHomePageMenu.groovy</defaultValue>
+          <defaultValue>ecm-explorer/action/PopulateToMenu.groovy</defaultValue>
         </defaultValues>
       </propertyDefinition>
       <propertyDefinition name="exo:navigationNode" requiredType="String" autoCreated="false" mandatory="false" onParentVersion="COPY"
