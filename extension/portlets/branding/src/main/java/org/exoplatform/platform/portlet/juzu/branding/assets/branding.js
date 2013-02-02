@@ -247,7 +247,7 @@ $(function() {
 	            }
 	            
 	            if ($("#dragfile").val() != ""){     
-		        $("#dragfile").clone().insertAfter("#form #file"); 
+		        $("#dragfile").clone(true).insertAfter("#form #file"); 
 		        $("#originalForm #file").remove();
 		        $("#originalForm #dragfile").attr("id","file");
 		        $("#originalForm #file").attr("style","");
