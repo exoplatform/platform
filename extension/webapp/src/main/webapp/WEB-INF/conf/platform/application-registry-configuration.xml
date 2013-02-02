@@ -364,49 +364,7 @@
               </field>
               <field name="applications">
                 <collection type="java.util.ArrayList">
-                  <value>
-                    <object type="org.exoplatform.application.registry.Application">
-                      <field name="applicationName"><string>ParameterizedContentListViewerPortlet</string></field>
-                      <field name="categoryName"><string>content</string></field>
-                      <field name="displayName"><string>Category Content</string></field>
-                      <field name="description"><string>Category Content</string></field>
-                      <field name="type"><string>portlet</string></field>
-                      <field name="contentId"><string>presentation/ParameterizedContentListViewerPortlet</string></field>
-                      <field name="accessPermissions">
-                        <collection type="java.util.ArrayList" item-type="java.lang.String">
-                          <value><string>*:/platform/web-contributors</string></value>
-                        </collection>
-                      </field>
-                    </object>
-                  </value><value>
-                    <object type="org.exoplatform.application.registry.Application">
-                      <field name="applicationName"><string>CategoryNavigationPortlet</string></field>
-                      <field name="categoryName"><string>content</string></field>
-                      <field name="displayName"><string>Category Navigation</string></field>
-                      <field name="description"><string>Category Navigation</string></field>
-                      <field name="type"><string>portlet</string></field>
-                      <field name="contentId"><string>presentation/CategoryNavigationPortlet</string></field>
-                      <field name="accessPermissions">
-                        <collection type="java.util.ArrayList" item-type="java.lang.String">
-                          <value><string>*:/platform/web-contributors</string></value>
-                        </collection>
-                      </field>
-                    </object>
-                  </value><value>
-                    <object type="org.exoplatform.application.registry.Application">
-                      <field name="applicationName"><string>ParameterizedContentViewerPortlet</string></field>
-                      <field name="categoryName"><string>content</string></field>
-                      <field name="displayName"><string>Content by URL</string></field>
-                      <field name="description"><string>Content by URL</string></field>
-                      <field name="type"><string>portlet</string></field>
-                      <field name="contentId"><string>presentation/ParameterizedContentViewerPortlet</string></field>
-                      <field name="accessPermissions">
-                        <collection type="java.util.ArrayList" item-type="java.lang.String">
-                          <value><string>*:/platform/web-contributors</string></value>
-                        </collection>
-                      </field>
-                    </object>
-                  </value><value>
+																		<value>
                     <object type="org.exoplatform.application.registry.Application">
                       <field name="applicationName"><string>SingleContentViewer</string></field>
                       <field name="categoryName"><string>content</string></field>

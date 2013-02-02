@@ -59,7 +59,7 @@
                   <string>collaboration</string>
                 </field>
                 <field name="nodePath">
-                  <string>/sites content/live/intranet/web contents/site artifacts</string>
+                  <string>/sites/intranet/web contents/site artifacts</string>
                 </field>
               </object>
             </field>
@@ -81,7 +81,7 @@
                   <string>collaboration</string>
                 </field>
                 <field name="nodePath">
-                  <string>/sites content/live/intranet/web contents/site artifacts</string>
+                  <string>/sites/intranet/web contents/site artifacts</string>
                 </field>
               </object>
             </field>
@@ -103,7 +103,7 @@
                   <string>collaboration</string>
                 </field>
                 <field name="nodePath">
-                  <string>/sites content/live/intranet/web contents/site artifacts</string>
+                  <string>/sites/intranet/web contents/site artifacts</string>
                 </field>
               </object>
             </field>
@@ -125,7 +125,7 @@
                   <string>collaboration</string>
                 </field>
                 <field name="nodePath">
-                  <string>/sites content/live/intranet/web contents/site artifacts</string>
+                  <string>/sites/intranet/web contents/site artifacts</string>
                 </field>
               </object>
             </field>
@@ -147,7 +147,7 @@
                   <string>collaboration</string>
                 </field>
                 <field name="nodePath">
-                  <string>/sites content/live/intranet/web contents/site artifacts</string>
+                  <string>/sites/intranet/web contents/site artifacts</string>
                 </field>
               </object>
             </field>
@@ -169,7 +169,7 @@
                   <string>collaboration</string>
                 </field>
                 <field name="nodePath">
-                  <string>/sites content/live/intranet/web contents/site artifacts</string>
+                  <string>/sites/intranet/web contents/site artifacts</string>
                 </field>
               </object>
             </field>
@@ -191,7 +191,7 @@
                   <string>collaboration</string>
                 </field>
                 <field name="nodePath">
-                  <string>/sites content/live/intranet/web contents/site artifacts</string>
+                  <string>/sites/intranet/web contents/site artifacts</string>
                 </field>
               </object>
             </field>
@@ -215,7 +215,7 @@
                   <string>collaboration</string>
                 </field>
                 <field name="nodePath">
-                  <string>/sites content/live/intranet/web contents/site artifacts</string>
+                  <string>/sites/intranet/web contents/site artifacts</string>
                 </field>
               </object>
             </field>
@@ -238,7 +238,7 @@
                   <string>collaboration</string>
                 </field>
                 <field name="nodePath">
-                  <string>/sites content/live/intranet/medias/images</string>
+                  <string>/sites/intranet/medias/images</string>
                 </field>
               </object>
             </field>
@@ -260,7 +260,7 @@
                   <string>collaboration</string>
                 </field>
                 <field name="nodePath">
-                  <string>/sites content/live/intranet/css</string>
+                  <string>/sites/intranet/css</string>
                 </field>
               </object>
             </field>

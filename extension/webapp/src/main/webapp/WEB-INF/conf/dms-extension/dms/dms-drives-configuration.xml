@@ -8,12 +8,82 @@
    <external-component-plugins>
    	<target-component>org.exoplatform.services.cms.drives.ManageDriveService</target-component>    
 
-      <component-plugin> 
+    <component-plugin>
+      <name>manage.drive.plugin</name>
+      <set-method>setManageDrivePlugin</set-method>
+      <type>org.exoplatform.services.cms.drives.impl.ManageDrivePlugin</type>
+      <description>Nothing</description>
+        <init-params>
+          <object-param>
+            <name>Managed Sites</name>
+            <description>Managed Sites</description>
+            <object type="org.exoplatform.services.cms.drives.DriveData">
+              <field name="name">
+                <string>Managed Sites</string>
+              </field>
+              <field name="workspace">
+                <string>collaboration</string>
+              </field>
+              <field name="permissions">
+                <string>*:/platform/administrators,*:/platform/web-contributors</string>
+              </field>
+              <field name="homePath">
+                <string>/sites</string>
+              </field>
+              <field name="icon">
+                <string></string>
+              </field>
+              <field name="views">
+                <string>Categories</string>
+              </field>
+              <field name="viewPreferences">
+                <boolean>false</boolean>
+              </field>
+              <field name="viewNonDocument">
+                <boolean>true</boolean>
+              </field>
+              <field name="viewSideBar">
+                <boolean>true</boolean>
+              </field>
+              <field name="showHiddenNode">
+                <boolean>false</boolean>
+              </field>
+              <field name="allowCreateFolders">
+                <string>nt:folder,nt:unstructured</string>
+            	 </field>
+              <field name="allowNodeTypesOnTree">
+            		  <string>*</string>
+              </field>
+            </object>
+          </object-param>
+        </init-params>
+      </component-plugin>
+	
+	     <component-plugin> 
         <name>manage.drive.plugin</name>
         <set-method>setManageDrivePlugin</set-method>
         <type>org.exoplatform.services.cms.drives.impl.ManageDrivePlugin</type>
         <description>Nothing</description>
         <init-params>
+          <object-param>        
+            <name>Collaboration</name>
+            <description>Collaboration Workspace</description>
+            <object type="org.exoplatform.services.cms.drives.DriveData">
+              <field  name="name"><string>Collaboration</string></field>
+              <field  name="workspace"><string>collaboration</string></field>
+              <field  name="permissions"><string>*:/platform/web-contributors,*:/platform/administrators</string></field>
+              <field  name="homePath"><string>/</string></field>
+              <field  name="icon"><string></string></field>
+              <field  name="views"><string>Admin, Web</string></field>
+              <field  name="viewPreferences"><boolean>false</boolean></field>
+              <field  name="viewNonDocument"><boolean>true</boolean></field>
+              <field  name="viewSideBar"><boolean>true</boolean></field>
+              <field  name="showHiddenNode"><boolean>false</boolean></field>
+              <field  name="allowCreateFolders"><string>nt:folder,nt:unstructured</string></field>
+              <field  name="allowNodeTypesOnTree"><string>*</string></field>       
+            </object>
+          </object-param>
+								
           <object-param>
             <name>Personal Documents</name>
             <description>Personal Documents</description>
@@ -24,13 +94,13 @@
               <field  name="homePath"><string>/Users/${userId}/Private</string></field>
               <field  name="icon"><string></string></field>
               <field  name="views">
-                <string>b_list-view, c_icon-view, e_admin-view</string>
+                <string>List, Icons, Admin</string>
               </field>
               <field  name="viewPreferences"><boolean>false</boolean></field>
               <field  name="viewNonDocument"><boolean>false</boolean></field>
-              <field  name="viewSideBar"><boolean>true</boolean></field>
+              <field  name="viewSideBar"><boolean>false</boolean></field>
               <field  name="showHiddenNode"><boolean>false</boolean></field>
-              <field  name="allowCreateFolders"><string>nt:folder,nt:unstructured</string></field>
+              <field  name="allowCreateFolders"><string>nt:folder</string></field>
               <field name="allowNodeTypesOnTree"><string>*</string></field>
             </object>
           </object-param>
@@ -41,16 +111,16 @@
               <field  name="name"><string>Groups</string></field>
               <field  name="workspace"><string>collaboration</string></field>
               <field  name="permissions"><string>*:${groupId}</string></field>
-              <field  name="homePath"><string>/Groups${groupId}</string></field>
+              <field  name="homePath"><string>/Groups${groupId}/Documents</string></field>
               <field  name="icon"><string></string></field>
               <field  name="views">
-                <string>b_list-view, c_icon-view</string>
+                <string>List, Icons</string>
               </field>
               <field  name="viewPreferences"><boolean>false</boolean></field>
-              <field  name="viewNonDocument"><boolean>true</boolean></field>
-              <field  name="viewSideBar"><boolean>true</boolean></field>
+              <field  name="viewNonDocument"><boolean>false</boolean></field>
+              <field  name="viewSideBar"><boolean>false</boolean></field>
               <field  name="showHiddenNode"><boolean>false</boolean></field>
-              <field  name="allowCreateFolders"><string>nt:folder,nt:unstructured</string></field>
+              <field  name="allowCreateFolders"><string>nt:folder</string></field>
               <field name="allowNodeTypesOnTree"><string>*</string></field>
             </object>
           </object-param>
@@ -65,7 +135,7 @@
               <field  name="homePath"><string>/Trash</string></field>
               <field  name="icon"><string></string></field>
               <field  name="views">
-                <string>b_list-view, c_icon-view</string>
+                <string>Admin</string>
               </field>
               <field  name="viewPreferences"><boolean>true</boolean></field>
               <field  name="viewNonDocument"><boolean>true</boolean></field>

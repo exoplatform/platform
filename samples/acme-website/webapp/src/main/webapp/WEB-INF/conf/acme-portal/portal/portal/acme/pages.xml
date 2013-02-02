@@ -43,7 +43,7 @@
               </preference>
               <preference>
                 <name>nodeIdentifier</name>
-                <value>/sites content/live/acme/web contents/site artifacts/Introduce</value>
+                <value>/sites/acme/web contents/site artifacts/Introduce</value>
                 <read-only>false</read-only>
               </preference>
               <preference>
@@ -91,7 +91,7 @@
             <preferences>
               <preference>
                 <name>folderPath</name>
-                <value>repository:collaboration:/sites content/live/acme/web contents</value>
+                <value>repository:collaboration:/sites/acme/web contents</value>
                 <read-only>false</read-only>
               </preference>
               <preference>
@@ -169,7 +169,7 @@
             <preferences>
               <preference>
                 <name>folderPath</name>
-                <value>repository:collaboration:/sites content/live/acme/web contents/Users</value>
+                <value>repository:collaboration:/sites/acme/web contents/Users</value>
                 <read-only>false</read-only>
               </preference>
               <preference>
@@ -255,7 +255,7 @@
             <preferences>
               <preference>
                 <name>folderPath</name>
-                <value>repository:collaboration:/sites content/live/acme/web contents/News</value>
+                <value>repository:collaboration:/sites/acme/web contents/News</value>
                 <read-only>false</read-only>
               </preference>
 			  <preference>
@@ -333,7 +333,7 @@
             <preferences>
               <preference>
                 <name>folderPath</name>
-                <value>repository:collaboration:/sites content/live/acme/documents</value>
+                <value>repository:collaboration:/sites/acme/documents</value>
                 <read-only>false</read-only>
               </preference>
               <preference>
@@ -410,7 +410,7 @@
             <preferences>
               <preference>
                 <name>folderPath</name>
-                <value>repository:collaboration:/sites content/live/acme/categories/Powers</value>
+                <value>repository:collaboration:/sites/acme/categories/powers</value>
                 <read-only>false</read-only>
               </preference>
               <preference>
@@ -483,7 +483,7 @@
             <preferences>
               <preference>
                 <name>folderPath</name>
-                <value>repository:collaboration:/sites content/live/acme/categories/Powers</value>
+                <value>repository:collaboration:/sites/acme/categories/powers</value>
                 <read-only>false</read-only>
               </preference>
               <preference>
@@ -574,7 +574,7 @@
             <preferences>
               <preference>
                 <name>folderPath</name>
-                <value>repository:collaboration:/sites content/live/acme/events</value>
+                <value>repository:collaboration:/sites/acme/events</value>
                 <read-only>false</read-only>
               </preference>
               <preference>
@@ -639,7 +639,7 @@
             <preferences>
               <preference>
                 <name>folderPath</name>
-                <value>repository:collaboration:/sites content/live/acme/events/All</value>
+                <value>repository:collaboration:/sites/acme/events/All</value>
                 <read-only>false</read-only>
               </preference>
               <preference>
@@ -857,7 +857,7 @@
           </preference>
           <preference>
             <name>nodeIdentifier</name>
-            <value>/sites content/live/acme/web contents/site artifacts/Introduce</value>
+            <value>/sites/acme/web contents/site artifacts/Introduce</value>
             <read-only>false</read-only>
           </preference>
           <preference>
@@ -912,7 +912,7 @@
             <preferences>
               <preference>
                 <name>folderPath</name>
-                <value>repository:collaboration:/sites content/live/acme/categories/Powers</value>
+                <value>repository:collaboration:/sites/acme/categories/powers</value>
                 <read-only>false</read-only>
               </preference>
               <!--preference>
@@ -1132,7 +1132,7 @@
 						  </preference>
 						  <preference>
 							<name>nodeIdentifier</name>
-							<value>/sites content/live/acme/web contents/site artifacts/contact-us-intro</value>
+							<value>/sites/acme/web contents/site artifacts/contact-us-intro</value>
 							<read-only>false</read-only>
 						  </preference>
 						  <preference>
@@ -1199,7 +1199,7 @@
 						  </preference>
 						  <preference>
 							<name>path</name>
-							<value>/sites content/live/acme/documents</value>
+							<value>/sites/acme/documents</value>
 						  </preference>
 						  <preference>
 							<name>saveMessage</name>
@@ -1243,7 +1243,7 @@
 					  </preference>
 					  <preference>
 						<name>nodeIdentifier</name>
-						<value>/sites content/live/acme/web contents/site artifacts/contact-us-countries</value>
+						<value>/sites/acme/web contents/site artifacts/contact-us-countries</value>
 						<read-only>false</read-only>
 					  </preference>
 					  <preference>
@@ -1306,7 +1306,7 @@
           </preference>
           <preference>
             <name>nodeIdentifier</name>
-            <value>/sites content/live/acme/web contents/site artifacts/contact_form_confirmation</value>
+            <value>/sites/acme/web contents/site artifacts/contact_form_confirmation</value>
             <read-only>false</read-only>
           </preference>
           <preference>
@@ -1366,7 +1366,7 @@
 							</preference>
 							<preference>
 								<name>nodeIdentifier</name>
-								<value>/sites content/live/acme/web contents/site artifacts/LinkHome</value>
+								<value>/sites/acme/web contents/site artifacts/LinkHome</value>
 								<read-only>false</read-only>
 							</preference>
 							<preference>

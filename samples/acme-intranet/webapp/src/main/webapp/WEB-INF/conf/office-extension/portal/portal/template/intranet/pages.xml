@@ -120,7 +120,7 @@
                         <preferences>
                             <preference>
                                 <name>folderPath</name>
-                                <value>repository:collaboration:/sites content/live/@owner@/web contents/site artifacts/announcements</value>
+                                <value>repository:collaboration:/sites/@owner@/web contents/site artifacts/announcements</value>
                                 <read-only>false</read-only>
                             </preference>
                             <preference>
@@ -202,7 +202,7 @@
                             </preference>
                             <preference>
                                 <name>nodeIdentifier</name>
-                                <value>/sites content/live/@owner@/web contents/site artifacts/Footer</value>
+                                <value>/sites/@owner@/web contents/site artifacts/Footer</value>
                                 <read-only>false</read-only>
                             </preference>
                             <preference>
@@ -333,7 +333,7 @@
                             </preference>
                             <preference>
                                 <name>nodeIdentifier</name>
-                                <value>/sites content/live/@owner@/web contents/site artifacts/Welcome</value>
+                                <value>/sites/@owner@/web contents/site artifacts/Welcome</value>
                                 <read-only>false</read-only>
                             </preference>
                             <preference>
@@ -411,7 +411,7 @@
                             </preference>
                             <preference>
                                 <name>nodeIdentifier</name>
-                                <value>/sites content/live/@owner@/web contents/site artifacts/LinkHome</value>
+                                <value>/sites/@owner@/web contents/site artifacts/LinkHome</value>
                                 <read-only>false</read-only>
                             </preference>
                             <preference>
@@ -1072,7 +1072,7 @@
                     </preference>
                     <preference>
                         <name>driveName</name>
-                        <value>Private</value>
+                        <value>Personal Documents</value>
                         <read-only>false</read-only>
                     </preference>
                     <preference>
@@ -1201,7 +1201,7 @@
                     </preference>
                     <preference>
                         <name>nodeIdentifier</name>
-                        <value>/sites content/live/@owner@/web contents/site artifacts/Welcome</value>
+                        <value>/sites/@owner@/web contents/site artifacts/Welcome</value>
                         <read-only>false</read-only>
                     </preference>
                     <preference>

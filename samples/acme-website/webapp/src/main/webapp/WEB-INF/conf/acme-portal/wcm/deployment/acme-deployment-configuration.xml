@@ -61,7 +61,7 @@
                   <string>collaboration</string>
                 </field>
                 <field name="nodePath">
-                  <string>/sites content/live/acme/web contents/site artifacts</string>
+                  <string>/sites/acme/web contents/site artifacts</string>
                 </field>
               </object>
             </field>
@@ -83,7 +83,7 @@
                   <string>collaboration</string>
                 </field>
                 <field name="nodePath">
-                  <string>/sites content/live/acme/web contents/site artifacts</string>
+                  <string>/sites/acme/web contents/site artifacts</string>
                 </field>
               </object>
             </field>
@@ -105,7 +105,7 @@
                   <string>collaboration</string>
                 </field>
                 <field name="nodePath">
-                  <string>/sites content/live/acme/web contents</string>
+                  <string>/sites/acme/web contents</string>
                 </field>
               </object>
             </field>
@@ -127,7 +127,7 @@
                   <string>collaboration</string>
                 </field>
                 <field name="nodePath">
-                  <string>/sites content/live/acme/web contents/site artifacts</string>
+                  <string>/sites/acme/web contents/site artifacts</string>
                 </field>
               </object>
             </field>
@@ -149,7 +149,7 @@
                   <string>collaboration</string>
                 </field>
                 <field name="nodePath">
-                  <string>/sites content/live/acme/web contents/site artifacts</string>
+                  <string>/sites/acme/web contents/site artifacts</string>
                 </field>              
               </object>
             </field>
@@ -171,7 +171,7 @@
                   <string>collaboration</string>
                 </field>
                 <field name="nodePath">
-                  <string>/sites content/live/acme/web contents/site artifacts</string>
+                  <string>/sites/acme/web contents/site artifacts</string>
                 </field>
               </object>
             </field>
@@ -193,7 +193,7 @@
 							<string>collaboration</string>
 						</field>
 						<field name="nodePath">
-							<string>/sites content/live/acme/web contents/site artifacts</string>
+							<string>/sites/acme/web contents/site artifacts</string>
 						</field>
 					</object>
 				</field>
@@ -215,7 +215,7 @@
                   <string>collaboration</string>
                 </field>
                 <field name="nodePath">
-                  <string>/sites content/live/acme/web contents/site artifacts</string>
+                  <string>/sites/acme/web contents/site artifacts</string>
                 </field>
               </object>
             </field>
@@ -237,7 +237,7 @@
                   <string>collaboration</string>
                 </field>
                 <field name="nodePath">
-                  <string>/sites content/live/acme/web contents/site artifacts</string>
+                  <string>/sites/acme/web contents/site artifacts</string>
                 </field>
               </object>
             </field>
@@ -259,7 +259,7 @@
                   <string>collaboration</string>
                 </field>
                 <field name="nodePath">
-                  <string>/sites content/live/acme/web contents/site artifacts</string>
+                  <string>/sites/acme/web contents/site artifacts</string>
                 </field>
               </object>
             </field>
@@ -281,7 +281,7 @@
                   <string>collaboration</string>
                 </field>
                 <field name="nodePath">
-                  <string>/sites content/live/acme/web contents/site artifacts</string>
+                  <string>/sites/acme/web contents/site artifacts</string>
                 </field>
               </object>
             </field>
@@ -303,7 +303,7 @@
                   <string>collaboration</string>
                 </field>
                 <field name="nodePath">
-                  <string>/sites content/live/acme/web contents/site artifacts</string>
+                  <string>/sites/acme/web contents/site artifacts</string>
                 </field>
               </object>
             </field>
@@ -325,7 +325,7 @@
                   <string>collaboration</string>
                 </field>
                 <field name="nodePath">
-                  <string>/sites content/live/acme/css</string>
+                  <string>/sites/acme/css</string>
                 </field>
               </object>
             </field>
@@ -347,7 +347,7 @@
                   <string>collaboration</string>
                 </field>
                 <field name="nodePath">
-                  <string>/sites content/live/acme/css</string>
+                  <string>/sites/acme/css</string>
                 </field>
               </object>
             </field>
@@ -370,7 +370,7 @@
                   <string>collaboration</string>
                 </field>
                 <field name="nodePath">
-                  <string>/sites content/live/acme/js</string>
+                  <string>/sites/acme/js</string>
                 </field>
               </object>
             </field>
@@ -394,7 +394,7 @@
                   <string>collaboration</string>
                 </field>
                 <field name="nodePath">
-                  <string>/sites content/live/acme/js</string>
+                  <string>/sites/acme/js</string>
                 </field>
               </object>
             </field>
@@ -417,7 +417,7 @@
                   <string>collaboration</string>
                 </field>
                 <field name="nodePath">
-                  <string>/sites content/live/acme/medias/images</string>
+                  <string>/sites/acme/medias/images</string>
                 </field>
               </object>
             </field>
@@ -439,7 +439,7 @@
                   <string>collaboration</string>
                 </field>
                 <field name="nodePath">
-                  <string>/sites content/live/acme/medias/images</string>
+                  <string>/sites/acme/medias/images</string>
                 </field>
               </object>
             </field>
@@ -461,7 +461,7 @@
                   <string>collaboration</string>
                 </field>
                 <field name="nodePath">
-                  <string>/sites content/live/acme/medias/images</string>
+                  <string>/sites/acme/medias/images</string>
                 </field>
               </object>
             </field>
@@ -483,7 +483,7 @@
                   <string>collaboration</string>
                 </field>
                 <field name="nodePath">
-                  <string>/sites content/live/acme/web contents</string>
+                  <string>/sites/acme/web contents</string>
                 </field>
               </object>
             </field>
@@ -505,7 +505,7 @@
                   <string>collaboration</string>
                 </field>
                 <field name="nodePath">
-                  <string>/sites content/live/acme/web contents</string>
+                  <string>/sites/acme/web contents</string>
                 </field>
               </object>
             </field>
@@ -528,7 +528,7 @@
                   <string>collaboration</string>
                 </field>
                 <field name="nodePath">
-                  <string>/sites content/live/acme/web contents</string>
+                  <string>/sites/acme/web contents</string>
                 </field>
               </object>
             </field>
@@ -550,7 +550,7 @@
                   <string>collaboration</string>
                 </field>
                 <field name="nodePath">
-                  <string>/sites content/live/acme/web contents</string>
+                  <string>/sites/acme/web contents</string>
                 </field>
               </object>
             </field>
@@ -572,7 +572,7 @@
                   <string>collaboration</string>
                 </field>
                 <field name="nodePath">
-                  <string>/sites content/live/acme/web contents</string>
+                  <string>/sites/acme/web contents</string>
                 </field>
               </object>
             </field>
@@ -594,7 +594,7 @@
                   <string>collaboration</string>
                 </field>
                 <field name="nodePath">
-                  <string>/sites content/live/acme/web contents</string>
+                  <string>/sites/acme/web contents</string>
                 </field>
               </object>
             </field>
@@ -616,7 +616,7 @@
                   <string>collaboration</string>
                 </field>
                 <field name="nodePath">
-                  <string>/sites content/live/acme/web contents</string>
+                  <string>/sites/acme/web contents</string>
                 </field>
               </object>
             </field>
@@ -638,7 +638,7 @@
                   <string>collaboration</string>
                 </field>
                 <field name="nodePath">
-                  <string>/sites content/live/acme/web contents</string>
+                  <string>/sites/acme/web contents</string>
                 </field>
               </object>
             </field>
@@ -660,7 +660,7 @@
                   <string>collaboration</string>
                 </field>
                 <field name="nodePath">
-                  <string>/sites content/live/acme/web contents</string>
+                  <string>/sites/acme/web contents</string>
                 </field>
               </object>
             </field>
@@ -682,7 +682,7 @@
                   <string>collaboration</string>
                 </field>
                 <field name="nodePath">
-                  <string>/sites content/live/acme/web contents</string>
+                  <string>/sites/acme/web contents</string>
                 </field>
               </object>
             </field>
@@ -704,7 +704,7 @@
                   <string>collaboration</string>
                 </field>
                 <field name="nodePath">
-                  <string>/sites content/live/acme/web contents</string>
+                  <string>/sites/acme/web contents</string>
                 </field>
               </object>
             </field>
@@ -726,7 +726,7 @@
                   <string>collaboration</string>
                 </field>
                 <field name="nodePath">
-                  <string>/sites content/live/acme/web contents</string>
+                  <string>/sites/acme/web contents</string>
                 </field>
               </object>
             </field>
@@ -748,7 +748,7 @@
                   <string>collaboration</string>
                 </field>
                 <field name="nodePath">
-                  <string>/sites content/live/acme/web contents</string>
+                  <string>/sites/acme/web contents</string>
                 </field>
               </object>
             </field>
@@ -770,7 +770,7 @@
                   <string>collaboration</string>
                 </field>
                 <field  name="nodePath">
-                  <string>/sites content/live/acme/web contents/site artifacts</string>
+                  <string>/sites/acme/web contents/site artifacts</string>
                 </field>
               </object>
             </field>
@@ -792,7 +792,7 @@
                   <string>collaboration</string>
                 </field>
                 <field  name="nodePath">
-                  <string>/sites content/live/acme/web contents/site artifacts</string>
+                  <string>/sites/acme/web contents/site artifacts</string>
                 </field>
               </object>
             </field>
@@ -814,7 +814,7 @@
                   <string>collaboration</string>
                 </field>
                 <field name="nodePath">
-                  <string>/sites content/live/acme/documents</string>
+                  <string>/sites/acme/documents</string>
                 </field>
               </object>
             </field>
@@ -836,7 +836,7 @@
                   <string>collaboration</string>
                 </field>
                 <field name="nodePath">
-                  <string>/sites content/live/acme/documents</string>
+                  <string>/sites/acme/documents</string>
                 </field>
               </object>
             </field>
@@ -859,7 +859,7 @@
                   <string>collaboration</string>
                 </field>
                 <field name="nodePath">
-                  <string>/sites content/live/acme/documents</string>
+                  <string>/sites/acme/documents</string>
                 </field>
               </object>
             </field>
@@ -881,7 +881,7 @@
                   <string>collaboration</string>
                 </field>
                 <field name="nodePath">
-                  <string>/sites content/live/acme/web contents/site artifacts</string>
+                  <string>/sites/acme/web contents/site artifacts</string>
                 </field>
               </object>
             </field>
@@ -903,7 +903,7 @@
                   <string>collaboration</string>
                 </field>
                 <field name="nodePath">
-                  <string>/sites content/live/acme/web contents/site artifacts</string>
+                  <string>/sites/acme/web contents/site artifacts</string>
                 </field>
               </object>
             </field>
@@ -929,10 +929,10 @@
           <description>Deployment Descriptor</description>
           <object type="org.exoplatform.services.deployment.plugins.LinkDeploymentDescriptor">
             <field name="sourcePath">
-              <string>repository:collaboration:/sites content/live/acme/web contents/News/acme-news-1</string>
+              <string>repository:collaboration:/sites/acme/web contents/News/acme-news-1</string>
             </field>
             <field name="targetPath">
-              <string>repository:collaboration:/sites content/live/acme/categories/Powers</string>
+              <string>repository:collaboration:/sites/acme/categories/powers</string>
             </field>
           </object>
         </object-param>
@@ -943,10 +943,10 @@
           <description>Deployment Descriptor</description>
           <object type="org.exoplatform.services.deployment.plugins.LinkDeploymentDescriptor">
             <field name="sourcePath">
-              <string>repository:collaboration:/sites content/live/acme/web contents/News/acme-news-2</string>
+              <string>repository:collaboration:/sites/acme/web contents/News/acme-news-2</string>
             </field>
             <field name="targetPath">
-              <string>repository:collaboration:/sites content/live/acme/categories/Powers</string>
+              <string>repository:collaboration:/sites/acme/categories/powers</string>
             </field>
           </object>
         </object-param>
@@ -955,10 +955,10 @@
           <description>Deployment Descriptor</description>
           <object type="org.exoplatform.services.deployment.plugins.LinkDeploymentDescriptor">
             <field name="sourcePath">
-              <string>repository:collaboration:/sites content/live/acme/web contents/News/acme-news-1</string>
+              <string>repository:collaboration:/sites/acme/web contents/News/acme-news-1</string>
             </field>
             <field name="targetPath">
-              <string>repository:collaboration:/sites content/live/acme/events/All</string>
+              <string>repository:collaboration:/sites/acme/events/All</string>
             </field>
           </object>
         </object-param>
@@ -967,10 +967,10 @@
           <description>Deployment Descriptor</description>
           <object type="org.exoplatform.services.deployment.plugins.LinkDeploymentDescriptor">
             <field name="sourcePath">
-              <string>repository:collaboration:/sites content/live/acme/web contents/News/acme-news-2</string>
+              <string>repository:collaboration:/sites/acme/web contents/News/acme-news-2</string>
             </field>
             <field name="targetPath">
-              <string>repository:collaboration:/sites content/live/acme/events/All</string>
+              <string>repository:collaboration:/sites/acme/events/All</string>
             </field>
           </object>
         </object-param>
@@ -979,10 +979,10 @@
           <description>Deployment Descriptor</description>
           <object type="org.exoplatform.services.deployment.plugins.LinkDeploymentDescriptor">
             <field name="sourcePath">
-              <string>repository:collaboration:/sites content/live/acme/web contents/Events/Event1</string>
+              <string>repository:collaboration:/sites/acme/web contents/Events/Event1</string>
             </field>
             <field name="targetPath">
-              <string>repository:collaboration:/sites content/live/acme/events/All</string>
+              <string>repository:collaboration:/sites/acme/events/All</string>
             </field>
           </object>
         </object-param>
@@ -991,10 +991,10 @@
           <description>Deployment Descriptor</description>
           <object type="org.exoplatform.services.deployment.plugins.LinkDeploymentDescriptor">
             <field name="sourcePath">
-              <string>repository:collaboration:/sites content/live/acme/web contents/Events/Event2</string>
+              <string>repository:collaboration:/sites/acme/web contents/Events/Event2</string>
             </field>
             <field name="targetPath">
-              <string>repository:collaboration:/sites content/live/acme/events/All</string>
+              <string>repository:collaboration:/sites/acme/events/All</string>
             </field>
           </object>
         </object-param>
@@ -1003,10 +1003,10 @@
           <description>Deployment Descriptor</description>
           <object type="org.exoplatform.services.deployment.plugins.LinkDeploymentDescriptor">
             <field name="sourcePath">
-              <string>repository:collaboration:/sites content/live/acme/web contents/Events/Event3</string>
+              <string>repository:collaboration:/sites/acme/web contents/Events/Event3</string>
             </field>
             <field name="targetPath">
-              <string>repository:collaboration:/sites content/live/acme/events/All</string>
+              <string>repository:collaboration:/sites/acme/events/All</string>
             </field>
           </object>
         </object-param>
@@ -1015,10 +1015,10 @@
           <description>Deployment Descriptor</description>
           <object type="org.exoplatform.services.deployment.plugins.LinkDeploymentDescriptor">
             <field name="sourcePath">
-              <string>repository:collaboration:/sites content/live/acme/web contents/Events/Event4</string>
+              <string>repository:collaboration:/sites/acme/web contents/Events/Event4</string>
             </field>
             <field name="targetPath">
-              <string>repository:collaboration:/sites content/live/acme/events/All</string>
+              <string>repository:collaboration:/sites/acme/events/All</string>
             </field>
           </object>
         </object-param>
@@ -1029,10 +1029,10 @@
           <description>Deployment Descriptor</description>
           <object type="org.exoplatform.services.deployment.plugins.LinkDeploymentDescriptor">
             <field name="sourcePath">
-              <string>repository:collaboration:/sites content/live/acme/web contents/Events/Event1</string>
+              <string>repository:collaboration:/sites/acme/web contents/Events/Event1</string>
             </field>
             <field name="targetPath">
-              <string>repository:collaboration:/sites content/live/acme/events/All/Fire</string>
+              <string>repository:collaboration:/sites/acme/events/All/Fire</string>
             </field>
           </object>
         </object-param>
@@ -1043,10 +1043,10 @@
           <description>Deployment Descriptor</description>
           <object type="org.exoplatform.services.deployment.plugins.LinkDeploymentDescriptor">
             <field name="sourcePath">
-              <string>repository:collaboration:/sites content/live/acme/web contents/Events/Event2</string>
+              <string>repository:collaboration:/sites/acme/web contents/Events/Event2</string>
             </field>
             <field name="targetPath">
-              <string>repository:collaboration:/sites content/live/acme/events/All/Water</string>
+              <string>repository:collaboration:/sites/acme/events/All/Water</string>
             </field>
           </object>
         </object-param>
@@ -1057,10 +1057,10 @@
           <description>Deployment Descriptor</description>
           <object type="org.exoplatform.services.deployment.plugins.LinkDeploymentDescriptor">
             <field name="sourcePath">
-              <string>repository:collaboration:/sites content/live/acme/web contents/Events/Event4</string>
+              <string>repository:collaboration:/sites/acme/web contents/Events/Event4</string>
             </field>
             <field name="targetPath">
-              <string>repository:collaboration:/sites content/live/acme/events/All/Air</string>
+              <string>repository:collaboration:/sites/acme/events/All/Air</string>
             </field>
           </object>
         </object-param>
@@ -1069,10 +1069,10 @@
           <description>Deployment Descriptor</description>
           <object type="org.exoplatform.services.deployment.plugins.LinkDeploymentDescriptor">
             <field name="sourcePath">
-              <string>repository:collaboration:/sites content/live/acme/web contents/News/acme-news-1</string>
+              <string>repository:collaboration:/sites/acme/web contents/News/acme-news-1</string>
             </field>
             <field name="targetPath">
-              <string>repository:collaboration:/sites content/live/acme/events/All/Air</string>
+              <string>repository:collaboration:/sites/acme/events/All/Air</string>
             </field>
           </object>
         </object-param>
@@ -1083,10 +1083,10 @@
           <description>Deployment Descriptor</description>
           <object type="org.exoplatform.services.deployment.plugins.LinkDeploymentDescriptor">
             <field name="sourcePath">
-              <string>repository:collaboration:/sites content/live/acme/web contents/Events/Event3</string>
+              <string>repository:collaboration:/sites/acme/web contents/Events/Event3</string>
             </field>
             <field name="targetPath">
-              <string>repository:collaboration:/sites content/live/acme/events/All/Earth</string>
+              <string>repository:collaboration:/sites/acme/events/All/Earth</string>
             </field>
           </object>
         </object-param>
@@ -1095,10 +1095,10 @@
           <description>Deployment Descriptor</description>
           <object type="org.exoplatform.services.deployment.plugins.LinkDeploymentDescriptor">
             <field name="sourcePath">
-              <string>repository:collaboration:/sites content/live/acme/web contents/News/acme-news-2</string>
+              <string>repository:collaboration:/sites/acme/web contents/News/acme-news-2</string>
             </field>
             <field name="targetPath">
-              <string>repository:collaboration:/sites content/live/acme/events/All/Earth</string>
+              <string>repository:collaboration:/sites/acme/events/All/Earth</string>
             </field>
           </object>
         </object-param>
@@ -1107,10 +1107,10 @@
           <description>Deployment Descriptor</description>
           <object type="org.exoplatform.services.deployment.plugins.LinkDeploymentDescriptor">
             <field name="sourcePath">
-              <string>repository:collaboration:/sites content/live/acme/web contents/X-Ray</string>
+              <string>repository:collaboration:/sites/acme/web contents/X-Ray</string>
             </field>
             <field name="targetPath">
-              <string>repository:collaboration:/sites content/live/acme/categories/Powers/Defense/Vision</string>
+              <string>repository:collaboration:/sites/acme/categories/powers/Defense/Vision</string>
             </field>
           </object>
         </object-param>
@@ -1119,10 +1119,10 @@
           <description>Deployment Descriptor</description>
           <object type="org.exoplatform.services.deployment.plugins.LinkDeploymentDescriptor">
             <field name="sourcePath">
-              <string>repository:collaboration:/sites content/live/acme/web contents/Night Vision</string>
+              <string>repository:collaboration:/sites/acme/web contents/Night Vision</string>
             </field>
             <field name="targetPath">
-              <string>repository:collaboration:/sites content/live/acme/categories/Powers/Defense/Vision</string>
+              <string>repository:collaboration:/sites/acme/categories/powers/Defense/Vision</string>
             </field>
           </object>
         </object-param>
@@ -1131,10 +1131,10 @@
           <description>Deployment Descriptor</description>
           <object type="org.exoplatform.services.deployment.plugins.LinkDeploymentDescriptor">
             <field name="sourcePath">
-              <string>repository:collaboration:/sites content/live/acme/web contents/Fire</string>
+              <string>repository:collaboration:/sites/acme/web contents/Fire</string>
             </field>
             <field name="targetPath">
-              <string>repository:collaboration:/sites content/live/acme/categories/Powers</string>
+              <string>repository:collaboration:/sites/acme/categories/powers</string>
             </field>
           </object>
         </object-param>
@@ -1143,10 +1143,10 @@
           <description>Deployment Descriptor</description>
           <object type="org.exoplatform.services.deployment.plugins.LinkDeploymentDescriptor">
             <field name="sourcePath">
-              <string>repository:collaboration:/sites content/live/acme/web contents/Fire</string>
+              <string>repository:collaboration:/sites/acme/web contents/Fire</string>
             </field>
             <field name="targetPath">
-              <string>repository:collaboration:/sites content/live/acme/categories/Powers/Natural Elements</string>
+              <string>repository:collaboration:/sites/acme/categories/powers/Natural Elements</string>
             </field>
           </object>
         </object-param>
@@ -1155,10 +1155,10 @@
           <description>Deployment Descriptor</description>
           <object type="org.exoplatform.services.deployment.plugins.LinkDeploymentDescriptor">
             <field name="sourcePath">
-              <string>repository:collaboration:/sites content/live/acme/web contents/Ice</string>
+              <string>repository:collaboration:/sites/acme/web contents/Ice</string>
             </field>
             <field name="targetPath">
-              <string>repository:collaboration:/sites content/live/acme/categories/Powers</string>
+              <string>repository:collaboration:/sites/acme/categories/powers</string>
             </field>
           </object>
         </object-param>
@@ -1167,10 +1167,10 @@
           <description>Deployment Descriptor</description>
           <object type="org.exoplatform.services.deployment.plugins.LinkDeploymentDescriptor">
             <field name="sourcePath">
-              <string>repository:collaboration:/sites content/live/acme/web contents/Ice</string>
+              <string>repository:collaboration:/sites/acme/web contents/Ice</string>
             </field>
             <field name="targetPath">
-              <string>repository:collaboration:/sites content/live/acme/categories/Powers/Natural Elements</string>
+              <string>repository:collaboration:/sites/acme/categories/powers/Natural Elements</string>
             </field>
           </object>
         </object-param>
@@ -1179,10 +1179,10 @@
           <description>Deployment Descriptor</description>
           <object type="org.exoplatform.services.deployment.plugins.LinkDeploymentDescriptor">
             <field name="sourcePath">
-              <string>repository:collaboration:/sites content/live/acme/web contents/Wind</string>
+              <string>repository:collaboration:/sites/acme/web contents/Wind</string>
             </field>
             <field name="targetPath">
-              <string>repository:collaboration:/sites content/live/acme/categories/Powers/Natural Elements</string>
+              <string>repository:collaboration:/sites/acme/categories/powers/Natural Elements</string>
             </field>
           </object>
         </object-param>
@@ -1191,10 +1191,10 @@
           <description>Deployment Descriptor</description>
           <object type="org.exoplatform.services.deployment.plugins.LinkDeploymentDescriptor">
             <field name="sourcePath">
-              <string>repository:collaboration:/sites content/live/acme/web contents/Speed</string>
+              <string>repository:collaboration:/sites/acme/web contents/Speed</string>
             </field>
             <field name="targetPath">
-              <string>repository:collaboration:/sites content/live/acme/categories/Powers/Movement</string>
+              <string>repository:collaboration:/sites/acme/categories/powers/Movement</string>
             </field>
           </object>
         </object-param>
@@ -1203,10 +1203,10 @@
           <description>Deployment Descriptor</description>
           <object type="org.exoplatform.services.deployment.plugins.LinkDeploymentDescriptor">
             <field name="sourcePath">
-              <string>repository:collaboration:/sites content/live/acme/web contents/Flight</string>
+              <string>repository:collaboration:/sites/acme/web contents/Flight</string>
             </field>
             <field name="targetPath">
-              <string>repository:collaboration:/sites content/live/acme/categories/Powers</string>
+              <string>repository:collaboration:/sites/acme/categories/powers</string>
             </field>
           </object>
         </object-param>
@@ -1215,10 +1215,10 @@
           <description>Deployment Descriptor</description>
           <object type="org.exoplatform.services.deployment.plugins.LinkDeploymentDescriptor">
             <field name="sourcePath">
-              <string>repository:collaboration:/sites content/live/acme/web contents/Flight</string>
+              <string>repository:collaboration:/sites/acme/web contents/Flight</string>
             </field>
             <field name="targetPath">
-              <string>repository:collaboration:/sites content/live/acme/categories/Powers/Movement</string>
+              <string>repository:collaboration:/sites/acme/categories/powers/Movement</string>
             </field>
           </object>
         </object-param>
@@ -1227,10 +1227,10 @@
           <description>Deployment Descriptor</description>
           <object type="org.exoplatform.services.deployment.plugins.LinkDeploymentDescriptor">
             <field name="sourcePath">
-              <string>repository:collaboration:/sites content/live/acme/web contents/Time Travel</string>
+              <string>repository:collaboration:/sites/acme/web contents/Time Travel</string>
             </field>
             <field name="targetPath">
-              <string>repository:collaboration:/sites content/live/acme/categories/Powers/Movement</string>
+              <string>repository:collaboration:/sites/acme/categories/powers/Movement</string>
             </field>
           </object>
         </object-param>

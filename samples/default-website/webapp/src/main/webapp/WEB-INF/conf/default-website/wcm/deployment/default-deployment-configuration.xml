@@ -59,7 +59,7 @@
                   <string>collaboration</string>
                 </field>
                 <field name="nodePath">
-                  <string>/sites content/live/default/web contents/site artifacts</string>
+                  <string>/sites/default/web contents/site artifacts</string>
                 </field>
               </object>
             </field>
@@ -81,7 +81,7 @@
                   <string>collaboration</string>
                 </field>
                 <field name="nodePath">
-                  <string>/sites content/live/default/css</string>
+                  <string>/sites/default/css</string>
                 </field>
               </object>
             </field>

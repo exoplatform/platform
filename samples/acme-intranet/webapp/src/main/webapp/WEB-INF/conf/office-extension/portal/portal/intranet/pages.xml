@@ -40,7 +40,7 @@
                         <preferences>
                             <preference>
                                 <name>folderPath</name>
-                                <value>repository:collaboration:/sites content/live/intranet/web contents/site artifacts/announcements</value>
+                                <value>repository:collaboration:/sites/intranet/web contents/site artifacts/announcements</value>
                                 <read-only>false</read-only>
                             </preference>
                             <preference>
@@ -125,7 +125,7 @@
                             </preference>
                             <preference>
                                 <name>nodeIdentifier</name>
-                                <value>/sites content/live/acme/web contents/site artifacts/Footer</value>
+                                <value>/sites/acme/web contents/site artifacts/Footer</value>
                                 <read-only>false</read-only>
                             </preference>
                             <preference>
@@ -263,7 +263,7 @@
                             </preference>
                             <preference>
                                 <name>nodeIdentifier</name>
-                                <value>/sites content/live/intranet/web contents/site artifacts/Welcome</value>
+                                <value>/sites/intranet/web contents/site artifacts/Welcome</value>
                                 <read-only>false</read-only>
                             </preference>
                             <preference>
@@ -342,7 +342,7 @@
                             </preference>
                             <preference>
                                 <name>nodeIdentifier</name>
-                                <value>/sites content/live/intranet/web contents/site artifacts/LinkHome</value>
+                                <value>/sites/intranet/web contents/site artifacts/LinkHome</value>
                                 <read-only>false</read-only>
                             </preference>
                             <preference>
@@ -1132,7 +1132,7 @@
                     </preference>
                     <preference>
                         <name>nodeIdentifier</name>
-                        <value>/sites content/live/intranet/web contents/site artifacts/Welcome</value>
+                        <value>/sites/intranet/web contents/site artifacts/Welcome</value>
                         <read-only>false</read-only>
                     </preference>
                     <preference>

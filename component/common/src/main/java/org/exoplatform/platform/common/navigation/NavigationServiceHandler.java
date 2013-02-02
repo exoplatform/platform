@@ -68,7 +68,7 @@ public class NavigationServiceHandler extends BaseWebSchemaHandler {
             Session session = publicApplicationNode.getSession();
             Node rootNode = session.getRootNode();
             String portalName = Util.getPortalRequestContext().getPortalOwner();
-            String path = "sites content/live/" + portalName + "/ApplicationData/logo/";
+            String path = "sites/" + portalName + "/ApplicationData/logo/";
             Node logoNode = rootNode.getNode(path);
             if (logoNode.hasNodes()) {
                 for (NodeIterator iterator = logoNode.getNodes(); iterator.hasNext(); ) {

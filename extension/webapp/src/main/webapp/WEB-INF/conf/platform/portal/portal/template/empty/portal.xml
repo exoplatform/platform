@@ -53,7 +53,7 @@
               </preference>
               <preference>
                 <name>nodeIdentifier</name>
-                <value>/sites content/live/@owner@/web contents/site artifacts/Logo</value>
+                <value>/sites/@owner@/web contents/site artifacts/Logo</value>
                 <read-only>false</read-only>
               </preference>
               <preference>
@@ -114,7 +114,7 @@
               </preference>
               <preference>
                 <name>nodeIdentifier</name>
-                <value>/sites content/live/@owner@/web contents/site artifacts/Signin</value>
+                <value>/sites/@owner@/web contents/site artifacts/Signin</value>
                 <read-only>false</read-only>
               </preference>
               <preference>
@@ -175,7 +175,7 @@
               </preference>
               <preference>
                 <name>nodeIdentifier</name>
-                <value>/sites content/live/@owner@/web contents/site artifacts/Searchbox</value>
+                <value>/sites/@owner@/web contents/site artifacts/Searchbox</value>
                 <read-only>false</read-only>
               </preference>
               <preference>
@@ -236,7 +236,7 @@
           </preference>
           <preference>
             <name>nodeIdentifier</name>
-            <value>/sites content/live/@owner@/web contents/site artifacts/Navigation</value>
+            <value>/sites/@owner@/web contents/site artifacts/Navigation</value>
             <read-only>false</read-only>
           </preference>
           <preference>
@@ -298,7 +298,7 @@
           </preference>
           <preference>
             <name>nodeIdentifier</name>
-            <value>/sites content/live/@owner@/web contents/site artifacts/Footer</value>
+            <value>/sites/@owner@/web contents/site artifacts/Footer</value>
             <read-only>false</read-only>
           </preference>
           <preference>

@@ -379,7 +379,7 @@ public class UINavigationForm extends UIForm implements UIPopupComponent, UISele
 												|| childNode.isNodeType("exo:taxonomy");
 						boolean navigableType = folderType
 												|| childNode.isNodeType("exo:webContent")
-												|| childNode.isNodeType("exo:product")
+												|| childNode.isNodeType("acme:product")
 												|| childNode.isNodeType("exo:taxonomyLink");
 						
 						if (!hasNavigableMixinType && navigableType) {

@@ -43,7 +43,7 @@
 									<string>collaboration</string>
 								</field>
 								<field name="nodePath">
-									<string>/sites content/live/{portalName}/web contents/site artifacts</string>
+									<string>/sites/{portalName}/web contents/site artifacts</string>
 								</field>
 							</object>
 						</field>
@@ -65,7 +65,7 @@
 									<string>collaboration</string>
 								</field>
 								<field name="nodePath">
-									<string>/sites content/live/{portalName}/web contents/site artifacts</string>
+									<string>/sites/{portalName}/web contents/site artifacts</string>
 								</field>
 							</object>
 						</field>
@@ -87,7 +87,7 @@
 									<string>collaboration</string>
 								</field>
 								<field name="nodePath">
-									<string>/sites content/live/{portalName}/web contents/site artifacts</string>
+									<string>/sites/{portalName}/web contents/site artifacts</string>
 								</field>
 							</object>
 						</field>
@@ -109,7 +109,7 @@
 									<string>collaboration</string>
 								</field>
 								<field name="nodePath">
-									<string>/sites content/live/{portalName}/web contents/site artifacts</string>
+									<string>/sites/{portalName}/web contents/site artifacts</string>
 								</field>
 							</object>
 						</field>
@@ -131,7 +131,7 @@
 									<string>collaboration</string>
 								</field>
 								<field name="nodePath">
-									<string>/sites content/live/{portalName}/web contents/site artifacts</string>
+									<string>/sites/{portalName}/web contents/site artifacts</string>
 								</field>
 							</object>
 						</field>
@@ -153,7 +153,7 @@
 									<string>collaboration</string>
 								</field>
 								<field name="nodePath">
-									<string>/sites content/live/{portalName}/web contents/site artifacts</string>
+									<string>/sites/{portalName}/web contents/site artifacts</string>
 								</field>
 							</object>
 						</field>
@@ -175,7 +175,7 @@
 									<string>collaboration</string>
 								</field>
 								<field name="nodePath">
-									<string>/sites content/live/{portalName}/web contents/site artifacts</string>
+									<string>/sites/{portalName}/web contents/site artifacts</string>
 								</field>
 							</object>
 						</field>
@@ -197,7 +197,7 @@
 									<string>collaboration</string>
 								</field>
 								<field name="nodePath">
-									<string>/sites content/live/{portalName}/medias/images</string>
+									<string>/sites/{portalName}/medias/images</string>
 								</field>
 							</object>
 						</field>
@@ -219,7 +219,7 @@
 									<string>collaboration</string>
 								</field>
 								<field name="nodePath">
-									<string>/sites content/live/{portalName}/web contents/site artifacts</string>
+									<string>/sites/{portalName}/web contents/site artifacts</string>
 								</field>
 							</object>
 						</field>
@@ -241,7 +241,7 @@
 									<string>collaboration</string>
 								</field>
 								<field name="nodePath">
-									<string>/sites content/live/{portalName}/css</string>
+									<string>/sites/{portalName}/css</string>
 								</field>
 							</object>
 						</field>
@@ -263,7 +263,7 @@
 									<string>collaboration</string>
 								</field>
 								<field name="nodePath">
-									<string>/sites content/live/{portalName}/css</string>
+									<string>/sites/{portalName}/css</string>
 								</field>
 							</object>
 						</field>
@@ -285,7 +285,7 @@
 									<string>collaboration</string>
 								</field>
 								<field name="nodePath">
-									<string>/sites content/live/{portalName}/web contents/site artifacts</string>
+									<string>/sites/{portalName}/web contents/site artifacts</string>
 								</field>
 							</object>
 						</field>
@@ -307,7 +307,7 @@
 									<string>collaboration</string>
 								</field>
 								<field name="nodePath">
-									<string>/sites content/live/{portalName}/web contents</string>
+									<string>/sites/{portalName}/web contents</string>
 								</field>
 							</object>
 						</field>
@@ -329,7 +329,7 @@
 									<string>collaboration</string>
 								</field>
 								<field name="nodePath">
-									<string>/sites content/live/{portalName}/web contents/site artifacts</string>
+									<string>/sites/{portalName}/web contents/site artifacts</string>
 								</field>
 							</object>
 						</field>
@@ -351,7 +351,7 @@
 									<string>collaboration</string>
 								</field>
 								<field name="nodePath">
-									<string>/sites content/live/{portalName}/medias/images</string>
+									<string>/sites/{portalName}/medias/images</string>
 								</field>
 							</object>
 						</field>
@@ -373,7 +373,7 @@
 									<string>collaboration</string>
 								</field>
 								<field name="nodePath">
-									<string>/sites content/live/{portalName}/medias/images</string>
+									<string>/sites/{portalName}/medias/images</string>
 								</field>
 							</object>
 						</field>
@@ -395,7 +395,7 @@
 									<string>collaboration</string>
 								</field>
 								<field name="nodePath">
-									<string>/sites content/live/{portalName}/web contents</string>
+									<string>/sites/{portalName}/web contents</string>
 								</field>
 							</object>
 						</field>
@@ -417,7 +417,7 @@
 									<string>collaboration</string>
 								</field>
 								<field name="nodePath">
-									<string>/sites content/live/{portalName}/web contents</string>
+									<string>/sites/{portalName}/web contents</string>
 								</field>
 							</object>
 						</field>
@@ -440,7 +440,7 @@
 									<string>collaboration</string>
 								</field>
 								<field name="nodePath">
-									<string>/sites content/live/{portalName}/web contents</string>
+									<string>/sites/{portalName}/web contents</string>
 								</field>
 							</object>
 						</field>
@@ -462,7 +462,7 @@
 									<string>collaboration</string>
 								</field>
 								<field  name="nodePath">
-									<string>/sites content/live/{portalName}/web contents/site artifacts</string>
+									<string>/sites/{portalName}/web contents/site artifacts</string>
 								</field>
 							</object>
 						</field>
@@ -484,7 +484,7 @@
 									<string>collaboration</string>
 								</field>
 								<field  name="nodePath">
-									<string>/sites content/live/{portalName}/web contents/site artifacts</string>
+									<string>/sites/{portalName}/web contents/site artifacts</string>
 								</field>
 							</object>
 						</field>
@@ -506,7 +506,7 @@
 									<string>collaboration</string>
 								</field>
 								<field name="nodePath">
-									<string>/sites content/live/{portalName}/documents</string>
+									<string>/sites/{portalName}/documents</string>
 								</field>
 							</object>
 						</field>
@@ -528,7 +528,7 @@
 									<string>collaboration</string>
 								</field>
 								<field name="nodePath">
-									<string>/sites content/live/{portalName}/documents</string>
+									<string>/sites/{portalName}/documents</string>
 								</field>
 							</object>
 						</field>
@@ -551,7 +551,7 @@
 									<string>collaboration</string>
 								</field>
 								<field name="nodePath">
-									<string>/sites content/live/{portalName}/documents</string>
+									<string>/sites/{portalName}/documents</string>
 								</field>
 							</object>
 						</field>
@@ -573,7 +573,7 @@
 									<string>collaboration</string>
 								</field>
 								<field name="nodePath">
-									<string>/sites content/live/{portalName}/web contents/site artifacts</string>
+									<string>/sites/{portalName}/web contents/site artifacts</string>
 								</field>
 							</object>
 						</field>
@@ -595,7 +595,7 @@
 									<string>collaboration</string>
 								</field>
 								<field name="nodePath">
-									<string>/sites content/live/{portalName}/web contents/site artifacts</string>
+									<string>/sites/{portalName}/web contents/site artifacts</string>
 								</field>
 							</object>
 						</field>
@@ -625,7 +625,7 @@
 				</value-param>
 				<value-param>
 					<name>path</name>
-					<value>/sites content/live/{portalName}/categories</value>
+					<value>/sites/{portalName}/categories</value>
 				</value-param>
 				<value-param>
 					<name>treeName</name>
@@ -723,13 +723,13 @@
 											<string/>
 										</field>
 										<field name="homePath">
-											<string>collaboration:/sites content/live/{portalName}/categories/{treeName}</string>
+											<string>collaboration:/sites/{portalName}/categories/{treeName}</string>
 										</field>
 										<field name="targetWspace">
 											<string>collaboration</string>
 										</field>
 										<field name="targetPath">
-											<string>/sites content/live/{portalName}/web contents</string>
+											<string>/sites/{portalName}/web contents</string>
 										</field>
 										<field name="lifecyclePhase">
 											<collection type="java.util.ArrayList">

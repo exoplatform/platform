@@ -148,7 +148,7 @@
                 <values-param>
                     <name>targetDrives</name>
                     <description>The list of drives which are not automatically created during the portal creation with "autoCreatedDrive=false".</description>
-                    <value>acme</value>
+                    <value></value>
                 </values-param>
             </init-params>
         </component-plugin>

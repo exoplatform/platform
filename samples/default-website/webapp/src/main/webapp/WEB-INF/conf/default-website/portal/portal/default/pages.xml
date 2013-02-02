@@ -45,7 +45,7 @@
               </preference>
               <preference>
                 <name>nodeIdentifier</name>
-                <value>/sites content/live/default/web contents/site artifacts/welcome</value>
+                <value>/sites/default/web contents/site artifacts/welcome</value>
                 <read-only>false</read-only>
               </preference>
               <preference>

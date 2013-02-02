@@ -43,7 +43,7 @@
               </preference>
               <preference>
                 <name>nodeIdentifier</name>
-                <value>/sites content/live/@owner@/web contents/site artifacts/Introduce</value>
+                <value>/sites/@owner@/web contents/site artifacts/Introduce</value>
                 <read-only>false</read-only>
               </preference>
               <preference>
@@ -91,7 +91,7 @@
             <preferences>
               <preference>
                 <name>folderPath</name>
-                <value>repository:collaboration:/sites content/live/@owner@/web contents/Powers</value>
+                <value>repository:collaboration:/sites/@owner@/web contents/Powers</value>
                 <read-only>false</read-only>
               </preference>
               <preference>
@@ -169,7 +169,7 @@
             <preferences>
               <preference>
                 <name>folderPath</name>
-                <value>repository:collaboration:/sites content/live/@owner@/web contents/Users</value>
+                <value>repository:collaboration:/sites/@owner@/web contents/Users</value>
                 <read-only>false</read-only>
               </preference>
               <preference>
@@ -240,7 +240,7 @@
             <preferences>
               <preference>
                 <name>folderPath</name>
-                <value>repository:collaboration:/sites content/live/@owner@/web contents/News</value>
+                <value>repository:collaboration:/sites/@owner@/web contents/News</value>
                 <read-only>false</read-only>
               </preference>
 			  <preference>
@@ -303,7 +303,7 @@
             <preferences>
               <preference>
                 <name>folderPath</name>
-                <value>repository:collaboration:/sites content/live/@owner@/documents</value>
+                <value>repository:collaboration:/sites/@owner@/documents</value>
                 <read-only>false</read-only>
               </preference>
               <preference>
@@ -380,7 +380,7 @@
             <preferences>
               <preference>
                 <name>folderPath</name>
-                <value>repository:collaboration:/sites content/live/@owner@/categories/acme</value>
+                <value>repository:collaboration:/sites/@owner@/categories/acme</value>
                 <read-only>false</read-only>
               </preference>
               <preference>
@@ -453,7 +453,7 @@
             <preferences>
               <preference>
                 <name>folderPath</name>
-                <value>repository:collaboration:/sites content/live/@owner@/categories/acme</value>
+                <value>repository:collaboration:/sites/@owner@/categories/acme</value>
                 <read-only>false</read-only>
               </preference>
               <preference>
@@ -544,7 +544,7 @@
             <preferences>
               <preference>
                 <name>folderPath</name>
-                <value>repository:collaboration:/sites content/live/@owner@/events</value>
+                <value>repository:collaboration:/sites/@owner@/events</value>
                 <read-only>false</read-only>
               </preference>
               <preference>
@@ -614,7 +614,7 @@
             <preferences>
               <preference>
                 <name>folderPath</name>
-                <value>repository:collaboration:/sites content/live/@owner@/events/All</value>
+                <value>repository:collaboration:/sites/@owner@/events/All</value>
                 <read-only>false</read-only>
               </preference>
               <preference>
@@ -822,7 +822,7 @@
           </preference>
           <preference>
             <name>nodeIdentifier</name>
-            <value>/sites content/live/@owner@/web contents/site artifacts/Introduce</value>
+            <value>/sites/@owner@/web contents/site artifacts/Introduce</value>
             <read-only>false</read-only>
           </preference>
           <preference>
@@ -877,7 +877,7 @@
             <preferences>
               <preference>
                 <name>folderPath</name>
-                <value>repository:collaboration:/sites content/live/@owner@/categories/acme</value>
+                <value>repository:collaboration:/sites/@owner@/categories/acme</value>
                 <read-only>false</read-only>
               </preference>
               <!--preference>
@@ -1097,7 +1097,7 @@
 						  </preference>
 						  <preference>
 							<name>nodeIdentifier</name>
-							<value>/sites content/live/@owner@/web contents/site artifacts/contact-us-intro</value>
+							<value>/sites/@owner@/web contents/site artifacts/contact-us-intro</value>
 							<read-only>false</read-only>
 						  </preference>
 						  <preference>
@@ -1164,7 +1164,7 @@
 						  </preference>
 						  <preference>
 							<name>path</name>
-							<value>/sites content/live/@owner@/documents</value>
+							<value>/sites/@owner@/documents</value>
 						  </preference>
 						  <preference>
 							<name>saveMessage</name>
@@ -1208,7 +1208,7 @@
 					  </preference>
 					  <preference>
 						<name>nodeIdentifier</name>
-						<value>/sites content/live/@owner@/web contents/site artifacts/contact-us-countries</value>
+						<value>/sites/@owner@/web contents/site artifacts/contact-us-countries</value>
 						<read-only>false</read-only>
 					  </preference>
 					  <preference>
@@ -1271,7 +1271,7 @@
           </preference>
           <preference>
             <name>nodeIdentifier</name>
-            <value>/sites content/live/@owner@/web contents/site artifacts/contact_form_confirmation</value>
+            <value>/sites/@owner@/web contents/site artifacts/contact_form_confirmation</value>
             <read-only>false</read-only>
           </preference>
           <preference>
@@ -1331,7 +1331,7 @@
 							</preference>
 							<preference>
 								<name>nodeIdentifier</name>
-								<value>/sites content/live/@owner@/web contents/site artifacts/LinkHome</value>
+								<value>/sites/@owner@/web contents/site artifacts/LinkHome</value>
 								<read-only>false</read-only>
 							</preference>
 							<preference>

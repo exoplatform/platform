@@ -158,7 +158,7 @@
                   <string>collaboration</string>
                 </field>
                 <field name="nodePath">
-                  <string>/sites content/live/acme/ApplicationData/NewsletterApplication/DefaultTemplates</string>
+                  <string>/sites/acme/ApplicationData/NewsletterApplication/DefaultTemplates</string>
                 </field>
               </object>
             </field>

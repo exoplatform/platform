@@ -52,7 +52,7 @@
               <value>
                 <object type="org.exoplatform.services.wcm.friendly.impl.FriendlyConfig$Friendly">
                   <field name="friendlyUri"><string>acme</string></field>
-                  <field name="unfriendlyUri"><string>/public/acme/detail?path=/repository/collaboration/sites content/live/acme/web contents</string></field>
+                  <field name="unfriendlyUri"><string>/public/acme/detail?path=/repository/collaboration/sites/acme/web contents</string></field>
                 </object>
               </value>
               <value>
@@ -76,7 +76,7 @@
               <value>
                 <object type="org.exoplatform.services.wcm.friendly.impl.FriendlyConfig$Friendly">
                   <field name="friendlyUri"><string>acme-documents</string></field>
-                  <field name="unfriendlyUri"><string>/rest/jcr/repository/collaboration/sites content/live/acme/documents</string></field>
+                  <field name="unfriendlyUri"><string>/rest/jcr/repository/collaboration/sites/acme/documents</string></field>
                 </object>
               </value>
               <!-- 

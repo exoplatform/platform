@@ -226,7 +226,7 @@ li {
 }
 
 .ProDetailPage .BoxContainer .TitleBar {
-	background: url("/portal/rest/jcr/repository/collaboration/sites content/live/acme/medias/images/GlobalImages/TitleBarBg.png") repeat-x left top;
+	background: url("/portal/rest/jcr/repository/collaboration/sites/acme/medias/images/GlobalImages/TitleBarBg.png") repeat-x left top;
     color: #FFFFFF;
     font-size: 18px!important;
     line-height: 30px;
@@ -235,7 +235,7 @@ li {
 
 .ProDetailPage .BoxContainer .ContentBlock {
 	-moz-border-radius: 5px 5px 5px 5px;
-    background: url('/portal/rest/jcr/repository/collaboration/sites content/live/acme/medias/images/GlobalImages/Bg.png') repeat-x left top #EFEFEF;
+    background: url('/portal/rest/jcr/repository/collaboration/sites/acme/medias/images/GlobalImages/Bg.png') repeat-x left top #EFEFEF;
 }
 
 .ProDetailPage .BoxContAct h1 {
