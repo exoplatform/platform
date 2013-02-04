@@ -31,9 +31,11 @@ public class WhoIsOnlineImpl implements WhoIsOnline {
     private static final String RECEIVED = "received";
     private static final String IGNORED = "ignored";
     private static final String DEFAULT_ACTIVITY = "DEFAULT_ACTIVITY";
+    private static final String LINK_ACTIVITY="LINK_ACTIVITY";
+    private static final String DOC_ACTIVITY="DOC_ACTIVITY";
     private static final int COUNT = 10;
-    private static final int MAX_CHAR = 90;
-    private static final int INDEX_CHAR = 87;
+    private static final int MAX_CHAR = 113;
+    private static final int INDEX_CHAR = 110;
     private static final String THREE_DOTS = "...";
     private static final int MAX_USER = 17;
     private static final int INDEX_USER = 18;
@@ -139,17 +141,21 @@ public class WhoIsOnlineImpl implements WhoIsOnline {
         RealtimeListAccess<ExoSocialActivity> activityList = activityManager.getActivitiesWithListAccess(identity);
         for (ExoSocialActivity act : activityList.loadAsList(i, count)) {
             i++;
-            if (act.getType().equals(DEFAULT_ACTIVITY)) {
-                activity = act.getTitle();
+            if (act.getType().equals(DEFAULT_ACTIVITY) || act.getType().equals(LINK_ACTIVITY) || act.getType().equals(DOC_ACTIVITY) ) {
+                activity = act.getTitle().replaceAll("\"","'");
+                if (activity.length() > MAX_CHAR && act.getType().equals(DEFAULT_ACTIVITY)) {
+                    activity = activity.substring(0, INDEX_CHAR).concat(THREE_DOTS);
+                }
+                if ( act.getType().equals(LINK_ACTIVITY)) {
+                    activity = "<a class='ColorLink' target='_blank' href='"+act.getUrl()+"'>"+act.getTitle()+"</a>";
+                }
                 break;
             }
             if (i == 9 && activity.equals("")) {
                 count += COUNT;
             }
         }
-        if (activity.length() > MAX_CHAR) {
-            activity = activity.substring(0, INDEX_CHAR).concat(THREE_DOTS);
-        }
+
         return activity;
 
     }
