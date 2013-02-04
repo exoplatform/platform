@@ -10,32 +10,14 @@
 
 <h3>Select Logo</h3>
 <hr/>
-<div id="originalForm">
+  <input type='file' id='file' name='file'  />
 <form id="form" enctype="multipart/form-data" action="${url}"  method="POST">
-   <input type='file' id='file' name='file'  />
    <input type='hidden' id='style' name='style'  />
 </form>
-</div>
-<br>
-<br>
-<div>
-Preview
-</div>
 
-<div id="drop-zone" style=" width: 300px; height: 100px; border=1" >
-  <div id="clickHere" style=" width: 300px; height: 80px">
-  <form id="DragForm" enctype="multipart/form-data" action="${url}"  method="POST">
-     <input type='file' id='dragfile' name='file'  style="opacity:0"/>
-  </form>
-    <div id="drop-area">
-                  <div id="PreviewImgDiv" class="non-immediate-parent-container">
-                  <img id="PreviewImg" alt="" src="${imageUrl}" >
-                  </div>
-     </div>
+  <div id="PreviewImgDiv" >
+ <img id="PreviewImg" alt="" src="${imageUrl}" >
   </div>
-</div>
-
-
 
 <br>
 

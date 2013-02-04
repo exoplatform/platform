@@ -18,25 +18,13 @@
  */
 @Application
 @Portlet
-@Assets(
-        scripts = {
-                @Script(id = "jquery",src ="js/common/jquery-1.8.3.js", location = juzu.asset.AssetLocation.SERVER),
-                @Script(id="form",src = "js/common/jquery.form.js", depends="jquery", location = juzu.asset.AssetLocation.SERVER),
-                @Script(id="firedrop",src="js/common/jquery.filedrop.js",depends="jquery",location = juzu.asset.AssetLocation.SERVER),
-                @Script(id="imgscale",src="js/common/imgscale.jquery.js",depends="jquery",location = juzu.asset.AssetLocation.SERVER),
-                @Script(src = "branding.js", depends={"form","firedrop","imgscale"}, location = AssetLocation.CLASSPATH)
-       
-        
-        },
-        stylesheets={ 
-            @Stylesheet(src="style/branding.css",location=AssetLocation.CLASSPATH)
-        }
-)
-
-@Bindings({
- @Binding(SettingService.class)
- })
+@Assets(scripts = {
+    @Script(id = "jquery", src = "js/common/jquery-1.8.3.js", location = juzu.asset.AssetLocation.SERVER),
+    @Script(id = "imgscale", src = "js/common/imgscale.jquery.js", depends = "jquery", location = juzu.asset.AssetLocation.SERVER),
+    @Script(src = "branding.js", depends = { "form", "firedrop", "imgscale" }, location = AssetLocation.CLASSPATH) }, stylesheets = { @Stylesheet(src = "style/branding.css", location = AssetLocation.CLASSPATH) })
+@Bindings({ @Binding(SettingService.class) })
 package org.exoplatform.platform.portlet.juzu.branding;
+
 import juzu.Application;
 import juzu.asset.AssetLocation;
 import juzu.plugin.asset.Assets;

@@ -66,25 +66,21 @@ public class BrandingControler {
   @Ajax
   @Resource
   public Response.Content getStyleValue() {
-    
+
     String style = "";
-    if (settingService.get(Context.GLOBAL,
-                           Scope.GLOBAL,
-                           BAR_NAVIGATION_STYLE_KEY)==null) {
-      
+    if (settingService.get(Context.GLOBAL, Scope.GLOBAL, BAR_NAVIGATION_STYLE_KEY) == null) {
+
       style = "Light";
-      
-    }
-    else{
-    style=(String) settingService.get(Context.GLOBAL,
-                                      Scope.GLOBAL,
-                                      BAR_NAVIGATION_STYLE_KEY).getValue();
+
+    } else {
+      style = (String) settingService.get(Context.GLOBAL, Scope.GLOBAL, BAR_NAVIGATION_STYLE_KEY)
+                                     .getValue();
     }
     return Response.ok(style);
   }
 
   @Resource
-  public Response.Content save(HttpContext httpContext,FileItem file,String style) throws IOException {
+  public Response.Content save(HttpContext httpContext, FileItem file, String style) throws IOException {
     if (file != null && file.getContentType().startsWith("image/")) {
       dataStorageService.saveFile(file);
     }
@@ -104,13 +100,7 @@ public class BrandingControler {
 
     Map<String, Object> parameters = new HashMap<String, Object>();
     parameters.put("url", BrandingControler_.save(null));
-    String logoUrl = getLogoUrl(httpContext);
-    if (!isExiste(logoUrl)) {
-      parameters.put("imageUrl",
-                     "/eXoPlatformResources/skin/platformSkin/UIToolbarContainer/background/HomeIcon.png");
-    } else {
-      parameters.put("imageUrl", logoUrl);
-    }
+    parameters.put("imageUrl", getLogoUrl(httpContext));
     return index.render(parameters);
   }
 
@@ -141,15 +131,18 @@ public class BrandingControler {
                                            .getPortalContainerName();
     String logoUrl = httpContext.getScheme() + "://" + httpContext.getServerName() + ":"
         + httpContext.getServerPort() + "/" + portalName
-        + "/rest/jcr/repository/collaboration/Application%20Data/logos/logo.png?"+System.currentTimeMillis();
+        + "/rest/jcr/repository/collaboration/Application%20Data/logos/logo.png?"
+        + System.currentTimeMillis();
+
+    if (!isExiste(logoUrl)) {
+      logoUrl = "/eXoPlatformResources/skin/platformSkin/UIToolbarContainer/background/HomeIcon.png";
+    }
     return logoUrl;
   }
-  
-  
-  
+
   @Ajax
   @Resource
-  public Response.Content<Stream.Char>  getResource(HttpContext httpContext) {
+  public Response.Content<Stream.Char> getResource(HttpContext httpContext) {
     Map<String, String> result = new HashMap<String, String>();
     String style = "";
     if (settingService.get(Context.GLOBAL, Scope.GLOBAL, BAR_NAVIGATION_STYLE_KEY) == null) {
@@ -159,59 +152,41 @@ public class BrandingControler {
       style = (String) settingService.get(Context.GLOBAL, Scope.GLOBAL, BAR_NAVIGATION_STYLE_KEY)
                                      .getValue();
     }
-
     result.put("style", style);
-
-    String portalName = ExoContainerContext.getCurrentContainer()
-                                           .getContext()
-                                           .getPortalContainerName();
-    String logoUrl = httpContext.getScheme() + "://" + httpContext.getServerName() + ":"
-        + httpContext.getServerPort() + "/" + portalName
-        + "/rest/jcr/repository/collaboration/Application%20Data/logos/logo.png?"
-        + System.currentTimeMillis();
-
-    result.put("logoUrl", logoUrl);
+    result.put("logoUrl", getLogoUrl(httpContext));
     return createJSON(result);
   }
-  
-  
-  private Response.Content<Stream.Char> createJSON(final Map<String, String> data)
-  {
-     Response.Content<Stream.Char> json = new Response.Content<Stream.Char>(200, Stream.Char.class)
-     {
 
-        @Override
-        public String getMimeType()
-        {
-           return "application/json";
-        }
+  private Response.Content<Stream.Char> createJSON(final Map<String, String> data) {
+    Response.Content<Stream.Char> json = new Response.Content<Stream.Char>(200, Stream.Char.class) {
 
-        @Override
-        public void send(Stream.Char stream) throws IOException
-        {
-           stream.append("{");
-           Iterator<Map.Entry<String, String>> i = data.entrySet().iterator();
-           while(i.hasNext())
-           {
-              Map.Entry<String, String> entry = i.next();
-              stream.append("\"" + entry.getKey() + "\"");
-              stream.append(":");
-              stream.append("\"" + entry.getValue() + "\"");
-              if(i.hasNext())
-              {
-                 stream.append(",");
-              }
-           }
-           stream.append("}");
+      @Override
+      public String getMimeType() {
+        return "application/json";
+      }
+
+      @Override
+      public void send(Stream.Char stream) throws IOException {
+        stream.append("{");
+        Iterator<Map.Entry<String, String>> i = data.entrySet().iterator();
+        while (i.hasNext()) {
+          Map.Entry<String, String> entry = i.next();
+          stream.append("\"" + entry.getKey() + "\"");
+          stream.append(":");
+          stream.append("\"" + entry.getValue() + "\"");
+          if (i.hasNext()) {
+            stream.append(",");
+          }
         }
-     };
-     return json;
+        stream.append("}");
+      }
+    };
+    return json;
   }
-  
 
-//  @Ajax
-//  @Resource
-//  public Response.Content saveParameter(String style) throws IOException {
-//   
-//  }
+  // @Ajax
+  // @Resource
+  // public Response.Content saveParameter(String style) throws IOException {
+  //
+  // }
 }
