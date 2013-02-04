@@ -255,7 +255,7 @@ public class TrialService implements Startable {
                 if (delayPeriod <= 0) {
                     outdated = true;
                     request.setAttribute("errorMessage", "Sorry this evaluation key is not valid.");
-                    request.getRequestDispatcher("/jsp/unlockTrial.jsp").include(request, response);
+                    request.getRequestDispatcher("WEB-INF/jsp/unlockTrial.jsp").include(request, response);
                     return;
                 }
                 productCode = generateProductCode();

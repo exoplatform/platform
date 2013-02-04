@@ -28,6 +28,8 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
                 return true;
             else {
                 ERROR.innerHTML="Unlock key is mondatory";
+                var elem = document.getElementById("KEYERROR");
+                if (elem!=null) elem.style.display = "none";
                 return false;
             }
         }
@@ -84,7 +86,7 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
                         <% if(request.getAttribute("errorMessage") != null && !request.getAttribute("errorMessage").toString().isEmpty()) {%>
                         <tr>
                             <td colspan="3" class="Red">
-                                <%=request.getAttribute("errorMessage").toString() %>
+                                <span id="KEYERROR" style="display: block"><%=request.getAttribute("errorMessage").toString() %> </span>
                             </td>
                         </tr>
 
