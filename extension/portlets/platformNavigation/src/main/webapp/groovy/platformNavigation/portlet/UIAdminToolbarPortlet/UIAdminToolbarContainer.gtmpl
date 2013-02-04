@@ -43,7 +43,7 @@
       <% if(uicomponent.isSpaceManager()) { %>
 			<li>
 				<a href="<%=uicomponent.event("ChangeEditing")%>">
-					<i class="uiIconPLF$quiEditClass uiIconFile"></i>$quickEditLabel
+					<i class="uiIconFile"></i>$quickEditLabel
 				</a>
 			</li>
       <% } %>
