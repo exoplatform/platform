@@ -36,18 +36,6 @@ public class PeopleRestServices implements ResourceContainer {
 
     private static final CacheControl cacheControl;
 
-    Comparator date_comparator = new Comparator() {
-
-        public int compare(Date s1, Date s2){
-            return s1.compareTo(s2);
-        }
-
-        @Override
-        public int compare(Object o1, Object o2) {
-            return 0;  //To change body of implemented methods use File | Settings | File Templates.
-        }
-    };
-
     static {
         RuntimeDelegate.setInstance(new RuntimeDelegateImpl());
         cacheControl = new CacheControl();
@@ -265,8 +253,6 @@ public class PeopleRestServices implements ResourceContainer {
                     }
 
                 }
-                orgManager.getUserHandler().findUserByName(id.getRemoteId()).getCreatedDate().getTime();
-
                 if (id.getRemoteId().equals("root")) continue;
                 JSONObject json = new JSONObject();
                 String avatar = id.getProfile().getAvatarImageSource();
@@ -284,7 +270,7 @@ public class PeopleRestServices implements ResourceContainer {
                 json.put("profile", id.getProfile().getUrl());
                 json.put("title", position);
                 json.put("number", k);
-                json.put("createdDate",orgManager.getUserHandler().findUserByName(id.getRemoteId()).getCreatedDate().getTime()) ;
+                json.put("createdDate",orgManager.getUserHandler().findUserByName(id.getRemoteId()).getCreatedDate().getTime());
                 jsonArray.put(json);
             }
             jsonGlobal.put("items",jsonArray);
