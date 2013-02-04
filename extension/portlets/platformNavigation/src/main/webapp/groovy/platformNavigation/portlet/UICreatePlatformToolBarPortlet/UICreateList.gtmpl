@@ -41,10 +41,10 @@ jsmanager.require("SHARED/navigation-toolbar", "toolbarnav").addScripts("toolbar
 		<% if(uicomponent.getChildren().size()==0){%>
 
 			<li class="MenuItem">
-				<a href="<%=uicomponent.event("Topic","Topic")%>" class="ToolBarActivityIcon">$labelTopic</a>
+				<a href="<%=uicomponent.event("Topic", labelTopic)%>" class="ToolBarActivityIcon">$labelTopic</a>
 			</li>
              <li class="MenuItem">
-				<a href="<%=uicomponent.event("Poll","Poll")%>" class="ToolBarActivityIcon">$labelPoll</a>
+				<a href="<%=uicomponent.event("Poll", labelPoll)%>" class="ToolBarActivityIcon">$labelPoll</a>
 			</li>
              <li class="MenuItem">
 				<a href="<%=uicomponent.event("AddEvent","AddEvent")%>" class="ToolBarActivityIcon">$labelEvent</a>
