@@ -39,7 +39,12 @@ import org.exoplatform.commons.api.settings.data.Context;
 import org.exoplatform.commons.api.settings.data.Scope;
 import org.exoplatform.container.ExoContainerContext;
 import org.exoplatform.platform.portlet.juzu.branding.models.DataStorageService;
-
+import java.util.Locale;
+import java.util.MissingResourceException;
+import java.util.ResourceBundle;
+import org.exoplatform.services.jcr.ext.common.SessionProvider;
+import org.exoplatform.web.application.RequestContext;
+import org.gatein.common.text.EntityEncoder;
 /**
  * Created by The eXo Platform SAS Author : Nguyen Viet Bang
  * bangnv@exoplatform.com Jan 28, 2013
@@ -101,6 +106,18 @@ public class BrandingControler {
     Map<String, Object> parameters = new HashMap<String, Object>();
     parameters.put("url", BrandingControler_.save(null));
     parameters.put("imageUrl", getLogoUrl(httpContext));
+    
+    Locale locale = RequestContext.getCurrentInstance().getLocale();
+    ResourceBundle rs = ResourceBundle.getBundle("branding/branding", locale);    
+    parameters.put("selectlogo",rs.getString("selectlogo.label"));
+    parameters.put("noteselectlogo",rs.getString("noteselectlogo.label"));
+    parameters.put("selectstyle",rs.getString("selectstyle.label"));
+    parameters.put("preview",rs.getString("preview.label"));
+    parameters.put("save",rs.getString("save.label"));
+    parameters.put("cancel",rs.getString("cancel.label"));
+    parameters.put("saveok",rs.getString("info.saveok.label"));
+    parameters.put("cancelok",rs.getString("info.cancelok.label"));    
+    parameters.put("mustpng",rs.getString("mustpng.label"));    
     return index.render(parameters);
   }
 

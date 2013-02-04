@@ -10,11 +10,8 @@ margin:auto;
 {
 	font-weight: bold;
 	text-align: center;
-	padding: 1em 0;
-	margin: 1em 0;
 	color: #555;
 	border: 1px solid #555;
-	border-radius: 7px;
 	cursor: default;
 	height: 34px;
     width: 300px;

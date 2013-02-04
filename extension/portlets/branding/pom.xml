@@ -1,104 +1,121 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-	<modelVersion>4.0.0</modelVersion>
-	<parent>
-    <groupId>org.exoplatform.platform</groupId>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
     <artifactId>platform-extension-portlets</artifactId>
+    <groupId>org.exoplatform.platform</groupId>
     <version>4.0.0.Alpha1-SNAPSHOT</version>
   </parent>
-	<artifactId>platform-extension-portlet-branding</artifactId>
-	<packaging>war</packaging>
-	<name>eXo Platform - Branding Portlet</name>
-	<dependencies>
-		<dependency>
-			<groupId>commons-fileupload</groupId>
-			<artifactId>commons-fileupload</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>javax.portlet</groupId>
-			<artifactId>portlet-api</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.exoplatform.jcr</groupId>
-			<artifactId>exo.jcr.component.ext</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.exoplatform.kernel</groupId>
-			<artifactId>exo.kernel.container</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.juzu</groupId>
-			<artifactId>juzu-bom-core</artifactId>
-		</dependency>
-		<dependency>
+  <artifactId>platform-extension-portlet-branding</artifactId>
+  <packaging>war</packaging>
+  <name>eXo Platform - Branding Portlet</name>
+  <dependencies>
+    <dependency>
+      <groupId>commons-fileupload</groupId>
+      <artifactId>commons-fileupload</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>javax.portlet</groupId>
+      <artifactId>portlet-api</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.exoplatform.commons</groupId>
+      <artifactId>commons-api</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.exoplatform.commons</groupId>
+      <artifactId>commons-component-common</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.exoplatform.jcr</groupId>
+      <artifactId>exo.jcr.component.ext</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.exoplatform.kernel</groupId>
+      <artifactId>exo.kernel.container</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.gatein.portal</groupId>
+      <artifactId>exo.portal.component.web.api</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.juzu</groupId>
+      <artifactId>juzu-bom-core</artifactId>
+    </dependency>
+    <dependency>
       <groupId>org.juzu</groupId>
       <artifactId>juzu-bom-core</artifactId>
       <exclusions>
         <exclusion>
-          <groupId>org.jboss.weld</groupId>
           <artifactId>weld-core</artifactId>
+          <groupId>org.jboss.weld</groupId>
         </exclusion>
         <exclusion>
-          <groupId>org.springframework</groupId>
           <artifactId>spring-core</artifactId>
+          <groupId>org.springframework</groupId>
         </exclusion>
         <exclusion>
-          <groupId>org.springframework</groupId>
           <artifactId>spring-beans</artifactId>
-        </exclusion>
-        <exclusion>
           <groupId>org.springframework</groupId>
+        </exclusion>
+        <exclusion>
           <artifactId>spring-web</artifactId>
+          <groupId>org.springframework</groupId>
         </exclusion>
         <exclusion>
-          <groupId>org.slf4j</groupId>
           <artifactId>slf4j-simple</artifactId>
-        </exclusion>
-        <exclusion>
           <groupId>org.slf4j</groupId>
-          <artifactId>slf4j-ext</artifactId>
         </exclusion>
         <exclusion>
-          <groupId>commons-logging</groupId>
+          <artifactId>slf4j-ext</artifactId>
+          <groupId>org.slf4j</groupId>
+        </exclusion>
+        <exclusion>
           <artifactId>commons-logging</artifactId>
+          <groupId>commons-logging</groupId>
         </exclusion>
       </exclusions>
     </dependency>
-		<dependency>
-			<groupId>org.juzu</groupId>
-			<artifactId>juzu-plugins-less</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.juzu</groupId>
-			<artifactId>juzu-plugins-portlet</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.juzu</groupId>
-			<artifactId>juzu-plugins-upload</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.exoplatform.commons</groupId>
-			<artifactId>commons-component-common</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.exoplatform.commons</groupId>
-			<artifactId>commons-api</artifactId>
-		</dependency>
-	</dependencies>
-	<build>
-		<finalName>platform-branding</finalName>
-		<plugins>
-			<plugin>
-				<artifactId>maven-compiler-plugin</artifactId>
-				<configuration>
-					<compilerArguments>
-						<sourcepath>${project.basedir}/src/main/java</sourcepath>
-					</compilerArguments>
-				</configuration>
-			</plugin>
-			<plugin>
+    <dependency>
+      <groupId>org.juzu</groupId>
+      <artifactId>juzu-plugins-less</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.juzu</groupId>
+      <artifactId>juzu-plugins-portlet</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.juzu</groupId>
+      <artifactId>juzu-plugins-upload</artifactId>
+    </dependency>
+  </dependencies>
+  <build>
+    <finalName>platform-branding</finalName>
+    <plugins>
+      <plugin>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <configuration>
+          <compilerArguments>
+            <sourcepath>${project.basedir}/src/main/java</sourcepath>
+          </compilerArguments>
+        </configuration>
+      </plugin>
+      <plugin>
         <artifactId>maven-assembly-plugin</artifactId>
+        <executions>
+          <execution>
+            <phase>package</phase>
+            <goals>
+              <goal>single</goal>
+            </goals>
+            <configuration>
+              <appendAssemblyId>false</appendAssemblyId>
+              <descriptorRefs>
+                <descriptorRef>platform-juzu</descriptorRef>
+              </descriptorRefs>
+            </configuration>
+          </execution>
+        </executions>
         <dependencies>
           <dependency>
             <groupId>org.exoplatform.commons</groupId>
@@ -109,50 +126,34 @@
         <configuration>
           <attach>true</attach>
         </configuration>
-        <executions>
-          <execution>
-            <goals>
-              <goal>single</goal>
-            </goals>
-            <phase>package</phase>
-            <configuration>
-              <appendAssemblyId>false</appendAssemblyId>
-              <descriptorRefs>
-                <descriptorRef>platform-juzu</descriptorRef>
-              </descriptorRefs>
-            </configuration>
-          </execution>
-        </executions>
       </plugin>
-			
-		</plugins>
-	</build>
-	<profiles>
-		<profile>
-			<id>deploy</id>
-			<build>
-				<plugins>
-					<plugin>
-						<artifactId>maven-antrun-plugin</artifactId>
-						<version>1.1</version>
-						<executions>
-							<execution>
-								<id>copy-warfile</id>
-								<phase>package</phase>
-								<goals>
-									<goal>run</goal>
-								</goals>
-								<configuration>
-									<tasks>
-										
-<copy file="${project.build.directory}/platform-branding.war" todir="/home/bangnv/workspaces/eXoProjects/platform-tomcat-standalone/target/platform-tomcat-standalone-4.0.0.Alpha1-SNAPSHOT/webapps"></copy>
+    </plugins>
+  </build>
+  <profiles>
+    <profile>
+      <id>deploy</id>
+      <build>
+        <plugins>
+          <plugin>
+            <artifactId>maven-antrun-plugin</artifactId>
+            <version>1.1</version>
+            <executions>
+              <execution>
+                <id>copy-warfile</id>
+                <phase>package</phase>
+                <goals>
+                  <goal>run</goal>
+                </goals>
+                <configuration>
+                  <tasks>
+                    <copy file="${project.build.directory}/platform-branding.war" todir="/home/annb/java/eXoProjects/repo/git/exoplatform/platform-tomcat-standalone/target/platform-tomcat-standalone-4.0.0.Alpha1-SNAPSHOT/webapps"></copy>
                   </tasks>
-								</configuration>
-							</execution>
-						</executions>
-					</plugin>
-				</plugins>
-			</build>
-		</profile>
-	</profiles>
+                </configuration>
+              </execution>
+            </executions>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+  </profiles>
 </project>

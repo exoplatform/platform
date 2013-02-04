@@ -1,29 +1,27 @@
-
-<img id="ajaxUploading" alt="" src="/eXoPlatformResources/skin/platformSkin/icons/ajax-loader.gif"  style="display:none" >
 <h3>
 <div id="result">
+<div id="cancelinfo">${cancelok}</div>
+<div id="saveinfo">${saveok}</div>
+<div id="mustpng">${mustpng}</div>
 </div>
-<h3>
-
-<br>
-<br>
-
-<h3>Select Logo</h3>
+<h3>${selectlogo}</h3>
 <hr/>
   <input type='file' id='file' name='file'  />
 <form id="form" enctype="multipart/form-data" action="${url}"  method="POST">
    <input type='hidden' id='style' name='style'  />
 </form>
-
+<br>
+  ${noteselectlogo}
+<br>
   <div id="PreviewImgDiv" >
+	<img id="ajaxUploading1" alt="" src="/eXoPlatformResources/skin/platformSkin/icons/ajax-loader.gif"  style="display:none" >
  <img id="PreviewImg" alt="" src="${imageUrl}" >
   </div>
 
-<br>
 
 <br/>
 <div>
-<h3>Select navigation bar style</h3>
+<h3>${selectstyle}</h3>
 <hr/>
 <select id="navigationStyle">
 <option value="Dark">Dark</option>
@@ -36,11 +34,11 @@ Preview
 </h3>
 <hr/>
 <div id="StylePreview">
+<img id="ajaxUploading2" alt="" src="/eXoPlatformResources/skin/platformSkin/icons/ajax-loader.gif"  style="display:none" >
 </div>
  
 <br/>
 <hr/>
 <br/>
-<input id="save" type="button" value="Save"/>
-<input id="cancel" type="button" value="Cancel"/>
-
+<input id="save" type="button" value="${save}"/>
+<input id="cancel" type="button" value="${cancel}"/>

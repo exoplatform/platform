@@ -1,25 +1,33 @@
 $(function() {
 	var fileUpload;
-	UpdatePreviewLogoAndStyle(true);
+	UpdatePreviewLogoAndStyle();
+	$("#saveinfo").hide();
+	$("#cancelinfo").hide();
+	$("#mustpng").hide();
 	$("#PlatformAdminToolbarContainer").clone().appendTo($("#StylePreview"));
 	fixSearchInput();
 	$("#cancel").on(
 			"click",
 			function() {
-				$("#ajaxUploading").show();
-				UpdatePreviewLogoAndStyle(false);
-				$("div#result").text(
-						"Changes in branding settings have been cancelled");
+				UpdatePreviewLogoAndStyle();
+				$("#saveinfo").hide();
+				$("#mustpng").hide();
+				$("#cancelinfo").show();
 			});
 	$("#save").on("click", function() {
 		$("#style").val(($('#navigationStyle option:selected').val()));
 		var result = $('#form').submit();
+		$("#saveinfo").show();
+		$("#cancelinfo").hide();
+		$("#mustpng").hide();
 		return result;
 	});
 
 	$("input#file").on("change", function() {
 		previewLogoFromFile(this.files[0]);
 	});
+	
+	
 
 	$('#form')
 			.submit(
@@ -34,18 +42,24 @@ $(function() {
 									url : $("#form").attr("action"),
 									data : fd,
 									beforeSend: function(){
-										$("#ajaxUploading").show();
+										$("#PreviewImg").hide();
+										$("#StylePreview #PlatformAdminToolbarContainer").hide();
+										$("#ajaxUploading1").show();
+										$("#ajaxUploading2").show();
 									},
 									dataType : "json", 
 									contentType : false,
 									processData : false,
 									success : function(data) {
+										$("#ajaxUploading1").hide();
+										$("#ajaxUploading2").hide();
+										$("#PreviewImg").show();
+										$("#StylePreview #PlatformAdminToolbarContainer").show();
 										UpdateTopBarNavigation(data);
-										$("#ajaxUploading").hide();
 										fileUpload==null;
-										$("div#result")
-												.text(
-														"Changes in branding settings have been saved");
+										$("#saveinfo").show();
+										$("#cancelinfo").hide();
+										$("#mustpng").hide();
 									}
 								});
 						return false;
@@ -72,7 +86,9 @@ $(function() {
 	function previewLogoFromFile(file) {
 		var checkValide = validate(file);
 		if (checkValide == false) {
-			$("div#result").text("the file must be in photo format png ");
+			$("#saveinfo").hide();
+			$("#cancelinfo").hide();
+			$("#mustpng").show();
 			return;
 		} else {
 			fileUpload = file;
@@ -81,7 +97,6 @@ $(function() {
 				previewLogoFromUrl(e.target.result);
 			};
 			reader.readAsDataURL(file);
-			$("div#result").text("");
 		}
 	}
 
@@ -106,14 +121,11 @@ $(function() {
 		$('#StylePreview #HomeLink img').attr('src', logoUrl).width(25).height(21);
 	}
 
-	function UpdatePreviewLogoAndStyle(firstTime) {
+	function UpdatePreviewLogoAndStyle() {
 		$("#navigationStyle").jzAjax(
 				{
 					url : "BrandingControler.getResource()",
 					beforeSend : function() {
-						if (!firstTime) {
-							$("#ajaxUploading").show();
-						}
 					},
 					success : function(data) {
 						// update the logo url in preview zone and preview
@@ -123,7 +135,6 @@ $(function() {
 						changePreviewStyle(data.style);
 						$("#navigationStyle").val(data.style).attr('selected',
 								'selected');
-						$("#ajaxUploading").hide();
 					}
 				});
 	}

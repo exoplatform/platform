@@ -1,5 +1,5 @@
 /*
-* imgscale, Automatically scales images to fit or fill their parent container.
+* imgscale, Automatically scales images to fit or f their parent container.
 * Note: The defined parent container of the image must have a defined height and width in CSS.
 * By: Kelly Meath
 * Website : http://imgscale.kjmeath.com
@@ -21,7 +21,7 @@
 (function($) {
     $.fn.imgscale = function(params) {
 
-        params = $.extend( {parent: false, scale: 'fill', center: true, fade: 0}, params);
+        params = $.extend( {parent: false, scale: 'fit', center: true, fade: 0}, params);
         
         var _parentHeight, _parentWidth, _imgHeight, _imgWidth, _imgNewWidth, _imgNewHeight, _marginLeft, _marginTop;
         
