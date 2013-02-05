@@ -29,10 +29,6 @@
     </properties>
 
     <portal-layout>
-        <container id="PrincipleContainer" template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
-            <access-permissions>Everyone</access-permissions>
-        <container id="NavigationBodyContainer" template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
-            <access-permissions>Everyone</access-permissions>
         <container id="NavigationBody" template="system:/groovy/portal/webui/container/UITableColumnContainer.gtmpl">
             <access-permissions>Everyone</access-permissions>
             <container id="LeftNavigation" template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
@@ -85,14 +81,6 @@
             <container id="RightBody" template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
                 <access-permissions>Everyone</access-permissions>
                 <page-body> </page-body>
-            </container>
-        </container>
-        </container>
-            <container id="UIPLFFooterwlcmScreen"  template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
-                <access-permissions>*:/platform/users</access-permissions>
-                <container id="WLCFooter" template="war:/groovy/portal/webui/container/welcomescreens/welcomescreensFooter.gtmpl">
-                    <access-permissions>*:/platform/users</access-permissions>
-                </container>
             </container>
         </container>
     </portal-layout>

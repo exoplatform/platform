@@ -17,83 +17,95 @@
  Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
  02110-1301 USA, or see the FSF site: http://www.fsf.org.
  -->
-<container id="NavigationPortlet" template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
-    <container template="war:/groovy/portal/webui/container/UIPinToolbarContainer.gtmpl">
-        <access-permissions>*:/platform/users</access-permissions>
-        <container id="UIToolbarContainer" template="system:/groovy/portal/webui/container/UIToolbarContainer.gtmpl">
+<container id="PrincipalContainer" template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
+    <container id="NavigationPortlet" template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
+        <container template="war:/groovy/portal/webui/container/UIPinToolbarContainer.gtmpl">
             <access-permissions>*:/platform/users</access-permissions>
-            <container id="HomeLink" template="war:/groovy/portal/webui/container/UIHomeLinkContainer.gtmpl">
+            <container id="UIToolbarContainer" template="system:/groovy/portal/webui/container/UIToolbarContainer.gtmpl">
                 <access-permissions>*:/platform/users</access-permissions>
-            </container>
-            <container id="UIHelpPlatformToolbarPortlet" template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
-                <portlet-application>
-                    <portlet>
-                        <application-ref>platformNavigation</application-ref>
-                        <portlet-ref>UIHelpPlatformToolbarPortlet</portlet-ref>
-                        <!--PLF-308-->
-                    </portlet>
+                <container id="HomeLink" template="war:/groovy/portal/webui/container/UIHomeLinkContainer.gtmpl">
                     <access-permissions>*:/platform/users</access-permissions>
-                    <show-info-bar>false</show-info-bar>
-                </portlet-application>
-            </container>
-            <container id="UserInfoPortlet" template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
-                <portlet-application>
-                    <portlet>
-                        <application-ref>platformNavigation</application-ref>
-                        <portlet-ref>UIUserInfoPortlet</portlet-ref>
+                </container>
+                <container id="UIHelpPlatformToolbarPortlet" template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
+                    <portlet-application>
+                        <portlet>
+                            <application-ref>platformNavigation</application-ref>
+                            <portlet-ref>UIHelpPlatformToolbarPortlet</portlet-ref>
+                            <!--PLF-308-->
+                        </portlet>
+                        <access-permissions>*:/platform/users</access-permissions>
+                        <show-info-bar>false</show-info-bar>
+                    </portlet-application>
+                </container>
+                <container id="UserInfoPortlet" template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
+                    <portlet-application>
+                        <portlet>
+                            <application-ref>platformNavigation</application-ref>
+                            <portlet-ref>UIUserInfoPortlet</portlet-ref>
 
-                    </portlet>
+                        </portlet>
+                        <access-permissions>*:/platform/users</access-permissions>
+                        <show-info-bar>false</show-info-bar>
+                    </portlet-application>
+                </container>
+                <container id="SearchPortlet" template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
+                    <portlet-application>
+                        <portlet>
+                            <application-ref>platformNavigation</application-ref>
+                            <portlet-ref>UISearchPlatformToolbarPortlet</portlet-ref>
+                            <!--PLF-308-->
+                        </portlet>
+                        <access-permissions>*:/platform/users</access-permissions>
+                        <show-info-bar>false</show-info-bar>
+                    </portlet-application>
+                </container>
+                <container id="UICreatePlatformToolBarPortletID" template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
                     <access-permissions>*:/platform/users</access-permissions>
-                    <show-info-bar>false</show-info-bar>
-                </portlet-application>
-            </container>
-            <container id="SearchPortlet" template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
-                <portlet-application>
-                    <portlet>
-                        <application-ref>platformNavigation</application-ref>
-                        <portlet-ref>UISearchPlatformToolbarPortlet</portlet-ref>
-                        <!--PLF-308-->
-                    </portlet>
-                    <access-permissions>*:/platform/users</access-permissions>
-                    <show-info-bar>false</show-info-bar>
-                </portlet-application>
-            </container>
-            <container id="UICreatePlatformToolBarPortletID" template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
-                <access-permissions>*:/platform/users</access-permissions>
-                <portlet-application>
-                    <portlet>
-                        <application-ref>platformNavigation</application-ref>
-                        <portlet-ref>UICreatePlatformToolBarPortlet</portlet-ref>
-                    </portlet>
-                    <access-permissions>*:/platform/users</access-permissions>
-                    <show-info-bar>false</show-info-bar>
-                </portlet-application>
-            </container>
-            <container id="UISetupPlatformToolBarPortletID" template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
-                <portlet-application>
-                    <portlet>
-                        <application-ref>platformNavigation</application-ref>
-                        <portlet-ref>UISetupPlatformToolBarPortlet</portlet-ref>
-                        <!--PLF-308-->
-                    </portlet>
-                    <access-permissions>*:/platform/users</access-permissions>
-                    <show-info-bar>false</show-info-bar>
-                </portlet-application>
-            </container>
-            <container id="AdminToolBarPortlet" template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
-                <access-permissions>*:/platform/administrators; editor:/platform/web-contributors</access-permissions>
-                <portlet-application>
-                    <portlet>
-                        <application-ref>platformNavigation</application-ref>
-                        <portlet-ref>PlatformAdminToolbarPortlet</portlet-ref>
-                    </portlet>
+                    <portlet-application>
+                        <portlet>
+                            <application-ref>platformNavigation</application-ref>
+                            <portlet-ref>UICreatePlatformToolBarPortlet</portlet-ref>
+                        </portlet>
+                        <access-permissions>*:/platform/users</access-permissions>
+                        <show-info-bar>false</show-info-bar>
+                    </portlet-application>
+                </container>
+                <container id="UISetupPlatformToolBarPortletID" template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
+                    <portlet-application>
+                        <portlet>
+                            <application-ref>platformNavigation</application-ref>
+                            <portlet-ref>UISetupPlatformToolBarPortlet</portlet-ref>
+                            <!--PLF-308-->
+                        </portlet>
+                        <access-permissions>*:/platform/users</access-permissions>
+                        <show-info-bar>false</show-info-bar>
+                    </portlet-application>
+                </container>
+                <container id="AdminToolBarPortlet" template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
                     <access-permissions>*:/platform/administrators; editor:/platform/web-contributors</access-permissions>
-                    <show-info-bar>false</show-info-bar>
-                </portlet-application>
+                    <portlet-application>
+                        <portlet>
+                            <application-ref>platformNavigation</application-ref>
+                            <portlet-ref>PlatformAdminToolbarPortlet</portlet-ref>
+                        </portlet>
+                        <access-permissions>*:/platform/administrators; editor:/platform/web-contributors</access-permissions>
+                        <show-info-bar>false</show-info-bar>
+                    </portlet-application>
+                </container>
             </container>
+
         </container>
     </container>
-    <site-body/>
+    <container id="RightBody" template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
+        <access-permissions>Everyone</access-permissions>
+        <site-body> </site-body>
+    </container>
+    <container id="UIPLFFooterwlcmScreen"  template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
+        <access-permissions>*:/platform/users</access-permissions>
+        <container id="WLCFooter" template="war:/groovy/portal/webui/container/welcomescreens/welcomescreensFooter.gtmpl">
+            <access-permissions>*:/platform/users</access-permissions>
+        </container>
+    </container>
 </container>
 
 
