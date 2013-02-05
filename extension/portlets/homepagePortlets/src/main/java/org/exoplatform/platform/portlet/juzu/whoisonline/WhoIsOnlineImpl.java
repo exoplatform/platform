@@ -146,6 +146,12 @@ public class WhoIsOnlineImpl implements WhoIsOnline {
                 if (activity.length() > MAX_CHAR && act.getType().equals(DEFAULT_ACTIVITY)) {
                     activity = activity.substring(0, INDEX_CHAR).concat(THREE_DOTS);
                 }
+                if ( act.getType().equals(DOC_ACTIVITY)) {
+                String   docName=act.getTitle().split(">")[1].split("<")[0].substring(0,25).concat("...");
+                String docUrl=act.getTitle().split(">")[0].split("=")[1].replace("\"","'");
+                    activity="Shared a Document <a class='ColorLink' target='_blank' href="+docUrl+"title='"+act.getTitle().split(">")[1].split("<")[0]+"'>"+docName+"</a>";
+                }
+
                 if ( act.getType().equals(LINK_ACTIVITY)) {
                     activity = "<a class='ColorLink' target='_blank' href='"+act.getUrl()+"'>"+act.getTitle()+"</a>";
                 }
