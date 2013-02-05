@@ -18,9 +18,6 @@
 # 02110-1301 USA, or see the FSF site: http://www.fsf.org.
 #
 
-# Computes the absolute path of eXo
-cd `dirname "$0"`
-
 # resolve links - $0 may be a softlink
 PRG="$0"
 
@@ -34,9 +31,6 @@ while [ -h "$PRG" ]; do
   fi
 done
 
-# Get absolute path of eXo product
-PRG=`readlink -f $PRG`
-
 # Get standard environment variables
 PRGDIR=`dirname "$PRG"`
 
@@ -48,8 +42,6 @@ PID=$$
 echo $PID > "$CATALINA_TEMP"/temp/catalina.pid
 
 echo Starting eXo ...
-
-cd ./bin
 
 #for debug mode##########
 EXO_CONFIG="-Dorg.exoplatform.container.configuration.debug"
