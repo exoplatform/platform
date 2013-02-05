@@ -2011,7 +2011,7 @@ h6{padding-top:12pt;line-height:1.2;text-align:left;color:#000000;font-size:11pt
     <form name="tcForm" action="<%= contextPath + "/terms-and-conditions-action"%>" method="post" style="margin: 0px;">
 
             <% if (uri != null) { %>
-        <input type="hidden" name="initiaURI" value="<%=uri%>" />
+        <input type="hidden" name="initialURI" value="<%=uri%>" />
             <% } %>
 
         <div class="UIAction FR">

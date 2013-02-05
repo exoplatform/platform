@@ -19,9 +19,11 @@
 package org.exoplatform.platform.welcomescreens.admin;
 
 import org.exoplatform.container.PortalContainer;
+import org.exoplatform.container.component.ComponentRequestLifecycle;
 import org.exoplatform.services.log.ExoLogger;
 import org.exoplatform.services.log.Log;
 import org.exoplatform.services.organization.*;
+import org.exoplatform.container.component.RequestLifeCycle;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -69,39 +71,46 @@ public class TermsAndConditionsActionServlet extends HttpServlet {
         String emailAccount = request.getParameter(EMAIL_ACCOUNT);
         String userPasswordAccount = request.getParameter(USER_PASSWORD_ACCOUNT);
         String adminPassword = request.getParameter(ADMIN_PASSWORD);
+        OrganizationService orgService;
+        UserHandler userHandler;
+        User user;
 
-        // Create user account
-        OrganizationService orgService = (OrganizationService) PortalContainer.getInstance().getComponentInstanceOfType(OrganizationService.class);
-        UserHandler userHandler = orgService.getUserHandler();
-        User user = userHandler.createUserInstance(userNameAccount);
-        user.setPassword(userPasswordAccount);
-        user.setFirstName(firstNameAccount);
-        user.setLastName(lastNameAccount);
-        user.setEmail(emailAccount);
-        String queryString = request.getQueryString();
         try {
-            userHandler.createUser(user, true);
-        } catch (Exception e) {
-            logger.error("Can not create User", e);
-        }
+            orgService = (OrganizationService) PortalContainer.getInstance().getComponentInstanceOfType(OrganizationService.class);
+            RequestLifeCycle.begin((ComponentRequestLifecycle) orgService);
+            // Create user account
+            userHandler = orgService.getUserHandler();
+            user = userHandler.createUserInstance(userNameAccount);
+            user.setPassword(userPasswordAccount);
+            user.setFirstName(firstNameAccount);
+            user.setLastName(lastNameAccount);
+            user.setEmail(emailAccount);
+            try {
+                userHandler.createUser(user, true);
+            } catch (Exception e) {
+                logger.error("Can not create User", e);
+            }
 
-        // Assign the membership "member:/platform/administrators"  to the created user
-        try {
-            Group group = orgService.getGroupHandler().findGroupById(PLATFORM_ADMINISTRATORS_GROUP);
-            MembershipTypeHandler membershipTypeHandler = orgService.getMembershipTypeHandler();
-            MembershipType membershipType = membershipTypeHandler.findMembershipType(MEMBERSHIP_TYPE_Member);
-            orgService.getMembershipHandler().linkMembership(user, group, membershipType, true);
-        } catch (Exception e) {
-            logger.error("Can not assign member:/platform/administrators membership to the created user", e);
-        }
+            // Assign the membership "member:/platform/administrators"  to the created user
+            try {
+                Group group = orgService.getGroupHandler().findGroupById(PLATFORM_ADMINISTRATORS_GROUP);
+                MembershipTypeHandler membershipTypeHandler = orgService.getMembershipTypeHandler();
+                MembershipType membershipType = membershipTypeHandler.findMembershipType(MEMBERSHIP_TYPE_Member);
+                orgService.getMembershipHandler().linkMembership(user, group, membershipType, true);
+            } catch (Exception e) {
+                logger.error("Can not assign member:/platform/administrators membership to the created user", e);
+            }
 
-        // Set password for admin user
-        try {
-            User adminUser = userHandler.findUserByName(ADMIN_FIRST_NAME);
-            adminUser.setPassword(adminPassword);
-            orgService.getUserHandler().saveUser(adminUser, false);
-        } catch (Exception e) {
-            logger.error("Can not set password to the created user", e);
+            // Set password for admin user
+            try {
+                User adminUser = userHandler.findUserByName(ADMIN_FIRST_NAME);
+                adminUser.setPassword(adminPassword);
+                orgService.getUserHandler().saveUser(adminUser, false);
+            } catch (Exception e) {
+                logger.error("Can not set password to the created user", e);
+            }
+        } finally {
+            RequestLifeCycle.end();
         }
 
         if (initialURI == null || initialURI.length() == 0) {
@@ -109,12 +118,9 @@ public class TermsAndConditionsActionServlet extends HttpServlet {
         }
 
         getTermsAndConditionsService().checkTermsAndConditions();
+
         // Redirect to requested page
-        String redirectURI =  "/"+PortalContainer.getCurrentPortalContainerName()+"/login?"+"username="+userNameAccount+"&password="+userPasswordAccount+"&initialURI="+initialURI ;
-        //String redirectURI =  "/"+PortalContainer.getCurrentPortalContainerName()+"/login";
-        //getServletContext().getContext("/portal").getRequestDispatcher("/login").forward(request, response);
-        //response.sendRedirect(response.encodeRedirectURL(redirectURI));
-       //response.sendRedirect(redirectURI);
+        String redirectURI = "/" + PortalContainer.getCurrentPortalContainerName() + "/login?" + "username=" + userNameAccount + "&password=" + userPasswordAccount + "&initialURI=" + initialURI;
         response.sendRedirect(redirectURI);
     }
 
