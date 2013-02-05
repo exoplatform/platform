@@ -29,3 +29,11 @@
     height: 68px;
     width: 68px;
 }
+
+.BreadcumbEntry {
+    display: block;
+    overflow: hidden;
+    padding: 5px 0;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
