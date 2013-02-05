@@ -13,7 +13,7 @@
 .WLCFooter{
     width: 100%;
     height: 50px;
-    position : fixed;
+    /*position : fixed; */
     paddingBottom:31px;
 }
 .removeButton{
