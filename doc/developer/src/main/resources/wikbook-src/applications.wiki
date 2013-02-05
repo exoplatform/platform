@@ -135,7 +135,7 @@ Because a gadget is basically an independent HTML content, the gadget UI, such a
 In this part, it is assumed that developers have already known how to write a gadget in eXo Platform. The information here helps developers make a consistent look and feel with eXo Platform skin, even when this skin may be changed in the future.
 
 {note}
-To get more information on how to develop gadgets, see the [Gadget development|../../../reference/html/chap-Reference_Guide-Gadget_development.html] and [Develop gadgets via a powerful web-based IDE of eXo Platform|../ide-user-guide/IDEdev.GoogleGadgetOperation.CreateGoogleGadget.html] sections.
+To get more information on how to develop gadgets, see the [Gadget development|../../../reference/html/chap-Reference_Guide-Gadget_development.html] and [Develop gadgets via a powerful web-based IDE of eXo Platform|../ide-user-guide/IDEdev.OperationWithGoogleGadget.html] sections.
 {note}
 
 h3. Resources {anchor:id=DEV.WorkWithApplications.DevelopAGadgetForPlatform.Resource}

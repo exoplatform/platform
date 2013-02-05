@@ -797,7 +797,7 @@ This document should contain ONLY one stylesheet for THIS template. If you have 
 
 *3.* Export the document and now you have an XML file.
 
-Please check out [this tutorial|http://wiki.exoplatform.com/xwiki/bin/view/WCM/How+to+create+and+deploy+pre-defined+contents+in+WCM] to know how to import this XML into the database.
+Please see the [Import nodes|../../../user-guide/html/sect-User_Guide-Actions-Import_Nodes.html] section to know how to import this XML into the database.
 
 h2. Configure a shared layout {anchor:id=DEV.CreateYourOwnPortal.Sharedlayout}
 {include:document="Sharedlayout.wiki"}

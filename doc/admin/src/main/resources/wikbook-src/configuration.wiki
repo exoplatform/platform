@@ -1231,7 +1231,7 @@ cache.exo.ecms.WCMComposer.TimeToLive=3600{code}
 |{{WCMComposer}}|Cache published contents by the hash generated from path, version, remoteUser, language, recursive, orderBy, orderType, primaryType of cached nodes in Content.|
 
 {note}
-To further understand about the cache configuration, refer to the [Cache Levels|#GadgetUserguide.ManagementMonitoringGadget.CacheLevels]content in [eXo Platform User Guide|../../../user-guide/html/UserGuide.html]
+To further understand about the cache configuration, refer to the [Cache Levels|#GadgetUserguide.ManagementMonitoringGadget.CacheLevels] content in [eXo Platform User Guide|../../../user-guide/html/UserGuide.html]
 and the [Cache management view|#ADM.Management.Cache_management_view] section in this document.
 {note}
 

@@ -34,7 +34,7 @@
 {docbook}
 
 {note}
-Upgrading data can be strongly dependent on both your deployments and environments, so it is recommended that you contact [http://support.exoplatform.com|eXo Support] to bootstrap the [Step 2|#Step2_UpgradeProject_ProductData].
+Upgrading data can be strongly dependent on both your deployments and environments, so it is recommended that you contact [eXo Support|http://support.exoplatform.com] to bootstrap the [Step 2|#Step2_UpgradeProject_ProductData].
 {note}
 
 h1. Prerequisites {anchor:id=DEV.Upgrade.Prerequisites}

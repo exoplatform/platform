@@ -254,7 +254,7 @@ Apache Tomcat's AJP connector
 </para>
 {docbook}
 
-*1.* Download AJP connector module [here|http://apache.vc.ukrtel.net/tomcat/tomcat-connectors/jk/binaries/].
+*1.* Download AJP connector module [here|http://archive.apache.org/dist/tomcat/tomcat-connectors/jk/].
 
 *2.* Move the downloaded _mod\_jk.so_ file to the HTTPD's module directory, for example _/etc/httpd/modules_. The directory may be different, depending on the OS.
 
