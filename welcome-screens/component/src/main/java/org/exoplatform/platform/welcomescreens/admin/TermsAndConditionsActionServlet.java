@@ -49,6 +49,7 @@ public class TermsAndConditionsActionServlet extends HttpServlet {
     protected final static String ADMIN_PASSWORD = "adminPassword";
     protected final static String PLATFORM_ADMINISTRATORS_GROUP = "/platform/administrators";
     protected final static String MEMBERSHIP_TYPE_Member = "member";
+    protected final static String INTRANET_HOME = "/portal/intranet";
 
     private TermsAndConditionsService termsAndConditionsService;
 
@@ -113,14 +114,10 @@ public class TermsAndConditionsActionServlet extends HttpServlet {
             RequestLifeCycle.end();
         }
 
-        if (initialURI == null || initialURI.length() == 0) {
-            initialURI = request.getContextPath();
-        }
-
         getTermsAndConditionsService().checkTermsAndConditions();
 
         // Redirect to requested page
-        String redirectURI = "/" + PortalContainer.getCurrentPortalContainerName() + "/login?" + "username=" + userNameAccount + "&password=" + userPasswordAccount + "&initialURI=" + initialURI;
+        String redirectURI = "/" + PortalContainer.getCurrentPortalContainerName() + "/login?" + "username=" + userNameAccount + "&password=" + userPasswordAccount + "&initialURI=" + INTRANET_HOME;
         response.sendRedirect(redirectURI);
     }
 
