@@ -92,7 +92,7 @@
 
 
 				<li class="spaceItem">
-					<a href="javascript:void(0);" onclick="$link" class="spaceIcon"><img title="" alt="" src="$spaceImageSource" /> $spaceDisplayName</a>
+					<a href="javascript:void(0);" onclick="$link" class="spaceIcon" title="$spaceDisplayName"><img title="" alt="" src="$spaceImageSource" /> $spaceDisplayName</a>
 				</li>
 	<%
 
