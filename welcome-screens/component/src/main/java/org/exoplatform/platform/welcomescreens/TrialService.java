@@ -1,7 +1,6 @@
 package org.exoplatform.platform.welcomescreens;
 
 import org.apache.commons.codec.binary.Base64;
-import org.exoplatform.common.http.client.HttpURLConnection;
 import org.exoplatform.commons.info.MissingProductInformationException;
 import org.exoplatform.commons.info.ProductInformations;
 import org.exoplatform.container.xml.InitParams;
@@ -17,6 +16,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.File;
 import java.io.IOException;
+import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.Calendar;
@@ -255,7 +255,7 @@ public class TrialService implements Startable {
                 if (delayPeriod <= 0) {
                     outdated = true;
                     request.setAttribute("errorMessage", "Sorry this evaluation key is not valid.");
-                    request.getRequestDispatcher("/jsp/unlockTrial.jsp").include(request, response);
+                    request.getRequestDispatcher("WEB-INF/jsp/unlockTrial.jsp").include(request, response);
                     return;
                 }
                 productCode = generateProductCode();

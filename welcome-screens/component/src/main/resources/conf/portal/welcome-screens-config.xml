@@ -17,7 +17,7 @@
             </value-param>
             <value-param>
                 <name>registrationFormUrl</name>
-                <value>http://www.exoplatform.com/exo-platform-35-subscribtions</value>
+                <value>http://learn.exoplatform.com/eXo-Platform-Trial-Unlocking.html</value>
             </value-param>
             <value-param>
                 <name>extendFormUrl</name>
@@ -25,7 +25,7 @@
             </value-param>
             <value-param>
                 <name>pingBackUrl</name>
-                <value>http://www.exoplatform.com/company/public/website/platform/e-01011000-01101111</value>
+                <value>http://www.exoplatform.com/company/en/products/e-01011000-01101111</value>
             </value-param>
         </init-params>
     </component>
