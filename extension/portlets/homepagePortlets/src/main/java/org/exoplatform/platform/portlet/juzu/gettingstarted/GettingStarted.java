@@ -124,28 +124,28 @@ public class GettingStarted {
             {
                 Property tempProp= (Property) propertiesIt.next();
                 if (tempProp.getName().equals(GettingStartedUtils.JCR_PROFILE_PROPERTY_NAME)){
-                    if(isChange==false) isChange = updateAction(tempProp,GettingStartedUtils.JCR_PROFILE_PROPERTY_NAME, gettingStartedNode);
-                    else updateAction(tempProp,GettingStartedUtils.JCR_PROFILE_PROPERTY_NAME, gettingStartedNode);
+                    if(isChange==false) isChange = updateAction(tempProp, gettingStartedNode);
+                    else updateAction(tempProp, gettingStartedNode);
                     continue;
                 }
                 if (tempProp.getName().equals(GettingStartedUtils.JCR_CONNECT_PROPERTY_NAME)){
-                    if(isChange==false) isChange =  updateAction(tempProp,GettingStartedUtils.JCR_CONNECT_PROPERTY_NAME, gettingStartedNode);
-                    else updateAction(tempProp,GettingStartedUtils.JCR_CONNECT_PROPERTY_NAME, gettingStartedNode);
+                    if(isChange==false) isChange =  updateAction(tempProp,gettingStartedNode);
+                    else updateAction(tempProp, gettingStartedNode);
                     continue;
                 }
                 if (tempProp.getName().equals(GettingStartedUtils.JCR_ACTIVITY_PROPERTY_NAME)){
-                    if(isChange==false) isChange = updateAction(tempProp,GettingStartedUtils.JCR_ACTIVITY_PROPERTY_NAME, gettingStartedNode);
-                    else updateAction(tempProp,GettingStartedUtils.JCR_ACTIVITY_PROPERTY_NAME, gettingStartedNode);
+                    if(isChange==false) isChange = updateAction(tempProp, gettingStartedNode);
+                    else updateAction(tempProp, gettingStartedNode);
                     continue;
                 }
                 if (tempProp.getName().equals(GettingStartedUtils.JCR_SPACE_PROPERTY_NAME)){
-                    if(isChange==false) isChange = updateAction(tempProp,GettingStartedUtils.JCR_SPACE_PROPERTY_NAME, gettingStartedNode);
-                    else  updateAction(tempProp,GettingStartedUtils.JCR_SPACE_PROPERTY_NAME, gettingStartedNode);
+                    if(isChange==false) isChange = updateAction(tempProp,gettingStartedNode);
+                    else  updateAction(tempProp, gettingStartedNode);
                     continue;
                 }
                 if (tempProp.getName().equals(GettingStartedUtils.JCR_DOCUMENT_PROPERTY_NAME)){
-                    if(isChange==false) isChange = updateAction(tempProp,GettingStartedUtils.JCR_DOCUMENT_PROPERTY_NAME, gettingStartedNode);
-                    else updateAction(tempProp,GettingStartedUtils.JCR_DOCUMENT_PROPERTY_NAME, gettingStartedNode);
+                    if(isChange==false) isChange = updateAction(tempProp, gettingStartedNode);
+                    else updateAction(tempProp,gettingStartedNode);
                     continue;
                 }
             }
@@ -191,21 +191,20 @@ public class GettingStarted {
             gettingStartedList.render(parameters);
     }
 
-    private boolean updateAction(Property tempProp, String gsPropertyName,Node gettingStartedNode) throws RepositoryException {
+    private boolean updateAction(Property tempProp, Node gettingStartedNode) throws RepositoryException {
         boolean has=false;
-        if (tempProp.getName().equals(gsPropertyName)){
+        String gsPropertyName=tempProp.getName();
             has =checkStatus(gsPropertyName);
             if(has)  {
-                status.put(tempProp.getName().substring(4), GettingStartedUtils.DONE);
+                status.put(gsPropertyName.substring(4), GettingStartedUtils.DONE);
                 progress+=20;
             }
-            else  status.put(tempProp.getName().substring(4), "");
-            if((tempProp!=null)&&(has!=tempProp.getBoolean())) {
+            else  status.put(gsPropertyName.substring(4), "");
+            if(has!=tempProp.getBoolean()){
                 gettingStartedNode.setProperty(gsPropertyName, has);
                 gettingStartedNode.save();
                 return true;
             }
-        }
         return false;
     }
 
