@@ -45,5 +45,5 @@ import juzu.plugin.binding.Binding;
 import juzu.plugin.binding.Bindings;
 import juzu.plugin.portlet.Portlet;
 import org.exoplatform.calendar.service.CalendarService;
-import org.exoplatform.commons.settings.api.SettingService;
+import org.exoplatform.commons.api.settings.SettingService;
 import org.exoplatform.services.organization.OrganizationService;
