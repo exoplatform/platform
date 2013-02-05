@@ -146,7 +146,7 @@
                 </goals>
                 <configuration>
                   <tasks>
-                    <copy file="${project.build.directory}/platform-branding.war" todir="/home/annb/java/eXoProjects/repo/git/exoplatform/platform-tomcat-standalone/target/platform-tomcat-standalone-4.0.0.Alpha1-SNAPSHOT/webapps"></copy>
+                    <copy file="${project.build.directory}/platform-branding.war" todir="/home/bangnv/workspaces/eXoProjects/platform-tomcat-standalone/target/platform-tomcat-standalone-4.0.0.Alpha1-SNAPSHOT/webapps"></copy>
                   </tasks>
                 </configuration>
               </execution>

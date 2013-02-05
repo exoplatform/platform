@@ -31,11 +31,11 @@ import org.picocontainer.Startable;
  * bangnv@exoplatform.com Jan 22, 2013
  */
 
-public class DataStorageService implements Startable{
+public class BrandingDataStorageService implements Startable{
      static String fileName="logo.png";
   RepositoryService repositoryService;
 
-  public DataStorageService( ) {
+  public BrandingDataStorageService( ) {
      repositoryService = (RepositoryService) ExoContainerContext.getCurrentContainer().getComponentInstanceOfType(RepositoryService.class);
   }
 

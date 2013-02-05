@@ -38,45 +38,43 @@ import org.exoplatform.commons.api.settings.SettingValue;
 import org.exoplatform.commons.api.settings.data.Context;
 import org.exoplatform.commons.api.settings.data.Scope;
 import org.exoplatform.container.ExoContainerContext;
-import org.exoplatform.platform.portlet.juzu.branding.models.DataStorageService;
+import org.exoplatform.platform.portlet.juzu.branding.models.BrandingDataStorageService;
 import java.util.Locale;
 import java.util.MissingResourceException;
 import java.util.ResourceBundle;
 import org.exoplatform.services.jcr.ext.common.SessionProvider;
 import org.exoplatform.web.application.RequestContext;
 import org.gatein.common.text.EntityEncoder;
+
 /**
  * Created by The eXo Platform SAS Author : Nguyen Viet Bang
  * bangnv@exoplatform.com Jan 28, 2013
  */
 
-public class BrandingControler {
+public class BrandingController {
 
-  public static String BAR_NAVIGATION_STYLE_KEY = "bar_navigation_style";
+  public static String       BAR_NAVIGATION_STYLE_KEY = "bar_navigation_style";
 
-  public static String fileName;
+  public static String       fileName;
 
-  public static String style                    = "";
+  public static String       style                    = "";
 
   @Inject
   @Path("index.gtmpl")
-  Template             index;
+  Template                   index;
 
   @Inject
-  SettingService       settingService;
+  SettingService             settingService;
 
   @Inject
-  DataStorageService   dataStorageService;
+  BrandingDataStorageService dataStorageService;
 
   @Ajax
   @Resource
   public Response.Content getStyleValue() {
-
     String style = "";
     if (settingService.get(Context.GLOBAL, Scope.GLOBAL, BAR_NAVIGATION_STYLE_KEY) == null) {
-
-      style = "Light";
-
+      style = "Dark";
     } else {
       style = (String) settingService.get(Context.GLOBAL, Scope.GLOBAL, BAR_NAVIGATION_STYLE_KEY)
                                      .getValue();
@@ -102,25 +100,26 @@ public class BrandingControler {
   @View
   @Route("/")
   public Response index(HttpContext httpContext) {
-
     Map<String, Object> parameters = new HashMap<String, Object>();
-    parameters.put("url", BrandingControler_.save(null));
+    parameters.put("url", BrandingController_.save(null));
     parameters.put("imageUrl", getLogoUrl(httpContext));
-    
     Locale locale = RequestContext.getCurrentInstance().getLocale();
-    ResourceBundle rs = ResourceBundle.getBundle("branding/branding", locale);    
-    parameters.put("selectlogo",rs.getString("selectlogo.label"));
-    parameters.put("noteselectlogo",rs.getString("noteselectlogo.label"));
-    parameters.put("selectstyle",rs.getString("selectstyle.label"));
-    parameters.put("preview",rs.getString("preview.label"));
-    parameters.put("save",rs.getString("save.label"));
-    parameters.put("cancel",rs.getString("cancel.label"));
-    parameters.put("saveok",rs.getString("info.saveok.label"));
-    parameters.put("cancelok",rs.getString("info.cancelok.label"));    
-    parameters.put("mustpng",rs.getString("mustpng.label"));    
+    ResourceBundle rs = ResourceBundle.getBundle("branding/branding", locale);
+    parameters.put("selectlogo", rs.getString("selectlogo.label"));
+    parameters.put("noteselectlogo", rs.getString("noteselectlogo.label"));
+    parameters.put("selectstyle", rs.getString("selectstyle.label"));
+    parameters.put("preview", rs.getString("preview.label"));
+    parameters.put("save", rs.getString("save.label"));
+    parameters.put("cancel", rs.getString("cancel.label"));
+    parameters.put("saveok", rs.getString("info.saveok.label"));
+    parameters.put("cancelok", rs.getString("info.cancelok.label"));
+    parameters.put("mustpng", rs.getString("mustpng.label"));
     return index.render(parameters);
   }
 
+  /*
+   * verify if the url of logo is available
+   */
   public boolean isExiste(String logoUrl) {
     int code;
     try {
@@ -135,6 +134,9 @@ public class BrandingControler {
     return code == 200;
   }
 
+  /*
+   * return the url of logo
+   */
   @Ajax
   @Resource
   public Response.Content getLogoUrlByAjax(HttpContext httpContext) {
@@ -143,6 +145,9 @@ public class BrandingControler {
   }
 
   public String getLogoUrl(HttpContext httpContext) {
+
+    // append the String current time to url to resolve the problem of cache at
+    // client
     String portalName = ExoContainerContext.getCurrentContainer()
                                            .getContext()
                                            .getPortalContainerName();
@@ -150,13 +155,16 @@ public class BrandingControler {
         + httpContext.getServerPort() + "/" + portalName
         + "/rest/jcr/repository/collaboration/Application%20Data/logos/logo.png?"
         + System.currentTimeMillis();
-
     if (!isExiste(logoUrl)) {
       logoUrl = "/eXoPlatformResources/skin/platformSkin/UIToolbarContainer/background/HomeIcon.png";
     }
     return logoUrl;
   }
 
+  /*
+   * return the object data contains the url of logo and the bar navigation
+   * style
+   */
   @Ajax
   @Resource
   public Response.Content<Stream.Char> getResource(HttpContext httpContext) {
@@ -174,9 +182,12 @@ public class BrandingControler {
     return createJSON(result);
   }
 
+  /*
+   * create a object JSON from the map.
+   */
+
   private Response.Content<Stream.Char> createJSON(final Map<String, String> data) {
     Response.Content<Stream.Char> json = new Response.Content<Stream.Char>(200, Stream.Char.class) {
-
       @Override
       public String getMimeType() {
         return "application/json";
@@ -201,9 +212,4 @@ public class BrandingControler {
     return json;
   }
 
-  // @Ajax
-  // @Resource
-  // public Response.Content saveParameter(String style) throws IOException {
-  //
-  // }
 }

@@ -15,7 +15,7 @@
 <br>
   <div id="PreviewImgDiv" >
 	<img id="ajaxUploading1" alt="" src="/eXoPlatformResources/skin/platformSkin/icons/ajax-loader.gif"  style="display:none" >
- <img id="PreviewImg" alt="" src="${imageUrl}" >
+ <img id="PreviewImg" alt="" >
   </div>
 
 
