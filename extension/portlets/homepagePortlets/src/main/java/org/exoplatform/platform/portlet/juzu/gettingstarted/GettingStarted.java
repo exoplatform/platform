@@ -187,16 +187,18 @@ public class GettingStarted {
         parameters.put(GettingStartedUtils.WIDTH, new Integer((Math.round((160 * progress) / 100))).toString());
         parameters.put(GettingStartedUtils.STATUS, status);
         parameters.put(GettingStartedUtils.SHOW, Isshow.toString());
-        if ((isChange)||(reload.equals("true"))) gettingStartedList.render(parameters);
+        if ((isChange)||(reload.equals("true")))
+            gettingStartedList.render(parameters);
     }
 
     private boolean updateAction(Property tempProp, String gsPropertyName,Node gettingStartedNode) throws RepositoryException {
         boolean has=false;
         if (tempProp.getName().equals(gsPropertyName)){
-             status.put(tempProp.getName().substring(4), "");
-             has =checkStatus(gsPropertyName);
+            status.put(tempProp.getName().substring(4), "");
+            has =checkStatus(gsPropertyName);
              if((tempProp!=null)&&(has!=tempProp.getBoolean())) {
                 gettingStartedNode.setProperty(gsPropertyName, has);
+                gettingStartedNode.save();
                 progress += 20;
                 status.remove(tempProp.getName().substring(4));
                 status.put(tempProp.getName().substring(4), GettingStartedUtils.DONE);
