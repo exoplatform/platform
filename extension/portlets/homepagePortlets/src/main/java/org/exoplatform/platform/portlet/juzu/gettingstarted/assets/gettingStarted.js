@@ -49,7 +49,7 @@ $(function () {
                     $('.TmpGettingStarted').html('');
                 }
             }
-        }, 10000);
+        }, 3000);
     });
 
 });
