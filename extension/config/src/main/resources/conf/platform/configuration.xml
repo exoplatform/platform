@@ -95,16 +95,7 @@
                 <string>eXoDMSGadgets</string>
               </value>
               <value>
-                <string>eXoStaticResources</string>
-              </value>
-              <value>
-                <string>eXoDMSResources</string>
-              </value>
-              <value>
                 <string>eXoWCMResources</string>
-              </value>
-              <value profiles="dms,all">
-                <string>ecmbrowsecontent</string>
               </value>
               <value>
                 <string>ecmexplorer</string>
@@ -125,12 +116,6 @@
                 <string>presentation</string>
               </value>
               <value>
-                <string>formgenerator</string>
-              </value>
-              <value>
-                <string>newsletter</string>
-              </value>
-              <value>
                 <string>searches</string>
               </value>
               <value>
@@ -139,16 +124,6 @@
               <value>
                 <string>seo</string>
               </value>
-
-              <value profiles="workflow,all">
-                <string>ecmworkflow-extension</string>
-              </value>
-              <value profiles="workflow,all">
-                <string>workflow</string>
-              </value>
-              <value profiles="workflow,all">
-                <string>eXoWorkflowResources</string>
-              </value>              
 
               <!-- SOCIAL -->
               <value profiles="social,all,default">

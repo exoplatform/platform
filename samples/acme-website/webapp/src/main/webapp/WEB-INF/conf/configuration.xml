@@ -33,6 +33,7 @@
   <import>war:/conf/acme-portal/dms/nodetypes-templates-configuration.xml</import>
   <import>war:/conf/acme-portal/dms/dms-scripts-configuration.xml</import>
   <import>war:/conf/acme-portal/dms/acme-drives-configuration.xml</import>
+		<import>war:/conf/acme-portal/dms/acme-namespaces-configuration.xml</import>
   <import>war:/conf/acme-portal/dms/dms-actions-configuration.xml</import>
   <import>war:/conf/acme-portal/wcm/system-configuration.xml</import>
   <import>war:/conf/acme-portal/wcm/application-templates-configuration.xml</import>

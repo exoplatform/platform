@@ -34,6 +34,7 @@
 								<!-- ecm-explorer/action -->		              
 								<value>
 									<object type="org.exoplatform.services.cms.impl.ResourceConfig$Resource">
+										<field  name="description"><string>Populate To Menu</string></field>
 										<field  name="name"><string>ecm-explorer/action/PopulateToMenu.groovy</string></field>
 									</object>
 								</value>

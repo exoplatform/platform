@@ -166,7 +166,7 @@
                               <string>mix:affectedNodeTypes</string>
                             </field>
                             <field name="properties">
-                              <string>exo:affectedNodeTypeNames=nt:file,acme:contact_us,exo:cssFile,exo:htmlFile,exo:jsFile,exo:webContent,exo:pictureOnHeadWebcontent,wai:siteSearchBox,wai:siteNavigationWebContent,wai:siteBreadcrumb,acme:product,exo:link</string>
+                              <string>exo:affectedNodeTypeNames=nt:file,acme:contact_us,exo:cssFile,exo:htmlFile,exo:jsFile,exo:webContent,exo:pictureOnHeadWebcontent,acme:product,exo:link</string>
                             </field>
                           </object>
                         </value>

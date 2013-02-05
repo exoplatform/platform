@@ -30,6 +30,13 @@
           <defaultValue>ecm-explorer/action/PopulateToMenu.groovy</defaultValue>
         </defaultValues>
       </propertyDefinition>
+	     <propertyDefinition name="exo:scriptLabel" requiredType="String" autoCreated="true" mandatory="true"
+        onParentVersion="COPY" protected="true" multiple="false">
+        <valueConstraints/>
+        <defaultValues>
+          <defaultValue>Populate To Menu</defaultValue>
+        </defaultValues>
+      </propertyDefinition>						
       <propertyDefinition name="exo:navigationNode" requiredType="String" autoCreated="false" mandatory="false" onParentVersion="COPY"
         protected="false" multiple="false"/>
 		<propertyDefinition name="exo:index" requiredType="Long" autoCreated="false" mandatory="false" onParentVersion="COPY"
@@ -42,4 +49,39 @@
         protected="false" multiple="false"/>
     </propertyDefinitions>
   </nodeType>
+		
+	  <nodeType name="acme:contact_us" isMixin="false" hasOrderableChildNodes="false" primaryItemName="">
+    <supertypes>
+      <supertype>nt:base</supertype>
+    </supertypes>
+    <propertyDefinitions>
+      <propertyDefinition name="acme:fg_p_label" requiredType="String" autoCreated="false" mandatory="false" onParentVersion="COPY" protected="false" multiple="false">
+        <valueConstraints />
+      </propertyDefinition>
+      <propertyDefinition name="acme:fg_p_select_a_recipient" requiredType="String" autoCreated="false" mandatory="false" onParentVersion="COPY" protected="false" multiple="false">
+        <valueConstraints />
+      </propertyDefinition>
+      <propertyDefinition name="acme:fg_p_your_name" requiredType="String" autoCreated="false" mandatory="false" onParentVersion="COPY" protected="false" multiple="false">
+        <valueConstraints />
+      </propertyDefinition>
+      <propertyDefinition name="acme:fg_p_your_address" requiredType="String" autoCreated="false" mandatory="false" onParentVersion="COPY" protected="false" multiple="false">
+        <valueConstraints />
+      </propertyDefinition>
+      <propertyDefinition name="acme:fg_p_your_email_address" requiredType="String" autoCreated="false" mandatory="false" onParentVersion="COPY" protected="false" multiple="false">
+        <valueConstraints />
+      </propertyDefinition>
+      <propertyDefinition name="acme:fg_p_your_phone_number" requiredType="String" autoCreated="false" mandatory="false" onParentVersion="COPY" protected="false" multiple="false">
+        <valueConstraints />
+      </propertyDefinition>
+      <propertyDefinition name="acme:fg_p_your_message" requiredType="String" autoCreated="false" mandatory="false" onParentVersion="COPY" protected="false" multiple="false">
+        <valueConstraints />
+      </propertyDefinition>
+      <propertyDefinition name="jcr:primaryType" requiredType="Name" autoCreated="true" mandatory="true" onParentVersion="COMPUTE" protected="true" multiple="false">
+        <valueConstraints />
+      </propertyDefinition>
+      <propertyDefinition name="jcr:mixinTypes" requiredType="Name" autoCreated="false" mandatory="false" onParentVersion="COMPUTE" protected="true" multiple="true">
+        <valueConstraints />
+      </propertyDefinition>
+    </propertyDefinitions>
+  </nodeType>	
 </nodeTypes>
