@@ -56,15 +56,16 @@
 }
 
 .uiSpaceNavigationPortlet .spaceNavigation .spaceItem {
-	padding: 5px 0;
-	display: block;
-    text-overflow:ellipsis;
+    display: block;
+    overflow: hidden;
+    padding: 5px 0;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
 .uiSpaceNavigationPortlet .spaceNavigation .spaceIcon {
-	display: inline-block;
-	width: auto;
-	color: #808080;
+    width: auto;
+    color: #808080;
 }
 
 .uiSpaceNavigationPortlet .spaceNavigation .spaceIcon img {
