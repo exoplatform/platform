@@ -40,9 +40,9 @@
 						<value-storages>
 							<value-storage id="system" class="org.exoplatform.services.jcr.impl.storage.value.fs.TreeFileValueStorage">
 								<properties>
-                  <property name="path"
-                    value="target/${gatein.test.tmp.dir}/jcr/values/system" />
-                </properties>
+                           <property name="path" value="target/${gatein.test.tmp.dir}/jcr/values/system" />
+                           <property name="enabled" value="${gatein.jcr.storage.enabled:true}" />
+                        </properties>
 								<filters>
 									<filter property-type="Binary"/>
 								</filters>
@@ -98,8 +98,8 @@
               <value-storage id="collaboration"
                 class="org.exoplatform.services.jcr.impl.storage.value.fs.TreeFileValueStorage">
                 <properties>
-                  <property name="path"
-                    value="target/${gatein.test.tmp.dir}/jcr/values/collaboration" />
+                  <property name="path" value="target/${gatein.test.tmp.dir}/jcr/values/collaboration" />
+                   <property name="enabled" value="${gatein.jcr.storage.enabled:true}" />
                 </properties>
                 <filters>
                   <filter property-type="Binary" />
@@ -158,8 +158,8 @@
               <value-storage id="portal-system"
                 class="org.exoplatform.services.jcr.impl.storage.value.fs.TreeFileValueStorage">
                 <properties>
-                  <property name="path"
-                    value="target/${gatein.test.tmp.dir}/jcr/values/portal-system" />
+                  <property name="path" value="target/${gatein.test.tmp.dir}/jcr/values/portal-system" />
+                   <property name="enabled" value="${gatein.jcr.storage.enabled:true}" />
                 </properties>
                 <filters>
                   <filter property-type="Binary" />
