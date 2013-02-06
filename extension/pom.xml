@@ -14,6 +14,6 @@
     <module>webapp</module>
     <module>resources</module>
     <module>portlets</module>
-    <module>ear</module>
+    <!--<module>ear</module>-->
   </modules>
 </project>

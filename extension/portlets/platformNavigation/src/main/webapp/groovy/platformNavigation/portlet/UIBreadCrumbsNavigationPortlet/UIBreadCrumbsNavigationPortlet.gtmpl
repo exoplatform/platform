@@ -70,14 +70,14 @@ import org.exoplatform.webui.core.UIPopupWindow;
 	  <img title="$nodeName" alt="$nodeName" src="$srcImage" />
 	  $nodeName
 	  
-	  <!-- in new design we don't have change picture label I think when we click in avatar we can change avatar
+
 	   <%if (uicomponent.isOwner() && isUserUrl) { %>
 
           <div class="ChangeAvatar">
             <a onclick="<%=uicomponent.event("ChangePicture")%>; return false;" href="javascript:void(0)">$changePictureLabel</a>
           </div>
       <% } %>
-	  -->
+
 	  </div>
 	</div>
 
