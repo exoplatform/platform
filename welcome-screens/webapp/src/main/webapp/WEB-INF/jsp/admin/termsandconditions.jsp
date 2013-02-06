@@ -48,296 +48,14 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <title>eXo Subscription Agreement</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<style type="text/css">
 
-
-html {
-    margin: 0px; padding: 0px;
-}
-*+html {
-    overflow-x: hidden;
-}
-
-p,h1,h2,h3,h4,h5,h6 {
-    margin: 10px 0;
-}
-
-img {
-    border: none; vertical-align: middle;
-}
-
-a {
-    text-decoration: none;
-    color: black;
-}
-
-div, table, th, tr, td, img, form {
-    font-family: Verdana,Arial,sans-serif;
-    font-size:12px;
-}
-h5 {
-    font-size: 12px;
-}
-
-p, h1, h2, h3, h4, h5, h6 {
-    margin: 10px 0;
-}
-    /*###############################################################################################*/
-
-.ClearFix:after {
-    content: ".";
-    display: block;
-    height: 0;
-    clear: both;
-    visibility: hidden;
-}
-
-*+html .ClearFix {
-    display: inline-block;
-    zoom: 1;
-    display: block;
-}
-
-
-.FL {
-    float: left; /* orientation=rt */
-}
-
-.FR {
-    float: right;
-}
-
-.UIPopupWindow {
-    border: 1px solid #CACACA;
-    border-radius: 5px 5px 5px 5px;
-    box-shadow: 0px 0px 10px #AFAFAF;
-    position: absolute;
-    display: block;
-    left: 349px;
-    top: 39px;
-    width: 650px;
-    z-index: 4;
-}
-.UIPopupWindow .PopupTitle {
-    color: #515151;
-    cursor: move;
-    display: block;
-    font-size: 12px;
-    font-weight: bold;
-    line-height: 30px;
-    margin: 0 25px 0 9px;
-    vertical-align: middle;
-}
-.UIPopupWindow .CloseButton {
-    background: url("background/CloseIcon.png") no-repeat scroll right top;
-    cursor: pointer;
-    float: right;
-    height: 18px;
-    margin: 5px 5px 0 0;
-    width: 18px;
-}
-.UIPopupWindow > .OverflowContainer {
-    background: url("background/PortalComposer.png") repeat-x scroll left top transparent;
-    border-radius: 3px 3px 0 0;
-    height: 30px;
-}
-
-.UIPopupWindow .UIWindowContent {
-    background: none repeat scroll 0 0 #EBEBEB;
-    border-radius: 0 0 5px 5px;
-    padding: 5px;
-}
-
-.UITabPane .TabPaneContent {
-    padding: 8px;
-}
-.UIAction {
-    padding: 8px 0;
-    text-align: center;
-}
-.UIAction a {
-    display: inline-block;
-}
-.UIAction .ActionButton {
-    cursor: pointer;
-    display: inline-block;
-    margin: 0 3px;
-}
-.SubmitButton {
-    background: url("/eXoResources/skin/DefaultSkin/webui/component/UIBarDecorator/UIAction/background/LightBlueStyle.gif") repeat-x scroll center center transparent;
-    cursor: pointer;
-    text-align: center;
-    white-space: nowrap;
-}
-
-
-.UIAction .LightBlueStyle {
-    background: url("/eXoResources/skin/DefaultSkin/webui/component/UIBarDecorator/UIAction/background/LightBlueStyle.gif") repeat-x scroll center center transparent;
-    border: 1px solid #ACACAC;
-    border-radius: 10px 10px 10px 10px;
-    color: #464646;
-    font-size: 12px;
-    line-height: 22px;
-    padding: 0 14px;
-    text-align: center;
-    white-space: nowrap;
-}
-
-
-
-ol {
-    margin:0;padding:0
-}
-p {
-    margin:0
-}
-.c5{vertical-align:middle;width:302.7pt;border-style:solid;border-color:#000000;border-width:1pt;padding:0.8pt 0.8pt 0.8pt 0.8pt}
-.c2{vertical-align:middle;width:67.1pt;border-style:solid;border-color:#000000;border-width:1pt;padding:0.8pt 0.8pt 0.8pt 0.8pt}
-.c38{vertical-align:middle;width:175.4pt;border-style:solid;border-color:#000000;border-width:1pt;padding:0.8pt 0.8pt 0.8pt 0.8pt}
-.c34{vertical-align:middle;width:302pt;border-style:solid;border-color:#000000;border-width:1pt;padding:0.8pt 0.8pt 0.8pt 0.8pt}
-.c37{vertical-align:middle;width:171pt;border-style:solid;border-color:#000000;border-width:1pt;padding:0.8pt 0.8pt 0.8pt 0.8pt}
-.c18{vertical-align:middle;width:171.8pt;border-style:solid;border-color:#000000;border-width:1pt;padding:0.8pt 0.8pt 0.8pt 0.8pt}
-.c10{vertical-align:middle;width:333pt;border-style:solid;border-color:#000000;border-width:1pt;padding:0.8pt 0.8pt 0.8pt 0.8pt}
-.c32{vertical-align:middle;width:298.4pt;border-style:solid;border-color:#000000;border-width:1pt;padding:0.8pt 0.8pt 0.8pt 0.8pt}
-.c13{vertical-align:middle;width:73.4pt;border-style:solid;border-color:#000000;border-width:1pt;padding:0.8pt 0.8pt 0.8pt 0.8pt}
-.c15{line-height:1.2;padding-top:5pt;direction:ltr;padding-bottom:5pt}
-.c7{line-height:1.2;text-align:center;direction:ltr;padding-bottom:0pt}
-.c1{line-height:1.2;text-align:justify;direction:ltr;padding-bottom:8pt}
-.c12{line-height:1.2;padding-top:0.1pt;direction:ltr;padding-bottom:0.1pt}
-.c33{list-style-type:circle;margin:0;padding:0}
-.c28{list-style-type:lower-latin;margin:0;padding:0}
-.c21{list-style-type:decimal;margin:0;padding:0}
-.c9{line-height:1.2;direction:ltr;padding-bottom:0pt}
-.c19{list-style-type:disc;margin:0;padding:0}
-.c30{max-width:468pt;background-color:#ffffff;padding:72pt 72pt 72pt 72pt}
-.c0{font-size:12px;font-family:Verdana,Arial,sans-serif}
-.c11{padding-left:0pt;margin-left:36pt}
-.c25{color:#0000ff;text-decoration:underline}
-.c22{padding-left:0pt;margin-left:54pt}
-.c24{padding-left:0pt;margin-left:72pt}
-.c8{color:inherit;text-decoration:inherit}
-.c4{font-weight:bold}
-.c23{direction:ltr}
-.c3{text-indent:36pt}
-.c27{margin-left:18pt}
-.c29{padding-left:0pt}
-.c6{height:11pt}
-.c14{text-align:justify}
-.c20{margin-left:36pt}
-.c35{margin-left:72pt}
-.c31{text-indent:-36pt}
-.c16{height:0pt}
-.c36{margin-left:54pt}
-.c26{border-collapse:collapse}
-.c17{text-align:center}
-.title{padding-top:24pt;line-height:1.2;text-align:left;color:#000000;font-size:36pt;font-family:Calibri;font-weight:bold;padding-bottom:6pt}
-.subtitle{padding-top:18pt;line-height:1.2;text-align:left;color:#666666;font-style:italic;font-size:24pt;font-family:Georgia;padding-bottom:4pt}
-body{color:#000000;font-size:11pt;font-family:Calibri}
-h1{padding-top:12pt;line-height:1.2;text-align:left;color:#000000;font-size:16pt;font-family:Arial;font-weight:bold;padding-bottom:3pt}
-h2{padding-top:12pt;line-height:1.2;text-align:left;color:#000000;font-style:italic;font-size:14pt;font-family:Arial;font-weight:bold;padding-bottom:3pt}
-h3{padding-top:12pt;line-height:1.2;text-align:left;color:#000000;font-size:13pt;font-family:Arial;font-weight:bold;padding-bottom:3pt}
-h4{padding-top:12pt;line-height:1.2;text-align:left;color:#000000;font-size:14pt;font-family:Calibri;font-weight:bold;padding-bottom:3pt}
-h6{padding-top:12pt;line-height:1.2;text-align:left;color:#000000;font-size:11pt;font-family:Calibri;font-weight:bold;padding-bottom:3pt}
-
-
-
-
-    /**********************************************************************
-    copy style from here (dont use css line up , they exiting on product)
-    **********************************************************************/
-
-.TermsConditions {
-    width: 650px;
-    background:#ebebeb;
-    box-shadow: 0px 0px 2px #888;
-    line-height:20px;
-    padding-bottom:5px;
-    left: 50%;
-    top: 50%;
-    visibility: visible;
-    z-index: 4;
-    margin:-273px 0 0 -325px;
-}
-
-.TermsConditions .UITabPane .TabPaneContent  {
-    background:#fff;
-    padding: 8px 8px 0px;
-    border-radius:3px;
-}
-
-.TermsConditions .WorkingArea {
-    padding:0 10px;
-    overflow:auto;
-    height:440px;
-}
-.TermsConditions  .BottomBox  {
-    border-top: 1px solid #ededed;
-    margin:10px 0 0 0;
-}
-.TermsConditions  input[type='checkbox']{
-    vertical-align: -1px;
-}
-.TermsConditions  .inactive{
-    color: #BBB;
-    cursor:default;
-}
-.TermsConditions  .active{
-    color: #464646;
-    cursor:pointer;
-}
-.GetStartedPage .BorderDot .UserInput {
-    vertical-align: middle;
-    width: 148px;
-}
-.GetStartedPage .BorderDot .FieldLabel {
-    font-family: verdana;
-    font-size: 12px;
-    font-weight: bold;
-    padding: 4px 20px 4px 4px;
-    vertical-align: top;
-    text-align: right;
-}
-.GetStartedPage .BorderDot .FieldComment input {
-    border: 1px solid #D3D3D3;
-    border-radius: 3px 3px 3px 3px;
-    box-shadow: 2px 2px 2px #F1F1F1 inset;
-    height: 18px;
-    padding: 6px 0;
-    width: 260px;
-    margin-bottom: 10px;
-    padding-left: 5px;
-}
-.GetStartedPage .BorderDot .FieldMini input {
-    width: 120px;
-    margin-right: 8px;
-}
-.GetStartedPage .BorderDot .LeftAvt{
-    margin-right: 100px;
-}
-.GetStartedPage .BorderDot .LeftAvt p{
-    margin: 0px 0px 10px;
-}
-.GetStartedPage .BorderDot .LeftAvt .BTBrowse{
-    border: 1px solid #C2C2C2;
-    border-radius: 4px 4px 4px 4px;
-    box-shadow: 0 -10px 12px #E7E7E7 inset;
-    color: #3D3D3D;
-    font-weight: bold;
-    padding: 4px 24px;
-    text-align: center;
-}
-
-.accountSetupError{
-    color: red;
-    padding-bottom: 10px;
-}
-</style>
+<link href="<%=request.getContextPath()%>/css/jquery.qtip.min.css" rel="stylesheet" type="text/css" />
 <link href="<%=request.getContextPath()%>/css/Style.css" rel="stylesheet" type="text/css" />
+
 <script type="text/javascript" src="<%=request.getContextPath()%>/javascript/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/javascript/jquery.qtip.min.js"></script>
 <script type="text/javascript" src="<%=request.getContextPath()%>/javascript/jquery.scrollTo.js"></script>
 <script type="text/javascript" src="<%=request.getContextPath()%>/javascript/welcomescreens.js"></script>
-
-
 </head>
 <body>
 <!--begin popup terms conditions-->
@@ -348,7 +66,7 @@ h6{padding-top:12pt;line-height:1.2;text-align:left;color:#000000;font-size:11pt
 
 <div class="item" id="TermsAndCondition">
 <!--<div class="UIFormBox StartedStep content" name="" >-->
-<div class="MaskLayer"  style="position:absolute;width:100%;height:100%;background:#000;z-index:4;left:0;top:0;opacity:0.7;-ms-filter:'progid:DXImageTransform.Microsoft.Alpha(Opacity=70)'; filter: alpha(opacity=70); "></div><!--set again height use javasript (get height screen resolution)-->
+<div class="MaskLayer"></div><!--set again height use javasript (get height screen resolution)-->
 <div class="TermsConditions UIPopupWindow">
 <div class="OverflowContainer ">
     <h5 class="PopupTitle">Terms and Conditions Agreement</h5>
@@ -2008,7 +1726,7 @@ h6{padding-top:12pt;line-height:1.2;text-align:left;color:#000000;font-size:11pt
 </div>
 
 <div class="BottomBox ClearFix">
-    <form name="tcForm" action="<%= contextPath + "/terms-and-conditions-action"%>" method="post" style="margin: 0px;">
+    <form name="tcForm" action="<%= contextPath + "/terms-and-conditions-action"%>" method="post">
 
             <% if (uri != null) { %>
         <input type="hidden" name="initialURI" value="<%=uri%>" />
@@ -2030,7 +1748,7 @@ h6{padding-top:12pt;line-height:1.2;text-align:left;color:#000000;font-size:11pt
 <div class="item" id="AccountSetup">
 
     <div class="UIFormBox StartedStep content" name="" >
-        <h3>Create Your account</h3>
+        <h3>Create Your account <span><a id="infoTipUserId" href="#"><img class="infoTip" src="/welcome-screens/css/background/infoIcon.png" alt="info" title="This will be your primary user account"></a></span></h3>
         <table class="BorderDot">
             <tbody>
             <tr id ="usernameId">
@@ -2040,7 +1758,7 @@ h6{padding-top:12pt;line-height:1.2;text-align:left;color:#000000;font-size:11pt
                 </td>
             </tr>
             <tr id="fullnameId">
-                <td class="FieldLabel UserInput">Fullname</td>
+                <td class="FieldLabel UserInput">Full name</td>
                 <td class="FieldComment FieldMini">
                     <input type="text" name="firstNameAccount" id="firstNameAccount" placeholder="First name">
                 </td>
@@ -2066,13 +1784,13 @@ h6{padding-top:12pt;line-height:1.2;text-align:left;color:#000000;font-size:11pt
             </tr>
             </tbody>
         </table>
-        <h3>Admin password</h3>
+        <h3>Admin password <span><a id="infoTipAdminId" href="#"><img class="infoTip" src="/welcome-screens/css/background/infoIcon.png" alt="info" title="Login as <b>root</b> user with the following password for super user access"></a></span></h3>
         <table class="BorderDot" cols="4">
             <tbody>
             <tr id="adminUsernameId">
                 <td class="FieldLabel UserInput">Username</td>
                 <td class="FieldComment FieldMini" colspan='2'>
-                    <input type="text" name="adminFirstName" id="adminFirstName" placeholder="root"/>
+                    <input type="text" name="adminFirstName" id="adminFirstName" placeholder="root"  readonly="readonly"/>
                 </td>
             </tr>
             <tr id="adminPasswordId">

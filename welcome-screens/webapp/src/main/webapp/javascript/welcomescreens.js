@@ -1,7 +1,17 @@
-/**
- * Module used to manage cloud login wizard JS features
- *
- */
+$(document).ready(function(){
+    $('.infoTip[title]').qtip({
+
+        position: {
+            my: 'bottom left',
+            at: 'right top'
+
+        },
+        style: {
+            classes: 'qtip-light qtip-rounded'
+        }
+    });
+});
+
 var WelcomeScreens = {};
 
 WelcomeScreens.USERNAME_INPUT_MIN_SIZE = 3;

@@ -5,17 +5,224 @@
 
 }
 
-@font-face {
-    font-family: 'Helvetica';
-    font-weight: normal;
-    font-style: normal;
+html {
+    margin: 0px; padding: 0px; height:100%;
+}
+*+html {
+    overflow-x: hidden;
+}
 
+img {
+    border: none; vertical-align: middle;
+}
+
+div, table, th, tr, td, img, form {
+    font-family: Verdana,Arial,sans-serif;
+    font-size:12px;
+}
+
+.ClearFix:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+}
+
+*+html .ClearFix {
+    display: inline-block;
+    zoom: 1;
+    display: block;
+}
+
+.UIPopupWindow {
+    border: 1px solid #CACACA;
+    border-radius: 5px 5px 5px 5px;
+    box-shadow: 0px 0px 10px #AFAFAF;
+    position: absolute;
+    display: block;
+    left: 349px;
+    top: 39px;
+    width: 650px;
+    z-index: 4;
+}
+.UIPopupWindow .PopupTitle {
+    color: #515151;
+    cursor: move;
+    display: block;
+    font-size: 12px;
+    font-weight: bold;
+    line-height: 30px;
+    margin: 0 25px 0 9px;
+    vertical-align: middle;
+}
+.UIPopupWindow .CloseButton {
+    background: url("background/CloseIcon.png") no-repeat scroll right top;
+    cursor: pointer;
+    float: right;
+    height: 18px;
+    margin: 5px 5px 0 0;
+    width: 18px;
+}
+.UIPopupWindow > .OverflowContainer {
+    border-radius: 3px 3px 0 0;
+    height: 30px;
+}
+
+.UIPopupWindow .UIWindowContent {
+    background: none repeat scroll 0 0 #EBEBEB;
+    border-radius: 0 0 5px 5px;
+    padding: 5px;
+}
+
+.UITabPane .TabPaneContent {
+    padding: 8px;
+}
+.UIAction {
+    padding: 8px 0;
+    text-align: center;
+}
+.UIAction a {
+    display: inline-block;
+}
+.UIAction .ActionButton {
+    cursor: pointer;
+    display: inline-block;
+    margin: 0 3px;
+}
+.SubmitButton {
+    background: url("/eXoResources/skin/DefaultSkin/webui/component/UIBarDecorator/UIAction/background/LightBlueStyle.gif") repeat-x scroll center center transparent;
+    cursor: pointer;
+    text-align: center;
+    white-space: nowrap;
 }
 
 
-/******** Common CSS ********/
-html {
-    height:100%;
+.UIAction .LightBlueStyle {
+    background: url("/eXoResources/skin/DefaultSkin/webui/component/UIBarDecorator/UIAction/background/LightBlueStyle.gif") repeat-x scroll center center transparent;
+    border: 1px solid #ACACAC;
+    border-radius: 10px 10px 10px 10px;
+    color: #464646;
+    font-size: 12px;
+    line-height: 22px;
+    padding: 0 14px;
+    text-align: center;
+    white-space: nowrap;
+}
+
+ol {
+    margin:0;padding:0
+}
+.c5{vertical-align:middle;width:302.7pt;border-style:solid;border-color:#000000;border-width:1pt;padding:0.8pt 0.8pt 0.8pt 0.8pt}
+.c2{vertical-align:middle;width:67.1pt;border-style:solid;border-color:#000000;border-width:1pt;padding:0.8pt 0.8pt 0.8pt 0.8pt}
+.c38{vertical-align:middle;width:175.4pt;border-style:solid;border-color:#000000;border-width:1pt;padding:0.8pt 0.8pt 0.8pt 0.8pt}
+.c34{vertical-align:middle;width:302pt;border-style:solid;border-color:#000000;border-width:1pt;padding:0.8pt 0.8pt 0.8pt 0.8pt}
+.c37{vertical-align:middle;width:171pt;border-style:solid;border-color:#000000;border-width:1pt;padding:0.8pt 0.8pt 0.8pt 0.8pt}
+.c18{vertical-align:middle;width:171.8pt;border-style:solid;border-color:#000000;border-width:1pt;padding:0.8pt 0.8pt 0.8pt 0.8pt}
+.c10{vertical-align:middle;width:333pt;border-style:solid;border-color:#000000;border-width:1pt;padding:0.8pt 0.8pt 0.8pt 0.8pt}
+.c32{vertical-align:middle;width:298.4pt;border-style:solid;border-color:#000000;border-width:1pt;padding:0.8pt 0.8pt 0.8pt 0.8pt}
+.c13{vertical-align:middle;width:73.4pt;border-style:solid;border-color:#000000;border-width:1pt;padding:0.8pt 0.8pt 0.8pt 0.8pt}
+.c15{line-height:1.2;padding-top:5pt;direction:ltr;padding-bottom:5pt}
+.c7{line-height:1.2;text-align:center;direction:ltr;padding-bottom:0pt}
+.c1{line-height:1.2;text-align:justify;direction:ltr;padding-bottom:8pt}
+.c12{line-height:1.2;padding-top:0.1pt;direction:ltr;padding-bottom:0.1pt}
+.c33{list-style-type:circle;margin:0;padding:0}
+.c28{list-style-type:lower-latin;margin:0;padding:0}
+.c21{list-style-type:decimal;margin:0;padding:0}
+.c9{line-height:1.2;direction:ltr;padding-bottom:0pt}
+.c19{list-style-type:disc;margin:0;padding:0}
+.c30{max-width:468pt;background-color:#ffffff;padding:72pt 72pt 72pt 72pt}
+.c0{font-size:12px;font-family:Verdana,Arial,sans-serif}
+.c11{padding-left:0pt;margin-left:36pt}
+.c25{color:#0000ff;text-decoration:underline}
+.c22{padding-left:0pt;margin-left:54pt}
+.c24{padding-left:0pt;margin-left:72pt}
+.c8{color:inherit;text-decoration:inherit}
+.c4{font-weight:bold}
+.c23{direction:ltr}
+.c3{text-indent:36pt}
+.c27{margin-left:18pt}
+.c29{padding-left:0pt}
+.c6{height:11pt}
+.c14{text-align:justify}
+.c20{margin-left:36pt}
+.c35{margin-left:72pt}
+.c31{text-indent:-36pt}
+.c16{height:0pt}
+.c36{margin-left:54pt}
+.c26{border-collapse:collapse}
+.c17{text-align:center}
+.title{padding-top:24pt;line-height:1.2;text-align:left;color:#000000;font-size:36pt;font-family:Calibri;font-weight:bold;padding-bottom:6pt}
+.subtitle{padding-top:18pt;line-height:1.2;text-align:left;color:#666666;font-style:italic;font-size:24pt;font-family:Georgia;padding-bottom:4pt}
+h1{padding-top:12pt;line-height:1.2;text-align:left;color:#000000;font-weight:bold;padding-bottom:3pt}
+h2{padding-top:12pt;line-height:1.2;text-align:left;color:#000000;font-style:italic;font-weight:bold;padding-bottom:3pt}
+h3{line-height:1.2;text-align:left;color:#000000;font-size:18px}
+h4{padding-top:12pt;line-height:1.2;text-align:left;color:#000000;font-size:14pt;font-family:Calibri;font-weight:bold;padding-bottom:3pt}
+h6{padding-top:12pt;line-height:1.2;text-align:left;color:#000000;font-size:11pt;font-family:Calibri;font-weight:bold;padding-bottom:3pt}
+
+.TermsConditions {
+    width: 650px;
+    background:#ebebeb;
+    box-shadow: 0px 0px 2px #888;
+    line-height:20px;
+    padding-bottom:5px;
+    left: 50%;
+    top: 50%;
+    visibility: visible;
+    z-index: 4;
+    margin:-273px 0 0 -325px;
+}
+
+.TermsConditions .UITabPane .TabPaneContent  {
+    background:#fff;
+    padding: 8px 8px 0px;
+    border-radius:3px;
+}
+
+.TermsConditions .WorkingArea {
+    padding:0 10px;
+    overflow:auto;
+    height:440px;
+}
+.TermsConditions  .BottomBox  {
+    border-top: 1px solid #ededed;
+    margin:10px 0 0 0;
+}
+.TermsConditions  input[type='checkbox']{
+    vertical-align: -1px;
+}
+.TermsConditions  .inactive{
+    color: #BBB;
+    cursor:default;
+}
+.TermsConditions  .active{
+    color: #464646;
+    cursor:pointer;
+}
+
+.GetStartedPage .BorderDot .LeftAvt{
+    margin-right: 100px;
+}
+.GetStartedPage .BorderDot .LeftAvt p{
+    margin: 0px 0px 10px;
+}
+.GetStartedPage .BorderDot .LeftAvt .BTBrowse{
+    border: 1px solid #C2C2C2;
+    border-radius: 4px 4px 4px 4px;
+    box-shadow: 0 -10px 12px #E7E7E7 inset;
+    color: #3D3D3D;
+    font-weight: bold;
+    padding: 4px 24px;
+    text-align: center;
+}
+
+.accountSetupError{
+    color: red;
+    padding-bottom: 10px;
+}
+.infoTip {
+    width: 30px;
+    height: 30px;
 }
 
 body {
@@ -30,12 +237,12 @@ body {
     -webkit-font-smoothing: antialiased;
 }
 
-div, table, tr, td, img, form, p,h1, h2, h3, h4, h5, h6,ul ,fieldset{
+div, table, tr, td, img, form, h6, ul ,fieldset{
     margin: 0;
     padding: 0;
 }
 
-img,fieldset {
+fieldset {
     border: none;
 }
 
@@ -53,6 +260,7 @@ h1, h2, h3, h4, h5 {
     font-weight:normal;
     font-family: arial, helvetica,sans-serif;
     margin:10px 0;
+    padding: 0;
 }
 
 label.error {
@@ -74,9 +282,6 @@ h2{
 
 }
 
-h3{
-    font-size: 18px;
-}
 
 h4{
     font-size: 14px;
@@ -89,13 +294,7 @@ h5{
 
 p {
     margin:10px 0;
-}
-.ClearFix:after {
-    content: ".";
-    display: block;
-    height: 0;
-    clear: both;
-    visibility: hidden;
+    padding: 0;
 }
 
 .ClearFix {
@@ -133,13 +332,11 @@ p {
     box-shadow: 2px 2px 2px #F1F1F1 inset;
     height: 18px;
     padding: 6px 0;
-    width: 260px;
     margin-bottom: 10px;
     padding-left: 5px;
 }
 
 .GetStartedPage .BorderDot .FieldMini input {
-    width: 120px;
     margin-right: 8px;
 }
 
@@ -173,7 +370,6 @@ p {
     width:300%;
     height:100%;
     overflow:hidden;
-    background: url(../background/GrayPattern.png) repeat center center;
 }
 
 .item{
@@ -214,9 +410,8 @@ input.Button {
     width: 100px;
     text-align: center;
 }
-/*================started=============*/
+
 .GetStartedPage {
-    background: url(../background/GrayPattern.png) repeat center center;
     margin: 0 auto;
     padding: 60px 0;
     height: 100%;
@@ -374,11 +569,23 @@ input.Button {
     border-radius: 12px;
 }
 
+.MaskLayer{
+    position:absolute;
+    width:100%;
+    height:100%;
+    background:#000;
+    z-index:4;
+    left:0;
+    top:0;
+    opacity:0.7;
+    -ms-filter:'progid:DXImageTransform.Microsoft.Alpha(Opacity=70)';
+    filter: alpha(opacity=70);
+}
 
+.qtip-content{
+    text-align: center;
+}
 
-
-
-
-
-
-
+.qtip-light{
+    border-color: #000000;
+}
