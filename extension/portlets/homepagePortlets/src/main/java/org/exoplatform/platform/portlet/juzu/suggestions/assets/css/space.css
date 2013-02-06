@@ -1,0 +1,66 @@
+.spaceList img {
+    width: 24px;
+    height: 24px;
+    border-width: 0px;
+}
+
+.spaceHeader {
+    font-weight: bold;
+    margin-bottom: 12px;
+    padding-top: 5px;
+}
+
+.spaceName {
+    font-weight: bold;
+}
+
+.spaceAction {
+    white-space: nowrap;
+    font-size: 10px;
+    height: 25px;
+    margin-top: 5px;
+}
+
+.spaceInfo {
+
+    padding-left: 10px;
+    width: 185px;
+    overflow: hidden;
+}
+
+.spacePicture {
+    float: left;
+    padding-top: 2px;
+}
+
+.spacePrivacy {
+    width: 185px;
+    float: left;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    height: 25px;
+    margin-top: 5px;
+    color: #808080;
+}
+
+.actionspaceAppears {
+    width: 85px;
+}
+
+a:link {
+    color: #226AB4;
+}
+
+#spaceSuggest {
+    padding-left: 10px;
+}
+
+.spaceList ul li {
+    border-bottom: 1px solid #DBDBDB;
+}
+
+.spaceCommon {
+    margin-bottom: 10px;
+    color: #808080;
+}

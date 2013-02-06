@@ -20,6 +20,25 @@
         <key>org.exoplatform.platform.common.admin.TermsAndConditionsService</key>
         <type>org.exoplatform.platform.common.admin.impl.TermsAndConditionsServiceImpl</type>
     </component>    -->
+   <!-- GETTING STARTED -->
+   <component>
+      <type>org.exoplatform.platform.common.rest.services.GettingStarted.GettingStartedRestService</type>
+   </component>
+   <!-- SUGGESTED PEOPLE -->
+   <component>
+      <type>org.exoplatform.platform.common.rest.services.SuggestPeoplePortlet.PeopleRestServices</type>
+   </component>
+   <!-- SUGGEST SPACES -->
+   <component>
+      <type>org.exoplatform.platform.common.rest.services.SuggestSpacesPortlet.SpaceRestServices</type>
+   </component>
+   <!-- INVITATIONS -->
+   <component>
+      <type>org.exoplatform.platform.common.rest.services.InvitationsPortlet.PeopleAndSpacesRestService</type>
+   </component>
+   <component>
+      <type>org.exoplatform.platform.common.rest.services.GettingStarted.DeleteGadgetService</type>
+   </component>
     <component>
         <type>org.exoplatform.platform.common.service.MenuConfiguratorService</type>
         <init-params>

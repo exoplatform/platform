@@ -83,6 +83,10 @@
       <artifactId>social-component-core</artifactId>
     </dependency>
     <dependency>
+      <groupId>org.exoplatform.social</groupId>
+      <artifactId>social-component-common</artifactId>
+    </dependency>
+    <dependency>
       <groupId>org.exoplatform.ws</groupId>
       <artifactId>exo.ws.rest.core</artifactId>
     </dependency>
@@ -111,6 +115,10 @@
       <artifactId>exo.portal.component.web.api</artifactId>
     </dependency>
     <dependency>
+      <groupId>org.gatein.portal</groupId>
+      <artifactId>exo.portal.webui.portal</artifactId>
+    </dependency>
+    <dependency>
       <groupId>picocontainer</groupId>
       <artifactId>picocontainer</artifactId>
       <exclusions>
@@ -126,7 +134,7 @@
     </dependency>
     <dependency>
       <groupId>javax.servlet</groupId>
-      <artifactId>servlet-api</artifactId>
+      <artifactId>javax.servlet-api</artifactId>
       <scope>provided</scope>
     </dependency>
     <!-- To replace the old xstream:xstream version from picocontainer -->
@@ -145,5 +153,13 @@
       <artifactId>slf4j-simple</artifactId>
       <scope>test</scope>
     </dependency>
+      <dependency>
+          <groupId>org.exoplatform.forum</groupId>
+          <artifactId>forum-forum-service</artifactId>
+      </dependency>
+      <dependency>
+          <groupId>org.gatein.shindig</groupId>
+          <artifactId>shindig-social-api</artifactId>
+      </dependency>
   </dependencies>
 </project>

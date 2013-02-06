@@ -1,0 +1,89 @@
+.onlineHeader {
+    background: none repeat scroll 0 0 #F8F8F8;
+    border: 1px solid #E1E1E1;
+    border-radius: 3px 3px 3px 3px;
+    color: #2F3334;
+    line-height: 25px;
+    padding: 0 5px 0 8px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+#OnlinePortlet ul {
+    list-style-type: none;
+    padding-left: 10px;
+    padding-right: 0px;
+
+}
+
+#OnlinePortlet .gallery li {
+    display: inline;
+    list-style: none;
+    width: 30px;
+    height: 40px;
+    margin: 0 5px 5px 0;
+    text-align: center;
+}
+
+#OnlinePortlet .gallery li img {
+    margin-bottom: 5px;
+    height: 40px;
+    width: 30px;
+}
+
+.tooltip {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 3;
+    display: none;
+    border: 0 none;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    color: #115EAD;
+    max-width: 100px;
+    width: auto;
+    background-color: white;
+    padding: 5px 10px 5px 10px;
+    border: solid 1px #115EAD;
+}
+
+.tooltip div {
+    color: #115EAD;
+}
+
+#tipName {
+    font-weight: bold;
+}
+
+#OnlinePortlet {
+
+    margin-right: 3px;
+
+}
+
+.connect {
+    -moz-box-shadow: inset 0px 1px 0px 0px #ffffff;
+    -webkit-box-shadow: inset 0px 1px 0px 0px #ffffff;
+    box-shadow: inset 0px 1px 0px 0px #ffffff;
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #ededed), color-stop(1, #dfdfdf));
+    background: -moz-linear-gradient(center top, #ededed 5%, #dfdfdf 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr = '#ededed', endColorstr = '#dfdfdf');
+    background-color: #ededed;
+    -moz-border-radius: 6px;
+    -webkit-border-radius: 6px;
+    border-radius: 6px;
+    border: 1px solid #dcdcdc;
+    display: inline-block;
+    color: #777777;
+    font-family: arial;
+    padding: 1px 5px;
+    text-decoration: none;
+    text-shadow: 1px 1px 0px #ffffff;
+}
+
+.connectAction {
+    text-align: center;
+}
+
+
