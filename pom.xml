@@ -18,7 +18,7 @@
     <module>extension</module>
     <module>server</module>
     <module>samples</module>
-    <module>trial</module>
+    <!--<module>trial</module>-->
     <module>exo-gadget-pack</module>
     <!--<module>packaging</module>-->
     <!--<module>testsuite</module>-->
