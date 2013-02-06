@@ -20,9 +20,9 @@
     <module>samples</module>
     <module>trial</module>
     <module>exo-gadget-pack</module>
-    <module>packaging</module>
-    <module>testsuite</module>
-    <module>welcome-screens</module>
+    <!--<module>packaging</module>-->
+    <!--<module>testsuite</module>-->
+     <module>welcome-screens</module>
   </modules>
   <scm>
     <connection>scm:git:git://github.com/exoplatform/platform.git</connection>
@@ -51,6 +51,7 @@
     <org.exoplatform.integ.version>4.0.0.Alpha1-SNAPSHOT</org.exoplatform.integ.version>
     <org.exoplatform.jcr.version>1.15.0-GA</org.exoplatform.jcr.version>
     <org.exoplatform.kernel.version>2.4.0-GA</org.exoplatform.kernel.version>
+    <org.exoplatform.wiki.version>4.0.0.Alpha1-SNAPSHOT</org.exoplatform.wiki.version>
     <org.gatein.portal.version>3.5.0.Final</org.gatein.portal.version>
     <org.exoplatform.social.version>4.0.0.Alpha1-SNAPSHOT</org.exoplatform.social.version>
     <org.exoplatform.ws.version>2.3.0-GA</org.exoplatform.ws.version>
@@ -77,6 +78,11 @@
         <version>${org.exoplatform.calendar.version}</version>
         <type>pom</type>
         <scope>import</scope>
+      </dependency>
+      <dependency>
+        <groupId>org.exoplatform.calendar</groupId>
+        <artifactId>calendar-component-create</artifactId>
+        <version>${org.exoplatform.calendar.version}</version>
       </dependency>
       <!-- Import versions from commons project -->
       <dependency>
@@ -245,10 +251,6 @@
             <artifactId>servlet-api</artifactId>
             <groupId>javax.servlet</groupId>
           </exclusion>
-           <exclusion>
-              <artifactId>exo.ws.frameworks.servlet</artifactId>
-              <groupId>org.exoplatform.ws</groupId>
-           </exclusion>
         </exclusions>
       </dependency>
       <!-- Import versions from integration project -->
@@ -471,11 +473,6 @@
             <version>${project.version}</version>
         </dependency>
         <dependency>
-            <groupId>org.exoplatform.calendar</groupId>
-            <artifactId>calendar-component-create</artifactId>
-            <version>${org.exoplatform.calendar.version}</version>
-        </dependency>
-      <dependency>
         <groupId>org.exoplatform.platform</groupId>
         <artifactId>platform-exo-gadget-pack-config</artifactId>
         <version>${project.version}</version>
@@ -519,6 +516,18 @@
         <artifactId>platform-extension-ear</artifactId>
         <version>${project.version}</version>
         <type>ear</type>
+      </dependency>
+      <dependency>
+        <groupId>org.exoplatform.platform</groupId>
+        <artifactId>platform-extension-portlets-homepage</artifactId>
+        <version>${project.version}</version>
+        <type>war</type>
+      </dependency>
+      <dependency>
+        <groupId>org.exoplatform.platform</groupId>
+        <artifactId>platform-extension-portlets-homepage</artifactId>
+        <version>${project.version}</version>
+        <type>pom</type>
       </dependency>
       <dependency>
         <groupId>org.exoplatform.platform</groupId>
@@ -755,6 +764,14 @@
         <groupId>org.exoplatform.social</groupId>
         <artifactId>social</artifactId>
         <version>${org.exoplatform.social.version}</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+      <!-- Import versions from wiki project -->
+      <dependency>
+        <groupId>org.exoplatform.wiki</groupId>
+        <artifactId>wiki</artifactId>
+        <version>${org.exoplatform.wiki.version}</version>
         <type>pom</type>
         <scope>import</scope>
       </dependency>
