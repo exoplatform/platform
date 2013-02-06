@@ -12,6 +12,6 @@
 
 <div id="<%=uicomponent.id%>">
 <a href="<%=NavigationURLUtils.getCurrentPortalURL()%>" class="HomeLink">
-    <img src="$imgSrc" alt="Home" width="25px" height="21px"/>
+    <img src="$imgSrc" alt="Home" >
 </a>
 </div>

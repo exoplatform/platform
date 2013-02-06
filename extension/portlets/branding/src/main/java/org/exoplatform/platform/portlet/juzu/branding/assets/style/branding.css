@@ -1,20 +1,21 @@
 
 #PreviewImg{
-max-width:100%; 
-max-height:100%;
-margin:auto;
+height: 34px;
+max-width : 300px;
 }
 
 
 #PreviewImgDiv
 {
+	width : 300px;
+	height: 34px;
 	font-weight: bold;
 	text-align: center;
 	color: #555;
 	border: 1px solid #555;
 	cursor: default;
-	height: 34px;
-    width: 300px;
+	
+	
 }
 
 #PreviewImgDiv.hover

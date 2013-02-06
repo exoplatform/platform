@@ -110,8 +110,7 @@ $(function() {
 	function previewLogoFromUrl(logoUrl) {
 		scaleToFitPreviewImg($('#PreviewImg'));
 		$('#PreviewImg').attr('src', logoUrl);
-		$('#StylePreview #HomeLink img').attr('src', logoUrl).width(25).height(
-				21);
+		$('#StylePreview #HomeLink img').attr('src', logoUrl);
 	}
 
 	function restorePreviewLogoAndStyle() {
@@ -144,7 +143,7 @@ $(function() {
 	
 	function UpdateTopBarNavigation(data) {
 		$("#PlatformAdminToolbarContainer .HomeLink img:first").attr('src',
-				data.logoUrl).width(25).height(21);
+				data.logoUrl);
 		$("#PlatformAdminToolbarContainer #UIToolbarContainer:first")
 				.removeAttr("class");
 		$("#PlatformAdminToolbarContainer #UIToolbarContainer:first").addClass(

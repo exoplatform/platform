@@ -217,6 +217,10 @@
     padding: 0px;
 }
 
+.UIToolbarContainer .HomeLink img {
+	height : 34px;
+    max-width : 300px;
+}
 
 .UIToolbarContainer .PinLink {
     padding: 0px;
@@ -779,6 +783,11 @@
 /**********************************/
 .UIToolbarContainerDark .HomeLink {
     padding: 0px;
+}
+
+.UIToolbarContainerDark .HomeLink img {
+	height : 34px;
+    max-width : 300px;
 }
 
 
@@ -1365,6 +1374,11 @@
 /**********************************/
 .UIToolbarContainerLight .HomeLink {
     padding: 0px;
+}
+
+.UIToolbarContainerLight .HomeLink img {
+	height : 34px;
+    max-width : 300px;
 }
 
 
