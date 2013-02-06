@@ -42,6 +42,7 @@
 							<value-storage id="system" class="org.exoplatform.services.jcr.impl.storage.value.fs.TreeFileValueStorage">
 								<properties>
 									<property name="path" value="target/temp/values/system_portal"/>
+                           <property name="enabled" value="${gatein.jcr.storage.enabled:true}" />
 								</properties>
 								<filters>
 									<filter property-type="Binary"/>
@@ -90,6 +91,7 @@
 							<value-storage id="collaboration" class="org.exoplatform.services.jcr.impl.storage.value.fs.TreeFileValueStorage">
 								<properties>
 									<property name="path" value="target/temp/values/collaboration_portal"/>
+                           <property name="enabled" value="${gatein.jcr.storage.enabled:true}" />
 								</properties>
 								<filters>
 									<filter property-type="Binary"/>
@@ -142,6 +144,7 @@
 							<value-storage id="dms-system" class="org.exoplatform.services.jcr.impl.storage.value.fs.TreeFileValueStorage">
 								<properties>
 									<property name="path" value="target/temp/values/dms-system_portal"/>
+                           <property name="enabled" value="${gatein.jcr.storage.enabled:true}" />
 								</properties>
 								<filters>
 									<filter property-type="Binary"/>
