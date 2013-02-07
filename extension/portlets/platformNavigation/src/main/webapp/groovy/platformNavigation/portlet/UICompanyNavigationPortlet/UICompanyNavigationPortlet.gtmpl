@@ -53,8 +53,29 @@
         else title = "";
         EntityEncoder entityEncoder = EntityEncoder.FULL;
         label = entityEncoder.encode(label);
-
-        if ((icon == null)||(icon.equals(""))) icon = "uiIconFile";
+        if ((icon == null)||(icon.equals(""))) 
+		{
+  			if (href.lastIndexOf("/") == href.length() - 1) {
+      			href = href.substring(0, href.length() - 1);
+    			}
+  			  String hrefLower = href.trim().toLowerCase().substring(href.lastIndexOf("/") + 1, href.length());
+  		  if (hrefLower.contains("home")) {
+   			   icon = "uiIconHome";
+  		  } else if (hrefLower.contains("connections")) {
+  			   icon = "uiIconConnexions";
+ 		   } else if (hrefLower.contains("wiki")) {
+  		       icon = "uiIconWiki";
+  		  } else if (hrefLower.contains("documents")) {
+   			   icon = "uiIconDocuments";
+    	  } else if (hrefLower.contains("forum")) {
+      			icon = "uiIconForum";
+   		  } else if (hrefLower.contains("calendar")) {
+      			icon = "uiIconCalendar";
+    	  }
+    	  else {
+    	        icon = "uiIconFile";
+    	  }
+		}
         print """
 			<li class="$tabStyleNavigation">
 		""";
