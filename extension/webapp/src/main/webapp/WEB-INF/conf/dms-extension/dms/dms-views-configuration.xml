@@ -113,7 +113,7 @@
                     <field name="tabName"><string>Authoring</string></field>
                     <field name="buttons">
                     	 <string>
-                    	 	 addCategory; addFolder; addDocument; editDocument; upload; managePublications; manageCategories; taggingDocument; vote; watchDocument; publicationRequestApproval; publicationApproveContent; publicationPublish; addTranslation  
+                    	 	 addCategory; addFolder; addDocument; editDocument; upload; managePublications; manageCategories; taggingDocument; vote; watchDocument; publicationRequestApproval; publicationApproveContent; publicationPublish; addLocalizationLink  
 																						</string>
                     </field>
                   </object>
