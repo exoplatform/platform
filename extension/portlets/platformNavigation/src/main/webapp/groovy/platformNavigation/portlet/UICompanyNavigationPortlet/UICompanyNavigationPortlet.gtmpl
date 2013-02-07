@@ -62,15 +62,15 @@
   		  if (hrefLower.contains("home")) {
    			   icon = "uiIconHome";
   		  } else if (hrefLower.contains("connections")) {
-  			   icon = "uiIconConnexions";
+  			   icon = "uiIconUser";
  		   } else if (hrefLower.contains("wiki")) {
   		       icon = "uiIconWiki";
   		  } else if (hrefLower.contains("documents")) {
-   			   icon = "uiIconDocuments";
+   			   icon = "uiIconPLFDocuments";
     	  } else if (hrefLower.contains("forum")) {
       			icon = "uiIconForum";
    		  } else if (hrefLower.contains("calendar")) {
-      			icon = "uiIconCalendar";
+      			icon = "uiIconPLFCalendar";
     	  }
     	  else {
     	        icon = "uiIconFile";
