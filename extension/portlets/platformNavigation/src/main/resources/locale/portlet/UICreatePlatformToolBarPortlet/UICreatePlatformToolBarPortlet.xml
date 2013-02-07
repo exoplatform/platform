@@ -50,7 +50,17 @@
          <EndEvent>End Date</EndEvent>
          <StartEvent>Start Date</StartEvent>
          <Calendar>Calendars</Calendar>
-
+         <all-day>All Day</all-day>
+         <defaultCalendarId>Default</defaultCalendarId>
       </label>
+      <msg>
+        <summary-field-required>The field "Title" is required.</summary-field-required>
+        <fromDate-format>The Form date format is incorrect.</fromDate-format>
+        <toDate-format>The To date format is incorrect.</toDate-format>
+        <logic-required>Sorry, you can't create an event that ends before it starts.</logic-required>
+        <cant-add-event-on-remote-calendar>Can't add event to remote calendar</cant-add-event-on-remote-calendar>
+        <add-successfully>The {0} added to the {1}.</add-successfully>
+        <add-unsuccessfully>Unsuccessfully to add {0}.</add-unsuccessfully>
+      </msg>
    </UICreateEvent>
 </bundle>
