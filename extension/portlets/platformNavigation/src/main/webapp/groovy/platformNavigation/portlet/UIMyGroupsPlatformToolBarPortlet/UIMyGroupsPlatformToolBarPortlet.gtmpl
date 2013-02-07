@@ -20,6 +20,19 @@
 -->
 */
 %>
+<script type="text/javascript">
+   cancelUnclickableMenu = function (evt)
+   {
+     if (evt && evt.stopPropagation) {
+       evt.stopPropagation();
+     } else if (window.event) {
+       window.event.cancelBubble = true;
+     }
+     if (this.hideMenuTimeoutId) {
+       window.clearTimeout(this.hideMenuTimeoutId) ;
+     }
+   };
+</script>
 <%
   import org.exoplatform.portal.mop.user.UserNavigation;
   import org.exoplatform.portal.mop.user.UserNode;
@@ -88,7 +101,7 @@
   	String navTitle = _ctx.appRes("UIPageNavigation.label.titleBar") ;
   	navTitle = navTitle.replace("{0}", OrganizationUtils.getGroupLabel(ownerId));
           print """
-  	<li class="TitleBar"  style="cursor:default;" title="$ownerId">$navTitle</li>
+  	<li class="TitleBar"  style="cursor:default;" title="$ownerId" onclick='cancelUnclickableMenu(event);'>$navTitle</li>
   		""" ;
   		int idx = 0;
   		for(UserNode node : nodes) {
