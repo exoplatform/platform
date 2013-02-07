@@ -1,4 +1,11 @@
 $(function() {
+	
+	/**
+	 * initialize variables and methods when first load page
+	 * first display a preview, hide save, cancel, png div
+	 * then clone toolbar navigation to preview display
+	 */
+	
 	var fileUpload;
 	var backupParams;
 	UpdatePreviewLogoAndStyle();
@@ -6,6 +13,8 @@ $(function() {
 	$("#cancelinfo").hide();
 	$("#mustpng").hide();
 	$("#PlatformAdminToolbarContainer").clone().appendTo($("#StylePreview"));
+	
+	//when cancel is clicked, restore the old logo and display cancel messsage
 	$("#cancel").on("click", function() {
 		restorePreviewLogoAndStyle();
 //		UpdatePreviewLogoAndStyle();
@@ -13,6 +22,8 @@ $(function() {
 		$("#mustpng").hide();
 		$("#cancelinfo").show();
 	});
+	
+	//when save is clicked, restore the new logo and display save messsage	
 	$("#save").on("click", function() {
 		$("#style").val(($('#navigationStyle option:selected').val()));
 		$('#form').submit();
@@ -21,6 +32,7 @@ $(function() {
 		$("#mustpng").hide();
 	});
 
+	//launch preview when a file is insert in input
 	$("input#file").on("change", function() {
 		previewLogoFromFile(this.files[0]);
 	});
@@ -71,10 +83,16 @@ $(function() {
 		changePreviewStyle(style);
 	});
 
+	/**
+	 * change preview style by adding new class in UIToolbarContainer which is concatenated a style selected
+	 */
 	function changePreviewStyle(style) {
 		$("#StylePreview #UIToolbarContainer").attr('class', "UIToolbarContainer"+ style +" UIContainer");
 	}
 	
+	/**
+	 * preview a logo, display a message if not png file, otherwise display this image file
+	 */
 	function previewLogoFromFile(file) {
 		var checkValide = validate(file);
 		if (checkValide == false) {
@@ -92,6 +110,10 @@ $(function() {
 		}
 	}
 
+	/**
+	 * validate an png image
+	 * returns true if png, otherwise return false
+	 */
 	function validate(file) {
 		if (file.type == "image/png") {
 			return true;
@@ -100,6 +122,9 @@ $(function() {
 		}
 	}
 
+	/**
+	 * scale an image to fit with parent div
+	 */
 	function scaleToFitPreviewImg(elt) {
 		$(elt).imgscale({
 			parent : '#PreviewImgDiv',
@@ -107,12 +132,18 @@ $(function() {
 		});
 	}
 
+	/**
+	 * preview a logo and perform a scale
+	 */
 	function previewLogoFromUrl(logoUrl) {
 		scaleToFitPreviewImg($('#PreviewImg'));
 		$('#PreviewImg').attr('src', logoUrl);
 		$('#StylePreview #HomeLink img').attr('src', logoUrl);
 	}
 
+	/**
+	 * restore a logo in preview when cancel is clicked
+	 */
 	function restorePreviewLogoAndStyle() {
 						previewLogoFromUrl(backupParams.logoUrl);
 						changePreviewStyle(backupParams.style);
@@ -120,6 +151,9 @@ $(function() {
 								'selected');
 	}
 	
+	/**
+	 * update logo and style in preview toolbar, set the value to the selected markup
+	 */
 	function UpdatePreviewLogoAndStyle() {
 		$("#navigationStyle").jzAjax(
 				{
@@ -139,7 +173,9 @@ $(function() {
 				});
 	}
 	
-	
+	/**
+	 * Update new logo displays in top bar navigation
+	 */
 	
 	function UpdateTopBarNavigation(data) {
 		$("#PlatformAdminToolbarContainer .HomeLink img:first").attr('src',
@@ -150,13 +186,18 @@ $(function() {
 				"UIToolbarContainer" + data.style + " UIContainer");
 	}
 
+	/**
+	 * method executed when a drag event is launched
+	 */
 	function FileDragHover(e) {
 		e.stopPropagation();
 		e.preventDefault();
 		e.target.className = (e.type == "dragover" ? "hover" : "");
 	}
 
-	// file selection
+	/**
+	 * method executed when a drop event is launched
+	 */
 	function FileDropHandle(e) {
 		e.stopPropagation();
 		e.preventDefault();
@@ -165,6 +206,9 @@ $(function() {
 		previewLogoFromFile(files[0]);
 	}
 
+	/**
+	 * make a XMLHttpRequest when dragndrop a file in PreviewImmDiv, it will send an image to JCR server with this protocol
+	 */
 	if (window.File && window.FileList && window.FileReader) {
 		var filedrag = document.getElementById("PreviewImgDiv");
 		var xhr = new XMLHttpRequest();

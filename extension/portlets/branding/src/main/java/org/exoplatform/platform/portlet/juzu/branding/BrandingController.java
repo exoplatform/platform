@@ -69,6 +69,11 @@ public class BrandingController {
   @Inject
   BrandingDataStorageService dataStorageService;
 
+  /**
+   * method getStyleValue() responses a content 
+   * if null returns Dark (default) otherwise return the style selected
+   * @return Response.Content 
+   */
   @Ajax
   @Resource
   public Response.Content getStyleValue() {
@@ -82,6 +87,14 @@ public class BrandingController {
     return Response.ok(style);
   }
 
+  /**
+   * method save() records an image in BrandingDataStorageService
+   * @param httpContext
+   * @param file
+   * @param style
+   * @return Response.Content
+   * @throws IOException
+   */
   @Resource
   public Response.Content save(HttpContext httpContext, FileItem file, String style) throws IOException {
     if (file != null && file.getContentType().startsWith("image/")) {
@@ -97,6 +110,12 @@ public class BrandingController {
     return getResource(httpContext);
   }
 
+  /**
+   * The controller method index() is the name of the default method that Juzu will call.
+   * set localization and put into parameters
+   * @param httpContext
+   * @return Response
+   */
   @View
   @Route("/")
   public Response index(HttpContext httpContext) {
@@ -117,9 +136,12 @@ public class BrandingController {
     return index.ok(parameters);
   }
 
-  /*
-   * verify if the url of logo is available
-   */
+/**
+ * verify if the url of logo is available
+ * return true if exist, otherwise return false
+ * @param logoUrl
+ * @return boolean
+ */
   public boolean isExiste(String logoUrl) {
     int code;
     try {
@@ -134,9 +156,11 @@ public class BrandingController {
     return code == 200;
   }
 
-  /*
-   * return the url of logo
-   */
+/**
+ * return the url of logo
+ * @param httpContext
+ * @return Response.Content
+ */
   @Ajax
   @Resource
   public Response.Content getLogoUrlByAjax(HttpContext httpContext) {
@@ -144,6 +168,11 @@ public class BrandingController {
     return Response.ok(logoUrl);
   }
 
+  /**
+   * get logo URL to String
+   * @param httpContext
+   * @return String
+   */
   public String getLogoUrl(HttpContext httpContext) {
 
     // append the String current time to url to resolve the problem of cache at
@@ -161,10 +190,11 @@ public class BrandingController {
     return logoUrl;
   }
 
-  /*
-   * return the object data contains the url of logo and the bar navigation
-   * style
-   */
+/**
+ * return the object data contains the url of logo and the bar navigation
+ * @param httpContext
+ * @return Resource
+ */
   @Ajax
   @Resource
   public Response.Content<Stream.Char> getResource(HttpContext httpContext) {
@@ -182,10 +212,11 @@ public class BrandingController {
     return createJSON(result);
   }
 
-  /*
-   * create a object JSON from the map.
-   */
-
+/**
+ * create a object JSON from the map.
+ * @param Map<String, String> data
+ * @return Response.Content
+ */
   private Response.Content<Stream.Char> createJSON(final Map<String, String> data) {
     Response.Content<Stream.Char> json = new Response.Content<Stream.Char>(200, Stream.Char.class) {
       @Override
@@ -193,6 +224,7 @@ public class BrandingController {
         return "application/json";
       }
 
+      
       @Override
       public void send(Stream.Char stream) throws IOException {
         stream.append("{");

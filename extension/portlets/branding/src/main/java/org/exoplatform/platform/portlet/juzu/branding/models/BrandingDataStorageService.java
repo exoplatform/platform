@@ -39,6 +39,10 @@ public class BrandingDataStorageService implements Startable{
      repositoryService = (RepositoryService) ExoContainerContext.getCurrentContainer().getComponentInstanceOfType(RepositoryService.class);
   }
 
+  /**
+   * method saves a FileItem, it will add a node Application Data, logos, then jcr:content, jcr:data, jcr:lastModified, jcr:encoding, jcr:mimeType is png
+   * @param item
+   */
   public void saveFile(FileItem item) {
     SessionProvider sessionProvider = SessionProvider.createSystemProvider();
     try {
