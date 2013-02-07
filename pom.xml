@@ -40,7 +40,7 @@
     <!-- **************************************** -->
     <!-- Project Dependencies -->
     <!-- **************************************** -->
-    <org.exoplatform.depmgt.version>2-SNAPSHOT</org.exoplatform.depmgt.version>
+    <org.exoplatform.depmgt.version>2</org.exoplatform.depmgt.version>
     <org.exoplatform.calendar.version>4.0.0.Alpha1-SNAPSHOT</org.exoplatform.calendar.version>
     <org.exoplatform.commons.version>4.0.0.Alpha1-SNAPSHOT</org.exoplatform.commons.version>
     <org.exoplatform.core.version>2.5.0-GA</org.exoplatform.core.version>
