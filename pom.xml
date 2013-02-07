@@ -4,7 +4,7 @@
   <parent>
     <artifactId>maven-parent-pom</artifactId>
     <groupId>org.exoplatform</groupId>
-    <version>9-SNAPSHOT</version>
+    <version>9-beta-1</version>
     <relativePath></relativePath>
   </parent>
   <groupId>org.exoplatform.platform</groupId>
@@ -18,7 +18,7 @@
     <module>extension</module>
     <module>server</module>
     <module>samples</module>
-    <module>trial</module>
+    <!--<module>trial</module>-->
     <module>exo-gadget-pack</module>
     <!--<module>packaging</module>-->
     <!--<module>testsuite</module>-->
@@ -40,17 +40,19 @@
     <!-- **************************************** -->
     <!-- Project Dependencies -->
     <!-- **************************************** -->
+    <org.exoplatform.depmgt.version>2</org.exoplatform.depmgt.version>
     <org.exoplatform.calendar.version>4.0.0.Alpha1-relooking-SNAPSHOT</org.exoplatform.calendar.version>
     <org.exoplatform.commons.version>4.0.0.Alpha1-relooking-SNAPSHOT</org.exoplatform.commons.version>
+    <org.exoplatform.core.version>2.5.0-GA</org.exoplatform.core.version>
     <org.exoplatform.ecms.version>4.0.0.Alpha1-relooking-SNAPSHOT</org.exoplatform.ecms.version>
     <org.exoplatform.forum.version>4.0.0.Alpha1-relooking-SNAPSHOT</org.exoplatform.forum.version>
     <org.exoplatform.gwtframework.version>1.1.2</org.exoplatform.gwtframework.version>
     <org.exoplatform.ide.version>1.1.9-SNAPSHOT</org.exoplatform.ide.version>
     <org.exoplatform.integ.version>4.0.0.Alpha1-relooking-SNAPSHOT</org.exoplatform.integ.version>
     <org.exoplatform.social.version>4.0.0.Alpha1-relooking-SNAPSHOT</org.exoplatform.social.version> 
-    <org.exoplatform.core.version>2.5.0-GA</org.exoplatform.core.version>
     <org.exoplatform.jcr.version>1.15.0-GA</org.exoplatform.jcr.version>
     <org.exoplatform.kernel.version>2.4.0-GA</org.exoplatform.kernel.version>
+    <org.exoplatform.wiki.version>4.0.0.Alpha1-relooking-SNAPSHOT</org.exoplatform.wiki.version>
     <org.gatein.portal.version>3.5.0.Final</org.gatein.portal.version>
     <org.exoplatform.ws.version>2.3.0-GA</org.exoplatform.ws.version>
     <org.gatein.common.version>2.1.0.Final</org.gatein.common.version>
@@ -66,7 +68,7 @@
       <dependency>
         <groupId>org.exoplatform</groupId>
         <artifactId>maven-depmgt-pom</artifactId>
-        <version>2-SNAPSHOT</version>
+        <version>${org.exoplatform.depmgt.version}</version>
         <type>pom</type>
         <scope>import</scope>
       </dependency>
@@ -77,6 +79,11 @@
         <version>${org.exoplatform.calendar.version}</version>
         <type>pom</type>
         <scope>import</scope>
+      </dependency>
+      <dependency>
+        <groupId>org.exoplatform.calendar</groupId>
+        <artifactId>calendar-component-create</artifactId>
+        <version>${org.exoplatform.calendar.version}</version>
       </dependency>
       <!-- Import versions from commons project -->
       <dependency>
@@ -453,18 +460,13 @@
       </dependency>
       <dependency>
         <groupId>org.exoplatform.platform</groupId>
-        <artifactId>platform-component-webui</artifactId>
-        <version>${project.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>org.exoplatform.platform</groupId>
         <artifactId>platform-component-uxpnavigation</artifactId>
         <version>${project.version}</version>
       </dependency>
       <dependency>
-        <groupId>org.exoplatform.calendar</groupId>
-        <artifactId>calendar-component-create</artifactId>
-        <version>${org.exoplatform.calendar.version}</version>
+        <groupId>org.exoplatform.platform</groupId>
+        <artifactId>platform-component-webui</artifactId>
+        <version>${project.version}</version>
       </dependency>
       <dependency>
         <groupId>org.exoplatform.platform</groupId>
@@ -513,12 +515,6 @@
       </dependency>
       <dependency>
         <groupId>org.exoplatform.platform</groupId>
-        <artifactId>platform-extension-portlets-platformNavigation</artifactId>
-        <version>${project.version}</version>
-        <type>war</type>
-      </dependency>
-      <dependency>
-        <groupId>org.exoplatform.platform</groupId>
         <artifactId>platform-extension-portlets-homepage</artifactId>
         <version>${project.version}</version>
         <type>war</type>
@@ -528,6 +524,12 @@
         <artifactId>platform-extension-portlets-homepage</artifactId>
         <version>${project.version}</version>
         <type>pom</type>
+      </dependency>
+      <dependency>
+        <groupId>org.exoplatform.platform</groupId>
+        <artifactId>platform-extension-portlets-platformNavigation</artifactId>
+        <version>${project.version}</version>
+        <type>war</type>
       </dependency>
       <dependency>
         <groupId>org.exoplatform.platform</groupId>
@@ -746,6 +748,14 @@
         <groupId>org.exoplatform.social</groupId>
         <artifactId>social</artifactId>
         <version>${org.exoplatform.social.version}</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+      <!-- Import versions from wiki project -->
+      <dependency>
+        <groupId>org.exoplatform.wiki</groupId>
+        <artifactId>wiki</artifactId>
+        <version>${org.exoplatform.wiki.version}</version>
         <type>pom</type>
         <scope>import</scope>
       </dependency>
@@ -1049,7 +1059,7 @@
         <artifactId>redirect</artifactId>
         <version>${org.gatein.web.version}</version>
       </dependency>
-   </dependencies>
+    </dependencies>
   </dependencyManagement>
   <build>
     <pluginManagement>

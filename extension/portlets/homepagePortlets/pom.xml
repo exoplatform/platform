@@ -192,6 +192,20 @@
         </executions>
       </plugin>
       <plugin>
+        <groupId>org.codehaus.gmaven</groupId>
+        <artifactId>gmaven-plugin</artifactId>
+        <configuration>
+          <sources>
+            <fileset>
+              <directory>${project.build.outputDirectory}</directory>
+              <includes>
+                <include>**/*.groovy</include>
+              </includes>
+            </fileset>
+          </sources>
+        </configuration>
+      </plugin>
+      <plugin>
         <artifactId>maven-assembly-plugin</artifactId>
         <dependencies>
           <dependency>
