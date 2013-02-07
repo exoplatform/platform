@@ -39,6 +39,7 @@ public class WhoIsOnlineImpl implements WhoIsOnline {
     private static final String THREE_DOTS = "...";
     private static final int MAX_USER = 17;
     private static final int INDEX_USER = 18;
+    private static final int MAX_DOC_CHAR = 25;
 
     public List<User> getFriends(String userId) {
         try {
@@ -147,9 +148,11 @@ public class WhoIsOnlineImpl implements WhoIsOnline {
                     activity = activity.substring(0, INDEX_CHAR).concat(THREE_DOTS);
                 }
                 if ( act.getType().equals(DOC_ACTIVITY)) {
-                String   docName=act.getTitle().split(">")[1].split("<")[0].substring(0,25).concat("...");
+                    if((act.getTitle().split(">")[1].split("<")[0]).length() > MAX_DOC_CHAR) {
+                String   docName=act.getTitle().split(">")[1].split("<")[0].substring(0,MAX_DOC_CHAR).concat(THREE_DOTS);
                 String docUrl=act.getTitle().split(">")[0].split("=")[1].replace("\"","'");
                     activity="Shared a Document <a class='ColorLink' target='_blank' href="+docUrl+"title='"+act.getTitle().split(">")[1].split("<")[0]+"'>"+docName+"</a>";
+                    }
                 }
 
                 if ( act.getType().equals(LINK_ACTIVITY)) {
