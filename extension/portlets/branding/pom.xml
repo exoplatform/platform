@@ -7,7 +7,7 @@
     <version>4.0.0.Alpha1-SNAPSHOT</version>
   </parent>
   <artifactId>platform-extension-portlet-branding</artifactId>
-  <packaging>war</packaging>
+  <packaging>jar</packaging>
   <name>eXo Platform - Branding Portlet</name>
   <dependencies>
     <dependency>
@@ -93,29 +93,21 @@
     <finalName>platform-branding</finalName>
     <plugins>
       <plugin>
-        <artifactId>maven-compiler-plugin</artifactId>
+        <groupId>org.codehaus.gmaven</groupId>
+        <artifactId>gmaven-plugin</artifactId>
         <configuration>
-          <compilerArguments>
-            <sourcepath>${project.basedir}/src/main/java</sourcepath>
-          </compilerArguments>
+          <sources>
+            <fileset>
+              <directory>${project.build.outputDirectory}</directory>
+              <includes>
+                <include>**/*.groovy</include>
+              </includes>
+            </fileset>
+          </sources>
         </configuration>
       </plugin>
       <plugin>
         <artifactId>maven-assembly-plugin</artifactId>
-        <executions>
-          <execution>
-            <phase>package</phase>
-            <goals>
-              <goal>single</goal>
-            </goals>
-            <configuration>
-              <appendAssemblyId>false</appendAssemblyId>
-              <descriptorRefs>
-                <descriptorRef>platform-juzu</descriptorRef>
-              </descriptorRefs>
-            </configuration>
-          </execution>
-        </executions>
         <dependencies>
           <dependency>
             <groupId>org.exoplatform.commons</groupId>
@@ -126,34 +118,21 @@
         <configuration>
           <attach>true</attach>
         </configuration>
+        <executions>
+          <execution>
+            <goals>
+              <goal>single</goal>
+            </goals>
+            <phase>package</phase>
+            <configuration>
+              <appendAssemblyId>false</appendAssemblyId>
+              <descriptorRefs>
+                <descriptorRef>platform-juzu</descriptorRef>
+              </descriptorRefs>
+            </configuration>
+          </execution>
+        </executions>
       </plugin>
     </plugins>
   </build>
-  <profiles>
-    <profile>
-      <id>deploy</id>
-      <build>
-        <plugins>
-          <plugin>
-            <artifactId>maven-antrun-plugin</artifactId>
-            <version>1.1</version>
-            <executions>
-              <execution>
-                <id>copy-warfile</id>
-                <phase>package</phase>
-                <goals>
-                  <goal>run</goal>
-                </goals>
-                <configuration>
-                  <tasks>
-                    <copy file="${project.build.directory}/platform-branding.war" todir="/home/bangnv/workspaces/eXoProjects/platform-tomcat-standalone/target/platform-tomcat-standalone-4.0.0.Alpha1-SNAPSHOT/webapps"></copy>
-                  </tasks>
-                </configuration>
-              </execution>
-            </executions>
-          </plugin>
-        </plugins>
-      </build>
-    </profile>
-  </profiles>
 </project>

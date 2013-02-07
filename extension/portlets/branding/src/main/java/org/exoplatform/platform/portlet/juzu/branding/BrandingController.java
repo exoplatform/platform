@@ -114,7 +114,7 @@ public class BrandingController {
     parameters.put("saveok", rs.getString("info.saveok.label"));
     parameters.put("cancelok", rs.getString("info.cancelok.label"));
     parameters.put("mustpng", rs.getString("mustpng.label"));
-    return index.render(parameters);
+    return index.ok(parameters);
   }
 
   /*
