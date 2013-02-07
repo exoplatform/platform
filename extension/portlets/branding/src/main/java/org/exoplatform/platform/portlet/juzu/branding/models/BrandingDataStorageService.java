@@ -16,19 +16,11 @@
  */
 package org.exoplatform.platform.portlet.juzu.branding.models;
 
-import java.awt.AlphaComposite;
-import java.awt.Graphics2D;
-import java.awt.RenderingHints;
-import java.awt.Transparency;
-import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.InputStream;
 import java.util.Calendar;
-import javax.imageio.ImageIO;
+
 import javax.jcr.Node;
 import javax.jcr.Session;
+
 import org.apache.commons.fileupload.FileItem;
 import org.exoplatform.container.ExoContainerContext;
 import org.exoplatform.services.jcr.RepositoryService;
@@ -84,7 +76,7 @@ public class BrandingDataStorageService {
       }
       fileNode = logosNode.addNode(fileName, "nt:file");
       Node jcrContent = fileNode.addNode("jcr:content", "nt:resource");
-      jcrContent.setProperty("jcr:data", resizeImage(item.getInputStream()));
+      jcrContent.setProperty("jcr:data", item.getInputStream());
       jcrContent.setProperty("jcr:lastModified", Calendar.getInstance());
       jcrContent.setProperty("jcr:encoding", "UTF-8");
       jcrContent.setProperty("jcr:mimeType", item.getContentType());
@@ -101,57 +93,4 @@ public class BrandingDataStorageService {
       }
     }
   }
-
-  /**
-   * 
-   * @param input inputStream
-   * @return  InputStream after resize the logo
-   * @throws IOException
-   */
-  private static InputStream resizeImage(InputStream input) throws IOException {
-    BufferedImage buffer = ImageIO.read(input);
-    BufferedImage newBuffer = resizeImage(buffer);
-    File tmp = File.createTempFile("RESIZED", null);
-    ImageIO.write(newBuffer, "png", tmp);
-    return (new FileInputStream(tmp));
-  }
-  /**
-   * 
-   * @param bufferedImage the source bufferedImage which will be resized
-   * @return  the new image after doing the resize
-   */
-
-  private static BufferedImage resizeImage(BufferedImage bufferedImage) {
-    int newWidth = (bufferedImage.getWidth() * logoHeight) / (bufferedImage.getHeight());
-    return resizeImage(bufferedImage, newWidth, logoHeight);
-  }
-
-  
-  /**
-   * 
-   * @param bufferedImage the source bufferedImage which will be resized
-   * @param width, the width of image
-   * @param height, the height of image
-   * @return the new image after doing the resize
-   */
-  private static BufferedImage resizeImage(BufferedImage bufferedImage, int width, int height) {
-    int type = (bufferedImage.getTransparency() == Transparency.OPAQUE) ? BufferedImage.TYPE_INT_RGB
-                                                                : BufferedImage.TYPE_INT_ARGB;
-    BufferedImage resizedImage = new BufferedImage(width, height,type);
-    Graphics2D g = resizedImage.createGraphics();
-    g.drawImage(bufferedImage, 0, 0, width, height, null);
-    g.dispose();
-    g.setComposite(AlphaComposite.Src);
-    if (bufferedImage.getHeight() < height) {
-      g.setRenderingHint(RenderingHints.KEY_INTERPOLATION,
-                         RenderingHints.VALUE_INTERPOLATION_NEAREST_NEIGHBOR);
-    } else {
-      g.setRenderingHint(RenderingHints.KEY_INTERPOLATION,
-                         RenderingHints.VALUE_INTERPOLATION_BILINEAR);
-    }
-    g.setRenderingHint(RenderingHints.KEY_RENDERING, RenderingHints.VALUE_RENDER_QUALITY);
-    g.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
-    return resizedImage;
-  }
-
 }
