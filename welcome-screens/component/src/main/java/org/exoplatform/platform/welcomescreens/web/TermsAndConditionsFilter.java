@@ -1,4 +1,4 @@
-package org.exoplatform.platform.welcomescreens.admin;
+package org.exoplatform.platform.welcomescreens.web;
 
 import org.exoplatform.container.PortalContainer;
 import org.exoplatform.services.log.ExoLogger;

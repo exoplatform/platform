@@ -2,7 +2,7 @@
 <configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.exoplatform.org/xml/ns/kernel_1_2.xsd http://www.exoplatform.org/xml/ns/kernel_1_2.xsd" xmlns="http://www.exoplatform.org/xml/ns/kernel_1_2.xsd">
 
     <component>
-        <type>org.exoplatform.platform.welcomescreens.TrialService</type>
+        <type>org.exoplatform.platform.welcomescreens.service.UnlockService</type>
         <init-params>
             <value-param>
                 <name>delayPeriod</name>
@@ -31,8 +31,8 @@
         </init-params>
     </component>
     <component profiles="all,default,social">
-        <key>org.exoplatform.platform.welcomescreens.admin.TermsAndConditionsService</key>
-        <type>org.exoplatform.platform.welcomescreens.admin.impl.TermsAndConditionsServiceImpl</type>
+        <key>org.exoplatform.platform.welcomescreens.web.TermsAndConditionsService</key>
+        <type>org.exoplatform.platform.welcomescreens.service.impl.TermsAndConditionsServiceImpl</type>
     </component>
 
     <external-component-plugins profiles="all,default,social">
@@ -76,7 +76,7 @@
                     <name>Terms and Conditions Filter</name>
                     <object type="org.exoplatform.web.filter.FilterDefinition">
                         <field name="filter">
-                            <object type="org.exoplatform.platform.welcomescreens.admin.TermsAndConditionsFilter"/>
+                            <object type="org.exoplatform.platform.welcomescreens.web.TermsAndConditionsFilter"/>
                         </field>
                         <field name="patterns">
                             <collection type="java.util.ArrayList" item-type="java.lang.String">
@@ -101,7 +101,7 @@
                     <name>Trial Filter</name>
                     <object type="org.exoplatform.web.filter.FilterDefinition">
                         <field name="filter">
-                            <object type="org.exoplatform.platform.welcomescreens.TrialService$TrialFilter"/>
+                            <object type="org.exoplatform.platform.welcomescreens.service.UnlockService$TrialFilter"/>
                         </field>
                         <field name="patterns">
                             <collection type="java.util.ArrayList" item-type="java.lang.String">

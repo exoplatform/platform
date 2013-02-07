@@ -3,12 +3,12 @@
 // Decompiler options: packimports(3) 
 // Source File Name:   TermsAndConditionsServiceImpl.java
 
-package org.exoplatform.platform.welcomescreens.admin.impl;
+package org.exoplatform.platform.welcomescreens.service.impl;
 
 import org.chromattic.api.ChromatticSession;
 import org.exoplatform.commons.chromattic.ChromatticLifeCycle;
 import org.exoplatform.commons.chromattic.ChromatticManager;
-import org.exoplatform.platform.welcomescreens.admin.TermsAndConditionsService;
+import org.exoplatform.platform.welcomescreens.web.TermsAndConditionsService;
 import org.exoplatform.services.jcr.ext.common.SessionProvider;
 import org.exoplatform.services.jcr.ext.hierarchy.NodeHierarchyCreator;
 import org.exoplatform.services.log.ExoLogger;

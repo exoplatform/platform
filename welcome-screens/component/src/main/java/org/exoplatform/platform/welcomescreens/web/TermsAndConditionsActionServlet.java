@@ -16,7 +16,7 @@
  * Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
  * 02110-1301 USA, or see the FSF site: http://www.fsf.org.
  */
-package org.exoplatform.platform.welcomescreens.admin;
+package org.exoplatform.platform.welcomescreens.web;
 
 import org.exoplatform.container.PortalContainer;
 import org.exoplatform.container.component.ComponentRequestLifecycle;

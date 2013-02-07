@@ -8,7 +8,7 @@
     <display-name>trial</display-name>
     <servlet>
         <servlet-name>UnlockServlet</servlet-name>
-        <servlet-class>org.exoplatform.platform.welcomescreens.TrialService$UnlockServlet</servlet-class>
+        <servlet-class>org.exoplatform.platform.welcomescreens.service.UnlockService$UnlockServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>UnlockServlet</servlet-name>
@@ -16,16 +16,16 @@
     </servlet-mapping>
     <servlet>
         <servlet-name>TermsAndConditionsViewServlet</servlet-name>
-        <servlet-class>org.exoplatform.platform.welcomescreens.admin.TermsAndConditionsViewServlet</servlet-class>
+        <servlet-class>org.exoplatform.platform.welcomescreens.web.TermsAndConditionsViewServlet</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>TermsAndConditionsActionServlet</servlet-name>
-        <servlet-class>org.exoplatform.platform.welcomescreens.admin.TermsAndConditionsActionServlet</servlet-class>
+        <servlet-class>org.exoplatform.platform.welcomescreens.web.TermsAndConditionsActionServlet</servlet-class>
     </servlet>
 
     <servlet>
         <servlet-name>PingBackServlet</servlet-name>
-        <servlet-class>org.exoplatform.platform.welcomescreens.TrialService$PingBackServlet</servlet-class>
+        <servlet-class>org.exoplatform.platform.welcomescreens.service.UnlockService$PingBackServlet</servlet-class>
     </servlet>
 
     <servlet-mapping>

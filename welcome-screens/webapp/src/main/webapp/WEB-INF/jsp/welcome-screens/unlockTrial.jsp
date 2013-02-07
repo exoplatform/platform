@@ -1,16 +1,16 @@
-<%@ page import="org.exoplatform.platform.welcomescreens.TrialService" %>
+<%@ page import="org.exoplatform.platform.welcomescreens.service.UnlockService" %>
 <%
-    int rday = TrialService.getNbDaysBeforeExpiration();
-    boolean outdated = TrialService.isOutdated();
+    int rday = UnlockService.getNbDaysBeforeExpiration();
+    boolean outdated = UnlockService.isOutdated();
     String css="backNotOutdated";
     String label1="You have";
     String label2="days left in your evaluation";
-    String productCode=TrialService.getProductCode();
+    String productCode= UnlockService.getProductCode();
     if (outdated)  {
         css="backOutdated";
         label1= "Your evaluation has expired"  ;
         label2= "days ago";
-        rday = TrialService.getNbDaysAfterExpiration();
+        rday = UnlockService.getNbDaysAfterExpiration();
     }
 
 %>
@@ -46,7 +46,7 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
     <h2 class="CenterTitle">You must own a valid subscription in order to unlock this eXo-Platform</h2>
 
     <div class="Container ClearFix">
-        <span class="TextContainer">Pickup your favourite <a class="" href="<%=TrialService.getSubscriptionUrl()%>" target="_blank">subscription</a> plan</span>
+        <span class="TextContainer">Pickup your favourite <a class="" href="<%=UnlockService.getSubscriptionUrl()%>" target="_blank">subscription</a> plan</span>
         <span class="TriangleItem OrangeIcon"></span>
     </div>
 
@@ -54,7 +54,7 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 
         <span class="TextContainer">Grab your product code and request an unlock key</span>
         <br>
-        <span>Product Code</span> <input type="text" class="Text"  DISABLED="disabled" placeholder="<%=TrialService.getProductCode() %>">  <a class="Botton BlueRect" href="<%=TrialService.getRegistrationFormUrl()%>?'pc=<%=TrialService.getProductCode()%>'">Request a Key</a>
+        <span>Product Code</span> <input type="text" class="Text"  DISABLED="disabled" placeholder="<%=UnlockService.getProductCode() %>">  <a class="Botton BlueRect" target="_blank" href="<%=UnlockService.getRegistrationFormUrl()%>?'pc=<%=UnlockService.getProductCode()%>'">Request a Key</a>
         <span class="TriangleItem BlueIcon"></span>
     </div>
 

@@ -1,4 +1,4 @@
-package org.exoplatform.platform.welcomescreens.admin;
+package org.exoplatform.platform.welcomescreens.web;
 
 /**
  * Service used to manage Terms And Conditions

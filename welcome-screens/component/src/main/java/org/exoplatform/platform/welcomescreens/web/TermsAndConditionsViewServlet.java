@@ -1,4 +1,4 @@
-package org.exoplatform.platform.welcomescreens.admin;
+package org.exoplatform.platform.welcomescreens.web;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -15,7 +15,7 @@ public class TermsAndConditionsViewServlet extends HttpServlet {
   private static final long serialVersionUID = 6467955354840693802L;
   
   protected final static String INITIAL_URI_PARAM = "initialURI";
-  private final static String TC_JSP_RESOURCE = "/WEB-INF/jsp/admin/termsandconditions.jsp";
+  private final static String TC_JSP_RESOURCE = "/WEB-INF/jsp/welcome-screens/termsandconditions.jsp";
   private final static String INITIAL_URI_ATTRIBUTE = "org.gatein.portal.login.initial_uri";
 
   @Override

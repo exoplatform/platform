@@ -1,11 +1,11 @@
 <%
-    import org.exoplatform.platform.welcomescreens.TrialService;
-    import org.exoplatform.platform.welcomescreens.Utils;
+    import org.exoplatform.platform.welcomescreens.service.UnlockService;
+    import org.exoplatform.platform.welcomescreens.service.Utils;
 %>
 <%
-    def rday= TrialService.getNbDaysBeforeExpiration();
-    boolean outdated = TrialService.isOutdated();
-    boolean isUnlocked = TrialService.isUnlocked();
+    def rday= UnlockService.getNbDaysBeforeExpiration();
+    boolean outdated = UnlockService.isOutdated();
+    boolean isUnlocked = UnlockService.isUnlocked();
     if(!isUnlocked){
 %>
 
@@ -44,7 +44,7 @@
             css="backOutdated";
             label1= "Your evaluation has expired"  ;
             label2= "days ago";
-            rday = TrialService.getNbDaysAfterExpiration();
+            rday = UnlockService.getNbDaysAfterExpiration();
         }
     %>
     <div >
@@ -54,8 +54,8 @@
         </div>
     </div>
 </div>
-<% 	if(!TrialService.isLandingPageDisplayed()){ %>
-<iframe src="<%=TrialService.getPingBackUrl()%>" style="display:none;" id="pingBackUrlFrame" onload="setFormDisplayed()"></iframe>
+<% 	if(!UnlockService.isLandingPageDisplayed()){ %>
+<iframe src="<%=UnlockService.getPingBackUrl()%>" style="display:none;" id="pingBackUrlFrame" onload="setFormDisplayed()"></iframe>
 <iframe src="about:blank" style="display:none;" id="pingBackUrlActivation"></iframe>
 <script>
     function setFormDisplayed() {

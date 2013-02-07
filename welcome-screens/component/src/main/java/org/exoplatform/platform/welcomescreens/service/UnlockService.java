@@ -1,4 +1,4 @@
-package org.exoplatform.platform.welcomescreens;
+package org.exoplatform.platform.welcomescreens.service;
 
 import org.apache.commons.codec.binary.Base64;
 import org.exoplatform.commons.info.MissingProductInformationException;
@@ -28,10 +28,10 @@ import java.util.concurrent.TimeUnit;
  * @author <a href="fbradai@exoplatform.com">Fbradai</a>
  * @date 1/17/13
  */
-public class TrialService implements Startable {
+public class UnlockService implements Startable {
 
 
-    private static final Log LOG = ExoLogger.getExoLogger(TrialService.class);
+    private static final Log LOG = ExoLogger.getExoLogger(UnlockService.class);
     private static String registrationFormUrl = null;
     private static String extendFormUrl = null;
     private static String subscriptionUrl = null;
@@ -52,7 +52,7 @@ public class TrialService implements Startable {
 
     private ScheduledExecutorService executor;
 
-    public TrialService(ProductInformations productInformations, InitParams params) throws MissingProductInformationException {
+    public UnlockService(ProductInformations productInformations, InitParams params) throws MissingProductInformationException {
         productNameAndVersion = Utils.PRODUCT_NAME + productInformations.getVersion().trim();
         registrationFormUrl = ((ValueParam) params.get("registrationFormUrl")).getValue();
         extendFormUrl = ((ValueParam) params.get("extendFormUrl")).getValue();
@@ -67,7 +67,7 @@ public class TrialService implements Startable {
     public void start() {
         String productNameAndVersionHashed = Utils.getModifiedMD5Code(productNameAndVersion.getBytes());
         if (!new File(Utils.HOME_CONFIG_FILE_LOCATION).exists()) {
-            String rdate = TrialService.computeRemindDateFromTodayBase64();
+            String rdate = UnlockService.computeRemindDateFromTodayBase64();
             productCode = generateProductCode();
             Utils.writeToFile(Utils.PRODUCT_NAME, productNameAndVersionHashed, Utils.HOME_CONFIG_FILE_LOCATION);
             Utils.writeToFile(Utils.PRODUCT_CODE, productCode, Utils.HOME_CONFIG_FILE_LOCATION);
@@ -105,7 +105,7 @@ public class TrialService implements Startable {
                   Utils.writeToFile(Utils.IS_UNLOCKED, "false", Utils.HOME_CONFIG_FILE_LOCATION);
                 }
             }
-        }, 1, 1, TimeUnit.MINUTES);
+        }, 1, 1, TimeUnit.DAYS);
     }
 
     public void stop() {
@@ -232,7 +232,7 @@ public class TrialService implements Startable {
             boolean isIgnoringRequest = isIgnoredRequest(httpServletRequest.getSession(true).getServletContext(),
                     httpServletRequest.getRequestURI());
             if (!isIgnoringRequest) {
-                TrialService.calledUrl = httpServletRequest.getRequestURI();
+                UnlockService.calledUrl = httpServletRequest.getRequestURI();
             }
             chain.doFilter(request, response);
             return;
@@ -261,7 +261,7 @@ public class TrialService implements Startable {
                 if (delayPeriod <= 0) {
                     outdated = true;
                     request.setAttribute("errorMessage", "Sorry this evaluation key is not valid.");
-                    request.getRequestDispatcher("WEB-INF/jsp/unlockTrial.jsp").include(request, response);
+                    request.getRequestDispatcher("WEB-INF/jsp/welcome-screens/unlockTrial.jsp").include(request, response);
                     return;
                 }
                 productCode = generateProductCode();
@@ -276,18 +276,18 @@ public class TrialService implements Startable {
                     Utils.writeToFile(Utils.IS_UNLOCKED, "true", Utils.HOME_CONFIG_FILE_LOCATION);
                     isUnlocked=true;
                 }
-                response.sendRedirect(TrialService.calledUrl);
+                response.sendRedirect(UnlockService.calledUrl);
                 return;
             } catch (Exception exception) {
                 delayPeriod = 0;
                 outdated = true;
                 // rdate is malformed, may be this value is entered manually,
                 // which mean that it's a hack
-                response.sendRedirect(TrialService.calledUrl);
+                response.sendRedirect(UnlockService.calledUrl);
                 return;
             }
         }
-            request.getRequestDispatcher("WEB-INF/jsp/unlockTrial.jsp").include(request, response);
+            request.getRequestDispatcher("WEB-INF/jsp/welcome-screens/unlockTrial.jsp").include(request, response);
         }
         @Override
         protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
