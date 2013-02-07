@@ -29,6 +29,7 @@ import juzu.Resource;
 import juzu.SessionScoped;
 import juzu.View;
 import juzu.plugin.ajax.Ajax;
+import juzu.template.Template;
 import org.apache.commons.lang.ArrayUtils;
 import org.exoplatform.calendar.service.CalendarEvent;
 import org.exoplatform.calendar.service.CalendarService;
@@ -117,15 +118,15 @@ public class CalendarPortletController {
 
     @Inject
     @Path("calendar.gtmpl")
-    org.exoplatform.platform.portlet.juzu.calendar.templates.calendar calendar;
+    Template calendar;
 
     @Inject
     @Path("settings.gtmpl")
-    org.exoplatform.platform.portlet.juzu.calendar.templates.settings setting;
+    Template setting;
 
     @Inject
     @Path("search.gtmpl")
-    org.exoplatform.platform.portlet.juzu.calendar.templates.search search;
+    Template search;
 
 
 
