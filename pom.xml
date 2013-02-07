@@ -4,7 +4,7 @@
   <parent>
     <artifactId>maven-parent-pom</artifactId>
     <groupId>org.exoplatform</groupId>
-    <version>9-SNAPSHOT</version>
+    <version>9-beta-1</version>
     <relativePath></relativePath>
   </parent>
   <groupId>org.exoplatform.platform</groupId>
@@ -18,7 +18,7 @@
     <module>extension</module>
     <module>server</module>
     <module>samples</module>
-    <module>trial</module>
+    <!--<module>trial</module>-->
     <module>exo-gadget-pack</module>
     <!--<module>packaging</module>-->
     <!--<module>testsuite</module>-->
@@ -40,6 +40,7 @@
     <!-- **************************************** -->
     <!-- Project Dependencies -->
     <!-- **************************************** -->
+    <org.exoplatform.depmgt.version>2</org.exoplatform.depmgt.version>
     <org.exoplatform.calendar.version>4.0.0.Alpha1-SNAPSHOT</org.exoplatform.calendar.version>
     <org.exoplatform.commons.version>4.0.0.Alpha1-SNAPSHOT</org.exoplatform.commons.version>
     <org.exoplatform.core.version>2.5.0-GA</org.exoplatform.core.version>
@@ -66,7 +67,7 @@
       <dependency>
         <groupId>org.exoplatform</groupId>
         <artifactId>maven-depmgt-pom</artifactId>
-        <version>2-SNAPSHOT</version>
+        <version>${org.exoplatform.depmgt.version}</version>
         <type>pom</type>
         <scope>import</scope>
       </dependency>
