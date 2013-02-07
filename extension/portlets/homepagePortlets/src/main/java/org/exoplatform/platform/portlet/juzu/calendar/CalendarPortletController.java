@@ -73,7 +73,12 @@ public class CalendarPortletController {
             else if ((d1 == CalendarPortletUtils.JOUR_MS) && (d2 == CalendarPortletUtils.JOUR_MS)) return 0;
             else if ((d1 < CalendarPortletUtils.JOUR_MS) && (d2 < CalendarPortletUtils.JOUR_MS))
             {
+                if  (e1.getFromDateTime().getTime() == e2.getFromDateTime().getTime()) {
+                    if (d1<d2) return 1;
+                    if(d1>d2) return -1;
+                };
                 return ((int)(e1.getFromDateTime().compareTo(e2.getFromDateTime())));
+
             }
             return 0;
         }
