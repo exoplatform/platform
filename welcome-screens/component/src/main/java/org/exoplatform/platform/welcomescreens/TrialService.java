@@ -34,6 +34,7 @@ public class TrialService implements Startable {
     private static final Log LOG = ExoLogger.getExoLogger(TrialService.class);
     private static String registrationFormUrl = null;
     private static String extendFormUrl = null;
+    private static String subscriptionUrl = null;
     private static String pingBackUrl = null;
     private static String calledUrl = null;
     private static String productNameAndVersion = null;
@@ -56,6 +57,7 @@ public class TrialService implements Startable {
         registrationFormUrl = ((ValueParam) params.get("registrationFormUrl")).getValue();
         extendFormUrl = ((ValueParam) params.get("extendFormUrl")).getValue();
         pingBackUrl = ((ValueParam) params.get("pingBackUrl")).getValue();
+        subscriptionUrl =  ((ValueParam) params.get("subscriptionUrl")).getValue();
         KEY_CONTENT = ((ValueParam) params.get("KeyContent")).getValue().trim();
         String tmpValue = ((ValueParam) params.get("delayPeriod")).getValue();
         delayPeriod = (tmpValue == null || tmpValue.isEmpty()) ? Utils.DEFAULT_DELAY_PERIOD : Integer.parseInt(tmpValue);
@@ -143,6 +145,10 @@ public class TrialService implements Startable {
 
     public static boolean isLandingPageDisplayed() {
         return loopfuseFormDisplayed;
+    }
+
+    public static String getSubscriptionUrl() {
+        return subscriptionUrl;
     }
 
     public static boolean isUnlocked() {

@@ -46,7 +46,7 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
     <h2 class="CenterTitle">You must own a valid subscription in order to unlock this eXo-Platform</h2>
 
     <div class="Container ClearFix">
-        <span class="TextContainer">Pickup your favourite <a class="" href="<%=TrialService.getRegistrationFormUrl()%>" target="_blank">subscription</a> plan</span>
+        <span class="TextContainer">Pickup your favourite <a class="" href="<%=TrialService.getSubscriptionUrl()%>" target="_blank">subscription</a> plan</span>
         <span class="TriangleItem OrangeIcon"></span>
     </div>
 

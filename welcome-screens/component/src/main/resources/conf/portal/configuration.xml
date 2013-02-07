@@ -1,8 +1,118 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.exoplatform.org/xml/ns/kernel_1_2.xsd http://www.exoplatform.org/xml/ns/kernel_1_2.xsd" xmlns="http://www.exoplatform.org/xml/ns/kernel_1_2.xsd">
 
+    <component>
+        <type>org.exoplatform.platform.welcomescreens.TrialService</type>
+        <init-params>
+            <value-param>
+                <name>delayPeriod</name>
+                <value>30</value>
+            </value-param>
+            <value-param>
+                <name>KeyContent</name>
+                <value>Platform 4 - 30 days evaluation</value>
+            </value-param>
+            <value-param>
+                <name>registrationFormUrl</name>
+                <value>http://learn.exoplatform.com/eXo-Platform-Trial-Unlocking.html</value>
+            </value-param>
+            <value-param>
+                <name>extendFormUrl</name>
+                <value>http://www.exoplatform.com/extend-your-evaluation</value>
+            </value-param>
+            <value-param>
+                <name>subscriptionUrl</name>
+                <value>http://www.exoplatform.com/company/fr/home#/#pricing</value>
+            </value-param>
+            <value-param>
+                <name>pingBackUrl</name>
+                <value>http://www.exoplatform.com/company/en/products/e-01011000-01101111</value>
+            </value-param>
+        </init-params>
+    </component>
+    <component profiles="all,default,social">
+        <key>org.exoplatform.platform.welcomescreens.admin.TermsAndConditionsService</key>
+        <type>org.exoplatform.platform.welcomescreens.admin.impl.TermsAndConditionsServiceImpl</type>
+    </component>
 
+    <external-component-plugins profiles="all,default,social">
+        <target-component>org.exoplatform.commons.chromattic.ChromatticManager</target-component>
+        <component-plugin>
+            <name>chromattic</name>
+            <set-method>addLifeCycle</set-method>
+            <type>org.exoplatform.commons.chromattic.ChromatticLifeCycle</type>
+            <init-params>
+                <value-param>
+                    <name>domain-name</name>
+                    <value>termsandconditions</value>
+                </value-param>
+                <value-param>
+                    <name>workspace-name</name>
+                    <value>collaboration</value>
+                </value-param>
+                <values-param>
+                    <name>entities</name>
+                    <value>org.chromattic.ext.ntdef.NTFile</value>
+                    <value>org.chromattic.ext.ntdef.NTFolder</value>
+                    <value>org.chromattic.ext.ntdef.NTResource</value>
+                </values-param>
+                <properties-param>
+                    <name>options</name>
+                    <property name="org.chromattic.api.Option.root_node.path" value="/exo:applications"/>
+                    <property name="org.chromattic.api.Option.root_node.create" value="true"/>
+                </properties-param>
+            </init-params>
+        </component-plugin>
+    </external-component-plugins>
 
-    <import>classpath:/conf/portal/welcome-screens-config.xml</import>
-    <import>classpath:/conf/portal/terms-conditions-configuration.xml</import>
+    <external-component-plugins>
+        <target-component>org.exoplatform.web.filter.ExtensibleFilter</target-component>
+        <component-plugin>
+            <name>Terms and Conditions Filter</name>
+            <set-method>addFilterDefinitions</set-method>
+            <type>org.exoplatform.web.filter.FilterDefinitionPlugin</type>
+            <init-params>
+                <object-param>
+                    <name>Terms and Conditions Filter</name>
+                    <object type="org.exoplatform.web.filter.FilterDefinition">
+                        <field name="filter">
+                            <object type="org.exoplatform.platform.welcomescreens.admin.TermsAndConditionsFilter"/>
+                        </field>
+                        <field name="patterns">
+                            <collection type="java.util.ArrayList" item-type="java.lang.String">
+                                <value>
+                                    <string>.*</string>
+                                </value>
+                            </collection>
+                        </field>
+                    </object>
+                </object-param>
+            </init-params>
+        </component-plugin>
+    </external-component-plugins>
+    <external-component-plugins>
+        <target-component>org.exoplatform.web.filter.ExtensibleFilter</target-component>
+        <component-plugin>
+            <name>Trial Filter</name>
+            <set-method>addFilterDefinitions</set-method>
+            <type>org.exoplatform.web.filter.FilterDefinitionPlugin</type>
+            <init-params>
+                <object-param>
+                    <name>Trial Filter</name>
+                    <object type="org.exoplatform.web.filter.FilterDefinition">
+                        <field name="filter">
+                            <object type="org.exoplatform.platform.welcomescreens.TrialService$TrialFilter"/>
+                        </field>
+                        <field name="patterns">
+                            <collection type="java.util.ArrayList" item-type="java.lang.String">
+                                <value>
+                                    <string>.*</string>
+                                </value>
+                            </collection>
+                        </field>
+                    </object>
+                </object-param>
+            </init-params>
+        </component-plugin>
+    </external-component-plugins>
 </configuration>
