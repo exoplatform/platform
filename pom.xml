@@ -5,11 +5,11 @@
     <artifactId>maven-parent-pom</artifactId>
     <groupId>org.exoplatform</groupId>
     <version>9-beta-1</version>
-    <relativePath></relativePath>
+    <relativePath />
   </parent>
   <groupId>org.exoplatform.platform</groupId>
   <artifactId>platform</artifactId>
-  <version>4.0.0.Alpha1-SNAPSHOT</version>
+  <version>4.0.0-Alpha1</version>
   <packaging>pom</packaging>
   <name>eXo Platform</name>
   <description>Parent POM for platform projects.</description>
@@ -27,6 +27,7 @@
     <connection>scm:git:git://github.com/exoplatform/platform.git</connection>
     <developerConnection>scm:git:git@github.com:exoplatform/platform.git</developerConnection>
     <url>https://fisheye.exoplatform.com/browse/platform</url>
+    <tag>4.0.0-Alpha1</tag>
   </scm>
   <properties>
     <!-- **************************************** -->
