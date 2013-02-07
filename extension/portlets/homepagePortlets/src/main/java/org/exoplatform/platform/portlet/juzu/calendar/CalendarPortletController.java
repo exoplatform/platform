@@ -29,16 +29,17 @@ import juzu.Resource;
 import juzu.SessionScoped;
 import juzu.View;
 import juzu.plugin.ajax.Ajax;
+import juzu.template.Template;
 import org.apache.commons.lang.ArrayUtils;
 import org.exoplatform.calendar.service.CalendarEvent;
 import org.exoplatform.calendar.service.CalendarService;
 import org.exoplatform.calendar.service.EventQuery;
 import org.exoplatform.calendar.service.GroupCalendarData;
 import org.exoplatform.calendar.service.Utils;
-import org.exoplatform.commons.settings.api.SettingService;
-import org.exoplatform.commons.settings.api.SettingValue;
-import org.exoplatform.commons.settings.model.api.Context;
-import org.exoplatform.commons.settings.model.api.Scope;
+import org.exoplatform.commons.api.settings.SettingService;
+import org.exoplatform.commons.api.settings.SettingValue;
+import org.exoplatform.commons.api.settings.data.Context;
+import org.exoplatform.commons.api.settings.data.Scope;
 import org.exoplatform.platform.portlet.juzu.calendar.models.CalendarPortletUtils;
 import org.exoplatform.services.log.ExoLogger;
 import org.exoplatform.services.log.Log;
@@ -117,15 +118,15 @@ public class CalendarPortletController {
 
     @Inject
     @Path("calendar.gtmpl")
-    org.exoplatform.platform.portlet.juzu.calendar.templates.calendar calendar;
+    Template calendar;
 
     @Inject
     @Path("settings.gtmpl")
-    org.exoplatform.platform.portlet.juzu.calendar.templates.settings setting;
+    Template setting;
 
     @Inject
     @Path("search.gtmpl")
-    org.exoplatform.platform.portlet.juzu.calendar.templates.search search;
+    Template search;
 
 
 

@@ -39,7 +39,7 @@ public class WhoIsOnLineController {
       rs = ResourceBundle.getBundle("whoisonline/whoisonline", locale);
       String userId= RequestContext.getCurrentInstance().getRemoteUser();
       List<User> friends = whoIsOnline.getFriends(userId);
-      return index.with().set("users", friends).set("headerLabel",rs.getString("header.label")).set("messageLabel",rs.getString("message.label")).set("connectLabel",rs.getString("connect.label")).render();
+      return index.with().set("users", friends).set("headerLabel",rs.getString("header.label")).set("messageLabel",rs.getString("message.label")).set("connectLabel",rs.getString("connect.label")).ok();
   }
 
   @Ajax
@@ -49,6 +49,6 @@ public class WhoIsOnLineController {
       rs = ResourceBundle.getBundle("whoisonline/whoisonline", locale);
       String userId= RequestContext.getCurrentInstance().getRemoteUser();
       List<User> friends = whoIsOnline.getFriends(userId);
-      return users.with().set("users", friends).set("messageLabel",rs.getString("message.label")).set("connectLabel",rs.getString("connect.label")).render();
+      return users.with().set("users", friends).set("messageLabel",rs.getString("message.label")).set("connectLabel",rs.getString("connect.label")).ok();
   }
 }
