@@ -37,9 +37,8 @@
 	.spaceNavigation {
 		list-style: none;
 		margin: 0;
-		padding: 10px 25px;
 		.spaceItem {
-			padding: 5px 0;
+			padding: 10px 25px;
 			display: block;
 		}
 		
@@ -53,6 +52,28 @@
 				height: 20px;
 			}
 		}
+		
+		.spaceItemSelected {
+			padding: 6px 25px;
+			background: white;
+			border-top: 1px solid #c7c7c7;
+			border-bottom: 1px solid #c7c7c7;
+			.box-shadow(0 -1px 1px rgba(0, 0, 0, 0.1));
+			&:after {
+				background: #4F72AC;
+		    border: 1px solid #2E518A;
+		    content: "";
+		    height: 33px;
+		    left: 0;
+		    margin-top: -6px;
+		    position: absolute;
+		    width: 5px;
+		  }
+			> a {
+				font-weight: bold;
+			}
+		}
+		
 		.moreSpace {
 			padding: 15px 0 10px;
 	    text-align: center;
