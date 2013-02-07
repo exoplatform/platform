@@ -110,9 +110,6 @@ public class BrandingDataStorageService {
    */
   private static InputStream resizeImage(InputStream input) throws IOException {
     BufferedImage buffer = ImageIO.read(input);
-    if(buffer.getHeight()==logoHeight){
-      return   input;
-    }
     BufferedImage newBuffer = resizeImage(buffer);
     File tmp = File.createTempFile("RESIZED", null);
     ImageIO.write(newBuffer, "png", tmp);
