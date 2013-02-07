@@ -34,7 +34,7 @@
                 <string></string>
               </field>
               <field name="views">
-                <string>Categories</string>
+                <string>Web</string>
               </field>
               <field name="viewPreferences">
                 <boolean>false</boolean>
