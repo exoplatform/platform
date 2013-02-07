@@ -41,19 +41,19 @@
     <!-- Project Dependencies -->
     <!-- **************************************** -->
     <org.exoplatform.depmgt.version>2</org.exoplatform.depmgt.version>
-    <org.exoplatform.calendar.version>4.0.0.Alpha1-SNAPSHOT</org.exoplatform.calendar.version>
-    <org.exoplatform.commons.version>4.0.0.Alpha1-SNAPSHOT</org.exoplatform.commons.version>
+    <org.exoplatform.calendar.version>4.0.0-Alpha1</org.exoplatform.calendar.version>
+    <org.exoplatform.commons.version>4.0.0-Alpha1</org.exoplatform.commons.version>
     <org.exoplatform.core.version>2.5.0-GA</org.exoplatform.core.version>
-    <org.exoplatform.ecms.version>4.0.0.Alpha1-SNAPSHOT</org.exoplatform.ecms.version>
-    <org.exoplatform.forum.version>4.0.0.Alpha1-SNAPSHOT</org.exoplatform.forum.version>
+    <org.exoplatform.ecms.version>4.0.0-Alpha1</org.exoplatform.ecms.version>
+    <org.exoplatform.forum.version>4.0.0-Alpha1</org.exoplatform.forum.version>
     <org.exoplatform.gwtframework.version>1.1.2</org.exoplatform.gwtframework.version>
     <org.exoplatform.ide.version>1.1.9</org.exoplatform.ide.version>
-    <org.exoplatform.integ.version>4.0.0.Alpha1-SNAPSHOT</org.exoplatform.integ.version>
+    <org.exoplatform.integ.version>4.0.0-Alpha1</org.exoplatform.integ.version>
     <org.exoplatform.jcr.version>1.15.0-GA</org.exoplatform.jcr.version>
     <org.exoplatform.kernel.version>2.4.0-GA</org.exoplatform.kernel.version>
-    <org.exoplatform.wiki.version>4.0.0.Alpha1-SNAPSHOT</org.exoplatform.wiki.version>
+    <org.exoplatform.wiki.version>4.0.0-Alpha1</org.exoplatform.wiki.version>
     <org.gatein.portal.version>3.5.0.Final</org.gatein.portal.version>
-    <org.exoplatform.social.version>4.0.0.Alpha1-SNAPSHOT</org.exoplatform.social.version>
+    <org.exoplatform.social.version>4.0.0-Alpha1</org.exoplatform.social.version>
     <org.exoplatform.ws.version>2.3.0-GA</org.exoplatform.ws.version>
     <org.gatein.common.version>2.1.0.Final</org.gatein.common.version>
     <org.gatein.pc.version>2.4.0.Final</org.gatein.pc.version>
