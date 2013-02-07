@@ -50,7 +50,7 @@
     <br>
     <%if(show=="false"){%>
     <div id="DeleteLink" style="display: block">
-        <span style="text-align: center;background-color: silver;" class="DeleteAction">${closeLabel}</span>
+        <span style="text-align: center;background-color: silver;cursor: pointer;" class="DeleteAction">${closeLabel}</span>
     </div>
     <%}%>
 </div>

@@ -167,7 +167,7 @@
             </div>
             <%} else{
             %>
-            <span style="text-align: center"> ${bundle["noEventsLabel"]} </span>
+            <p style="text-align: center"> ${bundle["noEventsLabel"]} </p>
             <%}%>
             <br>
         </div>
