@@ -91,7 +91,7 @@ public class BrandingDataStorageService {
       logosNode.save();
       session.save();
     } catch (Exception e) {
-      LOG.error("Error whilte saving the login in databse: ", e.getMessage());
+      LOG.error("Branding - Error while saving the logo: ", e.getMessage());
     } finally {
       sessionProvider.close();
       ConversationState state = ConversationState.getCurrent();
