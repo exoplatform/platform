@@ -4,7 +4,7 @@
   <parent>
     <groupId>org.exoplatform.platform</groupId>
     <artifactId>platform-extension-portlets</artifactId>
-    <version>4.0.0-Beta1-SNAPSHOT</version>
+    <version>4.0.0-SNAPSHOT</version>
   </parent>
   <artifactId>platform-extension-portlets-homepage</artifactId>
   <packaging>jar</packaging>
