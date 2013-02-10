@@ -4,7 +4,7 @@
   <parent>
     <artifactId>platform-exo-gadget-pack</artifactId>
     <groupId>org.exoplatform.platform</groupId>
-    <version>4.0.0.Alpha1-unified-search-SNAPSHOT</version>
+    <version>4.0.0-unified-search-SNAPSHOT</version>
   </parent>
   <artifactId>platform-exo-gadget-pack-gadget-pack</artifactId>
   <packaging>war</packaging>
@@ -49,7 +49,7 @@
                   <overWrite>false</overWrite>
                   <outputDirectory>${project.build.directory}/gadget-pack/gadgets/Collab-gadgets/eXoCalendar/gadget</outputDirectory>
                   <includes>**/*.*</includes>
-                  <excludes></excludes>
+                  <excludes />
                 </artifactItem>
               </artifactItems>
             </configuration>
