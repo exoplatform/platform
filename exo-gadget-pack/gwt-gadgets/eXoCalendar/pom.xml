@@ -8,7 +8,6 @@
   </parent>
   <!-- POM file generated with GWT webAppCreator -->
   <artifactId>platform-exo-gadget-pack-gwt-gadgets-calendargadget</artifactId>
-  <version>4.0.0-SNAPSHOT</version>
   <packaging>war</packaging>
   <name>eXo Gadget Pack - GWT Gadgets - eXoCalendar</name>
   <build>
