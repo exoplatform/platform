@@ -26,8 +26,6 @@ import org.exoplatform.services.log.Log;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.core.UIPortletApplication;
 import org.exoplatform.webui.core.lifecycle.UIApplicationLifecycle;
-import org.exoplatform.social.core.space.SpaceException;
-import org.exoplatform.social.core.space.model.Space;
 import org.exoplatform.social.core.space.spi.SpaceService;
 /**
  * @author <a href="kmenzli@exoplatform.com">Kmenzli</a>
@@ -39,7 +37,7 @@ public class UIHelpPlatformToolbarPortlet extends UIPortletApplication {
 
     private static final Log LOG = ExoLogger.getExoLogger(UIHelpPlatformToolbarPortlet.class);
     private String currentNavigation = "";
-    private String helpPage = Helper.DEFAULT_HELP_PAGE;
+    private String helpPage = HelpService.DEFAULT_HELP_PAGE;
     private HelpService helpService = null;
     private SpaceService spaceService=null;
     public UIHelpPlatformToolbarPortlet() throws Exception {

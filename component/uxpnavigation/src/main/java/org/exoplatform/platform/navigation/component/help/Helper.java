@@ -36,7 +36,7 @@ import org.exoplatform.social.webui.Utils;
 public class Helper {
 
     private static final Log LOG = ExoLogger.getExoLogger(Helper.class);
-    public static final String DEFAULT_HELP_PAGE= " http://docs.exoplatform.com/PLF35/index.jsp?topic=%2Forg.exoplatform.doc.35%2FUserGuide.html";
+    public static final String DEFAULT_HELP_ID = "default";
 
     public static boolean present (String theString) {
         boolean present = false;
@@ -57,7 +57,7 @@ public class Helper {
                 else if(url.contains("wiki")) {
                     return "space:wiki";
                 }
-                else if((url.contains("AnswersPortlet"))||(url.contains("FAQPortlet"))) {
+                else if((url.contains("answer"))||(url.contains("faq")) || (url.contains("poll"))) {
                     return "space:faq_annswer";
                 }
                 else if(url.contains("calendar")) {
@@ -67,24 +67,21 @@ public class Helper {
                     return "space:forum";
                 }
                 else if(nav.equals("settings")) {
-                    String spaceUrl;
-                    if((spaceUrl=getSelectedPageNode().getURI()).contains("/")){
-                        spaceUrl = spaceUrl.split("/")[0];
-                        Space space = spaceService.getSpaceByUrl(spaceUrl);
-                        if(spaceService.isManager(space, Util.getPortalRequestContext().getRemoteUser() )){
-                            return "space:manager";
-                        }
-                    }
+                    return "space:manager";
                 }
                 else {
                         String spaceUrl=getSelectedPageNode().getURI();
                         Space space = spaceService.getSpaceByUrl(spaceUrl);
-                        if(space.getPrettyName().equals(nav)){
-                            return "space:activity_stream";
+                        if (space != null) {
+                            if(space.getPrettyName().equals(nav)){
+                                return "space:activity_stream";
+                            }
+                        } else {
+                            return DEFAULT_HELP_ID;
                         }
                     }
                 }
-            else if(url.contains("mywiki")&&(isProfileOwner())){
+            else if(url.contains("wiki")&&(isProfileOwner())){
                 return "personnal:wiki";
             }
             else if((url.contains("profile"))&&(isProfileOwner())){
@@ -119,10 +116,9 @@ public class Helper {
             else if((url.contains(DashboardUtils.getDashboardURL()))&&(isProfileOwner())){
                 return "dashboard";
             }
-             return  Util.getUIPortal().getNavPath().getName();
+             return DEFAULT_HELP_ID;
         } catch (Exception E) {
             LOG.warn("Can not load the currentNavigation ",E);
-            E.printStackTrace();
             return null;
         }
     }
