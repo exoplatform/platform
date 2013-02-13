@@ -4,7 +4,7 @@
   <parent>
     <groupId>org.exoplatform.platform</groupId>
 	<artifactId>platform-component-ide-extension</artifactId>
-    <version>4.0.0-SNAPSHOT</version>
+    <version>4.0.0-stabilization-SNAPSHOT</version>
   </parent>
   <artifactId>platform-component-ide-extension-config</artifactId>
   <packaging>jar</packaging>
