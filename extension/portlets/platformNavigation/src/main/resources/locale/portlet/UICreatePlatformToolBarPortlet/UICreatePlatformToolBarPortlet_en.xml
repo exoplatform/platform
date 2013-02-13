@@ -51,8 +51,6 @@
          <StartEvent>Start Date</StartEvent>
          <Calendar>Calendars</Calendar>
          <all-day>All Day</all-day>
-         <Event>Event</Event>
-         <Task>Task</Task>
       </label>
       <msg>
         <summary-field-required>The field "Title" is required.</summary-field-required>
@@ -68,4 +66,10 @@
          <Cancel>Cancel</Cancel>
       </action>
    </UICreateEvent>
+   <Choix>
+      <label>
+         <Event>Event</Event>
+         <Task>Task</Task>
+      </label>
+   </Choix>
 </bundle>

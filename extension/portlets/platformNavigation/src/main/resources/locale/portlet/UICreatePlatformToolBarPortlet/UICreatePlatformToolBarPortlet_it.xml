@@ -50,8 +50,6 @@
          <EndEvent>Date Debut</EndEvent>
          <StartEvent>Date Fin</StartEvent>
          <Calendar>Calendrier</Calendar>
-         <Event>Evénement</Event>
-         <Task>Tâche</Task>
       </label>
       <msg>
          <summary-field-required>Le champ "Titre" est obligatoire.</summary-field-required>
@@ -67,4 +65,10 @@
          <Cancel>Annuler</Cancel>
       </action>
    </UICreateEvent>
+   <Choix>
+      <label>
+         <Event>Evénement</Event>
+         <Task>Tâche</Task>
+      </label>
+   </Choix>
 </bundle>
