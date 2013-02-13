@@ -27,7 +27,7 @@ $(document).ready(function () {
       $("#adminkeyword").hide();
     }
     else
-      this.quickSearchOnClick();
+      eXo.search.SearchAdminToolbar.quickSearchOnClick();
 
   });
   $("#adminkeyword").focus(function () {
