@@ -2,22 +2,16 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <parent>
-    <artifactId>platform</artifactId>
     <groupId>org.exoplatform.platform</groupId>
+	<artifactId>platform-component</artifactId>
     <version>4.0.0-SNAPSHOT</version>
   </parent>
-  <artifactId>platform-component</artifactId>
+  <artifactId>platform-component-ide-extension</artifactId>
   <packaging>pom</packaging>
-  <name>eXo Platform - Component</name>
+  <name>eXo Platform - IDE Extension</name>
   <modules>
-    <module>common</module>
-    <module>edition</module>
-    <module>gadgets</module>
-    <module>upgrade</module>
-    <module>organization</module>
-    <module>webui</module>
-    <module>jmxclient</module>
-    <module>ide-extension</module>
-    <module>uxpnavigation</module>
+    <module>config</module>
+    <module>webapp</module>
+    <!--<module>ear</module>-->
   </modules>
 </project>
