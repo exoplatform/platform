@@ -63,7 +63,7 @@ public class UIUserNavigationPortlet extends UIPortletApplication {
     public static String DEFAULT_TAB_NAME = "Tab_Default";
     private static final String USER ="/user/"  ;
     private static final String WIKI_HOME = "/WikiHome";
-    private static final String WIKI_REF ="mywiki" ;
+    private static final String WIKI_REF ="wiki" ;
 
     private static Log LOG = ExoLogger.getLogger(UIUserNavigationPortlet.class);
 
