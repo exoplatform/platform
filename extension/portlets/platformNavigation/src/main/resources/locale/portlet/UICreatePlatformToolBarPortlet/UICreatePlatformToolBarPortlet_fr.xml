@@ -13,6 +13,7 @@
    <UICreateList>
       <label>
          <CreateANew>Créer un {1}:</CreateANew>
+         <NoForum>Désolé, pas de forum disponible pour l'instant pour créer un {1}. Commencez par créer votre propre espace.</NoForum>
          <RequireSelectForum>Choisir un forum</RequireSelectForum>
       </label>
       <action>
