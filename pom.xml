@@ -5,7 +5,7 @@
     <artifactId>maven-parent-pom</artifactId>
     <groupId>org.exoplatform</groupId>
     <version>9-beta-1</version>
-    <relativePath />
+    <relativePath></relativePath>
   </parent>
   <groupId>org.exoplatform.platform</groupId>
   <artifactId>platform</artifactId>
@@ -26,8 +26,8 @@
   <scm>
     <connection>scm:git:git://github.com/exoplatform/platform.git</connection>
     <developerConnection>scm:git:git@github.com:exoplatform/platform.git</developerConnection>
-    <url>https://fisheye.exoplatform.com/browse/platform</url>
     <tag>HEAD</tag>
+    <url>https://fisheye.exoplatform.com/browse/platform</url>
   </scm>
   <properties>
     <!-- **************************************** -->
@@ -252,10 +252,10 @@
             <artifactId>servlet-api</artifactId>
             <groupId>javax.servlet</groupId>
           </exclusion>
-           <exclusion>
-              <artifactId>exo.ws.frameworks.servlet</artifactId>
-              <groupId>org.exoplatform.ws</groupId>
-           </exclusion>
+          <exclusion>
+            <artifactId>exo.ws.frameworks.servlet</artifactId>
+            <groupId>org.exoplatform.ws</groupId>
+          </exclusion>
         </exclusions>
       </dependency>
       <!-- Import versions from integration project -->
@@ -456,6 +456,23 @@
         <groupId>org.exoplatform.platform</groupId>
         <artifactId>platform-component-gadgets</artifactId>
         <version>${project.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.exoplatform.platform</groupId>
+        <artifactId>platform-component-ide-extension-config</artifactId>
+        <version>${project.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.exoplatform.platform</groupId>
+        <artifactId>platform-component-ide-extension-webapp</artifactId>
+        <version>${project.version}</version>
+        <type>war</type>
+      </dependency>
+      <dependency>
+        <groupId>org.exoplatform.platform</groupId>
+        <artifactId>platform-component-ide-extension-webapp</artifactId>
+        <version>${project.version}</version>
+        <type>pom</type>
       </dependency>
       <dependency>
         <groupId>org.exoplatform.platform</groupId>
@@ -708,23 +725,6 @@
         <artifactId>platform-sample-gadgets-sample-service</artifactId>
         <version>${project.version}</version>
       </dependency>
-      <dependency>
-				<groupId>org.exoplatform.platform</groupId>
-				<artifactId>platform-component-ide-extension-config</artifactId>
-				<version>${project.version}</version>
-	  </dependency>
-	  <dependency>
-				<groupId>org.exoplatform.platform</groupId>
-				<artifactId>platform-component-ide-extension-webapp</artifactId>
-				<version>${project.version}</version>
-				<type>war</type>
-	  </dependency>
-	  <dependency>
-				<groupId>org.exoplatform.platform</groupId>
-				<artifactId>platform-component-ide-extension-webapp</artifactId>
-				<version>${project.version}</version>
-				<type>pom</type>
-	  </dependency>
       <dependency>
         <groupId>org.exoplatform.platform</groupId>
         <artifactId>platform-server-jboss-patch</artifactId>
