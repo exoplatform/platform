@@ -49,7 +49,19 @@
          <EndEvent>Date Debut</EndEvent>
          <StartEvent>Date Fin</StartEvent>
          <Calendar>Calendrier</Calendar>
-
       </label>
+      <msg>
+         <summary-field-required>Le champ "Titre" est obligatoire.</summary-field-required>
+         <fromDate-format>le format du date de début est incorrecte.</fromDate-format>
+         <toDate-format>le format du date de fin est incorrecte.</toDate-format>
+         <logic-required>Désolé, vous ne pouvez pas créer un événement qui se termine avant qu'il ne commence.</logic-required>
+         <cant-add-event-on-remote-calendar>Impossible d'ajouter un événement au calendrier distant</cant-add-event-on-remote-calendar>
+         <add-successfully>Ce {0} est ajouté dans {1}.</add-successfully>
+         <add-unsuccessfully>L'ajout{0} est echoué.</add-unsuccessfully>
+      </msg>
+      <action>
+         <Next>Suivant</Next>
+         <Cancel>Annuler</Cancel>
+      </action>
    </UICreateEvent>
 </bundle>

@@ -62,5 +62,9 @@
         <add-successfully>The {0} added to the {1}.</add-successfully>
         <add-unsuccessfully>Unsuccessfully to add {0}.</add-unsuccessfully>
       </msg>
+      <action>
+         <Next>Next</Next>
+         <Cancel>Cancel</Cancel>
+      </action>
    </UICreateEvent>
 </bundle>
