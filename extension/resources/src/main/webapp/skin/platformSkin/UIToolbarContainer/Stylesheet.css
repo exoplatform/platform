@@ -90,14 +90,6 @@
     z-index: 2;
     background: #ffffff;
 }
-
-.UIToolbarContainer .UIHorizontalTabs .UITab:hover > ul > li > a {
-    color: #20263f;
-    position: relative;
-    z-index: 2;
-    background: #ffffff;
-}
-
 .UIToolbarContainer .UIHorizontalTabs .UITab:hover a.TBIcon {
     border: 1px solid #dbdbdb;
     border-bottom: none;
@@ -573,12 +565,8 @@
 .UIToolbarContainer .MenuItemContainer .MenuItem .SEOMenuItem{
     height:24px;
 }
-.UIToolbarContainer .UIHorizontalTabs .UITab:hover > ul > li > a {
-    color: #20263f;
-    position: relative;
-    z-index: 2;
-    background: #ffffff;
-}
+
+
 
 
 /**
@@ -1788,4 +1776,10 @@
 }
 .UICreateToolBarPortlet .UIQuickAddEvent .UIFormGrid .FieldComponent .Time .selectbox {
     width: 120px;
+}
+.UIToolbarContainer .UISearchPlatformToolBarPortlet .UITab:hover > ul > li > a {
+    color: #20263f;
+    position: relative;
+    z-index: 2;
+    background: #ffffff;
 }
