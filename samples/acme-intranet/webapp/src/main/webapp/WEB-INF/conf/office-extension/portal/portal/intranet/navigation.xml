@@ -225,14 +225,6 @@
         </node>
 
         <node>
-            <uri>mywiki</uri>
-            <name>mywiki</name>
-            <label>#{portal.intranet.mywiki}</label>
-            <visibility>SYSTEM</visibility>
-            <page-reference>portal::intranet::mywiki</page-reference>
-        </node>
-
-        <node>
             <uri>FAQ</uri>
             <name>FAQ</name>
             <label>#{portal.intranet.faq}</label>
