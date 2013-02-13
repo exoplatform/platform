@@ -52,6 +52,8 @@
          <Calendar>Calendars</Calendar>
          <all-day>All Day</all-day>
          <defaultCalendarId>Default</defaultCalendarId>
+         <Event>Event</Event>
+         <Task>Task</Task>
       </label>
       <msg>
         <summary-field-required>The field "Title" is required.</summary-field-required>

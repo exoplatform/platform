@@ -50,6 +50,8 @@
          <EndEvent>Date Fin</EndEvent>
          <StartEvent>Date Debut</StartEvent>
          <Calendar>Calendrier</Calendar>
+         <Event>Evénement</Event>
+         <Task>Tâche</Task>
       </label>
       <msg>
          <summary-field-required>Le champ "Titre" est obligatoire.</summary-field-required>
