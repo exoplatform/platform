@@ -46,14 +46,14 @@
       <label>
          <Title>Titre</Title>
          <Choix>Choix</Choix>
-         <EndEvent>Date Debut</EndEvent>
-         <StartEvent>Date Fin</StartEvent>
+         <EndEvent>Date Fin</EndEvent>
+         <StartEvent>Date Debut</StartEvent>
          <Calendar>Calendrier</Calendar>
       </label>
       <msg>
          <summary-field-required>Le champ "Titre" est obligatoire.</summary-field-required>
-         <fromDate-format>le format du date de début est incorrecte.</fromDate-format>
-         <toDate-format>le format du date de fin est incorrecte.</toDate-format>
+         <fromDate-format>le format du date de debut est incorrect.</fromDate-format>
+         <toDate-format>le format du date de fin est incorrect.</toDate-format>
          <logic-required>Désolé, vous ne pouvez pas créer un événement qui se termine avant qu'il ne commence.</logic-required>
          <cant-add-event-on-remote-calendar>Impossible d'ajouter un événement au calendrier distant</cant-add-event-on-remote-calendar>
          <add-successfully>Ce {0} est ajouté dans {1}.</add-successfully>
