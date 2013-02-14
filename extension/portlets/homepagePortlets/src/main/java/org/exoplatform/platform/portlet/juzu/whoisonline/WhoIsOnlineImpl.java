@@ -16,8 +16,6 @@ import org.exoplatform.social.core.manager.RelationshipManager;
 import org.exoplatform.social.core.relationship.model.Relationship;
 import org.exoplatform.social.core.service.LinkProvider;
 
-import java.io.UnsupportedEncodingException;
-import java.nio.charset.CharacterCodingException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -137,7 +135,7 @@ public class WhoIsOnlineImpl implements WhoIsOnline {
         return status;
     }
 
-    private String getLastActivity(Identity identity) throws CharacterCodingException, UnsupportedEncodingException {
+    private String getLastActivity(Identity identity) {
         String activity = "";
         int count = COUNT;
         int i = 0;
