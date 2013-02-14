@@ -115,7 +115,6 @@
 
 blockquote {
     font-family: Georgia, "Times New Roman", Times, serif;
-    font-style: italic;
     background: url(/homepage-portlets/style/images/right-quote.gif) no-repeat right bottom;
     text-indent: -25px;
     padding-right: 25px;
@@ -124,6 +123,7 @@ blockquote {
     text-align: justify;
     border-left: medium none;
     width:75%;
+    word-wrap:break-word;
 }
 
 blockquote:first-letter {
