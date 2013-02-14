@@ -18,9 +18,7 @@
  */
 package org.exoplatform.platform.common.space.rest;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.QueryParam;
@@ -63,8 +61,9 @@ public class SpaceRestServiceImpl implements ResourceContainer {
     @Path("/user/searchSpace/")
     public Response searchSpaces(@QueryParam("keyword") String keyword,@Context SecurityContext sc) {
         StringBuffer baseSpaceURL = null;
-        try
-        {
+        try {
+
+            List<Space> alphabeticallySort = new ArrayList<Space>();
             String userId = sc.getUserPrincipal().getName();
             if (userId == null) {
                 return Response.status(500).cacheControl(cacheControl).build();
@@ -103,6 +102,10 @@ public class SpaceRestServiceImpl implements ResourceContainer {
 
             spaces.removeAll(removedSpaces);
 
+            alphabeticallySort = alphabeticallySpaceSort (spaces,spacesSearched,spaceService);
+
+            spaces.addAll(alphabeticallySort);
+
             return Response.ok(spaces, "application/json").cacheControl(cacheControl).build();
 
         } catch (Exception ex) {
@@ -120,4 +123,39 @@ public class SpaceRestServiceImpl implements ResourceContainer {
         }
         return false;
     }
+
+    /**
+     * Return space not yet visdited by alphabetically
+     * @param renderedSpaces
+     * @param searchedSpaces
+     * @param spaceService
+     * @return
+     */
+    private static List<Space> alphabeticallySpaceSort(List<Space> renderedSpaces, List<Space> searchedSpaces, SpaceService spaceService) {
+        List<String> renderedSpacesId = new ArrayList<String>();
+        List<String> searchedSpacesId = new ArrayList<String>();
+        List<Space> alphabeticallySpaces = new ArrayList<Space>();
+
+        for (Space searchedSpace : searchedSpaces) {
+            searchedSpacesId.add(searchedSpace.getId());
+        }
+        for (Space renderedSpace : renderedSpaces) {
+            renderedSpacesId.add(renderedSpace.getId());
+        }
+        searchedSpacesId.removeAll(renderedSpacesId);
+
+        for (String spacesId : searchedSpacesId) {
+            alphabeticallySpaces.add(spaceService.getSpaceById(spacesId));
+        }
+        Collections.sort(alphabeticallySpaces,new Comparator<Space>()
+        {
+            public int compare(Space s1, Space f2)
+            {
+                return s1.getPrettyName().toString().compareTo(f2.getPrettyName().toString());
+            }
+        });
+
+        return alphabeticallySpaces;
+    }
+
 }
