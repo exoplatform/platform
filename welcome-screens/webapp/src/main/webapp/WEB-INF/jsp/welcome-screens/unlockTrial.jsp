@@ -54,7 +54,7 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 
         <span class="TextContainer">Grab your product code and request an unlock key</span>
         <br>
-        <span>Product Code</span> <input type="text" class="Text"  DISABLED="disabled" placeholder="<%=UnlockService.getProductCode() %>">  <a class="Botton BlueRect" target="_blank" href="<%=UnlockService.getRegistrationFormUrl()%>?'pc=<%=UnlockService.getProductCode()%>'">Request a Key</a>
+        <span>Product Code</span> <input type="text" class="Text"  placeholder="<%=UnlockService.getProductCode() %>">  <a class="Botton BlueRect" target="_blank" href="<%=UnlockService.getRegistrationFormUrl()%>?'pc=<%=UnlockService.getProductCode()%>'">Request a Key</a>
         <span class="TriangleItem BlueIcon"></span>
     </div>
 
