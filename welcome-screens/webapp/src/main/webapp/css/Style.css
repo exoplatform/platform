@@ -93,8 +93,12 @@ div, table, th, tr, td, img, form {
 .SubmitButton {
     background: url("/eXoResources/skin/DefaultSkin/webui/component/UIBarDecorator/UIAction/background/LightBlueStyle.gif") repeat-x scroll center center transparent;
     cursor: pointer;
-    text-align: center;
+    display:block;
+    width:100px;
+    margin:0 auto;
+    text-align:center;
     white-space: nowrap;
+    margin-top: 20px;
 }
 
 
@@ -383,7 +387,6 @@ p {
 .content{
     width:400px;
     /*height:300px;*/
-    top:10%;
     margin:0 auto;
     /*background-color:#aaa;*/
     position:relative;
@@ -424,6 +427,7 @@ input.Button {
     border: none;
     width: 676px;
     font-family: Verdana, Arial, Helvetica, sans-serif;
+    height : 450px;
 }
 
 .StartedStep .StartedBarBG{
@@ -559,7 +563,6 @@ input.Button {
 
 .StartedStep .BorderDot{
     margin-left: 62px;
-    border-bottom: 1px dotted #ccc;
 }
 
 .StartedStep .HelpText{
