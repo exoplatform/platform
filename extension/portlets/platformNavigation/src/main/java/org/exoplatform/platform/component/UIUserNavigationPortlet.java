@@ -86,34 +86,14 @@ public class UIUserNavigationPortlet extends UIPortletApplication {
     }
 
     public static String getOwnerRemoteId() {
-        String currentUserName = getCurrentUser();
+        String currentUserName = org.exoplatform.platform.navigation.component.utils.NavigationUtils.getCurrentUser();
         if (currentUserName == null || currentUserName.equals("")) {
             return Utils.getViewerRemoteId();
         }
         return currentUserName;
     }
 
-    public static String getCurrentUser() {
-        ExoContainer container = ExoContainerContext.getCurrentContainer();
-        IdentityManager idm = (IdentityManager) container.getComponentInstanceOfType(IdentityManager.class);
-        PortalRequestContext request = Util.getPortalRequestContext() ;
-        String currentPath = request.getControllerContext().getParameter(QualifiedName.parse("gtn:path"));
-        String []splitCurrentUser = currentPath.split("/");
-        String currentUserName = currentPath.split("/")[splitCurrentUser.length - 1];
-        try {
-            if ((currentUserName != null)&& (idm.getOrCreateIdentity(OrganizationIdentityProvider.NAME, currentUserName, false) != null))  return currentUserName;
-            else if (((currentUserName = currentPath.split("/")[splitCurrentUser.length-2]) != null)&&
-                    (idm.getOrCreateIdentity(OrganizationIdentityProvider.NAME, currentUserName, false) != null)) {
-                        return currentUserName;
-            }
-        } catch (Exception e) {
-            if(LOG.isDebugEnabled()) {
-                LOG.debug("Could not found Identity of user " + currentUserName);
-            }
-            return null;
-        }
-        return null;
-    }
+
     //////////////////////////////////////////////////////////
     /**/                                                  /**/
     /**/         //utils METHOD//                         /**/

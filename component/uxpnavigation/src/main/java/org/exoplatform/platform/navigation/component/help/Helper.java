@@ -19,6 +19,7 @@
 package org.exoplatform.platform.navigation.component.help;
 
 import org.exoplatform.platform.navigation.component.utils.DashboardUtils;
+import org.exoplatform.platform.navigation.component.utils.NavigationUtils;
 import org.exoplatform.portal.mop.SiteKey;
 import org.exoplatform.portal.mop.user.UserNode;
 import org.exoplatform.portal.webui.util.Util;
@@ -113,17 +114,18 @@ public class Helper {
             else if((nav!=null)&&((nav.equals("FAQ"))||(nav.equals("answers")))){
                 return "Company Context FAQ:Answers";
             }
-            else if((url.contains(DashboardUtils.getDashboardURL()))&&(isProfileOwner())){
+            String dashboardUrl = DashboardUtils.getDashboardURL();
+            if(url.contains(dashboardUrl.substring(0, dashboardUrl.lastIndexOf("/")))){
                 return "dashboard";
             }
-             return DEFAULT_HELP_ID;
+            return DEFAULT_HELP_ID;
         } catch (Exception E) {
-            LOG.warn("Can not load the currentNavigation ",E);
+            LOG.warn("Can not load the currentNavigation ", E);
             return null;
         }
     }
     public static boolean isProfileOwner() {
-        return Utils.isOwner();
+        return Utils.getViewerRemoteId().equals(NavigationUtils.getCurrentUser());
     }
     public static String getCurrentPortal()
     {
