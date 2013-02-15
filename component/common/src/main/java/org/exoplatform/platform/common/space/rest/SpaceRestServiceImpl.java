@@ -135,6 +135,7 @@ public class SpaceRestServiceImpl implements ResourceContainer {
         List<String> renderedSpacesId = new ArrayList<String>();
         List<String> searchedSpacesId = new ArrayList<String>();
         List<Space> alphabeticallySpaces = new ArrayList<Space>();
+        StringBuffer baseSpaceURL = null;
 
         for (Space searchedSpace : searchedSpaces) {
             searchedSpacesId.add(searchedSpace.getId());
@@ -155,7 +156,28 @@ public class SpaceRestServiceImpl implements ResourceContainer {
             }
         });
 
+        /** Build the correct space URL when it is rendered on left navigation*/
+        for (Space alphabeticallySpace : alphabeticallySpaces) {
+            baseSpaceURL = new StringBuffer();
+            baseSpaceURL.append(PortalContainer.getCurrentPortalContainerName()+ "/g/:spaces:") ;
+            String groupId = alphabeticallySpace.getGroupId();
+            String permanentSpaceName = groupId.split("/")[2];
+            if (permanentSpaceName.equals(alphabeticallySpace.getPrettyName())) {
+                baseSpaceURL.append(permanentSpaceName) ;
+                baseSpaceURL.append("/");
+                baseSpaceURL.append(permanentSpaceName) ;
+            } else {
+                baseSpaceURL.append(alphabeticallySpace.getPrettyName()) ;
+                baseSpaceURL.append("/");
+                baseSpaceURL.append(alphabeticallySpace.getPrettyName()) ;
+            }
+            alphabeticallySpace.setUrl(baseSpaceURL.toString());
+
+        }
+
         return alphabeticallySpaces;
     }
+
+
 
 }
