@@ -46,10 +46,10 @@
    <UICreateEvent>
       <label>
          <Title>Title</Title>
-         <Choix>Choice</Choix>
-         <EndEvent>End Date</EndEvent>
-         <StartEvent>Start Date</StartEvent>
-         <Calendar>Calendars</Calendar>
+         <Choix>Add New:</Choix>
+         <EndEvent>To</EndEvent>
+         <StartEvent>From</StartEvent>
+         <Calendar>Select Calendar</Calendar>
          <all-day>All Day</all-day>
          <defaultCalendarId>Default</defaultCalendarId>
       </label>

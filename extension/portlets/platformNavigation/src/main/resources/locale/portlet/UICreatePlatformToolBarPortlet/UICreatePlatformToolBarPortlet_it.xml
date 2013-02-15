@@ -46,10 +46,10 @@
    <UICreateEvent>
       <label>
          <Title>Titre</Title>
-         <Choix>Choix</Choix>
-         <EndEvent>Date Debut</EndEvent>
-         <StartEvent>Date Fin</StartEvent>
-         <Calendar>Calendrier</Calendar>
+         <Choix>Ajouter un nouveau:</Choix>
+         <EndEvent>à</EndEvent>
+         <StartEvent>de</StartEvent>
+         <Calendar>Choisir un calendrier</Calendar>
       </label>
       <msg>
          <summary-field-required>Le champ "Titre" est obligatoire.</summary-field-required>
