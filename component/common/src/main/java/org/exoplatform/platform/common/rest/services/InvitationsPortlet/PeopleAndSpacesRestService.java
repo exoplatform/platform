@@ -19,7 +19,7 @@
 package org.exoplatform.platform.common.rest.services.InvitationsPortlet;
 
 import org.exoplatform.common.http.HTTPStatus;
-import org.exoplatform.container.ExoContainerContext;
+import org.exoplatform.commons.utils.ListAccess;
 import org.exoplatform.services.log.ExoLogger;
 import org.exoplatform.services.log.Log;
 import org.exoplatform.services.rest.impl.RuntimeDelegateImpl;
@@ -40,6 +40,8 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.*;
 import javax.ws.rs.ext.RuntimeDelegate;
 import java.net.URI;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -66,7 +68,9 @@ public class PeopleAndSpacesRestService implements ResourceContainer {
     private static final String SPACE_AVATAR_URL = "spaceAvatarUrl";
     private static final String MEMBERS_NUMBER = "membersNumber";
     private static final String SPACE_REGISTRATION = "spaceRegistration";
-
+    private SpaceService spaceService = null;
+    private IdentityManager identityManager = null;
+    private RelationshipManager relationshipManager = null;
     static {
         RuntimeDelegate.setInstance(new RuntimeDelegateImpl());
         cacheControl = new CacheControl();
@@ -74,6 +78,13 @@ public class PeopleAndSpacesRestService implements ResourceContainer {
         cacheControl.setNoStore(true);
     }
 
+
+    public PeopleAndSpacesRestService(SpaceService spaceService,IdentityManager identityManager,RelationshipManager relationshipManager){
+
+        this.spaceService = spaceService;
+        this.identityManager = identityManager;
+        this.relationshipManager = relationshipManager;
+    }
 
     @GET
     @Path("allInvitations")
@@ -86,13 +97,18 @@ public class PeopleAndSpacesRestService implements ResourceContainer {
                 return Response.status(HTTPStatus.INTERNAL_ERROR).cacheControl(cacheControl).build();
             }
             //spaces
-            SpaceService spaceService = (SpaceService) ExoContainerContext.getCurrentContainer().getComponentInstanceOfType(SpaceService.class);
-            List<Space> invitedSpaces = spaceService.getInvitedSpaces(userId);
+            List<Space> invitedSpaces = new ArrayList<Space>();
+            ListAccess<Space> invitedSpacesListAccess = spaceService.getInvitedSpacesWithListAccess(userId);
+
+            Space[] spaces = invitedSpacesListAccess.load(0, invitedSpacesListAccess.getSize());
+
+            if (spaces.length > 0) {
+
+                invitedSpaces = Arrays.asList(spaces);
+            }
 
             //people
-            IdentityManager identityManager = (IdentityManager) ExoContainerContext.getCurrentContainer().getComponentInstanceOfType(IdentityManager.class);
             Identity identity = identityManager.getOrCreateIdentity(OrganizationIdentityProvider.NAME, userId);
-            RelationshipManager relationshipManager = (RelationshipManager) ExoContainerContext.getCurrentContainer().getComponentInstanceOfType(RelationshipManager.class);
             List<Relationship> relations = relationshipManager.getIncoming(identity);
 
 
