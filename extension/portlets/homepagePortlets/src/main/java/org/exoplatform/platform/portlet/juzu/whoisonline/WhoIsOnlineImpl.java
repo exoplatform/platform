@@ -143,10 +143,11 @@ public class WhoIsOnlineImpl implements WhoIsOnline {
         RealtimeListAccess<ExoSocialActivity> activityList = activityManager.getActivitiesWithListAccess(identity);
         for (ExoSocialActivity act : activityList.loadAsList(i, count)) {
             i++;
+            activity = act.getTitle().replaceAll("<br/>", " ").replaceAll("<br />", " ").replaceAll("<br>", " ").replaceAll("</br>", " ").trim();
+            activity = StringEscapeUtils.unescapeHtml(activity);
+            activity = activity.replaceAll("\"", "'");
             if (act.getType().equals(DEFAULT_ACTIVITY) || act.getType().equals(LINK_ACTIVITY) || act.getType().equals(DOC_ACTIVITY)) {
-                activity = act.getTitle().replaceAll("<br/>", " ").replaceAll("<br />", " ").replaceAll("<br>", " ").replaceAll("</br>", " ").trim();
-                activity = StringEscapeUtils.unescapeHtml(activity);
-                activity = activity.replaceAll("\"", "'");
+
                 if (activity.length() > MAX_CHAR && act.getType().equals(DEFAULT_ACTIVITY)) {
                     String maxBody = activity.substring(0, MAX_CHAR);
                     int tagEnterLocation = maxBody.indexOf('<', 0);
@@ -194,19 +195,23 @@ public class WhoIsOnlineImpl implements WhoIsOnline {
                 }
 
                 if (act.getType().equals(DOC_ACTIVITY)) {
-                    if ((act.getTitle().split(">")[1].split("<")[0]).length() > MAX_DOC_CHAR) {
-                        String docName = act.getTitle().split(">")[1].split("<")[0].substring(0, MAX_DOC_CHAR).concat(THREE_DOTS);
-                        String docUrl = act.getTitle().split(">")[0].split("=")[1].replace("\"", "'");
-                        activity = "Shared a Document <a class='ColorLink' target='_blank' href=" + docUrl + "title='" + act.getTitle().split(">")[1].split("<")[0] + "'>" + docName + "</a>";
+                    if ((activity.split(">")[1].split("<")[0]).length() > MAX_DOC_CHAR) {
+                        String docName = activity.split(">")[1].split("<")[0].substring(0, MAX_DOC_CHAR).concat(THREE_DOTS);
+                        String docUrl = activity.split(">")[0].split("=")[1].replace("\"", "'");
+                        activity = "Shared a Document <a class='ColorLink' target='_blank' href=" + docUrl + "title='" + activity.split(">")[1].split("<")[0] + "'>" + docName + "</a>";
                     }
                 }
 
                 if (act.getType().equals(LINK_ACTIVITY)) {
-                    if (act.getTitle().length() > MAX_CHAR) {
-                        activity = "<a class='ColorLink' target='_blank' href='" + act.getUrl() + "'>" + act.getTitle().substring(0, MAX_CHAR) + "</a>";
-                    } else {
-                        activity = "<a class='ColorLink' target='_blank' href='" + act.getUrl() + "'>" + act.getTitle() + "</a>";
+
+                        if(activity.indexOf("<",0)!=-1){
+                            activity=activity.substring(activity.indexOf(">",0)+1,activity.indexOf("<",activity.indexOf(">",0)));
+                        }
+                    if (activity.length() > MAX_CHAR) {
+                        activity=activity.substring(0,MAX_CHAR);
                     }
+
+                    activity = "<a class='ColorLink' target='_blank' href='" + act.getUrl() + "'>" + activity + "</a>";
                 }
                 break;
             }
