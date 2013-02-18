@@ -41,10 +41,6 @@
     <dependency>
       <groupId>org.juzu</groupId>
       <artifactId>juzu-bom-core</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>org.juzu</groupId>
-      <artifactId>juzu-bom-core</artifactId>
       <exclusions>
         <exclusion>
           <artifactId>weld-core</artifactId>
