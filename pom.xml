@@ -478,12 +478,14 @@
         <artifactId>platform-exo-gadget-pack-config</artifactId>
         <version>${project.version}</version>
       </dependency>
+      <!--
       <dependency>
         <groupId>org.exoplatform.platform</groupId>
         <artifactId>platform-exo-gadget-pack-ear</artifactId>
         <version>${project.version}</version>
         <type>ear</type>
       </dependency>
+      -->
       <dependency>
         <groupId>org.exoplatform.platform</groupId>
         <artifactId>platform-exo-gadget-pack-gadget-pack</artifactId>
@@ -506,12 +508,14 @@
         <artifactId>platform-extension-config</artifactId>
         <version>${project.version}</version>
       </dependency>
+      <!--
       <dependency>
         <groupId>org.exoplatform.platform</groupId>
         <artifactId>platform-extension-ear</artifactId>
         <version>${project.version}</version>
         <type>ear</type>
       </dependency>
+      -->
       <dependency>
         <groupId>org.exoplatform.platform</groupId>
         <artifactId>platform-extension-portlets-homepage</artifactId>
@@ -574,23 +578,27 @@
         <version>${project.version}</version>
         <type>pom</type>
       </dependency>
+      <!--
       <dependency>
         <groupId>org.exoplatform.platform</groupId>
         <artifactId>platform-packaging-commons</artifactId>
         <version>${project.version}</version>
         <type>zip</type>
       </dependency>
+      -->
       <dependency>
         <groupId>org.exoplatform.platform</groupId>
         <artifactId>platform-sample-acme-intranet-config</artifactId>
         <version>${project.version}</version>
       </dependency>
+      <!--
       <dependency>
         <groupId>org.exoplatform.platform</groupId>
         <artifactId>platform-sample-acme-intranet-ear</artifactId>
         <version>${project.version}</version>
         <type>ear</type>
       </dependency>
+      -->
       <dependency>
         <groupId>org.exoplatform.platform</groupId>
         <artifactId>platform-sample-acme-intranet-portlet</artifactId>
@@ -630,12 +638,14 @@
         <artifactId>platform-sample-acme-website-config</artifactId>
         <version>${project.version}</version>
       </dependency>
+      <!--
       <dependency>
         <groupId>org.exoplatform.platform</groupId>
         <artifactId>platform-sample-acme-website-ear</artifactId>
         <version>${project.version}</version>
         <type>ear</type>
       </dependency>
+      -->
       <dependency>
         <groupId>org.exoplatform.platform</groupId>
         <artifactId>platform-sample-acme-website-resources</artifactId>
@@ -665,12 +675,14 @@
         <artifactId>platform-sample-default-website-config</artifactId>
         <version>${project.version}</version>
       </dependency>
+      <!--
       <dependency>
         <groupId>org.exoplatform.platform</groupId>
         <artifactId>platform-sample-default-website-ear</artifactId>
         <version>${project.version}</version>
         <type>ear</type>
       </dependency>
+      -->
       <dependency>
         <groupId>org.exoplatform.platform</groupId>
         <artifactId>platform-sample-default-website-webapp</artifactId>
@@ -734,11 +746,13 @@
 				<version>${project.version}</version>
 				<type>pom</type>
 	  </dependency>
+      <!--
       <dependency>
         <groupId>org.exoplatform.platform</groupId>
         <artifactId>platform-server-jboss-patch</artifactId>
         <version>${project.version}</version>
       </dependency>
+      -->
       <dependency>
         <groupId>org.exoplatform.platform</groupId>
         <artifactId>platform-server-tomcat-integration-webapp</artifactId>
@@ -768,11 +782,13 @@
         <version>${project.version}</version>
         <type>pom</type>
       </dependency>
+      <!--
       <dependency>
         <groupId>org.exoplatform.platform</groupId>
         <artifactId>platform-trial-service</artifactId>
         <version>${project.version}</version>
       </dependency>
+      -->
       <!-- Import versions from social project -->
       <dependency>
         <groupId>org.exoplatform.social</groupId>
