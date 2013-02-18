@@ -502,12 +502,6 @@
       </dependency>
       <dependency>
         <groupId>org.exoplatform.platform</groupId>
-        <artifactId>platform-exo-gadget-pack-gwt-gadgets-calendargadget</artifactId>
-        <version>${project.version}</version>
-        <type>war</type>
-      </dependency>
-      <dependency>
-        <groupId>org.exoplatform.platform</groupId>
         <artifactId>platform-extension-config</artifactId>
         <version>${project.version}</version>
       </dependency>

@@ -38,21 +38,21 @@
     def connect="";
 	def message="";
 	if(user.getStatus().equals("") || user.getStatus().equals("ignored")){
-		connect='<div id="'+user.getId()+'connect" class="connectAction" ><a class="connect" href="#">'+connectLabel+'</a></div>';
+		connect="<div id='"+user.getId()+"connect' class='connectAction' ><a class='connect' href='#'>"+connectLabel+"</a></div>";
 
 	}else{
 	if( user.getStatus().equals("received")) {
-	  connect='<div id="'+user.getId()+'accept" class="connectAction" ><a class="connect" href="#">'+connectLabel+'</a></div>';
+	  connect="<div id='"+user.getId()+"accept' class='connectAction' ><a class='connect' href='#'>"+connectLabel+"</a></div>";
 	}else{
 		if(user.getStatus().equals("pending")) {
-			connect='<div id="connectMessge">'+messageLabel+'</div>';
+			connect="<div id='connectMessge'>"+messageLabel+"</div>";
 		}
 	}}%>
     <li id="${user.getId()}"><img src="${user.getAvatar()}" alt="image" /></li>
 	<script type="text/javascript">
 		$(function() {
 			$("#${user.getId()}").tipTip({
-				content: '<table id="tipName"><tbody><tr><td style="width: 50px;"><a target="_parent" href="${user.getProfileUrl()}"><img src="${user.getAvatar()}" alt="image" /></a></td><td>${user.getFullName()}<div style="font-weight: normal;">${user.getPosition()}</div></td></tr></tbody></table><blockquote>${user.getActivity()}</blockquote>${connect}',defaultPosition: "left",keepAlive: true ,maxWidth: "240px"
+				content: "<table id='tipName'><tbody><tr><td style='width: 50px;'><img src='${user.getAvatar()}' alt='image' /></td><td><a target='_parent' href='${user.getProfileUrl()}'>${user.getFullName()}</a><div style='font-weight: normal;'>${user.getPosition()}</div></td></tr></tbody></table><blockquote>${user.getActivity()}</blockquote>${connect}",defaultPosition: "left",keepAlive: true ,maxWidth: "240px"
 			});
 		});
 
@@ -63,11 +63,26 @@
                 $("#${user.getId()}connect").html('<div id="connectMessge">${messageLabel}</div>');
                 $("#${user.getId()}connect").fadeIn(500, function() {});
             });
+            var refresh = function() {
+                $("#onlineList").each(function() {
+                  $(this).jzLoad("WhoIsOnLineController.users()");
+                });
+              };
+
+              setTimeout(refresh, 500);
+
 
 		});
 		$("#${user.getId()}accept a.connect").live("click", function(){
         			$.getJSON("/rest/homepage/intranet/people/contacts/confirm/${user.getRelationId()}", null);
         			$("#${user.getId()}accept").hide();
+        			var refresh = function() {
+                                    $("#onlineList").each(function() {
+                                      $(this).jzLoad("WhoIsOnLineController.users()");
+                                    });
+                                  };
+
+                                  setTimeout(refresh, 500);
 
         		});
    </script>
