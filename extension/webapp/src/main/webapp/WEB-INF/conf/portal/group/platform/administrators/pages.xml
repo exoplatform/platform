@@ -211,12 +211,21 @@
             </container>
         </container>
     </page>
-    <page>
-        <name>branding</name>
-        <title>Branding</title>
-        <access-permissions>manager:/platform/administrators</access-permissions>
-        <edit-permission>manager:/platform/administrators</edit-permission>
-    </page>
+	<page>
+		<name>branding</name>
+		<title>Branding</title>
+		<access-permissions>manager:/platform/administrators</access-permissions>
+		<edit-permission>manager:/platform/administrators</edit-permission>
+		<portlet-application>
+			<portlet>
+				<application-ref>platform-branding</application-ref>
+				<portlet-ref>Branding</portlet-ref>
+			</portlet>
+			<title>Branding Portlet</title>
+		    <access-permissions>manager:/platform/administrators</access-permissions>
+			<show-info-bar>false</show-info-bar>
+		</portlet-application>
+	</page>   
     <page>
         <name>spaces</name>
         <title>spaces</title>

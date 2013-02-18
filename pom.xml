@@ -61,6 +61,7 @@
     <org.gatein.shindig.version>2.0.2.Final-gatein-3</org.gatein.shindig.version>
     <org.gatein.wci.version>2.3.0.Final</org.gatein.wci.version>
     <org.gatein.web.version>3.5.0.Final</org.gatein.web.version>
+    <commons-fileupload.version>1.2.1</commons-fileupload.version>
   </properties>
   <dependencyManagement>
     <dependencies>
@@ -535,6 +536,20 @@
         <version>${project.version}</version>
         <type>pom</type>
       </dependency>
+
+ <dependency>
+      <groupId>org.exoplatform.platform</groupId>
+      <artifactId>platform-extension-portlet-branding</artifactId>
+<version>${project.version}</version>
+      <type>war</type>
+  </dependency>
+    <dependency>
+      <groupId>org.exoplatform.platform</groupId>
+      <artifactId>platform-extension-portlet-branding</artifactId>
+<version>${project.version}</version>
+      <type>pom</type>
+    </dependency>
+
       <dependency>
         <groupId>org.exoplatform.platform</groupId>
         <artifactId>platform-extension-resources</artifactId>

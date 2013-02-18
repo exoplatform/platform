@@ -10,4 +10,65 @@
 			
 		</label>
 	</UIUserPlatformToolBarCreatePortlet>
+   <UICreateList>
+      <label>
+         <CreateANew>Créer un {1}:</CreateANew>
+         <NoForum>Désolé, pas de forum disponible pour l'instant pour créer un {1}. Commencez par créer votre propre espace.</NoForum>
+         <RequireSelectForum>Choisir un forum</RequireSelectForum>
+      </label>
+      <action>
+         <Next>Suivant</Next>
+         <Cancel>Annuler</Cancel>
+      </action>
+   </UICreateList>
+   <UICreateTopic>
+      <label>
+         <SelectAForum>Choisir un forum</SelectAForum>
+         <location>Emplacement</location>
+         <forumId>et Forum</forumId>
+         <FilterForums>Filtrer forums</FilterForums>
+      </label>
+   </UICreateTopic>
+   <UICreatePoll>
+      <label>
+         <SelectAForum>Choisir un Forum</SelectAForum>
+         <location>Emplacement</location>
+         <forumId>et Forum</forumId>
+         <FilterForums>Filtrer forums</FilterForums>
+      </label>
+   </UICreatePoll>
+   <UICreateWiki>
+      <label>
+         <title>Créer une page Wiki:</title>
+         <location>Emplacement</location>
+      </label>
+   </UICreateWiki>
+   <UICreateEvent>
+      <label>
+         <Title>Titre</Title>
+         <Choix>Ajouter un nouveau:</Choix>
+         <EndEvent>à</EndEvent>
+         <StartEvent>de</StartEvent>
+         <Calendar>Choisir un calendrier</Calendar>
+      </label>
+      <msg>
+         <summary-field-required>Le champ "Titre" est obligatoire.</summary-field-required>
+         <fromDate-format>le format du date de début est incorrecte.</fromDate-format>
+         <toDate-format>le format du date de fin est incorrecte.</toDate-format>
+         <logic-required>Désolé, vous ne pouvez pas créer un événement qui se termine avant qu'il ne commence.</logic-required>
+         <cant-add-event-on-remote-calendar>Impossible d'ajouter un événement au calendrier distant</cant-add-event-on-remote-calendar>
+         <add-successfully>Ce {0} est ajouté dans {1}.</add-successfully>
+         <add-unsuccessfully>L'ajout{0} est echoué.</add-unsuccessfully>
+      </msg>
+      <action>
+         <Next>Suivant</Next>
+         <Cancel>Annuler</Cancel>
+      </action>
+   </UICreateEvent>
+   <Choix>
+      <label>
+         <Event>Evénement</Event>
+         <Task>Tâche</Task>
+      </label>
+   </Choix>
 </bundle>
