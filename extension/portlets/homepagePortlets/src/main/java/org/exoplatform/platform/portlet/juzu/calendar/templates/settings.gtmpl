@@ -21,221 +21,207 @@
 %>
 
 <style>
-
 .CalendarItem {
 
 }
-
 .flottante {
     margin: 2px;
     float: left;
 }
-
 .spacer {
     clear: both;
 }
-
 .settingsTitle {
     text-align: center;
 }
 .SettingsContainerTitle{
     background-color: silver;
 }
-    .NonDisp{
-        text-overflow: ellipsis;
-    }
-
+.NonDisp{
+    text-overflow: ellipsis;
+}
 </style>
 <script>
+    function init(initKey){
 
+        $('span.addButtonSpan').on("click", function() {
+            var calId=$(this).parent().children("input").val();
+            $('div.SettingsContainerData').jzLoad(
+                    "CalendarPortletController.addCalendar()",
+                    {"calendarId":calId});
+        });
+        $('span.deleteButtonSpan').on("click", function() {
+            var calId=$(this).parent().children("input").val();
+            $('div.SettingsContainerData').jzLoad(
+                    "CalendarPortletController.deleteCalendar()",
+                    {"calendarId":calId});
 
-        function init(initKey){
+        });
+        $('input.PLFcalendarSearchKey').on( "click", function() {
+            $("#nonDisplayedCalendarContainer").css("display","none");
+            var seakey=$(this).val();
+            if (seakey == initKey) {
+                seakey="";
+                $(this).val("");
+            }
+            $('div.NonDisplayedCalendar').jzLoad(
+                    "CalendarPortletController.getSearchResult()",
+                    {"key":seakey});
 
-            $('span.addButtonSpan').on("click", function() {
-
-                var calId=$(this).parent().children("input").val();
-
-                $('div.SettingsContainerData').jzLoad(
-                        "CalendarPortletController.addCalendar()",
-                        {"calendarId":calId});
-
-            });
-            $('span.deleteButtonSpan').on("click", function() {
-
-                var calId=$(this).parent().children("input").val();
-
-                $('div.SettingsContainerData').jzLoad(
-                        "CalendarPortletController.deleteCalendar()",
-                        {"calendarId":calId});
-
-            });
-            $('input.PLFcalendarSearchKey').on( "click", function() {
-                $("#nonDisplayedCalendarContainer").css("display","none");
-                var seakey=$(this).val();
-
-                if (seakey == initKey) {
-                    seakey="";
-                    $(this).val("");
-                }
-
-                $('div.NonDisplayedCalendar').jzLoad(
-                        "CalendarPortletController.getSearchResult()",
-                        {"key":seakey});
-
-            });
-            $('input.PLFcalendarSearchKey').on('show', function () {
-                $("#nonDisplayedCalendarContainer").css("display","none");
-                var seakey=$(this).val();
-                $('div.NonDisplayedCalendar').jzLoad(
-                        "CalendarPortletController.getSearchResult()",
-                        {"key":seakey});
-            });
-            $('input.PLFcalendarSearchKey').on("keydown",function() {
-                $("#nonDisplayedCalendarContainer").css("display","none");
-                var seakey=$(this).val();
-                $('div.NonDisplayedCalendar').jzLoad(
-                        "CalendarPortletController.getSearchResult()",
-                        {"key":seakey});
-            });
-
-            $('input.PLFcalendarSearchKey').on("keypress",function() {
-                $("#nonDisplayedCalendarContainer").css("display","none");
-                var seakey=$(this).val();
-                $('div.NonDisplayedCalendar').jzLoad(
-                        "CalendarPortletController.getSearchResult()",
-                        {"key":seakey});
-            });
-
-            $('input.PLFcalendarSearchKey').on("keyup" ,function() {
-                $("#nonDisplayedCalendarContainer").css("display","none");
-                var seakey=$(this).val();
-                $('div.NonDisplayedCalendar').jzLoad(
-                        "CalendarPortletController.getSearchResult()",
-                        {"key":seakey});
-            });
-            $('input.PLFcalendarSearchKey').on("focus" ,function() {
-                if ($(this).val() == initKey) {
-                    $(this).val("");
-                }
-            });
-
-            $('input.PLFcalendarSearchKey').on("blur",function() {
-                if ($(this).val() == "") {
-                    $(this).val(initKey) ;
-                }
-            });
-            $('.CalendarItem').mouseover(function() {
-                var button= $(this).children("p.addButton");
-
-                button.css("display","block");
-
-            });
-            $('.CalendarItem').mouseout(function() {
-                var button= $(this).children("p.addButton");
-                button.css("display","none");
-            });
-
-        };
-
-        $(document).ready(function(){
-            var initKey=$('input.PLFcalendarSearchKey').val();
-            init(initKey) ;
+        });
+        $('input.PLFcalendarSearchKey').on('show', function () {
+            $("#nonDisplayedCalendarContainer").css("display","none");
+            var seakey=$(this).val();
+            $('div.NonDisplayedCalendar').jzLoad(
+                    "CalendarPortletController.getSearchResult()",
+                    {"key":seakey});
+        });
+        $('input.PLFcalendarSearchKey').on("keydown",function() {
+            $("#nonDisplayedCalendarContainer").css("display","none");
+            var seakey=$(this).val();
+            $('div.NonDisplayedCalendar').jzLoad(
+                    "CalendarPortletController.getSearchResult()",
+                    {"key":seakey});
         });
 
+        $('input.PLFcalendarSearchKey').on("keypress",function() {
+            $("#nonDisplayedCalendarContainer").css("display","none");
+            var seakey=$(this).val();
+            $('div.NonDisplayedCalendar').jzLoad(
+                    "CalendarPortletController.getSearchResult()",
+                    {"key":seakey});
+        });
+
+        $('input.PLFcalendarSearchKey').on("keyup" ,function() {
+            $("#nonDisplayedCalendarContainer").css("display","none");
+            var seakey=$(this).val();
+            $('div.NonDisplayedCalendar').jzLoad(
+                    "CalendarPortletController.getSearchResult()",
+                    {"key":seakey});
+        });
+        $('input.PLFcalendarSearchKey').on("focus" ,function() {
+            if ($(this).val() == initKey) {
+                $(this).val("");
+            }
+        });
+
+        $('input.PLFcalendarSearchKey').on("blur",function() {
+            if ($(this).val() == "") {
+                $(this).val(initKey) ;
+            }
+        });
+        $('.CalendarItem').mouseover(function() {
+            var button= $(this).children("p.addButton");
+
+            button.css("display","block");
+
+        });
+        $('.CalendarItem').mouseout(function() {
+            var button= $(this).children("p.addButton");
+            button.css("display","none");
+        });
+        $('.SettingValidationButton').on('click',function(){
+            $('div.CalendarPortletContainer').jzLoad(
+                    "CalendarPortletController.calendarHome()");
+        });
+    };
+
+    $(document).ready(function(){
+        var initKey=$('input.PLFcalendarSearchKey').val();
+        init(initKey) ;
+    });
 </script>
 
-    <div class="SettingsContainer" >
-         <div class="SettingsContainerData" >
-             <div class="SettingsContainerTitle">
-                 <p class="settingsTitle">${bundle["settingLabel"]}</p>
-             </div>
+<div class="SettingsContainer" >
+    <div class="SettingsContainerData" >
+        <div class="SettingsContainerTitle">
+            <p class="settingsTitle">${bundle["settingLabel"]}</p>
+        </div>
 
-             <div class="DisplayedCalendarTitle">
-                <p>${bundle["displayedLabel"]}</p>
-             </div>
+        <div class="DisplayedCalendarTitle">
+            <p>${bundle["displayedLabel"]}</p>
+        </div>
 
 
-             <div class= "DisplayedCalendarContainer" >
+        <div class= "DisplayedCalendarContainer" >
 
-                       <% if (displayedCalendar != null) {
+            <% if (displayedCalendar != null) {
 
                 displayedCalendar.each { cal ->
-                def   calendarName= cal.name;
-                def hover="";
-                if((calendarName.indexOf("default") != -1)&&(cal.groups==null))  hover="Default Personnal Calendar";
-                if (cal.groups != null) {
-                    def group = cal.groups[0];
-                    hover = " (" + group.substring(group.lastIndexOf("/") + 1) + ")";
-                }
-                      %>
-                      <div class= "CalendarItem" id="${cal.id}" title="${hover}">
-                            <p class="flottante CalendarName" style="background-color:${cal.calendarColor}"  id="${cal.id}">${calendarName}</p>
-
-                            <p class="flottante">
-                                <span class="deleteButtonSpan icon"></span>
-                                <input type="hidden" name="calendarId" value="${cal.id}"/>
-                            </p>
-
-                      </div>
-                                <% }
-                                 }
-                                 %>
-                <div class="spacer">&nbsp;</div>
-
-             </div>
-
-             <div class="nonDisplayedCalendarTitle">
-                    <p>${bundle["additionalCalendarLabel"]}</p>
-             </div>
-
-             <div class="searchContainer">
-                    <%def searchLabel= bundle["searchLabel"]  %>
-                        <input type="text"  class="PLFcalendarSearchKey" value="${searchLabel}"/>
-
-                        <div  class="NonDisplayedCalendar"></div>
-             </div>
-
-
-      <div  id="nonDisplayedCalendarContainer"  class="nonDisplayedCalendarContainer" style="display: block">
-                 <% if (nonDisplayedCalendar != null) {
-
-                    nonDisplayedCalendar.each { cal ->
-                        def   calendarName= cal.name;
-                        def grpName = "";
-                        if (cal.groups != null) {
+                    def   calendarName= cal.name;
+                    def hover="";
+                    if(((calendarName.indexOf("Default") != -1)||(calendarName.indexOf("Défault") != -1))&&(cal.groups==null))  hover=bundle["defaultPersonnal"];
+                    if (cal.groups != null) {
                         def group = cal.groups[0];
-                        grpName = "(" + group.substring(group.lastIndexOf("/") + 1) + ")";
-                        //calendarName += grpName;
-                         }
-      %>
-                                <div id="${cal.id}" class="CalendarItem NonDisp" title="${grpName}">
+                        hover = " (" + group.substring(group.lastIndexOf("/") + 1) + ")";
+                    }
+            %>
+            <div class= "CalendarItem" id="${cal.id}" title="${hover}">
+                <p class="flottante CalendarName" style="background-color:${cal.calendarColor}"  id="${cal.id}">${calendarName}</p>
 
-                                    <p style="float:left; height:20px;width:20px;background-color:  ${cal.calendarColor}"/>
+                <p class="flottante">
+                    <span class="deleteButtonSpan icon"></span>
+                    <input type="hidden" name="calendarId" value="${cal.id}"/>
+                </p>
 
-                                    <p class="CalendarName" style="float:left; ">${calendarName}</p>
+            </div>
+            <% }
+            }
+            %>
+            <div class="spacer">&nbsp;</div>
 
-                                    <p class="addButton" style="float:left;display: none;">
-                                        <input type="hidden" name="calendarId" value="${cal.id}"/>
-                                        <span  class="addButtonSpan"> ADD </span>
+        </div>
 
-                                    </p>
+        <div class="nonDisplayedCalendarTitle">
+            <p>${bundle["additionalCalendarLabel"]}</p>
+        </div>
+
+        <div class="searchContainer">
+            <%def searchLabel= bundle["searchLabel"]  %>
+            <input type="text"  class="PLFcalendarSearchKey" value="${searchLabel}"/>
+
+            <div  class="NonDisplayedCalendar"></div>
+        </div>
+
+
+        <div  id="nonDisplayedCalendarContainer"  class="nonDisplayedCalendarContainer" style="display: block">
+            <% if (nonDisplayedCalendar != null) {
+
+                nonDisplayedCalendar.each { cal ->
+                    def   calendarName= cal.name;
+                    def hover="";
+                    if(((calendarName.indexOf("Default") != -1)||(calendarName.indexOf("Défault") != -1))&&(cal.groups==null))  hover=bundle["defaultPersonnal"];
+                    if (cal.groups != null) {
+                        def group = cal.groups[0];
+                        hover = "(" + group.substring(group.lastIndexOf("/") + 1) + ")";
+                    }
+            %>
+            <div id="${cal.id}" class="CalendarItem NonDisp" title="${hover}">
+
+                <p style="float:left; height:20px;width:20px;background-color:  ${cal.calendarColor}"/>
+
+                <p class="CalendarName" style="float:left; ">${calendarName}</p>
+
+                <p class="addButton" style="float:left;display: none;">
+                    <input type="hidden" name="calendarId" value="${cal.id}"/>
+                    <span  class="addButtonSpan"> ADD </span>
+
+                </p>
 
                 <div class="spacer">
                     &nbsp;
                 </div>
-                                </div>
-        <% }
-
-      }
-
-      %>
-
             </div>
-           <div style="height:25px;width:100%;">
-             <a href="@{index()}" style="float:right" >OK</a>
-             <div>
-    </div>
+            <% }
+            }
+            %>
 
+        </div>
+        <div style="height:25px;width:100%;">
+            <button class="SettingValidationButton" style="float:right" >OK</button>
+            <div>
+            </div>
+
+        </div>
     </div>
-             </div>
 </div>
