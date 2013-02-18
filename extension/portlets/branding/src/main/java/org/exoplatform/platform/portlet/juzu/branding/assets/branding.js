@@ -96,6 +96,8 @@ $(function() {
 	function previewLogoFromFile(file) {
 		var checkValide = validate(file);
 		if (checkValide == false) {
+			//clear the text in the input file field
+			$("input#file").replaceWith($("input#file").val("").clone(true));
 			$("#saveinfo").hide();
 			$("#cancelinfo").hide();
 			$("#mustpng").show();
