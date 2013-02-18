@@ -253,10 +253,6 @@
             <artifactId>servlet-api</artifactId>
             <groupId>javax.servlet</groupId>
           </exclusion>
-           <exclusion>
-              <artifactId>exo.ws.frameworks.servlet</artifactId>
-              <groupId>org.exoplatform.ws</groupId>
-           </exclusion>
         </exclusions>
       </dependency>
       <!-- Import versions from integration project -->
