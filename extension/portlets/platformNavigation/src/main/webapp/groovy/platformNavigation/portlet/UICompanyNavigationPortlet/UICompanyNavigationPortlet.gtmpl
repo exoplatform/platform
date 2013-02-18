@@ -68,7 +68,7 @@
   		  } else if (hrefLower.contains("documents")) {
    			   icon = "uiIconPLFDocuments";
     	  } else if (hrefLower.contains("forum")) {
-      			icon = "uiIconForums";
+      			icon = "uiIconUIForms";
    		  } else if (hrefLower.contains("calendar")) {
       			icon = "uiIconPLFCalendar";
     	  }
