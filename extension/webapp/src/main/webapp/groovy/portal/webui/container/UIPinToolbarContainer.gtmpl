@@ -13,20 +13,19 @@
     import org.exoplatform.web.application.RequireJS;
 
 	def settingService =(SettingService) PortalContainer.getInstance().getComponentInstanceOfType(SettingService.class);
- 	String style = "";
+ 	String style = "Dark";
     if (settingService.get(Context.GLOBAL,
                            Scope.GLOBAL,
                            "bar_navigation_style")!=null) {
-  
     style=(String) settingService.get(Context.GLOBAL,
                                       Scope.GLOBAL,
                                       "bar_navigation_style").getValue();
+    }
      PortalRequestContext pcontext = Util.getPortalRequestContext();
      JavascriptManager jsmanager = pcontext.getJavascriptManager();
 	 RequireJS requireJS = jsmanager.getRequireJS();
      def script= "jQuery('#PlatformAdminToolbarContainer #UIToolbarContainer').removeAttr('class').addClass('UIToolbarContainer"+style+" UIContainer"+"')";
      requireJS.require("SHARED/jquery", "jQuery").addScripts("jQuery(function(){"+script+"});");
-    }	
 
 		if(uicomponent.hasPermission()) {
 		def uiToolbarContainer = uicomponent.getChildById("UIToolbarContainer");

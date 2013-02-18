@@ -77,10 +77,8 @@ public class BrandingController {
   @Ajax
   @Resource
   public Response.Content getStyleValue() {
-    String style = "";
-    if (settingService.get(Context.GLOBAL, Scope.GLOBAL, BAR_NAVIGATION_STYLE_KEY) == null) {
-      style = "Dark";
-    } else {
+    String style = "Dark";
+    if (settingService.get(Context.GLOBAL, Scope.GLOBAL, BAR_NAVIGATION_STYLE_KEY) != null) {
       style = (String) settingService.get(Context.GLOBAL, Scope.GLOBAL, BAR_NAVIGATION_STYLE_KEY)
                                      .getValue();
     }
@@ -201,8 +199,7 @@ public class BrandingController {
     Map<String, String> result = new HashMap<String, String>();
     String style = "";
     if (settingService.get(Context.GLOBAL, Scope.GLOBAL, BAR_NAVIGATION_STYLE_KEY) == null) {
-
-      style = "Light";
+      style = "Dark";
     } else {
       style = (String) settingService.get(Context.GLOBAL, Scope.GLOBAL, BAR_NAVIGATION_STYLE_KEY)
                                      .getValue();

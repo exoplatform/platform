@@ -17,7 +17,7 @@ $(function() {
 	//when cancel is clicked, restore the old logo and display cancel messsage
 	$("#cancel").on("click", function() {
 		restorePreviewLogoAndStyle();
-//		UpdatePreviewLogoAndStyle();
+		$("input#file").replaceWith($("input#file").val("").clone(true));
 		$("#saveinfo").hide();
 		$("#mustpng").hide();
 		$("#cancelinfo").show();
