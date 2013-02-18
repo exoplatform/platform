@@ -31,7 +31,7 @@ import org.exoplatform.services.log.ExoLogger;
 import org.exoplatform.services.log.Log;
 import org.exoplatform.services.rest.resource.ResourceContainer;
 import org.exoplatform.social.core.space.SpaceFilter;
-import org.exoplatform.social.core.space.SpaceListAccess;
+import org.exoplatform.commons.utils.ListAccess;
 import org.exoplatform.social.core.space.model.Space;
 import org.exoplatform.social.core.space.spi.SpaceService;
 /**
@@ -48,7 +48,7 @@ public class SpaceRestServiceImpl implements ResourceContainer {
     private final CacheControl cacheControl;
     private static final int MAX_LOADED_SPACES_BY_REQUEST = 20;
 
-    SpaceListAccess listAccess;
+    ListAccess<Space> listAccess;
 
     public SpaceRestServiceImpl(SpaceService spaceService) {
         this.spaceService = spaceService;
@@ -69,9 +69,9 @@ public class SpaceRestServiceImpl implements ResourceContainer {
                 return Response.status(500).cacheControl(cacheControl).build();
             }
             if ((keyword == null) || (keyword.equals(""))) {
-                listAccess = spaceService.getVisibleSpacesWithListAccess(userId, null);
+                listAccess = spaceService.getMemberSpacesByFilter(userId, null);
             } else {
-                listAccess = spaceService.getVisibleSpacesWithListAccess(userId, new SpaceFilter(keyword));
+                listAccess = spaceService.getMemberSpacesByFilter(userId, new SpaceFilter(keyword));
             }
             List<Space> spacesSearched = Arrays.asList(listAccess.load(0, MAX_LOADED_SPACES_BY_REQUEST));
             List<Space> spaces = spaceService.getLastAccessedSpace(userId, null, 0, MAX_LOADED_SPACES_BY_REQUEST);
