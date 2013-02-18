@@ -143,10 +143,12 @@ public class WhoIsOnlineImpl implements WhoIsOnline {
         RealtimeListAccess<ExoSocialActivity> activityList = activityManager.getActivitiesWithListAccess(identity);
         for (ExoSocialActivity act : activityList.loadAsList(i, count)) {
             i++;
-            activity = act.getTitle().replaceAll("<br/>", " ").replaceAll("<br />", " ").replaceAll("<br>", " ").replaceAll("</br>", " ").trim();
-            activity = StringEscapeUtils.unescapeHtml(activity);
-            activity = activity.replaceAll("\"", "'");
+
             if (act.getType().equals(DEFAULT_ACTIVITY) || act.getType().equals(LINK_ACTIVITY) || act.getType().equals(DOC_ACTIVITY)) {
+
+                activity = act.getTitle().replaceAll("<br/>", " ").replaceAll("<br />", " ").replaceAll("<br>", " ").replaceAll("</br>", " ").trim();
+                activity = StringEscapeUtils.unescapeHtml(activity);
+                activity = activity.replaceAll("\"", "'");
 
                 if (activity.length() > MAX_CHAR && act.getType().equals(DEFAULT_ACTIVITY)) {
                     String maxBody = activity.substring(0, MAX_CHAR);
@@ -211,7 +213,7 @@ public class WhoIsOnlineImpl implements WhoIsOnline {
                         activity=activity.substring(0,MAX_CHAR);
                     }
 
-                    activity = "<a class='ColorLink' target='_blank' href='" + act.getUrl() + "'>" + activity + "</a>";
+                    activity = "<a class='ColorLink' target='_blank' href='" + act.getUrl().replaceAll("\"", "'")+ "'>" + activity + "</a>";
                 }
                 break;
             }
