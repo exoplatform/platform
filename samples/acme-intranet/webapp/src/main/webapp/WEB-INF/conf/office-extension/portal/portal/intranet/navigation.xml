@@ -65,7 +65,7 @@
             <label>#{portal.intranet.calendar}</label>
             <page-reference>portal::intranet::calendar</page-reference>
         </node>
-
+	
         <node>
             <uri>welcome</uri>
             <name>welcome</name>
@@ -246,5 +246,14 @@
 			<visibility>SYSTEM</visibility>
 			<page-reference>portal::intranet::space-access</page-reference>
 		</node>
+
+        <!-- Temporary node for unified search testing -->
+        <node>
+            <uri>search</uri>
+            <name>search</name>
+            <label>Search</label>
+            <page-reference>portal::intranet::search</page-reference>
+        </node>
+
     </page-nodes>
 </node-navigation>
