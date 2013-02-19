@@ -32,12 +32,13 @@
         String[] urlList = uicomponent.getURLAsList();
         def i = 0;
         def pageURL;
+        boolean isOwner=  uicomponent.isProfileOwner();
         def imgPath="/platformNavigation/skin/platformNavigation/UIUserNavigationPortlet/background/";
         def imgUrl;
         for (node in uicomponent.getUserNodesAsList()) {
             def nodeLabel;
             def str="UIUserNavigationPortlet.label."+node;
-            if (uicomponent.isProfileOwner()) str="UIUserNavigationPortlet.label.My"+node;
+            if (isOwner) str="UIUserNavigationPortlet.label.My"+node;
             else   str="UIUserNavigationPortlet.label."+node;
             nodeLabel = _ctx.appRes(str);
             pageURL = urlList[i];
@@ -47,18 +48,7 @@
                 navigationTabClass = "UIUserNAvigationPortletTabSelected";
             }
     %>
-    <% if  (node.equals(uicomponent.DASHBOARD_URI)) {
-        if (uicomponent.isProfileOwner()) { %>
-    <div class="$navigationTabClass FL">
-        <a href="$pageURL">
-            <img title="<%=nodeLabel%>" alt="<%=nodeLabel%>" src="$imgUrl">
-            <h4>
-                <%=nodeLabel%>
-            </h4>
-        </a>
-    </div>
-    <% }
-    } else { %>
+    <% if  ((node.equals(uicomponent.DASHBOARD_URI))&&(!isOwner))  continue; %>
     <div class="$navigationTabClass FL">
         <a title="<%=nodeLabel%>" href="$pageURL" >
             <img alt="<%= nodeLabel %>" src="$imgUrl">
@@ -67,7 +57,7 @@
             </h4>
         </a>
     </div>
-    <% }
+    <%
         i++;
     }
     %>

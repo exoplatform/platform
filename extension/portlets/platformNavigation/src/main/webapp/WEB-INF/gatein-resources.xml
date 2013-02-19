@@ -63,7 +63,7 @@
         <name>PlatformAdminToolbarPortlet</name>
         <module>
             <depends>
-                <module>navigation</module>
+                <module>navigation-toolbar</module>
             </depends>
         </module>
     </portlet>
@@ -71,7 +71,7 @@
         <name>UISetupPlatformToolBarPortlet</name>
         <module>
             <depends>
-                <module>navigation</module>
+                <module>navigation-toolbar</module>
             </depends>
         </module>
     </portlet>
@@ -81,6 +81,9 @@
             <depends>
                 <module>base</module>
             </depends>
+           <depends>
+              <module>navigation-toolbar</module>
+           </depends>
             <!--
             <depends>
                 <module>socialcomposer</module>
@@ -91,22 +94,12 @@
             </depends>
         </module>
     </portlet>
-    <portlet>
-        <name>UIUserPlatformToolBarPortlet</name>
-        <module>
-            <depends>
-                <module>base</module>
-            </depends>
-            <depends>
-                <module>social-core</module>
-            </depends>
-        </module>
-    </portlet>
+
     <portlet>
         <name>UICreatePlatformToolBarPortlet</name>
         <module>
             <depends>
-                <module>navigation</module>
+                <module>navigation-toolbar</module>
             </depends>
             <depends>
                 <module>base</module>
@@ -187,4 +180,23 @@
             <as>$</as>
         </depends>
     </module>
+
+   <module>
+      <name>navigation-toolbar</name>
+      <script>
+         <path>/javascript/eXo/platform/navigation/ToolBarNavigation/UIToolBarNavigation.js</path>
+      </script>
+      <depends>
+      <module>base</module>
+   </depends>
+      <depends>
+         <module>uiPopup</module>
+      </depends>
+      <depends>
+         <module>portalRequest</module>
+      </depends>
+      <depends>
+         <module>jquery</module>
+      </depends>
+   </module>
 </gatein-resources>

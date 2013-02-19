@@ -24,17 +24,10 @@ $(function () {
     $('.GettingStartedContainer').mouseout(function () {
         $('.DeleteIcon').css("display", "none");
     });
-    $('.DeleteIcon').on("click", function () {
-        $.getJSON('/rest/homepage/intranet/getting-started/deletePortlet/delete');
-        $('.GettingStartedContainer').jzLoad("GettingStarted.delete()");
-        $('.GettingStartedContainer').css("display","none") ;
-        window.location.reload();
-    });
     $('.DeleteAction').on("click", function () {
         $.getJSON('/rest/homepage/intranet/getting-started/deletePortlet/delete');
         $('.GettingStartedContainer').jzLoad("GettingStarted.delete()");
         $('.GettingStartedContainer').css("display","none") ;
-        window.location.reload()
     });
 
     $.getJSON('/rest/homepage/intranet/getting-started/deletePortlet/IsDelete', function (del) {
@@ -43,16 +36,20 @@ $(function () {
 
         setTimeout(function () {
                 if (del == false) {
-                    $('.GettingStarted').jzLoad("GettingStarted.getGsList()");
+                    $('.GettingStarted').jzLoad("GettingStarted.getGsList()", {"reload":"true"});
                 }
             }
             , 100);
         setInterval(function () {
             if (del == false) {
-                $('.GettingStarted').jzLoad("GettingStarted.getGsList()");
+                $('.TmpGettingStarted').jzLoad("GettingStarted.getGsList()", {"reload":"false"});
+                var ct = $('.TmpGettingStarted').html();
+                if(ct!="") {
+                    $('.GettingStarted').html(ct);
+                    $('.TmpGettingStarted').html('');
+                }
             }
-        }, 2000);
+        }, 60000);
     });
 
 });
-

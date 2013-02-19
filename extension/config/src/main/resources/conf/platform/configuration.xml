@@ -199,6 +199,9 @@
               <value>
                 <string>eXoPlatformResources</string>
               </value>
+ 		<value>
+                <string>platform-branding</string>
+              </value>
             </collection>
           </field>
 

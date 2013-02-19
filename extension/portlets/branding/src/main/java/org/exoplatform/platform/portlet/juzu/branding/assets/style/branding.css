@@ -1,0 +1,27 @@
+
+#PreviewImg{
+height: 34px;
+max-width : 300px;
+}
+
+
+#PreviewImgDiv
+{
+	width : 300px;
+	height: 34px;
+	font-weight: bold;
+	text-align: center;
+	color: #555;
+	border: 1px solid #555;
+	cursor: default;
+	
+	
+}
+
+#PreviewImgDiv.hover
+{
+	color: #f00;
+	border-color: #f00;
+	border-style: solid;
+	box-shadow: inset 0 3px 4px #888;
+}

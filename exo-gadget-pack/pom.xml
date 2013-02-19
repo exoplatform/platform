@@ -4,7 +4,7 @@
   <parent>
     <artifactId>platform</artifactId>
     <groupId>org.exoplatform.platform</groupId>
-    <version>4.0.0-unified-search-SNAPSHOT</version>
+    <version>4.0.0-SNAPSHOT</version>
   </parent>
   <artifactId>platform-exo-gadget-pack</artifactId>
   <packaging>pom</packaging>
@@ -13,7 +13,6 @@
   <!-- MODULES -->
   <modules>
     <module>gadget-pack-services</module>
-    <module>gwt-gadgets</module>
     <module>gadget-pack</module>
     <module>config</module>
     <!--<module>ear</module>-->

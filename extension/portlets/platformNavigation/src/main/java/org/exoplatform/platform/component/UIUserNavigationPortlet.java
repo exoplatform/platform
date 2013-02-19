@@ -19,15 +19,26 @@
 package org.exoplatform.platform.component;
 
 import org.apache.commons.lang.ArrayUtils;
+import org.exoplatform.container.ExoContainer;
+import org.exoplatform.container.ExoContainerContext;
 import org.exoplatform.platform.navigation.component.utils.DashboardUtils;
 import org.exoplatform.platform.webui.NavigationURLUtils;
+import org.exoplatform.portal.application.PortalRequestContext;
 import org.exoplatform.portal.mop.Visibility;
 import org.exoplatform.portal.mop.user.UserNode;
 import org.exoplatform.portal.mop.user.UserNodeFilterConfig;
 import org.exoplatform.portal.webui.portal.UIPortal;
 import org.exoplatform.portal.webui.util.Util;
+import org.exoplatform.services.log.ExoLogger;
+import org.exoplatform.services.log.Log;
+import org.exoplatform.social.core.identity.model.Identity;
+import org.exoplatform.social.core.identity.provider.OrganizationIdentityProvider;
+import org.exoplatform.social.core.manager.IdentityManager;
 import org.exoplatform.social.core.service.LinkProvider;
+import org.exoplatform.social.webui.UISocialGroupSelector;
+import org.exoplatform.social.webui.URLUtils;
 import org.exoplatform.social.webui.Utils;
+import org.exoplatform.web.controller.QualifiedName;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.core.UIPortletApplication;
 import org.exoplatform.webui.core.lifecycle.UIApplicationLifecycle;
@@ -52,8 +63,9 @@ public class UIUserNavigationPortlet extends UIPortletApplication {
     public static String DEFAULT_TAB_NAME = "Tab_Default";
     private static final String USER ="/user/"  ;
     private static final String WIKI_HOME = "/WikiHome";
-    private static final String WIKI_REF ="mywiki" ;
+    private static final String WIKI_REF ="wiki" ;
 
+    private static Log LOG = ExoLogger.getLogger(UIUserNavigationPortlet.class);
 
     public UIUserNavigationPortlet() throws Exception {
         UserNodeFilterConfig.Builder builder = UserNodeFilterConfig.builder();
@@ -70,8 +82,17 @@ public class UIUserNavigationPortlet extends UIPortletApplication {
     }
 
     public boolean isProfileOwner() {
-        return Utils.isOwner();
+        return Utils.getViewerRemoteId().equals(getOwnerRemoteId());
     }
+
+    public static String getOwnerRemoteId() {
+        String currentUserName = org.exoplatform.platform.navigation.component.utils.NavigationUtils.getCurrentUser();
+        if (currentUserName == null || currentUserName.equals("")) {
+            return Utils.getViewerRemoteId();
+        }
+        return currentUserName;
+    }
+
 
     //////////////////////////////////////////////////////////
     /**/                                                  /**/
@@ -105,19 +126,19 @@ public class UIUserNavigationPortlet extends UIPortletApplication {
 
 
     public String getactivitesURL() {
-        return LinkProvider.getUserActivityUri(Utils.getOwnerIdentity(true).getRemoteId());
+        return LinkProvider.getUserActivityUri(getOwnerRemoteId());
     }
 
     public String getrelationURL() {
-        return LinkProvider.getUserConnectionsYoursUri(Utils.getOwnerIdentity(true).getRemoteId());
+        return LinkProvider.getUserConnectionsYoursUri(getOwnerRemoteId());
     }
 
     public String getWikiURL() {
-        return NavigationURLUtils.getURLInCurrentPortal(WIKI_REF)+USER +Utils.getOwnerIdentity(true).getRemoteId()+WIKI_HOME;
+        return NavigationURLUtils.getURLInCurrentPortal(WIKI_REF)+USER +getOwnerRemoteId()+WIKI_HOME;
     }
 
     public String getProfileLink() {
-        return LinkProvider.getUserProfileUri(Utils.getOwnerIdentity(true).getRemoteId());
+        return LinkProvider.getUserProfileUri(getOwnerRemoteId());
     }
 
 }

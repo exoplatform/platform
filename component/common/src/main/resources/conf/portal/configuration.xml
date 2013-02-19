@@ -6,15 +6,8 @@
     <component>
         <type>org.exoplatform.platform.common.rest.DashboardInformationRESTService</type>
     </component>
-    <component>
-        <type>org.exoplatform.platform.common.space.SpaceCustomizationService</type>
-    </component>
     <component profiles="all,default,social">
         <type>org.exoplatform.platform.common.space.rest.SpaceRestServiceImpl</type>
-    </component>
-    <component profiles="all,default,social">
-        <key>org.exoplatform.platform.common.space.statistic.SpaceAccessService</key>
-        <type>org.exoplatform.platform.common.space.statistic.LastSpaceAccessServiceImpl</type>
     </component>
     <component profiles="all,default,social">
         <key>org.exoplatform.platform.common.admin.TermsAndConditionsService</key>
@@ -448,32 +441,6 @@
             </init-params>
         </component-plugin>
     </external-component-plugins>
-    <external-component-plugins profiles="all,default,social">
-        <target-component>org.exoplatform.web.filter.ExtensibleFilter</target-component>
-        <component-plugin>
-            <name>Space Access Statistics filter Plugin</name>
-            <set-method>addFilterDefinitions</set-method>
-            <type>org.exoplatform.web.filter.FilterDefinitionPlugin</type>
-            <init-params>
-                <object-param>
-                    <name>Space Access Statistics filter</name>
-                    <object type="org.exoplatform.web.filter.FilterDefinition">
-                        <field name="filter">
-                            <object type="org.exoplatform.platform.common.space.statistic.SpaceAccessFilter"/>
-                        </field>
-                        <field name="patterns">
-                            <collection type="java.util.ArrayList" item-type="java.lang.String">
-                                <value>
-                                    <string>.*:spaces:.*</string>
-                                </value>
-                            </collection>
-                        </field>
-                    </object>
-                </object-param>
-            </init-params>
-        </component-plugin>
-    </external-component-plugins>
-
     <!-- Terms and Conditions filter -->
     <import>jar:/conf/termsandconditions/web-filter-configuration.xml</import>
 
