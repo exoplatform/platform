@@ -140,7 +140,7 @@
   							print """<a class="ItemIcon $icon" href="$href" $title>$label</a>""";
   
   					} else {
-  							print """<a class="ItemIcon $icon" href="#" style="cursor:default;" $title>$label</a>""";
+  							print """<a class="ItemIcon $icon" href="#" onclick='cancelUnclickableMenu(event);' $title>$label</a>""";
   					}
   	if(hasChild) {
   		print """
