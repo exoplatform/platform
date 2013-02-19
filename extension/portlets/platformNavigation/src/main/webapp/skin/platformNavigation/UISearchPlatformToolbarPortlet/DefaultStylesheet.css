@@ -16,7 +16,7 @@
   * Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
   * 02110-1301 USA, or see the FSF site: http://www.fsf.org.
 */
-.UIToolbarContainer .UIHorizontalTabs .UITab:hover > ul > li > a {
+.UIToolbarContainer .UISearchPlatformToolBarPortlet .UITab:hover > ul > li > a {
     color: #20263f;
     position: relative;
     z-index: 2;

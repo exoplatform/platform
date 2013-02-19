@@ -27,7 +27,7 @@
 .uiGroupsNavigationPortlet .title {
 	display:block;
     font-weight: bold;
-    font-size: 14px;
+    font-size: 13px;
     text-transform: uppercase;
     color: #2f5e92;
     background: url(background/header.png) repeat-x center;
@@ -48,6 +48,10 @@
 	display: block;
 }
 
+.uiGroupsNavigationPortlet .groupNavigation .groupItem a:hover{
+    color:#009999;
+}
+
 .uiGroupsNavigationPortlet .groupNavigation .icon {
 	padding: 3px 5px;
 }
@@ -63,6 +67,16 @@
 .uiGroupsNavigationPortlet .groupNavigation .groupIcon {
 	display: inline-block;
 	width: auto;
-	color: #808080;
 	padding-left: 20px;
 }
+
+.uiGroupsNavigationPortlet .groupNavigation .active{
+    color: #080808;
+    text-decoration-style: solid;
+}
+
+.uiGroupsNavigationPortlet .groupNavigation .nonActive{
+    color: #808080;
+}
+
+

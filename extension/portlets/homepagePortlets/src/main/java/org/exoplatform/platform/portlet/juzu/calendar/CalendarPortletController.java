@@ -19,11 +19,6 @@
 
 package org.exoplatform.platform.portlet.juzu.calendar;
 
-import java.text.DateFormat;
-import java.util.*;
-
-
-import javax.inject.Inject;
 import juzu.Path;
 import juzu.Resource;
 import juzu.SessionScoped;
@@ -31,6 +26,7 @@ import juzu.View;
 import juzu.plugin.ajax.Ajax;
 import juzu.template.Template;
 import org.apache.commons.lang.ArrayUtils;
+import org.exoplatform.calendar.service.impl.NewUserListener;
 import org.exoplatform.calendar.service.CalendarEvent;
 import org.exoplatform.calendar.service.CalendarService;
 import org.exoplatform.calendar.service.EventQuery;
@@ -47,6 +43,12 @@ import org.exoplatform.services.organization.Group;
 import org.exoplatform.services.organization.OrganizationService;
 import org.exoplatform.web.application.RequestContext;
 import org.gatein.common.text.EntityEncoder;
+
+import javax.inject.Inject;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.*;
+import java.util.Calendar;
 
 /**
  * @author <a href="fbradai@exoplatform.com">Fbradai</a>
@@ -71,25 +73,31 @@ public class CalendarPortletController {
             else if ((d1 == CalendarPortletUtils.JOUR_MS) && (d2 == CalendarPortletUtils.JOUR_MS)) return 0;
             else if ((d1 < CalendarPortletUtils.JOUR_MS) && (d2 < CalendarPortletUtils.JOUR_MS))
             {
+                if  (e1.getFromDateTime().getTime() == e2.getFromDateTime().getTime()) {
+                    if (d1<d2) return 1;
+                    if(d1>d2) return -1;
+                };
+                return ((int)(e1.getFromDateTime().compareTo(e2.getFromDateTime())));
 
-                if (e1.getFromDateTime().compareTo(e2.getFromDateTime()) < 0) return -1;
-                else if (e1.getFromDateTime().compareTo(e2.getFromDateTime()) > 0) return 1;
-                else if (e1.getFromDateTime().compareTo(e2.getFromDateTime()) == 0) return -Math.round(d1 - d2);
             }
             return 0;
         }
     };
     private Comparator<CalendarEvent> tasksComparator = new Comparator<CalendarEvent>() {
         public int compare(CalendarEvent e1, CalendarEvent e2) {
-             if(((e2.getEventState().equals(CalendarEvent.NEEDS_ACTION)) && (e2.getToDateTime().compareTo(displayedDate) < 0))&&
-                     ((!e1.getEventState().equals(CalendarEvent.NEEDS_ACTION)&&(e1.getToDateTime().compareTo(displayedDate)< 0))||(!e1.getEventState().equals(CalendarEvent.NEEDS_ACTION))))  {
-                      return -1;
-             }
-            if(((e1.getEventState().equals(CalendarEvent.NEEDS_ACTION)) && (e1.getToDateTime().compareTo(displayedDate) < 0))&&
-                    ((!e2.getEventState().equals(CalendarEvent.NEEDS_ACTION)&&(e2.getToDateTime().compareTo(displayedDate)< 0))||(!e2.getEventState().equals(CalendarEvent.NEEDS_ACTION))))  {
+            if(((e2.getEventState().equals(CalendarEvent.NEEDS_ACTION)) && (e2.getToDateTime().compareTo(new Date()) < 0))&&
+                    ((e1.getEventState().equals(CalendarEvent.NEEDS_ACTION)&&(e1.getToDateTime().compareTo(new Date())>= 0))||(!e1.getEventState().equals(CalendarEvent.NEEDS_ACTION))))  {
                 return 1;
             }
-            return (int) (e2.getFromDateTime().getTime() - e1.getFromDateTime().getTime());
+            else if(((e1.getEventState().equals(CalendarEvent.NEEDS_ACTION)) && (e1.getToDateTime().compareTo(new Date()) < 0))&&
+                    ((e2.getEventState().equals(CalendarEvent.NEEDS_ACTION)&&(e2.getToDateTime().compareTo(new Date())>=0))||(!e2.getEventState().equals(CalendarEvent.NEEDS_ACTION))))  {
+                return -1;
+            }
+            else if(((e1.getEventState().equals(CalendarEvent.NEEDS_ACTION)) && (e1.getToDateTime().compareTo(new Date()) < 0))&&
+                    (((e2.getEventState().equals(CalendarEvent.NEEDS_ACTION)) && (e2.getToDateTime().compareTo(new Date()) < 0)))) {
+                return (int) (e2.getFromDateTime().getTime() - e1.getFromDateTime().getTime());
+            }
+            else return (int) (e2.getFromDateTime().getTime() - e1.getFromDateTime().getTime());
         }
     };
 
@@ -104,8 +112,6 @@ public class CalendarPortletController {
     List<CalendarEvent> tasksDisplayedList = new ArrayList<CalendarEvent>();
     List<org.exoplatform.calendar.service.Calendar> searchResult = new ArrayList<org.exoplatform.calendar.service.Calendar>();
     String nbclick = "0";
-    Date displayedDate;
-
 
     @Inject
     CalendarService calendarService_;
@@ -128,11 +134,18 @@ public class CalendarPortletController {
     @Path("search.gtmpl")
     Template search;
 
-
+    @Inject
+    @Path("calendarPortletContainer.gtmpl")
+    org.exoplatform.platform.portlet.juzu.calendar.templates.calendarPortletContainer container;
 
     @View
-    public void index() throws Exception {
+    public void index(){
+        container.render();
+    }
 
+    @Ajax
+    @Resource
+    public void calendarHome() throws Exception {
         displayedCalendar.clear();
         displayedCalendarMap.clear();
         tasksDisplayedList.clear();
@@ -146,9 +159,38 @@ public class CalendarPortletController {
         int clickNumber = Integer.parseInt(nbclick);
         if (clickNumber != 0) date = incDecJour(date, clickNumber);
         String date_act = d.format(new Date(date));
+        SimpleDateFormat yearFormat=new SimpleDateFormat("yyyy");
+        String year=yearFormat.format(new Date(date));
+        String[] dateSplit =date_act.split("/");
+            if(dateSplit.length!=0) date_act=dateSplit[0]+"/"+dateSplit[1]+"/"+year;
         Date comp = d.parse(date_act);
-        displayedDate=comp;
         SettingValue settingNode = settingService_.get(Context.USER, Scope.APPLICATION, CalendarPortletUtils.HOME_PAGE_CALENDAR_SETTINGS);
+        String defaulCalendarLabel="Default";
+        HashMap parameters = new HashMap();
+        String dateLabel = "";
+        try {
+            ResourceBundle rs = ResourceBundle.getBundle("calendar/calendar", locale);
+            defaulCalendarLabel=EntityEncoder.FULL.encode(rs.getString("UICalendars.label.defaultCalendarId"));
+            parameters.put("tasklabel", EntityEncoder.FULL.encode(rs.getString("tasks.calendar.label")));
+            parameters.put("eventsLabel", EntityEncoder.FULL.encode(rs.getString("events.calendar.label")));
+            parameters.put("toLabel", EntityEncoder.FULL.encode(rs.getString("to.label")));
+            parameters.put("fromLabel", EntityEncoder.FULL.encode(rs.getString("from.label")));
+            parameters.put("allDayLabel", EntityEncoder.FULL.encode(rs.getString("all.day.label")));
+            parameters.put("noEventsLabel", EntityEncoder.FULL.encode(rs.getString("no.events.label")));
+            parameters.put("defaultPersonnal", EntityEncoder.FULL.encode(rs.getString("default.personal.label")));
+            if (clickNumber == 0) dateLabel = rs.getString("today.label") + ": ";
+            else if (clickNumber == -1) dateLabel = rs.getString("yesterday.label") + ": ";
+            else if (clickNumber == 1) dateLabel = rs.getString("tomorrow.label") + ": ";
+            else dateLabel = "";
+        } catch (MissingResourceException ex) {
+            if (clickNumber == 0) dateLabel = "today.label" + ": ";
+            else if (clickNumber == -1) dateLabel = "yesterday.label" + ": ";
+            else if (clickNumber == 1) dateLabel = "tomorrow.label" + ": ";
+            else dateLabel = "";
+        }
+
+        EntityEncoder.FULL.encode(dateLabel);
+        dateLabel = dateLabel + date_act;
 
         //This section serves to extract the user setting (non displayed calendar) from the jcr
         if ((settingNode != null) && (settingNode.getValue().toString().split(":").length == 2)) {
@@ -160,6 +202,12 @@ public class CalendarPortletController {
                     if (calendarNonDisplayedMap.get(id) == null) {
                         org.exoplatform.calendar.service.Calendar c = calendarService_.getUserCalendar(username, id);
                         if (c == null) c = calendarService_.getGroupCalendar(id);
+                        else {
+                            if (c.getId().equals(Utils.getDefaultCalendarId(username)) && c.getName().equals(NewUserListener.defaultCalendarName)) {
+                                String newName = defaulCalendarLabel;
+                                c.setName(newName);
+                            }
+                        }
                         calendarNonDisplayedMap.put(id, c);
                         calendarNonDisplayedList.add(c);
                     }
@@ -174,6 +222,12 @@ public class CalendarPortletController {
             while (itr1.hasNext()) {
                 org.exoplatform.calendar.service.Calendar c = (org.exoplatform.calendar.service.Calendar) itr1.next();
                 if ((calendarDisplayedMap.get(c.getId()) == null) && (!calendarNonDisplayedMap.containsKey(c.getId()))) {
+                    if(c.getGroups()==null)  {
+                        if (c.getId().equals(Utils.getDefaultCalendarId(username)) && c.getName().equals(NewUserListener.defaultCalendarName)) {
+                            String newName = defaulCalendarLabel;
+                            c.setName(newName);
+                        }
+                    }
                     calendarDisplayedMap.put(c.getId(), c);
                     calendarDisplayedList.add(c);
                 }
@@ -186,6 +240,12 @@ public class CalendarPortletController {
             while (itr1.hasNext()) {
                 org.exoplatform.calendar.service.Calendar c = (org.exoplatform.calendar.service.Calendar) itr1.next();
                 if ((calendarDisplayedMap.get(c.getId()) == null)&&(calendarNonDisplayedMap.get(c.getId()) == null)) {
+                    if(c.getGroups()==null)  {
+                        if (c.getId().equals(Utils.getDefaultCalendarId(username)) && c.getName().equals(NewUserListener.defaultCalendarName)) {
+                            String newName = defaulCalendarLabel;
+                            c.setName(newName);
+                        }
+                    }
                     calendarDisplayedMap.put(c.getId(), c);
                     calendarDisplayedList.add(c);
                 }
@@ -199,60 +259,25 @@ public class CalendarPortletController {
                 CalendarEvent event = (CalendarEvent) itr.next();
                 Date from = d.parse(d.format(event.getFromDateTime()));
                 Date to = d.parse(d.format(event.getToDateTime()));
-                if (!(calendarNonDisplayedMap.containsKey(event.getCalendarId()))) {
-
-                    org.exoplatform.calendar.service.Calendar calendar = calendarService_.getUserCalendar(username, event.getCalendarId());
-                    if (calendar == null)
-                    {
-                        calendar = calendarService_.getGroupCalendar(event.getCalendarId());
-                    }
-
                     if ((event.getEventType().equals(CalendarEvent.TYPE_EVENT)) && (from.compareTo(comp) <= 0) && (to.compareTo(comp) >= 0)) {
+                        if (!calendarNonDisplayedMap.containsKey(event.getCalendarId())) {
+                        org.exoplatform.calendar.service.Calendar calendar=calendarDisplayedMap.get(event.getCalendarId()) ;
                         eventsDisplayedList.add(event);
                         if(!displayedCalendarMap.containsKey(calendar.getId()))
                         {
                             displayedCalendarMap.put(calendar.getId(),calendar);
                             displayedCalendar.add(calendar);
                         }
+                        }
                     } else if ((event.getEventType().equals(CalendarEvent.TYPE_TASK)) &&
                             (((from.compareTo(comp) <= 0) && (to.compareTo(comp) >= 0)) ||
                                     ((event.getEventState().equals(CalendarEvent.NEEDS_ACTION)) && (to.compareTo(comp) < 0)))) {
-                        if(!displayedCalendarMap.containsKey(calendar.getId()))
-                        {
-                            displayedCalendarMap.put(calendar.getId(),calendar);
-                            displayedCalendar.add(calendar);
-                        }
                         tasksDisplayedList.add(event);
                     }
                 }
-            }
             Collections.sort(eventsDisplayedList, eventsComparator);
             Collections.sort(tasksDisplayedList, tasksComparator);
-        }
-
-        HashMap parameters = new HashMap();
-        String dateLabel = "";
-        try {
-            ResourceBundle rs = ResourceBundle.getBundle("calendar/calendar", locale);
-            parameters.put("tasklabel", EntityEncoder.FULL.encode(rs.getString("tasks.calendar.label")));
-            parameters.put("eventsLabel", EntityEncoder.FULL.encode(rs.getString("events.calendar.label")));
-            parameters.put("toLabel", EntityEncoder.FULL.encode(rs.getString("to.label")));
-            parameters.put("fromLabel", EntityEncoder.FULL.encode(rs.getString("from.label")));
-            parameters.put("allDayLabel", EntityEncoder.FULL.encode(rs.getString("all.day.label")));
-            parameters.put("noEventsLabel", EntityEncoder.FULL.encode(rs.getString("no.events.label")));
-            if (clickNumber == 0) dateLabel = rs.getString("today.label") + ": ";
-            else if (clickNumber == -1) dateLabel = rs.getString("yesterday.label") + ": ";
-            else if (clickNumber == 1) dateLabel = rs.getString("tomorrow.label") + ": ";
-            else dateLabel = "";
-        } catch (MissingResourceException ex) {
-            if (clickNumber == 0) dateLabel = "today.label" + ": ";
-            else if (clickNumber == -1) dateLabel = "yesterday.label" + ": ";
-            else if (clickNumber == 1) dateLabel = "tomorrow.label" + ": ";
-            else dateLabel = "";
-        }
-
-        EntityEncoder.FULL.encode(dateLabel);
-        dateLabel = dateLabel + date_act;
+            }
         calendar.with().
                 set("displayedCalendar", displayedCalendar).
                 set("calendarDisplayedMap", calendarDisplayedMap).
@@ -263,7 +288,8 @@ public class CalendarPortletController {
                 render();
     }
 
-    @View
+    @Ajax
+    @Resource
     public void setting() throws Exception {
         HashMap parameters = new HashMap();
         try {
@@ -273,6 +299,7 @@ public class CalendarPortletController {
             parameters.put("settingLabel", EntityEncoder.FULL.encode(rs.getString("settings.label")));
             parameters.put("additionalCalendarLabel", EntityEncoder.FULL.encode(rs.getString("display.additional.calendar.label")));
             parameters.put("searchLabel", EntityEncoder.FULL.encode(rs.getString("search.calendar.label")));
+            parameters.put("defaultPersonnal", EntityEncoder.FULL.encode(rs.getString("default.personal.label")));
 
         } catch (MissingResourceException ex) {
             log.trace(ex.getMessage());
@@ -346,7 +373,7 @@ public class CalendarPortletController {
         int clickNumber = Integer.parseInt(nbclick);
         clickNumber++;
         nbclick = new Integer(clickNumber).toString();
-        index();
+        calendarHome();
     }
 
     @Ajax
@@ -355,7 +382,7 @@ public class CalendarPortletController {
         int clickNumber = Integer.parseInt(nbclick);
         clickNumber--;
         nbclick = new Integer(clickNumber).toString();
-        index();
+        calendarHome();
     }
 
     @Ajax
@@ -367,17 +394,18 @@ public class CalendarPortletController {
         searchResult.clear();
         while (itr.hasNext()) {
             org.exoplatform.calendar.service.Calendar c = (org.exoplatform.calendar.service.Calendar) itr.next();
-            if (c.getName().toLowerCase().startsWith(key.toLowerCase())) searchResult.add(c);
-            String[] calWords=c.getName().split(" ");
-            int i=0;
-            while(i<calWords.length){
-               if (calWords[i].toLowerCase().startsWith(key.toLowerCase()))  {
-                     if(!searchResult.contains(c)) searchResult.add(c);
-               }
-                   i++;
-            }
+            if (c.getName().toLowerCase().contains(key.toLowerCase())) searchResult.add(c);
         }
-        search.with().set("searchResultList", searchResult).render();
+        String label= "Default Personal Calendar" ;
+        try{
+            Locale locale = RequestContext.getCurrentInstance().getLocale();
+            ResourceBundle rs = ResourceBundle.getBundle("calendar/calendar", locale);
+            label=rs.getString("default.personal.label");
+        }
+        catch (MissingResourceException e)  {
+
+        }
+        search.with().set("searchResultList", searchResult).set("defaultPersonnal", EntityEncoder.FULL.encode(label)).render();
     }
 
 

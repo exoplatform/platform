@@ -80,8 +80,8 @@
                     imageUrl = "/social-resources/skin/ShareImages/SpaceImages/SpaceLogoDefault_61x61.gif";
                 }
                 var spaceDiv = "<li class='spaceItem'>"+"<a class='spaceIcon'"
-                    + "' href='" + spaceUrl + "'><img src='"+imageUrl+"'/>"
-                    + name + "</a></li><br/>";
+                        + "' href='" + spaceUrl + "' title='" + name + "'><img src='"+imageUrl+"'/>"
+                        + name + "</a></li><br/>";
                 groupSpaces += spaceDiv;
             }
             if(groupSpaces!=''){
@@ -100,6 +100,9 @@
                 me.requestData(textSearch, uicomponentId);
 
             }
+        },
+        ajaxRedirect: function (url) {
+            window.parent.location.href = url ;
         }
     };
 

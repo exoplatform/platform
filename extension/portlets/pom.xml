@@ -12,5 +12,6 @@
   <modules>
     <module>platformNavigation</module>
     <module>homepagePortlets</module>
+    <module>branding</module>
   </modules>
 </project>

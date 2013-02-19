@@ -5,6 +5,7 @@ import org.exoplatform.commons.utils.ListAccess;
 import org.exoplatform.container.ExoContainerContext;
 import org.exoplatform.services.log.ExoLogger;
 import org.exoplatform.services.log.Log;
+import org.exoplatform.services.organization.OrganizationService;
 import org.exoplatform.services.rest.impl.RuntimeDelegateImpl;
 import org.exoplatform.services.rest.resource.ResourceContainer;
 import org.exoplatform.social.core.identity.model.Identity;
@@ -24,9 +25,7 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.*;
 import javax.ws.rs.ext.RuntimeDelegate;
 import java.net.URI;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 
 
 @Path("/homepage/intranet/people/")
@@ -43,6 +42,7 @@ public class PeopleRestServices implements ResourceContainer {
         cacheControl.setNoCache(true);
         cacheControl.setNoStore(true);
     }
+
 
     @GET
     @Path("contacts/pending")
@@ -223,7 +223,7 @@ public class PeopleRestServices implements ResourceContainer {
             IdentityManager identityManager = (IdentityManager) ExoContainerContext.getCurrentContainer().getComponentInstanceOfType(IdentityManager.class);
             Identity identity = identityManager.getOrCreateIdentity(OrganizationIdentityProvider.NAME, userId);
             RelationshipManager relationshipManager = (RelationshipManager) ExoContainerContext.getCurrentContainer().getComponentInstanceOfType(RelationshipManager.class);
-
+            OrganizationService orgManager = (OrganizationService) ExoContainerContext.getCurrentContainer().getComponentInstanceOfType(OrganizationService.class);
             ProfileFilter profileFilter = new ProfileFilter();
             ListAccess<Identity> connectionList = relationshipManager.getConnections(identity);
             ListAccess<Identity> incomingList = relationshipManager.getIncomingWithListAccess(identity);
@@ -237,8 +237,10 @@ public class PeopleRestServices implements ResourceContainer {
             profileFilter.setExcludedIdentityList(allIdentities);
             List<Identity> suggestions = identityManager.getIdentitiesByProfileFilter(OrganizationIdentityProvider.NAME, profileFilter);
 
-            JSONArray jsonArray = new JSONArray();
 
+            JSONObject jsonGlobal = new JSONObject();
+            JSONArray jsonArray = new JSONArray();
+            Date date=new Date();
             for (Identity id : suggestions) {
                 ListAccess<Identity> SugggestconnectionList = relationshipManager.getConnections(id);
                 List<Identity> SuggestallIdentities = new ArrayList<Identity>(Arrays.asList(SugggestconnectionList.load(0, SugggestconnectionList.getSize())));
@@ -252,7 +254,6 @@ public class PeopleRestServices implements ResourceContainer {
 
                 }
                 if (id.getRemoteId().equals("root")) continue;
-
                 JSONObject json = new JSONObject();
                 String avatar = id.getProfile().getAvatarImageSource();
                 if (avatar == null) {
@@ -269,10 +270,12 @@ public class PeopleRestServices implements ResourceContainer {
                 json.put("profile", id.getProfile().getUrl());
                 json.put("title", position);
                 json.put("number", k);
+                json.put("createdDate",orgManager.getUserHandler().findUserByName(id.getRemoteId()).getCreatedDate().getTime());
                 jsonArray.put(json);
             }
-
-            return Response.ok(jsonArray.toString(), MediaType.APPLICATION_JSON).cacheControl(cacheControl).build();
+            jsonGlobal.put("items",jsonArray);
+            jsonGlobal.put("noConnections",connectionList.getSize());
+            return Response.ok(jsonGlobal.toString(), MediaType.APPLICATION_JSON).cacheControl(cacheControl).build();
         } catch (Exception e) {
             log.error("Error in getting GS progress: " + e.getMessage(), e);
             return Response.status(HTTPStatus.INTERNAL_ERROR).cacheControl(cacheControl).build();

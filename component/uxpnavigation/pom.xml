@@ -9,7 +9,14 @@
     <artifactId>platform-component-uxpnavigation</artifactId>
     <packaging>jar</packaging>
     <dependencies>
-
+        <dependency>
+            <groupId>org.exoplatform.social</groupId>
+            <artifactId>social-component-core</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.exoplatform.social</groupId>
+            <artifactId>social-component-webui</artifactId>
+        </dependency>
         <dependency>
             <groupId>org.exoplatform.kernel</groupId>
             <artifactId>exo.kernel.container</artifactId>
@@ -18,7 +25,6 @@
             <groupId>org.gatein.portal</groupId>
             <artifactId>exo.portal.webui.portal</artifactId>
         </dependency>
-
     </dependencies>
 
 </project>
