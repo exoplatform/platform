@@ -647,12 +647,7 @@
     background: #ffffff;
 }
 
-.UIToolbarContainerDark .UIHorizontalTabs .UITab:hover > ul > li > a {
-    color: #20263f;
-    position: relative;
-    z-index: 2;
-    background: #ffffff;
-}
+
 
 .UIToolbarContainerDark .UIHorizontalTabs .UITab:hover a.TBIcon {
     border: 1px solid #dbdbdb;
@@ -1130,12 +1125,7 @@
 .UIToolbarContainerDark .MenuItemContainer .MenuItem .SEOMenuItem{
     height:24px;
 }
-.UIToolbarContainerDark .UIHorizontalTabs .UITab:hover > ul > li > a {
-    color: #20263f;
-    position: relative;
-    z-index: 2;
-    background: #ffffff;
-}
+
 
 .UIToolbarContainerDark .UISetupPlatformToolBarPortletIDTDContainer {
     float: right;
@@ -1238,12 +1228,7 @@
     background: #ffffff;
 }
 
-.UIToolbarContainerLight .UIHorizontalTabs .UITab:hover > ul > li > a {
-    color: #20263f;
-    position: relative;
-    z-index: 2;
-    background: #ffffff;
-}
+
 
 .UIToolbarContainerLight .UIHorizontalTabs .UITab:hover a.TBIcon {
     border: 1px solid #dbdbdb;
@@ -1721,12 +1706,7 @@
 .UIToolbarContainerLight .MenuItemContainer .MenuItem .SEOMenuItem{
     height:24px;
 }
-.UIToolbarContainerLight .UIHorizontalTabs .UITab:hover > ul > li > a {
-    color: #20263f;
-    position: relative;
-    z-index: 2;
-    background: #ffffff;
-}
+
 
 .UIToolbarContainerLight .UISetupPlatformToolBarPortletIDTDContainer {
     float: right;
