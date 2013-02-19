@@ -70,7 +70,7 @@ import org.exoplatform.webui.core.UIPopupWindow;
 	  <img title="$nodeName" alt="$nodeName" src="$srcImage" />
 	  $nodeName
 	  
-
+        </div>
 	   <%if (uicomponent.isOwner() && isUserUrl) { %>
 
           <div class="ChangeAvatar">
@@ -78,7 +78,7 @@ import org.exoplatform.webui.core.UIPopupWindow;
           </div>
       <% } %>
 
-	  </div>
+
 	</div>
 
 
