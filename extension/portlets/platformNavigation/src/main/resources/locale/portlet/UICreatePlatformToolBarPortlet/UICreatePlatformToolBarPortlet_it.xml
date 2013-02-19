@@ -57,7 +57,10 @@
          <toDate-format>le format du date de fin est incorrecte.</toDate-format>
          <logic-required>Désolé, vous ne pouvez pas créer un événement qui se termine avant qu'il ne commence.</logic-required>
          <cant-add-event-on-remote-calendar>Impossible d'ajouter un événement au calendrier distant</cant-add-event-on-remote-calendar>
-         <add-successfully>Ce {0} est ajouté dans {1}.</add-successfully>
+         <add-successfully>
+            <Event>L’événement est ajouté dans {1}.</Event>
+            <Task>La tâche est ajoutée dans {1}.</Task>
+         </add-successfully>
          <add-unsuccessfully>L'ajout{0} est echoué.</add-unsuccessfully>
       </msg>
       <action>
@@ -67,7 +70,7 @@
    </UICreateEvent>
    <Choix>
       <label>
-         <Event>Evénement</Event>
+         <Event>Événement</Event>
          <Task>Tâche</Task>
       </label>
    </Choix>
