@@ -769,7 +769,7 @@
 }
 
 .UIToolbarContainerDark .HomeLink img {
-	height : 34px;
+	/**height : 34px;*/
     max-width : 300px;
 }
 
