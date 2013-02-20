@@ -16,25 +16,27 @@ import java.util.Calendar;
 import java.util.Properties;
 
 /**
- * Created with IntelliJ IDEA.
- * User: kmenzli
- * Date: 04/01/13
- * Time: 17:21
- * To change this template use File | Settings | File Templates.
+ * @author <a href="fbradai@exoplatform.com">Fbradai</a>
+ * @date 1/17/13
  */
+
 public class Utils {
+    public static final String UNLIMITED="UNLIMITED";
     private static final Log LOG = ExoLogger.getLogger(Utils.class);
     public static final int DEFAULT_DELAY_PERIOD = 30;
     public static final String REMIND_DATE = "remindDate";
     public static final String LOOP_FUSE_FORM_DISPLAYED = "formDisplayed";
+    //this information would be put in the licence.xml file, not problem even if user force it to true (hack tentation)
+    // it will only hide the bar
     public static final String IS_UNLOCKED = "activation";
+    public static final String PRODUCT_KEY = "activation";
     public static final String LAST_START_DATE = "LSTD";
     public static final String USER_HOME = System.getProperty("user.home");
     public static final String EXO_HOME_FOLDER = USER_HOME + "/.eXo";
     public static final String PRODUCT_NAME = "Platform";
     public static final DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
     public static final String PRODUCT_CODE = "ProductCode";
-    public static String HOME_CONFIG_FILE_LOCATION = EXO_HOME_FOLDER + "/exokey.xml";
+    public static String HOME_CONFIG_FILE_LOCATION = EXO_HOME_FOLDER + "/licence.xml";
 
     public static String getModifiedMD5Code(byte[] dataToHash) {
         Security.addProvider(new BouncyCastleProvider());
@@ -108,7 +110,7 @@ public class Utils {
         try {
             Properties properties = new Properties();
             File file = new File(fileLocation);
-            if (file.exists() && file.exists()) {
+            if (file.exists()) {
                 inputStream = new FileInputStream(fileLocation);
                 properties.loadFromXML(inputStream);
                 inputStream.close();

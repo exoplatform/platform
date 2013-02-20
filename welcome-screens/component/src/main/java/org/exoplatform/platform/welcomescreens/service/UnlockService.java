@@ -48,9 +48,7 @@ public class UnlockService implements Startable {
     private static int nbDaysAfterExpiration = 0;
     private static Calendar remindDate;
 
-
-
-    private ScheduledExecutorService executor;
+    private static ScheduledExecutorService executor;
 
     public UnlockService(ProductInformations productInformations, InitParams params) throws MissingProductInformationException {
         productNameAndVersion = Utils.PRODUCT_NAME + productInformations.getVersion().trim();
@@ -167,8 +165,8 @@ public class UnlockService implements Startable {
         return remindDate;
     }
 
-    public ScheduledExecutorService getExecutor() {
-        return this.executor;
+    public static ScheduledExecutorService getExecutor() {
+        return executor;
     }
 
     public static String getCalledUrl() {
@@ -210,21 +208,44 @@ public class UnlockService implements Startable {
         }
     }
 
-    private static int decodeEvaluationKey(String productCode, String evaluationKey) {
-        StringBuffer evaluationKeyBuffer = new StringBuffer(new String(Base64.decodeBase64(evaluationKey.getBytes())));
-        int length = Integer.parseInt(evaluationKeyBuffer.substring(4, 6));
-        evaluationKeyBuffer.replace(4, 6, "");
-        String productCodeHashed = evaluationKeyBuffer.substring(0, length);
+    private static int decodeKey(String productCode, String Key) {
+        StringBuffer keyBuffer = new StringBuffer(new String(Base64.decodeBase64(Key.getBytes())));
+        int length = Integer.parseInt(keyBuffer.substring(4, 6));
+        keyBuffer.replace(4, 6, "");
+        String productCodeHashed = keyBuffer.substring(0, length);
         if (!productCodeHashed.equals(Utils.getModifiedMD5Code(productCode.getBytes()))) {
             return 0;
         }
-        String periodString = evaluationKeyBuffer.substring(length);
-        periodString = new String(Base64.decodeBase64(periodString.getBytes()));
-        int period = Integer.parseInt(periodString) / 3;
-        return period;
+        String productInfoString = keyBuffer.substring(length);
+        String[] productInfo = productInfoString.split(",");
+        if (productInfo.length == 3) {
+            String nbUser = productInfo[0];
+            String duration = productInfo[1];
+            String keyDate = productInfo[2];
+            String edition = "";
+            int period = Integer.parseInt(duration);
+            if (period == -1) {
+                duration = Utils.UNLIMITED;
+                nbUser = new String(Base64.decodeBase64(nbUser.getBytes()));
+                int userNumber = Integer.parseInt(nbUser) / 3;
+
+                if (userNumber == -1) {
+                    edition = ProductInformations.ENTERPRISE_EDITION;
+                    nbUser = Utils.UNLIMITED;
+                } else {
+                    edition = ProductInformations.EXPRESS_EDITION;
+                    nbUser = String.valueOf(userNumber);
+                }
+            }
+            return period;
+        } else {
+            String periodString = new String(Base64.decodeBase64(productInfoString.getBytes()));
+            int period = Integer.parseInt(periodString) / 3;
+            return period;
+        }
     }
 
-    public static class TrialFilter implements Filter {
+    public static class UnlockFilter implements Filter {
         public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException,
                 ServletException {
             HttpServletRequest httpServletRequest = (HttpServletRequest) request;
@@ -250,45 +271,55 @@ public class UnlockService implements Startable {
         @Override
         protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-                String rdate=null;
-                String hashMD5Added = request.getParameter("hashMD5");
-                if (hashMD5Added != null) {
+            String rdate = null;
+            String hashMD5Added = request.getParameter("hashMD5");
+            int delay;
+            if (hashMD5Added != null) {
                 try {
-                    delayPeriod = decodeEvaluationKey(productCode, hashMD5Added);
+                    delay = decodeKey(productCode, hashMD5Added);
                 } catch (Exception exception) {
-                    delayPeriod = 0;
+                    delay = 0;
                 }
-                if (delayPeriod <= 0) {
-                    outdated = true;
+                if (delay == 0) {
                     request.setAttribute("errorMessage", "Sorry this evaluation key is not valid.");
                     request.getRequestDispatcher("WEB-INF/jsp/welcome-screens/unlockTrial.jsp").include(request, response);
                     return;
                 }
+                if (delay == -1) {
+                    //shutDown excector -> unlimited duration so no need to computeUnlockInformation everyday
+                    //to check if it's outdated
+                    Utils.writeToFile(Utils.IS_UNLOCKED, "true", Utils.HOME_CONFIG_FILE_LOCATION);
+                    Utils.writeToFile(Utils.PRODUCT_KEY, hashMD5Added, Utils.HOME_CONFIG_FILE_LOCATION);
+                    outdated = false;
+                    isUnlocked = true; // to disappear the trial banner
+                    if (UnlockService.getExecutor() != null)
+                        executor.shutdown();
+                    response.sendRedirect(UnlockService.calledUrl);
+                    return;
+                }
+                delayPeriod = delay;
                 productCode = generateProductCode();
                 Utils.writeToFile(Utils.PRODUCT_CODE, productCode, Utils.HOME_CONFIG_FILE_LOCATION);
                 outdated = false;
                 rdate = computeRemindDateFromTodayBase64();
-            try {
-                remindDate = Utils.parseDateBase64(rdate);
-                computeUnlockedInformation();
-                if (!outdated) {
-                    Utils.writeRemindDate(rdate, Utils.HOME_CONFIG_FILE_LOCATION);
-                    Utils.writeToFile(Utils.IS_UNLOCKED, "true", Utils.HOME_CONFIG_FILE_LOCATION);
-                    isUnlocked=true;
+                try {
+                    remindDate = Utils.parseDateBase64(rdate);
+                    computeUnlockedInformation();
+                    if (!outdated) {
+                        Utils.writeRemindDate(rdate, Utils.HOME_CONFIG_FILE_LOCATION);
+                        Utils.writeToFile(Utils.IS_UNLOCKED, "true", Utils.HOME_CONFIG_FILE_LOCATION);
+                        isUnlocked = true;
+                    }
+                    response.sendRedirect(UnlockService.calledUrl);
+                    return;
+                } catch (Exception exception) {
+                    response.sendRedirect(UnlockService.calledUrl);
+                    return;
                 }
-                response.sendRedirect(UnlockService.calledUrl);
-                return;
-            } catch (Exception exception) {
-                delayPeriod = 0;
-                outdated = true;
-                // rdate is malformed, may be this value is entered manually,
-                // which mean that it's a hack
-                response.sendRedirect(UnlockService.calledUrl);
-                return;
             }
-        }
             request.getRequestDispatcher("WEB-INF/jsp/welcome-screens/unlockTrial.jsp").include(request, response);
         }
+
         @Override
         protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
             doPost(request, response);
