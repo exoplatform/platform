@@ -49,13 +49,15 @@ public class UnlockService implements Startable {
     private static Calendar remindDate;
 
     private static ScheduledExecutorService executor;
+    private static ProductInformations productInformations;
 
     public UnlockService(ProductInformations productInformations, InitParams params) throws MissingProductInformationException {
+        this.productInformations = productInformations;
         productNameAndVersion = Utils.PRODUCT_NAME + productInformations.getVersion().trim();
         registrationFormUrl = ((ValueParam) params.get("registrationFormUrl")).getValue();
         extendFormUrl = ((ValueParam) params.get("extendFormUrl")).getValue();
         pingBackUrl = ((ValueParam) params.get("pingBackUrl")).getValue();
-        subscriptionUrl =  ((ValueParam) params.get("subscriptionUrl")).getValue();
+        subscriptionUrl = ((ValueParam) params.get("subscriptionUrl")).getValue();
         KEY_CONTENT = ((ValueParam) params.get("KeyContent")).getValue().trim();
         String tmpValue = ((ValueParam) params.get("delayPeriod")).getValue();
         delayPeriod = (tmpValue == null || tmpValue.isEmpty()) ? Utils.DEFAULT_DELAY_PERIOD : Integer.parseInt(tmpValue);
@@ -65,8 +67,11 @@ public class UnlockService implements Startable {
     public void start() {
         String productNameAndVersionHashed = Utils.getModifiedMD5Code(productNameAndVersion.getBytes());
         if (!new File(Utils.HOME_CONFIG_FILE_LOCATION).exists()) {
+            if (checkLicenceInJcr(productNameAndVersionHashed)) return;
+            //CASE NO FILE && NO EXPRESS OR ENTREPRISE EDITION IN JCR -> TRIAL
             String rdate = UnlockService.computeRemindDateFromTodayBase64();
             productCode = generateProductCode();
+            Utils.writeToFile(Utils.PRODUCT_KEY, "", Utils.HOME_CONFIG_FILE_LOCATION);
             Utils.writeToFile(Utils.PRODUCT_NAME, productNameAndVersionHashed, Utils.HOME_CONFIG_FILE_LOCATION);
             Utils.writeToFile(Utils.PRODUCT_CODE, productCode, Utils.HOME_CONFIG_FILE_LOCATION);
             Utils.writeToFile(Utils.REMIND_DATE, rdate, Utils.HOME_CONFIG_FILE_LOCATION);
@@ -75,10 +80,20 @@ public class UnlockService implements Startable {
         }
         String productNameAndVersionReadFromFile = Utils.readFromFile(Utils.PRODUCT_NAME, Utils.HOME_CONFIG_FILE_LOCATION);
         if (!productNameAndVersionHashed.equals(productNameAndVersionReadFromFile)) {
-            throw new IllegalStateException("Inconsistent product informations.");
+            //Existing old file but new instance connected to a data of unlocked instance
+            if (checkLicenceInJcr(productNameAndVersionHashed)) return;
+            else throw new IllegalStateException("Inconsistent product informations.");
         }
         productCode = Utils.readFromFile(Utils.PRODUCT_CODE, Utils.HOME_CONFIG_FILE_LOCATION);
-
+        String unlockKey = Utils.readFromFile(Utils.PRODUCT_KEY, Utils.HOME_CONFIG_FILE_LOCATION);
+        if ((unlockKey != null) && (!unlockKey.equals(""))) {
+            int period = decodeKey(productCode, unlockKey);
+            if (period == -1) {
+                outdated = false;
+                isUnlocked = true;
+                return;
+            }
+        }
         // Read: loopfuse form displayed
         String loopfuseFormDisplayedString = Utils.readFromFile(Utils.LOOP_FUSE_FORM_DISPLAYED, Utils.HOME_CONFIG_FILE_LOCATION);
         if (loopfuseFormDisplayedString != null && !loopfuseFormDisplayedString.isEmpty()) {
@@ -93,17 +108,42 @@ public class UnlockService implements Startable {
         String remindDateString = Utils.readFromFile(Utils.REMIND_DATE, Utils.HOME_CONFIG_FILE_LOCATION);
         remindDate = Utils.parseDateBase64(remindDateString);
         computeUnlockedInformation();
+        if (outdated && isUnlocked) {
+            isUnlocked = false;
+            Utils.writeToFile(Utils.IS_UNLOCKED, "false", Utils.HOME_CONFIG_FILE_LOCATION);
+        }
         // Compute delay period every day
         executor = Executors.newSingleThreadScheduledExecutor();
         executor.scheduleWithFixedDelay(new Runnable() {
             public void run() {
                 computeUnlockedInformation();
-                if(outdated && isUnlocked) {
-                  isUnlocked=false;
-                  Utils.writeToFile(Utils.IS_UNLOCKED, "false", Utils.HOME_CONFIG_FILE_LOCATION);
+                if (outdated && isUnlocked) {
+                    isUnlocked = false;
+                    Utils.writeToFile(Utils.IS_UNLOCKED, "false", Utils.HOME_CONFIG_FILE_LOCATION);
                 }
             }
-        }, 1, 1, TimeUnit.DAYS);
+        }, 1, 1, TimeUnit.MINUTES);
+    }
+
+    private boolean checkLicenceInJcr(String productNameAndVersionHashed) {
+        // productCode = productInformations.getProductCode();
+        if ((productCode != null) && (!productCode.equals(""))) {
+       //     String unlockKey = productInformations.getProductKey();
+            String unlockKey = "";
+            if ((unlockKey != null) && (!unlockKey.equals(""))) {
+                int period = decodeKey(productCode, unlockKey);
+                if (period == -1) {
+                    outdated = false;
+                    isUnlocked = true;
+                    Utils.writeToFile(Utils.PRODUCT_CODE, productCode, Utils.HOME_CONFIG_FILE_LOCATION);
+                    Utils.writeToFile(Utils.PRODUCT_KEY, unlockKey, Utils.HOME_CONFIG_FILE_LOCATION);
+                    Utils.writeToFile(Utils.IS_UNLOCKED, "false", Utils.HOME_CONFIG_FILE_LOCATION);
+                    Utils.writeToFile(Utils.PRODUCT_NAME, productNameAndVersionHashed, Utils.HOME_CONFIG_FILE_LOCATION);
+                    return true;
+                }
+            }
+        }
+        return false;
     }
 
     public void stop() {
@@ -113,7 +153,7 @@ public class UnlockService implements Startable {
     }
 
     public static String computeRemindDateFromTodayBase64() {
-        if (delayPeriod <= 0 || outdated) {
+        if (delayPeriod == 0 || outdated) {
             return "";
         }
         Calendar remindDate = Calendar.getInstance();
@@ -123,14 +163,6 @@ public class UnlockService implements Startable {
 
     public static String getRegistrationFormUrl() {
         return registrationFormUrl;
-    }
-
-    public static String getProductNameAndVersion() {
-        return productNameAndVersion;
-    }
-
-    public static int getDelayPeriod() {
-        return delayPeriod;
     }
 
     public static int getNbDaysBeforeExpiration() {
@@ -161,10 +193,6 @@ public class UnlockService implements Startable {
         return pingBackUrl;
     }
 
-    public static Calendar getRemindDate() {
-        return remindDate;
-    }
-
     public static ScheduledExecutorService getExecutor() {
         return executor;
     }
@@ -192,18 +220,18 @@ public class UnlockService implements Startable {
         today.set(Calendar.MINUTE, 0);
         today.set(Calendar.SECOND, 0);
         today.set(Calendar.MILLISECOND, 0);
-        if (remindDate.compareTo(today) <= 0 || delayPeriod <= 0) { // Reminder
+        if (remindDate.compareTo(today) <= 0) { // Reminder
             // Date is
             // outdated
-            nbDaysBeforeExpiration=0;
-            nbDaysAfterExpiration= nbDaysAfterExpiration + (int) TimeUnit.MILLISECONDS.toDays(today.getTimeInMillis()-remindDate.getTimeInMillis());
+            nbDaysBeforeExpiration = 0;
+            nbDaysAfterExpiration = nbDaysAfterExpiration + (int) TimeUnit.MILLISECONDS.toDays(today.getTimeInMillis() - remindDate.getTimeInMillis());
             remindDate = today;
             delayPeriod = 0;
             outdated = true;
 
         } else { // Reminder Date is not yet outdated
             outdated = false;
-            nbDaysAfterExpiration=0;
+            nbDaysAfterExpiration = 0;
             nbDaysBeforeExpiration = (int) TimeUnit.MILLISECONDS.toDays(remindDate.getTimeInMillis() - today.getTimeInMillis());
         }
     }
@@ -230,19 +258,34 @@ public class UnlockService implements Startable {
                 int userNumber = Integer.parseInt(nbUser) / 3;
 
                 if (userNumber == -1) {
-                    edition = ProductInformations.ENTERPRISE_EDITION;
+                    //edition = ProductInformations.ENTERPRISE_EDITION;
+                    edition = "ENTERPRISE";
                     nbUser = Utils.UNLIMITED;
                 } else {
-                    edition = ProductInformations.EXPRESS_EDITION;
+                    //edition = ProductInformations.EXPRESS_EDITION;
+                    edition = "EXPRESS";
                     nbUser = String.valueOf(userNumber);
                 }
             }
+            persistInfo(edition, nbUser, keyDate, duration, productCode, Key);
             return period;
         } else {
             String periodString = new String(Base64.decodeBase64(productInfoString.getBytes()));
             int period = Integer.parseInt(periodString) / 3;
             return period;
         }
+    }
+
+    private static void persistInfo(String edition, String nbUser, String keyDate, String duration, String productCode, String key) {
+     /*   Properties p = new Properties();
+        p.setProperty(ProductInformations.EDITION, edition);
+        p.setProperty(ProductInformations.NB_USERS, nbUser);
+        p.setProperty(ProductInformations.KEY_GENERATION_DATE, keyDate);
+        p.setProperty(ProductInformations.DELAY, duration);
+        p.setProperty(ProductInformations.PRODUCT_CODE, productCode);
+        p.setProperty(ProductInformations.PRODUCT_KEY, key);
+        productInformations.setUnlockInformation(p);
+        productInformations.storeUnlockInformation();  */
     }
 
     public static class UnlockFilter implements Filter {
@@ -258,10 +301,11 @@ public class UnlockService implements Startable {
             chain.doFilter(request, response);
             return;
         }
+
         private boolean isIgnoredRequest(ServletContext context, String url) {
             String fileName = url.substring(url.indexOf("/"));
             String mimeType = context.getMimeType(fileName);
-            return ((mimeType != null)||(url.contains("rest")));
+            return ((mimeType != null) || (url.contains("rest")));
         }
     }
 
@@ -326,7 +370,6 @@ public class UnlockService implements Startable {
         }
     }
 
-
     public static class PingBackServlet extends HttpServlet {
         private static final long serialVersionUID = 6467955354840693802L;
 
@@ -360,5 +403,4 @@ public class UnlockService implements Startable {
             return false;
         }
     }
-
 }
