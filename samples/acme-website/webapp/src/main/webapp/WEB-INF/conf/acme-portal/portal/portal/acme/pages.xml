@@ -989,79 +989,10 @@
     <portlet-application>
       <portlet>
         <application-ref>presentation</application-ref>
-        <portlet-ref>ParameterizedContentViewerPortlet</portlet-ref>
+        <portlet-ref>SingleContentViewer</portlet-ref>
         <preferences></preferences>
       </portlet>
       <title>Print viewer</title>
-      <access-permissions>Everyone</access-permissions>
-      <show-info-bar>false</show-info-bar>
-      <show-application-state>false</show-application-state>
-      <show-application-mode>false</show-application-mode>
-    </portlet-application>
-  </page>
-
-  <page>
-    <name>pclv</name>
-    <title>Parameterized Content List Viewer Portlet</title>
-    <access-permissions>Everyone</access-permissions>
-    <edit-permission>*:/platform/administrators</edit-permission>
-    <portlet-application>
-      <portlet>
-        <application-ref>presentation</application-ref>
-        <portlet-ref>ParameterizedContentListViewerPortlet</portlet-ref>
-        <preferences></preferences>
-      </portlet>
-      <title>Parameterized Content List Viewer Portlet</title>
-      <access-permissions>Everyone</access-permissions>
-      <show-info-bar>false</show-info-bar>
-      <show-application-state>false</show-application-state>
-      <show-application-mode>false</show-application-mode>
-    </portlet-application>
-  </page>
-
-  <page>
-    <name>category</name>
-    <title>Category navigation portlet</title>
-    <access-permissions>Everyone</access-permissions>
-    <edit-permission>*:/platform/administrators</edit-permission>
-    <portlet-application>
-      <portlet>
-        <application-ref>presentation</application-ref>
-        <portlet-ref>CategoryNavigationPortlet</portlet-ref>
-        <preferences>
-          <preference>
-            <name>portletName</name>
-            <value>Category Navigation Portlet</value>
-            <read-only>false</read-only>
-          </preference>
-          <preference>
-            <name>treeName</name>
-            <value>acme</value>
-            <read-only>false</read-only>
-          </preference>
-          <preference>
-            <name>treeTitle</name>
-            <value></value>
-            <read-only>false</read-only>
-          </preference>
-          <preference>
-            <name>templateCategory</name>
-            <value>vertical-hierachy</value>
-            <read-only>false</read-only>
-          </preference>
-          <preference>
-            <name>templatePath</name>
-            <value>/exo:ecm/views/templates/Category Navigation Portlet/vertical-hierachy/SimpleVerticalHierachy.gtmpl</value>
-            <read-only>false</read-only>
-          </preference>
-          <preference>
-            <name>targetPath</name>
-            <value>news</value>
-            <read-only>false</read-only>
-          </preference>
-        </preferences>
-      </portlet>
-      <title>Category navigation portlet</title>
       <access-permissions>Everyone</access-permissions>
       <show-info-bar>false</show-info-bar>
       <show-application-state>false</show-application-state>
