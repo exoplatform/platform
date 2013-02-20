@@ -45,7 +45,4 @@
   <import>war:/conf/authoring/authoring-configuration.xml</import>
     <!-- Add logo node under ApplicationData for all sites -->
     <import>war:/conf/platform/uxp-navigation/common-navigation-configuration.xml</import>
-   <!-- Terms and Conditions filter -->
-  <!-- <import>war:/conf/platform/welcome-screens/terms-conditions-configuration.xml</import>    -->
-
 </configuration>

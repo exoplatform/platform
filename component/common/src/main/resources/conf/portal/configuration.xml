@@ -16,10 +16,6 @@
         <key>org.exoplatform.platform.common.space.statistic.SpaceAccessService</key>
         <type>org.exoplatform.platform.common.space.statistic.LastSpaceAccessServiceImpl</type>
     </component>
-  <!--  <component profiles="all,default,social">
-        <key>org.exoplatform.platform.common.admin.TermsAndConditionsService</key>
-        <type>org.exoplatform.platform.common.admin.impl.TermsAndConditionsServiceImpl</type>
-    </component>    -->
    <!-- GETTING STARTED -->
    <component>
       <type>org.exoplatform.platform.common.rest.services.GettingStarted.GettingStartedRestService</type>
@@ -421,32 +417,6 @@
                 </properties-param>
             </init-params>
         </component-plugin>
-      <!--  <component-plugin>
-            <name>chromattic</name>
-            <set-method>addLifeCycle</set-method>
-            <type>org.exoplatform.commons.chromattic.ChromatticLifeCycle</type>
-            <init-params>
-                <value-param>
-                    <name>domain-name</name>
-                    <value>termsandconditions</value>
-                </value-param>
-                <value-param>
-                    <name>workspace-name</name>
-                    <value>collaboration</value>
-                </value-param>
-                <values-param>
-                    <name>entities</name>
-                    <value>org.chromattic.ext.ntdef.NTFile</value>
-                    <value>org.chromattic.ext.ntdef.NTFolder</value>
-                    <value>org.chromattic.ext.ntdef.NTResource</value>
-                </values-param>
-                <properties-param>
-                    <name>options</name>
-                    <property name="org.chromattic.api.Option.root_node.path" value="/exo:applications"/>
-                    <property name="org.chromattic.api.Option.root_node.create" value="true"/>
-                </properties-param>
-            </init-params>
-        </component-plugin>     -->
     </external-component-plugins>
     <external-component-plugins profiles="all,default,social">
         <target-component>org.exoplatform.web.filter.ExtensibleFilter</target-component>
@@ -473,5 +443,4 @@
             </init-params>
         </component-plugin>
     </external-component-plugins>
-  <!--  <import>classpath:/conf/portal/welcome-screens-config.xml</import>  -->
 </configuration>
