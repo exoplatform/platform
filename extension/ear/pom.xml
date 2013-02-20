@@ -649,10 +649,6 @@
           <groupId>javax.jcr</groupId>
         </exclusion>
         <exclusion>
-          <artifactId>exo.ws.frameworks.servlet</artifactId>
-          <groupId>org.exoplatform.ws</groupId>
-        </exclusion>
-        <exclusion>
           <artifactId>exo.jcr.framework.web</artifactId>
           <groupId>org.exoplatform.jcr</groupId>
         </exclusion>

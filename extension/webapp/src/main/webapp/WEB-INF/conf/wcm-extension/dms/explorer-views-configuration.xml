@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!--
+
+    Copyright (C) 2009 eXo Platform SAS.
+    
+    This is free software; you can redistribute it and/or modify it
+    under the terms of the GNU Lesser General Public License as
+    published by the Free Software Foundation; either version 2.1 of
+    the License, or (at your option) any later version.
+    
+    This software is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+    Lesser General Public License for more details.
+    
+    You should have received a copy of the GNU Lesser General Public
+    License along with this software; if not, write to the Free
+    Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
+    02110-1301 USA, or see the FSF site: http://www.fsf.org.
+
+-->
+
+<configuration
+   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xsi:schemaLocation="http://www.exoplatform.org/xml/ns/kernel_1_2.xsd http://www.exoplatform.org/xml/ns/kernel_1_2.xsd"
+   xmlns="http://www.exoplatform.org/xml/ns/kernel_1_2.xsd">
+
+
+  <external-component-plugins>
+    <target-component>org.exoplatform.services.cms.views.ManageViewService</target-component>
+    <component-plugin>
+      <name>manage.view.plugin</name>
+      <set-method>setManageViewPlugin</set-method>
+      <type>org.exoplatform.services.cms.views.impl.ManageViewPlugin</type>
+      <description>this plugin manage user view</description>
+      <init-params>
+        <value-param>
+          <name>autoCreateInNewRepository</name>
+          <value>true</value>
+        </value-param>
+        <value-param>
+          <name>predefinedViewsLocation</name>
+          <value>war:/conf/wcm-artifacts</value>
+        </value-param>
+        <object-param>
+          <name>WCM-View</name>
+          <description>View configuration of WCM administrator</description>
+          <object type="org.exoplatform.services.cms.views.ViewConfig">
+            <field name="name"><string>wcm-view</string></field>
+            <field name="permissions"><string>*:/platform/web-contributors</string></field>
+            <field name="template"><string>/exo:ecm/views/templates/ecm-explorer/ContentView</string></field>
+            <field name="tabList">
+              <collection type="java.util.ArrayList">
+                <value>
+                  <object type="org.exoplatform.services.cms.views.ViewConfig$Tab">
+                    <field name="tabName"><string>Publication</string></field>
+                    <field name="buttons"><string>addFolder; addDocument; editDocument; upload; managePublications; manageCategories</string>
+                    </field>
+                  </object>
+                </value>
+                <value>
+                  <object type="org.exoplatform.services.cms.views.ViewConfig$Tab">
+                    <field name="tabName"><string>Collaboration</string></field>
+                    <field name="buttons"><string>viewMetadatas; taggingDocument; vote; Comment</string></field>
+                  </object>
+                </value>
+                <value>
+                  <object type="org.exoplatform.services.cms.views.ViewConfig$Tab">
+                    <field name="tabName"><string>System</string></field>
+                    <field name="buttons"><string>viewPermissions; viewProperties; manageVersions; exportNode; importNode</string></field>
+                  </object>
+                </value>
+              </collection>
+            </field>
+          </object>
+        </object-param>
+        <object-param>
+		    <name>WCM-Category-View</name>
+		    <description>View configuration of WCM contributors</description>
+		    <object type="org.exoplatform.services.cms.views.ViewConfig">
+		        <field name="name"><string>wcm-category-view</string></field>
+		        <field name="permissions"><string>*:/platform/web-contributors</string></field>
+		        <field name="template"><string>/exo:ecm/views/templates/ecm-explorer/ContentView</string></field>
+		        <field name="tabList">
+		            <collection type="java.util.ArrayList">
+		                <value>
+		                  <object type="org.exoplatform.services.cms.views.ViewConfig$Tab">
+		                    <field name="tabName"><string>Publication</string></field>
+		                    <field name="buttons"><string>addCategory; addDocument; editDocument; upload; managePublications; manageCategories; contentNavigation </string></field>
+		                  </object>
+		                </value>
+		                <value>
+		                  <object type="org.exoplatform.services.cms.views.ViewConfig$Tab">
+		                    <field name="tabName"><string>Collaboration</string></field>
+		                    <field name="buttons"><string>taggingDocument; vote; Comment</string></field>
+		                  </object>
+		                </value>
+		            </collection>
+		        </field>
+		    </object>
+		</object-param>
+        <object-param>
+          <name>Content Template</name>
+          <description>Template to display contents in list style</description>
+          <object type="org.exoplatform.services.cms.views.TemplateConfig">
+            <field name="type"><string>ecmExplorerTemplate</string></field>
+            <field name="name"><string>ContentView</string></field>
+            <field name="warPath"><string>/ecm-explorer/ContentView.gtmpl</string></field>
+          </object>
+        </object-param>
+      </init-params>
+    </component-plugin>
+  </external-component-plugins>
+
+</configuration>

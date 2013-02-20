@@ -5,7 +5,7 @@
     <artifactId>maven-parent-pom</artifactId>
     <groupId>org.exoplatform</groupId>
     <version>9-beta-1</version>
-    <relativePath></relativePath>
+    <relativePath />
   </parent>
   <groupId>org.exoplatform.platform</groupId>
   <artifactId>platform</artifactId>
@@ -27,6 +27,7 @@
     <connection>scm:git:git://github.com/exoplatform/platform.git</connection>
     <developerConnection>scm:git:git@github.com:exoplatform/platform.git</developerConnection>
     <url>https://fisheye.exoplatform.com/browse/platform</url>
+    <tag>HEAD</tag>
   </scm>
   <properties>
     <!-- **************************************** -->
@@ -56,6 +57,7 @@
     <org.gatein.portal.version>3.5.0.Final</org.gatein.portal.version>
     <org.exoplatform.ws.version>2.3.0-GA</org.exoplatform.ws.version>
     <org.gatein.common.version>2.1.0.Final</org.gatein.common.version>
+    <org.codehaus.jackson.version>1.9.7</org.codehaus.jackson.version>
     <org.gatein.pc.version>2.4.0.Final</org.gatein.pc.version>
     <org.gatein.shindig.version>2.0.2.Final-gatein-3</org.gatein.shindig.version>
     <org.gatein.wci.version>2.3.0.Final</org.gatein.wci.version>
@@ -93,6 +95,34 @@
         <type>pom</type>
         <scope>import</scope>
       </dependency>
+      <dependency>
+        <groupId>org.exoplatform.integration</groupId>
+        <artifactId>integ-search-service</artifactId>
+        <version>${org.exoplatform.integ.version}</version>        
+      </dependency>
+      <dependency>
+        <groupId>org.exoplatform.integration</groupId>
+        <artifactId>integ-search-portlet</artifactId>
+        <version>${org.exoplatform.integ.version}</version>
+        <type>war</type>
+      </dependency>
+      <dependency>
+        <groupId>org.exoplatform.integration</groupId>
+        <artifactId>integ-search-portlet</artifactId>
+        <version>${org.exoplatform.integ.version}</version>
+        <type>pom</type>
+      </dependency>
+      <dependency>
+        <groupId>org.codehaus.jackson</groupId>
+        <artifactId>jackson-core-asl</artifactId>
+        <version>${org.codehaus.jackson.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.codehaus.jackson</groupId>
+        <artifactId>jackson-mapper-asl</artifactId>
+        <version>${org.codehaus.jackson.version}</version>
+      </dependency>
+
       <!-- To be replaced by an import of core parent POM -->
       <dependency>
         <groupId>org.exoplatform.core</groupId>
@@ -473,12 +503,14 @@
         <artifactId>platform-exo-gadget-pack-config</artifactId>
         <version>${project.version}</version>
       </dependency>
+      <!--
       <dependency>
         <groupId>org.exoplatform.platform</groupId>
         <artifactId>platform-exo-gadget-pack-ear</artifactId>
         <version>${project.version}</version>
         <type>ear</type>
       </dependency>
+      -->
       <dependency>
         <groupId>org.exoplatform.platform</groupId>
         <artifactId>platform-exo-gadget-pack-gadget-pack</artifactId>
@@ -498,21 +530,17 @@
       </dependency>
       <dependency>
         <groupId>org.exoplatform.platform</groupId>
-        <artifactId>platform-exo-gadget-pack-gwt-gadgets-calendargadget</artifactId>
-        <version>${project.version}</version>
-        <type>war</type>
-      </dependency>
-      <dependency>
-        <groupId>org.exoplatform.platform</groupId>
         <artifactId>platform-extension-config</artifactId>
         <version>${project.version}</version>
       </dependency>
+      <!--
       <dependency>
         <groupId>org.exoplatform.platform</groupId>
         <artifactId>platform-extension-ear</artifactId>
         <version>${project.version}</version>
         <type>ear</type>
       </dependency>
+      -->
       <dependency>
         <groupId>org.exoplatform.platform</groupId>
         <artifactId>platform-extension-portlets-homepage</artifactId>
@@ -537,6 +565,20 @@
         <version>${project.version}</version>
         <type>pom</type>
       </dependency>
+
+ <dependency>
+      <groupId>org.exoplatform.platform</groupId>
+      <artifactId>platform-extension-portlet-branding</artifactId>
+<version>${project.version}</version>
+      <type>war</type>
+  </dependency>
+    <dependency>
+      <groupId>org.exoplatform.platform</groupId>
+      <artifactId>platform-extension-portlet-branding</artifactId>
+<version>${project.version}</version>
+      <type>pom</type>
+    </dependency>
+
       <dependency>
         <groupId>org.exoplatform.platform</groupId>
         <artifactId>platform-extension-resources</artifactId>
@@ -561,23 +603,27 @@
         <version>${project.version}</version>
         <type>pom</type>
       </dependency>
+      <!--
       <dependency>
         <groupId>org.exoplatform.platform</groupId>
         <artifactId>platform-packaging-commons</artifactId>
         <version>${project.version}</version>
         <type>zip</type>
       </dependency>
+      -->
       <dependency>
         <groupId>org.exoplatform.platform</groupId>
         <artifactId>platform-sample-acme-intranet-config</artifactId>
         <version>${project.version}</version>
       </dependency>
+      <!--
       <dependency>
         <groupId>org.exoplatform.platform</groupId>
         <artifactId>platform-sample-acme-intranet-ear</artifactId>
         <version>${project.version}</version>
         <type>ear</type>
       </dependency>
+      -->
       <dependency>
         <groupId>org.exoplatform.platform</groupId>
         <artifactId>platform-sample-acme-intranet-portlet</artifactId>
@@ -617,12 +663,14 @@
         <artifactId>platform-sample-acme-website-config</artifactId>
         <version>${project.version}</version>
       </dependency>
+      <!--
       <dependency>
         <groupId>org.exoplatform.platform</groupId>
         <artifactId>platform-sample-acme-website-ear</artifactId>
         <version>${project.version}</version>
         <type>ear</type>
       </dependency>
+      -->
       <dependency>
         <groupId>org.exoplatform.platform</groupId>
         <artifactId>platform-sample-acme-website-resources</artifactId>
@@ -652,12 +700,14 @@
         <artifactId>platform-sample-default-website-config</artifactId>
         <version>${project.version}</version>
       </dependency>
+      <!--
       <dependency>
         <groupId>org.exoplatform.platform</groupId>
         <artifactId>platform-sample-default-website-ear</artifactId>
         <version>${project.version}</version>
         <type>ear</type>
       </dependency>
+      -->
       <dependency>
         <groupId>org.exoplatform.platform</groupId>
         <artifactId>platform-sample-default-website-webapp</artifactId>
@@ -705,10 +755,29 @@
         <version>${project.version}</version>
       </dependency>
       <dependency>
+				<groupId>org.exoplatform.platform</groupId>
+				<artifactId>platform-component-ide-extension-config</artifactId>
+				<version>${project.version}</version>
+	  </dependency>
+	  <dependency>
+				<groupId>org.exoplatform.platform</groupId>
+				<artifactId>platform-component-ide-extension-webapp</artifactId>
+				<version>${project.version}</version>
+				<type>war</type>
+	  </dependency>
+	  <dependency>
+				<groupId>org.exoplatform.platform</groupId>
+				<artifactId>platform-component-ide-extension-webapp</artifactId>
+				<version>${project.version}</version>
+				<type>pom</type>
+	  </dependency>
+      <!--
+      <dependency>
         <groupId>org.exoplatform.platform</groupId>
         <artifactId>platform-server-jboss-patch</artifactId>
         <version>${project.version}</version>
       </dependency>
+      -->
       <dependency>
         <groupId>org.exoplatform.platform</groupId>
         <artifactId>platform-server-tomcat-integration-webapp</artifactId>
@@ -738,11 +807,13 @@
         <version>${project.version}</version>
         <type>pom</type>
       </dependency>
+      <!--
       <dependency>
         <groupId>org.exoplatform.platform</groupId>
         <artifactId>platform-trial-service</artifactId>
         <version>${project.version}</version>
       </dependency>
+      -->
       <!-- Import versions from social project -->
       <dependency>
         <groupId>org.exoplatform.social</groupId>

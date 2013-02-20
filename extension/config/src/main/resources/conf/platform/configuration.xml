@@ -161,19 +161,10 @@
               <value profiles="knowledge,all,default">
                 <string>forum-extension</string>
               </value>
-
-              <!-- IDE -->
-              <value profiles="ide,all,default">
-                <string>SmartGWT</string>
-              </value>
-              <value profiles="ide,all,default">
-                <string>IDE</string>
-              </value>
-                           
               <!-- Contains shared layout -->
               <value>
                 <string>platform-extension</string>
-              </value>            
+              </value>
               <value>
                 <string>platformNavigation</string>
               </value>
@@ -182,6 +173,9 @@
                 </value>
               <value>
                 <string>eXoPlatformResources</string>
+              </value>
+ 		<value>
+                <string>platform-branding</string>
               </value>
             </collection>
           </field>

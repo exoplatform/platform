@@ -17,11 +17,16 @@
  * 02110-1301 USA, or see the FSF site: http://www.fsf.org.
  */ %>
 <%
-      import org.exoplatform.commons.utils.ExpressionUtil;
-      import org.exoplatform.web.application.RequestContext;
+    import org.exoplatform.commons.utils.ExpressionUtil;
+    import org.exoplatform.web.application.RequestContext;
 %>
 
 <div class="GettingStartedContainer" style="display: block">
+
+    <div style="height: 18px">
+        <span class="DeleteAction DeleteIcon" style="display: none;color: white;height:18px">delete</span>
+    </div>
     <div class="GettingStarted">
     </div>
+    <div style="display:none" class="TmpGettingStarted"></div>
 </div>

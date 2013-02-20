@@ -46,7 +46,7 @@ if(pagesNodes!=null && !pagesNodes.isEmpty()) {
   def rcontext = _ctx.getRequestContext();
   JavascriptManager jsmanager = rcontext.getJavascriptManager();
   //jsmanager.addCustomizedOnLoadScript('eXo.portal.UIPortalNavigation.onLoad("' + uicomponent.id + '");');
-  jsmanager.require("SHARED/navigation", "navigation").addScripts('navigation.UIPortalNavigation.onLoad("' + uicomponent.id + '");');
+  jsmanager.require("SHARED/navigation-toolbar", "toolbarnav").addScripts('toolbarnav.UIPortalNavigation.onLoad("' + uicomponent.id + '");');
 %>
   <div class="uiSetupPlatformToolBarPortlet uiDropdownWithIcon dropdown" id="$uicomponent.id">
       <a class="dropdown-toggle" data-toggle="dropdown">

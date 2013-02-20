@@ -33,39 +33,32 @@ def labelWiki = _ctx.appRes("UIUserPlatformToolBarCreatePortlet.label.wiki");
 def rcontext = _ctx.getRequestContext() ;
 JavascriptManager jsmanager = rcontext.getJavascriptManager();
 //jsmanager.addCustomizedOnLoadScript('eXo.portal.UIPortalNavigation.onLoad("' + uicomponent.id + '");');
-jsmanager.require("SHARED/navigation", "nav").addScripts("nav.UIPortalNavigation.onLoad('" + uicomponent.id + "');");
+jsmanager.require("SHARED/navigation-toolbar", "toolbarnav").addScripts("toolbarnav.UIPortalNavigation.onLoad('" + uicomponent.id + "');");
 %>
-<ul id="$uicomponent.id" class="dropdown-menu">
-	<% if(uicomponent.getChildren().size()==0){%>
-		
-	<li>
-		<a href="<%=uicomponent.event("Topic","Topic")%>">
-			<i class="uiIconForum"></i>$labelTopic
-		</a>
-	</li>       
-  <li>
-		<a href="<%=uicomponent.event("Poll","Poll")%>">
-			<i class="uiIconPoll"></i>$labelPoll
-		</a>
-	</li>               
-  <li>
-		<a href="<%=uicomponent.event("AddEvent","AddEvent")%>">
-			<i class="uiIconPLFEventTask"></i>$labelEvent</a>
-	</li>    
-	<li>
-		<a href="<%=uicomponent.event("Wiki","Wiki")%>">
-			<i class="uiIconWikiWiki"></i>$labelWiki
-		</a>
-	</li>        
-	<li>
-		<a href="<%=uicomponent.event("Upload","Upload")%>">
-			<i class="uiIconUpload"></i>$labelUpload
-		</a>
-	</li> 
-			
-	<%} %>
-  <li>
-    <%uicomponent.renderChildren();%>	
-	</li>
-				
-</ul>
+<span style="display:none;"></span>
+<div id="$uicomponent.id" class="dropdown-menu">
+
+		<% if(uicomponent.getChildren().size()==0){%>
+             <li class="MenuItem">
+            	<a href="<%=uicomponent.event("AddEvent","AddEvent")%>" class="ToolBarActivityIcon"><i class="uiIconPLFEventTask"></i>$labelEvent</a>
+             </li>
+             <li class="MenuItem">
+				<a href="<%=uicomponent.event("Poll", labelPoll)%>" class="ToolBarActivityIcon"><i class="uiIconPoll"></i>$labelPoll</a>
+			</li>
+             <li class="MenuItem">
+             	<a href="<%=uicomponent.event("Topic", labelTopic)%>" class="ToolBarActivityIcon"><i class="uiIconForum"></i>$labelTopic</a>
+             </li>
+			<li class="MenuItem">
+				<a href="<%=uicomponent.event("Upload","Upload")%>" class="ToolBarActivityIcon"><i class="uiIconUpload"></i>$labelUpload</a>
+			</li>
+			<li class="MenuItem">
+            	<a href="<%=uicomponent.event("Wiki","Wiki")%>" class="ToolBarActivityIcon"><i class="uiIconWikiWiki"></i>$labelWiki</a>
+            </li>
+
+		<%}else{%>
+
+		    <li class="MenuItem">
+	            <%uicomponent.renderChildren();%>
+			</li>
+		<%}%>
+</div>

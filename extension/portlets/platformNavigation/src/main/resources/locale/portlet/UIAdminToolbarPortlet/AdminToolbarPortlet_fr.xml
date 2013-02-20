@@ -8,7 +8,8 @@
 			<Editor>Editer</Editor>
 			<Page>Page</Page>
 			<Site>Site</Site>
-			<Layout>Mise en page</Layout>
+			<Layout>Editer la Mise en page</Layout>
+            <siteLayout>La mise en page</siteLayout>
 			<ManagePages>Gestion des pages</ManagePages>
 		 	<GroupSite>Site de groupe</GroupSite>
 			<Properties>SEO</Properties>

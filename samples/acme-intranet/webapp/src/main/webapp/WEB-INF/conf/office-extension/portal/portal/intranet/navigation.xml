@@ -66,7 +66,7 @@
             <label>#{portal.intranet.calendar}</label>
             <page-reference>portal::intranet::calendar</page-reference>
         </node>
-
+	
         <node>
             <uri>welcome</uri>
             <name>welcome</name>
@@ -226,11 +226,19 @@
         </node>
 
         <node>
-            <uri>mywiki</uri>
-            <name>mywiki</name>
-            <label>#{portal.intranet.mywiki}</label>
+            <uri>FAQ</uri>
+            <name>FAQ</name>
+            <label>#{portal.intranet.faq}</label>
             <visibility>SYSTEM</visibility>
-            <page-reference>portal::intranet::mywiki</page-reference>
+            <page-reference>portal::intranet::faq</page-reference>
+        </node>
+
+        <node>
+            <uri>answers</uri>
+            <name>answers</name>
+            <label>#{portal.intranet.answers}</label>
+            <visibility>SYSTEM</visibility>
+            <page-reference>portal::intranet::answers</page-reference>
         </node>
 		<node>
 			<uri>space-access</uri>
@@ -239,5 +247,14 @@
 			<visibility>SYSTEM</visibility>
 			<page-reference>portal::intranet::space-access</page-reference>
 		</node>
+
+        <!-- Temporary node for unified search testing -->
+        <node>
+            <uri>search</uri>
+            <name>search</name>
+            <label>Search</label>
+            <page-reference>portal::intranet::search</page-reference>
+        </node>
+
     </page-nodes>
 </node-navigation>

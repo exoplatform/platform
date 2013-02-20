@@ -40,7 +40,7 @@ import java.util.List;
 )
 public class UIBreadCrumbsNavigationPortlet extends UIPortletApplication {
 
-    private final String POPUP_AVATAR_UPLOADER = "UIPopupAvatarUploader";
+    private final String POPUP_AVATAR_UPLOADER = "UIBreadCrumbPopupAvatarUploader";
     private SpaceService spaceService = null;
     private OrganizationService orgService = null;
     private UserNavigationHandlerService userService = null;

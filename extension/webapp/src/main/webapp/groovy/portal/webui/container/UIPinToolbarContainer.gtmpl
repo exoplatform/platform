@@ -2,8 +2,32 @@
 	import org.exoplatform.platform.webui.container.UIPinContainer;
 	import java.util.List;
 	import org.exoplatform.webui.core.UIComponent;
+	import org.exoplatform.commons.api.settings.SettingService;
+	import org.exoplatform.commons.api.settings.SettingValue;
+	import org.exoplatform.commons.api.settings.data.Context;
+	import org.exoplatform.commons.api.settings.data.Scope;
+	import org.exoplatform.container.PortalContainer;
+	import org.exoplatform.web.application.JavascriptManager;
+  	import org.exoplatform.portal.webui.util.Util ;
+ 	import org.exoplatform.portal.application.PortalRequestContext;
+    import org.exoplatform.web.application.RequireJS;
 
-	if(uicomponent.hasPermission()) {
+	def settingService =(SettingService) PortalContainer.getInstance().getComponentInstanceOfType(SettingService.class);
+ 	String style = "Dark";
+    if (settingService.get(Context.GLOBAL,
+                           Scope.GLOBAL,
+                           "bar_navigation_style")!=null) {
+    style=(String) settingService.get(Context.GLOBAL,
+                                      Scope.GLOBAL,
+                                      "bar_navigation_style").getValue();
+    }
+     PortalRequestContext pcontext = Util.getPortalRequestContext();
+     JavascriptManager jsmanager = pcontext.getJavascriptManager();
+	 RequireJS requireJS = jsmanager.getRequireJS();
+     def script= "jQuery('#PlatformAdminToolbarContainer #UIToolbarContainer').removeAttr('class').addClass('UIToolbarContainer"+style+" UIContainer"+"')";
+     requireJS.require("SHARED/jquery", "jQuery").addScripts("jQuery(function(){"+script+"});");
+
+		if(uicomponent.hasPermission()) {
 		def uiToolbarContainer = uicomponent.getChildById("UIToolbarContainer");
 		if(uiToolbarContainer.getChildById("PinToolbarContainer") != null && uiToolbarContainer.getChildById("PinToolbarContainer").getChild(UIPinContainer.class) == null) {
 			uiToolbarContainer.getChildById("PinToolbarContainer").addChild(UIPinContainer.class, null, null);

@@ -21,10 +21,11 @@
 %>
 
 <%
-import java.text.DateFormat;
-import org.exoplatform.calendar.service.CalendarEvent;
-import org.exoplatform.web.application.RequestContext;
-import java.util.Locale;
+    import java.text.DateFormat;
+    import org.exoplatform.calendar.service.CalendarEvent;
+    import org.exoplatform.web.application.RequestContext;
+    import java.util.Locale;
+
 %>
 
 <script>
@@ -37,6 +38,17 @@ import java.util.Locale;
         $('div.calendarPortletData').jzLoad(
             "CalendarPortletController.incDate()",
             {"nbClick":"1"});
+    });
+$('.settingsLink').on("click", function(){
+        $('.CalendarPortlet').jzLoad(
+                "CalendarPortletController.setting()");
+    });
+    $('.calendarPortlet').mouseover(function () {
+        $('.settingsContainerPage').children("a").css("display", "block");
+
+    });
+    $('.calendarPortlet').mouseout(function () {
+        $('.settingsContainerPage').children("a").css("display", "none");
     });
 </script>
 <div class="calendarPortlet ">
@@ -59,7 +71,7 @@ import java.util.Locale;
 					displayedCalendar.each { cal ->
 						def   calendarName= cal.name;
 						def hover= "";
-						if((calendarName.indexOf("default") != -1)&&(cal.groups==null))  hover="Default Personnal Calendar";
+						if((calendarName.indexOf("Default") != -1)||(calendarName.indexOf("Défault") != -1))&&(cal.groups==null))  hover=bundle["defaultPersonnal"];
 						if (cal.groups != null) {
 							def group = cal.groups[0];
 							hover = " (" + group.substring(group.lastIndexOf("/") + 1) + ")";
@@ -98,9 +110,13 @@ import java.util.Locale;
 						<span>${allDayLabel}</span>
 						<% } else if (event.toDateTime.getTime() - event.fromDateTime.getTime() > 86399999) {
 							from = sdf1.format(event.fromDateTime);
-							if(from.substring(2,3).equals("00"))   from=from.substring(0,2) ;
+							String year=event.fromDateTime.format("yyyy");
+                            String[] dateSplit = from.split("/");
+                            if(dateSplit.length!=0) from=dateSplit[0]+"/"+dateSplit[1]+"/"+year;
 							to = sdf1.format(event.toDateTime);
-							if(to.substring(2,3).equals("00"))   to=to.substring(0,2) ;
+						year=event.toDateTime.format("yyyy");
+                            dateSplit =to.split("/");
+                            if(dateSplit.length!=0) to=dateSplit[0]+"/"+dateSplit[1]+"/"+year;
 						%>
 
 						<span>${bundle["fromLabel"]}  ${from}</span>
@@ -108,6 +124,12 @@ import java.util.Locale;
 						<% } else if (event.toDateTime.getTime() - event.fromDateTime.getTime() < 86399999) {
 							from = sdf2.format(event.fromDateTime);
 							to = sdf2.format(event.toDateTime);
+if(locale.getLanguage().equals("en")){
+                                if(from.indexOf("00")==2)   from=from.substring(0,1)+ from.substring(4);
+                                if(from.indexOf("00")==3)   from=from.substring(0,2)+ from.substring(5);
+                                if(to.indexOf("00")==2)   to=to.substring(0,1) + to.substring(4);
+                                if(to.indexOf("00")==3)   to=to.substring(0,2) + to.substring(5);
+                            }
 						%>
 						<span> ${from} - ${to} </span>
 						<% } %>
@@ -135,11 +157,9 @@ import java.util.Locale;
 				%>
 				<li class="${cssClass}">
 					<a href="${href}" class="eventSummary ">
-						<% if(task.summary.length() > 60) {%>
-						${task.summary.substring(0,50)}...
-						<% }else { %>					
+									
 						${task.summary}
-					<% } %>
+					
 					</a>
 				</li>
 				<% }
@@ -148,7 +168,7 @@ import java.util.Locale;
 		</div>
 		<% } %>	
 		<div class="settingsContainerPage clearfix" >
-			 <a class="settingsLink actionIcon pull-right " data-placement="left" rel="tooltip"   data-original-title="Setting"  href="@{setting()}"><i class="uiIconSetting uiIconLightGray"></i> </a>
+			 <a class="settingsLink actionIcon pull-right " data-placement="left" rel="tooltip"   data-original-title="Setting"><i class="uiIconSetting uiIconLightGray"></i> </a>
 		</div>
 	</div>
 </div>

@@ -18,7 +18,10 @@
 
 # Maven 
 target/
+pom.xml.tag
+pom.xml.releaseBackup
 pom.xml.versionsBackup
+release.properties
 
 # IntelliJ project files 
 *.iml
@@ -36,7 +39,3 @@ pom.xml.versionsBackup
 
 # Misc
 *.swp
-release.properties
-pom.xml.releaseBackup
-pom.xml.tag
-pom.xml.versionsBackup

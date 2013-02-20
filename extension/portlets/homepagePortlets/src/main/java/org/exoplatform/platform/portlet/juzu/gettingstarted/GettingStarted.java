@@ -18,16 +18,6 @@
  */
 package org.exoplatform.platform.portlet.juzu.gettingstarted;
 
-import java.util.HashMap;
-import java.util.Locale;
-import java.util.MissingResourceException;
-import java.util.ResourceBundle;
-
-
-import javax.inject.Inject;
-import javax.jcr.Node;
-import javax.jcr.Property;
-import javax.jcr.PropertyIterator;
 import juzu.Path;
 import juzu.Resource;
 import juzu.View;
@@ -43,6 +33,16 @@ import org.exoplatform.social.core.service.LinkProvider;
 import org.exoplatform.web.application.RequestContext;
 import org.gatein.common.text.EntityEncoder;
 
+import javax.inject.Inject;
+import javax.jcr.Node;
+import javax.jcr.Property;
+import javax.jcr.PropertyIterator;
+import javax.jcr.RepositoryException;
+import java.util.HashMap;
+import java.util.Locale;
+import java.util.MissingResourceException;
+import java.util.ResourceBundle;
+
 /**
  * @author <a href="fbradai@exoplatform.com">Fbradai</a>
  * @date 07/12/12
@@ -53,7 +53,8 @@ public class GettingStarted {
     private static Log logger = ExoLogger.getLogger(GettingStarted.class);
     HashMap parameters = new HashMap();
     HashMap<String, String> status = new HashMap();
-
+    int progress = 0;
+    String remoteUser;
     @Inject
     NodeHierarchyCreator nodeHierarchyCreator_;
 
@@ -107,35 +108,48 @@ public class GettingStarted {
 
     @Ajax
     @Resource
-    public void getGsList() throws Exception {
+    public void getGsList(String reload) throws Exception {
         HashMap bundle = new HashMap();
-        Locale locale = null;
         Boolean Isshow = true;
+        boolean isChange=false;
         PropertyIterator propertiesIt = null;
-        int progress = 0;
-        String remoteUser = RequestContext.getCurrentInstance().getRemoteUser();
+        remoteUser = RequestContext.getCurrentInstance().getRemoteUser();
         SessionProvider sProvider = SessionProvider.createSystemProvider();
         Node userPrivateNode = nodeHierarchyCreator_.getUserNode(sProvider, remoteUser).getNode(GettingStartedUtils.JCR_APPLICATION_NODE);
         if (userPrivateNode.hasNode(GettingStartedUtils.JCR_GS_NODE))
         {
             Node gettingStartedNode = userPrivateNode.getNode(GettingStartedUtils.JCR_GS_NODE);
-            gettingStartedNode.setProperty(GettingStartedUtils.JCR_PROFILE_PROPERTY_NAME, GettingStartedService.hasAvatar(remoteUser));
-            gettingStartedNode.setProperty(GettingStartedUtils.JCR_CONNECT_PROPERTY_NAME, GettingStartedService.hasContacts(remoteUser));
-            gettingStartedNode.setProperty(GettingStartedUtils.JCR_SPACE_PROPERTY_NAME, GettingStartedService.hasSpaces(remoteUser));
-            gettingStartedNode.setProperty(GettingStartedUtils.JCR_ACTIVITY_PROPERTY_NAME, GettingStartedService.hasActivities(remoteUser));
-            gettingStartedNode.setProperty(GettingStartedUtils.JCR_DOCUMENT_PROPERTY_NAME, GettingStartedService.hasDocuments(null, remoteUser));
             propertiesIt = userPrivateNode.getNode(GettingStartedUtils.JCR_GS_NODE).getProperties("exo:gs_*");
             while (propertiesIt.hasNext())
             {
-                String clazz = "";
-                Property prop = (Property) propertiesIt.next();
-                if (prop.getString().equals(GettingStartedUtils.TRUE))
-                {
-                    progress += 20;
-                    clazz = GettingStartedUtils.DONE;
+                Property tempProp= (Property) propertiesIt.next();
+                if (tempProp.getName().equals(GettingStartedUtils.JCR_PROFILE_PROPERTY_NAME)){
+                    if(isChange==false) isChange = updateAction(tempProp, gettingStartedNode);
+                    else updateAction(tempProp, gettingStartedNode);
+                    continue;
                 }
-                status.put(prop.getName().substring(4), clazz);
+                if (tempProp.getName().equals(GettingStartedUtils.JCR_CONNECT_PROPERTY_NAME)){
+                    if(isChange==false) isChange =  updateAction(tempProp,gettingStartedNode);
+                    else updateAction(tempProp, gettingStartedNode);
+                    continue;
+                }
+                if (tempProp.getName().equals(GettingStartedUtils.JCR_ACTIVITY_PROPERTY_NAME)){
+                    if(isChange==false) isChange = updateAction(tempProp, gettingStartedNode);
+                    else updateAction(tempProp, gettingStartedNode);
+                    continue;
+                }
+                if (tempProp.getName().equals(GettingStartedUtils.JCR_SPACE_PROPERTY_NAME)){
+                    if(isChange==false) isChange = updateAction(tempProp,gettingStartedNode);
+                    else  updateAction(tempProp, gettingStartedNode);
+                    continue;
+                }
+                if (tempProp.getName().equals(GettingStartedUtils.JCR_DOCUMENT_PROPERTY_NAME)){
+                    if(isChange==false) isChange = updateAction(tempProp, gettingStartedNode);
+                    else updateAction(tempProp,gettingStartedNode);
+                    continue;
+                }
             }
+            if(progress>100) progress=100;
             if (progress == 100) Isshow = false;
         } else
         {
@@ -151,7 +165,7 @@ public class GettingStarted {
         }
 
         try {
-            locale = RequestContext.getCurrentInstance().getLocale();
+            Locale locale = RequestContext.getCurrentInstance().getLocale();
             ResourceBundle rs = ResourceBundle.getBundle("gettingStarted/gettingStarted", locale);
             bundle.put("profile", LinkProvider.getUserProfileUri(remoteUser));
             bundle.put("profileLabel", EntityEncoder.FULL.encode(rs.getString("Upload.label")));
@@ -164,6 +178,7 @@ public class GettingStarted {
             bundle.put("upload", GettingStartedUtils.UPLOAD_URL);
             bundle.put("uploadLabel", EntityEncoder.FULL.encode(rs.getString("Document.Label")));
             bundle.put("titleLabel", EntityEncoder.FULL.encode(rs.getString("title.Label")));
+            bundle.put("closeLabel", EntityEncoder.FULL.encode(rs.getString("close.Label")));
         } catch (MissingResourceException ex) {
             logger.warn("##Missing Labels of GettingStarted Portlet");
         }
@@ -172,7 +187,33 @@ public class GettingStarted {
         parameters.put(GettingStartedUtils.WIDTH, new Integer((Math.round((160 * progress) / 100))).toString());
         parameters.put(GettingStartedUtils.STATUS, status);
         parameters.put(GettingStartedUtils.SHOW, Isshow.toString());
-        gettingStartedList.render(parameters);
+        if ((isChange)||(reload.equals("true")))
+            gettingStartedList.render(parameters);
+    }
+
+    private boolean updateAction(Property tempProp, Node gettingStartedNode) throws RepositoryException {
+        boolean has=false;
+        String gsPropertyName=tempProp.getName();
+            has =checkStatus(gsPropertyName);
+            if(has)  {
+                status.put(gsPropertyName.substring(4), GettingStartedUtils.DONE);
+                progress+=20;
+            }
+            else  status.put(gsPropertyName.substring(4), "");
+            if(has!=tempProp.getBoolean()){
+                gettingStartedNode.setProperty(gsPropertyName, has);
+                gettingStartedNode.save();
+                return true;
+            }
+        return false;
+    }
+
+    private boolean checkStatus(String gsPropertyName) {
+        if (gsPropertyName.equals(GettingStartedUtils.JCR_CONNECT_PROPERTY_NAME)) return GettingStartedService.hasContacts(remoteUser);
+        else if (gsPropertyName.equals(GettingStartedUtils.JCR_ACTIVITY_PROPERTY_NAME)) return GettingStartedService.hasActivities(remoteUser);
+        else if (gsPropertyName.equals(GettingStartedUtils.JCR_DOCUMENT_PROPERTY_NAME)) return GettingStartedService.hasDocuments(null,remoteUser);
+        else if (gsPropertyName.equals(GettingStartedUtils.JCR_SPACE_PROPERTY_NAME)) return GettingStartedService.hasSpaces(remoteUser);
+        else return GettingStartedService.hasAvatar(remoteUser);
     }
 }
 

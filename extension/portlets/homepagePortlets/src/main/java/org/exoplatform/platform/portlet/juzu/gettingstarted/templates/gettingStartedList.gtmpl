@@ -1,4 +1,3 @@
-
 <%/*
  * Copyright (C) 2012 eXo Platform SAS.
  *
@@ -30,10 +29,9 @@
 
     });
     $('.DeleteAction').on("click", function () {
-
         $.getJSON('/rest/homepage/intranet/getting-started/delete');
         $('.GettingStartedContainer').jzLoad("GettingStarted.delete()");
-
+        $('.GettingStartedContainer').css("display","none");
     });
 </script>
 
@@ -49,27 +47,19 @@
                 </div>
                 <div id="progress-label" class="pull-left progessLabel"> ${progress} %</div>
 
-            </div>
-            <%
-            //    if (show == "true") {
-            %>
-        <!--    <div style="height: 200px;width: 100%;" class="list">         -->
+            </div>   
                 <ul class ="gsList" id="gsList">
                     <li class="${status['gs_profile']}" ><a  target="_parent" href=${profile} >${profileLabel}</a></li>
                     <li class="${status['gs_connect']}" ><a  target="_parent" href=${connect} >${connectLabel}</a></li>
                     <li class="${status['gs_space']}" ><a target="_parent" href=${space} >${spaceLabel}</a></li>
                     <li class="${status['gs_activities']}" ><a target="_parent" href=${activity} > ${activityLabel} </a></li>
                     <li class="${status['gs_document']}" ><a target="_parent" href=${upload}> ${uploadLabel} </a></li>
-                </ul>
-          <!--  </div>                    -->
+                </ul>        
 
-        </div>
-        <%/*}else */if(show=="false"){%>
-        <div id="DeleteLink" style="display: block">
-
-
-            <span style="text-align: center;background-color: silver;" class="DeleteAction">Delete the Portlet</span>
-
-        </div>
-        <%}%>
+        </div>   
+    <%if(show=="false"){%>
+    <div id="DeleteLink" style="display: block">
+        <span style="text-align: center;background-color: silver;cursor: pointer;" class="DeleteAction">${closeLabel}</span>
     </div>
+    <%}%>
+</div>

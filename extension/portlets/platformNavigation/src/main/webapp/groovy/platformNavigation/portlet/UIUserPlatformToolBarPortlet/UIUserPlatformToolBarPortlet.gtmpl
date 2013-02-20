@@ -35,7 +35,7 @@
     def rcontext = _ctx.getRequestContext();
     JavascriptManager jsmanager = rcontext.getJavascriptManager();
 //jsmanager.addCustomizedOnLoadScript('eXo.portal.UIPortalNavigation.onLoad("' + uicomponent.id + '");');
-    jsmanager.require("SHARED/navigation", "navigation").addScripts('navigation.UIPortalNavigation.onLoad("' + uicomponent.id + '");');
+    jsmanager.require("SHARED/navigation-toolbar", "toolbarnav").addScripts('toolbarnav.UIPortalNavigation.onLoad("' + uicomponent.id + '");');
     def user = uicomponent.getUser();
     PortalURL nodeURL = nodeurl();
     def labelActivities = _ctx.appRes("UIUserPlatformToolBarPortlet.label.activities");
@@ -45,6 +45,8 @@
     def labelaccount = _ctx.appRes("UIUserPlatformToolBarPortlet.label.account");
     def labellanguage = _ctx.appRes("UIUserPlatformToolBarPortlet.label.language");
     def labellogout = _ctx.appRes("UIUserPlatformToolBarPortlet.label.logout");
+    def labelWiki = _ctx.appRes("UIUserPlatformToolBarPortlet.label.wiki");
+    def labelDashboard = _ctx.appRes("UIUserPlatformToolBarPortlet.label.dashboard");
     def remoteUser = Util.getPortalRequestContext().getRemoteUser();
     def activitiesLink = NavigationURLUtils.getURLInCurrentPortal("activities") + "/" + remoteUser;
     def profileLink = NavigationURLUtils.getURLInCurrentPortal("profile") + "/" + remoteUser;

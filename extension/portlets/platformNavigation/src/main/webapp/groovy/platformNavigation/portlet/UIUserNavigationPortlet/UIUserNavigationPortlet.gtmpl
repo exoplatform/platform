@@ -19,6 +19,11 @@
      */
 %>
 <%
+    import org.exoplatform.portal.webui.util.Util;
+    import org.exoplatform.social.webui.Utils;
+    import org.exoplatform.social.core.service.LinkProvider;
+    import org.exoplatform.platform.webui.NavigationURLUtils;
+    import org.exoplatform.webui.core.UIPopupWindow;
     def uicomponentId = uicomponent.id;
 %>
 
@@ -28,10 +33,11 @@
         String[] urlList = uicomponent.getURLAsList();
         def i = 0;
         def pageURL;
+        boolean isOwner=  uicomponent.isProfileOwner();       
         for (node in uicomponent.getUserNodesAsList()) {
             def nodeLabel;
             def str="UIUserNavigationPortlet.label."+node;
-            if (uicomponent.isProfileOwner()) str="UIUserNavigationPortlet.label.My"+node;
+            if (isOwner) str="UIUserNavigationPortlet.label.My"+node;
             else   str="UIUserNavigationPortlet.label."+node;
             nodeLabel = _ctx.appRes(str);
             pageURL = urlList[i];
@@ -41,8 +47,7 @@
             }
     %>
 
-    <% if  (node.equals(uicomponent.DASHBOARD_URI)) {
-        if (uicomponent.isProfileOwner()) { %>
+    <% if  ((node.equals(uicomponent.DASHBOARD_URI))&&(!isOwner))  continue; %>
 
 		<li class="<%=navigationTabClass%>">
 			<a href="$pageURL">
@@ -50,16 +55,9 @@
 				<span class="tabName"><%=nodeLabel%></span>
 			</a>
 		</li>
-    <% }
-    } else { %>
-		<li class="<%=navigationTabClass%>">
-			<a href="$pageURL">
-				<div class="uiIconApp<%=node%> uiIconDefaultApp"></div>
-				<span class="tabName"><%=nodeLabel%></span>
-			</a>
-		</li>
-    <% }
-        i++;
+   
+    <% 
+       i++;
     }
     %>
 	</ul>

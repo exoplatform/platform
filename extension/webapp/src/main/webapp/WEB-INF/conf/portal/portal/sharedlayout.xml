@@ -50,9 +50,8 @@
             <container id="SearchPortlet" template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
                 <portlet-application>
                     <portlet>
-                        <application-ref>platformNavigation</application-ref>
-                        <portlet-ref>UISearchPlatformToolbarPortlet</portlet-ref>
-                        <!--PLF-308-->
+                        <application-ref>unified-search</application-ref>
+                        <portlet-ref>QuicksearchPortlet</portlet-ref>
                     </portlet>
                     <access-permissions>*:/platform/users</access-permissions>
                     <show-info-bar>false</show-info-bar>
@@ -95,5 +94,4 @@
     </container>
     <site-body/>
 </container>
-
 

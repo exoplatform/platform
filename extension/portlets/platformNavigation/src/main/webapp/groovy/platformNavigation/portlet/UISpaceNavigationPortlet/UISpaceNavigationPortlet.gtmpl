@@ -32,70 +32,13 @@
   import org.exoplatform.web.application.JavascriptManager;
   import org.gatein.common.text.EntityEncoder;
 
-    void renderGroupPageNavigation(UserNavigation navigation) {
-    	def nodes = uicomponent.getUserNodes(navigation);
-    	if(nodes == null || nodes.isEmpty()) return ;
-    	def ownerId = navigation.getKey().getName();
-    	String navTitle = _ctx.appRes("UIPageNavigation.label.titleBar") ;
-    	navTitle = navTitle.replace("{0}", OrganizationUtils.getGroupLabel(ownerId));
-        String spacesNavigations= navigation.getKey().getName();
-        if(spacesNavigations.indexOf("spaces") > 0) {
-                int idx =0;
-                for(UserNode node : nodes) {
-                    renderPageNodeGroup(node, idx++ %2 == 0 ) ;
-                }
-        }
-    }
-	void renderPageNodeGroup(UserNode node, boolean flag) {
-	    if(!node.getVisibility().equals(Visibility.DISPLAYED)) {
-	      return;
-	    }
-		UserNode selectedNode = uicomponent.getSelectedNode();
-		String tabStyleNavigation = "";
-        if(selectedNode != null && node.getURI() == selectedNode.getURI()) {
-            tabStyleNavigation = "spaceItemSelected";
-        }
 
-		String clazz = "";
-
-		String	href = NavigationURLUtils.getURL(node);
-
-		String icon = node.getIcon();
-		if(icon == null) icon = "DefaultPageIcon";
-		boolean toolong = (node.resolvedLabel.length() > 60);
-		String label = ( toolong ? node.resolvedLabel.substring(0, 57) + "..." : node.resolvedLabel);
-		String title = "";
-
-		if(toolong) title = "title='$node.resolvedLabel'";
-		else title = "";
-        EntityEncoder entityEncoder = EntityEncoder.FULL;
-		label = entityEncoder.encode(label);
-		def imageSource = uicomponent.getImageSource(node.resolvedLabel);
-        if (imageSource == null) {
-          imageSource = LinkProvider.SPACE_DEFAULT_AVATAR_URL;
-        }
-		print """
-			<li class="spaceItem $clazz $tabStyleNavigation">
-		""";
-						if(node.pageRef != null) {
-								print """<a class="spaceIcon" href="$href" $title><img title="" alt="" src="$imageSource" />  $label</a>""";
-
-						} else {
-								print """<a class="spaceIcon" href="#" $title>$label</a>""";
-						}
-
-		print """
-			</li>
-		""" ;
-	}
-
-	if (uicomponent.renderSpacesLink()) {
-
-    def spacesLink = NavigationURLUtils.getURLInCurrentPortal("spaces");
     def findSpacesLink = NavigationURLUtils.getURLInCurrentPortal("all-spaces");
-	def groupNavigations = uicomponent.getGroupNavigations();
+	def groupNavigations = uicomponent.getSpaceLastedAccessed();
 	def spaceTotal=groupNavigations.size();
 	def MY_SPACES_MAX_NUMBER;
+	def spaceImageSource;
+	def spaceURLLink;
 	if(uicomponent.getSpaceMaxNumber()!=0){
 	MY_SPACES_MAX_NUMBER = uicomponent.getSpaceMaxNumber();
 
@@ -113,11 +56,10 @@
   def moreSpacesLabel = _ctx.appRes("UISpaceNavigationPortlet.label.more");
   def seeSpacesLabel = _ctx.appRes("UISpaceNavigationPortlet.label.see");
   String noSpace = _ctx.appRes("UISpaceNavigationPortlet.msg.no-space");
-  String selectSpaceAction = URLEncoder.encode(uicomponent.event(uicomponent.LOAD_NAVIGATION_ACTION), "utf-8");
+  String selectSpaceActionDyna = "";
   def rcontext = _ctx.getRequestContext() ;
-  def requireJs = rcontext.getJavascriptManager().getRequireJS();
-  requireJs.require("SHARED/navigation-spaces-search", "navigationSpacesSearch");
-  requireJs.addScripts("navigationSpacesSearch.init('" + uicomponent.id  + "','" + restUrl + "','" + defaultValueForTextSearch +"','" + noSpace + "','" + selectSpaceAction + "');");
+  def jsManager = rcontext.getJavascriptManager();
+  jsManager.require("SHARED/navigation-spaces-search", "spacesearch").addScripts("spacesearch.init('" + uicomponent.id  + "','" + restUrl + "','" + defaultValueForTextSearch +"','" + noSpace + "','" + selectSpaceActionDyna + "');");
 %>
 
 <div class="uiSpaceNavigationPortlet" id="$uicomponent.id">
@@ -132,12 +74,28 @@
     if (groupNavigations!= null && !groupNavigations.isEmpty()) {
 
       for(navigation in groupNavigations) {
-      	if (navigation.getKey().getName().indexOf("spaces") <0 || mySpacesDisplayed == -1){
+      	if (mySpacesDisplayed == -1){
       		break;
       	}
       	if(mySpacesDisplayed < MY_SPACES_MAX_NUMBER){
-      		mySpacesDisplayed += 1;
-      		renderGroupPageNavigation(navigation);
+			mySpacesDisplayed += 1;
+			String spaceDisplayName = navigation.getDisplayName();
+			spaceImageSource = navigation.getAvatarUrl();
+			spaceURLLink = uicomponent.buildSpaceURL(spaceDisplayName);
+			//String selectSpaceAction = uicomponent.event("SelectSpace");
+			String link = uicomponent.event("SelectSpace",spaceURLLink);
+
+			if (spaceImageSource == null){
+				spaceImageSource= "/social-resources/skin/ShareImages/SpaceImages/SpaceLogoDefault_61x61.gif";
+			}
+	%>
+
+
+				<li class="spaceItem">
+					<a href="javascript:void(0);" onclick="$link" class="spaceIcon" title="$spaceDisplayName"><img title="" alt="" src="$spaceImageSource" /> $spaceDisplayName</a>
+				</li>
+	<%
+
       	}else{
 		    def spaceNotDisplayed=spaceTotal - mySpacesDisplayed;
 
@@ -168,5 +126,3 @@
 	</div>
 </div>
 
- 
-<% } %>

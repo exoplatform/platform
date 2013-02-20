@@ -67,6 +67,10 @@
         boolean toolong = (node.resolvedLabel.length() > 16);
         String label = (toolong ? node.resolvedLabel.substring(0, 15) + "..." : node.resolvedLabel);
         def icon=node.getIcon();
+        def cssClazz="nonActive";
+        if(uicomponent.isSelectedNavigation(node.getName()))  {
+            cssClazz= "active" ;
+        }
         if(icon == null) icon = "DefaultPageIcon";
         EntityEncoder entityEncoder = EntityEncoder.FULL;
         label = entityEncoder.encode(label);
@@ -75,12 +79,14 @@
             href = "#"
         }
         if (hasChild) {
-
+            def display="none";
+            if ((uicomponent.isUnfoldedNavigation(node))||(uicomponent.isSelectedNavigation(node.getName())))
+                display="block";
             println """
 				<li class="groupItem">
 					<span class="icon arrowIcon"></span>
-                    <a class="groupIcon $icon" href="$href" title="$node.resolvedLabel">$label</a>
-                    <ul class="childrenContainer" style="display: none">
+                    <a class="groupIcon $icon $cssClazz" href="$href">$label</a>
+                    <ul class="childrenContainer" style="display: $display">
 					""";
 
 
@@ -101,7 +107,7 @@
             println """
 				<li class=" groupItem ClearFix">
 					<span class="icon"></span>
-					<a class="groupIcon $icon" href="$href" title="$node.resolvedLabel">$label</a>
+					<a class="groupIcon $icon $cssClazz" href="$href">$label</a>
 				</li>
 
 				""";

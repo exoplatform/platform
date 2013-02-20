@@ -36,10 +36,9 @@ import org.exoplatform.web.url.navigation.NavigationResource;
 import org.exoplatform.web.url.navigation.NodeURL;
 import org.exoplatform.webui.application.WebuiRequestContext;
 
-import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
-import java.util.List;
+import java.util.Iterator;
 
 /**
  * @author <a href="fbradai@exoplatform.com">Fbradai</a>
@@ -93,48 +92,17 @@ public class DashboardUtils {
         return userPortal.getNavigation(userKey);
     }
 
-    /*private static boolean isWebOSNode(UserNode userNode) throws Exception {
-        if (userNode == null) {
-            return false;
-        }
-        String pageRef = userNode.getPageRef();
-        if (pageRef == null) {
-            return false;
-        }
-        ExoContainer exoContainer = ExoContainerContext.getCurrentContainer();
-        DataStorage ds = (DataStorage) exoContainer.getComponentInstanceOfType(DataStorage.class);
-        Page page = ds.getPage(pageRef);
-        return page == null || UIDesktopPage.DESKTOP_FACTORY_ID.equals(page.getFactoryId());
-    }     */
-
     public static Collection<UserNode> getUserNodes(UserNavigation nav) {
         UserPortal userPortall = getUserPortal();
         if (nav != null) {
             try {
                 UserNode rootNode = userPortall.getNode(nav, Scope.CHILDREN, toolbarFilterConfig, null);
-                return filterWebOSNode(rootNode.getChildren());
+                return rootNode.getChildren();
             } catch (Exception exp) {
                 LOG.warn(nav.getKey().getName() + " has been deleted");
             }
         }
         return Collections.emptyList();
-    }
-
-    private static Collection<UserNode> filterWebOSNode(Collection<UserNode> pageNodes) throws Exception {
-        if (pageNodes == null || pageNodes.size() == 0) {
-            return pageNodes;
-        }
-        List<UserNode> tempNodes = new ArrayList<UserNode>(pageNodes);
-        UserNode webOSNode = null;
-        for (UserNode node : tempNodes) {
-           /* if (isWebOSNode(node)) {
-                webOSNode = node;
-            } */
-        }
-        if (webOSNode != null) {
-            tempNodes.remove(tempNodes);
-        }
-        return tempNodes;
     }
 
     public static UserPortal getUserPortal() {
@@ -146,14 +114,10 @@ public class DashboardUtils {
         Collection<UserNode> nodes = getUserNodes(getCurrentUserNavigation());
         if (nodes == null) {
             return null;
-
         } else {
-            for (UserNode node : nodes) {
-              /*  if (!isWebOSNode(node)) {
-                    return node;
-                }  */
-            }
-            return null;
+            Iterator i=nodes.iterator();
+          if(i.hasNext())  return (UserNode) i.next();
+            else return null;
         }
     }
 }

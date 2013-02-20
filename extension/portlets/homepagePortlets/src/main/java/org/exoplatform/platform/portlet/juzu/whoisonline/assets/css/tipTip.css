@@ -120,6 +120,8 @@ blockquote {
     padding-left: 25px;
     color: #999999;
     border-left: medium none;
+    width:75%;
+    word-wrap:break-word;
 }
 
 blockquote:first-letter {

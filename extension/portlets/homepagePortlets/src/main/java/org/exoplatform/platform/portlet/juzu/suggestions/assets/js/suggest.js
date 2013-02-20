@@ -8,9 +8,13 @@ function dynamicSort(property) {
         property = property.substr(1, property.length - 1);
     }
     return function (a,b) {
-        var result = (a[property] < b[property]) ? -1 : (a[property] > b[property]) ? 1 : 0;
-        return result * sortOrder;
+        var result = (a[property].toLowerCase() < b[property].toLowerCase()) ? -1 : (a[property].toLowerCase() > b[property].toLowerCase()) ? 1 : 0;
+        return result ;
     }
+}
+
+function sortByCreatedDate(a, b){
+    return b.createdDate - a.createdDate;
 }
 
 Array.prototype.shuffle = function() {
@@ -47,19 +51,30 @@ $(function() {
 
 
 
-    $.getJSON("/rest/homepage/intranet/people/contacts/suggestions", function(items){
+    $.getJSON("/rest/homepage/intranet/people/contacts/suggestions", function(data){
 
-        if (items.length > 0){
+        if (data.items.length > 0){
             $("#content").show();
             $("#peopleSuggest").show();
 
         }
+        var newUser=true;
+        for(var k= 0; k < data.items.length; k++)
+        {
+            if(data.items[k].number!=0){
+                newUser=false;
+            }
+        }
 
-        items.sort(dynamicSort("suggestionName"));
-        // sort my most contacts instead of random
-        items.sort(sortByContacts);
+        if(newUser==true || data.noConnections==0){
+            data.items.sort(sortByCreatedDate) ;
+        }else{
+            data.items.sort(dynamicSort("suggestionName"));
+            // sort my most contacts instead of random
+            data.items.sort(sortByContacts);
+        }
 
-        $.each(items, function(i, item){
+        $.each(data.items, function(i, item){
 
             var link = "";
             if (i < 2)
