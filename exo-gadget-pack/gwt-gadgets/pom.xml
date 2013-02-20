@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <artifactId>platform-exo-gadget-pack</artifactId>
+    <groupId>org.exoplatform.platform</groupId>
+    <version>4.0.0-unified-search-SNAPSHOT</version>
+  </parent>
+  <artifactId>platform-exo-gadget-pack-gwt-gadgets</artifactId>
+  <packaging>pom</packaging>
+  <name>eXo Gadget Pack - GWT Gadgets</name>
+  <description>GWT gadgets</description>
+  <modules>
+    <module>eXoCalendar</module>
+  </modules>
+  <properties>
+    <!-- Does not support more recent version for now -->
+    <version.gwt.plugin>2.1.0</version.gwt.plugin>
+    <com.google.gwt.version>${version.gwt.plugin}</com.google.gwt.version>
+  </properties>
+  <dependencies>
+    <dependency>
+      <groupId>com.google.gwt.google-apis</groupId>
+      <artifactId>gwt-gadgets</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>com.google.gwt</groupId>
+      <artifactId>gwt-user</artifactId>
+      <version>${com.google.gwt.version}</version>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>com.google.gwt</groupId>
+      <artifactId>gwt-servlet</artifactId>
+      <version>${com.google.gwt.version}</version>
+      <scope>runtime</scope>
+    </dependency>
+  </dependencies>
+</project>

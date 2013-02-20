@@ -237,5 +237,14 @@
         <title>search</title>
         <access-permissions>manager:/platform/administrators</access-permissions>
         <edit-permission>manager:/platform/administrators</edit-permission>
+        <portlet-application>
+            <portlet>
+                <application-ref>unified-search</application-ref>
+                <portlet-ref>SearchAdministrationPortlet</portlet-ref>
+            </portlet>
+            <title>Search Administration</title>
+            <access-permissions>manager:/platform/administrators</access-permissions>
+            <show-info-bar>false</show-info-bar>
+        </portlet-application>
     </page>
 </page-set>
