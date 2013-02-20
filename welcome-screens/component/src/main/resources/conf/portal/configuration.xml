@@ -35,7 +35,7 @@
         </init-params>
     </component>
     <component profiles="all,default,social">
-        <key>org.exoplatform.platform.welcomescreens.web.TermsAndConditionsService</key>
+        <key>org.exoplatform.platform.welcomescreens.service.TermsAndConditionsService</key>
         <type>org.exoplatform.platform.welcomescreens.service.impl.TermsAndConditionsServiceImpl</type>
     </component>
 
