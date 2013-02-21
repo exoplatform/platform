@@ -33,12 +33,15 @@
 			line-height: 14px;
 			padding: 1px;
 		}
+		.taskTitle {
+			background-color: #f8f8f8;
+		}
 		.calendarName {
 			.border-radius(@borderRadiusSmall);
 			color: @white;
 			display: inline-block;
 			font-size: @baseFontSize - 2;
-			padding: 2px 10px;
+			padding: 0px 10px;
 			margin: 0 5px 8px 0;
 		}
 		.eventsList {
@@ -46,10 +49,13 @@
 				.border-radius(@borderRadiusSmall);
 				background-color: @grayWhiteSmoke;
 				border: 1px solid transparent;
-				padding: 5px 8px;
+				padding: 4px 8px;
 				margin: 0 0 10px 0;
-				&.pastEvent {
-					opacity: 0.75;
+				&.pastEvent {					
+					background-color: @btnBackgroundHighlight;					
+					a,span {
+						color: #c2c2c2;
+					}
 				}
 				&:hover  {
 					border: 1px solid @borderColor;
@@ -101,5 +107,99 @@
 	
 }
 
+.asparagus {
+    background-color: #909958;
+}
+
+.munsell_blue {
+    background-color: #319AB3;
+}
+
+.navy_blue {
+    background-color: #4273C8;
+}
+
+.purple {
+    background-color: #774EA9;
+}
+
+.red {
+    background-color: #FF5933;
+}
+
+.brown {
+    background-color: #BB8E62;
+}
+
+.laurel_green {
+    background-color: #BED67E;
+}
+
+.sky_blue {
+    background-color: #4DBED9;
+}
+
+.blue_gray {
+    background-color: #8EB0EA;
+}
+
+.light_purple {
+    background-color: #BC99E7;
+}
+
+.hot_pink {
+    background-color: #F97575;
+}
+
+.light_brown {
+    background-color: #C5B294;
+}
+
+.moss_green {
+    background-color: #98CC81;
+}
+
+.powder_blue {
+    background-color: #9EE4F5;
+}
+
+.light_blue {
+    background-color: #B3CFFF;
+}
+
+.pink {
+    background-color: #FFC8F0;
+}
+
+.orange {
+    background-color: #FDB519;
+}
+
+.gray {
+    background-color: #A39594;
+}
+
+.green {
+    background-color: #89D4B3;
+}
+
+.baby_blue {
+    background-color: #B2E2FF;
+}
+
+.light_gray {
+    background-color: #CDCDCD;
+}
+.beige {
+    background-color: #FFE1BE;
+}
+
+.yellow {
+    background-color: #FFE347;
+}
+
+.plum_purple {
+    background-color: #CEA6AC;
+}
 
 
