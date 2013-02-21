@@ -2,28 +2,28 @@ $(function () {
 
     function init(initKey) {
         setTimeout(function()
-            {
-                $('div.CalendarPortletContainer').jzLoad(
-                    "CalendarPortletController.calendarHome()");
-            }
-            ,100);
+                {
+                    $('div.CalendarPortletContainer').jzLoad(
+                            "CalendarPortletController.calendarHome()");
+                }
+                ,100);
 
         //not taken effects must be deplaced to
         $('.SettingValidationButton').on('click',function(){
             $('div.CalendarPortletContainer').jzLoad(
-                "CalendarPortletController.calendarHome()");
+                    "CalendarPortletController.calendarHome()");
         });
         $('.SettingsLink').on("click", function(){
             $('.CalendarPortlet').jzLoad(
-                "CalendarPortletController.setting()");
+                    "CalendarPortletController.setting()");
         });
         $('span.addButtonSpan').on("click", function () {
 
             var calId = $(this).parent().children("input").val();
 
             $('div.SettingsContainerData').jzLoad(
-                "CalendarPortletController.addCalendar()",
-                {"calendarId":calId});
+                    "CalendarPortletController.addCalendar()",
+                    {"calendarId":calId});
 
         });
         $('span.deleteButtonSpan').on("click", function () {
@@ -31,8 +31,8 @@ $(function () {
             var calId = $(this).parent().children("input").val();
 
             $('div.SettingsContainerData').jzLoad(
-                "CalendarPortletController.deleteCalendar()",
-                {"calendarId":calId});
+                    "CalendarPortletController.deleteCalendar()",
+                    {"calendarId":calId});
 
         });
         $('input.PLFcalendarSearchKey').on("click", function () {
@@ -45,39 +45,39 @@ $(function () {
             }
 
             $('div.NonDisplayedCalendar').jzLoad(
-                "CalendarPortletController.getSearchResult()",
-                {"key":seakey});
+                    "CalendarPortletController.getSearchResult()",
+                    {"key":seakey});
 
         });
         $('input.PLFcalendarSearchKey').on('show', function () {
             $("#nonDisplayedCalendarContainer").css("display", "none");
             var seakey = $(this).val();
             $('div.NonDisplayedCalendar').jzLoad(
-                "CalendarPortletController.getSearchResult()",
-                {"key":seakey});
+                    "CalendarPortletController.getSearchResult()",
+                    {"key":seakey});
         });
         $('input.PLFcalendarSearchKey').on("keydown", function () {
             $("#nonDisplayedCalendarContainer").css("display", "none");
             var seakey = $(this).val();
             $('div.NonDisplayedCalendar').jzLoad(
-                "CalendarPortletController.getSearchResult()",
-                {"key":seakey});
+                    "CalendarPortletController.getSearchResult()",
+                    {"key":seakey});
         });
 
         $('input.PLFcalendarSearchKey').on("keypress", function () {
             $("#nonDisplayedCalendarContainer").css("display", "none");
             var seakey = $(this).val();
             $('div.NonDisplayedCalendar').jzLoad(
-                "CalendarPortletController.getSearchResult()",
-                {"key":seakey});
+                    "CalendarPortletController.getSearchResult()",
+                    {"key":seakey});
         });
 
         $('input.PLFcalendarSearchKey').on("keyup", function () {
             $("#nonDisplayedCalendarContainer").css("display", "none");
             var seakey = $(this).val();
             $('div.NonDisplayedCalendar').jzLoad(
-                "CalendarPortletController.getSearchResult()",
-                {"key":seakey});
+                    "CalendarPortletController.getSearchResult()",
+                    {"key":seakey});
         });
         $('input.PLFcalendarSearchKey').on("focus", function () {
             if ($(this).val() == initKey) {
@@ -106,13 +106,13 @@ $(function () {
         });
         $('span.PrevDateSpan').on("click", function () {
             $('div.CalendarPortletData').jzLoad(
-                "CalendarPortletController.decDate()",
-                {"nbClick":"1"});
+                    "CalendarPortletController.decDate()",
+                    {"nbClick":"1"});
         });
         $('span.NextDateSpan').on("click", function () {
             $('div.CalendarPortletData').jzLoad(
-                "CalendarPortletController.incDate()",
-                {"nbClick":"1"});
+                    "CalendarPortletController.incDate()",
+                    {"nbClick":"1"});
         });
     };
 

@@ -32,9 +32,9 @@
           <object type="org.exoplatform.services.cms.views.ViewConfig">		          
             <field name="name"><string>Admin</string></field>
             <field name="permissions"><string>*:/platform/administrators</string></field>
-            <field name="template"><string>/exo:ecm/views/templates/ecm-explorer/List</string></field>	
             <field name="hideExplorerPanel"><boolean>true</boolean></field>
-            <field name="tabList">
+             <field name="template"><string>/exo:ecm/views/templates/ecm-explorer/List</string></field>
+             <field name="tabList">
               <collection type="java.util.ArrayList">   
                 <value>
                   <object type="org.exoplatform.services.cms.views.ViewConfig$Tab">

@@ -35,11 +35,11 @@ $(function () {
         if(del == true)        $('.GettingStartedContainer').css("display","none") ;
 
         setTimeout(function () {
-                if (del == false) {
-                    $('.GettingStarted').jzLoad("GettingStarted.getGsList()", {"reload":"true"});
+                    if (del == false) {
+                        $('.GettingStarted').jzLoad("GettingStarted.getGsList()", {"reload":"true"});
+                    }
                 }
-            }
-            , 100);
+                , 100);
         setInterval(function () {
             if (del == false) {
                 $('.TmpGettingStarted').jzLoad("GettingStarted.getGsList()", {"reload":"false"});

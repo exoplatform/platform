@@ -71,7 +71,7 @@ $('.settingsLink').on("click", function(){
 					displayedCalendar.each { cal ->
 						def   calendarName= cal.name;
 						def hover= "";
-						if((calendarName.indexOf("Default") != -1)||(calendarName.indexOf("Défault") != -1))&&(cal.groups==null))  hover=bundle["defaultPersonnal"];
+						if(((calendarName.indexOf("Default") != -1)||(calendarName.indexOf("Défault") != -1)) && (cal.groups==null))  hover=bundle["defaultPersonnal"];
 						if (cal.groups != null) {
 							def group = cal.groups[0];
 							hover = " (" + group.substring(group.lastIndexOf("/") + 1) + ")";
@@ -124,7 +124,7 @@ $('.settingsLink').on("click", function(){
 						<% } else if (event.toDateTime.getTime() - event.fromDateTime.getTime() < 86399999) {
 							from = sdf2.format(event.fromDateTime);
 							to = sdf2.format(event.toDateTime);
-if(locale.getLanguage().equals("en")){
+                            if(locale.getLanguage().equals("en")){
                                 if(from.indexOf("00")==2)   from=from.substring(0,1)+ from.substring(4);
                                 if(from.indexOf("00")==3)   from=from.substring(0,2)+ from.substring(5);
                                 if(to.indexOf("00")==2)   to=to.substring(0,1) + to.substring(4);
