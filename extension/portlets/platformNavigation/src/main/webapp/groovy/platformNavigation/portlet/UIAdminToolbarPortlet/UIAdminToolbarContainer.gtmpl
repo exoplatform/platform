@@ -13,7 +13,7 @@
     jsmanager.require("SHARED/navigation-toolbar", "toolbarnav").addScripts("toolbarnav.UIPortalNavigation.onLoad('" + uicomponent.id + "');");
 	String addPageLabel = _ctx.appRes("UIAdminToolbarPortlet.action.AddPage");	
 	String editPageLabel = _ctx.appRes("UIAdminToolbarPortlet.action.Layout");
-	String editSiteLayout = _ctx.appRes("UIAdminToolbarPortlet.action.Layout");
+	String editSiteLayout = _ctx.appRes("UIAdminToolbarPortlet.action.siteLayout");
 	String editNavigation = _ctx.appRes("UIAdminToolbarPortlet.action.EditNavigation");
 	String quickEditLabel = _ctx.appRes("UIAdminToolbarPortlet.action.Content");
 	String editorLabel = _ctx.appRes("UIAdminToolbarPortlet.action.Editor");

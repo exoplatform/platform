@@ -9,6 +9,7 @@
 			<Page>Pagina</Page>
 			<Site>Sito</Site>
 			<Layout>Edit Layout</Layout>
+            <siteLayout>La mise en page</siteLayout>
 			<ManagePages>Gestisci Pagine</ManagePages>
 		 	<GroupSite>Sito di Gruppo</GroupSite>
 			<Properties>SEO</Properties>

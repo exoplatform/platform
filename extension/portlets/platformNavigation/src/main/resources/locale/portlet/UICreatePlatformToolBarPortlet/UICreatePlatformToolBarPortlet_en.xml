@@ -58,7 +58,10 @@
         <toDate-format>The To date format is incorrect.</toDate-format>
         <logic-required>Sorry, you can't create an event that ends before it starts.</logic-required>
         <cant-add-event-on-remote-calendar>Can't add event to remote calendar</cant-add-event-on-remote-calendar>
-        <add-successfully>The {0} added to the {1}.</add-successfully>
+         <add-successfully>
+            <Event>The Event was added to {1}</Event>
+            <Task>The Task was added to {1}</Task>
+         </add-successfully>
         <add-unsuccessfully>Unsuccessfully to add {0}.</add-unsuccessfully>
       </msg>
       <action>

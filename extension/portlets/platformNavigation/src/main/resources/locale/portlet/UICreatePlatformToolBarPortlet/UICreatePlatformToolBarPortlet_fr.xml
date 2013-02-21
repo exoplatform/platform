@@ -1,19 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <bundle>
-	<UIUserPlatformToolBarCreatePortlet>
-		<label>
-			<topic>Sujet</topic>
-			<poll>Vote</poll>
-			<eventtask>Evénement/tâche</eventtask>
-			<upload>Upload Fichier</upload>
-			<wiki>Page Wiki</wiki>
-			
-		</label>
-	</UIUserPlatformToolBarCreatePortlet>
+   <UIUserPlatformToolBarCreatePortlet>
+      <label>
+         <topic>Sujet</topic>
+         <poll>Vote</poll>
+         <eventtask>Evénement/tâche</eventtask>
+         <upload>Upload Fichier</upload>
+         <wiki>Page Wiki</wiki>
+
+      </label>
+   </UIUserPlatformToolBarCreatePortlet>
    <UICreateList>
       <label>
          <CreateANew>Créer un {1}:</CreateANew>
-         <NoForum>Désolé, pas de forum disponible pour l'instant pour créer un {1}. Commencez par créer votre propre espace.</NoForum>
+         <NoForum>Désolé, pas de forum disponible pour l'instant pour créer un {1}. Commencez par créer votre propre
+            espace.
+         </NoForum>
          <RequireSelectForum>Choisir un forum</RequireSelectForum>
       </label>
       <action>
@@ -55,9 +57,14 @@
          <summary-field-required>Le champ "Titre" est obligatoire.</summary-field-required>
          <fromDate-format>le format du date de debut est incorrect.</fromDate-format>
          <toDate-format>le format du date de fin est incorrect.</toDate-format>
-         <logic-required>Désolé, vous ne pouvez pas créer un événement qui se termine avant qu'il ne commence.</logic-required>
-         <cant-add-event-on-remote-calendar>Impossible d'ajouter un événement au calendrier distant</cant-add-event-on-remote-calendar>
-         <add-successfully>Ce {0} est ajouté dans {1}.</add-successfully>
+         <logic-required>Désolé, vous ne pouvez pas créer un événement qui se termine avant qu'il ne commence.
+         </logic-required>
+         <cant-add-event-on-remote-calendar>Impossible d'ajouter un événement au calendrier distant
+         </cant-add-event-on-remote-calendar>
+         <add-successfully>
+            <Event>L’événement est ajouté dans {1}.</Event>
+            <Task>La tâche est ajoutée dans {1}.</Task>
+         </add-successfully>
          <add-unsuccessfully>L'ajout{0} est echoué.</add-unsuccessfully>
       </msg>
       <action>
@@ -67,7 +74,7 @@
    </UICreateEvent>
    <Choix>
       <label>
-         <Event>Evénement</Event>
+         <Event>Événement</Event>
          <Task>Tâche</Task>
       </label>
    </Choix>

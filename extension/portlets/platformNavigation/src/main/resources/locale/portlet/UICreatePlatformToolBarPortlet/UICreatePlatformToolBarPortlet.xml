@@ -1,42 +1,42 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <bundle>
-  <UIUserPlatformToolBarCreatePortlet>
-    <label>
-      <topic>Topic</topic>
-      <poll>Poll</poll>
-      <eventtask>Event/Task</eventtask>
-      <upload>Upload a File</upload>
-      <wiki>Wiki Page</wiki>
-      
-    </label>
-  </UIUserPlatformToolBarCreatePortlet>
-  <UICreateList>
-    <label>
-      <CreateANew>Create a new {1}:</CreateANew>
-      <NoForum>Sorry, no forum available yet to create a {1}. Start by creating your own space.</NoForum>
-      <RequireSelectForum>Please, select a forum.</RequireSelectForum>
-    </label>
-    <action>
-      <Next>Next</Next>
-      <Cancel>Cancel</Cancel>
-    </action>
-  </UICreateList>
-  <UICreateTopic>
-   <label>
-      <SelectAForum>Select a Forum</SelectAForum>
-      <location>In location</location>
-      <forumId>And Forum</forumId>
-      <FilterForums>Filter forums</FilterForums>
-    </label>
-  </UICreateTopic>
-  <UICreatePoll>
-   <label>
-      <SelectAForum>Select a Forum</SelectAForum>
-      <location>In location</location>
-      <forumId>And Forum</forumId>
-      <FilterForums>Filter forums</FilterForums>
-    </label>
-  </UICreatePoll>
+   <UIUserPlatformToolBarCreatePortlet>
+      <label>
+         <topic>Topic</topic>
+         <poll>Poll</poll>
+         <eventtask>Event/Task</eventtask>
+         <upload>Upload a File</upload>
+         <wiki>Wiki Page</wiki>
+
+      </label>
+   </UIUserPlatformToolBarCreatePortlet>
+   <UICreateList>
+      <label>
+         <CreateANew>Create a new {1}:</CreateANew>
+         <NoForum>Sorry, no forum available yet to create a {1}. Start by creating your own space.</NoForum>
+         <RequireSelectForum>Please, select a forum.</RequireSelectForum>
+      </label>
+      <action>
+         <Next>Next</Next>
+         <Cancel>Cancel</Cancel>
+      </action>
+   </UICreateList>
+   <UICreateTopic>
+      <label>
+         <SelectAForum>Select a Forum</SelectAForum>
+         <location>In location</location>
+         <forumId>And Forum</forumId>
+         <FilterForums>Filter forums</FilterForums>
+      </label>
+   </UICreateTopic>
+   <UICreatePoll>
+      <label>
+         <SelectAForum>Select a Forum</SelectAForum>
+         <location>In location</location>
+         <forumId>And Forum</forumId>
+         <FilterForums>Filter forums</FilterForums>
+      </label>
+   </UICreatePoll>
    <UICreateWiki>
       <label>
          <title>Create a new Wiki Page:</title>
@@ -54,13 +54,16 @@
          <defaultCalendarId>Default</defaultCalendarId>
       </label>
       <msg>
-        <summary-field-required>The field "Title" is required.</summary-field-required>
-        <fromDate-format>The Form date format is incorrect.</fromDate-format>
-        <toDate-format>The To date format is incorrect.</toDate-format>
-        <logic-required>Sorry, you can't create an event that ends before it starts.</logic-required>
-        <cant-add-event-on-remote-calendar>Can't add event to remote calendar</cant-add-event-on-remote-calendar>
-        <add-successfully>The {0} added to the {1}.</add-successfully>
-        <add-unsuccessfully>Unsuccessfully to add {0}.</add-unsuccessfully>
+         <summary-field-required>The field "Title" is required.</summary-field-required>
+         <fromDate-format>The Form date format is incorrect.</fromDate-format>
+         <toDate-format>The To date format is incorrect.</toDate-format>
+         <logic-required>Sorry, you can't create an event that ends before it starts.</logic-required>
+         <cant-add-event-on-remote-calendar>Can't add event to remote calendar</cant-add-event-on-remote-calendar>
+         <add-successfully>
+            <Event>The Event was added to {1}</Event>
+            <Task>The Task was added to {1}</Task>
+         </add-successfully>
+         <add-unsuccessfully>Unsuccessfully to add {0}.</add-unsuccessfully>
       </msg>
       <action>
          <Next>Next</Next>
