@@ -2,6 +2,11 @@
 <abstract>
 <para>This chapter currently focuses on how to copy a work done on the eXo Platform server, such as creating navigations, node types and templates, to another eXo Platform servers throughout these topics:</para>
     <itemizedlist>
+          <listitem>
+        <para>
+         <emphasis role="bold"> <link linkend="DEV.Cookbook.CopyTemplateOfNodeType">Copy templates of node types templates</link> </emphasis>
+         </para>
+      </listitem>
       <listitem>
         <para>
          <emphasis role="bold"> <link linkend="DEV.Cookbook.CopySitesContentFolderWithVersionHistory">Copy a site's content folder with its version history</link></emphasis>
@@ -10,11 +15,6 @@
       <listitem>
         <para>
          <emphasis role="bold"> <link linkend="DEV.Cookbook.CopyNavigationNodesOfSites">Copy navigation nodes of sites</link> </emphasis>
-         </para>
-      </listitem>
-      <listitem>
-        <para>
-         <emphasis role="bold"> <link linkend="DEV.Cookbook.CopyTemplateOfNodeType">Copy templates of node types templates</link> </emphasis>
          </para>
       </listitem>
       <listitem>
