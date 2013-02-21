@@ -72,6 +72,9 @@
          <Cancel>Annuler</Cancel>
       </action>
    </UICreateEvent>
+    <UIUploadFile>
+        <Select>Selectioner Fichier</Select>
+    </UIUploadFile>
    <Choix>
       <label>
          <Event>Événement</Event>

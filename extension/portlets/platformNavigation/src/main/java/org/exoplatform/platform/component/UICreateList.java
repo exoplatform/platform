@@ -150,7 +150,11 @@ public class UICreateList extends UIContainer {
         public void execute(Event<UICreateList> event) throws Exception {
             UICreateList uiCraeteList = event.getSource();
             try {
-                UIDocumentSelector selector = uiCraeteList.createUIComponent(UIDocumentSelector.class, null, "UploadFileSelector");
+                String title = WebuiRequestContext.getCurrentInstance().getApplicationResourceBundle().getString("UIUploadFile.Select");
+                if((title==null) || (title.equals(""))){
+                    title = "Select File";
+                }
+                UIDocumentSelector selector = uiCraeteList.createUIComponent(UIDocumentSelector.class, null, title);
                 Utils.createPopupWindow(uiCraeteList, selector, "UploadFileSelectorPopUpWindow", 335);
             } catch (Exception e) {
                 //TODO add log
