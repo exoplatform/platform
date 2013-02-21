@@ -39,10 +39,10 @@
       <scope>runtime</scope>
     </dependency>
     <dependency>
-			<groupId>org.exoplatform.commons</groupId>
-			<artifactId>commons-component-common</artifactId>
-			  <scope>runtime</scope>
-		</dependency>
+      <groupId>org.exoplatform.commons</groupId>
+      <artifactId>commons-component-common</artifactId>
+      <scope>runtime</scope>
+    </dependency>
     <dependency>
       <groupId>org.exoplatform.social</groupId>
       <artifactId>social-component-webui</artifactId>
@@ -53,7 +53,6 @@
       <artifactId>wiki-service</artifactId>
       <scope>runtime</scope>
     </dependency>
-
     <dependency>
       <groupId>org.exoplatform.commons</groupId>
       <artifactId>commons-component-upgrade</artifactId>
@@ -209,55 +208,55 @@
     </dependency>
     <!-- Add missing runtime deps from Gatein and JCR -->
     <!-- This is just a simple workaround -->
-      <dependency>
-          <groupId>org.hibernate</groupId>
-          <artifactId>hibernate-validator</artifactId>
-          <scope>runtime</scope>
-      </dependency>
-      <dependency>
-          <groupId>org.apache.portals.bridges</groupId>
-          <artifactId>portals-bridges-common</artifactId>
-          <version>1.0.4</version>
-          <scope>runtime</scope>
-      </dependency>
-      <dependency>
-          <groupId>javax.ccpp</groupId>
-          <artifactId>ccpp</artifactId>
-          <version>1.0</version>
-          <scope>runtime</scope>
-      </dependency>
-      <dependency>
-          <groupId>org.gatein.sso</groupId>
-          <artifactId>sso-saml-plugin</artifactId>
-          <version>1.3.0.Final</version>
-          <scope>runtime</scope>
-          <exclusions>
-              <exclusion>
-                  <artifactId>httpclient</artifactId>
-                  <groupId>org.apache.httpcomponents</groupId>
-              </exclusion>
-              <exclusion>
-                  <artifactId>jbossweb</artifactId>
-                  <groupId>org.jboss.web</groupId>
-              </exclusion>
-              <exclusion>
-                  <artifactId>jboss-negotiation-common</artifactId>
-                  <groupId>org.jboss.security</groupId>
-              </exclusion>
-              <exclusion>
-                  <artifactId>jboss-negotiation-spnego</artifactId>
-                  <groupId>org.jboss.security</groupId>
-              </exclusion>
-              <exclusion>
-                  <artifactId>jboss-servlet-api_3.0_spec</artifactId>
-                  <groupId>org.jboss.spec.javax.servlet</groupId>
-              </exclusion>
-              <exclusion>
-                  <artifactId>jbossxacml</artifactId>
-                  <groupId>org.jboss.security</groupId>
-              </exclusion>
-          </exclusions>
-      </dependency>
+    <dependency>
+      <groupId>org.hibernate</groupId>
+      <artifactId>hibernate-validator</artifactId>
+      <scope>runtime</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.portals.bridges</groupId>
+      <artifactId>portals-bridges-common</artifactId>
+      <version>1.0.4</version>
+      <scope>runtime</scope>
+    </dependency>
+    <dependency>
+      <groupId>javax.ccpp</groupId>
+      <artifactId>ccpp</artifactId>
+      <version>1.0</version>
+      <scope>runtime</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.gatein.sso</groupId>
+      <artifactId>sso-saml-plugin</artifactId>
+      <version>1.3.0.Final</version>
+      <scope>runtime</scope>
+      <exclusions>
+        <exclusion>
+          <artifactId>httpclient</artifactId>
+          <groupId>org.apache.httpcomponents</groupId>
+        </exclusion>
+        <exclusion>
+          <artifactId>jbossweb</artifactId>
+          <groupId>org.jboss.web</groupId>
+        </exclusion>
+        <exclusion>
+          <artifactId>jboss-negotiation-common</artifactId>
+          <groupId>org.jboss.security</groupId>
+        </exclusion>
+        <exclusion>
+          <artifactId>jboss-negotiation-spnego</artifactId>
+          <groupId>org.jboss.security</groupId>
+        </exclusion>
+        <exclusion>
+          <artifactId>jboss-servlet-api_3.0_spec</artifactId>
+          <groupId>org.jboss.spec.javax.servlet</groupId>
+        </exclusion>
+        <exclusion>
+          <artifactId>jbossxacml</artifactId>
+          <groupId>org.jboss.security</groupId>
+        </exclusion>
+      </exclusions>
+    </dependency>
     <!-- END -->
   </dependencies>
   <build>

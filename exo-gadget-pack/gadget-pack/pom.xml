@@ -49,7 +49,7 @@
                   <overWrite>false</overWrite>
                   <outputDirectory>${project.build.directory}/gadget-pack/gadgets/Collab-gadgets/eXoCalendar/gadget</outputDirectory>
                   <includes>**/*.*</includes>
-                  <excludes />
+                  <excludes></excludes>
                 </artifactItem>
               </artifactItems>
             </configuration>
