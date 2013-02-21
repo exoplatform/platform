@@ -1,9 +1,49 @@
 The procedure of each step will be detailed as follows:
 
 {docbook}
+<para xml:id="DEV.Cookbook.CopyTemplateOfNodeType">
+<citetitle>
+<emphasis role="bold">Step 1. Copy templates of node types.</emphasis>
+</citetitle>
+</para>
+{docbook}
+
+*1.* Add the *System* drive to both Platform servers.
+
+!images/how_to_copy_a_site/add_system_drive.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
+
+*2.* Open _system\:/jcr:system/exo:namespaces/{{{{namespace_name}}}}_, and export it.
+
+!images/how_to_copy_a_site/export_namespace.png|align="center"  width="150mm" fo:scalefit="1" html:scalefit="0"!
+
+*3.* Open _system\:/jcr\:system/exo\:namespaces/_, and import the exported file as described in *Step 2*.
+
+!images/how_to_copy_a_site/import_namespace.png|align="center"  width="150mm" fo:scalefit="1" html:scalefit="0"!
+
+*4.* In source Platform server, go to *Content administration*
+
+*5.* Open *Manage Node Type* under *Content Types*
+
+*6.* Click *Export* then choose node type to export
+
+!images/how_to_copy_a_site/export_node_type.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
+
+*7.* In target Platform server, go to *Content administration*
+
+*8.* Open *Manage Node Type* under *Content Types*
+
+*9.* Click *Import* to import exported file as describe in *Step 6* 
+
+!images/how_to_copy_a_site/import_nodetype.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
+
+{note}
+If you have some specific JCR namespaces and node types, you need to import them into the new server.
+{note}
+
+{docbook}
  <para xml:id="DEV.Cookbook.CopySitesContentFolderWithVersionHistory">
 <citetitle>
- <emphasis role="bold">Step 1. Copy a site's content folder with its version history.</emphasis>
+ <emphasis role="bold">Step 2. Copy a site's content folder with its version history.</emphasis>
  </citetitle>
 </para>
 {docbook}
@@ -29,7 +69,7 @@ One pop-up message will appear to inform that you have imported successfully.
 {docbook}
 <para xml:id="DEV.Cookbook.CopyNavigationNodesOfSites">
 <citetitle>
-<emphasis role="bold">Step 2. Copy navigation nodes of sites.</emphasis>
+<emphasis role="bold">Step 3. Copy navigation nodes of sites.</emphasis>
 </citetitle>
 </para>
 {docbook}
@@ -46,37 +86,6 @@ One pop-up message will appear to inform that you have imported successfully.
 
 !images/how_to_copy_a_site/import_site_navigations.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
 
-{docbook}
-<para xml:id="DEV.Cookbook.CopyTemplateOfNodeType">
-<citetitle>
-<emphasis role="bold">Step 3. Copy templates of node types.</emphasis>
-</citetitle>
-</para>
-{docbook}
-
-*1.* Add the *System* drive to both servers.
-
-!images/how_to_copy_a_site/add_system_drive.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
-
-*2.* Open _system\:/jcr:system/exo:namespaces/{{{{namespace_name}}}}_, and export it.
-
-!images/how_to_copy_a_site/export_namespace.png|align="center"  width="150mm" fo:scalefit="1" html:scalefit="0"!
-
-*3.* Open _system\:/jcr\:system/exo\:namespaces/_, and import the exported file as described in [*Step 2*|#DEV.Cookbook.CopyNavigationNodesOfSites].
-
-!images/how_to_copy_a_site/import_namespace.png|align="center"  width="150mm" fo:scalefit="1" html:scalefit="0"!
-
-*4.* Open _system\:/jcr\:system/jcr\:nodetypes/{{{{node_type}}}}_, and export it.
-
-!images/how_to_copy_a_site/export_node_type.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
-
-*5.* Open _system\:/jcr\:system/jcr\:nodetypes/_, and import the exported file as described in [*Step 4*|#DEV.Cookbook.CopyWCMTemplates].
-
-!images/how_to_copy_a_site/import_nodetype.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
-
-{note}
-If you have some specific JCR namespaces and node types, you need to import them into the new server.
-{note}
 
 {docbook}
 <para xml:id="DEV.Cookbook.CopyWCMTemplates">
@@ -112,7 +121,8 @@ If you want to reuse one of the non-predefined templates above, simply export an
 !images/how_to_copy_a_site/WCM_templates.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
 
 {note}
-If you have some specific WCM (CLV/PCLV) views and/or templates of node types, you will need to import them into the new server.
+* If you have some specific WCM (CLV/PCLV) views and/or templates of node types, you will need to import them into the new server.
+* When you import a document template, you need to restart Platform server to use this template.
 {note}
 
 
