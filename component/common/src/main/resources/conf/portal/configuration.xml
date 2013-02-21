@@ -13,6 +13,10 @@
         <key>org.exoplatform.platform.common.admin.TermsAndConditionsService</key>
         <type>org.exoplatform.platform.common.admin.impl.TermsAndConditionsServiceImpl</type>
     </component>
+   <!-- Groovy Template REST Deployer : Handler param -->
+   <component>
+      <type>org.exoplatform.services.jcr.ext.resource.jcr.Handler</type>
+   </component>
     <!-- GETTING STARTED -->
     <component>
         <type>org.exoplatform.platform.common.rest.services.GettingStarted.GettingStartedRestService</type>
