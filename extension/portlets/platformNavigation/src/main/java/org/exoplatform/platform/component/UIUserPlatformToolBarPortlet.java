@@ -50,7 +50,7 @@ public class UIUserPlatformToolBarPortlet extends UIPortletApplication {
     private boolean socialPortal = false;
     private static final String USER = "/user/";
     private static final String WIKI_HOME = "/WikiHome";
-    private static final String WIKI_REF = "mywiki";
+    private static final String WIKI_REF = "wiki";
 
   public UIUserPlatformToolBarPortlet() throws Exception {
 

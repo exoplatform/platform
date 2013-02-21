@@ -15,6 +15,10 @@
       <artifactId>portlet-api</artifactId>
     </dependency>
     <dependency>
+        <groupId>org.exoplatform.wiki</groupId>
+        <artifactId>wiki-service</artifactId>
+     </dependency>
+    <dependency>
       <groupId>org.exoplatform.calendar</groupId>
       <artifactId>calendar-component-create</artifactId>
     </dependency>
@@ -91,14 +95,20 @@
       <artifactId>exo.portal.webui.portlet</artifactId>
     </dependency>
     <dependency>
-      <groupId>org.gatein.shindig</groupId>
-      <artifactId>shindig-social-api</artifactId>
-    </dependency>
-    <dependency>
       <groupId>javax.servlet</groupId>
       <artifactId>javax.servlet-api</artifactId>
       <scope>provided</scope>
     </dependency>
+      <dependency>
+          <groupId>org.gatein.shindig</groupId>
+          <artifactId>shindig-social-api</artifactId>
+      </dependency>
+<dependency>
+      <groupId>org.exoplatform.forum</groupId>
+      <artifactId>forum-application-create</artifactId>
+    </dependency>
+      
+      
   </dependencies>
   <build>
     <finalName>platformNavigation</finalName>

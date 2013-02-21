@@ -8,7 +8,8 @@
          <Editor>Edit</Editor>
          <Page>Page</Page>
          <Site>Site</Site>
-         <Layout>Layout</Layout>
+         <Layout>Edit Layout</Layout>
+         <siteLayout>Layout</siteLayout>
          <ManagePages>Manage Pages</ManagePages>
          <GroupSite>Group Site</GroupSite>
          <Properties>SEO</Properties>

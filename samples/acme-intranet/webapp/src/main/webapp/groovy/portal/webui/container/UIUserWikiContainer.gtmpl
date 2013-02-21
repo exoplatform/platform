@@ -1,0 +1,94 @@
+<%
+	import org.exoplatform.commons.utils.ExpressionUtil;
+	import org.exoplatform.portal.webui.workspace.UIPortalApplication;
+	import org.exoplatform.commons.utils.HTMLEntityEncoder;
+	import org.exoplatform.portal.webui.util.Util ;
+	import org.exoplatform.portal.application.PortalRequestContext ;
+
+	PortalRequestContext pcontext = Util.getPortalRequestContext();
+
+	def rcontext = _ctx.getRequestContext();
+	ResourceBundle res = rcontext.getApplicationResourceBundle();
+
+	UIPortalApplication uiPortalApp = rcontext.getUIApplication();
+	boolean hasPermission = uicomponent.hasPermission();
+	if(!uiPortalApp.isEditing() && !hasPermission) return;
+
+	String cssStyle = "";
+	String uiComponentWidth = uicomponent.getWidth();
+	String uiComponentHeight = uicomponent.getHeight();
+	if(uiComponentWidth != null || uiComponentHeight != null) cssStyle = "style=\"";
+	if(uiComponentWidth != null) cssStyle += "width: "+uiComponentWidth+";"
+	if(uiComponentHeight != null) cssStyle += "height: "+uiComponentHeight+";"
+	if(cssStyle.length() > 0) cssStyle += "\"";
+
+	/** Trim the prefix UIContainer- if any, this hardcoded part is needed to update nested container via Ajax */
+	String componentId = uicomponent.getId();
+	if(componentId.startsWith("UIContainer-")){
+		uicomponent.setId(componentId.substring("UIContainer-".length()));
+	}
+
+  if (uiPortalApp.isEditing())
+  {
+     def reqJS = rcontext.getJavascriptManager().require("SHARED/portal", "portal");
+     reqJS.addScripts("portal.UIPortal.initMouseHover('" + uicomponent.id + "');");
+%>
+<div class="UIContainer EdittingContainer <%=hasPermission?"": "ProtectedContainer"%>"
+				id="${uicomponent.id}" ${cssStyle}>
+<%
+  }
+  else
+  {
+%>
+<div class="UIContainer <%=hasPermission?"": "ProtectedContainer"%>" id="${uicomponent.id}" ${cssStyle}>
+<%
+  }
+%>
+	<div class="NormalContainerBlock UIComponentBlock">
+		<%
+			int portalMode = uiPortalApp.getModeState();
+			if(portalMode == uiPortalApp.CONTAINER_BLOCK_EDIT_MODE || portalMode == uiPortalApp.APP_BLOCK_EDIT_MODE){
+		%>
+			<div class="LAYOUT-CONTAINER LAYOUT-BLOCK">
+		<%} else {%>
+			<div class="VIEW-CONTAINER VIEW-BLOCK">
+		<%} %>
+				<%if(hasPermission) {%>
+				  <div>
+					<div class="UIRowContainer <%=(portalMode != UIPortalApplication.NORMAL_MODE && uicomponent.getChildren().size() == 0) ? "EmptyContainer" : ""%>">
+							<% if (pcontext.getInitialURI().contains("/wiki/user/")) {%>
+								<%uicomponent.renderChildren();%>
+							<%}%>
+					</div>
+				  </div>
+					<%} else out.print("<div class='ProtectedContent'>"+_ctx.appRes("UIPortlet.label.protectedContent")+"</div>");%>
+			</div>
+
+		<%if(portalMode != UIPortalApplication.NORMAL_MODE){%>
+			<div class="EDITION-BLOCK EDITION-CONTAINER" style="display: none;position: relative;">
+				<div style="position: absolute; top: -86px;">
+					<div class="NewLayer" style="display: none; visibility: hidden;"><span></span></div>
+					<div class="CONTROL-CONTAINER CONTROL-BLOCK UIInfoBar">
+						<%/*Begin InfoBar*/%>
+
+							<div class="BlueRoundedStyle ClearFix">
+								<div class="DragControlArea" title="<%=_ctx.appRes("UIContainer.title.DragControlArea")%>"><span></span></div>
+								<%
+									String strTitle = uicomponent.getTitle() != null ?
+												ExpressionUtil.getExpressionValue(res, uicomponent.getTitle()) :
+												_ctx.appRes("UIContainer.title.Container");
+									strTitle = hasPermission ? strTitle : _ctx.appRes("UIPortlet.label.protectedContent");
+								%>
+								<div class="ContainerIcon"><%=HTMLEntityEncoder.getInstance().encode(strTitle)%></div>
+								<%if(hasPermission) {%>
+									<a href="<%=uicomponent.event("EditContainer")%>" class="EditIcon" title="<%=_ctx.appRes("UIContainer.tooltip.editContainer")%>"></a>
+									<a href="<%=uicomponent.event("DeleteComponent")%>" class="DeleteIcon" title="<%=_ctx.appRes("UIContainer.tooltip.closeContainer")%>"><span></span></a>
+								<%}%>
+							</div>
+						<%/*End InfoBar*/ %>
+					</div>
+				</div>
+			</div>
+		<%} %>
+	</div>
+</div>

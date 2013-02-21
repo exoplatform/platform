@@ -1,4 +1,3 @@
-
 <%/*
  * Copyright (C) 2012 eXo Platform SAS.
  *
@@ -23,57 +22,35 @@
 %>
 
 <script type="text/javascript">
-    $('.DeleteIcon').on("click", function () {
-        $.getJSON('/rest/homepage/intranet/getting-started/delete');
-
-        $('.GettingStartedContainer').jzLoad("GettingStarted.delete()");
-
-    });
     $('.DeleteAction').on("click", function () {
-
         $.getJSON('/rest/homepage/intranet/getting-started/delete');
         $('.GettingStartedContainer').jzLoad("GettingStarted.delete()");
-
+        $('.GettingStartedContainer').css("display","none");
     });
 </script>
 
-
-
-
-    <div class="UIGadgetThemes">
-        <div class="gadgetTitle">${titleLabel}</div>
-
-        <div  class="list-block">
-
-            <div id="progress-block">
-                <div id="progress-shell">
-                    <div id="progress-rate" style="width: ${width}px"></div>
-                </div>
-                <div id="progress-label" > ${progress} %</div>
-
+<div class="UIGadgetThemes">
+    <div class="gadgetTitle">${titleLabel}</div>
+    <div  class="list-block">
+        <div id="progress-block">
+            <div id="progress-shell">
+                <div id="progress-rate" style="width: ${width}px"></div>
             </div>
-            <%
-            //    if (show == "true") {
-            %>
-            <br>
-        <!--    <div style="height: 200px;width: 100%;" class="list">         -->
-                <ul class ="gsList" id="gsList">
-                    <li class="${status['gs_profile']}" ><a  target="_parent" href=${profile} >${profileLabel}</a></li>
-                    <li class="${status['gs_connect']}" ><a  target="_parent" href=${connect} >${connectLabel}</a></li>
-                    <li class="${status['gs_space']}" ><a target="_parent" href=${space} >${spaceLabel}</a></li>
-                    <li class="${status['gs_activities']}" ><a target="_parent" href=${activity} > ${activityLabel} </a></li>
-                    <li class="${status['gs_document']}" ><a target="_parent" href=${upload}> ${uploadLabel} </a></li>
-                </ul>
-          <!--  </div>                    -->
-
+            <div id="progress-label" > ${progress} %</div>
         </div>
-         <br>
-        <%/*}else */if(show=="false"){%>
-        <div id="DeleteLink" style="display: block">
-
-
-            <span style="text-align: center;background-color: silver;" class="DeleteAction">Delete the Portlet</span>
-
-        </div>
-        <%}%>
+        <br>
+        <ul class ="gsList" id="gsList">
+            <li class="${status['gs_profile']}" ><a  target="_parent" href=${profile} >${profileLabel}</a></li>
+            <li class="${status['gs_connect']}" ><a  target="_parent" href=${connect} >${connectLabel}</a></li>
+            <li class="${status['gs_space']}" ><a target="_parent" href=${space} >${spaceLabel}</a></li>
+            <li class="${status['gs_activities']}" ><a target="_parent" href=${activity} > ${activityLabel} </a></li>
+            <li class="${status['gs_document']}" ><a target="_parent" href=${upload}> ${uploadLabel} </a></li>
+        </ul>
     </div>
+    <br>
+    <%if(show=="false"){%>
+    <div id="DeleteLink" style="display: block">
+        <span style="text-align: center;background-color: silver;cursor: pointer;" class="DeleteAction">${closeLabel}</span>
+    </div>
+    <%}%>
+</div>

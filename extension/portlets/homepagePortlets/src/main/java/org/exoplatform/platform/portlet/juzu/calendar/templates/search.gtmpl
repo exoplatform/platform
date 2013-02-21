@@ -24,31 +24,23 @@
 
     $('.CalendarItem').mouseover(function() {
         var button= $(this).children("p.addButton");
-
         button.css("display","block");
-
     });
     $('.CalendarItem').mouseout(function() {
         var button= $(this).children("p.addButton");
         button.css("display","none");
     });
     $('span.addButtonSpan').on("click", function() {
-
         var calId=$(this).parent().children("input").val();
-
         $('div.SettingsContainerData').jzLoad(
                 "CalendarPortletController.addCalendar()",
                 {"calendarId":calId});
-
     });
     $('span.deleteButtonSpan').on("click", function() {
-
         var calId=$(this).parent().children("input").val();
-
         $('div.SettingsContainerData').jzLoad(
                 "CalendarPortletController.deleteCalendar()",
                 {"calendarId":calId});
-
     });
 </script>
 <style type="text/css">
@@ -80,10 +72,9 @@
     searchResultList.each { cal ->
         def   calendarName= cal.name;
         def hover="";
-         if((calendarName.indexOf("default") != -1)&&(cal.groups==null))  hover="Default Personnal Calendar";
+        if(((calendarName.indexOf("Default") != -1)||(calendarName.indexOf("Défault") != -1))&&(cal.groups==null))  hover=defaultPersonnal;
         if (cal.groups != null) {
             def group = cal.groups[0];
-            //calendarName += grpName;
             hover= " (" + group.substring(group.lastIndexOf("/") + 1) + ")";
         }
 %>

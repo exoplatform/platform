@@ -1,6 +1,8 @@
 package org.exoplatform.platform.component;
 
 import org.exoplatform.cs.event.UICreateEvent;
+import org.exoplatform.forum.create.UICreatePoll;
+import org.exoplatform.forum.create.UICreateTopic;
 import org.exoplatform.services.log.ExoLogger;
 import org.exoplatform.services.log.Log;
 import org.exoplatform.wcm.webui.Utils;
@@ -73,70 +75,75 @@ public class UICreateList extends UIContainer {
         public void execute(Event<UICreateList> event)
                 throws Exception {
 
-            UICreatePlatformToolBarPortlet uiForm = (UICreatePlatformToolBarPortlet) event.getSource().getAncestorOfType(UICreatePlatformToolBarPortlet.class);
+            UICreatePlatformToolBarPortlet uiParent = (UICreatePlatformToolBarPortlet) event.getSource().getAncestorOfType(UICreatePlatformToolBarPortlet.class);
             UICreateList uisource = (UICreateList) event.getSource();
             remove(uisource);
             uisource.addChild(UICreateEvent.class, null, null).setRendered(true);
             event.getRequestContext().addUIComponentToUpdateByAjax(uisource);
-            event.getRequestContext().addUIComponentToUpdateByAjax(uiForm);
+            event.getRequestContext().addUIComponentToUpdateByAjax(uiParent);
+            event.getRequestContext().getJavascriptManager().require("SHARED/navigation-toolbar", "toolbarnav").addScripts("toolbarnav.UIPortalNavigation.ClickActionButton('"+uiParent.getId()+"') ;");
+
         }
 
     }
 
-    static public class PollActionListener extends EventListener<UICreateList> {
+  static public class PollActionListener extends EventListener<UICreateList> {
 
+    public void execute(Event<UICreateList> event) throws Exception {
+        UICreatePlatformToolBarPortlet uiParent = (UICreatePlatformToolBarPortlet) event.getSource().getAncestorOfType(UICreatePlatformToolBarPortlet.class);
 
-        public void execute(Event<UICreateList> event)
-                throws Exception {
+        parStatus = event.getRequestContext().getRequestParameter(OBJECTID);
+      UICreateList uisource = event.getSource();
+      remove(uisource);
+      UICreatePoll createPoll = uisource.addChild(UICreatePoll.class, null, null);
+      createPoll.setRendered(true);
+      createPoll.setParStatus(parStatus);
+      event.getRequestContext().addUIComponentToUpdateByAjax(uisource);
+        event.getRequestContext().addUIComponentToUpdateByAjax(uiParent);
 
-            UICreatePlatformToolBarPortlet uiForm = (UICreatePlatformToolBarPortlet) event.getSource().getAncestorOfType(UICreatePlatformToolBarPortlet.class);
-            parStatus = event.getRequestContext().getRequestParameter("objectId");
-
-            UICreateList uisource = (UICreateList) event.getSource();
-            remove(uisource);
-            uisource.addChild(UICreateForm.class, null, null).setRendered(true);
-            event.getRequestContext().addUIComponentToUpdateByAjax(uisource);
-            event.getRequestContext().addUIComponentToUpdateByAjax(uiForm);
-        }
+        event.getRequestContext().getJavascriptManager().require("SHARED/navigation-toolbar", "toolbarnav").addScripts("toolbarnav.UIPortalNavigation.ClickActionButton('"+uiParent.getId()+"') ;");
 
     }
 
+  }
 
-    static public class TopicActionListener extends EventListener<UICreateList> {
 
+  static public class TopicActionListener extends EventListener<UICreateList> {
 
-        public void execute(Event<UICreateList> event)
-                throws Exception {
+    public void execute(Event<UICreateList> event) throws Exception {
+        UICreatePlatformToolBarPortlet uiParent = (UICreatePlatformToolBarPortlet) event.getSource().getAncestorOfType(UICreatePlatformToolBarPortlet.class);
 
-            UICreatePlatformToolBarPortlet uiForm = (UICreatePlatformToolBarPortlet) event.getSource().getAncestorOfType(UICreatePlatformToolBarPortlet.class);
-            parStatus = event.getRequestContext().getRequestParameter("objectId");
-            UICreateList uisource = (UICreateList) event.getSource();
-            remove(uisource);
-            uisource.addChild(UICreateForm.class, null, null).setRendered(true);
-            event.getRequestContext().addUIComponentToUpdateByAjax(uisource);
-            event.getRequestContext().addUIComponentToUpdateByAjax(uiForm);
-        }
+        parStatus = event.getRequestContext().getRequestParameter(OBJECTID);
+      UICreateList uisource = event.getSource();
+      remove(uisource);
+      UICreateTopic createTopic = uisource.addChild(UICreateTopic.class, null, null);
+      createTopic.setRendered(true);
+      createTopic.setParStatus(parStatus);
+      event.getRequestContext().addUIComponentToUpdateByAjax(uisource);
+      event.getRequestContext().addUIComponentToUpdateByAjax(uiParent);
+
+      event.getRequestContext().getJavascriptManager().require("SHARED/navigation-toolbar", "toolbarnav").addScripts("toolbarnav.UIPortalNavigation.ClickActionButton('"+uiParent.getId()+"') ;");
+
     }
+  }
 
 
     static public class WikiActionListener extends EventListener<UICreateList> {
 
         public void execute(Event<UICreateList> event)
                 throws Exception {
-            UICreatePlatformToolBarPortlet uiForm = (UICreatePlatformToolBarPortlet) event.getSource().getAncestorOfType(UICreatePlatformToolBarPortlet.class);
+            UICreatePlatformToolBarPortlet uiParent = (UICreatePlatformToolBarPortlet) event.getSource().getAncestorOfType(UICreatePlatformToolBarPortlet.class);
             parStatus = event.getRequestContext().getRequestParameter("objectId");
             UICreateList uisource = (UICreateList) event.getSource();
             remove(uisource);
             uisource.addChild(UICreateForm.class, null, null).setRendered(true);
             event.getRequestContext().addUIComponentToUpdateByAjax(uisource);
-            event.getRequestContext().addUIComponentToUpdateByAjax(uiForm);
+            event.getRequestContext().addUIComponentToUpdateByAjax(uiParent);
+            event.getRequestContext().getJavascriptManager().require("SHARED/navigation-toolbar", "toolbarnav").addScripts("toolbarnav.UIPortalNavigation.ClickActionButton('"+uiParent.getId()+"') ;");
+
         }
     }
 
-
-    /**
-     * *
-     */
 
     static public class UploadActionListener extends EventListener<UICreateList> {
 
@@ -157,12 +164,13 @@ public class UICreateList extends UIContainer {
 
         public void execute(Event<UICreateList> event)
                 throws Exception {
-            UICreatePlatformToolBarPortlet uiForm = (UICreatePlatformToolBarPortlet) event.getSource().getAncestorOfType(UICreatePlatformToolBarPortlet.class);
+            UICreatePlatformToolBarPortlet uiParent = (UICreatePlatformToolBarPortlet) event.getSource().getAncestorOfType(UICreatePlatformToolBarPortlet.class);
             UICreateList uiparent = event.getSource();
             WebuiRequestContext context = event.getRequestContext();
             remove(uiparent);
             context.addUIComponentToUpdateByAjax(uiparent);
-            context.addUIComponentToUpdateByAjax(uiForm);
+            context.addUIComponentToUpdateByAjax(uiParent);
+            event.getRequestContext().getJavascriptManager().require("SHARED/navigation-toolbar", "toolbarnav").addScripts("toolbarnav.UIPortalNavigation.ClickActionButton('"+uiParent.getId()+"') ;");
 
 
         }

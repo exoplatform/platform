@@ -51,7 +51,7 @@ public class HelpServiceImpl implements HelpService {
 
     public String fetchHelpPage(String currentNavigation) {
 
-        String helpPage = Helper.DEFAULT_HELP_PAGE;
+        String helpPage = DEFAULT_HELP_PAGE;
 
         if (props != null) {
 
@@ -75,7 +75,7 @@ public class HelpServiceImpl implements HelpService {
                  return props.getProperty("default") ;
             }
         }
-        return Helper.DEFAULT_HELP_PAGE;
+        return DEFAULT_HELP_PAGE;
 
     }
 

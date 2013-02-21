@@ -68,15 +68,15 @@ public class ForumRestService implements ResourceContainer {
      CacheControl cacheControl = new CacheControl();
      cacheControl.setNoCache(true);
      cacheControl.setNoStore(true);
-     ForumService forumService = (ForumService)ExoContainerContext.getCurrentContainer().getComponentInstanceOfType(ForumService.class);
      ForumStatistic forumStatistic = new ForumStatistic();   
      try
      {
+       ForumService forumService = (ForumService)ExoContainerContext.getCurrentContainer().getComponentInstanceOfType(ForumService.class);
        forumStatistic= forumService.getForumStatistic();
      }
      catch (Exception e)
      {
-       LOG.error("forumStatistic not found", e);
+       LOG.debug("forumStatistic not found" + e.getMessage());
      }
      List<Object> dataForumStatistic = new ArrayList<Object>();
 

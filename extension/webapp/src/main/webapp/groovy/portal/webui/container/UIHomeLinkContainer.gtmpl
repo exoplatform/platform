@@ -7,10 +7,11 @@
         String path = NavigationServiceHandler.getHomePageLogoURI();
         if(path != null)
         imgSrc = "/portal/rest/jcr/repository/collaboration" + path;
+        
 %>
 
 <div id="<%=uicomponent.id%>">
 <a href="<%=NavigationURLUtils.getCurrentPortalURL()%>" class="HomeLink">
-    <img src="$imgSrc" alt="Home" />
+    <img src="$imgSrc" alt="Home" >
 </a>
 </div>

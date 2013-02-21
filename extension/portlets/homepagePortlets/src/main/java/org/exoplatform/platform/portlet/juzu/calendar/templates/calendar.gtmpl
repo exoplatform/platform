@@ -21,173 +21,192 @@
 %>
 
 <%
-import java.text.DateFormat;
-import org.exoplatform.calendar.service.CalendarEvent;
-import org.exoplatform.web.application.RequestContext;
-import java.util.Locale;
+    import java.text.DateFormat;
+    import org.exoplatform.calendar.service.CalendarEvent;
+    import org.exoplatform.web.application.RequestContext;
+    import java.util.Locale;
+
 %>
 
 <script>
-     $('span.PrevDateSpan').on("click", function() {
-
-     $('div.CalendarPortletData').jzLoad(
+    $('span.PrevDateSpan').on("click", function() {
+        $('div.CalendarPortletData').jzLoad(
                 "CalendarPortletController.decDate()",
                 {"nbClick":"1"});
-
     });
     $('span.NextDateSpan').on("click", function() {
-
-
-
         $('div.CalendarPortletData').jzLoad(
                 "CalendarPortletController.incDate()",
                 {"nbClick":"1"});
+    });
+    $('.SettingsLink').on("click", function(){
+        $('.CalendarPortlet').jzLoad(
+                "CalendarPortletController.setting()");
+    });
+    $('.CalendarPortlet').mouseover(function () {
+        $('.SettingsContainerPage').children("div").css("display", "block");
 
+    });
+    $('.CalendarPortlet').mouseout(function () {
+        $('.SettingsContainerPage').children("div").css("display", "none");
     });
 </script>
 <div class="CalendarPortlet">
-<div class="CalendarPortletData">
-    <div class="DateContainer">
-        <div class="PrevDateLink">
-            <span class="PrevDateSpan"></span>
+    <div class="CalendarPortletData">
+        <div class="DateContainer">
+            <div class="PrevDateLink">
+                <span class="PrevDateSpan"></span>
+            </div>
+
+            <div class="CurrentDateContainer">
+                <a href="#">${date_act}</a>
+            </div>
+
+            <div class="NextDateLink">
+                <span class="NextDateSpan"></span>
+            </div>
         </div>
 
-        <div class="CurrentDateContainer">
-            <a href="#">${date_act}</a>
+
+        <div id="CalendarContainer" class="MyCalendars">
+
+            <% if (displayedCalendar != null) {
+
+                displayedCalendar.each { cal ->
+                    def calendarName= cal.name;
+                    def hover= "";
+                    if(((calendarName.indexOf("Default") != -1)||(calendarName.indexOf("Défault") != -1))&&(cal.groups==null))  hover=bundle["defaultPersonnal"];
+                    if (cal.groups != null) {
+                        def group = cal.groups[0];
+                        hover = " (" + group.substring(group.lastIndexOf("/") + 1) + ")";
+                    }
+            %>
+            <p class="flottante CalendarName" style="background-color:  ${cal.calendarColor}" class="" id="${cal.id}" title="${hover}">${calendarName}</p>
+            <% }
+            }
+            %>
+            <div class="spacer">&nbsp;</div>
         </div>
 
-        <div class="NextDateLink">
-            <span class="NextDateSpan"></span>
-        </div>
-    </div>
-
-
-    <div id="CalendarContainer" class="MyCalendars">
-
-        <% if (displayedCalendar != null) {
-
-            displayedCalendar.each { cal ->
-                def   calendarName= cal.name;
-                def hover= "";
-                if((calendarName.indexOf("default") != -1)&&(cal.groups==null))  hover="Default Personnal Calendar";
-                if (cal.groups != null) {
-                    def group = cal.groups[0];
-                    hover = " (" + group.substring(group.lastIndexOf("/") + 1) + ")";
-                }
-        %>
-        <p class="flottante CalendarName" style="background-color:  ${cal.calendarColor}" class="" id="${cal.id}" title="${hover}">${calendarName}</p>
-        <% }
-        }
-        %>
-        <div class="spacer">&nbsp;</div>
-    </div>
-
-    <div class="Events">
+        <div class="Events">
             <%if ((eventsDisplayedList != null) && (eventsDisplayedList.size() != 0)) {%>
-        <div class="EventsList ">
+            <div class="EventsList ">
 
-            <%
-                def allDayLabel = bundle["allDayLabel"];
+                <%
+                        def allDayLabel = bundle["allDayLabel"];
 
-                Locale locale= RequestContext.getCurrentInstance().getLocale();
+                        Locale locale= RequestContext.getCurrentInstance().getLocale();
 
-                sdf1= DateFormat.getDateInstance(DateFormat.SHORT,locale);
+                        sdf1= DateFormat.getDateInstance(DateFormat.SHORT,locale);
 
-                sdf2= DateFormat.getTimeInstance(DateFormat.SHORT,locale);
-                def from;
-                def to;
+                        sdf2= DateFormat.getTimeInstance(DateFormat.SHORT,locale);
+                        def from;
+                        def to;
                         eventsDisplayedList.each { event ->
-                        def color = calendarDisplayedMap[event.calendarId].calendarColor;
-                        def eventCss = "";
-                        if (new Date().compareTo(event.toDateTime) > 0) eventCss = "PastEvent";
-                        else eventCss = "EventLink" ;
-                def href="/portal/intranet/calendar/details/"+event.id;
-            %>
-            <div class="${eventCss}" style="height:40px;border-radius:11px;border-style: solid;border-color:  ${color}"
-                 class="" id="${event.id}">
-                <p class="flottante EventSummary" style="padding:5px;width:100px;">
-                    <a href="${href}">${event.summary}</a>
-                </p>
+                            def color = calendarDisplayedMap[event.calendarId].calendarColor;
+                            def eventCss = "";
+                            if (new Date().compareTo(event.toDateTime) > 0) eventCss = "PastEvent";
+                            else eventCss = "EventLink" ;
+                            def href="/portal/intranet/calendar/details/"+event.id;
+                %>
+                <div class="${eventCss}" style="height:40px;border-radius:11px;border-style: solid;border-color:  ${color}"
+                     class="" id="${event.id}">
+                    <p class="flottante EventSummary" style="padding:5px;width:100px;">
+                        <a style="font-size: 1em" href="${href}">${event.summary}</a>
+                    </p>
 
-                <p style="float:right">
-                    <% if (event.toDateTime.getTime() - event.fromDateTime.getTime() == 86399999) { %>
-                    <span>${allDayLabel}</span>
-                    <% } else if (event.toDateTime.getTime() - event.fromDateTime.getTime() > 86399999) {
-                        from = sdf1.format(event.fromDateTime);
-                        if(from.substring(2,3).equals("00"))   from=from.substring(0,2) ;
-                        to = sdf1.format(event.toDateTime);
-                        if(to.substring(2,3).equals("00"))   to=to.substring(0,2) ;
-                    %>
+                    <p style="float:right">
+                        <% if (event.toDateTime.getTime() - event.fromDateTime.getTime() == 86399999) { %>
+                        <span>${allDayLabel}</span>
+                        <% } else if (event.toDateTime.getTime() - event.fromDateTime.getTime() > 86399999) {
 
-                    <span>
-                    ${bundle["fromLabel"]}  ${from}
-                    </span>
-                    <br>
-                    <span>
-                        ${bundle["toLabel"]}  ${to}
-                    </span>
-                    <% } else if (event.toDateTime.getTime() - event.fromDateTime.getTime() < 86399999) {
-                        from = sdf2.format(event.fromDateTime);
-                        to = sdf2.format(event.toDateTime);
-                    %>
+                            from = sdf1.format(event.fromDateTime);
+                            String year=event.fromDateTime.format("yyyy");
+                            String[] dateSplit = from.split("/");
+                            if(dateSplit.length!=0) from=dateSplit[0]+"/"+dateSplit[1]+"/"+year;
+                            to = sdf1.format(event.toDateTime);
+                            year=event.toDateTime.format("yyyy");
+                            dateSplit =to.split("/");
+                            if(dateSplit.length!=0) to=dateSplit[0]+"/"+dateSplit[1]+"/"+year;
 
-                    <span>
-                      ${from} - ${to}
-                    </span>
+                        %>
+
+                        <span style="font-size: 1em">
+                            ${bundle["fromLabel"]}  ${from}
+                        </span>
+                        <br>
+                        <span style="font-size: 1em">
+                            ${bundle["toLabel"]}  ${to}
+                        </span>
+                        <% } else if (event.toDateTime.getTime() - event.fromDateTime.getTime() < 86399999) {
+                            from = sdf2.format(event.fromDateTime);
+                            to = sdf2.format(event.toDateTime)
+                            if(locale.getLanguage().equals("en")){
+                                if(from.indexOf("00")==2)   from=from.substring(0,1)+ from.substring(4);
+                                if(from.indexOf("00")==3)   from=from.substring(0,2)+ from.substring(5);
+                                if(to.indexOf("00")==2)   to=to.substring(0,1) + to.substring(4);
+                                if(to.indexOf("00")==3)   to=to.substring(0,2) + to.substring(5);
+                            }
+                        %>
+
+                        <span style="font-size: 1em">
+                            ${from} - ${to}
+                        </span>
 
 
-                    <% } %>
-                </p>
+                        <% } %>
+                    </p>
 
-                <div class="spacer">&nbsp;
+                    <div class="spacer">&nbsp;
+                    </div>
+
                 </div>
+                <% }
 
+                %>
             </div>
-            <% }
-
+            <%} else{
             %>
-        </div>
-        <%} else{
-        %>
-        <span style="text-align: center"> ${bundle["noEventsLabel"]} </span>
-        <%}%>
-        <br>
-    </div>
-
-
-
-    <% if ((tasksDisplayedList != null) && (tasksDisplayedList.size() != 0)) { %>
-    <div class="Tasks ">
-
-        <div class="TasksTitle">
-            ${bundle["tasklabel"]}
+            <p style="text-align: center"> ${bundle["noEventsLabel"]} </p>
+            <%}%>
+            <br>
         </div>
 
-        <div class="TasksList">
-            <% def cssClass = "";
-                if (tasksDisplayedList != null) {
 
-                    tasksDisplayedList.each { task ->
-                        if ((task.eventState).equals(CalendarEvent.COMPLETED)) cssClass = "TaskCompleted";
-                        else if (((task.eventState).equals(CalendarEvent.NEEDS_ACTION)) && (task.toDateTime.compareTo(new Date()) > 0)) cssClass = "taskNotCompleted";
-                        else if (((task.eventState).equals(CalendarEvent.NEEDS_ACTION)) && (task.toDateTime.compareTo(new Date()) < 0))cssClass = "TaskLateNotCompleted"  ;
-                        def href="/portal/intranet/calendar/details/"+task.id;
-            %>
-            <div>
 
-                <a href="${href}" class="EventSummary ${cssClass}">${task.summary}</a>
+        <% if ((tasksDisplayedList != null) && (tasksDisplayedList.size() != 0)) { %>
+        <div class="Tasks ">
 
+            <div class="TasksTitle">
+                ${bundle["tasklabel"]}
             </div>
-            <% }
-            } %>
+
+            <div class="TasksList">
+                <% def cssClass = "";
+                    if (tasksDisplayedList != null) {
+
+                        tasksDisplayedList.each { task ->
+                            cssClass="taskNotCompleted";
+                            if ((task.eventState).equals(CalendarEvent.COMPLETED)) cssClass = "TaskCompleted";
+                            else if (((task.eventState).equals(CalendarEvent.NEEDS_ACTION)) && (task.toDateTime.compareTo(new Date()) > 0)) cssClass = "taskNotCompleted";
+                            else if (((task.eventState).equals(CalendarEvent.NEEDS_ACTION)) && (task.toDateTime.compareTo(new Date()) < 0))cssClass = "TaskLateNotCompleted"  ;
+                            def href="/portal/intranet/calendar/details/"+task.id;
+                %>
+                <div>
+
+                    <a href="${href}" class="EventSummary ${cssClass}">${task.summary}</a>
+
+                </div>
+                <% }
+                } %>
+            </div>
+        </div>
+        <% } %>
+        <div class="SettingsContainerPage" >
+            <div style="display: none">
+                <a class="SettingsLink"> </a>
+            </div>
         </div>
     </div>
-    <% } %>
-    <div class="SettingsContainerPage" >
-        <div style="display: none">
-            <a class="SettingsLink"  href="@{setting()}"> </a>
-        </div>
-    </div>
-</div>
 
 </div>

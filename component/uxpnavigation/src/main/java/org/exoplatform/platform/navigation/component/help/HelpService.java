@@ -24,5 +24,6 @@ package org.exoplatform.platform.navigation.component.help;
  */
 public interface HelpService {
 
+    public static final String DEFAULT_HELP_PAGE= " http://docs.exoplatform.com/PLF35/index.jsp?topic=%2Forg.exoplatform.doc.35%2FUserGuide.html";
     String fetchHelpPage(String currentNavigation);
 }
