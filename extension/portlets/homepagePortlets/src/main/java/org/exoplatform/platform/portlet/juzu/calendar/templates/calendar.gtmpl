@@ -39,8 +39,8 @@
             "CalendarPortletController.incDate()",
             {"nbClick":"1"});
     });
-$('.settingsLink').on("click", function(){
-        $('.CalendarPortlet').jzLoad(
+    $('.settingsLink').on("click", function(){
+        $('.calendarPortlet').jzLoad(
                 "CalendarPortletController.setting()");
     });
     $('.calendarPortlet').mouseover(function () {

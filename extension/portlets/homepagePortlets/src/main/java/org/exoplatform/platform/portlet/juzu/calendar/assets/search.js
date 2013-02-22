@@ -8,13 +8,13 @@ $(function () {
                 }
                 ,100);
 
-        //not taken effects must be deplaced to
+        //not taken effects must be duplicated to gtmpl
         $('.SettingValidationButton').on('click',function(){
             $('div.CalendarPortletContainer').jzLoad(
                     "CalendarPortletController.calendarHome()");
         });
-        $('.SettingsLink').on("click", function(){
-            $('.CalendarPortlet').jzLoad(
+        $('.settingsLink').on("click", function(){
+            $('.calendarPortlet').jzLoad(
                     "CalendarPortletController.setting()");
         });
         $('span.addButtonSpan').on("click", function () {
@@ -97,20 +97,20 @@ $(function () {
             var button = $(this).children("p.addButton");
             button.css("display", "none");
         });
-        $('.CalendarPortlet').mouseover(function () {
-            $('.SettingsContainerPage').children("div").css("display", "block");
+        $('.calendarPortlet').mouseover(function () {
+            $('.settingsContainerPage').children("a").css("display", "block");
 
         });
-        $('.CalendarPortlet').mouseout(function () {
-            $('.SettingsContainerPage').children("div").css("display", "none");
+        $('.calendarPortlet').mouseout(function () {
+            $('.settingsContainerPage').children("a").css("display", "none");
         });
-        $('span.PrevDateSpan').on("click", function () {
-            $('div.CalendarPortletData').jzLoad(
+        $('.prevDate').on("click", function () {
+            $('div.calendarPortletData').jzLoad(
                     "CalendarPortletController.decDate()",
                     {"nbClick":"1"});
         });
-        $('span.NextDateSpan').on("click", function () {
-            $('div.CalendarPortletData').jzLoad(
+        $('.nextDate').on("click", function () {
+            $('div.calendarPortletData').jzLoad(
                     "CalendarPortletController.incDate()",
                     {"nbClick":"1"});
         });
