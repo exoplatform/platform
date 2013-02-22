@@ -10,33 +10,33 @@
   <version>4.0.0-SNAPSHOT</version>
   <packaging>war</packaging>
   <name>eXo Platform - IDE Webapp</name>
-    <dependencies>
-        <dependency>
-            <groupId>org.exoplatform.platform</groupId>
-            <artifactId>platform-component-ide-extension-config</artifactId>
-            <scope>runtime</scope>
-        </dependency>
-       <dependency>
-          <groupId>org.exoplatform.ide</groupId>
-          <artifactId>exo-ide-extension-chromattic-server</artifactId>
-          <scope>runtime</scope>
-       </dependency>
-       <dependency>
-          <groupId>org.exoplatform.ide</groupId>
-          <artifactId>exo-ide-extension-gadget-server</artifactId>
-          <scope>runtime</scope>
-       </dependency>
-       <dependency>
-          <groupId>org.exoplatform.ide</groupId>
-          <artifactId>exo-ide-extension-groovy-server</artifactId>
-          <scope>runtime</scope>
-       </dependency>
-       <dependency>
-          <groupId>org.exoplatform.ide</groupId>
-          <artifactId>exo-ide-server</artifactId>
-          <scope>runtime</scope>
-       </dependency>
-    </dependencies>
+  <dependencies>
+    <dependency>
+      <groupId>org.exoplatform.platform</groupId>
+      <artifactId>platform-component-ide-extension-config</artifactId>
+      <scope>runtime</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.exoplatform.ide</groupId>
+      <artifactId>exo-ide-extension-chromattic-server</artifactId>
+      <scope>runtime</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.exoplatform.ide</groupId>
+      <artifactId>exo-ide-extension-gadget-server</artifactId>
+      <scope>runtime</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.exoplatform.ide</groupId>
+      <artifactId>exo-ide-extension-groovy-server</artifactId>
+      <scope>runtime</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.exoplatform.ide</groupId>
+      <artifactId>exo-ide-server</artifactId>
+      <scope>runtime</scope>
+    </dependency>
+  </dependencies>
   <build>
     <finalName>ide-extension</finalName>
   </build>
