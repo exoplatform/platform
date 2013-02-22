@@ -32,7 +32,6 @@
   import org.exoplatform.web.application.JavascriptManager;
   import org.gatein.common.text.EntityEncoder;
 
-
     def findSpacesLink = NavigationURLUtils.getURLInCurrentPortal("all-spaces");
 	def groupNavigations = uicomponent.getSpaceLastedAccessed();
 	def spaceTotal=groupNavigations.size();
@@ -95,7 +94,7 @@
 
 
 				<li class="spaceItem $tabStyleNavigation">
-					<a href="javascript:void(0);" onclick="$link" class="spaceIcon" title="$spaceDisplayName"><img title="" alt="" src="$spaceImageSource" /> $spaceDisplayName</a>
+					<a href="javascript:void(0);" onclick="$link" class="spaceIcon avatarMini" title="$spaceDisplayName"><img title="" alt="" src="$spaceImageSource" /> $spaceDisplayName</a>
 				</li>
 	<%
 

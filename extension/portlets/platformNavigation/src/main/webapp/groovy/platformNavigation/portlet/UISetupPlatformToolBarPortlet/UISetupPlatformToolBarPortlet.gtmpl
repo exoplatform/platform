@@ -25,9 +25,9 @@
       }
       %><li class="$clazz">
       <%if(href != null) {%>
-        <a href="$href"><i class="$icon"></i>$label</a>
+        <a href="$href">$label</a>
     <%} else {%>
-        <a href="#"><i class="$icon"></i>$label</a>
+        <a href="#">$label</a>
     <%}
       if(hasChild) {%>
         <ul class="dropdown-menu">
