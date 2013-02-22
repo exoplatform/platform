@@ -488,6 +488,11 @@
         <artifactId>platform-component-organization</artifactId>
         <version>${project.version}</version>
       </dependency>
+       <dependency>
+          <groupId>org.exoplatform.platform</groupId>
+          <artifactId>platform-component-upgrade-plugins</artifactId>
+          <version>${project.version}</version>
+       </dependency>
       <dependency>
         <groupId>org.exoplatform.platform</groupId>
         <artifactId>platform-component-uxpnavigation</artifactId>
