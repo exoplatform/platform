@@ -21,7 +21,9 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.Locale;
 import java.util.Map;
+import java.util.ResourceBundle;
 import javax.inject.Inject;
 import juzu.Path;
 import juzu.Resource;
@@ -39,12 +41,7 @@ import org.exoplatform.commons.api.settings.data.Context;
 import org.exoplatform.commons.api.settings.data.Scope;
 import org.exoplatform.container.ExoContainerContext;
 import org.exoplatform.platform.portlet.juzu.branding.models.BrandingDataStorageService;
-import java.util.Locale;
-import java.util.MissingResourceException;
-import java.util.ResourceBundle;
-import org.exoplatform.services.jcr.ext.common.SessionProvider;
 import org.exoplatform.web.application.RequestContext;
-import org.gatein.common.text.EntityEncoder;
 
 /**
  * Created by The eXo Platform SAS Author : Nguyen Viet Bang
@@ -70,23 +67,8 @@ public class BrandingController {
   BrandingDataStorageService dataStorageService;
 
   /**
-   * method getStyleValue() responses a content 
-   * if null returns Dark (default) otherwise return the style selected
-   * @return Response.Content 
-   */
-  @Ajax
-  @Resource
-  public Response.Content getStyleValue() {
-    String style = "Dark";
-    if (settingService.get(Context.GLOBAL, Scope.GLOBAL, BAR_NAVIGATION_STYLE_KEY) != null) {
-      style = (String) settingService.get(Context.GLOBAL, Scope.GLOBAL, BAR_NAVIGATION_STYLE_KEY)
-                                     .getValue();
-    }
-    return Response.ok(style);
-  }
-
-  /**
    * method save() records an image in BrandingDataStorageService
+   * 
    * @param httpContext
    * @param file
    * @param style
@@ -94,32 +76,36 @@ public class BrandingController {
    * @throws IOException
    */
   @Resource
-  public Response.Content save(HttpContext httpContext, FileItem file, String style) throws IOException {
-    if (file != null && file.getContentType().startsWith("image/")) {
-      dataStorageService.saveFile(file);
+  public Response.Content uploadFile(HttpContext httpContext, FileItem file, String browser) throws IOException {
+    if (browser != null && browser.equals("html5")) {
+      if (file != null && file.getContentType().contains("png")) {
+        dataStorageService.saveLogoPreview(file);
+      }
+      Map<String, String> result = new HashMap<String, String>();
+      result.put("logoUrl", getLogoUrl(httpContext, false));
+      return createJSON(result);
+    } else {
+      if (file != null && file.getContentType().contains("png")) {
+        dataStorageService.saveLogoPreview(file);
+        return createText(getLogoUrl(httpContext, false));
+      } else {
+        return createText("false");
+      }
     }
-    if (style != null && style != "") {
-      settingService.set(Context.GLOBAL,
-                         Scope.GLOBAL,
-                         BAR_NAVIGATION_STYLE_KEY,
-                         SettingValue.create(style));
-      this.style = style;
-    }
-    return getResource(httpContext);
   }
 
   /**
-   * The controller method index() is the name of the default method that Juzu will call.
-   * set localization and put into parameters
+   * The controller method index() is the name of the default method that Juzu
+   * will call. set localization and put into parameters
+   * 
    * @param httpContext
    * @return Response
    */
   @View
-  @Route("/")
   public Response index(HttpContext httpContext) {
     Map<String, Object> parameters = new HashMap<String, Object>();
-    parameters.put("url", BrandingController_.save(null));
-    parameters.put("imageUrl", getLogoUrl(httpContext));
+    parameters.put("urlUploadFile", BrandingController_.uploadFile(null));
+    parameters.put("imageUrl", getLogoUrl(httpContext, true));
     Locale locale = RequestContext.getCurrentInstance().getLocale();
     ResourceBundle rs = ResourceBundle.getBundle("branding/branding", locale);
     parameters.put("selectlogo", rs.getString("selectlogo.label"));
@@ -134,12 +120,13 @@ public class BrandingController {
     return index.ok(parameters);
   }
 
-/**
- * verify if the url of logo is available
- * return true if exist, otherwise return false
- * @param logoUrl
- * @return boolean
- */
+  /**
+   * verify if the url of logo is available return true if exist, otherwise
+   * return false
+   * 
+   * @param logoUrl
+   * @return boolean
+   */
   public boolean isExiste(String logoUrl) {
     int code;
     try {
@@ -154,66 +141,81 @@ public class BrandingController {
     return code == 200;
   }
 
-/**
- * return the url of logo
- * @param httpContext
- * @return Response.Content
- */
+  /**
+   * this method will be invoked when the user click on save
+   * 
+   * @param style style of navigation bar
+   * @param isChangeLogo to know if the logo will be update from logo preview
+   * @return
+   */
   @Ajax
   @Resource
-  public Response.Content getLogoUrlByAjax(HttpContext httpContext) {
-    String logoUrl = getLogoUrl(httpContext);
-    return Response.ok(logoUrl);
+  public Response.Content save(String style, String isChangeLogo, HttpContext httpContext) {
+    if (isChangeLogo != null && Boolean.valueOf(isChangeLogo)) {
+      dataStorageService.saveLogo();
+    }
+    if (style != null && style != "") {
+      settingService.set(Context.GLOBAL,
+                         Scope.GLOBAL,
+                         BAR_NAVIGATION_STYLE_KEY,
+                         SettingValue.create(style));
+    }
+    return getResource(httpContext);
   }
 
   /**
    * get logo URL to String
+   * 
    * @param httpContext
    * @return String
    */
-  public String getLogoUrl(HttpContext httpContext) {
-
-    // append the String current time to url to resolve the problem of cache at
-    // client
+  public String getLogoUrl(HttpContext httpContext, boolean isRealLogo) {
     String portalName = ExoContainerContext.getCurrentContainer()
                                            .getContext()
                                            .getPortalContainerName();
-    String logoUrl = httpContext.getScheme() + "://" + httpContext.getServerName() + ":"
+    String logoFolderUrl = httpContext.getScheme() + "://" + httpContext.getServerName() + ":"
         + httpContext.getServerPort() + "/" + portalName
-        + "/rest/jcr/repository/collaboration/Application%20Data/logos/logo.png?"
-        + System.currentTimeMillis();
+        + "/rest/jcr/repository/collaboration/Application%20Data/logos/";
+    String logoUrl = null;
+    if (isRealLogo) {
+      logoUrl = logoFolderUrl + BrandingDataStorageService.logo_name + "?"
+          + System.currentTimeMillis();
+    } else {
+      logoUrl = logoFolderUrl + BrandingDataStorageService.logo_preview_name + "?"
+          + System.currentTimeMillis();
+    }
     if (!isExiste(logoUrl)) {
       logoUrl = "/eXoPlatformResources/skin/platformSkin/UIToolbarContainer/background/HomeIcon.png";
     }
     return logoUrl;
   }
 
-/**
- * return the object data contains the url of logo and the bar navigation
- * @param httpContext
- * @return Resource
- */
+  /**
+   * return the object data contains the url of logo and the bar navigation
+   * 
+   * @param httpContext
+   * @return Resource
+   */
   @Ajax
   @Resource
   public Response.Content<Stream.Char> getResource(HttpContext httpContext) {
     Map<String, String> result = new HashMap<String, String>();
-    String style = "";
-    if (settingService.get(Context.GLOBAL, Scope.GLOBAL, BAR_NAVIGATION_STYLE_KEY) == null) {
-      style = "Dark";
-    } else {
+    String style = "Dark";
+    if (settingService.get(Context.GLOBAL, Scope.GLOBAL, BAR_NAVIGATION_STYLE_KEY) != null) {
       style = (String) settingService.get(Context.GLOBAL, Scope.GLOBAL, BAR_NAVIGATION_STYLE_KEY)
                                      .getValue();
     }
     result.put("style", style);
-    result.put("logoUrl", getLogoUrl(httpContext));
+    result.put("logoUrl", getLogoUrl(httpContext, true));
     return createJSON(result);
   }
 
-/**
- * create a object JSON from the map.
- * @param Map<String, String> data
- * @return Response.Content
- */
+  /**
+   * create a object JSON from the map.
+   * 
+   * @param Map<String, String> data
+   * @return Response.Content
+   */
   private Response.Content<Stream.Char> createJSON(final Map<String, String> data) {
     Response.Content<Stream.Char> json = new Response.Content<Stream.Char>(200, Stream.Char.class) {
       @Override
@@ -221,7 +223,6 @@ public class BrandingController {
         return "application/json";
       }
 
-      
       @Override
       public void send(Stream.Char stream) throws IOException {
         stream.append("{");
@@ -239,6 +240,28 @@ public class BrandingController {
       }
     };
     return json;
+  }
+
+  /**
+   * create a object text/html
+   * 
+   * @param text
+   * @return
+   */
+  private Response.Content<Stream.Char> createText(final String text) {
+    Response.Content<Stream.Char> textObject = new Response.Content<Stream.Char>(200,
+                                                                                 Stream.Char.class) {
+      @Override
+      public String getMimeType() {
+        return "text/html";
+      }
+
+      @Override
+      public void send(Stream.Char stream) throws IOException {
+        stream.append(text);
+      }
+    };
+    return textObject;
   }
 
 }

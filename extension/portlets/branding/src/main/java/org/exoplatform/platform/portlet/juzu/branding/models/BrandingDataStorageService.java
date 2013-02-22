@@ -35,23 +35,28 @@ import org.exoplatform.services.security.ConversationState;
  */
 
 public class BrandingDataStorageService {
-  private static final Log LOG = ExoLogger.getExoLogger(BrandingDataStorageService.class);
-  static String     fileName = "logo.png";
-  public static int logoHeight = 34;
+  private static final Log LOG               = ExoLogger.getExoLogger(BrandingDataStorageService.class);
 
-  RepositoryService repositoryService;
+  public static int        logoHeight        = 34;
+
+  RepositoryService        repositoryService;
+
+  public static String     logo_preview_name = "logo_preview.png";
+
+  public static String     logo_name         = "logo.png";
 
   public BrandingDataStorageService() {
     repositoryService = (RepositoryService) ExoContainerContext.getCurrentContainer()
                                                                .getComponentInstanceOfType(RepositoryService.class);
   }
-  
+
   /**
-   *  Save logo file in the jcr
+   * Save logo file in the jcr
+   * 
    * @param item, item file
    */
 
-  public void saveFile(FileItem item) {
+  public void saveLogoPreview(FileItem item) {
     SessionProvider sessionProvider = SessionProvider.createSystemProvider();
     try {
       Session session = sessionProvider.getSession("collaboration",
@@ -69,12 +74,12 @@ public class BrandingDataStorageService {
       Node logosNode = applicationDataNode.getNode("logos");
 
       Node fileNode = null;
-      if (logosNode.hasNode(fileName)) {
-        fileNode = logosNode.getNode(fileName);
+      if (logosNode.hasNode(logo_preview_name)) {
+        fileNode = logosNode.getNode(logo_preview_name);
         fileNode.remove();
         session.save();
       }
-      fileNode = logosNode.addNode(fileName, "nt:file");
+      fileNode = logosNode.addNode(logo_preview_name, "nt:file");
       Node jcrContent = fileNode.addNode("jcr:content", "nt:resource");
       jcrContent.setProperty("jcr:data", item.getInputStream());
       jcrContent.setProperty("jcr:lastModified", Calendar.getInstance());
@@ -88,9 +93,56 @@ public class BrandingDataStorageService {
       sessionProvider.close();
       ConversationState state = ConversationState.getCurrent();
       String userId = (state != null) ? state.getIdentity().getUserId() : null;
-      if(userId!=null) {
-        LOG.info("Branding - A new logo on the navigation bar has been saved by user :" +userId);
+      if (userId != null) {
+        LOG.info("Branding - A new logo on the navigation bar has been saved by user :" + userId);
       }
     }
   }
+
+  /**
+   * Move logo preview file to logo file
+   */
+
+  public void saveLogo() {
+    SessionProvider sessionProvider = SessionProvider.createSystemProvider();
+    try {
+      Session session = sessionProvider.getSession("collaboration",
+                                                   repositoryService.getCurrentRepository());
+      Node rootNode = session.getRootNode();
+      if (!rootNode.hasNode("Application Data")) {
+        rootNode.addNode("Application Data", "nt:folder");
+        session.save();
+      }
+      Node applicationDataNode = rootNode.getNode("Application Data");
+      if (!applicationDataNode.hasNode("logos")) {
+        applicationDataNode.addNode("logos", "nt:folder");
+        session.save();
+      }
+      Node logosNode = applicationDataNode.getNode("logos");
+
+      Node fileNode = null;
+
+      if (logosNode.hasNode(logo_name)) {
+        fileNode = logosNode.getNode(logo_name);
+        fileNode.remove();
+        session.save();
+      }
+      if (logosNode.hasNode(logo_preview_name)) {
+        fileNode = logosNode.getNode(logo_preview_name);
+        String newPath = fileNode.getPath().replace(logo_preview_name, logo_name);
+        session.move(fileNode.getPath(), newPath);
+        session.save();
+      }
+    } catch (Exception e) {
+      LOG.error("Branding - Error while saving the logo: ", e.getMessage());
+    } finally {
+      sessionProvider.close();
+      ConversationState state = ConversationState.getCurrent();
+      String userId = (state != null) ? state.getIdentity().getUserId() : null;
+      if (userId != null) {
+        LOG.info("Branding - A new logo on the navigation bar has been saved by user :" + userId);
+      }
+    }
+  }
+
 }

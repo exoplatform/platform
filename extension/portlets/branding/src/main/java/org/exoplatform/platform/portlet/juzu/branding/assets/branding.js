@@ -1,80 +1,56 @@
 $(function() {
-	
+
 	/**
-	 * initialize variables and methods when first load page
-	 * first display a preview, hide save, cancel, png div
-	 * then clone toolbar navigation to preview display
+	 * initialize variables and methods when first load page first display a
+	 * preview, hide save, cancel, png div then clone toolbar navigation to
+	 * preview display
 	 */
-	
+	var isChangeLogo = false;
 	var fileUpload;
-	var backupParams;
 	UpdatePreviewLogoAndStyle();
-	$("#saveinfo").hide();
-	$("#cancelinfo").hide();
-	$("#mustpng").hide();
 	$("#PlatformAdminToolbarContainer").clone().appendTo($("#StylePreview"));
-	
-	//when cancel is clicked, restore the old logo and display cancel messsage
+	// when cancel is clicked, restore the old logo and display cancel messsage
 	$("#cancel").on("click", function() {
-		restorePreviewLogoAndStyle();
+		UpdatePreviewLogoAndStyle();
+		cleanMessage();
+		isChangeLogo = false;
 		$("input#file").replaceWith($("input#file").val("").clone(true));
-		$("#saveinfo").hide();
-		$("#mustpng").hide();
 		$("#cancelinfo").show();
 	});
-	
-	//when save is clicked, restore the new logo and display save messsage	
-	$("#save").on("click", function() {
-		$("#style").val(($('#navigationStyle option:selected').val()));
-		$('#form').submit();
-		$("#saveinfo").show();
-		$("#cancelinfo").hide();
-		$("#mustpng").hide();
-	});
 
-	//launch preview when a file is insert in input
-	$("input#file").on("change", function() {
-		previewLogoFromFile(this.files[0]);
-	});
-	
-	/*
-	 * Submit the form, the content file and navigation file will be sent to server, 
-	 * the content file is recovered from the input file or event trigger dropped on the div 
-	 */
-	$('#form').submit(function() {
-		fd = new FormData($("#form").get(0));
-		if (fileUpload) {
-			fd.append("file", fileUpload);
-		}
-		$.ajax({
-			type : "POST",
-			url : $("#form").attr("action"),
-			data : fd,
-			beforeSend : function() {
-				$("#PreviewImg").hide();
-				$("#StylePreview #PlatformAdminToolbarContainer").hide();
-				$("#ajaxUploading1").show();
-				$("#ajaxUploading2").show();
+	// when save is clicked, restore the new logo and display save messsage
+	$("#save").on("click", function() {
+		$("#navigationStyle").jzAjax({
+			url : "BrandingController.save()",
+			data : {
+				"style" : $('#navigationStyle option:selected').val(),
+				"isChangeLogo" : isChangeLogo
 			},
-			dataType : "json",
-			contentType : false,
-			processData : false,
+			beforeSend : function() {
+				$("#saveinfo").hide();
+			},
 			success : function(data) {
-				// backupParams will be used for cancel the change
-				backupParams.logoUrl=backupParams.logoUrl+ Math.random();
-				backupParams.style=data.style;
-				$("#ajaxUploading1").hide();
-				$("#ajaxUploading2").hide();
-				$("#PreviewImg").show();
-				$("#StylePreview #PlatformAdminToolbarContainer").show();
+				isChangeLogo = false;
 				UpdateTopBarNavigation(data);
-				fileUpload == null;
+				cleanMessage();
 				$("#saveinfo").show();
-				$("#cancelinfo").hide();
-				$("#mustpng").hide();
 			}
 		});
-		return false;
+
+	});
+
+	// launch preview when a file is insert in input
+	$("input#file").on("change", function() {
+		if (supportHTML5()) {
+			if (validate(this.files[0]) == false) {
+				// clear the text in the input file field
+				$("#saveinfo").hide();
+				$("#cancelinfo").hide();
+				$("#mustpng").show();
+				return;
+			}
+		}
+		uploadFile();
 	});
 
 	/* Change CSS by selecting */
@@ -84,46 +60,25 @@ $(function() {
 	});
 
 	/**
-	 * change preview style by adding new class in UIToolbarContainer which is concatenated a style selected
+	 * change preview style by adding new class in UIToolbarContainer which is
+	 * concatenated a style selected
 	 */
 	function changePreviewStyle(style) {
-		$("#StylePreview #UIToolbarContainer").attr('class', "UIToolbarContainer"+ style +" UIContainer");
-	}
-	
-	/**
-	 * preview a logo, display a message if not png file, otherwise display this image file
-	 */
-	function previewLogoFromFile(file) {
-		var checkValide = validate(file);
-		if (checkValide == false) {
-			//clear the text in the input file field
-			$("input#file").replaceWith($("input#file").val("").clone(true));
-			$("#saveinfo").hide();
-			$("#cancelinfo").hide();
-			$("#mustpng").show();
-			return;
-		} else {
-			fileUpload = file;
-			var reader = new FileReader();
-			reader.onload = function(e) {
-				previewLogoFromUrl(e.target.result);
-			};
-			reader.readAsDataURL(file);
-		}
+		$("#StylePreview #UIToolbarContainer").attr('class',
+				"UIContainer UIToolbarContainer  UIToolbarContainer" + style);
 	}
 
 	/**
-	 * validate an png image
-	 * returns true if png, otherwise return false
+	 * validate an png image returns true if png, otherwise return false
 	 */
 	function validate(file) {
 		if (file.type == "image/png") {
 			return true;
 		} else {
+			$("input#file").replaceWith($("input#file").val("").clone(true));
 			return false;
 		}
 	}
-
 	/**
 	 * scale an image to fit with parent div
 	 */
@@ -138,23 +93,14 @@ $(function() {
 	 * preview a logo and perform a scale
 	 */
 	function previewLogoFromUrl(logoUrl) {
-		scaleToFitPreviewImg($('#PreviewImg'));
 		$('#PreviewImg').attr('src', logoUrl);
 		$('#StylePreview #HomeLink img').attr('src', logoUrl);
+		scaleToFitPreviewImg($('#PreviewImg'));
 	}
 
 	/**
-	 * restore a logo in preview when cancel is clicked
-	 */
-	function restorePreviewLogoAndStyle() {
-						previewLogoFromUrl(backupParams.logoUrl);
-						changePreviewStyle(backupParams.style);
-						$("#navigationStyle").val(backupParams.style).attr('selected',
-								'selected');
-	}
-	
-	/**
-	 * update logo and style in preview toolbar, set the value to the selected markup
+	 * update logo and style in preview toolbar, set the value to the selected
+	 * markup
 	 */
 	function UpdatePreviewLogoAndStyle() {
 		$("#navigationStyle").jzAjax(
@@ -163,7 +109,6 @@ $(function() {
 					beforeSend : function() {
 					},
 					success : function(data) {
-						backupParams=data;
 						// update the logo url in preview zone and preview
 						// navigation bar
 						previewLogoFromUrl(data.logoUrl);
@@ -174,20 +119,19 @@ $(function() {
 					}
 				});
 	}
-	
 	/**
 	 * Update new logo displays in top bar navigation
 	 */
-	
+
 	function UpdateTopBarNavigation(data) {
 		$("#PlatformAdminToolbarContainer .HomeLink img:first").attr('src',
 				data.logoUrl);
 		$("#PlatformAdminToolbarContainer #UIToolbarContainer:first")
 				.removeAttr("class");
 		$("#PlatformAdminToolbarContainer #UIToolbarContainer:first").addClass(
-				"UIToolbarContainer" + data.style + " UIContainer");
+				"UIContainer UIToolbarContainer  UIToolbarContainer"
+						+ data.style);
 	}
-
 	/**
 	 * method executed when a drag event is launched
 	 */
@@ -205,13 +149,20 @@ $(function() {
 		e.preventDefault();
 		e.target.className = "";
 		var files = e.target.files || e.dataTransfer.files;
-		previewLogoFromFile(files[0]);
+		if (validate(files[0]) == false) {
+			showMessageError();
+			return;
+		} else {
+			fileUpload = files[0];
+		}
+		uploadFile();
 	}
 
 	/**
-	 * make a XMLHttpRequest when dragndrop a file in PreviewImmDiv, it will send an image to JCR server with this protocol
+	 * make a XMLHttpRequest when dragndrop a file in PreviewImmDiv, it will
+	 * send an image to JCR server with this protocol
 	 */
-	if (window.File && window.FileList && window.FileReader) {
+	if (supportHTML5()) {
 		var filedrag = document.getElementById("PreviewImgDiv");
 		var xhr = new XMLHttpRequest();
 		if (xhr.upload) {
@@ -220,6 +171,91 @@ $(function() {
 			filedrag.addEventListener("drop", FileDropHandle, false);
 			filedrag.style.display = "block";
 		}
+	}
+
+	function uploadFile() {
+		if (supportHTML5()) {
+			// check validate
+			$("#browser").val("html5");
+			fd = new FormData($("#form").get(0));
+			if (fileUpload) {
+				fd.append("file", fileUpload);
+			}
+			$.ajax({
+				type : "POST",
+				url : $("#form").attr("action"),
+				data : fd,
+				beforeSend : function() {
+					$("#PreviewImg").hide();
+					$("#StylePreview #PlatformAdminToolbarContainer").hide();
+					$("#ajaxUploading1").show();
+					$("#ajaxUploading2").show();
+				},
+				dataType : "json",
+				contentType : false,
+				processData : false,
+				success : function(data) {
+					$("#ajaxUploading1").hide();
+					$("#ajaxUploading2").hide();
+					cleanMessage();
+					fileUpload = null;
+					$("input#file").replaceWith(
+							$("input#file").val("").clone(true));
+					previewLogoFromUrl(data.logoUrl);
+					$("#StylePreview #PlatformAdminToolbarContainer").show();
+					$("#PreviewImg").show();
+					isChangeLogo = true;
+				}
+			});
+			return false;
+		} else {
+			$("#browser").val("");
+			$('#form').ajaxForm(
+					{
+						dataType : "text/html",
+						success : function(data) {
+							if (data == "false") {
+								showMessageError();
+								$("input#file").replaceWith(
+										$("input#file").val("").clone(true));
+							} else {
+								previewLogoFromUrl(data);
+								isChangeLogo = true;
+							}
+						}
+					});
+			$('#form').submit();
+		}
+
+	}
+	/**
+	 * verify if browser support html5
+	 * 
+	 * @returns
+	 */
+
+	function supportHTML5() {
+		if (window.File && window.FileList && window.FileReader) {
+			return true;
+		}
+		return false;
+	}
+	/**
+	 * clean message
+	 * 
+	 * @returns
+	 */
+
+	function cleanMessage() {
+		$("#saveinfo").hide();
+		$("#cancelinfo").hide();
+		$("#mustpng").hide();
+	}
+
+	function showMessageError() {
+		$("#saveinfo").hide();
+		$("#cancelinfo").hide();
+		$("#mustpng").show();
 	}
 
 });

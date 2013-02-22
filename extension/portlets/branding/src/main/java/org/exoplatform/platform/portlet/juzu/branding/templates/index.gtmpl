@@ -1,14 +1,13 @@
-<h3>
-<div id="result">
-<div id="cancelinfo">${cancelok}</div>
-<div id="saveinfo">${saveok}</div>
-<div id="mustpng">${mustpng}</div>
-</div>
+<div id="cancelinfo" class="message">${cancelok}</div>
+<div id="saveinfo" class="message">${saveok}</div>
+<div id="mustpng" class="message">${mustpng}</div>
 <h3>${selectlogo}</h3>
 <hr/>
-  <input type='file' id='file' name='file'  />
-<form id="form" enctype="multipart/form-data" action="${url}"  method="POST">
-   <input type='hidden' id='style' name='style'  />
+
+ 
+<form id="form" enctype="multipart/form-data" action="${urlUploadFile}"  method="POST">
+ <input type='hidden' id='browser' name='browser' />
+ <input type='file' id='file' name='file'  />
 </form>
 <br>
   ${noteselectlogo}
