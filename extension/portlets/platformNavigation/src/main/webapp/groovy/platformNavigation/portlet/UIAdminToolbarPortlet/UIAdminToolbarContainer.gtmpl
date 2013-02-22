@@ -44,14 +44,15 @@
       <% if(uicomponent.isSpaceManager()) { %>
 			<li>
 				<a href="<%=uicomponent.event("ChangeEditing")%>">
-					<i class="uiIconFile"></i>$quickEditLabel
+					$quickEditLabel
 				</a>
 			</li>
+			<li class="divider">&nbsp;</li>
       <% } %>
 			<% if(userCouldEditPage){ %>
 			<li class="dropdown-submenu">
 				<a href="#" tabindex="-1">
-					<i class="uiIconFile"></i><%=_ctx.appRes("UIAdminToolbarPortlet.action.Page")%>
+					<%=_ctx.appRes("UIAdminToolbarPortlet.action.Page")%>
 				</a>
 				<ul class="dropdown-menu">
         <%
@@ -59,7 +60,7 @@
         %>
 					<li>
 						<a href="$editPageRequest">
-							<i class="uiIconFile"></i>$editPageLabel
+							$editPageLabel
 						</a>
 					</li>
 					<li>
@@ -73,7 +74,7 @@
 					<li class="divider">&nbsp;</li>
 					<li>	
 						<a href="javascript:ajaxGet(eXo.env.server.createPortalURL('UIWorkingWorkspace', 'PageCreationWizard', true))">
-							<i class="uiIconFile"></i>$addPageLabel
+							$addPageLabel
 						</a>
 					</li>
 				</ul>
@@ -82,20 +83,20 @@
 			<% if(userCouldEditPortal || userCouldEditNavigation) { %>
 			<li class="dropdown-submenu">
 				<a href="#" tabindex="-1">
-					<i class="uiIconFile"></i>$siteLabel
+					$siteLabel
 				</a>
 				<ul class="dropdown-menu">
 					<% if(userCouldEditPortal){ %>
 					<li>	
 						<a href="javascript:ajaxGet(eXo.env.server.createPortalURL('UIWorkingWorkspace', 'EditInline', true))">
-							<i class="uiIconFile"></i>$editSiteLayout
+							$editSiteLayout
 						</a>
 					</li>
 					<% } %>
 					<% if(userCouldEditNavigation){ %>
 					<li>	
 						<a href="<%=uicomponent.event("EditNavigation", null);%>">
-							<i class="uiIconFile"></i>$editNavigation
+							$editNavigation
 						</a>
 					</li>
 					<% } %>
@@ -103,7 +104,7 @@
 					<li class="divider">&nbsp;</li>
 					<li>	
 						<a href="javascript:void(0);" onclick="javascript:ajaxGet(eXo.env.server.createPortalURL('UIWorkingWorkspace', 'CreatePortal', true))">
-							<i class="uiIconFile"></i>$addSiteLabel
+							$addSiteLabel
 						</a>
 					</li>
 					<% } %>

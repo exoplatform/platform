@@ -32,7 +32,6 @@
   import org.exoplatform.web.application.JavascriptManager;
   import org.gatein.common.text.EntityEncoder;
 
-
     def findSpacesLink = NavigationURLUtils.getURLInCurrentPortal("all-spaces");
 	def groupNavigations = uicomponent.getSpaceLastedAccessed();
 	def spaceTotal=groupNavigations.size();
@@ -79,20 +78,23 @@
       	}
       	if(mySpacesDisplayed < MY_SPACES_MAX_NUMBER){
 			mySpacesDisplayed += 1;
+			String   tabStyleNavigation="";
 			String spaceDisplayName = navigation.getDisplayName();
 			spaceImageSource = navigation.getAvatarUrl();
 			spaceURLLink = uicomponent.buildSpaceURL(spaceDisplayName);
 			//String selectSpaceAction = uicomponent.event("SelectSpace");
 			String link = uicomponent.event("SelectSpace",spaceURLLink);
-
+             if(uicomponent.isSelectedSpace(spaceDisplayName)){
+                 tabStyleNavigation = "spaceItemSelected";
+             }
 			if (spaceImageSource == null){
-				spaceImageSource= "/social-resources/skin/ShareImages/SpaceImages/SpaceLogoDefault_61x61.gif";
+				spaceImageSource=  LinkProvider.SPACE_DEFAULT_AVATAR_URL;
 			}
 	%>
 
 
-				<li class="spaceItem">
-					<a href="javascript:void(0);" onclick="$link" class="spaceIcon" title="$spaceDisplayName"><img title="" alt="" src="$spaceImageSource" /> $spaceDisplayName</a>
+				<li class="spaceItem $tabStyleNavigation">
+					<a href="javascript:void(0);" onclick="$link" class="spaceIcon avatarMini" title="$spaceDisplayName"><img title="" alt="" src="$spaceImageSource" /> $spaceDisplayName</a>
 				</li>
 	<%
 

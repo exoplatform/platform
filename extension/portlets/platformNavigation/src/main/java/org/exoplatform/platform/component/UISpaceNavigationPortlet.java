@@ -3,6 +3,9 @@ package org.exoplatform.platform.component;
 
 import org.exoplatform.container.PortalContainer;
 import org.exoplatform.portal.application.PortalRequestContext;
+import org.exoplatform.portal.mop.user.UserNavigation;
+import org.exoplatform.portal.mop.user.UserNode;
+import org.exoplatform.portal.mop.user.UserPortal;
 import org.exoplatform.portal.webui.util.Util;
 import org.exoplatform.services.log.ExoLogger;
 import org.exoplatform.services.log.Log;
@@ -17,7 +20,7 @@ import org.exoplatform.webui.event.Event;
 import org.exoplatform.webui.event.EventListener;
 
 import javax.servlet.http.HttpServletRequest;
-import java.util.*;
+import java.util.List;
 
 /**
  * @author <a href="rtouzi@exoplatform.com">rtouzi</a>
@@ -141,6 +144,30 @@ public class UISpaceNavigationPortlet extends UIPortletApplication {
 
         return baseSpaceURL.toString();
     }
+    public Boolean isSelectedSpace(String spaceNAme) throws Exception {
+        String spaceLabel="";
+        Space space = spaceService.getSpaceByDisplayName(spaceNAme);
+        UserNode node = Util.getUIPortal().getSelectedUserNode();
+        UserPortal userPortal = Util.getPortalRequestContext().getUserPortalConfig().getUserPortal();
+        UserNavigation nav = userPortal.getNavigation(node.getNavigation().getKey());
+        String ownerId = nav.getKey().getName();
+        if (ownerId.contains("/spaces/")) {
+            String[] navigationParts = ownerId.split("/");
+            spaceLabel = navigationParts[2];
+
+        Space spaceSelected = spaceService.getSpaceByUrl(spaceLabel);
+
+        if(spaceSelected.getDisplayName().equals(space.getDisplayName()))   {
+            return true  ;
+
+        }else{
+            return false ;
+        }
+        }else{
+            return false;
+        }
+    }
+
 
     public static class SelectSpaceActionListener extends EventListener<UISpaceNavigationPortlet>
     {
