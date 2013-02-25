@@ -39,26 +39,26 @@ jsmanager.require("SHARED/navigation-toolbar", "toolbarnav").addScripts("toolbar
 <div id="$uicomponent.id" class="dropdown-menu">
 
 		<% if(uicomponent.getChildren().size()==0){%>
-             <li class="MenuItem">
-            	<a href="<%=uicomponent.event("AddEvent","AddEvent")%>" class="ToolBarActivityIcon"><i class="uiIconPLFEventTask"></i>$labelEvent</a>
-             </li>
-             <li class="MenuItem">
+			<li>
+				<a href="<%=uicomponent.event("AddEvent","AddEvent")%>" class="ToolBarActivityIcon"><i class="uiIconPLFEventTask"></i>$labelEvent</a>
+			</li>
+      <li>
 				<a href="<%=uicomponent.event("Poll", labelPoll)%>" class="ToolBarActivityIcon"><i class="uiIconPoll"></i>$labelPoll</a>
 			</li>
-             <li class="MenuItem">
-             	<a href="<%=uicomponent.event("Topic", labelTopic)%>" class="ToolBarActivityIcon"><i class="uiIconForum"></i>$labelTopic</a>
-             </li>
-			<li class="MenuItem">
+			<li>
+				<a href="<%=uicomponent.event("Topic", labelTopic)%>" class="ToolBarActivityIcon"><i class="uiIconForum"></i>$labelTopic</a>
+			</li>
+			<li>
 				<a href="<%=uicomponent.event("Upload","Upload")%>" class="ToolBarActivityIcon"><i class="uiIconUpload"></i>$labelUpload</a>
 			</li>
-			<li class="MenuItem">
-            	<a href="<%=uicomponent.event("Wiki","Wiki")%>" class="ToolBarActivityIcon"><i class="uiIconWikiWiki"></i>$labelWiki</a>
-            </li>
+			<li>
+	    	<a href="<%=uicomponent.event("Wiki","Wiki")%>" class="ToolBarActivityIcon"><i class="uiIconWikiWiki"></i>$labelWiki</a>
+	    </li>
 
 		<%}else{%>
 
-		    <li class="MenuItem">
-	            <%uicomponent.renderChildren();%>
+		  <li>
+	    	<%uicomponent.renderChildren();%>
 			</li>
 		<%}%>
 </div>

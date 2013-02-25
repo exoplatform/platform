@@ -36,12 +36,60 @@
 	} 
 	
 	.uiCreateToolBarPortlet {
-		.createFormContent {
-			padding: 10px;
+		.uiCreateForm {
+			min-width: 200px;
+			padding: 0 10px;
+			.form-horizontal {
+				padding-top: 5px;
+			}
+			.control-label {
+				width: 70px;
+			}
+			.controls {
+				margin-left: 90px;
+			}
+			.uiAction {
+				margin: 0 -10px;
+			}
 		}
-		.uiAction {
-			padding: 15px 0;
+		
+		.uiQuickAddEvent {
+			.form-horizontal {
+				.control-label {
+					width: 95px;
+					text-align: left;
+				}
+				.controls {
+					margin-left: 98px;
+				}
+				.title {
+					 .control-label {
+						width: 50px;
+					}
+					 .controls {
+						margin-left: 55px;
+					}
+					input[type="text"] {
+						width: 222px;
+					}
+				}
+			}
+			.choiceOption {
+				.control-label {
+					font-weight: bold;
+				}
+			}
+			.uiSelectbox {
+				margin-bottom: 0;
+			}
+			.uiAction {
+				text-align: right;
+				.btn:last-child{
+					margin-right: 15px;
+				}
+			}
 		}
+		
 	}
 	
 	.uiAdminToolbarPortlet {
