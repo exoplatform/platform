@@ -45,43 +45,6 @@
     <component>
         <type>org.exoplatform.platform.common.module.ModuleRegistry</type>
         <!-- We could put modules definitions by init-param or by component plugin -->
-        <component-plugins>
-            <component-plugin>
-                <name>webos.module.plugin</name>
-                <set-method>addModule</set-method>
-                <type>org.exoplatform.platform.common.module.ModulePlugin</type>
-                <init-params>
-                    <object-param>
-                        <name>module</name>
-                        <object type="org.exoplatform.platform.common.module.Module">
-                            <field name="name">
-                                <string>webos</string>
-                            </field>
-                            <field name="description">
-                                <string>WebOS</string>
-                            </field>
-                            <field name="webapps">
-                                <collection type="java.util.ArrayList">
-                                    <value>
-                                        <string>webos-ext</string>
-                                    </value>
-                                    <value>
-                                        <string>webosadmin</string>
-                                    </value>
-                                    <value>
-                                        <string>webosResources</string>
-                                    </value>
-                                </collection>
-                            </field>
-                            <!-- List of portletId = {webappName}/portletName -->
-                            <field name="portlets">
-                                <collection type="java.util.ArrayList"/>
-                            </field>
-                        </object>
-                    </object-param>
-                </init-params>
-            </component-plugin>
-        </component-plugins>
         <init-params>
             <object-param>
                 <name>default.webapps</name>
