@@ -123,31 +123,8 @@ public class GettingStarted {
             while (propertiesIt.hasNext())
             {
                 Property tempProp= (Property) propertiesIt.next();
-                if (tempProp.getName().equals(GettingStartedUtils.JCR_PROFILE_PROPERTY_NAME)){
                     if(isChange==false) isChange = updateAction(tempProp, gettingStartedNode);
                     else updateAction(tempProp, gettingStartedNode);
-                    continue;
-                }
-                if (tempProp.getName().equals(GettingStartedUtils.JCR_CONNECT_PROPERTY_NAME)){
-                    if(isChange==false) isChange =  updateAction(tempProp,gettingStartedNode);
-                    else updateAction(tempProp, gettingStartedNode);
-                    continue;
-                }
-                if (tempProp.getName().equals(GettingStartedUtils.JCR_ACTIVITY_PROPERTY_NAME)){
-                    if(isChange==false) isChange = updateAction(tempProp, gettingStartedNode);
-                    else updateAction(tempProp, gettingStartedNode);
-                    continue;
-                }
-                if (tempProp.getName().equals(GettingStartedUtils.JCR_SPACE_PROPERTY_NAME)){
-                    if(isChange==false) isChange = updateAction(tempProp,gettingStartedNode);
-                    else  updateAction(tempProp, gettingStartedNode);
-                    continue;
-                }
-                if (tempProp.getName().equals(GettingStartedUtils.JCR_DOCUMENT_PROPERTY_NAME)){
-                    if(isChange==false) isChange = updateAction(tempProp, gettingStartedNode);
-                    else updateAction(tempProp,gettingStartedNode);
-                    continue;
-                }
             }
             if(progress>100) progress=100;
             if (progress == 100) Isshow = false;
