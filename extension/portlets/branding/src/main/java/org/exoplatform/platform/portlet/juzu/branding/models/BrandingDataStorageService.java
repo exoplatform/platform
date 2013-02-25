@@ -16,11 +16,13 @@
  */
 package org.exoplatform.platform.portlet.juzu.branding.models;
 
+import java.awt.image.BufferedImage;
+import java.io.InputStream;
 import java.util.Calendar;
-
+import org.exoplatform.services.cms.impl.ImageUtils;
+import javax.imageio.ImageIO;
 import javax.jcr.Node;
 import javax.jcr.Session;
-
 import org.apache.commons.fileupload.FileItem;
 import org.exoplatform.container.ExoContainerContext;
 import org.exoplatform.services.jcr.RepositoryService;
@@ -81,7 +83,7 @@ public class BrandingDataStorageService {
       }
       fileNode = logosNode.addNode(logo_preview_name, "nt:file");
       Node jcrContent = fileNode.addNode("jcr:content", "nt:resource");
-      jcrContent.setProperty("jcr:data", item.getInputStream());
+      jcrContent.setProperty("jcr:data", resizeImage(item.getInputStream()));
       jcrContent.setProperty("jcr:lastModified", Calendar.getInstance());
       jcrContent.setProperty("jcr:encoding", "UTF-8");
       jcrContent.setProperty("jcr:mimeType", item.getContentType());
@@ -143,6 +145,17 @@ public class BrandingDataStorageService {
         LOG.info("Branding - A new logo on the navigation bar has been saved by user :" + userId);
       }
     }
+  }
+  
+  /**
+   * resize image to scale, just used in custom size case. When 0 as specified as width then it will be calculated automatically to fit with expected height.
+   * @param input
+   * @return
+   * @throws Exception
+   */
+  private static InputStream resizeImage(InputStream input) throws Exception{
+    BufferedImage buffer = ImageIO.read(input);
+    return ImageUtils.scaleImage(buffer, 0, logoHeight, false);
   }
 
 }
