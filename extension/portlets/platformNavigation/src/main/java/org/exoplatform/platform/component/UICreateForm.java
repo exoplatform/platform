@@ -70,7 +70,7 @@ public class UICreateForm extends UIContainer {
     }
 
     public String[] getActions() {
-        return new String[]{"Cancel", "Next"};
+        return new String[]{"Next","Cancel" };
     }
 
     public String getUrlWiki() {
