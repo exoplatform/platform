@@ -10,6 +10,10 @@
   <packaging>jar</packaging>
   <name>eXo Platform - Branding Portlet</name>
   <dependencies>
+   <dependency>
+      <groupId>org.exoplatform.ecms</groupId>
+      <artifactId>ecms-core-services</artifactId>
+    </dependency>  
     <dependency>
       <groupId>commons-fileupload</groupId>
       <artifactId>commons-fileupload</artifactId>
