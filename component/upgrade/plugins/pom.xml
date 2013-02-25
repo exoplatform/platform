@@ -37,6 +37,23 @@
          <groupId>org.exoplatform.kernel</groupId>
          <artifactId>exo.kernel.container</artifactId>
       </dependency>
+      <dependency>
+         <groupId>org.gatein.portal</groupId>
+         <artifactId>exo.portal.component.portal</artifactId>
+      </dependency>
+      <dependency>
+         <groupId>org.gatein.portal</groupId>
+         <artifactId>exo.portal.component.resources</artifactId>
+      </dependency>
+      <dependency>
+         <groupId>org.gatein.portal</groupId>
+         <artifactId>exo.portal.component.application-registry</artifactId>
+      </dependency>
+      <dependency>
+         <groupId>javax.servlet</groupId>
+         <artifactId>javax.servlet-api</artifactId>
+         <scope>provided</scope>
+      </dependency>
 	</dependencies>
 	<build>
 		<plugins>
