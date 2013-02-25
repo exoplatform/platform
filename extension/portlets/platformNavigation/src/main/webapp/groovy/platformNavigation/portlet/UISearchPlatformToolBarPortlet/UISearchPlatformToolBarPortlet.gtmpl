@@ -19,7 +19,7 @@
         */
 
         %>
-<%  def labelSearch = _ctx.appRes("UISearchPlatformToolbarPortlet.Search");%>
+<%  def labelSearch = _ctxR.appRes("UISearchPlatformToolbarPortlet.Search");%>
 
 <div class="uiSearchPlatformToolBarPortlet uiDropdownWithIcon dropdown" id="ToolBarSearch">
 		<input id="adminkeyword" name="adminkeyword" value="$labelSearch"
