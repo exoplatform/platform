@@ -26,6 +26,6 @@ max-width : 300px;
 	box-shadow: inset 0 3px 4px #888;
 }
 
-.message{
-visibility:hidden;	
+.message {
+	display: none;
 }
