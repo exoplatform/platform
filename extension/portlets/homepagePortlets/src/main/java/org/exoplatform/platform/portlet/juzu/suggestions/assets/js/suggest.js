@@ -158,20 +158,30 @@ $(function() {
 
 
 
-    $.getJSON("/rest/homepage/intranet/spaces/suggestions", function(items){
+    $.getJSON("/rest/homepage/intranet/spaces/suggestions", function(data){
 
-        if (items.length > 0){
+        if (data.items.length > 0){
             $("#content").show();
             $("#spaceSuggest").show();
         }
 
-        items.shuffle();
+        data.items.shuffle();
+        var newUser=true;
+        for(var k= 0; k < data.items.length; k++)
+        {
+            if(data.items[k].number!=0){
+                newUser=false;
+            }
+        }
 
-        items.sort(dynamicSort("displayName"));
+        if(newUser==true || data.noConnections==0){
+            data.items.sort(sortByCreatedDate) ;
+        }else{
+        data.items.sort(dynamicSort("displayName"));
         // sort my most contacts instead of random
-        items.sort(sortByContacts);
-
-        $.each(items, function(i, item){
+        data.items.sort(sortByContacts);
+        }
+        $.each(data.items, function(i, item){
 
             var link = "";
 
