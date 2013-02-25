@@ -228,9 +228,9 @@
           <!-- if "associationMembershipType" option is used and this option is set to true
                 then Membership with MembershipType configured to be stored as PicketLink IDM association
                 will not be stored as PicketLink IDM Role -->
-          <field name="ignoreMappedMembershipType">
-            <boolean>false</boolean>
-          </field>
+<!--           <field name="ignoreMappedMembershipType"> -->
+<!--             <boolean>false</boolean> -->
+<!--           </field> -->
           <!-- If 'true' will use JTA UserTransaction. If 'false' will use IDM transaction API -->
           <field name="useJTA">
             <boolean>false</boolean>
