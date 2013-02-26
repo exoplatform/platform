@@ -102,7 +102,6 @@ public class UICreateList extends UIContainer {
         event.getRequestContext().addUIComponentToUpdateByAjax(uiParent);
 
         event.getRequestContext().getJavascriptManager().require("SHARED/navigation-toolbar", "toolbarnav").addScripts("toolbarnav.UIPortalNavigation.ClickActionButton('"+uiParent.getId()+"') ;");
-
     }
 
   }
@@ -122,7 +121,7 @@ public class UICreateList extends UIContainer {
       event.getRequestContext().addUIComponentToUpdateByAjax(uisource);
       event.getRequestContext().addUIComponentToUpdateByAjax(uiParent);
 
-      event.getRequestContext().getJavascriptManager().require("SHARED/navigation-toolbar", "toolbarnav").addScripts("toolbarnav.UIPortalNavigation.ClickActionButton('"+uiParent.getId()+"') ;");
+        event.getRequestContext().getJavascriptManager().require("SHARED/navigation-toolbar", "toolbarnav").addScripts("toolbarnav.UIPortalNavigation.ClickActionButton('"+uiParent.getId()+"') ;");
 
     }
   }
@@ -134,7 +133,7 @@ public class UICreateList extends UIContainer {
                 throws Exception {
             UICreatePlatformToolBarPortlet uiParent = (UICreatePlatformToolBarPortlet) event.getSource().getAncestorOfType(UICreatePlatformToolBarPortlet.class);
             parStatus = event.getRequestContext().getRequestParameter("objectId");
-            UICreateList uisource = (UICreateList) event.getSource();
+            UICreateList uisource =(UICreateList) event.getSource();
             remove(uisource);
             uisource.addChild(UICreateForm.class, null, null).setRendered(true);
             event.getRequestContext().addUIComponentToUpdateByAjax(uisource);
@@ -169,12 +168,12 @@ public class UICreateList extends UIContainer {
         public void execute(Event<UICreateList> event)
                 throws Exception {
             UICreatePlatformToolBarPortlet uiParent = (UICreatePlatformToolBarPortlet) event.getSource().getAncestorOfType(UICreatePlatformToolBarPortlet.class);
-            UICreateList uiparent = event.getSource();
+            UICreateList uiSource = event.getSource();
             WebuiRequestContext context = event.getRequestContext();
-            remove(uiparent);
-            context.addUIComponentToUpdateByAjax(uiparent);
+            remove(uiSource);
+            context.addUIComponentToUpdateByAjax(uiSource);
             context.addUIComponentToUpdateByAjax(uiParent);
-            event.getRequestContext().getJavascriptManager().require("SHARED/navigation-toolbar", "toolbarnav").addScripts("toolbarnav.UIPortalNavigation.ClickActionButton('"+uiParent.getId()+"') ;");
+           // event.getRequestContext().getJavascriptManager().require("SHARED/navigation-toolbar", "toolbarnav").addScripts("toolbarnav.UIPortalNavigation.ClickActionButton('"+uiParent.getId()+"') ;");
 
 
         }
