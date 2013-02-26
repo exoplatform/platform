@@ -225,12 +225,19 @@
           <field name="associationMembershipType">
             <string>member</string>
           </field>
-          <!-- if "associationMembershipType" option is used and this option is set to true
-                then Membership with MembershipType configured to be stored as PicketLink IDM association
-                will not be stored as PicketLink IDM Role -->
-<!--           <field name="ignoreMappedMembershipType"> -->
-<!--             <boolean>false</boolean> -->
-<!--           </field> -->
+	<!-- if "associationMembershipType" option is used and this option is set 
+		to true then Membership with MembershipType configured to be stored as PicketLink 
+		IDM association will not be stored as PicketLink IDM Role in case that they 
+		are in groups from this parameter. For RW LDAP setup, it's recommended to 
+		map all groups mapped to LDAP (all those from parameter groupTypeMappings) 
+		However for DB only and/or Read-only LDAP, it's recommended to not map anything 
+		here -->
+	<field name="ignoreMappedMembershipTypeGroupList">
+		<collection type="java.util.ArrayList" item-type="java.lang.String">
+			<!-- Uncomment for sample LDAP config <value> <string>/platform/*</string> 
+				</value> <value> <string>/organization/*</string> </value> -->
+		</collection>
+	</field>
           <!-- If 'true' will use JTA UserTransaction. If 'false' will use IDM transaction API -->
           <field name="useJTA">
             <boolean>false</boolean>
