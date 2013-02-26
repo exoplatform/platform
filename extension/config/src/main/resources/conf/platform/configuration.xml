@@ -37,9 +37,6 @@
                 <string>portal</string>
               </value>
               <value>
-                <string>eXoResources</string>
-              </value>
-              <value>
                 <string>dashboard</string>
               </value>
               <value>
@@ -53,6 +50,9 @@
               </value>
               <value>
                 <string>rest</string>
+              </value>
+              <value>
+                <string>eXoResources</string>
               </value>
 
               <value>
