@@ -123,8 +123,31 @@ public class GettingStarted {
             while (propertiesIt.hasNext())
             {
                 Property tempProp= (Property) propertiesIt.next();
+                if (tempProp.getName().equals(GettingStartedUtils.JCR_PROFILE_PROPERTY_NAME)){
                     if(isChange==false) isChange = updateAction(tempProp, gettingStartedNode);
                     else updateAction(tempProp, gettingStartedNode);
+                    continue;
+                }
+                if (tempProp.getName().equals(GettingStartedUtils.JCR_CONNECT_PROPERTY_NAME)){
+                    if(isChange==false) isChange =  updateAction(tempProp,gettingStartedNode);
+                    else updateAction(tempProp, gettingStartedNode);
+                    continue;
+                }
+                if (tempProp.getName().equals(GettingStartedUtils.JCR_ACTIVITY_PROPERTY_NAME)){
+                    if(isChange==false) isChange = updateAction(tempProp, gettingStartedNode);
+                    else updateAction(tempProp, gettingStartedNode);
+                    continue;
+                }
+                if (tempProp.getName().equals(GettingStartedUtils.JCR_SPACE_PROPERTY_NAME)){
+                    if(isChange==false) isChange = updateAction(tempProp,gettingStartedNode);
+                    else  updateAction(tempProp, gettingStartedNode);
+                    continue;
+                }
+                if (tempProp.getName().equals(GettingStartedUtils.JCR_DOCUMENT_PROPERTY_NAME)){
+                    if(isChange==false) isChange = updateAction(tempProp, gettingStartedNode);
+                    else updateAction(tempProp,gettingStartedNode);
+                    continue;
+                }
             }
             if(progress>100) progress=100;
             if (progress == 100) Isshow = false;
@@ -171,17 +194,17 @@ public class GettingStarted {
     private boolean updateAction(Property tempProp, Node gettingStartedNode) throws RepositoryException {
         boolean has=false;
         String gsPropertyName=tempProp.getName();
-            has =checkStatus(gsPropertyName);
-            if(has)  {
-                status.put(gsPropertyName.substring(4), GettingStartedUtils.DONE);
-                progress+=20;
-            }
-            else  status.put(gsPropertyName.substring(4), "");
-            if(has!=tempProp.getBoolean()){
-                gettingStartedNode.setProperty(gsPropertyName, has);
-                gettingStartedNode.save();
-                return true;
-            }
+        has =checkStatus(gsPropertyName);
+        if(has)  {
+            status.put(gsPropertyName.substring(4), GettingStartedUtils.DONE);
+            progress+=20;
+        }
+        else  status.put(gsPropertyName.substring(4), "");
+        if(has!=tempProp.getBoolean()){
+            gettingStartedNode.setProperty(gsPropertyName, has);
+            gettingStartedNode.save();
+            return true;
+        }
         return false;
     }
 
