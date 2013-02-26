@@ -20,27 +20,6 @@
 
 %>
 
-<style>
-.CalendarItem {
-
-}
-.flottante {
-    margin: 2px;
-    float: left;
-}
-.spacer {
-    clear: both;
-}
-.settingsTitle {
-    text-align: center;
-}
-.SettingsContainerTitle{
-    background-color: silver;
-}
-.NonDisp{
-    text-overflow: ellipsis;
-}
-</style>
 <script>
     function init(initKey){
 
@@ -224,4 +203,55 @@
 
         </div>
     </div>
+</div>
+
+<!--this is hard-code-->
+<div class="settingsCalContainer" >
+    <div class="uiBox settingsContainerData" >
+        <h6 class="title  center">settings</h6>
+		<div class= "uiContentBox" >
+			<p>Display calendar</p>
+		  <div class="calendarNameContainer">
+			<span title="" id="john-defaultCalendarId" class="calendarName powder_blue">Personal&nbsp;<i class="uiIconDel"></i></span>
+			<span title=" (employees)" id="calendarfa8a0f82c0a8015c65f395321a9b3872" class="calendarName red">Sales Space&nbsp;<i class="uiIconDel"></i></span>
+			<span title="" id="john-defaultCalendarId" class="calendarName light_purple">PM Space&nbsp;<i class="uiIconRemove  uiIconDel"></i></span>
+			<span title=" (employees)" id="calendarfa8a0f82c0a8015c65f395321a9b3872" class="calendarName sky_blue">Functinal QA Team&nbsp;<i class="uiIconDel"></i></span>
+		  </div>
+		</div>
+		<div class= "uiContentBox" >
+		  <p>Display additional calendar</p>
+		 <div class="searchContainer">
+            <input type="text"  class="calendarSearchKey" value="Search your calendars"/>
+            <div  class="nonDisplayedCalendar"></div>
+        </div>
+		<div class="calendarItems">
+			<li class="calendarItem clearfix">
+				<a href="javascript:void(0);" class="addButton pull-right" >
+                    <input type="hidden" name="calendarId" value=""/>
+                    <i  class="uiIconAdd "></i>
+                </a>
+				<a class="asparagus colorBox pull-left" href="javascript:void(0);"></a>
+				<a  href="javascript:void(0);" class="calName" data-original-title="/platform/web-contributors " data-placement="bottom" rel="tooltip">Content Management</a>
+				
+			</li>
+			<li class="calendarItem clearfix">
+				<a href="javascript:void(0);" class="addButton pull-right" >
+                    <input type="hidden" name="calendarId" value=""/>
+                    <i  class="uiIconAdd "></i>
+                </a>
+				<a class="red colorBox pull-left" href="javascript:void(0);"></a>
+				<a  href="javascript:void(0);" class="calName" data-original-title="/platform/administrators " data-placement="bottom" rel="tooltip">Admin</a>
+			</li>
+			<li class="calendarItem clearfix">
+				<a href="javascript:void(0);" class="addButton pull-right" >
+                    <input type="hidden" name="calendarId" value=""/>
+                    <i  class="uiIconAdd "></i>
+                </a>
+				<a class="sky_blue  colorBox pull-left" href="javascript:void(0);"></a>
+				<a  href="javascript:void(0);" class="calName" data-original-title="/organization/employees " data-placement="bottom" rel="tooltip">employees</a>
+			</li>
+		</div>
+		<div class="settingValidationButton"><button class=" btn" >OK</button></div>
+		</div>
+	</div>
 </div>
