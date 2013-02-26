@@ -41,7 +41,7 @@
 	                       <td class="FieldLabel"><%=_ctx.appRes("FormGenerator.dialog.label.Select a recipient")%></td>        
 	                       <td class="FieldComponent">          
 	                       <%
-	                                  String[] select_a_recipientFieldName = ["jcrPath=/node/exo:fg_p_select_a_recipient", "defaultValues=Infos", "", "options=Infos,Sales,OEM,Partners,Support"];           
+	                                  String[] select_a_recipientFieldName = ["jcrPath=/node/acme:fg_p_select_a_recipient", "defaultValues=Info", "", "options=Info,Sales,OEM,Partners,Support"];           
 	                                  uicomponent.addSelectBoxField("select_a_recipientFieldName", select_a_recipientFieldName);          
 	                       %>        
 	                       </td>      
@@ -56,7 +56,7 @@
 	                       <td class="FieldLabel"><label for="your_nameFieldName"><%=_ctx.appRes("FormGenerator.dialog.label.Your Name")%></label></td>        
 	                       <td class="FieldComponent">          
 	                       <%
-	                                  String[] your_nameFieldName = ["jcrPath=/node/exo:fg_p_your_name", "defaultValues=", ""];           
+	                                  String[] your_nameFieldName = ["jcrPath=/node/acme:fg_p_your_name", "defaultValues=", ""];           
 	                                  uicomponent.addTextField("your_nameFieldName", your_nameFieldName);          
 	                       %>        
 	                       </td>      
@@ -71,7 +71,7 @@
 	                       <td class="FieldLabel"><label for="your_addressFieldName"><%=_ctx.appRes("FormGenerator.dialog.label.Your Address")%></label></td>        
 	                       <td class="FieldComponent">          
 	                       <%
-	                                  String[] your_addressFieldName = ["jcrPath=/node/exo:fg_p_your_address", "defaultValues=", ""];           
+	                                  String[] your_addressFieldName = ["jcrPath=/node/acme:fg_p_your_address", "defaultValues=", ""];           
 	                                  uicomponent.addTextField("your_addressFieldName", your_addressFieldName);          
 	                        %>        
 	                        </td>      
@@ -85,7 +85,7 @@
 	                       <td class="FieldLabel"><label for="your_email_addressFieldName"><%=_ctx.appRes("FormGenerator.dialog.label.Your Email Address")%></label></td>        
 	                       <td class="FieldComponent">
 	                       <%
-	                                  String[] your_email_addressFieldName = ["jcrPath=/node/exo:fg_p_your_email_address", "defaultValues=", ""];           
+	                                  String[] your_email_addressFieldName = ["jcrPath=/node/acme:fg_p_your_email_address", "defaultValues=", ""];           
 	                                  uicomponent.addTextField("your_email_addressFieldName", your_email_addressFieldName);          
 	                       %>        
 	                       </td>      
@@ -98,7 +98,7 @@
 	                       <td class="FieldLabel"><label for="your_phone_numberFieldName"><%=_ctx.appRes("FormGenerator.dialog.label.Your Phone Number")%></label></td>        
 	                       <td class="FieldComponent">          
 	                       <%
-	                                  String[] your_phone_numberFieldName = ["jcrPath=/node/exo:fg_p_your_phone_number", "defaultValues=", ""];           
+	                                  String[] your_phone_numberFieldName = ["jcrPath=/node/acme:fg_p_your_phone_number", "defaultValues=", ""];           
 	                                  uicomponent.addTextField("your_phone_numberFieldName", your_phone_numberFieldName);          
 	                       %>        
 	                       </td>      
@@ -121,7 +121,7 @@
 	                        <td class="FieldLabel"><label for="your_messageFieldName"><%=_ctx.appRes("FormGenerator.dialog.label.Your Message")%></label></td>        
 	                        <td class="FieldComponent">          
 	                        <%
-	                                   String[] your_messageFieldName = ["jcrPath=/node/exo:fg_p_your_message", "defaultValues=", ""];           
+	                                   String[] your_messageFieldName = ["jcrPath=/node/acme:fg_p_your_message", "defaultValues=", ""];           
 	                                   uicomponent.addTextAreaField("your_messageFieldName", your_messageFieldName);          
 	                        %>        
 	                        </td>      
