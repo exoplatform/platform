@@ -82,7 +82,7 @@ $(function() {
             else
             { link += "<li class='clearfix' style='display:none;' id='"+item.suggestionId+"'>" }
 
-            link += "<div class='peoplePicture pull-left'><a href='#' class='avatarXSmall'><img src='"+item.avatar+"'></a></div>";
+            link += "<div class='peoplePicture pull-left'><div class='avatarXSmall'><img src='"+item.avatar+"'></div></div>";
             link += "<div class='peopleInfo'>";
             link += "<div class='peopleName'><a href='"+item.profile+"' target='_parent'>"+item.suggestionName+"</a></div>";
             link += "<div style='display:none;' class='peopleAction' ><a class='connect btn-primary btn btn-mini' href='#' onclick='return false'>"+connect+"</a><a class='ignore' href='#' onclick='return false'><i class='uiIconClose'></i></a></div>";
@@ -190,9 +190,9 @@ $(function() {
             else
             { link += "<li class='clearfix'' style='display:none;' id='"+item.spaceId+"'>" }
 
-            link += "<div class='spacePicture pull-left'><a href='#' class='avatarXSmall'><img src='"+item.avatarUrl+"'></a></div>";
+            link += "<div class='spacePicture pull-left'><div class='avatarXSmall'><img src='"+item.avatarUrl+"'></div></div>";
             link += "<div class='spaceInfo'>";
-            link += "<div class='spaceName'><a href='/portal/intranet/all-spaces' target='_parent'>"+item.displayName+"</a></div>";
+            link += "<div class='spaceName'>"+item.displayName+"</div>";
             if(item.privacy=="Private")
             link += "<div class='spacePrivacy'><i class='uiIconSocGroup uiIconSocLightGray'></i>"+private+"&nbsp;-&nbsp;"+item.members+"&nbsp;"+spacemember+"</div>";
             else
