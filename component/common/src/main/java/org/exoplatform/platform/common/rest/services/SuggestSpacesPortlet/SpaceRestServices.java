@@ -59,7 +59,7 @@ public class SpaceRestServices implements ResourceContainer {
             List<Identity> connections = identityManager.getConnections(identity);
 
             JSONArray jsonArray = new JSONArray();
-
+            JSONObject jsonGlobal = new JSONObject();
             for (Space space : suggestedSpaces) {
 
                 if (space.getVisibility().equals(Space.HIDDEN))
@@ -99,10 +99,12 @@ public class SpaceRestServices implements ResourceContainer {
                 json.put("members", space.getMembers().length);
                 json.put("privacy", spaceType);
                 json.put("number", k);
+                json.put("createdDate", space.getCreatedTime());
                 jsonArray.put(json);
             }
-
-            return Response.ok(jsonArray.toString(), MediaType.APPLICATION_JSON).cacheControl(cacheControl).build();
+            jsonGlobal.put("items",jsonArray);
+            jsonGlobal.put("noConnections",connections.size());
+            return Response.ok(jsonGlobal.toString(), MediaType.APPLICATION_JSON).cacheControl(cacheControl).build();
 
         } catch (Exception e) {
             log.error("Error in space invitation rest service: " + e.getMessage(), e);

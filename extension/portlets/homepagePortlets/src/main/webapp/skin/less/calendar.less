@@ -36,14 +36,6 @@
 		.taskTitle {
 			background-color: #f8f8f8;
 		}
-		.calendarName {
-			.border-radius(@borderRadiusSmall);
-			color: @white;
-			display: inline-block;
-			font-size: @baseFontSize - 2;
-			padding: 0px 10px;
-			margin: 0 5px 8px 0;
-		}
 		.eventsList {
 			li {
 				.border-radius(@borderRadiusSmall);
@@ -105,6 +97,15 @@
 		}
 	}
 	
+}
+
+.calendarName {
+	.border-radius(@borderRadiusSmall);
+	color: @white;
+	display: inline-block;
+	font-size: @baseFontSize - 2;
+	padding: 0px 10px;
+	margin: 0 5px 8px 0;
 }
 
 .asparagus {
@@ -202,4 +203,72 @@
     background-color: #CEA6AC;
 }
 
+/*setting calendar */
+.settingsCalContainer {
+	.calendarNameContainer {
+		.calendarName {
+			padding: 0 4px;
+			margin: 0 5px 4px 0;
+		}
+		.uiIconDel {
+			.square(14px);
+			background: url(/homepage-portlets/style/images/calendar/del.png) no-repeat 2px 2px;
+			cursor:pointer;
+		}
+	}
+	.uiBox  .uiContentBox {
+		padding: 15px;
+	}
+	.calendarSearchKey {
+		width: 100%;
+	}
+	.settingValidationButton  {
+		text-align: right;
+		margin: 5px 0 0 0;
+		.btn {
+			font-size: @baseFontSize - 2;
+			padding: 1px 8px;
+		}
+	}
 
+	.calendarItems {
+		margin: 0 -15px;
+		.calendarItem {	
+			padding: 0px 15px;
+			height: 24px;
+			line-height: 24px;
+			a {
+				color: #333;
+			}
+			.addButton {
+				display: none;
+			}
+			&:hover {
+				background: #e6e6e6;
+				& .addButton {
+					display: block;
+				}
+				 
+			}
+			.uiIconAdd{	
+				.square(14px);
+				background: url(/homepage-portlets/style/images/calendar/add.png) no-repeat 2px 2px; 
+			}
+			.calName {
+				 height: 18px;
+				overflow: hidden;
+				text-overflow: ellipsis;
+				white-space: nowrap;
+				display: block;
+				width: 190px;
+			}
+			.colorBox {
+				.square(12px);
+				display: block;
+				margin: 6px 5px 0 0;
+				.border-radius(@borderRadiusSmall);
+			}
+		}
+	}
+
+}

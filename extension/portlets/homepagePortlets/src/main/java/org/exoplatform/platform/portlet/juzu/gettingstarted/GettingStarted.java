@@ -194,17 +194,17 @@ public class GettingStarted {
     private boolean updateAction(Property tempProp, Node gettingStartedNode) throws RepositoryException {
         boolean has=false;
         String gsPropertyName=tempProp.getName();
-            has =checkStatus(gsPropertyName);
-            if(has)  {
-                status.put(gsPropertyName.substring(4), GettingStartedUtils.DONE);
-                progress+=20;
-            }
-            else  status.put(gsPropertyName.substring(4), "");
-            if(has!=tempProp.getBoolean()){
-                gettingStartedNode.setProperty(gsPropertyName, has);
-                gettingStartedNode.save();
-                return true;
-            }
+        has =checkStatus(gsPropertyName);
+        if(has)  {
+            status.put(gsPropertyName.substring(4), GettingStartedUtils.DONE);
+            progress+=20;
+        }
+        else  status.put(gsPropertyName.substring(4), "");
+        if(has!=tempProp.getBoolean()){
+            gettingStartedNode.setProperty(gsPropertyName, has);
+            gettingStartedNode.save();
+            return true;
+        }
         return false;
     }
 

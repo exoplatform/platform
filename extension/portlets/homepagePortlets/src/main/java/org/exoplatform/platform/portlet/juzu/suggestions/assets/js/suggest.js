@@ -82,7 +82,7 @@ $(function() {
             else
             { link += "<li class='clearfix' style='display:none;' id='"+item.suggestionId+"'>" }
 
-            link += "<div class='peoplePicture pull-left'><a href='#' class='avatarXSmall'><img src='"+item.avatar+"'></a></div>";
+            link += "<div class='peoplePicture pull-left'><div class='avatarXSmall'><img src='"+item.avatar+"'></div></div>";
             link += "<div class='peopleInfo'>";
             link += "<div class='peopleName'><a href='"+item.profile+"' target='_parent'>"+item.suggestionName+"</a></div>";
             link += "<div style='display:none;' class='peopleAction' ><a class='connect btn-primary btn btn-mini' href='#' onclick='return false'>"+connect+"</a><a class='ignore' href='#' onclick='return false'><i class='uiIconClose'></i></a></div>";
@@ -158,20 +158,30 @@ $(function() {
 
 
 
-    $.getJSON("/rest/homepage/intranet/spaces/suggestions", function(items){
+    $.getJSON("/rest/homepage/intranet/spaces/suggestions", function(data){
 
-        if (items.length > 0){
+        if (data.items.length > 0){
             $("#content").show();
             $("#spaceSuggest").show();
         }
 
-        items.shuffle();
+        data.items.shuffle();
+        var newUser=true;
+        for(var k= 0; k < data.items.length; k++)
+        {
+            if(data.items[k].number!=0){
+                newUser=false;
+            }
+        }
 
-        items.sort(dynamicSort("displayName"));
+        if(newUser==true || data.noConnections==0){
+            data.items.sort(sortByCreatedDate) ;
+        }else{
+        data.items.sort(dynamicSort("displayName"));
         // sort my most contacts instead of random
-        items.sort(sortByContacts);
-
-        $.each(items, function(i, item){
+        data.items.sort(sortByContacts);
+        }
+        $.each(data.items, function(i, item){
 
             var link = "";
 
@@ -180,9 +190,9 @@ $(function() {
             else
             { link += "<li class='clearfix'' style='display:none;' id='"+item.spaceId+"'>" }
 
-            link += "<div class='spacePicture pull-left'><a href='#' class='avatarXSmall'><img src='"+item.avatarUrl+"'></a></div>";
+            link += "<div class='spacePicture pull-left'><div class='avatarXSmall'><img src='"+item.avatarUrl+"'></div></div>";
             link += "<div class='spaceInfo'>";
-            link += "<div class='spaceName'><a href='/portal/intranet/all-spaces' target='_parent'>"+item.displayName+"</a></div>";
+            link += "<div class='spaceName'>"+item.displayName+"</div>";
             if(item.privacy=="Private")
             link += "<div class='spacePrivacy'><i class='uiIconSocGroup uiIconSocLightGray'></i>"+private+"&nbsp;-&nbsp;"+item.members+"&nbsp;"+spacemember+"</div>";
             else
