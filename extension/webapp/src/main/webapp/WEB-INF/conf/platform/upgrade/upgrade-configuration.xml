@@ -14,6 +14,7 @@
 			</value-param>
 		</init-params>
 	</component>
+<!--
 
    <external-component-plugins>
       <target-component>org.exoplatform.commons.upgrade.UpgradeProductService</target-component>
@@ -169,7 +170,26 @@
             </object-param>
          </init-params>
       </component-plugin>
+      <component-plugin profiles="social,all,default">
+         <name>Upgrade-Spaces-Home-page</name>
+         <set-method>addUpgradePlugin</set-method>
+         <type>org.exoplatform.platform.upgrade.plugins.UpgradeSpaceHomePagePlugin</type>
+         <description>Spaces Home page Upgrade Plugin</description>
+         <init-params>
+            <value-param>
+               <name>product.group.id</name>
+               <description>The groupId of the product</description>
+               <value>org.exoplatform.platform</value>
+            </value-param>
+            <value-param>
+               <name>plugin.execution.order</name>
+               <description>The plugin execution order</description>
+               <value>3</value>
+            </value-param>
+         </init-params>
+      </component-plugin>
    </external-component-plugins>
+-->
    <!--
   Not FOUND
   TODO : FIX OR REMOVE
@@ -188,24 +208,6 @@
                 </value-param>
             </init-params>
         </component-plugin>
-        <component-plugin profiles="social,all,default">
-			<name>Upgrade-Spaces-Home-page</name>
-			<set-method>addUpgradePlugin</set-method>
-			<type>org.exoplatform.platform.upgrade.plugins.UpgradeSpacePlugin</type>
-			<description>Spaces Home page Upgrade Plugin</description>
-			<init-params>
-				<value-param>
-					<name>product.group.id</name>
-					<description>The groupId of the product</description>
-					<value>org.exoplatform.platform</value>
-				</value-param>
-				<value-param>
-					<name>plugin.execution.order</name>
-					<description>The plugin execution order</description>
-					<value>3</value>
-				</value-param>
-			</init-params>
-		</component-plugin>
 		<component-plugin>
 			<name>Upgrade-WCM-Contents</name>
 			<set-method>addUpgradePlugin</set-method>
