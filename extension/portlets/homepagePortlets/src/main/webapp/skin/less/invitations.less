@@ -45,13 +45,20 @@
 		font-size: 10px;
 		position: absolute;
 		right: 5px;
-		top: 12px;
 		width: 125px;
 		text-align: right;
 		height: 45px;
 		#gradient .horizontal(rgba(255,255,255,0),rgba(255,255,255,1));
 		background-color: transparent;
 	}
+
+    .actionInviteAppears, .actionSpaceAppears {
+        width:120px;
+        float:left;
+        white-space:nowrap;
+        overflow: hidden;
+        text-overflow:ellipsis;
+    }
 	
 	.peopleInviteInfo, .spaceInviteInfo {
 	    margin-left: 65px;
@@ -64,6 +71,4 @@
 	    text-overflow: ellipsis;
 	    color: @grayLight;
 	}
-	
-
 }
