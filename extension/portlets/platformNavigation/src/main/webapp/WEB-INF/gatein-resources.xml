@@ -63,7 +63,7 @@
         <name>PlatformAdminToolbarPortlet</name>
         <module>
             <depends>
-                <module>navigation-toolbar</module>
+                <module>bts_dropdown</module>
             </depends>
         </module>
     </portlet>
@@ -71,7 +71,7 @@
         <name>UISetupPlatformToolBarPortlet</name>
         <module>
             <depends>
-                <module>navigation-toolbar</module>
+                <module>bts_dropdown</module>
             </depends>
         </module>
     </portlet>
@@ -82,7 +82,7 @@
                 <module>base</module>
             </depends>
            <depends>
-              <module>navigation-toolbar</module>
+              <module>bts_dropdown</module>
            </depends>
             <!--
             <depends>
@@ -105,7 +105,7 @@
                 <module>base</module>
             </depends>
             <depends>
-                <module>social-core</module>
+                <module>bts_dropdown</module>
             </depends>
         </module>
     </portlet>
