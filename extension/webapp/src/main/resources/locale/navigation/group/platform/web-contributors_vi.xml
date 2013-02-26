@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bundle>
+  <administration>
+    <siteExplorer>Quản lý nội dung trang web</siteExplorer>
+    <wcmAdmin>Quản trị site</wcmAdmin>
+    <newslettermanager>Quản lý newsletter</newslettermanager>
+    <formgenerator>Hệ thống sinh form tự động</formgenerator>
+	<workflowAdministration>Quản trị luồng công việc</workflowAdministration>
+  </administration>
+</bundle>
+
