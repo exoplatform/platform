@@ -19,56 +19,143 @@
      */
 
 %>
+<style type="text/css">
+.clearfix {
+    *zoom: 1;
+}
+.clearfix:before,
+.clearfix:after {
+    display: table;
+    content: "";
+    line-height: 0;
+}
+.clearfix:after {
+    clear: both;
+}
 
+.calendarItem {
+    padding: 0px 15px;
+    height: 24px;
+    line-height: 24px;
+}
+.calendarItem a {
+    color: #333;
+}
+.calendarItem .addButton {
+    display: none;
+}
+.calendarItem .uiIconAdd {
+    width: 14px;
+    height: 14px;
+    background: url(/homepage-portlets/style/images/calendar/add.png) no-repeat 2px 2px;
+}
+.calendarItem .colorBox {
+    width: 12px;
+    height: 12px;
+    display: block;
+    margin: 6px 5px 0 0;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+}
+.calendarItem .calName {
+    height: 18px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    display: block;
+    width: 190px;
+}
+.asparagus {
+    background-color: #909958;
+}
+.munsell_blue {
+    background-color: #319AB3;
+}
+.navy_blue {
+    background-color: #4273C8;
+}
+.purple {
+    background-color: #774EA9;
+}
+.red {
+    background-color: #FF5933;
+}
+.brown {
+    background-color: #BB8E62;
+}
+.laurel_green {
+    background-color: #BED67E;
+}
+.sky_blue {
+    background-color: #4DBED9;
+}
+.blue_gray {
+    background-color: #8EB0EA;
+}
+.light_purple {
+    background-color: #BC99E7;
+}
+.hot_pink {
+    background-color: #F97575;
+}
+.light_brown {
+    background-color: #C5B294;
+}
+.moss_green {
+    background-color: #98CC81;
+}
+.powder_blue {
+    background-color: #9EE4F5;
+}
+.light_blue {
+    background-color: #B3CFFF;
+}
+.pink {
+    background-color: #FFC8F0;
+}
+.orange {
+    background-color: #FDB519;
+}
+.gray {
+    background-color: #A39594;
+}
+.green {
+    background-color: #89D4B3;
+}
+.baby_blue {
+    background-color: #B2E2FF;
+}
+.light_gray {
+    background-color: #CDCDCD;
+}
+.beige {
+    background-color: #FFE1BE;
+}
+.yellow {
+    background-color: #FFE347;
+}
+.plum_purple {
+    background-color: #CEA6AC;
+}
+</style>
 <script type="text/javascript">
-
-    $('.CalendarItem').mouseover(function() {
-        var button= $(this).children("p.addButton");
-        button.css("display","block");
-    });
-    $('.CalendarItem').mouseout(function() {
-        var button= $(this).children("p.addButton");
-        button.css("display","none");
-    });
-    $('span.addButtonSpan').on("click", function() {
-        var calId=$(this).parent().children("input").val();
-        $('div.SettingsContainerData').jzLoad(
+    $('.uiIconAdd').on("click", function () {
+        var calId = $(this).parent().children("input").val();
+        $('div.settingsContainerData').jzLoad(
                 "CalendarPortletController.addCalendar()",
                 {"calendarId":calId});
     });
-    $('span.deleteButtonSpan').on("click", function() {
-        var calId=$(this).parent().children("input").val();
-        $('div.SettingsContainerData').jzLoad(
-                "CalendarPortletController.deleteCalendar()",
-                {"calendarId":calId});
+    $('.calendarItem').mouseover(function() {
+        var button= $(this).children("a.addButton");
+        button.css("display","block");
+    });
+    $('.calendarItem').mouseout(function() {
+        var button= $(this).children("a.addButton");
+        button.css("display","none");
     });
 </script>
-<style type="text/css">
-.addButtonSpan{
-    background: url("/homepage-portlets/style/calendar/img/add.png") no-repeat right 8px;
-    padding-left: 10px;
-
-}
-.CalendarName {
-    max-height: 1.3em;
-    max-width: 90px;
-    overflow: hidden;
-    text-align: center;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-}
-.CalendarItem:hover {
-    box-shadow: 0 0 1px rgba(0, 0, 0, 0.2) inset;
-    background-color: #f0f0f0;
-}
-</style>
-<div>
-
-
-</div>
-
 <% if (searchResultList != null) {
-
     searchResultList.each { cal ->
         def   calendarName= cal.name;
         def hover="";
@@ -78,23 +165,14 @@
             hover= " (" + group.substring(group.lastIndexOf("/") + 1) + ")";
         }
 %>
-<div id="${cal.id}" class="CalendarItem" title="${hover}">
-
-    <p style="float:left; height:20px;width:20px;background-color:  ${cal.calendarColor}" />
-
-    <p class="CalendarName" style="float:left; ">${calendarName}</p>
-
-    <p class="addButton" style="float:left;display:none;padding-left: 65px">
-        <input type="hidden" name="calendarId" value="${cal.id}"/>
-        <span   class="addButtonSpan">ADD</span>
-    </p>
-
-    <div class="spacer">
-        &nbsp;
-    </div>
-</div>
+    <li id="${cal.id}" class="calendarItem clearfix" title="${hover}">
+        <a href="javascript:void(0);" class="addButton pull-right" style="display: none;">
+            <input type="hidden" name="calendarId" value="${cal.id}"/>
+            <i class="uiIconAdd "></i>
+        </a>
+        <a class="${cal.calendarColor} colorBox pull-left" href="javascript:void(0);"></a>
+        <a  href="javascript:void(0);" class="calName" data-original-title="${hover}" data-placement="bottom" rel="tooltip">${calendarName}</a>
+    </li>
 <% }
-
 }
-
 %>
