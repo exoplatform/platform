@@ -1,17 +1,16 @@
 
 .UIToolbarContainer {
 	.NormalContainerBlock .ToolbarContainer {
-		#gradient > .vertical(#5b5b5b, #474747);
+		background: none;
 		height: 41px;
 		border: none;
-		border-bottom: 1px solid #2c3440;
 		.TRContainer {
 			height: 41px;
 		}
 	}
 	
 	.uiDropdownWithIcon {
-		background: url(/eXoPlatformResources/skin/platformSkin/images/ToolbarContainer/line.png) no-repeat left;
+		background: none;
 		padding-left: 2px;
 	 	> a {
 		padding: 0 10px 0 11px;
@@ -24,7 +23,7 @@
 			}
 		}
 		> a:hover,.uiDropdownWithIcon.open > a {
-			background: #3f3f3f;
+			background: none;
 		}
 		
 	}
@@ -113,8 +112,46 @@
 		height: 26px;
 	}	
 	
+	#HomeLink {
+		padding: 4px 10px 0;
+	}
 }
 
+.UIToolbarContainerDark {
+	.NormalContainerBlock .ToolbarContainer {
+			#gradient > .vertical(#5b5b5b, #474747);
+			border-bottom: 1px solid #2c3440;
+		}
+		
+		.uiDropdownWithIcon {
+			background: url(/eXoPlatformResources/skin/platformSkin/images/ToolbarContainer/line.png) no-repeat top left;
+		 	> a {
+			color: white;
+			}
+			> a:hover,.uiDropdownWithIcon.open > a {
+				background: #3f3f3f;
+			}
+		}
+}
+
+.UIToolbarContainerLight {
+	.NormalContainerBlock .ToolbarContainer {
+			#gradient > .vertical(#f4f4f4, #d4d4d4);
+			border-bottom: 1px solid #cccccc;
+	 
+		}
+		
+		.uiDropdownWithIcon {
+			background: url(/eXoPlatformResources/skin/platformSkin/images/ToolbarContainer/line.png) no-repeat bottom left;
+		 	> a {
+			color: #4c4c4c;
+			}
+			> a:hover,.uiDropdownWithIcon.open > a {
+				background: #3f3f3f;
+				color: white;
+			}
+		}
+}
 	
 
 

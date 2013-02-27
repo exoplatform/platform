@@ -1,31 +1,40 @@
 
-#PreviewImg{
-height: 34px;
-max-width : 300px;
-}
+@import "variables.less"; 
+@import "mixins.less";
 
-
-#PreviewImgDiv
-{
-	width : 300px;
-	height: 34px;
-	font-weight: bold;
-	text-align: center;
-	color: #555;
-	border: 1px solid #555;
-	cursor: default;
+.uiBrandingPortlet {
+	padding: 5px 30px;
+	background: white;
+	> div {
+		padding: 10px 0;
+	}
+	h4.titleWithBorder {
+		margin: 20px 0;
+		line-height: 21px;
+	}
+	.alert {
+		display: none;
+	}
 	
+	.previewLogo {
+		.box-shadow(0 2px 4px rgba(0,0,0,0.15));
+		border: 1px solid #cccccc;
+		padding: 20px;
+		margin: 10px 0;
+    text-align: center;
+    .size(34px,300px);
+	}
 	
-}
-
-#PreviewImgDiv.hover
-{
-	color: #f00;
-	border-color: #f00;
-	border-style: solid;
-	box-shadow: inset 0 3px 4px #888;
-}
-
-.message {
-	display: none;
+	.info {
+		margin: 10px 0 0;
+		color: #999999;
+		width: 341px;
+		text-align: center;
+		font-size: 12px;
+	}
+	
+	.preview .UIToolbarContainer {
+		.box-shadow(0 2px 6px rgba(0,0,0,0.15));
+		border: 1px solid #cccccc;
+	}
 }

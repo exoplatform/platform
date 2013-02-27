@@ -1,43 +1,48 @@
-<div id="cancelinfo" class="message">${cancelok}</div>
-<div id="saveinfo" class="message">${saveok}</div>
-<div id="mustpng" class="message">${mustpng}</div>
-<h3>${selectlogo}</h3>
-<hr/>
-
- 
-<form id="form" enctype="multipart/form-data" action="${urlUploadFile}"  method="POST">
- <input type='hidden' id='browser' name='browser' />
- <input type='file' id='file' name='file'  />
-</form>
-<br>
-  ${noteselectlogo}
-<br>
-  <div id="PreviewImgDiv" >
-	<img id="ajaxUploading1" alt="" src="/eXoPlatformResources/skin/platformSkin/icons/ajax-loader.gif"  style="display:none" >
- <img id="PreviewImg" alt="" >
-  </div>
-
-
-<br/>
-<div>
-<h3>${selectstyle}</h3>
-<hr/>
-<select id="navigationStyle">
-<option value="Dark">Dark</option>
-<option value="Light">Light</option>
-</select>
+<div class="uiBrandingPortlet">
+	<div class="alert" id="cancelinfo">
+		<i class="uiIconWarning"></i>${cancelok}
+	</div>
+	<div class="alert alert-success" id="saveinfo">
+		<i class="uiIconSuccess"></i>${saveok}
+	</div>
+	<div class="alert" id="mustpng">
+		<i class="uiIconWarning"></i>${mustpng}
+	</div>
+	
+	<div class="logoForm">
+		<h4 class="titleWithBorder">${selectlogo}</h4>
+		<form id="form" enctype="multipart/form-data" action="${urlUploadFile}"  method="POST">
+		 <input type='hidden' id='browser' name='browser' />
+		 <input type='file' id='file' name='file'  />
+		</form>
+	  
+	  <div id="PreviewImgDiv" class="previewLogo" >
+			<img id="ajaxUploading1" alt="" src="/eXoPlatformResources/skin/platformSkin/icons/ajax-loader.gif"  style="display:none" >
+		 	<img id="PreviewImg" alt="" >
+	  </div>
+	  <div class="info">${noteselectlogo}</div>
+	  
+	</div>
+		
+	<div class="navigationStyle">
+		<h4 class="titleWithBorder">${selectstyle}</h4>
+		<div class="uiSelectbox">
+			<select id="navigationStyle" class="selectbox">
+				<option value="Dark">Dark</option>
+				<option value="Light">Light</option>
+			</select>
+		</div>
+	</div>
+	
+	<div class="preview">
+		<h4 class="titleWithBorder">Preview</h3>
+		<div id="StylePreview">
+			<img id="ajaxUploading2" alt="" src="/eXoPlatformResources/skin/platformSkin/icons/ajax-loader.gif"	style="display:none" >
+		</div>
+	</div>
+	
+	<div class="uiAction">
+		<button id="save" class="btn btn-primate" type="button" value="${save}">${save}</button>
+		<button id="cancel" class="btn" type="button" value="${cancel}"/>${cancel}</button>
+	</div>
 </div>
-
-<h3>
-Preview
-</h3>
-<hr/>
-<div id="StylePreview">
-<img id="ajaxUploading2" alt="" src="/eXoPlatformResources/skin/platformSkin/icons/ajax-loader.gif"  style="display:none" >
-</div>
- 
-<br/>
-<hr/>
-<br/>
-<input id="save" type="button" value="${save}"/>
-<input id="cancel" type="button" value="${cancel}"/>
