@@ -1109,7 +1109,7 @@
 					<access-permissions>Everyone</access-permissions>
 					<portlet-application>
 					  <portlet>
-						<application-ref>formgenerator</application-ref>
+						<application-ref>fastcontentcreator</application-ref>
 						<portlet-ref>FastContentCreatorBasicPortlet</portlet-ref>
 						<preferences>
 						  <preference>
@@ -1142,7 +1142,7 @@
 						  </preference>
 						  <preference>
 							<name>type</name>
-							<value>exo:contact_us</value>
+							<value>acme:contact_us</value>
 							<read-only>false</read-only>
 						  </preference>
 						  <preference>
