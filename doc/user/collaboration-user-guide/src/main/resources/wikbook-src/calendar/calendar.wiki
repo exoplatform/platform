@@ -763,11 +763,11 @@ at the right top of the calendars list, then select <guilabel>Import</guilabel> 
 
 *The second way*
 
-*i.* Hover your cursor over the calendar which you want to export, then click !images/Calendar-gear-icon.png|width="4mm" fo:scalefit="1" html:scalefit="0"! that appears.
+*i.* Hover your cursor over the personal calendar group which you want to import, then click !images/Calendar-gear-icon.png|width="4mm" fo:scalefit="1" html:scalefit="0"! that appears.
 
 {docbook}
 <para>
- <emphasis role="bold">2.</emphasis> Click <guilabel>Export</guilabel> from the drop-down menu to open the <guilabel>Export Calendars</guilabel> form.</para>
+ <emphasis role="bold">ii.</emphasis> Click <guilabel>Import</guilabel> from the drop-down menu.</para>
 {docbook}
 
 {docbook}
