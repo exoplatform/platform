@@ -1115,6 +1115,27 @@
             <show-application-mode>false</show-application-mode>
         </portlet-application>
     </page>
+
+    <!-- Temporary page for unified search testing -->
+    <page>
+        <name>search</name>
+        <title>Search</title>
+        <access-permissions>Everyone</access-permissions>
+        <edit-permission>manager:/platform/administrators</edit-permission>
+        <portlet-application>
+            <portlet>
+                <application-ref>unified-search</application-ref>
+                <portlet-ref>UnifiedsearchPortlet</portlet-ref>
+            </portlet>
+            <title>Search</title>
+            <access-permissions>Everyone</access-permissions>
+            <show-info-bar>false</show-info-bar>
+            <show-application-state>false</show-application-state>
+            <show-application-mode>false</show-application-mode>
+        </portlet-application>
+    </page>
+
+
     <page>
         <name>detail</name>
         <title>Detail</title>
@@ -1174,27 +1195,43 @@
             <show-application-mode>false</show-application-mode>
         </portlet-application>
     </page>
-    <page>
-        <name>wiki</name>
-        <title>Wiki</title>
-        <access-permissions>*:/platform/users</access-permissions>
-        <edit-permission>*:/platform/administrators</edit-permission>
-        <portlet-application>
+   <page>
+      <name>wiki</name>
+      <title>Wiki</title>
+      <access-permissions>*:/platform/users</access-permissions>
+      <edit-permission>*:/platform/administrators</edit-permission>
+      <container id="UIUserNavigationPortlet" template="war:/groovy/portal/webui/container/UIUserWikiContainer.gtmpl">
+         <access-permissions>*:/platform/users</access-permissions>
+         <portlet-application>
             <portlet>
-                <application-ref>wiki</application-ref>
-                <portlet-ref>WikiPortlet</portlet-ref>
+               <application-ref>platformNavigation</application-ref>
+               <portlet-ref>UIUserNavigationPortlet</portlet-ref>
+            </portlet>
+            <title>User Navigation Portlet</title>
+            <access-permissions>*:/platform/users</access-permissions>
+            <show-info-bar>false</show-info-bar>
+            <show-application-state>true</show-application-state>
+         </portlet-application>
+      </container>
+      <container id="myWikiPortlet" template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
+         <access-permissions>*:/platform/users</access-permissions>
+         <portlet-application>
+            <portlet>
+               <application-ref>wiki</application-ref>
+               <portlet-ref>WikiPortlet</portlet-ref>
             </portlet>
             <title>Wiki Portlet</title>
             <access-permissions>Everyone</access-permissions>
             <show-info-bar>false</show-info-bar>
             <show-application-state>false</show-application-state>
             <show-application-mode>false</show-application-mode>
-        </portlet-application>
-    </page>
+         </portlet-application>
+      </container>
+   </page>
 
     <page>
-        <name>mywiki</name>
-        <title>myWiki</title>
+        <name>answers</name>
+        <title>answers</title>
         <access-permissions>*:/platform/users</access-permissions>
         <edit-permission>*:/platform/administrators</edit-permission>
         <container id="UIUserNavigationPortlet" template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
@@ -1210,14 +1247,47 @@
                 <show-application-state>true</show-application-state>
             </portlet-application>
         </container>
-        <container id="myWikiPortlet" template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
+        <container id="AnswerPortlet" template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
             <access-permissions>*:/platform/users</access-permissions>
             <portlet-application>
                 <portlet>
-                    <application-ref>wiki</application-ref>
-                    <portlet-ref>WikiPortlet</portlet-ref>
+                    <application-ref>answer</application-ref>
+                    <portlet-ref>AnswersPortlet</portlet-ref>
                 </portlet>
-                <title>Wiki Portlet</title>
+                <title>answers Portlet</title>
+                <access-permissions>Everyone</access-permissions>
+                <show-info-bar>false</show-info-bar>
+                <show-application-state>false</show-application-state>
+                <show-application-mode>false</show-application-mode>
+            </portlet-application>
+        </container>
+    </page>
+    <page>
+        <name>faq</name>
+        <title>faq</title>
+        <access-permissions>*:/platform/users</access-permissions>
+        <edit-permission>*:/platform/administrators</edit-permission>
+        <container id="UIUserNavigationPortlet" template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
+            <access-permissions>*:/platform/users</access-permissions>
+            <portlet-application>
+                <portlet>
+                    <application-ref>platformNavigation</application-ref>
+                    <portlet-ref>UIUserNavigationPortlet</portlet-ref>
+                </portlet>
+                <title>User Navigation Portlet</title>
+                <access-permissions>*:/platform/users</access-permissions>
+                <show-info-bar>false</show-info-bar>
+                <show-application-state>true</show-application-state>
+            </portlet-application>
+        </container>
+        <container id="FAQPortlet" template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
+            <access-permissions>*:/platform/users</access-permissions>
+            <portlet-application>
+                <portlet>
+                    <application-ref>answer</application-ref>
+                    <portlet-ref>FAQPortlet</portlet-ref>
+                </portlet>
+                <title>faq Portlet</title>
                 <access-permissions>Everyone</access-permissions>
                 <show-info-bar>false</show-info-bar>
                 <show-application-state>false</show-application-state>

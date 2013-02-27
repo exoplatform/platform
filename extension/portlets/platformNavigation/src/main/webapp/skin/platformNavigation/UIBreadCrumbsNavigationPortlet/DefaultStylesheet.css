@@ -26,6 +26,14 @@
 .uiBreadcumbsNavigationPortlet img {
     border: 1px solid white;
     border-radius: 5px;
-    height: 68px;
-    width: 68px;
+    height: 80px;
+    width: 80px;
+}
+
+.BreadcumbEntry {
+    display: block;
+    overflow: hidden;
+    padding: 5px 0;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }

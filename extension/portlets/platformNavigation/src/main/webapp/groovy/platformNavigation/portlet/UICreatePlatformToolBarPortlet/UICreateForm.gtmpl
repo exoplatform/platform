@@ -22,75 +22,34 @@
 <%
 import org.exoplatform.platform.component.UICreateList;
 import org.exoplatform.web.application.JavascriptManager;
+_ctx.getRequestContext().getJavascriptManager().require("SHARED/uiForm");
 
-def rcontext = _ctx.getRequestContext();	 
-JavascriptManager jsmanager = rcontext.getJavascriptManager();
-//jsmanager.addCustomizedOnLoadScript('eXo.portal.UIPortalNavigation.onLoad("' + uicomponent.id + "_UL" + '");');
-jsmanager.require("SHARED/navigation", "nav").addScripts("nav.UIPortalNavigation.onLoad('" + uicomponent.id + "');");
-
-def Topic="javascript:eXo.webui.UIForm.submitForm('UITopicContainer','AddTopic',true);"
-def message=UICreateList.getParStatus();
-def addpage="/portal/intranet/wiki#AddPage";
-def Poll="javascript:eXo.webui.UIForm.submitForm('UITopicDetail','AddPoll',true);"
 %>
+<div class="UICreate" id="$uicomponent.id">
+	<div class="HorizontalLayout">
+		<div class="UIFormInput">
+			<div class="CreateName"><%=_ctx.appRes("UICreateWiki.label.title")%></div>
+				<table class="UIFormGrid">
+					<tbody>
+						<tr>
+							<td class="FieldLabel">
+							    <label for="<%=_ctx.appRes("UICreateWiki.label.location")%>"><%=_ctx.appRes("UICreateWiki.label.location")%></label>
+							</td>
+							<td class="FieldComponent">
+								<% uicomponent.renderChild(uicomponent.SPACE_SWITCHER);%>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+		</div>
+	</div>
 
-<div id="$uicomponent.id">
-  
-     <div class="HorizontalLayout">
-       <div class="FormContainer">
-         <table class="UIFormGrid">
-	      <tbody>
-            <div> Create a new $message</div>
-             <tr>
-                 
-	         </tr>
-		 </tbody>
-         </table>
-       </div>
+  <div class="UIAction">
+  <% for(action in uicomponent.getActions()) {
+           String actionLabel = _ctx.appRes("UICreateList.action." + action);
+           String link = uicomponent.event(action) ;
+        %>
+      <a href="javascript:void(0);" onclick="$link" class="ActionButton LightBlueStyle">$actionLabel</a>
+      <%}%>
     </div>
-   
-
-      <%//Rerender this  component with the new structure%>
-      <%// start render action%>
- <% if(uicomponent.getActions() != null) { %>
-  <div class="$uicomponent.id">
-    <div class="UIAction">
-      <table class="ActionContainer" align="center">
-      	<tr>
-      		<td align="center">
-				<%if(message=="Topic"){		%>
-					<a href="$Topic" class="ActionButton LightBlueStyle" >
-				<%}else if(message=="Poll"){%>
-				   <a href="$Poll" class="ActionButton LightBlueStyle" >	
-				<%}else{%>
-				   <a href="$addpage" class="ActionButton LightBlueStyle" >	
-					 <%}%>
-					  <div class="ButtonLeft">
-						<div class="ButtonRight">
-						  <div class="ButtonMiddle">
-							  <%=_ctx.appRes(uicomponent.getId() + ".action." + "Next")%>
-						  </div>
-						</div>
-					  </div>
-					</a>	        
-			</td>
-			<td align="center">	       
-              <a href="<%=uicomponent.event("Cancel")%>" class="ActionButton LightBlueStyle" >
-              <div class="ButtonLeft">
-                <div class="ButtonRight">
-                  <div class="ButtonMiddle">
-                      <%=_ctx.appRes(uicomponent.getId() + ".action." + "Cancel")%>
-                  </div>
-                </div>
-              </div>
-            </a>	        
-			</td>
-		</tr>
-      </table>
-    </div>
-  </div>
-<% }%>
-      <%// end render action%>
-	
-
 </div>

@@ -10,10 +10,10 @@
 	 
     JavascriptManager jsmanager = rcontext.getJavascriptManager();
     //jsmanager.addCustomizedOnLoadScript('eXo.portal.UIPortalNavigation.onLoad("' + uicomponent.id + "_UL" + '");');
-    jsmanager.require("SHARED/navigation", "nav").addScripts("nav.UIPortalNavigation.onLoad('" + uicomponent.id + "');");
+    jsmanager.require("SHARED/navigation-toolbar", "toolbarnav").addScripts("toolbarnav.UIPortalNavigation.onLoad('" + uicomponent.id + "');");
 	String addPageLabel = _ctx.appRes("UIAdminToolbarPortlet.action.AddPage");	
 	String editPageLabel = _ctx.appRes("UIAdminToolbarPortlet.action.Layout");
-	String editSiteLayout = _ctx.appRes("UIAdminToolbarPortlet.action.Layout");
+	String editSiteLayout = _ctx.appRes("UIAdminToolbarPortlet.action.siteLayout");
 	String editNavigation = _ctx.appRes("UIAdminToolbarPortlet.action.EditNavigation");
 	String quickEditLabel = _ctx.appRes("UIAdminToolbarPortlet.action.Content");
 	String editorLabel = _ctx.appRes("UIAdminToolbarPortlet.action.Editor");

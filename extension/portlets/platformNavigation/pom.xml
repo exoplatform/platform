@@ -15,6 +15,18 @@
       <artifactId>portlet-api</artifactId>
     </dependency>
     <dependency>
+      <groupId>org.exoplatform.wiki</groupId>
+      <artifactId>wiki-service</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.exoplatform.calendar</groupId>
+      <artifactId>calendar-component-create</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.exoplatform.commons</groupId>
+      <artifactId>commons-webui-component</artifactId>
+    </dependency>
+    <dependency>
       <groupId>org.exoplatform.core</groupId>
       <artifactId>exo.core.component.organization.api</artifactId>
     </dependency>
@@ -37,6 +49,10 @@
     <dependency>
       <groupId>org.exoplatform.platform</groupId>
       <artifactId>platform-component-common</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.exoplatform.platform</groupId>
+      <artifactId>platform-component-uxpnavigation</artifactId>
     </dependency>
     <dependency>
       <groupId>org.exoplatform.platform</groupId>
@@ -83,22 +99,14 @@
       <artifactId>javax.servlet-api</artifactId>
       <scope>provided</scope>
     </dependency>
-      <dependency>
-          <groupId>org.gatein.shindig</groupId>
-          <artifactId>shindig-social-api</artifactId>
-      </dependency>
-      <dependency>
-          <groupId>org.exoplatform.calendar</groupId>
-          <artifactId>calendar-component-create</artifactId>
-      </dependency>
-      <dependency>
-          <groupId>org.exoplatform.platform</groupId>
-          <artifactId>platform-component-uxpnavigation</artifactId>
-      </dependency>
-      <dependency>
-          <groupId>org.exoplatform.commons</groupId>
-          <artifactId>commons-webui-component</artifactId>
-      </dependency>
+    <dependency>
+      <groupId>org.gatein.shindig</groupId>
+      <artifactId>shindig-social-api</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.exoplatform.forum</groupId>
+      <artifactId>forum-application-create</artifactId>
+    </dependency>
   </dependencies>
   <build>
     <finalName>platformNavigation</finalName>
