@@ -23,9 +23,10 @@
 import org.exoplatform.platform.component.UICreateList;
 import org.exoplatform.web.application.JavascriptManager;
 _ctx.getRequestContext().getJavascriptManager().require("SHARED/uiForm");
-
 %>
+<% uiform.begin()%>
 <div class="uiCreateForm" id="$uicomponent.id" style="border: 1px solid red">
+<div class="HorizontalLayout">
 	<div class="form-horizontal">
 			<h6><%=_ctx.appRes("UICreateWiki.label.title")%></h6>
 			<div class="control-group">
@@ -47,3 +48,5 @@ _ctx.getRequestContext().getJavascriptManager().require("SHARED/uiForm");
       <%}%>
     </div>
 </div>
+</div>
+<%uiform.end()%>

@@ -16,15 +16,15 @@ import org.exoplatform.webui.commons.UISpacesSwitcher;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.config.annotation.EventConfig;
 import org.exoplatform.webui.core.UIComponent;
-import org.exoplatform.webui.core.UIContainer;
-import org.exoplatform.webui.core.lifecycle.Lifecycle;
+import org.exoplatform.webui.core.lifecycle.UIFormLifecycle;
 import org.exoplatform.webui.event.Event;
 import org.exoplatform.webui.event.EventListener;
-import org.exoplatform.wiki.mow.api.WikiType;
-import org.exoplatform.wiki.service.WikiService;
-import org.exoplatform.wiki.mow.core.api.wiki.PageImpl;
+import org.exoplatform.webui.form.UIForm;
 import org.exoplatform.wiki.mow.api.Wiki;
+import org.exoplatform.wiki.mow.api.WikiType;
+import org.exoplatform.wiki.mow.core.api.wiki.PageImpl;
 import org.exoplatform.wiki.service.WikiPageParams;
+import org.exoplatform.wiki.service.WikiService;
 
 import java.net.URLEncoder;
 
@@ -34,15 +34,15 @@ import java.net.URLEncoder;
  */
 
 @ComponentConfig(
-        lifecycle = Lifecycle.class,
+        lifecycle = UIFormLifecycle.class,
         template = "app:/groovy/platformNavigation/portlet/UICreatePlatformToolBarPortlet/UICreateForm.gtmpl",
         events = {
                 @EventConfig(
-                        listeners = UICreateForm.NextActionListener.class
+                        listeners = UICreateForm.NextActionListener.class , phase = Event.Phase.DECODE
 
                 ),
                 @EventConfig(
-                        listeners = UICreateForm.CancelActionListener.class
+                        listeners = UICreateForm.CancelActionListener.class , phase = Event.Phase.DECODE
                 ),
 
                 @EventConfig(
@@ -51,7 +51,7 @@ import java.net.URLEncoder;
         }
 )
 
-public class UICreateForm extends UIContainer {
+public class UICreateForm extends UIForm {
     static String LOCATION = "In Location".intern();
     private static final String SWITCH_SPACE_ACTION = "SwitchSpace";
     public static final String SPACE_SWITCHER = "UIWikiSpaceSwitcher_CreateWiki";
@@ -70,7 +70,7 @@ public class UICreateForm extends UIContainer {
     }
 
     public String[] getActions() {
-        return new String[]{"Next","Cancel" };
+        return new String[]{"Next","Cancel"};
     }
 
     public String getUrlWiki() {
@@ -154,9 +154,7 @@ public class UICreateForm extends UIContainer {
             UISpacesSwitcher uiWikiSpaceSwitcher = uiCreateWiki.getChildById(SPACE_SWITCHER);
             uiWikiSpaceSwitcher.setCurrentSpaceName(wikiName);
             // --- Update Front Office Container
-            event.getRequestContext().addUIComponentToUpdateByAjax(uiCreateWiki);
-            event.getRequestContext().addUIComponentToUpdateByAjax(uiParent);
-            event.getRequestContext().getJavascriptManager().require("SHARED/navigation-toolbar", "toolbarnav").addScripts("toolbarnav.UIPortalNavigation.ClickActionButton('"+uiParent.getId()+"') ;");
+            event.getRequestContext().getJavascriptManager().require("SHARED/navigation-toolbar", "toolbarnav").addScripts("toolbarnav.UIPortalNavigation.ClickActionButton('"+uiParent.getId()+"');");
         }
     }
 
