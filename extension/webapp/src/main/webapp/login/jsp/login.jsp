@@ -65,7 +65,7 @@
     <style>
 					
 			body {
-				background: #b5b6b6;
+				background: url("/platform-extension/login/jsp/images/login_texture.jpg") repeat;
 				font-family: lucida, arial, tahoma, verdana
 			}
 			@font-face {
@@ -78,79 +78,211 @@
 			 src: url("/platform-extension/login/jsp/images/L_0.TTF") 
 			}
 
-			.UILogin {
-			 	height: 236px;
-				font-size: 12px;
-				margin: 110px auto 7px auto;
-				padding:0 5px 0 120px;
-				width: 278px;
-				background: url('/platform-extension/login/jsp/images/LoginBackground.gif') no-repeat top;
+			.uiLogin {
+				border-radius: 4px 4px 4px 4px;
+				box-shadow: 0 1px 3px #545555;
 				color: #333333;
+				font-size: 12px;
+				height: 332px;
+				margin: 110px auto 7px;
+				padding: 0 40px;
+				position: relative;
+				width: 312px;
+				background: #fff url("/platform-extension/login/jsp/images/loginBG.png") no-repeat bottom;
 			}
 			  
-			.UILogin .LoginHeader {
-				height: 33px;
-				padding: 10px 15px 0px 0px;
+			.uiLogin .loginHeader {
+				background: url("/platform-extension/login/jsp/images/LoginHeader.png") repeat-x scroll 0 0 transparent;
+				border: 1px solid #393939;
+				border-radius: 0 0 4px 4px;
+				margin-top: -8px;
+				padding: 8px 12px;
+				position: absolute;
+				width: 286px;
+				box-shadow: 1px 1px 1px #b6b6b6;
+			}
+			
+			.uiLogin .introBox:after {
+				border-bottom: 8px solid #2a323e;
+				border-right: 7px solid transparent;
+				right: -8px;
+			}
+			.uiLogin .introBox:before, .uiLogin .introBox:after {
+				border-top: medium none;
+				content: "";
+				display: inline-block;
+				height: 0;
+				position: absolute;
+				top: -1px;
+				vertical-align: top;
+				width: 0;
+			}
+			.uiLogin .introBox:before {
+				border-bottom: 8px solid #2a323e;
+				border-left: 7px solid transparent;
+				left: -8px;
+			}
+			.uiLogin .introBox:before, .uiLogin .introBox:after {
+				border-top: medium none;
+				content: "";
+				display: inline-block;
+				height: 0;
+				position: absolute;
+				top: -1px;
+				vertical-align: top;
+				width: 0;
+			}
+			
+			.uiLogin .loginHeader .userLoginIcon{
+				background: url("/platform-extension/login/jsp/images/UserLoginIcon.png") no-repeat scroll 0 0 transparent;
+				color: #CCCCCC;
+				font-size: 18px;
+				font-weight: bold;
+				line-height: 41px;
+				padding-left: 52px;
+			}
+			
+			.uiLogin .loginContent{
+			  padding-top: 45px;
 			}
 
-			.UILogin .LoginContent .CenterLoginContent {
+			.uiLogin .loginContent .centerLoginContent {
 			  height: 157px;
 			}
+			
+			.uiLogin .loginContent .username{
+				background: url("/platform-extension/login/jsp/images/username.png") no-repeat left;
+			}
+			
+			.uiLogin .loginContent .password{
+				background: url("/platform-extension/login/jsp/images/password.png") no-repeat left;
+			}
 
-			.UILogin .LoginContent input {
-			  width: 180px ;  
-			  height: 18px;
-			  border: solid 1px #b7b7b7 ;
+			.uiLogin .loginContent input {
+			  width: 264px ;  
+			  height: 36px;
+			  border: solid 1px #cbcbcb ;
 			  background: white;
-				margin: 0 0 5px;
+				margin: 0 0 14px;
 				color: #333333;
+				box-shadow: 1px 2px 1px rgba(0, 0, 0, 0.075) inset;
+				border-radius: 4px;
+				padding-left: 50px;
+				color: #999;
+				font-size: 18px;
 			}
 			
-			.UILogin .LoginContent input.checkbox {
-				width: auto;
-				vertical-align: middle;
-				background: none; border: none;
+			.uiLogin .loginContent .loginButton {
+			  padding: 52px 0 0 0;
 			}
 			
-			.UILogin .LoginContent .FieldLabel {
-				line-height: 20px;
+			.uiLogin .loginContent .loginButton .button{
+			  background: url("/platform-extension/login/jsp/images/loginAction.png") repeat-x;
+			  border: 1px solid #224886;
+			  border-radius: 4px;
+			  text-align: center;
+			  color: white;
+			  font-weight: bold;
+			  font-size: 16px;
+			  width: 313px;
+			  height: 43px;
+			  cursor: pointer;
 			}
 			
-			.UILogin .LoginContent .LoginButton {
-			  height: 25px ;
-			  padding: 3px 0 5px;
+			.uiLogin .spaceRole{
+				clear: both;
+				padding: 12px 0;
 			}
-
-			.UILogin .LoginContent .LoginButtonContainer {
-				width: auto;
+			
+			.uiLogin .iPhoneCheckContainer, .iPhoneCheckContainer label {
+				-moz-user-select: none;
 			}
-
-			.UILogin .LoginContent .LoginButton a {
-			  text-decoration: none;
-			  color: #010101;
-			}
-
-			.UILogin .LoginContent .LoginButton a:hover {
-			  color: #058ee6; text-decoration: none;
-			}
-
-			.UILogin .LoginContent .LoginButton .LeftButton {
-			 
-			  padding-left: 11px;
-			  background: url('/platform-extension/login/jsp/images/LoginBackground.gif') no-repeat left -242px;
+			.uiLogin .iPhoneCheckContainer {
+				cursor: pointer;
+				height: 18px;
+				overflow: hidden;
+				position: relative;
 				float: left;
 			}
-
-			.UILogin .LoginContent .LoginButton .RightButton {
-			
-			  padding-right: 11px;
-			  background: url('/platform-extension/login/jsp/images/LoginBackground.gif') no-repeat right bottom;
+			.uiLogin .iPhoneCheckContainer input {
+				left: 30px;
+				opacity: 0;
+				position: absolute;
+				top: 5px;
 			}
-
-			.UILogin .LoginContent .LoginButton .MiddleButton {
-			 
-			  line-height: 25px; 
-			  background: url('/platform-extension/login/jsp/images/LoginBackground.gif') center bottom;
+			.uiLogin label.iPhoneCheckLabelOff {
+				background-color: rgba(0, 0, 0, 0.035);
+				background-image: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.09));
+				background-repeat: repeat-x;
+				border-bottom-right-radius: 9px;
+				border-top-right-radius: 9px;
+				box-shadow: 0 1px 1px rgba(0, 0, 0, 0.43) inset;
+				color: #8B8B8B;
+				right: 0;
+				text-align: right;
+				text-shadow: 1px 0 0 #FFFFFF;
+			}
+			.uiLogin label.iPhoneCheckLabelOff span {
+				padding-right: 10px;
+			}
+			
+			.uiLogin label.iPhoneCheckLabelOn {
+				background-color: #476CA7;
+				background-image: linear-gradient(to bottom, #4B72B4, #426393);
+				background-repeat: repeat-x;
+				border: 1px inset #224886;
+				border-bottom-left-radius: 9px;
+				border-top-left-radius: 9px;
+				box-shadow: 0 3px 5px #213B68 inset;
+				color: white;
+				left: 0;
+				text-shadow: 0 0 2px rgba(0, 0, 0, 0.6);
+				text-align: center;
+			}
+			.uiLogin .iPhoneCheckContainer, .iPhoneCheckContainer label {
+				-moz-user-select: none;
+			}
+			.uiLogin .iPhoneCheckContainer label {
+				cursor: pointer;
+				display: block;
+				font-family: "Helvetica Neue",Arial,Helvetica,sans-serif;
+				font-size: 11px;
+				font-weight: bold;
+				height: 15px;
+				line-height: 16px;
+				overflow: hidden;
+				position: absolute;
+				top: 0;
+				white-space: nowrap;
+				width: auto;
+			}
+			.uiLogin label.iPhoneCheckLabelOn span {
+				padding-left: 4px;
+			}
+			.uiLogin .iPhoneCheckHandle {
+				background-color: #F9F9F9;
+				background-image: linear-gradient(to bottom, #FFFFFF, #F1F1F1);
+				background-repeat: repeat-x;
+				border-radius: 50% 50% 50% 50%;
+				box-shadow: -1px 0 2px rgba(0, 0, 0, 0.6);
+				cursor: pointer;
+				display: block;
+				height: 18px;
+				left: 0;
+				position: absolute;
+				top: 0;
+				width: 18px;
+			}
+			
+			.uiLogin .iPhoneCheckHandle {
+				cursor: pointer;
+			}
+			
+			.uiLogin .rememberTxt{
+				float: left;
+				font-size: 13px;
+				padding-left: 12px;
+				color: #707070;
 			}
 
 		</style>
@@ -158,9 +290,11 @@
     <script type="text/javascript" src="/eXoResources/javascript/eXo/portal/UIPortalControl.js"></script>
   </head>
   <body>
-    <div class="UILogin">
-      <div class="LoginHeader"></div>
-      <div class="LoginContent">
+    <div class="uiLogin">
+      <div class="loginHeader introBox">
+		<div class="userLoginIcon">Connect to your account</div>
+	  </div>
+      <div class="loginContent">
 				<div style="line-height: 12px; padding: 6px 3px 0 0; height: 27px; font-size: 11px;">
 					<%/*Begin form*/%>
           <%
@@ -168,38 +302,42 @@
           %>
           <font color="red"><%=res.getString("UILoginForm.label.SigninFail")%></font><%}%>
 				</div>
-        <div class="CenterLoginContent">
+        <div class="centerLoginContent">
           <form name="loginForm" action="<%= contextPath + "/login"%>" method="post" style="margin: 0px;">
                 <% if (uri != null) { 
                         uri = EntityEncoder.FULL.encode(uri);
                 %>
           		<input type="hidden" name="initialURI" value="<%=uri%>"/>
-                <% } %>
-								
-					<div class="FieldLabel"><label for="username"><%=res.getString("UILoginForm.label.UserName")%></label></div>
-					<div>
-            <input class="UserName" id="username" name="username" type="text" value="<%=username%>"/>
-          </div>
-				
-					<div class="FieldLabel"><label for="password"><%=res.getString("UILoginForm.label.password")%></label></div>
-					<div id="UIPortalLoginFormControl" onkeypress="eXo.portal.UIPortalControl.onEnterPress(event);">
-            <input class="Password" type="password" id="password" name="password" value=""/>
-          </div>  
+                <% } %>	
 					
-					<div class="FieldLabel" onkeypress="eXo.portal.UIPortalControl.onEnterPress(event);">
-						<input type="checkbox" class="checkbox" id="rememberme" name="rememberme" value="true"/>
-						<label for="rememberme"><%=res.getString("UILoginForm.label.RememberOnComputer")%></label>
+				<input class="username" id="username" name="username" type="text" value="Username"/>
+				<input class="password" id="UIPortalLoginFormControl" onkeypress="eXo.portal.UIPortalControl.onEnterPress(event);"  type="password" id="password" name="password" value="......"/> 
+				<!--<div class="fieldLabel" onkeypress="eXo.portal.UIPortalControl.onEnterPress(event);">
+					<input type="checkbox" class="checkbox" id="rememberme" name="rememberme" value="true"/>
+					<label for="rememberme"><%=res.getString("UILoginForm.label.RememberOnComputer")%></label>
+				</div>-->
+		        <div onclick="javascript:eXo.webui.UIForm.submitEvent('e6340007-5b10-4df4-b082-e726716241d0#UISpaceMember','ToggleLeadership','&amp;objectId=root')" class="spaceRole">
+				
+					<div class="iPhoneCheckContainer" style="width: 60px;"><input type="checkbox" style="visibility: hidden;" checked="checked" class="yesno"/>
+						<label class="iPhoneCheckLabelOff" style="width: 55px;">
+						  <span style="margin-right: -41px;">NO</span>
+						</label>
+						<label class="iPhoneCheckLabelOn" style="width: 50px;">
+						  <span>YES</span>
+						</label>
+						<div class="iPhoneCheckHandle" style="left: 41px;">
+						  <div class="iPhoneCheckHandleRight">
+							<div class="iPhoneCheckHandleCenter"></div>
+						  </div>
+						</div>
 					</div>
-		         
-					<div id="UIPortalLoginFormAction" class="LoginButton" onclick="login();">
-						<div class="LeftButton">
-							<div class="RightButton">
-								<div class="MiddleButton">
-									<a href="#"><%=res.getString("UILoginForm.label.Signin")%></a>
-								</div>
-							</div>
-						</div>  
+					<div class="rememberTxt">
+						Remember my Login
 					</div>
+				</div> 
+				<div id="UIPortalLoginFormAction" class="loginButton" onclick="login();">
+					<button class="button" href="#"><%=res.getString("UILoginForm.label.Signin")%></button>
+				</div>
 					<script type='text/javascript'>			            
 					function login() {
 						document.loginForm.submit();                   
@@ -210,6 +348,6 @@
         </div>
       </div>
     </div>
-    <div style="font-size: 11px; color: #3f3f3f; text-align: center">Copyright &copy; 2010 eXo Platform SAS, all rights reserved.</div>
+    <div style="font-size: 12px; color: #c8c8c8; text-align: center">Copyright &copy; 2010 eXo Platform SAS, all rights reserved.</div>
   </body>
 </html>
