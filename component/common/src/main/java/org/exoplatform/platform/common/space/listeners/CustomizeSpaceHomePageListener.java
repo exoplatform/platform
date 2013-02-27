@@ -84,5 +84,10 @@ public class CustomizeSpaceHomePageListener extends SpaceListenerPlugin {
 
   @Override
   public void spaceAvatarEdited(SpaceLifeCycleEvent event) {}
+  
+  @Override
+  public void spaceAccessEdited(SpaceLifeCycleEvent event) {
+    
+  }
 
 }
