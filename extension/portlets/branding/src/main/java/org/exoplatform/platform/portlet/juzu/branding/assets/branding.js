@@ -1,5 +1,4 @@
 $(function() {
-
 	/**
 	 * initialize variables and methods when first load page first display a
 	 * preview, hide save, cancel, png div then clone toolbar navigation to
@@ -7,6 +6,15 @@ $(function() {
 	 */
 	var isChangeLogo = false;
 	var fileUpload;
+	if(!supportHTML5()){
+		$("#btUpload").remove();
+	}
+	else {
+		$("input#file").hide();
+		$("#btUpload").on("click",function(){
+			$("input#file").click();
+		});
+	}
 	UpdatePreviewLogoAndStyle();
 	$("#PlatformAdminToolbarContainer").clone().appendTo($("#StylePreview"));
 	// when cancel is clicked, restore the old logo and display cancel messsage
