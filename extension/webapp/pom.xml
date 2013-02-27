@@ -4,12 +4,24 @@
   <parent>
     <artifactId>platform-extension</artifactId>
     <groupId>org.exoplatform.platform</groupId>
-    <version>4.0.0-SNAPSHOT</version>
+    <version>4.0.0-stabilization-SNAPSHOT</version>
   </parent>
   <artifactId>platform-extension-webapp</artifactId>
   <packaging>war</packaging>
   <name>eXo Platform - Extension Webapp</name>
   <dependencies>
+    <dependency>
+      <groupId>javax.ccpp</groupId>
+      <artifactId>ccpp</artifactId>
+      <version>1.0</version>
+      <scope>runtime</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.portals.bridges</groupId>
+      <artifactId>portals-bridges-common</artifactId>
+      <version>1.0.4</version>
+      <scope>runtime</scope>
+    </dependency>
     <dependency>
       <groupId>org.chromattic</groupId>
       <artifactId>chromattic.dataobject</artifactId>
@@ -27,10 +39,10 @@
       <scope>runtime</scope>
     </dependency>
     <dependency>
-			<groupId>org.exoplatform.commons</groupId>
-			<artifactId>commons-component-common</artifactId>
-			  <scope>runtime</scope>
-		</dependency>
+      <groupId>org.exoplatform.commons</groupId>
+      <artifactId>commons-component-common</artifactId>
+      <scope>runtime</scope>
+    </dependency>
     <dependency>
       <groupId>org.exoplatform.social</groupId>
       <artifactId>social-component-webui</artifactId>
@@ -147,6 +159,16 @@
       <groupId>org.exoplatform.platform</groupId>
       <artifactId>platform-extension-resources</artifactId>
       <type>pom</type>
+      <scope>runtime</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.exoplatform.social</groupId>
+      <artifactId>social-component-webui</artifactId>
+      <scope>runtime</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.exoplatform.wiki</groupId>
+      <artifactId>wiki-service</artifactId>
       <scope>runtime</scope>
     </dependency>
     <dependency>
