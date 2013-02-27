@@ -11,20 +11,25 @@
 	
 	<div class="logoForm">
 		<h4 class="titleWithBorder">${selectlogo}</h4>
-		<form id="form" enctype="multipart/form-data" action="${urlUploadFile}"  method="POST">
-		 <input type='hidden' id='browser' name='browser' />
-		 <input type='file' id='file' name='file'  />
-		</form>
-	
-	<div class="uiAction">
-		<input id="btUpload" class="btn btn-primate" type="button"  value="Upload"/>
-	</div>
-	  <div id="PreviewImgDiv" class="previewLogo" >
-			<img id="ajaxUploading1" alt="" src="/eXoPlatformResources/skin/platformSkin/icons/ajax-loader.gif"  style="display:none" >
-		 	<img id="PreviewImg" alt="" >
+		<div class="clearfix">
+			<div class="pull-left">
+				<div id="PreviewImgDiv" class="previewLogo" >
+					<img id="ajaxUploading1" alt="" src="/eXoPlatformResources/skin/platformSkin/icons/ajax-loader.gif"  style="display:none" >
+				 	<img id="PreviewImg" alt="" >
+			  </div>
+			  <div class="info">${noteselectlogo}</div>
+		  </div>
+		  <div class="pull-left">
+				<form id="form" enctype="multipart/form-data" action="${urlUploadFile}"  method="POST">
+				 <input type='hidden' id='browser' name='browser' />
+				 <input type='file' id='file' name='file'  />
+				</form>
+			
+				<div class="uiAction">
+					<input id="btUpload" class="btn btn-primate" type="button"  value="Upload"/>
+				</div>
+			</div>
 	  </div>
-	  <div class="info">${noteselectlogo}</div>
-	  
 	</div>
 		
 	<div class="navigationStyle">
