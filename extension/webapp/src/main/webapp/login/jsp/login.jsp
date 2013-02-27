@@ -136,7 +136,7 @@
 			.uiLogin .loginHeader .userLoginIcon{
 				background: url("/platform-extension/login/jsp/images/UserLoginIcon.png") no-repeat scroll 0 0 transparent;
 				color: #CCCCCC;
-				font-size: 18px;
+				font-size: 17px;
 				font-weight: bold;
 				line-height: 41px;
 				padding-left: 52px;
