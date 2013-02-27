@@ -20,6 +20,7 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.Calendar;
+import java.util.Properties;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
@@ -61,7 +62,7 @@ public class UnlockService implements Startable {
         KEY_CONTENT = ((ValueParam) params.get("KeyContent")).getValue().trim();
         String tmpValue = ((ValueParam) params.get("delayPeriod")).getValue();
         delayPeriod = (tmpValue == null || tmpValue.isEmpty()) ? Utils.DEFAULT_DELAY_PERIOD : Integer.parseInt(tmpValue);
-        Utils.HOME_CONFIG_FILE_LOCATION = Utils.EXO_HOME_FOLDER + "/" + productNameAndVersion;
+        Utils.HOME_CONFIG_FILE_LOCATION = Utils.EXO_HOME_FOLDER + "/" + productNameAndVersion + "/licence.xml";
     }
 
     public void start() {
@@ -82,7 +83,9 @@ public class UnlockService implements Startable {
         if (!productNameAndVersionHashed.equals(productNameAndVersionReadFromFile)) {
             //Existing old file but new instance connected to a data of unlocked instance
             if (checkLicenceInJcr(productNameAndVersionHashed)) return;
-            else throw new IllegalStateException("Inconsistent product informations.");
+            else {
+                throw new IllegalStateException("Inconsistent product informations.");
+            }
         }
         productCode = Utils.readFromFile(Utils.PRODUCT_CODE, Utils.HOME_CONFIG_FILE_LOCATION);
         String unlockKey = Utils.readFromFile(Utils.PRODUCT_KEY, Utils.HOME_CONFIG_FILE_LOCATION);
@@ -94,6 +97,7 @@ public class UnlockService implements Startable {
                 return;
             }
         }
+        if (checkLicenceInJcr(productNameAndVersionHashed)) return;
         // Read: loopfuse form displayed
         String loopfuseFormDisplayedString = Utils.readFromFile(Utils.LOOP_FUSE_FORM_DISPLAYED, Utils.HOME_CONFIG_FILE_LOCATION);
         if (loopfuseFormDisplayedString != null && !loopfuseFormDisplayedString.isEmpty()) {
@@ -126,13 +130,16 @@ public class UnlockService implements Startable {
     }
 
     private boolean checkLicenceInJcr(String productNameAndVersionHashed) {
-        // productCode = productInformations.getProductCode();
-        if ((productCode != null) && (!productCode.equals(""))) {
-       //     String unlockKey = productInformations.getProductKey();
+        try {
             String unlockKey = "";
+         String pc = productInformations.getProductCode();
+         if ((pc != null) && (!pc.equals(""))) {
+                unlockKey = productInformations.getProductKey();
+            }
             if ((unlockKey != null) && (!unlockKey.equals(""))) {
-                int period = decodeKey(productCode, unlockKey);
+                int period = decodeKey(pc, unlockKey);
                 if (period == -1) {
+                    productCode = pc;
                     outdated = false;
                     isUnlocked = true;
                     Utils.writeToFile(Utils.PRODUCT_CODE, productCode, Utils.HOME_CONFIG_FILE_LOCATION);
@@ -142,6 +149,8 @@ public class UnlockService implements Startable {
                     return true;
                 }
             }
+        }catch (MissingProductInformationException e) {
+            LOG.info("");
         }
         return false;
     }
@@ -258,12 +267,10 @@ public class UnlockService implements Startable {
                 int userNumber = Integer.parseInt(nbUser) / 3;
 
                 if (userNumber == -1) {
-                    //edition = ProductInformations.ENTERPRISE_EDITION;
-                    edition = "ENTERPRISE";
+                    edition = ProductInformations.ENTERPRISE_EDITION;
                     nbUser = Utils.UNLIMITED;
                 } else {
-                    //edition = ProductInformations.EXPRESS_EDITION;
-                    edition = "EXPRESS";
+                    edition = ProductInformations.EXPRESS_EDITION;
                     nbUser = String.valueOf(userNumber);
                 }
             }
@@ -277,15 +284,22 @@ public class UnlockService implements Startable {
     }
 
     private static void persistInfo(String edition, String nbUser, String keyDate, String duration, String productCode, String key) {
-     /*   Properties p = new Properties();
-        p.setProperty(ProductInformations.EDITION, edition);
-        p.setProperty(ProductInformations.NB_USERS, nbUser);
-        p.setProperty(ProductInformations.KEY_GENERATION_DATE, keyDate);
-        p.setProperty(ProductInformations.DELAY, duration);
-        p.setProperty(ProductInformations.PRODUCT_CODE, productCode);
-        p.setProperty(ProductInformations.PRODUCT_KEY, key);
-        productInformations.setUnlockInformation(p);
-        productInformations.storeUnlockInformation();  */
+        try {
+            if(productInformations.getProductKey()==null||(productInformations.getProductKey().equals(""))||
+                    (!productCode.equals(productInformations.getProductCode()))||(!key.equals(productInformations.getProductKey()))){
+                Properties p = new Properties();
+                p.setProperty(ProductInformations.EDITION, edition);
+                p.setProperty(ProductInformations.NB_USERS, nbUser);
+                p.setProperty(ProductInformations.KEY_GENERATION_DATE, keyDate);
+                p.setProperty(ProductInformations.DELAY, duration);
+                p.setProperty(ProductInformations.PRODUCT_CODE, productCode);
+                p.setProperty(ProductInformations.PRODUCT_KEY, key);
+                productInformations.setUnlockInformation(p);
+                productInformations.storeUnlockInformation();
+            }
+        } catch (MissingProductInformationException e) {
+
+        }
     }
 
     public static class UnlockFilter implements Filter {
@@ -317,10 +331,17 @@ public class UnlockService implements Startable {
 
             String rdate = null;
             String hashMD5Added = request.getParameter("hashMD5");
+            String pc = request.getParameter("pc");
             int delay;
             if (hashMD5Added != null) {
                 try {
-                    delay = decodeKey(productCode, hashMD5Added);
+                    if((pc!=null)&&(!pc.equals(productCode)))
+                    {
+                        delay = decodeKey(pc, hashMD5Added);
+                    }
+                    else{
+                        delay = decodeKey(productCode, hashMD5Added);
+                    }
                 } catch (Exception exception) {
                     delay = 0;
                 }
@@ -330,12 +351,17 @@ public class UnlockService implements Startable {
                     return;
                 }
                 if (delay == -1) {
-                    //shutDown excector -> unlimited duration so no need to computeUnlockInformation everyday
+                    //shutDown executor -> unlimited duration so no need to computeUnlockInformation everyday
                     //to check if it's outdated
+                    if((pc!=null)&&(!pc.equals(productCode))){
+                        productCode = pc;
+                    }
                     Utils.writeToFile(Utils.IS_UNLOCKED, "true", Utils.HOME_CONFIG_FILE_LOCATION);
                     Utils.writeToFile(Utils.PRODUCT_KEY, hashMD5Added, Utils.HOME_CONFIG_FILE_LOCATION);
+                    Utils.writeToFile(Utils.PRODUCT_CODE, productCode, Utils.HOME_CONFIG_FILE_LOCATION);
                     outdated = false;
                     isUnlocked = true; // to disappear the trial banner
+
                     if (UnlockService.getExecutor() != null)
                         executor.shutdown();
                     response.sendRedirect(UnlockService.calledUrl);

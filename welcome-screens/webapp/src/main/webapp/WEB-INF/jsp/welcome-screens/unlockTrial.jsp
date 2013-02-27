@@ -49,12 +49,12 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
         <span class="TextContainer">Pickup your favourite <a class="" href="<%=UnlockService.getSubscriptionUrl()%>" target="_blank">subscription</a> plan</span>
         <span class="TriangleItem OrangeIcon"></span>
     </div>
-
+    <form action="/welcome-screens/UnlockServlet" method="post" name="unlockForm" onsubmit="return formValidation();">
     <div class="Container ClearFix">
 
         <span class="TextContainer">Grab your product code and request an unlock key</span>
         <br>
-        <span>Product Code</span> <input type="text" class="Text"  placeholder="<%=UnlockService.getProductCode() %>">  <a class="Botton BlueRect" target="_blank" href="<%=UnlockService.getRegistrationFormUrl()%>?'pc=<%=UnlockService.getProductCode()%>'">Request a Key</a>
+        <span>Product Code</span> <input type="text" class="Text"  name="pc" value="<%=UnlockService.getProductCode() %>">  <a class="Botton BlueRect" target="_blank" href="<%=UnlockService.getRegistrationFormUrl()%>?'pc=<%=UnlockService.getProductCode()%>'">Request a Key</a>
         <span class="TriangleItem BlueIcon"></span>
     </div>
 
@@ -63,7 +63,7 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 
             <span class="TextContainer">Enter the unlock key below to unlock the product <br> </span>
             <div class="FormContainer">
-                <form action="/welcome-screens/UnlockServlet" method="post" name="unlockForm" onsubmit="return formValidation();">
+
                     <table>
                         <tr>
                             <td>
@@ -71,11 +71,9 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
                             </td>
                             <td>
                                 <input class="Text" type="text" name="hashMD5" id="hashMD5">
-
                             </td>
                             <td>
                                 <input type="submit" class="FormSubmit BlueFormRect" value="Unlock Product">
-
                             </td>
                         </tr>
                         <tr>
@@ -92,11 +90,14 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 
                         <% }%>
                     </table>
-                </form>
             </div>
-        </span>
+            </span>
         <span class="TriangleItem GreenIcon"></span>
     </div>
+                </form>
+
+
+
 </div>
 </body>
 </html>

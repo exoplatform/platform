@@ -36,7 +36,7 @@ public class Utils {
     public static final String PRODUCT_NAME = "Platform";
     public static final DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
     public static final String PRODUCT_CODE = "ProductCode";
-    public static String HOME_CONFIG_FILE_LOCATION = EXO_HOME_FOLDER + "/licence.xml";
+    public static String HOME_CONFIG_FILE_LOCATION;
 
     public static String getModifiedMD5Code(byte[] dataToHash) {
         Security.addProvider(new BouncyCastleProvider());
