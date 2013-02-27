@@ -448,11 +448,6 @@
       </dependency>
       <dependency>
         <groupId>org.exoplatform.platform</groupId>
-        <artifactId>platform-component-ide-extension-config</artifactId>
-        <version>${project.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>org.exoplatform.platform</groupId>
         <artifactId>platform-component-ide-extension-webapp</artifactId>
         <version>${project.version}</version>
         <type>war</type>
@@ -463,19 +458,7 @@
         <version>${project.version}</version>
         <type>pom</type>
       </dependency>
-      <dependency>
-        <groupId>org.exoplatform.platform</groupId>
-        <artifactId>platform-component-ide-extension-webapp</artifactId>
-        <version>${project.version}</version>
-        <type>war</type>
-      </dependency>
-      <dependency>
-        <groupId>org.exoplatform.platform</groupId>
-        <artifactId>platform-component-ide-extension-webapp</artifactId>
-        <version>${project.version}</version>
-        <type>pom</type>
-      </dependency>
-      <dependency>
+       <dependency>
         <groupId>org.exoplatform.platform</groupId>
         <artifactId>platform-component-organization</artifactId>
         <version>${project.version}</version>
