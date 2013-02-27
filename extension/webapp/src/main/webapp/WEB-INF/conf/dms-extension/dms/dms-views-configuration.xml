@@ -41,7 +41,7 @@
                     <field name="tabName"><string>Admin</string></field>
                     <field name="buttons">
                       <string>
-                        upload; addFolder; viewMetadatas; editDocument; manageActions; manageRelations; viewProperties; manageAuditing; showJCRStructure
+                        upload; addFolder; viewMetadatas; viewPermissions; editDocument; manageActions; manageRelations; viewProperties; manageAuditing; showJCRStructure
                       </string>
                     </field>
                   </object>
@@ -65,7 +65,7 @@
                     <field name="tabName"><string>Icons</string></field>
                     <field name="buttons">
                       <string>
-                        upload; addFolder; viewMetadatas; editDocument; taggingDocument; vote; overloadThumbnail; watchDocument; manageVersions
+                        upload; addFolder; viewMetadatas; viewPermissions; editDocument; taggingDocument; vote; overloadThumbnail; watchDocument; manageVersions
                       </string>
                     </field>
                   </object>
@@ -89,7 +89,7 @@
                     <field name="tabName"><string>List</string></field>
                     <field name="buttons">
                       <string>
-                        upload; addFolder; overloadThumbnail; viewMetadatas; editDocument; taggingDocument; vote; watchDocument; manageVersions
+                        upload; addFolder; viewMetadatas; viewPermissions; editDocument; taggingDocument; vote; watchDocument; manageVersions
                       </string>                    	
                     </field>
                   </object>
@@ -113,7 +113,7 @@
                     <field name="tabName"><string>Authoring</string></field>
                     <field name="buttons">
                     	 <string>
-                    	 	 addCategory; addFolder; addDocument; editDocument; upload; managePublications; manageCategories; taggingDocument; vote; watchDocument; publicationRequestApproval; publicationApproveContent; publicationPublish; addLocalizationLink  
+                    	 	 addCategory; addFolder; addDocument; editDocument; upload; viewPermissions; managePublications; manageCategories; taggingDocument; vote; watchDocument; publicationRequestApproval; publicationApproveContent; publicationPublish; addLocalizationLink  
 																						</string>
                     </field>
                   </object>
@@ -137,7 +137,7 @@
                     <field name="tabName"><string>Collaboration</string></field>
                     <field name="buttons">
                     	 <string>
-                    	 	 addCategory; addDocument; addFolder; editDocument; upload; managePublications; manageCategories; taggingDocument; vote; watchDocument; publicationRequestApproval; publicationApproveContent; publicationPublish 
+                    	 	 addCategory; addDocument; addFolder; editDocument; upload; viewPermissions; managePublications; manageCategories; taggingDocument; vote; watchDocument; publicationRequestApproval; publicationApproveContent; publicationPublish 
 																				  </string>
 																				</field>
                   </object>
