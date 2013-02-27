@@ -2,21 +2,21 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <parent>
-    <groupId>org.exoplatform.platform</groupId>
     <artifactId>platform-component-ide-extension</artifactId>
+    <groupId>org.exoplatform.platform</groupId>
     <version>4.0.0-relooking-SNAPSHOT</version>
   </parent>
   <artifactId>platform-component-ide-extension-webapp</artifactId>
   <version>4.0.0-relooking-SNAPSHOT</version>
   <packaging>war</packaging>
   <name>eXo Platform - IDE Webapp</name>
-    <dependencies>
-        <dependency>
-            <groupId>${project.groupId}</groupId>
-            <artifactId>platform-component-ide-extension-config</artifactId>
-            <scope>runtime</scope>
-        </dependency>
-    </dependencies>
+  <dependencies>
+    <dependency>
+      <groupId>${project.groupId}</groupId>
+      <artifactId>platform-component-ide-extension-config</artifactId>
+      <scope>runtime</scope>
+    </dependency>
+  </dependencies>
   <build>
     <finalName>ide-extension</finalName>
   </build>
