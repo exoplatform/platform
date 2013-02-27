@@ -22,6 +22,7 @@
     <module>exo-gadget-pack</module>
     <!--<module>packaging</module>-->
     <!--<module>testsuite</module>-->
+     <module>welcome-screens</module>
   </modules>
   <scm>
     <connection>scm:git:git://github.com/exoplatform/platform.git</connection>
@@ -765,6 +766,23 @@
         <artifactId>platform-trial-service</artifactId>
         <version>${project.version}</version>
       </dependency>
+       <dependency>
+          <groupId>org.exoplatform.platform</groupId>
+          <artifactId>platform-welcome-screens-component</artifactId>
+          <version>${project.version}</version>
+       </dependency>
+      <dependency>
+            <groupId>org.exoplatform.platform</groupId>
+            <artifactId>platform-welcome-screens-webapp</artifactId>
+            <version>${project.version}</version>
+            <type>war</type>
+        </dependency>
+        <dependency>
+            <groupId>org.exoplatform.platform</groupId>
+            <artifactId>platform-welcome-screens-webapp</artifactId>
+            <version>${project.version}</version>
+            <type>pom</type>
+        </dependency>
       <!-- To be replaced by an import of WS parent POM -->
       <dependency>
         <groupId>org.exoplatform.ws</groupId>

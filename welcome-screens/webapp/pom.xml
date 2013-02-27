@@ -14,7 +14,6 @@
     <packaging>war</packaging>
     <name>eXo Welcome Screens Webapp</name>
     <dependencies>
-
         <dependency>
             <groupId>org.exoplatform.platform</groupId>
             <artifactId>platform-welcome-screens-component</artifactId>
