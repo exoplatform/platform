@@ -153,13 +153,13 @@
       <artifactId>slf4j-simple</artifactId>
       <scope>test</scope>
     </dependency>
-      <dependency>
-          <groupId>org.exoplatform.forum</groupId>
-          <artifactId>forum-forum-service</artifactId>
-      </dependency>
-      <dependency>
-          <groupId>org.gatein.shindig</groupId>
-          <artifactId>shindig-social-api</artifactId>
-      </dependency>
+    <dependency>
+      <groupId>org.exoplatform.forum</groupId>
+      <artifactId>forum-forum-service</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.gatein.shindig</groupId>
+      <artifactId>shindig-social-api</artifactId>
+    </dependency>
   </dependencies>
 </project>
