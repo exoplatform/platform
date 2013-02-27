@@ -47,9 +47,9 @@ function initIncoming() {
 
                 $("#requests").append(link);
 
-                $("#"+item.relationId).mouseover(function() { $("#"+item.relationId+" .name").addClass("actionInviteAppears");$("#"+item.relationId+" .peopleInviteAction").css('visibility','visible'); });
+                $("#"+item.relationId).mouseover(function() { $("#"+item.relationId+" .peopleInvitePosition").addClass("actionInviteAppears");$("#"+item.relationId+" .peopleInviteAction").css('visibility','visible'); });
 
-                $("#"+item.relationId).mouseout(function() { $("#"+item.relationId+" .name").removeClass("actionInviteAppears"); $("#"+item.relationId+" .peopleInviteAction").css('visibility','hidden'); });
+                $("#"+item.relationId).mouseout(function() { $("#"+item.relationId+" .peopleInvitePosition").removeClass("actionInviteAppears"); $("#"+item.relationId+" .peopleInviteAction").css('visibility','hidden'); });
 
                 $("#"+item.relationId+" a.connect").live("click", function(){
                     $.getJSON("/rest/homepage/intranet/people/contacts/confirm/"+item.relationId, null);
