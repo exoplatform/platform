@@ -29,14 +29,10 @@
     import org.exoplatform.portal.mop.SiteType;
     import org.exoplatform.web.url.navigation.NavigationResource;
     import org.exoplatform.platform.navigation.component.utils.DashboardUtils;
-//import org.exoplatform.platform.component.UIUserPlatformToolbarDesktopPortlet;
 
-//boolean webosProfile = UIUserPlatformToolbarDesktopPortlet.isWebOsProfileActivated();
+
     def rcontext = _ctx.getRequestContext();
     JavascriptManager jsmanager = rcontext.getJavascriptManager();
-//jsmanager.addCustomizedOnLoadScript('eXo.portal.UIPortalNavigation.onLoad("' + uicomponent.id + '");');
-    jsmanager.require("SHARED/navigation", "navigation").addScripts('navigation.UIPortalNavigation.onLoad("' + uicomponent.id + '");');
-  //  jsmanager.require("SHARED/navigation-toolbar", "toolbarnav").addScripts('toolbarnav.UIPortalNavigation.onLoad("' + uicomponent.id + '");');
     def user = uicomponent.getUser();
     PortalURL nodeURL = nodeurl();
     def labelActivities = _ctx.appRes("UIUserPlatformToolBarPortlet.label.activities");

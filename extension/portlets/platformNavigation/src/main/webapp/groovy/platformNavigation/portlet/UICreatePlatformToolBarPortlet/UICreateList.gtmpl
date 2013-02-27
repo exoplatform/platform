@@ -32,10 +32,8 @@ def labelWiki = _ctx.appRes("UIUserPlatformToolBarCreatePortlet.label.wiki");
 
 def rcontext = _ctx.getRequestContext() ;
 JavascriptManager jsmanager = rcontext.getJavascriptManager();
-//jsmanager.addCustomizedOnLoadScript('eXo.portal.UIPortalNavigation.onLoad("' + uicomponent.id + '");');
-jsmanager.require("SHARED/navigation-toolbar", "toolbarnav").addScripts("toolbarnav.UIPortalNavigation.onLoad('" + uicomponent.id + "');");
 %>
-<span style="display:none;"></span>
+<span  class="dropdown-menu" style="display:none;white-space:nowrap;"></span>
 <div id="$uicomponent.id" class="dropdown-menu">
 
 		<% if(uicomponent.getChildren().size()==0){%>

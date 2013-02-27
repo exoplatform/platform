@@ -36,7 +36,7 @@ function initIncoming() {
                     peopleAvatar = "/social-resources/skin/images/ShareImages/UserAvtDefault.png";
                 else
                     peopleAvatar = item.senderAvatarUrl;
-                link += "<div class='peopleInvitePicture pull-left' ><a href='#' class='avatarXSmall'><img src='"+peopleAvatar+"'></a></div>";
+                link += "<div class='peopleInvitePicture pull-left avatarXSmall'><img src='"+peopleAvatar+"'></div>";
                 link += "<div class='peopleInviteInfo'>";
 
                 link += "<div class='peopleInviteName'><div class='name'>"+item.senderName+"</div><div class='peopleInviteAction' style='visibility:hidden;'><a class='connect btn-primary btn btn-mini' href='#' onclick='return false'>"+acceptlabel+"</a> <a class='deny' href='#' onclick='return false'><i class='uiIconClose'></i></a></div></div>";
@@ -101,7 +101,7 @@ function initIncoming() {
                     spaceAvatar =  "/social-resources/skin/images/ShareImages/UserAvtDefault.png";
                 else
                     spaceAvatar = item.spaceAvatarUrl;
-                link += "<div class='spaceInvitePicture pull-left' ><a href='#' class='avatarXSmall'><img src='"+spaceAvatar+"'></a></div>";
+                link += "<div class='spaceInvitePicture pull-left avatarXSmall'><img src='"+spaceAvatar+"'></div>";
                 link += "<div class='spaceInviteInfo'>";
                 link += "<div class='spaceInviteName'>"+item.spaceDisplayName+"</div>";
                 if(item.spaceRegistration == "open")
