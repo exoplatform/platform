@@ -129,11 +129,11 @@
       <artifactId>platform-component-edition-enterprise</artifactId>
       <scope>runtime</scope>
     </dependency>
-     <dependency>
-        <groupId>org.exoplatform.platform</groupId>
-        <artifactId>platform-component-upgrade-plugins</artifactId>
-        <scope>runtime</scope>
-     </dependency>
+    <dependency>
+      <groupId>org.exoplatform.platform</groupId>
+      <artifactId>platform-component-upgrade-plugins</artifactId>
+      <scope>runtime</scope>
+    </dependency>
     <dependency>
       <groupId>org.exoplatform.platform</groupId>
       <artifactId>platform-component-gadgets</artifactId>

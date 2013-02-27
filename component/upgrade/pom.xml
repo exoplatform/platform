@@ -11,6 +11,6 @@
   <name>eXo Platform - Upgrade</name>
   <modules>
     <module>sample</module>
-     <module>plugins</module>
+    <module>plugins</module>
   </modules>
 </project>
