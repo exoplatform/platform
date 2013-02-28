@@ -38,11 +38,10 @@ public class UnlockService implements Startable {
     private static String subscriptionUrl = null;
     private static String pingBackUrl = null;
     private static String calledUrl = null;
-    private static String productNameAndVersion = null;
     private static String productCode = null;
     private static String KEY_CONTENT = null;
     private static boolean loopfuseFormDisplayed = false;
-    private static boolean isUnlocked;
+    private static boolean isUnlocked = false;
     private static boolean outdated = false;
     private static int delayPeriod = Utils.DEFAULT_DELAY_PERIOD;
     private static int nbDaysBeforeExpiration = 0;
@@ -54,7 +53,6 @@ public class UnlockService implements Startable {
 
     public UnlockService(ProductInformations productInformations, InitParams params) throws MissingProductInformationException {
         this.productInformations = productInformations;
-        productNameAndVersion = Utils.PRODUCT_NAME + productInformations.getVersion().trim();
         registrationFormUrl = ((ValueParam) params.get("registrationFormUrl")).getValue();
         extendFormUrl = ((ValueParam) params.get("extendFormUrl")).getValue();
         pingBackUrl = ((ValueParam) params.get("pingBackUrl")).getValue();
@@ -62,30 +60,19 @@ public class UnlockService implements Startable {
         KEY_CONTENT = ((ValueParam) params.get("KeyContent")).getValue().trim();
         String tmpValue = ((ValueParam) params.get("delayPeriod")).getValue();
         delayPeriod = (tmpValue == null || tmpValue.isEmpty()) ? Utils.DEFAULT_DELAY_PERIOD : Integer.parseInt(tmpValue);
-        Utils.HOME_CONFIG_FILE_LOCATION = Utils.EXO_HOME_FOLDER + "/" + productNameAndVersion + "/licence.xml";
+        Utils.HOME_CONFIG_FILE_LOCATION = Utils.EXO_HOME_FOLDER + "/" + Utils.PRODUCT_NAME + "/licence.xml";
     }
 
     public void start() {
-        String productNameAndVersionHashed = Utils.getModifiedMD5Code(productNameAndVersion.getBytes());
         if (!new File(Utils.HOME_CONFIG_FILE_LOCATION).exists()) {
-            if (checkLicenceInJcr(productNameAndVersionHashed)) return;
+            if (checkLicenceInJcr()) return;
             //CASE NO FILE && NO EXPRESS OR ENTREPRISE EDITION IN JCR -> TRIAL
             String rdate = UnlockService.computeRemindDateFromTodayBase64();
             productCode = generateProductCode();
             Utils.writeToFile(Utils.PRODUCT_KEY, "", Utils.HOME_CONFIG_FILE_LOCATION);
-            Utils.writeToFile(Utils.PRODUCT_NAME, productNameAndVersionHashed, Utils.HOME_CONFIG_FILE_LOCATION);
             Utils.writeToFile(Utils.PRODUCT_CODE, productCode, Utils.HOME_CONFIG_FILE_LOCATION);
             Utils.writeToFile(Utils.REMIND_DATE, rdate, Utils.HOME_CONFIG_FILE_LOCATION);
             Utils.writeToFile(Utils.LOOP_FUSE_FORM_DISPLAYED, "false", Utils.HOME_CONFIG_FILE_LOCATION);
-            Utils.writeToFile(Utils.IS_UNLOCKED, "false", Utils.HOME_CONFIG_FILE_LOCATION);
-        }
-        String productNameAndVersionReadFromFile = Utils.readFromFile(Utils.PRODUCT_NAME, Utils.HOME_CONFIG_FILE_LOCATION);
-        if (!productNameAndVersionHashed.equals(productNameAndVersionReadFromFile)) {
-            //Existing old file but new instance connected to a data of unlocked instance
-            if (checkLicenceInJcr(productNameAndVersionHashed)) return;
-            else {
-                throw new IllegalStateException("Inconsistent product informations.");
-            }
         }
         productCode = Utils.readFromFile(Utils.PRODUCT_CODE, Utils.HOME_CONFIG_FILE_LOCATION);
         String unlockKey = Utils.readFromFile(Utils.PRODUCT_KEY, Utils.HOME_CONFIG_FILE_LOCATION);
@@ -97,25 +84,22 @@ public class UnlockService implements Startable {
                 return;
             }
         }
-        if (checkLicenceInJcr(productNameAndVersionHashed)) return;
+        if (checkLicenceInJcr()) return;
         // Read: loopfuse form displayed
         String loopfuseFormDisplayedString = Utils.readFromFile(Utils.LOOP_FUSE_FORM_DISPLAYED, Utils.HOME_CONFIG_FILE_LOCATION);
         if (loopfuseFormDisplayedString != null && !loopfuseFormDisplayedString.isEmpty()) {
             loopfuseFormDisplayed = Boolean.parseBoolean(loopfuseFormDisplayedString);
         }
-        //Read if unlocked
-        String isUnlockedString = Utils.readFromFile(Utils.IS_UNLOCKED, Utils.HOME_CONFIG_FILE_LOCATION);
-        if (isUnlockedString != null && !isUnlockedString.isEmpty()) {
-            isUnlocked = Boolean.parseBoolean(isUnlockedString);
+        //Read if extended
+        String isExtendedString = Utils.readFromFile(Utils.IS_EXTENDED, Utils.HOME_CONFIG_FILE_LOCATION);
+        if (isExtendedString != null && !isExtendedString.isEmpty()) {
+            isExtendedString = new String(Base64.decodeBase64(isExtendedString.getBytes())) ;
+            isUnlocked = Boolean.parseBoolean(isExtendedString);
         }
         // Read: Remind date
         String remindDateString = Utils.readFromFile(Utils.REMIND_DATE, Utils.HOME_CONFIG_FILE_LOCATION);
         remindDate = Utils.parseDateBase64(remindDateString);
         computeUnlockedInformation();
-        if (outdated && isUnlocked) {
-            isUnlocked = false;
-            Utils.writeToFile(Utils.IS_UNLOCKED, "false", Utils.HOME_CONFIG_FILE_LOCATION);
-        }
         // Compute delay period every day
         executor = Executors.newSingleThreadScheduledExecutor();
         executor.scheduleWithFixedDelay(new Runnable() {
@@ -123,13 +107,13 @@ public class UnlockService implements Startable {
                 computeUnlockedInformation();
                 if (outdated && isUnlocked) {
                     isUnlocked = false;
-                    Utils.writeToFile(Utils.IS_UNLOCKED, "false", Utils.HOME_CONFIG_FILE_LOCATION);
+                    Utils.writeToFile(Utils.IS_EXTENDED, new String(Base64.encodeBase64("false".getBytes())) , Utils.HOME_CONFIG_FILE_LOCATION);
                 }
             }
         }, 1, 1, TimeUnit.MINUTES);
     }
 
-    private boolean checkLicenceInJcr(String productNameAndVersionHashed) {
+    private boolean checkLicenceInJcr() {
         try {
             String unlockKey = "";
          String pc = productInformations.getProductCode();
@@ -144,8 +128,6 @@ public class UnlockService implements Startable {
                     isUnlocked = true;
                     Utils.writeToFile(Utils.PRODUCT_CODE, productCode, Utils.HOME_CONFIG_FILE_LOCATION);
                     Utils.writeToFile(Utils.PRODUCT_KEY, unlockKey, Utils.HOME_CONFIG_FILE_LOCATION);
-                    Utils.writeToFile(Utils.IS_UNLOCKED, "false", Utils.HOME_CONFIG_FILE_LOCATION);
-                    Utils.writeToFile(Utils.PRODUCT_NAME, productNameAndVersionHashed, Utils.HOME_CONFIG_FILE_LOCATION);
                     return true;
                 }
             }
@@ -162,9 +144,6 @@ public class UnlockService implements Startable {
     }
 
     public static String computeRemindDateFromTodayBase64() {
-        if (delayPeriod == 0 || outdated) {
-            return "";
-        }
         Calendar remindDate = Calendar.getInstance();
         remindDate.add(Calendar.DAY_OF_MONTH, delayPeriod);
         return Utils.formatDateBase64(remindDate);
@@ -219,7 +198,7 @@ public class UnlockService implements Startable {
     }
 
     private static String generateProductCode() {
-        String productCode = productNameAndVersion + Math.random() + KEY_CONTENT;
+        String productCode = Utils.PRODUCT_NAME + Math.random() + KEY_CONTENT;
         return Utils.getModifiedMD5Code(productCode.getBytes());
     }
 
@@ -242,6 +221,10 @@ public class UnlockService implements Startable {
             outdated = false;
             nbDaysAfterExpiration = 0;
             nbDaysBeforeExpiration = (int) TimeUnit.MILLISECONDS.toDays(remindDate.getTimeInMillis() - today.getTimeInMillis());
+        }
+        if (outdated && isUnlocked) {
+            isUnlocked = false;
+            Utils.writeToFile(Utils.IS_EXTENDED, new String(Base64.encodeBase64("false".getBytes())) , Utils.HOME_CONFIG_FILE_LOCATION);
         }
     }
 
@@ -356,12 +339,10 @@ public class UnlockService implements Startable {
                     if((pc!=null)&&(!pc.equals(productCode))){
                         productCode = pc;
                     }
-                    Utils.writeToFile(Utils.IS_UNLOCKED, "true", Utils.HOME_CONFIG_FILE_LOCATION);
                     Utils.writeToFile(Utils.PRODUCT_KEY, hashMD5Added, Utils.HOME_CONFIG_FILE_LOCATION);
                     Utils.writeToFile(Utils.PRODUCT_CODE, productCode, Utils.HOME_CONFIG_FILE_LOCATION);
                     outdated = false;
                     isUnlocked = true; // to disappear the trial banner
-
                     if (UnlockService.getExecutor() != null)
                         executor.shutdown();
                     response.sendRedirect(UnlockService.calledUrl);
@@ -377,7 +358,7 @@ public class UnlockService implements Startable {
                     computeUnlockedInformation();
                     if (!outdated) {
                         Utils.writeRemindDate(rdate, Utils.HOME_CONFIG_FILE_LOCATION);
-                        Utils.writeToFile(Utils.IS_UNLOCKED, "true", Utils.HOME_CONFIG_FILE_LOCATION);
+                        Utils.writeToFile(Utils.IS_EXTENDED, new String(Base64.encodeBase64("true".getBytes())) , Utils.HOME_CONFIG_FILE_LOCATION);
                         isUnlocked = true;
                     }
                     response.sendRedirect(UnlockService.calledUrl);
