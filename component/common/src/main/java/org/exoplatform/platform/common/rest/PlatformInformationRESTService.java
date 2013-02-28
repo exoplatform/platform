@@ -18,7 +18,13 @@
  */
 package org.exoplatform.platform.common.rest;
 
-import java.lang.reflect.Method;
+import org.exoplatform.common.http.HTTPStatus;
+import org.exoplatform.commons.info.MissingProductInformationException;
+import org.exoplatform.commons.info.ProductInformations;
+import org.exoplatform.container.PortalContainer;
+import org.exoplatform.services.log.ExoLogger;
+import org.exoplatform.services.log.Log;
+import org.exoplatform.services.rest.resource.ResourceContainer;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
@@ -26,13 +32,6 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.CacheControl;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
-
-import org.exoplatform.common.http.HTTPStatus;
-import org.exoplatform.commons.info.ProductInformations;
-import org.exoplatform.services.log.ExoLogger;
-import org.exoplatform.services.log.Log;
-import org.exoplatform.services.rest.resource.ResourceContainer;
-import org.exoplatform.container.PortalContainer;
 
 /**
  * @author <a href="mailto:anouar.chattouna@exoplatform.com">Anouar
@@ -67,12 +66,22 @@ public class PlatformInformationRESTService implements ResourceContainer {
       jsonPlatformInfo.setPlatformVersion(platformInformations.getVersion());
       jsonPlatformInfo.setPlatformBuildNumber(platformInformations.getBuildNumber());
       jsonPlatformInfo.setPlatformRevision(platformInformations.getRevision());
-      jsonPlatformInfo.setPlatformEdition(getPlatformEdition());
       jsonPlatformInfo.setIsMobileCompliant(isMobileCompliant().toString());
-      jsonPlatformInfo.setRunningProfile(runningProfile);      
+      jsonPlatformInfo.setRunningProfile(runningProfile);
+      if((platformInformations.getEdition()!=null) && (!platformInformations.getEdition().equals(""))){
+        jsonPlatformInfo.setDuration(platformInformations.getDuration());
+        jsonPlatformInfo.setDateOfKeyGeneration(platformInformations.getDateOfLicence());
+        jsonPlatformInfo.setNbUsers(platformInformations.getNumberOfUsers());
+        jsonPlatformInfo.setPlatformEdition(platformInformations.getEdition());
+        jsonPlatformInfo.setProductCode(platformInformations.getProductCode());
+        jsonPlatformInfo.setUnlockKey(platformInformations.getProductKey());
+      }
+      else{
+        jsonPlatformInfo.setPlatformEdition("trial");
+      }
       if (LOG.isDebugEnabled()) {
         LOG.debug("Getting Platform Informations: eXo Platform (v" + platformInformations.getVersion() + " - build "
-            + platformInformations.getBuildNumber() + " - rev. " + platformInformations.getRevision());
+                + platformInformations.getBuildNumber() + " - rev. " + platformInformations.getRevision());
       }
       return Response.ok(jsonPlatformInfo, MediaType.APPLICATION_JSON).cacheControl(cacheControl).build();
     } catch (Exception e) {
@@ -81,21 +90,14 @@ public class PlatformInformationRESTService implements ResourceContainer {
     }
   }
 
-  private Boolean isMobileCompliant() {
-    String platformEdition = getPlatformEdition();
-    return (platformEdition != null && (platformEdition.equals("enterprise")));
-  }
-
-  private String getPlatformEdition() {
+  private Boolean isMobileCompliant()  {
+    String platformEdition = null;
     try {
-      Class<?> c = Class.forName("org.exoplatform.platform.edition.PlatformEdition");
-      Method getEditionMethod = c.getMethod("getEdition");
-      String platformEdition = (String) getEditionMethod.invoke(null);
-      return platformEdition;
-    } catch (Exception e) {
-      LOG.error("An error occured while getting the platform edition information.", e);
+      platformEdition = platformInformations.getEdition();
+    } catch (MissingProductInformationException e) {
+
     }
-    return null;
+    return (platformEdition != null && ((platformEdition.equals(ProductInformations.ENTERPRISE_EDITION))||(platformEdition.equals(ProductInformations.EXPRESS_EDITION))));
   }
 
   public static class JsonPlatformInfo {
@@ -106,8 +108,58 @@ public class PlatformInformationRESTService implements ResourceContainer {
     private String platformEdition;
     private String isMobileCompliant;
     private String runningProfile;
+    private String nbUsers;
+    private String duration;
+    private String buildNumber;
+    private String productCode;
+    private String dateOfKeyGeneration;
+    private String unlockKey;
 
     public JsonPlatformInfo() {}
+
+    public void setNbUsers(String nbUsers) {
+      this.nbUsers = nbUsers;
+    }
+
+    public void setDuration(String duration) {
+      this.duration = duration;
+    }
+
+    public void setProductCode(String productCode) {
+      this.productCode = productCode;
+    }
+
+    public String getUnlockKey() {
+      return unlockKey;
+    }
+
+    public void setUnlockKey(String unlockKey) {
+      this.unlockKey = unlockKey;
+    }
+
+    public void setDateOfKeyGeneration(String dateOfKeyGeneration) {
+      this.dateOfKeyGeneration = dateOfKeyGeneration;
+    }
+
+    public String getNbUsers() {
+      return nbUsers;
+    }
+
+    public String getProductCode() {
+      return productCode;
+    }
+
+    public String getDateOfKeyGeneration() {
+      return dateOfKeyGeneration;
+    }
+
+    public String getDuration() {
+      return duration;
+    }
+
+    public String getBuildNumber() {
+      return buildNumber;
+    }
 
     public String getPlatformVersion() {
       return platformVersion;
@@ -148,7 +200,7 @@ public class PlatformInformationRESTService implements ResourceContainer {
     public void setPlatformEdition(String platformEdition) {
       this.platformEdition = platformEdition;
     }
-    
+
     public String getRunningProfile() {
       return this.runningProfile;
     }
