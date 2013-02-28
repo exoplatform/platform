@@ -56,25 +56,6 @@
             </field>
           </object>
         </object-param>
-        <object-param>
-          <name>group.configuration</name>
-          <description>description</description>
-          <object type="org.exoplatform.portal.config.NewPortalConfig">
-            <field name="predefinedOwner">
-              <collection type="java.util.HashSet">
-                <value>
-                  <string>/platform/web-contributors</string>
-                </value>
-              </collection>
-            </field>
-            <field name="ownerType">
-              <string>group</string>
-            </field>
-            <field name="templateLocation">
-              <string>war:/conf/acme-portal/portal</string>
-            </field>
-          </object>
-        </object-param>
       </init-params>
     </component-plugin>
 		<component-plugin>
