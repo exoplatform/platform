@@ -92,13 +92,14 @@ $(function() {
             $("#suggestions").append(link);
 
             $("#"+item.suggestionId).mouseover(function(){
-                $("#"+item.suggestionId+" .peopleName").addClass("actionAppears");;
-                $("#"+item.suggestionId+" .peopleAction").show();
+            	var $item = $(this);
+                $item.find(".peopleName, .peoplePosition, .peopleConnection").addClass("actionAppears");
+                $item.find(".peopleAction").show();
             });
             $("#"+item.suggestionId).mouseout(function(){
-
-                $("#"+item.suggestionId+" .peopleAction").hide();
-                $("#"+item.suggestionId+" .peopleName").removeClass("actionAppears");;
+				var $item = $(this);
+                $item.find(".peopleName, .peoplePosition, .peopleConnection").removeClass("actionAppears");
+                $item.find(".peopleAction").hide();
             });
 
             $("#"+item.suggestionId+" a.connect").live("click", function(){
@@ -209,13 +210,14 @@ $(function() {
             $("#suggestionsspace").append(link);
 
             $("#"+item.spaceId).mouseover(function(){
-                $("#"+item.spaceId+" .spacePrivacy").addClass("actionspaceAppears");;
-                $("#"+item.spaceId+" .spaceAction").show();
+                var $item = $(this);
+                $item.find(".spacePrivacy, .spaceCommon, .spaceName").addClass("actionspaceAppears");;
+                $item.find(".spaceAction").show();
             });
             $("#"+item.spaceId).mouseout(function(){
-
-                $("#"+item.spaceId+" .spaceAction").hide();
-                $("#"+item.spaceId+" .spacePrivacy").removeClass("actionspaceAppears");;
+				var $item = $(this);
+                $item.find(".spacePrivacy, .spaceCommon, .spaceName").removeClass("actionspaceAppears");;
+                $item.find(".spaceAction").hide();
             });
 
 

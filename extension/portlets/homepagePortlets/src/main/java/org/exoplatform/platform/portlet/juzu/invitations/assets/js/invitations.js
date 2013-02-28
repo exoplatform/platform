@@ -115,8 +115,18 @@ function initIncoming() {
                 link += "</div></li>";
 
                 $("#requests").append(link);
-                $("#"+item.spaceId).mouseover(function() {  $("#"+item.spaceId+" .spacevisibility").addClass("actionSpaceAppears"); $("#"+item.spaceId+" .spaceInviteAction").css('visibility','visible'); });
-                $("#"+item.spaceId).mouseout(function() { $("#"+item.spaceId+" .spacevisibility").removeClass("actionSpaceAppears"); $("#"+item.spaceId+" .spaceInviteAction").css('visibility','hidden'); });
+                $("#"+item.spaceId).mouseover(function() {
+                	var $item = $(this);  
+                	$item.find(".spacevisibility").addClass("actionSpaceAppears");
+                	$item.find(".name").addClass("actionInviteAppears"); 
+                	$item.find(".spaceInviteAction").css('visibility','visible'); 
+                });
+                $("#"+item.spaceId).mouseout(function() { 
+                    var $item = $(this);
+                	$item.find(".spacevisibility").removeClass("actionSpaceAppears"); 
+                	$item.find(".name").removeClass("actionInviteAppears"); 
+                	$item.find(".spaceInviteAction").css('visibility','hidden'); 
+                });
 
                 $("#"+item.spaceId+" a.connect").live("click", function(){
                     $.getJSON("/rest/homepage/intranet/spaces/accept/"+item.spaceId, null);

@@ -2,9 +2,9 @@
 @import "mixins.less";
 
 .onlineHeader {
-    background: none repeat scroll 0 0 #F8F8F8;
+    background:  #F8F8F8;
     border: 1px solid #E1E1E1;
-    border-radius: 3px 3px 3px 3px;
+    .border-radius(@borderRadiusSmall); 
     color: #2F3334;
     line-height: 25px;
     padding: 0 5px 0 8px;
@@ -22,26 +22,128 @@
 	.gallery li {
 		display: inline;
 		list-style: none;
-		width: 30px;
-		height: 40px;
+		.size(40px,30px);
 		margin: 0 5px 5px 0;
 		text-align: center;
 		img {
 			margin-bottom: 5px;
-			height: 36px;
-			width: 36px;
-			border-radius: 3px;
+			.square(36px);
+			.border-radius(@borderRadiusSmall);
 		}
 	}
 }
 
 #tipName {
     font-weight: bold;
+	color: @linkColor;
 }
 
 .connectAction {
     text-align: center;
-    background: #f0f0f0;
+    background: @grayWhiteSmoke;
     margin: -10px;
     padding: 10px;
+	.border-radius(0 0 @borderRadiusSmall @borderRadiusSmall);
+}
+/* TipTip CSS - Version 1.2 */
+
+#tiptip_holder {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 99999;
+    width: 240px;
+}
+
+#tiptip_holder.tip_top {
+    padding-bottom: 5px;
+}
+
+#tiptip_holder.tip_bottom {
+    padding-top: 5px;
+}
+
+#tiptip_holder.tip_right {
+    padding-left: 5px;
+}
+
+#tiptip_holder.tip_left {
+    padding-right: 5px;
+}
+
+#tiptip_content {
+    font-size: @baseFontSize - 2;
+    color: #555555;
+	background: @white;
+    padding: 10px;
+    border: 1px solid @borderColor;
+    .border-radius(@borderRadiusSmall);
+    .box-shadow(0 3px 4px rgba(0,0,0,0.15));
+}
+
+// Arrows
+
+#tiptip_arrow, #tiptip_arrow_inner{
+  position: absolute;
+  display: inline-block;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+}
+#tiptip_holder  #tiptip_arrow_inner {
+  z-index: -1;
+}
+
+#tiptip_holder{  
+  #tiptip_arrow{
+    right: -@popoverArrowWidth + 6;
+    margin-top: -@popoverArrowWidth;
+    border-width: @popoverArrowWidth 0 @popoverArrowWidth @popoverArrowWidth;
+    border-left-color: @popoverArrowColor;
+     #tiptip_arrow_inner {
+      border-width: @popoverArrowOuterWidth 0 @popoverArrowOuterWidth @popoverArrowOuterWidth;
+      border-left-color: @popoverArrowOuterColor;
+      bottom: -@popoverArrowOuterWidth;
+      right: -1px;
+    }
+  }
+}
+
+blockquote {
+    background: url(/homepage-portlets/style/images/right-quote.png) no-repeat right bottom;    
+    padding-right: 25px;
+    padding-left: 25px;
+    color: @grayLight;
+    border-left: medium none;
+    width:75%;
+    word-wrap:break-word;
+	position: relative;
+	margin-top: 5px;
+}
+
+blockquote:after {
+    background: url(/homepage-portlets/style/images/left-quote.png) no-repeat left top;
+	.size(13px,15px);
+	position:absolute;
+	top:2px;
+	left: 0;
+}
+#tipName img {
+	.square(36px);
+   .border-radius(@borderRadiusSmall);
+}
+
+#connectMessge {
+    background: @grayWhiteSmoke;
+    margin: -10px;
+    padding: 10px 20px;
+    color: @grayLight;
+    font-weight: bold;
+}
+
+
+#tiptip_holder .detail {
+	margin-left: 45px;
 }
