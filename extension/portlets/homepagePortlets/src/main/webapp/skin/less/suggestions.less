@@ -21,21 +21,27 @@
 		    overflow: hidden;
 		    text-overflow: ellipsis;
 		    color: #808080;
+		    width: 95%;
 		}
 		
 		.peopleConnection {
 		    color: @grayLight;
+		    white-space: nowrap;
+		    overflow: hidden;
+		    text-overflow: ellipsis;
+		    color: #808080;
+		    width: 95%;
 		}
 		
-		.peopleAction {
+		.peopleAction, .spaceAction {
 		    white-space: nowrap;
 		    font-size: 10px;
 			position: absolute;
 			right: 5px;
 			top: 18px;
-			width: 200px;
+			width: 150px;
 			text-align: right;
-			height: 35px;
+			height: 37px;
 			#gradient .horizontal(rgba(255,255,255,0),rgba(255,255,255,1));
 			background-color: transparent;
 		}
@@ -52,7 +58,7 @@
 		}
 
         .actionAppears {
-            width: 129px;
+            width: 140px;
         }
 		
 		
@@ -81,6 +87,11 @@
 		.spaceName {
 		    font-weight: bold;
             color: #2F5E92;
+            white-space: nowrap;
+		    overflow: hidden;
+		    text-overflow: ellipsis;
+		    color: @linkColor;
+		    width: 95%;
 		}
 		
 		.spaceAction {
@@ -89,9 +100,9 @@
 			position: absolute;
 			right: 5px;
 			top: 18px;
-			width: 200px;
+			width: 150px;
 			text-align: right;
-			height: 35px;
+			height: 40px;
 			#gradient .horizontal(rgba(255,255,255,0),rgba(255,255,255,1));
 			background-color: transparent;
 		}
@@ -111,17 +122,21 @@
 		    overflow: hidden;
 		    text-overflow: ellipsis;
 		    color: @grayLight;
+		    width: 95%;
 		}
 
 		.spaceCommon {
 		    color: @grayLight;
+		    white-space: nowrap;
+		    overflow: hidden;
+		    text-overflow: ellipsis;
+		    color: #808080;
+		    width: 95%;
 		}
 
         .actionspaceAppears {
-            width: 139px;
+            width: 140px;
         }
-
-
 
     }
 	
