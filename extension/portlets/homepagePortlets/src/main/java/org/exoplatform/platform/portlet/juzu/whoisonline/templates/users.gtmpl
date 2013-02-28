@@ -68,7 +68,7 @@
 		$("#${user.getId()}connect a.connect").live("click", function(){
 			$.getJSON("/rest/homepage/intranet/people/contacts/connect/${user.getIdentity()}", null);
 			$("#${user.getId()}connect").fadeOut(500, function () {
-                $("#${user.getId()}connect").html('<div id="connectMessge">${messageLabel}</div>');
+                $("#${user.getId()}connect").html("<div id='connectMessge'>${messageLabel}</div>");
                 $("#${user.getId()}connect").fadeIn(500, function() {});
             });
             var refresh = function() {
