@@ -87,7 +87,7 @@
             if(groupSpaces!=''){
                 spacesListREsult.innerHTML = groupSpaces;
             }else{
-                spacesListREsult.innerHTML= me.noSpace  ;
+                spacesListREsult.innerHTML= "<li class='noSpace'>" + me.noSpace + "</li>" ;
             }
         },
         onTextSearchChange: function(uicomponentId) {
