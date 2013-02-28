@@ -47,14 +47,16 @@
 				<span class="spiter"></span> 
 				<span class="caret"></span>
 			</div>
-			
+		
 			<ul role="menu" class="dropdown-menu">
 				<li>
-					<a href="#" class="OptionItem">Light</a>
+					<a href="#" class="OptionItem" onClick="">Light</a>
 				</li>
-			</ul>	
+				<li>
+					<a href="#" class="OptionItem" onClick="">Dark</a>
+				</li>
+			</ul>
 		</div>		
-				
 	</div>
 	
 	<div class="preview boxContent">

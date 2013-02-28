@@ -16,7 +16,21 @@ $(function() {
 		});
 	}
 	UpdatePreviewLogoAndStyle();
-	$("#PlatformAdminToolbarContainer").clone().appendTo($("#StylePreview"));
+	$("#PlatformAdminToolbarContainer").clone().appendTo($("#StylePreview"));	
+	 $('#StylePreview').bind({
+			hover : function(e) {
+				e.stopPropagation();
+				e.preventDefault();
+			},
+			click : function(e) {
+				e.stopPropagation();
+				e.preventDefault();
+			},
+			blur : function(e) {
+				e.stopPropagation();
+				e.preventDefault();
+			}
+		});
 	// when cancel is clicked, restore the old logo and display cancel messsage
 	$("#cancel").on("click", function() {
 		UpdatePreviewLogoAndStyle();
@@ -28,6 +42,7 @@ $(function() {
 
 	// when save is clicked, restore the new logo and display save messsage
 	$("#save").on("click", function() {
+
 		$("#navigationStyle").jzAjax({
 			url : "BrandingController.save()",
 			data : {
@@ -122,10 +137,9 @@ $(function() {
 						previewLogoFromUrl(data.logoUrl);
 						// update the navigation style and style selected;
 						changePreviewStyle(data.style);
-						$("#navigationStyle").val(data.style).attr('selected',
-								'selected');
-					}
-				});
+						var span =$("#navigationStyle div span")[0];
+						$(span).text(data.style);
+				}});
 	}
 	/**
 	 * Update new logo displays in top bar navigation
@@ -146,7 +160,7 @@ $(function() {
 	function FileDragHover(e) {
 		e.stopPropagation();
 		e.preventDefault();
-		e.target.className = (e.type == "dragover" ? "hover" : "");
+		e.target.className = (e.type == "dragover" ? className+" hover" : className);
 	}
 
 	/**
@@ -265,5 +279,12 @@ $(function() {
 		$("#cancelinfo").hide();
 		$("#mustpng").show();
 	}
+	
+		$("#navigationStyle a").on("click", function() {
+		var span = $("#navigationStyle div span")[0];
+		$(span).text($(this).text());
+		changePreviewStyle($(this).text());
+	})
+	
 
 });
