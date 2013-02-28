@@ -9,7 +9,7 @@
 		<i class="uiIconWarning"></i>${mustpng}
 	</div>
 	
-	<div class="logoForm">
+	<div class="logoForm boxContent">
 		<h4 class="titleWithBorder">${selectlogo}</h4>
 		<div class="clearfix">
 			<div class="pull-left">
@@ -32,24 +32,39 @@
 	  </div>
 	</div>
 		
-	<div class="navigationStyle">
+	<div class="navigationStyle boxContent">
 		<h4 class="titleWithBorder">${selectstyle}</h4>
-		<div class="uiSelectbox">
+		<!--div class="uiSelectbox">
 			<select id="navigationStyle" class="selectbox">
 				<option value="Dark">Dark</option>
 				<option value="Light">Light</option>
 			</select>
-		</div>
+		</div-->
+		
+		<div class="btn-group uiDropdownWithIcon" id="navigationStyle">
+			<div data-toggle="dropdown" class="btn dropdown-toggle">
+				<span>Dark</span>
+				<span class="spiter"></span> 
+				<span class="caret"></span>
+			</div>
+			
+			<ul role="menu" class="dropdown-menu">
+				<li>
+					<a href="#" class="OptionItem">Light</a>
+				</li>
+			</ul>	
+		</div>		
+				
 	</div>
 	
-	<div class="preview">
+	<div class="preview boxContent">
 		<h4 class="titleWithBorder">Preview</h3>
 		<div id="StylePreview">
 			<img id="ajaxUploading2" alt="" src="/eXoPlatformResources/skin/platformSkin/icons/ajax-loader.gif"	style="display:none" >
 		</div>
 	</div>
 	
-	<div class="uiAction">
+	<div class="uiAction boxContent">
 		<button id="save" class="btn btn-primate" type="button" value="${save}">${save}</button>
 		<button id="cancel" class="btn" type="button" value="${cancel}"/>${cancel}</button>
 	</div>

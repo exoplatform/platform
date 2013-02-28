@@ -5,7 +5,7 @@
 .uiBrandingPortlet {
 	padding: 5px 30px;
 	background: white;
-	> div {
+	> .boxContent {
 		padding: 10px 0;
 	}
 	h4.titleWithBorder {
@@ -25,7 +25,9 @@
 	    text-align: center;
 	    .size(34px,300px);
 		}
-		
+		#PreviewImgDiv.hover {
+			border: 1px solid red;
+		}
 		.info {
 			margin: 10px 0 0;
 			color: #999999;
@@ -37,6 +39,10 @@
 		.uiAction {
 			padding: 34px 20px;
 		}
+	}
+	
+	.dropdown-menu {
+		min-width: 72px;
 	}
 	
 	.preview .UIToolbarContainer {
