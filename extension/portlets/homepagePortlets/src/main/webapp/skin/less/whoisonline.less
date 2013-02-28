@@ -92,13 +92,13 @@
   border-color: transparent;
   border-style: solid;
 }
-.tip_left_top  #tiptip_arrow_inner {
+#tiptip_holder  #tiptip_arrow_inner {
   z-index: -1;
 }
 
-.tip_left_top{  
+#tiptip_holder{  
   #tiptip_arrow{
-    right: -@popoverArrowWidth + 1;
+    right: -@popoverArrowWidth + 6;
     margin-top: -@popoverArrowWidth;
     border-width: @popoverArrowWidth 0 @popoverArrowWidth @popoverArrowWidth;
     border-left-color: @popoverArrowColor;
@@ -111,34 +111,25 @@
   }
 }
 
-
-/* Webkit Hacks  */
-@media screen and (-webkit-min-device-pixel-ratio:0) {
-    #tiptip_content {
-        padding: 10px;
-        background-color: @white;	
-		.border-radius(@borderRadiusSmall);
-    }   
-	.tip_left_top    #tiptip_arrow  #tiptip_arrow_inner {
-		border-left-color:rgba(0, 0, 0, 0.5);	 
-	}
-}
 blockquote {
-    background: url(/homepage-portlets/style/images/right-quote.png) no-repeat right bottom;
-    text-indent: -25px;
+    background: url(/homepage-portlets/style/images/right-quote.png) no-repeat right bottom;    
     padding-right: 25px;
     padding-left: 25px;
-    color: #999999;
+    color: @grayLight;
     border-left: medium none;
     width:75%;
     word-wrap:break-word;
+	position: relative;
+	margin-top: 5px;
 }
 
-blockquote:first-letter {
+blockquote:after {
     background: url(/homepage-portlets/style/images/left-quote.png) no-repeat left top;
-    padding-left: 25px;
+	.size(13px,15px);
+	position:absolute;
+	top:2px;
+	left: 0;
 }
-
 #tipName img {
 	.square(36px);
    .border-radius(@borderRadiusSmall);
