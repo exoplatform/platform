@@ -1,12 +1,15 @@
 <%
     import org.exoplatform.platform.welcomescreens.service.UnlockService;
     import org.exoplatform.platform.welcomescreens.service.Utils;
+    import org.exoplatform.commons.utils.PropertyManager;
 %>
 <%
-    def rday= UnlockService.getNbDaysBeforeExpiration();
-    boolean outdated = UnlockService.isOutdated();
     boolean isUnlocked = UnlockService.isUnlocked();
     if(!isUnlocked){
+    boolean isDevMode =  PropertyManager.isDevelopping();
+        if(!isDevMode){
+    def rday= UnlockService.getNbDaysBeforeExpiration();
+    boolean outdated = UnlockService.isOutdated();
 %>
 
 <style type="text/css">
@@ -54,6 +57,10 @@
         </div>
     </div>
 </div>
+<%
+}
+}%>
+
 <% 	if(!UnlockService.isLandingPageDisplayed()){ %>
 <iframe src="<%=UnlockService.getPingBackUrl()%>" style="display:none;" id="pingBackUrlFrame" onload="setFormDisplayed()"></iframe>
 <iframe src="about:blank" style="display:none;" id="pingBackUrlActivation"></iframe>
@@ -64,5 +71,4 @@
     }
 </script>
 <% }
-
-}%>
+%>
