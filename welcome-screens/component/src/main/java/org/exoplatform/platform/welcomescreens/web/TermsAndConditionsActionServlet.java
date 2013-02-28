@@ -39,18 +39,17 @@ import java.io.IOException;
 public class TermsAndConditionsActionServlet extends HttpServlet {
     private static final long serialVersionUID = 6467955354840693802L;
 
-
     private static Log logger = ExoLogger.getLogger(TermsAndConditionsActionServlet.class);
-    protected final static String USER_NAME_ACCOUNT = "username";
-    protected final static String FIRST_NAME_ACCOUNT = "firstNameAccount";
-    protected final static String LAST_NAME_ACCOUNT = "lastNameAccount";
-    protected final static String EMAIL_ACCOUNT = "emailAccount";
-    protected final static String USER_PASSWORD_ACCOUNT = "password";
-    protected final static String ADMIN_FIRST_NAME = "root";
-    protected final static String ADMIN_PASSWORD = "adminPassword";
-    protected final static String PLATFORM_ADMINISTRATORS_GROUP = "/platform/administrators";
-    protected final static String MEMBERSHIP_TYPE_Member = "member";
-    protected final static String INTRANET_HOME = "/portal/intranet";
+    private final static String USER_NAME_ACCOUNT = "username";
+    private final static String FIRST_NAME_ACCOUNT = "firstNameAccount";
+    private final static String LAST_NAME_ACCOUNT = "lastNameAccount";
+    private final static String EMAIL_ACCOUNT = "emailAccount";
+    private final static String USER_PASSWORD_ACCOUNT = "password";
+    private final static String ADMIN_FIRST_NAME = "root";
+    private final static String ADMIN_PASSWORD = "adminPassword";
+    private final static String PLATFORM_ADMINISTRATORS_GROUP = "/platform/administrators";
+    private final static String MEMBERSHIP_TYPE_Member = "member";
+    private final static String INTRANET_HOME = "/portal/intranet";
 
     private TermsAndConditionsService termsAndConditionsService;
 
