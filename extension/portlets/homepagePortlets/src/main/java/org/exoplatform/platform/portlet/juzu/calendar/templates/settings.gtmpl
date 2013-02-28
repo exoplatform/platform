@@ -113,7 +113,7 @@
                             hover = " (" + group.substring(group.lastIndexOf("/") + 1) + ")";
                         }
                 %>
-                <span id="${cal.id}" title="${hover}" class="calendarName ${cal.calendarColor}">${calendarName}&nbsp;
+                <span id="${cal.id}" data-placement="bottom" rel="tooltip" data-original-title="${hover}" class="calendarName ${cal.calendarColor}"><span>${calendarName}&nbsp;</span>
                     <i class="uiIconDel"></i>
                     <input type="hidden" name="calendarId" value="${cal.id}"/>
                 </span>
@@ -138,7 +138,7 @@
                         }
                 %>
                 <li id="${cal.id}" class="calendarItem clearfix" title="${hover}">
-                    <a href="javascript:void(0);" class="addButton pull-right" style="display: none;">
+                    <a href="javascript:void(0);" class="addButton pull-right" style="display: none;" data-placement="bottom" rel="tooltip" data-original-title="add">
                         <input type="hidden" name="calendarId" value="${cal.id}"/>
                         <i class="uiIconAdd "></i>
                     </a>
