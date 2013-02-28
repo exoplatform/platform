@@ -253,6 +253,7 @@
             <uri>search</uri>
             <name>search</name>
             <label>Search</label>
+            <visibility>SYSTEM</visibility>
             <page-reference>portal::intranet::search</page-reference>
         </node>
 
