@@ -9,25 +9,6 @@
     <type>org.exoplatform.services.cms.webdav.WebDavServiceImpl</type>
     <init-params>
 
-    		<value-param>
-				    <name>auto-mix-lockable</name>
-				    <value>${webdav.auto-mix-lockable:false}</value>
-			   </value-param> 
-      <!-- this parameter indicates the default login and password values
-         used as credentials for accessing the repository -->
-      <!-- value-param>
-        <name>default-identity</name>
-        <value>admin:admin</value>    
-      </value-param -->
-
-      <!-- this is the value of WWW-Authenticate header -->
-      <!-- 
-      <value-param>
-        <name>auth-header</name>
-        <value>Basic realm="eXo-Platform Webdav Server 1.6.1"</value>
-      </value-param>
-      -->
-
       <!-- default node type which is used for the creation of collections -->
       <value-param>
         <name>def-folder-node-type</name>
