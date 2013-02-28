@@ -96,7 +96,10 @@
   z-index: -1;
 }
 
-#tiptip_holder{  
+#tiptip_holder{ 
+	&.tip_left_top  #tiptip_arrow{
+		display: none;
+	}
   #tiptip_arrow{
     right: -@popoverArrowWidth + 6;
     margin-top: -@popoverArrowWidth;
