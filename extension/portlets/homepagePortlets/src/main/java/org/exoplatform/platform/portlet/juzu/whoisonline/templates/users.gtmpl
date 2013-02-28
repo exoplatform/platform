@@ -37,6 +37,7 @@
   <%
     def connect="";
 	def message="";
+	def activity=user.getActivity();
 	if(user.getStatus().equals("") || user.getStatus().equals("ignored")){
 		connect="<div id='"+user.getId()+"connect' class='uiAction connectAction' ><a class='connect btn btn-primary' href='#'>"+connectLabel+"</a></div>";
 
@@ -47,12 +48,19 @@
 		if(user.getStatus().equals("pending")) {
 			connect="<div id='connectMessge'>"+messageLabel+"</div>";
 		}
-	}}%>
+	}}
+
+	if(!activity.equals("")){
+	activity="<blockquote>"+activity+"</blockquote>";
+	}
+
+
+	%>
     <li id="${user.getId()}"><a class="avatarXSmall"><img src="${user.getAvatar()}" alt="image" /></a></li>
 	<script type="text/javascript">
 		$(function() {
 			$("#${user.getId()}").tipTip({
-			content: "<div id='tipName' class='clearfix'><a target='_parent' class='pull-left avatarXSmall'><img src='${user.getAvatar()}' alt='image' /></a><div class='detail'><div class='name'><a href='${user.getProfileUrl()}'>${user.getFullName()}</a></div><br/><div style='font-weight: normal;'>${user.getPosition()}</div></div></div><blockquote>${user.getActivity()}</blockquote>${connect}",defaultPosition: "left",keepAlive: true ,maxWidth: "240px"
+			content: "<div id='tipName' class='clearfix'><a target='_parent' class='pull-left avatarXSmall'><img src='${user.getAvatar()}' alt='image' /></a><div class='detail'><div class='name'><a href='${user.getProfileUrl()}'>${user.getFullName()}</a></div><br/><div style='font-weight: normal;'>${user.getPosition()}</div></div></div>${activity}${connect}",defaultPosition: "left",keepAlive: true ,maxWidth: "240px"
 			});
 		});
 
