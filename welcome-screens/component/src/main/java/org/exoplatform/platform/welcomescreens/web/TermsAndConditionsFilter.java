@@ -3,6 +3,7 @@ package org.exoplatform.platform.welcomescreens.web;
 import org.exoplatform.commons.utils.PropertyManager;
 import org.exoplatform.container.PortalContainer;
 import org.exoplatform.platform.welcomescreens.service.TermsAndConditionsService;
+import org.exoplatform.platform.welcomescreens.service.UnlockService;
 import org.exoplatform.services.log.ExoLogger;
 import org.exoplatform.services.log.Log;
 import org.exoplatform.web.filter.Filter;
@@ -57,7 +58,7 @@ public class TermsAndConditionsFilter implements Filter {
     boolean isLoginUri = (requestUri.contains(loginRequestUri) || requestUri.contains(dologinRequestUri));
     boolean isRestUri = (requestUri.contains(REST_URI));
     boolean isDevMod = PropertyManager.isDevelopping();
-    if(! isLoginUri && ! isRestUri && ! tcChecked && !isDevMod) {
+    if(! isLoginUri && ! isRestUri && ! tcChecked && !isDevMod && UnlockService.showTermsAndConditions()) {
       // Get full url
       String reqUri = httpServletRequest.getRequestURI().toString();
       String queryString = httpServletRequest.getQueryString();

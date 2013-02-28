@@ -42,6 +42,7 @@ public class UnlockService implements Startable {
     private static String KEY_CONTENT = null;
     private static boolean loopfuseFormDisplayed = false;
     private static boolean isUnlocked = false;
+    private static boolean showTermsandConditions = true;
     private static boolean outdated = false;
     private static int delayPeriod = Utils.DEFAULT_DELAY_PERIOD;
     private static int nbDaysBeforeExpiration = 0;
@@ -81,6 +82,7 @@ public class UnlockService implements Startable {
             if (period == -1) {
                 outdated = false;
                 isUnlocked = true;
+                showTermsandConditions = false;
                 return;
             }
         }
@@ -159,6 +161,10 @@ public class UnlockService implements Startable {
 
     public static int getNbDaysAfterExpiration() {
         return nbDaysAfterExpiration;
+    }
+
+    public static boolean showTermsAndConditions(){
+         return showTermsandConditions;
     }
 
     public static boolean isLandingPageDisplayed() {
