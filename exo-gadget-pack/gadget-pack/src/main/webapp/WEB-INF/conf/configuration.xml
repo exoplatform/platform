@@ -56,12 +56,6 @@
             </properties-param>
         
             <properties-param>
-              <name>calgad.groovy</name>
-              <property name="autoload" value="true" />
-              <property name="path" value="war:/groovy/eXoCalendar/calgad.groovy" />
-            </properties-param>
-        
-            <properties-param>
               <name>Suggestion.groovy</name>
               <property name="autoload" value="true" />
               <property name="path" value="war:/groovy/FriendSuggestion/Suggestion.groovy" />
