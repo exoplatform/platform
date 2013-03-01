@@ -42,11 +42,11 @@ $(function() {
 
 	// when save is clicked, restore the new logo and display save messsage
 	$("#save").on("click", function() {
-
+		var span = $("#navigationStyle div span")[0];
 		$("#navigationStyle").jzAjax({
 			url : "BrandingController.save()",
 			data : {
-				"style" : $('#navigationStyle option:selected').val(),
+				"style" : $(span).text(),
 				"isChangeLogo" : isChangeLogo
 			},
 			beforeSend : function() {
