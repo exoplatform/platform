@@ -25,6 +25,7 @@ import org.exoplatform.resolver.ResourceResolver;
 
 import java.io.InputStream;
 import java.net.URL;
+import java.net.URLConnection;
 
 import javax.portlet.PortletContext;
 /**
@@ -76,6 +77,26 @@ public class PlatformPortletResourceResolver extends PortletResourceResolver {
             }
         }
         return super.getRealPath(url);
+    }
+
+    /*
+    * This is to workaround the exception problem of PLF 4 when running in developing mode
+    *
+    * It should be removed by using the fix from GateIn https://issues.jboss.org/browse/GTNPORTAL-2790
+    */
+    public boolean isModified(String url, long lastAccess) {
+        try {
+            URL uri = getResource(url);
+            URLConnection con = uri.openConnection();
+            if (log.isDebugEnabled())
+                log.debug(url + ": " + con.getLastModified() + " " + lastAccess);
+            if (con.getLastModified() > lastAccess) {
+                return true;
+            }
+        } catch (Exception e) {
+            return false;
+        }
+        return false;
     }
 
     private ResourceResolver getPortalResourceResolver(String url)

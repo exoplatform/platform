@@ -37,23 +37,31 @@
 	.spaceNavigation {
 		list-style: none;
 		margin: 0;
+		.noSpace {
+			color: #808080;
+	    padding: 10px 0;
+	    text-align: center;
+		}
 		.spaceItem {
-			padding: 10px 25px;
+			padding: 6px 25px;
 			display: block;
+			height: 20px;
 		}
 		
 		.spaceIcon {
-            color: #808080;
-            display: inline-block;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            white-space: nowrap;
-            width: 200px;
-		
+	    color: #808080;
+	    display: inline-block;
+	    overflow: hidden;
+	    text-overflow: ellipsis;
+	    white-space: nowrap;
+	    width: 200px;
+			> img {
+				float: left;
+				margin-right: 5px;	
+			}
 		}
 		
 		.spaceItemSelected {
-			padding: 6px 25px;
 			background: white;
 			border-top: 1px solid #c7c7c7;
 			border-bottom: 1px solid #c7c7c7;
@@ -62,7 +70,7 @@
 				background: #4F72AC;
 		    border: 1px solid #2E518A;
 		    content: "";
-		    height: 33px;
+		    height: 31px;
 		    left: 0;
 		    margin-top: -6px;
 		    position: absolute;
@@ -72,6 +80,8 @@
 				font-weight: bold;
 			}
 		}
+		
+		
 		
 		.moreSpace {
 			padding: 15px 0 10px;
