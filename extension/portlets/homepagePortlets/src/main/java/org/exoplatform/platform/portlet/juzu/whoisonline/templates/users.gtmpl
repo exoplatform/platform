@@ -60,7 +60,7 @@
 	<script type="text/javascript">
 		$(function() {
 			$("#${user.getId()}").tipTip({
-			content: "<div id='tipName' class='clearfix'><a target='_parent' class='pull-left avatarXSmall'><img src='${user.getAvatar()}' alt='image' /></a><div class='detail'><div class='name'><a href='${user.getProfileUrl()}'>${user.getFullName()}</a></div><div class="displayName">${user.getPosition()}</div></div></div>${activity}${connect}",defaultPosition: "left",keepAlive: true ,maxWidth: "240px"
+			content: "<div id='tipName' class='clearfix'><a target='_parent' class='pull-left avatarXSmall'><img src='${user.getAvatar()}' alt='image' /></a><div class='detail'><div class='name'><a href='${user.getProfileUrl()}'>${user.getFullName()}</a></div><div class='displayName'>${user.getPosition()}</div></div></div>${activity}${connect}",defaultPosition: "left",keepAlive: true ,maxWidth: "240px"
 			});
 		});
 
