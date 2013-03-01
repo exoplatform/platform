@@ -286,8 +286,20 @@
 			}
 
 		</style>
-    <script type="text/javascript" src="/eXoResources/javascript/eXo.js"></script>
-    <script type="text/javascript" src="/eXoResources/javascript/eXo/portal/UIPortalControl.js"></script>
+
+    <script type="text/javascript">
+        var require = {
+            "shim":{
+                "SHARED/iphonePlugin":{"deps":["SHARED/jquery"]}
+            },
+            "paths":{
+                "SHARED/jquery":"/portal/scripts/3.5.2.Final/SHARED/jquery-min",
+                "SHARED/iphonePlugin":"/portal/scripts/3.5.2.Final/SHARED/iphonePlugin-min"
+            }
+        };
+    </script>
+    <script type="text/javascript" src="/portal/scripts/3.5.2.Final/SHARED/bootstrap-min.js"></script>
+
   </head>
   <body>
     <div class="uiLogin">
@@ -311,34 +323,28 @@
                 <% } %>	
 					
 				<input class="username" id="username" name="username" type="text" value="Username"/>
-				<input class="password" id="UIPortalLoginFormControl" onkeypress="eXo.portal.UIPortalControl.onEnterPress(event);"  type="password" id="password" name="password" value="......"/> 
-				<!--<div class="fieldLabel" onkeypress="eXo.portal.UIPortalControl.onEnterPress(event);">
-					<input type="checkbox" class="checkbox" id="rememberme" name="rememberme" value="true"/>
+				<input class="password" id="UIPortalLoginFormControl" onkeypress="//eXo.portal.UIPortalControl.onEnterPress(event);"  type="password" id="password" name="password" value="......"/>
+                <div class="spaceRole">
+					<input type="checkbox" class="yesno" checked="checked" style="visibility: hidden;" id="rememberme" name="rememberme" value="true"/>
 					<label for="rememberme"><%=res.getString("UILoginForm.label.RememberOnComputer")%></label>
-				</div>-->
-		        <div onclick="javascript:eXo.webui.UIForm.submitEvent('e6340007-5b10-4df4-b082-e726716241d0#UISpaceMember','ToggleLeadership','&amp;objectId=root')" class="spaceRole">
-				
-					<div class="iPhoneCheckContainer" style="width: 60px;"><input type="checkbox" style="visibility: hidden;" checked="checked" class="yesno"/>
-						<label class="iPhoneCheckLabelOff" style="width: 55px;">
-						  <span style="margin-right: -41px;">NO</span>
-						</label>
-						<label class="iPhoneCheckLabelOn" style="width: 50px;">
-						  <span>YES</span>
-						</label>
-						<div class="iPhoneCheckHandle" style="left: 41px;">
-						  <div class="iPhoneCheckHandleRight">
-							<div class="iPhoneCheckHandleCenter"></div>
-						  </div>
-						</div>
-					</div>
-					<div class="rememberTxt">
-						Remember my Login
-					</div>
-				</div> 
+				</div>
+                <script type="text/javascript">
+                    require(["SHARED/jquery", "SHARED/iphonePlugin"], function (gj) {
+                        gj("div.spaceRole").children('input:checkbox').each(function () {
+                            gj(this).iphoneStyle({
+                                checkedLabel:'YES',
+                                uncheckedLabel:'NO'});
+                        });
+                    });
+                </script>
+
 				<div id="UIPortalLoginFormAction" class="loginButton" onclick="login();">
 					<button class="button" href="#"><%=res.getString("UILoginForm.label.Signin")%></button>
 				</div>
-					<script type='text/javascript'>			            
+
+                <script type='text/javascript'>
+
+
 					function login() {
 						document.loginForm.submit();                   
 					}
