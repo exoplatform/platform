@@ -22,7 +22,7 @@
 		  <div class="pull-left">
 				<form id="form" enctype="multipart/form-data" action="${urlUploadFile}"  method="POST">
 				 <input type='hidden' id='browser' name='browser' />
-				 <input type='file' id='file' name='file'  />
+			     <input type='file' id='file' name='file'  />
 				</form>
 			
 				<div class="uiAction">
@@ -34,26 +34,20 @@
 		
 	<div class="navigationStyle boxContent">
 		<h4 class="titleWithBorder">${selectstyle}</h4>
-		<!--div class="uiSelectbox">
-			<select id="navigationStyle" class="selectbox">
-				<option value="Dark">Dark</option>
-				<option value="Light">Light</option>
-			</select>
-		</div-->
 		
 		<div class="btn-group uiDropdownWithIcon" id="navigationStyle">
 			<div data-toggle="dropdown" class="btn dropdown-toggle">
-				<span>Dark</span>
+				<span></span>
 				<span class="spiter"></span> 
 				<span class="caret"></span>
 			</div>
 		
 			<ul role="menu" class="dropdown-menu">
 				<li>
-					<a href="#" class="OptionItem" onClick="">Light</a>
+					<a href="#" class="OptionItem">Light</a>
 				</li>
 				<li>
-					<a href="#" class="OptionItem" onClick="">Dark</a>
+					<a href="#" class="OptionItem">Dark</a>
 				</li>
 			</ul>
 		</div>		
