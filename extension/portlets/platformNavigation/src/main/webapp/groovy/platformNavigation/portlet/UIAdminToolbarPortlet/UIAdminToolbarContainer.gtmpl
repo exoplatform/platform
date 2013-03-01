@@ -40,7 +40,7 @@
 		<ul class="dropdown-menu">
       <% if(uicomponent.isSpaceManager()) { %>
 			<li>
-				<a href="<%=uicomponent.event("ChangeEditing")%>">
+				<a href="<%=uicomponent.event("ChangeEditing")%>" class="$quiEditClass">
 					$quickEditLabel
 				</a>
 			</li>
