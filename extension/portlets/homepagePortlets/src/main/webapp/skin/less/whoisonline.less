@@ -34,8 +34,10 @@
 }
 
 #tipName {
-    font-weight: bold;
-	color: @linkColor;
+    .name {
+		font-weight: bold;
+		color: @linkColor;
+	}
 	&+ blockquote {
 		margin-top: 5px;
 	}
@@ -79,8 +81,8 @@
 }
 
 #tiptip_content {
-    font-size: @baseFontSize - 2;
-    color: #555555;
+    font-size: @baseFontSize - 1;
+	color: @grayLight;
 	background: @white;
     padding: 10px;
     border: 1px solid @borderColor;
