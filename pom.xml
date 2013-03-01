@@ -5,7 +5,7 @@
     <artifactId>maven-parent-pom</artifactId>
     <groupId>org.exoplatform</groupId>
     <version>9-beta-1</version>
-    <relativePath></relativePath>
+    <relativePath />
   </parent>
   <groupId>org.exoplatform.platform</groupId>
   <artifactId>platform</artifactId>
@@ -41,7 +41,7 @@
     <!-- **************************************** -->
     <!-- Project Dependencies -->
     <!-- **************************************** -->
-    <org.exoplatform.depmgt.version>3-SNAPSHOT</org.exoplatform.depmgt.version>
+    <org.exoplatform.depmgt.version>3</org.exoplatform.depmgt.version>
     <!-- JCR Project Dependencies -->
     <org.exoplatform.kernel.version>2.4.2-GA</org.exoplatform.kernel.version>
     <org.exoplatform.core.version>2.5.2-GA</org.exoplatform.core.version>
@@ -63,7 +63,7 @@
     <org.exoplatform.calendar.version>4.0.0-stabilization-SNAPSHOT</org.exoplatform.calendar.version>
     <org.exoplatform.integ.version>4.0.0-stabilization-SNAPSHOT</org.exoplatform.integ.version>
     <!-- Platform Project 3rd party Dependencies -->
-    <org.exoplatform.gwtframework.version>1.1.2</org.exoplatform.gwtframework.version>
+    <org.exoplatform.gwtframework.version>1.3.0-SNAPSHOT</org.exoplatform.gwtframework.version>
     <org.exoplatform.ide.version>1.3.0-SNAPSHOT</org.exoplatform.ide.version>
     <commons-fileupload.version>1.2.1</commons-fileupload.version>
   </properties>
