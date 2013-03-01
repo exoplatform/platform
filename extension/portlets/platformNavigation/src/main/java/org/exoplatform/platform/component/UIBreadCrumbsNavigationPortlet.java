@@ -1,6 +1,11 @@
 package org.exoplatform.platform.component;
 
+import org.exoplatform.platform.common.service.MenuConfiguratorService;
 import org.exoplatform.platform.navigation.component.breadcrumb.UserNavigationHandlerService;
+import org.exoplatform.platform.webui.NavigationURLUtils;
+import org.exoplatform.portal.config.UserPortalConfig;
+import org.exoplatform.portal.config.UserPortalConfigService;
+import org.exoplatform.portal.config.model.PageNode;
 import org.exoplatform.portal.mop.SiteType;
 import org.exoplatform.portal.mop.user.UserNavigation;
 import org.exoplatform.portal.mop.user.UserNode;
@@ -25,7 +30,7 @@ import org.exoplatform.webui.event.EventListener;
 
 import javax.portlet.PortletPreferences;
 import javax.portlet.PortletRequest;
-import java.util.List;
+import java.util.*;
 
 /**
  * @author <a href="rtouzi@exoplatform.com">rtouzi</a>
@@ -44,6 +49,14 @@ public class UIBreadCrumbsNavigationPortlet extends UIPortletApplication {
     private SpaceService spaceService = null;
     private OrganizationService orgService = null;
     private UserNavigationHandlerService userService = null;
+    private MenuConfiguratorService menuConfiguratorService;
+    private UserPortalConfigService portalConfigService;
+    private List<UserNode> setupMenuUserNodes = null;
+    private List<PageNode> setupMenuPageNodes = null;
+    private Map<String, Boolean> pagePermissionsMap = new HashMap<String, Boolean>();
+    private static final String USER = "/user/";
+    private static final String WIKI_HOME = "/WikiHome";
+    private static final String WIKI_REF = "wiki";
 
     public UIBreadCrumbsNavigationPortlet() throws Exception {
         spaceService = getApplicationComponent(SpaceService.class);
@@ -103,35 +116,6 @@ public class UIBreadCrumbsNavigationPortlet extends UIPortletApplication {
         return fullName;
     }
 
-    public String getUserName() throws Exception {
-        String userName = null;
-        String urlPath = Util.getPortalRequestContext().getRequest().getRequestURI();
-        String[] urlPart = urlPath.split("/");
-        UserNavigation nav = getSelectedNode();
-        SiteType navType = nav.getKey().getType();
-        UserNode node = Util.getUIPortal().getSelectedUserNode();
-        if (navType.equals(SiteType.USER)) {
-            userName = nav.getKey().getName();
-        } else {
-            if ((node.getURI()).equals("mywiki")) {
-                userName = urlPart[urlPart.length - 2];
-            } else {
-                userName = urlPart[urlPart.length - 1];
-            }
-        }
-        
-        // if got username is not existing then return current logged in username info
-        if (userName != null) {
-          Identity identity = Utils.getIdentityManager().getOrCreateIdentity(OrganizationIdentityProvider.NAME,
-                                                                             userName, false);
-          if (identity == null) {
-            return Utils.getViewerRemoteId();
-          }
-        }
-        
-        return userName;
-    }
-
     public String getAvatarURL(String username) {
         Identity identity = Utils.getIdentityManager().getOrCreateIdentity(OrganizationIdentityProvider.NAME,
                 username, true);
@@ -157,10 +141,47 @@ public class UIBreadCrumbsNavigationPortlet extends UIPortletApplication {
         SiteType navType = nav.getKey().getType();
         UserNode node = Util.getUIPortal().getSelectedUserNode();
         String uri = node.getURI();
-        if (uris.contains(uri) || navType.equals(SiteType.USER)) {
+        if (uris.contains(uri) || navType.equals(SiteType.USER) || Util.getPortalRequestContext().getRequest().getRequestURL().toString().contains(getWikiURL())) {
             return true;
         } else return false;
 
+    }
+
+    public String getWikiURL() {
+        return NavigationURLUtils.getURLInCurrentPortal(WIKI_REF) + USER + getOwnerRemoteId() + WIKI_HOME;
+    }
+
+    public static String getOwnerRemoteId() {
+        String currentUserName = org.exoplatform.platform.navigation.component.utils.NavigationUtils.getCurrentUser();
+        if (currentUserName == null || currentUserName.equals("")) {
+            return Utils.getViewerRemoteId();
+        }
+        return currentUserName;
+    }
+
+    public boolean isGroupUrl() throws Exception {
+        menuConfiguratorService = getApplicationComponent(MenuConfiguratorService.class);
+        portalConfigService = getApplicationComponent(UserPortalConfigService.class);
+        setupMenuUserNodes = menuConfiguratorService.getSetupMenuItems(getUserPortal());
+        UserNode node = Util.getUIPortal().getSelectedUserNode();
+        boolean isAdminUrl = false;
+        for (UserNode menuNode : setupMenuUserNodes) {
+            if (menuNode.getURI().equals(node.getURI()) && menuNode.getPageRef().equals(node.getPageRef())) {
+                isAdminUrl = true;
+                break;
+            }
+        }
+        return isAdminUrl;
+    }
+
+    public static String getEncodedResolvedLabel() throws Exception {
+        UserNode node = Util.getUIPortal().getSelectedUserNode();
+        return node.getResolvedLabel();
+    }
+
+    public static UserPortal getUserPortal() {
+        UserPortalConfig portalConfig = Util.getPortalRequestContext().getUserPortalConfig();
+        return portalConfig.getUserPortal();
     }
 
     public boolean isSpaceUrl() throws Exception {
@@ -174,7 +195,11 @@ public class UIBreadCrumbsNavigationPortlet extends UIPortletApplication {
     }
 
     public boolean isOwner() {
-        return Utils.isOwner();
+        String currentUserName = org.exoplatform.platform.navigation.component.utils.NavigationUtils.getCurrentUser();
+        if (currentUserName != null && !currentUserName.equals("")) {
+            return currentUserName.equals(Utils.getViewerRemoteId());
+        } else
+            return true;
     }
 
     public static class ChangePictureActionListener extends EventListener<UIBreadCrumbsNavigationPortlet> {

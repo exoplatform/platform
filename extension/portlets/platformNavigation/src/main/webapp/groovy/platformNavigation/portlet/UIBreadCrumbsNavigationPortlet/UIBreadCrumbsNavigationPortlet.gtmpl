@@ -38,8 +38,8 @@ import org.exoplatform.webui.core.UIPopupWindow;
     def changePictureLabel = _ctx.appRes(uicomponent.id + ".label.ChangePicture");
 	boolean isUserUrl=uicomponent.isUserUrl();
 	boolean isSpaceUrl=uicomponent.isSpaceUrl();
-
-	if(isUserUrl || isSpaceUrl){
+    boolean isGroupUrl=uicomponent.isGroupUrl();
+	if(isUserUrl || isSpaceUrl ){
 
 	String actionLink;
 	String nodeName;
@@ -54,8 +54,7 @@ import org.exoplatform.webui.core.UIPopupWindow;
 			srcImage=uicomponent.getImageSource(ownerId);
         }
 	}else{
-
-           ownerId=uicomponent.getUserName();
+           ownerId=uicomponent.getOwnerRemoteId();
 		   if(ownerId!=null){
            actionLink=uicomponent.getProfileURL(ownerId)
 		   nodeName=uicomponent.getUserFullName(ownerId);
@@ -73,10 +72,20 @@ import org.exoplatform.webui.core.UIPopupWindow;
 		  <div class="name">$nodeName</div>
 	   <%if (uicomponent.isOwner() && isUserUrl) { %>
 			<a class="changeAvatar" onclick="<%=uicomponent.event("ChangePicture")%>; return false;" href="javascript:void(0)">$changePictureLabel</a>
-       
+
       <% } %>
 	  </div>
 	</div>
 
 
-<%}%>
+<%}else{
+if(isGroupUrl){
+ String pageLabel=uicomponent.getEncodedResolvedLabel();
+%>
+<div class="uiBreadcumbsNavigationsPortlet clearfix" id="$uicomponent.id">
+<div class="uiBreadcumbsNavigations">
+		  <div class="navItemSelected">$pageLabel</div>
+ </div>
+</div>
+<%}
+}%>
