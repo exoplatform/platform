@@ -11,6 +11,18 @@
   <name>eXo Platform - Extension Webapp</name>
   <dependencies>
     <dependency>
+      <groupId>javax.ccpp</groupId>
+      <artifactId>ccpp</artifactId>
+      <version>1.0</version>
+      <scope>runtime</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.portals.bridges</groupId>
+      <artifactId>portals-bridges-common</artifactId>
+      <version>1.0.4</version>
+      <scope>runtime</scope>
+    </dependency>
+    <dependency>
       <groupId>org.chromattic</groupId>
       <artifactId>chromattic.dataobject</artifactId>
       <scope>runtime</scope>
@@ -27,10 +39,10 @@
       <scope>runtime</scope>
     </dependency>
     <dependency>
-			<groupId>org.exoplatform.commons</groupId>
-			<artifactId>commons-component-common</artifactId>
-			  <scope>runtime</scope>
-		</dependency>
+      <groupId>org.exoplatform.commons</groupId>
+      <artifactId>commons-component-common</artifactId>
+      <scope>runtime</scope>
+    </dependency>
     <dependency>
       <groupId>org.exoplatform.social</groupId>
       <artifactId>social-component-webui</artifactId>
@@ -59,26 +71,6 @@
     <dependency>
       <groupId>org.exoplatform.ecms</groupId>
       <artifactId>ecms-core-services</artifactId>
-      <scope>runtime</scope>
-    </dependency>
-    <dependency>
-      <groupId>org.exoplatform.ide</groupId>
-      <artifactId>exo-ide-extension-chromattic-server</artifactId>
-      <scope>runtime</scope>
-    </dependency>
-    <dependency>
-      <groupId>org.exoplatform.ide</groupId>
-      <artifactId>exo-ide-extension-gadget-server</artifactId>
-      <scope>runtime</scope>
-    </dependency>
-    <dependency>
-      <groupId>org.exoplatform.ide</groupId>
-      <artifactId>exo-ide-extension-groovy-server</artifactId>
-      <scope>runtime</scope>
-    </dependency>
-    <dependency>
-      <groupId>org.exoplatform.ide</groupId>
-      <artifactId>exo-ide-server</artifactId>
       <scope>runtime</scope>
     </dependency>
     <!-- INTEGRATION PROJECTS -->
@@ -139,6 +131,11 @@
     </dependency>
     <dependency>
       <groupId>org.exoplatform.platform</groupId>
+      <artifactId>platform-component-upgrade-plugins</artifactId>
+      <scope>runtime</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.exoplatform.platform</groupId>
       <artifactId>platform-component-gadgets</artifactId>
       <scope>runtime</scope>
     </dependency>
@@ -162,6 +159,16 @@
       <groupId>org.exoplatform.platform</groupId>
       <artifactId>platform-extension-resources</artifactId>
       <type>pom</type>
+      <scope>runtime</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.exoplatform.social</groupId>
+      <artifactId>social-component-webui</artifactId>
+      <scope>runtime</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.exoplatform.wiki</groupId>
+      <artifactId>wiki-service</artifactId>
       <scope>runtime</scope>
     </dependency>
     <dependency>

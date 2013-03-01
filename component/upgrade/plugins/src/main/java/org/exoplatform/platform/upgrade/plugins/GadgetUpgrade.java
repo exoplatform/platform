@@ -1,6 +1,5 @@
-package org.exoplatform.platform.common.space.statistic;
 /**
- * Copyright (C) 2012 eXo Platform SAS.
+ * Copyright (C) 2013 eXo Platform SAS.
  *
  * This is free software; you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as
@@ -17,14 +16,29 @@ package org.exoplatform.platform.common.space.statistic;
  * Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
  * 02110-1301 USA, or see the FSF site: http://www.fsf.org.
  */
+package org.exoplatform.platform.upgrade.plugins;
 
-import java.util.List;
+import java.io.Serializable;
 
-/**
- * @author <a href="fbradai@exoplatform.com">Fbradai</a>
- * @date 13/11/12
- */
-public interface SpaceAccessService {
-    void updateSpaceAccess(final String spaceId, final String userId);
-     List<String> getSpaceAccessList(String userId);
+public class GadgetUpgrade implements Serializable {
+    private static final long serialVersionUID = -3348384641518707400L;
+
+    private String name;
+    private String path;
+
+    public String getName() {
+        return this.name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getPath() {
+        return this.path;
+    }
+
+    public void setPath(String path) {
+        this.path = path;
+    }
 }

@@ -67,56 +67,83 @@
     </init-params>
   </component>
 
-  <component>
-    <key>org.exoplatform.services.organization.OrganizationService</key>
-    <type>org.exoplatform.services.organization.idm.PicketLinkIDMOrganizationServiceImpl</type>
-    <init-params>
-      <object-param>
-        <name>configuration</name>
-        <object type="org.exoplatform.services.organization.idm.Config">
-          <field name="useParentIdAsGroupType">
-            <boolean>true</boolean>
-          </field>
-          <field name="groupTypeMappings">
-            <map type="java.util.HashMap">
-              <entry>
-                <key><string>/</string></key>
-                <value><string>root_type</string></value>
-              </entry>
-              <entry>
-                <key><string>/platform/*</string></key>
-                <value><string>platform_type</string></value>
-              </entry>
-              <entry>
-                <key><string>/platform/users</string></key>
-                <value><string>users_type</string></value>
-              </entry>
-               <entry>
-                <key><string>/organization/acme/france</string></key>
-                <value><string>france_type</string></value>
-              </entry>
-              <entry>
-                <key><string>/toto/*</string></key>
-                <value><string>toto_type</string></value>
-              </entry>
-            </map>
-          </field>
-          <!-- If this option is used then each Membership created with MembrshipType that is
-               equal to value specified here will be stored in PicketLink IDM as simple
-               Group-User association-->
-          <field name="associationMembershipType">
-            <string>member</string>
-          </field>
-          <!-- if "associationMembershipType" option is used and this option is set to true
-                then Membership with MembershipType configured to be stored as PicketLink IDM association
-                will not be stored as PicketLink IDM Role -->
-          <field name="ignoreMappedMembershipType">
-            <boolean>false</boolean>
-          </field>
-        </object>
-      </object-param>
-    </init-params>
-  </component>
+	<component>
+		<key>org.exoplatform.services.organization.OrganizationService</key>
+		<type>org.exoplatform.services.organization.idm.PicketLinkIDMOrganizationServiceImpl</type>
+		<init-params>
+			<object-param>
+				<name>configuration</name>
+				<object type="org.exoplatform.services.organization.idm.Config">
+					<field name="useParentIdAsGroupType">
+						<boolean>true</boolean>
+					</field>
+					<field name="groupTypeMappings">
+						<map type="java.util.HashMap">
+							<entry>
+								<key>
+									<string>/</string>
+								</key>
+								<value>
+									<string>root_type</string>
+								</value>
+							</entry>
+							<entry>
+								<key>
+									<string>/platform/*</string>
+								</key>
+								<value>
+									<string>platform_type</string>
+								</value>
+							</entry>
+							<entry>
+								<key>
+									<string>/platform/users</string>
+								</key>
+								<value>
+									<string>users_type</string>
+								</value>
+							</entry>
+							<entry>
+								<key>
+									<string>/organization/acme/france</string>
+								</key>
+								<value>
+									<string>france_type</string>
+								</value>
+							</entry>
+							<entry>
+								<key>
+									<string>/toto/*</string>
+								</key>
+								<value>
+									<string>toto_type</string>
+								</value>
+							</entry>
+						</map>
+					</field>
+					<!-- If this option is used then each Membership created with MembrshipType 
+						that is equal to value specified here will be stored in PicketLink IDM as 
+						simple Group-User association -->
+					<field name="associationMembershipType">
+						<string>member</string>
+					</field>
+					<field name="ignoreMappedMembershipTypeGroupList">
+						<collection type="java.util.ArrayList" item-type="java.lang.String">
+							<value>
+								<string>/platform/*</string>
+							</value>
+							<value>
+								<string>/organization/acme/france</string>
+							</value>
+							<value>
+								<string>/toto/*</string>
+							</value>
+						</collection>
+					</field>
+				</object>
+			</object-param>
+		</init-params>
+	</component>
 
   <component>
     <key>org.exoplatform.services.database.HibernateService</key>
