@@ -119,6 +119,6 @@ public class UIUserPlatformToolBarPortlet extends UIPortletApplication {
     }
 
     public String getWikiURL() {
-        return NavigationURLUtils.getURLInCurrentPortal(WIKI_REF) + USER + Utils.getOwnerIdentity(true).getRemoteId() + WIKI_HOME;
+        return NavigationURLUtils.getURLInCurrentPortal(WIKI_REF) + USER + Util.getPortalRequestContext().getRemoteUser() + WIKI_HOME;
     }
 }
