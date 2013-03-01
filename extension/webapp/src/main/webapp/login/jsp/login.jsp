@@ -173,7 +173,7 @@
 			}
 			
 			.uiLogin .loginContent .loginButton {
-			  padding: 32px 0 0 0;
+			  padding: 52px 0 0 0;
 			}
 			
 			.uiLogin .loginContent .loginButton .button{
@@ -194,32 +194,23 @@
 				padding: 12px 0;
 			}
 			
-			.uiLogin .iPhoneCheckDisabled {
-			   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity = 50);
-			   opacity: 0.5;
-			}
-			
 			.uiLogin .iPhoneCheckContainer, .iPhoneCheckContainer label {
 				-moz-user-select: none;
 			}
 			.uiLogin .iPhoneCheckContainer {
-				-webkit-transform: translate3d(0, 0, 0);
-			   position: relative;
-			   height: 21px;
-			   cursor: pointer;
-			   overflow: hidden;
-			   padding-top: 1px;
-			   float: left;
-			   margin-right: 15px;
+				cursor: pointer;
+				height: 18px;
+				overflow: hidden;
+				position: relative;
+				float: left;
 			}
 			.uiLogin .iPhoneCheckContainer input {
+				left: 30px;
+				opacity: 0;
 				position: absolute;
 				top: 5px;
-				left: 30px;
-				filter: progid:DXImageTransform.Microsoft.Alpha(Opacity = 0);
-				opacity: 0;
 			}
-			.uiLogin .iPhoneCheckContainer label.iPhoneCheckLabelOff {
+			.uiLogin label.iPhoneCheckLabelOff {
 				background-color: rgba(0, 0, 0, 0.035);
 				background-image: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.09));
 				background-repeat: repeat-x;
@@ -230,18 +221,16 @@
 				right: 0;
 				text-align: right;
 				text-shadow: 1px 0 0 #FFFFFF;
-				height: 17px;
 			}
 			.uiLogin label.iPhoneCheckLabelOff span {
-				line-height: 19px;
-				padding-right: 17px;
+				padding-right: 10px;
 			}
 			
-			.uiLogin .iPhoneCheckContainer label.iPhoneCheckLabelOn {
+			.uiLogin label.iPhoneCheckLabelOn {
 				background-color: #476CA7;
 				background-image: linear-gradient(to bottom, #4B72B4, #426393);
 				background-repeat: repeat-x;
-				border: 1px solid #224886;
+				border: 1px inset #224886;
 				border-bottom-left-radius: 9px;
 				border-top-left-radius: 9px;
 				box-shadow: 0 3px 5px #213B68 inset;
@@ -251,41 +240,42 @@
 				text-align: center;
 			}
 			.uiLogin .iPhoneCheckContainer, .iPhoneCheckContainer label {
-				user-select: none;
-			   -moz-user-select: none;
-			   -khtml-user-select: none;
+				-moz-user-select: none;
 			}
 			.uiLogin .iPhoneCheckContainer label {
-				white-space: nowrap;
-				font-size: 11px;
-				line-height: 16px;
-				font-weight: bold;
-				font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
 				cursor: pointer;
 				display: block;
-				height: 16px;
-				position: absolute;
-				width: auto;
-				top: 1;
+				font-family: "Helvetica Neue",Arial,Helvetica,sans-serif;
+				font-size: 11px;
+				font-weight: bold;
+				height: 15px;
+				line-height: 16px;
 				overflow: hidden;
+				position: absolute;
+				top: 0;
+				white-space: nowrap;
+				width: auto;
 			}
 			.uiLogin label.iPhoneCheckLabelOn span {
-				line-height: 19px;
-				padding: 0 8px 0 4px;
+				padding-left: 4px;
 			}
 			.uiLogin .iPhoneCheckHandle {
 				background-color: #F9F9F9;
 				background-image: linear-gradient(to bottom, #FFFFFF, #F1F1F1);
 				background-repeat: repeat-x;
 				border-radius: 50% 50% 50% 50%;
-				box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.8);
+				box-shadow: -1px 0 2px rgba(0, 0, 0, 0.6);
 				cursor: pointer;
 				display: block;
 				height: 18px;
 				left: 0;
 				position: absolute;
-				top: 1px;
+				top: 0;
 				width: 18px;
+			}
+			
+			.uiLogin .iPhoneCheckHandle {
+				cursor: pointer;
 			}
 			
 			.uiLogin .rememberTxt{
