@@ -177,6 +177,10 @@
  		<value>
                 <string>platform-branding</string>
               </value>
+ 		<value>
+                <string>unified-search</string>
+              </value>
+
             </collection>
           </field>
 
