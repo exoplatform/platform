@@ -76,7 +76,7 @@ public class BookmarkRestService implements ResourceContainer {
 				Node bookmarksNode = userPrivateNode.addNode("Bookmarks");
 				userPrivateNode.save();
 
-				String default_bookmarks="[{\"name\":\"Discussions\", \"link\":\"/portal/intranet/forum\"},{\"name\":\"Wiki\", \"link\":\"/portal/intranet/wiki\"},{\"name\":\"Documents\", \"link\":\"/portal/intranet/documents\"},{\"name\":\"Agenda\", \"link\":\"/portal/intranet/calendar\"}]";
+				String default_bookmarks="[{\"name\":\"Forums\", \"link\":\"/portal/intranet/forum\"},{\"name\":\"Wiki\", \"link\":\"/portal/intranet/wiki\"},{\"name\":\"Documents\", \"link\":\"/portal/intranet/documents\"},{\"name\":\"Agenda\", \"link\":\"/portal/intranet/calendar\"}]";
 				bookmarksNode.setProperty("exo:bookmarkService_bookmarks", default_bookmarks);
 				if(bookmarksNode.canAddMixin("exo:hiddenable")){
                     bookmarksNode.addMixin("exo:hiddenable");

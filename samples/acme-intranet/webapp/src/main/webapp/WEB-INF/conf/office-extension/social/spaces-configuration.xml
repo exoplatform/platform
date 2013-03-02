@@ -58,7 +58,7 @@
                                  <string>ForumPortlet</string>
                               </field>
                               <field name="appTitle">
-                                 <string>Discussions</string>
+                                 <string>Forums</string>
                               </field>
                               <field name="removable">
                                  <boolean>true</boolean>
