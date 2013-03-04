@@ -82,8 +82,8 @@ public class UIBreadCrumbsNavigationPortlet extends UIPortletApplication {
         return nav;
     }
 
-    public String getSpacename(String SpaceLabel) throws Exception {
-        Space space = spaceService.getSpaceByUrl(SpaceLabel);
+    public String getSpacename(String SpaceUrl) throws Exception {
+        Space space = spaceService.getSpaceByUrl(SpaceUrl);
         if (space != null) {
             String spaceNAme = space.getDisplayName();
             return spaceNAme;
@@ -91,16 +91,18 @@ public class UIBreadCrumbsNavigationPortlet extends UIPortletApplication {
         } else return "";
     }
 
-    public String getSpaceLabel() throws Exception {
-        String spaceLabel = null;
+    public String getSpaceUrl() throws Exception {
+        String spaceUrl = null;
         UserNavigation nav = getSelectedNode();
         String ownerId = nav.getKey().getName();
         if (ownerId.contains("/spaces/")) {
-            String requestURI = Util.getPortalRequestContext().getRequestURI();
-            spaceLabel = requestURI.substring(requestURI.lastIndexOf(":" + ownerId.split("/")[2] + "/"));
-            return spaceLabel.contains("/") ? spaceLabel.split("/")[1] : spaceLabel;
+         Space space=   spaceService.getSpaceByGroupId(ownerId)  ;
+            if(space==null){
+                return spaceUrl ;
+            }
+            return space.getUrl();
         }
-        return spaceLabel;
+        return spaceUrl;
     }
 
     public String getImageSource(String url) throws Exception {

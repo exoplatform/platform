@@ -167,7 +167,7 @@ public class SpaceRestServiceImpl implements ResourceContainer {
                 baseSpaceURL.append("/");
                 baseSpaceURL.append(permanentSpaceName) ;
             } else {
-                baseSpaceURL.append(alphabeticallySpace.getPrettyName()) ;
+                baseSpaceURL.append(permanentSpaceName) ;
                 baseSpaceURL.append("/");
                 baseSpaceURL.append(alphabeticallySpace.getPrettyName()) ;
             }

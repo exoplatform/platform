@@ -9,6 +9,7 @@ import org.exoplatform.portal.mop.user.UserPortal;
 import org.exoplatform.portal.webui.util.Util;
 import org.exoplatform.services.log.ExoLogger;
 import org.exoplatform.services.log.Log;
+import org.exoplatform.social.core.service.LinkProvider;
 import org.exoplatform.social.core.space.model.Space;
 import org.exoplatform.social.core.space.spi.SpaceService;
 import org.exoplatform.social.webui.Utils;
@@ -98,6 +99,9 @@ public class UISpaceNavigationPortlet extends UIPortletApplication {
     {
         SpaceService spaceService = Utils.getSpaceService();
         Space space = spaceService.getSpaceByDisplayName(SpaceLaBel);
+        if (space == null) {
+            return LinkProvider.SPACE_DEFAULT_AVATAR_URL;
+        }
         return space.getAvatarUrl();
     }
 
@@ -136,7 +140,7 @@ public class UISpaceNavigationPortlet extends UIPortletApplication {
                 baseSpaceURL.append(permanentSpaceName);
             }
             else {
-                baseSpaceURL.append(space.getPrettyName());
+                baseSpaceURL.append(permanentSpaceName);
                 baseSpaceURL.append("/");
                 baseSpaceURL.append(space.getPrettyName());
             }
@@ -145,19 +149,21 @@ public class UISpaceNavigationPortlet extends UIPortletApplication {
         return baseSpaceURL.toString();
     }
     public Boolean isSelectedSpace(String spaceNAme) throws Exception {
-        String spaceLabel="";
+        String spaceUrl="";
         Space space = spaceService.getSpaceByDisplayName(spaceNAme);
+        if (space == null) {
+            return false;
+        }
         UserNode node = Util.getUIPortal().getSelectedUserNode();
         UserPortal userPortal = Util.getPortalRequestContext().getUserPortalConfig().getUserPortal();
         UserNavigation nav = userPortal.getNavigation(node.getNavigation().getKey());
         String ownerId = nav.getKey().getName();
         if (ownerId.contains("/spaces/")) {
-            String[] navigationParts = ownerId.split("/");
-            spaceLabel = navigationParts[2];
-
-        Space spaceSelected = spaceService.getSpaceByUrl(spaceLabel);
-
-        if(spaceSelected.getDisplayName().equals(space.getDisplayName()))   {
+        Space spaceSelected = spaceService.getSpaceByGroupId(ownerId);
+            if (spaceSelected == null) {
+                return false;
+            }
+        if(spaceSelected.getPrettyName().equals(space.getPrettyName()))   {
             return true  ;
 
         }else{

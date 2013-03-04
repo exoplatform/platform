@@ -48,7 +48,7 @@ import org.exoplatform.webui.core.UIPopupWindow;
 
 	 if(isSpaceUrl) {
 
-        ownerId = uicomponent.getSpaceLabel();
+        ownerId = uicomponent.getSpaceUrl();
         if(ownerId!=null){
 			nodeName=uicomponent.getSpacename(ownerId);
 			srcImage=uicomponent.getImageSource(ownerId);
