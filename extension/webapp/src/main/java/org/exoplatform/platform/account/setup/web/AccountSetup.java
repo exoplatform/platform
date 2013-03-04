@@ -27,19 +27,13 @@ public class AccountSetup extends HttpServlet {
     private final static String USER_PASSWORD_ACCOUNT = "password";
     private final static String ADMIN_FIRST_NAME = "root";
     private final static String ADMIN_PASSWORD = "adminPassword";
-    private final static String PLATFORM_ADMINISTRATORS_GROUP = "/platform/administrators";
-    private final static String MEMBERSHIP_TYPE_Member = "member";
-    private final static String INTRANET_HOME = "/portal/intranet/welcome";     //A verifier
+    private final static String PLATFORM_USERS_GROUP = "/platform/users";
+    private final static String MEMBERSHIP_TYPE_MANAGER = "manager";
+    private final static String INTRANET_HOME = "/portal/intranet";     //A verifier
     private final static String INITIAL_URI_PARAM = "initialURI";
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        // Get usefull parameters
-        /*String fromTermsAndCondition = request.getParameter("termsAndCondition");
-        if(fromTermsAndCondition!=null && !fromTermsAndCondition.equals("")){
-            response.sendRedirect("/platform-extension/WEB-INF/jsp/accountSetup.jsp");
-        }
-        else{    */
         String initialURI = request.getParameter(INITIAL_URI_PARAM);
         String userNameAccount = request.getParameter(USER_NAME_ACCOUNT);
         String firstNameAccount = request.getParameter(FIRST_NAME_ACCOUNT);
@@ -67,11 +61,11 @@ public class AccountSetup extends HttpServlet {
                 logger.error("Can not create User", e);
             }
 
-            // Assign the membership "member:/platform/administrators"  to the created user
+            // Assign the membership "manager:/platform/users"  to the created user
             try {
-                Group group = orgService.getGroupHandler().findGroupById(PLATFORM_ADMINISTRATORS_GROUP);
+                Group group = orgService.getGroupHandler().findGroupById(PLATFORM_USERS_GROUP);
                 MembershipTypeHandler membershipTypeHandler = orgService.getMembershipTypeHandler();
-                MembershipType membershipType = membershipTypeHandler.findMembershipType(MEMBERSHIP_TYPE_Member);
+                MembershipType membershipType = membershipTypeHandler.findMembershipType(MEMBERSHIP_TYPE_MANAGER);
                 orgService.getMembershipHandler().linkMembership(user, group, membershipType, true);
             } catch (Exception e) {
                 logger.error("Can not assign member:/platform/administrators membership to the created user", e);
