@@ -33,10 +33,10 @@
         </node>
 
         <node>
-            <uri>connections/all-people</uri>
-            <name>connections</name>
+            <uri>people</uri>
+            <name>connexions</name>
             <label>#{portal.intranet.people}</label>
-            <page-reference>portal::intranet::all-people</page-reference>
+            <page-reference>portal::intranet::people</page-reference>
         </node>
         
         <node>
