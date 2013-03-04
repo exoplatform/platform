@@ -77,14 +77,24 @@
 			 font-family: lucida;
 			 src: url("/platform-extension/login/jsp/images/L_0.TTF") 
 			}
+			
+			.loginBGLight{
+				wbackground: none repeat scroll 0 0 white;
+				border-radius: 80px 80px 80px 80px;
+				box-shadow: 0 0 200px white;
+				height: 200px;
+				margin: 230px auto 0;
+				width: 200px;
+			}
 
 			.uiLogin {
 				border-radius: 4px 4px 4px 4px;
 				box-shadow: 0 1px 3px #545555;
 				color: #333333;
+				display: block;
 				font-size: 12px;
 				height: 332px;
-				margin: 110px auto 7px;
+				margin: -276px auto 7px;
 				padding: 0 40px;
 				position: relative;
 				width: 312px;
@@ -159,7 +169,7 @@
 			}
 
 			.uiLogin .loginContent input {
-			  width: 264px ;  
+			  width: 260px ;  
 			  height: 36px;
 			  border: solid 1px #cbcbcb ;
 			  background: white;
@@ -214,7 +224,7 @@
 			}
 			.uiLogin .iPhoneCheckContainer input {
 				position: absolute;
-				top: 5px;
+				top: 1px;
 				left: 30px;
 				filter: progid:DXImageTransform.Microsoft.Alpha(Opacity = 0);
 				opacity: 0;
@@ -246,7 +256,9 @@
 				border-top-left-radius: 9px;
 				box-shadow: 0 3px 5px #213B68 inset;
 				color: white;
-				left: 0;
+				left: 1px;	
+				min-width: 9px;
+				top: 1px;
 				text-shadow: 0 0 2px rgba(0, 0, 0, 0.6);
 				text-align: center;
 			}
@@ -282,7 +294,7 @@
 				cursor: pointer;
 				display: block;
 				height: 18px;
-				left: 0;
+				left: 1;
 				position: absolute;
 				top: 1px;
 				width: 18px;
@@ -312,6 +324,7 @@
 
   </head>
   <body>
+  <div class="loginBGLight"><span></span></div>
     <div class="uiLogin">
       <div class="loginHeader introBox">
 		<div class="userLoginIcon">Connect to your account</div>
@@ -332,8 +345,8 @@
           		<input type="hidden" name="initialURI" value="<%=uri%>"/>
                 <% } %>	
 					
-				<input class="username" id="username" name="username" type="text" value="Username"/>
-				<input class="password" id="UIPortalLoginFormControl" onkeypress="//eXo.portal.UIPortalControl.onEnterPress(event);"  type="password" id="password" name="password" value="......"/>
+				<input class="username" id="username" name="username" type="text" placeholder="Username"/>
+				<input class="password" id="UIPortalLoginFormControl" onkeypress="//eXo.portal.UIPortalControl.onEnterPress(event);"  type="password" id="password" name="password" placeholder="Password"/>
                 <div class="spaceRole">
 					<input type="checkbox" class="yesno" checked="checked" style="visibility: hidden;" id="rememberme" name="rememberme" value="true"/>
 					<label for="rememberme"><%=res.getString("UILoginForm.label.RememberOnComputer")%></label>
@@ -365,5 +378,6 @@
       </div>
     </div>
     <div style="font-size: 12px; color: #c8c8c8; text-align: center">Copyright &copy; 2010 eXo Platform SAS, all rights reserved.</div>
+
   </body>
 </html>
