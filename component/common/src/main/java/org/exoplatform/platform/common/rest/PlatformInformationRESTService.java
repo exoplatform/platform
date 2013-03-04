@@ -32,6 +32,7 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.CacheControl;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+import java.lang.reflect.Method;
 
 /**
  * @author <a href="mailto:anouar.chattouna@exoplatform.com">Anouar
@@ -72,7 +73,7 @@ public class PlatformInformationRESTService implements ResourceContainer {
         jsonPlatformInfo.setDuration(platformInformations.getDuration());
         jsonPlatformInfo.setDateOfKeyGeneration(platformInformations.getDateOfLicence());
         jsonPlatformInfo.setNbUsers(platformInformations.getNumberOfUsers());
-        jsonPlatformInfo.setPlatformEdition(platformInformations.getEdition());
+        jsonPlatformInfo.setPlatformEdition(getPlatformEdition());
         jsonPlatformInfo.setProductCode(platformInformations.getProductCode());
         jsonPlatformInfo.setUnlockKey(platformInformations.getProductKey());
       }
@@ -99,6 +100,18 @@ public class PlatformInformationRESTService implements ResourceContainer {
     }
     return (platformEdition != null && ((platformEdition.equals(ProductInformations.ENTERPRISE_EDITION))||(platformEdition.equals(ProductInformations.EXPRESS_EDITION))));
   }
+
+    private String getPlatformEdition() {
+        try {
+            Class<?> c = Class.forName("org.exoplatform.platform.edition.PlatformEdition");
+            Method getEditionMethod = c.getMethod("getEdition");
+            String platformEdition = (String) getEditionMethod.invoke(null);
+            return platformEdition;
+        } catch (Exception e) {
+            LOG.error("An error occured while getting the platform edition information.", e);
+        }
+        return null;
+    }
 
   public static class JsonPlatformInfo {
 

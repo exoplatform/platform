@@ -32,4 +32,14 @@
     <listener-class>org.exoplatform.container.web.PortalContainerConfigOwner</listener-class>
   </listener>
 
+    <servlet>
+        <servlet-name>accountSetup</servlet-name>
+        <servlet-class>org.exoplatform.platform.account.setup.web.AccountSetup</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>accountSetup</servlet-name>
+        <url-pattern>/accountSetup</url-pattern>
+    </servlet-mapping>
+
 </web-app>
