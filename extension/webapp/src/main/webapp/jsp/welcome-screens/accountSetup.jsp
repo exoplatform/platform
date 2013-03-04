@@ -42,7 +42,7 @@
             </div>
             <div class="item" id="AccountSetup">
                 <div class="UIFormBox StartedStep content" name="" >
-                    <h3>Create Your account <span><a id="infoTipUserId" href="#"><img class="infoTip" src="/<%=contextPath%>/css/welcome-screens/background/infoIcon.png" alt="info" title="This will be your primary user account"></a></span></h3>
+                    <h3>Create Your account <span><a id="infoTipUserId" href="#"><img class="infoTip" src="<%=contextPath%>/css/welcome-screens/background/infoIcon.png" alt="info" title="This will be your primary user account"></a></span></h3>
                     <table class="BorderDot">
                         <tbody>
                             <tr id ="usernameId">
@@ -78,7 +78,7 @@
                              </tr>
                         </tbody>
                     </table>
-                    <h3>Admin password <span><a id="infoTipAdminId" href="#"><img class="infoTip" src="/<%=contextPath%>/css/welcome-screens/background/infoIcon.png" alt="info" title="Login as <b>root</b> user with the following password for super user access"></a></span></h3>
+                    <h3>Admin password <span><a id="infoTipAdminId" href="#"><img class="infoTip" src="<%=contextPath%>/css/welcome-screens/background/infoIcon.png" alt="info" title="Login as <b>root</b> user with the following password for super user access"></a></span></h3>
                     <table class="BorderDot" cols="4">
                         <tbody>
                             <tr id="adminUsernameId">
@@ -108,7 +108,7 @@
                 <div style="text-align: center"> Greetings! </div>
                 <div>You are almost done. Add your colleagues to your new social intranet and start collaborating together<div>
                     <div>
-                        <img src="/<%=contextPath%>/css/welcome-screens/background/greetings.png"></img>
+                        <img src="<%=contextPath%>/css/welcome-screens/background/greetings.png"/>
                     </div>
                     <div><button  class="submitbutton" >    Start </button></div>
 
