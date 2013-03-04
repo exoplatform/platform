@@ -18,6 +18,13 @@
             <groupId>org.exoplatform.platform</groupId>
             <artifactId>platform-welcome-screens-component</artifactId>
         </dependency>
+
+            <dependency>
+                <groupId>org.exoplatform.platform</groupId>
+                <artifactId>platform-welcome-screens-config</artifactId>
+                <scope>runtime</scope>
+            </dependency>
+
     </dependencies>
     <build>
         <finalName>welcome-screens</finalName>
