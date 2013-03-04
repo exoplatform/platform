@@ -77,9 +77,9 @@
                 var name = spaces[i].displayName;
                 var imageUrl=spaces[i].avatarUrl;
                 if (imageUrl == null) {
-                    imageUrl = "/social-resources/skin/ShareImages/SpaceImages/SpaceLogoDefault_61x61.gif";
+                    imageUrl = "/social-resources/skin/images/ShareImages/SpaceAvtDefault.png";
                 }
-                var spaceDiv = "<li class='spaceItem'>"+"<a class='spaceIcon'"
+                var spaceDiv = "<li class='spaceItem'>"+"<a class='spaceIcon avatarMini'"
                         + "' href='" + spaceUrl + "' title='" + name + "'><img src='"+imageUrl+"'/>"
                         + name + "</a></li><br/>";
                 groupSpaces += spaceDiv;
