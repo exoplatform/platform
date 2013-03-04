@@ -448,6 +448,11 @@
         <version>${project.version}</version>
       </dependency>
       <dependency>
+         <groupId>org.exoplatform.platform</groupId>
+         <artifactId>platform-welcome-screens-config</artifactId>
+         <version>${project.version}</version>
+      </dependency>
+      <dependency>
         <groupId>org.exoplatform.platform</groupId>
         <artifactId>platform-component-ide-extension-webapp</artifactId>
         <version>${project.version}</version>

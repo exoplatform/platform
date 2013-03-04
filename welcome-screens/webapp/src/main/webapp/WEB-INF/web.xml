@@ -14,6 +14,20 @@
         <listener-class>org.exoplatform.container.web.PortalContainerConfigOwner</listener-class>
     </listener>
 
+    <!-- ================================================================== -->
+    <!--           SERVLET                                                  -->
+    <!-- ================================================================== -->
+    <servlet>
+        <servlet-name>GateInServlet</servlet-name>
+        <servlet-class>org.gatein.wci.api.GateInServlet</servlet-class>
+        <load-on-startup>0</load-on-startup>
+    </servlet>
+    <!--  =================================================================  -->
+    <servlet-mapping>
+        <servlet-name>GateInServlet</servlet-name>
+        <url-pattern>/gateinservlet</url-pattern>
+    </servlet-mapping>
+
     <servlet>
         <servlet-name>UnlockServlet</servlet-name>
         <servlet-class>org.exoplatform.platform.welcomescreens.service.UnlockService$UnlockServlet</servlet-class>

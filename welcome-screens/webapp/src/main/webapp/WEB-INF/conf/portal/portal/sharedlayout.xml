@@ -101,7 +101,7 @@
     </container>
     <container id="UIPLFFooterwlcmScreen"  template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
         <access-permissions>*:/platform/users</access-permissions>
-        <container id="WLCFooter" template="system:/groovy/welcomescreens/welcomescreensFooter.gtmpl">
+        <container id="WLCFooter" template="war:/groovy/welcomescreens/welcomescreensFooter.gtmpl">
             <access-permissions>*:/platform/users</access-permissions>
         </container>
 </container>
