@@ -137,7 +137,7 @@
                     <field name="tabName"><string>Collaboration</string></field>
                     <field name="buttons">
                     	 <string>
-                    	 	 addCategory; addDocument; addFolder; editDocument; upload; viewPermissions; managePublications; manageCategories; taggingDocument; vote; watchDocument; publicationRequestApproval; publicationApproveContent; publicationPublish 
+                    	 	 addCategory; addDocument; editDocument; upload; viewPermissions; managePublications; manageCategories; taggingDocument; vote; watchDocument; publicationRequestApproval; publicationApproveContent; publicationPublish 
 																				  </string>
 																				</field>
                   </object>
