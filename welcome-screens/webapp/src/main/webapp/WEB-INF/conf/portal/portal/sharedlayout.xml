@@ -17,6 +17,7 @@
  Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
  02110-1301 USA, or see the FSF site: http://www.fsf.org.
  -->
+<container id="PrincipalContainer" template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
 <container id="NavigationPortlet" template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
     <container template="war:/groovy/portal/webui/container/UIPinToolbarContainer.gtmpl">
         <access-permissions>*:/platform/users</access-permissions>
@@ -91,6 +92,19 @@
                 </portlet-application>
             </container>
         </container>
+
+        </container>
     </container>
-    <site-body/>
+    <container id="RightBody" template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
+        <access-permissions>Everyone</access-permissions>
+        <site-body> </site-body>
+    </container>
+    <container id="UIPLFFooterwlcmScreen"  template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
+        <access-permissions>*:/platform/users</access-permissions>
+        <container id="WLCFooter" template="system:/groovy/welcomescreens/welcomescreensFooter.gtmpl">
+            <access-permissions>*:/platform/users</access-permissions>
+        </container>
 </container>
+</container>
+
+
