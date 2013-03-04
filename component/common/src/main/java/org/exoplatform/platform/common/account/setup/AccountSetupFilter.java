@@ -1,5 +1,7 @@
-package org.exoplatform.platform.common.setup.web;
+package org.exoplatform.platform.common.account.setup;
 
+import org.exoplatform.commons.info.ProductInformations;
+import org.exoplatform.container.PortalContainer;
 import org.exoplatform.services.log.ExoLogger;
 import org.exoplatform.services.log.Log;
 import org.exoplatform.web.filter.Filter;
@@ -19,13 +21,20 @@ import java.lang.reflect.Method;
 public class AccountSetupFilter implements Filter {
 
     private static final Log LOG = ExoLogger.getLogger(AccountSetupFilter.class);
+    private boolean isFirstAccess = true;
     @Override
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
+
         String edition = getPlatformEdition();
         if(edition!=null && edition.equals("community")){
-            HttpServletResponse httpServletResponse = (HttpServletResponse) response;
-            httpServletResponse.sendRedirect("/platform-extension/jsp/welcome-screens/accountSetup.jsp");
-            return;
+            ProductInformations productInformations = (ProductInformations) PortalContainer.getInstance().getComponentInstanceOfType(ProductInformations.class);
+            if((productInformations.isFirstRun())&&(isFirstAccess)){
+                HttpServletResponse httpServletResponse = (HttpServletResponse) response;
+                httpServletResponse.sendRedirect("/platform-extension/jsp/welcome-screens/accountSetup.jsp");
+                isFirstAccess = false;
+                return;
+            }
+
         }
         chain.doFilter(request, response);
     }

@@ -34,10 +34,6 @@
             </value-param>
         </init-params>
     </component>
-    <component profiles="all,default,social">
-        <key>org.exoplatform.platform.welcomescreens.service.TermsAndConditionsService</key>
-        <type>org.exoplatform.platform.welcomescreens.service.impl.TermsAndConditionsServiceImpl</type>
-    </component>
 
     <external-component-plugins profiles="all,default,social">
         <target-component>org.exoplatform.commons.chromattic.ChromatticManager</target-component>
@@ -69,31 +65,6 @@
         </component-plugin>
     </external-component-plugins>
 
-    <external-component-plugins>
-        <target-component>org.exoplatform.web.filter.ExtensibleFilter</target-component>
-        <component-plugin>
-            <name>Terms and Conditions Filter</name>
-            <set-method>addFilterDefinitions</set-method>
-            <type>org.exoplatform.web.filter.FilterDefinitionPlugin</type>
-            <init-params>
-                <object-param>
-                    <name>Terms and Conditions Filter</name>
-                    <object type="org.exoplatform.web.filter.FilterDefinition">
-                        <field name="filter">
-                            <object type="org.exoplatform.platform.welcomescreens.web.TermsAndConditionsFilter"/>
-                        </field>
-                        <field name="patterns">
-                            <collection type="java.util.ArrayList" item-type="java.lang.String">
-                                <value>
-                                    <string>.*</string>
-                                </value>
-                            </collection>
-                        </field>
-                    </object>
-                </object-param>
-            </init-params>
-        </component-plugin>
-    </external-component-plugins>
     <external-component-plugins>
         <target-component>org.exoplatform.web.filter.ExtensibleFilter</target-component>
         <component-plugin>
