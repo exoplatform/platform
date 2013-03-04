@@ -309,18 +309,8 @@
 
 		</style>
 
-    <script type="text/javascript">
-        var require = {
-            "shim":{
-                "SHARED/iphonePlugin":{"deps":["SHARED/jquery"]}
-            },
-            "paths":{
-                "SHARED/jquery":"/portal/scripts/3.5.2.Final/SHARED/jquery-min",
-                "SHARED/iphonePlugin":"/portal/scripts/3.5.2.Final/SHARED/iphonePlugin-min"
-            }
-        };
-    </script>
-    <script type="text/javascript" src="/portal/scripts/3.5.2.Final/SHARED/bootstrap-min.js"></script>
+    <script type="text/javascript" src="/platform-extension/javascript/jquery-1.7.1.js"></script>
+    <script type="text/javascript" src="/platform-extension/javascript/iphone-style-checkboxes.js"></script>
 
   </head>
   <body>
@@ -346,17 +336,27 @@
                 <% } %>	
 					
 				<input class="username" id="username" name="username" type="text" placeholder="Username"/>
-				<input class="password" id="UIPortalLoginFormControl" onkeypress="//eXo.portal.UIPortalControl.onEnterPress(event);"  type="password" id="password" name="password" placeholder="Password"/>
+				<input class="password" id="UIPortalLoginFormControl" type="password" id="password" name="password" placeholder="Password"/>
                 <div class="spaceRole">
 					<input type="checkbox" class="yesno" checked="checked" style="visibility: hidden;" id="rememberme" name="rememberme" value="true"/>
 					<label for="rememberme"><%=res.getString("UILoginForm.label.RememberOnComputer")%></label>
 				</div>
                 <script type="text/javascript">
-                    require(["SHARED/jquery", "SHARED/iphonePlugin"], function (gj) {
-                        gj("div.spaceRole").children('input:checkbox').each(function () {
-                            gj(this).iphoneStyle({
+                    $("div.spaceRole").click(function()
+                    {
+                        var input = $(this).find("#rememberme");
+                        var remembermeOpt = input.attr("value") == "true" ? "false" : "true";
+                        input.attr("value", remembermeOpt);
+                    });
+
+                    $("div.spaceRole").children('input:checkbox').each(function () {
+                        $(this).iphoneStyle({
                                 checkedLabel:'YES',
                                 uncheckedLabel:'NO'});
+
+                        $(this).change(function()
+                        {
+                            $(this).closest("div.spaceRole").trigger("click");
                         });
                     });
                 </script>
