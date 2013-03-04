@@ -96,19 +96,22 @@ public class UIBreadCrumbsNavigationPortlet extends UIPortletApplication {
         UserNavigation nav = getSelectedNode();
         String ownerId = nav.getKey().getName();
         if (ownerId.contains("/spaces/")) {
-            String[] navigationParts = ownerId.split("/");
-            spaceLabel = navigationParts[2];
+            String requestURI = Util.getPortalRequestContext().getRequestURI();
+            spaceLabel = requestURI.substring(requestURI.lastIndexOf(":" + ownerId.split("/")[2] + "/"));
+            return spaceLabel.contains("/") ? spaceLabel.split("/")[1] : spaceLabel;
         }
         return spaceLabel;
     }
 
-    public String getImageSource(String SpaceLaBel) throws Exception {
-        Space space = spaceService.getSpaceByUrl(SpaceLaBel);
-        String spaceAvatar = space.getAvatarUrl();
-        if (spaceAvatar == null || spaceAvatar.isEmpty()) {
-            spaceAvatar = LinkProvider.SPACE_DEFAULT_AVATAR_URL;
+    public String getImageSource(String url) throws Exception {
+        Space space = spaceService.getSpaceByUrl(url);
+        
+        if (space == null) {
+          return LinkProvider.SPACE_DEFAULT_AVATAR_URL;
         }
-        return spaceAvatar;
+        
+        String spaceAvatar = space.getAvatarUrl();
+        return  (spaceAvatar == null || spaceAvatar.isEmpty()) ?  LinkProvider.SPACE_DEFAULT_AVATAR_URL : spaceAvatar;
     }
 
     public String getUserFullName(String userNAme) throws Exception {

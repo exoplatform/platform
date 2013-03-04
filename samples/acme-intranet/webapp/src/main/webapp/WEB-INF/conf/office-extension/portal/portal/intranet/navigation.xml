@@ -52,6 +52,14 @@
             <label>#{portal.intranet.documents}</label>
             <page-reference>portal::intranet::documents</page-reference>
         </node>
+        
+        <node>
+            <uri>edit</uri>
+            <name>edit</name>
+            <label>#{portal.intranet.documents}</label>
+            <visibility>HIDDEN</visibility>
+            <page-reference>portal::intranet::documents</page-reference>
+        </node>
 
         <node>
             <uri>forum</uri>

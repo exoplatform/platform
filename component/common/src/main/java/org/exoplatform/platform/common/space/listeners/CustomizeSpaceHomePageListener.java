@@ -76,4 +76,18 @@ public class CustomizeSpaceHomePageListener extends SpaceListenerPlugin {
   @Override
   public void spaceRemoved(SpaceLifeCycleEvent event) {}
 
+  @Override
+  public void spaceRenamed(SpaceLifeCycleEvent event) {}
+
+  @Override
+  public void spaceDescriptionEdited(SpaceLifeCycleEvent event) {}
+
+  @Override
+  public void spaceAvatarEdited(SpaceLifeCycleEvent event) {}
+  
+  @Override
+  public void spaceAccessEdited(SpaceLifeCycleEvent event) {
+    
+  }
+
 }
