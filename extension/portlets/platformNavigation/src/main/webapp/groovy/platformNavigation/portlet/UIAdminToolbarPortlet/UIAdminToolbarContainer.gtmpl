@@ -63,10 +63,7 @@
 					<li>
 						<div class="seoImgBlock">
 							<%uicomponent.renderChild(UISEOToolbarForm.class);%>
-						</div>
-						<div class="seolabel">
-              <%=seoLabel %>
-            </div>
+						</div>						
 					</li>	  				
 					<li class="divider">&nbsp;</li>
 					<li>	
