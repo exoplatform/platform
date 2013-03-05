@@ -37,6 +37,11 @@
 			<type>org.exoplatform.portal.config.NewPortalConfigListener</type>
 			<description>this listener init the portal configuration</description>
 			<init-params>
+                <value-param>
+                    <name>default.portal</name>
+                    <description>The default portal for checking db is empty or not</description>
+                    <value>intranet</value>
+                </value-param>
 				<object-param>
 					<name>portal.configuration</name>
 					<description>description</description>

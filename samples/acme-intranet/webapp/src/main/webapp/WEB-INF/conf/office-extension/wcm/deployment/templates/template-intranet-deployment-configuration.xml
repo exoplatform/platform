@@ -34,28 +34,6 @@
 			<description>This plugin deploy some initial webcontent as site artifact to site artifact folder of portal when a portal is created</description>
 			<init-params>
 				<object-param>
-					<name>Portal footer data</name>
-					<description>Deployment Descriptor</description>
-					<object type="org.exoplatform.services.deployment.DeploymentDescriptor">
-						<field name="target">
-							<object type="org.exoplatform.services.deployment.DeploymentDescriptor$Target">
-								<field name="workspace">
-									<string>collaboration</string>
-								</field>
-								<field name="nodePath">
-									<string>/sites content/live/{portalName}/web contents/site artifacts</string>
-								</field>
-							</object>
-						</field>
-						<field name="sourcePath">
-							<string>war:/conf/office-extension/wcm/artifacts/site-resources/templates/Footer.xml</string>
-						</field>
-						<field name="cleanupPublication">
-							<boolean>true</boolean>
-						</field>
-					</object>
-				</object-param>
-				<object-param>
 					<name>Office welcome Data</name>
 					<description>Deployment Descriptor</description>
 					<object type="org.exoplatform.services.deployment.DeploymentDescriptor">

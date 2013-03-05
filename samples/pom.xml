@@ -11,7 +11,6 @@
   <name>eXo Platform - Samples</name>
   <modules>
     <module>acme-intranet</module>
-    <module>default-website</module>
     <module>acme-website</module>
     <!--<module>blank</module>-->
     <module>gadgets-sample</module>
