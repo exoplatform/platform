@@ -9,10 +9,6 @@
     <component profiles="all,default,social">
         <type>org.exoplatform.platform.common.space.rest.SpaceRestServiceImpl</type>
     </component>
-    <component profiles="all,default,social">
-        <key>org.exoplatform.platform.common.admin.TermsAndConditionsService</key>
-        <type>org.exoplatform.platform.common.admin.impl.TermsAndConditionsServiceImpl</type>
-    </component>
    <!-- Groovy Template REST Deployer : Handler param -->
    <component>
       <type>org.exoplatform.services.jcr.ext.resource.jcr.Handler</type>
@@ -302,38 +298,5 @@
             </object-param>
         </init-params>
     </component>
-
-    <external-component-plugins profiles="all,default,social">
-        <target-component>org.exoplatform.commons.chromattic.ChromatticManager</target-component>
-        <component-plugin>
-            <name>chromattic</name>
-            <set-method>addLifeCycle</set-method>
-            <type>org.exoplatform.commons.chromattic.ChromatticLifeCycle</type>
-            <init-params>
-                <value-param>
-                    <name>domain-name</name>
-                    <value>termsandconditions</value>
-                </value-param>
-                <value-param>
-                    <name>workspace-name</name>
-                    <value>collaboration</value>
-                </value-param>
-                <values-param>
-                    <name>entities</name>
-                    <value>org.chromattic.ext.ntdef.NTFile</value>
-                    <value>org.chromattic.ext.ntdef.NTFolder</value>
-                    <value>org.chromattic.ext.ntdef.NTResource</value>
-                </values-param>
-                <properties-param>
-                    <name>options</name>
-                    <property name="org.chromattic.api.Option.root_node.path" value="/exo:applications"/>
-                    <property name="org.chromattic.api.Option.root_node.create" value="true"/>
-                </properties-param>
-            </init-params>
-        </component-plugin>
-    </external-component-plugins>
-    <!-- Terms and Conditions filter -->
-    <import>jar:/conf/termsandconditions/web-filter-configuration.xml</import>
-
 
 </configuration>
