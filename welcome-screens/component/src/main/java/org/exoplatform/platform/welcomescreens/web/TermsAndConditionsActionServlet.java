@@ -37,7 +37,7 @@ public class TermsAndConditionsActionServlet extends HttpServlet {
     private static final long serialVersionUID = 6467955354840693802L;
 
     private static Log logger = ExoLogger.getLogger(TermsAndConditionsActionServlet.class);
-
+    private final static String PARAM_CHECKTC = "checktc";
     private TermsAndConditionsService termsAndConditionsService;
 
     public TermsAndConditionsService getTermsAndConditionsService() {
@@ -51,17 +51,23 @@ public class TermsAndConditionsActionServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         // Get usefull parameters
-        String initialURI = request.getParameter(TermsAndConditionsViewServlet.INITIAL_URI_PARAM);
-        getTermsAndConditionsService().checkTermsAndConditions();
-
-        // Redirect to requested page
+        Boolean checkTc = false;
+        try {
+            checkTc = Boolean.valueOf(request.getParameter(PARAM_CHECKTC));
+        }
+        catch(Exception e) {
+            logger.error("Terms and conditions: impossible to get parameter " + PARAM_CHECKTC, e);
+        }
+        // Check tc with service
+        if(checkTc) {
+            getTermsAndConditionsService().checkTermsAndConditions();
+        }
+        // Redirect to the account Setup
         String redirectURI = "/platform-extension/jsp/welcome-screens/accountSetup.jsp";
         response.sendRedirect(redirectURI);
     }
-
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         doGet(request, response);
     }
-
 }

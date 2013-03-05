@@ -304,7 +304,6 @@ public class UnlockService implements Startable {
                 UnlockService.calledUrl = httpServletRequest.getRequestURI();
             }
             chain.doFilter(request, response);
-            return;
         }
 
         private boolean isIgnoredRequest(ServletContext context, String url) {

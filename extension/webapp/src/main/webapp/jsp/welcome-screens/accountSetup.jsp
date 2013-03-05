@@ -17,7 +17,6 @@
      * Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
      * 02110-1301 USA, or see the FSF site: http://www.fsf.org.
      */
-
 %>
 <%@ page language="java" %>
 <%
@@ -105,16 +104,15 @@
         </div>
         <div class="item" id="Greetings">
             <div class="UIFormBox StartedStep content" name="">
-                <div style="text-align: center"> Greetings! </div>
-                <div>You are almost done. Add your colleagues to your new social intranet and start collaborating together<div>
                     <div>
-                        <img src="<%=contextPath%>/css/welcome-screens/background/greetings.png"/>
+                        <center>
+                            <img src="<%=contextPath%>/css/welcome-screens/background/greetings.png"/>
+                        </center>
                     </div>
-                    <div><button  class="submitbutton" >    Start </button></div>
-
-        </div>
-            </form>
+                    <div><button  class="submitbutton" > Start </button></div>
             </div>
+        </form>
+        </div>
     </div>
 </div>
-    </div>
+</div>

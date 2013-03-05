@@ -18,42 +18,34 @@
     02110-1301 USA, or see the FSF site: http://www.fsf.org.
 
 --%>
-<%@ page import="java.net.URLEncoder"%>
-<%@ page import="javax.servlet.http.Cookie"%>
-<%@ page import="org.exoplatform.container.PortalContainer"%>
-<%@ page import="org.exoplatform.services.resources.ResourceBundleService"%>
-<%@ page import="java.util.ResourceBundle"%>
-<%@ page import="org.gatein.common.text.EntityEncoder"%>
+<%@ page import="java.net.URLEncoder" %>
+<%@ page import="javax.servlet.http.Cookie" %>
+<%@ page import="org.exoplatform.container.PortalContainer" %>
+<%@ page import="org.exoplatform.services.resources.ResourceBundleService" %>
+<%@ page import="java.util.ResourceBundle" %>
+<%@ page import="org.gatein.common.text.EntityEncoder" %>
 <%@ page language="java" %>
 <%
-    String contextPath = request.getContextPath() ;
+    String contextPath = request.getContextPath();
     String lang = request.getLocale().getLanguage();
-
-    //ResourceBundleService service = (ResourceBundleService) PortalContainer.getCurrentInstance(session.getServletContext()).getComponentInstanceOfType(ResourceBundleService.class);
-    //ResourceBundle res = service.getResourceBundle(service.getSharedResourceBundleNames(), request.getLocale()) ;
-
-
-    String uri = (String)request.getAttribute("org.gatein.portal.login.initial_uri");
-
     response.setCharacterEncoding("UTF-8");
     response.setContentType("text/html; charset=UTF-8");
-
-
 %>
 <!DOCTYPE html
 PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="<%=lang%>" lang="<%=lang%>">
 <head>
-<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
-<title>eXo Subscription Agreement</title>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+    <title>eXo Subscription Agreement</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 
-<link href="<%=request.getContextPath()%>/css/Style.css" rel="stylesheet" type="text/css" />
+    <link href="<%=request.getContextPath()%>/css/Style.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <!--begin popup terms conditions-->
-<div class="MaskLayer"></div><!--set again height use javasript (get height screen resolution)-->
+<div class="MaskLayer"></div>
+<!--set again height use javasript (get height screen resolution)-->
 <div class="TermsConditions UIPopupWindow">
 <div class="OverflowContainer ">
     <h5 class="PopupTitle">Terms and Conditions Agreement</h5>
@@ -62,7 +54,7 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 <div class="TabPaneContent">
 <div class="WorkingArea">
 
-<p class="c15 c17"><span class="c0 c4">eXo Platform SAS</span><span class="c0"><br />
+<p class="c15 c17"><span class="c0 c4">eXo Platform SAS</span><span class="c0"><br/>
           51 Federal Street, Suite 350, San Francisco, California 94105</span></p>
 
 <p class="c15 c17"><span class="c0 c4">Master Subscription Agreement</span></p>
@@ -74,9 +66,10 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
           AGREEMENT ON BEHALF OF THAT ENTITY. IF CUSTOMER DOES NOT ACCEPT THE TERMS OF THIS
           AGREEMENT, THEN IT MUST NOT PURCHASE OR USE THE PRODUCTS OR SERVICES.</span></p>
 
-<p class="c9"><span class="c0"><br />
+<p class="c9"><span class="c0"><br/>
           This</span> <span class="c0 c4">Master Subscription Agreement</span> <span class=
-                                                                                             "c0">(the</span> <span class="c0 c4">&ldquo;Agreement&rdquo;</span><span class="c0">)
+                                                                                             "c0">(the</span> <span
+        class="c0 c4">&ldquo;Agreement&rdquo;</span><span class="c0">)
           is entered into by and between eXo&nbsp;Platform SAS, NA, with its principal place of
           business at 51 Federal Street, Suite 350, San Francisco, California 94105
           (</span><span class="c0 c4">&ldquo;eXo&rdquo;</span><span class="c0">) and the
@@ -126,7 +119,8 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
           Customer to allow installation and use of the Software.</span></p>
 
 <p class="c15"><span class="c0 c4">1.6 &ldquo;Named Contact&rdquo;</span> <span class=
-                                                                                        "c0">means an employee of Customer who is proficient on the Software.</span></p>
+                                                                                        "c0">means an employee of Customer who is proficient on the Software.</span>
+</p>
 
 <p class="c15"><span class="c0 c4">1.7 &ldquo;Open Source Software&rdquo;</span>
           <span class="c0">means various open source software components licensed under the terms
@@ -165,7 +159,8 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
           as further defined in Appendix 1 and as may be updated from time to time at</span>
           <span class="c0 c25"><a class="c8" target="_blank" href=
                   "http://www.exoplatform.com/SLA">http://www.exoplatform.com/SLA</a></span><span class=
-                                                                                                          "c0">&nbsp; and/or as may be specified on the applicable Order Form.</span></p>
+                                                                                                          "c0">&nbsp; and/or as may be specified on the applicable Order Form.</span>
+</p>
 
 <p class="c15"><span class="c0 c4">1.12 &ldquo;Term&rdquo;</span><span class=
                                                                                "c0">&nbsp;means the period of time for the Subscription as specified in the Activation
@@ -197,7 +192,8 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 <p class="c15"><span class="c0 c4">2.3 Acceptance of Orders.</span><span class=
                                                                                  "c0">&nbsp; eXo may accept orders in its sole discretion by sending to Customer an
           Order Form confirming the particulars of the order.&nbsp;&nbsp;</span> <span class=
-                                                                                               "c0 c4">&nbsp;&nbsp;</span></p>
+                                                                                               "c0 c4">&nbsp;&nbsp;</span>
+</p>
 
 <p class="c15"><span class="c0 c4">2.4 Delivery.</span><span class="c0">&nbsp; Delivery
           of the Software will be from the eXo Customer Portal web site.&nbsp; The Term is
@@ -216,7 +212,8 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
                                                                                   "c0">&nbsp; During the time that Customer has paid the applicable annual Subscription
           fees, eXo will provide Customer Subscription Services for the Software under the terms
           outlined in Appendix 1 as may be updated from time to time at &nbsp;</span><span class=
-                                                                                                   "c0 c25"><a class="c8" target="_blank" href=
+                                                                                                   "c0 c25"><a
+        class="c8" target="_blank" href=
         "http://www.exoplatform.com/SLA">http://www.exoplatform.com/SLA</a></span><span class=
                                                                                                 "c0">. Such Subscription Services are provided to Customer solely for Customer&rsquo;s
           internal use, and Customer may not use the Software or Subscription Services to supply
@@ -280,7 +277,8 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
           for Customer&rsquo;s own business purposes;&nbsp;</span></p>
 
 <p class="c15"><span class="c0 c4">b)</span> <span class="c0">use,</span><span class=
-                                                                                       "c0 c4">&nbsp;</span><span class="c0">install the Software licensed hereunder (in
+                                                                                       "c0 c4">&nbsp;</span><span
+        class="c0">install the Software licensed hereunder (in
           object code format) in combination with the number of CPUs, as designated in the
           Activation Key, solely for Customer&rsquo;s own business purposes;</span></p>
 
@@ -312,20 +310,20 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
           Customer shall provide eXo with thirty (30) days prior written notice and provide all
           reasonably requested information to allow eXo to assess Customer&rsquo;s claim and, at
           eXo&rsquo;s sole discretion, to provide alternatives that reduce any adverse impact on
-          eXo&rsquo;s intellectual property or other rights,<br />
+          eXo&rsquo;s intellectual property or other rights,<br/>
           (b) allow access or permit use of the Software by any users other than Customer&rsquo;s
           employees, or authorized third-party contractors who are providing services to Customer
           and agree in writing to abide by the terms of this Agreement, provided further that
           Customer shall be liable for any failure by such employees and third-party contractors
-          to comply with the terms of this Agreement,<br />
+          to comply with the terms of this Agreement,<br/>
           (c) create, develop, license, install, use, or deploy any third party software or
           services to circumvent, enable, modify or provide access, permissions or rights which
           violate the technical restrictions of the Software, any additional licensing terms
           provided by eXo via product documentation, notification, and the terms of this
-          Agreement,<br />
-          (d) modify or create derivative works based upon the Software,<br />
+          Agreement,<br/>
+          (d) modify or create derivative works based upon the Software,<br/>
           (e) use the Software in connection with any business operation for which Customer
-          provides services to third parties, or<br />
+          provides services to third parties, or<br/>
           (f) disclose the results of any benchmark test of the Software to any third party
           without eXo&rsquo;s prior written approval, unless otherwise expressly permitted
           herein, provided, however, that the foregoing restriction shall apply to Customer only
@@ -656,7 +654,7 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
           authority as agent, employee or in any other capacity to represent, act for, bind or
           otherwise create or assume any obligation on behalf of the other party for any purpose
           whatsoever.&nbsp; There are no third party beneficiaries to this
-          Agreement.<br /></span></p>
+          Agreement.<br/></span></p>
 
 <p class="c15"><span class="c0 c4">11.4 Compliance with Export Control
           Laws.</span><span class="c0">&nbsp; Customer acknowledges and agrees that it will
@@ -922,7 +920,7 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 
             <p class="c7"><span class="c0 c4">eXo Platform for SMB</span></p>
 
-            <p class="c7"><span class="c0 c4">eXo Platform for Jboss<br /></span></p>
+            <p class="c7"><span class="c0 c4">eXo Platform for Jboss<br/></span></p>
         </td>
 
         <td class="c32">
@@ -1242,11 +1240,11 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
         </td>
 
         <td class="c2">
-            <p class="c7"><span class="c0">3<br /></span></p>
+            <p class="c7"><span class="c0">3<br/></span></p>
         </td>
 
         <td class="c13">
-            <p class="c7"><span class="c0">5<br /></span></p>
+            <p class="c7"><span class="c0">5<br/></span></p>
         </td>
     </tr>
 
@@ -1526,8 +1524,10 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 
 <p class="c9 c14"><span class="c0">Training Services available scoping unit is to be
           selected among the Training Services offer visible at</span> <span class=
-                                                                                     "c0 c25"><a class="c8" target="_blank" href=
-        "http://www.exoplatform.com/company/en/services/development-training">http://www.exoplatform.com/company/en/services/development-training</a></span></p>
+                                                                                     "c0 c25"><a class="c8"
+                                                                                                 target="_blank" href=
+        "http://www.exoplatform.com/company/en/services/development-training">http://www.exoplatform.com/company/en/services/development-training</a></span>
+</p>
 
 <p class="c9 c6 c14"><span class="c0 c25"><a class="c8" target="_blank" href=
         "http://www.exoplatform.com/company/en/services/development-training"></a></span></p>
@@ -1714,16 +1714,12 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 
 <div class="BottomBox ClearFix">
     <form name="tcForm" action="<%= contextPath + "/terms-and-conditions-action"%>" method="post" style="margin: 0px;">
-
-        <% if (uri != null) { %>
-        <input type="hidden" name="tacURI" value="<%=uri%>" />
-        <% } %>
-
         <div class="UIAction FR">
-            <a class="ActionButton LightBlueStyle inactive" id="continueButton"  href="javascript:void(0)"  onclick="validate();">Continue</a>
+            <a class="ActionButton LightBlueStyle inactive" id="continueButton" href="javascript:void(0)"
+               onclick="validate();">Continue</a>
         </div>
         <div class="UIAction FL">
-            <input type="checkbox" id="agreement" name="checktc" value="false" onclick="toggleState();" />
+            <input type="checkbox" id="agreement" name="checktc" value="false" onclick="toggleState();"/>
             <label for="agreement">I agree with this terms and conditions agreement.</label>
         </div>
         <script type="text/javascript" src="<%=contextPath%>/javascript/welcomescreens.js"></script>
@@ -1734,6 +1730,5 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 </div>
 <!--end popup terms conditions-->
 <!--end html from here  -->
-
 </body>
 </html>

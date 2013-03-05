@@ -71,6 +71,7 @@ public class TermsAndConditionsFilter implements Filter {
       // Forward to resource from this context: 
       String uriTarget = (new StringBuilder()).append(TC_SERVLET_URL + "?" + INITIAL_URI_PARAM_NAME + "=").append(reqUri).toString();
       welcomrScreensContext.getRequestDispatcher(uriTarget).forward(httpServletRequest, httpServletResponse);
+      return;
     }
     chain.doFilter(request, response);
   }
