@@ -42,21 +42,6 @@
           <name>portlet.template.path</name>
           <value>war:/conf/acme-portal/wcm/artifacts/application-templates/content-list-viewer</value>
         </value-param>
-        <object-param>
-          <name>Category Tree</name>
-          <description>Category Tree</description>
-          <object type="org.exoplatform.services.cms.views.PortletTemplatePlugin$PortletTemplateConfig">
-            <field name="title">
-              <string>Acme Category Tree</string>
-            </field>
-            <field name="templateName">
-              <string>AcmeCategoryTree.gtmpl</string>
-            </field>
-            <field name="category">
-              <string>navigation</string>
-            </field>
-          </object>
-        </object-param>
 		      <object-param>
           <name>Powers Category Tree</name>
           <description>Powers Category Tree</description>
