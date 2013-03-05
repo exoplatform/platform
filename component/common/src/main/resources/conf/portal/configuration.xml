@@ -71,18 +71,6 @@
                                 <string>csResources</string>
                             </value>
                             <value>
-                                <string>mail</string>
-                            </value>
-                            <value>
-                                <string>contact</string>
-                            </value>
-                            <value>
-                                <string>chat</string>
-                            </value>
-                            <value>
-                                <string>chatbar</string>
-                            </value>
-                            <value>
                                 <string>content</string>
                             </value>
                             <value>
@@ -151,18 +139,6 @@
                             </value>
                             <value>
                                 <string>csResources</string>
-                            </value>
-                            <value>
-                                <string>mail</string>
-                            </value>
-                            <value>
-                                <string>contact</string>
-                            </value>
-                            <value>
-                                <string>chat</string>
-                            </value>
-                            <value>
-                                <string>chatbar</string>
                             </value>
                             <value>
                                 <string>content</string>

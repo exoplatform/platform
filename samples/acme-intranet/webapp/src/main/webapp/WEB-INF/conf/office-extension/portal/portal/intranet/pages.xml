@@ -893,22 +893,6 @@
         </portlet-application>
     </page>
     <page>
-        <name>mail</name>
-        <title>Mail</title>
-        <access-permissions>*:/platform/users</access-permissions>
-        <edit-permission>*:/platform/administrators</edit-permission>
-
-        <portlet-application>
-            <portlet>
-                <application-ref>mail</application-ref>
-                <portlet-ref>MailPortlet</portlet-ref>
-            </portlet>
-            <title>Mail Portlet</title>
-            <access-permissions>*:/platform/users</access-permissions>
-            <show-info-bar>false</show-info-bar>
-        </portlet-application>
-    </page>
-    <page>
         <name>calendar</name>
         <title>Calendar</title>
         <access-permissions>*:/platform/users</access-permissions>
@@ -924,23 +908,6 @@
             <show-info-bar>false</show-info-bar>
         </portlet-application>
     </page>
-    <page>
-        <name>contact</name>
-        <title>Contact</title>
-        <access-permissions>*:/platform/users</access-permissions>
-        <edit-permission>*:/platform/administrators</edit-permission>
-
-        <portlet-application>
-            <portlet>
-                <application-ref>contact</application-ref>
-                <portlet-ref>ContactPortlet</portlet-ref>
-            </portlet>
-            <title>Contact Portlet</title>
-            <access-permissions>*:/platform/users</access-permissions>
-            <show-info-bar>false</show-info-bar>
-        </portlet-application>
-    </page>
-
     <page>
         <name>documents</name>
         <title>documents</title>
