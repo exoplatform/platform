@@ -135,9 +135,6 @@
 		$("#navigationStyle").jzAjax({
 			url : "BrandingController.getResource()",
 			beforeSend : function() {
-		//		$(maskLayer).fadeTo(0, 0.3);
-		//		maskLayer.style.backgroundColor = "black";
-		//		ajaxLoading.show();
 			},
 			success : function(data) {
 				// update the logo url in preview zone and preview
@@ -147,8 +144,6 @@
 				changePreviewStyle(data.style);
 				var span = $("#navigationStyle div span")[0];
 				$(span).text(data.style);
-		//		uiMaskLayer.removeMasks(maskLayer);
-		//		ajaxLoading.hide();
 			}
 		});
 	}
@@ -171,8 +166,11 @@
 	function FileDragHover(e) {
 		e.stopPropagation();
 		e.preventDefault();
-		e.target.className = (e.type == "dragover" ? className + " hover"
-				: className);
+		var className=e.target.className;
+		if(className.indexOf("hover")===-1) {
+		className=className +" hover";
+		e.target.className =className;
+		}
 	}
 
 	/**
@@ -181,7 +179,11 @@
 	function FileDropHandle(e) {
 		e.stopPropagation();
 		e.preventDefault();
-		e.target.className = "";
+		var className=e.target.className;
+		if(className.indexOf("hover")!=-1) {
+		className=className.replace("hover","");
+		e.target.className=className;
+		}
 		var files = e.target.files || e.dataTransfer.files;
 		if (validate(files[0]) == false) {
 			showMessageError();
@@ -190,6 +192,16 @@
 			fileUpload = files[0];
 		}
 		uploadFile();
+	}
+
+	function FileDragLeave(e){
+	e.stopPropagation();
+	e.preventDefault();
+	var className=e.target.className;
+	if(className.indexOf("hover")!=-1) {
+		className=className.replace("hover","");
+		e.target.className=className;
+	}
 	}
 
 	/**
@@ -201,7 +213,7 @@
 		var xhr = new XMLHttpRequest();
 		if (xhr.upload) {
 			filedrag.addEventListener("dragover", FileDragHover, false);
-			filedrag.addEventListener("dragleave", FileDragHover, false);
+			filedrag.addEventListener("dragleave", FileDragLeave, false);
 			filedrag.addEventListener("drop", FileDropHandle, false);
 			filedrag.style.display = "block";
 		}
