@@ -10,9 +10,8 @@
  *    http://malsup.github.com/gpl-license-v2.txt
  */
 /*global ActiveXObject alert */
-;(function($) {
+(function($) {
 "use strict";
-
 /*
     Usage Note:
     -----------

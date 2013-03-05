@@ -96,7 +96,7 @@ public class BrandingDataStorageService {
       ConversationState state = ConversationState.getCurrent();
       String userId = (state != null) ? state.getIdentity().getUserId() : null;
       if (userId != null) {
-        LOG.info("Branding - A new logo on the navigation bar has been saved by user :" + userId);
+//        LOG.info("Branding - A new logo on the navigation bar has been saved by user :" + userId);
       }
     }
   }

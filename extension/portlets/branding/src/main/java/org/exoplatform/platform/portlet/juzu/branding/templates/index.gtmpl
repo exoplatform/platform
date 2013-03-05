@@ -1,3 +1,11 @@
+<div class="AjaxLoadingMask" id="AjaxLoadingMask" style="display: none; margin: auto;">
+			<div class="LoadingContainer">
+				<div class="LoadingText">Loading</div>
+				<span class="LoadingProgressBar"></span>
+			</div>
+</div>
+		
+		
 <div class="uiBrandingPortlet">
 	<div class="alert" id="cancelinfo">
 		<i class="uiIconWarning"></i>${cancelok}

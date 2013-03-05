@@ -1,4 +1,4 @@
-$(function() {
+(function($, uiMaskLayer) {
 	/**
 	 * initialize variables and methods when first load page first display a
 	 * preview, hide save, cancel, png div then clone toolbar navigation to
@@ -6,31 +6,31 @@ $(function() {
 	 */
 	var isChangeLogo = false;
 	var fileUpload;
-	if(!supportHTML5()){
+	var ajaxLoading = $("#AjaxLoadingMask.clearfix");
+	if (!supportHTML5()) {
 		$("#btUpload").remove();
-	}
-	else {
+	} else {
 		$("input#file").hide();
-		$("#btUpload").on("click",function(){
+		$("#btUpload").on("click", function() {
 			$("input#file").click();
 		});
 	}
 	UpdatePreviewLogoAndStyle();
-	$("#PlatformAdminToolbarContainer").clone().appendTo($("#StylePreview"));	
-	 $('#StylePreview').bind({
-			hover : function(e) {
-				e.stopPropagation();
-				e.preventDefault();
-			},
-			click : function(e) {
-				e.stopPropagation();
-				e.preventDefault();
-			},
-			blur : function(e) {
-				e.stopPropagation();
-				e.preventDefault();
-			}
-		});
+	$("#PlatformAdminToolbarContainer").clone().appendTo($("#StylePreview"));
+	$('#StylePreview').bind({
+		hover : function(e) {
+			e.stopPropagation();
+			e.preventDefault();
+		},
+		click : function(e) {
+			e.stopPropagation();
+			e.preventDefault();
+		},
+		blur : function(e) {
+			e.stopPropagation();
+			e.preventDefault();
+		}
+	});
 	// when cancel is clicked, restore the old logo and display cancel messsage
 	$("#cancel").on("click", function() {
 		UpdatePreviewLogoAndStyle();
@@ -43,6 +43,7 @@ $(function() {
 	// when save is clicked, restore the new logo and display save messsage
 	$("#save").on("click", function() {
 		var span = $("#navigationStyle div span")[0];
+		var maskLayer = uiMaskLayer.createTransparentMask();
 		$("#navigationStyle").jzAjax({
 			url : "BrandingController.save()",
 			data : {
@@ -51,12 +52,17 @@ $(function() {
 			},
 			beforeSend : function() {
 				$("#saveinfo").hide();
+				$(maskLayer).fadeTo(0, 0.3);
+				maskLayer.style.backgroundColor = "black";
+				ajaxLoading.show();
 			},
 			success : function(data) {
 				isChangeLogo = false;
 				UpdateTopBarNavigation(data);
 				cleanMessage();
 				$("#saveinfo").show();
+				uiMaskLayer.removeMasks(maskLayer);
+				ajaxLoading.hide();
 			}
 		});
 
@@ -105,20 +111,19 @@ $(function() {
 	/**
 	 * scale an image to fit with parent div
 	 */
-	function scaleToFitPreviewImg(elt) {
-		$(elt).imgscale({
-			parent : '#PreviewImgDiv',
-			fade : 1000
-		});
-	}
-
+	// function scaleToFitPreviewImg(elt) {
+	// $(elt).imgscale({
+	// parent : '#PreviewImgDiv',
+	// fade : 1000
+	// });
+	// }
 	/**
 	 * preview a logo and perform a scale
 	 */
 	function previewLogoFromUrl(logoUrl) {
 		$('#PreviewImg').attr('src', logoUrl);
 		$('#StylePreview #HomeLink img').attr('src', logoUrl);
-		scaleToFitPreviewImg($('#PreviewImg'));
+		// scaleToFitPreviewImg($('#PreviewImg'));
 	}
 
 	/**
@@ -126,20 +131,26 @@ $(function() {
 	 * markup
 	 */
 	function UpdatePreviewLogoAndStyle() {
-		$("#navigationStyle").jzAjax(
-				{
-					url : "BrandingController.getResource()",
-					beforeSend : function() {
-					},
-					success : function(data) {
-						// update the logo url in preview zone and preview
-						// navigation bar
-						previewLogoFromUrl(data.logoUrl);
-						// update the navigation style and style selected;
-						changePreviewStyle(data.style);
-						var span =$("#navigationStyle div span")[0];
-						$(span).text(data.style);
-				}});
+		var maskLayer = uiMaskLayer.createTransparentMask();
+		$("#navigationStyle").jzAjax({
+			url : "BrandingController.getResource()",
+			beforeSend : function() {
+				$(maskLayer).fadeTo(0, 0.3);
+				maskLayer.style.backgroundColor = "black";
+				ajaxLoading.show();
+			},
+			success : function(data) {
+				// update the logo url in preview zone and preview
+				// navigation bar
+				previewLogoFromUrl(data.logoUrl);
+				// update the navigation style and style selected;
+				changePreviewStyle(data.style);
+				var span = $("#navigationStyle div span")[0];
+				$(span).text(data.style);
+				uiMaskLayer.removeMasks(maskLayer);
+				ajaxLoading.hide();
+			}
+		});
 	}
 	/**
 	 * Update new logo displays in top bar navigation
@@ -160,7 +171,8 @@ $(function() {
 	function FileDragHover(e) {
 		e.stopPropagation();
 		e.preventDefault();
-		e.target.className = (e.type == "dragover" ? className+" hover" : className);
+		e.target.className = (e.type == "dragover" ? className + " hover"
+				: className);
 	}
 
 	/**
@@ -279,12 +291,11 @@ $(function() {
 		$("#cancelinfo").hide();
 		$("#mustpng").show();
 	}
-	
-		$("#navigationStyle a").on("click", function() {
+
+	$("#navigationStyle a").on("click", function() {
 		var span = $("#navigationStyle div span")[0];
 		$(span).text($(this).text());
 		changePreviewStyle($(this).text());
 	})
-	
 
-});
+})($, uiMaskLayer);

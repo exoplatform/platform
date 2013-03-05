@@ -24,21 +24,23 @@ import java.util.Iterator;
 import java.util.Locale;
 import java.util.Map;
 import java.util.ResourceBundle;
+
 import javax.inject.Inject;
+
 import juzu.Path;
 import juzu.Resource;
 import juzu.Response;
-import juzu.Route;
 import juzu.View;
 import juzu.io.Stream;
-import juzu.plugin.ajax.Ajax;
 import juzu.request.HttpContext;
 import juzu.template.Template;
+
 import org.apache.commons.fileupload.FileItem;
 import org.exoplatform.commons.api.settings.SettingService;
 import org.exoplatform.commons.api.settings.SettingValue;
 import org.exoplatform.commons.api.settings.data.Context;
 import org.exoplatform.commons.api.settings.data.Scope;
+import org.exoplatform.commons.juzu.ajax.Ajax;
 import org.exoplatform.container.ExoContainerContext;
 import org.exoplatform.platform.portlet.juzu.branding.models.BrandingDataStorageService;
 import org.exoplatform.web.application.RequestContext;
