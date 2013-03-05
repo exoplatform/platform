@@ -48,6 +48,7 @@ WelcomeScreens.validateTermsAndCondition = function(event) {
     return false;
 }
 WelcomeScreens.exit = function() {
+    WelcomeScreens.ACCOUNT_SETUP_ERROR = false;
     $('#usernameErrorId').remove();
     $('#usernameErrorLengthId').remove();
     $('#firstnameErrorId').remove();
