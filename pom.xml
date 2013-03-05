@@ -666,29 +666,6 @@
       </dependency>
       <dependency>
         <groupId>org.exoplatform.platform</groupId>
-        <artifactId>platform-sample-default-website-config</artifactId>
-        <version>${project.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>org.exoplatform.platform</groupId>
-        <artifactId>platform-sample-default-website-ear</artifactId>
-        <version>${project.version}</version>
-        <type>ear</type>
-      </dependency>
-      <dependency>
-        <groupId>org.exoplatform.platform</groupId>
-        <artifactId>platform-sample-default-website-webapp</artifactId>
-        <version>${project.version}</version>
-        <type>war</type>
-      </dependency>
-      <dependency>
-        <groupId>org.exoplatform.platform</groupId>
-        <artifactId>platform-sample-default-website-webapp</artifactId>
-        <version>${project.version}</version>
-        <type>pom</type>
-      </dependency>
-      <dependency>
-        <groupId>org.exoplatform.platform</groupId>
         <artifactId>platform-sample-gadgets-sample-config</artifactId>
         <version>${project.version}</version>
       </dependency>
