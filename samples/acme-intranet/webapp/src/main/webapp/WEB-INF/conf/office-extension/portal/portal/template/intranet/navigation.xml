@@ -32,22 +32,14 @@
 	<label>#{portal.@owner@.home}</label>
 	<page-reference>portal::@owner@::homepage</page-reference>
  </node>
-  <node>
-    <uri>welcome</uri>
-    <name>welcome</name>
-    <label>#{portal.@owner@.welcome}</label>
-	<visibility>HIDDEN</visibility>
-    <page-reference>portal::@owner@::welcome</page-reference>
-  </node>
- 
 
-   <node>
+  <node>
     <uri>activities</uri>
     <name>activities</name>
     <label>#{portal.@owner@.activities}</label>
     <visibility>SYSTEM</visibility>
     <page-reference>portal::@owner@::activities</page-reference>
-   </node>
+  </node>
    
    <node>
     <uri>profile</uri>
