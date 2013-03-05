@@ -19,6 +19,9 @@ import java.io.IOException;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Properties;
 import java.util.concurrent.Executors;
@@ -106,8 +109,7 @@ public class UnlockService implements Startable {
         // Compute delay period every day
         executor = Executors.newSingleThreadScheduledExecutor();
         executor.scheduleWithFixedDelay(new Runnable() {
-            public void run() {
-                computeUnlockedInformation();
+            public void run() {                computeUnlockedInformation();
                 if (outdated && isUnlocked) {
                     isUnlocked = false;
                     Utils.writeToFile(Utils.IS_EXTENDED, new String(Base64.encodeBase64("false".getBytes())) , Utils.HOME_CONFIG_FILE_LOCATION);
@@ -238,25 +240,49 @@ public class UnlockService implements Startable {
 
     private static int decodeKey(String productCode, String Key) {
         StringBuffer keyBuffer = new StringBuffer(new String(Base64.decodeBase64(Key.getBytes())));
+        int keyLength = Integer.parseInt(keyBuffer.substring(8, 10));
+        boolean validLicence = false;
+        if(keyLength==keyBuffer.toString().length())   validLicence = true;
         int length = Integer.parseInt(keyBuffer.substring(4, 6));
         keyBuffer.replace(4, 6, "");
+        keyBuffer.replace(6, 8, "");
         String productCodeHashed = keyBuffer.substring(0, length);
         if (!productCodeHashed.equals(Utils.getModifiedMD5Code(productCode.getBytes()))) {
             return 0;
         }
         String productInfoString = keyBuffer.substring(length);
         String[] productInfo = productInfoString.split(",");
-        if (productInfo.length == 3) {
+
+        if ((productInfo.length == 3)) {
+            if(!validLicence)  return 0;
             String nbUser = productInfo[0];
             String duration = productInfo[1];
             String keyDate = productInfo[2];
+            DateFormat d = new SimpleDateFormat("dd/MM/yyyy");
+                try {
+                    d.parse(keyDate);
+                } catch (ParseException e) {
+                    LOG.info("UNVALID KEY");
+                    return 0;
+                }
             String edition = "";
-            int period = Integer.parseInt(duration);
+            int period = 0;
+            try{
+            period = Integer.parseInt(duration);
+            }catch(NumberFormatException exp) {
+                LOG.info("INVALID KAY");
+                return 0;
+            }
             if (period == -1) {
                 duration = Utils.UNLIMITED;
                 nbUser = new String(Base64.decodeBase64(nbUser.getBytes()));
-                int userNumber = Integer.parseInt(nbUser) / 3;
-
+                int userNumber = 0;
+                try{
+                    userNumber = Integer.parseInt(nbUser) / 3;
+                }catch(NumberFormatException exp) {
+                    LOG.info("INVALID KAY");
+                    return 0;
+                }
                 if (userNumber == -1) {
                     edition = ProductInformations.ENTERPRISE_EDITION;
                     nbUser = Utils.UNLIMITED;

@@ -1,6 +1,7 @@
 package org.exoplatform.platform.common.account.setup;
 
 import org.exoplatform.commons.info.ProductInformations;
+import org.exoplatform.commons.utils.PropertyManager;
 import org.exoplatform.container.PortalContainer;
 import org.exoplatform.services.log.ExoLogger;
 import org.exoplatform.services.log.Log;
@@ -28,13 +29,13 @@ public class AccountSetupFilter implements Filter {
         String edition = getPlatformEdition();
         if(edition!=null && edition.equals("community")){
             ProductInformations productInformations = (ProductInformations) PortalContainer.getInstance().getComponentInstanceOfType(ProductInformations.class);
-            if((productInformations.isFirstRun())&&(isFirstAccess)){
+            boolean isDevMod = PropertyManager.isDevelopping();
+            if((productInformations.isFirstRun())&&(isFirstAccess)&&(!isDevMod)){
                 HttpServletResponse httpServletResponse = (HttpServletResponse) response;
                 httpServletResponse.sendRedirect("/platform-extension/jsp/welcome-screens/accountSetup.jsp");
                 isFirstAccess = false;
                 return;
             }
-
         }
         chain.doFilter(request, response);
     }
