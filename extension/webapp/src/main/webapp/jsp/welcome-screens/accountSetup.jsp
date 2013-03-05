@@ -104,12 +104,20 @@
         </div>
         <div class="item" id="Greetings">
             <div class="UIFormBox StartedStep content" name="">
-                    <div>
+                <div style="text-align: center; background-color: #808080; height: 40px;width: 676px;font-size: 2em " >
+                  <b>  Greetings!    </b>
+                </div>
+                <div style="text-align: center;padding: 10px">
+                    <b>You are almost done,</b> Add your colleagues to your new social intranet and start collaborating together
+                </div>
+                    <div style="padding: 10px;">
                         <center>
                             <img src="<%=contextPath%>/css/welcome-screens/background/greetings.png"/>
                         </center>
                     </div>
-                    <div><button  class="submitbutton" > Start </button></div>
+                    <div style="background-color: #98BDCD; height: 80px;">
+                        <button  class="submitbutton" > Start </button>
+                    </div>
             </div>
         </form>
         </div>
