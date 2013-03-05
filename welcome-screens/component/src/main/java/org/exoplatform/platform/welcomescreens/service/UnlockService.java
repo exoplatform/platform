@@ -293,11 +293,12 @@ public class UnlockService implements Startable {
             }
             persistInfo(edition, nbUser, keyDate, duration, productCode, Key);
             return period;
-        } else {
+        } else if(productInfo.length==0){
             String periodString = new String(Base64.decodeBase64(productInfoString.getBytes()));
             int period = Integer.parseInt(periodString) / 3;
             return period;
         }
+        else return 0;
     }
 
     private static void persistInfo(String edition, String nbUser, String keyDate, String duration, String productCode, String key) {
