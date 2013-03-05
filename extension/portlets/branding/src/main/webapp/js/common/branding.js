@@ -131,13 +131,13 @@
 	 * markup
 	 */
 	function UpdatePreviewLogoAndStyle() {
-		var maskLayer = uiMaskLayer.createTransparentMask();
+		//var maskLayer = uiMaskLayer.createTransparentMask();
 		$("#navigationStyle").jzAjax({
 			url : "BrandingController.getResource()",
 			beforeSend : function() {
-				$(maskLayer).fadeTo(0, 0.3);
-				maskLayer.style.backgroundColor = "black";
-				ajaxLoading.show();
+		//		$(maskLayer).fadeTo(0, 0.3);
+		//		maskLayer.style.backgroundColor = "black";
+		//		ajaxLoading.show();
 			},
 			success : function(data) {
 				// update the logo url in preview zone and preview
@@ -147,8 +147,8 @@
 				changePreviewStyle(data.style);
 				var span = $("#navigationStyle div span")[0];
 				$(span).text(data.style);
-				uiMaskLayer.removeMasks(maskLayer);
-				ajaxLoading.hide();
+		//		uiMaskLayer.removeMasks(maskLayer);
+		//		ajaxLoading.hide();
 			}
 		});
 	}
