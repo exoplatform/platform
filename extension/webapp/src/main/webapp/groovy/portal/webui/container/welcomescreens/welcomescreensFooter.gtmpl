@@ -1,0 +1,94 @@
+<%
+    /**
+     * Copyright ( C ) 2012 eXo Platform SAS.
+     *
+     * This is free software; you can redistribute it and/or modify it
+     * under the terms of the GNU Lesser General Public License as
+     * published by the Free Software Foundation; either version 2.1 of
+     * the License, or (at your option) any later version.
+     *
+     * This software is distributed in the hope that it will be useful,
+     * but WITHOUT ANY WARRANTY; without even the implied warranty of
+     * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+     * Lesser General Public License for more details.
+     *
+     * You should have received a copy of the GNU Lesser General Public
+     * License along with this software; if not, write to the Free
+     * Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
+     * 02110-1301 USA, or see the FSF site: http://www.fsf.org.
+     */
+%>
+<%
+    import org.exoplatform.platform.welcomescreens.service.UnlockService;
+    import org.exoplatform.platform.welcomescreens.service.Utils;
+    import org.exoplatform.commons.utils.PropertyManager;
+%>
+<%
+    boolean isUnlocked = UnlockService.isUnlocked();
+    if(!isUnlocked){
+    boolean isDevMode =  PropertyManager.isDevelopping();
+        if(!isDevMode){
+    def rday= UnlockService.getNbDaysBeforeExpiration();
+    boolean outdated = UnlockService.isOutdated();
+%>
+
+<style type="text/css">
+.WLCFooter{
+    width: 100%;
+    height: 50px;
+    position : fixed;
+    left:0px;
+    bottom:0px;
+}
+.removeButton{
+    float:right;
+    padding: 10px;
+    width :80px;
+    height: 20px;
+    border: #151515;
+}
+.backOutdated{
+    background-color: red;
+}
+.backNotOutdated{
+    background-color: silver;
+}
+</style>
+
+<div id="<%=uicomponent.id%>">
+
+    <%
+        def css="backNotOutdated";
+        def label1="You have";
+        def label2="days left in your evaluation";
+        def labelRemove="Remove This Banner"
+
+        if (outdated)  {
+            css="backOutdated";
+            label1= "Your evaluation has expired"  ;
+            label2= "days ago";
+            rday = UnlockService.getNbDaysAfterExpiration();
+        }
+    %>
+    <div >
+        <div class="WLCFooter <%=css  %>">
+            <%=label1 %> <%=rday%> <%=label2 %>
+            <a class="removeButton" href="/welcome-screens/UnlockServlet"><%= labelRemove %></a>
+        </div>
+    </div>
+</div>
+<%
+}
+}%>
+
+<% 	if(!UnlockService.isLandingPageDisplayed()){ %>
+<iframe src="<%=UnlockService.getPingBackUrl()%>" style="display:none;" id="pingBackUrlFrame" onload="setFormDisplayed()"></iframe>
+<iframe src="about:blank" style="display:none;" id="pingBackUrlActivation"></iframe>
+<script>
+    function setFormDisplayed() {
+        var pingBackUrlActivationElement = document.getElementById("pingBackUrlActivation");
+        pingBackUrlActivationElement.src="/welcome-screens/PingBackServlet";
+    }
+</script>
+<% }
+%>
