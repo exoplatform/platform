@@ -12,7 +12,6 @@
   <modules>
     <module>acme-intranet</module>
     <module>acme-website</module>
-    <!--<module>blank</module>-->
     <module>gadgets-sample</module>
   </modules>
 </project>
