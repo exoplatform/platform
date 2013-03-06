@@ -16,21 +16,6 @@
  ***************************************************************************/
 package org.exoplatform.platform.gadget.services.Bookmark;
 
-import java.net.URI;
-
-import javax.jcr.Node;
-import javax.ws.rs.GET;
-import javax.ws.rs.Path;
-import javax.ws.rs.PathParam;
-import javax.ws.rs.Produces;
-import javax.ws.rs.core.CacheControl;
-import javax.ws.rs.core.Context;
-import javax.ws.rs.core.MediaType;
-import javax.ws.rs.core.Response;
-import javax.ws.rs.core.SecurityContext;
-import javax.ws.rs.core.UriInfo;
-import javax.ws.rs.ext.RuntimeDelegate;
-
 import org.exoplatform.common.http.HTTPStatus;
 import org.exoplatform.container.ExoContainerContext;
 import org.exoplatform.services.jcr.ext.common.SessionProvider;
@@ -39,6 +24,15 @@ import org.exoplatform.services.log.ExoLogger;
 import org.exoplatform.services.log.Log;
 import org.exoplatform.services.rest.impl.RuntimeDelegateImpl;
 import org.exoplatform.services.rest.resource.ResourceContainer;
+
+import javax.jcr.Node;
+import javax.ws.rs.GET;
+import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
+import javax.ws.rs.Produces;
+import javax.ws.rs.core.*;
+import javax.ws.rs.ext.RuntimeDelegate;
+import java.net.URI;
 
 @Path("bookmarks/")
 @Produces(MediaType.APPLICATION_JSON)
@@ -76,7 +70,7 @@ public class BookmarkRestService implements ResourceContainer {
 				Node bookmarksNode = userPrivateNode.addNode("Bookmarks");
 				userPrivateNode.save();
 
-				String default_bookmarks="[{\"name\":\"Forums\", \"link\":\"/portal/intranet/forum\"},{\"name\":\"Wiki\", \"link\":\"/portal/intranet/wiki\"},{\"name\":\"Documents\", \"link\":\"/portal/intranet/documents\"},{\"name\":\"Agenda\", \"link\":\"/portal/intranet/calendar\"}]";
+                String default_bookmarks="[{\"name\":\"Discussions\", \"link\":\"/$PORTAL/$SITENAME/forum\"},{\"name\":\"Wiki\", \"link\":\"/$PORTAL/$SITENAME/wiki\"},{\"name\":\"Documents\", \"link\":\"/$PORTAL/$SITENAME/documents\"},{\"name\":\"Agenda\", \"link\":\"/$PORTAL/$SITENAME/calendar\"}]";
 				bookmarksNode.setProperty("exo:bookmarkService_bookmarks", default_bookmarks);
 				if(bookmarksNode.canAddMixin("exo:hiddenable")){
                     bookmarksNode.addMixin("exo:hiddenable");

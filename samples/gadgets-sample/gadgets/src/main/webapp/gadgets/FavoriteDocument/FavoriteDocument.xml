@@ -84,8 +84,7 @@
 
          //accessUrl = prefixUrl + '/portal/public/intranet/content/repository/';
 
-	accessUrl = prefixUrl + '/portal/intranet/documents';
-      /**
+	accessUrl = prefixUrl + parent.parent.eXo.env.portal.context + '/' + parent.parent.eXo.env.portal.portalName + '/documents';  /**
         * Time to refresh data in client and gadget server
         */
       var refreshInterval = 30000;

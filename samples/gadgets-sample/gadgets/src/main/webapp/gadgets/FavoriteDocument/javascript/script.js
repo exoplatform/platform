@@ -49,7 +49,7 @@ function eXoFavDocsGadget(){
 };
 
 eXoFavDocsGadget.prototype.setShowAllLink = function(){
-	var baseUrl = "http://" +  top.location.host + parent.eXo.env.portal.context + "/" + parent.eXo.env.portal.accessMode + "/intranet";
+ var baseUrl = "http://" +  top.location.host + parent.eXo.env.portal.context + "/" + parent.eXo.env.portal.accessMode + "/" + parent.eXo.env.portal.portalName";
 	a = document.getElementById("ShowAll");
 	var url = baseUrl + "/documents";
 	a.href = url;

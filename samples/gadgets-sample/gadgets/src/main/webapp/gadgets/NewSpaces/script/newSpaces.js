@@ -22,12 +22,7 @@
     }
         
     eXoNewSpaceGadget.prototype.setSpaceUrl = function(){
-      var spaceURL = "";
-      if(typeof(parent.eXo) != "undefined") {
-        spaceURL = parent.eXo.env.server.context + "/" + parent.eXo.env.portal.accessMode + "/" + parent.eXo.env.portal.portalName + "/all-spaces";
-      } else {
-        spaceURL = "/portal/intranet/all-spaces";
-      }
+     var spaceURL = parent.parent.eXo.env.portal.context + "/"+ parent.parent.eXo.env.portal.portalName +"/all-spaces";
       var a = document.getElementById("ShowAll");
       a.href = spaceURL;
     }      
@@ -78,10 +73,9 @@
       var prefs = eXoNewSpaceGadget.getPrefs();
       var html = '';
       var len = spaceList.length;
-      var portalURL = window.location.protocol + "//" + window.location.host + "/portal/private/intranet/";
-      var avatarURL = window.location.protocol + "//" + window.location.host + "/portal";
-
-      for(var i = 0 ; i < len; i++){  
+      var portalURL = window.location.protocol + "//" + window.location.host + parent.parent.eXo.env.portal.context + "/" + parent.eXo.env.portal.portalName +"/";
+      var avatarURL = window.location.protocol + "//" + window.location.host + parent.parent.eXo.env.portal.context;
+        for(var i = 0 ; i < len; i++){
         var item = spaceList[i];
         
         var spaceURL = portalURL + "";

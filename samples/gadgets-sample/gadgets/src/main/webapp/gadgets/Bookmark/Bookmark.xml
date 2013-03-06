@@ -38,7 +38,8 @@
 
         $.getJSON("/rest/bookmarks/get", function(bookmarks){
           $.each(bookmarks, function(i, bookmark){
-            addBookmark(i, bookmark.name.replace(/__SLASH__/g, "/"), bookmark.link.replace(/__SLASH__/g, "/"));
+          var link2 = bookmark.link.replace(/__SLASH__/g, "/").replace("/$PORTAL",parent.parent.eXo.env.portal.context).replace("$SITENAME",parent.parent.eXo.env.portal.portalName);
+          addBookmark(i, bookmark.name.replace(/__SLASH__/g, "/"),link2);
           });
           gadgets.window.adjustHeight($("#content").get(0).offsetHeight);
         });

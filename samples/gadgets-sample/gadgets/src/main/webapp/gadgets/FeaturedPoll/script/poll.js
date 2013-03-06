@@ -17,7 +17,7 @@ function init() {
 
 function createPollDiv() {
   var prefs = new gadgets.Prefs();
-  var forumURL = window.location.protocol + "//" + window.location.host + "/portal/intranet/forum";
+  var forumURL = window.location.protocol + "//" + window.location.host + parent.parent.eXo.env.portal.context + "/"+ parent.parent.eXo.env.portal.portalName +"/forum";
   document.getElementById("createpoll").innerHTML = "<a target='_parent' href='" + forumURL + "'>"+ prefs.getMsg("createPoll") + "</a>";
   adjustHeight();  
 }
@@ -78,7 +78,7 @@ function showPoll(data, isVoteAgain){
       if(haveTopic){
           var prefs = new gadgets.Prefs();
           var topicId= pollId.replace("poll","topic");
-          var topicURL = window.location.protocol + "//" + window.location.host + "/portal/intranet/forum/topic/" + topicId;
+          var topicURL = window.location.protocol + "//" + window.location.host + parent.parent.eXo.env.portal.context + "/"+ parent.parent.eXo.env.portal.portalName +"/forum/topic/" + topicId;
           html.push('<h4><a  target="_parent" class="Question" title = "' + prefs.getMsg('discuss') + '" target ="_parent" href="'+ topicURL + '">' + question + '</a></h4>');
         discussUrl = "<a class='Discuss' title='" + prefs.getMsg("discuss") + "'  target='_parent'  href='"+ topicURL + "'>" + prefs.getMsg("discuss") + "</a>";
       }
@@ -128,7 +128,7 @@ function showResult(data){
   if(haveTopic){
       var prefs = new gadgets.Prefs();
     var topicId= pollId.replace("poll","topic");
-      var topicURL = window.location.protocol + "//" + window.location.host + "/portal/intranet/forum/topic/" + topicId;
+    var topicURL = window.location.protocol + "//" + window.location.host + parent.parent.eXo.env.portal.context + "/"+ parent.parent.eXo.env.portal.portalName + "/forum/topic/" + topicId;
     tbl.push('<h4><a class="Question" title = "' + prefs.getMsg('discuss') + '"  target="_parent"  href="'+ topicURL + '">' + question + '</a></h4>');
     discussUrl = '<a class="Discuss" title = "' + prefs.getMsg('discuss') + '"  target="_parent"  href="'+ topicURL + '">' + prefs.getMsg('discuss') + '</a>';
   }

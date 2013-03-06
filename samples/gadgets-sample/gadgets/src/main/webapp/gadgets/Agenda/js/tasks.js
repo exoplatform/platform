@@ -151,7 +151,7 @@ eXoEventGadget.prototype.getPrefs = function(){
 //TODO: Need a new solution for creating url replace for using parent 
 eXoEventGadget.prototype.setLink = function(){
 	var url   = eXoEventGadget.prefs.url;
-	baseUrl = "http://" +  top.location.host + parent.eXo.env.portal.context + "/intranet"; //+ parent.eXo.env.portal.portalName;
+    baseUrl = "http://" +  top.location.host + parent.eXo.env.portal.context + "/" + parent.eXo.env.portal.portalName;
 	a = document.getElementById("ShowAll");
 	url = (url)?baseUrl + url: baseUrl + "/calendar";
 	a.href = url;

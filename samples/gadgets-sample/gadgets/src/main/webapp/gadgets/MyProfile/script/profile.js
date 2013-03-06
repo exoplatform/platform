@@ -23,7 +23,7 @@ function onLoadProfile(data) {
   var extensionContext = address.replace(baseContext, "");
   var extensionParts = extensionContext.split("/");
   //var context = baseContext + extensionParts[0] + "/" + extensionParts[1];
-  var context = baseContext + "intranet";
+    var context = baseContext + parent.parent.eXo.env.portal.portalName;
   var profileTempUrl = this.viewer.getField(opensocial.Person.Field.PROFILE_URL);
   var eXoUserID = profileTempUrl.substr(profileTempUrl.lastIndexOf('/') + 1);
   
