@@ -1,22 +1,5 @@
 package org.exoplatform.platform.common.rest;
 
-import java.net.URI;
-import java.util.Collection;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Locale;
-import java.util.ResourceBundle;
-
-import javax.ws.rs.GET;
-import javax.ws.rs.Path;
-import javax.ws.rs.PathParam;
-import javax.ws.rs.Produces;
-import javax.ws.rs.core.CacheControl;
-import javax.ws.rs.core.Context;
-import javax.ws.rs.core.MediaType;
-import javax.ws.rs.core.Response;
-import javax.ws.rs.core.UriInfo;
-
 import org.exoplatform.application.gadget.Gadget;
 import org.exoplatform.application.gadget.GadgetRegistryService;
 import org.exoplatform.common.http.HTTPStatus;
@@ -26,12 +9,7 @@ import org.exoplatform.portal.config.DataStorage;
 import org.exoplatform.portal.config.UserPortalConfig;
 import org.exoplatform.portal.config.UserPortalConfigService;
 import org.exoplatform.portal.config.model.Application;
-import org.exoplatform.portal.config.model.ApplicationType;
-import org.exoplatform.portal.config.model.Container;
-import org.exoplatform.portal.config.model.Dashboard;
-import org.exoplatform.portal.config.model.ModelObject;
-import org.exoplatform.portal.config.model.Page;
-import org.exoplatform.portal.config.model.TransientApplicationState;
+import org.exoplatform.portal.config.model.*;
 import org.exoplatform.portal.mop.SiteKey;
 import org.exoplatform.portal.mop.navigation.Scope;
 import org.exoplatform.portal.mop.user.UserNavigation;
@@ -43,6 +21,14 @@ import org.exoplatform.services.log.ExoLogger;
 import org.exoplatform.services.log.Log;
 import org.exoplatform.services.rest.resource.ResourceContainer;
 import org.exoplatform.services.security.ConversationState;
+
+import javax.ws.rs.GET;
+import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
+import javax.ws.rs.Produces;
+import javax.ws.rs.core.*;
+import java.net.URI;
+import java.util.*;
 
 /**
  * WS REST which permit to access to all user's dashboards
@@ -254,7 +240,7 @@ public class DashboardInformationRESTService implements ResourceContainer {
   
               if(gadget != null) {
                 JsonGadgetInfo info = new JsonGadgetInfo();
-                info.setGadgetName(gadget.getName());
+                info.setGadgetName(gadget.getTitle());
                 info.setGadgetUrl(PortalContainer.getCurrentPortalContainerName() + STANDALONE_ROOT_PATH + "/" + application.getStorageId());
                 info.setGadgetIcon(gadget.getThumbnail());
                 info.setGadgetDescription(gadget.getDescription());
