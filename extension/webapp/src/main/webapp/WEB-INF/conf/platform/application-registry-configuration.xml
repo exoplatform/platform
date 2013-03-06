@@ -188,20 +188,6 @@
                         </collection>
                       </field>
                     </object>
-                  </value><value>
-                    <object type="org.exoplatform.application.registry.Application">
-                      <field name="applicationName"><string>IDE</string></field>
-                      <field name="categoryName"><string>development</string></field>
-                      <field name="displayName"><string>IDE</string></field>
-                      <field name="description"><string>IDE</string></field>
-                      <field name="type"><string>gadget</string></field>
-                      <field name="contentId"><string>IDE</string></field>
-                      <field name="accessPermissions">
-                        <collection type="java.util.ArrayList" item-type="java.lang.String">
-                          <value><string>*:/developers</string></value>
-                        </collection>
-                      </field>
-                    </object>
                   </value>
                 </collection>
               </field>

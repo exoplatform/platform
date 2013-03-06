@@ -142,6 +142,60 @@
       </object-param>
     </init-params>
   </component>
+   <component>
+      <type>org.exoplatform.platform.common.service.MenuConfiguratorService</type>
+      <init-params>
+         <value-param>
+            <name>setup.navigation.file</name>
+            <value>war:/conf/ide-extension/setup-menu/setup-navigation-configuration.xml</value>
+         </value-param>
+      </init-params>
+   </component>
+
+   <external-component-plugins>
+      <target-component>org.exoplatform.application.registry.ApplicationRegistryService</target-component>
+      <component-plugin>
+         <name>new.portal.portlets.registry</name>
+         <set-method>initListener</set-method>
+         <type>org.exoplatform.application.registry.ApplicationCategoriesPlugins</type>
+         <description>this listener init the portlets are registered in PortletRegister</description>
+         <init-params>
+            <object-param>
+               <name>development</name>
+               <description>description</description>
+               <object type="org.exoplatform.application.registry.ApplicationCategory">
+                  <field name="name"><string>Development</string></field>
+                  <field name="displayName"><string>Development</string></field>
+                  <field name="description"><string>Applications for development</string></field>
+                  <field name="accessPermissions">
+                     <collection type="java.util.ArrayList" item-type="java.lang.String">
+                        <value><string>*:/developers</string></value>
+                     </collection>
+                  </field>
+                  <field name="applications">
+                     <collection type="java.util.ArrayList">
+                        <value>
+                           <object type="org.exoplatform.application.registry.Application">
+                              <field name="applicationName"><string>IDE</string></field>
+                              <field name="categoryName"><string>development</string></field>
+                              <field name="displayName"><string>IDE</string></field>
+                              <field name="description"><string>IDE</string></field>
+                              <field name="type"><string>gadget</string></field>
+                              <field name="contentId"><string>IDE</string></field>
+                              <field name="accessPermissions">
+                                 <collection type="java.util.ArrayList" item-type="java.lang.String">
+                                    <value><string>*:/developers</string></value>
+                                 </collection>
+                              </field>
+                           </object>
+                        </value>
+                     </collection>
+                  </field>
+               </object>
+            </object-param>
+         </init-params>
+      </component-plugin>
+   </external-component-plugins>
 
 </configuration>
 
