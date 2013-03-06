@@ -8,4 +8,5 @@
   <import>war:/conf/ide-extension/jcr/ide-jcr-configuration.xml</import>
   <import>war:/conf/ide-extension/jcr/ide-jcr-component-plugins-configuration.xml</import>
   <import>war:/conf/ide-extension/jcr/ide-configuration.xml</import>
+   <import>war:/conf/ide-extension/portal/portal-configuration.xml</import>
 </configuration>
