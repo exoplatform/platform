@@ -184,7 +184,7 @@ public class GettingStarted {
         }
         parameters.putAll(bundle);
         parameters.put(GettingStartedUtils.PROGRESS, new Integer(progress));
-        parameters.put(GettingStartedUtils.WIDTH, new Integer((Math.round((160 * progress) / 100))).toString());
+        parameters.put(GettingStartedUtils.WIDTH, new Integer((Math.round((200 * progress) / 100))).toString());
         parameters.put(GettingStartedUtils.STATUS, status);
         parameters.put(GettingStartedUtils.SHOW, Isshow.toString());
         if ((isChange)||(reload.equals("true")))
