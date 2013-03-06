@@ -48,18 +48,18 @@
                 <div id="progress-label" class="pull-left progessLabel"> ${progress} %</div>
 
             </div>   
-                <ul class ="gsList" id="gsList">
-                    <li class="${status['gs_profile']}" ><a  target="_parent" href=${profile} >${profileLabel}</a></li>
-                    <li class="${status['gs_connect']}" ><a  target="_parent" href=${connect} >${connectLabel}</a></li>
-                    <li class="${status['gs_space']}" ><a target="_parent" href=${space} >${spaceLabel}</a></li>
-                    <li class="${status['gs_activities']}" ><a target="_parent" href=${activity} > ${activityLabel} </a></li>
-                    <li class="${status['gs_document']}" ><a target="_parent" href=${upload}> ${uploadLabel} </a></li>
-                </ul>        
+			<ul class ="gsList" id="gsList">
+				<li class="${status['gs_profile']}" ><a  target="_parent" href=${profile} >${profileLabel}</a></li>
+				<li class="${status['gs_connect']}" ><a  target="_parent" href=${connect} >${connectLabel}</a></li>
+				<li class="${status['gs_space']}" ><a target="_parent" href=${space} >${spaceLabel}</a></li>
+				<li class="${status['gs_activities']}" ><a target="_parent" href=${activity} > ${activityLabel} </a></li>
+				<li class="${status['gs_document']}" ><a target="_parent" href=${upload}> ${uploadLabel} </a></li>
+			</ul>        
 
         </div>   
     <%if(show=="false"){%>
-    <div id="DeleteLink" style="display: block">
-        <span style="text-align: center;background-color: silver;cursor: pointer;" class="DeleteAction">${closeLabel}</span>
-    </div>
+    <div class="center btnCompleteGetting" id="DeleteLink">
+        <button class="btn btn-small">${closeLabel}</button>
+	</div>
     <%}%>
 </div>
