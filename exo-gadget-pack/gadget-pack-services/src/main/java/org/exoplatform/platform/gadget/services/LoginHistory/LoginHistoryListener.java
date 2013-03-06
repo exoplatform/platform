@@ -16,8 +16,6 @@
  ***************************************************************************/
 package org.exoplatform.platform.gadget.services.LoginHistory;
 
-import org.exoplatform.container.ExoContainer;
-import org.exoplatform.container.ExoContainerContext;
 import org.exoplatform.services.listener.Event;
 import org.exoplatform.services.listener.Listener;
 import org.exoplatform.services.log.ExoLogger;
@@ -32,11 +30,11 @@ import org.exoplatform.services.security.ConversationState;
  */
 public class LoginHistoryListener extends Listener<ConversationRegistry, ConversationState> {
 	private static final Log LOG = ExoLogger.getLogger(LoginHistoryListener.class);
-	private ExoContainerContext context;
+    private final LoginHistoryService loginHistoryService;
 
-	public LoginHistoryListener(ExoContainerContext context) throws Exception {
-		this.context = context;
-	}
+    public LoginHistoryListener(LoginHistoryService loginHistoryService) throws Exception {
+        this.loginHistoryService = loginHistoryService;
+    }
 
 	/**
 	 * Log the time when user logging in 
@@ -47,9 +45,6 @@ public class LoginHistoryListener extends Listener<ConversationRegistry, Convers
 	public void onEvent(Event<ConversationRegistry, ConversationState> event) throws Exception {
 		String userId = event.getData().getIdentity().getUserId();
 		try {
-			ExoContainer container = ExoContainerContext.getContainerByName(context.getPortalContainerName());
-			LoginHistoryService loginHistoryService = (LoginHistoryService)container.getComponentInstanceOfType(LoginHistoryService.class);
-			
 			long now = System.currentTimeMillis();
 			if(now - loginHistoryService.getLastLogin(userId) > 180000) {
 				loginHistoryService.addLoginHistoryEntry(userId, now);
