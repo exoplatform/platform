@@ -76,6 +76,7 @@ public class PlatformInformationRESTService implements ResourceContainer {
             jsonPlatformInfo.setIsMobileCompliant(isMobileCompliant().toString());
             jsonPlatformInfo.setRunningProfile(runningProfile);
             jsonPlatformInfo.setCurrentRepoName(repo.getConfiguration().getName());
+            jsonPlatformInfo.setPlatformEdition(getPlatformEdition());
             jsonPlatformInfo.setDefaultWorkSpaceName(repo.getConfiguration().getDefaultWorkspaceName());
             if (sc.getUserPrincipal() != null) {
                 jsonPlatformInfo.setUserHomeNodePath(nodeHierarchyCreator.getUserNode(sessionProvider, sc.getUserPrincipal().getName()).getPath());
@@ -86,11 +87,8 @@ public class PlatformInformationRESTService implements ResourceContainer {
                 jsonPlatformInfo.setDuration(platformInformations.getDuration());
                 jsonPlatformInfo.setDateOfKeyGeneration(platformInformations.getDateOfLicence());
                 jsonPlatformInfo.setNbUsers(platformInformations.getNumberOfUsers());
-                jsonPlatformInfo.setPlatformEdition(getPlatformEdition());
                 jsonPlatformInfo.setProductCode(platformInformations.getProductCode());
                 jsonPlatformInfo.setUnlockKey(platformInformations.getProductKey());
-            } else {
-                jsonPlatformInfo.setPlatformEdition("trial");
             }
             if (LOG.isDebugEnabled()) {
                 LOG.debug("Getting Platform Informations: eXo Platform (v" + platformInformations.getVersion() + " - build "
