@@ -176,7 +176,12 @@ public class UIBreadCrumbsNavigationPortlet extends UIPortletApplication {
                 break;
             }
         }
-        return isAdminUrl;
+
+        if(isAdminUrl || node.getURI().equals("search"))  {
+            return true;
+        }else {
+        return false;
+        }
     }
 
     public static String getEncodedResolvedLabel() throws Exception {

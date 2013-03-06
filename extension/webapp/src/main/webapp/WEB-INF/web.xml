@@ -31,23 +31,15 @@
   <listener>
     <listener-class>org.exoplatform.container.web.PortalContainerConfigOwner</listener-class>
   </listener>
-  
-  <servlet>
-    <servlet-name>TermsAndConditionsViewServlet</servlet-name>
-    <servlet-class>org.exoplatform.platform.common.admin.TermsAndConditionsViewServlet</servlet-class>
-  </servlet>
-  <servlet>
-    <servlet-name>TermsAndConditionsActionServlet</servlet-name>
-    <servlet-class>org.exoplatform.platform.common.admin.TermsAndConditionsActionServlet</servlet-class>
-  </servlet>
-  
-  <servlet-mapping>
-    <servlet-name>TermsAndConditionsViewServlet</servlet-name>
-    <url-pattern>/terms-and-conditions</url-pattern>
-  </servlet-mapping>
-  
-  <servlet-mapping>
-    <servlet-name>TermsAndConditionsActionServlet</servlet-name>
-    <url-pattern>/terms-and-conditions-action</url-pattern>
-  </servlet-mapping>
+
+    <servlet>
+        <servlet-name>accountSetup</servlet-name>
+        <servlet-class>org.exoplatform.platform.account.setup.web.AccountSetup</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>accountSetup</servlet-name>
+        <url-pattern>/accountSetup</url-pattern>
+    </servlet-mapping>
+
 </web-app>

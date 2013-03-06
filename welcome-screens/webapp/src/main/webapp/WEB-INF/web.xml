@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<web-app
+        version="3.0"
+        metadata-complete="true"
+        xmlns="http://java.sun.com/xml/ns/javaee"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd">
+    <display-name>welcome-screens</display-name>
+
+    <!-- ================================================================== -->
+    <!-- LISTENER -->
+    <!-- ================================================================== -->
+    <listener>
+        <listener-class>org.exoplatform.container.web.PortalContainerConfigOwner</listener-class>
+    </listener>
+
+    <!-- ================================================================== -->
+    <!--           SERVLET                                                  -->
+    <!-- ================================================================== -->
+    <servlet>
+        <servlet-name>GateInServlet</servlet-name>
+        <servlet-class>org.gatein.wci.api.GateInServlet</servlet-class>
+        <load-on-startup>0</load-on-startup>
+    </servlet>
+    <!--  =================================================================  -->
+    <servlet-mapping>
+        <servlet-name>GateInServlet</servlet-name>
+        <url-pattern>/gateinservlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>UnlockServlet</servlet-name>
+        <servlet-class>org.exoplatform.platform.welcomescreens.service.UnlockService$UnlockServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>UnlockServlet</servlet-name>
+        <url-pattern>/UnlockServlet</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>TermsAndConditionsViewServlet</servlet-name>
+        <servlet-class>org.exoplatform.platform.welcomescreens.web.TermsAndConditionsViewServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>TermsAndConditionsActionServlet</servlet-name>
+        <servlet-class>org.exoplatform.platform.welcomescreens.web.TermsAndConditionsActionServlet</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>PingBackServlet</servlet-name>
+        <servlet-class>org.exoplatform.platform.welcomescreens.service.UnlockService$PingBackServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>PingBackServlet</servlet-name>
+        <url-pattern>/PingBackServlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>TermsAndConditionsViewServlet</servlet-name>
+        <url-pattern>/terms-and-conditions</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>TermsAndConditionsActionServlet</servlet-name>
+        <url-pattern>/terms-and-conditions-action</url-pattern>
+    </servlet-mapping>
+</web-app>

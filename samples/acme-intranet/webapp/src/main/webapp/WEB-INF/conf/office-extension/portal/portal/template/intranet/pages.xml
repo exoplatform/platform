@@ -189,60 +189,6 @@
                     <show-application-state>false</show-application-state>
                     <show-application-mode>false</show-application-mode>
                 </portlet-application>
-
-                <portlet-application>
-                    <portlet>
-                        <application-ref>presentation</application-ref>
-                        <portlet-ref>SingleContentViewer</portlet-ref>
-                        <preferences>
-                            <preference>
-                                <name>workspace</name>
-                                <value>collaboration</value>
-                                <read-only>false</read-only>
-                            </preference>
-                            <preference>
-                                <name>nodeIdentifier</name>
-                                <value>/sites/@owner@/web contents/site artifacts/Footer</value>
-                                <read-only>false</read-only>
-                            </preference>
-                            <preference>
-                                <name>ShowQuickEdit</name>
-                                <value>true</value>
-                                <read-only>false</read-only>
-                            </preference>
-                            <preference>
-                                <name>ShowPrintAction</name>
-                                <value>false</value>
-                                <read-only>false</read-only>
-                            </preference>
-                            <preference>
-                                <name>ShowTOC</name>
-                                <value>false</value>
-                                <read-only>false</read-only>
-                            </preference>
-                            <preference>
-                                <name>ShowTags</name>
-                                <value>false</value>
-                                <read-only>false</read-only>
-                            </preference>
-                            <preference>
-                                <name>ShowCategories</name>
-                                <value>false</value>
-                                <read-only>false</read-only>
-                            </preference>
-                            <preference>
-                                <name>ShowTitle</name>
-                                <value>false</value>
-                                <read-only>false</read-only>
-                            </preference>
-                        </preferences>
-                    </portlet>
-                    <title>Footer</title>
-                    <access-permissions>Everyone</access-permissions>
-                    <show-info-bar>false</show-info-bar>
-                    <show-application-state>false</show-application-state>
-                    <show-application-mode>false</show-application-mode>
-                </portlet-application>
             </container>
 
             <container id="OfficeRight"  template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
@@ -309,73 +255,6 @@
 
         </container>
 
-    </page>
-
-
-    <page>
-        <name>welcome</name>
-        <title>Welcome Page</title>
-        <access-permissions>Everyone</access-permissions>
-        <edit-permission>*:/platform/administrators</edit-permission>
-        <container id="Officewelcome" template="system:/groovy/portal/webui/container/UITableColumnContainer.gtmpl">
-            <access-permissions>Everyone</access-permissions>
-            <container id="OfficeLeft" template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
-                <access-permissions>Everyone</access-permissions>
-                <portlet-application>
-                    <portlet>
-                        <application-ref>presentation</application-ref>
-                        <portlet-ref>SingleContentViewer</portlet-ref>
-                        <preferences>
-                            <preference>
-                                <name>workspace</name>
-                                <value>collaboration</value>
-                                <read-only>false</read-only>
-                            </preference>
-                            <preference>
-                                <name>nodeIdentifier</name>
-                                <value>/sites/@owner@/web contents/site artifacts/Welcome</value>
-                                <read-only>false</read-only>
-                            </preference>
-                            <preference>
-                                <name>ShowQuickEdit</name>
-                                <value>true</value>
-                                <read-only>false</read-only>
-                            </preference>
-                            <preference>
-                                <name>ShowPrintAction</name>
-                                <value>false</value>
-                                <read-only>false</read-only>
-                            </preference>
-                            <preference>
-                                <name>ShowTOC</name>
-                                <value>false</value>
-                                <read-only>false</read-only>
-                            </preference>
-                            <preference>
-                                <name>ShowTags</name>
-                                <value>false</value>
-                                <read-only>false</read-only>
-                            </preference>
-                            <preference>
-                                <name>ShowCategories</name>
-                                <value>false</value>
-                                <read-only>false</read-only>
-                            </preference>
-                            <preference>
-                                <name>ShowTitle</name>
-                                <value>false</value>
-                                <read-only>false</read-only>
-                            </preference>
-                        </preferences>
-                    </portlet>
-                    <title>Welcome</title>
-                    <access-permissions>Everyone</access-permissions>
-                    <show-info-bar>false</show-info-bar>
-                    <show-application-state>false</show-application-state>
-                    <show-application-mode>false</show-application-mode>
-                </portlet-application>
-            </container>
-        </container>
     </page>
 
     <page>
@@ -972,22 +851,6 @@
         </portlet-application>
     </page>
     <page>
-        <name>mail</name>
-        <title>Mail</title>
-        <access-permissions>*:/platform/users</access-permissions>
-        <edit-permission>*:/platform/administrators</edit-permission>
-
-        <portlet-application>
-            <portlet>
-                <application-ref>mail</application-ref>
-                <portlet-ref>MailPortlet</portlet-ref>
-            </portlet>
-            <title>Mail Portlet</title>
-            <access-permissions>*:/platform/users</access-permissions>
-            <show-info-bar>false</show-info-bar>
-        </portlet-application>
-    </page>
-    <page>
         <name>calendar</name>
         <title>Calendar</title>
         <access-permissions>*:/platform/users</access-permissions>
@@ -999,22 +862,6 @@
                 <portlet-ref>CalendarPortlet</portlet-ref>
             </portlet>
             <title>Calendar Portlet</title>
-            <access-permissions>*:/platform/users</access-permissions>
-            <show-info-bar>false</show-info-bar>
-        </portlet-application>
-    </page>
-    <page>
-        <name>contact</name>
-        <title>Contact</title>
-        <access-permissions>*:/platform/users</access-permissions>
-        <edit-permission>*:/platform/administrators</edit-permission>
-
-        <portlet-application>
-            <portlet>
-                <application-ref>contact</application-ref>
-                <portlet-ref>ContactPortlet</portlet-ref>
-            </portlet>
-            <title>Contact Portlet</title>
             <access-permissions>*:/platform/users</access-permissions>
             <show-info-bar>false</show-info-bar>
         </portlet-application>
