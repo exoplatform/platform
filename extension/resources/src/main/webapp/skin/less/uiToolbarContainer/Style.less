@@ -25,7 +25,62 @@
 		> a:hover,.uiDropdownWithIcon.open > a {
 			background: none;
 		}
-		
+		> .dropdown-menu {
+			margin-top: 8px;
+		}
+	}
+	
+	.uiDropdownWithIcon.pull-left {
+		> .dropdown-menu {
+			margin-top: 8px;
+			&:before {
+		    content: '';
+		    display: inline-block;
+		    border-left:   7px solid transparent;
+		    border-right:  7px solid transparent;
+		    border-bottom: 7px solid #ccc;
+		    border-bottom-color: @dropdownBorder;
+		    position: absolute;
+		    top: -7px;
+		    left: 9px;
+		  }
+		  &:after {
+		    content: '';
+		    display: inline-block;
+		    border-left:   6px solid transparent;
+		    border-right:  6px solid transparent;
+		    border-bottom: 6px solid @dropdownBackground;
+		    position: absolute;
+		    top: -6px;
+		    left: 10px;
+		  }
+		}
+	}
+	
+	.uiDropdownWithIcon.pull-right {
+		> .dropdown-menu {
+			&:before {
+		    content: '';
+		    display: inline-block;
+		    border-left:   7px solid transparent;
+		    border-right:  7px solid transparent;
+		    border-bottom: 7px solid #ccc;
+		    border-bottom-color: @dropdownBorder;
+		    position: absolute;
+		    top: -7px;
+		    right: 9px;
+		  }
+		  &:after {
+		    content: '';
+		    display: inline-block;
+		    border-left:   6px solid transparent;
+		    border-right:  6px solid transparent;
+		    border-bottom: 6px solid @dropdownBackground;
+		    position: absolute;
+		    top: -6px;
+		    right: 10px;
+		  }
+		}
 	}
 	
 	.uiSearchPlatformToolBarPortlet {

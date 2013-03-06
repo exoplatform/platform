@@ -48,7 +48,7 @@ if(pagesNodes!=null && !pagesNodes.isEmpty()) {
   JavascriptManager jsmanager = rcontext.getJavascriptManager();
 
 %>
-  <div class="uiSetupPlatformToolBarPortlet uiDropdownWithIcon dropdown" id="$uicomponent.id">
+  <div class="uiSetupPlatformToolBarPortlet uiDropdownWithIcon dropdown pull-left" id="$uicomponent.id">
       <a class="dropdown-toggle" data-toggle="dropdown">
 				<i class="uiIconPLF24x24Setup"></i><%=_ctx.appRes("UISetupPlatformToolBarPortlet.label.administration")%>
 			</a>
