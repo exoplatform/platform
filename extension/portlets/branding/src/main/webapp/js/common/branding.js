@@ -9,8 +9,8 @@
 	var ajaxLoading = $("#AjaxLoadingMask.clearfix");
 	if (!supportHTML5()) {
 		$("#btUpload").remove();
+		$("input#file").show();
 	} else {
-		$("input#file").hide();
 		$("#btUpload").on("click", function() {
 			$("input#file").click();
 		});

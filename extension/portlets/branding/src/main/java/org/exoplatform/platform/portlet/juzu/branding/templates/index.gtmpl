@@ -30,7 +30,7 @@
 		  <div class="pull-left">
 				<form id="form" enctype="multipart/form-data" action="${urlUploadFile}"  method="POST">
 				 <input type='hidden' id='browser' name='browser' />
-			     <input type='file' id='file' name='file'  />
+			     <input type='file' id='file' name='file' style="display: none;" />
 				</form>
 			
 				<div class="uiAction">
