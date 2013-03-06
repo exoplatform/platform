@@ -440,6 +440,11 @@
       </dependency>
       <dependency>
         <groupId>org.exoplatform.platform</groupId>
+        <artifactId>platform-component-edition-community</artifactId>
+        <version>${project.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.exoplatform.platform</groupId>
         <artifactId>platform-component-gadgets</artifactId>
         <version>${project.version}</version>
       </dependency>

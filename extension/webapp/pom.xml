@@ -124,10 +124,12 @@
       <artifactId>platform-component-common</artifactId>
       <scope>runtime</scope>
     </dependency>
+    <!-- This artifact is optional here because the packaging projects will defined it with platform-component-edition-[enterprise|community] -->
     <dependency>
       <groupId>org.exoplatform.platform</groupId>
-      <artifactId>platform-component-edition-enterprise</artifactId>
+      <artifactId>platform-component-edition-community</artifactId>
       <scope>runtime</scope>
+      <optional>true</optional>
     </dependency>
     <dependency>
       <groupId>org.exoplatform.platform</groupId>
