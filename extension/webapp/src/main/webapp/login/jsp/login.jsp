@@ -307,11 +307,35 @@
 				color: #707070;
 			}
 
+            #platformInfoDiv {
+                font-size: 11px;
+                text-align:center;
+            }
+
 		</style>
 
     <script type="text/javascript" src="/platform-extension/javascript/jquery-1.7.1.js"></script>
     <script type="text/javascript" src="/platform-extension/javascript/iphone-style-checkboxes.js"></script>
-
+    <script type="text/javascript">
+        $(document).ready(function() {
+            var htmlContent = "Powered by eXo Platform ";
+            var divContent = jQuery("#platformInfoDiv");
+            var requestJsonPlatformInfo = jQuery.ajax({ type: "GET", url: "/portal/rest/platform/info", async: false, dataType: 'json' });
+            if(requestJsonPlatformInfo.readyState == 4 && requestJsonPlatformInfo.status == 200){
+                //readyState 4: request finished and response is ready
+                //status 200: "OK"
+                var myresponseText = requestJsonPlatformInfo.responseText;
+                var jsonPlatformInfo = jQuery.parseJSON(myresponseText);
+                htmlContent += "v"
+                htmlContent += jsonPlatformInfo.platformVersion;
+                htmlContent += " - build "
+                htmlContent += jsonPlatformInfo.platformBuildNumber;
+            }else{
+                htmlContent += "3.5"
+            }
+            divContent.text(htmlContent);
+        });
+    </script>
   </head>
   <body>
   <div class="loginBGLight"><span></span></div>
@@ -377,7 +401,6 @@
         </div>
       </div>
     </div>
-    <div style="font-size: 12px; color: #c8c8c8; text-align: center">Copyright &copy; 2010 eXo Platform SAS, all rights reserved.</div>
-
+    <div id="platformInfoDiv"></div>
   </body>
 </html>
