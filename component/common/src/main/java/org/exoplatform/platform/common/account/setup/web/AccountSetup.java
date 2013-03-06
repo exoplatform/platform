@@ -1,5 +1,9 @@
-package org.exoplatform.platform.account.setup.web;
+package org.exoplatform.platform.common.account.setup.web;
 
+import org.exoplatform.commons.api.settings.SettingService;
+import org.exoplatform.commons.api.settings.SettingValue;
+import org.exoplatform.commons.api.settings.data.Context;
+import org.exoplatform.commons.api.settings.data.Scope;
 import org.exoplatform.container.PortalContainer;
 import org.exoplatform.container.component.ComponentRequestLifecycle;
 import org.exoplatform.container.component.RequestLifeCycle;
@@ -18,7 +22,7 @@ import java.io.IOException;
  */
 public class AccountSetup extends HttpServlet {
     private static final long serialVersionUID = 6467955354840693802L;
-
+    public final static String ACCOUNT_SETUP_NODE = "accountSetup";
     private static Log logger = ExoLogger.getLogger(AccountSetup.class);
     private final static String USER_NAME_ACCOUNT = "username";
     private final static String FIRST_NAME_ACCOUNT = "firstNameAccount";
@@ -43,6 +47,7 @@ public class AccountSetup extends HttpServlet {
         String adminPassword = request.getParameter(ADMIN_PASSWORD);
         OrganizationService orgService;
         UserHandler userHandler;
+        SettingService settingService_;
         User user;
 
         try {
@@ -80,6 +85,8 @@ public class AccountSetup extends HttpServlet {
                 logger.error("Can not set password to the created user", e);
             }
         } finally {
+            settingService_ =  (SettingService) PortalContainer.getInstance().getComponentInstanceOfType(SettingService.class);
+            settingService_.set(Context.GLOBAL, Scope.GLOBAL, ACCOUNT_SETUP_NODE, SettingValue.create("setup over:" + "true"));
             RequestLifeCycle.end();
         }
         // Redirect to requested page

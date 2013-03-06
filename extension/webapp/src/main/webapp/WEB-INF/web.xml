@@ -34,7 +34,7 @@
 
     <servlet>
         <servlet-name>accountSetup</servlet-name>
-        <servlet-class>org.exoplatform.platform.account.setup.web.AccountSetup</servlet-class>
+        <servlet-class>org.exoplatform.platform.common.account.setup.web.AccountSetup</servlet-class>
     </servlet>
 
     <servlet-mapping>

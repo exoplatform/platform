@@ -39,7 +39,7 @@
                     <name>Account Setup Filter</name>
                     <object type="org.exoplatform.web.filter.FilterDefinition">
                         <field name="filter">
-                            <object type="org.exoplatform.platform.common.account.setup.AccountSetupFilter"/>
+                            <object type="org.exoplatform.platform.common.account.setup.web.AccountSetupFilter"/>
                         </field>
                         <field name="patterns">
                             <collection type="java.util.ArrayList" item-type="java.lang.String">
