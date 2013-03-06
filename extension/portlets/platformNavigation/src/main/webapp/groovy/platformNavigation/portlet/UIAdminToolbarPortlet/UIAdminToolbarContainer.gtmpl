@@ -19,11 +19,11 @@
   String siteLabel = _ctx.appRes("UIAdminToolbarPortlet.action.Site");
 	String addSiteLabel = _ctx.appRes("UIAdminToolbarPortlet.action.AddSite");
 
-	String quiEditClass = "QuickEditUnchecked";
+	String quiEditClass = "quickEditUnchecked";
 	PortalRequestContext context = Util.getPortalRequestContext();
 	Boolean quickEdit = (Boolean)context.getRequest().getSession().getAttribute(Utils.TURN_ON_QUICK_EDIT);
 	if(quickEdit != null && quickEdit) {
-	  quiEditClass = "QuickEditChecked"
+	  quiEditClass = "quickEditChecked"
 	}
 
 	boolean userCouldEditNavigation = uicomponent.hasEditPermissionOnNavigation() && !uicomponent.isUserNavigation();
@@ -40,8 +40,9 @@
 		<ul class="dropdown-menu">
       <% if(uicomponent.isSpaceManager()) { %>
 			<li>
-				<a href="<%=uicomponent.event("ChangeEditing")%>" class="$quiEditClass">
+				<a href="<%=uicomponent.event("ChangeEditing")%>">
 					$quickEditLabel
+					<i class="$quiEditClass"></i>
 				</a>
 			</li>
 			<li class="divider">&nbsp;</li>

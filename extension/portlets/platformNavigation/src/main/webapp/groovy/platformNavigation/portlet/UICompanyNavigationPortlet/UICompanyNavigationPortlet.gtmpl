@@ -61,7 +61,7 @@
   			  String hrefLower = href.trim().toLowerCase().substring(href.lastIndexOf("/") + 1, href.length());
   		  if (hrefLower.contains("home")) {
    			   icon = "uiIconHome";
-  		  } else if (hrefLower.contains("connections")) {
+  		  } else if (hrefLower.contains("connexions")) {
   			   icon = "uiIconUser";
  		   } else if (hrefLower.contains("wiki")) {
   		       icon = "uiIconWiki";
