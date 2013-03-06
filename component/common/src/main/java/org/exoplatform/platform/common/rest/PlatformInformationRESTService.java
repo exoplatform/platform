@@ -19,7 +19,6 @@
 package org.exoplatform.platform.common.rest;
 
 import org.exoplatform.common.http.HTTPStatus;
-import org.exoplatform.commons.info.MissingProductInformationException;
 import org.exoplatform.commons.info.ProductInformations;
 import org.exoplatform.container.PortalContainer;
 import org.exoplatform.services.log.ExoLogger;
@@ -92,13 +91,8 @@ public class PlatformInformationRESTService implements ResourceContainer {
   }
 
   private Boolean isMobileCompliant()  {
-    String platformEdition = null;
-    try {
-      platformEdition = platformInformations.getEdition();
-    } catch (MissingProductInformationException e) {
-
-    }
-    return (platformEdition != null && ((platformEdition.equals(ProductInformations.ENTERPRISE_EDITION))||(platformEdition.equals(ProductInformations.EXPRESS_EDITION))));
+    String platformEdition = getPlatformEdition();
+    return (platformEdition != null && ((platformEdition.equals("community"))||(platformEdition.equals("enterprise"))));
   }
 
     private String getPlatformEdition() {
