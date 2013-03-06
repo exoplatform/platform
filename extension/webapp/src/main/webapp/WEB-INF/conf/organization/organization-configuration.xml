@@ -201,7 +201,7 @@
                       <string>the /platform/users group</string>
                     </field>
                     <field name="label">
-                      <string>Visitors</string>
+                      <string>Users</string>
                     </field>
                   </object>
                 </value>
