@@ -43,7 +43,7 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
     </div>
 </div>
 <div class="UIContent">
-    <h2 class="CenterTitle">You must own a valid subscription in order to unlock this eXo-Platform</h2>
+    <h2 class="CenterTitle">You must own a valid subscription in order to unlock this eXo-Platform instance</h2>
 
     <div class="Container ClearFix">
         <span class="TextContainer">1- Pickup your favorite <a class="" href="<%=UnlockService.getSubscriptionUrl()%>" target="_blank">subscription</a> plan</span>
