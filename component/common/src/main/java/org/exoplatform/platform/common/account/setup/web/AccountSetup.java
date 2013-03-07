@@ -31,8 +31,8 @@ public class AccountSetup extends HttpServlet {
     private final static String USER_PASSWORD_ACCOUNT = "password";
     private final static String ADMIN_FIRST_NAME = "root";
     private final static String ADMIN_PASSWORD = "adminPassword";
-    private final static String PLATFORM_USERS_GROUP = "/platform/users";
-    private final static String MEMBERSHIP_TYPE_MANAGER = "manager";
+    private final static String PLATFORM_USERS_GROUP = "/platform/administrators";
+    private final static String MEMBERSHIP_TYPE_MANAGER = "*";
     private final static String INTRANET_HOME = "/portal/intranet";     //A verifier
     private final static String INITIAL_URI_PARAM = "initialURI";
     @Override
