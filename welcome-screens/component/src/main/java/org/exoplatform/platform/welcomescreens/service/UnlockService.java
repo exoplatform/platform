@@ -240,20 +240,23 @@ public class UnlockService implements Startable {
 
     private static int decodeKey(String productCode, String Key) {
         StringBuffer keyBuffer = new StringBuffer(new String(Base64.decodeBase64(Key.getBytes())));
-        int keyLength = Integer.parseInt(keyBuffer.substring(8, 10));
-        boolean validLicence = false;
-        if(keyLength==keyBuffer.toString().length())   validLicence = true;
+        String keyLengthString = keyBuffer.substring(8, 10);
         int length = Integer.parseInt(keyBuffer.substring(4, 6));
         keyBuffer.replace(4, 6, "");
-        keyBuffer.replace(6, 8, "");
         String productCodeHashed = keyBuffer.substring(0, length);
         if (!productCodeHashed.equals(Utils.getModifiedMD5Code(productCode.getBytes()))) {
+            keyBuffer.replace(6, 8, "");
+            productCodeHashed = keyBuffer.substring(0, length);
+            if (!productCodeHashed.equals(Utils.getModifiedMD5Code(productCode.getBytes()))){
             return 0;
+            }
         }
         String productInfoString = keyBuffer.substring(length);
         String[] productInfo = productInfoString.split(",");
 
         if ((productInfo.length == 3)) {
+            int keyLength = Integer.parseInt(keyLengthString);
+            boolean validLicence = (keyLength==keyBuffer.toString().length()+4);
             if(!validLicence)  return 0;
             String nbUser = productInfo[0];
             String duration = productInfo[1];
@@ -293,7 +296,7 @@ public class UnlockService implements Startable {
             }
             persistInfo(edition, nbUser, keyDate, duration, productCode, Key);
             return period;
-        } else if(productInfo.length==0){
+        } else if((productInfo.length==1)||(productInfo.length==0)){
             String periodString = new String(Base64.decodeBase64(productInfoString.getBytes()));
             int period = Integer.parseInt(periodString) / 3;
             return period;
@@ -362,7 +365,7 @@ public class UnlockService implements Startable {
                 } catch (Exception exception) {
                     delay = 0;
                 }
-                if (delay == 0) {
+                if (( delay > -1)&&(delay<=0)) {
                     request.setAttribute("errorMessage", "Sorry this evaluation key is not valid.");
                     request.getRequestDispatcher("WEB-INF/jsp/welcome-screens/unlockTrial.jsp").include(request, response);
                     return;
