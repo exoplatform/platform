@@ -46,13 +46,13 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
     <h2 class="CenterTitle">You must own a valid subscription in order to unlock this eXo-Platform</h2>
 
     <div class="Container ClearFix">
-        <span class="TextContainer">Pickup your favourite <a class="" href="<%=UnlockService.getSubscriptionUrl()%>" target="_blank">subscription</a> plan</span>
+        <span class="TextContainer">1- Pickup your favorite <a class="" href="<%=UnlockService.getSubscriptionUrl()%>" target="_blank">subscription</a> plan</span>
         <span class="TriangleItem OrangeIcon"></span>
     </div>
     <form action="/welcome-screens/UnlockServlet" method="post" name="unlockForm" onsubmit="return formValidation();">
     <div class="Container ClearFix">
 
-        <span class="TextContainer">Grab your product code and request an unlock key</span>
+        <span class="TextContainer">2- Grab your product code and request an unlock key</span>
         <br>
         <span>Product Code</span> <input type="text" class="Text"  name="pc" value="<%=UnlockService.getProductCode() %>">  <a class="Botton BlueRect" target="_blank" href="<%=UnlockService.getRegistrationFormUrl()%>?'pc=<%=UnlockService.getProductCode()%>'">Request a Key</a>
         <span class="TriangleItem BlueIcon"></span>
@@ -61,7 +61,7 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
     <div class="Container ClearFix">
         <span>
 
-            <span class="TextContainer">Enter your unlock key below to unlock the product <br> </span>
+            <span class="TextContainer">3- Enter your unlock key below to unlock the product <br> </span>
             <div class="FormContainer">
 
                     <table>
