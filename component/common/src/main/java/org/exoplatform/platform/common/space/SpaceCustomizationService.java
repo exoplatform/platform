@@ -295,7 +295,7 @@ public class SpaceCustomizationService {
           if (portletPreference == null) {
             portletPreference = new Portlet();
           }
-          portletPreference.putPreference(new Preference(SpaceUtils.SPACE_URL, prefValue, false));
+          portletPreference.putPreference(new Preference(SpaceUtils.SPACE_URL, prefValue, true));
 
         }
       }
