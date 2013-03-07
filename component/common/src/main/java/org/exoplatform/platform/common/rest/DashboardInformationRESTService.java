@@ -6,21 +6,17 @@ import org.exoplatform.common.http.HTTPStatus;
 import org.exoplatform.container.PortalContainer;
 import org.exoplatform.container.component.RequestLifeCycle;
 import org.exoplatform.portal.config.DataStorage;
-import org.exoplatform.portal.config.UserPortalConfig;
-import org.exoplatform.portal.config.UserPortalConfigService;
 import org.exoplatform.portal.config.model.Application;
 import org.exoplatform.portal.config.model.*;
-import org.exoplatform.portal.mop.SiteKey;
-import org.exoplatform.portal.mop.navigation.Scope;
-import org.exoplatform.portal.mop.user.UserNavigation;
-import org.exoplatform.portal.mop.user.UserNode;
-import org.exoplatform.portal.mop.user.UserPortal;
-import org.exoplatform.portal.mop.user.UserPortalContext;
+import org.exoplatform.portal.config.model.*;
 import org.exoplatform.portal.pom.spi.portlet.Portlet;
+import org.exoplatform.portal.mop.navigation.NavigationService;
+import org.exoplatform.portal.mop.description.DescriptionService;
 import org.exoplatform.services.log.ExoLogger;
 import org.exoplatform.services.log.Log;
 import org.exoplatform.services.rest.resource.ResourceContainer;
 import org.exoplatform.services.security.ConversationState;
+import org.exoplatform.platform.common.navigation.NavigationUtils;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
@@ -51,16 +47,19 @@ public class DashboardInformationRESTService implements ResourceContainer {
   protected final static String WS_ROOT_PATH = "/dashboards";
   protected final static String STANDALONE_ROOT_PATH = "/standalone";
 
-  private final UserPortalConfigService userPortalConfigService;
   private final DataStorage dataStorageService;
   private final GadgetRegistryService gadgetRegistryService;
   
   private List<JsonGadgetInfo> gadgetsInfo;
-  
-  public DashboardInformationRESTService(UserPortalConfigService userPortalConfigService, DataStorage dataStorageService, GadgetRegistryService gadgetRegistryService) {
-    this.userPortalConfigService = userPortalConfigService;
-    this.dataStorageService = dataStorageService;
+    private NavigationService navigationService_;
+    private DescriptionService descriptionService_;
+    private PageNavigation navigation;
+
+    public DashboardInformationRESTService(DataStorage dataStorageService, GadgetRegistryService gadgetRegistryService,DescriptionService descriptionService,NavigationService navigationService) {
+   this.dataStorageService = dataStorageService;
     this.gadgetRegistryService = gadgetRegistryService;
+      this.navigationService_= navigationService;
+      this.descriptionService_= descriptionService;
   }
 
 
@@ -82,43 +81,40 @@ public class DashboardInformationRESTService implements ResourceContainer {
       
       // Try to get all user nodes which corresponds to dashboards
       String userId = ConversationState.getCurrent().getIdentity().getUserId();
-      UserNavigation userNavigation = getUserNavigation(userId);
-      
-      if(userNavigation != null) {
-        UserPortal userPortal = getUserPortal(userId);
-        
-        if(userPortal != null) {
-          UserNode rootNode = userPortal.getNode(userNavigation, Scope.ALL, null, null);
-          
-          if(rootNode != null) {
-            Collection<UserNode> nodes = rootNode.getChildren();
-            
+      //Loading User Navigation only
+      navigation = NavigationUtils.loadPageNavigation(userId,navigationService_, descriptionService_);
+
+        //Get navigations
+        List<NavigationFragment> fragments = navigation.getFragments() ;
+
+        //Get dashboard tabs
+        for (NavigationFragment frag:fragments) {
+            List<PageNode> pagesNode=frag.getNodes();
             // Fetch all nodes to add dashboards to the final list
             String wsSubPath = "";
             String dashboardSubPath = "";
             URI wsURI = null;
             URI dashboardURI = null;
-            if(nodes != null) {
-              for(UserNode node : nodes){
-                Application<Portlet> appDashboard = (Application<Portlet>) extractDashboard(dataStorageService.getPage(node.getPageRef().format()));
-                
+            for (PageNode pageNode:pagesNode){
+                Application<Portlet> appDashboard = (Application<Portlet>) extractDashboard(dataStorageService.getPage(pageNode.getPageReference()));
                 if(appDashboard == null) {
-                  continue;
+                    continue;
+
                 }
                 
                 // Dashboard only into TransientApplication
                 if(appDashboard.getState() instanceof TransientApplicationState) {
                   
                   JsonDashboardInfo info = new JsonDashboardInfo();
-                  info.setId(node.getId());
-                  info.setLabel(node.getEncodedResolvedLabel());
+                    info.setId(pageNode.getName());
+                    info.setLabel(pageNode.getLabel());
                   
                   // Create URI to WS REST
-                  wsSubPath = PortalContainer.getCurrentRestContextName() + "/private" + WS_ROOT_PATH + "/" + userId + "/" + getPageName(node.getPageRef().format());
+                  wsSubPath = PortalContainer.getCurrentRestContextName() + "/private" + WS_ROOT_PATH + "/" + userId + "/" + getPageName(pageNode.getPageReference());
                   wsURI = uriInfo.getBaseUriBuilder().replaceMatrix(wsSubPath).build();
                   
                   // Create URI to dashboard into portal
-                  dashboardSubPath = PortalContainer.getCurrentPortalContainerName() + "/u/" + userId + "/" + node.getName();
+                  dashboardSubPath = PortalContainer.getCurrentPortalContainerName() + "/u/" + userId + "/" + pageNode.getName();
                   dashboardURI = uriInfo.getBaseUriBuilder().replaceMatrix(dashboardSubPath).build();
         
                   info.setLink(wsURI.toString());
@@ -126,9 +122,6 @@ public class DashboardInformationRESTService implements ResourceContainer {
                   list.add(info);
                 }
               }
-            }
-          }
-        }
       }
       
       if (LOG.isDebugEnabled()) {
@@ -284,29 +277,7 @@ public class DashboardInformationRESTService implements ResourceContainer {
     }
     return null;
   }
-  
-  /**
-   * Retrieve UserNavigation with an userID
-   * @param userId
-   * @return
-   * @throws Exception
-   */
-  private UserNavigation getUserNavigation(String userId) throws Exception {
-    UserPortal userPortal = getUserPortal(userId);
-    return userPortal.getNavigation(SiteKey.user(userId));
-  }
-  
-  /**
-   * Retrieve a portal with an userID
-   * @param userId
-   * @return
-   * @throws Exception
-   */
-  private UserPortal getUserPortal(String userId) throws Exception {
-    UserPortalConfig portalConfig = userPortalConfigService.getUserPortalConfig(userPortalConfigService.getDefaultPortal(),
-        userId, NULL_CONTEXT);
-    return portalConfig.getUserPortal();
-  }
+
 
   /**
    * DTO Object used to create JSON response
@@ -387,17 +358,6 @@ public class DashboardInformationRESTService implements ResourceContainer {
       this.gadgetDescription = gadgetDescription;
     }
   }
-
-  // Don't need a portal context because webui isn't used
-  private static final UserPortalContext NULL_CONTEXT = new UserPortalContext() {
-    public ResourceBundle getBundle(UserNavigation navigation) {
-      return null;
-    }
-
-    public Locale getUserLocale() {
-      return Locale.ENGLISH;
-    }
-  };
   
   /**
    * Simple utility method to extract a page name from a page ref
