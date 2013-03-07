@@ -272,7 +272,7 @@
 				font-size: 11px;
 				line-height: 16px;
 				font-weight: bold;
-				font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
+				font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 				cursor: pointer;
 				display: block;
 				height: 16px;
@@ -305,6 +305,17 @@
 				color: #999999;
 				font-weight: bold;
 			}
+
+			.uiLogin .signinFail{
+                background-color: transparent;
+                background-image: url("/eXoResources/skin/images/PopupMessage/icons.png");
+                background-repeat: no-repeat;
+                font-size: 13px;
+                line-height: 16px;
+                margin: 6px 0 0 1px;
+                padding-left: 20px;
+                font-weight: bold;
+            }
 
             #platformInfoDiv {
                 font-size: 12px;
