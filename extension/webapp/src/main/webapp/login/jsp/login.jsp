@@ -66,7 +66,7 @@
 					
 			body {
 				background: url("/platform-extension/login/jsp/images/login_texture.jpg") repeat;
-				font-family: lucida, arial, tahoma, verdana
+				font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
 			}
 			@font-face {
 			 font-family: lucida;
@@ -146,8 +146,8 @@
 			.uiLogin .loginHeader .userLoginIcon{
 				background: url("/platform-extension/login/jsp/images/UserLoginIcon.png") no-repeat scroll 0 0 transparent;
 				color: #CCCCCC;
-				font-size: 17px;
-				font-weight: bold;
+				font-size: 20px;
+				font-weight: 500;
 				line-height: 41px;
 				padding-left: 52px;
 			}
@@ -301,15 +301,17 @@
 			}
 			
 			.uiLogin .rememberTxt{
-				float: left;
 				font-size: 13px;
-				padding-left: 12px;
-				color: #707070;
+				color: #999999;
+				font-weight: bold;
 			}
 
             #platformInfoDiv {
-                font-size: 11px;
+                font-size: 12px;
                 text-align:center;
+                color: #FFFFFF;
+                opacity: 0.6;
+                margin-top: 15px;
             }
 
 		</style>
@@ -331,7 +333,7 @@
                 htmlContent += " - build "
                 htmlContent += jsonPlatformInfo.platformBuildNumber;
             }else{
-                htmlContent += "3.5"
+                htmlContent += "4.0"
             }
             divContent.text(htmlContent);
         });
@@ -349,7 +351,7 @@
           <%
                 if(error) {
           %>
-          <font color="red"><%=res.getString("UILoginForm.label.SigninFail")%></font><%}%>
+          <div class="signinFail"><%=res.getString("UILoginForm.label.SigninFail")%></div><%}%>
 				</div>
         <div class="centerLoginContent">
           <form name="loginForm" action="<%= contextPath + "/login"%>" method="post" style="margin: 0px;">
@@ -363,7 +365,7 @@
 				<input class="password" id="UIPortalLoginFormControl" type="password" id="password" name="password" placeholder="Password"/>
                 <div class="spaceRole">
 					<input type="checkbox" class="yesno" checked="checked" style="visibility: hidden;" id="rememberme" name="rememberme" value="true"/>
-					<label for="rememberme"><%=res.getString("UILoginForm.label.RememberOnComputer")%></label>
+					<label class="rememberTxt" for="rememberme"><%=res.getString("UILoginForm.label.RememberOnComputer")%></label>
 				</div>
                 <script type="text/javascript">
                     $("div.spaceRole").click(function()
