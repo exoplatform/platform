@@ -26,7 +26,7 @@
             </value-param>
             <value-param>
                 <name>subscriptionUrl</name>
-                <value>http://www.exoplatform.com/company/fr/home#/#pricing</value>
+                <value>http://www.exoplatform.com/company/en/products/editions</value>
             </value-param>
             <value-param>
                 <name>pingBackUrl</name>
