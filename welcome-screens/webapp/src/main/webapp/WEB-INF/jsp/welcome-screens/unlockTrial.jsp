@@ -49,7 +49,7 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
         <span class="TextContainer">1- Pickup your favorite <a class="" href="<%=UnlockService.getSubscriptionUrl()%>" target="_blank">subscription</a> plan</span>
         <span class="TriangleItem OrangeIcon"></span>
     </div>
-    <form action="/welcome-screens/UnlockServlet" method="post" name="unlockForm" onsubmit="return formValidation();">
+    <form action="/welcome-screens/trial" method="post" name="unlockForm" onsubmit="return formValidation();">
     <div class="Container ClearFix">
 
         <span class="TextContainer">2- Grab your product code and request an unlock key</span>

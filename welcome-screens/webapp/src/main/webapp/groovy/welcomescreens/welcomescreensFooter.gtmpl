@@ -73,7 +73,7 @@
     <div >
         <div class="WLCFooter <%=css  %>">
             <%=label1 %> <%=rday%> <%=label2 %>
-            <a class="removeButton" href="/welcome-screens/UnlockServlet"><%= labelRemove %></a>
+            <a class="removeButton" href="/welcome-screens/trial"><%= labelRemove %></a>
         </div>
     </div>
 </div>

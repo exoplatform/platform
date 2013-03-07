@@ -34,7 +34,7 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>UnlockServlet</servlet-name>
-        <url-pattern>/UnlockServlet</url-pattern>
+        <url-pattern>/trial</url-pattern>
     </servlet-mapping>
     <servlet>
         <servlet-name>TermsAndConditionsViewServlet</servlet-name>
