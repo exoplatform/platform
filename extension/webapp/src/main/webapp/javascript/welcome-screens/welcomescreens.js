@@ -141,7 +141,7 @@ WelcomeScreens.exit = function() {
     }
 
     if ((adminPassword != "") && (confirmAdminPassword != "") && (adminPassword != confirmAdminPassword)){
-        $('#adminPasswordId').after('<tr id ="AdminPasswordNotMatchId"><td colspan="4" class ="accountSetupError"><b>Password</b> and <b>Confirm</b> must be the same.</td></tr>');
+        $('#adminPasswordId').after('<tr id ="AdminPasswordNotMatchId"><td colspan="4" class ="accountSetupError"><b>Password</b> does not match the <b>Confirm password</b></td></tr>');
         WelcomeScreens.ACCOUNT_SETUP_ERROR = true;
     }
 

@@ -151,6 +151,10 @@ public class UnlockService implements Startable {
 
     public static String computeRemindDateFromTodayBase64() {
         Calendar remindDate = Calendar.getInstance();
+        remindDate.set(Calendar.HOUR, 23);
+        remindDate.set(Calendar.MINUTE, 59);
+        remindDate.set(Calendar.SECOND, 59);
+        remindDate.set(Calendar.MILLISECOND, 59);
         remindDate.add(Calendar.DAY_OF_MONTH, delayPeriod);
         return Utils.formatDateBase64(remindDate);
     }
