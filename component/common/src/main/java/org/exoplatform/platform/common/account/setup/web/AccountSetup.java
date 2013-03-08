@@ -36,6 +36,7 @@ public class AccountSetup extends HttpServlet {
     private final static String PLATFORM_USERS_GROUP = "/platform/administrators";
     private final static String PLATFORM_WEB_CONTRIBUTORS_GROUP = "/platform/web-contributors";
     private final static String PLATFORM_DEVELOPERS_GROUP = "/developers";
+    private final static String PLATFORM_PLATFORM_USERS_GROUP ="/platform/users";
     private final static String MEMBERSHIP_TYPE_MANAGER = "*";
     private final static String INTRANET_HOME = "/portal/intranet";     //A verifier
     private final static String INITIAL_URI_PARAM = "initialURI";
@@ -101,6 +102,15 @@ public class AccountSetup extends HttpServlet {
                 orgService.getMembershipHandler().linkMembership(user, group, membershipType, true);
             } catch (Exception e) {
                 logger.error("Can not assign *:/developers membership to the created user", e);
+            }
+
+            // Assign the membership "*:/platform/users"  to the created user
+            try {
+                group = orgService.getGroupHandler().findGroupById(PLATFORM_PLATFORM_USERS_GROUP);
+                membershipType = membershipTypeHandler.findMembershipType(MEMBERSHIP_TYPE_MANAGER);
+                orgService.getMembershipHandler().linkMembership(user, group, membershipType, true);
+            } catch (Exception e) {
+                logger.error("Can not assign *:/platform/users membership to the created user", e);
             }
 
 
