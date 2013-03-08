@@ -32,6 +32,8 @@ public class AccountSetup extends HttpServlet {
     private final static String ADMIN_FIRST_NAME = "root";
     private final static String ADMIN_PASSWORD = "adminPassword";
     private final static String PLATFORM_USERS_GROUP = "/platform/administrators";
+    private final static String PLATFORM_WEB_CONTRIBUTORS_GROUP = "/platform/web-contributors";
+    private final static String PLATFORM_DEVELOPERS_GROUP = "/developers";
     private final static String MEMBERSHIP_TYPE_MANAGER = "*";
     private final static String INTRANET_HOME = "/portal/intranet";     //A verifier
     private final static String INITIAL_URI_PARAM = "initialURI";
@@ -49,10 +51,15 @@ public class AccountSetup extends HttpServlet {
         UserHandler userHandler;
         SettingService settingService_;
         User user;
+        Group group = null;
+        MembershipType membershipType = null;
 
         try {
             orgService = (OrganizationService) PortalContainer.getInstance().getComponentInstanceOfType(OrganizationService.class);
             RequestLifeCycle.begin((ComponentRequestLifecycle) orgService);
+            // --- Get MemberShipType Service
+            MembershipTypeHandler membershipTypeHandler = orgService.getMembershipTypeHandler();
+
             // Create user account
             userHandler = orgService.getUserHandler();
             user = userHandler.createUserInstance(userNameAccount);
@@ -60,21 +67,40 @@ public class AccountSetup extends HttpServlet {
             user.setFirstName(firstNameAccount);
             user.setLastName(lastNameAccount);
             user.setEmail(emailAccount);
+
             try {
                 userHandler.createUser(user, true);
             } catch (Exception e) {
                 logger.error("Can not create User", e);
             }
 
-            // Assign the membership "manager:/platform/users"  to the created user
+            // Assign the membership "*:/platform/administrators"  to the created user
             try {
-                Group group = orgService.getGroupHandler().findGroupById(PLATFORM_USERS_GROUP);
-                MembershipTypeHandler membershipTypeHandler = orgService.getMembershipTypeHandler();
-                MembershipType membershipType = membershipTypeHandler.findMembershipType(MEMBERSHIP_TYPE_MANAGER);
+                group = orgService.getGroupHandler().findGroupById(PLATFORM_USERS_GROUP);
+                membershipType = membershipTypeHandler.findMembershipType(MEMBERSHIP_TYPE_MANAGER);
                 orgService.getMembershipHandler().linkMembership(user, group, membershipType, true);
             } catch (Exception e) {
-                logger.error("Can not assign member:/platform/administrators membership to the created user", e);
+                logger.error("Can not assign *:/platform/administrators membership to the created user", e);
             }
+
+            // Assign the membership "*:/platform/web-contributors"  to the created user
+            try {
+                group = orgService.getGroupHandler().findGroupById(PLATFORM_WEB_CONTRIBUTORS_GROUP);
+                membershipType = membershipTypeHandler.findMembershipType(MEMBERSHIP_TYPE_MANAGER);
+                orgService.getMembershipHandler().linkMembership(user, group, membershipType, true);
+            } catch (Exception e) {
+                logger.error("Can not assign *:/platform/web-contributors membership to the created user", e);
+            }
+
+            // Assign the membership "member:/developer"  to the created user
+            try {
+                group = orgService.getGroupHandler().findGroupById(PLATFORM_DEVELOPERS_GROUP);
+                membershipType = membershipTypeHandler.findMembershipType(MEMBERSHIP_TYPE_MANAGER);
+                orgService.getMembershipHandler().linkMembership(user, group, membershipType, true);
+            } catch (Exception e) {
+                logger.error("Can not assign *:/developers membership to the created user", e);
+            }
+
 
             // Set password for admin user
             try {
