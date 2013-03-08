@@ -4,7 +4,6 @@ import org.exoplatform.commons.api.settings.SettingService;
 import org.exoplatform.commons.api.settings.SettingValue;
 import org.exoplatform.commons.api.settings.data.Context;
 import org.exoplatform.commons.api.settings.data.Scope;
-import org.exoplatform.commons.info.ProductInformations;
 import org.exoplatform.commons.utils.PropertyManager;
 import org.exoplatform.container.PortalContainer;
 import org.exoplatform.services.log.ExoLogger;
@@ -26,22 +25,12 @@ import java.lang.reflect.Method;
 public class AccountSetupFilter implements Filter {
 
     private static final Log LOG = ExoLogger.getLogger(AccountSetupFilter.class);
-    private boolean isFirstAccess = true;
     SettingService settingService ;
 
     @Override
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
         String edition = getPlatformEdition();
         boolean isDevMod = PropertyManager.isDevelopping();
-        if(edition!=null && edition.equals("community")){
-            ProductInformations productInformations = (ProductInformations) PortalContainer.getInstance().getComponentInstanceOfType(ProductInformations.class);
-            if((productInformations.isFirstRun())&&(isFirstAccess)&&(!isDevMod)){
-                HttpServletResponse httpServletResponse = (HttpServletResponse) response;
-                httpServletResponse.sendRedirect("/platform-extension/jsp/welcome-screens/accountSetup.jsp");
-                isFirstAccess = false;
-                return;
-            }
-        }
         settingService = (SettingService) PortalContainer.getInstance().getComponentInstanceOfType(SettingService.class);
         boolean setupDone = false;
         SettingValue accountSetupNode = settingService.get(Context.GLOBAL, Scope.GLOBAL, AccountSetup.ACCOUNT_SETUP_NODE);
@@ -50,10 +39,9 @@ public class AccountSetupFilter implements Filter {
         if((!setupDone)&&(!isDevMod)){
             HttpServletResponse httpServletResponse = (HttpServletResponse) response;
             httpServletResponse.sendRedirect("/platform-extension/jsp/welcome-screens/accountSetup.jsp");
-            isFirstAccess = false;
             return;
         }
-            chain.doFilter(request, response);
+        chain.doFilter(request, response);
     }
 
     private String getPlatformEdition() {
