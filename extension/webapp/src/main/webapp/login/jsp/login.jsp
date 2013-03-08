@@ -243,7 +243,7 @@
 				height: 17px;
 			}
 			.uiLogin label.iPhoneCheckLabelOff span {
-				line-height: 19px;
+				line-height: 18px;
 				padding-right: 17px;
 			}
 			
@@ -282,7 +282,7 @@
 				overflow: hidden;
 			}
 			.uiLogin label.iPhoneCheckLabelOn span {
-				line-height: 19px;
+				line-height: 18px;
 				padding: 0 8px 0 4px;
 			}
 			.uiLogin .iPhoneCheckHandle {
