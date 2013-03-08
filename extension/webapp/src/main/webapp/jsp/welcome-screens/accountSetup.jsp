@@ -22,8 +22,8 @@
 <%
     String contextPath = request.getContextPath() ;
     String lang = request.getLocale().getLanguage();
-    response.setCharacterEncoding("UTF-8");
-    response.setContentType("text/html; charset=UTF-8");
+    response.setCharacterEncoding("iso-8859-1");
+    response.setContentType("text/html; charset=iso-8859-1");
 %>
 <!DOCTYPE html
 PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
