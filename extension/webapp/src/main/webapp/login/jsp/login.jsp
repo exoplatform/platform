@@ -372,8 +372,8 @@
           		<input type="hidden" name="initialURI" value="<%=uri%>"/>
                 <% } %>	
 					
-				<input class="username" id="username" name="username" type="text" placeholder="Username"/>
-				<input class="password" id="UIPortalLoginFormControl" type="password" id="password" name="password" placeholder="Password"/>
+				<input class="username" id="username" name="username" type="text" placeholder="Username" onblur="this.placeholder = 'Username'" onfocus="this.placeholder = ''"/>
+				<input class="password" id="UIPortalLoginFormControl" type="password" id="password" name="password" placeholder="Password" onblur="this.placeholder = 'Password'" onfocus="this.placeholder = ''"/>
                 <div class="spaceRole">
 					<input type="checkbox" class="yesno" checked="checked" style="visibility: hidden;" id="rememberme" name="rememberme" value="true"/>
 					<label class="rememberTxt" for="rememberme"><%=res.getString("UILoginForm.label.RememberOnComputer")%></label>
