@@ -1,0 +1,120 @@
+<!--
+
+    Copyright (C) 2009 eXo Platform SAS.
+    
+    This is free software; you can redistribute it and/or modify it
+    under the terms of the GNU Lesser General Public License as
+    published by the Free Software Foundation; either version 2.1 of
+    the License, or (at your option) any later version.
+    
+    This software is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+    Lesser General Public License for more details.
+    
+    You should have received a copy of the GNU Lesser General Public
+    License along with this software; if not, write to the Free
+    Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
+    02110-1301 USA, or see the FSF site: http://www.fsf.org.
+
+-->
+
+<nodeTypes 
+   xmlns:nt="http://www.jcp.org/jcr/nt/1.0" 
+   xmlns:mix="http://www.jcp.org/jcr/mix/1.0" 
+   xmlns:jcr="http://www.jcp.org/jcr/1.0" 
+   xmlns:exo="http://www.exoplatform.com/jcr/exo/1.0">
+
+  <!-- DO NOT REMOVE THIS DUPLICATION DEFINITION -->
+  <nodeType name="exo:jsFolder" isMixin="false" hasOrderableChildNodes="false" primaryItemName="">
+    <supertypes>
+      <supertype>nt:folder</supertype>
+    </supertypes>
+  </nodeType>
+
+  <nodeType name="exo:cssFolder" isMixin="false" hasOrderableChildNodes="false" primaryItemName="">
+    <supertypes>
+      <supertype>nt:folder</supertype>
+    </supertypes>
+    <childNodeDefinitions>
+      <childNodeDefinition name="*" defaultPrimaryType="nt:folder" autoCreated="false" mandatory="false" onParentVersion="VERSION" protected="false" sameNameSiblings="false">
+        <requiredPrimaryTypes>
+          <requiredPrimaryType>nt:base</requiredPrimaryType>
+        </requiredPrimaryTypes>
+      </childNodeDefinition>
+      <childNodeDefinition name="css" defaultPrimaryType="exo:cssFolder" autoCreated="false" mandatory="false" onParentVersion="VERSION" protected="false" sameNameSiblings="false">
+        <requiredPrimaryTypes>
+          <requiredPrimaryType>nt:base</requiredPrimaryType>
+        </requiredPrimaryTypes>
+      </childNodeDefinition>
+    </childNodeDefinitions>
+  </nodeType>
+
+  <nodeType name="exo:multimediaFolder" isMixin="false" hasOrderableChildNodes="false" primaryItemName="">
+    <supertypes>
+      <supertype>nt:unstructured</supertype>
+    </supertypes>
+    <childNodeDefinitions>
+      <childNodeDefinition name="images" defaultPrimaryType="nt:folder" autoCreated="false" mandatory="false" onParentVersion="VERSION" protected="false" sameNameSiblings="false">
+        <requiredPrimaryTypes>
+          <requiredPrimaryType>nt:base</requiredPrimaryType>
+        </requiredPrimaryTypes>
+      </childNodeDefinition>
+      <childNodeDefinition name="videos" defaultPrimaryType="nt:folder" autoCreated="false" mandatory="false" onParentVersion="VERSION" protected="false" sameNameSiblings="false">
+        <requiredPrimaryTypes>
+          <requiredPrimaryType>nt:base</requiredPrimaryType>
+        </requiredPrimaryTypes>
+      </childNodeDefinition>
+      <childNodeDefinition name="audio" defaultPrimaryType="nt:folder" autoCreated="false" mandatory="false" onParentVersion="VERSION" protected="false" sameNameSiblings="false">
+        <requiredPrimaryTypes>
+          <requiredPrimaryType>nt:base</requiredPrimaryType>
+        </requiredPrimaryTypes>
+      </childNodeDefinition>
+    </childNodeDefinitions>
+  </nodeType>
+
+ <nodeType name="exo:webContent" isMixin="false" hasOrderableChildNodes="false" primaryItemName="">
+    <supertypes>
+      <supertype>mix:referenceable</supertype>
+      <supertype>nt:unstructured</supertype>
+      <supertype>nt:hierarchyNode</supertype>
+      <supertype>exo:rss-enable</supertype>
+    </supertypes>
+    <childNodeDefinitions>
+      <childNodeDefinition name="js" defaultPrimaryType="exo:jsFolder" autoCreated="false" mandatory="false" onParentVersion="VERSION" protected="false" sameNameSiblings="false">
+        <requiredPrimaryTypes>
+          <requiredPrimaryType>nt:base</requiredPrimaryType>
+        </requiredPrimaryTypes>
+      </childNodeDefinition>
+      <childNodeDefinition name="css" defaultPrimaryType="exo:cssFolder" autoCreated="false" mandatory="false" onParentVersion="VERSION" protected="false" sameNameSiblings="false">
+        <requiredPrimaryTypes>
+          <requiredPrimaryType>nt:base</requiredPrimaryType>
+        </requiredPrimaryTypes>
+      </childNodeDefinition>
+      <childNodeDefinition name="medias" defaultPrimaryType="exo:multimediaFolder" autoCreated="false" mandatory="false" onParentVersion="VERSION" protected="false" sameNameSiblings="false">
+        <requiredPrimaryTypes>
+          <requiredPrimaryType>nt:base</requiredPrimaryType>
+        </requiredPrimaryTypes>
+      </childNodeDefinition>
+    </childNodeDefinitions>
+  </nodeType>
+
+  <nodeType name="wai:siteSearchBox" isMixin="false" hasOrderableChildNodes="false" primaryItemName="">
+    <supertypes>
+      <supertype>exo:webContent</supertype>
+    </supertypes>
+  </nodeType>
+
+  <nodeType name="wai:siteNavigationWebContent" isMixin="false" hasOrderableChildNodes="false" primaryItemName="">
+    <supertypes>
+      <supertype>exo:webContent</supertype>
+    </supertypes>
+  </nodeType>
+
+  <nodeType name="wai:siteBreadcrumb" isMixin="false" hasOrderableChildNodes="false" primaryItemName="">
+    <supertypes>
+      <supertype>exo:webContent</supertype>
+    </supertypes>
+  </nodeType>
+
+</nodeTypes>

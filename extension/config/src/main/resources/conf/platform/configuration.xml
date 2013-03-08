@@ -110,7 +110,7 @@
                 <string>ecm-wcm-extension</string>
               </value>
               <value>
-                <string>ecm-template-waiportal</string>
+                <string>platform-template-waiportal</string>
               </value>
               <value>
                 <string>presentation</string>

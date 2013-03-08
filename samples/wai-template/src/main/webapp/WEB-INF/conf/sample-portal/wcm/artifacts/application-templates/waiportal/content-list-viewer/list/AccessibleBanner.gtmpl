@@ -1,0 +1,27 @@
+<%
+/**
+ * by The eXo Platform SAS
+ * Author : eXoPlatform
+            Nguyen The Vinh 
+ * Apr 03, 2012  
+*/
+
+import org.exoplatform.wcm.webui.Utils;
+import org.exoplatform.portal.webui.util.Util;
+import org.exoplatform.web.url.navigation.NodeURL;
+import org.exoplatform.web.url.navigation.NavigationResource;
+import org.exoplatform.portal.application.PortalRequestContext;
+
+//build the url
+  PortalRequestContext portalRequestContext = Util.getPortalRequestContext();
+  NodeURL nodeURL = Util.getPortalRequestContext().createURL(NodeURL.TYPE);
+  NavigationResource resource = new NavigationResource(portalRequestContext.getSiteType(), portalRequestContext.getSiteName(), "");
+  nodeURL.setResource(resource);
+  def homeURL = nodeURL.toString();
+%>
+<div class="ClearFix">
+  <a class="FL" href="$homeURL" id="LogoHomepage" rel="tooltip" data-placement="bottom" title="<%=_ctx.appRes("Logo.GoHome")%>">
+    <img rel="tooltip" data-placement="bottom" title="<%=_ctx.appRes("WAIPortal.label")%>" alt="<%=_ctx.appRes("WAIPortal.label")%>" id="LogoHomepageImg" src="/ecm-template-waiportal/skin/resources/Logo.png" />
+  </a> 
+  <span class="Split FL">&nbsp;</span> <span class="TextBanner FL"><%=_ctx.appRes("WAIPortal.label")%></span>
+</div>

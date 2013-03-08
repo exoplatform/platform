@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+
+    Copyright (C) 2009 eXo Platform SAS.
+    
+    This is free software; you can redistribute it and/or modify it
+    under the terms of the GNU Lesser General Public License as
+    published by the Free Software Foundation; either version 2.1 of
+    the License, or (at your option) any later version.
+    
+    This software is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+    Lesser General Public License for more details.
+    
+    You should have received a copy of the GNU Lesser General Public
+    License along with this software; if not, write to the Free
+    Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
+    02110-1301 USA, or see the FSF site: http://www.fsf.org.
+
+-->
+
+<node-navigation
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.gatein.org/xml/ns/gatein_objects_1_2 http://www.gatein.org/xml/ns/gatein_objects_1_2"
+    xmlns="http://www.gatein.org/xml/ns/gatein_objects_1_2">
+  <priority>1</priority>
+  <page-nodes>
+    <node>
+      <uri>home</uri>
+      <name>home</name>
+      <label xml:lang="en">Home</label>
+      <label xml:lang="fr">Accueil</label>
+      <label xml:lang="vi">Trang chủ</label>
+      <label xml:lang="pt-BR">Home</label>
+      <visibility>DISPLAYED</visibility>
+      <page-reference>portal::@owner@::home</page-reference>
+    </node>
+    <node>
+      <uri>siteMap</uri>
+      <name>siteMap</name>
+      <label xml:lang="en">Site map</label>
+      <label xml:lang="fr">Carte du site</label>
+      <label xml:lang="vi">Sơ đồ</label>
+      <label xml:lang="pt-BR">Site map</label>
+      <visibility>DISPLAYED</visibility>
+      <page-reference>portal::@owner@::siteMap</page-reference>
+    </node>
+    <node>
+      <uri>Accessibility</uri>
+      <name>Accessibility</name>
+      <label xml:lang="en">Accessibility</label>
+      <label xml:lang="fr">Accessibilité</label>
+      <label xml:lang="vi">Accessibility</label>
+      <label xml:lang="pt-BR">Accessibility</label>
+      <visibility>DISPLAYED</visibility>
+      <page-reference>portal::@owner@::Accessibility</page-reference>
+    </node>
+    <node>
+      <uri>searchResult</uri>
+      <name>searchResult</name>
+      <label xml:lang="en">Search</label>
+      <label xml:lang="fr">Résultats de recherche</label>
+      <label xml:lang="vi">Kết quả tìm kiếm</label>
+      <label xml:lang="pt-BR">Procurar</label>
+      <visibility>HIDDEN</visibility>
+      <page-reference>portal::@owner@::searchResult</page-reference>
+    </node>
+    
+    <node>
+      <uri>newAccount</uri>
+      <name>newAccount</name>
+      <label xml:lang="en">New Account</label>
+      <label xml:lang="fr">Nouveau compte</label>
+      <label xml:lang="vi">Đăng ký</label>
+      <label xml:lang="pt-BR">Nova conta</label>
+      <visibility>HIDDEN</visibility>
+      <page-reference>portal::@owner@::newAccount</page-reference>
+    </node>
+    
+    <node>
+      <uri>groupnavigation</uri>
+      <name>groupnavigation</name>
+      <label xml:lang="en">Group Navigation</label>
+      <label xml:lang="fr">Navigation du Groupe</label>
+      <label xml:lang="vi">Quản lý thanh điều hướng cho nhóm</label>
+      <label xml:lang="pt-BR">Navegação de Grupos</label>      
+      <visibility>SYSTEM</visibility>
+      <page-reference>portal::@owner@::groupnavigation</page-reference>     
+    </node>
+    
+    <node>
+      <uri>portalnavigation</uri>
+      <name>portalnavigation</name>
+      <label xml:lang="en">Portal Navigation</label>
+      <label xml:lang="fr">Navigation du Portail</label>
+      <label xml:lang="vi">Quản lý thanh điều hướng chung</label>
+      <label xml:lang="pt-BR">Navegação do Portal</label>
+      <visibility>SYSTEM</visibility>
+      <page-reference>portal::@owner@::portalnavigation</page-reference>      
+    </node>
+    <node>
+      <uri>detail</uri>
+      <name>detail</name>
+      <label xml:lang="en">Document detail</label>
+      <label xml:lang="fr">Nouveau compte</label>
+      <label xml:lang="vi">Xem tài liệu</label>
+      <label xml:lang="pt-BR">Document detail</label>
+      <visibility>HIDDEN</visibility>
+      <page-reference>portal::@owner@::detail</page-reference>
+    </node>
+    <node>
+      <uri>printviewer</uri>
+      <name>printviewer</name>
+      <label xml:lang="en">Print previewer</label>
+      <label xml:lang="fr">Nouveau compte</label>
+      <label xml:lang="vi">Xem trước bản in</label>
+      <label xml:lang="pt-BR">Print previewer</label>
+      <visibility>HIDDEN</visibility>
+      <page-reference>portal::@owner@::printviewer</page-reference>
+    </node>
+  </page-nodes>
+</node-navigation>

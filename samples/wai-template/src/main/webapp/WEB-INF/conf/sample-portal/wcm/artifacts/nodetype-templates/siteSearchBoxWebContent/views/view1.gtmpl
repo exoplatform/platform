@@ -1,0 +1,39 @@
+<%
+	import org.exoplatform.webui.application.portlet.PortletRequestContext;
+	
+	public boolean getPortletPreference(String name) {
+    PortletRequestContext portletRequestContext = _ctx.getRequestContext() ;
+    String value = portletRequestContext.getRequest().getPreferences().getValue(name, null);
+    if(value != null) 
+      return Boolean.parseBoolean(value);
+    return false;
+  }
+  
+  	def currentNode = uicomponent.getNode() ; 
+    def html = currentNode.getNode("default.html/jcr:content").getProperty("jcr:data").getString();
+  	def css = currentNode.getNode("css/default.css/jcr:content").getProperty("jcr:data").getString();
+  	def js = currentNode.getNode("js/default.js/jcr:content").getProperty("jcr:data").getString();  
+  	// NOTE : You can use services if you're adding external css or js thru WebDAV. If not, direct access to the node is more efficient.
+  	//def css = uicomponent.getApplicationComponent(XSkinService.class).getActiveStylesheet(currentNode);
+  	//def js =  uicomponent.getApplicationComponent(XJavascriptService.class).getActiveJavaScript(currentNode);
+  
+	if((css != null) && (css.length() > 0)) {
+%>
+		<style type="text/css">
+		/* <![CDATA[ */			
+			<%=css%>
+		/* ]]> */
+		</style>
+<%
+	}
+%>
+
+<% if((js != null) && (js.length() > 0)) {%>
+	<script type="text/javascript">
+	/* <![CDATA[ */	
+		<%=js%>
+	/* ]]> */		
+	</script>
+<% } %>
+
+<%=html%>

@@ -1,0 +1,107 @@
+<%
+  import javax.servlet.http.Cookie;
+  import javax.servlet.http.HttpServletRequest;
+  import javax.servlet.http.HttpServletResponse;
+  import org.exoplatform.portal.application.PortalRequestContext;
+
+  import org.exoplatform.web.url.navigation.NavigationResource;
+  import org.exoplatform.web.url.navigation.NodeURL;
+  import org.exoplatform.wcm.webui.Utils;
+  import org.exoplatform.portal.webui.util.Util;
+  
+  public static String getCookieByCookieName(String cookieName, Cookie[] cookies) {
+    if (cookies == null) {
+      return null;
+    }
+    for(int loopIndex = 0; loopIndex < cookies.length; loopIndex++) {
+      Cookie cookie1 = cookies[loopIndex];
+      if (cookie1.getName().equals(cookieName)) return cookie1.getValue();
+    }
+    return null;
+  }
+  private Cookie createNewCookie(String cookieName, String cookieValue) {
+    return new Cookie(cookieName, cookieValue);
+  }
+  
+  def jsManager = _ctx.getRequestContext().getJavascriptManager();
+  jsManager.loadScriptResource("wai-module");
+  
+  HttpServletRequest request = Util.getPortalRequestContext().getRequest();
+  HttpServletResponse response = Util.getPortalRequestContext().getResponse();
+  PortalRequestContext portalRequestContext = Util.getPortalRequestContext();
+  def portletId = "searchResult";
+  NodeURL nodeURL = Util.getPortalRequestContext().createURL(NodeURL.TYPE);
+  NavigationResource resource = new NavigationResource(portalRequestContext.getSiteType(), portalRequestContext.getSiteName(), portletId);
+  nodeURL.setResource(resource);
+  def actionURL = nodeURL.toString();
+  
+  resource = new NavigationResource(portalRequestContext.getSiteType(), portalRequestContext.getSiteName(), "siteMap");
+  nodeURL.setResource(resource);
+  def siteMapPageURL = nodeURL.toString();
+  
+  resource = new NavigationResource(portalRequestContext.getSiteType(), portalRequestContext.getSiteName(), "Accessibility");
+  nodeURL.setResource(resource);
+  def accessibilityPageURL = nodeURL.toString();
+  
+  Cookie[] cookies = request.getCookies();
+  def smallSelected  = "";
+  def mediumSelected = "";
+  def largeSelected  = "";
+  def cFontSize = getCookieByCookieName("ntTextSize", cookies);
+  if (cFontSize == null) {
+    smallSelected="Selected";
+  }else {
+    if (cFontSize.startsWith("90%")) {
+      largeSelected="Selected";
+    }else if (cFontSize.startsWith("75%")) {
+      mediumSelected="Selected";
+    }else {
+      smallSelected="Selected";
+    }
+  }
+  def cTheme = getCookieByCookieName("ntCurrentTheme", cookies);
+  def nContrastSelected  = "";
+  def hContrastSelected  = "";
+  if (cTheme == null) {
+    nContrastSelected="Selected";
+  }else {
+    if (cTheme.startsWith("SkinMono")) {
+      hContrastSelected="Selected";
+    }else {
+      nContrastSelected="Selected";
+    }
+  }
+%>
+<div class="UIWCMTopToolBar ClearFix">
+  <div class="FL">
+    <a href="#WAIPortalSkipToContent" id="WAIPortalSkipToContentLink" rel="tooltip" data-placement="bottom" title="<%=_ctx.appRes("Toolbar.SkipToContent")%>"><%=_ctx.appRes("Toolbar.SkipToContent")%></a> | 
+    <a href="$siteMapPageURL" id="WAIPortalToolbarSiteMap" rel="tooltip" data-placement="bottom" title="<%=_ctx.appRes("Toolbar.SiteMap")%>"><%=_ctx.appRes("Toolbar.SiteMap")%></a> | 
+    <a href="$accessibilityPageURL" id="WAIPortalToolbarAccessibility" rel="tooltip" data-placement="bottom" title="<%=_ctx.appRes("Toolbar.Accessibility")%>"><%=_ctx.appRes("Toolbar.Accessibility")%></a> | 
+    <a class="FontSizeSmall$smallSelected IconDefineStyle" href="#" id="WAIPortalFontSizeSmall" onclick="eXo.ecm.WAIPortalToolbar.changeOveralFontSize('62.5%');" rel="tooltip" data-placement="bottom" title="<%=_ctx.appRes("Toolbar.NormalSize")%>"> 
+      <img alt="<%=_ctx.appRes("Toolbar.NormalSize")%>" id="WAIPortalFontSizeSmallImg" src="/ecm-template-waiportal/skin/resources/BlackSmallIcon.png" />
+    </a> 
+    <a class="FontSizeMedium$mediumSelected IconDefineStyle" href="#" id="WAIPortalFontSizeMedium" onclick="eXo.ecm.WAIPortalToolbar.changeOveralFontSize('75%');" rel="tooltip" data-placement="bottom" title="<%=_ctx.appRes("Toolbar.MediumSize")%>"> 
+      <img alt="<%=_ctx.appRes("Toolbar.MediumSize")%>" id="WAIPortalFontSizeMediumImg" src="/ecm-template-waiportal/skin/resources/BlackMediumIcon.png" />
+    </a> 
+    <a href="#" class="FontSizeLarge$largeSelected IconDefineStyle" id="WAIPortalFontSizeLarge" onclick="eXo.ecm.WAIPortalToolbar.changeOveralFontSize('90%');" rel="tooltip" data-placement="bottom" title="<%=_ctx.appRes("Toolbar.LargeSize")%>"> 
+      <img alt="<%=_ctx.appRes("Toolbar.LargeSize")%>" id="WAIPortalFontSizeLargeImg" src="/ecm-template-waiportal/skin/resources/BlackLargeIcon.png" />
+    </a> <span> | </span> 
+    <a href="#" class="IconDefineStyle ChangeThemeColor$nContrastSelected" id="WAIPortalThemeColor" onclick="eXo.ecm.WAIPortalToolbar.changeOveralTheme('');" rel="tooltip" data-placement="bottom" title="<%=_ctx.appRes("Toolbar.NormalContrast")%>"> 
+      <img alt="<%=_ctx.appRes("Toolbar.NormalContrast")%>" id="WAIPortalThemeColorImg" src="/ecm-template-waiportal/skin/resources/DefaultNormalContrastIcon.png" />
+    </a> 
+    <a href="#" class="IconDefineStyle ChangeThemeMono$hContrastSelected" id="WAIPortalThemeMono" onclick="eXo.ecm.WAIPortalToolbar.changeOveralTheme('SkinMono');" rel="tooltip" data-placement="bottom" title="<%=_ctx.appRes("Toolbar.HighContrast")%>"> 
+      <img alt="<%=_ctx.appRes("Toolbar.HighContrast")%>" id="WAIPortalThemeMonoImg" src="/ecm-template-waiportal/skin/resources/DefaultHeightContrastIcon.png" />
+    </a>
+  </div>
+  
+  <form action="$actionURL" method="get">
+  <div class="SiteSearchBox FR" id="siteSearchBox">
+    <label for="keyword"><%=_ctx.appRes("Toolbar.Search")%>:</label>
+    <input class="keyword" id="keyword" rel="tooltip" data-placement="bottom" title="<%=_ctx.appRes("Toolbar.Search")%>" name="keyword" type="text" />
+    <input type="hidden" name="portal" value="<%= portalRequestContext.getSiteName()%>" />
+    <button class="submit" name="search-submit" type="submit">
+      <img href="#" rel="tooltip" data-placement="bottom" title="Search" src="/ecm-template-waiportal/skin/resources/search.png" alt="Search" width="21" height="17" />
+    </button>
+  </div>
+  </form>
+</div>
