@@ -16,6 +16,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.net.URLEncoder;
+
 /**
  * @author <a href="fbradai@exoplatform.com">Fbradai</a>
  * @date 3/1/13
@@ -112,11 +114,13 @@ public class AccountSetup extends HttpServlet {
             }
         } finally {
             settingService_ =  (SettingService) PortalContainer.getInstance().getComponentInstanceOfType(SettingService.class);
-            settingService_.set(Context.GLOBAL, Scope.GLOBAL, ACCOUNT_SETUP_NODE, SettingValue.create("setup over:" + "true"));
+            if(settingService_.get(Context.GLOBAL, Scope.GLOBAL, ACCOUNT_SETUP_NODE)==null)
+                settingService_.set(Context.GLOBAL, Scope.GLOBAL, ACCOUNT_SETUP_NODE, SettingValue.create("setup over:" + "true"));
             RequestLifeCycle.end();
         }
         // Redirect to requested page
-        String redirectURI = "/" + PortalContainer.getCurrentPortalContainerName() + "/login?" + "username=" + userNameAccount + "&password=" + userPasswordAccount + "&initialURI=" + INTRANET_HOME;
+        String redirectURI = "/" + PortalContainer.getCurrentPortalContainerName() + "/login?" + "username=" + URLEncoder.encode(userNameAccount, "UTF-8") + "&password=" + userPasswordAccount + "&initialURI=" + INTRANET_HOME;
+        response.setCharacterEncoding("UTF-8");
         response.sendRedirect(redirectURI);
         }
     //}
