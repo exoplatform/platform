@@ -15,15 +15,15 @@ $(document).ready(function(){
         var usernameOnBlur = $.trim($("#userNameAccount").val());
         if(usernameOnBlur != ""){
             $.get(
-                    "/portal/rest/welcomeScreen/checkUsername",
-                    { "username": usernameOnBlur },
-                    function(data) {
-                        var userExists = data.userExists;
-                        if(userExists == true){
-                            WelcomeScreens.ACCOUNT_SETUP_ERROR = true;
-                            $('#usernameId').after('<tr id ="usernameExistErrorId" ><td colspan="4" class ="accountSetupError"><b>Username</b> already exists.</td></tr>');
-                        }
-                    });
+                "/portal/rest/welcomeScreen/checkUsername",
+                { "username": usernameOnBlur },
+                function(data) {
+                    var userExists = data.userExists;
+                    if(userExists == true){
+                        WelcomeScreens.ACCOUNT_SETUP_ERROR = true;
+                        $('#usernameId').after('<tr id ="usernameExistErrorId" ><td colspan="4" class ="accountSetupError"><b>Username</b> already exists.</td></tr>');
+                    }
+                });
         }
     });
 });
@@ -36,7 +36,7 @@ WelcomeScreens.PASSWORD_INPUT_MIN_SIZE = 6;
 WelcomeScreens.PASSWORD_INPUT_MAX_SIZE = 30;
 WelcomeScreens.ACCOUNT_SETUP_ERROR = false;
 WelcomeScreens.EMAIL_REGEXP = new RegExp(/^(("[\w-+\s]+")|([\w-+]+(?:\.[\w-+]+)*)|("[\w-+\s]+")([\w-+]+(?:\.[\w-+]+)*))(@((?:[\w-+]+\.)*\w[\w-+]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$)|(@\[?((25[0-5]\.|2[0-4][\d]\.|1[\d]{2}\.|[\d]{1,2}\.))((25[0-5]|2[0-4][\d]|1[\d]{2}|[\d]{1,2})\.){2}(25[0-5]|2[0-4][\d]|1[\d]{2}|[\d]{1,2})\]?$)/i);
-WelcomeScreens.USERNAME_REGEXP = new RegExp(/^[0-9a-z_]+$./);
+WelcomeScreens.USERNAME_REGEXP = new RegExp(/^[0-9a-z_.]+$/);
 
 
 WelcomeScreens.validateTermsAndCondition = function(event) {
@@ -150,7 +150,9 @@ WelcomeScreens.exit = function() {
     }
 
     if (WelcomeScreens.ACCOUNT_SETUP_ERROR == false) {
-        $('#AccountSetup').fadeToggle("slow", "linear");
+        // $('#AccountSetup').fadeToggle("slow", "linear");
+        $('#AccountSetup1').css("display", "none");
+        $('#Greetings').css("display", "block");
     }
 }
 WelcomeScreens.toggleState = function () {
