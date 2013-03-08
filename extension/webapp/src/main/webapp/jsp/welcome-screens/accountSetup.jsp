@@ -213,6 +213,7 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 		<div class="content form-horizontal" id="AccountSetup">
 			<h5>Create your account</h5>
 			<p class="desc">This will be your primary user account</p>
+            <form name="tcForm" action="<%= contextPath + "/accountSetup"%>" method="post">
 			<div class="control-group" id ="usernameId">
 				<label class="control-label">Username:</label>
 				<div class="controls"><input type="text" name="username" id="userNameAccount" placeholder="User name" class="inputFieldLarge"/></div>
@@ -244,7 +245,7 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 				</div>
 			</div>
 		</div>
-		<div class="bottom"><button class="btn btn-primary" id="continueButton" onclick="WelcomeScreens.exit();">Submit</button></div>
+		<div class="bottom"><a class="btn btn-primary" id="continueButton" onclick="WelcomeScreens.exit();">Submit</a></div>
 	</div>	
 </div>
 <div>
@@ -254,11 +255,12 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 		<div class="content form-horizontal" id="AccountSetup">
 			<p>
 				<strong>You are almost done</strong>, add your colleagues to your new social
-	intranet and start collaborating together.				
+                intranet and start collaborating together.
 			</p>
 			<div class="screenShot"><a href="javascript:void(0);"><img src="/platform-extension/jsp/welcome-screens/images/greetingSS.png" alt="" width="404" height="172"/></a></div>
 		</div>
-		<div class="bottom"><button class="btn btn-primary" id="continueButton" onclick="WelcomeScreens.exit();">Submit</button></div>
+		<div class="bottom"><button class="btn btn-primary">Start</button></div>
 	</div>
 </div>
+</form>
 </html>
