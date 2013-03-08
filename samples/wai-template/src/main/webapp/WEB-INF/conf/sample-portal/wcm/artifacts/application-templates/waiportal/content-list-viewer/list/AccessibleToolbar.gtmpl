@@ -78,19 +78,19 @@
     <a href="$siteMapPageURL" id="WAIPortalToolbarSiteMap" rel="tooltip" data-placement="bottom" title="<%=_ctx.appRes("Toolbar.SiteMap")%>"><%=_ctx.appRes("Toolbar.SiteMap")%></a> | 
     <a href="$accessibilityPageURL" id="WAIPortalToolbarAccessibility" rel="tooltip" data-placement="bottom" title="<%=_ctx.appRes("Toolbar.Accessibility")%>"><%=_ctx.appRes("Toolbar.Accessibility")%></a> | 
     <a class="FontSizeSmall$smallSelected IconDefineStyle" href="#" id="WAIPortalFontSizeSmall" onclick="eXo.ecm.WAIPortalToolbar.changeOveralFontSize('62.5%');" rel="tooltip" data-placement="bottom" title="<%=_ctx.appRes("Toolbar.NormalSize")%>"> 
-      <img alt="<%=_ctx.appRes("Toolbar.NormalSize")%>" id="WAIPortalFontSizeSmallImg" src="/ecm-template-waiportal/skin/resources/BlackSmallIcon.png" />
+      <img alt="<%=_ctx.appRes("Toolbar.NormalSize")%>" id="WAIPortalFontSizeSmallImg" src="/platform-template-waiportal/skin/resources/BlackSmallIcon.png" />
     </a> 
     <a class="FontSizeMedium$mediumSelected IconDefineStyle" href="#" id="WAIPortalFontSizeMedium" onclick="eXo.ecm.WAIPortalToolbar.changeOveralFontSize('75%');" rel="tooltip" data-placement="bottom" title="<%=_ctx.appRes("Toolbar.MediumSize")%>"> 
-      <img alt="<%=_ctx.appRes("Toolbar.MediumSize")%>" id="WAIPortalFontSizeMediumImg" src="/ecm-template-waiportal/skin/resources/BlackMediumIcon.png" />
+      <img alt="<%=_ctx.appRes("Toolbar.MediumSize")%>" id="WAIPortalFontSizeMediumImg" src="/platform-template-waiportal/skin/resources/BlackMediumIcon.png" />
     </a> 
     <a href="#" class="FontSizeLarge$largeSelected IconDefineStyle" id="WAIPortalFontSizeLarge" onclick="eXo.ecm.WAIPortalToolbar.changeOveralFontSize('90%');" rel="tooltip" data-placement="bottom" title="<%=_ctx.appRes("Toolbar.LargeSize")%>"> 
-      <img alt="<%=_ctx.appRes("Toolbar.LargeSize")%>" id="WAIPortalFontSizeLargeImg" src="/ecm-template-waiportal/skin/resources/BlackLargeIcon.png" />
+      <img alt="<%=_ctx.appRes("Toolbar.LargeSize")%>" id="WAIPortalFontSizeLargeImg" src="/platform-template-waiportal/skin/resources/BlackLargeIcon.png" />
     </a> <span> | </span> 
     <a href="#" class="IconDefineStyle ChangeThemeColor$nContrastSelected" id="WAIPortalThemeColor" onclick="eXo.ecm.WAIPortalToolbar.changeOveralTheme('');" rel="tooltip" data-placement="bottom" title="<%=_ctx.appRes("Toolbar.NormalContrast")%>"> 
-      <img alt="<%=_ctx.appRes("Toolbar.NormalContrast")%>" id="WAIPortalThemeColorImg" src="/ecm-template-waiportal/skin/resources/DefaultNormalContrastIcon.png" />
+      <img alt="<%=_ctx.appRes("Toolbar.NormalContrast")%>" id="WAIPortalThemeColorImg" src="/platform-template-waiportal/skin/resources/DefaultNormalContrastIcon.png" />
     </a> 
     <a href="#" class="IconDefineStyle ChangeThemeMono$hContrastSelected" id="WAIPortalThemeMono" onclick="eXo.ecm.WAIPortalToolbar.changeOveralTheme('SkinMono');" rel="tooltip" data-placement="bottom" title="<%=_ctx.appRes("Toolbar.HighContrast")%>"> 
-      <img alt="<%=_ctx.appRes("Toolbar.HighContrast")%>" id="WAIPortalThemeMonoImg" src="/ecm-template-waiportal/skin/resources/DefaultHeightContrastIcon.png" />
+      <img alt="<%=_ctx.appRes("Toolbar.HighContrast")%>" id="WAIPortalThemeMonoImg" src="/platform-template-waiportal/skin/resources/DefaultHeightContrastIcon.png" />
     </a>
   </div>
   
@@ -100,7 +100,7 @@
     <input class="keyword" id="keyword" rel="tooltip" data-placement="bottom" title="<%=_ctx.appRes("Toolbar.Search")%>" name="keyword" type="text" />
     <input type="hidden" name="portal" value="<%= portalRequestContext.getSiteName()%>" />
     <button class="submit" name="search-submit" type="submit">
-      <img href="#" rel="tooltip" data-placement="bottom" title="Search" src="/ecm-template-waiportal/skin/resources/search.png" alt="Search" width="21" height="17" />
+      <img href="#" rel="tooltip" data-placement="bottom" title="Search" src="/platform-template-waiportal/skin/resources/search.png" alt="Search" width="21" height="17" />
     </button>
   </div>
   </form>

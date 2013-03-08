@@ -955,10 +955,10 @@
             </webModule>
             <!-- WAI portal template-->
             <webModule>
-              <groupId>org.exoplatform.ecms</groupId>
-              <artifactId>ecms-apps-wai-template</artifactId>
-              <contextRoot>exo-ecms-wai-template</contextRoot>
-              <bundleFileName>ecm-template-waiportal.war</bundleFileName>
+              <groupId>org.exoplatform.platform</groupId>
+              <artifactId>platform-sample-wai-template</artifactId>
+              <contextRoot>platform-sample-wai-template</contextRoot>
+              <bundleFileName>platform-wai-template.war</bundleFileName>
             </webModule>
           </modules>
         </configuration>
