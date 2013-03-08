@@ -1,3 +1,5 @@
+
+/***
 @font-face {
     font-family: 'Helvetica';
     font-weight: normal;
@@ -335,7 +337,6 @@ p {
     border-radius: 3px 3px 3px 3px;
     box-shadow: 2px 2px 2px #F1F1F1 inset;
     height: 18px;
-    /*padding: 6px 0;*/
     margin-bottom: 10px;
     padding-left: 5px;
 }
@@ -380,22 +381,19 @@ p {
     width:33%;
     height:100%;
     display:block;
-    /*background-color:#ddd;*/
     float:left;
 }
 
 .content{
     width:400px;
-    /*height:300px;*/
     margin:0 auto;
-    /*background-color:#aaa;*/
     position:relative;
 }
 
 .clear{
     clear:both;
 }
-/* Button */
+
 input.Button {
     background: url("../background/Bg-Button.png") repeat-x left top;
     border: 1px solid #3495b9;
@@ -592,3 +590,4 @@ input.Button {
 .qtip-light{
     border-color: #000000;
 }
+*/
