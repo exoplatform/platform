@@ -5,7 +5,7 @@
     <artifactId>maven-parent-pom</artifactId>
     <groupId>org.exoplatform</groupId>
     <version>9-beta-1</version>
-    <relativePath />
+    <relativePath></relativePath>
   </parent>
   <groupId>org.exoplatform.platform</groupId>
   <artifactId>platform</artifactId>
@@ -22,7 +22,7 @@
     <module>exo-gadget-pack</module>
     <!--<module>packaging</module>-->
     <!--<module>testsuite</module>-->
-     <module>welcome-screens</module>
+    <module>welcome-screens</module>
   </modules>
   <scm>
     <connection>scm:git:git://github.com/exoplatform/platform.git</connection>
@@ -435,12 +435,12 @@
       </dependency>
       <dependency>
         <groupId>org.exoplatform.platform</groupId>
-        <artifactId>platform-component-edition-enterprise</artifactId>
+        <artifactId>platform-component-edition-community</artifactId>
         <version>${project.version}</version>
       </dependency>
       <dependency>
         <groupId>org.exoplatform.platform</groupId>
-        <artifactId>platform-component-edition-community</artifactId>
+        <artifactId>platform-component-edition-enterprise</artifactId>
         <version>${project.version}</version>
       </dependency>
       <dependency>
@@ -625,18 +625,6 @@
         <version>${project.version}</version>
         <type>pom</type>
       </dependency>
-       <dependency>
-          <groupId>org.exoplatform.platform</groupId>
-          <artifactId>platform-sample-wai-template</artifactId>
-          <version>${project.version}</version>
-          <type>war</type>
-       </dependency>
-       <dependency>
-          <groupId>org.exoplatform.platform</groupId>
-          <artifactId>platform-sample-wai-template</artifactId>
-          <version>${project.version}</version>
-          <type>pom</type>
-       </dependency>
       <dependency>
         <groupId>org.exoplatform.platform</groupId>
         <artifactId>platform-sample-acme-website-component-file-explorer</artifactId>
@@ -718,6 +706,18 @@
       </dependency>
       <dependency>
         <groupId>org.exoplatform.platform</groupId>
+        <artifactId>platform-sample-wai-template</artifactId>
+        <version>${project.version}</version>
+        <type>war</type>
+      </dependency>
+      <dependency>
+        <groupId>org.exoplatform.platform</groupId>
+        <artifactId>platform-sample-wai-template</artifactId>
+        <version>${project.version}</version>
+        <type>pom</type>
+      </dependency>
+      <dependency>
+        <groupId>org.exoplatform.platform</groupId>
         <artifactId>platform-server-jboss-patch</artifactId>
         <version>${project.version}</version>
       </dependency>
@@ -755,28 +755,28 @@
         <artifactId>platform-trial-service</artifactId>
         <version>${project.version}</version>
       </dependency>
-        <dependency>
-            <groupId>org.exoplatform.platform</groupId>
-            <artifactId>platform-welcome-screens-config</artifactId>
-            <version>${project.version}</version>
-        </dependency>
-       <dependency>
-          <groupId>org.exoplatform.platform</groupId>
-          <artifactId>platform-welcome-screens-component</artifactId>
-          <version>${project.version}</version>
-       </dependency>
       <dependency>
-            <groupId>org.exoplatform.platform</groupId>
-            <artifactId>platform-welcome-screens-webapp</artifactId>
-            <version>${project.version}</version>
-            <type>war</type>
-        </dependency>
-        <dependency>
-            <groupId>org.exoplatform.platform</groupId>
-            <artifactId>platform-welcome-screens-webapp</artifactId>
-            <version>${project.version}</version>
-            <type>pom</type>
-        </dependency>
+        <groupId>org.exoplatform.platform</groupId>
+        <artifactId>platform-welcome-screens-component</artifactId>
+        <version>${project.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.exoplatform.platform</groupId>
+        <artifactId>platform-welcome-screens-config</artifactId>
+        <version>${project.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.exoplatform.platform</groupId>
+        <artifactId>platform-welcome-screens-webapp</artifactId>
+        <version>${project.version}</version>
+        <type>war</type>
+      </dependency>
+      <dependency>
+        <groupId>org.exoplatform.platform</groupId>
+        <artifactId>platform-welcome-screens-webapp</artifactId>
+        <version>${project.version}</version>
+        <type>pom</type>
+      </dependency>
       <!-- To be replaced by an import of WS parent POM -->
       <dependency>
         <groupId>org.exoplatform.ws</groupId>
@@ -1085,62 +1085,6 @@
         <type>pom</type>
         <scope>import</scope>
       </dependency>
-      <!-- Import versions from calendar project -->
-      <dependency>
-        <groupId>org.exoplatform.calendar</groupId>
-        <artifactId>calendar</artifactId>
-        <version>${org.exoplatform.calendar.version}</version>
-        <type>pom</type>
-        <scope>import</scope>
-      </dependency>
-      <!-- Import versions from commons project -->
-      <dependency>
-        <groupId>org.exoplatform.commons</groupId>
-        <artifactId>commons</artifactId>
-        <version>${org.exoplatform.commons.version}</version>
-        <type>pom</type>
-        <scope>import</scope>
-      </dependency>
-      <!-- Import versions from ecms project -->
-      <dependency>
-        <groupId>org.exoplatform.ecms</groupId>
-        <artifactId>ecms</artifactId>
-        <version>${org.exoplatform.ecms.version}</version>
-        <type>pom</type>
-        <scope>import</scope>
-      </dependency>
-      <!-- Import versions from forum project -->
-      <dependency>
-        <groupId>org.exoplatform.forum</groupId>
-        <artifactId>forum</artifactId>
-        <version>${org.exoplatform.forum.version}</version>
-        <type>pom</type>
-        <scope>import</scope>
-      </dependency>
-      <!-- Import versions from integration project -->
-      <dependency>
-        <groupId>org.exoplatform.integration</groupId>
-        <artifactId>integ</artifactId>
-        <version>${org.exoplatform.integ.version}</version>
-        <type>pom</type>
-        <scope>import</scope>
-      </dependency>
-      <!-- Import versions from social project -->
-      <dependency>
-        <groupId>org.exoplatform.social</groupId>
-        <artifactId>social</artifactId>
-        <version>${org.exoplatform.social.version}</version>
-        <type>pom</type>
-        <scope>import</scope>
-      </dependency>
-      <!-- Import versions from wiki project -->
-      <dependency>
-        <groupId>org.exoplatform.wiki</groupId>
-        <artifactId>wiki</artifactId>
-        <version>${org.exoplatform.wiki.version}</version>
-        <type>pom</type>
-        <scope>import</scope>
-      </dependency>
       <!-- Import versions of external dependencies to use -->
       <dependency>
         <groupId>org.exoplatform</groupId>
@@ -1157,11 +1101,35 @@
         <type>pom</type>
         <scope>import</scope>
       </dependency>
+      <!-- Import versions from calendar project -->
+      <dependency>
+        <groupId>org.exoplatform.calendar</groupId>
+        <artifactId>calendar</artifactId>
+        <version>${org.exoplatform.calendar.version}</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
       <!-- Import versions from commons project -->
       <dependency>
         <groupId>org.exoplatform.commons</groupId>
         <artifactId>commons</artifactId>
         <version>${org.exoplatform.commons.version}</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+      <!-- Import versions from commons project -->
+      <dependency>
+        <groupId>org.exoplatform.commons</groupId>
+        <artifactId>commons</artifactId>
+        <version>${org.exoplatform.commons.version}</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+      <!-- Import versions from ecms project -->
+      <dependency>
+        <groupId>org.exoplatform.ecms</groupId>
+        <artifactId>ecms</artifactId>
+        <version>${org.exoplatform.ecms.version}</version>
         <type>pom</type>
         <scope>import</scope>
       </dependency>
@@ -1181,11 +1149,35 @@
         <type>pom</type>
         <scope>import</scope>
       </dependency>
+      <!-- Import versions from forum project -->
+      <dependency>
+        <groupId>org.exoplatform.forum</groupId>
+        <artifactId>forum</artifactId>
+        <version>${org.exoplatform.forum.version}</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
       <!-- Import versions from integration project -->
       <dependency>
         <groupId>org.exoplatform.integration</groupId>
         <artifactId>integ</artifactId>
         <version>${org.exoplatform.integ.version}</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+      <!-- Import versions from integration project -->
+      <dependency>
+        <groupId>org.exoplatform.integration</groupId>
+        <artifactId>integ</artifactId>
+        <version>${org.exoplatform.integ.version}</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+      <!-- Import versions from social project -->
+      <dependency>
+        <groupId>org.exoplatform.social</groupId>
+        <artifactId>social</artifactId>
+        <version>${org.exoplatform.social.version}</version>
         <type>pom</type>
         <scope>import</scope>
       </dependency>
@@ -1201,6 +1193,14 @@
         <groupId>org.exoplatform.social</groupId>
         <artifactId>social</artifactId>
         <version>${org.exoplatform.social.version}</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+      <!-- Import versions from wiki project -->
+      <dependency>
+        <groupId>org.exoplatform.wiki</groupId>
+        <artifactId>wiki</artifactId>
+        <version>${org.exoplatform.wiki.version}</version>
         <type>pom</type>
         <scope>import</scope>
       </dependency>

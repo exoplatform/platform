@@ -10,10 +10,10 @@
   <packaging>jar</packaging>
   <name>eXo Platform - Branding Portlet</name>
   <dependencies>
-  	<dependency>
-  		<groupId>org.exoplatform.commons</groupId>
-  		<artifactId>commons-juzu</artifactId>
-  	</dependency>
+    <dependency>
+      <groupId>org.exoplatform.commons</groupId>
+      <artifactId>commons-juzu</artifactId>
+    </dependency>
     <dependency>
       <groupId>org.exoplatform.ecms</groupId>
       <artifactId>ecms-core-services</artifactId>

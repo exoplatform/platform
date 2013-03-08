@@ -11,8 +11,8 @@
   <name>eXo Platform - Common</name>
   <dependencies>
     <dependency>
-        <groupId>org.exoplatform.commons</groupId>
-        <artifactId>commons-api</artifactId>
+      <groupId>org.exoplatform.commons</groupId>
+      <artifactId>commons-api</artifactId>
     </dependency>
     <dependency>
       <groupId>commons-lang</groupId>
