@@ -70,21 +70,22 @@ rcontext.getJavascriptManager().require("SHARED/platform-left-navigation", "plat
 		<div class="EDITION-BLOCK EDITION-CONTAINER" style="display: none;position: relative;">
 			<div style="position: absolute; top: -86px;">
 				<div class="NewLayer" style="display: none; visibility: hidden;"><span></span></div>
-				<div class="CONTROL-CONTAINER CONTROL-BLOCK UIInfoBar">
+				<div class="CONTROL-CONTAINER CONTROL-BLOCK uiInfoBar">
 					<%/*Begin InfoBar*/%>
-					<div class="BlueRoundedStyle ClearFix">
-						<div class="DragControlArea" title="<%=_ctx.appRes("UITableColumnContainer.title.DragControlArea")%>"><span></span></div>
+					
+						<i class="uiIconDragDrop uiIconWhite" title="<%=_ctx.appRes("UITableColumnContainer.title.DragControlArea")%>"></i>
 						<%
 							String strTitle = uicomponent.getTitle() != null ?
 										ExpressionUtil.getExpressionValue(res, uicomponent.getTitle()) :
 										_ctx.appRes("UITableColumnContainer.title.Container");
 						%>
-						<div class="ContainerIcon DefaultContainer16x16Icon"><%=hasPermission ? strTitle : _ctx.appRes("UIPortlet.label.protectedContent")%></div>
+						<i class="uiIconContainerConfig uiIconWhite"></i>
+						<span><%=hasPermission ? strTitle : _ctx.appRes("UIPortlet.label.protectedContent")%></span>
 						<%if(hasPermission) {%>
-							<a href="<%=uicomponent.event("EditContainer","$uicomponent.id")%>" class="EditIcon" title="<%=_ctx.appRes("UITableColumnContainer.tooltip.editContainer")%>"></a>
-							<a href="<%=uicomponent.event("DeleteComponent","$uicomponent.id")%>" class="DeleteIcon" title="<%=_ctx.appRes("UITableColumnContainer.tooltip.closeContainer")%>"></a>
+							<a href="<%=uicomponent.event("EditContainer","$uicomponent.id")%>" title="<%=_ctx.appRes("UITableColumnContainer.tooltip.editContainer")%>"><i class="uiIconEdit uiIconWhite"></i></a>
+							<a href="<%=uicomponent.event("DeleteComponent","$uicomponent.id")%>" title="<%=_ctx.appRes("UITableColumnContainer.tooltip.closeContainer")%>"><i class="uiIconTrash uiIconWhite"></i>
 						<%}%>
-					</div>
+					
 					<%/*End InfoBar*/ %>
 				</div>
 			</div>
