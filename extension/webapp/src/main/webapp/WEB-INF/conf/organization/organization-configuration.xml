@@ -253,6 +253,38 @@
                     </field>
                   </object>
                 </value>
+                 <value>
+                    <object type="org.exoplatform.services.organization.OrganizationConfig$Group">
+                       <field name="name">
+                          <string>management</string>
+                       </field>
+                       <field name="parentId">
+                          <string>/organization</string>
+                       </field>
+                       <field name="description">
+                          <string>the /organization/management group</string>
+                       </field>
+                       <field name="label">
+                          <string>Management</string>
+                       </field>
+                    </object>
+                 </value>
+                 <value>
+                    <object type="org.exoplatform.services.organization.OrganizationConfig$Group">
+                       <field name="name">
+                          <string>executive-board</string>
+                       </field>
+                       <field name="parentId">
+                          <string>/organization/management</string>
+                       </field>
+                       <field name="description">
+                          <string>the /organization/management/executive-board group</string>
+                       </field>
+                       <field name="label">
+                          <string>Executive Board</string>
+                       </field>
+                    </object>
+                 </value>
                 <value>
                   <object type="org.exoplatform.services.organization.OrganizationConfig$Group">
                     <field name="name">
@@ -292,7 +324,7 @@
                       <string>root@localhost</string>
                     </field>
                     <field name="groups">
-                      <string>*:/platform/administrators,*:/platform/users,*:/platform/web-contributors,*:/organization/employees</string>
+                      <string>*:/platform/administrators,*:/platform/users,*:/platform/web-contributors,*:/organization/employees,member:/organization/management/executive-board</string>
                     </field>
                   </object>
                 </value>

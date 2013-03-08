@@ -26,7 +26,9 @@
    xmlns="http://www.exoplatform.org/xml/ns/kernel_1_2.xsd">
 
 	<import>war:/conf/office-extension/portal/resource-bundle-configuration.xml</import>
+   <!--
 	<import>war:/conf/office-extension/organization/organization-configuration.xml</import>
+	-->
 	<import>war:/conf/office-extension/portal/portal-configuration.xml</import>
 	<import profiles="social,all,default">war:/conf/office-extension/social/spaces-configuration.xml</import>
 	<import>war:/conf/office-extension/wcm/deployment/office-deployment-configuration.xml</import>
