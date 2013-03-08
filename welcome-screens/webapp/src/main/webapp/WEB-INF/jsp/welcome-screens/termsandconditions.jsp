@@ -969,9 +969,7 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 					<tbody>
 					<tr class="c16">
 						<td class="c18">
-							<p class="c7"><span class="c0 c4">&nbsp;Developer Subscription</span></p>
-
-							<p class="c7"><span class="c0 c4">Standard</span></p>
+							<p class="c7"><span class="c0 c4">&nbsp;eXo Platform Express Edition</span></p>
 
 							<p class="c7 c6"></p>
 						</td>
@@ -979,84 +977,20 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 						<td class="c34">
 							<p class="c9 c6"></p>
 
-							<ol class="c19" start="1">
-								<li class="c9 c11"><span class="c0">Access to entire eXo Software portfolio
-									for up to five (5) developers</span></li>
+                            <ol class="c33" start="1">
+								<li class="c9 c11"><span class="c0">Access to certified Production-ready Software</span></li>
 
-								<li class="c9 c11"><span class="c0">20 support cases included</span></li>
+								<li class="c9 c11"><span class="c0">Access to user, IT operation Documentation</span></li>
 
-								<li class="c9 c11"><span class="c0">Access to developer Documentation and
-									Knowledge Base</span></li>
+								<li class="c9 c11"><span class="c0">Certified Updates, patches and bug fixes through Maintenance benefits
+                                    program   (As defined in section 5)</span></li>
 
-								<li class="c9 c11"><span class="c0">Maintenance benefits (As defined in
-									section 5)</span></li>
-
-								<li class="c9 c11"><span class="c0">Support:</span></li>
-							</ol>
-
-							<ol class="c33" start="1">
-								<li class="c9 c24"><span class="c0">Availability: 8h-18h GMT, from Monday to
-									Friday, excluding eXo holidays (&ldquo;Business Day&rdquo;)</span></li>
-
-								<li class="c9 c24"><span class="c0">Customer Named Contacts: &nbsp;Two
-									(2)</span></li>
-
-								<li class="c9 c24"><span class="c0">Target response time: Two (2) Business
-									Days</span></li>
-
-								<li class="c9 c24"><span class="c0">Limited to Development purposes and for 1
-									project only</span></li>
+								<li class="c9 c11"><span class="c0">Unit: up to 25, 50, 100 or 500 users</span></li>
 							</ol>
 
 							<p class="c9 c6"></p>
 
 							<p class="c9 c6"></p>
-						</td>
-					</tr>
-
-					<tr class="c16">
-						<td class="c18">
-							<p class="c7"><span class="c0 c4">Developer Subscription</span></p>
-
-							<p class="c7"><span class="c0 c4">Advanced</span></p>
-
-							<p class="c7 c6"></p>
-						</td>
-
-						<td class="c34">
-							<p class="c9 c6"></p>
-
-							<ol class="c19" start="6">
-								<li class="c9 c11"><span class="c0">Access to entire eXo Software portfolio
-									for up to ten (10) developers</span></li>
-
-								<li class="c9 c11"><span class="c0">50 support cases included</span></li>
-
-								<li class="c9 c11"><span class="c0">Access to developer Documentation and
-									Knowledge Base</span></li>
-
-								<li class="c9 c11"><span class="c0">Maintenance benefits (As defined in
-									section 5)</span></li>
-
-								<li class="c9 c11"><span class="c0">Designated contact within eXo support
-									team</span></li>
-
-								<li class="c9 c11"><span class="c0">Support :</span></li>
-							</ol>
-
-							<ol class="c33" start="1">
-								<li class="c9 c24"><span class="c0">Availability: eXo Business Days,
-									excluding eXo holidays</span></li>
-
-								<li class="c9 c24"><span class="c0">Customer Named Contacts: &nbsp;Four
-									(4)</span></li>
-
-								<li class="c9 c24"><span class="c0">Target response time: One (1) Business
-									Day</span></li>
-
-								<li class="c9 c24"><span class="c0">Limited to Development purposes and for 1
-									project only</span></li>
-							</ol>
 						</td>
 					</tr>
 					</tbody>
@@ -1068,100 +1002,35 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 					<tbody>
 					<tr class="c16">
 						<td class="c38">
-							<p class="c7"><span class="c0 c4">Subscription</span></p>
+							<p class="c7"><span class="c0 c4">eXo Platform Enterprise Edition</span></p>
 
-							<p class="c7"><span class="c0 c4">Standard</span></p>
-
-							<p class="c7 c6"></p>
+							<p class="c7"><span class="c0 c4">eXo Platform UXPaaS Edition</span></p>
 
 							<p class="c7 c6"></p>
 
-							<p class="c7"><span class="c0 c4">Available for&nbsp;:</span></p>
-
-							<p class="c7"><span class="c0 c4">eXo Platform Professional</span></p>
-
-							<p class="c7"><span class="c0 c4">eXo Platform Express</span></p>
-
-							<p class="c7"><span class="c0 c4">eXo Platform for SMB</span></p>
-
-							<p class="c7"><span class="c0 c4">eXo Platform for Jboss<br/></span></p>
+							<p class="c7"><span class="c0 c4">Standard Subscription</span></p>
 						</td>
 
 						<td class="c32">
 							<p class="c9 c6"></p>
 
 							<ol class="c19" start="1">
-								<li class="c9 c11"><span class="c0">Access to certified Production-ready
-									Software</span></li>
+								<li class="c9 c11"><span class="c0">Access to certified Production-ready Software</span></li>
 
-								<li class="c9 c11"><span class="c0">Multi-year support and Update
-									policies</span></li>
+								<li class="c9 c11"><span class="c0">Multi-year support and Update policies</span></li>
 
-								<li class="c9 c11"><span class="c0">Access to user, IT operation
-									Documentation</span></li>
+                                <li class="c9 c11"><span class="c0">Access to user, IT operation Documentation</span></li>
 
-								<li class="c9 c11"><span class="c0">Certified Updates, patches and bug fixes
-									through Maintenance benefits program &nbsp; (As defined in section
-									5)</span></li>
-							</ol>
+                                <li class="c9 c11"><span class="c0">Certified Updates, patches and bug fixes through Maintenance
+                                    benefits program   (As defined in section 5)</span></li>
 
-							<ol class="c19" start="12">
-								<li class="c9 c11"><span class="c0">eXo Business Day Production Support
-									&nbsp;(As defined in section 3)</span></li>
+                                <li class="c9 c11"><span class="c0">eXo Business Day Production Support  (As defined in section 3)</span></li>
 
-								<li class="c9 c11"><span class="c0">Unit: 8, 16 or 64 Core Processor
-									band</span></li>
-							</ol>
+                                <li class="c9 c11"><span class="c0">Unit: 8, 16 or 64 Core Processor band</span></li>
 
-							<p class="c9 c6 c35"></p>
-						</td>
-					</tr>
+                                <li class="c9 c11"><span class="c0">16 or 64 Core Processor Band only for eXo Platform UXPaaS</span></li>
 
-					<tr class="c16">
-						<td class="c38">
-							<p class="c7"><span class="c0 c4">Subscription</span></p>
 
-							<p class="c7"><span class="c0 c4">Premium</span></p>
-
-							<p class="c7 c6"></p>
-
-							<p class="c7 c6"></p>
-
-							<p class="c7"><span class="c0 c4">Available for&nbsp;:</span></p>
-
-							<p class="c7"><span class="c0 c4">eXo Platform Professional</span></p>
-
-							<p class="c7"><span class="c0 c4">eXo Platform Express</span></p>
-
-							<p class="c7"><span class="c0 c4">eXo Platform for SMB</span></p>
-
-							<p class="c7"><span class="c0 c4">eXo Platform for Jboss</span></p>
-						</td>
-
-						<td class="c32">
-							<p class="c9 c6"></p>
-
-							<ol class="c19" start="5">
-								<li class="c9 c11"><span class="c0">Access to certified Production-ready
-									Software</span></li>
-
-								<li class="c9 c11"><span class="c0">Multi-year support and Update
-									policies</span></li>
-
-								<li class="c9 c11"><span class="c0">Access to user, &nbsp;IT operation
-									Documentation</span></li>
-
-								<li class="c9 c11"><span class="c0">Certified Updates, patches and bug fixes
-									through Maintenance benefits program &nbsp;(As defined in section
-									5)</span></li>
-							</ol>
-
-							<ol class="c19" start="14">
-								<li class="c9 c11"><span class="c0">24/7 Production Support &nbsp;(As defined
-									in section 3)</span></li>
-
-								<li class="c9 c11"><span class="c0">Unit: 8, 16 or 64 Core Processor
-									band</span></li>
 							</ol>
 
 							<p class="c9 c6 c35"></p>
@@ -1169,6 +1038,48 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 					</tr>
 					</tbody>
 				</table>
+
+                <table cellpadding="0" cellspacing="0" class="c26">
+                    <tbody>
+                    <tr class="c16">
+                        <td class="c38">
+                            <p class="c7"><span class="c0 c4">eXo Platform Enterprise</span></p>
+
+                            <p class="c7"><span class="c0 c4">eXo Platform UXPaaS</span></p>
+
+                            <p class="c7 c6"></p>
+
+                            <p class="c7"><span class="c0 c4">Premium Subscription</span></p>
+                        </td>
+
+                        <td class="c32">
+                            <p class="c9 c6"></p>
+
+                            <ol class="c19" start="1">
+                                <li class="c9 c11"><span class="c0">Access to certified Production-ready Software</span></li>
+
+                                <li class="c9 c11"><span class="c0">Multi-year support and Update policies</span></li>
+
+                                <li class="c9 c11"><span class="c0">Access to user,  IT operation Documentation</span></li>
+
+                                <li class="c9 c11"><span class="c0">Certified Updates, patches and bug fixes through Maintenance
+                                    benefits program  (As defined in section 5)</span></li>
+
+                                <li class="c9 c11"><span class="c0">24/7 Production Support  (As defined in section 3)</span></li>
+
+                                <li class="c9 c11"><span class="c0">Unit: 8, 16 or 64 Core Processor band</span></li>
+
+                                <li class="c9 c11"><span class="c0">16 or 64 Core Processor Band only for eXo Platform UXPaaS and
+                                    eXo Platform for Jboss</span></li>
+
+
+                            </ol>
+
+                            <p class="c9 c6 c35"></p>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
 
 				<p class="c1 c6"></p>
 
@@ -1188,17 +1099,13 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 								<li class="c9 c11"><span class="c0">Designated technical account
 									leader</span></li>
 
-								<li class="c9 c11"><span class="c0">Availability: eXo Business Days,
-									excluding eXo holidays</span></li>
+								<li class="c9 c11"><span class="c0">Availability: eXo Business Days, excluding eXo holidays</span></li>
 
-								<li class="c9 c11"><span class="c0">Target response time: Four (4)
-									hours</span></li>
+								<li class="c9 c11"><span class="c0">Target response time: Four (4) hours</span></li>
 
-								<li class="c9 c11"><span class="c0">On-Site Coverage: &nbsp;Two (2) on-site
-									technical reviews per year by eXo</span></li>
+								<li class="c9 c11"><span class="c0">On-Site Coverage: &nbsp;Two (2) on-site technical reviews per year by eXo</span></li>
 
-								<li class="c9 c11"><span class="c0">Customer &nbsp;Named Contacts : Two
-									(2)</span></li>
+								<li class="c9 c11"><span class="c0">Customer &nbsp;Named Contacts : Two (2)</span></li>
 
 								<li class="c9 c11"><span class="c0">Scope of Coverage: &nbsp;</span></li>
 							</ol>
@@ -1426,23 +1333,14 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 							<p class="c7"><span class="c0">via eXo management portal</span></p>
 						</td>
 					</tr>
+                    </tbody>
+                </table>
+                <p class="c6 c12"></p>
 
-					<tr class="c16">
-						<td class="c10">
-							<p class="c9 c6"></p>
+                <p class="c12"><span class="c0 c4">Target Response Times and Guidelines:</span></p>
 
-							<p class="c9"><span class="c0 c4">Target Response Times and
-								  Guidelines:</span><span class="c0">&nbsp;</span></p>
-						</td>
-
-						<td class="c2">
-							<p class="c9"><span class="c0">&nbsp;</span></p>
-						</td>
-
-						<td class="c13">
-							<p class="c9 c6"></p>
-						</td>
-					</tr>
+                <table cellpadding="0" cellspacing="0" class="c26">
+                    <tbody>
 
 					<tr class="c16">
 						<td class="c10">
@@ -1556,11 +1454,11 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 				<p class="c9 c6 c14"></p>
 
 				<ol class="c21" start="1">
-					<li class="c1 c27 c29"><span class="c0 c4">eXo Consulting Services</span></li>
+					<li class="c1 c27 c29"><span class="c0 c4">1. eXo Consulting Services</span></li>
 				</ol>
 
 				<ol class="c28" start="1">
-					<li class="c1 c22"><span class="c0 c4">Scope of appliance</span></li>
+					<li class="c1 c22"><span class="c0 c4">a. Scope of appliance</span></li>
 				</ol>
 
 				<p class="c1"><span class="c0">eXo consulting services (&ldquo;Consulting
@@ -1568,14 +1466,14 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 						  the Software such as :</span></p>
 
 				<ol class="c19" start="1">
-					<li class="c9 c11 c14"><span class="c0">Technical and functional project design and
+					<li class="c9 c11 c14"><span class="c0">- Technical and functional project design and
 							specifications,</span></li>
 
-					<li class="c9 c11 c14"><span class="c0">Migration and Updates</span></li>
+					<li class="c9 c11 c14"><span class="c0">- Migration and Updates</span></li>
 
-					<li class="c9 c11 c14"><span class="c0">IT operations and expertise,</span></li>
+					<li class="c9 c11 c14"><span class="c0">- IT operations and expertise,</span></li>
 
-					<li class="c9 c11 c14"><span class="c0">On-site technical or functional POCs (Proof
+					<li class="c9 c11 c14"><span class="c0">- On-site technical or functional POCs (Proof
 							Of Concept)</span></li>
 				</ol>
 
@@ -1587,7 +1485,7 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 				<p class="c9 c6 c14"></p>
 
 				<ol class="c28" start="2">
-					<li class="c1 c22"><span class="c0 c4">Performance and Deliverables</span></li>
+					<li class="c1 c22"><span class="c0 c4">b. Performance and Deliverables</span></li>
 				</ol>
 
 				<p class="c9 c14"><span class="c0">eXo agrees to provide the Consulting Services and
@@ -1610,7 +1508,7 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 				<p class="c9 c6 c14"></p>
 
 				<ol class="c28" start="3">
-					<li class="c1 c22"><span class="c0 c4">Responsibilities</span></li>
+					<li class="c1 c22"><span class="c0 c4">c. Responsibilities</span></li>
 				</ol>
 
 				<p class="c1"><span class="c0">As long as Consulting Services are an assistance
@@ -1624,7 +1522,7 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 				<p class="c1 c6 c36"></p>
 
 				<ol class="c28" start="4">
-					<li class="c1 c22"><span class="c0 c4">Ordering, invoicing and Payment</span></li>
+					<li class="c1 c22"><span class="c0 c4">d. Ordering, invoicing and Payment</span></li>
 				</ol>
 
 				<p class="c1"><span class="c0">eXo&rsquo;s Consulting Services are meant to be ordered
@@ -1647,18 +1545,18 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 						  Customer.</span></p>
 
 				<ol class="c21" start="2">
-					<li class="c1 c27 c29"><span class="c0 c4">eXo Training Services</span></li>
+					<li class="c1 c27 c29"><span class="c0 c4">2. eXo Training Services</span></li>
 				</ol>
 
 				<ol class="c28" start="1">
-					<li class="c1 c22"><span class="c0 c4">Scope of appliance</span></li>
+					<li class="c1 c22"><span class="c0 c4">a. Scope of appliance</span></li>
 				</ol>
 
 				<p class="c1"><span class="c0">eXo&rsquo;s Training Services are meant to provide
 						  training to Customer human resources under the following scope :</span></p>
 
 				<ol class="c19" start="5">
-					<li class="c9 c11"><span class="c0">&ldquo;Training Services&rdquo; means eXo&rsquo;s
+					<li class="c9 c11"><span class="c0">- &ldquo;Training Services&rdquo; means eXo&rsquo;s
 							training courses, including eXo&rsquo;s publicly available courses and courses
 							provided at a site designated by the Customer</span></li>
 				</ol>
@@ -1666,14 +1564,14 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 				<p class="c9"><span class="c0">&nbsp;</span></p>
 
 				<ol class="c19" start="6">
-					<li class="c9 c11"><span class="c0">The Training Services do not include any
+					<li class="c9 c11"><span class="c0">-The Training Services do not include any
 							Subscription Services.</span></li>
 				</ol>
 
 				<p class="c9 c6"></p>
 
 				<ol class="c28" start="2">
-					<li class="c1 c22"><span class="c0 c4">Performance and Deliverables</span></li>
+					<li class="c1 c22"><span class="c0 c4">b. Performance and Deliverables</span></li>
 				</ol>
 
 				<p class="c9 c14"><span class="c0">eXo agrees to provide the Training Services and
@@ -1697,7 +1595,7 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 						"http://www.exoplatform.com/company/en/services/development-training"></a></span></p>
 
 				<ol class="c28" start="3">
-					<li class="c1 c22"><span class="c0 c4">Equipment and Facilities</span></li>
+					<li class="c1 c22"><span class="c0 c4">c. Equipment and Facilities</span></li>
 				</ol>
 
 				<p class="c9"><span class="c0">For on-site courses, Customer will supply the facility
@@ -1708,7 +1606,7 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 				<p class="c9 c6"></p>
 
 				<ol class="c28" start="4">
-					<li class="c1 c22"><span class="c0 c4">Customer Responsibilities</span></li>
+					<li class="c1 c22"><span class="c0 c4">d. Customer Responsibilities</span></li>
 				</ol>
 
 				<p class="c1"><span class="c0">Customer is responsible for assessing each
@@ -1717,7 +1615,7 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 						  courses.</span></p>
 
 				<ol class="c28" start="5">
-					<li class="c1 c22"><span class="c0 c4">Rights to Training Materials</span></li>
+					<li class="c1 c22"><span class="c0 c4">e. Rights to Training Materials</span></li>
 				</ol>
 
 				<p class="c9"><span class="c0">All intellectual property embodied in the training
@@ -1733,7 +1631,7 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 				<p class="c9 c6 c14"></p>
 
 				<ol class="c28" start="6">
-					<li class="c1 c22"><span class="c0 c4">Ordering, invoicing and Payment</span></li>
+					<li class="c1 c22"><span class="c0 c4">f. Ordering, invoicing and Payment</span></li>
 				</ol>
 
 				<p class="c1"><span class="c0">eXo&rsquo;s Training Services are meant to be ordered
@@ -1753,7 +1651,7 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 				<p class="c9 c6 c14"></p>
 
 				<ol class="c28" start="7">
-					<li class="c1 c22"><span class="c0 c4">Cancellation Policy</span></li>
+					<li class="c1 c22"><span class="c0 c4">g. Cancellation Policy</span></li>
 				</ol>
 
 				<p class="c1"><span class="c0">Class registrations are not confirmed until Purchase
@@ -1780,12 +1678,12 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 						"id.43e09b9fd5fe"></a>
 
 				<ol class="c21" start="3">
-					<li class="c1 c27 c29"><span class="c0 c4">eXo Specific Development
+					<li class="c1 c27 c29"><span class="c0 c4">3. eXo Specific Development
 							Services</span></li>
 				</ol>
 
 				<ol class="c28" start="1">
-					<li class="c1 c22"><span class="c0 c4">Scope of appliance</span></li>
+					<li class="c1 c22"><span class="c0 c4">a. Scope of appliance</span></li>
 				</ol>
 
 				<p class="c1"><span class="c0">eXo&rsquo;s specific development services
@@ -1793,18 +1691,18 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 						  development involving the Software such as :</span></p>
 
 				<ol class="c19" start="7">
-					<li class="c1 c11"><span class="c0">Specific development,</span></li>
+					<li class="c1 c11"><span class="c0">- Specific development,</span></li>
 
-					<li class="c1 c11"><span class="c0">Product extensions,</span></li>
+					<li class="c1 c11"><span class="c0">- Product extensions,</span></li>
 
-					<li class="c1 c11"><span class="c0">Off-site POCs (Proof of concept),</span></li>
+					<li class="c1 c11"><span class="c0">- Off-site POCs (Proof of concept),</span></li>
 				</ol>
 
 				<p class="c1"><span class="c0">The Specific Development Services don&rsquo;t include
 						  any Subscription Services.</span></p>
 
 				<ol class="c28" start="2">
-					<li class="c1 c22"><span class="c0 c4">Performance and Deliverables</span></li>
+					<li class="c1 c22"><span class="c0 c4">d. Performance and Deliverables</span></li>
 				</ol>
 
 				<p class="c9 c14"><span class="c0">eXo agrees to provide the Specific Development
@@ -1825,10 +1723,10 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 						  a technical and organizational offer which will:</span></p>
 
 				<ol class="c19" start="1">
-					<li class="c9 c11 c14"><span class="c0">Specify the applicable documents or materials
+					<li class="c9 c11 c14"><span class="c0">- Specify the applicable documents or materials
 							used to describe &nbsp;the Customer requirements and expected results</span></li>
 
-					<li class="c9 c11 c14"><span class="c0">Specify the eXo&rsquo;s project management
+					<li class="c9 c11 c14"><span class="c0">- Specify the eXo&rsquo;s project management
 							phases, Deliverables, commitments and means to fulfill the project requirements and
 							warrant the result.</span></li>
 				</ol>
@@ -1854,7 +1752,7 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 				<p class="c9 c6 c14"></p>
 
 				<ol class="c28" start="3">
-					<li class="c1 c22"><span class="c0 c4">Ordering, invoicing and Payment</span></li>
+					<li class="c1 c22"><span class="c0 c4">c. Ordering, invoicing and Payment</span></li>
 				</ol>
 
 				<p class="c1"><span class="c0">eXo&rsquo;s Specific Development Services are meant to
