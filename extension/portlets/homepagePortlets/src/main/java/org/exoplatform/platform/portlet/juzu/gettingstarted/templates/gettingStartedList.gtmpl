@@ -28,7 +28,7 @@
         $('.GettingStartedContainer').jzLoad("GettingStarted.delete()");
 
     });
-    $('.DeleteAction').on("click", function () {
+    $('#DeleteLink').on("click", function () {
         $.getJSON('/rest/homepage/intranet/getting-started/delete');
         $('.GettingStartedContainer').jzLoad("GettingStarted.delete()");
         $('.GettingStartedContainer').css("display","none");
@@ -36,30 +36,30 @@
 </script>
 
 
-    <div class="UIGadgetThemes uiBox uiGettingStarted">
-        <h6 class="gadgetTitle title center">${titleLabel} <a onclick="" data-placement="bottom" rel="tooltip" title="Close Window" class="uiIconClose pull-right"></a></h6>
+<div class="UIGadgetThemes uiBox uiGettingStarted">
+    <h6 class="gadgetTitle title center">${titleLabel} <a onclick="" data-placement="bottom" rel="tooltip" title="Close Window" class="uiIconClose pull-right"></a></h6>
 
-        <div class="listBlock">
+    <div class="listBlock">
 
-            <div id="progress-block" class="clearfix">
-                <div id="progress-shell" class="progress progessStart pull-left">
-                    <div id="progress-rate" class="bar" style="width: ${width}px"></div>
-                </div>
-                <div id="progress-label" class="pull-left progessLabel"> ${progress} %</div>
+        <div id="progress-block" class="clearfix">
+            <div id="progress-shell" class="progress progessStart pull-left">
+                <div id="progress-rate" class="bar" style="width: ${width}px"></div>
+            </div>
+            <div id="progress-label" class="pull-left progessLabel"> ${progress} %</div>
 
-            </div>   
-			<ul class ="gsList" id="gsList">
-				<li class="${status['gs_profile']}" ><a  target="_parent" href=${profile} >${profileLabel}</a></li>
-				<li class="${status['gs_connect']}" ><a  target="_parent" href=${connect} >${connectLabel}</a></li>
-				<li class="${status['gs_space']}" ><a target="_parent" href=${space} >${spaceLabel}</a></li>
-				<li class="${status['gs_activities']}" ><a target="_parent" href=${activity} > ${activityLabel} </a></li>
-				<li class="${status['gs_document']}" ><a target="_parent" href=${upload}> ${uploadLabel} </a></li>
-			</ul>        
+        </div>
+        <ul class ="gsList" id="gsList">
+            <li class="${status['gs_profile']}" ><a  target="_parent" href=${profile} >${profileLabel}</a></li>
+            <li class="${status['gs_connect']}" ><a  target="_parent" href=${connect} >${connectLabel}</a></li>
+            <li class="${status['gs_space']}" ><a target="_parent" href=${space} >${spaceLabel}</a></li>
+            <li class="${status['gs_activities']}" ><a target="_parent" href=${activity} > ${activityLabel} </a></li>
+            <li class="${status['gs_document']}" ><a target="_parent" href=${upload}> ${uploadLabel} </a></li>
+        </ul>
 
-        </div>   
+    </div>
     <%if(show=="false"){%>
     <div class="center btnCompleteGetting" id="DeleteLink">
         <button class="btn btn-small">${closeLabel}</button>
-	</div>
+    </div>
     <%}%>
 </div>
