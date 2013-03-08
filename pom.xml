@@ -1085,35 +1085,11 @@
         <type>pom</type>
         <scope>import</scope>
       </dependency>
-      <!-- Import versions of external dependencies to use -->
-      <dependency>
-        <groupId>org.exoplatform</groupId>
-        <artifactId>maven-depmgt-pom</artifactId>
-        <version>${org.exoplatform.depmgt.version}</version>
-        <type>pom</type>
-        <scope>import</scope>
-      </dependency>
       <!-- Import versions from calendar project -->
       <dependency>
         <groupId>org.exoplatform.calendar</groupId>
         <artifactId>calendar</artifactId>
         <version>${org.exoplatform.calendar.version}</version>
-        <type>pom</type>
-        <scope>import</scope>
-      </dependency>
-      <!-- Import versions from calendar project -->
-      <dependency>
-        <groupId>org.exoplatform.calendar</groupId>
-        <artifactId>calendar</artifactId>
-        <version>${org.exoplatform.calendar.version}</version>
-        <type>pom</type>
-        <scope>import</scope>
-      </dependency>
-      <!-- Import versions from commons project -->
-      <dependency>
-        <groupId>org.exoplatform.commons</groupId>
-        <artifactId>commons</artifactId>
-        <version>${org.exoplatform.commons.version}</version>
         <type>pom</type>
         <scope>import</scope>
       </dependency>
@@ -1133,35 +1109,11 @@
         <type>pom</type>
         <scope>import</scope>
       </dependency>
-      <!-- Import versions from ecms project -->
-      <dependency>
-        <groupId>org.exoplatform.ecms</groupId>
-        <artifactId>ecms</artifactId>
-        <version>${org.exoplatform.ecms.version}</version>
-        <type>pom</type>
-        <scope>import</scope>
-      </dependency>
       <!-- Import versions from forum project -->
       <dependency>
         <groupId>org.exoplatform.forum</groupId>
         <artifactId>forum</artifactId>
         <version>${org.exoplatform.forum.version}</version>
-        <type>pom</type>
-        <scope>import</scope>
-      </dependency>
-      <!-- Import versions from forum project -->
-      <dependency>
-        <groupId>org.exoplatform.forum</groupId>
-        <artifactId>forum</artifactId>
-        <version>${org.exoplatform.forum.version}</version>
-        <type>pom</type>
-        <scope>import</scope>
-      </dependency>
-      <!-- Import versions from integration project -->
-      <dependency>
-        <groupId>org.exoplatform.integration</groupId>
-        <artifactId>integ</artifactId>
-        <version>${org.exoplatform.integ.version}</version>
         <type>pom</type>
         <scope>import</scope>
       </dependency>
@@ -1188,22 +1140,6 @@
         <version>${project.version}</version>
       </dependency>
       -->
-      <!-- Import versions from social project -->
-      <dependency>
-        <groupId>org.exoplatform.social</groupId>
-        <artifactId>social</artifactId>
-        <version>${org.exoplatform.social.version}</version>
-        <type>pom</type>
-        <scope>import</scope>
-      </dependency>
-      <!-- Import versions from wiki project -->
-      <dependency>
-        <groupId>org.exoplatform.wiki</groupId>
-        <artifactId>wiki</artifactId>
-        <version>${org.exoplatform.wiki.version}</version>
-        <type>pom</type>
-        <scope>import</scope>
-      </dependency>
       <!-- Import versions from wiki project -->
       <dependency>
         <groupId>org.exoplatform.wiki</groupId>
