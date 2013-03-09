@@ -41,20 +41,10 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
     <style type="text/css">
         body {
             background: url("/platform-extension/jsp/welcome-screens/images/login_texture.jpg") repeat;
-            font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+            font-family: HelveticaNeue, Arial, sans-serif;
             font-size: 13px;
             color: #333;
             overflow: auto;
-        }
-
-        @font-face {
-            font-family: lucida;
-            src: url("/platform-extension/jsp/welcome-screens/font/L_0.eot")
-        }
-
-        @font-face {
-            font-family: lucida;
-            src: url("/platform-extension/jsp/welcome-screens/font/L_0.TTF")
         }
 
         h5 {
@@ -74,13 +64,13 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 
         .uiWelcomeBox {
             background-color:  #fff;
-            border-radius: 4px 4px 4px 4px;
+            border-radius: 10px;
             box-shadow: 0 1px 3px #3d3d3d;
             margin: -400px auto 0;
             width: 512px;
         }
 
-        .header {
+        .uiWelcomeBox .header {
             background: url("/platform-extension/jsp/welcome-screens/images/headerBG.png") repeat-x scroll 0 0 transparent;
             border: 1px solid #393939;
             border-radius: 4px 4px 0 0;
@@ -92,7 +82,7 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
             color: #c1c1c1;
         }
 
-        .content {
+        .uiWelcomeBox .content {
             background-color: #FFFFFF;
             margin: 0 auto;
             padding: 10px 30px;
@@ -100,30 +90,26 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
             width: auto;
         }
 
-        input {
-            -moz-box-sizing: border-box;
-            border: 1px solid #C7C7C7;
-            box-shadow: 0 2px 1px rgba(0, 0, 0, 0.075) inset;
-            color: #333333;
-            font-size: 13px;
-            height: 28px;
-            padding: 3px 6px;
-            display: inline-block;
-            margin-bottom: 0;
-            vertical-align: middle;
-            background-color: #FFFFFF;
-            transition: border 0.2s linear 0s, box-shadow 0.2s linear 0s;
-            border-radius: 4px 4px 4px 4px;
-            line-height: 20px;
+        .uiWelcomeBox input {
+            border: 1px solid #cdcdcd;
+			border-radius: 4px 4px 4px 4px;
+			box-shadow: 0 1px 1px rgba(0,0,0,0.1) inset;
+			color: #999;
+			height: 28px;
+			padding: 0 6px;
         }
-
-        .bottom {
+		
+		.uiWelcomeBox input.disable {
+			background-color: #e6e6e6;
+		}
+			
+        .uiWelcomeBox .bottom {
             background: url("/platform-extension/jsp/welcome-screens/images/bottomBG.png") no-repeat center bottom;
             text-align: center;
             padding: 25px 0;
         }
 
-        button {
+        .uiWelcomeBox button {
             background: url("/platform-extension/jsp/welcome-screens/images/loginAction.png") repeat-x;
             border: 1px solid #224886;
             border-radius: 4px;
@@ -136,60 +122,63 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
             cursor: pointer;
         }
 
-        .form-horizontal .control-group:before, .form-horizontal .control-group:after {
+        .uiWelcomeBox .form-horizontal .control-group:before, .uiWelcomeBox .form-horizontal .control-group:after {
             content: "";
             display: table;
             line-height: 0;
         }
 
-        .form-horizontal .control-group {
+        .uiWelcomeBox .form-horizontal .control-group {
             margin-bottom: 12px;
         }
 
-        .form-horizontal .control-label {
+        .uiWelcomeBox .form-horizontal .control-label {
             float: left;
             padding-top: 5px;
             text-align: right;
             width: 75px;
         }
 
-        .form-horizontal .controls {
+        .uiWelcomeBox .form-horizontal .controls {
             margin-left: 85px;
         }
 
-        .form-horizontal .controls input:first-child {
+        .uiWelcomeBox .form-horizontal .controls .inputFieldMedium:first-child,
+        .uiWelcomeBox .form-horizontal .controls .inputFieldMini:first-child {
             margin-right: 10px;
         }
-
-        .inputFieldMini {
-            width: 128px;
+        
+        .uiWelcomeBox .inputFieldMini {
+            width: 121px;
             -webkit-width: 131px;
         }
 
-        .inputFieldMedium {
-            width: 162px;
+        .uiWelcomeBox .inputFieldMedium {
+            width: 155px;
         }
 
-        .inputFieldLarge {
+        .uiWelcomeBox .inputFieldLarge {
             width: 334px;
+            -webkit-width: 348px;
+            width: 348px\0/IE8+9;
         }
 
-        .confirmLabel {
+        .uiWelcomeBox .confirmLabel {
             padding: 0 10px 0 5px;
         }
 
-        .desc {
+        .uiWelcomeBox .desc {
             font-size: 12px;
             color: #999;
             margin: 10px 0 15px;
         }
 
-        .screenShot {
+        .uiWelcomeBox .screenShot {
             padding: 20px 0 30px;
             text-align: center;
         }
 
-        .screenShot a {
+        .uiWelcomeBox .screenShot a {
             background-color: #fff;
             background-repeat: repeat-x;
             border: 1px solid #f6f6f6;
@@ -200,7 +189,7 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
             width: 406px;
             display: inline-block;
         }
-        .screenShot a img {
+        .uiWelcomeBox .screenShot a img {
             border: 1px solid #dfdfdf;
             border-radius: 7px;
         }
@@ -235,7 +224,7 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
             <p class="desc">Login as root user with the following password for super user access</p>
             <div class="control-group" id="adminUsernameId">
                 <label class="control-label">Username:</label>
-                <div class="controls"><input type="text" name="adminFirstName" id="adminFirstName" placeholder="root" readonly="readonly" class="inputFieldLarge" /></div>
+                <div class="controls"><input type="text" name="adminFirstName" id="adminFirstName" placeholder="root" readonly="readonly" class="inputFieldLarge disable" /></div>
             </div>
             <div class="control-group" id="adminPasswordId">
                 <label class="control-label">Password:</label>
@@ -245,7 +234,7 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
             </div>
     </div>
     <!-- Please do not make it Button it may cause blocker problem -->
-    <div class="bottom"><a class="btn btn-primary" id="continueButton" onclick="WelcomeScreens.exit();">Submit</a></div>
+    <div class="bottom"><button class="btn btn-primary" id="continueButton" onclick="WelcomeScreens.exit();">Submit</button></div>
 </div>
 </div>
 <div>

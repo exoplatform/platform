@@ -44,22 +44,12 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 		<style type="text/css">
 			body {
 				 background: url("/platform-extension/jsp/welcome-screens/images/login_texture.jpg") repeat;
-				 font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+				 font-family: HelveticaNeue, Arial, sans-serif;
 				 font-size: 13px;
 				 color: #333;
 				 overflow: auto;
 			}
 
-			@font-face {
-				font-family: lucida;
-				src: url("/platform-extension/jsp/welcome-screens/font/L_0.eot") 
-			}
-						
-			@font-face {
-				font-family: lucida;
-				src: url("/platform-extension/jsp/welcome-screens/font/L_0.TTF") 
-			}
-			
 			.pull-left {
 				float: left;
 			}
@@ -84,13 +74,6 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 			    clear: both;
 			}
 			
-			h5 {
-				font-size: 14px;
-				font-weight: bold;
-				margin: 0;
-				padding: 20px 0 0;
-			}
-
 			.backLight {
 				border-radius: 80px 80px 80px 80px;
 				box-shadow: 0 0 200px white;
@@ -101,13 +84,13 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 
 			.uiWelcomeBox {
 				background-color:  #fff;
-				border-radius: 4px 4px 4px 4px;
+				border-radius: 10px;
 				box-shadow: 0 1px 3px #3d3d3d;
 				margin: -400px auto 0;
 				width: 512px;
 			}
 
-			.header {
+			.uiWelcomeBox .header {
 				background: url("/platform-extension/jsp/welcome-screens/images/headerBG.png") repeat-x scroll 0 0 transparent;
 				border: 1px solid #393939;
 				border-radius: 4px 4px 0 0;
@@ -119,7 +102,7 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 				color: #c1c1c1;
 			}
 
-			.content {
+			.uiWelcomeBox .content {
 				background-color: #FFFFFF;
 			    margin: 0 auto;
 			    padding: 10px 30px;
@@ -129,30 +112,13 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 			    overflow-y: scroll;
 			}
 
-			input {
-				-moz-box-sizing: border-box;
-				border: 1px solid #C7C7C7;
-				box-shadow: 0 2px 1px rgba(0, 0, 0, 0.075) inset;
-				color: #333333;
-				font-size: 13px;
-				height: 28px;
-				padding: 3px 6px;
-				 display: inline-block;
-				margin-bottom: 0;
-				vertical-align: middle;
-				background-color: #FFFFFF;
-				transition: border 0.2s linear 0s, box-shadow 0.2s linear 0s;
-				border-radius: 4px 4px 4px 4px;
-				line-height: 20px;
-			}
-
-			.bottom {
+			.uiWelcomeBox .bottom {
 				background: url("/platform-extension/jsp/welcome-screens/images/bottomBG.png") no-repeat center bottom;
 				text-align: center;
 				padding: 25px 30px;
 			}
 
-			button {
+			.uiWelcomeBox button {
 				background: url("/platform-extension/jsp/welcome-screens/images/loginAction.png") repeat-x;
 				border: 1px solid #224886;
 				border-radius: 4px;
@@ -165,51 +131,105 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 				cursor: pointer;
 			}
 			
-			.uiCheckbox {
-				display: inline-block;
-				margin: 13px 0;
+			.uiWelcomeBox .uiCheckbox {
 				position: relative;
+				display: inline-block;
+				margin: 10px 5px;
 			}
-
-			.uiCheckbox input[type="checkbox"]:checked, .uiCheckbox input[type="checkbox"]:not(:checked) {
-				margin: 4px 0 0;
+			
+			.uiWelcomeBox .uiCheckbox input[type="checkbox"]:checked,
+			.uiWelcomeBox .uiCheckbox  input[type="checkbox"]:not(:checked) {
+				margin: 4px 0 0; /* hack margin-top: 4px to fix problem on chrome in Mac only */
 				opacity: 0;
-				outline: 0 none;
 				padding: 0;
+				outline: 0 none;
 				position: absolute;
 				top: 0;
 				z-index: 100;
-				display: inline-block;
-				vertical-align: middle;
-				min-height: 20px;
-			}
 				
-			.uiCheckbox input[type="checkbox"]:checked + span:after {
-				border-bottom: 2px solid #466799;
-				border-left: 2px solid #466799;
-				content: "";
-				height: 3px;
-				left: 4px;
-				position: absolute;
-				top: 4px;
-				transform: skew(45deg, -49deg);
-				width: 6px;
+			} 
+			
+			.uiWelcomeBox .uiCheckbox input {
+				margin-left: -18px e("\0/");
+				min-height: 10px e("\0/");
 			}
-			.uiCheckbox input[type="checkbox"] + span:before {
-				background: none repeat scroll 0 0 #D2D2D2;
-				border-radius: 3px 3px 3px 3px;
-				box-shadow: 0 1px 2px rgba(0, 0, 0, 0.17) inset;
-				content: " ";
-				height: 12px;
-				left: 0;
-				position: absolute;
-				top: 4px;
-				width: 12px;
-			}
-			.uiCheckbox > span {
+			
+			.uiWelcomeBox .uiCheckbox > span {
 				display: inline-block;
 				text-indent: 18px;
 			}
+				
+			.uiWelcomeBox .uiCheckbox input[type="checkbox"]:checked + span:after {
+				border-bottom: 2px solid #466799;
+				border-left: 2px solid #466799;
+				content: "";
+				width: 7px;
+				height: 3px;	
+				transform: skew(45deg, -49deg);
+				-webkit-transform: skew(45deg, -49deg);
+				left: 4px;
+				position: absolute;
+				top: 4px;
+				-ms-transform:skewX(30deg) skewY(-35deg) e("\9");//hack only ie9
+				left: 2px e("\9");
+				width: 10px e("\9");
+				height: 4px e("\9");
+				background: transparent e("\0/") ;//hack only ie8 
+			}
+			
+			.uiWelcomeBox .uiCheckbox input[type="checkbox"] + span:before {
+				background: #d2d2d2;
+				border-radius: 3px;
+				-webkit-border-radius: 3px;
+				box-shadow: 0 1px 2px rgba(0, 0, 0, 0.17) inset;
+				-webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.17) inset;
+				width: 12px;
+				height: 12px;
+				top: 4px;
+				left: 0px;
+				content: " ";
+				position: absolute;
+				background: transparent e("\0/");
+			}
+			.c5{vertical-align:middle;width:302.7pt;border-style:solid;border-color:#000000;border-width:1pt;padding:0.8pt 0.8pt 0.8pt 0.8pt}
+			.c2{vertical-align:middle;width:67.1pt;border-style:solid;border-color:#000000;border-width:1pt;padding:0.8pt 0.8pt 0.8pt 0.8pt}
+			.c38{vertical-align:middle;width:175.4pt;border-style:solid;border-color:#000000;border-width:1pt;padding:0.8pt 0.8pt 0.8pt 0.8pt}
+			.c34{vertical-align:middle;width:302pt;border-style:solid;border-color:#000000;border-width:1pt;padding:0.8pt 0.8pt 0.8pt 0.8pt}
+			.c37{vertical-align:middle;width:171pt;border-style:solid;border-color:#000000;border-width:1pt;padding:0.8pt 0.8pt 0.8pt 0.8pt}
+			.c18{vertical-align:middle;width:171.8pt;border-style:solid;border-color:#000000;border-width:1pt;padding:0.8pt 0.8pt 0.8pt 0.8pt}
+			.c10{vertical-align:middle;width:333pt;border-style:solid;border-color:#000000;border-width:1pt;padding:0.8pt 0.8pt 0.8pt 0.8pt}
+			.c32{vertical-align:middle;width:298.4pt;border-style:solid;border-color:#000000;border-width:1pt;padding:0.8pt 0.8pt 0.8pt 0.8pt}
+			.c13{vertical-align:middle;width:73.4pt;border-style:solid;border-color:#000000;border-width:1pt;padding:0.8pt 0.8pt 0.8pt 0.8pt}
+			.c15{line-height:1.2;padding-top:5pt;direction:ltr;padding-bottom:5pt}
+			.c7{line-height:1.2;text-align:center;direction:ltr;padding-bottom:0pt}
+			.c1{line-height:1.2;text-align:justify;direction:ltr;padding-bottom:8pt}
+			.c12{line-height:1.2;padding-top:0.1pt;direction:ltr;padding-bottom:0.1pt}
+			.c33{list-style-type:circle;margin:0;padding:0}
+			.c28{list-style-type:lower-latin;margin:0;padding:0}
+			.c21{list-style-type:decimal;margin:0;padding:0}
+			.c9{line-height:1.2;direction:ltr;padding-bottom:0pt}
+			.c19{list-style-type:disc;margin:0;padding:0}
+			.c30{max-width:468pt;background-color:#ffffff;padding:72pt 72pt 72pt 72pt}
+			.c0{font-size:12px;font-family:Verdana,Arial,sans-serif}
+			.c11{padding-left:0pt;margin-left:36pt}
+			.c25{color:#0000ff;text-decoration:underline}
+			.c22{padding-left:0pt;margin-left:54pt}
+			.c24{padding-left:0pt;margin-left:72pt}
+			.c8{color:inherit;text-decoration:inherit}
+			.c4{font-weight:bold}
+			.c23{direction:ltr}
+			.c3{text-indent:36pt}
+			.c27{margin-left:18pt}
+			.c29{padding-left:0pt}
+			.c6{height:11pt}
+			.c14{text-align:justify}
+			.c20{margin-left:36pt}
+			.c35{margin-left:72pt}
+			.c31{text-indent:-36pt}
+			.c16{height:0pt}
+			.c36{margin-left:54pt}
+			.c26{border-collapse:collapse}
+			.c17{text-align:center}
 		</style>
 	</head>
 	<body>

@@ -37,20 +37,10 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 		<style type="text/css">
 			body {
 				 background: url("/platform-extension/jsp/welcome-screens/images/login_texture.jpg") repeat;
-				 font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+				 font-family: HelveticaNeue, Arial, sans-serif;
 				 font-size: 13px;
 				 color: #333;
 				 overflow: auto;
-			}
-
-			@font-face {
-				font-family: lucida;
-				src: url("/platform-extension/jsp/welcome-screens/font/L_0.eot") 
-			}
-						
-			@font-face {
-				font-family: lucida;
-				src: url("/platform-extension/jsp/welcome-screens/font/L_0.TTF") 
 			}
 
 			h5 {
@@ -94,13 +84,13 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 
 			.uiWelcomeBox {
 				background-color:  #fff;
-				border-radius: 4px 4px 4px 4px;
+				border-radius: 10px;
 				box-shadow: 0 1px 3px #3d3d3d;
 				margin: -400px auto 0;
 				width: 512px;
 			}
 
-			.header {
+			.uiWelcomeBox .header {
 				background: url("/platform-extension/jsp/welcome-screens/images/headerBG.png") repeat-x scroll 0 0 transparent;
 				border: 1px solid #393939;
 				border-radius: 4px 4px 0 0;
@@ -112,80 +102,183 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 				color: #c1c1c1;
 			}
 			
-			.logo {
+			.uiWelcomeBox .logo {
 				background: url("/platform-extension/jsp/welcome-screens/images/Logo.png") no-repeat scroll 18px center;
 				text-align: center;
 			}
 			
-			.content {
+			.uiWelcomeBox .content {
 				background-color: #FFFFFF;
 			    margin: 0 auto;
-			    padding: 10px 20px;
+			    padding: 10px 23px;
 			    position: static;
 			    width: auto;
 			}
 			
-			.content p {
+			.uiWelcomeBox .content p {
 				text-align: center;
 				margin-bottom: 30px;
 			}
 
-			input {
-				-moz-box-sizing: border-box;
-				border: 1px solid #C7C7C7;
-				box-shadow: 0 2px 1px rgba(0, 0, 0, 0.075) inset;
-				color: #333333;
-				font-size: 13px;
-				height: 28px;
-				padding: 3px 6px;
-				 display: inline-block;
-				margin-bottom: 0;
-				vertical-align: middle;
-				background-color: #FFFFFF;
-				transition: border 0.2s linear 0s, box-shadow 0.2s linear 0s;
+			.uiWelcomeBox input {
+				border: 1px solid #cdcdcd;
 				border-radius: 4px 4px 4px 4px;
-				line-height: 20px;
+				box-shadow: 0 1px 1px rgba(0,0,0,0.1) inset;
+				color: #999;
+				height: 28px;
+				margin-right: 5px;
+				padding: 0 6px;
+				width: 170px;
+				font-size: 13px;
 			}
 			
-			input.disable {
+			.uiWelcomeBox input.disable {
 				background-color: #e6e6e6;
 			}
-			.bottom {
+			
+			.uiWelcomeBox .bottom {
 				background: url("/platform-extension/jsp/welcome-screens/images/bottomBG.png") no-repeat center bottom;
 				text-align: center;
-				padding: 25px 0;
-			}
-
-			button {
-				background-color: #567AB6;
-			    background-image: linear-gradient(to bottom, #638ACD, #426393);
-			    background-repeat: repeat-x;
-			    border-color: #224886;
-			    color: #FFFFFF;
-			    font-family: "Helvetica Neue Bold",Helvetica,Lucida,Arial,sans-serif;
-			    font-weight: bold;
-			    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
-			    border-radius: 4px 4px 4px 4px;
-    			box-shadow: 0 1px 0 rgba(255, 255, 255, 0.2) inset, 0 1px 2px rgba(0, 0, 0, 0.05);
+				padding: 30px 0;
 			}
 			
-			.notification {
+			.btn {
+			  color: #333333;
+			  text-shadow: 0 1px 1px rgba(255, 255, 255, 0.75);
+			  background-color: #f5f5f5;
+			  width: 115px;
+			  vertical-align: top;
+			  font-weight: bold;
+			  background-image: -moz-linear-gradient(top, #ffffff, #e6e6e6);
+			  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#ffffff), to(#e6e6e6));
+			  background-image: -webkit-linear-gradient(top, #ffffff, #e6e6e6);
+			  background-image: -o-linear-gradient(top, #ffffff, #e6e6e6);
+			  background-image: linear-gradient(to bottom, #ffffff, #e6e6e6);
+			  background-repeat: repeat-x;
+			  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffffff', endColorstr='#ffe6e6e6', GradientType=0);
+			  border-color: #e6e6e6 #e6e6e6 #bfbfbf;
+			  border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+			  *background-color: #e6e6e6;
+			  /* Darken IE7 buttons by default so they stand out more given they won't have borders */
+			
+			  filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
+			  border: 1px solid #bbbbbb;
+			  line-height: 25px;
+			  -webkit-border-radius: 4px;
+			  -moz-border-radius: 4px;
+			  border-radius: 4px;
+			  *margin-left: .3em;
+			  -webkit-box-shadow: inset 0 1px 0 rgba(255,255,255,.2), 0 1px 2px rgba(0,0,0,.05);
+			  -moz-box-shadow: inset 0 1px 0 rgba(255,255,255,.2), 0 1px 2px rgba(0,0,0,.05);
+			  box-shadow: inset 0 1px 0 rgba(255,255,255,.2), 0 1px 2px rgba(0,0,0,.05);
+			}
+			.btn:hover,
+			.btn:active,
+			.btn.active {
+			  color: #333333;
+			  background-color: #e6e6e6;
+			  *background-color: #d9d9d9;
+			}
+			.btn:active,
+			.btn.active {
+			  background-color: #cccccc \9;
+			}
+			
+			.btn:hover {
+			  background-color: #efefef;
+			  background-image: -moz-linear-gradient(top, #f1f1f1, #ebebeb);
+			  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#f1f1f1), to(#ebebeb));
+			  background-image: -webkit-linear-gradient(top, #f1f1f1, #ebebeb);
+			  background-image: -o-linear-gradient(top, #f1f1f1, #ebebeb);
+			  background-image: linear-gradient(to bottom, #f1f1f1, #ebebeb);
+			  background-repeat: repeat-x;
+			  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fff1f1f1', endColorstr='#ffebebeb', GradientType=0);
+			}
+			.btn.active,
+			.btn:active {
+			  background-color: #e6e6e6;
+			  background-color: #d9d9d9 \9;
+			  background-image: none;
+			  outline: 0;
+			  -webkit-box-shadow: inset 0 2px 4px rgba(0,0,0,.15), 0 1px 2px rgba(0,0,0,.05);
+			  -moz-box-shadow: inset 0 2px 4px rgba(0,0,0,.15), 0 1px 2px rgba(0,0,0,.05);
+			  box-shadow: inset 0 2px 4px rgba(0,0,0,.15), 0 1px 2px rgba(0,0,0,.05);
+			}
+			
+			.btn {
+			  border-color: #c7c7c7;
+			}
+			.btn-primary {
+			  color: #ffffff;
+			  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+			  background-color: #5179bd;
+			  background-image: -moz-linear-gradient(top, #6289cb, #3862a9);
+			  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#6289cb), to(#3862a9));
+			  background-image: -webkit-linear-gradient(top, #6289cb, #3862a9);
+			  background-image: -o-linear-gradient(top, #6289cb, #3862a9);
+			  background-image: linear-gradient(to bottom, #6289cb, #3862a9);
+			  background-repeat: repeat-x;
+			  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff6289cb', endColorstr='#ff3862a9', GradientType=0);
+			  border-color: #3862a9 #3862a9 #25406f;
+			  border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+			  *background-color: #3862a9;
+			  /* Darken IE7 buttons by default so they stand out more given they won't have borders */
+			
+			  filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
+			  border-color: #224886;
+			}
+			.btn-primary:hover,
+			.btn-primary:active{
+			  color: #ffffff;
+			  background-color: #3862a9;
+			  *background-color: #325795;
+			}
+			.btn-primary:active,
+			.btn-primary.active {
+			  background-color: #2b4c82 \9;
+			}
+			.btn-primary:hover {
+			  background-color: #4a70b1;
+			  background-image: -moz-linear-gradient(top, #4b71b3, #496fae);
+			  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#4b71b3), to(#496fae));
+			  background-image: -webkit-linear-gradient(top, #4b71b3, #496fae);
+			  background-image: -o-linear-gradient(top, #4b71b3, #496fae);
+			  background-image: linear-gradient(to bottom, #4b71b3, #496fae);
+			  background-repeat: repeat-x;
+			  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff4b71b3', endColorstr='#ff496fae', GradientType=0);
+			}
+			
+			.uiWelcomeBox .notification {
 				background: #e97f7f;
 				color: #fff;
 				border-radius: 4px;
 				text-align: center;
-				padding: 10px;
-				margin: 10px 0 20px;
+				padding: 8px;
+				margin: 10px 0 15px;
 			}
 			
-			.rightCol {
+			.uiWelcomeBox .rightCol {
 				width: 420px;
 			}
-			.steps {
-				margin: 0 0 40px;
+			
+			.uiWelcomeBox .steps {
+				margin: 0 0 35px;
 			}
 			
-			.stepsNumber {
+			.uiWelcomeBox .firstItem {
+				line-height: 35px;
+			}
+			
+			.uiWelcomeBox .rightCol.pull-right > div {
+			    margin-top: 5px;
+			}
+			
+			.uiWelcomeBox .rightCol.pull-right > div span {
+				width: 85px;
+				display: inline-block;
+			}
+	
+			.uiWelcomeBox .stepsNumber {
 				background: #B5B5B5;
 			    border-radius: 19px 19px 19px 19px;
 			    color: #FFFFFF;
@@ -212,18 +305,16 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 				</div>
 				<p><strong>You must own a valid subscription in order to unlock this eXo Platform</strong></p>
 				<div class="steps clearfix">
-					<div class="rightCol pull-right"><strong>Pickup your favorite subcription plan and buy it</strong></div>
+					<div class="rightCol firstItem pull-right"><strong>Pickup your favorite subcription plan and buy it</strong></div>
 					<div class="stepsNumber pull-left">1</div>
 				</div>
 				<div class="steps clearfix">
 					<div class="rightCol pull-right">
 						<strong>Grab your product code and request an unlock key</strong>
-						<div class="clearfix">
-							<button class="btn btn-primary pull-right">Request Key</button>
-							<div class="pull-left">
-								<span>Product Code</span>
-								<input class="disable" type="text" />
-							</div>
+						<div>
+							<span>Product Code</span>
+							<input class="disable" type="text" />
+							<button class="btn btn-primary">Request Key</button>
 						</div>
 					</div>
 					<div class="stepsNumber pull-left">2</div>
@@ -233,22 +324,18 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 				<div class="steps clearfix">
 					<div class="rightCol pull-right">
 						<strong>Enter the unlock key below to unlock the product</strong>
-						<div class="clearfix">
-							<button class="btn btn-primary pull-right">Unlock</button>
-							<div class="pull-left">
-								<span>Unlock Key</span>
-								<input type="text" />
-							</div>
+						<div>
+							<span>Unlock Key</span>
+							<input type="text" />
+							<button class="btn btn-primary">Unlock</button>
 						</div>
 					</div>
 					<div class="stepsNumber pull-left">3</div>
-					
 				</div>
-							
 			</div>	
 			<div class="bottom">
 				Question about your eXo Platorm evaluation?<br />
-Contact us at <a href="">info@exoplatform.com</a> or our website <a href="">www.exoplatform.com</a>
+Contact us at <a href="mailto:info@exoplatform.com">info@exoplatform.com</a> or our website <a href="www.exoplatform.com">www.exoplatform.com</a>
 			</div>
 		</div>
 	</body>
