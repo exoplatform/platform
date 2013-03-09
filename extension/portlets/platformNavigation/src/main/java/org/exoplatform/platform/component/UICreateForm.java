@@ -54,7 +54,7 @@ import java.net.URLEncoder;
 public class UICreateForm extends UIForm {
     static String LOCATION = "In Location".intern();
     private static final String SWITCH_SPACE_ACTION = "SwitchSpace";
-    public static final String SPACE_SWITCHER = "UIWikiSpaceSwitcher_CreateWiki";
+    public static final String SPACE_SWITCHER = "uiWikiSpaceSwitcher_CreateWiki";
     private static final String CREATE_FORM_CONTAINER = "UICreateForm";
     private static final String ADD_WIKI_PAGE = "#AddPage";
     private String urlWiki = "";
