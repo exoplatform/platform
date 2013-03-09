@@ -83,7 +83,7 @@ rcontext.getJavascriptManager().require("SHARED/platform-left-navigation", "plat
 						<span><%=hasPermission ? strTitle : _ctx.appRes("UIPortlet.label.protectedContent")%></span>
 						<%if(hasPermission) {%>
 							<a href="<%=uicomponent.event("EditContainer","$uicomponent.id")%>" title="<%=_ctx.appRes("UITableColumnContainer.tooltip.editContainer")%>"><i class="uiIconEdit uiIconWhite"></i></a>
-							<a href="<%=uicomponent.event("DeleteComponent","$uicomponent.id")%>" title="<%=_ctx.appRes("UITableColumnContainer.tooltip.closeContainer")%>"><i class="uiIconTrash uiIconWhite"></i>
+							<a href="<%=uicomponent.event("DeleteComponent","$uicomponent.id")%>" title="<%=_ctx.appRes("UITableColumnContainer.tooltip.closeContainer")%>"><i class="uiIconTrash uiIconWhite"></i></a>
 						<%}%>
 					
 					<%/*End InfoBar*/ %>
