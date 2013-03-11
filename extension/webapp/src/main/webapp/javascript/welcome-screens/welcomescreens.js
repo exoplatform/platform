@@ -11,7 +11,7 @@ $(document).ready(function(){
     });
     $('#userNameAccount').blur(function() {
         $('#usernameExistErrorId').remove();
-        WelcomeScreens.ACCOUNT_SETUP_ERROR = false;
+        WelcomeScreens.USERNAME_EXIST = false;
         var usernameOnBlur = $.trim($("#userNameAccount").val());
         if(usernameOnBlur != ""){
             $.get(
@@ -20,7 +20,7 @@ $(document).ready(function(){
                 function(data) {
                     var userExists = data.userExists;
                     if(userExists == true){
-                        WelcomeScreens.ACCOUNT_SETUP_ERROR = true;
+                        WelcomeScreens.USERNAME_EXIST = true;
                         $('#usernameId').after('<tr id ="usernameExistErrorId" ><td colspan="4" class ="accountSetupError"><b>Username</b> already exists.</td></tr>');
                     }
                 });
@@ -35,19 +35,10 @@ WelcomeScreens.USERNAME_INPUT_MAX_SIZE = 30;
 WelcomeScreens.PASSWORD_INPUT_MIN_SIZE = 6;
 WelcomeScreens.PASSWORD_INPUT_MAX_SIZE = 30;
 WelcomeScreens.ACCOUNT_SETUP_ERROR = false;
+WelcomeScreens.USERNAME_EXIST = false;
 WelcomeScreens.EMAIL_REGEXP = new RegExp(/^(("[\w-+\s]+")|([\w-+]+(?:\.[\w-+]+)*)|("[\w-+\s]+")([\w-+]+(?:\.[\w-+]+)*))(@((?:[\w-+]+\.)*\w[\w-+]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$)|(@\[?((25[0-5]\.|2[0-4][\d]\.|1[\d]{2}\.|[\d]{1,2}\.))((25[0-5]|2[0-4][\d]|1[\d]{2}|[\d]{1,2})\.){2}(25[0-5]|2[0-4][\d]|1[\d]{2}|[\d]{1,2})\]?$)/i);
 WelcomeScreens.USERNAME_REGEXP = new RegExp(/^[0-9a-z_.]+$/);
 
-
-WelcomeScreens.validateTermsAndCondition = function(event) {
-    if(event != undefined) {
-        event.preventDefault();
-    }
-    if($('input[name=checktc]').is(':checked')) {
-        $('#TermsAndCondition').fadeToggle("slow", "linear");
-    }
-    return false;
-}
 WelcomeScreens.exit = function() {
     WelcomeScreens.ACCOUNT_SETUP_ERROR = false;
     $('#usernameErrorId').remove();
@@ -149,32 +140,10 @@ WelcomeScreens.exit = function() {
         WelcomeScreens.ACCOUNT_SETUP_ERROR = true;
     }
 
-    if (WelcomeScreens.ACCOUNT_SETUP_ERROR == false) {
-        // $('#AccountSetup').fadeToggle("slow", "linear");
+    if ((WelcomeScreens.ACCOUNT_SETUP_ERROR == false)&&(WelcomeScreens.USERNAME_EXIST == false)) {
         $('#AccountSetup1').css("display", "none");
         $('#Greetings').css("display", "block");
     }
 }
-WelcomeScreens.toggleState = function () {
-    if($('input[name=checktc]').is(':checked')) {
-        $('input[name=checktc]').attr ( "checked" ,"checked" );
 
-        WelcomeScreens.setActive();
-    } else {
-        $('input[name=checktc]').removeAttr('checked');
-        WelcomeScreens.setInactive();
-    }
-}
 
-WelcomeScreens.setInactive = function () {
-    // add active class to the element
-    $('#continueButton').addClass("inactive");
-    // remove a class
-    $('#continueButton').removeClass("active");
-}
-WelcomeScreens.setActive = function () {
-    // add active class to the element
-    $('#continueButton').addClass("active");
-    // remove a class
-    $('#continueButton').removeClass("inactive");
-}
