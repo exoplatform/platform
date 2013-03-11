@@ -8,7 +8,7 @@
  }
  String timestampName = getTimestampName();
  %>
-<div class="UIForm FormLayout FormScrollLayout">  
+<div class="uiForm FormLayout FormScrollLayout">  
 <% uiform.begin() %>    
 	<%/* start render action*/%>
 	<% if (uiform.isShowActionsOnTop()) {
@@ -16,129 +16,97 @@
 	        }
 	%>
   <%/* end render action*/%>
-	<div class="HorizontalLayout">
-	      <table class="UIFormGrid">
-	              <tr style="display:none;">
-	                        <td class="FieldLabel"><%=_ctx.appRes("FormGenerator.dialog.label.Date")%></td>          
-	                        <td class="FieldComponent">            $timestampName
-	                         <div style="display:none;">
-	                         <%
-	                                       String[] fieldName = ["jcrPath=/node", "mixintype=mix:i18n", "editable=if-null", "validate=empty,name", timestampName] ;
-	                                       uicomponent.addTextField("name", fieldName) ;
-	                         %></div>
-	                        </td>
-	               </tr>
-	               <tr>
-	                       <td class="FieldLabel" colspan="2"></td>
-	               </tr>
-	               <tr>
-	                       <td>&nbsp;</td>        
-	                       <td>
-	                                 <div class="GuideLine">LEAVE YOUR MESSAGE</div>        
-	                       </td>      
-	               </tr>      
-	               <tr>
-	                       <td class="FieldLabel"><%=_ctx.appRes("FormGenerator.dialog.label.Select a recipient")%></td>        
-	                       <td class="FieldComponent">          
-	                       <%
-	                                  String[] select_a_recipientFieldName = ["jcrPath=/node/acme:fg_p_select_a_recipient", "defaultValues=Info", "", "options=Info,Sales,OEM,Partners,Support"];           
-	                                  uicomponent.addSelectBoxField("select_a_recipientFieldName", select_a_recipientFieldName);          
-	                       %>        
-	                       </td>      
-	               </tr>      
-	               <tr>
-	                       <td>&nbsp;</td>        
-	                       <td>
-	                                 <div class="GuideLine"></div>        
-	                       </td>      
-	               </tr>      
-	               <tr>
-	                       <td class="FieldLabel"><label for="your_nameFieldName"><%=_ctx.appRes("FormGenerator.dialog.label.Your Name")%></label></td>        
-	                       <td class="FieldComponent">          
-	                       <%
-	                                  String[] your_nameFieldName = ["jcrPath=/node/acme:fg_p_your_name", "defaultValues=", ""];           
-	                                  uicomponent.addTextField("your_nameFieldName", your_nameFieldName);          
-	                       %>        
-	                       </td>      
-	               </tr>      
-	               <tr>
-	                       <td>&nbsp;</td>        
-	                       <td>
-	                                 <div class="GuideLine"></div>        
-	                       </td>      
-	               </tr>      
-	               <tr>
-	                       <td class="FieldLabel"><label for="your_addressFieldName"><%=_ctx.appRes("FormGenerator.dialog.label.Your Address")%></label></td>        
-	                       <td class="FieldComponent">          
-	                       <%
-	                                  String[] your_addressFieldName = ["jcrPath=/node/acme:fg_p_your_address", "defaultValues=", ""];           
-	                                  uicomponent.addTextField("your_addressFieldName", your_addressFieldName);          
-	                        %>        
-	                        </td>      
-	               </tr>      
-	               <tr>
-	                       <td>&nbsp;</td>        
-	                       <td>          <div class="GuideLine"></div>        
-	                       </td>      
-	               </tr>      
-	               <tr>
-	                       <td class="FieldLabel"><label for="your_email_addressFieldName"><%=_ctx.appRes("FormGenerator.dialog.label.Your Email Address")%></label></td>        
-	                       <td class="FieldComponent">
-	                       <%
-	                                  String[] your_email_addressFieldName = ["jcrPath=/node/acme:fg_p_your_email_address", "defaultValues=", ""];           
-	                                  uicomponent.addTextField("your_email_addressFieldName", your_email_addressFieldName);          
-	                       %>        
-	                       </td>      
-	               </tr>      
-	               <tr>
-	                       <td>&nbsp;</td>        
-	                       <td>          <div class="GuideLine"></div>        </td>      
-	               </tr>      
-	               <tr>
-	                       <td class="FieldLabel"><label for="your_phone_numberFieldName"><%=_ctx.appRes("FormGenerator.dialog.label.Your Phone Number")%></label></td>        
-	                       <td class="FieldComponent">          
-	                       <%
-	                                  String[] your_phone_numberFieldName = ["jcrPath=/node/acme:fg_p_your_phone_number", "defaultValues=", ""];           
-	                                  uicomponent.addTextField("your_phone_numberFieldName", your_phone_numberFieldName);          
-	                       %>        
-	                       </td>      
-	                </tr>      
-	                <tr>
-	                        <td>&nbsp;</td>        
-	                        <td>          <div class="GuideLine"></div>        </td>      
-	                </tr>   
-	                <tr>
-	                        <td class="FieldLabel"><label for="content-lang"><%=_ctx.appRes("ElementSet.dialog.label.language")%></label></td>        
-	                        <td class="FieldComponent">        
-	                        <%
-	                                 String lang = org.exoplatform.portal.webui.util.Util.getPortalRequestContext().getLocale().toString();
-	                                 String[] fieldLang = ["jcrPath=/node/exo:language", "script=ecm-explorer/widget/FillSelectBoxWithLanguage.groovy", lang] ;          
-	                                 uicomponent.addSelectBoxField("content-lang", fieldLang) ;        
-	                        %>        
-	                        </td>      
-	                </tr>   
-	                <tr>
-	                        <td class="FieldLabel"><label for="your_messageFieldName"><%=_ctx.appRes("FormGenerator.dialog.label.Your Message")%></label></td>        
-	                        <td class="FieldComponent">          
-	                        <%
-	                                   String[] your_messageFieldName = ["jcrPath=/node/acme:fg_p_your_message", "defaultValues=", ""];           
-	                                   uicomponent.addTextAreaField("your_messageFieldName", your_messageFieldName);          
-	                        %>        
-	                        </td>      
-	                </tr>      
-	                <tr>
-	                        <td>&nbsp;</td>        
-	                        <td>          <div class="GuideLine"></div>        </td>      
-	                </tr>      
-	          </table>    
-	     </div>
+		<div class="form-horizontal">
+			<div class="control-group" style="display:none;">
+				<label class="control-label"><%=_ctx.appRes("FormGenerator.dialog.label.Date")%></label>
+				<div class="controls">
+					$timestampName
+					<div style="display:none;">
+						<%
+						 String[] fieldName = ["jcrPath=/node", "mixintype=mix:i18n", "editable=if-null", "validate=empty,name", timestampName] ;
+						 uicomponent.addTextField("name", fieldName) ;
+						%>
+					</div>
+				</div>
+			</div>
+			<div class="control-group">  
+				 <div class="controls">
+						 <div class="GuideLine">LEAVE YOUR MESSAGE</div>        
+				 </div>      
+			</div>      
+			<div class="control-group">
+				 <label class="control-label"><%=_ctx.appRes("FormGenerator.dialog.label.Select a recipient")%></label>        
+				 <div class="controls">         
+					 <%
+						String[] select_a_recipientFieldName = ["jcrPath=/node/acme:fg_p_select_a_recipient", "defaultValues=Info", "", "options=Info,Sales,OEM,Partners,Support"];           
+						uicomponent.addSelectBoxField("select_a_recipientFieldName", select_a_recipientFieldName);          
+					 %>        
+				 </div>      
+			</div>     
+			<div class="control-group">
+				 <label class="control-label" for="your_nameFieldName"><%=_ctx.appRes("FormGenerator.dialog.label.Your Name")%></label>       
+				 <div class="controls">         
+					 <%
+						String[] your_nameFieldName = ["jcrPath=/node/acme:fg_p_your_name", "defaultValues=", ""];           
+						uicomponent.addTextField("your_nameFieldName", your_nameFieldName);          
+					 %>        
+				 </div>      
+			</div>     
+			<div class="control-group">
+				<label class="control-label" for="your_addressFieldName"><%=_ctx.appRes("FormGenerator.dialog.label.Your Address")%></label>       
+				<div class="controls">         
+					<%
+						String[] your_addressFieldName = ["jcrPath=/node/acme:fg_p_your_address", "defaultValues=", ""];           
+						uicomponent.addTextField("your_addressFieldName", your_addressFieldName);          
+					%>        
+				</div>      
+			</div>   
+			<div class="control-group">
+				 <label class="control-label" for="your_email_addressFieldName"><%=_ctx.appRes("FormGenerator.dialog.label.Your Email Address")%></label>       
+				 <div class="controls">
+					 <%
+						String[] your_email_addressFieldName = ["jcrPath=/node/acme:fg_p_your_email_address", "defaultValues=", ""];           
+						uicomponent.addTextField("your_email_addressFieldName", your_email_addressFieldName);          
+					 %>        
+				 </div>      
+			</div>
+			<div class="control-group">
+				 <label class="control-label" for="your_phone_numberFieldName"><%=_ctx.appRes("FormGenerator.dialog.label.Your Phone Number")%></label>       
+				 <div class="controls">         
+					 <%
+						String[] your_phone_numberFieldName = ["jcrPath=/node/acme:fg_p_your_phone_number", "defaultValues=", ""];           
+						uicomponent.addTextField("your_phone_numberFieldName", your_phone_numberFieldName);          
+					 %>        
+				 </div>      
+			</div>
+			<div class="control-group">
+				<label class="control-label" for="content-lang"><%=_ctx.appRes("ElementSet.dialog.label.language")%></label>       
+				<div class="controls">       
+					<%
+						 String lang = org.exoplatform.portal.webui.util.Util.getPortalRequestContext().getLocale().toString();
+						 String[] fieldLang = ["jcrPath=/node/exo:language", "script=ecm-explorer/widget/FillSelectBoxWithLanguage.groovy", lang] ;          
+						 uicomponent.addSelectBoxField("content-lang", fieldLang) ;        
+					%>        
+				</div>      
+			</div>   
+			<div class="control-group">
+				<label class="control-label" for="your_messageFieldName"><%=_ctx.appRes("FormGenerator.dialog.label.Your Message")%></label>       
+				<div class="controls">         
+					<%
+						 String[] your_messageFieldName = ["jcrPath=/node/acme:fg_p_your_message", "defaultValues=", ""];           
+						 uicomponent.addTextAreaField("your_messageFieldName", your_messageFieldName);          
+					%>        
+				</div>
+			</div>
+		</div>    
+
 	<% if (!uiform.isShowActionsOnTop()) { %>
-	<div class="UIAction">        
+	<div class="uiAction">        
 	  <%                
 	   for(action in uicomponent.getActions()) {
 	    String actionLabel = _ctx.appRes(uicomponent.getName() + ".action." + action);                  
 	    String link = uicomponent.event(action);                  %>                    
-  	        <a href="javascript:void(0);" onclick="$link" class="ActionButton LightBlueStyle">$actionLabel</a>                          
+  	        <button type="button" href="javascript:void(0);" onclick="$link" class="btn">$actionLabel</button>                          
 	   <% }  %>            
 	</div>
 	<% } %>	

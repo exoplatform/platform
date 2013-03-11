@@ -22,21 +22,20 @@
 	Node ProductNode = uicomponent.getNode();
 %>
 
-<div class="UIForm FormLayout FormScrollLayout"> 
+<div class="uiForm FormLayout FormScrollLayout"> 
 <%uiform.begin()%>  
-		<div class="WorkingAreaWithHelp">
-			<%/* start render action*/%>
-      <% if (uiform.isShowActionsOnTop()) {
-                uiform.processRenderAction()
-             }
-      %>
+	
+	<%/* start render action*/%>
+	<% if (uiform.isShowActionsOnTop()) {
+						uiform.processRenderAction()
+				 }
+	%>
 
-			<%/* end render action*/%> 
-	<div class="HorizontalLayout">
-		<table class="UIFormGrid">
-		    <tr>
-				<td class="FieldLabel"><%=_ctx.appRes("Product.dialog.label.name")%></td>
-				<td class="FieldComponent">
+	<%/* end render action*/%> 
+	<div class="form-horizontal">
+		<div class="control-group">
+			<label class="control-label"><%=_ctx.appRes("Product.dialog.label.name")%>:</label>
+			<div class="controls">
 				<%
 				String[] productFieldName = ["jcrPath=/node", "mixintype=mix:votable,mix:commentable","editable=if-null","validate=name,empty"] ;
 				uicomponent.addTextField("name", productFieldName) ; 
@@ -48,83 +47,82 @@
 				uicomponent.addHiddenField("mediasFolder", mediasFolder);
 				uicomponent.addHiddenField("imagesFolder", imagesFolder);
 				uicomponent.addHiddenField("videoFolder", videoFolder);
-		        %>
-		        </td>
-		    </tr>
-			<tr>
-				<td class="FieldLabel"><%=_ctx.appRes("Product.dialog.label.title")%></td>
-				<td class="FieldComponent">
+				%>
+			</div>
+		</div>
+		<div class="control-group">
+			<label class="control-label"><%=_ctx.appRes("Product.dialog.label.title")%>:</label>
+			<div class="controls">
 				<%
 					String[] productFieldTitle = ["jcrPath=/node/exo:title", "validate=empty", "editable=if-null"];
 					uicomponent.addTextField("title", productFieldTitle) ;
 				%>
-				</td>
-			</tr>
-			<tr>
-				<td class="FieldLabel"><%=_ctx.appRes("Product.dialog.label.illustrationImage")%></td>
-				<td class="FieldComponent">
-					<%						
-						String illustration = "illustration";
-						if(ProductNode != null && ProductNode.hasNode("medias/images/illustration") && (uicomponent.findComponentById(illustration) == null)) {
-							def imageNode = ProductNode.getNode("medias/images/illustration") ;
-							def resourceNode = imageNode.getNode("jcr:content");
-							if(resourceNode.getProperty("jcr:data").getStream().available() > 0) {
-								def imgSrc = uicomponent.getImage(imageNode, "jcr:content");
-								def actionLink = uicomponent.event("RemoveData", "/medias/images/illustration/jcr:content");
-								%>		
-									<div>
-										<image src="$imgSrc" width="100px" height="80px"/>
-										<a onclick="$actionLink">
-											<img src="/eXoResources/skin/DefaultSkin/background/Blank.gif" class="ActionIcon Remove16x16Icon" alt="" />
-										</a>
-									</div>
-								<%
-							} else {
-								setUploadFields(illustration);
-							}
+			</div>
+		</div>
+		<div class="control-group">
+			<label class="control-label"><%=_ctx.appRes("Product.dialog.label.illustrationImage")%>:</label>
+			<div class="controls">
+				<%						
+					String illustration = "illustration";
+					if(ProductNode != null && ProductNode.hasNode("medias/images/illustration") && (uicomponent.findComponentById(illustration) == null)) {
+						def imageNode = ProductNode.getNode("medias/images/illustration") ;
+						def resourceNode = imageNode.getNode("jcr:content");
+						if(resourceNode.getProperty("jcr:data").getStream().available() > 0) {
+							def imgSrc = uicomponent.getImage(imageNode, "jcr:content");
+							def actionLink = uicomponent.event("RemoveData", "/medias/images/illustration/jcr:content");
+							%>		
+								<div>
+									<image src="$imgSrc" width="100px" height="80px"/>
+									<a onclick="$actionLink">
+										<img src="/eXoResources/skin/DefaultSkin/background/Blank.gif" class="ActionIcon Remove16x16Icon" alt="" />
+									</a>
+								</div>
+							<%
 						} else {
 							setUploadFields(illustration);
 						}
-					%>
-				</td>			
-			</tr>
-			<tr>
-				<td class="FieldLabel"><%=_ctx.appRes("Product.dialog.label.summary")%></td>
-				<td class="FieldComponent">
+					} else {
+						setUploadFields(illustration);
+					}
+				%>
+			</div>			
+		</div>
+		<div class="control-group">
+			<label class="control-label"><%=_ctx.appRes("Product.dialog.label.summary")%>:</label>
+			<div class="controls">
 				<%
 					String[] fieldSummary = ["jcrPath=/node/exo:summary", "options=Basic", ""] ;
 					uicomponent.addRichtextField("summary", fieldSummary) ;
 				%>
-				</td>
-			</tr>
-			<tr>
-				<td class="FieldLabel"><%=_ctx.appRes("Product.dialog.label.benefits")%></td>
-				<td class="FieldComponent">
+			</div>
+		</div>
+		<div class="control-group">
+			<label class="control-label"><%=_ctx.appRes("Product.dialog.label.benefits")%>:</label>
+			<div class="controls">
 				<div class="UIFCKEditor">
 				<%
 					String[] productFieldBenefits = ["jcrPath=/node/exo:productBenefits", "options=toolbar:CompleteWCM", ""] ;
 					uicomponent.addRichtextField("productBenefits", productFieldBenefits) ;        
 				%>
 				</div>
-				</td>
-			</tr>
-			<tr>
-				<td class="FieldLabel"><%=_ctx.appRes("Product.dialog.label.features")%></td>
-				<td class="FieldComponent">
+			</div>
+		</div>
+		<div class="control-group">
+			<label class="control-label"><%=_ctx.appRes("Product.dialog.label.features")%>:</label>
+			<div class="controls">
 				<div class="UIFCKEditor">
 				<%
 					String[] productFieldFeatures = ["jcrPath=/node/exo:productFeatures", "options=toolbar:CompleteWCM", ""] ;
 					uicomponent.addRichtextField("productFeatures", productFieldFeatures) ;        
 				%>
 				</div>
-				</td>
-			</tr>
-		</table>
-			     <% if (!uiform.isShowActionsOnTop()) {
-                     uiform.processRenderAction()
-			            }
-			     %>
+			</div>
 		</div>
-		</div>   <!-- End of WorkingAreaWithHelp -->
+	</div>
+	 <% if (!uiform.isShowActionsOnTop()) {
+						 uiform.processRenderAction()
+					}
+	 %>
+
 		<%uiform.end()%>
 </div>
