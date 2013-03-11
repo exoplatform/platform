@@ -104,8 +104,8 @@
 							</div>
 							<div class="control-group">
 					 			<label class="control-label">
-					 				<div rel="tooltip" data-placement="bottom" title="<%=_ctx.appRes("WebContent.dialog.label.Synchronize")%>" class="WebContentSynchronize Refresh16x16Icon" onclick="eXo.ecm.CKEditor.insertCSS('<%= htmlWYSIWYGFormId %>', '<%= cssFormId %>')"></div>
-									<div class="WebContentMain"><%=_ctx.appRes("WebContent.dialog.label.WebContentHtml")%></div>
+									<%=_ctx.appRes("WebContent.dialog.label.WebContentHtml")%>
+					 				<a class="actionIcon" rel="tooltip" data-placement="bottom" title="<%=_ctx.appRes("WebContent.dialog.label.Synchronize")%>" onclick="eXo.ecm.CKEditor.insertCSS('<%= htmlWYSIWYGFormId %>', '<%= cssFormId %>')"><i class="uiIconRefresh"></i></a>
 					 			</label>
 					  			<div class="controls">
 								<%
@@ -156,8 +156,8 @@
 													%>		
 														<div>
 															<img src="$imgSrc" alt="<%=_ctx.appRes("Ecm.dialog.label.remove")%>" width="100px" height="80px"/>
-															<a href="$actionLink">
-																<img rel="tooltip" data-placement="bottom" title="<%=_ctx.appRes("Ecm.dialog.label.remove")%>" alt="<%=_ctx.appRes("Ecm.dialog.label.remove")%>" src="/eXoResources/skin/DefaultSkin/background/Blank.gif" class="ActionIcon Remove16x16Icon"/>
+															<a class="actionIcon" href="$actionLink" rel="tooltip" data-placement="bottom" title="<%=_ctx.appRes("Ecm.dialog.label.remove")%>">
+																<i class="uiIconTrash"></i>
 															</a>
 														</div>
 													<%
