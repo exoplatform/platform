@@ -14,6 +14,7 @@ import javax.servlet.FilterChain;
 import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.lang.reflect.Method;
@@ -26,9 +27,12 @@ public class AccountSetupFilter implements Filter {
 
     private static final Log LOG = ExoLogger.getLogger(AccountSetupFilter.class);
     SettingService settingService ;
-
+    // TODO : replace hard coded variable by ...
+    private static final String REST_URI = "/rest";
     @Override
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
+        HttpServletRequest httpServletRequest = (HttpServletRequest)request;
+        HttpServletResponse httpServletResponse = (HttpServletResponse)response;
         String edition = getPlatformEdition();
         boolean isDevMod = PropertyManager.isDevelopping();
         settingService = (SettingService) PortalContainer.getInstance().getComponentInstanceOfType(SettingService.class);
@@ -36,8 +40,9 @@ public class AccountSetupFilter implements Filter {
         SettingValue accountSetupNode = settingService.get(Context.GLOBAL, Scope.GLOBAL, AccountSetup.ACCOUNT_SETUP_NODE);
         if(accountSetupNode != null)
             setupDone = true;
-        if((!setupDone)&&(!isDevMod)){
-            HttpServletResponse httpServletResponse = (HttpServletResponse) response;
+        String requestUri = httpServletRequest.getRequestURI();
+        boolean isRestUri = (requestUri.contains(REST_URI));
+        if((!setupDone)&&(!isDevMod)&&(!isRestUri)){
             httpServletResponse.sendRedirect("/platform-extension/jsp/welcome-screens/accountSetup.jsp");
             return;
         }

@@ -36,7 +36,8 @@ public class TermsAndConditionsFilter implements Filter {
   private static final String INITIAL_URI_PARAM_NAME = "initialURI";
   private static final String LOGIN_URI = "/login";
   private static final String DOLOGIN_URI = "/dologin";
-    private static final String REST_URI = "/rest";
+  // TODO : replace hard coded variable by
+  private static final String REST_URI = "/rest";
 
   public TermsAndConditionsFilter() {}
 
