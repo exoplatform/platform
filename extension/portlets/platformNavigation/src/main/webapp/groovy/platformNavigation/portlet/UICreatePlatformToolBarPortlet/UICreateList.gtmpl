@@ -44,7 +44,7 @@ JavascriptManager jsmanager = rcontext.getJavascriptManager();
 				<a href="<%=uicomponent.event("Poll", labelPoll)%>" class="ToolBarActivityIcon"><i class="uiIconPoll"></i>$labelPoll</a>
 			</li>
 			<li>
-				<a href="<%=uicomponent.event("Topic", labelTopic)%>" class="ToolBarActivityIcon"><i class="uiIconForum"></i>$labelTopic</a>
+				<a href="<%=uicomponent.event("Topic", labelTopic)%>" class="ToolBarActivityIcon"><i class="uiIconUIForms"></i>$labelTopic</a>
 			</li>
 			<li>
 				<a href="<%=uicomponent.event("Upload","Upload")%>" class="ToolBarActivityIcon"><i class="uiIconUpload"></i>$labelUpload</a>
