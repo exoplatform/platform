@@ -564,7 +564,7 @@ public class OrganizationIntegrationService implements Startable {
           LOG.warn("\t\tError occured while verifying if user is present in Datasource or not."
               + " This may not cause a problem :" + e.getMessage());
         }
-        if (user != null) {
+        if (user != null && user.getFirstName()!= null && user.getLastName()!=null ) {
           LOG.warn("\t\tUser exists: can't invoke delete listeners on the existant user : " + username);
           return;
         }
