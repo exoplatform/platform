@@ -57,8 +57,6 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 			.clearfix:after {
 			    display: table;
 			    content: "";
-			    // Fixes Opera/contenteditable bug:
-			    // http://nicolasgallagher.com/micro-clearfix-hack/#comment-36952
 			    line-height: 0;
 			}
 			  
@@ -181,7 +179,7 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 			}
 			.btn:active,
 			.btn.active {
-			  background-color: #cccccc \9;
+			  background-color: #cccccc;
 			}
 			
 			.btn:hover {
@@ -197,7 +195,7 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 			.btn.active,
 			.btn:active {
 			  background-color: #e6e6e6;
-			  background-color: #d9d9d9 \9;
+			  background-color: #d9d9d9;
 			  background-image: none;
 			  outline: 0;
 			  -webkit-box-shadow: inset 0 2px 4px rgba(0,0,0,.15), 0 1px 2px rgba(0,0,0,.05);
@@ -235,7 +233,7 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 			}
 			.btn-primary:active,
 			.btn-primary.active {
-			  background-color: #2b4c82 \9;
+			  background-color: #2b4c82;
 			}
 			.btn-primary:hover {
 			  background-color: #4a70b1;
@@ -301,38 +299,44 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 			</div>
 			<div class="content">
 				<div class="notification">
-					<strong>Your evalution has expried 3 days ago</strong>
+					<strong> <%=label1%>  <%=rday%> <%=label2%></strong>
 				</div>
 				<p><strong>You must own a valid subscription in order to unlock this eXo Platform</strong></p>
 				<div class="steps clearfix">
-					<div class="rightCol firstItem pull-right"><strong>Pickup your favorite subcription plan and buy it</strong></div>
+					<div class="rightCol firstItem pull-right"><strong>Pickup your favorite <a class="" href="<%=UnlockService.getSubscriptionUrl()%>" target="_blank">subscription</a> plan and buy it</strong></div>
 					<div class="stepsNumber pull-left">1</div>
 				</div>
+                <form action="/welcome-screens/trial" method="post" name="unlockForm" onsubmit="return formValidation();">
 				<div class="steps clearfix">
 					<div class="rightCol pull-right">
 						<strong>Grab your product code and request an unlock key</strong>
 						<div>
 							<span>Product Code</span>
-							<input class="disable" type="text" />
-							<button class="btn btn-primary">Request Key</button>
+                            <input type="text" class="disable"  name="pc" value="<%=UnlockService.getProductCode() %>">
+                            <!-- Please IT MUST BE A LINK not a button !!!!! it need only to be resized And it would re take its layout Please!!!-->
+                            <a class="btn btn-primary" target="_blank" href="<%=UnlockService.getRegistrationFormUrl()%>?'pc=<%=UnlockService.getProductCode()%>'">Request a Key</a>
 						</div>
 					</div>
 					<div class="stepsNumber pull-left">2</div>
-					
 				</div>
-				
 				<div class="steps clearfix">
 					<div class="rightCol pull-right">
 						<strong>Enter the unlock key below to unlock the product</strong>
 						<div>
 							<span>Unlock Key</span>
-							<input type="text" />
+                            <input class="Text" type="text" name="hashMD5" id="hashMD5">
 							<button class="btn btn-primary">Unlock</button>
 						</div>
+                        <span  id="ERROR"> </span>
+                        <% if(request.getAttribute("errorMessage") != null && !request.getAttribute("errorMessage").toString().isEmpty()) {%>
+                                <span id="KEYERROR" style="display: block"><%=request.getAttribute("errorMessage").toString() %> </span>
+                        <% }%>
 					</div>
 					<div class="stepsNumber pull-left">3</div>
 				</div>
-			</div>	
+                </form>
+			</div>
+
 			<div class="bottom">
 				Question about your eXo Platorm evaluation?<br />
 Contact us at <a href="mailto:info@exoplatform.com">info@exoplatform.com</a> or our website <a href="www.exoplatform.com">www.exoplatform.com</a>

@@ -112,7 +112,7 @@
             }
     %>
     <div class="footerWLC <%=css  %>">
-        <form action="/welcome-screens/UnlockServlet" >
+        <form action="/welcome-screens/trial" >
         	<%=label1 %> <%=rday%> <%=label2 %>
             <button class="btn"><%= labelRemove %></button>
         </form>

@@ -92,17 +92,17 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 
         .uiWelcomeBox input {
             border: 1px solid #cdcdcd;
-			border-radius: 4px 4px 4px 4px;
-			box-shadow: 0 1px 1px rgba(0,0,0,0.1) inset;
-			color: #999;
-			height: 28px;
-			padding: 0 6px;
+            border-radius: 4px 4px 4px 4px;
+            box-shadow: 0 1px 1px rgba(0,0,0,0.1) inset;
+            color: #999;
+            height: 28px;
+            padding: 0 6px;
         }
-		
-		.uiWelcomeBox input.disable {
-			background-color: #e6e6e6;
-		}
-			
+
+        .uiWelcomeBox input.disable {
+            background-color: #e6e6e6;
+        }
+
         .uiWelcomeBox .bottom {
             background: url("/platform-extension/jsp/welcome-screens/images/bottomBG.png") no-repeat center bottom;
             text-align: center;
@@ -147,7 +147,7 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
         .uiWelcomeBox .form-horizontal .controls .inputFieldMini:first-child {
             margin-right: 10px;
         }
-        
+
         .uiWelcomeBox .inputFieldMini {
             width: 121px;
             -webkit-width: 131px;
@@ -234,7 +234,7 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
             </div>
     </div>
     <!-- Please do not make it Button it may cause blocker problem -->
-    <div class="bottom"><button class="btn btn-primary" id="continueButton" onclick="WelcomeScreens.exit();">Submit</button></div>
+    <div class="bottom"><button class="btn btn-primary" id="continueButton" onclick="WelcomeScreens.exit();return false;">Submit</button></div>
 </div>
 </div>
 <div>
