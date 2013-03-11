@@ -9,7 +9,7 @@
   </parent>
   <groupId>org.exoplatform.platform</groupId>
   <artifactId>platform</artifactId>
-  <version>4.0.0-relooking-SNAPSHOT</version>
+  <version>4.0.0-SNAPSHOT</version>
   <packaging>pom</packaging>
   <name>eXo Platform</name>
   <description>Parent POM for platform projects.</description>
@@ -55,13 +55,13 @@
     <org.gatein.pc.version>2.4.0.Final</org.gatein.pc.version>
     <org.gatein.portal.version>3.5.3.Final</org.gatein.portal.version>
     <!-- Platform Project Dependencies -->
-    <org.exoplatform.commons.version>4.0.0-relooking-SNAPSHOT</org.exoplatform.commons.version>
-    <org.exoplatform.ecms.version>4.0.0-relooking-SNAPSHOT</org.exoplatform.ecms.version>
-    <org.exoplatform.social.version>4.0.0-relooking-SNAPSHOT</org.exoplatform.social.version>
-    <org.exoplatform.forum.version>4.0.0-relooking-SNAPSHOT</org.exoplatform.forum.version>
-    <org.exoplatform.wiki.version>4.0.0-relooking-SNAPSHOT</org.exoplatform.wiki.version>
-    <org.exoplatform.calendar.version>4.0.0-relooking-SNAPSHOT</org.exoplatform.calendar.version>
-    <org.exoplatform.integ.version>4.0.0-relooking-SNAPSHOT</org.exoplatform.integ.version>
+    <org.exoplatform.commons.version>4.0.0-SNAPSHOT</org.exoplatform.commons.version>
+    <org.exoplatform.ecms.version>4.0.0-SNAPSHOT</org.exoplatform.ecms.version>
+    <org.exoplatform.social.version>4.0.0-SNAPSHOT</org.exoplatform.social.version>
+    <org.exoplatform.forum.version>4.0.0-SNAPSHOT</org.exoplatform.forum.version>
+    <org.exoplatform.wiki.version>4.0.0-SNAPSHOT</org.exoplatform.wiki.version>
+    <org.exoplatform.calendar.version>4.0.0-SNAPSHOT</org.exoplatform.calendar.version>
+    <org.exoplatform.integ.version>4.0.0-SNAPSHOT</org.exoplatform.integ.version>
     <org.exoplatform.platform-ui.version>1.0.0-SNAPSHOT</org.exoplatform.platform-ui.version>
     <!-- Platform Project 3rd party Dependencies -->
     <org.codehaus.jackson.version>1.9.7</org.codehaus.jackson.version>
