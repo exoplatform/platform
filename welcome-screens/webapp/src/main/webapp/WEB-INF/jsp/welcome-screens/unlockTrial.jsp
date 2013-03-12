@@ -50,6 +50,10 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 				padding: 20px 0 0;
 			}
 			
+			a {
+				color: #2f5e92;
+			}
+			
 			.clearfix {
 			  *zoom: 1;
 			}
@@ -338,7 +342,7 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 			</div>
 
 			<div class="bottom">
-				Question about your eXo Platform evaluation?<br />
+				Question about your eXo Platorm evaluation?<br />
 Contact us at <a href="mailto:info@exoplatform.com">info@exoplatform.com</a> or our website <a href="www.exoplatform.com">www.exoplatform.com</a>
 			</div>
 		</div>
