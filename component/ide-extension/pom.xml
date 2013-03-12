@@ -13,4 +13,24 @@
     <module>config</module>
     <module>webapp</module>
   </modules>
+  <dependencyManagement>
+    <dependencies>
+      <!-- Import versions from integration project -->
+      <dependency>
+        <groupId>org.exoplatform.ide</groupId>
+        <artifactId>exo-ide-parent</artifactId>
+        <version>${org.exoplatform.ide.version}</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+      <!-- Import versions from gwt project -->
+      <dependency>
+        <groupId>org.exoplatform.gwt</groupId>
+        <artifactId>exo-gwtframework-parent</artifactId>
+        <version>${org.exoplatform.gwtframework.version}</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
 </project>
