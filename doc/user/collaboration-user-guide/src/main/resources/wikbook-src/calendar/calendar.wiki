@@ -947,11 +947,11 @@ Or, click !images/user_selector_icon.png|width="9" fo:scalefit="1" html:scalefit
 <emphasis role="bold">5.</emphasis> Click <guibutton>Save</guibutton> to accept sharing your personal calendar.</para>
 {docbook}
 
-If the calendar is shared to many people, there will be a popup showing the sharing process: 
+If you select to share with any group, you will see a popup showing the sharing process:
 
 !images/Share_calendar_popup.png|align="center" width="120mm"  fo:scalefit="1" html:scalefit="0"!
 
-At this time, you cannot abort the sharing till the process completed.
+You cannot abort your sharing till the process is finished.
 
 {docbook}
 <citetitle>
