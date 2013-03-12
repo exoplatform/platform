@@ -321,7 +321,7 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 				</div>
 				<div class="steps clearfix">
 					<div class="rightCol pull-right">
-						<strong>Enter the unlock key below to unlock the product</strong>
+						<strong>Enter your unlock key below to unlock the product</strong>
 						<div>
 							<span>Unlock Key</span>
                             <input class="Text" type="text" name="hashMD5" id="hashMD5">
