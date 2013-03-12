@@ -111,6 +111,10 @@ public class PlatformInformationRESTService implements ResourceContainer {
             Class<?> c = Class.forName("org.exoplatform.platform.edition.PlatformEdition");
             Method getEditionMethod = c.getMethod("getEdition");
             String platformEdition = (String) getEditionMethod.invoke(null);
+            if((platformEdition!=null)&&(platformEdition.equals("enterprise"))) {
+                if((platformInformations.getEdition()!=null)&&(!platformInformations.getEdition().equals("")))
+                        platformEdition = platformInformations.getEdition();
+            }
             return platformEdition;
         } catch (Exception e) {
             LOG.error("An error occured while getting the platform edition information.", e);
