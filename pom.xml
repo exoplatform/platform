@@ -62,7 +62,7 @@
     <org.exoplatform.wiki.version>4.0.0-relooking-SNAPSHOT</org.exoplatform.wiki.version>
     <org.exoplatform.calendar.version>4.0.0-relooking-SNAPSHOT</org.exoplatform.calendar.version>
     <org.exoplatform.integ.version>4.0.0-relooking-SNAPSHOT</org.exoplatform.integ.version>
-    <org.exoplatform.platform-ui.version>1.0.0-SNAPSHOT</org.exoplatform.platform-ui.version>
+    <org.exoplatform.platform-ui.version>4.0.0-relooking-SNAPSHOT</org.exoplatform.platform-ui.version>
     <!-- Platform Project 3rd party Dependencies -->
     <org.exoplatform.gwtframework.version>1.3.0-SNAPSHOT</org.exoplatform.gwtframework.version>
     <org.exoplatform.ide.version>1.3.0-SNAPSHOT</org.exoplatform.ide.version>
@@ -764,6 +764,14 @@
         <artifactId>platform-welcome-screens-webapp</artifactId>
         <version>${project.version}</version>
         <type>pom</type>
+      </dependency>
+      <!-- Import versions from social project -->
+      <dependency>
+        <groupId>org.exoplatform.platform-ui</groupId>
+        <artifactId>platform-ui</artifactId>
+        <version>${org.exoplatform.platform-ui.version}</version>
+        <type>pom</type>
+        <scope>import</scope>
       </dependency>
       <!-- To be replaced by an import of WS parent POM -->
       <dependency>
