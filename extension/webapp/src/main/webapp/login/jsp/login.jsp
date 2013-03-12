@@ -161,6 +161,7 @@
 			}
 			
 			.uiLogin .loginContent .username{
+                margin-top: 15px;
 				background: url("/platform-extension/login/jsp/images/username.png") no-repeat left;
 			}
 			
@@ -308,7 +309,7 @@
 
 			.uiLogin .signinFail{
                 background-color: transparent;
-                background-image: url("/eXoResources/skin/images/PopupMessage/icons.png");
+                background-image: url("/eXoResources/skin/images/Icons/errorIcon.png");
                 background-repeat: no-repeat;
                 font-size: 13px;
                 line-height: 16px;
