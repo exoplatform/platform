@@ -25,14 +25,6 @@
 	
 	Node webContentNode = uicomponent.getNode();
 %>
-<style>
-	.form-horizontal textarea { 
-	  font-size:11px;
-	  height:175px;
-	  width:450px;
-		vertical-align: top;
-	}
-</style>
 <div class="UITabPane uiTabNormal uiTabInPage">
 	<%uiform.begin()%>
 	<%/* start render action*/%>
