@@ -38,6 +38,7 @@ WelcomeScreens.ACCOUNT_SETUP_ERROR = false;
 WelcomeScreens.USERNAME_EXIST = false;
 WelcomeScreens.EMAIL_REGEXP = new RegExp(/^(("[\w-+\s]+")|([\w-+]+(?:\.[\w-+]+)*)|("[\w-+\s]+")([\w-+]+(?:\.[\w-+]+)*))(@((?:[\w-+]+\.)*\w[\w-+]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$)|(@\[?((25[0-5]\.|2[0-4][\d]\.|1[\d]{2}\.|[\d]{1,2}\.))((25[0-5]|2[0-4][\d]|1[\d]{2}|[\d]{1,2})\.){2}(25[0-5]|2[0-4][\d]|1[\d]{2}|[\d]{1,2})\]?$)/i);
 WelcomeScreens.USERNAME_REGEXP = new RegExp(/^[0-9a-z_.]+$/);
+WelcomeScreens.FormatError = 'Only <b>lowercase letters, digits, dot and underscore</b> characters are allowed for the field </b>"User Name".</b>'
 
 WelcomeScreens.exit = function() {
     WelcomeScreens.ACCOUNT_SETUP_ERROR = false;
@@ -57,6 +58,12 @@ WelcomeScreens.exit = function() {
     $('#AdminPasswordNotMatchId').remove();
     $('#usernameErrorFormatId').remove();
     var username = $.trim($("#userNameAccount").val());
+    var usernameReg = $.trim($("#usernameRegExpid").val());
+    if(usernameReg!="")
+    {
+        WelcomeScreens.USERNAME_REGEXP = new RegExp(usernameReg);
+        WelcomeScreens.FormatError = $.trim($("#formatMsgid").val());
+    }
     var firstname = $.trim($("#firstNameAccount").val());
     var lastname = $.trim($("#lastNameAccount").val());
     var email = $.trim($("#emailAccount").val());
@@ -75,7 +82,7 @@ WelcomeScreens.exit = function() {
         WelcomeScreens.ACCOUNT_SETUP_ERROR = true;
     }
     if(WelcomeScreens.USERNAME_REGEXP.test(username) == false){
-        $('#usernameId').after('<tr id ="usernameErrorFormatId"><td colspan="4" class ="accountSetupError">Only <b>lowercase letters, digits, dot and underscore</b> characters are allowed for the field </b>"User Name".</b></td></tr>');
+        $('#usernameId').after('<tr id ="usernameErrorFormatId"><td colspan="4" class ="accountSetupError">'+WelcomeScreens.FormatError+'</td></tr>');
         WelcomeScreens.ACCOUNT_SETUP_ERROR = true;
     }
     //check Last Name

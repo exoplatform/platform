@@ -20,6 +20,9 @@
 %>
 <%@ page language="java" %>
 <%
+    String usernameRegExp = System.getProperty("gatein.validators.username.regexp");
+    if(usernameRegExp==null) usernameRegExp="";
+    String formatMsg = System.getProperty("gatein.validators.username.format.message");
     String contextPath = request.getContextPath() ;
     String lang = request.getLocale().getLanguage();
     response.setCharacterEncoding("iso-8859-1");
@@ -53,11 +56,11 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
             margin: 0;
             padding: 20px 0 0;
         }
-		
+
 		a {
 			color: #2f5e92;
 		}
-			
+
         .backLight {
             border-radius: 80px 80px 80px 80px;
             box-shadow: 0 0 200px white;
@@ -208,7 +211,11 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
         <form name="tcForm" action="<%= contextPath + "/accountSetup"%>" method="post">
             <div class="control-group" id ="usernameId">
                 <label class="control-label">Username:</label>
-                <div class="controls"><input type="text" name="username" id="userNameAccount" placeholder="User name" class="inputFieldLarge"/></div>
+                <div class="controls">
+                    <input type="text" name="username" id="userNameAccount" placeholder="User name" class="inputFieldLarge"/>
+                    <input type="hidden" id="usernameRegExpid" value="<%=usernameRegExp%>"/>
+                    <input type="hidden" id="formatMsgid" value="<%=formatMsg%>"/>
+                </div>
             </div>
             <div class="control-group" id="fullnameId">
                 <label class="control-label">Full name:</label>
