@@ -27,7 +27,7 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 				if(document.unlockForm.hashMD5.value!="")
 					return true;
 				else {
-					ERROR.innerHTML="Unlock key is mandatory";
+					ERROR.innerHTML="unlock key is mandatory.";
 					var elem = document.getElementById("KEYERROR");
 					if (elem!=null) elem.style.display = "none";
 					return false;
@@ -331,7 +331,7 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
                             <input class="Text" type="text" name="hashMD5" id="hashMD5">
 							<button class="btn btn-primary">Unlock</button>
 						</div>
-                        <span  id="ERROR"> </span>
+                        <span  id="ERROR" style="color: red"> </span>
                         <% if(request.getAttribute("errorMessage") != null && !request.getAttribute("errorMessage").toString().isEmpty()) {%>
                                 <span id="KEYERROR" style="display: block"><%=request.getAttribute("errorMessage").toString() %> </span>
                         <% }%>
