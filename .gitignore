@@ -39,3 +39,4 @@ release.properties
 
 # Misc
 *.swp
+transaction.log
