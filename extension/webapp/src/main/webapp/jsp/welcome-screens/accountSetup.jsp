@@ -221,7 +221,7 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
             </div>
 
             <h5>Admin Password</h5>
-            <p class="desc">Login as root user with the following password for super user access</p>
+            <p class="desc">Login as root user with the following password for super administrator access</p>
             <div class="control-group" id="adminUsernameId">
                 <label class="control-label">Username:</label>
                 <div class="controls"><input type="text" name="adminFirstName" id="adminFirstName" placeholder="root" readonly="readonly" class="inputFieldLarge disable" /></div>
