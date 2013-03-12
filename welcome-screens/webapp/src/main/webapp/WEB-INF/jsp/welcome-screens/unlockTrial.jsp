@@ -124,7 +124,7 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 				box-shadow: 0 1px 1px rgba(0,0,0,0.1) inset;
 				color: #999;
 				height: 28px;
-				margin-right: 5px;
+				margin: 0 5px 0 0;
 				padding: 0 6px;
 				width: 170px;
 				font-size: 13px;
@@ -314,7 +314,7 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 							<span>Product Code</span>
                             <input type="text" class="disable"  name="pc" value="<%=UnlockService.getProductCode() %>">
                             <!-- Please IT MUST BE A LINK not a button !!!!! it need only to be resized And it would re take its layout Please!!!-->
-                            <a class="btn btn-primary" target="_blank" href="<%=UnlockService.getRegistrationFormUrl()%>?pc=<%=UnlockService.getProductCode()%>">Request a Key</a>
+                            <a target="_blank" href="<%=UnlockService.getRegistrationFormUrl()%>?pc=<%=UnlockService.getProductCode()%>">Request a Key</a>
 						</div>
 					</div>
 					<div class="stepsNumber pull-left">2</div>
