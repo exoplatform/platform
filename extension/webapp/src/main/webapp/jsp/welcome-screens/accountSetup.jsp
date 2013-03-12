@@ -53,7 +53,11 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
             margin: 0;
             padding: 20px 0 0;
         }
-
+		
+		a {
+			color: #2f5e92;
+		}
+			
         .backLight {
             border-radius: 80px 80px 80px 80px;
             box-shadow: 0 0 200px white;
@@ -221,7 +225,7 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
             </div>
 
             <h5>Admin Password</h5>
-            <p class="desc">Login as root user with the following password for super user access</p>
+            <p class="desc">Login as root user with the following password for super administrator access</p>
             <div class="control-group" id="adminUsernameId">
                 <label class="control-label">Username:</label>
                 <div class="controls"><input type="text" name="adminFirstName" id="adminFirstName" placeholder="root" readonly="readonly" class="inputFieldLarge disable" /></div>

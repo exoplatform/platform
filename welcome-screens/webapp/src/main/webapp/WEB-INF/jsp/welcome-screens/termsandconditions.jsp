@@ -74,6 +74,10 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 			    clear: both;
 			}
 			
+			a {
+				color: #2f5e92;
+			}
+			
 			.backLight {
 				border-radius: 80px 80px 80px 80px;
 				box-shadow: 0 0 200px white;

@@ -27,7 +27,7 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 				if(document.unlockForm.hashMD5.value!="")
 					return true;
 				else {
-					ERROR.innerHTML="Unlock key is mondatory";
+					ERROR.innerHTML="Unlock key is mandatory";
 					var elem = document.getElementById("KEYERROR");
 					if (elem!=null) elem.style.display = "none";
 					return false;
@@ -48,6 +48,10 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 				font-weight: bold;
 				margin: 0;
 				padding: 20px 0 0;
+			}
+			
+			a {
+				color: #2f5e92;
 			}
 			
 			.clearfix {
@@ -124,7 +128,7 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 				box-shadow: 0 1px 1px rgba(0,0,0,0.1) inset;
 				color: #999;
 				height: 28px;
-				margin-right: 5px;
+				margin: 0 5px 0 0;
 				padding: 0 6px;
 				width: 170px;
 				font-size: 13px;
@@ -301,9 +305,9 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 				<div class="notification">
 					<strong> <%=label1%>  <%=rday%> <%=label2%></strong>
 				</div>
-				<p><strong>You must own a valid subscription in order to unlock this eXo Platform</strong></p>
+				<p><strong>You must own a valid subscription in order to unlock this eXo Platform instance</strong></p>
 				<div class="steps clearfix">
-					<div class="rightCol firstItem pull-right"><strong>Pickup your favorite <a class="" href="<%=UnlockService.getSubscriptionUrl()%>" target="_blank">subscription</a> plan and buy it</strong></div>
+					<div class="rightCol firstItem pull-right"><strong>Pickup your favorite <a class="" href="<%=UnlockService.getSubscriptionUrl()%>" target="_blank">subscription plan</a> and buy it</strong></div>
 					<div class="stepsNumber pull-left">1</div>
 				</div>
                 <form action="/welcome-screens/trial" method="post" name="unlockForm" onsubmit="return formValidation();">
@@ -314,14 +318,14 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 							<span>Product Code</span>
                             <input type="text" class="disable"  name="pc" value="<%=UnlockService.getProductCode() %>">
                             <!-- Please IT MUST BE A LINK not a button !!!!! it need only to be resized And it would re take its layout Please!!!-->
-                            <a class="btn btn-primary" target="_blank" href="<%=UnlockService.getRegistrationFormUrl()%>?'pc=<%=UnlockService.getProductCode()%>'">Request a Key</a>
+                            <a target="_blank" href="<%=UnlockService.getRegistrationFormUrl()%>?pc=<%=UnlockService.getProductCode()%>">Request a Key</a>
 						</div>
 					</div>
 					<div class="stepsNumber pull-left">2</div>
 				</div>
 				<div class="steps clearfix">
 					<div class="rightCol pull-right">
-						<strong>Enter the unlock key below to unlock the product</strong>
+						<strong>Enter your unlock key below to unlock the product</strong>
 						<div>
 							<span>Unlock Key</span>
                             <input class="Text" type="text" name="hashMD5" id="hashMD5">

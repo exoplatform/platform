@@ -1,5 +1,99 @@
 
 .UIToolbarContainer {
+	position: relative;
+	.uiCreate{
+		width: 260px;
+		.uiAction{
+			margin-right: 1px;
+			text-align: right;
+			.btn:last-child{
+				margin-right: 15px;
+			}
+			
+		}
+		.uiFormInput {
+			margin-bottom:15px;
+			padding: 0 10px;
+			
+			.createName{
+				margin-bottom: 10px;
+			}
+			.btn-group{
+				font-size: 13px;
+			}
+			
+			.btn-group li > a.selected{
+			   #gradient > .vertical(@dropdownLinkBackgroundHover, darken(@dropdownLinkBackgroundHover, 15%));
+			    color: #fff;
+			}
+			.uiFormScrollMenu{
+				margin-left: 5px;
+				div > span:first-child{
+				 	display: inline-block;
+				    overflow-x: hidden;
+				    text-overflow: ellipsis;
+				    width: 111px;
+				    vertical-align: middle;
+				    text-align: left;
+				}
+				.scroll-menu{
+					.dropdown-menu{
+						width: 170px;
+						max-height: 362px;
+						overflow: auto;
+						li a{
+							overflow: hidden;
+    						text-overflow: ellipsis;
+						}
+					}
+				}
+			}
+			
+			.uiForumFilter{
+				margin-left: 5px;
+				margin-top: 5px;
+				.titleForum{
+				    display: inline-block;
+				    overflow-x: hidden;
+				    text-overflow: ellipsis;
+				    width: 111px;
+				    vertical-align: middle;
+				    text-align: left;
+				}
+			
+				.filterMenu{
+					.dropdown-menu{
+						width: 250px;
+					}
+					.filterInput{
+	    				margin: 10px;
+	    				width: 91%;
+					}
+					
+					.category{
+					    background: #F7F7F7;
+					    border-bottom: 1px solid #CFCFCF;
+					    border-top: 1px solid #CFCFCF;
+					    .box-shadow(0 -15px 17px #F1F1F1 inset);
+					    color: @grayDark;
+					    font-weight: bold;
+				        padding: 5px 10px;
+				        text-overflow: ellipsis;
+				        overflow-x: hidden;
+					}
+					.forum li a{
+						text-overflow: ellipsis;
+						overflow-x: hidden;
+					}
+				}
+			
+			}
+			
+		}
+		
+	}
+	
+
 	.NormalContainerBlock .ToolbarContainer {
 		background: none;
 		height: 41px;
