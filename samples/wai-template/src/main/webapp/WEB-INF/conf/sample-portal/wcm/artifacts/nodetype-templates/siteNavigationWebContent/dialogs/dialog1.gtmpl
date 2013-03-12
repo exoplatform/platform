@@ -33,8 +33,8 @@
 <style>
 	.form-horizontal textarea { 
 	  font-size:11px;
-	  height:172px;
-	  width:350px;
+	  height:175px;
+	  width:450px;
 		vertical-align: top;
 	}
 </style>
@@ -277,7 +277,20 @@
 							String[] fieldContentCSS = ["jcrPath=/node/css/default.css/jcr:content/jcr:data", cssContent] ;
 							uicomponent.addTextAreaField(cssFormId, fieldContentCSS) ;
 							%>
-							<span class="helpBlock"><i class="uiIconHelp"></i> <%=_ctx.appRes("WebContent.dialog.label.hintCSS")%></span>
+							
+							<i class="uiIconQuestion" id="cssContentHelp" 
+											onmouseover="eXo.ecm.WCMUtils.showInContextHelp('cssContentHelp', 'true')" onmouseout="eXo.ecm.WCMUtils.showInContextHelp('cssContentHelp', 'false')"
+										onfocus="eXo.ecm.WCMUtils.showInContextHelp('cssContentHelp', 'true')" onblur="eXo.ecm.WCMUtils.showInContextHelp('cssContentHelp', 'false')">
+								<div style="position: absolute;">
+									<div class="InContextHelpContent">                    
+										<div class="InContextHelpPopup">
+										 <div id="ContentPathHelpID" class="LeftInContextHelpPopup">
+											 <%=_ctx.appRes("WebContent.dialog.label.hintCSS")%>
+											</div>
+										</div>                      
+									</div>
+								</div>
+							</i>
 						</div>
 					</div>
 				</div>
@@ -430,7 +443,19 @@
 								String[] fieldContentJS = ["jcrPath=/node/js/default.js/jcr:content/jcr:data", "options=noSanitization", jsContent];
 								uicomponent.addTextAreaField(jsFormId, fieldContentJS); 								
 							%>
-							<span class="helpBlock"><i class="uiIconHelp"></i> <%=_ctx.appRes("WebContent.dialog.label.hintJS")%></span>
+							<i class="uiIconQuestion" id="ContentJSHelp" 
+										onmouseover="eXo.ecm.WCMUtils.showInContextHelp('ContentJSHelp', 'true')" onmouseout="eXo.ecm.WCMUtils.showInContextHelp('ContentJSHelp', 'false')"
+										onfocus="eXo.ecm.WCMUtils.showInContextHelp('ContentJSHelp', 'true')" onblur="eXo.ecm.WCMUtils.showInContextHelp('ContentJSHelp', 'false')">
+								<div style="position: absolute;">
+									<div class="InContextHelpContent">                    
+										<div class="InContextHelpPopup">
+										 <div id="ContentPathHelpID" class="LeftInContextHelpPopup">
+											 <%=_ctx.appRes("WebContent.dialog.label.hintJS")%>
+											</div>
+										</div>                      
+									</div>
+								</div>
+							</i>
 						</div>
 					</div>
 				</div>
