@@ -301,7 +301,7 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 				<div class="notification">
 					<strong> <%=label1%>  <%=rday%> <%=label2%></strong>
 				</div>
-				<p><strong>You must own a valid subscription in order to unlock this eXo Platform</strong></p>
+				<p><strong>You must own a valid subscription in order to unlock this eXo Platform instance</strong></p>
 				<div class="steps clearfix">
 					<div class="rightCol firstItem pull-right"><strong>Pickup your favorite <a class="" href="<%=UnlockService.getSubscriptionUrl()%>" target="_blank">subscription</a> plan and buy it</strong></div>
 					<div class="stepsNumber pull-left">1</div>
