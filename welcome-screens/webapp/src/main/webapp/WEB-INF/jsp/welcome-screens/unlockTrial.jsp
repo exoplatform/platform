@@ -27,7 +27,7 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 				if(document.unlockForm.hashMD5.value!="")
 					return true;
 				else {
-					ERROR.innerHTML="Unlock key is mondatory";
+					ERROR.innerHTML="Unlock key is mandatory";
 					var elem = document.getElementById("KEYERROR");
 					if (elem!=null) elem.style.display = "none";
 					return false;
