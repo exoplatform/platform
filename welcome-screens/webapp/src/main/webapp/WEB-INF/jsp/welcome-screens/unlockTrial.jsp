@@ -303,7 +303,7 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 				</div>
 				<p><strong>You must own a valid subscription in order to unlock this eXo Platform instance</strong></p>
 				<div class="steps clearfix">
-					<div class="rightCol firstItem pull-right"><strong>Pickup your favorite <a class="" href="<%=UnlockService.getSubscriptionUrl()%>" target="_blank">subscription</a> plan and buy it</strong></div>
+					<div class="rightCol firstItem pull-right"><strong>Pickup your favorite <a class="" href="<%=UnlockService.getSubscriptionUrl()%>" target="_blank">subscription plan</a> and buy it</strong></div>
 					<div class="stepsNumber pull-left">1</div>
 				</div>
                 <form action="/welcome-screens/trial" method="post" name="unlockForm" onsubmit="return formValidation();">
