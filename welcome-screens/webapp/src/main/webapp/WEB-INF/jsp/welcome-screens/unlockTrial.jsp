@@ -311,7 +311,7 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 				<div class="logo">Unlock Evaluation</div>
 			</div>
 			<div class="content">
-				<div class="backOutdated">
+				<div class="<%=css%>">
 					<strong> <%=label1%>  <%=rday%> <%=label2%></strong>
 				</div>
 				<p><strong>You must own a valid subscription in order to unlock this eXo Platform instance</strong></p>
