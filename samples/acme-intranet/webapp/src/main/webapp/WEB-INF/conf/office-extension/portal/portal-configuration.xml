@@ -83,32 +83,5 @@
 				</object-param>
 			</init-params>
 		</component-plugin>
-		<component-plugin>
-			<!-- The name of the plugin -->
-			<name>new.portal.config.user.listener</name>
-			<!-- The name of the method to call on the UserPortalConfigService in order to register the NewPortalConfigs -->
-			<set-method>initListener</set-method>
-			<!-- The full qualified name of the NewPortalConfigListener -->
-			<type>org.exoplatform.portal.config.NewPortalConfigListener</type>
-			<description>this listener init the portal configuration</description>
-			<init-params>
-				<object-param>
-					<name>site.templates.location</name>
-					<description>description</description>
-					<object type="org.exoplatform.portal.config.SiteConfigTemplates">
-						<field name="location">
-							<string>war:/conf/office-extension/portal</string>
-						</field>
-						<field name="portalTemplates">
-							<collection type="java.util.HashSet">
-								<value>
-									<string>intranet</string>
-								</value>
-							</collection>
-						</field>
-					</object>
-				</object-param>
-			</init-params>
-		</component-plugin>
 	</external-component-plugins>
 </configuration>
