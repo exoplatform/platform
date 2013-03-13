@@ -86,7 +86,7 @@
                 $(this).val(initKey);
          }
     });
-    $('.settingValidationButton').on('click',function(){
+    $('.btn').on('click',function(){
          $('div.CalendarPortletContainer').jzLoad(
                 "CalendarPortletController.calendarHome()");
     });
