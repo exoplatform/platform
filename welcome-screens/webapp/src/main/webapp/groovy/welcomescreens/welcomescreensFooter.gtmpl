@@ -51,20 +51,18 @@
 	    margin-left: 12px;
 	    text-shadow: 0 1px 1px rgba(255, 255, 255, 0.75);
 	    background-color: rgba(255, 255, 255, 0.3);
-	    background-image: -moz-linear-gradient(top, rgba(255, 255, 255, 0.5), rgba(180, 180, 180, 0.5));
-	    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(rgba(255, 255, 255, 0.5)), to(rgba(180, 180, 180, 0.5)));
-	    background-image: -webkit-linear-gradient(top, rgba(255, 255, 255, 0.5), rgba(180, 180, 180, 0.5));
-	    background-image: -o-linear-gradient(top, rgba(255, 255, 255, 0.5), rgba(180, 180, 180, 0.5));
-	    background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.5), rgba(180, 180, 180, 0.5));
+	    background-image: -moz-linear-gradient(top, rgba(255, 255, 255, 0.3), rgba(180, 180, 180, 0.3));
+	    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(rgba(255, 255, 255, 0.3)), to(rgba(180, 180, 180, 0.3)));
+	    background-image: -webkit-linear-gradient(top, rgba(255, 255, 255, 0.3), rgba(180, 180, 180, 0.3));
+	    background-image: -o-linear-gradient(top, rgba(255, 255, 255, 0.3), rgba(180, 180, 180, 0.3));
+	    background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.3), rgba(180, 180, 180, 0.3));
 	    background-repeat: repeat-x;
-	    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='rgba(255, 255, 255, 0.5)', endColorstr='#ffe6e6e6', GradientType=0);
-	    border-color: #b4b4b4 #b4b4b4 #bfbfbf;
-	    border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+	    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='rgba(255, 255, 255, 0.3)', endColorstr='#ffe6e6e6', GradientType=0);
 	    *background-color: rgba(255, 255, 255, 0.3);
 	    /* Darken IE7 buttons by default so they stand out more given they won't have borders */
 	
 	    filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
-	    border: 1px solid #bbbbbb;
+	    border: none;
 	    line-height: 16px;
 	    -webkit-border-radius: 4px;
 	    -moz-border-radius: 4px;
@@ -77,10 +75,11 @@
 	.footerWLC .btn:hover,
 	.footerWLC .btn:active {
 	    color: #2f5e92;
+	    background-position: center;
 	}
 	
 	.footerWLC.backOutdated{
-	    background-color: rgba(83, 212, 0, 0.4);
+	    background-color: rgba(212, 0, 0, 0.4);
 	}
 	.footerWLC.backNotOutdated{
 	    background-color: rgba(0, 0, 0, 0.4);
