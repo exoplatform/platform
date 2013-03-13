@@ -250,8 +250,17 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 			  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff4b71b3', endColorstr='#ff496fae', GradientType=0);
 			}
 			
-			.uiWelcomeBox .notification {
+			.uiWelcomeBox .backOutdated {
 				background: #e97f7f;
+				color: #fff;
+				border-radius: 4px;
+				text-align: center;
+				padding: 8px;
+				margin: 10px 0 15px;
+			}
+			
+			.uiWelcomeBox .backNotOutdated {
+				background: #b5b5b5;
 				color: #fff;
 				border-radius: 4px;
 				text-align: center;
@@ -302,7 +311,7 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 				<div class="logo">Unlock Evaluation</div>
 			</div>
 			<div class="content">
-				<div class="notification">
+				<div class="backOutdated">
 					<strong> <%=label1%>  <%=rday%> <%=label2%></strong>
 				</div>
 				<p><strong>You must own a valid subscription in order to unlock this eXo Platform instance</strong></p>
