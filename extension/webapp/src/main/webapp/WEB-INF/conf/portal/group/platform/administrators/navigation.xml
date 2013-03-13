@@ -89,12 +89,6 @@
             <page-reference>group::/platform/administrators::branding</page-reference>
         </node>
         <node>
-            <uri>spaces</uri>
-            <name>spaces</name>
-            <label>#{administration.spaces}</label>
-            <page-reference>group::/platform/administrators::spaces</page-reference>
-        </node>
-        <node>
             <uri>search</uri>
             <name>search</name>
             <label>#{administration.search}</label>
