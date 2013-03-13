@@ -258,7 +258,7 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
             </div>
     </div>
     <!-- Please do not make it Button it may cause blocker problem -->
-    <div class="bottom"><button class="btn btn-primary" id="continueButton" onclick="WelcomeScreens.exit();return false;">Submit</button></div>
+    <div class="bottom"><a class="btn btn-primary" id="continueButton" onclick="WelcomeScreens.exit();return false;">Submit</a></div>
 </div>
 </div>
 <div>
