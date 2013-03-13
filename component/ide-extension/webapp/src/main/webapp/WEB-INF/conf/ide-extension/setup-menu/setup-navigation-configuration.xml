@@ -75,12 +75,6 @@
             <page-reference>group::platform/administrators::groupnavigation</page-reference>
          </node>
          <node>
-            <uri>portal/spaces</uri>
-            <name>spaces</name>
-            <label>#{UISetupPlatformToolBarPortlet.label.spaces}</label>
-            <page-reference>group::platform/administrators::spaces</page-reference>
-         </node>
-         <node>
             <uri>portal/branding</uri>
             <name>branding</name>
             <label>#{UISetupPlatformToolBarPortlet.label.Branding}</label>

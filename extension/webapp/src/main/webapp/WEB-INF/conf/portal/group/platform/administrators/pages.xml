@@ -225,13 +225,7 @@
 		    <access-permissions>manager:/platform/administrators</access-permissions>
 			<show-info-bar>false</show-info-bar>
 		</portlet-application>
-	</page>   
-    <page>
-        <name>spaces</name>
-        <title>spaces</title>
-        <access-permissions>manager:/platform/administrators</access-permissions>
-        <edit-permission>manager:/platform/administrators</edit-permission>
-    </page>
+	</page>
     <page>
         <name>search</name>
         <title>search</title>
