@@ -41,6 +41,7 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 				 font-size: 13px;
 				 color: #333;
 				 overflow: auto;
+				 height: auto;
 			}
 
 			h5 {
@@ -80,7 +81,7 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 				border-radius: 80px 80px 80px 80px;
 				box-shadow: 0 0 200px white;
 				height: 280px;
-				margin: 215px auto 0;
+				margin: 140px auto 0;
 				width: 280px;
 			}
 
@@ -88,7 +89,7 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 				background-color:  #fff;
 				border-radius: 10px;
 				box-shadow: 0 1px 3px #3d3d3d;
-				margin: -400px auto 0;
+				margin: -380px auto 0;
 				width: 512px;
 			}
 
@@ -151,6 +152,7 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 			  width: 115px;
 			  vertical-align: top;
 			  font-weight: bold;
+			  cursor: pointer;
 			  background-image: -moz-linear-gradient(top, #ffffff, #e6e6e6);
 			  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#ffffff), to(#e6e6e6));
 			  background-image: -webkit-linear-gradient(top, #ffffff, #e6e6e6);
@@ -174,6 +176,7 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 			  -moz-box-shadow: inset 0 1px 0 rgba(255,255,255,.2), 0 1px 2px rgba(0,0,0,.05);
 			  box-shadow: inset 0 1px 0 rgba(255,255,255,.2), 0 1px 2px rgba(0,0,0,.05);
 			}
+			
 			.btn:hover,
 			.btn:active,
 			.btn.active {
