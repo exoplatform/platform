@@ -23,13 +23,13 @@
     function init(initKey){
     $('.uiIconDel').on("click", function () {
         var calId = $(this).parent().children("input").val();
-        $('div.settingsContainerData').jzLoad(
+        $('div.CalendarPortletContainer').jzLoad(
                 "CalendarPortletController.deleteCalendar()",
                 {"calendarId":calId});
     });
     $('.uiIconAdd').on("click", function () {
         var calId = $(this).parent().children("input").val();
-        $('div.settingsContainerData').jzLoad(
+        $('div.CalendarPortletContainer').jzLoad(
                 "CalendarPortletController.addCalendar()",
                 {"calendarId":calId});
     });

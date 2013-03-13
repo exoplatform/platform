@@ -142,7 +142,7 @@
 <script type="text/javascript">
     $('.uiIconAdd').on("click", function () {
         var calId = $(this).parent().children("input").val();
-        $('div.settingsContainerData').jzLoad(
+        $('div.CalendarPortletContainer').jzLoad(
                 "CalendarPortletController.addCalendar()",
                 {"calendarId":calId});
     });
