@@ -62,7 +62,7 @@
     <org.exoplatform.wiki.version>4.0.0-SNAPSHOT</org.exoplatform.wiki.version>
     <org.exoplatform.calendar.version>4.0.0-SNAPSHOT</org.exoplatform.calendar.version>
     <org.exoplatform.integ.version>4.0.0-SNAPSHOT</org.exoplatform.integ.version>
-    <org.exoplatform.platform-ui.version>1.0.0-SNAPSHOT</org.exoplatform.platform-ui.version>
+    <org.exoplatform.platform-ui.version>4.0.0-SNAPSHOT</org.exoplatform.platform-ui.version>
     <!-- Platform Project 3rd party Dependencies -->
     <org.codehaus.jackson.version>1.9.7</org.codehaus.jackson.version>
     <commons-fileupload.version>1.2.1</commons-fileupload.version>
