@@ -135,6 +135,10 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 				cursor: pointer;
 			}
 			
+			.uiWelcomeBox button.inactive {
+				opacity: 0.5;
+			}
+			
 			.uiWelcomeBox .uiCheckbox {
 				position: relative;
 				display: inline-block;
@@ -1799,7 +1803,7 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 			<div class="bottom clearfix">
 				<form name="tcForm" action="<%= contextPath + "/terms-and-conditions-action"%>" method="post">
 					<div class="pull-right">
-						<button class="btn btn-primary inactive" id="continueButton" onclick="validate();">Continue</button>
+						<button class="btn inactive" id="continueButton" onclick="validate();">Continue</button>
 					</div>
 					<div class="pull-left">
 						<label class="uiCheckbox"><input type="checkbox" id="agreement" name="checktc" value="false" onclick="toggleState();" class="checkbox"/>
