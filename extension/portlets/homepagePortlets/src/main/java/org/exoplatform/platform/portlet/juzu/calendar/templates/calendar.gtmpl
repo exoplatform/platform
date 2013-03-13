@@ -30,17 +30,17 @@
 
 <script>
      $('.prevDate').on("click", function() {
-		 $('div.calendarPortletData').jzLoad(
+		 $('div.CalendarPortletContainer').jzLoad(
 				"CalendarPortletController.decDate()",
 				{"nbClick":"1"});
 	});
     $('.nextDate').on("click", function() {
-        $('div.calendarPortletData').jzLoad(
+        $('div.CalendarPortletContainer').jzLoad(
             "CalendarPortletController.incDate()",
             {"nbClick":"1"});
     });
     $('.settingsLink').on("click", function(){
-        $('.calendarPortlet').jzLoad(
+        $('.CalendarPortletContainer').jzLoad(
                 "CalendarPortletController.setting()");
     });
     $('.calendarPortlet').mouseover(function () {
