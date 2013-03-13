@@ -23,6 +23,16 @@
     String usernameRegExp = System.getProperty("gatein.validators.username.regexp");
     if(usernameRegExp==null) usernameRegExp="";
     String formatMsg = System.getProperty("gatein.validators.username.format.message");
+    String usernameMinLength = System.getProperty("gatein.validators.username.length.min");
+    String usernameMaxLength = System.getProperty("gatein.validators.username.length.max");
+    int max=0;
+    int min=0;
+    if(usernameMaxLength!=null) {
+        max = Integer.parseInt(usernameMaxLength);
+    }
+    if(usernameMinLength!=null) {
+        min = Integer.parseInt(usernameMinLength);
+    }
     String contextPath = request.getContextPath() ;
     String lang = request.getLocale().getLanguage();
     response.setCharacterEncoding("iso-8859-1");
@@ -215,6 +225,8 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
                     <input type="text" name="username" id="userNameAccount" placeholder="User name" class="inputFieldLarge"/>
                     <input type="hidden" id="usernameRegExpid" value="<%=usernameRegExp%>"/>
                     <input type="hidden" id="formatMsgid" value="<%=formatMsg%>"/>
+                    <input type="hidden" id="usernameMaxLengthid" value="<%=max%>"/>
+                    <input type="hidden" id="usernameMinLengthid" value="<%=min%>"/>
                 </div>
             </div>
             <div class="control-group" id="fullnameId">

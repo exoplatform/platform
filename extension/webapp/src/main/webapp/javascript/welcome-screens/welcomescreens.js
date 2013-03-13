@@ -64,6 +64,10 @@ WelcomeScreens.exit = function() {
         WelcomeScreens.USERNAME_REGEXP = new RegExp(usernameReg);
         WelcomeScreens.FormatError = $.trim($("#formatMsgid").val());
     }
+    var max = $.trim($("#usernameMaxLengthid").val());
+    var min = $.trim($("#usernameMinLengthid").val());
+    if(min!=0) WelcomeScreens.USERNAME_INPUT_MIN_SIZE = min;
+    if(max!=0) WelcomeScreens.USERNAME_INPUT_MAX_SIZE = max;
     var firstname = $.trim($("#firstNameAccount").val());
     var lastname = $.trim($("#lastNameAccount").val());
     var email = $.trim($("#emailAccount").val());
@@ -78,7 +82,7 @@ WelcomeScreens.exit = function() {
     }
     else
     if (username.length < WelcomeScreens.USERNAME_INPUT_MIN_SIZE || username.length > WelcomeScreens.USERNAME_INPUT_MAX_SIZE){
-        $('#usernameId').after('<tr id ="usernameErrorLengthId"><td colspan="4" class ="accountSetupError">The length of <b>Username</b> must be between 3 and 30 characters.</td></tr>');
+        $('#usernameId').after('<tr id ="usernameErrorLengthId"><td colspan="4" class ="accountSetupError">The length of <b>Username</b> must be between '+ WelcomeScreens.USERNAME_INPUT_MIN_SIZE +' and ' +WelcomeScreens.USERNAME_INPUT_MAX_SIZE+ ' characters.</td></tr>');
         WelcomeScreens.ACCOUNT_SETUP_ERROR = true;
     }
     if(WelcomeScreens.USERNAME_REGEXP.test(username) == false){
