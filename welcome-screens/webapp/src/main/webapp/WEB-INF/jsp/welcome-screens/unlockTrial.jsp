@@ -145,112 +145,21 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 				padding: 30px 0;
 			}
 			
-			.btn {
-			  color: #333333;
-			  text-shadow: 0 1px 1px rgba(255, 255, 255, 0.75);
-			  background-color: #f5f5f5;
-			  width: 115px;
-			  vertical-align: top;
-			  font-weight: bold;
-			  cursor: pointer;
-			  background-image: -moz-linear-gradient(top, #ffffff, #e6e6e6);
-			  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#ffffff), to(#e6e6e6));
-			  background-image: -webkit-linear-gradient(top, #ffffff, #e6e6e6);
-			  background-image: -o-linear-gradient(top, #ffffff, #e6e6e6);
-			  background-image: linear-gradient(to bottom, #ffffff, #e6e6e6);
-			  background-repeat: repeat-x;
-			  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffffff', endColorstr='#ffe6e6e6', GradientType=0);
-			  border-color: #e6e6e6 #e6e6e6 #bfbfbf;
-			  border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
-			  *background-color: #e6e6e6;
-			  /* Darken IE7 buttons by default so they stand out more given they won't have borders */
-			
-			  filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
-			  border: 1px solid #bbbbbb;
-			  line-height: 25px;
-			  -webkit-border-radius: 4px;
-			  -moz-border-radius: 4px;
-			  border-radius: 4px;
-			  *margin-left: .3em;
-			  -webkit-box-shadow: inset 0 1px 0 rgba(255,255,255,.2), 0 1px 2px rgba(0,0,0,.05);
-			  -moz-box-shadow: inset 0 1px 0 rgba(255,255,255,.2), 0 1px 2px rgba(0,0,0,.05);
-			  box-shadow: inset 0 1px 0 rgba(255,255,255,.2), 0 1px 2px rgba(0,0,0,.05);
-			}
-			
-			.btn:hover,
-			.btn:active,
-			.btn.active {
-			  color: #333333;
-			  background-color: #e6e6e6;
-			  *background-color: #d9d9d9;
-			}
-			.btn:active,
-			.btn.active {
-			  background-color: #cccccc;
-			}
-			
-			.btn:hover {
-			  background-color: #efefef;
-			  background-image: -moz-linear-gradient(top, #f1f1f1, #ebebeb);
-			  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#f1f1f1), to(#ebebeb));
-			  background-image: -webkit-linear-gradient(top, #f1f1f1, #ebebeb);
-			  background-image: -o-linear-gradient(top, #f1f1f1, #ebebeb);
-			  background-image: linear-gradient(to bottom, #f1f1f1, #ebebeb);
-			  background-repeat: repeat-x;
-			  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fff1f1f1', endColorstr='#ffebebeb', GradientType=0);
-			}
-			.btn.active,
-			.btn:active {
-			  background-color: #e6e6e6;
-			  background-color: #d9d9d9;
-			  background-image: none;
-			  outline: 0;
-			  -webkit-box-shadow: inset 0 2px 4px rgba(0,0,0,.15), 0 1px 2px rgba(0,0,0,.05);
-			  -moz-box-shadow: inset 0 2px 4px rgba(0,0,0,.15), 0 1px 2px rgba(0,0,0,.05);
-			  box-shadow: inset 0 2px 4px rgba(0,0,0,.15), 0 1px 2px rgba(0,0,0,.05);
-			}
-			
-			.btn {
-			  border-color: #c7c7c7;
-			}
-			.btn-primary {
-			  color: #ffffff;
-			  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
-			  background-color: #5179bd;
-			  background-image: -moz-linear-gradient(top, #6289cb, #3862a9);
-			  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#6289cb), to(#3862a9));
-			  background-image: -webkit-linear-gradient(top, #6289cb, #3862a9);
-			  background-image: -o-linear-gradient(top, #6289cb, #3862a9);
-			  background-image: linear-gradient(to bottom, #6289cb, #3862a9);
-			  background-repeat: repeat-x;
-			  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff6289cb', endColorstr='#ff3862a9', GradientType=0);
-			  border-color: #3862a9 #3862a9 #25406f;
-			  border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
-			  *background-color: #3862a9;
-			  /* Darken IE7 buttons by default so they stand out more given they won't have borders */
-			
-			  filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
-			  border-color: #224886;
-			}
-			.btn-primary:hover,
-			.btn-primary:active{
-			  color: #ffffff;
-			  background-color: #3862a9;
-			  *background-color: #325795;
-			}
-			.btn-primary:active,
-			.btn-primary.active {
-			  background-color: #2b4c82;
-			}
-			.btn-primary:hover {
-			  background-color: #4a70b1;
-			  background-image: -moz-linear-gradient(top, #4b71b3, #496fae);
-			  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#4b71b3), to(#496fae));
-			  background-image: -webkit-linear-gradient(top, #4b71b3, #496fae);
-			  background-image: -o-linear-gradient(top, #4b71b3, #496fae);
-			  background-image: linear-gradient(to bottom, #4b71b3, #496fae);
-			  background-repeat: repeat-x;
-			  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff4b71b3', endColorstr='#ff496fae', GradientType=0);
+			.uiWelcomeBox .btn {
+			    background-color: #5179BD;
+			    background-image: linear-gradient(to bottom, #6289CB, #3862A9);
+			    background-repeat: repeat-x;
+			    border: 1px solid #224886;
+			    border-radius: 4px 4px 4px 4px;
+			    color: #FFFFFF;
+			    cursor: pointer;
+			    display: inline-block;
+			    font-weight: bold;
+			    line-height: 25px;
+			    text-align: center;
+			    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+			    vertical-align: top;
+			    width: 115px;
 			}
 			
 			.uiWelcomeBox .backOutdated {
@@ -330,7 +239,7 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 							<span>Product Code</span>
                             <input type="text" class="disable"  name="pc" value="<%=UnlockService.getProductCode() %>">
                             <!-- Please IT MUST BE A LINK not a button !!!!! it need only to be resized And it would re take its layout Please!!!-->
-                            <a target="_blank" href="<%=UnlockService.getRegistrationFormUrl()%>?pc=<%=UnlockService.getProductCode()%>">Request a Key</a>
+                            <a class="btn" target="_blank" href="<%=UnlockService.getRegistrationFormUrl()%>?pc=<%=UnlockService.getProductCode()%>">Request a Key</a>
 						</div>
 					</div>
 					<div class="stepsNumber pull-left">2</div>
@@ -341,7 +250,7 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 						<div>
 							<span>Unlock Key</span>
                             <input class="Text" type="text" name="hashMD5" id="hashMD5">
-							<button class="btn btn-primary">Unlock</button>
+							<button class="btn">Unlock</button>
 						</div>
                         <span  id="ERROR" style="color: red"> </span>
                         <% if(request.getAttribute("errorMessage") != null && !request.getAttribute("errorMessage").toString().isEmpty()) {%>
