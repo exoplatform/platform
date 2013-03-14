@@ -1,14 +1,4 @@
 $(document).ready(function(){
-    $('.infoTip[title]').qtip({
-
-        position: {
-            my: 'bottom left',
-            at: 'right top'
-        },
-        style: {
-            classes: 'qtip-light qtip-rounded'
-        }
-    });
     $('#userNameAccount').blur(function() {
         $('#usernameExistErrorId').remove();
         WelcomeScreens.USERNAME_EXIST = false;
