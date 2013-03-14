@@ -29,6 +29,7 @@
     import org.exoplatform.portal.mop.SiteType;
     import org.exoplatform.web.url.navigation.NavigationResource;
     import org.exoplatform.platform.navigation.component.utils.DashboardUtils;
+    import org.gatein.common.text.EntityEncoder;
 
 
     def rcontext = _ctx.getRequestContext();
@@ -59,7 +60,11 @@
 <div class="uiUserToolBarPortlet uiDropdownWithIcon dropdown pull-right" id="$uicomponent.id">
     
         <a class="dropdown-toggle" data-toggle="dropdown">
-            <img src="<%=uicomponent.getAvatarURL()%>" alt="avatar"/> $user.fullName
+            <%
+              EntityEncoder encoder = EntityEncoder.FULL;
+              fullName = encoder.encode(user.fullName);
+            %>
+            <img src="<%=uicomponent.getAvatarURL()%>" alt="avatar"/> $fullName
         </a>
         <ul class="dropdown-menu">
             <% if (uicomponent.isSocialPortal()) { %>
