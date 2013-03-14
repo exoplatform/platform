@@ -47,9 +47,7 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
     <link href="<%=request.getContextPath()%>/css/welcome-screens/jquery.qtip.min.css" rel="stylesheet" type="text/css" />
     <link href="<%=request.getContextPath()%>/css/welcome-screens/Style.css" rel="stylesheet" type="text/css" />
 
-    <script type="text/javascript" src="<%=contextPath%>/javascript/welcome-screens/jquery-1.7.2.min.js"></script>
-    <script type="text/javascript" src="<%=contextPath%>/javascript/welcome-screens/jquery.qtip.min.js"></script>
-    <script type="text/javascript" src="<%=contextPath%>/javascript/welcome-screens/jquery.scrollTo.js"></script>
+    <script type="text/javascript" src="<%=contextPath%>/javascript/jquery-1.7.1.js"></script>
     <script type="text/javascript" src="<%=contextPath%>/javascript/welcome-screens/welcomescreens.js"></script>
     <style type="text/css">
         body {
