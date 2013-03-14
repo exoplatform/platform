@@ -38,8 +38,8 @@ WelcomeScreens.ACCOUNT_SETUP_ERROR = false;
 WelcomeScreens.USERNAME_EXIST = false;
 WelcomeScreens.EMAIL_REGEXP = new RegExp(/^(("[\w-+\s]+")|([\w-+]+(?:\.[\w-+]+)*)|("[\w-+\s]+")([\w-+]+(?:\.[\w-+]+)*))(@((?:[\w-+]+\.)*\w[\w-+]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$)|(@\[?((25[0-5]\.|2[0-4][\d]\.|1[\d]{2}\.|[\d]{1,2}\.))((25[0-5]|2[0-4][\d]|1[\d]{2}|[\d]{1,2})\.){2}(25[0-5]|2[0-4][\d]|1[\d]{2}|[\d]{1,2})\]?$)/i);
 WelcomeScreens.USERNAME_REGEXP = new RegExp(/^[0-9a-z_.]+$/);
-WelcomeScreens.FIRSTNAME_REGEXP = new RegExp(/^[a-zA-Z-' ]+$/);
-WelcomeScreens.LASTNAME_REGEXP = new RegExp(/^[a-zA-Z-' ]+$/);
+WelcomeScreens.FIRSTNAME_REGEXP = new RegExp(/^[a-zA-Z-' אבגדהועףפץצרטיךכחלםמןשתûüÿס]+$/);
+WelcomeScreens.LASTNAME_REGEXP = new RegExp(/^[a-zA-Z-' אבגדהועףפץצרטיךכחלםמןשתûüÿס]+$/);
 WelcomeScreens.FormatError = 'Only <b>lowercase letters, digits, dot and underscore</b> characters are allowed for the field </b>"User Name".</b>'
 
 WelcomeScreens.exit = function() {
@@ -89,7 +89,7 @@ WelcomeScreens.exit = function() {
         $('#usernameId').after('<tr id ="usernameErrorLengthId"><td colspan="4" class ="accountSetupError">The length of <b>Username</b> must be between '+ WelcomeScreens.USERNAME_INPUT_MIN_SIZE +' and ' +WelcomeScreens.USERNAME_INPUT_MAX_SIZE+ ' characters.</td></tr>');
         WelcomeScreens.ACCOUNT_SETUP_ERROR = true;
     }
-    if(WelcomeScreens.USERNAME_REGEXP.test(username) == false){
+    if((username!="")&&(WelcomeScreens.USERNAME_REGEXP.test(username) == false)){
         $('#usernameId').after('<tr id ="usernameErrorFormatId"><td colspan="4" class ="accountSetupError">'+WelcomeScreens.FormatError+'</td></tr>');
         WelcomeScreens.ACCOUNT_SETUP_ERROR = true;
     }
@@ -98,17 +98,17 @@ WelcomeScreens.exit = function() {
         $('#fullnameId').after('<tr id ="lastnameErrorId"><td colspan="4" class ="accountSetupError"><b>Last name</b> is required.</td></tr>');
         WelcomeScreens.ACCOUNT_SETUP_ERROR = true;
     }
-    if(WelcomeScreens.FIRSTNAME_REGEXP.test(firstname) == false){
+    if((lastname!="")&&(WelcomeScreens.LASTNAME_REGEXP.test(lastname) == false)){
+        $('#fullnameId').after('<tr id ="lastnameErrorFormatId"><td colspan="4" class ="accountSetupError">'+'Only letters, spaces, "-" or "'+"/'"+'"+ are allowed for the field "Last Name"'+'</td></tr>');
+        WelcomeScreens.ACCOUNT_SETUP_ERROR = true;
+    }
+    if((firstname!="")&&WelcomeScreens.FIRSTNAME_REGEXP.test(firstname) == false){
         $('#fullnameId').after('<tr id ="firstnameErrorFormatId"><td colspan="4" class ="accountSetupError">'+'Only letters, spaces, "-" or "'+"/'"+'"+ are allowed for the field "First Name"'+'</td></tr>');
         WelcomeScreens.ACCOUNT_SETUP_ERROR = true;
     }
     //check First Name
     if(firstname == ""){
         $('#fullnameId').after('<tr id ="firstnameErrorId"><td colspan="4" class ="accountSetupError"><b>First name</b> is required.</td></tr>');
-        WelcomeScreens.ACCOUNT_SETUP_ERROR = true;
-    }
-    if(WelcomeScreens.LASTNAME_REGEXP.test(lastname) == false){
-        $('#fullnameId').after('<tr id ="lastnameErrorFormatId"><td colspan="4" class ="accountSetupError">'+'Only letters, spaces, "-" or "'+"/'"+'"+ are allowed for the field "Last Name"'+'</td></tr>');
         WelcomeScreens.ACCOUNT_SETUP_ERROR = true;
     }
     //check Email
