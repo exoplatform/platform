@@ -24,9 +24,10 @@
 .calendarPortlet  {
 	.calendarPortletData {
 		a {
+		
 			color: @grayDark;
 		}
-		.uiContentBox {
+		.uiContentBox { 
 			padding: 15px;
 		}
 		.title  .actionIcon {
@@ -58,13 +59,11 @@
 				}
 			}
 			.eventSummary {
-				width: 50%;
-				text-overflow: ellipsis;
-				overflow: hidden;
-				white-space: nowrap;
+				width: 54%;
+				.text-overflow;
 			}
 			.time {
-				width: 50%;
+				width: 46%;
 				font-size: @baseFontSize - 1;
 			}
 			
@@ -106,10 +105,8 @@
 	font-size: @baseFontSize - 2;
 	padding: 0px 10px;
 	margin: 0 5px 5px 0;
-	  overflow: hidden;
 	  max-width: 92%;
-    text-overflow: ellipsis;
-    white-space: nowrap;
+   .text-overflow;
 }
 
 .asparagus {
@@ -217,10 +214,8 @@
 				display: inline-block;
 				height: 20px;
 				max-width: 92%;
-				overflow: hidden;
 				 vertical-align: middle;
-				text-overflow: ellipsis;
-				   white-space: nowrap;
+				.text-overflow;
 			}
 		}
 		.uiIconDel { 
@@ -272,9 +267,7 @@
 			}
 			.calName {
 				height: 20px; 
-				overflow: hidden;
-				text-overflow: ellipsis;
-				white-space: nowrap;
+				.text-overflow;
 				display: block;
 				width: 190px;
 			}
