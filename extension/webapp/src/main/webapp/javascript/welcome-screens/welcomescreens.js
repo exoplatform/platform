@@ -30,8 +30,10 @@ $(document).ready(function(){
 
 var WelcomeScreens = {};
 
-WelcomeScreens.USERNAME_INPUT_MIN_SIZE = 3;
+WelcomeScreens.FIRSTLASTNAME_INPUT_MIN_SIZE = 1;
+WelcomeScreens.FIRSTLASTNAME_INPUT_MAX_SIZE = 45;
 WelcomeScreens.USERNAME_INPUT_MAX_SIZE = 30;
+WelcomeScreens.USERNAME_INPUT_MIN_SIZE = 3;
 WelcomeScreens.PASSWORD_INPUT_MIN_SIZE = 6;
 WelcomeScreens.PASSWORD_INPUT_MAX_SIZE = 30;
 WelcomeScreens.ACCOUNT_SETUP_ERROR = false;
@@ -46,6 +48,8 @@ WelcomeScreens.exit = function() {
     WelcomeScreens.ACCOUNT_SETUP_ERROR = false;
     $('#usernameErrorId').remove();
     $('#usernameErrorLengthId').remove();
+    $('#firstnameErrorLengthId').remove();
+    $('#lastnameErrorLengthId').remove();
     $('#firstnameErrorId').remove();
     $('#lastnameErrorId').remove();
     $('#emailInvalidErrorId').remove();
@@ -98,6 +102,10 @@ WelcomeScreens.exit = function() {
         $('#fullnameId').after('<tr id ="lastnameErrorId"><td colspan="4" class ="accountSetupError"><b>Last name</b> is required.</td></tr>');
         WelcomeScreens.ACCOUNT_SETUP_ERROR = true;
     }
+    else if((lastname.length<WelcomeScreens.FIRSTLASTNAME_INPUT_MIN_SIZE)||(lastname.length>WelcomeScreens.FIRSTLASTNAME_INPUT_MAX_SIZE)){
+        $('#fullnameId').after('<tr id ="lastnameErrorLengthId"><td colspan="4" class ="accountSetupError">The length of <b>Last Name</b> must be between '+ WelcomeScreens.FIRSTLASTNAME_INPUT_MIN_SIZE +' and ' +WelcomeScreens.FIRSTLASTNAME_INPUT_MAX_SIZE+ ' characters.</td></tr>');
+        WelcomeScreens.ACCOUNT_SETUP_ERROR = true;
+    }
     if((lastname!="")&&(WelcomeScreens.LASTNAME_REGEXP.test(lastname) == false)){
         $('#fullnameId').after('<tr id ="lastnameErrorFormatId"><td colspan="4" class ="accountSetupError">'+'Only letters, spaces, "-" or "'+"/'"+'"+ are allowed for the field "Last Name"'+'</td></tr>');
         WelcomeScreens.ACCOUNT_SETUP_ERROR = true;
@@ -106,9 +114,14 @@ WelcomeScreens.exit = function() {
         $('#fullnameId').after('<tr id ="firstnameErrorFormatId"><td colspan="4" class ="accountSetupError">'+'Only letters, spaces, "-" or "'+"/'"+'"+ are allowed for the field "First Name"'+'</td></tr>');
         WelcomeScreens.ACCOUNT_SETUP_ERROR = true;
     }
+
     //check First Name
     if(firstname == ""){
         $('#fullnameId').after('<tr id ="firstnameErrorId"><td colspan="4" class ="accountSetupError"><b>First name</b> is required.</td></tr>');
+        WelcomeScreens.ACCOUNT_SETUP_ERROR = true;
+    }
+    else if((firstname.length<WelcomeScreens.FIRSTLASTNAME_INPUT_MIN_SIZE)||(firstname.length>WelcomeScreens.FIRSTLASTNAME_INPUT_MAX_SIZE)){
+        $('#fullnameId').after('<tr id ="firstnameErrorLengthId"><td colspan="4" class ="accountSetupError">The length of <b>First Name</b> must be between '+ WelcomeScreens.FIRSTLASTNAME_INPUT_MIN_SIZE +' and ' +WelcomeScreens.FIRSTLASTNAME_INPUT_MAX_SIZE+ ' characters.</td></tr>');
         WelcomeScreens.ACCOUNT_SETUP_ERROR = true;
     }
     //check Email
