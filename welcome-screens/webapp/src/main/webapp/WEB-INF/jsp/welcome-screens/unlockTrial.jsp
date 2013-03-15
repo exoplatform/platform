@@ -82,7 +82,7 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 			</div>
 
 			<div class="bottom">
-				Question about your eXo Platorm evaluation?<br />
+				Question about your eXo Platform evaluation?<br />
 Contact us at <a href="mailto:info@exoplatform.com">info@exoplatform.com</a> or our website <a href="www.exoplatform.com">www.exoplatform.com</a>
 			</div>
 		</div>
