@@ -208,7 +208,7 @@ public class UICreateForm extends UIForm {
         domainUrl.append(portalRequestContext.getRequest().getScheme());
         domainUrl.append("://");
 
-        domainUrl.append(portalRequestContext.getRequest().getLocalName());
+        domainUrl.append(portalRequestContext.getRequest().getServerName());
         int port = portalRequestContext.getRequest().getLocalPort();
         if (port != 80) {
             domainUrl.append(":");
