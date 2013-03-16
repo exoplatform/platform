@@ -107,7 +107,7 @@
 		background: none;
 		padding-left: 2px;
 		.uiDropdownWithIcon {
-			background: none;
+			background: none;	
 		}
 	 	> a {
 		padding: 0 10px 0 11px;
@@ -249,14 +249,22 @@
 	}
 	
 	.uiAdminToolbarPortlet {
-		.seoImgBlock,
-		.seolabel {
-			display: inline-block;
+		.seoImgBlock{
+			padding: 5px;
 			.UISEOToolbarPorlet .SEOToolbar .Enable {
 				padding: 0 5px;
 				margin-left: 2px;
 			}
+		}	
+		.seoImgBlock:hover,
+		.seoImgBlock:focus,
+		.dropdown-submenu:hover > .seoImgBlock,
+		.dropdown-menu .active > .seoImgBlock,
+		.dropdown-menu .active > .seoImgBlock:hover  {
+			#gradient > .vertical(@dropdownLinkBackgroundHover, darken(@dropdownLinkBackgroundHover, 15%));
+			color: white;
 		}
+			
 		.quickEditUnchecked {
 			background-image: url(/eXoPlatformResources/skin/platformSkin/images/ToolbarContainer/check.png);
 			background-repeat: no-repeat;
