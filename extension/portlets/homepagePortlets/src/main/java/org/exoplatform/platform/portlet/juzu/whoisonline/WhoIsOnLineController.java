@@ -4,7 +4,7 @@ import juzu.Path;
 import juzu.Resource;
 import juzu.Response;
 import juzu.View;
-import juzu.plugin.ajax.Ajax;
+import org.exoplatform.commons.juzu.ajax.Ajax;
 import juzu.template.Template;
 import org.exoplatform.web.application.RequestContext;
 
@@ -36,7 +36,7 @@ public class WhoIsOnLineController {
   @View
   public Response.Render index() {
       locale=RequestContext.getCurrentInstance().getLocale();
-      rs = ResourceBundle.getBundle("whoisonline/whoisonline", locale);
+      rs = ResourceBundle.getBundle("locale/portlet/whoisonline/whoisonline", locale);
       String userId= RequestContext.getCurrentInstance().getRemoteUser();
       List<User> friends = whoIsOnline.getFriends(userId);
       return index.with().set("users", friends).set("headerLabel",rs.getString("header.label")).set("messageLabel",rs.getString("message.label")).set("connectLabel",rs.getString("connect.label")).ok();
@@ -46,7 +46,7 @@ public class WhoIsOnLineController {
   @Resource
   public Response.Render users() {
       locale=RequestContext.getCurrentInstance().getLocale();
-      rs = ResourceBundle.getBundle("whoisonline/whoisonline", locale);
+      rs = ResourceBundle.getBundle("locale/portlet/whoisonline/whoisonline", locale);
       String userId= RequestContext.getCurrentInstance().getRemoteUser();
       List<User> friends = whoIsOnline.getFriends(userId);
       return users.with().set("users", friends).set("messageLabel",rs.getString("message.label")).set("connectLabel",rs.getString("connect.label")).ok();

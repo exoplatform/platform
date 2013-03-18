@@ -23,41 +23,20 @@
 <%
     import java.text.DateFormat;
     import org.exoplatform.calendar.service.CalendarEvent;
-    import org.exoplatform.web.application.RequestContext;
+
     import java.util.Locale;
+     import juzu.impl.request.Request;
+      import juzu.request.RequestContext;
+
 
 %>
-
-<script>
-     $('.prevDate').on("click", function() {
-		 $('div.CalendarPortletContainer').jzLoad(
-				"CalendarPortletController.decDate()",
-				{"nbClick":"1"});
-	});
-    $('.nextDate').on("click", function() {
-        $('div.CalendarPortletContainer').jzLoad(
-            "CalendarPortletController.incDate()",
-            {"nbClick":"1"});
-    });
-    $('.settingsLink').on("click", function(){
-        $('.CalendarPortletContainer').jzLoad(
-                "CalendarPortletController.setting()");
-    });
-    $('.calendarPortlet').mouseover(function () {
-        $('.settingsContainerPage').children("a").css("display", "block");
-
-    });
-    $('.calendarPortlet').mouseout(function () {
-        $('.settingsContainerPage').children("a").css("display", "none");
-    });
-</script>
 <div class="calendarPortlet ">
 	<div class="calendarPortletData uiBox">
 		<h6 class="title clearfix">
-			<a href="#" data-placement="bottom" rel="tooltip" class="actionIcon prevDate pull-left"  data-original-title="Prev Day">
+			<a href="#" data-placement="bottom" rel="tooltip" class="actionIcon prevDate pull-left"  data-original-title="&{prev.day}">
 				<i class="uiIconMiniArrowLeft uiIconLightGray"></i>
 			</a>		
-			<a data-placement="bottom" href="#" rel="tooltip" class="actionIcon nextDate pull-right"  data-original-title="Next Day">
+			<a data-placement="bottom" href="#" rel="tooltip" class="actionIcon nextDate pull-right"  data-original-title="&{next.day}">
 				<i class="uiIconMiniArrowRight uiIconLightGray"></i>
 			</a>
 			<div class="currentDateContainer">
@@ -70,14 +49,9 @@
 
 					displayedCalendar.each { cal ->
 						def   calendarName= cal.name;
-						def hover= "";
-						if(((calendarName.indexOf("Default") != -1)||(calendarName.indexOf("Défault") != -1)) && (cal.groups==null))  hover=bundle["defaultPersonnal"];
-						if (cal.groups != null) {
-							def group = cal.groups[0];
-							hover = " (" + group.substring(group.lastIndexOf("/") + 1) + ")";
-						}
+
 				%>
-				<span class="calendarName ${cal.calendarColor}"  id="${cal.id}" title="${hover}">${calendarName}</span>
+				<span class="calendarName ${cal.calendarColor}"  id="${cal.id}" title="${calendarName}">${calendarName}</span>
 				<% }
 				}
 				%>
@@ -85,9 +59,7 @@
 				<%if ((eventsDisplayedList != null) && (eventsDisplayedList.size() != 0)) {%>
 			<ul class="eventsList ">
 				<%
-					def allDayLabel = bundle["allDayLabel"];
-
-					Locale locale= RequestContext.getCurrentInstance().getLocale();
+					Locale locale= requestContext.getUserContext().getLocale();
 
 					sdf1= DateFormat.getDateInstance(DateFormat.SHORT,locale);
 
@@ -107,7 +79,7 @@
 					</div>
 					<div  class="pull-right time">
 						<% if (event.toDateTime.getTime() - event.fromDateTime.getTime() == 86399999) { %>
-						<span>${allDayLabel}</span>
+						<span>&{all.day.label}</span>
 						<% } else if (event.toDateTime.getTime() - event.fromDateTime.getTime() > 86399999) {
 							from = sdf1.format(event.fromDateTime);
 							String year=event.fromDateTime.format("yyyy");
@@ -119,8 +91,8 @@
                             if(dateSplit.length!=0) to=dateSplit[0]+"/"+dateSplit[1]+"/"+year;
 						%>
 
-						<span>${bundle["fromLabel"]}  ${from}</span>
-						<span>${bundle["toLabel"]}  ${to}</span>
+						<span>&{from.label}  ${from}</span>
+						<span>&{to.label}  ${to}</span>
 						<% } else if (event.toDateTime.getTime() - event.fromDateTime.getTime() < 86399999) {
 							from = sdf2.format(event.fromDateTime);
 							to = sdf2.format(event.toDateTime);
@@ -139,11 +111,11 @@
 			</ul><!--eventsList-->
 			<%} else{
 			%>
-			<span> <center>${bundle["noEventsLabel"]} </center></span>
+			<span> <center>&{no.events.label} </center></span>
 			<%}%>
 		</div><!--events-->
 		<% if ((tasksDisplayedList != null) && (tasksDisplayedList.size() != 0)) { %>
-		<h6 class="title taskTitle">${bundle["tasklabel"]}</h6>
+		<h6 class="title taskTitle">&{tasks.calendar.label}</h6>
 		<div class="tasks uiContentBox">
 			<ul class="tasksList">
 				<% def cssClass = "";

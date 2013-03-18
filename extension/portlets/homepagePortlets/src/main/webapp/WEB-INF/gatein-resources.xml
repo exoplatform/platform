@@ -49,5 +49,122 @@
     <css-path>/skin/css/calendar.css</css-path>
     <css-priority>1</css-priority>
   </portlet-skin>
-  
+
+   <portlet>
+      <name>SuggestionsPeopleSpace</name>
+      <module>
+         <depends>
+            <module>jQuerySuggestions</module>
+         </depends>
+      </module>
+   </portlet>
+
+   <portlet>
+      <name>Invitations</name>
+      <module>
+         <depends>
+            <module>jQueryInvitations</module>
+         </depends>
+      </module>
+   </portlet>
+
+   <portlet>
+      <name>GettingStartedPortlet</name>
+      <module>
+         <depends>
+            <module>jQueryGettingStarted</module>
+         </depends>
+      </module>
+   </portlet>
+
+   <portlet>
+      <name>HomePageCalendarPortlet</name>
+      <module>
+         <depends>
+            <module>jQueryCalendar</module>
+         </depends>
+      </module>
+   </portlet>
+
+   <portlet>
+      <name>WhoIsOnLinPortlet</name>
+      <module>
+         <depends>
+            <module>jQueryWhoIsOnLine</module>
+         </depends>
+      </module>
+   </portlet>
+
+   <module>
+      <name>jQuerySuggestions</name>
+      <script>
+         <path>/js/suggestions/suggestions.js</path>
+      </script>
+      <depends>
+         <module>jquery</module>
+      </depends>
+   </module>
+
+   <module>
+      <name>jQueryInvitations</name>
+      <script>
+         <path>/js/invitations/invitations.js</path>
+      </script>
+      <depends>
+         <module>jquery</module>
+      </depends>
+   </module>
+
+   <module>
+      <name>jQueryCalendar</name>
+      <script>
+         <path>/js/calendar/calendar.js</path>
+      </script>
+      <depends>
+         <module>juzu-ajax</module>
+      </depends>
+      <depends>
+         <module>jquery</module>
+      </depends>
+   </module>
+
+   <module>
+      <name>jQueryGettingStarted</name>
+      <script>
+         <path>/js/gettingstarted/gettingstarted.js</path>
+      </script>
+      <depends>
+         <module>juzu-ajax</module>
+      </depends>
+      <depends>
+         <module>jquery</module>
+      </depends>
+   </module>
+
+   <module>
+      <name>jQueryToolTip</name>
+      <script>
+         <path>/js/whoisonline/jquery.tipTip.minified.js</path>
+      </script>
+      <depends>
+         <module>jquery</module>
+         <as>jQuery</as>
+      </depends>
+   </module>
+
+   <module>
+      <name>jQueryWhoIsOnLine</name>
+      <script>
+         <path>/js/whoisonline/whoisonline.js</path>
+      </script>
+      <depends>
+         <module>juzu-ajax</module>
+      </depends>
+      <depends>
+         <module>jquery</module>
+      </depends>
+      <depends>
+         <module>jQueryToolTip</module>
+      </depends>
+   </module>
 </gatein-resources>

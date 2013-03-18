@@ -22,8 +22,8 @@
 
 <body>
     <div id="InvitationsPortlet" class="uiBox uiInvitations" style="display:none;">
-        <h6 class='title center'>${invitationsHeaderLabel} (<span id='inviteCounter'></span>)</h6>
+        <h6 class='title center'>&{invitations.header.label} (<span id='inviteCounter'></span>)</h6>
         <ul id='requests'></ul>
-       <div class="invitlabel" data-acceptlabel="${invitationsAcceptLabel}" data-memberslabel="${invitationsMembersLabel}" data-spacelabel="${invitationsSpaceLabel}"  data-publiclabel="${invitationsPublicLabel}" data-privatelabel="${invitationsPrivateLabel}"></div>
+       <div class="invitlabel" data-acceptlabel="&{invitations.accept.label}" data-memberslabel="&{invitations.members.label}" data-spacelabel="&{invitations.space.label}"  data-publiclabel="&{invitations.public.label}" data-privatelabel="&{invitations.private.label}"></div>
 	</div>
 </body>

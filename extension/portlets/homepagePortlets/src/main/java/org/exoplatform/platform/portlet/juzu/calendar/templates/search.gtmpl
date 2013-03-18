@@ -139,39 +139,18 @@
     background-color: #CEA6AC;
 }
 </style>
-<script type="text/javascript">
-    $('.uiIconAdd').on("click", function () {
-        var calId = $(this).parent().children("input").val();
-        $('div.CalendarPortletContainer').jzLoad(
-                "CalendarPortletController.addCalendar()",
-                {"calendarId":calId});
-    });
-    $('.calendarItem').mouseover(function() {
-        var button= $(this).children("a.addButton");
-        button.css("display","block");
-    });
-    $('.calendarItem').mouseout(function() {
-        var button= $(this).children("a.addButton");
-        button.css("display","none");
-    });
-</script>
 <% if (searchResultList != null) {
     searchResultList.each { cal ->
         def   calendarName= cal.name;
-        def hover="";
-        if(((calendarName.indexOf("Default") != -1)||(calendarName.indexOf("Défault") != -1))&&(cal.groups==null))  hover=defaultPersonnal;
-        if (cal.groups != null) {
-            def group = cal.groups[0];
-            hover= " (" + group.substring(group.lastIndexOf("/") + 1) + ")";
-        }
+
 %>
-    <li id="${cal.id}" class="calendarItem clearfix" title="${hover}">
+    <li id="${cal.id}" class="calendarItem clearfix" title="${calendarName}">
         <a href="javascript:void(0);" class="addButton pull-right" style="display: none;">
             <input type="hidden" name="calendarId" value="${cal.id}"/>
             <i class="uiIconAdd "></i>
         </a>
         <a class="${cal.calendarColor} colorBox pull-left" href="javascript:void(0);"></a>
-        <a  href="javascript:void(0);" class="calName" data-original-title="${hover}" data-placement="bottom" rel="tooltip">${calendarName}</a>
+        <a  href="javascript:void(0);" class="calName" data-original-title="${calendarName}" data-placement="bottom" rel="tooltip">${calendarName}</a>
     </li>
 <% }
 }

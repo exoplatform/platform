@@ -1,80 +1,82 @@
-function sortByContacts(a, b){
-    return b.number - a.number;
-}
-function dynamicSort(property) {
-    var sortOrder = 1;
-    if(property[0] === "-") {
-        sortOrder = -1;
-        property = property.substr(1, property.length - 1);
-    }
-    return function (a,b) {
-        var result = (a[property].toLowerCase() < b[property].toLowerCase()) ? -1 : (a[property].toLowerCase() > b[property].toLowerCase()) ? 1 : 0;
-        return result ;
-    }
-}
+(function ($) {
 
-function sortByCreatedDate(a, b){
-    return b.createdDate - a.createdDate;
-}
+    function sortByContacts(a, b){
+        return b.number - a.number;
+    } ;
 
-Array.prototype.shuffle = function() {
-    var len = this.length;
-    var i = len;
-    while (i--) {
-        var p = parseInt(Math.random()*len);
-        var t = this[i];
-        this[i] = this[p];
-        this[p] = t;
-    }
-};
+    function dynamicSort(property) {
+        var sortOrder = 1;
+        if(property[0] === "-") {
+            sortOrder = -1;
+            property = property.substr(1, property.length - 1);
+        }
+        return function (a,b) {
+            var result = (a[property].toLowerCase() < b[property].toLowerCase()) ? -1 : (a[property].toLowerCase() > b[property].toLowerCase()) ? 1 : 0;
+            return result ;
+        }
+    } ;
 
-$(function() {
+    function sortByCreatedDate(a, b){
+        return b.createdDate - a.createdDate;
+    } ;
+
+    Array.prototype.shuffle = function() {
+        var len = this.length;
+        var i = len;
+        while (i--) {
+            var p = parseInt(Math.random()*len);
+            var t = this[i];
+            this[i] = this[p];
+            this[p] = t;
+        }
+    };
+
+
     var member;
     var connect ;
     var connection;
-    var private;
-    var public;
-    var spacemember;
-    var request;
-    var join;
-    $(".var").each(function() {
+    var privateLabel;
+    var publicLabel;
+    var spaceMember;
+    var requestLabel;
+    var joinLabel;
+
+    $(".bundle").each(function() {
         member = $(this).data("member");
         connect = $(this).data("connect");
         connection = $(this).data("connection");
-        private = $(this).data("private");
-        public=  $(this).data("public");
-        spacemember=  $(this).data("spacemember");
-        join=  $(this).data("join");
-        request=  $(this).data("request");
-
+        privateLabel = $(this).data("private");
+        publicLabel=  $(this).data("public");
+        spaceMember=  $(this).data("spacemember");
+        joinLabel=  $(this).data("joinlabel");
+        requestLabel=  $(this).data("requestlabel");
     });
 
 
+    $.getJSON("/rest/homepage/intranet/people/contacts/suggestions", function(list){
 
-    $.getJSON("/rest/homepage/intranet/people/contacts/suggestions", function(data){
-
-        if (data.items.length > 0){
+        if (list.items.length > 0){
             $("#content").show();
             $("#peopleSuggest").show();
 
         }
         var newUser=true;
-        for(var k= 0; k < data.items.length; k++)
+        for(var k= 0; k < list.items.length; k++)
         {
-            if(data.items[k].number!=0){
+            if(list.items[k].number!=0){
                 newUser=false;
             }
         }
 
-        if(newUser==true || data.noConnections==0){
-            data.items.sort(sortByCreatedDate) ;
+        if(newUser==true || list.noConnections==0){
+            list.items.sort(sortByCreatedDate) ;
         }else{
-            data.items.sort(dynamicSort("suggestionName"));
+            list.items.sort(dynamicSort("suggestionName"));
             // sort my most contacts instead of random
-            data.items.sort(sortByContacts);
+            list.items.sort(sortByContacts);
         }
 
-        $.each(data.items, function(i, item){
+        $.each(list.items, function(i, item){
 
             var link = "";
             if (i < 2)
@@ -92,12 +94,12 @@ $(function() {
             $("#suggestions").append(link);
 
             $("#"+item.suggestionId).mouseover(function(){
-            	var $item = $(this);
+                var $item = $(this);
                 $item.find(".peopleName, .peoplePosition, .peopleConnection").addClass("actionAppears");
                 $item.find(".peopleAction").show();
             });
             $("#"+item.suggestionId).mouseout(function(){
-				var $item = $(this);
+                var $item = $(this);
                 $item.find(".peopleName, .peoplePosition, .peopleConnection").removeClass("actionAppears");
                 $item.find(".peopleAction").hide();
             });
@@ -147,11 +149,6 @@ $(function() {
                 }
             });
 
-
-
-
-
-
         });
     });
 
@@ -159,30 +156,30 @@ $(function() {
 
 
 
-    $.getJSON("/rest/homepage/intranet/spaces/suggestions", function(data){
+    $.getJSON("/rest/homepage/intranet/spaces/suggestions", function(list){
 
-        if (data.items.length > 0){
+        if (list.items.length > 0){
             $("#content").show();
             $("#spaceSuggest").show();
         }
 
-        data.items.shuffle();
+        list.items.shuffle();
         var newUser=true;
-        for(var k= 0; k < data.items.length; k++)
+        for(var k= 0; k < list.items.length; k++)
         {
-            if(data.items[k].number!=0){
+            if(list.items[k].number!=0){
                 newUser=false;
             }
         }
 
-        if(newUser==true || data.noConnections==0){
-            data.items.sort(sortByCreatedDate) ;
+        if(newUser==true || list.noConnections==0){
+            list.items.sort(sortByCreatedDate) ;
         }else{
-        data.items.sort(dynamicSort("displayName"));
-        // sort my most contacts instead of random
-        data.items.sort(sortByContacts);
+            list.items.sort(dynamicSort("displayName"));
+            // sort my most contacts instead of random
+            list.items.sort(sortByContacts);
         }
-        $.each(data.items, function(i, item){
+        $.each(list.items, function(i, item){
 
             var link = "";
 
@@ -195,13 +192,13 @@ $(function() {
             link += "<div class='spaceInfo'>";
             link += "<div class='spaceName'>"+item.displayName+"</div>";
             if(item.privacy=="Private")
-            link += "<div class='spacePrivacy'><i class='uiIconSocGroup uiIconSocLightGray'></i>"+private+"&nbsp;-&nbsp;"+item.members+"&nbsp;"+spacemember+"</div>";
+                link += "<div class='spacePrivacy'><i class='uiIconSocGroup uiIconSocLightGray'></i>"+privateLabel+"&nbsp;-&nbsp;"+item.members+"&nbsp;"+spaceMember+"</div>";
             else
-                link += "<div class='spacePrivacy'><i class='uiIconSocGroup uiIconSocLightGray'></i>"+public+"&nbsp;-&nbsp;"+item.members+"&nbsp;"+spacemember+"</div>";
+                link += "<div class='spacePrivacy'><i class='uiIconSocGroup uiIconSocLightGray'></i>"+publicLabel+"&nbsp;-&nbsp;"+item.members+"&nbsp;"+spaceMember+"</div>";
             if(item.registration == "open")
-                link += "<div class='spaceAction' ><a class='connect btn-primary btn btn-mini' href='#' onclick='return false'>"+join+"</a>";
+                link += "<div class='spaceAction' ><a class='connect btn-primary btn btn-mini' href='#' onclick='return false'>"+joinLabel+"</a>";
             else
-                link += "<div class='spaceAction' ><a class='connect btn-primary btn btn-mini' href='#' onclick='return false'>"+request+"</a>";
+                link += "<div class='spaceAction' ><a class='connect btn-primary btn btn-mini' href='#' onclick='return false'>"+requestLabel+"</a>";
 
             link += "<a class='ignore' href='#' onclick='return false'><i class='uiIconClose'></i></a></div>";
             link += "<div class='spaceCommon'>"+item.number+"&nbsp;"+member+"</div>";
@@ -215,7 +212,7 @@ $(function() {
                 $item.find(".spaceAction").show();
             });
             $("#"+item.spaceId).mouseout(function(){
-				var $item = $(this);
+                var $item = $(this);
                 $item.find(".spacePrivacy, .spaceCommon, .spaceName").removeClass("actionspaceAppears");;
                 $item.find(".spaceAction").hide();
             });
@@ -274,4 +271,5 @@ $(function() {
         });
     });
 
-});
+
+})($);

@@ -19,15 +19,11 @@
 
 package org.exoplatform.platform.portlet.juzu.invitations;
 
-import org.exoplatform.web.application.RequestContext;
 import juzu.Path;
 import juzu.View;
 import juzu.template.Template;
 
 import javax.inject.Inject;
-import java.util.HashMap;
-import java.util.Locale;
-import java.util.ResourceBundle;
 
 /**
  * @author <a href="hzekri@exoplatform.com">hzekri</a>
@@ -40,26 +36,8 @@ public class Invitations {
     @Path("invitations.gtmpl")
     Template index;
 
-
-
     @View
     public void index() {
-        HashMap parameters = new HashMap();
-        Locale locale = RequestContext.getCurrentInstance().getLocale();
-        ResourceBundle rs = ResourceBundle.getBundle("invitations/invitations", locale);
-        String invitationsHeaderLabel = rs.getString("invitations.header.label");
-        String invitationsAcceptLabel = rs.getString("invitations.accept.label");
-        String invitationsMembersLabel = rs.getString("invitations.members.label");
-        String invitationsSpaceLabel = rs.getString("invitations.space.label");
-        String invitationsPublicLabel = rs.getString("invitations.public.label");
-        String invitationsPrivateLabel = rs.getString("invitations.private.label");
-
-        index.with().set("invitationsHeaderLabel",invitationsHeaderLabel).
-                     set("invitationsAcceptLabel",invitationsAcceptLabel).
-                     set("invitationsMembersLabel",invitationsMembersLabel).
-                     set("invitationsSpaceLabel",invitationsSpaceLabel).
-                     set("invitationsPublicLabel",invitationsPublicLabel).
-                     set("invitationsPrivateLabel",invitationsPrivateLabel)
-                    .render();
+        index.render();
     }
 }

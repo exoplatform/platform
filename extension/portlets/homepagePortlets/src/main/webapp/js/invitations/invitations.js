@@ -1,4 +1,4 @@
-function initIncoming() {
+(function ($) {
     var visibility;
     var link;
     var acceptlabel;
@@ -116,16 +116,16 @@ function initIncoming() {
 
                 $("#requests").append(link);
                 $("#"+item.spaceId).mouseover(function() {
-                	var $item = $(this);  
-                	$item.find(".spacevisibility").addClass("actionSpaceAppears");
-                	$item.find(".name").addClass("actionInviteAppears"); 
-                	$item.find(".spaceInviteAction").css('visibility','visible'); 
-                });
-                $("#"+item.spaceId).mouseout(function() { 
                     var $item = $(this);
-                	$item.find(".spacevisibility").removeClass("actionSpaceAppears"); 
-                	$item.find(".name").removeClass("actionInviteAppears"); 
-                	$item.find(".spaceInviteAction").css('visibility','hidden'); 
+                    $item.find(".spacevisibility").addClass("actionSpaceAppears");
+                    $item.find(".name").addClass("actionInviteAppears");
+                    $item.find(".spaceInviteAction").css('visibility','visible');
+                });
+                $("#"+item.spaceId).mouseout(function() {
+                    var $item = $(this);
+                    $item.find(".spacevisibility").removeClass("actionSpaceAppears");
+                    $item.find(".name").removeClass("actionInviteAppears");
+                    $item.find(".spaceInviteAction").css('visibility','hidden');
                 });
 
                 $("#"+item.spaceId+" a.connect").live("click", function(){
@@ -172,8 +172,5 @@ function initIncoming() {
             $("#inviteCounter").html(i+1);
         });
     });
-}
 
-$(document).ready(function() {
-    initIncoming();
-});
+})($);

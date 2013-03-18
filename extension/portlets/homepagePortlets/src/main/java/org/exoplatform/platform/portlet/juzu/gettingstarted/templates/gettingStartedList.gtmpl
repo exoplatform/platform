@@ -20,24 +20,8 @@
     import org.exoplatform.commons.utils.ExpressionUtil;
     import org.exoplatform.web.application.RequestContext;
 %>
-
-<script type="text/javascript">
-    $('.uiIconClose').on("click", function () {
-        $.getJSON('/rest/homepage/intranet/getting-started/delete');
-
-        $('.GettingStartedContainer').jzLoad("GettingStarted.delete()");
-
-    });
-    $('#DeleteLink').on("click", function () {
-        $.getJSON('/rest/homepage/intranet/getting-started/delete');
-        $('.GettingStartedContainer').jzLoad("GettingStarted.delete()");
-        $('.GettingStartedContainer').css("display","none");
-    });
-</script>
-
-
 <div class="UIGadgetThemes uiBox uiGettingStarted">
-    <h6 class="gadgetTitle title center">${titleLabel} <a onclick="" data-placement="bottom" rel="tooltip" title="Close Window" class="uiIconClose pull-right"></a></h6>
+    <h6 class="gadgetTitle title center">&{title.Label}<a onclick="" data-placement="bottom" rel="tooltip" title="Close Window" class="uiIconClose pull-right"></a></h6>
 
     <div class="listBlock">
 
@@ -49,17 +33,17 @@
 
         </div>
         <ul class ="gsList" id="gsList">
-            <li class="${status['gs_profile']}" ><a  target="_parent" href=${profile} >${profileLabel}</a></li>
-            <li class="${status['gs_connect']}" ><a  target="_parent" href=${connect} >${connectLabel}</a></li>
-            <li class="${status['gs_space']}" ><a target="_parent" href=${space} >${spaceLabel}</a></li>
-            <li class="${status['gs_activities']}" ><a target="_parent" href=${activity} > ${activityLabel} </a></li>
-            <li class="${status['gs_document']}" ><a target="_parent" href=${upload}> ${uploadLabel} </a></li>
+            <li class="${status['gs_profile']}" ><a  target="_parent" href=${profile} >&{Upload.label}</a></li>
+            <li class="${status['gs_connect']}" ><a  target="_parent" href=${connect} >&{Connect.Label}</a></li>
+            <li class="${status['gs_space']}" ><a target="_parent" href=${space} >&{Space.Label}</a></li>
+            <li class="${status['gs_activities']}" ><a target="_parent" href=${activity} >&{Activity.Label} </a></li>
+            <li class="${status['gs_document']}" ><a target="_parent" href=${upload}>&{Document.Label}</a></li>
         </ul>
 
     </div>
     <%if(show=="false"){%>
     <div class="center btnCompleteGetting" id="DeleteLink">
-        <button class="btn btn-small">${closeLabel}</button>
+        <button class="btn btn-small">&{close.Label}</button>
     </div>
     <%}%>
 </div>

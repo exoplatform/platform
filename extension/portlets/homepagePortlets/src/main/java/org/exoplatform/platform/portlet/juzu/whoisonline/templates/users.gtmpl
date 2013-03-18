@@ -17,36 +17,43 @@
    * 02110-1301 USA, or see the FSF site: http://www.fsf.org.
    */ %>
 
-  <%
-    if(users.empty){  %>
-     <script type="text/javascript">
-       $(function() {
-       $("#OnlinePortlet").hide();
-       });
-     </script>
+    <%
 
-  <%}else{%>
-  <script type="text/javascript">
-         $(function() {
-           $("#OnlinePortlet").show();
-         });
-  </script>
+     import juzu.impl.request.Request;
+     import juzu.request.RequestContext;
+      import java.util.ResourceBundle;
+
+    RequestContext requestContext = Request.getCurrent().getContext();
+    ResourceBundle bundle= requestContext.getApplicationContext().resolveBundle(requestContext.getUserContext().getLocale()) ;
+       if(users.empty){  %>
+        <script type="text/javascript">
+          $(function() {
+          $("#OnlinePortlet").hide();
+          });
+        </script>
+
+     <%}else{%>
+     <script type="text/javascript">
+            $(function() {
+              $("#OnlinePortlet").show();
+            });
+     </script>
   <%}%>
   <%users.each { user -> %>
 
   <%
-    def connect="";
-	def message="";
+    def connect=bundle.getString("connect.label");
+	def message=bundle.getString("message.label");
 	def activity=user.getActivity();
 	if(user.getStatus().equals("") || user.getStatus().equals("ignored")){
-		connect="<div id='"+user.getId()+"connect' class='uiAction connectAction' ><a class='connect btn btn-primary' href='#'>"+connectLabel+"</a></div>";
+		connect="<div id='"+user.getId()+"connect' class='uiAction connectAction' ><a class='connect btn btn-primary' href='#'>"+connect+"</a></div>";
 
 	}else{
 	if( user.getStatus().equals("received")) {
-	  connect="<div id='"+user.getId()+"accept' class='uiAction connectAction' ><a class='connect btn btn-primary' href='#'>"+connectLabel+"</a></div>";
+	  connect="<div id='"+user.getId()+"accept' class='uiAction connectAction' ><a class='connect btn btn-primary' href='#'>"+ connect+"</a></div>";
 	}else{
 		if(user.getStatus().equals("pending")) {
-			connect="<div id='connectMessge'>"+messageLabel+"</div>";
+			connect="<div id='connectMessge'>"+message+"</div>";
 		}
 	}}
 
@@ -56,42 +63,18 @@
 
 
 	%>
-    <li id="${user.getId()}"><a class="avatarXSmall"><img src="${user.getAvatar()}" alt="image" /></a></li>
-	<script type="text/javascript">
-		$(function() {
-			$("#${user.getId()}").tipTip({
-			content: "<div id='tipName' class='clearfix'><a target='_parent' class='pull-left avatarXSmall'><img src='${user.getAvatar()}' alt='image' /></a><div class='detail'><div class='name'><a href='${user.getProfileUrl()}'>${user.getFullName()}</a></div><div class='displayName'>${user.getPosition()}</div></div></div>${activity}${connect}",defaultPosition: "left",keepAlive: true ,maxWidth: "240px"
-			});
-		});
+    <li id="${user.getId()}">
+      <a class="avatarXSmall"><img src="${user.getAvatar()}" alt="image" /></a>
+      <input name="activity" type="hidden" value="${activity}"/>
+      <input name="connect" type="hidden" value="${connect}"/>
+      <input name="messageLabel" type="hidden" value="&{message.label}" />
 
-
-		$("#${user.getId()}connect a.connect").live("click", function(){
-			$.getJSON("/rest/homepage/intranet/people/contacts/connect/${user.getIdentity()}", null);
-			$("#${user.getId()}connect").fadeOut(500, function () {
-                $("#${user.getId()}connect").html("<div id='connectMessge'>${messageLabel}</div>");
-                $("#${user.getId()}connect").fadeIn(500, function() {});
-            });
-            var refresh = function() {
-                $("#onlineList").each(function() {
-                  $(this).jzLoad("WhoIsOnLineController.users()");
-                });
-              };
-
-              setTimeout(refresh, 500);
-
-
-		});
-		$("#${user.getId()}accept a.connect").live("click", function(){
-        			$.getJSON("/rest/homepage/intranet/people/contacts/confirm/${user.getRelationId()}", null);
-        			$("#${user.getId()}accept").hide();
-        			var refresh = function() {
-                                    $("#onlineList").each(function() {
-                                      $(this).jzLoad("WhoIsOnLineController.users()");
-                                    });
-                                  };
-
-                                  setTimeout(refresh, 500);
-
-        		});
-   </script>
+      <input name="userId" type="hidden" value="${user.getId()}" />
+      <input name="userAvatar" type="hidden" value="${user.getAvatar()}"/>
+      <input name="profileURL" type="hidden" value="${user.getProfileUrl()}"/>
+      <input name="fullName" type="hidden" value="${user.getFullName()}"/>
+      <input name="userPosition" type="hidden" value="${user.getPosition()}"/>
+      <input name="userIdentity" type="hidden" value="${user.getIdentity()}"/>
+      <input name="userRelationId" type="hidden" value="${user.getRelationId()}"/>
+    </li>
   <%}%>
