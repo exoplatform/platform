@@ -6,6 +6,7 @@ import org.exoplatform.commons.api.settings.data.Context;
 import org.exoplatform.commons.api.settings.data.Scope;
 import org.exoplatform.commons.utils.PropertyManager;
 import org.exoplatform.container.PortalContainer;
+import org.exoplatform.platform.welcomescreens.service.UnlockService;
 import org.exoplatform.services.log.ExoLogger;
 import org.exoplatform.services.log.Log;
 import org.exoplatform.web.filter.Filter;
@@ -42,7 +43,7 @@ public class AccountSetupFilter implements Filter {
             setupDone = true;
         String requestUri = httpServletRequest.getRequestURI();
         boolean isRestUri = (requestUri.contains(REST_URI));
-        if((!setupDone)&&(!isDevMod)&&(!isRestUri)){
+        if((!setupDone)&&(!isDevMod)&&(!isRestUri)&&(UnlockService.showTermsAndConditions())){
             httpServletResponse.sendRedirect("/platform-extension/jsp/welcome-screens/accountSetup.jsp");
             return;
         }

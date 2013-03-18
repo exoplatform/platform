@@ -132,6 +132,7 @@ public class UnlockService implements Startable {
                     outdated = false;
                     isUnlocked = true;
                     loopfuseFormDisplayed = true;
+                    showTermsandConditions = false;
                     Utils.writeToFile(Utils.PRODUCT_CODE, productCode, Utils.HOME_CONFIG_FILE_LOCATION);
                     Utils.writeToFile(Utils.PRODUCT_KEY, unlockKey, Utils.HOME_CONFIG_FILE_LOCATION);
                     return true;
