@@ -144,7 +144,7 @@
                 <string>forumResources</string>
               </value>
               <value profiles="knowledge,all,default">
-                <string>answer</string>
+                <string>faq</string>
               </value>
               <value profiles="knowledge,all,default">
                 <string>forum</string>
