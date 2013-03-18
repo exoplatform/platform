@@ -30,8 +30,8 @@ WelcomeScreens.ACCOUNT_SETUP_ERROR = false;
 WelcomeScreens.USERNAME_EXIST = false;
 WelcomeScreens.EMAIL_REGEXP = new RegExp(/^(("[\w-+\s]+")|([\w-+]+(?:\.[\w-+]+)*)|("[\w-+\s]+")([\w-+]+(?:\.[\w-+]+)*))(@((?:[\w-+]+\.)*\w[\w-+]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$)|(@\[?((25[0-5]\.|2[0-4][\d]\.|1[\d]{2}\.|[\d]{1,2}\.))((25[0-5]|2[0-4][\d]|1[\d]{2}|[\d]{1,2})\.){2}(25[0-5]|2[0-4][\d]|1[\d]{2}|[\d]{1,2})\]?$)/i);
 WelcomeScreens.USERNAME_REGEXP = new RegExp(/^[0-9a-z_.]+$/);
-WelcomeScreens.FIRSTNAME_REGEXP = new RegExp(/^[a-zA-Z-' אבגדהועףפץצרטיךכחלםמןשתûüÿס]+$/);
-WelcomeScreens.LASTNAME_REGEXP = new RegExp(/^[a-zA-Z-' אבגדהועףפץצרטיךכחלםמןשתûüÿס]+$/);
+WelcomeScreens.FIRSTNAME_REGEXP = new RegExp(/^[a-zA-Z-'אבגדהועףפץצרטיךכחלםמןשתûüÿס]+$/);
+WelcomeScreens.LASTNAME_REGEXP = new RegExp(/^[a-zA-Z-'אבגדהועףפץצרטיךכחלםמןשתûüÿס]+$/);
 WelcomeScreens.FormatError = 'Only <b>lowercase letters, digits, dot and underscore</b> characters are allowed for the field </b>"User Name".</b>'
 
 WelcomeScreens.exit = function() {
@@ -97,11 +97,11 @@ WelcomeScreens.exit = function() {
         WelcomeScreens.ACCOUNT_SETUP_ERROR = true;
     }
     if((lastname!="")&&(WelcomeScreens.LASTNAME_REGEXP.test(lastname) == false)){
-        $('#fullnameId').after('<tr id ="lastnameErrorFormatId"><td colspan="4" class ="accountSetupError">'+'Only letters, spaces, "-" or "'+"/'"+'"+ are allowed for the field "Last Name"'+'</td></tr>');
+        $('#fullnameId').after('<tr id ="lastnameErrorFormatId"><td colspan="4" class ="accountSetupError">'+'Only letters, spaces, hyphen or apostrophe are allowed for the field <b>Last Name</b>'+'</td></tr>');
         WelcomeScreens.ACCOUNT_SETUP_ERROR = true;
     }
     if((firstname!="")&&WelcomeScreens.FIRSTNAME_REGEXP.test(firstname) == false){
-        $('#fullnameId').after('<tr id ="firstnameErrorFormatId"><td colspan="4" class ="accountSetupError">'+'Only letters, spaces, "-" or "'+"/'"+'"+ are allowed for the field "First Name"'+'</td></tr>');
+        $('#fullnameId').after('<tr id ="firstnameErrorFormatId"><td colspan="4" class ="accountSetupError">'+'Only letters, spaces, hyphen or apostrophe are allowed for the field <b>First Name</b>'+'</td></tr>');
         WelcomeScreens.ACCOUNT_SETUP_ERROR = true;
     }
 
