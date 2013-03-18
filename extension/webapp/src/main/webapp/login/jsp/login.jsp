@@ -202,7 +202,7 @@
 			
 			.uiLogin .spaceRole{
 				clear: both;
-				padding: 12px 0;
+				padding: 2px 0 11px;
 			}
 			
 			.uiLogin .iPhoneCheckDisabled {
@@ -312,8 +312,8 @@
                 background-image: url("/eXoResources/skin/images/Icons/errorIcon.png");
                 background-repeat: no-repeat;
                 font-size: 13px;
-                line-height: 16px;
-                margin: 6px 0 0 1px;
+                line-height: 18px;
+                margin: 12px 0 0 1px;
                 padding-left: 20px;
                 font-weight: bold;
             }
