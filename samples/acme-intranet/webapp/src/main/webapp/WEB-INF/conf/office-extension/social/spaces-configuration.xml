@@ -250,7 +250,7 @@
                         <value>
                            <object type="org.exoplatform.social.core.space.SpaceApplicationConfigPlugin$SpaceApplication">
                               <field name="portletApp">
-                                 <string>answer</string>
+                                 <string>faq</string>
                               </field>
                               <field name="portletName">
                                  <string>AnswersPortlet</string>
@@ -295,7 +295,7 @@
                         <value>
                            <object type="org.exoplatform.social.core.space.SpaceApplicationConfigPlugin$SpaceApplication">
                               <field name="portletApp">
-                                 <string>answer</string>
+                                 <string>faq</string>
                               </field>
                               <field name="portletName">
                                  <string>FAQPortlet</string>
