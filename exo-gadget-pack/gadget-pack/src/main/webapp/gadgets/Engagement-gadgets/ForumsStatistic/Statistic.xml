@@ -14,8 +14,8 @@
       <link type="text/css" rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.9/themes/ui-lightness/jquery-ui.css" />
       <link rel="stylesheet" type="text/css" href="/exo-gadget-resources/skin/exo-gadget/gadget-common.css" />
       <link rel="stylesheet" type="text/css" href="/exo-gadget-resources/script/jquery/plugins/jqplot/1.0.0/jquery.jqplot.min.css" />
-      <link type="text/css" rel="stylesheet" href="skin/pagination.css" />
-      <link type="text/css" rel="stylesheet" href="skin/ForumsStatistic.css" />
+      <link type="text/css" rel="stylesheet" href="/gadget-pack/skin/css/pagination.css" />
+      <link type="text/css" rel="stylesheet" href="/gadget-pack/skin/css/forumsStatistic.css" />
 
       <script language="javascript" type="text/javascript" src="/exo-gadget-resources/script/jquery/1.6.2/jquery.min.js"></script>
       <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.9/jquery-ui.min.js"></script>

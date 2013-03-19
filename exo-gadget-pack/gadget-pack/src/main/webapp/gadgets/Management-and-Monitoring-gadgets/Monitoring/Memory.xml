@@ -15,7 +15,7 @@
     <head>
       <title>Memory</title>
       <link rel="stylesheet" type="text/css" href="/exo-gadget-resources/skin/exo-gadget/gadget-common.css" />
-      <link type="text/css" rel="stylesheet" href="skin/gadget-memory.css" />
+      <link type="text/css" rel="stylesheet" href="/gadget-pack/skin/css/monitoring.css" />
       <link rel="stylesheet" type="text/css" href="/exo-gadget-resources/script/jquery/plugins/jqplot/1.0.0/jquery.jqplot.min.css" />
       
       <script language="javascript" type="text/javascript" src="/social-resources/javascript/eXo/social/SocialUtil.js"></script>

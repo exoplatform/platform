@@ -13,8 +13,8 @@
 		<link rel="stylesheet" type="text/css" href="/exo-gadget-resources/skin/exo-gadget/gadget-common.css" />
 		<link rel="stylesheet" type="text/css" href="/exo-gadget-resources/script/jquery/plugins/jqplot/1.0.0/jquery.jqplot.min.css" />
 		<link rel="stylesheet" type="text/css" href="/exo-gadget-resources/skin/flexigrid/flexigrid.custom.css" />
-		<link rel="stylesheet" type="text/css" href="skin/jquery-ui-1.8.13.custom.css" />
-		<link rel="stylesheet" type="text/css" href="skin/LoginHistory.css" />
+		<link rel="stylesheet" type="text/css" href="/gadget-pack/skin/css/jquery-ui-1.8.13.custom.css" />
+		<link rel="stylesheet" type="text/css" href="/gadget-pack/skin/css/loginHistory.css" />
 	
 		<script language="javascript" type="text/javascript" src="/exo-gadget-resources/script/jquery/1.6.2/jquery.min.js"></script>
 		<script language="javascript" type="text/javascript" src="/exo-gadget-resources/script/jquery/plugins/date.js/date.js"></script>
@@ -689,7 +689,7 @@
 					
 			<div id="statisticDiv">
 				<div class='ThemeColor' style="text-align: center; height:10px; font-size: small;">
-					<a id="prevBtn" href="#" style="text-decoration: none;" title="Previous">&lt;&lt;&nbsp;</a>						
+					<a id="prevBtn" href="#" style="text-decoration: none;" title="Previous"><i class="uiIconFile"></i></a>						
 					<span id="loginStatsChartTitle"></span>
 					<a id="nextBtn" href="#" style="text-decoration: none;" title="Next">&nbsp;&gt;&gt;</a>						
 				</div>

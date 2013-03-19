@@ -21,7 +21,7 @@
   <Content type="html">
     <![CDATA[   
     <link rel="stylesheet" type="text/css" href="/exo-gadget-resources/skin/exo-gadget/gadget-common.css" />
-    <link type="text/css" rel="stylesheet" href="./skin/topVoteTopic.css" />
+    <link type="text/css" rel="stylesheet" href="/gadget-pack/skin/css/topVoteTopic.css" />
         
     <script type="text/javascript" src="./script/topVoteTopic.js"></script>
     <script type="text/javascript" src="./script/date.format.js"></script>

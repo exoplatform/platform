@@ -14,9 +14,9 @@
 <Content type="html">
 <![CDATA[   
   <head>
-    <link href="skin/colorpicker.css" rel="stylesheet" type="text/css" />   
-    <link href="skin/style.css" rel="stylesheet" type="text/css" />    
-    <link href="skin/jquery.terminal.css" rel="stylesheet" type="text/css" />
+    <link href="/gadget-pack/skin/css/scriptConsoleColorpicker.css" rel="stylesheet" type="text/css" />   
+    <link href="/gadget-pack/skin/css/scriptConsoleStyle.css" rel="stylesheet" type="text/css" />    
+    <link href="/gadget-pack/skin/css/scriptConsoleTerminal.css" rel="stylesheet" type="text/css" />
     
     <script type="text/javascript" src="script/jquery-1.5.min.js"></script>
     <script type="text/javascript" src="script/jquery.terminal-0.3.3.min.js"></script>    
