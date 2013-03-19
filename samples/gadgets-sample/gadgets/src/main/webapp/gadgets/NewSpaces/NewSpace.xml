@@ -11,9 +11,8 @@
     <Require feature="settitle" />
     <Require feature="views" />
     <Require feature="minimessage" />
-    <Locale messages="locale/ALL_ALL.xml" />
-    <Locale lang="en" messages="locale/en_ALL.xml" />
-    <Locale lang="fr" messages="locale/fr_ALL.xml" />
+	<Locale messages="locale/default.xml"/>
+    <Locale lang="fr" messages="locale/fr.xml"/>
   </ModulePrefs>
   <UserPref name="maxtime" display_name="__MSG_maxtime__" default_value="10" datatype="enum" >
     <EnumValue value="5" />
