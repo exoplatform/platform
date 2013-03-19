@@ -27,7 +27,24 @@
       <scope>runtime</scope>
     </dependency>
   </dependencies>
-  <build>
-    <finalName>gadget-pack</finalName>
+   <build>
+     <finalName>gadget-pack</finalName>
+    <plugins>
+     <plugin>
+        <groupId>org.lesscss</groupId>
+        <artifactId>lesscss-maven-plugin</artifactId>
+        <executions>
+          <execution>
+            <goals>
+              <goal>compile</goal>
+            </goals>
+            <configuration>
+              <sourceDirectory>${project.basedir}/src/main/webapp/gadgets</sourceDirectory>
+       	      <outputDirectory>${project.build.directory}/${project.build.finalName}/gadgets</outputDirectory>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
   </build>
 </project>
