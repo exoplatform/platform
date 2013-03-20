@@ -20,6 +20,7 @@
     <link type="text/css" rel="stylesheet" href="/intranet-gadgets/skin/css/FavoriteDocument.css" />
     <link type="text/css" rel="stylesheet" href="/exo-gadget-resources/skin/exo-gadget/gadget-common.css" />
     <link type="text/css" rel="stylesheet" href="/eXoDMSResources/skin/DefaultSkin/Stylesheet-lt.css" />
+    <link rel="stylesheet" type="text/css" href="/eXoResources/skin/css/Core.css" />
     
   <script type="text/javascript">
     

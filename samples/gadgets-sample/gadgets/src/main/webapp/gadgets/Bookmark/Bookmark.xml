@@ -13,7 +13,8 @@
   <head>
     <link type="text/css" rel="stylesheet" href="/exo-gadget-resources/skin/exo-gadget/gadget-common.css" />
     <link type="text/css" rel="stylesheet" href="/intranet-gadgets/skin/css/Bookmark.css" />
-
+	<link rel="stylesheet" type="text/css" href="/eXoResources/skin/css/Core.css" />
+	
     <script language="javascript" type="text/javascript" src="/exo-gadget-resources/script/jquery/1.6.2/jquery.min.js"></script>
       
     <script type="text/javascript">
