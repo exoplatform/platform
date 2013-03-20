@@ -4,7 +4,7 @@
   author="Frederic DROUET"
   author_email="fdrouet@exoplatform.com"
   height="1350"
-  thumbnail="image/caches-icon_128x128.png">
+  thumbnail="/gadget-pack/skin/images/Monitoring/caches-icon_128x128.png"> 
     <Require feature="settitle" />
     <Require feature="dynamic-height" />
     <Require feature="tabs" />

@@ -12,7 +12,7 @@
     
   <head>
     <link type="text/css" rel="stylesheet" href="/exo-gadget-resources/skin/exo-gadget/gadget-common.css" />
-    <link type="text/css" rel="stylesheet" href="css/bookmark.css" />
+    <link type="text/css" rel="stylesheet" href="/intranet-gadgets/skin/css/Bookmark.css" />
 
     <script language="javascript" type="text/javascript" src="/exo-gadget-resources/script/jquery/1.6.2/jquery.min.js"></script>
       
@@ -206,7 +206,7 @@
             <td><label for="txtNewLink">__MSG_url__</label></td>
             <td><input type="text" id="txtNewLink"></input></td>
             <td>
-              <a id="btnNewOK" class="Button" href="#"><img alt="New OK" src="images/Ok.gif"></img></a>
+              <a id="btnNewOK" class="Button" href="#"><img alt="New OK" src="/intranet-gadgets/skin/images/Bookmark/Ok.gif"></img></a>
               <a id="btnNewCancel" class="ButtonDel" href="#"><img alt="New Delete" src="images/Del.gif"></img></a>
             </td>
           </tr>

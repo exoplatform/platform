@@ -65,7 +65,7 @@ a {
 	font-style: italic;
 }
 .TopGadget table .Description p {
-	background: url(images/DesIcon.png) no-repeat left 2px;
+	background: url(/gadget-pack/skin/images/ServicesManagement/DesIcon.png) no-repeat left 2px;
 	padding-left: 20px;
 	margin: 0px;
 }

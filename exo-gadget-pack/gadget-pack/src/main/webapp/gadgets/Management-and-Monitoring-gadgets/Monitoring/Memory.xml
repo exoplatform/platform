@@ -3,7 +3,7 @@
   <ModulePrefs title="Memory"
   author="Frederic DROUET"
   author_email="fdrouet@exoplatform.com"
-  thumbnail="image/memory-icon.png">
+  thumbnail="/gadget-pack/skin/images/Monitoring/memory-icon.png">
     <Require feature="settitle" />
     <Require feature="dynamic-height" />
     <Locale messages="locale/default.xml" />

@@ -4,7 +4,7 @@
   title="New Spaces"
   author="Do Thanh Tung"
   author_email="tungdt@exoplatform.com"
-  thumbnail="./skin/images/SpaceLogoDefault_61x61.gif"
+  thumbnail="/intranet-gadgets/skin/images/NewSpaces/SpaceLogoDefault_61x61.gif"
   description="Display the latest created spaces">
     <Require feature="opensocial-0.8" />
     <Require feature="dynamic-height" />
@@ -24,7 +24,7 @@
   
   <Content type="html">
     <![CDATA[     
-    <link type="text/css" rel="stylesheet" href="./skin/newspaces.css"/>
+    <link type="text/css" rel="stylesheet" href="/intranet-gadgets/skin/css/NewSpace.css"/>
     <link type="text/css" rel="stylesheet" href="/exo-gadget-resources/skin/exo-gadget/gadget-common.css" />
     
     <script type="text/javascript" src="./script/newSpaces.js"></script>

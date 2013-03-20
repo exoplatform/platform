@@ -3,7 +3,7 @@
   <ModulePrefs title="Applications Statistics"
     author="Frederic DROUET"
     author_email="frederic.drouet@exoplatform.com"
-    thumbnail="image/chronometre.png">
+    thumbnail="/gadget-pack/skin/images/Statistics/chronometre.png">
     <Require feature="settitle" />
     <Require feature="dynamic-height" />
   </ModulePrefs>
@@ -18,7 +18,7 @@
           }
           /*ul {
             list-style-type: none;
-            list-style-image: url('image/bullet.gif');
+            list-style-image: url('/gadget-pack/skin/images/Statistics/bullet.gif'); 
             padding-left: 2px;
             margin-left: 0;
           }*/

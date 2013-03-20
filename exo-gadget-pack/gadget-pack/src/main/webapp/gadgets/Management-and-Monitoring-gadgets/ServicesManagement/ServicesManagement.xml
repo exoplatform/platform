@@ -33,7 +33,7 @@
                 directory_title="Services Management"
                 title_url="http://www.exoplatform.org"
                 description="Services Management"
-                thumbnail="style/images/ServicesManagement.png"                
+                thumbnail="/gadget-pack/skin/images/ServicesManagement/ServicesManagement.png"                
                 height="227">
       <Locale messages="locale/ALL_ALL.xml" />
       <Locale lang="en" messages="locale/en_ALL.xml" />
