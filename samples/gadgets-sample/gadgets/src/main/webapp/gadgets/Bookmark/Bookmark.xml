@@ -207,7 +207,7 @@
             <td><input type="text" id="txtNewLink"></input></td>
             <td>
               <a id="btnNewOK" class="Button" href="#"><img alt="New OK" src="/intranet-gadgets/skin/images/Bookmark/Ok.gif"></img></a>
-              <a id="btnNewCancel" class="ButtonDel" href="#"><img alt="New Delete" src="images/Del.gif"></img></a>
+              <a id="btnNewCancel" class="ButtonDel" href="#"><img alt="New Delete" src="/exo-gadget-resources/skin/exo-gadget/images/Del.gif"></img></a>
             </td>
           </tr>
         </table>
