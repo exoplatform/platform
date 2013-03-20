@@ -447,10 +447,10 @@
                         </value>
                         <value>
                           <object type="org.exoplatform.services.jcr.ext.hierarchy.impl.HierarchyConfig$Permission">
-                            <field name="identity"><string>any</string></field>
+                            <field name="identity"><string>*:/platform/users</string></field>
                             <field name="read"><string>true</string></field>
                             <field name="addNode"><string>false</string></field>
-                            <field name="setProperty"><string>true</string></field>
+                            <field name="setProperty"><string>false</string></field>
                             <field name="remove"><string>false</string></field>
                           </object>
                         </value>
@@ -475,10 +475,10 @@
                         </value>
                         <value>
                           <object type="org.exoplatform.services.jcr.ext.hierarchy.impl.HierarchyConfig$Permission">
-                            <field name="identity"><string>any</string></field>
+                            <field name="identity"><string>*:/platform/users</string></field>
                             <field name="read"><string>true</string></field>
                             <field name="addNode"><string>false</string></field>
-                            <field name="setProperty"><string>true</string></field>
+                            <field name="setProperty"><string>false</string></field>
                             <field name="remove"><string>false</string></field>
                           </object>
                         </value>
