@@ -97,7 +97,7 @@
                 <string>List, Icons, Admin</string>
               </field>
               <field  name="viewPreferences"><boolean>false</boolean></field>
-              <field  name="viewNonDocument"><boolean>true</boolean></field>
+              <field  name="viewNonDocument"><boolean>false</boolean></field>
               <field  name="viewSideBar"><boolean>false</boolean></field>
               <field  name="showHiddenNode"><boolean>false</boolean></field>
               <field  name="allowCreateFolders"><string>nt:folder</string></field>
@@ -117,7 +117,7 @@
                 <string>List, Icons</string>
               </field>
               <field  name="viewPreferences"><boolean>false</boolean></field>
-              <field  name="viewNonDocument"><boolean>true</boolean></field>
+              <field  name="viewNonDocument"><boolean>false</boolean></field>
               <field  name="viewSideBar"><boolean>false</boolean></field>
               <field  name="showHiddenNode"><boolean>false</boolean></field>
               <field  name="allowCreateFolders"><string>nt:folder</string></field>
