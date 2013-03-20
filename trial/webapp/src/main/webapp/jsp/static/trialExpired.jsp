@@ -1,1 +1,0 @@
-			<h2 class="CenterTitle">Your evaluation period has expired</h2>
