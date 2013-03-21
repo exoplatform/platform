@@ -3,7 +3,7 @@
   <ModulePrefs title="Applications Statistics"
     author="Frederic DROUET"
     author_email="frederic.drouet@exoplatform.com"
-    thumbnail="image/chronometre.png">
+    thumbnail="/gadget-pack/skin/images/Statistics/chronometre.png">
     <Require feature="settitle" />
     <Require feature="dynamic-height" />
   </ModulePrefs>
@@ -12,16 +12,10 @@
     <head>
       <title>Applications Statistics</title>
       <link rel="stylesheet" type="text/css" href="/exo-gadget-resources/skin/exo-gadget/gadget-common.css" />
+      <link rel="stylesheet" type="text/css" href="/eXoResources/skin/css/Core.css" />
+      
         <style type="text/css">
-          html {
-            width: 100%;
-          }
-          /*ul {
-            list-style-type: none;
-            list-style-image: url('image/bullet.gif');
-            padding-left: 2px;
-            margin-left: 0;
-          }*/
+
           .detail_ligne {
             font-size: 11pt;
             color: black;

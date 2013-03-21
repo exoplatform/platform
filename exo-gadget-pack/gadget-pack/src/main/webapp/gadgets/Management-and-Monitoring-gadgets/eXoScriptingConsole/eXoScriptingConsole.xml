@@ -4,7 +4,7 @@
   description="This console allows scripting eXo API interactively"
   author="Vu Minh Tung, Do Thanh Tung, Nguyen Thanh Trung" author_affiliation="eXo Platform"
   author_email="tungvm@exoplatform.com, tungdt@exoplatform.com, trungnt@exoplatform.com"
-  thumbnail="skin/images/console_icon.png" >
+  thumbnail="/gadget-pack/skin/images/eXoScriptingConsole/console_icon.png" >
   <Require feature="dynamic-height"/> 
   <Require feature="setprefs"/>
   <Locale messages="locale/default.xml" />

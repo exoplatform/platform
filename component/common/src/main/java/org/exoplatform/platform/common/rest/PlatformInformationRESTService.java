@@ -44,6 +44,8 @@ import java.lang.reflect.Method;
 public class PlatformInformationRESTService implements ResourceContainer {
 
     private static final Log LOG = ExoLogger.getLogger(PlatformInformationRESTService.class);
+    private static final java.lang.String COMMUNITY_EDITION = "community";
+
     private ProductInformations platformInformations;
 
     public PlatformInformationRESTService(ProductInformations productInformations) {
@@ -103,7 +105,10 @@ public class PlatformInformationRESTService implements ResourceContainer {
 
     private Boolean isMobileCompliant() {
         String platformEdition = getPlatformEdition();
-        return (platformEdition != null && ((platformEdition.equals("community")) || (platformEdition.equals("enterprise"))));
+        return (platformEdition != null && ((platformEdition.equals(COMMUNITY_EDITION)) ||
+                (platformEdition.equalsIgnoreCase(ProductInformations.ENTERPRISE_EDITION)) ||
+                (platformEdition.equals(ProductInformations.EXPRESS_EDITION)))
+        );
     }
 
     private String getPlatformEdition() {

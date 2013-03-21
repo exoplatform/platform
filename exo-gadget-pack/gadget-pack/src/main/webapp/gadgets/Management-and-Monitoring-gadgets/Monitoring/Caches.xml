@@ -4,7 +4,7 @@
   author="Frederic DROUET"
   author_email="fdrouet@exoplatform.com"
   height="1350"
-  thumbnail="image/caches-icon_128x128.png">
+  thumbnail="/gadget-pack/skin/images/Monitoring/caches-icon_128x128.png"> 
     <Require feature="settitle" />
     <Require feature="dynamic-height" />
     <Require feature="tabs" />
@@ -16,7 +16,8 @@
       <head>
         <title>Caches</title>
         <link rel="stylesheet" type="text/css" href="/exo-gadget-resources/skin/exo-gadget/gadget-common.css" />
-        <link type="text/css" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="/eXoResources/skin/css/Core.css" />
+        
         <style type="text/css">
           /** Cache Graph **/
           .cache_graph_container {

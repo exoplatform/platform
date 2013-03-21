@@ -16,7 +16,6 @@
   <modules>
     <module>component</module>
     <module>extension</module>
-    <module>server</module>
     <module>samples</module>
     <module>exo-gadget-pack</module>
     <module>welcome-screens</module>

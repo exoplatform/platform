@@ -199,7 +199,7 @@
 
             <div id ="seeWeeklyStatistic" class="ContTit ClearFix">
               <span>__MSG_forums.statistic.title__</span>
-              <img id ="viewWeeklyStatistic" class = 'icon' src ='skin/weekly-stats-icon.png' title = "__MSG_forums.statistic.see.weekly.statistic__" alt="" />
+              <img id ="viewWeeklyStatistic" class = 'icon' src ='/gadget-pack/skin/images/ForumsStatistic/weekly-stats-icon.png' title = "__MSG_forums.statistic.see.weekly.statistic__" alt="" />
             </div>
             
             <div id ="seeTotalStatistic" class="ContTit ClearFix">

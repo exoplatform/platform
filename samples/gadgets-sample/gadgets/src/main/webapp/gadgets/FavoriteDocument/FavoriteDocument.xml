@@ -5,7 +5,7 @@
     title="Favorite Documents"
     title_url="http://www.exoplatform.org"
     description="My favorite Documents"
-    thumbnail="skin/FavoriteDocument.png"
+    thumbnail="/intranet-gadgets/skin/images/FavoriteDocument/FavoriteDocument.png"
     >
     <Locale messages="locale/default.xml" />
     <Locale lang="fr" messages="locale/fr.xml" />
@@ -17,9 +17,10 @@
   <![CDATA[   
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.0/jquery.min.js"></script>
     <script type="text/javascript" src="javascript/script.js"></script>
-    <link type="text/css" rel="stylesheet" href="skin/skin.css" />
+    <link type="text/css" rel="stylesheet" href="/intranet-gadgets/skin/css/FavoriteDocument.css" />
     <link type="text/css" rel="stylesheet" href="/exo-gadget-resources/skin/exo-gadget/gadget-common.css" />
     <link type="text/css" rel="stylesheet" href="/eXoDMSResources/skin/DefaultSkin/Stylesheet-lt.css" />
+    <link rel="stylesheet" type="text/css" href="/eXoResources/skin/css/Core.css" />
     
   <script type="text/javascript">
     
