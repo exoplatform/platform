@@ -12,7 +12,7 @@
         label2= "days ago";
         rday = UnlockService.getNbDaysAfterExpiration();
     }
-
+    String contextPath = request.getContextPath() ;
 %>
 <!DOCTYPE html
 PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
@@ -20,8 +20,8 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 	<head>
 		<title>Welcome to eXo Platform</title>
-		<link rel="shortcut icon" type="image/x-icon"  href="/welcome-screens/favicon.ico" />
-		<link rel="stylesheet" type="text/css" href="/welcome-screens/css/Stylesheet.css"/>
+		<link rel="shortcut icon" type="image/x-icon"  href="<%=contextPath%>/favicon.ico" />
+		<link rel="stylesheet" type="text/css" href="<%=contextPath%>/css/Stylesheet.css"/>
 		<script type='text/javascript'>
 			function formValidation() {
 				if(document.unlockForm.hashMD5.value!="")
@@ -50,7 +50,7 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 					<div class="rightCol firstItem pull-right"><strong>Pickup your favorite <a class="" href="<%=UnlockService.getSubscriptionUrl()%>" target="_blank">subscription plan</a> and buy it</strong></div>
 					<div class="stepsNumber pull-left">1</div>
 				</div>
-                <form action="/welcome-screens/trial" method="post" name="unlockForm" onsubmit="return formValidation();">
+                <form action="<%=contextPath%>/trial" method="post" name="unlockForm" onsubmit="return formValidation();">
 				<div class="steps clearfix">
 					<div class="rightCol pull-right">
 						<strong>Grab your product code and request an unlock key</strong>

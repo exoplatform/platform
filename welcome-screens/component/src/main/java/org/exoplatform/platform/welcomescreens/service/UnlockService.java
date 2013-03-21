@@ -410,7 +410,9 @@ public class UnlockService implements Startable {
                     return;
                 }
             }
+            if (!UnlockService.isUnlocked())
             request.getRequestDispatcher("WEB-INF/jsp/welcome-screens/unlockTrial.jsp").include(request, response);
+            else response.sendRedirect("/portal/intranet");
         }
 
         @Override

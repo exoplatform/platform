@@ -1,5 +1,5 @@
 body {
-    background: url("/platform-extension/jsp/welcome-screens/images/login_texture.jpg") repeat;
+    background: url("/platform-extension/css/welcome-screens/images/login_texture.jpg") repeat;
     font-family: HelveticaNeue, Arial, sans-serif;
     font-size: 13px;
     color: #333;
@@ -52,7 +52,7 @@ a {
 }
 
 .uiWelcomeBox .header {
-    background: url("/platform-extension/jsp/welcome-screens/images/headerBG.png") repeat-x scroll 0 0 transparent;
+    background: url("/platform-extension/css/welcome-screens/images/headerBG.png") repeat-x scroll 0 0 transparent;
     border: 1px solid #393939;
     border-radius: 4px 4px 0 0;
     width: 511px;
@@ -74,13 +74,13 @@ a {
 }
 
 .uiWelcomeBox .bottom {
-    background: url("/platform-extension/jsp/welcome-screens/images/bottomBG.png") no-repeat center bottom;
+    background: url("/platform-extension/css/welcome-screens/images/bottomBG.png") no-repeat center bottom;
     text-align: center;
     padding: 25px 30px;
 }
 
 .uiWelcomeBox button {
-    background: url("/platform-extension/jsp/welcome-screens/images/loginAction.png") repeat-x;
+    background: url("/platform-extension/css/welcome-screens/images/loginAction.png") repeat-x;
     border: 1px solid #224886;
     border-radius: 4px;
     text-align: center;
