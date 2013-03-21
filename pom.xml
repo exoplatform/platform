@@ -69,7 +69,7 @@
     <!-- * From top level to bottom projects -->
     <!-- * maven-depmgt-pom must be the first -->
     <!-- * Your own modules -->
-    <!-- * And projects below you -->		
+    <!-- * And projects below you -->
     <dependencies>
       <!-- Import versions of external dependencies to use -->
       <dependency>
@@ -442,7 +442,7 @@
         <version>${org.exoplatform.integ.version}</version>
         <type>pom</type>
         <scope>import</scope>
-      </dependency>			
+      </dependency>
       <!-- Import versions from forum project -->
       <dependency>
         <groupId>org.exoplatform.forum</groupId>
@@ -498,7 +498,7 @@
         <version>${org.exoplatform.platform-ui.version}</version>
         <type>pom</type>
         <scope>import</scope>
-      </dependency>			
+      </dependency>
       <!-- To be replaced by an import of GateIn Common parent POM -->
       <dependency>
         <groupId>org.gatein.common</groupId>
@@ -689,7 +689,7 @@
         <version>${org.exoplatform.ws.version}</version>
         <type>pom</type>
         <scope>import</scope>
-      </dependency>			
+      </dependency>
       <!-- Import versions from core project -->
       <dependency>
         <groupId>org.exoplatform.core</groupId>
@@ -706,8 +706,8 @@
         <type>pom</type>
         <scope>import</scope>
       </dependency>
-			<!-- This artifact isn't declared in kernel parent -->
-			<!-- We enforce it to have the good version in our packaging -->
+      <!-- This artifact isn't declared in kernel parent -->
+      <!-- We enforce it to have the good version in our packaging -->
       <dependency>
         <groupId>org.exoplatform.kernel</groupId>
         <artifactId>exo.kernel.component.ext.cache.impl.jboss.v3</artifactId>
