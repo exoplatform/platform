@@ -5,6 +5,7 @@ import org.exoplatform.commons.info.MissingProductInformationException;
 import org.exoplatform.commons.info.ProductInformations;
 import org.exoplatform.container.xml.InitParams;
 import org.exoplatform.container.xml.ValueParam;
+import org.exoplatform.platform.common.account.setup.web.PingBackServlet;
 import org.exoplatform.services.log.ExoLogger;
 import org.exoplatform.services.log.Log;
 import org.exoplatform.web.filter.Filter;
@@ -16,9 +17,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.File;
 import java.io.IOException;
-import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
-import java.net.URL;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -39,11 +37,9 @@ public class UnlockService implements Startable {
     private static String registrationFormUrl = null;
     private static String extendFormUrl = null;
     private static String subscriptionUrl = null;
-    private static String pingBackUrl = null;
     private static String calledUrl = null;
     private static String productCode = null;
     private static String KEY_CONTENT = null;
-    private static boolean loopfuseFormDisplayed = false;
     private static boolean isUnlocked = false;
     private static boolean showTermsandConditions = true;
     private static boolean outdated = false;
@@ -59,7 +55,6 @@ public class UnlockService implements Startable {
         this.productInformations = productInformations;
         registrationFormUrl = ((ValueParam) params.get("registrationFormUrl")).getValue();
         extendFormUrl = ((ValueParam) params.get("extendFormUrl")).getValue();
-        pingBackUrl = ((ValueParam) params.get("pingBackUrl")).getValue();
         subscriptionUrl = ((ValueParam) params.get("subscriptionUrl")).getValue();
         KEY_CONTENT = ((ValueParam) params.get("KeyContent")).getValue().trim();
         String tmpValue = ((ValueParam) params.get("delayPeriod")).getValue();
@@ -76,14 +71,17 @@ public class UnlockService implements Startable {
             Utils.writeToFile(Utils.PRODUCT_KEY, "", Utils.HOME_CONFIG_FILE_LOCATION);
             Utils.writeToFile(Utils.PRODUCT_CODE, productCode, Utils.HOME_CONFIG_FILE_LOCATION);
             Utils.writeToFile(Utils.REMIND_DATE, rdate, Utils.HOME_CONFIG_FILE_LOCATION);
-            Utils.writeToFile(Utils.LOOP_FUSE_FORM_DISPLAYED, "false", Utils.HOME_CONFIG_FILE_LOCATION);
         }
         productCode = Utils.readFromFile(Utils.PRODUCT_CODE, Utils.HOME_CONFIG_FILE_LOCATION);
         String unlockKey = Utils.readFromFile(Utils.PRODUCT_KEY, Utils.HOME_CONFIG_FILE_LOCATION);
         if ((unlockKey != null) && (!unlockKey.equals(""))) {
             int period = decodeKey(productCode, unlockKey);
             if (period == -1) {
-                loopfuseFormDisplayed = true;
+                try {
+                    PingBackServlet.writePingBackFormDisplayed(true);
+                } catch (MissingProductInformationException e) {
+
+                }
                 outdated = false;
                 isUnlocked = true;
                 showTermsandConditions = false;
@@ -91,11 +89,7 @@ public class UnlockService implements Startable {
             }
         }
         if (checkLicenceInJcr()) return;
-        // Read: loopfuse form displayed
-        String loopfuseFormDisplayedString = Utils.readFromFile(Utils.LOOP_FUSE_FORM_DISPLAYED, Utils.HOME_CONFIG_FILE_LOCATION);
-        if (loopfuseFormDisplayedString != null && !loopfuseFormDisplayedString.isEmpty()) {
-            loopfuseFormDisplayed = Boolean.parseBoolean(loopfuseFormDisplayedString);
-        }
+
         //Read if extended
         String isExtendedString = Utils.readFromFile(Utils.IS_EXTENDED, Utils.HOME_CONFIG_FILE_LOCATION);
         if (isExtendedString != null && !isExtendedString.isEmpty()) {
@@ -131,7 +125,7 @@ public class UnlockService implements Startable {
                     productCode = pc;
                     outdated = false;
                     isUnlocked = true;
-                    loopfuseFormDisplayed = true;
+                    PingBackServlet.writePingBackFormDisplayed(true);
                     showTermsandConditions = false;
                     Utils.writeToFile(Utils.PRODUCT_CODE, productCode, Utils.HOME_CONFIG_FILE_LOCATION);
                     Utils.writeToFile(Utils.PRODUCT_KEY, unlockKey, Utils.HOME_CONFIG_FILE_LOCATION);
@@ -176,10 +170,6 @@ public class UnlockService implements Startable {
          return showTermsandConditions;
     }
 
-    public static boolean isLandingPageDisplayed() {
-        return loopfuseFormDisplayed;
-    }
-
     public static String getSubscriptionUrl() {
         return subscriptionUrl;
     }
@@ -190,10 +180,6 @@ public class UnlockService implements Startable {
 
     public static boolean isOutdated() {
         return outdated;
-    }
-
-    public static String getPingBackUrl() {
-        return pingBackUrl;
     }
 
     public static ScheduledExecutorService getExecutor() {
@@ -418,40 +404,6 @@ public class UnlockService implements Startable {
         @Override
         protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
             doPost(request, response);
-        }
-    }
-
-    public static class PingBackServlet extends HttpServlet {
-        private static final long serialVersionUID = 6467955354840693802L;
-
-        @Override
-        protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-            if (isConnectedToInternet()) {
-                loopfuseFormDisplayed = true;
-                Utils.writePingBackFormDisplayed(Utils.HOME_CONFIG_FILE_LOCATION, loopfuseFormDisplayed);
-            }
-        }
-
-        @Override
-        protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-            doPost(request, response);
-        }
-
-        public static boolean isConnectedToInternet() {
-            // computes the Platform server URL, format http://server/
-            String pingServerURL = pingBackUrl.substring(0, pingBackUrl.indexOf("/", "http://url".length()));
-            try {
-                URL url = new URL(pingServerURL);
-                HttpURLConnection urlConn = (HttpURLConnection) url.openConnection();
-                urlConn.connect();
-                return (HttpURLConnection.HTTP_NOT_FOUND != urlConn.getResponseCode());
-            } catch (MalformedURLException e) {
-                LOG.error("LeadCapture : Error creating HTTP connection to the server : " + pingServerURL);
-
-            } catch (IOException e) {
-                LOG.error("LeadCapture : Error creating HTTP connection to the server : " + pingServerURL);
-            }
-            return false;
         }
     }
 }

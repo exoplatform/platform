@@ -25,12 +25,10 @@ public class Utils {
     private static final Log LOG = ExoLogger.getLogger(Utils.class);
     public static final int DEFAULT_DELAY_PERIOD = 30;
     public static final String REMIND_DATE = "remindDate";
-    public static final String LOOP_FUSE_FORM_DISPLAYED = "formDisplayed";
     //this information would be put in the licence.xml file, not problem even if user force it to true (hack tentation)
     // it will only hide the bar
     public static final String IS_EXTENDED = "extension";
     public static final String PRODUCT_KEY = "licence";
-    public static final String LAST_START_DATE = "LSTD";
     public static final String USER_HOME = System.getProperty("user.home");
     public static final String EXO_HOME_FOLDER = USER_HOME + "/.eXo";
     public static final String PRODUCT_NAME = "Platform";
@@ -80,10 +78,6 @@ public class Utils {
 
     public static void writeRemindDate(String remindDateStringBase64, String fileLocation) {
         writeToFile(REMIND_DATE, remindDateStringBase64, fileLocation);
-    }
-
-    public static void writePingBackFormDisplayed(String fileLocation, boolean loopfuseFormDisplayed) {
-        writeToFile(LOOP_FUSE_FORM_DISPLAYED, Boolean.toString(loopfuseFormDisplayed), fileLocation);
     }
 
     public static Calendar parseDateBase64(String dateString) {

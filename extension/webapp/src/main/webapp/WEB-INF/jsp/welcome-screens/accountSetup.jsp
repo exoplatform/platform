@@ -1,3 +1,4 @@
+<%@ page import="org.exoplatform.platform.common.account.setup.web.PingBackServlet" %>
 <%
     /**
      * Copyright ( C ) 2012 eXo Platform SAS.
@@ -114,4 +115,15 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
     </div>
 </div>
 </form>
+<% 	if(!PingBackServlet.isLandingPageDisplayed()){ %>
+<iframe src="<%=PingBackServlet.getPingBackUrl()%>" style="display:none;" id="pingBackUrlFrame" onload="setFormDisplayed()"></iframe>
+<iframe src="about:blank" style="display:none;" id="pingBackUrlActivation"></iframe>
+<script>
+    function setFormDisplayed() {
+        var pingBackUrlActivationElement = document.getElementById("pingBackUrlActivation");
+        pingBackUrlActivationElement.src="/platform-extension/PingBackServlet";
+    }
+</script>
+<% }
+%>
 </html>

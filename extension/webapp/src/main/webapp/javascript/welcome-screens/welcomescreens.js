@@ -30,8 +30,8 @@ WelcomeScreens.ACCOUNT_SETUP_ERROR = false;
 WelcomeScreens.USERNAME_EXIST = false;
 WelcomeScreens.EMAIL_REGEXP = new RegExp(/^(("[\w-+\s]+")|([\w-+]+(?:\.[\w-+]+)*)|("[\w-+\s]+")([\w-+]+(?:\.[\w-+]+)*))(@((?:[\w-+]+\.)*\w[\w-+]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$)|(@\[?((25[0-5]\.|2[0-4][\d]\.|1[\d]{2}\.|[\d]{1,2}\.))((25[0-5]|2[0-4][\d]|1[\d]{2}|[\d]{1,2})\.){2}(25[0-5]|2[0-4][\d]|1[\d]{2}|[\d]{1,2})\]?$)/i);
 WelcomeScreens.USERNAME_REGEXP = new RegExp(/^[0-9a-z_.]+$/);
-WelcomeScreens.FIRSTNAME_REGEXP = new RegExp(/^[a-zA-Z-'אבגדהועףפץצרטיךכחלםמןשתûüÿס]+$/);
-WelcomeScreens.LASTNAME_REGEXP = new RegExp(/^[a-zA-Z-'אבגדהועףפץצרטיךכחלםמןשתûüÿס]+$/);
+WelcomeScreens.FIRSTNAME_REGEXP = new RegExp(/^[a-zA-Z-' אבגדהועףפץצרטיךכחלםמןשתûüÿס]+$/);
+WelcomeScreens.LASTNAME_REGEXP = new RegExp(/^[a-zA-Z-' אבגדהועףפץצרטיךכחלםמןשתûüÿס]+$/);
 WelcomeScreens.FormatError = 'Only <b>lowercase letters, digits, dot and underscore</b> characters are allowed for the field </b>"User Name".</b>'
 
 WelcomeScreens.exit = function() {
