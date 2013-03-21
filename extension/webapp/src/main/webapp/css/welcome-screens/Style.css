@@ -1,594 +1,162 @@
-@font-face {
-    font-family: 'Helvetica';
-    font-weight: normal;
-    font-style: normal;
-
+body {
+    background: url("/platform-extension/css/welcome-screens/images/login_texture.jpg") repeat;
+    font-family: HelveticaNeue, Arial, sans-serif;
+    font-size: 13px;
+    color: #333;
+    overflow: auto;
+    height: auto;
 }
 
-html {
-    margin: 0px; padding: 0px; height:100%;
-}
-*+html {
-    overflow-x: hidden;
-}
-
-img {
-    border: none; vertical-align: middle;
-}
-
-div, table, th, tr, td, img, form {
-    font-family: Verdana,Arial,sans-serif;
-    font-size:12px;
-}
-
-.ClearFix:after {
-    content: ".";
-    display: block;
-    height: 0;
-    clear: both;
-    visibility: hidden;
-}
-
-*+html .ClearFix {
-    display: inline-block;
-    zoom: 1;
-    display: block;
-}
-
-.UIPopupWindow {
-    border: 1px solid #CACACA;
-    border-radius: 5px 5px 5px 5px;
-    box-shadow: 0px 0px 10px #AFAFAF;
-    position: absolute;
-    display: block;
-    left: 349px;
-    top: 39px;
-    width: 650px;
-    z-index: 4;
-}
-.UIPopupWindow .PopupTitle {
-    color: #515151;
-    cursor: move;
-    display: block;
-    font-size: 12px;
+h5 {
+    font-size: 14px;
     font-weight: bold;
-    line-height: 30px;
-    margin: 0 25px 0 9px;
-    vertical-align: middle;
-}
-.UIPopupWindow .CloseButton {
-    background: url("background/CloseIcon.png") no-repeat scroll right top;
-    cursor: pointer;
-    float: right;
-    height: 18px;
-    margin: 5px 5px 0 0;
-    width: 18px;
-}
-.UIPopupWindow > .OverflowContainer {
-    border-radius: 3px 3px 0 0;
-    height: 30px;
+    margin: 0;
+    padding: 20px 0 0;
 }
 
-.UIPopupWindow .UIWindowContent {
-    background: none repeat scroll 0 0 #EBEBEB;
-    border-radius: 0 0 5px 5px;
-    padding: 5px;
+a {
+    color: #2f5e92;
 }
 
-.UITabPane .TabPaneContent {
-    padding: 8px;
+.backLight {
+    border-radius: 80px 80px 80px 80px;
+    box-shadow: 0 0 200px white;
+    height: 280px;
+    margin: 140px auto 0;
+    width: 280px;
 }
-.UIAction {
-    padding: 8px 0;
-    text-align: center;
-}
-.UIAction a {
-    display: inline-block;
-}
-.UIAction .ActionButton {
-    cursor: pointer;
-    display: inline-block;
-    margin: 0 3px;
-}
-.SubmitButton {
-    background: url("/eXoResources/skin/DefaultSkin/webui/component/UIBarDecorator/UIAction/background/LightBlueStyle.gif") repeat-x scroll center center transparent;
-    cursor: pointer;
-    display:block;
-    width:100px;
-    margin:0 auto;
-    text-align:center;
-    white-space: nowrap;
-    margin-top: 20px;
-}
-
-
-.UIAction .LightBlueStyle {
-    background: url("/eXoResources/skin/DefaultSkin/webui/component/UIBarDecorator/UIAction/background/LightBlueStyle.gif") repeat-x scroll center center transparent;
-    border: 1px solid #ACACAC;
-    border-radius: 10px 10px 10px 10px;
-    color: #464646;
-    font-size: 12px;
-    line-height: 22px;
-    padding: 0 14px;
-    text-align: center;
-    white-space: nowrap;
-}
-
-ol {
-    margin:0;padding:0
-}
-.c5{vertical-align:middle;width:302.7pt;border-style:solid;border-color:#000000;border-width:1pt;padding:0.8pt 0.8pt 0.8pt 0.8pt}
-.c2{vertical-align:middle;width:67.1pt;border-style:solid;border-color:#000000;border-width:1pt;padding:0.8pt 0.8pt 0.8pt 0.8pt}
-.c38{vertical-align:middle;width:175.4pt;border-style:solid;border-color:#000000;border-width:1pt;padding:0.8pt 0.8pt 0.8pt 0.8pt}
-.c34{vertical-align:middle;width:302pt;border-style:solid;border-color:#000000;border-width:1pt;padding:0.8pt 0.8pt 0.8pt 0.8pt}
-.c37{vertical-align:middle;width:171pt;border-style:solid;border-color:#000000;border-width:1pt;padding:0.8pt 0.8pt 0.8pt 0.8pt}
-.c18{vertical-align:middle;width:171.8pt;border-style:solid;border-color:#000000;border-width:1pt;padding:0.8pt 0.8pt 0.8pt 0.8pt}
-.c10{vertical-align:middle;width:333pt;border-style:solid;border-color:#000000;border-width:1pt;padding:0.8pt 0.8pt 0.8pt 0.8pt}
-.c32{vertical-align:middle;width:298.4pt;border-style:solid;border-color:#000000;border-width:1pt;padding:0.8pt 0.8pt 0.8pt 0.8pt}
-.c13{vertical-align:middle;width:73.4pt;border-style:solid;border-color:#000000;border-width:1pt;padding:0.8pt 0.8pt 0.8pt 0.8pt}
-.c15{line-height:1.2;padding-top:5pt;direction:ltr;padding-bottom:5pt}
-.c7{line-height:1.2;text-align:center;direction:ltr;padding-bottom:0pt}
-.c1{line-height:1.2;text-align:justify;direction:ltr;padding-bottom:8pt}
-.c12{line-height:1.2;padding-top:0.1pt;direction:ltr;padding-bottom:0.1pt}
-.c33{list-style-type:circle;margin:0;padding:0}
-.c28{list-style-type:lower-latin;margin:0;padding:0}
-.c21{list-style-type:decimal;margin:0;padding:0}
-.c9{line-height:1.2;direction:ltr;padding-bottom:0pt}
-.c19{list-style-type:disc;margin:0;padding:0}
-.c30{max-width:468pt;background-color:#ffffff;padding:72pt 72pt 72pt 72pt}
-.c0{font-size:12px;font-family:Verdana,Arial,sans-serif}
-.c11{padding-left:0pt;margin-left:36pt}
-.c25{color:#0000ff;text-decoration:underline}
-.c22{padding-left:0pt;margin-left:54pt}
-.c24{padding-left:0pt;margin-left:72pt}
-.c8{color:inherit;text-decoration:inherit}
-.c4{font-weight:bold}
-.c23{direction:ltr}
-.c3{text-indent:36pt}
-.c27{margin-left:18pt}
-.c29{padding-left:0pt}
-.c6{height:11pt}
-.c14{text-align:justify}
-.c20{margin-left:36pt}
-.c35{margin-left:72pt}
-.c31{text-indent:-36pt}
-.c16{height:0pt}
-.c36{margin-left:54pt}
-.c26{border-collapse:collapse}
-.c17{text-align:center}
-.title{padding-top:24pt;line-height:1.2;text-align:left;color:#000000;font-size:36pt;font-family:Calibri;font-weight:bold;padding-bottom:6pt}
-.subtitle{padding-top:18pt;line-height:1.2;text-align:left;color:#666666;font-style:italic;font-size:24pt;font-family:Georgia;padding-bottom:4pt}
-h1{padding-top:12pt;line-height:1.2;text-align:left;color:#000000;font-weight:bold;padding-bottom:3pt}
-h2{padding-top:12pt;line-height:1.2;text-align:left;color:#000000;font-style:italic;font-weight:bold;padding-bottom:3pt}
-h3{line-height:1.2;text-align:left;color:#000000;font-size:18px}
-h4{padding-top:12pt;line-height:1.2;text-align:left;color:#000000;font-size:14pt;font-family:Calibri;font-weight:bold;padding-bottom:3pt}
-h6{padding-top:12pt;line-height:1.2;text-align:left;color:#000000;font-size:11pt;font-family:Calibri;font-weight:bold;padding-bottom:3pt}
-
-.TermsConditions {
-    width: 650px;
-    background:#ebebeb;
-    box-shadow: 0px 0px 2px #888;
-    line-height:20px;
-    padding-bottom:5px;
-    left: 50%;
-    top: 50%;
-    visibility: visible;
-    z-index: 4;
-    margin:-273px 0 0 -325px;
-}
-
-.TermsConditions .UITabPane .TabPaneContent  {
-    background:#fff;
-    padding: 8px 8px 0px;
-    border-radius:3px;
-}
-
-.TermsConditions .WorkingArea {
-    padding:0 10px;
-    overflow:auto;
-    height:440px;
-}
-.TermsConditions  .BottomBox  {
-    border-top: 1px solid #ededed;
-    margin:10px 0 0 0;
-}
-.TermsConditions  input[type='checkbox']{
-    vertical-align: -1px;
-}
-.TermsConditions  .inactive{
-    color: #BBB;
-    cursor:default;
-}
-.TermsConditions  .active{
-    color: #464646;
-    cursor:pointer;
-}
-
-.GetStartedPage .BorderDot .LeftAvt{
-    margin-right: 100px;
-}
-.GetStartedPage .BorderDot .LeftAvt p{
-    margin: 0px 0px 10px;
-}
-.GetStartedPage .BorderDot .LeftAvt .BTBrowse{
-    border: 1px solid #C2C2C2;
-    border-radius: 4px 4px 4px 4px;
-    box-shadow: 0 -10px 12px #E7E7E7 inset;
-    color: #3D3D3D;
-    font-weight: bold;
-    padding: 4px 24px;
-    text-align: center;
-}
-
 .accountSetupError{
     color: red;
     padding-bottom: 10px;
 }
-.infoTip {
-    width: 30px;
-    height: 30px;
+.uiWelcomeBox {
+    background-color:  #fff;
+    border-radius: 10px;
+    box-shadow: 0 1px 3px #3d3d3d;
+    margin: -380px auto 0;
+    width: 512px;
 }
 
-body {
-    font-family: Verdana, Arial, Tahoma, Sans-serif;
-    margin: 0;
-    font-size: 12px;
-    color:#666666;
-    height:100%;
-    width:100%;
-    padding:0;
-    overflow:hidden;
-    -webkit-font-smoothing: antialiased;
-}
-
-div, table, tr, td, img, form, h6, ul ,fieldset{
-    margin: 0;
-    padding: 0;
-}
-
-fieldset {
-    border: none;
-}
-
-a {
-    text-decoration: none;
-    outline: none;
-    color:#0868b9;
-}
-
-li {
-    list-style-type:none;
-}
-
-h1, h2, h3, h4, h5 {
-    font-weight:normal;
-    font-family: arial, helvetica,sans-serif;
-    margin:10px 0;
-    padding: 0;
-}
-
-label.error {
-    float: none;
-    color: red;
-    padding-left: .5em;
-    font-size: 11px;
-    vertical-align: top;
-}
-
-h1{
-    font-family: Helvetica, arial, tahoma;
-    font-size: 48px;
-}
-
-h2{
-    font-family: Helvetica, arial, tahoma;
-    font-size: 42px;
-
-}
-
-
-h4{
-    font-size: 14px;
-    font-weight: bold;
-}
-
-h5{
-    font-size: 12px;
-}
-
-p {
-    margin:10px 0;
-    padding: 0;
-}
-
-.ClearFix {
-    !display: inline-block;
-    !zoom: 1;
-    !display: block;
-}
-
-.FL {
-    float: left;
-}
-
-.FR {
-    float: right;
-}
-
-
-.GetStartedPage .BorderDot .UserInput {
-    vertical-align: middle;
-    width: 148px;
-}
-
-.GetStartedPage .BorderDot .FieldLabel {
-    font-family: verdana;
-    font-size: 12px;
-    font-weight: bold;
-    padding: 4px 20px 4px 4px;
-    vertical-align: top;
-    text-align: right;
-}
-
-.GetStartedPage .BorderDot .FieldComment input {
-    border: 1px solid #D3D3D3;
-    border-radius: 3px 3px 3px 3px;
-    box-shadow: 2px 2px 2px #F1F1F1 inset;
-    height: 18px;
-    /*padding: 6px 0;*/
-    margin-bottom: 10px;
-    padding-left: 5px;
-}
-
-.GetStartedPage .BorderDot .FieldMini input {
-    margin-right: 8px;
-}
-
-.GetStartedPage .BorderDot .LeftAvt{
-    margin-right: 100px;
-}
-
-.GetStartedPage .BorderDot .LeftAvt p{
-    margin: 0px 0px 10px;
-}
-
-.GetStartedPage .BorderDot .LeftAvt .BTBrowse{
-    border: 1px solid #C2C2C2;
-    border-radius: 4px 4px 4px 4px;
-    box-shadow: 0 -10px 12px #E7E7E7 inset;
-    color: #3D3D3D;
-    font-weight: bold;
-    padding: 4px 24px;
+.uiWelcomeBox .header {
+    background: url("/platform-extension/css/welcome-screens/images/headerBG.png") repeat-x scroll 0 0 transparent;
+    border: 1px solid #393939;
+    border-radius: 4px 4px 0 0;
+    width: 511px;
+    line-height: 44px;
     text-align: center;
-}
-#wrapper{
-    width:100%;
-    height:100%;
-    position:absolute;
-    top:0;left:0;
-    background-color:#ccc;
-    overflow:hidden;
-}
-
-#mask{
-    width:300%;
-    height:100%;
-    overflow:hidden;
-}
-
-.item{
-    width:33%;
-    height:100%;
-    display:block;
-    /*background-color:#ddd;*/
-    float:left;
-}
-
-.content{
-    width:400px;
-    /*height:300px;*/
-    margin:0 auto;
-    /*background-color:#aaa;*/
-    position:relative;
-}
-
-.clear{
-    clear:both;
-}
-/* Button */
-input.Button {
-    background: url("../background/Bg-Button.png") repeat-x left top;
-    border: 1px solid #3495b9;
-    line-height: 33px;
-    height: 38px;
-    margin: 0;
-    padding: 0;
-    color: #fff;
-    font-family: 'Helvetica', Arial, Helvetica, Tahoma, sans-serif;
     font-size: 18px;
-    border-radius: 3px;
-    text-shadow: 0px 1px 0px #1d7aae;
-    cursor: pointer;
-    display: block;
-    width: 100px;
-    text-align: center;
+    font-weight: bold;
+    color: #c1c1c1;
 }
 
-.GetStartedPage {
+.uiWelcomeBox .content {
+    background-color: #FFFFFF;
     margin: 0 auto;
-    padding: 60px 0;
-    height: 100%;
+    padding: 10px 30px;
+    position: static;
+    width: auto;
 }
 
-.GetStartedPage .StartedStep {
-    background: white;
-    border-radius: 8px;
-    box-shadow: 1px 3px 5px #BDBDCE;
-    border: none;
-    width: 676px;
-    font-family: Verdana, Arial, Helvetica, sans-serif;
-    height : 450px;
-}
-
-.StartedStep .StartedBarBG{
-    background: url(../background/StartedBarBG.png) repeat-x top center;
-    border-radius: 8px 8px 0 0;
-    border-radius: 8px 8px 0 0;
-    color: white;
-    font-family: 'Helvetica', Arial, Helvetica, Tahoma, sans-serif;
-    font-size: 22px;
-    font-weight: normal;
-    line-height: 94px;
-    margin: 0 0 35px;
-    padding: 0 40px;
-}
-
-.StartedStep .Steps{
-    position: relative;
-}
-
-.StartedStep .StepBG{
+.uiWelcomeBox input {
+    border: 1px solid #cdcdcd;
     border-radius: 4px 4px 4px 4px;
-    box-shadow: 1px 1px 4px #B7B7B7 inset;
-    background: #E2E2E2;
-    display: block;
-    height: 16px;
-    margin: 12px 25px;
-
+    box-shadow: 0 1px 1px rgba(0,0,0,0.1) inset;
+    color: #999;
+    height: 28px;
+    padding: 0 6px;
 }
 
-.StartedStep .StepSelectIcon{
-    background: url(../background/StepSelectIcon.png) no-repeat center;
+.uiWelcomeBox input.disable {
+    background-color: #e6e6e6;
+}
+
+.uiWelcomeBox .bottom {
+    background: url("/platform-extension/css/welcome-screens/images/bottomBG.png") no-repeat center bottom;
+    text-align: center;
+    padding: 25px 0;
+}
+
+.uiWelcomeBox button {
+    background: url("/platform-extension/css/welcome-screens/images/loginAction.png") repeat-x;
+    border: 1px solid #224886;
+    border-radius: 4px;
+    text-align: center;
     color: white;
-    font-family: arial, helvetica,sans-serif;
-    font-size: 26px;
     font-weight: bold;
-    padding: 10px 17px;
-    position: absolute;
-    top: -18px;
-    text-shadow: -1px -1px 0px #999;
+    font-size: 16px;
+    padding: 0 20px;
+    height: 43px;
+    cursor: pointer;
 }
 
-.StartedStep .StartedIcon{
-    background: url(../background/StartedIcon.png) no-repeat center;
-    color: white;
-    font-family: arial, helvetica,sans-serif;
-    font-size: 26px;
-    font-weight: bold;
-    padding: 10px 17px;
-    position: absolute;
-    top: -18px;
-    text-shadow: -1px -1px 0px #999;
+.uiWelcomeBox .form-horizontal .control-group:before, .uiWelcomeBox .form-horizontal .control-group:after {
+    content: "";
+    display: table;
+    line-height: 0;
 }
 
-.StartedStep .StepIcon{
-    background: url(../background/StepIcon.png) no-repeat center;
-    color: white;
-    font-family: arial, helvetica,sans-serif;
-    font-size: 26px;
-    font-weight: bold;
-    padding: 10px 17px;
-    position: absolute;
-    top: -18px;
-    text-shadow: -1px -1px 0px #999;
+.uiWelcomeBox .form-horizontal .control-group {
+    margin-bottom: 12px;
 }
 
-.StartedStep h3{
-    margin: 30px 0 12px 62px;
-    color: #3d3d3d;
-}
-
-.StartedStep p {
-    color: #3d3d3d;
-    margin: 4px 64px 17px 62px;
-    line-height: 20px;
-}
-
-.StartedStep .FormInput{
-    padding: 0px 0px 20px 0px;
-}
-
-.StartedStep .BorderDot .CheckBox{
-    border-radius: 3px 3px 3px 3px;
-    box-shadow: 0 5px 8px #F4F4F4 inset;
-    border: 1px solid #DDDDDD;
-    display: block;
-    margin: 0 0 20px;
-    padding: 13px 0px 5px 0px;
-    width: 432px;
-    overflow: auto;
-}
-
-.StartedStep .BorderDot .CheckBox input{
-    width: 16px;
-    vertical-align: middle;
-    margin: 4px 6px 10px 23px;
-}
-.StartedStep .FormButton{
-    padding: 0px 0px 20px 12px;
-    vertical-align: bottom;
-}
-
-.StartedStep .LeftStartTip{
-    margin: 0px 386px 12px 62px;
+.uiWelcomeBox .form-horizontal .control-label {
+    float: left;
     padding-top: 5px;
-}
-
-.StartedStep .LeftStartTipST3{
-    margin: 0px 386px 12px 62px;
-    padding-top: 5px;
-}
-
-.StartedStep .RightStartTip{
-    margin: 0px 57px 8px 0px;
-}
-
-.StartedStep .StartTip{
-    margin-top: 20px;
-}
-
-.StartedStep .Link {
     text-align: right;
-    font-size: 11px;
-    padding: 0 29px 17px 0;
+    width: 75px;
 }
 
-.StartedStep .Link a {
-    color: #8b8b8b;
+.uiWelcomeBox .form-horizontal .controls {
+    margin-left: 85px;
 }
 
-.StartedStep .ST3 {
-    margin: 36px 64px 41px 62px;
+.uiWelcomeBox .form-horizontal .controls .inputFieldMedium:first-child,
+.uiWelcomeBox .form-horizontal .controls .inputFieldMini:first-child {
+    margin-right: 10px;
 }
 
-.StartedStep .BorderDot{
-    margin-left: 62px;
+.uiWelcomeBox .inputFieldMini {
+    width: 121px;
+    -webkit-width: 131px;
 }
 
-.StartedStep .HelpText{
-    border: 2px dashed #FFE08B;
-    padding: 14px 17px 14px 17px;
-    width: 224px;
-    border-radius: 12px;
+.uiWelcomeBox .inputFieldMedium {
+    width: 155px;
 }
 
-.MaskLayer{
-    position:absolute;
-    width:100%;
-    height:100%;
-    background:#000;
-    z-index:4;
-    left:0;
-    top:0;
-    opacity:0.7;
-    -ms-filter:'progid:DXImageTransform.Microsoft.Alpha(Opacity=70)';
-    filter: alpha(opacity=70);
+.uiWelcomeBox .inputFieldLarge {
+    width: 334px;
+    -webkit-width: 348px;
+    width: 348px\0/IE8+9;
 }
 
-.qtip-content{
+.uiWelcomeBox .confirmLabel {
+    padding: 0 10px 0 5px;
+}
+
+.uiWelcomeBox .desc {
+    font-size: 12px;
+    color: #999;
+    margin: 10px 0 15px;
+}
+
+.uiWelcomeBox .screenShot {
+    padding: 20px 0 30px;
     text-align: center;
 }
 
-.qtip-light{
-    border-color: #000000;
+.uiWelcomeBox .screenShot a {
+    background-color: #fff;
+    background-repeat: repeat-x;
+    border: 1px solid #f6f6f6;
+    border-radius: 4px 4px 4px 4px;
+    box-shadow: 0 2px 4px rgba(13, 13, 13, 0.27);
+    height: 174px;
+    padding: 7px;
+    width: 406px;
+    display: inline-block;
+}
+.uiWelcomeBox .screenShot a img {
+    border: 1px solid #dfdfdf;
+    border-radius: 7px;
 }

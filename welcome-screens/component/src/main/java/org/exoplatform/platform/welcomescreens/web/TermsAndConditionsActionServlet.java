@@ -63,7 +63,7 @@ public class TermsAndConditionsActionServlet extends HttpServlet {
             getTermsAndConditionsService().checkTermsAndConditions();
         }
         // Redirect to the account Setup
-        String redirectURI = "/platform-extension/jsp/welcome-screens/accountSetup.jsp";
+        String redirectURI = "/portal/accountSetup";
         response.sendRedirect(redirectURI);
     }
     @Override

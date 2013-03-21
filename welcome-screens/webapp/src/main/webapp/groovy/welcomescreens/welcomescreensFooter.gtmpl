@@ -22,6 +22,7 @@
     import org.exoplatform.platform.welcomescreens.service.UnlockService;
     import org.exoplatform.platform.welcomescreens.service.Utils;
     import org.exoplatform.commons.utils.PropertyManager;
+    import org.exoplatform.portal.webui.util.Util;
 %>
 <%
     boolean isUnlocked = UnlockService.isUnlocked();
@@ -112,7 +113,7 @@
             }
     %>
     <div class="footerWLC <%=css  %>">
-        <form action="/welcome-screens/trial" >
+        <form action="/trial/trial" >
         	<%=label1 %> <%=rday%> <%=label2 %>
             <button class="btn"><%= labelRemove %></button>
         </form>
@@ -128,7 +129,7 @@
 <script>
     function setFormDisplayed() {
         var pingBackUrlActivationElement = document.getElementById("pingBackUrlActivation");
-        pingBackUrlActivationElement.src="/welcome-screens/PingBackServlet";
+        pingBackUrlActivationElement.src="/trial/PingBackServlet";
     }
 </script>
 <% }

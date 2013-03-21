@@ -10,20 +10,18 @@ import org.exoplatform.services.log.ExoLogger;
 import org.exoplatform.services.log.Log;
 import org.exoplatform.web.filter.Filter;
 
-import javax.servlet.FilterChain;
-import javax.servlet.ServletException;
-import javax.servlet.ServletRequest;
-import javax.servlet.ServletResponse;
+import javax.servlet.*;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.lang.reflect.Method;
 
 /**
  * @author <a href="fbradai@exoplatform.com">Fbradai</a>
  * @date 3/4/13
  */
 public class AccountSetupFilter implements Filter {
+    private static final String PLF_PLATFORM_EXTENSION_SERVLET_CTX = "/platform-extension";
+    private static final String ACCOUNT_SETUP_SERVLET = "/accountSetup";
 
     private static final Log LOG = ExoLogger.getLogger(AccountSetupFilter.class);
     SettingService settingService ;
@@ -33,7 +31,6 @@ public class AccountSetupFilter implements Filter {
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
         HttpServletRequest httpServletRequest = (HttpServletRequest)request;
         HttpServletResponse httpServletResponse = (HttpServletResponse)response;
-        String edition = getPlatformEdition();
         boolean isDevMod = PropertyManager.isDevelopping();
         settingService = (SettingService) PortalContainer.getInstance().getComponentInstanceOfType(SettingService.class);
         boolean setupDone = false;
@@ -43,21 +40,10 @@ public class AccountSetupFilter implements Filter {
         String requestUri = httpServletRequest.getRequestURI();
         boolean isRestUri = (requestUri.contains(REST_URI));
         if((!setupDone)&&(!isDevMod)&&(!isRestUri)){
-            httpServletResponse.sendRedirect("/platform-extension/jsp/welcome-screens/accountSetup.jsp");
+            ServletContext platformExtensionContext = httpServletRequest.getSession().getServletContext().getContext(PLF_PLATFORM_EXTENSION_SERVLET_CTX);
+            platformExtensionContext.getRequestDispatcher(ACCOUNT_SETUP_SERVLET).forward(httpServletRequest, httpServletResponse);
             return;
         }
         chain.doFilter(request, response);
-    }
-
-    private String getPlatformEdition() {
-        try {
-            Class<?> c = Class.forName("org.exoplatform.platform.edition.PlatformEdition");
-            Method getEditionMethod = c.getMethod("getEdition");
-            String platformEdition = (String) getEditionMethod.invoke(null);
-            return platformEdition;
-        } catch (Exception e) {
-            LOG.error("An error occured while getting the platform edition information.", e);
-        }
-        return null;
     }
 }

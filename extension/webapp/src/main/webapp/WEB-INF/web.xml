@@ -39,6 +39,16 @@
 
     <servlet-mapping>
         <servlet-name>accountSetup</servlet-name>
+        <url-pattern>/accountSetupAction</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>accountSetupViewServlet</servlet-name>
+        <servlet-class>org.exoplatform.platform.common.account.setup.web.AccountSetupViewServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>accountSetupViewServlet</servlet-name>
         <url-pattern>/accountSetup</url-pattern>
     </servlet-mapping>
 
