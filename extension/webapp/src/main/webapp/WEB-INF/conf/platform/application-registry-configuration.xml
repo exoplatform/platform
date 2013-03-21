@@ -227,7 +227,7 @@
                       <field name="displayName"><string>Answers</string></field>
                       <field name="description"><string>Answers Portlet</string></field>
                       <field name="type"><string>portlet</string></field>
-                      <field name="contentId"><string>faq/AnswersPortlet</string></field>
+                      <field name="contentId"><string>answer/AnswersPortlet</string></field>
                       <field name="accessPermissions">
                         <collection type="java.util.ArrayList" item-type="java.lang.String">
                           <value><string>*:/platform/users</string></value>
@@ -311,7 +311,7 @@
                       <field name="displayName"><string>FAQ</string></field>
                       <field name="description"><string>FAQ Portlet</string></field>
                       <field name="type"><string>portlet</string></field>
-                      <field name="contentId"><string>faq/FAQPortlet</string></field>
+                      <field name="contentId"><string>answer/FAQPortlet</string></field>
                       <field name="accessPermissions">
                         <collection type="java.util.ArrayList" item-type="java.lang.String">
                           <value><string>*:/platform/users</string></value>
