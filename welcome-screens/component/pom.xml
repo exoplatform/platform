@@ -149,10 +149,5 @@
       <artifactId>slf4j-simple</artifactId>
       <scope>test</scope>
     </dependency>
-      <dependency>
-          <groupId>org.exoplatform.platform</groupId>
-          <artifactId>exo.platform.component.common</artifactId>
-          <version>3.0.0-Alpha04</version>
-      </dependency>
   </dependencies>
 </project>
