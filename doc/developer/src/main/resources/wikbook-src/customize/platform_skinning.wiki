@@ -299,8 +299,8 @@ The extension mechanism of eXo Platform 3.5 enables the skin definition to be re
   <portal-skin>
     <skin-name>Default</skin-name>
     <css-path>/skin/Defaultskin/Stylesheet.css</css-path>
-    <overwrite>false</overwrite>
     <css-priority>0</css-priority>
+    <overwrite>true</overwrite>
   </portal-skin>
 </gatein-resources>{code}
 
@@ -316,7 +316,9 @@ The extension mechanism of eXo Platform 3.5 enables the skin definition to be re
 
 *1.* Create a web application whose _gatein-resources.xml_ contains the same content as the above xml block, except the element <css-path> is modified.
 
-*2.* Ensure that once the server has deployed the artifact, it does not load any web application with _gatein-resources.xml_ configuring the same portal skin.
+*2.* Register the artifact in dependencies list of extended Portal Container.
+
+*3.* Ensure that once the server has deployed the artifact, it does not load any web application with _gatein-resources.xml_ configuring the same portal skin.
 
 h1. Create a new skin {anchor:id=DEV.CreateYourOwnPortal.CreateNewSkinsRoleNotInToc}
 
@@ -350,8 +352,8 @@ You need to specify the new portal skin in the _gatein-resources.xml_ file. You 
   <portal-skin>
     <skin-name>MySkin</skin-name>
     <css-path>/skin/myskin.css</css-path>
-    <overwrite>false</overwrite>
     <css-priority>0</css-priority>
+    <overwrite>false</overwrite>
   </portal-skin>
 </gatein-resources>{code}
 
