@@ -103,7 +103,11 @@ public class PlatformInformationRESTService implements ResourceContainer {
 
     private Boolean isMobileCompliant() {
         String platformEdition = getPlatformEdition();
-        return (platformEdition != null && ((platformEdition.equals("community")) || (platformEdition.equals("enterprise"))));
+        return (platformEdition != null && ((platformEdition.equals("community")) ||
+                (platformEdition.equals(ProductInformations.ENTERPRISE_EDITION)) ||
+                (platformEdition.equals(ProductInformations.EXPRESS_EDITION))||
+                (platformEdition.equals("enterprise")))
+        );
     }
 
     private String getPlatformEdition() {
