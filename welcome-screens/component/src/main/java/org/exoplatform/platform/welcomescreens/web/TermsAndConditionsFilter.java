@@ -31,7 +31,7 @@ public class TermsAndConditionsFilter implements Filter {
   
   private TermsAndConditionsService termsAndConditionsService;
 
-  private static final String PLF_WELCOME_SCREENS_SERVLET_CTX = "/welcome-screens";
+  private static final String PLF_WELCOME_SCREENS_SERVLET_CTX = "/trial";
   private static final String TC_SERVLET_URL = "/terms-and-conditions";
   private static final String INITIAL_URI_PARAM_NAME = "initialURI";
   private static final String LOGIN_URI = "/login";
