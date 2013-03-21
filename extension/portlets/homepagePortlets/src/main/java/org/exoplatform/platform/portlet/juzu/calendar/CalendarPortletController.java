@@ -159,7 +159,7 @@ public class CalendarPortletController {
         String defaultCalendarLabel = "Default";
         String dateLabel = "";
         try {
-            ResourceBundle rs = ResourceBundle.getBundle("calendar/calendar", locale);
+            ResourceBundle rs = ResourceBundle.getBundle("locale/portlet/calendar/calendar", locale);
             defaultCalendarLabel = EntityEncoder.FULL.encode(rs.getString("UICalendars.label.defaultCalendarId"));
             if (clickNumber == 0) dateLabel = rs.getString("today.label") + ": ";
             else if (clickNumber == -1) dateLabel = rs.getString("yesterday.label") + ": ";
