@@ -46,10 +46,6 @@
       <groupId>org.exoplatform.commons</groupId>
       <artifactId>commons-component-common</artifactId>
     </dependency>
-      <dependency>
-          <groupId>org.exoplatform.platform</groupId>
-          <artifactId>platform-component-common</artifactId>
-      </dependency>
     <dependency>
       <groupId>org.exoplatform.commons</groupId>
       <artifactId>commons-component-product</artifactId>
@@ -81,6 +77,10 @@
     <dependency>
       <groupId>org.exoplatform.kernel</groupId>
       <artifactId>exo.kernel.container</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.exoplatform.platform</groupId>
+      <artifactId>platform-component-common</artifactId>
     </dependency>
     <dependency>
       <groupId>org.exoplatform.social</groupId>
