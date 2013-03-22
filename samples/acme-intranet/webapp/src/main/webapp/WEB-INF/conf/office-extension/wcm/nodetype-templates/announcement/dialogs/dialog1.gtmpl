@@ -77,7 +77,70 @@
 				</div>
 			</div>
 		</div>
-	
+   <div class="UITabContent" style="<%=getDisplayTab("contentCSSWebcontent")%>">
+    <table class="UIFormGrid">
+      <tr>
+        <td class="FieldLabel"><%=_ctx.appRes("WebContent.dialog.label.ContentCSS")%></td>
+        <td class="FieldComponent" style="width:520px">
+          <%
+            String[] cssHiddenField1 = ["jcrPath=/node/css/default.css", "nodetype=nt:file", "defaultValues=default.css"] ;
+            String[] cssHiddenField2 = ["jcrPath=/node/css/default.css/jcr:content", "nodetype=nt:resource", "mixintype=dc:elementSet", "visible=false"] ;
+            String[] cssHiddenField3 = ["jcrPath=/node/css/default.css/jcr:content/jcr:encoding", "visible=false", "UTF8"] ;
+            String[] cssHiddenField4 = ["jcrPath=/node/css/default.css/jcr:content/jcr:lastModified", "visible=false"] ;
+            String[] cssHiddenField5 = ["jcrPath=/node/css/default.css/jcr:content/dc:date", "visible=false"] ;
+            String[] cssHiddenField6 = ["jcrPath=/node/css/default.css/jcr:content/jcr:mimeType", "visible=false", "text/css"] ;
+            uicomponent.addHiddenField("cssHiddenField1", cssHiddenField1) ;
+            uicomponent.addHiddenField("cssHiddenField2", cssHiddenField2) ;
+            uicomponent.addHiddenField("cssHiddenField3", cssHiddenField3) ;
+            uicomponent.addCalendarField("cssHiddenField4", cssHiddenField4) ;
+            uicomponent.addCalendarField("cssHiddenField5", cssHiddenField5) ;
+            uicomponent.addHiddenField("cssHiddenField6", cssHiddenField6) ;
+            String cssContent = "";
+            if(webContentNode != null && webContentNode.hasNode("css/default.css")) {
+              Node cssNode = webContentNode.getNode("css/default.css");
+              cssContent = cssNode.getNode("jcr:content").getProperty("jcr:data").getValue().getString();
+            }
+            String[] fieldContentCSS = ["jcrPath=/node/css/default.css/jcr:content/jcr:data", "options=noSanitization", cssContent] ;
+            uicomponent.addTextAreaField(cssFormId, fieldContentCSS) ;
+          %>
+        </td>
+        <td width="260px">
+          <div class="FormHint" style="margintop:5px"><%=_ctx.appRes("WebContent.dialog.label.hintCSS")%></div>
+        </td>
+      </tr>
+    </table>
+    <table class="UIFormGrid">
+      <tr>
+        <td class="FieldLabel"><%=_ctx.appRes("WebContent.dialog.label.ContentJS")%></td>
+        <td class="FieldComponent" style="width:520px">
+          <%
+            String[] jsHiddenField1 = ["jcrPath=/node/js/default.js", "nodetype=nt:file", "defaultValues=default.js"];
+            String[] jsHiddenField2 = ["jcrPath=/node/js/default.js/jcr:content", "nodetype=nt:resource", "mixintype=dc:elementSet", "visible=false"];
+            String[] jsHiddenField3 = ["jcrPath=/node/js/default.js/jcr:content/jcr:encoding", "visible=false", "UTF8"];
+            String[] jsHiddenField4 = ["jcrPath=/node/js/default.js/jcr:content/jcr:lastModified", "visible=false"];
+            String[] jsHiddenField5 = ["jcrPath=/node/js/default.js/jcr:content/dc:date", "visible=false"];
+            String[] jsHiddenField6 = ["jcrPath=/node/js/default.js/jcr:content/jcr:mimeType", "visible=false", "application/xjavascript"];
+            uicomponent.addHiddenField("jsHiddenField1", jsHiddenField1);
+            uicomponent.addHiddenField("jsHiddenField2", jsHiddenField2);
+            uicomponent.addHiddenField("jsHiddenField3", jsHiddenField3);
+            uicomponent.addCalendarField("jsHiddenField4", jsHiddenField4);
+            uicomponent.addCalendarField("jsHiddenField5", jsHiddenField5);
+            uicomponent.addHiddenField("jsHiddenField6", jsHiddenField6);
+            String jsContent = "";
+            if(webContentNode != null && webContentNode.hasNode("js/default.js")) {
+              Node jsNode = webContentNode.getNode("js/default.js");
+              jsContent = jsNode.getNode("jcr:content").getProperty("jcr:data").getValue().getString();
+            }
+            String[] fieldContentJS = ["jcrPath=/node/js/default.js/jcr:content/jcr:data", "options=noSanitization", jsContent];
+            uicomponent.addTextAreaField(jsFormId, fieldContentJS);
+          %>
+        </td>
+        <td width="260px">
+          <div class="FormHint" style="margintop:5px"><%=_ctx.appRes("WebContent.dialog.label.hintJS")%></div>
+        </td>
+      </tr>
+    </table>
+  </div>
 	<% if (!uiform.isShowActionsOnTop()) {
 					 uiform.processRenderAction()
 		}
