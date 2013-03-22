@@ -44,7 +44,7 @@ _ctx.getRequestContext().getJavascriptManager().require("SHARED/uiForm");
            String actionLabel = _ctx.appRes("UICreateList.action." + action);
            String link = uicomponent.event(action) ;
         %>
-       <button type="button" href="javascript:void(0);" onclick="$link" class="btn">$actionLabel</button>
+       <button type="button" href="javascript:void(0);"  onclick="$link" class="btn">$actionLabel</button>
       <%}%>
     </div>
 

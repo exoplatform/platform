@@ -7,7 +7,6 @@ import org.exoplatform.services.log.ExoLogger;
 import org.exoplatform.services.log.Log;
 import org.exoplatform.wcm.webui.Utils;
 import org.exoplatform.webui.application.WebuiRequestContext;
-import org.exoplatform.webui.commons.UIDocumentSelector;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.config.annotation.EventConfig;
 import org.exoplatform.webui.core.UIComponent;
@@ -147,14 +146,12 @@ public class UICreateList extends UIContainer {
     static public class UploadActionListener extends EventListener<UICreateList> {
 
         public void execute(Event<UICreateList> event) throws Exception {
-            UICreateList uiCraeteList = event.getSource();
+            UICreateList uiCreateList = event.getSource();
             try {
-                String title = WebuiRequestContext.getCurrentInstance().getApplicationResourceBundle().getString("UIUploadFile.Select");
-                if((title==null) || (title.equals(""))){
-                    title = "Select File";
-                }
-                UIDocumentSelector selector = uiCraeteList.createUIComponent(UIDocumentSelector.class, null, title);
-                Utils.createPopupWindow(uiCraeteList, selector, "UploadFileSelectorPopUpWindow", 335);
+
+                UIUploadComponent selector = uiCreateList.createUIComponent(UIUploadComponent.class, null, null);
+                Utils.createPopupWindow(uiCreateList, selector, "UploadFileSelectorPopUpWindow", 335);
+
             } catch (Exception e) {
                 //TODO add log
             }
