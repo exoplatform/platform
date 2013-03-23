@@ -18,7 +18,6 @@ function init() {
 function createPollDiv() {
   var prefs = new gadgets.Prefs();
   var forumURL = window.location.protocol + "//" + window.location.host + parent.parent.eXo.env.portal.context + "/"+ parent.parent.eXo.env.portal.portalName +"/forum";
-  document.getElementById("createpoll").innerHTML = "<a target='_parent' href='" + forumURL + "'>"+ prefs.getMsg("createPoll") + "</a>";
   adjustHeight();  
 }
 
@@ -79,11 +78,11 @@ function showPoll(data, isVoteAgain){
           var prefs = new gadgets.Prefs();
           var topicId= pollId.replace("poll","topic");
           var topicURL = window.location.protocol + "//" + window.location.host + parent.parent.eXo.env.portal.context + "/"+ parent.parent.eXo.env.portal.portalName +"/forum/topic/" + topicId;
-          html.push('<h4><a  target="_parent" class="Question" title = "' + prefs.getMsg('discuss') + '" target ="_parent" href="'+ topicURL + '">' + question + '</a></h4>');
-        discussUrl = "<a class='Discuss' title='" + prefs.getMsg("discuss") + "'  target='_parent'  href='"+ topicURL + "'>" + prefs.getMsg("discuss") + "</a>";
+          html.push('<h6><a  target="_parent" class="Question" title = "' + prefs.getMsg('discuss') + '" target ="_parent" href="'+ topicURL + '">' + question + '</a><button class="discuss" type="button" title="' + prefs.getMsg("discuss") + '"  target="_parent"  href="'+ topicURL + '">' + prefs.getMsg("discuss") + '</button></h6>');
+        //discussUrl = '<a class="discuss" title="' + prefs.getMsg("discuss") + '"  target="_parent"  href="'+ topicURL + '">' + prefs.getMsg("discuss") + '</a>';
       }
       else{
-          html. push('<h4 class="Question">' + question + '</h4>');
+          html. push('<h6 class="question">' + question + '</h6>');
       }
     html.push('<form>');
     html.push('<input type="hidden" name="pollid" value="'+ data.id +'"/>')
@@ -93,7 +92,7 @@ function showPoll(data, isVoteAgain){
       }
     } else {
       for(var i = 0, len = options.length; i < len; i++){
-        html.push('<div><input class="radio" type="radio" id="rdoVote_' + i + '" name="rdoVote" value="' + i + '"><span><label for="rdoVote_' + i + '">' + options[i] + '</label></span></div>');
+        html.push('<label class="uiRadio"><input type="radio" class="radio" id="rdoVote_' + i + '" name="rdoVote" value="' + i + '"><span>' + options[i] + '</span></label>');
       }
     }
     html.push("<center style='margin-top: 5px'><input type='button' onclick='doVote(this);' name='btnVote' value='" + lblVote + "'/></center>");
@@ -122,48 +121,44 @@ function showResult(data){
   var pollId = data.id;
   var parentPath = data.parentPath;
   var haveTopic = parentPath.indexOf("ForumData/CategoryHome"); //check topic of poll if toptic is exist
-  var discussUrl = "#";
   var tbl = [];
   
   if(haveTopic){
       var prefs = new gadgets.Prefs();
     var topicId= pollId.replace("poll","topic");
     var topicURL = window.location.protocol + "//" + window.location.host + parent.parent.eXo.env.portal.context + "/"+ parent.parent.eXo.env.portal.portalName + "/forum/topic/" + topicId;
-    tbl.push('<h4><a class="Question" title = "' + prefs.getMsg('discuss') + '"  target="_parent"  href="'+ topicURL + '">' + question + '</a></h4>');
-    discussUrl = '<a class="Discuss" title = "' + prefs.getMsg('discuss') + '"  target="_parent"  href="'+ topicURL + '">' + prefs.getMsg('discuss') + '</a>';
+    tbl.push('<h6><a class="question " title = "' + prefs.getMsg('discuss') + '"  target="_parent"  href="'+ topicURL + '"><i class="uiIconPoll"></i> ' + question + '</a><button class="discuss btn" type="button" title = "' + prefs.getMsg('discuss') + '"  target="_parent"  href="'+ topicURL + '">' + prefs.getMsg('discuss') + '</button></h6>');
   }
   else{
-    tbl.push('<h4 class="Question">' + question + '</h4>');
+    tbl.push('<h6 class="question">' + question + '</h6>');
   }
     
-  tbl.push('<table class="VoteResult">');
-  tbl.push('<tbody >');
+  tbl.push('<table class="voteResult">');
+  tbl.push('<tbody>');
   for(var i = 0, len = options.length; i < len; i++){
     var result = Math.round(vote[i]);
     var style ="";
     if(result>5){
-      var style = 'color:white; text-align:center;width:' + result + '%; background-color:#226ab4';
+      var style = 'width:' + result + '%;';
     }
     else{
-      var style = 'color:black; text-align:center;width:' + result + '%; background-color:#226ab4';
+      var style = 'width:' + result + '%;';
     }
     
-    tbl.push('<tr><td width="50%">' + options[i] + '</td><td><div class="HorizontalBar" style="' + style + '">' + result + '%</div></td></tr>');
+    tbl.push('<tr><td><div class="label-vote">' + options[i] + '</div></td><td><div class="horizontalBG"><div class="horizontalBar" style="' + style + '">&nbsp;</div></div></td><td class="percent">' + result + '%</td></tr>');
   }
   tbl.push('</tbody>');
   tbl.push('</table>');
-  tbl.push('<strong style="display: inline-block; margin-bottom: 5px;"> '+ msgTotal +': ' + voters + ' ' + msgVoter +'</strong>');
-  
+  tbl.push('<div class="clearfix btnform">');
   if(data.isAgainVote){
-    tbl.push("<center style='margin-top: 5px; margin-bottom: 12px;'><input type='button' id='btnVoteAgain' value='" + prefs.getMsg("voteAgain") + "'/></center>");
+    tbl.push("<span class='uiAction'><button class='btn' type='button' id='btnVoteAgain' value='" + prefs.getMsg("voteAgain") + "'>Vote Again</button></span>");
     $("#btnVoteAgain").live("click", function(){
       showPoll(data, true);
     });
   }
-
-  if(haveTopic){
-    tbl.push(discussUrl);
-  }
+  tbl.push('<strong class="pull-right"> '+ msgTotal +': ' + voters + ' ' + msgVoter +'</strong>');
+  tbl.push('</div>');
+ 
   $("#poll").html(tbl.join(''));
   adjustHeight();
 }
@@ -191,13 +186,13 @@ function changeVote(obj){
 }
 
 function config(){
-  if($('#listpoll').is(':visible')) 
+  if($('#listpoll').is(':visible'))
     $('#listpoll').fadeOut("fast",adjustHeight);    
-  else 
+  else
     $('#listpoll').fadeIn("fast",adjustHeight);
   adjustHeight();
 }
 function adjustHeight(){
-    gadgets.window.adjustHeight($('.UIGadgetThemes').outerHeight());  
+    gadgets.window.adjustHeight($('.uiGadgetThemes').outerHeight());  
 }
 gadgets.util.registerOnLoadHandler(init);
