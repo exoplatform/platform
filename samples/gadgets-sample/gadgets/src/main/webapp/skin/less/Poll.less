@@ -1,61 +1,104 @@
-.GadCont .Question{
-	margin: 10px 0px 12px 0px;
-	text-decoration: none;
-	color: #484848;
-	font-weight: normal;
-}
+.uiGadgetThemes{ 
+	.gadCont {
+		padding: 8px 16px;
+		.question{
+			margin: 10px 0px 12px 0px;
+			text-decoration: none;
+			color: #2f5e92;
+		}
+		.poll{
+			h6{
+				padding: 4px 0 12px;
+				line-height: 30px;
+				margin: 0px;
+				border-bottom: 1px solid #cfcfcf;
+			}
+		}
+		#listpoll h4 {
+			margin-top: 0;
+			font-weight: normal;
+		}
 
-.GadCont  #listpoll h4 {
-	margin-top: 0;
-	font-weight: normal;
-}
+		.discuss{
+			display: inline-block;
+			float: right;
+		}
 
-.GadCont .Discuss{
-	color: #226ab4;
-	display: inline-block;
-	float: right;
-	text-decoration: underline;
-}
+		.voteResult{
+			font-size: 12px;
+			border: none;
+			width: 100%;
+			margin: 10px 0;
+			.label-vote{
+				max-width: 170px;
+				white-space: nowrap;
+				overflow: hidden;
+				text-overflow: ellipsis;
+			}
+			.percent{
+				width: 40px;
+				padding-left: 12px;
+			}
+		}
+		
+		.btnform{
+			line-height: 28px;
+			border-top: 1px solid #cfcfcf;
+			padding: 14px 0 6px;
+		}
+		
+		.voteResult td:first-child{
+			width: 180px;
+		}
 
-.GadCont .VoteResult{
-	font-size: 12px;
-	border: none;
-	width: 100%;
-	margin-bottom: 10px;
-}
+		.voteResult td, .voteResult th{
+			border: none;
+		}
 
-.GadCont .VoteResult td, .GadCont .VoteResult th{
-	border: none;
-}
+		.voteResult thead{
+			background-color: #ccc;
+		}
+		
+		.horizontalBG{
+			height: 10px;
+			border-radius: 5px;
+			background-image: linear-gradient(to bottom, #d3d3d3, #eaeaea);
+			box-shadow: 0 1px 1px #C0C0C0 inset;
+			overflow: hidden;
+		}
+		
+		.horizontalBar {
+			height: 10px;
+			border-radius: 5px 0 0 5px;
+			background-image: linear-gradient(to bottom, #5d83c3, #456697);
+		}
 
-.GadCont .VoteResult thead{
-	background-color: #ccc;
-}
+		#listpoll {
+			display:none;
+		}
 
-.GadCont .HorizontalBar {
-	line-height: 20px;
-}
+		.pollList{
+			width: 100%;
+		}
 
-.GadCont #poll strong {
-	font-weight: normal !important;
-}
+		.miniMessage{
+			font-size: 12px;
+			padding:10px 0px;
+			position:absolute;
+			background:red;
+			width: 100%;
+		}
 
-#listpoll {
-	display:none;
-}
-
-.GadCont .PollList{
-	width: 100%;
-}
-
-.MiniMessage{
-	font-size: 12px;
-	padding:10px 0px;
-	position:absolute;
-	background:red;
-	width: 100%;
-}
-
-td {
-	padding: 5px 0;
+		td {
+			padding: 5px 0;
+		}
+		.uiRadio{
+			display: block;
+			margin: 8px 0 4px;
+		}
+		
+		.btn{
+			margin: 0px;
+		}
+	}
 }
