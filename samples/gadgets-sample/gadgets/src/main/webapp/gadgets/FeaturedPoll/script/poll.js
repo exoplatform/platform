@@ -37,16 +37,26 @@ function createPollList(data){
   var pollIds = data.pollId;
   var pollNames = data.pollName;
   var len = pollIds.length;
-  
+ 
   if (data.isAdmin == "true") {
     var html = [];
-    html.push('<select class="PollList" name="pollname" onchange="changeVote(this);">');
+     html.push('<div class="form-horizontal">');
+      html.push('<div class="control-group">');
+      html.push('<label for="type" class="control-label"> Select another poll: </label>');
+      html.push('<div class="controls">');
+      html.push('<span class="uiSelectbox">');
+    html.push('<select class="selectbox" name="type" onchange="changeVote(this);">');
     for (var i = 0 ; i < len; i++) {
       html.push('<option value="' + pollIds[i] + '">' + pollNames[i] + '</option>');
     }
     html.push('</select>');
+    html.push('</span>');
+      html.push('</div>');
+      html.push('</div>');
+      html.push('</div>');
     $('#listpoll').html(html.join(''));
   }
+ 
   var randomPollId  = 0;
   var url = baseURL + "viewpoll/" + pollIds[randomPollId];
 
@@ -70,16 +80,14 @@ function showPoll(data, isVoteAgain){
   var question = data.question;
   var pollId = data.id;
   var parentPath = data.parentPath;
-  var haveTopic = parentPath.indexOf("ForumData/CategoryHome"); //check topic of poll if toptic is exist  
-  var discussUrl = "#";
+  var haveTopic = parentPath.indexOf("ForumData/CategoryHome"); //check topic of poll if toptic is exist 
   if(!data.showVote || isVoteAgain){    
     html = [];
       if(haveTopic){
           var prefs = new gadgets.Prefs();
           var topicId= pollId.replace("poll","topic");
           var topicURL = window.location.protocol + "//" + window.location.host + parent.parent.eXo.env.portal.context + "/"+ parent.parent.eXo.env.portal.portalName +"/forum/topic/" + topicId;
-          html.push('<h6><a  target="_parent" class="Question" title = "' + prefs.getMsg('discuss') + '" target ="_parent" href="'+ topicURL + '">' + question + '</a><button class="discuss" type="button" title="' + prefs.getMsg("discuss") + '"  target="_parent"  href="'+ topicURL + '">' + prefs.getMsg("discuss") + '</button></h6>');
-        //discussUrl = '<a class="discuss" title="' + prefs.getMsg("discuss") + '"  target="_parent"  href="'+ topicURL + '">' + prefs.getMsg("discuss") + '</a>';
+          html.push('<h6><a class="question" title = "' + prefs.getMsg('discuss') + '" target ="_parent" href="'+ topicURL + '"><i class="uiIconPoll"></i> ' + question + '</a><button class="discuss btn" type="button" title="' + prefs.getMsg("discuss") + '"  target="_parent"  href="'+ topicURL + '">' + prefs.getMsg("discuss") + '</button></h6>');
       }
       else{
           html. push('<h6 class="question">' + question + '</h6>');
@@ -88,19 +96,16 @@ function showPoll(data, isVoteAgain){
     html.push('<input type="hidden" name="pollid" value="'+ data.id +'"/>')
     if(data.isMultiCheck){
       for(var i = 0, len = options.length; i < len; i++){
-        html.push('<div><input class="radio" type="checkbox" id="rdoVote_' + i + '" name="rdoVote" value="' + i + '"><span><label for="rdoVote_' + i + '">' + options[i] + '</label></span></div>');
+        html.push('<label class="uiRadio"><input type="radio"  class="radio"  id="rdoVote_' + i + '" name="rdoVote" value="' + i + '"><span>' + options[i] + '</span></label>');
       }
     } else {
       for(var i = 0, len = options.length; i < len; i++){
         html.push('<label class="uiRadio"><input type="radio" class="radio" id="rdoVote_' + i + '" name="rdoVote" value="' + i + '"><span>' + options[i] + '</span></label>');
       }
     }
-    html.push("<center style='margin-top: 5px'><input type='button' onclick='doVote(this);' name='btnVote' value='" + lblVote + "'/></center>");
+    html.push("<div class='uiAction btnform'><button class='btn' type='button' onclick='doVote(this);' name='btnVote' value='" + lblVote + "'>Vote</button>");
         html.push("</form>");
-      if(haveTopic){
-          html.push(discussUrl);
-        //document.getElementById("createpoll").innerHTML = prefs.getMsg('createPoll') + ' <a target="_parent" href="' + forumURL + '">forums</a>';
-      }
+     
     $('#poll').html(html.join(''));
   }else{
     showResult(data);

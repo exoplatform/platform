@@ -1,5 +1,5 @@
 .uiGadgetThemes{ 
-	.gadCont {
+	.gadContent {
 		padding: 8px 16px;
 		.question{
 			margin: 10px 0px 12px 0px;
@@ -14,7 +14,7 @@
 				border-bottom: 1px solid #cfcfcf;
 			}
 		}
-		#listpoll h4 {
+		.listpoll h4 {
 			margin-top: 0;
 			font-weight: normal;
 		}
@@ -45,6 +45,7 @@
 			line-height: 28px;
 			border-top: 1px solid #cfcfcf;
 			padding: 14px 0 6px;
+			text-align: left;
 		}
 		
 		.voteResult td:first-child{
@@ -73,8 +74,30 @@
 			background-image: linear-gradient(to bottom, #5d83c3, #456697);
 		}
 
-		#listpoll {
+		.listpoll {
 			display:none;
+			margin: 6px 2px 8px 0;			
+			.form-horizontal{
+				padding: 0px;
+			}
+			.control-group{
+				margin: 0px;
+				.controls{
+					margin-left: 145px;
+				}
+				.control-label{
+					width: 138px;
+					overflow: hidden;
+					text-overflow: ellipsis;
+					white-space: nowrap;
+				}
+			}
+			.selectbox{
+				width: 100%;
+			}
+			.uiSelectbox{
+				width: 100%;
+			}
 		}
 
 		.pollList{
@@ -94,10 +117,14 @@
 		}
 		.uiRadio{
 			display: block;
-			margin: 8px 0 4px;
+			margin: 8px 0;
 		}
 		
 		.btn{
+			margin: 0px;
+		}
+		
+		form{
 			margin: 0px;
 		}
 	}

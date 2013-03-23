@@ -34,8 +34,8 @@
         <a class="actionIcon pull-right" title="Settings" rel="tooltip" data-placement="bottom" onclick=""><i class="uiIconSetting"></i></a>
       </h6>
       <!-- Display poll  -->
-      <div class="gadCont">
-        <div  id="listpoll"></div>
+      <div class="gadContent">
+        <div class="listpoll"  id="listpoll"></div>
         <div  id="poll" class="poll"></div>
         <div id="createpoll" style="text-align: center"></div>
       </div>
