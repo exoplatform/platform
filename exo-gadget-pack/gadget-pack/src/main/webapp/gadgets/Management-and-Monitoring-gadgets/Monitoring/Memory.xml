@@ -136,9 +136,9 @@
         
         function init() {
           loadInfos();
-          //$(document).everyTime("15s", "reloadPage", function() {
-          //  loadInfos();
-          //}, 0);
+          $(document).everyTime("15s", "reloadPage", function() {
+            loadInfos();
+          }, 0);
         }
         gadgets.util.registerOnLoadHandler(init);
         
