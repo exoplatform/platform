@@ -10,7 +10,7 @@ function init() {
   var req = opensocial.newDataRequest();
   req.add(req.newFetchPersonRequest(opensocial.IdSpec.PersonId.VIEWER, opts), 'viewer');
   req.send(createURL);
-  $('.SettingButton').click(function(){
+  $('.settingBt').click(function(){
     config();
   });
 }
@@ -61,7 +61,7 @@ function createPollList(data){
   var url = baseURL + "viewpoll/" + pollIds[randomPollId];
 
   if(len == 0){
-  document.getElementById("poll").innerHTML = "<div class='light_message' style='margin-left: 15px; margin-bottom: 15px'>" + prefs.getMsg("nopoll") + "</div>";
+  document.getElementById("poll").innerHTML = "<div class='light_message'><i class='uiIconPoll'></i> " + prefs.getMsg("nopoll") + "</div>";
   adjustHeight();
   return;
 

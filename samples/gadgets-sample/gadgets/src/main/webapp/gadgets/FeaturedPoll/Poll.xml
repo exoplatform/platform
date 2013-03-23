@@ -22,7 +22,6 @@
     <script src="/exo-gadget-resources/script/jquery/1.6.2/jquery.min.js"></script>
     <script type="text/javascript">
     var MODULE_ID = __MODULE_ID__;    
-      console.log(MODULE_ID);
     </script>
 
     <script type="text/javascript" src="script/poll.js"></script>
@@ -31,7 +30,7 @@
     <div class="uiGadgetThemes uiBox">
       <h6 class="gadgetTitle title center">
         __MSG_title__
-        <a class="actionIcon pull-right" title="Settings" rel="tooltip" data-placement="bottom" onclick=""><i class="uiIconSetting"></i></a>
+        <a class="actionIcon pull-right settingBt" title="Settings" rel="tooltip" data-placement="bottom" onclick=""><i class="uiIconSetting"></i></a>
       </h6>
       <!-- Display poll  -->
       <div class="gadContent">
