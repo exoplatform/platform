@@ -8,114 +8,162 @@
     <Require feature="dynamic-height" />
   </ModulePrefs>
 <Content type="html">
-<![CDATA[ 
+<![CDATA[
     <head>
       <title>Applications Statistics</title>
       <link rel="stylesheet" type="text/css" href="/exo-gadget-resources/skin/exo-gadget/gadget-common.css" />
+      <link rel="stylesheet" type="text/css" href="/eXoResources/skin/bootstrap/css/bootstrap.css" />
       <link rel="stylesheet" type="text/css" href="/eXoResources/skin/css/Core.css" />
       
         <style type="text/css">
-
-          .detail_ligne {
-            font-size: 11pt;
-            color: black;
+          body, td, div, span, p, table, form {
+            font-family: helvetica,Arial,sans-serif;
+            font-size: 13px;
           }
-          .detail_ligne:hover {
-            background-color: lightgray;
+          .appStatistics ul li {
+            margin-top: 20px;
           }
-          .detail_value {
-            float: right;
-            padding-right: 5px;
+          
+          .appData:hover {
+            background: #e6e6e6;
+            border-radius: 4px;
           }
-          .application_details_time {
-            margin-top: 2px;
-            font-size: 8pt;
-            color: #707070;
+          
+          .appData .appTitle {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            width: 60%;
+            display: inline-block;
+            padding: 0 10px;
+            color: #333;
           }
-          /* Usage */
-          .usage_ok {
+          
+          .appData span {
+            padding: 0 10px;
+            border-radius: 4px;
+            font-size: 12px;
           }
-          .usage_warning {
-            background-color: #FFA400;
-            color: white;
+          
+          .appData .yellow {
+            background: #eedf1d;
+            color: #fff;
           }
-          .usage_error {
-            background-color: #CC3333;
-            color: white;
+          
+          .appData .red {
+            background: #e6585e;
+            color: #fff;
           }
+          
+          .appDetailTime {
+            padding: 0 10px;
+            color: #808080;
+            font-size: 11px;
+          }
+          
         </style>
-      <script language="javascript" type="text/javascript" src="/exo-gadget-resources/script/jquery/1.6.2/jquery.min.js"></script>
+      <script language="javascript" type="text/javascript" src="/eXoResources/javascript/jquery-1.7.1.js"></script>
       <script language="javascript" type="text/javascript" src="script/jquery-plugins/jquery.number_format.js"></script>
       <script language="javascript" type="text/javascript" src="script/utils.js"></script>
+      <script language="javascript" type="text/javascript" src="/eXoResources/skin/bootstrap/js/bootstrap-tooltip.js"></script>
       <script type="text/javascript">
-        function loadInfos() {
-          var items = [];
-          $.getJSON('/rest/statistics/application/all', function(data) {
-            $.each(data, function(i, liste) {
-              $('#application-number').empty();
-              $('#application-number').append(liste.length);
+        function processData(items, data, clazz) {
+          $.each(data, function(i, liste) {
+              items.push('<ul class="' + clazz +'">');
               $.each(liste, function(key, application) {
                 var applicationID = application.name;
                 // do we have warning or error on Average Execution Time ?
                 var avgExecTimeCssClass = "";
-                if (application.averageTime >= 1000 && application.averageTime < 2000) {
-                  avgExecTimeCssClass = "usage_warning";
-                } else if (application.averageTime >= 2000) {
-                  avgExecTimeCssClass = "usage_error";
+                if (application.averageTime >= 1000 && application.averageTime < 5000) {
+                  avgExecTimeCssClass = "yellow pull-right";
+                } else if (application.averageTime >= 5000) {
+                  avgExecTimeCssClass = "red pull-right";
                 } else {
-                  avgExecTimeCssClass = "usage_ok";
+                  avgExecTimeCssClass = "pull-right";
                 }
-                //items.push('<li id="application_'+i+'_'+key+'" class="detail_ligne">');
-                items.push('<div class="application_container">');
-                items.push('<div id="application_'+i+'_'+key+'" class="detail_ligne">');
-                items.push('<span class="application_id">'+applicationID+'</span>');
-                items.push('<span class="application_call_count detail_value '+avgExecTimeCssClass+'" title="Average execution time (ms)">'+formatInteger(Math.round(application.averageTime))+' '+application.timeUnit+'</span>');
+                items.push('<li>');
+                items.push('<div class="appData clearfix">');
+                items.push('<span id="application_'+i+'_'+key+'" class="appTitle" data-placement="bottom" rel="tooltip" data-original-title="' +applicationID+'"><b>'+applicationID+'</b></span>');
+                items.push('<span class="'+avgExecTimeCssClass+'" title="Average execution time (ms)">'+formatInteger(Math.round(application.averageTime))+' '+application.timeUnit+'</span>');
                 items.push('</div>');
-                items.push('<p class="application_details_time">');
+                items.push('<p class="appDetailTime">');
                 items.push('min: '+formatInteger(application.minTime)+' '+application.timeUnit);
                 items.push(' | max: '+formatInteger(application.maxTime)+' '+application.timeUnit);
                 items.push(' | exec: '+formatInteger(application.execution));
                 items.push('</p>');
-                items.push('</div>');
-                //items.push('</li>');
+                items.push('</li>');
               });
-              //items.push('</ul>');
+              items.push('</ul>');
             });
+        }
+        
+        function loadInfos() {
+          var items = [];
+          $.getJSON('/rest/statistics/application/slowest', function(data) {
+            processData(items, data, 'tenSlowestApps');
             
-            $('#applications').empty();
-            $('<div/>', {'class': 'memoryGraphs',  html: items.join('')}).appendTo('#applications');
-
-            // resizing of the gadget height
-            gadgets.window.adjustHeight($("#my_gadget").get(0).offsetHeight);
+            $.getJSON('/rest/statistics/application/all', function(data) {
+              processData(items, data, 'allApps');
+              var length = $(data.data).length;
+              
+              $('#applications .gadgetData').empty();
+              $(items.join('')).appendTo('#applications .gadgetData');
+              
+              var allAppsBtn = $('#applications .allAppsBtn');
+              var allAppsContainer = $('#applications .allApps');
+              var tenAppsBtn = $('#applications .tenAppsBtn');
+              var tenAppsContainer = $('#applications .tenSlowestApps');
+              allAppsBtn.text("All (" + length + ")");
+              $(allAppsBtn).click(function() {
+                $(this).addClass("active");
+                allAppsContainer.show();
+                tenAppsBtn.removeClass("active");
+                tenAppsContainer.hide();
+                gadgets.window.adjustHeight($("#my_gadget").get(0).offsetHeight);
+              });
+              $(tenAppsBtn).click(function() {
+                $(this).addClass("active");
+                tenAppsContainer.show();
+                allAppsBtn.removeClass("active");
+                allAppsContainer.hide();
+              });
+              
+              //Initialize tooltip
+              $('#applications .gadgetData .tenSlowestApps li').each(function() {
+                $(this).find("span:first").tooltip();
+              });
+              $('#applications .gadgetData .allApps li').each(function() {
+                $(this).find("span:first").tooltip();
+              });
+              $('#applications .gadgetData .allApps').hide();
+              
+              // resizing of the gadget height
+              gadgets.window.adjustHeight($("#my_gadget").get(0).offsetHeight);
+            });
           });
         }
         
         function init() {
           loadInfos();
-          /*
-          $(document).everyTime("15s", "reloadPage", function() {
-              loadInfos();
-          }, 0);
-          */
         }
         gadgets.util.registerOnLoadHandler(init);
       </script>
     </head>
     <body>
-      <div id="my_gadget" class="UIGadgetThemes">
-        <div class="TitGad ClearFix">
-          <a target="_blank" id="ShowAll" class="IconDropDown" title="Show all"> </a>
-          <div title="Setting" id="SettingButton" class="SettingButton">
-            <a href="javascript:eXoEventGadget.showHideSetting(true);" title="Setting"></a>
+      <div id="my_gadget" class="UIGadgetThemes appStatistics uiBox">
+        <h6 class="title center">Application Statistics</h6>
+        <div id="applications" class="uiContentBox">
+          <div class="center">
+              <div class="btn-group clearfix">
+                <button class="btn tenAppsBtn active" type="button">10 slowest</button>
+                <button class="btn allAppsBtn" type="button">All</button>
+              </div>
           </div>
-          <div class="ContTit">Applications Statistics (<span id="application-number">?</span>)</div>
+          <div class="gadgetData">
+              Loading data ...
+          </div>
         </div>
-
-        <div id="applications" class="GadCont">Loading data ...</div>
-      
-
       </div>
-        
     </body>
 
 ]]></Content></Module>
