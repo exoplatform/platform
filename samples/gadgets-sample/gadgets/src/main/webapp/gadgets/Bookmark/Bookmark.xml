@@ -13,205 +13,197 @@
   <head>
     <link type="text/css" rel="stylesheet" href="/exo-gadget-resources/skin/exo-gadget/gadget-common.css" />
     <link type="text/css" rel="stylesheet" href="/intranet-gadgets/skin/css/Bookmark.css" />
-	<link rel="stylesheet" type="text/css" href="/eXoResources/skin/css/Core.css" />
-	
+  <link rel="stylesheet" type="text/css" href="/eXoResources/skin/css/Core.css" />
+    <link rel="stylesheet" type="text/css" href="/eXoResources/skin/bootstrap/css/bootstrap.css" />
+  
     <script language="javascript" type="text/javascript" src="/exo-gadget-resources/script/jquery/1.6.2/jquery.min.js"></script>
       
     <script type="text/javascript">
-      $(function(){
-      
-        function addBookmark(id, name, link) {
-          var icon = '<div class="ArrowIcon"><img class="listIcon off CustomImage" src="/exo-gadget-resources/skin/exo-gadget/images/ArrowRight.gif" alt=""></img></div>';
-          var item = '<a id="bookmark' + id + '" href="' + link + '" target="_parent">' + name + '</a>';
-          var form = '<div class="Form" style="display:none;"> \
-                        <div class="Label"><input type="text" class="EditFormName"></input></div> \
-                        <div class="Label LabelBelow"><input type="text" class="EditFormLink"></input> \
-                          <a class="Button EditFormOK" href="#"><img alt="Form OK" src="/exo-gadget-resources/skin/exo-gadget/images/Ok.gif"></img></a> \
-                          <a class="Button EditFormDelete" href="#"><img alt="Form Delete" src="/exo-gadget-resources/skin/exo-gadget/images/Del.gif"></img></a> \
+    $(function() {
+
+    	function addBookmark(id, name, link) {
+    		var element = '<li class="ListItem"> \
+                      <div class="editHoverZone pull-right" style="display:none;">  \
+                      <a href="#" class="pull-right"><i class="uiIconDelete uiIconLightGray"></i></a> \
+                      <a href="#" class="pull-right"><i class="uiIconEdit uiIconLightGray"></i></a>  \
+                      </div> \
+                      <a id="bookmark'
+    				+ id
+    				+ '" class="bookmark" href="'
+    				+ link
+    				+ '" target="_parent">'
+    				+ name
+    				+ '</a> \
+                      <div class="editZone" style="display:none;">  \
+                        <div class="uiGrayLightBox pull-left" >     \
+                               <input type="text" class ="editName" value="'
+    				+ name
+    				+ '"/>    \
+                               <input type="text" class ="editLink" value="'
+    				+ link
+    				+ '"/> \
+                          </div> \
+                       <button type="button" class="btn btn-primary pull-left save">Save</button> \
+                       <button type="button" class="btn pull-left cancel">Cancel</button> \
+                       </div> \
+                       </li> ';
+    		$("#BookmarkList").append(element);
+    	}
+
+    	$.getJSON("/rest/bookmarks/get", function(bookmarks) {
+    		$.each(bookmarks, function(i, bookmark) {
+    			var link2 = bookmark.link.replace(/__SLASH__/g, "/").replace(
+    					"/$PORTAL", parent.parent.eXo.env.portal.context).replace(
+    					"$SITENAME", parent.parent.eXo.env.portal.portalName);
+    			addBookmark(i, bookmark.name.replace(/__SLASH__/g, "/"), link2);
+    		});
+    		if (bookmarks.length == 0) {
+    			$("#message").show();
+    		}
+    		gadgets.window.adjustHeight($("#content").get(0).offsetHeight);
+    	});
+    	changeToViewMode();
+    	var preventDefault = function(e) {
+    		e.preventDefault()
+    	};
+
+    	$("#BookmarkList").delegate(
+    			".save",
+    			"click",
+    			function() {
+    				var newName = $(this).closest(".ListItem").find(
+    						"input:text[class=editName]").val();
+    				var newLink = $(this).closest(".ListItem").find(
+    						"input:text[class=editLink]").val();
+    				if (newName.length == 0 || newLink.length == 0)
+    					return false;
+    				var $thisBookmark = $(this).closest(".ListItem").find(
+    						"a[id^=bookmark]");
+    				$thisBookmark.text(newName);
+    				$thisBookmark.attr("href", newLink);
+    				$.getJSON("/rest/bookmarks/set/"
+    						+ toJson().replace(/\//g, "__SLASH__"), null);
+    				$(this).closest(".ListItem").find("div.editZone").hide();
+    				changeToViewMode();
+    			});
+
+    	$("#BookmarkList").delegate(".cancel", "click", function() {
+    		$(this).closest(".ListItem").find("div.editZone").hide();
+    		changeToViewMode();
+    	});
+
+    	// click on edit, go to the edit mode;
+    	$("#BookmarkList").delegate(".uiIconEdit", "click", function() {
+    		//hide the icon modify and delete
+    		$(this).closest(".ListItem").find("div.editZone").show();
+    		// gadgets.window.adjustHeight($("#content").get(0).offsetHeight);
+    		changeToEditMode();
+    	});
+
+    	$("#BookmarkList").delegate(
+    			".uiIconDelete",
+    			"click",
+    			function() {
+    				$(this).closest('.ListItem').remove();
+    				$.getJSON("/rest/bookmarks/set/"
+    						+ toJson().replace(/\//g, "__SLASH__"), null);
+    				if ($("#BookmarkList").find(".ListItem").length == 0) {
+    					$("#message").show();
+    				}
+    				gadgets.window.adjustHeight($("#content").get(0).offsetHeight);
+
+    			});
+
+    	function changeToViewMode() {
+    		$("#BookmarkList").delegate(".ListItem", "mouseover mouseout",
+    				function(e) {
+    					if (e.type == "mouseover") {
+    						$(this).find("div.editHoverZone").show();
+    					} else {
+    						$(this).find("div.editHoverZone").hide();
+    					}
+    				});
+    		$("#BookmarkList").find("div.editZone").each(function() {
+    			$(this).hide();
+    		});
+    		$("#customize").bind("click", function() {
+    			addNewBookMark();
+    			$("#message").hide();
+    		});
+    		gadgets.window.adjustHeight($("#content").get(0).offsetHeight);
+    	}
+
+    	function changeToEditMode() {
+    		$("#BookmarkList").undelegate(".ListItem", "mouseover mouseout");
+    		$("#BookmarkList").find(".editHoverZone").each(function() {
+    			$(this).hide();
+    		});
+    		$("a[id^=bookmark]").bind("click", preventDefault);
+    		$("#customize").unbind();
+    		gadgets.window.adjustHeight($("#content").get(0).offsetHeight);
+    	}
+
+    	function toJson() {
+    		var bookmarks = [];
+    		$("#BookmarkList .ListItem").each(function(index) {
+    			$bookmark = $(this).find("a[id^=bookmark]");
+    			var bookmark = "{";
+    			bookmark += '"name":"' + $bookmark.text() + '",';
+    			bookmark += '"link":"' + $bookmark.attr("href") + '"}';
+    			bookmarks.push(bookmark);
+    		});
+    		return "[" + bookmarks.join(",") + "]";
+    	}
+
+    	function addNewBookMark() {
+    		var element = '<li class="ListItem"> \
+                    <div class="editHoverZone pull-right" style="display:none;">  \
+                    <a href="#" class="pull-right"><i class="uiIconDelete uiIconLightGray"></i></a> \
+                    <a href="#" class="pull-right"><i class="uiIconEdit uiIconLightGray"></i></a>  \
+                    </div> \
+                    <a id="bookmarkXXXX" class="bookmark" href="#" target="_parent"></a> \
+                    <div class="editZone">  \
+                      <div class="uiGrayLightBox pull-left" >     \
+                             <input type="text" class ="editName" value=""/>    \
+                             <input type="text" class ="editLink" value=""/> \
                         </div> \
-                      </div>';
-          $("#BookmarkList").append("<div class='ListItem'>" + icon + item + form + "</div>");
-        }
+                     <button type="button" class="btn btn-primary pull-left save">Save</button> \
+                     <button type="button" class="btn pull-left cancel">Cancel</button> \
+                     </div> \
+                     </li> ';
+    		$("#BookmarkList").append(element);
+    		changeToEditMode();
+    		gadgets.window.adjustHeight($("#content").get(0).offsetHeight + 100);
+    	}
 
-        var imageSource = "/exo-gadget-resources/skin/exo-gadget/images/ArrowRight.gif";
-        var imageSource2 = "/exo-gadget-resources/skin/exo-gadget/images/ArrowDown.gif";
-        var prefs = new gadgets.Prefs();
+    	function checkIfZeroBookMark() {
+    		$.getJSON("/rest/bookmarks/get", function(bookmarks) {
+    			if (bookmarks.length == 0) {
+    				$("#message").show();
+    			}
+    		});
+    	}
 
-        $.getJSON("/rest/bookmarks/get", function(bookmarks){
-          $.each(bookmarks, function(i, bookmark){
-          var link2 = bookmark.link.replace(/__SLASH__/g, "/").replace("/$PORTAL",parent.parent.eXo.env.portal.context).replace("$SITENAME",parent.parent.eXo.env.portal.portalName);
-          addBookmark(i, bookmark.name.replace(/__SLASH__/g, "/"),link2);
-          });
-          gadgets.window.adjustHeight($("#content").get(0).offsetHeight);
-        });
+    });
 
-        var preventDefault = function(e){e.preventDefault()};
-
-
-        function changeToEditMode() {
-          $("a[id^=bookmark]").bind("click", preventDefault);
-          $("a[id^=bookmark]").addClass("Editable");    
-          $("#btnAdd").show();
-          $("img.listIcon").addClass("EditImage CustomImage");
-        }
-
-        function changeToViewMode(){
-          $("a[id^=bookmark]").removeClass("Editable");
-          $("a[id^=bookmark]").unbind("click", preventDefault);
-          $(".Form").hide();
-          $("a[id^=bookmark]").show();
-          $("img.listIcon").removeClass('on').addClass('off').attr({src:imageSource});
-          $("#btnAdd").hide();
-          $("img.listIcon").removeClass("EditImage CustomImage");
-          $.getJSON("/rest/bookmarks/set/" + toJson().replace(/\//g, "__SLASH__"), null);
-        }
-        
-
-        $("#customize").live("click", function(){
-      
-          if ($(this).hasClass('on')) {
-            $(this).removeClass('on').addClass('off').attr({src:"/exo-gadget-resources/skin/exo-gadget/images/Save.png"});
-            changeToEditMode();
-          } else if ($(this).hasClass('off')) {
-            $(this).removeClass('off').addClass('on').attr({src:"/exo-gadget-resources/skin/exo-gadget/images/settings.png"});
-            changeToViewMode();
-          }          
-          
-          gadgets.window.adjustHeight($("#content").get(0).offsetHeight);
-        });
-
-
-        $("body").delegate(".Editable", "click", function(){
-          var $thisForm = $(this).closest(".ListItem").find(".Form");
-          $thisForm.find("input:text[class=EditFormName]").val($(this).text());
-          $thisForm.find("input:text[class=EditFormLink]").val($(this).attr("href"));
-
-          var $imgNew = $(this).closest(".ListItem").find("img.listIcon");
-
-          if ($thisForm.is(':hidden')) {
-            $(".Form").hide();
-            $("a[id^=bookmark]").show();
-            $("img.listIcon").removeClass('on').addClass('off').attr({src:imageSource});
-            $thisForm.show();
-            $imgNew.removeClass('on').addClass('off').attr({src:imageSource2});
-            $(this).hide();
-          } else {
-            $thisForm.hide();
-            $imgNew.removeClass('on').addClass('off').attr({src:imageSource});
-            $(this).show();
-          }
-          gadgets.window.adjustHeight($("#content").get(0).offsetHeight);
-        });
-      
-
-        $("body").delegate(".EditFormOK", "click", function(){
-          var newName = $(this).closest(".Form").find("input:text[class=EditFormName]").val();
-          var newLink = $(this).closest(".Form").find("input:text[class=EditFormLink]").val();
-          var $thisBookmark = $(this).closest(".ListItem").find("a[id^=bookmark]");
-          $thisBookmark.text(newName);
-          $thisBookmark.attr("href", newLink);
-          $(this).closest(".Form").hide();
-          var $link = $(this).closest(".ListItem").find("a[id^=bookmark]");
-          $link.show();
-          var $imgNew = $(this).closest(".ListItem").find("img.listIcon");
-          $imgNew.removeClass('on').addClass('off').attr({src:imageSource});
-          gadgets.window.adjustHeight($("#content").get(0).offsetHeight);
-        });
-
-
-        $("body").delegate(".EditFormDelete", "click", function(){
-          $(this).closest('.ListItem').remove();
-          gadgets.window.adjustHeight($("#content").get(0).offsetHeight);
-        });
-      
-        $("#btnAdd").live("click", function(){
-          $(".Form").hide();
-          $("a[id^=bookmark]").show();
-          $("img.listIcon").removeClass('on').addClass('off').attr({src:imageSource});
-          $("#txtNewName").val("");
-          $("#txtNewLink").val("");
-          $("#frmNew").show();
-          gadgets.window.adjustHeight($("#content").get(0).offsetHeight);
-        });
-      
-
-        $("#btnNewOK").live("click", function(){
-          var newId = $("#BookmarkList .ListItem").size();
-          var newName = $("#txtNewName").val();
-          var newLink = $("#txtNewLink").val();
-          if(newName.length==0 || newLink.length==0) return false;
-          addBookmark(newId, newName, newLink);
-          var $thisBookmark = $("#bookmark" + newId);
-          $thisBookmark.bind("click", preventDefault);
-          $thisBookmark.addClass("Editable");
-          $("#txtNewName").val("");
-          $("#txtNewLink").val("");
-          $thisBookmark.closest(".ListItem").find("img.listIcon").addClass("EditImage");
-          gadgets.window.adjustHeight($("#content").get(0).offsetHeight);
-        });
-            
-      
-        $("#btnNewCancel").live("click", function(){
-          $("#frmNew").hide();
-          gadgets.window.adjustHeight($("#content").get(0).offsetHeight);
-        });
-
-      
-        $("body").delegate(".EditImage", "click", function(){
-          if ($(this).hasClass('on')) {
-            $(this).removeClass('on').addClass('off').attr({src:imageSource});
-            $(this).closest(".ListItem").find("a[id^=bookmark]").click();
-          } else if ($(this).hasClass('off')) {
-            $(this).removeClass('off').addClass('on').attr({src:imageSource2});
-            $(this).closest(".ListItem").find("a[id^=bookmark]").click();
-          }
-        });
-
-        function toJson(){
-          var bookmarks = [];  
-          $("#BookmarkList .ListItem").each(function(index) {
-            $bookmark = $(this).find("a[id^=bookmark]");
-            var bookmark="{";
-            bookmark += '"name":"' + $bookmark.text() + '",';
-            bookmark += '"link":"' + $bookmark.attr("href") + '"}';
-            bookmarks.push(bookmark);
-          });
-          return "[" + bookmarks.join(",") + "]";
-        }
-            
-      });
     </script>
   </head>
-
+ 
     <div id="content" class="UIGadgetThemes">
-      
        <div class="TitGad ClearFix">
-
           <div style="float:right; margin-top:2px; margin-right:10px;">
-                <img id="customize" class="on" src="/exo-gadget-resources/skin/exo-gadget/images/settings.png" alt=""></img>
+                <img id="customize"  src="/exo-gadget-resources/skin/exo-gadget/images/settings.png" alt=""></img>
           </div>
           <div class="ContTit">__MSG_title__</div>
        </div>
     
       <div class="ContBookmark GadCont">
+      <div id="message" style="display:none;">
+      		You don't have any BookMark : add them by click on
+      <img id="customize"  src="/exo-gadget-resources/skin/exo-gadget/images/settings.png" alt=""></img>
+      button
+      </div>
         <div id="BookmarkList" class="BookMarks"></div>
-        <div style="clear: both; padding-top: 6px;">
-        <a id="btnAdd" class="btnAdd" style="display:none; cursor: pointer;">__MSG_addbutton__</a>
-      
-        <table id="frmNew" class="Form" style="display:none; margin-left: 8px;">
-          <tr>
-            <td><label for="txtNewName">__MSG_name__</label></td>
-            <td><input type="text" id="txtNewName"></input></td>
-          </tr>
-          <tr>
-            <td><label for="txtNewLink">__MSG_url__</label></td>
-            <td><input type="text" id="txtNewLink"></input></td>
-            <td>
-              <a id="btnNewOK" class="Button" href="#"><img alt="New OK" src="/intranet-gadgets/skin/images/Bookmark/Ok.gif"></img></a>
-              <a id="btnNewCancel" class="ButtonDel" href="#"><img alt="New Delete" src="/exo-gadget-resources/skin/exo-gadget/images/Del.gif"></img></a>
-            </td>
-          </tr>
-        </table>
         </div>
       </div>
       
