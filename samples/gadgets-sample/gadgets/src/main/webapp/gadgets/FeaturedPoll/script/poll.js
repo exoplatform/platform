@@ -87,7 +87,7 @@ function showPoll(data, isVoteAgain){
           var prefs = new gadgets.Prefs();
           var topicId= pollId.replace("poll","topic");
           var topicURL = window.location.protocol + "//" + window.location.host + parent.parent.eXo.env.portal.context + "/"+ parent.parent.eXo.env.portal.portalName +"/forum/topic/" + topicId;
-          html.push('<h6><a class="question" title = "' + prefs.getMsg('discuss') + '" target ="_parent" href="'+ topicURL + '"><i class="uiIconPoll"></i> ' + question + '</a><a class="discuss btn" type="button" title="' + prefs.getMsg("discuss") + '"  href="'+ topicURL + '">' + prefs.getMsg("discuss") + '</a></h6>');
+          html.push('<h6 class="clearfix"><a class="question" title = "' + prefs.getMsg('discuss') + '" target ="_parent" href="'+ topicURL + '"><i class="uiIconPoll"></i> ' + question + '</a><a class="discuss btn" type="button" title="' + prefs.getMsg("discuss") + '"  href="'+ topicURL + '">' + prefs.getMsg("discuss") + '</a></h6>');
       }
       else{
           html. push('<h6 class="question">' + question + '</h6>');
@@ -96,7 +96,7 @@ function showPoll(data, isVoteAgain){
     html.push('<input type="hidden" name="pollid" value="'+ data.id +'"/>')
     if(data.isMultiCheck){
       for(var i = 0, len = options.length; i < len; i++){
-        html.push('<label class="uiRadio"><input type="radio"  class="radio"  id="rdoVote_' + i + '" name="rdoVote" value="' + i + '"><span>' + options[i] + '</span></label>');
+        html.push('<label class="uiCheckbox"><input type="checkbox"  class="checkbox"  id="rdoVote_' + i + '" name="rdoVote" value="' + i + '"><span>' + options[i] + '</span></label>');
       }
     } else {
       for(var i = 0, len = options.length; i < len; i++){
@@ -132,7 +132,7 @@ function showResult(data){
       var prefs = new gadgets.Prefs();
     var topicId= pollId.replace("poll","topic");
     var topicURL = window.location.protocol + "//" + window.location.host + parent.parent.eXo.env.portal.context + "/"+ parent.parent.eXo.env.portal.portalName + "/forum/topic/" + topicId;
-    tbl.push('<h6><a class="question " title = "' + prefs.getMsg('discuss') + '"  target="_parent"  href="'+ topicURL + '"><i class="uiIconPoll"></i> ' + question + '</a><a class="discuss btn" type="button" title = "' + prefs.getMsg('discuss') + '"  target="_parent"  href="'+ topicURL + '">' + prefs.getMsg('discuss') + '</a></h6>');
+    tbl.push('<h6 class="clearfix"><a class="question " title = "' + prefs.getMsg('discuss') + '"  target="_parent"  href="'+ topicURL + '"><i class="uiIconPoll"></i> ' + question + '</a><a class="discuss btn" type="button" title = "' + prefs.getMsg('discuss') + '"  target="_parent"  href="'+ topicURL + '">' + prefs.getMsg('discuss') + '</a></h6>');
   }
   else{
     tbl.push('<h6 class="question">' + question + '</h6>');
