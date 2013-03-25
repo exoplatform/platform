@@ -27,11 +27,7 @@ import org.exoplatform.webui.event.EventListener;
 public class UIUploadComponent extends UIContainer {
     public UIUploadComponent() throws Exception {
         super();
-        String title = WebuiRequestContext.getCurrentInstance().getApplicationResourceBundle().getString("UIUploadFile.Select");
-        if((title==null) || (title.equals(""))){
-            title = "Select File";
-        }
-        UIDocumentSelector selector = addChild(UIDocumentSelector.class, null, title);
+        UIDocumentSelector selector = addChild(UIDocumentSelector.class, null, null);
     }
 
     public static class CancelActionListener extends EventListener<UIUploadComponent> {
