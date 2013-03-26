@@ -43,13 +43,6 @@
         <description>JCR configuration file</description>
         <value>war:/conf/jcr/repository-configuration.xml</value>
       </value-param>
-      <properties-param>
-        <name>working-conf</name>
-        <description>working-conf</description>
-        <property name="persister-class-name" value="org.exoplatform.services.jcr.impl.config.JDBCConfigurationPersister" />
-        <property name="source-name" value="${gatein.jcr.datasource.name}${container.name.suffix}" />
-        <property name="dialect" value="${gatein.jcr.datasource.dialect}" />
-      </properties-param>
     </init-params>
   </component>
 
