@@ -263,7 +263,4 @@
             <short-title>UIBreadCrumbsNavigationPortlet</short-title>
         </portlet-info>
     </portlet>
-    <event-definition>
-        <name>NavigationChange</name>
-    </event-definition>
 </portlet-app>
