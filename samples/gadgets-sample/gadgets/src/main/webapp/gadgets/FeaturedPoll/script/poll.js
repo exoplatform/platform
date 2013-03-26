@@ -56,7 +56,7 @@ function createPollList(data){
       html.push('</div>');
     $('#listpoll').html(html.join(''));
   }
- 
+  
   var randomPollId  = 0;
   var url = baseURL + "viewpoll/" + pollIds[randomPollId];
 
@@ -80,7 +80,7 @@ function showPoll(data, isVoteAgain){
   var question = data.question;
   var pollId = data.id;
   var parentPath = data.parentPath;
-  var haveTopic = parentPath.indexOf("ForumData/CategoryHome"); //check topic of poll if toptic is exist 
+  var haveTopic = parentPath.indexOf("ForumData/CategoryHome"); //check topic of poll if toptic is exist  
   if(!data.showVote || isVoteAgain){    
     html = [];
       if(haveTopic){
@@ -96,16 +96,16 @@ function showPoll(data, isVoteAgain){
     html.push('<input type="hidden" name="pollid" value="'+ data.id +'"/>')
     if(data.isMultiCheck){
       for(var i = 0, len = options.length; i < len; i++){
-        html.push('<label class="uiCheckbox"><input type="checkbox"  class="checkbox"  id="rdoVote_' + i + '" name="rdoVote" value="' + i + '"><span>' + options[i] + '</span></label>');
+        html.push('<label class="uiCheckbox"><input type="checkbox"  class="checkbox"  id="rdoVote_' + i + '" name="rdoVote" value="' + i + '"><span title="'+ options[i] +'" data-placement="bottom" rel="tooltip">' + options[i] + '</span></label>');
       }
     } else {
       for(var i = 0, len = options.length; i < len; i++){
-        html.push('<label class="uiRadio"><input type="radio" class="radio" id="rdoVote_' + i + '" name="rdoVote" value="' + i + '"><span>' + options[i] + '</span></label>');
+        html.push('<label class="uiRadio"><input type="radio" class="radio" id="rdoVote_' + i + '" name="rdoVote" value="' + i + '"><span title="'+ options[i] +'" data-placement="bottom" rel="tooltip">' + options[i] + '</span></label>');
       }
     }
     html.push("<div class='uiAction btnform'><button class='btn' type='button' onclick='doVote(this);' name='btnVote' value='" + lblVote + "'>Vote</button>");
         html.push("</form>");
-     
+      
     $('#poll').html(html.join(''));
   }else{
     showResult(data);

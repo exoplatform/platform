@@ -5,6 +5,7 @@ import org.exoplatform.commons.api.settings.SettingValue;
 import org.exoplatform.commons.api.settings.data.Context;
 import org.exoplatform.commons.api.settings.data.Scope;
 import org.exoplatform.commons.utils.PropertyManager;
+import org.exoplatform.container.ExoContainerContext;
 import org.exoplatform.container.PortalContainer;
 import org.exoplatform.services.log.ExoLogger;
 import org.exoplatform.services.log.Log;
@@ -25,12 +26,12 @@ public class AccountSetupFilter implements Filter {
 
     private static final Log LOG = ExoLogger.getLogger(AccountSetupFilter.class);
     SettingService settingService ;
-    // TODO : replace hard coded variable by ...
-    private static final String REST_URI = "/rest";
+    private static String REST_URI;
     @Override
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
         HttpServletRequest httpServletRequest = (HttpServletRequest)request;
         HttpServletResponse httpServletResponse = (HttpServletResponse)response;
+        REST_URI = ExoContainerContext.getCurrentContainer().getContext().getRestContextName();
         boolean isDevMod = PropertyManager.isDevelopping();
         settingService = (SettingService) PortalContainer.getInstance().getComponentInstanceOfType(SettingService.class);
         boolean setupDone = false;

@@ -3,6 +3,7 @@ package org.exoplatform.platform.welcomescreens.service;
 import org.apache.commons.codec.binary.Base64;
 import org.exoplatform.commons.info.MissingProductInformationException;
 import org.exoplatform.commons.info.ProductInformations;
+import org.exoplatform.container.ExoContainerContext;
 import org.exoplatform.container.xml.InitParams;
 import org.exoplatform.container.xml.ValueParam;
 import org.exoplatform.platform.common.account.setup.web.PingBackServlet;
@@ -47,11 +48,12 @@ public class UnlockService implements Startable {
     private static int nbDaysBeforeExpiration = 0;
     private static int nbDaysAfterExpiration = 0;
     private static Calendar remindDate;
-
+    public static String restContext;
     private static ScheduledExecutorService executor;
     private static ProductInformations productInformations;
 
     public UnlockService(ProductInformations productInformations, InitParams params) throws MissingProductInformationException {
+        restContext = ExoContainerContext.getCurrentContainer().getContext().getRestContextName();
         this.productInformations = productInformations;
         registrationFormUrl = ((ValueParam) params.get("registrationFormUrl")).getValue();
         extendFormUrl = ((ValueParam) params.get("extendFormUrl")).getValue();
@@ -330,7 +332,7 @@ public class UnlockService implements Startable {
         private boolean isIgnoredRequest(ServletContext context, String url) {
             String fileName = url.substring(url.indexOf("/"));
             String mimeType = context.getMimeType(fileName);
-            return ((mimeType != null) || (url.contains("rest")));
+            return ((mimeType != null) || (url.contains(restContext)));
         }
     }
 

@@ -124,6 +124,7 @@
                 tenAppsContainer.show();
                 allAppsBtn.removeClass("active");
                 allAppsContainer.hide();
+                gadgets.window.adjustHeight($("#my_gadget").get(0).offsetHeight);
               });
               
               //Initialize tooltip

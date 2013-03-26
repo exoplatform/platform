@@ -123,9 +123,6 @@
             <title>UIHelpPlatformToolbarPortlet</title>
             <short-title>UIHelpPlatformToolbarPortlet</short-title>
         </portlet-info>
-        <supported-processing-event>
-            <name>NavigationChange</name>
-        </supported-processing-event>
     </portlet>
 
     <portlet>
