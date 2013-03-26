@@ -101,11 +101,7 @@
                           "<td ><a href='#'>" + login.userName.replace(/ /g, "&nbsp;") + "</a></td>" +
             "<td >" + (login.lastLogin > new Date().getTime() ? "next " + prettyTimeDiff(login.lastLogin, true) : prettyTimeDiff(login.lastLogin, true) + " ago") + "</td>" +
             "<td >" + (login.beforeLastLogin == 0 ? "__MSG_loginHistory.unknow__" : (login.beforeLastLogin > new Date().getTime() ? "next " + prettyTimeDiff(login.beforeLastLogin, true) : prettyTimeDiff(login.beforeLastLogin, true) + " ago")) + "</td>" +
-            "<td >" +
-              "<a class = 'statsLink' href='#'><img src='/exo-gadget-resources/skin/exo-gadget/images/chart.png' alt='__MSG_loginHistory.statisticsView__' title='__MSG_loginHistory.statisticsView__'></img></a>" +
-              "<a class = 'hisLink' href='#'><img src='/exo-gadget-resources/skin/exo-gadget/images/list.png' alt='__MSG_loginHistory.historyView__' title='__MSG_loginHistory.historyView__'></img></a>" +
-            "</td>" +
-          "</tr>");
+            "</tr>");
           $('#lastLoginsTable').append(newRow);
         });
         $lastLoginsDataBackup = $("#lastLoginsDataDiv").clone();
@@ -180,10 +176,10 @@
       function showSelectedDayLogins(userId, day){
         var d = new Date(day);
         var restURI = "/rest/loginhistory/loginhistory/"+ userId + "/" + day + "/" + (day+86400000);
-        $.getJSON(restURI, function(userLoginHistoryJson){
+        $.getJSON(restURI, function(userLoginHistoryPositionJson){
           $("#selectedDayHeaderContainer").show();
-          $("#selectedDayHeader").text(d.toString("ddd MMM dd yyyy") + " (" + userLoginHistoryJson.data[0] + ")");
-          $("#selectedDayDiv").html(loginHistory2Html(userLoginHistoryJson));
+          $("#selectedDayHeader").text(d.toString("ddd MMM dd yyyy") + " (" + userLoginHistoryPositionJson.data[0] + ")");
+          $("#selectedDayDiv").html(loginHistory2Html(userLoginHistoryPositionJson));
           $("#accordion").accordion("option", "active", 0);
           gadgets.window.adjustHeight($("#LoginHistoryGadgetDiv").get(0).offsetHeight);
         });
@@ -191,34 +187,34 @@
   
       function showTodayLogins(userId){
         var restURI = "/rest/loginhistory/loginhistory/"+ userId + "/" + Date.today().getTime() + "/" + Date.today().setTimeToNow().getTime();
-        $.getJSON(restURI, function(userLoginHistoryJson){
-          $("#todayHeader").text("__MSG_loginHistory.today__ (" + userLoginHistoryJson.data[0] + ")");
-          $("#todayDiv").html(loginHistory2Html(userLoginHistoryJson));
+        $.getJSON(restURI, function(userLoginHistoryPositionJson){
+          $("#todayHeader").text("__MSG_loginHistory.today__ (" + userLoginHistoryPositionJson.data[0] + ")");
+          $("#todayDiv").html(loginHistory2Html(userLoginHistoryPositionJson));
           $("#accordion").accordion("option", "active", 1);
         });
       }
       
       function showEarlierThisWeekLogins(userId){
         var restURI = "/rest/loginhistory/loginhistory/"+ userId + "/" + Date.monday().getTime() + "/" + Date.today().getTime();
-        $.getJSON(restURI, function(userLoginHistoryJson){
-          $("#earlierThisWeekHeader").text("__MSG_loginHistory.earlierThisWeek__ (" + userLoginHistoryJson.data[0] + ")");
-          $("#earlierThisWeekDiv").html(loginHistory2Html(userLoginHistoryJson));
+        $.getJSON(restURI, function(userLoginHistoryPositionJson){
+          $("#earlierThisWeekHeader").text("__MSG_loginHistory.earlierThisWeek__ (" + userLoginHistoryPositionJson.data[0] + ")");
+          $("#earlierThisWeekDiv").html(loginHistory2Html(userLoginHistoryPositionJson));
         });      
       }
   
       function showEarlierThisMonthLogins(userId){
         var restURI = "/rest/loginhistory/loginhistory/"+ userId + "/" + Date.today().moveToFirstDayOfMonth().getTime() + "/" + Date.monday().getTime();
-        $.getJSON(restURI, function(userLoginHistoryJson){
-          $("#earlierThisMonthHeader").text("__MSG_loginHistory.earlierThisMonth__ (" + userLoginHistoryJson.data[0] + ")");
-          $("#earlierThisMonthDiv").html(loginHistory2Html(userLoginHistoryJson));
+        $.getJSON(restURI, function(userLoginHistoryPositionJson){
+          $("#earlierThisMonthHeader").text("__MSG_loginHistory.earlierThisMonth__ (" + userLoginHistoryPositionJson.data[0] + ")");
+          $("#earlierThisMonthDiv").html(loginHistory2Html(userLoginHistoryPositionJson));
         });
       }
       
       function showEarlierLogins(userId){
         var restURI = "/rest/loginhistory/loginhistory/"+ userId + "/" + 0 + "/" + Date.today().moveToFirstDayOfMonth().getTime();
-        $.getJSON(restURI, function(userLoginHistoryJson){
-          $("#earlierHeader").text("__MSG_loginHistory.earlier__ (" + userLoginHistoryJson.data[0] + ")");
-          $("#earlierDiv").html(loginHistory2Html(userLoginHistoryJson));
+        $.getJSON(restURI, function(userLoginHistoryPositionJson){
+          $("#earlierHeader").text("__MSG_loginHistory.earlier__ (" + userLoginHistoryPositionJson.data[0] + ")");
+          $("#earlierDiv").html(loginHistory2Html(userLoginHistoryPositionJson));
         });
       }
       
@@ -247,7 +243,7 @@
           var yearLink = "<a class='chartTitleLink' href='#yearstats/" + Date.parse("Jan 01 " + year).getTime() + "'>" + year + "</a>";
           var quarter = getQuarter(titleWeek.getTime());
           var quarterLink = "<a class='chartTitleLink' href='#quarterstats/" + quarter.date + "'>" + "Q" + quarter.number + "</a>";
-          var chartTitle = "<strong>" + "__MSG_loginHistory.week__ " + currentWeek.getWeek() + "</strong>" + " (" + quarterLink + " - " + monthLink + " " + yearLink + ")";
+          var chartTitle = "__MSG_loginHistory.week__ " + currentWeek.getWeek() ;
           $("#loginStatsChartTitle").html(chartTitle);
           drawChart($("#loginStatsChart"), counts, weekDays);
           $("#stats").html("__MSG_loginHistory.averagePerDay__: " + (counted == 0 ? 0 : (counts.sum()/counted)).toFixed(2));
@@ -459,8 +455,8 @@
         $("#historyDiv").hide();
   
         $("#navigationLinksDiv").show();
-        $("#statisticLink").removeClass();
-        $("#historyLink").addClass("ThemeColor customLink");
+      //  $("#statisticBtn").removeClass();
+      // $("#historyBtn").addClass("ThemeColor customLink");
         $("#userIdDiv").html("<strong>" + selectedUserName + "</strong>");
   
         if(selectedUser == "AllUsers") {
@@ -480,8 +476,8 @@
         $("#statisticDiv").hide();
   
         $("#navigationLinksDiv").show();
-        $("#statisticLink").addClass("ThemeColor customLink");
-        $("#historyLink").removeClass();
+     //   $("#statisticBtn").addClass("ThemeColor customLink");
+      //  $("#historyBtn").removeClass();
         $("#userIdDiv").html("<strong>" +selectedUserName + "</strong>");
   
         if(selectedUser == "AllUsers") {
@@ -595,16 +591,27 @@
           });
   
   
-          $("#globalStatisticLink").click(function(){
+          $("#globalStatisticBtn").click(function(){
             selectedUser = "AllUsers";
             selectedUserName = "__MSG_loginHistory.allUsers__";
+            $(this).addClass("active");
+            $("#globalLastLoginBtn").removeClass("active");
+            $("#globalHistoryBtn").removeClass("active");
+            $("#statisticDiv").appendTo("statisticDivPosition");
+            $("#historyDiv").appendTo("historyDivPosition");
             showStatistic(selectedUser);
           });
   
-          $("#globalHistoryLink").click(function(){
+          $("#globalHistoryBtn").click(function(){
+            $(this).addClass("active");
+            $("#globalLastLoginBtn").removeClass("active");
+            $("#globalStatisticBtn").removeClass("active");
             selectedUser = "AllUsers";
             selectedUserName = "__MSG_loginHistory.allUsers__";
+            $("#statisticDiv").appendTo("statisticDivPosition");
+            $("#historyDiv").appendTo("historyDivPosition");
             showHistory(selectedUser);
+            
           });
   
           
@@ -626,24 +633,32 @@
           });
   
   
-          $("#lastLoginsLink").click(function(){
+          $("#globalLastLoginBtn").click(function(){
             selectedUser = "AllUsers", selectedUserName = "__MSG_loginHistory.allUsers__";
-            $("#statisticLink").addClass("ThemeColor customLink");
-            $("#historyLink").addClass("ThemeColor customLink");
+            $(this).addClass("active");
+            $("#globalStatisticBtn").removeClass("active");
+            $("#globalHistoryBtn").removeClass("active");
+            $("#statisticDiv").appendTo("#userLoginHistoryPosition");
+            $("#historyDiv").appendTo("#userLoginHistoryPosition");
+            
+           // $("#statisticBtn").addClass("ThemeColor customLink");
+           // $("#historyBtn").addClass("ThemeColor customLink");
             $("#userIdDiv").hide();
             $("#lastLoginsDiv").show();
-            $("#navigationLinksDiv").hide();
+        //    $("#navigationLinksDiv").hide();
             $("#statisticDiv").hide();
             $("#historyDiv").hide();
             $("#latestBtn").click();
             gadgets.window.adjustHeight($("#LoginHistoryGadgetDiv").get(0).offsetHeight);
+            
+            
           });
                   
-          $("#statisticLink").click(function(){
+          $("#statisticBtn").click(function(){
             showStatistic(selectedUser);
           });
   
-          $("#historyLink").click(function(){
+          $("#historyBtn").click(function(){
             showHistory(selectedUser);  
           });
           
@@ -667,13 +682,13 @@
     <div id="LoginHistoryGadgetDiv" class="uiGadgetThemes">
       
       <div class="btn-group">
-        <button id="lastLoginsLin" class="btn">__MSG_loginHistory.title__</button>
-        <button id='statisticLink' class="btn">__MSG_loginHistory.statisticsView__</button>
-        <button id='historyLink' class="btn">__MSG_loginHistory.historyView__</button>
+        <button id="globalLastLoginBtn" class="btn">__MSG_loginHistory.title__</button>
+        <button id='globalStatisticBtn' class="btn">__MSG_loginHistory.statisticsView__</button>
+        <button id='globalHistoryBtn' class="btn">__MSG_loginHistory.historyView__</button>
       </div>
       <div id="userIdDiv" class='ThemeColor' style ="font-size:15px;"></div>
       
-      <div id="GadgetContent" class="GadCont">
+      <div id="GadgetContent" class="gadContent">
   
       <div id="lastLoginsDiv">
         <input class="searchUser" id="searchTxt" type="text" placeholder="Search user" id="titleInput" name="titleInput">
@@ -685,7 +700,6 @@
                 <th>User <i class="uiIconArrowDown pull-right"></i></th>
                 <th>Last login <i class="uiIconArrowDown pull-right"></i></th>
                 <th>Before that <i class="uiIconArrowDown pull-right"></i></th>
-                <th>More <i class="uiIconArrowDown pull-right"></i></th>
             </tr>
           </thead>
             </table>
@@ -693,35 +707,49 @@
         </div>
       </div>
 
-  
-          
-      <div id="statisticDiv">
-        <div class='ThemeColor' style="text-align: center; height:10px; font-size: small;">
-          <a id="prevBtn" href="#" style="text-decoration: none;" title="Previous"><i class="uiIconFile"></i></a>            
-          <span id="loginStatsChartTitle"></span>
-          <a id="nextBtn" href="#" style="text-decoration: none;" title="Next">&nbsp;&gt;&gt;</a>            
-        </div>
-        <div id="loginStatsChart" style="height:150px;"></div>
-        <div id="chartTooltipDiv" class="jqplot-highlighter-tooltip"></div>
-        <div id="stats" style="margin-top: 10px; margin-left: 12px;"></div>
+      <fieldset class="userForm">
+         <legend class="StyleLegend">John Smith &nbsp; &nbsp;</legend>
+         <div class="userContent clearfix">
+             <div class="leftContent pull-left">
+        <div class="selectIteam iteamIcon"><i class="iconStastics"></i><span class="caret"></span></div>
+         <div class="iteamIcon"><i class="iconDetail"></i></div>
       </div>
-  
-  
-      <div id="historyDiv">
-        <div id="accordion">
-          <h3 id="selectedDayHeaderContainer"><a id="selectedDayHeader" href="#" title="Selected day"></a></h3>
-          <div id="selectedDayDiv" class="loginHistoryContent"></div>
-          <h3><a id="todayHeader" href="#">__MSG_loginHistory.today__</a></h3>
-          <div id="todayDiv" class="loginHistoryContent"></div>
-          <h3><a id="earlierThisWeekHeader" href="#">__MSG_loginHistory.earlierThisWeek__</a></h3>
-          <div id="earlierThisWeekDiv" class="loginHistoryContent"></div>
-          <h3><a id="earlierThisMonthHeader" href="#">__MSG_loginHistory.earlierThisMonth__</a></h3>
-          <div id="earlierThisMonthDiv" class="loginHistoryContent"></div>
-          <h3><a id="earlierHeader" href="#">__MSG_loginHistory.earlier__</a></h3>
-          <div id="earlierDiv" class="loginHistoryContent"></div>
-        </div>
+               <div id="userLoginHistoryPosition" class="rightContent">
+    
+             </div>
+             </div>
+    </fieldset>
+    <div id="statisticDivPosition">
+    <div id="statisticDiv" class="statisticDiv">
+    <div class="clearfix selectWeek">
+      <button class="pull-right btn"> Week <i class="uiIconMiniArrowDown"></i></button>
+      <div class='btn-group'>
+        <button class="btn" id="prevBtn" rel="tooltip" data-placement="bottom" title="Preview" ><i class="uiIconArrowLeft"></i></button>
+        <button class="btn" id="loginStatsChartTitle">Week 44</button>
+        <button class="btn" id="nextBtn" rel="tooltip" data-placement="bottom" title="Next"><i class="uiIconArrowRight"></i></button>
       </div>
-  
+    </div>
+    <div id="loginStatsChart" style="height:150px;"></div>
+    <div id="chartTooltipDiv" class="jqplot-highlighter-tooltip"></div>
+    <div id="stats" style="margin-top: 10px; margin-left: 12px;"></div>
+    </div>
+    </div>
+    
+    <div id="historyDivPosition">
+    <div id="historyDiv">
+     <div id="accordion">
+      <h3 id="selectedDayHeaderContainer"><a id="selectedDayHeader" href="#" title="Selected day"></a></h3>
+      <div id="selectedDayDiv" class="loginHistoryContent"></div>
+      <h3><a id="todayHeader" href="#">__MSG_loginHistory.today__</a></h3>
+      <div id="todayDiv" class="loginHistoryContent"></div>
+      <h3><a id="earlierThisWeekHeader" href="#">__MSG_loginHistory.earlierThisWeek__</a></h3>
+      <div id="earlierThisWeekDiv" class="loginHistoryContent"></div>
+      <h3><a id="earlierThisMonthHeader" href="#">__MSG_loginHistory.earlierThisMonth__</a></h3>
+      <div id="earlierThisMonthDiv" class="loginHistoryContent"></div>
+      <h3><a id="earlierHeader" href="#">__MSG_loginHistory.earlier__</a></h3>
+      <div id="earlierDiv" class="loginHistoryContent"></div>
+    </div>
+    </div>
     </div>
   
     </div>
