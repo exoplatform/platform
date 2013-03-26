@@ -119,8 +119,10 @@
     				function(e) {
     					if (e.type == "mouseover") {
     						$(this).find("div.editHoverZone").show();
+    						$(this).addClass("active");
     					} else {
     						$(this).find("div.editHoverZone").hide();
+    				     	$(this).removeClass("active");
     					}
     				});
     		$("#BookmarkList").find("div.editZone").each(function() {
@@ -192,7 +194,12 @@
     <div id="content" class="UIGadgetThemes">
        <div class="TitGad ClearFix">
           <div style="float:right; margin-top:2px; margin-right:10px;">
-                <img id="customize"  src="/exo-gadget-resources/skin/exo-gadget/images/settings.png" alt=""></img>
+          <h6 class="title center clearfix">
+ 						<a id="customize" href="#" class="actionIcon pull-right">
+   								<i class="uiIconPlus uiIconLightGrey"></i>
+ 						</a>
+   					Bookmark
+		  </h6>
           </div>
           <div class="ContTit">__MSG_title__</div>
        </div>
@@ -200,7 +207,9 @@
       <div class="ContBookmark GadCont">
       <div id="message" style="display:none;">
       		You don't have any BookMark : add them by click on
-      <img id="customize"  src="/exo-gadget-resources/skin/exo-gadget/images/settings.png" alt=""></img>
+ 						<a id="#" href="#" class="actionIcon">
+   								<i class="uiIconPlus uiIconLightGrey"></i>
+ 						</a>
       button
       </div>
         <div id="BookmarkList" class="BookMarks"></div>
