@@ -16,116 +16,73 @@
       <head>
         <title>Caches</title>
         <link rel="stylesheet" type="text/css" href="/exo-gadget-resources/skin/exo-gadget/gadget-common.css" />
+        <link rel="stylesheet" type="text/css" href="/eXoResources/skin/bootstrap/css/bootstrap.css" />
         <link rel="stylesheet" type="text/css" href="/eXoResources/skin/css/Core.css" />
         
         <style type="text/css">
-          /** Cache Graph **/
-          .cache_graph_container {
-            background: #F9F9F9;
-            min-width: 200px;
-            width: 95%;
-            border: 0;
-            -moz-border-radius: 0;
-            border-radius: 0;
-            padding: 0;
-          }
-          .used-color, .free-color {
-            height: 10px;
-            border-width: 0px;
-          }
-          .used-color {
-            background-color: #226AB4;
-          }
-          .free-color {
-            background-color: #E6E6E6;
-          }
-          /** **/
-          .cache_container {
-            font-size: 12px;
-            border: 1px none gray;
-            padding: 2px;
-            -moz-border-radius: 5px;
-            border-radius: 5px;
-            margin: 3px;
-          }
-          .cache_container_details:hover {
-            border-style: solid;
-            padding: 1px;
-          }
-          .cache_label {
-            width: 100%;
-            font-weight: bold;
-            /*margin-bottom: 0px;*/
-            margin: 1px;
-            margin-left: 5px;
-          }
-          .cache_label:hover {
-            /*background-color: #FFD400;*/
-          }
-          .cache_details {
-            margin: 0px;
-          }
-          .detail_ligne {
-          }
-          .detail_ligne:hover {
-            /*background-color: #FFD400;*/
-            background-color: lightgray;
-            /*border-bottom: 1px dashed gray;*/
-          }
-          .detail_label {
-          }
-          .detail_value {
-            float: right;
-            padding-right: 5px;
-          }
-          .usage_ok {
-          }
-          .usage_warning {
-            background-color: #FFA400;
-            color: white;
-          }
-          .usage_error {
-            background-color: #CC3333;
-            color: white;
+          
+		  .cache_container_details {
+			margin: 10px 0;
+		  }
+		  
+		  .cache_details {
+			margin: 0 0 20px 20px;
+		  }
+		  
+         .cache_label {
+			font-weight: bold;
+			margin-bottom: 0;
+			padding:  0 10px;
+		 }  
+		 
+		 .detail_label {
+			background: url("/gadget-pack/skin/images/Monitoring/listItemIcon.png") no-repeat left 4px;
+			padding-left: 20px;
+		 }
+		 
+		 .detail_ligne {
+			padding: 0 10px;
+			color: #5c5c5c;
+		 }
+		 
+		 .detail_ligne:hover {
+			background: #ebebeb;
+			border-radius: 2px;
+		 }
+		 
+          .cacheLevel .cache {
+            margin: 10px 0;
           }
           
-          /** Gadget Tabs customization 
-          * (http://code.google.com/intl/fr-FR/apis/gadgets/docs/ui.html#Tab_Custom)
-          **/
-          .tablib_table {
-            font-family: arial,sans-serif;
-            font-size: 11px;
+          .cacheLevel .itemGraph {
+            margin-top: 5px;
           }
-          .tablib_selected, .tablib_unselected {
-            line-height: 17px;
-            font-size: 12px;
-            -moz-border-radius-topleft: 5px;
-            -moz-border-radius-topright: 5px;
-            -moz-border-radius-bottomright: 0px;
-            -moz-border-radius-bottomleft: 0px;
-            border-top-left-radius: 5px;
-            border-top-right-radius: 5px;
-            border-bottom-right-radius: 0px;
-            border-bottom-left-radius: 0px;
+          
+          .cacheLevel .graph {
+            background-color: #3370B4;
+            border-radius: 0;
+            height: 18px;
+            overflow: hidden;
+			float: left;
           }
-          .tablib_selected {
-            background-color: #ffffff;
-            color: black;
-            border: 2px solid #e6e6e6;
-            border-bottom: 2px solid #ffffff;
+          
+          .cacheLevel .usedPercent {
+            background-color: #D30019;
+            border-radius: 0;
+            height: 18px;
+			float: left;
           }
-          .tablib_unselected {
-            background-color: #ffffff;
-            border: 0px solid #e6e6e6;
-            border-bottom: 2px solid #e6e6e6;
+          
+          .cacheLevel .cache a b {
+            color: #333;
           }
-          .tablib_spacerTab, .tablib_emptyTab {
-            border-bottom: 2px solid #e6e6e6;
-          }
+          
         </style>
         
-        <script language="javascript" type="text/javascript" src="/exo-gadget-resources/script/jquery/1.6.2/jquery.min.js"></script>
+        <script language="javascript" type="text/javascript" src="/eXoResources/javascript/jquery-1.7.1.js"></script>
         <script language="javascript" type="text/javascript" src="/exo-gadget-resources/script/jquery/plugins/jquery.timers/1.2/jquery.timers.js"></script>
+        <script language="javascript" type="text/javascript" src="/eXoResources/skin/bootstrap/js/bootstrap-button.js"></script>
+        <script language="javascript" type="text/javascript" src="/eXoResources/skin/bootstrap/js/bootstrap-tooltip.js"></script>
         <script type="text/javascript">
           /**
           * Utility functions
@@ -160,11 +117,11 @@
                     }
                   }
                   
-                  itemsCachesConsumption.push('<div id="cache_consumption_'+cacheId+'" title="'+cacheId+'" class="cache_container">');
-                  itemsCachesConsumption.push('<p class="cache_label">'+cacheLabel.fromCamel()+'</p>');
-                  itemsCachesConsumption.push('<div class="cache_graph_container">');
-                  itemsCachesConsumption.push('<img src="/exo-gadget-resources/skin/exo-gadget/images/spacer.gif" class="used-color" alt="" width="'+capacityUsedPercentage_rounded+'%" title="'+capacityUsedPercentage_rounded+'% Used"/>');
-                  itemsCachesConsumption.push('<img src="/exo-gadget-resources/skin/exo-gadget/images/spacer.gif" class="free-color" alt="" width="'+capacityFreePercentage_rounded+'%" title="'+capacityFreePercentage_rounded+'% Free"/>');
+                  itemsCachesConsumption.push('<div id="cache_consumption_'+cacheId+'" class="cache">');
+                  itemsCachesConsumption.push('<a data-placement="bottom" data-toggle="tooltip" href="javascript:void(0)" data-original-title="'+cacheId+'"><b>'+cacheLabel.fromCamel()+'</b></a>');
+                  itemsCachesConsumption.push('<div class="itemGraph clearfix">');
+                  itemsCachesConsumption.push('<div class="usedPercent" data-placement="bottom" data-toggle="tooltip" data-original-title="'+capacityUsedPercentage_rounded+'%" style="width:'+capacityUsedPercentage_rounded+'%"> </div>');
+                  itemsCachesConsumption.push('<div class="graph" data-placement="bottom" data-toggle="tooltip" data-original-title="'+capacityFreePercentage_rounded+'%" style="width:'+capacityFreePercentage_rounded+'%"> </div>');
                   itemsCachesConsumption.push('</div>');
                   itemsCachesConsumption.push('</div>');
                   
@@ -179,11 +136,11 @@
                     }
                   }
                   
-                  itemsCachesHit.push('<div id="cache_hit_'+cacheId+'" title="'+cacheId+'" class="cache_container">');
-                  itemsCachesHit.push('<p class="cache_label">'+cacheLabel.fromCamel()+'</p>');
-                  itemsCachesHit.push('<div class="cache_graph_container">');
-                  itemsCachesHit.push('<img src="/exo-gadget-resources/skin/exo-gadget/images/spacer.gif" class="used-color" alt="" width="'+ratioMissPercentage_rounded+'%" title="'+ratioMissPercentage_rounded+'% Miss ratio"/>');
-                  itemsCachesHit.push('<img src="/exo-gadget-resources/skin/exo-gadget/images/spacer.gif" class="free-color" alt="" width="'+ratioHitPercentage_rounded+'%" title="'+ratioHitPercentage_rounded+'% Hit ratio"/>');
+                  itemsCachesHit.push('<div id="cache_hit_'+cacheId+'" class="cache">');
+                  itemsCachesHit.push('<a data-placement="bottom" data-toggle="tooltip" href="javascript:void(0)" data-original-title="'+cacheId+'"><b>'+cacheLabel.fromCamel()+'</b></a>');
+                  itemsCachesHit.push('<div class="itemGraph clearfix">');
+                  itemsCachesHit.push('<div class="usedPercent" data-placement="bottom" data-toggle="tooltip" data-original-title="'+ratioMissPercentage_rounded+'%" style="width:'+ratioMissPercentage_rounded+'%"> </div>');
+                  itemsCachesHit.push('<div class="graph" data-placement="bottom" data-toggle="tooltip" data-original-title="'+ratioHitPercentage_rounded+'%" style="width:'+ratioHitPercentage_rounded+'%"> </div>');
                   itemsCachesHit.push('</div>');
                   itemsCachesHit.push('</div>');
                   
@@ -199,13 +156,13 @@
                   } else {
                     fillRatioUsageCssClass = "usage_ok";
                   }
-                  itemsCachesDetails.push(' <span class="detail_value" title="Use / Free = ' + cache.capacityUsed + ' / ' + cache.capacityFree + '">');
+                  itemsCachesDetails.push('<span class="detail_value pull-right" title="Use / Free = ' + cache.capacityUsed + ' / ' + cache.capacityFree + '">');
                   itemsCachesDetails.push('<span class="'+fillRatioUsageCssClass+'">'+Math.round(cache.capacityUsedPercentage)+' %</span>');
                   itemsCachesDetails.push('&nbsp;full</span>');
                   itemsCachesDetails.push('</p>');
                   itemsCachesDetails.push('<ul class="cache_details">');
-                  itemsCachesDetails.push('<li class="detail_ligne"><span class="detail_label">max size &nbsp;</span><span class="detail_value">'+cache.capacity+'</span></li>');
-                  itemsCachesDetails.push('<li class="detail_ligne"><span class="detail_label">Time to live &nbsp;</span><span class="detail_value">'+cache.ttl+'</span></li>');
+                  itemsCachesDetails.push('<li class="detail_ligne clearfix"><span class="detail_label">max size &nbsp;</span><span class="detail_value pull-right">'+cache.capacity+'</span></li>');
+                  itemsCachesDetails.push('<li class="detail_ligne clearfix"><span class="detail_label">Time to live &nbsp;</span><span class="detail_value pull-right">'+cache.ttl+'</span></li>');
                   // do we have warning or error on Hit Ratio ?
                   var hitRatioUsageCssClass = "";
                   if (cache.missCountPercentage >= 75) {
@@ -215,9 +172,9 @@
                   } else {
                     hitRatioUsageCssClass = "usage_ok";
                   }
-                  itemsCachesDetails.push('<li class="detail_ligne">');
+                  itemsCachesDetails.push('<li class="detail_ligne clearfix">');
                   itemsCachesDetails.push('<span class="detail_label">Hit / Missed &nbsp;</span>');
-                  itemsCachesDetails.push('<span class="detail_value" title="Hit / Miss = ' + cache.hitCount + ' / ' + cache.missCount + '"> ');
+                  itemsCachesDetails.push('<span class="detail_value pull-right" title="Hit / Miss = ' + cache.hitCount + ' / ' + cache.missCount + '"> ');
                   itemsCachesDetails.push('<span class="'+hitRatioUsageCssClass+'">'+Math.round(cache.hitCountPercentage)+' %</span> / '+Math.round(cache.missCountPercentage)+' %</span>');
                   itemsCachesDetails.push('</li>');
                   itemsCachesDetails.push('</ul>');
@@ -226,37 +183,45 @@
               });
               
               $('#caches-tab-consumption').empty();
-              $('<div/>', {'class': 'cache',  html: itemsCachesConsumption.join('')}).appendTo('#caches-tab-consumption');
+              $('<div/>', { html: itemsCachesConsumption.join('')}).appendTo('#caches-tab-consumption');
               $('#caches-tab-hit').empty();
-              $('<div/>', {'class': 'cache',  html: itemsCachesHit.join('')}).appendTo('#caches-tab-hit');
+              $('<div/>', { html: itemsCachesHit.join('')}).appendTo('#caches-tab-hit');
               $('#caches-tab-details').empty();
-              $('<div/>', {'class': 'cache',  html: itemsCachesDetails.join('')}).appendTo('#caches-tab-details');
+              $('<div/>', { html: itemsCachesDetails.join('')}).appendTo('#caches-tab-details');
               
-              // the standard version is buggy so i use the eXo Social fixed version
-              // gadgets.window.adjustHeight();
-              //eXo.social.SocialUtil.adjustHeight($("html").get(0));
-              //gadgets.window.adjustHeight($("body").get(0).offsetHeight);
-              gadgets.window.adjustHeight($("#tl_0").get(0).offsetHeight);
+              $('#caches-tab-consumption, #caches-tab-hit').find('a[data-toggle="tooltip"]').each(function(){
+                $(this).tooltip();
+              });
+              $('#caches-tab-consumption, #caches-tab-hit').find('div[data-toggle="tooltip"]').each(function(){
+                $(this).tooltip();
+              });
+              gadgets.window.adjustHeight($("#caches_gadget").get(0).offsetHeight);
             });
           }
           
           function init() {
-            var tabs = new gadgets.TabSet(__MODULE_ID__, "Consumption");
-            tabs.addTab("Consumption", {
-              contentContainer: $('#caches-tab-consumption').get(0)
-            });
-            tabs.addTab("Hit ratio", {
-              contentContainer: $('#caches-tab-hit').get(0)
-            });
-            tabs.addTab("Details", {
-              contentContainer: $('#caches-tab-details').get(0)
-            });
-            
-            $(".tablib_selected").live("click", function () { 
-              gadgets.window.adjustHeight($(this).offsetHeight);
-            });
-            
             loadInfos();
+            
+            $('Button#tab_consumption').click(function(){
+              $('#caches-tab-details, #caches-tab-hit').hide(); 
+              $('#caches-tab-consumption').show();
+              gadgets.window.adjustHeight($("#caches_gadget").get(0).offsetHeight);
+            });
+            
+            $('Button#tab_hitratio').click(function(){
+              $('#caches-tab-consumption, #caches-tab-details').hide();
+              $('#caches-tab-hit').show();
+              gadgets.window.adjustHeight($("#caches_gadget").get(0).offsetHeight);
+            });
+            
+            $('Button#tab_details').click(function(){
+              $('#caches-tab-consumption, #caches-tab-hit').hide();
+              $('#caches-tab-details').show();
+              gadgets.window.adjustHeight($("#caches_gadget").get(0).offsetHeight);
+            });
+            
+            $('Button#tab_consumption').trigger('click');  
+            
             $(document).everyTime("60s", "reloadPage", function() {
               loadInfos();
             }, 0);
@@ -265,23 +230,35 @@
         </script>
       </head>
       <body>
-        <!--
-        <div class="UIGadgetThemes">
-        <div class="TitGad ClearFix">
-        <a target="_blank" id="ShowAll" class="IconDropDown" title="Show all"> </a>
-        <div title="Setting" id="SettingButton" class="SettingButton">
-        <a href="javascript:eXoEventGadget.showHideSetting(true);" title="Setting"></a>
-      </div>
-        <div class="ContTit">Caches</div>
-      </div>
-      </div>
-        -->
-        <div id="caches-tab-consumption" class="GadCont templates">Loading data ...</div>
-        <div id="caches-tab-hit" class="GadCont templates">Loading data ...</div>
-        <div id="caches-tab-details" class="GadCont templates">Loading data ...</div>
         
+        <div id="caches_gadget" class="UIGadgetThemes cacheLevel uiBox">
+          <h6 class="title center">
+            Caches level
+          </h6>
+          <div class="uiContentBox">
+            <div class="center">
+              <div class="btn-group clearfix" data-toggle="buttons-radio">
+                <button class="btn" type="button" id="tab_consumption">
+                  Consumption
+                </button>
+                <button class="btn" type="button" id="tab_hitratio">
+                  Hit ratio
+                </button>
+                <button class="btn" type="button" id="tab_details">
+                  Details
+                </button>
+              </div>
+            </div>
+            <div class="cacheCont">
+              <div id="caches-tab-consumption" class="templates">Loading data ...</div>
+              <div id="caches-tab-hit" class="templates">Loading data ...</div>
+              <div id="caches-tab-details" class="templates">Loading data ...</div>
+            </div>
+          </div>
+        </div>
       </body>
     </html>
     ]]>
   </Content>
 </Module>
+
