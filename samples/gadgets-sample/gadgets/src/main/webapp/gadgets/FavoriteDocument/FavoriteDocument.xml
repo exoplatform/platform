@@ -28,7 +28,7 @@
             font-size: 13px;
           }
       
-          .UIGadgetThemes .favoriteDoc .icon {
+          .UIGadgetThemes.favoriteDoc .icon {
             margin: 8px 10px 0 0;
             padding-left: 0;
           }
@@ -38,9 +38,10 @@
 		    text-overflow: ellipsis;
 		    white-space: nowrap;
 		    width: 85%;
-	        a {
+		  }
+		    
+	      .favoriteDoc .fileDesc a {
 	         color: #333;
-	        }
 	      }
           
           .favoriteDoc .fileDesc a:hover {
