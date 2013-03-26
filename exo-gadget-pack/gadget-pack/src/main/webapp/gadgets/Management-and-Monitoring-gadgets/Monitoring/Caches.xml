@@ -21,35 +21,35 @@
         
         <style type="text/css">
           
-		  .cache_container_details {
-			margin: 10px 0;
-		  }
-		  
-		  .cache_details {
-			margin: 0 0 20px 20px;
-		  }
-		  
-         .cache_label {
-			font-weight: bold;
-			margin-bottom: 0;
-			padding:  0 10px;
-		 }  
-		 
-		 .detail_label {
-			background: url("/gadget-pack/skin/images/Monitoring/listItemIcon.png") no-repeat left 4px;
-			padding-left: 20px;
-		 }
-		 
-		 .detail_ligne {
-			padding: 0 10px;
-			color: #5c5c5c;
-		 }
-		 
-		 .detail_ligne:hover {
-			background: #ebebeb;
-			border-radius: 2px;
-		 }
-		 
+          .cache_container_details {
+            margin: 10px 0;
+          }
+          
+          .cache_details {
+            margin: 0 0 20px 20px;
+          }
+          
+          .cache_label {
+            font-weight: bold;
+            margin-bottom: 0;
+            padding:  0 10px;
+          }  
+          
+          .detail_label {
+            background: url("/gadget-pack/skin/images/Monitoring/listItemIcon.png") no-repeat left 4px;
+            padding-left: 20px;
+          }
+          
+          .detail_ligne {
+            padding: 0 10px;
+            color: #5c5c5c;
+          }
+          
+          .detail_ligne:hover {
+            background: #ebebeb;
+            border-radius: 2px;
+          }
+          
           .cacheLevel .cache {
             margin: 10px 0;
           }
@@ -63,17 +63,20 @@
             border-radius: 0;
             height: 18px;
             overflow: hidden;
-			float: left;
+            float: left;
           }
           
           .cacheLevel .usedPercent {
             background-color: #D30019;
             border-radius: 0;
             height: 18px;
-			float: left;
+            float: left;
           }
           
           .cacheLevel .cache a b {
+            color: #333;
+          }
+          .cache_label a {
             color: #333;
           }
           
@@ -120,8 +123,8 @@
                   itemsCachesConsumption.push('<div id="cache_consumption_'+cacheId+'" class="cache">');
                   itemsCachesConsumption.push('<a data-placement="bottom" data-toggle="tooltip" href="javascript:void(0)" data-original-title="'+cacheId+'"><b>'+cacheLabel.fromCamel()+'</b></a>');
                   itemsCachesConsumption.push('<div class="itemGraph clearfix">');
-                  itemsCachesConsumption.push('<div class="usedPercent" data-placement="bottom" data-toggle="tooltip" data-original-title="'+capacityUsedPercentage_rounded+'%" style="width:'+capacityUsedPercentage_rounded+'%"> </div>');
-                  itemsCachesConsumption.push('<div class="graph" data-placement="bottom" data-toggle="tooltip" data-original-title="'+capacityFreePercentage_rounded+'%" style="width:'+capacityFreePercentage_rounded+'%"> </div>');
+                  itemsCachesConsumption.push('<div class="usedPercent" data-placement="bottom" data-toggle="tooltip" data-original-title="'+capacityUsedPercentage_rounded+'% Used" style="width:'+capacityUsedPercentage_rounded+'%"> </div>');
+                  itemsCachesConsumption.push('<div class="graph" data-placement="bottom" data-toggle="tooltip" data-original-title="'+capacityFreePercentage_rounded+'% Free" style="width:'+capacityFreePercentage_rounded+'%"> </div>');
                   itemsCachesConsumption.push('</div>');
                   itemsCachesConsumption.push('</div>');
                   
@@ -139,14 +142,15 @@
                   itemsCachesHit.push('<div id="cache_hit_'+cacheId+'" class="cache">');
                   itemsCachesHit.push('<a data-placement="bottom" data-toggle="tooltip" href="javascript:void(0)" data-original-title="'+cacheId+'"><b>'+cacheLabel.fromCamel()+'</b></a>');
                   itemsCachesHit.push('<div class="itemGraph clearfix">');
-                  itemsCachesHit.push('<div class="usedPercent" data-placement="bottom" data-toggle="tooltip" data-original-title="'+ratioMissPercentage_rounded+'%" style="width:'+ratioMissPercentage_rounded+'%"> </div>');
-                  itemsCachesHit.push('<div class="graph" data-placement="bottom" data-toggle="tooltip" data-original-title="'+ratioHitPercentage_rounded+'%" style="width:'+ratioHitPercentage_rounded+'%"> </div>');
+                  itemsCachesHit.push('<div class="usedPercent" data-placement="bottom" data-toggle="tooltip" data-original-title="'+ratioMissPercentage_rounded+'% Miss Ratio" style="width:'+ratioMissPercentage_rounded+'%"> </div>');
+                  itemsCachesHit.push('<div class="graph" data-placement="bottom" data-toggle="tooltip" data-original-title="'+ratioHitPercentage_rounded+'% Hit Ratio" style="width:'+ratioHitPercentage_rounded+'%"> </div>');
                   itemsCachesHit.push('</div>');
                   itemsCachesHit.push('</div>');
                   
                   // ### Caches Details
-                  itemsCachesDetails.push('<div id="cache_details_'+cacheId+'" title="'+cacheId+'" class="cache_container cache_container_details">');
-                  itemsCachesDetails.push('<p class="cache_label">'+cacheLabel.fromCamel());
+                  itemsCachesDetails.push('<div id="cache_details_'+cacheId+'" class="cache_container cache_container_details">');
+                  itemsCachesDetails.push('<p class="cache_label">');
+                  itemsCachesDetails.push('<a data-placement="right" data-toggle="tooltip" href="javascript:void(0)" data-original-title="'+cacheId+'">'+cacheLabel.fromCamel()+'</a>');
                   // do we have warning or error on Filled Ratio ?
                   var fillRatioUsageCssClass = "";
                   if (cache.capacityUsedPercentage >= 75 && cache.capacityUsedPercentage < 90) {
@@ -156,7 +160,7 @@
                   } else {
                     fillRatioUsageCssClass = "usage_ok";
                   }
-                  itemsCachesDetails.push('<span class="detail_value pull-right" title="Use / Free = ' + cache.capacityUsed + ' / ' + cache.capacityFree + '">');
+                  itemsCachesDetails.push('<span class="detail_value pull-right" data-placement="bottom" data-toggle="tooltip" data-original-title="Use / Free = ' + cache.capacityUsed + ' / ' + cache.capacityFree + '">');
                   itemsCachesDetails.push('<span class="'+fillRatioUsageCssClass+'">'+Math.round(cache.capacityUsedPercentage)+' %</span>');
                   itemsCachesDetails.push('&nbsp;full</span>');
                   itemsCachesDetails.push('</p>');
@@ -174,7 +178,7 @@
                   }
                   itemsCachesDetails.push('<li class="detail_ligne clearfix">');
                   itemsCachesDetails.push('<span class="detail_label">Hit / Missed &nbsp;</span>');
-                  itemsCachesDetails.push('<span class="detail_value pull-right" title="Hit / Miss = ' + cache.hitCount + ' / ' + cache.missCount + '"> ');
+                  itemsCachesDetails.push('<span class="detail_value pull-right" data-placement="bottom" data-toggle="tooltip" data-original-title="Hit / Miss = ' + cache.hitCount + ' / ' + cache.missCount + '"> ');
                   itemsCachesDetails.push('<span class="'+hitRatioUsageCssClass+'">'+Math.round(cache.hitCountPercentage)+' %</span> / '+Math.round(cache.missCountPercentage)+' %</span>');
                   itemsCachesDetails.push('</li>');
                   itemsCachesDetails.push('</ul>');
@@ -189,10 +193,7 @@
               $('#caches-tab-details').empty();
               $('<div/>', { html: itemsCachesDetails.join('')}).appendTo('#caches-tab-details');
               
-              $('#caches-tab-consumption, #caches-tab-hit').find('a[data-toggle="tooltip"]').each(function(){
-                $(this).tooltip();
-              });
-              $('#caches-tab-consumption, #caches-tab-hit').find('div[data-toggle="tooltip"]').each(function(){
+              $('#caches-tab-consumption, #caches-tab-hit, #caches-tab-details').find('div,a,span').filter('[data-toggle="tooltip"]').each(function(){
                 $(this).tooltip();
               });
               gadgets.window.adjustHeight($("#caches_gadget").get(0).offsetHeight);
@@ -261,4 +262,5 @@
     ]]>
   </Content>
 </Module>
+
 
