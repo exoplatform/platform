@@ -15,7 +15,76 @@
     <link type="text/css" rel="stylesheet" href="/intranet-gadgets/skin/css/Bookmark.css" />
   <link rel="stylesheet" type="text/css" href="/eXoResources/skin/css/Core.css" />
     <link rel="stylesheet" type="text/css" href="/eXoResources/skin/bootstrap/css/bootstrap.css" />
-  
+  <style type="text/css">
+	 /* Bookmark */
+         
+		  .bookmark ul {
+			margin: 0;
+			padding: 0;
+		  }
+		  
+          .bookmark ul li {
+            margin: 0 0 10px 0;
+          }
+          
+		  .bookmark ul li a.bookmarkTit {
+			padding: 2px 10px;
+			display: block;
+			color: #2f5e92;
+            font-weight: bold;
+		  }
+		  
+		  .bookmark ul li a.bookmarkTit:hover {
+			text-decoration: none;
+		  }
+		  
+		  .bookmark ul li:hover {
+			background: #ebebeb;
+			border-radius: 2px;
+		  }
+		  
+		  .bookmark ul li.active:hover, .bookmark ul li.addBookmark:hover {
+			background: none;
+			border-radius: 0;
+		  }
+		  
+		  .bookmark ul li .editHoverZone {
+			margin: 4px 5px 0 0;
+		  }
+		  
+		  .bookmark ul li .editHoverZone a {
+			margin: 0 5px;
+		  }
+		  
+          .bookmark .editZone {
+            margin: 10px 10px 0 10px;
+          }
+          
+          .bookmark .editZone .btn {
+            margin: 10px 10px 0 0;
+          }
+          
+          .bookmark .bookmarkItem {
+            padding: 0 10px;  
+          }
+          
+          .bookmark .bookmarkItem:hover {
+            background: #e6e6e6;    
+            border-radius: 4px;
+          }
+          
+          .bookmark .uiGrayLightBox {
+            padding: 5px 7px;
+			margin-right: 10px;
+          }
+          
+          .bookmark .uiGrayLightBox input {
+            margin: 5px 3px;
+			width: 235px;
+			height: 28px;
+          }
+          
+  </style>
     <script language="javascript" type="text/javascript" src="/exo-gadget-resources/script/jquery/1.6.2/jquery.min.js"></script>
       
     <script type="text/javascript">
@@ -29,12 +98,12 @@
                       </div> \
                       <a id="bookmark'
     				+ id
-    				+ '" class="bookmark" href="'
+    				+ '" class="bookmarkTit" href="'
     				+ link
     				+ '" target="_parent">'
     				+ name
     				+ '</a> \
-                      <div class="editZone" style="display:none;">  \
+                      <div class="editZone clearfix" style="display:none;">  \
                         <div class="uiGrayLightBox pull-left" >     \
                                <input type="text" class ="editName" value="'
     				+ name
@@ -77,6 +146,7 @@
     						"input:text[class=editLink]").val();
     				if (newName.length == 0 || newLink.length == 0)
     					return false;
+						 $(this).closest(".ListItem").removeClass("active");
     				var $thisBookmark = $(this).closest(".ListItem").find(
     						"a[id^=bookmark]");
     				$thisBookmark.text(newName);
@@ -89,6 +159,7 @@
 
     	$("#BookmarkList").delegate(".cancel", "click", function() {
     		$(this).closest(".ListItem").find("div.editZone").hide();
+			 $(this).closest(".ListItem").removeClass("active");
     		changeToViewMode();
     	});
 
@@ -96,6 +167,7 @@
     	$("#BookmarkList").delegate(".uiIconEdit", "click", function() {
     		//hide the icon modify and delete
     		$(this).closest(".ListItem").find("div.editZone").show();
+			$(this).closest(".ListItem").addClass("active");
     		// gadgets.window.adjustHeight($("#content").get(0).offsetHeight);
     		changeToEditMode();
     	});
@@ -119,10 +191,8 @@
     				function(e) {
     					if (e.type == "mouseover") {
     						$(this).find("div.editHoverZone").show();
-    						$(this).addClass("active");
     					} else {
     						$(this).find("div.editHoverZone").hide();
-    				     	$(this).removeClass("active");
     					}
     				});
     		$("#BookmarkList").find("div.editZone").each(function() {
@@ -158,13 +228,13 @@
     	}
 
     	function addNewBookMark() {
-    		var element = '<li class="ListItem"> \
+    		var element = '<li class="ListItem addBookmark"> \
                     <div class="editHoverZone pull-right" style="display:none;">  \
                     <a href="#" class="pull-right"><i class="uiIconDelete uiIconLightGray"></i></a> \
                     <a href="#" class="pull-right"><i class="uiIconEdit uiIconLightGray"></i></a>  \
                     </div> \
-                    <a id="bookmarkXXXX" class="bookmark" href="#" target="_parent"></a> \
-                    <div class="editZone">  \
+                    <a id="bookmarkXXXX" class="bookmarkTit" href="#" target="_parent"></a> \
+                    <div class="editZone clearfix">  \
                       <div class="uiGrayLightBox pull-left" >     \
                              <input type="text" class ="editName" value=""/>    \
                              <input type="text" class ="editLink" value=""/> \
@@ -191,32 +261,25 @@
     </script>
   </head>
  
-    <div id="content" class="UIGadgetThemes">
-       <div class="TitGad ClearFix">
-          <div style="float:right; margin-top:2px; margin-right:10px;">
-          <h6 class="title center clearfix">
- 						<a id="customize" href="#" class="actionIcon pull-right">
-   								<i class="uiIconPlus uiIconLightGrey"></i>
- 						</a>
-   					Bookmark
-		  </h6>
-          </div>
-          <div class="ContTit">__MSG_title__</div>
-       </div>
-    
-      <div class="ContBookmark GadCont">
-      <div id="message" style="display:none;">
-      		You don't have any BookMark : add them by click on
- 						<a id="#" href="#" class="actionIcon">
-   								<i class="uiIconPlus uiIconLightGrey"></i>
- 						</a>
-      button
-      </div>
-        <div id="BookmarkList" class="BookMarks"></div>
+    <div id="content" class="UIGadgetThemes bookmark uiBox">
+      <h6 class="title center clearfix">
+ 		<a id="customize" href="#" class="actionIcon pull-right">
+   			<i class="uiIconPlus uiIconLightGrey"></i>
+ 		</a>
+   		__MSG_title__
+	  </h6>
+      <div class="uiContentBox">
+	      <div id="message" style="display:none;">
+	      		You don't have any BookMark : add them by click on
+	 						<a id="#" href="#" class="actionIcon">
+	   								<i class="uiIconPlus uiIconLightGrey"></i>
+	 						</a>
+	      button
+	      </div>
+          <ul id="BookmarkList"></ul>
         </div>
       </div>
       
-     </div>
   ]]>
 </Content>
 </Module>
