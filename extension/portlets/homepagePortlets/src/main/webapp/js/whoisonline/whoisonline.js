@@ -8,9 +8,9 @@
 
     var showTooltip = function() {
         $('#onlineList li').each(function() {
-            var activity = $('#onlineList input[name=activity]').val();
-            var connect = $('#onlineList input[name=connect]').val();
-            var messageLabel = $('#onlineList input[name=messageLabel]').val();
+            var activity = $(this).find("input[name=activity]").val();
+            var connect = $(this).find("input[name=connect]").val();
+            var messageLabel =  $(this).find("input[name=messageLabel]").val();
 
             var userId = $(this).find("input[name=userId]").val();
             var userAvatar = $(this).find("input[name=userAvatar]").val();
