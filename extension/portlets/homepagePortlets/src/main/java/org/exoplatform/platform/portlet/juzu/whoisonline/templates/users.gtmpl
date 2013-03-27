@@ -42,15 +42,15 @@
   <%users.each { user -> %>
 
   <%
-    def connect=bundle.getString("connect.label");
+    def connect="";
 	def message=bundle.getString("message.label");
 	def activity=user.getActivity();
 	if(user.getStatus().equals("") || user.getStatus().equals("ignored")){
-		connect="<div id='"+user.getId()+"connect' class='uiAction connectAction' ><a class='connect btn btn-primary' href='#'>"+connect+"</a></div>";
+		connect="<div id='"+user.getId()+"connect' class='uiAction connectAction' ><a class='connect btn btn-primary' href='#'>"+bundle.getString("connect.label")+"</a></div>";
 
 	}else{
 	if( user.getStatus().equals("received")) {
-	  connect="<div id='"+user.getId()+"accept' class='uiAction connectAction' ><a class='connect btn btn-primary' href='#'>"+ connect+"</a></div>";
+	  connect="<div id='"+user.getId()+"accept' class='uiAction connectAction' ><a class='connect btn btn-primary' href='#'>"+bundle.getString("connect.label")+"</a></div>";
 	}else{
 		if(user.getStatus().equals("pending")) {
 			connect="<div id='connectMessge'>"+message+"</div>";
