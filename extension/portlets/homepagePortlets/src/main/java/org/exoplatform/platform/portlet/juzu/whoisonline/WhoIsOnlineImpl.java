@@ -145,7 +145,7 @@ public class WhoIsOnlineImpl implements WhoIsOnline {
         for (ExoSocialActivity act : activityList.loadAsList(i, count)) {
             i++;
 
-            if (act.getType().equals(DEFAULT_ACTIVITY) || act.getType().equals(LINK_ACTIVITY) || act.getType().equals(DOC_ACTIVITY)) {
+            if (act.getType()!=null && (act.getType().equals(DEFAULT_ACTIVITY) || act.getType().equals(LINK_ACTIVITY) || act.getType().equals(DOC_ACTIVITY))) {
 
                 activity = act.getTitle().replaceAll("<br/>", " ").replaceAll("<br />", " ").replaceAll("<br>", " ").replaceAll("</br>", " ").trim();
                 activity = StringEscapeUtils.unescapeHtml(activity);
