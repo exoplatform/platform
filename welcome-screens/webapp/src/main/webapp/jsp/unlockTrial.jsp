@@ -23,9 +23,13 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
     <link rel="shortcut icon" type="image/x-icon"  href="/welcome-screens/favicon.ico" />
     <link rel="stylesheet" type="text/css" href="/welcome-screens/css/Stylesheet.css"/>
     <script type='text/javascript'>
-        function submitValidationKey() {
-            document.getElementById('submitActionButton').onclick='';
-            document.unlockForm.submit();
+        function formValidation() {
+            if(document.unlockForm.hashMD5.value!="")
+                return true;
+            else {
+                $('.ERROR.span').innerHTML("Unlock key is mondatory");
+                return false;
+            }
         }
     </script>
 </head>
@@ -48,7 +52,7 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 
         <span class="TextContainer">Grab your product code and request an unlock key</span>
         <br>
-        <span>Product Code</span> <input type="text" class="Text"  DISABLED="disabled" placeholder="<%=TrialService.getProductCode() %>">  <a class="Botton BlueRect" href="<%=TrialService.getRegistrationFormUrl()%>">Request a Key</a>
+        <span>Product Code</span> <input type="text" class="Text"  DISABLED="disabled" placeholder="<%=TrialService.getProductCode() %>">  <a class="Botton BlueRect" href="<%=TrialService.getRegistrationFormUrl()%>?'pc=<%=TrialService.getProductCode()%>'">Request a Key</a>
         <span class="TriangleItem BlueIcon"></span>
     </div>
 
@@ -57,7 +61,7 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 
             <span class="TextContainer">Enter the unlock key below to unlock the product <br> </span>
             <div class="FormContainer">
-                <form action="/welcome-screens/UnlockServlet" method="post" name="unlockForm">
+                <form action="/welcome-screens/UnlockServlet" method="post" name="unlockForm" onsubmit="return formValidation();">
                     <table>
                         <tr>
                             <td>
@@ -68,14 +72,18 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
                             </td>
                             <td>
                                 <input type="submit" class="FormSubmit BlueFormRect" value="Unlock Product">
+                                <br>
+                                <span class="ERROR Red"> </span>
                             </td>
                         </tr>
+
                         <% if(request.getAttribute("errorMessage") != null && !request.getAttribute("errorMessage").toString().isEmpty()) {%>
                         <tr>
                             <td colspan="3" class="Red">
                                 <%=request.getAttribute("errorMessage").toString() %>
                             </td>
                         </tr>
+
                         <% }%>
                     </table>
                 </form>

@@ -21,7 +21,7 @@
     height: 20px;
     border: #151515;
 }
-.backoutdated{
+.backOutdated{
     background-color: red;
 }
 .backNotOutdated{
