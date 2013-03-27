@@ -79,21 +79,9 @@ public class TrialService implements Startable {
             /*
             ecrire la REMIND_DATE à la creation fu fichier d'évaluation
              */
-            // Utils.writeToFile(Utils.REMIND_DATE, "", Utils.HOME_CONFIG_FILE_LOCATION);
             Utils.writeToFile(Utils.REMIND_DATE, rdate, Utils.HOME_CONFIG_FILE_LOCATION);
             Utils.writeToFile(Utils.LOOP_FUSE_FORM_DISPLAYED, "false", Utils.HOME_CONFIG_FILE_LOCATION);
 
-            /*
-            COMPUTE UNLOCKED INFORMATION: initialisation (pour afficher: vous avez 30jours trial)
-             */
-            /*try {
-                remindDate = Utils.parseDateBase64(rdate);
-                computeUnlockedInformation();
-            } catch (Exception exception) {
-                delayPeriod = 0;
-                outdated = true;
-            }                         */
-            //return;
         }
         // Test the file informations
         String productNameAndVersionReadFromFile = Utils.readFromFile(Utils.PRODUCT_NAME, Utils.HOME_CONFIG_FILE_LOCATION);
@@ -105,26 +93,15 @@ public class TrialService implements Startable {
         productCode = Utils.readFromFile(Utils.PRODUCT_CODE, Utils.HOME_CONFIG_FILE_LOCATION);
 
         // Read: loopfuse form displayed   Averifier la usibility
-        /* String loopfuseFormDisplayedString = Utils.readFromFile(Utils.LOOP_FUSE_FORM_DISPLAYED, Utils.HOME_CONFIG_FILE_LOCATION);
- if (loopfuseFormDisplayedString != null && !loopfuseFormDisplayedString.isEmpty()) {
-     loopfuseFormDisplayed = Boolean.parseBoolean(loopfuseFormDisplayedString);
- }       */
-
         // Read: Remind date
         String remindDateString = Utils.readFromFile(Utils.REMIND_DATE, Utils.HOME_CONFIG_FILE_LOCATION);
-
-        // Trial delay was already requested
         remindDate = Utils.parseDateBase64(remindDateString);
         computeUnlockedInformation();
-        // Copute delay period every day
+        // Compute delay period every day
         executor = Executors.newSingleThreadScheduledExecutor();
         executor.scheduleWithFixedDelay(new Runnable() {
             public void run() {
-                // Have to click on dismiss each Day.
-                //dismissed = false;
-                //String remindDateString = Utils.readFromFile(Utils.REMIND_DATE, Utils.HOME_CONFIG_FILE_LOCATION);
-                //remindDate = Utils.parseDateBase64(remindDateString);
-               computeUnlockedInformation();
+                computeUnlockedInformation();
             }
         }, 1, 1, TimeUnit.MINUTES);
     }
@@ -201,8 +178,6 @@ public class TrialService implements Startable {
         return Utils.getModifiedMD5Code(productCode.getBytes());
     }
 
-
-
     private static void computeUnlockedInformation() {
         Calendar today = Calendar.getInstance();
         today.set(Calendar.HOUR, 0);
@@ -244,22 +219,24 @@ public class TrialService implements Startable {
                 ServletException {
             HttpServletRequest httpServletRequest = (HttpServletRequest) request;
             HttpServletResponse httpServletResponse = (HttpServletResponse) response;
-            boolean isIgnoringRequest = isIgnoredRequest(httpServletRequest.getSession(true).getServletContext(),
+            /*boolean isIgnoringRequest = isIgnoredRequest(httpServletRequest.getSession(true).getServletContext(),
                     httpServletRequest.getRequestURI());
             if ((!outdated) || isIgnoringRequest) {
                 chain.doFilter(request, response);
                 return;
-            }
+            }    */
             if (TrialService.calledUrl == null) {
                 TrialService.calledUrl = httpServletRequest.getRequestURI();
             }
+            chain.doFilter(request, response);
+            return;
         }
 
-        private boolean isIgnoredRequest(ServletContext context, String url) {
+        /*private boolean isIgnoredRequest(ServletContext context, String url) {
             String fileName = url.substring(url.indexOf("/"));
             String mimeType = context.getMimeType(fileName);
             return mimeType != null;
-        }
+        }                  */
     }
 
     public static class UnlockServlet extends HttpServlet {
@@ -279,14 +256,13 @@ public class TrialService implements Startable {
                 if (delayPeriod <= 0) {
                     outdated = true;
                     request.setAttribute("errorMessage", "Sorry this evaluation key is not valid.");
-                    request.getRequestDispatcher("/jsp/expired.jsp").include(request, response);
+                    request.getRequestDispatcher("/jsp/unlockTrial.jsp").include(request, response);
                     return;
                 }
                 productCode = generateProductCode();
                 Utils.writeToFile(Utils.PRODUCT_CODE, productCode, Utils.HOME_CONFIG_FILE_LOCATION);
                 outdated = false;
                 rdate = computeRemindDateFromTodayBase64();
-            }
             try {
                 remindDate = Utils.parseDateBase64(rdate);
                 computeUnlockedInformation();
@@ -303,7 +279,9 @@ public class TrialService implements Startable {
                 return;
             }
         }
-
+            response.sendRedirect(TrialService.calledUrl);
+            return;
+        }
         @Override
         protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
             doPost(request, response);
