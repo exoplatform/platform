@@ -734,8 +734,82 @@
     <div id="stats" style="margin-top: 10px; margin-left: 12px;"></div>
     </div>
     </div>
-    
-    <div id="historyDivPosition">
+           
+        
+     
+<div id="historyDivPosition">
+  <div id="historyDiv">
+    <div id="" class="accordion">
+      <div class="accordion-group" id="">
+        <div class="accordion-heading">
+          <div href="#0" class="accordion-toggle expaned">
+            <a id="" href="#" title="Selected day"><i class="uiIconSelected pull-right"></i>Yesterday</a>
+          </div>
+        </div>
+        <div id="" class="accordion-body collapse  in">
+      <table>
+        <tbody>
+          <tr>
+            <td><a href="#">John Smith</a></td>
+            <td class="timePost">Thu 22 Nov 2012 5:08 PM</td>
+          </tr>
+          <tr>
+            <td><a href="#">John Smith</a></td>
+            <td class="timePost">Thu 22 Nov 2012 5:08 PM</td>
+          </tr>
+          <tr>
+            <td><a href="#">John Smith</a></td>
+            <td class="timePost">Thu 22 Nov 2012 5:08 PM</td>
+          </tr>
+          <tr>
+            <td><a href="#">John Smith</a></td>
+            <td class="timePost">Thu 22 Nov 2012 5:08 PM</td>
+          </tr>
+        </tbody>
+      </table>
+        </div>
+      </div>
+      <div class="accordion-group">
+        <div class="accordion-heading">
+          <div href="#0" class="accordion-toggle collapsed">
+            <a href="#" id=""><i class="uiIconSelected pull-right"></i>__MSG_loginHistory.today__</a>
+          </div>
+        </div>
+        <div id="" class="accordion-body collapse  in" style="display: none;">
+        </div>
+      </div>
+      <div class="accordion-group">
+        <div class="accordion-heading">
+          <div href="#0" class="accordion-toggle collapsed">
+            <a id="" href="#"><i class="uiIconSelected pull-right"></i>__MSG_loginHistory.earlierThisWeek__</a>
+          </div>
+        </div>
+        <div id="" class="accordion-body collapse  in" style="display: none;">
+        </div>
+      </div>
+      <div class="accordion-group">
+        <div class="accordion-heading">
+          <div href="#0" class="accordion-toggle collapsed">
+            <a id="" href="#"><i class="uiIconSelected pull-right"></i>__MSG_loginHistory.earlierThisMonth__</a>
+          </div>
+        </div>
+        <div id="" class="accordion-body collapse  in" style="display: none;">
+        </div>
+      </div>
+      <div class="accordion-group">
+        <div class="accordion-heading">
+          <div href="#0" class="accordion-toggle collapsed">
+            <a id="" href="#"><i class="uiIconSelected pull-right"></i>__MSG_loginHistory.earlier__</a>
+          </div>
+        </table>
+       <div id="" class="accordion-body collapse  in" style="display: none;">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+   <!-- <div id="historyDivPosition">
     <div id="historyDiv">
      <div id="accordion">
       <h3 id="selectedDayHeaderContainer"><a id="selectedDayHeader" href="#" title="Selected day"></a></h3>
@@ -749,7 +823,7 @@
       <h3><a id="earlierHeader" href="#">__MSG_loginHistory.earlier__</a></h3>
       <div id="earlierDiv" class="loginHistoryContent"></div>
     </div>
-    </div>
+    </div> -->
     </div>
   
     </div>
