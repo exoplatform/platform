@@ -4,30 +4,6 @@
 	xmlns="http://www.exoplatform.org/xml/ns/kernel_1_2.xsd">
 
 	<external-component-plugins>
-		<target-component>org.exoplatform.webui.ext.UIExtensionManager</target-component>
-		<component-plugin>
-			<name>Delete Node Action</name>
-			<set-method>registerUIExtensionPlugin</set-method>
-			<type>org.exoplatform.webui.ext.UIExtensionPlugin</type>
-			<init-params>
-				<object-param>
-					<name>DeleteNode</name>
-					<object type="org.exoplatform.webui.ext.UIExtension">
-						<field name="type">
-							<string>org.exoplatform.ecm.dms.UIActionBar</string>
-						</field>
-						<field name="name">
-							<string>DeleteNode</string>
-						</field>
-						<field name="component">
-							<string>org.exoplatform.platform.webui.extension.DeleteNodeComponent</string>
-						</field>
-					</object>
-				</object-param>
-			</init-params>
-		</component-plugin>
-	</external-component-plugins>
-	<external-component-plugins>
 		<!-- The full qualified name of the ResourceBundleService -->
 		<target-component>org.exoplatform.services.resources.ResourceBundleService</target-component>
 		<component-plugin>
