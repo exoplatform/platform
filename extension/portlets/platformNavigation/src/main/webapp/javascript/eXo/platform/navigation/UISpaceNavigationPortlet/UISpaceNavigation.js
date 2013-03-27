@@ -26,6 +26,8 @@
             textField.onfocus = function() {
                 if (textField.value == me.defaultValueForTextSearch) {
                     textField.value = "";
+                } else{
+                    textField.select();
                 }
                 textField.className="searchText Focus"
             };
