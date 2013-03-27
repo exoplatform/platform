@@ -49,7 +49,7 @@
 					<label class="control-label" for="name"><%=_ctx.appRes("WebContent.dialog.label.name")%>:</label>
 					<div class="controls">
 						<%
-								String[] webContentFieldName = ["jcrPath=/node", "nodetype=exo:webContent", "mixintype=mix:votable,mix:commentable,mix:i18n", "editable=if-null","validate=name,empty"] ;
+								String[] webContentFieldName = ["jcrPath=/node", "nodetype=wai:siteSearchBox", "mixintype=mix:votable,mix:commentable,mix:i18n", "editable=if-null","validate=name,empty"] ;
 								uicomponent.addTextField("name", webContentFieldName) ; 
 								String[] cssFolder = ["jcrPath=/node/css", "nodetype=exo:cssFolder", "defaultValues=css"] ;
 								String[] jsFolder = ["jcrPath=/node/js", "nodetype=exo:jsFolder", "defaultValues=js"] ;
