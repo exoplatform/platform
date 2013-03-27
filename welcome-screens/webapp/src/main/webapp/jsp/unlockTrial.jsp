@@ -27,7 +27,7 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
             if(document.unlockForm.hashMD5.value!="")
                 return true;
             else {
-                $('.ERROR.span').innerHTML("Unlock key is mondatory");
+                ERROR.innerHTML="Unlock key is mondatory";
                 return false;
             }
         }
@@ -69,14 +69,18 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
                             </td>
                             <td>
                                 <input class="Text" type="text" name="hashMD5" id="hashMD5">
+
                             </td>
                             <td>
                                 <input type="submit" class="FormSubmit BlueFormRect" value="Unlock Product">
-                                <br>
-                                <span class="ERROR Red"> </span>
+
                             </td>
                         </tr>
-
+                        <tr>
+                            <td colspan="3" class="Red">
+                                <span  id="ERROR"> </span>
+                            </td>
+                        </tr>
                         <% if(request.getAttribute("errorMessage") != null && !request.getAttribute("errorMessage").toString().isEmpty()) {%>
                         <tr>
                             <td colspan="3" class="Red">
