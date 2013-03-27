@@ -20,7 +20,7 @@
 
   %>
 <div style="display:none;" class="uiBox uiSuggestions" id="content">
-	<h6 class="title center">${headerLabel}</h6>
+	<h6 class="title center">&{suggestions.label}</h6>
 	<div style="display:none;" class="peopleList" id="peopleSuggest">
 		<ul id='suggestions'></ul>
 	</div>
@@ -30,4 +30,4 @@
 	</div>
 
 </div>
-<div class="var" data-connect="${connectLabel}" data-member="${memberLabel}" data-connection="${connectionLabel}"  data-private="${privateLabel}" data-public="${publicLabel}" data-spacemember="${spacemember}" data-join="${joinSpace}" data-request="${requestSpace}"></div>
+<div class="bundle" data-connect="&{Connect.Label}" data-member="&{member.Label}" data-connection="&{connection.label}"  data-private="&{private.Label}" data-public="&{public.label}" data-spacemember="&{spacemember.Label}" data-joinlabel="&{join.label}" data-requestlabel="&{request.label}"></div>

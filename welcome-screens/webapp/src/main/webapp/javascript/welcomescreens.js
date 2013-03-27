@@ -21,6 +21,7 @@ else {
 }
 function setInactive() {
     var elt = document.getElementById("continueButton");
+    elt.setAttribute("disabled","disabled");
     var classValue = elt.className;
     var newClassValue = classValue.replace("active", "inactive");
     elt.className = newClassValue;
@@ -28,6 +29,7 @@ function setInactive() {
 function setActive() {
     var elt = document.getElementById("continueButton");
     var classValue = elt.className;
+    elt.removeAttribute("disabled");
     var newClassValue = classValue.replace("inactive", "active");
     elt.className = newClassValue;
     }

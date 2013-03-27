@@ -44,6 +44,8 @@ import java.lang.reflect.Method;
 public class PlatformInformationRESTService implements ResourceContainer {
 
     private static final Log LOG = ExoLogger.getLogger(PlatformInformationRESTService.class);
+    private static final java.lang.String COMMUNITY_EDITION = "community";
+
     private ProductInformations platformInformations;
 
     public PlatformInformationRESTService(ProductInformations productInformations) {
@@ -103,7 +105,10 @@ public class PlatformInformationRESTService implements ResourceContainer {
 
     private Boolean isMobileCompliant() {
         String platformEdition = getPlatformEdition();
-        return (platformEdition != null && ((platformEdition.equals("community")) || (platformEdition.equals("enterprise"))));
+        return (platformEdition != null && ((platformEdition.equals(COMMUNITY_EDITION)) ||
+                (platformEdition.equalsIgnoreCase(ProductInformations.ENTERPRISE_EDITION)) ||
+                (platformEdition.equals(ProductInformations.EXPRESS_EDITION)))
+        );
     }
 
     private String getPlatformEdition() {
@@ -111,6 +116,10 @@ public class PlatformInformationRESTService implements ResourceContainer {
             Class<?> c = Class.forName("org.exoplatform.platform.edition.PlatformEdition");
             Method getEditionMethod = c.getMethod("getEdition");
             String platformEdition = (String) getEditionMethod.invoke(null);
+            if((platformEdition!=null)&&(platformEdition.equals("enterprise"))) {
+                if((platformInformations.getEdition()!=null)&&(!platformInformations.getEdition().equals("")))
+                        platformEdition = platformInformations.getEdition();
+            }
             return platformEdition;
         } catch (Exception e) {
             LOG.error("An error occured while getting the platform edition information.", e);

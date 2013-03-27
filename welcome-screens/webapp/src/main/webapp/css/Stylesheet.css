@@ -1,260 +1,180 @@
 
-/* /// TAG \\\*/
-
 body {
-	background: white;
-	font-family: Verdana, Arial, Verdana, sans-serif;
-	font-weight: normal;
-	color: #464646;
-	margin: 0 auto;
-	font-size: 13px;
-	height: 100%;
+    background: url("/platform-extension/css/welcome-screens/images/login_texture.jpg") repeat;
+    font-family: HelveticaNeue, Arial, sans-serif;
+    font-size: 13px;
+    color: #333;
+    overflow: auto;
+    height: auto;
 }
 
-p {
-	color: #464646;
-	font-weight: normal;
+h5 {
+    font-size: 14px;
+    font-weight: bold;
+    margin: 0;
+    padding: 20px 0 0;
 }
-
-img {border: none;}
 
 a {
-	text-decoration: none;
-	color: #0868b9;
+    color: #2f5e92;
 }
 
-h1,h2,h3,h4,h5,h6, p, ul, li {
-	font-weight: normal;
-	margin: 0px;
-	padding: 0px;
+.clearfix {
+    *zoom: 1;
+}
+.clearfix:before,
+.clearfix:after {
+    display: table;
+    content: "";
+    line-height: 0;
 }
 
-h1 {
-	font-family: Arial, Verdana, sans-serif;
-	font-size: 28px;
+.clearfix:after {
+    clear: both;
 }
 
-h2 {font-size: 24px;}
-h3 {font-size: 19px;}
-h4 {font-size: 14px;}
-h5 {font-size: 13px;}
-h6 {font-size: 12px;}
-
-input {
-	font-size: 20px;
-	color: #b9b9b9;
-}
-
-input.Text{
-	background-color: #FAFAFA;
-    border: 1px solid #E6E6E6;
-	border-radius: 3px 3px 3px 3px;
-	-moz-border-radius: 3px 3px 3px 3px;
-	-webkit-border-radius: 3px 3px 3px 3px;
-    height: 34px;
-	margin-left: 15px;
-    padding: 0 5px;
-    vertical-align: middle;
-    width: 406px;
-}
-
-li {
-	list-style-type: none;
-}
-
-.Gras {font-weight: bold;}
-
-.CenterContent {
- text-align: center;
- line-height: 25px;
- padding-top: 30px;
-}
-
-.CenterTitle {
- text-align: center;
- line-height: 30px;
-}
-
-.YellowColor {color: #ffcb08;}
-
-.FL {
-	float: left;
-}
-
-.FR {
-	float: right;
-}
-
-.ClearFix:after {
-	content: ".";
-	display: block;
-	height: 0;
-	clear: both;
-	visibility: hidden;
-}
-
-.ClearFix {
-	!display: inline-block;
-	!zoom: 1;
-	!display: block; 
-}
-
-
-/* /// BANNER \\\ */
-
-.UIBanner {
-	background: url("./background/bgBanner.png") repeat-x;
-	height: 142px;
-}
-
-.UIBanner .BannerContent {
-	width: 768px;
-	margin: 0 auto;
-	color: white;
-	padding-top: 50px;
-}
-
-.UIBanner .BannerContent .BannerTitle {
-	padding-top: 6px;
-}
-
-
-/* /// BODY \\\ */
-
-.UIContent {
-    font-size: 13px;
-    margin: 50px auto;
-	padding: 0;
-	height: 100%;
-    width: 768px;
-	min-height: 500px;
-}
-
-.UIContent .Container {
-    background: none repeat scroll 0 0 #F5F5F5;
-    border: 1px solid #D7D7D7;
-    border-radius: 0 3px 3px 3px;
-	-moz-border-radius: 0 3px 3px 3px;
-	-webkit-border-radius: 0 3px 3px 3px;
-    box-shadow: 0 0 5px 0 #D7D7D7 inset;
-	-moz-box-shadow: 0 0 5px 0 #D7D7D7 inset;
-	-webkit-box-shadow: 0 0 5px 0 #D7D7D7 inset;
-    margin: 34px auto;
-	min-height: 35px;
-	padding: 17px 0;
-	position: relative;
-    width: 766px;
-}
- 
-.UIContent .Container .TextContainer {
-	padding-left: 65px;
-	display: table-cell;
-	vertical-align: middle;
-	height: 32px;
-	width: 475px;
-}
-
-.UIContent .FormContainer{
-	margin: 40px auto;
-	width: 700px;
-}
-
-.UIContent .FormContainer .TextForm,
-.UIContent .Container .TextContainer {
-	font-size: 14px;
-	color: #666666;
-}
-
-.UIContent .Container .Botton {
-	border-radius: 3px 3px 3px 3px;
-	-moz-border-radius: 3px 3px 3px 3px;
-	-webkit-border-radius: 3px 3px 3px 3px;
-    color: #FFFFFF;
-    display: inline-block;
-    font-size: 18px;
-    font-weight: normal;
-	line-height: 33px;
-	text-align: center;
-	width: 193px;
-	margin-right: 17px;
-	vertical-align: middle;
-}
-
-.UIContent .Container .GreenRect{
-	background: url("./background/bgSubmit.png") repeat-x scroll left top transparent;
-}
-
-.UIContent .Container .OrangeRect{
-	background: url("./background/bgSubmit.png") repeat-x scroll left -40px transparent;
-}
-
-.UIContent .Container .GrayRect{
-	background: url("./background/bgSubmit.png") repeat-x scroll left -125px transparent;
-}
-
-.UIContent .Container .BlueRect{
-	background: url("./background/bgSubmit.png") repeat-x scroll left -80px transparent;
-}
-
-.UIContent .Container .TriangleItem {	
+.pull-left {
     float: left;
-    height: 33px;
-    margin: -1px 0 -1px -1px;
-	position: absolute; top: 0; left: 0;
-    width: 33px;
 }
 
-.UIContent .Container .OrangeIcon {
-	background: url("./background/IconBox.png") no-repeat scroll left top transparent;
+.pull-right {
+    float: right;
 }
 
-.UIContent .Container .GreenIcon {
-	background: url("./background/IconBox.png") no-repeat scroll left -40px transparent;
+.backLight {
+    border-radius: 80px 80px 80px 80px;
+    box-shadow: 0 0 200px white;
+    height: 280px;
+    margin: 140px auto 0;
+    width: 280px;
 }
 
-.UIContent .Container .GrayIcon {
-	background: url("./background/IconBox.png") no-repeat scroll left -80px transparent;
+.uiWelcomeBox {
+    background-color:  #fff;
+    border-radius: 10px;
+    box-shadow: 0 1px 3px #3d3d3d;
+    margin: -380px auto 0;
+    width: 512px;
 }
 
-.UIContent .Container .BlueIcon {
-	background: url("./background/IconBox.png") no-repeat scroll left -120px transparent;
+.uiWelcomeBox .header {
+    background: url("/platform-extension/css/welcome-screens/images/headerBG.png") repeat-x scroll 0 0 transparent;
+    border: 1px solid #393939;
+    border-radius: 4px 4px 0 0;
+    width: 511px;
+    line-height: 44px;
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+    color: #c1c1c1;
 }
 
-.UIContent .FormContainer .FormSubmit {
-	border: medium none;
-	border-radius: 3px 3px 3px 3px;
-	-moz-border-radius: 3px 3px 3px 3px;
-	-webkit-border-radius: 3px 3px 3px 3px;
+.uiWelcomeBox .logo {
+    background: url("/platform-extension/css/welcome-screens/images/Logo.png") no-repeat scroll 18px center;
+    text-align: center;
+}
+
+.uiWelcomeBox .content {
+    background-color: #FFFFFF;
+    margin: 0 auto;
+    padding: 10px 23px;
+    position: static;
+    width: auto;
+}
+
+.uiWelcomeBox .content p {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.uiWelcomeBox input {
+    border: 1px solid #cdcdcd;
+    border-radius: 4px 4px 4px 4px;
+    box-shadow: 0 1px 1px rgba(0,0,0,0.1) inset;
+    color: #999;
+    height: 28px;
+    margin: 0 5px 0 0;
+    padding: 0 6px;
+    width: 170px;
+    font-size: 13px;
+}
+
+.uiWelcomeBox input.disable {
+    background-color: #e6e6e6;
+}
+
+.uiWelcomeBox .bottom {
+    background: url("/platform-extension/css/welcome-screens/images/bottomBG.png") no-repeat center bottom;
+    text-align: center;
+    padding: 30px 0;
+}
+
+.uiWelcomeBox .btn {
+    background-color: #5179BD;
+    background-image: linear-gradient(to bottom, #6289CB, #3862A9);
+    background-repeat: repeat-x;
+    border: 1px solid #224886;
+    border-radius: 4px 4px 4px 4px;
+    color: #FFFFFF;
+    cursor: pointer;
+    display: inline-block;
+    font-weight: bold;
+    line-height: 25px;
+    text-align: center;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+    vertical-align: top;
+    width: 115px;
+}
+
+.uiWelcomeBox .backOutdated {
+    background: #e97f7f;
+    color: #fff;
+    border-radius: 4px;
+    text-align: center;
+    padding: 8px;
+    margin: 10px 0 15px;
+}
+
+.uiWelcomeBox .backNotOutdated {
+    background: #b5b5b5;
+    color: #fff;
+    border-radius: 4px;
+    text-align: center;
+    padding: 8px;
+    margin: 10px 0 15px;
+}
+
+.uiWelcomeBox .rightCol {
+    width: 420px;
+}
+
+.uiWelcomeBox .steps {
+    margin: 0 0 35px;
+}
+
+.uiWelcomeBox .firstItem {
+    line-height: 35px;
+}
+
+.uiWelcomeBox .rightCol.pull-right > div {
+    margin-top: 5px;
+}
+
+.uiWelcomeBox .rightCol.pull-right > div span {
+    width: 85px;
+    display: inline-block;
+}
+
+.uiWelcomeBox .stepsNumber {
+    background: #B5B5B5;
+    border-radius: 19px 19px 19px 19px;
     color: #FFFFFF;
     display: block;
-    font-weight: normal;
-	font-size: 19px;
-	margin-left: 5px;
-    padding: 3px 0 5px;
-	height: 36px;
-    width: 200px;
-}
-
-.UIContent .FormContainer .BlueFormRect{
-	background: url("./background/bgSubmit.png") repeat-x scroll left -80px transparent;
-}
-
-
-/* /// FOOTER \\\ */
-
-.UIFooter {
-	background: none repeat scroll 0 0 #474848;
-	height: 61px;
-	position: fixed;
-	bottom: 0; left: 0;
-	width: 100%;
-}
-
-.UIFooter .FooterText {
-	color: #a3a4a4;
-	padding-top: 15px;
-}
-
-.ERROR{
-    padding: 3px,5px;
+    font-size: 24px;
+    font-weight: bold;
+    height: 38px;
+    line-height: 40px;
+    text-align: center;
+    width: 38px;
+    float: left;
 }

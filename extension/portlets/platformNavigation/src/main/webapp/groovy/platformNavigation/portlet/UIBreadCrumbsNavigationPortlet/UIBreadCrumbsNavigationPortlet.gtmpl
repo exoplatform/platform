@@ -65,7 +65,7 @@ import org.exoplatform.webui.core.UIPopupWindow;
         %>
 	<div class="uiBreadcumbsNavigationPortlet clearfix" id="$uicomponent.id">
 	 <% uicomponent.renderChild(UIPopupWindow.class); %>
-	  <div class="pull-left">
+	  <div class="userAvt pull-left">
 	  	<img title="$nodeName" alt="$nodeName" src="$srcImage" />
 	  </div>
 		<div class="breadcumbEntry">

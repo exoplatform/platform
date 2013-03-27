@@ -1,9 +1,5 @@
 package org.exoplatform.platform.samples.website.extention.webui;
 
-import javax.jcr.Node;
-import javax.jcr.NodeIterator;
-import javax.jcr.RepositoryException;
-
 import org.exoplatform.ecm.webui.component.explorer.UIJCRExplorer;
 import org.exoplatform.ecm.webui.selector.UISelectable;
 import org.exoplatform.wcm.webui.core.UIPopupWindow;
@@ -17,13 +13,17 @@ import org.exoplatform.webui.core.UIPopupComponent;
 import org.exoplatform.webui.core.UIPopupContainer;
 import org.exoplatform.webui.core.lifecycle.UIFormLifecycle;
 import org.exoplatform.webui.event.Event;
-import org.exoplatform.webui.event.EventListener;
 import org.exoplatform.webui.event.Event.Phase;
+import org.exoplatform.webui.event.EventListener;
 import org.exoplatform.webui.form.UIForm;
 import org.exoplatform.webui.form.UIFormCheckBoxInput;
 import org.exoplatform.webui.form.UIFormStringInput;
 import org.exoplatform.webui.form.ext.UIFormInputSetWithAction;
 import org.exoplatform.webui.form.validator.NumberFormatValidator;
+
+import javax.jcr.Node;
+import javax.jcr.NodeIterator;
+import javax.jcr.RepositoryException;
 
 @ComponentConfig(lifecycle = UIFormLifecycle.class, template = "classpath:groovy/webui/component/explorer/extention/UINavigationForm.gtmpl", events = {
 		@EventConfig(listeners = UINavigationForm.SaveActionListener.class),
@@ -330,7 +330,7 @@ public class UINavigationForm extends UIForm implements UIPopupComponent, UISele
 				boolean isClickable = false;
 				String listTargetPage = uiNavigationForm.getUIStringInput(LIST_TARGET_PAGE_STRING_INPUT).getValue();
 
-				if (navigationNode.equals("")) {
+				if (navigationNode == null || navigationNode.equals("")) {
 				  if(uiNavigationForm.getUIStringInput(INDEX) != null){
 				    index = Long.parseLong(uiNavigationForm.getUIStringInput(INDEX).getValue());
 				    }

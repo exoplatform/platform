@@ -1088,7 +1088,7 @@
             <access-permissions>*:/platform/users</access-permissions>
             <portlet-application>
                 <portlet>
-                    <application-ref>answer</application-ref>
+                    <application-ref>faq</application-ref>
                     <portlet-ref>AnswersPortlet</portlet-ref>
                 </portlet>
                 <title>answers Portlet</title>
@@ -1121,7 +1121,7 @@
             <access-permissions>*:/platform/users</access-permissions>
             <portlet-application>
                 <portlet>
-                    <application-ref>answer</application-ref>
+                    <application-ref>faq</application-ref>
                     <portlet-ref>FAQPortlet</portlet-ref>
                 </portlet>
                 <title>faq Portlet</title>

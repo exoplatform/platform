@@ -10,6 +10,7 @@ import org.exoplatform.container.component.RequestLifeCycle;
 import org.exoplatform.services.log.ExoLogger;
 import org.exoplatform.services.log.Log;
 import org.exoplatform.services.organization.*;
+import org.gatein.common.text.EntityEncoder;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -42,8 +43,13 @@ public class AccountSetup extends HttpServlet {
     private final static String INITIAL_URI_PARAM = "initialURI";
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-        String initialURI = request.getParameter(INITIAL_URI_PARAM);
+        EntityEncoder encoder = EntityEncoder.FULL;
+        /*String userNameAccount = encoder.encode(request.getParameter(USER_NAME_ACCOUNT));
+        String firstNameAccount = encoder.encode(request.getParameter(FIRST_NAME_ACCOUNT));
+        String lastNameAccount = encoder.encode(request.getParameter(LAST_NAME_ACCOUNT));
+        String emailAccount = encoder.encode(request.getParameter(EMAIL_ACCOUNT));
+        String userPasswordAccount = encoder.encode(request.getParameter(USER_PASSWORD_ACCOUNT));
+        String adminPassword = encoder.encode(request.getParameter(ADMIN_PASSWORD));*/
         String userNameAccount = request.getParameter(USER_NAME_ACCOUNT);
         String firstNameAccount = request.getParameter(FIRST_NAME_ACCOUNT);
         String lastNameAccount = request.getParameter(LAST_NAME_ACCOUNT);

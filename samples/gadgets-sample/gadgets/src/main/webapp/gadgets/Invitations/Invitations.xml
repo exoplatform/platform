@@ -3,7 +3,7 @@
   <ModulePrefs  title="My Invitations"
   author="Frederic DROUET"
   author_email="fdrouet@exoplatform.com"
-  thumbnail="images/gadget-social-inbox-icon_80x80.png">
+  thumbnail="/intranet-gadgets/skin/images/Invitations/gadget-social-inbox-icon_80x80.png">
     <Require feature="settitle" />
     <Require feature="dynamic-height" />
     <Require feature="opensocial-0.8" />
@@ -17,7 +17,7 @@
     <head>
       <title>__MSG_title__</title>
       <link rel="stylesheet" type="text/css" href="/exo-gadget-resources/skin/exo-gadget/gadget-common.css" />
-      <link rel="stylesheet" type="text/css" href="skin/Invitations.css" />
+      <link rel="stylesheet" type="text/css" href="/intranet-gadgets/skin/css/Invitations.css" />
       <script language="javascript" type="text/javascript" src="scripts/jquery/1.5.2/jquery.min.js"></script>
       <script language="javascript" type="text/javascript" src="scripts/jquery/plugins/jquery.timers-1.2.js"></script>
       <script type="text/javascript">

@@ -23,7 +23,7 @@ import juzu.Path;
 import juzu.Resource;
 import juzu.SessionScoped;
 import juzu.View;
-import juzu.plugin.ajax.Ajax;
+import org.exoplatform.commons.juzu.ajax.Ajax;
 import juzu.template.Template;
 import org.apache.commons.lang.ArrayUtils;
 import org.exoplatform.calendar.service.*;
@@ -159,15 +159,8 @@ public class CalendarPortletController {
         String defaultCalendarLabel = "Default";
         String dateLabel = "";
         try {
-            ResourceBundle rs = ResourceBundle.getBundle("calendar/calendar", locale);
+            ResourceBundle rs = ResourceBundle.getBundle("locale/portlet/calendar/calendar", locale);
             defaultCalendarLabel = EntityEncoder.FULL.encode(rs.getString("UICalendars.label.defaultCalendarId"));
-            parameters.put("tasklabel", EntityEncoder.FULL.encode(rs.getString("tasks.calendar.label")));
-            parameters.put("eventsLabel", EntityEncoder.FULL.encode(rs.getString("events.calendar.label")));
-            parameters.put("toLabel", EntityEncoder.FULL.encode(rs.getString("to.label")));
-            parameters.put("fromLabel", EntityEncoder.FULL.encode(rs.getString("from.label")));
-            parameters.put("allDayLabel", EntityEncoder.FULL.encode(rs.getString("all.day.label")));
-            parameters.put("noEventsLabel", EntityEncoder.FULL.encode(rs.getString("no.events.label")));
-            parameters.put("defaultPersonnal", EntityEncoder.FULL.encode(rs.getString("default.personal.label")));
             if (clickNumber == 0) dateLabel = rs.getString("today.label") + ": ";
             else if (clickNumber == -1) dateLabel = rs.getString("yesterday.label") + ": ";
             else if (clickNumber == 1) dateLabel = rs.getString("tomorrow.label") + ": ";
@@ -225,31 +218,16 @@ public class CalendarPortletController {
                 set("calendarDisplayedMap", displayedCalendarMap).
                 set("eventsDisplayedList", eventsDisplayedList).
                 set("tasksDisplayedList", tasksDisplayedList).
-                set("date_act", dateLabel).
-                set("bundle", parameters).
-                render();
+                set("date_act", dateLabel).render();
     }
 
     @Ajax
     @Resource
     public void setting() throws Exception {
-        HashMap parameters = new HashMap();
         calendarDisplayedList.clear();
         calendarNonDisplayedList.clear();
         String username = RequestContext.getCurrentInstance().getRemoteUser();
         String defaultCalendarLabel = "Default";
-        try {
-            Locale locale = RequestContext.getCurrentInstance().getLocale();
-            ResourceBundle rs = ResourceBundle.getBundle("calendar/calendar", locale);
-            parameters.put("displayedLabel", EntityEncoder.FULL.encode(rs.getString("displayed.calendar.label")));
-            parameters.put("settingLabel", EntityEncoder.FULL.encode(rs.getString("settings.label")));
-            parameters.put("additionalCalendarLabel", EntityEncoder.FULL.encode(rs.getString("display.additional.calendar.label")));
-            parameters.put("searchLabel", EntityEncoder.FULL.encode(rs.getString("search.calendar.label")));
-            parameters.put("defaultPersonnal", EntityEncoder.FULL.encode(rs.getString("default.personal.label")));
-        } catch (MissingResourceException ex) {
-            log.trace(ex.getMessage());
-        }
-
         Iterator itr1 = getAllCal(username).iterator();
         while (itr1.hasNext()) {
             org.exoplatform.calendar.service.Calendar c = (org.exoplatform.calendar.service.Calendar) itr1.next();
@@ -265,8 +243,7 @@ public class CalendarPortletController {
             }
         }
         setting.with().set("displayedCalendar", calendarDisplayedList).
-                set("nonDisplayedCalendar", calendarNonDisplayedList).
-                set("bundle", parameters).render();
+                set("nonDisplayedCalendar", calendarNonDisplayedList).render();
     }
 
     @Ajax
@@ -332,15 +309,9 @@ public class CalendarPortletController {
             org.exoplatform.calendar.service.Calendar c = (org.exoplatform.calendar.service.Calendar) itr.next();
             if (c.getName().toLowerCase().contains(key.toLowerCase())) searchResult.add(c);
         }
-        String label = "Default Personal Calendar";
-        try {
-            Locale locale = RequestContext.getCurrentInstance().getLocale();
-            ResourceBundle rs = ResourceBundle.getBundle("calendar/calendar", locale);
-            label = rs.getString("default.personal.label");
-        } catch (MissingResourceException e) {
+       // String label = "Default Personal Calendar";
 
-        }
-        search.with().set("searchResultList", searchResult).set("defaultPersonnal", EntityEncoder.FULL.encode(label)).render();
+        search.with().set("searchResultList", searchResult).render();
     }
 
 

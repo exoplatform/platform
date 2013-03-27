@@ -33,7 +33,7 @@
                 directory_title="Services Management"
                 title_url="http://www.exoplatform.org"
                 description="Services Management"
-                thumbnail="style/images/ServicesManagement.png"                
+                thumbnail="/gadget-pack/skin/images/ServicesManagement/ServicesManagement.png"                
                 height="227">
       <Locale messages="locale/ALL_ALL.xml" />
       <Locale lang="en" messages="locale/en_ALL.xml" />
@@ -47,7 +47,7 @@
    <UserPref name="servicesURL" display_name="__MSG_services_url__" default_value="/rest/management" required="true"/>
    <Content type="html" view="home">
       <![CDATA[         
-        <link rel="stylesheet" type="text/css" href="style/home.css"></link>
+        <link rel="stylesheet" type="text/css" href="/gadget-pack/skin/css/home.css"></link>
         <script language="javascript" type="text/javascript" src="/exo-gadget-resources/script/jquery/1.6.2/jquery.min.js"></script>
         <script src="script/script.js" type="text/javascript"></script>    
         <script src="script/handlers.js" type="text/javascript"></script>
@@ -138,7 +138,7 @@
    </Content>
    <Content type="html" view="canvas">
       <![CDATA[         
-        <link rel="stylesheet" type="text/css" href="style/canvas.css"></link>
+        <link rel="stylesheet" type="text/css" href="/gadget-pack/skin/css/canvas.css"></link>
         <script language="javascript" type="text/javascript" src="/exo-gadget-resources/script/jquery/1.6.2/jquery.min.js"></script>     
         <script src="script/script.js"></script>
         <script src="script/handlers.js"></script>

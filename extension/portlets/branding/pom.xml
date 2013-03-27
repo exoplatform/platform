@@ -11,14 +11,6 @@
   <name>eXo Platform - Branding Portlet</name>
   <dependencies>
     <dependency>
-      <groupId>org.exoplatform.commons</groupId>
-      <artifactId>commons-juzu</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>org.exoplatform.ecms</groupId>
-      <artifactId>ecms-core-services</artifactId>
-    </dependency>
-    <dependency>
       <groupId>commons-fileupload</groupId>
       <artifactId>commons-fileupload</artifactId>
     </dependency>
@@ -33,6 +25,14 @@
     <dependency>
       <groupId>org.exoplatform.commons</groupId>
       <artifactId>commons-component-common</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.exoplatform.commons</groupId>
+      <artifactId>commons-juzu</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.exoplatform.ecms</groupId>
+      <artifactId>ecms-core-services</artifactId>
     </dependency>
     <dependency>
       <groupId>org.exoplatform.jcr</groupId>
@@ -91,6 +91,13 @@
     <dependency>
       <groupId>org.juzu</groupId>
       <artifactId>juzu-plugins-upload</artifactId>
+    </dependency>
+    <!-- We want to be sure to use the right version in the dependency plugin but it's not required in the package -->
+    <dependency>
+      <groupId>org.exoplatform.platform-ui</groupId>
+      <artifactId>platform-ui-web-eXoResources</artifactId>
+      <type>war</type>
+      <scope>provided</scope>
     </dependency>
   </dependencies>
   <build>

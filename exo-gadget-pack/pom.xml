@@ -15,6 +15,5 @@
     <module>gadget-pack-services</module>
     <module>gadget-pack</module>
     <module>config</module>
-    <!--<module>ear</module>-->
   </modules>
 </project>

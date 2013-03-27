@@ -4,16 +4,15 @@
   title="New Spaces"
   author="Do Thanh Tung"
   author_email="tungdt@exoplatform.com"
-  thumbnail="./skin/images/SpaceLogoDefault_61x61.gif"
+  thumbnail="/intranet-gadgets/skin/images/NewSpaces/SpaceLogoDefault_61x61.gif"
   description="Display the latest created spaces">
     <Require feature="opensocial-0.8" />
     <Require feature="dynamic-height" />
     <Require feature="settitle" />
     <Require feature="views" />
     <Require feature="minimessage" />
-    <Locale messages="locale/ALL_ALL.xml" />
-    <Locale lang="en" messages="locale/en_ALL.xml" />
-    <Locale lang="fr" messages="locale/fr_ALL.xml" />
+	<Locale messages="locale/default.xml"/>
+    <Locale lang="fr" messages="locale/fr.xml"/>
   </ModulePrefs>
   <UserPref name="maxtime" display_name="__MSG_maxtime__" default_value="10" datatype="enum" >
     <EnumValue value="5" />
@@ -24,7 +23,7 @@
   
   <Content type="html">
     <![CDATA[     
-    <link type="text/css" rel="stylesheet" href="./skin/newspaces.css"/>
+    <link type="text/css" rel="stylesheet" href="/intranet-gadgets/skin/css/NewSpace.css"/>
     <link type="text/css" rel="stylesheet" href="/exo-gadget-resources/skin/exo-gadget/gadget-common.css" />
     
     <script type="text/javascript" src="./script/newSpaces.js"></script>

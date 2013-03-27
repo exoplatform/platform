@@ -8,45 +8,44 @@
   uicomponent.addCalendarField("hiddenInput4", hiddenField4) ;
   uicomponent.addCalendarField("hiddenInput5", hiddenField5) ;
 %>
-<div class="UIForm FormLayout">  
+<div class="uiForm FormLayout">  
 	<% uiform.begin() %>
-  <div class="HorizontalLayout">
-	  <table class="UIFormGrid">
-				<tr>
-				  <td class="FieldLabel"><%=_ctx.appRes("File.dialog.label.name")%></td>
-				  <td class="FieldComponent">
+	  <div class="form-horizontal">
+				<div class="control-group">
+				  <label class="control-label"><%=_ctx.appRes("File.dialog.label.name")%></label>
+				  <div class="controls">
 			      <%
 			        String[] fieldName = ["jcrPath=/node", "mixintype=mix:votable,mix:commentable,mix:i18n", "editable=if-null", "validate=empty,name"] ;
 			        uicomponent.addTextField("name", fieldName) ; 
 			      %>
-				  </td>
-				</tr>
+				  </div>
+				</div>
 				<%if(!uicomponent.getId().equals("UILanguageDialogForm")){%>
-					<tr>
-			      <td class="FieldLabel"><%=_ctx.appRes("File.dialog.label.categories")%></td>
-			      <td class="FieldComponent">
+					<div class="control-group">
+			      <label class="control-label"><%=_ctx.appRes("File.dialog.label.categories")%></label>
+			      <div class="controls">
 				      <% 
 				        String[] fieldCategories = ["jcrPath=/node/exo:category", "multiValues=true", "reference=true"];
 				        uicomponent.addTextField("categories", fieldCategories);
 				      %>
-				    </td>
-				  </tr>
+				    </div>
+				  </div>
 			  <%}%>
 				<%
 				if(!uicomponent.isEditing()){%>
-						<tr>		          					
-				      <td class="FieldLabel"><%=_ctx.appRes("File.dialog.label.mimeType")%></td>
-				      <td class="FieldComponent">
-					      <%
-					        String[] mimetype = ["jcrPath=/node/jcr:content/jcr:mimeType", "text/html", "options=text/html,text/plain", "onchange=true"] ;
-					        uicomponent.addSelectBoxField("mimetype", mimetype) ;
-					      %>
-					    </td>
-			    	</tr>
+					<div class="control-group">		          					
+						<label class="control-label"><%=_ctx.appRes("File.dialog.label.mimeType")%></label>
+						<div class="controls">
+							<%
+								String[] mimetype = ["jcrPath=/node/jcr:content/jcr:mimeType", "text/html", "options=text/html,text/plain", "onchange=true"] ;
+								uicomponent.addSelectBoxField("mimetype", mimetype) ;
+							%>
+						</div>
+					</div>
 	    	<%}%>
-				<tr>
-				  <td class="FieldLabel"><%=_ctx.appRes("File.dialog.label.content")%></td>
-				  <td class="FieldComponent">
+				<div class="control-group">
+				  <label class="control-label"><%=_ctx.appRes("File.dialog.label.content")%></label>
+				  <div class="controls">
 							<%
 								if(uicomponent.isEditing()) { 
 									def curNode = uicomponent.getNode() ;
@@ -90,33 +89,18 @@
 									}
 								}
 							%>
-				  </td>
-				</tr>				
-		</table>	     
+				  </div>
+				</div>				
+		</div>	     
 		<%/* start render action*/%>
-		<div class="UIAction"> 
-	    <table class="ActionContainer">
-	    	<tr>
-	    		<td>
-			      <% for(action in uicomponent.getActions()) { 
-			      		 String actionLabel = _ctx.appRes(uicomponent.getName() + ".action." + action) ;
-								 String link = uicomponent.event(action) ;
-			      %>
-		          <div onclick="$link" class="ActionButton LightBlueStyle">
-								<div class="ButtonLeft">
-								  <div class="ButtonRight">
-									  <div class="ButtonMiddle">
-									    <a href="javascript:void(0);">$actionLabel</a>
-							      </div>
-							    </div>
-						    </div>
-							</div>
-			      <%}%>          
-	      	</td>
-	      </tr>
-	    </table>
+		<div class="uiAction">
+			<% for(action in uicomponent.getActions()) { 
+					 String actionLabel = _ctx.appRes(uicomponent.getName() + ".action." + action) ;
+					 String link = uicomponent.event(action) ;
+			%>
+				<button type="button" onclick="$link" class="btn">$actionLabel</button>
+			<%}%> 
 	  </div>
 	  <%/* end render action*/%>
-  </div>
   <%uiform.end()%>
 </div>

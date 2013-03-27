@@ -19,101 +19,18 @@
      */
 
 %>
-<script type="text/javascript">
-    function init(initKey){
-    $('.uiIconDel').on("click", function () {
-        var calId = $(this).parent().children("input").val();
-        $('div.settingsContainerData').jzLoad(
-                "CalendarPortletController.deleteCalendar()",
-                {"calendarId":calId});
-    });
-    $('.uiIconAdd').on("click", function () {
-        var calId = $(this).parent().children("input").val();
-        $('div.settingsContainerData').jzLoad(
-                "CalendarPortletController.addCalendar()",
-                {"calendarId":calId});
-    });
-    $('.calendarItem').mouseover(function() {
-         var button= $(this).children("a.addButton");
-         button.css("display","block");
-    });
-    $('.calendarItem').mouseout(function() {
-         var button= $(this).children("a.addButton");
-         button.css("display","none");
-    });
-    $('input.PLFcalendarSearchKey').on("click", function () {
-        var seakey = $(this).val();
-        if (seakey == initKey) {
-            seakey = "";
-            $(this).val("");
-        }
-        $('div.NonDisplayedCalendar').jzLoad(
-                "CalendarPortletController.getSearchResult()",
-                {"key":seakey});
-    });
-    $('input.PLFcalendarSearchKey').on('show', function () {
-        var seakey = $(this).val();
-        $('div.NonDisplayedCalendar').jzLoad(
-                  "CalendarPortletController.getSearchResult()",
-                  {"key":seakey});
-    });
-    $('input.PLFcalendarSearchKey').on("keydown", function () {
-         var seakey = $(this).val();
-         $('div.NonDisplayedCalendar').jzLoad(
-             "CalendarPortletController.getSearchResult()",
-              {"key":seakey});
-    });
-    $('input.PLFcalendarSearchKey').on("keypress", function () {
-            var seakey = $(this).val();
-            $('div.NonDisplayedCalendar').jzLoad(
-                    "CalendarPortletController.getSearchResult()",
-                    {"key":seakey});
-     });
-
-    $('input.PLFcalendarSearchKey').on("keyup", function () {
-            var seakey = $(this).val();
-            $('div.NonDisplayedCalendar').jzLoad(
-                    "CalendarPortletController.getSearchResult()",
-                    {"key":seakey});
-    });
-    $('input.PLFcalendarSearchKey').on("focus", function () {
-         if ($(this).val() == initKey) {
-             $(this).val("");
-         }
-    });
-    $('input.PLFcalendarSearchKey').on("blur", function () {
-         if ($(this).val() == "") {
-                $(this).val(initKey);
-         }
-    });
-    $('.settingValidationButton').on('click',function(){
-         $('div.CalendarPortletContainer').jzLoad(
-                "CalendarPortletController.calendarHome()");
-    });
-
-    };
-    $(document).ready(function () {
-         var initKey = $('input.PLFcalendarSearchKey').val();
-         init(initKey);
-    });
-</script>
 <div class="settingsCalContainer" >
     <div class="uiBox settingsContainerData" >
-        <h6 class="title  center">${bundle["settingLabel"]}</h6>
+        <h6 class="title  center">&{settings.label}</h6>
         <div class= "uiContentBox" >
-            <p>${bundle["displayedLabel"]}</p>
+            <p>&{displayed.calendar.label}</p>
             <div class="DisplayedCalendarContainer">
                 <% if (displayedCalendar != null) {
                     displayedCalendar.each { cal ->
                         def   calendarName= cal.name;
-                        def hover="";
-                        if(((calendarName.indexOf("Default") != -1)||(calendarName.indexOf("Défault") != -1))&&(cal.groups==null))  hover=bundle["defaultPersonnal"];
-                        if (cal.groups != null) {
-                            def group = cal.groups[0];
-                            hover = " (" + group.substring(group.lastIndexOf("/") + 1) + ")";
-                        }
+
                 %>
-                <span id="${cal.id}" data-placement="bottom" rel="tooltip" data-original-title="${hover}" class="calendarName ${cal.calendarColor}"><span>${calendarName}&nbsp;</span>
+                <span id="${cal.id}" data-placement="bottom" rel="tooltip" data-original-title="${calendarName}" class="calendarName ${cal.calendarColor}"><span>${calendarName}&nbsp;</span>
                     <i class="uiIconDel"></i>
                     <input type="hidden" name="calendarId" value="${cal.id}"/>
                 </span>
@@ -123,27 +40,21 @@
             </div>
         </div>
         <div class= "uiContentBox " >
-            <p>${bundle["additionalCalendarLabel"]}</p>
-            <%def searchLabel= bundle["searchLabel"]  %>
-            <input type="text"  class="PLFcalendarSearchKey" value="${searchLabel}"/>
+            <p>&{display.additional.calendar.label}</p>
+            <input type="text"  class="PLFcalendarSearchKey" value="&{search.calendar.label}"/>
             <div id="nonDisplayedCalendarContainer" class="calendarItems NonDisplayedCalendar">
                 <% if (nonDisplayedCalendar != null) {
                     nonDisplayedCalendar.each { cal ->
                         def   calendarName= cal.name;
-                        def hover="";
-                        if(((calendarName.indexOf("Default") != -1)||(calendarName.indexOf("Défault") != -1))&&(cal.groups==null))  hover=bundle["defaultPersonnal"];
-                        if (cal.groups != null) {
-                            def group = cal.groups[0];
-                            hover = "(" + group.substring(group.lastIndexOf("/") + 1) + ")";
-                        }
+
                 %>
-                <li id="${cal.id}" class="calendarItem clearfix" title="${hover}">
+                <li id="${cal.id}" class="calendarItem clearfix" title="${calendarName}">
                     <a href="javascript:void(0);" class="addButton pull-right" style="display: none;" data-placement="bottom" rel="tooltip" data-original-title="add">
                         <input type="hidden" name="calendarId" value="${cal.id}"/>
                         <i class="uiIconAdd "></i>
                     </a>
                     <a class="${cal.calendarColor} colorBox pull-left" href="javascript:void(0);"></a>
-                    <a  href="javascript:void(0);" class="calName" data-original-title="${hover}" data-placement="bottom" rel="tooltip">${calendarName}</a>
+                    <a  href="javascript:void(0);" class="calName" data-original-title="${calendarName}" data-placement="bottom" rel="tooltip">${calendarName}</a>
                 </li>
                 <% }
                 }

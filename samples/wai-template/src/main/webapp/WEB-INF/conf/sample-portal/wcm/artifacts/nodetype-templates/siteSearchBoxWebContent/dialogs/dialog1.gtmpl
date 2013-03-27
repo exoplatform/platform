@@ -25,287 +25,252 @@
 	
 	Node webContentNode = uicomponent.getNode();
 %>
-<style>
-	.UIForm .HorizontalLayout .textarea { 
-	  font-size:11px;
-	  height:275px;
-	  width:525px;
-	 }
-	 
-	 .UIForm .HorizontalLayout .FieldComponent {
-	 	width: 750px;
-	 }
-	 
-</style>
-<div class="UITabPane">
-	<div class="TabPaneContent" style="padding:0px"> 
-		<div class="WorkingAreaWithHelp">
-			<%uiform.begin()%>
-			<%/* start render action*/%>
-      <% if (uiform.isShowActionsOnTop()) {
-                uiform.processRenderAction()
-             }
-      %>
+<div class="UITabPane uiTabNormal uiTabInPage">
+	<%uiform.begin()%>
+	<%/* start render action*/%>
+	<% if (uiform.isShowActionsOnTop()) {
+						uiform.processRenderAction()
+				 }
+	%>
 
-			<%/* end render action*/%>
-			<div class="UIHorizontalTabs" style="margin-top:5px;">
-				<div class="LeftHorizontalTabs">
-					<div class="RightHorizontalTabs">
-						<div class="CenterHorizontalTabs">
-							<div class="TabsContainer">
-							
-								<div class="UITab NormalTabStyle">
-									<div class="SelectedTab">
-										<div class="LeftTab">
-											<div class="RightTab">                
-												<div class="MiddleTab" onClick="eXo.webui.UIHorizontalTabs.displayTabContent(this);"><%=_ctx.appRes("WebContent.dialog.label.MainContent")%></div>
-											</div>
-										</div>
-									</div>
-								</div>  
-								
-								<div class="UITab NormalTabStyle">
-									<div class="NormalTab">
-										<div class="LeftTab">
-											<div class="RightTab">                
-												<div class="MiddleTab" onClick="eXo.webui.UIHorizontalTabs.displayTabContent(this);"><%=_ctx.appRes("WebContent.dialog.label.Illustration")%></div>
-											</div>
-										</div>
-									</div>
-								</div>
-											            
-								<div class="UITab NormalTabStyle">
-									<div class="NormalTab">
-										<div class="LeftTab">
-											<div class="RightTab">                
-												<div class="MiddleTab" onClick="eXo.webui.UIHorizontalTabs.displayTabContent(this);"><%=_ctx.appRes("WebContent.dialog.label.Advanced")%></div>
-											</div>
-										</div>
-									</div>
-								</div>
-								
-							</div> <!-- End of TabsContainer-->
-						</div>	<!-- End of CenterHorizontalTabs -->
+	<%/* end render action*/%>
+	<ul id="myTab" class="nav nav-tabs">              
+		<li class="active"><a data-toggle="tab" href="#tab1"><%=_ctx.appRes("WebContent.dialog.label.MainContent")%></a></li>
+		<li><a data-toggle="tab" href="#tab2"><%=_ctx.appRes("WebContent.dialog.label.Illustration")%></a></li>
+		<li><a data-toggle="tab" href="#tab3"><%=_ctx.appRes("WebContent.dialog.label.Advanced")%></a></li>
+	</ul>
+	<!-- End of UIHorizontalTabs -->
+			
+	<%/*Start UITabContentContainer*/%>
+	<div class="tab-content" id="myTabContent">
+		<div id="tab1" class="tab-pane fade in active">
+			<div class="form-horizontal">
+				<div class="control-group">
+					<label class="control-label" for="name"><%=_ctx.appRes("WebContent.dialog.label.name")%>:</label>
+					<div class="controls">
+						<%
+								String[] webContentFieldName = ["jcrPath=/node", "nodetype=exo:webContent", "mixintype=mix:votable,mix:commentable,mix:i18n", "editable=if-null","validate=name,empty"] ;
+								uicomponent.addTextField("name", webContentFieldName) ; 
+								String[] cssFolder = ["jcrPath=/node/css", "nodetype=exo:cssFolder", "defaultValues=css"] ;
+								String[] jsFolder = ["jcrPath=/node/js", "nodetype=exo:jsFolder", "defaultValues=js"] ;
+								String[] documentsFolder = ["jcrPath=/node/documents", "nodetype=nt:unstructured","mixintype=exo:documentFolder","defaultValues=documents"] ;
+								String[] mediasFolder = ["jcrPath=/node/medias", "nodetype=exo:multimediaFolder", "defaultValues=medias"] ;
+								String[] imagesFolder = ["jcrPath=/node/medias/images", "nodetype=nt:folder", "defaultValues=images"] ;
+								String[] videoFolder = ["jcrPath=/node/medias/videos", "nodetype=nt:folder", "defaultValues=videos"] ;
+								String[] audioFolder = ["jcrPath=/node/medias/videos", "nodetype=nt:folder", "defaultValues=audio"] ;
+								uicomponent.addHiddenField("cssFolder", cssFolder) ;
+								uicomponent.addHiddenField("jsFolder", jsFolder);
+								uicomponent.addHiddenField("documentsFolder", documentsFolder);
+								uicomponent.addHiddenField("mediasFolder", mediasFolder);
+								uicomponent.addHiddenField("imagesFolder", imagesFolder);
+								uicomponent.addHiddenField("videoFolder", videoFolder);
+								uicomponent.addHiddenField("audioFolder", audioFolder);
+							%>
 					</div>
 				</div>
-			</div> <!-- End of UIHorizontalTabs -->
-			
-			<%/*Start UITabContentContainer*/%>			
-			<div class="HorizontalLayout" style="border: none; margin:0px; background: none; padding: 0px; overflow:auto;">	  
-				<div class="UITabContentContainer">
-					<div class="UITabContent" style="display: block;">
-						<table class="UIFormGrid">
-		            		<tr>
-		        				<td class="FieldLabel"><label for="name"><%=_ctx.appRes("WebContent.dialog.label.name")%>:</label></td>
-		          				<td class="FieldComponent">
-		            			<%
-			              	 		String[] webContentFieldName = ["jcrPath=/node", "nodetype=exo:webContent", "mixintype=mix:votable,mix:commentable,mix:i18n", "editable=if-null","validate=name,empty"] ;
-			              	 		uicomponent.addTextField("name", webContentFieldName) ; 
-			              	 		String[] cssFolder = ["jcrPath=/node/css", "nodetype=exo:cssFolder", "defaultValues=css"] ;
-			              	 		String[] jsFolder = ["jcrPath=/node/js", "nodetype=exo:jsFolder", "defaultValues=js"] ;
-			              	 		String[] documentsFolder = ["jcrPath=/node/documents", "nodetype=nt:unstructured","mixintype=exo:documentFolder","defaultValues=documents"] ;
-			              	 		String[] mediasFolder = ["jcrPath=/node/medias", "nodetype=exo:multimediaFolder", "defaultValues=medias"] ;
-			              	 		String[] imagesFolder = ["jcrPath=/node/medias/images", "nodetype=nt:folder", "defaultValues=images"] ;
-			              	 		String[] videoFolder = ["jcrPath=/node/medias/videos", "nodetype=nt:folder", "defaultValues=videos"] ;
-			              	 		String[] audioFolder = ["jcrPath=/node/medias/videos", "nodetype=nt:folder", "defaultValues=audio"] ;
-			              	 		uicomponent.addHiddenField("cssFolder", cssFolder) ;
-			              	 		uicomponent.addHiddenField("jsFolder", jsFolder);
-			              	 		uicomponent.addHiddenField("documentsFolder", documentsFolder);
-			              	 		uicomponent.addHiddenField("mediasFolder", mediasFolder);
-			              	 		uicomponent.addHiddenField("imagesFolder", imagesFolder);
-			              	 		uicomponent.addHiddenField("videoFolder", videoFolder);
-			              	 		uicomponent.addHiddenField("audioFolder", audioFolder);
-		            	   		%>
-		          			 	</td>
-		        			</tr>
-							<tr>
-								<td class="FieldLabel"><label for="title"><%=_ctx.appRes("WebContent.dialog.label.title")%>:</label></td>
-							  	<td class="FieldComponent">
-								<%
-							        String[] webContentFieldTitle = ["jcrPath=/node/exo:title", "validate=empty", "editable=if-null"];
-							        uicomponent.addTextField("title", webContentFieldTitle) ;
-							    %>
-								</td>
-							</tr>
-							<tr>
-								<td class="FieldLabel"><label for="content-lang"><%=_ctx.appRes("ElementSet.dialog.label.language")%>:</label></td>
-								<td class="FieldComponent">
-								<%
-								  String lang = org.exoplatform.portal.webui.util.Util.getPortalRequestContext().getLocale().toString();
-								  String[] fieldLang = ["jcrPath=/node/exo:language", "script=ecm-explorer/widget/FillSelectBoxWithLanguage.groovy", lang] ;
-								  uicomponent.addSelectBoxField("content-lang", fieldLang) ;
-								%>
-								</td>
-							</tr>
-							<tr>
-					 			<td class="FieldLabel">
-					 				<div rel="tooltip" data-placement="bottom" title="<%=_ctx.appRes("WebContent.dialog.label.Synchronize")%>" class="WebContentSynchronize Refresh16x16Icon" onclick="eXo.ecm.CKEditor.insertCSS('<%= htmlWYSIWYGFormId %>', '<%= cssFormId %>')"></div>
-									<div class="WebContentMain"><%=_ctx.appRes("WebContent.dialog.label.WebContentHtml")%></div>
-					 			</td>
-					  			<td class="FieldComponent">
-								<%
-									String[] htmlHiddenField1 = ["jcrPath=/node/default.html", "nodetype=nt:file", "defaultValues=default.html", "mixintype=exo:htmlFile"];
-			   						String[] htmlHiddenField2 = ["jcrPath=/node/default.html/jcr:content", "nodetype=nt:resource", "mixintype=dc:elementSet", "visible=false"]; 
-									String[] htmlHiddenField3 = ["jcrPath=/node/default.html/jcr:content/jcr:encoding", "visible=false", "UTF-8"];
-									String[] htmlHiddenField4 = ["jcrPath=/node/default.html/jcr:content/jcr:lastModified", "visible=false"];
-									String[] htmlHiddenField5 = ["jcrPath=/node/default.html/jcr:content/dc:date", "visible=false"];
-									String[] htmlHiddenField6 = ["jcrPath=/node/default.html/jcr:content/jcr:mimeType", "visible=false", "text/html"];
-									uicomponent.addHiddenField("htmlHiddenField1", htmlHiddenField1);
-									uicomponent.addHiddenField("htmlHiddenField2", htmlHiddenField2);
-									uicomponent.addHiddenField("htmlHiddenField3", htmlHiddenField3);
-									uicomponent.addCalendarField("htmlHiddenField4", htmlHiddenField4);
-									uicomponent.addCalendarField("htmlHiddenField5", htmlHiddenField5);
-									uicomponent.addHiddenField("htmlHiddenField6", htmlHiddenField6);
-									String htmlContent = "";
-									if(uicomponent.isEditing()) {
-										if(webContentNode != null && webContentNode.hasNode("default.html")) {
-											Node htmlNode = webContentNode.getNode("default.html");
-											htmlContent = htmlNode.getNode("jcr:content").getProperty("jcr:data").getValue().getString();
-										}
-									}
-									if ("".equals(htmlContent)) {
-										htmlContent = "<div class=\"UIWCMSearchBoxPortlet\"><div class=\"ACMESearchBox\"><div class=\"siteSearchBox\" id=\"siteSearchBox\"><div class=\"keywordInput\"><input type=\"text\" onkeypress=\"eXo.ecm.SearchPortlet.quickSearchOnEnter(event)\" name=\"keyword\" class=\"keyword\"/></div><div class=\"SearchBoxIcon\" onclick=\"eXo.ecm.SearchPortlet.quickSearch()\"><span></span></div></div><div style=\"clear: right;\"><span></span></div></div></div>";
-									}
-									String[] htmlArguments = ["jcrPath=/node/default.html/jcr:content/jcr:data", "options=toolbar:CompleteWCM,height:'410px',noSanitization", htmlContent];
-			    					uicomponent.addRichtextField(htmlWYSIWYGFormId, htmlArguments) ;
-			      				%>
-								</td>
-							</tr>
-						</table>
-					</div>  <!-- End of UITabContent -->
-					<!-- Start of Illustration tab -->
-					<div class="UITabContent" style="display: none;">
-						<div class="FormHint">
-							<%=_ctx.appRes("WebContent.dialog.label.hintIllustration")%>
-						</div>
-						<table class="UIFormGrid">
-						<tr>
-								<td class="FieldLabel"><%=_ctx.appRes("WebContent.dialog.label.illustrationImage")%></td>
-								<td class="FieldComponent">
-										<%						
-											if(webContentNode != null && webContentNode.hasNode("medias/images/illustration")) {
-												def imageNode = webContentNode.getNode("medias/images/illustration") ;
-												def resourceNode = imageNode.getNode("jcr:content");
-												if(resourceNode.getProperty("jcr:data").getStream().available() > 0 && !uicomponent.isDataRemoved("/medias/images/illustration/jcr:content") ){
-													def imgSrc = uicomponent.getImage(imageNode, "jcr:content");
-													def actionLink = uicomponent.event("RemoveData", "/medias/images/illustration/jcr:content");
-													%>		
-														<div>
-															<img src="$imgSrc" rel="tooltip" data-placement="bottom" title="<%=_ctx.appRes("Ecm.dialog.label.remove")%>" alt="<%=_ctx.appRes("Ecm.dialog.label.remove")%>" width="100px" height="80px"/>
-															<a href="$actionLink">
-																<img rel="tooltip" data-placement="bottom" title="<%=_ctx.appRes("Ecm.dialog.label.remove")%>" alt="<%=_ctx.appRes("Ecm.dialog.label.remove")%>" src="/eXoResources/skin/DefaultSkin/background/Blank.gif" class="ActionIcon Remove16x16Icon"/>
-															</a>
-														</div>
-													<%
-												} else {
-													setUploadFields();
-												}
-											} else {
-												setUploadFields();
-											}
-										%>
-								</td>
-							</tr>																		
-							<tr>
-								<td class="FieldLabel"><%=_ctx.appRes("WebContent.dialog.label.Summary")%></td>
-								<td class="FieldComponent">
-								<%
-									String summaryContent = "";
-									if(uicomponent.isEditing()) {
-										if (webContentNode != null && webContentNode.hasProperty("exo:summary")) 
-											summaryContent = webContentNode.getProperty("exo:summary").getValue().getString();
-									}
-									String[] fieldSummary = ["jcrPath=/node/exo:summary", "options=noSanitization", "editable=if-null", summaryContent] ;
-									uicomponent.addRichtextField("exo:summary", fieldSummary) ;
-								%>
-								</td>
-							</tr>
-							
-						</table>
+				<div class="control-group">
+					<label class="control-label" for="title"><%=_ctx.appRes("WebContent.dialog.label.title")%>:</label>
+					<div class="controls">
+						<%
+								String[] webContentFieldTitle = ["jcrPath=/node/exo:title", "validate=empty", "editable=if-null"];
+								uicomponent.addTextField("title", webContentFieldTitle) ;
+						%>
 					</div>
-					<!-- End of Illustration tab -->		
-								
-					<div class="UITabContent" style="display: none;">
-						<table class="UIFormGrid">
-							<tr>
-								<td class="FieldLabel"><label for="$cssFormId"><%=_ctx.appRes("WebContent.dialog.label.ContentCSS")%>:</label></td>
-								<td class="FieldComponent" style="width:520px">
-								<%
-									String[] cssHiddenField1 = ["jcrPath=/node/css/default.css", "nodetype=nt:file", "defaultValues=default.css"] ;
-									String[] cssHiddenField2 = ["jcrPath=/node/css/default.css/jcr:content", "nodetype=nt:resource", "mixintype=dc:elementSet", "visible=false"] ; 
-									String[] cssHiddenField3 = ["jcrPath=/node/css/default.css/jcr:content/jcr:encoding", "visible=false", "UTF-8"] ;  
-									String[] cssHiddenField4 = ["jcrPath=/node/css/default.css/jcr:content/jcr:lastModified", "visible=false"] ;
-									String[] cssHiddenField5 = ["jcrPath=/node/css/default.css/jcr:content/dc:date", "visible=false"] ;
-									String[] cssHiddenField6 = ["jcrPath=/node/css/default.css/jcr:content/jcr:mimeType", "visible=false", "text/css"] ;
-									uicomponent.addHiddenField("cssHiddenField1", cssHiddenField1) ;
-									uicomponent.addHiddenField("cssHiddenField2", cssHiddenField2) ;
-									uicomponent.addHiddenField("cssHiddenField3", cssHiddenField3) ;
-									uicomponent.addCalendarField("cssHiddenField4", cssHiddenField4) ;
-									uicomponent.addCalendarField("cssHiddenField5", cssHiddenField5) ;
-									uicomponent.addHiddenField("cssHiddenField6", cssHiddenField6) ;
-									String cssContent = "";
-									if(uicomponent.isEditing()) {
-										if(webContentNode != null && webContentNode.hasNode("css/default.css")) {
-											Node cssNode = webContentNode.getNode("css/default.css");
-											cssContent = cssNode.getNode("jcr:content").getProperty("jcr:data").getValue().getString();
-										}
-									}
-									String[] fieldContentCSS = ["jcrPath=/node/css/default.css/jcr:content/jcr:data", cssContent] ;
-									uicomponent.addTextAreaField(cssFormId, fieldContentCSS) ;
-								%>
-								</td>
-								<td width="260px">
-									<div class="FormHint" style="margin-top:5px">
-										<%=_ctx.appRes("WebContent.dialog.label.hintCSS")%>
-									</div>
-								</td>
-							</tr>
-						</table>
-						<table class="UIFormGrid">
-							<tr>
-								<td class="FieldLabel"><label for="$jsFormId"><%=_ctx.appRes("WebContent.dialog.label.ContentJS")%>:</label></td>
-								<td class="FieldComponent" style="width:520px">
-								<%
-									String[] jsHiddenField1 = ["jcrPath=/node/js/default.js", "nodetype=nt:file", "defaultValues=default.js"];
-									String[] jsHiddenField2 = ["jcrPath=/node/js/default.js/jcr:content", "nodetype=nt:resource", "mixintype=dc:elementSet", "visible=false"]; 
-									String[] jsHiddenField3 = ["jcrPath=/node/js/default.js/jcr:content/jcr:encoding", "visible=false", "UTF-8"];  
-									String[] jsHiddenField4 = ["jcrPath=/node/js/default.js/jcr:content/jcr:lastModified", "visible=false"];
-									String[] jsHiddenField5 = ["jcrPath=/node/js/default.js/jcr:content/dc:date", "visible=false"];
-									String[] jsHiddenField6 = ["jcrPath=/node/js/default.js/jcr:content/jcr:mimeType", "visible=false", "application/x-javascript"];
-									uicomponent.addHiddenField("jsHiddenField1", jsHiddenField1);
-									uicomponent.addHiddenField("jsHiddenField2", jsHiddenField2);
-									uicomponent.addHiddenField("jsHiddenField3", jsHiddenField3);
-									uicomponent.addCalendarField("jsHiddenField4", jsHiddenField4);
-									uicomponent.addCalendarField("jsHiddenField5", jsHiddenField5);
-									uicomponent.addHiddenField("jsHiddenField6", jsHiddenField6);
-									String jsContent = "";
-									if(uicomponent.isEditing()) {
-										if(webContentNode != null && webContentNode.hasNode("js/default.js")) {
-											Node jsNode = webContentNode.getNode("js/default.js");
-											jsContent = jsNode.getNode("jcr:content").getProperty("jcr:data").getValue().getString();
-										} 
-									} 
-									String[] fieldContentJS = ["jcrPath=/node/js/default.js/jcr:content/jcr:data", "options=noSanitization", jsContent];
-									uicomponent.addTextAreaField(jsFormId, fieldContentJS); 								
-								%>
-								</td>
-								<td width="260px">
-									<div class="FormHint" style="margin-top:5px">
-										<%=_ctx.appRes("WebContent.dialog.label.hintJS")%>
-									</div>
-								</td>
-							</tr>
-						</table>
+				</div>
+				<div class="control-group">
+					<label class="control-label" for="content-lang"><%=_ctx.appRes("ElementSet.dialog.label.language")%>:</label>
+					<div class="controls">
+					<%
+						String lang = org.exoplatform.portal.webui.util.Util.getPortalRequestContext().getLocale().toString();
+						String[] fieldLang = ["jcrPath=/node/exo:language", "script=ecm-explorer/widget/FillSelectBoxWithLanguage.groovy", lang] ;
+						uicomponent.addSelectBoxField("content-lang", fieldLang) ;
+					%>
 					</div>
-													
-				</div>   <!-- End of UITabContentContainer -->
-	      <% if (!uiform.isShowActionsOnTop()) {
-                  uiform.processRenderAction()
-               }
-	      %>
-			</div>  
-		<%uiform.end()%>						 
-		</div>   <!-- End of WorkingAreaWithHelp -->
-	</div>  <!-- End of TabPaneContent -->
+				</div>
+				<div class="control-group">
+					<label class="control-label">
+						<%=_ctx.appRes("WebContent.dialog.label.WebContentHtml")%>
+						<a class="actionIcon" rel="tooltip" data-placement="bottom" title="<%=_ctx.appRes("WebContent.dialog.label.Synchronize")%>" onclick="eXo.ecm.CKEditor.insertCSS('<%= htmlWYSIWYGFormId %>', '<%= cssFormId %>')"><i class="uiIconRefresh"></i></a>
+					</label>
+					<div class="controls">
+						<%
+							String[] htmlHiddenField1 = ["jcrPath=/node/default.html", "nodetype=nt:file", "defaultValues=default.html", "mixintype=exo:htmlFile"];
+								String[] htmlHiddenField2 = ["jcrPath=/node/default.html/jcr:content", "nodetype=nt:resource", "mixintype=dc:elementSet", "visible=false"]; 
+							String[] htmlHiddenField3 = ["jcrPath=/node/default.html/jcr:content/jcr:encoding", "visible=false", "UTF-8"];
+							String[] htmlHiddenField4 = ["jcrPath=/node/default.html/jcr:content/jcr:lastModified", "visible=false"];
+							String[] htmlHiddenField5 = ["jcrPath=/node/default.html/jcr:content/dc:date", "visible=false"];
+							String[] htmlHiddenField6 = ["jcrPath=/node/default.html/jcr:content/jcr:mimeType", "visible=false", "text/html"];
+							uicomponent.addHiddenField("htmlHiddenField1", htmlHiddenField1);
+							uicomponent.addHiddenField("htmlHiddenField2", htmlHiddenField2);
+							uicomponent.addHiddenField("htmlHiddenField3", htmlHiddenField3);
+							uicomponent.addCalendarField("htmlHiddenField4", htmlHiddenField4);
+							uicomponent.addCalendarField("htmlHiddenField5", htmlHiddenField5);
+							uicomponent.addHiddenField("htmlHiddenField6", htmlHiddenField6);
+							String htmlContent = "";
+							if(uicomponent.isEditing()) {
+								if(webContentNode != null && webContentNode.hasNode("default.html")) {
+									Node htmlNode = webContentNode.getNode("default.html");
+									htmlContent = htmlNode.getNode("jcr:content").getProperty("jcr:data").getValue().getString();
+								}
+							}
+							if ("".equals(htmlContent)) {
+								htmlContent = "<div class=\"UIWCMSearchBoxPortlet\"><div class=\"ACMESearchBox\"><div class=\"siteSearchBox\" id=\"siteSearchBox\"><div class=\"keywordInput\"><input type=\"text\" onkeypress=\"eXo.ecm.SearchPortlet.quickSearchOnEnter(event)\" name=\"keyword\" class=\"keyword\"/></div><div class=\"SearchBoxIcon\" onclick=\"eXo.ecm.SearchPortlet.quickSearch()\"><span></span></div></div><div style=\"clear: right;\"><span></span></div></div></div>";
+							}
+							String[] htmlArguments = ["jcrPath=/node/default.html/jcr:content/jcr:data", "options=toolbar:CompleteWCM,height:'410px',noSanitization", htmlContent];
+							uicomponent.addRichtextField(htmlWYSIWYGFormId, htmlArguments) ;
+						%>
+					</div>
+				</div>
+			</div>
+		</div>  <!-- End of UITabContent -->
+		<!-- Start of Illustration tab -->
+		<div id="tab2" class="tab-pane fade">
+			<div class="form-horizontal">
+				<div class="control-group">
+					<div class="controls-full"><span class="helpBlock helpBlockTitle"><i class="uiIconHelp"></i> <%=_ctx.appRes("WebContent.dialog.label.hintIllustration")%></span></div>
+				</div>
+				<div class="control-group">
+					<label class="control-label"><%=_ctx.appRes("WebContent.dialog.label.illustrationImage")%></label>
+					<div class="controls">
+						<%						
+							if(webContentNode != null && webContentNode.hasNode("medias/images/illustration")) {
+								def imageNode = webContentNode.getNode("medias/images/illustration") ;
+								def resourceNode = imageNode.getNode("jcr:content");
+								if(resourceNode.getProperty("jcr:data").getStream().available() > 0 && !uicomponent.isDataRemoved("/medias/images/illustration/jcr:content") ){
+									def imgSrc = uicomponent.getImage(imageNode, "jcr:content");
+									def actionLink = uicomponent.event("RemoveData", "/medias/images/illustration/jcr:content");
+									%>		
+										<div>
+											<img src="$imgSrc" rel="tooltip" data-placement="bottom" title="<%=_ctx.appRes("Ecm.dialog.label.remove")%>" alt="<%=_ctx.appRes("Ecm.dialog.label.remove")%>" width="100px" height="80px"/>
+											<a href="$actionLink">
+												<img rel="tooltip" data-placement="bottom" title="<%=_ctx.appRes("Ecm.dialog.label.remove")%>" alt="<%=_ctx.appRes("Ecm.dialog.label.remove")%>" src="/eXoResources/skin/DefaultSkin/background/Blank.gif" class="ActionIcon Remove16x16Icon"/>
+											</a>
+										</div>
+									<%
+								} else {
+									setUploadFields();
+								}
+							} else {
+								setUploadFields();
+							}
+						%>
+					</div>
+				</div>																		
+				<div class="control-group">
+					<label class="control-label"><%=_ctx.appRes("WebContent.dialog.label.Summary")%></label>
+					<div class="controls">
+					<%
+						String summaryContent = "";
+						if(uicomponent.isEditing()) {
+							if (webContentNode != null && webContentNode.hasProperty("exo:summary")) 
+								summaryContent = webContentNode.getProperty("exo:summary").getValue().getString();
+						}
+						String[] fieldSummary = ["jcrPath=/node/exo:summary", "options=noSanitization", "editable=if-null", summaryContent] ;
+						uicomponent.addRichtextField("exo:summary", fieldSummary) ;
+					%>
+					</div>
+				</div>
+				
+			</div>
+		</div>
+		<!-- End of Illustration tab -->		
+					
+		<div id="tab3" class="tab-pane fade">
+			<div class="form-horizontal">
+				<div class="control-group">
+					<label class="control-label" for="$cssFormId"><%=_ctx.appRes("WebContent.dialog.label.ContentCSS")%>:</label>
+					<div class="controls">
+						<%
+							String[] cssHiddenField1 = ["jcrPath=/node/css/default.css", "nodetype=nt:file", "defaultValues=default.css"] ;
+							String[] cssHiddenField2 = ["jcrPath=/node/css/default.css/jcr:content", "nodetype=nt:resource", "mixintype=dc:elementSet", "visible=false"] ; 
+							String[] cssHiddenField3 = ["jcrPath=/node/css/default.css/jcr:content/jcr:encoding", "visible=false", "UTF-8"] ;  
+							String[] cssHiddenField4 = ["jcrPath=/node/css/default.css/jcr:content/jcr:lastModified", "visible=false"] ;
+							String[] cssHiddenField5 = ["jcrPath=/node/css/default.css/jcr:content/dc:date", "visible=false"] ;
+							String[] cssHiddenField6 = ["jcrPath=/node/css/default.css/jcr:content/jcr:mimeType", "visible=false", "text/css"] ;
+							uicomponent.addHiddenField("cssHiddenField1", cssHiddenField1) ;
+							uicomponent.addHiddenField("cssHiddenField2", cssHiddenField2) ;
+							uicomponent.addHiddenField("cssHiddenField3", cssHiddenField3) ;
+							uicomponent.addCalendarField("cssHiddenField4", cssHiddenField4) ;
+							uicomponent.addCalendarField("cssHiddenField5", cssHiddenField5) ;
+							uicomponent.addHiddenField("cssHiddenField6", cssHiddenField6) ;
+							String cssContent = "";
+							if(uicomponent.isEditing()) {
+								if(webContentNode != null && webContentNode.hasNode("css/default.css")) {
+									Node cssNode = webContentNode.getNode("css/default.css");
+									cssContent = cssNode.getNode("jcr:content").getProperty("jcr:data").getValue().getString();
+								}
+							}
+							String[] fieldContentCSS = ["jcrPath=/node/css/default.css/jcr:content/jcr:data", cssContent] ;
+							uicomponent.addTextAreaField(cssFormId, fieldContentCSS) ;
+						%>
+						<i class="uiIconQuestion" id="cssContentHelp" 
+										onmouseover="eXo.ecm.WCMUtils.showInContextHelp('cssContentHelp', 'true')" onmouseout="eXo.ecm.WCMUtils.showInContextHelp('cssContentHelp', 'false')"
+									onfocus="eXo.ecm.WCMUtils.showInContextHelp('cssContentHelp', 'true')" onblur="eXo.ecm.WCMUtils.showInContextHelp('cssContentHelp', 'false')">
+							<div style="position: absolute;">
+								<div class="InContextHelpContent">                    
+									<div class="InContextHelpPopup">
+									 <div id="ContentPathHelpID" class="LeftInContextHelpPopup">
+										 <%=_ctx.appRes("WebContent.dialog.label.hintCSS")%>
+										</div>
+									</div>                      
+								</div>
+							</div>
+						</i>
+					</div>
+				</div>
+			</div>
+			<div class="form-horizontal">
+				<div class="control-group">
+					<label class="control-label" for="$jsFormId"><%=_ctx.appRes("WebContent.dialog.label.ContentJS")%>:</label>
+					<div class="controls">
+					<%
+						String[] jsHiddenField1 = ["jcrPath=/node/js/default.js", "nodetype=nt:file", "defaultValues=default.js"];
+						String[] jsHiddenField2 = ["jcrPath=/node/js/default.js/jcr:content", "nodetype=nt:resource", "mixintype=dc:elementSet", "visible=false"]; 
+						String[] jsHiddenField3 = ["jcrPath=/node/js/default.js/jcr:content/jcr:encoding", "visible=false", "UTF-8"];  
+						String[] jsHiddenField4 = ["jcrPath=/node/js/default.js/jcr:content/jcr:lastModified", "visible=false"];
+						String[] jsHiddenField5 = ["jcrPath=/node/js/default.js/jcr:content/dc:date", "visible=false"];
+						String[] jsHiddenField6 = ["jcrPath=/node/js/default.js/jcr:content/jcr:mimeType", "visible=false", "application/x-javascript"];
+						uicomponent.addHiddenField("jsHiddenField1", jsHiddenField1);
+						uicomponent.addHiddenField("jsHiddenField2", jsHiddenField2);
+						uicomponent.addHiddenField("jsHiddenField3", jsHiddenField3);
+						uicomponent.addCalendarField("jsHiddenField4", jsHiddenField4);
+						uicomponent.addCalendarField("jsHiddenField5", jsHiddenField5);
+						uicomponent.addHiddenField("jsHiddenField6", jsHiddenField6);
+						String jsContent = "";
+						if(uicomponent.isEditing()) {
+							if(webContentNode != null && webContentNode.hasNode("js/default.js")) {
+								Node jsNode = webContentNode.getNode("js/default.js");
+								jsContent = jsNode.getNode("jcr:content").getProperty("jcr:data").getValue().getString();
+							} 
+						} 
+						String[] fieldContentJS = ["jcrPath=/node/js/default.js/jcr:content/jcr:data", "options=noSanitization", jsContent];
+						uicomponent.addTextAreaField(jsFormId, fieldContentJS); 								
+					%>
+					<i class="uiIconQuestion" id="ContentJSHelp" 
+										onmouseover="eXo.ecm.WCMUtils.showInContextHelp('ContentJSHelp', 'true')" onmouseout="eXo.ecm.WCMUtils.showInContextHelp('ContentJSHelp', 'false')"
+									onfocus="eXo.ecm.WCMUtils.showInContextHelp('ContentJSHelp', 'true')" onblur="eXo.ecm.WCMUtils.showInContextHelp('ContentJSHelp', 'false')">
+							<div style="position: absolute;">
+								<div class="InContextHelpContent">                    
+									<div class="InContextHelpPopup">
+									 <div id="ContentPathHelpID" class="LeftInContextHelpPopup">
+										 <%=_ctx.appRes("WebContent.dialog.label.hintJS")%>
+										</div>
+									</div>                      
+								</div>
+							</div>
+						</i>
+					</div>
+				</div>
+			</div>
+		</div>
+											
+	</div>   <!-- End of UITabContentContainer -->
+	<% if (!uiform.isShowActionsOnTop()) {
+						uiform.processRenderAction()
+				 }
+	%>
+	  
+	<%uiform.end()%>						 
+
 </div>  <!-- End of UITabPane -->
 

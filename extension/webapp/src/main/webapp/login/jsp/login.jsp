@@ -161,6 +161,7 @@
 			}
 			
 			.uiLogin .loginContent .username{
+                margin-top: 15px;
 				background: url("/platform-extension/login/jsp/images/username.png") no-repeat left;
 			}
 			
@@ -201,7 +202,7 @@
 			
 			.uiLogin .spaceRole{
 				clear: both;
-				padding: 12px 0;
+				padding: 2px 0 11px;
 			}
 			
 			.uiLogin .iPhoneCheckDisabled {
@@ -308,11 +309,11 @@
 
 			.uiLogin .signinFail{
                 background-color: transparent;
-                background-image: url("/eXoResources/skin/images/PopupMessage/icons.png");
+                background-image: url("/eXoResources/skin/images/Icons/errorIcon.png");
                 background-repeat: no-repeat;
                 font-size: 13px;
-                line-height: 16px;
-                margin: 6px 0 0 1px;
+                line-height: 18px;
+                margin: 12px 0 0 1px;
                 padding-left: 20px;
                 font-weight: bold;
             }
@@ -331,7 +332,8 @@
     <script type="text/javascript" src="/platform-extension/javascript/iphone-style-checkboxes.js"></script>
     <script type="text/javascript">
         $(document).ready(function() {
-            var htmlContent = "Powered by eXo Platform ";
+            var startlabelfooter = jQuery("#platformInfoDiv").data("labelfooter");
+            var htmlContent = startlabelfooter +" eXo Platform ";
             var divContent = jQuery("#platformInfoDiv");
             var requestJsonPlatformInfo = jQuery.ajax({ type: "GET", url: "/portal/rest/platform/info", async: false, dataType: 'json' });
             if(requestJsonPlatformInfo.readyState == 4 && requestJsonPlatformInfo.status == 200){
@@ -354,7 +356,7 @@
   <div class="loginBGLight"><span></span></div>
     <div class="uiLogin">
       <div class="loginHeader introBox">
-		<div class="userLoginIcon">Connect to your account</div>
+		<div class="userLoginIcon"><%=res.getString("portal.login.Connectlabel")%></div>
 	  </div>
       <div class="loginContent">
 				<div style="line-height: 12px; padding: 6px 3px 0 0; height: 27px; font-size: 11px;">
@@ -362,7 +364,7 @@
           <%
                 if(error) {
           %>
-          <div class="signinFail"><%=res.getString("UILoginForm.label.SigninFail")%></div><%}%>
+          <div class="signinFail"><%=res.getString("portal.login.SigninFail")%></div><%}%>
 				</div>
         <div class="centerLoginContent">
           <form name="loginForm" action="<%= contextPath + "/login"%>" method="post" style="margin: 0px;">
@@ -372,11 +374,11 @@
           		<input type="hidden" name="initialURI" value="<%=uri%>"/>
                 <% } %>	
 					
-				<input class="username" id="username" name="username" type="text" placeholder="Username" onblur="this.placeholder = 'Username'" onfocus="this.placeholder = ''"/>
-				<input class="password" id="UIPortalLoginFormControl" type="password" id="password" name="password" placeholder="Password" onblur="this.placeholder = 'Password'" onfocus="this.placeholder = ''"/>
+				<input class="username" id="username" name="username" type="text" placeholder="<%=res.getString("portal.login.Username")%>" onblur="this.placeholder = '<%=res.getString("portal.login.Username")%>'" onfocus="this.placeholder = ''"/>
+				<input class="password" id="UIPortalLoginFormControl" type="password" id="password" name="password" placeholder="<%=res.getString("portal.login.Password")%>" onblur="this.placeholder = '<%=res.getString("portal.login.Password")%>'" onfocus="this.placeholder = ''"/>
                 <div class="spaceRole">
-					<input type="checkbox" class="yesno" checked="checked" style="visibility: hidden;" id="rememberme" name="rememberme" value="true"/>
-					<label class="rememberTxt" for="rememberme"><%=res.getString("UILoginForm.label.RememberOnComputer")%></label>
+					<input type="checkbox" class="yesno" checked="checked" style="visibility: hidden;" id="rememberme" name="rememberme" value="true" data-yes="<%=res.getString("portal.login.Yes")%>" data-no="<%=res.getString("portal.login.No")%>"/>
+					<label class="rememberTxt" for="rememberme"><%=res.getString("portal.login.RememberOnComputer")%></label>
 				</div>
                 <script type="text/javascript">
                     $("div.spaceRole").click(function()
@@ -385,11 +387,14 @@
                         var remembermeOpt = input.attr("value") == "true" ? "false" : "true";
                         input.attr("value", remembermeOpt);
                     });
-
+                    var yeslabel;
+                    var nolabel;
                     $("div.spaceRole").children('input:checkbox').each(function () {
+                        yeslabel = $(this).data("yes");
+                        nolabel = $(this).data("no");
                         $(this).iphoneStyle({
-                                checkedLabel:'YES',
-                                uncheckedLabel:'NO'});
+                                checkedLabel:yeslabel,
+                                uncheckedLabel:nolabel});
 
                         $(this).change(function()
                         {
@@ -399,7 +404,7 @@
                 </script>
 
 				<div id="UIPortalLoginFormAction" class="loginButton" onclick="login();">
-					<button class="button" href="#"><%=res.getString("UILoginForm.label.Signin")%></button>
+					<button class="button" href="#"><%=res.getString("portal.login.Signin")%></button>
 				</div>
 
                 <script type='text/javascript'>
@@ -414,6 +419,6 @@
         </div>
       </div>
     </div>
-    <div id="platformInfoDiv"></div>
+    <div id="platformInfoDiv" data-labelfooter="<%=res.getString("portal.login.Footer")%>" ></div>
   </body>
 </html>

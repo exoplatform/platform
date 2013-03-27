@@ -13,7 +13,7 @@
   </ModulePrefs>
   <Content type="html">
     <![CDATA[
-	<link rel="stylesheet" href="css/tasks.css" type="text/css" />
+	<link rel="stylesheet" href="/intranet-gadgets/skin/css/Agenda.css" type="text/css" />
     <link type="text/css" rel="stylesheet" href="/exo-gadget-resources/skin/exo-gadget/gadget-common.css" />
    	<script type="text/javascript" src="js/jquery.js"></script>
 	<script type="text/javascript" src="js/tasks.js"></script>

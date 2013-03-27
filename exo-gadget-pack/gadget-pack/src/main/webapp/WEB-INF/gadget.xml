@@ -34,10 +34,6 @@
     <path>/gadgets/Management-and-Monitoring-gadgets/Statistics/Applications.xml</path>
   </gadget>	
 
-  <gadget name="TenSlowestTemplates">
-    <path>/gadgets/Management-and-Monitoring-gadgets/Statistics/templates-slowest.xml</path>
-  </gadget>	
-
   <gadget name="AllTemplateStatistics">
     <path>/gadgets/Management-and-Monitoring-gadgets/Statistics/templates-all.xml</path>
   </gadget>	

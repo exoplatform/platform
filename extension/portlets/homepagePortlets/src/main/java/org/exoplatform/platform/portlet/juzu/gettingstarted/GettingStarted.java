@@ -21,8 +21,8 @@ package org.exoplatform.platform.portlet.juzu.gettingstarted;
 import juzu.Path;
 import juzu.Resource;
 import juzu.View;
-import juzu.plugin.ajax.Ajax;
 import juzu.template.Template;
+import org.exoplatform.commons.juzu.ajax.Ajax;
 import org.exoplatform.platform.portlet.juzu.gettingstarted.models.GettingStartedService;
 import org.exoplatform.platform.portlet.juzu.gettingstarted.models.GettingStartedUtils;
 import org.exoplatform.services.jcr.ext.common.SessionProvider;
@@ -31,7 +31,6 @@ import org.exoplatform.services.log.ExoLogger;
 import org.exoplatform.services.log.Log;
 import org.exoplatform.social.core.service.LinkProvider;
 import org.exoplatform.web.application.RequestContext;
-import org.gatein.common.text.EntityEncoder;
 
 import javax.inject.Inject;
 import javax.jcr.Node;
@@ -39,9 +38,7 @@ import javax.jcr.Property;
 import javax.jcr.PropertyIterator;
 import javax.jcr.RepositoryException;
 import java.util.HashMap;
-import java.util.Locale;
 import java.util.MissingResourceException;
-import java.util.ResourceBundle;
 
 /**
  * @author <a href="fbradai@exoplatform.com">Fbradai</a>
@@ -165,20 +162,11 @@ public class GettingStarted {
         }
 
         try {
-            Locale locale = RequestContext.getCurrentInstance().getLocale();
-            ResourceBundle rs = ResourceBundle.getBundle("gettingStarted/gettingStarted", locale);
             bundle.put("profile", LinkProvider.getUserProfileUri(remoteUser));
-            bundle.put("profileLabel", EntityEncoder.FULL.encode(rs.getString("Upload.label")));
             bundle.put("connect", LinkProvider.getUserConnectionsUri(remoteUser));
-            bundle.put("connectLabel", EntityEncoder.FULL.encode(rs.getString("Connect.Label")));
             bundle.put("space", GettingStartedUtils.SPACE_URL);
-            bundle.put("spaceLabel", EntityEncoder.FULL.encode(rs.getString("Space.Label")));
             bundle.put("activity", "#");
-            bundle.put("activityLabel", EntityEncoder.FULL.encode(rs.getString("Activity.Label")));
             bundle.put("upload", GettingStartedUtils.UPLOAD_URL);
-            bundle.put("uploadLabel", EntityEncoder.FULL.encode(rs.getString("Document.Label")));
-            bundle.put("titleLabel", EntityEncoder.FULL.encode(rs.getString("title.Label")));
-            bundle.put("closeLabel", EntityEncoder.FULL.encode(rs.getString("close.Label")));
         } catch (MissingResourceException ex) {
             logger.warn("##Missing Labels of GettingStarted Portlet");
         }

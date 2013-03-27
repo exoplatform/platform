@@ -1,0 +1,242 @@
+body {
+  font-family: Verdana, Arial, Helvetica, sans-serif;
+  font-size: 11px;
+  background: #FFF;
+
+}
+
+* {margin:0;padding:0;}
+a {color:#333; text-decoration:none}
+a:hover {color:#ccc; text-decoration:none}
+
+h1 {
+  font-family: Georgia, serif;
+  font-size: 20px;
+  font-weight: normal;
+}
+
+h2{
+  font-family: Georgia, serif;
+  font-size: 16px;
+  font-weight: normal;
+  margin: 0px 0px 10px 0px;
+}
+/*style here*/
+.UIGadgetConsole {
+  margin:0 auto;
+  width: 100%;
+}
+#ContainerConsole {
+  border: solid 1px #2AA7DE;
+  float: left;
+  width: 100%;
+  min-height:200px;
+}
+
+
+
+#mask {
+  position:absolute;
+  left:0;
+  top:0;
+  z-index:9000;
+  background-color:#000;
+  display:none;
+}
+  
+ .Boxwindow {
+  position:absolute;
+  left:0;
+  top:0;
+  width:440px;
+  height:200px;
+  display:none;
+  z-index:9999;
+  padding:20px;
+  background: #fff;
+  border: 3px solid #000;
+  -moz-border-radius: 15px;
+  -webkit-border-radius: 15px;
+}
+
+ #dialogHelp {
+  width:90%; 
+  height:90%;
+  padding:10px;
+  background-color:#ffffff;
+}
+
+ #dialogColor {
+  width:326px; 
+  height:229px;
+  padding:50px 0 20px 25px;
+}
+
+.Boxwindow .close {
+  position: absolute;
+  right:5px;
+  top:5px;
+  width:24px;
+  height:24px;
+  text-align:center;  
+  background: url('/gadget-pack/skin/images/eXoScriptingConsole/closeIcon.png') no-repeat left center;
+  text-indent:-9999999px;
+  outline:none;
+}
+.UIGadgetConsole .ToolBarMenu {
+  list-style:none;
+  height: 30px;
+  line-height:30px;
+  background: #226ab4;
+}
+.UIGadgetConsole .ToolBarMenu  li {
+  float:left;
+  display:block;
+  position:relative;
+  padding:0 10px;
+  cursor:pointer;
+}
+
+.UIGadgetConsole .dialogFonts {
+  display:none;
+  position:absolute;
+  /*top:30;*/ /*PLF-2571 - CSS 3 validation*/
+  left:0;
+  width:260px;
+  padding:20px 10px;
+  background:#ececec;
+  z-index:999;
+}
+.dialogFonts  select {
+  height:23px;
+  border: 1px solid #d8ed9a;
+  padding:1px;
+  width:60px;
+}
+
+.dialogFonts  input.button {
+  border: 1px solid #d8ed9a;
+  padding:3px;
+  cursor:pointer;
+}
+
+.dialogFonts  input.cancel {
+  border: 1px solid #d8ed9a;
+  padding:3px;
+  cursor:pointer;
+}
+
+.UIGadgetConsole .ToolBarMenu  li  a {
+  color:white;
+  font-weight:bold;
+  outline: none;
+}
+
+.UIGadgetConsole .ToolBarMenu  li  .item {
+  display:block;
+  padding: 0 0 0 20px;  
+}
+.UIGadgetConsole .ToolBarMenu  li  .ColorItem {
+  background: url('/gadget-pack/skin/images/eXoScriptingConsole/colorIcon.png') no-repeat left center;
+}
+
+.UIGadgetConsole .ToolBarMenu  li  .HelpItem {
+  background: url('/gadget-pack/skin/images/eXoScriptingConsole/helpIcon.png') no-repeat left center;
+}
+
+.UIGadgetConsole .ToolBarMenu  li  .FontItem {
+  background: url('/gadget-pack/skin/images/eXoScriptingConsole/FontIcon.png') no-repeat left center;
+}
+.UIGadgetConsole .ToolBarMenu  li  .ControlItem {
+  background: url('/gadget-pack/skin/images/eXoScriptingConsole/controlIcon.png') no-repeat left center;
+}
+.ContainerEditor {
+  min-height: 200px;
+  border:1px solid #eee;
+}
+
+.ToolBarMenu  li.BtnControl {
+  float:right;
+}
+/*color picker*/
+#colorSelector {
+  position: relative;
+  width: 36px;
+  height: 36px;
+  background: url('/gadget-pack/skin/images/eXoScriptingConsole/select.png');
+}
+#colorSelector div {
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 30px;
+  height: 30px;
+  background: url('/gadget-pack/skin/images/eXoScriptingConsole/select.png') center;
+}
+#colorSelector2 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 36px;
+  height: 36px;
+  background: url('/gadget-pack/skin/images/eXoScriptingConsole/select2.png');
+}
+#colorSelector2 div {
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  width: 28px;
+  height: 28px;
+  background: url('/gadget-pack/skin/images/eXoScriptingConsole/select2.png') center;
+}
+#colorpickerHolder2 {
+  top: 32px;
+  left: 0;
+  width: 356px;
+  height: 0;
+  overflow: hidden;
+  position: absolute;
+}
+#colorpickerHolder2 .colorpicker {
+  background-image: url('/gadget-pack/skin/images/eXoScriptingConsole/custom_background.png');
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+#colorpickerHolder2 .colorpicker_hue div {
+  background-image: url('/gadget-pack/skin/images/eXoScriptingConsole/custom_indic.gif');
+}
+#colorpickerHolder2 .colorpicker_hex {
+  background-image: url('/gadget-pack/skin/images/eXoScriptingConsole/custom_hex.png');
+}
+#colorpickerHolder2 .colorpicker_rgb_r {
+  background-image: url('/gadget-pack/skin/images/eXoScriptingConsole/custom_rgb_r.png');
+}
+#colorpickerHolder2 .colorpicker_rgb_g {
+  background-image: url('/gadget-pack/skin/images/eXoScriptingConsole/custom_rgb_g.png');
+}
+#colorpickerHolder2 .colorpicker_rgb_b {
+  background-image: url('/gadget-pack/skin/images/eXoScriptingConsole/custom_rgb_b.png');
+}
+#colorpickerHolder2 .colorpicker_hsb_s {
+  background-image: url('/gadget-pack/skin/images/eXoScriptingConsole/custom_hsb_s.png');
+  display: none;
+}
+#colorpickerHolder2 .colorpicker_hsb_h {
+  background-image: url('/gadget-pack/skin/images/eXoScriptingConsole/custom_hsb_h.png');
+  display: none;
+}
+#colorpickerHolder2 .colorpicker_hsb_b {
+  background-image: url('/gadget-pack/skin/images/eXoScriptingConsole/custom_hsb_b.png');
+  display: none;
+}
+#colorpickerHolder2 .colorpicker_submit {
+  background-image: url('/gadget-pack/skin/images/eXoScriptingConsole/custom_submit.png');
+}
+#colorpickerHolder2 .colorpicker input {
+  color: #778398;
+}
+#customWidget {
+  position: relative;
+  height: 36px;
+}

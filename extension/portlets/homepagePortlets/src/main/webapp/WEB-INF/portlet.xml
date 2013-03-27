@@ -12,7 +12,8 @@
       <mime-type>text/html</mime-type>
     </supports>
     <supported-locale>en</supported-locale>
-    <resource-bundle>whoisonline.whoisonline</resource-bundle>
+     <supported-locale>fr</supported-locale>
+    <resource-bundle>locale.portlet.whoisonline.whoisonline</resource-bundle>
     <portlet-info>
       <title>Who is on line</title>
       <keywords>Home_Page_Portlets_WhoIsOnLine</keywords>
@@ -25,6 +26,9 @@
     <supports>
       <mime-type>text/html</mime-type>
     </supports>
+     <supported-locale>en</supported-locale>
+     <supported-locale>fr</supported-locale>
+     <resource-bundle>locale.portlet.gettingStarted.gettingStarted</resource-bundle>
     <portlet-info>
       <title>getting Started</title>
       <keywords>Home_Page_Portlets_GettingStarted</keywords>
@@ -38,7 +42,8 @@
       <mime-type>text/html</mime-type>
     </supports>
     <supported-locale>en</supported-locale>
-    <resource-bundle>suggestions.suggestions</resource-bundle>
+     <supported-locale>fr</supported-locale>
+    <resource-bundle>locale.portlet.suggestions.suggestions</resource-bundle>
     <portlet-info>
       <title>Suggestions</title>
       <keywords>Home_Page_Portlets_Suggestions</keywords>
@@ -52,7 +57,8 @@
       <mime-type>text/html</mime-type>
     </supports>
     <supported-locale>en</supported-locale>
-    <resource-bundle>invitations.invitations</resource-bundle>
+     <supported-locale>fr</supported-locale>
+    <resource-bundle>locale.portlet.invitations.invitations</resource-bundle>
     <portlet-info>
       <title>Invitations</title>
       <keywords>Home_Page_Portlets_Invitations</keywords>
@@ -65,6 +71,9 @@
     <supports>
       <mime-type>text/html</mime-type>
     </supports>
+     <supported-locale>en</supported-locale>
+     <supported-locale>fr</supported-locale>
+     <resource-bundle>locale.portlet.calendar.calendar</resource-bundle>
     <portlet-info>
       <title>Calendar Portlet</title>
       <keywords>Home_Page_Portlets_Calendar</keywords>

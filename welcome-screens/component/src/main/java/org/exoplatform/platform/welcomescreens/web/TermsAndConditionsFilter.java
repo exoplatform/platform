@@ -1,6 +1,7 @@
 package org.exoplatform.platform.welcomescreens.web;
 
 import org.exoplatform.commons.utils.PropertyManager;
+import org.exoplatform.container.ExoContainerContext;
 import org.exoplatform.container.PortalContainer;
 import org.exoplatform.platform.welcomescreens.service.TermsAndConditionsService;
 import org.exoplatform.platform.welcomescreens.service.UnlockService;
@@ -31,14 +32,16 @@ public class TermsAndConditionsFilter implements Filter {
   
   private TermsAndConditionsService termsAndConditionsService;
 
-  private static final String PLF_WELCOME_SCREENS_SERVLET_CTX = "/welcome-screens";
+  private static final String PLF_WELCOME_SCREENS_SERVLET_CTX = "/trial";
   private static final String TC_SERVLET_URL = "/terms-and-conditions";
   private static final String INITIAL_URI_PARAM_NAME = "initialURI";
   private static final String LOGIN_URI = "/login";
   private static final String DOLOGIN_URI = "/dologin";
-    private static final String REST_URI = "/rest";
+  private static String REST_URI;
 
-  public TermsAndConditionsFilter() {}
+  public TermsAndConditionsFilter() {
+      REST_URI = ExoContainerContext.getCurrentContainer().getContext().getRestContextName();
+  }
 
   public TermsAndConditionsService getTermsAndConditionsService() {
     if(termsAndConditionsService == null) {

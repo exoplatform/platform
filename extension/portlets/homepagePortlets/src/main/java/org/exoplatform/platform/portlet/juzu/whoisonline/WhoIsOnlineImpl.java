@@ -43,9 +43,10 @@ public class WhoIsOnlineImpl implements WhoIsOnline {
     private static final int MAX_DOC_CHAR = 25;
 
     public List<User> getFriends(String userId) {
+        List<User> userOnLineList = new ArrayList<User>();
         try {
             if (userId == null) {
-                return null;
+                return userOnLineList;
             }
             RelationshipManager relationshipManager = (RelationshipManager) ExoContainerContext.getCurrentContainer().getComponentInstanceOfType(RelationshipManager.class);
             ForumService forumService = (ForumService) ExoContainerContext.getCurrentContainer().getComponentInstanceOfType(ForumService.class);
@@ -60,7 +61,7 @@ public class WhoIsOnlineImpl implements WhoIsOnline {
                 users = users.subList(0, INDEX_USER);
             }
 
-            List<User> userOnLineList = new ArrayList<User>();
+            //List<User> userOnLineList = new ArrayList<User>();
             String lastActivity = "";
             User userOnLine = null;
             String userStatus = "";

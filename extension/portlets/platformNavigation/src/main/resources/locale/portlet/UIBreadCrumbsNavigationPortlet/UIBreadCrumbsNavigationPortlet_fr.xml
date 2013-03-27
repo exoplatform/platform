@@ -7,4 +7,10 @@
         </ChangePicture>
     </label>
 </UIBreadCrumbsNavigationPortlet>
+   <UIBreadCrumbPopupAvatarUploader>
+      <title>
+         <UIAvatarUploader>Télécharger une photo</UIAvatarUploader>
+         <UIAvatarUploadContent>Prévisualiser La photo</UIAvatarUploadContent>
+      </title>
+   </UIBreadCrumbPopupAvatarUploader>
 </bundle>

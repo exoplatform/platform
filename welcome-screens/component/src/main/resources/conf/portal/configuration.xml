@@ -1,10 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.exoplatform.org/xml/ns/kernel_1_2.xsd http://www.exoplatform.org/xml/ns/kernel_1_2.xsd" xmlns="http://www.exoplatform.org/xml/ns/kernel_1_2.xsd">
 
-   <component>
-      <type>org.exoplatform.platform.welcomescreens.service.rest.WelcomeScreenRestService</type>
-   </component>
-
     <component>
         <type>org.exoplatform.platform.welcomescreens.service.UnlockService</type>
         <init-params>
@@ -27,10 +23,6 @@
             <value-param>
                 <name>subscriptionUrl</name>
                 <value>http://www.exoplatform.com/company/en/products/editions</value>
-            </value-param>
-            <value-param>
-                <name>pingBackUrl</name>
-                <value>http://www.exoplatform.com/company/en/products/e-01011000-01101111</value>
             </value-param>
         </init-params>
     </component>

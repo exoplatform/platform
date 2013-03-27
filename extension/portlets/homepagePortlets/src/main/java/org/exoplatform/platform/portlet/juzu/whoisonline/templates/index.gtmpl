@@ -19,7 +19,7 @@
 
 <div id="OnlinePortlet" class="onlinePortlet">
     <div id="onlineContent" class="uiBox">
-        <h6 class="title center">${headerLabel}</h6>
+        <h6 class="title center">&{header.label}</h6>
         <ul id="onlineList" class="gallery uiContentBox">
          #{include path=users.gtmpl}#{/include}
         </ul>

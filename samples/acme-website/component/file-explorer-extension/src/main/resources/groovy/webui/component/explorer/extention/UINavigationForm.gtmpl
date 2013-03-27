@@ -2,80 +2,63 @@
   def rcontext = _ctx.getRequestContext();
   def jsManager = rcontext.getJavascriptManager();
 %>
-<div class="UIForm $uicomponent.id">
+<div class="uiForm $uicomponent.id">
   <%uiform.begin()%>
-  <div class="HorizontalLayout">
-    <div class="FormContainer">
-      <div class="FormContainer" >
-          <table class="UIFormGrid" style="width:100%;">
-            <tr>
-              <td class="FieldLabel"><%=uicomponent.getLabel(uicomponent.NODE) %></td>
-              <td class="FieldComponent" colspan="2"><% uiform.renderField(uicomponent.NODE) %></td>
-            </tr>
-			<tr>
-              <td class="FieldLabel"><%=uicomponent.getLabel(uicomponent.IS_VISIBLE) %></td>
-              <td class="FieldComponent" colspan="2"><% uiform.renderField(uicomponent.IS_VISIBLE) %></td>
-            </tr>
-			<tr>
-              <td class="FieldLabel"><%=uicomponent.getLabel(uicomponent.NAVIGATION_NODE_INPUT_SET) %></td>
-              <td class="FieldComponent" colspan="6"><% uiform.renderField(uicomponent.NAVIGATION_NODE_INPUT_SET) %></td>
-            </tr>
-			<%
-			if(uicomponent.getChildById(uicomponent.INDEX) != null){
-			%>
-				<tr>
-				  <td class="FieldLabel"><%=uicomponent.getLabel(uicomponent.INDEX) %></td>
-				  <td class="FieldComponent" colspan="3"><% uiform.renderField(uicomponent.INDEX) %></td>
-				</tr>
-			<%
-			}
-			%>
-          </table>
-	  </div>
-	  <div class="FormContainer">
-        <fieldset style=" margin-bottom: 10px; overflow: hidden; border: 1px solid #b7b7b7;" maxHeight="350">
-          <legend class="StyleLegend">&nbsp;<%=uicomponent.getLabel(uicomponent.NAVIGATION_CONTROLS)%>&nbsp;</legend>
-          <table class="UIFormGrid" style="width:100%;">
-			<tr>
-			  <td class="FieldLabel"><%=uicomponent.getLabel(uicomponent.IS_CLICKABLE) %></td>
-			  <td class="FieldComponent ClickableRadio" colspan="2"><%uiform.renderField(uicomponent.IS_CLICKABLE)%></td>
-			</tr>
-		 	<div class="FieldLabel">&nbsp;<%=uicomponent.getLabel(uicomponent.LIST)%><div>
-            <tr onmouseover="this.style.background='#E7F3FF'" onmouseout="this.style.background='transparent'">
-				<td colspan="3">
-					<table>
-						<tr>
-						  <td class="FieldLabel"><%=uicomponent.getLabel(uicomponent.LIST_TARGET_PAGE_INPUT_SET) %></td>
-						  <td class="FieldComponent" colspan="6"><% uiform.renderField(uicomponent.LIST_TARGET_PAGE_INPUT_SET) %></td>
-						</tr>
-					</table>
-				</td>
-			</tr>
-			<div class="FieldLabel">&nbsp;<%=uicomponent.getLabel(uicomponent.DETAIL)%></div>
-			<tr onmouseover="this.style.background='#E7F3FF'" onmouseout="this.style.background='transparent'">
-				<td colspan="3">
-					<table>
-						<tr>
-						  <td class="FieldLabel"><%=uicomponent.getLabel(uicomponent.DETAIL_TARGET_PAGE_INPUT_SET) %></td>
-						  <td class="FieldComponent" colspan="6"><% uiform.renderField(uicomponent.DETAIL_TARGET_PAGE_INPUT_SET) %></td>
-						</tr>
-					</table>
-				</td>
-			</tr>
-          </table>
-        </fieldset>
-	 </div>
+
+				<div class="form-horizontal resizable">
+					<div class="control-group">
+              <label class="control-label"><%=uicomponent.getLabel(uicomponent.NODE) %></label>
+              <div class="controls"><% uiform.renderField(uicomponent.NODE) %></div>
+					</div>
+					<div class="control-group">
+              <label class="control-label"><%=uicomponent.getLabel(uicomponent.IS_VISIBLE) %></label>
+              <div class="controls"><% uiform.renderField(uicomponent.IS_VISIBLE) %></div>
+					</div>
+					<div class="control-group">
+              <label class="control-label"><%=uicomponent.getLabel(uicomponent.NAVIGATION_NODE_INPUT_SET) %></label>
+              <div class="controls"><% uiform.renderField(uicomponent.NAVIGATION_NODE_INPUT_SET) %></div>
+					</div>
+					<%
+					if(uicomponent.getChildById(uicomponent.INDEX) != null){
+					%>
+					<div class="control-group">
+						<label class="control-label"><%=uicomponent.getLabel(uicomponent.INDEX) %></label>
+						<div class="controls"><% uiform.renderField(uicomponent.INDEX) %></div>
+					</div>
+					<%
+					}
+					%>
+
+	
+			<fieldset>
+				<div class="form-horizontal">
+					<div class="control-group">
+						<label class="control-label"><h5><%=uicomponent.getLabel(uicomponent.NAVIGATION_CONTROLS)%></h5></label>
+					</div>
+					<div class="control-group">
+						<label class="control-label"><%=uicomponent.getLabel(uicomponent.IS_CLICKABLE) %></label>
+						<div class="controls"><%uiform.renderField(uicomponent.IS_CLICKABLE)%></div>
+					</div>
+					<div class="control-group">
+						<label class="control-label"><%=uicomponent.getLabel(uicomponent.LIST_TARGET_PAGE_INPUT_SET) %></label>
+						<div class="controls"><% uiform.renderField(uicomponent.LIST_TARGET_PAGE_INPUT_SET) %></div>
+					</div>
+					<div class="control-group">
+						<label class="control-label"><%=uicomponent.getLabel(uicomponent.DETAIL_TARGET_PAGE_INPUT_SET) %></label>
+						<div class="controls"><% uiform.renderField(uicomponent.DETAIL_TARGET_PAGE_INPUT_SET) %></div>
+					</div>
+				</div>
+			</fieldset>
+		</div>
 	<!--/table-->
-	<div class="UIAction">
+	<div class="uiAction uiActionBorder">
 		<% for(action in uicomponent.getActions()) { 
 		String actionLabel = _ctx.appRes(uicomponent.getName() + ".action." + action) ;
 		String link = uicomponent.event(action) ;
 		%>
-		<a href="javascript:void(0);" onclick="$link" class="ActionButton LightBlueStyle" onmouseover="this.style.color = '#058ee6'" onfocus="this.style.color = '#058ee6'" onmouseout="this.style.color='black'" onblur="this.style.color='black'">$actionLabel</a>
+		<button type="button" href="javascript:void(0);" onclick="$link" class="btn">$actionLabel</button>
 		<%}%>
 	</div>
-</div>
-</div>
 <%
     uiform.end()
   %>

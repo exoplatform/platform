@@ -3,7 +3,7 @@
   <ModulePrefs title="Memory"
   author="Frederic DROUET"
   author_email="fdrouet@exoplatform.com"
-  thumbnail="image/memory-icon.png">
+  thumbnail="/gadget-pack/skin/images/Monitoring/memory-icon.png">
     <Require feature="settitle" />
     <Require feature="dynamic-height" />
     <Locale messages="locale/default.xml" />
@@ -11,13 +11,14 @@
     <Locale lang="it" messages="locale/it.xml" />
   </ModulePrefs>
   <Content type="html">
-    <![CDATA[ 
+    <![CDATA[     
     <head>
       <title>Memory</title>
       <link rel="stylesheet" type="text/css" href="/exo-gadget-resources/skin/exo-gadget/gadget-common.css" />
-      <link type="text/css" rel="stylesheet" href="skin/gadget-memory.css" />
+      <link type="text/css" rel="stylesheet" href="/gadget-pack/skin/css/monitoring.css" />
       <link rel="stylesheet" type="text/css" href="/exo-gadget-resources/script/jquery/plugins/jqplot/1.0.0/jquery.jqplot.min.css" />
-      
+      <link rel="stylesheet" type="text/css" href="/eXoResources/skin/bootstrap/css/bootstrap.css" />
+    
       <script language="javascript" type="text/javascript" src="/social-resources/javascript/eXo/social/SocialUtil.js"></script>
       <script language="javascript" type="text/javascript" src="/exo-gadget-resources/script/jquery/1.6.2/jquery.min.js"></script>
       <script language="javascript" type="text/javascript" src="script/memory-utils.js"></script>
@@ -33,30 +34,98 @@
           $.getJSON('/rest/monitoring/memory', function(data) {
             $.each(data, function(i, liste) {
               $.each(liste, function(key, memory) {
-                var memoryTitle = 'free / used : ' + formatOctets(memory.max - memory.used) +' / ' + formatOctets(memory.used);
-                dataGraphs[key]=[memory.type, memoryTitle, [['used', memory.used], ['free', memory.max - memory.used]]];
+                //var memoryTitle = 'free / used : ' + formatOctets(memory.max - memory.used) +' / ' + formatOctets(memory.used) +' / ' +  formatOctets(memory.max);
+                var free = formatOctets(memory.max - memory.used);
+                var used = formatOctets(memory.used);
+                var total = formatOctets(memory.max);              
+                dataGraphs[key]=[memory.type, [free, used, total], [['used', memory.used], ['free', memory.max - memory.used]]];
                 items.push('<div id="memoryGraph_'+memory.type+'" class="graph-memory-zone"> </div>');
               });
             });
             
             $('#memoryInfos').empty();
             $('<div/>', {'class': 'memoryGraphs',  html: items.join('')}).appendTo('#memoryInfos');
-            
+
             $.jqplot.config.enablePlugins = true;
             
             $.each(dataGraphs, function (key, graph) {
               var graphName = graph[0];
               plot1 = $.jqplot('memoryGraph_'+graphName, [graph[2]], {
-                title: '<strong>' + graphName+' memory</strong> <br />'+graph[1],
+                seriesColors: [ "#d30019", "#3370b4"],
+                //title: '<strong>' + graphName+' memory</strong> <br />'+graph[1],
                 seriesDefaults:{
                   renderer:$.jqplot.PieRenderer,
-                  rendererOptions:{sliceMargin:4, fill:true, shadow:true, lineWidth:5},
+                  rendererOptions:{sliceMargin:5, fill:true, shadow:true, lineWidth:5},
                   // , diameter:100
-                  showMarker:true
                 },
-                legend:{show:true, location: 'e'}
+                
+                legend:{show:true, location: 'e'},
+                
+                grid: {
+                    gridLineColor: '#cccccc',    // *Color of the grid lines.
+                    background: '#FFFFFF',      // CSS color spec for background color of grid.
+                    borderColor: '#CFCFCF',     // CSS color spec for border around grid.
+                    borderWidth: 1.0,           // pixel width of border around grid.
+                    shadow: true,               // draw a shadow for grid.
+                    shadowAngle: 45,            // angle of the shadow.  Clockwise from x axis.
+                    shadowOffset: 1.5,          // offset from the line of the shadow.
+                    shadowWidth: 3,             // width of the stroke for the shadow.
+                    shadowDepth: 3,             // Number of strokes to make when drawing shadow.
+                                    // Each stroke offset by shadowOffset from the last.
+                    shadowAlpha: 0.02          // Opacity of the shadow
+                }
               });
             });
+            
+            $(".memoryGraphs").children().each(function(index, item) {
+              var memoryType = dataGraphs[index][0];
+              var memoryStats = dataGraphs[index][1];
+              
+              var tableGrip = "<table class='list-memory uiGrid table table-hover table-striped'>" +
+                      "<tbody>" +
+                      "<tr>" +
+                      "<td class='memory-label'>Used</td>" +
+                      "<td class='center'>" +
+                      memoryStats[1] +
+                      "</td>" +
+                      "</tr>" +
+                      "<tr>" +
+                      "<td class='memory-label'>Free</td>" +
+                      "<td class='center'>" +
+                      memoryStats[0] +
+                      "</td>" +
+                      "</tr>" +
+                      "<tr>" +
+                      "<td class='memory-label'>Total</td>" +
+                      "<td class='center'>" +
+                      memoryStats[2] +
+                      "</td>" +
+                      "</tr>" +
+                      "</tbody>" +   
+                      "</table>";
+              var memoryGraphParent = $(this).parent();
+              var sel = $("<div class='chart-container'><h6>" +memoryType+ " memory</h6></div>").append(this);
+              sel.appendTo(memoryGraphParent);
+              //$(this).remove();
+              var table = $(this).find("table");
+              $(table).remove();
+              
+              $(this).find("canvas").each(function(index, item) {
+                var parent = $(item).parent();
+                $(item).remove();
+                if(index === 3) {
+                  //$(html).appendTo(parent);
+                  $(item).removeAttr('style');
+                  $(item).addClass('chart-canvas');
+                  var append = $("<div class='chart-content'></div>").append(item);
+                  $(append).append(table);
+                  $(append).appendTo(parent);
+                }
+              });
+              
+              $(tableGrip).appendTo(sel);
+            });
+            
             
             // the standard version is buggy so i use the eXo Social fixed version
             // gadgets.window.adjustHeight();
@@ -72,18 +141,18 @@
           }, 0);
         }
         gadgets.util.registerOnLoadHandler(init);
+        
       </script>
     </head>
     <body>
-      <div class="UIGadgetThemes" id="my-gadget">
-        <div class="TitGad ClearFix">
-          <a target="_blank" id="ShowAll" class="IconDropDown" title="Show all"> </a>
-          <div title="Setting" id="SettingButton" class="SettingButton">
-            <a href="javascript:eXoEventGadget.showHideSetting(true);" title="Setting"></a>
-          </div>
-          <div class="ContTit">__MSG_title_memory__</div>
+      <div class="uiGadgetThemes uiBox" id="my-gadget">
+        <h6 class="gadgetTitle title center">
+          __MSG_title_memory__
+          <a class="uiIconClose pull-right" title="Close Window" rel="tooltip" data-placement="bottom" onclick=""></a>
+        </h6>
+        <div id="memoryInfos" class="GadCont templates">
+          Loading data ...
         </div>
-        <div id="memoryInfos" class="GadCont templates">Loading data ...</div>
       </div>
     </body>
     ]]>

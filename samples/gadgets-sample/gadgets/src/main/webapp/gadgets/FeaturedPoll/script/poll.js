@@ -10,7 +10,7 @@ function init() {
   var req = opensocial.newDataRequest();
   req.add(req.newFetchPersonRequest(opensocial.IdSpec.PersonId.VIEWER, opts), 'viewer');
   req.send(createURL);
-  $('.SettingButton').click(function(){
+  $('.settingBt').click(function(){
     config();
   });
 }
@@ -18,7 +18,6 @@ function init() {
 function createPollDiv() {
   var prefs = new gadgets.Prefs();
   var forumURL = window.location.protocol + "//" + window.location.host + parent.parent.eXo.env.portal.context + "/"+ parent.parent.eXo.env.portal.portalName +"/forum";
-  document.getElementById("createpoll").innerHTML = "<a target='_parent' href='" + forumURL + "'>"+ prefs.getMsg("createPoll") + "</a>";
   adjustHeight();  
 }
 
@@ -38,21 +37,31 @@ function createPollList(data){
   var pollIds = data.pollId;
   var pollNames = data.pollName;
   var len = pollIds.length;
-  
+ 
   if (data.isAdmin == "true") {
     var html = [];
-    html.push('<select class="PollList" name="pollname" onchange="changeVote(this);">');
+     html.push('<div class="form-horizontal">');
+      html.push('<div class="control-group">');
+      html.push('<label for="type" class="control-label"> Select another poll: </label>');
+      html.push('<div class="controls">');
+      html.push('<span class="uiSelectbox">');
+    html.push('<select class="selectbox" name="type" onchange="changeVote(this);">');
     for (var i = 0 ; i < len; i++) {
       html.push('<option value="' + pollIds[i] + '">' + pollNames[i] + '</option>');
     }
     html.push('</select>');
+    html.push('</span>');
+      html.push('</div>');
+      html.push('</div>');
+      html.push('</div>');
     $('#listpoll').html(html.join(''));
   }
+  
   var randomPollId  = 0;
   var url = baseURL + "viewpoll/" + pollIds[randomPollId];
 
   if(len == 0){
-  document.getElementById("poll").innerHTML = "<div class='light_message' style='margin-left: 15px; margin-bottom: 15px'>" + prefs.getMsg("nopoll") + "</div>";
+  document.getElementById("poll").innerHTML = "<div class='light_message'><i class='uiIconPoll'></i> " + prefs.getMsg("nopoll") + "</div>";
   adjustHeight();
   return;
 
@@ -72,36 +81,31 @@ function showPoll(data, isVoteAgain){
   var pollId = data.id;
   var parentPath = data.parentPath;
   var haveTopic = parentPath.indexOf("ForumData/CategoryHome"); //check topic of poll if toptic is exist  
-  var discussUrl = "#";
   if(!data.showVote || isVoteAgain){    
     html = [];
       if(haveTopic){
           var prefs = new gadgets.Prefs();
           var topicId= pollId.replace("poll","topic");
           var topicURL = window.location.protocol + "//" + window.location.host + parent.parent.eXo.env.portal.context + "/"+ parent.parent.eXo.env.portal.portalName +"/forum/topic/" + topicId;
-          html.push('<h4><a  target="_parent" class="Question" title = "' + prefs.getMsg('discuss') + '" target ="_parent" href="'+ topicURL + '">' + question + '</a></h4>');
-        discussUrl = "<a class='Discuss' title='" + prefs.getMsg("discuss") + "'  target='_parent'  href='"+ topicURL + "'>" + prefs.getMsg("discuss") + "</a>";
+          html.push('<h6 class="clearfix"><a class="question" title = "' + prefs.getMsg('discuss') + '" target ="_parent" href="'+ topicURL + '"><i class="uiIconPoll"></i> ' + question + '</a><a class="discuss btn" type="button" title="' + prefs.getMsg("discuss") + '"  href="'+ topicURL + '">' + prefs.getMsg("discuss") + '</a></h6>');
       }
       else{
-          html. push('<h4 class="Question">' + question + '</h4>');
+          html. push('<h6 class="question">' + question + '</h6>');
       }
     html.push('<form>');
     html.push('<input type="hidden" name="pollid" value="'+ data.id +'"/>')
     if(data.isMultiCheck){
       for(var i = 0, len = options.length; i < len; i++){
-        html.push('<div><input class="radio" type="checkbox" id="rdoVote_' + i + '" name="rdoVote" value="' + i + '"><span><label for="rdoVote_' + i + '">' + options[i] + '</label></span></div>');
+        html.push('<label class="uiCheckbox"><input type="checkbox"  class="checkbox"  id="rdoVote_' + i + '" name="rdoVote" value="' + i + '"><span title="'+ options[i] +'" data-placement="bottom" rel="tooltip">' + options[i] + '</span></label>');
       }
     } else {
       for(var i = 0, len = options.length; i < len; i++){
-        html.push('<div><input class="radio" type="radio" id="rdoVote_' + i + '" name="rdoVote" value="' + i + '"><span><label for="rdoVote_' + i + '">' + options[i] + '</label></span></div>');
+        html.push('<label class="uiRadio"><input type="radio" class="radio" id="rdoVote_' + i + '" name="rdoVote" value="' + i + '"><span title="'+ options[i] +'" data-placement="bottom" rel="tooltip">' + options[i] + '</span></label>');
       }
     }
-    html.push("<center style='margin-top: 5px'><input type='button' onclick='doVote(this);' name='btnVote' value='" + lblVote + "'/></center>");
+    html.push("<div class='uiAction btnform'><button class='btn' type='button' onclick='doVote(this);' name='btnVote' value='" + lblVote + "'>Vote</button>");
         html.push("</form>");
-      if(haveTopic){
-          html.push(discussUrl);
-        //document.getElementById("createpoll").innerHTML = prefs.getMsg('createPoll') + ' <a target="_parent" href="' + forumURL + '">forums</a>';
-      }
+      
     $('#poll').html(html.join(''));
   }else{
     showResult(data);
@@ -122,48 +126,44 @@ function showResult(data){
   var pollId = data.id;
   var parentPath = data.parentPath;
   var haveTopic = parentPath.indexOf("ForumData/CategoryHome"); //check topic of poll if toptic is exist
-  var discussUrl = "#";
   var tbl = [];
   
   if(haveTopic){
       var prefs = new gadgets.Prefs();
     var topicId= pollId.replace("poll","topic");
     var topicURL = window.location.protocol + "//" + window.location.host + parent.parent.eXo.env.portal.context + "/"+ parent.parent.eXo.env.portal.portalName + "/forum/topic/" + topicId;
-    tbl.push('<h4><a class="Question" title = "' + prefs.getMsg('discuss') + '"  target="_parent"  href="'+ topicURL + '">' + question + '</a></h4>');
-    discussUrl = '<a class="Discuss" title = "' + prefs.getMsg('discuss') + '"  target="_parent"  href="'+ topicURL + '">' + prefs.getMsg('discuss') + '</a>';
+    tbl.push('<h6 class="clearfix"><a class="question " title = "' + prefs.getMsg('discuss') + '"  target="_parent"  href="'+ topicURL + '"><i class="uiIconPoll"></i> ' + question + '</a><a class="discuss btn" type="button" title = "' + prefs.getMsg('discuss') + '"  target="_parent"  href="'+ topicURL + '">' + prefs.getMsg('discuss') + '</a></h6>');
   }
   else{
-    tbl.push('<h4 class="Question">' + question + '</h4>');
+    tbl.push('<h6 class="question">' + question + '</h6>');
   }
     
-  tbl.push('<table class="VoteResult">');
-  tbl.push('<tbody >');
+  tbl.push('<table class="voteResult">');
+  tbl.push('<tbody>');
   for(var i = 0, len = options.length; i < len; i++){
     var result = Math.round(vote[i]);
     var style ="";
     if(result>5){
-      var style = 'color:white; text-align:center;width:' + result + '%; background-color:#226ab4';
+      var style = 'width:' + result + '%;';
     }
     else{
-      var style = 'color:black; text-align:center;width:' + result + '%; background-color:#226ab4';
+      var style = 'width:' + result + '%;';
     }
     
-    tbl.push('<tr><td width="50%">' + options[i] + '</td><td><div class="HorizontalBar" style="' + style + '">' + result + '%</div></td></tr>');
+    tbl.push('<tr><td><div class="label-vote">' + options[i] + '</div></td><td><div class="horizontalBG"><div class="horizontalBar" style="' + style + '">&nbsp;</div></div></td><td class="percent">' + result + '%</td></tr>');
   }
   tbl.push('</tbody>');
   tbl.push('</table>');
-  tbl.push('<strong style="display: inline-block; margin-bottom: 5px;"> '+ msgTotal +': ' + voters + ' ' + msgVoter +'</strong>');
-  
+  tbl.push('<div class="clearfix btnform">');
   if(data.isAgainVote){
-    tbl.push("<center style='margin-top: 5px; margin-bottom: 12px;'><input type='button' id='btnVoteAgain' value='" + prefs.getMsg("voteAgain") + "'/></center>");
+    tbl.push("<span class='uiAction'><button class='btn' type='button' id='btnVoteAgain' value='" + prefs.getMsg("voteAgain") + "'>Vote Again</button></span>");
     $("#btnVoteAgain").live("click", function(){
       showPoll(data, true);
     });
   }
-
-  if(haveTopic){
-    tbl.push(discussUrl);
-  }
+  tbl.push('<strong class="pull-right"> '+ msgTotal +': ' + voters + ' ' + msgVoter +'</strong>');
+  tbl.push('</div>');
+ 
   $("#poll").html(tbl.join(''));
   adjustHeight();
 }
@@ -191,13 +191,13 @@ function changeVote(obj){
 }
 
 function config(){
-  if($('#listpoll').is(':visible')) 
+  if($('#listpoll').is(':visible'))
     $('#listpoll').fadeOut("fast",adjustHeight);    
-  else 
+  else
     $('#listpoll').fadeIn("fast",adjustHeight);
   adjustHeight();
 }
 function adjustHeight(){
-    gadgets.window.adjustHeight($('.UIGadgetThemes').outerHeight());  
+    gadgets.window.adjustHeight($('.uiGadgetThemes').outerHeight());  
 }
 gadgets.util.registerOnLoadHandler(init);

@@ -1,0 +1,115 @@
+@import "variables.less"; 
+@import "mixins.less";
+
+
+.loginHistoryContent {height:100px; overflow:auto;}
+.loginHistoryItem {color:#484848;}
+.loginHistoryItemDetail {font-size:9px; margin-left:3px; color:#757575;}
+.customLink:hover {text-decoration:underline; color:#226ab4; cursor:pointer;}
+
+#accordion .ui-icon { display: none; }
+#accordion .ui-accordion-header a { padding-left: 8px; }
+#accordion .ui-accordion-content { padding-left: 16px; }
+
+
+.uiGadgetThemes{
+	.btn-group{
+		text-align: center;
+		margin: 4px 0px 15px;
+		display: block;
+	}
+	.gadContent{
+		height: 150px;
+		overflow: auto;
+		.searchUser{
+			width: 100%;
+			margin-bottom: 15px;
+		}
+		.statisticDiv{
+			.btn-group{
+				text-align: center;
+				margin: 1px 70px 6px;
+				.btn{
+					padding: 4px;
+				}
+			}
+			.btn:nth-child(2n+2){		
+				min-width: 124px;
+    			padding: 3px 8px;
+				text-align: center;
+			}
+			.selectWeek{
+				margin:15px 9px 10px;
+			}
+
+		}
+		.userForm{
+			border-top: 1px solid #cfcfcf;
+			legend {
+			      display: block;
+				  width: auto;
+				  padding: 0;
+				  margin-bottom: 0px;
+				  font-size: 13px;
+				  line-height: 20px;
+				  color: @grayDark;
+				  border: 0;
+				  border-bottom: none;
+
+			}
+			.userContent{
+				.leftContent{
+					width: 55px;
+					.iteamIcon{
+						width: 26px;
+						height: 26px;
+						padding: 8px 7px 5px;	
+						margin: 12px 0;
+					}
+					.selectIteam{
+						background: #999;
+						border-radius: 3px;
+						position: relative;
+						.iconDetail{
+							background: url("../images/Statistics/StasticsIcon.png") no-repeat left top;
+						}
+						.iconStastics{
+							background: url("../images/Statistics/StasticsIcon.png") no-repeat left -24px;
+						}
+						.caret{
+							border-left: 7px solid #999;
+						    border-top: 7px solid transparent;
+						    border-right: 7px solid transparent;
+						    border-bottom: 7px solid transparent;
+						    content: "";
+						    display: inline-block;
+						    height: 0;
+						    vertical-align: top;
+						    width: 0;
+						    position: absolute;
+						    top: 13px;
+						    left: 40px;
+						}
+					}
+					i{
+						width: 24px;
+						height: 24px;
+						display: block;
+					}
+					.iconStastics{
+						background: url("../images/Statistics/StasticsIcon.png") no-repeat left bottom;
+					}
+					.iconDetail{
+						background: url("../images/Statistics/StasticsIcon.png") no-repeat left -53px;
+					}
+				}
+				.rightContent{
+					margin-left: 55px;
+					overflow: hidden;
+					border-left: 1px solid #CFCFCF;
+					padding-left: 8px;
+				}
+			}
+		}
+	}
+}

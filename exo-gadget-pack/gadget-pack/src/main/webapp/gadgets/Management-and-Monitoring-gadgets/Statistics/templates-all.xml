@@ -7,66 +7,163 @@
     <Locale lang="it" messages="locale/it.xml" />
   </ModulePrefs>
   <Content type="html">
-    <![CDATA[ 
+    <![CDATA[
     <head>
       <title>All templates statistics</title>
-      <link type="text/css" rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.9/themes/ui-lightness/jquery-ui.css" />
       <link rel="stylesheet" type="text/css" href="/exo-gadget-resources/skin/exo-gadget/gadget-common.css" />
+      <link rel="stylesheet" type="text/css" href="/eXoResources/skin/bootstrap/css/bootstrap.css" />
+      <link rel="stylesheet" type="text/css" href="/eXoResources/skin/css/Core.css" />
       
-      <script language="javascript" type="text/javascript" src="/social-resources/javascript/eXo/social/SocialUtil.js"></script>
-      <script language="javascript" type="text/javascript" src="/exo-gadget-resources/script/jquery/1.6.2/jquery.min.js"></script>
-      <script language="javascript" type="text/javascript" src="script/jquery-plugins/jquery.number_format.js"></script>
-      <!-- <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.9/jquery-ui.min.js"></script> -->
-      <script language="javascript" type="text/javascript" src="script/utils.js"></script>
-      <!-- <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.9/i18n/jquery-ui-i18n.min.js"></script> -->
-      <script type="text/javascript">
-        function loadInfos(){      
+        <style type="text/css">
+          body, td, div, span, p, table, form {
+            font-family: helvetica,Arial,sans-serif;
+            font-size: 13px;
+          }
+          .templateStatistics ul li {
+            margin-top: 20px;
+          }
           
-          $.getJSON('/rest/statistics/template/all', function(data) {
-            var items = [];
-            
-            $.each(data, function(i, statistics) {
-              $('#template-number').empty();
-              $('#template-number').append(statistics.length);
-              var nbb = statistics.length;
-              var nbbb = $(statistics.length);
-              $.each(statistics, function(key, statistic) {
-                items.push('<p><div class="IconLink">' + statistic.name + '</div>');
-                items.push('<div class="Detail">(nb exec: ' + formatExecTime(statistic.execution) + ' - min: ' + formatExecTime(statistic.minTime) + ' '+ statistic.timeUnit + ' - max: ' + formatExecTime(statistic.maxTime) + ' '+ statistic.timeUnit + ' - avg: ' + formatExecTime(round2decimals(statistic.averageTime)) + ' '+ statistic.timeUnit + ')</div></p>');
-                //items.push('<div class="Detail">(nb exec: ' + statistic.execution + ' - min: ' + statistic.minTime + ' - max: ' + statistic.maxTime + ' - avg: ' + round2decimals(statistic.averageTime) + ')</div></p>');
+          .appData:hover {
+            background: #e6e6e6;
+            border-radius: 4px;
+          }
+          
+          .appData .appTitle {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            width: 60%;
+            display: inline-block;
+            padding: 0 10px;
+            color: #333;
+          }
+          
+          .appData span {
+            padding: 0 10px;
+            border-radius: 4px;
+            font-size: 12px;
+          }
+          
+          .appData .yellow {
+            background: #eedf1d;
+            color: #fff;
+          }
+          
+          .appData .red {
+            background: #e6585e;
+            color: #fff;
+          }
+          
+          .appDetailTime {
+            padding: 0 10px;
+            color: #808080;
+            font-size: 11px;
+          }
+        </style>
+      <script language="javascript" type="text/javascript" src="/eXoResources/javascript/jquery-1.7.1.js"></script>
+      <script language="javascript" type="text/javascript" src="script/jquery-plugins/jquery.number_format.js"></script>
+      <script language="javascript" type="text/javascript" src="script/utils.js"></script>
+      <script language="javascript" type="text/javascript" src="/eXoResources/skin/bootstrap/js/bootstrap-tooltip.js"></script>
+      <script type="text/javascript">
+        function processData(items, data, clazz) {
+          $.each(data, function(i, liste) {
+              items.push('<ul class="' + clazz +'">');
+              $.each(liste, function(key, application) {
+                var applicationID = application.name;
+                // do we have warning or error on Average Execution Time ?
+                var avgExecTimeCssClass = "";
+                if (application.averageTime >= 1000 && application.averageTime < 5000) {
+                  avgExecTimeCssClass = "yellow pull-right";
+                } else if (application.averageTime >= 5000) {
+                  avgExecTimeCssClass = "red pull-right";
+                } else {
+                  avgExecTimeCssClass = "pull-right";
+                }
+                items.push('<li>');
+                items.push('<div class="appData clearfix">');
+                items.push('<span id="application_'+i+'_'+key+'" class="appTitle" data-placement="bottom" rel="tooltip" data-original-title="' +applicationID+'"><b>'+applicationID+'</b></span>');
+                items.push('<span class="'+avgExecTimeCssClass+'" title="Average execution time (ms)">'+formatInteger(Math.round(application.averageTime))+' '+application.timeUnit+'</span>');
+                items.push('</div>');
+                items.push('<p class="appDetailTime">');
+                items.push('min: '+formatInteger(application.minTime)+' '+application.timeUnit);
+                items.push(' | max: '+formatInteger(application.maxTime)+' '+application.timeUnit);
+                items.push(' | exec: '+formatInteger(application.execution));
+                items.push('</p>');
+                items.push('</li>');
               });
+              items.push('</ul>');
             });
+        }
+        
+        function loadInfos() {
+          var items = [];
+          $.getJSON('/rest/statistics/template/slowest', function(data) {
+            processData(items, data, 'tenSlowestApps');
             
-            $('<div/>', { 'class': 'users', html: items.join('') }).appendTo('#templates');
-            
-            // adjust the gadget size
-            // the standard version is buggy so i use the eXo Social fixed version
-            //gadgets.window.adjustHeight();
-            //eXo.social.SocialUtil.adjustHeight($("body").get(0));
-            gadgets.window.adjustHeight($("#gadget-templates-all").get(0).offsetHeight);
+            $.getJSON('/rest/statistics/template/all', function(data) {
+              processData(items, data, 'allApps');
+              var length = $(data.data).length;
+              
+              $('#applications .gadgetData').empty();
+              $(items.join('')).appendTo('#applications .gadgetData');
+              
+              var allAppsBtn = $('#applications .allAppsBtn');
+              var allAppsContainer = $('#applications .allApps');
+              var tenAppsBtn = $('#applications .tenAppsBtn');
+              var tenAppsContainer = $('#applications .tenSlowestApps');
+              allAppsBtn.text("All (" + length + ")");
+              $(allAppsBtn).click(function() {
+                $(this).addClass("active");
+                allAppsContainer.show();
+                tenAppsBtn.removeClass("active");
+                tenAppsContainer.hide();
+                gadgets.window.adjustHeight($("#my_gadget").get(0).offsetHeight);
+              });
+              $(tenAppsBtn).click(function() {
+                $(this).addClass("active");
+                tenAppsContainer.show();
+                allAppsBtn.removeClass("active");
+                allAppsContainer.hide();
+                gadgets.window.adjustHeight($("#my_gadget").get(0).offsetHeight);
+              });
+              
+              //Initialize tooltip
+              $('#applications .gadgetData .tenSlowestApps li').each(function() {
+                $(this).find("span:first").tooltip();
+              });
+              $('#applications .gadgetData .allApps li').each(function() {
+                console.log($(this).find("span:first"));
+                $(this).find("span:first").tooltip();
+              });
+              $('#applications .gadgetData .allApps').hide();
+              
+              // resizing of the gadget height
+              gadgets.window.adjustHeight($("#my_gadget").get(0).offsetHeight);
+            });
           });
         }
         
         function init() {
           loadInfos();
-          //$(document).everyTime("15s", "reloadPage", function() { 
-          //  loadInfos(); 
-          //}, 0);
         }
         gadgets.util.registerOnLoadHandler(init);
       </script>
     </head>
-    <body id="gadget-templates-all">
-      <div class="UIGadgetThemes">
-        <div class="TitGad ClearFix">
-          <a target="_blank" id="ShowAll" class="IconDropDown" title="Show all"> </a>
-          <div title="Setting" id="SettingButton" class="SettingButton">
-            <a href="javascript:eXoEventGadget.showHideSetting(true);" title="Setting"></a>
+    <body>
+      <div id="my_gadget" class="UIGadgetThemes templateStatistics uiBox">
+        <h6 class="title center">Template Statistics</h6>
+        <div id="applications" class="uiContentBox">
+          <div class="center">
+              <div class="btn-group clearfix">
+                <button class="btn tenAppsBtn active" type="button">10 slowest</button>
+                <button class="btn allAppsBtn" type="button">All</button>
+              </div>
           </div>
-          <div class="ContTit">__MSG_title-all__&nbsp;&nbsp;(<span id="template-number">?</span>)</div>
+          <div class="gadgetData">
+              Loading data ...
+          </div>
         </div>
-        <div id="templates" class="GadCont templates">
-        </div>    
       </div>
     </body>
-    ]]></Content></Module>
+
+]]></Content></Module>

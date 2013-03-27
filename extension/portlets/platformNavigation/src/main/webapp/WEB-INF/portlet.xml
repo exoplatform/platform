@@ -123,9 +123,6 @@
             <title>UIHelpPlatformToolbarPortlet</title>
             <short-title>UIHelpPlatformToolbarPortlet</short-title>
         </portlet-info>
-        <supported-processing-event>
-            <name>NavigationChange</name>
-        </supported-processing-event>
     </portlet>
 
     <portlet>
@@ -266,7 +263,4 @@
             <short-title>UIBreadCrumbsNavigationPortlet</short-title>
         </portlet-info>
     </portlet>
-    <event-definition>
-        <name>NavigationChange</name>
-    </event-definition>
 </portlet-app>

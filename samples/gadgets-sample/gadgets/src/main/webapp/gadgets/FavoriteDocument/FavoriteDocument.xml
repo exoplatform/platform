@@ -5,7 +5,7 @@
     title="Favorite Documents"
     title_url="http://www.exoplatform.org"
     description="My favorite Documents"
-    thumbnail="skin/FavoriteDocument.png"
+    thumbnail="/intranet-gadgets/skin/images/FavoriteDocument/FavoriteDocument.png"
     >
     <Locale messages="locale/default.xml" />
     <Locale lang="fr" messages="locale/fr.xml" />
@@ -15,253 +15,194 @@
   </ModulePrefs>
   <Content type="html">
   <![CDATA[   
-    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.0/jquery.min.js"></script>
+    <script language="javascript" type="text/javascript" src="/eXoResources/javascript/jquery-1.7.1.js"></script>
     <script type="text/javascript" src="javascript/script.js"></script>
-    <link type="text/css" rel="stylesheet" href="skin/skin.css" />
+    <link type="text/css" rel="stylesheet" href="/intranet-gadgets/skin/css/FavoriteDocument.css" />
     <link type="text/css" rel="stylesheet" href="/exo-gadget-resources/skin/exo-gadget/gadget-common.css" />
     <link type="text/css" rel="stylesheet" href="/eXoDMSResources/skin/DefaultSkin/Stylesheet-lt.css" />
-    
+    <link rel="stylesheet" type="text/css" href="/eXoResources/skin/bootstrap/css/bootstrap.css" />
+    <link rel="stylesheet" type="text/css" href="/eXoResources/skin/css/Core.css" />
+    <style type="text/css">
+          body, td, div, span, p, table, form {
+            font-family: helvetica,Arial,sans-serif;
+            font-size: 13px;
+          }
+      
+          .UIGadgetThemes.favoriteDoc .icon {
+            margin: 8px 10px 0 0;
+            padding-left: 0;
+          }
+          
+          .favoriteDoc .fileDesc { 
+          	overflow: hidden;
+		    text-overflow: ellipsis;
+		    white-space: nowrap;
+		    width: 85%;
+		  }
+		    
+	      .favoriteDoc .fileDesc a {
+	         color: #333;
+	      }
+          
+          .favoriteDoc .fileDesc a:hover {
+            color: #2f5e92;
+          }
+          
+          .favoriteDoc .fileDesc p {
+            color: #808080;
+            font-size: 12px;
+          }
+    </style> 
   <script type="text/javascript">
-    
-        
-      	function showDocuments(){
-		$("#FavoritesList").hide();
-		$("#NormalDoc").removeClass();
-		$("#FavDoc").addClass("customLink");
-		$("#NormalDiv").show();
-			}
-	function showFavorites(){
-		$("#NormalDiv").hide();
-		$("#FavDoc").removeClass();
-		$("#NormalDoc").addClass("customLink");
-		$("#FavoritesList").show();
-	        	}
-    
-      function Favorites() {}
-      
-      var prefixUrl = location.protocol + '//' + location.hostname;
-      if (location.port) {
-        prefixUrl += ':' + location.port;
-      }    
+   
+var prefixUrl = location.protocol + '//' + location.hostname;
+if (location.port) {
+  prefixUrl += ':' + location.port;
+}    
 
-       var user;
+var user;
+
+
+loadUser = function() {
+  var req = opensocial.newDataRequest();
+  var opts = {};
+  opts[opensocial.DataRequest.PeopleRequestFields.PROFILE_DETAILS] = [
+                                                                      opensocial.Person.Field.PROFILE_URL];
+
+  req.add(req.newFetchPersonRequest("VIEWER", opts), 'viewer');
+  req.send(function (data) {
+    if (!data.hadError()) {
+      this.viewer = data.get('viewer').getData();
+      var profile_url =  this.viewer.getField(opensocial.Person.Field.PROFILE_URL);
+      userId = profile_url.substr(profile_url.lastIndexOf('/') + 1);
+      user = userId;
+      init();
+
+      gadgets.window.adjustHeight($("#FavoriteDocument-Gadget").get(0).offsetHeight);                  
+
+    }
+  });
+
+}
+
+accessUrl = prefixUrl + parent.parent.eXo.env.portal.context + '/' + parent.parent.eXo.env.portal.portalName + '/documents';  /**
+
+/*
+ * Time to refresh data in client and gadget server
+ */
+var refreshInterval = 30000;
+
+makeRequest = function(url, callback) {
+
+  var params = {};
+  params[gadgets.io.RequestParameters.METHOD] = gadgets.io.MethodType.GET;
+  params[gadgets.io.RequestParameters.CONTENT_TYPE] = gadgets.io.ContentType.JSON;        
+  var ts = new Date().getTime();
+  var sep = "?";
+  if (refreshInterval && refreshInterval > 0) {
+    ts = Math.floor(ts / refreshInterval);
+  }
+  if (url.indexOf("?") > -1) {
+    sep = "&";
+  }
+  url = [ url, sep, "nocache=", ts ].join("");
+  gadgets.io.makeRequest(url, callback, params);
+}
+
+init = function() {
+  setShowAllLink();
+  var favUrl = prefixUrl + '/rest/plf/favorite/all/repository/collaboration/' + user;
+  makeRequest(favUrl,displayValue);
+}
+
+
+setShowAllLink = function(){
+  var getFavoriteFoldUrl = prefixUrl + '/rest/plf/favorite/favorite-folder/' + user;
+  $.ajax({
+    url: getFavoriteFoldUrl,
+    success: function(data){
+      a = document.getElementById("ShowAll");
+      a.href = prefixUrl + parent.eXo.env.portal.context + "/" + parent.eXo.env.portal.portalName + "/documents?path=Personal Documents" + data.value.toString();
+    },
+    dataType: 'json'
+  });
+}
   
+  processIcon = function(oldClass) {
+    var array = oldClass.split(' ');
+    var first = array[1];
+    first = first.substring('default16x16Icon'.length, first.lastIndexOf('16x16Icon'));
+    var second = array[3];
+    second = second.substring(0, second.indexOf('16x16Icon'));
+    second = second.replace('_', '');
+    return "uiIcon24x24FileDefault uiIcon24x24" + first + " uiIcon24x24" + second;
+  }  
 
-       Favorites.prototype.loadUser = function() {
-        var req = opensocial.newDataRequest();
-        var opts = {};
-        opts[opensocial.DataRequest.PeopleRequestFields.PROFILE_DETAILS] = [
-                  opensocial.Person.Field.PROFILE_URL];
-      
-        req.add(req.newFetchPersonRequest("VIEWER", opts), 'viewer');
-        req.send(onLoadUser);
-      
-        function onLoadUser(data) {
-          if (!data.hadError()) {
-                  this.viewer = data.get('viewer').getData();
-                  var profile_url =  this.viewer.getField(opensocial.Person.Field.PROFILE_URL);
-                  userId = profile_url.substr(profile_url.lastIndexOf('/') + 1);
-                  user = userId;
-
-                   favorites.init();
-                                      
-                  showFavorites();
-                  gadgets.window.adjustHeight($("#FavoriteDocument-Gadget").get(0).offsetHeight);                  
-
-		  $("#NormalDoc").click(function () {
-			showDocuments();
-                        gadgets.window.adjustHeight($("#FavoriteDocument-Gadget").get(0).offsetHeight);
-		  });
-
-		  $("#FavDoc").click(function () {
-			showFavorites();
-                        gadgets.window.adjustHeight($("#FavoriteDocument-Gadget").get(0).offsetHeight);
-		  });
-          }
-        }
-
-      }
-
-         //accessUrl = prefixUrl + '/portal/public/intranet/content/repository/';
-
-	accessUrl = prefixUrl + parent.parent.eXo.env.portal.context + '/' + parent.parent.eXo.env.portal.portalName + '/documents';  /**
-        * Time to refresh data in client and gadget server
-        */
-      var refreshInterval = 30000;
-      
-      Favorites.prototype.makeRequest = function(url, callback) {
-        
-        var params = {};
-        params[gadgets.io.RequestParameters.METHOD] = gadgets.io.MethodType.GET;
-        params[gadgets.io.RequestParameters.CONTENT_TYPE] = gadgets.io.ContentType.JSON;        
-        var ts = new Date().getTime();
-        var sep = "?";
-        if (refreshInterval && refreshInterval > 0) {
-          ts = Math.floor(ts / refreshInterval);
-        }
-        if (url.indexOf("?") > -1) {
-          sep = "&";
-        }
-       url = [ url, sep, "nocache=", ts ].join("");
-        gadgets.io.makeRequest(url, callback, params);
-      }
-      
-      Favorites.prototype.init = function() { 
-        
-        //var siteUrl = prefixUrl + '/rest/favorite/all/repository/collaboration/' + user +'?showItems=10';
-
-        favorites.setShowAllLink();
-        var favUrl = prefixUrl + '/rest/plf/favorite/all/repository/collaboration/' + user;
-        var docUrl = prefixUrl + '/rest/plf/favorite/get-documents/' + user;
-      
-        favorites.makeRequest(favUrl,favorites.displayValue);
-        favorites.makeRequest(docUrl,favorites.displayDocument);
-      }
-      
-            
-      Favorites.prototype.setShowAllLink = function(){
-        var getFavoriteFoldUrl = prefixUrl + '/rest/plf/favorite/favorite-folder/' + user;
-        $.ajax({
-          url: getFavoriteFoldUrl,
-          success: function(data){
-                 a = document.getElementById("ShowAll");
-                 a.href = prefixUrl + parent.eXo.env.portal.context + "/" + parent.eXo.env.portal.portalName + "/documents?path=Personal Documents" + data.value.toString();
-            },
-          dataType: 'json'
-        });
-      }
-      
-      Favorites.prototype.displayDocument = function(resp) {
-        var data = resp.data.listFavorite;
-        var documentList = _gel("NormalDiv");
-        if (documentList) { 
-           while (documentList.hasChildNodes()) {
-              documentList.removeChild(documentList.lastChild);
-            }
-        }
-        var displayTime = new DisplayTime();
-        
-        for (var i = 0; i < data.length; i++) {
-          var doc = data[i];
-          var AppClass = document.createElement('div');
-            
-          var showHTML = "<a target='_parent' class='Icon " + doc.linkImage + "'";
-          if (accessUrl.length > 0 && doc.nodePath.length > 0) {
-            showHTML += "href='";  
-            showHTML += accessUrl + "?path=Personal Documents";            
-            showHTML += doc.nodePath;
-            showHTML += "'"; 
-          }
-          showHTML += ">";
-          showHTML += doc.title;
-          showHTML += "</a>";
-          showHTML += '<div class = "CreatedDate">';
-         
-          
-         var dat=new Date(parseInt(doc.dateAddFavorite));
-          showHTML +=  dat.toDateString();
-          showHTML +=  " ";
-          showHTML += displayTime.timeToPrettyString(doc.dateAddFavorite);
-          showHTML += "</div>";
-          AppClass.innerHTML = showHTML;
-          documentList.appendChild(AppClass);
-        }
-        if(data.length ==0){
-          var AppClass = document.createElement('div');
-          var NoFavMsg = new gadgets.Prefs().getMsg("nodoc");
-          AppClass.innerHTML = '<div class="light_message">'+NoFavMsg+'</div>';
-          documentList.appendChild(AppClass);
-        }
-        var title = _gel("BgTitle"); 
-        if (data && (data.length > 0) && title) {
-          documentList.parentNode.removeChild(title);
-        }
-
-        gadgets.window.adjustHeight($("#FavoriteDocument-Gadget").get(0).offsetHeight);
-      }
-      
-      Favorites.prototype.displayValue = function(resp) {
-        var data = resp.data.listFavorite;
-        var favoriteList = _gel("FavoritesList");
-        if (favoriteList) { 
-           while (favoriteList.hasChildNodes()) {
-              favoriteList.removeChild(favoriteList.lastChild);
-            }
-        }
-        var displayTime = new DisplayTime();
-        
-        for (var i = 0; i < data.length; i++) {
-          var doc = data[i];
-          var AppClass = document.createElement('div');
-            
-          var showHTML = "<a target='_parent' class='Icon " + doc.linkImage + "'";
-          if (accessUrl.length > 0 && doc.nodePath.length > 0) {
-            showHTML += "href='";  
-            showHTML += accessUrl + "?path=Personal Documents";            
-            showHTML += doc.nodePath;
-            showHTML += "'"; 
-          }
-          showHTML += ">";
-          showHTML += doc.title;
-          showHTML += "</a>";
-          showHTML += '<div class = "CreatedDate">';
-         
-          
-         var dat=new Date(parseInt(doc.dateAddFavorite));
-          showHTML +=  dat.toDateString();
-          showHTML +=  " ";
-          showHTML += displayTime.timeToPrettyString(doc.dateAddFavorite);
-          showHTML += "</div>";
-          AppClass.innerHTML = showHTML;
-          favoriteList.appendChild(AppClass);
-        }
-        if(data.length ==0){
-          var AppClass = document.createElement('div');
-          var NoFavMsg = new gadgets.Prefs().getMsg("nofav");
-          AppClass.innerHTML = '<div class="light_message">'+NoFavMsg+'</div>';
-          favoriteList.appendChild(AppClass);
-        }
-        var title = _gel("BgTitle"); 
-        if (data && (data.length > 0) && title) {
-          favoriteList.parentNode.removeChild(title);
-        }
-
-        gadgets.window.adjustHeight($("#FavoriteDocument-Gadget").get(0).offsetHeight);
+displayValue = function(resp) {
+  var data = resp.data.listFavorite;
+  var favoriteList = $("#FavoritesList");
+  for (var i = 0; i < data.length; i++) {
+    var doc = data[i];
+    var container = $("<div class='docItem clearfix'></div>");
+    var icon = $("<div class='icon pull-left'><i class='" + processIcon(doc.linkImage) + "'></i></div>")
+    container.append(icon);
+    var file = $("<div class='fileDesc pull-left'></div>");
     
-      }
-      
-      /**
-       *  Set refresh automatically in refreshInterval seconds
-       */
-      Favorites.prototype.autoRefresh = function() {
-        window.setInterval("favorites.loadUser();", refreshInterval);
-      }      
-      
-      var favorites = new Favorites();
-      gadgets.util.registerOnLoadHandler(favorites.loadUser);
-      gadgets.util.registerOnLoadHandler(favorites.autoRefresh);
+    var icon = processIcon(doc.linkImage);
+    var link = "<a target='_parent' ";
+    if (accessUrl.length > 0 && doc.nodePath.length > 0) {
+      link += "href='";  
+      link += accessUrl + "?path=Personal Documents";            
+      link += doc.nodePath;
+      link += "'";
+    }
+    link += "><b>";
+    link += doc.title;
+    link += "</b></a>";
+    file.append(link);
     
+   
+    var summary = '<p> Create on ';
+    var dat = new Date(parseInt(doc.dateAddFavorite));
+    summary +=  dat.format('dd/mm\/yyyy');
+    summary +=  " by ";
+    summary += user 
+    summary += "</p>";
+    file.append(summary);
+    container.append(file);
+    container.appendTo(favoriteList);
+  }
+  if(data.length ==0){
+    var AppClass = document.createElement('div');
+    var NoFavMsg = new gadgets.Prefs().getMsg("nofav");
+    AppClass.innerHTML = '<div class="light_message">'+NoFavMsg+'</div>';
+    favoriteList.append(AppClass);
+  }
+
+  gadgets.window.adjustHeight($("#FavoriteDocument-Gadget").get(0).offsetHeight);
+
+}
+
+/**
+ *  Set refresh automatically in refreshInterval seconds
+ */
+autoRefresh = function() {
+  window.setInterval("loadUser();", refreshInterval);
+}      
+
+gadgets.util.registerOnLoadHandler(loadUser);
+
     </script>
 
-       <div id="FavoriteDocument-Gadget" class="UIGadgetThemes">
-          <div class="TitGad ClearFix">
-            <a href="#demo" class="IconDropDown" id="ShowAll" target="_parent">__MSG_showall__</a>
-
-            <div class="ContTit">__MSG_title__</div>
-          </div>
+       <div id="FavoriteDocument-Gadget" class="UIGadgetThemes favoriteDoc uiBox">
+            <h6 class="title center clearfix">
+            <a href="#demo" class="actionIcon pull-right" id="ShowAll" target="_parent">
+              <i class="uiIconFavoriteDocument uiIconLightGrey"></i>
+            </a>
+              __MSG_title__
+            </h6>
           
-          <div class="GadCont">
-                <div style="margin-left: 7px;">
-                	<span id="FavDoc" href="#" class="customLink">__MSG_titleFav__</span>
-	                &nbsp; | &nbsp;
-	                <span id="NormalDoc" href="#" class="customLink">__MSG_titleDoc__</span> 
-	        </div>
-
-                <div id="FavoritesList" class="GadCont FavoritesList">
-                </div> 
-        
-                <div id="NormalDiv" class="GadCont FavoritesList">
-                </div>   
+          <div id="FavoritesList" class="uiContentBox">
           </div>   
         </div>
   ]]>

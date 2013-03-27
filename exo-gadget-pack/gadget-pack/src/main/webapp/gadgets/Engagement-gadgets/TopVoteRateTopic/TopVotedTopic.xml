@@ -4,7 +4,7 @@
   title="Top voted rating topic"
   author="Do Thanh Tung"
   author_email="tungdt@exoplatform.com"
-  thumbnail="./skin/gadget-vote-icon-96x96.png"
+  thumbnail="/gadget-pack/skin/images/TopVoteRateTopic/gadget-vote-icon-96x96.png"
   description="Display the Top voted rating topics of the Forum.">
     <Require feature="dynamic-height"/>
     <Locale messages="locale/default.xml" />
@@ -21,7 +21,7 @@
   <Content type="html">
     <![CDATA[   
     <link rel="stylesheet" type="text/css" href="/exo-gadget-resources/skin/exo-gadget/gadget-common.css" />
-    <link type="text/css" rel="stylesheet" href="./skin/topVoteTopic.css" />
+    <link type="text/css" rel="stylesheet" href="/gadget-pack/skin/css/topVoteTopic.css" />
         
     <script type="text/javascript" src="./script/topVoteTopic.js"></script>
     <script type="text/javascript" src="./script/date.format.js"></script>
