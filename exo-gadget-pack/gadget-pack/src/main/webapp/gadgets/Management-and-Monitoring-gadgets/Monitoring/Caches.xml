@@ -32,7 +32,6 @@
           .cache_label {
             font-weight: bold;
             margin-bottom: 0;
-            padding:  0 10px;
           }  
           
           .detail_label {
