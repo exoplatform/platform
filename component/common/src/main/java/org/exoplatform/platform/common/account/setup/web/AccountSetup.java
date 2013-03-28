@@ -44,12 +44,6 @@ public class AccountSetup extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         EntityEncoder encoder = EntityEncoder.FULL;
-        /*String userNameAccount = encoder.encode(request.getParameter(USER_NAME_ACCOUNT));
-        String firstNameAccount = encoder.encode(request.getParameter(FIRST_NAME_ACCOUNT));
-        String lastNameAccount = encoder.encode(request.getParameter(LAST_NAME_ACCOUNT));
-        String emailAccount = encoder.encode(request.getParameter(EMAIL_ACCOUNT));
-        String userPasswordAccount = encoder.encode(request.getParameter(USER_PASSWORD_ACCOUNT));
-        String adminPassword = encoder.encode(request.getParameter(ADMIN_PASSWORD));*/
         String userNameAccount = request.getParameter(USER_NAME_ACCOUNT);
         String firstNameAccount = request.getParameter(FIRST_NAME_ACCOUNT);
         String lastNameAccount = request.getParameter(LAST_NAME_ACCOUNT);

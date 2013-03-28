@@ -25,10 +25,10 @@ public class Utils {
     private static final Log LOG = ExoLogger.getLogger(Utils.class);
     public static final int DEFAULT_DELAY_PERIOD = 30;
     public static final String REMIND_DATE = "remindDate";
-    //this information would be put in the licence.xml file, not problem even if user force it to true (hack tentation)
+    //this information would be put in the license.xml file, not problem even if user force it to true (hack tentation)
     // it will only hide the bar
     public static final String IS_EXTENDED = "extension";
-    public static final String PRODUCT_KEY = "licence";
+    public static final String PRODUCT_KEY = "license";
     public static final String USER_HOME = System.getProperty("user.home");
     public static final String EXO_HOME_FOLDER = USER_HOME + "/.eXo";
     public static final String PRODUCT_NAME = "Platform";

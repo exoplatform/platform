@@ -44,7 +44,7 @@ import java.lang.reflect.Method;
 public class PlatformInformationRESTService implements ResourceContainer {
 
     private static final Log LOG = ExoLogger.getLogger(PlatformInformationRESTService.class);
-    private static final java.lang.String COMMUNITY_EDITION = "community";
+    public static final java.lang.String COMMUNITY_EDITION = "community";
 
     private ProductInformations platformInformations;
 
