@@ -51,6 +51,7 @@ public class UnlockService implements Startable {
     public static String restContext;
     private static ScheduledExecutorService executor;
     private static ProductInformations productInformations;
+    public static String ERROR = "";
 
     public UnlockService(ProductInformations productInformations, InitParams params) throws MissingProductInformationException {
         restContext = ExoContainerContext.getCurrentContainer().getContext().getRestContextName();
@@ -61,7 +62,7 @@ public class UnlockService implements Startable {
         KEY_CONTENT = ((ValueParam) params.get("KeyContent")).getValue().trim();
         String tmpValue = ((ValueParam) params.get("delayPeriod")).getValue();
         delayPeriod = (tmpValue == null || tmpValue.isEmpty()) ? Utils.DEFAULT_DELAY_PERIOD : Integer.parseInt(tmpValue);
-        Utils.HOME_CONFIG_FILE_LOCATION = Utils.EXO_HOME_FOLDER + "/" + Utils.PRODUCT_NAME + "/licence.xml";
+        Utils.HOME_CONFIG_FILE_LOCATION = Utils.EXO_HOME_FOLDER + "/" + Utils.PRODUCT_NAME + "/license.xml";
     }
 
     public void start() {
@@ -99,7 +100,19 @@ public class UnlockService implements Startable {
         }
         // Read: Remind date
         String remindDateString = Utils.readFromFile(Utils.REMIND_DATE, Utils.HOME_CONFIG_FILE_LOCATION);
-        remindDate = Utils.parseDateBase64(remindDateString);
+        try{
+            remindDate = Utils.parseDateBase64(remindDateString);
+        }   catch (Exception e){
+            //Added to not have NPE if user played with licence.xml given by sales
+            //or user play with remindDate param in licence.xml
+            remindDate = Calendar.getInstance();
+            remindDate.set(Calendar.HOUR, 23);
+            remindDate.set(Calendar.MINUTE, 59);
+            remindDate.set(Calendar.SECOND, 59);
+            remindDate.set(Calendar.MILLISECOND, 59);
+            ERROR ="your license file is incorrect, please contact our support to fix the problem";
+        }
+
         computeUnlockedInformation();
         // Compute delay period every day
         executor = Executors.newSingleThreadScheduledExecutor();
