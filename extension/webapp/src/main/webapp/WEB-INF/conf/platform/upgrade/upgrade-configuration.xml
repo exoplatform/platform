@@ -187,9 +187,8 @@
             </object-param>
          </init-params>
       </component-plugin>
-<!--
       <component-plugin profiles="social,all,default">
-         <name>Upgrade-Spaces-Home-page</name>
+         <name>Upgrade-SpacesHomepage</name>
          <set-method>addUpgradePlugin</set-method>
          <type>org.exoplatform.platform.upgrade.plugins.UpgradeSpaceHomePagePlugin</type>
          <description>Spaces Home page Upgrade Plugin</description>
@@ -202,11 +201,10 @@
             <value-param>
                <name>plugin.execution.order</name>
                <description>The plugin execution order</description>
-               <value>3</value>
+               <value>2</value>
             </value-param>
          </init-params>
       </component-plugin>
--->
    </external-component-plugins>
    <!--
   Not FOUND
