@@ -52,17 +52,17 @@
     <org.gatein.sso.version>1.3.0.Final</org.gatein.sso.version>
     <org.gatein.portal.version>3.5.3.Final</org.gatein.portal.version>
     <!-- Platform Project Dependencies -->
-    <org.exoplatform.commons.version>4.0.0-RC1</org.exoplatform.commons.version>
-    <org.exoplatform.ecms.version>4.0.0-RC1</org.exoplatform.ecms.version>
-    <org.exoplatform.social.version>4.0.0-RC1</org.exoplatform.social.version>
-    <org.exoplatform.forum.version>4.0.0-RC1</org.exoplatform.forum.version>
-    <org.exoplatform.wiki.version>4.0.0-RC1</org.exoplatform.wiki.version>
-    <org.exoplatform.calendar.version>4.0.0-RC1</org.exoplatform.calendar.version>
-    <org.exoplatform.integ.version>4.0.0-RC1</org.exoplatform.integ.version>
-    <org.exoplatform.platform-ui.version>4.0.0-RC1</org.exoplatform.platform-ui.version>
+    <org.exoplatform.commons.version>4.0.0-SNAPSHOT</org.exoplatform.commons.version>
+    <org.exoplatform.ecms.version>4.0.0-SNAPSHOT</org.exoplatform.ecms.version>
+    <org.exoplatform.social.version>4.0.0-SNAPSHOT</org.exoplatform.social.version>
+    <org.exoplatform.forum.version>4.0.0-SNAPSHOT</org.exoplatform.forum.version>
+    <org.exoplatform.wiki.version>4.0.0-SNAPSHOT</org.exoplatform.wiki.version>
+    <org.exoplatform.calendar.version>4.0.0-SNAPSHOT</org.exoplatform.calendar.version>
+    <org.exoplatform.integ.version>4.0.0-SNAPSHOT</org.exoplatform.integ.version>
+    <org.exoplatform.platform-ui.version>4.0.0-SNAPSHOT</org.exoplatform.platform-ui.version>
     <!-- Platform Project 3rd party Dependencies -->
-    <org.exoplatform.gwtframework.version>1.3.0-RC1</org.exoplatform.gwtframework.version>
-    <org.exoplatform.ide.version>1.3.0-RC1</org.exoplatform.ide.version>
+    <org.exoplatform.gwtframework.version>1.3.0-SNAPSHOT</org.exoplatform.gwtframework.version>
+    <org.exoplatform.ide.version>1.3.0-SNAPSHOT</org.exoplatform.ide.version>
   </properties>
   <dependencyManagement>
     <!-- ### NEVER CHANGE THIS ORDER OF DEPMGT ### -->
