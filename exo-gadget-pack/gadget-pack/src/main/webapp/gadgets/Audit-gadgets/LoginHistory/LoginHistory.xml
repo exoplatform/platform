@@ -1,4 +1,4 @@
-    <?xml version="1.0" encoding="UTF-8" ?>
+<?xml version="1.0" encoding="UTF-8" ?>
     <Module>
       <ModulePrefs title="Login History" description="Display users login history and statistic">
         <Require feature="dynamic-height" />
@@ -28,6 +28,7 @@
         <script language="javascript" type="text/javascript" src="/exo-gadget-resources/script/jquery/plugins/jqplot/1.0.0/plugins/jqplot.pointLabels.min.js"></script>
         <script language="javascript" type="text/javascript" src="/exo-gadget-resources/script/utils/pretty.date.js"></script>
         <script language="javascript" type="text/javascript" src="script/jquery-ui-1.8.13.custom.min.js"></script>
+        <script language="javascript" type="text/javascript" src="script/jquery-datatables.min.js"></script>
         <script language="javascript" type="text/javascript" src="/eXoResources/skin/bootstrap/js/bootstrap-collapse.js"></script>
         <script language="javascript" type="text/javascript">
           var selectedUser = "AllUsers", selectedUserName = "__MSG_loginHistory.allUsers__";
@@ -95,6 +96,7 @@
           function lastLogins2html(lastLoginsJson){
             $("#lastLoginsDataDiv").remove();
             $lastLoginsDataBackup.clone().appendTo($("#lastLoginsContainerDiv"));
+            $('#lastLoginsTable').find("tr:gt(0)").remove();
             $.each(lastLoginsJson.data, function(i,login){
               var newRow = $( "<tr " + "id='"+login.userId+"'" + ">" +
                               "<td ><a href='#' class='detailUser'>" + login.userName.replace(/ /g, "&nbsp;") + "</a></td>" +
@@ -103,6 +105,7 @@
                 "</tr>");
               $('#lastLoginsTable').append(newRow);
             });
+            $('#lastLoginsTable').dataTable({ "bFilter": false, "bPaginate": false,"bInfo": false});
             $lastLoginsDataBackup = $("#lastLoginsDataDiv").clone();
           //   $("#lastLoginsTable").styleTable();
           }
@@ -483,16 +486,18 @@
               
               gadgets.window.adjustHeight($("#LoginHistoryGadgetDiv").get(0).offsetHeight);
       
-              $("#findBtn").click(function(){
-                isFinding = true;
-                var userId = $("#searchTxt").val();
-                if($.trim(userId).length == 0)
-                  userId = "%25";
-                var restURI = "/rest/loginhistory/lastlogins/0/" + userId;
-                $.getJSON(restURI, function(lastLoginsJson){
-                  lastLogins2html(lastLoginsJson);
-                  gadgets.window.adjustHeight($("#LoginHistoryGadgetDiv").get(0).offsetHeight);
-                });
+              $("#searchTxt").keypress(function(event){
+            	if ( event.which == 13 ) {
+            		isFinding = true;
+            		var userId = $("#searchTxt").val();
+            		if($.trim(userId).length == 0)
+            			userId = "%25";
+            		var restURI = "/rest/loginhistory/lastlogins/0/" + userId;
+            		$.getJSON(restURI, function(lastLoginsJson){
+            			lastLogins2html(lastLoginsJson);
+            			gadgets.window.adjustHeight($("#LoginHistoryGadgetDiv").get(0).offsetHeight);
+            		});
+            	}
               });
               
               $("#latestBtn").click(function(){
@@ -678,7 +683,7 @@
           <div id="GadgetContent" class="gadContent">
       
           <div id="lastLoginsDiv">
-            <input class="searchUser" id="searchTxt" type="text" placeholder="Search user" id="titleInput" name="titleInput">
+            <input class="searchUser" id="searchTxt" type="text" placeholder="Search user" name="titleInput">
             <div id="lastLoginsContainerDiv">
               <div id="lastLoginsDataDiv">
                 <table id="lastLoginsTable" class="uiGrid table table-hover table-striped">
