@@ -40,17 +40,12 @@ import org.exoplatform.services.log.Log;
 import org.exoplatform.services.organization.Group;
 import org.exoplatform.services.organization.GroupHandler;
 import org.exoplatform.services.organization.OrganizationService;
-import org.exoplatform.social.core.space.SpaceApplicationConfigPlugin;
-import org.exoplatform.social.core.space.SpaceException;
 import org.exoplatform.social.core.space.SpaceUtils;
 import org.exoplatform.social.core.space.model.Space;
-import org.exoplatform.social.core.space.spi.SpaceApplicationHandler;
 import org.exoplatform.social.core.space.spi.SpaceService;
 import org.exoplatform.social.core.storage.api.SpaceStorage;
 import org.exoplatform.portal.config.model.Application;
 import org.exoplatform.portal.config.model.ApplicationType;
-
-import java.util.Map.Entry;
 
 import java.util.*;
 
