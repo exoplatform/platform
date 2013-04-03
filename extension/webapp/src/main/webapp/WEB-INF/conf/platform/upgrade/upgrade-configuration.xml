@@ -205,6 +205,62 @@
             </value-param>
          </init-params>
       </component-plugin>
+      <component-plugin profiles="social,all,default">
+         <name>Upgrade-GroupSiteLayout</name>
+         <set-method>addUpgradePlugin</set-method>
+         <type>org.exoplatform.platform.upgrade.plugins.UpgradeGroupSiteLayoutPlugin</type>
+         <description>Spaces Home page Upgrade Plugin</description>
+         <init-params>
+            <value-param>
+               <name>product.group.id</name>
+               <description>The groupId of the product</description>
+               <value>org.exoplatform.platform</value>
+            </value-param>
+            <value-param>
+               <name>plugin.execution.order</name>
+               <description>The plugin execution order</description>
+               <value>3</value>
+            </value-param>
+            <value-param>
+               <name>group.site.template.name</name>
+               <description>Template groupe site name</description>
+               <value>group</value>
+            </value-param>
+            <value-param>
+               <name>group.site.template.location</name>
+               <description>Location of group site template</description>
+               <value>war:/conf/office-extension/portal</value>
+            </value-param>
+         </init-params>
+      </component-plugin>
+      <component-plugin profiles="social,all,default">
+         <name>Upgrade-UserSiteLayout</name>
+         <set-method>addUpgradePlugin</set-method>
+         <type>org.exoplatform.platform.upgrade.plugins.UpgradeUserSiteLayoutPlugin</type>
+         <description>Spaces Home page Upgrade Plugin</description>
+         <init-params>
+            <value-param>
+               <name>product.group.id</name>
+               <description>The groupId of the product</description>
+               <value>org.exoplatform.platform</value>
+            </value-param>
+            <value-param>
+               <name>plugin.execution.order</name>
+               <description>The plugin execution order</description>
+               <value>3</value>
+            </value-param>
+            <value-param>
+               <name>user.site.template.name</name>
+               <description>Template groupe site name</description>
+               <value>user</value>
+            </value-param>
+            <value-param>
+               <name>user.site.template.location</name>
+               <description>Location of group site template</description>
+               <value>war:/conf/office-extension/portal</value>
+            </value-param>
+         </init-params>
+      </component-plugin>
    </external-component-plugins>
    <!--
   Not FOUND
