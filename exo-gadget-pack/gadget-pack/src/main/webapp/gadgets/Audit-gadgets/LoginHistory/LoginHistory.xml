@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-    <Module>
-      <ModulePrefs title="Login History" description="Display users login history and statistic">
-        <Require feature="dynamic-height" />
-        <Locale messages="locale/default.xml" />
-        <Locale lang="fr" messages="locale/fr.xml" />
-        <Locale lang="it" messages="locale/it.xml" />
-      </ModulePrefs><Content type="html">
-    <![CDATA[
+<Module>
+  <ModulePrefs title="Login History"
+    description="Display users login history and statistic">
+    <Require feature="dynamic-height" />
+    <Locale messages="locale/default.xml" />
+    <Locale lang="fr" messages="locale/fr.xml" />
+    <Locale lang="it" messages="locale/it.xml" />
+  </ModulePrefs>
+  <Content type="html">
+    <![CDATA[       
       <head>
         <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
       
@@ -72,27 +74,20 @@
             return {"number":quarter, "date":quarterStartMonth.getTime()};
           }
        /*
-          (function ($) {
-            $.fn.styleTable = function (options) {
-              $("#lastLoginsTable").flexigrid({
-      //        title: '<center>Lastest login</center>',
-                colModel : [
-                  {display: "__MSG_loginHistory.user__", name : 'user', width: GetColumnSize(20), align: 'left'},
-                  {display: "__MSG_loginHistory.lastLogin__", name : 'lastLogin', width: GetColumnSize(29), align: 'center'},
-                  {display: "__MSG_loginHistory.beforeThat__", name : 'beforeThat', width: GetColumnSize(29), align: 'center'},
-                  {display: "__MSG_loginHistory.more__", name : 'more', width : GetColumnSize(22), align: 'center'}
-                  ],
-                showTableToggleBtn: true,
-                singleSelect: true,
-                resizable: true,
-                nowrap: false,
-                striped: true,
-                width: "auto",
-                height: $(this).height() > 120 ? 210 : 120,
-              });
-            };
-          })(jQuery);
-      */
+     * (function ($) { $.fn.styleTable = function (options) {
+     * $("#lastLoginsTable").flexigrid({ // title: '<center>Lastest login</center>',
+     * colModel : [ {display: "__MSG_loginHistory.user__", name : 'user',
+     * width: GetColumnSize(20), align: 'left'}, {display:
+     * "__MSG_loginHistory.lastLogin__", name : 'lastLogin', width:
+     * GetColumnSize(29), align: 'center'}, {display:
+     * "__MSG_loginHistory.beforeThat__", name : 'beforeThat', width:
+     * GetColumnSize(29), align: 'center'}, {display:
+     * "__MSG_loginHistory.more__", name : 'more', width :
+     * GetColumnSize(22), align: 'center'} ], showTableToggleBtn: true,
+     * singleSelect: true, resizable: true, nowrap: false, striped: true,
+     * width: "auto", height: $(this).height() > 120 ? 210 : 120, }); };
+     * })(jQuery);
+     */
           function lastLogins2html(lastLoginsJson){
             $("#lastLoginsDataDiv").remove();
             $lastLoginsDataBackup.clone().appendTo($("#lastLoginsContainerDiv"));
@@ -107,21 +102,22 @@
             });
             $('#lastLoginsTable').dataTable({ "bFilter": false, "bPaginate": false,"bInfo": false});
             $lastLoginsDataBackup = $("#lastLoginsDataDiv").clone();
-          //   $("#lastLoginsTable").styleTable();
+          // $("#lastLoginsTable").styleTable();
           }
         
           function loginHistory2Html(loginHistoryJson){
             var loginHistory = loginHistoryJson.data[1];
             var loginHistoryHtml = "";
             if (selectedUser == "AllUsers") {
-              $.each(loginHistory, function(i, loginHistory){
-                loginHistoryHtml += "<div class='loginHistoryItem'>" + "<b>" + "<span id='" + loginHistory.userId + "' class='userNameLink customLink'>" + loginHistory.userName.replace(/ /g, "&nbsp;") + "</span>" + "</b>" + "&nbsp;-&nbsp;" + (loginHistory.loginTime > new Date().getTime() ? "next&nbsp;" + prettyTimeDiff(loginHistory.loginTime, true) : prettyTimeDiff(loginHistory.loginTime, true) + "&nbsp;ago").replace(/ /g, "&nbsp;") + "</div>";
-                loginHistoryHtml += "<div class='loginHistoryItemDetail'>" + "<em>" + new Date(loginHistory.loginTime).toString("ddd MMM dd yyyy hh:mm:ss tt") + "</em>" + "</div>";
+              $.each(loginHistory, function(i, loginHistory){                
+                loginHistoryHtml += "<div class='loginHistoryItem'>" + "<a href='#' id='" + loginHistory.userId + "' class='customLink'>" + loginHistory.userName.replace(/ /g, "&nbsp;") + "</a>"+"</div>";
+                // "&nbsp;-&nbsp;" + (loginHistory.loginTime > new Date().getTime() ? "next&nbsp;" + prettyTimeDiff(loginHistory.loginTime, true) : prettyTimeDiff(loginHistory.loginTime, true) + "&nbsp;ago").replace(/ /g, "&nbsp;") +
+                loginHistoryHtml += "<div class='loginHistoryItemDetail'>"  + new Date(loginHistory.loginTime).toString("ddd dd MMM yyyy hh:mm tt") + "</div>";
               });
             } else {
               $.each(loginHistory, function(i, loginHistory){
-                loginHistoryHtml += "<div class='loginHistoryItem'>" + (loginHistory.loginTime > new Date().getTime() ? "next " + prettyTimeDiff(loginHistory.loginTime) : prettyTimeDiff(loginHistory.loginTime) + " ago") + "</div>";
-                loginHistoryHtml += "<div class='loginHistoryItemDetail'>" + "<em>" + new Date(loginHistory.loginTime).toString("ddd MMM dd yyyy hh:mm:ss tt") + "</em>" + "</div>";
+                //loginHistoryHtml += "<div class='loginHistoryItem'>" + (loginHistory.loginTime > new Date().getTime() ? "next " + prettyTimeDiff(loginHistory.loginTime) : prettyTimeDiff(loginHistory.loginTime) + " ago") + "</div>";
+                loginHistoryHtml += "<div class='loginHistoryItemDetail'>" + new Date(loginHistory.loginTime).toString("ddd dd MMM yyyy hh:mm tt") + "</div>";
               });
             }
             return loginHistoryHtml;
@@ -151,12 +147,12 @@
                         renderer: $.jqplot.CategoryAxisRenderer,
                         ticks: ticks,
                         tickOptions: {
-      //                      formatString: '%d',
+      // formatString: '%d',
                         }
                     },
                     yaxis: {
                         min: 0,
-      //                    tickInterval: 1,
+      // tickInterval: 1,
                         tickOptions: {
                             formatString: '%d',
                         }
@@ -168,8 +164,8 @@
             
             $(window).unbind();
             $(window).resize(function(){
-      //        $('#loginStatsChart').css("width", $(window).width());
-      //        $('#loginStatsChart').css("height", $(window).height()*0.7);
+      // $('#loginStatsChart').css("width", $(window).width());
+      // $('#loginStatsChart').css("height", $(window).height()*0.7);
               plot1.replot();
             });
           };
@@ -182,7 +178,7 @@
               $("#selectedDayHeaderContainer").show();
               $("#selectedDayHeader").text(d.toString("ddd MMM dd yyyy") + " (" + userLoginHistoryPositionJson.data[0] + ")");
               $("#selectedDayDiv").html(loginHistory2Html(userLoginHistoryPositionJson));
-       //       $("#accordion").accordion("option", "active", 0);
+       // $("#accordion").accordion("option", "active", 0);
               gadgets.window.adjustHeight($("#LoginHistoryGadgetDiv").get(0).offsetHeight);
             });
           }
@@ -192,7 +188,7 @@
             $.getJSON(restURI, function(userLoginHistoryPositionJson){
              $("#todayHeader a span").text('__MSG_loginHistory.today__ (' + userLoginHistoryPositionJson.data[0] + ')');
               $("#todayDiv").html(loginHistory2Html(userLoginHistoryPositionJson));
-              //$("#accordion").accordion("option", "active", 1);
+              // $("#accordion").accordion("option", "active", 1);
             });
           }
           
@@ -396,7 +392,8 @@
             var restURI = "/rest/loginhistory/yearstats/"+ userId + "/" + currentYear.toString("yyyy-MM-dd");
             $.getJSON(restURI, function(userLoginCountJson){
               var loginCountPerMonths = userLoginCountJson.data[1];
-              //var months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+              // var months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
+        // 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
               var months = new Array();
               var counts = new Array();
               var counted = 0;
@@ -476,29 +473,37 @@
           
           
           function showLoginHistory(){
-            var restURI = "/rest/loginhistory/lastlogins/5/%25";
+          isFinding = false;
+            document.getElementById("searchTxt").value = "";
+            
+            var restURI = "/rest/loginhistory/lastlogins/5/%25";            
             $.getJSON(restURI, function(lastLoginsJson){
               $lastLoginsDataBackup = $("#lastLoginsDataDiv").clone();
-              lastLogins2html(lastLoginsJson);
-      
-              $("#statisticDiv").hide();
-              $("#historyDiv").hide();
-              
-              gadgets.window.adjustHeight($("#LoginHistoryGadgetDiv").get(0).offsetHeight);
-      
-              $("#searchTxt").keypress(function(event){
-            	if ( event.which == 13 ) {
-            		isFinding = true;
-            		var userId = $("#searchTxt").val();
-            		if($.trim(userId).length == 0)
-            			userId = "%25";
-            		var restURI = "/rest/loginhistory/lastlogins/0/" + userId;
-            		$.getJSON(restURI, function(lastLoginsJson){
-            			lastLogins2html(lastLoginsJson);
-            			gadgets.window.adjustHeight($("#LoginHistoryGadgetDiv").get(0).offsetHeight);
-            		});
-            	}
+              lastLogins2html(lastLoginsJson);              
+              if ($(".iconDetail").closest("div.iteamIcon").hasClass("selectIteam"))
+                $(".iconDetail").click();
+              if ($(".iconStastic").closest("div.iteamIcon").hasClass("selectIteam"))
+                $(".iconStastic").click();
+            }); 
+            
+            gadgets.window.adjustHeight($("#LoginHistoryGadgetDiv").get(0).offsetHeight);
+            
+            $("#searchTxt").keypress(function(event){
+              if ( event.which == 13 ) {
+                isFinding = true;
+                var userId = $("#searchTxt").val();
+                if($.trim(userId).length == 0)
+                  userId = "%25";
+                var restURI = "/rest/loginhistory/lastlogins/0/" + userId;
+                $.getJSON(restURI, function(lastLoginsJson){
+                  lastLogins2html(lastLoginsJson);
+                  gadgets.window.adjustHeight($("#LoginHistoryGadgetDiv").get(0).offsetHeight);
+                });
+              }
               });
+          } 
+      
+              
               
               $("#latestBtn").click(function(){
                 isFinding = false;
@@ -536,7 +541,8 @@
           function showDetailCurrentUser(){
             $("fieldset legend.StyleLegend").text(selectedUserName);
             $("#userLoginHistoryFieldset").show();
-            showStatistic(selectedUser);
+            //showStatistic(selectedUser);
+            $(".iconStastics").click();
           }
           
           $("body").delegate(".iconStastics", "click", function(){
@@ -558,10 +564,7 @@
             }
           showHistory(selectedUser);
         });
-          
-          
-          
-      
+       
               $("body").delegate(".userNameLink", "click", function(){
                 selectedUser = $(this).attr("id");
                 selectedUserName = $(this).text();
@@ -569,8 +572,7 @@
                 gadgets.window.adjustHeight($("#LoginHistoryGadgetDiv").get(0).offsetHeight);
               });
       
-            
-            $("#globalLastLoginBtn").click(function(){
+           $("body").delegate("#globalLastLoginBtn", "click", function(){           
               selectedUser = "AllUsers", selectedUserName = "__MSG_loginHistory.allUsers__";
               $(this).addClass("active");
               $("#globalStatisticBtn").removeClass("active");
@@ -583,11 +585,13 @@
               }
               $("#userLoginHistoryFieldset").hide();
               $("#lastLoginsDiv").show();
-              $("#latestBtn").click();
-              gadgets.window.adjustHeight($("#LoginHistoryGadgetDiv").get(0).offsetHeight);
+              
+              // $("#latestBtn").click();
+              showLoginHistory();
+              // gadgets.window.adjustHeight($("#LoginHistoryGadgetDiv").get(0).offsetHeight);
             });
-      
-              $("#globalStatisticBtn").click(function(){
+           
+           $("body").delegate("#globalStatisticBtn", "click", function(){
                 selectedUser = "AllUsers";
                 selectedUserName = "__MSG_loginHistory.allUsers__";
                 $(this).addClass("active");
@@ -603,8 +607,8 @@
                 $("#statisticDiv").show();
                 showStatistic(selectedUser);
               });
-      
-              $("#globalHistoryBtn").click(function(){
+           
+           $("body").delegate("#globalHistoryBtn", "click", function(){
                 $(this).addClass("active");
                 $("#globalLastLoginBtn").removeClass("active");
                 $("#globalStatisticBtn").removeClass("active");
@@ -637,22 +641,6 @@
                     break;
                 }
               });
-      
-            
-                      
-              $("#statisticBtn").click(function(){
-              
-                showStatistic(selectedUser);
-              });
-      
-              $("#historyBtn").click(function(){
-                showHistory(selectedUser);
-                
-              });
-              
-            }); 
-            gadgets.window.adjustHeight($("#LoginHistoryGadgetDiv").get(0).offsetHeight);
-          } 
     
           $("body").delegate('.collapse','show',function(){
             $(this).prev().find(".accordion-toggle").addClass("expaned");
@@ -660,11 +648,12 @@
           
           
           $(function(){
-           showLoginHistory();
-            $("#globalLastLoginBtn").click()
-            $(document).everyTime("30s", "reloadPage", function() {
+           // showLoginHistory();
+            $("#globalLastLoginBtn").click();
+            $(document).everyTime("3s", "reloadPage", function() {
               if ($("#lastLoginsDiv").is(":visible") && !isFinding) {
-                $("#latestBtn").click();
+                // $("#latestBtn").click();
+                showLoginHistory();
               }
             },0);
           });
@@ -790,4 +779,5 @@
       
         </div>
       </body>
-    ]]></Content></Module>
+    ]]></Content>
+</Module>
