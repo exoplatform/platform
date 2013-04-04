@@ -24,7 +24,7 @@
     <repository name="${gatein.jcr.repository.default}" system-workspace="${gatein.jcr.workspace.system}" default-workspace="${gatein.jcr.workspace.default}">
       <security-domain>${portal.container.realm}</security-domain>
       <access-control>optional</access-control>
-      <session-max-age>${gatein.jcr.sessionregistry.sessionmaxage}</session-max-age>
+      <session-max-age>${gatein.jcr.sessionregistry.sessionmaxage:300}</session-max-age>
       <authentication-policy>org.exoplatform.services.jcr.impl.core.access.JAASAuthenticator</authentication-policy>
       <workspaces>
       </workspaces>
