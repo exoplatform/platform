@@ -27,7 +27,7 @@
         </init-params>
     </component>
 
-    <external-component-plugins profiles="all,default,social">
+    <external-component-plugins>
         <target-component>org.exoplatform.commons.chromattic.ChromatticManager</target-component>
         <component-plugin>
             <name>chromattic</name>
