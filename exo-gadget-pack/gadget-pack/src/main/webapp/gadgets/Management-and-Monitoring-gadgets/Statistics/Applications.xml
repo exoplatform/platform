@@ -16,10 +16,7 @@
       <link rel="stylesheet" type="text/css" href="/eXoResources/skin/css/Core.css" />
       
         <style type="text/css">
-          body, td, div, span, p, table, form {
-            font-family: helvetica,Arial,sans-serif;
-            font-size: 13px;
-          }
+        
           .appStatistics ul li {
             margin-top: 20px;
           }
