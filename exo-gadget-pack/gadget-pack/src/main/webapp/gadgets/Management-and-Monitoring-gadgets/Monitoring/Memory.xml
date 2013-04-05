@@ -145,7 +145,7 @@
           __MSG_title_memory__
           <a class="uiIconClose pull-right" title="Close Window" rel="tooltip" data-placement="bottom" onclick=""></a>
         </h6>
-        <div id="memoryInfos" class="GadCont templates">
+        <div id="memoryInfos" class="gadContent templates">
           Loading data ...
         </div>
       </div>

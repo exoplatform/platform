@@ -83,7 +83,7 @@
                 }
                 var spaceDiv = "<li class='spaceItem'>"+"<a class='spaceIcon avatarMini'"
                         + "' href='" + spaceUrl + "' title='" + name + "'><img src='"+imageUrl+"'/>"
-                        + name + "</a></li><br/>";
+                        + name + "</a></li>";
                 groupSpaces += spaceDiv;
             }
             if(groupSpaces!=''){

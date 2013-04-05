@@ -55,8 +55,8 @@
           
           .cacheLevel .itemGraph {
             margin-top: 5px;
-			border-radius: 2px;
-			overflow: hidden;
+      border-radius: 2px;
+      overflow: hidden;
           }
           
           .cacheLevel .graph {
@@ -70,7 +70,7 @@
           
           .cacheLevel .usedPercent {
             background-color: #D30019;
-    		background-image: linear-gradient(to bottom, #d30019, #b90016);
+        background-image: linear-gradient(to bottom, #d30019, #b90016);
             border-radius: 0;
             height: 18px;
             float: left;
@@ -125,10 +125,12 @@
                   
                   itemsCachesConsumption.push('<div id="cache_consumption_'+cacheId+'" class="cache">');
                   itemsCachesConsumption.push('<a data-placement="bottom" data-toggle="tooltip" href="javascript:void(0)" data-original-title="'+cacheId+'"><b>'+cacheLabel.fromCamel()+'</b></a>');
-                  itemsCachesConsumption.push('<div class="itemGraph clearfix" style="position: relative;">');
+                  itemsCachesConsumption.push('<div class="itemGraph clearfix">');
                   itemsCachesConsumption.push('<div class="usedPercent" data-placement="bottom" data-toggle="tooltip" data-original-title="'+capacityUsedPercentage_rounded+'% Used" style="width:'+capacityUsedPercentage_rounded+'%"> </div>');
                   itemsCachesConsumption.push('<div class="graph" data-placement="bottom" data-toggle="tooltip" data-original-title="'+capacityFreePercentage_rounded+'% Free" style="width:'+capacityFreePercentage_rounded+'%"> </div>');
-                  itemsCachesConsumption.push('<div class="slash" style="position: absolute; left: '+capacityUsedPercentage_rounded+'%; top: 0; width: 1px; height: 18px; background: #fff; display: block; z-index: 2;"><span></span></div>');
+                  if (capacityUsedPercentage_rounded > 0 && capacityUsedPercentage_rounded < 100) {
+                      itemsCachesConsumption.push('<div class="slash" style="position: relative; left: '+capacityUsedPercentage_rounded+'%; top: 0; width: 1px; height: 18px; background: #fff; display: block; z-index: 2;"><span></span></div>');
+                  }
                   itemsCachesConsumption.push('</div>');
                   itemsCachesConsumption.push('</div>');
                   
@@ -145,10 +147,12 @@
                   
                   itemsCachesHit.push('<div id="cache_hit_'+cacheId+'" class="cache">');
                   itemsCachesHit.push('<a data-placement="bottom" data-toggle="tooltip" href="javascript:void(0)" data-original-title="'+cacheId+'"><b>'+cacheLabel.fromCamel()+'</b></a>');
-                  itemsCachesHit.push('<div class="itemGraph clearfix" style="position: relative;">');
+                  itemsCachesHit.push('<div class="itemGraph clearfix">');
                   itemsCachesHit.push('<div class="usedPercent" data-placement="bottom" data-toggle="tooltip" data-original-title="'+ratioMissPercentage_rounded+'% Miss Ratio" style="width:'+ratioMissPercentage_rounded+'%"> </div>');
                   itemsCachesHit.push('<div class="graph" data-placement="bottom" data-toggle="tooltip" data-original-title="'+ratioHitPercentage_rounded+'% Hit Ratio" style="width:'+ratioHitPercentage_rounded+'%"> </div>');
-                  itemsCachesHit.push('<div class="slash" style="position: absolute; left: '+ratioMissPercentage_rounded+'%; top: 0; width: 1px; height: 18px; background: #fff; display: block; z-index: 2;"><span></span></div>');
+                  if (ratioMissPercentage_rounded > 0 && ratioMissPercentage_rounded < 100) {
+                      itemsCachesHit.push('<div class="slash" style="position: relative; left: '+ratioMissPercentage_rounded+'%; top: 0; width: 1px; height: 18px; background: #fff; display: block; z-index: 2;"><span></span></div>');
+                  }
                   itemsCachesHit.push('</div>');
                   itemsCachesHit.push('</div>');
                   
@@ -198,7 +202,7 @@
               $('#caches-tab-details').empty();
               $('<div/>', { html: itemsCachesDetails.join('')}).appendTo('#caches-tab-details');
               
-              $('#caches-tab-consumption, #caches-tab-hit, #caches-tab-details').find('div,a,span').filter('[data-toggle="tooltip"]').each(function(){
+              $('#caches-tab-consumption, #caches-tab-hit, #caches-tab-details').find('DIV,A,SPAN').filter('[data-toggle="tooltip"]').each(function(){
                 $(this).tooltip();
               });
               gadgets.window.adjustHeight($("#caches_gadget").get(0).offsetHeight);
@@ -267,4 +271,5 @@
     ]]>
   </Content>
 </Module>
+
 
