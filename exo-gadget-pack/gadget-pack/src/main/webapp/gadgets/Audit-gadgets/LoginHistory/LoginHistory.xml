@@ -100,9 +100,11 @@
                 "</tr>");
               $('#lastLoginsTable').append(newRow);
             });
-            $('#lastLoginsTable').dataTable({ "bFilter": false, "bPaginate": false,"bInfo": false});
+            var oTable = $('#lastLoginsTable').dataTable({ "bFilter": false, "bPaginate": false,"bInfo": false, });
+            oTable.fnSort( [ [2,'asc']] );
             $lastLoginsDataBackup = $("#lastLoginsDataDiv").clone();
           // $("#lastLoginsTable").styleTable();
+            gadgets.window.adjustHeight($("#LoginHistoryGadgetDiv").get(0).offsetHeight);
           }
         
           function loginHistory2Html(loginHistoryJson){
@@ -129,10 +131,10 @@
             plot1 = $.jqplot($chart.attr("id"), [data], {
                 seriesDefaults:{
                     shadow: false,
-                    color: "#226ab4",
+                    color: "#226aa1",
                     renderer:$.jqplot.BarRenderer,
                     rendererOptions:{
-                       barWidth:9
+                       barWidth:15
                     },
                     pointLabels: {show: true, hideZeros: true, ypadding: 0}
                 },
@@ -158,7 +160,9 @@
                         }
                     }
                 },
-              grid:{borderColor:'transparent'},
+              grid:{borderColor:'transparent',
+                    
+                    background: '#F2F2F2'},
               highlighter: {show: false, tooltipFadeSpeed:'slow', tooltipLocation:'n'}
             });
             
@@ -473,7 +477,7 @@
           
           
           function showLoginHistory(){
-          isFinding = false;
+            isFinding = false;
             document.getElementById("searchTxt").value = "";
             
             var restURI = "/rest/loginhistory/lastlogins/5/%25";            
@@ -484,9 +488,7 @@
                 $(".iconDetail").click();
               if ($(".iconStastic").closest("div.iteamIcon").hasClass("selectIteam"))
                 $(".iconStastic").click();
-            }); 
-            
-            gadgets.window.adjustHeight($("#LoginHistoryGadgetDiv").get(0).offsetHeight);
+            });                        
             
             $("#searchTxt").keypress(function(event){
               if ( event.which == 13 ) {
@@ -500,7 +502,9 @@
                   gadgets.window.adjustHeight($("#LoginHistoryGadgetDiv").get(0).offsetHeight);
                 });
               }
-              });
+            });
+            
+            gadgets.window.adjustHeight($("#LoginHistoryGadgetDiv").get(0).offsetHeight);
           } 
       
               
@@ -586,9 +590,7 @@
               $("#userLoginHistoryFieldset").hide();
               $("#lastLoginsDiv").show();
               
-              // $("#latestBtn").click();
               showLoginHistory();
-              // gadgets.window.adjustHeight($("#LoginHistoryGadgetDiv").get(0).offsetHeight);
             });
            
            $("body").delegate("#globalStatisticBtn", "click", function(){
@@ -648,15 +650,15 @@
           
           
           $(function(){
-           // showLoginHistory();
-            $("#globalLastLoginBtn").click();
-            $(document).everyTime("3s", "reloadPage", function() {
+            $("#globalLastLoginBtn").click();            
+            $(document).everyTime("30s", "reloadPage", function() {
               if ($("#lastLoginsDiv").is(":visible") && !isFinding) {
-                // $("#latestBtn").click();
                 showLoginHistory();
               }
-            },0);
-          });
+            },0);            
+           
+          });          
+          
         </script>
       </head>
         
@@ -678,9 +680,9 @@
                 <table id="lastLoginsTable" class="uiGrid table table-hover table-striped">
                 <thead>
                 <tr>
-                    <th>User <i class="uiIconArrowDown pull-right"></i></th>
-                    <th>Last login <i class="uiIconArrowDown pull-right"></i></th>
-                    <th>Before that <i class="uiIconArrowDown pull-right"></i></th>
+                  <th>User <i class="uiIcon_ pull-right"></i></th>
+                    <th>Last login  <i class="uiIcon_ pull-right"></i></th>
+                    <th>Before that  <i class="uiIcon_ pull-right"></i></th>
                 </tr>
               </thead>
                 </table>

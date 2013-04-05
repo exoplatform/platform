@@ -13,268 +13,289 @@
   <head>
     <link type="text/css" rel="stylesheet" href="/exo-gadget-resources/skin/exo-gadget/gadget-common.css" />
     <link type="text/css" rel="stylesheet" href="/intranet-gadgets/skin/css/Bookmark.css" />
+  <link rel="stylesheet" type="text/css" href="/eXoResources/skin/css/Core.css" />
     <link rel="stylesheet" type="text/css" href="/eXoResources/skin/bootstrap/css/bootstrap.css" />
-    <link rel="stylesheet" type="text/css" href="/eXoResources/skin/css/Core.css" />
-  	<style type="text/css">
+  <style type="text/css">
+   /* Bookmark */
          
-	  .bookmark ul {
-		margin: 0;
-		padding: 0;
-	  }
-	  
-      .bookmark ul li {
-        margin: 0 0 5px;
+      .bookmark ul {
+      margin: 0;
+      padding: 0;
       }
       
-	  .bookmark ul li a.bookmarkTit {
-		padding: 2px 10px;
-		display: block;
-		color: #2f5e92;
-        font-weight: bold;
-	  }
-	  
-	  .bookmark ul li a.bookmarkTit:hover {
-		text-decoration: none;
-	  }
-	  
-	  .bookmark ul li:hover {
-		background: #ebebeb;
-		border-radius: 2px;
-	  }
-	  
-	  .bookmark ul li.active:hover, .bookmark ul li.addBookmark:hover {
-		background: none;
-		border-radius: 0;
-	  }
-	  
-	  .bookmark ul li .editHoverZone {
-		margin: 4px 5px 0 0;
-	  }
-	  
-	  .bookmark ul li .editHoverZone a {
-		margin: 0 5px;
-	  }
-	  
-      .bookmark .editZone {
-        margin: 10px 10px 0 10px;
-      }
-      
-      .bookmark .editZone .btn {
-        margin: 10px 10px 0 0;
-      }
-      
-      .bookmark .bookmarkItem {
-        padding: 0 10px;  
-      }
-      
-      .bookmark .bookmarkItem:hover {
-        background: #e6e6e6;    
-        border-radius: 4px;
-      }
-      
-      .bookmark .uiGrayLightBox {
-        padding: 5px 7px;
-		margin-right: 10px;
-      }
-      
-      .bookmark .uiGrayLightBox input {
-        margin: 5px 3px;
-		width: 235px;
-		height: 28px;
-      }
+          .bookmark ul li {
+            margin: 0 0 10px 0;
+          }
           
-  	</style>
-    <script language="javascript" type="text/javascript" src="/exo-gadget-resources/script/jquery/1.6.2/jquery.min.js"></script>
+      .bookmark ul li a.bookmarkTit {
+      padding: 2px 10px;
+      display: block;
+      color: #2f5e92;
+      font-weight: bold;
+      line-hight: 12px;
+      }
       
+      .bookmark ul li a.bookmarkTit:hover {
+      text-decoration: none;
+      }
+      
+      .bookmark ul li:hover {
+      background: #ebebeb;
+      border-radius: 2px;
+      }
+      
+      .bookmark ul li.active:hover, .bookmark ul li.addBookmark:hover {
+      background: none;
+      border-radius: 0;
+      }
+      
+      .bookmark ul li .editHoverZone {
+      margin: 4px 5px 0 0;
+      }
+      
+      .bookmark ul li .editHoverZone a {
+      margin: 0 5px;
+      }
+      
+          .bookmark .editZone {
+            margin: 10px 10px 0 10px;
+          }
+          
+          .bookmark .editZone .btn {
+            margin: 10px 10px 0 0;
+          }
+          
+          .bookmark .bookmarkItem {
+            padding: 0 10px;  
+          }
+          
+          .bookmark .bookmarkItem:hover {
+            background: #e6e6e6;    
+            border-radius: 4px;
+          }
+          
+          .bookmark .uiGrayLightBox {
+            padding: 5px 7px;
+      margin-right: 10px;
+          }
+          
+          .bookmark .uiGrayLightBox input {
+            margin: 5px 3px;
+      width: 235px;
+      height: 28px;
+          }
+          
+  </style>
+    <script language="javascript" type="text/javascript" src="/eXoResources/javascript/jquery-1.7.1.js"></script>
+    <script language="javascript" type="text/javascript" src="/eXoResources/skin/bootstrap/js/bootstrap-tooltip.js"></script>
+  
     <script type="text/javascript">
     $(function() {
 
-    	function addBookmark(id, name, link) {
-    		var element = '<li class="ListItem"> \
+      function addBookmark(id, name, link) {
+        var $element = $('<li class="ListItem"> \
                       <div class="editHoverZone pull-right" style="display:none;">  \
-                      <a href="#" class="pull-right"><i class="uiIconDelete uiIconLightGray"></i></a> \
-                      <a href="#" class="pull-right"><i class="uiIconEdit uiIconLightGray"></i></a>  \
+                      <a class="linkDelete" rel="tooltip" data-placement="bottom" title data-original-title="Delete" href="#" ><i class="uiIconDelete uiIconLightGray"></i></a> \
+                      <a class="linkEdit" rel="tooltip" data-placement="bottom" title data-original-title="Edit" href="#" ><i class="uiIconEdit uiIconLightGray"></i></a>  \
                       </div> \
                       <a id="bookmark'
-    				+ id
-    				+ '" class="bookmarkTit" href="'
-    				+ link
-    				+ '" target="_parent">'
-    				+ name
-    				+ '</a> \
+            + id
+            + '" class="bookmarkTit" href="'
+            + link
+            + '" target="_parent">'
+            + name
+            + '</a> \
                       <div class="editZone clearfix" style="display:none;">  \
                         <div class="uiGrayLightBox pull-left" >     \
                                <input type="text" class ="editName" value="'
-    				+ name
-    				+ '"/>    \
+            + name
+            + '"/>    \
                                <input type="text" class ="editLink" value="'
-    				+ link
-    				+ '"/> \
+            + link
+            + '"/> \
                           </div> \
-                       <button type="button" class="btn btn-primary pull-left save">Save</button> \
+                       <button type="button" class="btn btn-primary pull-left save">OK</button> \
                        <button type="button" class="btn pull-left cancel">Cancel</button> \
                        </div> \
-                       </li> ';
-    		$("#BookmarkList").append(element);
-    	}
+                       </li> ');
+        $("#BookmarkList").append($element);
+        //$('i.uiIconDelete',$element).tooltip();
+        //$('i.uiIconEdit',$element).tooltip();
+      }         
+      
+      $.getJSON("/rest/bookmarks/get", function(bookmarks) {
+        $.each(bookmarks, function(i, bookmark) {
+          var link2 = bookmark.link.replace(/__SLASH__/g, "/").replace(
+              "/$PORTAL", parent.parent.eXo.env.portal.context).replace(
+              "$SITENAME", parent.parent.eXo.env.portal.portalName);
+          addBookmark(i, bookmark.name.replace(/__SLASH__/g, "/"), link2);
+        });
+        if (bookmarks.length == 0) {
+          $("#message").show();
+        }
+        gadgets.window.adjustHeight($("#content").get(0).offsetHeight);
+      });
+      changeToViewMode();
+      var preventDefault = function(e) {
+        e.preventDefault()
+      };
 
-    	$.getJSON("/rest/bookmarks/get", function(bookmarks) {
-    		$.each(bookmarks, function(i, bookmark) {
-    			var link2 = bookmark.link.replace(/__SLASH__/g, "/").replace(
-    					"/$PORTAL", parent.parent.eXo.env.portal.context).replace(
-    					"$SITENAME", parent.parent.eXo.env.portal.portalName);
-    			addBookmark(i, bookmark.name.replace(/__SLASH__/g, "/"), link2);
-    		});
-    		if (bookmarks.length == 0) {
-    			$("#message").show();
-    		}
-    		gadgets.window.adjustHeight($("#content").get(0).offsetHeight);
-    	});
-    	changeToViewMode();
-    	var preventDefault = function(e) {
-    		e.preventDefault()
-    	};
+      $("#BookmarkList").delegate(
+          ".save",
+          "click",
+          function() {
+            var newName = $(this).closest(".ListItem").find(
+                "input:text[class=editName]").val();
+            var newLink = $(this).closest(".ListItem").find(
+                "input:text[class=editLink]").val();
+            if (newName.length == 0 || newLink.length == 0)
+              return false;
+             $(this).closest(".ListItem").removeClass("active");
+            var $thisBookmark = $(this).closest(".ListItem").find(
+                "a[id^=bookmark]");
+            $thisBookmark.text(newName);
+            $thisBookmark.attr("href", newLink);
+            $.getJSON("/rest/bookmarks/set/"
+                + toJson().replace(/\//g, "__SLASH__"), null);
+            $(this).closest(".ListItem").find("div.editZone").hide();
+            changeToViewMode();
+          });
 
-    	$("#BookmarkList").delegate(
-    			".save",
-    			"click",
-    			function() {
-    				var newName = $(this).closest(".ListItem").find(
-    						"input:text[class=editName]").val();
-    				var newLink = $(this).closest(".ListItem").find(
-    						"input:text[class=editLink]").val();
-    				if (newName.length == 0 || newLink.length == 0)
-    					return false;
-						 $(this).closest(".ListItem").removeClass("active");
-    				var $thisBookmark = $(this).closest(".ListItem").find(
-    						"a[id^=bookmark]");
-    				$thisBookmark.text(newName);
-    				$thisBookmark.attr("href", newLink);
-    				$.getJSON("/rest/bookmarks/set/"
-    						+ toJson().replace(/\//g, "__SLASH__"), null);
-    				$(this).closest(".ListItem").find("div.editZone").hide();
-    				changeToViewMode();
-    			});
+      $("#BookmarkList").delegate(".cancel", "click", function() {
+        $(this).closest(".ListItem").find("div.editZone").hide();
+       $(this).closest(".ListItem").removeClass("active");
+        changeToViewMode();
+      });
 
-    	$("#BookmarkList").delegate(".cancel", "click", function() {
-    		$(this).closest(".ListItem").find("div.editZone").hide();
-			 $(this).closest(".ListItem").removeClass("active");
-    		changeToViewMode();
-    	});
+      // click on edit, go to the edit mode;
+      $("#BookmarkList").delegate(".uiIconEdit", "click", function() {
+        //hide the icon modify and delete
+        $(this).closest(".ListItem").find("div.editZone").show();
+      $(this).closest(".ListItem").addClass("active");
+        // gadgets.window.adjustHeight($("#content").get(0).offsetHeight);
+        changeToEditMode();
+      });
 
-    	// click on edit, go to the edit mode;
-    	$("#BookmarkList").delegate(".uiIconEdit", "click", function() {
-    		//hide the icon modify and delete
-    		$(this).closest(".ListItem").find("div.editZone").show();
-			$(this).closest(".ListItem").addClass("active");
-    		// gadgets.window.adjustHeight($("#content").get(0).offsetHeight);
-    		changeToEditMode();
-    	});
+      $("#BookmarkList").delegate(
+          ".uiIconDelete",
+          "click",
+          function() {
+            $(this).closest('.ListItem').remove();
+            $.getJSON("/rest/bookmarks/set/"
+                + toJson().replace(/\//g, "__SLASH__"), null);
+            if ($("#BookmarkList").find(".ListItem").length == 0) {
+              $("#message").show();
+            }
+            gadgets.window.adjustHeight($("#content").get(0).offsetHeight);
 
-    	$("#BookmarkList").delegate(
-    			".uiIconDelete",
-    			"click",
-    			function() {
-    				$(this).closest('.ListItem').remove();
-    				$.getJSON("/rest/bookmarks/set/"
-    						+ toJson().replace(/\//g, "__SLASH__"), null);
-    				if ($("#BookmarkList").find(".ListItem").length == 0) {
-    					$("#message").show();
-    				}
-    				gadgets.window.adjustHeight($("#content").get(0).offsetHeight);
+          });
 
-    			});
+      function changeToViewMode() {
+        var bookmarkList = $("#BookmarkList");
+        $("#BookmarkList").delegate(".ListItem", "mouseover mouseout",
+            function(e) {
+              var divSelected=$(this).find("div.editHoverZone");
+              var linkDelete,linkEdit;
+              if (e.type == "mouseover") {
+                $(divSelected).show();
+                linkDelete=$(divSelected).find("a.linkDelete");
+                linkEdit=$(divSelected).find("a.linkEdit");
+                if($(linkDelete).is(":hover")) {
+                  $(linkDelete).tooltip("show");              
+                }
+                if($(linkEdit).is(":hover")) {
+                  $(linkEdit).tooltip("show");                 
+                }
+              } else {
+                   if($(linkDelete).is(":hover")==false) {
+                      $(linkDelete).tooltip("hide");
+                   }
+                   if($(linkEdit).is(":hover")==false) {
+                      $(linkEdit).tooltip("hide");
+                   }
+                   $(divSelected).hide();   
+              }
+            });
+       bookmarkList.find("div.editZone").each(function() {
+          $(this).hide();
+        });
+        $("#customize").bind("click", function() {    
+          $(this).tooltip('destroy');
+          addNewBookMark();
+          $("#message").hide();
+          $(this).tooltip();
+        });
+        $("a[id^=bookmark]").unbind("click", preventDefault);
+        gadgets.window.adjustHeight($("#content").get(0).offsetHeight);
+      }
 
-    	function changeToViewMode() {
-    		$("#BookmarkList").delegate(".ListItem", "mouseover mouseout",
-    				function(e) {
-    					if (e.type == "mouseover") {
-    						$(this).find("div.editHoverZone").show();
-    					} else {
-    						$(this).find("div.editHoverZone").hide();
-    					}
-    				});
-    		$("#BookmarkList").find("div.editZone").each(function() {
-    			$(this).hide();
-    		});
-    		$("#customize").bind("click", function() {
-    			addNewBookMark();
-    			$("#message").hide();
-    		});
-    		gadgets.window.adjustHeight($("#content").get(0).offsetHeight);
-    	}
+      function changeToEditMode() {
+        $("#BookmarkList").undelegate(".ListItem", "mouseover mouseout");
+        $("#BookmarkList").find(".editHoverZone").each(function() {
+          $(this).hide();
+        });
+        $("a[id^=bookmark]").bind("click", preventDefault);
+        $("#customize").unbind();
+        gadgets.window.adjustHeight($("#content").get(0).offsetHeight);
+      }
 
-    	function changeToEditMode() {
-    		$("#BookmarkList").undelegate(".ListItem", "mouseover mouseout");
-    		$("#BookmarkList").find(".editHoverZone").each(function() {
-    			$(this).hide();
-    		});
-    		$("a[id^=bookmark]").bind("click", preventDefault);
-    		$("#customize").unbind();
-    		gadgets.window.adjustHeight($("#content").get(0).offsetHeight);
-    	}
+      function toJson() {
+        var bookmarks = [];
+        $("#BookmarkList .ListItem").each(function(index) {
+          $bookmark = $(this).find("a[id^=bookmark]");
+          var bookmark = "{";
+          bookmark += '"name":"' + $bookmark.text() + '",';
+          bookmark += '"link":"' + $bookmark.attr("href") + '"}';
+          bookmarks.push(bookmark);
+        });
+        return "[" + bookmarks.join(",") + "]";
+      }
 
-    	function toJson() {
-    		var bookmarks = [];
-    		$("#BookmarkList .ListItem").each(function(index) {
-    			$bookmark = $(this).find("a[id^=bookmark]");
-    			var bookmark = "{";
-    			bookmark += '"name":"' + $bookmark.text() + '",';
-    			bookmark += '"link":"' + $bookmark.attr("href") + '"}';
-    			bookmarks.push(bookmark);
-    		});
-    		return "[" + bookmarks.join(",") + "]";
-    	}
-
-    	function addNewBookMark() {
-    		var element = '<li class="ListItem addBookmark"> \
+      function addNewBookMark() {
+        var element = '<li class="ListItem addBookmark"> \
                     <div class="editHoverZone pull-right" style="display:none;">  \
-                    <a href="#" class="pull-right"><i class="uiIconDelete uiIconLightGray"></i></a> \
-                    <a href="#" class="pull-right"><i class="uiIconEdit uiIconLightGray"></i></a>  \
+                    <a class="linkDelete" rel="tooltip" data-placement="bottom" title data-original-title="Delete" href="#" ><i class="uiIconDelete uiIconLightGray"></i></a> \
+                    <a class="linkEdit" rel="tooltip" data-placement="bottom" title data-original-title="Edit" href="#" ><i class="uiIconEdit uiIconLightGray"></i></a>  \
                     </div> \
                     <a id="bookmarkXXXX" class="bookmarkTit" href="#" target="_parent"></a> \
                     <div class="editZone clearfix">  \
                       <div class="uiGrayLightBox pull-left" >     \
-                             <input type="text" class ="editName" value=""/>    \
-                             <input type="text" class ="editLink" value=""/> \
+                             <input type="text" class ="editName" placeholder="Title"/>    \
+                             <input type="text" class ="editLink" placeholder="URL"/> \
                         </div> \
-                     <button type="button" class="btn btn-primary pull-left save">Save</button> \
+                     <button type="button" class="btn btn-primary pull-left save">Add</button> \
                      <button type="button" class="btn pull-left cancel">Cancel</button> \
                      </div> \
                      </li> ';
-    		$("#BookmarkList").append(element);
-    		changeToEditMode();
-    		gadgets.window.adjustHeight($("#content").get(0).offsetHeight + 100);
-    	}
+        $("#BookmarkList").append(element);        
+        changeToEditMode();
+        gadgets.window.adjustHeight($("#content").get(0).offsetHeight + 100);
+      }
 
-    	function checkIfZeroBookMark() {
-    		$.getJSON("/rest/bookmarks/get", function(bookmarks) {
-    			if (bookmarks.length == 0) {
-    				$("#message").show();
-    			}
-    		});
-    	}
-
+      function checkIfZeroBookMark() {
+        $.getJSON("/rest/bookmarks/get", function(bookmarks) {
+          if (bookmarks.length == 0) {
+            $("#message").show();
+          }
+        });
+      }
+      $("#customize").tooltip();            
     });
-
+     
     </script>
   </head>
  
     <div id="content" class="UIGadgetThemes bookmark uiBox">
       <h6 class="title center clearfix">
- 		<a id="customize" href="#" class="actionIcon pull-right">
-   			<i class="uiIconPlus uiIconLightGray"></i>
- 		</a>
-   		__MSG_title__
-	  </h6>
+     <a id="customize" data-toggle="tooltip" data-placement="bottom" title data-original-title="Add Bookmark" href="#" class="actionIcon pull-right">
+         <i class="uiIconPlus uiIconLightGrey"></i>
+     </a>
+       __MSG_title__
+    </h6>
       <div class="uiContentBox">
-	      <div id="message" style="display:none;">
-	      		You don't have any BookMark : add them by click on
-	 						<a id="#" href="#" class="actionIcon">
-	   								<i class="uiIconPlus uiIconLightGray"></i>
-	 						</a>
-	      button
-	      </div>
+        <div id="message" style="display:none;">
+            You don't have any BookMark : add them by click on <i class="uiIconPlus uiIconLightGrey"></i> button
+        </div>
           <ul id="BookmarkList"></ul>
         </div>
       </div>
