@@ -6,6 +6,7 @@ import org.exoplatform.container.ExoContainerContext;
 import org.exoplatform.services.log.ExoLogger;
 import org.exoplatform.services.log.Log;
 import org.exoplatform.services.organization.OrganizationService;
+import org.exoplatform.services.organization.User;
 import org.exoplatform.services.rest.impl.RuntimeDelegateImpl;
 import org.exoplatform.services.rest.resource.ResourceContainer;
 import org.exoplatform.social.core.identity.model.Identity;
@@ -270,7 +271,13 @@ public class PeopleRestServices implements ResourceContainer {
                 json.put("profile", id.getProfile().getUrl());
                 json.put("title", position);
                 json.put("number", k);
-                json.put("createdDate",orgManager.getUserHandler().findUserByName(id.getRemoteId()).getCreatedDate().getTime());
+                User user = orgManager.getUserHandler().findUserByName(id.getRemoteId());
+                if(user != null && user.getCreatedDate() != null){
+                  json.put("createdDate",user.getCreatedDate().getTime());
+                }
+                else{
+                  json.put("createdDate",new Date().getTime());
+                }
                 jsonArray.put(json);
             }
             jsonGlobal.put("items",jsonArray);
