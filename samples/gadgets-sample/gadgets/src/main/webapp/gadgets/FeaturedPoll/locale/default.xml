@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <!--
 
     Copyright (C) 2009 eXo Platform SAS.
@@ -18,16 +19,15 @@
     02110-1301 USA, or see the FSF site: http://www.fsf.org.
 
 -->
-
 <messagebundle>
   <msg name="title">Featured Poll</msg>
   <msg name="setting">Setting</msg>
   <msg name="vote">Vote</msg>
-  <msg name="voteAgain">Vote again</msg>
-  <msg name="warning">Please choose one option at least</msg>
+  <msg name="voteAgain">Vote Again</msg>
+  <msg name="warning">Please choose at least one option</msg>
   <msg name="option">Options</msg>
   <msg name="percent">Percent</msg>
-  <msg name="voter">voters</msg>
+  <msg name="voter">Voters</msg>
   <msg name="total">Total</msg>
   <msg name="discuss">Discuss in Forum</msg>
   <msg name="nopoll">No Questions Available</msg>  

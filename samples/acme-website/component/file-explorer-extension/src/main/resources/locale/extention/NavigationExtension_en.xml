@@ -18,33 +18,33 @@
 	<PopulateToMenu>
 		<dialog>
 			<label>
-				<id>Id:</id>
+<id>ID:</id>
 				<name>Name:</name>
 				<lifecycle>Lifecycle:</lifecycle>
 				<isDeep>Is Deep:</isDeep>
 				<nodetypes>Node Types:</nodetypes>
 				<description>Description:</description>
 				<affectedNodeTypeNames>Affected Node Types:</affectedNodeTypeNames>
-				<navigationNode>Navigation node:</navigationNode>
+<navigationNode>Navigation Node:</navigationNode>
 				<index>Index:</index>
 				<clickable>Clickable:</clickable>
 				<page>Page:</page>
-				<childrenPage>Children page:</childrenPage>
+<childrenPage>Children Page:</childrenPage>
 			</label>
 		</dialog>
 	</PopulateToMenu>
 	<UINavigationForm>
 		<label>
-			<Node>Parent's folder :</Node>
+<Node>Parent's Folder:</Node>
 			<Visible>Visible :</Visible>
-			<NavigationNodeInputSet>Target parent navigation :</NavigationNodeInputSet>
-			<Index>Display order :</Index>
+<NavigationNodeInputSet>Target Parent Navigation:</NavigationNodeInputSet>
+<Index>Display Order:</Index>
 			<Clickable>Clickable :</Clickable>
 			<NavigationControls>Navigation Controls</NavigationControls>
-			<ListTargetPageFormInputSet>Page for list :</ListTargetPageFormInputSet>
-			<ListShowCLVByStringInput>Parameter name :</ListShowCLVByStringInput>
-			<DetailTargetPageInputSet>Page for detail :</DetailTargetPageInputSet>
-			<DetailShowCLVByStringInput>Parameter name :</DetailShowCLVByStringInput>
+<ListTargetPageFormInputSet>Page for List:</ListTargetPageFormInputSet>
+<ListShowCLVByStringInput>Parameter Name:</ListShowCLVByStringInput>
+<DetailTargetPageInputSet>Page for Detail:</DetailTargetPageInputSet>
+<DetailShowCLVByStringInput>Parameter Name:</DetailShowCLVByStringInput>
 			<List>List</List>
 			<Detail>Detail</Detail>
 		</label>

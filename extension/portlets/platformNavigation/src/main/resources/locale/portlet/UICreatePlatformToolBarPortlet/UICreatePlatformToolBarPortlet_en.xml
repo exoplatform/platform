@@ -13,8 +13,8 @@
    <UICreateList>
       <label>
          <CreateANew>Create a new {1}:</CreateANew>
-         <NoForum>Sorry, no forum available yet to create a {1}. Start by creating your own space.</NoForum>
-         <RequireSelectForum>Please, select a forum.</RequireSelectForum>
+         <NoForum>Sorry, no forum is available yet to create a {1}. Start by creating your own space.</NoForum>
+         <RequireSelectForum>Please select a forum.</RequireSelectForum>
       </label>
       <action>
          <Next>Next</Next>
@@ -24,23 +24,23 @@
    <UICreateTopic>
       <label>
          <SelectAForum>Select a Forum</SelectAForum>
-         <location>In location</location>
+         <location>In Location</location>
          <forumId>And Forum</forumId>
-         <FilterForums>Filter forums</FilterForums>
+         <FilterForums>Filter Forums</FilterForums>
       </label>
    </UICreateTopic>
    <UICreatePoll>
       <label>
-         <SelectAForum>Select a Forum</SelectAForum>
-         <location>In location</location>
+         <SelectAForum>Select Forum</SelectAForum>
+         <location>In Location</location>
          <forumId>And Forum</forumId>
-         <FilterForums>Filter forums</FilterForums>
+         <FilterForums>Filter Forums</FilterForums>
       </label>
    </UICreatePoll>
    <UICreateWiki>
       <label>
          <title>Create a new Wiki Page:</title>
-         <location>In location</location>
+         <location>In Location</location>
       </label>
    </UICreateWiki>
    <UICreateEvent>
@@ -55,15 +55,15 @@
       </label>
       <msg>
          <summary-field-required>The field "Title" is required.</summary-field-required>
-         <fromDate-format>The Form date format is incorrect.</fromDate-format>
-         <toDate-format>The To date format is incorrect.</toDate-format>
-         <logic-required>Sorry, you can't create an event that ends before it starts.</logic-required>
-         <cant-add-event-on-remote-calendar>Can't add event to remote calendar</cant-add-event-on-remote-calendar>
+         <fromDate-format>The "From" date format is incorrect.</fromDate-format>
+         <toDate-format>The "To" date format is incorrect.</toDate-format>
+         <logic-required>Sorry, you cannot create an event that ends before it starts.</logic-required>
+         <cant-add-event-on-remote-calendar>You cannot add event to remote calendar</cant-add-event-on-remote-calendar>
          <add-successfully>
             <Event>The Event was added to {1}</Event>
             <Task>The Task was added to {1}</Task>
          </add-successfully>
-         <add-unsuccessfully>Unsuccessfully to add {0}.</add-unsuccessfully>
+         <add-unsuccessfully>{0} was not added.</add-unsuccessfully>
       </msg>
       <action>
          <Next>Next</Next>

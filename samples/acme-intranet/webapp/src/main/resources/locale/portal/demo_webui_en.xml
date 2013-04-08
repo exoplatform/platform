@@ -4,7 +4,7 @@
     <welcome>Welcome</welcome>
     <login>Login</login>
     <logout>Logout</logout>
-    <language>Change language</language>
+    <language>Change Language</language>
     <register>Register</register>
   </Signin>
 
