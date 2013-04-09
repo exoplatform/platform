@@ -13,8 +13,8 @@
   <head>
     <link type="text/css" rel="stylesheet" href="/exo-gadget-resources/skin/exo-gadget/gadget-common.css" />
     <link type="text/css" rel="stylesheet" href="/intranet-gadgets/skin/css/Bookmark.css" />
-  <link rel="stylesheet" type="text/css" href="/eXoResources/skin/css/Core.css" />
     <link rel="stylesheet" type="text/css" href="/eXoResources/skin/bootstrap/css/bootstrap.css" />
+    <link rel="stylesheet" type="text/css" href="/eXoResources/skin/css/Core.css" />
   <style type="text/css">
    /* Bookmark */
          
@@ -23,9 +23,9 @@
       padding: 0;
       }
       
-          .bookmark ul li {
-            margin: 0 0 10px 0;
-          }
+      .bookmark ul li {
+        margin: 0 0 5px;
+      }
           
       .bookmark ul li a.bookmarkTit {
       padding: 2px 10px;
@@ -95,8 +95,8 @@
       function addBookmark(id, name, link) {
         var $element = $('<li class="ListItem"> \
                       <div class="editHoverZone pull-right" style="display:none;">  \
-                      <a class="linkDelete" rel="tooltip" data-placement="bottom" title data-original-title="Delete" href="#" ><i class="uiIconDelete uiIconLightGray"></i></a> \
-                      <a class="linkEdit" rel="tooltip" data-placement="bottom" title data-original-title="Edit" href="#" ><i class="uiIconEdit uiIconLightGray"></i></a>  \
+                      <a class="linkDelete pull-right" rel="tooltip" data-placement="bottom" title data-original-title="Delete" href="#" ><i class="uiIconDelete uiIconLightGray"></i></a> \
+                      <a class="linkEdit pull-right" rel="tooltip" data-placement="bottom" title data-original-title="Edit" href="#" ><i class="uiIconEdit uiIconLightGray"></i></a>  \
                       </div> \
                       <a id="bookmark'
             + id
@@ -254,8 +254,8 @@
       function addNewBookMark() {
         var element = '<li class="ListItem addBookmark"> \
                     <div class="editHoverZone pull-right" style="display:none;">  \
-                    <a class="linkDelete" rel="tooltip" data-placement="bottom" title data-original-title="Delete" href="#" ><i class="uiIconDelete uiIconLightGray"></i></a> \
-                    <a class="linkEdit" rel="tooltip" data-placement="bottom" title data-original-title="Edit" href="#" ><i class="uiIconEdit uiIconLightGray"></i></a>  \
+                    <a class="linkDelete pull-right" rel="tooltip" data-placement="bottom" title data-original-title="Delete" href="#" ><i class="uiIconDelete uiIconLightGray"></i></a> \
+                    <a class="linkEdit pull-right" rel="tooltip" data-placement="bottom" title data-original-title="Edit" href="#" ><i class="uiIconEdit uiIconLightGray"></i></a>  \
                     </div> \
                     <a id="bookmarkXXXX" class="bookmarkTit" href="#" target="_parent"></a> \
                     <div class="editZone clearfix">  \
@@ -288,13 +288,13 @@
     <div id="content" class="UIGadgetThemes bookmark uiBox">
       <h6 class="title center clearfix">
      <a id="customize" data-toggle="tooltip" data-placement="bottom" title data-original-title="Add Bookmark" href="#" class="actionIcon pull-right">
-         <i class="uiIconPlus uiIconLightGrey"></i>
+         <i class="uiIconPlus uiIconLightGray"></i>
      </a>
        __MSG_title__
     </h6>
       <div class="uiContentBox">
         <div id="message" style="display:none;">
-            You don't have any BookMark : add them by click on <i class="uiIconPlus uiIconLightGrey"></i> button
+            You don't have any BookMark : add them by click on <i class="uiIconPlus uiIconLightGray"></i> button
         </div>
           <ul id="BookmarkList"></ul>
         </div>
