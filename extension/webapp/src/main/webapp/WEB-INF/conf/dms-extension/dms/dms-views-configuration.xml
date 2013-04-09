@@ -82,6 +82,7 @@
             <field name="name"><string>List</string></field>
             <field name="permissions"><string>*:/platform/users</string></field>
             <field name="template"><string>/exo:ecm/views/templates/ecm-explorer/List</string></field>
+												<field name="hideExplorerPanel"><boolean>true</boolean></field>
             <field name="tabList">
               <collection type="java.util.ArrayList">
                 <value>
