@@ -86,7 +86,7 @@
 								</div>
 							</div>
 							<div class="control-group">
-			        	<label class="control-label" for="content-lang"><%=_ctx.appRes("ElementSet.dialog.label.language")%>:</label>
+			        	<label class="control-label" for="content-lang"><%=_ctx.appRes("ElementSet.dialog.label.language")%></label>
 								<div class="controls">
 								<%
 								  String lang = org.exoplatform.portal.webui.util.Util.getPortalRequestContext().getLocale().toString();
@@ -137,7 +137,7 @@
 							
 						<div class="form-horizontal">
 						<div class="control-group">
-								<label class="control-label"><%=_ctx.appRes("WebContent.dialog.label.illustrationImage")%></label>
+								<label class="control-label"><%=_ctx.appRes("WebContent.dialog.label.illustrationImage")%>:</label>
 								<div class="controls">
 										<%						
 											if(webContentNode != null && webContentNode.hasNode("medias/images/illustration")) {
@@ -164,7 +164,7 @@
 								</div>
 							</div>
 							<div class="control-group">
-								<label class="control-label"><%=_ctx.appRes("WebContent.dialog.label.Summary")%></label>
+								<label class="control-label"><%=_ctx.appRes("WebContent.dialog.label.Summary")%>:</label>
 								<div class="controls">
 								<%
 									String summaryContent = "";
