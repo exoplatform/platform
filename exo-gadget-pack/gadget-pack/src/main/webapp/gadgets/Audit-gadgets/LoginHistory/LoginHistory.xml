@@ -110,8 +110,9 @@
           function loginHistory2Html(loginHistoryJson){
             var loginHistory = loginHistoryJson.data[1];
             var loginHistoryHtml = "";
-            if (selectedUser == "AllUsers") {
-              $.each(loginHistory, function(i, loginHistory){                
+            loginHistoryHtml += '<div class="accordion-inner">';
+            if (selectedUser == "AllUsers") {              
+              $.each(loginHistory, function(i, loginHistory){
                 loginHistoryHtml += "<div class='loginHistoryItem'>" + "<a href='#' id='" + loginHistory.userId + "' class='customLink'>" + loginHistory.userName.replace(/ /g, "&nbsp;") + "</a>"+"</div>";
                 // "&nbsp;-&nbsp;" + (loginHistory.loginTime > new Date().getTime() ? "next&nbsp;" + prettyTimeDiff(loginHistory.loginTime, true) : prettyTimeDiff(loginHistory.loginTime, true) + "&nbsp;ago").replace(/ /g, "&nbsp;") +
                 loginHistoryHtml += "<div class='loginHistoryItemDetail'>"  + new Date(loginHistory.loginTime).toString("ddd dd MMM yyyy hh:mm tt") + "</div>";
@@ -122,6 +123,7 @@
                 loginHistoryHtml += "<div class='loginHistoryItemDetail'>" + new Date(loginHistory.loginTime).toString("ddd dd MMM yyyy hh:mm tt") + "</div>";
               });
             }
+            loginHistoryHtml += '</div>';                       
             return loginHistoryHtml;
           }
       
@@ -182,34 +184,35 @@
               $("#selectedDayHeaderContainer").show();
               $("#selectedDayHeader").text(d.toString("ddd MMM dd yyyy") + " (" + userLoginHistoryPositionJson.data[0] + ")");
               $("#selectedDayDiv").html(loginHistory2Html(userLoginHistoryPositionJson));
-       // $("#accordion").accordion("option", "active", 0);
-              gadgets.window.adjustHeight($("#LoginHistoryGadgetDiv").get(0).offsetHeight);
-            });
+       // $("#accordion").accordion("option", "active", 0);              
+            });            
           }
       
           function showTodayLogins(userId){
             var restURI = "/rest/loginhistory/loginhistory/"+ userId + "/" + Date.today().getTime() + "/" + Date.today().setTimeToNow().getTime();
             $.getJSON(restURI, function(userLoginHistoryPositionJson){
-             $("#todayHeader a span").text('__MSG_loginHistory.today__ (' + userLoginHistoryPositionJson.data[0] + ')');
+              $("#todayHeader a span").text('__MSG_loginHistory.today__ (' + userLoginHistoryPositionJson.data[0] + ')');
               $("#todayDiv").html(loginHistory2Html(userLoginHistoryPositionJson));
-              // $("#accordion").accordion("option", "active", 1);
+              // $("#accordion").accordion("option", "active", 1);   
+              gadgets.window.adjustHeight($("#LoginHistoryGadgetDiv").get(0).offsetHeight);
             });
+            gadgets.window.adjustHeight($("#LoginHistoryGadgetDiv").get(0).offsetHeight);
           }
           
           function showEarlierThisWeekLogins(userId){
             var restURI = "/rest/loginhistory/loginhistory/"+ userId + "/" + Date.monday().getTime() + "/" + Date.today().getTime();
             $.getJSON(restURI, function(userLoginHistoryPositionJson){
-             $("#earlierThisWeekHeader a span").text('__MSG_loginHistory.earlierThisWeek__ (' + userLoginHistoryPositionJson.data[0] + ')');
+              $("#earlierThisWeekHeader a span").text('__MSG_loginHistory.earlierThisWeek__ (' + userLoginHistoryPositionJson.data[0] + ')');
               $("#earlierThisWeekDiv").html(loginHistory2Html(userLoginHistoryPositionJson));
-            });
+            });            
           }
       
           function showEarlierThisMonthLogins(userId){
             var restURI = "/rest/loginhistory/loginhistory/"+ userId + "/" + Date.today().moveToFirstDayOfMonth().getTime() + "/" + Date.monday().getTime();
             $.getJSON(restURI, function(userLoginHistoryPositionJson){
-             $("#earlierThisMonthHeader a span").text('__MSG_loginHistory.earlierThisMonth__ (' + userLoginHistoryPositionJson.data[0] + ')');
+              $("#earlierThisMonthHeader a span").text('__MSG_loginHistory.earlierThisMonth__ (' + userLoginHistoryPositionJson.data[0] + ')');
               $("#earlierThisMonthDiv").html(loginHistory2Html(userLoginHistoryPositionJson));
-            });
+            });            
           }
           
           function showEarlierLogins(userId){
@@ -217,7 +220,7 @@
             $.getJSON(restURI, function(userLoginHistoryPositionJson){
               $("#earlierHeader a span").html('__MSG_loginHistory.earlier__ (' + userLoginHistoryPositionJson.data[0] + ')');
               $("#earlierDiv").html(loginHistory2Html(userLoginHistoryPositionJson));
-            });
+            });            
           }
           
       
@@ -645,7 +648,13 @@
               });
     
           $("body").delegate('.collapse','show',function(){
+            $(this).prev().find(".accordion-toggle").removeClass("collapsed");
             $(this).prev().find(".accordion-toggle").addClass("expaned");
+          });          
+
+          $("body").delegate('.collapse','hide',function(){
+            $(this).prev().find(".accordion-toggle").removeClass("expaned");
+            $(this).prev().find(".accordion-toggle").addClass("collapsed");
             });
           
           
@@ -715,25 +724,15 @@
                  </div>
                  
                  
-                 <div  id="historyDiv" class="accordion">
-                 <!--
-                       <div class="accordion-group">
-                         <div class="accordion-heading">
-                           <div id="selectedDayHeader" class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#historyDiv" href="#selectedDayDiv">
-                            <a id="" href="#"><i class='uiIconSelected pull-right'></i></a>
-                           </div>
-                         </div>
-                        <div id="selectedDayDiv" class="accordion-body collapse "> </div>
-                      </div>
-                      -->
-                 
+                 <div  id="historyDiv" class="accordion">                 
                        <div class="accordion-group">
                            <div class="accordion-heading">
                              <div id="todayHeader" class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#historyDiv" href="#todayDiv">
                                     <a href="#" id=""><i class='uiIconSelected pull-right'></i><span>__MSG_loginHistory.today__</span></a>
-                            </div>
+                             </div>
                            </div>
-                         <div id="todayDiv" class="accordion-body collapse"> </div>
+                         <div id="todayDiv" class="accordion-body collapse" style="overflow-y: auto;">
+                           </div>
                        </div>
                    
                        <div class="accordion-group">
@@ -742,7 +741,7 @@
                        <a id="" href="#"><i class='uiIconSelected pull-right'></i><span>__MSG_loginHistory.earlierThisWeek__</span></a>
                          </div>
                        </div>
-                       <div id="earlierThisWeekDiv" class="accordion-body  collapse"> </div>
+                       <div id="earlierThisWeekDiv" class="accordion-body collapse" style="overflow-y: auto;"> </div>
                        </div>
                        
                        <div class="accordion-group">
@@ -751,7 +750,7 @@
                           <a id="" href="#"><i class='uiIconSelected pull-right'></i><span>__MSG_loginHistory.earlierThisMonth__</span></a>
                          </div>
                        </div>
-                       <div id="earlierThisMonthDiv" class="accordion-body collapse"> </div>
+                       <div id="earlierThisMonthDiv" class="accordion-body collapse" style="overflow-y: auto;"> </div>
                        </div>
                        
                        
@@ -761,7 +760,7 @@
                             <a id="" href="#"><i class='uiIconSelected pull-right'></i><span>__MSG_loginHistory.earlier__</span></a>
                          </div>
                        </div>
-                       <div id="earlierDiv" class="accordion-body collapse"> </div>
+                       <div id="earlierDiv" class="accordion-body collapse" style="overflow-y: auto;"> </div>
                        </div>
                      </div>
                      
@@ -780,6 +779,7 @@
       
       
         </div>
+                   
       </body>
     ]]></Content>
 </Module>
