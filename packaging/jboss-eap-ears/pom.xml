@@ -182,6 +182,13 @@
 					  <destFileName>exo-social-extension-${org.exoplatform.social.version}.ear</destFileName>
 					  <type>ear</type>
 					</artifactItem>
+					<artifactItem>
+					  <groupId>org.crsh</groupId>
+					  <artifactId>crsh.jcr.exo</artifactId>
+					  <version>${org.crsh.version}</version>
+					  <type>war</type>
+					  <destFileName>crash.war</destFileName>
+					</artifactItem>
                                         <artifactItem>
 					  <groupId>org.exoplatform.platform</groupId>
 					  <artifactId>exo-gadget-pack-ear</artifactId>

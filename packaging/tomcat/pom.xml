@@ -407,7 +407,7 @@
     <!-- Crash -->
     <dependency>
       <groupId>org.crsh</groupId>
-      <artifactId>crsh.core</artifactId>
+      <artifactId>crsh.jcr.exo</artifactId>
       <version>${org.crsh.version}</version>
       <scope>provided</scope>
       <type>war</type>
