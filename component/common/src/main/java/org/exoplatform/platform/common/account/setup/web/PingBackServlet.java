@@ -1,6 +1,9 @@
 package org.exoplatform.platform.common.account.setup.web;
 
 import org.exoplatform.commons.info.MissingProductInformationException;
+import org.exoplatform.commons.info.ProductInformations;
+import org.exoplatform.container.PortalContainer;
+import org.exoplatform.platform.common.rest.PlatformInformationRESTService;
 import org.exoplatform.services.log.ExoLogger;
 import org.exoplatform.services.log.Log;
 
@@ -10,6 +13,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.*;
+import java.lang.reflect.Method;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -29,8 +33,9 @@ public  class PingBackServlet extends HttpServlet {
     public static final String LOOP_FUSE_FORM_DISPLAYED = "formDisplayed";
     public static final String USER_HOME = System.getProperty("user.home");
     public static final String EXO_HOME_FOLDER = USER_HOME + "/.eXo";
-    public static final String PING_BACK_FILE = "licence.xml";
+    public static final String PING_BACK_FILE = "license.xml";
     public static final String PRODUCT_NAME = "Platform";
+    private static String edition = "";
 
     @Override
     public void init(ServletConfig servletConfig) throws ServletException{
@@ -124,6 +129,11 @@ public  class PingBackServlet extends HttpServlet {
         writeToFile(LOOP_FUSE_FORM_DISPLAYED, Boolean.toString(loopfuseFormDisplayed), getPingBackFileLocation() );
     }
     public static String getPingBackFileLocation() throws MissingProductInformationException {
+        ProductInformations productInformations = (ProductInformations) PortalContainer.getInstance().getComponentInstanceOfType(ProductInformations.class);
+        edition = getPlatformEdition(productInformations);
+        if ((edition!=null)&&(edition.equals(PlatformInformationRESTService.COMMUNITY_EDITION))) {
+            return EXO_HOME_FOLDER +"/"+ PRODUCT_NAME+"/"+PlatformInformationRESTService.COMMUNITY_EDITION+".xml";
+        }
         return EXO_HOME_FOLDER +"/"+ PRODUCT_NAME + "/" + PING_BACK_FILE;
     }
 
@@ -153,6 +163,21 @@ public  class PingBackServlet extends HttpServlet {
         } catch (Exception exception) {
             throw new RuntimeException(exception);
         }
+    }
+    private static String getPlatformEdition(ProductInformations platformInformations) {
+        try {
+            Class<?> c = Class.forName("org.exoplatform.platform.edition.PlatformEdition");
+            Method getEditionMethod = c.getMethod("getEdition");
+            String platformEdition = (String) getEditionMethod.invoke(null);
+            if((platformEdition!=null)&&(platformEdition.equals("enterprise"))) {
+                if((platformInformations.getEdition()!=null)&&(!platformInformations.getEdition().equals("")))
+                    platformEdition = platformInformations.getEdition();
+            }
+            return platformEdition;
+        } catch (Exception e) {
+            LOG.error("An error occured while getting the platform edition information.", e);
+        }
+        return null;
     }
 }
 

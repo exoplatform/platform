@@ -7,7 +7,7 @@
 	</UIActionBar>
     <UIViewFormTabPane>
 		<label>
-			<deleteNode>Delete node</deleteNode>
+<deleteNode>Delete Node</deleteNode>
 		</label>
 	</UIViewFormTabPane>
 </bundle>

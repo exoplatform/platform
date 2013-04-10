@@ -174,7 +174,12 @@ function doVote(el){
     votes.push($(this).val());
   });
   
-  if(votes.length < 1) return;
+  if(votes.length < 1) {
+    $("input:checked").each(function() {
+        votes.push($(this).val());
+    });
+    if(votes.length < 1) return;
+  }
     
   var pollId = el.form.elements["pollid"].value;
   var url = baseURL + "votepoll/" + pollId + "/" + votes.join(":");

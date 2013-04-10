@@ -23,11 +23,7 @@
     <link rel="stylesheet" type="text/css" href="/eXoResources/skin/bootstrap/css/bootstrap.css" />
     <link rel="stylesheet" type="text/css" href="/eXoResources/skin/css/Core.css" />
     <style type="text/css">
-          body, td, div, span, p, table, form {
-            font-family: helvetica,Arial,sans-serif;
-            font-size: 13px;
-          }
-      
+                
           .UIGadgetThemes.favoriteDoc .icon {
             margin: 8px 10px 0 0;
             padding-left: 0;
@@ -197,7 +193,7 @@ gadgets.util.registerOnLoadHandler(loadUser);
        <div id="FavoriteDocument-Gadget" class="UIGadgetThemes favoriteDoc uiBox">
             <h6 class="title center clearfix">
             <a href="#demo" class="actionIcon pull-right" id="ShowAll" target="_parent">
-              <i class="uiIconFavoriteDocument uiIconLightGrey"></i>
+              <i class="uiIconFavoriteDocument uiIconLightGray"></i>
             </a>
               __MSG_title__
             </h6>

@@ -3,7 +3,7 @@
 
 
 .loginHistoryContent {height:100px; overflow:auto;}
-.loginHistoryItem {color:#484848;}
+.loginHistoryItem {color:#484848; float: left; margin-right: 30px;}
 .loginHistoryItemDetail {font-size:9px; margin-left:3px; color:#757575;}
 .customLink:hover {text-decoration:underline; color:#226ab4; cursor:pointer;}
 
@@ -11,6 +11,15 @@
 #accordion .ui-accordion-header a { padding-left: 8px; }
 #accordion .ui-accordion-content { padding-left: 16px; }
 
+.sorting_asc i {
+    background-position: 0 -120px;
+}
+.sorting_desc i{
+    background-position: -20px -120px;
+}
+.sorting i{
+    background-position: -180px -200px;
+}
 
 .uiGadgetThemes{
 	.btn-group{
@@ -19,7 +28,7 @@
 		display: block;
 	}
 	.gadContent{
-		height: 150px;
+		height: auto;
 		overflow: auto;
 		.searchUser{
 			width: 100%;
@@ -66,12 +75,23 @@
 						padding: 8px 7px 5px;	
 						margin: 12px 0;
 					}
+					.caret{
+							border: none;
+						    content: "";
+						    display: inline-block;
+						    height: 0;
+						    vertical-align: top;
+						    width: 0;
+						    position: absolute;
+						    top: 13px;
+						    left: 40px;
+					}
 					.selectIteam{
 						background: #999;
 						border-radius: 3px;
 						position: relative;
 						.iconDetail{
-							background: url("../images/Statistics/StasticsIcon.png") no-repeat left top;
+							background: url("../images/Statistics/StasticsIcon.png") no-repeat left 3px;
 						}
 						.iconStastics{
 							background: url("../images/Statistics/StasticsIcon.png") no-repeat left -24px;
@@ -81,14 +101,6 @@
 						    border-top: 7px solid transparent;
 						    border-right: 7px solid transparent;
 						    border-bottom: 7px solid transparent;
-						    content: "";
-						    display: inline-block;
-						    height: 0;
-						    vertical-align: top;
-						    width: 0;
-						    position: absolute;
-						    top: 13px;
-						    left: 40px;
 						}
 					}
 					i{
@@ -100,7 +112,7 @@
 						background: url("../images/Statistics/StasticsIcon.png") no-repeat left bottom;
 					}
 					.iconDetail{
-						background: url("../images/Statistics/StasticsIcon.png") no-repeat left -53px;
+						background: url("../images/Statistics/StasticsIcon.png") no-repeat left -50px;
 					}
 				}
 				.rightContent{
@@ -110,6 +122,37 @@
 					padding-left: 8px;
 				}
 			}
+			
+		}
+		.accordion {
+			border-radius: 4px;
+			overflow: hidden;
+			.expaned {
+			    background: linear-gradient(to bottom, #fff, #f2f2f2) repeat scroll 0 0 transparent;
+			    border-bottom: 1px solid #CFCFCF;
+			    border-radius: 0;
+			}
+			.accordion-toggle a{
+				padding: 5px 5px 5px 15px;
+			}
+			/*.collapsed{
+				background: #f4f4f4;
+			}*/
+			.timePost{
+				color: #b5b5b5;
+			}
+			.accordion-body{
+			 	overflow-y: auto; 
+ 				max-height: 100px;
+				/*padding: 6px 12px;*/
+				a{
+					color: #226AB4;
+				}
+				td{
+					line-height: 28px;
+				}
+			}
+			
 		}
 	}
 }

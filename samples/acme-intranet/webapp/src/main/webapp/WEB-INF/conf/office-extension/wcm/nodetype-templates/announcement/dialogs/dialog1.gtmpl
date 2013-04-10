@@ -40,7 +40,7 @@
 
 		<div class="form-horizontal">
 			<div class="control-group">
-					<label class="control-label"><%=_ctx.appRes("WebContent.dialog.label.name")%></label>
+					<label class="control-label"><%=_ctx.appRes("WebContent.dialog.label.name")%>:</label>
 					<div class="controls">
 						<%
 							String[] webContentFieldName = ["jcrPath=/node", "nodetype=exo:announcement", "mixintype=mix:votable,mix:commentable,mix:i18n", "editable=if-null","validate=name,empty"] ;
@@ -64,7 +64,7 @@
 					</div>
 			</div>
 			<div class="control-group">
-				<label class="control-label"><%=_ctx.appRes("WebContent.dialog.label.Summary")%></label>
+				<label class="control-label"><%=_ctx.appRes("WebContent.dialog.label.Summary")%>:</label>
 				<div class="controls">
 					<%
 						String summaryContent = "";

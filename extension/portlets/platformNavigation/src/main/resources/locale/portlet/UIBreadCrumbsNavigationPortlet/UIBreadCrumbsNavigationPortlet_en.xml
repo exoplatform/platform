@@ -2,9 +2,7 @@
 <bundle>
 <UIBreadCrumbsNavigationPortlet>
     <label>
-        <ChangePicture>
-            Change Avatar
-        </ChangePicture>
+        <ChangePicture>Change Avatar</ChangePicture>
     </label>
 </UIBreadCrumbsNavigationPortlet>
  <UIBreadCrumbPopupAvatarUploader>

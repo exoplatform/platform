@@ -31,6 +31,7 @@
         if(!isDevMode){
             def rday= UnlockService.getNbDaysBeforeExpiration();
             boolean outdated = UnlockService.isOutdated();
+            String error = UnlockService.ERROR;
 %>
 
 <style type="text/css" xmlns="http://www.w3.org/1999/html">
@@ -114,7 +115,12 @@
     %>
     <div class="footerWLC <%=css  %>">
         <form action="/trial/trial" >
+            <%if((error!=null)&&(!error.equals(""))){
+                css="backOutdated";%>
+               <%= error %>
+            <%} else{%>
         	<%=label1 %> <%=rday%> <%=label2 %>
+            <%}%>
             <button class="btn"><%= labelRemove %></button>
         </form>
     </div>

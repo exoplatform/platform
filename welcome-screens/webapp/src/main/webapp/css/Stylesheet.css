@@ -124,6 +124,7 @@ a {
     text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
     vertical-align: top;
     width: 115px;
+    text-decoration: none;
 }
 
 .uiWelcomeBox .backOutdated {

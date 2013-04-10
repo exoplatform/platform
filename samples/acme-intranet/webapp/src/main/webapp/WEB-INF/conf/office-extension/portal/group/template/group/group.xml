@@ -87,9 +87,6 @@
                 <page-body> </page-body>
             </container>
         </container>
-
-
-
     </portal-layout>
 
 </portal-config>

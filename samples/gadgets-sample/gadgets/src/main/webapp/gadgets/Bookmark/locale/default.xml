@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <!--
 
     Copyright (C) 2009 eXo Platform SAS.
@@ -18,24 +19,11 @@
     02110-1301 USA, or see the FSF site: http://www.fsf.org.
 
 -->
-
 <messagebundle>
-  <msg name="title">
-    Bookmarks
-  </msg>
-  <msg name="customize">
-    Customize
-  </msg>
-  <msg name="save">
-    Save
-  </msg>
-  <msg name="addbutton">
-    Add bookmark
-  </msg>
-  <msg name="name">
-    Name
-  </msg>
-  <msg name="url">
-    URL
-  </msg>
+  <msg name="title">Bookmarks</msg>
+  <msg name="customize">Customize</msg>
+  <msg name="save">Save</msg>
+  <msg name="addbutton">Add Bookmark</msg>
+  <msg name="name">Name</msg>
+  <msg name="url">URL</msg>
 </messagebundle>
