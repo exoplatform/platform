@@ -67,7 +67,6 @@ public class UnlockService implements Startable {
     public void start() {
         if (!new File(Utils.HOME_CONFIG_FILE_LOCATION).exists()) {
             if (checkLicenceInJcr()) return;
-            //CASE NO FILE && NO EXPRESS OR ENTREPRISE EDITION IN JCR -> TRIAL
             String rdate = UnlockService.computeRemindDateFromTodayBase64();
             productCode = generateProductCode();
             Utils.writeToFile(Utils.PRODUCT_KEY, "", Utils.HOME_CONFIG_FILE_LOCATION);
@@ -215,11 +214,9 @@ public class UnlockService implements Startable {
             // Date is
             // outdated
             nbDaysBeforeExpiration = 0;
-            nbDaysAfterExpiration = nbDaysAfterExpiration + (int) TimeUnit.MILLISECONDS.toDays(today.getTimeInMillis() - remindDate.getTimeInMillis());
-            remindDate = today;
+            nbDaysAfterExpiration =  (int) TimeUnit.MILLISECONDS.toDays(today.getTimeInMillis() - remindDate.getTimeInMillis());
             delayPeriod = 0;
             outdated = true;
-
         } else { // Reminder Date is not yet outdated
             outdated = false;
             nbDaysAfterExpiration = 0;
@@ -232,6 +229,7 @@ public class UnlockService implements Startable {
     }
 
     private static int decodeKey(String productCode, String Key) {
+        try{
         StringBuffer keyBuffer = new StringBuffer(new String(Base64.decodeBase64(Key.getBytes())));
         String keyLengthString = keyBuffer.substring(8, 10);
         int length = Integer.parseInt(keyBuffer.substring(4, 6));
@@ -295,6 +293,11 @@ public class UnlockService implements Startable {
             return period;
         }
         else return 0;
+        }
+        catch(Exception e){
+            return 0;
+        }
+
     }
 
     private static void persistInfo(String edition, String nbUser, String keyDate, String duration, String productCode, String key) {
