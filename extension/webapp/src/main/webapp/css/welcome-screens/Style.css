@@ -116,8 +116,7 @@ a {
 }
 
 .uiWelcomeBox .inputFieldMini {
-    width: 121px;
-    -webkit-width: 131px;
+    width: 123px;
 }
 
 .uiWelcomeBox .inputFieldMedium {
@@ -126,8 +125,6 @@ a {
 
 .uiWelcomeBox .inputFieldLarge {
     width: 334px;
-    -webkit-width: 348px;
-    width: 348px\0/IE8+9;
 }
 
 .uiWelcomeBox .confirmLabel {

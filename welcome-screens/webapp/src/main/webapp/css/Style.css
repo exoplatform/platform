@@ -101,11 +101,12 @@ a {
     position: relative;
     display: inline-block;
     margin: 10px 5px;
+	line-height: 20px;
 }
 
 .uiWelcomeBox .uiCheckbox input[type="checkbox"]:checked,
 .uiWelcomeBox .uiCheckbox  input[type="checkbox"]:not(:checked) {
-    margin: 4px 0 0; /* hack margin-top: 4px to fix problem on chrome in Mac only */
+    margin: 4px 0 0; 
     opacity: 0;
     padding: 0;
     outline: 0 none;
@@ -129,18 +130,21 @@ a {
     border-bottom: 2px solid #466799;
     border-left: 2px solid #466799;
     content: "";
-    width: 7px;
+    width: 6px;
     height: 3px;
-    transform: skew(45deg, -49deg);
     -webkit-transform: skew(45deg, -49deg);
-    left: 4px;
-    position: absolute;
-    top: 4px;
-    -ms-transform:skewX(30deg) skewY(-35deg) e("\9");//hack only ie9
-left: 2px e("\9");
-    width: 10px e("\9");
-    height: 4px e("\9");
-    background: transparent e("\0/") ;//hack only ie8
+     -moz-transform: skew(45deg, -49deg);
+      -ms-transform: skewX(30deg) skewY(-35deg);
+       -o-transform: skew(45deg, -49deg);
+          transform: skew(45deg, -49deg);
+  -webkit-backface-visibility: hidden;
+	left: 4px;
+	position: absolute;
+	top: 4px;
+	left: 2px\9;
+	width: 10px\9;
+	height: 4px\9;
+	background: transparent e("\0/");
 }
 
 .uiWelcomeBox .uiCheckbox input[type="checkbox"] + span:before {
@@ -149,6 +153,7 @@ left: 2px e("\9");
     -webkit-border-radius: 3px;
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.17) inset;
     -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.17) inset;
+    -ms-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.17) inset;
     width: 12px;
     height: 12px;
     top: 4px;
