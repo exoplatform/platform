@@ -56,7 +56,7 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 						<strong>Grab your product code and request an unlock key</strong>
 						<div>
 							<span>Product Code</span>
-                            <input type="text" class="disable"  name="pc" value="<%=UnlockService.getProductCode() %>">
+                            <input type="text" class="Text" name="pc" value="<%=UnlockService.getProductCode() %>">
                             <!-- Please IT MUST BE A LINK not a button !!!!! it need only to be resized And it would re take its layout Please!!!-->
                             <a class="btn" target="_blank" href="<%=UnlockService.getRegistrationFormUrl()%>?pc=<%=UnlockService.getProductCode()%>">Request a Key</a>
 						</div>
