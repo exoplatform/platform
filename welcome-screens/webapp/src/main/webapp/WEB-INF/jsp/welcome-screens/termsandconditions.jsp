@@ -1284,11 +1284,11 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 				<p class="c9 c6 c14"></p>
 
 				<ol class="c21" start="1">
-					<li class="c1 c27 c29"><span class="c0 c4">1. eXo Consulting Services</span></li>
+					<li class="c1 c27 c29"><span class="c0 c4">eXo Consulting Services</span></li>
 				</ol>
 
 				<ol class="c28" start="1">
-					<li class="c1 c22"><span class="c0 c4">a. Scope of appliance</span></li>
+					<li class="c1 c22"><span class="c0 c4">Scope of appliance</span></li>
 				</ol>
 
 				<p class="c1"><span class="c0">eXo consulting services (&ldquo;Consulting
@@ -1296,14 +1296,14 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 						  the Software such as :</span></p>
 
 				<ol class="c19" start="1">
-					<li class="c9 c11 c14"><span class="c0">- Technical and functional project design and
+					<li class="c9 c11 c14"><span class="c0">Technical and functional project design and
 							specifications,</span></li>
 
-					<li class="c9 c11 c14"><span class="c0">- Migration and Updates</span></li>
+					<li class="c9 c11 c14"><span class="c0">Migration and Updates</span></li>
 
-					<li class="c9 c11 c14"><span class="c0">- IT operations and expertise,</span></li>
+					<li class="c9 c11 c14"><span class="c0">IT operations and expertise,</span></li>
 
-					<li class="c9 c11 c14"><span class="c0">- On-site technical or functional POCs (Proof
+					<li class="c9 c11 c14"><span class="c0">On-site technical or functional POCs (Proof
 							Of Concept)</span></li>
 				</ol>
 
@@ -1315,7 +1315,7 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 				<p class="c9 c6 c14"></p>
 
 				<ol class="c28" start="2">
-					<li class="c1 c22"><span class="c0 c4">b. Performance and Deliverables</span></li>
+					<li class="c1 c22"><span class="c0 c4">Performance and Deliverables</span></li>
 				</ol>
 
 				<p class="c9 c14"><span class="c0">eXo agrees to provide the Consulting Services and
@@ -1338,7 +1338,7 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 				<p class="c9 c6 c14"></p>
 
 				<ol class="c28" start="3">
-					<li class="c1 c22"><span class="c0 c4">c. Responsibilities</span></li>
+					<li class="c1 c22"><span class="c0 c4">Responsibilities</span></li>
 				</ol>
 
 				<p class="c1"><span class="c0">As long as Consulting Services are an assistance
@@ -1352,7 +1352,7 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 				<p class="c1 c6 c36"></p>
 
 				<ol class="c28" start="4">
-					<li class="c1 c22"><span class="c0 c4">d. Ordering, invoicing and Payment</span></li>
+					<li class="c1 c22"><span class="c0 c4">Ordering, invoicing and Payment</span></li>
 				</ol>
 
 				<p class="c1"><span class="c0">eXo&rsquo;s Consulting Services are meant to be ordered
@@ -1375,18 +1375,18 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 						  Customer.</span></p>
 
 				<ol class="c21" start="2">
-					<li class="c1 c27 c29"><span class="c0 c4">2. eXo Training Services</span></li>
+					<li class="c1 c27 c29"><span class="c0 c4">eXo Training Services</span></li>
 				</ol>
 
 				<ol class="c28" start="1">
-					<li class="c1 c22"><span class="c0 c4">a. Scope of appliance</span></li>
+					<li class="c1 c22"><span class="c0 c4">Scope of appliance</span></li>
 				</ol>
 
 				<p class="c1"><span class="c0">eXo&rsquo;s Training Services are meant to provide
 						  training to Customer human resources under the following scope :</span></p>
 
 				<ol class="c19" start="5">
-					<li class="c9 c11"><span class="c0">- &ldquo;Training Services&rdquo; means eXo&rsquo;s
+					<li class="c9 c11"><span class="c0">&ldquo;Training Services&rdquo; means eXo&rsquo;s
 							training courses, including eXo&rsquo;s publicly available courses and courses
 							provided at a site designated by the Customer</span></li>
 				</ol>
@@ -1394,14 +1394,14 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 				<p class="c9"><span class="c0">&nbsp;</span></p>
 
 				<ol class="c19" start="6">
-					<li class="c9 c11"><span class="c0">-The Training Services do not include any
+					<li class="c9 c11"><span class="c0">The Training Services do not include any
 							Subscription Services.</span></li>
 				</ol>
 
 				<p class="c9 c6"></p>
 
 				<ol class="c28" start="2">
-					<li class="c1 c22"><span class="c0 c4">b. Performance and Deliverables</span></li>
+					<li class="c1 c22"><span class="c0 c4">Performance and Deliverables</span></li>
 				</ol>
 
 				<p class="c9 c14"><span class="c0">eXo agrees to provide the Training Services and
@@ -1425,7 +1425,7 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 						"http://www.exoplatform.com/company/en/services/development-training"></a></span></p>
 
 				<ol class="c28" start="3">
-					<li class="c1 c22"><span class="c0 c4">c. Equipment and Facilities</span></li>
+					<li class="c1 c22"><span class="c0 c4">Equipment and Facilities</span></li>
 				</ol>
 
 				<p class="c9"><span class="c0">For on-site courses, Customer will supply the facility
@@ -1436,7 +1436,7 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 				<p class="c9 c6"></p>
 
 				<ol class="c28" start="4">
-					<li class="c1 c22"><span class="c0 c4">d. Customer Responsibilities</span></li>
+					<li class="c1 c22"><span class="c0 c4">Customer Responsibilities</span></li>
 				</ol>
 
 				<p class="c1"><span class="c0">Customer is responsible for assessing each
@@ -1445,7 +1445,7 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 						  courses.</span></p>
 
 				<ol class="c28" start="5">
-					<li class="c1 c22"><span class="c0 c4">e. Rights to Training Materials</span></li>
+					<li class="c1 c22"><span class="c0 c4">Rights to Training Materials</span></li>
 				</ol>
 
 				<p class="c9"><span class="c0">All intellectual property embodied in the training
@@ -1461,7 +1461,7 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 				<p class="c9 c6 c14"></p>
 
 				<ol class="c28" start="6">
-					<li class="c1 c22"><span class="c0 c4">f. Ordering, invoicing and Payment</span></li>
+					<li class="c1 c22"><span class="c0 c4">Ordering, invoicing and Payment</span></li>
 				</ol>
 
 				<p class="c1"><span class="c0">eXo&rsquo;s Training Services are meant to be ordered
@@ -1481,7 +1481,7 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 				<p class="c9 c6 c14"></p>
 
 				<ol class="c28" start="7">
-					<li class="c1 c22"><span class="c0 c4">g. Cancellation Policy</span></li>
+					<li class="c1 c22"><span class="c0 c4">Cancellation Policy</span></li>
 				</ol>
 
 				<p class="c1"><span class="c0">Class registrations are not confirmed until Purchase
@@ -1508,12 +1508,12 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 						"id.43e09b9fd5fe"></a>
 
 				<ol class="c21" start="3">
-					<li class="c1 c27 c29"><span class="c0 c4">3. eXo Specific Development
+					<li class="c1 c27 c29"><span class="c0 c4">eXo Specific Development
 							Services</span></li>
 				</ol>
 
 				<ol class="c28" start="1">
-					<li class="c1 c22"><span class="c0 c4">a. Scope of appliance</span></li>
+					<li class="c1 c22"><span class="c0 c4">Scope of appliance</span></li>
 				</ol>
 
 				<p class="c1"><span class="c0">eXo&rsquo;s specific development services
@@ -1521,18 +1521,18 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 						  development involving the Software such as :</span></p>
 
 				<ol class="c19" start="7">
-					<li class="c1 c11"><span class="c0">- Specific development,</span></li>
+					<li class="c1 c11"><span class="c0">Specific development,</span></li>
 
-					<li class="c1 c11"><span class="c0">- Product extensions,</span></li>
+					<li class="c1 c11"><span class="c0">Product extensions,</span></li>
 
-					<li class="c1 c11"><span class="c0">- Off-site POCs (Proof of concept),</span></li>
+					<li class="c1 c11"><span class="c0">Off-site POCs (Proof of concept),</span></li>
 				</ol>
 
 				<p class="c1"><span class="c0">The Specific Development Services don&rsquo;t include
 						  any Subscription Services.</span></p>
 
 				<ol class="c28" start="2">
-					<li class="c1 c22"><span class="c0 c4">d. Performance and Deliverables</span></li>
+					<li class="c1 c22"><span class="c0 c4">Performance and Deliverables</span></li>
 				</ol>
 
 				<p class="c9 c14"><span class="c0">eXo agrees to provide the Specific Development
@@ -1553,10 +1553,10 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 						  a technical and organizational offer which will:</span></p>
 
 				<ol class="c19" start="1">
-					<li class="c9 c11 c14"><span class="c0">- Specify the applicable documents or materials
+					<li class="c9 c11 c14"><span class="c0">Specify the applicable documents or materials
 							used to describe &nbsp;the Customer requirements and expected results</span></li>
 
-					<li class="c9 c11 c14"><span class="c0">- Specify the eXo&rsquo;s project management
+					<li class="c9 c11 c14"><span class="c0">Specify the eXo&rsquo;s project management
 							phases, Deliverables, commitments and means to fulfill the project requirements and
 							warrant the result.</span></li>
 				</ol>
@@ -1582,7 +1582,7 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 				<p class="c9 c6 c14"></p>
 
 				<ol class="c28" start="3">
-					<li class="c1 c22"><span class="c0 c4">c. Ordering, invoicing and Payment</span></li>
+					<li class="c1 c22"><span class="c0 c4">Ordering, invoicing and Payment</span></li>
 				</ol>
 
 				<p class="c1"><span class="c0">eXo&rsquo;s Specific Development Services are meant to
