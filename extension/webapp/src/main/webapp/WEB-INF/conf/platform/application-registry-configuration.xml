@@ -278,12 +278,12 @@
                     </object>
                   </value><value>
                     <object type="org.exoplatform.application.registry.Application">
-                      <field name="applicationName"><string>pollslist</string></field>
+                      <field name="applicationName"><string>PollPortlet</string></field>
                       <field name="categoryName"><string>collaboration</string></field>
                       <field name="displayName"><string>Polls</string></field>
-                      <field name="description"><string>Poll list.</string></field>
-                      <field name="type"><string>gadget</string></field>
-                      <field name="contentId"><string>pollslist</string></field>
+                      <field name="description"><string>Polls Portlet</string></field>
+                      <field name="type"><string>portlet</string></field>
+                      <field name="contentId"><string>poll/PollPortlet</string></field>
                       <field name="accessPermissions">
                         <collection type="java.util.ArrayList" item-type="java.lang.String">
                           <value><string>*:/platform/administrators</string></value>
