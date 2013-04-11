@@ -30,8 +30,21 @@
   border-radius: @radius;
 }
 
-.OfficeMiddleTDContainer, .OfficeRightTDContainer, .OfficeLeftTDContainer {
+.UITableColumn {
+	table-layout: auto !important;
+}
+
+.OfficeLeftTDContainer {
 	padding: 40px 0 0 40px;
+}
+
+.OfficeMiddleTDContainer {
+  padding: 40px!important;
+}
+
+.OfficeRightTDContainer {
+  width: 285px!important;
+  padding: 40px 20px 40px 0;
 }
 
 #header {
