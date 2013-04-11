@@ -93,10 +93,10 @@
     $(function() {
 
       function addBookmark(id, name, link) {
-        var $element = $('<li class="ListItem"> \
-                      <div class="editHoverZone pull-right" style="display:none;">  \
-                      <a class="linkDelete pull-right" rel="tooltip" data-placement="bottom" title data-original-title="Delete" href="#" ><i class="uiIconDelete uiIconLightGray"></i></a> \
-                      <a class="linkEdit pull-right" rel="tooltip" data-placement="bottom" title data-original-title="Edit" href="#" ><i class="uiIconEdit uiIconLightGray"></i></a>  \
+        var element = $('<li class="ListItem"> \
+                      <div class="editHoverZone pull-right">  \
+                      <a class="linkeditHoverZone pull-right" rel="tooltip" data-placement="bottom" title data-original-title="Delete" href="#" ><i class="uiIconDelete uiIconLightGray"></i></a> \
+                      <a class="linkeditHoverZone pull-right" rel="tooltip" data-placement="bottom" title data-original-title="Edit" href="#" ><i class="uiIconEdit uiIconLightGray"></i></a>  \
                       </div> \
                       <a id="bookmark'
             + id
@@ -118,10 +118,11 @@
                        <button type="button" class="btn pull-left cancel">Cancel</button> \
                        </div> \
                        </li> ');
-        $("#BookmarkList").append($element);
-        //$('i.uiIconDelete',$element).tooltip();
-        //$('i.uiIconEdit',$element).tooltip();
-      }         
+        $("#BookmarkList").append($(element));
+        $("a.linkeditHoverZone",element).each(function () {           
+             $(this).tooltip();                    
+        });        
+      }
       
       $.getJSON("/rest/bookmarks/get", function(bookmarks) {
         $.each(bookmarks, function(i, bookmark) {
@@ -191,31 +192,10 @@
           });
 
       function changeToViewMode() {
-        var bookmarkList = $("#BookmarkList");
-        $("#BookmarkList").delegate(".ListItem", "mouseover mouseout",
-            function(e) {
-              var divSelected=$(this).find("div.editHoverZone");
-              var linkDelete,linkEdit;
-              if (e.type == "mouseover") {
-                $(divSelected).show();
-                linkDelete=$(divSelected).find("a.linkDelete");
-                linkEdit=$(divSelected).find("a.linkEdit");
-                if($(linkDelete).is(":hover")) {
-                  $(linkDelete).tooltip("show");              
-                }
-                if($(linkEdit).is(":hover")) {
-                  $(linkEdit).tooltip("show");                 
-                }
-              } else {
-                   if($(linkDelete).is(":hover")==false) {
-                      $(linkDelete).tooltip("hide");
-                   }
-                   if($(linkEdit).is(":hover")==false) {
-                      $(linkEdit).tooltip("hide");
-                   }
-                   $(divSelected).hide();   
-              }
-            });
+        var bookmarkList = $("#BookmarkList");         
+        $("a.linkeditHoverZone",bookmarkList).each(function () {           
+             $(this).tooltip();                    
+        });        
        bookmarkList.find("div.editZone").each(function() {
           $(this).hide();
         });
@@ -225,15 +205,15 @@
           $("#message").hide();
           $(this).tooltip();
         });
+        $(".editHoverZone").removeAttr("style");
         $("a[id^=bookmark]").unbind("click", preventDefault);
         gadgets.window.adjustHeight($("#content").get(0).offsetHeight);
       }
 
-      function changeToEditMode() {
-        $("#BookmarkList").undelegate(".ListItem", "mouseover mouseout");
-        $("#BookmarkList").find(".editHoverZone").each(function() {
-          $(this).hide();
-        });
+      function changeToEditMode() {        
+        //$("#BookmarkList").undelegate(".ListItem", "mouseover mouseout");    
+        $(".ListItem").addClass("active");
+        $(".editHoverZone").attr("style","display:none");
         $("a[id^=bookmark]").bind("click", preventDefault);
         $("#customize").unbind();
         gadgets.window.adjustHeight($("#content").get(0).offsetHeight);
@@ -252,10 +232,10 @@
       }
 
       function addNewBookMark() {
-        var element = '<li class="ListItem addBookmark"> \
-                    <div class="editHoverZone pull-right" style="display:none;">  \
-                    <a class="linkDelete pull-right" rel="tooltip" data-placement="bottom" title data-original-title="Delete" href="#" ><i class="uiIconDelete uiIconLightGray"></i></a> \
-                    <a class="linkEdit pull-right" rel="tooltip" data-placement="bottom" title data-original-title="Edit" href="#" ><i class="uiIconEdit uiIconLightGray"></i></a>  \
+        var element = $('<li class="ListItem addBookmark"> \
+                    <div class="editHoverZone pull-right"">  \
+                    <a class="linkeditHoverZone pull-right" rel="tooltip" data-placement="bottom" title data-original-title="Delete" href="#" ><i class="uiIconDelete uiIconLightGray"></i></a> \
+                    <a class="linkeditHoverZone pull-right" rel="tooltip" data-placement="bottom" title data-original-title="Edit" href="#" ><i class="uiIconEdit uiIconLightGray"></i></a>  \
                     </div> \
                     <a id="bookmarkXXXX" class="bookmarkTit" href="#" target="_parent"></a> \
                     <div class="editZone clearfix">  \
@@ -266,8 +246,8 @@
                      <button type="button" class="btn btn-primary pull-left save">Add</button> \
                      <button type="button" class="btn pull-left cancel">Cancel</button> \
                      </div> \
-                     </li> ';
-        $("#BookmarkList").append(element);        
+                     </li> ');
+        $("#BookmarkList").append($(element));                              
         changeToEditMode();
         gadgets.window.adjustHeight($("#content").get(0).offsetHeight + 100);
       }
