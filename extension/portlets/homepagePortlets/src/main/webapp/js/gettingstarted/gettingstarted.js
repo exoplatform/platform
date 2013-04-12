@@ -42,15 +42,16 @@
                 }
                 , 100);
         setInterval(function () {
-
-            if (del == false) {
-                $('.TmpGettingStarted').jzLoad("GettingStarted.getGsList()", {"reload":"false"});
-                var ct = $('.TmpGettingStarted').html();
-                if(ct!="") {
-                    $('.GettingStarted').html(ct);
-                    $('.TmpGettingStarted').html('');
+            $.getJSON('/rest/platform/isusersessionalive', function (connected) {
+                if (del == false && connected == true) {
+                    $('.TmpGettingStarted').jzLoad("GettingStarted.getGsList()", {"reload":"false"});
+                    var ct = $('.TmpGettingStarted').html();
+                    if(ct!="") {
+                        $('.GettingStarted').html(ct);
+                        $('.TmpGettingStarted').html('');
+                    }
                 }
-            }
+            });
         }, 60000);
     });
 })($);
