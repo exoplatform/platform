@@ -20,22 +20,15 @@
 -->
 
 <messagebundle>
-  <msg name="title">
-    Bookmarks
-  </msg>
-  <msg name="customize">
-    Personnaliser
-  </msg>
-  <msg name="save">
-    Enregistrer
-  </msg>
-  <msg name="addbutton">
-    Ajouter
-  </msg>
-  <msg name="name">
-    Nom
-  </msg>
-  <msg name="url">
-    URL
-  </msg>
+  <msg name="title">Marque-page</msg>
+  <msg name="customize">Personnaliser</msg>
+  <msg name="save">Enregistrer</msg>
+  <msg name="add">Ajouter</msg>
+  <msg name="name">Nom</msg>
+  <msg name="url">URL</msg>
+  <msg name="delete">Supprimer</msg>
+  <msg name="edit">Modifier</msg>
+  <msg name="cancel">Annuler</msg>
+  <msg name="loginHistory.emptyBookmark_pre">Vous n'avez aucun marque-page: ajouter un par un clique sur</msg>
+  <msg name="loginHistory.emptyBookmark_suf">button</msg>
 </messagebundle>

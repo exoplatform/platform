@@ -24,7 +24,7 @@
   <msg name="title">Segnalibri</msg>
   <msg name="customize">Personalizza</msg>
   <msg name="save">Salva</msg>
-  <msg name="addbutton">Aggiungi segnalibro</msg>
+  <msg name="add">Aggiungi segnalibro</msg>
   <msg name="name">Nome</msg>
   <msg name="url">URL</msg>
 </messagebundle>

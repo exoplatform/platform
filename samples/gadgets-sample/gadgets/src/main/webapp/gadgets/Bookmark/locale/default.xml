@@ -23,7 +23,12 @@
   <msg name="title">Bookmarks</msg>
   <msg name="customize">Customize</msg>
   <msg name="save">Save</msg>
-  <msg name="addbutton">Add Bookmark</msg>
+  <msg name="add">Add</msg>
   <msg name="name">Name</msg>
   <msg name="url">URL</msg>
+  <msg name="delete">Delete</msg>
+  <msg name="edit">Edit</msg>
+  <msg name="cancel">Cancel</msg>
+  <msg name="emptyBookmarkPre">You don't have any bookmark : add them by clicking on</msg>
+  <msg name="emptyBookmarkSuf">button</msg>
 </messagebundle>
