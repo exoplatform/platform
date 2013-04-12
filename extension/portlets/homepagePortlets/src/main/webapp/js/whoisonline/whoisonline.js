@@ -40,9 +40,16 @@
     };
 
     var refresh = function() {
-        $("#onlineList").each(function() {
-            $(this).jzLoad("WhoIsOnLineController.users()", showTooltip);
-        });
+
+            $.getJSON('/rest/platform/isusersessionalive', function (connected) {
+
+                if(connected == true){
+
+                    $("#onlineList").jzLoad("WhoIsOnLineController.users()", showTooltip);
+
+                }
+            });
+
     };
     // Wait 1/2 second (not realistic of course)
     // And we should use setInterval with 60 seconds

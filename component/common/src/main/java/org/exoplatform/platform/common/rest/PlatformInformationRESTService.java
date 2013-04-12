@@ -28,6 +28,7 @@ import org.exoplatform.services.jcr.ext.hierarchy.NodeHierarchyCreator;
 import org.exoplatform.services.log.ExoLogger;
 import org.exoplatform.services.log.Log;
 import org.exoplatform.services.rest.resource.ResourceContainer;
+import org.exoplatform.services.security.ConversationState;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
@@ -45,11 +46,33 @@ public class PlatformInformationRESTService implements ResourceContainer {
 
     private static final Log LOG = ExoLogger.getLogger(PlatformInformationRESTService.class);
     public static final java.lang.String COMMUNITY_EDITION = "community";
+    public final  String    ANONYMOUS_USER  ="__anonim"  ;
 
     private ProductInformations platformInformations;
 
     public PlatformInformationRESTService(ProductInformations productInformations) {
         this.platformInformations = productInformations;
+    }
+
+    @GET
+    @Path("isusersessionalive")
+    @Produces(MediaType.APPLICATION_JSON)
+
+    public Response isUserSessionAlive() throws Exception {
+        try {
+            Boolean del=false;
+            String userId = ConversationState.getCurrent().getIdentity().getUserId();
+
+            if (userId!=null && !userId.equals(ANONYMOUS_USER) ) {
+                del=true;
+            }
+                return Response.ok(del.toString()).build();
+
+        } catch (Exception e) {
+
+            return Response.status(HTTPStatus.INTERNAL_ERROR).build();
+
+        }
     }
 
     /**
