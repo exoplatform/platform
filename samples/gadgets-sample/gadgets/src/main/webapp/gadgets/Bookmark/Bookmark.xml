@@ -93,10 +93,10 @@
     $(function() {
 
       function addBookmark(id, name, link) {
-        var $element = $('<li class="ListItem"> \
-                      <div class="editHoverZone pull-right" style="display:none;">  \
-                      <a class="linkDelete pull-right" rel="tooltip" data-placement="bottom" title data-original-title="Delete" href="#" ><i class="uiIconDelete uiIconLightGray"></i></a> \
-                      <a class="linkEdit pull-right" rel="tooltip" data-placement="bottom" title data-original-title="Edit" href="#" ><i class="uiIconEdit uiIconLightGray"></i></a>  \
+        var element = $('<li class="ListItem"> \
+                      <div class="editHoverZone pull-right">  \
+                      <a class="linkeditHoverZone pull-right" rel="tooltip" data-placement="bottom" title data-original-title="__MSG_delete__" href="#" ><i class="uiIconDelete uiIconLightGray"></i></a> \
+                      <a class="linkeditHoverZone pull-right" rel="tooltip" data-placement="bottom" title data-original-title="__MSG_edit__" href="#" ><i class="uiIconEdit uiIconLightGray"></i></a>  \
                       </div> \
                       <a id="bookmark'
             + id
@@ -118,10 +118,11 @@
                        <button type="button" class="btn pull-left cancel">Cancel</button> \
                        </div> \
                        </li> ');
-        $("#BookmarkList").append($element);
-        //$('i.uiIconDelete',$element).tooltip();
-        //$('i.uiIconEdit',$element).tooltip();
-      }         
+        $("#BookmarkList").append($(element));
+        $("a.linkeditHoverZone",element).each(function () {           
+             $(this).tooltip();                    
+        });        
+      }
       
       $.getJSON("/rest/bookmarks/get", function(bookmarks) {
         $.each(bookmarks, function(i, bookmark) {
@@ -151,6 +152,7 @@
             if (newName.length == 0 || newLink.length == 0)
               return false;
              $(this).closest(".ListItem").removeClass("active");
+            $(this).closest(".ListItem").removeClass("addBookmark");
             var $thisBookmark = $(this).closest(".ListItem").find(
                 "a[id^=bookmark]");
             $thisBookmark.text(newName);
@@ -191,31 +193,10 @@
           });
 
       function changeToViewMode() {
-        var bookmarkList = $("#BookmarkList");
-        $("#BookmarkList").delegate(".ListItem", "mouseover mouseout",
-            function(e) {
-              var divSelected=$(this).find("div.editHoverZone");
-              var linkDelete,linkEdit;
-              if (e.type == "mouseover") {
-                $(divSelected).show();
-                linkDelete=$(divSelected).find("a.linkDelete");
-                linkEdit=$(divSelected).find("a.linkEdit");
-                if($(linkDelete).is(":hover")) {
-                  $(linkDelete).tooltip("show");              
-                }
-                if($(linkEdit).is(":hover")) {
-                  $(linkEdit).tooltip("show");                 
-                }
-              } else {
-                   if($(linkDelete).is(":hover")==false) {
-                      $(linkDelete).tooltip("hide");
-                   }
-                   if($(linkEdit).is(":hover")==false) {
-                      $(linkEdit).tooltip("hide");
-                   }
-                   $(divSelected).hide();   
-              }
-            });
+        var bookmarkList = $("#BookmarkList");         
+        $("a.linkeditHoverZone",bookmarkList).each(function () {           
+             $(this).tooltip();                    
+        });        
        bookmarkList.find("div.editZone").each(function() {
           $(this).hide();
         });
@@ -225,15 +206,16 @@
           $("#message").hide();
           $(this).tooltip();
         });
+        $(".ListItem").removeClass("active");
+        $(".editHoverZone").removeAttr("style");
         $("a[id^=bookmark]").unbind("click", preventDefault);
         gadgets.window.adjustHeight($("#content").get(0).offsetHeight);
       }
 
-      function changeToEditMode() {
-        $("#BookmarkList").undelegate(".ListItem", "mouseover mouseout");
-        $("#BookmarkList").find(".editHoverZone").each(function() {
-          $(this).hide();
-        });
+      function changeToEditMode() {        
+        //$("#BookmarkList").undelegate(".ListItem", "mouseover mouseout");    
+        $(".ListItem").addClass("active");
+        $(".editHoverZone").attr("style","display:none");
         $("a[id^=bookmark]").bind("click", preventDefault);
         $("#customize").unbind();
         gadgets.window.adjustHeight($("#content").get(0).offsetHeight);
@@ -252,10 +234,10 @@
       }
 
       function addNewBookMark() {
-        var element = '<li class="ListItem addBookmark"> \
-                    <div class="editHoverZone pull-right" style="display:none;">  \
-                    <a class="linkDelete pull-right" rel="tooltip" data-placement="bottom" title data-original-title="Delete" href="#" ><i class="uiIconDelete uiIconLightGray"></i></a> \
-                    <a class="linkEdit pull-right" rel="tooltip" data-placement="bottom" title data-original-title="Edit" href="#" ><i class="uiIconEdit uiIconLightGray"></i></a>  \
+        var element = $('<li class="ListItem addBookmark"> \
+                    <div class="editHoverZone pull-right"">  \
+                    <a class="linkeditHoverZone pull-right" rel="tooltip" data-placement="bottom" title data-original-title="__MSG_delete__" href="#" ><i class="uiIconDelete uiIconLightGray"></i></a> \
+                    <a class="linkeditHoverZone pull-right" rel="tooltip" data-placement="bottom" title data-original-title="__MSG_edit__" href="#" ><i class="uiIconEdit uiIconLightGray"></i></a>  \
                     </div> \
                     <a id="bookmarkXXXX" class="bookmarkTit" href="#" target="_parent"></a> \
                     <div class="editZone clearfix">  \
@@ -263,11 +245,11 @@
                              <input type="text" class ="editName" placeholder="Title"/>    \
                              <input type="text" class ="editLink" placeholder="URL"/> \
                         </div> \
-                     <button type="button" class="btn btn-primary pull-left save">Add</button> \
-                     <button type="button" class="btn pull-left cancel">Cancel</button> \
+                     <button type="button" class="btn btn-primary pull-left save">__MSG_add__</button> \
+                     <button type="button" class="btn pull-left cancel">__MSG_cancel__</button> \
                      </div> \
-                     </li> ';
-        $("#BookmarkList").append(element);        
+                     </li> ');
+        $("#BookmarkList").append($(element));                              
         changeToEditMode();
         gadgets.window.adjustHeight($("#content").get(0).offsetHeight + 100);
       }
@@ -294,7 +276,7 @@
     </h6>
       <div class="uiContentBox">
         <div id="message" style="display:none;">
-            You don't have any BookMark : add them by click on <i class="uiIconPlus uiIconLightGray"></i> button
+           __MSG_emptyBookmarkPre__ <i class="uiIconPlus uiIconLightGray"></i> __MSG_emptyBookmarkSuf__
         </div>
           <ul id="BookmarkList"></ul>
         </div>

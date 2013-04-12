@@ -110,20 +110,24 @@
           function loginHistory2Html(loginHistoryJson){
             var loginHistory = loginHistoryJson.data[1];
             var loginHistoryHtml = "";
-            loginHistoryHtml += '<div class="accordion-inner">';
+            loginHistoryHtml += '<div class="accordion-inner"> <table>';
             if (selectedUser == "AllUsers") {              
               $.each(loginHistory, function(i, loginHistory){
-                loginHistoryHtml += "<div class='loginHistoryItem'>" + "<a href='#' id='" + loginHistory.userId + "' class='customLink'>" + loginHistory.userName.replace(/ /g, "&nbsp;") + "</a>"+"</div>";
+                loginHistoryHtml += "<tr>";
+                loginHistoryHtml += "<td class='loginHistoryItem'>" + "<a href='#' id='" + loginHistory.userId + "' class='customLink'>" + loginHistory.userName.replace(/ /g, "&nbsp;") + "</a>"+"</td>";
                 // "&nbsp;-&nbsp;" + (loginHistory.loginTime > new Date().getTime() ? "next&nbsp;" + prettyTimeDiff(loginHistory.loginTime, true) : prettyTimeDiff(loginHistory.loginTime, true) + "&nbsp;ago").replace(/ /g, "&nbsp;") +
-                loginHistoryHtml += "<div class='loginHistoryItemDetail'>"  + new Date(loginHistory.loginTime).toString("ddd dd MMM yyyy hh:mm tt") + "</div>";
+                loginHistoryHtml += "<td class='loginHistoryItemDetail'>"  + new Date(loginHistory.loginTime).toString("ddd dd MMM yyyy hh:mm tt") + "</td>";
+                loginHistoryHtml += "</tr>";
               });
             } else {
               $.each(loginHistory, function(i, loginHistory){
+                loginHistoryHtml += "<tr>";
                 //loginHistoryHtml += "<div class='loginHistoryItem'>" + (loginHistory.loginTime > new Date().getTime() ? "next " + prettyTimeDiff(loginHistory.loginTime) : prettyTimeDiff(loginHistory.loginTime) + " ago") + "</div>";
-                loginHistoryHtml += "<div class='loginHistoryItemDetail'>" + new Date(loginHistory.loginTime).toString("ddd dd MMM yyyy hh:mm tt") + "</div>";
+                loginHistoryHtml += "<td class='loginHistoryItemDetail'>" + new Date(loginHistory.loginTime).toString("ddd dd MMM yyyy hh:mm tt") + "</td>";
+                loginHistoryHtml += "</tr>";
               });
             }
-            loginHistoryHtml += '</div>';                       
+            loginHistoryHtml += '</table></div>';                       
             return loginHistoryHtml;
           }
       
@@ -464,7 +468,7 @@
           }
               
           function showHistory(userId, day){
-            $("#historyDiv").show(); 
+            $("#historyDiv").show();
             $("#todayHeader a span").text('__MSG_loginHistory.today__');
             $("#earlierThisWeekHeader a span").text('__MSG_loginHistory.earlierThisWeek__');
             $("#earlierThisMonthHeader a span").text('__MSG_loginHistory.earlierThisMonth__');
@@ -508,7 +512,7 @@
             });
             
             gadgets.window.adjustHeight($("#LoginHistoryGadgetDiv").get(0).offsetHeight);
-          } 
+          }
       
               
               
@@ -647,15 +651,19 @@
                 }
               });
     
-          $("body").delegate('.collapse','show',function(){
+          $("body").delegate('.collapse','shown',function(){
             $(this).prev().find(".accordion-toggle").removeClass("collapsed");
-            $(this).prev().find(".accordion-toggle").addClass("expaned");
-          });          
-
-          $("body").delegate('.collapse','hide',function(){
+            $(this).prev().find(".accordion-toggle").addClass("expaned");  
+            gadgets.window.adjustHeight($("#LoginHistoryGadgetDiv").get(0).offsetHeight);
+          });   
+             
+          $("body").delegate('.collapse','hidden',function(){
             $(this).prev().find(".accordion-toggle").removeClass("expaned");
             $(this).prev().find(".accordion-toggle").addClass("collapsed");
-            });
+            //bootstrap2.2's bug: fire hidden event at not right moment, so the gadget couldnt resize
+            gadgets.window.adjustHeight($("#LoginHistoryGadgetDiv").get(0).offsetHeight);
+          });
+                   
           
           
           $(function(){
@@ -672,7 +680,7 @@
       </head>
         
       <body style="font-size:70%;">
-        <div id="LoginHistoryGadgetDiv" class="uiGadgetThemes">
+        <div id="LoginHistoryGadgetDiv" class="uiGadgetThemes uiBox">
           
           <div class="btn-group">
             <button id="globalLastLoginBtn" class="btn">__MSG_loginHistory.title__</button>
@@ -680,7 +688,7 @@
             <button id='globalHistoryBtn' class="btn">__MSG_loginHistory.historyView__</button>
           </div>
           
-          <div id="GadgetContent" class="gadContent">
+          <div id="GadgetContent" class="gadContent uiContentBox">
       
           <div id="lastLoginsDiv">
             <input class="searchUser" id="searchTxt" type="text" placeholder="Search user" name="titleInput">
