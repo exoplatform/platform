@@ -58,7 +58,7 @@ rem set "JAVA_OPTS=%JAVA_OPTS% -Xrunjdwp:transport=dt_shmem,address=jboss,server
 
 rem # Platform environment variables
 set "EXO_PROFILES=-Dexo.profiles=default"
-set "EXO_OPTS=-Dexo.product.developing=false -Dexo.conf.dir.name=gatein -Dgatein.data.dir=../gatein"
+set "EXO_OPTS=-Dexo.product.developing=false -Dexo.conf.dir.name=gatein"
 set "IDE_OPTS=-Djavasrc=$JAVA_HOME/src.zip -Djre.lib=$JAVA_HOME/jre/lib"
 set "REMOTE_DEBUG=-Xdebug -Xrunjdwp:transport=dt_socket,address=8000,server=y,suspend=n -Dcom.sun.management.jmxremote -Dorg.exoplatform.container.configuration.debug"
 rem # Here you can define your preferred xml parser - choose one or the other, or none
