@@ -56,6 +56,9 @@
             color: #808080;
             font-size: 11px;
           }
+          .btn-group .btn.active {
+			color: #2F5E92;
+		   }
         </style>
       <script language="javascript" type="text/javascript" src="/eXoResources/javascript/jquery-1.7.1.js"></script>
       <script language="javascript" type="text/javascript" src="script/jquery-plugins/jquery.number_format.js"></script>
