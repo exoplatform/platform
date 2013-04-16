@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bundle>
+<UISetupPlatformToolBarPortlet>
+<label>
+<applications>Aplicaciones</applications>
+<content>Contenido</content>
+<siteExplorer>Explorador de sitios</siteExplorer>
+<wcmAdmin>Administración de contenido</wcmAdmin>
+<users>Usuarios</users>
+<newStaff>Agregar usuarios</newStaff>
+<org-management>Grupos y Roles</org-management>
+<portal>Portal</portal>
+<administration>Administración</administration>
+<groupnavigation>Sitios del grupo</groupnavigation>
+<pageManagement>Páginas</pageManagement>
+<portalnavigation>Sitios</portalnavigation>
+<servicesManagement>Gestión</servicesManagement>
+<monitoring>Monitoreo</monitoring>
+<ide>IDE</ide>
+</label>
+</UISetupPlatformToolBarPortlet>
+</bundle>
