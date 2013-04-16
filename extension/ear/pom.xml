@@ -1159,7 +1159,7 @@
             <webModule>
               <groupId>org.exoplatform.ecms</groupId>
               <artifactId>exo-ecms-apps-wai-template</artifactId>
-              <contextRoot>exo-ecms-wai-template</contextRoot>
+              <contextRoot>ecm-template-waiportal</contextRoot>
               <bundleFileName>ecm-template-waiportal.war</bundleFileName>
             </webModule>
           </modules>
