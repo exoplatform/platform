@@ -52,6 +52,7 @@
 
    <portlet>
       <name>SuggestionsPeopleSpace</name>
+      <load-group>homepage-apps</load-group>
       <module>
          <depends>
             <module>jQuerySuggestions</module>
@@ -61,6 +62,7 @@
 
    <portlet>
       <name>Invitations</name>
+      <load-group>homepage-apps</load-group>
       <module>
          <depends>
             <module>jQueryInvitations</module>
@@ -70,6 +72,7 @@
 
    <portlet>
       <name>GettingStartedPortlet</name>
+      <load-group>homepage-apps</load-group>
       <module>
          <depends>
             <module>jQueryGettingStarted</module>
@@ -79,6 +82,7 @@
 
    <portlet>
       <name>HomePageCalendarPortlet</name>
+      <load-group>homepage-apps</load-group>
       <module>
          <depends>
             <module>jQueryCalendar</module>
@@ -88,6 +92,7 @@
 
    <portlet>
       <name>WhoIsOnLinPortlet</name>
+      <load-group>homepage-apps</load-group>
       <module>
          <depends>
             <module>jQueryWhoIsOnLine</module>
@@ -97,6 +102,7 @@
 
    <module>
       <name>jQuerySuggestions</name>
+      <load-group>homepage-apps</load-group>
       <script>
          <path>/js/suggestions/suggestions.js</path>
       </script>
@@ -107,6 +113,7 @@
 
    <module>
       <name>jQueryInvitations</name>
+      <load-group>homepage-apps</load-group>
       <script>
          <path>/js/invitations/invitations.js</path>
       </script>
@@ -117,6 +124,7 @@
 
    <module>
       <name>jQueryCalendar</name>
+      <load-group>homepage-apps</load-group>
       <script>
          <path>/js/calendar/calendar.js</path>
       </script>
@@ -130,6 +138,7 @@
 
    <module>
       <name>jQueryGettingStarted</name>
+      <load-group>homepage-apps</load-group>
       <script>
          <path>/js/gettingstarted/gettingstarted.js</path>
       </script>
@@ -143,6 +152,7 @@
 
    <module>
       <name>jQueryToolTip</name>
+      <load-group>homepage-apps</load-group>
       <script>
          <path>/js/whoisonline/jquery.tipTip.minified.js</path>
       </script>
@@ -154,6 +164,7 @@
 
    <module>
       <name>jQueryWhoIsOnLine</name>
+      <load-group>homepage-apps</load-group>
       <script>
          <path>/js/whoisonline/whoisonline.js</path>
       </script>
