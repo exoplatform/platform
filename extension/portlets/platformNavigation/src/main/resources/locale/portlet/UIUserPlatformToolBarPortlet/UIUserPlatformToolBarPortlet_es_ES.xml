@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bundle>
+<UIUserPlatformToolBarPortlet>
+<label>
+<activities>Flujo de actividades</activities>
+<profile>Mi perfil</profile>
+<network>Mis conexiones</network>
+<find>Buscar conexiones</find>
+<account>Mi cuenta</account>
+<language>Cambiar idioma</language>
+<logout>Salir</logout>
+
+
+
+
+
+
+</label>
+</UIUserPlatformToolBarPortlet>
+</bundle>

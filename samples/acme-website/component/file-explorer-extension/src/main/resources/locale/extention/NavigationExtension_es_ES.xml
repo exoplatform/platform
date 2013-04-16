@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bundle>
+<UIActionBar>
+<tooltip>
+<ContentNavigation>Navegación de contenido</ContentNavigation>
+</tooltip>
+</UIActionBar>
+<UIViewFormTabPane>
+<label>
+<contentNavigation>Navegación por el contenido</contentNavigation>
+</label>
+</UIViewFormTabPane>
+<UIPopupWindow>
+<title>
+<UINavigationForm>Navigation Form</UINavigationForm>
+</title>
+</UIPopupWindow>
+<PopulateToMenu>
+<dialog>
+<label>
+<id>ID:</id>
+<name>Nombre:</name>
+<lifecycle>Ciclo de vida:</lifecycle>
+<isDeep>Es profundo:</isDeep>
+<nodetypes>Tipos de nodos:</nodetypes>
+<description>Descripción:</description>
+<affectedNodeTypeNames>Tipos de nodo afectados:</affectedNodeTypeNames>
+<navigationNode>Nodo de navegación:</navigationNode>
+<index>Índice:</index>
+<clickable>Cliqueable:</clickable>
+<page>Página:</page>
+<childrenPage>Página dependiente:</childrenPage>
+</label>
+</dialog>
+</PopulateToMenu>
+<UINavigationForm>
+<label>
+<Node>Carpeta principal:</Node>
+<Visible>Visible:</Visible>
+<NavigationNodeInputSet>Target parent navigation :</NavigationNodeInputSet>
+<Index>Display order :</Index>
+<Clickable>Cliqueable:</Clickable>
+<NavigationControls>Controles de navegación</NavigationControls>
+<ListTargetPageFormInputSet>Página de la lista:</ListTargetPageFormInputSet>
+<ListShowCLVByStringInput>Nombre del parámetro:</ListShowCLVByStringInput>
+<DetailTargetPageInputSet>Página de detalle:</DetailTargetPageInputSet>
+<DetailShowCLVByStringInput>Nombre del parámetro:</DetailShowCLVByStringInput>
+<List>Lista</List>
+<Detail>Detalle</Detail>
+</label>
+<action>
+<Save>Guardar</Save>
+<Cancel>Cancelar</Cancel>
+</action>
+</UINavigationForm>
+<Visible>
+<label>
+<VisibleEnable>Sí</VisibleEnable>
+<VisibleDisable>No</VisibleDisable>
+</label>
+</Visible>
+<Clickable>
+<label>
+<ClickableEnable>Sí</ClickableEnable>
+<ClickableDisable>No</ClickableDisable>
+</label>
+</Clickable>
+<NavigationNodeInputSet>
+<title>
+<SelectNavigationNode>Seleccione el nodo de navegación</SelectNavigationNode>
+<RemoveNavigationNode>Reset</RemoveNavigationNode>
+</title>
+</NavigationNodeInputSet>
+<ListTargetPageFormInputSet>
+<title>
+<SelectListTargetPage>Seleccione la página de destino</SelectListTargetPage>
+<RemoveListTargetPage>Reset</RemoveListTargetPage>
+</title>
+</ListTargetPageFormInputSet>
+<DetailTargetPageInputSet>
+<title>
+<SelectDetailTargetPage>Seleccione la página de destino dependiente</SelectDetailTargetPage>
+<RemoveDetailTargetPage>Reset</RemoveDetailTargetPage>
+</title>
+</DetailTargetPageInputSet>
+<NavigationSelectorPopupWindow>
+<title>
+<UINavigationSelector>Selector de navegación</UINavigationSelector>
+</title>
+</NavigationSelectorPopupWindow>
+<ListTargetPageSelectorPopupWindow>
+<title>
+<UIPageSelector>Selector de página</UIPageSelector>
+</title>
+</ListTargetPageSelectorPopupWindow>
+<DetailTargetPageSelectorPopupWindow>
+<title>
+<UIPageSelector>Selector de página</UIPageSelector>
+</title>
+</DetailTargetPageSelectorPopupWindow>
+</bundle>

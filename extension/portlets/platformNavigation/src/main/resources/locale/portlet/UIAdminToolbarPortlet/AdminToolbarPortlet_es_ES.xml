@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bundle>
+   <UIAdminToolbarPortlet>
+      <action>
+         <AddPage>Agregar página</AddPage>
+         <EditNavigation>Navegación</EditNavigation>
+         <Content>Contenido</Content>
+         <Editor>Editar</Editor>
+         <Page>Página</Page>
+         <Site>Sitio</Site>
+         <Layout>Diseño</Layout>
+         <ManagePages>Administrar páginas</ManagePages>
+         <GroupSite>Sitio de grupo</GroupSite>
+         <Properties>SEO</Properties>
+         <AddSite>Agregar sitio</AddSite>
+      </action>
+<ManageSites>Administrar sitios</ManageSites>
+<ManageGroupSites>Administrar los sitios del grupo</ManageGroupSites>
+   </UIAdminToolbarPortlet>
+
+  <UISEOForm>
+    <label>  
+      <description>Descripción:</description>
+      <keywords>Palabras clave:</keywords>
+      <language>Idioma:</language>
+      <robots>Robots:</robots>
+      <sitemap>Mapa del sitio:</sitemap>
+      <sitemapvisible>Visible en el mapa del sitio</sitemapvisible>
+  <isInherited>Heredado de la página principal</isInherited>
+      <priority>Prioridad:</priority>
+      <frequency>Frecuencia:</frequency>  
+      <option>
+        <Always>Siempre</Always>
+        <Hourly>Cada hora</Hourly>
+        <Daily>Diario</Daily>
+        <Weekly>Semanal</Weekly>
+        <Monthly>Mensual</Monthly>
+        <Yearly>Anual</Yearly>
+        <Never>Nunca</Never>
+      </option> 
+    </label>
+    <tip>
+<priority>Los valores válidos oscilan entre 0.0 y 1.0</priority>
+</tip>   
+    <action>
+      <Save>Guardar</Save>
+      <Cancel>Cancelar</Cancel>
+    </action>
+    <msg>
+      <repository-exception>Se ha producido un error inesperado. No se puede guardar la metadata de la página.</repository-exception>
+    </msg>
+<help> 
+<priority>La prioridad de esta URL está relacionada con otras URLs en su sitio. El intervalo de valores válidos es de 0.0 a 1.0. Este valor no afecta la forma en que sus páginas son comparadas con páginas de otros sitios, sólo permite que los motores de búsqueda sepan cuáles son las páginas que usted considera más importantes para los rastreadores. La prioridad por defecto de una página es 0.5.</priority>
+</help>  
+  </UISEOForm>
+  <UISEOPopupWindow>
+  <title>
+      <UISEOForm>Gestión de SEO</UISEOForm>
+  </title>
+  </UISEOPopupWindow>    
+  <UISEOToolbarForm>
+  <title>
+      <seo>Gestión de SEO</seo>
+  </title>
+  </UISEOToolbarForm>  
+  <FloatNumberValidator>
+    <msg>
+      <Invalid-number>El campo Prioridad es un número decimal no válido. Los valores válidos están comprendidos entre 0.0 y 1.0.</Invalid-number>
+    </msg>
+  </FloatNumberValidator>
+  
+</bundle>
