@@ -32,35 +32,35 @@
                 seakey = "";
                 $(this).val("");
             }
-            $('div.NonDisplayedCalendar').jzLoad(
+            $('ul.NonDisplayedCalendar').jzLoad(
                     "CalendarPortletController.getSearchResult()",
                     {"key":seakey});
         });
 
         $('.jz').on('show', 'input.PLFcalendarSearchKey', function () {
             var seakey = $(this).val();
-            $('div.NonDisplayedCalendar').jzLoad(
+            $('ul.NonDisplayedCalendar').jzLoad(
                     "CalendarPortletController.getSearchResult()",
                     {"key":seakey});
         });
 
         $('.jz').on("keydown", 'input.PLFcalendarSearchKey', function () {
             var seakey = $(this).val();
-            $('div.NonDisplayedCalendar').jzLoad(
+            $('ul.NonDisplayedCalendar').jzLoad(
                     "CalendarPortletController.getSearchResult()",
                     {"key":seakey});
         });
 
         $('.jz').on("keypress", 'input.PLFcalendarSearchKey', function () {
             var seakey = $(this).val();
-            $('div.NonDisplayedCalendar').jzLoad(
+            $('ul.NonDisplayedCalendar').jzLoad(
                     "CalendarPortletController.getSearchResult()",
                     {"key":seakey});
         });
 
         $('.jz').on("keyup", 'input.PLFcalendarSearchKey', function () {
             var seakey = $(this).val();
-            $('div.NonDisplayedCalendar').jzLoad(
+            $('ul.NonDisplayedCalendar').jzLoad(
                     "CalendarPortletController.getSearchResult()",
                     {"key":seakey});
         });
