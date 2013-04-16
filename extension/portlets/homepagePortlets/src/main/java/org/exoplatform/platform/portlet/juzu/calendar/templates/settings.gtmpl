@@ -42,7 +42,7 @@
         <div class= "uiContentBox " >
             <p>&{display.additional.calendar.label}</p>
             <input type="text"  class="PLFcalendarSearchKey" value="&{search.calendar.label}"/>
-            <div id="nonDisplayedCalendarContainer" class="calendarItems NonDisplayedCalendar">
+            <ul id="nonDisplayedCalendarContainer" class="calendarItems NonDisplayedCalendar">
                 <% if (nonDisplayedCalendar != null) {
                     nonDisplayedCalendar.each { cal ->
                         def   calendarName= cal.name;
@@ -59,7 +59,7 @@
                 <% }
                 }
                 %>
-            </div>
+            </ul>
             <div class="settingValidationButton"><button class=" btn" >OK</button></div>
         </div>
     </div>
