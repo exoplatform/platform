@@ -143,9 +143,9 @@
         <access-permissions>manager:/platform/administrators</access-permissions>
         <edit-permission>manager:/platform/administrators</edit-permission>
 
-        <container id="Officebody" template="system:/groovy/portal/webui/container/UITableColumnContainer.gtmpl">
+        <container id="Monitoringbody" template="system:/groovy/portal/webui/container/UITableColumnContainer.gtmpl">
             <access-permissions>manager:/platform/administrators</access-permissions>
-            <container id="OfficeLeft" template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
+            <container id="MonitoringLeft" template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
                 <access-permissions>manager:/platform/administrators</access-permissions>
                 <!-- MemoryCharts gadget -->
                 <portlet-application>
@@ -167,7 +167,7 @@
                 </portlet-application>
             </container>
 
-            <container id="OfficeMiddle"  template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
+            <container id="MonitoringMiddle"  template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
                 <access-permissions>manager:/platform/administrators</access-permissions>
                 <portlet-application>
                     <portlet>
@@ -188,7 +188,7 @@
                 </portlet-application>
             </container>
 
-            <container id="OfficeRight"  template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
+            <container id="MonitoringRight"  template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
                 <access-permissions>manager:/platform/administrators</access-permissions>
                 <!-- ApplicationsStatistics gadget -->
                 <portlet-application>
