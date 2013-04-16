@@ -24,6 +24,7 @@
   <msg name="customize">Personnaliser</msg>
   <msg name="save">Enregistrer</msg>
   <msg name="add">Ajouter</msg>
+  <msg name="ok">OK</msg>
   <msg name="name">Nom</msg>
   <msg name="url">URL</msg>
   <msg name="delete">Supprimer</msg>
