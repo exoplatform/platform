@@ -31,43 +31,43 @@
             <properties-param>
                 <name>help.pages</name>
                 <description>Help Pages match definition</description>
-                <property name="Company Context Home"
-                          value="http://docs.exoplatform.com/PLF35/topic/org.exoplatform.doc.35/Platform_User_Guide.Social.html"/>
-                <property name="Company Context Calendar"
-                          value="http://docs.exoplatform.com/PLF35/topic/org.exoplatform.doc.35/Platform_User_Guide.Collaboration.Manage_calendar.html"/>
-                <property name="Company Context Wiki" value="http://docs.exoplatform.com/PLF35/topic/org.exoplatform.doc.35/Platform_User_Guide.Knowledge.Build_Wiki.html"/>
-                <property name="Company Context Forum"
-                          value="http://docs.exoplatform.com/PLF35/topic/org.exoplatform.doc.35/Platform_User_Guide.Knowledge.Build_Forums.html"/>
-                <property name="Company Context FAQ:Answers"
-                          value="http://docs.exoplatform.com/PLF35/topic/org.exoplatform.doc.35/Platform_User_Guide.Knowledge.Build_FAQs.html"/>
-                <property name="Company Context Documents"
-                          value="http://docs.exoplatform.com/PLF35/topic/org.exoplatform.doc.35/Platform_User_Guide.Organize_Content.Structure_Content.html"/>
-                <property name="personnal:all-spaces"
-                          value="http://docs.exoplatform.com/PLF35/topic/org.exoplatform.doc.35/Platform_User_Guide.Social.Manage_Spaces.html"/>
-                <property name="personnal:connections"
-                          value="http://docs.exoplatform.com/PLF35/topic/org.exoplatform.doc.35/Platform_User_Guide.Social.Manage_connections.html"/>
-                <property name="personnal:profile"
-                          value="http://docs.exoplatform.com/PLF35/topic/org.exoplatform.doc.35/Platform_User_Guide.Social.Manage_Profile.html"/>
-                <property name="personnal:wiki"
-                          value="http://docs.exoplatform.com/PLF35/topic/org.exoplatform.doc.35/Platform_User_Guide.Knowledge.Build_Wiki.html"/>
-                <property name="dashboard"
-                          value="http://docs.exoplatform.com/PLF35/topic/org.exoplatform.doc.35/Platform_User_Guide.Manage_Your_Portals.Manage_Applications.Gadgets.html"/>
-                <property name="space:activity_stream"
-                          value="http://docs.exoplatform.com/PLF35/topic/org.exoplatform.doc.35/Platform_User_Guide.Social.html"/>
-                <property name="space:manager"
-                          value="http://docs.exoplatform.com/PLF35/topic/org.exoplatform.doc.35/Soc_User_Guide.Space_Management.Edit_Space.html"/>
-                <property name="space:wiki"
-                          value="http://docs.exoplatform.com/PLF35/topic/org.exoplatform.doc.35/Platform_User_Guide.Knowledge.Build_Wiki.html"/>
-                <property name="space:forum"
-                          value="http://docs.exoplatform.com/PLF35/topic/org.exoplatform.doc.35/Platform_User_Guide.Knowledge.Build_Forums.html"/>
-                <property name="space:calendar"
-                          value="http://docs.exoplatform.com/PLF35/topic/org.exoplatform.doc.35/Platform_User_Guide.Collaboration.Manage_calendar.html"/>
-                <property name="space:faq_annswer"
-                          value="http://docs.exoplatform.com/PLF35/topic/org.exoplatform.doc.35/Platform_User_Guide.Knowledge.Build_FAQs.html"/>
-                <property name="space:document"
-                          value="http://docs.exoplatform.com/PLF35/topic/org.exoplatform.doc.35/Platform_User_Guide.Organize_Content.Structure_Content.html"/>
-                <property name="default"
-                          value="http://docs.exoplatform.com/PLF35/index.jsp?topic=%2Forg.exoplatform.doc.35%2FUserGuide.html"/>
+               <property name="Company Context Home"
+                         value="http://docs.exoplatform.com/PLF40/PLFUG/GS/SOCHOME.html"/>
+               <property name="Company Context Calendar"
+                         value="http://docs.exoplatform.com/PLF40/PLFUG/CALENDARS.html"/>
+               <property name="Company Context Wiki" value="http://docs.exoplatform.com/PLF40/PLFUG/WIKI.html"/>
+               <property name="Company Context Forum"
+                         value="http://docs.exoplatform.com/PLF40/PLFUG/FORUM.html"/>
+               <property name="Company Context FAQ:Answers"
+                         value="http://docs.exoplatform.com/PLF40/PLFUG/ANSWERS.html"/>
+               <property name="Company Context Documents"
+                         value="http://docs.exoplatform.com/PLF40/PLFUG/DOCUMENTS.html"/>
+               <property name="personnal:all-spaces"
+                         value="http://docs.exoplatform.com/PLF40/PLFUG/SPACE.html"/>
+               <property name="personnal:connections"
+                         value="http://docs.exoplatform.com/PLF40/PLFUG/APPS/CONNECTIONS.html"/>
+               <property name="personnal:profile"
+                         value="http://docs.exoplatform.com/PLF40/PLFUG/APPS/PROFILE.html"/>
+               <property name="personnal:wiki"
+                         value="http://docs.exoplatform.com/PLF40/PLFUG/APPS/WIKI.html"/>
+               <property name="dashboard"
+                         value="http://docs.exoplatform.com/PLF40/PLFUG/APPS/DASHBOARD.html"/>
+               <property name="space:activity_stream"
+                         value="http://docs.exoplatform.com/PLF40/PLFUG/SPACE.html"/>
+               <property name="space:manager"
+                         value="http://docs.exoplatform.com/PLF40/PLFUG/SPACE.html"/>
+               <property name="space:wiki"
+                         value="http://docs.exoplatform.com/PLF40/PLFUG/WIKI.html"/>
+               <property name="space:forum"
+                         value="http://docs.exoplatform.com/PLF40/PLFUG/FORUM.html"/>
+               <property name="space:calendar"
+                         value="http://docs.exoplatform.com/PLF40/PLFUG/CALENDAR.html"/>
+               <property name="space:faq_annswer"
+                         value="http://docs.exoplatform.com/PLF40/PLFUG/ANSWERS.html"/>
+               <property name="space:document"
+                         value="http://docs.exoplatform.com/PLF40/PLFUG/DOCUMENTS.html"/>
+               <property name="default"
+                         value="http://docs.exoplatform.com/PLF40/PLFUG.html"/>
             </properties-param>
         </init-params>
     </component>
