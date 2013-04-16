@@ -52,7 +52,6 @@
 
    <portlet>
       <name>SuggestionsPeopleSpace</name>
-      <load-group>homepage-apps</load-group>
       <module>
          <depends>
             <module>jQuerySuggestions</module>
@@ -62,7 +61,6 @@
 
    <portlet>
       <name>Invitations</name>
-      <load-group>homepage-apps</load-group>
       <module>
          <depends>
             <module>jQueryInvitations</module>
@@ -72,7 +70,6 @@
 
    <portlet>
       <name>GettingStartedPortlet</name>
-      <load-group>homepage-apps</load-group>
       <module>
          <depends>
             <module>jQueryGettingStarted</module>
@@ -82,7 +79,6 @@
 
    <portlet>
       <name>HomePageCalendarPortlet</name>
-      <load-group>homepage-apps</load-group>
       <module>
          <depends>
             <module>jQueryCalendar</module>
@@ -92,7 +88,6 @@
 
    <portlet>
       <name>WhoIsOnLinPortlet</name>
-      <load-group>homepage-apps</load-group>
       <module>
          <depends>
             <module>jQueryWhoIsOnLine</module>
