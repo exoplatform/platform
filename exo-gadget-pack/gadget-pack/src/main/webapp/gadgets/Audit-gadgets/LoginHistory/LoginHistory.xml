@@ -155,21 +155,21 @@
                         renderer: $.jqplot.CategoryAxisRenderer,
                         ticks: ticks,
                         tickOptions: {
-      // formatString: '%d',
+                //formatString: '%d',
                         }
                     },
                     yaxis: {
                         min: 0,
-      // tickInterval: 1,
+                //tickInterval: 1,
                         tickOptions: {
                             formatString: '%d',
                         }
                     }
                 },
-              grid:{borderColor:'transparent',
-                    
+                grid:{borderColor:'transparent',   
+            	    shadow: false,
                     background: '#F2F2F2'},
-              highlighter: {show: false, tooltipFadeSpeed:'slow', tooltipLocation:'n'}
+                highlighter: {show: false, tooltipFadeSpeed:'slow', tooltipLocation:'n'}
             });
             
             $(window).unbind();
