@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <bundle>
     <UISearchPlatformToolbarPortlet>
-        <Search>Recherche:</Search>
+        <Search>Recherchez</Search>
     </UISearchPlatformToolbarPortlet>
 
 </bundle>

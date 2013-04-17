@@ -8,8 +8,8 @@
 		<wiki>Mon Wiki</wiki>
 		<account>Paramètres</account>
 		<language>Changer de Langue</language>
-        <dashboard>Mon tableau de bord</dashboard>
 		<logout>Se Déconnecter</logout>
+        <dashboard>Mon Tableau de Bord</dashboard>
 		</label>
 	</UIUserPlatformToolBarPortlet>
 </bundle>

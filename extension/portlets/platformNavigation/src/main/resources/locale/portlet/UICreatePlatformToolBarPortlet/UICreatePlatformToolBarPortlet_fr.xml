@@ -2,9 +2,9 @@
 <bundle>
    <UIUserPlatformToolBarCreatePortlet>
       <label>
-         <topic>Sujet</topic>
-         <poll>Vote</poll>
-         <eventtask>Evénement/tâche</eventtask>
+         <topic>Discussion</topic>
+         <poll>Sondage</poll>
+         <eventtask>Evénement/Tâche</eventtask>
          <upload>Upload Fichier</upload>
          <wiki>Page Wiki</wiki>
 
@@ -13,9 +13,7 @@
    <UICreateList>
       <label>
          <CreateANew>Créer un {1}:</CreateANew>
-         <NoForum>Désolé, pas de forum disponible pour l'instant pour créer un {1}. Commencez par créer votre propre
-            espace.
-         </NoForum>
+         <NoForum>Désolé, aucun forum n'est disponible pour l'instant pour créer un {1}. Essayez de créer votre propre espace.</NoForum>
          <RequireSelectForum>Choisir un forum</RequireSelectForum>
       </label>
       <action>
@@ -28,7 +26,7 @@
          <SelectAForum>Choisir un forum</SelectAForum>
          <location>Emplacement</location>
          <forumId>et Forum</forumId>
-         <FilterForums>Filtrer forums</FilterForums>
+         <FilterForums>Filtrer</FilterForums>
       </label>
    </UICreateTopic>
    <UICreatePoll>
@@ -36,12 +34,12 @@
          <SelectAForum>Choisir un Forum</SelectAForum>
          <location>Emplacement</location>
          <forumId>et Forum</forumId>
-         <FilterForums>Filtrer forums</FilterForums>
+         <FilterForums>Filtrer</FilterForums>
       </label>
    </UICreatePoll>
    <UICreateWiki>
       <label>
-         <title>Créer une page Wiki:</title>
+         <title>Créer une page wiki:</title>
          <location>Emplacement</location>
       </label>
    </UICreateWiki>
@@ -52,20 +50,20 @@
          <EndEvent>à</EndEvent>
          <StartEvent>de</StartEvent>
          <Calendar>Choisir un calendrier</Calendar>
+         <all-day>Toute la journée</all-day>
+         <defaultCalendarId>Mon Calendrier</defaultCalendarId>
       </label>
       <msg>
          <summary-field-required>Le champ "Titre" est obligatoire.</summary-field-required>
          <fromDate-format>le format du date de debut est incorrect.</fromDate-format>
          <toDate-format>le format du date de fin est incorrect.</toDate-format>
-         <logic-required>Désolé, vous ne pouvez pas créer un événement qui se termine avant qu'il ne commence.
-         </logic-required>
-         <cant-add-event-on-remote-calendar>Impossible d'ajouter un événement au calendrier distant
-         </cant-add-event-on-remote-calendar>
+         <logic-required>Désolé, vous ne pouvez pas créer un événement qui se termine avant qu'il ne commence.</logic-required>
+         <cant-add-event-on-remote-calendar>Impossible d'ajouter un événement au calendrier distant</cant-add-event-on-remote-calendar>
          <add-successfully>
-            <Event>L’événement est ajouté dans {1}.</Event>
-            <Task>La tâche est ajoutée dans {1}.</Task>
+            <Event>L’événement a été ajouté dans {1}.</Event>
+            <Task>La tâche a été ajoutée dans {1}.</Task>
          </add-successfully>
-         <add-unsuccessfully>L'ajout{0} est echoué.</add-unsuccessfully>
+         <add-unsuccessfully>L'ajout de {0} a echoué.</add-unsuccessfully>
       </msg>
       <action>
          <Next>Suivant</Next>
@@ -73,7 +71,7 @@
       </action>
    </UICreateEvent>
     <UIUploadFile>
-        <Select>Selectioner Fichier</Select>
+        <Select>Sélectionnez le Fichier</Select>
     </UIUploadFile>
    <Choix>
       <label>

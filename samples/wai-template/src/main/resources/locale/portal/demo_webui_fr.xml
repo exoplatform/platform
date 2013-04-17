@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <bundle>
   <Signin>
-    <welcome>Bienvenue</welcome>
+    <welcome>Aller à l'Accueil</welcome>
     <login>Connexion</login>
     <logout>Déconnexion</logout>
     <language>
       <en>Passer en Anglais</en>
       <fr>Passer en Français</fr>
     </language>
-    <register>S'inscrire</register>
+    <register>Site Acme</register>
   </Signin>
   <Toolbar>
     <SkipToContent>Passer au contenu</SkipToContent>
@@ -22,12 +22,12 @@
     <Search>Rechercher</Search>
   </Toolbar>
   <Logo>
-    <GoHome>Allez à l'accueil</GoHome>
+    <GoHome>Aller à l'Accueil</GoHome>
   </Logo>
   <acme>
-    <label>ACME Modèle</label>
+    <label>Site Acme</label>
   </acme>
   <WAIPortal>
-    <label>Exemple de Site Accessible</label>
+    <label>Site Accessible (Exemple)</label>
   </WAIPortal>
 </bundle>
