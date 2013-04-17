@@ -80,8 +80,8 @@
           }
           
           .bookmark .uiGrayLightBox input {
-            margin: 5px 3px;
-      width: 235px;
+            margin: 5px 0px;
+      width: 100%;
       height: 28px;
           }
           
