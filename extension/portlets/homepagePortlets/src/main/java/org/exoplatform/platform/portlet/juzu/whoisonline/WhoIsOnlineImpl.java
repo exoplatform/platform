@@ -105,7 +105,7 @@ public class WhoIsOnlineImpl implements WhoIsOnline {
             return userOnLineList;
 
         } catch (Exception e) {
-            log.error("Error in who's online  service: " + e.getMessage(), e);
+            log.error("Error while checking logged users [WhoIsOnLine rendering phase] :" + e.getMessage(), e);
             return null;
         }
     }
@@ -145,7 +145,7 @@ public class WhoIsOnlineImpl implements WhoIsOnline {
         for (ExoSocialActivity act : activityList.loadAsList(i, count)) {
             i++;
 
-            if (act.getType()!=null && (act.getType().equals(DEFAULT_ACTIVITY) || act.getType().equals(LINK_ACTIVITY) || act.getType().equals(DOC_ACTIVITY))) {
+            if (act.getType() != null && (act.getType().equals(DEFAULT_ACTIVITY) || act.getType().equals(LINK_ACTIVITY) || act.getType().equals(DOC_ACTIVITY))) {
 
                 activity = act.getTitle().replaceAll("<br/>", " ").replaceAll("<br />", " ").replaceAll("<br>", " ").replaceAll("</br>", " ").trim();
                 activity = StringEscapeUtils.unescapeHtml(activity);
@@ -207,14 +207,14 @@ public class WhoIsOnlineImpl implements WhoIsOnline {
 
                 if (act.getType().equals(LINK_ACTIVITY)) {
 
-                        if(activity.indexOf("<",0)!=-1){
-                            activity=activity.substring(activity.indexOf(">",0)+1,activity.indexOf("<",activity.indexOf(">",0)));
-                        }
+                    if (activity.indexOf("<", 0) != -1) {
+                        activity = activity.substring(activity.indexOf(">", 0) + 1, activity.indexOf("<", activity.indexOf(">", 0)));
+                    }
                     if (activity.length() > MAX_CHAR) {
-                        activity=activity.substring(0,MAX_CHAR);
+                        activity = activity.substring(0, MAX_CHAR);
                     }
 
-                    activity = "<a class='ColorLink' target='_blank' href='" + act.getUrl().replaceAll("\"", "'")+ "'>" + activity + "</a>";
+                    activity = "<a class='ColorLink' target='_blank' href='" + act.getUrl().replaceAll("\"", "'") + "'>" + activity + "</a>";
                 }
                 break;
             }
