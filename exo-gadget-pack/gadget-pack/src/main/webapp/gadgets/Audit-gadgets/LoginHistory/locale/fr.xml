@@ -1,4 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <?xmfl version='1.0' encoding='UTF-8'?>
+
 <!--
 
     Copyright (C) 2009 eXo Platform SAS.
@@ -19,82 +21,30 @@
     02110-1301 USA, or see the FSF site: http://www.fsf.org.
 
 -->
-
 <messagebundle>
-  <msg name="loginHistory.title">
-    Historique de connexion
-  </msg>
-  <msg name="loginHistory.user">
-    Utilisateur
-  </msg>
-  <msg name="loginHistory.find">
-    Trouver
-  </msg>
-  <msg name="loginHistory.latest">
-    Réinitialiser
-  </msg>
-  <msg name="loginHistory.lastLogin">
-    Dernière connexion
-  </msg>
-  <msg name="loginHistory.beforeThat">
-    Avant que les
-  </msg>
-  <msg name="loginHistory.more">
-    Plus
-  </msg>
-  <msg name="loginHistory.stats">
-    stats
-  </msg>
-  <msg name="loginHistory.history">
-    historique
-  </msg>
-  <msg name="loginHistory.global">
-    Global
-  </msg>
-  <msg name="loginHistory.week">
-    Semaine
-  </msg>
-  <msg name="loginHistory.lastLoginsView">
-    Dernières connexions
-  </msg>
-  <msg name="loginHistory.historyView">
-    Historique
-  </msg>
-  <msg name="loginHistory.statisticView">
-    Statistique
-  </msg>
-  <msg name="loginHistory.averagePerDay">
-    Moyenne des logins / jour
-  </msg>
-  <msg name="loginHistory.averagePerWeek">
-    Moyenne des logins / semaine
-  </msg>
-  <msg name="loginHistory.averagePerMonth">
-    Moyenne des logins / mois
-  </msg>
-  <msg name="loginHistory.today">
-    Aujourd\'hui
-  </msg>
-  <msg name="loginHistory.earlierThisWeek">
-    Plus tôt cette semaine
-  </msg>
-  <msg name="loginHistory.earlierThisMonth">
-    Plus tôt ce mois-ci
-  </msg>
-  <msg name="loginHistory.earlier">
-    Plus tôt
-  </msg>
-  <msg name="loginHistory.allUsers">
-    Tous les utilisateurs
-  </msg>
-  <msg name="loginHistory.unknow">
-    inconnu
-  </msg>
-  <msg name="loginHistory.next">
-    suivant
-  </msg>
-  <msg name="loginHistory.ago">
-    Il y a
-  </msg>
+  <msg name="loginHistory.title">Historique des Connexions</msg>
+  <msg name="loginHistory.user">Utilisateur</msg>
+  <msg name="loginHistory.find">Trouver</msg>
+  <msg name="loginHistory.latest">Réinitialiser</msg>
+  <msg name="loginHistory.lastLogin">Dernière connexion</msg>
+  <msg name="loginHistory.beforeThat">Avant ça</msg>
+  <msg name="loginHistory.more">Plus</msg>
+  <msg name="loginHistory.stats">Stats</msg>
+  <msg name="loginHistory.history">Historique</msg>
+  <msg name="loginHistory.global">Global</msg>
+  <msg name="loginHistory.week">Semaine</msg>
+  <msg name="loginHistory.lastLoginsView">Dernières connexions</msg>
+  <msg name="loginHistory.historyView">Historique</msg>
+  <msg name="loginHistory.statisticsView">Statistiques</msg>
+  <msg name="loginHistory.averagePerDay">Moyenne des connexions / jour</msg>
+  <msg name="loginHistory.averagePerWeek">Moyenne des connexions / semaine</msg>
+  <msg name="loginHistory.averagePerMonth">Moyenne des connexions / mois</msg>
+  <msg name="loginHistory.today">Aujourd'hui</msg>
+  <msg name="loginHistory.earlierThisWeek">Plus tôt cette semaine</msg>
+  <msg name="loginHistory.earlierThisMonth">Plus tôt ce mois-ci</msg>
+  <msg name="loginHistory.earlier">Plus tôt</msg>
+  <msg name="loginHistory.allUsers">Tous les Utilisateurs</msg>
+  <msg name="loginHistory.unknow">inconnu</msg>
+  <msg name="loginHistory.next">suivant</msg>
+  <msg name="loginHistory.ago">Il y a</msg>
 </messagebundle>
-

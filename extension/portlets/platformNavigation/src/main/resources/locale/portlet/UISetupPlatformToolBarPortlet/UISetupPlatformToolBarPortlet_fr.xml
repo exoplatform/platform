@@ -8,16 +8,16 @@
 			<wcmAdmin>Administration de contenu</wcmAdmin>
 			<users>Utilisateurs</users>
 			<newStaff>Ajouter un utilisateur</newStaff>
-			<org-management>Groupes et rôles</org-management>
+<org-management>Groupes et Rôles</org-management>
 			<portal>Portail</portal>
 			<administration>Administration</administration>
-			<groupnavigation>Sites de groupes</groupnavigation>
+<groupnavigation>Sites de Groupe</groupnavigation>
 			<pageManagement>Pages</pageManagement>
 			<portalnavigation>Sites</portalnavigation>
 			<servicesManagement>Gestion</servicesManagement>
 			<monitoring>Surveillance</monitoring>
 			<spaces>Espaces</spaces>
-			<Branding>Branding</Branding>
+<Branding>Thème</Branding>
 			<ide>IDE</ide>
 			<search>Recherche</search>
 		</label>

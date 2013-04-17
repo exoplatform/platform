@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <!--
 
     Copyright (C) 2009 eXo Platform SAS.
@@ -18,9 +19,8 @@
     02110-1301 USA, or see the FSF site: http://www.fsf.org.
 
 -->
-
 <messagebundle>
-  <msg name="title">Marque-page</msg>
+  <msg name="title">Signets</msg>
   <msg name="customize">Personnaliser</msg>
   <msg name="save">Enregistrer</msg>
   <msg name="add">Ajouter</msg>

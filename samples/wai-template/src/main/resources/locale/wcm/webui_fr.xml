@@ -19,18 +19,17 @@
     02110-1301 USA, or see the FSF site: http://www.fsf.org.
 
 -->
-
 <bundle>
   <UIPortalApplication>
     <title>
-      <abort>Abort</abort>
+      <abort>Abandonner</abort>
     </title>
   </UIPortalApplication>
   
   <CategoryNavigationTemplate>
   	<label>
   		<home>Accueil</home>
-		  <Accessibility>Accessibility</Accessibility>
+  <Accessibility>Accessibilité</Accessibility>
   	</label>
   </CategoryNavigationTemplate>  
   

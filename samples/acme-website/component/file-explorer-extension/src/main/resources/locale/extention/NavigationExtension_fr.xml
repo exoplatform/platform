@@ -38,12 +38,12 @@
 			<Node>Dossier parent :</Node>
 			<Visible>Visible :</Visible>
 			<NavigationNodeInputSet>La navigation parent cible :</NavigationNodeInputSet>
-			<Index>Ordre d'affichage :</Index>
-			<Clickable>Clickable :</Clickable>
-			<NavigationControls>Paramètres de navigation</NavigationControls>
-			<ListTargetPageFormInputSet>Page pour les listes :</ListTargetPageFormInputSet>
+<Index>Ordre d'Affichage :</Index>
+<Clickable>Cliquable :</Clickable>
+<NavigationControls>Paramètres de Navigation</NavigationControls>
+<ListTargetPageFormInputSet>Page Liste :</ListTargetPageFormInputSet>
 			<ListShowCLVByStringInput>Par :</ListShowCLVByStringInput>
-			<DetailTargetPageInputSet>Page pour le détail :</DetailTargetPageInputSet>
+<DetailTargetPageInputSet>Page Détail :</DetailTargetPageInputSet>
 			<DetailShowCLVByStringInput>Par :</DetailShowCLVByStringInput>
 			<List>Liste</List>
 			<Detail>Détail</Detail>
@@ -67,35 +67,35 @@
 	</Clickable>
 	<NavigationNodeInputSet>
 		<title>
-			<SelectNavigationNode>Sélectionner noeud de navigation</SelectNavigationNode>
+<SelectNavigationNode>Sélectionnez un Noeud de Navigation</SelectNavigationNode>
 			<RemoveNavigationNode>Réinitialiser</RemoveNavigationNode>
 		</title>
 	</NavigationNodeInputSet>
 	<ListTargetPageFormInputSet>
 		<title>
-			<SelectListTargetPage>Sélectionner page de navigation</SelectListTargetPage>
+<SelectListTargetPage>Sélectionnez la Page Cible</SelectListTargetPage>
 			<RemoveListTargetPage>Réinitialiser</RemoveListTargetPage>
 		</title>
 	</ListTargetPageFormInputSet>
 	<DetailTargetPageInputSet>
 		<title>
-			<SelectDetailTargetPage>Sélectionner page de navigation</SelectDetailTargetPage>
+<SelectDetailTargetPage>Sélectionnez la Page Cible</SelectDetailTargetPage>
 			<RemoveDetailTargetPage>Réinitialiser</RemoveDetailTargetPage>
 		</title>
 	</DetailTargetPageInputSet>
 	<NavigationSelectorPopupWindow>
 		<title>
-			<UINavigationSelector>Sélecteur de navigation</UINavigationSelector>
+<UINavigationSelector>Sélecteur de Navigation</UINavigationSelector>
 		</title>
 	</NavigationSelectorPopupWindow>
 	<ListTargetPageSelectorPopupWindow>
 		<title>
-			<UIPageSelector>Sélecteur de page</UIPageSelector>
+<UIPageSelector>Sélecteur de Page</UIPageSelector>
 		</title>
 	</ListTargetPageSelectorPopupWindow>
 	<DetailTargetPageSelectorPopupWindow>
 		<title>
-			<UIPageSelector>Sélecteur de page</UIPageSelector>
+<UIPageSelector>Sélecteur de Page</UIPageSelector>
 		</title>
 	</DetailTargetPageSelectorPopupWindow>
 </bundle>

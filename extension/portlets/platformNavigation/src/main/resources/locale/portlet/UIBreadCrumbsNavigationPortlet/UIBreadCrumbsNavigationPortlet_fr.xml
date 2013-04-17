@@ -2,15 +2,13 @@
 <bundle>
 <UIBreadCrumbsNavigationPortlet>
     <label>
-        <ChangePicture>
-            Changer la photo
-        </ChangePicture>
+        <ChangePicture>Changer la Photo</ChangePicture>
     </label>
 </UIBreadCrumbsNavigationPortlet>
    <UIBreadCrumbPopupAvatarUploader>
       <title>
-         <UIAvatarUploader>Télécharger une photo</UIAvatarUploader>
-         <UIAvatarUploadContent>Prévisualiser La photo</UIAvatarUploadContent>
+         <UIAvatarUploader>Télécharger une Photo</UIAvatarUploader>
+         <UIAvatarUploadContent>Prévisualiser la Photo</UIAvatarUploadContent>
       </title>
    </UIBreadCrumbPopupAvatarUploader>
 </bundle>

@@ -2,7 +2,7 @@
 <bundle>
    <UIAdminToolbarPortlet>
 		<action>
-			<AddPage>Ajouter une Page</AddPage>
+         <AddPage>Mise en page</AddPage>
 			<EditNavigation>Navigation</EditNavigation>
 			<Content>Contenu</Content>
 			<Editor>Editer</Editor>
@@ -10,13 +10,13 @@
 			<Site>Site</Site>
 			<Layout>Editer la Mise en page</Layout>
             <siteLayout>La mise en page</siteLayout>
-			<ManagePages>Gestion des pages</ManagePages>
-		 	<GroupSite>Site de groupe</GroupSite>
+         <ManagePages>Mise en page</ManagePages>
+         <GroupSite>Site de Groupe</GroupSite>
 			<Properties>SEO</Properties>
-      <AddSite>Ajouter un site</AddSite>
+         <AddSite>Ajouter un Site</AddSite>
 		</action>
-		<ManageSites>Gestion des sites</ManageSites>
-		<ManageGroupSites>Gestion des sites des groupes</ManageGroupSites>
+<ManageSites>Gestion des Sites</ManageSites>
+<ManageGroupSites>Gestion des Sites de Groupe</ManageGroupSites>
    </UIAdminToolbarPortlet>
   
   <UISEOForm>
@@ -28,25 +28,27 @@
       <robots>Robots: </robots>
       <sitemap>Sitemap: </sitemap>
       <sitemapvisible>Visible dans le sitemap</sitemapvisible>
+  <isInherited>Hérité de la page parent</isInherited>
       <priority>Priorité: </priority>
       <frequency>Fréquence: </frequency>
       <select-language>Sélectionnez une langue</select-language>  
       <option>
         <Always>Toujours</Always>
         <Hourly>Toutes les heures</Hourly>
-        <Daily>Journalier</Daily>
+        <Daily>Quotidien</Daily>
         <Weekly>Hebdomadaire</Weekly>
         <Monthly>Mensuel</Monthly>
         <Yearly>Annuel</Yearly>
         <Never>Jamais</Never>
       </option> 
     </label>    	  
+ 
     <action>
       <Save>Sauvegarder</Save>
       <Cancel>Annuler</Cancel>
     </action>
     <msg>
-      <repository-exception>Une erreure inattendue est apparue! Sauvegarde impossible des métadonnées..</repository-exception>
+      <repository-exception>Une erreur inattendue est apparue lors de l'enregistrement des métadonnées.</repository-exception>
       <confirm-delete>Êtes-vous sûr de vouloir supprimer les données SEO?</confirm-delete>	
     </msg>
     <title>
@@ -54,18 +56,18 @@
     </title>
 	<help> 
 	  <priority>Valeurs valides de 0.0 à 1.0.</priority>
-	  <description>Aide les utilisateurs a savoir en quoi cette page a un lien avec ce qu'ils cherchent.</description>
-	  <keywords>Termes les plus importants de la page séparés par une virgule.</keywords>		  
+  <description>Aidez les utilisateurs a savoir en quoi cette page a un lien avec ce qu'ils recherchent.</description>
+  <keywords>Les termes les plus importants de la page doivent être séparés par une virgule.</keywords>  
     </help>	 	  
   </UISEOForm>
   <UISEOPopupWindow>
   	<title>
-      <UISEOForm>SEO Management</UISEOForm>
+      <UISEOForm>Gestion SEO</UISEOForm>
   	</title>
   </UISEOPopupWindow>    
   <UISEOToolbarForm>
   	<title>
-      <seo>SEO Management</seo>
+      <seo>Gestion SEO</seo>
   	</title>
   	<label>
   	  <seo>SEO</seo>

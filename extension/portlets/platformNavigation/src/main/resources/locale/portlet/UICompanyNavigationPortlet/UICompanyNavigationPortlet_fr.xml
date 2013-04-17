@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <bundle>
     <UICompanyNavigationPortlet>
-        <CompanyBar>
-            Compagnie
-        </CompanyBar>
+    <CompanyBar>Société</CompanyBar>
     </UICompanyNavigationPortlet>
 </bundle>

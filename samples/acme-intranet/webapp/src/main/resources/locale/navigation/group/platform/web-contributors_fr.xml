@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <bundle>
   <administration>
-    <siteExplorer>Explorateur de sites</siteExplorer>
-    <wcmAdmin>Administration des sites</wcmAdmin>
+    <siteExplorer>Explorateur de Sites</siteExplorer>
+    <wcmAdmin>Administration de Contenu</wcmAdmin>
     <newslettermanager>Gestion des newsletters</newslettermanager>
     <formgenerator>Générateur de formulaires</formgenerator>
 	<workflowAdministration>Administration des Processus Métiers</workflowAdministration>
   </administration>
 </bundle>
-
