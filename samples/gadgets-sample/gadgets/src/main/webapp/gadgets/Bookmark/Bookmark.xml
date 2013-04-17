@@ -214,11 +214,9 @@
           $(this).hide();
         });     
         
+        tooltipCustomize();
         $("#customize").bind("click", function() {    
-          $(this).tooltip('destroy');
           addNewBookMark();
-          $("#message").hide();
-          tooltipCustomize();
         });    
 
         $(".ListItem").removeClass("active");
@@ -237,7 +235,9 @@
         $(".ListItem").addClass("active");
         $(".editHoverZone").attr("style","display:none");
         $("a[id^=bookmark]").bind("click", preventDefault);
-        $("#customize").unbind();
+        $("#customize").tooltip('destroy');
+        $("#customize").unbind();       
+        $("#message").hide();
         gadgets.window.adjustHeight($("#content").get(0).offsetHeight);
       }
 
@@ -271,7 +271,7 @@
                      </li> ');
         $("#BookmarkList").append($(element));                              
         changeToEditMode();
-        gadgets.window.adjustHeight($("#content").get(0).offsetHeight + 100);
+        gadgets.window.adjustHeight($("#content").get(0).offsetHeight);
       }
 
       function checkIfZeroBookMark() {
@@ -281,8 +281,6 @@
           }
         });
       }
-                  
-      tooltipCustomize();
       
     });
 
@@ -296,8 +294,9 @@
              <a class="actionIcon pull-right" href="#">
                  <i class="uiIconPlus uiIconLightGray pull-right"></i>
              </a>
-         </div> 
-         </div>       
+         </div>          
+       </div>
+       
       <div class="uiContentBox">
         <div id="message" style="display:none;">
            __MSG_emptyBookmarkPre__ <i class="uiIconPlus uiIconLightGray"></i> __MSG_emptyBookmarkSuf__

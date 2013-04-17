@@ -87,7 +87,7 @@ function showPoll(data, isVoteAgain){
           var prefs = new gadgets.Prefs();
           var topicId= pollId.replace("poll","topic");
           var topicURL = window.location.protocol + "//" + window.location.host + parent.parent.eXo.env.portal.context + "/"+ parent.parent.eXo.env.portal.portalName +"/forum/topic/" + topicId;
-          html.push('<h6 class="clearfix"><a class="question" title = "' + prefs.getMsg('discuss') + '" target ="_parent" href="'+ topicURL + '"><i class="uiIconPoll"></i> ' + question + '</a><a class="discuss btn" type="button" title="' + prefs.getMsg("discuss") + '"  href="'+ topicURL + '">' + prefs.getMsg("discuss") + '</a></h6>');
+          html.push('<h6 class="clearfix"><a class="question" title = "' + prefs.getMsg('discuss') + '" target ="_parent" href="'+ topicURL + '"><i class="uiIconPoll"></i> ' + question + '</a><a class="discuss btn" type="button" title="' + prefs.getMsg("discuss") + '" target="_parent" href="'+ topicURL + '">' + prefs.getMsg("discuss") + '</a></h6>');
       }
       else{
           html. push('<h6 class="question">' + question + '</h6>');
