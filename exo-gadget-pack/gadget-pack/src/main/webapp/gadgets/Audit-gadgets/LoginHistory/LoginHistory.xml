@@ -682,14 +682,14 @@
       <body style="font-size:70%;">
         <div id="LoginHistoryGadgetDiv" class="uiGadgetThemes uiBox">
           
-          <div class="btn-group">
+          <h6 class="title center">__MSG_loginHistory.title__</h6>
+          
+          <div id="GadgetContent" class="gadContent uiContentBox">
+      		<div class="btn-group">
             <button id="globalLastLoginBtn" class="btn">__MSG_loginHistory.title__</button>
             <button id='globalStatisticBtn' class="btn">__MSG_loginHistory.statisticsView__</button>
             <button id='globalHistoryBtn' class="btn">__MSG_loginHistory.historyView__</button>
           </div>
-          
-          <div id="GadgetContent" class="gadContent uiContentBox">
-      
           <div id="lastLoginsDiv">
             <input class="searchUser" id="searchTxt" type="text" placeholder="Search user" name="titleInput">
             <div id="lastLoginsContainerDiv">
