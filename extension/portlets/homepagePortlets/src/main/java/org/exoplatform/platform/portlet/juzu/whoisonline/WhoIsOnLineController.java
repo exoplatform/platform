@@ -9,6 +9,7 @@ import juzu.template.Template;
 import org.exoplatform.web.application.RequestContext;
 
 import javax.inject.Inject;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 import java.util.ResourceBundle;
@@ -21,7 +22,7 @@ public class WhoIsOnLineController {
 
     private static  Locale locale = null;
     private static ResourceBundle rs=null;
-
+    private  List<User> friends = new ArrayList<User>();
   @Inject
   WhoIsOnline whoIsOnline;
 
@@ -38,7 +39,7 @@ public class WhoIsOnLineController {
       locale=RequestContext.getCurrentInstance().getLocale();
       rs = ResourceBundle.getBundle("locale/portlet/whoisonline/whoisonline", locale);
       String userId= RequestContext.getCurrentInstance().getRemoteUser();
-      List<User> friends = whoIsOnline.getFriends(userId);
+       friends = whoIsOnline.getFriends(userId);
       return index.with().set("users", friends).set("headerLabel",rs.getString("header.label")).set("messageLabel",rs.getString("message.label")).set("connectLabel",rs.getString("connect.label")).ok();
   }
 
@@ -48,7 +49,7 @@ public class WhoIsOnLineController {
       locale=RequestContext.getCurrentInstance().getLocale();
       rs = ResourceBundle.getBundle("locale/portlet/whoisonline/whoisonline", locale);
       String userId= RequestContext.getCurrentInstance().getRemoteUser();
-      List<User> friends = whoIsOnline.getFriends(userId);
+       friends = whoIsOnline.getFriends(userId);
       return users.with().set("users", friends).set("messageLabel",rs.getString("message.label")).set("connectLabel",rs.getString("connect.label")).ok();
   }
 }
