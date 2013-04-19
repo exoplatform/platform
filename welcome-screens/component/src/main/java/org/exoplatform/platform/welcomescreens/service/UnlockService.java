@@ -80,6 +80,7 @@ public class UnlockService implements Startable {
         if ((unlockKey != null) && (!unlockKey.equals(""))) {
             int period = decodeKey(productCode, unlockKey);
             if (period == -1) {
+                loopfuseFormDisplayed = true;
                 outdated = false;
                 isUnlocked = true;
                 showTermsandConditions = false;
@@ -128,6 +129,7 @@ public class UnlockService implements Startable {
                     productCode = pc;
                     outdated = false;
                     isUnlocked = true;
+                    loopfuseFormDisplayed = true;
                     Utils.writeToFile(Utils.PRODUCT_CODE, productCode, Utils.HOME_CONFIG_FILE_LOCATION);
                     Utils.writeToFile(Utils.PRODUCT_KEY, unlockKey, Utils.HOME_CONFIG_FILE_LOCATION);
                     return true;
@@ -214,7 +216,7 @@ public class UnlockService implements Startable {
         today.set(Calendar.MINUTE, 0);
         today.set(Calendar.SECOND, 0);
         today.set(Calendar.MILLISECOND, 0);
-        if (remindDate.compareTo(today) <= 0) { // Reminder
+        if (remindDate.compareTo(today) < 0) { // Reminder
             // Date is
             // outdated
             nbDaysBeforeExpiration = 0;
