@@ -361,7 +361,7 @@ public class CalendarPortletController {
             listgroupCalendar = calendarService_.getGroupCalendars(getUserGroups(username), true, username);
             listUserCalendar = calendarService_.getUserCalendars(username, true);
         } catch (Exception e) {
-            e.printStackTrace();
+            log.error("Error while checking User Calendar :" + e.getMessage(), e);
         }
         for (GroupCalendarData g : listgroupCalendar) {
             for (org.exoplatform.calendar.service.Calendar c : g.getCalendars()) {
@@ -388,7 +388,7 @@ public class CalendarPortletController {
             userEvents = calendarService_.getEvents(username, eventQuery, calList);
 
         } catch (Exception e) {
-            e.printStackTrace();
+            log.error("Error while checking User Events:" + e.getMessage(), e);
         }
         return userEvents;
     }
