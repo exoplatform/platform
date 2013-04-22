@@ -29,6 +29,11 @@
      import juzu.request.RequestContext;
      import org.exoplatform.platform.portlet.juzu.calendar.models.CalendarPortletUtils;
    RequestContext requestContext = Request.getCurrent().getContext();
+   Locale locale= requestContext.getUserContext().getLocale();
+   	DateFormat sdf1= DateFormat.getDateInstance(DateFormat.SHORT,locale);
+    DateFormat sdf2= DateFormat.getTimeInstance(DateFormat.SHORT,locale);
+   	sdf1.setCalendar(CalendarPortletUtils.getInstanceOfCurrentCalendar());
+   	sdf2.setCalendar(CalendarPortletUtils.getInstanceOfCurrentCalendar());
 %>
 <div class="calendarPortlet ">
 	<div class="calendarPortletData uiBox">
@@ -59,20 +64,14 @@
 				<%if ((eventsDisplayedList != null) && (eventsDisplayedList.size() != 0)) {%>
 			<ul class="eventsList ">
 				<%
-					Locale locale= requestContext.getUserContext().getLocale();
-
-					sdf1= DateFormat.getDateInstance(DateFormat.SHORT,locale);
-
-					sdf2= DateFormat.getTimeInstance(DateFormat.SHORT,locale);
 					def from;
 					def to;
-							eventsDisplayedList.each { event ->
-							def color = calendarDisplayedMap[event.calendarId].calendarColor;
-							sdf2.setCalendar(CalendarPortletUtils.getInstanceOfCurrentCalendar())
-							def eventCss = "";
-							if (new Date().compareTo(event.toDateTime) > 0) eventCss = "pastEvent";
+					eventsDisplayedList.each { event ->
+					    def color = calendarDisplayedMap[event.calendarId].calendarColor;
+						def eventCss = "";
+						    if (new Date().compareTo(event.toDateTime) > 0) eventCss = "pastEvent";
 							else eventCss = "eventItems" ;
-					def href="/portal/intranet/calendar/details/"+event.id;
+					    def href="/portal/intranet/calendar/details/"+event.id;
 				%>
 				<li class="${eventCss} clearfix"  id="${event.id}">
 					<div class="pull-left eventSummary">
