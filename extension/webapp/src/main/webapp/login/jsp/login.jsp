@@ -150,6 +150,10 @@
 				font-weight: 500;
 				line-height: 41px;
 				padding-left: 52px;
+				overflow: hidden;
+				text-overflow: ellipsis;
+				white-space: nowrap;
+				width: 236px;
 			}
 			
 			.uiLogin .loginContent{
@@ -308,15 +312,20 @@
 			}
 
 			.uiLogin .signinFail{
-                background-color: transparent;
-                background-image: url("/eXoResources/skin/images/Icons/errorIcon.png");
-                background-repeat: no-repeat;
                 font-size: 13px;
                 line-height: 18px;
                 margin: 12px 0 0 1px;
-                padding-left: 20px;
                 font-weight: bold;
+				overflow: hidden;
+				text-overflow: ellipsis;
+				white-space: nowrap;
+				width: 310px;
             }
+			
+			.uiLogin .uiIconError{
+                background: url("/eXoResources/skin/images/Icons/uiIconColor.png") no-repeat left top;
+				padding-left: 20px;
+			}
 
             #platformInfoDiv {
                 font-size: 12px;
@@ -364,7 +373,7 @@
           <%
                 if(error) {
           %>
-          <div class="signinFail"><%=res.getString("portal.login.SigninFail")%></div><%}%>
+          <div class="signinFail"><i class="uiIconError"></i><%=res.getString("portal.login.SigninFail")%></div><%}%>
 				</div>
         <div class="centerLoginContent">
           <form name="loginForm" action="<%= contextPath + "/login"%>" method="post" style="margin: 0px;">
