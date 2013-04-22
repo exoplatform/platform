@@ -5,7 +5,7 @@
          <topic>Discussion</topic>
          <poll>Sondage</poll>
          <eventtask>Evénement/Tâche</eventtask>
-         <upload>Upload Fichier</upload>
+         <upload>Transférer un Fichier</upload>
          <wiki>Page Wiki</wiki>
 
       </label>
@@ -24,7 +24,7 @@
    <UICreateTopic>
       <label>
          <SelectAForum>Choisir un forum</SelectAForum>
-         <location>Emplacement</location>
+         <location>Dans</location>
          <forumId>et Forum</forumId>
          <FilterForums>Filtrer</FilterForums>
       </label>
@@ -32,7 +32,7 @@
    <UICreatePoll>
       <label>
          <SelectAForum>Choisir un Forum</SelectAForum>
-         <location>Emplacement</location>
+         <location>Dans</location>
          <forumId>et Forum</forumId>
          <FilterForums>Filtrer</FilterForums>
       </label>
@@ -40,16 +40,16 @@
    <UICreateWiki>
       <label>
          <title>Créer une page wiki:</title>
-         <location>Emplacement</location>
+         <location>Dans</location>
       </label>
    </UICreateWiki>
    <UICreateEvent>
       <label>
          <Title>Titre</Title>
-         <Choix>Ajouter un nouveau:</Choix>
+         <Choix>Ajouter:</Choix>
          <EndEvent>à</EndEvent>
          <StartEvent>de</StartEvent>
-         <Calendar>Choisir un calendrier</Calendar>
+         <Calendar>Calendrier</Calendar>
          <all-day>Toute la journée</all-day>
          <defaultCalendarId>Mon Calendrier</defaultCalendarId>
       </label>

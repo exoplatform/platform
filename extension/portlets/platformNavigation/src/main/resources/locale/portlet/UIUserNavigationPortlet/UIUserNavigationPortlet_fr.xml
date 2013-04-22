@@ -10,7 +10,7 @@
          <Myprofile>Mon Profil</Myprofile>
          <Myconnections>Mes Connexions</Myconnections>
             <Mywiki>Mon Wiki</Mywiki>
-            <Mydashboard>Mon Dashboard</Mydashboard>
+         <Mydashboard>Mon Tableau de Bord</Mydashboard>
         </label>
     </UIUserNavigationPortlet>
 </bundle>

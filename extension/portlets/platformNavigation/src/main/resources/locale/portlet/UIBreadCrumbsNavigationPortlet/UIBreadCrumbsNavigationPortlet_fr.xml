@@ -7,8 +7,8 @@
 </UIBreadCrumbsNavigationPortlet>
    <UIBreadCrumbPopupAvatarUploader>
       <title>
-         <UIAvatarUploader>Télécharger une Photo</UIAvatarUploader>
-         <UIAvatarUploadContent>Prévisualiser la Photo</UIAvatarUploadContent>
+         <UIAvatarUploader>Ajouter une Photo</UIAvatarUploader>
+         <UIAvatarUploadContent>Aperçu de la Photo</UIAvatarUploadContent>
       </title>
    </UIBreadCrumbPopupAvatarUploader>
 </bundle>

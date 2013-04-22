@@ -22,9 +22,9 @@
 				<name>Nom:</name>
 				<lifecycle>Cycle de vie:</lifecycle>
 				<isDeep>Récursif:</isDeep>
-				<nodetypes>Types de noeuds:</nodetypes>
+				<nodetypes>Types de noeud:</nodetypes>
 				<description>Description:</description>
-				<affectedNodeTypeNames>Types de noeuds affectés:</affectedNodeTypeNames>
+				<affectedNodeTypeNames>Types de noeud affectés:</affectedNodeTypeNames>
 				<navigationNode>Noeud de navigation:</navigationNode>
 				<index>Index:</index>
 				<clickable>Cliquable:</clickable>
@@ -49,7 +49,7 @@
 			<Detail>Détail</Detail>
 		</label>
 		<action>
-			<Save>Sauver</Save>
+			<Save>Enregistrer</Save>
 			<Cancel>Annuler</Cancel>
 		</action>
 	</UINavigationForm>
