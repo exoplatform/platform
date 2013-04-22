@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <bundle>
   <UIActionBar>
     <tooltip>
@@ -49,8 +49,8 @@
       <Detail>Détail</Detail>
     </label>
     <action>
-      <Save>Sauver</Save>
-      <Cancel>Annuler</Cancel>
+      <Save>#{word.save}</Save>
+      <Cancel>#{word.cancel}</Cancel>
     </action>
   </UINavigationForm>
   <Visible>
