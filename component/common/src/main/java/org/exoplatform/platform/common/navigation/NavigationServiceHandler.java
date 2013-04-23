@@ -61,11 +61,13 @@ public class NavigationServiceHandler extends BaseWebSchemaHandler {
         Boolean isavailable = false;
         Node imageNode = null;
         String pathImageNode = null;
+        Session session = null;
+        SessionProvider sProvider = null;
         try {
             NodeHierarchyCreator nodeCreator = (NodeHierarchyCreator) ExoContainerContext.getCurrentContainer().getComponentInstanceOfType(NodeHierarchyCreator.class);
-            SessionProvider sProvider = SessionProvider.createSystemProvider();
+            sProvider = SessionProvider.createSystemProvider();
             Node publicApplicationNode = nodeCreator.getPublicApplicationNode(sProvider);
-            Session session = publicApplicationNode.getSession();
+            session = publicApplicationNode.getSession();
             Node rootNode = session.getRootNode();
             String path = "Application Data/logos/";
             Node logoNode = rootNode.getNode(path);
@@ -86,25 +88,33 @@ public class NavigationServiceHandler extends BaseWebSchemaHandler {
                                     JcrMimeType.equals("image/x-xbitmap") || JcrMimeType.equals("image/x-xpixmap") ||
                                     JcrMimeType.equals("image/x-xwindowdump")) {
 
-                                isavailable = true;
+
+                                pathImageNode = imageNode.getPath()+"?"+System.currentTimeMillis();
                                 break;
+
                             }
                         }
                     }
                 }
             }
         } catch (Exception e) {
-         //   logger.error("Get logo : Can not Find node", e);
-        }
-        if (isavailable == true) {
-            try {
-                pathImageNode = imageNode.getPath()+"?"+System.currentTimeMillis();
-            } catch (RepositoryException e) {
-                logger.error("Get logo : Can not Find the path of node", e);
-            }
-            return pathImageNode;
-        } else
+            logger.error("Get logo : Can not Find logo node", e, e.getLocalizedMessage());
             return null;
+
+        } finally {
+
+            if (session != null) {
+                session.logout();
+            }
+
+            if (sProvider != null) {
+                sProvider.close();
+            }
+
+        }
+        return pathImageNode;
+
+
     }
 
 
