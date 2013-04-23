@@ -215,7 +215,7 @@ public class UINavigationForm extends UIForm implements UIPopupComponent, UISele
 		uiFormNavigationNodeValueStringInput.setEditable(false);
 
 		UIFormInputSetWithAction navigationNodeInputSet = new UIFormInputSetWithAction(NAVIGATION_NODE_INPUT_SET);
-		navigationNodeInputSet.setActionInfo(NAVIGATION_NODE_STRING_INPUT, new String[] { "Plus", "Trash" });
+		navigationNodeInputSet.setActionInfo(NAVIGATION_NODE_STRING_INPUT, new String[] { "SelectNavigationNode", "RemoveNavigationNode" });
 		navigationNodeInputSet.addUIFormInput(uiFormNavigationNodeValueStringInput);
 
 		/** index field */
@@ -237,7 +237,7 @@ public class UINavigationForm extends UIForm implements UIPopupComponent, UISele
 
 		UIFormInputSetWithAction targetPageInputSet = new UIFormInputSetWithAction(LIST_TARGET_PAGE_INPUT_SET);
 
-		targetPageInputSet.setActionInfo(LIST_TARGET_PAGE_STRING_INPUT, new String[] { "Plus", "Trash" });
+		targetPageInputSet.setActionInfo(LIST_TARGET_PAGE_STRING_INPUT, new String[] { "SelectListTargetPage", "RemoveListTargetPage" });
 		targetPageInputSet.addUIFormInput(uiFormTargetPageValueStringInput);
 
 		/** DETAIL_TARGET PAGE */
@@ -246,7 +246,7 @@ public class UINavigationForm extends UIForm implements UIPopupComponent, UISele
 				DETAIL_TARGET_PAGE_STRING_INPUT, detailTargetPage_);
 		uiFormDetailTargetPageValueStringInput.setEditable(false);
 		UIFormInputSetWithAction detailTargetPageInputSet = new UIFormInputSetWithAction(DETAIL_TARGET_PAGE_INPUT_SET);
-		detailTargetPageInputSet.setActionInfo(DETAIL_TARGET_PAGE_STRING_INPUT, new String[] { "Plus", "Trash" });
+		detailTargetPageInputSet.setActionInfo(DETAIL_TARGET_PAGE_STRING_INPUT, new String[] { "SelectDetailTargetPage", "RemoveDetailTargetPage" });
 		detailTargetPageInputSet.addUIFormInput(uiFormDetailTargetPageValueStringInput);
 
 		/*
