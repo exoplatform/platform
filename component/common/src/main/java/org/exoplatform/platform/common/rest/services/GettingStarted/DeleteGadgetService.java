@@ -168,6 +168,7 @@ public class DeleteGadgetService implements ResourceContainer {
     @Produces(MediaType.APPLICATION_JSON)
 
     public Response IsDelete() throws Exception {
+        SessionProvider sProvider = null;
         try {
             String userId = ConversationState.getCurrent().getIdentity().getUserId();
 
@@ -178,7 +179,7 @@ public class DeleteGadgetService implements ResourceContainer {
             NodeHierarchyCreator nodeCreator = (NodeHierarchyCreator) ExoContainerContext.getCurrentContainer()
                     .getComponentInstanceOfType(NodeHierarchyCreator.class);
 
-            SessionProvider sProvider = SessionProvider.createSystemProvider();
+            sProvider = SessionProvider.createSystemProvider();
 
             Node userPrivateNode = nodeCreator.getUserNode(sProvider, userId).getNode("ApplicationData");
 
@@ -199,6 +200,12 @@ public class DeleteGadgetService implements ResourceContainer {
         } catch (Exception e) {
 
             return Response.status(HTTPStatus.INTERNAL_ERROR).build();
+
+        } finally {
+            if (sProvider != null) {
+                sProvider.close();
+
+            }
 
         }
     }

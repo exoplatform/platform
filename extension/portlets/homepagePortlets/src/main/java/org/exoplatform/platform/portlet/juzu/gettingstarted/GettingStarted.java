@@ -65,8 +65,11 @@ public class GettingStarted {
 
     @View
     public void index() throws Exception {
-        String remoteUser = RequestContext.getCurrentInstance().getRemoteUser();
-        SessionProvider sProvider = SessionProvider.createSystemProvider();
+        String remoteUser = null;
+        SessionProvider sProvider = null;
+        try {
+            remoteUser = RequestContext.getCurrentInstance().getRemoteUser();
+            sProvider = SessionProvider.createSystemProvider();
         Node userPrivateNode = nodeHierarchyCreator_.getUserNode(sProvider, remoteUser).getNode(GettingStartedUtils.JCR_APPLICATION_NODE);
         if (!userPrivateNode.hasNode(GettingStartedUtils.JCR_GS_NODE)) {
 
@@ -80,6 +83,14 @@ public class GettingStarted {
             gettingStartedNode.setProperty(GettingStartedUtils.JCR_DOCUMENT_PROPERTY_NAME, false);
             gettingStartedNode.save();
         }
+        } catch (Exception E) {
+            logger.error("GattingStart Portlet : Can load properties ", E.getLocalizedMessage(), E);
+
+        }finally {
+            if (sProvider != null) {
+                sProvider.close();
+            }
+        }
         gettingStarted.render();
     }
 
@@ -88,8 +99,11 @@ public class GettingStarted {
     public void delete() throws Exception
     {
         //set Delete
-        String userId = RequestContext.getCurrentInstance().getRemoteUser();
-        SessionProvider sProvider = SessionProvider.createSystemProvider();
+        String userId = null;
+        SessionProvider sProvider = null;
+        try {
+            userId = RequestContext.getCurrentInstance().getRemoteUser();
+            sProvider = SessionProvider.createSystemProvider();
         Node userPrivateNode = nodeHierarchyCreator_.getUserNode(sProvider, userId).getNode(GettingStartedUtils.JCR_APPLICATION_NODE);
         if (userPrivateNode.hasNode(GettingStartedUtils.JCR_GS_NODE))
         {
@@ -98,6 +112,14 @@ public class GettingStarted {
             {
                 gettingStartedNode.setProperty(GettingStartedUtils.JCR_DELETE_GADGET_PROPERTY_NAME, true);
                 gettingStartedNode.save();
+            }
+        }
+        } catch (Exception E) {
+            logger.error("GattingStart Portlet : Can not delete Portlet from ApplicationRegistry", E.getLocalizedMessage(), E);
+
+        }finally {
+            if (sProvider != null) {
+                sProvider.close();
             }
         }
         gettingStarted.render();
@@ -111,7 +133,9 @@ public class GettingStarted {
         boolean isChange=false;
         PropertyIterator propertiesIt = null;
         remoteUser = RequestContext.getCurrentInstance().getRemoteUser();
-        SessionProvider sProvider = SessionProvider.createSystemProvider();
+        SessionProvider sProvider = null;
+        try {
+            sProvider = SessionProvider.createSystemProvider();
         Node userPrivateNode = nodeHierarchyCreator_.getUserNode(sProvider, remoteUser).getNode(GettingStartedUtils.JCR_APPLICATION_NODE);
         if (userPrivateNode.hasNode(GettingStartedUtils.JCR_GS_NODE))
         {
@@ -175,8 +199,18 @@ public class GettingStarted {
         parameters.put(GettingStartedUtils.WIDTH, new Integer((Math.round((200 * progress) / 100))).toString());
         parameters.put(GettingStartedUtils.STATUS, status);
         parameters.put(GettingStartedUtils.SHOW, Isshow.toString());
-        if ((isChange)||(reload.equals("true")))
+            if ((isChange)||(reload.equals("true"))) {
             gettingStartedList.render(parameters);
+    }
+        }catch (Exception E) {
+                logger.error("GattingStart Portlet : Can not load task list", E.getLocalizedMessage(), E);
+
+        }finally {
+            if (sProvider != null) {
+                sProvider.close();
+            }
+        }
+
     }
 
     private boolean updateAction(Property tempProp, Node gettingStartedNode) throws RepositoryException {

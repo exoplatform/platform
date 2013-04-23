@@ -88,7 +88,6 @@ public class NavigationServiceHandler extends BaseWebSchemaHandler {
                                     JcrMimeType.equals("image/x-xbitmap") || JcrMimeType.equals("image/x-xpixmap") ||
                                     JcrMimeType.equals("image/x-xwindowdump")) {
 
-
                                 pathImageNode = imageNode.getPath()+"?"+System.currentTimeMillis();
                                 break;
 
@@ -98,7 +97,7 @@ public class NavigationServiceHandler extends BaseWebSchemaHandler {
                 }
             }
         } catch (Exception e) {
-            logger.error("Get logo : Can not Find logo node", e, e.getLocalizedMessage());
+            logger.warn("Company LOGO not specified : default LOGO will be used");
             return null;
 
         } finally {
