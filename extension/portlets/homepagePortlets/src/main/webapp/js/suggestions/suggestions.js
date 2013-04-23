@@ -219,11 +219,6 @@
 
 
             $("#"+item.spaceId+" a.connect").live("click", function(){
-                if(item.registration == "open")
-                    $.getJSON("/rest/homepage/intranet/spaces/join/"+item.spaceId, function(){
-                        window.parent.location.href="/portal/g/:spaces:"+item.name;
-                    });
-                else
                     $.getJSON("/rest/homepage/intranet/spaces/request/"+item.spaceId, null);
 
                 if($("#suggestionsspace").children().length == 1) {
