@@ -30,10 +30,13 @@
      import org.exoplatform.platform.portlet.juzu.calendar.models.CalendarPortletUtils;
    RequestContext requestContext = Request.getCurrent().getContext();
    Locale locale= requestContext.getUserContext().getLocale();
+    DateFormat sdf4=DateFormat.getDateTimeInstance(DateFormat.SHORT,DateFormat.SHORT,locale);
+    DateFormat sdf3=DateFormat.getDateTimeInstance(DateFormat.SHORT,DateFormat.SHORT,locale);
    	DateFormat sdf1= DateFormat.getDateInstance(DateFormat.SHORT,locale);
     DateFormat sdf2= DateFormat.getTimeInstance(DateFormat.SHORT,locale);
    	sdf1.setCalendar(CalendarPortletUtils.getInstanceOfCurrentCalendar());
    	sdf2.setCalendar(CalendarPortletUtils.getInstanceOfCurrentCalendar());
+   	sdf3.setCalendar(CalendarPortletUtils.getInstanceOfCurrentCalendar());
 %>
 <div class="calendarPortlet ">
 	<div class="calendarPortletData uiBox">
@@ -69,7 +72,7 @@
 					eventsDisplayedList.each { event ->
 					    def color = calendarDisplayedMap[event.calendarId].calendarColor;
 						def eventCss = "";
-						    if (new Date().compareTo(event.toDateTime) > 0) eventCss = "pastEvent";
+						    if (new Date().compareTo(sdf4.parse(sdf3.format(event.toDateTime))) > 0) eventCss = "pastEvent";
 							else eventCss = "eventItems" ;
 					    def href="/portal/intranet/calendar/details/"+event.id;
 				%>
@@ -123,8 +126,8 @@
 
 						tasksDisplayedList.each { task ->
 							if ((task.eventState).equals(CalendarEvent.COMPLETED)) cssClass = "taskCompleted";
-							else if (((task.eventState).equals(CalendarEvent.NEEDS_ACTION)) && (task.toDateTime.compareTo(new Date()) > 0)) cssClass = "taskNotCompleted";
-							else if (((task.eventState).equals(CalendarEvent.NEEDS_ACTION)) && (task.toDateTime.compareTo(new Date()) < 0))cssClass = "taskLateNotCompleted"  ;
+							else if (((task.eventState).equals(CalendarEvent.NEEDS_ACTION)) && ((sdf4.parse(sdf3.format(task.toDateTime))).compareTo(new Date()) > 0)) cssClass = "taskNotCompleted";
+							else if (((task.eventState).equals(CalendarEvent.NEEDS_ACTION)) && ((sdf4.parse(sdf3.format(task.toDateTime))).compareTo(new Date()) < 0))cssClass = "taskLateNotCompleted"  ;
 							def href="/portal/intranet/calendar/details/"+task.id;
 				%>
 				<li class="${cssClass}">
