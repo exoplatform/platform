@@ -25,6 +25,6 @@
   %>
   <div class="UIAction"> 
     <a href="javascript:void(0);" onclick="<%=uicomponent.event("AddRootNode")%>" class="ActionButton LightBlueStyle"><%=_ctx.appRes(uicomponent.getId() + ".action.addNode")%></a>
-		<a href="javascript:void(0);" onclick="<%=uicomponent.event("Save")%>" class="ActionButton LightBlueStyle"><%=_ctx.appRes(uicomponent.getId() + ".action.Save")%></a>
+		<a href="javascript:void(0);" onclick="<%=uicomponent.event("Save")%>" class="ActionButton LightBlueStyle"><%=_ctx.appRes("UINavigationForm.action.Save")%></a>
 	</div>
 </div>
