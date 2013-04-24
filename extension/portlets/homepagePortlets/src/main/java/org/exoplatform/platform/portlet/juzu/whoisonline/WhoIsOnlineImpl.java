@@ -206,7 +206,7 @@ public class WhoIsOnlineImpl implements WhoIsOnline {
                         activity = "Shared a Document <a class='ColorLink' target='_blank' href=" + docUrl + "title='" + activity.split(">")[1].split("<")[0] + "'>" + docName + "</a>";
                     }
                     }catch(ArrayIndexOutOfBoundsException e) {
-                      log.warn("Error while recovering activity of type DOC_ACTIVITY [Not found Url of shared Document]"+e.getMessage())  ;
+                      log.warn("Error while recovering activity of type DOC_ACTIVITY [Url of shared Document Not found ]")  ;
                       return "";
                     }
                 }
