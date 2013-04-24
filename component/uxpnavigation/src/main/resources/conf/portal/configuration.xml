@@ -34,7 +34,7 @@
                <property name="Company Context Home"
                          value="http://docs.exoplatform.com/PLF40/PLFUG/GS/SOCHOME.html"/>
                <property name="Company Context Calendar"
-                         value="http://docs.exoplatform.com/PLF40/PLFUG/CALENDARS.html"/>
+                         value="http://docs.exoplatform.com/PLF40/PLFUG/CALENDAR.html"/>
                <property name="Company Context Wiki" value="http://docs.exoplatform.com/PLF40/PLFUG/WIKI.html"/>
                <property name="Company Context Forum"
                          value="http://docs.exoplatform.com/PLF40/PLFUG/FORUM.html"/>
