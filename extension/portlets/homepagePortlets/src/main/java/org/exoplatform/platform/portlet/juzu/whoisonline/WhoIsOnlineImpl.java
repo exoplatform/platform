@@ -140,6 +140,7 @@ public class WhoIsOnlineImpl implements WhoIsOnline {
         String activity = "";
         int count = COUNT;
         int i = 0;
+        try{
         ActivityManager activityManager = (ActivityManager) ExoContainerContext.getCurrentContainer().getComponentInstanceOfType(ActivityManager.class);
         RealtimeListAccess<ExoSocialActivity> activityList = activityManager.getActivitiesWithListAccess(identity);
         for (ExoSocialActivity act : activityList.loadAsList(i, count)) {
@@ -198,10 +199,15 @@ public class WhoIsOnlineImpl implements WhoIsOnline {
                 }
 
                 if (act.getType().equals(DOC_ACTIVITY)) {
+                    try{
                     if ((activity.split(">")[1].split("<")[0]).length() > MAX_DOC_CHAR) {
                         String docName = activity.split(">")[1].split("<")[0].substring(0, MAX_DOC_CHAR).concat(THREE_DOTS);
                         String docUrl = activity.split(">")[0].split("=")[1].replace("\"", "'");
                         activity = "Shared a Document <a class='ColorLink' target='_blank' href=" + docUrl + "title='" + activity.split(">")[1].split("<")[0] + "'>" + docName + "</a>";
+                    }
+                    }catch(ArrayIndexOutOfBoundsException e) {
+                      log.warn("Error while recovering activity of type DOC_ACTIVITY [Not found Url of shared Document]"+e.getMessage())  ;
+                      return "";
                     }
                 }
 
@@ -224,7 +230,10 @@ public class WhoIsOnlineImpl implements WhoIsOnline {
         }
 
         return activity;
-
+        }catch (Exception e){
+            log.error("Error while recovering user's last activity [WhoIsOnLine rendering phase] :" + e.getMessage(), e);
+            return "";
+        }
     }
 
 }
