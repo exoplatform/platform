@@ -196,6 +196,14 @@
 					  <destFileName>exo-gadget-pack-${project.version}.ear</destFileName>
 					  <type>ear</type>
 					</artifactItem>
+                <!-- Crash -->
+                <artifactItem>
+                  <groupId>org.crsh</groupId>
+                  <artifactId>crsh.core</artifactId>
+                  <version>${org.crsh.version}</version>
+                  <type>war</type>
+                  <destFileName>crash.war</destFileName>
+                </artifactItem>
 		          </artifactItems>
 		        </configuration>
 		      </execution>

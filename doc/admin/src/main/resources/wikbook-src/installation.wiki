@@ -281,6 +281,7 @@ Files
 - gatein-ds.xml
 - gatein-wsrp-extension-$version.ear
 - starter-gatein-$version.ear
+- crash.war
 
 *3.* Copy 2 files named _context.xml_ and _server.xml_ from _eXo-Platform-jboss-3.5.x/ears/server/default/deploy/jbossweb.sar_ to _$PLATFORM\_JBOSS\_HOME/server/default/deploy/jbossweb.sar_.
 
