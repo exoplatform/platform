@@ -94,8 +94,8 @@
                             if(dateSplit.length!=0) to=dateSplit[0]+"/"+dateSplit[1]+"/"+year;
 						%>
 
-						<span>&{from.label}  ${from}</span>
-						<span>&{to.label}  ${to}</span>
+						<span>${from}</span> - 
+						<span>${to}</span>
 						<% } else if (event.toDateTime.getTime() - event.fromDateTime.getTime() < 86399999) {
 							from = sdf2.format(event.fromDateTime);
 							to = sdf2.format(event.toDateTime);
