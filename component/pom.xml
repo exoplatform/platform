@@ -17,7 +17,6 @@
     <module>organization</module>
     <module>webui</module>
     <module>jmxclient</module>
-    <module>ide-extension</module>
     <module>uxpnavigation</module>
   </modules>
 </project>
