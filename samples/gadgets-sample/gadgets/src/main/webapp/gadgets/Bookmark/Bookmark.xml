@@ -4,6 +4,7 @@
     <Locale messages="locale/default.xml" />
     <Locale lang="fr" messages="locale/fr.xml" />
     <Locale lang="it" messages="locale/it.xml" />
+    <Locale lang="es_ES" messages="locale/es_ES.xml" />
     <Require feature="dynamic-height"/>
   </ModulePrefs>
   

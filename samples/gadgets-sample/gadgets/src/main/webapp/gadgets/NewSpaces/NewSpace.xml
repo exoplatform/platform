@@ -14,6 +14,7 @@
     <Locale messages="locale/ALL_ALL.xml" />
     <Locale lang="en" messages="locale/en_ALL.xml" />
     <Locale lang="fr" messages="locale/fr_ALL.xml" />
+    <Locale lang="es_ES" messages="locale/es_ES_ALL.xml" />
   </ModulePrefs>
   <UserPref name="maxtime" display_name="__MSG_maxtime__" default_value="10" datatype="enum" >
     <EnumValue value="5" />
