@@ -302,4 +302,7 @@
         </init-params>
     </component>
 
+   <component>
+     <type>org.exoplatform.platform.common.navigation.NavigationServiceHandler</type>
+   </component>
 </configuration>

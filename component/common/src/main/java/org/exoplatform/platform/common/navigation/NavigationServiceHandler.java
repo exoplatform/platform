@@ -19,43 +19,73 @@
 package org.exoplatform.platform.common.navigation;
 
 import org.exoplatform.container.ExoContainerContext;
-import org.exoplatform.portal.webui.util.Util;
+import org.exoplatform.services.jcr.RepositoryService;
 import org.exoplatform.services.jcr.ext.common.SessionProvider;
 import org.exoplatform.services.jcr.ext.hierarchy.NodeHierarchyCreator;
 import org.exoplatform.services.log.ExoLogger;
 import org.exoplatform.services.log.Log;
-import org.exoplatform.services.wcm.core.BaseWebSchemaHandler;
+import org.picocontainer.Startable;
 
 import javax.jcr.Node;
 import javax.jcr.NodeIterator;
-import javax.jcr.RepositoryException;
 import javax.jcr.Session;
-import java.util.Calendar;
-import java.util.GregorianCalendar;
 
 /**
  * @author <a href="hzekri@exoplatform.com">hzekri</a>
  * @date 26/11/12
  */
-public class NavigationServiceHandler extends BaseWebSchemaHandler {
+public class NavigationServiceHandler implements Startable {
+
+    RepositoryService   repositoryService;
 
     private static Log logger = ExoLogger.getLogger(NavigationServiceHandler.class);
-    Calendar calendar = new GregorianCalendar();
 
-    public void onCreateNode(SessionProvider sessionProvider, final Node portalFolder) throws Exception {
 
-        if (portalFolder.hasNode("ApplicationData")) {
-            Node applicationDataFolder = portalFolder.getNode("ApplicationData");
-            Node logoApplicationFolder = applicationDataFolder.addNode("logo", NT_UNSTRUCTURED);
-            addMixin(logoApplicationFolder, "exo:owneable");
-            addMixin(logoApplicationFolder, "exo:datetime");
-            addMixin(logoApplicationFolder, "exo:hiddenable");
-            logoApplicationFolder.setProperty("exo:dateCreated", calendar);
+    public NavigationServiceHandler() {
+        repositoryService = (RepositoryService) ExoContainerContext.getCurrentContainer().getComponentInstanceOfType(RepositoryService.class);
+    }
+
+    @Override
+    public void start() {
+        if (logger.isDebugEnabled()) {
+            logger.debug("NavigationServiceHandler starts");
+        }
+        Session session = null;
+        SessionProvider sessionProvider = null;
+
+        try {
+            sessionProvider = SessionProvider.createSystemProvider();
+            session = sessionProvider.getSession("collaboration",repositoryService.getCurrentRepository());
+            Node rootNode = session.getRootNode();
+            if (!rootNode.hasNode("Application Data")) {
+                rootNode.addNode("Application Data", "nt:folder");
+                session.save();
+            }
+            Node applicationDataNode = rootNode.getNode("Application Data");
+            if (!applicationDataNode.hasNode("logos")) {
+                applicationDataNode.addNode("logos", "nt:folder");
+                session.save();
+            }
+        } catch (Exception e) {
+            logger.error("NavigationServiceHandler - Error while creating the logo folder : ", e.getMessage());
+        } finally {
+
+            if (session != null) {
+                session.logout();
+            }
+
+            if (sessionProvider != null) {
+                sessionProvider.close();
+            }
 
         }
-
-        portalFolder.getSession().save();
     }
+
+    @Override
+    public void stop() {
+        //To change body of implemented methods use File | Settings | File Templates.
+    }
+
 
     public static String getHomePageLogoURI() {
         Boolean isavailable = false;
@@ -114,16 +144,5 @@ public class NavigationServiceHandler extends BaseWebSchemaHandler {
         return pathImageNode;
 
 
-    }
-
-
-    @Override
-    protected String getHandlerNodeType() {
-        return "exo:portalFolder";
-    }
-
-    @Override
-    protected String getParentNodeType() {
-        return "nt:unstructured";
     }
 }
