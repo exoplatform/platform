@@ -1,208 +1,71 @@
-Welcome to Platform
-==================
 
-This document explains how to build and package Platform bundles with Tomcat or JBoss
+Thank you for downloading eXo Platform 4	
 
-Prerequisites
-=============
+Follow the installation procedure and start eXo Platform 4 now!
 
-- Java Development Kit 1.6
-- Recent Git client
-- Recent Maven 3
-- The eXo server will run on port 8080, make sure this port is not currently in use
+------------------------------
+System requirements
+------------------------------
 
-Build configuration
-===================
+    * CPU:	3 GHz Multi-core recommended
+    * Memory:	4GB of RAM (8GB recommended)
+    * Disk:	2GB (depending of the amount of data)
+    * OS:	Windows or Linux
+    * JDK:	Java 6 or 7 (Set the JAVA_HOME environment variable)
+    * Browser: 	Google Chrome 25+, Firefox 19+ or Internet Explorer 8+
+    * The eXo server will run on port 8080, make sure this port is not currently in use
 
-1) Profile configuration
+-------------------------------------
+How to start the Platform
+-------------------------------------
 
-Platform build uses several profiles to configure which packaging  to be generated
-
-When no profile is specified it will build only entreprise Tomcat bundle.
-
-The various profiles used inside platform are :
-
-- pkg-jboss      : generate the jboss eap entreprise bundle
-- pkg-community  : generate the tomcat community bundle
-- pkg-trial      : generate the tomcat trial bundle
-- distrib        : generate documentations + EAR distribution
-
-2) Database configuration
-
-By default the build uses a HSQLDB database. However, it is possible to use MySQL5, thanks to mysql profile.
+    * PLF_HOME is the location of the unzipped eXo Platform server.
+    * On Windows: Open a DOS prompt command, go to PLF_HOME directory and type the command: "start_eXo.bat"
+    * On Linux: Open a terminal, go to PLF_HOME directory and type the command: "./start_eXo.sh"
 
 
-Build instructions
-==================
+----------------------------------------------------------
+How to access the Platform homepage
+----------------------------------------------------------
 
-1) Clone Platform
---------------------------
+    * Wait for the server to start. You should see something like this on the console
 
-git clone git@github.com:exodev/platform.git
-cd platform
+      INFO  | Server startup in XXXX ms
 
-2) Prepare containers to use for packaging
-------------------------------------------
+    * Enter the following URL into your browser's address bar: http://localhost:8080/portal
 
-Create a directory on your disk that will contain specific versions of JBoss AS, Tomcat, used as a packaging server.
+-------------------------------------
+How to install extensions
+-------------------------------------
 
-Let’s refer to this directory as SERVERS_DIR.
+Several extensions are not installed by default in the Express and Enterprise version of eXo Platform 4: 
+    * crash	: Common Reusable SHell to interact with the JVM
+    * acme (*)	: A demo website built with eXo Platform 4
+    * cmis (*)	: Content Management Interoperability Services 
+    * ide (*)	: Integrated development environment to develop applications online 
+    * wai (*)	: A demo website following Accessibility standards 
 
-2) Build and package platform
-----------------------------------
+On Windows, Open a DOS prompt command, go to PLF_HOME directory and type the command:
+    * To install an extension use: extension.bat --install <extension>
+    * To install all available extensions use: extension.bat --install all
+    * List all available extensions use: extension.bat --list
 
-You can build platform without packaging (only entreprise Tomcat bundle)it by using the following command:
+On Linux: Open a terminal, go to PLF_HOME directory and type the command :
+    * To install an extension use: extension.sh --install <extension>
+    * To install all available extensions use: extension.sh --install all
+    * List all available extensions use: extension.sh --list
 
-mvn clean install -Dmaven.test.skip=true
+(*) only on Express and Enterprise editions
 
-But that's only usable for development since in order to be able to run platform you have to package it.
+-----------------------
+eXo Resources
+-----------------------
 
-Platform can be packaged with different web / application servers. The specific server to use is selected by using an appropriate profile.
-
-  Packaging with JBoss-AS
-  --------------------------------
-
-If you don’t have an existing JBoss AS distribution, the build can automatically download it for you.
-
-Issue the following command:
-
-mvn install -Ppkg-jboss -Dmaven.test.skip=true -Ddownload
-
-If you have an existing JBoss-EAP distribution unpack it into SERVERS_DIR directory so that you get SERVERS_DIR/jboss-EAP-XYZ directory.
-
-In this case you can issue the following command:
-
-mvn install -Ppkg-jboss -Dmaven.test.skip=true -Dservers.dir=$SERVERS_DIR
-
-The packaged Platform is available in packaging/jboss-bundle/target/
-
-To start it, go to jboss directory, and run 'bin/run.sh' ('bin\run.bat' on Windows).
-
-Access the portal at: http://localhost:8080/portal
-
-
-  Packaging Community bundle with Tomcat 6.0.32
-  ---------------------------
-
-If you don’t have an existing Tomcat 6.0.32 distribution, the build can automatically download it for you.
-
-Issue the following command:
-
-mvn install -Ppkg-community -Pdownload
-
-If you have an existing Tomcat 6.0.32 distribution, unpack it into SERVERS_DIR directory so that you get SERVERS_DIR/apache-tomcat-6.0.32 directory.
-
-In this case you can issue the following command:
-
-mvn install -Ppkg-community-DskipTests -Dservers.dir=$SERVERS_DIR -Dgatein.dev=tomcat6 -Dserver.name=apache-tomcat-6.0.32
-
-
-The packaged Platform is available in packaging/tomcat/target/tomcat.
-
-To start, go to tomcat6 directory, and run 'start_eXo.sh' ('start_eXo.bat run' on Windows).
-
-Access the portal at: http://localhost:8080/portal
-
-Troubleshooting
-===============
-
-Maven dependencies issues
--------------------------
-
-While Platform should build without any extra maven repository configuration it may happen that the build complains about missing artifacts.
-
-If you encounter this situation, please let us know via our forums (http://forum.exoplatform.org).
-
-As a quick workaround you may try setting up maven repositories as follows.
-
-Create file settings.xml in $HOME/.m2  (%HOMEPATH%\.m2 on Windows) with the following content:
-
-<settings>
-  <profiles>
-    <profile>
-      <id>jboss-public-repository</id>
-      <repositories>
-        <repository>
-          <id>jboss-public-repository-group</id>
-          <name>JBoss Public Maven Repository Group</name>
-          <url>https://repository.jboss.org/nexus/content/groups/public-jboss/</url>
-          <layout>default</layout>
-          <releases>
-            <enabled>true</enabled>
-            <updatePolicy>never</updatePolicy>
-          </releases>
-          <snapshots>
-            <enabled>true</enabled>
-            <updatePolicy>never</updatePolicy>
-          </snapshots>
-        </repository>
-      </repositories>
-      <pluginRepositories>
-        <pluginRepository>
-          <id>jboss-public-repository-group</id>
-          <name>JBoss Public Maven Repository Group</name>
-          <url>https://repository.jboss.org/nexus/content/groups/public-jboss/</url>
-          <layout>default</layout>
-          <releases>
-            <enabled>true</enabled>
-            <updatePolicy>never</updatePolicy>
-          </releases>
-          <snapshots>
-            <enabled>true</enabled>
-            <updatePolicy>never</updatePolicy>
-          </snapshots>
-        </pluginRepository>
-      </pluginRepositories>
-    </profile>
-
-    <profile>
-      <id>exo-public-repository</id>
-      <repositories>
-        <repository>
-          <id>exo-public-repository-group</id>
-          <name>eXo Public Maven Repository Group</name>
-          <url>http://repository.exoplatform.org/content/groups/public</url>
-          <layout>default</layout>
-          <releases>
-            <enabled>true</enabled>
-            <updatePolicy>never</updatePolicy>
-          </releases>
-          <snapshots>
-            <enabled>true</enabled>
-            <updatePolicy>never</updatePolicy>
-          </snapshots>
-        </repository>
-      </repositories>
-      <pluginRepositories>
-        <pluginRepository>
-          <id>exo-public-repository-group</id>
-          <name>eXo Public Maven Repository Group</name>
-          <url>http://repository.exoplatform.org/content/groups/public</url>
-          <layout>default</layout>
-          <releases>
-            <enabled>true</enabled>
-            <updatePolicy>never</updatePolicy>
-          </releases>
-          <snapshots>
-            <enabled>true</enabled>
-            <updatePolicy>never</updatePolicy>
-          </snapshots>
-        </pluginRepository>
-      </pluginRepositories>
-    </profile>
-  </profiles>
-
-  <activeProfiles>
-    <activeProfile>jboss-public-repository</activeProfile>
-    <activeProfile>exo-public-repository</activeProfile>
-  </activeProfiles>
-</settings>
-
-
-Going Further
-=============
-Your next stop will depend on who you are:
-
-   * Developers: learn how to build your own portal, gadgets, REST services or eXo-based applications in the Developer Guide [http://docs.exoplatform.com/PLF35/topic/org.exoplatform.doc.35/DeveloperGuide.html] and the Reference Documentation [http://docs.exoplatform.com/PLF35/topic/org.exoplatform.doc.35/GateInReferenceGuide.html]
-   * Administrators: learn how to install eXo Platform on a server in the Administrator Guide: http://docs.exoplatform.com/PLF35/topic/org.exoplatform.doc.35/AdministratorGuide.html
-   * End Users: learn more about using the features in the User Manuals: http://docs.exoplatform.com/PLF35/topic/org.exoplatform.doc.35/UserGuide.html
+Community		http://community.exoplatform.com 
+Forum			http://forum.exoplatform.com 
+Documentation	http://docs.exoplatform.com 
+Blog			http://blog.exoplatform.com 
+Support		http://support.exoplatform.com 
+eXo			http://www.exoplatform.com
+Training		http://www.exoplatform.com/company/public/website/services/development/development-training
+Consulting		http://www.exoplatform.com/company/public/website/services/development/development-consulting
