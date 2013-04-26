@@ -65,7 +65,7 @@ Community		http://community.exoplatform.com
 Forum			http://forum.exoplatform.com 
 Documentation	http://docs.exoplatform.com 
 Blog			http://blog.exoplatform.com 
-Support		http://support.exoplatform.com 
-eXo			http://www.exoplatform.com
+Support		    http://support.exoplatform.com 
+eXo			    http://www.exoplatform.com
 Training		http://www.exoplatform.com/company/public/website/services/development/development-training
 Consulting		http://www.exoplatform.com/company/public/website/services/development/development-consulting
