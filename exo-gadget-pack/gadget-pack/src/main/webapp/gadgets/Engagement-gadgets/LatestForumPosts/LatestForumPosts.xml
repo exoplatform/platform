@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <Module>
   <ModulePrefs author="eXoPlatform"
-    title="Lastest Forum Posts"
-    directory_title="Lastest Forum Posts"
+    title="Latest Forum Posts"
+    directory_title="Latest Forum Posts"
     title_url="http://www.exoplatform.org"
-    description="Lastest forum posts">
+    description="Latest forum posts">
     <Locale messages="locale/default.xml" />
     <Locale lang="fr" messages="locale/fr.xml" />
     <Locale lang="it" messages="locale/it.xml" />
+    <Locale lang="es" messages="locale/es_ES.xml" />
     <Require feature="setprefs"/>
     <Require feature="dynamic-height"/>
   </ModulePrefs>

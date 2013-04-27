@@ -6,6 +6,7 @@
     <Locale messages="locale/default.xml" />
     <Locale lang="fr" messages="locale/fr.xml" />
     <Locale lang="it" messages="locale/it.xml" />
+    <Locale lang="es" messages="locale/es_ES.xml" />
 </ModulePrefs>
 <Content type="html">
 <![CDATA[   

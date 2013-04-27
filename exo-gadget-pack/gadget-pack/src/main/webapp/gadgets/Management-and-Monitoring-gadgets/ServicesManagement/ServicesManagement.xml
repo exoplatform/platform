@@ -40,6 +40,7 @@
       <Locale lang="fr" messages="locale/fr_ALL.xml" />
       <Locale lang="vi" messages="locale/vi_ALL.xml" />
       <Locale lang="it" messages="locale/it_ALL.xml" />
+      <Locale lang="es" messages="locale/es_ES.xml" />
       <Require feature="dynamic-height"/>
       <Require feature="minimessage"/>
       <Require feature="views"/>

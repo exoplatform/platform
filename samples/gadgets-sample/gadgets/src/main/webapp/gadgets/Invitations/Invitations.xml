@@ -11,7 +11,7 @@
     <Locale messages="locales/default.xml" />
     <Locale lang="fr" messages="locales/fr.xml" />
     <Locale lang="it" messages="locales/it.xml" />
-    <Locale lang="es_ES" messages="locales/es_ES.xml" />
+    <Locale lang="es" messages="locales/es_ES.xml" />
   </ModulePrefs>
   <Content type="html">
     <![CDATA[     

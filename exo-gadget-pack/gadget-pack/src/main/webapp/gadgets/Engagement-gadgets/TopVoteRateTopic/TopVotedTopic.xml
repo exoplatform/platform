@@ -10,6 +10,7 @@
     <Locale messages="locale/default.xml" />
     <Locale lang="fr" messages="locale/fr.xml" />
     <Locale lang="it" messages="locale/it.xml" />
+    <Locale lang="es" messages="locale/es_ES.xml" />
   </ModulePrefs>
   <UserPref name="maxcount" display_name="__MSG_topic.top.vote.maxcount__" default_value="5" datatype="enum" >
     <EnumValue value="5" />
