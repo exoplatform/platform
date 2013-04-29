@@ -35,6 +35,9 @@
          </value-param>
       </init-params>
    </component>
+   <component>
+      <type>org.exoplatform.services.rest.ext.service.RestServicesListApplication</type>
+   </component>
    <external-component-plugins>
     <target-component>org.exoplatform.services.jcr.config.RepositoryServiceConfiguration</target-component>
     <component-plugin>
