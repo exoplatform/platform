@@ -9,10 +9,6 @@
    </component>
 
    <component>
-      <type>org.exoplatform.services.rest.ext.service.RestServicesListApplication</type>
-   </component>
-
-   <component>
       <type>org.exoplatform.services.jcr.ext.registry.RegistryService</type>
       <init-params>
          <properties-param>
