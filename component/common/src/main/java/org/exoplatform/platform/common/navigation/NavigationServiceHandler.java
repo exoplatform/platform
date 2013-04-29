@@ -26,7 +26,6 @@ import org.exoplatform.services.log.Log;
 import org.picocontainer.Startable;
 
 import javax.jcr.Node;
-import javax.jcr.NodeIterator;
 import javax.jcr.Session;
 
 /**
@@ -60,47 +59,21 @@ public class NavigationServiceHandler implements Startable {
     }
 
     public String getHomePageLogoURI() {
-
-        Node imageNode = null;
         String pathImageNode = null;
-
+        Node fileNode = null;
         try {
+            Node logosNode = rootNode.getNode(path);
+            if (logosNode.hasNode(logo_name)) {
+                fileNode = logosNode.getNode(logo_name);
+                pathImageNode = fileNode.getPath()+"?"+System.currentTimeMillis();
 
-            String path = "Application Data/logos/";
-            Node logoNode = rootNode.getNode(path);
-            if (logoNode.hasNodes()) {
-                for (NodeIterator iterator = logoNode.getNodes(); iterator.hasNext(); ) {
-                    Node node = iterator.nextNode();
-                    imageNode = node;
-                    if (imageNode.hasNode("jcr:content")) {
-                        if (imageNode.getNode("jcr:content").hasProperty("jcr:mimeType")) {
-                            String JcrMimeType = imageNode.getNode("jcr:content").getProperty("jcr:mimeType").getString();
-                            if (JcrMimeType.equals("image/gif") || JcrMimeType.equals("image/ief") ||
-                                    JcrMimeType.equals("image/jpeg") || JcrMimeType.equals("image/pjpeg") ||
-                                    JcrMimeType.equals("image/bmp") || JcrMimeType.equals("image/x-portable-bitmap") ||
-                                    JcrMimeType.equals("image/x-portable-graymap") || JcrMimeType.equals("image/png") ||
-                                    JcrMimeType.equals("image/x-png") || JcrMimeType.equals("image/x-portable-anymap") ||
-                                    JcrMimeType.equals("image/x-portable-pixmap") || JcrMimeType.equals("image/x-cmu-raster") ||
-                                    JcrMimeType.equals("image/x-rgb") || JcrMimeType.equals("image/tiff") ||
-                                    JcrMimeType.equals("image/x-xbitmap") || JcrMimeType.equals("image/x-xpixmap") ||
-                                    JcrMimeType.equals("image/x-xwindowdump")) {
-
-                                pathImageNode = imageNode.getPath()+"?"+System.currentTimeMillis();
-                                break;
-
-                            }
-                        }
-                    }
-                }
             }
         } catch (Exception e) {
-            logger.warn("Company LOGO not specified : default LOGO will be used");
+            logger.warn("Can not get path of Logo : default LOGO will be used");
             return null;
 
         }
         return pathImageNode;
-
-
     }
 
     @Override
