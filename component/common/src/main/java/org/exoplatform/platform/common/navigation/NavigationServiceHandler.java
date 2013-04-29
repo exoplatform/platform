@@ -23,6 +23,7 @@ import org.exoplatform.services.jcr.ext.common.SessionProvider;
 import org.exoplatform.services.jcr.ext.hierarchy.NodeHierarchyCreator;
 import org.exoplatform.services.log.ExoLogger;
 import org.exoplatform.services.log.Log;
+import org.picocontainer.Startable;
 
 import javax.jcr.Node;
 import javax.jcr.NodeIterator;
@@ -32,22 +33,39 @@ import javax.jcr.Session;
  * @author <a href="hzekri@exoplatform.com">hzekri</a>
  * @date 26/11/12
  */
-public class NavigationServiceHandler {
+public class NavigationServiceHandler implements Startable {
 
     private static Log logger = ExoLogger.getLogger(NavigationServiceHandler.class);
+    NodeHierarchyCreator nodeCreator;
+    Session session;
+    SessionProvider sProvider;
+    Node rootNode;
+    Node publicApplicationNode;
+    String path = "Application Data/logos/";
+    String logo_name  = "logo.png";
 
-    public static String getHomePageLogoURI() {
-        Boolean isavailable = false;
+    @Override
+    public void start()
+    {
+        nodeCreator = (NodeHierarchyCreator) ExoContainerContext.getCurrentContainer().getComponentInstanceOfType(NodeHierarchyCreator.class);
+        sProvider = SessionProvider.createSystemProvider();
+
+        try {
+            publicApplicationNode = nodeCreator.getPublicApplicationNode(sProvider);
+            session = publicApplicationNode.getSession();
+            rootNode = session.getRootNode();
+        } catch (Exception e) {
+            logger.warn("Can not create rootNode when starting NavigationServiceHandler");
+        }
+    }
+
+    public String getHomePageLogoURI() {
+
         Node imageNode = null;
         String pathImageNode = null;
-        Session session = null;
-        SessionProvider sProvider = null;
+
         try {
-            NodeHierarchyCreator nodeCreator = (NodeHierarchyCreator) ExoContainerContext.getCurrentContainer().getComponentInstanceOfType(NodeHierarchyCreator.class);
-            sProvider = SessionProvider.createSystemProvider();
-            Node publicApplicationNode = nodeCreator.getPublicApplicationNode(sProvider);
-            session = publicApplicationNode.getSession();
-            Node rootNode = session.getRootNode();
+
             String path = "Application Data/logos/";
             Node logoNode = rootNode.getNode(path);
             if (logoNode.hasNodes()) {
@@ -79,19 +97,14 @@ public class NavigationServiceHandler {
             logger.warn("Company LOGO not specified : default LOGO will be used");
             return null;
 
-        } finally {
-
-            if (session != null) {
-                session.logout();
-            }
-
-            if (sProvider != null) {
-                sProvider.close();
-            }
-
         }
         return pathImageNode;
 
 
+    }
+
+    @Override
+    public void stop() {
+        //To change body of implemented methods use File | Settings | File Templates.
     }
 }
