@@ -19,12 +19,10 @@
 package org.exoplatform.platform.common.navigation;
 
 import org.exoplatform.container.ExoContainerContext;
-import org.exoplatform.services.jcr.RepositoryService;
 import org.exoplatform.services.jcr.ext.common.SessionProvider;
 import org.exoplatform.services.jcr.ext.hierarchy.NodeHierarchyCreator;
 import org.exoplatform.services.log.ExoLogger;
 import org.exoplatform.services.log.Log;
-import org.picocontainer.Startable;
 
 import javax.jcr.Node;
 import javax.jcr.NodeIterator;
@@ -34,58 +32,9 @@ import javax.jcr.Session;
  * @author <a href="hzekri@exoplatform.com">hzekri</a>
  * @date 26/11/12
  */
-public class NavigationServiceHandler implements Startable {
-
-    RepositoryService   repositoryService;
+public class NavigationServiceHandler {
 
     private static Log logger = ExoLogger.getLogger(NavigationServiceHandler.class);
-
-
-    public NavigationServiceHandler() {
-        repositoryService = (RepositoryService) ExoContainerContext.getCurrentContainer().getComponentInstanceOfType(RepositoryService.class);
-    }
-
-    @Override
-    public void start() {
-        if (logger.isDebugEnabled()) {
-            logger.debug("NavigationServiceHandler starts");
-        }
-        Session session = null;
-        SessionProvider sessionProvider = null;
-
-        try {
-            sessionProvider = SessionProvider.createSystemProvider();
-            session = sessionProvider.getSession("collaboration",repositoryService.getCurrentRepository());
-            Node rootNode = session.getRootNode();
-            if (!rootNode.hasNode("Application Data")) {
-                rootNode.addNode("Application Data", "nt:folder");
-                session.save();
-            }
-            Node applicationDataNode = rootNode.getNode("Application Data");
-            if (!applicationDataNode.hasNode("logos")) {
-                applicationDataNode.addNode("logos", "nt:folder");
-                session.save();
-            }
-        } catch (Exception e) {
-            logger.error("NavigationServiceHandler - Error while creating the logo folder : ", e.getMessage());
-        } finally {
-
-            if (session != null) {
-                session.logout();
-            }
-
-            if (sessionProvider != null) {
-                sessionProvider.close();
-            }
-
-        }
-    }
-
-    @Override
-    public void stop() {
-        //To change body of implemented methods use File | Settings | File Templates.
-    }
-
 
     public static String getHomePageLogoURI() {
         Boolean isavailable = false;
