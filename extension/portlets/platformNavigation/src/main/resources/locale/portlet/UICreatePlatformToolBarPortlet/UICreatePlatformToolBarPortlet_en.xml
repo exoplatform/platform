@@ -12,6 +12,8 @@
    </UIUserPlatformToolBarCreatePortlet>
    <UICreateList>
       <label>
+         <topic>topic</topic>
+         <poll>poll</poll>
          <CreateANew>Create a new {1}:</CreateANew>
          <NoForum>Sorry, no forum is available yet to create a {1}. Start by creating your own space.</NoForum>
          <RequireSelectForum>Please select a forum.</RequireSelectForum>
