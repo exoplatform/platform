@@ -47,32 +47,31 @@ public class NavigationServiceHandler implements Startable {
     public void start()
     {
         nodeCreator = (NodeHierarchyCreator) ExoContainerContext.getCurrentContainer().getComponentInstanceOfType(NodeHierarchyCreator.class);
-        sProvider = SessionProvider.createSystemProvider();
-
-        try {
-            publicApplicationNode = nodeCreator.getPublicApplicationNode(sProvider);
-            session = publicApplicationNode.getSession();
-            rootNode = session.getRootNode();
-        } catch (Exception e) {
-            logger.warn("Can not create rootNode when starting NavigationServiceHandler");
-        }
     }
 
     public String getHomePageLogoURI() {
         String pathImageNode = null;
-        Node fileNode = null;
+        Node ImageNode = null;
+        sProvider = SessionProvider.createSystemProvider();
         try {
+            publicApplicationNode = nodeCreator.getPublicApplicationNode(sProvider);
+            session = publicApplicationNode.getSession();
+            rootNode = session.getRootNode();
             Node logosNode = rootNode.getNode(path);
             if (logosNode.hasNode(logo_name)) {
-                fileNode = logosNode.getNode(logo_name);
-                pathImageNode = fileNode.getPath()+"?"+System.currentTimeMillis();
+                ImageNode = logosNode.getNode(logo_name);
+                pathImageNode = ImageNode.getPath()+"?"+System.currentTimeMillis();
 
             }
         } catch (Exception e) {
-            logger.warn("Can not get path of Logo : default LOGO will be used");
+            logger.error("Can not get path of Logo : default LOGO will be used" + e.getMessage(), e);
             return null;
-
         }
+        finally {
+          if  (sProvider != null)
+              sProvider.close ();
+        }
+
         return pathImageNode;
     }
 
