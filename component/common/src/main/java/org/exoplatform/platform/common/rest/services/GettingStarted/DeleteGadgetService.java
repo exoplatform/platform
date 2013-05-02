@@ -49,6 +49,8 @@ public class DeleteGadgetService implements ResourceContainer {
     @Produces(MediaType.APPLICATION_JSON)
 
     public Response delete() throws Exception {
+
+        SessionProvider sProvider = null;
         try {
 
             String userId = ConversationState.getCurrent().getIdentity().getUserId();
@@ -57,7 +59,7 @@ public class DeleteGadgetService implements ResourceContainer {
             }
 
             NodeHierarchyCreator nodeCreator = (NodeHierarchyCreator) ExoContainerContext.getCurrentContainer().getComponentInstanceOfType(NodeHierarchyCreator.class);
-            SessionProvider sProvider = SessionProvider.createSystemProvider();
+            sProvider = SessionProvider.createSystemProvider();
             Node userPrivateNode = nodeCreator.getUserNode(sProvider, userId).getNode("ApplicationData");
             if (userPrivateNode.hasNode("GsGadget")) {
                 Node gettingStartedNode = userPrivateNode.getNode("GsGadget");
@@ -78,6 +80,12 @@ public class DeleteGadgetService implements ResourceContainer {
             } else return Response.ok("no Node GsGadget ").build();
         } catch (Exception e) {
             return Response.status(HTTPStatus.INTERNAL_ERROR).build();
+        } finally {
+            if (sProvider != null ) {
+                sProvider.close();
+
+            }
+
         }
     }
 
@@ -87,6 +95,7 @@ public class DeleteGadgetService implements ResourceContainer {
     @Produces(MediaType.APPLICATION_JSON)
 
     public Response setDelete() throws Exception {
+        SessionProvider sProvider = null;
         try {
             String userId = ConversationState.getCurrent().getIdentity().getUserId();
 
@@ -97,7 +106,7 @@ public class DeleteGadgetService implements ResourceContainer {
             NodeHierarchyCreator nodeCreator = (NodeHierarchyCreator) ExoContainerContext.getCurrentContainer()
                     .getComponentInstanceOfType(NodeHierarchyCreator.class);
 
-            SessionProvider sProvider = SessionProvider.createSystemProvider();
+            sProvider = SessionProvider.createSystemProvider();
 
             Node userPrivateNode = nodeCreator.getUserNode(sProvider, userId).getNode("ApplicationData");
 
@@ -121,47 +130,14 @@ public class DeleteGadgetService implements ResourceContainer {
 
             return Response.status(HTTPStatus.INTERNAL_ERROR).build();
 
-        }
-    }
+        } finally {
+            if (sProvider != null) {
+                sProvider.close();
 
-
-/*    @GET
-    @Path("removeAppFromHomePage")
-    public Response removeAppFromHomePage() throws Exception {
-        try {
-            UserNavigation userNav =getNavigation(SiteKey.portal(getCurrentPortal()));
-            UserNode userNode=getSelectedPageNode();
-            userNode.getPageRef();
-            String userId = ConversationState.getCurrent().getIdentity().getUserId();
-            if (userId == null) {
-                return Response.status(HTTPStatus.INTERNAL_ERROR).build();
             }
 
-        } catch (Exception e) {
-            return Response.status(HTTPStatus.INTERNAL_ERROR).build();
         }
-    }    */
-
-    /*
-    private UserNavigation getNavigation(SiteKey userKey) {
-        UserPortal userPortal = getUserPortal();
-        return userPortal.getNavigation(userKey);
     }
-
-    private UserPortal getUserPortal() {
-        PortalRequestContext portalRequestContext = Util.getPortalRequestContext();
-        return portalRequestContext.getUserPortal();
-    }
-
-    public String getCurrentPortal() {
-        return Util.getPortalRequestContext().getPortalOwner();
-    }
-
-    public UserNode getSelectedPageNode() throws Exception {
-        return Util.getUIPortal().getSelectedUserNode();
-    }
-    */
-
 
     @GET
     @Path("IsDelete")
