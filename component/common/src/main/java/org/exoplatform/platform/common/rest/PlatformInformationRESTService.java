@@ -86,9 +86,10 @@ public class PlatformInformationRESTService implements ResourceContainer {
         CacheControl cacheControl = new CacheControl();
         cacheControl.setNoCache(true);
         cacheControl.setNoStore(true);
+        SessionProvider sessionProvider = null;
         try {
             PortalContainer container = PortalContainer.getInstance();
-            SessionProvider sessionProvider = SessionProvider.createSystemProvider();
+            sessionProvider = SessionProvider.createSystemProvider();
             NodeHierarchyCreator nodeHierarchyCreator = (NodeHierarchyCreator) container.getComponentInstanceOfType(NodeHierarchyCreator.class);
             RepositoryService repoService = (RepositoryService) container.getComponentInstanceOfType(RepositoryService.class);
             String plfProfile = PortalContainer.getProfiles().toString().trim();
@@ -123,6 +124,10 @@ public class PlatformInformationRESTService implements ResourceContainer {
         } catch (Exception e) {
             LOG.error("An error occured while getting platform version information.", e);
             return Response.status(HTTPStatus.INTERNAL_ERROR).cacheControl(cacheControl).build();
+        } finally {
+            if (sessionProvider!=null) {
+                sessionProvider.close ();
+            }
         }
     }
 
