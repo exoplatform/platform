@@ -68,6 +68,9 @@ public class NavigationServiceHandler implements Startable {
             return null;
         }
         finally {
+          if  (session != null)
+              session.logout();
+
           if  (sProvider != null)
               sProvider.close ();
         }
