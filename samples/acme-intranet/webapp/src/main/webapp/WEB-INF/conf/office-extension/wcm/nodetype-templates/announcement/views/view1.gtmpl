@@ -63,7 +63,7 @@
             }
             if(isShowTags) {
               NewFolksonomyService folkService = uicomponent.getApplicationComponent(NewFolksonomyService.class);
-              def nodeLocation = NodeLocation.make(currentNode);
+              def nodeLocation = NodeLocation.getNodeLocationByNode(currentNode);
               List<Node> tagList = folkService.getLinkedTagsOfDocument(currentNode, nodeLocation.getWorkspace());
               if(!tagList.isEmpty()) {
                 StringBuffer tagBuff = new StringBuffer("[");
