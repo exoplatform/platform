@@ -82,17 +82,23 @@ public class TermsAndConditionsServiceImpl implements TermsAndConditionsService 
    *======================================================================*/
   
   private void createTermsAndConditions() {
-    try {
-      Node publicApplicationNode = nodeHierarchyCreator.getPublicApplicationNode(SessionProvider.createSystemProvider());
-      if(! publicApplicationNode.hasNode(TC_NODE_NAME)) {
-        publicApplicationNode = publicApplicationNode.addNode(TC_NODE_NAME, "nt:folder");
-        publicApplicationNode.addMixin("mix:referenceable");
-        publicApplicationNode.getSession().save();
+      SessionProvider sessionProvider = SessionProvider.createSystemProvider();
+
+      try {
+          Node publicApplicationNode = nodeHierarchyCreator.getPublicApplicationNode(sessionProvider);
+          if(! publicApplicationNode.hasNode(TC_NODE_NAME)) {
+              publicApplicationNode = publicApplicationNode.addNode(TC_NODE_NAME, "nt:folder");
+              publicApplicationNode.addMixin("mix:referenceable");
+              publicApplicationNode.getSession().save();
+          }
+      } catch(Exception e) {
+        logger.error("Terms and conditions: cannot create node", e);
+      } finally {
+          if (sessionProvider != null) {
+              sessionProvider.close();
+
+          }
       }
-    }
-    catch(Exception e) {
-      logger.error("Terms and conditions: cannot create node", e);
-    }
   }
 
   private boolean hasTermsAndConditions() {
@@ -120,12 +126,14 @@ public class TermsAndConditionsServiceImpl implements TermsAndConditionsService 
               } catch (Exception E) {
 
                   logger.error("Terms and conditions: connot get node", E);
+                  hasTermsAndConditionsNode = false;
 
               } finally {
                   //--- Close the sessionP (all session opened by this provider will be closed)
                   sessionProvider.close();
-                  return hasTermsAndConditionsNode;
               }
+
+              return hasTermsAndConditionsNode;
           }
 
       } catch(Exception e) {
