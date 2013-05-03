@@ -990,7 +990,18 @@
       <portlet>
         <application-ref>presentation</application-ref>
         <portlet-ref>SingleContentViewer</portlet-ref>
-        <preferences></preferences>
+        <preferences>
+          <preference>
+            <name>ContextEnable</name>
+            <value>true</value>
+            <read-only>false</read-only>
+          </preference>
+          <preference>
+            <name>ParameterName</name>
+            <value>content-id</value>
+            <read-only>false</read-only>
+          </preference>	
+	</preferences>
       </portlet>
       <title>Print viewer</title>
       <access-permissions>Everyone</access-permissions>
