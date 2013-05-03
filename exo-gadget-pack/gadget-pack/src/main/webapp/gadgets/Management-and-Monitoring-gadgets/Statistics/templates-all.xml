@@ -56,9 +56,16 @@
             color: #808080;
             font-size: 11px;
           }
+          
+          .btn-group .btn {
+          	background-color: #F9F9F9;
+          } 
+                   
           .btn-group .btn.active {
 			color: #2F5E92;
-		   }
+			background-color: #E6E6E6;
+          }
+          
         </style>
       <script language="javascript" type="text/javascript" src="/eXoResources/javascript/jquery-1.7.1.js"></script>
       <script language="javascript" type="text/javascript" src="script/jquery-plugins/jquery.number_format.js"></script>
@@ -81,7 +88,7 @@
                 }
                 items.push('<li>');
                 items.push('<div class="appData clearfix">');
-                items.push('<span id="application_'+i+'_'+key+'" class="appTitle" data-placement="bottom" rel="tooltip" data-original-title="' +applicationID+'"><b>'+applicationID+'</b></span>');
+                items.push('<span id="application_'+i+'_'+key+'" class="appTitle pull-left" data-placement="bottom" rel="tooltip" data-original-title="' +applicationID+'"><b>'+applicationID+'</b></span>');
                 items.push('<span class="'+avgExecTimeCssClass+'" title="Average execution time (ms)">'+formatInteger(Math.round(application.averageTime))+' '+application.timeUnit+'</span>');
                 items.push('</div>');
                 items.push('<p class="appDetailTime">');
