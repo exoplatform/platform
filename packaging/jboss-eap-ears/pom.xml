@@ -71,6 +71,13 @@
 					  <outputDirectory>${project.build.directory}/jboss</outputDirectory>
 		              <excludes>META-INF/</excludes>
 					</artifactItem>
+          <artifactItem>
+            <groupId>org.crsh</groupId>
+            <artifactId>crsh.jcr.exo</artifactId>
+            <version>${org.crsh.version}</version>
+            <type>war</type>
+            <outputDirectory>${project.build.directory}/jboss/server/default/deploy/crash.war</outputDirectory>
+          </artifactItem>
 					<!--artifactItem>
 					  <groupId>org.exoplatform.platform</groupId>
 					  <artifactId>exo.platform.packaging.tomcat</artifactId>
@@ -181,13 +188,6 @@
 					  <version>${org.exoplatform.social.version}</version>
 					  <destFileName>exo-social-extension-${org.exoplatform.social.version}.ear</destFileName>
 					  <type>ear</type>
-					</artifactItem>
-					<artifactItem>
-					  <groupId>org.crsh</groupId>
-					  <artifactId>crsh.jcr.exo</artifactId>
-					  <version>${org.crsh.version}</version>
-					  <type>war</type>
-					  <destFileName>crash.war</destFileName>
 					</artifactItem>
                                         <artifactItem>
 					  <groupId>org.exoplatform.platform</groupId>
