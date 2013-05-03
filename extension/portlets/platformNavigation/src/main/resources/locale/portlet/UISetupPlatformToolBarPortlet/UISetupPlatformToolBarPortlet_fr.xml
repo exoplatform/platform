@@ -3,7 +3,7 @@
 	<UISetupPlatformToolBarPortlet>
 		<label>
 			<applications>Applications</applications>
-			<content>Mode Edition de Contenu</content>
+			<content>Contenu</content>
 			<siteExplorer>Explorateur de Sites</siteExplorer>
 			<wcmAdmin>Administration de contenu</wcmAdmin>
 			<users>Utilisateurs</users>

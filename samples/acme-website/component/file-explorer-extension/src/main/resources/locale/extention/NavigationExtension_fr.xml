@@ -29,7 +29,7 @@
 				<index>Index:</index>
 				<clickable>Cliquable:</clickable>
 				<page>Page:</page>
-				<childrenPage>Pages fils:</childrenPage>
+				<childrenPage>Sous-Pages:</childrenPage>
 			</label>
 		</dialog>
 	</PopulateToMenu>
