@@ -39,7 +39,7 @@
   <msg name="loginHistory.averagePerDay">Moyenne des connexions / jour</msg>
   <msg name="loginHistory.averagePerWeek">Moyenne des connexions / semaine</msg>
   <msg name="loginHistory.averagePerMonth">Moyenne des connexions / mois</msg>
-  <msg name="loginHistory.today">Aujourd'hui</msg>
+  <msg name="loginHistory.today">Aujourd\'hui</msg>
   <msg name="loginHistory.earlierThisWeek">Plus tôt cette semaine</msg>
   <msg name="loginHistory.earlierThisMonth">Plus tôt ce mois-ci</msg>
   <msg name="loginHistory.earlier">Plus tôt</msg>
