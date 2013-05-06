@@ -74,6 +74,7 @@ public class GettingStartedRestService implements ResourceContainer {
     public Response get(@Context
                         SecurityContext sc, @Context
     UriInfo uriInfo) throws Exception {
+        SessionProvider sProvider = null;
         try {
             String userId = ConversationState.getCurrent().getIdentity().getUserId();
             if (userId == null) {
@@ -82,7 +83,7 @@ public class GettingStartedRestService implements ResourceContainer {
 
             NodeHierarchyCreator nodeCreator = (NodeHierarchyCreator) ExoContainerContext.getCurrentContainer()
                     .getComponentInstanceOfType(NodeHierarchyCreator.class);
-            SessionProvider sProvider = SessionProvider.createSystemProvider();
+            sProvider = SessionProvider.createSystemProvider();
             Node userPrivateNode = nodeCreator.getUserNode(sProvider, userId).getNode("ApplicationData");
             if (!userPrivateNode.hasNode("GsGadget")) {
                 Node gettingStartedNode = userPrivateNode.addNode("GsGadget");
@@ -119,6 +120,11 @@ public class GettingStartedRestService implements ResourceContainer {
         } catch (Exception e) {
             log.debug("Error in gettingStarted REST service: " + e.getMessage(), e);
             return Response.status(HTTPStatus.INTERNAL_ERROR).cacheControl(cacheControl).build();
+        } finally {
+            if (sProvider != null) {
+                sProvider.close();
+            }
+
         }
     }
 

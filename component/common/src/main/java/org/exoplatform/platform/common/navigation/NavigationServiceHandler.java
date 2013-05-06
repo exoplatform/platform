@@ -19,102 +19,67 @@
 package org.exoplatform.platform.common.navigation;
 
 import org.exoplatform.container.ExoContainerContext;
-import org.exoplatform.portal.webui.util.Util;
 import org.exoplatform.services.jcr.ext.common.SessionProvider;
 import org.exoplatform.services.jcr.ext.hierarchy.NodeHierarchyCreator;
 import org.exoplatform.services.log.ExoLogger;
 import org.exoplatform.services.log.Log;
-import org.exoplatform.services.wcm.core.BaseWebSchemaHandler;
+import org.picocontainer.Startable;
 
 import javax.jcr.Node;
-import javax.jcr.NodeIterator;
-import javax.jcr.RepositoryException;
 import javax.jcr.Session;
-import java.util.Calendar;
-import java.util.GregorianCalendar;
 
 /**
  * @author <a href="hzekri@exoplatform.com">hzekri</a>
  * @date 26/11/12
  */
-public class NavigationServiceHandler extends BaseWebSchemaHandler {
+public class NavigationServiceHandler implements Startable {
 
     private static Log logger = ExoLogger.getLogger(NavigationServiceHandler.class);
-    Calendar calendar = new GregorianCalendar();
+    NodeHierarchyCreator nodeCreator;
+    Session session;
+    SessionProvider sProvider;
+    Node rootNode;
+    Node publicApplicationNode;
+    String path = "Application Data/logos/";
+    String logo_name  = "logo.png";
 
-    public void onCreateNode(SessionProvider sessionProvider, final Node portalFolder) throws Exception {
-
-        if (portalFolder.hasNode("ApplicationData")) {
-            Node applicationDataFolder = portalFolder.getNode("ApplicationData");
-            Node logoApplicationFolder = applicationDataFolder.addNode("logo", NT_UNSTRUCTURED);
-            addMixin(logoApplicationFolder, "exo:owneable");
-            addMixin(logoApplicationFolder, "exo:datetime");
-            addMixin(logoApplicationFolder, "exo:hiddenable");
-            logoApplicationFolder.setProperty("exo:dateCreated", calendar);
-
-        }
-
-        portalFolder.getSession().save();
+    @Override
+    public void start()
+    {
+        nodeCreator = (NodeHierarchyCreator) ExoContainerContext.getCurrentContainer().getComponentInstanceOfType(NodeHierarchyCreator.class);
     }
 
-    public static String getHomePageLogoURI() {
-        Boolean isavailable = false;
-        Node imageNode = null;
+    public String getHomePageLogoURI() {
         String pathImageNode = null;
+        Node ImageNode = null;
+        sProvider = SessionProvider.createSystemProvider();
         try {
-            NodeHierarchyCreator nodeCreator = (NodeHierarchyCreator) ExoContainerContext.getCurrentContainer().getComponentInstanceOfType(NodeHierarchyCreator.class);
-            SessionProvider sProvider = SessionProvider.createSystemProvider();
-            Node publicApplicationNode = nodeCreator.getPublicApplicationNode(sProvider);
-            Session session = publicApplicationNode.getSession();
-            Node rootNode = session.getRootNode();
-            String path = "Application Data/logos/";
-            Node logoNode = rootNode.getNode(path);
-            if (logoNode.hasNodes()) {
-                for (NodeIterator iterator = logoNode.getNodes(); iterator.hasNext(); ) {
-                    Node node = iterator.nextNode();
-                    imageNode = node;
-                    if (imageNode.hasNode("jcr:content")) {
-                        if (imageNode.getNode("jcr:content").hasProperty("jcr:mimeType")) {
-                            String JcrMimeType = imageNode.getNode("jcr:content").getProperty("jcr:mimeType").getString();
-                            if (JcrMimeType.equals("image/gif") || JcrMimeType.equals("image/ief") ||
-                                    JcrMimeType.equals("image/jpeg") || JcrMimeType.equals("image/pjpeg") ||
-                                    JcrMimeType.equals("image/bmp") || JcrMimeType.equals("image/x-portable-bitmap") ||
-                                    JcrMimeType.equals("image/x-portable-graymap") || JcrMimeType.equals("image/png") ||
-                                    JcrMimeType.equals("image/x-png") || JcrMimeType.equals("image/x-portable-anymap") ||
-                                    JcrMimeType.equals("image/x-portable-pixmap") || JcrMimeType.equals("image/x-cmu-raster") ||
-                                    JcrMimeType.equals("image/x-rgb") || JcrMimeType.equals("image/tiff") ||
-                                    JcrMimeType.equals("image/x-xbitmap") || JcrMimeType.equals("image/x-xpixmap") ||
-                                    JcrMimeType.equals("image/x-xwindowdump")) {
+            publicApplicationNode = nodeCreator.getPublicApplicationNode(sProvider);
+            session = publicApplicationNode.getSession();
+            rootNode = session.getRootNode();
+            Node logosNode = rootNode.getNode(path);
+            if (logosNode.hasNode(logo_name)) {
+                ImageNode = logosNode.getNode(logo_name);
+                pathImageNode = ImageNode.getPath()+"?"+System.currentTimeMillis();
 
-                                isavailable = true;
-                                break;
-                            }
-                        }
-                    }
-                }
             }
         } catch (Exception e) {
-         //   logger.error("Get logo : Can not Find node", e);
-        }
-        if (isavailable == true) {
-            try {
-                pathImageNode = imageNode.getPath()+"?"+System.currentTimeMillis();
-            } catch (RepositoryException e) {
-                logger.error("Get logo : Can not Find the path of node", e);
-            }
-            return pathImageNode;
-        } else
+            logger.error("Can not get path of Logo : default LOGO will be used" + e.getMessage(), e);
             return null;
+        }
+        finally {
+          if  (session != null)
+              session.logout();
+
+          if  (sProvider != null)
+              sProvider.close ();
+        }
+
+        return pathImageNode;
     }
 
-
     @Override
-    protected String getHandlerNodeType() {
-        return "exo:portalFolder";
-    }
-
-    @Override
-    protected String getParentNodeType() {
-        return "nt:unstructured";
+    public void stop() {
+        //To change body of implemented methods use File | Settings | File Templates.
     }
 }

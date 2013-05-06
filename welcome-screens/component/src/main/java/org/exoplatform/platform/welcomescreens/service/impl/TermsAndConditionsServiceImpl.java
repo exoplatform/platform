@@ -24,11 +24,17 @@ import javax.jcr.Node;
  */
 public class TermsAndConditionsServiceImpl implements TermsAndConditionsService {
 
-  private static Log logger = ExoLogger.getLogger(TermsAndConditionsServiceImpl.class);
-  private static final String CHROMATTIC_LIFECYCLE_NAME = "termsandconditions";
-  private static final String TC_NODE_NAME = "TermsAndConditions";
-  private ChromatticLifeCycle lifeCycle;
-  private NodeHierarchyCreator nodeHierarchyCreator;
+    private static Log logger = ExoLogger.getLogger(TermsAndConditionsServiceImpl.class);
+
+    private static final String CHROMATTIC_LIFECYCLE_NAME = "termsandconditions";
+
+    private static final String TC_NODE_NAME = "TermsAndConditions";
+
+    private ChromatticLifeCycle lifeCycle;
+
+    private NodeHierarchyCreator nodeHierarchyCreator;
+
+    private static boolean hasTermsAndConditionsNode = false;
 
   
   /*=======================================================================
@@ -76,30 +82,65 @@ public class TermsAndConditionsServiceImpl implements TermsAndConditionsService 
    *======================================================================*/
   
   private void createTermsAndConditions() {
-    try {
-      Node publicApplicationNode = nodeHierarchyCreator.getPublicApplicationNode(SessionProvider.createSystemProvider());
-      if(! publicApplicationNode.hasNode(TC_NODE_NAME)) {
-        publicApplicationNode = publicApplicationNode.addNode(TC_NODE_NAME, "nt:folder");
-        publicApplicationNode.addMixin("mix:referenceable");
-        publicApplicationNode.getSession().save();
+      SessionProvider sessionProvider = SessionProvider.createSystemProvider();
+
+      try {
+          Node publicApplicationNode = nodeHierarchyCreator.getPublicApplicationNode(sessionProvider);
+          if(! publicApplicationNode.hasNode(TC_NODE_NAME)) {
+              publicApplicationNode = publicApplicationNode.addNode(TC_NODE_NAME, "nt:folder");
+              publicApplicationNode.addMixin("mix:referenceable");
+              publicApplicationNode.getSession().save();
+          }
+      } catch(Exception e) {
+        logger.error("Terms and conditions: cannot create node", e);
+      } finally {
+          if (sessionProvider != null) {
+              sessionProvider.close();
+
+          }
       }
-    }
-    catch(Exception e) {
-      logger.error("Terms and conditions: cannot create node", e);
-    }
   }
 
   private boolean hasTermsAndConditions() {
-    boolean hasNode = false;
-    try {
-      Node publicApplicationNode = nodeHierarchyCreator.getPublicApplicationNode(SessionProvider.createSystemProvider());
-      if(publicApplicationNode.hasNode(TC_NODE_NAME)) {
-        hasNode = true;
+
+      SessionProvider sessionProvider = null;
+
+      try {
+          // --- Initial hasTermsAndConditionsNode is false  we nedd to get flag from JCR
+          if (hasTermsAndConditionsNode)  {
+              // --- Flag loaded only once from JCR (the next loading will be done after you restart the server)
+              return hasTermsAndConditionsNode;
+          } else {
+
+              try {
+                  //--- Get The session Provider
+                  sessionProvider = SessionProvider.createSystemProvider();
+                  Node publicApplicationNode = nodeHierarchyCreator.getPublicApplicationNode(sessionProvider);
+                  // --- If it's exist (case of restart of the server) return true else the first start of platform return false
+                  if(publicApplicationNode.hasNode(TC_NODE_NAME)) {
+                      hasTermsAndConditionsNode = true;
+                  } else {
+                      hasTermsAndConditionsNode = false;
+                  }
+
+              } catch (Exception E) {
+
+                  logger.error("Terms and conditions: connot get node", E);
+                  hasTermsAndConditionsNode = false;
+
+              } finally {
+                  //--- Close the sessionP (all session opened by this provider will be closed)
+                  sessionProvider.close();
+              }
+
+              return hasTermsAndConditionsNode;
+          }
+
+      } catch(Exception e) {
+          logger.error("Terms and conditions: cannot check node", e);
       }
-    }
-    catch(Exception e) {
-      logger.error("Terms and conditions: cannot get node", e);
-    }
-    return hasNode;
+
+      return hasTermsAndConditionsNode;
+
   }
 }

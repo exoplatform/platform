@@ -37,6 +37,8 @@
 	.spaceNavigation {
 		list-style: none;
 		margin: 0;
+		max-height: 380px;
+    	overflow-y: auto;
 		.noSpace {
 			color: #808080;
 	    padding: 10px 0;
@@ -44,21 +46,21 @@
 		}
 		.spaceItem {
 			padding: 6px 25px;
-			display: block;
 			height: 20px;
+			overflow: hidden;
+		    text-overflow: ellipsis;
+		    white-space: nowrap;
 		}
 		
 		.spaceIcon {
 	    color: #808080;
-	    display: inline-block;
-	    overflow: hidden;
-	    text-overflow: ellipsis;
-	    white-space: nowrap;
-	    width: 200px;
-	    float: left;
+	    
 			> img {
-				float: left;
 				margin-right: 5px;	
+			}
+			
+			&:hover {
+				color: @linkColor;
 			}
 		}
 		

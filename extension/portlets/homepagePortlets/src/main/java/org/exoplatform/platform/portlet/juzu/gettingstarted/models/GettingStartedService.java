@@ -49,10 +49,13 @@ public class GettingStartedService {
     private static final Log log = ExoLogger.getLogger(GettingStartedService.class);
 
     public static Boolean hasDocuments(Node node, String userId) {
-        SessionProvider sProvider = SessionProvider.createSystemProvider();
-        NodeHierarchyCreator nodeHierarchyCreator_ = (NodeHierarchyCreator) ExoContainerContext.getCurrentContainer().getComponentInstanceOfType(NodeHierarchyCreator.class);
+        SessionProvider sProvider = null;
         boolean docFound = false;
         try {
+            sProvider = SessionProvider.createSystemProvider();
+            NodeHierarchyCreator nodeHierarchyCreator_ = (NodeHierarchyCreator) ExoContainerContext.getCurrentContainer().getComponentInstanceOfType(NodeHierarchyCreator.class);
+
+            try {
             Node userPrivateNode = node;
             if (userPrivateNode == null)
                 userPrivateNode = nodeHierarchyCreator_.getUserNode(sProvider, userId).getNode("Private");
@@ -71,8 +74,18 @@ public class GettingStartedService {
                 }
             }
         } catch (Exception e) {
-            e.printStackTrace();
+                log.error("Error in gettingStarted REST service: " + e.getLocalizedMessage(), e);
             return false;
+        }
+        } catch (Exception E) {
+            log.error("Getting started Service : cannot check uploaded documents " + E.getLocalizedMessage(), E);
+            return false;
+
+        } finally {
+            if (sProvider !=null) {
+                sProvider.close();
+            }
+
         }
         return docFound;
     }

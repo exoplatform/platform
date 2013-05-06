@@ -272,29 +272,6 @@
                         <value>
                            <object type="org.exoplatform.social.core.space.SpaceApplicationConfigPlugin$SpaceApplication">
                               <field name="portletApp">
-                                 <string>poll</string>
-                              </field>
-                              <field name="portletName">
-                                 <string>PollPortlet</string>
-                              </field>
-                              <field name="appTitle">
-                                 <string>Poll</string>
-                              </field>
-                              <field name="removable">
-                                 <boolean>true</boolean>
-                              </field>
-                              <field name="order">
-                                 <int>8</int>
-                              </field>
-                              <field name="uri">
-                                 <string>poll</string>
-                              </field>
-                           </object>
-                        </value>
-
-                        <value>
-                           <object type="org.exoplatform.social.core.space.SpaceApplicationConfigPlugin$SpaceApplication">
-                              <field name="portletApp">
                                  <string>faq</string>
                               </field>
                               <field name="portletName">

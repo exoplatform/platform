@@ -35,6 +35,7 @@
 	<import>war:/conf/office-extension/wcm/application-templates-configuration.xml</import>
 	<import>war:/conf/office-extension/dms/dms-views-configuration.xml</import>
 	<import>war:/conf/office-extension/common/common-configuration.xml</import>
+   <import>war:/conf/office-extension/navigation/jcr-configuration.xml</import>
 <!--
     <import>war:/conf/office-extension/wcm/deployment/templates/template-intranet-deployment-configuration.xml</import>
 -->

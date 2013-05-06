@@ -36,7 +36,8 @@ public class CalendarPortletUtils {
 
     public static Calendar getInstanceOfCurrentCalendar() {
         try {
-            CalendarSetting setting = getCurrentUserCalendarSetting();
+            String user = getCurrentUser();
+            CalendarSetting setting =getCalendarService().getCalendarSetting(user);
             return getCalendarInstanceBySetting(setting);
         } catch (Exception e) {
             if (log.isWarnEnabled()) log.warn("Could not get calendar setting!", e);

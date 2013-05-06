@@ -1,6 +1,7 @@
 package org.exoplatform.platform.component;
 
 
+import org.apache.commons.lang.StringUtils;
 import org.exoplatform.container.PortalContainer;
 import org.exoplatform.portal.application.PortalRequestContext;
 import org.exoplatform.portal.mop.user.UserNavigation;
@@ -183,17 +184,21 @@ public class UISpaceNavigationPortlet extends UIPortletApplication {
             PortalRequestContext pContext = Util.getPortalRequestContext();
             String spaceName = event.getRequestContext().getRequestParameter(OBJECT_ID);
             String fullUrl = ((HttpServletRequest) pContext.getRequest()).getRequestURL().toString();
+            String subUrl = fullUrl.substring(0, fullUrl.indexOf(portalContainerName) + portalContainerName.length());
             String applicationDisplayed = "";
-            String subUrl = "";
+            String constructURL =  fullUrl.substring(subUrl.length()+1);
             if (fullUrl.contains(SPACE_URL_PATTERN)) {
-                applicationDisplayed = fullUrl.substring(fullUrl.lastIndexOf("/"));
-                subUrl = fullUrl.substring(0, fullUrl.indexOf(portalContainerName) + portalContainerName.length());
-                subUrl +="/"+ spaceName+applicationDisplayed;
-            } else {
-                subUrl = fullUrl.substring(0, fullUrl.indexOf(portalContainerName) + portalContainerName.length());
+                int count = StringUtils.countMatches(constructURL, "/");
+                if(count == 2){
+                    subUrl +="/"+ spaceName;
+                } else {
+                    applicationDisplayed = constructURL.substring(constructURL.lastIndexOf("/"));
+                    subUrl +="/"+ spaceName+applicationDisplayed;
+                }
+            }
+            else {
                 subUrl +="/"+ spaceName;
             }
-
             event.getRequestContext().getJavascriptManager().getRequireJS().require("SHARED/navigation-spaces-search", "spaceSearchNavigationPortlet").addScripts("spaceSearchNavigationPortlet.ajaxRedirect('"+subUrl+"');");
         }
     }

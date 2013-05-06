@@ -8,7 +8,7 @@
    <UIBreadCrumbPopupAvatarUploader>
       <title>
          <UIAvatarUploader>Ajouter une Photo</UIAvatarUploader>
-         <UIAvatarUploadContent>Aperçu de la Photo</UIAvatarUploadContent>
+         <UIAvatarUploadContent>Aperçu</UIAvatarUploadContent>
       </title>
    </UIBreadCrumbPopupAvatarUploader>
 </bundle>

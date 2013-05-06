@@ -25,6 +25,8 @@ import org.exoplatform.web.application.JavascriptManager;
 
 def labelTopic = _ctx.appRes("UIUserPlatformToolBarCreatePortlet.label.topic");
 def labelPoll = _ctx.appRes("UIUserPlatformToolBarCreatePortlet.label.poll");
+def parStatusPoll = _ctx.appRes("UICreateList.label.poll");
+def parStatusTopic = _ctx.appRes("UICreateList.label.topic");
 def labelEvent = _ctx.appRes("UIUserPlatformToolBarCreatePortlet.label.eventtask");
 def labelUpload = _ctx.appRes("UIUserPlatformToolBarCreatePortlet.label.upload");
 def labelWiki = _ctx.appRes("UIUserPlatformToolBarCreatePortlet.label.wiki");
@@ -41,10 +43,10 @@ JavascriptManager jsmanager = rcontext.getJavascriptManager();
 				<a href="<%=uicomponent.event("AddEvent","AddEvent")%>" class="ToolBarActivityIcon"><i class="uiIconPLFEventTask"></i>$labelEvent</a>
 			</li>
       <li>
-				<a href="<%=uicomponent.event("Poll", labelPoll)%>" class="ToolBarActivityIcon"><i class="uiIconPoll"></i>$labelPoll</a>
+				<a href="<%=uicomponent.event("Poll", parStatusPoll)%>" class="ToolBarActivityIcon"><i class="uiIconPoll"></i>$labelPoll</a>
 			</li>
 			<li>
-				<a href="<%=uicomponent.event("Topic", labelTopic)%>" class="ToolBarActivityIcon"><i class="uiIconUIForms"></i>$labelTopic</a>
+				<a href="<%=uicomponent.event("Topic", parStatusTopic)%>" class="ToolBarActivityIcon"><i class="uiIconUIForms"></i>$labelTopic</a>
 			</li>
 			<li>
 				<a href="<%=uicomponent.event("Upload","Upload")%>" class="ToolBarActivityIcon"><i class="uiIconUpload"></i>$labelUpload</a>

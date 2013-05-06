@@ -1,15 +1,9 @@
 package org.exoplatform.platform.component;
 
 import org.exoplatform.container.PortalContainer;
-import org.exoplatform.portal.application.PortalRequestContext;
-import org.exoplatform.portal.config.model.PortalConfig;
-import org.exoplatform.portal.mop.SiteType;
 import org.exoplatform.portal.webui.util.Util;
 import org.exoplatform.services.log.ExoLogger;
 import org.exoplatform.services.log.Log;
-import org.exoplatform.web.application.RequestContext;
-import org.exoplatform.web.url.navigation.NavigationResource;
-import org.exoplatform.web.url.navigation.NodeURL;
 import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.commons.EventUIComponent;
 import org.exoplatform.webui.commons.UISpacesSwitcher;
@@ -21,12 +15,10 @@ import org.exoplatform.webui.event.Event;
 import org.exoplatform.webui.event.EventListener;
 import org.exoplatform.webui.form.UIForm;
 import org.exoplatform.wiki.mow.api.Wiki;
-import org.exoplatform.wiki.mow.api.WikiType;
 import org.exoplatform.wiki.mow.core.api.wiki.PageImpl;
 import org.exoplatform.wiki.service.WikiPageParams;
 import org.exoplatform.wiki.service.WikiService;
-
-import java.net.URLEncoder;
+import org.exoplatform.wiki.utils.Utils;
 
 /**
  * @author <a href="rtouzi@exoplatform.com">rtouzi</a>
@@ -97,7 +89,7 @@ public class UICreateForm extends UIForm {
             }
             if (wiki != null) {
                 PageImpl wikiHome = (PageImpl) wiki.getWikiHome();
-                String permalink = getPermanlink(new WikiPageParams(wiki.getType(), wiki.getOwner(), wikiHome.getName()));
+                String permalink = Utils.getPermanlink(new WikiPageParams(wiki.getType(), wiki.getOwner(), wikiHome.getName()),true);
                 permalink += ADD_WIKI_PAGE;
                 event.getRequestContext().getJavascriptManager().getRequireJS().addScripts("(function(){ window.location.href = '" + permalink + "';})();");
 
@@ -167,86 +159,4 @@ public class UICreateForm extends UIForm {
         return "intranet";
     }
 
-    /**
-     *
-     * @param params
-     * @return
-     * @throws Exception
-     */
-    private static String getPermanlink(WikiPageParams params) throws Exception {
-
-        WikiService wikiService = (WikiService) PortalContainer.getComponent(WikiService.class);
-
-        // get wiki webapp name
-        String wikiWebappUri = wikiService.getWikiWebappUri();
-
-        // Create permalink
-        StringBuilder sb = new StringBuilder(wikiWebappUri);
-        sb.append("/");
-
-        if (!params.getType().equalsIgnoreCase(WikiType.PORTAL.toString())) {
-            sb.append(params.getType().toLowerCase());
-            sb.append("/");
-            sb.append(validateWikiOwner(params.getType(), params.getOwner()));
-            sb.append("/");
-        }
-
-        if (params.getPageId() != null) {
-            sb.append(URLEncoder.encode(params.getPageId(), "UTF-8"));
-        }
-
-        return getDomainUrl() + fillPortalName(sb.toString());
-    }
-
-    /**
-     *
-     * @return
-     */
-    private static String getDomainUrl() {
-        PortalRequestContext portalRequestContext = Util.getPortalRequestContext();
-        StringBuilder domainUrl = new StringBuilder();
-        domainUrl.append(portalRequestContext.getRequest().getScheme());
-        domainUrl.append("://");
-
-        domainUrl.append(portalRequestContext.getRequest().getServerName());
-        int port = portalRequestContext.getRequest().getLocalPort();
-        if (port != 80) {
-            domainUrl.append(":");
-            domainUrl.append(port);
-        }
-        return domainUrl.toString();
-    }
-
-    /**
-     *
-     * @param url
-     * @return
-     */
-    private static String fillPortalName(String url) {
-        RequestContext ctx = RequestContext.getCurrentInstance();
-        NodeURL nodeURL =  ctx.createURL(NodeURL.TYPE);
-        NavigationResource resource = new NavigationResource(SiteType.PORTAL, Util.getPortalRequestContext().getPortalOwner(), url);
-        return nodeURL.setResource(resource).toString();
-    }
-
-    /**
-     *
-     * @param wikiType
-     * @param wikiOwner
-     * @return
-     */
-    private static String validateWikiOwner(String wikiType, String wikiOwner){
-        if(wikiType != null && wikiType.equals(PortalConfig.GROUP_TYPE)) {
-            if(wikiOwner == null || wikiOwner.length() == 0){
-                return "";
-            }
-            if(wikiOwner.startsWith("/")){
-                wikiOwner = wikiOwner.substring(1,wikiOwner.length());
-            }
-            if(wikiOwner.endsWith("/")){
-                wikiOwner = wikiOwner.substring(0,wikiOwner.length()-1);
-            }
-        }
-        return wikiOwner;
-    }
 }

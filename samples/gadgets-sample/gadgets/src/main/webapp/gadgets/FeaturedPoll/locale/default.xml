@@ -30,6 +30,6 @@
   <msg name="voter">Voters</msg>
   <msg name="total">Total</msg>
   <msg name="discuss">Discuss in Forum</msg>
-  <msg name="nopoll">No Questions Available</msg>  
+  <msg name="nopoll">No Polls Yet</msg>  
   <msg name="createPoll">Create Your Own Poll</msg>    
 </messagebundle>

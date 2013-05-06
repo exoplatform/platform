@@ -146,6 +146,8 @@ public class CalendarPortletController {
         String username = RequestContext.getCurrentInstance().getRemoteUser();
         Locale locale = RequestContext.getCurrentInstance().getLocale();
         DateFormat d = DateFormat.getDateInstance(DateFormat.SHORT, locale);
+        DateFormat dTimezone = DateFormat.getDateInstance(DateFormat.SHORT, locale);
+        dTimezone.setCalendar(CalendarPortletUtils.getInstanceOfCurrentCalendar());
         Long date = new Date().getTime();
         int clickNumber = Integer.parseInt(nbclick);
         if (clickNumber != 0) date = incDecJour(date, clickNumber);
@@ -185,8 +187,8 @@ public class CalendarPortletController {
             Iterator itr = userEvents.iterator();
             while (itr.hasNext()) {
                 CalendarEvent event = (CalendarEvent) itr.next();
-                Date from = d.parse(d.format(event.getFromDateTime()));
-                Date to = d.parse(d.format(event.getToDateTime()));
+                Date from = d.parse(dTimezone.format(event.getFromDateTime()));
+                Date to = d.parse(dTimezone.format(event.getToDateTime()));
                 if ((event.getEventType().equals(CalendarEvent.TYPE_EVENT)) && (from.compareTo(comp) <= 0) && (to.compareTo(comp) >= 0)) {
                     if (!CalendarPortletUtils.contains(nonDisplayedCalendarList, event.getCalendarId())) {
                         org.exoplatform.calendar.service.Calendar calendar = calendarService_.getUserCalendar(username, event.getCalendarId());

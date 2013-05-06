@@ -12,9 +12,11 @@
    </UIUserPlatformToolBarCreatePortlet>
    <UICreateList>
       <label>
+         <topic>topic</topic>
+         <poll>poll</poll>
          <CreateANew>Créer un {1}:</CreateANew>
-         <NoForum>Désolé, aucun forum n'est disponible pour l'instant pour créer un {1}. Essayez de créer votre propre espace.</NoForum>
-         <RequireSelectForum>Choisir un forum</RequireSelectForum>
+         <NoForum>Désolé, aucun forum n'est disponible pour l'instant pour créer {1}. Essayez de créer votre propre espace.</NoForum>
+         <RequireSelectForum>Veuillez sélectionner un forum.</RequireSelectForum>
       </label>
       <action>
          <Next>Suivant</Next>

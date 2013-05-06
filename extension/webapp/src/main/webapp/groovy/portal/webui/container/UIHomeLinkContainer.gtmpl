@@ -1,10 +1,14 @@
 <%
         import org.exoplatform.platform.webui.NavigationURLUtils;
         import org.exoplatform.platform.common.navigation.NavigationServiceHandler;
+        import org.exoplatform.container.ExoContainerContext;
+        import org.exoplatform.container.ExoContainer;
 
 
         String imgSrc = "/eXoPlatformResources/skin/platformSkin/UIToolbarContainer/background/HomeIcon.png";
-        String path = NavigationServiceHandler.getHomePageLogoURI();
+        ExoContainer container = ExoContainerContext.getCurrentContainer() ;
+        NavigationServiceHandler navigationServiceHandler = (NavigationServiceHandler)container.getComponentInstanceOfType(NavigationServiceHandler.class);
+        String path = navigationServiceHandler.getHomePageLogoURI();
         if(path != null)
         imgSrc = "/portal/rest/jcr/repository/collaboration" + path;
         

@@ -72,10 +72,12 @@ public class IntranetSpaceServiceImpl implements IntranetSpaceService {
   private Node getSpaceHome() throws Exception {
 	  
     if(this._repoService != null){
-		SessionProvider sProvider = SessionProvider.createSystemProvider();
+		SessionProvider sProvider = null;
+        Session session = null;
 		
 		try {
-			Session session = this.getSession(sProvider);
+            sProvider = SessionProvider.createSystemProvider();
+			session = this.getSession(sProvider);
 			Node rootNode = session.getRootNode();
 			if(rootNode.hasNode(SPACE_HOME))
 			{
@@ -85,7 +87,16 @@ public class IntranetSpaceServiceImpl implements IntranetSpaceService {
 		catch (Exception e) {
 			LOG.error("Can not get get SpaceHome", e);
 			sProvider.close();
-		}
+		} finally {
+            if (session != null) {
+                session.logout();
+            }
+            if (sProvider != null) {
+                sProvider.close();
+
+            }
+
+        }
     }
 	return null;
   }
