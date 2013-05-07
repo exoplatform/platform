@@ -142,7 +142,7 @@ public class CalendarPortletController {
         displayedCalendarMap.clear();
         tasksDisplayedList.clear();
         eventsDisplayedList.clear();
-
+        String date_act = null;
         String username = RequestContext.getCurrentInstance().getRemoteUser();
         Locale locale = RequestContext.getCurrentInstance().getLocale();
         DateFormat d = DateFormat.getDateInstance(DateFormat.SHORT, locale);
@@ -151,11 +151,17 @@ public class CalendarPortletController {
         Long date = new Date().getTime();
         int clickNumber = Integer.parseInt(nbclick);
         if (clickNumber != 0) date = incDecJour(date, clickNumber);
-        String date_act = d.format(new Date(date));
-        SimpleDateFormat yearFormat = new SimpleDateFormat("yyyy");
-        String year = yearFormat.format(new Date(date));
-        String[] dateSplit = date_act.split("/");
-        if (dateSplit.length != 0) date_act = dateSplit[0] + "/" + dateSplit[1] + "/" + year;
+        if(locale.getLanguage().equals("en")){
+            SimpleDateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy");
+            date_act = dateFormat.format(new Date(date));
+        }
+        else {
+            date_act = d.format(new Date(date));
+            SimpleDateFormat yearFormat = new SimpleDateFormat("yyyy");
+            String year = yearFormat.format(new Date(date));
+            String[] dateSplit = date_act.split("/");
+            if (dateSplit.length != 0) date_act = dateSplit[0] + "/" + dateSplit[1] + "/" + year;
+        }
         Date comp = d.parse(date_act);
         HashMap parameters = new HashMap();
         String defaultCalendarLabel = "Default";
