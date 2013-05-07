@@ -77,6 +77,7 @@
 					    def href="/portal/intranet/calendar/details/"+event.id;
 				%>
 				<li class="${eventCss} clearfix"  id="${event.id}">
+					<div class="itemColor ${color}" ></div>
 					<div class="pull-left eventSummary">
 						<a href="${href}">${event.summary}</a>
 					</div>

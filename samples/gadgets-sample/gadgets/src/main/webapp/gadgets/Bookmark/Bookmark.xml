@@ -3,7 +3,6 @@
   <ModulePrefs title="Bookmarks" description="Bookmarks list.">
     <Locale messages="locale/default.xml" />
     <Locale lang="fr" messages="locale/fr.xml" />
-    <Locale lang="it" messages="locale/it.xml" />
     <Require feature="dynamic-height"/>
   </ModulePrefs>
   
