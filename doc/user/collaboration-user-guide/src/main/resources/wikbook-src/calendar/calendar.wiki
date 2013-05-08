@@ -1300,7 +1300,7 @@ Here, you can define the repeating time for your event as follows:
 
 {docbook}
 <para>
-<emphasis role="bold">2.</emphasis> Select the frequency for repeating your event in the <guilabel>Repeat Every</guilabel> option. The selected frequency will work on the <guilabel>Repeat</guilabel> value.  For example, if you set <guilabel>Weekly</guilabel> in the <guilabel>Repeat</guilabel> option and <emphasis role="bold">5</emphasis> in the <guilabel>Repeat every</guilabel> option, the event will be repeated 5 times in each week.</para>
+<emphasis role="bold">2.</emphasis> Select the frequency for repeating your event in the <guilabel>Repeat Every</guilabel> option. The selected frequency will work on the <guilabel>Repeat</guilabel> value.  For example, if you set <guilabel>Weekly</guilabel> in the <guilabel>Repeat</guilabel> option and <emphasis role="bold">5</emphasis> in the <guilabel>Repeat every</guilabel> option, the event will be repeated every 5 weeks.</para>
 {docbook}
 
 
