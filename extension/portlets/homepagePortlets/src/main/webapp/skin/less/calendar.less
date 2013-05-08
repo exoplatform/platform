@@ -39,40 +39,40 @@
 		}
 		.eventsList {
 			li {
-				.border-radius(@borderRadiusSmall);
-				background-color: @grayWhiteSmoke;
-				border: 1px solid transparent;
-				padding: 4px 8px;
+				.border-radius(@borderRadiusSmall + 1);				
+				border: 1px solid transparent;				
 				margin: 0 0 10px 0;
-				position: relative;
+				> div {
+					padding: 0 4px 0 0;
+					.border-radius(4px 3px 3px 4px);
+				}
 				.itemColor {
-					.border-radius(0 @borderRadiusSmall @borderRadiusSmall 0);
-					position: absolute;
-					top: -1px;
-					right: -1px;
-					.size(30px,4px);
+					.border-radius(@borderRadiusSmall 0 0 @borderRadiusSmall);
+					background-color: #f2f2f2;
+					padding: 4px 4px 4px 8px;					
+					
 				}
 				
 				&.pastEvent {					
-					background-color: @btnBackgroundHighlight;					
-					a,span {
-						color: #c2c2c2;
-					}
+					.opacity(55);		
+					
 				}
-				&:hover  {
+				&:hover {
 					border: 1px solid @borderColor;
-					cursor: pointer;
 				}
+				
 				&:last-child {
 					margin-bottom: 0;
 				}
 			}
 			.eventSummary {
-				width: 40%;
+				width: 50%;
 				.text-overflow;
+				white-space: normal;
+				max-height: 40px;
 			}
 			.time {
-				width: 60%;
+				width: 50%;
 				 text-align: right;
 				font-size: @baseFontSize - 1;
 			}

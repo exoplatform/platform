@@ -76,39 +76,42 @@
 							else eventCss = "eventItems" ;
 					    def href="/portal/intranet/calendar/details/"+event.id;
 				%>
-				<li class="${eventCss} clearfix"  id="${event.id}">
-					<div class="itemColor ${color}" ></div>
-					<div class="pull-left eventSummary">
-						<a href="${href}">${event.summary}</a>
-					</div>
-					<div  class="pull-right time">
-						<% if (event.toDateTime.getTime() - event.fromDateTime.getTime() == 86399999) { %>
-						<span>&{all.day.label}</span>
-						<% } else if (event.toDateTime.getTime() - event.fromDateTime.getTime() > 86399999) {
-							from = sdf1.format(event.fromDateTime);
-							String year=event.fromDateTime.format("yyyy");
-                            String[] dateSplit = from.split("/");
-                            if(dateSplit.length!=0) from=dateSplit[0]+"/"+dateSplit[1]+"/"+year;
-							to = sdf1.format(event.toDateTime);
-						year=event.toDateTime.format("yyyy");
-                            dateSplit =to.split("/");
-                            if(dateSplit.length!=0) to=dateSplit[0]+"/"+dateSplit[1]+"/"+year;
-						%>
+				<li class="${eventCss}"  id="${event.id}">
+					<div class="${color}">
+						<div class="clearfix itemColor" >
+							<div class="pull-left eventSummary">
+								<a href="${href}">${event.summary}</a>
+							</div>
+							<div  class="pull-right time">
+								<% if (event.toDateTime.getTime() - event.fromDateTime.getTime() == 86399999) { %>
+								<span>&{all.day.label}</span>
+								<% } else if (event.toDateTime.getTime() - event.fromDateTime.getTime() > 86399999) {
+									from = sdf1.format(event.fromDateTime);
+									String year=event.fromDateTime.format("yyyy");
+									String[] dateSplit = from.split("/");
+									if(dateSplit.length!=0) from=dateSplit[0]+"/"+dateSplit[1]+"/"+year;
+									to = sdf1.format(event.toDateTime);
+								year=event.toDateTime.format("yyyy");
+									dateSplit =to.split("/");
+									if(dateSplit.length!=0) to=dateSplit[0]+"/"+dateSplit[1]+"/"+year;
+								%>
 
-						<span>${from}</span> - 
-						<span>${to}</span>
-						<% } else if (event.toDateTime.getTime() - event.fromDateTime.getTime() < 86399999) {
-							from = sdf2.format(event.fromDateTime);
-							to = sdf2.format(event.toDateTime);
-                            if(locale.getLanguage().equals("en")){
-                                if(from.indexOf("00")==2)   from=from.substring(0,1)+ from.substring(4);
-                                if(from.indexOf("00")==3)   from=from.substring(0,2)+ from.substring(5);
-                                if(to.indexOf("00")==2)   to=to.substring(0,1) + to.substring(4);
-                                if(to.indexOf("00")==3)   to=to.substring(0,2) + to.substring(5);
-                            }
-						%>
-						<span> ${from} - ${to} </span>
-						<% } %>
+								<span>${from}</span> - 
+								<span>${to}</span>
+								<% } else if (event.toDateTime.getTime() - event.fromDateTime.getTime() < 86399999) {
+									from = sdf2.format(event.fromDateTime);
+									to = sdf2.format(event.toDateTime);
+									if(locale.getLanguage().equals("en")){
+										if(from.indexOf("00")==2)   from=from.substring(0,1)+ from.substring(4);
+										if(from.indexOf("00")==3)   from=from.substring(0,2)+ from.substring(5);
+										if(to.indexOf("00")==2)   to=to.substring(0,1) + to.substring(4);
+										if(to.indexOf("00")==3)   to=to.substring(0,2) + to.substring(5);
+									}
+								%>
+								<span> ${from} - ${to} </span>
+								<% } %>
+							</div>
+						</div>
 					</div>
 				</li><!--eventItems-->
 				<% }  %>
