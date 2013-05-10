@@ -72,10 +72,7 @@
 
     if (groupNavigations!= null && !groupNavigations.isEmpty()) {
 
-      for(navigation in groupNavigations) {
-      	if (mySpacesDisplayed == -1){
-      		break;
-      	}
+      for(navigation in groupNavigations) {      	
       	if(mySpacesDisplayed < MY_SPACES_MAX_NUMBER){
 			mySpacesDisplayed += 1;
 			String   tabStyleNavigation="";
@@ -99,27 +96,31 @@
 	<%
 
       	}else{
-		    def spaceNotDisplayed=spaceTotal - mySpacesDisplayed;
-
-      		mySpacesDisplayed = -1;
-      		def moreSpacesLink = uicomponent.event("Increment");
-			if(spaceNotDisplayed>0){
-      		print """
-      			<li class="moreSpace">
-      				""" ;
-      				print """
-      				<a href="$moreSpacesLink" class="moreSpace" onclick="">$seeSpacesLabel $spaceNotDisplayed $moreSpacesLabel</a>
-      				""" ;
-      				print """
-      			</li>
-      		""" ;
-      	}}
+		break;
+	}
       } %>
 
     <% } %>
     <!-- FIN -->
 
 	</ul>
+<%
+		def spaceNotDisplayed=spaceTotal - mySpacesDisplayed;
+
+      		mySpacesDisplayed = -1;
+      		def moreSpacesLink = uicomponent.event("Increment");
+			if(spaceNotDisplayed>0){
+      		print """
+      			<div class="moreSpace">
+      				""" ;
+      				print """
+      				<a href="$moreSpacesLink" class="btn" onclick="">$seeSpacesLabel $spaceNotDisplayed $moreSpacesLabel</a>
+      				""" ;
+      				print """
+      			</div>
+      		""" ;
+      	}
+%>
 	<div class="joinSpace">
 		<a class="" href="<%= findSpacesLink %>">
 			<i class="uiIconPLFMan"></i>
@@ -127,4 +128,5 @@
 		</a>
 	</div>
 </div>
+
 
