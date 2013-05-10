@@ -56,7 +56,7 @@
             <webModule>
               <groupId>org.exoplatform.platform</groupId>
               <artifactId>gadget-pack</artifactId>
-              <contextRoot>exo-gadget-pack</contextRoot>
+              <contextRoot>gadget-pack</contextRoot>
             </webModule>
           </modules>
         </configuration>
