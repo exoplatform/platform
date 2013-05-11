@@ -643,9 +643,16 @@
         <version>${org.gatein.sso.version}</version>
       </dependency>
       <!-- To be replaced by an import of GateIn WCI parent POM -->
+      <!-- DON'T REMOVE : used for packaging -->
       <dependency>
         <groupId>org.gatein.wci</groupId>
         <artifactId>wci-tomcat7</artifactId>
+        <version>${org.gatein.wci.version}</version>
+      </dependency>
+      <!-- DON'T REMOVE : used for packaging -->
+      <dependency>
+        <groupId>org.gatein.wci</groupId>
+        <artifactId>wci-jboss7</artifactId>
         <version>${org.gatein.wci.version}</version>
       </dependency>
       <!-- Mobile site redirection -->
