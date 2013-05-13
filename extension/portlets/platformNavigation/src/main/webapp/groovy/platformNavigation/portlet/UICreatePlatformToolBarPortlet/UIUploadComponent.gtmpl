@@ -22,10 +22,8 @@
                 <%
                 import org.exoplatform.platform.component.UIUploadComponent;
                 %>
-                <div>
                 <div class="controls">
 					<%uicomponent.renderChildren();%>
 				</div>
 
-				<button type="button" href="javascript:void(0);" onclick="<%=uicomponent.event("Cancel")%>" class="btn" style="">Cancel</button>
-				</div>
+				<div class="uiActionBorder"><button type="button" href="javascript:void(0);" onclick="<%=uicomponent.event("Cancel")%>" class="btn" style="">Cancel</button></div>
