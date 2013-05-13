@@ -693,8 +693,8 @@
             <name>social</name>
             <description>description</description>
             <object type="org.exoplatform.application.registry.ApplicationCategory">
-              <field name="name"><string>Social</string></field>
-              <field name="displayName"><string>Social</string></field>
+              <field name="name"><string>social</string></field>
+              <field name="displayName"><string>social</string></field>
               <field name="description"><string>Applications for social</string></field>
               <field name="accessPermissions">
                 <collection type="java.util.ArrayList" item-type="java.lang.String">
