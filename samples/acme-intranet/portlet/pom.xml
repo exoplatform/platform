@@ -28,16 +28,16 @@
       <artifactId>exo.kernel.commons</artifactId>
     </dependency>
     <dependency>
+      <groupId>org.exoplatform.platform-ui</groupId>
+      <artifactId>platform-ui-webui-core</artifactId>
+    </dependency> 
+    <dependency>
       <groupId>org.exoplatform.social</groupId>
       <artifactId>social-component-common</artifactId>
     </dependency>
     <dependency>
       <groupId>org.exoplatform.social</groupId>
       <artifactId>social-component-core</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>org.gatein.portal</groupId>
-      <artifactId>exo.portal.webui.core</artifactId>
     </dependency>
     <dependency>
       <groupId>org.gatein.portal</groupId>
