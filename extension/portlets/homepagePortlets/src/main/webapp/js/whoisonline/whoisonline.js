@@ -55,4 +55,18 @@
     // And we should use setInterval with 60 seconds
     setTimeout(refresh, 500);
     setInterval(refresh,60000);
+    return {
+        ajaxWhoIsOnLine: function() {
+            $.getJSON('/rest/platform/isusersessionalive', function (connected) {
+
+                if(connected == true){
+
+                    $("#onlineList").jzLoad("WhoIsOnLineController.users()", showTooltip);
+
+                }
+            });
+
+        }
+
+    };
 })($);

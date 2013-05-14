@@ -18,12 +18,22 @@
       * 02110-1301 USA, or see the FSF site: http://www.fsf.org.
       */
 
+      %>
+
+<%
+      import org.exoplatform.portal.webui.util.Util;
+      import org.exoplatform.webui.application.portlet.PortletRequestContext;
+      import org.exoplatform.web.application.JavascriptManager;
+
+      def pcontext = Util.getPortalRequestContext();
+      def jsManager = pcontext.getJavascriptManager();
+      jsManager.require("SHARED/jQueryInvitations", "invit").addScripts("invit.initInvitations();");
 %>
 
 <body>
-    <div id="InvitationsPortlet" class="uiBox uiInvitations" style="display:none;">
-        <h6 class='title center'>&{invitations.header.label} (<span id='inviteCounter'></span>)</h6>
-        <ul id='requests'></ul>
-       <div class="invitlabel" data-acceptlabel="&{invitations.accept.label}" data-memberslabel="&{invitations.members.label}" data-spacelabel="&{invitations.space.label}"  data-publiclabel="&{invitations.public.label}" data-privatelabel="&{invitations.private.label}"></div>
-	</div>
+<div id="InvitationsPortlet" class="uiBox uiInvitations" style="display:none;">
+   <h6 class='title center'>&{invitations.header.label} (<span id='inviteCounter'></span>)</h6>
+   <ul id='requests'></ul>
+   <div class="invitlabel" data-acceptlabel="&{invitations.accept.label}" data-memberslabel="&{invitations.members.label}" data-spacelabel="&{invitations.space.label}"  data-publiclabel="&{invitations.public.label}" data-privatelabel="&{invitations.private.label}"></div>
+</div>
 </body>

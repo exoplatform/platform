@@ -16,7 +16,15 @@
    * Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
    * 02110-1301 USA, or see the FSF site: http://www.fsf.org.
    */ %>
+  <%
+        import org.exoplatform.portal.webui.util.Util;
+        import org.exoplatform.webui.application.portlet.PortletRequestContext;
+        import org.exoplatform.web.application.JavascriptManager;
 
+        def pcontext = Util.getPortalRequestContext();
+        def jsManager = pcontext.getJavascriptManager();
+        jsManager.require("SHARED/jQueryWhoIsOnLine", "wos").addScripts("wos.ajaxWhoIsOnLine();");
+  %>
 <div id="OnlinePortlet" class="onlinePortlet">
     <div id="onlineContent" class="uiBox">
         <h6 class="title center">&{header.label}</h6>
