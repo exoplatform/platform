@@ -36,7 +36,7 @@ def rcontext = _ctx.getRequestContext() ;
 JavascriptManager jsmanager = rcontext.getJavascriptManager();
 %>
 <span  class="dropdown-menu" style="display:none;white-space:nowrap;"></span>
-<div id="$uicomponent.id" class="dropdown-menu">
+<ul id="$uicomponent.id" class="dropdown-menu">
 
 		<% if(uicomponent.getChildren().size()==0){%>
 			<li>
@@ -56,7 +56,8 @@ JavascriptManager jsmanager = rcontext.getJavascriptManager();
 	    </li>
 
 		<%}else{%>
-
+             <li>
 	    	<%uicomponent.renderChildren();%>
+	    	</li>
 		<%}%>
-</div>
+</ul>
