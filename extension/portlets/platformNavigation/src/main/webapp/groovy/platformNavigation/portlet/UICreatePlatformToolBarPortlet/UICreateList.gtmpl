@@ -57,8 +57,6 @@ JavascriptManager jsmanager = rcontext.getJavascriptManager();
 
 		<%}else{%>
 
-		  <li>
 	    	<%uicomponent.renderChildren();%>
-			</li>
 		<%}%>
 </div>
