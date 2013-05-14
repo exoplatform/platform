@@ -69,7 +69,9 @@ public class UpgradeContentPlugin extends UpgradeProductPlugin {
 
     ExternalComponentPlugins externalComponentPlugins = configurationManager.getConfiguration().getExternalComponentPlugins(
         WCMContentInitializerService.class.getName());
-    plugins.addAll(externalComponentPlugins.getComponentPlugins());
+    if (externalComponentPlugins!=null) {
+      plugins.addAll(externalComponentPlugins.getComponentPlugins());
+    }
     // read XMLDeploymentPlugin plugins
     for (ComponentPlugin plugin : plugins) {
       if (!plugin.getType().equals(XMLDeploymentPlugin.class.getName()) || plugin.getInitParams() == null) {
