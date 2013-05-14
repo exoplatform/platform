@@ -73,7 +73,7 @@
       			icon = "uiIconPLFCalendar";
     	  }
     	  else {
-    	        icon = "uiIconFile";
+    	        icon = "uiIconFile uiIconExt-$node.uri";
     	  }
 		}
         print """

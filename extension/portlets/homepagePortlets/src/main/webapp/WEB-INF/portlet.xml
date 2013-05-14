@@ -16,7 +16,8 @@
     <resource-bundle>locale.portlet.whoisonline.whoisonline</resource-bundle>
     <portlet-info>
       <title>Who is on line</title>
-      <keywords>Home_Page_Portlets_WhoIsOnLine</keywords>
+      <short-title>Who is on line</short-title>
+      <keywords>Juzu social intranet</keywords>
     </portlet-info>
   </portlet>
   <portlet>
@@ -31,7 +32,8 @@
      <resource-bundle>locale.portlet.gettingStarted.gettingStarted</resource-bundle>
     <portlet-info>
       <title>getting Started</title>
-      <keywords>Home_Page_Portlets_GettingStarted</keywords>
+      <short-title>getting Started</short-title>
+      <keywords>Juzu social intranet</keywords>
     </portlet-info>
   </portlet>
   <portlet>
@@ -42,11 +44,12 @@
       <mime-type>text/html</mime-type>
     </supports>
     <supported-locale>en</supported-locale>
-     <supported-locale>fr</supported-locale>
+    <supported-locale>fr</supported-locale>
     <resource-bundle>locale.portlet.suggestions.suggestions</resource-bundle>
     <portlet-info>
       <title>Suggestions</title>
-      <keywords>Home_Page_Portlets_Suggestions</keywords>
+      <short-title>Suggestions</short-title>
+      <keywords>Juzu social intranet</keywords>
     </portlet-info>
   </portlet>
   <portlet>
@@ -61,7 +64,8 @@
     <resource-bundle>locale.portlet.invitations.invitations</resource-bundle>
     <portlet-info>
       <title>Invitations</title>
-      <keywords>Home_Page_Portlets_Invitations</keywords>
+      <short-title>Invitations</short-title>
+      <keywords>Juzu social intranet</keywords>
     </portlet-info>
   </portlet>
   <portlet>
@@ -76,7 +80,8 @@
      <resource-bundle>locale.portlet.calendar.calendar</resource-bundle>
     <portlet-info>
       <title>Calendar Portlet</title>
-      <keywords>Home_Page_Portlets_Calendar</keywords>
+      <short-title>Calendar Portlet</short-title>
+      <keywords>Juzu social intranet</keywords>
     </portlet-info>
   </portlet>
 </portlet-app>
