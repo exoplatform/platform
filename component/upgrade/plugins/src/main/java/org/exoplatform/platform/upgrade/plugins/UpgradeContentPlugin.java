@@ -60,14 +60,25 @@ public class UpgradeContentPlugin extends UpgradeProductPlugin {
     if (initParams.containsKey("webapps-mames")) {
       webappsNames = initParams.getValuesParam("webapps-mames").getValues();
     }
+  }
 
-    Component wcmContentInitializerServiceComponent = configurationManager.getComponent(WCMContentInitializerService.class);
+  @Override
+  public void processUpgrade(String oldVersion, String newVersion) {
+    Component wcmContentInitializerServiceComponent;
+    ExternalComponentPlugins externalComponentPlugins;
+    
+    try{
+      wcmContentInitializerServiceComponent = configurationManager.getComponent(WCMContentInitializerService.class);
+    } catch (Exception e)
+    {
+       throw new IllegalStateException("Could not get WCM Content Initializer Service. Contents upgrade is canceled.");
+    }
     List<ComponentPlugin> plugins = wcmContentInitializerServiceComponent.getComponentPlugins();
     if (plugins == null) {
       plugins = new ArrayList<ComponentPlugin>();
     }
 
-    ExternalComponentPlugins externalComponentPlugins = configurationManager.getConfiguration().getExternalComponentPlugins(
+    externalComponentPlugins = configurationManager.getConfiguration().getExternalComponentPlugins(
         WCMContentInitializerService.class.getName());
     if (externalComponentPlugins!=null) {
       plugins.addAll(externalComponentPlugins.getComponentPlugins());
@@ -101,10 +112,6 @@ public class UpgradeContentPlugin extends UpgradeProductPlugin {
         deploymentPlugins.put(key, deploymentPlugin);
       }
     }
-  }
-
-  @Override
-  public void processUpgrade(String oldVersion, String newVersion) {
     SessionProvider sessionProvider = SessionProvider.createSystemProvider();
     ManageableRepository repository = null;
     try {
