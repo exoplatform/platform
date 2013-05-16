@@ -142,7 +142,7 @@ public class WhoIsOnlineImpl implements WhoIsOnline {
         int i = 0;
         try{
         ActivityManager activityManager = (ActivityManager) ExoContainerContext.getCurrentContainer().getComponentInstanceOfType(ActivityManager.class);
-        RealtimeListAccess<ExoSocialActivity> activityList = activityManager.getActivitiesWithListAccess(identity);
+        RealtimeListAccess<ExoSocialActivity> activityList = activityManager.getActivitiesByPoster(identity);
         for (ExoSocialActivity act : activityList.loadAsList(i, count)) {
             i++;
 
