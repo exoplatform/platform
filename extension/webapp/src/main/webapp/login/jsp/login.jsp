@@ -68,39 +68,37 @@
 				background: url("/platform-extension/login/jsp/images/login_texture.jpg") repeat;
 				font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
 			}
-			@font-face {
-			 font-family: lucida;
-			 src: url("/platform-extension/login/jsp/images/L_0.eot") 
-			}
-			
-			@font-face {
-			 font-family: lucida;
-			 src: url("/platform-extension/login/jsp/images/L_0.TTF") 
-			}
 			
 			.loginBGLight{
 				wbackground: none repeat scroll 0 0 white;
 				border-radius: 80px 80px 80px 80px;
 				box-shadow: 0 0 200px white;
-				height: 200px;
-				margin: 230px auto 0;
-				width: 200px;
+				left: 50%;
+		    margin: -100px;
+		    position: fixed;
+		    top: 50%;
+		    width: 200px;
+		    height: 200px;
 			}
 
 			.uiLogin {
-				border-radius: 4px 4px 4px 4px;
 				box-shadow: 0 1px 3px #545555;
 				color: #333333;
 				display: block;
 				font-size: 12px;
-				height: 332px;
-				margin: -276px auto 7px;
-				padding: 0 40px;
-				position: relative;
-				width: 312px;
-				background: #fff url("/platform-extension/login/jsp/images/loginBG.png") no-repeat bottom;
+				left: 50%;
+		    margin: -180px -195px 0;
+		    position: fixed;
+		    top: 50%;
+		    width: 392px;
 			}
-			  
+			 
+			.uiLogin .loginContainer {  
+				border-radius: 4px;
+				background: #fff url("/platform-extension/login/jsp/images/loginBG.png") no-repeat bottom;
+				padding: 0 40px;
+			}	
+				
 			.uiLogin .loginHeader {
 				background: url("/platform-extension/login/jsp/images/LoginHeader.png") repeat-x scroll 0 0 transparent;
 				border: 1px solid #393939;
@@ -127,11 +125,13 @@
 				vertical-align: top;
 				width: 0;
 			}
+			
 			.uiLogin .introBox:before {
 				border-bottom: 8px solid #2a323e;
 				border-left: 7px solid transparent;
 				left: -8px;
 			}
+			
 			.uiLogin .introBox:before, .uiLogin .introBox:after {
 				border-top: medium none;
 				content: "";
@@ -150,18 +150,11 @@
 				font-weight: 500;
 				line-height: 41px;
 				padding-left: 52px;
-				overflow: hidden;
-				text-overflow: ellipsis;
-				white-space: nowrap;
 				width: 236px;
 			}
 			
 			.uiLogin .loginContent{
 			  padding-top: 45px;
-			}
-
-			.uiLogin .loginContent .centerLoginContent {
-			  height: 157px;
 			}
 			
 			.uiLogin .loginContent .username{
@@ -188,7 +181,7 @@
 			}
 			
 			.uiLogin .loginContent .loginButton {
-			  padding: 32px 0 0 0;
+			  padding: 44px 0 30px;
 			}
 			
 			.uiLogin .loginContent .loginButton .button{
@@ -312,15 +305,12 @@
 			}
 
 			.uiLogin .signinFail{
-                font-size: 13px;
-                line-height: 18px;
-                margin: 12px 0 0 1px;
-                font-weight: bold;
-				overflow: hidden;
-				text-overflow: ellipsis;
-				white-space: nowrap;
+		    font-size: 13px;
+		    line-height: 18px;
+		    margin: 12px 0 0 1px;
+		    font-weight: bold;
 				width: 310px;
-            }
+      }
 			
 			.uiLogin .uiIconError{
                 background: url("/eXoResources/skin/images/Icons/uiIconColor.png") no-repeat left top;
@@ -362,13 +352,14 @@
     </script>
   </head>
   <body>
-  <div class="loginBGLight"><span></span></div>
+  	<div class="loginBGLight"><span></span></div>
     <div class="uiLogin">
-      <div class="loginHeader introBox">
-		<div class="userLoginIcon"><%=res.getString("portal.login.Connectlabel")%></div>
-	  </div>
-      <div class="loginContent">
-				<div style="line-height: 12px; padding: 6px 3px 0 0; height: 27px; font-size: 11px;">
+    	<div class="loginContainer">
+	      <div class="loginHeader introBox">
+					<div class="userLoginIcon"><%=res.getString("portal.login.Connectlabel")%></div>
+				</div>
+	      <div class="loginContent">
+				<div style="line-height: 12px; padding: 6px 3px 0 0; min-height: 31px; font-size: 11px;">
 					<%/*Begin form*/%>
           <%
                 if(error) {
@@ -427,7 +418,9 @@
 				<%/*End form*/%>
         </div>
       </div>
+    	</div>
+    	<div id="platformInfoDiv" data-labelfooter="<%=res.getString("portal.login.Footer")%>" ></div>
     </div>
-    <div id="platformInfoDiv" data-labelfooter="<%=res.getString("portal.login.Footer")%>" ></div>
+    
   </body>
 </html>
