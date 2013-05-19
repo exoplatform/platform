@@ -130,12 +130,6 @@
       </dependency>
       <dependency>
         <groupId>org.exoplatform.platform</groupId>
-        <artifactId>platform-exo-gadget-pack-ear</artifactId>
-        <version>${project.version}</version>
-        <type>ear</type>
-      </dependency>
-      <dependency>
-        <groupId>org.exoplatform.platform</groupId>
         <artifactId>platform-exo-gadget-pack-gadget-pack</artifactId>
         <version>${project.version}</version>
         <type>war</type>
@@ -158,12 +152,6 @@
       </dependency>
       <dependency>
         <groupId>org.exoplatform.platform</groupId>
-        <artifactId>platform-extension-ear</artifactId>
-        <version>${project.version}</version>
-        <type>ear</type>
-      </dependency>
-      <dependency>
-        <groupId>org.exoplatform.platform</groupId>
         <artifactId>platform-extension-portlet-branding</artifactId>
         <version>${project.version}</version>
         <type>war</type>
@@ -221,23 +209,11 @@
         <artifactId>platform-extension-webapp</artifactId>
         <version>${project.version}</version>
         <type>pom</type>
-      </dependency>
-      <dependency>
-        <groupId>org.exoplatform.platform</groupId>
-        <artifactId>platform-packaging-commons</artifactId>
-        <version>${project.version}</version>
-        <type>zip</type>
       </dependency>
       <dependency>
         <groupId>org.exoplatform.platform</groupId>
         <artifactId>platform-sample-acme-intranet-config</artifactId>
         <version>${project.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>org.exoplatform.platform</groupId>
-        <artifactId>platform-sample-acme-intranet-ear</artifactId>
-        <version>${project.version}</version>
-        <type>ear</type>
       </dependency>
       <dependency>
         <groupId>org.exoplatform.platform</groupId>
@@ -277,12 +253,6 @@
         <groupId>org.exoplatform.platform</groupId>
         <artifactId>platform-sample-acme-website-config</artifactId>
         <version>${project.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>org.exoplatform.platform</groupId>
-        <artifactId>platform-sample-acme-website-ear</artifactId>
-        <version>${project.version}</version>
-        <type>ear</type>
       </dependency>
       <dependency>
         <groupId>org.exoplatform.platform</groupId>
@@ -353,45 +323,6 @@
         <artifactId>platform-sample-wai-template</artifactId>
         <version>${project.version}</version>
         <type>pom</type>
-      </dependency>
-      <dependency>
-        <groupId>org.exoplatform.platform</groupId>
-        <artifactId>platform-server-jboss-patch</artifactId>
-        <version>${project.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>org.exoplatform.platform</groupId>
-        <artifactId>platform-server-tomcat-integration-webapp</artifactId>
-        <version>${project.version}</version>
-        <type>war</type>
-      </dependency>
-      <dependency>
-        <groupId>org.exoplatform.platform</groupId>
-        <artifactId>platform-server-tomcat-integration-webapp</artifactId>
-        <version>${project.version}</version>
-        <type>pom</type>
-      </dependency>
-      <dependency>
-        <groupId>org.exoplatform.platform</groupId>
-        <artifactId>platform-server-tomcat-pc-creator</artifactId>
-        <version>${project.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>org.exoplatform.platform</groupId>
-        <artifactId>platform-server-tomcat-root-webapp</artifactId>
-        <version>${project.version}</version>
-        <type>war</type>
-      </dependency>
-      <dependency>
-        <groupId>org.exoplatform.platform</groupId>
-        <artifactId>platform-server-tomcat-root-webapp</artifactId>
-        <version>${project.version}</version>
-        <type>pom</type>
-      </dependency>
-      <dependency>
-        <groupId>org.exoplatform.platform</groupId>
-        <artifactId>platform-trial-service</artifactId>
-        <version>${project.version}</version>
       </dependency>
       <dependency>
         <groupId>org.exoplatform.platform</groupId>
