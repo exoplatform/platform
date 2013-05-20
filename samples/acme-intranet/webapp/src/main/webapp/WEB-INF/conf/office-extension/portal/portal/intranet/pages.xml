@@ -265,7 +265,7 @@
         <portlet-application>
             <portlet>
                 <application-ref>social-portlet</application-ref>
-                <portlet-ref>PeoplePortlet</portlet-ref>
+                <portlet-ref>AllPeoplePortlet</portlet-ref>
             </portlet>
             <title>People Directory</title>
             <access-permissions>*:/platform/users</access-permissions>
@@ -491,34 +491,6 @@
         <title>Connections</title>
         <access-permissions>*:/platform/users</access-permissions>
         <edit-permission>manager:/platform/administrators</edit-permission>
-        <container id="UIUserNavigationPortlet" template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
-            <access-permissions>*:/platform/users</access-permissions>
-            <portlet-application>
-                <portlet>
-                    <application-ref>platformNavigation</application-ref>
-                    <portlet-ref>UIUserNavigationPortlet</portlet-ref>
-                </portlet>
-                <title>User Navigation Portlet</title>
-                <access-permissions>*:/platform/users</access-permissions>
-                <show-info-bar>false</show-info-bar>
-                <show-application-state>true</show-application-state>
-            </portlet-application>
-        </container>
-        <container id="ConnectionsNavigationPortlet" template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
-            <access-permissions>*:/platform/users</access-permissions>
-            <portlet-application>
-                <portlet>
-                    <application-ref>social-portlet</application-ref>
-                    <portlet-ref>ConnectionsNavigationPortlet</portlet-ref>
-                </portlet>
-                <title>Connection Navigation</title>
-                <access-permissions>*:/platform/users</access-permissions>
-                <show-info-bar>false</show-info-bar>
-                <show-application-state>true</show-application-state>
-            </portlet-application>
-        </container>
-        <container id="ConnectionsPortlet" template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
-            <access-permissions>*:/platform/users</access-permissions>
             <portlet-application>
                 <portlet>
                     <application-ref>social-portlet</application-ref>
@@ -529,7 +501,7 @@
                 <show-info-bar>false</show-info-bar>
                 <show-application-state>true</show-application-state>
             </portlet-application>
-        </container>
+
     </page>
 
     <page>
@@ -537,34 +509,6 @@
         <title>Invitations</title>
         <access-permissions>*:/platform/users</access-permissions>
         <edit-permission>manager:/platform/administrators</edit-permission>
-        <container id="UIUserNavigationPortlet" template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
-            <access-permissions>*:/platform/users</access-permissions>
-            <portlet-application>
-                <portlet>
-                    <application-ref>platformNavigation</application-ref>
-                    <portlet-ref>UIUserNavigationPortlet</portlet-ref>
-                </portlet>
-                <title>User Navigation Portlet</title>
-                <access-permissions>*:/platform/users</access-permissions>
-                <show-info-bar>false</show-info-bar>
-                <show-application-state>true</show-application-state>
-            </portlet-application>
-        </container>
-        <container id="ConnectionsNavigationPortlet" template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
-            <access-permissions>*:/platform/users</access-permissions>
-            <portlet-application>
-                <portlet>
-                    <application-ref>social-portlet</application-ref>
-                    <portlet-ref>ConnectionsNavigationPortlet</portlet-ref>
-                </portlet>
-                <title>Connections Navigation</title>
-                <access-permissions>*:/platform/users</access-permissions>
-                <show-info-bar>false</show-info-bar>
-                <show-application-state>true</show-application-state>
-            </portlet-application>
-        </container>
-        <container id="InvitationsPortlet" template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
-            <access-permissions>*:/platform/users</access-permissions>
             <portlet-application>
                 <portlet>
                     <application-ref>social-portlet</application-ref>
@@ -575,7 +519,7 @@
                 <show-info-bar>false</show-info-bar>
                 <show-application-state>true</show-application-state>
             </portlet-application>
-        </container>
+
     </page>
 
     <page>
@@ -583,34 +527,6 @@
         <title>Requests</title>
         <access-permissions>*:/platform/users</access-permissions>
         <edit-permission>manager:/platform/administrators</edit-permission>
-        <container id="UIUserNavigationPortlet" template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
-            <access-permissions>*:/platform/users</access-permissions>
-            <portlet-application>
-                <portlet>
-                    <application-ref>platformNavigation</application-ref>
-                    <portlet-ref>UIUserNavigationPortlet</portlet-ref>
-                </portlet>
-                <title>User Navigation Portlet</title>
-                <access-permissions>*:/platform/users</access-permissions>
-                <show-info-bar>false</show-info-bar>
-                <show-application-state>true</show-application-state>
-            </portlet-application>
-        </container>
-        <container id="ConnectionsNavigationPortlet" template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
-            <access-permissions>*:/platform/users</access-permissions>
-            <portlet-application>
-                <portlet>
-                    <application-ref>social-portlet</application-ref>
-                    <portlet-ref>ConnectionsNavigationPortlet</portlet-ref>
-                </portlet>
-                <title>Connections Navigation</title>
-                <access-permissions>*:/platform/users</access-permissions>
-                <show-info-bar>false</show-info-bar>
-                <show-application-state>true</show-application-state>
-            </portlet-application>
-        </container>
-        <container id="RequestsPortlet" template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
-            <access-permissions>*:/platform/users</access-permissions>
             <portlet-application>
                 <portlet>
                     <application-ref>social-portlet</application-ref>
@@ -621,7 +537,7 @@
                 <show-info-bar>false</show-info-bar>
                 <show-application-state>true</show-application-state>
             </portlet-application>
-        </container>
+
         <!--   </container>   -->
     </page>
 

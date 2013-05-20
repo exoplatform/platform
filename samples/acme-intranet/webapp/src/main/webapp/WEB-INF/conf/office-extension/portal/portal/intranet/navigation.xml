@@ -37,6 +37,34 @@
             <name>connexions</name>
             <label>#{portal.intranet.people}</label>
             <page-reference>portal::intranet::people</page-reference>
+
+           <node>
+              <uri>connexions/all-people</uri>
+              <name>people</name>
+              <label>#{portal.intranet.people}</label>
+              <page-reference>portal::intranet::people</page-reference>
+           </node>
+
+           <node>
+              <uri>connexions/network</uri>
+              <name>network</name>
+              <label>#{portal.intranet.people}</label>
+              <page-reference>portal::intranet::connections</page-reference>
+           </node>
+
+           <node>
+              <uri>connexions/receivedInvitations</uri>
+              <name>receivedInvitations</name>
+              <label>#{portal.intranet.people}</label>
+              <page-reference>portal::intranet::invitations</page-reference>
+           </node>
+
+           <node>
+              <uri>connexions/pendingRequests</uri>
+              <name>pendingRequests</name>
+              <label>#{portal.intranet.people}</label>
+              <page-reference>portal::intranet::requests</page-reference>
+           </node>
         </node>
         
         <node>
