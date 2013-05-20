@@ -683,108 +683,109 @@
           
           <h6 class="title center">__MSG_loginHistory.title__</h6>
           
-          <div id="GadgetContent" class="gadContent uiContentBox">
+          <div id="GadgetContent" class="uiContentBox">
+          <div class="gadContent">
       		<div class="btn-group">
-            <button id="globalLastLoginBtn" class="btn">__MSG_loginHistory.title__</button>
-            <button id='globalStatisticBtn' class="btn">__MSG_loginHistory.statisticsView__</button>
-            <button id='globalHistoryBtn' class="btn">__MSG_loginHistory.historyView__</button>
-          </div>
-          <div id="lastLoginsDiv">
-            <input class="searchUser" id="searchTxt" type="text" placeholder="Search user" name="titleInput">
-            <div id="lastLoginsContainerDiv">
-              <div id="lastLoginsDataDiv">
-                <table id="lastLoginsTable" class="uiGrid table table-hover table-striped">
-                <thead>
-                <tr>
-                  <th>User <i class="uiIcon_ pull-right"></i></th>
-                    <th>Last login  <i class="uiIcon_ pull-right"></i></th>
-                    <th>Before that  <i class="uiIcon_ pull-right"></i></th>
-                </tr>
-              </thead>
-                </table>
-              </div>
-            </div>
-          </div>
-    
-          <fieldset id="userLoginHistoryFieldset" style="display:none;" class="userForm">
-             <legend class="StyleLegend">John Smith &nbsp; &nbsp;</legend>
-             <div class="userContent clearfix">
-                 <div class="leftContent pull-left">
-                       <div class="selectIteam iteamIcon"><i class="iconStastics"></i><span class="caret"></span></div>
-                       <div class="iteamIcon"><i class="iconDetail"></i></div>
-                 </div>
-                 <div id="userLoginDataPosition"  class="rightContent">
-               
-                 
-                   <div id="statisticDiv" class="statisticDiv">
-                 <div class="clearfix selectWeek">
-                   <button class="pull-right btn"> Week <i class="uiIconMiniArrowDown"></i></button>
-                   <div class='btn-group'>
-                     <button class="btn" id="prevBtn" rel="tooltip" data-placement="bottom" title="Preview" ><i class="uiIconArrowLeft"></i></button>
-                     <button class="btn" id="loginStatsChartTitle">Week 44</button>
-                     <button class="btn" id="nextBtn" rel="tooltip" data-placement="bottom" title="Next"><i class="uiIconArrowRight"></i></button>
-                   </div>
-                 </div>
-                 <div id="loginStatsChart" style="height:150px;"></div>
-                 <div id="chartTooltipDiv" class="jqplot-highlighter-tooltip"></div>
-                 <div id="stats" style="margin-top: 10px; margin-left: 12px;"></div>
-                 </div>
-                 
-                 
-                 <div  id="historyDiv" class="accordion">                 
-                       <div class="accordion-group">
-                           <div class="accordion-heading">
-                             <div id="todayHeader" class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#historyDiv" href="#todayDiv">
-                                    <a href="#" id=""><i class='uiIconSelected pull-right'></i><span>__MSG_loginHistory.today__</span></a>
-                             </div>
-                           </div>
-                         <div id="todayDiv" class="accordion-body collapse" style="overflow-y: auto;">
-                           </div>
-                       </div>
-                   
-                       <div class="accordion-group">
-                       <div class="accordion-heading">
-                         <div  id="earlierThisWeekHeader" class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#historyDiv" href="#earlierThisWeekDiv">
-                       <a id="" href="#"><i class='uiIconSelected pull-right'></i><span>__MSG_loginHistory.earlierThisWeek__</span></a>
-                         </div>
-                       </div>
-                       <div id="earlierThisWeekDiv" class="accordion-body collapse" style="overflow-y: auto;"> </div>
-                       </div>
-                       
-                       <div class="accordion-group">
-                       <div class="accordion-heading">
-                         <div id="earlierThisMonthHeader" class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#historyDiv" href="#earlierThisMonthDiv">
-                          <a id="" href="#"><i class='uiIconSelected pull-right'></i><span>__MSG_loginHistory.earlierThisMonth__</span></a>
-                         </div>
-                       </div>
-                       <div id="earlierThisMonthDiv" class="accordion-body collapse" style="overflow-y: auto;"> </div>
-                       </div>
-                       
-                       
-                       <div class="accordion-group">
-                       <div class="accordion-heading">
-                         <div id="earlierHeader" class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#historyDiv" href="#earlierDiv">
-                            <a id="" href="#"><i class='uiIconSelected pull-right'></i><span>__MSG_loginHistory.earlier__</span></a>
-                         </div>
-                       </div>
-                       <div id="earlierDiv" class="accordion-body collapse" style="overflow-y: auto;"> </div>
-                       </div>
-                     </div>
-                     
-                 </div>
-                 
-                 
-                 
-             </div>
-        </fieldset>
-        <div id="statisticDivPosition">   
-     
-        </div>
- 
-        <div id="historyDivPosition">
-      </div>
+	            <button id="globalLastLoginBtn" class="btn">__MSG_loginHistory.title__</button>
+	            <button id='globalStatisticBtn' class="btn">__MSG_loginHistory.statisticsView__</button>
+	            <button id='globalHistoryBtn' class="btn">__MSG_loginHistory.historyView__</button>
+	          </div>
+	          <div id="lastLoginsDiv">
+	            <input class="searchUser" id="searchTxt" type="text" placeholder="Search user" name="titleInput">
+	            <div id="lastLoginsContainerDiv">
+	              <div id="lastLoginsDataDiv">
+	                <table id="lastLoginsTable" class="uiGrid table table-hover table-striped">
+	                <thead>
+	                <tr>
+	                  <th>User <i class="uiIcon_ pull-right"></i></th>
+	                    <th>Last login  <i class="uiIcon_ pull-right"></i></th>
+	                    <th>Before that  <i class="uiIcon_ pull-right"></i></th>
+	                </tr>
+	              </thead>
+	                </table>
+	              </div>
+	            </div>
+	          </div>
+	    
+	          <fieldset id="userLoginHistoryFieldset" style="display:none;" class="userForm">
+	             <legend class="StyleLegend">John Smith &nbsp; &nbsp;</legend>
+	             <div class="userContent clearfix">
+	                 <div class="leftContent pull-left">
+	                       <div class="selectIteam iteamIcon"><i class="iconStastics"></i><span class="caret"></span></div>
+	                       <div class="iteamIcon"><i class="iconDetail"></i></div>
+	                 </div>
+	                 <div id="userLoginDataPosition"  class="rightContent">
+	               
+	                 
+	                   <div id="statisticDiv" class="statisticDiv">
+	                 <div class="clearfix selectWeek">
+	                   <button class="pull-right btn"> Week <i class="uiIconMiniArrowDown"></i></button>
+	                   <div class='btn-group'>
+	                     <button class="btn" id="prevBtn" rel="tooltip" data-placement="bottom" title="Preview" ><i class="uiIconArrowLeft"></i></button>
+	                     <button class="btn" id="loginStatsChartTitle">Week 44</button>
+	                     <button class="btn" id="nextBtn" rel="tooltip" data-placement="bottom" title="Next"><i class="uiIconArrowRight"></i></button>
+	                   </div>
+	                 </div>
+	                 <div id="loginStatsChart" style="height:150px;"></div>
+	                 <div id="chartTooltipDiv" class="jqplot-highlighter-tooltip"></div>
+	                 <div id="stats" style="margin-top: 10px; margin-left: 12px;"></div>
+	                 </div>
+	                 
+	                 
+	                 <div  id="historyDiv" class="accordion">                 
+	                       <div class="accordion-group">
+	                           <div class="accordion-heading">
+	                             <div id="todayHeader" class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#historyDiv" href="#todayDiv">
+	                                    <a href="#" id=""><i class='uiIconSelected pull-right'></i><span>__MSG_loginHistory.today__</span></a>
+	                             </div>
+	                           </div>
+	                         <div id="todayDiv" class="accordion-body collapse" style="overflow-y: auto;">
+	                           </div>
+	                       </div>
+	                   
+	                       <div class="accordion-group">
+	                       <div class="accordion-heading">
+	                         <div  id="earlierThisWeekHeader" class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#historyDiv" href="#earlierThisWeekDiv">
+	                       <a id="" href="#"><i class='uiIconSelected pull-right'></i><span>__MSG_loginHistory.earlierThisWeek__</span></a>
+	                         </div>
+	                       </div>
+	                       <div id="earlierThisWeekDiv" class="accordion-body collapse" style="overflow-y: auto;"> </div>
+	                       </div>
+	                       
+	                       <div class="accordion-group">
+	                       <div class="accordion-heading">
+	                         <div id="earlierThisMonthHeader" class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#historyDiv" href="#earlierThisMonthDiv">
+	                          <a id="" href="#"><i class='uiIconSelected pull-right'></i><span>__MSG_loginHistory.earlierThisMonth__</span></a>
+	                         </div>
+	                       </div>
+	                       <div id="earlierThisMonthDiv" class="accordion-body collapse" style="overflow-y: auto;"> </div>
+	                       </div>
+	                       
+	                       
+	                       <div class="accordion-group">
+	                       <div class="accordion-heading">
+	                         <div id="earlierHeader" class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#historyDiv" href="#earlierDiv">
+	                            <a id="" href="#"><i class='uiIconSelected pull-right'></i><span>__MSG_loginHistory.earlier__</span></a>
+	                         </div>
+	                       </div>
+	                       <div id="earlierDiv" class="accordion-body collapse" style="overflow-y: auto;"> </div>
+	                       </div>
+	                     </div>
+	                     
+	                 </div>
+	                 
+	                 
+	                 
+	             </div>
+	        </fieldset>
+	        <div id="statisticDivPosition">   
+	     
+	        </div>
+	 
+	        <div id="historyDivPosition">
+	      </div>
       
-      
+      	</div>
         </div>
                    
       </body>
