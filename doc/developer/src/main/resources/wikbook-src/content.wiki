@@ -178,10 +178,10 @@ h1. Dialog Syntax {anchor:id=DEV.WorkWithContent.DialogSyntax}
           </listitem>
           <listitem>
             <para>
-              <link linkend="DEV.WorkWithContent.HiddenFields">Hidden fields</link>
+              <link linkend="DEV.WorkWithContent.Fields">Fields</link>
             </para>
 			<para>
-			Information about the hidden fields of Content.
+			Information about some fields in Dialog of Content.
 			</para>
           </listitem>
         </itemizedlist>
@@ -250,7 +250,7 @@ public class PostNodeSaveInterceptor implements CmsScript {
   }
 }{code}
 
-h2. Hidden fields {anchor:id=DEV.WorkWithContent.HiddenFieldsRoleNotInToc}
+h2. Fields {anchor:id=DEV.WorkWithContent.FieldsRoleNotInToc}
 
 In the next code sample, each argument is composed of a set of keys and values. The order of arguments are not important and only the key matters. That example defines a field with the id as "hiddenField2", which will generate a hidden field. The value of this field will be automatically set to UTF-8 and no visible field will be printed on the form.
 
@@ -272,48 +272,6 @@ You cannot either see the non-value field on the form or input value for them. I
 
 {code:groovy}String[] hiddenField1 = ["jcrPath=/node/jcr:content", "nodetype=nt:resource", "mixintype=dc:elementSet", "visible=false"] ;
 uicomponent.addHiddenField("hiddenInput1", hiddenField1) ;{code}
-
-{docbook}
-<para xml:id="DEV.WorkWithContent.Non-EditableFields">
-<citetitle>
-<emphasis role="bold">Non-editable fields</emphasis>
-</citetitle>
-</para>
-{docbook}
-
-It is possible to create widgets that are non-editable (and then only used to print some information).
-
-{code:java}String[] fieldCategories = ["jcrPath=/node/exo:category", "multiValues=true", "reference=true", "editable=false"]; uicomponent.addTextField("categories", fieldCategories);{code}
-
-{docbook}
-<para xml:id="DEV.WorkWithContent.CreateNodeTypeOrMixinType">
-<citetitle>
-<emphasis role="bold">Create node type or mixin type</emphasis>
-</citetitle>
-</para>
-{docbook}
-
-In many cases, when creating an instance where the node is out of form, you must still specify the CMS service about the node structure. Particularly, you must define if which node type is child of the newly created node or if the current node has any mixin type attributed.
-
-By defining these arguments, the node and its children are created with the correct node type and mixin type.
-
-See the following example:
-
-{code:groovy}String[] hiddenField = ["jcrPath=/node/jcrcontent", "nodetype=nt:resource", "mixintype=exo:rss-enable", "visible=false"] ;
-uicomponent.addHiddenField("hiddenInput", hiddenField) ;{code}
-
-{docbook}
-<para xml:id="DEV.WorkWithContent.HiddenFieldWithDefaultValue">
-<citetitle>
-<emphasis role="bold">Hidden field with default value</emphasis>
-</citetitle>
-</para>
-{docbook}
-
-In the previous sample, the value was automatically created and set according to the current date. However, it is also possible to set a default value for a field.
-
-{code:groovy}String[] hiddenField = ["jcrPath=/node/jcrcontent/jcr:mimeType", "image/jpeg"] ;
-uicomponent.addHiddenField("hiddenInput", hiddenField) ;{code}
 
 {docbook}
 <para xml:id="DEV.WorkWithContent.VisibleWithoutNullFields">
@@ -525,16 +483,21 @@ public interface ComponentSelector {
   public void setSourceComponent(UIComponent uicomponent, String[] initParams) ;    
 }{code}
 
-{docbook}
-<para xml:id="DEV.WorkWithContent.Multi-valueWidget">
-<citetitle>
-<emphasis role="bold">Multi-valued widget</emphasis>
-</citetitle>
-</para>
-{docbook}
+The followings are predefined selectors which can be used in the action field to select an object from a list
+provided by the system.
+For example, to assign the permission to given users/groups, users must select them from the a list of users/groups
+available in the system.
+* _org.exoplatform.ecm.webui.tree.selectone.UIOneNodePathSelector_: Allow selecting the node path.
+* _org.exoplatform.ecm.webui.tree.selectone.UIOneTaxonomySelector_: Allow selecting the category path.
+* _org.exoplatform.ecm.webui.selector.UIGroupMemberSelector_: Allow selecting the membership of a given group.
+* _org.exoplatform.ecm.webui.component.explorer.popup.info.UIGroupSelector_: Allow selecting a group.
+* _org.exoplatform.ecm.webui.nodetype.selector.UINodeTypeSelector_: Allow selecting node types.
+* _org.exoplatform.ecm.webui.selector.UIPermissionSelector_: Allow selecting permission expressions.
+* _org.exoplatform.wcm.webui.selector.UIUserMemberSelector_: Allow selecting users from a users list.
 
-A widget can have multiple values if you add the argument "multiValues=true" to the directive.
-
+{note}
+To have more information about the fields in Dialog, see the [Dialog|../../../reference/html/CONTref.InsideWCMTemplates.ContentTypes.Dialog.html] section.
+{note}
 h1. Customize CKEditor  {anchor:id=DEV.WorkWithContent.CKEditor}
 {include:document=CKEditor.wiki|syntax=confluence/1.0}
 
