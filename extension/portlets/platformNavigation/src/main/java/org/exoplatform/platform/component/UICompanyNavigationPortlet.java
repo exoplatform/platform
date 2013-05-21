@@ -35,8 +35,10 @@ import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.core.UIPortletApplication;
 import org.exoplatform.webui.core.lifecycle.UIApplicationLifecycle;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
+import java.util.List;
 
 /**
  * @author <a href="fbradai@exoplatform.com">Fbradai</a>
@@ -87,8 +89,35 @@ public class UICompanyNavigationPortlet extends UIPortletApplication {
         }
         return Collections.emptyList();
     }
+
     public UserNode getSelectedPageNode() throws Exception {
         return Util.getUIPortal().getSelectedUserNode();
+    }
+
+    public Boolean isSelectedPageNode(UserNode node) throws Exception {
+
+        UserNode selectedNode = Util.getUIPortal().getSelectedUserNode();
+        if (selectedNode != null) {
+            if (node.getURI().equals(selectedNode.getURI())) {
+                return true;
+            }
+            List<String> uris = new ArrayList<String>();
+            for (UserNode child : node.getChildren()) {
+                uris.add(child.getURI());
+            }
+            if (uris != null && !uris.isEmpty()) {
+                if (uris.contains(selectedNode.getURI())) {
+                    return true;
+                } else {
+                    return false;
+                }
+            } else {
+                return false;
+            }
+        } else {
+            return false;
+        }
+
     }
 
 }
