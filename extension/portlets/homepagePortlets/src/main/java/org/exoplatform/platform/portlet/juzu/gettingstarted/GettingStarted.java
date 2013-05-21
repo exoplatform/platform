@@ -32,6 +32,7 @@ import org.exoplatform.services.log.Log;
 import org.exoplatform.social.core.service.LinkProvider;
 import org.exoplatform.web.application.RequestContext;
 
+import javax.annotation.PostConstruct;
 import javax.inject.Inject;
 import javax.jcr.Node;
 import javax.jcr.Property;
@@ -63,61 +64,59 @@ public class GettingStarted {
     @Path("gettingStartedList.gtmpl")
     Template gettingStartedList;
 
-    @View
-    public void index() throws Exception {
+    @PostConstruct
+    public void init() {
         String remoteUser = null;
         SessionProvider sProvider = null;
         try {
             remoteUser = RequestContext.getCurrentInstance().getRemoteUser();
             sProvider = SessionProvider.createSystemProvider();
-        Node userPrivateNode = nodeHierarchyCreator_.getUserNode(sProvider, remoteUser).getNode(GettingStartedUtils.JCR_APPLICATION_NODE);
-        if (!userPrivateNode.hasNode(GettingStartedUtils.JCR_GS_NODE)) {
-
-            Node gettingStartedNode = userPrivateNode.addNode(GettingStartedUtils.JCR_GS_NODE);
-            userPrivateNode.save();
-            gettingStartedNode.setProperty(GettingStartedUtils.JCR_DELETE_GADGET_PROPERTY_NAME, false);
-            gettingStartedNode.setProperty(GettingStartedUtils.JCR_PROFILE_PROPERTY_NAME, false);
-            gettingStartedNode.setProperty(GettingStartedUtils.JCR_CONNECT_PROPERTY_NAME, false);
-            gettingStartedNode.setProperty(GettingStartedUtils.JCR_SPACE_PROPERTY_NAME, false);
-            gettingStartedNode.setProperty(GettingStartedUtils.JCR_ACTIVITY_PROPERTY_NAME, false);
-            gettingStartedNode.setProperty(GettingStartedUtils.JCR_DOCUMENT_PROPERTY_NAME, false);
-            gettingStartedNode.save();
-        }
-        } catch (Exception E) {
-            logger.error("GattingStart Portlet : Can load properties ", E.getLocalizedMessage(), E);
-
-        }finally {
-            if (sProvider != null) {
-                sProvider.close();
+            Node userPrivateNode = nodeHierarchyCreator_.getUserNode(sProvider, remoteUser).getNode(GettingStartedUtils.JCR_APPLICATION_NODE);
+            if (!userPrivateNode.hasNode(GettingStartedUtils.JCR_GS_NODE)) {
+                Node gettingStartedNode = userPrivateNode.addNode(GettingStartedUtils.JCR_GS_NODE);
+                gettingStartedNode.setProperty(GettingStartedUtils.JCR_DELETE_GADGET_PROPERTY_NAME, false);
+                gettingStartedNode.setProperty(GettingStartedUtils.JCR_PROFILE_PROPERTY_NAME, false);
+                gettingStartedNode.setProperty(GettingStartedUtils.JCR_CONNECT_PROPERTY_NAME, false);
+                gettingStartedNode.setProperty(GettingStartedUtils.JCR_SPACE_PROPERTY_NAME, false);
+                gettingStartedNode.setProperty(GettingStartedUtils.JCR_ACTIVITY_PROPERTY_NAME, false);
+                gettingStartedNode.setProperty(GettingStartedUtils.JCR_DOCUMENT_PROPERTY_NAME, false);
+                gettingStartedNode.getSession().save();
             }
+        } catch (Exception E) {
+            logger.error("GettingStarted Portlet : Can not load properties", E.getLocalizedMessage(), E);
+
+        } finally {
+            if (sProvider != null)
+                sProvider.close();
         }
+    }
+
+    @View
+    public void index() throws Exception {
         gettingStarted.render();
     }
 
     @Ajax
     @Resource
-    public void delete() throws Exception
-    {
+    public void delete() throws Exception {
         //set Delete
         String userId = null;
         SessionProvider sProvider = null;
         try {
             userId = RequestContext.getCurrentInstance().getRemoteUser();
             sProvider = SessionProvider.createSystemProvider();
-        Node userPrivateNode = nodeHierarchyCreator_.getUserNode(sProvider, userId).getNode(GettingStartedUtils.JCR_APPLICATION_NODE);
-        if (userPrivateNode.hasNode(GettingStartedUtils.JCR_GS_NODE))
-        {
-            Node gettingStartedNode = userPrivateNode.getNode(GettingStartedUtils.JCR_GS_NODE);
-            if (gettingStartedNode.hasProperty(GettingStartedUtils.JCR_DELETE_GADGET_PROPERTY_NAME))
-            {
-                gettingStartedNode.setProperty(GettingStartedUtils.JCR_DELETE_GADGET_PROPERTY_NAME, true);
-                gettingStartedNode.save();
+            Node userPrivateNode = nodeHierarchyCreator_.getUserNode(sProvider, userId).getNode(GettingStartedUtils.JCR_APPLICATION_NODE);
+            if (userPrivateNode.hasNode(GettingStartedUtils.JCR_GS_NODE)) {
+                Node gettingStartedNode = userPrivateNode.getNode(GettingStartedUtils.JCR_GS_NODE);
+                if (gettingStartedNode.hasProperty(GettingStartedUtils.JCR_DELETE_GADGET_PROPERTY_NAME)) {
+                    gettingStartedNode.setProperty(GettingStartedUtils.JCR_DELETE_GADGET_PROPERTY_NAME, true);
+                    gettingStartedNode.save();
+                }
             }
-        }
         } catch (Exception E) {
-            logger.error("GattingStart Portlet : Can not delete Portlet from ApplicationRegistry", E.getLocalizedMessage(), E);
+            logger.error("GettingStarted Portlet : Can not delete Portlet from ApplicationRegistry", E.getLocalizedMessage(), E);
 
-        }finally {
+        } finally {
             if (sProvider != null) {
                 sProvider.close();
             }
@@ -130,82 +129,79 @@ public class GettingStarted {
     public void getGsList(String reload) throws Exception {
         HashMap bundle = new HashMap();
         Boolean Isshow = true;
-        boolean isChange=false;
+        boolean isChange = false;
         PropertyIterator propertiesIt = null;
         remoteUser = RequestContext.getCurrentInstance().getRemoteUser();
         SessionProvider sProvider = null;
         try {
             sProvider = SessionProvider.createSystemProvider();
-        Node userPrivateNode = nodeHierarchyCreator_.getUserNode(sProvider, remoteUser).getNode(GettingStartedUtils.JCR_APPLICATION_NODE);
-        if (userPrivateNode.hasNode(GettingStartedUtils.JCR_GS_NODE))
-        {
-            Node gettingStartedNode = userPrivateNode.getNode(GettingStartedUtils.JCR_GS_NODE);
-            propertiesIt = userPrivateNode.getNode(GettingStartedUtils.JCR_GS_NODE).getProperties("exo:gs_*");
-            while (propertiesIt.hasNext())
-            {
-                Property tempProp= (Property) propertiesIt.next();
-                if (tempProp.getName().equals(GettingStartedUtils.JCR_PROFILE_PROPERTY_NAME)){
-                    if(isChange==false) isChange = updateAction(tempProp, gettingStartedNode);
-                    else updateAction(tempProp, gettingStartedNode);
-                    continue;
+            Node userPrivateNode = nodeHierarchyCreator_.getUserNode(sProvider, remoteUser).getNode(GettingStartedUtils.JCR_APPLICATION_NODE);
+            if (userPrivateNode.hasNode(GettingStartedUtils.JCR_GS_NODE)) {
+                Node gettingStartedNode = userPrivateNode.getNode(GettingStartedUtils.JCR_GS_NODE);
+                propertiesIt = userPrivateNode.getNode(GettingStartedUtils.JCR_GS_NODE).getProperties("exo:gs_*");
+                while (propertiesIt.hasNext()) {
+                    Property tempProp = (Property) propertiesIt.next();
+                    if (tempProp.getName().equals(GettingStartedUtils.JCR_PROFILE_PROPERTY_NAME)) {
+                        if (isChange == false) isChange = updateAction(tempProp, gettingStartedNode);
+                        else updateAction(tempProp, gettingStartedNode);
+                        continue;
+                    }
+                    if (tempProp.getName().equals(GettingStartedUtils.JCR_CONNECT_PROPERTY_NAME)) {
+                        if (isChange == false) isChange = updateAction(tempProp, gettingStartedNode);
+                        else updateAction(tempProp, gettingStartedNode);
+                        continue;
+                    }
+                    if (tempProp.getName().equals(GettingStartedUtils.JCR_ACTIVITY_PROPERTY_NAME)) {
+                        if (isChange == false) isChange = updateAction(tempProp, gettingStartedNode);
+                        else updateAction(tempProp, gettingStartedNode);
+                        continue;
+                    }
+                    if (tempProp.getName().equals(GettingStartedUtils.JCR_SPACE_PROPERTY_NAME)) {
+                        if (isChange == false) isChange = updateAction(tempProp, gettingStartedNode);
+                        else updateAction(tempProp, gettingStartedNode);
+                        continue;
+                    }
+                    if (tempProp.getName().equals(GettingStartedUtils.JCR_DOCUMENT_PROPERTY_NAME)) {
+                        if (isChange == false) isChange = updateAction(tempProp, gettingStartedNode);
+                        else updateAction(tempProp, gettingStartedNode);
+                        continue;
+                    }
                 }
-                if (tempProp.getName().equals(GettingStartedUtils.JCR_CONNECT_PROPERTY_NAME)){
-                    if(isChange==false) isChange =  updateAction(tempProp,gettingStartedNode);
-                    else updateAction(tempProp, gettingStartedNode);
-                    continue;
-                }
-                if (tempProp.getName().equals(GettingStartedUtils.JCR_ACTIVITY_PROPERTY_NAME)){
-                    if(isChange==false) isChange = updateAction(tempProp, gettingStartedNode);
-                    else updateAction(tempProp, gettingStartedNode);
-                    continue;
-                }
-                if (tempProp.getName().equals(GettingStartedUtils.JCR_SPACE_PROPERTY_NAME)){
-                    if(isChange==false) isChange = updateAction(tempProp,gettingStartedNode);
-                    else  updateAction(tempProp, gettingStartedNode);
-                    continue;
-                }
-                if (tempProp.getName().equals(GettingStartedUtils.JCR_DOCUMENT_PROPERTY_NAME)){
-                    if(isChange==false) isChange = updateAction(tempProp, gettingStartedNode);
-                    else updateAction(tempProp,gettingStartedNode);
-                    continue;
-                }
+                if (progress > 100) progress = 100;
+                if (progress == 100) Isshow = false;
+            } else {
+                Node gettingStartedNode = userPrivateNode.addNode(GettingStartedUtils.JCR_GS_NODE);
+                userPrivateNode.save();
+                gettingStartedNode.setProperty(GettingStartedUtils.JCR_DELETE_GADGET_PROPERTY_NAME, false);
+                gettingStartedNode.setProperty(GettingStartedUtils.JCR_PROFILE_PROPERTY_NAME, false);
+                gettingStartedNode.setProperty(GettingStartedUtils.JCR_CONNECT_PROPERTY_NAME, false);
+                gettingStartedNode.setProperty(GettingStartedUtils.JCR_SPACE_PROPERTY_NAME, false);
+                gettingStartedNode.setProperty(GettingStartedUtils.JCR_ACTIVITY_PROPERTY_NAME, false);
+                gettingStartedNode.setProperty(GettingStartedUtils.JCR_DOCUMENT_PROPERTY_NAME, false);
+                gettingStartedNode.save();
             }
-            if(progress>100) progress=100;
-            if (progress == 100) Isshow = false;
-        } else
-        {
-            Node gettingStartedNode = userPrivateNode.addNode(GettingStartedUtils.JCR_GS_NODE);
-            userPrivateNode.save();
-            gettingStartedNode.setProperty(GettingStartedUtils.JCR_DELETE_GADGET_PROPERTY_NAME, false);
-            gettingStartedNode.setProperty(GettingStartedUtils.JCR_PROFILE_PROPERTY_NAME, false);
-            gettingStartedNode.setProperty(GettingStartedUtils.JCR_CONNECT_PROPERTY_NAME, false);
-            gettingStartedNode.setProperty(GettingStartedUtils.JCR_SPACE_PROPERTY_NAME, false);
-            gettingStartedNode.setProperty(GettingStartedUtils.JCR_ACTIVITY_PROPERTY_NAME, false);
-            gettingStartedNode.setProperty(GettingStartedUtils.JCR_DOCUMENT_PROPERTY_NAME, false);
-            gettingStartedNode.save();
-        }
 
-        try {
-            bundle.put("profile", LinkProvider.getUserProfileUri(remoteUser));
-            bundle.put("connect", LinkProvider.getUserConnectionsUri(remoteUser));
-            bundle.put("space", GettingStartedUtils.SPACE_URL);
-            bundle.put("activity", "#");
-            bundle.put("upload", GettingStartedUtils.UPLOAD_URL);
-        } catch (MissingResourceException ex) {
-            logger.warn("##Missing Labels of GettingStarted Portlet");
-        }
-        parameters.putAll(bundle);
-        parameters.put(GettingStartedUtils.PROGRESS, new Integer(progress));
-        parameters.put(GettingStartedUtils.WIDTH, new Integer((Math.round((200 * progress) / 100))).toString());
-        parameters.put(GettingStartedUtils.STATUS, status);
-        parameters.put(GettingStartedUtils.SHOW, Isshow.toString());
-            if ((isChange)||(reload.equals("true"))) {
-            gettingStartedList.render(parameters);
-    }
-        }catch (Exception E) {
-                logger.error("GattingStart Portlet : Can not load task list", E.getLocalizedMessage(), E);
+            try {
+                bundle.put("profile", LinkProvider.getUserProfileUri(remoteUser));
+                bundle.put("connect", LinkProvider.getUserConnectionsUri(remoteUser));
+                bundle.put("space", GettingStartedUtils.SPACE_URL);
+                bundle.put("activity", "#");
+                bundle.put("upload", GettingStartedUtils.UPLOAD_URL);
+            } catch (MissingResourceException ex) {
+                logger.warn("##Missing Labels of GettingStarted Portlet");
+            }
+            parameters.putAll(bundle);
+            parameters.put(GettingStartedUtils.PROGRESS, new Integer(progress));
+            parameters.put(GettingStartedUtils.WIDTH, new Integer((Math.round((200 * progress) / 100))).toString());
+            parameters.put(GettingStartedUtils.STATUS, status);
+            parameters.put(GettingStartedUtils.SHOW, Isshow.toString());
+            if ((isChange) || (reload.equals("true"))) {
+                gettingStartedList.render(parameters);
+            }
+        } catch (Exception E) {
+            logger.error("GettingStarted Portlet : Can not load task list", E.getLocalizedMessage(), E);
 
-        }finally {
+        } finally {
             if (sProvider != null) {
                 sProvider.close();
             }
@@ -214,15 +210,14 @@ public class GettingStarted {
     }
 
     private boolean updateAction(Property tempProp, Node gettingStartedNode) throws RepositoryException {
-        boolean has=false;
-        String gsPropertyName=tempProp.getName();
-        has =checkStatus(gsPropertyName);
-        if(has)  {
+        boolean has = false;
+        String gsPropertyName = tempProp.getName();
+        has = checkStatus(gsPropertyName);
+        if (has) {
             status.put(gsPropertyName.substring(4), GettingStartedUtils.DONE);
-            progress+=20;
-        }
-        else  status.put(gsPropertyName.substring(4), "");
-        if(has!=tempProp.getBoolean()){
+            progress += 20;
+        } else status.put(gsPropertyName.substring(4), "");
+        if (has != tempProp.getBoolean()) {
             gettingStartedNode.setProperty(gsPropertyName, has);
             gettingStartedNode.save();
             return true;
@@ -231,10 +226,14 @@ public class GettingStarted {
     }
 
     private boolean checkStatus(String gsPropertyName) {
-        if (gsPropertyName.equals(GettingStartedUtils.JCR_CONNECT_PROPERTY_NAME)) return GettingStartedService.hasContacts(remoteUser);
-        else if (gsPropertyName.equals(GettingStartedUtils.JCR_ACTIVITY_PROPERTY_NAME)) return GettingStartedService.hasActivities(remoteUser);
-        else if (gsPropertyName.equals(GettingStartedUtils.JCR_DOCUMENT_PROPERTY_NAME)) return GettingStartedService.hasDocuments(null,remoteUser);
-        else if (gsPropertyName.equals(GettingStartedUtils.JCR_SPACE_PROPERTY_NAME)) return GettingStartedService.hasSpaces(remoteUser);
+        if (gsPropertyName.equals(GettingStartedUtils.JCR_CONNECT_PROPERTY_NAME))
+            return GettingStartedService.hasContacts(remoteUser);
+        else if (gsPropertyName.equals(GettingStartedUtils.JCR_ACTIVITY_PROPERTY_NAME))
+            return GettingStartedService.hasActivities(remoteUser);
+        else if (gsPropertyName.equals(GettingStartedUtils.JCR_DOCUMENT_PROPERTY_NAME))
+            return GettingStartedService.hasDocuments(null, remoteUser);
+        else if (gsPropertyName.equals(GettingStartedUtils.JCR_SPACE_PROPERTY_NAME))
+            return GettingStartedService.hasSpaces(remoteUser);
         else return GettingStartedService.hasAvatar(remoteUser);
     }
 }
