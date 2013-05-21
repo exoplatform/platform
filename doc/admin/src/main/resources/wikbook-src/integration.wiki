@@ -120,22 +120,51 @@ There are 2 typical ways to activate it.
 |_$PLATFORM\_TOMCAT\_HOME/gatein/conf/portal/portal/configuration.xml_|_$PLATFORM\_JBOSS\_HOME/server/default/conf/gatein/portal/portal/configuration.xml_|
 
 {code:xml}<component>
-    <type>org.exoplatform.platform.organization.integration.OrganizationIntegrationService</type>
-      <init-params>
-        <value-param>
-          <name>workspace</name>
-          <value>collaboration</value>
-        </value-param>
-        <value-param>
-          <name>homePath</name>
-          <value>/</value>
-        </value-param>
-        <value-param>
-          <name>synchronizeGroups</name>
-          <value>true</value>
-        </value-param>
-      </init-params>
-</component>{code}
+  <type>org.exoplatform.platform.organization.integration.OrganizationIntegrationService</type>
+  <init-params>
+    <value-param>
+      <name>workspace</name>
+      <value>collaboration</value>
+    </value-param>
+    <value-param>
+      <name>homePath</name>
+      <value>/</value>
+    </value-param>
+    <value-param>
+      <name>synchronizeGroups</name>
+      <value>true</value>
+    </value-param>
+  </init-params>
+</component>
+
+<external-component-plugins>
+  <target-component>org.exoplatform.services.organization.OrganizationService</target-component>
+  <component-plugin>
+    <name>organization.initializer.group.event.listener</name>
+    <set-method>addListenerPlugin</set-method>
+    <type>org.exoplatform.platform.organization.integration.NewGroupListener</type>
+    <description>This Listener is invoked when a Group is updated/added. Its purpose is to ensure that OrganizationServiceIntegration does not apply Organization Model Data listeners twice.</description>
+  </component-plugin>
+  <component-plugin>
+    <name>organization.initializer.user.event.listener</name>
+    <set-method>addListenerPlugin</set-method>
+    <type>org.exoplatform.platform.organization.integration.NewUserListener</type>
+    <description>This Listener is invoked when a User is updated/added. Its purpose is to ensure that OrganizationServiceIntegration does not apply Organization Model Data listeners twice.</description>
+  </component-plugin>
+  <component-plugin>
+    <name>organization.initializer.membership.event.listener</name>
+    <set-method>addListenerPlugin</set-method>
+    <type>org.exoplatform.platform.organization.integration.NewMembershipListener</type>
+    <description>This Listener is invoked when a Membership is updated/added. Its purpose is to ensure that OrganizationServiceIntegration does not apply Organization Model Data listeners twice.</description>
+  </component-plugin>
+  <component-plugin>
+    <name>organization.initializer.profile.event.listener</name>
+    <set-method>addListenerPlugin</set-method>
+    <type>org.exoplatform.platform.organization.integration.NewProfileListener</type>
+    <description>This Listener is invoked when a User Profile is updated/added. Its purpose is to ensure that OrganizationServiceIntegration does not apply Organization Model Data listeners twice.</description>
+  </component-plugin>
+</external-component-plugins>
+{code}
 
 * *The second way*: Add the same entry as in the first way to the _WEB-INF/conf/configuration.xml_ file through a custom extension. The path to the file is independent on JBoss and Tomcat. 
 
