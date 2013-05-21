@@ -45,7 +45,11 @@ To run eXo Platform 3.5, your system is required to meet the following specifica
 ** Google Chrome 5.0+
 
 {note}
-The eXo server will run on the 8080 portal, so make sure this port is not currently in use.
+* The eXo server will run on the 8080 portal, so make sure this port is not currently in use.
+* {anchor:id="Crash_ports"}[CRaSH|#ADM.Installation.CRaSH] opens two ports to establish connections by using TELNET or SSH protocols.
+To prevent having security threats, it is highly recommended that:
+** You change the default SSH and TELNET ports in _crash.war/WEB-INF/crash/crash.properties_.
+** You restrict connection to CRaSH ports on your firewall.
 {note}
 
 {docbook}
@@ -263,8 +267,9 @@ eXo distribution for JBoss (eXo-Platform-jboss-3.5.x.zip) allows you to deploy e
 
 *2.* Copy the following folder and files from _eXo-Platform-jboss-3.5.x/ears/server/default/deploy_ to _$PLATFORM\_JBOSS\_HOME/server/default/deploy_:
 
-Folder
+Folders
 - gatein.ear
+- crash.war
 
 Files
 - exo-acme-website-$version.ear
@@ -453,6 +458,21 @@ For example:
 * Start eXo Platform with your selected profiles in Windows:
 
 {code}.\\start_eXo.bat -debug [profiles]{code}
+
+h1. Common Reusable SHell (CRaSH) {anchor:id=ADM.Installation.CRaSH}
+[CRaSH|http://www.crashub.org] is deployed in the Java runtime and provides interactions with the JVM. Commands are written
+in Groovy and can be developed at runtime, making the extension of the shell with fast development cycle very easy.
+It can be run as a standalone application to control its own JVM or as an embedded service in an existing
+runtime like a web application.
+
+In eXo Platform, CRaSH is deployed in a web container by using a standard web archive called _crash.war_. This _.war_ file
+is used for its packaging capabilities and triggering the CRaSH life cycle, such as starting/stopping CRaSH.
+It is a useful tool that connects to the eXo Platform server to provide many features and services such as a set of
+JCR commands, and a Groovy Scripts launcher.
+
+This tool is installed by default in Platform 3.5 (for both Tomcat and Jboss bundles). Please refer to [the notice about
+ports|#Crash_ports]. In case your environment does not allow CRaSH usage, it can be removed from eXo
+Platform bundle (see the [Remove CRaSH|#ADM.Deployment.Remove_crash] section for more details).
 
 {docbook}
 <para>
