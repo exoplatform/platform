@@ -109,7 +109,7 @@ public class BrandingController {
     parameters.put("urlUploadFile", BrandingController_.uploadFile(null));
     parameters.put("imageUrl", getLogoUrl(httpContext, true));
     Locale locale = RequestContext.getCurrentInstance().getLocale();
-    ResourceBundle rs = ResourceBundle.getBundle("branding/branding", locale);
+    ResourceBundle rs = RequestContext.getCurrentInstance().getApplicationResourceBundle();
     parameters.put("selectlogo", rs.getString("selectlogo.label"));
     parameters.put("noteselectlogo", rs.getString("noteselectlogo.label"));
     parameters.put("selectstyle", rs.getString("selectstyle.label"));
