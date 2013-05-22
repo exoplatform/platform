@@ -101,7 +101,7 @@
 			<div class="controls">
 				<div class="UIFCKEditor">
 				<%
-					String[] productFieldBenefits = ["jcrPath=/node/exo:productBenefits", "options=toolbar:CompleteWCM", ""] ;
+					String[] productFieldBenefits = ["jcrPath=/node/acme:productBenefits", "options=toolbar:CompleteWCM", ""] ;
 					uicomponent.addRichtextField("productBenefits", productFieldBenefits) ;        
 				%>
 				</div>
@@ -112,7 +112,7 @@
 			<div class="controls">
 				<div class="UIFCKEditor">
 				<%
-					String[] productFieldFeatures = ["jcrPath=/node/exo:productFeatures", "options=toolbar:CompleteWCM", ""] ;
+					String[] productFieldFeatures = ["jcrPath=/node/acme:productFeatures", "options=toolbar:CompleteWCM", ""] ;
 					uicomponent.addRichtextField("productFeatures", productFieldFeatures) ;        
 				%>
 				</div>
