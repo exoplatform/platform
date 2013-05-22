@@ -24,7 +24,7 @@
     <init-params>
       <param>
         <name>application.resource.bundle</name>
-        <value>locale.portal.expression, locale.portal.services, locale.portal.webui, locale.portal.demo_webui</value>
+        <value>locale.portal.expression, locale.portal.services, locale.portal.webui</value>
       </param>
     </init-params>
 

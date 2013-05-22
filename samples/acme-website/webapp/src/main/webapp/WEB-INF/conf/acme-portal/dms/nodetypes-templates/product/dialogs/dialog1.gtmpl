@@ -72,7 +72,7 @@
 							def actionLink = uicomponent.event("RemoveData", "/medias/images/illustration/jcr:content");
 							%>		
 								<div>
-									<image src="$imgSrc" width="100px" height="80px"/>
+									<img src="$imgSrc" style="width:100px;" alt="Illustration"/>
 									<a onclick="$actionLink">
 										<img src="/eXoResources/skin/DefaultSkin/background/Blank.gif" class="ActionIcon Remove16x16Icon" alt="" />
 									</a>
@@ -101,7 +101,7 @@
 			<div class="controls">
 				<div class="UIFCKEditor">
 				<%
-					String[] productFieldBenefits = ["jcrPath=/node/exo:productBenefits", "options=toolbar:CompleteWCM", ""] ;
+					String[] productFieldBenefits = ["jcrPath=/node/acme:productBenefits", "options=toolbar:CompleteWCM", ""] ;
 					uicomponent.addRichtextField("productBenefits", productFieldBenefits) ;        
 				%>
 				</div>
@@ -112,7 +112,7 @@
 			<div class="controls">
 				<div class="UIFCKEditor">
 				<%
-					String[] productFieldFeatures = ["jcrPath=/node/exo:productFeatures", "options=toolbar:CompleteWCM", ""] ;
+					String[] productFieldFeatures = ["jcrPath=/node/acme:productFeatures", "options=toolbar:CompleteWCM", ""] ;
 					uicomponent.addRichtextField("productFeatures", productFieldFeatures) ;        
 				%>
 				</div>

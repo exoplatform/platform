@@ -311,16 +311,16 @@ requireJS.require("SHARED/jcarousellite", "jqC");
         </ul>
         <div id="tab-benefits">
           <%
-              if(currentNode.hasProperty("exo:productBenefits")) {
-                def benefits = currentNode.getProperty("exo:productBenefits").getString();
+              if(currentNode.hasProperty("acme:productBenefits")) {
+                def benefits = currentNode.getProperty("acme:productBenefits").getString();
                 print benefits;
               }
           %>
         </div>
         <div id="tab-features">
           <%
-              if(currentNode.hasProperty("exo:productFeatures")) {
-                def features = currentNode.getProperty("exo:productFeatures").getString();
+              if(currentNode.hasProperty("acme:productFeatures")) {
+                def features = currentNode.getProperty("acme:productFeatures").getString();
                 print features;
               }
           %>
@@ -563,12 +563,12 @@ requireJS.require("SHARED/jcarousellite", "jqC");
                     <%
                     folderIndex++;
                 }
-            }
-            %>
+                %>
 
-        </tr>
-    </table>
+          </tr>
+        </table>
             <%
+            }
     }
     %>
     </div>
