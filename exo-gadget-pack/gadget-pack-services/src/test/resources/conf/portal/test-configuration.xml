@@ -8,7 +8,7 @@
       <type>org.exoplatform.services.jcr.ext.resource.jcr.Handler</type>
    </component>
 
-    <component profiles="knowledge,all,default">
+    <component profiles="all">
         <key>org.exoplatform.platform.gadget.services.ForumStatistics.ForumsWeeklyStatisticService</key>
         <type>org.exoplatform.platform.gadget.services.ForumStatistics.ForumsWeeklyStatisticServiceImp</type>
     </component>

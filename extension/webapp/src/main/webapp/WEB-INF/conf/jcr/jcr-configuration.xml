@@ -317,7 +317,7 @@
                 <value><string>knowledge</string></value> 
               </collection>
             </field>
-            <field name="workspaces" profiles="all,default,minimal">
+            <field name="workspaces" profiles="all,minimal">
               <collection type="java.util.ArrayList">
                 <value><string>collaboration</string></value> 
               </collection>

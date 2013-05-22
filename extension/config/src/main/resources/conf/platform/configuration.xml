@@ -60,7 +60,7 @@
               </value>
 			  
               <!-- commons -->
-              <value profiles="collaboration,knowledge,all,default">
+              <value profiles="all">
                 <string>commons-extension</string>
               </value>
               <value>
@@ -68,21 +68,21 @@
               </value>
 			  
               <!-- collab -->
-              <value profiles="collaboration,all,default">
+              <value profiles="all">
                 <string>calendar-extension</string>
               </value>
 
               <!-- cometd -->
-              <value profiles="collaboration,knowledge,all,default">
+              <value profiles="all">
                 <string>cometd</string>
               </value>
-              <value profiles="collaboration,all,default">
+              <value profiles="all">
                 <string>csResources</string>
               </value>
               <value>
                 <string>web</string>
               </value>
-              <value profiles="collaboration,all,default">
+              <value profiles="all">
                 <string>calendar</string>
               </value>
 
@@ -123,39 +123,39 @@
               </value>
 
               <!-- SOCIAL -->
-              <value profiles="social,all,default">
+              <value profiles="all">
                 <string>social-resources</string>
               </value>
-              <value profiles="social,all,default">
+              <value profiles="all">
                 <string>social-portlet</string>
               </value>
-              <value profiles="social,all,default">
+              <value profiles="all">
                 <string>social</string>
               </value>
-              <value profiles="social,all,default">
+              <value profiles="all">
                 <string>social-extension</string>
               </value>
 
               <!-- Knowledge -->
-              <value profiles="knowledge,all,default">
+              <value profiles="all">
                 <string>forumResources</string>
               </value>
-              <value profiles="knowledge,all,default">
+              <value profiles="all">
                 <string>faq</string>
               </value>
-              <value profiles="knowledge,all,default">
+              <value profiles="all">
                 <string>forum</string>
               </value>
-              <value profiles="knowledge,all,default">
+              <value profiles="all">
                 <string>poll</string>
               </value>
-              <value profiles="knowledge,all,default">
+              <value profiles="all">
                 <string>wiki</string>
               </value>
-              <value profiles="knowledge,all,default">
+              <value profiles="all">
                 <string>wiki-extension</string>
               </value>
-              <value profiles="knowledge,all,default">
+              <value profiles="all">
                 <string>forum-extension</string>
               </value>
               <!-- Contains shared layout -->

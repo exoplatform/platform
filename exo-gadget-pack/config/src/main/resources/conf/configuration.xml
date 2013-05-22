@@ -25,7 +25,7 @@
 						<!-- The list of name of the dependencies to add -->
 						<field name="dependencies">
 							<collection type="java.util.ArrayList">
-							  <value profiles="knowledge,all,default">
+							  <value profiles="all">
 							    <string>gadget-pack</string>
 							  </value>
 							</collection>
