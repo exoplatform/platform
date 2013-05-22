@@ -86,10 +86,10 @@ CRaSH is a complementary tool for development and maintenance. As it opens telne
 
 *1.* Stop the server by using the _shutdown.sh_ command.
 
-*2.* Delete the _crash.war_ file.
+*2.* Remove the cRaSH package
 
-* *Tomcat*: _$PLATFORM\_TOMCAT\_HOME/webapps/crash.war_
-* *JBoss*: _$PLATFORM\_JBOSS\_HOME/server/default/deploy/crash.war_
+* *eXo Platform Tomcat*: Remove _crash.war_ file from _$PLATFORM\_TOMCAT\_HOME/webapps_
+* *eXo Platform JBoss*: Remove _crash.war_ folder from _$PLATFORM\_JBOSS\_HOME/server/default/deploy_
 
 *3.* Restart the server.
 

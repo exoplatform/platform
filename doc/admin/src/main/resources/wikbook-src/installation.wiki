@@ -267,8 +267,9 @@ eXo distribution for JBoss (eXo-Platform-jboss-3.5.x.zip) allows you to deploy e
 
 *2.* Copy the following folder and files from _eXo-Platform-jboss-3.5.x/ears/server/default/deploy_ to _$PLATFORM\_JBOSS\_HOME/server/default/deploy_:
 
-Folder
+Folders
 - gatein.ear
+- crash.war
 
 Files
 - exo-acme-website-$version.ear
