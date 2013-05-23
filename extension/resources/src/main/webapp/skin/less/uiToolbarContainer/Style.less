@@ -69,6 +69,12 @@
 				}
 			
 				.filterMenu{
+					&> ul{
+					    overflow-y: auto;
+					    overflow-x: hidden;
+					    max-height: 440px; /* 13x23+3 */
+					}
+					
 					.dropdown-menu{
 						width: 250px;
 					}
