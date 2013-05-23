@@ -51,15 +51,6 @@
 			</div>
 		</div>
 		<div class="control-group">
-			<label class="control-label"><%=_ctx.appRes("Product.dialog.label.title")%>:</label>
-			<div class="controls">
-				<%
-					String[] productFieldTitle = ["jcrPath=/node/exo:title", "validate=empty", "editable=if-null"];
-					uicomponent.addTextField("title", productFieldTitle) ;
-				%>
-			</div>
-		</div>
-		<div class="control-group">
 			<label class="control-label"><%=_ctx.appRes("Product.dialog.label.illustrationImage")%>:</label>
 			<div class="controls">
 				<%						
