@@ -33,6 +33,7 @@ import juzu.Response;
 import juzu.View;
 import juzu.io.Stream;
 import juzu.request.HttpContext;
+import juzu.request.RenderContext;
 import juzu.template.Template;
 
 import org.apache.commons.fileupload.FileItem;
@@ -104,12 +105,11 @@ public class BrandingController {
    * @return Response
    */
   @View
-  public Response index(HttpContext httpContext) {
+  public Response index(HttpContext httpContext, RenderContext renderContext) {
     Map<String, Object> parameters = new HashMap<String, Object>();
     parameters.put("urlUploadFile", BrandingController_.uploadFile(null));
     parameters.put("imageUrl", getLogoUrl(httpContext, true));
-    Locale locale = RequestContext.getCurrentInstance().getLocale();
-    ResourceBundle rs = RequestContext.getCurrentInstance().getApplicationResourceBundle();
+    ResourceBundle rs = renderContext.getApplicationContext().resolveBundle(renderContext.getUserContext().getLocale());
     parameters.put("selectlogo", rs.getString("selectlogo.label"));
     parameters.put("noteselectlogo", rs.getString("noteselectlogo.label"));
     parameters.put("selectstyle", rs.getString("selectstyle.label"));
