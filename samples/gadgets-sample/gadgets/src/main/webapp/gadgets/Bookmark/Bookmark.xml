@@ -91,6 +91,9 @@
     <script type="text/javascript">
     $(function() {
 
+      var emptyMsg = $("#emptyMsg");
+      var exceptionMsg = $("#exceptionMsg");
+                          
       function addBookmark(id, name, link) {
         var element = $('<li class="ListItem"> \
                       <div class="editHoverZone pull-right">  \
@@ -118,9 +121,6 @@
                        </div> \
                        </li> ');
         $("#BookmarkList").append($(element));
-        $("a.linkeditHoverZone",element).each(function () {           
-             $(this).tooltip();                    
-        });        
       }
       
       $.getJSON("/rest/bookmarks/get", function(bookmarks) {
@@ -150,23 +150,40 @@
             if (newName.length == 0 || newLink.length == 0)
               return false;
             var thisItem = $(this).closest(".ListItem");
-            $(thisItem).removeClass("active");
-            $(thisItem).removeClass("addBookmark");
-            $("button.save",thisItem).html("__MSG_ok__");
-            var $thisBookmark = $(thisItem).find(
-                "a[id^=bookmark]");
-            $thisBookmark.text(newName);
-            $thisBookmark.attr("href", newLink);
+            var $thisBookmark = $(thisItem).find("a[id^=bookmark]");
             $.getJSON("/rest/bookmarks/set/"
-                + toJson().replace(/\//g, "__SLASH__"), null);
-            $(this).closest(".ListItem").find("div.editZone").hide();
-            changeToViewMode();
+                        + toJson().replace(/\//g, "__SLASH__"),
+                      function(res){        
+                        $(thisItem).find("div.editZone").hide();
+                        $thisBookmark.text(newName);
+                        $thisBookmark.attr("href", newLink);                
+                        $(thisItem).removeClass("active");
+                        $(thisItem).removeClass("addBookmark");
+                        $("button.save",thisItem).html("__MSG_ok__");
+                        exceptionMsg.html("");                                              
+                        changeToViewMode();            
+                      }
+                     ).fail(function( jqXHR, textStatus, error ) {          
+                          var err = exceptionHandling(jqXHR, textStatus, error);
+                          exceptionMsg.html("<i class=\"uiIconError\"></i> "+err+"</div>");
+                          gadgets.window.adjustHeight($("#content").get(0).offsetHeight);
+                        }
+                       );            
           });
 
       $("#BookmarkList").delegate(".cancel", "click", function() {
-        if ($(this).closest('.ListItem').hasClass("addBookmark")){
-            $(this).closest('.addBookmark').remove();
+        //remove all item of new bookmark
+        var item = $(this).closest('.ListItem')
+        if (item.hasClass("addBookmark")){
+            item.remove();
         }        
+        else{ //reset old value in case of editing     
+            var bookmark = $("a[id^=bookmark]",item);    
+            $('.editName',item).val(bookmark.text());
+            $('.editLink',item).val(bookmark.attr("href"));
+            exceptionMsg.html("");
+            $("div.editZone",item).hide();
+        }
         //.find("div.editZone").hide();
         //$(this).closest(".ListItem").removeClass("active");
         changeToViewMode();
@@ -189,17 +206,22 @@
             $.getJSON("/rest/bookmarks/set/"
                 + toJson().replace(/\//g, "__SLASH__"), null);
             if ($("#BookmarkList").find(".ListItem").length == 0) {
-              $("#message").show();
+              emptyMsg.show();
             }
             gadgets.window.adjustHeight($("#content").get(0).offsetHeight);
 
           });
       
       function tooltipCustomize(){
-        //$("#customize").tooltip('show');         
-          $("#customize").tooltip({
-            template: '<div class="tooltip" style="white-space: nowrap;"><div class="tooltip-arrow" style="margin-left:30px"></div><div class="tooltip-inner" style="max-width: none"></div></div>'
-          });        
+        //$("#customize").tooltip('show');   
+        var margin = "90px";
+        var arrowMargin = "30px"; //coff 1:3
+         $("#customize").width(margin);
+         $("#customize").siblings(".center").css("margin-left",margin);
+         $("#customize").tooltip({
+            template: '<div class="tooltip" style="white-space: nowrap;"><div class="tooltip-arrow" style="margin-left:'+arrowMargin+'"></div><div class="tooltip-inner" style="max-width: none"></div></div>'
+          });
+        
         //$('#customize').data('tooltip').options.placement = 'left';
       }
       
@@ -208,11 +230,7 @@
         var listItem = $(".ListItem",bookmarkList);         
         $("a.linkeditHoverZone",bookmarkList).each(function () {           
           $(this).tooltip();                    
-        });        
-        bookmarkList.find("div.editZone").each(function() {
-          $(this).hide();
-        });     
-        
+        });
         tooltipCustomize();
         $("#customize").bind("click", function() {    
           addNewBookMark();
@@ -223,7 +241,7 @@
         $("a[id^=bookmark]").unbind("click", preventDefault);
         
         if (listItem.length == 0){
-          $("#message").show();
+          emptyMsg.show();
         }
         
         gadgets.window.adjustHeight($("#content").get(0).offsetHeight);
@@ -236,19 +254,21 @@
         $("a[id^=bookmark]").bind("click", preventDefault);
         $("#customize").tooltip('destroy');
         $("#customize").unbind();       
-        $("#message").hide();
+        emptyMsg.hide();
         gadgets.window.adjustHeight($("#content").get(0).offsetHeight);
       }
 
       function toJson() {
         var bookmarks = [];
         $("#BookmarkList .ListItem").each(function(index) {
-          $bookmark = $(this).find("a[id^=bookmark]");
+          item = $(this).find("div.editZone");
+
           var bookmark = "{";
-          bookmark += '"name":"' + $bookmark.text() + '",';
-          bookmark += '"link":"' + $bookmark.attr("href") + '"}';
+          bookmark += '"name":"' + $("input.editName",item).val() + '",';
+          bookmark += '"link":"' + $("input.editLink",item).val() + '"}';
           bookmarks.push(bookmark);
         });
+        
         return "[" + bookmarks.join(",") + "]";
       }
 
@@ -261,6 +281,7 @@
                     <a id="bookmarkXXXX" class="bookmarkTit" href="#" target="_parent"></a> \
                     <div class="editZone clearfix">  \
                       <div class="uiGrayLightBox pull-left" >     \
+                             <div id="exceptionMsg" class="alert-error"></div> \
                              <input type="text" class ="editName" placeholder="Title"/>    \
                              <input type="text" class ="editLink" placeholder="URL"/> \
                         </div> \
@@ -276,10 +297,31 @@
       function checkIfZeroBookMark() {
         $.getJSON("/rest/bookmarks/get", function(bookmarks) {
           if (bookmarks.length == 0) {
-            $("#message").show();
+            emptyMsg.show();
           }
         });
       }
+      
+      function exceptionHandling(jqXHR, textStatus, error ) {
+         var err = "";
+         if (jqXHR.status === 0) {
+             err = 'Not connect.\n Verify Network.';
+         } else if (jqXHR.status == 404) {
+             err = 'Requested page not found. [404]';
+         } else if (jqXHR.status == 500) {
+             err = 'Internal Server Error [500].';
+         } else if (textStatus === 'parsererror') {
+             err = 'Requested JSON parse failed.';
+         } else if (textStatus === 'timeout') {
+             err = 'Time out error.';
+         } else if (textStatus === 'abort') {
+             err = 'Ajax request aborted.';
+         } else {
+           err = 'Uncaught Error: ' + error;
+         }
+        return err;
+      }
+                         
       
     });
 
@@ -287,17 +329,17 @@
   </head>
  
      <div id="content" class="UIGadgetThemes bookmark uiBox">
-       <div class="title center">
-         <b>__MSG_title__</b>
-         <div style="width:90px" class="pull-right left" id="customize" ref="tooltip" data-placement="bottom" title data-original-title="Add Bookmark">
+       <div class="title">         
+         <div class="pull-right left" id="customize" ref="tooltip" data-placement="bottom" title data-original-title="Add Bookmark">
              <a class="actionIcon pull-right" href="#">
                  <i class="uiIconPlus uiIconLightGray pull-right"></i>
              </a>
          </div>          
+         <div class="center"><b>__MSG_title__</b></div>
        </div>
        
       <div class="uiContentBox">
-        <div id="message" style="display:none;">
+        <div id="emptyMsg" style="display:none;">
            __MSG_emptyBookmarkPre__ <i class="uiIconPlus uiIconLightGray"></i> __MSG_emptyBookmarkSuf__
         </div>
           <ul id="BookmarkList"></ul>
@@ -307,3 +349,4 @@
   ]]>
 </Content>
 </Module>
+

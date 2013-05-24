@@ -194,7 +194,7 @@
           function showTodayLogins(userId){
             var restURI = "/rest/loginhistory/loginhistory/"+ userId + "/" + Date.today().getTime() + "/" + Date.today().setTimeToNow().getTime();
             $.getJSON(restURI, function(userLoginHistoryPositionJson){
-              $("#todayHeader a span").text('__MSG_loginHistory.today__ (' + userLoginHistoryPositionJson.data[0] + ')');
+              $("#todayHeader a span").text("__MSG_loginHistory.today__ (" + userLoginHistoryPositionJson.data[0] + ")");
               $("#todayDiv").html(loginHistory2Html(userLoginHistoryPositionJson));
               // $("#accordion").accordion("option", "active", 1);   
               gadgets.window.adjustHeight($("#LoginHistoryGadgetDiv").get(0).offsetHeight);
@@ -468,7 +468,7 @@
               
           function showHistory(userId, day){
             $("#historyDiv").show();
-            $("#todayHeader a span").text('__MSG_loginHistory.today__');
+            $("#todayHeader a span").text("__MSG_loginHistory.today__");
             $("#earlierThisWeekHeader a span").text('__MSG_loginHistory.earlierThisWeek__');
             $("#earlierThisMonthHeader a span").text('__MSG_loginHistory.earlierThisMonth__');
             $("#earlierHeader a span").text('<i class="__MSG_loginHistory.earlier__');
