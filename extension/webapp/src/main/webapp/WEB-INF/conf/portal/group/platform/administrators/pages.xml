@@ -94,8 +94,8 @@
     <page>
         <name>portalnavigation</name>
         <title>Portal Navigation</title>
-        <access-permissions>*:/platform/administrators</access-permissions>
-        <edit-permission>*:/platform/administrators</edit-permission>
+        <access-permissions>manager:/platform/administrators</access-permissions>
+        <edit-permission>manager:/platform/administrators</edit-permission>
         <portlet-application>
             <portlet>
                 <application-ref>exoadmin</application-ref>
@@ -111,8 +111,8 @@
     <page>
         <name>groupnavigation</name>
         <title>Group Navigation</title>
-        <access-permissions>*:/platform/administrators</access-permissions>
-        <edit-permission>*:/platform/administrators</edit-permission>
+        <access-permissions>manager:/platform/administrators</access-permissions>
+        <edit-permission>manager:/platform/administrators</edit-permission>
         <portlet-application>
             <portlet>
                 <application-ref>exoadmin</application-ref>

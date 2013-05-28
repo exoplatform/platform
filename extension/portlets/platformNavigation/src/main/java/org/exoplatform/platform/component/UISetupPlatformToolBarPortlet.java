@@ -123,6 +123,9 @@ public class UISetupPlatformToolBarPortlet extends UIPortletApplication {
   }
 
   public List<PageNode> getPageNodes() throws Exception {
+
+    setupMenuUserNodes = menuConfiguratorService.getSetupMenuItems(getUserPortal());
+    pagePermissionsMap.clear();
     if (setupMenuPageNodes == null) {
       setupMenuPageNodes = new ArrayList<PageNode>();
       List<PageNode> originalPageNodes = menuConfiguratorService.getSetupMenuOriginalPageNodes();
