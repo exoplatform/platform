@@ -112,6 +112,7 @@ public class BrandingController {
     ResourceBundle rs = renderContext.getApplicationContext().resolveBundle(renderContext.getUserContext().getLocale());
     parameters.put("selectlogo", rs.getString("selectlogo.label"));
     parameters.put("noteselectlogo", rs.getString("noteselectlogo.label"));
+    parameters.put("upload", rs.getString("upload.label"));
     parameters.put("selectstyle", rs.getString("selectstyle.label"));
     parameters.put("preview", rs.getString("preview.label"));
     parameters.put("save", rs.getString("save.label"));
