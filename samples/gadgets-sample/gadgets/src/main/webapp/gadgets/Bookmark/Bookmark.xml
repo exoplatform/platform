@@ -91,8 +91,7 @@
     <script type="text/javascript">
     $(function() {
 
-      var emptyMsg = $("#emptyMsg");
-      var exceptionMsg = $("#exceptionMsg");
+      var emptyMsg = $("#emptyMsg");      
                           
       function addBookmark(id, name, link) {
         var element = $('<li class="ListItem"> \
@@ -109,6 +108,7 @@
             + '</a> \
                       <div class="editZone clearfix" style="display:none;">  \
                         <div class="uiGrayLightBox pull-left" >     \
+                               <div class="alert-error"></div> \
                                <input type="text" class ="editName" value="'
             + name
             + '"/>    \
@@ -151,6 +151,7 @@
               return false;
             var thisItem = $(this).closest(".ListItem");
             var $thisBookmark = $(thisItem).find("a[id^=bookmark]");
+            var exceptionMsg = $(".alert-error",thisItem);
             $.getJSON("/rest/bookmarks/set/"
                         + toJson().replace(/\//g, "__SLASH__"),
                       function(res){        
@@ -164,8 +165,8 @@
                         changeToViewMode();            
                       }
                      ).fail(function( jqXHR, textStatus, error ) {          
-                          var err = exceptionHandling(jqXHR, textStatus, error);
-                          exceptionMsg.html("<i class=\"uiIconError\"></i> "+err+"</div>");
+                          var err = exceptionHandling(jqXHR, textStatus, error);                          
+                          exceptionMsg.html("<i class=\"uiIconError\"></i> "+err+"</div>");                          
                           gadgets.window.adjustHeight($("#content").get(0).offsetHeight);
                         }
                        );            
@@ -181,7 +182,7 @@
             var bookmark = $("a[id^=bookmark]",item);    
             $('.editName',item).val(bookmark.text());
             $('.editLink',item).val(bookmark.attr("href"));
-            exceptionMsg.html("");
+            $(".alert-error",item).html("");
             $("div.editZone",item).hide();
         }
         //.find("div.editZone").hide();
@@ -281,7 +282,7 @@
                     <a id="bookmarkXXXX" class="bookmarkTit" href="#" target="_parent"></a> \
                     <div class="editZone clearfix">  \
                       <div class="uiGrayLightBox pull-left" >     \
-                             <div id="exceptionMsg" class="alert-error"></div> \
+                             <div class="alert-error"></div> \
                              <input type="text" class ="editName" placeholder="Title"/>    \
                              <input type="text" class ="editLink" placeholder="URL"/> \
                         </div> \
@@ -349,4 +350,5 @@
   ]]>
 </Content>
 </Module>
+
 
