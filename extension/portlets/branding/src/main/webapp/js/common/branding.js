@@ -223,10 +223,22 @@
 		if (supportHTML5()) {
 			// check validate
 			$("#browser").val("html5");
-			fd = new FormData($("#form").get(0));
-			if (fileUpload) {
+			//fd = new FormData($("#form").get(0));
+			var fd;
+			try {
+			    // other modern browsers
+			    fd = new FormData($("#form").get(0));
+			} catch(e) {
+			    // IE10 MUST have all form items appended as individual form key / value pairs
+			    fd = new FormData();			    
+  			    fd.append("file",$("#file")[0].files[0]);
+			    fd.append("browser",$("#browser").val());
+			}	
+		
+			if (fileUpload) { //drag&drop
 				fd.append("file", fileUpload);
 			}
+
 			$.ajax({
 				type : "POST",
 				url : $("#form").attr("action"),
