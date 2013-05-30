@@ -103,8 +103,8 @@
     <%
             def css="backNotOutdated";
             def label1="You have";
-            def label2="days left in your evaluation";
-            def labelRemove="Remove This Banner"
+            def label2="days left in your evaluation, to remove this banner";
+            def labelRemove="Buy a Subscription"
 
             if (outdated)  {
                 css="backOutdated";
