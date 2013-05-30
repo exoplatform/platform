@@ -69,7 +69,7 @@
 			.loginBGLight{
 				wbackground: none repeat scroll 0 0 white;
 				border-radius: 80px 80px 80px 80px;
-				box-shadow: 0 0 200px white;
+				box-shadow: 0 0 550px white;
 				left: 50%;
 		    margin: -100px;
 		    position: fixed;
@@ -79,7 +79,7 @@
 			}
 
 			.uiLogin {
-				box-shadow: 0 1px 3px #545555;
+				
 				color: #333333;
 				display: block;
 				font-size: 12px;
@@ -98,13 +98,13 @@
 				
 			.uiLogin .loginHeader {
 				background: url("/platform-extension/login/jsp/images/LoginHeader.png") repeat-x scroll 0 0 transparent;
-				border: 1px solid #393939;
+				border: 1px solid #555555;
 				border-radius: 0 0 4px 4px;
 				margin-top: -8px;
 				padding: 8px 12px;
 				position: absolute;
 				width: 286px;
-				box-shadow: 1px 1px 1px #b6b6b6;
+				box-shadow: 1px 2px 3px -1px rgba(0, 0, 0, 0.43);
 			}
 			
 			.uiLogin .introBox:after {
@@ -156,11 +156,11 @@
 			
 			.uiLogin .loginContent .username{
                 margin-top: 15px;
-				background: url("/platform-extension/login/jsp/images/username.png") no-repeat left;
+				background: url("/platform-extension/login/jsp/images/username.png") no-repeat left top;
 			}
 			
 			.uiLogin .loginContent .password{
-				background: url("/platform-extension/login/jsp/images/password.png") no-repeat left;
+				background: url("/platform-extension/login/jsp/images/password.png") no-repeat left top;
 			}
 
 			.uiLogin .loginContent input {
@@ -176,24 +176,71 @@
 				color: #999;
 				font-size: 18px;
 			}
-			
+			.uiLogin .loginContent input:focus{
+				color: #333;
+				border-color: #94b0df;
+				box-shadow: 0px 0px 5px rgba(19, 75, 159, 0.45) ;
+				background-position: 0 -41px;
+			}
+			.uiLogin .loginContent input:active{
+				color: #333;
+			}
 			.uiLogin .loginContent .loginButton {
 			  padding: 44px 0 30px;
 			}
 			
 			.uiLogin .loginContent .loginButton .button{
-			  background: url("/platform-extension/login/jsp/images/loginAction.png") repeat-x;
-			  border: 1px solid #224886;
-			  border-radius: 4px;
-			  text-align: center;
-			  color: white;
-			  font-weight: bold;
-			  font-size: 16px;
-			  width: 313px;
-			  height: 43px;
-			  cursor: pointer;
+				border: 1px solid #224886;
+				border-radius: 4px;
+				text-align: center;
+				color: white;
+				font-size: 16px;
+				width: 313px;
+				height: 43px;
+				cursor: pointer;
+				 text-shadow: 0 -2px 0px rgba(23, 33, 37, 0.25);
+				background-color: #567ab6;
+				background-image: -moz-linear-gradient(top, #638acd, #426393);
+				background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#638acd), to(#426393));
+				background-image: -webkit-linear-gradient(top, #638acd, #426393);
+				background-image: -o-linear-gradient(top, #638acd, #426393);
+				background-image: linear-gradient(to bottom, #638acd, #426393);
+				background-repeat: repeat-x;
+				filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff638acd', endColorstr='#ff426393', GradientType=0);
+				border-color: #426393 #426393 #2a3f5e;
+				border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+				*background-color: #426393;
+				/* Darken IE7 buttons by default so they stand out more given they won't have borders */
+
+				filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
+				border-color: #224886;
+				font-family: "Helvetica Neue Bold", Helvetica, Lucida, Arial, sans-serif;
+				font-weight: bold;
+				-webkit-box-shadow: inset 0 1px 0 rgba(255,255,255,.2), 0 1px 2px rgba(0,0,0,.05);
+				-moz-box-shadow: inset 0 1px 0 rgba(255,255,255,.2), 0 1px 2px rgba(0,0,0,.05);
+				box-shadow: inset 0 1px 0 rgba(255,255,255,.2), 0 1px 2px rgba(0,0,0,.05);
 			}
-			
+			.uiLogin .loginContent .loginButton .button:hover {
+				 
+				  background-color: #476ba7;
+				  background-image: -moz-linear-gradient(top, #4b71b3, #426394);
+				  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#4b71b3), to(#426394));
+				  background-image: -webkit-linear-gradient(top, #4b71b3, #426394);
+				  background-image: -o-linear-gradient(top, #4b71b3, #426394);
+				  background-image: linear-gradient(to bottom, #4b71b3, #426394);
+				  background-repeat: repeat-x;
+				  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff4b71b3', endColorstr='#ff426394', GradientType=0);
+				  border-color: #426394 #426394 #2a405f;
+				  border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+				  *background-color: #426394;
+				  /* Darken IE7 buttons by default so they stand out more given they won't have borders */
+
+				  filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
+				}
+				.uiLogin .loginContent .loginButton .button:active{
+					background-color: #426393; 
+					*background-color: #3a5781;
+				}
 			.uiLogin .spaceRole{
 				clear: both;
 				padding: 2px 0 11px;
@@ -321,6 +368,12 @@
                 opacity: 0.6;
                 margin-top: 15px;
             }
+			.titleLogin {
+				line-height: 12px; 
+				padding: 6px 3px 0 0;
+				min-height: 31px;
+				font-size: 11px;
+			}
 
 		</style>
 
@@ -356,7 +409,7 @@
 					<div class="userLoginIcon"><%=res.getString("portal.login.Connectlabel")%></div>
 				</div>
 	      <div class="loginContent">
-				<div style="line-height: 12px; padding: 6px 3px 0 0; min-height: 31px; font-size: 11px;">
+				<div class="titleLogin">
 					<%/*Begin form*/%>
           <%
                 if(error) {
