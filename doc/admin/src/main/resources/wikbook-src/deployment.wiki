@@ -76,17 +76,20 @@ Both Acme website and Acme Social Intranet are sample extensions demonstrating t
 <para xml:id="ADM.Deployment.Remove_crash">
 <citetitle>
 <emphasis role="bold">
-Remove a Crash
+Remove CRraSH
 </emphasis>
 </citetitle>
 </para>
 {docbook}
 
-Crash is a complementary tool for development and maintenance. As it opens telnet and SSH sockets, it is highly recommended that you remove Crash for your production deployments. Crash is in the _crash.war_ file in _tomcat/webapps_.
+CRaSH is a complementary tool for development and maintenance. As it opens telnet and SSH sockets, it is highly recommended that you remove CRaSH for your production deployments.
 
-*1.* Stop the serve by using the _shutdown.sh_ command.
+*1.* Stop the server by using the _shutdown.sh_ command.
 
-*2.* Delete the _crash.war_ file.
+*2.* Remove the cRaSH package
+
+* *eXo Platform Tomcat*: Remove _crash.war_ file from _$PLATFORM\_TOMCAT\_HOME/webapps_
+* *eXo Platform JBoss*: Remove _crash.war_ folder from _$PLATFORM\_JBOSS\_HOME/server/default/deploy_
 
 *3.* Restart the server.
 
