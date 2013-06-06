@@ -41,10 +41,10 @@
                         link += "<div class='peopleInvitePicture pull-left avatarXSmall'><img src='"+peopleAvatar+"'></div>";
                         link += "<div class='peopleInviteInfo'>";
 
-                        link += "<div class='peopleInviteName'><div class='name'>"+item.senderName+"</div><div class='peopleInviteAction' style='visibility:hidden;'><a class='connect btn-primary btn btn-mini' href='#' onclick='return false'>"+acceptlabel+"</a> <a class='deny' href='#' onclick='return false'><i class='uiIconClose'></i></a></div></div>";
+                       link += "<div class='peopleInviteName'><div class='name'>"+item.senderName+"</div></div>";
 
                         if (item.senderPosition != undefined)
-                            link += "<div class='peopleInvitePosition'>"+item.senderPosition+"</div>";
+                            link += "<div class='clearfix'><div class='peopleInviteAction' style='visibility:hidden;'><a class='connect btn-primary btn btn-mini' href='#' onclick='return false'>"+acceptlabel+"</a> <a class='deny' href='#' onclick='return false'><i class='uiIconClose'></i></a></div><div class='peopleInvitePosition'>"+item.senderPosition+"</div></div>";
                         link += "</div></li>";
 
                         $("#requests").append(link);
@@ -110,10 +110,10 @@
                             visibility = publiclabel;
                         else
                             visibility = privatelabel;
-                        if (spacelabel == "Space")
-                            link += "<div class='spaceproperties'><div class='spacevisibility'><i class='uiIconSocGroup uiIconSocLightGray'></i> "+visibility+" "+spacelabel+" - " +item.membersNumber+" "+memberslabel+"</div><div class='spaceInviteAction' style='visibility:hidden;' ><a class='connect  btn-primary btn btn-mini' href='#' onclick='return false'>"+acceptlabel+"</a>  <a class='deny' href='#' onclick='return false'><i class='uiIconClose'></i></a></div> </div>"
+                       if (spacelabel == "Space")
+                            link += "<div class='spaceproperties clearfix'><div class='spaceInviteAction' style='visibility:hidden;' ><a class='connect  btn-primary btn btn-mini' href='#' onclick='return false'>"+acceptlabel+"</a><a class='deny' href='#' onclick='return false'><i class='uiIconClose'></i></a></div><div class='spacevisibility'><i class='uiIconSocGroup uiIconSocLightGray'></i> "+visibility+" "+spacelabel+" - " +item.membersNumber+" "+memberslabel+"</div></div>"
                         else
-                            link += "<div class='spaceproperties'><div class='spacevisibility'><i class='uiIconSocGroup uiIconSocLightGray'></i> "+spacelabel+" "+visibility+" - " +item.membersNumber+" "+memberslabel+"</div><div class='spaceInviteAction' style='visibility:hidden;' ><a class='connect  btn-primary btn btn-mini' href='#' onclick='return false'>"+acceptlabel+"</a>  <a class='deny' href='#' onclick='return false'><i class='uiIconClose'></i></a></div> </div>"
+                            link += "<div class='spaceproperties clearfix'><div class='spaceInviteAction' style='visibility:hidden;' ><a class='connect  btn-primary btn btn-mini' href='#' onclick='return false'>"+acceptlabel+"</a>  <a class='deny' href='#' onclick='return false'><i class='uiIconClose'></i></a></div><div class='spacevisibility'><i class='uiIconSocGroup uiIconSocLightGray'></i> "+spacelabel+" "+visibility+" - " +item.membersNumber+" "+memberslabel+"</div></div>"
                         link += "</div></li>";
 
                         $("#requests").append(link);

@@ -24,38 +24,47 @@
 		overflow: hidden;
 		text-overflow: ellipsis;
 		white-space: nowrap;
-		width: 95%;
+		padding-right: 5px;
 		color: @linkColor;
 	}
 
     .peopleInvitePosition, .spacevisibility {
-        width:95%;
         white-space:nowrap;
         overflow: hidden;
         text-overflow:ellipsis;
+        min-height: 22px;
+        padding-right: 5px;
     }
 
 	.peopleInvitePicture, .spaceInvitePicture{
 		margin-left: 15px;
     	padding-top: 2px;
 	}
-
-	.peopleInviteAction, .spaceInviteAction {
-		white-space: nowrap;
-		font-size: 10px;
-		position: absolute;
-		right: 5px;
-		top: 18px;
-		width: 150px;
-		text-align: right;
-		height: 35px;
-		#gradient .horizontal(rgba(255,255,255,0),rgba(255,255,255,1));
-		background-color: transparent;
+	ul li:hover .peopleInviteAction,ul li:hover .spaceInviteAction {
+		display: block;
 	}
-
-    .actionInviteAppears, .actionSpaceAppears {
-        width:150px;
-    }
+	.actionSpaceAppears,.actionInviteAppears {
+		padding-right: 0;
+	}
+	.peopleInviteAction, .spaceInviteAction {		
+		font-size: 10px;
+		float: right;
+		padding-right: 5px;		
+		text-align: right;
+		display: none;
+		position: relative;
+		&:after {
+			content: "";
+			position: absolute;
+			width: 40px;
+			height: 22px;
+			#gradient .horizontal(rgba(255,255,255,0),rgba(255,255,255,1));
+			background-color: transparent;
+			top:0;
+			left: -40px;		
+			
+		}
+	}   
 	
 	.peopleInviteInfo, .spaceInviteInfo {
 	    margin-left: 65px;
