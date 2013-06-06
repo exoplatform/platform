@@ -62,7 +62,7 @@
       -->
       <value-param>
         <name>folder-icon-path</name>
-        <value>${webdav.folder-icon-path:/ecmexplorer/skin/icons/16x16/NodeTypes/DefaultSkin/nt-folder.gif}</value>
+        <value>${webdav.folder-icon-path:/eXoWCMResources/skin/images/file/nt-folder.png}</value>
       </value-param>
 
       <!--
