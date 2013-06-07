@@ -102,14 +102,14 @@
 
     <%
             def css="backNotOutdated";
-            def label1="You have";
-            def label2="days left in your evaluation, to remove this banner";
-            def labelRemove="Buy a Subscription"
+            def label1=_ctx.appRes("UIWelcomeScreenFooter.label.have");
+            def label2=_ctx.appRes("UIWelcomeScreenFooter.label.daysleft");
+            def labelRemove=_ctx.appRes("UIWelcomeScreenFooter.label.subscription");
 
             if (outdated)  {
                 css="backOutdated";
-                label1= "Your evaluation has expired"  ;
-                label2= "days ago";
+                label1= _ctx.appRes("UIWelcomeScreenFooter.label.expired");
+                label2= _ctx.appRes("UIWelcomeScreenFooter.label.daysago");
                 rday = UnlockService.getNbDaysAfterExpiration();
             }
     %>
