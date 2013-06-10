@@ -175,6 +175,7 @@
 				padding-left: 50px;
 				color: #999;
 				font-size: 18px;
+				outline: none;
 			}
 			.uiLogin .loginContent input:focus{
 				color: #333;
