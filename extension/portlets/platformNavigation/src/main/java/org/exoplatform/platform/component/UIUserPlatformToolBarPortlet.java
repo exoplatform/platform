@@ -86,8 +86,7 @@ public class UIUserPlatformToolBarPortlet extends UIPortletApplication {
   }
 
   public boolean isSocialProfileActivated() {
-    return (ExoContainer.getProfiles().contains("social") || ExoContainer.getProfiles().contains("default") || ExoContainer
-        .getProfiles().contains("all"));
+    return ExoContainer.getProfiles().contains("all");
   }
 
   public static UserPortal getUserPortal() {
@@ -109,9 +108,12 @@ public class UIUserPlatformToolBarPortlet extends UIPortletApplication {
   }
 
     public String getAvatarURL() {
-        Identity identity = Utils.getIdentityManager().getOrCreateIdentity(OrganizationIdentityProvider.NAME,
-                Util.getPortalRequestContext().getRemoteUser(), true);
-        String ownerAvatar = identity.getProfile().getAvatarUrl();
+        String ownerAvatar = null;
+        if (isSocialProfileActivated()) {
+            Identity identity = Utils.getIdentityManager().getOrCreateIdentity(OrganizationIdentityProvider.NAME,Util.getPortalRequestContext().getRemoteUser(), true);
+            ownerAvatar = identity.getProfile().getAvatarUrl();
+        }
+
         if (ownerAvatar == null || ownerAvatar.isEmpty()) {
             ownerAvatar = LinkProvider.PROFILE_DEFAULT_AVATAR_URL;
         }
