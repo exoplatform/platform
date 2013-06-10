@@ -8,7 +8,7 @@
     </component>
 <external-component-plugins>
     <target-component>org.exoplatform.web.filter.ExtensibleFilter</target-component>
-        <component-plugin>
+        <component-plugin profiles="all">
             <name>Terms and Conditions Filter</name>
             <set-method>addFilterDefinitions</set-method>
             <type>org.exoplatform.web.filter.FilterDefinitionPlugin</type>
@@ -30,7 +30,7 @@
                 </object-param>
             </init-params>
         </component-plugin>
-        <component-plugin>
+        <component-plugin profiles="all">
             <name>Account Setup Filter</name>
             <set-method>addFilterDefinitions</set-method>
             <type>org.exoplatform.web.filter.FilterDefinitionPlugin</type>
