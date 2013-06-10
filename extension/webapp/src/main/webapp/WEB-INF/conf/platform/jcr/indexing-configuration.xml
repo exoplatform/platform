@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<!DOCTYPE configuration SYSTEM "http://www.exoplatform.org/dtd/indexing-configuration-1.0.dtd">
+<configuration xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0">
+
+  <index-rule nodeType="nt:resource">
+       <property useInExcerpt="false">jcr:encoding</property>
+       <property useInExcerpt="false">jcr:mimeType</property>
+  </index-rule>
+</configuration>
