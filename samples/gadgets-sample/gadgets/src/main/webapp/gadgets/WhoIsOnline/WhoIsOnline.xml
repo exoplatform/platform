@@ -12,9 +12,11 @@
     <Locale lang="it" messages="locale/it.xml" />
   </ModulePrefs>
   <Content type="html">
-    <![CDATA[
+    <![CDATA[           
           <title>__MSG_title__</title>
           <link rel="stylesheet" href="/intranet-gadgets/skin/css/WhoIsOnline.css" type="text/css" />
+          <link rel="stylesheet" type="text/css" href="/eXoResources/skin/bootstrap/css/bootstrap.css" />    
+          <link rel="stylesheet" type="text/css" href="/eXoResources/skin/css/Core.css" />
           <link rel="stylesheet" type="text/css" href="/exo-gadget-resources/skin/exo-gadget/gadget-common.css" />
           <script language="javascript" type="text/javascript" src="/exo-gadget-resources/script/jquery/1.6.2/jquery.min.js"></script>
           <script language="javascript" type="text/javascript" src="/exo-gadget-resources/script/jquery/plugins/jquery.timers/1.2/jquery.timers.js"></script>
@@ -68,9 +70,10 @@
                   if (myContactsCount == 0) document.getElementById("noOnlineUsers").style.display = "block";
                   else document.getElementById("noOnlineUsers").style.display = "none";
   
-                  $("#numConnections").html("(" + myContactsCount + ")");
+                  $("#yourContactsHeader").html("__MSG_myConnections__ "+"(" + myContactsCount + ")");
                   $("#yourContactsTable").append(contactRows.join(""));
-                  $("#numOthers").html("(" + otherCount + ")");
+                  $("#otherHeader").html("__MSG_other__ (" + otherCount + ")");
+                  
                   changeTarget();
                   if (otherCount == 0) {
                   $("#otherDiv").html("__MSG_noOnlineUsers__");
@@ -91,29 +94,17 @@
        }            
     
         function show_connections(){
-            $("#otherTab").hide();
-            $("#yourContactsHeader").removeClass();
-            $("#numConnections").removeClass();
-            document.getElementById("yourContactsHeader").style.fontWeight = "bold";
-            document.getElementById("numConnections").style.fontWeight = "bold";
-            document.getElementById("otherHeader").style.fontWeight = "normal";
-            document.getElementById("numOthers").style.fontWeight = "normal";
-            $("#numOthers").addClass("customLink");
-            $("#otherHeader").addClass("customLink");
+            $("#otherTab").hide();            
+            $("#yourContactsHeader").addClass("active");            
+            $("#otherHeader").removeClass("active");
             $("#connectionTab").show();
             gadgets.window.adjustHeight($("#online-gadget").get(0).offsetHeight);
         }
 
         function show_others(){
             $("#connectionTab").hide();
-            $("#otherHeader").removeClass();
-            $("#numOthers").removeClass();
-            document.getElementById("otherHeader").style.fontWeight = "bold";
-            document.getElementById("numOthers").style.fontWeight = "bold";
-            document.getElementById("yourContactsHeader").style.fontWeight = "normal";
-            document.getElementById("numConnections").style.fontWeight = "normal";
-            $("#numConnections").addClass("customLink");        
-            $("#yourContactsHeader").addClass("customLink");
+            $("#otherHeader").addClass("active");            
+            $("#yourContactsHeader").removeClass("active");
             $("#otherTab").show();
             gadgets.window.adjustHeight($("#online-gadget").get(0).offsetHeight);
         }        
@@ -125,10 +116,10 @@
             </div>
             
             <div class="GadCont">
-            <div style="margin-left: 3px">
-              <span id="yourContactsHeader" href="#" class="customLink" onclick="show_connections();">__MSG_myConnections__ </span><span id="numConnections" class="customLink"></span>
-              &nbsp; | &nbsp;
-              <span id="otherHeader" href="#" class="customLink" onclick="show_others();">__MSG_other__ </span><span id="numOthers" class="customLink"></span>
+                            
+            <div class="btn-group">
+              <button id="yourContactsHeader" class="btn" onclick="show_connections();">__MSG_myConnections__</button>
+              <button id='otherHeader' class="btn" onclick="show_others();">__MSG_other__</button>
             </div>
             
             <div id="connectionTab" style="padding-top: 10px; margin-left:3px">

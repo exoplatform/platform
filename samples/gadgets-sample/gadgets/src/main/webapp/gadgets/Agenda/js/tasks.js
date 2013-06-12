@@ -300,22 +300,18 @@ eXoEventGadget.prototype.showDetail = function(obj){
 }
 
 eXoEventGadget.prototype.showTask = function(){
-				$("#eventDiv").hide();
-				$("#taskLink").removeClass();
-				$("#numTask").removeClass();
-				$("#numEvent").addClass("customLink");
-				$("#eventLink").addClass("customLink");
-				$("#taskDiv").show();
-	
+        $("#eventDiv").hide();
+        $("#taskLink").addClass("active");
+        $("#eventLink").removeClass("active");  
+        $("#taskDiv").show();
+  
 }
 
 eXoEventGadget.prototype.showEvent = function(){
-				$("#taskDiv").hide();
-				$("#eventLink").removeClass();
-				$("#numEvent").removeClass();
-				$("#numTask").addClass("customLink");				
-				$("#taskLink").addClass("customLink");
-				$("#eventDiv").show();
+        $("#taskDiv").hide();
+        $("#taskLink").removeClass("active");
+        $("#eventLink").addClass("active"); 
+        $("#eventDiv").show();
 }
 
 eXoEventGadget.prototype.click_taskLink = function() {
@@ -532,12 +528,16 @@ eXoEventGadget.prototype.write2Setting = function(data){
 }*/
 
 eXoEventGadget.prototype.showHideSetting = function(isShow){
-	var frmSetting = document.getElementById("Setting");
+	var frmSetting = document.getElementById("agendaSetting");
 	var display = "";
 	if(isShow) {
 		eXoEventGadget.loadSetting();
 		display = "block";
-	}	else display = "none";
+		$("#agendaCont").hide();
+	}else {
+		display = "none";
+		$("#agendaCont").show();
+	}
 	frmSetting.style.display = display;
 	eXoEventGadget.adjustHeight();
 }
@@ -547,7 +547,7 @@ eXoEventGadget.prototype.saveSetting = function(){
 	var frmSetting = document.getElementById("Setting");
 	var setting = eXoEventGadget.createSetting(frmSetting);
 	prefs.set("setting",setting);
-	frmSetting.style.display = "none";
+	eXoEventGadget.showHideSetting(false);
 	eXoEventGadget.getData();
 	eXoEventGadget.adjustHeight();
 	//return false;
@@ -603,9 +603,9 @@ eXoEventGadget.prototype.moveOut = function(){
 }
 
 eXoEventGadget.prototype.adjustHeight = function(){
-	setTimeout(function(){
-	gadgets.window.adjustHeight($("#agenda-gadget").get(0).offsetHeight);		
-	},500);
+	//setTimeout(function(){
+	gadgets.window.adjustHeight($("#agenda-gadget").get(0).offsetHeight);    
+	//},500);
 }
 
 eXoEventGadget =  new eXoEventGadget();

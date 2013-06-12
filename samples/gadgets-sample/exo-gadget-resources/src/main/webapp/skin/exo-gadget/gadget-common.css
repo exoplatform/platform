@@ -12,6 +12,26 @@ body, td, div, span, p, table, form {
   color: #2f5e92;
 }
 
+.btn-group .btn.active, .btn-group .btn:hover{
+  color: #2F5E92;
+}
+
+.btn-group .btn.icon.active{
+  color: #333333; 
+}
+/*
+.uiIconABCxyz {
+    background-position: -20px 0;
+}
+
+[class^="uiIconABC"] {
+    background-image: url("/wiki/skin/images/Icons/uiIconsWikiDarkGray.png");
+}
+
+.btn.icon.active [class^="uiIconABC"], .btn.icon:hover [class^="uiIconABC"]{
+    background-image: url("/wiki/skin/images/Icons/uiIconsWikiBlue.png");
+}
+*/
 a {
   color: #2f5e92;
   text-decoration: none;
@@ -52,7 +72,8 @@ img {
 }
 
 .UIGadgetThemes .TitGad .ContTit {
-  font-size: 14px;
+  font-size: 13px;
+  font-weight:bold;
 }
 
 .UIGadgetThemes .TitGad .ContTit img {

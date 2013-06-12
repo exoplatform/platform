@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <Module>
-<ModulePrefs title="Friend Suggestion !"
+<ModulePrefs title="Friend Suggestion"
   author="eXo Platform"
   description="Friend Suggestion is gadget that allow to display a list of contacts that current user maybe know."
   height="300">
