@@ -61,9 +61,36 @@ a {
     border: 1px solid #cdcdcd;
     border-radius: 4px 4px 4px 4px;
     box-shadow: 0 1px 1px rgba(0,0,0,0.1) inset;
-    color: #999;
+   color: #333;
     height: 28px;
     padding: 0 6px;
+    outline: none;
+}
+.uiWelcomeBox input::-webkit-input-placeholder {
+   color: #999999;
+}
+
+.uiWelcomeBox input:-moz-placeholder { 
+  color: #999999;
+}
+
+.uiWelcomeBox input::-moz-placeholder { 
+   color: #999999;
+}
+
+.uiWelcomeBox input:-ms-input-placeholder {  
+   color: #999999; 
+}
+
+.uiWelcomeBox input[type="text"]:focus,.uiWelcomeBox input[type="password"]:focus {
+	color: #333;
+	border-color: #94b0df;
+	box-shadow: 0px 0px 5px rgba(19, 75, 159, 0.45) ;
+	background-position: 0 -41px;
+	 outline: none;
+}
+.uiWelcomeBox input[type="text"]:active,.uiWelcomeBox input[type="password"]:active {
+	color: #333;
 }
 
 .uiWelcomeBox input.disable {
@@ -84,10 +111,16 @@ a {
     color: white;
     font-weight: bold;
     font-size: 16px;
-    padding: 0 20px;
-    height: 43px;
+    padding:0 ;
+    height: 43px;   
     cursor: pointer;
+    outline: none;
+    width: 100px;
 }
+.uiWelcomeBox button:focus,.uiWelcomeBox button:active {
+	outline: none;
+}
+
 
 .uiWelcomeBox .form-horizontal .control-group:before, .uiWelcomeBox .form-horizontal .control-group:after {
     content: "";
