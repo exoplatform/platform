@@ -35,7 +35,7 @@ public class WhoIsOnlineImpl implements WhoIsOnline {
     private static final String LINK_ACTIVITY = "LINK_ACTIVITY";
     private static final String DOC_ACTIVITY = "DOC_ACTIVITY";
     private static final int COUNT = 10;
-    private static final int MAX_CHAR = 115;
+    private static final int MAX_CHAR = 100;
     private static final int INDEX_CHAR = 110;
     private static final String THREE_DOTS = "...";
     private static final int MAX_USER = 17;
