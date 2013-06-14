@@ -21,7 +21,7 @@
             var userRelationId = $(this).find("input[name=userRelationId]").val();
             $("#"+userId).tipTip({ content: "<div id='tipName' class='clearfix'><a target='_parent' class='pull-left avatarXSmall'><img src='"+userAvatar+"' alt='image' /></a><div class='detail'><div class='name'><a href='"+profileURL+"'>"+fullName+"</a></div><div class='displayName'>"+userPosition+"</div></div></div>"+activity+connect,defaultPosition: "left", keepAlive: true,maxWidth: "240px"});
 
-            $("#" + userId +"connect a.connect").live("click", function(){
+            $("#" + userId +"connect div.connect").live("click", function(){
                 $.getJSON("/rest/homepage/intranet/people/contacts/connect/" + userIdentity, null);
                 $("#" + userId + "connect").fadeOut(500, function () {
                     $(this).html("<div id='connectMessge'>" + messageLabel + "</div>");
@@ -31,7 +31,7 @@
                 setTimeout(refresh, 500);
             });
 
-            $("#" + userId + "accept a.connect").live("click", function(){
+            $("#" + userId + "accept div.connect").live("click", function(){
                 $.getJSON("/rest/homepage/intranet/people/contacts/confirm/" + userRelationId, null);
                 $("#" + userId + "accept").hide();
                 setTimeout(refresh, 500);

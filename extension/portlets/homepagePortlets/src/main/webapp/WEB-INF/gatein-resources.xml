@@ -149,7 +149,7 @@
       <name>jQueryToolTip</name>
       <load-group>homepage-apps</load-group>
       <script>
-         <path>/js/whoisonline/jquery.tipTip.minified.js</path>
+         <path>/js/whoisonline/jquery.tipTip.js</path>
       </script>
       <depends>
          <module>jquery</module>
