@@ -79,6 +79,7 @@
 	.footerWLC .btn:active {
 	    color: #2f5e92;
 	    background-position: center;
+	    background-color: rgba(255, 255, 255, 0.5);
 	}
 	
 	.footerWLC.backOutdated{
