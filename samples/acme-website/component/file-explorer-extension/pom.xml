@@ -4,7 +4,7 @@
   <parent>
     <artifactId>platform-sample-acme-website</artifactId>
     <groupId>org.exoplatform.platform</groupId>
-    <version>4.1.0-SNAPSHOT</version>
+    <version>4.1.x-plf-social-notifications-SNAPSHOT</version>
     <relativePath>../../pom.xml</relativePath>
   </parent>
   <artifactId>platform-sample-acme-website-component-file-explorer</artifactId>
