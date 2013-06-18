@@ -31,7 +31,7 @@ _ctx.getRequestContext().getJavascriptManager().require("SHARED/uiForm");
 			<h6><%=_ctx.appRes("UICreateWiki.label.title")%></h6>
 			<div class="control-group">
 				<label class="control-label" for="<%=_ctx.appRes("UICreateWiki.label.location")%>">
-					<%=_ctx.appRes("UICreateWiki.label.location")%>
+					<%=_ctx.appRes("UICreateWiki.label.location")%>:
 				</label>
 				<div class="controls">
 					<% uicomponent.renderChild(uicomponent.SPACE_SWITCHER);%>
