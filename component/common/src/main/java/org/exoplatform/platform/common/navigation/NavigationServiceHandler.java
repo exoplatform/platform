@@ -33,15 +33,11 @@ import javax.jcr.Session;
  * @date 26/11/12
  */
 public class NavigationServiceHandler implements Startable {
-
-    private static Log logger = ExoLogger.getLogger(NavigationServiceHandler.class);
     NodeHierarchyCreator nodeCreator;
-    Session session;
-    SessionProvider sProvider;
-    Node rootNode;
-    Node publicApplicationNode;
     String path = "Application Data/logos/";
     String logo_name  = "logo.png";
+
+    private static Log logger = ExoLogger.getLogger(NavigationServiceHandler.class);
 
     @Override
     public void start()
@@ -50,9 +46,12 @@ public class NavigationServiceHandler implements Startable {
     }
 
     public String getHomePageLogoURI() {
+        SessionProvider sProvider  =  SessionProvider.createSystemProvider();
+        Node rootNode = null;
+        Node publicApplicationNode = null;
         String pathImageNode = null;
         Node ImageNode = null;
-        sProvider = SessionProvider.createSystemProvider();
+        Session session = null;
         try {
             publicApplicationNode = nodeCreator.getPublicApplicationNode(sProvider);
             session = publicApplicationNode.getSession();
@@ -61,25 +60,21 @@ public class NavigationServiceHandler implements Startable {
             if (logosNode.hasNode(logo_name)) {
                 ImageNode = logosNode.getNode(logo_name);
                 pathImageNode = ImageNode.getPath()+"?"+System.currentTimeMillis();
-
             }
         } catch (Exception e) {
             logger.error("Can not get path of Logo : default LOGO will be used" + e.getMessage(), e);
             return null;
         }
         finally {
-          if  (session != null)
-              session.logout();
-
-          if  (sProvider != null)
-              sProvider.close ();
+            if (session != null)
+                session.logout();
+            if (sProvider != null)
+                sProvider.close ();
         }
-
         return pathImageNode;
     }
 
     @Override
     public void stop() {
-        //To change body of implemented methods use File | Settings | File Templates.
     }
 }
