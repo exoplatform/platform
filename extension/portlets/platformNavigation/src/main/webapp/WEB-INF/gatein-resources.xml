@@ -132,14 +132,6 @@
         </module>
     </portlet>
     <portlet>
-        <name>UICompanyNavigationPortlet</name>
-        <module>
-            <depends>
-                <module>navigation</module>
-            </depends>
-        </module>
-    </portlet>
-    <portlet>
         <name>UISearchPlatformToolbarPortlet</name>
         <module>
             <script>
