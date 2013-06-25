@@ -103,14 +103,12 @@
 
     <%
             def css="backNotOutdated";
-            def label1="You have";
-            def label2="days left in your evaluation, to remove this banner";
-            def labelRemove="Buy a Subscription"
+            def label1= _ctx.appRes("UIWelcomeScreenFooter.label.trial");
+            def labelRemove=_ctx.appRes("UIWelcomeScreenFooter.label.subscription");
 
             if (outdated)  {
                 css="backOutdated";
-                label1= "Your evaluation has expired"  ;
-                label2= "days ago";
+                label1= _ctx.appRes("UIWelcomeScreenFooter.label.expiration");
                 rday = UnlockService.getNbDaysAfterExpiration();
             }
     %>
@@ -120,7 +118,7 @@
                 css="backOutdated";%>
                <%= error %>
             <%} else{%>
-        	<%=label1 %> <%=rday%> <%=label2 %>
+            <%=label1.replace('{1}', rday.toString()); %>
             <%}%>
             <button class="btn"><%= labelRemove %></button>
         </form>
