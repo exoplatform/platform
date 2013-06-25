@@ -82,15 +82,12 @@ a {
    color: #999999; 
 }
 
-.uiWelcomeBox input[type="text"]:focus,.uiWelcomeBox input[type="password"]:focus {
-	color: #333;
-	border-color: #94b0df;
-	box-shadow: 0px 0px 5px rgba(19, 75, 159, 0.45) ;
-	background-position: 0 -41px;
-	 outline: none;
-}
-.uiWelcomeBox input[type="text"]:active,.uiWelcomeBox input[type="password"]:active {
-	color: #333;
+.uiWelcomeBox input:focus {
+  border-color: #94b0df;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 5px rgba(29,75,159,.6);
+  -moz-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 5px rgba(29,75,159,.6);
+  box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 5px rgba(29,75,159,.6);
+  color: #333333;
 }
 
 .uiWelcomeBox input.disable {
@@ -103,22 +100,41 @@ a {
     padding: 25px 0;
 }
 
-.uiWelcomeBox button {
-    background: url("/platform-extension/css/welcome-screens/images/loginAction.png") repeat-x;
+.uiWelcomeBox .btn, #Greetings button {
+    background-color: #5179BD;
+    background-image: linear-gradient(to bottom, #6289CB, #3862A9);
+    background-repeat: repeat-x;
     border: 1px solid #224886;
-    border-radius: 4px;
-    text-align: center;
-    color: white;
+    border-radius: 4px 4px 4px 4px;
+    color: #FFFFFF;
+    cursor: pointer;
+    display: inline-block;
     font-weight: bold;
     font-size: 16px;
-    padding:0 ;
-    height: 43px;   
-    cursor: pointer;
-    outline: none;
+    line-height: 41px;
+    text-align: center;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+    vertical-align: top;
     width: 100px;
+    text-decoration: none;
 }
-.uiWelcomeBox button:focus,.uiWelcomeBox button:active {
-	outline: none;
+
+.uiWelcomeBox .btn:hover, #Greetings button:hover {
+	color: #ffffff;
+	text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+	background-color: #476ba7;
+	background-image: -moz-linear-gradient(top, #4b71b3, #426394);
+	background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#4b71b3), to(#426394));
+	background-image: -webkit-linear-gradient(top, #4b71b3, #426394);
+	background-image: -o-linear-gradient(top, #4b71b3, #426394);
+	background-image: linear-gradient(to bottom, #4b71b3, #426394);
+	background-repeat: repeat-x;
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff4b71b3', endColorstr='#ff426394', GradientType=0);
+	border-color: #426394 #426394 #2a405f;
+	border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+	*background-color: #426394;
+	/* Darken IE7 buttons by default so they stand out more given they won't have borders */
+	filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
 }
 
 

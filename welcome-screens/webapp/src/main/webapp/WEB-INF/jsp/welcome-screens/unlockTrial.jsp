@@ -43,6 +43,10 @@
 				<div class="<%=css%>">
 					<strong> <%=label1%>  <%=rday%> <%=label2%></strong>
 				</div>
+				<div style="text-align: center;"><div id="ERROR" class="uiIconError"> </div></div>
+                    <% if(request.getAttribute("errorMessage") != null && !request.getAttribute("errorMessage").toString().isEmpty()) {%>
+                            <div style="text-align: center;"><div id="KEYERROR" class="uiIconError"><%=request.getAttribute("errorMessage").toString() %></div></div>
+                    <% }%>
 				<p><strong>You must own a valid subscription in order to unlock this eXo Platform instance</strong></p>
 				<div class="steps clearfix">
 					<div class="rightCol firstItem pull-right"><strong>Pickup your favorite <a class="" href="<%=UnlockService.getSubscriptionUrl()%>" target="_blank">subscription plan</a> and buy it</strong></div>
@@ -64,15 +68,13 @@
 				<div class="steps clearfix">
 					<div class="rightCol pull-right">
 						<strong>Enter your unlock key below to unlock the product</strong>
+						
 						<div>
 							<span>Unlock Key</span>
                             <input class="Text" type="text" name="hashMD5" id="hashMD5">
 							<button class="btn">Unlock</button>
 						</div>
-                        <span  id="ERROR" style="color: red"> </span>
-                        <% if(request.getAttribute("errorMessage") != null && !request.getAttribute("errorMessage").toString().isEmpty()) {%>
-                                <span id="KEYERROR" style="display: block"><%=request.getAttribute("errorMessage").toString() %> </span>
-                        <% }%>
+                        
 					</div>
 					<div class="stepsNumber pull-left">3</div>
 				</div>
