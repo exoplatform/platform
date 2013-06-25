@@ -1,0 +1,484 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<configuration
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.exoplatform.org/xml/ns/kernel_1_2.xsd http://www.exoplatform.org/xml/ns/kernel_1_2.xsd"
+  xmlns="http://www.exoplatform.org/xml/ns/kernel_1_2.xsd">
+  
+
+  <component>
+    <key>org.exoplatform.platform.notification.provider.ProviderManager</key>
+    <type>org.exoplatform.platform.notification.provider.ProviderManagerImpl</type>
+  </component>
+  
+  <external-component-plugins>
+    <target-component>org.exoplatform.platform.notification.provider.ProviderManager</target-component>
+    <component-plugin>
+      <name>default.providers</name>
+      <set-method>registerProviderPlugin</set-method>
+      <type>org.exoplatform.platform.notification.plugin.ProviderPlugin</type>
+      <description>Initial values for providers.</description>
+
+      <init-params>
+      
+        <object-param>
+          <name>ActivityMentionProvider</name>
+          <description>The activity mention provider</description>
+          <object type="org.exoplatform.platform.notification.plugin.ProviderModel">
+            <field name="type">
+              <string>ActivityMentionProvider</string>
+            </field>
+            <field name="name">
+              <string>activityMention</string>
+            </field>
+            <field name="params">
+              <string><![CDATA[$userid, $activityName, $user-who-mentionned, $replyAction, $viewAction]]></string>
+            </field>
+            <field name="templates">
+              <collection type="java.util.ArrayList">               
+                <value>
+                  <object type="org.exoplatform.platform.notification.plugin.Language">
+                    <field name="name">
+                      <string>English</string>
+                    </field>
+                    <field name="subject">
+                      <string><![CDATA[You were mentionned by @user-who-mentionned]]></string>
+                    </field>
+                    <field name="template">
+                      <string>
+                        <![CDATA[Title: New mention of you <br/>
+                                 Content: $user-who-mentionned has mentionned you in the following post:<br/>
+                                 $post<br/>
+                               Action: <a href="$replyAction" target="_blank">Reply</a> | <a href="$viewAction" target="_blank">View</a> the full discussion
+                        ]]></string>
+                    </field>
+                  </object>
+                </value>
+                <value>
+                  <object type="org.exoplatform.platform.notification.plugin.Language">
+                    <field name="name">
+                      <string>French</string>
+                    </field>
+                    <field name="subject">
+                      <string><![CDATA[You were mentionned by @user-who-mentionned]]></string>
+                    </field>
+                    <field name="template">
+                      <string>
+                        <![CDATA[Title: New mention of you <br/>
+                                 Content: $user-who-mentionned has mentionned you in the following post:<br/>
+                                 $post<br/>
+                               Action: <a href="$replyAction" target="_blank">Reply</a> | <a href="$viewAction" target="_blank">View</a> the full discussion
+                        ]]></string>
+                    </field>
+                  </object>
+                </value>
+              </collection>
+            </field>
+          </object>
+        </object-param>
+
+        <object-param>
+          <name>ActivityCommentProvider</name>
+          <description>The activity comment provider</description>
+          <object type="org.exoplatform.platform.notification.plugin.ProviderModel">
+            <field name="type">
+              <string>ActivityCommentProvider</string>
+            </field>
+            <field name="name">
+              <string>activityComment</string>
+            </field>
+            <field name="params">
+              <string><![CDATA[$other_user_name, $original_activity_message, $activity_comment, $replyAction, $viewAction]]></string>
+            </field>
+            <field name="templates">
+              <collection type="java.util.ArrayList">               
+                <value>
+                  <object type="org.exoplatform.platform.notification.plugin.Language">
+                    <field name="name">
+                      <string>English</string>
+                    </field>
+                    <field name="subject">
+                      <string><![CDATA[$other_user_name has commented on your activity]]></string>
+                    </field>
+                    <field name="template">
+                      <string>
+                        <![CDATA[Title:  New comment on your activity <br/>
+                                 Content: $other_user_name posted a comment on your activity. See the comment below:<br/>
+                                 $original_activity_message<br/>
+                                 $activity_comment<br/>
+                                 Action: <a href="$replyAction" target="_blank">Reply</a> | <a href="$viewAction" target="_blank">View</a> the full discussion
+                        ]]></string>
+                    </field>
+                  </object>
+                </value>
+                <value>
+                  <object type="org.exoplatform.platform.notification.plugin.Language">
+                    <field name="name">
+                      <string>French</string>
+                    </field>
+                    <field name="subject">
+                      <string><![CDATA[$other_user_name has commented on your activity]]></string>
+                    </field>
+                    <field name="template">
+                      <string>
+                        <![CDATA[Title:  New comment on your activity <br/>
+                                 Content: $other_user_name posted a comment on your activity. See the comment below:<br/>
+                                 $original_activity_message<br/>
+                                 $activity_comment<br/>
+                                 Action: <a href="$replyAction" target="_blank">Reply</a> | <a href="$viewAction" target="_blank">View</a> the full discussion
+                        ]]></string>
+                    </field>
+                  </object>
+                </value>
+              </collection>
+            </field>
+          </object>
+        </object-param>
+
+        <object-param>
+          <name>ActivityPostProvider</name>
+          <description>The activity post provider</description>
+          <object type="org.exoplatform.platform.notification.plugin.ProviderModel">
+            <field name="type">
+              <string>ActivityPostProvider</string>
+            </field>
+            <field name="name">
+              <string>activityPost</string>
+            </field>
+            <field name="params">
+              <string><![CDATA[$other_user_name, $activity_message, $replyAction, $viewAction]]></string>
+            </field>
+            <field name="templates">
+              <collection type="java.util.ArrayList">               
+                <value>
+                  <object type="org.exoplatform.platform.notification.plugin.Language">
+                    <field name="name">
+                      <string>English</string>
+                    </field>
+                    <field name="subject">
+                      <string><![CDATA[$other_user_name posted on your activity stream]]></string>
+                    </field>
+                    <field name="template">
+                      <string>
+                        <![CDATA[Title:  New post on your activity stream <br/>
+                                 Content: $other_user_name posted on your activity stream. See the post below:<br/>
+                                 $activity_message<br/>
+                                 Action: <a href="$replyAction" target="_blank">Reply</a> | <a href="$viewAction" target="_blank">View</a> the full discussion
+                        ]]></string>
+                    </field>
+                  </object>
+                </value>
+                <value>
+                  <object type="org.exoplatform.platform.notification.plugin.Language">
+                    <field name="name">
+                      <string>French</string>
+                    </field>
+                    <field name="subject">
+                      <string><![CDATA[$other_user_name posted on your activity stream]]></string>
+                    </field>
+                    <field name="template">
+                      <string>
+                        <![CDATA[Title:  New post on your activity stream <br/>
+                                 Content: $other_user_name posted on your activity stream. See the post below:<br/>
+                                 $activity_message<br/>
+                                 Action: <a href="$replyAction" target="_blank">Reply</a> | <a href="$viewAction" target="_blank">View</a> the full discussion
+                        ]]></string>
+                    </field>
+                  </object>
+                </value>
+              </collection>
+            </field>
+          </object>
+        </object-param>
+
+        <object-param>
+          <name>ActivityPostSpaceProvider</name>
+          <description>The activity post space provider</description>
+          <object type="org.exoplatform.platform.notification.plugin.ProviderModel">
+            <field name="type">
+              <string>ActivityPostSpaceProvider</string>
+            </field>
+            <field name="name">
+              <string>activityPostSpace</string>
+            </field>
+            <field name="params">
+              <string><![CDATA[$other_user_name, $space-name, $activity_message, $replyAction, $viewAction]]></string>
+            </field>
+            <field name="templates">
+              <collection type="java.util.ArrayList">               
+                <value>
+                  <object type="org.exoplatform.platform.notification.plugin.Language">
+                    <field name="name">
+                      <string>English</string>
+                    </field>
+                    <field name="subject">
+                      <string><![CDATA[$other_user_name posted an activity in the $space-name space]]></string>
+                    </field>
+                    <field name="template">
+                      <string>
+                        <![CDATA[Title: New post in your space<br/>
+                                 Content: $other_user_name posted an activity in the $space-name space. See the activity below:<br/>
+                                 $activity_message<br/>
+                                 Action: <a href="$replyAction" target="_blank">Reply</a> | <a href="$viewAction" target="_blank">View</a> the full discussion
+                        ]]></string>
+                    </field>
+                  </object>
+                </value>
+                <value>
+                  <object type="org.exoplatform.platform.notification.plugin.Language">
+                    <field name="name">
+                      <string>French</string>
+                    </field>
+                    <field name="subject">
+                      <string><![CDATA[$other_user_name posted an activity in the $space-name space]]></string>
+                    </field>
+                    <field name="template">
+                      <string>
+                        <![CDATA[Title: New post in your space<br/>
+                                 Content: $other_user_name posted an activity in the $space-name space. See the activity below:<br/>
+                                 $activity_message<br/>
+                                 Action: <a href="$replyAction" target="_blank">Reply</a> | <a href="$viewAction" target="_blank">View</a> the full discussion
+                        ]]></string>
+                    </field>
+                  </object>
+                </value>
+              </collection>
+            </field>
+          </object>
+        </object-param>
+
+
+        <object-param>
+          <name>NewUserJoinSocialIntranet</name>
+          <description>The new user join social intranet provider</description> 
+          <object type="org.exoplatform.platform.notification.plugin.ProviderModel">
+            <field name="type">
+              <string>NewUserJoinSocialIntranet</string>
+            </field>
+            <field name="name">
+              <string>userJoinSocialIntranet</string>
+            </field>
+            <field name="params">
+              <string><![CDATA[$new-user-name, $portal-name, $connectAction]]></string>
+            </field>
+            <field name="templates">
+              <collection type="java.util.ArrayList">               
+                <value>
+                  <object type="org.exoplatform.platform.notification.plugin.Language">
+                    <field name="name">
+                      <string>English</string>
+                    </field>
+                    <field name="subject">
+                      <string><![CDATA[$new-user-name has joined your social intranet]]></string>
+                    </field>
+                    <field name="template">
+                      <string>
+                        <![CDATA[Title: New user on your social internet<br/>
+                                 Content: Display the thumbnail of $new-user-name avatar<br/>
+                                 $new-user-name has joined the $portal-name social intranet. Interested to connect and start collaborate with $new-user-name?<br/>
+                                 Action: <a href="$connectAction" target="_blank">Connect now</a>
+                        ]]></string>
+                    </field>
+                  </object>
+                </value>
+                <value>
+                  <object type="org.exoplatform.platform.notification.plugin.Language">
+                    <field name="name">
+                      <string>French</string>
+                    </field>
+                    <field name="subject">
+                      <string><![CDATA[$new-user-name has joined your social intranet]]></string>
+                    </field>
+                    <field name="template">
+                      <string>
+                        <![CDATA[Title: New user on your social internet<br/>
+                                 Content: Display the thumbnail of $new-user-name avatar<br/>
+                                 $new-user-name has joined the $portal-name social intranet. Interested to connect and start collaborate with $new-user-name?<br/>
+                                 Action: <a href="$connectAction" target="_blank">Connect now</a>
+                        ]]></string>
+                    </field>
+                  </object>
+                </value>
+              </collection>
+            </field>
+          </object>
+        </object-param>
+
+        <object-param>
+          <name>ReceiceConnectionRequest</name>
+          <description>The receice connection request provider</description>
+          <object type="org.exoplatform.platform.notification.plugin.ProviderModel">
+            <field name="type">
+              <string>ReceiceConnectionRequest</string>
+            </field>
+            <field name="name">
+              <string>receiceConnectionRequest</string>
+            </field>
+            <field name="params">
+              <string><![CDATA[$user-name, $domain, $confirmAction, $ignoreAction]]></string>
+            </field>
+            <field name="templates">
+              <collection type="java.util.ArrayList">               
+                <value>
+                  <object type="org.exoplatform.platform.notification.plugin.Language">
+                    <field name="name">
+                      <string>English</string>
+                    </field>
+                    <field name="subject">
+                      <string><![CDATA[ $user-name has joined my network on $domain]]></string>
+                    </field>
+                    <field name="template">
+                      <string>
+                        <![CDATA[Title: New connection request<br/>
+                                 Content: Display the thumbnail of $user-name avatar<br/>
+                                 $user-name has sent you a connection request. Accept the connection request and start collaborating with $user-name?<br/>
+                                 Action: <a href="$confirmAction" target="_blank">Confirm</a> | <a href="$ignoreAction" target="_blank">Ignore</a>
+                        ]]></string>
+                    </field>
+                  </object>
+                </value>
+                <value>
+                  <object type="org.exoplatform.platform.notification.plugin.Language">
+                    <field name="name">
+                      <string>French</string>
+                    </field>
+                    <field name="subject">
+                      <string><![CDATA[ $user-name has joined my network on $domain]]></string>
+                    </field>
+                    <field name="template">
+                      <string>
+                        <![CDATA[Title: New connection request<br/>
+                                 Content: Display the thumbnail of $user-name avatar<br/>
+                                 $user-name has sent you a connection request. Accept the connection request and start collaborating with $user-name?<br/>
+                                 Action: <a href="$confirmAction" target="_blank">Confirm</a> | <a href="$ignoreAction" target="_blank">Ignore</a>
+                        ]]></string>
+                    </field>
+                  </object>
+                </value>
+              </collection>
+            </field>
+          </object>
+        </object-param>
+
+        <object-param>
+          <name>InvitedJoinSpace</name>
+          <description>The invited join space provider</description>
+          <object type="org.exoplatform.platform.notification.plugin.ProviderModel">
+            <field name="type">
+              <string>InvitedJoinSpace</string>
+            </field>
+            <field name="name">
+              <string>invitedJoinSpace</string>
+            </field>
+            <field name="params">
+              <string><![CDATA[$space-name, $acceptAction, $ignoreAction]]></string>
+            </field>
+            <field name="templates">
+              <collection type="java.util.ArrayList">               
+                <value>
+                  <object type="org.exoplatform.platform.notification.plugin.Language">
+                    <field name="name">
+                      <string>English</string>
+                    </field>
+                    <field name="subject">
+                      <string><![CDATA[You've been invited to join $space-name space]]></string>
+                    </field>
+                    <field name="template">
+                      <string>
+                        <![CDATA[Title: New space invitation<br/>
+                                 Content: Display the thumbnail of $space-name avatar<br/>
+                                 You've received an invitation to join the $space-name space. Interested to join the space and access its documents and applications ?<br/>
+                                 Action: <a href="$acceptAction" target="_blank">Accept</a> | <a href="$ignoreAction" target="_blank">Ignore</a>
+                        ]]></string>
+                    </field>
+                  </object>
+                </value>
+                <value>
+                  <object type="org.exoplatform.platform.notification.plugin.Language">
+                    <field name="name">
+                      <string>French</string>
+                    </field>
+                    <field name="subject">
+                      <string><![CDATA[You've been invited to join $space-name space]]></string>
+                    </field>
+                    <field name="template">
+                      <string>
+                        <![CDATA[Title: New space invitation<br/>
+                                 Content: Display the thumbnail of $space-name avatar<br/>
+                                 You've received an invitation to join the $space-name space. Interested to join the space and access its documents and applications ?<br/>
+                                 Action: <a href="$acceptAction" target="_blank">Accept</a> | <a href="$ignoreAction" target="_blank">Ignore</a>
+                        ]]></string>
+                    </field>
+                  </object>
+                </value>
+              </collection>
+            </field>
+          </object>
+        </object-param>
+
+        <object-param>
+          <name>RequestJoinSpace</name>
+          <description>The request join space provider</description>
+          <object type="org.exoplatform.platform.notification.plugin.ProviderModel">
+            <field name="type">
+              <string>RequestJoinSpace</string>
+            </field>
+            <field name="name">
+              <string>requestJoinSpace</string>
+            </field>
+            <field name="params">
+              <string><![CDATA[$user-name, $space-name, $validateAction]]></string>
+            </field>
+            <field name="templates">
+              <collection type="java.util.ArrayList">               
+                <value>
+                  <object type="org.exoplatform.platform.notification.plugin.Language">
+                    <field name="name">
+                      <string>English</string>
+                    </field>
+                    <field name="subject">
+                      <string><![CDATA[$user-name has requested access to $space-name space]]></string>
+                    </field>
+                    <field name="template">
+                      <string>
+                        <![CDATA[Title: New access requirement to your space<br/>
+                                 Content: Display the thumbnail of $user-name avatar<br/>
+                                 $user-name has requested access to the $space-name space where you are a manager. Would you like to authorize $user-name access to your space?<br/>
+                                 Action: <a href="$validateAction" target="_blank">Validate</a>
+                        ]]></string>
+                    </field>
+                  </object>
+                </value>
+                <value>
+                  <object type="org.exoplatform.platform.notification.plugin.Language">
+                    <field name="name">
+                      <string>French</string>
+                    </field>
+                    <field name="subject">
+                      <string><![CDATA[$user-name has requested access to $space-name space]]></string>
+                    </field>
+                    <field name="template">
+                      <string>
+                        <![CDATA[Title: New access requirement to your space<br/>
+                                 Content: Display the thumbnail of $user-name avatar<br/>
+                                 $user-name has requested access to the $space-name space where you are a manager. Would you like to authorize $user-name access to your space?<br/>
+                                 Action: <a href="$validateAction" target="_blank">Validate</a>
+                        ]]></string>
+                    </field>
+                  </object>
+                </value>
+              </collection>
+            </field>
+          </object> 
+        </object-param>
+        
+        <!-- End individual provider -->
+           
+        <!-- Digest provider -->
+        
+        
+      </init-params>
+    </component-plugin>
+  </external-component-plugins>
+
+</configuration>
