@@ -27,6 +27,7 @@ import javax.ws.rs.core.*;
 import javax.ws.rs.ext.RuntimeDelegate;
 import java.net.URI;
 import java.util.*;
+import java.util.Map.Entry;
 
 
 @Path("/homepage/intranet/people/")
@@ -225,60 +226,43 @@ public class PeopleRestServices implements ResourceContainer {
             Identity identity = identityManager.getOrCreateIdentity(OrganizationIdentityProvider.NAME, userId);
             RelationshipManager relationshipManager = (RelationshipManager) ExoContainerContext.getCurrentContainer().getComponentInstanceOfType(RelationshipManager.class);
             OrganizationService orgManager = (OrganizationService) ExoContainerContext.getCurrentContainer().getComponentInstanceOfType(OrganizationService.class);
-            ProfileFilter profileFilter = new ProfileFilter();
+            
             ListAccess<Identity> connectionList = relationshipManager.getConnections(identity);
-            ListAccess<Identity> incomingList = relationshipManager.getIncomingWithListAccess(identity);
-            ListAccess<Identity> outgoingList = relationshipManager.getOutgoing(identity);
-
-            List<Identity> allIdentities = new ArrayList<Identity>(Arrays.asList(connectionList.load(0, connectionList.getSize())));
-            allIdentities.addAll(Arrays.asList(incomingList.load(0, incomingList.getSize())));
-            allIdentities.addAll(Arrays.asList(outgoingList.load(0, outgoingList.getSize())));
-            allIdentities.add(identity);
-
-            profileFilter.setExcludedIdentityList(allIdentities);
-            List<Identity> suggestions = identityManager.getIdentitiesByProfileFilter(OrganizationIdentityProvider.NAME, profileFilter);
-
+            Map<Identity, Integer> suggestions = relationshipManager.getSuggestions(identity, 0, 30);
 
             JSONObject jsonGlobal = new JSONObject();
             JSONArray jsonArray = new JSONArray();
-            Date date=new Date();
-            for (Identity id : suggestions) {
-                ListAccess<Identity> SugggestconnectionList = relationshipManager.getConnections(id);
-                List<Identity> SuggestallIdentities = new ArrayList<Identity>(Arrays.asList(SugggestconnectionList.load(0, SugggestconnectionList.getSize())));
-                int k = 0;
-                for (Identity i : SuggestallIdentities) {
-                    for (Identity j : allIdentities) {
-                        if (j.equals(i)) {
-                            k++;
-                        }
-                    }
 
-                }
-                if (id.getRemoteId().equals("root")) continue;
-                JSONObject json = new JSONObject();
-                String avatar = id.getProfile().getAvatarImageSource();
-                if (avatar == null) {
-                    avatar = "/social-resources/skin/images/ShareImages/UserAvtDefault.png";
-                }
-                String position = id.getProfile().getPosition();
-                if (position == null) {
-                    position = "";
-                }
-                json.put("suggestionName", id.getProfile().getFullName());
-                json.put("suggestionId", id.getId());
-                json.put("contacts", relationshipManager.getConnections(id).getSize());
-                json.put("avatar", avatar);
-                json.put("profile", id.getProfile().getUrl());
-                json.put("title", position);
-                json.put("number", k);
-                User user = orgManager.getUserHandler().findUserByName(id.getRemoteId());
-                if(user != null && user.getCreatedDate() != null){
-                  json.put("createdDate",user.getCreatedDate().getTime());
-                }
-                else{
-                  json.put("createdDate",new Date().getTime());
-                }
-                jsonArray.put(json);
+            for (Entry<Identity, Integer> suggestion : suggestions.entrySet()) {
+              Identity id = suggestion.getKey();
+              
+              if (id.getRemoteId().equals("root")) continue;
+              JSONObject json = new JSONObject();
+              String avatar = id.getProfile().getAvatarImageSource();
+              if (avatar == null) {
+                avatar = "/social-resources/skin/images/ShareImages/UserAvtDefault.png";
+              }
+              String position = id.getProfile().getPosition();
+              if (position == null) {
+                position = "";
+              }
+              json.put("suggestionName", id.getProfile().getFullName());
+              json.put("suggestionId", id.getId());
+              json.put("contacts", relationshipManager.getConnections(id).getSize());
+              json.put("avatar", avatar);
+              json.put("profile", id.getProfile().getUrl());
+              json.put("title", position);
+
+              //set mutual friend number
+              json.put("number", suggestion.getValue());
+              User user = orgManager.getUserHandler().findUserByName(id.getRemoteId());
+              if(user != null && user.getCreatedDate() != null){
+                json.put("createdDate",user.getCreatedDate().getTime());
+              }
+              else{
+                json.put("createdDate",new Date().getTime());
+              }
+              jsonArray.put(json);
             }
             jsonGlobal.put("items",jsonArray);
             jsonGlobal.put("noConnections",connectionList.getSize());
