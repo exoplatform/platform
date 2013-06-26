@@ -21,21 +21,72 @@
 -->
 
 <portal-config
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://www.gatein.org/xml/ns/gatein_objects_1_0 http://www.gatein.org/xml/ns/gatein_objects_1_0"
-    xmlns="http://www.gatein.org/xml/ns/gatein_objects_1_0">
-  <portal-name>@owner@</portal-name>
-  <locale>en</locale>
-  <access-permissions>*:@owner@</access-permissions>
-  <edit-permission>manager:@owner@</edit-permission>
-  <properties>
-    <entry key="sessionAlive">onDemand</entry>
-  </properties>
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.gatein.org/xml/ns/gatein_objects_1_2 http://www.gatein.org/xml/ns/gatein_objects_1_2"
+      xmlns="http://www.gatein.org/xml/ns/gatein_objects_1_2">
+   <portal-name>@owner@</portal-name>
+   <locale>en</locale>
+   <access-permissions>*:@owner@</access-permissions>
+   <edit-permission>manager:@owner@</edit-permission>
+   <properties>
+      <entry key="sessionAlive">onDemand</entry>
+   </properties>
 
- 	<portal-layout>
- 		<page-body>
- 		</page-body>
-  </portal-layout>
-  
+   <portal-layout>
+      <container id="NavigationBody" template="system:/groovy/portal/webui/container/UITableColumnContainer.gtmpl">
+         <access-permissions>Everyone</access-permissions>
+         <container id="LeftNavigation" template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
+            <access-permissions>*:/platform/users</access-permissions>
+            <container id="LeftBreadCrumbNavigationPortlet" template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
+               <access-permissions>*:/platform/users</access-permissions>
+               <portlet-application>
+                  <portlet>
+                     <application-ref>platformNavigation</application-ref>
+                     <portlet-ref>UIBreadCrumbsNavigationPortlet</portlet-ref>
+                  </portlet>
+                  <access-permissions>*:/platform/users</access-permissions>
+                  <show-info-bar>false</show-info-bar>
+               </portlet-application>
+            </container>
+            <container id="LeftNavigationPortlet" template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
+               <access-permissions>*:/platform/users</access-permissions>
+               <portlet-application>
+                  <portlet>
+                     <application-ref>platformNavigation</application-ref>
+                     <portlet-ref>UICompanyNavigationPortlet</portlet-ref>
+                  </portlet>
+                  <access-permissions>*:/platform/users</access-permissions>
+                  <show-info-bar>false</show-info-bar>
+               </portlet-application>
+            </container>
+            <container id="GroupsNavigationPortlet" template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
+               <access-permissions>*:/platform/users</access-permissions>
+               <portlet-application>
+                  <portlet>
+                     <application-ref>platformNavigation</application-ref>
+                     <portlet-ref>UIGroupsNavigationPortlet</portlet-ref>
+                  </portlet>
+                  <access-permissions>*:/platform/users</access-permissions>
+                  <show-info-bar>false</show-info-bar>
+               </portlet-application>
+            </container>
+            <container id="SpaceNavigationPortlet" template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
+               <access-permissions>*:/platform/users</access-permissions>
+               <portlet-application>
+                  <portlet>
+                     <application-ref>platformNavigation</application-ref>
+                     <portlet-ref>UISpaceNavigationPortlet</portlet-ref>
+                  </portlet>
+                  <access-permissions>*:/platform/users</access-permissions>
+                  <show-info-bar>false</show-info-bar>
+               </portlet-application>
+            </container>
+         </container>
+         <container id="RightBody" template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
+            <access-permissions>Everyone</access-permissions>
+            <page-body> </page-body>
+         </container>
+      </container>
+   </portal-layout>
 </portal-config>
 
