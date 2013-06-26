@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bundle>
+  <UISocialNotificationsPortlet>
+    <label>
+      <NotificationSettings>Notification Settings</NotificationSettings>
+      <NotificationsDescription>We send notifications whenever actions are taken on your social intranet that involve you.</NotificationsDescription>
+      <NotificationsChose>Send me an email when</NotificationsChose>
+      <Instantly>Instantly</Instantly>
+      <Daily>Daily</Daily>
+      <Weekly>Weekly</Weekly>
+      <Monthly>Monthly</Monthly>
+      <NewUser>Someone joins the social intranet</NewUser>
+		  <ConnectionRequest>Someone send me a connection request</ConnectionRequest>
+		  <SpaceInvitation>I receive a space invitation</SpaceInvitation>
+		  <PostedOnSpace>An activity is posted in one of my spaces</PostedOnSpace>
+		  <RequestJoinSpace>Someone request to or joins a Space where I'm an administrator</RequestJoinSpace>
+		  <MentionMe>Someone @mentions me</MentionMe>
+		  <CommentOnMyActivities>Someone comments one of my activities</CommentOnMyActivities>
+    </label>
+  </UISocialNotificationsPortlet>
+  
+  <UISocialNotificationsPortlet>
+    <action>
+      <Save>Save</Save>
+      <Cancel>Cancel</Cancel>
+    </action>
+  </UISocialNotificationsPortlet>
+</bundle>
