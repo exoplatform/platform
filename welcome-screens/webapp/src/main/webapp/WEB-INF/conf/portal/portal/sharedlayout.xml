@@ -98,6 +98,7 @@
     <container id="RightBody" template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
         <access-permissions>Everyone</access-permissions>
         <site-body> </site-body>
+        <page-body> </page-body>
     </container>
     <container id="UIPLFFooterwlcmScreen"  template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
         <access-permissions>*:/platform/users</access-permissions>
