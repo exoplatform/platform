@@ -17,8 +17,8 @@
 package org.exoplatform.platform.notification.provider;
 
 import org.exoplatform.commons.api.notification.NotificationMessage;
+import org.exoplatform.commons.api.notification.Provider;
 import org.exoplatform.container.PortalContainer;
-import org.exoplatform.platform.notification.Provider;
 import org.exoplatform.services.organization.OrganizationService;
 import org.exoplatform.services.organization.User;
 import org.exoplatform.services.organization.UserProfile;

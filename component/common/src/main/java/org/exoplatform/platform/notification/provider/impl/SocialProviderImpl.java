@@ -20,10 +20,10 @@ import java.util.Arrays;
 import java.util.List;
 
 import org.exoplatform.commons.api.notification.NotificationMessage;
+import org.exoplatform.commons.api.notification.Provider;
+import org.exoplatform.commons.api.notification.service.ProviderManager;
 import org.exoplatform.platform.notification.MessageInfo;
-import org.exoplatform.platform.notification.Provider;
 import org.exoplatform.platform.notification.provider.AbstractNotificationProvider;
-import org.exoplatform.platform.notification.provider.ProviderManager;
 import org.exoplatform.services.organization.OrganizationService;
 import org.exoplatform.social.core.manager.ActivityManager;
 import org.exoplatform.social.core.manager.IdentityManager;
@@ -33,9 +33,9 @@ import org.exoplatform.social.core.space.spi.SpaceService;
 public class SocialProviderImpl extends AbstractNotificationProvider {
   public static final String ACTIVITY_ID = "activityId";
 
-  public static final String SPACE_ID    = "activityId";
+  public static final String SPACE_ID    = "spaceId";
 
-  public static final String IDENTITY_ID = "activityId";
+  public static final String IDENTITY_ID = "identityId";
   
   ProviderManager providerManager;
 
