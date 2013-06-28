@@ -21,7 +21,7 @@ import java.util.List;
 
 import org.exoplatform.commons.api.notification.NotificationMessage;
 import org.exoplatform.commons.api.notification.Provider;
-import org.exoplatform.commons.api.notification.service.ProviderManager;
+import org.exoplatform.commons.api.notification.service.ProviderService;
 import org.exoplatform.platform.notification.MessageInfo;
 import org.exoplatform.platform.notification.provider.AbstractNotificationProvider;
 import org.exoplatform.services.organization.OrganizationService;
@@ -37,15 +37,15 @@ public class SocialProviderImpl extends AbstractNotificationProvider {
 
   public static final String IDENTITY_ID = "identityId";
   
-  ProviderManager providerManager;
+  ProviderService providerService;
 
   ActivityManager activityManager;
   IdentityManager identityManager;
   SpaceService spaceService;
   
   public SocialProviderImpl(ActivityManager activityManager, IdentityManager identityManager,
-                         SpaceService spaceService, ProviderManager providerManager, OrganizationService organizationService) {
-    this.providerManager = providerManager;
+                         SpaceService spaceService, ProviderService providerService, OrganizationService organizationService) {
+    this.providerService = providerService;
     this.activityManager = activityManager;
     this.identityManager = identityManager;
     this.spaceService = spaceService;
@@ -62,7 +62,7 @@ public class SocialProviderImpl extends AbstractNotificationProvider {
   @Override
   public MessageInfo buildMessageInfo(NotificationMessage message, String language) {
     MessageInfo messageInfo = new MessageInfo();
-    Provider provider = providerManager.getProvider(message.getProviderType());
+    Provider provider = providerService.getProvider(message.getProviderType());
     if (language == null || language.length() == 0) {
       language = getLanguage(message);
     }
