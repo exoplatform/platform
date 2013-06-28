@@ -62,7 +62,7 @@ public class SocialProviderImpl extends AbstractNotificationProvider {
   @Override
   public MessageInfo buildMessageInfo(NotificationMessage message, String language) {
     MessageInfo messageInfo = new MessageInfo();
-    Provider provider = providerManager.getProvier(message.getProviderType());
+    Provider provider = providerManager.getProvider(message.getProviderType());
     if (language == null || language.length() == 0) {
       language = getLanguage(message);
     }
