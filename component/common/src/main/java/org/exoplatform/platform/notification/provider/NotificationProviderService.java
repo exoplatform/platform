@@ -26,7 +26,7 @@ public interface NotificationProviderService {
   /**
    * @return
    */
-  public MessageInfo buildMessageInfo(NotificationMessage message, String language);
+  public MessageInfo buildMessageInfo(NotificationMessage message);
   
   
   public List<String> getSupportType();

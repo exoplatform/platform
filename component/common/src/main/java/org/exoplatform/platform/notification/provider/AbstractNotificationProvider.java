@@ -103,5 +103,5 @@ public abstract class AbstractNotificationProvider implements NotificationProvid
     return subject;
   }
   
-  protected abstract MessageInfo processMessage(String body, String subject, NotificationMessage message);
+  public abstract MessageInfo buildMessageInfo(NotificationMessage message);
 }

@@ -29,7 +29,7 @@ public class DisgestorProviderImpl extends AbstractNotificationProvider {
   }
 
   @Override
-  public MessageInfo buildMessageInfo(NotificationMessage message, String language) {
+  public MessageInfo buildMessageInfo(NotificationMessage message) {
     // TODO Auto-generated method stub
     return null;
   }
@@ -40,9 +40,4 @@ public class DisgestorProviderImpl extends AbstractNotificationProvider {
     return null;
   }
 
-  @Override
-  protected MessageInfo processMessage(String body, String subject, NotificationMessage message) {
-    // TODO Auto-generated method stub
-    return null;
-  }
 }

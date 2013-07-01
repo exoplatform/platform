@@ -58,7 +58,7 @@ public class ExecutorSendListener implements Callable<NotificationMessage>{
     List<NotificationProviderService> profiderSerives = PortalContainer.getInstance()
                                                       .getComponentInstancesOfType(NotificationProviderService.class);
     for (NotificationProviderService providerService : profiderSerives) {
-      if (providerService.getSupportType().contains(message.getProviderType())) {
+      if (providerService.getSupportType().contains(providerType)) {
         return providerService;
       }
     }
@@ -68,7 +68,7 @@ public class ExecutorSendListener implements Callable<NotificationMessage>{
   private void processSendEmailNotifcation() {
     NotificationProviderService providerService = getNotificationProviderService(message.getProviderType());
    
-    MessageInfo messageInfo =  providerService.buildMessageInfo(message, null);
+    MessageInfo messageInfo =  providerService.buildMessageInfo(message);
     if(messageInfo != null) {
       Message message_ = messageInfo.makeEmailNotification();
       

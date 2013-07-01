@@ -305,4 +305,14 @@
    <component>
      <type>org.exoplatform.platform.common.navigation.NavigationServiceHandler</type>
    </component>
+
+   <component>
+    <key>org.exoplatform.platform.notification.provider.NotificationProviderService</key>
+    <type>org.exoplatform.platform.notification.provider.impl.SocialProviderImpl</type>
+   </component>
+
+   <component>
+    <key>org.exoplatform.platform.notification.provider.NotificationProviderService</key>
+    <type>org.exoplatform.platform.notification.provider.impl.DisgestorProviderImpl</type>
+   </component>
 </configuration>
