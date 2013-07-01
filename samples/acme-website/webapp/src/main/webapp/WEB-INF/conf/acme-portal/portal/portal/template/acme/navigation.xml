@@ -96,6 +96,23 @@
       <page-reference>portal::@owner@::searchResult</page-reference>
     </node>
 
+<!-- Unified Search page -->
+  <node>
+    <uri>search</uri>
+    <name>search</name>
+    <label>Unified search</label>
+    <visibility>HIDDEN</visibility>
+    <page-reference>portal::@owner@::search</page-reference>
+  </node>
+  <!-- File explorer -->
+  <node>
+    <uri>documents</uri>
+    <name>documents</name>
+    <label>Documents</label>
+    <visibility>HIDDEN</visibility>
+    <page-reference>portal::@owner@::documents</page-reference>
+  </node>
+  
     <node>
       <uri>newAccount</uri>
       <name>newAccount</name>

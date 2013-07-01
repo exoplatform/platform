@@ -95,7 +95,22 @@
       <visibility>HIDDEN</visibility>
       <page-reference>portal::acme::searchResult</page-reference>
     </node>
-
+  <!-- Unified Search page -->
+  <node>
+    <uri>search</uri>
+    <name>search</name>
+    <label>#{portal.acme.unifiedSearch}</label>
+    <visibility>HIDDEN</visibility>
+    <page-reference>portal::acme::search</page-reference>
+  </node>
+  <!-- File explorer -->
+  <node>
+    <uri>documents</uri>
+    <name>documents</name>
+    <label>#{portal.acme.documents}</label>
+    <visibility>HIDDEN</visibility>
+    <page-reference>portal::acme::documents</page-reference>
+  </node>
     <node>
       <uri>newAccount</uri>
       <name>newAccount</name>
