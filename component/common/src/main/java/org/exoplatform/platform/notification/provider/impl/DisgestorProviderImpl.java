@@ -41,9 +41,8 @@ public class DisgestorProviderImpl extends AbstractNotificationProvider {
   }
 
   @Override
-  protected String processBody(String body) {
+  protected MessageInfo processMessage(String body, String subject, NotificationMessage message) {
     // TODO Auto-generated method stub
     return null;
   }
-
 }

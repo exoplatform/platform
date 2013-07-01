@@ -19,6 +19,7 @@ package org.exoplatform.platform.notification.provider;
 import org.exoplatform.commons.api.notification.NotificationMessage;
 import org.exoplatform.commons.api.notification.Provider;
 import org.exoplatform.container.PortalContainer;
+import org.exoplatform.platform.notification.MessageInfo;
 import org.exoplatform.services.organization.OrganizationService;
 import org.exoplatform.services.organization.User;
 import org.exoplatform.services.organization.UserProfile;
@@ -102,5 +103,5 @@ public abstract class AbstractNotificationProvider implements NotificationProvid
     return subject;
   }
   
-  protected abstract String processBody(String body);
+  protected abstract MessageInfo processMessage(String body, String subject, NotificationMessage message);
 }
