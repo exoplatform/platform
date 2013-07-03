@@ -16,13 +16,14 @@
  */
 package org.exoplatform.platform.notification.listener;
 
-import java.util.List;
 import java.util.concurrent.Callable;
 
+import org.exoplatform.commons.api.notification.MessageInfo;
 import org.exoplatform.commons.api.notification.NotificationMessage;
+import org.exoplatform.commons.api.notification.service.AbstractNotificationProvider;
+import org.exoplatform.commons.api.notification.service.NotificationProviderService;
+import org.exoplatform.commons.utils.CommonsUtils;
 import org.exoplatform.container.PortalContainer;
-import org.exoplatform.platform.notification.MessageInfo;
-import org.exoplatform.platform.notification.provider.NotificationProviderService;
 import org.exoplatform.services.log.ExoLogger;
 import org.exoplatform.services.log.Log;
 import org.exoplatform.services.mail.MailService;
@@ -54,34 +55,26 @@ public class ExecutorSendListener implements Callable<NotificationMessage>{
     return instance;
   }
 
-  private NotificationProviderService getNotificationProviderService(String providerType) {
-    List<NotificationProviderService> profiderSerives = PortalContainer.getInstance()
-                                                      .getComponentInstancesOfType(NotificationProviderService.class);
-    for (NotificationProviderService providerService : profiderSerives) {
-      if (providerService.getSupportType().contains(providerType)) {
-        return providerService;
-      }
-    }
-    return null;
-  }
 
   private void processSendEmailNotifcation() {
-    NotificationProviderService providerService = getNotificationProviderService(message.getProviderType());
-   
-    MessageInfo messageInfo =  providerService.buildMessageInfo(message);
-    if(messageInfo != null) {
-      Message message_ = messageInfo.makeEmailNotification();
-      
-      MailService mailService = (MailService) PortalContainer.getInstance().getComponentInstanceOfType(MailService.class);
-      
-      try {
-        mailService.sendMessage(message_);
-      } catch (Exception e) {
-        LOG.error("Send email error!", e);
+    NotificationProviderService providerService = CommonsUtils.getService(NotificationProviderService.class);
+    AbstractNotificationProvider supportProvider = providerService.getSupportProviderImpl(message.getProviderType());
+    if (supportProvider != null) {
+      MessageInfo messageInfo = supportProvider.buildMessageInfo(message);
+      if (messageInfo != null) {
+        Message message_ = messageInfo.makeEmailNotification();
+
+        MailService mailService = (MailService) PortalContainer.getInstance().getComponentInstanceOfType(MailService.class);
+
+        try {
+          mailService.sendMessage(message_);
+          LOG.info("Process send email notification successfully ... " + message.getProviderType());
+        } catch (Exception e) {
+          LOG.error("Send email error!", e);
+        }
       }
+
     }
-    
-    LOG.info("Process send email notification successfully ... " + message.getProviderType());
     
   }
 }
