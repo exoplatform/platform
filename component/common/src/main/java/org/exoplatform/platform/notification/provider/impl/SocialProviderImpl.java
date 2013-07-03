@@ -55,7 +55,8 @@ public class SocialProviderImpl extends AbstractNotificationProvider {
     ActivityMentionProvider, ActivityCommentProvider,
     ActivityPostProvider, ActivityPostSpaceProvider,
     InvitedJoinSpace, RequestJoinSpace,
-    NewUserJoinSocialIntranet, ReceiceConnectionRequest;
+    NewUserJoinSocialIntranet, ReceiceConnectionRequest,
+    ActivityLikeProvider;
     public static List<String> toValues() {
       List<String> list = new ArrayList<String>();
       for (PROVIDER_TYPE elm : PROVIDER_TYPE.values()) {
@@ -92,49 +93,60 @@ public class SocialProviderImpl extends AbstractNotificationProvider {
       case ActivityMentionProvider: {
         String activityId = message.getOwnerParameter().get(ACTIVITY_ID);
         ExoSocialActivity activity = activityManager.getActivity(activityId);
-        Identity identity = identityManager.getOrCreateIdentity(OrganizationIdentityProvider.NAME, activity.getPosterId(), true);
+        Identity identity = identityManager.getIdentity(activity.getPosterId(), true);
         messageInfo.setSubject(subject.replace("$user-who-mentionned", identity.getProfile().getFullName()))
                    .setBody(body.replace("$user-who-mentionned", identity.getProfile().getFullName())
                                 .replace("$post", activity.getTitle())
                                 .replace("$replyAction", LinkProviderUtils.getReplyActivityUrl(activity.getId(), Util.getPortalRequestContext().getRemoteUser()))
-                                .replace("$viewAction", LinkProviderUtils.getReplyActivityUrl(activity.getId(), Util.getPortalRequestContext().getRemoteUser())));
+                                .replace("$viewAction", LinkProviderUtils.getViewFullDiscussionUrl(activity.getId(), Util.getPortalRequestContext().getRemoteUser())));
         break;
       }
       case ActivityCommentProvider: {
         String activityId = message.getOwnerParameter().get(ACTIVITY_ID);
         ExoSocialActivity activity = activityManager.getActivity(activityId);
         ExoSocialActivity parentActivity = activityManager.getParentActivity(activity);
-        Identity identity = identityManager.getOrCreateIdentity(OrganizationIdentityProvider.NAME, activity.getPosterId(), true);
+        Identity identity = identityManager.getIdentity(activity.getPosterId(), true);
         messageInfo.setSubject(subject.replace("$other_user_name", identity.getProfile().getFullName()))
                    .setBody(body.replace("$other_user_name", identity.getProfile().getFullName())
                                 .replace("$activity_comment", activity.getTitle())
                                 .replace("$original_activity_message", parentActivity.getTitle())
                                 .replace("$replyAction", LinkProviderUtils.getReplyActivityUrl(activity.getId(), Util.getPortalRequestContext().getRemoteUser()))
-                                .replace("$viewAction", LinkProviderUtils.getReplyActivityUrl(activity.getId(), Util.getPortalRequestContext().getRemoteUser())));
+                                .replace("$viewAction", LinkProviderUtils.getViewFullDiscussionUrl(activity.getId(), Util.getPortalRequestContext().getRemoteUser())));
+        break;
+      }
+      case ActivityLikeProvider: {
+        String activityId = message.getOwnerParameter().get(ACTIVITY_ID);
+        ExoSocialActivity activity = activityManager.getActivity(activityId);
+        Identity identity = identityManager.getIdentity(getFrom(message), true);
+        messageInfo.setSubject(subject.replace("$other_user_name", identity.getProfile().getFullName()))
+                   .setBody(body.replace("$other_user_name", identity.getProfile().getFullName())
+                                .replace("$activity", activity.getTitle())
+                                .replace("$replyAction", LinkProviderUtils.getReplyActivityUrl(activity.getId(), Util.getPortalRequestContext().getRemoteUser()))
+                                .replace("$viewAction", LinkProviderUtils.getViewFullDiscussionUrl(activity.getId(), Util.getPortalRequestContext().getRemoteUser())));
         break;
       }
       case ActivityPostProvider: {
         String activityId = message.getOwnerParameter().get(ACTIVITY_ID);
         ExoSocialActivity activity = activityManager.getActivity(activityId);
-        Identity identity = identityManager.getOrCreateIdentity(OrganizationIdentityProvider.NAME, activity.getPosterId(), true);
+        Identity identity = identityManager.getIdentity(activity.getPosterId(), true);
         messageInfo.setSubject(subject.replace("$other_user_name", identity.getProfile().getFullName()))
                    .setBody(body.replace("$other_user_name", identity.getProfile().getFullName())
                                 .replace("$activity_message", activity.getTitle())
                                 .replace("$replyAction", LinkProviderUtils.getReplyActivityUrl(activity.getId(), Util.getPortalRequestContext().getRemoteUser()))
-                                .replace("$viewAction", LinkProviderUtils.getReplyActivityUrl(activity.getId(), Util.getPortalRequestContext().getRemoteUser())));
+                                .replace("$viewAction", LinkProviderUtils.getViewFullDiscussionUrl(activity.getId(), Util.getPortalRequestContext().getRemoteUser())));
         break;
       }
       case ActivityPostSpaceProvider: {
         String activityId = message.getOwnerParameter().get(ACTIVITY_ID);
         ExoSocialActivity activity = activityManager.getActivity(activityId);
-        Identity identity = identityManager.getOrCreateIdentity(OrganizationIdentityProvider.NAME, activity.getPosterId(), true);
+        Identity identity = identityManager.getIdentity(activity.getPosterId(), true);
         Identity spaceIdentity = identityManager.getOrCreateIdentity(SpaceIdentityProvider.NAME, activity.getStreamOwner(), true);
         messageInfo.setSubject(subject.replace("$other_user_name", identity.getProfile().getFullName()).replace("$space-name", spaceIdentity.getProfile().getFullName()))
                    .setBody(body.replace("$other_user_name", identity.getProfile().getFullName())
                                 .replace("$activity_message", activity.getTitle())
                                 .replace("$space-name", spaceIdentity.getProfile().getFullName())
                                 .replace("$replyAction", LinkProviderUtils.getReplyActivityUrl(activity.getId(), Util.getPortalRequestContext().getRemoteUser()))
-                                .replace("$viewAction", LinkProviderUtils.getReplyActivityUrl(activity.getId(), Util.getPortalRequestContext().getRemoteUser())));
+                                .replace("$viewAction", LinkProviderUtils.getViewFullDiscussionUrl(activity.getId(), Util.getPortalRequestContext().getRemoteUser())));
         break;
       }
       case InvitedJoinSpace: {
