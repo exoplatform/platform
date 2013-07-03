@@ -315,4 +315,13 @@
     <key>org.exoplatform.platform.notification.provider.NotificationProviderService</key>
     <type>org.exoplatform.platform.notification.provider.impl.DisgestorProviderImpl</type>
    </component>
+   
+   <external-component-plugins>
+    <target-component>org.exoplatform.commons.api.notification.service.NotificationService</target-component>
+    <component-plugin>
+      <name>NotificationServiceListener</name>
+      <set-method>addSendNotificationListener</set-method>
+      <type>org.exoplatform.platform.notification.listener.SendNotificationListenerImpl</type>
+    </component-plugin>
+  </external-component-plugins>
 </configuration>
