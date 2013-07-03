@@ -177,6 +177,9 @@
                <value>
                   <string>unified-search</string>
                </value>
+               <value>
+                  <string>platform-notification</string>
+               </value>
             </collection>
           </field>
 

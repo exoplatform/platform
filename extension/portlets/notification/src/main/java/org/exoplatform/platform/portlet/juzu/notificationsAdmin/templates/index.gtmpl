@@ -1,0 +1,55 @@
+#{param name=senderName/}
+#{param name=senderEmail/}
+#{param name=bundle/}
+#{param name=groups/}
+#{param name=providers/}
+<div id="notificationAdmin" class="uiNotificationAdmin">
+<h4 class="titleWithBorder">${bundle.getString("NotificationAdmin.title")}</h4>
+<form id="senderForm">
+<h6>${bundle.getString("NotificationAdmin.label.notificationsSender")}</h6>
+  <div id="senderInfoMsgOK" style="display:none">${bundle.getString("NotificationAdmin.msg.saveOK")}</div>
+  <div id="senderInfoMsgKO" style="display:none">${bundle.getString("NotificationAdmin.msg.saveKO")}</div>
+  <input id="senderEmail" class="left" name="email" value="senderEmail" placeholder="Email">
+  <input id="senderName" name="name" value="senderName" placeholder="Name">  
+  <input id="btSetSender" class="center" type="button" value="${bundle.getString('NotificationAdmin.label.save')}">
+</form>
+
+<h6>${bundle.getString("NotificationAdmin.label.notificationTypes")}</h6>
+<table class="uiGrid table  table-hover table-striped">
+  <thead>
+    <tr>
+      <th>uiGrid</th>
+      <th>uiGrid</th>
+      <th>uiGrid</th>
+    </tr>
+  </thead>
+  <% for(def group : groups) { %>
+    <tr>
+       <td class="group-title">${bundle.getString(group.getResouceBundleKey())}</td>
+       <td></td>
+       <td></td> 
+    </tr>  
+    
+    <% group.getProviderDatas().each() { provider ->
+        def providerId = provider.getType();
+        def status = providers.get(providerId);
+    %>      
+      <tr id="${providerId}" class="${status}">       
+        <td>
+          ${bundle.getString(provider.getResourceBundleKey())}
+        </td>
+        <td>
+          ${bundle.getString("Notification.title." + providerId)}                    
+        </td>
+        <td>                       
+            <input type="button" class="providerAction ${status}" name="${providerId}">
+        </td>
+      </tr>      
+    <% } %>    
+  <% } %>
+</table>
+<div style="display:none;" id="status">
+<label id="label-enable" value='${bundle.getString("NotificationAdmin.label.enable")}'/>
+<label id="label-disable" value='${bundle.getString("NotificationAdmin.label.disable")}'/>
+</div>
+</div>

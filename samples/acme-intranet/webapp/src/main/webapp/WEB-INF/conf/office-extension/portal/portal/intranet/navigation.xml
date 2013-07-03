@@ -282,7 +282,7 @@
             <label>#{portal.intranet.searchResult}</label>
             <visibility>SYSTEM</visibility>
             <page-reference>portal::intranet::search</page-reference>
-        </node>
+        </node>        
 
     </page-nodes>
 </node-navigation>
