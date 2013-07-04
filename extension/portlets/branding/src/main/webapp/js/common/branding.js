@@ -47,7 +47,7 @@
 		$("#navigationStyle").jzAjax({
 			url : "BrandingController.save()",
 			data : {
-				"style" : $(span).text(),
+				"style" : $(span).attr("id"),
 				"isChangeLogo" : isChangeLogo
 			},
 			beforeSend : function() {
@@ -143,7 +143,8 @@
 				// update the navigation style and style selected;
 				changePreviewStyle(data.style);
 				var span = $("#navigationStyle div span")[0];
-				$(span).text(data.style);
+				$(span).text($("#navigationStyle").find("a#" + data.style).text());
+                                $(span).attr("id",data.style);
 			}
 		});
 	}
@@ -318,8 +319,9 @@
 
 	$("#navigationStyle a").on("click", function() {
 		var span = $("#navigationStyle div span")[0];
-		$(span).text($(this).text());
-		changePreviewStyle($(this).text());
+                $(span).text($(this).text());
+                $(span).attr("id",$(this).attr("id"));
+		changePreviewStyle($(this).attr("id"));
 	})
 
 })($, uiMaskLayer);

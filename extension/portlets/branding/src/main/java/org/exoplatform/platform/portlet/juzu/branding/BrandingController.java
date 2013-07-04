@@ -114,6 +114,8 @@ public class BrandingController {
     parameters.put("noteselectlogo", rs.getString("noteselectlogo.label"));
     parameters.put("upload", rs.getString("upload.label"));
     parameters.put("selectstyle", rs.getString("selectstyle.label"));
+    parameters.put("darkstyle",rs.getString("style.dark.label"));
+    parameters.put("lightstyle",rs.getString("style.light.label"));
     parameters.put("preview", rs.getString("preview.label"));
     parameters.put("save", rs.getString("save.label"));
     parameters.put("cancel", rs.getString("cancel.label"));
