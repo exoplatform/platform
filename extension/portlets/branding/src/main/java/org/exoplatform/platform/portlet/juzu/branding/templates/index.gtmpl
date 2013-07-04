@@ -52,10 +52,10 @@
 		
 			<ul role="menu" class="dropdown-menu">
 				<li>
-					<a href="#" class="OptionItem">Light</a>
+					<a href="#" class="OptionItem" id="Light">${lightstyle}</a>
 				</li>
 				<li>
-					<a href="#" class="OptionItem">Dark</a>
+					<a href="#" class="OptionItem" id="Dark">${darkstyle}</a>
 				</li>
 			</ul>
 		</div>		
