@@ -118,6 +118,14 @@
             <visibility>SYSTEM</visibility>
             <page-reference>portal::intranet::profile</page-reference>
         </node>
+        
+        <node>
+            <uri>notifications</uri>
+            <name>notifications</name>
+            <label>#{portal.intranet.notifications}</label>
+            <visibility>SYSTEM</visibility>
+            <page-reference>portal::intranet::notifications</page-reference>
+        </node>
 
         <node>
             <uri>connections</uri>

@@ -37,8 +37,7 @@
         for (node in uicomponent.getUserNodesAsList()) {
             def nodeLabel;
             def str="UIUserNavigationPortlet.label."+node;
-            if (isOwner) str="UIUserNavigationPortlet.label.My"+node;
-            else   str="UIUserNavigationPortlet.label."+node;
+            if (isOwner && ! node.equals(uicomponent.NOTIFICATIONS_URI)) str="UIUserNavigationPortlet.label.My"+node;
             nodeLabel = _ctx.appRes(str);
             pageURL = urlList[i];
             def navigationTabClass = "";
