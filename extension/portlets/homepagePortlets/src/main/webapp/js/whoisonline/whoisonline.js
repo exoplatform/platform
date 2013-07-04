@@ -1,12 +1,10 @@
 (function($) {
-
-    if($('#onlineList li').length == 0) {
-        $("#OnlinePortlet").hide();
-    } else {
-        $("#OnlinePortlet").show();
-    }
-
     var showTooltip = function() {
+        if($('#onlineList li').length == 0) {
+            $("#OnlinePortlet").hide();
+        } else {
+            $("#OnlinePortlet").show();
+        }
         $('#onlineList li').each(function() {
             var activity = $(this).find("input[name=activity]").val();
             var connect = $(this).find("input[name=connect]").val();
