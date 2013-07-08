@@ -65,6 +65,9 @@
             <depends>
                 <module>bts_dropdown</module>
             </depends>
+            <depends>
+              <module>bts_hover_dropdown</module>
+            </depends>
         </module>
     </portlet>
     <portlet>
@@ -72,6 +75,9 @@
         <module>
             <depends>
                 <module>bts_dropdown</module>
+            </depends>
+            <depends>
+                <module>bts_hover_dropdown</module>
             </depends>
         </module>
     </portlet>
@@ -83,6 +89,9 @@
             </depends>
            <depends>
               <module>bts_dropdown</module>
+           </depends>
+           <depends>
+              <module>bts_hover_dropdown</module>
            </depends>
             <!--
             <depends>
@@ -106,6 +115,9 @@
             </depends>
             <depends>
                 <module>bts_dropdown</module>
+            </depends>
+            <depends>
+                <module>bts_hover_dropdown</module>
             </depends>
         </module>
     </portlet>
@@ -199,6 +211,18 @@
       </depends>
       <depends>
          <module>jquery</module>
+      </depends>
+   </module>
+
+   <module>
+      <name>bts_hover_dropdown</name>
+      <load-group>plf_navigation</load-group>
+      <script>
+         <path>/javascript/eXo/platform/navigation/ToolBarNavigation/twitter-bootstrap-hover-dropdown.js</path>
+      </script>
+      <depends>
+         <module>jquery</module>
+         <as>jQuery</as>
       </depends>
    </module>
 </gatein-resources>
