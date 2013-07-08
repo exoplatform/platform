@@ -28,6 +28,7 @@
         RequestContext requestContext = Request.getCurrent().getContext();
         ResourceBundle bundle= requestContext.getApplicationContext().resolveBundle(requestContext.getUserContext().getLocale()) ;
     
+        def youHaveSentAnInvitation=bundle.getString("message.label");
         def statusTitle=bundle.getString("Loading.label");
         def connectLabel=bundle.getString("Connect.label");
         def confirmLabel=bundle.getString("Confirm.label");
@@ -36,6 +37,7 @@
         def ignoreLabel=bundle.getString("Ignore.label");
         
 		    def labels = """ {
+		      youHaveSentAnInvitation: '${youHaveSentAnInvitation}',
 		      StatusTitle: '${statusTitle}',
 		      Connect: '${connectLabel}',
 		      Confirm: '${confirmLabel}',
