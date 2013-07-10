@@ -35,14 +35,41 @@
   </ModulePrefs>
   <Content type="html">
   <![CDATA[   
-    <link rel="stylesheet" type="text/css" href="/eXoResources/skin/bootstrap/css/bootstrap.css" />
-    <link rel="stylesheet" type="text/css" href="/eXoResources/skin/css/Core.css" />
-    <link type="text/css" rel="stylesheet" href="/exo-gadget-resources/skin/exo-gadget/gadget-common.css" />
-    <link type="text/css" rel="stylesheet" href="/eXoDMSResources/skin/DefaultSkin/Stylesheet-lt.css" />
-    <link type="text/css" rel="stylesheet" href="/intranet-gadgets/skin/css/FavoriteDocument.css" />
+
     <script language="javascript" type="text/javascript" src="/eXoResources/javascript/jquery-1.7.1.js"></script>
     <script type="text/javascript" src="javascript/script.js"></script>
-	<script language="javascript" type="text/javascript" src="/eXoResources/skin/bootstrap/js/bootstrap-tooltip.js"></script>
+    <link type="text/css" rel="stylesheet" href="/intranet-gadgets/skin/css/FavoriteDocument.css" />
+    <link type="text/css" rel="stylesheet" href="/exo-gadget-resources/skin/exo-gadget/gadget-common.css" />
+    <link type="text/css" rel="stylesheet" href="/eXoDMSResources/skin/DefaultSkin/Stylesheet-lt.css" />
+    <link rel="stylesheet" type="text/css" href="/eXoSkin/skin/bootstrap/css/bootstrap.css" />
+    <link rel="stylesheet" type="text/css" href="/eXoSkin/skin/css/Core.css" />
+    <style type="text/css">
+                
+          .UIGadgetThemes.favoriteDoc .icon {
+            margin: 8px 10px 0 0;
+            padding-left: 0;
+          }
+          
+          .favoriteDoc .fileDesc { 
+          	overflow: hidden;
+		    text-overflow: ellipsis;
+		    white-space: nowrap;
+		    width: 85%;
+		  }
+		    
+	      .favoriteDoc .fileDesc a {
+	         color: #333;
+	      }
+          
+          .favoriteDoc .fileDesc a:hover {
+            color: #2f5e92;
+          }
+          
+          .favoriteDoc .fileDesc p {
+            color: #808080;
+            font-size: 12px;
+          }
+    </style> 
   <script type="text/javascript">
    
 var prefixUrl = location.protocol + '//' + location.hostname;

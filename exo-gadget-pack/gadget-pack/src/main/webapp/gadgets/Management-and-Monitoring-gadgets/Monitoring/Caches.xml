@@ -17,8 +17,8 @@
       <head>
         <title>Caches</title>
         <link rel="stylesheet" type="text/css" href="/exo-gadget-resources/skin/exo-gadget/gadget-common.css" />
-        <link rel="stylesheet" type="text/css" href="/eXoResources/skin/bootstrap/css/bootstrap.css" />
-        <link rel="stylesheet" type="text/css" href="/eXoResources/skin/css/Core.css" />
+        <link rel="stylesheet" type="text/css" href="/eXoSkin/skin/bootstrap/css/bootstrap.css" />
+        <link rel="stylesheet" type="text/css" href="/eXoSkin/skin/css/Core.css" />
         
         <style type="text/css">
           

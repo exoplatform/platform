@@ -31,10 +31,10 @@
   <![CDATA[     
     
   <head>
-    <link rel="stylesheet" type="text/css" href="/eXoResources/skin/bootstrap/css/bootstrap.css" />
-    <link rel="stylesheet" type="text/css" href="/eXoResources/skin/css/Core.css" />
     <link type="text/css" rel="stylesheet" href="/exo-gadget-resources/skin/exo-gadget/gadget-common.css" />
     <link type="text/css" rel="stylesheet" href="/intranet-gadgets/skin/css/Bookmark.css" />
+    <link rel="stylesheet" type="text/css" href="/eXoSkin/skin/bootstrap/css/bootstrap.css" />
+    <link rel="stylesheet" type="text/css" href="/eXoSkin/skin/css/Core.css" />
   <style type="text/css">
    /* Bookmark */
          
