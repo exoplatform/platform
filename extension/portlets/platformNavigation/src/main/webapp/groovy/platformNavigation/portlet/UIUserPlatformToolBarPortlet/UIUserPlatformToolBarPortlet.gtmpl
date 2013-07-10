@@ -86,7 +86,7 @@
               <a href="<%=createDashboardLink%>"><i class="uiIconPLFDashboard"></i>$labelDashboard</a>
             </li>
             <li>
-              <a href="$notificationsLink"><i class="uiIconNotificationSettingsPortlet"></i>$labelNotifications</a>
+              <a href="$notificationsLink"><i class="uiIconPLFNotifications"></i>$labelNotifications</a>
             </li>
             <% } %>
             <li class="divider">&nbsp;</li>
