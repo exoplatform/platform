@@ -27,15 +27,17 @@
 
         RequestContext requestContext = Request.getCurrent().getContext();
         ResourceBundle bundle= requestContext.getApplicationContext().resolveBundle(requestContext.getUserContext().getLocale()) ;
-
+    
+        def youHaveSentAnInvitation=bundle.getString("message.label");
         def statusTitle=bundle.getString("Loading.label");
         def connectLabel=bundle.getString("Connect.label");
         def confirmLabel=bundle.getString("Confirm.label");
         def cancelRequestLabel=bundle.getString("CancelRequest.label");
         def removeConnectionLabel=bundle.getString("RemoveConnection.label");
         def ignoreLabel=bundle.getString("Ignore.label");
-
+        
 		    def labels = """ {
+		      youHaveSentAnInvitation: '${youHaveSentAnInvitation}',
 		      StatusTitle: '${statusTitle}',
 		      Connect: '${connectLabel}',
 		      Confirm: '${confirmLabel}',
@@ -43,12 +45,11 @@
 		      RemoveConnection: '${removeConnectionLabel}',
 		      Ignore: '${ignoreLabel}'
 		    } """
-
+    
         def pcontext = Util.getPortalRequestContext();
         def jsManager = pcontext.getJavascriptManager();
         jsManager.require("SHARED/jQueryWhoIsOnLine", "wos").addScripts("wos.ajaxWhoIsOnLine($labels);");
   %>
-  <input name="labels" type="hidden" value="${labels}"/>
 <div id="OnlinePortlet" class="onlinePortlet">
     <div id="onlineContent" class="uiBox">
         <h6 class="title center">&{header.label}</h6>
