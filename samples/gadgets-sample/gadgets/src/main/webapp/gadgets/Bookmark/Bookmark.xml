@@ -5,6 +5,7 @@
     <Locale lang="fr" messages="locale/fr.xml" />
     <Locale lang="es-ES" messages="locale/es_ES.xml" />
     <Locale lang="vi" messages="locale/vi.xml" />
+    <Locale lang="sv-SE" messages="locale/sv_SE.xml"/>
 
     <Require feature="dynamic-height"/>
   </ModulePrefs>
