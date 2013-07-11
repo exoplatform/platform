@@ -42,6 +42,27 @@
     <input-encoding>UTF-8</input-encoding>
     <description>Default configuration for the french locale</description>
   </locale-config>
+  
+  <locale-config>
+    <locale>es</locale>
+    <output-encoding>UTF-8</output-encoding>
+    <input-encoding>UTF-8</input-encoding>
+    <description>Default configuration for the spanish locale</description>
+  </locale-config>
+  
+  <locale-config>
+    <locale>vi</locale>
+    <output-encoding>UTF-8</output-encoding>
+    <input-encoding>UTF-8</input-encoding>
+    <description>Default configuration for the vietnamese locale</description>
+  </locale-config>
+  
+  <locale-config>
+    <locale>sv_SE</locale>
+    <output-encoding>UTF-8</output-encoding>
+    <input-encoding>UTF-8</input-encoding>
+    <description>Default configuration for the swedish locale</description>
+  </locale-config>
 
   <!--locale-config>
     <locale>it</locale>
