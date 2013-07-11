@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bundle>
+   <UIAdminToolbarPortlet>
+      <action>
+         <AddPage>Thêm trang</AddPage>
+         <EditNavigation>Navigation</EditNavigation>
+         <Content>Nội dung</Content>
+         <Editor>Chỉnh sửa</Editor>
+         <Page>Trang</Page>
+         <Site>Site</Site>
+         <Layout>Sửa Bố cục</Layout>
+         <siteLayout>Bố cục</siteLayout>
+         <ManagePages>Quản lý Trang</ManagePages>
+         <GroupSite>Nhóm Site</GroupSite>
+         <Properties>SEO</Properties>
+         <AddSite>Tạo Site</AddSite>
+      </action>
+<ManageSites>Quản lý Site</ManageSites>
+<ManageGroupSites>Quản lý Nhóm Site</ManageGroupSites>
+   </UIAdminToolbarPortlet>
+
+  <UISEOForm>
+    <label>
+      <title>Tiêu đề:</title>  
+      <description>Mô tả:</description>
+      <keywords>Từ khóa:</keywords>
+      <language>Ngôn ngữ:</language>
+      <robots>Robot:</robots>
+      <sitemap>Sơ đồ trang:</sitemap>
+      <sitemapvisible>Có thể nhìn thấy trong sơ đồ site</sitemapvisible>
+  <isInherited>Được kế thừa từ trang mẹ</isInherited>
+      <priority>Độ ưu tiên:</priority>
+      <frequency>Tần suất:</frequency>
+      <select-language>Chọn Ngôn ngữ</select-language>
+      <option>
+        <Always>Luôn luôn</Always>
+        <Hourly>Hàng giờ</Hourly>
+        <Daily>Hàng ngày</Daily>
+        <Weekly>Hàng tuần</Weekly>
+        <Monthly>Hàng tháng</Monthly>
+        <Yearly>Hàng năm</Yearly>
+        <Never>Không bao giờ</Never>
+      </option> 
+    </label>
+ 
+    <action>
+      <Save>Lưu</Save>
+      <Cancel>Hủy</Cancel>
+    </action>
+    <msg>
+      <repository-exception>Lỗi bất ngờ xảy ra. Không thể lưu trang siêu dữ liệu.</repository-exception>
+      <confirm-delete>Bạn có chắc bạn muốn xóa các dữ liệu SEO?</confirm-delete>
+    </msg>
+    <title>
+    <seo-delete>Xóa</seo-delete>
+    </title>
+<help> 
+  <priority>Giá trị hợp lệ từ 0.0 đến 1.0.</priority>
+  <description>Trợ giúp tìm kiếm: Hãy cho họ biết trang sau đây có liên kết với những gì họ đang tìm kiếm.</description>
+  <keywords>Các điều khoản quan trọng nhất trong trang phải được tách bằng dấu phẩy.</keywords>  
+    </help>  
+  </UISEOForm>
+  <UISEOPopupWindow>
+  <title>
+      <UISEOForm>Quản lý SEO</UISEOForm>
+  </title>
+  </UISEOPopupWindow>    
+  <UISEOToolbarForm>
+  <title>
+      <seo>Quản lý SEO</seo>
+  </title>
+  <label>
+    <seo>SEO</seo>
+  </label>
+  </UISEOToolbarForm>  
+  <FloatNumberValidator>
+    <msg>
+      <Invalid-number>Trường ưu tiên là một số không hợp lệ. Giá trị hợp lệ khoảng từ 0.0 đến 1.0.</Invalid-number>
+    </msg>
+  </FloatNumberValidator>
+  
+  <Locale>
+    <label>      
+      <it>Tiếng Ý</it>      
+      <fr>Tiếng Pháp</fr>
+      <en>Tiếng Anh</en>      
+    </label>
+  </Locale>
+  
+</bundle>

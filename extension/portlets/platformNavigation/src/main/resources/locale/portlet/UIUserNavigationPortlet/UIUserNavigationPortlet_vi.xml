@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bundle>
+   <UIUserNavigationPortlet>
+      <label>
+         <activities>Dòng hoạt động</activities>
+         <profile>Hồ sơ</profile>
+         <connections>Kết nối</connections>
+         <wiki>Wiki</wiki>
+         <Myactivities>Dòng Hoạt động Cá nhân</Myactivities>
+         <Myprofile>Hồ sơ Cá nhân</Myprofile>
+         <Myconnections>Kết nối Cá nhân</Myconnections>
+         <Mywiki>Wiki cá nhân</Mywiki>
+         <Mydashboard>Bảng ứng dụng cá nhân</Mydashboard>
+      </label>
+   </UIUserNavigationPortlet>
+</bundle>
