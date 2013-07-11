@@ -9,6 +9,7 @@
     >
     <Locale messages="locale/default.xml" />
     <Locale lang="fr" messages="locale/fr.xml" />
+    <Locale lang="es-ES" messages="locale/es_ES.xml" />
     <Require feature="opensocial-0.8" />
     <Require feature="dynamic-height"/>
   </ModulePrefs>

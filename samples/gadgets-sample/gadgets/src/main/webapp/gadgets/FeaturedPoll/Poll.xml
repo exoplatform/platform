@@ -11,6 +11,7 @@
         <Require feature="minimessage"/>
         <Locale messages="locale/default.xml"/>
         <Locale lang="fr" messages="locale/fr.xml"/>
+	<Locale lang="es-ES" messages="locale/es_ES.xml"/>
     </ModulePrefs>
     <Content type="html" view="default, home, profile">
         <![CDATA[   
