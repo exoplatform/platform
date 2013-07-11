@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bundle>
+   <UIAdminToolbarPortlet>
+      <action>
+         <AddPage>إضافة صفحة</AddPage>
+         <EditNavigation>التصفح</EditNavigation>
+         <Content>محتوى</Content>
+         <Editor>تغيير</Editor>
+         <Page>Page</Page>
+         <Site>Site</Site>
+         <Layout>Edit Layout</Layout>
+         <siteLayout>Layout</siteLayout>
+         <ManagePages>إدارة الصفحات</ManagePages>
+         <GroupSite>Group Site</GroupSite>
+         <Properties>إدارة تحسين محرك البحث (SEO)</Properties>
+         <AddSite>Add Site</AddSite>
+      </action>
+<ManageSites>Manage Sites</ManageSites>
+<ManageGroupSites>Manage Group Sites</ManageGroupSites>
+   </UIAdminToolbarPortlet>
+
+  <UISEOForm>
+    <label>
+      <title>العنوان:</title>  
+      <description>الوصف</description>
+      <keywords>الكلمات المفاتيح:</keywords>
+      <language>اللغة:</language>
+      <robots>الروبوتات:</robots>
+      <sitemap>خريطة الموقع:</sitemap>
+      <sitemapvisible>Visible in sitemap</sitemapvisible>
+  <isInherited>الموروثة من الصفحة الأم</isInherited>
+      <priority>الأولوية:</priority>
+      <frequency>التردد:</frequency>
+      <select-language>Select Language</select-language>
+      <option>
+        <Always>دائما</Always>
+        <Hourly>كل ساعة</Hourly>
+        <Daily>يوميا</Daily>
+        <Weekly>أسبوعي</Weekly>
+        <Monthly>كل شهر</Monthly>
+        <Yearly>سنويا</Yearly>
+        <Never>أبدا</Never>
+      </option> 
+    </label>
+ 
+    <action>
+      <Save>حفظ</Save>
+      <Cancel>الغاء</Cancel>
+    </action>
+    <msg>
+      <repository-exception>An unexpected error occurred. Cannot save page metadata.</repository-exception>
+      <confirm-delete>هل أنت متأكد من أنك تريد حذف هذه البيانات من تحسين محرك البحث (SEO)؟</confirm-delete>
+    </msg>
+    <title>
+    <seo-delete>Delete</seo-delete>
+    </title>
+<help> 
+  <priority>نطاق القيم الصالحة من 0.0 إلى 1.0.</priority>
+  <description>Help searchers: let them know that the following page has a link with what they are looking for.</description>
+  <keywords>Most important terms in the page must be separated by a comma.</keywords>  
+    </help>  
+  </UISEOForm>
+  <UISEOPopupWindow>
+  <title>
+      <UISEOForm>إدارة تحسين محرك البحث (SEO)</UISEOForm>
+  </title>
+  </UISEOPopupWindow>    
+  <UISEOToolbarForm>
+  <title>
+      <seo>إدارة تحسين محرك البحث (SEO)</seo>
+  </title>
+  <label>
+    <seo>إدارة تحسين محرك البحث (SEO)</seo>
+  </label>
+  </UISEOToolbarForm>  
+  <FloatNumberValidator>
+    <msg>
+      <Invalid-number>The field priority is an invalid float number. Valid values range from 0.0 to 1.0.</Invalid-number>
+    </msg>
+  </FloatNumberValidator>
+  
+  <Locale>
+    <label>      
+      <it>Italian</it>      
+      <fr>فرنسية</fr>
+      <en>انقليزية</en>      
+    </label>
+  </Locale>
+  
+</bundle>

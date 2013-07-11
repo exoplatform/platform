@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bundle>
+<UISetupPlatformToolBarPortlet>
+<label>
+<applications>تطبيقات</applications>
+<content>محتوى</content>
+<siteExplorer>Sites Explorer</siteExplorer>
+<wcmAdmin>Content Administration</wcmAdmin>
+<users>المستخدمين</users>
+<newStaff>Add Users</newStaff>
+<org-management>Groups and Roles</org-management>
+<portal>بوّابة</portal>
+<administration>ادارة</administration>
+<groupnavigation>Group Sites</groupnavigation>
+<pageManagement>صفحات</pageManagement>
+<portalnavigation>Sites</portalnavigation>
+<servicesManagement>Management</servicesManagement>
+<monitoring>المراقبة</monitoring>
+<spaces>Spaces</spaces>
+<Branding>Branding</Branding>
+<ide>IDE</ide>
+<search>Search</search>
+</label>
+</UISetupPlatformToolBarPortlet>
+</bundle>

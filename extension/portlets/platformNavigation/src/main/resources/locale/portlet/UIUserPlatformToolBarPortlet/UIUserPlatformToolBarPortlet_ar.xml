@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bundle>
+<UIUserPlatformToolBarPortlet>
+<label>
+<activities>My Activity Stream</activities>
+<profile>ملفي الشخصي</profile>
+<network>علاقاتي</network>
+<wiki>ويكي خاصة</wiki>
+<account>إعدادات</account>
+<language>تغيير اللغة</language>
+<logout>تسجيل الخروج</logout>
+        <dashboard>لوحة المعلومات الخاصة بي</dashboard>
+</label>
+</UIUserPlatformToolBarPortlet>
+</bundle>
