@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bundle>
+  <portal>
+    <acme>
+      <overview>Overview</overview>
+      <products>Products</products>
+      <news>News</news>
+      <contactus>Questions?</contactus>
+      <newsletters>Newsletters</newsletters>
+      <confirmation>Contact Form Confirmation</confirmation>
+      <detail>تفاصيل</detail>
+  <catalog>Catalog</catalog>
+      <printviewer>Print page</printviewer>
+      <searchResult>Search</searchResult>
+      <newAccount>حساب جديد</newAccount>
+      <groupnavigation>تصفّحات المجموعة</groupnavigation>
+      <portalnavigation>Portal Navigation</portalnavigation>
+    </acme>
+  </portal>
+</bundle>
