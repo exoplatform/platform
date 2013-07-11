@@ -17,21 +17,7 @@
    * 02110-1301 USA, or see the FSF site: http://www.fsf.org.
    */ %>
 
-    <%
-       if(users.empty){  %>
-        <script type="text/javascript">
-          $(function() {
-          $("#OnlinePortlet").hide();
-          });
-        </script>
 
-     <%}else{%>
-     <script type="text/javascript">
-            $(function() {
-              $("#OnlinePortlet").show();
-            });
-     </script>
-  <%}%>
   <%users.each { user -> %>
     <li id="${user.getId()}">
       <a class="avatarXSmall" href="${user.getProfileUrl()}"><img src="${user.getAvatar()}" alt="image" /></a>
