@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bundle>
+   <UIUserNavigationPortlet>
+      <label>
+         <activities>アクティビティ ストリーム</activities>
+         <profile>プロフィール</profile>
+         <connections>つながり</connections>
+         <wiki>Wiki</wiki>
+         <Myactivities>マイ アクティビティ ストリーム</Myactivities>
+         <Myprofile>マイプロフィール</Myprofile>
+         <Myconnections>つながり</Myconnections>
+         <Mywiki>Wiki</Mywiki>
+         <Mydashboard>マイダッシュ ボード</Mydashboard>
+      </label>
+   </UIUserNavigationPortlet>
+</bundle>

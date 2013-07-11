@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bundle>
+  <administration>
+    <siteExplorer>サイト エクスプ ローラー</siteExplorer>
+    <wcmAdmin>コンテンツ管理</wcmAdmin>
+    <newslettermanager>Newsletter Manager</newslettermanager>
+    <formgenerator>Form Generator</formgenerator>
+<workflowAdministration>Business Process Admin</workflowAdministration>
+  </administration>
+</bundle>
