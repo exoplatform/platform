@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bundle>
+<UIBreadCrumbsNavigationPortlet>
+    <label>
+        <ChangePicture>アバターの変更</ChangePicture>
+    </label>
+</UIBreadCrumbsNavigationPortlet>
+ <UIBreadCrumbPopupAvatarUploader>
+      <title>
+         <UIAvatarUploader>アバターのアップロード</UIAvatarUploader>
+         <UIAvatarUploadContent>アバターのプレビュー</UIAvatarUploadContent>
+      </title>
+ </UIBreadCrumbPopupAvatarUploader>
+</bundle>
