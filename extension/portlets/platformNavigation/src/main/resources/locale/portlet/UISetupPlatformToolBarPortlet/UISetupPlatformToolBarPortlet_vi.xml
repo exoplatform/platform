@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bundle>
+<UISetupPlatformToolBarPortlet>
+<label>
+<applications>Ứng dụng</applications>
+<content>Nội dung</content>
+<siteExplorer>Trình duyệt nội dung</siteExplorer>
+<wcmAdmin>Quản trị nội dung</wcmAdmin>
+<users>Người dùng</users>
+<newStaff>Thêm Người dùng</newStaff>
+<org-management>Nhóm và Vai trò</org-management>
+<portal>Cổng thông tin</portal>
+<administration>Quản trị</administration>
+<groupnavigation>Trang web của nhóm</groupnavigation>
+<pageManagement>Trang</pageManagement>
+<portalnavigation>Site</portalnavigation>
+<servicesManagement>Quản lý</servicesManagement>
+<monitoring>Giám sát</monitoring>
+<spaces>Không gian</spaces>
+<Branding>Thương hiệu</Branding>
+<ide>IDE</ide>
+<search>Tìm kiếm</search>
+</label>
+</UISetupPlatformToolBarPortlet>
+</bundle>

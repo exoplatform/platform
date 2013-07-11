@@ -35,10 +35,10 @@
                 description="Services Management"
                 thumbnail="/gadget-pack/skin/images/ServicesManagement/ServicesManagement.png"                
                 height="227">
-      <Locale messages="locale/ALL_ALL.xml" />
-      <Locale lang="en" messages="locale/en_ALL.xml" />
-      <Locale lang="fr" messages="locale/fr_ALL.xml" />
+      <Locale messages="locale/default.xml" />
+      <Locale lang="fr" messages="locale/fr.xml" />
       <Locale lang="es-ES" messages="locale/es_ES.xml" />
+      <Locale lang="vi" messages="locale/vi.xml" />
       <Require feature="dynamic-height"/>
       <Require feature="minimessage"/>
       <Require feature="views"/>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bundle>
+ <UISpaceNavigationPortlet>
+     <label>
+         <Spaces>Không gian của tôi</Spaces>
+         <Join>Tham gia một không gian</Join>
+         <more>không gian</more>
+         <see>Xem thêm</see>
+     </label>
+     <msg>
+         <filter-spaces>Tìm kiếm Không gian</filter-spaces>
+         <no-space>Không tìm thấy không gian</no-space>
+     </msg>
+
+</UISpaceNavigationPortlet>
+</bundle>

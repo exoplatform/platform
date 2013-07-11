@@ -12,6 +12,7 @@
         <Locale messages="locale/default.xml"/>
         <Locale lang="fr" messages="locale/fr.xml"/>
 	<Locale lang="es-ES" messages="locale/es_ES.xml"/>
+	<Locale lang="vi" messages="locale/vi.xml" />
     </ModulePrefs>
     <Content type="html" view="default, home, profile">
         <![CDATA[   
