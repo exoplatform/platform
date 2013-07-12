@@ -10,6 +10,7 @@
     <Locale lang="sv-SE" messages="locale/sv_SE.xml"/>
     <Locale lang="ja" messages="locale/ja.xml"/>
     <Locale lang="ar" messages="locale/ar.xml"/>
+    <Locale lang="de" messages="locale/de.xml"/>
   </ModulePrefs>
   <Content type="html">
     <![CDATA[       

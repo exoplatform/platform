@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bundle>
+  <Signin>
+    <welcome>Willkommen</welcome>
+    <login>Anmelden</login>
+    <logout>Abmelden</logout>
+    <language>Spracheinstellungen ändern</language>
+    <register>Registrieren</register>
+  </Signin>
+
+  <ACMEPortal>
+    <label>ACME Vorlage</label>
+  </ACMEPortal>
+</bundle>
