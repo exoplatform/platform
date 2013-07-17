@@ -58,7 +58,7 @@ public class ExecutorSendListener implements Callable<NotificationMessage>{
 
   private void processSendEmailNotifcation() {
     NotificationProviderService providerService = CommonsUtils.getService(NotificationProviderService.class);
-    AbstractNotificationProvider supportProvider = providerService.getSupportProviderImpl(message.getProviderType());
+    AbstractNotificationProvider supportProvider = providerService.getSupportProviderImpl(message.getKey().getId());
     if (supportProvider != null) {
       MessageInfo messageInfo = supportProvider.buildMessageInfo(message);
       if (messageInfo != null) {
@@ -68,7 +68,7 @@ public class ExecutorSendListener implements Callable<NotificationMessage>{
 
         try {
           mailService.sendMessage(message_);
-          LOG.info("Process send email notification successfully ... " + message.getProviderType());
+          LOG.info("Process send email notification successfully ... " + message.getKey().getId());
         } catch (Exception e) {
           LOG.error("Send email error!", e);
         }
