@@ -2,7 +2,7 @@
 <bundle>
    <UIAdminToolbarPortlet>
       <action>
-         <AddPage>Thêm trang</AddPage>
+         <AddPage>Thêm Trang</AddPage>
          <EditNavigation>Navigation</EditNavigation>
          <Content>Nội dung</Content>
          <Editor>Chỉnh sửa</Editor>
@@ -45,7 +45,7 @@
  
     <action>
       <Save>Lưu</Save>
-      <Cancel>Hủy</Cancel>
+      <Cancel>Hủy bỏ</Cancel>
     </action>
     <msg>
       <repository-exception>Lỗi bất ngờ xảy ra. Không thể lưu trang siêu dữ liệu.</repository-exception>

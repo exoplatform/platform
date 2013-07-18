@@ -20,7 +20,7 @@
       </label>
       <action>
          <Next>Tiếp tục</Next>
-         <Cancel>Hủy</Cancel>
+         <Cancel>Hủy bỏ</Cancel>
       </action>
    </UICreateList>
    <UICreateTopic>
@@ -69,7 +69,7 @@
       </msg>
       <action>
          <Next>Tiếp tục</Next>
-         <Cancel>Hủy</Cancel>
+         <Cancel>Hủy bỏ</Cancel>
       </action>
    </UICreateEvent>
     <UIUploadFile>
