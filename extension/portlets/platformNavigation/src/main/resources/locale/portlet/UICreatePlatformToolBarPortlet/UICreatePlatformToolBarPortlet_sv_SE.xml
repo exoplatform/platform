@@ -2,82 +2,82 @@
 <bundle>
    <UIUserPlatformToolBarCreatePortlet>
       <label>
-         <topic>Topic</topic>
-         <poll>Poll</poll>
-         <eventtask>Event/Task</eventtask>
-         <upload>Upload a File</upload>
-         <wiki>Wiki Page</wiki>
+         <topic>Ämne</topic>
+         <poll>Enkät</poll>
+         <eventtask>Händelse/uppgift</eventtask>
+         <upload>Ladda upp en fil</upload>
+         <wiki>Wiki-sida</wiki>
 
       </label>
    </UIUserPlatformToolBarCreatePortlet>
    <UICreateList>
       <label>
-         <topic>topic</topic>
-         <poll>poll</poll>
-         <CreateANew>Create a new {1}:</CreateANew>
-         <NoForum>Sorry, no forum is available yet to create a {1}. Start by creating your own space.</NoForum>
-         <RequireSelectForum>Please select a forum.</RequireSelectForum>
+         <topic>Ämne</topic>
+         <poll>Enkät</poll>
+         <CreateANew>Skapa en ny {1}:</CreateANew>
+         <NoForum>Tyvärr, finns inget forum ännu för att skapa en {1}. Börja med att skapa ditt eget utrymme.</NoForum>
+         <RequireSelectForum>Välj ett forum.</RequireSelectForum>
       </label>
       <action>
-         <Next>Next</Next>
-         <Cancel>Cancel</Cancel>
+         <Next>Nästa</Next>
+         <Cancel>Avbryt</Cancel>
       </action>
    </UICreateList>
    <UICreateTopic>
       <label>
-         <SelectAForum>Select a Forum</SelectAForum>
-         <location>In Location</location>
-         <forumId>And Forum</forumId>
-         <FilterForums>Filter Forums</FilterForums>
+         <SelectAForum>Välj ett Forum</SelectAForum>
+         <location>På plats</location>
+         <forumId>Och Forum</forumId>
+         <FilterForums>Filtrera forum</FilterForums>
       </label>
    </UICreateTopic>
    <UICreatePoll>
       <label>
-         <SelectAForum>Select Forum</SelectAForum>
-         <location>In Location</location>
-         <forumId>And Forum</forumId>
-         <FilterForums>Filter Forums</FilterForums>
+         <SelectAForum>Välj Forum</SelectAForum>
+         <location>På plats</location>
+         <forumId>Och Forum</forumId>
+         <FilterForums>Filtrera forum</FilterForums>
       </label>
    </UICreatePoll>
    <UICreateWiki>
       <label>
-         <title>Create a new Wiki Page:</title>
-         <location>In Location</location>
+         <title>Skapa en ny Wiki-Sida:</title>
+         <location>På plats</location>
       </label>
    </UICreateWiki>
    <UICreateEvent>
       <label>
-         <Title>Title</Title>
-         <Choix>Add New:</Choix>
-         <EndEvent>To</EndEvent>
-         <StartEvent>From</StartEvent>
+         <Title>Titel</Title>
+         <Choix>Lägg till ny:</Choix>
+         <EndEvent>Till</EndEvent>
+         <StartEvent>Från</StartEvent>
          <Calendar>Välj kalender</Calendar>
          <all-day>Hela dagen</all-day>
-         <defaultCalendarId>Default</defaultCalendarId>
+         <defaultCalendarId>Standard</defaultCalendarId>
       </label>
       <msg>
-         <summary-field-required>The field "Title" is required.</summary-field-required>
-         <fromDate-format>The "From" date format is incorrect.</fromDate-format>
-         <toDate-format>The "To" date format is incorrect.</toDate-format>
-         <logic-required>Sorry, you cannot create an event that ends before it starts.</logic-required>
-         <cant-add-event-on-remote-calendar>You cannot add event to remote calendar</cant-add-event-on-remote-calendar>
+         <summary-field-required>Fältet "Titel" krävs.</summary-field-required>
+         <fromDate-format>Datumformatet "Från" är felaktig.</fromDate-format>
+         <toDate-format>Datumformatet "Till" är felaktig.</toDate-format>
+         <logic-required>Tyvärr, du kan inte skapa en händelse som slutar innan den startar.</logic-required>
+         <cant-add-event-on-remote-calendar>Du kan inte lägga till händelsen i fjärrkalendern</cant-add-event-on-remote-calendar>
          <add-successfully>
-            <Event>The Event was added to {1}</Event>
-            <Task>The Task was added to {1}</Task>
+            <Event>Evenemanget lades till {1}</Event>
+            <Task>Uppgiften lades till {1}</Task>
          </add-successfully>
-         <add-unsuccessfully>{0} was not added.</add-unsuccessfully>
+         <add-unsuccessfully>{0} lades inte till.</add-unsuccessfully>
       </msg>
       <action>
-         <Next>Next</Next>
-         <Cancel>Cancel</Cancel>
+         <Next>Nästa</Next>
+         <Cancel>Avbryt</Cancel>
       </action>
    </UICreateEvent>
     <UIUploadFile>
-        <Select>Select File</Select>
+        <Select>Välj fil</Select>
     </UIUploadFile>
    <Choix>
       <label>
-         <Event>Event</Event>
+         <Event>Händelse</Event>
          <Task>Uppgift</Task>
       </label>
    </Choix>
