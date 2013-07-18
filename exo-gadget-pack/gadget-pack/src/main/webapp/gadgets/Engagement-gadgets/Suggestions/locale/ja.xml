@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <messagebundle>
-  <msg name="title">Maybe you know these people?</msg>
+  <msg name="title">もしかして、これらのメンバーをご存じですか？</msg>
 
 
-  <msg name="mutual-friends">Mutual friend(s)</msg>
+  <msg name="mutual-friends">親しい友人</msg>
 </messagebundle>
