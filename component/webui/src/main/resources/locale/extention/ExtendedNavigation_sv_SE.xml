@@ -2,12 +2,12 @@
 <bundle>
     <UIActionBar>
             <tooltip>
-                <DeleteNode>Delete</DeleteNode>
+                <DeleteNode>Ta bort</DeleteNode>
             </tooltip>
 </UIActionBar>
     <UIViewFormTabPane>
 <label>
-<deleteNode>Delete Node</deleteNode>
+<deleteNode>Ta bort nod</deleteNode>
 </label>
 </UIViewFormTabPane>
 </bundle>

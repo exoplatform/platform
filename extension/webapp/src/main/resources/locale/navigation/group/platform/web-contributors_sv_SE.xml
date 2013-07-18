@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <bundle>
   <administration>
-    <siteExplorer>Content Explorer</siteExplorer>
-    <wcmAdmin>Content Administration</wcmAdmin>
+    <siteExplorer>Utforskare för innehåll</siteExplorer>
+    <wcmAdmin>Innehållsadministration</wcmAdmin>
     <newslettermanager>Newsletters</newslettermanager>
     <formgenerator>Form Builder</formgenerator>
 <workflowAdministration>Workflow Administration</workflowAdministration>

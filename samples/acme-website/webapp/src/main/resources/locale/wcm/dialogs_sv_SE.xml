@@ -23,12 +23,12 @@
 <Product>
 <dialog>
 <label>
-<name>Name</name>
-<title>Title</title>
-<illustrationImage>Illustration Image</illustrationImage>
-<summary>Summary</summary>
-<benefits>Benefits</benefits>
-<features>Features</features>
+<name>Namn</name>
+<title>Titel</title>
+<illustrationImage>Illustration bild</illustrationImage>
+<summary>Sammanfattning</summary>
+<benefits>Fördelar</benefits>
+<features>Funktioner</features>
 </label>
 </dialog>
 </Product>

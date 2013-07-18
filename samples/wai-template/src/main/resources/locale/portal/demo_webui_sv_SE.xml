@@ -1,33 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <bundle>
   <Signin>
-    <welcome>Welcome</welcome>
-    <login>Login</login>
-    <logout>Logout</logout>
+    <welcome>Välkommen</welcome>
+    <login>Logga in</login>
+    <logout>Logga ut</logout>
     <language>
-      <en>Switch to English</en>
-      <fr>Switch to French</fr>
+      <en>Växla till Engelska</en>
+      <fr>Växla till franska</fr>
     </language>
-    <register>Register</register>
+    <register>Registrera</register>
   </Signin>
   <Toolbar>
-    <SkipToContent>Skip to content</SkipToContent>
-    <SiteMap>Site Map</SiteMap>
-    <Accessibility>Accessibility</Accessibility>
-    <NormalSize>Normal Size</NormalSize>
-    <MediumSize>Medium Size</MediumSize>
-    <LargeSize>Large Size</LargeSize>
-    <NormalContrast>Normal Contrast</NormalContrast>
-    <HighContrast>High Contrast</HighContrast>
-    <Search>Search</Search>
+    <SkipToContent>Hoppa till innehåll</SkipToContent>
+    <SiteMap>Webbplatsens karta</SiteMap>
+    <Accessibility>Tillgänglighet</Accessibility>
+    <NormalSize>Normal storlek</NormalSize>
+    <MediumSize>Storlek medium</MediumSize>
+    <LargeSize>Stor storlek</LargeSize>
+    <NormalContrast>Normala kontrast</NormalContrast>
+    <HighContrast>Hög kontrast</HighContrast>
+    <Search>Sök</Search>
   </Toolbar>
   <Logo>
-    <GoHome>Go to Home</GoHome>
+    <GoHome>Gå till hem</GoHome>
   </Logo>
   <acme>
-    <label>ACME Template</label>
+    <label>ACME mall</label>
   </acme>  
   <WAIPortal>
-    <label>Sample Accessible Website</label>
+    <label>Prov på tillgänglig hemsida</label>
   </WAIPortal>
 </bundle>
