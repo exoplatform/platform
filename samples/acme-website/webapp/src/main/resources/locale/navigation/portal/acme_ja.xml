@@ -2,19 +2,19 @@
 <bundle>
   <portal>
     <acme>
-      <overview>Overview</overview>
-      <products>Products</products>
-      <news>News</news>
-      <contactus>Questions?</contactus>
-      <newsletters>Newsletters</newsletters>
-      <confirmation>Contact Form Confirmation</confirmation>
-      <detail>Details</detail>
-  <catalog>Catalog</catalog>
-      <printviewer>Print page</printviewer>
-      <searchResult>Search</searchResult>
-      <newAccount>New Account</newAccount>
-      <groupnavigation>Group Navigation</groupnavigation>
-      <portalnavigation>Portal Navigation</portalnavigation>
+      <overview>概要</overview>
+      <products>製品</products>
+      <news>ニュース</news>
+      <contactus>ご質問？</contactus>
+      <newsletters>ニュースレター</newsletters>
+      <confirmation>コンタクトフォームの確認</confirmation>
+      <detail>詳細</detail>
+  <catalog>カタログ</catalog>
+      <printviewer>ページ印刷</printviewer>
+      <searchResult>検索</searchResult>
+      <newAccount>新しいアカウント</newAccount>
+      <groupnavigation>グループナビゲーション</groupnavigation>
+      <portalnavigation>ポータルナビゲーション</portalnavigation>
     </acme>
   </portal>
 </bundle>
