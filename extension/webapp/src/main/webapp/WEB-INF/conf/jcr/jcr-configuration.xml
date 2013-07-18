@@ -72,67 +72,6 @@
     </init-params>
   </component>
 
-   <component>
-      <key>CacheManagementProperty</key>
-      <type>org.exoplatform.container.PropertyConfigurator</type>
-      <init-params>
-         <properties-param >
-            <name>properties</name>
-            <description>Filter used to notify caches</description>
-            <property name="gatein.jcr.cache.config" value="file:${gatein.conf.dir}/jcr/jbosscache/local/cache-config.xml" />
-            <property name="gatein.jcr.cache.config.workspace.portal-system" value="file:${gatein.conf.dir}/jcr/jbosscache/local/config_portal-system.xml" />
-            <property name="gatein.jcr.lock.cache.config" value="file:${gatein.conf.dir}/jcr/jbosscache/local/lock-config.xml" />
-            <property name="gatein.jcr.index.cache.config" value="file:${gatein.conf.dir}/jcr/jbosscache/local/indexer-config.xml" />
-            <property name="exo.cache.config.template" value="file:${gatein.conf.dir}/cache/jbosscache/local/cache-config.xml" />
-         </properties-param>
-         <properties-param profiles="cluster,cluster-index-local">
-            <name>properties</name>
-            <description>Filter used to notify caches</description>
-            <property name="gatein.jcr.cache.config" value="file:${gatein.conf.dir}/jcr/jbosscache/cluster/cache-config.xml" />
-            <property name="gatein.jcr.cache.config.workspace.portal-system" value="file:${gatein.conf.dir}/jcr/jbosscache/cluster/config_portal-system.xml" />
-            <property name="gatein.jcr.lock.cache.config" value="file:${gatein.conf.dir}/jcr/jbosscache/cluster/lock-config.xml" />
-            <property name="gatein.jcr.index.cache.config" value="file:${gatein.conf.dir}/jcr/jbosscache/cluster/indexer-config.xml" />
-            <property name="exo.cache.config.template" value="file:${gatein.conf.dir}/cache/jbosscache/cluster/cache-config.xml" />
-         </properties-param>
-      </init-params>
-   </component>
-
-   <component>
-    <key>PropertyManagerConfigurator</key>
-    <type>org.exoplatform.container.PropertyConfigurator</type>
-    <init-params>
-      <properties-param>
-        <name>properties</name>
-        <description>Filter used to notify changes in the jcr index in standalone</description>
-        <property name="gatein.jcr.index.changefilterclass" value="org.exoplatform.services.jcr.impl.core.query.DefaultChangesFilter" />
-      </properties-param>
-    </init-params>
-  </component>
-
-  <component profiles="cluster">
-    <key>PropertyManagerConfigurator</key>
-    <type>org.exoplatform.container.PropertyConfigurator</type>
-    <init-params>
-      <properties-param>
-        <name>properties</name>
-        <description>Filter used to notify changes in the jcr index in cluster</description>
-        <property name="gatein.jcr.index.changefilterclass" value="org.exoplatform.services.jcr.impl.core.query.jbosscache.JBossCacheIndexChangesFilter" />
-      </properties-param>
-    </init-params>
-  </component>
-  
-   <component profiles="cluster-index-local">
-     <key>PropertyManagerConfigurator</key>
-     <type>org.exoplatform.container.PropertyConfigurator</type>
-     <init-params>
-       <properties-param>
-         <name>properties</name>
-         <description>Filter used to notify changes in the jcr index in cluster</description>
-         <property name="gatein.jcr.index.changefilterclass" value="org.exoplatform.services.jcr.impl.core.query.jbosscache.LocalIndexChangesFilter" />
-       </properties-param>
-     </init-params>
-   </component>
-
   <external-component-plugins>
     <target-component>org.exoplatform.services.jcr.RepositoryService</target-component>
     <component-plugin>

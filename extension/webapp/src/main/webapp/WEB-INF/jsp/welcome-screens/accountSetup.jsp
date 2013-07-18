@@ -96,7 +96,7 @@
             </div>
     </div>
     <!-- Please do not make it Button it may cause blocker problem -->
-    <div class="bottom"><button type="button class="btn btn-primary" id="continueButton" onclick="WelcomeScreens.exit();return false;">Submit</button></div>
+    <div class="bottom"><button type="button" class="btn btn-primary" id="continueButton" onclick="WelcomeScreens.exit();return false;">Submit</button></div>
 </div>
 </div>
 <div>

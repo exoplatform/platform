@@ -99,6 +99,14 @@ a {
     font-size: 13px;
 }
 
+.uiWelcomeBox input:focus {
+  border-color: #94b0df;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 5px rgba(29,75,159,.6);
+  -moz-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 5px rgba(29,75,159,.6);
+  box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 5px rgba(29,75,159,.6);
+  color: #333333;
+}
+
 .uiWelcomeBox input.disable {
     background-color: #e6e6e6;
 }
@@ -127,6 +135,24 @@ a {
     text-decoration: none;
 }
 
+.uiWelcomeBox .btn:hover {
+	color: #ffffff;
+	text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+	background-color: #476ba7;
+	background-image: -moz-linear-gradient(top, #4b71b3, #426394);
+	background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#4b71b3), to(#426394));
+	background-image: -webkit-linear-gradient(top, #4b71b3, #426394);
+	background-image: -o-linear-gradient(top, #4b71b3, #426394);
+	background-image: linear-gradient(to bottom, #4b71b3, #426394);
+	background-repeat: repeat-x;
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff4b71b3', endColorstr='#ff426394', GradientType=0);
+	border-color: #426394 #426394 #2a405f;
+	border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+	*background-color: #426394;
+	/* Darken IE7 buttons by default so they stand out more given they won't have borders */
+	filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
+}
+
 .uiWelcomeBox .backOutdated {
     background: #e97f7f;
     color: #fff;
@@ -147,6 +173,10 @@ a {
 
 .uiWelcomeBox .rightCol {
     width: 420px;
+}
+
+.uiWelcomeBox .rightCol a {
+	text-decoration: none;
 }
 
 .uiWelcomeBox .steps {
@@ -178,4 +208,10 @@ a {
     text-align: center;
     width: 38px;
     float: left;
+}
+
+.uiWelcomeBox .uiIconError {
+	background: url("/platform-extension/css/welcome-screens/images/errorIcon.png") no-repeat left center;
+    display: inline-block;
+    padding-left: 25px;
 }
