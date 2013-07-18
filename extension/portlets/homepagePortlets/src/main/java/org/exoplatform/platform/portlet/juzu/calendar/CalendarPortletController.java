@@ -26,6 +26,7 @@ import juzu.View;
 import org.exoplatform.commons.juzu.ajax.Ajax;
 import juzu.template.Template;
 import org.apache.commons.lang.ArrayUtils;
+import org.exoplatform.portal.webui.util.Util;
 import org.exoplatform.calendar.service.*;
 import org.exoplatform.calendar.service.impl.NewUserListener;
 import org.exoplatform.commons.api.settings.SettingService;
@@ -143,26 +144,33 @@ public class CalendarPortletController {
         tasksDisplayedList.clear();
         eventsDisplayedList.clear();
         String date_act = null;
-        String username = RequestContext.getCurrentInstance().getRemoteUser();
-        Locale locale = RequestContext.getCurrentInstance().getLocale();
+        String username = RequestContext.getCurrentInstance().getRemoteUser();     
+        Locale locale =  Util.getPortalRequestContext().getLocale();
         DateFormat d = DateFormat.getDateInstance(DateFormat.SHORT, locale);
         DateFormat dTimezone = DateFormat.getDateInstance(DateFormat.SHORT, locale);
         dTimezone.setCalendar(CalendarPortletUtils.getInstanceOfCurrentCalendar());
         Long date = new Date().getTime();
         int clickNumber = Integer.parseInt(nbclick);
         if (clickNumber != 0) date = incDecJour(date, clickNumber);
-        if(locale.getLanguage().equals("en")){
-            SimpleDateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy");
-            date_act = dateFormat.format(new Date(date));
-        }
-        else {
-            date_act = d.format(new Date(date));
-            SimpleDateFormat yearFormat = new SimpleDateFormat("yyyy");
-            String year = yearFormat.format(new Date(date));
-            String[] dateSplit = date_act.split("/");
-            if (dateSplit.length != 0) date_act = dateSplit[0] + "/" + dateSplit[1] + "/" + year;
-        }
-        Date comp = d.parse(date_act);
+        Date currentTime = new Date(date);
+        // Get Calendar object set to the date and time of the given Date object  
+        Calendar cal = Calendar.getInstance();  
+        cal.setTime(currentTime);  
+          
+        // Set time fields to zero  
+        cal.set(Calendar.HOUR_OF_DAY, 0);  
+        cal.set(Calendar.MINUTE, 0);  
+        cal.set(Calendar.SECOND, 0);  
+        cal.set(Calendar.MILLISECOND, 0);  
+          
+        // Put it back in the Date object  
+        currentTime = cal.getTime();
+        date_act = d.format(currentTime);
+        String delim =  getDateDelimiter(date_act);
+        if(delim != null && date_act.indexOf(delim) < 2 ) {
+            date_act = "0" + date_act;
+        } 
+        Date comp = currentTime;
         HashMap parameters = new HashMap();
         String defaultCalendarLabel = "Default";
         String dateLabel = "";
@@ -399,6 +407,15 @@ public class CalendarPortletController {
             log.error("Error while checking User Events:" + e.getMessage(), e);
         }
         return userEvents;
+    }
+    private String getDateDelimiter(String date) {
+        String[] availableDelimiter = {"/","-","."};
+        for (String delim : availableDelimiter) {
+            if (date.indexOf(delim) > 0) {
+                return delim;
+            }
+        }
+        return null;
     }
 }
 
