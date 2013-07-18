@@ -21,7 +21,7 @@
 <id>Mã:</id>
 <name>Tên:</name>
 <lifecycle>Vòng đời:</lifecycle>
-<isDeep>Is Deep:</isDeep>
+<isDeep>Tác động sâu</isDeep>
 <nodetypes>Loại Node:</nodetypes>
 <description>Mô tả:</description>
 <affectedNodeTypeNames>Loại Node bị ảnh hưởng:</affectedNodeTypeNames>
@@ -38,7 +38,7 @@
 <Node>Thư mục Cha</Node>
 <Visible>Có thể nhìn thấy:</Visible>
 <NavigationNodeInputSet>Navigation Đích Cha:</NavigationNodeInputSet>
-<Index>Thứ tự Hiển thị</Index>
+<Index>Thứ tự Hiển thị:</Index>
 <Clickable>Có thể nhấp chuột:</Clickable>
 <NavigationControls>Điều khiển Navigation</NavigationControls>
 <ListTargetPageFormInputSet>Trang cho Danh sách:</ListTargetPageFormInputSet>
@@ -50,7 +50,7 @@
 </label>
 <action>
 <Save>Lưu</Save>
-<Cancel>Hủy</Cancel>
+<Cancel>Hủy bỏ</Cancel>
 </action>
 </UINavigationForm>
 <Visible>

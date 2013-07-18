@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <bundle>
   <administration>
-    <siteExplorer>Trình duyệt Site</siteExplorer>
+    <siteExplorer>Quản lý nội dung trang web</siteExplorer>
     <wcmAdmin>Quản trị Nội dung</wcmAdmin>
     <newslettermanager>Quản lý Tin thư</newslettermanager>
     <formgenerator>Tạo Form Tự động</formgenerator>
