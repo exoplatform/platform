@@ -110,6 +110,14 @@
             <visibility>SYSTEM</visibility>
             <page-reference>portal::intranet::activities</page-reference>
         </node>
+        
+        <node>
+            <uri>activity</uri>
+            <name>activity</name>
+            <label>#{portal.intranet.activity}</label>
+            <visibility>SYSTEM</visibility>
+            <page-reference>portal::intranet::activity</page-reference>
+        </node>
 
         <node>
             <uri>profile</uri>
