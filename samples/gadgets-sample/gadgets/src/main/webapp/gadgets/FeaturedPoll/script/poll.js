@@ -150,7 +150,7 @@ function showResult(data){
       var style = 'width:' + result + '%;';
     }
     
-    tbl.push('<tr><td><div class="label-vote">' + options[i] + '</div></td><td><div class="horizontalBG"><div class="horizontalBar" style="' + style + '">&nbsp;</div></div></td><td class="percent">' + result + '%</td></tr>');
+    tbl.push('<tr><td class="first"><div class="label-vote">' + options[i] + '</div></td><td><div class="horizontalBG"><div class="horizontalBar" style="' + style + '">&nbsp;</div></div></td><td class="percent">' + result + '%</td></tr>');
   }
   tbl.push('</tbody>');
   tbl.push('</table>');
