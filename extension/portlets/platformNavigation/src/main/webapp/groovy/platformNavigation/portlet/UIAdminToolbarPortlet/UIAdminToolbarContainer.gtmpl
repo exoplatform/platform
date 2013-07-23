@@ -33,7 +33,7 @@
 %>
 
 <div class="uiAdminToolbarPortlet uiDropdownWithIcon dropdown pull-left" id="$uicomponent.id">
-	<a class="dropdown-toggle" data-toggle="dropdown">
+	<a class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown">
 		<i class="uiIconPLF24x24Edit"></i>$editorLabel
 	</a>
 	
