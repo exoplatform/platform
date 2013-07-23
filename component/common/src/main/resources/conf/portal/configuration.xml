@@ -305,13 +305,4 @@
    <component>
      <type>org.exoplatform.platform.common.navigation.NavigationServiceHandler</type>
    </component>
-
-   <external-component-plugins>
-    <target-component>org.exoplatform.commons.api.notification.service.NotificationService</target-component>
-    <component-plugin>
-      <name>NotificationServiceListener</name>
-      <set-method>addSendNotificationListener</set-method>
-      <type>org.exoplatform.platform.notification.listener.SendNotificationListenerImpl</type>
-    </component-plugin>
-  </external-component-plugins>
 </configuration>
