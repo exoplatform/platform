@@ -1,0 +1,119 @@
+@import "../variables.less"; 
+@import "../mixins.less";
+
+/**************** variables *********************/
+
+
+/**************** mixin *************************/
+
+
+/*************** less *******************/
+
+
+.uiSpaceNavigationPortlet {
+	padding-bottom: 20px;
+	.title {
+		text-transform: uppercase;
+		color: #2f5e92;
+		#gradient > .vertical(#f6f6f6, #e5e5e5);
+		height: 39px; line-height: 39px;
+		padding: 0 10px;
+		margin: 0;
+		box-shadow: inset 0 0 1px rgba(0, 0, 0, 0.35), -1px 0 1px white;
+		text-shadow: 0 1px 1px #FFF;
+	}
+
+	.searchInput input {
+		border: 1px solid #CDCDCD;
+    border-radius: 4px 4px 4px 4px;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1) inset;
+    color: #999999;
+    height: 28px;
+    margin: 10px 14px;
+    padding: 0 10px;
+    width: 200px;
+	}	
+	
+	.spaceNavigation {
+		list-style: none;
+		margin: 0;
+		max-height: 326px;
+    	overflow-y: auto;
+		.noSpace {
+			color: #808080;
+	    padding: 10px 0;
+	    text-align: center;
+		}
+		.spaceItem {
+			padding: 6px 25px;
+			height: 20px;
+			overflow: hidden;
+		    text-overflow: ellipsis;
+		    white-space: nowrap;
+		}
+		
+		.spaceIcon {
+	    color: #808080;
+	    
+			> img {
+				margin-right: 5px;	
+			}
+			
+			&:hover {
+				color: @linkColor;
+			}
+		}
+		
+		.spaceItemSelected {
+			background: white;
+			border-top: 1px solid #c7c7c7;
+			border-bottom: 1px solid #c7c7c7;
+			.box-shadow(0 -1px 1px rgba(0, 0, 0, 0.1));
+			&:after {
+				background: #4F72AC;
+		    border: 1px solid #2E518A;
+		    content: "";
+		    height: 31px;
+		    left: 0;
+		    margin-top: -6px;
+		    position: absolute;
+		    width: 5px;
+		  }
+			> a {
+				font-weight: bold;
+			}
+		}
+	}
+	
+	.moreSpace {
+		padding: 6px 25px;
+    	text-align: center;
+		> a {
+			#gradient > .vertical(#ffffff, #f1f1f1);
+			height: 24px;
+			line-height: 24px;
+			border: 1px solid #c7c7c7;
+			color: #808080;
+			display: inline-block;
+			margin: auto;
+			padding: 0 10px;
+			.border-radius(3px);
+		}
+	}
+	
+	.joinSpace {
+		border-bottom: 1px solid #CCCCCC;
+    border-top: 1px solid #CCCCCC;
+    box-shadow: 0 1px 0 #FFFFFF inset, 0 1px 0 #FFFFFF;
+    line-height: 32px;
+    text-align: center;
+    margin: 10px 0;
+    > a {
+    	color: #808080;
+    	> i {
+    		margin-right: 5px;
+    	}
+    }
+	}
+	
+}

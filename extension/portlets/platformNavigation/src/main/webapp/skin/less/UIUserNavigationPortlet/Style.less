@@ -1,0 +1,80 @@
+@import "../variables.less"; 
+@import "../mixins.less";
+
+/**************** variables *********************/
+
+
+/**************** mixin *************************/
+
+
+/*************** less *******************/
+
+
+.uiUserNavigationPortlet {
+	border-bottom: 1px solid #c7c7c7;
+	#gradient > .vertical(#f8f8f8,#ececec);
+	.box-shadow(inset);
+	height: 90px;
+	
+	.userNavigation {
+		background: url(/platformNavigation/skin/images/UserNavigationPortlet/shadow.png) no-repeat left center;	
+		height: 90px;
+		border-bottom: none;
+		
+		> li {
+			padding-bottom: 4px;
+		}
+		
+		> .active {
+			background: url(/platformNavigation/skin/images/UserNavigationPortlet/arrowIcon.png) no-repeat bottom center;	
+		}
+		
+		> li > a,
+		> li > a:hover,
+		> .active > a,
+		> .active > a:hover {
+			text-align: center;
+			border:none;
+			background: none;
+			height: 68px;
+			min-width: 68px;
+			margin: 10px 20px;
+			.border-radius(5px);
+			.box-sizing(border-box);
+		}
+		
+		> .active > a {
+			#gradient > .vertical(#999999,#828282);
+			.box-shadow(1px 0 4px rgba(0,0,0,0.38) inset);
+		}
+		
+		> li > a:hover,
+		> .active > a:hover {
+			#gradient > .vertical(rgba(153,153,153,0.2),rgba(130,130,130,0.2));
+			.box-shadow(0 0 4px rgba(0,0,0,0.36) inset);
+		}
+		
+		> li > a > img {
+			.size(31px,31px);
+		}
+		
+		> li > a > span {
+			display: block;
+			color: #616161;
+		}
+		
+		> .active > a > span {
+			color: white;
+			text-shadow: 0px 1px 1px rgba(0, 0, 0, 0.5)
+		}
+		
+		> .dropdown > a > b {
+			border: 2px dashed #616161;
+			color: #616161;
+			display: block;
+			font-size: 20px;
+			font-weight: 100;
+			padding: 3px 8px;
+		}
+	}
+}
