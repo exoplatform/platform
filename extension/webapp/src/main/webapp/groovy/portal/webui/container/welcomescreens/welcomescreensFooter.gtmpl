@@ -3,11 +3,10 @@
     import org.exoplatform.platform.welcomescreens.Utils;
 %>
 <%
-    def rdate = TrialService.computeRemindDateFromTodayBase64();
     def rday= TrialService.getNbDaysBeforeExpiration();
     boolean outdated = TrialService.isOutdated();
     boolean isUnlocked = TrialService.isUnlocked();
-    if(isUnlocked.equals(false)){
+    if(!isUnlocked){
 %>
 
 <style type="text/css">
