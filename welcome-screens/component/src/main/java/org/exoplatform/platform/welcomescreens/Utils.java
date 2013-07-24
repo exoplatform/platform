@@ -27,6 +27,7 @@ public class Utils {
     public static final int DEFAULT_DELAY_PERIOD = 30;
     public static final String REMIND_DATE = "remindDate";
     public static final String LOOP_FUSE_FORM_DISPLAYED = "formDisplayed";
+    public static final String IS_UNLOCKED = "activation";
     public static final String LAST_START_DATE = "LSTD";
     public static final String USER_HOME = System.getProperty("user.home");
     public static final String EXO_HOME_FOLDER = USER_HOME + "/.eXo";

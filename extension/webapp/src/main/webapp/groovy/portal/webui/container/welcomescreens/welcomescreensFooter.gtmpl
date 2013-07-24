@@ -6,7 +6,10 @@
     def rdate = TrialService.computeRemindDateFromTodayBase64();
     def rday= TrialService.getNbDaysBeforeExpiration();
     boolean outdated = TrialService.isOutdated();
+    boolean isUnlocked = TrialService.isUnlocked();
+    if(isUnlocked.equals(false)){
 %>
+
 <style type="text/css">
 .WLCFooter{
     width: 100%;
@@ -60,4 +63,6 @@
         pingBackUrlActivationElement.src="/welcome-screens/PingBackServlet";
     }
 </script>
-<% } %>
+<% }
+
+}%>
