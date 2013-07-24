@@ -164,7 +164,7 @@ function showResult(data) {
 	$("#poll").html(tbl.join(''));
 	// Adjust width of progress bar if it's too short
 	var featPoll = document.getElementById('uiFeaturePoll');
-	if (featPoll.offsetWidth < 300) {
+	if (featPoll.offsetWidth < 400) {
 		var childs = featPoll.getElementsByTagName('td');
 		if (childs) {
 			childs[0].style.width = 70;
