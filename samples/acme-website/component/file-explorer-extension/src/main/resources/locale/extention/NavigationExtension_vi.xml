@@ -55,14 +55,14 @@
 </UINavigationForm>
 <Visible>
 <label>
-<VisibleEnable>Đồng ý</VisibleEnable>
-<VisibleDisable>Đóng</VisibleDisable>
+<VisibleEnable>Có</VisibleEnable>
+<VisibleDisable>Không</VisibleDisable>
 </label>
 </Visible>
 <Clickable>
 <label>
-<ClickableEnable>Đồng ý</ClickableEnable>
-<ClickableDisable>Đóng</ClickableDisable>
+<ClickableEnable>Có</ClickableEnable>
+<ClickableDisable>Không</ClickableDisable>
 </label>
 </Clickable>
 <NavigationNodeInputSet>
@@ -90,12 +90,12 @@
 </NavigationSelectorPopupWindow>
 <ListTargetPageSelectorPopupWindow>
 <title>
-<UIPageSelector>Tùy chọn Trang</UIPageSelector>
+<UIPageSelector>Chọn Trang</UIPageSelector>
 </title>
 </ListTargetPageSelectorPopupWindow>
 <DetailTargetPageSelectorPopupWindow>
 <title>
-<UIPageSelector>Tùy chọn Trang</UIPageSelector>
+<UIPageSelector>Chọn Trang</UIPageSelector>
 </title>
 </DetailTargetPageSelectorPopupWindow>
 </bundle>

@@ -3,12 +3,12 @@
    <UIAdminToolbarPortlet>
       <action>
          <AddPage>Thêm Trang</AddPage>
-         <EditNavigation>Navigation</EditNavigation>
+         <EditNavigation>Điều hướng</EditNavigation>
          <Content>Nội dung</Content>
          <Editor>Chỉnh sửa</Editor>
          <Page>Trang</Page>
          <Site>Site</Site>
-         <Layout>Sửa Bố cục</Layout>
+         <Layout>Bố cục</Layout>
          <siteLayout>Bố cục</siteLayout>
          <ManagePages>Quản lý Trang</ManagePages>
          <GroupSite>Nhóm Site</GroupSite>

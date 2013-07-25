@@ -20,19 +20,19 @@
 
 -->
 <messagebundle>  
-  <msg name="title">Quản lý dịch vụ</msg>
+  <msg name="title">Quản lý Dịch vụ</msg>
   <msg name="services">Dịch vụ</msg>
   <msg name="name">Tên</msg>
   <msg name="description">Mô tả</msg>
-  <msg name="noDescription">Không có mô tả</msg>
+  <msg name="noDescription">Không có Mô tả</msg>
   <msg name="method">Hàm</msg>
   <msg name="parameters">Tham số</msg>
   <msg name="action">Tác vụ</msg>
   <msg name="value">Giá trị</msg>
-  <msg name="services_url">URL của dịch vụ</msg>
+  <msg name="services_url">URL của Dịch vụ</msg>
   <msg name="failManage">Tạm thời không thể quản lý dịch vụ từ máy chủ khác cho đến khi chúng tôi hỗ trợ OAuth</msg>
   <msg name="noServices">Dịch vụ không hoạt động hoặc bạn không có đủ quyền</msg>
-  <msg name="noMethod">Không có hàm</msg>
-  <msg name="noProperty">Không có thuộc tính</msg>
+  <msg name="noMethod">Không có Hàm</msg>
+  <msg name="noProperty">Không có Thuộc tính</msg>
   <msg name="badURL">Đã có lỗi trong khi lấy dữ liệu. Xin vui lòng kiểm tra giá trị URL.</msg>
 </messagebundle>

@@ -20,9 +20,9 @@
 
 -->
 <messagebundle>
-  <msg name="title">Tài liệu yêu thích</msg>
-  <msg name="titleFav">Tài liệu yêu thích</msg>
-  <msg name="titleDoc">Tài liệu cá nhân</msg>  
+  <msg name="title">Tài liệu Yêu thích</msg>
+  <msg name="titleFav">Tài liệu Yêu thích</msg>
+  <msg name="titleDoc">Tài liệu Cá nhân</msg>  
   <msg name="nofav">Bạn không có tài liệu yêu thích nào</msg>
   <msg name="nodoc">Bạn không có tài liệu nào</msg>
   <msg name="showall">Hiện Tất cả</msg>
