@@ -3,8 +3,5 @@
   <administration>
     <siteExplorer>Utforskare för innehåll</siteExplorer>
     <wcmAdmin>Innehållsadministration</wcmAdmin>
-    <newslettermanager>Newsletters</newslettermanager>
-    <formgenerator>Form Builder</formgenerator>
-<workflowAdministration>Workflow Administration</workflowAdministration>
   </administration>
 </bundle>
