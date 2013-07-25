@@ -73,7 +73,7 @@
       </action>
    </UICreateEvent>
     <UIUploadFile>
-        <Select>Select File</Select>
+        <Select>Seleccionar archivo</Select>
     </UIUploadFile>
    <Choix>
       <label>

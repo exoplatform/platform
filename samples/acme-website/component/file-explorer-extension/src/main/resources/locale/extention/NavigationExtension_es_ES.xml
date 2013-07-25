@@ -2,7 +2,7 @@
 <bundle>
 <UIActionBar>
 <tooltip>
-<ContentNavigation>Content Navigation</ContentNavigation>
+<ContentNavigation>Navegación de contenido</ContentNavigation>
 </tooltip>
 </UIActionBar>
 <UIViewFormTabPane>
@@ -19,7 +19,7 @@
 <dialog>
 <label>
 <id>ID:</id>
-<name>Name:</name>
+<name>Nombre:</name>
 <lifecycle>Lifecycle:</lifecycle>
 <isDeep>Is Deep:</isDeep>
 <nodetypes>Node Types:</nodetypes>
@@ -45,7 +45,7 @@
 <ListShowCLVByStringInput>Parameter Name:</ListShowCLVByStringInput>
 <DetailTargetPageInputSet>Page for Detail:</DetailTargetPageInputSet>
 <DetailShowCLVByStringInput>Parameter Name:</DetailShowCLVByStringInput>
-<List>List</List>
+<List>Lista</List>
 <Detail>Detalle</Detail>
 </label>
 <action>
@@ -68,19 +68,19 @@
 <NavigationNodeInputSet>
 <title>
 <SelectNavigationNode>Select Navigation Node</SelectNavigationNode>
-<RemoveNavigationNode>Reset</RemoveNavigationNode>
+<RemoveNavigationNode>Resetear</RemoveNavigationNode>
 </title>
 </NavigationNodeInputSet>
 <ListTargetPageFormInputSet>
 <title>
 <SelectListTargetPage>Select Target Page</SelectListTargetPage>
-<RemoveListTargetPage>Reset</RemoveListTargetPage>
+<RemoveListTargetPage>Resetear</RemoveListTargetPage>
 </title>
 </ListTargetPageFormInputSet>
 <DetailTargetPageInputSet>
 <title>
 <SelectDetailTargetPage>Select Children Target Page</SelectDetailTargetPage>
-<RemoveDetailTargetPage>Reset</RemoveDetailTargetPage>
+<RemoveDetailTargetPage>Resetear</RemoveDetailTargetPage>
 </title>
 </DetailTargetPageInputSet>
 <NavigationSelectorPopupWindow>

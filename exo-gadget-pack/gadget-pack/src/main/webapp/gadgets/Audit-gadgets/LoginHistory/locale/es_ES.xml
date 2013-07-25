@@ -25,7 +25,7 @@
   <msg name="loginHistory.title">Historial de ingreso</msg>
   <msg name="loginHistory.user">Usuario</msg>
   <msg name="loginHistory.find">Buscar</msg>
-  <msg name="loginHistory.latest">Reset</msg>
+  <msg name="loginHistory.latest">Resetear</msg>
   <msg name="loginHistory.lastLogin">Último ingreso</msg>
   <msg name="loginHistory.beforeThat">Antes que</msg>
   <msg name="loginHistory.more">Más</msg>
