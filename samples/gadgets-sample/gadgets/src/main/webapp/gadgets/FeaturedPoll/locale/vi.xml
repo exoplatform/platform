@@ -20,7 +20,7 @@
 
 -->
 <messagebundle>
-  <msg name="title">Thăm dò ý kiến</msg>
+  <msg name="title">Thăm dò Ý kiến</msg>
   <msg name="setting">Cài đặt</msg>
   <msg name="vote">Bình chọn</msg>
   <msg name="voteAgain">Bình chọn lại</msg>
@@ -30,6 +30,6 @@
   <msg name="voter">Người bình chọn</msg>
   <msg name="total">Tổng số</msg>
   <msg name="discuss">Thảo luận trong Diễn đàn</msg>
-  <msg name="nopoll">Chưa có thăm dò ý kiến</msg>  
-  <msg name="createPoll">Tạo thăm dò ý kiến</msg>    
+  <msg name="nopoll">Chưa có Thăm dò Ý kiến</msg>  
+  <msg name="createPoll">Tạo Thăm dò Ý kiến</msg>    
 </messagebundle>

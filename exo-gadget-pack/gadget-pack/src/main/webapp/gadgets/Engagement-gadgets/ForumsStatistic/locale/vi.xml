@@ -22,19 +22,19 @@
 
 -->
 <messagebundle>
-  <msg name="forums.statistic.title">Thống kê diễn đàn</msg>
-  <msg name="forums.statistic.total.topic">Tổng số chủ đề:</msg>
-  <msg name="forums.statistic.total.post">Tổng số bài viết:</msg>
-  <msg name="forums.statistic.total.member">Tổng số thành viên:</msg>
-  <msg name="forums.statistic.active.member">Thành viên tích cực:</msg>
+  <msg name="forums.statistic.title">Thống kê Diễn đàn</msg>
+  <msg name="forums.statistic.total.topic">Tổng số Chủ đề:</msg>
+  <msg name="forums.statistic.total.post">Tổng số Bài viết:</msg>
+  <msg name="forums.statistic.total.member">Tổng số Thành viên:</msg>
+  <msg name="forums.statistic.active.member">Thành viên Tích cực:</msg>
   <msg name="forums.statistic.maximum.user">Số người hoạt động nhiều nhất:</msg>  
   <msg name="forums.statistic.at">tại</msg>  
-  <msg name="forums.weekly.statistic.title">Thông kê diễn đàn theo tuần</msg>
-  <msg name="forums.weekly.statistic.post.open">Số bài viết đã tạo</msg>
+  <msg name="forums.weekly.statistic.title">Thông kê Diễn đàn Hàng tuần</msg>
+  <msg name="forums.weekly.statistic.post.open">Số bài viết đã Tạo</msg>
   <msg name="forums.weekly.statistic.next">Tiếp tục</msg>
   <msg name="forums.weekly.statistic.prev">Trước</msg>
-  <msg name="forums.weekly.statistic.view.chart">Hiển thị theo bảng</msg>
-  <msg name="forums.weekly.statistic.view.list">Hiển thị theo danh sách</msg>
-  <msg name="forums.statistic.see.total.statistic">Thống kê toàn bộ</msg>
-  <msg name="forums.statistic.see.weekly.statistic">Thống kê theo tuần</msg>  
+  <msg name="forums.weekly.statistic.view.chart">Hiển thị kiểu Đồ thị</msg>
+  <msg name="forums.weekly.statistic.view.list">Hiển thị kiểu Danh sách</msg>
+  <msg name="forums.statistic.see.total.statistic">Thống kê Toàn bộ</msg>
+  <msg name="forums.statistic.see.weekly.statistic">Thống kê Hàng tuần</msg>  
 </messagebundle>
