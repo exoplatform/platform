@@ -23,7 +23,7 @@
 	    </script>
 	    <script type="text/javascript" src="script/poll.js"></script>
 	    <!-- View of the gadget  -->
-	    <div class="uiGadgetThemes uiBox">
+	    <div id="uiFeaturePoll" class="uiGadgetThemes uiBox">
 	      <h6 class="gadgetTitle title center clearfix">
 	        __MSG_title__
 	        <a class="actionIcon pull-right settingBt" title="Settings" rel="tooltip" data-placement="bottom" onclick=""><i class="uiIconSetting"></i></a>

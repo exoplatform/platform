@@ -162,6 +162,20 @@ function showResult(data) {
 	tbl.push('</div>');
 
 	$("#poll").html(tbl.join(''));
+	// Adjust width of progress bar if it's too short
+	var featPoll = document.getElementById('uiFeaturePoll');
+	if (featPoll.offsetWidth < 300) {
+		var childs = featPoll.getElementsByTagName('td');
+		if (childs) {
+			childs[0].style.width = 70;
+			var labelVote = featPoll.getElementsByClassName('label-vote');
+			if (labelVote) {
+				for (var pos = 0; pos < labelVote.length; pos++) {
+					labelVote[pos].style.width = 65;
+				}
+			}
+		}
+	}
 	adjustHeight();
 }
 
