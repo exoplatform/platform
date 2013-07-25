@@ -32,7 +32,7 @@
   <msg name="forums.weekly.statistic.title">Estadísticas semanales de foros</msg>
   <msg name="forums.weekly.statistic.post.open">Mensaje(s) creados</msg>
   <msg name="forums.weekly.statistic.next">Siguiente</msg>
-  <msg name="forums.weekly.statistic.prev">Previous</msg>
+  <msg name="forums.weekly.statistic.prev">Previo</msg>
   <msg name="forums.weekly.statistic.view.chart">Ver como gráfica</msg>
   <msg name="forums.weekly.statistic.view.list">Ver como lista</msg>
   <msg name="forums.statistic.see.total.statistic">Estadísticas generales</msg>

@@ -4,7 +4,7 @@
 <label>
 <applications>Aplicaciones</applications>
 <content>Contenido</content>
-<siteExplorer>Sites Explorer</siteExplorer>
+<siteExplorer>Explorador de Sitios</siteExplorer>
 <wcmAdmin>Content Administration</wcmAdmin>
 <users>Usuarios</users>
 <newStaff>Add Users</newStaff>
@@ -16,7 +16,7 @@
 <portalnavigation>Sites</portalnavigation>
 <servicesManagement>Management</servicesManagement>
 <monitoring>Monitoring</monitoring>
-<spaces>Spaces</spaces>
+<spaces>Espacios</spaces>
 <Branding>Branding</Branding>
 <ide>IDE</ide>
 <search>Search</search>
