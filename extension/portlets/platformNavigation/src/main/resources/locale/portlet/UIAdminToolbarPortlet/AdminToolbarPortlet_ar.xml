@@ -4,9 +4,9 @@
       <action>
          <AddPage>إضافة صفحة</AddPage>
          <EditNavigation>التصفح</EditNavigation>
-         <Content>محتوى</Content>
+         <Content>المحتوى</Content>
          <Editor>تغيير</Editor>
-         <Page>Page</Page>
+         <Page>الصفحة</Page>
          <Site>Site</Site>
          <Layout>Edit Layout</Layout>
          <siteLayout>Layout</siteLayout>

@@ -2,15 +2,15 @@
 <bundle>
    <UIUserNavigationPortlet>
       <label>
-         <activities>Activities Stream</activities>
-         <profile>Profile</profile>
+         <activities>الأنشطة و المستجدّات</activities>
+         <profile>الملفّ الشخصي</profile>
          <connections>Connections</connections>
-         <wiki>Wiki</wiki>
-         <Myactivities>My Activity Stream</Myactivities>
+         <wiki>ويكي</wiki>
+         <Myactivities>أنشطتي و مستجدّاتي</Myactivities>
          <Myprofile>ملفي الشخصي</Myprofile>
-         <Myconnections>My Connections</Myconnections>
+         <Myconnections>علاقاتي</Myconnections>
          <Mywiki>ويكي خاصة</Mywiki>
-         <Mydashboard>My Dashboard</Mydashboard>
+         <Mydashboard>لوحة المعلومات الخاصّة بي</Mydashboard>
       </label>
    </UIUserNavigationPortlet>
 </bundle>

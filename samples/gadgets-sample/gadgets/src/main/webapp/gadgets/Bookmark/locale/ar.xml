@@ -21,15 +21,15 @@
 -->
 <messagebundle>
   <msg name="title">الإشارات المرجعيّة</msg>
-  <msg name="customize">Customize</msg>
-  <msg name="save">Save</msg>
-  <msg name="add">Add</msg>
+  <msg name="customize">تخصيص</msg>
+  <msg name="save">حفظ</msg>
+  <msg name="add">إضافة</msg>
   <msg name="ok">موافق</msg>
-  <msg name="name">Name</msg>
-  <msg name="url">URL</msg>
-  <msg name="delete">Delete</msg>
+  <msg name="name">الاسم</msg>
+  <msg name="url">عنوان الموقع</msg>
+  <msg name="delete">حذف</msg>
   <msg name="edit">تغيير</msg>
-  <msg name="cancel">Cancel</msg>
-  <msg name="emptyBookmarkPre">You don't have any bookmark : add them by clicking on</msg>
-  <msg name="emptyBookmarkSuf">button</msg>
+  <msg name="cancel">الغاء</msg>
+  <msg name="emptyBookmarkPre">لم يكن لديك أي إشارة مرجعية: قُم بإضافتهم عن طريق النّقر على</msg>
+  <msg name="emptyBookmarkSuf">زرّ</msg>
 </messagebundle>
