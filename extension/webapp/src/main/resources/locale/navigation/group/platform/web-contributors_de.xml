@@ -3,8 +3,5 @@
   <administration>
     <siteExplorer>Inhaltsexplorer</siteExplorer>
     <wcmAdmin>Inhaltsverwaltung</wcmAdmin>
-    <newslettermanager>Newsletters</newslettermanager>
-    <formgenerator>Formular-Generator</formgenerator>
-<workflowAdministration>Workflow-Verwaltung</workflowAdministration>
   </administration>
 </bundle>

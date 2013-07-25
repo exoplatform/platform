@@ -15,6 +15,8 @@
       <newAccount>Neues Konto</newAccount>
       <groupnavigation>Gruppennavigation</groupnavigation>
       <portalnavigation>Portalnavigation</portalnavigation>
+      <documents>Dokumente</documents>
+      <unifiedSearch>Unified Search</unifiedSearch>
     </acme>
   </portal>
 </bundle>
