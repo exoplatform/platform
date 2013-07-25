@@ -27,7 +27,7 @@
   <msg name="noDescription">No Description</msg>
   <msg name="method">الأسلوب</msg>
   <msg name="parameters">المعايير</msg>
-  <msg name="action">حركة</msg>
+  <msg name="action">اجراء</msg>
   <msg name="value">القيمة</msg>
   <msg name="services_url">خدمات URL</msg>
   <msg name="failManage">Temporarily cannot manage services from other hosts until we support OAuth</msg>

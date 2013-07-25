@@ -3,23 +3,23 @@
 <UISetupPlatformToolBarPortlet>
 <label>
 <applications>تطبيقات</applications>
-<content>محتوى</content>
+<content>المحتوى</content>
 <siteExplorer>Sites Explorer</siteExplorer>
-<wcmAdmin>Content Administration</wcmAdmin>
+<wcmAdmin>إدارة المحتوى</wcmAdmin>
 <users>المستخدمين</users>
-<newStaff>Add Users</newStaff>
-<org-management>Groups and Roles</org-management>
+<newStaff>إضافة مستخدمين</newStaff>
+<org-management>المجموعات و الأدوار</org-management>
 <portal>بوّابة</portal>
 <administration>ادارة</administration>
-<groupnavigation>Group Sites</groupnavigation>
+<groupnavigation>مواقع المجموعات</groupnavigation>
 <pageManagement>صفحات</pageManagement>
-<portalnavigation>Sites</portalnavigation>
-<servicesManagement>Management</servicesManagement>
+<portalnavigation>مواقع</portalnavigation>
+<servicesManagement>إدارة</servicesManagement>
 <monitoring>المراقبة</monitoring>
 <spaces>Spaces</spaces>
-<Branding>Branding</Branding>
+<Branding>الشّكل</Branding>
 <ide>IDE</ide>
-<search>Search</search>
+<search>البحث</search>
 </label>
 </UISetupPlatformToolBarPortlet>
 </bundle>

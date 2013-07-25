@@ -2,19 +2,21 @@
 <bundle>
   <portal>
     <acme>
-      <overview>Overview</overview>
-      <products>Products</products>
-      <news>News</news>
-      <contactus>Questions?</contactus>
-      <newsletters>Newsletters</newsletters>
-      <confirmation>Contact Form Confirmation</confirmation>
+      <overview>نظرة عامّة</overview>
+      <products>المنتوجات</products>
+      <news>أخبار</news>
+      <contactus>أسئلة ؟</contactus>
+      <newsletters>النشرات الإخبارية</newsletters>
+      <confirmation>تأكيد جهة الاتّصال</confirmation>
       <detail>تفاصيل</detail>
-  <catalog>Catalog</catalog>
-      <printviewer>Print page</printviewer>
-      <searchResult>Search</searchResult>
+  <catalog>دليل</catalog>
+      <printviewer>طباعة الصفحة</printviewer>
+      <searchResult>بحث</searchResult>
       <newAccount>حساب جديد</newAccount>
       <groupnavigation>تصفّحات المجموعة</groupnavigation>
-      <portalnavigation>Portal Navigation</portalnavigation>
+      <portalnavigation>تصفّحات البوّابة</portalnavigation>
+      <documents>وثائق</documents>
+      <unifiedSearch>بحث مُوحّد</unifiedSearch>
     </acme>
   </portal>
 </bundle>
