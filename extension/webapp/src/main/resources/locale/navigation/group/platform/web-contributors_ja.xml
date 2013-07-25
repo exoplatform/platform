@@ -3,8 +3,5 @@
   <administration>
     <siteExplorer>コンテンツ エクスプ ローラー</siteExplorer>
     <wcmAdmin>コンテンツ管理</wcmAdmin>
-    <newslettermanager>Newsletters</newslettermanager>
-    <formgenerator>フォームビルダー</formgenerator>
-<workflowAdministration>ワークフローの管理</workflowAdministration>
   </administration>
 </bundle>
