@@ -84,7 +84,6 @@
     <input-encoding>UTF-8</input-encoding>
     <description>Default configuration for the german locale</description>
   </locale-config>
-</locales-config>
 
   <locale-config>
     <locale>pt_BR</locale>
@@ -92,7 +91,6 @@
     <input-encoding>UTF-8</input-encoding>
     <description>Default configuration for the brazilian locale</description>
   </locale-config>
-</locales-config>
 
   <locale-config>
     <locale>it</locale>
