@@ -19,12 +19,7 @@
 @Portlet
 @Bindings({ @Binding(ProviderSettingService.class),
             @Binding(SettingService.class)})
-/*@Assets(
-    scripts = {
-            @Script(id = "jquery", src = "js/jquery-1.8.3.js", location = AssetLocation.SERVER),
-            @Script(id = "searchAdmin", src = "js/admin/notificationAdmin.js", location = AssetLocation.SERVER)
-    }
-)*/
+
 package org.exoplatform.platform.portlet.juzu.notificationsAdmin;
 
 import juzu.Application;

@@ -7,8 +7,7 @@
 <h4 class="titleWithBorder">${bundle.getString("NotificationAdmin.title")}</h4>
 <form id="senderForm">
 <h6>${bundle.getString("NotificationAdmin.label.notificationsSender")}</h6>
-  <div id="senderInfoMsgOK" style="display:none">${bundle.getString("NotificationAdmin.msg.saveOK")}</div>
-  <div id="senderInfoMsgKO" style="display:none">${bundle.getString("NotificationAdmin.msg.saveKO")}</div>
+  <div id="senderInfoMsg"></div>  
   <input id="senderEmail" class="left" name="email" value="senderEmail" placeholder="Email">
   <input id="senderName" name="name" value="senderName" placeholder="Name">  
   <input id="btSetSender" class="center" type="button" value="${bundle.getString('NotificationAdmin.label.save')}">
@@ -18,9 +17,9 @@
 <table class="uiGrid table  table-hover table-striped">
   <thead>
     <tr>
-      <th>uiGrid</th>
-      <th>uiGrid</th>
-      <th>uiGrid</th>
+      <th>${bundle.getString("NotificationAdmin.label.notification")}</th>
+      <th>${bundle.getString("NotificationAdmin.label.title")}</th>
+      <th>${bundle.getString("NotificationAdmin.label.action")}</th>
     </tr>
   </thead>
   <% for(def group : groups) { %>
@@ -48,8 +47,10 @@
     <% } %>    
   <% } %>
 </table>
-<div style="display:none;" id="status">
-<label id="label-enable" value='${bundle.getString("NotificationAdmin.label.enable")}'/>
-<label id="label-disable" value='${bundle.getString("NotificationAdmin.label.disable")}'/>
+<div style="display:none;" id="labelBundle">
+<samp id="labelEnable">${bundle.getString("NotificationAdmin.label.enable")}</samp>
+<samp id="labelDisable">${bundle.getString("NotificationAdmin.label.disable")}</samp>
+<samp id="msgSaveOK">${bundle.getString("NotificationAdmin.msg.saveOK")}</samp>
+<samp id="msgSaveKO">${bundle.getString("NotificationAdmin.msg.saveKO")}</samp>
 </div>
 </div>

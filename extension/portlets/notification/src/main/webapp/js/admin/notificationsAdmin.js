@@ -1,8 +1,9 @@
 (function($) {
 
-	var localizeStatus = $("div#status"); 
-	var labelEnable = $("label#label-enable",localizeStatus).attr("value");
-	var labelDisable = $("label#label-disable",localizeStatus).attr("value");
+	var localizeStatus = $("div#labelBundle"); 
+	var labelEnable = $("samp#labelEnable",localizeStatus).html();
+	var labelDisable = $("samp#labelDisable",localizeStatus).html();
+	
 		function switchStatus(providerId,isEnable) {
 			$("#notificationAdmin").jzAjax({				
 				url : "NotificationsAdministration.setProvider()",
@@ -33,13 +34,16 @@
 					"name" : name,
 					"email" : email
 				},
-				success : function(response) {
-					if (response.status == "OK"){
+				success : function(res) {
+					if (res.status == "OK"){
+						var msgOK = $("samp#msgSaveOK",localizeStatus).html();
+						$("div#senderInfoMsg").html(msgOK+" \""+res.name+" <"+res.email+">\"");
 						$("div#senderInfoMsgOK").show();
 					}											
 				}
 			}).fail(function(jqXHR, textStatus) {
-				$("div#senderInfoMsgKO").show();
+				var msgOK = $("samp#msgSaveKO",localizeStatus).html();
+				$("div#senderInfoMsg").show();
 			});
 		}		
 			
