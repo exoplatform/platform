@@ -21,9 +21,34 @@
         import org.exoplatform.webui.application.portlet.PortletRequestContext;
         import org.exoplatform.web.application.JavascriptManager;
 
+        import juzu.impl.request.Request;
+        import juzu.request.RequestContext;
+        import java.util.ResourceBundle;
+
+        RequestContext requestContext = Request.getCurrent().getContext();
+        ResourceBundle bundle= requestContext.getApplicationContext().resolveBundle(requestContext.getUserContext().getLocale()) ;
+    
+        def statusTitle=bundle.getString("Loading.label");
+        def connectLabel=bundle.getString("Connect.label");
+        def confirmLabel=bundle.getString("Confirm.label");
+        def cancelRequestLabel=bundle.getString("CancelRequest.label");
+        def removeConnectionLabel=bundle.getString("RemoveConnection.label");
+        def ignoreLabel=bundle.getString("Ignore.label");
+        def messageLabel=bundle.getString("message.label");
+        
+		    def labels = """ {
+		      StatusTitle: '${statusTitle}',
+		      youHaveSentAnInvitation: '${messageLabel}',
+		      Connect: '${connectLabel}',
+		      Confirm: '${confirmLabel}',
+		      CancelRequest: '${cancelRequestLabel}',
+		      RemoveConnection: '${removeConnectionLabel}',
+		      Ignore: '${ignoreLabel}'
+		    } """
+    
         def pcontext = Util.getPortalRequestContext();
         def jsManager = pcontext.getJavascriptManager();
-        jsManager.require("SHARED/jQueryWhoIsOnLine", "wos").addScripts("wos.ajaxWhoIsOnLine();");
+        jsManager.require("SHARED/jQueryWhoIsOnLine", "wos").addScripts("wos.ajaxWhoIsOnLine($labels);");
   %>
 <div id="OnlinePortlet" class="onlinePortlet">
     <div id="onlineContent" class="uiBox">
