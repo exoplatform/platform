@@ -2,15 +2,14 @@
 #{param name=senderEmail/}
 #{param name=bundle/}
 #{param name=groups/}
-#{param name=providers/}
 <div id="notificationAdmin" class="uiNotificationAdmin">
 <h4 class="titleWithBorder">${bundle.getString("NotificationAdmin.title")}</h4>
 <form id="senderForm">
 <h6>${bundle.getString("NotificationAdmin.label.notificationsSender")}</h6>
-  <div id="senderInfoMsg"></div>  
-  <input id="senderEmail" class="left" name="email" value="senderEmail" placeholder="Email">
-  <input id="senderName" name="name" value="senderName" placeholder="Name">  
-  <input id="btSetSender" class="center" type="button" value="${bundle.getString('NotificationAdmin.label.save')}">
+  <div id="senderInfoMsg"></div>    
+  <input id="senderName" name="name" value="${senderName}" placeholder="Name"/>
+  <input id="senderEmail" class="right" name="email" value="${senderEmail}" placeholder="Email"/>
+  <input id="btSetSender" class="center" type="button" value="${bundle.getString('NotificationAdmin.label.save')}"/>
 </form>
 
 <h6>${bundle.getString("NotificationAdmin.label.notificationTypes")}</h6>
@@ -31,7 +30,7 @@
     
     <% group.getProviderDatas().each() { provider ->
         def providerId = provider.getType();
-        def status = providers.get(providerId);
+        def status = (provider.isActive() ? "enable" : "disable");
     %>      
       <tr id="${providerId}" class="${status}">       
         <td>

@@ -18,7 +18,10 @@ package org.exoplatform.platform.portlet.juzu.notificationsAdmin;
 
 
 import javax.inject.Inject;
+import javax.mail.internet.AddressException;
+import javax.mail.internet.InternetAddress;
 
+import org.apache.commons.lang.StringUtils;
 import org.exoplatform.commons.api.notification.model.ProviderData;
 import org.exoplatform.commons.api.notification.GroupProvider;
 import org.exoplatform.commons.api.notification.service.setting.ProviderSettingService;
@@ -58,31 +61,19 @@ public class NotificationsAdministration {
   @Inject
   SettingService settingService;
 
-  private static String ON_STATUS = "enable";
-  private static String OFF_STATUS = "disable";
-  
   @View
   public void index(RenderContext renderContext){
     
     ResourceBundle rs = renderContext.getApplicationContext().resolveBundle(renderContext.getUserContext().getLocale());
     Map<String, Object> parameters = new HashMap<String, Object>();
-    parameters.put("bundle",rs);
+    parameters.put("bundle",rs);   
     
     List<GroupProvider> groups = providerSettingService.getGroupProviders();
-    Map<String,String> providerStatus = new HashMap<String,String>();
-    
     parameters.put("groups", groups);     
-    for (GroupProvider g : groups){
-      List<ProviderData> providers = g.getProviderDatas();
-      for (ProviderData provider : providers){
-        String providerId = provider.getType();
-        providerStatus.put(providerId,getStatus(providerId));
-      }    
-    }
     
-    parameters.put("providers",providerStatus);
-    parameters.put("senderName", "intranet notification");
-    parameters.put("senderEmail", "notification@intranet.com");
+    parameters.put("senderName", System.getProperty("exo.notifications.portalname", "eXo"));
+    parameters.put("senderEmail", System.getProperty("gatein.email.smtp.from", "noreply@exoplatform.com"));
+    
     index.render(parameters);      
   }  
  
@@ -91,28 +82,30 @@ public class NotificationsAdministration {
   @Resource
   public Response setProvider(String providerId, String enable) {
     try{
-    //TODO: SAVE IN SETTING, use ProviderSettingService     
-      if (enable.equals("true")) enableProvider(providerId); 
-      else if (enable.equals("false")) disableProvider(providerId);
-      else throw new Exception("ERROR: Set true/false value to enable or disable the provider");
+      if (enable.equals("true") || enable.equals("false"))
+        providerSettingService.saveProvider(providerId, Boolean.valueOf(enable));
+      else throw new Exception("Bad input exception: need to set true/false value to enable or disable the provider");
     }catch(Exception e){
-      return new Response.Error(e);
+      return new Response.Error("Exception in switching stat of provider "+providerId+". " + e.toString());
     }
     Boolean isEnable = new Boolean(enable);    
     JSON data = new JSON();
     data.set("provider", providerId);
-    data.set("status",isEnable ? ON_STATUS : OFF_STATUS); //current status
-        
+    data.set("isEnable", (isEnable)); // current status
+   
     return Response.ok(data.toString()).withMimeType("application/json");
   }
   
   @Ajax
   @Resource
   public Response setSender(String name, String email) {
-    try{      
-        saveSender(name,email);      
-    }catch(Exception e){
-      return new Response.Error(e);
+    if(name != null && name.length() > 0
+         && isValidEmailAddresses(email)) {
+      
+      System.setProperty("exo.notifications.portalname", name);
+      System.setProperty("gatein.email.smtp.from", email);
+    } else {
+      return new Response.Error("ERROR: Set value of name and email not empty and email is email address");
     }
     JSON data = new JSON();    
     data.set("status","OK");
@@ -121,57 +114,23 @@ public class NotificationsAdministration {
     
     return Response.ok(data.toString()).withMimeType("application/json");
   }
-
-/*============ TODO in commons-component-common/ProviderSettingService ===============*/
   
-  private boolean isEnable(String providerId){
-    SettingValue<Boolean> isActive = (SettingValue<Boolean>) settingService.get(Context.GLOBAL, Scope.GLOBAL, "exo:"+providerId);
-    if (isActive != null)
-      return isActive.getValue().booleanValue();
-    return false;
-  }
-  
-  private String getStatus(String providerId){
-    SettingValue<Boolean> isActive = (SettingValue<Boolean>) settingService.get(Context.GLOBAL, Scope.GLOBAL, "exo:"+providerId);
-    if (isActive != null && isActive.getValue())
-      return ON_STATUS;
-    return OFF_STATUS;
-  }
-  
-  private void enableProvider(String providerId){
-      settingService.set(Context.GLOBAL, Scope.GLOBAL, "exo:"+providerId, SettingValue.create(true));
-  }
-  
-  private void disableProvider(String providerId){
-      settingService.remove(Context.GLOBAL, Scope.GLOBAL, "exo:"+providerId);     
-  }
-  
-  private void setNotificationAdminSetting(String value){
-    String enableProviders = (String) settingService.get(Context.GLOBAL, Scope.GLOBAL, "NotificationAdmin").getValue();
-    settingService.set(Context.GLOBAL, Scope.GLOBAL, "ActiveNotificationsType", SettingValue.create(value));
-  }
-  
-  private void saveSender(String name, String email){
-    settingService.set(Context.GLOBAL, Scope.PORTAL, "NotificationSender", SettingValue.create("name:"+name+";email:"+email));
-  }
-  
-/* 
-  private String createSettingValue(String providerId, boolean disable) throws UnexpectedConditionException{    
-    String providersActive = (String) settingService.get(Context.GLOBAL, Scope.PORTAL, "NotificationProviderActive").getValue();    
-  
-    if (!providersActive.contains(providerId) && !disable){ //verify
-      return providersActive.concat(providerId);
-    }else if (providersActive.contains(providerId) && disable){//verify
-      String[] providers = (providersActive+";").split(";");
-      for (String provider : providers){
-        
+  public static boolean isValidEmailAddresses(String addressList){
+    if (addressList == null || addressList.length() < 0)
+      return false;
+    addressList = StringUtils.remove(addressList, " ");
+    addressList = StringUtils.replace(addressList, ";", ",");
+    try {
+      InternetAddress[] iAdds = InternetAddress.parse(addressList, true);
+      String emailRegex = "[_A-Za-z0-9-]+(\\.[_A-Za-z0-9-]+)*@[_A-Za-z0-9-.]+\\.[A-Za-z]{2,5}";
+      for (int i = 0; i < iAdds.length; i++) {
+        if (!iAdds[i].getAddress().matches(emailRegex))
+          return false;
       }
-      return providersActive.replace(providerId+";", "");
-    }else {
-      throw new UnexpectedConditionException("");
-    }        
+    } catch (AddressException e) {
+      return false;
+    }
+    return true;
   }
-
-  */
      
 }
