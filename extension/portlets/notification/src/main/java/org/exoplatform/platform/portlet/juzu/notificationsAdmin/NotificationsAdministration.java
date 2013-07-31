@@ -22,13 +22,8 @@ import javax.mail.internet.AddressException;
 import javax.mail.internet.InternetAddress;
 
 import org.apache.commons.lang.StringUtils;
-import org.exoplatform.commons.api.notification.model.ProviderData;
-import org.exoplatform.commons.api.notification.GroupProvider;
+import org.exoplatform.commons.api.notification.model.GroupProvider;
 import org.exoplatform.commons.api.notification.service.setting.ProviderSettingService;
-import org.exoplatform.commons.api.settings.SettingService;
-import org.exoplatform.commons.api.settings.SettingValue;
-import org.exoplatform.commons.api.settings.data.Context;
-import org.exoplatform.commons.api.settings.data.Scope;
 import org.exoplatform.commons.juzu.ajax.Ajax;
 
 
@@ -58,9 +53,6 @@ public class NotificationsAdministration {
   @Inject
   ProviderSettingService providerSettingService;
   
-  @Inject
-  SettingService settingService;
-
   @View
   public void index(RenderContext renderContext){
     
