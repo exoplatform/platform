@@ -205,6 +205,7 @@ eXoLastpostGadget.prototype.truncateMessage = function(msg,limit){
 eXoLastpostGadget.prototype.onLoadHander = function(){
 	eXoLastpostGadget.getPrefs();
 	eXoLastpostGadget.getData();
+	gadgets.window.adjustHeight();
 }
 eXoLastpostGadget.prototype.ajaxAsyncGetRequest = function(url, callback) {
 	/* User when get this gadget by gedget service.

@@ -19,11 +19,13 @@
       <script type="text/javascript" src="skin/latestForumPosts.js"></script>
       <link rel="stylesheet" type="text/css" href="/exo-gadget-resources/skin/exo-gadget/gadget-common.css" />
       <link rel="stylesheet" type="text/css" href="/gadget-pack/skin/css/latestForumPosts.css" />
-      <div class="UIGadgetThemes">
-        <div class="TitGad ClearFix">
+      <link rel="stylesheet" type="text/css" href="/eXoResources/skin/bootstrap/css/bootstrap.css" />
+      <link rel="stylesheet" type="text/css" href="/eXoResources/skin/css/Core.css" />  
+      <div class="UIGadgetThemes uiBox">
+        <h6 class="title">
           <a href="#demo" class="IconDropDown" id="ShowAll" target="_blank">__MSG_showall__</a>
           <div class="ContTit">__MSG_title__</div>
-        </div>
+        </h6>
         <div class="GadCont LastPost" id="ItemContainer">
         </div>
       </div>
