@@ -23,7 +23,7 @@
   </thead>
   <% for(def group : groups) { %>
     <tr>
-       <td class="group-title">${bundle.getString(group.getResouceBundleKey())}</td>
+       <td class="group-title">${bundle.getString(group.getResourceBundleKey())}</td>
        <td></td>
        <td></td> 
     </tr>  
