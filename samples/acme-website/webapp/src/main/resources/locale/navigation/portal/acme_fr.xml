@@ -16,7 +16,7 @@
       <groupnavigation>Navigation de Groupe</groupnavigation>
       <portalnavigation>Navigation de Site</portalnavigation>
       <documents>Documents</documents>
-      <unifiedSearch>Recherche</unifiedSearch>
+      <unifiedSearch>Rechercher</unifiedSearch>
     </acme>
   </portal>
 </bundle>
