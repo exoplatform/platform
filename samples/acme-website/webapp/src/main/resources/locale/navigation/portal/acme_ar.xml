@@ -16,7 +16,7 @@
       <groupnavigation>تصفّحات المجموعة</groupnavigation>
       <portalnavigation>تصفّحات البوّابة</portalnavigation>
       <documents>وثائق</documents>
-      <unifiedSearch>بحث مُوحّد</unifiedSearch>
+      <unifiedSearch>Search</unifiedSearch>
     </acme>
   </portal>
 </bundle>

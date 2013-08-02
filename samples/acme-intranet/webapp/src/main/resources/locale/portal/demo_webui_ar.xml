@@ -5,10 +5,10 @@
     <login>دخول</login>
     <logout>خروج</logout>
     <language>تغيير اللغة</language>
-    <register>Register</register>
+    <register>تسجيل</register>
   </Signin>
 
   <ACMEPortal>
-    <label>ACME Template</label>
+    <label>نموذج ACME</label>
   </ACMEPortal>
 </bundle>
