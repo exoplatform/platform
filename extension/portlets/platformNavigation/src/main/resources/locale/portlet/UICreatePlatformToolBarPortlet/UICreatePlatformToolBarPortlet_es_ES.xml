@@ -77,7 +77,7 @@
     </UIUploadFile>
    <Choix>
       <label>
-         <Event>Event</Event>
+         <Event>Evento</Event>
          <Task>Tarea</Task>
       </label>
    </Choix>
