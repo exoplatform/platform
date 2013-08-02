@@ -51,7 +51,7 @@
          <Choix>Thêm Mới:</Choix>
          <EndEvent>Đến</EndEvent>
          <StartEvent>Từ</StartEvent>
-         <Calendar>-- Chọn Lịch --</Calendar>
+         <Calendar>Chọn Lịch</Calendar>
          <all-day>Cả Ngày</all-day>
          <defaultCalendarId>Mặc định</defaultCalendarId>
       </label>
