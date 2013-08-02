@@ -16,7 +16,7 @@
       <groupnavigation>グループナビゲーション</groupnavigation>
       <portalnavigation>ポータルナビゲーション</portalnavigation>
       <documents>ドキュメント</documents>
-      <unifiedSearch>Unified Search</unifiedSearch>
+      <unifiedSearch>検索</unifiedSearch>
     </acme>
   </portal>
 </bundle>
