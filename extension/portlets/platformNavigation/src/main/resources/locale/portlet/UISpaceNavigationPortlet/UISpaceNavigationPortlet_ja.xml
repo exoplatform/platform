@@ -5,7 +5,7 @@
          <Spaces>マイスペース</Spaces>
          <Join>スペースに参加</Join>
          <more>もっとスペースを表示</more>
-         <see>参照</see>
+         <see>表示する</see>
      </label>
      <msg>
          <filter-spaces>スペースを検索</filter-spaces>
