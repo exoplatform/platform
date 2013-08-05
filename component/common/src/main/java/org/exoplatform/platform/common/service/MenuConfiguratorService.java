@@ -1,17 +1,8 @@
 package org.exoplatform.platform.common.service;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
-
 import org.exoplatform.container.configuration.ConfigurationManager;
 import org.exoplatform.container.xml.InitParams;
-import org.exoplatform.portal.config.model.ModelUnmarshaller;
-import org.exoplatform.portal.config.model.NavigationFragment;
-import org.exoplatform.portal.config.model.PageNavigation;
-import org.exoplatform.portal.config.model.PageNode;
-import org.exoplatform.portal.config.model.PortalConfig;
-import org.exoplatform.portal.config.model.UnmarshalledObject;
+import org.exoplatform.portal.config.model.*;
 import org.exoplatform.portal.mop.SiteKey;
 import org.exoplatform.portal.mop.Visibility;
 import org.exoplatform.portal.mop.navigation.Scope;
@@ -23,12 +14,19 @@ import org.exoplatform.services.log.ExoLogger;
 import org.exoplatform.services.log.Log;
 import org.picocontainer.Startable;
 
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.LinkedList;
+import java.util.List;
+
 public class MenuConfiguratorService implements Startable {
 
   private static final Log LOG = ExoLogger.getLogger(MenuConfiguratorService.class);
   private ConfigurationManager configurationManager;
   private String setupNavigationFilePath;
-  private List<PageNode> setupPageNodes = new ArrayList<PageNode>();
+  private List<PageNode> setupPageNodes = new LinkedList<PageNode>();
+  private List<MenuConfiguratorAddNodePlugin> menuConfiguratorAddNodePlugins = new ArrayList<MenuConfiguratorAddNodePlugin>();
+  private List<MenuConfiguratorRemoveNodePlugin> menuConfiguratorRemoveNodePlugins = new ArrayList<MenuConfiguratorRemoveNodePlugin>();
   private UserNodeFilterConfig myGroupsFilterConfig;
 
   public MenuConfiguratorService(InitParams initParams, ConfigurationManager configurationManager) {
@@ -60,6 +58,22 @@ public class MenuConfiguratorService implements Startable {
     return this.myGroupsFilterConfig;
   }
 
+    /**
+     * Allows to add new configuration paths
+     */
+    public void addNavigation(MenuConfiguratorAddNodePlugin plugin)
+    {
+        menuConfiguratorAddNodePlugins.add(plugin);
+    }
+
+    /**
+     * Allows to remove a target navigation
+     */
+    public void removeNavigation(MenuConfiguratorRemoveNodePlugin plugin)
+    {
+        menuConfiguratorRemoveNodePlugins.add(plugin);
+    }
+
   @Override
   public void start() {
     try {
@@ -74,13 +88,25 @@ public class MenuConfiguratorService implements Startable {
       PageNavigation pageNavigation = obj.getObject();
       NavigationFragment fragment = pageNavigation.getFragment();
       setupPageNodes = fragment.getNodes();
+
+      for (MenuConfiguratorAddNodePlugin menuConfiguratorAddNodePlugin : menuConfiguratorAddNodePlugins) {
+          menuConfiguratorAddNodePlugin.execute();
+      }
+
+      for (MenuConfiguratorRemoveNodePlugin menuConfiguratorRemoveNodePlugin : menuConfiguratorRemoveNodePlugins) {
+          menuConfiguratorRemoveNodePlugin.execute();
+      }
+
       for (PageNode pageNode : setupPageNodes) {
         fixOwnerName(pageNode);
       }
+
     } catch (Exception e) {
       throw new IllegalStateException("Unkown error occured when setting Setup menu items.", e);
     }
   }
+
+
 
   @Override
   public void stop() {}
