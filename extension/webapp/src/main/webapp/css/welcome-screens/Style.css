@@ -76,6 +76,7 @@ a {
     padding: 25px 0;
 }
 
+/*
 .uiWelcomeBox .btn {
     border: 1px solid #224886;
     border-radius: 4px;
@@ -90,6 +91,50 @@ a {
     background: url("/platform-extension/css/welcome-screens/images/loginAction.png") repeat-x;
     color: white;
     font-weight: bold;
+}
+*/
+
+.uiWelcomeBox .btn {
+    background-color: #F9F9F9;
+    background-image: linear-gradient(to bottom, #FFFFFF, #F1F1F1);
+    background-repeat: repeat-x;
+    border: 1px solid #C7C7C7;
+    border-radius: 4px 4px 4px 4px;
+    color: #333;
+    cursor: pointer;
+    display: inline-block;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 41px;
+    text-align: center;
+    vertical-align: top;
+    width: 100px;
+    text-decoration: none;
+    margin: 0 5px;
+    text-shadow: 0 1px 1px rgba(255, 255, 255, 0.75);
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.2) inset, 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.uiWelcomeBox .btn:hover {
+	background-color: #EDEDED;
+	background-image: linear-gradient(to bottom, #EBEBEB, #F1F1F1);
+	background-repeat: repeat-x;
+}
+
+.uiWelcomeBox .btn-primary {
+    background-color: #567AB6;
+    background-image: linear-gradient(to bottom, #638ACD, #426393);
+    background-repeat: repeat-x;
+    border: 1px solid #224886;
+    color: #FFFFFF;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.2) inset, 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.uiWelcomeBox .btn-primary:hover {
+	background-color: #426394;
+	background-image: linear-gradient(to bottom, #4B71B3, #426394);
+	background-repeat: repeat-x;
 }
 
 .uiWelcomeBox .form-horizontal .control-group:before, .uiWelcomeBox .form-horizontal .control-group:after {
