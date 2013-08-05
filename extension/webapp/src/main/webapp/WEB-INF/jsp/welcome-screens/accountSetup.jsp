@@ -98,7 +98,7 @@
     <!-- Please do not make it Button it may cause blocker problem -->
     <div class="bottom">
         <button class="btn btn-primary" id="continueButton" onclick="WelcomeScreens.exit();return false;">Submit</button>
-        <button class="btn btn-primary" name="setupbutton" value="skipform">Skip</button>
+        <button class="btn" name="setupbutton" value="skipform">Skip</button>
     </div>
 </div>
 </div>

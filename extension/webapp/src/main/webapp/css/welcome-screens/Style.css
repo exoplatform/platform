@@ -76,17 +76,20 @@ a {
     padding: 25px 0;
 }
 
-.uiWelcomeBox button {
-    background: url("/platform-extension/css/welcome-screens/images/loginAction.png") repeat-x;
+.uiWelcomeBox .btn {
     border: 1px solid #224886;
     border-radius: 4px;
     text-align: center;
-    color: white;
-    font-weight: bold;
+    color: black;
     font-size: 16px;
     padding: 0 20px;
     height: 43px;
     cursor: pointer;
+}
+.uiWelcomeBox .btn-primary {
+    background: url("/platform-extension/css/welcome-screens/images/loginAction.png") repeat-x;
+    color: white;
+    font-weight: bold;
 }
 
 .uiWelcomeBox .form-horizontal .control-group:before, .uiWelcomeBox .form-horizontal .control-group:after {
