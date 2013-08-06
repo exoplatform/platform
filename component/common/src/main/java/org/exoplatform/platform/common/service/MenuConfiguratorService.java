@@ -2,6 +2,8 @@ package org.exoplatform.platform.common.service;
 
 import org.exoplatform.container.configuration.ConfigurationManager;
 import org.exoplatform.container.xml.InitParams;
+import org.exoplatform.platform.common.service.plugin.MenuConfiguratorAddNodePlugin;
+import org.exoplatform.platform.common.service.plugin.MenuConfiguratorRemoveNodePlugin;
 import org.exoplatform.portal.config.model.*;
 import org.exoplatform.portal.mop.SiteKey;
 import org.exoplatform.portal.mop.Visibility;
