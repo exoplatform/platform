@@ -149,7 +149,9 @@ public class PeopleRestServices implements ResourceContainer {
             Identity identity = identityManager.getOrCreateIdentity(OrganizationIdentityProvider.NAME, userId);
             RelationshipManager relationshipManager = (RelationshipManager) ExoContainerContext.getCurrentContainer().getComponentInstanceOfType(RelationshipManager.class);
 
-            System.out.println("request accepted.");
+            if (log.isInfoEnabled()) {
+                log.info("request accepted.");
+            }
 
             relationshipManager.confirm(relationshipManager.getRelationshipById(relationId));
 
