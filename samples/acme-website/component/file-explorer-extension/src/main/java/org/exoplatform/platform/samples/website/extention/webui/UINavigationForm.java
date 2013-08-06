@@ -222,7 +222,7 @@ public class UINavigationForm extends UIForm implements UIPopupComponent, UISele
 		UIFormStringInput uiFormIndexValueStringInput = new UIFormStringInput(INDEX, INDEX, String.valueOf(index_));
         try {
 		    uiFormIndexValueStringInput.addValidator(NumberFormatValidator.class);
-        } catch (Exception E) {
+        } catch (Exception E) { //NOSONAR
             //TODO : add log
         }
 
