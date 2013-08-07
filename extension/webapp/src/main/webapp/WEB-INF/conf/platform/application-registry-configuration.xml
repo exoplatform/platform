@@ -819,10 +819,10 @@
                     <object type="org.exoplatform.application.registry.Application">
                       <field name="applicationName"><string>NotificationSettingsPortlet</string></field>
                       <field name="categoryName"><string>social</string></field>
-                      <field name="displayName"><string>Notification Settings</string></field>
-                      <field name="description"><string>Notification Settings Portlet.</string></field>
+                      <field name="displayName"><string>User Notification Settings</string></field>
+                      <field name="description"><string>User notification settings portlet.</string></field>
                       <field name="type"><string>portlet</string></field>
-                      <field name="contentId"><string>NotificationSettingsPortlet</string></field>
+                      <field name="contentId"><string>social-juzu/NotificationSettingsPortlet</string></field>
                       <field name="accessPermissions">
                         <collection type="java.util.ArrayList" item-type="java.lang.String">
                           <value><string>*:/platform/users</string></value>

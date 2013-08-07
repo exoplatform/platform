@@ -135,6 +135,9 @@
                <value profiles="all">
                   <string>social-portlet</string>
                </value>
+               <value profiles="all">
+                  <string>social-juzu</string>
+               </value>
 
                <!-- Knowledge -->
                <value profiles="all">

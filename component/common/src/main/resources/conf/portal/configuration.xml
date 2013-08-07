@@ -85,6 +85,9 @@
                                 <string>social-portlet</string>
                             </value>
                             <value>
+                                <string>social-juzu</string>
+                            </value>
+                            <value>
                                 <string>social</string>
                             </value>
                             <value>
@@ -222,6 +225,9 @@
                             </value>
                             <value>
                                 <string>social-portlet</string>
+                            </value>
+                            <value>
+                                <string>social-juzu</string>
                             </value>
                             <value>
                                 <string>social</string>
