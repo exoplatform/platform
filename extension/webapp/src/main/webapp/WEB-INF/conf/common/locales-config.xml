@@ -44,6 +44,13 @@
   </locale-config>
   
   <locale-config>
+    <locale>es_ES</locale>
+    <output-encoding>UTF-8</output-encoding>
+    <input-encoding>UTF-8</input-encoding>
+    <description>Default configuration for the spanish locale</description>
+  </locale-config>
+  
+  <locale-config>
     <locale>vi</locale>
     <output-encoding>UTF-8</output-encoding>
     <input-encoding>UTF-8</input-encoding>
@@ -65,12 +72,18 @@
   </locale-config>
 
   <locale-config>
+    <locale>ar</locale>
+    <output-encoding>UTF-8</output-encoding>
+    <input-encoding>UTF-8</input-encoding>
+    <description>Default configuration for the arabe locale</description>
+  </locale-config> 
+
+  <locale-config>
     <locale>de</locale>
     <output-encoding>UTF-8</output-encoding>
     <input-encoding>UTF-8</input-encoding>
     <description>Default configuration for the german locale</description>
   </locale-config>
-</locales-config>
 
   <locale-config>
     <locale>pt_BR</locale>
@@ -78,4 +91,12 @@
     <input-encoding>UTF-8</input-encoding>
     <description>Default configuration for the brazilian locale</description>
   </locale-config>
+
+  <locale-config>
+    <locale>it</locale>
+    <output-encoding>UTF-8</output-encoding>
+    <input-encoding>UTF-8</input-encoding>
+    <description>Default configuration for the italian locale</description>
+  </locale-config>
 </locales-config>
+
