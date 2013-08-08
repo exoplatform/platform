@@ -30,6 +30,7 @@
     import org.exoplatform.web.url.navigation.NavigationResource;
     import org.exoplatform.platform.navigation.component.utils.DashboardUtils;
     import org.gatein.common.text.EntityEncoder;
+    import org.exoplatform.commons.utils.CommonsUtils;
 
 
     def rcontext = _ctx.getRequestContext();
@@ -85,9 +86,11 @@
             <li>
               <a href="<%=createDashboardLink%>"><i class="uiIconPLFDashboard"></i>$labelDashboard</a>
             </li>
-            <li>
-              <a href="$notificationsLink"><i class="uiIconPLFNotifications"></i>$labelNotifications</a>
-            </li>
+	            <% if (CommonsUtils.isFeatureActive("notification")) {  %>
+		            <li>
+		              <a href="$notificationsLink"><i class="uiIconPLFNotifications"></i>$labelNotifications</a>
+		            </li>
+	            <% } %>
             <% } %>
             <li class="divider">&nbsp;</li>
             <li>

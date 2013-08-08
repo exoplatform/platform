@@ -33,6 +33,9 @@
         <type>org.exoplatform.platform.common.rest.services.InvitationsPortlet.PeopleAndSpacesRestService</type>
     </component>
     <component>
+        <type>org.exoplatform.platform.common.rest.services.FeatureToggles.FeatureTogglesRestService</type>
+    </component>
+    <component>
         <type>org.exoplatform.platform.common.rest.services.GettingStarted.DeleteGadgetService</type>
     </component>
     <component>

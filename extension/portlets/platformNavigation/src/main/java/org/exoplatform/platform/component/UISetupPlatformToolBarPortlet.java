@@ -36,6 +36,7 @@ public class UISetupPlatformToolBarPortlet extends UIPortletApplication {
   private List<UserNode> setupMenuUserNodes = null;
   private List<PageNode> setupMenuPageNodes = null;
   private Map<String, Boolean> pagePermissionsMap = new HashMap<String, Boolean>();
+  private static final String NOTIFICATION_NODE_NAME = "notification";
 
   public UISetupPlatformToolBarPortlet() throws Exception {
     menuConfiguratorService = getApplicationComponent(MenuConfiguratorService.class);

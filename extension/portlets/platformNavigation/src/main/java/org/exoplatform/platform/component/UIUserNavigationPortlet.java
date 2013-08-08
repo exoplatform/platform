@@ -19,11 +19,10 @@
 package org.exoplatform.platform.component;
 
 import org.apache.commons.lang.ArrayUtils;
-import org.exoplatform.container.ExoContainer;
-import org.exoplatform.container.ExoContainerContext;
+import org.exoplatform.commons.api.notification.service.setting.ProviderSettingService;
+import org.exoplatform.commons.utils.CommonsUtils;
 import org.exoplatform.platform.navigation.component.utils.DashboardUtils;
 import org.exoplatform.platform.webui.NavigationURLUtils;
-import org.exoplatform.portal.application.PortalRequestContext;
 import org.exoplatform.portal.mop.Visibility;
 import org.exoplatform.portal.mop.user.UserNode;
 import org.exoplatform.portal.mop.user.UserNodeFilterConfig;
@@ -31,14 +30,8 @@ import org.exoplatform.portal.webui.portal.UIPortal;
 import org.exoplatform.portal.webui.util.Util;
 import org.exoplatform.services.log.ExoLogger;
 import org.exoplatform.services.log.Log;
-import org.exoplatform.social.core.identity.model.Identity;
-import org.exoplatform.social.core.identity.provider.OrganizationIdentityProvider;
-import org.exoplatform.social.core.manager.IdentityManager;
 import org.exoplatform.social.core.service.LinkProvider;
-import org.exoplatform.social.webui.UISocialGroupSelector;
-import org.exoplatform.social.webui.URLUtils;
 import org.exoplatform.social.webui.Utils;
-import org.exoplatform.web.controller.QualifiedName;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.core.UIPortletApplication;
 import org.exoplatform.webui.core.lifecycle.UIApplicationLifecycle;
@@ -65,6 +58,7 @@ public class UIUserNavigationPortlet extends UIPortletApplication {
     private static final String USER ="/user/"  ;
     private static final String WIKI_HOME = "/WikiHome";
     private static final String WIKI_REF ="wiki" ;
+    private static final String NOTIFICATION_NODE_NAME = "notification";
 
     private static Log LOG = ExoLogger.getLogger(UIUserNavigationPortlet.class);
 
@@ -107,7 +101,9 @@ public class UIUserNavigationPortlet extends UIPortletApplication {
         userNodeList=(String[])ArrayUtils.add(userNodeList, CONNEXIONS_URI);
         userNodeList=(String[])ArrayUtils.add(userNodeList, WIKI_URI);
         userNodeList=(String[])ArrayUtils.add(userNodeList, DASHBOARD_URI);
-        userNodeList=(String[])ArrayUtils.add(userNodeList, NOTIFICATIONS_URI);
+        if (CommonsUtils.isFeatureActive(NOTIFICATION_NODE_NAME)) {
+          userNodeList=(String[])ArrayUtils.add(userNodeList, NOTIFICATIONS_URI);
+        }
         return userNodeList;
     }
 
@@ -117,10 +113,12 @@ public class UIUserNavigationPortlet extends UIPortletApplication {
         urlList=(String[])ArrayUtils.add(urlList, getrelationURL());
         urlList=(String[])ArrayUtils.add(urlList, getWikiURL());
         urlList=(String[])ArrayUtils.add(urlList, DashboardUtils.getDashboardURL());
-        urlList=(String[])ArrayUtils.add(urlList, getNotificationsURL());
+        if (CommonsUtils.isFeatureActive(NOTIFICATION_NODE_NAME)) {
+          urlList=(String[])ArrayUtils.add(urlList, getNotificationsURL());
+        }
         return urlList;
     }
-
+    
     //////////////////////////////////////////////////////////
     /**/                                                  /**/
     /**/         //GET URL METHOD//                       /**/
