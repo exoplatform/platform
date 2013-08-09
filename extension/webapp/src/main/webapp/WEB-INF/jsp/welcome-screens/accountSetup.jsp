@@ -110,7 +110,7 @@
             </p>
             <div class="screenShot"><a href="javascript:void(0);"><img src="/platform-extension/css/welcome-screens/images/greetingSS.png" alt="" width="404" height="172"/></a></div>
         </div>
-        <div class="bottom"><button type="button class="btn btn-primary" >Start</button></div>
+        <div class="bottom"><button type="button" class="btn btn-primary" >Start</button></div>
     </div>
 </div>
 </form>
