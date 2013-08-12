@@ -117,6 +117,7 @@ a {
     vertical-align: top;
     width: 100px;
     text-decoration: none;
+    padding: 0;
 }
 
 .uiWelcomeBox .btn:hover, #Greetings button:hover {

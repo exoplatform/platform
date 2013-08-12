@@ -473,7 +473,7 @@
                 </script>
 
 				<div id="UIPortalLoginFormAction" class="loginButton">
-					<button class="button" tabindex="4" type="button" onclick="login();"><%=res.getString("portal.login.Signin")%></button>
+					<button class="button" tabindex="4"  onclick="login();"><%=res.getString("portal.login.Signin")%></button>
 				</div>
 
                 <script type='text/javascript'>
