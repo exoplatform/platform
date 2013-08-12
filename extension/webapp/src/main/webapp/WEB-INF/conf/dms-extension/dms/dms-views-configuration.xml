@@ -65,7 +65,7 @@
                     <field name="tabName"><string>Icons</string></field>
                     <field name="buttons">
                       <string>
-                        upload; addFolder; viewMetadatas; viewPermissions; editDocument; taggingDocument; vote; overloadThumbnail; watchDocument; manageVersions; Comment
+                        upload; addFolder; viewMetadatas; viewPermissions; editDocument; taggingDocument; vote; overloadThumbnail; watchDocument; manageVersions; comment
                       </string>
                     </field>
                   </object>
@@ -90,7 +90,7 @@
                     <field name="tabName"><string>List</string></field>
                     <field name="buttons">
                       <string>
-                        upload; addFolder; viewMetadatas; viewPermissions; editDocument; taggingDocument; vote; watchDocument; manageVersions; Comment
+                        upload; addFolder; viewMetadatas; viewPermissions; editDocument; taggingDocument; vote; watchDocument; manageVersions; comment
                       </string>                    	
                     </field>
                   </object>
@@ -114,7 +114,7 @@
                     <field name="tabName"><string>Authoring</string></field>
                     <field name="buttons">
                     	 <string>
-                    	 	 addCategory; addFolder; addDocument; editDocument; upload; viewPermissions; managePublications; manageCategories; taggingDocument; vote; watchDocument; publicationRequestApproval; publicationApproveContent; publicationPublish; addLocalizationLink; Comment  
+                    	 	 addCategory; addFolder; addDocument; editDocument; upload; viewPermissions; managePublications; manageCategories; taggingDocument; vote; watchDocument; publicationRequestApproval; publicationApproveContent; publicationPublish; addLocalizationLink; comment  
 																						</string>
                     </field>
                   </object>
@@ -138,7 +138,7 @@
                     <field name="tabName"><string>Collaboration</string></field>
                     <field name="buttons">
                     	 <string>
-                    	 	 addCategory; addDocument; editDocument; upload; viewPermissions; managePublications; manageCategories; taggingDocument; vote; watchDocument; publicationRequestApproval; publicationApproveContent; publicationPublish; Comment 
+                    	 	 addCategory; addDocument; editDocument; upload; viewPermissions; managePublications; manageCategories; taggingDocument; vote; watchDocument; publicationRequestApproval; publicationApproveContent; publicationPublish; comment 
 																				  </string>
 																				</field>
                   </object>
