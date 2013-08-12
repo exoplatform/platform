@@ -173,18 +173,33 @@
 				box-shadow: 1px 2px 1px rgba(0, 0, 0, 0.075) inset;
 				border-radius: 4px;
 				padding-left: 50px;
-				color: #999;
 				font-size: 18px;
+				outline: none; 
 			}
+
+			.uiLogin .loginContent input::-webkit-input-placeholder {
+		        	color: #999999;
+			}
+		   
+			.uiLogin .loginContent input:-moz-placeholder { 
+				color: #999999;
+			}
+		     
+			.uiLogin .loginContent input::-moz-placeholder { 
+				color: #999999;
+			}
+		      
+			.uiLogin .loginContent input:-ms-input-placeholder {  
+				color: #999999; 
+			}
+ 
 			.uiLogin .loginContent input:focus{
 				color: #333;
 				border-color: #94b0df;
 				box-shadow: 0px 0px 5px rgba(19, 75, 159, 0.45) ;
 				background-position: 0 -41px;
 			}
-			.uiLogin .loginContent input:active{
-				color: #333;
-			}
+		
 			.uiLogin .loginContent .loginButton {
 			  padding: 44px 0 30px;
 			}
@@ -219,6 +234,8 @@
 				-webkit-box-shadow: inset 0 1px 0 rgba(255,255,255,.2), 0 1px 2px rgba(0,0,0,.05);
 				-moz-box-shadow: inset 0 1px 0 rgba(255,255,255,.2), 0 1px 2px rgba(0,0,0,.05);
 				box-shadow: inset 0 1px 0 rgba(255,255,255,.2), 0 1px 2px rgba(0,0,0,.05);
+				padding: 0;
+				outline: none;
 			}
 			.uiLogin .loginContent .loginButton .button:hover {
 				 
@@ -239,8 +256,11 @@
 				}
 				.uiLogin .loginContent .loginButton .button:active{
 					background-color: #426393; 
-					*background-color: #3a5781;
+					outline: none; 
 				}
+				.uiLogin .loginContent .loginButton .button:focus {
+					outline: none;
+		         	} 
 			.uiLogin .spaceRole{
 				clear: both;
 				padding: 2px 0 11px;
@@ -424,10 +444,10 @@
           		<input type="hidden" name="initialURI" value="<%=uri%>"/>
                 <% } %>	
 					
-				<input class="username" id="username" name="username" type="text" placeholder="<%=res.getString("portal.login.Username")%>" onblur="this.placeholder = '<%=res.getString("portal.login.Username.blur")%>'" onfocus="this.placeholder = ''"/>
-				<input class="password" id="UIPortalLoginFormControl" type="password" id="password" name="password" placeholder="<%=res.getString("portal.login.Password")%>" onblur="this.placeholder = '<%=res.getString("portal.login.Password")%>'" onfocus="this.placeholder = ''"/>
+				<input class="username" id="username"  tabindex="1" name="username" type="text" placeholder="<%=res.getString("portal.login.Username")%>" onblur="this.placeholder = '<%=res.getString("portal.login.Username.blur")%>'" onfocus="this.placeholder = ''"/>
+				<input class="password" id="UIPortalLoginFormControl"  tabindex="2" type="password" id="password" name="password" placeholder="<%=res.getString("portal.login.Password")%>" onblur="this.placeholder = '<%=res.getString("portal.login.Password")%>'" onfocus="this.placeholder = ''"/>
                 <div class="spaceRole">
-					<input type="checkbox" class="yesno" checked="checked" style="visibility: hidden;" id="rememberme" name="rememberme" value="true" data-yes="<%=res.getString("portal.login.Yes")%>" data-no="<%=res.getString("portal.login.No")%>"/>
+					<input type="checkbox" class="yesno" tabindex="3" checked="checked" style="visibility: hidden;" id="rememberme" name="rememberme" value="true" data-yes="<%=res.getString("portal.login.Yes")%>" data-no="<%=res.getString("portal.login.No")%>"/>
 					<label class="rememberTxt" for="rememberme"><%=res.getString("portal.login.RememberOnComputer")%></label>
 				</div>
                 <script type="text/javascript">
@@ -454,7 +474,7 @@
                 </script>
 
 				<div id="UIPortalLoginFormAction" class="loginButton">
-					<button class="button" href="#" onclick="login();"><%=res.getString("portal.login.Signin")%></button>
+					<button class="button"  tabindex="4" onclick="login();"><%=res.getString("portal.login.Signin")%></button>
 				</div>
 
                 <script type='text/javascript'>
