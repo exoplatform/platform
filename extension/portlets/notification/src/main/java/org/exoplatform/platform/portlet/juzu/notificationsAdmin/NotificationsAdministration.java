@@ -23,8 +23,13 @@ import javax.mail.internet.InternetAddress;
 
 import org.apache.commons.lang.StringUtils;
 import org.exoplatform.commons.api.notification.model.GroupProvider;
+import org.exoplatform.commons.api.notification.plugin.config.PluginConfig;
 import org.exoplatform.commons.api.notification.service.setting.ProviderSettingService;
 import org.exoplatform.commons.juzu.ajax.Ajax;
+import org.exoplatform.commons.notification.NotificationUtils;
+import org.exoplatform.commons.notification.impl.DigestDailyPlugin;
+import org.exoplatform.services.log.ExoLogger;
+import org.exoplatform.services.log.Log;
 
 
 import juzu.Path;
@@ -36,12 +41,14 @@ import juzu.request.RenderContext;
 import juzu.template.Template;
 
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 import java.util.HashMap;
 import java.util.ResourceBundle;
 
 
 public class NotificationsAdministration {
+  private static final Log LOG = ExoLogger.getLogger(NotificationsAdministration.class);
 
   @Inject
   @Path("index.gtmpl")
@@ -52,13 +59,16 @@ public class NotificationsAdministration {
   
   @Inject
   ProviderSettingService providerSettingService;
+
+  private Locale locale = Locale.ENGLISH;
   
   @View
   public void index(RenderContext renderContext){
     
-    ResourceBundle rs = renderContext.getApplicationContext().resolveBundle(renderContext.getUserContext().getLocale());
+    this.locale = renderContext.getUserContext().getLocale();
+    ResourceBundle rs = renderContext.getApplicationContext().resolveBundle(this.locale);
     Map<String, Object> parameters = new HashMap<String, Object>();
-    parameters.put("bundle",rs);   
+    parameters.put("_ctx", new Context(rs));   
     
     List<GroupProvider> groups = providerSettingService.getGroupProviders();
     parameters.put("groups", groups);     
@@ -124,5 +134,48 @@ public class NotificationsAdministration {
     }
     return true;
   }
-     
+  
+  public class Context {
+    ResourceBundle rs;
+
+    public Context(ResourceBundle rs) {
+      this.rs = rs;
+    }
+
+    public String appRes(String key) {
+      try {
+        return rs.getString(key).replaceAll("'", "&#39;").replaceAll("\"", "&#34;");
+      } catch (java.util.MissingResourceException e) {
+        LOG.warn("Can't find resource for bundle key " + key);
+      } catch (Exception e) {
+        LOG.debug("Error when get resource bundle key " + key, e);
+      }
+      return key;
+    }
+    
+    private String getBundlePath(String id) {
+      PluginConfig pluginConfig = providerSettingService.getPluginConfig(id);
+      if (pluginConfig != null) {
+        return pluginConfig.getTemplateConfig().getBundlePath();
+      }
+      //
+      if (GroupProvider.defaultGroupIds.contains(id)) {
+        return providerSettingService.getPluginConfig(DigestDailyPlugin.ID)
+            .getTemplateConfig().getBundlePath();
+      }
+      //
+      List<GroupProvider> groups = providerSettingService.getGroupProviders();
+      for (GroupProvider groupProvider : groups) {
+        if (groupProvider.getGroupId().equals(id)) {
+          return groupProvider.getProviderDatas().get(0).getBundlePath();
+        }
+      }
+      return "";
+    }
+
+    public String pluginRes(String key, String id) {
+      String path = getBundlePath(id);
+      return NotificationUtils.getResourceBundle(key, locale, path);
+    }
+  }
 }

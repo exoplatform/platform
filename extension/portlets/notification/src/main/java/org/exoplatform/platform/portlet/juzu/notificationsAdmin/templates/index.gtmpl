@@ -1,55 +1,62 @@
 #{param name=senderName/}
 #{param name=senderEmail/}
-#{param name=bundle/}
+#{param name=_ctx/}
 #{param name=groups/}
 <div id="notificationAdmin" class="uiNotificationAdmin">
-<h4 class="titleWithBorder">${bundle.getString("NotificationAdmin.title")}</h4>
+<h4 class="titleWithBorder">${_ctx.appRes("NotificationAdmin.title")}</h4>
 <form id="senderForm">
-<h6>${bundle.getString("NotificationAdmin.label.notificationsSender")}</h6>
+<h6>${_ctx.appRes("NotificationAdmin.label.notificationsSender")}</h6>
   <div id="senderInfoMsg"></div>    
   <input id="senderName" name="name" value="${senderName}" placeholder="Name"/>
   <input id="senderEmail" class="right" name="email" value="${senderEmail}" placeholder="Email"/>
-  <input id="btSetSender" class="center" type="button" value="${bundle.getString('NotificationAdmin.label.save')}"/>
+  <input id="btSetSender" class="center" type="button" value="${_ctx.appRes('NotificationAdmin.label.save')}"/>
 </form>
 
-<h6>${bundle.getString("NotificationAdmin.label.notificationTypes")}</h6>
-<table class="uiGrid table  table-hover table-striped">
-  <thead>
-    <tr>
-      <th>${bundle.getString("NotificationAdmin.label.notification")}</th>
-      <th>${bundle.getString("NotificationAdmin.label.title")}</th>
-      <th>${bundle.getString("NotificationAdmin.label.action")}</th>
-    </tr>
-  </thead>
-  <% for(def group : groups) { %>
-    <tr>
-       <td class="group-title">${bundle.getString(group.getResourceBundleKey())}</td>
-       <td></td>
-       <td></td> 
-    </tr>  
-    
-    <% group.getProviderDatas().each() { provider ->
-        def providerId = provider.getType();
-        def status = (provider.isActive() ? "enable" : "disable");
-    %>      
-      <tr id="${providerId}" class="${status}">       
-        <td>
-          ${bundle.getString(provider.getResourceBundleKey())}
+	<h6>${_ctx.appRes("NotificationAdmin.label.notificationTypes")}</h6>
+	<table class="uiGrid table  table-hover table-striped">
+	  <thead>
+	    <tr>
+	      <th>${_ctx.appRes("NotificationAdmin.label.notification")}</th>
+	      <th>${_ctx.appRes("NotificationAdmin.label.title")}</th>
+	      <th class="center">${_ctx.appRes("NotificationAdmin.label.action")}</th>
+	    </tr>
+	  </thead>
+	  <tbody>
+	  <% for(def group : groups) {
+	    	List pluginInfos = group.getProviderDatas();
+	    	if(pluginInfos == null || pluginInfos.size() == 0) {
+			    continue;
+			  }
+	  %>
+	    <tr>
+	       <td class="group-title"><strong>${_ctx.pluginRes(group.getResourceBundleKey(), group.getGroupId())}</strong></td>
+	       <td></td>
+	       <td></td> 
+	    </tr>  
+	    
+	    <% for (def provider : pluginInfos) {
+	         def pluginId = provider.getType();
+	         def status = (provider.isActive() ? "enable" : "disable");
+	    %>      
+      <tr id="${pluginId}" class="${status}">       
+        <td class="left">
+          <label for="${pluginId}">${_ctx.pluginRes(provider.getResourceBundleKey(), pluginId)}</label>
         </td>
-        <td>
-          ${bundle.getString("Notification.title." + providerId)}                    
+        <td class="left">
+          ${_ctx.pluginRes("UINotification.title." + pluginId, pluginId)}                    
         </td>
-        <td>                       
-            <input type="button" class="providerAction ${status}" name="${providerId}">
+        <td class="center">                       
+           <input type="button" class="providerAction ${status}" name="${pluginId}">
         </td>
       </tr>      
-    <% } %>    
-  <% } %>
-</table>
-<div style="display:none;" id="labelBundle">
-<samp id="labelEnable">${bundle.getString("NotificationAdmin.label.enable")}</samp>
-<samp id="labelDisable">${bundle.getString("NotificationAdmin.label.disable")}</samp>
-<samp id="msgSaveOK">${bundle.getString("NotificationAdmin.msg.saveOK")}</samp>
-<samp id="msgSaveKO">${bundle.getString("NotificationAdmin.msg.saveKO")}</samp>
-</div>
+	    <% } %>    
+	  <% } %>
+	  </tbody>
+	</table>
+	<div style="display:none;" id="labelBundle">
+		<span id="labelEnable">${_ctx.appRes("NotificationAdmin.label.enable")}</span>
+		<span id="labelDisable">${_ctx.appRes("NotificationAdmin.label.disable")}</span>
+		<span id="msgSaveOK">${_ctx.appRes("NotificationAdmin.msg.saveOK")}</span>
+		<span id="msgSaveKO">${_ctx.appRes("NotificationAdmin.msg.saveKO")}</span>
+	</div>
 </div>
