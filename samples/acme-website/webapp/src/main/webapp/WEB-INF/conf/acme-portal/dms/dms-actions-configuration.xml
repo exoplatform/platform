@@ -29,7 +29,7 @@
                       <field  name="name"><string>populateToHomePageMenu</string></field>                  
                       <field  name="description"><string>Populate content to home page menu</string></field>
                       <field  name="srcWorkspace"><string>collaboration</string></field>
-                      <field  name="srcPath"><string>/sites/acme/categories</string></field>
+                      <field  name="srcPath"><string>/sites</string></field>
                       <field  name="isDeep"><boolean>true</boolean></field>
                       <field  name="lifecyclePhase">
                         <collection type="java.util.ArrayList">

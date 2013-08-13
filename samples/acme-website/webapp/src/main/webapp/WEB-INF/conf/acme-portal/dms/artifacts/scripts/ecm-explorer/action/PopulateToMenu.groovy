@@ -41,6 +41,7 @@ public class PopulateToMenu implements CmsScript {
   private RepositoryService repositoryService_ ;
   private SessionProviderService seProviderService_;
   private static final Log LOG  = ExoLogger.getLogger("PopulateToMenu");
+  private static final String ACME_CATEGORIES_PATH  =  "sites/acme/categories";
   
   public PopulateToMenu(RepositoryService repositoryService, SessionProviderService sessionProviderService) {
     repositoryService_ = repositoryService ;
@@ -73,8 +74,11 @@ public class PopulateToMenu implements CmsScript {
 		boolean navigableType = node.isNodeType("exo:taxonomy") || node.isNodeType("exo:taxonomyLink") || node.isNodeType("exo:webContent") || node.isNodeType("acme:product");
 		//node should allow exo:navigable mixin addition
 		boolean canAddMixin = node.canAddMixin("exo:navigable");
+        //--- PLF-5111 : Content Navigation menu doesn't work
+       //--- Workaround : add the mixin type *exo:navigable* only to nodes under /sites/acme/categories
+       boolean isPathTaxonomy = node.getPath().contains("sites/acme/categories") ;
 
-		if(canAddMixin && navigableType){
+		if(canAddMixin && navigableType && isPathTaxonomy){
 			if(!node.isNodeType("exo:navigable")){
 				//add mixin exo:navigation
 				node.addMixin("exo:navigable");
