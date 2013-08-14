@@ -210,12 +210,12 @@ public class UIAdminToolbarContainer extends UIPortletApplication {
       Boolean quickEdit = (Boolean) context.getRequest().getSession().getAttribute(Utils.TURN_ON_QUICK_EDIT);
       if (quickEdit == null || !quickEdit) {
         context.getRequest().getSession().setAttribute(Utils.TURN_ON_QUICK_EDIT, true);
-        Utils.updatePortal((PortletRequestContext) event.getRequestContext()); 
-        event.getRequestContext().getJavascriptManager().getRequireJS().addScripts("location.reload(true);");
+        //Utils.updatePortal((PortletRequestContext) event.getRequestContext());         
       } else {
         context.getRequest().getSession().setAttribute(Utils.TURN_ON_QUICK_EDIT, false);
-        Utils.updatePortal((PortletRequestContext) event.getRequestContext());
+        //Utils.updatePortal((PortletRequestContext) event.getRequestContext());
       }
+      event.getRequestContext().getJavascriptManager().getRequireJS().addScripts("location.reload(true);");
     }
   }
 
