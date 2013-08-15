@@ -31,8 +31,12 @@
         <module>juzu-ajax</module>
       </depends>
       <depends>
+        <module>socialUtil</module>
+        <as>socialUtil</as>
+      </depends>
+      <depends>
         <module>jquery</module>
-        <as>$</as>
+        <as>gj</as>
       </depends>
     </module>
   </portlet>

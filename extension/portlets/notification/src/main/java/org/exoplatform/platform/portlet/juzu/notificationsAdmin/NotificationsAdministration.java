@@ -82,17 +82,17 @@ public class NotificationsAdministration {
   
   @Ajax
   @Resource
-  public Response setProvider(String providerId, String enable) {
+  public Response saveActivePlugin(String pluginId, String enable) {
     try{
       if (enable.equals("true") || enable.equals("false"))
-        providerSettingService.saveProvider(providerId, Boolean.valueOf(enable));
+        providerSettingService.saveProvider(pluginId, Boolean.valueOf(enable));
       else throw new Exception("Bad input exception: need to set true/false value to enable or disable the provider");
     }catch(Exception e){
-      return new Response.Error("Exception in switching stat of provider "+providerId+". " + e.toString());
+      return new Response.Error("Exception in switching stat of provider "+pluginId+". " + e.toString());
     }
     Boolean isEnable = new Boolean(enable);    
     JSON data = new JSON();
-    data.set("provider", providerId);
+    data.set("pluginId", pluginId);
     data.set("isEnable", (isEnable)); // current status
    
     return Response.ok(data.toString()).withMimeType("application/json");
@@ -100,7 +100,7 @@ public class NotificationsAdministration {
   
   @Ajax
   @Resource
-  public Response setSender(String name, String email) {
+  public Response saveSender(String name, String email) {
     if(name != null && name.length() > 0
          && isValidEmailAddresses(email)) {
       

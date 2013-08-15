@@ -6,7 +6,20 @@
 <h4 class="titleWithBorder">${_ctx.appRes("NotificationAdmin.title")}</h4>
 <form id="senderForm">
 <h6>${_ctx.appRes("NotificationAdmin.label.notificationsSender")}</h6>
-  <div id="senderInfoMsg"></div>    
+  <div class="UIPopupWindow UIDragObject uiPopup UISocialConfirmation" style="width: 550px; display: none;">
+		<div class="popupHeader ClearFix">
+			<a class="uiIconClose pull-right" title="${_ctx.appRes("UINotification.action.Close")}"></a>
+			<span class="PopupTitle popupTitle"></span>
+		</div>
+		<div class="PopupContent popupContent">
+			<ul class="singleMessage popupMessage resizable">
+				<li>
+					<span class="confirmationIcon contentMessage"></span>
+				</li>
+			</ul>
+			<div class="uiAction uiActionBorder"></div>
+		</div>			
+	</div>  
   <input id="senderName" name="name" value="${senderName}" placeholder="Name"/>
   <input id="senderEmail" class="right" name="email" value="${senderEmail}" placeholder="Email"/>
   <input id="btSetSender" class="center" type="button" value="${_ctx.appRes('NotificationAdmin.label.save')}"/>
@@ -54,8 +67,11 @@
 	  </tbody>
 	</table>
 	<div style="display:none;" id="labelBundle">
-		<span id="labelEnable">${_ctx.appRes("NotificationAdmin.label.enable")}</span>
-		<span id="labelDisable">${_ctx.appRes("NotificationAdmin.label.disable")}</span>
+		<span id="labelEnable">${_ctx.appRes("NotificationAdmin.label.Enable")}</span>
+		<span id="labelDisable">${_ctx.appRes("NotificationAdmin.label.Disable")}</span>
+		<span id="labelOK">${_ctx.appRes("NotificationAdmin.label.OK")}</span>
+		<span id="labelClose">${_ctx.appRes("UINotification.action.Close")}</span>
+		<span id="Information">${_ctx.appRes("NotificationAdmin.label.Information")}</span>
 		<span id="msgSaveOK">${_ctx.appRes("NotificationAdmin.msg.saveOK")}</span>
 		<span id="msgSaveKO">${_ctx.appRes("NotificationAdmin.msg.saveKO")}</span>
 	</div>

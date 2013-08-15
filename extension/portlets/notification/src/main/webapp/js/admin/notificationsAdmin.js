@@ -1,65 +1,75 @@
-(function($) {
-
+(function(sUtils, $) {
   var localizeStatus = $("div#labelBundle");
-  var labelEnable = $("samp#labelEnable", localizeStatus).html();
-  var labelDisable = $("samp#labelDisable", localizeStatus).html();
-  var senderInfoMsg = $("div#senderInfoMsg");
-
-  function switchStatus(providerId, isEnable) {
-    $("#notificationAdmin").jzAjax({
-      url : "NotificationsAdministration.setProvider()",
-      data : {
-        "providerId" : providerId,
-        "enable" : isEnable
+  var NotificationAdmin = {
+      label : {
+          Enable : $("span#labelEnable", localizeStatus).text(),
+          Disable : $("span#labelDisable", localizeStatus).text(),
+          Information : $("span#Information", localizeStatus).text(),
+          OK : $("span#labelOK", localizeStatus).text(),
+          Close : $("span#labelClose", localizeStatus).text()
       },
-      success : function(data) {
-        var clazz = (data.isEnable === true) ? 'enable' : 'disable';
-        provider = $("tr#" + data.provider);
-        provider.attr("class", clazz);
-        action = $('input[name=' + data.provider + ']')
-        action.attr('class', 'providerAction ' + clazz);
-        action.val((data.isEnable === true) ? labelDisable : labelEnable);
-      }
-    }).fail(function(jqXHR, textStatus) {
-      alert("Request failed: " + textStatus + ". " + jqXHR);
-    });
-  }
-
-  function saveSenderInfo(name, email) {
-    senderInfoMsg.hide();
-    $("#notificationAdmin").jzAjax({
-      url : "NotificationsAdministration.setSender()",
-      data : {
-        "name" : name,
-        "email" : email
+      msg : {
+        OK : $("span#msgSaveOK", localizeStatus).text(),
+        NOK: $("span#msgSaveKO", localizeStatus).text()
       },
-      success : function(res) {
-        if (res.status == "OK") {
-          var msgOK = $("samp#msgSaveOK", localizeStatus).html();
-          senderInfoMsg.html(msgOK + " \"" + res.name + " [" + res.email + "] \"");
-          senderInfoMsg.show();
-        }
+      init : function() {
+        var buttons = $("input.providerAction");
+        buttons.on('click', function(e) {
+          NotificationAdmin.switchStatus($(this).attr('name'), $(this).hasClass("disable"));
+        });
+        //
+        buttons.each(function(index) {
+          $(this).attr('value', ($(this).hasClass('enable')) ? NotificationAdmin.label.Disable : NotificationAdmin.label.Enable);
+        });
+        //
+        $("#btSetSender").click(function() {
+          NotificationAdmin.saveSenderInfo($("input#senderName").val(), $("input#senderEmail").val());
+        });
+
+      },
+      
+      switchStatus : function(pluginId, isEnable) {
+        $("#notificationAdmin").jzAjax({
+          url : "NotificationsAdministration.saveActivePlugin()",
+          data : {
+            "pluginId" : pluginId,
+            "enable" : isEnable
+          },
+          success : function(data) {
+            var clazz = (data.isEnable === true) ? 'enable' : 'disable';
+            var plugin = $("tr#" + data.pluginId);
+            plugin.attr("class", clazz);
+            var action = $('input[name=' + data.pluginId + ']')
+            action.attr('class', 'providerAction ' + clazz);
+            action.val((data.isEnable === true) ? NotificationAdmin.label.Disable : NotificationAdmin.label.Enable);
+          }
+        }).fail(function(jqXHR, textStatus) {
+          alert("Request failed: " + textStatus + ". " + jqXHR);
+        });
+      },
+      
+      saveSenderInfo : function(name, email) {
+        $("#notificationAdmin").jzAjax({
+          url : "NotificationsAdministration.saveSender()",
+          data : {
+            "name" : name,
+            "email" : email
+          },
+          success : function(res) {
+            if (res.status == "OK") {
+              var msgOk = NotificationAdmin.msg.OK;
+              msgOk = msgOk.replace('{0}', res.name).replace('{1}', res.email).replace('<', '&lt;');
+              sUtils.PopupConfirmation.confirm('notificationAdmin', {}, NotificationAdmin.label.Information, msgOk, NotificationAdmin.label.Close);
+            }
+          }
+        }).fail(function(jqXHR, textStatus) {
+          var msgKO = NotificationAdmin.msg.NOK;
+          sUtils.PopupConfirmation.confirm('notificationAdmin', {}, NotificationAdmin.label.Information, msgKO, NotificationAdmin.label.Close);
+        });
       }
-    }).fail(function(jqXHR, textStatus) {
-      var msgKO = $("samp#msgSaveKO", localizeStatus).html();
-      senderInfoMsg.html(msgKO + textStatus);
-      msgKO.show();
-    });
-  }
+  };
 
-  $("#btSetSender").click(function() {
-    saveSenderInfo($("input#senderName").attr("value"), $("input#senderEmail").attr("value"));
-  });
+  NotificationAdmin.init();
+  return NotificationAdmin;
 
-  $("input.providerAction").each(function(index) {
-    if ($(this).hasClass('enable'))
-      $(this).attr('value', labelDisable);
-    else if ($(this).hasClass('disable'))
-      $(this).attr('value', labelEnable);
-
-    $(this).click(function() {
-      switchStatus(this.name, $(this).hasClass("enable"));
-    });
-  });
-
-})($);
+})(socialUtil, gj);
