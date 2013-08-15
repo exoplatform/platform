@@ -5,7 +5,7 @@
          <topic>Chủ đề</topic>
          <poll>Thăm dò ý kiến</poll>
          <eventtask>Sự kiện/Nhiệm vụ</eventtask>
-         <upload>Tải lên một Tệp</upload>
+         <upload>Tải Tệp lên</upload>
          <wiki>Trang Wiki</wiki>
 
       </label>
@@ -15,7 +15,7 @@
          <topic>chủ đề</topic>
          <poll>thăm dò</poll>
          <CreateANew>Tạo mới {1}:</CreateANew>
-         <NoForum>Rất tiếc là không có sẵn diễn đàn để tạo một {1}. Hãy bắt đầu bằng cách tạo không gian riêng của bạn.</NoForum>
+         <NoForum>Rất tiếc là không có sẵn diễn đàn để tạo một {1}. Hãy bắt đầu bằng cách tạo nhóm riêng của bạn.</NoForum>
          <RequireSelectForum>Vui lòng chọn một diễn đàn.</RequireSelectForum>
       </label>
       <action>
@@ -73,7 +73,7 @@
       </action>
    </UICreateEvent>
     <UIUploadFile>
-        <Select>Chọn tập tin</Select>
+        <Select>Chọn Tệp</Select>
     </UIUploadFile>
    <Choix>
       <label>

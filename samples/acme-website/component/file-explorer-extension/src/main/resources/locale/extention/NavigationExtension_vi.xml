@@ -2,17 +2,17 @@
 <bundle>
 <UIActionBar>
 <tooltip>
-<ContentNavigation>Nội Dung Navigation</ContentNavigation>
+<ContentNavigation>Điều hướng Nội dung</ContentNavigation>
 </tooltip>
 </UIActionBar>
 <UIViewFormTabPane>
 <label>
-<contentNavigation>Navigation theo Nội dung</contentNavigation>
+<contentNavigation>Điều hướng theo Nội dung</contentNavigation>
 </label>
 </UIViewFormTabPane>
 <UIPopupWindow>
 <title>
-<UINavigationForm>Thông tin Navigation</UINavigationForm>
+<UINavigationForm>Thông tin Điều hướng</UINavigationForm>
 </title>
 </UIPopupWindow>
 <PopulateToMenu>
@@ -21,11 +21,11 @@
 <id>Mã:</id>
 <name>Tên:</name>
 <lifecycle>Vòng đời:</lifecycle>
-<isDeep>Tác động sâu</isDeep>
-<nodetypes>Loại Node:</nodetypes>
+<isDeep>Tác động Sâu</isDeep>
+<nodetypes>Kiểu Nút</nodetypes>
 <description>Mô tả:</description>
-<affectedNodeTypeNames>Loại Node bị ảnh hưởng:</affectedNodeTypeNames>
-<navigationNode>Navigation của Node</navigationNode>
+<affectedNodeTypeNames>Kiểu Nút bị Ảnh hưởng:</affectedNodeTypeNames>
+<navigationNode>Nút Điều hướng</navigationNode>
 <index>Mục lục:</index>
 <clickable>Có thể nhấp chuột:</clickable>
 <page>Trang:</page>
@@ -37,10 +37,10 @@
 <label>
 <Node>Thư mục Cha</Node>
 <Visible>Có thể nhìn thấy:</Visible>
-<NavigationNodeInputSet>Navigation Đích Cha:</NavigationNodeInputSet>
+<NavigationNodeInputSet>Điều hướng Đích Cha</NavigationNodeInputSet>
 <Index>Thứ tự Hiển thị:</Index>
 <Clickable>Có thể nhấp chuột:</Clickable>
-<NavigationControls>Điều khiển Navigation</NavigationControls>
+<NavigationControls>Điều khiển Điều hướng</NavigationControls>
 <ListTargetPageFormInputSet>Trang cho Danh sách:</ListTargetPageFormInputSet>
 <ListShowCLVByStringInput>Tên Tham số:</ListShowCLVByStringInput>
 <DetailTargetPageInputSet>Trang Chi tiết:</DetailTargetPageInputSet>
@@ -67,7 +67,7 @@
 </Clickable>
 <NavigationNodeInputSet>
 <title>
-<SelectNavigationNode>Chọn Navigation của Node</SelectNavigationNode>
+<SelectNavigationNode>Chọn Nút Điều hướng</SelectNavigationNode>
 <RemoveNavigationNode>Làm lại</RemoveNavigationNode>
 </title>
 </NavigationNodeInputSet>
@@ -85,7 +85,7 @@
 </DetailTargetPageInputSet>
 <NavigationSelectorPopupWindow>
 <title>
-<UINavigationSelector>Chọn Navigation</UINavigationSelector>
+<UINavigationSelector>Chọn Điều hướng</UINavigationSelector>
 </title>
 </NavigationSelectorPopupWindow>
 <ListTargetPageSelectorPopupWindow>
