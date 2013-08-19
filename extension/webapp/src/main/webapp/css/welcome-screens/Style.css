@@ -25,9 +25,9 @@ a {
     margin: 140px auto 0;
     width: 280px;
 }
-.accountSetupError{
-    color: red;
-    padding-bottom: 10px;
+.accountSetupError {
+    color: #333333;
+	padding-bottom: 10px;
 }
 .uiWelcomeBox {
     background-color:  #fff;
@@ -207,3 +207,11 @@ a {
     border: 1px solid #dfdfdf;
     border-radius: 7px;
 }
+ .uiIconError {
+    background: url("/eXoResources/skin/images/Icons/uiIconColor.png") no-repeat scroll left top transparent;
+    padding-left: 20px;
+}
+.uiIconWarning {
+  	background: url("/eXoResources/skin/images/Icons/uiIconColor.png") no-repeat -20px top transparent;
+	padding-left: 20px;
+ }
