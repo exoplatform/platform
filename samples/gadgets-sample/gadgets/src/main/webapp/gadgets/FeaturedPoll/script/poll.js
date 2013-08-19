@@ -9,6 +9,7 @@ function init() {
 	$('.settingBt').click(function() {
 		config();
 	});
+	$("#tooltipSetting").tooltip();
 }
 
 function createPollDiv() {

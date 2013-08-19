@@ -19,7 +19,8 @@
   <link rel="stylesheet" type="text/css" href="/eXoResources/skin/css/Core.css" />
   <link type="text/css" rel="stylesheet" href="/exo-gadget-resources/skin/exo-gadget/gadget-common.css" />
   <link rel="stylesheet" type="text/css" href="/intranet-gadgets/skin/css/Profile.css" />
-  <script language="javascript" type="text/javascript" src="/eXoResources/javascript/jquery-1.7.1.js"></script>  
+  <script language="javascript" type="text/javascript" src="/eXoResources/javascript/jquery-1.7.1.js"></script>
+  <script language="javascript" type="text/javascript" src="/eXoResources/skin/bootstrap/js/bootstrap-tooltip.js"></script>
   <script type="text/javascript" src="script/profile.js"></script>
     
     <!-- View of the gadget  -->

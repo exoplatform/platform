@@ -336,7 +336,7 @@
      <div id="content" class="UIGadgetThemes bookmark uiBox">
        <h6 class="title left">          
          __MSG_title__
-             <a class="actionIcon pull-right" href="#" id="customize" ref="tooltip" data-placement="left" title data-original-title="Add Bookmark">
+             <a class="actionIcon pull-right" href="#" id="customize" ref="tooltip" data-placement="left" data-original-title="Add Bookmark">
                  <i class="uiIconPlus uiIconLightGray"></i>
              </a>
        </h6>
