@@ -17,20 +17,16 @@
 package org.exoplatform.platform.portlet.juzu.notificationsAdmin;
 
 
+import java.util.HashMap;
+import java.util.List;
+import java.util.Locale;
+import java.util.Map;
+import java.util.ResourceBundle;
+
 import javax.inject.Inject;
 import javax.mail.internet.AddressException;
 import javax.mail.internet.InternetAddress;
-
-import org.apache.commons.lang.StringUtils;
-import org.exoplatform.commons.api.notification.model.GroupProvider;
-import org.exoplatform.commons.api.notification.plugin.config.PluginConfig;
-import org.exoplatform.commons.api.notification.service.setting.ProviderSettingService;
-import org.exoplatform.commons.juzu.ajax.Ajax;
-import org.exoplatform.commons.notification.NotificationUtils;
-import org.exoplatform.commons.notification.impl.DigestDailyPlugin;
-import org.exoplatform.services.log.ExoLogger;
-import org.exoplatform.services.log.Log;
-
+import javax.servlet.http.HttpServletRequest;
 
 import juzu.Path;
 import juzu.Resource;
@@ -40,11 +36,21 @@ import juzu.impl.common.JSON;
 import juzu.request.RenderContext;
 import juzu.template.Template;
 
-import java.util.List;
-import java.util.Locale;
-import java.util.Map;
-import java.util.HashMap;
-import java.util.ResourceBundle;
+import org.apache.commons.lang.StringUtils;
+import org.exoplatform.commons.api.notification.model.GroupProvider;
+import org.exoplatform.commons.api.notification.plugin.config.PluginConfig;
+import org.exoplatform.commons.api.notification.service.setting.ProviderSettingService;
+import org.exoplatform.commons.juzu.ajax.Ajax;
+import org.exoplatform.commons.notification.NotificationUtils;
+import org.exoplatform.commons.notification.impl.DigestDailyPlugin;
+import org.exoplatform.commons.utils.CommonsUtils;
+import org.exoplatform.container.PortalContainer;
+import org.exoplatform.portal.application.PortalRequestContext;
+import org.exoplatform.portal.webui.util.Util;
+import org.exoplatform.services.log.ExoLogger;
+import org.exoplatform.services.log.Log;
+import org.exoplatform.web.application.JavascriptManager;
+import org.exoplatform.webui.application.WebuiRequestContext;
 
 
 public class NotificationsAdministration {
@@ -64,6 +70,11 @@ public class NotificationsAdministration {
   
   @View
   public void index(RenderContext renderContext){
+    //Redirect yo the home's page when the feature is off
+    if (! CommonsUtils.isFeatureActive(NotificationUtils.FEATURE_NAME)) {
+      redirectToHomePage();
+      return;
+    }
     
     this.locale = renderContext.getUserContext().getLocale();
     ResourceBundle rs = renderContext.getApplicationContext().resolveBundle(this.locale);
@@ -79,6 +90,21 @@ public class NotificationsAdministration {
     index.render(parameters);      
   }  
  
+  private void redirectToHomePage() {
+    PortalRequestContext portalRequestContext = Util.getPortalRequestContext();
+    HttpServletRequest currentServletRequest = portalRequestContext.getRequest();
+    StringBuilder sb = new StringBuilder();
+    sb.append(currentServletRequest.getScheme()).append("://")
+      .append(currentServletRequest.getServerName())
+      .append(":").append(currentServletRequest.getServerPort())
+      .append("/").append(PortalContainer.getCurrentPortalContainerName())
+      .append("/").append(Util.getPortalRequestContext().getPortalOwner());
+    
+    WebuiRequestContext ctx = WebuiRequestContext.getCurrentInstance();
+    JavascriptManager jsManager = ctx.getJavascriptManager();
+    jsManager.addJavascript("try { window.location.href='" + sb.toString() + "' } catch(e) {" +
+            "window.location.href('" + sb.toString() + "') }");
+  }
   
   @Ajax
   @Resource
