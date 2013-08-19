@@ -198,7 +198,7 @@ gadgets.util.registerOnLoadHandler(loadUser);
     </script>
 
        <div id="FavoriteDocument-Gadget" class="UIGadgetThemes favoriteDoc uiBox">
-            <h6 class="title center clearfix">
+            <h6 class="title left">
             <a href="#demo" class="actionIcon pull-right" id="ShowAll" target="_parent">
               <i class="uiIconFavoriteDocument uiIconLightGray"></i>
             </a>

@@ -243,10 +243,10 @@ eXoEventGadget.prototype.render =  function(data){
 		else time = parseInt(item.fromDateTime.time);
 		var fullDate = eXoEventGadget.getFullTime(new Date(time));
 		//time = DateTimeFormater.format(new Date(time),timemask);
-		html += '<div class="CheckBox ' + className + '">';
+		html += '<label class="uiCheckbox ' + className + '">';
 		html += '<input type="checkbox" ' + status + ' id="checkbox_fd_' + i + '" name="checkbox" onclick="eXoEventGadget.doTask(this);" value="'+ item.id + '"></input>';
-		html += '<label for="checkbox_fd_' + i + '" onclick="eXoEventGadget.showDetail(this);">' + fullDate +  '<span>'+ item.summary +'</span></label>';
-		html += '</div>';
+		html += '<span for="checkbox_fd_' + i + '" onclick="eXoEventGadget.showDetail(this);">' + fullDate +  '<span>'+ item.summary +'</span></span>';
+		html += '</label>';
 		if(item.description) html += '<div class="TaskDetail">' + item.description + '</div>';
 	}		
   	cont.innerHTML = html;
@@ -279,7 +279,7 @@ eXoEventGadget.prototype.renderEvent =  function(data){
 		else time = parseInt(item.fromDateTime.time);
 		var fullDate = eXoEventGadget.getFullTime(new Date(time));
 		//time = DateTimeFormater.format(new Date(time),timemask);
-		html += '<a href="javascript:void(0);" class="IconLink" onclick="eXoEventGadget.showDetailEvent(this);">' + fullDate + '<span>'+ item.summary +'</span></a>';
+		html += '<a href="javascript:void(0);" class="IconLink" onclick="eXoEventGadget.showDetailEvent(this);"><i class="uiIconMiniArrowRight uiIconLightGray caretIcon"></i>' + fullDate + '<span>'+ item.summary +'</span></a>';
 		if(item.description) html += '<div class="EventDetail">' + item.description + '</div>';
   	}
   	html += '';

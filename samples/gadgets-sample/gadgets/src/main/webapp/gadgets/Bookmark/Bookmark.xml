@@ -19,10 +19,10 @@
   <![CDATA[     
     
   <head>
-    <link type="text/css" rel="stylesheet" href="/exo-gadget-resources/skin/exo-gadget/gadget-common.css" />
-    <link type="text/css" rel="stylesheet" href="/intranet-gadgets/skin/css/Bookmark.css" />
     <link rel="stylesheet" type="text/css" href="/eXoResources/skin/bootstrap/css/bootstrap.css" />
     <link rel="stylesheet" type="text/css" href="/eXoResources/skin/css/Core.css" />
+    <link type="text/css" rel="stylesheet" href="/exo-gadget-resources/skin/exo-gadget/gadget-common.css" />
+    <link type="text/css" rel="stylesheet" href="/intranet-gadgets/skin/css/Bookmark.css" />
   <style type="text/css">
    /* Bookmark */
          
@@ -223,13 +223,8 @@
           });
       
       function tooltipCustomize(){
-        //$("#customize").tooltip('show');   
-        var margin = "90px";
-        var arrowMargin = "30px"; //coff 1:3
-         $("#customize").width(margin);
-         $("#customize").siblings(".center").css("margin-left",margin);
          $("#customize").tooltip({
-            template: '<div class="tooltip" style="white-space: nowrap;"><div class="tooltip-arrow" style="margin-left:'+arrowMargin+'"></div><div class="tooltip-inner" style="max-width: none"></div></div>'
+            template: '<div class="tooltip" style="white-space: nowrap;"><div class="tooltip-arrow" ></div><div class="tooltip-inner" style="max-width: none"></div></div>'
           });
         
         //$('#customize').data('tooltip').options.placement = 'left';
@@ -339,14 +334,12 @@
   </head>
  
      <div id="content" class="UIGadgetThemes bookmark uiBox">
-       <div class="title">         
-         <div class="pull-right left" id="customize" ref="tooltip" data-placement="bottom" title data-original-title="Add Bookmark">
-             <a class="actionIcon pull-right" href="#">
-                 <i class="uiIconPlus uiIconLightGray pull-right"></i>
+       <h6 class="title left">          
+         __MSG_title__
+             <a class="actionIcon pull-right" href="#" id="customize" ref="tooltip" data-placement="left" title data-original-title="Add Bookmark">
+                 <i class="uiIconPlus uiIconLightGray"></i>
              </a>
-         </div>          
-         <div class="center"><b>__MSG_title__</b></div>
-       </div>
+       </h6>
        
       <div class="uiContentBox">
         <div id="emptyMsg" style="display:none;">

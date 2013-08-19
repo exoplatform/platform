@@ -14,10 +14,10 @@
   <Content type="html">
     <![CDATA[           
           <title>__MSG_title__</title>
-          <link rel="stylesheet" href="/intranet-gadgets/skin/css/WhoIsOnline.css" type="text/css" />
           <link rel="stylesheet" type="text/css" href="/eXoResources/skin/bootstrap/css/bootstrap.css" />    
           <link rel="stylesheet" type="text/css" href="/eXoResources/skin/css/Core.css" />
           <link rel="stylesheet" type="text/css" href="/exo-gadget-resources/skin/exo-gadget/gadget-common.css" />
+          <link rel="stylesheet" href="/intranet-gadgets/skin/css/WhoIsOnline.css" type="text/css" />
           <script language="javascript" type="text/javascript" src="/exo-gadget-resources/script/jquery/1.6.2/jquery.min.js"></script>
           <script language="javascript" type="text/javascript" src="/exo-gadget-resources/script/jquery/plugins/jquery.timers/1.2/jquery.timers.js"></script>
           <script>
@@ -110,25 +110,23 @@
         }        
           </script>
   
-          <div id="online-gadget" class="UIGadgetThemes">
-            <div class="TitGad ClearFix">
-              <div class="ContTit">__MSG_title__</div>
-            </div>
+          <div id="online-gadget" class="UIGadgetThemes uiBox">
+            <h6 class="title">__MSG_title__</h6>
+            <div class="uiContentBox">
+			<div class="uiTabSelectorCenter">
+				<div class="btn-group">
+				  <button id="yourContactsHeader" class="btn" onclick="show_connections();">__MSG_myConnections__</button>
+				  <button id='otherHeader' class="btn" onclick="show_others();">__MSG_other__</button>
+				</div>
+			</div>
             
-            <div class="GadCont">
-                            
-            <div class="btn-group">
-              <button id="yourContactsHeader" class="btn" onclick="show_connections();">__MSG_myConnections__</button>
-              <button id='otherHeader' class="btn" onclick="show_others();">__MSG_other__</button>
-            </div>
-            
-            <div id="connectionTab" style="padding-top: 10px; margin-left:3px">
-              <div id="noOnlineUsers" style="display: none; margin-left:7px;" class="light_message">__MSG_noOnlineUsers__</div>
+            <div id="connectionTab">
+              <div id="noOnlineUsers" style="display: none;" class="light_message">__MSG_noOnlineUsers__</div>
               <table id="yourContactsTable" cellpadding="2" style="margin-left: 3px; width:100%">
               </table>
             </div>
            
-            <div id="otherTab" style="padding: 10px 8px 0px 0px; margin-left:10px">
+            <div id="otherTab">
               <div id="otherDiv"></div>
             </div>
             </div>  

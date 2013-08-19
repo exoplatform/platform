@@ -23,22 +23,24 @@
   
   <Content type="html">
     <![CDATA[     
-    <link type="text/css" rel="stylesheet" href="/intranet-gadgets/skin/css/NewSpace.css"/>
-    <link type="text/css" rel="stylesheet" href="/exo-gadget-resources/skin/exo-gadget/gadget-common.css" />
+    <link rel="stylesheet" type="text/css" href="/eXoResources/skin/bootstrap/css/bootstrap.css" />    
+    <link rel="stylesheet" type="text/css" href="/eXoResources/skin/css/Core.css" />
+	<link type="text/css" rel="stylesheet" href="/exo-gadget-resources/skin/exo-gadget/gadget-common.css" />
+	<link type="text/css" rel="stylesheet" href="/intranet-gadgets/skin/css/NewSpace.css"/>
     
     <script type="text/javascript" src="./script/newSpaces.js"></script>
     <script type="text/javascript" src="./script/date.format.js"></script>
     <script language="javascript" type="text/javascript" src="/exo-gadget-resources/script/jquery/1.6.2/jquery.min.js"></script>
        
-    <div id="NewSpaces-Gadget" class="UIGadgetThemes UIYellowThemes">
-      <div class="TitGad ClearFix">
-        <a target="_parent" id="ShowAll" class="IconDropDown">__MSG_showAll__</a>
+    <div id="NewSpaces-Gadget" class="UIGadgetThemes uiBox">
+      <h6 class="title left">
+        <a target="_parent" id="ShowAll" class="btn btn-primary btn-mini pull-right">__MSG_showAll__</a>
         <div title="Setting" id="SettingButton" class="SettingButton">
           <a href="javascript:eXoEventGadget.showHideSetting(true);"></a>
         </div>
-        <div class="ContTit" id="newSpacesGadgetTitle">__MSG_title__</div>
-      </div>
-      <div id="newSpacesContainer" class="GadCont">
+        <span id="newSpacesGadgetTitle">__MSG_title__</span>
+      </h6>
+      <div id="newSpacesContainer" class="uiContentBox">
       </div>    
     </div>
     ]]>

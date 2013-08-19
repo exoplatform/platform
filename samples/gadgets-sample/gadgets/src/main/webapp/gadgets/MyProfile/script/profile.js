@@ -38,12 +38,13 @@ function onLoadProfile(data) {
   var html = new Array();
   html.push('<div class="ProfilePicture">',
             '<img class="GadCont ProfilePicture" src="' + profileThumb + '" alt="Thumb"/></div>',
-            '<div class="GadCont ProfileInfo">', profileName, "<br/>",
-            '<a target="_parent" href="' + profileUrl + '">' + linkmodifylabel + '</a>');
+            '<div class="GadCont ProfileInfo">', profileName, "</div>");
   
-  document.getElementById('Profil').innerHTML = html.join('');
+  document.getElementById('myProfileBox').innerHTML = html.join('');  
+  $('#myProfileTitle').append('<a class="actionIcon pull-right" href="'+ profileUrl +'"><i class="uiIconEdit uiIconLightGray"></i></a>');
+  gadgets.window.adjustHeight($("#ProfileGadget").get(0).offsetHeight);
 }
 
 function init() {
-  loadProfile();
+  loadProfile();  
 }

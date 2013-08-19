@@ -5,6 +5,7 @@
     description="My Profile is a gadget to display the current user information for eXo Social."
     height="100" >
     <Require feature="opensocial-0.8" />
+    <Require feature="dynamic-height" />
     <Require feature="views" />
     <Require feature="settitle" />
     <Require feature="minimessage" />
@@ -14,23 +15,26 @@
   </ModulePrefs>
   <Content type="html" view="default, home, profile">
   <![CDATA[   
-  
-  <link rel="stylesheet" type="text/css" href="/intranet-gadgets/skin/css/Profile.css" />
+  <link rel="stylesheet" type="text/css" href="/eXoResources/skin/bootstrap/css/bootstrap.css" />    
+  <link rel="stylesheet" type="text/css" href="/eXoResources/skin/css/Core.css" />
   <link type="text/css" rel="stylesheet" href="/exo-gadget-resources/skin/exo-gadget/gadget-common.css" />
+  <link rel="stylesheet" type="text/css" href="/intranet-gadgets/skin/css/Profile.css" />
+  <script language="javascript" type="text/javascript" src="/eXoResources/javascript/jquery-1.7.1.js"></script>  
   <script type="text/javascript" src="script/profile.js"></script>
     
-  <script type="text/javascript">
-   gadgets.util.registerOnLoadHandler(init);
-  </script>
-    
     <!-- View of the gadget  -->
-    <div class="UIGadgetThemes">
-      <div class="TitGad ClearFix">
-        <div class="ContTit">__MSG_title__</div>
-      </div>
-      <div class="GadCont" id="Profil">
-    
+    <div class="UIGadgetThemes uiBox"  id="ProfileGadget">
+      <h6 id="myProfileTitle" class="title left">
+        __MSG_title__
+      </h6>
+      <div class="uiContentBox" id="Profile">
+		<div id="myProfileBox" class="myProfileBox"></div>
       </div>
     </div>
-  ]]></Content>
+    
+    <script type="text/javascript">
+    gadgets.util.registerOnLoadHandler(init);
+  </script>
+  ]]>
+  </Content>
 </Module>
