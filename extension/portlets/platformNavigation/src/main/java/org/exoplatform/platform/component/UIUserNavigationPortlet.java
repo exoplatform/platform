@@ -19,7 +19,6 @@
 package org.exoplatform.platform.component;
 
 import org.apache.commons.lang.ArrayUtils;
-import org.exoplatform.commons.api.notification.service.setting.ProviderSettingService;
 import org.exoplatform.commons.utils.CommonsUtils;
 import org.exoplatform.platform.navigation.component.utils.DashboardUtils;
 import org.exoplatform.platform.webui.NavigationURLUtils;

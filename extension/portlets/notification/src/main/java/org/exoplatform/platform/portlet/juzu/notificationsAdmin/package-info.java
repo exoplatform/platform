@@ -17,13 +17,14 @@
 
 @Application
 @Portlet
-@Bindings({ @Binding(ProviderSettingService.class) })
+@Bindings({ @Binding(PluginSettingService.class) })
 
 package org.exoplatform.platform.portlet.juzu.notificationsAdmin;
 
 import juzu.Application;
-import juzu.plugin.portlet.Portlet;
 import juzu.plugin.binding.Binding;
 import juzu.plugin.binding.Bindings;
-import org.exoplatform.commons.api.notification.service.setting.ProviderSettingService;
+import juzu.plugin.portlet.Portlet;
+
+import org.exoplatform.commons.api.notification.service.setting.PluginSettingService;
 

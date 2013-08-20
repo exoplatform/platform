@@ -39,10 +39,11 @@ import juzu.template.Template;
 import org.apache.commons.lang.StringUtils;
 import org.exoplatform.commons.api.notification.model.GroupProvider;
 import org.exoplatform.commons.api.notification.plugin.config.PluginConfig;
-import org.exoplatform.commons.api.notification.service.setting.ProviderSettingService;
+import org.exoplatform.commons.api.notification.service.setting.PluginSettingService;
 import org.exoplatform.commons.juzu.ajax.Ajax;
 import org.exoplatform.commons.notification.NotificationUtils;
 import org.exoplatform.commons.notification.impl.DigestDailyPlugin;
+import org.exoplatform.commons.notification.template.TemplateUtils;
 import org.exoplatform.commons.utils.CommonsUtils;
 import org.exoplatform.container.PortalContainer;
 import org.exoplatform.portal.application.PortalRequestContext;
@@ -64,7 +65,7 @@ public class NotificationsAdministration {
   ResourceBundle bundle;  
   
   @Inject
-  ProviderSettingService providerSettingService;
+  PluginSettingService providerSettingService;
 
   private Locale locale = Locale.ENGLISH;
   
@@ -81,7 +82,7 @@ public class NotificationsAdministration {
     Map<String, Object> parameters = new HashMap<String, Object>();
     parameters.put("_ctx", new Context(rs));   
     
-    List<GroupProvider> groups = providerSettingService.getGroupProviders();
+    List<GroupProvider> groups = providerSettingService.getGroupPlugins();
     parameters.put("groups", groups);     
     
     parameters.put("senderName", System.getProperty("exo.notifications.portalname", "eXo"));
@@ -111,7 +112,7 @@ public class NotificationsAdministration {
   public Response saveActivePlugin(String pluginId, String enable) {
     try{
       if (enable.equals("true") || enable.equals("false"))
-        providerSettingService.saveProvider(pluginId, Boolean.valueOf(enable));
+        providerSettingService.savePlugin(pluginId, Boolean.valueOf(enable));
       else throw new Exception("Bad input exception: need to set true/false value to enable or disable the provider");
     }catch(Exception e){
       return new Response.Error("Exception in switching stat of provider "+pluginId+". " + e.toString());
@@ -190,7 +191,7 @@ public class NotificationsAdministration {
             .getTemplateConfig().getBundlePath();
       }
       //
-      List<GroupProvider> groups = providerSettingService.getGroupProviders();
+      List<GroupProvider> groups = providerSettingService.getGroupPlugins();
       for (GroupProvider groupProvider : groups) {
         if (groupProvider.getGroupId().equals(id)) {
           return groupProvider.getProviderDatas().get(0).getBundlePath();
@@ -201,7 +202,7 @@ public class NotificationsAdministration {
 
     public String pluginRes(String key, String id) {
       String path = getBundlePath(id);
-      return NotificationUtils.getResourceBundle(key, locale, path);
+      return TemplateUtils.getResourceBundle(key, locale, path);
     }
   }
 }
