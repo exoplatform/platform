@@ -37,7 +37,7 @@
         <docbook.source>${project.build.directory}/docbook-src</docbook.source>
         <jcr.source>${project.build.directory}/docbook-src/org.exoplatform.jcr</jcr.source>
         <!-- Override version of JCR to get the new structure and so the artifact from platform-documentation -->
-	<org.exoplatform.jcr.version>3.5.8-SNAPSHOT</org.exoplatform.jcr.version>
+	<org.exoplatform.jcr.version>3.5.9-SNAPSHOT</org.exoplatform.jcr.version>
       </properties>
       <build>
         <plugins>
