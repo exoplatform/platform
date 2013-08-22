@@ -257,8 +257,6 @@ requireJS.require("SHARED/jcarousellite", "jqC");
     }
     %>
 
-    <div class="ProDetailPage">
-
     <!-- Hot news -->
     <div class="BigNews ClearFix">
         <!-- Begin illustrative image -->
@@ -473,8 +471,9 @@ requireJS.require("SHARED/jcarousellite", "jqC");
             <div class="ResourBoxC"><%=_ctx.appRes("Product.view.label.resources")%></div>
         </div>
     </div>
-
+    
     <!-- Begin render related documents /node/documents nt:folder pdf-->
+    <div class="Box1 ClearFix">
     <%
     if(originalNode.hasNode("documents")){
         def docmentsNode = originalNode.getNode("documents");
@@ -484,7 +483,7 @@ requireJS.require("SHARED/jcarousellite", "jqC");
             def boxWidth = ((100 / documentsFolderChildNodes.size()) as int);
         %>
         <!-- More content -->
-        <div class="Box1 ClearFix">
+        
             <table>
                 <tr>
         <%
@@ -507,10 +506,9 @@ requireJS.require("SHARED/jcarousellite", "jqC");
                     }
                 }
     %>
-    <!--div class="$moreContentId" id="$moreContentId" onmouseover="this.className = '$moreContentId $hoverClassDocNode' " onmouseout="this.className = '$moreContentId' "-->
 
             <td width="<%=boxWidth%>%" style="<%=boxStyle%>">
-            <div onmouseout="this.className = 'UIPresentationSubContainer' " onmouseover="this.className = 'UIPresentationSubContainerHover' " id="UIPresentationSubContainer" class="UIPresentationSubContainer">
+            <div>
                 <%
                 if (canEditDocNode && !LockUtil.isLocked(folderNode)) {
                     def managePath = getRepositoryName(folderNode) + "/" +  getWorkspaceName(folderNode) + folderNode.getPath();
@@ -558,6 +556,7 @@ requireJS.require("SHARED/jcarousellite", "jqC");
                         %>
                     </div>
                 </div>
+              </div>  
             </td>
 
                     <%
@@ -573,7 +572,17 @@ requireJS.require("SHARED/jcarousellite", "jqC");
     %>
     </div>
     <!-- End render related documents /node/documents nt:folder pdf-->
-
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     <!-- Begin render related videos /node/medias/videos -->
 
     <%
@@ -659,5 +668,6 @@ requireJS.require("SHARED/jcarousellite", "jqC");
         }
     %>
     <!-- End render related videos /node/medias/videos -->
-    </div>
+   
 
+  
