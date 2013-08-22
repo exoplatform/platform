@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xmfl version='1.0' encoding='UTF-8'?>
+
+<messagebundle>
+  <msg name="title">Nuevos espacios</msg> 
+  <msg name="Created">About</msg>
+  <msg name="maxtime">Mostrar nuevos espacios en los últimos días</msg>
+  <msg name="no_space">No hay creaciones recientes de nuevos espacios</msg>  
+  <msg name="showAll">Mostrar todo</msg>
+  <msg name="join">Unirse</msg>
+  <msg name="join_title">Solicitud para unirse al espacio</msg>
+</messagebundle>
