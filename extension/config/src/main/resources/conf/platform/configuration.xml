@@ -127,6 +127,9 @@
                   <string>social-extension</string>
                </value>
                <value profiles="all">
+                  <string>social-notification-extension</string>
+               </value>
+               <value profiles="all">
                   <string>social-resources</string>
                </value>
                <value profiles="all">
