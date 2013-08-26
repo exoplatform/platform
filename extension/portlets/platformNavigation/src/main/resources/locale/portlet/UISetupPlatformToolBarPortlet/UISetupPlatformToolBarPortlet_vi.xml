@@ -4,19 +4,19 @@
 <label>
 <applications>Ứng dụng</applications>
 <content>Nội dung</content>
-<siteExplorer>Trình duyệt nội dung</siteExplorer>
-<wcmAdmin>Quản trị nội dung</wcmAdmin>
+<siteExplorer>Trình duyệt Nội dung</siteExplorer>
+<wcmAdmin>Quản trị Nội dung</wcmAdmin>
 <users>Người dùng</users>
 <newStaff>Thêm Người dùng</newStaff>
 <org-management>Nhóm và Vai trò</org-management>
 <portal>Cổng thông tin</portal>
 <administration>Quản trị</administration>
-<groupnavigation>Trang web của nhóm</groupnavigation>
+<groupnavigation>Site của Nhóm</groupnavigation>
 <pageManagement>Trang</pageManagement>
 <portalnavigation>Site</portalnavigation>
 <servicesManagement>Quản lý</servicesManagement>
 <monitoring>Giám sát</monitoring>
-<spaces>Không gian</spaces>
+<spaces>Nhóm</spaces>
 <Branding>Thương hiệu</Branding>
 <ide>IDE</ide>
 <search>Tìm kiếm</search>

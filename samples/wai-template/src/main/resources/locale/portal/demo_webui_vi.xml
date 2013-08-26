@@ -5,24 +5,24 @@
     <login>Đăng nhập</login>
     <logout>Thoát</logout>
     <language>
-      <en>Chuyển sang tiếng Anh</en>
-      <fr>Chuyển sang Pháp</fr>
+      <en>Chuyển sang Tiếng Anh</en>
+      <fr>Chuyển sang Tiếng Pháp</fr>
     </language>
     <register>Đăng ký</register>
   </Signin>
   <Toolbar>
     <SkipToContent>Chuyển tới nội dung</SkipToContent>
-    <SiteMap>Sơ đồ</SiteMap>
+    <SiteMap>Sơ đồ Site</SiteMap>
     <Accessibility>Trợ năng</Accessibility>
-    <NormalSize>Cỡ chữ thường</NormalSize>
-    <MediumSize>Cỡ chữ trung bình</MediumSize>
-    <LargeSize>Cỡ chữ lớn</LargeSize>
-    <NormalContrast>Tương phản thường</NormalContrast>
-    <HighContrast>Tương phản cao</HighContrast>
+    <NormalSize>Cỡ chữ Thường</NormalSize>
+    <MediumSize>Cỡ chữ Trung bình</MediumSize>
+    <LargeSize>Cỡ chữ Lớn</LargeSize>
+    <NormalContrast>Tương phản Thường</NormalContrast>
+    <HighContrast>Tương phản Cao</HighContrast>
     <Search>Tìm kiếm</Search>
   </Toolbar>
   <Logo>
-    <GoHome>Về trang chủ</GoHome>
+    <GoHome>Về Trang chủ</GoHome>
   </Logo>
   <acme>
     <label>Mẫu website ACME</label>

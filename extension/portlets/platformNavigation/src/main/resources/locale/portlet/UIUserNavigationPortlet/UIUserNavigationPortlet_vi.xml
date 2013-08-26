@@ -2,15 +2,15 @@
 <bundle>
    <UIUserNavigationPortlet>
       <label>
-         <activities>Dòng hoạt động</activities>
+         <activities>Chuỗi Hoạt động</activities>
          <profile>Hồ sơ</profile>
          <connections>Kết nối</connections>
          <wiki>Wiki</wiki>
-         <Myactivities>Dòng Hoạt động Cá nhân</Myactivities>
-         <Myprofile>Hồ sơ Cá nhân</Myprofile>
-         <Myconnections>Kết nối Cá nhân</Myconnections>
-         <Mywiki>Wiki cá nhân</Mywiki>
-         <Mydashboard>Bảng ứng dụng cá nhân</Mydashboard>
+         <Myactivities>Chuỗi Hoạt động của Tôi</Myactivities>
+         <Myprofile>Hồ sơ của Tôi</Myprofile>
+         <Myconnections>Kết nối của Tôi</Myconnections>
+         <Mywiki>Wiki của Tôi</Mywiki>
+         <Mydashboard>Bảng Ứng dụng của Tôi</Mydashboard>
       </label>
    </UIUserNavigationPortlet>
 </bundle>

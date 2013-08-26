@@ -2,13 +2,13 @@
 <bundle>
 <UIBreadCrumbsNavigationPortlet>
     <label>
-        <ChangePicture>Thay đổi hình ảnh đại diện</ChangePicture>
+        <ChangePicture>Thay đổi Ảnh Đại diện</ChangePicture>
     </label>
 </UIBreadCrumbsNavigationPortlet>
  <UIBreadCrumbPopupAvatarUploader>
       <title>
-         <UIAvatarUploader>Tải ảnh đại diện lên</UIAvatarUploader>
-         <UIAvatarUploadContent>Duyệt ảnh đại diện</UIAvatarUploadContent>
+         <UIAvatarUploader>Tải Ảnh Đại diện lên</UIAvatarUploader>
+         <UIAvatarUploadContent>Duyệt Ảnh Đại diện</UIAvatarUploadContent>
       </title>
  </UIBreadCrumbPopupAvatarUploader>
 </bundle>

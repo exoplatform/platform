@@ -27,7 +27,7 @@
   <msg name="forums.statistic.total.post">Tổng số Bài viết:</msg>
   <msg name="forums.statistic.total.member">Tổng số Thành viên:</msg>
   <msg name="forums.statistic.active.member">Thành viên Tích cực:</msg>
-  <msg name="forums.statistic.maximum.user">Số người hoạt động nhiều nhất:</msg>  
+  <msg name="forums.statistic.maximum.user">Số người hoạt động trực tuyến cùng lúc nhiều nhất:</msg>  
   <msg name="forums.statistic.at">tại</msg>  
   <msg name="forums.weekly.statistic.title">Thông kê Diễn đàn Hàng tuần</msg>
   <msg name="forums.weekly.statistic.post.open">Số bài viết đã Tạo</msg>

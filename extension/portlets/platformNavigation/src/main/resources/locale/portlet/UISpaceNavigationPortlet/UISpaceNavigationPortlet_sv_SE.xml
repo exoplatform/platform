@@ -2,14 +2,14 @@
 <bundle>
  <UISpaceNavigationPortlet>
      <label>
-         <Spaces>Min utrymmen</Spaces>
-         <Join>Gå med i ett utrymme</Join>
-         <more>Fler utrymmen</more>
-         <see>Se</see>
+         <Spaces>Mina Webb-ytor</Spaces>
+         <Join>Gå med i en webb-yta</Join>
+         <more>Fler webb-ytor</more>
+         <see>Visa</see>
      </label>
      <msg>
-         <filter-spaces>Sök utrymmen</filter-spaces>
-         <no-space>Inget utrymme finns</no-space>
+         <filter-spaces>Sök webb-ytor</filter-spaces>
+         <no-space>Ingen webb-yta finns</no-space>
      </msg>
 
 </UISpaceNavigationPortlet>

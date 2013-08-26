@@ -5,11 +5,11 @@
 <activities>Dòng Hoạt động Cá nhân</activities>
 <profile>Hồ sơ Cá nhân</profile>
 <network>Kết nối Cá nhân</network>
-<wiki>Wiki cá nhân</wiki>
+<wiki>Wiki Cá nhân</wiki>
 <account>Cài đặt</account>
 <language>Thay đổi Ngôn ngữ</language>
 <logout>Đăng xuất</logout>
-        <dashboard>Bảng ứng dụng cá nhân</dashboard>
+        <dashboard>Bảng ứng dụng Cá nhân</dashboard>
 </label>
 </UIUserPlatformToolBarPortlet>
 </bundle>

@@ -15,7 +15,7 @@
          <topic>Ämne</topic>
          <poll>Enkät</poll>
          <CreateANew>Skapa en ny {1}:</CreateANew>
-         <NoForum>Tyvärr, finns inget forum ännu för att skapa en {1}. Börja med att skapa ditt eget utrymme.</NoForum>
+         <NoForum>Tyvärr, finns inget forum ännu för att skapa en {1}. Börja med att skapa ditt egen webb-yta.</NoForum>
          <RequireSelectForum>Välj ett forum.</RequireSelectForum>
       </label>
       <action>
