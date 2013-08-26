@@ -793,7 +793,7 @@
 	     
 	        </div>
 	 
-	        <div id="historyDivPosition">
+	        <div id="historyDivPosition" class="historyDivPosition">
 	      </div>
       
       	</div>
