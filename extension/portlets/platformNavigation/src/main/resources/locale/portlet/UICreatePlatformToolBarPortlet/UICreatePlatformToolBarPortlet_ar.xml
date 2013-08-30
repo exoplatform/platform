@@ -68,7 +68,7 @@
          <add-unsuccessfully>لم يتم إضافة {0}.</add-unsuccessfully>
       </msg>
       <action>
-         <Next>الموالي</Next>
+         <Next>#{word.save}</Next>
          <Cancel>الغاء</Cancel>
       </action>
    </UICreateEvent>
