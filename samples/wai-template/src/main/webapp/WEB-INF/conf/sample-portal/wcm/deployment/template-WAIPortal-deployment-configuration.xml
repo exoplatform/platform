@@ -844,6 +844,18 @@
                 <value><string>collaboration:/sites/{portalName}/web contents/customers/subscription-support</string></value>
                 <value><string>collaboration:/sites/{portalName}/web contents/competence/prepare-your-team</string></value>
                 <value><string>collaboration:/sites/{portalName}/web contents/competence/work-with-a-partner</string></value>
+                <value><string>collaboration:/sites/{portalName}/web contents/fr/accessibility</string></value>
+                <value><string>collaboration:/sites/{portalName}/web contents/site artifacts/waiportal-fr/Footer</string></value>
+                <value><string>collaboration:/sites/{portalName}/web contents/fr/home</string></value>
+                <value><string>collaboration:/sites/{portalName}/web contents/fr/technology/integration</string></value>
+                <value><string>collaboration:/sites/{portalName}/web contents/fr/technology/technical-specifications</string></value>
+                <value><string>collaboration:/sites/{portalName}/web contents/fr/features/portal-content</string></value>
+                <value><string>collaboration:/sites/{portalName}/web contents/fr/features/social-collaboration</string></value>
+                <value><string>collaboration:/sites/{portalName}/web contents/fr/features/the-platform-difference</string></value>
+                <value><string>collaboration:/sites/{portalName}/web contents/fr/customers/customer-success-stories</string></value>
+                <value><string>collaboration:/sites/{portalName}/web contents/fr/customers/subscription-support</string></value>
+                <value><string>collaboration:/sites/{portalName}/web contents/fr/competence/prepare-your-team</string></value>
+                <value><string>collaboration:/sites/{portalName}/web contents/fr/competence/work-with-a-partner</string></value>
               </collection>
             </field>
           </object>

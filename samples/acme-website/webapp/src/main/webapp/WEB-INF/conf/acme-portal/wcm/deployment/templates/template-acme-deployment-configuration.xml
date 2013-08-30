@@ -1803,6 +1803,64 @@
          </init-params>
 
       </component-plugin>
-
+      
+      <component-plugin>
+        <name>template-acme-publication</name>
+        <set-method>addPlugin</set-method>
+        <type>org.exoplatform.services.wcm.extensions.deployment.CreatePortalPublicationPlugin</type>
+        <description>Publication Deployment Plugin</description>
+        <init-params>
+          <object-param>
+            <name>pub01</name>
+            <description>Deployment Descriptor</description>
+            <object type="org.exoplatform.services.wcm.extensions.deployment.PublicationDeploymentDescriptor">
+              <field name="contents">
+                <collection type="java.util.ArrayList">
+                  <value><string>collaboration:/sites/{portalName}/web contents/site artifacts/Introduce</string></value>
+                  <value><string>collaboration:/sites/{portalName}/web contents/site artifacts/contact_form_confirmation</string></value>
+                  <value><string>collaboration:/sites/{portalName}/web contents/site artifacts/contact-us-countries</string></value>
+                  <value><string>collaboration:/sites/{portalName}/web contents/site artifacts/contact-us-intro</string></value>
+                  <value><string>collaboration:/sites/{portalName}/web contents/site artifacts/Footer</string></value>
+                  <value><string>collaboration:/sites/{portalName}/web contents/site artifacts/fr/Signin_fr</string></value>
+                  <value><string>collaboration:/sites/{portalName}/web contents/site artifacts/LinkHome</string></value>
+                  <value><string>collaboration:/sites/{portalName}/web contents/site artifacts/Logo</string></value>
+                  <value><string>collaboration:/sites/{portalName}/web contents/site artifacts/Navigation</string></value>
+                  <value><string>collaboration:/sites/{portalName}/web contents/site artifacts/newsletter_header</string></value>
+                  <value><string>collaboration:/sites/{portalName}/web contents/site artifacts/Searchbox</string></value>
+                  <value><string>collaboration:/sites/{portalName}/web contents/site artifacts/Signin_en</string></value>
+                  <value><string>collaboration:/sites/{portalName}/web contents/site artifacts/social-bookmarking</string></value>
+                  <value><string>collaboration:/sites/{portalName}/web contents/Events/Event1</string></value>
+                  <value><string>collaboration:/sites/{portalName}/web contents/Events/Event2</string></value>
+                  <value><string>collaboration:/sites/{portalName}/web contents/Events/Event3</string></value>
+                  <value><string>collaboration:/sites/{portalName}/web contents/Events/Event4</string></value>
+                  <value><string>collaboration:/sites/{portalName}/web contents/Powers/Ice</string></value>
+                  <value><string>collaboration:/sites/{portalName}/web contents/Powers/Flight</string></value>
+                  <value><string>collaboration:/sites/{portalName}/web contents/Powers/Immunity</string></value>
+                  <value><string>collaboration:/sites/{portalName}/web contents/Powers/Invisibility</string></value>
+                  <value><string>collaboration:/sites/{portalName}/web contents/Powers/Wind</string></value>
+                  <value><string>collaboration:/sites/{portalName}/web contents/Powers/Fire</string></value>
+                  <value><string>collaboration:/sites/{portalName}/web contents/Powers/Night Vision</string></value>
+                  <value><string>collaboration:/sites/{portalName}/web contents/Powers/X-Ray</string></value>
+                  <value><string>collaboration:/sites/{portalName}/web contents/Powers/Speed</string></value>
+                  <value><string>collaboration:/sites/{portalName}/web contents/Powers/Time Travel</string></value>
+                  <value><string>collaboration:/sites/{portalName}/web contents/Powers/Healing</string></value>
+                  <value><string>collaboration:/sites/{portalName}/web contents/News/acme-news-1</string></value>                
+                  <value><string>collaboration:/sites/{portalName}/web contents/News/acme-news-2</string></value>                
+                  <value><string>collaboration:/sites/{portalName}/web contents/News/acme-news-3</string></value>                
+                  <value><string>collaboration:/sites/{portalName}/web contents/Users/User1</string></value>
+                  <value><string>collaboration:/sites/{portalName}/web contents/Users/User2</string></value>
+                  <value><string>collaboration:/sites/{portalName}/web contents/Users/User3</string></value>
+                  <value><string>collaboration:/sites/{portalName}/web contents/Users/User4</string></value>
+                  <value><string>collaboration:/sites/{portalName}/documents/conditions.doc</string></value>
+                  <value><string>collaboration:/sites/{portalName}/documents/metro.pdf</string></value>
+                  <value><string>collaboration:/sites/{portalName}/documents/offices.jpg</string></value>
+                </collection>
+              </field>
+            </object>
+          </object-param>
+        </init-params>
+    </component-plugin>
+ 
    </external-component-plugins>
+
 </configuration>
