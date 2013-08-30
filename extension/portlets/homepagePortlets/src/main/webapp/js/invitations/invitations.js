@@ -38,10 +38,10 @@
                             peopleAvatar = "/social-resources/skin/images/ShareImages/UserAvtDefault.png";
                         else
                             peopleAvatar = item.senderAvatarUrl;
-                        link += "<div class='peopleInvitePicture pull-left avatarXSmall'><img src='"+peopleAvatar+"'></div>";
+                        link += "<div class='peopleInvitePicture pull-left avatarXSmall'><a href='"+item.profile_url+"'><img src='"+peopleAvatar+"'></a></div>";
                         link += "<div class='peopleInviteInfo'>";
 
-                        link += "<div class='peopleInviteName'><div class='name'>"+item.senderName+"</div><div class='peopleInviteAction' style='visibility:hidden;'><a class='connect btn-primary btn btn-mini' href='#' onclick='return false'>"+acceptlabel+"</a> <a class='deny' href='#' onclick='return false'><i class='uiIconClose'></i></a></div></div>";
+                        link += "<div class='peopleInviteName'><div class='name'><a href='"+item.profile_url+"'>"+item.senderName+"</a></div><div class='peopleInviteAction' style='visibility:hidden;'><a class='connect btn-primary btn btn-mini' href='#' onclick='return false'>"+acceptlabel+"</a> <a class='deny' href='#' onclick='return false'><i class='uiIconClose'></i></a></div></div>";
 
                         if (item.senderPosition != undefined)
                             link += "<div class='peopleInvitePosition'>"+item.senderPosition+"</div>";
