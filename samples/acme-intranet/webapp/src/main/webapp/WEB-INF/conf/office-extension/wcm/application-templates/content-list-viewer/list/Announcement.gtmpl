@@ -11,11 +11,14 @@
     def isShowHeader = uicomponent.isShowField(UICLVPortlet.PREFERENCE_SHOW_HEADER) && header != null && header.trim().length() != 0;
 %>
 <div class="AnnouncementTemplate">    
-        <%if (isShowHeader) {%>
+        <%if (isShowHeader || isShowRssLink) {%>
 		<div class="TopBoxHeader ClearFix">
             <%if (isShowRssLink) {%>
 				<a class="RssIcon" href="$rssLink" target="_newrss" title="<%= _ctx.appRes("UICLVPresentation.label.rssFeed") %>">&nbsp;</a><%
-            }%>$header
+            }
+            if(isShowHeader) {%>
+              $header
+            <%}%> 
 		 </div>		  
         <%}%>       
   <%if (uicomponent.getUIPageIterator().getAvailable() == 0) {%>
