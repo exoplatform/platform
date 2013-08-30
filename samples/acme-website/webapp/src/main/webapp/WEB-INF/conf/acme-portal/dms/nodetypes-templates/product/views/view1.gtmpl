@@ -23,7 +23,7 @@
         import org.exoplatform.services.wcm.publication.WCMComposer;
         import org.exoplatform.services.wcm.utils.WCMCoreUtils;
         import org.exoplatform.wcm.webui.Utils;
-        import org.exoplatform.ecm.webui.utils.LockUtil;
+        import org.exoplatform.ecm.utils.lock.LockUtil;        
         import org.exoplatform.webui.application.portlet.PortletRequestContext;
         import org.exoplatform.webui.application.WebuiRequestContext;
         import org.exoplatform.web.application.JavascriptManager;

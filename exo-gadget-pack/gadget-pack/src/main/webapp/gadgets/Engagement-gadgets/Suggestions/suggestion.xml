@@ -33,9 +33,9 @@
 </head>
 <body>
 <div class="UIGadgetThemes uiBox">
-  <div class="title">
+  <h6 class="title">
     __MSG_title__
-  </div>
+  </h6>
   <div class="uiContentBox">
     <div id="container"></div>
     <div id="mutual-friend">

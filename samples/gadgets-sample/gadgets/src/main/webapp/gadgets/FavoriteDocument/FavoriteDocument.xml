@@ -2,7 +2,7 @@
 
 <Module>
   <ModulePrefs author="eXoPlatform"
-    title="Favorite Documents"
+  title="Favorite Documents"
     title_url="http://www.exoplatform.org"
     description="My favorite Documents"
     thumbnail="/intranet-gadgets/skin/images/FavoriteDocument/FavoriteDocument.png"
@@ -23,11 +23,11 @@
   </ModulePrefs>
   <Content type="html">
   <![CDATA[   
-    <link type="text/css" rel="stylesheet" href="/intranet-gadgets/skin/css/FavoriteDocument.css" />
-    <link type="text/css" rel="stylesheet" href="/exo-gadget-resources/skin/exo-gadget/gadget-common.css" />
-    <link type="text/css" rel="stylesheet" href="/eXoDMSResources/skin/DefaultSkin/Stylesheet-lt.css" />
     <link rel="stylesheet" type="text/css" href="/eXoResources/skin/bootstrap/css/bootstrap.css" />
     <link rel="stylesheet" type="text/css" href="/eXoResources/skin/css/Core.css" />
+    <link type="text/css" rel="stylesheet" href="/exo-gadget-resources/skin/exo-gadget/gadget-common.css" />
+    <link type="text/css" rel="stylesheet" href="/eXoDMSResources/skin/DefaultSkin/Stylesheet-lt.css" />
+    <link type="text/css" rel="stylesheet" href="/intranet-gadgets/skin/css/FavoriteDocument.css" />
     <script language="javascript" type="text/javascript" src="/eXoResources/javascript/jquery-1.7.1.js"></script>
     <script type="text/javascript" src="javascript/script.js"></script>
 	<script language="javascript" type="text/javascript" src="/eXoResources/skin/bootstrap/js/bootstrap-tooltip.js"></script>

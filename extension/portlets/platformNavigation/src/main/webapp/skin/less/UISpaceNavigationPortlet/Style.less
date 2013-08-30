@@ -14,73 +14,87 @@
 	padding-bottom: 20px;
 	.title {
 		text-transform: uppercase;
-		color: #2f5e92;
+		color: @linkColor;
 		#gradient > .vertical(#f6f6f6, #e5e5e5);
-		height: 39px; line-height: 39px;
-		padding: 0 10px;
+		height: 40px; line-height: 41px;
+		padding: 0 15px;
 		margin: 0;
-		box-shadow: inset 0 0 1px rgba(0, 0, 0, 0.35), -1px 0 1px white;
-		text-shadow: 0 1px 1px #FFF;
+		 .box-shadow(~"inset 0 1px 0 white,0 1px 0 white");
+		 border-bottom: 1px solid #CCCCCC;
+   		 border-top: 1px solid #CCCCCC;
+		text-shadow: 0 1px 1px @white;
 	}
 
 	.searchInput input {
 		border: 1px solid #CDCDCD;
-    border-radius: 4px 4px 4px 4px;
-    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1) inset;
-    color: #999999;
-    height: 28px;
-    margin: 10px 14px;
-    padding: 0 10px;
-    width: 200px;
+    	.border-radius(4px);
+    	 .box-shadow(~"inset 0 1px 1px rgba(0, 0, 0, 0.1)");
+	    height: 28px;
+	    margin: 18px auto 10px auto;
+	    padding: 0 12px;
+	    width: 200px;
+	    display: block;
+	     color: @grayLight;
+    	&.Focus {
+		   color: @grayDark;
+		}	
 	}	
 	
+			
 	.spaceNavigation {
 		list-style: none;
 		margin: 0;
-		max-height: 326px;
+		padding: 2px 0;
+		max-height: 346px;
     	overflow-y: auto;
 		.noSpace {
-			color: #808080;
+		color: #808080;
 	    padding: 10px 0;
 	    text-align: center;
 		}
 		.spaceItem {
-			padding: 6px 25px;
+			padding: 7px 25px;
 			height: 20px;
-			overflow: hidden;
-		    text-overflow: ellipsis;
-		    white-space: nowrap;
 		}
 		
 		.spaceIcon {
-	    color: #808080;
-	    
+			    color: #808080;
+			    display: block;
+			    overflow: hidden;
+			    text-overflow: ellipsis;
+			    white-space: nowrap;
+			    width: auto;
 			> img {
 				margin-right: 5px;	
+				vertical-align: -4px;
 			}
 			
 			&:hover {
-				color: @linkColor;
+				color: @linkColorHover;
 			}
 		}
 		
 		.spaceItemSelected {
-			background: white;
-			border-top: 1px solid #c7c7c7;
-			border-bottom: 1px solid #c7c7c7;
-			.box-shadow(0 -1px 1px rgba(0, 0, 0, 0.1));
+			background: @white;
+			 position: relative;
+				background: @white;
+				border-top: 1px solid #c7c7c7;
+				border-bottom: 1px solid #c7c7c7;
+				.box-shadow(0 0px 3px rgba(0, 0, 0, 0.11));
 			&:after {
-				background: #4F72AC;
-		    border: 1px solid #2E518A;
-		    content: "";
-		    height: 31px;
-		    left: 0;
-		    margin-top: -6px;
-		    position: absolute;
-		    width: 5px;
+				background: #4f72ac;
+				    border: 1px solid #2e518a;
+				    border-left: 0;
+				    .box-shadow(~"inset -1px 0px 2px rgba(255, 255, 255, 0.14)");
+				    content: "";
+				    height: 34px;
+				    left: 0;
+				   	top: -1px;
+				    position: absolute;
+				    width: 5px;
 		  }
 			> a {
-				font-weight: bold;
+				font-weight: bold;			    
 			}
 		}
 	}
@@ -88,8 +102,9 @@
 	.moreSpace {
 		padding: 6px 25px;
     	text-align: center;
+    	 margin: 0 0 10px 0;
 		> a {
-			#gradient > .vertical(#ffffff, #f1f1f1);
+			#gradient > .vertical(@white, #f1f1f1);
 			height: 24px;
 			line-height: 24px;
 			border: 1px solid #c7c7c7;
@@ -98,18 +113,26 @@
 			margin: auto;
 			padding: 0 10px;
 			.border-radius(3px);
+			font-size: 12px;
+			&:hover {
+				background-color: #EDEDED;
+			}
 		}
 	}
 	
 	.joinSpace {
-		border-bottom: 1px solid #CCCCCC;
-    border-top: 1px solid #CCCCCC;
-    box-shadow: 0 1px 0 #FFFFFF inset, 0 1px 0 #FFFFFF;
+		border-bottom: 1px solid @borderColor;
+    border-top: 1px solid @borderColor;
+    .box-shadow(~"inset 0 1px 0 white,0 1px 0 white");
     line-height: 32px;
-    text-align: center;
-    margin: 10px 0;
+   
     > a {
     	color: #808080;
+    	 display: block;
+    	padding-left: 25px;
+    	&:hover {
+				color: @linkColorHover;
+			}
     	> i {
     		margin-right: 5px;
     	}
