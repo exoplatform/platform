@@ -68,7 +68,7 @@
          <add-unsuccessfully>{0} was not added.</add-unsuccessfully>
       </msg>
       <action>
-         <Next>Siguiente</Next>
+         <Next>#{word.save}</Next>
          <Cancel>Cancelar</Cancel>
       </action>
    </UICreateEvent>
