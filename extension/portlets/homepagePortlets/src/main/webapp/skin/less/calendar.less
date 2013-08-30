@@ -217,7 +217,7 @@
     background-color: #FFE347;
 }
 
-.plum_purple {
+.plum_purple, .plum {
     background-color: #CEA6AC;
 }
 
@@ -237,10 +237,10 @@
 		}
 		.uiIconDel { 
 			.square(14px);
-			background: url(/homepage-portlets/style/images/calendar/del.png) no-repeat 2px 2px;
+			background: url(/homepage-portlets/style/images/calendar/del.png) no-repeat 2px center;
 			cursor:pointer;
 			&:hover {
-			 background-position: -13px 2px;
+			 background-position: -13px center;
 			}
 		}
 	}	
@@ -249,6 +249,7 @@
 	}
 	.PLFcalendarSearchKey {
 		width: 100%;
+		.placeholder(#999);
 	}
 	.settingValidationButton  {
 		text-align: right;
