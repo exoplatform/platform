@@ -22,6 +22,7 @@ package org.exoplatform.platform.component;
 import org.exoplatform.platform.common.service.MenuConfiguratorService;
 import org.exoplatform.portal.config.UserPortalConfig;
 import org.exoplatform.portal.config.model.PortalConfig;
+import org.exoplatform.portal.mop.SiteType;
 import org.exoplatform.portal.mop.navigation.Scope;
 import org.exoplatform.portal.mop.user.UserNavigation;
 import org.exoplatform.portal.mop.user.UserNode;
@@ -51,11 +52,14 @@ import java.util.*;
 
 public class UIGroupsNavigationPortlet extends UIPortletApplication {
 
+    private static final String SPACE_GROUP_PATTERN = "spaces";
     private MenuConfiguratorService menuConfiguratorService;
     private  UserNodeFilterConfig myGroupsFilterConfig;
     private  List<String> setupMenuPageReferences = null;
     private   List<UserNavigation> navigationsToDisplay = new ArrayList<UserNavigation>();
+    // first level of valid user nodes <SiteName, list of valid nodes>
     private  Map<String, Collection<UserNode>> nodesToDisplay = new HashMap<String, Collection<UserNode>>();
+    // valid children nodes of a selected user node <user node id, list of valid children nodes>
     private  Map<String, Collection<UserNode>> cachedValidChildrenNodesToDisplay = new HashMap<String, Collection<UserNode>>();
 
     public static boolean collapse=true;
@@ -80,15 +84,15 @@ public class UIGroupsNavigationPortlet extends UIPortletApplication {
     private  void readNavigationsAndCache() {
         UserPortal userPortal = getUserPortal();
         List<UserNavigation> allNavigations = userPortal.getNavigations();
-
+        // Compute the list of UserNavigations that have navigation nodes not set in 'SetupMenu'
         navigationsToDisplay.clear();
         nodesToDisplay.clear();
         cachedValidChildrenNodesToDisplay.clear();
+
         for (UserNavigation navigation : allNavigations) {
-            UserNode rootNode = userPortal.getNode(navigation, Scope.ALL, myGroupsFilterConfig, null);
-            if ((navigation.getKey().getTypeName().equals(PortalConfig.GROUP_TYPE))
-                    && (navigation.getKey().getName().indexOf("spaces") < 0)) {
-                Collection<UserNode> children = getUXPNodesNotInSetupMenu(rootNode.getChildren(), 0);
+            if ((navigation.getKey().getTypeName().equals(SiteType.GROUP)) && (navigation.getKey().getName().indexOf(SPACE_GROUP_PATTERN) < 0)) {
+                UserNode rootNode = userPortal.getNode(navigation, Scope.ALL, myGroupsFilterConfig, null);
+                Collection<UserNode> children = loadNodesNotInSetupMenu(rootNode.getChildren(), 0);
                 if (children == null || children.isEmpty()) {
                     continue;
                 }
@@ -98,6 +102,10 @@ public class UIGroupsNavigationPortlet extends UIPortletApplication {
         }
     }
 
+    /**
+     *
+     * @return group navigation that does not include any space navigation
+     */
     public List<UserNavigation> getGroupNavigations() {
 
         return navigationsToDisplay;
@@ -111,21 +119,23 @@ public class UIGroupsNavigationPortlet extends UIPortletApplication {
         return cachedValidChildrenNodesToDisplay.get(node.getId());
     }
 
-
-    public  Collection<UserNode> getUXPNodesNotInSetupMenu(Collection<UserNode> userNodes, int childLevel) {
+    private  Collection<UserNode> loadNodesNotInSetupMenu(Collection<UserNode> userNodes, int childLevel) {
         childLevel++;
         if (userNodes == null || userNodes.isEmpty() || childLevel > 2) {
             return null;
         }
         Collection<UserNode> validNodes = new ArrayList<UserNode>();
         for (UserNode userNode : userNodes) {
-            Collection<UserNode> validChidNodes = getUXPNodesNotInSetupMenu(userNode.getChildren(), childLevel);
+            // Compute valid child nodes
+            // Attention: this instruction have to be here in order to compute the valid child nodes of all user nodes recursively and cache the result
+            Collection<UserNode> validChidNodes = loadNodesNotInSetupMenu(userNode.getChildren(), childLevel);
             cachedValidChildrenNodesToDisplay.put(userNode.getId(), validChidNodes);
-
+            // Test if this node have a "page reference" not set in 'Setup Menu'
             if (userNode.getPageRef() != null && !isUserNodeInSetupMenu(userNode)) {
                 validNodes.add(userNode);
                 continue;
             }
+            // Test if one node's child have a "page reference" not set in 'Setup Menu'
             if (validChidNodes != null && !validChidNodes.isEmpty()) {
                 validNodes.add(userNode);
             }
