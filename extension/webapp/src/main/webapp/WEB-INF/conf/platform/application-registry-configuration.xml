@@ -543,20 +543,6 @@
                 <collection type="java.util.ArrayList">
                   <value>
                     <object type="org.exoplatform.application.registry.Application">
-                      <field name="applicationName"><string>TenSlowestTemplates</string></field>
-                      <field name="categoryName"><string>monitoring</string></field>
-                      <field name="displayName"><string>10 Slowest Templates</string></field>
-                      <field name="description"><string>10 Slowest Templates.</string></field>
-                      <field name="type"><string>gadget</string></field>
-                      <field name="contentId"><string>TenSlowestTemplates</string></field>
-                      <field name="accessPermissions">
-                        <collection type="java.util.ArrayList" item-type="java.lang.String">
-                          <value><string>*:/platform/administrators</string></value>
-                        </collection>
-                      </field>
-                    </object>
-                  </value><value>
-                    <object type="org.exoplatform.application.registry.Application">
                       <field name="applicationName"><string>AllTemplateStatistics</string></field>
                       <field name="categoryName"><string>monitoring</string></field>
                       <field name="displayName"><string>All Templates Statistics</string></field>
