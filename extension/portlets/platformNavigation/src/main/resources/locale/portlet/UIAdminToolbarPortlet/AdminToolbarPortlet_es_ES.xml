@@ -34,7 +34,7 @@
       <select-language>Select Language</select-language>
       <option>
         <Always>Siempre</Always>
-        <Hourly>Hourly</Hourly>
+        <Hourly>Por hora</Hourly>
         <Daily>Diario</Daily>
         <Weekly>Semanalmente</Weekly>
         <Monthly>Mensualmente</Monthly>
@@ -52,7 +52,7 @@
       <confirm-delete>¿Está seguro que desea eliminar estos datos SEO?</confirm-delete>
     </msg>
     <title>
-    <seo-delete>Delete</seo-delete>
+    <seo-delete>Borrar</seo-delete>
     </title>
 <help> 
   <priority>Valores válidos oscilan entre 0.0 y 1.0.</priority>
