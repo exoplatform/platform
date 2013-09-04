@@ -38,8 +38,8 @@
 			}
 			
 			.btn-group li > a.selected{
-			   #gradient > .vertical(@dropdownLinkBackgroundHover, darken(@dropdownLinkBackgroundHover, 15%));
-			    color: #fff;
+			   #gradient > .vertical(@blueLighter, darken(@blueLighter, 15%));
+			    color: @white;
 			}
 			.uiFormScrollMenu{
 				margin-left: 5px;
@@ -92,11 +92,11 @@
 					}
 					
 					.category{
-					    background: #F7F7F7;
-					    border-bottom: 1px solid #CFCFCF;
-					    border-top: 1px solid #CFCFCF;
-					    .box-shadow(0 -15px 17px #F1F1F1 inset);
-					    color: @grayDark;
+					    background: @grayLighter;
+					    border-bottom: 1px solid @borderColor;
+					    border-top: 1px solid @borderColor;
+					    .box-shadow(0 -15px 17px @grayWhiteSmoke inset);
+					    color: @textColor;
 					    font-weight: bold;
 				        padding: 5px 10px;
 				        text-overflow: ellipsis;
@@ -134,7 +134,7 @@
 		padding: 0 10px 0 11px;
 		line-height: 41px;
 		display: inline-block;
-		color: white;
+		color: @white;
 		cursor: pointer;
 			> i.uiIconPLF24x24Edit,
 			> i.uiIconPLF24x24Setup {
@@ -157,8 +157,8 @@
 		    display: inline-block;
 		    border-left:   7px solid transparent;
 		    border-right:  7px solid transparent;
-		    border-bottom: 7px solid #ccc;
-		    border-bottom-color: @dropdownBorder;
+		    border-bottom: 7px solid @borderColor;
+		    border-bottom-color: @borderColor;
 		    position: absolute;
 		    top: -7px;
 		    left: 9px;
@@ -168,7 +168,7 @@
 		    display: inline-block;
 		    border-left:   6px solid transparent;
 		    border-right:  6px solid transparent;
-		    border-bottom: 6px solid @dropdownBackground;
+		    border-bottom: 6px solid @white;
 		    position: absolute;
 		    top: -6px;
 		    left: 10px;
@@ -183,8 +183,8 @@
 		    display: inline-block;
 		    border-left:   7px solid transparent;
 		    border-right:  7px solid transparent;
-		    border-bottom: 7px solid #ccc;
-		    border-bottom-color: @dropdownBorder;
+		    border-bottom: 7px solid @borderColor;
+		    border-bottom-color: @borderColor;
 		    position: absolute;
 		    top: -7px;
 		    right: 9px;
@@ -194,7 +194,7 @@
 		    display: inline-block;
 		    border-left:   6px solid transparent;
 		    border-right:  6px solid transparent;
-		    border-bottom: 6px solid @dropdownBackground;
+		    border-bottom: 6px solid @white;
 		    position: absolute;
 		    top: -6px;
 		    right: 10px;
@@ -306,8 +306,8 @@
 		.dropdown-submenu:hover > .seoImgBlock,
 		.dropdown-menu .active > .seoImgBlock,
 		.dropdown-menu .active > .seoImgBlock:hover  {
-			#gradient > .vertical(@dropdownLinkBackgroundHover, darken(@dropdownLinkBackgroundHover, 15%));
-			color: white;
+			#gradient > .vertical(@blueLighter, darken(@blueLighter, 15%));
+			color: @white;
 		}
 			
 		.quickEditUnchecked {
@@ -357,7 +357,7 @@
 		.uiDropdownWithIcon {
 			background: url(/eXoPlatformResources/skin/images/ToolbarContainer/line.png) no-repeat top left;
 		 	> a {
-			color: white;
+			color: @white;
 			}
 			> a:hover,.uiDropdownWithIcon.open > a {
 				background: #3f3f3f;
@@ -368,7 +368,7 @@
 .UIToolbarContainerLight {
 	.NormalContainerBlock .ToolbarContainer {
 			#gradient > .vertical(#f4f4f4, #d4d4d4);
-			border-bottom: 1px solid #cccccc;
+			border-bottom: 1px solid @borderColor;
 		}
 		
 		.uiDropdownWithIcon {
@@ -378,7 +378,7 @@
 			}
 			> a:hover,.uiDropdownWithIcon.open > a {
 				background: rgba(128,128,128,0.3);
-				color: #333333;
+				color: @textColor;
 			}
 		}
 }

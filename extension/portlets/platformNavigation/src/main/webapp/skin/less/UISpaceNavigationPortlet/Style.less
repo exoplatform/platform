@@ -15,13 +15,13 @@
 	.title {
 		text-transform: uppercase;
 		color: @linkColor;
-		#gradient > .vertical(#f6f6f6, #e5e5e5);
+		#gradient > .vertical(@grayLighter, @grayMediumWhiteSmoke);
 		height: 40px; line-height: 41px;
 		padding: 0 15px;
 		margin: 0;
-		 .box-shadow(~"inset 0 1px 0 white,0 1px 0 white");
-		 border-bottom: 1px solid #CCCCCC;
-   		 border-top: 1px solid #CCCCCC;
+		 .box-shadow(~"inset 0 1px 0 @white,0 1px 0 @white");
+		 border-bottom: 1px solid @borderColor;
+   		 border-top: 1px solid @borderColor;
 		text-shadow: 0 1px 1px @white;
 	}
 
@@ -48,7 +48,7 @@
 		max-height: 346px;
     	overflow-y: auto;
 		.noSpace {
-		color: #808080;
+		color: @gray;
 	    padding: 10px 0;
 	    text-align: center;
 		}
@@ -58,7 +58,7 @@
 		}
 		
 		.spaceIcon {
-			    color: #808080;
+			    color: @gray;
 			    display: block;
 			    overflow: hidden;
 			    text-overflow: ellipsis;
@@ -78,12 +78,12 @@
 			background: @white;
 			 position: relative;
 				background: @white;
-				border-top: 1px solid #c7c7c7;
-				border-bottom: 1px solid #c7c7c7;
+				border-top: 1px solid @borderColor;
+				border-bottom: 1px solid @borderColor;
 				.box-shadow(0 0px 3px rgba(0, 0, 0, 0.11));
 			&:after {
-				background: #4f72ac;
-				    border: 1px solid #2e518a;
+				background: @blueLight;
+				    border: 1px solid @blueDark;
 				    border-left: 0;
 				    .box-shadow(~"inset -1px 0px 2px rgba(255, 255, 255, 0.14)");
 				    content: "";
@@ -104,18 +104,18 @@
     	text-align: center;
     	 margin: 0 0 10px 0;
 		> a {
-			#gradient > .vertical(@white, #f1f1f1);
+			#gradient > .vertical(@white, @grayWhiteSmoke);
 			height: 24px;
 			line-height: 24px;
-			border: 1px solid #c7c7c7;
-			color: #808080;
+			border: 1px solid @borderColor;
+			color: @gray;
 			display: inline-block;
 			margin: auto;
 			padding: 0 10px;
 			.border-radius(3px);
 			font-size: 12px;
 			&:hover {
-				background-color: #EDEDED;
+				background-color: @grayMediumWhiteSmoke;
 			}
 		}
 	}
@@ -123,11 +123,11 @@
 	.joinSpace {
 		border-bottom: 1px solid @borderColor;
     border-top: 1px solid @borderColor;
-    .box-shadow(~"inset 0 1px 0 white,0 1px 0 white");
+    .box-shadow(~"inset 0 1px 0 @white,0 1px 0 @white");
     line-height: 32px;
    
     > a {
-    	color: #808080;
+    	color: @gray;
     	 display: block;
     	padding-left: 25px;
     	&:hover {

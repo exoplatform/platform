@@ -13,15 +13,15 @@
 .uiCompanyNavigationPortlet {
 	.title {
 		text-transform: uppercase;
-		color: #2f5e92;
-		#gradient > .vertical-three-colors(#f6f6f6, #f6f6f6, 49%, #e5e5e5);
+		color: @blue;
+		#gradient > .vertical-three-colors(@grayLighter, @grayLighter, 49%, @grayMediumWhiteSmoke);
 		height: 40px; line-height: 41px;
 		padding: 0 15px;
 		margin: 0;
-		 .box-shadow(~"inset 0 1px 0 white,0 1px 0 white");
-		 border-bottom: 1px solid #CCCCCC;
-    border-top: 1px solid #CCCCCC;
-		text-shadow: 0 1px 1px #FFF;
+		 .box-shadow(~"inset 0 1px 0 @white,0 1px 0 @white");
+		 border-bottom: 1px solid @borderColor;
+    border-top: 1px solid @borderColor;
+		text-shadow: 0 1px 1px @white;
 	}
 
 	.uiCompanyNavigations {
@@ -40,12 +40,12 @@
 			padding: 7px 25px;
 			 position: relative;
 				background: @white;
-				border-top: 1px solid #c7c7c7;
-				border-bottom: 1px solid #c7c7c7;
+				border-top: 1px solid @borderColor;
+				border-bottom: 1px solid @borderColor;
 				.box-shadow(0 0px 3px rgba(0, 0, 0, 0.11));
 			&:after {
-				background: #4f72ac;
-				    border: 1px solid #2e518a;
+				background: @blueLight;
+				    border: 1px solid @blueDark;
 				    border-left: 0;
 				    .box-shadow(~"inset -1px 0px 2px rgba(255, 255, 255, 0.14)");
 				    content: "";
@@ -63,13 +63,13 @@
 		> li > a {
 			display: inline-block;
 			width: auto;
-			color: #808080;
+			color: @gray;
 			> i {
 				margin-right: 8px;			
 			}
 		}
 		> li > a:hover {
-			color: #2F5E92;
+			color: @blue;
 		}
 	}
 }
