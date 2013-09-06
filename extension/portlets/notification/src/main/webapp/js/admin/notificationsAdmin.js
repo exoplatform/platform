@@ -5,6 +5,7 @@
           Enable : $("span#labelEnable", localizeStatus).text(),
           Disable : $("span#labelDisable", localizeStatus).text(),
           Information : $("span#Information", localizeStatus).text(),
+          Error : $("span#Error", localizeStatus).text(),
           OK : $("span#labelOK", localizeStatus).text(),
           Close : $("span#labelClose", localizeStatus).text()
       },
@@ -59,13 +60,27 @@
             if (res.status == "OK") {
               var msgOk = NotificationAdmin.msg.OK;
               msgOk = msgOk.replace('{0}', res.name).replace('{1}', res.email).replace('<', '&lt;');
-              sUtils.PopupConfirmation.confirm('notificationAdmin', {}, NotificationAdmin.label.Information, msgOk, NotificationAdmin.label.Close);
+              NotificationAdmin.showPopupMessage('notificationAdmin', true, NotificationAdmin.label.Information, msgOk, NotificationAdmin.label.Close);
             }
           }
         }).fail(function(jqXHR, textStatus) {
           var msgKO = NotificationAdmin.msg.NOK;
-          sUtils.PopupConfirmation.confirm('notificationAdmin', {}, NotificationAdmin.label.Information, msgKO, NotificationAdmin.label.Close);
+          NotificationAdmin.showPopupMessage('notificationAdmin', false, NotificationAdmin.label.Error, msgKO, NotificationAdmin.label.Close);
         });
+      },
+      
+      showPopupMessage : function(id, isSaveOK, title, message, closeLabel) {
+        sUtils.setCookies('currentConfirm', id, 300);
+        var popup = sUtils.PopupConfirmation.makeTemplate();
+        popup.find('.popupTitle').html(title);
+        if (isSaveOK) {
+          popup.find('.contentMessage').removeClass('confirmationIcon').addClass('infoIcon').html(message);
+        } else {
+          popup.find('.contentMessage').removeClass('confirmationIcon').addClass('errorIcon').html(message);
+        }
+        var uiAction = popup.find('.uiAction');
+        uiAction.append(sUtils.PopupConfirmation.addAction(null, closeLabel));
+        sUtils.PopupConfirmation.show(popup);
       }
   };
 

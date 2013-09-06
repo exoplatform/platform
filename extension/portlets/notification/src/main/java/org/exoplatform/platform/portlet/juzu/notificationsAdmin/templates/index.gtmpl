@@ -72,6 +72,7 @@
 		<span id="labelOK">${_ctx.appRes("NotificationAdmin.label.OK")}</span>
 		<span id="labelClose">${_ctx.appRes("UINotification.action.Close")}</span>
 		<span id="Information">${_ctx.appRes("NotificationAdmin.label.Information")}</span>
+		<span id="Error">${_ctx.appRes("NotificationAdmin.label.Error")}</span>
 		<span id="msgSaveOK">${_ctx.appRes("NotificationAdmin.msg.saveOK")}</span>
 		<span id="msgSaveKO">${_ctx.appRes("NotificationAdmin.msg.saveKO")}</span>
 	</div>
