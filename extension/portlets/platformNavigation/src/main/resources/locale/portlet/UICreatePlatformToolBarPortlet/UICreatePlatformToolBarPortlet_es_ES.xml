@@ -2,7 +2,7 @@
 <bundle>
    <UIUserPlatformToolBarCreatePortlet>
       <label>
-         <topic>Topic</topic>
+         <topic>Tema</topic>
          <poll>Encuesta</poll>
          <eventtask>Event/Task</eventtask>
          <upload>Upload a File</upload>
@@ -33,7 +33,7 @@
    </UICreateTopic>
    <UICreatePoll>
       <label>
-         <SelectAForum>Select Forum</SelectAForum>
+         <SelectAForum>Seleccionar foro</SelectAForum>
          <location>In Location</location>
          <forumId>And Forum</forumId>
          <FilterForums>Filter Forums</FilterForums>

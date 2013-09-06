@@ -6,8 +6,8 @@
          <EditNavigation>Navegación</EditNavigation>
          <Content>Contenido</Content>
          <Editor>Editar</Editor>
-         <Page>Page</Page>
-         <Site>Site</Site>
+         <Page>Página</Page>
+         <Site>Sitio</Site>
          <Layout>Edit Layout</Layout>
          <siteLayout>Layout</siteLayout>
          <ManagePages>Manage Pages</ManagePages>
@@ -82,8 +82,8 @@
   <Locale>
     <label>      
       <it>Italian</it>      
-      <fr>French</fr>
-      <en>English</en>      
+      <fr>Francés</fr>
+      <en>Inglés</en>      
     </label>
   </Locale>
   
