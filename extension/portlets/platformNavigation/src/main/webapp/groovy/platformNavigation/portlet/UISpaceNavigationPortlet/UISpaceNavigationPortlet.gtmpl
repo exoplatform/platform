@@ -21,33 +21,16 @@
 
 %>
 <%
-  import org.exoplatform.portal.mop.user.UserNavigation;
-  import org.exoplatform.portal.mop.user.UserNode;
-  import org.exoplatform.portal.webui.util.Util;
-  import org.exoplatform.portal.mop.Visibility;
-  import org.exoplatform.webui.organization.OrganizationUtils;
   import org.exoplatform.platform.webui.NavigationURLUtils;
   import org.exoplatform.social.core.service.LinkProvider;
   import java.util.Collection;
   import org.exoplatform.web.application.JavascriptManager;
-  import org.gatein.common.text.EntityEncoder;
 
     def findSpacesLink = NavigationURLUtils.getURLInCurrentPortal("all-spaces");
-	def groupNavigations = uicomponent.getSpaceLastedAccessed();
-	def spaceTotal=groupNavigations.size();
-	def MY_SPACES_MAX_NUMBER;
+    uicomponent.refresh();
+	def userSpaces = uicomponent.getSpaces();
 	def spaceImageSource;
 	def spaceURLLink;
-	if(uicomponent.getSpaceMaxNumber()!=0){
-	MY_SPACES_MAX_NUMBER = uicomponent.getSpaceMaxNumber();
-
-	}else{
-
-	MY_SPACES_MAX_NUMBER=10;
-	}
-
-    def mySpacesDisplayed = 0;
-
 %>
 <%
   String restUrl = uicomponent.getRestUrl();
@@ -69,45 +52,30 @@
 	<ul class="spaceNavigation">
 
     <%
-
-    if (groupNavigations!= null && !groupNavigations.isEmpty()) {
-
-      for(navigation in groupNavigations) {      	
-      	if(mySpacesDisplayed < MY_SPACES_MAX_NUMBER){
-			mySpacesDisplayed += 1;
+      for(space in userSpaces) {
 			String   tabStyleNavigation="";
-			String spaceDisplayName = navigation.getDisplayName();
-			spaceImageSource = navigation.getAvatarUrl();
-			spaceURLLink = uicomponent.buildSpaceURL(spaceDisplayName);
-			//String selectSpaceAction = uicomponent.event("SelectSpace");
-			String link = uicomponent.event("SelectSpace",spaceURLLink);
-             if(uicomponent.isSelectedSpace(spaceDisplayName)){
+			String spaceDisplayName = space.getDisplayName();
+			spaceImageSource = space.getAvatarUrl();
+		spaceURLLink = uicomponent.buildSpaceURL(space);
+		String link = uicomponent.event("SelectSpace", space.getId());
+        if(uicomponent.isSelectedSpace(space)) {
                  tabStyleNavigation = "spaceItemSelected";
              }
 			if (spaceImageSource == null){
 				spaceImageSource=  LinkProvider.SPACE_DEFAULT_AVATAR_URL;
 			}
 	%>
-
-
 				<li class="spaceItem $tabStyleNavigation">
 					<a href="javascript:void(0);" onclick="$link" class="spaceIcon avatarMini" title="$spaceDisplayName"><img title="" alt="" src="$spaceImageSource" /> $spaceDisplayName</a>
 				</li>
-	<%
+	<%	} %> <!-- END FOR -->
 
-      	}else{
-		break;
-	}
-      } %>
 
-    <% } %>
     <!-- FIN -->
 
 	</ul>
 <%
-		def spaceNotDisplayed=spaceTotal - mySpacesDisplayed;
-
-      		mySpacesDisplayed = -1;
+		def spaceNotDisplayed = uicomponent.numberOfRemainSpaces();
       		def moreSpacesLink = uicomponent.event("Increment");
 			if(spaceNotDisplayed>0){
       		print """
