@@ -79,6 +79,12 @@
                 <name>branding</name>
                 <label>#{UISetupPlatformToolBarPortlet.label.Branding}</label>
                 <page-reference>group::platform/administrators::branding</page-reference>
+            </node>
+            <node>
+                <uri>notification</uri>
+                <name>notification</name>
+                <label>#{UISetupPlatformToolBarPortlet.label.Notification}</label>
+                <page-reference>group::platform/administrators::notification</page-reference>
             </node>            
         </node>
         <node>
@@ -98,12 +104,6 @@
                 <label>#{UISetupPlatformToolBarPortlet.label.monitoring}</label>
                 <page-reference>group::platform/administrators::monitoring</page-reference>
             </node>  
-	    <node>
-                <uri>notification</uri>
-                <name>notification</name>
-                <label>#{UISetupPlatformToolBarPortlet.label.Notification}</label>
-                <page-reference>group::platform/administrators::notification</page-reference>
-            </node>          
         </node>
     </page-nodes>
 </node-navigation>
