@@ -28,7 +28,7 @@ public class AccountSetupViewServlet extends HttpServlet {
         if(accountSetupNode != null)
             setupDone = true;
         if(setupDone) response.sendRedirect(INTRANET_HOME_PAGE);
-        else getServletContext().getRequestDispatcher(AS_JSP_RESOURCE).include(request, response);
+        else getServletContext().getRequestDispatcher(AS_JSP_RESOURCE).forward(request, response);
     }
 
     @Override
