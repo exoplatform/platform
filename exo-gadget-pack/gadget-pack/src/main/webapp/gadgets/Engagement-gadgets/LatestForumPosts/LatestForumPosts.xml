@@ -16,15 +16,19 @@
   <UserPref name="limit" display_name="__MSG_limit__" default_value="10" datatype="string"/>  
   <Content type="html">
     <![CDATA[       
-      <script type="text/javascript" src="skin/latestForumPosts.js"></script>
       <link rel="stylesheet" type="text/css" href="/exo-gadget-resources/skin/exo-gadget/gadget-common.css" />
       <link rel="stylesheet" type="text/css" href="/gadget-pack/skin/css/latestForumPosts.css" />
-      <div class="UIGadgetThemes">
-        <div class="TitGad ClearFix">
-          <a href="#demo" class="IconDropDown" id="ShowAll" target="_blank">__MSG_showall__</a>
-          <div class="ContTit">__MSG_title__</div>
-        </div>
-        <div class="GadCont LastPost" id="ItemContainer">
+      <link rel="stylesheet" type="text/css" href="/eXoResources/skin/bootstrap/css/bootstrap.css" />
+      <link rel="stylesheet" type="text/css" href="/eXoResources/skin/css/Core.css" />  
+      <script language="javascript" type="text/javascript" src="/eXoResources/javascript/jquery-1.7.1.js"></script>
+      <script type="text/javascript" src="skin/latestForumPosts.js"></script>
+     
+      <div class="UIGadgetThemes uiBox" id="gadgetContent">
+        <h6 class="title left">
+          __MSG_title__
+          <a href="#demo" class="btn btn-primary btn-mini pull-right" id="ShowAll" target="_blank">__MSG_showall__</a>
+        </h6>
+        <div class="uiContentBox LastPost" id="ItemContainer">
         </div>
       </div>
     ]]>

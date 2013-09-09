@@ -2,7 +2,6 @@
 @import "mixins.less";
 @import "Sprites/Style.less";
 @import "uiToolbarContainer/Style.less";
-@import "ProgressBars/Style.less";
 
 
 .TDContainer{
@@ -12,8 +11,8 @@
 .LeftNavigationTDContainer{
     width: 250px;
     box-shadow: 0 0 1px rgba(0, 0, 0, 0.2) inset;
-    background: #F5F5F5;
-    border-right: 1px solid #c7c7c7;
+    background: @grayWhiteSmoke;
+    border-right: 1px solid @borderColor;
     vertical-align: top;
     padding: 0px;
 }
@@ -53,11 +52,11 @@
 }
 
 .QuickEditUnchecked {
-    background: url("/eXoPlatformResources/skin/platformSkin/UIToolbarContainer/background/ToolbarContainer.png") no-repeat scroll left -48px transparent;
+    background: url("/eXoPlatformResources/skin/images/UIToolbarContainer/background/ToolbarContainer.png") no-repeat scroll left -48px transparent;
 }
 
 .QuickEditChecked {
-    background: url("/eXoPlatformResources/skin/platformSkin/UIToolbarContainer/background/ToolbarContainer.png") no-repeat scroll left -69px transparent;
+    background: url("/eXoPlatformResources/skin/images/UIToolbarContainer/background/ToolbarContainer.png") no-repeat scroll left -69px transparent;
     padding-left: 24px !important;
 }
 

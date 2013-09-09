@@ -188,7 +188,7 @@
         
     eXoNewSpaceGadget.prototype.notify = function(){
       var msg = gadgets.Prefs().getMsg("no_space");
-      document.getElementById("newSpacesContainer").innerHTML = '<div class="noItem">' + msg + '</div>';
+      document.getElementById("newSpacesContainer").innerHTML = '<div class="light_message">' + msg + '</div>';
       document.getElementById("newSpacesGadgetTitle").innerHTML = gadgets.Prefs().getMsg("title");
       gadgets.window.adjustHeight($("#NewSpaces-Gadget").get(0).offsetHeight);
     }

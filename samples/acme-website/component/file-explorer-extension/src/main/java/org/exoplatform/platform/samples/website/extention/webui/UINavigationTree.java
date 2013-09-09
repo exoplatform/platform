@@ -22,7 +22,9 @@ public class UINavigationTree extends UITree {
    */
   public String renderNode(Object obj) throws Exception {
 
-    String nodeTypeIcon = ("DefaultPageIcon");
+    //String nodeTypeIcon = ("DefaultPageIcon");
+	String nodeGroupIcon = ("uiIconGroup");
+	String nodeTypeIcon = "uiIconNode";
     String nodeIcon = this.getExpandIcon();
     String iconGroup = this.getIcon();
     String note = "";
@@ -51,38 +53,39 @@ public class UINavigationTree extends UITree {
     }
     UIRightClickPopupMenu popupMenu = getUiPopupMenu();
     String beanFieldValue = getDisplayFieldValue(obj);
-    String className = "NodeIcon";
+    //String className = "NodeIcon";
+    String className = "uiIconLightGray"; 
     if (popupMenu == null) {
-      builder.append(" <div class=\"")
+      builder.append(" <i class=\"")
              .append(className)
              .append(" ")
              .append(iconGroup)
              .append(" ")
-             .append(nodeTypeIcon)
+             .append(nodeGroupIcon)
              .append(note)
              .append("\"")
              .append(" title=\"")
              .append(beanFieldValue)
              .append("\"")
-             .append(">")
-             .append(beanFieldValue)
-             .append("</div>");
+             .append(">")             
+             .append("</i>")
+             .append(beanFieldValue);
     } else {
-      builder.append(" <div class=\"")
+      builder.append(" <i class=\"")
              .append(className)
              .append(" ")
              .append(iconGroup)
              .append(" ")
-             .append(nodeTypeIcon)
+             .append(nodeGroupIcon)
              .append(note)
              .append("\" ")
              .append(popupMenu.getJSOnclickShowPopup(objId, null))
              .append(" title=\"")
              .append(beanFieldValue)
              .append("\"")
-             .append(">")
-             .append(beanFieldValue)
-             .append("</div>");
+             .append(">")            
+             .append("</i>")
+             .append(beanFieldValue);
     }
     builder.append(" </a>");
     return builder.toString();

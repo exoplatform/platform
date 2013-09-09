@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bundle>
+   <UIUserNavigationPortlet>
+      <label>
+         <activities>Verksamhets ström</activities>
+         <profile>Profil</profile>
+         <connections>Kopplingar</connections>
+         <wiki>Wiki</wiki>
+         <Myactivities>Min aktivitets ström</Myactivities>
+         <Myprofile>Min profil</Myprofile>
+         <Myconnections>Mina anslutningar</Myconnections>
+         <Mywiki>Min Wiki</Mywiki>
+         <Mydashboard>Min instrumentpanel</Mydashboard>
+      </label>
+   </UIUserNavigationPortlet>
+</bundle>

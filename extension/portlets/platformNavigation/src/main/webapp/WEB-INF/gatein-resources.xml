@@ -21,49 +21,52 @@
         <application-name>platformNavigation</application-name>
         <portlet-name>UICompanyNavigationPortlet</portlet-name>
         <skin-name>Default</skin-name>
-        <css-path>/skin/platformNavigation/UICompanyNavigationPortlet/DefaultStylesheet.css</css-path>
+        <css-path>/skin/css/UICompanyNavigationPortlet/Style.css</css-path>
     </portlet-skin>
     <portlet-skin>
         <application-name>platformNavigation</application-name>
         <portlet-name>UIBreadCrumbsNavigationPortlet</portlet-name>
         <skin-name>Default</skin-name>
-        <css-path>/skin/platformNavigation/UIBreadCrumbsNavigationPortlet/DefaultStylesheet.css</css-path>
+        <css-path>/skin/css/UIBreadCrumbsNavigationPortlet/Style.css</css-path>
     </portlet-skin>
     <portlet-skin>
         <application-name>platformNavigation</application-name>
         <portlet-name>UIGroupsNavigationPortlet</portlet-name>
         <skin-name>Default</skin-name>
-        <css-path>/skin/platformNavigation/UIGroupsNavigationPortlet/DefaultStylesheet.css</css-path>
+        <css-path>/skin/css/UIGroupsNavigationPortlet/Style.css</css-path>
     </portlet-skin>
     <portlet-skin>
         <application-name>platformNavigation</application-name>
         <portlet-name>UIHelpPlatformToolbarPortlet</portlet-name>
         <skin-name>Default</skin-name>
-        <css-path>/skin/platformNavigation/UIHelpPlatformToolbarPortlet/DefaultStylesheet.css</css-path>
+        <css-path>/skin/css/UIHelpPlatformToolbarPortlet/Style.css</css-path>
     </portlet-skin>
     <portlet-skin>
         <application-name>platformNavigation</application-name>
         <portlet-name>UISearchPlatformToolbarPortlet</portlet-name>
         <skin-name>Default</skin-name>
-        <css-path>/skin/platformNavigation/UISearchPlatformToolbarPortlet/DefaultStylesheet.css</css-path>
+        <css-path>/skin/css/UISearchPlatformToolbarPortlet/Style.css</css-path>
     </portlet-skin>
     <portlet-skin>
         <application-name>platformNavigation</application-name>
         <portlet-name>UISpaceNavigationPortlet</portlet-name>
         <skin-name>Default</skin-name>
-        <css-path>/skin/platformNavigation/UISpaceNavigationPortlet/DefaultStylesheet.css</css-path>
+        <css-path>/skin/css/UISpaceNavigationPortlet/Style.css</css-path>
     </portlet-skin>
     <portlet-skin>
         <application-name>platformNavigation</application-name>
         <portlet-name>UIUserNavigationPortlet</portlet-name>
         <skin-name>Default</skin-name>
-        <css-path>/skin/platformNavigation/UIUserNavigationPortlet/DefaultStylesheet.css</css-path>
+        <css-path>/skin/css/UIUserNavigationPortlet/Style.css</css-path>
     </portlet-skin>
     <portlet>
         <name>PlatformAdminToolbarPortlet</name>
         <module>
             <depends>
                 <module>bts_dropdown</module>
+            </depends>
+            <depends>
+              <module>bts_hover_dropdown</module>
             </depends>
         </module>
     </portlet>
@@ -72,6 +75,9 @@
         <module>
             <depends>
                 <module>bts_dropdown</module>
+            </depends>
+            <depends>
+                <module>bts_hover_dropdown</module>
             </depends>
         </module>
     </portlet>
@@ -83,6 +89,9 @@
             </depends>
            <depends>
               <module>bts_dropdown</module>
+           </depends>
+           <depends>
+              <module>bts_hover_dropdown</module>
            </depends>
             <!--
             <depends>
@@ -106,6 +115,9 @@
             </depends>
             <depends>
                 <module>bts_dropdown</module>
+            </depends>
+            <depends>
+                <module>bts_hover_dropdown</module>
             </depends>
         </module>
     </portlet>
@@ -199,6 +211,18 @@
       </depends>
       <depends>
          <module>jquery</module>
+      </depends>
+   </module>
+
+   <module>
+      <name>bts_hover_dropdown</name>
+      <load-group>plf_navigation</load-group>
+      <script>
+         <path>/javascript/eXo/platform/navigation/ToolBarNavigation/twitter-bootstrap-hover-dropdown.js</path>
+      </script>
+      <depends>
+         <module>jquery</module>
+         <as>jQuery</as>
       </depends>
    </module>
 </gatein-resources>

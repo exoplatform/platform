@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xmfl version='1.0' encoding='UTF-8'?>
+
+<!--
+
+    Copyright (C) 2009 eXo Platform SAS.
+    
+    This is free software; you can redistribute it and/or modify it
+    under the terms of the GNU Lesser General Public License as
+    published by the Free Software Foundation; either version 2.1 of
+    the License, or (at your option) any later version.
+    
+    This software is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+    Lesser General Public License for more details.
+    
+    You should have received a copy of the GNU Lesser General Public
+    License along with this software; if not, write to the Free
+    Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
+    02110-1301 USA, or see the FSF site: http://www.fsf.org.
+
+-->
+<messagebundle>
+  <msg name="forums.statistic.title">Thống kê Diễn đàn</msg>
+  <msg name="forums.statistic.total.topic">Tổng số Chủ đề:</msg>
+  <msg name="forums.statistic.total.post">Tổng số Bài viết:</msg>
+  <msg name="forums.statistic.total.member">Tổng số Thành viên:</msg>
+  <msg name="forums.statistic.active.member">Thành viên Tích cực:</msg>
+  <msg name="forums.statistic.maximum.user">Số người hoạt động trực tuyến cùng lúc nhiều nhất:</msg>  
+  <msg name="forums.statistic.at">tại</msg>  
+  <msg name="forums.weekly.statistic.title">Thông kê Diễn đàn Hàng tuần</msg>
+  <msg name="forums.weekly.statistic.post.open">Số bài viết đã Tạo</msg>
+  <msg name="forums.weekly.statistic.next">Tiếp tục</msg>
+  <msg name="forums.weekly.statistic.prev">Trước</msg>
+  <msg name="forums.weekly.statistic.view.chart">Hiển thị kiểu Đồ thị</msg>
+  <msg name="forums.weekly.statistic.view.list">Hiển thị kiểu Danh sách</msg>
+  <msg name="forums.statistic.see.total.statistic">Thống kê Toàn bộ</msg>
+  <msg name="forums.statistic.see.weekly.statistic">Thống kê Hàng tuần</msg>  
+</messagebundle>

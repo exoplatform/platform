@@ -42,12 +42,68 @@
     <input-encoding>UTF-8</input-encoding>
     <description>Default configuration for the french locale</description>
   </locale-config>
+  
+  <locale-config>
+    <locale>es_ES</locale>
+    <output-encoding>UTF-8</output-encoding>
+    <input-encoding>UTF-8</input-encoding>
+    <description>Default configuration for the spanish locale</description>
+  </locale-config>
+  
+  <locale-config>
+    <locale>vi</locale>
+    <output-encoding>UTF-8</output-encoding>
+    <input-encoding>UTF-8</input-encoding>
+    <description>Default configuration for the vietnamese locale</description>
+  </locale-config>
+  
+  <locale-config>
+    <locale>sv_SE</locale>
+    <output-encoding>UTF-8</output-encoding>
+    <input-encoding>UTF-8</input-encoding>
+    <description>Default configuration for the swedish locale</description>
+  </locale-config>
 
-  <!--locale-config>
+  <locale-config>
+    <locale>ja</locale>
+    <output-encoding>UTF-8</output-encoding>
+    <input-encoding>UTF-8</input-encoding>
+    <description>Default configuration for the japanese locale</description>
+  </locale-config>
+
+  <locale-config>
+    <locale>ar</locale>
+    <output-encoding>UTF-8</output-encoding>
+    <input-encoding>UTF-8</input-encoding>
+    <description>Default configuration for the arabe locale</description>
+  </locale-config> 
+
+  <locale-config>
+    <locale>de</locale>
+    <output-encoding>UTF-8</output-encoding>
+    <input-encoding>UTF-8</input-encoding>
+    <description>Default configuration for the german locale</description>
+  </locale-config>
+
+  <locale-config>
+    <locale>pt_BR</locale>
+    <output-encoding>UTF-8</output-encoding>
+    <input-encoding>UTF-8</input-encoding>
+    <description>Default configuration for the brazilian locale</description>
+  </locale-config>
+
+  <locale-config>
     <locale>it</locale>
     <output-encoding>UTF-8</output-encoding>
     <input-encoding>UTF-8</input-encoding>
     <description>Default configuration for the italian locale</description>
-  </locale-config-->
- 
+  </locale-config>
+  
+  <locale-config>
+    <locale>ru</locale>
+    <output-encoding>UTF-8</output-encoding>
+    <input-encoding>UTF-8</input-encoding>
+    <description>Default configuration for the russian locale</description>
+  </locale-config>  
 </locales-config>
+

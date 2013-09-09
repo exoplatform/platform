@@ -68,6 +68,7 @@ public class PeopleAndSpacesRestService implements ResourceContainer {
     private static final String SPACE_AVATAR_URL = "spaceAvatarUrl";
     private static final String MEMBERS_NUMBER = "membersNumber";
     private static final String SPACE_REGISTRATION = "spaceRegistration";
+    private static final String SENDER_PROFILE_URL = "profile_url";
     private SpaceService spaceService = null;
     private IdentityManager identityManager = null;
     private RelationshipManager relationshipManager = null;
@@ -137,6 +138,7 @@ public class PeopleAndSpacesRestService implements ResourceContainer {
                 json.put(RELATION_ID, relation.getId());
                 json.put(SENDER_AVATAR_URL, avatar);
                 json.put(SENDER_POSITION, senderId.getProfile().getPosition());
+                json.put(SENDER_PROFILE_URL, senderId.getProfile().getUrl());
                 jsonArray.put(json);
             }
 

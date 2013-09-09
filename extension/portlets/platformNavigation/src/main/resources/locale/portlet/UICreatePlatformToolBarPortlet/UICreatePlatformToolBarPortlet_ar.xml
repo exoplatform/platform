@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bundle>
+   <UIUserPlatformToolBarCreatePortlet>
+      <label>
+         <topic>الموضوع</topic>
+         <poll>استطلاع رأي</poll>
+         <eventtask>حدث/مهمّة</eventtask>
+         <upload>تحميل ملف</upload>
+         <wiki>صفحة ويكي</wiki>
+
+      </label>
+   </UIUserPlatformToolBarCreatePortlet>
+   <UICreateList>
+      <label>
+         <topic>موضوع</topic>
+         <poll>استطلاع رأي</poll>
+         <CreateANew>إنشاء {1}:</CreateANew>
+         <NoForum>عذراً، لا يوجد الى حدّ الآن أيّ منتدى قابل لإنشاء {1}. إبدأ بإنشاء فضاء خاصّ بك.</NoForum>
+         <RequireSelectForum>يرجى اختيار منتدى.</RequireSelectForum>
+      </label>
+      <action>
+         <Next>الموالي</Next>
+         <Cancel>الغاء</Cancel>
+      </action>
+   </UICreateList>
+   <UICreateTopic>
+      <label>
+         <SelectAForum>اختيار منتدى</SelectAForum>
+         <location>في</location>
+         <forumId>و منتدى</forumId>
+         <FilterForums>تصفية المنتديات</FilterForums>
+      </label>
+   </UICreateTopic>
+   <UICreatePoll>
+      <label>
+         <SelectAForum>اختيار منتدى</SelectAForum>
+         <location>في</location>
+         <forumId>و منتدى</forumId>
+         <FilterForums>تصفية المنتديات</FilterForums>
+      </label>
+   </UICreatePoll>
+   <UICreateWiki>
+      <label>
+         <title>إنشاء صفحة ويكي جديدة:</title>
+         <location>في</location>
+      </label>
+   </UICreateWiki>
+   <UICreateEvent>
+      <label>
+         <Title>عنوان</Title>
+         <Choix>إضافة:</Choix>
+         <EndEvent>إلى</EndEvent>
+         <StartEvent>من</StartEvent>
+         <Calendar>حدد الرزنامة</Calendar>
+         <all-day>طيلة اليوم</all-day>
+         <defaultCalendarId>الافتراضي</defaultCalendarId>
+      </label>
+      <msg>
+         <summary-field-required>الحقل "عنوان" مطلوب.</summary-field-required>
+         <fromDate-format>صيغة التاريخ "من" غير صحيحة.</fromDate-format>
+         <toDate-format>صيغة التاريخ "إلى" غير صحيحة.</toDate-format>
+         <logic-required>آسف، لا يمكنك إنشاء حدث ينتهي قبل أن يبدأ.</logic-required>
+         <cant-add-event-on-remote-calendar>لا يمكنك إضافة حدث إلى الزرنامة التي عن بعد</cant-add-event-on-remote-calendar>
+         <add-successfully>
+            <Event>تمّت إضافة الحدث إلى {1}</Event>
+            <Task>تمت إضافة المهمّة إلى {1}</Task>
+         </add-successfully>
+         <add-unsuccessfully>لم يتم إضافة {0}.</add-unsuccessfully>
+      </msg>
+      <action>
+         <Next>الموالي</Next>
+         <Cancel>الغاء</Cancel>
+      </action>
+   </UICreateEvent>
+    <UIUploadFile>
+        <Select>حدّد الملف</Select>
+    </UIUploadFile>
+   <Choix>
+      <label>
+         <Event>حدث</Event>
+         <Task>مُـهـمَّة</Task>
+      </label>
+   </Choix>
+</bundle>

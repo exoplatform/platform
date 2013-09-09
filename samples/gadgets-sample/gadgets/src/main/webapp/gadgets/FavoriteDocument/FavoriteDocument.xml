@@ -2,25 +2,35 @@
 
 <Module>
   <ModulePrefs author="eXoPlatform"
-    title="Favorite Documents"
+  title="Favorite Documents"
     title_url="http://www.exoplatform.org"
     description="My favorite Documents"
     thumbnail="/intranet-gadgets/skin/images/FavoriteDocument/FavoriteDocument.png"
     >
     <Locale messages="locale/default.xml" />
     <Locale lang="fr" messages="locale/fr.xml" />
+    <Locale lang="es" messages="locale/es_ES.xml" />
+    <Locale lang="vi" messages="locale/vi.xml" />
+    <Locale lang="sv" messages="locale/sv_SE.xml"/>
+    <Locale lang="ja" messages="locale/ja.xml"/>
+    <Locale lang="ar" messages="locale/ar.xml"/>
+    <Locale lang="de" messages="locale/de.xml"/>
+    <Locale lang="pt" messages="locale/pt_BR.xml" />
+    <Locale lang="it" messages="locale/it.xml" />
+    <Locale lang="ru" messages="locale/ru.xml" />
     <Require feature="opensocial-0.8" />
     <Require feature="dynamic-height"/>
   </ModulePrefs>
   <Content type="html">
   <![CDATA[   
-    <script language="javascript" type="text/javascript" src="/eXoResources/javascript/jquery-1.7.1.js"></script>
-    <script type="text/javascript" src="javascript/script.js"></script>
-    <link type="text/css" rel="stylesheet" href="/intranet-gadgets/skin/css/FavoriteDocument.css" />
-    <link type="text/css" rel="stylesheet" href="/exo-gadget-resources/skin/exo-gadget/gadget-common.css" />
-    <link type="text/css" rel="stylesheet" href="/eXoDMSResources/skin/DefaultSkin/Stylesheet-lt.css" />
     <link rel="stylesheet" type="text/css" href="/eXoResources/skin/bootstrap/css/bootstrap.css" />
     <link rel="stylesheet" type="text/css" href="/eXoResources/skin/css/Core.css" />
+    <link type="text/css" rel="stylesheet" href="/exo-gadget-resources/skin/exo-gadget/gadget-common.css" />
+    <link type="text/css" rel="stylesheet" href="/eXoDMSResources/skin/DefaultSkin/Stylesheet-lt.css" />
+    <link type="text/css" rel="stylesheet" href="/intranet-gadgets/skin/css/FavoriteDocument.css" />
+    <script language="javascript" type="text/javascript" src="/eXoResources/javascript/jquery-1.7.1.js"></script>
+    <script type="text/javascript" src="javascript/script.js"></script>
+	<script language="javascript" type="text/javascript" src="/eXoResources/skin/bootstrap/js/bootstrap-tooltip.js"></script>
     <style type="text/css">
                 
           .UIGadgetThemes.favoriteDoc .icon {
@@ -108,6 +118,7 @@ init = function() {
   setShowAllLink();
   var favUrl = prefixUrl + '/rest/plf/favorite/all/repository/collaboration/' + user;
   makeRequest(favUrl,displayValue);
+  $("#ShowAll").tooltip();
 }
 
 
@@ -186,12 +197,12 @@ autoRefresh = function() {
 }      
 
 gadgets.util.registerOnLoadHandler(loadUser);
-
+	
     </script>
 
        <div id="FavoriteDocument-Gadget" class="UIGadgetThemes favoriteDoc uiBox">
-            <h6 class="title center clearfix">
-            <a href="#demo" class="actionIcon pull-right" id="ShowAll" target="_parent">
+            <h6 class="title left">
+			<a href="#demo" class="actionIcon pull-right" id="ShowAll" target="_parent" ref="tooltip" data-placement="left" title data-original-title="Show all">
               <i class="uiIconFavoriteDocument uiIconLightGray"></i>
             </a>
               __MSG_title__

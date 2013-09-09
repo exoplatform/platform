@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bundle>
+   <UIAdminToolbarPortlet>
+      <action>
+         <AddPage>Lägg till sida</AddPage>
+         <EditNavigation>Navigering</EditNavigation>
+         <Content>Innehåll</Content>
+         <Editor>Redigera</Editor>
+         <Page>Sida</Page>
+         <Site>Webbplats</Site>
+         <Layout>Redigera Layout</Layout>
+         <siteLayout>Layout</siteLayout>
+         <ManagePages>Hantera sidor</ManagePages>
+         <GroupSite>Grupp webbplats</GroupSite>
+         <Properties>SEO</Properties>
+         <AddSite>Lägg till webbplats</AddSite>
+      </action>
+<ManageSites>Hantera webbplatser</ManageSites>
+<ManageGroupSites>Hantera grupp webbplatser</ManageGroupSites>
+   </UIAdminToolbarPortlet>
+
+  <UISEOForm>
+    <label>
+      <title>Titel:</title>  
+      <description>Beskrivning:</description>
+      <keywords>Sökord:</keywords>
+      <language>Språk:</language>
+      <robots>Robotar:</robots>
+      <sitemap>Karta över webbplats:</sitemap>
+      <sitemapvisible>Synliga i karta på webbplats</sitemapvisible>
+  <isInherited>Ärvts från överordnad sida</isInherited>
+      <priority>Prioritet:</priority>
+      <frequency>Antal:</frequency>
+      <select-language>Välj språk</select-language>
+      <option>
+        <Always>Alltid</Always>
+        <Hourly>Varje timme</Hourly>
+        <Daily>Dagligen</Daily>
+        <Weekly>Veckovis</Weekly>
+        <Monthly>Månadsvis</Monthly>
+        <Yearly>Årligt</Yearly>
+        <Never>Aldrig</Never>
+      </option> 
+    </label>
+ 
+    <action>
+      <Save>Spara</Save>
+      <Cancel>Avbryt</Cancel>
+    </action>
+    <msg>
+      <repository-exception>Ett oväntat fel uppstod. Kan inte spara sidan metadata.</repository-exception>
+      <confirm-delete>Är du säker du vill ta bort dessa SEO-data?</confirm-delete>
+    </msg>
+    <title>
+    <seo-delete>Ta bort</seo-delete>
+    </title>
+<help> 
+  <priority>Giltiga värden varierar från 0,0 till 1,0.</priority>
+  <description>Hjälpa personer som söker: Låt dem veta att följande sida har en koppling till vad de söker.</description>
+  <keywords>Mest viktiga termer i sidan måste avgränsas med kommatecken.</keywords>  
+    </help>  
+  </UISEOForm>
+  <UISEOPopupWindow>
+  <title>
+      <UISEOForm>SEO Administrering</UISEOForm>
+  </title>
+  </UISEOPopupWindow>    
+  <UISEOToolbarForm>
+  <title>
+      <seo>SEO Administrering</seo>
+  </title>
+  <label>
+    <seo>SEO</seo>
+  </label>
+  </UISEOToolbarForm>  
+  <FloatNumberValidator>
+    <msg>
+      <Invalid-number>Fältet prioritet har ett ogiltigt flyttals-nummer. Giltiga värden varierar från 0,0 till 1,0.</Invalid-number>
+    </msg>
+  </FloatNumberValidator>
+  
+  <Locale>
+    <label>      
+      <it>Italienska</it>      
+      <fr>Franska</fr>
+      <en>Engelska</en>      
+    </label>
+  </Locale>
+  
+</bundle>

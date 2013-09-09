@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bundle>
+<UIActionBar>
+<tooltip>
+<ContentNavigation>Inhaltsnavigation</ContentNavigation>
+</tooltip>
+</UIActionBar>
+<UIViewFormTabPane>
+<label>
+<contentNavigation>Navigation nach Inhalt</contentNavigation>
+</label>
+</UIViewFormTabPane>
+<UIPopupWindow>
+<title>
+<UINavigationForm>Navigations-Formular</UINavigationForm>
+</title>
+</UIPopupWindow>
+<PopulateToMenu>
+<dialog>
+<label>
+<id>ID:</id>
+<name>Name:</name>
+<lifecycle>Lebenszyklus:</lifecycle>
+<isDeep>Ist tief:</isDeep>
+<nodetypes>Knotentypen:</nodetypes>
+<description>Beschreibung:</description>
+<affectedNodeTypeNames>Betroffenen Knotentypen:</affectedNodeTypeNames>
+<navigationNode>Navigationsknoten:</navigationNode>
+<index>Index:</index>
+<clickable>Anklickbar:</clickable>
+<page>Seite:</page>
+<childrenPage>Unterseite:</childrenPage>
+</label>
+</dialog>
+</PopulateToMenu>
+<UINavigationForm>
+<label>
+<Node>Übergeordneter Ordner:</Node>
+<Visible>Sichtbar :</Visible>
+<NavigationNodeInputSet>Übergeordnete Zielnavigation:</NavigationNodeInputSet>
+<Index>Anzeigereihenfolge:</Index>
+<Clickable>Anklickbar:</Clickable>
+<NavigationControls>Navigationseinstellung</NavigationControls>
+<ListTargetPageFormInputSet>Seite für Liste:</ListTargetPageFormInputSet>
+<ListShowCLVByStringInput>Parametername:</ListShowCLVByStringInput>
+<DetailTargetPageInputSet>Seite für Detail:</DetailTargetPageInputSet>
+<DetailShowCLVByStringInput>Parametername:</DetailShowCLVByStringInput>
+<List>Liste</List>
+<Detail>Detaillierte Informationen</Detail>
+</label>
+<action>
+<Save>Speichern</Save>
+<Cancel>Abbrechen</Cancel>
+</action>
+</UINavigationForm>
+<Visible>
+<label>
+<VisibleEnable>Ja</VisibleEnable>
+<VisibleDisable>Nein</VisibleDisable>
+</label>
+</Visible>
+<Clickable>
+<label>
+<ClickableEnable>Ja</ClickableEnable>
+<ClickableDisable>Nein</ClickableDisable>
+</label>
+</Clickable>
+<NavigationNodeInputSet>
+<title>
+<SelectNavigationNode>Wählen Sie den Navigationsknoten</SelectNavigationNode>
+<RemoveNavigationNode>Zurücksetzen</RemoveNavigationNode>
+</title>
+</NavigationNodeInputSet>
+<ListTargetPageFormInputSet>
+<title>
+<SelectListTargetPage>Wählen Sie die Zielseite</SelectListTargetPage>
+<RemoveListTargetPage>Zurücksetzen</RemoveListTargetPage>
+</title>
+</ListTargetPageFormInputSet>
+<DetailTargetPageInputSet>
+<title>
+<SelectDetailTargetPage>Wählen Sie die Zielseite der Unterseite</SelectDetailTargetPage>
+<RemoveDetailTargetPage>Zurücksetzen</RemoveDetailTargetPage>
+</title>
+</DetailTargetPageInputSet>
+<NavigationSelectorPopupWindow>
+<title>
+<UINavigationSelector>Navigation-Auswahl</UINavigationSelector>
+</title>
+</NavigationSelectorPopupWindow>
+<ListTargetPageSelectorPopupWindow>
+<title>
+<UIPageSelector>Seitenauswahl</UIPageSelector>
+</title>
+</ListTargetPageSelectorPopupWindow>
+<DetailTargetPageSelectorPopupWindow>
+<title>
+<UIPageSelector>Seitenauswahl</UIPageSelector>
+</title>
+</DetailTargetPageSelectorPopupWindow>
+</bundle>

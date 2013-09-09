@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bundle>
+ <UISpaceNavigationPortlet>
+     <label>
+         <Spaces>فضاءاتي</Spaces>
+         <Join>الانضمام إلى فضاء</Join>
+         <more>مزيد الفضاءات</more>
+         <see>إظهار</see>
+     </label>
+     <msg>
+         <filter-spaces>البحث عن فضاءات</filter-spaces>
+         <no-space>لا يوجد أيّ فضاء</no-space>
+     </msg>
+
+</UISpaceNavigationPortlet>
+</bundle>

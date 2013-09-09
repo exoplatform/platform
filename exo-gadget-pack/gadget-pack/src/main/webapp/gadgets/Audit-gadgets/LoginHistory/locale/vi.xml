@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xmfl version='1.0' encoding='UTF-8'?>
+
+<!--
+
+    Copyright (C) 2009 eXo Platform SAS.
+    
+    This is free software; you can redistribute it and/or modify it
+    under the terms of the GNU Lesser General Public License as
+    published by the Free Software Foundation; either version 2.1 of
+    the License, or (at your option) any later version.
+    
+    This software is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+    Lesser General Public License for more details.
+    
+    You should have received a copy of the GNU Lesser General Public
+    License along with this software; if not, write to the Free
+    Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
+    02110-1301 USA, or see the FSF site: http://www.fsf.org.
+
+-->
+<messagebundle>
+  <msg name="loginHistory.title">Lịch sử Đăng nhập</msg>
+  <msg name="loginHistory.user">Tên Người dùng</msg>
+  <msg name="loginHistory.find">Tìm kiếm</msg>
+  <msg name="loginHistory.latest">Làm lại</msg>
+  <msg name="loginHistory.lastLogin">Lần Đăng nhập cuối</msg>
+  <msg name="loginHistory.beforeThat">Trước đó</msg>
+  <msg name="loginHistory.more">Hiện thêm</msg>
+  <msg name="loginHistory.stats">Thống kê</msg>
+  <msg name="loginHistory.history">Lược sử</msg>
+  <msg name="loginHistory.global">Global</msg>
+  <msg name="loginHistory.week">Theo Tuần</msg>
+  <msg name="loginHistory.lastLoginsView">Đăng nhập Lần cuối</msg>
+  <msg name="loginHistory.historyView">Lược sử</msg>
+  <msg name="loginHistory.statisticsView">Thống kê</msg>
+  <msg name="loginHistory.averagePerDay">Số lần đăng nhập / ngày</msg>
+  <msg name="loginHistory.averagePerWeek">Số lần đăng nhập / tuần</msg>
+  <msg name="loginHistory.averagePerMonth">Số lần đăng nhập / tháng</msg>
+  <msg name="loginHistory.today">Hôm nay</msg>
+  <msg name="loginHistory.earlierThisWeek">Đầu tuần này</msg>
+  <msg name="loginHistory.earlierThisMonth">Đầu tháng này</msg>
+  <msg name="loginHistory.earlier">Trước đó</msg>
+  <msg name="loginHistory.allUsers">Toàn bộ Thành viên</msg>
+  <msg name="loginHistory.unknow">Không xác định</msg>
+  <msg name="loginHistory.next">Tiếp tục</msg>
+  <msg name="loginHistory.ago">Ago</msg>
+</messagebundle>

@@ -21,7 +21,7 @@
     import org.exoplatform.web.application.RequestContext;
 %>
 <div class="UIGadgetThemes uiBox uiGettingStarted">
-    <h6 class="gadgetTitle title center">&{title.Label}<a onclick="" data-placement="bottom" rel="tooltip" title="Close Window" class="uiIconClose pull-right"></a></h6>
+    <h6 class="gadgetTitle title center">&{title.Label}<a onclick="" data-placement="bottom" rel="tooltip" title="&{close.Label}" class="uiIconClose pull-right"></a></h6>
 
     <div class="listBlock">
 
