@@ -3,6 +3,16 @@
   <ModulePrefs title="Bookmarks" description="Bookmarks list.">
     <Locale messages="locale/default.xml" />
     <Locale lang="fr" messages="locale/fr.xml" />
+    <Locale lang="es" messages="locale/es_ES.xml" />
+    <Locale lang="vi" messages="locale/vi.xml" />
+    <Locale lang="sv" messages="locale/sv_SE.xml"/>
+    <Locale lang="ja" messages="locale/ja.xml"/>
+    <Locale lang="ar" messages="locale/ar.xml"/>
+    <Locale lang="de" messages="locale/de.xml"/>
+    <Locale lang="pt" messages="locale/pt_BR.xml"/>
+    <Locale lang="it" messages="locale/it.xml"/>
+    <Locale lang="ru" messages="locale/ru.xml"/>
+
     <Require feature="dynamic-height"/>
   </ModulePrefs>
   
@@ -10,10 +20,10 @@
   <![CDATA[     
     
   <head>
-    <link type="text/css" rel="stylesheet" href="/exo-gadget-resources/skin/exo-gadget/gadget-common.css" />
-    <link type="text/css" rel="stylesheet" href="/intranet-gadgets/skin/css/Bookmark.css" />
     <link rel="stylesheet" type="text/css" href="/eXoResources/skin/bootstrap/css/bootstrap.css" />
     <link rel="stylesheet" type="text/css" href="/eXoResources/skin/css/Core.css" />
+    <link type="text/css" rel="stylesheet" href="/exo-gadget-resources/skin/exo-gadget/gadget-common.css" />
+    <link type="text/css" rel="stylesheet" href="/intranet-gadgets/skin/css/Bookmark.css" />
   <style type="text/css">
    /* Bookmark */
          
@@ -214,13 +224,8 @@
           });
       
       function tooltipCustomize(){
-        //$("#customize").tooltip('show');   
-        var margin = "90px";
-        var arrowMargin = "30px"; //coff 1:3
-         $("#customize").width(margin);
-         $("#customize").siblings(".center").css("margin-left",margin);
          $("#customize").tooltip({
-            template: '<div class="tooltip" style="white-space: nowrap;"><div class="tooltip-arrow" style="margin-left:'+arrowMargin+'"></div><div class="tooltip-inner" style="max-width: none"></div></div>'
+            template: '<div class="tooltip" style="white-space: nowrap;"><div class="tooltip-arrow" ></div><div class="tooltip-inner" style="max-width: none"></div></div>'
           });
         
         //$('#customize').data('tooltip').options.placement = 'left';
@@ -330,14 +335,12 @@
   </head>
  
      <div id="content" class="UIGadgetThemes bookmark uiBox">
-       <div class="title">         
-         <div class="pull-right left" id="customize" ref="tooltip" data-placement="bottom" title data-original-title="Add Bookmark">
-             <a class="actionIcon pull-right" href="#">
-                 <i class="uiIconPlus uiIconLightGray pull-right"></i>
+       <h6 class="title left">          
+         __MSG_title__
+             <a class="actionIcon pull-right" href="#" id="customize" ref="tooltip" data-placement="left" data-original-title="Add Bookmark">
+                 <i class="uiIconPlus uiIconLightGray"></i>
              </a>
-         </div>          
-         <div class="center"><b>__MSG_title__</b></div>
-       </div>
+       </h6>
        
       <div class="uiContentBox">
         <div id="emptyMsg" style="display:none;">

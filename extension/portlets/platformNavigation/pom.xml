@@ -183,13 +183,13 @@
               <sourceDirectory>${project.build.directory}/${project.build.finalName}/skin/less</sourceDirectory>
               <outputDirectory>${project.build.directory}/${project.build.finalName}/skin/css</outputDirectory>
               <includes>
-                <include>UIBreadCrumbsNavigationPortlet/UIBreadCrumbsNavigationPortlet.less</include>
-                <include>UICompanyNavigationPortlet/UICompanyNavigationPortlet.less</include>
-                <include>UIGroupsNavigationPortlet/UIGroupsNavigationPortlet.less</include>
-                <include>UIHelpPlatformToolbarPortlet/UIHelpPlatformToolbarPortlet.less</include>
-                <include>UISearchPlatformToolbarPortlet/UISearchPlatformToolbarPortlet.less</include>
-                <include>UISpaceNavigationPortlet/UISpaceNavigationPortlet.less</include>
-                <include>UIUserNavigationPortlet/UIUserNavigationPortlet.less</include>
+                <include>UIBreadCrumbsNavigationPortlet/Style.less</include>
+                <include>UICompanyNavigationPortlet/Style.less</include>
+                <include>UIGroupsNavigationPortlet/Style.less</include>
+                <include>UIHelpPlatformToolbarPortlet/Style.less</include>
+                <include>UISearchPlatformToolbarPortlet/Style.less</include>
+                <include>UISpaceNavigationPortlet/Style.less</include>
+                <include>UIUserNavigationPortlet/Style.less</include>
               </includes>
             </configuration>
           </execution>

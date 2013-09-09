@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bundle>
+  <portal>
+    <acme>
+      <overview>概要</overview>
+      <products>製品</products>
+      <news>ニュース</news>
+      <contactus>ご質問？</contactus>
+      <newsletters>ニュースレター</newsletters>
+      <confirmation>コンタクトフォームの確認</confirmation>
+      <detail>詳細</detail>
+  <catalog>カタログ</catalog>
+      <printviewer>ページ印刷</printviewer>
+      <searchResult>検索</searchResult>
+      <newAccount>新しいアカウント</newAccount>
+      <groupnavigation>グループナビゲーション</groupnavigation>
+      <portalnavigation>ポータルナビゲーション</portalnavigation>
+      <documents>ドキュメント</documents>
+      <unifiedSearch>検索</unifiedSearch>
+    </acme>
+  </portal>
+</bundle>

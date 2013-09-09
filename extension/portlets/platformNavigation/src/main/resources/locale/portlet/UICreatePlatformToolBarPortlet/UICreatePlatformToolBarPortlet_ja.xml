@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bundle>
+   <UIUserPlatformToolBarCreatePortlet>
+      <label>
+         <topic>トピック</topic>
+         <poll>アンケート</poll>
+         <eventtask>イベント/タスク</eventtask>
+         <upload>ファイルをアップロード</upload>
+         <wiki>Wiki ページ</wiki>
+
+      </label>
+   </UIUserPlatformToolBarCreatePortlet>
+   <UICreateList>
+      <label>
+         <topic>トピック</topic>
+         <poll>ポール</poll>
+         <CreateANew>新しい {1} を作成</CreateANew>
+         <NoForum>申し訳ありませんが、{1} を作成するために必要となるフォーラムがまだ存在していません。まず、スペースを作成してください。</NoForum>
+         <RequireSelectForum>フォーラムを選択してください</RequireSelectForum>
+      </label>
+      <action>
+         <Next>次へ</Next>
+         <Cancel>キャンセル</Cancel>
+      </action>
+   </UICreateList>
+   <UICreateTopic>
+      <label>
+         <SelectAForum>フォーラムを選択</SelectAForum>
+         <location>ロケーションに</location>
+         <forumId>フォーラム</forumId>
+         <FilterForums>フォーラムでフィルター</FilterForums>
+      </label>
+   </UICreateTopic>
+   <UICreatePoll>
+      <label>
+         <SelectAForum>フォーラムを選択</SelectAForum>
+         <location>ロケーションに</location>
+         <forumId>フォーラム</forumId>
+         <FilterForums>フォーラムでフィルター</FilterForums>
+      </label>
+   </UICreatePoll>
+   <UICreateWiki>
+      <label>
+         <title>新しい Wiki ページを作成</title>
+         <location>ロケーションに</location>
+      </label>
+   </UICreateWiki>
+   <UICreateEvent>
+      <label>
+         <Title>タイトル</Title>
+         <Choix>新規追加</Choix>
+         <EndEvent>終了日</EndEvent>
+         <StartEvent>開始日</StartEvent>
+         <Calendar>カレンダーを選択</Calendar>
+         <all-day>すべての日</all-day>
+         <defaultCalendarId>デフォルト</defaultCalendarId>
+      </label>
+      <msg>
+         <summary-field-required>「タイトル」は必須項目です</summary-field-required>
+         <fromDate-format>開始日付の形式が正しくありません</fromDate-format>
+         <toDate-format>終了日付の形式が正しくありません</toDate-format>
+         <logic-required>申し訳ありませんが、開始前に終了するイベントは作成できません</logic-required>
+         <cant-add-event-on-remote-calendar>リモートカレンダーにイベントを追加することはできません</cant-add-event-on-remote-calendar>
+         <add-successfully>
+            <Event>イベント が、{1} に追加されました</Event>
+            <Task>タスク が、{1} に追加されました</Task>
+         </add-successfully>
+         <add-unsuccessfully>{0} は、追加されませんでした</add-unsuccessfully>
+      </msg>
+      <action>
+         <Next>次へ</Next>
+         <Cancel>キャンセル</Cancel>
+      </action>
+   </UICreateEvent>
+    <UIUploadFile>
+        <Select>ファイルを選択する</Select>
+    </UIUploadFile>
+   <Choix>
+      <label>
+         <Event>イベント</Event>
+         <Task>タスク</Task>
+      </label>
+   </Choix>
+</bundle>

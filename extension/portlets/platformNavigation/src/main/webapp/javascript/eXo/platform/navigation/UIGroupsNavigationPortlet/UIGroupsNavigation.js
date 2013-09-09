@@ -20,7 +20,7 @@
 function initGroupNavigationPortlet(id)
 {
     require(['SHARED/jquery'], function($){
-        $("#" + id).on("click", "span", function(event) {
+        $("#" + id).on("click", "i", function(event) {
             collapseExpand(this);
 
             event.stopPropagation();
@@ -29,7 +29,7 @@ function initGroupNavigationPortlet(id)
 
         function collapseExpand(node)
         {
-            var jqNode = $(node);
+            var jqNode = $(node.parentNode);
 
             var subGroup = jqNode.parent().children("ul.childrenContainer");
             if(subGroup.css("display") == "none")

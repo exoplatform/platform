@@ -71,7 +71,7 @@
        -->
       <value-param>
         <name>cache-control</name>
-        <value>${webdav.cache-control:text/*:max-age=3600;image/*:max-age=1800;*/*:no-cache}</value>
+        <value>${webdav.cache-control:text/*:max-age=3600;image/*:max-age=1800;application/*:max-age=1800;*/*:no-cache}</value>
       </value-param>
 
       <values-param>

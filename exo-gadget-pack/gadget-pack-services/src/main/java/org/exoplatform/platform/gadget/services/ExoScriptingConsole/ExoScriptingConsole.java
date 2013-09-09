@@ -44,7 +44,7 @@ public class ExoScriptingConsole{
 		String output = "";
 		String outputType = "result";
 		
-		System.out.print("Type 'help' for available commands\n>> ");
+		System.out.print("Type 'help' for available commands\n>> "); // NOSONAR
 		
 		Scanner scn = new Scanner(System.in);
 		while(scn.hasNextLine()){
@@ -55,7 +55,7 @@ public class ExoScriptingConsole{
 				String script = scn.nextLine();
 
 				if(script.isEmpty()) {
-					System.out.print(">> ");
+					System.out.print(">> ");   // NOSONAR
 					continue;
 				}
 
@@ -88,19 +88,19 @@ public class ExoScriptingConsole{
 				output = "Runtime exception: " + e.getMessage();
 				
 				if(isDebug){
-					e.printStackTrace();
+					e.printStackTrace();  // NOSONAR
 				}
 			}
 
 			if(outputType.equals("error")){
 				if(!isDebug){
 				    output=new StringBuffer().append("ERROR: ").append(output).toString();
-					System.out.print(output + "\n");
-					System.out.print(">> ");
+					System.out.print(output + "\n"); // NOSONAR
+					System.out.print(">> "); // NOSONAR
 				}
 			} else{
-				System.out.print(output + "\n");
-				System.out.print(">> ");
+				System.out.print(output + "\n"); // NOSONAR
+				System.out.print(">> "); // NOSONAR
 			}
 		}
 	}
@@ -125,12 +125,12 @@ public class ExoScriptingConsole{
 	public static void main(String[] args) {
 		try {
 			ExoScriptingConsole console = new ExoScriptingConsole("ECMAScript");
-			System.out.println(console.toString());
+			System.out.println(console.toString());  // NOSONAR
 			console.getVariables().put("x", 5);
-			System.out.println("x + 1 = " + console.run("println(x+1)"));
+			System.out.println("x + 1 = " + console.run("println(x+1)"));    // NOSONAR
 			console.runInSystemTerminal(false);
 		} catch (Exception e) {
-			e.printStackTrace();
+			e.printStackTrace();   // NOSONAR
 		}
 	}
 }

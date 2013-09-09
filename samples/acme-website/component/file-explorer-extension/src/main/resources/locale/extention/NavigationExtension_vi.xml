@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bundle>
+<UIActionBar>
+<tooltip>
+<ContentNavigation>Điều hướng Nội dung</ContentNavigation>
+</tooltip>
+</UIActionBar>
+<UIViewFormTabPane>
+<label>
+<contentNavigation>Điều hướng theo Nội dung</contentNavigation>
+</label>
+</UIViewFormTabPane>
+<UIPopupWindow>
+<title>
+<UINavigationForm>Thông tin Điều hướng</UINavigationForm>
+</title>
+</UIPopupWindow>
+<PopulateToMenu>
+<dialog>
+<label>
+<id>Mã:</id>
+<name>Tên:</name>
+<lifecycle>Vòng đời:</lifecycle>
+<isDeep>Tác động Sâu</isDeep>
+<nodetypes>Kiểu Nút</nodetypes>
+<description>Mô tả:</description>
+<affectedNodeTypeNames>Kiểu Nút bị Ảnh hưởng:</affectedNodeTypeNames>
+<navigationNode>Nút Điều hướng</navigationNode>
+<index>Mục lục:</index>
+<clickable>Có thể nhấp chuột:</clickable>
+<page>Trang:</page>
+<childrenPage>Trang Con</childrenPage>
+</label>
+</dialog>
+</PopulateToMenu>
+<UINavigationForm>
+<label>
+<Node>Thư mục Cha</Node>
+<Visible>Có thể nhìn thấy:</Visible>
+<NavigationNodeInputSet>Điều hướng Đích Cha</NavigationNodeInputSet>
+<Index>Thứ tự Hiển thị:</Index>
+<Clickable>Có thể nhấp chuột:</Clickable>
+<NavigationControls>Điều khiển Điều hướng</NavigationControls>
+<ListTargetPageFormInputSet>Trang cho Danh sách:</ListTargetPageFormInputSet>
+<ListShowCLVByStringInput>Tên Tham số:</ListShowCLVByStringInput>
+<DetailTargetPageInputSet>Trang Chi tiết:</DetailTargetPageInputSet>
+<DetailShowCLVByStringInput>Tên Tham số:</DetailShowCLVByStringInput>
+<List>Danh sách</List>
+<Detail>Chi tiết</Detail>
+</label>
+<action>
+<Save>Lưu</Save>
+<Cancel>Hủy bỏ</Cancel>
+</action>
+</UINavigationForm>
+<Visible>
+<label>
+<VisibleEnable>Có</VisibleEnable>
+<VisibleDisable>Không</VisibleDisable>
+</label>
+</Visible>
+<Clickable>
+<label>
+<ClickableEnable>Có</ClickableEnable>
+<ClickableDisable>Không</ClickableDisable>
+</label>
+</Clickable>
+<NavigationNodeInputSet>
+<title>
+<SelectNavigationNode>Chọn Nút Điều hướng</SelectNavigationNode>
+<RemoveNavigationNode>Làm lại</RemoveNavigationNode>
+</title>
+</NavigationNodeInputSet>
+<ListTargetPageFormInputSet>
+<title>
+<SelectListTargetPage>Chọn Trang Đích</SelectListTargetPage>
+<RemoveListTargetPage>Làm lại</RemoveListTargetPage>
+</title>
+</ListTargetPageFormInputSet>
+<DetailTargetPageInputSet>
+<title>
+<SelectDetailTargetPage>Chọn Trang Đích Con</SelectDetailTargetPage>
+<RemoveDetailTargetPage>Làm lại</RemoveDetailTargetPage>
+</title>
+</DetailTargetPageInputSet>
+<NavigationSelectorPopupWindow>
+<title>
+<UINavigationSelector>Chọn Điều hướng</UINavigationSelector>
+</title>
+</NavigationSelectorPopupWindow>
+<ListTargetPageSelectorPopupWindow>
+<title>
+<UIPageSelector>Chọn Trang</UIPageSelector>
+</title>
+</ListTargetPageSelectorPopupWindow>
+<DetailTargetPageSelectorPopupWindow>
+<title>
+<UIPageSelector>Chọn Trang</UIPageSelector>
+</title>
+</DetailTargetPageSelectorPopupWindow>
+</bundle>

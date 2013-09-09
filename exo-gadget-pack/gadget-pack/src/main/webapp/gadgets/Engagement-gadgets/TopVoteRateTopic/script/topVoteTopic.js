@@ -70,8 +70,8 @@
           displayHalfStar = 1;
         }
 
-        html += '<div><a target="_blank" href=\"'+ item.link + '\" class="IconLink">' + item.title +'</a></div>';
-        html += '<div class = "ClearFix">';
+        html += '<div><a target="_blank" href=\"'+ item.link + '\" class="IconLink"><i class="uiIconMiniArrowRight uiIconLightGray caretIcon"></i>' + item.title +'</a></div>';
+        html += '<div class = "ClearFix mgB5">';
         html += '<div class="RatingInfoContainer" title="'+ gadgets.Prefs().getMsg("topic.top.vote.rate")  + ' '+ displayVoteRating + '/5 ' + gadgets.Prefs().getMsg("topic.top.vote.with") + ' ' +  item.numberOfUserVoteRating + ' ' + gadgets.Prefs().getMsg("topic.top.vote.votes") + '">';
         html += '<div class="AvgRatingImages ClearFix">';
         
