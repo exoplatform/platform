@@ -370,7 +370,7 @@
     
     <page>
       <name>notifications</name>
-      <title>Notifications</title>
+      <title>Notification Settings</title>
       <access-permissions>*:/platform/users</access-permissions>
       <edit-permission>manager:/platform/administrators</edit-permission>
       <container id="UIUserNavigationPortlet" template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
@@ -393,7 +393,7 @@
             <application-ref>social-juzu</application-ref>
             <portlet-ref>NotificationSettingsPortlet</portlet-ref>
           </portlet>
-          <title>Notifications</title>
+          <title>Notification Settings</title>
           <access-permissions>*:/platform/users</access-permissions>
           <show-info-bar>false</show-info-bar>
           <show-application-state>true</show-application-state>
