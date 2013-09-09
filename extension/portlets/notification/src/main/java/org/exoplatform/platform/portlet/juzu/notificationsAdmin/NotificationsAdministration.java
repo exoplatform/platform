@@ -38,8 +38,12 @@ import juzu.template.Template;
 
 import org.apache.commons.lang.StringUtils;
 import org.exoplatform.commons.api.notification.model.GroupProvider;
+import org.exoplatform.commons.api.notification.plugin.NotificationPluginUtils;
 import org.exoplatform.commons.api.notification.plugin.config.PluginConfig;
 import org.exoplatform.commons.api.notification.service.setting.PluginSettingService;
+import org.exoplatform.commons.api.settings.SettingService;
+import org.exoplatform.commons.api.settings.SettingValue;
+import org.exoplatform.commons.api.settings.data.Scope;
 import org.exoplatform.commons.juzu.ajax.Ajax;
 import org.exoplatform.commons.notification.NotificationUtils;
 import org.exoplatform.commons.notification.impl.DigestDailyPlugin;
@@ -56,7 +60,7 @@ import org.exoplatform.webui.application.WebuiRequestContext;
 
 public class NotificationsAdministration {
   private static final Log LOG = ExoLogger.getLogger(NotificationsAdministration.class);
-
+  
   @Inject
   @Path("index.gtmpl")
   Template index;
@@ -66,6 +70,9 @@ public class NotificationsAdministration {
   
   @Inject
   PluginSettingService providerSettingService;
+  
+  @Inject
+  SettingService settingService;
 
   private Locale locale = Locale.ENGLISH;
   
@@ -85,8 +92,11 @@ public class NotificationsAdministration {
     List<GroupProvider> groups = providerSettingService.getGroupPlugins();
     parameters.put("groups", groups);     
     
-    parameters.put("senderName", System.getProperty("exo.notifications.portalname", "eXo"));
-    parameters.put("senderEmail", System.getProperty("gatein.email.smtp.from", "noreply@exoplatform.com"));
+    //try to get sender name and email from database. If fail, get default value from properties file
+    SettingValue<?> senderName = settingService.get(org.exoplatform.commons.api.settings.data.Context.GLOBAL, Scope.GLOBAL, NotificationPluginUtils.NOTIFICATION_SENDER_NAME);
+    SettingValue<?> senderEmail = settingService.get(org.exoplatform.commons.api.settings.data.Context.GLOBAL, Scope.GLOBAL, NotificationPluginUtils.NOTIFICATION_SENDER_EMAIL);
+    parameters.put("senderName", senderName != null ? (String)senderName.getValue() : System.getProperty("exo.notifications.portalname", "eXo"));
+    parameters.put("senderEmail", senderEmail != null ? (String)senderEmail.getValue() : System.getProperty("gatein.email.smtp.from", "noreply@exoplatform.com"));
     
     index.render(parameters);      
   }  
@@ -130,9 +140,8 @@ public class NotificationsAdministration {
   public Response saveSender(String name, String email) {
     if(name != null && name.length() > 0
          && isValidEmailAddresses(email)) {
-      
-      System.setProperty("exo.notifications.portalname", name);
-      System.setProperty("gatein.email.smtp.from", email);
+      settingService.set(org.exoplatform.commons.api.settings.data.Context.GLOBAL, Scope.GLOBAL, NotificationPluginUtils.NOTIFICATION_SENDER_NAME, SettingValue.create(name));
+      settingService.set(org.exoplatform.commons.api.settings.data.Context.GLOBAL, Scope.GLOBAL, NotificationPluginUtils.NOTIFICATION_SENDER_EMAIL, SettingValue.create(email));
     } else {
       return new Response.Error("ERROR: Set value of name and email not empty and email is email address");
     }
