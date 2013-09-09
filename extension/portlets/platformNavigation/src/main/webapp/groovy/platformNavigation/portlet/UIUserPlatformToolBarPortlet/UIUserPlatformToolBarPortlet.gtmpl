@@ -34,7 +34,7 @@
 
     def rcontext = _ctx.getRequestContext();
     JavascriptManager jsmanager = rcontext.getJavascriptManager();
-    def user = uicomponent.getUser();
+    def fullName = uicomponent.getFullName();
     PortalURL nodeURL = nodeurl();
     def labelActivities = _ctx.appRes("UIUserPlatformToolBarPortlet.label.activities");
     def labelProfile = _ctx.appRes("UIUserPlatformToolBarPortlet.label.profile");
@@ -62,7 +62,7 @@
         <a class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown">
             <%
               EntityEncoder encoder = EntityEncoder.FULL;
-              fullName = encoder.encode(user.fullName);
+              fullName = encoder.encode(fullName);
             %>
             <img src="<%=uicomponent.getAvatarURL()%>" alt="avatar"/> $fullName
         </a>
