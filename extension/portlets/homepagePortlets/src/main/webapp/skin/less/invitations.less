@@ -10,7 +10,7 @@
 		position: relative;
 		
 		&:nth-child(2n+2){
-		    border-bottom: 1px solid #cfcfcf;
+		    border-bottom: 1px solid @borderColor;
 			padding-bottom: 15px;
 		}
 		
@@ -33,6 +33,7 @@
         white-space:nowrap;
         overflow: hidden;
         text-overflow:ellipsis;
+		color: @grayLight;
     }
 
 	.peopleInvitePicture, .spaceInvitePicture{

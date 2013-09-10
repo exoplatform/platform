@@ -82,6 +82,7 @@ public class UnlockService implements Startable {
                 try {
                     PingBackServlet.writePingBackFormDisplayed(true);
                 } catch (MissingProductInformationException e) {
+                    LOG.error("Product Information not found ",e.getLocalizedMessage());
 
                 }
                 outdated = false;
@@ -328,7 +329,7 @@ public class UnlockService implements Startable {
                 productInformations.storeUnlockInformation();
             }
         } catch (MissingProductInformationException e) {
-
+            LOG.error("Product Information not found ",e.getLocalizedMessage());
         }
     }
 

@@ -402,7 +402,7 @@
         <type>pom</type>
         <scope>import</scope>
       </dependency>
-      <!-- Import versions from social project -->
+      <!-- Import versions from platform-ui project -->
       <dependency>
         <groupId>org.exoplatform.platform-ui</groupId>
         <artifactId>platform-ui</artifactId>

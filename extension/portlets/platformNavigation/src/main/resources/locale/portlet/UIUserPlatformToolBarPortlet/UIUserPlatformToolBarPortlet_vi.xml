@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bundle>
+<UIUserPlatformToolBarPortlet>
+<label>
+<activities>Dòng Hoạt động Cá nhân</activities>
+<profile>Hồ sơ Cá nhân</profile>
+<network>Kết nối Cá nhân</network>
+<wiki>Wiki Cá nhân</wiki>
+<account>Cài đặt</account>
+<language>Thay đổi Ngôn ngữ</language>
+<logout>Đăng xuất</logout>
+        <dashboard>Bảng ứng dụng Cá nhân</dashboard>
+</label>
+</UIUserPlatformToolBarPortlet>
+</bundle>

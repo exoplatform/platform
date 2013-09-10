@@ -46,6 +46,7 @@ public class UIHelpPlatformToolbarPortlet extends UIPortletApplication {
             spaceService = getApplicationComponent(SpaceService.class);
         } catch (Exception exception) {
             // spaceService should be "null" because the Social profile isn't activated
+            LOG.warn("SpaceService not loaded by the kernel please activate [social] profile");
         }
     }
 

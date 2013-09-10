@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bundle>
+ <UISpaceNavigationPortlet>
+     <label>
+         <Spaces>NHÓM CỦA TÔI</Spaces>
+         <Join>Tham gia nhóm</Join>
+         <more>Thêm Nhóm</more>
+         <see>Hiện ra</see>
+     </label>
+     <msg>
+         <filter-spaces>Tìm kiếm Nhóm</filter-spaces>
+         <no-space>Không tìm thấy nhóm nào</no-space>
+     </msg>
+
+</UISpaceNavigationPortlet>
+</bundle>

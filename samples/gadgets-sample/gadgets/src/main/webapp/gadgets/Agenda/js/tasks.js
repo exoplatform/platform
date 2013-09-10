@@ -243,10 +243,10 @@ eXoEventGadget.prototype.render =  function(data){
 		else time = parseInt(item.fromDateTime.time);
 		var fullDate = eXoEventGadget.getFullTime(new Date(time));
 		//time = DateTimeFormater.format(new Date(time),timemask);
-		html += '<div class="CheckBox ' + className + '">';
+		html += '<label class="uiCheckbox ' + className + '">';
 		html += '<input type="checkbox" ' + status + ' id="checkbox_fd_' + i + '" name="checkbox" onclick="eXoEventGadget.doTask(this);" value="'+ item.id + '"></input>';
-		html += '<label for="checkbox_fd_' + i + '" onclick="eXoEventGadget.showDetail(this);">' + fullDate +  '<span>'+ item.summary +'</span></label>';
-		html += '</div>';
+		html += '<span for="checkbox_fd_' + i + '" onclick="eXoEventGadget.showDetail(this);">' + fullDate +  '<span>'+ item.summary +'</span></span>';
+		html += '</label>';
 		if(item.description) html += '<div class="TaskDetail">' + item.description + '</div>';
 	}		
   	cont.innerHTML = html;
@@ -279,7 +279,7 @@ eXoEventGadget.prototype.renderEvent =  function(data){
 		else time = parseInt(item.fromDateTime.time);
 		var fullDate = eXoEventGadget.getFullTime(new Date(time));
 		//time = DateTimeFormater.format(new Date(time),timemask);
-		html += '<a href="javascript:void(0);" class="IconLink" onclick="eXoEventGadget.showDetailEvent(this);">' + fullDate + '<span>'+ item.summary +'</span></a>';
+		html += '<a href="javascript:void(0);" class="IconLink" onclick="eXoEventGadget.showDetailEvent(this);"><i class="uiIconMiniArrowRight uiIconLightGray caretIcon"></i>' + fullDate + '<span>'+ item.summary +'</span></a>';
 		if(item.description) html += '<div class="EventDetail">' + item.description + '</div>';
   	}
   	html += '';
@@ -300,22 +300,18 @@ eXoEventGadget.prototype.showDetail = function(obj){
 }
 
 eXoEventGadget.prototype.showTask = function(){
-				$("#eventDiv").hide();
-				$("#taskLink").removeClass();
-				$("#numTask").removeClass();
-				$("#numEvent").addClass("customLink");
-				$("#eventLink").addClass("customLink");
-				$("#taskDiv").show();
-	
+        $("#eventDiv").hide();
+        $("#taskLink").addClass("active");
+        $("#eventLink").removeClass("active");  
+        $("#taskDiv").show();
+  
 }
 
 eXoEventGadget.prototype.showEvent = function(){
-				$("#taskDiv").hide();
-				$("#eventLink").removeClass();
-				$("#numEvent").removeClass();
-				$("#numTask").addClass("customLink");				
-				$("#taskLink").addClass("customLink");
-				$("#eventDiv").show();
+        $("#taskDiv").hide();
+        $("#taskLink").removeClass("active");
+        $("#eventLink").addClass("active"); 
+        $("#eventDiv").show();
 }
 
 eXoEventGadget.prototype.click_taskLink = function() {
@@ -532,12 +528,16 @@ eXoEventGadget.prototype.write2Setting = function(data){
 }*/
 
 eXoEventGadget.prototype.showHideSetting = function(isShow){
-	var frmSetting = document.getElementById("Setting");
+	var frmSetting = document.getElementById("agendaSetting");
 	var display = "";
 	if(isShow) {
 		eXoEventGadget.loadSetting();
 		display = "block";
-	}	else display = "none";
+		$("#agendaCont").hide();
+	}else {
+		display = "none";
+		$("#agendaCont").show();
+	}
 	frmSetting.style.display = display;
 	eXoEventGadget.adjustHeight();
 }
@@ -547,7 +547,7 @@ eXoEventGadget.prototype.saveSetting = function(){
 	var frmSetting = document.getElementById("Setting");
 	var setting = eXoEventGadget.createSetting(frmSetting);
 	prefs.set("setting",setting);
-	frmSetting.style.display = "none";
+	eXoEventGadget.showHideSetting(false);
 	eXoEventGadget.getData();
 	eXoEventGadget.adjustHeight();
 	//return false;
@@ -603,9 +603,9 @@ eXoEventGadget.prototype.moveOut = function(){
 }
 
 eXoEventGadget.prototype.adjustHeight = function(){
-	setTimeout(function(){
-	gadgets.window.adjustHeight($("#agenda-gadget").get(0).offsetHeight);		
-	},500);
+	//setTimeout(function(){
+	gadgets.window.adjustHeight($("#agenda-gadget").get(0).offsetHeight);    
+	//},500);
 }
 
 eXoEventGadget =  new eXoEventGadget();

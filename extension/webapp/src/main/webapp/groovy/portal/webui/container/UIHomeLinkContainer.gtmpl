@@ -5,7 +5,7 @@
         import org.exoplatform.container.ExoContainer;
 
 
-        String imgSrc = "/eXoPlatformResources/skin/platformSkin/UIToolbarContainer/background/HomeIcon.png";
+        String imgSrc = "/eXoPlatformResources/skin/images/ToolbarContainer/HomeIcon.png";
         ExoContainer container = ExoContainerContext.getCurrentContainer() ;
         NavigationServiceHandler navigationServiceHandler = (NavigationServiceHandler)container.getComponentInstanceOfType(NavigationServiceHandler.class);
         String path = navigationServiceHandler.getHomePageLogoURI();

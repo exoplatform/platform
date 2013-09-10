@@ -25,7 +25,7 @@
 	.calendarPortletData {
 		a {
 		
-			color: @grayDark;
+			color: @textColor;
 		}
 		.uiContentBox { 
 			padding: 15px;
@@ -35,7 +35,7 @@
 			padding: 1px;
 		}
 		.taskTitle {
-			background-color: #f8f8f8;
+			background-color: @grayLighter;
 		}
 		.eventsList {
 			li {
@@ -48,7 +48,7 @@
 				}
 				.itemColor {
 					.border-radius(@borderRadiusSmall 0 0 @borderRadiusSmall);
-					background-color: #f2f2f2;
+					background-color: @grayWhiteSmoke;
 					padding: 4px 4px 4px 8px;					
 					
 				}
@@ -56,8 +56,8 @@
 				&.pastEvent {					
 					.opacity(45);
 					.itemColor {
-						background-color: #ddd;
-							a,.time span {color: #8E8E8E;}
+						background-color: @grayMediumWhiteSmoke;
+							a,.time span {color: @grayLight;}
 					}		
 					
 				}
@@ -91,10 +91,10 @@
 				  max-height: 40px;
 				  .text-overflow;
 				     white-space: normal;
-				background: url(/homepage-portlets/style/images/calendar/calendar-porlet.png) no-repeat;
+				background: url(/homepage-portlets/skin/images/calendar/calendar-porlet.png) no-repeat;
 			}
 			a {
-				color: @grayDark;
+				color: @textColor;
 			}
 			.taskCompleted {
 				background-position: 0 5px;
@@ -217,7 +217,7 @@
     background-color: #FFE347;
 }
 
-.plum_purple {
+.plum_purple, .plum {
     background-color: #CEA6AC;
 }
 
@@ -237,10 +237,10 @@
 		}
 		.uiIconDel { 
 			.square(14px);
-			background: url(/homepage-portlets/style/images/calendar/del.png) no-repeat 2px 2px;
+			background: url(/homepage-portlets/skin/images/calendar/del.png) no-repeat 2px center;
 			cursor:pointer;
 			&:hover {
-			 background-position: -13px 2px;
+			 background-position: -13px center;
 			}
 		}
 	}	
@@ -249,6 +249,7 @@
 	}
 	.PLFcalendarSearchKey {
 		width: 100%;
+		color: @grayLight;
 	}
 	.settingValidationButton  {
 		text-align: right;
@@ -266,13 +267,13 @@
 			height: 24px;
 			line-height: 24px;
 			a {
-				color: #333;
+				color: @textColor;
 			}
 			.addButton {
 				display: none;
 			}
 			&:hover {
-				background: #e6e6e6;
+				background: @grayMediumWhiteSmoke;
 				& .addButton {
 					display: block;
 				}
@@ -280,7 +281,7 @@
 			}
 			.uiIconAdd{	
 				.square(14px);
-				background: url(/homepage-portlets/style/images/calendar/add.png) no-repeat 2px 2px; 
+				background: url(/homepage-portlets/skin/images/calendar/add.png) no-repeat 2px 2px; 
 			}
 			.calName {
 				height: 20px; 

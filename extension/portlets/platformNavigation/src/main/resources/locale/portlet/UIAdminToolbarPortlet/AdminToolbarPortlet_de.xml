@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bundle>
+   <UIAdminToolbarPortlet>
+      <action>
+         <AddPage>Seite hinzufügen</AddPage>
+         <EditNavigation>Navigation</EditNavigation>
+         <Content>Inhalt</Content>
+         <Editor>Bearbeiten</Editor>
+         <Page>Seite</Page>
+         <Site>Seite</Site>
+         <Layout>Layout bearbeiten</Layout>
+         <siteLayout>Layout</siteLayout>
+         <ManagePages>Seiten verwalten</ManagePages>
+         <GroupSite>Gruppenseite</GroupSite>
+         <Properties>SEO</Properties>
+         <AddSite>Seite hinzufügen</AddSite>
+      </action>
+<ManageSites>Seiten verwalten</ManageSites>
+<ManageGroupSites>Gruppenseiten verwalten</ManageGroupSites>
+   </UIAdminToolbarPortlet>
+
+  <UISEOForm>
+    <label>
+      <title>Titel:</title>  
+      <description>Beschreibung:</description>
+      <keywords>Schlüsselwörter:</keywords>
+      <language>Sprache:</language>
+      <robots>Robots:</robots>
+      <sitemap>Seitenübersicht:</sitemap>
+      <sitemapvisible>Sichtbar in der Seitenübersicht</sitemapvisible>
+  <isInherited>Geerbt von übergeordneter Seite</isInherited>
+      <priority>Priorität:</priority>
+      <frequency>Häufigkeit:</frequency>
+      <select-language>Sprache auswählen</select-language>
+      <option>
+        <Always>Immer</Always>
+        <Hourly>Stündlich</Hourly>
+        <Daily>Täglich</Daily>
+        <Weekly>Wöchentlich</Weekly>
+        <Monthly>Monatlich</Monthly>
+        <Yearly>Jährlich</Yearly>
+        <Never>Niemals</Never>
+      </option> 
+    </label>
+ 
+    <action>
+      <Save>Speichern</Save>
+      <Cancel>Abbrechen</Cancel>
+    </action>
+    <msg>
+      <repository-exception>Es ist ein unerwarteter Fehler aufgetreten. Seiten-Metadaten können nicht gespeichert werden.</repository-exception>
+      <confirm-delete>Möchten Sie diese SEO-Daten wirklich löschen?</confirm-delete>
+    </msg>
+    <title>
+    <seo-delete>Löschen</seo-delete>
+    </title>
+<help> 
+  <priority>Gültige Werte liegen zwischen 0.0 und 1.0.</priority>
+  <description>Hilfesuchende: Lassen Sie sie wissen, dass die folgende Seite einen Link mit dem was sie suchen enthält.</description>
+  <keywords>Die wichtigsten Begriffe auf der Seite sollen durch ein Komma getrennt werden.</keywords>  
+    </help>  
+  </UISEOForm>
+  <UISEOPopupWindow>
+  <title>
+      <UISEOForm>SEO Management</UISEOForm>
+  </title>
+  </UISEOPopupWindow>    
+  <UISEOToolbarForm>
+  <title>
+      <seo>SEO Management</seo>
+  </title>
+  <label>
+    <seo>SEO</seo>
+  </label>
+  </UISEOToolbarForm>  
+  <FloatNumberValidator>
+    <msg>
+      <Invalid-number>Das "Priorität" Feld ist eine ungültige Fliesskommazahl. Gültige Werte reichen von 0.0 bis 1.0.</Invalid-number>
+    </msg>
+  </FloatNumberValidator>
+  
+  <Locale>
+    <label>      
+      <it>Italienisch</it>      
+      <fr>Französisch</fr>
+      <en>Englisch</en>      
+    </label>
+  </Locale>
+  
+</bundle>

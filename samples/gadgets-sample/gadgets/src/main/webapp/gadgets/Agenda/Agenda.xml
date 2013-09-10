@@ -12,72 +12,72 @@
     <UserPref name="setting" default_value="/calendar;/portal/rest/cs/calendar/events/personal;10;AM/PM;Default;0" datatype="hidden" />
   </ModulePrefs>
   <Content type="html">
-    <![CDATA[
-	<link rel="stylesheet" href="/intranet-gadgets/skin/css/Agenda.css" type="text/css" />
-    <link type="text/css" rel="stylesheet" href="/exo-gadget-resources/skin/exo-gadget/gadget-common.css" />
-   	<script type="text/javascript" src="js/jquery.js"></script>
-	<script type="text/javascript" src="js/tasks.js"></script>
+    <![CDATA[   
+    <link rel="stylesheet" type="text/css" href="/eXoResources/skin/bootstrap/css/bootstrap.css" />    
+	<link rel="stylesheet" type="text/css" href="/eXoResources/skin/css/Core.css" />
+	<link rel="stylesheet" type="text/css" href="/exo-gadget-resources/skin/exo-gadget/gadget-common.css" />
+    <link rel="stylesheet" href="/intranet-gadgets/skin/css/Agenda.css" type="text/css" />
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript" src="js/tasks.js"></script>
     
-	<script type="text/javascript">        
-		var defaultCalendar = "";
-	</script>
+  <script type="text/javascript">        
+    var defaultCalendar = "";
+  </script>
 
-<div id="agenda-gadget" class="UIGadgetThemes">
-
-        <div class="TitGad ClearFix">
+<div id="agenda-gadget" class="UIGadgetThemes uiBox">
+        <h6 class="title">
           <!--a href="#demo" class="IconDropDown" id="ShowAll" target="_parent">__MSG_showall__</a-->
-
-          <div class="SettingButton" id="SettingButton" title="__MSG_setting__" style="display:block; height:19px">
-            <a href="javascript:eXoEventGadget.showHideSetting(true);" title="Setting Button"><span></span></a>
-          </div>
-          <div class="ContTit">__MSG_titlegadget__</div>
-        </div>
-        
-     <form id="Setting" action="#" style="display:none;">
-      <table>
-        <!--tr>
-          <td><label for="url">__MSG_baseurl__</label></td>
-          <td><input type="text" id="url" name="url"></td>
-        </tr>
-        <tr>
-          <td><label for="subscribeurl">__MSG_subscribeurl__</label></td>
-          <td><input type="text" id="subscribeurl" name="subscribeurl"></td>
-        </tr-->
-        <tr>
-          <td><label for="limit">__MSG_limit__</label></td>
-          <td><input type="text" id="limit" name="limit"></td>
-        </tr>   
-        <tr>
-          <td><label for="calendars">__MSG_calendars__</label></td>
-          <td>
-            <select type="text" name="calendars" id="calendars">
-            </select>
-          </td>
-        </tr>
-        <tr>
-          <td colspan="2">
-            <input type="button" name="save" value="__MSG_save__" onclick="eXoEventGadget.saveSetting();">
-            <input type="button" name="cancel" value="__MSG_cancel__" onclick="eXoEventGadget.showHideSetting(false);">
-          </td>          
-        </tr>
-      </table>
-      </form>
-      
-     <div class="GadCont">
-	<div style="margin-left: 10px">
-	<span id="eventLink" href="#" class="customLink" onclick="eXoEventGadget.click_eventLink()">__MSG_title__ </span><span id="numEvent" class="customLink"></span>
-	&nbsp;&nbsp; | &nbsp;&nbsp;
-	<span id="taskLink" href="#" class="customLink" onclick="eXoEventGadget.click_taskLink()">__MSG_titleTask__ </span><span id="numTask" class="customLink"></span>
-	</div>
-
-        <div class="GadCont MyTasks" id="taskDiv">
+			     __MSG_titlegadget__
+            <div class="setting actionIcon pull-right" id="SettingButton" title="__MSG_setting__">
+				<a class="uiIconSetting uiIconLightGray" href="javascript:eXoEventGadget.showHideSetting(true);" title="Setting Button"><span></span></a>
+			</div>
+        </h6>        
+  
+      <div class="uiContentBox">
+		<div class="uiTabSelectorCenter">
+			<div class="btn-group">
+			  <button id="eventLink" class="btn" onclick="eXoEventGadget.click_eventLink()">__MSG_title__  <span id="numEvent"></span></button>
+			  <button id='taskLink' class="btn" onclick="eXoEventGadget.click_taskLink()">__MSG_titleTask__ <span id="numTask"></span></button>
+			</div>
+		</div>
+       <div id="agendaCont" >
+       
+        <div class="MyTasks mgB10" id="taskDiv">
         </div> 
 
-        <div class="GadCont UpcomingEvents" id="eventDiv">
+        <div class="UpcomingEvents mgB10" id="eventDiv">          
         </div>
+        
         <div style="text-align: center">
                 <a href="#" id="ShowAll" target="_parent">__MSG_showall__</a>
         </div>
+      </div>
+      
+      <div id="agendaSetting" class="agendaSetting" style="display:none;"> 
+        <form id="Setting" action="#" >
+          <table style="table-layout: fixed;">        
+            <tr>
+              <td><label for="limit" width="50%">__MSG_limit__</label></td>                 
+              <td><input type="text" id="limit" name="limit"></td>           
+            </tr>   
+            <tr>
+              <td><label for="calendars">__MSG_calendars__</label></td>
+              <td>
+                <select type="text" name="calendars" id="calendars">
+                </select>
+              </td>
+            </tr>
+            <tr>
+              <td colspan="2">                           
+                <input class="btn btn-primary pull-left save" style="margin: 10px 10px 0 0;" type="button" name="save" value="__MSG_save__" onclick="eXoEventGadget.saveSetting();"/>
+                 <input class="btn pull-left cancel" style="margin: 10px 10px 0 0;"  type="button" name="cancel" value="__MSG_cancel__" onclick="eXoEventGadget.showHideSetting(false);"/>            
+              </td>          
+            </tr>
+          </table>
+             
+          </form>
+       </div> 
+        
      </div>
      
 </div>
@@ -85,3 +85,4 @@
     ]]>
   </Content>
 </Module>
+

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bundle>
+   <UIUserNavigationPortlet>
+      <label>
+         <activities>الأنشطة و المستجدّات</activities>
+         <profile>الملفّ الشخصي</profile>
+         <connections>Connections</connections>
+         <wiki>ويكي</wiki>
+         <Myactivities>أنشطتي و مستجدّاتي</Myactivities>
+         <Myprofile>ملفي الشخصي</Myprofile>
+         <Myconnections>علاقاتي</Myconnections>
+         <Mywiki>ويكي خاصة</Mywiki>
+         <Mydashboard>لوحة المعلومات الخاصّة بي</Mydashboard>
+      </label>
+   </UIUserNavigationPortlet>
+</bundle>

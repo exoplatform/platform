@@ -38,10 +38,12 @@ function onLoadProfile(data) {
   var html = new Array();
   html.push('<div class="ProfilePicture">',
             '<img class="GadCont ProfilePicture" src="' + profileThumb + '" alt="Thumb"/></div>',
-            '<div class="GadCont ProfileInfo">', profileName, "<br/>",
-            '<a target="_parent" href="' + profileUrl + '">' + linkmodifylabel + '</a>');
+            '<div class="GadCont ProfileInfo">', profileName, "</div>");
   
-  document.getElementById('Profil').innerHTML = html.join('');
+  document.getElementById('myProfileBox').innerHTML = html.join('');  
+  $('#myProfileTitle').append('<a tipEdit" id="tooltipEdit" class="actionIcon pull-right" href="'+ profileUrl +'" ref="tooltip" data-placement="left" title data-original-title="Edit Profile"><i class="uiIconEdit uiIconLightGray"></i></a>');
+  $("#tooltipEdit").tooltip();
+  gadgets.window.adjustHeight($("#ProfileGadget").get(0).offsetHeight);
 }
 
 function init() {
