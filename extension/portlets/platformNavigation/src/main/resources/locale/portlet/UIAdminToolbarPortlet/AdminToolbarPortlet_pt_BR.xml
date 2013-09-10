@@ -4,8 +4,8 @@
       <action>
          <AddPage>Add Page</AddPage>
          <EditNavigation>Navigation</EditNavigation>
-         <Content>Content</Content>
-         <Editor>Edit</Editor>
+         <Content>Conteúdo</Content>
+         <Editor>Editar</Editor>
          <Page>Page</Page>
          <Site>Site</Site>
          <Layout>Edit Layout</Layout>
@@ -44,8 +44,8 @@
     </label>
  
     <action>
-      <Save>Save</Save>
-      <Cancel>Cancel</Cancel>
+      <Save>Salvar</Save>
+      <Cancel>Cancelar</Cancel>
     </action>
     <msg>
       <repository-exception>An unexpected error occurred. Cannot save page metadata.</repository-exception>

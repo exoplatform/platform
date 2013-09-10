@@ -25,7 +25,7 @@
   <msg name="loginHistory.title">Login History</msg>
   <msg name="loginHistory.user">User</msg>
   <msg name="loginHistory.find">Find</msg>
-  <msg name="loginHistory.latest">Reset</msg>
+  <msg name="loginHistory.latest">Limpar</msg>
   <msg name="loginHistory.lastLogin">Last Login</msg>
   <msg name="loginHistory.beforeThat">Before that</msg>
   <msg name="loginHistory.more">More</msg>
@@ -45,6 +45,6 @@
   <msg name="loginHistory.earlier">Earlier</msg>
   <msg name="loginHistory.allUsers">All Users</msg>
   <msg name="loginHistory.unknow">Unknow</msg>
-  <msg name="loginHistory.next">Next</msg>
+  <msg name="loginHistory.next">Próximo</msg>
   <msg name="loginHistory.ago">Ago</msg>
 </messagebundle>

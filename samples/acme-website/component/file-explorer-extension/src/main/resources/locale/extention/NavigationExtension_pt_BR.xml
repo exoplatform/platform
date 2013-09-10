@@ -49,8 +49,8 @@
 <Detail>Detail</Detail>
 </label>
 <action>
-<Save>Save</Save>
-<Cancel>Cancel</Cancel>
+<Save>Salvar</Save>
+<Cancel>Cancelar</Cancel>
 </action>
 </UINavigationForm>
 <Visible>
@@ -61,26 +61,26 @@
 </Visible>
 <Clickable>
 <label>
-<ClickableEnable>Yes</ClickableEnable>
-<ClickableDisable>No</ClickableDisable>
+<ClickableEnable>Sim</ClickableEnable>
+<ClickableDisable>Não</ClickableDisable>
 </label>
 </Clickable>
 <NavigationNodeInputSet>
 <title>
 <SelectNavigationNode>Select Navigation Node</SelectNavigationNode>
-<RemoveNavigationNode>Reset</RemoveNavigationNode>
+<RemoveNavigationNode>Limpar</RemoveNavigationNode>
 </title>
 </NavigationNodeInputSet>
 <ListTargetPageFormInputSet>
 <title>
 <SelectListTargetPage>Select Target Page</SelectListTargetPage>
-<RemoveListTargetPage>Reset</RemoveListTargetPage>
+<RemoveListTargetPage>Limpar</RemoveListTargetPage>
 </title>
 </ListTargetPageFormInputSet>
 <DetailTargetPageInputSet>
 <title>
 <SelectDetailTargetPage>Select Children Target Page</SelectDetailTargetPage>
-<RemoveDetailTargetPage>Reset</RemoveDetailTargetPage>
+<RemoveDetailTargetPage>Limpar</RemoveDetailTargetPage>
 </title>
 </DetailTargetPageInputSet>
 <NavigationSelectorPopupWindow>
