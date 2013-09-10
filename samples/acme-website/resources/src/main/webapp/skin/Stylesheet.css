@@ -20,3 +20,15 @@
 @import url(acmeSkin/ProductStyle/StyleSheet.css);
 @import url(acmeSkin/JCarouselLiteStyle/StyleSheet.css);
 @import url(acmeSkin/UINavigationForm/StyleSheet.css);
+
+.SearchIcon{
+	background-image: url("/eXoResources/skin/images/Icons/uiIconsLightGray.png");
+	background-position: 0px 0px;
+	display: inline-block;
+	 width: 16px;
+	 height: 16px;
+	 .ie7-restore-right-whitespace();
+	  line-height: 16px;
+	  vertical-align: text-top;
+	  background-repeat: no-repeat;
+}
