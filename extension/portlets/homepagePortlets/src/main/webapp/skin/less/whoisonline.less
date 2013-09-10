@@ -2,10 +2,10 @@
 @import "mixins.less";
 
 .onlineHeader {
-    background:  #F8F8F8;
-    border: 1px solid #E1E1E1;
+    background:  @grayLighter;
+    border: 1px solid @grayMediumWhiteSmoke;
     .border-radius(@borderRadiusSmall); 
-    color: #2F3334;
+    color: @textColor;
     line-height: 25px;
     padding: 0 5px 0 8px;
     font-weight: bold;
@@ -126,7 +126,7 @@
 }
 
 blockquote {
-    background: url(/homepage-portlets/style/images/right-quote.png) no-repeat right bottom;    
+    background: url(/homepage-portlets/skin/images/whoIsOnline/right-quote.png) no-repeat right bottom;    
     padding-right: 25px;
     padding-left: 25px;
     color: @grayLight;
@@ -137,7 +137,7 @@ blockquote {
 }
 
 blockquote:after {
-    background: url(/homepage-portlets/style/images/left-quote.png) no-repeat left top;
+    background: url(/homepage-portlets/skin/images/whoIsOnline/left-quote.png) no-repeat left top;
 	.size(13px,15px);
 	position:absolute;
 	top:2px;

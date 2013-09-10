@@ -36,10 +36,6 @@ public class NavigationServiceHandler implements Startable {
 
     private static Log logger = ExoLogger.getLogger(NavigationServiceHandler.class);
     NodeHierarchyCreator nodeCreator;
-    Session session;
-    SessionProvider sProvider;
-    Node rootNode;
-    Node publicApplicationNode;
     String path = "Application Data/logos/";
     String logo_name  = "logo.png";
 
@@ -50,9 +46,12 @@ public class NavigationServiceHandler implements Startable {
     }
 
     public String getHomePageLogoURI() {
+        SessionProvider sProvider  =  SessionProvider.createSystemProvider();
+        Node rootNode = null;
+        Node publicApplicationNode = null;
         String pathImageNode = null;
         Node ImageNode = null;
-        sProvider = SessionProvider.createSystemProvider();
+        Session session = null;
         try {
             publicApplicationNode = nodeCreator.getPublicApplicationNode(sProvider);
             session = publicApplicationNode.getSession();
@@ -61,7 +60,6 @@ public class NavigationServiceHandler implements Startable {
             if (logosNode.hasNode(logo_name)) {
                 ImageNode = logosNode.getNode(logo_name);
                 pathImageNode = ImageNode.getPath()+"?"+System.currentTimeMillis();
-
             }
         } catch (Exception e) {
             logger.error("Can not get path of Logo : default LOGO will be used" + e.getMessage(), e);

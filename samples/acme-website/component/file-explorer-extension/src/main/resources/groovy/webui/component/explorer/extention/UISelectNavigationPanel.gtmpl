@@ -11,54 +11,43 @@
 	import org.exoplatform.ecm.webui.utils.Utils;
 	import java.net.URLEncoder;
 %>
-<div id="$uicomponent.id" class="UITreeList">
-  <table class="UIGrid">
-	  <col></col>
-	  <col style="width:60px;"></col>
+<div id="$uicomponent.id" class="uiTreeList">
+  <table class="uiGrid table table-hover table-striped">
+	  
 	  <thead>
 	    <tr>
 	      <th><%=_ctx.appRes("UITreeList.header.name")%></th>
-		    <th><%=_ctx.appRes("UITreeList.header.action")%></th>
+		    <th class="span1 center"><%=_ctx.appRes("UITreeList.header.action")%></th>
 	    </tr>
 	  </thead>
 	  <tbody>
       <%
-        def nodes = uicomponent.getSelectableNodes() ;
-        def rowClass = "OddRow" ;
-		    boolean even = true ;
+        def nodes = uicomponent.getSelectableNodes() ;       
 		    if(nodes.size() > 0) {
-			    for(node in nodes) {
-			      if(even) {
-			      	rowClass = "EvenRow" ;  
-			      } else {
-			      	rowClass =  "OddRow" ; 
-			      }
-			      even = !even ;
+			    for(node in nodes) {			      
 	      %>
 			      <%if(!uicomponent.isExceptedNodeType(node)) {%>
-				      <tr class="$rowClass">
+				      <tr>
 				        <td>
 				        <%
 						  String nodeName = node.getURI();
-						  String nodeTypeIcon = "NodeIcon DefaultPageIcon";
-				          def clazz = "Text"
 				        %>
 				          
-				          <div class="$clazz <%=nodeTypeIcon%>">$nodeName</div>
+				          $nodeName
 				        </td>
-				        <td>
-		              <a href="<%=uicomponent.event("Select", URLEncoder.encode(node.getURI(), "utf-8"))%>">
-		                <div class="Select16x16Icon" style="margin-left:15px;"></div>
+				        <td class="center">
+		              <a class="actionIcon" href="<%=uicomponent.event("Select", URLEncoder.encode(node.getURI(), "utf-8"))%>">
+		                <i class="uiIconSelectPage" ></i>
 		              </a>
 				        </td>
 				      </tr>
 			<%
 			      }
-					}
+				}
 		    } else {
 		  %>
-		  		<tr class="EvenRow">
-		  			<td colspan="2" style="align:center;"><%=_ctx.appRes("UITreeList.info.child-not-found")%></td>
+		  		<tr class="empty center">
+		  			<td colspan="2" ><%=_ctx.appRes("UITreeList.info.child-not-found")%></td>
 		  		</tr>
 		  <%  	
 		    }

@@ -19,7 +19,9 @@
   </UserPref>
   
   <Content type="html">
-    <![CDATA[   
+    <![CDATA[
+	<link rel="stylesheet" type="text/css" href="/eXoResources/skin/bootstrap/css/bootstrap.css" />    
+	<link rel="stylesheet" type="text/css" href="/eXoResources/skin/css/Core.css" />
     <link rel="stylesheet" type="text/css" href="/exo-gadget-resources/skin/exo-gadget/gadget-common.css" />
     <link type="text/css" rel="stylesheet" href="/gadget-pack/skin/css/topVoteTopic.css" />
         
@@ -28,14 +30,14 @@
     <script language="javascript" type="text/javascript" src="/exo-gadget-resources/script/jquery/1.6.2/jquery.min.js"></script>
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.9/jquery-ui.min.js"></script>
     
-    <div id="TopVotedTopic-Gadget" class="UIGadgetThemes">
-      <div class="TitGad ClearFix">
-        <div title="Setting" id="SettingButton" class="SettingButton">
-          <a href="javascript:eXoEventGadget.showHideSetting(true);" title="Setting"></a>
+    <div id="TopVotedTopic-Gadget" class="UIGadgetThemes uiBox">
+      <h6 class="title">
+        __MSG_topic.top.vote.title__
+        <div title="Setting" id="SettingButton" class="actionIcon pull-right setting">
+          <a class="uiIconSetting uiIconLightGray" href="javascript:eXoEventGadget.showHideSetting(true);" title="Setting"></a>
         </div>
-        <div class="ContTit">__MSG_topic.top.vote.title__</div>
-      </div>
-      <div id="topVoteTopicContainer" class="GadCont ForumTopics">
+      </h6>
+      <div id="topVoteTopicContainer" class="uiContentBox ForumTopics">
       </div>    
     </div>
     

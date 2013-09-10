@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bundle>
+   <UIUserPlatformToolBarCreatePortlet>
+      <label>
+         <topic>Ämne</topic>
+         <poll>Enkät</poll>
+         <eventtask>Händelse/uppgift</eventtask>
+         <upload>Ladda upp en fil</upload>
+         <wiki>Wiki-sida</wiki>
+
+      </label>
+   </UIUserPlatformToolBarCreatePortlet>
+   <UICreateList>
+      <label>
+         <topic>Ämne</topic>
+         <poll>Enkät</poll>
+         <CreateANew>Skapa en ny {1}:</CreateANew>
+         <NoForum>Tyvärr, finns inget forum ännu för att skapa en {1}. Börja med att skapa ditt egen webb-yta.</NoForum>
+         <RequireSelectForum>Välj ett forum.</RequireSelectForum>
+      </label>
+      <action>
+         <Next>Nästa</Next>
+         <Cancel>Avbryt</Cancel>
+      </action>
+   </UICreateList>
+   <UICreateTopic>
+      <label>
+         <SelectAForum>Välj ett Forum</SelectAForum>
+         <location>På plats</location>
+         <forumId>Och Forum</forumId>
+         <FilterForums>Filtrera forum</FilterForums>
+      </label>
+   </UICreateTopic>
+   <UICreatePoll>
+      <label>
+         <SelectAForum>Välj Forum</SelectAForum>
+         <location>På plats</location>
+         <forumId>Och Forum</forumId>
+         <FilterForums>Filtrera forum</FilterForums>
+      </label>
+   </UICreatePoll>
+   <UICreateWiki>
+      <label>
+         <title>Skapa en ny Wiki-Sida:</title>
+         <location>På plats</location>
+      </label>
+   </UICreateWiki>
+   <UICreateEvent>
+      <label>
+         <Title>Titel</Title>
+         <Choix>Lägg till ny:</Choix>
+         <EndEvent>Till</EndEvent>
+         <StartEvent>Från</StartEvent>
+         <Calendar>Välj kalender</Calendar>
+         <all-day>Hela dagen</all-day>
+         <defaultCalendarId>Standard</defaultCalendarId>
+      </label>
+      <msg>
+         <summary-field-required>Fältet "Titel" krävs.</summary-field-required>
+         <fromDate-format>Datumformatet "Från" är felaktig.</fromDate-format>
+         <toDate-format>Datumformatet "Till" är felaktig.</toDate-format>
+         <logic-required>Tyvärr, du kan inte skapa en händelse som slutar innan den startar.</logic-required>
+         <cant-add-event-on-remote-calendar>Du kan inte lägga till händelsen i fjärrkalendern</cant-add-event-on-remote-calendar>
+         <add-successfully>
+            <Event>Evenemanget lades till {1}</Event>
+            <Task>Uppgiften lades till {1}</Task>
+         </add-successfully>
+         <add-unsuccessfully>{0} lades inte till.</add-unsuccessfully>
+      </msg>
+      <action>
+         <Next>Nästa</Next>
+         <Cancel>Avbryt</Cancel>
+      </action>
+   </UICreateEvent>
+    <UIUploadFile>
+        <Select>Välj fil</Select>
+    </UIUploadFile>
+   <Choix>
+      <label>
+         <Event>Händelse</Event>
+         <Task>Uppgift</Task>
+      </label>
+   </Choix>
+</bundle>

@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bundle>
+<UIActionBar>
+<tooltip>
+<ContentNavigation>Navigering i innehåll</ContentNavigation>
+</tooltip>
+</UIActionBar>
+<UIViewFormTabPane>
+<label>
+<contentNavigation>Navigering av innehåll</contentNavigation>
+</label>
+</UIViewFormTabPane>
+<UIPopupWindow>
+<title>
+<UINavigationForm>Navigeringsformulär</UINavigationForm>
+</title>
+</UIPopupWindow>
+<PopulateToMenu>
+<dialog>
+<label>
+<id>ID:</id>
+<name>Namn:</name>
+<lifecycle>Livscykel:</lifecycle>
+<isDeep>Är för djupt:</isDeep>
+<nodetypes>Nodtyper:</nodetypes>
+<description>Beskrivning:</description>
+<affectedNodeTypeNames>Drabbade nodtyper:</affectedNodeTypeNames>
+<navigationNode>Navigeringsnod:</navigationNode>
+<index>Index:</index>
+<clickable>Klickbara:</clickable>
+<page>Sida:</page>
+<childrenPage>Underordnad sida:</childrenPage>
+</label>
+</dialog>
+</PopulateToMenu>
+<UINavigationForm>
+<label>
+<Node>Överordnad mapp:</Node>
+<Visible>Synliga :</Visible>
+<NavigationNodeInputSet>Målet överordnad navigering:</NavigationNodeInputSet>
+<Index>Visningsordning:</Index>
+<Clickable>Klickbara :</Clickable>
+<NavigationControls>Navigeringsreglagen</NavigationControls>
+<ListTargetPageFormInputSet>Sidan för lista:</ListTargetPageFormInputSet>
+<ListShowCLVByStringInput>Parameternamn:</ListShowCLVByStringInput>
+<DetailTargetPageInputSet>Sida för detaljer:</DetailTargetPageInputSet>
+<DetailShowCLVByStringInput>Parameternamn:</DetailShowCLVByStringInput>
+<List>Listvy</List>
+<Detail>Detalj</Detail>
+</label>
+<action>
+<Save>Spara</Save>
+<Cancel>Avbryt</Cancel>
+</action>
+</UINavigationForm>
+<Visible>
+<label>
+<VisibleEnable>Ja</VisibleEnable>
+<VisibleDisable>Nej</VisibleDisable>
+</label>
+</Visible>
+<Clickable>
+<label>
+<ClickableEnable>Ja</ClickableEnable>
+<ClickableDisable>Nej</ClickableDisable>
+</label>
+</Clickable>
+<NavigationNodeInputSet>
+<title>
+<SelectNavigationNode>Välj navigeringsnod</SelectNavigationNode>
+<RemoveNavigationNode>Återställ</RemoveNavigationNode>
+</title>
+</NavigationNodeInputSet>
+<ListTargetPageFormInputSet>
+<title>
+<SelectListTargetPage>Välj målsida</SelectListTargetPage>
+<RemoveListTargetPage>Återställ</RemoveListTargetPage>
+</title>
+</ListTargetPageFormInputSet>
+<DetailTargetPageInputSet>
+<title>
+<SelectDetailTargetPage>Välj underordnad målsida</SelectDetailTargetPage>
+<RemoveDetailTargetPage>Återställ</RemoveDetailTargetPage>
+</title>
+</DetailTargetPageInputSet>
+<NavigationSelectorPopupWindow>
+<title>
+<UINavigationSelector>Navigeringsval</UINavigationSelector>
+</title>
+</NavigationSelectorPopupWindow>
+<ListTargetPageSelectorPopupWindow>
+<title>
+<UIPageSelector>Sidväljare</UIPageSelector>
+</title>
+</ListTargetPageSelectorPopupWindow>
+<DetailTargetPageSelectorPopupWindow>
+<title>
+<UIPageSelector>Sidväljare</UIPageSelector>
+</title>
+</DetailTargetPageSelectorPopupWindow>
+</bundle>

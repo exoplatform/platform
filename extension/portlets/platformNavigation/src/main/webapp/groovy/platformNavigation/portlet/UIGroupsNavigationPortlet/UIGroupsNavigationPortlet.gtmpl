@@ -83,9 +83,10 @@
             if ((uicomponent.isUnfoldedNavigation(node))||(uicomponent.isSelectedNavigation(node.getName())))
                 display="block";
             println """
-				<li class="groupItem">
-					<span class="icon arrowIcon"></span>
-                    <a class="groupIcon $icon $cssClazz" href="$href">$label</a>
+				<li class="groupItem">					
+                    <div class="$cssClazz">
+						<i class="uiIconArrowDown uiIconLightGray"></i><a class="groupIcon  " href="$href">$label</a>
+					</div>
                     <ul class="childrenContainer" style="display: $display">
 					""";
 
@@ -105,9 +106,8 @@
         }
         else {
             println """
-				<li class=" groupItem ClearFix">
-					<span class="icon"></span>
-					<a class="groupIcon $icon $cssClazz" href="$href">$label</a>
+				<li class=" groupItem">					
+					<div class="$cssClazz"><a class="groupIcon " href="$href">$label</a></div>
 				</li>
 
 				""";

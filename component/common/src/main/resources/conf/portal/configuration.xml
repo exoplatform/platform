@@ -17,25 +17,25 @@
       <type>org.exoplatform.services.jcr.ext.resource.jcr.Handler</type>
    </component>
     <!-- GETTING STARTED -->
-    <component>
+    <component profiles="all">
         <type>org.exoplatform.platform.common.rest.services.GettingStarted.GettingStartedRestService</type>
     </component>
     <!-- SUGGESTED PEOPLE -->
-    <component>
+    <component profiles="all">
         <type>org.exoplatform.platform.common.rest.services.SuggestPeoplePortlet.PeopleRestServices</type>
     </component>
     <!-- SUGGEST SPACES -->
-    <component>
+    <component profiles="all">
         <type>org.exoplatform.platform.common.rest.services.SuggestSpacesPortlet.SpaceRestServices</type>
     </component>
     <!-- INVITATIONS -->
-    <component>
+    <component profiles="all">
         <type>org.exoplatform.platform.common.rest.services.InvitationsPortlet.PeopleAndSpacesRestService</type>
     </component>
     <component>
         <type>org.exoplatform.platform.common.rest.services.FeatureToggles.FeatureTogglesRestService</type>
     </component>
-    <component>
+    <component profiles="all">
         <type>org.exoplatform.platform.common.rest.services.GettingStarted.DeleteGadgetService</type>
     </component>
     <component>
@@ -241,12 +241,19 @@
                             <value>
                                 <string>social-notification-extension</string>
                             </value>
+                           <value>
+                              <string>homepage-portlets</string>
+                           </value>
                         </collection>
                     </field>
                     <!-- List of portletId = {webappName}/portletName -->
-                    <field name="portlets">
-                        <collection type="java.util.ArrayList"/>
-                    </field>
+                   <field name="portlets">
+                      <collection type="java.util.ArrayList">
+                         <value>
+                            <string>platformNavigation/UISpaceNavigationPortlet</string>
+                         </value>
+                      </collection>
+                   </field>
                 </object>
             </object-param>
             <object-param>

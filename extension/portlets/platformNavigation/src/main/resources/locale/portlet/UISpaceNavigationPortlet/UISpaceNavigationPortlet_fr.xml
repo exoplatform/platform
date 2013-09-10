@@ -5,7 +5,7 @@
             <Spaces>Mes Espaces</Spaces>
          <Join>Rejoindre un espace</Join>
          <more>Plus</more>
-            <see>Charger</see>
+         <see>Montrer</see>
         </label>
         <msg>
          <filter-spaces>Rechercher des Espaces</filter-spaces>

@@ -1,17 +1,28 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <Module>
-<ModulePrefs title="Friend Suggestion !"
+<ModulePrefs title="Friend Suggestion"
   author="eXo Platform"
   description="Friend Suggestion is gadget that allow to display a list of contacts that current user maybe know."
   height="300">
     <Locale messages="locale/default.xml" />
     <Locale lang="fr" messages="locale/fr.xml" />
+    <Locale lang="es" messages="locale/es_ES.xml" />
+    <Locale lang="vi" messages="locale/vi.xml" />
+    <Locale lang="sv" messages="locale/sv_SE.xml"/>
+    <Locale lang="ja" messages="locale/ja.xml"/>
+    <Locale lang="ar" messages="locale/ar.xml"/>
+    <Locale lang="de" messages="locale/de.xml"/>
+    <Locale lang="pt" messages="locale/pt_BR.xml"/>
+    <Locale lang="it" messages="locale/it.xml"/>
+    <Locale lang="ru" messages="locale/ru.xml"/>
 </ModulePrefs>
 <Content type="html">
 <![CDATA[ 
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <title>Friend suggestion</title>
+  <link rel="stylesheet" type="text/css" href="/eXoResources/skin/bootstrap/css/bootstrap.css" />    
+  <link rel="stylesheet" type="text/css" href="/eXoResources/skin/css/Core.css" />
   <link type="text/css" rel="stylesheet" href="/exo-gadget-resources/skin/exo-gadget/gadget-common.css" />
   <link type="text/css" rel="stylesheet" href="/gadget-pack/skin/css/suggestion.css" />
   <script language="javascript" type="text/javascript" src="/exo-gadget-resources/script/jquery/1.6.2/jquery.min.js"></script>
@@ -21,16 +32,18 @@
   </script>
 </head>
 <body>
-<div class="UIGadgetThemes">
-  <div class="TitGad ClearFix">
-    <div class="ContTit">__MSG_title__</div>
-  </div>    
-  <div id="container"></div>
-  <div id="mutual-friend">
-    <div class="TopMenu"><span></span></div>
-    <div class="Friend Boder ClearFix" style="width:100px" id="friends">
-    </div>
-  </div>  
+<div class="UIGadgetThemes uiBox">
+  <h6 class="title">
+    __MSG_title__
+  </h6>
+  <div class="uiContentBox">
+    <div id="container"></div>
+    <div id="mutual-friend">
+      <div class="TopMenu"><span></span></div>
+      <div class="Friend Boder ClearFix" style="width:100px" id="friends">
+      </div>
+    </div>  
+  </div>
 </div>  
 </body>
 ]]></Content></Module>

@@ -110,7 +110,8 @@ public class PortletDisablerFilter implements RenderFilter {
     result = result.replaceAll("ACTIVE_PROFILES", PortalContainer.getProfiles().toString());
     result = result.replaceAll("APP_NAME", portletDisplayName);
     result = result.replaceAll("APP_ID", portletName);
-    result = result.replaceAll("PROFILE", moduleRegistry.getModulesForPortlet(portletID).toString());
+    //result = result.replaceAll("PROFILE", moduleRegistry.getModulesForPortlet(portletID).toString());
+      result = result.replaceAll("PROFILE", "all");
 
     return result;
   }

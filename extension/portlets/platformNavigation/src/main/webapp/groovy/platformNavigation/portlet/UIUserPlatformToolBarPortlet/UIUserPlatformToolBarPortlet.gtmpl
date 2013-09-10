@@ -61,7 +61,7 @@
 %>
 <div class="uiUserToolBarPortlet uiDropdownWithIcon dropdown pull-right" id="$uicomponent.id">
     
-        <a class="dropdown-toggle" data-toggle="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown">
             <%
               EntityEncoder encoder = EntityEncoder.FULL;
               fullName = encoder.encode(user.fullName);

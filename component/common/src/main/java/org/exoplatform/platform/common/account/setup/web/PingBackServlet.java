@@ -49,7 +49,7 @@ public  class PingBackServlet extends HttpServlet {
             try {
                 writePingBackFormDisplayed( loopfuseFormDisplayed);
             } catch (MissingProductInformationException e) {
-
+                LOG.error("Product Information not found ",e.getLocalizedMessage());
             }
         }
     }

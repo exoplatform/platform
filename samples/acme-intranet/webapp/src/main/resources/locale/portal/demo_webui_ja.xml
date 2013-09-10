@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bundle>
+  <Signin>
+    <welcome>ようこそ</welcome>
+    <login>ログイン</login>
+    <logout>ログアウト</logout>
+    <language>言語を変更</language>
+    <register>登録</register>
+  </Signin>
+
+  <ACMEPortal>
+    <label>ACME テンプレート</label>
+  </ACMEPortal>
+</bundle>

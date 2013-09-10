@@ -50,6 +50,7 @@ import java.util.List;
 )
 
 public class UICreateList extends UIContainer {
+    private static final Log logger = ExoLogger.getExoLogger(UICreateList.class);
     static String parStatus;
     private static Log log = ExoLogger.getLogger(UICreateList.class);
 
@@ -156,7 +157,7 @@ public class UICreateList extends UIContainer {
                 Utils.createPopupWindow(uiCreateList, selector, "UploadFileSelectorPopUpWindow", 335);
 
             } catch (Exception e) {
-                //TODO add log
+                logger.error("Exception when uploading the document ",e.getLocalizedMessage());
             }
         }
     }
