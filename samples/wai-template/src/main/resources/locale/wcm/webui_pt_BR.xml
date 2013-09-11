@@ -28,14 +28,14 @@
   
   <CategoryNavigationTemplate>
   <label>
-  <home>Home</home>
+  <home>Principal</home>
   <Accessibility>Accessibility</Accessibility>
   </label>
   </CategoryNavigationTemplate>
   
   <Breadcrumb>
   <label>
-  <home>Home</home>
+  <home>Principal</home>
   </label>  
   </Breadcrumb>
 </bundle>

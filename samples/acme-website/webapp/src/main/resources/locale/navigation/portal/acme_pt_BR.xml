@@ -13,10 +13,10 @@
       <printviewer>Print page</printviewer>
       <searchResult>Search</searchResult>
       <newAccount>New Account</newAccount>
-      <groupnavigation>Group Navigation</groupnavigation>
+      <groupnavigation>Navegação do Grupo</groupnavigation>
       <portalnavigation>Portal Navigation</portalnavigation>
       <documents>Documents</documents>
-      <unifiedSearch>Search</unifiedSearch>
+      <unifiedSearch>Buscar</unifiedSearch>
     </acme>
   </portal>
 </bundle>

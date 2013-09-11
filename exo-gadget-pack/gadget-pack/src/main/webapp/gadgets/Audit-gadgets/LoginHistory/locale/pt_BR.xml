@@ -32,7 +32,7 @@
   <msg name="loginHistory.stats">Stats</msg>
   <msg name="loginHistory.history">History</msg>
   <msg name="loginHistory.global">Global</msg>
-  <msg name="loginHistory.week">Week</msg>
+  <msg name="loginHistory.week">Semana</msg>
   <msg name="loginHistory.lastLoginsView">Last Logins</msg>
   <msg name="loginHistory.historyView">History</msg>
   <msg name="loginHistory.statisticsView">Statistics</msg>
