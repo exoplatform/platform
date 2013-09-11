@@ -53,7 +53,7 @@
          <StartEvent>De</StartEvent>
          <Calendar>Seleccione Calendario</Calendar>
          <all-day>Todo el día</all-day>
-         <defaultCalendarId>Default</defaultCalendarId>
+         <defaultCalendarId>Por Defecto</defaultCalendarId>
       </label>
       <msg>
          <summary-field-required>The field "Title" is required.</summary-field-required>
