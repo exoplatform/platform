@@ -90,7 +90,7 @@ public class UIGroupsNavigationPortlet extends UIPortletApplication {
         cachedValidChildrenNodesToDisplay.clear();
 
         for (UserNavigation navigation : allNavigations) {
-            if ((navigation.getKey().getTypeName().equals(SiteType.GROUP)) && (navigation.getKey().getName().indexOf(SPACE_GROUP_PATTERN) < 0)) {
+            if ((navigation.getKey().getTypeName().equals(SiteType.GROUP.getName())) && (navigation.getKey().getName().indexOf(SPACE_GROUP_PATTERN) < 0)) {
                 UserNode rootNode = userPortal.getNode(navigation, Scope.ALL, myGroupsFilterConfig, null);
                 Collection<UserNode> children = loadNodesNotInSetupMenu(rootNode.getChildren(), 0);
                 if (children == null || children.isEmpty()) {
