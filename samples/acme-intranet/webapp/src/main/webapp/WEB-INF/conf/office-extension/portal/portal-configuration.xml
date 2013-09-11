@@ -42,10 +42,10 @@
                     <description>The default portal for checking db is empty or not</description>
                     <value>intranet</value>
                 </value-param>
-				<value-param>
-                    <name>override</name>
-                    <description>The flag parameter to decide if portal metadata is overriden on restarting server</description>
-                    <value>${intranet.portalConfig.metadata.override:false}</value>
+                <value-param>
+                  <name>override</name>
+                  <description>The flag parameter to decide if portal metadata is overriden on restarting server</description>
+                  <value>${intranet.portalConfig.metadata.override:false}</value>
                 </value-param>
 				<object-param>
 					<name>portal.configuration</name>
