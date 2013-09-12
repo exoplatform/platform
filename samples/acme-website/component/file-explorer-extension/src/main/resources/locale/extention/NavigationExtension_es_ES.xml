@@ -7,12 +7,12 @@
 </UIActionBar>
 <UIViewFormTabPane>
 <label>
-<contentNavigation>Navigation by Content</contentNavigation>
+<contentNavigation>Navegación por el contenido</contentNavigation>
 </label>
 </UIViewFormTabPane>
 <UIPopupWindow>
 <title>
-<UINavigationForm>Navigation Form</UINavigationForm>
+<UINavigationForm>Forma de navegación</UINavigationForm>
 </title>
 </UIPopupWindow>
 <PopulateToMenu>
@@ -20,31 +20,31 @@
 <label>
 <id>ID:</id>
 <name>Nombre:</name>
-<lifecycle>Lifecycle:</lifecycle>
-<isDeep>Is Deep:</isDeep>
-<nodetypes>Node Types:</nodetypes>
-<description>Description:</description>
-<affectedNodeTypeNames>Affected Node Types:</affectedNodeTypeNames>
-<navigationNode>Navigation Node:</navigationNode>
-<index>Index:</index>
-<clickable>Clickable:</clickable>
-<page>Page:</page>
-<childrenPage>Children Page:</childrenPage>
+<lifecycle>Ciclo de vida:</lifecycle>
+<isDeep>Es profundo:</isDeep>
+<nodetypes>Tipos de nodo:</nodetypes>
+<description>Descripción:</description>
+<affectedNodeTypeNames>Tipos de nodo afectados:</affectedNodeTypeNames>
+<navigationNode>Nodo de navegación:</navigationNode>
+<index>Índice:</index>
+<clickable>Cliqueable:</clickable>
+<page>Página:</page>
+<childrenPage>Página dependiente:</childrenPage>
 </label>
 </dialog>
 </PopulateToMenu>
 <UINavigationForm>
 <label>
-<Node>Parent's Folder:</Node>
+<Node>Carpeta principal:</Node>
 <Visible>Visible :</Visible>
-<NavigationNodeInputSet>Target Parent Navigation:</NavigationNodeInputSet>
-<Index>Display Order:</Index>
-<Clickable>Clickable :</Clickable>
-<NavigationControls>Navigation Controls</NavigationControls>
-<ListTargetPageFormInputSet>Page for List:</ListTargetPageFormInputSet>
-<ListShowCLVByStringInput>Parameter Name:</ListShowCLVByStringInput>
-<DetailTargetPageInputSet>Page for Detail:</DetailTargetPageInputSet>
-<DetailShowCLVByStringInput>Parameter Name:</DetailShowCLVByStringInput>
+<NavigationNodeInputSet>Objetivo primario de navegación:</NavigationNodeInputSet>
+<Index>Orden de visualización:</Index>
+<Clickable>Cliqueable :</Clickable>
+<NavigationControls>Controles de navegación</NavigationControls>
+<ListTargetPageFormInputSet>Página para la lista:</ListTargetPageFormInputSet>
+<ListShowCLVByStringInput>Nombre del parámetro:</ListShowCLVByStringInput>
+<DetailTargetPageInputSet>Página de detalle:</DetailTargetPageInputSet>
+<DetailShowCLVByStringInput>Nombre del parámetro:</DetailShowCLVByStringInput>
 <List>Lista</List>
 <Detail>Detalle</Detail>
 </label>
@@ -55,37 +55,37 @@
 </UINavigationForm>
 <Visible>
 <label>
-<VisibleEnable>Yes</VisibleEnable>
+<VisibleEnable>Sí</VisibleEnable>
 <VisibleDisable>No</VisibleDisable>
 </label>
 </Visible>
 <Clickable>
 <label>
-<ClickableEnable>Yes</ClickableEnable>
+<ClickableEnable>Sí</ClickableEnable>
 <ClickableDisable>No</ClickableDisable>
 </label>
 </Clickable>
 <NavigationNodeInputSet>
 <title>
-<SelectNavigationNode>Select Navigation Node</SelectNavigationNode>
+<SelectNavigationNode>Seleccione el nodo de navegación</SelectNavigationNode>
 <RemoveNavigationNode>Resetear</RemoveNavigationNode>
 </title>
 </NavigationNodeInputSet>
 <ListTargetPageFormInputSet>
 <title>
-<SelectListTargetPage>Select Target Page</SelectListTargetPage>
+<SelectListTargetPage>Seleccione la página de destino</SelectListTargetPage>
 <RemoveListTargetPage>Resetear</RemoveListTargetPage>
 </title>
 </ListTargetPageFormInputSet>
 <DetailTargetPageInputSet>
 <title>
-<SelectDetailTargetPage>Select Children Target Page</SelectDetailTargetPage>
+<SelectDetailTargetPage>Seleccione la página de destino dependiente</SelectDetailTargetPage>
 <RemoveDetailTargetPage>Resetear</RemoveDetailTargetPage>
 </title>
 </DetailTargetPageInputSet>
 <NavigationSelectorPopupWindow>
 <title>
-<UINavigationSelector>Navigation Selector</UINavigationSelector>
+<UINavigationSelector>Selector de navegación</UINavigationSelector>
 </title>
 </NavigationSelectorPopupWindow>
 <ListTargetPageSelectorPopupWindow>
