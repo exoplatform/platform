@@ -73,12 +73,12 @@
       </action>
    </UICreateEvent>
     <UIUploadFile>
-        <Select>Select File</Select>
+        <Select>Selecionar o arquivo</Select>
     </UIUploadFile>
    <Choix>
       <label>
-         <Event>Event</Event>
-         <Task>Task</Task>
+         <Event>Evento</Event>
+         <Task>Tarefa</Task>
       </label>
    </Choix>
 </bundle>

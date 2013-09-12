@@ -15,7 +15,7 @@
          <Properties>SEO</Properties>
          <AddSite>Add Site</AddSite>
       </action>
-<ManageSites>Manage Sites</ManageSites>
+<ManageSites>Gerenciar sites</ManageSites>
 <ManageGroupSites>Manage Group Sites</ManageGroupSites>
    </UIAdminToolbarPortlet>
 
