@@ -136,8 +136,6 @@ public  class PingBackServlet extends HttpServlet {
     }
 
     public static String getPingBackUrl() {
-        //--- Real URL to be used to ping back the product edition
-        String pingBack = "";
         //--- load ProductInformations service
         ProductInformations productInformations = (ProductInformations) PortalContainer.getInstance().getComponentInstanceOfType(ProductInformations.class);
         //--- Check the platform edition from systemfile then from jcr
