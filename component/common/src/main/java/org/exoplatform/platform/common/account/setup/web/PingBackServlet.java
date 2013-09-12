@@ -27,7 +27,7 @@ import java.util.Properties;
 public  class PingBackServlet extends HttpServlet {
 
     private static final Log LOG = ExoLogger.getExoLogger(PingBackServlet.class);
-    private static String pingBackUrl;
+    private static String pingBackUrl = "";
     private static final long serialVersionUID = 6467955354840693802L;
     private static boolean loopfuseFormDisplayed = false;
     public static final String LOOP_FUSE_FORM_DISPLAYED = "formDisplayed";
@@ -36,12 +36,10 @@ public  class PingBackServlet extends HttpServlet {
     public static final String PING_BACK_FILE = "license.xml";
     public static final String PRODUCT_NAME = "Platform";
     private static String edition = "";
-
     @Override
     public void init(ServletConfig servletConfig) throws ServletException{
         this.pingBackUrl = servletConfig.getInitParameter("pingBackUrl");
     }
-
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         if (isConnectedToInternet()) {
@@ -138,7 +136,23 @@ public  class PingBackServlet extends HttpServlet {
     }
 
     public static String getPingBackUrl() {
-        return pingBackUrl;
+        //--- Real URL to be used to ping back the product edition
+        String pingBack = "";
+        //--- load ProductInformations service
+        ProductInformations productInformations = (ProductInformations) PortalContainer.getInstance().getComponentInstanceOfType(ProductInformations.class);
+        //--- Check the platform edition from systemfile then from jcr
+        edition = getPlatformEdition(productInformations);
+        //--- Use ping back url corresponding to the current version of the server
+        if (edition.equalsIgnoreCase(ProductInformations.ENTERPRISE_EDITION)) {
+            //--- Concat the suffix "-ent"
+            return pingBackUrl = pingBackUrl.concat("-ent");
+        } else if (edition.equalsIgnoreCase(ProductInformations.EXPRESS_EDITION)) {
+            //--- Concat the suffix "-ex"
+            return pingBackUrl = pingBackUrl.concat("-ex");
+        }   else {
+
+            return pingBackUrl;
+        }
     }
 
     public static boolean isLandingPageDisplayed() throws MissingProductInformationException {
