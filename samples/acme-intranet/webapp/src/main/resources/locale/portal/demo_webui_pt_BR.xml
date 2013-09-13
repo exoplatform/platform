@@ -2,13 +2,13 @@
 <bundle>
   <Signin>
     <welcome>Bem-vindo</welcome>
-    <login>Login</login>
-    <logout>Logout</logout>
+    <login>Conectar</login>
+    <logout>Sair</logout>
     <language>Mudar Idioma</language>
-    <register>Register</register>
+    <register>Registrar-se</register>
   </Signin>
 
   <ACMEPortal>
-    <label>ACME Template</label>
+    <label>Modelo ACME</label>
   </ACMEPortal>
 </bundle>

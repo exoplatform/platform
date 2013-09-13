@@ -2,22 +2,22 @@
 <bundle>
 <UISetupPlatformToolBarPortlet>
 <label>
-<applications>Applications</applications>
+<applications>Aplicativos</applications>
 <content>Conteúdo</content>
-<siteExplorer>Sites Explorer</siteExplorer>
-<wcmAdmin>Content Administration</wcmAdmin>
+<siteExplorer>Gerenciador de sites</siteExplorer>
+<wcmAdmin>Administração de conteúdo</wcmAdmin>
 <users>Usuários</users>
-<newStaff>Add Users</newStaff>
-<org-management>Groups and Roles</org-management>
+<newStaff>Adicionar Usuários</newStaff>
+<org-management>Grupos e funções</org-management>
 <portal>Portal</portal>
-<administration>Administration</administration>
-<groupnavigation>Group Sites</groupnavigation>
-<pageManagement>Pages</pageManagement>
+<administration>Administração</administration>
+<groupnavigation>Sites do grupo</groupnavigation>
+<pageManagement>Páginas</pageManagement>
 <portalnavigation>Sites</portalnavigation>
-<servicesManagement>Management</servicesManagement>
-<monitoring>Monitoring</monitoring>
+<servicesManagement>Gerenciamento</servicesManagement>
+<monitoring>Monitoramento</monitoring>
 <spaces>Espaços</spaces>
-<Branding>Branding</Branding>
+<Branding>Marca</Branding>
 <ide>IDE</ide>
 <search>Buscar</search>
 </label>
