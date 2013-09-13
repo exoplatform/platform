@@ -1297,7 +1297,7 @@
             </value-param>
             <value-param>
                <name>treeName</name>
-               <value>events</value>
+               <value>{treeName} events</value>
             </value-param>
 
             <object-param>
@@ -1392,7 +1392,7 @@
                                  <string></string>
                               </field>
                               <field name="homePath">
-                                 <string>collaboration:/sites/{portalName}/events</string>
+                                 <string>collaboration:/sites/{portalName}/{treeName} events</string>
                               </field>
                               <field name="targetWspace">
                                  <string>collaboration</string>
