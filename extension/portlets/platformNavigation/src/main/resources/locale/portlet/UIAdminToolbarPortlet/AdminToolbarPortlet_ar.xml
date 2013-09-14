@@ -75,7 +75,7 @@
   </UISEOToolbarForm>  
   <FloatNumberValidator>
     <msg>
-      <Invalid-number>الحقل أولوية عدد عشري غير صالح. القيم الصالحة من 0.0 إلى 1.0.</Invalid-number>
+      <Invalid-number>صيغة المجال "الأولوية" غير صحيحة. الرجاء إدخال رقم بين 0.0 و 1.1.</Invalid-number>
     </msg>
   </FloatNumberValidator>
   
