@@ -5,29 +5,29 @@
     <login>Ingresar</login>
     <logout>Desconectarse</logout>
     <language>
-      <en>Switch to English</en>
-      <fr>Switch to French</fr>
+      <en>Cambiar a inglés</en>
+      <fr>Cambiar a francés</fr>
     </language>
     <register>Registro</register>
   </Signin>
   <Toolbar>
-    <SkipToContent>Skip to content</SkipToContent>
+    <SkipToContent>Saltar al contenido</SkipToContent>
     <SiteMap>Mapa del Sitio</SiteMap>
-    <Accessibility>Accessibility</Accessibility>
-    <NormalSize>Normal Size</NormalSize>
-    <MediumSize>Medium Size</MediumSize>
-    <LargeSize>Large Size</LargeSize>
-    <NormalContrast>Normal Contrast</NormalContrast>
-    <HighContrast>High Contrast</HighContrast>
-    <Search>Search</Search>
+    <Accessibility>Accesibilidad</Accessibility>
+    <NormalSize>Tamaño normal</NormalSize>
+    <MediumSize>Tamaño mediano</MediumSize>
+    <LargeSize>Tamaño grande</LargeSize>
+    <NormalContrast>Contraste normal</NormalContrast>
+    <HighContrast>Contraste elevado</HighContrast>
+    <Search>Búsqueda</Search>
   </Toolbar>
   <Logo>
-    <GoHome>Go to Home</GoHome>
+    <GoHome>Ir a la página de inicio</GoHome>
   </Logo>
   <acme>
     <label>Plantilla ACME</label>
   </acme>  
   <WAIPortal>
-    <label>Sample Accessible Website</label>
+    <label>Muestra accesible del sitio web</label>
   </WAIPortal>
 </bundle>

@@ -75,7 +75,7 @@
   </UISEOToolbarForm>  
   <FloatNumberValidator>
     <msg>
-      <Invalid-number>El campo Prioridad es un número decimal no válido. Los valores válidos están comprendidos entre 0.0 y 1.0.</Invalid-number>
+      <Invalid-number>El campo de prioridad tiene un valor no válido. Por favor, introduzca un número entre 0.0 y 1.1.</Invalid-number>
     </msg>
   </FloatNumberValidator>
   
