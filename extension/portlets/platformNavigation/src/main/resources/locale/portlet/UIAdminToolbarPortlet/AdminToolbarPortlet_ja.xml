@@ -75,7 +75,7 @@
   </UISEOToolbarForm>  
   <FloatNumberValidator>
     <msg>
-      <Invalid-number>優先順位フィールドは、無効な浮動小数点数です。有効な値の範囲 0.0 ～ 1.0 で入力してください。</Invalid-number>
+      <Invalid-number>Priority field has an invalid value. Please enter a number between 0.0 and 1.1.</Invalid-number>
     </msg>
   </FloatNumberValidator>
   
