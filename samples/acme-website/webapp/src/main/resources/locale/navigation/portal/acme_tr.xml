@@ -2,21 +2,21 @@
 <bundle>
   <portal>
     <acme>
-      <overview>Overview</overview>
-      <products>Products</products>
-      <news>News</news>
-      <contactus>Questions?</contactus>
-      <newsletters>Newsletters</newsletters>
-      <confirmation>Contact Form Confirmation</confirmation>
+      <overview>Genel Bakış</overview>
+      <products>Ürünler</products>
+      <news>Haberler</news>
+      <contactus>Sorular?</contactus>
+      <newsletters>Haber bültenleri</newsletters>
+      <confirmation>İletişim formu onayı</confirmation>
       <detail>Ayrıntılar</detail>
-  <catalog>Catalog</catalog>
-      <printviewer>Print page</printviewer>
-      <searchResult>Search</searchResult>
-      <newAccount>New Account</newAccount>
-      <groupnavigation>Group Navigation</groupnavigation>
-      <portalnavigation>Portal Navigation</portalnavigation>
-      <documents>Documents</documents>
-      <unifiedSearch>Search</unifiedSearch>
+  <catalog>Katalog</catalog>
+      <printviewer>Sayfayı yazdır</printviewer>
+      <searchResult>Arama</searchResult>
+      <newAccount>Yeni hesap</newAccount>
+      <groupnavigation>Grub Gezinti</groupnavigation>
+      <portalnavigation>Portal Gezinme</portalnavigation>
+      <documents>Belgeler</documents>
+      <unifiedSearch>Arama</unifiedSearch>
     </acme>
   </portal>
 </bundle>
