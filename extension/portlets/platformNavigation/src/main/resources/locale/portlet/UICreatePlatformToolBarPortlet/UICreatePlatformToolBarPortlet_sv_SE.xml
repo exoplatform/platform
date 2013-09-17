@@ -68,7 +68,7 @@
          <add-unsuccessfully>{0} lades inte till.</add-unsuccessfully>
       </msg>
       <action>
-         <Next>Nästa</Next>
+         <Next>#{word.save}</Next>
          <Cancel>Avbryt</Cancel>
       </action>
    </UICreateEvent>

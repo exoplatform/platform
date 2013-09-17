@@ -2,14 +2,14 @@
 <bundle>
 <UIUserPlatformToolBarPortlet>
 <label>
-<activities>Dòng Hoạt động Cá nhân</activities>
-<profile>Hồ sơ Cá nhân</profile>
-<network>Kết nối Cá nhân</network>
-<wiki>Wiki Cá nhân</wiki>
+<activities>Chuỗi Hoạt động</activities>
+<profile>Hồ sơ</profile>
+<network>Danh sách bạn bè</network>
+<wiki>Wiki</wiki>
 <account>Cài đặt</account>
 <language>Thay đổi Ngôn ngữ</language>
 <logout>Đăng xuất</logout>
-        <dashboard>Bảng ứng dụng Cá nhân</dashboard>
+        <dashboard>Bảng ứng dụng</dashboard>
 </label>
 </UIUserPlatformToolBarPortlet>
 </bundle>
