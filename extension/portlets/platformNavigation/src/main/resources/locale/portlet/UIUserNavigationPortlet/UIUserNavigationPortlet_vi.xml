@@ -6,11 +6,11 @@
          <profile>Hồ sơ</profile>
          <connections>Kết nối</connections>
          <wiki>Wiki</wiki>
-         <Myactivities>Chuỗi Hoạt động của Tôi</Myactivities>
-         <Myprofile>Hồ sơ của Tôi</Myprofile>
-         <Myconnections>Kết nối của Tôi</Myconnections>
-         <Mywiki>Wiki của Tôi</Mywiki>
-         <Mydashboard>Bảng Ứng dụng của Tôi</Mydashboard>
+         <Myactivities>Chuỗi Hoạt động</Myactivities>
+         <Myprofile>Hồ sơ</Myprofile>
+         <Myconnections>Kết nối</Myconnections>
+         <Mywiki>Wiki</Mywiki>
+         <Mydashboard>Bảng Ứng dụng</Mydashboard>
       </label>
    </UIUserNavigationPortlet>
 </bundle>
