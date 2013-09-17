@@ -38,7 +38,7 @@
     <!-- **************************************** -->
     <!-- Project Dependencies -->
     <!-- **************************************** -->
-    <org.exoplatform.depmgt.version>7.1</org.exoplatform.depmgt.version>
+    <org.exoplatform.depmgt.version>7.3</org.exoplatform.depmgt.version>
     <!-- JCR Project Dependencies -->
     <org.exoplatform.kernel.version>2.4.6-GA-SNAPSHOT</org.exoplatform.kernel.version>
     <org.exoplatform.core.version>2.5.6-GA-SNAPSHOT</org.exoplatform.core.version>
