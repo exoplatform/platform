@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <bundle>
   <Signin>
-    <welcome>Willkommen</welcome>
-    <login>Anmelden</login>
-    <logout>Abmelden</logout>
-    <language>Spracheinstellungen ändern</language>
-    <register>Registrieren</register>
+    <welcome>Welcome</welcome>
+    <login>Login</login>
+    <logout>Logout</logout>
+    <language>Change Language</language>
+    <register>Register</register>
   </Signin>
 
   <ACMEPortal>

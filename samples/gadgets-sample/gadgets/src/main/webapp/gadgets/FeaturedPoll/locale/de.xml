@@ -25,7 +25,7 @@
   <msg name="vote">Abstimmen</msg>
   <msg name="voteAgain">Erneut abstimmen</msg>
   <msg name="warning">Bitte wählen Sie mindestens eine Option</msg>
-  <msg name="option">Optionen</msg>
+  <msg name="option">Options</msg>
   <msg name="percent">Prozent</msg>
   <msg name="voter">Wähler</msg>
   <msg name="total">Gesamt</msg>

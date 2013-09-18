@@ -12,11 +12,11 @@
   <catalog>Katalog</catalog>
       <printviewer>Seite drucken</printviewer>
       <searchResult>Suche</searchResult>
-      <newAccount>Neues Konto</newAccount>
-      <groupnavigation>Gruppennavigation</groupnavigation>
-      <portalnavigation>Portalnavigation</portalnavigation>
-      <documents>Dokumente</documents>
-      <unifiedSearch>Suchen</unifiedSearch>
+      <newAccount>New Account</newAccount>
+      <groupnavigation>Group Navigation</groupnavigation>
+      <portalnavigation>Portal Navigation</portalnavigation>
+      <documents>Documents</documents>
+      <unifiedSearch>Search</unifiedSearch>
     </acme>
   </portal>
 </bundle>

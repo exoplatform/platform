@@ -5,7 +5,7 @@
          <Spaces>Meine Spaces</Spaces>
          <Join>einem Raum beitreten</Join>
          <more>Weitere Spaces</more>
-         <see>Anzeigen</see>
+         <see>Show</see>
      </label>
      <msg>
          <filter-spaces>Spaces suchen</filter-spaces>

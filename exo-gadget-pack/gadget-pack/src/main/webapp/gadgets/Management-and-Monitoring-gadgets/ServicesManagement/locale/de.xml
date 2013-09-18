@@ -25,10 +25,10 @@
   <msg name="name">Name</msg>
   <msg name="description">Beschreibung</msg>
   <msg name="noDescription">Keine Beschreibung</msg>
-  <msg name="method">Methode</msg>
-  <msg name="parameters">Parameter</msg>
-  <msg name="action">Aktion</msg>
-  <msg name="value">Wert</msg>
+  <msg name="method">Method</msg>
+  <msg name="parameters">Parameters</msg>
+  <msg name="action">Action</msg>
+  <msg name="value">Value</msg>
   <msg name="services_url">Dienste URL</msg>
   <msg name="failManage">Bis wir OAuth unterstützen können vorübergehend keine Dienste von anderen Rechnern verwaltet werden</msg>
   <msg name="noServices">Entweder kein Dienst verfügbar ist oder Sie haben keine ausreichende Berechtigung</msg>

@@ -20,16 +20,16 @@
 
 -->
 <messagebundle>
-  <msg name="title">Lesezeichen</msg>
+  <msg name="title">Bookmarks</msg>
   <msg name="customize">Personalisieren</msg>
-  <msg name="save">Speichern</msg>
+  <msg name="save">Save</msg>
   <msg name="add">Hinzufügen</msg>
-  <msg name="ok">Ok</msg>
+  <msg name="ok">OK</msg>
   <msg name="name">Name</msg>
   <msg name="url">URL</msg>
   <msg name="delete">Löschen</msg>
-  <msg name="edit">Bearbeiten</msg>
-  <msg name="cancel">Abbrechen</msg>
+  <msg name="edit">Edit</msg>
+  <msg name="cancel">Cancel</msg>
   <msg name="emptyBookmarkPre">Sie haben kein Lesezeichen: Fügen Sie sie hinzu durch anklicken von</msg>
   <msg name="emptyBookmarkSuf">Schaltfläche</msg>
 </messagebundle>

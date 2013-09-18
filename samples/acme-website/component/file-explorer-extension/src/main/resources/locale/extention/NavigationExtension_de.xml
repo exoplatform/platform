@@ -46,11 +46,11 @@
 <DetailTargetPageInputSet>Seite für Detail:</DetailTargetPageInputSet>
 <DetailShowCLVByStringInput>Parametername:</DetailShowCLVByStringInput>
 <List>Liste</List>
-<Detail>Detaillierte Informationen</Detail>
+<Detail>Detail</Detail>
 </label>
 <action>
-<Save>Speichern</Save>
-<Cancel>Abbrechen</Cancel>
+<Save>Save</Save>
+<Cancel>Cancel</Cancel>
 </action>
 </UINavigationForm>
 <Visible>
@@ -68,19 +68,19 @@
 <NavigationNodeInputSet>
 <title>
 <SelectNavigationNode>Wählen Sie den Navigationsknoten</SelectNavigationNode>
-<RemoveNavigationNode>Zurücksetzen</RemoveNavigationNode>
+<RemoveNavigationNode>Reset</RemoveNavigationNode>
 </title>
 </NavigationNodeInputSet>
 <ListTargetPageFormInputSet>
 <title>
 <SelectListTargetPage>Wählen Sie die Zielseite</SelectListTargetPage>
-<RemoveListTargetPage>Zurücksetzen</RemoveListTargetPage>
+<RemoveListTargetPage>Reset</RemoveListTargetPage>
 </title>
 </ListTargetPageFormInputSet>
 <DetailTargetPageInputSet>
 <title>
 <SelectDetailTargetPage>Wählen Sie die Zielseite der Unterseite</SelectDetailTargetPage>
-<RemoveDetailTargetPage>Zurücksetzen</RemoveDetailTargetPage>
+<RemoveDetailTargetPage>Reset</RemoveDetailTargetPage>
 </title>
 </DetailTargetPageInputSet>
 <NavigationSelectorPopupWindow>
