@@ -20,8 +20,8 @@
 			<div class="uiAction uiActionBorder"></div>
 		</div>			
 	</div>  
-  <input id="senderName" name="name" value="${senderName}" placeholder="Name"/>
-  <input id="senderEmail" class="right" name="email" value="${senderEmail}" placeholder="Email"/>
+  ${_ctx.appRes("NotificationAdmin.label.sender.name")} : <input id="senderName" name="name" value="${senderName}" placeholder="Name"/>&nbsp;
+  ${_ctx.appRes("NotificationAdmin.label.sender.address")} : <input id="senderEmail" class="right" name="email" value="${senderEmail}" placeholder="Email"/>
   <input id="btSetSender" class="center" type="button" value="${_ctx.appRes('NotificationAdmin.label.save')}"/>
 </form>
 
