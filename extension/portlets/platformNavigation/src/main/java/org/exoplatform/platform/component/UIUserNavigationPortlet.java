@@ -50,7 +50,6 @@ public class UIUserNavigationPortlet extends UIPortletApplication {
     public static final String CONNEXIONS_URI= "connections";
     public static final String WIKI_URI= "wiki";
     public static final String DASHBOARD_URI= "dashboard";
-    public static final String NOTIFICATIONS_URI= "NotificationSettingsPortlet";
     private UserNodeFilterConfig toolbarFilterConfig;
     private static final String POPUP_AVATAR_UPLOADER = "UIAvatarUploaderPopup";
     public static String DEFAULT_TAB_NAME = "Tab_Default";
@@ -101,7 +100,7 @@ public class UIUserNavigationPortlet extends UIPortletApplication {
         userNodeList=(String[])ArrayUtils.add(userNodeList, WIKI_URI);
         userNodeList=(String[])ArrayUtils.add(userNodeList, DASHBOARD_URI);
         if (CommonsUtils.isFeatureActive(NOTIFICATION_NODE_NAME)) {
-          userNodeList=(String[])ArrayUtils.add(userNodeList, NOTIFICATIONS_URI);
+          userNodeList=(String[])ArrayUtils.add(userNodeList, NOTIFICATION_NODE_NAME);
         }
         return userNodeList;
     }
