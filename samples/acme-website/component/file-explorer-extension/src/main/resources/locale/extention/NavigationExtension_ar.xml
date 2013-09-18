@@ -2,7 +2,7 @@
 <bundle>
 <UIActionBar>
 <tooltip>
-<ContentNavigation>تصفّح المحتوى</ContentNavigation>
+<ContentNavigation>Content Navigation</ContentNavigation>
 </tooltip>
 </UIActionBar>
 <UIViewFormTabPane>
@@ -45,12 +45,12 @@
 <ListShowCLVByStringInput>بواسطة:</ListShowCLVByStringInput>
 <DetailTargetPageInputSet>تفاصيل الصّفحة:</DetailTargetPageInputSet>
 <DetailShowCLVByStringInput>بواسطة:</DetailShowCLVByStringInput>
-<List>قائمة</List>
-<Detail>تفاصيل</Detail>
+<List>List</List>
+<Detail>Detail</Detail>
 </label>
 <action>
-<Save>حفظ</Save>
-<Cancel>الغاء</Cancel>
+<Save>Save</Save>
+<Cancel>Cancel</Cancel>
 </action>
 </UINavigationForm>
 <Visible>
@@ -68,19 +68,19 @@
 <NavigationNodeInputSet>
 <title>
 <SelectNavigationNode>حدد عقدة التصفح</SelectNavigationNode>
-<RemoveNavigationNode>إعادة تعيين</RemoveNavigationNode>
+<RemoveNavigationNode>Reset</RemoveNavigationNode>
 </title>
 </NavigationNodeInputSet>
 <ListTargetPageFormInputSet>
 <title>
 <SelectListTargetPage>حدد الصفحة الهدف</SelectListTargetPage>
-<RemoveListTargetPage>إعادة تعيين</RemoveListTargetPage>
+<RemoveListTargetPage>Reset</RemoveListTargetPage>
 </title>
 </ListTargetPageFormInputSet>
 <DetailTargetPageInputSet>
 <title>
 <SelectDetailTargetPage>حدد فروع الصفحة المستهدفة</SelectDetailTargetPage>
-<RemoveDetailTargetPage>إعادة تعيين</RemoveDetailTargetPage>
+<RemoveDetailTargetPage>Reset</RemoveDetailTargetPage>
 </title>
 </DetailTargetPageInputSet>
 <NavigationSelectorPopupWindow>
@@ -90,12 +90,12 @@
 </NavigationSelectorPopupWindow>
 <ListTargetPageSelectorPopupWindow>
 <title>
-<UIPageSelector>مُنتق الصفحات</UIPageSelector>
+<UIPageSelector>Page Selector</UIPageSelector>
 </title>
 </ListTargetPageSelectorPopupWindow>
 <DetailTargetPageSelectorPopupWindow>
 <title>
-<UIPageSelector>مُنتق الصفحات</UIPageSelector>
+<UIPageSelector>Page Selector</UIPageSelector>
 </title>
 </DetailTargetPageSelectorPopupWindow>
 </bundle>

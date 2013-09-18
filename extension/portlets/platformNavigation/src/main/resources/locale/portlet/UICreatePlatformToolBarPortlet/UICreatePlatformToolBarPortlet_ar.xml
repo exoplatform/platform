@@ -2,8 +2,8 @@
 <bundle>
    <UIUserPlatformToolBarCreatePortlet>
       <label>
-         <topic>الموضوع</topic>
-         <poll>استطلاع رأي</poll>
+         <topic>Topic</topic>
+         <poll>Poll</poll>
          <eventtask>حدث/مهمّة</eventtask>
          <upload>تحميل ملف</upload>
          <wiki>صفحة ويكي</wiki>
@@ -19,8 +19,8 @@
          <RequireSelectForum>يرجى اختيار منتدى.</RequireSelectForum>
       </label>
       <action>
-         <Next>الموالي</Next>
-         <Cancel>الغاء</Cancel>
+         <Next>Next</Next>
+         <Cancel>Cancel</Cancel>
       </action>
    </UICreateList>
    <UICreateTopic>
@@ -33,7 +33,7 @@
    </UICreateTopic>
    <UICreatePoll>
       <label>
-         <SelectAForum>اختيار منتدى</SelectAForum>
+         <SelectAForum>Select Forum</SelectAForum>
          <location>في</location>
          <forumId>و منتدى</forumId>
          <FilterForums>تصفية المنتديات</FilterForums>
@@ -47,13 +47,13 @@
    </UICreateWiki>
    <UICreateEvent>
       <label>
-         <Title>عنوان</Title>
+         <Title>Title</Title>
          <Choix>إضافة:</Choix>
-         <EndEvent>إلى</EndEvent>
-         <StartEvent>من</StartEvent>
-         <Calendar>حدد الرزنامة</Calendar>
-         <all-day>طيلة اليوم</all-day>
-         <defaultCalendarId>الافتراضي</defaultCalendarId>
+         <EndEvent>To</EndEvent>
+         <StartEvent>From</StartEvent>
+         <Calendar>Select Calendar</Calendar>
+         <all-day>All Day</all-day>
+         <defaultCalendarId>Default</defaultCalendarId>
       </label>
       <msg>
          <summary-field-required>الحقل "عنوان" مطلوب.</summary-field-required>
@@ -69,7 +69,7 @@
       </msg>
       <action>
          <Next>#{word.save}</Next>
-         <Cancel>الغاء</Cancel>
+         <Cancel>Cancel</Cancel>
       </action>
    </UICreateEvent>
     <UIUploadFile>
@@ -77,8 +77,8 @@
     </UIUploadFile>
    <Choix>
       <label>
-         <Event>حدث</Event>
-         <Task>مُـهـمَّة</Task>
+         <Event>Event</Event>
+         <Task>Task</Task>
       </label>
    </Choix>
 </bundle>

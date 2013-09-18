@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <bundle>
   <Signin>
-    <welcome>أهلا وسهلا بكم</welcome>
-    <login>دخول</login>
-    <logout>خروج</logout>
-    <language>تغيير اللغة</language>
+    <welcome>Welcome</welcome>
+    <login>Login</login>
+    <logout>Logout</logout>
+    <language>Change Language</language>
     <register>تسجيل</register>
   </Signin>
 

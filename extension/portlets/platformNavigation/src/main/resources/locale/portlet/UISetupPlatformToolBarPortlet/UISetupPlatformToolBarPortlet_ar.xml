@@ -2,21 +2,21 @@
 <bundle>
 <UISetupPlatformToolBarPortlet>
 <label>
-<applications>تطبيقات</applications>
-<content>المحتوى</content>
-<siteExplorer>مُـستكشف المواقع</siteExplorer>
+<applications>Applications</applications>
+<content>Content</content>
+<siteExplorer>Sites Explorer</siteExplorer>
 <wcmAdmin>إدارة المحتوى</wcmAdmin>
-<users>المستخدمين</users>
+<users>Users</users>
 <newStaff>إضافة مستخدمين</newStaff>
 <org-management>المجموعات و الأدوار</org-management>
-<portal>بوّابة</portal>
-<administration>ادارة</administration>
+<portal>Portal</portal>
+<administration>Administration</administration>
 <groupnavigation>مواقع المجموعات</groupnavigation>
-<pageManagement>صفحات</pageManagement>
+<pageManagement>Pages</pageManagement>
 <portalnavigation>مواقع</portalnavigation>
 <servicesManagement>إدارة</servicesManagement>
 <monitoring>المراقبة</monitoring>
-<spaces>فضاءات</spaces>
+<spaces>Spaces</spaces>
 <Branding>الشّكل</Branding>
 <ide>IDE</ide>
 <search>البحث</search>
