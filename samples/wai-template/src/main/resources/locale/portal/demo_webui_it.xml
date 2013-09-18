@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <bundle>
   <Signin>
-    <welcome>Benvenuto</welcome>
+    <welcome>Welcome</welcome>
     <login>Login</login>
     <logout>Logout</logout>
     <language>
@@ -12,7 +12,7 @@
   </Signin>
   <Toolbar>
     <SkipToContent>Skip to content</SkipToContent>
-    <SiteMap>Mappa sito</SiteMap>
+    <SiteMap>Site Map</SiteMap>
     <Accessibility>Accessibility</Accessibility>
     <NormalSize>Normal Size</NormalSize>
     <MediumSize>Medium Size</MediumSize>

@@ -23,7 +23,7 @@
   <msg name="title">Featured Poll</msg>
   <msg name="setting">View</msg>
   <msg name="vote">Vote</msg>
-  <msg name="voteAgain">Vota Ancora</msg>
+  <msg name="voteAgain">Vote Again</msg>
   <msg name="warning">Please choose at least one option</msg>
   <msg name="option">Options</msg>
   <msg name="percent">Percent</msg>

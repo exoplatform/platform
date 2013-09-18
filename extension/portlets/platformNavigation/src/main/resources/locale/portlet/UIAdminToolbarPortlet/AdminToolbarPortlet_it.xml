@@ -21,11 +21,11 @@
 
   <UISEOForm>
     <label>
-      <title>Titolo:</title>  
+      <title>Title:</title>  
       <description>Description:</description>
       <keywords>Keywords:</keywords>
       <language>Language:</language>
-      <robots>Robot:</robots>
+      <robots>Robots:</robots>
       <sitemap>Sitemap:</sitemap>
       <sitemapvisible>Visible in sitemap</sitemapvisible>
   <isInherited>Inherited from parent page</isInherited>
@@ -49,13 +49,13 @@
     </action>
     <msg>
       <repository-exception>An unexpected error occurred. Cannot save page metadata.</repository-exception>
-      <confirm-delete>Sei sicuro di voler cancellare questi dati SEO?</confirm-delete>
+      <confirm-delete>Are you sure you want to delete these SEO data?</confirm-delete>
     </msg>
     <title>
     <seo-delete>Delete</seo-delete>
     </title>
 <help> 
-  <priority>Intervallo di valori validi da 0.0 a 1.0.</priority>
+  <priority>Valid values range from 0.0 to 1.0.</priority>
   <description>Help searchers: let them know that the following page has a link with what they are looking for.</description>
   <keywords>Most important terms in the page must be separated by a comma.</keywords>  
     </help>  
@@ -82,8 +82,8 @@
   <Locale>
     <label>      
       <it>Italian</it>      
-      <fr>Francese</fr>
-      <en>Inglese</en>      
+      <fr>French</fr>
+      <en>English</en>      
     </label>
   </Locale>
   

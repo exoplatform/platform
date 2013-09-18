@@ -52,7 +52,7 @@
          <EndEvent>To</EndEvent>
          <StartEvent>From</StartEvent>
          <Calendar>Select Calendar</Calendar>
-         <all-day>Tutto il giorno</all-day>
+         <all-day>All Day</all-day>
          <defaultCalendarId>Default</defaultCalendarId>
       </label>
       <msg>

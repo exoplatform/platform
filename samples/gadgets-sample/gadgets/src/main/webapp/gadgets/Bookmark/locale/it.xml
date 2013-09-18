@@ -28,8 +28,8 @@
   <msg name="name">Name</msg>
   <msg name="url">URL</msg>
   <msg name="delete">Delete</msg>
-  <msg name="edit">Modifica</msg>
-  <msg name="cancel">Annulla</msg>
+  <msg name="edit">Edit</msg>
+  <msg name="cancel">Cancel</msg>
   <msg name="emptyBookmarkPre">You don't have any bookmark : add them by clicking on</msg>
   <msg name="emptyBookmarkSuf">button</msg>
 </messagebundle>
