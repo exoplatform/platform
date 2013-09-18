@@ -23,9 +23,9 @@
   <msg name="title">Enquete em Destaque</msg>
   <msg name="setting">Visualização</msg>
   <msg name="vote">Votar</msg>
-  <msg name="voteAgain">Votar novamente</msg>
+  <msg name="voteAgain">Vote Again</msg>
   <msg name="warning">Por favor, escolha pelo menos uma opção</msg>
-  <msg name="option">Opções</msg>
+  <msg name="option">Options</msg>
   <msg name="percent">Percentual</msg>
   <msg name="voter">Votantes</msg>
   <msg name="total">Total</msg>

@@ -2,10 +2,10 @@
 <bundle>
  <UISpaceNavigationPortlet>
      <label>
-         <Spaces>Meus Espaços</Spaces>
+         <Spaces>My Spaces</Spaces>
          <Join>Juntar-se a um espaço</Join>
          <more>Mais Espaços</more>
-         <see>Mostrar</see>
+         <see>Show</see>
      </label>
      <msg>
          <filter-spaces>Pesquisar Espaços</filter-spaces>

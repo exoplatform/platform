@@ -25,5 +25,5 @@
   <msg name="titleDoc">Meus documentos</msg>  
   <msg name="nofav">Você não possui nenhum documento favorito</msg>
   <msg name="nodoc">Você não possui nenhum documento</msg>
-  <msg name="showall">Mostrar todos</msg>
+  <msg name="showall">Show All</msg>
 </messagebundle>

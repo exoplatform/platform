@@ -45,12 +45,12 @@
 <ListShowCLVByStringInput>Nome do parâmetro:</ListShowCLVByStringInput>
 <DetailTargetPageInputSet>Detalhe de Páginas:</DetailTargetPageInputSet>
 <DetailShowCLVByStringInput>Nome do parâmetro:</DetailShowCLVByStringInput>
-<List>Lista</List>
-<Detail>Detalhes</Detail>
+<List>List</List>
+<Detail>Detail</Detail>
 </label>
 <action>
-<Save>Salvar</Save>
-<Cancel>Cancelar</Cancel>
+<Save>Save</Save>
+<Cancel>Cancel</Cancel>
 </action>
 </UINavigationForm>
 <Visible>
@@ -61,26 +61,26 @@
 </Visible>
 <Clickable>
 <label>
-<ClickableEnable>Sim</ClickableEnable>
-<ClickableDisable>Não</ClickableDisable>
+<ClickableEnable>Yes</ClickableEnable>
+<ClickableDisable>No</ClickableDisable>
 </label>
 </Clickable>
 <NavigationNodeInputSet>
 <title>
 <SelectNavigationNode>Selecionar nó de navegação</SelectNavigationNode>
-<RemoveNavigationNode>Limpar</RemoveNavigationNode>
+<RemoveNavigationNode>Reset</RemoveNavigationNode>
 </title>
 </NavigationNodeInputSet>
 <ListTargetPageFormInputSet>
 <title>
 <SelectListTargetPage>Selecione a página destino</SelectListTargetPage>
-<RemoveListTargetPage>Limpar</RemoveListTargetPage>
+<RemoveListTargetPage>Reset</RemoveListTargetPage>
 </title>
 </ListTargetPageFormInputSet>
 <DetailTargetPageInputSet>
 <title>
 <SelectDetailTargetPage>Selecionar página de destino</SelectDetailTargetPage>
-<RemoveDetailTargetPage>Limpar</RemoveDetailTargetPage>
+<RemoveDetailTargetPage>Reset</RemoveDetailTargetPage>
 </title>
 </DetailTargetPageInputSet>
 <NavigationSelectorPopupWindow>
@@ -95,7 +95,7 @@
 </ListTargetPageSelectorPopupWindow>
 <DetailTargetPageSelectorPopupWindow>
 <title>
-<UIPageSelector>Seletor de Página</UIPageSelector>
+<UIPageSelector>Page Selector</UIPageSelector>
 </title>
 </DetailTargetPageSelectorPopupWindow>
 </bundle>

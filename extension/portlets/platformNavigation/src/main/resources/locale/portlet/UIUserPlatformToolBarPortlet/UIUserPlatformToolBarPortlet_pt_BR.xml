@@ -3,11 +3,11 @@
 <UIUserPlatformToolBarPortlet>
 <label>
 <activities>Meu fluxo de atividade</activities>
-<profile>Meu perfil</profile>
+<profile>My Profile</profile>
 <network>Minhas conexões</network>
-<wiki>Meu Wiki</wiki>
+<wiki>My Wiki</wiki>
 <account>Configurações</account>
-<language>Mudar Idioma</language>
+<language>Change Language</language>
 <logout>Sair</logout>
         <dashboard>Meu Painel</dashboard>
 </label>

@@ -31,8 +31,8 @@
   <msg name="forums.statistic.at">em</msg>  
   <msg name="forums.weekly.statistic.title">Estatísticas semanais dos Fóruns</msg>
   <msg name="forums.weekly.statistic.post.open">Postagem(s) criada(s)</msg>
-  <msg name="forums.weekly.statistic.next">Próximo</msg>
-  <msg name="forums.weekly.statistic.prev">Anterior</msg>
+  <msg name="forums.weekly.statistic.next">Next</msg>
+  <msg name="forums.weekly.statistic.prev">Previous</msg>
   <msg name="forums.weekly.statistic.view.chart">Visualizar como gráfico</msg>
   <msg name="forums.weekly.statistic.view.list">Visualizar como lista</msg>
   <msg name="forums.statistic.see.total.statistic">Estatísticas globais</msg>
