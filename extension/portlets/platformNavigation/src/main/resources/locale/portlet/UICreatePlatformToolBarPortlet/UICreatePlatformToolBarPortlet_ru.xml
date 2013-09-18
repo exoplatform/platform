@@ -47,13 +47,13 @@
    </UICreateWiki>
    <UICreateEvent>
       <label>
-         <Title>Титул</Title>
+         <Title>Title</Title>
          <Choix>Add New:</Choix>
          <EndEvent>To</EndEvent>
          <StartEvent>From</StartEvent>
-         <Calendar>Выберите календарь</Calendar>
-         <all-day>Весь день</all-day>
-         <defaultCalendarId>По умолчанию</defaultCalendarId>
+         <Calendar>Select Calendar</Calendar>
+         <all-day>All Day</all-day>
+         <defaultCalendarId>Default</defaultCalendarId>
       </label>
       <msg>
          <summary-field-required>The field "Title" is required.</summary-field-required>
@@ -77,8 +77,8 @@
     </UIUploadFile>
    <Choix>
       <label>
-         <Event>Событие</Event>
-         <Task>Задача</Task>
+         <Event>Event</Event>
+         <Task>Task</Task>
       </label>
    </Choix>
 </bundle>
