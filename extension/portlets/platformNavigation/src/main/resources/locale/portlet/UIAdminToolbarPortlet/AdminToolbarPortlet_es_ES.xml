@@ -2,15 +2,15 @@
 <bundle>
    <UIAdminToolbarPortlet>
       <action>
-         <AddPage>Añadir página</AddPage>
-         <EditNavigation>Navegación</EditNavigation>
-         <Content>Contenido</Content>
-         <Editor>Editar</Editor>
-         <Page>Página</Page>
-         <Site>Sitio</Site>
+         <AddPage>Add Page</AddPage>
+         <EditNavigation>Navigation</EditNavigation>
+         <Content>Content</Content>
+         <Editor>Edit</Editor>
+         <Page>Page</Page>
+         <Site>Site</Site>
          <Layout>Editar diseño</Layout>
          <siteLayout>Diseño</siteLayout>
-         <ManagePages>Administrar páginas</ManagePages>
+         <ManagePages>Manage Pages</ManagePages>
          <GroupSite>Sitio de grupo</GroupSite>
          <Properties>SEO</Properties>
          <AddSite>Agregar sitio</AddSite>
@@ -21,53 +21,53 @@
 
   <UISEOForm>
     <label>
-      <title>Título:</title>  
-      <description>Descripción:</description>
-      <keywords>Palabras Claves:</keywords>
-      <language>idioma:</language>
+      <title>Title:</title>  
+      <description>Description:</description>
+      <keywords>Keywords:</keywords>
+      <language>Language:</language>
       <robots>Robots:</robots>
-      <sitemap>Mapa del sitio:</sitemap>
+      <sitemap>Sitemap:</sitemap>
       <sitemapvisible>Visible en el mapa del sitio</sitemapvisible>
-  <isInherited>Heredado de la página principal</isInherited>
-      <priority>Prioridad:</priority>
-      <frequency>Frecuencia:</frequency>
+  <isInherited>Inherited from parent page</isInherited>
+      <priority>Priority:</priority>
+      <frequency>Frequency:</frequency>
       <select-language>Selecciona Idioma</select-language>
       <option>
-        <Always>Siempre</Always>
-        <Hourly>Por hora</Hourly>
-        <Daily>Diario</Daily>
-        <Weekly>Semanalmente</Weekly>
-        <Monthly>Mensualmente</Monthly>
-        <Yearly>Anualmente</Yearly>
-        <Never>Nunca</Never>
+        <Always>Always</Always>
+        <Hourly>Hourly</Hourly>
+        <Daily>Daily</Daily>
+        <Weekly>Weekly</Weekly>
+        <Monthly>Monthly</Monthly>
+        <Yearly>Yearly</Yearly>
+        <Never>Never</Never>
       </option> 
     </label>
  
     <action>
-      <Save>Guardar</Save>
-      <Cancel>Cancelar</Cancel>
+      <Save>Save</Save>
+      <Cancel>Cancel</Cancel>
     </action>
     <msg>
       <repository-exception>Se produjo un error inesperado. No puede guardar los metadatos de la página.</repository-exception>
-      <confirm-delete>¿Está seguro que desea eliminar estos datos SEO?</confirm-delete>
+      <confirm-delete>Are you sure you want to delete these SEO data?</confirm-delete>
     </msg>
     <title>
-    <seo-delete>Borrar</seo-delete>
+    <seo-delete>Delete</seo-delete>
     </title>
 <help> 
-  <priority>Valores válidos oscilan entre 0.0 y 1.0.</priority>
+  <priority>Valid values range from 0.0 to 1.0.</priority>
   <description>Ayudar a los buscadores: hacerles saber que la siguiente página tiene un enlace que están buscando.</description>
   <keywords>Términos más importantes en la página deben estar separados por una coma.</keywords>  
     </help>  
   </UISEOForm>
   <UISEOPopupWindow>
   <title>
-      <UISEOForm>Gestión de SEO</UISEOForm>
+      <UISEOForm>SEO Management</UISEOForm>
   </title>
   </UISEOPopupWindow>    
   <UISEOToolbarForm>
   <title>
-      <seo>Gestión de SEO</seo>
+      <seo>SEO Management</seo>
   </title>
   <label>
     <seo>SEO</seo>
@@ -82,8 +82,8 @@
   <Locale>
     <label>      
       <it>italiano</it>      
-      <fr>Francés</fr>
-      <en>Inglés</en>      
+      <fr>French</fr>
+      <en>English</en>      
     </label>
   </Locale>
   

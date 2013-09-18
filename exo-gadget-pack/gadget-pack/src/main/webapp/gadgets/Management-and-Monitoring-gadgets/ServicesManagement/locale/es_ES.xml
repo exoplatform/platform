@@ -20,16 +20,16 @@
 
 -->
 <messagebundle>  
-  <msg name="title">Gestión de servicios</msg>
-  <msg name="services">Servicios</msg>
+  <msg name="title">Services Management</msg>
+  <msg name="services">Services</msg>
   <msg name="name">Nombre</msg>
   <msg name="description">Descripción</msg>
   <msg name="noDescription">Sin Descripción</msg>
-  <msg name="method">Método</msg>
-  <msg name="parameters">Parámetros</msg>
-  <msg name="action">Acción</msg>
-  <msg name="value">Valor</msg>
-  <msg name="services_url">Servicios de URL</msg>
+  <msg name="method">Method</msg>
+  <msg name="parameters">Parameters</msg>
+  <msg name="action">Action</msg>
+  <msg name="value">Value</msg>
+  <msg name="services_url">Services URL</msg>
   <msg name="failManage">Temporalmente no puede administrar los servicios desde otro host hasta que soportemos OAuth</msg>
   <msg name="noServices">El servicio no está disponible o no tiene los permisos necesarios</msg>
   <msg name="noMethod">Sin Método</msg>

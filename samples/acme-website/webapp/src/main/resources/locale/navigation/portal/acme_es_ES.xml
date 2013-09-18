@@ -8,14 +8,14 @@
       <contactus>¿Preguntas?</contactus>
       <newsletters>Boletines</newsletters>
       <confirmation>Confirmación del formulario de contacto</confirmation>
-      <detail>Detalles</detail>
+      <detail>Details</detail>
   <catalog>Catálogo</catalog>
       <printviewer>Imprimir página</printviewer>
       <searchResult>Búsqueda</searchResult>
-      <newAccount>Nueva Cuenta</newAccount>
+      <newAccount>New Account</newAccount>
       <groupnavigation>Navegación por Grupos</groupnavigation>
       <portalnavigation>Navegación del portal</portalnavigation>
-      <documents>Documentos</documents>
+      <documents>Documents</documents>
       <unifiedSearch>Búsqueda</unifiedSearch>
     </acme>
   </portal>

@@ -4,12 +4,12 @@
       <label>
          <activities>Flujo de Actividades</activities>
          <profile>Perfil</profile>
-         <connections>Conexiones</connections>
+         <connections>Connections</connections>
          <wiki>Wiki</wiki>
          <Myactivities>Mis Actividades</Myactivities>
-         <Myprofile>Mi Perfil</Myprofile>
+         <Myprofile>My Profile</Myprofile>
          <Myconnections>Mis Conexiones</Myconnections>
-         <Mywiki>Mi Wiki</Mywiki>
+         <Mywiki>My Wiki</Mywiki>
          <Mydashboard>Mi Panel de Control</Mydashboard>
       </label>
    </UIUserNavigationPortlet>

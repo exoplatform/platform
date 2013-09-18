@@ -2,7 +2,7 @@
 <bundle>
 <UIActionBar>
 <tooltip>
-<ContentNavigation>Navegación de contenido</ContentNavigation>
+<ContentNavigation>Content Navigation</ContentNavigation>
 </tooltip>
 </UIActionBar>
 <UIViewFormTabPane>
@@ -19,11 +19,11 @@
 <dialog>
 <label>
 <id>ID:</id>
-<name>Nombre:</name>
+<name>Name:</name>
 <lifecycle>Ciclo de vida:</lifecycle>
 <isDeep>Es profundo:</isDeep>
 <nodetypes>Tipos de nodo:</nodetypes>
-<description>Descripción:</description>
+<description>Description:</description>
 <affectedNodeTypeNames>Tipos de nodo afectados:</affectedNodeTypeNames>
 <navigationNode>Nodo de navegación:</navigationNode>
 <index>Índice:</index>
@@ -44,43 +44,43 @@
 <ListTargetPageFormInputSet>Página para la lista:</ListTargetPageFormInputSet>
 <ListShowCLVByStringInput>Nombre del parámetro:</ListShowCLVByStringInput>
 <DetailTargetPageInputSet>Página de detalle:</DetailTargetPageInputSet>
-<DetailShowCLVByStringInput>Nombre del parámetro:</DetailShowCLVByStringInput>
-<List>Lista</List>
-<Detail>Detalle</Detail>
+<DetailShowCLVByStringInput>Parameter Name:</DetailShowCLVByStringInput>
+<List>List</List>
+<Detail>Detail</Detail>
 </label>
 <action>
-<Save>Guardar</Save>
-<Cancel>Cancelar</Cancel>
+<Save>Save</Save>
+<Cancel>Cancel</Cancel>
 </action>
 </UINavigationForm>
 <Visible>
 <label>
-<VisibleEnable>Sí</VisibleEnable>
+<VisibleEnable>Yes</VisibleEnable>
 <VisibleDisable>No</VisibleDisable>
 </label>
 </Visible>
 <Clickable>
 <label>
-<ClickableEnable>Sí</ClickableEnable>
+<ClickableEnable>Yes</ClickableEnable>
 <ClickableDisable>No</ClickableDisable>
 </label>
 </Clickable>
 <NavigationNodeInputSet>
 <title>
 <SelectNavigationNode>Seleccione el nodo de navegación</SelectNavigationNode>
-<RemoveNavigationNode>Resetear</RemoveNavigationNode>
+<RemoveNavigationNode>Reset</RemoveNavigationNode>
 </title>
 </NavigationNodeInputSet>
 <ListTargetPageFormInputSet>
 <title>
 <SelectListTargetPage>Seleccione la página de destino</SelectListTargetPage>
-<RemoveListTargetPage>Resetear</RemoveListTargetPage>
+<RemoveListTargetPage>Reset</RemoveListTargetPage>
 </title>
 </ListTargetPageFormInputSet>
 <DetailTargetPageInputSet>
 <title>
 <SelectDetailTargetPage>Seleccione la página de destino dependiente</SelectDetailTargetPage>
-<RemoveDetailTargetPage>Resetear</RemoveDetailTargetPage>
+<RemoveDetailTargetPage>Reset</RemoveDetailTargetPage>
 </title>
 </DetailTargetPageInputSet>
 <NavigationSelectorPopupWindow>
@@ -90,12 +90,12 @@
 </NavigationSelectorPopupWindow>
 <ListTargetPageSelectorPopupWindow>
 <title>
-<UIPageSelector>Selector Página</UIPageSelector>
+<UIPageSelector>Page Selector</UIPageSelector>
 </title>
 </ListTargetPageSelectorPopupWindow>
 <DetailTargetPageSelectorPopupWindow>
 <title>
-<UIPageSelector>Selector Página</UIPageSelector>
+<UIPageSelector>Page Selector</UIPageSelector>
 </title>
 </DetailTargetPageSelectorPopupWindow>
 </bundle>

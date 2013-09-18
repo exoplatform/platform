@@ -22,7 +22,7 @@
 <messagebundle>
   <msg name="title">Encuesta recomendada</msg>
   <msg name="setting">Ajuste</msg>
-  <msg name="vote">Votar</msg>
+  <msg name="vote">Vote</msg>
   <msg name="voteAgain">Votar de nuevo</msg>
   <msg name="warning">Seleccione al menos una opción</msg>
   <msg name="option">Opciones</msg>

@@ -23,28 +23,28 @@
 -->
 <messagebundle>
   <msg name="loginHistory.title">Historial de ingreso</msg>
-  <msg name="loginHistory.user">Usuario</msg>
+  <msg name="loginHistory.user">User</msg>
   <msg name="loginHistory.find">Buscar</msg>
-  <msg name="loginHistory.latest">Resetear</msg>
+  <msg name="loginHistory.latest">Reset</msg>
   <msg name="loginHistory.lastLogin">Último ingreso</msg>
   <msg name="loginHistory.beforeThat">Antes que</msg>
   <msg name="loginHistory.more">Más</msg>
   <msg name="loginHistory.stats">Estadísticas</msg>
-  <msg name="loginHistory.history">Historia</msg>
+  <msg name="loginHistory.history">History</msg>
   <msg name="loginHistory.global">Global</msg>
-  <msg name="loginHistory.week">Semana</msg>
+  <msg name="loginHistory.week">Week</msg>
   <msg name="loginHistory.lastLoginsView">Últimos ingresos</msg>
-  <msg name="loginHistory.historyView">Historia</msg>
+  <msg name="loginHistory.historyView">History</msg>
   <msg name="loginHistory.statisticsView">Estadísticas</msg>
   <msg name="loginHistory.averagePerDay">Promedio de ingresos / día</msg>
   <msg name="loginHistory.averagePerWeek">Promedio de ingresos / semana</msg>
   <msg name="loginHistory.averagePerMonth">Promedio de ingresos / mes</msg>
-  <msg name="loginHistory.today">Hoy</msg>
+  <msg name="loginHistory.today">Today</msg>
   <msg name="loginHistory.earlierThisWeek">A inicios de esta semana</msg>
   <msg name="loginHistory.earlierThisMonth">A principios de este mes</msg>
   <msg name="loginHistory.earlier">Hace poco</msg>
   <msg name="loginHistory.allUsers">Todos los usuarios</msg>
   <msg name="loginHistory.unknow">Desconocido</msg>
-  <msg name="loginHistory.next">Siguiente</msg>
+  <msg name="loginHistory.next">Next</msg>
   <msg name="loginHistory.ago">Hace</msg>
 </messagebundle>

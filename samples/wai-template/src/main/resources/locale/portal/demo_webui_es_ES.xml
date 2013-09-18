@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <bundle>
   <Signin>
-    <welcome>Bienvenido</welcome>
-    <login>Ingresar</login>
-    <logout>Desconectarse</logout>
+    <welcome>Welcome</welcome>
+    <login>Login</login>
+    <logout>Logout</logout>
     <language>
       <en>Cambiar a inglés</en>
       <fr>Cambiar a francés</fr>
     </language>
-    <register>Registro</register>
+    <register>Register</register>
   </Signin>
   <Toolbar>
     <SkipToContent>Saltar al contenido</SkipToContent>
-    <SiteMap>Mapa del Sitio</SiteMap>
+    <SiteMap>Site Map</SiteMap>
     <Accessibility>Accesibilidad</Accessibility>
     <NormalSize>Tamaño normal</NormalSize>
     <MediumSize>Tamaño mediano</MediumSize>
@@ -25,7 +25,7 @@
     <GoHome>Ir a la página de inicio</GoHome>
   </Logo>
   <acme>
-    <label>Plantilla ACME</label>
+    <label>ACME Template</label>
   </acme>  
   <WAIPortal>
     <label>Muestra accesible del sitio web</label>
