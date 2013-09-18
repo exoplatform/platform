@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <bundle>
   <Signin>
-    <welcome>Välkommen</welcome>
+    <welcome>Welcome</welcome>
     <login>Logga in</login>
     <logout>Logga ut</logout>
     <language>
@@ -19,7 +19,7 @@
     <LargeSize>Stor storlek</LargeSize>
     <NormalContrast>Normala kontrast</NormalContrast>
     <HighContrast>Hög kontrast</HighContrast>
-    <Search>Sök</Search>
+    <Search>Search</Search>
   </Toolbar>
   <Logo>
     <GoHome>Gå till hem</GoHome>

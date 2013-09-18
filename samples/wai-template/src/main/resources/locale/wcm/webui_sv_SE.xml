@@ -22,7 +22,7 @@
 <bundle>
   <UIPortalApplication>
     <title>
-      <abort>Avbryt</abort>
+      <abort>Abort</abort>
     </title>
   </UIPortalApplication>
   

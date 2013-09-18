@@ -8,15 +8,15 @@
       <contactus>Frågor?</contactus>
       <newsletters>Nyhetsbrev</newsletters>
       <confirmation>Bekräftelse av kontaktformulär</confirmation>
-      <detail>Detaljer</detail>
+      <detail>Details</detail>
   <catalog>Katalog</catalog>
       <printviewer>Skriv ut sidan</printviewer>
-      <searchResult>Sök</searchResult>
+      <searchResult>Search</searchResult>
       <newAccount>New Account</newAccount>
       <groupnavigation>Navigering för gruppen</groupnavigation>
       <portalnavigation>Navigering för portalen</portalnavigation>
-      <documents>Dokument</documents>
-      <unifiedSearch>Sök</unifiedSearch>
+      <documents>Documents</documents>
+      <unifiedSearch>Search</unifiedSearch>
     </acme>
   </portal>
 </bundle>

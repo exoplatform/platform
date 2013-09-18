@@ -26,15 +26,15 @@
   <msg name="loginHistory.user">Användare</msg>
   <msg name="loginHistory.find">sök</msg>
   <msg name="loginHistory.latest">Återställ</msg>
-  <msg name="loginHistory.lastLogin">Senaste inloggning</msg>
+  <msg name="loginHistory.lastLogin">Last Login</msg>
   <msg name="loginHistory.beforeThat">Dessförinnan</msg>
   <msg name="loginHistory.more">Mer</msg>
   <msg name="loginHistory.stats">Statistik</msg>
-  <msg name="loginHistory.history">Historik</msg>
+  <msg name="loginHistory.history">History</msg>
   <msg name="loginHistory.global">Global</msg>
-  <msg name="loginHistory.week">Vecka</msg>
+  <msg name="loginHistory.week">Week</msg>
   <msg name="loginHistory.lastLoginsView">Senaste inloggningar</msg>
-  <msg name="loginHistory.historyView">Historik</msg>
+  <msg name="loginHistory.historyView">History</msg>
   <msg name="loginHistory.statisticsView">Statistik</msg>
   <msg name="loginHistory.averagePerDay">Genomsnittliga inloggningar/dag</msg>
   <msg name="loginHistory.averagePerWeek">Genomsnittliga inloggningar/vecka</msg>
@@ -45,6 +45,6 @@
   <msg name="loginHistory.earlier">Tidigare</msg>
   <msg name="loginHistory.allUsers">Alla användare</msg>
   <msg name="loginHistory.unknow">Okänd</msg>
-  <msg name="loginHistory.next">Nästa</msg>
+  <msg name="loginHistory.next">Next</msg>
   <msg name="loginHistory.ago">Ago</msg>
 </messagebundle>

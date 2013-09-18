@@ -3,7 +3,7 @@
 <UISetupPlatformToolBarPortlet>
 <label>
 <applications>Program</applications>
-<content>Innehåll</content>
+<content>Content</content>
 <siteExplorer>utforskare för webbplatser</siteExplorer>
 <wcmAdmin>Innehållsadministration</wcmAdmin>
 <users>Användare</users>
@@ -12,14 +12,14 @@
 <portal>Portal</portal>
 <administration>Administration</administration>
 <groupnavigation>Grupp platser</groupnavigation>
-<pageManagement>Sidor</pageManagement>
+<pageManagement>Pages</pageManagement>
 <portalnavigation>Platser</portalnavigation>
 <servicesManagement>Management</servicesManagement>
 <monitoring>Övervakning</monitoring>
 <spaces>Webb-ytor</spaces>
 <Branding>Branding</Branding>
 <ide>IDE</ide>
-<search>Sök</search>
+<search>Search</search>
 </label>
 </UISetupPlatformToolBarPortlet>
 </bundle>

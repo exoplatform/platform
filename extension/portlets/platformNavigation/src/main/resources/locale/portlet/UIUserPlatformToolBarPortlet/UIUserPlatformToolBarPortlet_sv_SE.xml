@@ -2,12 +2,12 @@
 <bundle>
 <UIUserPlatformToolBarPortlet>
 <label>
-<activities>Min aktivitets ström</activities>
+<activities>My Activity Stream</activities>
 <profile>Min profil</profile>
-<network>Mina anslutningar</network>
-<wiki>Min Wiki</wiki>
+<network>My Connections</network>
+<wiki>My Wiki</wiki>
 <account>Inställningar</account>
-<language>Ändra språk</language>
+<language>Change Language</language>
 <logout>Logga ut</logout>
         <dashboard>Min instrumentpanel</dashboard>
 </label>

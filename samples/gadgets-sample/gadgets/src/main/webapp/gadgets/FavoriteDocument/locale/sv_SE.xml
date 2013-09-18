@@ -25,5 +25,5 @@
   <msg name="titleDoc">Mina dokument</msg>  
   <msg name="nofav">Du har inget favorit dokument</msg>
   <msg name="nodoc">Du har inga dokument</msg>
-  <msg name="showall">Visa alla</msg>
+  <msg name="showall">Show All</msg>
 </messagebundle>

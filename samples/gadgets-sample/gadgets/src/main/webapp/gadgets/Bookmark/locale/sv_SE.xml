@@ -20,16 +20,16 @@
 
 -->
 <messagebundle>
-  <msg name="title">Bokmärken</msg>
+  <msg name="title">Bookmarks</msg>
   <msg name="customize">Anpassa</msg>
-  <msg name="save">Spara</msg>
-  <msg name="add">Lägg till</msg>
+  <msg name="save">Save</msg>
+  <msg name="add">Add</msg>
   <msg name="ok">OK</msg>
-  <msg name="name">Namn</msg>
+  <msg name="name">Name</msg>
   <msg name="url">URL</msg>
-  <msg name="delete">Ta bort</msg>
-  <msg name="edit">Redigera</msg>
-  <msg name="cancel">Avbryt</msg>
+  <msg name="delete">Delete</msg>
+  <msg name="edit">Edit</msg>
+  <msg name="cancel">Cancel</msg>
   <msg name="emptyBookmarkPre">Du har inte något bokmärke: lägga till dem genom att klicka på</msg>
   <msg name="emptyBookmarkSuf">knappen</msg>
 </messagebundle>

@@ -2,8 +2,8 @@
 <bundle>
    <UIUserPlatformToolBarCreatePortlet>
       <label>
-         <topic>Ämne</topic>
-         <poll>Enkät</poll>
+         <topic>Topic</topic>
+         <poll>Poll</poll>
          <eventtask>Händelse/uppgift</eventtask>
          <upload>Ladda upp en fil</upload>
          <wiki>Wiki-sida</wiki>
@@ -19,8 +19,8 @@
          <RequireSelectForum>Välj ett forum.</RequireSelectForum>
       </label>
       <action>
-         <Next>Nästa</Next>
-         <Cancel>Avbryt</Cancel>
+         <Next>Next</Next>
+         <Cancel>Cancel</Cancel>
       </action>
    </UICreateList>
    <UICreateTopic>
@@ -33,7 +33,7 @@
    </UICreateTopic>
    <UICreatePoll>
       <label>
-         <SelectAForum>Välj Forum</SelectAForum>
+         <SelectAForum>Select Forum</SelectAForum>
          <location>På plats</location>
          <forumId>Och Forum</forumId>
          <FilterForums>Filtrera forum</FilterForums>
@@ -47,12 +47,12 @@
    </UICreateWiki>
    <UICreateEvent>
       <label>
-         <Title>Titel</Title>
+         <Title>Title</Title>
          <Choix>Lägg till ny:</Choix>
          <EndEvent>Till</EndEvent>
          <StartEvent>Från</StartEvent>
-         <Calendar>Välj kalender</Calendar>
-         <all-day>Hela dagen</all-day>
+         <Calendar>Select Calendar</Calendar>
+         <all-day>All Day</all-day>
          <defaultCalendarId>Standard</defaultCalendarId>
       </label>
       <msg>
@@ -69,16 +69,16 @@
       </msg>
       <action>
          <Next>#{word.save}</Next>
-         <Cancel>Avbryt</Cancel>
+         <Cancel>Cancel</Cancel>
       </action>
    </UICreateEvent>
     <UIUploadFile>
-        <Select>Välj fil</Select>
+        <Select>Select File</Select>
     </UIUploadFile>
    <Choix>
       <label>
          <Event>Händelse</Event>
-         <Task>Uppgift</Task>
+         <Task>Task</Task>
       </label>
    </Choix>
 </bundle>

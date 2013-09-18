@@ -31,7 +31,7 @@
   <msg name="forums.statistic.at">på</msg>  
   <msg name="forums.weekly.statistic.title">Veckovisa statistik för forumet</msg>
   <msg name="forums.weekly.statistic.post.open">Inlägg skapad</msg>
-  <msg name="forums.weekly.statistic.next">Nästa</msg>
+  <msg name="forums.weekly.statistic.next">Next</msg>
   <msg name="forums.weekly.statistic.prev">Föregående</msg>
   <msg name="forums.weekly.statistic.view.chart">Visa som diagram</msg>
   <msg name="forums.weekly.statistic.view.list">Visa som lista</msg>
