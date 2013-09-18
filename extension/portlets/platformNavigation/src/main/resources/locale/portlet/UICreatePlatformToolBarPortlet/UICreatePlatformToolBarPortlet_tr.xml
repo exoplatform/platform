@@ -33,7 +33,7 @@
    </UICreateTopic>
    <UICreatePoll>
       <label>
-         <SelectAForum>Forum Seçin</SelectAForum>
+         <SelectAForum>Select Forum</SelectAForum>
          <location>Konum</location>
          <forumId>Ve Forum</forumId>
          <FilterForums>Forumları Süz</FilterForums>
@@ -51,8 +51,8 @@
          <Choix>Yeni ekle:</Choix>
          <EndEvent>Bitiş Tarihi</EndEvent>
          <StartEvent>Başlangıç Tarihi</StartEvent>
-         <Calendar>Takvimi Seçin</Calendar>
-         <all-day>Bütün gün</all-day>
+         <Calendar>Select Calendar</Calendar>
+         <all-day>All Day</all-day>
          <defaultCalendarId>Varsayılan</defaultCalendarId>
       </label>
       <msg>
@@ -73,12 +73,12 @@
       </action>
    </UICreateEvent>
     <UIUploadFile>
-        <Select>Dosya Seçin</Select>
+        <Select>Select File</Select>
     </UIUploadFile>
    <Choix>
       <label>
-         <Event>Etkinlik</Event>
-         <Task>Görev</Task>
+         <Event>Event</Event>
+         <Task>Task</Task>
       </label>
    </Choix>
 </bundle>

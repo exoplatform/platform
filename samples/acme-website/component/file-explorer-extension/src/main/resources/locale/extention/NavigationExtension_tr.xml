@@ -46,7 +46,7 @@
 <DetailTargetPageInputSet>Ayrıntı için sayfa:</DetailTargetPageInputSet>
 <DetailShowCLVByStringInput>Parametre adı:</DetailShowCLVByStringInput>
 <List>Liste</List>
-<Detail>Detay</Detail>
+<Detail>Detail</Detail>
 </label>
 <action>
 <Save>Kaydet</Save>

@@ -25,10 +25,10 @@
   <msg name="name">Ad</msg>
   <msg name="description">Açıklama</msg>
   <msg name="noDescription">Açıklama yok</msg>
-  <msg name="method">Yöntem</msg>
-  <msg name="parameters">Parametreler</msg>
+  <msg name="method">Method</msg>
+  <msg name="parameters">Parameters</msg>
   <msg name="action">Yöntem</msg>
-  <msg name="value">Değer</msg>
+  <msg name="value">Value</msg>
   <msg name="services_url">Hizmet URL'si</msg>
   <msg name="failManage">Geçici olarak diğer sunucularda bulunan servisleri yönetemezsiniz</msg>
   <msg name="noServices">Hiçbir hizmet yok  ya da yeterli izne sahip değilsiniz</msg>

@@ -22,7 +22,7 @@
   <UISEOForm>
     <label>
       <title>Başlık:</title>  
-      <description>Açıklama:</description>
+      <description>Description:</description>
       <keywords>Anahtar Sözcükler:</keywords>
       <language>Dil:</language>
       <robots>Robotlar:</robots>
@@ -82,8 +82,8 @@
   <Locale>
     <label>      
       <it>İtalyanca</it>      
-      <fr>Fransızca</fr>
-      <en>İngilizce</en>      
+      <fr>French</fr>
+      <en>English</en>      
     </label>
   </Locale>
   

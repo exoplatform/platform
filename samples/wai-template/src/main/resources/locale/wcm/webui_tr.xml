@@ -29,7 +29,7 @@
   <CategoryNavigationTemplate>
   <label>
   <home>Ana sayfa</home>
-  <Accessibility>Erişilebilirlik</Accessibility>
+  <Accessibility>Accessibility</Accessibility>
   </label>
   </CategoryNavigationTemplate>
   

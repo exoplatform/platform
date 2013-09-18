@@ -25,5 +25,5 @@
   <msg name="titleDoc">Belgelerim</msg>  
   <msg name="nofav">Favori belgeniz yok</msg>
   <msg name="nodoc">Hiçbir belge yok</msg>
-  <msg name="showall">Tümünü Göster</msg>
+  <msg name="showall">Show All</msg>
 </messagebundle>

@@ -29,7 +29,7 @@
   <msg name="percent">Yüzde</msg>
   <msg name="voter">Seçmenler</msg>
   <msg name="total">Toplam</msg>
-  <msg name="discuss">Forumda Tartışın</msg>
+  <msg name="discuss">Discuss in Forum</msg>
   <msg name="nopoll">Henüz hiçbir anketler yok</msg>  
   <msg name="createPoll">Kendi anketinizi oluşturun</msg>    
 </messagebundle>

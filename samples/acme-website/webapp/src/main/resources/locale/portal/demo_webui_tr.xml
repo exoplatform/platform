@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <bundle>
   <Signin>
-    <welcome>Hoş Geldiniz</welcome>
+    <welcome>Welcome</welcome>
     <login>Uturum Aç</login>
     <logout>Oturumu Kapat</logout>
-    <language>Dili Değiştir</language>
+    <language>Change Language</language>
     <register>Kayıt Ol</register>
   </Signin>
 
