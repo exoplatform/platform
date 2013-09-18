@@ -31,7 +31,7 @@
   <msg name="forums.statistic.at">で</msg>  
   <msg name="forums.weekly.statistic.title">フォーラム週間の統計情報</msg>
   <msg name="forums.weekly.statistic.post.open">作成された投稿数</msg>
-  <msg name="forums.weekly.statistic.next">次へ</msg>
+  <msg name="forums.weekly.statistic.next">Next</msg>
   <msg name="forums.weekly.statistic.prev">前へ</msg>
   <msg name="forums.weekly.statistic.view.chart">グラフ表示</msg>
   <msg name="forums.weekly.statistic.view.list">リスト表示</msg>

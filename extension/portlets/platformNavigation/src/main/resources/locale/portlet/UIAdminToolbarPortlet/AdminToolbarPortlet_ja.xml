@@ -4,13 +4,13 @@
       <action>
          <AddPage>ページを追加</AddPage>
          <EditNavigation>ナビゲーション</EditNavigation>
-         <Content>コンテンツ</Content>
-         <Editor>編集</Editor>
-         <Page>ページ</Page>
-         <Site>サイト</Site>
+         <Content>Content</Content>
+         <Editor>Edit</Editor>
+         <Page>Page</Page>
+         <Site>Site</Site>
          <Layout>レイアウトを編集</Layout>
          <siteLayout>レイアウト</siteLayout>
-         <ManagePages>ページを管理</ManagePages>
+         <ManagePages>Manage Pages</ManagePages>
          <GroupSite>グループ サイト</GroupSite>
          <Properties>SEO</Properties>
          <AddSite>サイトを追加</AddSite>
@@ -21,53 +21,53 @@
 
   <UISEOForm>
     <label>
-      <title>タイトル</title>  
-      <description>説明:</description>
-      <keywords>キーワード:</keywords>
-      <language>言語:</language>
-      <robots>ロボット:</robots>
-      <sitemap>サイトマップ：</sitemap>
+      <title>Title:</title>  
+      <description>Description:</description>
+      <keywords>Keywords:</keywords>
+      <language>Language:</language>
+      <robots>Robots:</robots>
+      <sitemap>Sitemap:</sitemap>
       <sitemapvisible>サイトマップで参照可能</sitemapvisible>
-  <isInherited>親ページから継承</isInherited>
-      <priority>優先順位：</priority>
-      <frequency>頻度:</frequency>
+  <isInherited>Inherited from parent page</isInherited>
+      <priority>Priority:</priority>
+      <frequency>Frequency:</frequency>
       <select-language>言語の選択</select-language>
       <option>
-        <Always>常に</Always>
-        <Hourly>毎時</Hourly>
-        <Daily>毎日</Daily>
-        <Weekly>毎週</Weekly>
-        <Monthly>毎月</Monthly>
-        <Yearly>毎年</Yearly>
-        <Never>しない</Never>
+        <Always>Always</Always>
+        <Hourly>Hourly</Hourly>
+        <Daily>Daily</Daily>
+        <Weekly>Weekly</Weekly>
+        <Monthly>Monthly</Monthly>
+        <Yearly>Yearly</Yearly>
+        <Never>Never</Never>
       </option> 
     </label>
  
     <action>
-      <Save>保存</Save>
-      <Cancel>キャンセル</Cancel>
+      <Save>Save</Save>
+      <Cancel>Cancel</Cancel>
     </action>
     <msg>
       <repository-exception>予期しないエラーが発生しました。ページのメタデータを保存することはできません。</repository-exception>
-      <confirm-delete>これらの SEO のデータを削除してもよろしいですか？</confirm-delete>
+      <confirm-delete>Are you sure you want to delete these SEO data?</confirm-delete>
     </msg>
     <title>
     <seo-delete>削除</seo-delete>
     </title>
 <help> 
-  <priority>有効な値の範囲は 0.0 から 1.0 です</priority>
+  <priority>Valid values range from 0.0 to 1.0.</priority>
   <description>検索ヘルプ: 以下のページは、お探しの箇所へリンクするページです</description>
   <keywords>ページで最も重要な用語は、カンマで区切る必要があります。</keywords>  
     </help>  
   </UISEOForm>
   <UISEOPopupWindow>
   <title>
-      <UISEOForm>SEO の管理</UISEOForm>
+      <UISEOForm>SEO Management</UISEOForm>
   </title>
   </UISEOPopupWindow>    
   <UISEOToolbarForm>
   <title>
-      <seo>SEO の管理</seo>
+      <seo>SEO Management</seo>
   </title>
   <label>
     <seo>SEO</seo>
@@ -82,8 +82,8 @@
   <Locale>
     <label>      
       <it>イタリア語</it>      
-      <fr>フランス語</fr>
-      <en>英語</en>      
+      <fr>French</fr>
+      <en>English</en>      
     </label>
   </Locale>
   

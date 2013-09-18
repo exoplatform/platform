@@ -23,28 +23,28 @@
 -->
 <messagebundle>
   <msg name="loginHistory.title">ログイン履歴</msg>
-  <msg name="loginHistory.user">ユーザー</msg>
+  <msg name="loginHistory.user">User</msg>
   <msg name="loginHistory.find">検索</msg>
-  <msg name="loginHistory.latest">リセット</msg>
+  <msg name="loginHistory.latest">Reset</msg>
   <msg name="loginHistory.lastLogin">最終ログイン</msg>
   <msg name="loginHistory.beforeThat">その前に</msg>
   <msg name="loginHistory.more">もっと</msg>
   <msg name="loginHistory.stats">統計情報</msg>
-  <msg name="loginHistory.history">履歴</msg>
+  <msg name="loginHistory.history">History</msg>
   <msg name="loginHistory.global">グローバル</msg>
-  <msg name="loginHistory.week">週</msg>
+  <msg name="loginHistory.week">Week</msg>
   <msg name="loginHistory.lastLoginsView">最終ログイン</msg>
-  <msg name="loginHistory.historyView">履歴</msg>
+  <msg name="loginHistory.historyView">History</msg>
   <msg name="loginHistory.statisticsView">統計情報</msg>
   <msg name="loginHistory.averagePerDay">平均ログイン回数/日</msg>
   <msg name="loginHistory.averagePerWeek">平均ログイン回数/週</msg>
   <msg name="loginHistory.averagePerMonth">平均ログイン回数/月</msg>
-  <msg name="loginHistory.today">今日</msg>
+  <msg name="loginHistory.today">Today</msg>
   <msg name="loginHistory.earlierThisWeek">当週の初め</msg>
   <msg name="loginHistory.earlierThisMonth">当月の初め</msg>
   <msg name="loginHistory.earlier">初め</msg>
   <msg name="loginHistory.allUsers">すべてのユーザー</msg>
   <msg name="loginHistory.unknow">不明</msg>
-  <msg name="loginHistory.next">次へ</msg>
+  <msg name="loginHistory.next">Next</msg>
   <msg name="loginHistory.ago">前</msg>
 </messagebundle>

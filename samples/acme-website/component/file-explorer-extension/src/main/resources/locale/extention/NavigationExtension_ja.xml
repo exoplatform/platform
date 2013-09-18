@@ -46,11 +46,11 @@
 <DetailTargetPageInputSet>詳細ページ：</DetailTargetPageInputSet>
 <DetailShowCLVByStringInput>パラメーター名：</DetailShowCLVByStringInput>
 <List>一覧</List>
-<Detail>詳細</Detail>
+<Detail>Detail</Detail>
 </label>
 <action>
-<Save>保存</Save>
-<Cancel>キャンセル</Cancel>
+<Save>Save</Save>
+<Cancel>Cancel</Cancel>
 </action>
 </UINavigationForm>
 <Visible>
@@ -68,19 +68,19 @@
 <NavigationNodeInputSet>
 <title>
 <SelectNavigationNode>ナビゲーション ノードを選択</SelectNavigationNode>
-<RemoveNavigationNode>リセット</RemoveNavigationNode>
+<RemoveNavigationNode>Reset</RemoveNavigationNode>
 </title>
 </NavigationNodeInputSet>
 <ListTargetPageFormInputSet>
 <title>
 <SelectListTargetPage>ターゲットページの選択</SelectListTargetPage>
-<RemoveListTargetPage>リセット</RemoveListTargetPage>
+<RemoveListTargetPage>Reset</RemoveListTargetPage>
 </title>
 </ListTargetPageFormInputSet>
 <DetailTargetPageInputSet>
 <title>
 <SelectDetailTargetPage>下位ページを選択</SelectDetailTargetPage>
-<RemoveDetailTargetPage>リセット</RemoveDetailTargetPage>
+<RemoveDetailTargetPage>Reset</RemoveDetailTargetPage>
 </title>
 </DetailTargetPageInputSet>
 <NavigationSelectorPopupWindow>
@@ -90,12 +90,12 @@
 </NavigationSelectorPopupWindow>
 <ListTargetPageSelectorPopupWindow>
 <title>
-<UIPageSelector>ページ選択</UIPageSelector>
+<UIPageSelector>Page Selector</UIPageSelector>
 </title>
 </ListTargetPageSelectorPopupWindow>
 <DetailTargetPageSelectorPopupWindow>
 <title>
-<UIPageSelector>ページ選択</UIPageSelector>
+<UIPageSelector>Page Selector</UIPageSelector>
 </title>
 </DetailTargetPageSelectorPopupWindow>
 </bundle>

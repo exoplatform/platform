@@ -2,21 +2,21 @@
 <bundle>
 <UISetupPlatformToolBarPortlet>
 <label>
-<applications>アプリケーション</applications>
-<content>コンテンツ</content>
-<siteExplorer>サイト エクスプ ローラー</siteExplorer>
-<wcmAdmin>コンテンツ管理</wcmAdmin>
-<users>ユーザ</users>
+<applications>Applications</applications>
+<content>Content</content>
+<siteExplorer>Sites Explorer</siteExplorer>
+<wcmAdmin>Content Administration</wcmAdmin>
+<users>Users</users>
 <newStaff>ユーザーを追加</newStaff>
 <org-management>グループとロール</org-management>
-<portal>ポータル</portal>
-<administration>アドミニストレーション</administration>
+<portal>Portal</portal>
+<administration>Administration</administration>
 <groupnavigation>グループ サイト</groupnavigation>
-<pageManagement>ページ</pageManagement>
+<pageManagement>Pages</pageManagement>
 <portalnavigation>サイト</portalnavigation>
 <servicesManagement>管理</servicesManagement>
 <monitoring>モニタリング</monitoring>
-<spaces>スペース</spaces>
+<spaces>Spaces</spaces>
 <Branding>ブランディング</Branding>
 <ide>IDE</ide>
 <search>検索</search>

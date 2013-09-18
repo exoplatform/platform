@@ -22,20 +22,20 @@
 <bundle>
   <UIPortalApplication>
     <title>
-      <abort>中断</abort>
+      <abort>Abort</abort>
     </title>
   </UIPortalApplication>
   
   <CategoryNavigationTemplate>
   <label>
-  <home>ホーム</home>
-  <Accessibility>アクセシビリティ</Accessibility>
+  <home>Home</home>
+  <Accessibility>Accessibility</Accessibility>
   </label>
   </CategoryNavigationTemplate>
   
   <Breadcrumb>
   <label>
-  <home>ホーム</home>
+  <home>Home</home>
   </label>  
   </Breadcrumb>
 </bundle>

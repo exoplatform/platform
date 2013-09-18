@@ -25,5 +25,5 @@
   <msg name="titleDoc">マイ ドキュメント</msg>  
   <msg name="nofav">お気に入りのドキュメントがありません</msg>
   <msg name="nodoc">ドキュメントがありません</msg>
-  <msg name="showall">すべて表示する</msg>
+  <msg name="showall">Show All</msg>
 </messagebundle>

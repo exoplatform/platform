@@ -3,12 +3,12 @@
 <UIUserPlatformToolBarPortlet>
 <label>
 <activities>マイ アクティビティ ストリーム</activities>
-<profile>マイプロフィール</profile>
+<profile>My Profile</profile>
 <network>つながり</network>
 <wiki>Wiki</wiki>
 <account>設定</account>
-<language>言語を変更</language>
-<logout>ログアウト</logout>
+<language>Change Language</language>
+<logout>Logout</logout>
         <dashboard>マイダッシュ ボード</dashboard>
 </label>
 </UIUserPlatformToolBarPortlet>

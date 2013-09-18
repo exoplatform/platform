@@ -19,8 +19,8 @@
          <RequireSelectForum>フォーラムを選択してください</RequireSelectForum>
       </label>
       <action>
-         <Next>次へ</Next>
-         <Cancel>キャンセル</Cancel>
+         <Next>Next</Next>
+         <Cancel>Cancel</Cancel>
       </action>
    </UICreateList>
    <UICreateTopic>
@@ -47,13 +47,13 @@
    </UICreateWiki>
    <UICreateEvent>
       <label>
-         <Title>タイトル</Title>
+         <Title>Title</Title>
          <Choix>新規追加</Choix>
          <EndEvent>終了日</EndEvent>
          <StartEvent>開始日</StartEvent>
          <Calendar>カレンダーを選択</Calendar>
-         <all-day>すべての日</all-day>
-         <defaultCalendarId>デフォルト</defaultCalendarId>
+         <all-day>All Day</all-day>
+         <defaultCalendarId>Default</defaultCalendarId>
       </label>
       <msg>
          <summary-field-required>「タイトル」は必須項目です</summary-field-required>
@@ -69,16 +69,16 @@
       </msg>
       <action>
          <Next>#{word.save}</Next>
-         <Cancel>キャンセル</Cancel>
+         <Cancel>Cancel</Cancel>
       </action>
    </UICreateEvent>
     <UIUploadFile>
-        <Select>ファイルを選択する</Select>
+        <Select>Select File</Select>
     </UIUploadFile>
    <Choix>
       <label>
-         <Event>イベント</Event>
-         <Task>タスク</Task>
+         <Event>Event</Event>
+         <Task>Task</Task>
       </label>
    </Choix>
 </bundle>
