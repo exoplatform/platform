@@ -6,17 +6,17 @@
          <EditNavigation>Navegación</EditNavigation>
          <Content>Contenido</Content>
          <Editor>Editar</Editor>
-         <Page>Page</Page>
-         <Site>Site</Site>
-         <Layout>Edit Layout</Layout>
-         <siteLayout>Layout</siteLayout>
-         <ManagePages>Manage Pages</ManagePages>
-         <GroupSite>Group Site</GroupSite>
+         <Page>Página</Page>
+         <Site>Sitio</Site>
+         <Layout>Editar diseño</Layout>
+         <siteLayout>Diseño</siteLayout>
+         <ManagePages>Administrar páginas</ManagePages>
+         <GroupSite>Sitio de grupo</GroupSite>
          <Properties>SEO</Properties>
-         <AddSite>Add Site</AddSite>
+         <AddSite>Agregar sitio</AddSite>
       </action>
-<ManageSites>Manage Sites</ManageSites>
-<ManageGroupSites>Manage Group Sites</ManageGroupSites>
+<ManageSites>Administrar sitios</ManageSites>
+<ManageGroupSites>Administrar sitios del grupo</ManageGroupSites>
    </UIAdminToolbarPortlet>
 
   <UISEOForm>
@@ -27,14 +27,14 @@
       <language>idioma:</language>
       <robots>Robots:</robots>
       <sitemap>Mapa del sitio:</sitemap>
-      <sitemapvisible>Visible in sitemap</sitemapvisible>
+      <sitemapvisible>Visible en el mapa del sitio</sitemapvisible>
   <isInherited>Heredado de la página principal</isInherited>
       <priority>Prioridad:</priority>
       <frequency>Frecuencia:</frequency>
-      <select-language>Select Language</select-language>
+      <select-language>Selecciona Idioma</select-language>
       <option>
         <Always>Siempre</Always>
-        <Hourly>Hourly</Hourly>
+        <Hourly>Por hora</Hourly>
         <Daily>Diario</Daily>
         <Weekly>Semanalmente</Weekly>
         <Monthly>Mensualmente</Monthly>
@@ -48,16 +48,16 @@
       <Cancel>Cancelar</Cancel>
     </action>
     <msg>
-      <repository-exception>An unexpected error occurred. Cannot save page metadata.</repository-exception>
+      <repository-exception>Se produjo un error inesperado. No puede guardar los metadatos de la página.</repository-exception>
       <confirm-delete>¿Está seguro que desea eliminar estos datos SEO?</confirm-delete>
     </msg>
     <title>
-    <seo-delete>Delete</seo-delete>
+    <seo-delete>Borrar</seo-delete>
     </title>
 <help> 
   <priority>Valores válidos oscilan entre 0.0 y 1.0.</priority>
-  <description>Help searchers: let them know that the following page has a link with what they are looking for.</description>
-  <keywords>Most important terms in the page must be separated by a comma.</keywords>  
+  <description>Ayudar a los buscadores: hacerles saber que la siguiente página tiene un enlace que están buscando.</description>
+  <keywords>Términos más importantes en la página deben estar separados por una coma.</keywords>  
     </help>  
   </UISEOForm>
   <UISEOPopupWindow>
@@ -75,15 +75,15 @@
   </UISEOToolbarForm>  
   <FloatNumberValidator>
     <msg>
-      <Invalid-number>The field priority is an invalid float number. Valid values range from 0.0 to 1.0.</Invalid-number>
+      <Invalid-number>El campo Prioridad es un número decimal no válido. Los valores válidos están comprendidos entre 0.0 y 1.0.</Invalid-number>
     </msg>
   </FloatNumberValidator>
   
   <Locale>
     <label>      
-      <it>Italian</it>      
-      <fr>French</fr>
-      <en>English</en>      
+      <it>italiano</it>      
+      <fr>Francés</fr>
+      <en>Inglés</en>      
     </label>
   </Locale>
   

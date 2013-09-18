@@ -3,7 +3,7 @@
   <Signin>
     <welcome>Bienvenido</welcome>
     <login>Inicio de sesión</login>
-    <logout>Logout</logout>
+    <logout>Desconectarse</logout>
     <language>Cambiar Idioma</language>
     <register>Registro</register>
   </Signin>

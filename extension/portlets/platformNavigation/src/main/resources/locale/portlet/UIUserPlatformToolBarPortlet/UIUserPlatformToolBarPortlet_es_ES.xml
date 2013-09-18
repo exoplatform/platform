@@ -8,7 +8,7 @@
 <wiki>Mi Wiki</wiki>
 <account>Ajustes</account>
 <language>Cambiar Idioma</language>
-<logout>Logout</logout>
+<logout>Desconectarse</logout>
         <dashboard>Mi Panel de Control</dashboard>
 </label>
 </UIUserPlatformToolBarPortlet>
