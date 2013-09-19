@@ -20,7 +20,7 @@
 
 -->
 <messagebundle>
-  <msg name="title">Bookmarks</msg>
+  <msg name="title">Yer İmleri</msg>
   <msg name="customize">Kişiselleştir</msg>
   <msg name="save">Kaydet</msg>
   <msg name="add">Ekle</msg>
