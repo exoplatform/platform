@@ -22,17 +22,17 @@
 <messagebundle>  
   <msg name="title">إدارة الخدمات</msg>
   <msg name="services">الخدمات</msg>
-  <msg name="name">Name</msg>
+  <msg name="name">الاسم</msg>
   <msg name="description">الوصف</msg>
-  <msg name="noDescription">No Description</msg>
+  <msg name="noDescription">لا يوجد وصف</msg>
   <msg name="method">الأسلوب</msg>
   <msg name="parameters">المعايير</msg>
   <msg name="action">اجراء</msg>
   <msg name="value">القيمة</msg>
   <msg name="services_url">خدمات URL</msg>
-  <msg name="failManage">Temporarily cannot manage services from other hosts until we support OAuth</msg>
-  <msg name="noServices">Either no service is available or you do not have sufficient permission</msg>
-  <msg name="noMethod">No Method</msg>
-  <msg name="noProperty">No Property</msg>
-  <msg name="badURL">There was an error while retrieving data. Please check your URL preference</msg>
+  <msg name="failManage">مبدئيّا لا يمكن إدارة الخدمات من مُضيّف إلى آخر حتى يتمّ دعم الـ OAuth</msg>
+  <msg name="noServices">لا توجد أيّ خدمة متوفرة أو لم يكن لديك الصلاحيّات الكافية لرؤيتها</msg>
+  <msg name="noMethod">لا يوجد أسلوب</msg>
+  <msg name="noProperty">لا توجد أيّ خاصية</msg>
+  <msg name="badURL">حدث خطأ أثناء استرداد البيانات، الرجاء التحقق من خيارات الـ URL</msg>
 </messagebundle>

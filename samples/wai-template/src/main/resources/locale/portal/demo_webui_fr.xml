@@ -8,7 +8,7 @@
       <en>Passer en Anglais</en>
       <fr>Passer en Français</fr>
     </language>
-    <register>Site Acme</register>
+    <register>S'inscrire</register>
   </Signin>
   <Toolbar>
     <SkipToContent>Passer au contenu</SkipToContent>
