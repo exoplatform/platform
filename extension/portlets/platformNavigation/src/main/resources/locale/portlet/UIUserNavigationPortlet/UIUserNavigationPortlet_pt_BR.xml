@@ -3,14 +3,14 @@
    <UIUserNavigationPortlet>
       <label>
          <activities>Fluxo de atividades</activities>
-         <profile>Profile</profile>
-         <connections>Connections</connections>
+         <profile>Perfil</profile>
+         <connections>Conexões</connections>
          <wiki>Wiki</wiki>
          <Myactivities>Meu fluxo de atividades</Myactivities>
          <Myprofile>Meu perfil</Myprofile>
          <Myconnections>Minhas conexões</Myconnections>
-         <Mywiki>My Wiki</Mywiki>
-         <Mydashboard>My Dashboard</Mydashboard>
+         <Mywiki>Meu Wiki</Mywiki>
+         <Mydashboard>Meu Painel</Mydashboard>
       </label>
    </UIUserNavigationPortlet>
 </bundle>

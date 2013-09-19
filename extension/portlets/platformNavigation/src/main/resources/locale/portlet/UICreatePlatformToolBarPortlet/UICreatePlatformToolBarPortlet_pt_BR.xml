@@ -2,7 +2,7 @@
 <bundle>
    <UIUserPlatformToolBarCreatePortlet>
       <label>
-         <topic>Topic</topic>
+         <topic>Tópico</topic>
          <poll>Enquete</poll>
          <eventtask>Evento/Tarefa</eventtask>
          <upload>Enviar arquivo</upload>
@@ -19,8 +19,8 @@
          <RequireSelectForum>Por favor, selecione um fórum.</RequireSelectForum>
       </label>
       <action>
-         <Next>Next</Next>
-         <Cancel>Cancel</Cancel>
+         <Next>Próximo</Next>
+         <Cancel>Cancelar</Cancel>
       </action>
    </UICreateList>
    <UICreateTopic>
@@ -36,7 +36,7 @@
          <SelectAForum>Selecionar Fórum</SelectAForum>
          <location>Em</location>
          <forumId>E Fórum</forumId>
-         <FilterForums>Filter Forums</FilterForums>
+         <FilterForums>Filtrar fóruns</FilterForums>
       </label>
    </UICreatePoll>
    <UICreateWiki>
@@ -47,13 +47,13 @@
    </UICreateWiki>
    <UICreateEvent>
       <label>
-         <Title>Title</Title>
+         <Title>Título</Title>
          <Choix>Adicionar novo:</Choix>
          <EndEvent>a</EndEvent>
-         <StartEvent>From</StartEvent>
+         <StartEvent>De</StartEvent>
          <Calendar>Selecionar calendário</Calendar>
          <all-day>O dia todo</all-day>
-         <defaultCalendarId>Default</defaultCalendarId>
+         <defaultCalendarId>Padrão</defaultCalendarId>
       </label>
       <msg>
          <summary-field-required>O campo "Título" é obrigatório.</summary-field-required>
@@ -69,7 +69,7 @@
       </msg>
       <action>
          <Next>#{word.save}</Next>
-         <Cancel>Cancel</Cancel>
+         <Cancel>Cancelar</Cancel>
       </action>
    </UICreateEvent>
     <UIUploadFile>
@@ -77,8 +77,8 @@
     </UIUploadFile>
    <Choix>
       <label>
-         <Event>Event</Event>
-         <Task>Task</Task>
+         <Event>Evento</Event>
+         <Task>Tarefa</Task>
       </label>
    </Choix>
 </bundle>

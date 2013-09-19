@@ -8,15 +8,15 @@
       <contactus>Perguntas?</contactus>
       <newsletters>Boletins informativos</newsletters>
       <confirmation>Confirmação de Contato</confirmation>
-      <detail>Details</detail>
+      <detail>Detalhes</detail>
   <catalog>Catálogo</catalog>
       <printviewer>Imprimir página</printviewer>
       <searchResult>Buscar</searchResult>
-      <newAccount>New Account</newAccount>
-      <groupnavigation>Group Navigation</groupnavigation>
+      <newAccount>Nova Conta</newAccount>
+      <groupnavigation>Navegação do Grupo</groupnavigation>
       <portalnavigation>Navegação do Portal</portalnavigation>
-      <documents>Documents</documents>
-      <unifiedSearch>Search</unifiedSearch>
+      <documents>Documentos</documents>
+      <unifiedSearch>Buscar</unifiedSearch>
     </acme>
   </portal>
 </bundle>
