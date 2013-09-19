@@ -25,5 +25,5 @@
   <msg name="titleDoc">Tài liệu Cá nhân</msg>  
   <msg name="nofav">Bạn không có tài liệu yêu thích nào</msg>
   <msg name="nodoc">Bạn không có tài liệu nào</msg>
-  <msg name="showall">Show All</msg>
+  <msg name="showall">Hiện Tất cả</msg>
 </messagebundle>

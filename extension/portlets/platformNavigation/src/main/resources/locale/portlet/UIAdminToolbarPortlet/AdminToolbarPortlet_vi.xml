@@ -2,11 +2,11 @@
 <bundle>
    <UIAdminToolbarPortlet>
       <action>
-         <AddPage>Add Page</AddPage>
+         <AddPage>Thêm Trang</AddPage>
          <EditNavigation>Điều hướng</EditNavigation>
-         <Content>Content</Content>
-         <Editor>Edit</Editor>
-         <Page>Page</Page>
+         <Content>Nội dung</Content>
+         <Editor>Chỉnh sửa</Editor>
+         <Page>Trang</Page>
          <Site>Site</Site>
          <Layout>Bố cục</Layout>
          <siteLayout>Bố cục</siteLayout>
@@ -21,35 +21,35 @@
 
   <UISEOForm>
     <label>
-      <title>Title:</title>  
-      <description>Description:</description>
+      <title>Tiêu đề:</title>  
+      <description>Mô tả:</description>
       <keywords>Từ khóa:</keywords>
-      <language>Language:</language>
+      <language>Ngôn ngữ:</language>
       <robots>Robot:</robots>
-      <sitemap>Sitemap:</sitemap>
+      <sitemap>Sơ đồ Trang:</sitemap>
       <sitemapvisible>Có thể nhìn thấy trong sơ đồ site</sitemapvisible>
-  <isInherited>Inherited from parent page</isInherited>
-      <priority>Priority:</priority>
-      <frequency>Frequency:</frequency>
+  <isInherited>Được kế thừa từ trang mẹ</isInherited>
+      <priority>Độ ưu tiên:</priority>
+      <frequency>Tần suất:</frequency>
       <select-language>Chọn Ngôn ngữ</select-language>
       <option>
-        <Always>Always</Always>
-        <Hourly>Hourly</Hourly>
-        <Daily>Daily</Daily>
-        <Weekly>Weekly</Weekly>
-        <Monthly>Monthly</Monthly>
-        <Yearly>Yearly</Yearly>
-        <Never>Never</Never>
+        <Always>Luôn luôn</Always>
+        <Hourly>Hàng giờ</Hourly>
+        <Daily>Hàng ngày</Daily>
+        <Weekly>Hàng tuần</Weekly>
+        <Monthly>Hàng tháng</Monthly>
+        <Yearly>Hàng năm</Yearly>
+        <Never>Không bao giờ</Never>
       </option> 
     </label>
  
     <action>
-      <Save>Save</Save>
-      <Cancel>Cancel</Cancel>
+      <Save>Lưu</Save>
+      <Cancel>Hủy bỏ</Cancel>
     </action>
     <msg>
       <repository-exception>Lỗi bất ngờ xảy ra. Không thể lưu trang siêu dữ liệu.</repository-exception>
-      <confirm-delete>Are you sure you want to delete these SEO data?</confirm-delete>
+      <confirm-delete>Bạn có chắc bạn muốn xóa các dữ liệu SEO?</confirm-delete>
     </msg>
     <title>
     <seo-delete>Xóa</seo-delete>
@@ -62,12 +62,12 @@
   </UISEOForm>
   <UISEOPopupWindow>
   <title>
-      <UISEOForm>SEO Management</UISEOForm>
+      <UISEOForm>Quản lý SEO</UISEOForm>
   </title>
   </UISEOPopupWindow>    
   <UISEOToolbarForm>
   <title>
-      <seo>SEO Management</seo>
+      <seo>Quản lý SEO</seo>
   </title>
   <label>
     <seo>SEO</seo>
@@ -82,8 +82,8 @@
   <Locale>
     <label>      
       <it>Tiếng Ý</it>      
-      <fr>French</fr>
-      <en>English</en>      
+      <fr>Tiếng Pháp</fr>
+      <en>Tiếng Anh</en>      
     </label>
   </Locale>
   

@@ -19,11 +19,11 @@
 <dialog>
 <label>
 <id>Mã:</id>
-<name>Name:</name>
+<name>Tên:</name>
 <lifecycle>Vòng đời:</lifecycle>
 <isDeep>Tác động Sâu</isDeep>
 <nodetypes>Kiểu Nút</nodetypes>
-<description>Description:</description>
+<description>Mô tả:</description>
 <affectedNodeTypeNames>Kiểu Nút bị Ảnh hưởng:</affectedNodeTypeNames>
 <navigationNode>Nút Điều hướng</navigationNode>
 <index>Mục lục:</index>
@@ -44,43 +44,43 @@
 <ListTargetPageFormInputSet>Trang cho Danh sách:</ListTargetPageFormInputSet>
 <ListShowCLVByStringInput>Tên Tham số:</ListShowCLVByStringInput>
 <DetailTargetPageInputSet>Trang Chi tiết:</DetailTargetPageInputSet>
-<DetailShowCLVByStringInput>Parameter Name:</DetailShowCLVByStringInput>
-<List>List</List>
-<Detail>Detail</Detail>
+<DetailShowCLVByStringInput>Tên Tham số:</DetailShowCLVByStringInput>
+<List>Danh sách</List>
+<Detail>Chi tiết</Detail>
 </label>
 <action>
-<Save>Save</Save>
-<Cancel>Cancel</Cancel>
+<Save>Lưu</Save>
+<Cancel>Hủy bỏ</Cancel>
 </action>
 </UINavigationForm>
 <Visible>
 <label>
-<VisibleEnable>Yes</VisibleEnable>
-<VisibleDisable>No</VisibleDisable>
+<VisibleEnable>Có</VisibleEnable>
+<VisibleDisable>Không</VisibleDisable>
 </label>
 </Visible>
 <Clickable>
 <label>
-<ClickableEnable>Yes</ClickableEnable>
-<ClickableDisable>No</ClickableDisable>
+<ClickableEnable>Có</ClickableEnable>
+<ClickableDisable>Không</ClickableDisable>
 </label>
 </Clickable>
 <NavigationNodeInputSet>
 <title>
 <SelectNavigationNode>Chọn Nút Điều hướng</SelectNavigationNode>
-<RemoveNavigationNode>Reset</RemoveNavigationNode>
+<RemoveNavigationNode>Làm lại</RemoveNavigationNode>
 </title>
 </NavigationNodeInputSet>
 <ListTargetPageFormInputSet>
 <title>
 <SelectListTargetPage>Chọn Trang Đích</SelectListTargetPage>
-<RemoveListTargetPage>Reset</RemoveListTargetPage>
+<RemoveListTargetPage>Làm lại</RemoveListTargetPage>
 </title>
 </ListTargetPageFormInputSet>
 <DetailTargetPageInputSet>
 <title>
 <SelectDetailTargetPage>Chọn Trang Đích Con</SelectDetailTargetPage>
-<RemoveDetailTargetPage>Reset</RemoveDetailTargetPage>
+<RemoveDetailTargetPage>Làm lại</RemoveDetailTargetPage>
 </title>
 </DetailTargetPageInputSet>
 <NavigationSelectorPopupWindow>
@@ -90,12 +90,12 @@
 </NavigationSelectorPopupWindow>
 <ListTargetPageSelectorPopupWindow>
 <title>
-<UIPageSelector>Page Selector</UIPageSelector>
+<UIPageSelector>Chọn Trang</UIPageSelector>
 </title>
 </ListTargetPageSelectorPopupWindow>
 <DetailTargetPageSelectorPopupWindow>
 <title>
-<UIPageSelector>Page Selector</UIPageSelector>
+<UIPageSelector>Chọn Trang</UIPageSelector>
 </title>
 </DetailTargetPageSelectorPopupWindow>
 </bundle>

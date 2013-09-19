@@ -23,10 +23,10 @@
 <Product>
 <dialog>
 <label>
-<name>Name</name>
-<title>Title</title>
+<name>Tên</name>
+<title>Tiêu đề</title>
 <illustrationImage>Ảnh Minh họa</illustrationImage>
-<summary>Summary</summary>
+<summary>Tóm tắt</summary>
 <benefits>Lợi ích</benefits>
 <features>Đặc điểm</features>
 </label>

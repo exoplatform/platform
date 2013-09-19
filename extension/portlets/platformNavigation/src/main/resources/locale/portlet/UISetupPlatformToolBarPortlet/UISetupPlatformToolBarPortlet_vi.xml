@@ -2,15 +2,15 @@
 <bundle>
 <UISetupPlatformToolBarPortlet>
 <label>
-<applications>Applications</applications>
-<content>Content</content>
+<applications>Ứng dụng</applications>
+<content>Nội dung</content>
 <siteExplorer>Trình duyệt Nội dung</siteExplorer>
 <wcmAdmin>Quản trị Nội dung</wcmAdmin>
 <users>Người dùng</users>
 <newStaff>Thêm Người dùng</newStaff>
 <org-management>Nhóm và Vai trò</org-management>
-<portal>Portal</portal>
-<administration>Administration</administration>
+<portal>Cổng thông tin</portal>
+<administration>Quản trị</administration>
 <groupnavigation>Site của Nhóm</groupnavigation>
 <pageManagement>Trang</pageManagement>
 <portalnavigation>Site</portalnavigation>
@@ -19,7 +19,7 @@
 <spaces>Nhóm</spaces>
 <Branding>Thương hiệu</Branding>
 <ide>IDE</ide>
-<search>Search</search>
+<search>Tìm kiếm</search>
 </label>
 </UISetupPlatformToolBarPortlet>
 </bundle>

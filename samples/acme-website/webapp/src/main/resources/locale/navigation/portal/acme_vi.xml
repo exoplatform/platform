@@ -15,8 +15,8 @@
       <newAccount>Tài khoản Mới</newAccount>
       <groupnavigation>Điều hướng Nhóm</groupnavigation>
       <portalnavigation>Điều hướng Cống thông tin</portalnavigation>
-      <documents>Documents</documents>
-      <unifiedSearch>Search</unifiedSearch>
+      <documents>Tài liệu</documents>
+      <unifiedSearch>Tìm kiếm</unifiedSearch>
     </acme>
   </portal>
 </bundle>

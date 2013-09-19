@@ -7,8 +7,8 @@
 <network>Danh sách bạn bè</network>
 <wiki>Wiki</wiki>
 <account>Cài đặt</account>
-<language>Change Language</language>
-<logout>Logout</logout>
+<language>Thay đổi Ngôn ngữ</language>
+<logout>Đăng xuất</logout>
         <dashboard>Bảng ứng dụng</dashboard>
 </label>
 </UIUserPlatformToolBarPortlet>

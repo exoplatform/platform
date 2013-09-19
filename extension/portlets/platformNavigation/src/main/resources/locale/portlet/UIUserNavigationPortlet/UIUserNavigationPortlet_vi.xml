@@ -3,8 +3,8 @@
    <UIUserNavigationPortlet>
       <label>
          <activities>Chuỗi Hoạt động</activities>
-         <profile>Profile</profile>
-         <connections>Connections</connections>
+         <profile>Hồ sơ</profile>
+         <connections>Kết nối</connections>
          <wiki>Wiki</wiki>
          <Myactivities>Chuỗi Hoạt động</Myactivities>
          <Myprofile>Hồ sơ</Myprofile>

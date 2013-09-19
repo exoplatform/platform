@@ -2,8 +2,8 @@
 <bundle>
    <UIUserPlatformToolBarCreatePortlet>
       <label>
-         <topic>Topic</topic>
-         <poll>Poll</poll>
+         <topic>Chủ đề</topic>
+         <poll>Thăm dò ý kiến</poll>
          <eventtask>Sự kiện/Nhiệm vụ</eventtask>
          <upload>Tải Tệp lên</upload>
          <wiki>Trang Wiki</wiki>
@@ -19,8 +19,8 @@
          <RequireSelectForum>Vui lòng chọn một diễn đàn.</RequireSelectForum>
       </label>
       <action>
-         <Next>Next</Next>
-         <Cancel>Cancel</Cancel>
+         <Next>Tiếp tục</Next>
+         <Cancel>Hủy bỏ</Cancel>
       </action>
    </UICreateList>
    <UICreateTopic>
@@ -33,10 +33,10 @@
    </UICreateTopic>
    <UICreatePoll>
       <label>
-         <SelectAForum>Select Forum</SelectAForum>
-         <location>In Location</location>
+         <SelectAForum>Chọn Diễn đàn</SelectAForum>
+         <location>Ở Vị trí</location>
          <forumId>Và Diễn đàn</forumId>
-         <FilterForums>Filter Forums</FilterForums>
+         <FilterForums>Lọc Diễn đàn</FilterForums>
       </label>
    </UICreatePoll>
    <UICreateWiki>
@@ -47,13 +47,13 @@
    </UICreateWiki>
    <UICreateEvent>
       <label>
-         <Title>Title</Title>
+         <Title>Tiêu đề</Title>
          <Choix>Thêm Mới:</Choix>
-         <EndEvent>To</EndEvent>
-         <StartEvent>From</StartEvent>
-         <Calendar>Select Calendar</Calendar>
-         <all-day>All Day</all-day>
-         <defaultCalendarId>Default</defaultCalendarId>
+         <EndEvent>Đến</EndEvent>
+         <StartEvent>Từ</StartEvent>
+         <Calendar>Chọn Lịch</Calendar>
+         <all-day>Cả Ngày</all-day>
+         <defaultCalendarId>Mặc định</defaultCalendarId>
       </label>
       <msg>
          <summary-field-required>Cần nhập trường "Tiều đề".</summary-field-required>
@@ -69,16 +69,16 @@
       </msg>
       <action>
          <Next>#{word.save}</Next>
-         <Cancel>Cancel</Cancel>
+         <Cancel>Hủy bỏ</Cancel>
       </action>
    </UICreateEvent>
     <UIUploadFile>
-        <Select>Select File</Select>
+        <Select>Chọn Tệp</Select>
     </UIUploadFile>
    <Choix>
       <label>
-         <Event>Event</Event>
-         <Task>Task</Task>
+         <Event>Sự kiện</Event>
+         <Task>Nhiệm vụ</Task>
       </label>
    </Choix>
 </bundle>
