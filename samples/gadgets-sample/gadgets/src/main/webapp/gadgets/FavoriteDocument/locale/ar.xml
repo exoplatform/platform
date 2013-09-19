@@ -25,5 +25,5 @@
   <msg name="titleDoc">وثائقي</msg>  
   <msg name="nofav">ليس لديك أي وثيقة مفضّلة</msg>
   <msg name="nodoc">ليس لديك أيّ وثيقة</msg>
-  <msg name="showall">Show All</msg>
+  <msg name="showall">عرض الجميع</msg>
 </messagebundle>

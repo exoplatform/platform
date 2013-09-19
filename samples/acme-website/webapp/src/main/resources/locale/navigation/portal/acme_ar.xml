@@ -8,15 +8,15 @@
       <contactus>أسئلة ؟</contactus>
       <newsletters>النشرات الإخبارية</newsletters>
       <confirmation>تأكيد جهة الاتّصال</confirmation>
-      <detail>Details</detail>
+      <detail>تفاصيل</detail>
   <catalog>دليل</catalog>
       <printviewer>طباعة الصفحة</printviewer>
       <searchResult>بحث</searchResult>
-      <newAccount>New Account</newAccount>
-      <groupnavigation>Group Navigation</groupnavigation>
-      <portalnavigation>Portal Navigation</portalnavigation>
-      <documents>Documents</documents>
-      <unifiedSearch>Search</unifiedSearch>
+      <newAccount>حساب جديد</newAccount>
+      <groupnavigation>تصفّحات المجموعة</groupnavigation>
+      <portalnavigation>تصفّحات البوّابة</portalnavigation>
+      <documents>وثائق</documents>
+      <unifiedSearch>البحث</unifiedSearch>
     </acme>
   </portal>
 </bundle>

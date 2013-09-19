@@ -4,12 +4,12 @@
       <label>
          <activities>الأنشطة و المستجدّات</activities>
          <profile>الملفّ الشخصي</profile>
-         <connections>Connections</connections>
+         <connections>اتصالات</connections>
          <wiki>ويكي</wiki>
          <Myactivities>أنشطتي و مستجدّاتي</Myactivities>
-         <Myprofile>My Profile</Myprofile>
+         <Myprofile>ملفي الشخصي</Myprofile>
          <Myconnections>علاقاتي</Myconnections>
-         <Mywiki>My Wiki</Mywiki>
+         <Mywiki>ويكي خاصة</Mywiki>
          <Mydashboard>لوحة المعلومات الخاصّة بي</Mydashboard>
       </label>
    </UIUserNavigationPortlet>

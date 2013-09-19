@@ -24,9 +24,9 @@
 <dialog>
 <label>
 <name>الاسم</name>
-<title>Title</title>
-<illustrationImage>Illustration Image</illustrationImage>
-<summary>Summary</summary>
+<title>عنوان</title>
+<illustrationImage>صورة الرسم البياني</illustrationImage>
+<summary>مُلخّص</summary>
 <benefits>الفوائد</benefits>
 <features>الوضائف</features>
 </label>

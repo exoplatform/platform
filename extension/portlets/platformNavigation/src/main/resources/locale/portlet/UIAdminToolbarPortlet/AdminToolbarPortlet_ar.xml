@@ -2,17 +2,17 @@
 <bundle>
    <UIAdminToolbarPortlet>
       <action>
-         <AddPage>Add Page</AddPage>
-         <EditNavigation>Navigation</EditNavigation>
-         <Content>Content</Content>
-         <Editor>Edit</Editor>
-         <Page>Page</Page>
+         <AddPage>إضافة صفحة</AddPage>
+         <EditNavigation>التصفح</EditNavigation>
+         <Content>المحتوى</Content>
+         <Editor>تغيير</Editor>
+         <Page>الصفحة</Page>
          <Site>موقع</Site>
          <Layout>تغير التخطيط</Layout>
          <siteLayout>تخطيط</siteLayout>
-         <ManagePages>Manage Pages</ManagePages>
+         <ManagePages>إدارة الصفحات</ManagePages>
          <GroupSite>موقع المجموعة</GroupSite>
-         <Properties>SEO</Properties>
+         <Properties>إدارة تحسين محرك البحث (SEO)</Properties>
          <AddSite>إضافة موقع</AddSite>
       </action>
 <ManageSites>إدارة المواقع</ManageSites>
@@ -21,56 +21,56 @@
 
   <UISEOForm>
     <label>
-      <title>Title:</title>  
-      <description>Description:</description>
-      <keywords>Keywords:</keywords>
-      <language>Language:</language>
-      <robots>Robots:</robots>
-      <sitemap>Sitemap:</sitemap>
+      <title>العنوان:</title>  
+      <description>الوصف</description>
+      <keywords>الكلمات المفاتيح:</keywords>
+      <language>اللغة:</language>
+      <robots>الروبوتات:</robots>
+      <sitemap>خريطة الموقع:</sitemap>
       <sitemapvisible>مرئية في خريطة الموقع</sitemapvisible>
-  <isInherited>Inherited from parent page</isInherited>
-      <priority>Priority:</priority>
-      <frequency>Frequency:</frequency>
+  <isInherited>الموروثة من الصفحة الأم</isInherited>
+      <priority>الأولوية:</priority>
+      <frequency>التردد:</frequency>
       <select-language>اختيار اللغة</select-language>
       <option>
-        <Always>Always</Always>
-        <Hourly>Hourly</Hourly>
-        <Daily>Daily</Daily>
-        <Weekly>Weekly</Weekly>
-        <Monthly>Monthly</Monthly>
-        <Yearly>Yearly</Yearly>
-        <Never>Never</Never>
+        <Always>دائما</Always>
+        <Hourly>كل ساعة</Hourly>
+        <Daily>يوميا</Daily>
+        <Weekly>أسبوعي</Weekly>
+        <Monthly>كل شهر</Monthly>
+        <Yearly>سنويا</Yearly>
+        <Never>أبدا</Never>
       </option> 
     </label>
  
     <action>
-      <Save>Save</Save>
-      <Cancel>Cancel</Cancel>
+      <Save>حفظ</Save>
+      <Cancel>الغاء</Cancel>
     </action>
     <msg>
       <repository-exception>حدث خطأ غير متوقع. لا يمكن حفظ البيانات الوصفية للصفحة.</repository-exception>
-      <confirm-delete>Are you sure you want to delete these SEO data?</confirm-delete>
+      <confirm-delete>هل أنت متأكد من أنك تريد حذف هذه البيانات من تحسين محرك البحث (SEO)؟</confirm-delete>
     </msg>
     <title>
     <seo-delete>حذف</seo-delete>
     </title>
 <help> 
-  <priority>Valid values range from 0.0 to 1.0.</priority>
+  <priority>نطاق القيم الصالحة من 0.0 إلى 1.0.</priority>
   <description>مساعدة الباحثين: فليعلموا أن الصفحة التالية لديها الرابط الذي يبحثون عنه.</description>
   <keywords>أهم المصطلحات في الصفحة يجب أن تكون مفصولة بفاصلة.</keywords>  
     </help>  
   </UISEOForm>
   <UISEOPopupWindow>
   <title>
-      <UISEOForm>SEO Management</UISEOForm>
+      <UISEOForm>إدارة تحسين محرك البحث (SEO)</UISEOForm>
   </title>
   </UISEOPopupWindow>    
   <UISEOToolbarForm>
   <title>
-      <seo>SEO Management</seo>
+      <seo>إدارة تحسين محرك البحث (SEO)</seo>
   </title>
   <label>
-    <seo>SEO</seo>
+    <seo>إدارة تحسين محرك البحث (SEO)</seo>
   </label>
   </UISEOToolbarForm>  
   <FloatNumberValidator>
@@ -82,8 +82,8 @@
   <Locale>
     <label>      
       <it>الإيطالية</it>      
-      <fr>French</fr>
-      <en>English</en>      
+      <fr>فرنسية</fr>
+      <en>انقليزية</en>      
     </label>
   </Locale>
   

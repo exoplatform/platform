@@ -20,16 +20,16 @@
 
 -->
 <messagebundle>  
-  <msg name="title">Services Management</msg>
-  <msg name="services">Services</msg>
+  <msg name="title">إدارة الخدمات</msg>
+  <msg name="services">الخدمات</msg>
   <msg name="name">الاسم</msg>
-  <msg name="description">Description</msg>
+  <msg name="description">الوصف</msg>
   <msg name="noDescription">لا يوجد وصف</msg>
-  <msg name="method">Method</msg>
-  <msg name="parameters">Parameters</msg>
-  <msg name="action">Action</msg>
-  <msg name="value">Value</msg>
-  <msg name="services_url">Services URL</msg>
+  <msg name="method">الأسلوب</msg>
+  <msg name="parameters">المعايير</msg>
+  <msg name="action">اجراء</msg>
+  <msg name="value">القيمة</msg>
+  <msg name="services_url">خدمات URL</msg>
   <msg name="failManage">مبدئيّا لا يمكن إدارة الخدمات من مُضيّف إلى آخر حتى يتمّ دعم الـ OAuth</msg>
   <msg name="noServices">لا توجد أيّ خدمة متوفرة أو لم يكن لديك الصلاحيّات الكافية لرؤيتها</msg>
   <msg name="noMethod">لا يوجد أسلوب</msg>

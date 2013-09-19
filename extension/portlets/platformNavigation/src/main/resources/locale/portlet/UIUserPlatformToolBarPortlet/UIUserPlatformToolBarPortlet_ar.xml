@@ -3,11 +3,11 @@
 <UIUserPlatformToolBarPortlet>
 <label>
 <activities>تيار النشاط الخاص بي</activities>
-<profile>My Profile</profile>
-<network>My Connections</network>
-<wiki>My Wiki</wiki>
+<profile>ملفي الشخصي</profile>
+<network>علاقاتي</network>
+<wiki>ويكي خاصة</wiki>
 <account>إعدادات</account>
-<language>Change Language</language>
+<language>تغيير اللغة</language>
 <logout>تسجيل الخروج</logout>
         <dashboard>لوحة المعلومات الخاصة بي</dashboard>
 </label>
