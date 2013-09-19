@@ -23,12 +23,12 @@
 <Product>
 <dialog>
 <label>
-<name>Name</name>
+<name>الاسم</name>
 <title>عنوان</title>
 <illustrationImage>صورة الرسم البياني</illustrationImage>
 <summary>مُلخّص</summary>
-<benefits>Benefits</benefits>
-<features>Features</features>
+<benefits>الفوائد</benefits>
+<features>الوضائف</features>
 </label>
 </dialog>
 </Product>

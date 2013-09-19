@@ -28,14 +28,14 @@
   
   <CategoryNavigationTemplate>
   <label>
-  <home>Home</home>
-  <Accessibility>Accessibility</Accessibility>
+  <home>الصفحة الرئيسية</home>
+  <Accessibility>إمكانية الوصول</Accessibility>
   </label>
   </CategoryNavigationTemplate>
   
   <Breadcrumb>
   <label>
-  <home>Home</home>
+  <home>الصفحة الرئيسية</home>
   </label>  
   </Breadcrumb>
 </bundle>

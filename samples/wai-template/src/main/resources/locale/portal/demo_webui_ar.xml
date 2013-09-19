@@ -1,33 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <bundle>
   <Signin>
-    <welcome>Welcome</welcome>
-    <login>Login</login>
-    <logout>Logout</logout>
+    <welcome>أهلا وسهلا بكم</welcome>
+    <login>تسجيل الدخول</login>
+    <logout>تسجيل الخروج</logout>
     <language>
-      <en>Switch to English</en>
-      <fr>Switch to French</fr>
+      <en>التبديل إلى اللغة الإنجليزية</en>
+      <fr>التبديل إلى الفرنسية</fr>
     </language>
-    <register>Register</register>
+    <register>تسجيل</register>
   </Signin>
   <Toolbar>
-    <SkipToContent>Skip to content</SkipToContent>
-    <SiteMap>Site Map</SiteMap>
-    <Accessibility>Accessibility</Accessibility>
-    <NormalSize>Normal Size</NormalSize>
-    <MediumSize>Medium Size</MediumSize>
-    <LargeSize>Large Size</LargeSize>
-    <NormalContrast>Normal Contrast</NormalContrast>
-    <HighContrast>High Contrast</HighContrast>
-    <Search>Search</Search>
+    <SkipToContent>الانتقال إلى المحتوى</SkipToContent>
+    <SiteMap>خريطة الموقع</SiteMap>
+    <Accessibility>إمكانية الوصول</Accessibility>
+    <NormalSize>حجم عادي</NormalSize>
+    <MediumSize>متوسطة الحجم</MediumSize>
+    <LargeSize>حجم كبير</LargeSize>
+    <NormalContrast>التباين الطبيعي</NormalContrast>
+    <HighContrast>تباين عالي</HighContrast>
+    <Search>البحث</Search>
   </Toolbar>
   <Logo>
-    <GoHome>Go to Home</GoHome>
+    <GoHome>انتقل إلى الصفحة الرئيسية</GoHome>
   </Logo>
   <acme>
-    <label>ACME Template</label>
+    <label>ACME نموذج</label>
   </acme>  
   <WAIPortal>
-    <label>Sample Accessible Website</label>
+    <label>عينة موقع يمكن الوصول إليها</label>
   </WAIPortal>
 </bundle>

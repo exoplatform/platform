@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <messagebundle>
-  <msg name="title">Maybe you know these people?</msg>
+  <msg name="title">هل تعرف هؤلاء الأشخاص؟</msg>
 
 
-  <msg name="mutual-friends">Mutual friend(s)</msg>
+  <msg name="mutual-friends">أشخاص بصداقة متبادلة</msg>
 </messagebundle>
