@@ -19,11 +19,11 @@
 <dialog>
 <label>
 <id>ID:</id>
-<name>Name:</name>
+<name>Namn:</name>
 <lifecycle>Livscykel:</lifecycle>
 <isDeep>Är för djupt:</isDeep>
 <nodetypes>Nodtyper:</nodetypes>
-<description>Description:</description>
+<description>Beskrivning:</description>
 <affectedNodeTypeNames>Drabbade nodtyper:</affectedNodeTypeNames>
 <navigationNode>Navigeringsnod:</navigationNode>
 <index>Index:</index>
@@ -45,12 +45,12 @@
 <ListShowCLVByStringInput>Parameternamn:</ListShowCLVByStringInput>
 <DetailTargetPageInputSet>Sida för detaljer:</DetailTargetPageInputSet>
 <DetailShowCLVByStringInput>Parameternamn:</DetailShowCLVByStringInput>
-<List>List</List>
-<Detail>Detail</Detail>
+<List>Listvy</List>
+<Detail>Detalj</Detail>
 </label>
 <action>
-<Save>Save</Save>
-<Cancel>Cancel</Cancel>
+<Save>Spara</Save>
+<Cancel>Avbryt</Cancel>
 </action>
 </UINavigationForm>
 <Visible>

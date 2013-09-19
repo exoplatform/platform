@@ -6,10 +6,10 @@
          <profile>Profil</profile>
          <connections>Kopplingar</connections>
          <wiki>Wiki</wiki>
-         <Myactivities>My Activity Stream</Myactivities>
+         <Myactivities>Min aktivitets ström</Myactivities>
          <Myprofile>Min profil</Myprofile>
-         <Myconnections>My Connections</Myconnections>
-         <Mywiki>My Wiki</Mywiki>
+         <Myconnections>Mina anslutningar</Myconnections>
+         <Mywiki>Min Wiki</Mywiki>
          <Mydashboard>Min instrumentpanel</Mydashboard>
       </label>
    </UIUserNavigationPortlet>

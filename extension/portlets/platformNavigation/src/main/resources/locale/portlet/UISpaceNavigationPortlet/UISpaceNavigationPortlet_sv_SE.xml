@@ -2,10 +2,10 @@
 <bundle>
  <UISpaceNavigationPortlet>
      <label>
-         <Spaces>My Spaces</Spaces>
+         <Spaces>Mina Webb-ytor</Spaces>
          <Join>Gå med i en webb-yta</Join>
          <more>Fler webb-ytor</more>
-         <see>Show</see>
+         <see>Visa</see>
      </label>
      <msg>
          <filter-spaces>Sök webb-ytor</filter-spaces>
