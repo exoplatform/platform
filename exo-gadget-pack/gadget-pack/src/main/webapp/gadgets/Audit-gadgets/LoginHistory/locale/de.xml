@@ -23,16 +23,16 @@
 -->
 <messagebundle>
   <msg name="loginHistory.title">Anmeldungsverlauf</msg>
-  <msg name="loginHistory.user">User</msg>
+  <msg name="loginHistory.user">Benutzer</msg>
   <msg name="loginHistory.find">Finden</msg>
-  <msg name="loginHistory.latest">Reset</msg>
+  <msg name="loginHistory.latest">Zurücksetzen</msg>
   <msg name="loginHistory.lastLogin">Letzte Anmeldung</msg>
   <msg name="loginHistory.beforeThat">Davor</msg>
   <msg name="loginHistory.more">Mehr</msg>
   <msg name="loginHistory.stats">Statistiken</msg>
   <msg name="loginHistory.history">Verlauf</msg>
   <msg name="loginHistory.global">Global</msg>
-  <msg name="loginHistory.week">Week</msg>
+  <msg name="loginHistory.week">Woche</msg>
   <msg name="loginHistory.lastLoginsView">Letzte Anmeldungen</msg>
   <msg name="loginHistory.historyView">Verlauf</msg>
   <msg name="loginHistory.statisticsView">Statistiken</msg>
@@ -45,6 +45,6 @@
   <msg name="loginHistory.earlier">Früher</msg>
   <msg name="loginHistory.allUsers">Alle Benutzer</msg>
   <msg name="loginHistory.unknow">Unbekannt</msg>
-  <msg name="loginHistory.next">Next</msg>
+  <msg name="loginHistory.next">Weiter</msg>
   <msg name="loginHistory.ago">vor</msg>
 </messagebundle>

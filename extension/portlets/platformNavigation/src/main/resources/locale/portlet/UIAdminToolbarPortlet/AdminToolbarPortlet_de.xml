@@ -2,15 +2,15 @@
 <bundle>
    <UIAdminToolbarPortlet>
       <action>
-         <AddPage>Add Page</AddPage>
+         <AddPage>Seite hinzufügen</AddPage>
          <EditNavigation>Navigation</EditNavigation>
-         <Content>Content</Content>
-         <Editor>Edit</Editor>
-         <Page>Page</Page>
+         <Content>Inhalt</Content>
+         <Editor>Bearbeiten</Editor>
+         <Page>Seite</Page>
          <Site>Seite</Site>
          <Layout>Layout bearbeiten</Layout>
          <siteLayout>Layout</siteLayout>
-         <ManagePages>Manage Pages</ManagePages>
+         <ManagePages>Seiten verwalten</ManagePages>
          <GroupSite>Gruppenseite</GroupSite>
          <Properties>SEO</Properties>
          <AddSite>Seite hinzufügen</AddSite>
@@ -21,41 +21,41 @@
 
   <UISEOForm>
     <label>
-      <title>Title:</title>  
-      <description>Description:</description>
-      <keywords>Keywords:</keywords>
-      <language>Language:</language>
+      <title>Titel:</title>  
+      <description>Beschreibung:</description>
+      <keywords>Schlüsselwörter:</keywords>
+      <language>Sprache:</language>
       <robots>Robots:</robots>
-      <sitemap>Sitemap:</sitemap>
+      <sitemap>Seitenübersicht:</sitemap>
       <sitemapvisible>Sichtbar in der Seitenübersicht</sitemapvisible>
-  <isInherited>Inherited from parent page</isInherited>
-      <priority>Priority:</priority>
-      <frequency>Frequency:</frequency>
+  <isInherited>Geerbt von übergeordneter Seite</isInherited>
+      <priority>Priorität:</priority>
+      <frequency>Häufigkeit:</frequency>
       <select-language>Sprache auswählen</select-language>
       <option>
-        <Always>Always</Always>
+        <Always>Immer</Always>
         <Hourly>Stündlich</Hourly>
         <Daily>Täglich</Daily>
-        <Weekly>Weekly</Weekly>
-        <Monthly>Monthly</Monthly>
+        <Weekly>Wöchentlich</Weekly>
+        <Monthly>Monatlich</Monthly>
         <Yearly>Jährlich</Yearly>
-        <Never>Never</Never>
+        <Never>Niemals</Never>
       </option> 
     </label>
  
     <action>
-      <Save>Save</Save>
-      <Cancel>Cancel</Cancel>
+      <Save>Speichern</Save>
+      <Cancel>Abbrechen</Cancel>
     </action>
     <msg>
       <repository-exception>Es ist ein unerwarteter Fehler aufgetreten. Seiten-Metadaten können nicht gespeichert werden.</repository-exception>
-      <confirm-delete>Are you sure you want to delete these SEO data?</confirm-delete>
+      <confirm-delete>Möchten Sie diese SEO-Daten wirklich löschen?</confirm-delete>
     </msg>
     <title>
     <seo-delete>Löschen</seo-delete>
     </title>
 <help> 
-  <priority>Valid values range from 0.0 to 1.0.</priority>
+  <priority>Gültige Werte liegen zwischen 0.0 und 1.0.</priority>
   <description>Hilfesuchende: Lassen Sie sie wissen, dass die folgende Seite einen Link mit dem was sie suchen enthält.</description>
   <keywords>Die wichtigsten Begriffe auf der Seite sollen durch ein Komma getrennt werden.</keywords>  
     </help>  
@@ -82,8 +82,8 @@
   <Locale>
     <label>      
       <it>Italienisch</it>      
-      <fr>French</fr>
-      <en>English</en>      
+      <fr>Französisch</fr>
+      <en>Englisch</en>      
     </label>
   </Locale>
   

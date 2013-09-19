@@ -4,13 +4,13 @@
       <label>
          <activities>Aktivitätenstrom</activities>
          <profile>Profil</profile>
-         <connections>Connections</connections>
+         <connections>Verbindungen</connections>
          <wiki>Wiki</wiki>
          <Myactivities>Mein Aktivitätsstrom</Myactivities>
-         <Myprofile>My Profile</Myprofile>
+         <Myprofile>Mein Profil</Myprofile>
          <Myconnections>Meine Verbindungen</Myconnections>
-         <Mywiki>My Wiki</Mywiki>
-         <Mydashboard>My Dashboard</Mydashboard>
+         <Mywiki>Mein Wiki</Mywiki>
+         <Mydashboard>Mein Dashboard</Mydashboard>
       </label>
    </UIUserNavigationPortlet>
 </bundle>
