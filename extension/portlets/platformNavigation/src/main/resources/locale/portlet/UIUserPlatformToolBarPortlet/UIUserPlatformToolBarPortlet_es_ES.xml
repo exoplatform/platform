@@ -3,12 +3,12 @@
 <UIUserPlatformToolBarPortlet>
 <label>
 <activities>Mis Actividades</activities>
-<profile>My Profile</profile>
+<profile>Mi Perfil</profile>
 <network>Mis Conexiones</network>
-<wiki>My Wiki</wiki>
+<wiki>Mi Wiki</wiki>
 <account>Ajustes</account>
-<language>Change Language</language>
-<logout>Logout</logout>
+<language>Cambiar Idioma</language>
+<logout>Desconectarse</logout>
         <dashboard>Mi Panel de Control</dashboard>
 </label>
 </UIUserPlatformToolBarPortlet>

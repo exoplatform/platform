@@ -24,9 +24,9 @@
 <dialog>
 <label>
 <name>Nombre</name>
-<title>Title</title>
+<title>Título</title>
 <illustrationImage>Imagen de la Ilustración</illustrationImage>
-<summary>Summary</summary>
+<summary>Sumario</summary>
 <benefits>Beneficios</benefits>
 <features>Características</features>
 </label>

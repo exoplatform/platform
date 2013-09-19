@@ -2,8 +2,8 @@
 <bundle>
    <UIUserPlatformToolBarCreatePortlet>
       <label>
-         <topic>Topic</topic>
-         <poll>Poll</poll>
+         <topic>Tema</topic>
+         <poll>Encuesta</poll>
          <eventtask>Evento/tarea</eventtask>
          <upload>Cargar un archivo</upload>
          <wiki>Página wiki</wiki>
@@ -19,8 +19,8 @@
          <RequireSelectForum>Por favor seleccione un foro.</RequireSelectForum>
       </label>
       <action>
-         <Next>Next</Next>
-         <Cancel>Cancel</Cancel>
+         <Next>Siguiente</Next>
+         <Cancel>Cancelar</Cancel>
       </action>
    </UICreateList>
    <UICreateTopic>
@@ -33,27 +33,27 @@
    </UICreateTopic>
    <UICreatePoll>
       <label>
-         <SelectAForum>Select Forum</SelectAForum>
-         <location>In Location</location>
-         <forumId>And Forum</forumId>
-         <FilterForums>Filter Forums</FilterForums>
+         <SelectAForum>Seleccionar foro</SelectAForum>
+         <location>En lugar</location>
+         <forumId>Y el foro</forumId>
+         <FilterForums>Filtrar Foros</FilterForums>
       </label>
    </UICreatePoll>
    <UICreateWiki>
       <label>
          <title>Crear una nueva página Wiki:</title>
-         <location>In Location</location>
+         <location>En lugar</location>
       </label>
    </UICreateWiki>
    <UICreateEvent>
       <label>
-         <Title>Title</Title>
+         <Title>Título</Title>
          <Choix>Agregar nuevo:</Choix>
-         <EndEvent>To</EndEvent>
-         <StartEvent>From</StartEvent>
-         <Calendar>Select Calendar</Calendar>
-         <all-day>All Day</all-day>
-         <defaultCalendarId>Default</defaultCalendarId>
+         <EndEvent>Para</EndEvent>
+         <StartEvent>De</StartEvent>
+         <Calendar>Seleccione Calendario</Calendar>
+         <all-day>Todo el día</all-day>
+         <defaultCalendarId>Por Defecto</defaultCalendarId>
       </label>
       <msg>
          <summary-field-required>Se requiere el campo "Título".</summary-field-required>
@@ -69,16 +69,16 @@
       </msg>
       <action>
          <Next>#{word.save}</Next>
-         <Cancel>Cancel</Cancel>
+         <Cancel>Cancelar</Cancel>
       </action>
    </UICreateEvent>
     <UIUploadFile>
-        <Select>Select File</Select>
+        <Select>Seleccionar archivo</Select>
     </UIUploadFile>
    <Choix>
       <label>
-         <Event>Event</Event>
-         <Task>Task</Task>
+         <Event>Evento</Event>
+         <Task>Tarea</Task>
       </label>
    </Choix>
 </bundle>
