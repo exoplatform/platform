@@ -46,7 +46,7 @@
 <DetailTargetPageInputSet>Page for Detail:</DetailTargetPageInputSet>
 <DetailShowCLVByStringInput>Parameter Name:</DetailShowCLVByStringInput>
 <List>List</List>
-<Detail>Detail</Detail>
+<Detail>Деталь</Detail>
 </label>
 <action>
 <Save>Save</Save>
@@ -68,19 +68,19 @@
 <NavigationNodeInputSet>
 <title>
 <SelectNavigationNode>Select Navigation Node</SelectNavigationNode>
-<RemoveNavigationNode>Reset</RemoveNavigationNode>
+<RemoveNavigationNode>Очистить</RemoveNavigationNode>
 </title>
 </NavigationNodeInputSet>
 <ListTargetPageFormInputSet>
 <title>
 <SelectListTargetPage>Select Target Page</SelectListTargetPage>
-<RemoveListTargetPage>Reset</RemoveListTargetPage>
+<RemoveListTargetPage>Очистить</RemoveListTargetPage>
 </title>
 </ListTargetPageFormInputSet>
 <DetailTargetPageInputSet>
 <title>
 <SelectDetailTargetPage>Select Children Target Page</SelectDetailTargetPage>
-<RemoveDetailTargetPage>Reset</RemoveDetailTargetPage>
+<RemoveDetailTargetPage>Очистить</RemoveDetailTargetPage>
 </title>
 </DetailTargetPageInputSet>
 <NavigationSelectorPopupWindow>
