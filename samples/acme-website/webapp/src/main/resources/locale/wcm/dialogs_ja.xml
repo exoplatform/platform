@@ -24,9 +24,9 @@
 <dialog>
 <label>
 <name>名前</name>
-<title>Title</title>
-<illustrationImage>Illustration Image</illustrationImage>
-<summary>Summary</summary>
+<title>タイトル</title>
+<illustrationImage>イラストレーション画像</illustrationImage>
+<summary>サマリ</summary>
 <benefits>利点</benefits>
 <features>機能</features>
 </label>

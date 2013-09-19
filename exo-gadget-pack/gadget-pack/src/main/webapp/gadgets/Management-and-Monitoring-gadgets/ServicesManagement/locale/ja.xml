@@ -27,7 +27,7 @@
   <msg name="noDescription">説明はありません</msg>
   <msg name="method">メソッド</msg>
   <msg name="parameters">パラメータ</msg>
-  <msg name="action">Action</msg>
+  <msg name="action">アクション</msg>
   <msg name="value">値</msg>
   <msg name="services_url">サービス URL</msg>
   <msg name="failManage">OAuth をサポートするまで、一時的に、他のホストからサービスを管理することはできません。</msg>

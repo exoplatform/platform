@@ -8,15 +8,15 @@
       <contactus>ご質問？</contactus>
       <newsletters>ニュースレター</newsletters>
       <confirmation>コンタクトフォームの確認</confirmation>
-      <detail>Details</detail>
+      <detail>詳細</detail>
   <catalog>カタログ</catalog>
       <printviewer>ページ印刷</printviewer>
       <searchResult>検索</searchResult>
-      <newAccount>New Account</newAccount>
-      <groupnavigation>Group Navigation</groupnavigation>
-      <portalnavigation>Portal Navigation</portalnavigation>
-      <documents>Documents</documents>
-      <unifiedSearch>Search</unifiedSearch>
+      <newAccount>新しいアカウント</newAccount>
+      <groupnavigation>グループナビゲーション</groupnavigation>
+      <portalnavigation>ポータルナビゲーション</portalnavigation>
+      <documents>ドキュメント</documents>
+      <unifiedSearch>検索</unifiedSearch>
     </acme>
   </portal>
 </bundle>

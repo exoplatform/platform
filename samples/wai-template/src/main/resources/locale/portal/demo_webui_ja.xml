@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <bundle>
   <Signin>
-    <welcome>Welcome</welcome>
-    <login>Login</login>
-    <logout>Logout</logout>
+    <welcome>ようこそ</welcome>
+    <login>ログイン</login>
+    <logout>ログアウト</logout>
     <language>
       <en>英語に切り替える</en>
       <fr>フランス語に切り替える</fr>
     </language>
-    <register>Register</register>
+    <register>登録</register>
   </Signin>
   <Toolbar>
     <SkipToContent>コンテンツへ飛びます</SkipToContent>
-    <SiteMap>Site Map</SiteMap>
+    <SiteMap>サイトマップ</SiteMap>
     <Accessibility>アクセシビリティ</Accessibility>
     <NormalSize>通常サイズ</NormalSize>
     <MediumSize>中サイズ</MediumSize>
