@@ -2,21 +2,21 @@
 <bundle>
    <UIUserPlatformToolBarCreatePortlet>
       <label>
-         <topic>Topic</topic>
+         <topic>Tema</topic>
          <poll>Encuesta</poll>
-         <eventtask>Event/Task</eventtask>
-         <upload>Upload a File</upload>
-         <wiki>Wiki Page</wiki>
+         <eventtask>Evento/tarea</eventtask>
+         <upload>Cargar un archivo</upload>
+         <wiki>Página wiki</wiki>
 
       </label>
    </UIUserPlatformToolBarCreatePortlet>
    <UICreateList>
       <label>
-         <topic>topic</topic>
-         <poll>poll</poll>
-         <CreateANew>Create a new {1}:</CreateANew>
-         <NoForum>Sorry, no forum is available yet to create a {1}. Start by creating your own space.</NoForum>
-         <RequireSelectForum>Please select a forum.</RequireSelectForum>
+         <topic>Tema</topic>
+         <poll>Encuesta</poll>
+         <CreateANew>Crear un nuevo {1}:</CreateANew>
+         <NoForum>Lo sentimos, no hay foro disponible aún para crear un {1}. Empezar por crear su propio espacio.</NoForum>
+         <RequireSelectForum>Por favor seleccione un foro.</RequireSelectForum>
       </label>
       <action>
          <Next>Siguiente</Next>
@@ -25,47 +25,47 @@
    </UICreateList>
    <UICreateTopic>
       <label>
-         <SelectAForum>Select a Forum</SelectAForum>
-         <location>In Location</location>
-         <forumId>And Forum</forumId>
-         <FilterForums>Filter Forums</FilterForums>
+         <SelectAForum>Seleccione un foro</SelectAForum>
+         <location>En lugar</location>
+         <forumId>Y el foro</forumId>
+         <FilterForums>Filtrar Foros</FilterForums>
       </label>
    </UICreateTopic>
    <UICreatePoll>
       <label>
-         <SelectAForum>Select Forum</SelectAForum>
-         <location>In Location</location>
-         <forumId>And Forum</forumId>
-         <FilterForums>Filter Forums</FilterForums>
+         <SelectAForum>Seleccionar foro</SelectAForum>
+         <location>En lugar</location>
+         <forumId>Y el foro</forumId>
+         <FilterForums>Filtrar Foros</FilterForums>
       </label>
    </UICreatePoll>
    <UICreateWiki>
       <label>
-         <title>Create a new Wiki Page:</title>
-         <location>In Location</location>
+         <title>Crear una nueva página Wiki:</title>
+         <location>En lugar</location>
       </label>
    </UICreateWiki>
    <UICreateEvent>
       <label>
          <Title>Título</Title>
-         <Choix>Add New:</Choix>
+         <Choix>Agregar nuevo:</Choix>
          <EndEvent>Para</EndEvent>
          <StartEvent>De</StartEvent>
          <Calendar>Seleccione Calendario</Calendar>
          <all-day>Todo el día</all-day>
-         <defaultCalendarId>Default</defaultCalendarId>
+         <defaultCalendarId>Por Defecto</defaultCalendarId>
       </label>
       <msg>
-         <summary-field-required>The field "Title" is required.</summary-field-required>
-         <fromDate-format>The "From" date format is incorrect.</fromDate-format>
-         <toDate-format>The "To" date format is incorrect.</toDate-format>
-         <logic-required>Sorry, you cannot create an event that ends before it starts.</logic-required>
-         <cant-add-event-on-remote-calendar>You cannot add event to remote calendar</cant-add-event-on-remote-calendar>
+         <summary-field-required>Se requiere el campo "Título".</summary-field-required>
+         <fromDate-format>El formato de fecha "Desde" es incorrecto.</fromDate-format>
+         <toDate-format>El formato de fecha "Hasta" es incorrecto.</toDate-format>
+         <logic-required>Lo sentimos, no puede crear un evento que termina antes de que empiece.</logic-required>
+         <cant-add-event-on-remote-calendar>No puede agregar evento al calendario remoto</cant-add-event-on-remote-calendar>
          <add-successfully>
-            <Event>The Event was added to {1}</Event>
-            <Task>The Task was added to {1}</Task>
+            <Event>El evento ha sido añadido a {1}</Event>
+            <Task>La tarea ha sido añadida a {1}</Task>
          </add-successfully>
-         <add-unsuccessfully>{0} was not added.</add-unsuccessfully>
+         <add-unsuccessfully>{0} no fue agregado.</add-unsuccessfully>
       </msg>
       <action>
          <Next>#{word.save}</Next>

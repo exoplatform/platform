@@ -7,44 +7,44 @@
 </UIActionBar>
 <UIViewFormTabPane>
 <label>
-<contentNavigation>Navigation by Content</contentNavigation>
+<contentNavigation>التصفّح عن طريق المحتوى</contentNavigation>
 </label>
 </UIViewFormTabPane>
 <UIPopupWindow>
 <title>
-<UINavigationForm>Navigation Form</UINavigationForm>
+<UINavigationForm>نموذج التصفح</UINavigationForm>
 </title>
 </UIPopupWindow>
 <PopulateToMenu>
 <dialog>
 <label>
-<id>ID:</id>
-<name>Name:</name>
-<lifecycle>Lifecycle:</lifecycle>
-<isDeep>Is Deep:</isDeep>
-<nodetypes>Node Types:</nodetypes>
-<description>Description:</description>
-<affectedNodeTypeNames>Affected Node Types:</affectedNodeTypeNames>
-<navigationNode>Navigation Node:</navigationNode>
-<index>Index:</index>
-<clickable>Clickable:</clickable>
-<page>Page:</page>
-<childrenPage>Children Page:</childrenPage>
+<id>المُعرّف الوحيد:</id>
+<name>الاسم:</name>
+<lifecycle>دورة الحياة:</lifecycle>
+<isDeep>عميق:</isDeep>
+<nodetypes>أنواع العقد:</nodetypes>
+<description>الوصف:</description>
+<affectedNodeTypeNames>أنواع العقد المتأثرة:</affectedNodeTypeNames>
+<navigationNode>عقدة التصفح:</navigationNode>
+<index>المؤشّر:</index>
+<clickable>قابل للنّقر:</clickable>
+<page>الصفحة:</page>
+<childrenPage>الصفحات الفرعيّة:</childrenPage>
 </label>
 </dialog>
 </PopulateToMenu>
 <UINavigationForm>
 <label>
-<Node>Parent's Folder:</Node>
-<Visible>Visible :</Visible>
-<NavigationNodeInputSet>Target Parent Navigation:</NavigationNodeInputSet>
-<Index>Display Order:</Index>
-<Clickable>Clickable :</Clickable>
-<NavigationControls>Navigation Controls</NavigationControls>
-<ListTargetPageFormInputSet>Page for List:</ListTargetPageFormInputSet>
-<ListShowCLVByStringInput>Parameter Name:</ListShowCLVByStringInput>
-<DetailTargetPageInputSet>Page for Detail:</DetailTargetPageInputSet>
-<DetailShowCLVByStringInput>Parameter Name:</DetailShowCLVByStringInput>
+<Node>المجلد الأصل:</Node>
+<Visible>مرئي :</Visible>
+<NavigationNodeInputSet>هدف أصل التصفح:</NavigationNodeInputSet>
+<Index>ترتيب العرض:</Index>
+<Clickable>قابل للنّقر:</Clickable>
+<NavigationControls>إعدادات التّصفح</NavigationControls>
+<ListTargetPageFormInputSet>صفحة من القائمة:</ListTargetPageFormInputSet>
+<ListShowCLVByStringInput>بواسطة:</ListShowCLVByStringInput>
+<DetailTargetPageInputSet>تفاصيل الصّفحة:</DetailTargetPageInputSet>
+<DetailShowCLVByStringInput>بواسطة:</DetailShowCLVByStringInput>
 <List>قائمة</List>
 <Detail>تفاصيل</Detail>
 </label>
@@ -55,37 +55,37 @@
 </UINavigationForm>
 <Visible>
 <label>
-<VisibleEnable>Yes</VisibleEnable>
-<VisibleDisable>No</VisibleDisable>
+<VisibleEnable>نعم</VisibleEnable>
+<VisibleDisable>لا</VisibleDisable>
 </label>
 </Visible>
 <Clickable>
 <label>
-<ClickableEnable>Yes</ClickableEnable>
-<ClickableDisable>No</ClickableDisable>
+<ClickableEnable>نعم</ClickableEnable>
+<ClickableDisable>لا</ClickableDisable>
 </label>
 </Clickable>
 <NavigationNodeInputSet>
 <title>
-<SelectNavigationNode>Select Navigation Node</SelectNavigationNode>
+<SelectNavigationNode>حدد عقدة التصفح</SelectNavigationNode>
 <RemoveNavigationNode>إعادة تعيين</RemoveNavigationNode>
 </title>
 </NavigationNodeInputSet>
 <ListTargetPageFormInputSet>
 <title>
-<SelectListTargetPage>Select Target Page</SelectListTargetPage>
+<SelectListTargetPage>حدد الصفحة الهدف</SelectListTargetPage>
 <RemoveListTargetPage>إعادة تعيين</RemoveListTargetPage>
 </title>
 </ListTargetPageFormInputSet>
 <DetailTargetPageInputSet>
 <title>
-<SelectDetailTargetPage>Select Children Target Page</SelectDetailTargetPage>
+<SelectDetailTargetPage>حدد فروع الصفحة المستهدفة</SelectDetailTargetPage>
 <RemoveDetailTargetPage>إعادة تعيين</RemoveDetailTargetPage>
 </title>
 </DetailTargetPageInputSet>
 <NavigationSelectorPopupWindow>
 <title>
-<UINavigationSelector>Navigation Selector</UINavigationSelector>
+<UINavigationSelector>مُنتق  التصفحّات</UINavigationSelector>
 </title>
 </NavigationSelectorPopupWindow>
 <ListTargetPageSelectorPopupWindow>

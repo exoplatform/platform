@@ -22,20 +22,20 @@
 <bundle>
   <UIPortalApplication>
     <title>
-      <abort>Abort</abort>
+      <abort>Cancelar</abort>
     </title>
   </UIPortalApplication>
   
   <CategoryNavigationTemplate>
   <label>
-  <home>Home</home>
-  <Accessibility>Accessibility</Accessibility>
+  <home>Principal</home>
+  <Accessibility>Acessibilidade</Accessibility>
   </label>
   </CategoryNavigationTemplate>
   
   <Breadcrumb>
   <label>
-  <home>Home</home>
+  <home>Principal</home>
   </label>  
   </Breadcrumb>
 </bundle>

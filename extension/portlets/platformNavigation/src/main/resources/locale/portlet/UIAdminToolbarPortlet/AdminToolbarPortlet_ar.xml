@@ -7,16 +7,16 @@
          <Content>المحتوى</Content>
          <Editor>تغيير</Editor>
          <Page>الصفحة</Page>
-         <Site>Site</Site>
-         <Layout>Edit Layout</Layout>
-         <siteLayout>Layout</siteLayout>
+         <Site>موقع</Site>
+         <Layout>تغير التخطيط</Layout>
+         <siteLayout>تخطيط</siteLayout>
          <ManagePages>إدارة الصفحات</ManagePages>
-         <GroupSite>Group Site</GroupSite>
+         <GroupSite>موقع المجموعة</GroupSite>
          <Properties>إدارة تحسين محرك البحث (SEO)</Properties>
-         <AddSite>Add Site</AddSite>
+         <AddSite>إضافة موقع</AddSite>
       </action>
-<ManageSites>Manage Sites</ManageSites>
-<ManageGroupSites>Manage Group Sites</ManageGroupSites>
+<ManageSites>إدارة المواقع</ManageSites>
+<ManageGroupSites>إدارة مواقع المجموعة</ManageGroupSites>
    </UIAdminToolbarPortlet>
 
   <UISEOForm>
@@ -27,11 +27,11 @@
       <language>اللغة:</language>
       <robots>الروبوتات:</robots>
       <sitemap>خريطة الموقع:</sitemap>
-      <sitemapvisible>Visible in sitemap</sitemapvisible>
+      <sitemapvisible>مرئية في خريطة الموقع</sitemapvisible>
   <isInherited>الموروثة من الصفحة الأم</isInherited>
       <priority>الأولوية:</priority>
       <frequency>التردد:</frequency>
-      <select-language>Select Language</select-language>
+      <select-language>اختيار اللغة</select-language>
       <option>
         <Always>دائما</Always>
         <Hourly>كل ساعة</Hourly>
@@ -48,16 +48,16 @@
       <Cancel>الغاء</Cancel>
     </action>
     <msg>
-      <repository-exception>An unexpected error occurred. Cannot save page metadata.</repository-exception>
+      <repository-exception>حدث خطأ غير متوقع. لا يمكن حفظ البيانات الوصفية للصفحة.</repository-exception>
       <confirm-delete>هل أنت متأكد من أنك تريد حذف هذه البيانات من تحسين محرك البحث (SEO)؟</confirm-delete>
     </msg>
     <title>
-    <seo-delete>Delete</seo-delete>
+    <seo-delete>حذف</seo-delete>
     </title>
 <help> 
   <priority>نطاق القيم الصالحة من 0.0 إلى 1.0.</priority>
-  <description>Help searchers: let them know that the following page has a link with what they are looking for.</description>
-  <keywords>Most important terms in the page must be separated by a comma.</keywords>  
+  <description>مساعدة الباحثين: فليعلموا أن الصفحة التالية لديها الرابط الذي يبحثون عنه.</description>
+  <keywords>أهم المصطلحات في الصفحة يجب أن تكون مفصولة بفاصلة.</keywords>  
     </help>  
   </UISEOForm>
   <UISEOPopupWindow>
@@ -75,13 +75,13 @@
   </UISEOToolbarForm>  
   <FloatNumberValidator>
     <msg>
-      <Invalid-number>The field priority is an invalid float number. Valid values range from 0.0 to 1.0.</Invalid-number>
+      <Invalid-number>الحقل أولوية عدد عشري غير صالح. القيم الصالحة من 0.0 إلى 1.0.</Invalid-number>
     </msg>
   </FloatNumberValidator>
   
   <Locale>
     <label>      
-      <it>Italian</it>      
+      <it>الإيطالية</it>      
       <fr>فرنسية</fr>
       <en>انقليزية</en>      
     </label>
