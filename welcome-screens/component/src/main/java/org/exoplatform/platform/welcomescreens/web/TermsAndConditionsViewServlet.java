@@ -17,7 +17,7 @@ public class TermsAndConditionsViewServlet extends HttpServlet {
 
   @Override
   protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-      getServletContext().getRequestDispatcher(TC_JSP_RESOURCE).include(request, response);
+      getServletContext().getRequestDispatcher(TC_JSP_RESOURCE).forward(request, response);
   }
 
   @Override
