@@ -52,7 +52,7 @@
          <EndEvent>Bitiş Tarihi</EndEvent>
          <StartEvent>Başlangıç Tarihi</StartEvent>
          <Calendar>Takvimi Seçin</Calendar>
-         <all-day>Bütün gün</all-day>
+         <all-day>Tüm Gün</all-day>
          <defaultCalendarId>Varsayılan</defaultCalendarId>
       </label>
       <msg>
