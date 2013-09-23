@@ -5,21 +5,21 @@
 <applications>Aplicaciones</applications>
 <content>Contenido</content>
 <siteExplorer>Explorador de Sitios</siteExplorer>
-<wcmAdmin>Content Administration</wcmAdmin>
+<wcmAdmin>Administración de contenido</wcmAdmin>
 <users>Usuarios</users>
-<newStaff>Add Users</newStaff>
-<org-management>Groups and Roles</org-management>
+<newStaff>Agregar usuarios</newStaff>
+<org-management>Grupos y Roles</org-management>
 <portal>Portal</portal>
 <administration>Administración</administration>
-<groupnavigation>Group Sites</groupnavigation>
-<pageManagement>Pages</pageManagement>
-<portalnavigation>Sites</portalnavigation>
-<servicesManagement>Management</servicesManagement>
-<monitoring>Monitoring</monitoring>
+<groupnavigation>Sitios del grupo</groupnavigation>
+<pageManagement>Páginas</pageManagement>
+<portalnavigation>Sitios</portalnavigation>
+<servicesManagement>Gestión</servicesManagement>
+<monitoring>Monitoreo</monitoring>
 <spaces>Espacios</spaces>
 <Branding>Branding</Branding>
 <ide>IDE</ide>
-<search>Search</search>
+<search>Búsqueda</search>
 </label>
 </UISetupPlatformToolBarPortlet>
 </bundle>

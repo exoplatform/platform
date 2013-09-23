@@ -104,6 +104,13 @@
     <output-encoding>UTF-8</output-encoding>
     <input-encoding>UTF-8</input-encoding>
     <description>Default configuration for the russian locale</description>
-  </locale-config>  
+  </locale-config> 
+  
+  <locale-config>
+    <locale>tr</locale>
+    <output-encoding>UTF-8</output-encoding>
+    <input-encoding>UTF-8</input-encoding>
+    <description>Default configuration for the turkish locale</description>
+  </locale-config> 
 </locales-config>
 
