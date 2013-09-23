@@ -58,18 +58,13 @@ public class UIUserPlatformToolBarPortlet extends UIPortletApplication {
 
   }
 
-
-
   public String getFullName() throws Exception {
-    String userName = Util.getPortalRequestContext().getRemoteUser();
-    ConversationState currentState = ConversationState.getCurrent();
-    if (currentState != null) {
-        UserImpl userProfile = (UserImpl)ConversationState.getCurrent().getAttribute("UserProfile");
-        if (userProfile != null ) {
-            userName =  userProfile.getFullName();
-        }
-     }
-    return userName;
+      String fullName = "";
+      Identity viewerIdentity = Utils.getViewerIdentity(true);
+      if (viewerIdentity != null) {
+          fullName = viewerIdentity.getProfile().getFullName();
+      }
+      return fullName;
   }
 
   private String getCurrentPortalName() {

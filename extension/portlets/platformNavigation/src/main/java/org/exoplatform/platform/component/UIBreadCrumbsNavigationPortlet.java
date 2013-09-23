@@ -126,15 +126,12 @@ public class UIBreadCrumbsNavigationPortlet extends UIPortletApplication {
 
     public String getUserFullName(String userName) throws Exception {
         if (LOG.isInfoEnabled()) {
-            LOG.info("Load ["+userName+"] user profile using the ConversationState");
+            LOG.info("IdentityManager : loading ["+userName+"] profile");
         }
         String fullName = "";
-        ConversationState currentState = ConversationState.getCurrent();
-        if (currentState != null) {
-            UserImpl userProfile = (UserImpl)ConversationState.getCurrent().getAttribute("UserProfile");
-            if (userProfile != null ) {
-                fullName =  userProfile.getFullName();
-            }
+        Identity viewerIdentity = Utils.getViewerIdentity(true);
+        if (viewerIdentity != null) {
+            fullName = viewerIdentity.getProfile().getFullName();
         }
         return fullName;
     }
