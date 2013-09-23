@@ -73,7 +73,7 @@ rcontext.getJavascriptManager().require("SHARED/platform-left-navigation", "plat
 				<div class="CONTROL-CONTAINER CONTROL-BLOCK uiInfoBar">
 					<%/*Begin InfoBar*/%>
 					
-						<i class="uiIconDragDrop uiIconWhite" title="<%=_ctx.appRes("UITableColumnContainer.title.DragControlArea")%>"></i>
+						<i class="uiIconDragDrop uiIconWhite" rel="tooltip" data-placement="right" title="<%=_ctx.appRes("UITableColumnContainer.title.DragControlArea")%>"></i>
 						<%
 							String strTitle = uicomponent.getTitle() != null ?
 										ExpressionUtil.getExpressionValue(res, uicomponent.getTitle()) :
