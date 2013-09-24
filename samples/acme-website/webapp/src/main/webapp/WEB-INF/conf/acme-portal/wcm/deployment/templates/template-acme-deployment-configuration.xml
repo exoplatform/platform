@@ -1801,9 +1801,325 @@
                </object>
             </object-param>
          </init-params>
-
       </component-plugin>
       
+       <component-plugin>
+      <name>Content Initializer Service</name>
+      <set-method>addPlugin</set-method>
+      <type>org.exoplatform.services.deployment.plugins.CreateLinkPlugin</type>
+      <description>Create Deployment Plugin</description>
+      <init-params>
+        <!-- put "acme-news-1" in categories -->
+        <object-param>
+          <name>news1Link</name>
+          <description>Deployment Descriptor</description>
+          <object type="org.exoplatform.services.deployment.plugins.LinkDeploymentDescriptor">
+            <field name="sourcePath">
+              <string>repository:collaboration:/sites/{portalName}/web contents/News/acme-news-1</string>
+            </field>
+            <field name="targetPath">
+              <string>repository:collaboration:/sites/{portalName}/categories/{portalName}</string>
+            </field>
+          </object>
+        </object-param>
+
+        <!-- put "acme-news-2" in categories -->
+        <object-param>
+          <name>news2Link</name>
+          <description>Deployment Descriptor</description>
+          <object type="org.exoplatform.services.deployment.plugins.LinkDeploymentDescriptor">
+            <field name="sourcePath">
+              <string>repository:collaboration:/sites/{portalName}/web contents/News/acme-news-2</string>
+            </field>
+            <field name="targetPath">
+              <string>repository:collaboration:/sites/{portalName}/categories/{portalName}</string>
+            </field>
+          </object>
+        </object-param>
+        <object-param>
+          <name>acmeNews1All</name>
+          <description>Deployment Descriptor</description>
+          <object type="org.exoplatform.services.deployment.plugins.LinkDeploymentDescriptor">
+            <field name="sourcePath">
+              <string>repository:collaboration:/sites/{portalName}/web contents/News/acme-news-1</string>
+            </field>
+            <field name="targetPath">
+              <string>repository:collaboration:/sites/{portalName}/{portalName} events/All</string>
+            </field>
+          </object>
+        </object-param>
+        <object-param>
+          <name>acmeNews2All</name>
+          <description>Deployment Descriptor</description>
+          <object type="org.exoplatform.services.deployment.plugins.LinkDeploymentDescriptor">
+            <field name="sourcePath">
+              <string>repository:collaboration:/sites/{portalName}/web contents/News/acme-news-2</string>
+            </field>
+            <field name="targetPath">
+              <string>repository:collaboration:/sites/{portalName}/{portalName} events/All</string>
+            </field>
+          </object>
+        </object-param>
+        <object-param>
+          <name>acmeEvent1All</name>
+          <description>Deployment Descriptor</description>
+          <object type="org.exoplatform.services.deployment.plugins.LinkDeploymentDescriptor">
+            <field name="sourcePath">
+              <string>repository:collaboration:/sites/{portalName}/web contents/Events/Event1</string>
+            </field>
+            <field name="targetPath">
+              <string>repository:collaboration:/sites/{portalName}/{portalName} events/All</string>
+            </field>
+          </object>
+        </object-param>
+        <object-param>
+          <name>acmeEvent2All</name>
+          <description>Deployment Descriptor</description>
+          <object type="org.exoplatform.services.deployment.plugins.LinkDeploymentDescriptor">
+            <field name="sourcePath">
+              <string>repository:collaboration:/sites/{portalName}/web contents/Events/Event2</string>
+            </field>
+            <field name="targetPath">
+              <string>repository:collaboration:/sites/{portalName}/{portalName} events/All</string>
+            </field>
+          </object>
+        </object-param>
+        <object-param>
+          <name>acmeEvent3All</name>
+          <description>Deployment Descriptor</description>
+          <object type="org.exoplatform.services.deployment.plugins.LinkDeploymentDescriptor">
+            <field name="sourcePath">
+              <string>repository:collaboration:/sites/{portalName}/web contents/Events/Event3</string>
+            </field>
+            <field name="targetPath">
+              <string>repository:collaboration:/sites/{portalName}/{portalName} events/All</string>
+            </field>
+          </object>
+        </object-param>
+        <object-param>
+          <name>acmeEvent4All</name>
+          <description>Deployment Descriptor</description>
+          <object type="org.exoplatform.services.deployment.plugins.LinkDeploymentDescriptor">
+            <field name="sourcePath">
+              <string>repository:collaboration:/sites/{portalName}/web contents/Events/Event4</string>
+            </field>
+            <field name="targetPath">
+              <string>repository:collaboration:/sites/{portalName}/{portalName} events/All</string>
+            </field>
+          </object>
+        </object-param>
+
+        <object-param>
+          <name>acmeEvent1Fire</name>
+          <description>Deployment Descriptor</description>
+          <object type="org.exoplatform.services.deployment.plugins.LinkDeploymentDescriptor">
+            <field name="sourcePath">
+              <string>repository:collaboration:/sites/{portalName}/web contents/Events/Event1</string>
+            </field>
+            <field name="targetPath">
+              <string>repository:collaboration:/sites/{portalName}/{portalName} events/All/Fire</string>
+            </field>
+          </object>
+        </object-param>
+
+        <object-param>
+          <name>acmeEvent2Water</name>
+          <description>Deployment Descriptor</description>
+          <object type="org.exoplatform.services.deployment.plugins.LinkDeploymentDescriptor">
+            <field name="sourcePath">
+              <string>repository:collaboration:/sites/{portalName}/web contents/Events/Event2</string>
+            </field>
+            <field name="targetPath">
+              <string>repository:collaboration:/sites/{portalName}/{portalName} events/All/Water</string>
+            </field>
+          </object>
+        </object-param>
+
+        <object-param>
+          <name>acmeEvent4Air</name>
+          <description>Deployment Descriptor</description>
+          <object type="org.exoplatform.services.deployment.plugins.LinkDeploymentDescriptor">
+            <field name="sourcePath">
+              <string>repository:collaboration:/sites/{portalName}/web contents/Events/Event4</string>
+            </field>
+            <field name="targetPath">
+              <string>repository:collaboration:/sites/{portalName}/{portalName} events/All/Air</string>
+            </field>
+          </object>
+        </object-param>
+        <object-param>
+          <name>acmeNews1Air</name>
+          <description>Deployment Descriptor</description>
+          <object type="org.exoplatform.services.deployment.plugins.LinkDeploymentDescriptor">
+            <field name="sourcePath">
+              <string>repository:collaboration:/sites/{portalName}/web contents/News/acme-news-1</string>
+            </field>
+            <field name="targetPath">
+              <string>repository:collaboration:/sites/{portalName}/{portalName} events/All/Air</string>
+            </field>
+          </object>
+        </object-param>
+
+        <object-param>
+          <name>acmeEvent3Earth</name>
+          <description>Deployment Descriptor</description>
+          <object type="org.exoplatform.services.deployment.plugins.LinkDeploymentDescriptor">
+            <field name="sourcePath">
+              <string>repository:collaboration:/sites/{portalName}/web contents/Events/Event3</string>
+            </field>
+            <field name="targetPath">
+              <string>repository:collaboration:/sites/{portalName}/{portalName} events/All/Earth</string>
+            </field>
+          </object>
+        </object-param>
+        <object-param>
+          <name>acmeNews2Earth</name>
+          <description>Deployment Descriptor</description>
+          <object type="org.exoplatform.services.deployment.plugins.LinkDeploymentDescriptor">
+            <field name="sourcePath">
+              <string>repository:collaboration:/sites/{portalName}/web contents/News/acme-news-2</string>
+            </field>
+            <field name="targetPath">
+              <string>repository:collaboration:/sites/{portalName}/{portalName} events/All/Earth</string>
+            </field>
+          </object>
+        </object-param>
+        <object-param>
+          <name>x-RayVision</name>
+          <description>Deployment Descriptor</description>
+          <object type="org.exoplatform.services.deployment.plugins.LinkDeploymentDescriptor">
+            <field name="sourcePath">
+              <string>repository:collaboration:/sites/{portalName}/web contents/Powers/X-Ray</string>
+            </field>
+            <field name="targetPath">
+              <string>repository:collaboration:/sites/{portalName}/categories/{portalName}/Defense/Vision</string>
+            </field>
+          </object>
+        </object-param>
+        <object-param>
+          <name>nightVision</name>
+          <description>Deployment Descriptor</description>
+          <object type="org.exoplatform.services.deployment.plugins.LinkDeploymentDescriptor">
+            <field name="sourcePath">
+              <string>repository:collaboration:/sites/{portalName}/web contents/Powers/Night</string>
+            </field>
+            <field name="targetPath">
+              <string>repository:collaboration:/sites/{portalName}/categories/{portalName}/Defense/Vision</string>
+            </field>
+          </object>
+        </object-param>
+        <object-param>
+          <name>fireAcme</name>
+          <description>Deployment Descriptor</description>
+          <object type="org.exoplatform.services.deployment.plugins.LinkDeploymentDescriptor">
+            <field name="sourcePath">
+              <string>repository:collaboration:/sites/{portalName}/web contents/Powers/Fire</string>
+            </field>
+            <field name="targetPath">
+              <string>repository:collaboration:/sites/{portalName}/categories/{portalName}</string>
+            </field>
+          </object>
+        </object-param>
+        <object-param>
+          <name>fireNaturalElements</name>
+          <description>Deployment Descriptor</description>
+          <object type="org.exoplatform.services.deployment.plugins.LinkDeploymentDescriptor">
+            <field name="sourcePath">
+              <string>repository:collaboration:/sites/{portalName}/web contents/Powers/Fire</string>
+            </field>
+            <field name="targetPath">
+              <string>repository:collaboration:/sites/{portalName}/categories/{portalName}/Natural Elements</string>
+            </field>
+          </object>
+        </object-param>
+        <object-param>
+          <name>iceAcme</name>
+          <description>Deployment Descriptor</description>
+          <object type="org.exoplatform.services.deployment.plugins.LinkDeploymentDescriptor">
+            <field name="sourcePath">
+              <string>repository:collaboration:/sites/{portalName}/web contents/Powers/Ice</string>
+            </field>
+            <field name="targetPath">
+              <string>repository:collaboration:/sites/{portalName}/categories/{portalName}</string>
+            </field>
+          </object>
+        </object-param>
+        <object-param>
+          <name>iceNaturalElements</name>
+          <description>Deployment Descriptor</description>
+          <object type="org.exoplatform.services.deployment.plugins.LinkDeploymentDescriptor">
+            <field name="sourcePath">
+              <string>repository:collaboration:/sites/{portalName}/web contents/Powers/Ice</string>
+            </field>
+            <field name="targetPath">
+              <string>repository:collaboration:/sites/{portalName}/categories/{portalName}/Natural Elements</string>
+            </field>
+          </object>
+        </object-param>
+        <object-param>
+          <name>windNaturalElements</name>
+          <description>Deployment Descriptor</description>
+          <object type="org.exoplatform.services.deployment.plugins.LinkDeploymentDescriptor">
+            <field name="sourcePath">
+              <string>repository:collaboration:/sites/{portalName}/web contents/Powers/Wind</string>
+            </field>
+            <field name="targetPath">
+              <string>repository:collaboration:/sites/{portalName}/categories/{portalName}/Natural Elements</string>
+            </field>
+          </object>
+        </object-param>
+        <object-param>
+          <name>speedMovement</name>
+          <description>Deployment Descriptor</description>
+          <object type="org.exoplatform.services.deployment.plugins.LinkDeploymentDescriptor">
+            <field name="sourcePath">
+              <string>repository:collaboration:/sites/{portalName}/web contents/Powers/Speed</string>
+            </field>
+            <field name="targetPath">
+              <string>repository:collaboration:/sites/{portalName}/categories/{portalName}/Movement</string>
+            </field>
+          </object>
+        </object-param>
+        <object-param>
+          <name>flightAcme</name>
+          <description>Deployment Descriptor</description>
+          <object type="org.exoplatform.services.deployment.plugins.LinkDeploymentDescriptor">
+            <field name="sourcePath">
+              <string>repository:collaboration:/sites/{portalName}/web contents/Powers/Flight</string>
+            </field>
+            <field name="targetPath">
+              <string>repository:collaboration:/sites/{portalName}/categories/{portalName}</string>
+            </field>
+          </object>
+        </object-param>
+        <object-param>
+          <name>flightMovement</name>
+          <description>Deployment Descriptor</description>
+          <object type="org.exoplatform.services.deployment.plugins.LinkDeploymentDescriptor">
+            <field name="sourcePath">
+              <string>repository:collaboration:/sites/{portalName}/web contents/Powers/Flight</string>
+            </field>
+            <field name="targetPath">
+              <string>repository:collaboration:/sites/{portalName}/categories/{portalName}/Movement</string>
+            </field>
+          </object>
+        </object-param>
+        <object-param>
+          <name>timeTravelMovement</name>
+          <description>Deployment Descriptor</description>
+          <object type="org.exoplatform.services.deployment.plugins.LinkDeploymentDescriptor">
+            <field name="sourcePath">
+              <string>repository:collaboration:/sites/{portalName}/web contents/Powers/Time Travel</string>
+            </field>
+            <field name="targetPath">
+              <string>repository:collaboration:/sites/{portalName}/categories/{portalName}/Movement</string>
+            </field>
+          </object>
+        </object-param>
+
+      </init-params>
+    </component-plugin>
+    
       <component-plugin>
         <name>template-acme-publication</name>
         <set-method>addPlugin</set-method>
