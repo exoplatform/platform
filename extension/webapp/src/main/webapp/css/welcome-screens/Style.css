@@ -65,6 +65,7 @@ a {
     height: 28px;
     padding: 0 6px;
     outline: none;
+    font-size: 13px;
 }
 .uiWelcomeBox input::-webkit-input-placeholder {
    color: #999999;
