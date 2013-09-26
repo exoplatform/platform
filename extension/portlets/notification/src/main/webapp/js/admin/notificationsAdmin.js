@@ -59,13 +59,13 @@
           success : function(res) {
             if (res.status == "OK") {
               var msgOk = NotificationAdmin.msg.OK;
-              msgOk = msgOk.replace('{0}', res.name).replace('{1}', res.email).replace('<', '&lt;');
-              NotificationAdmin.showPopupMessage('notificationAdmin', true, NotificationAdmin.label.Information, msgOk, NotificationAdmin.label.Close);
+              msgOk = msgOk.replace('{0}', res.name).replace('{1}', res.email);
+              NotificationAdmin.showMessage('confirmMessageOK', msgOk);
             }
           }
         }).fail(function(jqXHR, textStatus) {
           var msgKO = NotificationAdmin.msg.NOK;
-          NotificationAdmin.showPopupMessage('notificationAdmin', false, NotificationAdmin.label.Error, msgKO, NotificationAdmin.label.Close);
+          NotificationAdmin.showMessage('confirmMessageNOK', msgKO);
         });
       },
       
@@ -81,7 +81,15 @@
         var uiAction = popup.find('.uiAction');
         uiAction.append(sUtils.PopupConfirmation.addAction(null, closeLabel));
         sUtils.PopupConfirmation.show(popup);
-      }
+      },
+      
+      showMessage : function(id, message) {
+        var location = document.getElementById(id);
+        location.innerText = message;        
+        location.style.display="block";
+        setTimeout(function() { $(location).fadeOut('slow'); }, 5000);
+      },
+      
   };
 
   NotificationAdmin.init();

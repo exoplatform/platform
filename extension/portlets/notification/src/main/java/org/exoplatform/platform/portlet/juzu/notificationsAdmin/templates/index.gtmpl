@@ -4,6 +4,10 @@
 #{param name=groups/}
 <div id="notificationAdmin" class="uiNotificationAdmin">
 <h4 class="titleWithBorder">${_ctx.appRes("NotificationAdmin.title")}</h4>
+<div id="confirmMessageOK" class="confirmMessageOK" style="display:none">
+</div>
+<div id="confirmMessageNOK" class="confirmMessageNOK" style="display:none">
+</div>
 <form id="senderForm">
 <h6>${_ctx.appRes("NotificationAdmin.label.notificationsSender")}</h6>
   <div class="UIPopupWindow UIDragObject uiPopup UISocialConfirmation" style="width: 550px; display: none;">
