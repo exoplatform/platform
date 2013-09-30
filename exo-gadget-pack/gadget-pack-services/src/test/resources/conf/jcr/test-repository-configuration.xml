@@ -67,8 +67,7 @@
           <query-handler
             class="org.exoplatform.services.jcr.impl.core.query.lucene.SearchIndex">
             <properties>
-              <property name="index-dir"
-                value="target/${gatein.test.tmp.dir}/jcr/jcrlucenedb/system" />
+              <property name="index-dir" value="${gatein.test.tmp.dir}/jcr/jcrlucenedb/system" />
             </properties>
           </query-handler>
           <lock-manager
@@ -125,8 +124,7 @@
           <query-handler
             class="org.exoplatform.services.jcr.impl.core.query.lucene.SearchIndex">
             <properties>
-              <property name="index-dir"
-                value="target/${gatein.test.tmp.dir}/jcr/jcrlucenedb/collaboration" />
+              <property name="index-dir" value="${gatein.test.tmp.dir}/jcr/jcrlucenedb/collaboration" />
             </properties>
           </query-handler>
           <lock-manager
@@ -185,8 +183,7 @@
           <query-handler
             class="org.exoplatform.services.jcr.impl.core.query.lucene.SearchIndex">
             <properties>
-              <property name="index-dir"
-                value="target/${gatein.test.tmp.dir}/jcr/jcrlucenedb/portal-system" />
+              <property name="index-dir" value="${gatein.test.tmp.dir}/jcr/jcrlucenedb/portal-system" />
             </properties>
           </query-handler>
           <lock-manager
