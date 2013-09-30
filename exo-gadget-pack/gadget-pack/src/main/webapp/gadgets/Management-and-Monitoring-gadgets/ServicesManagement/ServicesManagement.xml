@@ -47,6 +47,7 @@
       <Locale lang="it" messages="locale/it.xml"/>
       <Locale lang="ru" messages="locale/ru.xml"/>
       <Locale lang="tr" messages="locale/tr.xml"/>
+      <Locale lang="zh_CN" messages="locale/zh_CN.xml"/>
       <Require feature="dynamic-height"/>
       <Require feature="minimessage"/>
       <Require feature="views"/>
