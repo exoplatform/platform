@@ -2,13 +2,13 @@
 <bundle>
 <UIBreadCrumbsNavigationPortlet>
     <label>
-        <ChangePicture>Change Avatar</ChangePicture>
+        <ChangePicture>Avatarı Değiştir</ChangePicture>
     </label>
 </UIBreadCrumbsNavigationPortlet>
  <UIBreadCrumbPopupAvatarUploader>
       <title>
-         <UIAvatarUploader>Upload an Avatar</UIAvatarUploader>
-         <UIAvatarUploadContent>Avatar Preview</UIAvatarUploadContent>
+         <UIAvatarUploader>Bir Avatar Yükle</UIAvatarUploader>
+         <UIAvatarUploadContent>Avatar Önizle</UIAvatarUploadContent>
       </title>
  </UIBreadCrumbPopupAvatarUploader>
 </bundle>

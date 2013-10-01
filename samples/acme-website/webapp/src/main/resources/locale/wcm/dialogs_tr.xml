@@ -23,12 +23,12 @@
 <Product>
 <dialog>
 <label>
-<name>Name</name>
-<title>Title</title>
-<illustrationImage>Illustration Image</illustrationImage>
-<summary>Summary</summary>
-<benefits>Benefits</benefits>
-<features>Features</features>
+<name>Ad</name>
+<title>Başlık</title>
+<illustrationImage>Görüntü illüstrasyon</illustrationImage>
+<summary>Özet</summary>
+<benefits>Faydaları</benefits>
+<features>Özellikler</features>
 </label>
 </dialog>
 </Product>
