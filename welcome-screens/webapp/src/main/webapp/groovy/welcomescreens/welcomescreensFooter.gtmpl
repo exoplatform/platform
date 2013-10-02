@@ -82,10 +82,12 @@
 	}
 	
 	.footerWLC.backOutdated{
-	    background-color: rgba(212, 0, 0, 0.4);
+	    background: rgba(212, 0, 0, 0.4);
+		filter: progid:DXImageTransform.Microsoft.gradient(GradientType=1,startColorstr='#66d40000', endColorstr='#66d40000');
 	}
 	.footerWLC.backNotOutdated{
-	    background-color: rgba(0, 0, 0, 0.4);
+	    background: rgba(0, 0, 0, 0.4);
+		filter: progid:DXImageTransform.Microsoft.gradient(GradientType=1,startColorstr='#66d40000', endColorstr='#66d40000');
 	}
 	
 	.footerWLC > form {
