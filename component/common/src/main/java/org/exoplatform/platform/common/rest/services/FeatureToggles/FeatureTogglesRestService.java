@@ -41,14 +41,14 @@ public class FeatureTogglesRestService implements ResourceContainer {
   private static Log LOG = ExoLogger.getLogger(FeatureTogglesRestService.class);
   
   /**
-   * Allow a super user switch on or off a feature and only a super user can do this action
+   * Allows superusers to switch on or off a feature, then redirects them to the portal homepage.
    * 
-   * @param featureName name of the feature
-   * @param active must be "yes" or "no" to switch on or off the feature
+   * @param featureName Name of the feature.
+   * @param active Its value must be "yes" or "no" that switches on or off the feature respectively.
    * @authentication
    * @request
    * GET: http://localhost:8080/rest/homepage/intranet/features?name=notification&active=no
-   * @return redirect to the homepage
+   * @return Redirects to the portal homepage.
    * @throws Exception
    */
   @GET
