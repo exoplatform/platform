@@ -75,7 +75,7 @@
   </UISEOToolbarForm>  
   <FloatNumberValidator>
     <msg>
-      <Invalid-number>Das "Priorität" Feld ist eine ungültige Fliesskommazahl. Gültige Werte reichen von 0.0 bis 1.0.</Invalid-number>
+      <Invalid-number>Das Feld "Priorität" enthält einen ungültigen Wert. Bitte geben Sie eine Zahl zwischen 0,0 und 1,0 ein.</Invalid-number>
     </msg>
   </FloatNumberValidator>
   
