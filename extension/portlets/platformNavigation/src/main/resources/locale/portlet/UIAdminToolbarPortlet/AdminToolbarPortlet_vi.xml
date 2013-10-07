@@ -75,7 +75,7 @@
   </UISEOToolbarForm>  
   <FloatNumberValidator>
     <msg>
-      <Invalid-number>Trường ưu tiên là một số không hợp lệ. Giá trị hợp lệ khoảng từ 0.0 đến 1.0.</Invalid-number>
+      <Invalid-number>Trường ưu tiên có giá trị không hợp lệ. Hãy nhập một số trong khoảng từ 0.0 đến 1.0.</Invalid-number>
     </msg>
   </FloatNumberValidator>
   

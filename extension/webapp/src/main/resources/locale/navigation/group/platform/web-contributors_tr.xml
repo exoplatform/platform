@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <bundle>
   <administration>
-    <siteExplorer>Content Explorer</siteExplorer>
-    <wcmAdmin>Content Administration</wcmAdmin>
+    <siteExplorer>İçerik Gezgini</siteExplorer>
+    <wcmAdmin>İçerik Yönetimi</wcmAdmin>
   </administration>
 </bundle>

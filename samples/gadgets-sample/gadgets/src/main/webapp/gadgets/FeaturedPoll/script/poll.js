@@ -168,11 +168,11 @@ function showResult(data) {
 	if (featPoll.offsetWidth < 400) {
 		var childs = featPoll.getElementsByTagName('td');
 		if (childs) {
-			childs[0].style.width = 70;
+			childs[0].style.width = 105;
 			var labelVote = featPoll.getElementsByClassName('label-vote');
 			if (labelVote) {
 				for (var pos = 0; pos < labelVote.length; pos++) {
-					labelVote[pos].style.width = 65;
+					labelVote[pos].style.width = 100;
 				}
 			}
 		}
