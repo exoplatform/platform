@@ -258,7 +258,7 @@ li {
 }
 
 .ProDetailPage .Box1 .Icon {
-	background: url('/eXoDMSResources/skin/DefaultSkin/skinIcons/16x16/icons/NodeTypes/pdf.gif') no-repeat left top;
+	background: url('/eXoWCMResources/skin/DefaultSkin/skinIcons/16x16/icons/NodeTypes/pdf.gif') no-repeat left top;
 	color: #595959;
     float: left;
     font-size: 13px!important;
@@ -341,7 +341,7 @@ li {
 }
 
 .ProDetailPage ul.ContList li {
-	list-style-image: url('background/ListIcon.png');
+	list-style-image: url('/acme-websiteResources/skin/acmeSkin/ProductStyle/background/ListIcon.png');
 	list-style-type: square;
 	line-height: 16px;
 	padding: 5px 0;
