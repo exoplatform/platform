@@ -87,6 +87,21 @@
             </field>
           </object>
         </object-param>
+        <object-param>
+          <name>empty.paginator</name>
+          <description>Empty paginator groovy template</description>
+          <object type="org.exoplatform.services.cms.views.PortletTemplatePlugin$PortletTemplateConfig">
+            <field name="title">
+             <string>No Pagination</string>
+            </field>
+            <field name="templateName">
+              <string>EmptyPaginator.gtmpl</string>
+            </field>
+            <field name="category">
+              <string>paginators</string>
+            </field>
+          </object>
+        </object-param>
       </init-params>
     </component-plugin>
   </external-component-plugins>
