@@ -43,18 +43,22 @@
       </init-params>
     </component-plugin>
   </external-component-plugins>
+  
+  
+  
+  
   <external-component-plugins>
     <target-component>org.exoplatform.services.deployment.WCMContentInitializerService</target-component>
     <component-plugin>
       <name>Content Initializer Service</name>
       <set-method>addPlugin</set-method>
-      <type>org.exoplatform.services.deployment.plugins.XMLDeploymentPlugin</type>
-      <description>XML Deployment Plugin</description>
+      <type>org.exoplatform.services.wcm.extensions.deployment.WCMPublicationDeploymentPlugin</type>
+      <description>WCM Plublication Deployment Plugin</description>
       <init-params>
         <object-param>
           <name>ACME French translations directory</name>
           <description>Deployment Descriptor</description>
-          <object type="org.exoplatform.services.deployment.DeploymentDescriptor">
+          <object type="org.exoplatform.services.wcm.extensions.deployment.WCMPublicationDeploymentDescriptor">
             <field name="target">
               <object type="org.exoplatform.services.deployment.DeploymentDescriptor$Target">
                 <field name="workspace">
@@ -68,15 +72,15 @@
             <field name="sourcePath">
               <string>war:/conf/acme-portal/wcm/artifacts/site-resources/acme/FrenchTranslations.xml</string>
             </field>
-            <field name="cleanupPublication">
-              <boolean>true</boolean>
+            <field name="cleanupPublicationType">
+              <string>publish-first-publication</string>
             </field>
           </object>
         </object-param>
         <object-param>
           <name>ACME Logo data</name>
           <description>Deployment Descriptor</description>
-          <object type="org.exoplatform.services.deployment.DeploymentDescriptor">
+          <object type="org.exoplatform.services.wcm.extensions.deployment.WCMPublicationDeploymentDescriptor">
             <field name="target">
               <object type="org.exoplatform.services.deployment.DeploymentDescriptor$Target">
                 <field name="workspace">
@@ -90,15 +94,15 @@
             <field name="sourcePath">
               <string>war:/conf/acme-portal/wcm/artifacts/site-resources/acme/Logo.xml</string>
             </field>
-            <field name="cleanupPublication">
-              <boolean>true</boolean>
+            <field name="cleanupPublicationType">
+              <string>publish-first-publication</string>
             </field>
           </object>
         </object-param>
         <object-param>
           <name>ACME Users data</name>
           <description>Deployment Descriptor</description>
-          <object type="org.exoplatform.services.deployment.DeploymentDescriptor">
+          <object type="org.exoplatform.services.wcm.extensions.deployment.WCMPublicationDeploymentDescriptor">
             <field name="target">
               <object type="org.exoplatform.services.deployment.DeploymentDescriptor$Target">
                 <field name="workspace">
@@ -112,15 +116,15 @@
             <field name="sourcePath">
               <string>war:/conf/acme-portal/wcm/artifacts/site-resources/acme/Users.xml</string>
             </field>
-            <field name="cleanupPublication">
-              <boolean>true</boolean>
-            </field>             
+			<field name="cleanupPublicationType">
+              <string>publish-first-publication</string>
+            </field>            
           </object>
         </object-param>
         <object-param>
           <name>Acme LoginLink Register</name>
           <description>Deployment Descriptor</description>
-          <object type="org.exoplatform.services.deployment.DeploymentDescriptor">
+          <object type="org.exoplatform.services.wcm.extensions.deployment.WCMPublicationDeploymentDescriptor">
             <field name="target">
               <object type="org.exoplatform.services.deployment.DeploymentDescriptor$Target">
                 <field name="workspace">
@@ -134,15 +138,15 @@
             <field name="sourcePath">
               <string>war:/conf/acme-portal/wcm/artifacts/site-resources/acme/LinkHome.xml</string>
             </field>
-            <field name="cleanupPublication">
-              <boolean>true</boolean>
+            <field name="cleanupPublicationType">
+              <string>publish-first-publication</string>
             </field>
           </object>
         </object-param>
         <!--object-param>
           <name>ACME Signin data</name>
           <description>Deployment Descriptor</description>
-          <object type="org.exoplatform.services.deployment.DeploymentDescriptor">
+          <object type="org.exoplatform.services.wcm.extensions.deployment.WCMPublicationDeploymentDescriptor">
             <field name="target">
               <object type="org.exoplatform.services.deployment.DeploymentDescriptor$Target">
                 <field name="workspace">
@@ -156,15 +160,15 @@
             <field name="sourcePath">
               <string>war:/conf/acme-portal/wcm/artifacts/site-resources/acme/Signin.xml</string>
             </field>
-            <field name="cleanupPublication">
-              <boolean>true</boolean>
+            <field name="cleanupPublicationType">
+              <string>publish-first-publication</string>
             </field>               
           </object>
         </object-param-->
         <object-param>
           <name>ACME Signin_en data</name>
           <description>Deployment Descriptor</description>
-          <object type="org.exoplatform.services.deployment.DeploymentDescriptor">
+          <object type="org.exoplatform.services.wcm.extensions.deployment.WCMPublicationDeploymentDescriptor">
             <field name="target">
               <object type="org.exoplatform.services.deployment.DeploymentDescriptor$Target">
                 <field name="workspace">
@@ -178,15 +182,15 @@
             <field name="sourcePath">
               <string>war:/conf/acme-portal/wcm/artifacts/site-resources/acme/Signin_en.xml</string>
             </field>
-            <field name="cleanupPublication">
-              <boolean>true</boolean>
+            <field name="cleanupPublicationType">
+              <string>publish-first-publication</string>
             </field>
           </object>
         </object-param>
         <!--object-param>
 			<name>ACME Signin_fr data</name>
             <description>Deployment Descriptor</description>
-            <object type="org.exoplatform.services.deployment.DeploymentDescriptor">
+            <object type="org.exoplatform.services.wcm.extensions.deployment.WCMPublicationDeploymentDescriptor">
 				<field name="target">
 					<object type="org.exoplatform.services.deployment.DeploymentDescriptor$Target">
 						<field name="workspace">
@@ -200,15 +204,15 @@
 				<field name="sourcePath">
 					<string>war:/conf/acme-portal/wcm/artifacts/site-resources/acme/Signin_fr.xml</string>
 				</field>
-                <field name="cleanupPublication">
-					<boolean>true</boolean>
-				</field>
+				<field name="cleanupPublicationType">
+	              <string>publish-first-publication</string>
+	            </field>
 			</object>
 		</object-param-->
         <object-param>
           <name>ACME Searchbox data</name>
           <description>Deployment Descriptor</description>
-          <object type="org.exoplatform.services.deployment.DeploymentDescriptor">
+          <object type="org.exoplatform.services.wcm.extensions.deployment.WCMPublicationDeploymentDescriptor">
             <field name="target">
               <object type="org.exoplatform.services.deployment.DeploymentDescriptor$Target">
                 <field name="workspace">
@@ -222,15 +226,15 @@
             <field name="sourcePath">
               <string>war:/conf/acme-portal/wcm/artifacts/site-resources/acme/Searchbox.xml</string>
             </field>
-            <field name="cleanupPublication">
-              <boolean>true</boolean>
-            </field>             
+            <field name="cleanupPublicationType">
+              <string>publish-first-publication</string>
+            </field>            
           </object>
         </object-param>
         <object-param>
           <name>ACME Navigation data</name>
           <description>Deployment Descriptor</description>
-          <object type="org.exoplatform.services.deployment.DeploymentDescriptor">
+          <object type="org.exoplatform.services.wcm.extensions.deployment.WCMPublicationDeploymentDescriptor">
             <field name="target">
               <object type="org.exoplatform.services.deployment.DeploymentDescriptor$Target">
                 <field name="workspace">
@@ -244,15 +248,15 @@
             <field name="sourcePath">
               <string>war:/conf/acme-portal/wcm/artifacts/site-resources/acme/Navigation.xml</string>
             </field>
-            <field name="cleanupPublication">
-              <boolean>true</boolean>
+            <field name="cleanupPublicationType">
+              <string>publish-first-publication</string>
             </field>               
           </object>
         </object-param>
         <object-param>
           <name>ACME Social Bookmarking data</name>
           <description>Deployment Descriptor</description>
-          <object type="org.exoplatform.services.deployment.DeploymentDescriptor">
+          <object type="org.exoplatform.services.wcm.extensions.deployment.WCMPublicationDeploymentDescriptor">
             <field name="target">
               <object type="org.exoplatform.services.deployment.DeploymentDescriptor$Target">
                 <field name="workspace">
@@ -266,15 +270,15 @@
             <field name="sourcePath">
               <string>war:/conf/acme-portal/wcm/artifacts/site-resources/acme/SocialBookmarking.xml</string>
             </field>
-            <field name="cleanupPublication">
-              <boolean>true</boolean>
+            <field name="cleanupPublicationType">
+              <string>publish-first-publication</string>
             </field>               
           </object>
         </object-param>
         <object-param>
           <name>ACME Footer data</name>
           <description>Deployment Descriptor</description>
-          <object type="org.exoplatform.services.deployment.DeploymentDescriptor">
+          <object type="org.exoplatform.services.wcm.extensions.deployment.WCMPublicationDeploymentDescriptor">
             <field name="target">
               <object type="org.exoplatform.services.deployment.DeploymentDescriptor$Target">
                 <field name="workspace">
@@ -288,15 +292,15 @@
             <field name="sourcePath">
               <string>war:/conf/acme-portal/wcm/artifacts/site-resources/acme/Footer.xml</string>
             </field>
-            <field name="cleanupPublication">
-              <boolean>true</boolean>
-            </field>               
+            <field name="cleanupPublicationType">
+              <string>publish-first-publication</string>
+            </field>              
           </object>
         </object-param>
         <object-param>
           <name>ACME Introduce data</name>
           <description>Deployment Descriptor</description>
-          <object type="org.exoplatform.services.deployment.DeploymentDescriptor">
+          <object type="org.exoplatform.services.wcm.extensions.deployment.WCMPublicationDeploymentDescriptor">
             <field name="target">
               <object type="org.exoplatform.services.deployment.DeploymentDescriptor$Target">
                 <field name="workspace">
@@ -310,15 +314,15 @@
             <field name="sourcePath">
               <string>war:/conf/acme-portal/wcm/artifacts/site-resources/acme/Introduce.xml</string>
             </field>
-            <field name="cleanupPublication">
-              <boolean>true</boolean>
-            </field>            
+			<field name="cleanupPublicationType">
+              <string>publish-first-publication</string>
+            </field>           
           </object>
         </object-param>
         <object-param>
           <name>ACME Stylesheet Green data</name>
           <description>Deployment Descriptor</description>
-          <object type="org.exoplatform.services.deployment.DeploymentDescriptor">
+          <object type="org.exoplatform.services.wcm.extensions.deployment.WCMPublicationDeploymentDescriptor">
             <field name="target">
               <object type="org.exoplatform.services.deployment.DeploymentDescriptor$Target">
                 <field name="workspace">
@@ -332,15 +336,15 @@
             <field name="sourcePath">
               <string>war:/conf/acme-portal/wcm/artifacts/site-resources/acme/StylesheetGreen.xml</string>
             </field>
-            <field name="cleanupPublication">
-              <boolean>true</boolean>
+            <field name="cleanupPublicationType">
+              <string>publish-first-publication</string>
             </field>              
           </object>
         </object-param>
         <object-param>
           <name>ACME Stylesheet Blue data</name>
           <description>Deployment Descriptor</description>
-          <object type="org.exoplatform.services.deployment.DeploymentDescriptor">
+          <object type="org.exoplatform.services.wcm.extensions.deployment.WCMPublicationDeploymentDescriptor">
             <field name="target">
               <object type="org.exoplatform.services.deployment.DeploymentDescriptor$Target">
                 <field name="workspace">
@@ -354,8 +358,8 @@
             <field name="sourcePath">
               <string>war:/conf/acme-portal/wcm/artifacts/site-resources/acme/StylesheetBlue.xml</string>
             </field>
-            <field name="cleanupPublication">
-              <boolean>true</boolean>
+            <field name="cleanupPublicationType">
+              <string>publish-first-publication</string>
             </field>            
           </object>
         </object-param>
@@ -363,7 +367,7 @@
 		<object-param>
           <name>ACME jquery.js data</name>
           <description>Deployment Descriptor</description>
-          <object type="org.exoplatform.services.deployment.DeploymentDescriptor">
+          <object type="org.exoplatform.services.wcm.extensions.deployment.WCMPublicationDeploymentDescriptor">
             <field name="target">
               <object type="org.exoplatform.services.deployment.DeploymentDescriptor$Target">
                 <field name="workspace">
@@ -377,8 +381,8 @@
             <field name="sourcePath">
               <string>war:/conf/acme-portal/wcm/artifacts/site-resources/acme/jquery-js.xml</string>
             </field>
-            <field name="cleanupPublication">
-              <boolean>true</boolean>
+            <field name="cleanupPublicationType">
+              <string>publish-first-publication</string>
             </field>              
           </object>
         </object-param>
@@ -387,7 +391,7 @@
         <object-param>
           <name>ACME jcarousellite.js data</name>
           <description>Deployment Descriptor</description>
-          <object type="org.exoplatform.services.deployment.DeploymentDescriptor">
+          <object type="org.exoplatform.services.wcm.extensions.deployment.WCMPublicationDeploymentDescriptor">
             <field name="target">
               <object type="org.exoplatform.services.deployment.DeploymentDescriptor$Target">
                 <field name="workspace">
@@ -401,8 +405,8 @@
             <field name="sourcePath">
               <string>war:/conf/acme-portal/wcm/artifacts/site-resources/acme/jcarousellite-js.xml</string>
             </field>
-            <field name="cleanupPublication">
-              <boolean>true</boolean>
+            <field name="cleanupPublicationType">
+              <string>publish-first-publication</string>
             </field>            
           </object>
         </object-param>
@@ -410,7 +414,7 @@
         <object-param>
           <name>ACME JcarouselliteImages data</name>
           <description>Deployment Descriptor</description>
-          <object type="org.exoplatform.services.deployment.DeploymentDescriptor">
+          <object type="org.exoplatform.services.wcm.extensions.deployment.WCMPublicationDeploymentDescriptor">
             <field name="target">
               <object type="org.exoplatform.services.deployment.DeploymentDescriptor$Target">
                 <field name="workspace">
@@ -424,15 +428,15 @@
             <field name="sourcePath">
               <string>war:/conf/acme-portal/wcm/artifacts/site-resources/acme/JcarouselliteImages.xml</string>
             </field>
-            <field name="cleanupPublication">
-              <boolean>true</boolean>
+            <field name="cleanupPublicationType">
+              <string>publish-first-publication</string>
             </field>              
           </object>
         </object-param>
         <object-param>
           <name>ACME Images data</name>
           <description>Deployment Descriptor</description>
-          <object type="org.exoplatform.services.deployment.DeploymentDescriptor">
+          <object type="org.exoplatform.services.wcm.extensions.deployment.WCMPublicationDeploymentDescriptor">
             <field name="target">
               <object type="org.exoplatform.services.deployment.DeploymentDescriptor$Target">
                 <field name="workspace">
@@ -446,15 +450,15 @@
             <field name="sourcePath">
               <string>war:/conf/acme-portal/wcm/artifacts/site-resources/acme/Images.xml</string>
             </field>
-            <field name="cleanupPublication">
-              <boolean>true</boolean>
+            <field name="cleanupPublicationType">
+              <string>publish-first-publication</string>
             </field>              
           </object>
         </object-param>
         <object-param>
           <name>ACME Flags data</name>
           <description>Deployment Descriptor</description>
-          <object type="org.exoplatform.services.deployment.DeploymentDescriptor">
+          <object type="org.exoplatform.services.wcm.extensions.deployment.WCMPublicationDeploymentDescriptor">
             <field name="target">
               <object type="org.exoplatform.services.deployment.DeploymentDescriptor$Target">
                 <field name="workspace">
@@ -468,15 +472,15 @@
             <field name="sourcePath">
               <string>war:/conf/acme-portal/wcm/artifacts/site-resources/acme/Flags.xml</string>
             </field>
-            <field name="cleanupPublication">
-              <boolean>true</boolean>
+            <field name="cleanupPublicationType">
+              <string>publish-first-publication</string>
             </field>              
           </object>
         </object-param>
         <object-param>
           <name>ACME News data</name>
           <description>Deployment Descriptor</description>
-          <object type="org.exoplatform.services.deployment.DeploymentDescriptor">
+          <object type="org.exoplatform.services.wcm.extensions.deployment.WCMPublicationDeploymentDescriptor">
             <field name="target">
               <object type="org.exoplatform.services.deployment.DeploymentDescriptor$Target">
                 <field name="workspace">
@@ -490,15 +494,15 @@
             <field name="sourcePath">
               <string>war:/conf/acme-portal/wcm/artifacts/site-resources/acme/News.xml</string>
             </field>
-            <field name="cleanupPublication">
-              <boolean>true</boolean>
+            <field name="cleanupPublicationType">
+              <string>publish-first-publication</string>
             </field>             
           </object>
         </object-param>
         <object-param>
           <name>ACME Events data</name>
           <description>Deployment Descriptor</description>
-          <object type="org.exoplatform.services.deployment.DeploymentDescriptor">
+          <object type="org.exoplatform.services.wcm.extensions.deployment.WCMPublicationDeploymentDescriptor">
             <field name="target">
               <object type="org.exoplatform.services.deployment.DeploymentDescriptor$Target">
                 <field name="workspace">
@@ -512,16 +516,16 @@
             <field name="sourcePath">
               <string>war:/conf/acme-portal/wcm/artifacts/site-resources/acme/Events.xml</string>
             </field>
-            <field name="cleanupPublication">
-              <boolean>true</boolean>
-            </field>             
+            <field name="cleanupPublicationType">
+              <string>publish-first-publication</string>
+            </field>            
           </object>
         </object-param>
        
         <object-param>
           <name>ACME Powers Fire data</name>
           <description>Deployment Descriptor</description>
-          <object type="org.exoplatform.services.deployment.DeploymentDescriptor">
+          <object type="org.exoplatform.services.wcm.extensions.deployment.WCMPublicationDeploymentDescriptor">
             <field name="target">
               <object type="org.exoplatform.services.deployment.DeploymentDescriptor$Target">
                 <field name="workspace">
@@ -535,15 +539,15 @@
             <field name="sourcePath">
               <string>war:/conf/acme-portal/wcm/artifacts/site-resources/acme/Powers/Fire.xml</string>
             </field>
-            <field name="cleanupPublication">
-              <boolean>true</boolean>
+            <field name="cleanupPublicationType">
+              <string>publish-first-publication</string>
             </field>             
           </object>
         </object-param>
         <object-param>
           <name>ACME Powers Flight data</name>
           <description>Deployment Descriptor</description>
-          <object type="org.exoplatform.services.deployment.DeploymentDescriptor">
+          <object type="org.exoplatform.services.wcm.extensions.deployment.WCMPublicationDeploymentDescriptor">
             <field name="target">
               <object type="org.exoplatform.services.deployment.DeploymentDescriptor$Target">
                 <field name="workspace">
@@ -557,15 +561,15 @@
             <field name="sourcePath">
               <string>war:/conf/acme-portal/wcm/artifacts/site-resources/acme/Powers/Flight.xml</string>
             </field>
-            <field name="cleanupPublication">
-              <boolean>true</boolean>
+            <field name="cleanupPublicationType">
+              <string>publish-first-publication</string>
             </field>             
           </object>
         </object-param>
         <object-param>
           <name>ACME Powers Healing data</name>
           <description>Deployment Descriptor</description>
-          <object type="org.exoplatform.services.deployment.DeploymentDescriptor">
+          <object type="org.exoplatform.services.wcm.extensions.deployment.WCMPublicationDeploymentDescriptor">
             <field name="target">
               <object type="org.exoplatform.services.deployment.DeploymentDescriptor$Target">
                 <field name="workspace">
@@ -579,15 +583,15 @@
             <field name="sourcePath">
               <string>war:/conf/acme-portal/wcm/artifacts/site-resources/acme/Powers/Healing.xml</string>
             </field>
-            <field name="cleanupPublication">
-              <boolean>true</boolean>
+            <field name="cleanupPublicationType">
+              <string>publish-first-publication</string>
             </field>             
           </object>
         </object-param>
         <object-param>
           <name>ACME Powers Ice data</name>
           <description>Deployment Descriptor</description>
-          <object type="org.exoplatform.services.deployment.DeploymentDescriptor">
+          <object type="org.exoplatform.services.wcm.extensions.deployment.WCMPublicationDeploymentDescriptor">
             <field name="target">
               <object type="org.exoplatform.services.deployment.DeploymentDescriptor$Target">
                 <field name="workspace">
@@ -601,15 +605,15 @@
             <field name="sourcePath">
               <string>war:/conf/acme-portal/wcm/artifacts/site-resources/acme/Powers/Ice.xml</string>
             </field>
-            <field name="cleanupPublication">
-              <boolean>true</boolean>
+            <field name="cleanupPublicationType">
+              <string>publish-first-publication</string>
             </field>             
           </object>
         </object-param>
         <object-param>
           <name>ACME Powers Immunity data</name>
           <description>Deployment Descriptor</description>
-          <object type="org.exoplatform.services.deployment.DeploymentDescriptor">
+          <object type="org.exoplatform.services.wcm.extensions.deployment.WCMPublicationDeploymentDescriptor">
             <field name="target">
               <object type="org.exoplatform.services.deployment.DeploymentDescriptor$Target">
                 <field name="workspace">
@@ -623,15 +627,15 @@
             <field name="sourcePath">
               <string>war:/conf/acme-portal/wcm/artifacts/site-resources/acme/Powers/Immunity.xml</string>
             </field>
-            <field name="cleanupPublication">
-              <boolean>true</boolean>
+            <field name="cleanupPublicationType">
+              <string>publish-first-publication</string>
             </field>             
           </object>
         </object-param>
         <object-param>
           <name>ACME Powers Invisibility data</name>
           <description>Deployment Descriptor</description>
-          <object type="org.exoplatform.services.deployment.DeploymentDescriptor">
+          <object type="org.exoplatform.services.wcm.extensions.deployment.WCMPublicationDeploymentDescriptor">
             <field name="target">
               <object type="org.exoplatform.services.deployment.DeploymentDescriptor$Target">
                 <field name="workspace">
@@ -645,15 +649,15 @@
             <field name="sourcePath">
               <string>war:/conf/acme-portal/wcm/artifacts/site-resources/acme/Powers/Invisibility.xml</string>
             </field>
-            <field name="cleanupPublication">
-              <boolean>true</boolean>
+            <field name="cleanupPublicationType">
+              <string>publish-first-publication</string>
             </field>             
           </object>
         </object-param>
         <object-param>
           <name>ACME Powers Night Vision data</name>
           <description>Deployment Descriptor</description>
-          <object type="org.exoplatform.services.deployment.DeploymentDescriptor">
+          <object type="org.exoplatform.services.wcm.extensions.deployment.WCMPublicationDeploymentDescriptor">
             <field name="target">
               <object type="org.exoplatform.services.deployment.DeploymentDescriptor$Target">
                 <field name="workspace">
@@ -667,15 +671,15 @@
             <field name="sourcePath">
               <string>war:/conf/acme-portal/wcm/artifacts/site-resources/acme/Powers/Night Vision.xml</string>
             </field>
-            <field name="cleanupPublication">
-              <boolean>true</boolean>
+            <field name="cleanupPublicationType">
+              <string>publish-first-publication</string>
             </field>             
           </object>
         </object-param>
         <object-param>
           <name>ACME Powers Speed data</name>
           <description>Deployment Descriptor</description>
-          <object type="org.exoplatform.services.deployment.DeploymentDescriptor">
+          <object type="org.exoplatform.services.wcm.extensions.deployment.WCMPublicationDeploymentDescriptor">
             <field name="target">
               <object type="org.exoplatform.services.deployment.DeploymentDescriptor$Target">
                 <field name="workspace">
@@ -688,16 +692,13 @@
             </field>
             <field name="sourcePath">
               <string>war:/conf/acme-portal/wcm/artifacts/site-resources/acme/Powers/Speed.xml</string>
-            </field>
-            <field name="cleanupPublication">
-              <boolean>true</boolean>
-            </field>             
+            </field>            
           </object>
         </object-param>
         <object-param>
           <name>ACME Powers Time Travel data</name>
           <description>Deployment Descriptor</description>
-          <object type="org.exoplatform.services.deployment.DeploymentDescriptor">
+          <object type="org.exoplatform.services.wcm.extensions.deployment.WCMPublicationDeploymentDescriptor">
             <field name="target">
               <object type="org.exoplatform.services.deployment.DeploymentDescriptor$Target">
                 <field name="workspace">
@@ -711,15 +712,15 @@
             <field name="sourcePath">
               <string>war:/conf/acme-portal/wcm/artifacts/site-resources/acme/Powers/Time Travel.xml</string>
             </field>
-            <field name="cleanupPublication">
-              <boolean>true</boolean>
+            <field name="cleanupPublicationType">
+              <string>publish-first-publication</string>
             </field>             
           </object>
         </object-param>
         <object-param>
           <name>ACME Powers Wind data</name>
           <description>Deployment Descriptor</description>
-          <object type="org.exoplatform.services.deployment.DeploymentDescriptor">
+          <object type="org.exoplatform.services.wcm.extensions.deployment.WCMPublicationDeploymentDescriptor">
             <field name="target">
               <object type="org.exoplatform.services.deployment.DeploymentDescriptor$Target">
                 <field name="workspace">
@@ -733,15 +734,15 @@
             <field name="sourcePath">
               <string>war:/conf/acme-portal/wcm/artifacts/site-resources/acme/Powers/Wind.xml</string>
             </field>
-            <field name="cleanupPublication">
-              <boolean>true</boolean>
+            <field name="cleanupPublicationType">
+              <string>publish-first-publication</string>
             </field>             
           </object>
         </object-param>
         <object-param>
           <name>ACME Powers X-Ray data</name>
           <description>Deployment Descriptor</description>
-          <object type="org.exoplatform.services.deployment.DeploymentDescriptor">
+          <object type="org.exoplatform.services.wcm.extensions.deployment.WCMPublicationDeploymentDescriptor">
             <field name="target">
               <object type="org.exoplatform.services.deployment.DeploymentDescriptor$Target">
                 <field name="workspace">
@@ -755,15 +756,15 @@
             <field name="sourcePath">
               <string>war:/conf/acme-portal/wcm/artifacts/site-resources/acme/Powers/X-Ray.xml</string>
             </field>
-            <field name="cleanupPublication">
-              <boolean>true</boolean>
+            <field name="cleanupPublicationType">
+              <string>publish-first-publication</string>
             </field>             
           </object>
         </object-param>
         <object-param>        
           <name>ACME Contact US Intro data</name>
           <description>Deployment Descriptor</description>
-          <object type="org.exoplatform.services.deployment.DeploymentDescriptor">
+          <object type="org.exoplatform.services.wcm.extensions.deployment.WCMPublicationDeploymentDescriptor">
             <field  name="target">
               <object type="org.exoplatform.services.deployment.DeploymentDescriptor$Target">
                 <field  name="workspace">
@@ -776,16 +777,16 @@
             </field>
             <field  name="sourcePath">
               <string>war:/conf/acme-portal/wcm/artifacts/site-resources/acme/ContactUSIntro.xml</string>
-            </field>
-            <field name="cleanupPublication">
-              <boolean>true</boolean>
+            </field> 
+            <field name="cleanupPublicationType">
+              <string>publish-first-publication</string>
             </field>
           </object>
         </object-param>
         <object-param>        
           <name>ACME Contact US Countries data</name>
           <description>Deployment Descriptor</description>
-          <object type="org.exoplatform.services.deployment.DeploymentDescriptor">
+          <object type="org.exoplatform.services.wcm.extensions.deployment.WCMPublicationDeploymentDescriptor">
             <field  name="target">
               <object type="org.exoplatform.services.deployment.DeploymentDescriptor$Target">
                 <field  name="workspace">
@@ -799,15 +800,15 @@
             <field  name="sourcePath">
               <string>war:/conf/acme-portal/wcm/artifacts/site-resources/acme/Locations.xml</string>
             </field>
-            <field name="cleanupPublication">
-              <boolean>true</boolean>
+            <field name="cleanupPublicationType">
+              <string>publish-first-publication</string>
             </field>
           </object>
         </object-param>
         <object-param>
           <name>ACME Doc Word</name>
           <description>Deployment Descriptor</description>
-          <object type="org.exoplatform.services.deployment.DeploymentDescriptor">
+          <object type="org.exoplatform.services.wcm.extensions.deployment.WCMPublicationDeploymentDescriptor">
             <field name="target">
               <object type="org.exoplatform.services.deployment.DeploymentDescriptor$Target">
                 <field name="workspace">
@@ -821,15 +822,15 @@
             <field name="sourcePath">
               <string>war:/conf/acme-portal/wcm/artifacts/site-resources/acme/DocWord.xml</string>
             </field>
-            <field name="cleanupPublication">
-              <boolean>true</boolean>
+            <field name="cleanupPublicationType">
+              <string>publish-first-publication</string>
             </field>              
           </object>
         </object-param>
         <object-param>
           <name>ACME Doc Jpg</name>
           <description>Deployment Descriptor</description>
-          <object type="org.exoplatform.services.deployment.DeploymentDescriptor">
+          <object type="org.exoplatform.services.wcm.extensions.deployment.WCMPublicationDeploymentDescriptor">
             <field name="target">
               <object type="org.exoplatform.services.deployment.DeploymentDescriptor$Target">
                 <field name="workspace">
@@ -843,8 +844,8 @@
             <field name="sourcePath">
               <string>war:/conf/acme-portal/wcm/artifacts/site-resources/acme/DocJpg.xml</string>
             </field>
-            <field name="cleanupPublication">
-              <boolean>true</boolean>
+            <field name="cleanupPublicationType">
+              <string>publish-first-publication</string>
             </field>             
           </object>
 
@@ -852,7 +853,7 @@
         <object-param>
           <name>ACME Doc Pdf</name>
           <description>Deployment Descriptor</description>
-          <object type="org.exoplatform.services.deployment.DeploymentDescriptor">
+          <object type="org.exoplatform.services.wcm.extensions.deployment.WCMPublicationDeploymentDescriptor">
             <field name="target">
               <object type="org.exoplatform.services.deployment.DeploymentDescriptor$Target">
                 <field name="workspace">
@@ -866,15 +867,15 @@
             <field name="sourcePath">
               <string>war:/conf/acme-portal/wcm/artifacts/site-resources/acme/DocPdf.xml</string>
             </field>
-            <field name="cleanupPublication">
-              <boolean>true</boolean>
+            <field name="cleanupPublicationType">
+              <string>publish-first-publication</string>
             </field>             
           </object>  
         </object-param>
         <object-param>
           <name>ACME Newsletter header</name>
           <description>Deployment Descriptor</description>
-          <object type="org.exoplatform.services.deployment.DeploymentDescriptor">
+          <object type="org.exoplatform.services.wcm.extensions.deployment.WCMPublicationDeploymentDescriptor">
             <field name="target">
               <object type="org.exoplatform.services.deployment.DeploymentDescriptor$Target">
                 <field name="workspace">
@@ -888,15 +889,15 @@
             <field name="sourcePath">
               <string>war:/conf/acme-portal/wcm/artifacts/site-resources/acme/NewsletterHeader.xml</string>
             </field>
-            <field name="cleanupPublication">
-              <boolean>true</boolean>
+            <field name="cleanupPublicationType">
+              <string>publish-first-publication</string>
             </field>             
           </object>
         </object-param>
         <object-param>
           <name>ACME Form Confirmation</name>
           <description>Deployment Descriptor</description>
-          <object type="org.exoplatform.services.deployment.DeploymentDescriptor">
+          <object type="org.exoplatform.services.wcm.extensions.deployment.WCMPublicationDeploymentDescriptor">
             <field name="target">
               <object type="org.exoplatform.services.deployment.DeploymentDescriptor$Target">
                 <field name="workspace">
@@ -909,14 +910,20 @@
             </field>
             <field name="sourcePath">
               <string>war:/conf/acme-portal/wcm/artifacts/site-resources/acme/Confirmation.xml</string>
-            </field>
-            <field name="cleanupPublication">
-              <boolean>true</boolean>
+            </field>            
+            <field name="cleanupPublicationType">
+              <string>publish-first-publication</string>
             </field>            
           </object>
         </object-param>
       </init-params>
     </component-plugin>
+    
+    
+    
+    
+    
+    
     <component-plugin>
       <name>Content Initializer Service</name>
       <set-method>addPlugin</set-method>
@@ -1239,68 +1246,6 @@
     </component-plugin> 
   </external-component-plugins>
   
-  <external-component-plugins>
-    <target-component>org.exoplatform.services.deployment.WCMContentInitializerService</target-component>
-    <component-plugin>
-      <name>Content Initializer Service</name>
-      <set-method>addPlugin</set-method>
-      <type>org.exoplatform.services.wcm.extensions.deployment.PublicationDeploymentPlugin</type>
-      <description>Publication Deployment Plugin</description>
-      <init-params>
-        <object-param>
-          <name>plfpub01</name>
-          <description>Deployment Descriptor</description>
-          <object type="org.exoplatform.services.wcm.extensions.deployment.PublicationDeploymentDescriptor">
-            <field name="contents">
-              <collection type="java.util.ArrayList">
-                <value><string>collaboration:/sites/acme/web contents/site artifacts/Introduce</string></value>
-                <value><string>collaboration:/sites/acme/web contents/site artifacts/contact_form_confirmation</string></value>
-                <value><string>collaboration:/sites/acme/web contents/site artifacts/contact-us-countries</string></value>
-                <value><string>collaboration:/sites/acme/web contents/site artifacts/contact-us-intro</string></value>
-                <value><string>collaboration:/sites/acme/web contents/site artifacts/Footer</string></value>
-                <value><string>collaboration:/sites/acme/web contents/site artifacts/fr/Signin_fr</string></value>
-                <value><string>collaboration:/sites/acme/web contents/site artifacts/LinkHome</string></value>
-                <value><string>collaboration:/sites/acme/web contents/site artifacts/Logo</string></value>
-                <value><string>collaboration:/sites/acme/web contents/site artifacts/Navigation</string></value>
-                <value><string>collaboration:/sites/acme/web contents/site artifacts/newsletter_header</string></value>
-                <value><string>collaboration:/sites/acme/web contents/site artifacts/Searchbox</string></value>
-                <value><string>collaboration:/sites/acme/web contents/site artifacts/Signin_en</string></value>
-                <value><string>collaboration:/sites/acme/web contents/site artifacts/social-bookmarking</string></value>
-                <value><string>collaboration:/sites/acme/web contents/Events/Event1</string></value>
-                <value><string>collaboration:/sites/acme/web contents/Events/Event2</string></value>
-                <value><string>collaboration:/sites/acme/web contents/Events/Event3</string></value>
-                <value><string>collaboration:/sites/acme/web contents/Events/Event4</string></value>
-                <value><string>collaboration:/sites/acme/web contents/Ice</string></value>
-                <value><string>collaboration:/sites/acme/web contents/Flight</string></value>
-                <value><string>collaboration:/sites/acme/web contents/Immunity</string></value>
-                <value><string>collaboration:/sites/acme/web contents/Invisibility</string></value>
-                <value><string>collaboration:/sites/acme/web contents/Wind</string></value>
-                <value><string>collaboration:/sites/acme/web contents/Fire</string></value>
-                <value><string>collaboration:/sites/acme/web contents/Night Vision</string></value>
-                <value><string>collaboration:/sites/acme/web contents/X-Ray</string></value>
-                <value><string>collaboration:/sites/acme/web contents/Speed</string></value>
-                <value><string>collaboration:/sites/acme/web contents/Time Travel</string></value>
-                <value><string>collaboration:/sites/acme/web contents/Healing</string></value>
-                <value><string>collaboration:/sites/acme/web contents/News/acme-news-1</string></value>                
-                <value><string>collaboration:/sites/acme/web contents/News/acme-news-2</string></value>                
-                <value><string>collaboration:/sites/acme/web contents/News/acme-news-3</string></value>                
-                <value><string>collaboration:/sites/acme/web contents/NewEvents/architecture-and-design-the-future-of-our-products</string></value>
-                <value><string>collaboration:/sites/acme/web contents/NewEvents/a-revolution-in-the-multi-touch-displays</string></value>
-                <value><string>collaboration:/sites/acme/web contents/NewEvents/mondial-expo-are-you-ready-for-the-future</string></value>
-                <value><string>collaboration:/sites/acme/web contents/Users/User1</string></value>
-                <value><string>collaboration:/sites/acme/web contents/Users/User2</string></value>
-                <value><string>collaboration:/sites/acme/web contents/Users/User3</string></value>
-                <value><string>collaboration:/sites/acme/web contents/Users/User4</string></value>
-                <value><string>collaboration:/sites/acme/documents/conditions.doc</string></value>
-                <value><string>collaboration:/sites/acme/documents/metro.pdf</string></value>
-                <value><string>collaboration:/sites/acme/documents/offices.jpg</string></value>
-              </collection>
-            </field>
-          </object>
-        </object-param>
-      </init-params>
-    </component-plugin>
-  </external-component-plugins>
-
+  
 
 </configuration>
