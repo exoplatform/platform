@@ -1,5 +1,5 @@
 (function($) {
-
+    var glables = null;
     if($('#onlineList li').length == 0) {
         $("#OnlinePortlet").hide();
     } else {
@@ -7,48 +7,45 @@
     }
 
     var showTooltip = function() {
-        $('#onlineList li').each(function() {
-            var activity = $(this).find("input[name=activity]").val();
-            var connect = $(this).find("input[name=connect]").val();
-            var messageLabel =  $(this).find("input[name=messageLabel]").val();
 
-            var userId = $(this).find("input[name=userId]").val();
-            var userAvatar = $(this).find("input[name=userAvatar]").val();
-            var profileURL = $(this).find("input[name=profileURL]").val();
-            var fullName = $(this).find("input[name=fullName]").val();
-            var userPosition = $(this).find("input[name=userPosition]").val();
-            var userIdentity = $(this).find("input[name=userIdentity]").val();
-            var userRelationId = $(this).find("input[name=userRelationId]").val();
-            $("#"+userId).tipTip({ content: "<div id='tipName' class='clearfix'><a target='_parent' class='pull-left avatarXSmall'><img src='"+userAvatar+"' alt='image' /></a><div class='detail'><div class='name'><a href='"+profileURL+"'>"+fullName+"</a></div><div class='displayName'>"+userPosition+"</div></div></div>"+activity+connect,defaultPosition: "left", keepAlive: true,maxWidth: "240px"});
+        if($('#onlineList li').length == 0) {
+            $("#OnlinePortlet").hide();
+        } else {
+            $("#OnlinePortlet").show();
+        }
 
-            $("#" + userId +"connect a.connect").live("click", function(){
-                $.getJSON("/rest/homepage/intranet/people/contacts/connect/" + userIdentity, null);
-                $("#" + userId + "connect").fadeOut(500, function () {
-                    $(this).html("<div id='connectMessge'>" + messageLabel + "</div>");
-                    $(this).fadeIn(500, function() {});
-                });
+        // User Profile Popup initialize
+        var portal = eXo.social.portal;
+        var restUrl = 'http://' + window.location.host + portal.context + '/' + portal.rest + '/social/people' + '/getPeopleInfo/{0}.json';
 
-                setTimeout(refresh, 500);
-            });
 
-            $("#" + userId + "accept a.connect").live("click", function(){
-                $.getJSON("/rest/homepage/intranet/people/contacts/confirm/" + userRelationId, null);
-                $("#" + userId + "accept").hide();
-                setTimeout(refresh, 500);
+
+        var userLinks = $('#onlineList').find('a:[href*="/profile/"]');
+        $.each(userLinks, function (idx, el) {
+            var userUrl = $(el).attr('href');
+            var userId = userUrl.substring(userUrl.lastIndexOf('/') + 1);
+
+            $(el).userPopup({
+                restURL: restUrl,
+                labels: glables,
+                content: false,
+                defaultPosition: "left",
+                keepAlive: true,
+                maxWidth: "240px"
             });
         });
     };
 
     var refresh = function() {
 
-            $.getJSON('/rest/platform/isusersessionalive', function (connected) {
+        $.getJSON('/rest/platform/isusersessionalive', function (connected) {
 
-                if(connected == true){
+            if(connected == true){
 
-                    $("#onlineList").jzLoad("WhoIsOnLineController.users()", showTooltip);
+                $("#onlineList").jzLoad("WhoIsOnLineController.users()", showTooltip);
 
-                }
-            });
+            }
+        });
 
     };
     // Wait 1/2 second (not realistic of course)
@@ -56,7 +53,10 @@
     setTimeout(refresh, 500);
     setInterval(refresh,60000);
     return {
-        ajaxWhoIsOnLine: function() {
+        ajaxWhoIsOnLine: function(labels) {
+            var labels = labels;
+
+            glables = labels;
             $.getJSON('/rest/platform/isusersessionalive', function (connected) {
 
                 if(connected == true){

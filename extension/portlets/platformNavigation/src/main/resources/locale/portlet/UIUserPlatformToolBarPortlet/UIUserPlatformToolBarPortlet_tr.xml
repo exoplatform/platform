@@ -2,14 +2,14 @@
 <bundle>
 <UIUserPlatformToolBarPortlet>
 <label>
-<activities>My Activity Stream</activities>
-<profile>My Profile</profile>
-<network>My Connections</network>
-<wiki>My Wiki</wiki>
-<account>Settings</account>
-<language>Change Language</language>
-<logout>Logout</logout>
-        <dashboard>My Dashboard</dashboard>
+<activities>Faliyet Akışlarım</activities>
+<profile>Profilim</profile>
+<network>Bağlantılarım</network>
+<wiki>Wikim</wiki>
+<account>Ayarlar</account>
+<language>Dili Değiştir</language>
+<logout>Oturumu Kapat</logout>
+        <dashboard>Panelim</dashboard>
 </label>
 </UIUserPlatformToolBarPortlet>
 </bundle>

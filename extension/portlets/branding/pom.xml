@@ -126,20 +126,31 @@
           </execution>
         </executions>
       </plugin>
-      <plugin>
-        <groupId>org.codehaus.gmaven</groupId>
-        <artifactId>gmaven-plugin</artifactId>
-        <configuration>
-          <sources>
-            <fileset>
-              <directory>${project.build.outputDirectory}</directory>
-              <includes>
-                <include>**/*.groovy</include>
-              </includes>
-            </fileset>
-          </sources>
-        </configuration>
-      </plugin>
+       <!-- Precompile the template class in maven (this is optional) -->
+       <plugin>
+          <groupId>org.codehaus.gmaven</groupId>
+          <artifactId>gmaven-plugin</artifactId>
+          <configuration>
+             <providerSelection>1.7</providerSelection>
+          </configuration>
+          <executions>
+             <execution>
+                <goals>
+                   <goal>compile</goal>
+                </goals>
+                <configuration>
+                   <sources>
+                      <fileset>
+                         <directory>${project.build.outputDirectory}</directory>
+                         <includes>
+                            <include>**/*.groovy</include>
+                         </includes>
+                      </fileset>
+                   </sources>
+                </configuration>
+             </execution>
+          </executions>
+       </plugin>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-dependency-plugin</artifactId>

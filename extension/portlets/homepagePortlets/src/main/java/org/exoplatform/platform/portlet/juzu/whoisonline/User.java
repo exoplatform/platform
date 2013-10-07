@@ -8,18 +8,18 @@ public class User {
 
   /** . */
 
-    private String position;
-    private String fullName;
+    private String position = "";
+    private String fullName = "";
     private String id;
     private String profileUrl;
-    private String activity;
-    private String userName;
+    private String activity = "";
+    private String userName = "";
   /** . */
 
     private String avatar;
-    private String status;
-    private String identity;
-    private String relationId;
+    private String status = "";
+    private String identity = "";
+    private String relationId = "";
 
     public User(final String userName) {
     this.userName = userName;
