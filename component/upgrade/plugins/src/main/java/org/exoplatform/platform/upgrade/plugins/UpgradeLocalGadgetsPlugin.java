@@ -18,23 +18,21 @@
  */
 package org.exoplatform.platform.upgrade.plugins;
 
-import org.exoplatform.application.gadget.Gadget;
-import org.exoplatform.application.gadget.GadgetRegistryService;
-import org.exoplatform.application.gadget.SourceStorage;
+import org.exoplatform.application.gadget.*;
 import org.exoplatform.application.gadget.impl.GadgetDefinition;
 import org.exoplatform.application.gadget.impl.GadgetRegistryServiceImpl;
-
+import org.exoplatform.application.registry.impl.ApplicationRegistryChromatticLifeCycle;
+import org.exoplatform.commons.chromattic.ChromatticLifeCycle;
+import org.exoplatform.commons.chromattic.ChromatticManager;
 import org.exoplatform.commons.upgrade.UpgradeProductPlugin;
-
 import org.exoplatform.commons.version.util.VersionComparator;
+import org.exoplatform.container.ExoContainerContext;
 import org.exoplatform.container.PortalContainer;
-import org.exoplatform.container.component.RequestLifeCycle;
 import org.exoplatform.container.configuration.ConfigurationManager;
 import org.exoplatform.container.xml.InitParams;
-
+import org.exoplatform.services.jcr.RepositoryService;
 import org.exoplatform.services.log.ExoLogger;
 import org.exoplatform.services.log.Log;
-import org.exoplatform.services.jcr.RepositoryService;
 
 import java.util.List;
 
@@ -52,45 +50,52 @@ public class UpgradeLocalGadgetsPlugin extends UpgradeProductPlugin {
 
     protected GadgetRegistryServiceImpl gadgetRegistryService;
 
+    private ChromatticLifeCycle chromatticLifeCycle;
+
+
     public UpgradeLocalGadgetsPlugin(ConfigurationManager configurationManager, RepositoryService repositoryService,
-                                     SourceStorage sourceStorage, GadgetRegistryService gadgetRegistryService, InitParams initParams) {
+                                     SourceStorage sourceStorage, GadgetRegistryService gadgetRegistryService, InitParams initParams, ChromatticManager chromatticManager) {
         super(initParams);
         this.gadgets = initParams.getObjectParamValues(GadgetUpgrade.class);
         this.repositoryService = repositoryService;
         this.configurationManager = configurationManager;
         this.sourceStorage = sourceStorage;
         this.gadgetRegistryService = (GadgetRegistryServiceImpl) gadgetRegistryService;
+        ApplicationRegistryChromatticLifeCycle lifeCycle = (ApplicationRegistryChromatticLifeCycle) chromatticManager.getLifeCycle("app");
+        this.chromatticLifeCycle = lifeCycle;
     }
 
     @Override
     public void processUpgrade(String oldVersion, String newVersion) {
         LOG.info("processing upgrading gadgets from version " + oldVersion + " to " + newVersion);
-        RequestLifeCycle.begin(PortalContainer.getInstance());
         try {
             for (GadgetUpgrade gadgetUpgrade : gadgets) {
+                boolean done = true;
+                chromatticLifeCycle.openContext();
                 try {
                     Gadget gadget = gadgetRegistryService.getGadget(gadgetUpgrade.getName());
                     if (gadget == null) {
                         LOG.warn("Can't find gadget '" + gadgetUpgrade.getName() + "'.");
-                        continue;
-                    }
-                    LOG.info("Replacing gadget " + gadgetUpgrade.getName() + " with new content ...");
+                    } else {
 
-                    try {
-                        gadgetRegistryService.removeGadget(gadgetUpgrade.getName());
-                    } catch (Exception noSuchGadgetException) {
-                        // if gadget doesn't exist
-                        if (LOG.isDebugEnabled()) {
-                            LOG.debug("gadget doesn't exist in the store: " + gadget.getName());
+                        LOG.info("Replacing gadget " + gadgetUpgrade.getName() + " with new content ...");
+                        try {
+                            gadgetRegistryService.removeGadget(gadgetUpgrade.getName());
+                        } catch (Exception noSuchGadgetException) {
+                            // if gadget doesn't exist
+                            if (LOG.isDebugEnabled()) {
+                                LOG.debug("gadget doesn't exist in the store: " + gadget.getName());
+                            }
                         }
                     }
+                    PortalContainer container = (PortalContainer)(ExoContainerContext.getCurrentContainer());
 
                     try {
-                        LocalGadgetImporter gadgetImporter = new LocalGadgetImporter(gadgetUpgrade.getName(), gadgetRegistryService,
-                                gadgetUpgrade.getPath(), configurationManager, PortalContainer.getInstance());
+                        String gadgetURI = gadgetUpgrade.getPath().replace("war:", "");
+                        GadgetImporter importer = new ServletLocalImporter(gadgetUpgrade.getName(), gadgetURI, container.getPortalContext(), gadgetRegistryService);
 
-                        GadgetDefinition def = gadgetRegistryService.getRegistry().addGadget(gadget.getName());
-                        gadgetImporter.doImport(def);
+                        GadgetDefinition def = gadgetRegistryService.getRegistry().addGadget(gadgetUpgrade.getName());
+                        importer.doImport(def);
 
                         gadget = gadgetRegistryService.getGadget(gadgetUpgrade.getName());
                         if (gadget != null) {
@@ -100,17 +105,19 @@ public class UpgradeLocalGadgetsPlugin extends UpgradeProductPlugin {
                                     + " wasn't imported. It will be imported automatically with GadgetDeployer Service.");
                         }
                     } catch (Exception exception) {
+                        done = false;
                         LOG.info("Gadget " + gadgetUpgrade.getName()
                                 + " wasn't imported. It will be imported automatically with GadgetDeployer Service.");
                     }
                 } catch (Exception exception) {
+                    done = false;
                     LOG.error("Error while proceeding '" + gadgetUpgrade.getName() + "' gadget upgrade.", exception);
+                } finally {
+                    chromatticLifeCycle.closeContext(done);
                 }
             }
         } catch (Exception e) {
             LOG.error("Could not upgrade local gadget", e);
-        } finally {
-            RequestLifeCycle.end();
         }
     }
 
