@@ -18,6 +18,8 @@ import org.exoplatform.services.rest.resource.ResourceContainer;
 import org.exoplatform.services.security.ConversationState;
 import org.exoplatform.platform.common.navigation.NavigationUtils;
 
+
+import javax.annotation.security.RolesAllowed;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
@@ -69,6 +71,7 @@ public class DashboardInformationRESTService implements ResourceContainer {
   
   @GET
   @Produces(MediaType.APPLICATION_JSON)
+  @RolesAllowed("users")
   @SuppressWarnings("unchecked")
   public Response getDashboards(@Context UriInfo uriInfo) {
     
@@ -83,6 +86,9 @@ public class DashboardInformationRESTService implements ResourceContainer {
       String userId = ConversationState.getCurrent().getIdentity().getUserId();
       //Loading User Navigation only
       navigation = NavigationUtils.loadPageNavigation(userId,navigationService_, descriptionService_);
+
+        // --- There is at least one user navigation
+        if (navigation != null) {
 
         //Get navigations
         List<NavigationFragment> fragments = navigation.getFragments() ;
@@ -127,6 +133,7 @@ public class DashboardInformationRESTService implements ResourceContainer {
       if (LOG.isDebugEnabled()) {
         LOG.debug("Getting Dashboards Information");
       }
+    }
 
       // Response to client
       return Response.ok(list, MediaType.APPLICATION_JSON).cacheControl(cacheControl).build();
@@ -140,6 +147,7 @@ public class DashboardInformationRESTService implements ResourceContainer {
   @GET
   @Path("/{userName}/{dashboardName}")
   @Produces(MediaType.APPLICATION_JSON)
+  @RolesAllowed("users")
   @SuppressWarnings("unchecked")
   public Response getGadgetInformation(@PathParam("userName") String userName, 
                                        @PathParam("dashboardName") String dashboardName,
