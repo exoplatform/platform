@@ -2,11 +2,11 @@
 <bundle>
    <UIUserNavigationPortlet>
       <label>
-         <activities>Aktivite akışı</activities>
+         <activities>Etkinlik Akışı</activities>
          <profile>Profil</profile>
          <connections>Bağlantılar</connections>
          <wiki>Wiki</wiki>
-         <Myactivities>Faliyet Akışlarım</Myactivities>
+         <Myactivities>Etkinlik Akışım</Myactivities>
          <Myprofile>Profilim</Myprofile>
          <Myconnections>Bağlantılarım</Myconnections>
          <Mywiki>Wikim</Mywiki>
