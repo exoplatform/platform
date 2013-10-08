@@ -18,6 +18,7 @@ import org.exoplatform.services.rest.resource.ResourceContainer;
 import org.exoplatform.services.security.ConversationState;
 import org.exoplatform.platform.common.navigation.NavigationUtils;
 
+import javax.annotation.security.RolesAllowed;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
@@ -69,71 +70,64 @@ public class DashboardInformationRESTService implements ResourceContainer {
   
   @GET
   @Produces(MediaType.APPLICATION_JSON)
+  @RolesAllowed("users")
   @SuppressWarnings("unchecked")
   public Response getDashboards(@Context UriInfo uriInfo) {
-    
-    CacheControl cacheControl = new CacheControl();
-    cacheControl.setNoCache(true);
-    cacheControl.setNoStore(true);
-    try {
 
-      LinkedList<JsonDashboardInfo> list = new LinkedList<JsonDashboardInfo>();
-      
-      // Try to get all user nodes which corresponds to dashboards
-      String userId = ConversationState.getCurrent().getIdentity().getUserId();
-      //Loading User Navigation only
-      navigation = NavigationUtils.loadPageNavigation(userId,navigationService_, descriptionService_);
+      CacheControl cacheControl = new CacheControl();
+      cacheControl.setNoCache(true);
+      cacheControl.setNoStore(true);
+      try {
+          LinkedList<JsonDashboardInfo> list = new LinkedList<JsonDashboardInfo>();
+          // Try to get all user nodes which corresponds to dashboards
+          String userId = ConversationState.getCurrent().getIdentity().getUserId();
+          //Loading User Navigation only
+          navigation = NavigationUtils.loadPageNavigation(userId,navigationService_, descriptionService_);
 
-        //Get navigations
-        List<NavigationFragment> fragments = navigation.getFragments() ;
-
-        //Get dashboard tabs
-        for (NavigationFragment frag:fragments) {
-            List<PageNode> pagesNode=frag.getNodes();
-            // Fetch all nodes to add dashboards to the final list
-            String wsSubPath = "";
-            String dashboardSubPath = "";
-            URI wsURI = null;
-            URI dashboardURI = null;
-            for (PageNode pageNode:pagesNode){
-                Application<Portlet> appDashboard = (Application<Portlet>) extractDashboard(dataStorageService.getPage(pageNode.getPageReference()));
-                if(appDashboard == null) {
+      // --- There is at least one user navigation
+      if (navigation != null) {
+          //Get navigations
+          List<NavigationFragment> fragments = navigation.getFragments() ;
+          //Get dashboard tabs
+          for (NavigationFragment frag:fragments) {
+              List<PageNode> pagesNode=frag.getNodes();
+              // Fetch all nodes to add dashboards to the final list
+              String wsSubPath = "";
+              String dashboardSubPath = "";
+              URI wsURI = null;
+              URI dashboardURI = null;
+              for (PageNode pageNode:pagesNode){
+                  Application<Portlet> appDashboard = (Application<Portlet>) extractDashboard(dataStorageService.getPage(pageNode.getPageReference()));
+                  if(appDashboard == null) {
                     continue;
+                  }
+                  // Dashboard only into TransientApplication
+                  if(appDashboard.getState() instanceof TransientApplicationState) {
+                      JsonDashboardInfo info = new JsonDashboardInfo();
+                      info.setId(pageNode.getName());
+                      info.setLabel(pageNode.getLabel());
+                      // Create URI to WS REST
+                      // wsSubPath = PortalContainer.getCurrentRestContextName() + "/private" + WS_ROOT_PATH + "/" + userId + "/" + getPageName(pageNode.getPageReference());
+                      wsURI = uriInfo.getBaseUriBuilder().replaceMatrix(wsSubPath).build();
+                      // Create URI to dashboard into portal
+                      dashboardSubPath = PortalContainer.getCurrentPortalContainerName() + "/u/" + userId + "/" + pageNode.getName();
+                      dashboardURI = uriInfo.getBaseUriBuilder().replaceMatrix(dashboardSubPath).build();
 
-                }
-                
-                // Dashboard only into TransientApplication
-                if(appDashboard.getState() instanceof TransientApplicationState) {
-                  
-                  JsonDashboardInfo info = new JsonDashboardInfo();
-                    info.setId(pageNode.getName());
-                    info.setLabel(pageNode.getLabel());
-                  
-                  // Create URI to WS REST
-                  wsSubPath = PortalContainer.getCurrentRestContextName() + "/private" + WS_ROOT_PATH + "/" + userId + "/" + getPageName(pageNode.getPageReference());
-                  wsURI = uriInfo.getBaseUriBuilder().replaceMatrix(wsSubPath).build();
-                  
-                  // Create URI to dashboard into portal
-                  dashboardSubPath = PortalContainer.getCurrentPortalContainerName() + "/u/" + userId + "/" + pageNode.getName();
-                  dashboardURI = uriInfo.getBaseUriBuilder().replaceMatrix(dashboardSubPath).build();
-        
-                  info.setLink(wsURI.toString());
-                  info.setHtml(dashboardURI.toString());
-                  list.add(info);
-                }
+                      info.setLink(wsURI.toString());
+                      info.setHtml(dashboardURI.toString());
+                      list.add(info);
+                  }
               }
+          }
+          if (LOG.isDebugEnabled()) {
+              LOG.debug("Getting Dashboards Information");
+          }
       }
-      
-      if (LOG.isDebugEnabled()) {
-        LOG.debug("Getting Dashboards Information");
-      }
-
       // Response to client
       return Response.ok(list, MediaType.APPLICATION_JSON).cacheControl(cacheControl).build();
-    }
-    catch (Exception e) {
-      LOG.error("An error occured while getting dashboards information.", e);
-      return Response.status(HTTPStatus.INTERNAL_ERROR).cacheControl(cacheControl).build();
+    } catch (Exception e) {
+        LOG.error("An error occured while getting dashboards information.", e);
+        return Response.status(HTTPStatus.INTERNAL_ERROR).cacheControl(cacheControl).build();
     }
   }
   
@@ -141,6 +135,7 @@ public class DashboardInformationRESTService implements ResourceContainer {
   @Path("/{userName}/{dashboardName}")
   @Produces(MediaType.APPLICATION_JSON)
   @SuppressWarnings("unchecked")
+  @RolesAllowed("users")
   public Response getGadgetInformation(@PathParam("userName") String userName, 
                                        @PathParam("dashboardName") String dashboardName,
                                        @Context UriInfo uriInfo) {
