@@ -44,9 +44,6 @@
     </component-plugin>
   </external-component-plugins>
   
-  
-  
-  
   <external-component-plugins>
     <target-component>org.exoplatform.services.deployment.WCMContentInitializerService</target-component>
     <component-plugin>
@@ -1244,6 +1241,65 @@
       </init-params>
     </component-plugin> 
   </external-component-plugins>
+    <external-component-plugins>
+        <target-component>org.exoplatform.services.deployment.WCMContentInitializerService</target-component>
+        <component-plugin>
+            <name>Content Initializer Service</name>
+            <set-method>addPlugin</set-method>
+            <type>org.exoplatform.services.wcm.extensions.deployment.PublicationDeploymentPlugin</type>
+            <description>Publication Deployment Plugin</description>
+            <init-params>
+                <object-param>
+                    <name>plfpub01</name>
+                    <description>Deployment Descriptor</description>
+                    <object type="org.exoplatform.services.wcm.extensions.deployment.PublicationDeploymentDescriptor">
+                        <field name="contents">
+                            <collection type="java.util.ArrayList">
+                                <value><string>collaboration:/sites/acme/web contents/site artifacts/Introduce</string></value>
+                                <value><string>collaboration:/sites/acme/web contents/site artifacts/contact_form_confirmation</string></value>
+                                <value><string>collaboration:/sites/acme/web contents/site artifacts/contact-us-countries</string></value>
+                                <value><string>collaboration:/sites/acme/web contents/site artifacts/contact-us-intro</string></value>
+                                <value><string>collaboration:/sites/acme/web contents/site artifacts/Footer</string></value>
+                                <value><string>collaboration:/sites/acme/web contents/site artifacts/fr/Signin_fr</string></value>
+                                <value><string>collaboration:/sites/acme/web contents/site artifacts/LinkHome</string></value>
+                                <value><string>collaboration:/sites/acme/web contents/site artifacts/Logo</string></value>
+                                <value><string>collaboration:/sites/acme/web contents/site artifacts/Navigation</string></value>
+                                <value><string>collaboration:/sites/acme/web contents/site artifacts/newsletter_header</string></value>
+                                <value><string>collaboration:/sites/acme/web contents/site artifacts/Searchbox</string></value>
+                                <value><string>collaboration:/sites/acme/web contents/site artifacts/Signin_en</string></value>
+                                <value><string>collaboration:/sites/acme/web contents/site artifacts/social-bookmarking</string></value>
+                                <value><string>collaboration:/sites/acme/web contents/Events/Event1</string></value>
+                                <value><string>collaboration:/sites/acme/web contents/Events/Event2</string></value>
+                                <value><string>collaboration:/sites/acme/web contents/Events/Event3</string></value>
+                                <value><string>collaboration:/sites/acme/web contents/Events/Event4</string></value>
+                                <value><string>collaboration:/sites/acme/web contents/Ice</string></value>
+                                <value><string>collaboration:/sites/acme/web contents/Flight</string></value>
+                                <value><string>collaboration:/sites/acme/web contents/Immunity</string></value>
+                                <value><string>collaboration:/sites/acme/web contents/Invisibility</string></value>
+                                <value><string>collaboration:/sites/acme/web contents/Wind</string></value>
+                                <value><string>collaboration:/sites/acme/web contents/Fire</string></value>
+                                <value><string>collaboration:/sites/acme/web contents/Night Vision</string></value>
+                                <value><string>collaboration:/sites/acme/web contents/X-Ray</string></value>
+                                <value><string>collaboration:/sites/acme/web contents/Speed</string></value>
+                                <value><string>collaboration:/sites/acme/web contents/Time Travel</string></value>
+                                <value><string>collaboration:/sites/acme/web contents/Healing</string></value>
+                                <value><string>collaboration:/sites/acme/web contents/News/acme-news-1</string></value>
+                                <value><string>collaboration:/sites/acme/web contents/News/acme-news-2</string></value>
+                                <value><string>collaboration:/sites/acme/web contents/News/acme-news-3</string></value>
+                                <value><string>collaboration:/sites/acme/web contents/Users/User1</string></value>
+                                <value><string>collaboration:/sites/acme/web contents/Users/User2</string></value>
+                                <value><string>collaboration:/sites/acme/web contents/Users/User3</string></value>
+                                <value><string>collaboration:/sites/acme/web contents/Users/User4</string></value>
+                                <value><string>collaboration:/sites/acme/documents/conditions.doc</string></value>
+                                <value><string>collaboration:/sites/acme/documents/metro.pdf</string></value>
+                                <value><string>collaboration:/sites/acme/documents/offices.jpg</string></value>
+                            </collection>
+                        </field>
+                    </object>
+                </object-param>
+            </init-params>
+        </component-plugin>
+    </external-component-plugins>
   
   
 
