@@ -14,6 +14,7 @@
     <Locale lang="ru" messages="locale/ru.xml"/>
     <Locale lang="tr" messages="locale/tr.xml"/>
     <Locale lang="zh_CN" messages="locale/zh_CN.xml"/>
+    <Locale lang="fi" messages="locale/fi.xml"/>
     <Require feature="dynamic-height"/>
   </ModulePrefs>
   
