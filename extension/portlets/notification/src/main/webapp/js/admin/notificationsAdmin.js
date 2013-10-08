@@ -88,7 +88,7 @@
         location.innerText = message;        
         location.style.display="block";
         setTimeout(function() { $(location).fadeOut('slow'); }, 5000);
-      },
+      }
       
   };
 
