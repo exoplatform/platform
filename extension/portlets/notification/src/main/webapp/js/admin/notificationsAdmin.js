@@ -1,13 +1,16 @@
-(function(sUtils, $) {
+(function($) {
   var localizeStatus = $("div#labelBundle");
   var NotificationAdmin = {
+      status : {
+        OK : 'OK',
+        NOK : 'NOK'
+      },
       label : {
           Enable : $("span#labelEnable", localizeStatus).text(),
           Disable : $("span#labelDisable", localizeStatus).text(),
           Information : $("span#Information", localizeStatus).text(),
           Error : $("span#Error", localizeStatus).text(),
-          OK : $("span#labelOK", localizeStatus).text(),
-          Close : $("span#labelClose", localizeStatus).text()
+          OK : $("span#labelOK", localizeStatus).text()
       },
       msg : {
         OK : $("span#msgSaveOK", localizeStatus).text(),
@@ -57,37 +60,30 @@
             "email" : email
           },
           success : function(res) {
-            if (res.status == "OK") {
+            if (res.status === "OK") {
               var msgOk = NotificationAdmin.msg.OK;
               msgOk = msgOk.replace('{0}', res.name).replace('{1}', res.email);
-              NotificationAdmin.showMessage('confirmMessageOK', msgOk);
+              NotificationAdmin.showMessage(msgOk, NotificationAdmin.status.OK);
+            } else {
+              NotificationAdmin.showMessage(NotificationAdmin.msg.NOK, NotificationAdmin.status.NOK);
             }
           }
         }).fail(function(jqXHR, textStatus) {
-          var msgKO = NotificationAdmin.msg.NOK;
-          NotificationAdmin.showMessage('confirmMessageNOK', msgKO);
+          NotificationAdmin.showMessage(NotificationAdmin.msg.NOK, NotificationAdmin.status.NOK);
         });
       },
       
-      showPopupMessage : function(id, isSaveOK, title, message, closeLabel) {
-        sUtils.setCookies('currentConfirm', id, 300);
-        var popup = sUtils.PopupConfirmation.makeTemplate();
-        popup.find('.popupTitle').html(title);
-        if (isSaveOK) {
-          popup.find('.contentMessage').removeClass('confirmationIcon').addClass('infoIcon').html(message);
+      showMessage : function(message, type) {
+        var msgContainer = $('div#confirmMessage');
+        if(type === NotificationAdmin.status.OK) {
+          msgContainer.attr('class', 'alert alert-success')
+          .find('i:first').attr('class', 'uiIconSuccess');
         } else {
-          popup.find('.contentMessage').removeClass('confirmationIcon').addClass('errorIcon').html(message);
+          msgContainer.attr('class', 'alert alert-error')
+          .find('i:first').attr('class', 'uiIconError');
         }
-        var uiAction = popup.find('.uiAction');
-        uiAction.append(sUtils.PopupConfirmation.addAction(null, closeLabel));
-        sUtils.PopupConfirmation.show(popup);
-      },
-      
-      showMessage : function(id, message) {
-        var location = document.getElementById(id);
-        location.innerText = message;        
-        location.style.display="block";
-        setTimeout(function() { $(location).fadeOut('slow'); }, 5000);
+        msgContainer.hide().stop().find('span.message').text(message);
+        msgContainer.show('fast').delay(4500).hide('slow');
       }
       
   };
@@ -95,4 +91,4 @@
   NotificationAdmin.init();
   return NotificationAdmin;
 
-})(socialUtil, gj);
+})(gj);

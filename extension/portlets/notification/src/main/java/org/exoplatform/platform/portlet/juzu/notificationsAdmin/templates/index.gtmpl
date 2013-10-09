@@ -3,31 +3,24 @@
 #{param name=_ctx/}
 #{param name=groups/}
 <div id="notificationAdmin" class="uiNotificationAdmin">
-<h4 class="titleWithBorder">${_ctx.appRes("NotificationAdmin.title")}</h4>
-<div id="confirmMessageOK" class="confirmMessageOK" style="display:none">
-</div>
-<div id="confirmMessageNOK" class="confirmMessageNOK" style="display:none">
-</div>
-<form id="senderForm">
-<h6>${_ctx.appRes("NotificationAdmin.label.notificationsSender")}</h6>
-  <div class="UIPopupWindow UIDragObject uiPopup UISocialConfirmation" style="width: 550px; display: none;">
-		<div class="popupHeader ClearFix">
-			<a class="uiIconClose pull-right" title="${_ctx.appRes("UINotification.action.Close")}"></a>
-			<span class="PopupTitle popupTitle"></span>
+	<h4 class="titleWithBorder">${_ctx.appRes("NotificationAdmin.title")}</h4>
+	<div id="confirmMessage" style="display:none">
+		<i class="uiIconSuccess"></i><span class="message"></span>
+	</div>
+	<form id="senderForm" class="senderForm">
+		<h6>${_ctx.appRes("NotificationAdmin.label.notificationsSender")}</h6>
+		<div class="control-groups clearfix">
+			<label for="senderName" class="pull-left"> ${_ctx.appRes("NotificationAdmin.label.sender.name")}:&nbsp;</label>
+			<div class="pull-left">
+				<input id="senderName" name="name" type="text" value="${senderName}" placeholder="Name"/>&nbsp;&nbsp;
+			</div>
+			<label for="senderEmail" class="pull-left">${_ctx.appRes("NotificationAdmin.label.sender.address")}:&nbsp;</label>
+			<div class="pull-left">
+				<input id="senderEmail" class="right" type="text" name="email" value="${senderEmail}" placeholder="Email"/>&nbsp;
+			</div>
+			<input id="btSetSender" class="center" type="button" value="${_ctx.appRes('NotificationAdmin.label.save')}"/>
 		</div>
-		<div class="PopupContent popupContent">
-			<ul class="singleMessage popupMessage resizable">
-				<li>
-					<span class="confirmationIcon contentMessage"></span>
-				</li>
-			</ul>
-			<div class="uiAction uiActionBorder"></div>
-		</div>			
-	</div>  
-  ${_ctx.appRes("NotificationAdmin.label.sender.name")} : <input id="senderName" name="name" value="${senderName}" placeholder="Name"/>&nbsp;
-  ${_ctx.appRes("NotificationAdmin.label.sender.address")} : <input id="senderEmail" class="right" name="email" value="${senderEmail}" placeholder="Email"/>
-  <input id="btSetSender" class="center" type="button" value="${_ctx.appRes('NotificationAdmin.label.save')}"/>
-</form>
+	</form>
 
 	<h6>${_ctx.appRes("NotificationAdmin.label.notificationTypes")}</h6>
 	<table class="uiGrid table  table-hover table-striped">
@@ -74,7 +67,6 @@
 		<span id="labelEnable">${_ctx.appRes("NotificationAdmin.label.Enable")}</span>
 		<span id="labelDisable">${_ctx.appRes("NotificationAdmin.label.Disable")}</span>
 		<span id="labelOK">${_ctx.appRes("NotificationAdmin.label.OK")}</span>
-		<span id="labelClose">${_ctx.appRes("UINotification.action.Close")}</span>
 		<span id="Information">${_ctx.appRes("NotificationAdmin.label.Information")}</span>
 		<span id="Error">${_ctx.appRes("NotificationAdmin.label.Error")}</span>
 		<span id="msgSaveOK">${_ctx.appRes("NotificationAdmin.msg.saveOK")}</span>

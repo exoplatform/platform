@@ -138,23 +138,23 @@ public class NotificationsAdministration {
   @Ajax
   @Resource
   public Response saveSender(String name, String email) {
+    JSON data = new JSON();
+    data.set("name", name);
+    data.set("email",email);
     if(name != null && name.length() > 0
          && isValidEmailAddresses(email)) {
       settingService.set(org.exoplatform.commons.api.settings.data.Context.GLOBAL, Scope.GLOBAL, NotificationPluginUtils.NOTIFICATION_SENDER_NAME, SettingValue.create(name));
       settingService.set(org.exoplatform.commons.api.settings.data.Context.GLOBAL, Scope.GLOBAL, NotificationPluginUtils.NOTIFICATION_SENDER_EMAIL, SettingValue.create(email));
+      data.set("status","OK");
     } else {
-      return new Response.Error("ERROR: Set value of name and email not empty and email is email address");
+      data.set("status","NOK");
     }
-    JSON data = new JSON();    
-    data.set("status","OK");
-    data.set("name", name);
-    data.set("email",email);
     
     return Response.ok(data.toString()).withMimeType("application/json");
   }
   
   public static boolean isValidEmailAddresses(String addressList){
-    if (addressList == null || addressList.length() < 0)
+    if (addressList == null || addressList.trim().length() == 0)
       return false;
     addressList = StringUtils.remove(addressList, " ");
     addressList = StringUtils.replace(addressList, ";", ",");
