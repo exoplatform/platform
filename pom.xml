@@ -59,7 +59,7 @@
     <org.exoplatform.wiki.version>4.1.x-wiki-stabilization-SNAPSHOT</org.exoplatform.wiki.version>
     <org.exoplatform.calendar.version>4.1.x-cal-stabilization-SNAPSHOT</org.exoplatform.calendar.version>
     <org.exoplatform.integ.version>4.1.x-integ-stabilization-SNAPSHOT</org.exoplatform.integ.version>
-    <org.exoplatform.platform-ui.version>4.1.x-plfui-stabilization-SNAPSHOT</org.exoplatform.platform-ui.version>
+    <org.exoplatform.platform-ui.version>4.1.0-SNAPSHOT</org.exoplatform.platform-ui.version>
   </properties>
   <dependencyManagement>
     <!-- ### NEVER CHANGE THIS ORDER OF DEPMGT ### -->

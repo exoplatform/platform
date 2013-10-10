@@ -146,18 +146,6 @@
    </module>
 
    <module>
-      <name>jQueryToolTip</name>
-      <load-group>homepage-apps</load-group>
-      <script>
-         <path>/js/whoisonline/jquery.tipTip.minified.js</path>
-      </script>
-      <depends>
-         <module>jquery</module>
-         <as>jQuery</as>
-      </depends>
-   </module>
-
-   <module>
       <name>jQueryWhoIsOnLine</name>
       <load-group>homepage-apps</load-group>
       <script>
@@ -170,7 +158,7 @@
          <module>jquery</module>
       </depends>
       <depends>
-         <module>jQueryToolTip</module>
+         <module>userPopupPlugin</module>
       </depends>
    </module>
 </gatein-resources>
