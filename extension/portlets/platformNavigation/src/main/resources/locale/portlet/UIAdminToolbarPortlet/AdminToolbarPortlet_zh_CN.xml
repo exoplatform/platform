@@ -45,14 +45,14 @@
  
     <action>
       <Save>Save</Save>
-      <Cancel>Cancel</Cancel>
+      <Cancel>取消</Cancel>
     </action>
     <msg>
       <repository-exception>An unexpected error occurred. Cannot save page metadata.</repository-exception>
       <confirm-delete>Are you sure you want to delete these SEO data?</confirm-delete>
     </msg>
     <title>
-    <seo-delete>Delete</seo-delete>
+    <seo-delete>删除</seo-delete>
     </title>
 <help> 
   <priority>Valid values range from 0.0 to 1.0.</priority>

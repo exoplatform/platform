@@ -2,14 +2,14 @@
 <bundle>
  <UISpaceNavigationPortlet>
      <label>
-         <Spaces>Meine Spaces</Spaces>
+         <Spaces>Meine Räume</Spaces>
          <Join>einem Raum beitreten</Join>
-         <more>Weitere Spaces</more>
+         <more>Weitere Räume</more>
          <see>Anzeigen</see>
      </label>
      <msg>
          <filter-spaces>Spaces suchen</filter-spaces>
-         <no-space>Keinen Space gefunden</no-space>
+         <no-space>Kein Raum gefunden</no-space>
      </msg>
 
 </UISpaceNavigationPortlet>
