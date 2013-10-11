@@ -4,7 +4,7 @@
     <acme>
       <overview>Overview</overview>
       <products>Products</products>
-      <news>News</news>
+      <news>新闻</news>
       <contactus>Questions?</contactus>
       <newsletters>Newsletters</newsletters>
       <confirmation>Contact Form Confirmation</confirmation>
@@ -15,7 +15,7 @@
       <newAccount>New Account</newAccount>
       <groupnavigation>Group Navigation</groupnavigation>
       <portalnavigation>Portal Navigation</portalnavigation>
-      <documents>Documents</documents>
+      <documents>文档</documents>
       <unifiedSearch>Search</unifiedSearch>
     </acme>
   </portal>
