@@ -120,17 +120,6 @@
                </object>
             </object-param>
             <object-param>
-               <name>TenSlowestTemplates</name>
-               <object type="org.exoplatform.platform.upgrade.plugins.GadgetUpgrade">
-                  <field name="name">
-                     <string>TenSlowestTemplates</string>
-                  </field>
-                  <field name="path">
-                     <string>war:/gadgets/Management-and-Monitoring-gadgets/Statistics/templates-slowest.xml</string>
-                  </field>
-               </object>
-            </object-param>
-            <object-param>
                <name>AllTemplateStatistics</name>
                <object type="org.exoplatform.platform.upgrade.plugins.GadgetUpgrade">
                   <field name="name">

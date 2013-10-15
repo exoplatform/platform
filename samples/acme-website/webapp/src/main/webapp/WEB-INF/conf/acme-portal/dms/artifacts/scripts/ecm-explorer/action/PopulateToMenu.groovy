@@ -36,13 +36,14 @@ import org.exoplatform.services.log.ExoLogger;
  * Jan 28, 2011 03:01:09 PM
  */
 
-public class PopulateToHomePageMenu implements CmsScript {
+public class PopulateToMenu implements CmsScript {
   
   private RepositoryService repositoryService_ ;
   private SessionProviderService seProviderService_;
-  private static final Log LOG  = ExoLogger.getLogger("PopulateToHomePageMenu");
+  private static final Log LOG  = ExoLogger.getLogger("PopulateToMenu");
+  private static final String ACME_CATEGORIES_PATH  =  "sites/acme/categories";
   
-  public PopulateToHomePageMenu(RepositoryService repositoryService, SessionProviderService sessionProviderService) {
+  public PopulateToMenu(RepositoryService repositoryService, SessionProviderService sessionProviderService) {
     repositoryService_ = repositoryService ;
 	seProviderService_ = sessionProviderService ;
   }
@@ -70,11 +71,14 @@ public class PopulateToHomePageMenu implements CmsScript {
 		//session = repositoryService_.getDefaultRepository().getSystemSession(srcWorkspace);
 		Node node = (Node) session.getItem(nodePath);
 		//node type should be navigableType
-		boolean navigableType = node.isNodeType("exo:taxonomy") || node.isNodeType("exo:taxonomyLink") || node.isNodeType("exo:webContent") || node.isNodeType("exo:product");
+		boolean navigableType = node.isNodeType("exo:taxonomy") || node.isNodeType("exo:taxonomyLink") || node.isNodeType("exo:webContent") || node.isNodeType("acme:product");
 		//node should allow exo:navigable mixin addition
 		boolean canAddMixin = node.canAddMixin("exo:navigable");
+        //--- PLF-5111 : Content Navigation menu doesn't work
+       //--- Workaround : add the mixin type *exo:navigable* only to nodes under /sites/acme/categories
+       boolean isPathTaxonomy = node.getPath().contains("sites/acme/categories") ;
 
-		if(canAddMixin && navigableType){
+		if(canAddMixin && navigableType && isPathTaxonomy){
 			if(!node.isNodeType("exo:navigable")){
 				//add mixin exo:navigation
 				node.addMixin("exo:navigable");
@@ -123,7 +127,7 @@ public class PopulateToHomePageMenu implements CmsScript {
 				Node childNode = itChildNodes.nextNode();
 				boolean hasNavigableMixinType = childNode.isNodeType("exo:navigable");
 				if (visible) {
-					boolean navigableType = childNode.isNodeType("exo:taxonomy") || childNode.isNodeType("exo:taxonomyLink") || childNode.isNodeType("exo:webContent") || childNode.isNodeType("exo:product");
+					boolean navigableType = childNode.isNodeType("exo:taxonomy") || childNode.isNodeType("exo:taxonomyLink") || childNode.isNodeType("exo:webContent") || childNode.isNodeType("acme:product");
 					if (!hasNavigableMixinType && navigableType) {
 						if (childNode.canAddMixin("exo:navigable")) {
 							childNode.addMixin("exo:navigable");
