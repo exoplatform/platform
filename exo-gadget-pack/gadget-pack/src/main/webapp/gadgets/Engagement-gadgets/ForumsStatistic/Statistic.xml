@@ -20,10 +20,12 @@
 <![CDATA[   
  <head>
       <title>Forums Statistics</title>
+			<link rel="stylesheet" type="text/css" href="/eXoResources/skin/bootstrap/css/bootstrap.css" />    
+			<link rel="stylesheet" type="text/css" href="/eXoResources/skin/css/Core.css" />
       <link type="text/css" rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.9/themes/ui-lightness/jquery-ui.css" />
       <link rel="stylesheet" type="text/css" href="/exo-gadget-resources/skin/exo-gadget/gadget-common.css" />
       <link rel="stylesheet" type="text/css" href="/exo-gadget-resources/script/jquery/plugins/jqplot/1.0.0/jquery.jqplot.min.css" />
-      <link type="text/css" rel="stylesheet" href="/gadget-pack/skin/css/pagination.css" />
+			<link type="text/css" rel="stylesheet" href="/gadget-pack/skin/css/pagination.css" />
       <link type="text/css" rel="stylesheet" href="/gadget-pack/skin/css/forumsStatistic.css" />
 
       <script language="javascript" type="text/javascript" src="/exo-gadget-resources/script/jquery/1.6.2/jquery.min.js"></script>
@@ -84,8 +86,8 @@
             // This function creates an option object for the pagination function.
             function getOptions(){
                 var opt = {callback: pageselectCallback};
-                opt.prev_text = "__MSG_forums.weekly.statistic.prev__";
-                opt.next_text = "__MSG_forums.weekly.statistic.next__";
+                opt.prev_text = "Prev";
+                opt.next_text = "Next";
                 opt.items_per_page = 5;
                 return opt;
             }
@@ -161,10 +163,10 @@
                 
                 $.each(data, function(i, statistic) {
                   $.each(statistic, function(key, statistic) {
-                    items.push('<div class="IconLink">' + "__MSG_forums.statistic.total.topic__" + ' ' + statistic.topicCount+ '</div>');
-                    items.push('<div class="IconLink">' + "__MSG_forums.statistic.total.post__" + ' ' + statistic.postCount+ '</div>');
-                    items.push('<div class="IconLink">' + "__MSG_forums.statistic.total.member__" + ' ' + statistic.membersCount+ '</div>');
-                    items.push('<div class="IconLink">' + "__MSG_forums.statistic.active.member__" + ' ' + statistic.activeUsers+ '</div>');
+                    items.push('<div class="IconLink">' + "__MSG_forums.statistic.total.topic__" + ' <span class="num"> ' + statistic.topicCount+ '</span></div>');
+                    items.push('<div class="IconLink">' + "__MSG_forums.statistic.total.post__" + ' <span class="num"> ' + statistic.postCount+ '</span></div>');
+                    items.push('<div class="IconLink">' + "__MSG_forums.statistic.total.member__" + ' <span class="num"> ' + statistic.membersCount+ '</span></div>');
+                    items.push('<div class="IconLink">' + "__MSG_forums.statistic.active.member__" + ' <span class="num"> ' + statistic.activeUsers+ '</span></div>');
                     
                     var arr = statistic.mostUsersOnline.split(' ');
                     var maximumUser = arr[0];
@@ -172,7 +174,7 @@
                     var time = new Date(dateLong);
                     var onlineTime = time.toDateString() + ' ' + time.toLocaleTimeString() ;
                     items.push('<div class="IconLink">' + "__MSG_forums.statistic.maximum.user__"  + ' ' +'</div>');
-                    items.push('<div style="margin-left:10px"><i>' + maximumUser + ' __MSG_forums.statistic.at__ ' + onlineTime +'</i></div>' );
+                    items.push('<div class="IconLink"><i><span class="num">' + maximumUser + '</span> __MSG_forums.statistic.at__ <span class="num">' + onlineTime +'</span></i></div>' );
              
                   });
                 });
@@ -199,8 +201,8 @@
       </script>
     </head>
     <body>
-       <div class="UIGadgetThemes">
-          <div class="TitGad ClearFix">
+       <div class="UIGadgetThemes uiBox">
+          <h5 class="title left">
             <a target="_blank" id="ShowAll" class="IconDropDown" title="Show all"> </a>
             <div title="Setting" id="SettingButton" class="SettingButton">
                <a href="javascript:eXoEventGadget.showHideSetting(true);" title="Setting"></a>
@@ -208,28 +210,28 @@
 
             <div id ="seeWeeklyStatistic" class="ContTit ClearFix">
               <span>__MSG_forums.statistic.title__</span>
-              <img id ="viewWeeklyStatistic" class = 'icon' src ='/gadget-pack/skin/images/ForumsStatistic/weekly-stats-icon.png' title = "__MSG_forums.statistic.see.weekly.statistic__" alt="" />
+							<span id ="viewWeeklyStatistic" class="actionIcon" title = "__MSG_forums.statistic.see.weekly.statistic__"><i class="uiIconViewStatistic uiIconLightGray"></i></span>
             </div>
             
             <div id ="seeTotalStatistic" class="ContTit ClearFix">
               <span>__MSG_forums.weekly.statistic.title__</span>
-              <img id ="viewTotalStatistic" alt="" class = 'icon' src='/exo-gadget-resources/skin/exo-gadget/images/back.png' title = "__MSG_forums.statistic.see.total.statistic__"/>
-              <img id ="viewChart" alt="" class = 'icon' src='/exo-gadget-resources/skin/exo-gadget/images/chart.png' title = "__MSG_forums.weekly.statistic.view.chart__"/>
-              <img id ="viewList" alt="" class = 'icon' src='/exo-gadget-resources/skin/exo-gadget/images/list.png' title = "__MSG_forums.weekly.statistic.view.list__"/>
+							<span id ="viewTotalStatistic" class="actionIcon" title = "__MSG_forums.statistic.see.total.statistic__"><i class="uiIconReply uiIconLightGray"></i></span>
+							<span id ="viewChart" class="actionIcon" title = "__MSG_forums.weekly.statistic.view.chart__"><i class="uiIconViewByChart uiIconLightGray"></i></span>
+							<span id ="viewList" class="actionIcon" title = "__MSG_forums.weekly.statistic.view.list__"><i class="uiIconViewList uiIconLightGray"></i></span>
             </div>
             
-          </div>
+          </h5>
           
-          <div id ="weeklyStatisticArea" class ="WeeklyStatisticArea">
+          <div id ="weeklyStatisticArea" class ="uiContentBox WeeklyStatisticArea">
 
             <div id="weeklyStatistic" class="GadCont users"></div>    
    
             <div id="chartdiv" class = "ChartContent"></div>
             
-            <div id="Pagination" class="pagination"></div>
+            <div class="pagination uiPageIterator"><ul id="Pagination"></ul></div>
           </div>
           
-          <div id="totalStatisticArea" class="GadCont users TotalStatisticArea"></div>
+          <div id="totalStatisticArea" class="uiContentBox users TotalStatisticArea"></div>
            
         </div>
     </body>
