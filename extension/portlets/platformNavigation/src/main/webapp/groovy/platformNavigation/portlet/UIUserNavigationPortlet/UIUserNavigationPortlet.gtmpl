@@ -37,7 +37,7 @@
         for (node in uicomponent.getUserNodesAsList()) {
             def nodeLabel;
             def str="UIUserNavigationPortlet.label."+node;
-            if (isOwner && ! node.equals(uicomponent.NOTIFICATION_NODE_NAME)) str="UIUserNavigationPortlet.label.My"+node;
+            if (isOwner && ! node.equals(uicomponent.NOTIFICATION_SETTINGS)) str="UIUserNavigationPortlet.label.My"+node;
             nodeLabel = _ctx.appRes(str);
             pageURL = urlList[i];
             def navigationTabClass = "";
@@ -46,7 +46,7 @@
             }
     %>
 
-    <% if  ((node.equals(uicomponent.DASHBOARD_URI))&&(!isOwner))  continue; %>
+    <% if  ((node.equals(uicomponent.DASHBOARD_URI) || node.equals(uicomponent.NOTIFICATION_SETTINGS))&&(!isOwner))  continue; %>
 
 		<li class="<%=navigationTabClass%>">
 			<a href="$pageURL">

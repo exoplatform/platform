@@ -19,6 +19,7 @@
 package org.exoplatform.platform.component;
 
 import org.apache.commons.lang.ArrayUtils;
+import org.exoplatform.commons.notification.NotificationUtils;
 import org.exoplatform.commons.utils.CommonsUtils;
 import org.exoplatform.platform.navigation.component.utils.DashboardUtils;
 import org.exoplatform.platform.webui.NavigationURLUtils;
@@ -56,7 +57,7 @@ public class UIUserNavigationPortlet extends UIPortletApplication {
     private static final String USER ="/user/"  ;
     private static final String WIKI_HOME = "/WikiHome";
     private static final String WIKI_REF ="wiki" ;
-    private static final String NOTIFICATION_NODE_NAME = "notification";
+    private static final String NOTIFICATION_SETTINGS = "NotificationSettingsPortlet";
 
     private static Log LOG = ExoLogger.getLogger(UIUserNavigationPortlet.class);
 
@@ -70,6 +71,7 @@ public class UIUserNavigationPortlet extends UIPortletApplication {
         UIPortal uiPortal = Util.getUIPortal();
         UserNode selectedNode = uiPortal.getSelectedUserNode();
         if (selectedNode.getURI().contains(nav)) return true;
+        if (NOTIFICATION_SETTINGS.equals(nav) && "notifications".equals(selectedNode.getURI())) return true;
         else if(Util.getPortalRequestContext().getRequest().getRequestURL().toString().contains(nav))   return true;
         else return false;
     }
@@ -99,8 +101,8 @@ public class UIUserNavigationPortlet extends UIPortletApplication {
         userNodeList=(String[])ArrayUtils.add(userNodeList, CONNEXIONS_URI);
         userNodeList=(String[])ArrayUtils.add(userNodeList, WIKI_URI);
         userNodeList=(String[])ArrayUtils.add(userNodeList, DASHBOARD_URI);
-        if (CommonsUtils.isFeatureActive(NOTIFICATION_NODE_NAME)) {
-          userNodeList=(String[])ArrayUtils.add(userNodeList, NOTIFICATION_NODE_NAME);
+        if (CommonsUtils.isFeatureActive(NotificationUtils.FEATURE_NAME)) {
+          userNodeList=(String[])ArrayUtils.add(userNodeList, NOTIFICATION_SETTINGS);
         }
         return userNodeList;
     }
@@ -111,7 +113,7 @@ public class UIUserNavigationPortlet extends UIPortletApplication {
         urlList=(String[])ArrayUtils.add(urlList, getrelationURL());
         urlList=(String[])ArrayUtils.add(urlList, getWikiURL());
         urlList=(String[])ArrayUtils.add(urlList, DashboardUtils.getDashboardURL());
-        if (CommonsUtils.isFeatureActive(NOTIFICATION_NODE_NAME)) {
+        if (CommonsUtils.isFeatureActive(NotificationUtils.FEATURE_NAME)) {
           urlList=(String[])ArrayUtils.add(urlList, getNotificationsURL());
         }
         return urlList;
