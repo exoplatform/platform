@@ -25,7 +25,7 @@
 				if(document.unlockForm.hashMD5.value!="")
 					return true;
 				else {
-					ERROR.innerHTML="unlock key is mandatory.";
+					ERROR.innerHTML="Unlock key is mandatory.";
 					var elem = document.getElementById("KEYERROR");
 					if (elem!=null) elem.style.display = "none";
 					return false;
@@ -43,11 +43,11 @@
 				<div class="<%=css%>">
 					<strong> <%=label1%>  <%=rday%> <%=label2%></strong>
 				</div>
-				<div style="text-align: center;"><div id="ERROR" class="uiIconError"> </div></div>
-                    <% if(request.getAttribute("errorMessage") != null && !request.getAttribute("errorMessage").toString().isEmpty()) {%>
-                            <div style="text-align: center;"><div id="KEYERROR" class="uiIconError"><%=request.getAttribute("errorMessage").toString() %></div></div>
-                    <% }%>
 				<p><strong>You must own a valid subscription in order to unlock this eXo Platform instance</strong></p>
+				<div id="ERROR" class="uiIconError"> </div>
+                    <% if(request.getAttribute("errorMessage") != null && !request.getAttribute("errorMessage").toString().isEmpty()) {%>
+                            <div id="KEYERROR" class="uiIconError"><%=request.getAttribute("errorMessage").toString() %></div>
+                    <% }%>
 				<div class="steps clearfix">
 					<div class="rightCol firstItem pull-right"><strong>Pickup your favorite <a class="" href="<%=UnlockService.getSubscriptionUrl()%>" target="_blank">subscription plan</a> and buy it</strong></div>
 					<div class="stepsNumber pull-left">1</div>
@@ -57,7 +57,7 @@
 					<div class="rightCol pull-right">
 						<strong>Grab your product code and request an unlock key</strong>
 						<div>
-							<span>Product Code</span>
+							<span>Product Code&#58;</span>
                             <input type="text" class="Text" name="pc" value="<%=UnlockService.getProductCode() %>">
                             <!-- Please IT MUST BE A LINK not a button !!!!! it need only to be resized And it would re take its layout Please!!!-->
                             <a class="btn" target="_blank" href="<%=UnlockService.getRegistrationFormUrl()%>?pc=<%=UnlockService.getProductCode()%>">Request a Key</a>
@@ -70,7 +70,7 @@
 						<strong>Enter your unlock key below to unlock the product</strong>
 						
 						<div>
-							<span>Unlock Key</span>
+							<span>Unlock Key&#58;</span>
                             <input class="Text" type="text" name="hashMD5" id="hashMD5">
 							<button class="btn">Unlock</button>
 						</div>
