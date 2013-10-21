@@ -134,7 +134,7 @@ public class UINavigationTreeBuilder extends UIContainer {
   }
 
   public void selectUserNodeByUri(String uri) {
-    if (edittedTreeNodeData == null) {
+    if (edittedTreeNodeData == null || uri == null) {
       return;
     }
     UITree tree = getChild(UITree.class);
