@@ -78,6 +78,7 @@
             }%>
           </div>
         <%}%>
+    </div>
   <%}%>
 
   <div class="CaptionFunc ClearFix">
@@ -94,6 +95,5 @@
         uicomponent.renderChild(UICustomizeablePaginator.class);
             }
     %>
-    </div>
   </div>
 </div>
