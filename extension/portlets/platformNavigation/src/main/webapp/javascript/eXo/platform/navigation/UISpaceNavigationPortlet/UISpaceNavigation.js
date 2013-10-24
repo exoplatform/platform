@@ -101,6 +101,7 @@
                 me.lastSearchKeyword = textSearch;
                 me.requestData(textSearch, uicomponentId);
                 $(".moreSpace").hide();
+
             }
         },
         ajaxRedirect: function (url) {
