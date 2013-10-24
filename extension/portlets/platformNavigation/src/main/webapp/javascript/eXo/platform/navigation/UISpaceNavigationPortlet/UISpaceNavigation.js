@@ -100,6 +100,7 @@
             if (textSearch != me.lastSearchKeyword) {
                 me.lastSearchKeyword = textSearch;
                 me.requestData(textSearch, uicomponentId);
+                $(".moreSpace").hide();
 
             }
         },
