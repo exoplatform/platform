@@ -296,7 +296,7 @@ requireJS.require("SHARED/jcarousellite", "jqC");
 
     <div id="sectionsTabs" class="ui-tabs">
         <ul class="ui-tabs-nav ClearFix">
-            <li class="ui-state-default">
+            <li class="ui-tabs-selected">
                 <!-- Begin Benefits head section -->
                 <a class="ArrowCtrl" href="#tab-benefits"><%=_ctx.appRes("Product.view.label.benefits")%></a>
                 <!-- End Benefits head section -->
