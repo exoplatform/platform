@@ -27,7 +27,6 @@
       <link type="text/css" rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.9/themes/ui-lightness/jquery-ui.css" />
       <link rel="stylesheet" type="text/css" href="/exo-gadget-resources/skin/exo-gadget/gadget-common.css" />
       <link rel="stylesheet" type="text/css" href="/exo-gadget-resources/script/jquery/plugins/jqplot/1.0.0/jquery.jqplot.min.css" />
-			<link type="text/css" rel="stylesheet" href="/gadget-pack/skin/css/pagination.css" />
       <link type="text/css" rel="stylesheet" href="/gadget-pack/skin/css/forumsStatistic.css" />
 
       <script language="javascript" type="text/javascript" src="/exo-gadget-resources/script/jquery/1.6.2/jquery.min.js"></script>
@@ -88,9 +87,10 @@
             // This function creates an option object for the pagination function.
             function getOptions(){
                 var opt = {callback: pageselectCallback};
-                opt.prev_text = "Prev";
-                opt.next_text = "Next";
+                opt.prev_text = "<i class='uiIconPrevArrow'></i>";
+                opt.next_text = "<i class='uiIconNextArrow'></i>";
                 opt.items_per_page = 5;
+								opt.num_display_entries = 8;
                 return opt;
             }
       
