@@ -15,6 +15,9 @@ li {
 	list-style-type: none;
 }
 
+.UITabContent ul li {
+	list-style-type: disc !important;
+}
 
 /* Product - Category  */
 .ACMECategoriesTDContainer {

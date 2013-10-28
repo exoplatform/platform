@@ -40,6 +40,10 @@ a {
 	color: #28175a;
 }
 
+.UITabPane .UITabContentContainer .UITabContent {
+	padding: 10px 40px;
+}
+
 .UIWorkingWorkspace .UIPageBody {
 	padding-top: 1px;
 	width: auto;
