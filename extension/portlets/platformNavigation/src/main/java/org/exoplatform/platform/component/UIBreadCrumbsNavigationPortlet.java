@@ -12,6 +12,7 @@ import org.exoplatform.portal.mop.user.UserNode;
 import org.exoplatform.portal.mop.user.UserPortal;
 import org.exoplatform.portal.webui.util.Util;
 import org.exoplatform.services.organization.OrganizationService;
+import org.exoplatform.services.organization.User;
 import org.exoplatform.social.core.identity.model.Identity;
 import org.exoplatform.social.core.identity.provider.OrganizationIdentityProvider;
 import org.exoplatform.social.core.service.LinkProvider;
@@ -30,7 +31,9 @@ import org.exoplatform.webui.event.EventListener;
 
 import javax.portlet.PortletPreferences;
 import javax.portlet.PortletRequest;
-import java.util.*;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 /**
  * @author <a href="rtouzi@exoplatform.com">rtouzi</a>
@@ -117,8 +120,12 @@ public class UIBreadCrumbsNavigationPortlet extends UIPortletApplication {
     }
 
     public String getUserFullName(String userNAme) throws Exception {
-        String fullName = orgService.getUserHandler().findUserByName(userNAme).getFullName();
-        return fullName;
+        User user = orgService.getUserHandler().findUserByName(userNAme);
+        if(user!=null){
+            return user.getFullName();
+        }
+        else
+            return "";
     }
 
     public String getAvatarURL(String username) {
