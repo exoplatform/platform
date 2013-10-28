@@ -165,17 +165,17 @@
                 
                 $.each(data, function(i, statistic) {
                   $.each(statistic, function(key, statistic) {
-                    items.push('<div class="IconLink">' + "__MSG_forums.statistic.total.topic__" + ' <span class="num"> ' + statistic.topicCount+ '</span></div>');
-                    items.push('<div class="IconLink">' + "__MSG_forums.statistic.total.post__" + ' <span class="num"> ' + statistic.postCount+ '</span></div>');
-                    items.push('<div class="IconLink">' + "__MSG_forums.statistic.total.member__" + ' <span class="num"> ' + statistic.membersCount+ '</span></div>');
-                    items.push('<div class="IconLink">' + "__MSG_forums.statistic.active.member__" + ' <span class="num"> ' + statistic.activeUsers+ '</span></div>');
+                    items.push('<div class="IconLink"><i class="uiIconMiniArrowRight uiIconLightGray caretIcon"></i>' + "__MSG_forums.statistic.total.topic__" + ' <span class="num"> ' + statistic.topicCount+ '</span></div>');
+                    items.push('<div class="IconLink"><i class="uiIconMiniArrowRight uiIconLightGray caretIcon"></i>' + "__MSG_forums.statistic.total.post__" + ' <span class="num"> ' + statistic.postCount+ '</span></div>');
+                    items.push('<div class="IconLink"><i class="uiIconMiniArrowRight uiIconLightGray caretIcon"></i>' + "__MSG_forums.statistic.total.member__" + ' <span class="num"> ' + statistic.membersCount+ '</span></div>');
+                    items.push('<div class="IconLink"><i class="uiIconMiniArrowRight uiIconLightGray caretIcon"></i>' + "__MSG_forums.statistic.active.member__" + ' <span class="num"> ' + statistic.activeUsers+ '</span></div>');
                     
                     var arr = statistic.mostUsersOnline.split(' ');
                     var maximumUser = arr[0];
                     var dateLong= new Number (arr[arr.length - 1]);
                     var time = new Date(dateLong);
                     var onlineTime = time.toDateString() + ' ' + time.toLocaleTimeString() ;
-                    items.push('<div class="IconLink">' + "__MSG_forums.statistic.maximum.user__"  + ' ' +'</div>');
+                    items.push('<div class="IconLink"><i class="uiIconMiniArrowRight uiIconLightGray caretIcon"></i>' + "__MSG_forums.statistic.maximum.user__"  + ' ' +'</div>');
                     items.push('<div class="IconLink"><i><span class="num">' + maximumUser + '</span> __MSG_forums.statistic.at__ <span class="num">' + onlineTime +'</span></i></div>' );
              
                   });
@@ -203,6 +203,7 @@
       </script>
     </head>
     <body>
+			<div id="forumStatistic">
        <div class="UIGadgetThemes uiBox">
           <h5 class="title left">
             <a target="_blank" id="ShowAll" class="IconDropDown" title="Show all"> </a>
@@ -226,7 +227,7 @@
           
           <div id ="weeklyStatisticArea" class ="uiContentBox WeeklyStatisticArea">
 
-            <div id="weeklyStatistic" class="GadCont users"></div>    
+            <div id="weeklyStatistic" class="users"></div>    
    
             <div id="chartdiv" class = "ChartContent"></div>
             
@@ -236,6 +237,7 @@
           <div id="totalStatisticArea" class="uiContentBox users TotalStatisticArea"></div>
            
         </div>
+			</div>
     </body>
 
 ]]></Content></Module>
