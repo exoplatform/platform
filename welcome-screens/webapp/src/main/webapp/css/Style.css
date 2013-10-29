@@ -96,6 +96,7 @@ a {
     vertical-align: top;
     width: 100px;
     text-decoration: none;
+    font-family: HelveticaNeue, Arial, sans-serif;
 }
 
 .uiWelcomeBox .btn:hover {

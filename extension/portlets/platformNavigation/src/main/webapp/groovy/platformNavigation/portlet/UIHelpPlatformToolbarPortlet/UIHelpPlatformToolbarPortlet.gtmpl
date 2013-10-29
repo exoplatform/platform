@@ -20,7 +20,7 @@
 <%  def labelHelp = _ctx.appRes("UIHelpPlatformToolbarPortlet.Title");
 %>
 <div class="uiHelpPLFToolbarPortlet uiDropdownWithIcon">
-	<a href="<%=uicomponent.getHelpPage()%>" TARGET="_blank" class="dropdown-toggle">
-    <i class="uiIconPLF24x24Help" rel="$labelHelp" title="$labelHelp"></i>
+	<a href="<%=uicomponent.getHelpPage()%>" TARGET="_blank" class="dropdown-toggle"  data-placement="bottom" rel="tooltip" data-original-title="$labelHelp">
+    <i class="uiIconPLF24x24Help" rel="$labelHelp"></i>
 	</a>
 </div>
