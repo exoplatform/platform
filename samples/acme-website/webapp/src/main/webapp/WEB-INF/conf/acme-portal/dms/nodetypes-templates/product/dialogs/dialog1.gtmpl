@@ -58,7 +58,7 @@
 					if(ProductNode != null && ProductNode.hasNode("medias/images/illustration") && (uicomponent.findComponentById(illustration) == null)) {
 						def imageNode = ProductNode.getNode("medias/images/illustration") ;
 						def resourceNode = imageNode.getNode("jcr:content");
-						if(resourceNode.getProperty("jcr:data").getStream().available() > 0) {
+						if(resourceNode.getProperty("jcr:data").getStream().available() > 0  && !uicomponent.isDataRemoved("/medias/images/illustration/jcr:content") ) {
 							def imgSrc = uicomponent.getImage(imageNode, "jcr:content");
 							def actionLink = uicomponent.event("RemoveData", "/medias/images/illustration/jcr:content");
 							%>		
