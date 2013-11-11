@@ -137,6 +137,7 @@ a {
     width: 115px;
     text-decoration: none;
     font-family: HelveticaNeue, Arial, sans-serif;
+    font-size: 13px;
 }
 
 .uiWelcomeBox .btn:hover {
