@@ -337,5 +337,18 @@
         <description>Create a symlink to the user public drive from private drive</description>
        </component-plugin>
 
+		<component-plugin>
+			<name>AdjustDrivePermissionNewUserListener</name>
+			<set-method>addListenerPlugin</set-method>
+			<type>org.exoplatform.services.cms.permission.AdjustDrivePermissionNewUserListener</type>
+			<description>Adjust permission of user folder</description>
+		</component-plugin>
+				
+		<component-plugin>
+			<name>AddMixinToNewUserListener</name>
+			<set-method>addListenerPlugin</set-method>
+			<type>org.exoplatform.services.cms.listeners.AddMixinToNewUserListener</type>
+			<description>Add mixin exo:userFolder into user folder</description>
+		</component-plugin>
 	</external-component-plugins>
 </configuration>
