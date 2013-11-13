@@ -65,7 +65,8 @@
         def hasChild = (childrenNodes != null) && !childrenNodes.isEmpty();
         String href = NavigationURLUtils.getURL(node);
         boolean toolong = (node.resolvedLabel.length() > 16);
-        String label = (toolong ? node.resolvedLabel.substring(0, 15) + "..." : node.resolvedLabel);
+         String shortLabel = (toolong ? node.resolvedLabel.substring(0, 15) + "..." : node.resolvedLabel);
+         String label=node.resolvedLabel;
         def icon=node.getIcon();
         def cssClazz="nonActive";
         if(uicomponent.isSelectedNavigation(node.getName()))  {
@@ -83,9 +84,10 @@
             if ((uicomponent.isUnfoldedNavigation(node))||(uicomponent.isSelectedNavigation(node.getName())))
                 display="block";
             println """
-				<li class="groupItem">
-					<span class="icon arrowIcon"></span>
-                    <a class="groupIcon $icon $cssClazz" href="$href">$label</a>
+				<li class="groupItem">					
+                    <div class="$cssClazz">
+						<i class="uiIconArrowDown uiIconLightGray"></i><a data-placement="bottom" rel="tooltip" data-toggle="tooltip" class="groupIcon" href="$href" data-original-title="$label">$shortLabel</a>
+					</div>
                     <ul class="childrenContainer" style="display: $display">
 					""";
 
@@ -105,9 +107,8 @@
         }
         else {
             println """
-				<li class=" groupItem ClearFix">
-					<span class="icon"></span>
-					<a class="groupIcon $icon $cssClazz" href="$href">$label</a>
+				<li class=" groupItem">					
+					  <div class="$cssClazz"><a data-placement="bottom" rel="tooltip" data-toggle="tooltip" class="groupIcon" href="$href" data-original-title="$label">$shortLabel</a></div>
 				</li>
 
 				""";
