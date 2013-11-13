@@ -1,10 +1,24 @@
 .uiGadgetThemes{ 
 	.gadContent {
 		padding: 8px 16px;
-		.question{
-			margin: 10px 0px 12px 0px;
-			text-decoration: none;
+		.question, .question .text{
 			color: #2f5e92;
+		}
+		.question{
+			margin: 5px 0 10px;
+			text-decoration: none;
+			display: inline-block;
+			line-height: 18px;
+			> i {
+				float: left;
+				margin-right: 5px;
+				margin-top: 1px;
+			}
+			.text {
+				display: block;
+				line-height: 18px;
+				margin-left: 21px;
+			}
 		}
 		.poll{
 			h6{
@@ -39,14 +53,17 @@
 			margin: 10px 0;
 			table-layout: fixed;
 			.label-vote{
-				max-width: 170px;
 				white-space: nowrap;
 				overflow: hidden;
 				text-overflow: ellipsis;
+				display: inline-block;
+			}
+			.label-vote.w170 {
+				width: 170px;
 			}
 			.percent{
 				width: 35px;
-				padding-left: 6px;
+				padding-left: 2px;
 				text-align: right;
 			}
 		}
@@ -72,7 +89,6 @@
 		
 		.horizontalBG{
 			width: 100%;
-			min-width: 103px;
 			height: 10px;
 			border-radius: 5px;
 			background-color: #dcdcdc;
@@ -118,6 +134,7 @@
 					overflow: hidden;
 					text-overflow: ellipsis;
 					white-space: nowrap;
+					text-align: left;
 				}
 			}
 			.selectbox{
@@ -154,6 +171,23 @@
 		
 		form{
 			margin: 0px;
+		}
+	}
+	&.minimize {
+		.gadContent {
+			.listpoll {
+				.control-group {
+					.control-label {
+						width: auto;
+						float: none;
+						padding: 0;
+						margin: 0 0 8px;
+					}
+					.controls {
+						margin-left: 0;
+					}
+				}
+			}
 		}
 	}
 }

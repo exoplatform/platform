@@ -87,7 +87,7 @@ function showPoll(data, isVoteAgain) {
 			var prefs = new gadgets.Prefs();
 			var topicId = pollId.replace("poll", "topic");
 			var topicURL = window.location.protocol + "//" + window.location.host + parent.parent.eXo.env.portal.context + "/" + parent.parent.eXo.env.portal.portalName + "/forum/topic/" + topicId;
-			html.push('<h6 class="clearfix"><a class="question" title = "' + prefs.getMsg('discuss') + '" target ="_parent" href="' + topicURL + '"><i class="uiIconPoll"></i> ' + question + '</a><a class="discuss btn" type="button" title="' + prefs.getMsg("discuss") + '" target="_parent" href="' + topicURL + '">' + prefs.getMsg("discuss") + '</a></h6>');
+			html.push('<h6 class="clearfix"><a class="question" title = "' + prefs.getMsg('discuss') + '" target ="_parent" href="' + topicURL + '"><i class="uiIconPoll"></i> <span class="text">' + question + '</span></a><a class="discuss btn" type="button" title="' + prefs.getMsg("discuss") + '" target="_parent" href="' + topicURL + '">' + prefs.getMsg("discuss") + '</a></h6>');
 		} else {
 			html.push('<h6 class="question">' + question + '</h6>');
 		}
@@ -110,6 +110,7 @@ function showPoll(data, isVoteAgain) {
 		showResult(data);
 	}
 	adjustHeight();
+	$("[data-toggle=tooltip]").tooltip();
 }
 
 function showResult(data) {
@@ -131,7 +132,7 @@ function showResult(data) {
 		var prefs = new gadgets.Prefs();
 		var topicId = pollId.replace("poll", "topic");
 		var topicURL = window.location.protocol + "//" + window.location.host + parent.parent.eXo.env.portal.context + "/" + parent.parent.eXo.env.portal.portalName + "/forum/topic/" + topicId;
-		tbl.push('<h6 class="clearfix"><a class="question " title = "' + prefs.getMsg('discuss') + '"  target="_parent"  href="' + topicURL + '"><i class="uiIconPoll"></i> ' + question + '</a><a class="discuss btn" type="button" title = "' + prefs.getMsg('discuss') + '"  target="_parent"  href="' + topicURL + '">' + prefs.getMsg('discuss') + '</a></h6>');
+		tbl.push('<h6 class="clearfix"><a class="question " title = "' + prefs.getMsg('discuss') + '"  target="_parent"  href="' + topicURL + '"><i class="uiIconPoll"></i> <span class="text">' + question + '</span></a><a class="discuss btn" type="button" title = "' + prefs.getMsg('discuss') + '"  target="_parent"  href="' + topicURL + '">' + prefs.getMsg('discuss') + '</a></h6>');
 	} else {
 		tbl.push('<h6 class="question">' + question + '</h6>');
 	}
@@ -147,7 +148,7 @@ function showResult(data) {
 			var style = 'width:' + result + '%;';
 		}
 
-		tbl.push('<tr><td><div class="label-vote">' + options[i] + '</div></td><td><div class="horizontalBG"><div class="horizontalBar" style="' + style + '">&nbsp;</div></div></td><td class="percent">' + result + '%</td></tr>');
+		tbl.push('<tr><td><div class="label-vote" data-placement="right" data-original-title="' + options[i] + '">' + options[i] + '</div></td><td><div class="horizontalBG"><div class="horizontalBar" style="' + style + '">&nbsp;</div></div></td><td class="percent">' + result + '%</td></tr>');
 	}
 	tbl.push('</tbody>');
 	tbl.push('</table>');
@@ -164,20 +165,40 @@ function showResult(data) {
 	$("#poll").html(tbl.join(''));
 	// Adjust width of progress bar if it's too short
 	var featPoll = document.getElementById('uiFeaturePoll');
-	if (featPoll.offsetWidth < 400) {
-		var childs = featPoll.getElementsByTagName('td');
-		if (childs) {
-			childs[0].style.width = "110px";
-			childs[0].style.maxWidth= "110px";
-			var labelVote = featPoll.getElementsByClassName('label-vote');
-			if (labelVote) {
-				for (var pos = 0; pos < labelVote.length; pos++) {
-					labelVote[pos].style.width = "105px";
-				}
+	var labelVote = featPoll.getElementsByClassName('label-vote');
+	var isWindowMode = featPoll.offsetWidth < 400 ? false : true;
+	if (!isWindowMode) {
+		$(featPoll).addClass('minimize');
+		var children = featPoll.getElementsByTagName('td');
+		if (children)
+			children[0].style.width = 105;
+	}
+	
+	makeTooltipForLabel(labelVote, isWindowMode);
+	adjustHeight();
+}
+
+function makeTooltipForLabel(labels, mode) {
+	if (labels) {
+		for (var j = 0; j < labels.length; j++) {
+			var width = labels[j].offsetWidth;
+		console.log(width);
+			
+			if (mode == false) {
+				if (width > 105)
+					setAttribute(labels[j], 'data-toggle', 'tooltip');
+				labels[j].style.width = 100;
+			} else if (mode == true) {
+				if (width > 170)
+					setAttribute(labels[j], 'data-toggle', 'tooltip');
+				$(labels[j]).addClass('w170');
 			}
 		}
 	}
-	adjustHeight();
+}
+
+function setAttribute(element, property, value) {
+	return element.setAttribute(property, value);
 }
 
 function doVote(el) {
