@@ -253,7 +253,7 @@
                If this value is set to false GateIn will perform whole non paginated query and filter it after.
                It will result in more accurate results and paginated list size info however can affect performance -->
           <field name="countPaginatedUsers">
-            <boolean>false</boolean>
+            <boolean>true</boolean>
           </field>
         </object>
       </object-param>
