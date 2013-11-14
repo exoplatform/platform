@@ -23,7 +23,6 @@ import juzu.Path;
 import juzu.Resource;
 import juzu.SessionScoped;
 import juzu.View;
-import org.exoplatform.commons.juzu.ajax.Ajax;
 import juzu.template.Template;
 import org.apache.commons.lang.ArrayUtils;
 import org.exoplatform.calendar.service.*;
@@ -32,11 +31,13 @@ import org.exoplatform.commons.api.settings.SettingService;
 import org.exoplatform.commons.api.settings.SettingValue;
 import org.exoplatform.commons.api.settings.data.Context;
 import org.exoplatform.commons.api.settings.data.Scope;
+import org.exoplatform.commons.juzu.ajax.Ajax;
 import org.exoplatform.platform.portlet.juzu.calendar.models.CalendarPortletUtils;
 import org.exoplatform.services.log.ExoLogger;
 import org.exoplatform.services.log.Log;
-import org.exoplatform.services.organization.Group;
 import org.exoplatform.services.organization.OrganizationService;
+import org.exoplatform.services.security.ConversationState;
+import org.exoplatform.services.security.Identity;
 import org.exoplatform.web.application.RequestContext;
 import org.gatein.common.text.EntityEncoder;
 
@@ -333,13 +334,20 @@ public class CalendarPortletController {
 
 
     public String[] getUserGroups(String username) throws Exception {
-
-        Object[] objs = organization_.getGroupHandler().findGroupsOfUser(username).toArray();
-        String[] groups = new String[objs.length];
-        for (int i = 0; i < objs.length; i++) {
-            groups[i] = ((Group) objs[i]).getId();
+        // Get groups from ConversationState instead using orgService
+        ConversationState conversationState = ConversationState.getCurrent();
+        Identity id = null;
+        if (conversationState != null) {
+            id = conversationState.getIdentity();
         }
-        return groups;
+        if (id == null) {
+            return null;
+        }
+        Set<String> groups = id.getGroups();
+        if (groups != null) {
+            return groups.toArray(new String[0]);
+        }
+        return null;
     }
 
     public List getAllCal(String username) throws Exception {
