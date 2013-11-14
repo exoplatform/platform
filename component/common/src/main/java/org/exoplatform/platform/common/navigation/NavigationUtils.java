@@ -90,28 +90,6 @@ public class NavigationUtils {
         return pageNavigation;
     }
 
-    private static PageNavigation createFragmentedPageNavigation(DescriptionService service, NavigationContext navigation,
-                                                                 NodeContext<NodeContext<?>> node) {
-        PageNavigation pageNavigation = new PageNavigation();
-        pageNavigation.setPriority(navigation.getState().getPriority());
-        pageNavigation.setOwnerType(navigation.getKey().getTypeName());
-        pageNavigation.setOwnerId(navigation.getKey().getName());
-
-        ArrayList<PageNode> children = new ArrayList<PageNode>(1);
-        children.add(createPageNode(service, node));
-
-        NavigationFragment fragment = new NavigationFragment();
-        StringBuilder parentUri = new StringBuilder("");
-        getPath(node.getParent(), parentUri);
-        fragment.setParentURI(parentUri.toString());
-        fragment.setNodes(children);
-
-        pageNavigation.addFragment(fragment);
-
-        return pageNavigation;
-    }
-
-
     private static void getPath(NodeContext<NodeContext<?>> node, StringBuilder parentUri) {
         if (node == null)
             return;

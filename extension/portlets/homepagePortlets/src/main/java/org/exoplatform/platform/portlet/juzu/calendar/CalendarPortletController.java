@@ -112,7 +112,7 @@ public class CalendarPortletController {
     @Inject
     SettingService settingService_;
 
-    private static Log log = ExoLogger.getLogger(CalendarPortletController.class);
+    private static final Log log = ExoLogger.getLogger(CalendarPortletController.class);
 
     @Inject
     @Path("calendar.gtmpl")

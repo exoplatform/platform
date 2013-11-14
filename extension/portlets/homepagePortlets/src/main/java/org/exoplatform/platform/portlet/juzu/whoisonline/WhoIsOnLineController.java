@@ -20,7 +20,7 @@ import java.util.List;
  */
 public class WhoIsOnLineController {
 
-    private static Log log = ExoLogger.getLogger(WhoIsOnLineController.class);
+    private static final Log log = ExoLogger.getLogger(WhoIsOnLineController.class);
 
     @Inject
     WhoIsOnline whoIsOnline;

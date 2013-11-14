@@ -21,7 +21,6 @@ package org.exoplatform.platform.component;
 
 import org.exoplatform.platform.common.service.MenuConfiguratorService;
 import org.exoplatform.portal.config.UserPortalConfig;
-import org.exoplatform.portal.config.model.PortalConfig;
 import org.exoplatform.portal.mop.SiteType;
 import org.exoplatform.portal.mop.navigation.Scope;
 import org.exoplatform.portal.mop.user.UserNavigation;

@@ -24,7 +24,7 @@ import javax.jcr.Node;
  */
 public class TermsAndConditionsServiceImpl implements TermsAndConditionsService {
 
-    private static Log logger = ExoLogger.getLogger(TermsAndConditionsServiceImpl.class);
+    private static final Log logger = ExoLogger.getLogger(TermsAndConditionsServiceImpl.class);
 
     private static final String CHROMATTIC_LIFECYCLE_NAME = "termsandconditions";
 

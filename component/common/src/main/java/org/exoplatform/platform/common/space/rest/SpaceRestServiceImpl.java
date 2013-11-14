@@ -41,7 +41,7 @@ import org.exoplatform.social.core.space.spi.SpaceService;
 @Path("/space")
 public class SpaceRestServiceImpl implements ResourceContainer {
 
-    private static Log logger = ExoLogger.getLogger(SpaceRestServiceImpl.class);
+    private static final Log logger = ExoLogger.getLogger(SpaceRestServiceImpl.class);
 
     private final SpaceService spaceService;
 

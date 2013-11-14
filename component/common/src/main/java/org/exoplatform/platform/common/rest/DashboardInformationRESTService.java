@@ -5,18 +5,17 @@ import org.exoplatform.application.gadget.GadgetRegistryService;
 import org.exoplatform.common.http.HTTPStatus;
 import org.exoplatform.container.PortalContainer;
 import org.exoplatform.container.component.RequestLifeCycle;
+import org.exoplatform.platform.common.navigation.NavigationUtils;
 import org.exoplatform.portal.config.DataStorage;
 import org.exoplatform.portal.config.model.Application;
 import org.exoplatform.portal.config.model.*;
-import org.exoplatform.portal.config.model.*;
-import org.exoplatform.portal.pom.spi.portlet.Portlet;
-import org.exoplatform.portal.mop.navigation.NavigationService;
 import org.exoplatform.portal.mop.description.DescriptionService;
+import org.exoplatform.portal.mop.navigation.NavigationService;
+import org.exoplatform.portal.pom.spi.portlet.Portlet;
 import org.exoplatform.services.log.ExoLogger;
 import org.exoplatform.services.log.Log;
 import org.exoplatform.services.rest.resource.ResourceContainer;
 import org.exoplatform.services.security.ConversationState;
-import org.exoplatform.platform.common.navigation.NavigationUtils;
 
 import javax.annotation.security.RolesAllowed;
 import javax.ws.rs.GET;
@@ -25,7 +24,8 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.*;
 import java.net.URI;
-import java.util.*;
+import java.util.LinkedList;
+import java.util.List;
 
 /**
  * WS REST which permit to access to all user's dashboards

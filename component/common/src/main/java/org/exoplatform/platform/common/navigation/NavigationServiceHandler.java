@@ -34,7 +34,7 @@ import javax.jcr.Session;
  */
 public class NavigationServiceHandler implements Startable {
 
-    private static Log logger = ExoLogger.getLogger(NavigationServiceHandler.class);
+    private static final Log logger = ExoLogger.getLogger(NavigationServiceHandler.class);
     NodeHierarchyCreator nodeCreator;
     String path = "Application Data/logos/";
     String logo_name  = "logo.png";

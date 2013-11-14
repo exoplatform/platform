@@ -44,14 +44,14 @@ import org.exoplatform.wiki.utils.Utils;
 )
 
 public class UICreateForm extends UIForm {
+
+    private static final Log log = ExoLogger.getLogger(UICreateForm.class);
     static String LOCATION = "In Location".intern();
     private static final String SWITCH_SPACE_ACTION = "SwitchSpace";
     public static final String SPACE_SWITCHER = "uiWikiSpaceSwitcher_CreateWiki";
     private static final String CREATE_FORM_CONTAINER = "UICreateForm";
     private static final String ADD_WIKI_PAGE = "#AddPage";
     private String urlWiki = "";
-
-    private static Log log = ExoLogger.getLogger(UICreateForm.class);
 
     public UICreateForm() throws Exception {
         // Init space switcher

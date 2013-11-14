@@ -53,10 +53,9 @@ import java.util.List;
 @Path("homepage/intranet/getting-started/")
 @Produces(MediaType.APPLICATION_JSON)
 public class GettingStartedRestService implements ResourceContainer {
+
     private static final Log log = ExoLogger.getLogger(GettingStartedRestService.class);
-
     private static final CacheControl cacheControl;
-
     static {
         RuntimeDelegate.setInstance(new RuntimeDelegateImpl());
         cacheControl = new CacheControl();
