@@ -58,6 +58,12 @@
     <dependency>
       <groupId>org.gatein.portal</groupId>
       <artifactId>exo.portal.webui.portal</artifactId>
+        <exclusions>
+            <exclusion>
+                <groupId>org.gatein.captcha</groupId>
+                <artifactId>simplecaptcha</artifactId>
+            </exclusion>
+        </exclusions>
     </dependency>
   </dependencies>
 </project>
