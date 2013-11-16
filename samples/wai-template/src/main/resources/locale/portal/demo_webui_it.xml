@@ -3,12 +3,12 @@
   <Signin>
     <welcome>Benvenuto</welcome>
     <login>Login</login>
-    <logout>Logout</logout>
+    <logout>Uscire</logout>
     <language>
       <en>Switch to English</en>
       <fr>Switch to French</fr>
     </language>
-    <register>Register</register>
+    <register>Registra</register>
   </Signin>
   <Toolbar>
     <SkipToContent>Skip to content</SkipToContent>
@@ -19,13 +19,13 @@
     <LargeSize>Large Size</LargeSize>
     <NormalContrast>Normal Contrast</NormalContrast>
     <HighContrast>High Contrast</HighContrast>
-    <Search>Search</Search>
+    <Search>Ricerca</Search>
   </Toolbar>
   <Logo>
     <GoHome>Go to Home</GoHome>
   </Logo>
   <acme>
-    <label>ACME Template</label>
+    <label>Template ACME</label>
   </acme>  
   <WAIPortal>
     <label>Sample Accessible Website</label>

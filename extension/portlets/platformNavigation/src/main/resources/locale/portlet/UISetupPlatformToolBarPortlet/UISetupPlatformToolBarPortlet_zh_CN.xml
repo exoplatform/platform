@@ -6,7 +6,7 @@
 <content>Content</content>
 <siteExplorer>Sites Explorer</siteExplorer>
 <wcmAdmin>Content Administration</wcmAdmin>
-<users>Users</users>
+<users>用户</users>
 <newStaff>Add Users</newStaff>
 <org-management>Groups and Roles</org-management>
 <portal>Portal</portal>
@@ -19,7 +19,7 @@
 <spaces>Spaces</spaces>
 <Branding>Branding</Branding>
 <ide>IDE</ide>
-<search>Search</search>
+<search>搜索</search>
 </label>
 </UISetupPlatformToolBarPortlet>
 </bundle>

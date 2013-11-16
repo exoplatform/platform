@@ -23,11 +23,11 @@
 <Product>
 <view>
 <label>
-<benefits>Benefits</benefits>
-<features>Features</features>
-<seeItInAction>See it in action</seeItInAction>
-<resources>Resources</resources>
-<videos>Videos</videos>
+<benefits>优点</benefits>
+<features>功能</features>
+<seeItInAction>看到它在行动</seeItInAction>
+<resources>资源</resources>
+<videos>视频</videos>
 </label>
 </view>
 </Product>

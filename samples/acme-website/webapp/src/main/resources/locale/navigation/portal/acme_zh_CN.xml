@@ -16,7 +16,7 @@
       <groupnavigation>Group Navigation</groupnavigation>
       <portalnavigation>Portal Navigation</portalnavigation>
       <documents>文档</documents>
-      <unifiedSearch>Search</unifiedSearch>
+      <unifiedSearch>搜索</unifiedSearch>
     </acme>
   </portal>
 </bundle>
