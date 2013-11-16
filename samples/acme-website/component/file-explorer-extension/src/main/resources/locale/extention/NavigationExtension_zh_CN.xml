@@ -19,7 +19,7 @@
 <dialog>
 <label>
 <id>ID:</id>
-<name>Name:</name>
+<name>名称：</name>
 <lifecycle>Lifecycle:</lifecycle>
 <isDeep>Is Deep:</isDeep>
 <nodetypes>Node Types:</nodetypes>
@@ -45,11 +45,11 @@
 <ListShowCLVByStringInput>Parameter Name:</ListShowCLVByStringInput>
 <DetailTargetPageInputSet>Page for Detail:</DetailTargetPageInputSet>
 <DetailShowCLVByStringInput>Parameter Name:</DetailShowCLVByStringInput>
-<List>List</List>
-<Detail>Detail</Detail>
+<List>列表</List>
+<Detail>详细信息</Detail>
 </label>
 <action>
-<Save>Save</Save>
+<Save>保存</Save>
 <Cancel>取消</Cancel>
 </action>
 </UINavigationForm>

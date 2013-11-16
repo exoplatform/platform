@@ -16,7 +16,7 @@
          <poll>poll</poll>
          <CreateANew>Create a new {1}:</CreateANew>
          <NoForum>Sorry, no forum is available yet to create a {1}. Start by creating your own space.</NoForum>
-         <RequireSelectForum>Please select a forum.</RequireSelectForum>
+         <RequireSelectForum>请选择一个论坛。</RequireSelectForum>
       </label>
       <action>
          <Next>Next</Next>
@@ -49,10 +49,10 @@
       <label>
          <Title>Title</Title>
          <Choix>Add New:</Choix>
-         <EndEvent>To</EndEvent>
-         <StartEvent>From</StartEvent>
-         <Calendar>Select Calendar</Calendar>
-         <all-day>All Day</all-day>
+         <EndEvent>到</EndEvent>
+         <StartEvent>从</StartEvent>
+         <Calendar>选择日历</Calendar>
+         <all-day>全天</all-day>
          <defaultCalendarId>Default</defaultCalendarId>
       </label>
       <msg>
@@ -77,8 +77,8 @@
     </UIUploadFile>
    <Choix>
       <label>
-         <Event>Event</Event>
-         <Task>Task</Task>
+         <Event>事件</Event>
+         <Task>任务</Task>
       </label>
    </Choix>
 </bundle>

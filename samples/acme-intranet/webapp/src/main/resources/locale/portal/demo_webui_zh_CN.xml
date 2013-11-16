@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <bundle>
   <Signin>
-    <welcome>Welcome</welcome>
+    <welcome>欢迎</welcome>
     <login>登录</login>
     <logout>Logout</logout>
-    <language>Change Language</language>
+    <language>更改语言</language>
     <register>Register</register>
   </Signin>
 

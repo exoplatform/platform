@@ -2,10 +2,10 @@
 <bundle>
    <UIAdminToolbarPortlet>
       <action>
-         <AddPage>Add Page</AddPage>
+         <AddPage>添加页面</AddPage>
          <EditNavigation>Navigation</EditNavigation>
          <Content>Content</Content>
-         <Editor>Edit</Editor>
+         <Editor>编辑</Editor>
          <Page>Page</Page>
          <Site>Site</Site>
          <Layout>Edit Layout</Layout>
@@ -21,53 +21,53 @@
 
   <UISEOForm>
     <label>
-      <title>Title:</title>  
+      <title>标题：</title>  
       <description>Description:</description>
-      <keywords>Keywords:</keywords>
-      <language>Language:</language>
-      <robots>Robots:</robots>
-      <sitemap>Sitemap:</sitemap>
+      <keywords>关键字：</keywords>
+      <language>语言：</language>
+      <robots>机器人：</robots>
+      <sitemap>网站地图：</sitemap>
       <sitemapvisible>Visible in sitemap</sitemapvisible>
-  <isInherited>Inherited from parent page</isInherited>
-      <priority>Priority:</priority>
-      <frequency>Frequency:</frequency>
+  <isInherited>继承自父页</isInherited>
+      <priority>优先级：</priority>
+      <frequency>频率：</frequency>
       <select-language>Select Language</select-language>
       <option>
         <Always>Always</Always>
         <Hourly>Hourly</Hourly>
         <Daily>Daily</Daily>
-        <Weekly>Weekly</Weekly>
-        <Monthly>Monthly</Monthly>
+        <Weekly>每周</Weekly>
+        <Monthly>每月</Monthly>
         <Yearly>Yearly</Yearly>
         <Never>Never</Never>
       </option> 
     </label>
  
     <action>
-      <Save>Save</Save>
+      <Save>保存</Save>
       <Cancel>取消</Cancel>
     </action>
     <msg>
       <repository-exception>An unexpected error occurred. Cannot save page metadata.</repository-exception>
-      <confirm-delete>Are you sure you want to delete these SEO data?</confirm-delete>
+      <confirm-delete>要删除这些 SEO 数据吗?</confirm-delete>
     </msg>
     <title>
     <seo-delete>删除</seo-delete>
     </title>
 <help> 
-  <priority>Valid values range from 0.0 to 1.0.</priority>
+  <priority>有效值范围从 0.0 到 1.0</priority>
   <description>Help searchers: let them know that the following page has a link with what they are looking for.</description>
   <keywords>Most important terms in the page must be separated by a comma.</keywords>  
     </help>  
   </UISEOForm>
   <UISEOPopupWindow>
   <title>
-      <UISEOForm>SEO Management</UISEOForm>
+      <UISEOForm>SEO 管理</UISEOForm>
   </title>
   </UISEOPopupWindow>    
   <UISEOToolbarForm>
   <title>
-      <seo>SEO Management</seo>
+      <seo>SEO 管理</seo>
   </title>
   <label>
     <seo>SEO</seo>
