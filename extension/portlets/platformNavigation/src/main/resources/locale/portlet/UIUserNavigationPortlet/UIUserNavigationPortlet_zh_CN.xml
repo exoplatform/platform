@@ -2,15 +2,15 @@
 <bundle>
    <UIUserNavigationPortlet>
       <label>
-         <activities>Activities Stream</activities>
-         <profile>Profile</profile>
-         <connections>Connections</connections>
+         <activities>活动流</activities>
+         <profile>配置文件</profile>
+         <connections>联系人</connections>
          <wiki>wiki</wiki>
-         <Myactivities>My Activity Stream</Myactivities>
-         <Myprofile>My Profile</Myprofile>
+         <Myactivities>我的活动流</Myactivities>
+         <Myprofile>我的配置文件</Myprofile>
          <Myconnections>我的联系人</Myconnections>
          <Mywiki>我的 Wiki</Mywiki>
-         <Mydashboard>My Dashboard</Mydashboard>
+         <Mydashboard>我的仪表板</Mydashboard>
       </label>
    </UIUserNavigationPortlet>
 </bundle>

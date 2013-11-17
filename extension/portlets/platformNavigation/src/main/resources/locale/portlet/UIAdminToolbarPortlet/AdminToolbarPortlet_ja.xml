@@ -12,7 +12,7 @@
          <siteLayout>レイアウト</siteLayout>
          <ManagePages>ページを管理</ManagePages>
          <GroupSite>グループ サイト</GroupSite>
-         <Properties>SEO</Properties>
+         <Properties>#{UISEOToolbarForm.label.seo}</Properties>
          <AddSite>サイトを追加</AddSite>
       </action>
 <ManageSites>サイトを管理</ManageSites>
@@ -62,7 +62,7 @@
   </UISEOForm>
   <UISEOPopupWindow>
   <title>
-      <UISEOForm>SEO の管理</UISEOForm>
+      <UISEOForm>#{UISEOToolbarForm.title.seo}</UISEOForm>
   </title>
   </UISEOPopupWindow>    
   <UISEOToolbarForm>
