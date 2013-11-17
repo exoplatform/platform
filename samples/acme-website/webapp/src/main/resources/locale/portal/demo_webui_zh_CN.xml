@@ -3,12 +3,12 @@
   <Signin>
     <welcome>欢迎</welcome>
     <login>登录</login>
-    <logout>Logout</logout>
+    <logout>退出</logout>
     <language>更改语言</language>
-    <register>Register</register>
+    <register>注册</register>
   </Signin>
 
   <ACMEPortal>
-    <label>ACME Template</label>
+    <label>ACME 模板</label>
   </ACMEPortal>
 </bundle>

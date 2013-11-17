@@ -3,43 +3,43 @@
    <UIAdminToolbarPortlet>
       <action>
          <AddPage>添加页面</AddPage>
-         <EditNavigation>Navigation</EditNavigation>
-         <Content>Content</Content>
+         <EditNavigation>导航</EditNavigation>
+         <Content>内容</Content>
          <Editor>编辑</Editor>
-         <Page>Page</Page>
-         <Site>Site</Site>
-         <Layout>Edit Layout</Layout>
-         <siteLayout>Layout</siteLayout>
-         <ManagePages>Manage Pages</ManagePages>
-         <GroupSite>Group Site</GroupSite>
-         <Properties>SEO</Properties>
-         <AddSite>Add Site</AddSite>
+         <Page>页面</Page>
+         <Site>站点</Site>
+         <Layout>编辑布局</Layout>
+         <siteLayout>布局</siteLayout>
+         <ManagePages>管理页面</ManagePages>
+         <GroupSite>群组站点</GroupSite>
+         <Properties>#{UISEOToolbarForm.label.seo}</Properties>
+         <AddSite>添加站点</AddSite>
       </action>
-<ManageSites>Manage Sites</ManageSites>
-<ManageGroupSites>Manage Group Sites</ManageGroupSites>
+<ManageSites>管理站点</ManageSites>
+<ManageGroupSites>管理组站点</ManageGroupSites>
    </UIAdminToolbarPortlet>
 
   <UISEOForm>
     <label>
       <title>标题：</title>  
-      <description>Description:</description>
+      <description>说明：</description>
       <keywords>关键字：</keywords>
       <language>语言：</language>
       <robots>机器人：</robots>
       <sitemap>网站地图：</sitemap>
-      <sitemapvisible>Visible in sitemap</sitemapvisible>
+      <sitemapvisible>在站点地图中可见</sitemapvisible>
   <isInherited>继承自父页</isInherited>
       <priority>优先级：</priority>
       <frequency>频率：</frequency>
-      <select-language>Select Language</select-language>
+      <select-language>选择一种语言</select-language>
       <option>
-        <Always>Always</Always>
-        <Hourly>Hourly</Hourly>
-        <Daily>Daily</Daily>
+        <Always>总是</Always>
+        <Hourly>每小时</Hourly>
+        <Daily>每日</Daily>
         <Weekly>每周</Weekly>
         <Monthly>每月</Monthly>
-        <Yearly>Yearly</Yearly>
-        <Never>Never</Never>
+        <Yearly>每年</Yearly>
+        <Never>从不</Never>
       </option> 
     </label>
  
@@ -48,7 +48,7 @@
       <Cancel>取消</Cancel>
     </action>
     <msg>
-      <repository-exception>An unexpected error occurred. Cannot save page metadata.</repository-exception>
+      <repository-exception>出现意外的错误。不能保存页面的元数据。</repository-exception>
       <confirm-delete>要删除这些 SEO 数据吗?</confirm-delete>
     </msg>
     <title>
@@ -56,34 +56,34 @@
     </title>
 <help> 
   <priority>有效值范围从 0.0 到 1.0</priority>
-  <description>Help searchers: let them know that the following page has a link with what they are looking for.</description>
-  <keywords>Most important terms in the page must be separated by a comma.</keywords>  
+  <description>帮助搜索者： 让他们知道下面的页已与他们正在寻找一个链接。</description>
+  <keywords>最重要的是在页面中的条款必须用逗号分隔。</keywords>  
     </help>  
   </UISEOForm>
   <UISEOPopupWindow>
   <title>
-      <UISEOForm>SEO 管理</UISEOForm>
+      <UISEOForm>#{UISEOToolbarForm.title.seo}</UISEOForm>
   </title>
   </UISEOPopupWindow>    
   <UISEOToolbarForm>
   <title>
-      <seo>SEO 管理</seo>
+      <seo>搜索引擎优化管理</seo>
   </title>
   <label>
-    <seo>SEO</seo>
+    <seo>搜索引擎优化</seo>
   </label>
   </UISEOToolbarForm>  
   <FloatNumberValidator>
     <msg>
-      <Invalid-number>Priority field has an invalid value. Please enter a number between 0.0 and 1.0.</Invalid-number>
+      <Invalid-number>优先级字段有一个无效值。请输入一个数字，介于 0.0 和 1.0 之间。</Invalid-number>
     </msg>
   </FloatNumberValidator>
   
   <Locale>
     <label>      
-      <it>Italian</it>      
-      <fr>French</fr>
-      <en>English</en>      
+      <it>意大利语</it>      
+      <fr>法语</fr>
+      <en>英文</en>      
     </label>
   </Locale>
   

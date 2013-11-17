@@ -2,78 +2,78 @@
 <bundle>
    <UIUserPlatformToolBarCreatePortlet>
       <label>
-         <topic>Topic</topic>
-         <poll>Poll</poll>
-         <eventtask>Event/Task</eventtask>
-         <upload>Upload a File</upload>
-         <wiki>Wiki Page</wiki>
+         <topic>主题</topic>
+         <poll>投票</poll>
+         <eventtask>事件/任务</eventtask>
+         <upload>上传文件</upload>
+         <wiki>wiki页面</wiki>
 
       </label>
    </UIUserPlatformToolBarCreatePortlet>
    <UICreateList>
       <label>
-         <topic>topic</topic>
-         <poll>poll</poll>
-         <CreateANew>Create a new {1}:</CreateANew>
-         <NoForum>Sorry, no forum is available yet to create a {1}. Start by creating your own space.</NoForum>
+         <topic>主题</topic>
+         <poll>投票</poll>
+         <CreateANew>创建新 {1}：</CreateANew>
+         <NoForum>对不起，没有论坛，还可创建 {1}。首先创建你自己的空间。</NoForum>
          <RequireSelectForum>请选择一个论坛。</RequireSelectForum>
       </label>
       <action>
-         <Next>Next</Next>
-         <Cancel>Cancel</Cancel>
+         <Next>#{word.next}</Next>
+         <Cancel>#{word.cancel}</Cancel>
       </action>
    </UICreateList>
    <UICreateTopic>
       <label>
-         <SelectAForum>Select a Forum</SelectAForum>
-         <location>In Location</location>
-         <forumId>And Forum</forumId>
-         <FilterForums>Filter Forums</FilterForums>
+         <SelectAForum>选择一个论坛</SelectAForum>
+         <location>中的位置</location>
+         <forumId>和论坛</forumId>
+         <FilterForums>筛选器论坛</FilterForums>
       </label>
    </UICreateTopic>
    <UICreatePoll>
       <label>
-         <SelectAForum>Select Forum</SelectAForum>
-         <location>In Location</location>
-         <forumId>And Forum</forumId>
-         <FilterForums>Filter Forums</FilterForums>
+         <SelectAForum>选择一个论坛</SelectAForum>
+         <location>中的位置</location>
+         <forumId>和论坛</forumId>
+         <FilterForums>筛选论坛</FilterForums>
       </label>
    </UICreatePoll>
    <UICreateWiki>
       <label>
-         <title>Create a new Wiki Page:</title>
-         <location>In Location</location>
+         <title>创建一个新的 Wiki 页面：</title>
+         <location>中的位置</location>
       </label>
    </UICreateWiki>
    <UICreateEvent>
       <label>
-         <Title>Title</Title>
-         <Choix>Add New:</Choix>
+         <Title>#{word.title}</Title>
+         <Choix>添加新地址:</Choix>
          <EndEvent>到</EndEvent>
          <StartEvent>从</StartEvent>
          <Calendar>选择日历</Calendar>
          <all-day>全天</all-day>
-         <defaultCalendarId>Default</defaultCalendarId>
+         <defaultCalendarId>默认</defaultCalendarId>
       </label>
       <msg>
-         <summary-field-required>The field "Title" is required.</summary-field-required>
-         <fromDate-format>The "From" date format is incorrect.</fromDate-format>
-         <toDate-format>The "To" date format is incorrect.</toDate-format>
-         <logic-required>Sorry, you cannot create an event that ends before it starts.</logic-required>
-         <cant-add-event-on-remote-calendar>You cannot add event to remote calendar</cant-add-event-on-remote-calendar>
+         <summary-field-required>"标题"字段是必需的。</summary-field-required>
+         <fromDate-format>"从"日期格式不正确。</fromDate-format>
+         <toDate-format>"到"日期格式是不正确。</toDate-format>
+         <logic-required>对不起，您不能创建结束在开始之前的事件。</logic-required>
+         <cant-add-event-on-remote-calendar>您不能将事件添加到远程日历</cant-add-event-on-remote-calendar>
          <add-successfully>
-            <Event>The Event was added to {1}</Event>
-            <Task>The Task was added to {1}</Task>
+            <Event>该事件被添加到 {1}</Event>
+            <Task>任务被添加到 {1}</Task>
          </add-successfully>
-         <add-unsuccessfully>{0} was not added.</add-unsuccessfully>
+         <add-unsuccessfully>{0} 未添加。</add-unsuccessfully>
       </msg>
       <action>
          <Next>#{word.save}</Next>
-         <Cancel>Cancel</Cancel>
+         <Cancel>#{word.cancel}</Cancel>
       </action>
    </UICreateEvent>
     <UIUploadFile>
-        <Select>Select File</Select>
+        <Select>选择文件</Select>
     </UIUploadFile>
    <Choix>
       <label>

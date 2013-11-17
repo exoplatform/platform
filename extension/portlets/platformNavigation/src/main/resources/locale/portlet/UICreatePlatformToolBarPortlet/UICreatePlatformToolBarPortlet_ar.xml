@@ -19,8 +19,8 @@
          <RequireSelectForum>يرجى اختيار منتدى.</RequireSelectForum>
       </label>
       <action>
-         <Next>الموالي</Next>
-         <Cancel>الغاء</Cancel>
+         <Next>#{word.next}</Next>
+         <Cancel>#{word.cancel}</Cancel>
       </action>
    </UICreateList>
    <UICreateTopic>
@@ -47,7 +47,7 @@
    </UICreateWiki>
    <UICreateEvent>
       <label>
-         <Title>عنوان</Title>
+         <Title>#{word.title}</Title>
          <Choix>إضافة:</Choix>
          <EndEvent>إلى</EndEvent>
          <StartEvent>من</StartEvent>
@@ -69,7 +69,7 @@
       </msg>
       <action>
          <Next>#{word.save}</Next>
-         <Cancel>الغاء</Cancel>
+         <Cancel>#{word.cancel}</Cancel>
       </action>
    </UICreateEvent>
     <UIUploadFile>
