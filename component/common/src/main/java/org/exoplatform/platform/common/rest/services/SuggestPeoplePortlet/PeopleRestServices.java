@@ -14,7 +14,6 @@ import org.exoplatform.social.core.identity.model.Profile;
 import org.exoplatform.social.core.identity.provider.OrganizationIdentityProvider;
 import org.exoplatform.social.core.manager.IdentityManager;
 import org.exoplatform.social.core.manager.RelationshipManager;
-import org.exoplatform.social.core.profile.ProfileFilter;
 import org.exoplatform.social.core.relationship.model.Relationship;
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -26,7 +25,9 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.*;
 import javax.ws.rs.ext.RuntimeDelegate;
 import java.net.URI;
-import java.util.*;
+import java.util.Date;
+import java.util.List;
+import java.util.Map;
 import java.util.Map.Entry;
 
 
@@ -34,7 +35,7 @@ import java.util.Map.Entry;
 @Produces("application/json")
 public class PeopleRestServices implements ResourceContainer {
 
-    private static Log log = ExoLogger.getLogger(PeopleRestServices.class);
+    private static final Log log = ExoLogger.getLogger(PeopleRestServices.class);
 
     private static final CacheControl cacheControl;
 

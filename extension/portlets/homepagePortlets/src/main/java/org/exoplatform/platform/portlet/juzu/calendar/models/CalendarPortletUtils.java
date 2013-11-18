@@ -16,9 +16,10 @@ import java.util.concurrent.ConcurrentHashMap;
  * @date 1/10/13
  */
 public class CalendarPortletUtils {
+
+    private static final Log log = ExoLogger.getLogger(CalendarPortletUtils.class);
     public final static String HOME_PAGE_CALENDAR_SETTINGS = "IntranetHomePageCalendarSettings";
     public final static int JOUR_MS = 86399999;
-    private static Log log = ExoLogger.getLogger(CalendarPortletUtils.class);
     private static ConcurrentHashMap<String, CalendarSetting> calendarSettingsByUserName = new ConcurrentHashMap<String, CalendarSetting>();
 
     public static boolean contains(String[] s, String str) {

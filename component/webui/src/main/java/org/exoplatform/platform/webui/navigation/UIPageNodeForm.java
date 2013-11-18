@@ -29,6 +29,7 @@ import org.exoplatform.portal.config.UserACL;
 import org.exoplatform.portal.config.model.ModelObject;
 import org.exoplatform.portal.config.model.Page;
 import org.exoplatform.portal.mop.Described;
+import org.exoplatform.portal.mop.ProtectedContainer;
 import org.exoplatform.portal.mop.SiteType;
 import org.exoplatform.portal.mop.Visibility;
 import org.exoplatform.portal.mop.page.PageContext;
@@ -719,12 +720,16 @@ public class UIPageNodeForm extends UIFormTabPane
             accessPermission = uiPortal.getAccessPermissions();
             editPermission = uiPortal.getEditPermission();
          }
-         
+         /* Once there is a UI for setting these permissions, the defaults should
+             * be replaced accordingly */
+          List<String> moveAppsPermissions = ProtectedContainer.DEFAULT_MOVE_APPLICATIONS_PERMISSIONS;
+          List<String> moveContainersPermissions = ProtectedContainer.DEFAULT_MOVE_CONTAINERS_PERMISSIONS;
          
          UIFormStringInput uiPageName = uiInputSet.getChildById("pageName");
          UIFormStringInput uiPageTitle = uiInputSet.getChildById("pageTitle");
 
-         PageState pageState = new PageState(uiPageTitle.getValue(), null, false, null, accessPermission != null ? Arrays.asList(accessPermission) : null, editPermission);
+         PageState pageState = new PageState(uiPageTitle.getValue(), null, false, null,
+                 accessPermission != null ? Arrays.asList(accessPermission) : null, editPermission,moveAppsPermissions,moveContainersPermissions);
 
          // check page is exist
          PageKey pageKey = PageKey.parse(uiForm.getOwnerType().getName() + "::" + ownerId + "::" + uiPageName.getValue());

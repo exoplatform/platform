@@ -38,7 +38,7 @@
 			<div id="uiFeaturePoll" class="uiGadgetThemes uiBox">
 			  <h6 class="gadgetTitle title left clearfix">
 				__MSG_title__
-				<a class="actionIcon pull-right settingBt" id="tooltipSetting" ref="tooltip" data-placement="left" data-original-title="Setting" onclick=""><i class="uiIconSetting"></i></a>
+				<a class="actionIcon pull-right settingBt" id="tooltipSetting" data-toggle="tooltip" data-placement="left" data-original-title="Setting" onclick=""><i class="uiIconSetting"></i></a>
 			  </h6>
 			  <!-- Display poll  -->
 			  <div class="gadContent">

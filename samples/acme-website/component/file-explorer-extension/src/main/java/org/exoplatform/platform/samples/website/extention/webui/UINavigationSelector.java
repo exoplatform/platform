@@ -40,7 +40,7 @@ public class UINavigationSelector extends UIBaseNodeTreeSelector {
 
 	}
 	
-    @SuppressWarnings("unused")
+   @SuppressWarnings("unused")
    private void changeNode(String stringUri, Object context) throws Exception {	
          UINavigationTreeBuilder builder = getChild(UINavigationTreeBuilder.class);
          builder.changeNode(stringUri, context);

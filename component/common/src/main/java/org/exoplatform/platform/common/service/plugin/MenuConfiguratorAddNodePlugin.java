@@ -88,8 +88,8 @@ public class MenuConfiguratorAddNodePlugin extends BaseComponentPlugin {
                         LOG.warn("Navigation with path " + navPath + " not added : Both name and pageReference should be specified for the target node" );
                     }
                 }
-            } catch (Exception e) {
-                LOG.error("Can not load or read the file with path " + navPath + " Please check the path or the file structure " + e);
+            } catch (Exception E) {
+                LOG.error("Can not load or read the file with path " + navPath + " Please check the path or the file structure ", E);
             }
         } else {
             LOG.warn("Path for extended setup navigation file not mentioned");

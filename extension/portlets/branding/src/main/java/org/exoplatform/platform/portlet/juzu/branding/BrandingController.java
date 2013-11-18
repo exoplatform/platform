@@ -16,17 +16,6 @@
  */
 package org.exoplatform.platform.portlet.juzu.branding;
 
-import java.io.IOException;
-import java.net.HttpURLConnection;
-import java.net.URL;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Locale;
-import java.util.Map;
-import java.util.ResourceBundle;
-
-import javax.inject.Inject;
-
 import juzu.Path;
 import juzu.Resource;
 import juzu.Response;
@@ -35,7 +24,6 @@ import juzu.io.Stream;
 import juzu.request.HttpContext;
 import juzu.request.RenderContext;
 import juzu.template.Template;
-
 import org.apache.commons.fileupload.FileItem;
 import org.exoplatform.commons.api.settings.SettingService;
 import org.exoplatform.commons.api.settings.SettingValue;
@@ -44,7 +32,15 @@ import org.exoplatform.commons.api.settings.data.Scope;
 import org.exoplatform.commons.juzu.ajax.Ajax;
 import org.exoplatform.container.ExoContainerContext;
 import org.exoplatform.platform.portlet.juzu.branding.models.BrandingDataStorageService;
-import org.exoplatform.web.application.RequestContext;
+
+import javax.inject.Inject;
+import java.io.IOException;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
+import java.util.ResourceBundle;
 
 /**
  * Created by The eXo Platform SAS Author : Nguyen Viet Bang
@@ -159,7 +155,7 @@ public class BrandingController {
     if (isChangeLogo != null && Boolean.valueOf(isChangeLogo)) {
       dataStorageService.saveLogo();
     }
-    if (style != null && style != "") {
+    if (style != null && style.length() != 0) {
       settingService.set(Context.GLOBAL,
                          Scope.GLOBAL,
                          BAR_NAVIGATION_STYLE_KEY,

@@ -1,5 +1,6 @@
 package org.exoplatform.platform.component;
 
+import org.exoplatform.platform.common.navigation.NavigationUtils;
 import org.exoplatform.platform.common.service.MenuConfiguratorService;
 import org.exoplatform.platform.navigation.component.breadcrumb.UserNavigationHandlerService;
 import org.exoplatform.platform.webui.NavigationURLUtils;
@@ -11,8 +12,9 @@ import org.exoplatform.portal.mop.user.UserNavigation;
 import org.exoplatform.portal.mop.user.UserNode;
 import org.exoplatform.portal.mop.user.UserPortal;
 import org.exoplatform.portal.webui.util.Util;
+import org.exoplatform.services.log.ExoLogger;
+import org.exoplatform.services.log.Log;
 import org.exoplatform.services.organization.OrganizationService;
-import org.exoplatform.services.organization.User;
 import org.exoplatform.social.core.identity.model.Identity;
 import org.exoplatform.social.core.identity.provider.OrganizationIdentityProvider;
 import org.exoplatform.social.core.service.LinkProvider;
@@ -20,6 +22,7 @@ import org.exoplatform.social.core.space.model.Space;
 import org.exoplatform.social.core.space.spi.SpaceService;
 import org.exoplatform.social.webui.UIAvatarUploader;
 import org.exoplatform.social.webui.Utils;
+import org.exoplatform.web.application.RequestContext;
 import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.config.annotation.EventConfig;
@@ -31,6 +34,7 @@ import org.exoplatform.webui.event.EventListener;
 
 import javax.portlet.PortletPreferences;
 import javax.portlet.PortletRequest;
+
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -48,6 +52,7 @@ import java.util.Map;
 )
 public class UIBreadCrumbsNavigationPortlet extends UIPortletApplication {
 
+    private static final Log LOG = ExoLogger.getLogger(UIBreadCrumbsNavigationPortlet.class);
     private final String POPUP_AVATAR_UPLOADER = "UIBreadCrumbPopupAvatarUploader";
     private SpaceService spaceService = null;
     private OrganizationService orgService = null;
@@ -119,13 +124,30 @@ public class UIBreadCrumbsNavigationPortlet extends UIPortletApplication {
         return  (spaceAvatar == null || spaceAvatar.isEmpty()) ?  LinkProvider.SPACE_DEFAULT_AVATAR_URL : spaceAvatar;
     }
 
-    public String getUserFullName(String userNAme) throws Exception {
-        User user = orgService.getUserHandler().findUserByName(userNAme);
-        if(user!=null){
-            return user.getFullName();
+    public String getUserFullName(String userName) throws Exception {
+        // --- Full Name to be loaded fromConversationState
+        String fullName = "";
+
+        // --- Load the Full name from the ConversationState else use Social API to load firstName and lastName
+        fullName = NavigationUtils.getUserFromConversationState(true);
+
+        //--- return the FullName from ConversationState if exist
+        if (NavigationUtils.present(fullName)) {
+            if (LOG.isDebugEnabled()) {
+                LOG.debug("IdentityManager : loading ["+userName+"] from Conversation State");
+            }
+            return fullName;
         }
-        else
-            return "";
+        //---Load User from Social Identity
+        Identity viewerIdentity = Utils.getViewerIdentity(true);
+        if (viewerIdentity != null) {
+            fullName = viewerIdentity.getProfile().getFullName();
+            if (LOG.isDebugEnabled()) {
+                LOG.debug("IdentityManager : loading ["+userName+"] from social Profile");
+            }
+        }
+        return fullName;
+
     }
 
     public String getAvatarURL(String username) {
@@ -160,13 +182,15 @@ public class UIBreadCrumbsNavigationPortlet extends UIPortletApplication {
     }
 
     public String getWikiURL() {
-        return NavigationURLUtils.getURLInCurrentPortal(WIKI_REF) + USER + getOwnerRemoteId() + WIKI_HOME;
+        return NavigationURLUtils.getURLInCurrentPortal(WIKI_REF) + USER + getRemoteUserId() + WIKI_HOME;
     }
 
-    public static String getOwnerRemoteId() {
-        String currentUserName = org.exoplatform.platform.navigation.component.utils.NavigationUtils.getCurrentUser();
+    public static String getRemoteUserId() {
+        String currentUserName =  RequestContext.getCurrentInstance().getRemoteUser();
         if (currentUserName == null || currentUserName.equals("")) {
-            return Utils.getViewerRemoteId();
+            LOG.warn("Can't check the remote user id associated to the current http request");
+
+            return null;
         }
         return currentUserName;
     }

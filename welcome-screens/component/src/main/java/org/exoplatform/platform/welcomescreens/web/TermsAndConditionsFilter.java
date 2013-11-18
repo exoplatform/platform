@@ -28,10 +28,9 @@ import java.io.IOException;
  *
  */
 public class TermsAndConditionsFilter implements Filter {
-  private static Log logger = ExoLogger.getLogger(TermsAndConditionsFilter.class);
-  
-  private TermsAndConditionsService termsAndConditionsService;
 
+  private static final Log logger = ExoLogger.getLogger(TermsAndConditionsFilter.class);
+  private TermsAndConditionsService termsAndConditionsService;
   private static final String PLF_WELCOME_SCREENS_SERVLET_CTX = "/trial";
   private static final String TC_SERVLET_URL = "/terms-and-conditions";
   private static final String INITIAL_URI_PARAM_NAME = "initialURI";
