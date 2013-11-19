@@ -9,7 +9,7 @@
   </parent>
   <groupId>org.exoplatform.platform</groupId>
   <artifactId>platform</artifactId>
-  <version>4.2.x-SNAPSHOT</version>
+  <version>4.1.x-plf-upgrade-gatein-3.7.x-SNAPSHOT</version>
   <packaging>pom</packaging>
   <name>eXo Platform</name>
   <description>Parent POM for platform projects.</description>
@@ -38,7 +38,7 @@
     <!-- **************************************** -->
     <!-- Project Dependencies -->
     <!-- **************************************** -->
-    <org.exoplatform.depmgt.version>10-SNAPSHOT</org.exoplatform.depmgt.version>
+    <org.exoplatform.depmgt.version>9-upgrade-gatein-3.7.x-SNAPSHOT</org.exoplatform.depmgt.version>
     <!-- JCR Project Dependencies -->
       <org.exoplatform.kernel.version>2.4.x-SNAPSHOT</org.exoplatform.kernel.version>
       <org.exoplatform.core.version>2.5.x-SNAPSHOT</org.exoplatform.core.version>
@@ -53,15 +53,16 @@
     <org.gatein.portal.version>4.2.x-PLF-SNAPSHOT</org.gatein.portal.version>
 
     <!-- Platform Project Dependencies -->
-    <org.exoplatform.commons.version>4.2.x-SNAPSHOT</org.exoplatform.commons.version>
-    <org.exoplatform.ecms.version>4.2.x-SNAPSHOT</org.exoplatform.ecms.version>
-    <org.exoplatform.social.version>4.2.x-SNAPSHOT</org.exoplatform.social.version>
-    <org.exoplatform.forum.version>4.2.x-SNAPSHOT</org.exoplatform.forum.version>
-    <org.exoplatform.wiki.version>4.2.x-SNAPSHOT</org.exoplatform.wiki.version>
-    <org.exoplatform.calendar.version>4.2.x-SNAPSHOT</org.exoplatform.calendar.version>
-    <org.exoplatform.integ.version>4.2.x-SNAPSHOT</org.exoplatform.integ.version>
-    <org.exoplatform.platform-ui.version>4.2.x-SNAPSHOT</org.exoplatform.platform-ui.version>
 
+    <org.exoplatform.commons.version>4.1.x-commons-upgrade-gatein-3.7.x-SNAPSHOT</org.exoplatform.commons.version>
+    <org.exoplatform.ecms.version>4.1.x-ecms-upgrade-gatein-3.7.x-SNAPSHOT</org.exoplatform.ecms.version>
+    <org.exoplatform.social.version>4.1.x-soc-upgrade-gatein-3.7.x-SNAPSHOT</org.exoplatform.social.version>
+    <org.exoplatform.forum.version>4.1.x-forum-upgrade-gatein-3.7.x-SNAPSHOT</org.exoplatform.forum.version>
+    <org.exoplatform.wiki.version>4.1.x-wiki-upgrade-gatein-3.7.x-SNAPSHOT</org.exoplatform.wiki.version>
+    <org.exoplatform.calendar.version>4.1.x-cal-upgrade-gatein-3.7.x-SNAPSHOT</org.exoplatform.calendar.version>
+    <org.exoplatform.integ.version>4.1.x-integ-upgrade-gatein-3.7.x-SNAPSHOT</org.exoplatform.integ.version>
+    <org.exoplatform.platform-ui.version>4.1.x-plfui-upgrade-gatein-3.7.x-SNAPSHOT</org.exoplatform.platform-ui.version>
+    
   </properties>
   <dependencyManagement>
     <!-- ### NEVER CHANGE THIS ORDER OF DEPMGT ### -->
