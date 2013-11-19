@@ -50,12 +50,6 @@
     <dependency>
       <groupId>org.exoplatform.kernel</groupId>
       <artifactId>exo.kernel.container</artifactId>
-        <exclusions>
-            <exclusion>
-                <groupId>javax.servlet</groupId>
-                <artifactId>javax.servlet-api</artifactId>
-            </exclusion>
-        </exclusions>
     </dependency>
     <dependency>
       <groupId>org.exoplatform.ws</groupId>
