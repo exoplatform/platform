@@ -19,7 +19,7 @@ import java.util.List;
  * @date 07/12/12
  */
 public class WhoIsOnlineImpl implements WhoIsOnline {
-    private static Log log = ExoLogger.getLogger(WhoIsOnlineImpl.class);
+    private static final Log log = ExoLogger.getLogger(WhoIsOnlineImpl.class);
     private static final int MAX_USER = 17;
     private static final int INDEX_USER = 18;
 

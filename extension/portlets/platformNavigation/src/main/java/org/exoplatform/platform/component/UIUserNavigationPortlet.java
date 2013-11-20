@@ -46,6 +46,7 @@ import org.exoplatform.webui.core.lifecycle.UIApplicationLifecycle;
 )
 public class UIUserNavigationPortlet extends UIPortletApplication {
 
+    private static final Log LOG = ExoLogger.getLogger(UIUserNavigationPortlet.class);
     public static final String ACTIVITIES_URI= "activities";
     public static final String PROFILE_URI= "profile";
     public static final String CONNEXIONS_URI= "connections";
@@ -58,8 +59,6 @@ public class UIUserNavigationPortlet extends UIPortletApplication {
     private static final String WIKI_HOME = "/WikiHome";
     private static final String WIKI_REF ="wiki" ;
     private static final String NOTIFICATION_SETTINGS = "NotificationSettingsPortlet";
-
-    private static Log LOG = ExoLogger.getLogger(UIUserNavigationPortlet.class);
 
     public UIUserNavigationPortlet() throws Exception {
         UserNodeFilterConfig.Builder builder = UserNodeFilterConfig.builder();

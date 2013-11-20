@@ -43,44 +43,44 @@
 			
 	.spaceNavigation {
 		list-style: none;
-		margin: 0;
-		padding: 2px 0;
-		max-height: 346px;
-    	overflow-y: auto;
+        margin: 0;
+        padding: 10px 0px;
 		.noSpace {
 		color: @gray;
 	    padding: 10px 0;
 	    text-align: center;
 		}
 		.spaceItem {
-			padding: 7px 25px;
-			height: 20px;
+			padding: 5px 25px;
+            display: block;
+            border-top: 1px solid transparent;
+            border-bottom: 1px solid transparent;
 		}
-		
+
 		.spaceIcon {
 			    color: @gray;
 			    display: block;
 			    overflow: hidden;
 			    text-overflow: ellipsis;
 			    white-space: nowrap;
-			    width: auto;
+			    width: inherit;
 			> img {
-				margin-right: 5px;	
+				margin-right: 5px;
 				vertical-align: -4px;
 			}
-			
+
 			&:hover {
 				color: @linkColorHover;
 			}
 		}
-		
+
 		.spaceItemSelected {
-			background: @white;
-			 position: relative;
-				background: @white;
-				border-top: 1px solid @borderColor;
-				border-bottom: 1px solid @borderColor;
-				.box-shadow(0 0px 3px rgba(0, 0, 0, 0.11));
+			padding: 7px 25px;
+            position: relative;
+            background: @white;
+            border-top: 1px solid @borderColor;
+            border-bottom: 1px solid @borderColor;
+            .box-shadow(0 0px 3px rgba(0, 0, 0, 0.11));
 			&:after {
 				background: @blueLight;
 				    border: 1px solid @blueDark;
@@ -94,11 +94,11 @@
 				    width: 5px;
 		  }
 			> a {
-				font-weight: bold;			    
+				font-weight: bold;
 			}
 		}
 	}
-	
+
 	.moreSpace {
 		padding: 6px 25px;
     	text-align: center;
@@ -119,17 +119,17 @@
 			}
 		}
 	}
-	
+
 	.joinSpace {
 		border-bottom: 1px solid @borderColor;
-    border-top: 1px solid @borderColor;
-    .box-shadow(~"inset 0 1px 0 @white,0 1px 0 @white");
-    line-height: 32px;
-   
+        border-top: 1px solid @borderColor;
+        .box-shadow(~"inset 0 1px 0 @white,0 1px 0 @white");
+        line-height: 32px;
+
     > a {
     	color: @gray;
     	 display: block;
-    	padding-left: 25px;
+    	 padding-left: 25px;
     	&:hover {
 				color: @linkColorHover;
 			}
@@ -138,5 +138,5 @@
     	}
     }
 	}
-	
+
 }

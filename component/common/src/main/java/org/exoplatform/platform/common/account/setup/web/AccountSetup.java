@@ -24,9 +24,10 @@ import java.net.URLEncoder;
  * @date 3/1/13
  */
 public class AccountSetup extends HttpServlet {
+
+    private static final Log logger = ExoLogger.getLogger(AccountSetup.class);
     private static final long serialVersionUID = 6467955354840693802L;
     public final static String ACCOUNT_SETUP_NODE = "accountSetup";
-    private static Log logger = ExoLogger.getLogger(AccountSetup.class);
     private final static String USER_NAME_ACCOUNT = "username";
     private final static String FIRST_NAME_ACCOUNT = "firstNameAccount";
     private final static String LAST_NAME_ACCOUNT = "lastNameAccount";

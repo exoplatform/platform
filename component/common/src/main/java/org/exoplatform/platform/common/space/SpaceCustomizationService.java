@@ -254,13 +254,13 @@ public class SpaceCustomizationService {
       SiteKey siteKey = navContext.getKey();
       PageKey pageKey = new PageKey(siteKey, customSpaceHomePage.getName());
       PageState pageState = new PageState(
-                                          customSpaceHomePage.getTitle(), 
-                                          customSpaceHomePage.getDescription(), 
-                                          customSpaceHomePage.isShowMaxWindow(), 
-                                          customSpaceHomePage.getFactoryId(), 
-                                          customSpaceHomePage.getAccessPermissions() != null ? 
-                                          Arrays.asList(customSpaceHomePage.getAccessPermissions()) : null, 
-                                          customSpaceHomePage.getEditPermission());
+              customSpaceHomePage.getTitle(),
+              customSpaceHomePage.getDescription(),
+              customSpaceHomePage.isShowMaxWindow(),
+              customSpaceHomePage.getFactoryId(),
+              customSpaceHomePage.getAccessPermissions() != null ?
+              Arrays.asList(customSpaceHomePage.getAccessPermissions()) : null,
+              customSpaceHomePage.getEditPermission());
       
       pageService.savePage(new PageContext(pageKey, pageState));
       dataStorageService.save(customSpaceHomePage);

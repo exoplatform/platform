@@ -14,7 +14,7 @@ import org.exoplatform.web.controller.QualifiedName;
  * @date 2/13/13
  */
 public class NavigationUtils {
-    private static Log LOG = ExoLogger.getLogger(NavigationUtils.class);
+    private static final Log LOG = ExoLogger.getLogger(NavigationUtils.class);
 
     public static String getCurrentUser() {
         ExoContainer container = ExoContainerContext.getCurrentContainer();

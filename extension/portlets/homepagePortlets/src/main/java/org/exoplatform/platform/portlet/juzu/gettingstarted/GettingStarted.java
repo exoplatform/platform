@@ -48,7 +48,7 @@ import java.util.MissingResourceException;
 
 public class GettingStarted {
 
-    private static Log logger = ExoLogger.getLogger(GettingStarted.class);
+    private static final Log logger = ExoLogger.getLogger(GettingStarted.class);
     HashMap parameters = new HashMap();
     HashMap<String, String> status = new HashMap();
     int progress = 0;

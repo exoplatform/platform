@@ -30,7 +30,7 @@ import java.util.List;
 @Produces("application/json")
 public class SpaceRestServices implements ResourceContainer {
 
-    private static Log log = ExoLogger.getLogger(SpaceRestServices.class);
+    private static final Log log = ExoLogger.getLogger(SpaceRestServices.class);
 
     private static final CacheControl cacheControl;
 

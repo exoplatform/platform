@@ -52,7 +52,7 @@ import java.util.List;
 @Produces("application/json")
 
 public class PeopleAndSpacesRestService implements ResourceContainer {
-    private static Log log = ExoLogger.getLogger(PeopleAndSpacesRestService.class);
+    private static final Log log = ExoLogger.getLogger(PeopleAndSpacesRestService.class);
 
     private static final CacheControl cacheControl;
     private static final String OPENSOCIAL_VIEWER_ID = "opensocial_viewer_id" ;

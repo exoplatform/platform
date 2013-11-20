@@ -193,11 +193,20 @@
         function createChart(dataList){
              //clean chart
               document.getElementById('chartdiv').innerHTML='';
-        
+             if(document.getElementById('weeklyStatisticArea').offsetWidth > 400){
+
               $.jqplot('chartdiv', [dataList], {
                 axes:{yaxis:{min:0},xaxis:{renderer:$.jqplot.DateAxisRenderer}},
                  series:[{color:'#FF4500'},{lineWidth:1}]
               });
+
+              }else{
+
+                $.jqplot('chartdiv', [dataList], {
+                axes:{yaxis:{min:0},xaxis:{renderer:$.jqplot.DateAxisRenderer, showTicks: false}},
+                 series:[{color:'#FF4500'},{lineWidth:1}]
+              });
+              }
         }
 
       </script>

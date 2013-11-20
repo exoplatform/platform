@@ -34,9 +34,9 @@ import java.io.IOException;
  * @date 18/01/13
  */
 public class TermsAndConditionsActionServlet extends HttpServlet {
-    private static final long serialVersionUID = 6467955354840693802L;
 
-    private static Log logger = ExoLogger.getLogger(TermsAndConditionsActionServlet.class);
+    private static final long serialVersionUID = 6467955354840693802L;
+    private static final Log logger = ExoLogger.getLogger(TermsAndConditionsActionServlet.class);
     private final static String PARAM_CHECKTC = "checktc";
     private TermsAndConditionsService termsAndConditionsService;
 
