@@ -99,3 +99,9 @@ img {
   width:16px;
   height:16px;
 }
+
+/** Fix cloud's gadgets */
+.uiBox {
+  margin-bottom: 0; 
+  box-shadow: none; 
+}
