@@ -33,33 +33,6 @@
     <link type="text/css" rel="stylesheet" href="/eXoDMSResources/skin/DefaultSkin/Stylesheet-lt.css" />
     <link rel="stylesheet" type="text/css" href="/eXoResources/skin/bootstrap/css/bootstrap.css" />
     <link rel="stylesheet" type="text/css" href="/eXoResources/skin/css/Core.css" />
-    <style type="text/css">
-                
-          .UIGadgetThemes.favoriteDoc .icon {
-            margin: 8px 10px 0 0;
-            padding-left: 0;
-          }
-          
-          .favoriteDoc .fileDesc { 
-          	overflow: hidden;
-		    text-overflow: ellipsis;
-		    white-space: nowrap;
-		    width: 85%;
-		  }
-		    
-	      .favoriteDoc .fileDesc a {
-	         color: #333;
-	      }
-          
-          .favoriteDoc .fileDesc a:hover {
-            color: #2f5e92;
-          }
-          
-          .favoriteDoc .fileDesc p {
-            color: #808080;
-            font-size: 12px;
-          }
-    </style> 
   <script type="text/javascript">
    
 var prefixUrl = location.protocol + '//' + location.hostname;
