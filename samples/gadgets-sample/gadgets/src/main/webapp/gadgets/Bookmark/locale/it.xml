@@ -29,7 +29,7 @@
   <msg name="url">URL</msg>
   <msg name="delete">Cancellare</msg>
   <msg name="edit">Modificare</msg>
-  <msg name="cancel">Annullare</msg>
+  <msg name="cancel">#{word.cancel}</msg>
   <msg name="emptyBookmarkPre">Non ha nessun segnalibro: aggiungerli facendo clic su</msg>
   <msg name="emptyBookmarkSuf">bottone</msg>
 </messagebundle>
