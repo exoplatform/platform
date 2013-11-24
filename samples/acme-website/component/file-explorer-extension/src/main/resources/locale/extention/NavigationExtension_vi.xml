@@ -49,8 +49,8 @@
 <Detail>Chi tiết</Detail>
 </label>
 <action>
-<Save>Lưu</Save>
-<Cancel>Hủy bỏ</Cancel>
+<Save>#{word.save}</Save>
+<Cancel>#{word.cancel}</Cancel>
 </action>
 </UINavigationForm>
 <Visible>
