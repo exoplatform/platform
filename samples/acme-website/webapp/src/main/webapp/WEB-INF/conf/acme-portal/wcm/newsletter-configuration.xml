@@ -148,6 +148,10 @@
       <type>org.exoplatform.services.deployment.plugins.XMLDeploymentPlugin</type>
       <description>XML Deployment Plugin</description>
       <init-params>
+        <value-param>
+          <name>siteName</name>
+          <value>acme</value>
+        </value-param>
         <object-param>
           <name>Demo newsletter for acme site</name>
           <description>Deployment Descriptor</description>

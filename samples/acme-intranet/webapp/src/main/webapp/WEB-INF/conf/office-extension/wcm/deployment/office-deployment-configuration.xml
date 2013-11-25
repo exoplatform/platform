@@ -54,6 +54,10 @@
           <description>indicates if this plugin will override data over legacy data, default value:false</description>
           <value>${intranet.portalConfig.metadata.override:false}</value>
         </value-param>
+        <value-param>
+          <name>siteName</name>
+          <value>intranet</value>
+        </value-param>
         <object-param>
           <name>Office jira Data</name>
           <description>Deployment Descriptor</description>
