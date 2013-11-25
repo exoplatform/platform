@@ -80,9 +80,9 @@
 			<li class="$tabStyleNavigation">
 		""";
         if(node.pageRef != null) {
-            print """<a data-placement="bottom" rel="tooltip" data-toggle="tooltip" href="$href" $title data-original-title="$label"><i class="$icon"></i>$label</a>""";
+            print """<a href="$href" ><i class="$icon"></i><span data-placement="bottom" rel="tooltip" data-toggle="tooltip" $title data-original-title="$label">$label</span></a>""";
         } else {
-            print """<a data-placement="bottom" rel="tooltip" data-toggle="tooltip" href="#" $title data-original-title="$label"><i class="$icon"></i>$label</a>""";
+            print """<a href="#" ><i class="$icon"></i><span data-placement="bottom" rel="tooltip" data-toggle="tooltip" $title data-original-title="$label">$label</span></a>""";
         }
         print """
 			</li>
