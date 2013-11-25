@@ -39,13 +39,6 @@ public class UINavigationSelector extends UIBaseNodeTreeSelector {
 		// TODO Auto-generated method stub
 
 	}
-	
-   @SuppressWarnings("unused")
-   private void changeNode(String stringUri, Object context) throws Exception {	
-         UINavigationTreeBuilder builder = getChild(UINavigationTreeBuilder.class);
-         builder.changeNode(stringUri, context);
-	 		 	
-   }
 	 		 	
 	@Override
 	public void onChange(Node currentNode, Object context) throws Exception {
