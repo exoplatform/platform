@@ -423,6 +423,13 @@
         <type>pom</type>
         <scope>import</scope>
       </dependency>
+      <!-- DON'T REMOVE : used for packaging -->
+      <!-- org.gatein.cdi.CDIInjectionListener used but not declared in GateIn ? -->
+      <dependency>
+          <groupId>org.gatein.cdi</groupId>
+          <artifactId>gatein-cdi-injection</artifactId>
+          <version>${org.gatein.portal.version}</version>
+      </dependency>
       <!-- To be replaced by an import of GateIn Common parent POM -->
       <dependency>
         <groupId>org.gatein.common</groupId>
@@ -547,6 +554,13 @@
         <version>${org.gatein.portal.version}</version>
       </dependency>
       <!-- DON'T REMOVE : needed for product packaging -->
+      <!-- org.gatein.security.oauth.webapi.OAuthDelegateFilter used but not declared in GateIn ? -->
+      <dependency>
+          <groupId>org.gatein.portal</groupId>
+          <artifactId>exo.portal.component.web.oauth-web</artifactId>
+          <version>${org.gatein.portal.version}</version>
+      </dependency>
+      <!-- DON'T REMOVE : used for packaging -->
       <dependency>
         <groupId>org.gatein.portal</groupId>
         <artifactId>exo.portal.eXoGadgets</artifactId>
