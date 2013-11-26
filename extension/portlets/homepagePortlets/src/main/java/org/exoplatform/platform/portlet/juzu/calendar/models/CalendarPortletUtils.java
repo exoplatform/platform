@@ -81,4 +81,37 @@ public class CalendarPortletUtils {
         return calendar;
     }
 
+    public static Calendar getBeginDay(Calendar cal) {
+        Calendar newCal = (Calendar) cal.clone();
+
+        newCal.set(Calendar.HOUR_OF_DAY, 0) ;
+        newCal.set(Calendar.MINUTE, 0) ;
+        newCal.set(Calendar.SECOND, 0) ;
+        newCal.set(Calendar.MILLISECOND, 0) ;
+        return newCal ;
+    }
+    public static Calendar getEndDay(Calendar cal)  {
+        Calendar newCal = (Calendar) cal.clone();
+        newCal.set(Calendar.HOUR_OF_DAY, 0) ;
+        newCal.set(Calendar.MINUTE, 0) ;
+        newCal.set(Calendar.SECOND, 0) ;
+        newCal.set(Calendar.MILLISECOND, 0) ;
+        newCal.add(Calendar.HOUR_OF_DAY, 24) ;
+        return newCal ;
+    }
+
+    public static Calendar getCurrentCalendar() {
+        try {
+            CalendarSetting setting = getCurrentUserCalendarSetting();
+            return getCalendarInstanceBySetting(setting);
+        } catch (Exception e) {
+            if (log.isWarnEnabled()) log.warn("Could not get calendar setting!", e);
+            Calendar calendar = Calendar.getInstance() ;
+            calendar.setLenient(false);
+            return calendar;
+        }
+    }
+
+
+
 }

@@ -74,7 +74,11 @@
 						def eventCss = "";
 						    if (new Date().compareTo(sdf4.parse(sdf3.format(event.toDateTime))) > 0) eventCss = "pastEvent";
 							else eventCss = "eventItems" ;
-					    def href="/portal/intranet/calendar/details/"+event.id;
+					     def href= "";
+					      if(event.repeatType.equals(event.RP_NOREPEAT))
+                         href="/portal/intranet/calendar/details/"+event.id;
+                           else
+                          href="/portal/intranet/calendar/details/"+event.id+"/"+event.recurrenceId;
 				%>
 				<li class="${eventCss}"  id="${event.id}">
 					<div class="${color}">
