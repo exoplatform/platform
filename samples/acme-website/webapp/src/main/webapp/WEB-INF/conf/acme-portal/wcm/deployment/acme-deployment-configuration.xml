@@ -937,6 +937,10 @@
           <description>The flag parameter to decide if portal metadata is overriden on restarting server</description>
           <value>${acme.portalConfig.metadata.override:false}</value>
         </value-param>
+        <value-param>
+          <name>siteName</name>
+          <value>acme</value>
+        </value-param>
         <!-- put "acme-news-1" in categories -->
         <object-param>
           <name>news1Link</name>
