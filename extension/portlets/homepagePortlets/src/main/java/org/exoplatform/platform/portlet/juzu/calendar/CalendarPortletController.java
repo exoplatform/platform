@@ -148,13 +148,13 @@ public class CalendarPortletController {
         Locale locale =  Util.getPortalRequestContext().getLocale();
         DateFormat d = DateFormat.getDateInstance(DateFormat.SHORT, locale);
         DateFormat dTimezone = DateFormat.getDateInstance(DateFormat.SHORT, locale);
-        dTimezone.setCalendar(CalendarPortletUtils.getInstanceOfCurrentCalendar());
+        dTimezone.setCalendar(CalendarPortletUtils.getCurrentCalendar());
         Long date = new Date().getTime();
         int clickNumber = Integer.parseInt(nbclick);
         if (clickNumber != 0) date = incDecJour(date, clickNumber);
         Date currentTime = new Date(date);
-        // Get Calendar object set to the date and time of the given Date object  
-        Calendar cal = Calendar.getInstance();  
+        // Get Calendar object set to the date and time of the given Date object
+        Calendar cal =CalendarPortletUtils.getCurrentCalendar();
         cal.setTime(currentTime);  
           
         // Set time fields to zero  
@@ -196,14 +196,14 @@ public class CalendarPortletController {
                 nonDisplayedCalendarList = settingNode.getValue().toString().split(":")[1].split(",");
             }
         }
-        List<CalendarEvent> userEvents = getEvents(username);
+        List<CalendarEvent> userEvents = getEvents(username,cal);
         if ((userEvents != null) && (!userEvents.isEmpty())) {
             Iterator itr = userEvents.iterator();
             while (itr.hasNext()) {
                 CalendarEvent event = (CalendarEvent) itr.next();
                 Date from = d.parse(dTimezone.format(event.getFromDateTime()));
                 Date to = d.parse(dTimezone.format(event.getToDateTime()));
-                if ((event.getEventType().equals(CalendarEvent.TYPE_EVENT)) && (from.compareTo(comp) <= 0) && (to.compareTo(comp) >= 0)) {
+                if ((event.getEventType().equals(CalendarEvent.TYPE_EVENT)) && (from.compareTo(d.parse(dTimezone.format(comp))) <= 0) && (to.compareTo(d.parse(dTimezone.format(comp))) >= 0)) {
                     if (!CalendarPortletUtils.contains(nonDisplayedCalendarList, event.getCalendarId())) {
                         org.exoplatform.calendar.service.Calendar calendar = calendarService_.getUserCalendar(username, event.getCalendarId());
                         if (calendar == null) {
@@ -391,17 +391,35 @@ public class CalendarPortletController {
         return list;
     }
 
-    List<CalendarEvent> getEvents(String username) {
+    List<CalendarEvent> getEvents(String username , Calendar cal) {
+
+     Map<String, Map<String, CalendarEvent>> recurrenceEventsMap   = new LinkedHashMap<String, Map<String, CalendarEvent>>();
         String[] calList = getCalendarsIdList(username);
-
+        Calendar begin = CalendarPortletUtils.getBeginDay(cal);
+        Calendar end =CalendarPortletUtils.getEndDay(cal) ;
+        end.add(Calendar.MILLISECOND, -1);
         EventQuery eventQuery = new EventQuery();
-
+        eventQuery.setFromDate(begin);
+        eventQuery.setToDate(end);
         eventQuery.setOrderBy(new String[]{Utils.EXO_FROM_DATE_TIME});
-
         eventQuery.setCalendarId(calList);
+        eventQuery.setExcludeRepeatEvent(true);
         List<CalendarEvent> userEvents = null;
         try {
             userEvents = calendarService_.getEvents(username, eventQuery, calList);
+            String timezone = CalendarPortletUtils.getCurrentUserCalendarSetting().getTimeZone();
+            List<CalendarEvent> originalRecurEvents = calendarService_.getOriginalRecurrenceEvents(username, eventQuery.getFromDate(), eventQuery.getToDate(),calList);
+            if (originalRecurEvents != null && originalRecurEvents.size() > 0) {
+                Iterator<CalendarEvent> recurEventsIter = originalRecurEvents.iterator();
+                while (recurEventsIter.hasNext()) {
+                    CalendarEvent recurEvent = recurEventsIter.next();
+                    Map<String,CalendarEvent> tempMap = calendarService_.getOccurrenceEvents(recurEvent, eventQuery.getFromDate(), eventQuery.getToDate(), timezone);
+                    if (tempMap != null) {
+                        recurrenceEventsMap.put(recurEvent.getId(), tempMap);
+                        userEvents.addAll(tempMap.values());
+                    }
+                }
+            }
 
         } catch (Exception e) {
             log.error("Error while checking User Events:" + e.getMessage(), e);
