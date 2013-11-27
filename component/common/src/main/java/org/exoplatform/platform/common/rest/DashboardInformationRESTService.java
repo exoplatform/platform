@@ -353,18 +353,4 @@ public class DashboardInformationRESTService implements ResourceContainer {
       this.gadgetDescription = gadgetDescription;
     }
   }
-  
-  /**
-   * Simple utility method to extract a page name from a page ref
-   * @param pageRef
-   * @return
-   */
-  private String getPageName(String pageRef) {
-    String pageName = "";
-    
-    String[] refs = pageRef.split("::");
-    pageName = refs[refs.length-1];
-    
-    return pageName;
-  }
 }
