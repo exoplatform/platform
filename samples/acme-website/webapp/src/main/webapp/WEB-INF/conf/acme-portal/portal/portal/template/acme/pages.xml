@@ -588,6 +588,11 @@
                 <read-only>false</read-only>
               </preference>
               <preference>
+                <name>nodeDrive</name>
+                <value>Managed Sites</value>
+                <read-only>false</read-only>
+              </preference>
+              <preference>
                 <name>orderType</name>
                 <value>ASC</value>
                 <read-only>false</read-only>
@@ -655,6 +660,11 @@
               <preference>
                 <name>folderPath</name>
                 <value>repository:collaboration:/sites/acme/events/All</value>
+                <read-only>false</read-only>
+              </preference>
+              <preference>
+                <name>nodeDrive</name>
+                <value>Managed Sites</value>
                 <read-only>false</read-only>
               </preference>
               <preference>
