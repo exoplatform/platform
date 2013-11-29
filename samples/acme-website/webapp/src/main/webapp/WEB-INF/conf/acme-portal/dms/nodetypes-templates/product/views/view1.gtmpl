@@ -296,34 +296,36 @@ requireJS.require("SHARED/jcarousellite", "jqC");
     </div>
 
 
-    <div id="sectionsTabs" class="ui-tabs">
-        <ul class="ui-tabs-nav ClearFix">
-            <li class="ui-state-default">
-                <!-- Begin Benefits head section -->
-                <a class="ArrowCtrl" href="#tab-benefits"><%=_ctx.appRes("Product.view.label.benefits")%></a>
-                <!-- End Benefits head section -->
-            </li>
-            <li class="ui-tabs-selected">
-                <!-- Begin Features head section -->
-                <a class="ArrowCtrl" href="#tab-features"><%=_ctx.appRes("Product.view.label.features")%></a>
-                <!-- End Features head section -->
-            </li>
-        </ul>
-        <div id="tab-benefits">
-          <%
-              if(currentNode.hasProperty("acme:productBenefits")) {
-                def benefits = currentNode.getProperty("acme:productBenefits").getString();
-                print benefits;
-              }
-          %>
-        </div>
-        <div id="tab-features">
-          <%
-              if(currentNode.hasProperty("acme:productFeatures")) {
-                def features = currentNode.getProperty("acme:productFeatures").getString();
-                print features;
-              }
-          %>
+     <div id="sectionsTabs" class="ui-tabs">
+            <ul class="nav nav-tabs">
+                <li>
+                    <!-- Begin Benefits head section -->
+                    <a class="ArrowCtrl" href="#tab-benefits" data-toggle="tab"><%=_ctx.appRes("Product.view.label.benefits")%></a>
+                    <!-- End Benefits head section -->
+                </li>
+                <li class="active">
+                    <!-- Begin Features head section -->
+                    <a class="ArrowCtrl" href="#tab-features" data-toggle="tab"><%=_ctx.appRes("Product.view.label.features")%></a>
+                    <!-- End Features head section -->
+                </li>
+            </ul>
+    <div class="tab-content">
+            <div class="tab-pane " id="tab-benefits">
+              <%
+                  if(currentNode.hasProperty("acme:productBenefits")) {
+                    def benefits = currentNode.getProperty("acme:productBenefits").getString();
+                    print benefits;
+                  }
+              %>
+            </div>
+            <div class="tab-pane active" id="tab-features">
+              <%
+                  if(currentNode.hasProperty("acme:productFeatures")) {
+                    def features = currentNode.getProperty("acme:productFeatures").getString();
+                    print features;
+                  }
+              %>
+            </div>
         </div>
     </div>
 
@@ -660,4 +662,3 @@ requireJS.require("SHARED/jcarousellite", "jqC");
     %>
     <!-- End render related videos /node/medias/videos -->
     </div>
-
