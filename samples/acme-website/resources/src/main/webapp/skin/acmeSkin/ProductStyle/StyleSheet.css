@@ -258,7 +258,7 @@ li {
 }
 
 .ProDetailPage .Box1 .Icon {
-	background: url('/eXoDMSResources/skin/DefaultSkin/skinIcons/16x16/icons/NodeTypes/pdf.gif') no-repeat left top;
+	background: url('background/pdf.gif') no-repeat left top;
 	color: #595959;
     float: left;
     font-size: 13px!important;
@@ -459,4 +459,11 @@ li {
 	background:url("/eXoWCMResources/skin/DefaultSkin/wcm-portal/icons/EdittingToolBarC.png") repeat-x scroll 0 0 transparent;
 	line-height:18px;
 	padding:2px 0 0;
+}
+.nav-tabs > li > a {
+      background: url("/acme-websiteResources/skin/acmeSkin/ProductStyle/background/Icon11x11.png") no-repeat scroll 90% -13px #F3F3F3;
+}
+.nav-tabs > li.active > a,
+         .nav-tabs > li.active > a:hover{
+             background:  url('/acme-websiteResources/skin/acmeSkin/ProductStyle/background/Icon11x11.png') #ffcb05 no-repeat 90% 11px;
 }

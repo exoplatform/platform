@@ -183,7 +183,7 @@ requireJS.require("SHARED/jcarousellite", "jqC");
                                         if (mimeType.equals("application/pdf")){
                                         def itemPreviewLink = getBaseURI() + "/" + getPortalName() + "/" + getAccessMode() + "/acme/detail?content-id=/" + getRepositoryName(node) + "/" +  getWorkspaceName(node) + node.getPath();
                                     %>
-                                        <a href="$itemPreviewLink" style="margin-left:5px;"><img src="/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/SearchIcon.png" alt="Search" /></a>
+                                        <a href="$itemPreviewLink" style="margin-left:5px;"><img src="/eXoResources/skin/images/Icons/skinIcons/16x16/SearchIcon.png" alt="Search" /></a>
                                     <%
                                         }
                                     %>
@@ -257,6 +257,7 @@ requireJS.require("SHARED/jcarousellite", "jqC");
     }
     %>
 
+<div class="ProDetailPage">
     <!-- Hot news -->
     <div class="BigNews ClearFix">
         <!-- Begin illustrative image -->
@@ -295,19 +296,20 @@ requireJS.require("SHARED/jcarousellite", "jqC");
 
 
     <div id="sectionsTabs" class="ui-tabs">
-        <ul class="ui-tabs-nav ClearFix">
-            <li class="ui-tabs-selected">
+        <ul class="nav nav-tabs">
+            <li>
                 <!-- Begin Benefits head section -->
-                <a class="ArrowCtrl" href="#tab-benefits"><%=_ctx.appRes("Product.view.label.benefits")%></a>
+                <a href="#tab-benefits" data-toggle="tab"><%=_ctx.appRes("Product.view.label.benefits")%></a>
                 <!-- End Benefits head section -->
             </li>
-            <li class="ui-tabs-selected">
+            <li class="active">
                 <!-- Begin Features head section -->
-                <a class="ArrowCtrl" href="#tab-features"><%=_ctx.appRes("Product.view.label.features")%></a>
+                <a href="#tab-features" data-toggle="tab"><%=_ctx.appRes("Product.view.label.features")%></a>
                 <!-- End Features head section -->
             </li>
         </ul>
-        <div id="tab-benefits">
+     <div class="tab-content">
+         <div class="tab-pane " id="tab-benefits">
           <%
               if(currentNode.hasProperty("acme:productBenefits")) {
                 def benefits = currentNode.getProperty("acme:productBenefits").getString();
@@ -315,7 +317,7 @@ requireJS.require("SHARED/jcarousellite", "jqC");
               }
           %>
         </div>
-        <div id="tab-features">
+        <div class="tab-pane active" id="tab-features">
           <%
               if(currentNode.hasProperty("acme:productFeatures")) {
                 def features = currentNode.getProperty("acme:productFeatures").getString();
@@ -324,7 +326,7 @@ requireJS.require("SHARED/jcarousellite", "jqC");
           %>
         </div>
     </div>
-
+  </div>
 <!--
     <script type="text/javascript">
         jQuery.noConflict();
@@ -668,6 +670,6 @@ requireJS.require("SHARED/jcarousellite", "jqC");
         }
     %>
     <!-- End render related videos /node/medias/videos -->
-   
+</div>
 
   
