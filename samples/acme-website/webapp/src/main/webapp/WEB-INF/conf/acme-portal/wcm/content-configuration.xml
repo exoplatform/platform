@@ -62,13 +62,13 @@
               <value>
                 <object type="org.exoplatform.services.wcm.friendly.impl.FriendlyConfig$Friendly">
                   <field name="friendlyUri"><string>${wcm.friendly.news.friendlyUri:news}</string></field>
-                  <field name="unfriendlyUri"><string>${wcm.friendly.news.unfriendlyUri:acme/news?folder-id=repository:collaboration:/sites/acme}</string></field>
+                  <field name="unfriendlyUri"><string>${wcm.friendly.news.unfriendlyUri:/acme/news?folder-id=repository:collaboration:/sites/acme}</string></field>
                 </object>
               </value>
               <value>
                 <object type="org.exoplatform.services.wcm.friendly.impl.FriendlyConfig$Friendly">
                   <field name="friendlyUri"><string>${wcm.friendly.product.friendlyUri:products}</string></field>
-                  <field name="unfriendlyUri"><string>${wcm.friendly.product.unfriendlyUri:acme/products?folder-id=repository:collaboration:/sites/acme}</string></field>
+                  <field name="unfriendlyUri"><string>${wcm.friendly.product.unfriendlyUri:/acme/products?folder-id=repository:collaboration:/sites/acme}</string></field>
                 </object>
               </value>
 
