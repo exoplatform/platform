@@ -22,7 +22,7 @@
 <messagebundle>
   <msg name="title">Bokmärken</msg>
   <msg name="customize">Anpassa</msg>
-  <msg name="save">Spara</msg>
+  <msg name="save">#{word.save}</msg>
   <msg name="add">Lägg till</msg>
   <msg name="ok">OK</msg>
   <msg name="name">Namn</msg>

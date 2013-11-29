@@ -22,7 +22,7 @@
 <messagebundle>
   <msg name="title">Lesezeichen</msg>
   <msg name="customize">Personalisieren</msg>
-  <msg name="save">Speichern</msg>
+  <msg name="save">#{word.save}</msg>
   <msg name="add">Hinzufügen</msg>
   <msg name="ok">Ok</msg>
   <msg name="name">Name</msg>

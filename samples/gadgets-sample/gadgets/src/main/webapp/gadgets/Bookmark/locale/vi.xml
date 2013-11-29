@@ -22,7 +22,7 @@
 <messagebundle>
   <msg name="title">Đánh dấu</msg>
   <msg name="customize">Tùy chỉnh</msg>
-  <msg name="save">Lưu</msg>
+  <msg name="save">#{word.save}</msg>
   <msg name="add">Thêm</msg>
   <msg name="ok">Đồng ý</msg>
   <msg name="name">Tên</msg>

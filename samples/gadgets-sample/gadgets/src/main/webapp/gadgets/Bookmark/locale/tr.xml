@@ -22,7 +22,7 @@
 <messagebundle>
   <msg name="title">Yer İmleri</msg>
   <msg name="customize">Kişiselleştir</msg>
-  <msg name="save">Kaydet</msg>
+  <msg name="save">#{word.save}</msg>
   <msg name="add">Ekle</msg>
   <msg name="ok">Tamam</msg>
   <msg name="name">Ad</msg>
