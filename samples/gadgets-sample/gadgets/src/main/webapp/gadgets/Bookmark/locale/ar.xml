@@ -22,7 +22,7 @@
 <messagebundle>
   <msg name="title">الإشارات المرجعيّة</msg>
   <msg name="customize">تخصيص</msg>
-  <msg name="save">حفظ</msg>
+  <msg name="save">#{word.save}</msg>
   <msg name="add">إضافة</msg>
   <msg name="ok">موافق</msg>
   <msg name="name">الاسم</msg>

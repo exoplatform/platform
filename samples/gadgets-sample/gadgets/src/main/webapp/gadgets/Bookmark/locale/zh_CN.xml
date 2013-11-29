@@ -22,7 +22,7 @@
 <messagebundle>
   <msg name="title">书签</msg>
   <msg name="customize">自定义</msg>
-  <msg name="save">保存</msg>
+  <msg name="save">#{word.save}</msg>
   <msg name="add">新增</msg>
   <msg name="ok">Ok</msg>
   <msg name="name">名称</msg>

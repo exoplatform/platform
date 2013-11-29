@@ -22,7 +22,7 @@
 <messagebundle>
   <msg name="title">Marcadores</msg>
   <msg name="customize">Personalizar</msg>
-  <msg name="save">Guardar</msg>
+  <msg name="save">#{word.save}</msg>
   <msg name="add">Añadir</msg>
   <msg name="ok">Confirmar</msg>
   <msg name="name">Nombre</msg>
