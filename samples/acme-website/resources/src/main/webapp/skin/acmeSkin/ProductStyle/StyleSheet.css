@@ -460,10 +460,135 @@ li {
 	line-height:18px;
 	padding:2px 0 0;
 }
+
 .nav-tabs > li > a {
       background: url("/acme-websiteResources/skin/acmeSkin/ProductStyle/background/Icon11x11.png") no-repeat scroll 90% -13px #F3F3F3;
 }
 .nav-tabs > li.active > a,
          .nav-tabs > li.active > a:hover{
              background:  url('/acme-websiteResources/skin/acmeSkin/ProductStyle/background/Icon11x11.png') #ffcb05 no-repeat 90% 11px;
+}
+
+.UIPresentationContainer .ui-tabs .ui-tabs-nav li.ui-tabs-selected {
+    margin-bottom: 0;
+    padding-bottom: 1px;
+}
+.UIPresentationContainer .ui-tabs .ui-tabs-nav li {
+    border-bottom: 0 none !important;
+    float: left;
+    list-style: none outside none;
+    margin: 0 0.2em 1px 0;
+    padding: 0;
+    position: relative;
+    top: 1px;
+    white-space: nowrap;
+}
+
+.UIPresentationContainer li.ui-tabs-selected a.ArrowCtrl {
+    background: url("/acme-websiteResources/skin/acmeSkin/ProductStyle/background/Icon11x11.png") no-repeat scroll 90% 11px #FFCB05;
+    border: 1px solid #EAEAEA;
+}
+
+.UIPresentationContainer .ui-tabs ul li a {
+    color: #424242;
+    display: block;
+    font-size: 14px !important;
+    font-weight: bold;
+    line-height: 28px;
+    margin-right: 12px;
+    padding: 0 24px 0 10px;
+}
+
+.ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default {
+    color: #1C94C4;
+    font-weight: bold;
+}
+
+.UIPresentationContainer li.ui-state-default a.ArrowCtrl {
+    background: url("/acme-websiteResources/skin/acmeSkin/ProductStyle/background/Icon11x11.png") no-repeat scroll 90% -13px #F3F3F3;
+    border: 1px solid #EAEAEA;
+}
+
+.UIPresentationContainer ul.ContList {
+    border-bottom: 1px solid #BFBFBF;
+    margin-bottom: 25px;
+    padding: 10px 0 10px 30px;
+}
+
+.UIPresentationContainer ul.ContList li {
+    color: #424242;
+    line-height: 16px;
+    list-style-image: url("/acme-websiteResources/skin/acmeSkin/ProductStyle/background/ListIcon.png");
+    list-style-type: square;
+    padding: 5px 0;
+}
+
+.UIPresentationContainer .ResourBoxL {
+    background: url("/acme-websiteResources/skin/acmeSkin/ProductStyle/background/ProDetailBg.png") no-repeat scroll left -208px rgba(0, 0, 0, 0);
+    padding-left: 8px;
+}
+
+.UIPresentationContainer .ResourBoxR {
+    background: url("/acme-websiteResources/skin/acmeSkin/ProductStyle/background/ProDetailBg.png") no-repeat scroll right -208px rgba(0, 0, 0, 0);
+    padding-right: 7px;
+}
+
+.UIPresentationContainer .ResourBoxC {
+    background: url("/acme-websiteResources/skin/acmeSkin/ProductStyle/background/ProDetailBg.png") repeat-x scroll left -259px rgba(0, 0, 0, 0);
+    color: #FF9C00;
+    font-size: 36px !important;
+    height: 50px;
+    line-height: 50px;
+    margin-bottom: 10px;
+    text-align: left;
+}
+
+.UIPresentationContainer .BoxContainer {
+    background: none repeat scroll 0 0 #FFFFFF;
+    border: 1px solid #CCCCCC;
+}
+
+.UIPresentationContainer .BoxContainer .TitleBar {
+    background: url("/portal/rest/jcr/repository/collaboration/sites/acme/medias/images/GlobalImages/TitleBarBg.png") repeat-x scroll left top rgba(0, 0, 0, 0);
+    color: #FFFFFF;
+    font-size: 18px !important;
+    line-height: 30px;
+    padding-left: 20px;
+}
+
+.UIPresentationContainer .BoxContainer .ContentBlock {
+    background: url("/portal/rest/jcr/repository/collaboration/sites/acme/medias/images/GlobalImages/Bg.png") repeat-x scroll left top #EFEFEF;
+}
+
+.UIPresentationContainer .ProBoxControl {
+    padding: 6px 20px 8px;
+}
+
+.UIPresentationContainer .ProBoxControl .FolderTitle {
+    color: #6D6D6D;
+    font-size: 16px !important;
+    font-weight: normal;
+    margin: 10px 0;
+}
+
+.UIPresentationContainer .Box1 .Block {
+    padding: 8px 0 8px 10px;
+}
+
+.UIPresentationContainer .Box1 .Icon {
+    background: url("/eXoWCMResources/skin/DefaultSkin/skinIcons/16x16/icons/NodeTypes/pdf.gif") no-repeat scroll left top rgba(0, 0, 0, 0);
+    float: left;
+    font-size: 13px !important;
+    height: auto;
+    line-height: 16px;
+    padding-left: 22px;
+    width: auto;
+}
+
+.UIPresentationContainer .Box1 a {
+    color: #595959;
+}
+
+.DragControlArea .UISingleContentViewerPortlet .UIPresentationContainer{
+	padding: 0px 20px 20px;
 }
