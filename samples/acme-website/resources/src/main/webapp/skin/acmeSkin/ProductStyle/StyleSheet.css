@@ -462,10 +462,10 @@ li {
 }
 
 
- .nav-tabs > li > a {
+ .nav-tabs > li > a.ArrowCtrl {
      background: url("/acme-websiteResources/skin/acmeSkin/ProductStyle/background/Icon11x11.png") no-repeat scroll 90% -13px #F3F3F3;
  }
- .nav-tabs > li.active > a,
-        .nav-tabs > li.active > a:hover{
+ .nav-tabs > li.active > a.ArrowCtrl,
+        .nav-tabs > li.active > a.ArrowCtrl:hover{
             background:  url('/acme-websiteResources/skin/acmeSkin/ProductStyle/background/Icon11x11.png') #ffcb05 no-repeat 90% 11px;
   }

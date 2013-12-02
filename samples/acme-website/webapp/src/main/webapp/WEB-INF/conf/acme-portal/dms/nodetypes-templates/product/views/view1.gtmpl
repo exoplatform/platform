@@ -300,12 +300,12 @@ requireJS.require("SHARED/jcarousellite", "jqC");
             <ul class="nav nav-tabs">
                 <li>
                     <!-- Begin Benefits head section -->
-                    <a href="#tab-benefits" data-toggle="tab"><%=_ctx.appRes("Product.view.label.benefits")%></a>
+                    <a class="ArrowCtrl" href="#tab-benefits" data-toggle="tab"><%=_ctx.appRes("Product.view.label.benefits")%></a>
                     <!-- End Benefits head section -->
                 </li>
                 <li class="active">
                     <!-- Begin Features head section -->
-                    <a href="#tab-features" data-toggle="tab"><%=_ctx.appRes("Product.view.label.features")%></a>
+                    <a class="ArrowCtrl" href="#tab-features" data-toggle="tab"><%=_ctx.appRes("Product.view.label.features")%></a>
                     <!-- End Features head section -->
                 </li>
             </ul>
