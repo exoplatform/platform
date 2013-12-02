@@ -20,16 +20,16 @@
 
 -->
 <messagebundle>
-  <msg name="title">Bookmarks</msg>
-  <msg name="customize">Customize</msg>
-  <msg name="save">Save</msg>
-  <msg name="add">Add</msg>
+  <msg name="title">Segnalibri</msg>
+  <msg name="customize">Personalizzare</msg>
+  <msg name="save">Salvare</msg>
+  <msg name="add">Aggiungere</msg>
   <msg name="ok">OK</msg>
-  <msg name="name">Name</msg>
+  <msg name="name">Nome</msg>
   <msg name="url">URL</msg>
-  <msg name="delete">Delete</msg>
-  <msg name="edit">Modifica</msg>
-  <msg name="cancel">Annulla</msg>
-  <msg name="emptyBookmarkPre">You don't have any bookmark : add them by clicking on</msg>
-  <msg name="emptyBookmarkSuf">button</msg>
+  <msg name="delete">Cancellare</msg>
+  <msg name="edit">Modificare</msg>
+  <msg name="cancel">Annullare</msg>
+  <msg name="emptyBookmarkPre">Non ha nessun segnalibro: aggiungerli facendo clic su</msg>
+  <msg name="emptyBookmarkSuf">bottone</msg>
 </messagebundle>

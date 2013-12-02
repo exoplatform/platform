@@ -63,7 +63,7 @@
                         }
         %>
                                 <li class="spaceItem $tabStyleNavigation">
-                                        <a data-placement="bottom" rel="tooltip" data-toggle="tooltip" href="javascript:void(0);" onclick="$link" class="spaceIcon avatarMini" data-original-title="$spaceDisplayName"><img title="" alt="" src="$spaceImageSource" /> $spaceDisplayName</a>
+                                        <a href="javascript:void(0);" onclick="$link" class="spaceIcon avatarMini" ><img title="" alt="" src="$spaceImageSource" /><span data-placement="bottom" rel="tooltip" data-toggle="tooltip" data-original-title="$spaceDisplayName"> $spaceDisplayName</span></a>
                                 </li>
         <%        } %> <!-- END FOR -->
 

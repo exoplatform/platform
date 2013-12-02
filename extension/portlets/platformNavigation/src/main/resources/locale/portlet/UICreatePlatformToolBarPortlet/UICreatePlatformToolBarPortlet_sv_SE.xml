@@ -19,8 +19,8 @@
          <RequireSelectForum>Välj ett forum.</RequireSelectForum>
       </label>
       <action>
-         <Next>Nästa</Next>
-         <Cancel>Avbryt</Cancel>
+         <Next>#{word.next}</Next>
+         <Cancel>#{word.cancel}</Cancel>
       </action>
    </UICreateList>
    <UICreateTopic>
@@ -47,7 +47,7 @@
    </UICreateWiki>
    <UICreateEvent>
       <label>
-         <Title>Titel</Title>
+         <Title>#{word.title}</Title>
          <Choix>Lägg till ny:</Choix>
          <EndEvent>Till</EndEvent>
          <StartEvent>Från</StartEvent>
@@ -69,7 +69,7 @@
       </msg>
       <action>
          <Next>#{word.save}</Next>
-         <Cancel>Avbryt</Cancel>
+         <Cancel>#{word.cancel}</Cancel>
       </action>
    </UICreateEvent>
     <UIUploadFile>

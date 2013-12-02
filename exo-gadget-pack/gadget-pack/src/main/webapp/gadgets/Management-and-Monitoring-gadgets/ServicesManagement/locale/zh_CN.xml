@@ -20,19 +20,19 @@
 
 -->
 <messagebundle>  
-  <msg name="title">Services Management</msg>
-  <msg name="services">Services</msg>
-  <msg name="name">Name</msg>
-  <msg name="description">Description</msg>
-  <msg name="noDescription">No Description</msg>
-  <msg name="method">Method</msg>
-  <msg name="parameters">Parameters</msg>
-  <msg name="action">Action</msg>
-  <msg name="value">Value</msg>
-  <msg name="services_url">Services URL</msg>
-  <msg name="failManage">Temporarily cannot manage services from other hosts until we support OAuth</msg>
-  <msg name="noServices">Either no service is available or you do not have sufficient permission</msg>
-  <msg name="noMethod">No Method</msg>
-  <msg name="noProperty">No Property</msg>
-  <msg name="badURL">There was an error while retrieving data. Please check your URL preference</msg>
+  <msg name="title">服务管理</msg>
+  <msg name="services">服务</msg>
+  <msg name="name">名称</msg>
+  <msg name="description">说明</msg>
+  <msg name="noDescription">没有说明</msg>
+  <msg name="method">方法</msg>
+  <msg name="parameters">参数</msg>
+  <msg name="action">操作</msg>
+  <msg name="value">值</msg>
+  <msg name="services_url">服务 URL</msg>
+  <msg name="failManage">暂时不能管理服务从其他主机直到我们支持 OAuth</msg>
+  <msg name="noServices">任何服务，或您没有足够的权限</msg>
+  <msg name="noMethod">没有一种方法</msg>
+  <msg name="noProperty">无属性</msg>
+  <msg name="badURL">检索数据时出错。请检查您的 URL 首选项</msg>
 </messagebundle>
