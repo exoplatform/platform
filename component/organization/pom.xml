@@ -65,10 +65,6 @@
       <artifactId>picketlink-idm-api</artifactId>
     </dependency>
     <dependency>
-        <groupId>org.picketlink.idm</groupId>
-        <artifactId>picketlink-idm-core</artifactId>
-    </dependency>
-    <dependency>
       <groupId>org.picketlink.idm</groupId>
       <artifactId>picketlink-idm-hibernate</artifactId>
       <exclusions>

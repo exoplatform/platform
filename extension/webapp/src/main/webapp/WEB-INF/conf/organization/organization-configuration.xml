@@ -28,7 +28,9 @@
     <component-plugin>
       <name>init.service.listener</name>
       <set-method>addListenerPlugin</set-method>
-      <type>org.exoplatform.services.organization.OrganizationDatabaseInitializer</type>
+      <!-- Workaround : disable gatein root paswword setup -->
+      <!-- type>org.exoplatform.services.organization.OrganizationDatabaseInitializer</type -->
+      <type>org.gatein.portal.installer.SetupOrganizationDatabaseInitializer</type>
       <description>this listener populate organization data for the first launch</description>
       <init-params>
         <value-param>
@@ -321,7 +323,7 @@
                       <string>Root</string>
                     </field>
                     <field name="email">
-                      <string>root@localhost</string>
+                      <string>root@gatein.com</string>
                     </field>
                     <field name="groups">
                       <string>*:/platform/administrators,*:/platform/users,*:/platform/web-contributors,*:/organization/employees,member:/organization/management/executive-board</string>
