@@ -20,16 +20,16 @@
 
 -->
 <messagebundle>
-  <msg name="title">Bookmarks</msg>
-  <msg name="customize">Customize</msg>
-  <msg name="save">Save</msg>
-  <msg name="add">Add</msg>
-  <msg name="ok">OK</msg>
-  <msg name="name">Name</msg>
+  <msg name="title">书签</msg>
+  <msg name="customize">自定义</msg>
+  <msg name="save">保存</msg>
+  <msg name="add">新增</msg>
+  <msg name="ok">Ok</msg>
+  <msg name="name">名称</msg>
   <msg name="url">URL</msg>
-  <msg name="delete">Delete</msg>
-  <msg name="edit">Edit</msg>
-  <msg name="cancel">Cancel</msg>
-  <msg name="emptyBookmarkPre">You don't have any bookmark : add them by clicking on</msg>
-  <msg name="emptyBookmarkSuf">button</msg>
+  <msg name="delete">删除</msg>
+  <msg name="edit">编辑</msg>
+  <msg name="cancel">取消</msg>
+  <msg name="emptyBookmarkPre">取消</msg>
+  <msg name="emptyBookmarkSuf">按钮</msg>
 </messagebundle>

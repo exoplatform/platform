@@ -12,7 +12,7 @@
          <siteLayout>Yerleşim</siteLayout>
          <ManagePages>Sayfaları Yönet</ManagePages>
          <GroupSite>Grup Sitesi</GroupSite>
-         <Properties>SEO</Properties>
+         <Properties>#{UISEOToolbarForm.label.seo}</Properties>
          <AddSite>Site Ekle</AddSite>
       </action>
 <ManageSites>Siteleri Yönet</ManageSites>
@@ -62,7 +62,7 @@
   </UISEOForm>
   <UISEOPopupWindow>
   <title>
-      <UISEOForm>SEO Yönetimi</UISEOForm>
+      <UISEOForm>#{UISEOToolbarForm.title.seo}</UISEOForm>
   </title>
   </UISEOPopupWindow>    
   <UISEOToolbarForm>

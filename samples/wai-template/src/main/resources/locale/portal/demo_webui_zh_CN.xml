@@ -1,33 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <bundle>
   <Signin>
-    <welcome>Welcome</welcome>
-    <login>Login</login>
-    <logout>Logout</logout>
+    <welcome>欢迎</welcome>
+    <login>登录</login>
+    <logout>注销</logout>
     <language>
-      <en>Switch to English</en>
-      <fr>Switch to French</fr>
+      <en>切换到英语</en>
+      <fr>切换到法语</fr>
     </language>
-    <register>Register</register>
+    <register>注册</register>
   </Signin>
   <Toolbar>
-    <SkipToContent>Skip to content</SkipToContent>
-    <SiteMap>Site Map</SiteMap>
-    <Accessibility>Accessibility</Accessibility>
-    <NormalSize>Normal Size</NormalSize>
-    <MediumSize>Medium Size</MediumSize>
-    <LargeSize>Large Size</LargeSize>
-    <NormalContrast>Normal Contrast</NormalContrast>
-    <HighContrast>High Contrast</HighContrast>
-    <Search>Search</Search>
+    <SkipToContent>跳到内容</SkipToContent>
+    <SiteMap>网站地图</SiteMap>
+    <Accessibility>可访问性</Accessibility>
+    <NormalSize>正常大小</NormalSize>
+    <MediumSize>中等大小</MediumSize>
+    <LargeSize>大尺寸</LargeSize>
+    <NormalContrast>正常对比度</NormalContrast>
+    <HighContrast>高对比度</HighContrast>
+    <Search>搜索</Search>
   </Toolbar>
   <Logo>
-    <GoHome>Go to Home</GoHome>
+    <GoHome>转到主页</GoHome>
   </Logo>
   <acme>
-    <label>ACME Template</label>
+    <label>ACME 模板</label>
   </acme>  
   <WAIPortal>
-    <label>Sample Accessible Website</label>
+    <label>示例可访问网站</label>
   </WAIPortal>
 </bundle>

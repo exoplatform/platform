@@ -2,100 +2,100 @@
 <bundle>
 <UIActionBar>
 <tooltip>
-<ContentNavigation>Content Navigation</ContentNavigation>
+<ContentNavigation>内容导航</ContentNavigation>
 </tooltip>
 </UIActionBar>
 <UIViewFormTabPane>
 <label>
-<contentNavigation>Navigation by Content</contentNavigation>
+<contentNavigation>由内容导航</contentNavigation>
 </label>
 </UIViewFormTabPane>
 <UIPopupWindow>
 <title>
-<UINavigationForm>Navigation Form</UINavigationForm>
+<UINavigationForm>导航表单</UINavigationForm>
 </title>
 </UIPopupWindow>
 <PopulateToMenu>
 <dialog>
 <label>
-<id>ID:</id>
-<name>Name:</name>
-<lifecycle>Lifecycle:</lifecycle>
-<isDeep>Is Deep:</isDeep>
-<nodetypes>Node Types:</nodetypes>
-<description>Description:</description>
-<affectedNodeTypeNames>Affected Node Types:</affectedNodeTypeNames>
-<navigationNode>Navigation Node:</navigationNode>
-<index>Index:</index>
-<clickable>Clickable:</clickable>
-<page>Page:</page>
-<childrenPage>Children Page:</childrenPage>
+<id>ID：</id>
+<name>名称：</name>
+<lifecycle>生命周期：</lifecycle>
+<isDeep>是深：</isDeep>
+<nodetypes>节点类型：</nodetypes>
+<description>说明：</description>
+<affectedNodeTypeNames>受影响的节点类型：</affectedNodeTypeNames>
+<navigationNode>导航节点：</navigationNode>
+<index>索引</index>
+<clickable>可点击:</clickable>
+<page>页面:</page>
+<childrenPage>子页：</childrenPage>
 </label>
 </dialog>
 </PopulateToMenu>
 <UINavigationForm>
 <label>
-<Node>Parent's Folder:</Node>
-<Visible>Visible :</Visible>
-<NavigationNodeInputSet>Target Parent Navigation:</NavigationNodeInputSet>
-<Index>Display Order:</Index>
-<Clickable>Clickable :</Clickable>
-<NavigationControls>Navigation Controls</NavigationControls>
-<ListTargetPageFormInputSet>Page for List:</ListTargetPageFormInputSet>
-<ListShowCLVByStringInput>Parameter Name:</ListShowCLVByStringInput>
-<DetailTargetPageInputSet>Page for Detail:</DetailTargetPageInputSet>
-<DetailShowCLVByStringInput>Parameter Name:</DetailShowCLVByStringInput>
-<List>List</List>
-<Detail>Detail</Detail>
+<Node>父文件夹：</Node>
+<Visible>可见：</Visible>
+<NavigationNodeInputSet>目标父导航：</NavigationNodeInputSet>
+<Index>显示顺序：</Index>
+<Clickable>可点击:</Clickable>
+<NavigationControls>导航控件</NavigationControls>
+<ListTargetPageFormInputSet>列表中的的页：</ListTargetPageFormInputSet>
+<ListShowCLVByStringInput>参数名称：</ListShowCLVByStringInput>
+<DetailTargetPageInputSet>有关详细信息的页面：</DetailTargetPageInputSet>
+<DetailShowCLVByStringInput>参数名称：</DetailShowCLVByStringInput>
+<List>列表</List>
+<Detail>详细信息</Detail>
 </label>
 <action>
-<Save>Save</Save>
-<Cancel>Cancel</Cancel>
+<Save>保存</Save>
+<Cancel>取消</Cancel>
 </action>
 </UINavigationForm>
 <Visible>
 <label>
-<VisibleEnable>Yes</VisibleEnable>
-<VisibleDisable>No</VisibleDisable>
+<VisibleEnable>是</VisibleEnable>
+<VisibleDisable>否</VisibleDisable>
 </label>
 </Visible>
 <Clickable>
 <label>
-<ClickableEnable>Yes</ClickableEnable>
-<ClickableDisable>No</ClickableDisable>
+<ClickableEnable>是</ClickableEnable>
+<ClickableDisable>否</ClickableDisable>
 </label>
 </Clickable>
 <NavigationNodeInputSet>
 <title>
-<SelectNavigationNode>Select Navigation Node</SelectNavigationNode>
-<RemoveNavigationNode>Reset</RemoveNavigationNode>
+<SelectNavigationNode>选择导航节点</SelectNavigationNode>
+<RemoveNavigationNode>重置</RemoveNavigationNode>
 </title>
 </NavigationNodeInputSet>
 <ListTargetPageFormInputSet>
 <title>
-<SelectListTargetPage>Select Target Page</SelectListTargetPage>
-<RemoveListTargetPage>Reset</RemoveListTargetPage>
+<SelectListTargetPage>选择目标页</SelectListTargetPage>
+<RemoveListTargetPage>重置</RemoveListTargetPage>
 </title>
 </ListTargetPageFormInputSet>
 <DetailTargetPageInputSet>
 <title>
-<SelectDetailTargetPage>Select Children Target Page</SelectDetailTargetPage>
-<RemoveDetailTargetPage>Reset</RemoveDetailTargetPage>
+<SelectDetailTargetPage>选择子目标页</SelectDetailTargetPage>
+<RemoveDetailTargetPage>重置</RemoveDetailTargetPage>
 </title>
 </DetailTargetPageInputSet>
 <NavigationSelectorPopupWindow>
 <title>
-<UINavigationSelector>Navigation Selector</UINavigationSelector>
+<UINavigationSelector>导航选择器</UINavigationSelector>
 </title>
 </NavigationSelectorPopupWindow>
 <ListTargetPageSelectorPopupWindow>
 <title>
-<UIPageSelector>Page Selector</UIPageSelector>
+<UIPageSelector>页面选择器</UIPageSelector>
 </title>
 </ListTargetPageSelectorPopupWindow>
 <DetailTargetPageSelectorPopupWindow>
 <title>
-<UIPageSelector>Page Selector</UIPageSelector>
+<UIPageSelector>页面选择器</UIPageSelector>
 </title>
 </DetailTargetPageSelectorPopupWindow>
 </bundle>

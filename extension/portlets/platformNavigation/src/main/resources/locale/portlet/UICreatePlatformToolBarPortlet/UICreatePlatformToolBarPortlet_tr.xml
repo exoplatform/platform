@@ -19,8 +19,8 @@
          <RequireSelectForum>Lütfen bir forum seçin.</RequireSelectForum>
       </label>
       <action>
-         <Next>Sonraki</Next>
-         <Cancel>İptal</Cancel>
+         <Next>#{word.next}</Next>
+         <Cancel>#{word.cancel}</Cancel>
       </action>
    </UICreateList>
    <UICreateTopic>
@@ -47,7 +47,7 @@
    </UICreateWiki>
    <UICreateEvent>
       <label>
-         <Title>Başlık</Title>
+         <Title>#{word.title}</Title>
          <Choix>Yeni ekle:</Choix>
          <EndEvent>Bitiş Tarihi</EndEvent>
          <StartEvent>Başlangıç Tarihi</StartEvent>
@@ -69,7 +69,7 @@
       </msg>
       <action>
          <Next>#{word.save}</Next>
-         <Cancel>İptal</Cancel>
+         <Cancel>#{word.cancel}</Cancel>
       </action>
    </UICreateEvent>
     <UIUploadFile>

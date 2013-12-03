@@ -12,7 +12,7 @@
          <siteLayout>تخطيط</siteLayout>
          <ManagePages>إدارة الصفحات</ManagePages>
          <GroupSite>موقع المجموعة</GroupSite>
-         <Properties>إدارة تحسين محرك البحث (SEO)</Properties>
+         <Properties>#{UISEOToolbarForm.label.seo}</Properties>
          <AddSite>إضافة موقع</AddSite>
       </action>
 <ManageSites>إدارة المواقع</ManageSites>
@@ -62,7 +62,7 @@
   </UISEOForm>
   <UISEOPopupWindow>
   <title>
-      <UISEOForm>إدارة تحسين محرك البحث (SEO)</UISEOForm>
+      <UISEOForm>#{UISEOToolbarForm.title.seo}</UISEOForm>
   </title>
   </UISEOPopupWindow>    
   <UISEOToolbarForm>

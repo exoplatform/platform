@@ -2,24 +2,24 @@
 <bundle>
 <UISetupPlatformToolBarPortlet>
 <label>
-<applications>Applications</applications>
-<content>Content</content>
-<siteExplorer>Sites Explorer</siteExplorer>
-<wcmAdmin>Content Administration</wcmAdmin>
-<users>Users</users>
-<newStaff>Add Users</newStaff>
-<org-management>Groups and Roles</org-management>
-<portal>Portal</portal>
-<administration>Administration</administration>
-<groupnavigation>Group Sites</groupnavigation>
-<pageManagement>Pages</pageManagement>
-<portalnavigation>Sites</portalnavigation>
-<servicesManagement>Management</servicesManagement>
-<monitoring>Monitoring</monitoring>
-<spaces>Spaces</spaces>
-<Branding>Branding</Branding>
-<ide>IDE</ide>
-<search>Search</search>
+<applications>应用程序</applications>
+<content>内容</content>
+<siteExplorer>站点资源管理器</siteExplorer>
+<wcmAdmin>内容管理</wcmAdmin>
+<users>用户</users>
+<newStaff>添加用户</newStaff>
+<org-management>组和角色</org-management>
+<portal>门户站点</portal>
+<administration>管理</administration>
+<groupnavigation>群组站点</groupnavigation>
+<pageManagement>页面</pageManagement>
+<portalnavigation>站点</portalnavigation>
+<servicesManagement>管理</servicesManagement>
+<monitoring>监测</monitoring>
+<spaces>空间</spaces>
+<Branding>品牌</Branding>
+<ide>集成开发工具</ide>
+<search>搜索</search>
 </label>
 </UISetupPlatformToolBarPortlet>
 </bundle>

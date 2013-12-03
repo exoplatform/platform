@@ -20,19 +20,19 @@
 
 -->
 <messagebundle>  
-  <msg name="title">Services Management</msg>
-  <msg name="services">Services</msg>
-  <msg name="name">Name</msg>
-  <msg name="description">Description</msg>
-  <msg name="noDescription">No Description</msg>
-  <msg name="method">Method</msg>
-  <msg name="parameters">Parameters</msg>
-  <msg name="action">Action</msg>
-  <msg name="value">Value</msg>
-  <msg name="services_url">Services URL</msg>
-  <msg name="failManage">Temporarily cannot manage services from other hosts until we support OAuth</msg>
-  <msg name="noServices">Either no service is available or you do not have sufficient permission</msg>
-  <msg name="noMethod">No Method</msg>
-  <msg name="noProperty">No Property</msg>
-  <msg name="badURL">There was an error while retrieving data. Please check your URL preference</msg>
+  <msg name="title">Gestione Servizi</msg>
+  <msg name="services">Servizi</msg>
+  <msg name="name">Nome</msg>
+  <msg name="description">Descrizione</msg>
+  <msg name="noDescription">Nessuna Descrizione</msg>
+  <msg name="method">Metodo</msg>
+  <msg name="parameters">Parametri</msg>
+  <msg name="action">Azione</msg>
+  <msg name="value">Valore</msg>
+  <msg name="services_url">URL Servizi</msg>
+  <msg name="failManage">Gestione servizi temporaneamente indisponibile finché non supporteremo OAuth</msg>
+  <msg name="noServices">Nessun servizio disponibile oppure non possiede permessi adeguati per visualizzarli</msg>
+  <msg name="noMethod">Nessun Metodo</msg>
+  <msg name="noProperty">Nessun Proprietà</msg>
+  <msg name="badURL">Errore durante raccolta dati, prego controlli URL fornito</msg>
 </messagebundle>

@@ -19,8 +19,8 @@
          <RequireSelectForum>Vui lòng chọn một diễn đàn.</RequireSelectForum>
       </label>
       <action>
-         <Next>Tiếp tục</Next>
-         <Cancel>Hủy bỏ</Cancel>
+         <Next>#{word.next}</Next>
+         <Cancel>#{word.cancel}</Cancel>
       </action>
    </UICreateList>
    <UICreateTopic>
@@ -47,7 +47,7 @@
    </UICreateWiki>
    <UICreateEvent>
       <label>
-         <Title>Tiêu đề</Title>
+         <Title>#{word.title}</Title>
          <Choix>Thêm Mới:</Choix>
          <EndEvent>Đến</EndEvent>
          <StartEvent>Từ</StartEvent>
@@ -69,7 +69,7 @@
       </msg>
       <action>
          <Next>#{word.save}</Next>
-         <Cancel>Hủy bỏ</Cancel>
+         <Cancel>#{word.cancel}</Cancel>
       </action>
    </UICreateEvent>
     <UIUploadFile>

@@ -19,8 +19,8 @@
          <RequireSelectForum>フォーラムを選択してください</RequireSelectForum>
       </label>
       <action>
-         <Next>次へ</Next>
-         <Cancel>キャンセル</Cancel>
+         <Next>#{word.next}</Next>
+         <Cancel>#{word.cancel}</Cancel>
       </action>
    </UICreateList>
    <UICreateTopic>
@@ -47,7 +47,7 @@
    </UICreateWiki>
    <UICreateEvent>
       <label>
-         <Title>タイトル</Title>
+         <Title>#{word.title}</Title>
          <Choix>新規追加</Choix>
          <EndEvent>終了日</EndEvent>
          <StartEvent>開始日</StartEvent>
@@ -69,7 +69,7 @@
       </msg>
       <action>
          <Next>#{word.save}</Next>
-         <Cancel>キャンセル</Cancel>
+         <Cancel>#{word.cancel}</Cancel>
       </action>
    </UICreateEvent>
     <UIUploadFile>

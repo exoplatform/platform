@@ -174,8 +174,8 @@ requireJS.require("SHARED/jcarousellite", "jqC");
                         def itemIcon = "Icon16x16 default48x48Icon "+org.exoplatform.ecm.webui.utils.Utils.getNodeTypeIcon(node, "48x48Icon");
                         def itemWebdavLink = getBaseURI() + "/" + getPortalName() + "/" + getRestContextName() + "/jcr/" + getRepositoryName(node) + "/" +  getWorkspaceName(node) + node.getPath();
                         %>
-                            <div class="Block ClearFix">
-                                    <a class="Icon $itemIcon" href="$itemWebdavLink">$itemName</a>
+                            <div class="Block clearfix">
+                                    <a href="$itemWebdavLink"><i class="uiIconFile $itemIcon"></i>$itemName</a>
                                     <%
                                         def contentNode = node.getNode("jcr:content") ;
                                         def mimeType = contentNode.getProperty("jcr:mimeType").getString();
@@ -183,7 +183,8 @@ requireJS.require("SHARED/jcarousellite", "jqC");
                                         if (mimeType.equals("application/pdf")){
                                         def itemPreviewLink = getBaseURI() + "/" + getPortalName() + "/" + getAccessMode() + "/acme/detail?content-id=/" + getRepositoryName(node) + "/" +  getWorkspaceName(node) + node.getPath();
                                     %>
-                                        <a href="$itemPreviewLink" style="margin-left:5px;"><img src="/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/SearchIcon.png" alt="Search" /></a>
+                                        <a href="$itemPreviewLink" style="margin-left:5px;"><i class="uiIconSearch"></i></a>
+
                                     <%
                                         }
                                     %>
@@ -215,14 +216,14 @@ requireJS.require("SHARED/jcarousellite", "jqC");
                                          <div class="EdittingToolBar " >
                                             <div class="EdittingToolBarL">
                                                 <div class="EdittingToolBarR">
-                                                    <div class="EdittingToolBarC ClearFix">
-                                                        <div class="FR"  id="<%=manageContentBlockId%>">
+                                                    <div class="EdittingToolBarC clearfix">
+                                                        <div class="pull-right"  id="<%=manageContentBlockId%>">
                                                             <a class="ManageContentIcon" onclick = "eXo.ecm.CLV.addURL(this)" href="<%=manageContentsLink%>" title="<%= _ctx.appRes("UICLVContainer.label.ManageContent");%>">
                                                               &nbsp;
                                                             </a>
                                                         </div>
                                                         <!--
-                                                        <div style="float: right" id="<%=addContentBlockId%>">
+                                                        <div class="pull-right" id="<%=addContentBlockId%>">
                                                             <a class="AddContentIcon" onclick = "eXo.ecm.CLV.addURL(this)" href="<%=addContentLink%>" title="<%= _ctx.appRes("UICLVContainer.label.AddContent");%>">
                                                               &nbsp;
                                                             </a>
@@ -257,6 +258,7 @@ requireJS.require("SHARED/jcarousellite", "jqC");
     }
     %>
 
+<div class="ProDetailPage">
     <!-- Hot news -->
     <div class="BigNews ClearFix">
         <!-- Begin illustrative image -->
@@ -295,19 +297,20 @@ requireJS.require("SHARED/jcarousellite", "jqC");
 
 
     <div id="sectionsTabs" class="ui-tabs">
-        <ul class="ui-tabs-nav ClearFix">
-            <li class="ui-tabs-selected">
+        <ul class="nav nav-tabs">
+            <li>
                 <!-- Begin Benefits head section -->
-                <a class="ArrowCtrl" href="#tab-benefits"><%=_ctx.appRes("Product.view.label.benefits")%></a>
+                <a href="#tab-benefits" data-toggle="tab"><%=_ctx.appRes("Product.view.label.benefits")%></a>
                 <!-- End Benefits head section -->
             </li>
-            <li class="ui-tabs-selected">
+            <li class="active">
                 <!-- Begin Features head section -->
-                <a class="ArrowCtrl" href="#tab-features"><%=_ctx.appRes("Product.view.label.features")%></a>
+                <a href="#tab-features" data-toggle="tab"><%=_ctx.appRes("Product.view.label.features")%></a>
                 <!-- End Features head section -->
             </li>
         </ul>
-        <div id="tab-benefits">
+     <div class="tab-content">
+         <div class="tab-pane " id="tab-benefits">
           <%
               if(currentNode.hasProperty("acme:productBenefits")) {
                 def benefits = currentNode.getProperty("acme:productBenefits").getString();
@@ -315,7 +318,7 @@ requireJS.require("SHARED/jcarousellite", "jqC");
               }
           %>
         </div>
-        <div id="tab-features">
+        <div class="tab-pane active" id="tab-features">
           <%
               if(currentNode.hasProperty("acme:productFeatures")) {
                 def features = currentNode.getProperty("acme:productFeatures").getString();
@@ -324,7 +327,7 @@ requireJS.require("SHARED/jcarousellite", "jqC");
           %>
         </div>
     </div>
-
+  </div>
 <!--
     <script type="text/javascript">
         jQuery.noConflict();
@@ -668,6 +671,6 @@ requireJS.require("SHARED/jcarousellite", "jqC");
         }
     %>
     <!-- End render related videos /node/medias/videos -->
-   
+</div>
 
   

@@ -12,7 +12,7 @@
          <siteLayout>Layout</siteLayout>
          <ManagePages>Manage Pages</ManagePages>
          <GroupSite>Group Site</GroupSite>
-         <Properties>SEO</Properties>
+         <Properties>#{UISEOToolbarForm.label.seo}</Properties>
          <AddSite>Add Site</AddSite>
       </action>
 <ManageSites>Manage Sites</ManageSites>
@@ -62,7 +62,7 @@
   </UISEOForm>
   <UISEOPopupWindow>
   	<title>
-      <UISEOForm>SEO Management</UISEOForm>
+      <UISEOForm>#{UISEOToolbarForm.title.seo}</UISEOForm>
   	</title>
   </UISEOPopupWindow>    
   <UISEOToolbarForm>
