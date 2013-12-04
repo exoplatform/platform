@@ -188,7 +188,7 @@ public class UISpaceNavigationPortlet extends UIPortletApplication {
             String spaceURL = Utils.getSpaceHomeURL(space);
             //---- Get only the GROUP navigation
             if (spaceURL.contains(portalContainerName)) {
-                spaceURL = StringUtils.strip(spaceURL,portalContainerName+"/");
+                spaceURL = spaceURL.substring(portalContainerName.length()+2);
             }
             String fullUrl = ((HttpServletRequest) pContext.getRequest()).getRequestURL().toString();
             String subUrl = fullUrl.substring(0, fullUrl.indexOf(portalContainerName) + portalContainerName.length());
