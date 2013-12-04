@@ -1,4 +1,3 @@
-
 <%
     /**
      * Copyright ( C ) 2012 eXo Platform SAS.
@@ -30,7 +29,6 @@
     uicomponent.refresh();
 	def userSpaces = uicomponent.getSpaces();
 	def spaceImageSource;
-	def spaceURLLink;
 %>
 <%
   String restUrl = uicomponent.getRestUrl();
@@ -56,7 +54,6 @@
 			String   tabStyleNavigation="";
 			String spaceDisplayName = space.getDisplayName();
 			spaceImageSource = space.getAvatarUrl();
-		spaceURLLink = uicomponent.buildSpaceURL(space);
 		String link = uicomponent.event("SelectSpace", space.getId());
         if(uicomponent.isSelectedSpace(space)) {
                  tabStyleNavigation = "spaceItemSelected";

@@ -1,7 +1,9 @@
 package org.exoplatform.platform.component;
 
+import org.apache.commons.lang.StringUtils;
 import org.exoplatform.commons.utils.ListAccess;
 import org.exoplatform.container.PortalContainer;
+import org.exoplatform.portal.application.PortalRequestContext;
 import org.exoplatform.portal.application.RequestNavigationData;
 import org.exoplatform.portal.webui.util.Util;
 import org.exoplatform.services.log.ExoLogger;
@@ -37,6 +39,8 @@ public class UISpaceNavigationPortlet extends UIPortletApplication {
 
     private static final String MY_SPACE_REST_URL = "/space/user/searchSpace/";
 
+    private static final String SPACE_URL_PATTERN = ":spaces";
+
     private SpaceService spaceService = null;
 
     private ListAccess<Space> spaceListAccess;
@@ -44,6 +48,8 @@ public class UISpaceNavigationPortlet extends UIPortletApplication {
     private LinkedList<Space> spaceList = new LinkedList<Space>();
 
     private static final int MY_SPACES_MAX_NUMBER = 10;
+
+    private static String portalContainerName = "";
 
     private int offset = 0;
 
@@ -61,6 +67,7 @@ public class UISpaceNavigationPortlet extends UIPortletApplication {
 
         try {
             spaceService = ((SpaceService)getApplicationComponent(SpaceService.class));
+            portalContainerName = PortalContainer.getCurrentPortalContainerName();
             if (spaceService != null) {
                 this.spaceListAccess = spaceService.getLastAccessedSpace(getUserId(), null);
                 setReload(true);
@@ -174,13 +181,35 @@ public class UISpaceNavigationPortlet extends UIPortletApplication {
     public static class SelectSpaceActionListener extends EventListener<UISpaceNavigationPortlet>
     {
         public void execute(Event<UISpaceNavigationPortlet> event) throws Exception {
-
+            PortalRequestContext pContext = Util.getPortalRequestContext();
             UISpaceNavigationPortlet uisource = (UISpaceNavigationPortlet) event.getSource();
             String spaceId = event.getRequestContext().getRequestParameter(UIComponent.OBJECTID);
             Space space = uisource.putTop(spaceId);
-            String spaceURL = uisource.buildSpaceURL(space);
+            //--- Get the space URL using reouter API
+            String spaceURL = Utils.getSpaceHomeURL(space);
+            //---- Get only the GROUP navigation
+            if (spaceURL.contains(portalContainerName)) {
+                spaceURL.substring(portalContainerName.length()+2);
+            }
+            String fullUrl = ((HttpServletRequest) pContext.getRequest()).getRequestURL().toString();
+            String subUrl = fullUrl.substring(0, fullUrl.indexOf(portalContainerName) + portalContainerName.length());
+            String applicationDisplayed = "";
+            String constructURL =  fullUrl.substring(subUrl.length()+1);
+            if (fullUrl.contains(SPACE_URL_PATTERN)) {
+                int count = StringUtils.countMatches(constructURL, "/");
+                if(count == 2){
+                    subUrl +="/"+ spaceURL;
+                } else {
+                    applicationDisplayed = constructURL.substring(constructURL.lastIndexOf("/"));
+                    subUrl +="/"+ spaceURL+applicationDisplayed;
+                }
+            }
+            else {
+                subUrl +="/"+ spaceURL;
+            }
+
             uisource.setReload(true);
-            event.getRequestContext().getJavascriptManager().getRequireJS().require("SHARED/navigation-spaces-search", "spaceSearchNavigationPortlet").addScripts("spaceSearchNavigationPortlet.ajaxRedirect('"+spaceURL+"');");
+            event.getRequestContext().getJavascriptManager().getRequireJS().require("SHARED/navigation-spaces-search", "spaceSearchNavigationPortlet").addScripts("spaceSearchNavigationPortlet.ajaxRedirect('"+subUrl+"');");
         }
     }
 
