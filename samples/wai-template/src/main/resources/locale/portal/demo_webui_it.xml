@@ -3,31 +3,31 @@
   <Signin>
     <welcome>Benvenuto</welcome>
     <login>Login</login>
-    <logout>Logout</logout>
+    <logout>Uscire</logout>
     <language>
-      <en>Switch to English</en>
-      <fr>Switch to French</fr>
+      <en>Passare all'Inglese</en>
+      <fr>Passare al Francese</fr>
     </language>
-    <register>Register</register>
+    <register>Registra</register>
   </Signin>
   <Toolbar>
-    <SkipToContent>Skip to content</SkipToContent>
+    <SkipToContent>Vai al contenuto</SkipToContent>
     <SiteMap>Mappa sito</SiteMap>
-    <Accessibility>Accessibility</Accessibility>
-    <NormalSize>Normal Size</NormalSize>
-    <MediumSize>Medium Size</MediumSize>
-    <LargeSize>Large Size</LargeSize>
-    <NormalContrast>Normal Contrast</NormalContrast>
-    <HighContrast>High Contrast</HighContrast>
-    <Search>Search</Search>
+    <Accessibility>Accessibilità</Accessibility>
+    <NormalSize>Dimensioni Normali</NormalSize>
+    <MediumSize>Dimensioni Medie</MediumSize>
+    <LargeSize>Dimensioni Grandi</LargeSize>
+    <NormalContrast>Contrasto Normale</NormalContrast>
+    <HighContrast>Contrasto Alto</HighContrast>
+    <Search>Ricerca</Search>
   </Toolbar>
   <Logo>
-    <GoHome>Go to Home</GoHome>
+    <GoHome>Vai alla HomePage</GoHome>
   </Logo>
   <acme>
-    <label>ACME Template</label>
+    <label>Template ACME</label>
   </acme>  
   <WAIPortal>
-    <label>Sample Accessible Website</label>
+    <label>Esempio di Sito Accessibile</label>
   </WAIPortal>
 </bundle>

@@ -127,6 +127,14 @@ displayValue = function(resp) {
     var doc = data[i];
     var container = $("<div class='docItem clearfix'></div>");
     var icon = $("<div class='icon pull-left'><i class='" + processIcon(doc.linkImage) + "'></i></div>")
+    var docTitle=doc.title;
+    var docName=doc.title;
+    var extension="";
+    var dot = docTitle.lastIndexOf('.');
+    if( dot != -1) {
+        docName= docTitle.substring(0, dot);
+        extension =docTitle.substring(dot+1);
+    }
     container.append(icon);
     var file = $("<div class='fileDesc pull-left'></div>");
     
@@ -139,8 +147,9 @@ displayValue = function(resp) {
       link += "'";
     }
     link += "><b>";
-    link += doc.title;
-    link += "</b></a>";
+    link += docName;
+    link+="<small class='fileExtension'>" +"."+extension;
+    link += "</small></b></a>";
     file.append(link);
     
    

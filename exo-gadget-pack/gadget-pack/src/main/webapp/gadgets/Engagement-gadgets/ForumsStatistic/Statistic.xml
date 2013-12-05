@@ -1,49 +1,49 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <Module>
-<ModulePrefs title="Forums Statistics"
-      description="Display the global and weekly statistics of the Forums">
-    <Require feature="dynamic-height"/>
-    <Locale messages="locale/default.xml" />
-    <Locale lang="fr" messages="locale/fr.xml" />
-    <Locale lang="es" messages="locale/es_ES.xml" />
-    <Locale lang="vi" messages="locale/vi.xml" />
-    <Locale lang="sv" messages="locale/sv_SE.xml"/>
-    <Locale lang="ja" messages="locale/ja.xml"/>
-    <Locale lang="ar" messages="locale/ar.xml"/>
-    <Locale lang="de" messages="locale/de.xml"/>
-    <Locale lang="pt" messages="locale/pt_BR.xml"/>
-    <Locale lang="it" messages="locale/it.xml"/>
-    <Locale lang="ru" messages="locale/ru.xml"/>
-    <Locale lang="tr" messages="locale/tr.xml"/>
-    <Locale lang="zh_CN" messages="locale/zh_CN.xml"/>
-    <Locale lang="fi" messages="locale/fi.xml"/>
-</ModulePrefs>
-<Content type="html">
-<![CDATA[   
+    <ModulePrefs title="Forums Statistics"
+                 description="Display the global and weekly statistics of the Forums">
+        <Require feature="dynamic-height"/>
+        <Locale messages="locale/default.xml" />
+        <Locale lang="fr" messages="locale/fr.xml" />
+        <Locale lang="es" messages="locale/es_ES.xml" />
+        <Locale lang="vi" messages="locale/vi.xml" />
+        <Locale lang="sv" messages="locale/sv_SE.xml"/>
+        <Locale lang="ja" messages="locale/ja.xml"/>
+        <Locale lang="ar" messages="locale/ar.xml"/>
+        <Locale lang="de" messages="locale/de.xml"/>
+        <Locale lang="pt" messages="locale/pt_BR.xml"/>
+        <Locale lang="it" messages="locale/it.xml"/>
+        <Locale lang="ru" messages="locale/ru.xml"/>
+        <Locale lang="tr" messages="locale/tr.xml"/>
+        <Locale lang="zh_CN" messages="locale/zh_CN.xml"/>
+        <Locale lang="fi" messages="locale/fi.xml"/>
+    </ModulePrefs>
+    <Content type="html">
+        <![CDATA[
  <head>
       <title>Forums Statistics</title>
-			<link rel="stylesheet" type="text/css" href="/eXoResources/skin/bootstrap/css/bootstrap.css" />    
+			<link rel="stylesheet" type="text/css" href="/eXoResources/skin/bootstrap/css/bootstrap.css" />
 			<link rel="stylesheet" type="text/css" href="/eXoResources/skin/css/Core.css" />
       <link type="text/css" rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.9/themes/ui-lightness/jquery-ui.css" />
       <link rel="stylesheet" type="text/css" href="/exo-gadget-resources/skin/exo-gadget/gadget-common.css" />
       <link rel="stylesheet" type="text/css" href="/exo-gadget-resources/script/jquery/plugins/jqplot/1.0.0/jquery.jqplot.min.css" />
       <link type="text/css" rel="stylesheet" href="/gadget-pack/skin/css/forumsStatistic.css" />
 
-      <script language="javascript" type="text/javascript" src="/exo-gadget-resources/script/jquery/1.6.2/jquery.min.js"></script>
+      <script language="javascript" type="text/javascript" src="/eXoResources/javascript/jquery-1.7.1.js"></script>
       <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.9/jquery-ui.min.js"></script>
       <script type="text/javascript" src="script/date.format.js"></script>
       <script language="javascript" type="text/javascript" src="/exo-gadget-resources/script/jquery/plugins/jqplot/1.0.0/jquery.jqplot.min.js"></script>
       <script language="javascript" type="text/javascript" src="/exo-gadget-resources/script/jquery/plugins/jqplot/1.0.0/plugins/jqplot.dateAxisRenderer.min.js"></script>
-
+        <script language="javascript" type="text/javascript" src="/eXoResources/skin/bootstrap/js/bootstrap-tooltip.js"></script>
       <script type="text/javascript" src="script/jquery.pagination.js"></script>
-      
+
       <script type="text/javascript">
-        
+
              var statisticList = new Array();
              var pageIndex=1;
-       
+
              /**
-             * Callback function that displays the content. 
+             * Callback function that displays the content.
              */
              function pageselectCallback(page_index, jq){
                 // Get number of elements per pagionation page from form
@@ -52,10 +52,10 @@
                 var newcontent = '';
                 var items = [];
                 var chartData=[]; //data for draw chart
-               
+
                 pageIndex = page_index;
                 // Iterate through a selection of the content and build an HTML string
-             
+
                 for(var i=page_index*items_per_page;i<max_elem;i++)
                 {
                   var startDate = new Date(statisticList[i].startDate.time);
@@ -63,19 +63,19 @@
                   var startDateStr = (startDate.format("yyyy/mm/dd"));
                   var lastStatEntry = new Date(statisticList[i].lastStatEntry.time);
                   var lastStatEntryStr = (lastStatEntry.format("yyyy/mm/dd"));
-                  
+
                   //push data for create chart
                   chartData.push([lastStatEntryStr,statisticList[i].postsCountOfWeek]);
 
-                  items.push('<div class="IconLink">' + startDateStr + " - " + lastStatEntryStr + " : <i> " + statisticList[i].postsCountOfWeek + " __MSG_forums.weekly.statistic.post.open__" +'</i></div>');    
+                  items.push('<div class="IconLink">' + startDateStr + " - " + lastStatEntryStr + " : <i> " + statisticList[i].postsCountOfWeek + " __MSG_forums.weekly.statistic.post.open__" +'</i></div>');
                 }
-                
+
                //draw chart
                createChart(chartData);
-               
+
                 //clean weekly statistic
                 document.getElementById('weeklyStatistic').innerHTML='';
-        
+
                 $('<div/>', {
                     'class': 'users',
                      html: items.join('')
@@ -87,19 +87,19 @@
             // This function creates an option object for the pagination function.
             function getOptions(){
                 var opt = {callback: pageselectCallback};
-                opt.prev_text = "<i class='uiIconPrevArrow'></i>";
-                opt.next_text = "<i class='uiIconNextArrow'></i>";
+                opt.prev_text = "<span id ='prevButton'  data-placement='bottom' rel='tooltip' data-original-title='__MSG_forums.weekly.statistic.prev__'><i class='uiIconPrevArrow'></i></span>";
+                opt.next_text = "<span id ='nextButton'  data-placement='bottom' rel='tooltip' data-original-title='__MSG_forums.weekly.statistic.next__'><i class='uiIconNextArrow'></i></span>";
                 opt.items_per_page = 5;
-								opt.num_display_entries = 8;
+				opt.num_display_entries = 8;
                 return opt;
             }
-      
+
             // When document has loaded, initialize pagination and form
             $(document).ready(function(){
 
               $('#seeTotalStatistic').hide();
               $('#weeklyStatisticArea').hide();
-              
+
               viewForumsWeeklyStatistic();
               viewForumsTotalStatistic();
 
@@ -109,7 +109,7 @@
                   $('#weeklyStatisticArea').hide();
                   $('#totalStatisticArea').show();
               });
-              
+
               $('#viewWeeklyStatistic').click(function() {
                 if( $('#weeklyStatistic').text()== ""){
                   //viewForumsWeeklyStatistic();
@@ -118,16 +118,16 @@
                 $('#seeTotalStatistic').show();
                 $('#weeklyStatisticArea').show();
                 $('#totalStatisticArea').hide();
-                
+
               });
-              
-              
+
+
             });
 
         function viewForumsWeeklyStatistic(){
             $('#chartdiv').hide();
             $('#viewList').hide();
-            
+
             $('#viewChart').click(function() {
                 $('#chartdiv').show();
                 $('#weeklyStatistic').hide();
@@ -135,10 +135,10 @@
                 $('#viewChart').hide();
                 pageselectCallback(pageIndex);
             });
-            
+
             $('#viewList').click(function() {
                 $('#chartdiv').hide();
-                $('#weeklyStatistic').show();    
+                $('#weeklyStatistic').show();
                 $('#viewList').hide();
                 $('#viewChart').show();
             });
@@ -156,20 +156,21 @@
                // Create pagination element with options from form
                var optInit = getOptions();
                $("#Pagination").pagination(statisticList.length, optInit);
-           
+              $('*[rel=\"tooltip\"]').tooltip();
+
              });
         }
         function viewForumsTotalStatistic(){
           $.getJSON('/rest/forumsService/forums/statistic', function(data) {
                 var items = [];
-                
+
                 $.each(data, function(i, statistic) {
                   $.each(statistic, function(key, statistic) {
                     items.push('<div class="IconLink"><i class="uiIconMiniArrowRight uiIconLightGray caretIcon"></i>' + "__MSG_forums.statistic.total.topic__" + ' <span class="num"> ' + statistic.topicCount+ '</span></div>');
                     items.push('<div class="IconLink"><i class="uiIconMiniArrowRight uiIconLightGray caretIcon"></i>' + "__MSG_forums.statistic.total.post__" + ' <span class="num"> ' + statistic.postCount+ '</span></div>');
                     items.push('<div class="IconLink"><i class="uiIconMiniArrowRight uiIconLightGray caretIcon"></i>' + "__MSG_forums.statistic.total.member__" + ' <span class="num"> ' + statistic.membersCount+ '</span></div>');
                     items.push('<div class="IconLink"><i class="uiIconMiniArrowRight uiIconLightGray caretIcon"></i>' + "__MSG_forums.statistic.active.member__" + ' <span class="num"> ' + statistic.activeUsers+ '</span></div>');
-                    
+
                     var arr = statistic.mostUsersOnline.split(' ');
                     var maximumUser = arr[0];
                     var dateLong= new Number (arr[arr.length - 1]);
@@ -177,10 +178,10 @@
                     var onlineTime = time.toDateString() + ' ' + time.toLocaleTimeString() ;
                     items.push('<div class="IconLink"><i class="uiIconMiniArrowRight uiIconLightGray caretIcon"></i>' + "__MSG_forums.statistic.maximum.user__"  + ' ' +'</div>');
                     items.push('<div class="IconLink"><i><span class="num">' + maximumUser + '</span> __MSG_forums.statistic.at__ <span class="num">' + onlineTime +'</span></i></div>' );
-             
+
                   });
                 });
-                
+
                 $('<div/>', {
                   'class': 'users',
                   html: items.join('')
@@ -189,7 +190,7 @@
                 gadgets.window.adjustHeight();
               });
         }
-        
+
         function createChart(dataList){
              //clean chart
               document.getElementById('chartdiv').innerHTML='';
@@ -222,29 +223,29 @@
 
             <div id ="seeWeeklyStatistic" class="ContTit ClearFix">
               <span>__MSG_forums.statistic.title__</span>
-							<span id ="viewWeeklyStatistic" class="actionIcon" title = "__MSG_forums.statistic.see.weekly.statistic__"><i class="uiIconViewStatistic uiIconLightGray"></i></span>
+							<span id ="viewWeeklyStatistic" class="actionIcon" data-placement="bottom" rel="tooltip" data-original-title="__MSG_forums.statistic.see.weekly.statistic__"><i class="uiIconViewStatistic uiIconLightGray"></i></span>
             </div>
-            
+
             <div id ="seeTotalStatistic" class="ContTit ClearFix">
               <span>__MSG_forums.weekly.statistic.title__</span>
-							<span id ="viewTotalStatistic" class="actionIcon" title = "__MSG_forums.statistic.see.total.statistic__"><i class="uiIconReply uiIconLightGray"></i></span>
-							<span id ="viewChart" class="actionIcon" title = "__MSG_forums.weekly.statistic.view.chart__"><i class="uiIconViewByChart uiIconLightGray"></i></span>
-							<span id ="viewList" class="actionIcon" title = "__MSG_forums.weekly.statistic.view.list__"><i class="uiIconViewList uiIconLightGray"></i></span>
+							<span id ="viewTotalStatistic" class="actionIcon" data-placement="bottom" rel="tooltip" data-original-title ="__MSG_forums.statistic.see.total.statistic__"><i class="uiIconReply uiIconLightGray"></i></span>
+							<span id ="viewChart" class="actionIcon" data-placement="bottom" rel="tooltip" data-original-title= "__MSG_forums.weekly.statistic.view.chart__"><i class="uiIconViewByChart uiIconLightGray"></i></span>
+							<span id ="viewList" class="actionIcon" data-placement="bottom" rel="tooltip" data-original-title= "__MSG_forums.weekly.statistic.view.list__"><i class="uiIconViewList uiIconLightGray"></i></span>
             </div>
-            
+
           </h5>
-          
+
           <div id ="weeklyStatisticArea" class ="uiContentBox WeeklyStatisticArea">
 
-            <div id="weeklyStatistic" class="users"></div>    
-   
+            <div id="weeklyStatistic" class="users"></div>
+
             <div id="chartdiv" class = "ChartContent"></div>
-            
+
             <div class="pagination uiPageIterator"><ul id="Pagination"></ul></div>
           </div>
-          
+
           <div id="totalStatisticArea" class="uiContentBox users TotalStatisticArea"></div>
-           
+
         </div>
 			</div>
     </body>

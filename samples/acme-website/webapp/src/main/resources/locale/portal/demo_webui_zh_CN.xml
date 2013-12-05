@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <bundle>
   <Signin>
-    <welcome>Welcome</welcome>
-    <login>Login</login>
-    <logout>Logout</logout>
-    <language>Change Language</language>
-    <register>Register</register>
+    <welcome>欢迎</welcome>
+    <login>登录</login>
+    <logout>退出</logout>
+    <language>更改语言</language>
+    <register>注册</register>
   </Signin>
 
   <ACMEPortal>
-    <label>ACME Template</label>
+    <label>ACME 模板</label>
   </ACMEPortal>
 </bundle>
