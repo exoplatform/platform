@@ -14,7 +14,7 @@
                     });
             });
 
-            $('.jz').on("click", '.uiIconAdd', function () {
+            $('.jz').on("click", '.uiIconSimplePlusMini uiIconLightGray', function () {
                 var calId = $(this).parent().children("input").val();
                 $('div.CalendarPortletContainer').jzLoad(
                         "CalendarPortletController.addCalendar()",

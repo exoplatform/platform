@@ -31,7 +31,7 @@
 
                 %>
                 <span id="${cal.id}" data-placement="bottom" rel="tooltip" data-original-title="${calendarName}" class="calendarName ${cal.calendarColor}"><span>${calendarName}&nbsp;</span>
-                    <i class="uiIconDel"></i>
+                 <span data-placement="bottom" rel="tooltip" data-original-title="Remove"><i class="uiIconDel"></i>  </span>
                     <input type="hidden" name="calendarId" value="${cal.id}"/>
                 </span>
                 <% }
@@ -48,7 +48,7 @@
                         def   calendarName= cal.name;
 
                 %>
-                <li id="${cal.id}" class="calendarItem clearfix" title="${calendarName}">
+                <li id="${cal.id}" class="calendarItem clearfix">
                     <a href="javascript:void(0);" class="addButton pull-right" style="display: none;" data-placement="bottom" rel="tooltip" data-original-title="add">
                         <input type="hidden" name="calendarId" value="${cal.id}"/>
                         <i class="uiIconSimplePlusMini uiIconLightGray"></i>
