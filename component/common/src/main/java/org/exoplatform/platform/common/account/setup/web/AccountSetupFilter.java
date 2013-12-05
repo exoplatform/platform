@@ -41,13 +41,19 @@ public class AccountSetupFilter implements Filter {
             propertySetupSkip = "false";
         }
         settingService = (SettingService) PortalContainer.getInstance().getComponentInstanceOfType(SettingService.class);
+        
         boolean setupDone = false;
         SettingValue accountSetupNode = settingService.get(Context.GLOBAL, Scope.GLOBAL, AccountSetup.ACCOUNT_SETUP_NODE);
-        if(accountSetupNode != null)
+        if(accountSetupNode != null) {
             setupDone = true;
+        } else if (isSetupSkip || propertySetupSkip.equals("true")) {
+            settingService.set(Context.GLOBAL, Scope.GLOBAL, AccountSetup.ACCOUNT_SETUP_NODE, SettingValue.create("setup over:" + "true"));
+            setupDone = true;
+        }
         String requestUri = httpServletRequest.getRequestURI();
         boolean isRestUri = (requestUri.contains(REST_URI));
-        if((!setupDone)&&(!isDevMod)&&(!isRestUri)&&(!isSetupSkip)&&(!propertySetupSkip.equals("true"))){
+        if((!setupDone)&&(!isDevMod)&&(!isRestUri)) {
+        	
             ServletContext platformExtensionContext = httpServletRequest.getSession().getServletContext().getContext(PLF_PLATFORM_EXTENSION_SERVLET_CTX);
             platformExtensionContext.getRequestDispatcher(ACCOUNT_SETUP_SERVLET).forward(httpServletRequest, httpServletResponse);
             return;
