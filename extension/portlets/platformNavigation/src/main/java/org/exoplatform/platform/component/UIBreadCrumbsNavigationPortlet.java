@@ -12,6 +12,7 @@ import org.exoplatform.portal.mop.user.UserNode;
 import org.exoplatform.portal.mop.user.UserPortal;
 import org.exoplatform.portal.webui.util.Util;
 import org.exoplatform.services.organization.OrganizationService;
+import org.exoplatform.services.organization.User;
 import org.exoplatform.social.core.identity.model.Identity;
 import org.exoplatform.social.core.identity.provider.OrganizationIdentityProvider;
 import org.exoplatform.social.core.service.LinkProvider;
@@ -116,9 +117,12 @@ public class UIBreadCrumbsNavigationPortlet extends UIPortletApplication {
         return  (spaceAvatar == null || spaceAvatar.isEmpty()) ?  LinkProvider.SPACE_DEFAULT_AVATAR_URL : spaceAvatar;
     }
 
-    public String getUserFullName(String userNAme) throws Exception {
-        String fullName = orgService.getUserHandler().findUserByName(userNAme).getFullName();
-        return fullName;
+    public String getUserFullName(String username) throws Exception {
+        User user = orgService.getUserHandler().findUserByName(username);
+        if (user != null) {
+          return user.getFullName();
+        } else
+          return "";
     }
 
     public String getAvatarURL(String username) {
