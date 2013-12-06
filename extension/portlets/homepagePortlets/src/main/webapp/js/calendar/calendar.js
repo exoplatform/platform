@@ -25,12 +25,12 @@
                     });
             });
 
-            $('.jz').on('mouseover', '.calendarItem', function() {
+            $('.jz').on('mouseenter', '.calendarItem', function() {
                 var button= $(this).children("a.addButton");
                 button.css("display","block");
             });
 
-            $('.jz').on('mouseout', '.calendarItem', function() {
+            $('.jz').on('mouseleave', '.calendarItem', function() {
                 var button= $(this).children("a.addButton");
                 button.css("display","none");
             });
@@ -145,14 +145,11 @@
                     });
             });
 
-            $('.jz').on('mouseover', '.calendarPortlet', function () {
+            $('.jz').on('mouseenter', '.calendarPortlet', function () {
                 $('.settingsContainerPage').children("a").css("display", "block");
-                $('*[rel="tooltip"]').tooltip();
-
             });
-            $('.jz').on('mouseout', '.calendarPortlet', function () {
+            $('.jz').on('mouseleave', '.calendarPortlet', function () {
                 $('.settingsContainerPage').children("a").css("display", "none");
-                $('*[rel="tooltip"]').tooltip();
             });
 
             setTimeout(function(){
