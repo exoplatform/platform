@@ -216,3 +216,20 @@ a {
   	background: url("/eXoResources/skin/images/Icons/uiIconColor.png") no-repeat -20px top transparent;
 	padding-left: 20px;
  }
+
+.uiWelcomeBox .btn-primary {
+    background-color: #567AB6;
+    background-image: linear-gradient(to bottom, #638ACD, #426393);
+    background-repeat: repeat-x;
+    border: 1px solid #224886;
+    color: #FFFFFF;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.2) inset, 0 1px 2px rgba(0, 0, 0, 0.05);
+
+}
+
+.uiWelcomeBox .btn-primary:hover {
+  background-color: #426394;
+  background-image: linear-gradient(to bottom, #4B71B3, #426394);
+ background-repeat: repeat-x;
+}

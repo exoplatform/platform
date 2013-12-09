@@ -7,22 +7,30 @@
                 var calId = $(this).parent().children("input").val();
                 $('div.CalendarPortletContainer').jzLoad(
                         "CalendarPortletController.deleteCalendar()",
-                        {"calendarId":calId});
+                        {"calendarId":calId}, function() {
+
+                        $('*[rel="tooltip"]').tooltip();
+
+                    });
             });
 
-            $('.jz').on("click", '.uiIconAdd', function () {
+            $('.jz').on("click", '.uiIconSimplePlusMini', function () {
                 var calId = $(this).parent().children("input").val();
                 $('div.CalendarPortletContainer').jzLoad(
                         "CalendarPortletController.addCalendar()",
-                        {"calendarId":calId});
+                        {"calendarId":calId}, function() {
+
+                        $('*[rel="tooltip"]').tooltip();
+
+                    });
             });
 
-            $('.jz').on('mouseover', '.calendarItem', function() {
+            $('.jz').on('mouseenter', '.calendarItem', function() {
                 var button= $(this).children("a.addButton");
                 button.css("display","block");
             });
 
-            $('.jz').on('mouseout', '.calendarItem', function() {
+            $('.jz').on('mouseleave', '.calendarItem', function() {
                 var button= $(this).children("a.addButton");
                 button.css("display","none");
             });
@@ -36,35 +44,55 @@
                 }
                 $('ul.NonDisplayedCalendar').jzLoad(
                         "CalendarPortletController.getSearchResult()",
-                        {"key":seakey});
+                        {"key":seakey}, function() {
+
+                        $('*[rel="tooltip"]').tooltip();
+
+                    });
             });
 
             $('.jz').on('show', 'input.PLFcalendarSearchKey', function () {
                 var seakey = $(this).val();
                 $('ul.NonDisplayedCalendar').jzLoad(
                         "CalendarPortletController.getSearchResult()",
-                        {"key":seakey});
+                        {"key":seakey}, function() {
+
+                        $('*[rel="tooltip"]').tooltip();
+
+                    });
             });
 
             $('.jz').on("keydown", 'input.PLFcalendarSearchKey', function () {
                 var seakey = $(this).val();
                 $('ul.NonDisplayedCalendar').jzLoad(
                         "CalendarPortletController.getSearchResult()",
-                        {"key":seakey});
+                        {"key":seakey}, function() {
+
+                        $('*[rel="tooltip"]').tooltip();
+
+                    });
             });
 
             $('.jz').on("keypress", 'input.PLFcalendarSearchKey', function () {
                 var seakey = $(this).val();
                 $('ul.NonDisplayedCalendar').jzLoad(
                         "CalendarPortletController.getSearchResult()",
-                        {"key":seakey});
+                        {"key":seakey}, function() {
+
+                        $('*[rel="tooltip"]').tooltip();
+
+                    });
             });
 
             $('.jz').on("keyup", 'input.PLFcalendarSearchKey', function () {
                 var seakey = $(this).val();
                 $('ul.NonDisplayedCalendar').jzLoad(
                         "CalendarPortletController.getSearchResult()",
-                        {"key":seakey});
+                        {"key":seakey}, function() {
+
+                        $('*[rel="tooltip"]').tooltip();
+
+                    });
             });
 
             $('.jz').on("focus", 'input.PLFcalendarSearchKey', function () {
@@ -83,37 +111,56 @@
 
             $('.jz').on('click', '.btn', function(){
                 $('div.CalendarPortletContainer').jzLoad(
-                        "CalendarPortletController.calendarHome()");
+                        "CalendarPortletController.calendarHome()", function() {
+
+                        $('*[rel="tooltip"]').tooltip();
+
+                    });
             });
 
             $('.jz').on("click", '.prevDate', function() {
                 $('div.CalendarPortletContainer').jzLoad(
                         "CalendarPortletController.decDate()",
-                        {"nbClick":"1"});
+                        {"nbClick":"1"}, function() {
+
+                        $('*[rel="tooltip"]').tooltip();
+
+                    });
             });
             $('.jz').on("click", '.nextDate', function() {
                 $('div.CalendarPortletContainer').jzLoad(
                         "CalendarPortletController.incDate()",
-                        {"nbClick":"1"});
+                        {"nbClick":"1"}, function() {
+
+                        $('*[rel="tooltip"]').tooltip();
+
+                    });
             });
             $('.jz').on("click", '.settingsLink', function(){
                 $('.CalendarPortletContainer').jzLoad(
-                        "CalendarPortletController.setting()");
+                        "CalendarPortletController.setting()", function() {
+
+                        $('*[rel="tooltip"]').tooltip();
+
+                    });
             });
 
-            $('.jz').on('mouseover', '.calendarPortlet', function () {
+            $('.jz').on('mouseenter', '.calendarPortlet', function () {
                 $('.settingsContainerPage').children("a").css("display", "block");
-
             });
-            $('.jz').on('mouseout', '.calendarPortlet', function () {
+            $('.jz').on('mouseleave', '.calendarPortlet', function () {
                 $('.settingsContainerPage').children("a").css("display", "none");
             });
 
             setTimeout(function(){
-                $('div.CalendarPortletContainer').jzLoad("CalendarPortletController.calendarHome()");
+                $('div.CalendarPortletContainer').jzLoad("CalendarPortletController.calendarHome()", function() {
+
+                                 $('*[rel="tooltip"]').tooltip();
+
+                                   });
             },100);
         }
     };
     //call to init should be in the template
-    //init();    
+    //init();
 })($);
