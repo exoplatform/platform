@@ -65,6 +65,7 @@ a {
     height: 28px;
     padding: 0 6px;
     outline: none;
+     font-size: 13px;
 }
 .uiWelcomeBox input::-webkit-input-placeholder {
    color: #999999;
@@ -163,7 +164,7 @@ a {
 
 .uiWelcomeBox .form-horizontal .control-label {
     float: left;
-    padding-top: 5px;
+    padding-top: 7px;
     text-align: right;
     width: 75px;
 }
