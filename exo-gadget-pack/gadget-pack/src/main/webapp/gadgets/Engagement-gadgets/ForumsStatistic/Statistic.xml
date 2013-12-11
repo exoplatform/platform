@@ -168,9 +168,9 @@
                     items.push('<div class="IconLink">' + "__MSG_forums.statistic.total.member__" + ' ' + statistic.membersCount+ '</div>');
                     items.push('<div class="IconLink">' + "__MSG_forums.statistic.active.member__" + ' ' + statistic.activeUsers+ '</div>');
                     
-                    var arr = statistic.mostUsersOnline.split(' ');
+                    var arr = statistic.mostUsersOnline.split(',');
                     var maximumUser = arr[0];
-                    var dateLong= new Number (arr[arr.length - 1]);
+                    var dateLong= new Number(arr[1]);
                     var time = new Date(dateLong);
                     var onlineTime = time.toDateString() + ' ' + time.toLocaleTimeString() ;
                     items.push('<div class="IconLink">' + "__MSG_forums.statistic.maximum.user__"  + ' ' +'</div>');
