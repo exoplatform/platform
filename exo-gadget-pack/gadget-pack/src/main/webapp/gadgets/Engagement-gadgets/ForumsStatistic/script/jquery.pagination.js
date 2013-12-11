@@ -72,7 +72,8 @@ jQuery.fn.pagination = function(maxentries, opts){
       var np = numPages();
       // This helper function returns a handler function that calls pageSelected with the right page_id
       var getClickHandler = function(page_id) {
-        return function(evt){ return pageSelected(page_id,evt); }
+          $('*[rel=\"tooltip\"]').tooltip();
+          return function(evt){ return pageSelected(page_id,evt); }
       }
       // Helper function for generating a single link (or a span tag if it's the current page)
       var appendItem = function(page_id, appendopts){

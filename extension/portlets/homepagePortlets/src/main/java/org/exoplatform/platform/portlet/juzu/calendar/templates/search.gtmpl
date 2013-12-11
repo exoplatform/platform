@@ -144,10 +144,10 @@
         def   calendarName= cal.name;
 
 %>
-    <li id="${cal.id}" class="calendarItem clearfix" title="${calendarName}">
+    <li id="${cal.id}" class="calendarItem clearfix">
         <a href="javascript:void(0);" class="addButton pull-right" style="display: none;">
             <input type="hidden" name="calendarId" value="${cal.id}"/>
-            <i class="uiIconAdd "></i>
+            <i class="uiIconSimplePlusMini uiIconLightGray" data-placement="bottom" rel="tooltip" data-original-title="add"></i>
         </a>
         <a class="${cal.calendarColor} colorBox pull-left" href="javascript:void(0);"></a>
         <a  href="javascript:void(0);" class="calName" data-original-title="${calendarName}" data-placement="bottom" rel="tooltip">${calendarName}</a>

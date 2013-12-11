@@ -23,6 +23,7 @@ import java.io.IOException;
 public class AccountSetupFilter implements Filter {
     private static final String PLF_PLATFORM_EXTENSION_SERVLET_CTX = "/platform-extension";
     private static final String ACCOUNT_SETUP_SERVLET = "/accountSetup";
+    private static final String ACCOUNT_SETUP_SKIP_PROPERTY = "accountsetup.skip";
 
     private static final Log LOG = ExoLogger.getLogger(AccountSetupFilter.class);
     SettingService settingService ;
@@ -33,14 +34,26 @@ public class AccountSetupFilter implements Filter {
         HttpServletResponse httpServletResponse = (HttpServletResponse)response;
         REST_URI = ExoContainerContext.getCurrentContainer().getContext().getRestContextName();
         boolean isDevMod = PropertyManager.isDevelopping();
+        Boolean isSetupSkip =  AccountSetup.SETUP_SKIP;
+        String propertySetupSkip =  PropertyManager.getProperty(ACCOUNT_SETUP_SKIP_PROPERTY);
+        if(propertySetupSkip == null){
+            LOG.debug("Property accountsetup.skip not found in configuration.properties ");
+            propertySetupSkip = "false";
+        }
         settingService = (SettingService) PortalContainer.getInstance().getComponentInstanceOfType(SettingService.class);
+        
         boolean setupDone = false;
         SettingValue accountSetupNode = settingService.get(Context.GLOBAL, Scope.GLOBAL, AccountSetup.ACCOUNT_SETUP_NODE);
-        if(accountSetupNode != null)
+        if(accountSetupNode != null) {
             setupDone = true;
+        } else if (isSetupSkip || propertySetupSkip.equals("true")) {
+            settingService.set(Context.GLOBAL, Scope.GLOBAL, AccountSetup.ACCOUNT_SETUP_NODE, SettingValue.create("setup over:" + "true"));
+            setupDone = true;
+        }
         String requestUri = httpServletRequest.getRequestURI();
         boolean isRestUri = (requestUri.contains(REST_URI));
-        if((!setupDone)&&(!isDevMod)&&(!isRestUri)){
+        if((!setupDone)&&(!isDevMod)&&(!isRestUri)) {
+        	
             ServletContext platformExtensionContext = httpServletRequest.getSession().getServletContext().getContext(PLF_PLATFORM_EXTENSION_SERVLET_CTX);
             platformExtensionContext.getRequestDispatcher(ACCOUNT_SETUP_SERVLET).forward(httpServletRequest, httpServletResponse);
             return;
