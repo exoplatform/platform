@@ -17,7 +17,6 @@
 package org.exoplatform.platform.component;
 
 import org.exoplatform.container.ExoContainer;
-import org.exoplatform.platform.common.navigation.NavigationUtils;
 import org.exoplatform.platform.webui.NavigationURLUtils;
 import org.exoplatform.portal.config.UserPortalConfig;
 import org.exoplatform.portal.mop.SiteKey;
@@ -28,6 +27,8 @@ import org.exoplatform.portal.mop.user.UserPortal;
 import org.exoplatform.portal.webui.util.Util;
 import org.exoplatform.services.log.ExoLogger;
 import org.exoplatform.services.log.Log;
+import org.exoplatform.services.organization.OrganizationService;
+import org.exoplatform.services.organization.User;
 import org.exoplatform.social.core.identity.model.Identity;
 import org.exoplatform.social.core.identity.provider.OrganizationIdentityProvider;
 import org.exoplatform.social.core.service.LinkProvider;
@@ -57,31 +58,11 @@ public class UIUserPlatformToolBarPortlet extends UIPortletApplication {
   public UIUserPlatformToolBarPortlet() throws Exception {
 
   }
-    public String getFullName() throws Exception {
-
-        // --- Full Name to be loaded fromConversationState
-        String fullName = "";
-
-        // --- Load the Full name from the ConversationState else use Social API to load firstName and lastName
-        fullName = NavigationUtils.getUserFromConversationState(true);
-
-        //--- return the FullName from ConversationState if exist
-        if (NavigationUtils.present(fullName)) {
-            if (LOG.isDebugEnabled()) {
-                LOG.debug("loading ["+fullName+"] from Conversation State");
-            }
-            return fullName;
-        }
-
-        //---Load User from Social Identity
-        Identity viewerIdentity = Utils.getViewerIdentity(true);
-        if (viewerIdentity != null) {
-            fullName = viewerIdentity.getProfile().getFullName();
-            if (LOG.isDebugEnabled()) {
-                LOG.debug("IdentityManager : loaded ["+fullName+"] from social Profile");
-            }
-        }
-        return fullName;
+    public User getUser() throws Exception {
+        OrganizationService service = getApplicationComponent(OrganizationService.class);
+        String userName = Util.getPortalRequestContext().getRemoteUser();
+        User user = service.getUserHandler().findUserByName(userName);
+        return user;
     }
 
   private String getCurrentPortalName() {
