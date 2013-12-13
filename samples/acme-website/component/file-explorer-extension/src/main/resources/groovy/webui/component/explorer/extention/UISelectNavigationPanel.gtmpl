@@ -36,7 +36,7 @@
 				          $nodeName
 				        </td>
 				        <td class="center">
-		              <a class="actionIcon" href="<%=uicomponent.event("Select", URLEncoder.encode(node.getURI(), "utf-8"))%>">
+		              <a class="actionIcon" href="javascript:void(0);" onclick="<%=uicomponent.event("Select", node.getURI())%>">
 		                <i class="uiIconSelectPage" ></i>
 		              </a>
 				        </td>
