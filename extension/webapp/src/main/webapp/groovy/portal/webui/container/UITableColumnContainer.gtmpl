@@ -82,8 +82,8 @@ rcontext.getJavascriptManager().require("SHARED/platform-left-navigation", "plat
 						<i class="uiIconContainerConfig uiIconWhite"></i>
 						<span><%=hasPermission ? strTitle : _ctx.appRes("UIPortlet.label.protectedContent")%></span>
 						<%if(hasPermission) {%>
-							<a href="<%=uicomponent.event("EditContainer","$uicomponent.id")%>" rel="tooltip" data-placement="bottom" title="<%=_ctx.appRes("UITableColumnContainer.tooltip.editContainer")%>"><i class="uiIconEdit uiIconWhite"></i></a>
-							<a href="<%=uicomponent.event("DeleteComponent","$uicomponent.id")%>" rel="tooltip" data-placement="bottom" title="<%=_ctx.appRes("UITableColumnContainer.tooltip.closeContainer")%>"><i class="uiIconTrash uiIconWhite"></i></a>
+							<a href="javascript:void(0);" onclick="<%=uicomponent.event("EditContainer","$uicomponent.id")%>" rel="tooltip" data-placement="bottom" title="<%=_ctx.appRes("UITableColumnContainer.tooltip.editContainer")%>"><i class="uiIconEdit uiIconWhite"></i></a>
+							<a href="javascript:void(0);" onclick="<%=uicomponent.event("DeleteComponent","$uicomponent.id")%>" rel="tooltip" data-placement="bottom" title="<%=_ctx.appRes("UITableColumnContainer.tooltip.closeContainer")%>"><i class="uiIconTrash uiIconWhite"></i></a>
 						<%}%>
 					
 					<%/*End InfoBar*/ %>
