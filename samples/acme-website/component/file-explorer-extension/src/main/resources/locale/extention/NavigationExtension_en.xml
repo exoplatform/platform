@@ -49,8 +49,8 @@
 			<Detail>Detail</Detail>
 		</label>
 		<action>
-			<Save>Save</Save>
-			<Cancel>Cancel</Cancel>
+<Save>#{word.save}</Save>
+<Cancel>#{word.cancel}</Cancel>
 		</action>
 	</UINavigationForm>
 	<Visible>

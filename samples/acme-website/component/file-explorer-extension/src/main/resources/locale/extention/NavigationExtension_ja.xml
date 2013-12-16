@@ -49,8 +49,8 @@
 <Detail>詳細</Detail>
 </label>
 <action>
-<Save>保存</Save>
-<Cancel>キャンセル</Cancel>
+<Save>#{word.save}</Save>
+<Cancel>#{word.cancel}</Cancel>
 </action>
 </UINavigationForm>
 <Visible>

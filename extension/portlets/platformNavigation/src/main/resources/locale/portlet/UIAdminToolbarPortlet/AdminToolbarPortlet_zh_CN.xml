@@ -44,8 +44,8 @@
     </label>
  
     <action>
-      <Save>保存</Save>
-      <Cancel>取消</Cancel>
+      <Save>#{word.save}</Save>
+      <Cancel>#{word.cancel}</Cancel>
     </action>
     <msg>
       <repository-exception>出现意外的错误。不能保存页面的元数据。</repository-exception>

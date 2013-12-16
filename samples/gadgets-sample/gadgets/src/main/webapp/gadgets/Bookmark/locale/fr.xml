@@ -22,14 +22,14 @@
 <messagebundle>
   <msg name="title">Signets</msg>
   <msg name="customize">Personnaliser</msg>
-  <msg name="save">Enregistrer</msg>
+  <msg name="save">#{word.save}</msg>
   <msg name="add">Ajouter</msg>
   <msg name="ok">Valider</msg>
   <msg name="name">Nom</msg>
   <msg name="url">URL</msg>
   <msg name="delete">Supprimer</msg>
   <msg name="edit">Modifier</msg>
-  <msg name="cancel">Annuler</msg>
+  <msg name="cancel">#{word.cancel}</msg>
   <msg name="emptyBookmarkPre">Vous n'avez pas n'importe quel signet : ajoutez-les en cliquant sur</msg>
   <msg name="emptyBookmarkSuf">bouton</msg>
 </messagebundle>

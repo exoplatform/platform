@@ -44,8 +44,8 @@
     </label>
  
     <action>
-      <Save>Kaydet</Save>
-      <Cancel>İptal</Cancel>
+      <Save>#{word.save}</Save>
+      <Cancel>#{word.cancel}</Cancel>
     </action>
     <msg>
       <repository-exception>Beklenmeyen bir hata oluştu. Sayfa meta veriler kaydedilemez.</repository-exception>

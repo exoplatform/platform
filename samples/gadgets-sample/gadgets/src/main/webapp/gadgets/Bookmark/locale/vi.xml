@@ -22,14 +22,14 @@
 <messagebundle>
   <msg name="title">Đánh dấu</msg>
   <msg name="customize">Tùy chỉnh</msg>
-  <msg name="save">Lưu</msg>
+  <msg name="save">#{word.save}</msg>
   <msg name="add">Thêm</msg>
   <msg name="ok">Đồng ý</msg>
   <msg name="name">Tên</msg>
   <msg name="url">URL</msg>
   <msg name="delete">Xóa</msg>
   <msg name="edit">Chỉnh sửa</msg>
-  <msg name="cancel">Hủy bỏ</msg>
+  <msg name="cancel">#{word.cancel}</msg>
   <msg name="emptyBookmarkPre">Bạn không có đánh dấu trang nào. Thêm vào bằng cách nhấp</msg>
   <msg name="emptyBookmarkSuf">nút</msg>
 </messagebundle>
