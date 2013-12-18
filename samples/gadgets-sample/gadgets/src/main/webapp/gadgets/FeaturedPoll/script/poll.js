@@ -173,6 +173,9 @@ function showResult(data) {
 		if (children)
 			children[0].style.width = 105;
 	}
+  else {
+    $(featPoll).addClass('maximize');
+  }
 	
 	makeTooltipForLabel(labelVote, isWindowMode);
 	adjustHeight();
@@ -186,11 +189,11 @@ function makeTooltipForLabel(labels, mode) {
 				if (width > 105)
 					setAttribute(labels[j], 'data-toggle', 'tooltip');
 				labels[j].style.width = 100;
-			} else if (mode == true) {
-				if (width > 170)
-					setAttribute(labels[j], 'data-toggle', 'tooltip');
-				$(labels[j]).addClass('w170');
 			}
+      //else if (mode == true) {
+			//	if (width > 570)
+			//		setAttribute(labels[j], 'data-toggle', 'tooltip');
+			//}
 		}
 	}
 }
