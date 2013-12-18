@@ -44,8 +44,8 @@
     </label>
  
     <action>
-      <Save>Speichern</Save>
-      <Cancel>Abbrechen</Cancel>
+      <Save>#{word.save}</Save>
+      <Cancel>#{word.cancel}</Cancel>
     </action>
     <msg>
       <repository-exception>Es ist ein unerwarteter Fehler aufgetreten. Seiten-Metadaten können nicht gespeichert werden.</repository-exception>

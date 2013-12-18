@@ -44,8 +44,8 @@
     </label>
  
     <action>
-      <Save>Guardar</Save>
-      <Cancel>Cancelar</Cancel>
+      <Save>#{word.save}</Save>
+      <Cancel>#{word.cancel}</Cancel>
     </action>
     <msg>
       <repository-exception>Se produjo un error inesperado. No puede guardar los metadatos de la página.</repository-exception>

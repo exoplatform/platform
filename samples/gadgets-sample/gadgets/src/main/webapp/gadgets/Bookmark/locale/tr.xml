@@ -22,14 +22,14 @@
 <messagebundle>
   <msg name="title">Yer İmleri</msg>
   <msg name="customize">Kişiselleştir</msg>
-  <msg name="save">Kaydet</msg>
+  <msg name="save">#{word.save}</msg>
   <msg name="add">Ekle</msg>
   <msg name="ok">Tamam</msg>
   <msg name="name">Ad</msg>
   <msg name="url">URL</msg>
   <msg name="delete">Sil</msg>
   <msg name="edit">Düzenle</msg>
-  <msg name="cancel">İptal</msg>
+  <msg name="cancel">#{word.cancel}</msg>
   <msg name="emptyBookmarkPre">Herhangi bir yer imi yok: Üzerlerine tıklayarak ekleyebilirsiniz</msg>
   <msg name="emptyBookmarkSuf">düğme</msg>
 </messagebundle>

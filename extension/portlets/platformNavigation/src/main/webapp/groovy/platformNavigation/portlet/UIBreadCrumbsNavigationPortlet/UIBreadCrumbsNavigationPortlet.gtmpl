@@ -54,7 +54,7 @@ import org.exoplatform.webui.core.UIPopupWindow;
 			srcImage=uicomponent.getImageSource(ownerId);
         }
 	}else{
-           ownerId=uicomponent.getRemoteUserId();
+           ownerId=uicomponent.getOwnerRemoteId();
 		   if(ownerId!=null){
            actionLink=uicomponent.getProfileURL(ownerId)
 		   nodeName=uicomponent.getUserFullName(ownerId);

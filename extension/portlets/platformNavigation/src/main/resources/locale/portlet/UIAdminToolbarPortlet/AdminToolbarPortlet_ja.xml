@@ -44,8 +44,8 @@
     </label>
  
     <action>
-      <Save>保存</Save>
-      <Cancel>キャンセル</Cancel>
+      <Save>#{word.save}</Save>
+      <Cancel>#{word.cancel}</Cancel>
     </action>
     <msg>
       <repository-exception>予期しないエラーが発生しました。ページのメタデータを保存することはできません。</repository-exception>

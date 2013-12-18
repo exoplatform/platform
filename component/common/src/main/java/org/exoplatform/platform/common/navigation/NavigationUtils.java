@@ -21,9 +21,6 @@ import org.exoplatform.portal.mop.Described;
 import org.exoplatform.portal.mop.SiteKey;
 import org.exoplatform.portal.mop.description.DescriptionService;
 import org.exoplatform.portal.mop.navigation.*;
-import org.exoplatform.services.organization.User;
-import org.exoplatform.services.security.ConversationState;
-import org.exoplatform.web.CacheUserProfileFilter;
 
 import java.util.*;
 
@@ -158,29 +155,5 @@ public class NavigationUtils {
         }
 
         return trimmed.toArray(new String[trimmed.size()]);
-    }
-    public static String getUserFromConversationState (boolean loadProfile) throws Exception {
-        String fullName = "";
-        ConversationState currentState = ConversationState.getCurrent();
-        if (currentState != null) {
-            User currentUser = (User) currentState.getAttribute(CacheUserProfileFilter.USER_PROFILE);
-            if (currentUser != null ) {
-                if (loadProfile)  {
-                    fullName =  currentUser.getFullName();
-                } else {
-                    fullName =  currentUser.getDisplayName();
-                }
-
-            }
-        }
-        return fullName;
-    }
-    public static boolean present (String string) throws Exception {
-        if ((string != null) && (string.length() !=0) ) {
-            return true;
-        } else {
-            return false ;
-        }
-
     }
 }

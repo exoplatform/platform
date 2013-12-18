@@ -22,14 +22,14 @@
 <messagebundle>
   <msg name="title">Marcadores</msg>
   <msg name="customize">Personalizar</msg>
-  <msg name="save">Guardar</msg>
+  <msg name="save">#{word.save}</msg>
   <msg name="add">Añadir</msg>
   <msg name="ok">Confirmar</msg>
   <msg name="name">Nombre</msg>
   <msg name="url">URL</msg>
   <msg name="delete">Eliminar</msg>
   <msg name="edit">Editar</msg>
-  <msg name="cancel">Cancelar</msg>
+  <msg name="cancel">#{word.cancel}</msg>
   <msg name="emptyBookmarkPre">No tiene ningún marcador: agregarlos haciéndole click</msg>
   <msg name="emptyBookmarkSuf">botón</msg>
 </messagebundle>
