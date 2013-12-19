@@ -51,15 +51,11 @@
 			border: none;
 			width: 100%;
 			margin: 10px 0;
-			table-layout: fixed;
 			.label-vote{
 				white-space: nowrap;
 				overflow: hidden;
 				text-overflow: ellipsis;
 				display: inline-block;
-			}
-			.label-vote.w170 {
-				width: 170px;
 			}
 			.percent{
 				width: 35px;
@@ -174,6 +170,9 @@
 		}
 	}
 	&.minimize {
+    .voteResult {
+      table-layout: fixed;
+    }
 		.gadContent {
 			.listpoll {
 				.control-group {
@@ -190,4 +189,11 @@
 			}
 		}
 	}
+  &.maximize {
+    .voteResult {
+      .label-vote {
+        padding-right: 10px;
+      }
+    }
+  }
 }
