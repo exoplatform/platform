@@ -42,6 +42,8 @@
                          value="http://docs.exoplatform.com/PLF40/PLFUG/ANSWERS.html"/>
                <property name="Company Context Documents"
                          value="http://docs.exoplatform.com/PLF40/PLFUG/DOCUMENTS.html"/>
+               <property name="Company Context Connections"
+                          value="http://docs.exoplatform.com/PLF40/PLFUG/APPS/CONNECTIONS.html"/>
                <property name="personnal:all-spaces"
                          value="http://docs.exoplatform.com/PLF40/PLFUG/SPACE.html"/>
                <property name="personnal:connections"
