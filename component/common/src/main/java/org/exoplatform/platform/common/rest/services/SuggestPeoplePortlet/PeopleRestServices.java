@@ -3,10 +3,9 @@ package org.exoplatform.platform.common.rest.services.SuggestPeoplePortlet;
 import org.exoplatform.common.http.HTTPStatus;
 import org.exoplatform.commons.utils.ListAccess;
 import org.exoplatform.container.ExoContainerContext;
+import org.exoplatform.portal.config.UserACL;
 import org.exoplatform.services.log.ExoLogger;
 import org.exoplatform.services.log.Log;
-import org.exoplatform.services.organization.OrganizationService;
-import org.exoplatform.services.organization.User;
 import org.exoplatform.services.rest.impl.RuntimeDelegateImpl;
 import org.exoplatform.services.rest.resource.ResourceContainer;
 import org.exoplatform.social.core.identity.model.Identity;
@@ -14,7 +13,6 @@ import org.exoplatform.social.core.identity.model.Profile;
 import org.exoplatform.social.core.identity.provider.OrganizationIdentityProvider;
 import org.exoplatform.social.core.manager.IdentityManager;
 import org.exoplatform.social.core.manager.RelationshipManager;
-import org.exoplatform.social.core.profile.ProfileFilter;
 import org.exoplatform.social.core.relationship.model.Relationship;
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -26,7 +24,10 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.*;
 import javax.ws.rs.ext.RuntimeDelegate;
 import java.net.URI;
-import java.util.*;
+import java.sql.Timestamp;
+import java.util.Date;
+import java.util.List;
+import java.util.Map;
 import java.util.Map.Entry;
 
 
@@ -38,12 +39,28 @@ public class PeopleRestServices implements ResourceContainer {
 
     private static final CacheControl cacheControl;
 
+    private static final String DEFAULT_AVATAR = "/social-resources/skin/images/ShareImages/UserAvtDefault.png";
+
+    private UserACL userACL;
+
+    private IdentityManager identityManager;
+
+    private  RelationshipManager relationshipManager;
+
+
     static {
         RuntimeDelegate.setInstance(new RuntimeDelegateImpl());
         cacheControl = new CacheControl();
         cacheControl.setNoCache(true);
         cacheControl.setNoStore(true);
     }
+    public PeopleRestServices(UserACL userACL, IdentityManager identityManager,  RelationshipManager relationshipManager) {
+        this.userACL = userACL;
+        this.identityManager = identityManager;
+        this.relationshipManager =  relationshipManager;
+
+    }
+
 
 
     @GET
@@ -222,50 +239,71 @@ public class PeopleRestServices implements ResourceContainer {
                 return Response.status(HTTPStatus.INTERNAL_ERROR).cacheControl(cacheControl).build();
             }
 
-            IdentityManager identityManager = (IdentityManager) ExoContainerContext.getCurrentContainer().getComponentInstanceOfType(IdentityManager.class);
-            Identity identity = identityManager.getOrCreateIdentity(OrganizationIdentityProvider.NAME, userId);
-            RelationshipManager relationshipManager = (RelationshipManager) ExoContainerContext.getCurrentContainer().getComponentInstanceOfType(RelationshipManager.class);
-            OrganizationService orgManager = (OrganizationService) ExoContainerContext.getCurrentContainer().getComponentInstanceOfType(OrganizationService.class);
+            Identity identity = identityManager.getOrCreateIdentity(OrganizationIdentityProvider.NAME, userId,true);
             
             ListAccess<Identity> connectionList = relationshipManager.getConnections(identity);
+
             Map<Identity, Integer> suggestions = relationshipManager.getSuggestions(identity, 0, 30);
 
             JSONObject jsonGlobal = new JSONObject();
             JSONArray jsonArray = new JSONArray();
 
+            //--- Identity Social
+            Identity socialIdentity = null;
+
+            //--- Profile social
+            Profile socialProfile = null;
+
+            //--- User sugesstion Data (json structure)
+            JSONObject json = null;
+
+
             for (Entry<Identity, Integer> suggestion : suggestions.entrySet()) {
-              Identity id = suggestion.getKey();
               
-              if (id.getRemoteId().equals("root")) continue;
-              JSONObject json = new JSONObject();
-              String avatar = id.getProfile().getAvatarImageSource();
+                socialIdentity = suggestion.getKey();
+                socialProfile = socialIdentity.getProfile();
+
+                //--- Don't display the super user in the suggestion portlet
+                if (socialIdentity.getRemoteId().equals(userACL.getSuperUser())) continue;
+
+                json = new JSONObject();
+
+                String avatar = socialProfile.getAvatarUrl();
+
+                //--- user the default avatar
               if (avatar == null) {
-                avatar = "/social-resources/skin/images/ShareImages/UserAvtDefault.png";
+                    avatar = DEFAULT_AVATAR;
               }
-              String position = id.getProfile().getPosition();
+
+                String position = socialProfile.getPosition();
+
               if (position == null) {
                 position = "";
               }
-              json.put("suggestionName", id.getProfile().getFullName());
-              json.put("suggestionId", id.getId());
-              json.put("contacts", relationshipManager.getConnections(id).getSize());
-              json.put("avatar", avatar);
-              json.put("profile", id.getProfile().getUrl());
-              json.put("title", position);
 
-              //set mutual friend number
+                json.put("suggestionName", socialProfile.getFullName());
+                json.put("suggestionId", socialIdentity.getId());
+                json.put("contacts", relationshipManager.getConnections(socialIdentity).getSize());
+              json.put("avatar", avatar);
+                json.put("profile", socialProfile.getUrl());
+              json.put("title", position);
+                //--- set mutual friend number
               json.put("number", suggestion.getValue());
-              User user = orgManager.getUserHandler().findUserByName(id.getRemoteId());
-              if(user != null && user.getCreatedDate() != null){
-                json.put("createdDate",user.getCreatedDate().getTime());
-              }
-              else{
+                //--- Get date from timestamp
+                Timestamp userCreationTimestamp = new Timestamp(socialProfile.getCreatedTime());
+                Date userCreationDate = new Date(userCreationTimestamp.getTime());
+                if (userCreationDate != null) {
+                    json.put("createdDate",userCreationDate.getTime());
+
+                }  else {
                 json.put("createdDate",new Date().getTime());
               }
               jsonArray.put(json);
             }
+
             jsonGlobal.put("items",jsonArray);
             jsonGlobal.put("noConnections",connectionList.getSize());
+
             return Response.ok(jsonGlobal.toString(), MediaType.APPLICATION_JSON).cacheControl(cacheControl).build();
         } catch (Exception e) {
             log.error("Error in getting GS progress: " + e.getMessage(), e);
