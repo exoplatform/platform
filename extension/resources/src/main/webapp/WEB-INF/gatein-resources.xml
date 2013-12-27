@@ -21,12 +21,7 @@
 <!-- 		<css-priority>6</css-priority> -->
 <!-- 		<overwrite>true</overwrite> -->
 <!-- 	</portal-skin> -->
-	<portal-skin>
-		<skin-name>Default</skin-name>
-		<skin-module>Platform-css</skin-module>
-		<css-path>/skin/css/platform.css</css-path>
-		<overwrite>true</overwrite>
-	</portal-skin>
+	
 	<module>
 		<name>socialcomposer</name>
 		<!-- <script> <name>eXo.social.webui.UINavigationComposer</name> <path>/javascript/eXo/social/webui/UINavigationComposer.js</path> 

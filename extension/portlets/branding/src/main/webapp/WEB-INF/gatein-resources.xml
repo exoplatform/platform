@@ -47,12 +47,5 @@
 		</depends>
 	</module>
 
-	<portlet-skin>
-		<application-name>platform-branding</application-name>
-		<portlet-name>Branding</portlet-name>
-		<skin-name>Default</skin-name>
-		<css-path>/skin/css/branding.css</css-path>
-		<css-priority>1</css-priority>
-	</portlet-skin>
 
 </gatein-resources>
