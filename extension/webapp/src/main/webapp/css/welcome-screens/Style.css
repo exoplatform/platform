@@ -101,42 +101,32 @@ a {
     padding: 25px 0;
 }
 
-.uiWelcomeBox .btn, #Greetings button {
-    background-color: #5179BD;
-    background-image: linear-gradient(to bottom, #6289CB, #3862A9);
+.uiWelcomeBox .btn  {
+   background-color: #F9F9F9;
+    background-image: linear-gradient(to bottom, #FFFFFF, #F1F1F1);
     background-repeat: repeat-x;
-    border: 1px solid #224886;
+    border: 1px solid #C7C7C7;
     border-radius: 4px 4px 4px 4px;
-    color: #FFFFFF;
+    color: #333;
     cursor: pointer;
     display: inline-block;
     font-weight: bold;
     font-size: 16px;
     line-height: 41px;
-    text-align: center;
-    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+    text-align: center;    
     vertical-align: top;
     width: 100px;
     text-decoration: none;
     padding: 0;
+    margin: 0 5px;
+    text-shadow: 0 1px 1px rgba(255, 255, 255, 0.75);
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.2) inset, 0 1px 2px rgba(0, 0, 0, 0.05);
 }
 
-.uiWelcomeBox .btn:hover, #Greetings button:hover {
-	color: #ffffff;
-	text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
-	background-color: #476ba7;
-	background-image: -moz-linear-gradient(top, #4b71b3, #426394);
-	background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#4b71b3), to(#426394));
-	background-image: -webkit-linear-gradient(top, #4b71b3, #426394);
-	background-image: -o-linear-gradient(top, #4b71b3, #426394);
-	background-image: linear-gradient(to bottom, #4b71b3, #426394);
+.uiWelcomeBox .btn:hover {
+	background-color: #EDEDED;
+	background-image: linear-gradient(to bottom, #EBEBEB, #F1F1F1);
 	background-repeat: repeat-x;
-	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff4b71b3', endColorstr='#ff426394', GradientType=0);
-	border-color: #426394 #426394 #2a405f;
-	border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
-	*background-color: #426394;
-	/* Darken IE7 buttons by default so they stand out more given they won't have borders */
-	filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
 }
 
 
@@ -217,7 +207,7 @@ a {
 	padding-left: 20px;
  }
 
-.uiWelcomeBox .btn-primary {
+.uiWelcomeBox .btn-primary ,#Greetings button,.uiWelcomeBox .btn:first-child{
     background-color: #567AB6;
     background-image: linear-gradient(to bottom, #638ACD, #426393);
     background-repeat: repeat-x;
@@ -228,7 +218,7 @@ a {
 
 }
 
-.uiWelcomeBox .btn-primary:hover {
+.uiWelcomeBox .btn-primary:hover,#Greetings button:hover,.uiWelcomeBox .btn:first-child:hover {
   background-color: #426394;
   background-image: linear-gradient(to bottom, #4B71B3, #426394);
  background-repeat: repeat-x;
