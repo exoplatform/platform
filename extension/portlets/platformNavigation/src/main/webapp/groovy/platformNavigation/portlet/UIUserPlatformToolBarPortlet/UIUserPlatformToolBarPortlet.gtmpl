@@ -39,7 +39,6 @@
     def labelActivities = _ctx.appRes("UIUserPlatformToolBarPortlet.label.activities");
     def labelProfile = _ctx.appRes("UIUserPlatformToolBarPortlet.label.profile");
     def labelnetwork = _ctx.appRes("UIUserPlatformToolBarPortlet.label.network");
-    def labelpeople = _ctx.appRes("UIUserPlatformToolBarPortlet.label.find");
     def labelaccount = _ctx.appRes("UIUserPlatformToolBarPortlet.label.account");
     def labellanguage = _ctx.appRes("UIUserPlatformToolBarPortlet.label.language");
     def labellogout = _ctx.appRes("UIUserPlatformToolBarPortlet.label.logout");
