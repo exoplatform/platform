@@ -29,6 +29,7 @@
     uicomponent.refresh();
         def userSpaces = uicomponent.getSpaces();
         def spaceImageSource;
+
 %>
 <%
   String restUrl = uicomponent.getRestUrl();
