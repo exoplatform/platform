@@ -7,55 +7,46 @@
 	ul li{
 	    margin-top: 15px;
 	    margin-bottom: 15px;
-		position: relative;
-		
-		&:nth-child(2n+2){
-		    border-bottom: 1px solid @borderColor;
-			padding-bottom: 15px;
-		}
-		
-		&:last-child{
-			border-bottom: none;
+		position: relative;		
+		&.peopleList + .spaceList {
+			padding-top: 15px;
+			border-top: 1px solid @borderColor;
 		}
 	}
+	
 
-	.name, .spaceInviteName {
-		font-weight: bold;
-		overflow: hidden;
-		text-overflow: ellipsis;
-		white-space: nowrap;
+    .peopleInvitePosition, .spacevisibility,.name, .spaceInviteName {
+       .text-overflow;
+		color: @grayLight;
 		width: 95%;
+    }
+    
+    .name, .spaceInviteName {
+		font-weight: bold;		
 		color: @linkColor;
 	}
-
-    .peopleInvitePosition, .spacevisibility {
-        width:95%;
-        white-space:nowrap;
-        overflow: hidden;
-        text-overflow:ellipsis;
-		color: @grayLight;
-    }
 
 	.peopleInvitePicture, .spaceInvitePicture{
 		margin-left: 15px;
     	padding-top: 2px;
 	}
-
+	.inviteAction,.spaceproperties  {
+		 min-height: 22px;
+	}
 	.peopleInviteAction, .spaceInviteAction {
 		white-space: nowrap;
 		font-size: 10px;
-		position: absolute;
-		right: 5px;
-		top: 18px;
-		width: 150px;
-		text-align: right;
-		height: 35px;
+		display: none;
+		float: right;
 		#gradient .horizontal(rgba(255,255,255,0),rgba(255,255,255,1));
 		background-color: transparent;
+		&.active {
+			display: block;
+		}
 	}
 
     .actionInviteAppears, .actionSpaceAppears {
-        width:150px;
+       width: auto;
     }
 	
 	.peopleInviteInfo, .spaceInviteInfo {
@@ -64,9 +55,7 @@
 	}
 	
 	.spacePrivacy {
-	    white-space: nowrap;
-	    overflow: hidden;
-	    text-overflow: ellipsis;
+	    .text-overflow;
 	    color: @grayLight;
 	}
 }

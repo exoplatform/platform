@@ -114,6 +114,9 @@ public class Helper {
             else if((nav!=null)&&((nav.equals("FAQ"))||(nav.equals("answers")))){
                 return "Company Context FAQ:Answers";
             }
+            else if((nav!=null)&&((nav.equals("connexions")))){
+                return "Company Context Connections";
+            }
             String dashboardUrl = DashboardUtils.getDashboardURL();
             if(url.contains(dashboardUrl.substring(0, dashboardUrl.lastIndexOf("/")))){
                 return "dashboard";

@@ -88,21 +88,23 @@
                     link += "<div class='peoplePicture pull-left'><div class='avatarXSmall'><a href='"+item.profile+"'><img src='"+item.avatar+"'></a></div></div>";
                     link += "<div class='peopleInfo'>";
                     link += "<div class='peopleName'><a href='"+item.profile+"' target='_parent'>"+item.suggestionName+"</a></div>";
-                    link += "<div style='display:none;' class='peopleAction' ><a class='connect btn-primary btn btn-mini' href='#' onclick='return false'>"+connect+"</a><a class='ignore' href='#' onclick='return false'><i class='uiIconClose'></i></a></div>";
-                    link +="<div class='peoplePosition'>"+item.title+"</div><div class='peopleConnection'>"+item.number+"&nbsp;"+connection+"</div>";
-                    link += "</div></li>";
+                    link += "<div class='peopleContainer clearfix'>";
+					link += "<div style='display:none;' class='peopleAction' ><a class='connect btn-primary btn btn-mini' href='#' onclick='return false'>"+connect+"</a><a class='ignore' href='#' onclick='return false'> <i class='uiIconClose'></i></a></div>";
+                    link +="<div class='peopleDisplay'><div class='peoplePosition'>"+item.title+"</div><div class='peopleConnection'>"+item.number+"&nbsp;"+connection+"</div></div>";
+					link += "</div>";
+				    link += "</div></li>";
 
                     $("#suggestions").append(link);
 
                     $("#"+item.suggestionId).mouseover(function(){
                         var $item = $(this);
                         $item.find(".peopleName, .peoplePosition, .peopleConnection").addClass("actionAppears");
-                        $item.find(".peopleAction").show();
+                        $item.find(".peopleAction").addClass('active').show();
                     });
                     $("#"+item.suggestionId).mouseout(function(){
                         var $item = $(this);
                         $item.find(".peopleName, .peoplePosition, .peopleConnection").removeClass("actionAppears");
-                        $item.find(".peopleAction").hide();
+                        $item.find(".peopleAction").removeClass('active').hide();
                     });
 
                     $("#"+item.suggestionId+" a.connect").live("click", function(){
@@ -192,17 +194,21 @@
                     link += "<div class='spacePicture pull-left'><div class='avatarXSmall'><img src='"+item.avatarUrl+"'></div></div>";
                     link += "<div class='spaceInfo'>";
                     link += "<div class='spaceName'>"+item.displayName+"</div>";
-                    if(item.privacy=="Private")
-                        link += "<div class='spacePrivacy'><i class='uiIconSocGroup uiIconSocLightGray'></i>"+privateLabel+"&nbsp;-&nbsp;"+item.members+"&nbsp;"+spaceMember+"</div>";
-                    else
-                        link += "<div class='spacePrivacy'><i class='uiIconSocGroup uiIconSocLightGray'></i>"+publicLabel+"&nbsp;-&nbsp;"+item.members+"&nbsp;"+spaceMember+"</div>";
-                    if(item.registration == "open")
+                    link += "<div class='spaceContent clearfix'>";
+					if(item.registration == "open")
                         link += "<div class='spaceAction' ><a class='connect btn-primary btn btn-mini' href='#' onclick='return false'>"+joinLabel+"</a>";
                     else
                         link += "<div class='spaceAction' ><a class='connect btn-primary btn btn-mini' href='#' onclick='return false'>"+requestLabel+"</a>";
 
-                    link += "<a class='ignore' href='#' onclick='return false'><i class='uiIconClose'></i></a></div>";
-                    link += "<div class='spaceCommon'>"+item.number+"&nbsp;"+member+"</div>";
+                    link += "<a class='ignore' href='#' onclick='return false'> <i class='uiIconClose'></i></a></div>";
+					
+                    if(item.privacy=="Private")
+                        link += "<div class='spaceContainer'><div class='spacePrivacy'><i class='uiIconSocGroup uiIconSocLightGray'></i>&nbsp"+privateLabel+"&nbsp;-&nbsp;"+item.members+"&nbsp;"+spaceMember+"</div>";
+                    else
+                        link += "<div class='spaceContainer'><div class='spacePrivacy'><i class='uiIconSocGroup uiIconSocLightGray'></i>&nbsp"+publicLabel+"&nbsp;-&nbsp;"+item.members+"&nbsp;"+spaceMember+"</div>";
+                    
+                    link += "<div class='spaceCommon'>"+item.number+"&nbsp;"+member+"</div></div>";
+					link += "<div>";
                     link += "</div></li>";
 
                     $("#suggestionsspace").append(link);
@@ -210,12 +216,12 @@
                     $("#"+item.spaceId).mouseover(function(){
                         var $item = $(this);
                         $item.find(".spacePrivacy, .spaceCommon, .spaceName").addClass("actionspaceAppears");;
-                        $item.find(".spaceAction").show();
+                        $item.find(".spaceAction").addClass('active').show();
                     });
                     $("#"+item.spaceId).mouseout(function(){
                         var $item = $(this);
                         $item.find(".spacePrivacy, .spaceCommon, .spaceName").removeClass("actionspaceAppears");;
-                        $item.find(".spaceAction").hide();
+                        $item.find(".spaceAction").removeClass('active').hide();
                     });
 
 
