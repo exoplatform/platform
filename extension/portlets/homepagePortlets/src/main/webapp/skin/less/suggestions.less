@@ -8,42 +8,28 @@
 		    margin-top: 15px;
 		}
 		
+		
+		.peoplePosition,.peopleConnection ,.peopleName {
+		    .text-overflow;
+		    color: @grayLight;
+		    width: 95%;
+		} 
 		.peopleName {
 		    font-weight: bold;
-		    white-space: nowrap;
-		    overflow: hidden;
-		    text-overflow: ellipsis;
-		    width: 95%;
 		}
-		
-		.peoplePosition {
-		    white-space: nowrap;
-		    overflow: hidden;
-		    text-overflow: ellipsis;
-		    color: @grayLight;
-		    width: 95%;
+		.peopleContainer  {
+			min-height: 22px;
 		}
-		
-		.peopleConnection {
-		    color: @grayLight;
-		    white-space: nowrap;
-		    overflow: hidden;
-		    text-overflow: ellipsis;
-		    color: @grayLight;
-		    width: 95%;
-		}
-		
 		.peopleAction, .spaceAction {
 		    white-space: nowrap;
 		    font-size: 10px;
-			position: absolute;
-			right: 5px;
-			top: 18px;
-			width: 150px;
-			text-align: right;
-			height: 37px;
+			display: none;
+			float: right;
 			#gradient .horizontal(rgba(255,255,255,0),rgba(255,255,255,1));
 			background-color: transparent;
+			&.active {
+				display: block;
+			}
 		}
 		
 		.peopleInfo {
@@ -58,7 +44,7 @@
 		}
 
         .actionAppears {
-            width: 140px;
+            width: auto;
         }
 		
 		
@@ -84,27 +70,18 @@
 		    padding-top: 5px;
 		}
 		
-		.spaceName {
-		    font-weight: bold;
-            white-space: nowrap;
-		    overflow: hidden;
-		    text-overflow: ellipsis;
-		    color: @linkColor;
-		    width: 95%;
-		}
 		
 		.spaceAction {
 	     	white-space: nowrap;
 		    font-size: 10px;
-			position: absolute;
-			right: 5px;
-			top: 18px;
-			width: 150px;
-			text-align: right;
-			height: 40px;
+			display: none;
+			float: right;
 			#gradient .horizontal(rgba(255,255,255,0),rgba(255,255,255,1));
 			background-color: transparent;
 			display: none;
+			&.active {
+				display: block;
+			}
 		}
 		
 		.spaceInfo {
@@ -117,24 +94,18 @@
 			margin-left: 15px;
 		}
 		
-		.spacePrivacy {
-		    white-space: nowrap;
-		    overflow: hidden;
-		    text-overflow: ellipsis;
+		.spacePrivacy,.spaceCommon,.spaceName {
+		    .text-overflow;
 		    color: @grayLight;
 		    width: 95%;
+		}	
+		.spaceName {
+		    font-weight: bold;
+		    color: @linkColor;
 		}
-
-		.spaceCommon {
-		    color: @grayLight;
-		    white-space: nowrap;
-		    overflow: hidden;
-		    text-overflow: ellipsis;
-		    color: @grayLight;
-		    width: 95%;
-		}
+			
         .actionspaceAppears {
-            width: 140px;
+            width: auto;
         }
 
     }
