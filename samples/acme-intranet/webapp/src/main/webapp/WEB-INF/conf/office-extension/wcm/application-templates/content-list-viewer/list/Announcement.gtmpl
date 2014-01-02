@@ -78,6 +78,7 @@
             }%>
           </div>
         <%}%>
+      </div>
   <%}%>
 
   <div class="CaptionFunc ClearFix">
@@ -95,5 +96,4 @@
             }
     %>
     </div>
-  </div>
 </div>
