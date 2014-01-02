@@ -130,6 +130,7 @@
   <build>
     <finalName>homepage-portlets</finalName>
     <plugins>
+    <!--
       <plugin>
         <artifactId>maven-resources-plugin</artifactId>
         <executions>
@@ -199,6 +200,7 @@
           </execution>
         </executions>
       </plugin>
+      -->
        <!-- Precompile the template class in maven (this is optional) -->
        <plugin>
           <groupId>org.codehaus.gmaven</groupId>
