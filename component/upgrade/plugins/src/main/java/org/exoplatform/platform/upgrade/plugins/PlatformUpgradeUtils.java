@@ -34,7 +34,7 @@ import java.util.regex.Pattern;
 
 public class PlatformUpgradeUtils {
 
-    private static final Log LOG = ExoLogger.getLogger(UpgradeSpaceHomePagePlugin.class);
+    private static final Log LOG = ExoLogger.getLogger(PlatformUpgradeUtils.class);
 
     private static final Pattern OWNER_PATTERN = Pattern.compile("@owner@");
 
