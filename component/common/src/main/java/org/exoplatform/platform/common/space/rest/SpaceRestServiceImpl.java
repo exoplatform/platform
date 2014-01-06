@@ -18,7 +18,15 @@
  */
 package org.exoplatform.platform.common.space.rest;
 
-import java.util.*;
+import org.exoplatform.commons.utils.ListAccess;
+import org.exoplatform.container.PortalContainer;
+import org.exoplatform.services.log.ExoLogger;
+import org.exoplatform.services.log.Log;
+import org.exoplatform.services.rest.resource.ResourceContainer;
+import org.exoplatform.social.core.space.SpaceFilter;
+import org.exoplatform.social.core.space.model.Space;
+import org.exoplatform.social.core.space.spi.SpaceService;
+
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.QueryParam;
@@ -26,14 +34,7 @@ import javax.ws.rs.core.CacheControl;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.SecurityContext;
-import org.exoplatform.container.PortalContainer;
-import org.exoplatform.services.log.ExoLogger;
-import org.exoplatform.services.log.Log;
-import org.exoplatform.services.rest.resource.ResourceContainer;
-import org.exoplatform.social.core.space.SpaceFilter;
-import org.exoplatform.commons.utils.ListAccess;
-import org.exoplatform.social.core.space.model.Space;
-import org.exoplatform.social.core.space.spi.SpaceService;
+import java.util.*;
 /**
  * @author <a href="kmenzli@exoplatform.com">kmenzli</a>
  * @date 01/12/12
@@ -41,7 +42,7 @@ import org.exoplatform.social.core.space.spi.SpaceService;
 @Path("/space")
 public class SpaceRestServiceImpl implements ResourceContainer {
 
-    private static final Log logger = ExoLogger.getLogger(SpaceRestServiceImpl.class);
+    private static final Log LOG = ExoLogger.getLogger(SpaceRestServiceImpl.class);
 
     private final SpaceService spaceService;
 
@@ -109,8 +110,8 @@ public class SpaceRestServiceImpl implements ResourceContainer {
             return Response.ok(spaces, "application/json").cacheControl(cacheControl).build();
 
         } catch (Exception ex) {
-            if (logger.isWarnEnabled()) {
-                logger.warn("An exception happens when searchSpaces", ex);
+            if (LOG.isWarnEnabled()) {
+                LOG.warn("An exception happens when searchSpaces", ex);
             }
         }
         return Response.status(500).cacheControl(cacheControl).build();

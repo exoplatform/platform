@@ -34,7 +34,7 @@ import javax.jcr.Session;
  */
 public class NavigationServiceHandler implements Startable {
 
-    private static final Log logger = ExoLogger.getLogger(NavigationServiceHandler.class);
+    private static final Log LOG = ExoLogger.getLogger(NavigationServiceHandler.class);
     NodeHierarchyCreator nodeCreator;
     String path = "Application Data/logos/";
     String logo_name  = "logo.png";
@@ -62,7 +62,7 @@ public class NavigationServiceHandler implements Startable {
                 pathImageNode = ImageNode.getPath()+"?"+System.currentTimeMillis();
             }
         } catch (Exception e) {
-            logger.error("Can not get path of Logo : default LOGO will be used" + e.getMessage(), e);
+            LOG.error("Can not get path of Logo : default LOGO will be used" + e.getMessage(), e);
             return null;
         }
         finally {

@@ -32,7 +32,7 @@ import org.exoplatform.commons.utils.LazyPageList;
 
 public class UpgradeUserSiteLayoutPlugin extends UpgradeProductPlugin {
 
-    private static final Log LOG = ExoLogger.getLogger(UpgradeSpaceHomePagePlugin.class);
+    private static final Log LOG = ExoLogger.getLogger(UpgradeUserSiteLayoutPlugin.class);
 
     private static final String USER_SITE_TEMPLATE_NAME = "user.site.template.name";
 

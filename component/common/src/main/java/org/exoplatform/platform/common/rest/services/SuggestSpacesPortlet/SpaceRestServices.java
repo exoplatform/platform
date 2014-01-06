@@ -30,7 +30,7 @@ import java.util.List;
 @Produces("application/json")
 public class SpaceRestServices implements ResourceContainer {
 
-    private static final Log log = ExoLogger.getLogger(SpaceRestServices.class);
+    private static final Log LOG = ExoLogger.getLogger(SpaceRestServices.class);
 
     private static final CacheControl cacheControl;
 
@@ -107,7 +107,7 @@ public class SpaceRestServices implements ResourceContainer {
             return Response.ok(jsonGlobal.toString(), MediaType.APPLICATION_JSON).cacheControl(cacheControl).build();
 
         } catch (Exception e) {
-            log.error("Error in space invitation rest service: " + e.getMessage(), e);
+            LOG.error("Error in space invitation rest service: " + e.getMessage(), e);
             return Response.ok("error").cacheControl(cacheControl).build();
         }
     }
@@ -131,7 +131,7 @@ public class SpaceRestServices implements ResourceContainer {
             return Response.ok("{}", MediaType.APPLICATION_JSON).cacheControl(cacheControl).build();
 
         } catch (Exception e) {
-            log.error("Error in space accept rest service: " + e.getMessage(), e);
+            LOG.error("Error in space accept rest service: " + e.getMessage(), e);
             return Response.ok("error").cacheControl(cacheControl).build();
         }
     }
@@ -152,7 +152,7 @@ public class SpaceRestServices implements ResourceContainer {
 
             return Response.ok("{}", MediaType.APPLICATION_JSON).cacheControl(cacheControl).build();
         } catch (Exception e) {
-            log.error("Error in space deny rest service: " + e.getMessage(), e);
+            LOG.error("Error in space deny rest service: " + e.getMessage(), e);
             return Response.ok("error").cacheControl(cacheControl).build();
         }
     }
@@ -173,7 +173,7 @@ public class SpaceRestServices implements ResourceContainer {
 
             return Response.ok("{}", MediaType.APPLICATION_JSON).cacheControl(cacheControl).build();
         } catch (Exception e) {
-            log.error("Error in space deny rest service: " + e.getMessage(), e);
+            LOG.error("Error in space deny rest service: " + e.getMessage(), e);
             return Response.ok("error").cacheControl(cacheControl).build();
         }
     }
@@ -196,7 +196,7 @@ public class SpaceRestServices implements ResourceContainer {
 
             return Response.ok("{}", MediaType.APPLICATION_JSON).cacheControl(cacheControl).build();
         } catch (Exception e) {
-            log.error("Error in space deny rest service: " + e.getMessage(), e);
+            LOG.error("Error in space deny rest service: " + e.getMessage(), e);
             return Response.ok("error").cacheControl(cacheControl).build();
         }
     }
@@ -230,7 +230,7 @@ public class SpaceRestServices implements ResourceContainer {
             return Response.ok(jsonArray.toString(), MediaType.APPLICATION_JSON).cacheControl(cacheControl).build();
 
         } catch (Exception e) {
-            log.error("Error in space deny rest service: " + e.getMessage(), e);
+            LOG.error("Error in space deny rest service: " + e.getMessage(), e);
             return Response.ok("error").cacheControl(cacheControl).build();
         }
 
@@ -270,7 +270,7 @@ public class SpaceRestServices implements ResourceContainer {
 
             return Response.ok(jsonArray.toString(), MediaType.APPLICATION_JSON).cacheControl(cacheControl).build();
         } catch (Exception e) {
-            log.error("Error in space invitation rest service: " + e.getMessage(), e);
+            LOG.error("Error in space invitation rest service: " + e.getMessage(), e);
             return Response.ok("error").cacheControl(cacheControl).build();
         }
     }
