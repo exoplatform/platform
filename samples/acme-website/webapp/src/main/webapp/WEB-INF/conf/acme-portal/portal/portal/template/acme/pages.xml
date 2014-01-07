@@ -579,7 +579,7 @@
             <preferences>
               <preference>
                 <name>folderPath</name>
-                <value>repository:collaboration:/sites/@owner@/events</value>
+                <value>repository:collaboration:/sites/acme/events</value>
                 <read-only>false</read-only>
               </preference>
               <preference>
@@ -654,7 +654,7 @@
             <preferences>
               <preference>
                 <name>folderPath</name>
-                <value>repository:collaboration:/sites/@owner@/events/All</value>
+                <value>repository:collaboration:/sites/acme/events/All</value>
                 <read-only>false</read-only>
               </preference>
               <preference>

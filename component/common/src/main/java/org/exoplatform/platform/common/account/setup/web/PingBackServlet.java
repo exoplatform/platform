@@ -35,6 +35,7 @@ public  class PingBackServlet extends HttpServlet {
     public static final String EXO_HOME_FOLDER = USER_HOME + "/.eXo";
     public static final String PING_BACK_FILE = "license.xml";
     public static final String PRODUCT_NAME = "Platform";
+    public static final String COMMUNITY_EDITION = "community";
     private static String edition = "";
 
     @Override
@@ -138,13 +139,43 @@ public  class PingBackServlet extends HttpServlet {
     }
 
     public static String getPingBackUrl() {
-        return pingBackUrl;
+        //--- load ProductInformations service
+        ProductInformations productInformations = (ProductInformations) PortalContainer.getInstance().getComponentInstanceOfType(ProductInformations.class);
+        //--- Check the platform edition from systemfile then from jcr
+        edition = getPlatformEdition(productInformations);
+
+        //--- If true then we are in the case of Enteprise license before first start
+        boolean enterpriseCheck = false;
+        //--- Use ping back url corresponding to the current version of the server
+        if (edition.equalsIgnoreCase(COMMUNITY_EDITION)) {
+            //--- Concat the suffix "-ent"
+            return pingBackUrl;
+        } else {
+            try {
+                String loopfuseFormDisplayedString = readFromFile(LOOP_FUSE_FORM_DISPLAYED, getPingBackFileLocation());
+                enterpriseCheck = Boolean.parseBoolean(loopfuseFormDisplayedString);
+            } catch (Exception MissingProductInformationException) {
+                LOG.error("Platform version detection : Error loading the version from FileSystem, the default value will be used");
+            }
+            if (enterpriseCheck) {
+                return pingBackUrl = pingBackUrl.concat("-ent");
+            } else {
+                return pingBackUrl = pingBackUrl.concat("-ex");
+            }
+        }
     }
 
     public static boolean isLandingPageDisplayed() throws MissingProductInformationException {
         String loopfuseFormDisplayedString = readFromFile(LOOP_FUSE_FORM_DISPLAYED, getPingBackFileLocation());
         if (loopfuseFormDisplayedString != null && !loopfuseFormDisplayedString.isEmpty()) {
+            //--- load ProductInformations service
+            ProductInformations productInformations = (ProductInformations) PortalContainer.getInstance().getComponentInstanceOfType(ProductInformations.class);
             loopfuseFormDisplayed = Boolean.parseBoolean(loopfuseFormDisplayedString);
+            if (getPlatformEdition(productInformations).equals(ProductInformations.ENTERPRISE_EDITION)) {
+                if (loopfuseFormDisplayed) {
+                    return false;
+                }
+            }
         }
         return loopfuseFormDisplayed;
     }

@@ -23,5 +23,7 @@ public class GettingStartedUtils {
     public final static String SPACE_URL =  "/portal/intranet/all-spaces";
     public final static String UPLOAD_URL = "/portal/intranet/documents";
     public static final String DEFAULT_ACTIVITY = "DEFAULT_ACTIVITY";
+    public static final String DOC_ACTIVITY = "DOC_ACTIVITY";
+    public static final String LINK_ACTIVITY = "LINK_ACTIVITY";
 
 }

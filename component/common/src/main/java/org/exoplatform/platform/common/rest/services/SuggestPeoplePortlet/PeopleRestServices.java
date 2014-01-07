@@ -35,7 +35,7 @@ import java.util.Map.Entry;
 @Produces("application/json")
 public class PeopleRestServices implements ResourceContainer {
 
-    private static final Log log = ExoLogger.getLogger(PeopleRestServices.class);
+    private static final Log LOG = ExoLogger.getLogger(PeopleRestServices.class);
 
     private static final CacheControl cacheControl;
 
@@ -84,7 +84,7 @@ public class PeopleRestServices implements ResourceContainer {
             return Response.ok(jsonArray.toString(), MediaType.APPLICATION_JSON).cacheControl(cacheControl).build();
 
         } catch (Exception e) {
-            log.error("Error in people pending rest service: " + e.getMessage(), e);
+            LOG.error("Error in people pending rest service: " + e.getMessage(), e);
             return Response.ok("error").cacheControl(cacheControl).build();
         }
     }
@@ -126,7 +126,7 @@ public class PeopleRestServices implements ResourceContainer {
 
             return Response.ok(jsonArray.toString(), MediaType.APPLICATION_JSON).cacheControl(cacheControl).build();
         } catch (Exception e) {
-            log.error("Error in people incoming rest service: " + e.getMessage(), e);
+            LOG.error("Error in people incoming rest service: " + e.getMessage(), e);
             return Response.status(HTTPStatus.INTERNAL_ERROR).cacheControl(cacheControl).build();
         }
 
@@ -150,15 +150,15 @@ public class PeopleRestServices implements ResourceContainer {
             Identity identity = identityManager.getOrCreateIdentity(OrganizationIdentityProvider.NAME, userId);
             RelationshipManager relationshipManager = (RelationshipManager) ExoContainerContext.getCurrentContainer().getComponentInstanceOfType(RelationshipManager.class);
 
-            if (log.isInfoEnabled()) {
-                log.info("request accepted.");
+            if (LOG.isInfoEnabled()) {
+                LOG.info("request accepted.");
             }
 
             relationshipManager.confirm(relationshipManager.getRelationshipById(relationId));
 
             return Response.ok("Confirmed", MediaType.APPLICATION_JSON).cacheControl(cacheControl).build();
         } catch (Exception e) {
-            log.error("Error in people accept rest service: " + e.getMessage(), e);
+            LOG.error("Error in people accept rest service: " + e.getMessage(), e);
             return Response.ok("error").cacheControl(cacheControl).build();
         }
     }
@@ -183,7 +183,7 @@ public class PeopleRestServices implements ResourceContainer {
             return Response.ok("Denied", MediaType.APPLICATION_JSON).cacheControl(cacheControl).build();
 
         } catch (Exception e) {
-            log.error("Error in people deny rest service: " + e.getMessage(), e);
+            LOG.error("Error in people deny rest service: " + e.getMessage(), e);
             return Response.status(HTTPStatus.INTERNAL_ERROR).cacheControl(cacheControl).build();
         }
     }
@@ -207,7 +207,7 @@ public class PeopleRestServices implements ResourceContainer {
 
             return Response.ok("Connected", MediaType.APPLICATION_JSON).cacheControl(cacheControl).build();
         } catch (Exception e) {
-            log.error("Error in people connect rest service: " + e.getMessage(), e);
+            LOG.error("Error in people connect rest service: " + e.getMessage(), e);
             return Response.ok("Error", MediaType.APPLICATION_JSON).cacheControl(cacheControl).build();
         }
 
@@ -271,7 +271,7 @@ public class PeopleRestServices implements ResourceContainer {
             jsonGlobal.put("noConnections",connectionList.getSize());
             return Response.ok(jsonGlobal.toString(), MediaType.APPLICATION_JSON).cacheControl(cacheControl).build();
         } catch (Exception e) {
-            log.error("Error in getting GS progress: " + e.getMessage(), e);
+            LOG.error("Error in getting GS progress: " + e.getMessage(), e);
             return Response.status(HTTPStatus.INTERNAL_ERROR).cacheControl(cacheControl).build();
         }
 

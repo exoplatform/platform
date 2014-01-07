@@ -25,7 +25,7 @@ import java.net.URLEncoder;
  */
 public class AccountSetup extends HttpServlet {
 
-    private static final Log logger = ExoLogger.getLogger(AccountSetup.class);
+    private static final Log LOG = ExoLogger.getLogger(AccountSetup.class);
     private static final long serialVersionUID = 6467955354840693802L;
     public final static String ACCOUNT_SETUP_NODE = "accountSetup";
     private final static String USER_NAME_ACCOUNT = "username";
@@ -85,7 +85,7 @@ public class AccountSetup extends HttpServlet {
             try {
                 userHandler.createUser(user, true);
             } catch (Exception e) {
-                logger.error("Can not create User", e);
+                LOG.error("Can not create User", e);
             }
 
             // Assign the membership "*:/platform/administrators"  to the created user
@@ -94,7 +94,7 @@ public class AccountSetup extends HttpServlet {
                 membershipType = membershipTypeHandler.findMembershipType(MEMBERSHIP_TYPE_MANAGER);
                 orgService.getMembershipHandler().linkMembership(user, group, membershipType, true);
             } catch (Exception e) {
-                logger.error("Can not assign *:/platform/administrators membership to the created user", e);
+                LOG.error("Can not assign *:/platform/administrators membership to the created user", e);
             }
 
             // Assign the membership "*:/platform/web-contributors"  to the created user
@@ -103,7 +103,7 @@ public class AccountSetup extends HttpServlet {
                 membershipType = membershipTypeHandler.findMembershipType(MEMBERSHIP_TYPE_MANAGER);
                 orgService.getMembershipHandler().linkMembership(user, group, membershipType, true);
             } catch (Exception e) {
-                logger.error("Can not assign *:/platform/web-contributors membership to the created user", e);
+                LOG.error("Can not assign *:/platform/web-contributors membership to the created user", e);
             }
 
             // Assign the membership "member:/developer"  to the created user
@@ -112,7 +112,7 @@ public class AccountSetup extends HttpServlet {
                 membershipType = membershipTypeHandler.findMembershipType(MEMBERSHIP_TYPE_MANAGER);
                 orgService.getMembershipHandler().linkMembership(user, group, membershipType, true);
             } catch (Exception e) {
-                logger.error("Can not assign *:/developers membership to the created user", e);
+                LOG.error("Can not assign *:/developers membership to the created user", e);
             }
 
             // Assign the membership "*:/platform/users"  to the created user
@@ -121,7 +121,7 @@ public class AccountSetup extends HttpServlet {
                 membershipType = membershipTypeHandler.findMembershipType(MEMBERSHIP_TYPE_MANAGER);
                 orgService.getMembershipHandler().linkMembership(user, group, membershipType, true);
             } catch (Exception e) {
-                logger.error("Can not assign *:/platform/users membership to the created user", e);
+                LOG.error("Can not assign *:/platform/users membership to the created user", e);
             }
 
 
@@ -131,7 +131,7 @@ public class AccountSetup extends HttpServlet {
                 adminUser.setPassword(adminPassword);
                 orgService.getUserHandler().saveUser(adminUser, false);
             } catch (Exception e) {
-                logger.error("Can not set password to the created user", e);
+                LOG.error("Can not set password to the created user", e);
             }
         } finally {
             settingService_ =  (SettingService) PortalContainer.getInstance().getComponentInstanceOfType(SettingService.class);

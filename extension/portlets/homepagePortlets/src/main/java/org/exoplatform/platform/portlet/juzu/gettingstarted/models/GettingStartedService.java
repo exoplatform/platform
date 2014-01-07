@@ -147,8 +147,10 @@ public class GettingStartedService {
             if (iterator != null) {
                 while (iterator.hasNext()) {
                     ExoSocialActivity activity = (ExoSocialActivity) iterator.next();
-                    if (activity.getType().equals(GettingStartedUtils.DEFAULT_ACTIVITY)) {
-                        return true;
+                    if (activity.getType().equals(GettingStartedUtils.DEFAULT_ACTIVITY)
+                                                    || activity.getType().equals(GettingStartedUtils.DOC_ACTIVITY)
+                                                    || activity.getType().equals(GettingStartedUtils.LINK_ACTIVITY)) {
+                                              return true;
                     }
                 }
             }
