@@ -83,9 +83,10 @@ public class UpgradeLocalGadgetsPlugin extends UpgradeProductPlugin {
                         LOG.warn("Can't find gadget '" + gadgetUpgrade.getName() + "'.");
                     }
                     else{
-                      LOG.info("Replacing gadget " + gadgetUpgrade.getName() + " with new content ...");
+                      LOG.info("Start upgrading gadget " + gadgetUpgrade.getName() + " ...");
                       try {
                           gadgetRegistryService.removeGadget(gadgetUpgrade.getName());
+                          LOG.info("Upgrade of Gadget " + gadgetUpgrade.getName() + " is delegated to GadgetDeployer");
                       } catch (Exception noSuchGadgetException) {
                           // if gadget doesn't exist
                           if (LOG.isDebugEnabled()) {
@@ -93,28 +94,7 @@ public class UpgradeLocalGadgetsPlugin extends UpgradeProductPlugin {
                           }
                       }
                     }
-                    
-                    PortalContainer container = (PortalContainer)(ExoContainerContext.getCurrentContainer());
 
-                    try {
-                        String gadgetURI = gadgetUpgrade.getPath().replace("war:", "");
-                        GadgetImporter importer = new ServletLocalImporter(gadgetUpgrade.getName(), gadgetURI, container.getPortalContext(), gadgetRegistryService);
-
-                        GadgetDefinition def = gadgetRegistryService.getRegistry().addGadget(gadgetUpgrade.getName());
-                        importer.doImport(def);
-
-                        gadget = gadgetRegistryService.getGadget(gadgetUpgrade.getName());
-                        if (gadget != null) {
-                            LOG.info("gadget " + gadgetUpgrade.getName() + " upgraded successfully.");
-                        } else {
-                            LOG.info("Gadget " + gadgetUpgrade.getName()
-                                    + " wasn't imported. It will be imported automatically with GadgetDeployer Service.");
-                        }
-                    } catch (Exception exception) {
-                        done = false;
-                        LOG.info("Gadget " + gadgetUpgrade.getName()
-                                + " wasn't imported. It will be imported automatically with GadgetDeployer Service.");
-                    }
                 } catch (Exception exception) {
                     done = false;
                     LOG.error("Error while proceeding '" + gadgetUpgrade.getName() + "' gadget upgrade.", exception);
