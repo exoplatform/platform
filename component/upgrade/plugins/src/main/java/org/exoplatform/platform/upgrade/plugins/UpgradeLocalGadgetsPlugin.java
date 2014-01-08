@@ -122,6 +122,14 @@ public class UpgradeLocalGadgetsPlugin extends UpgradeProductPlugin {
                 finally{
                     chromatticLifeCycle.closeContext(done);
                 }
+
+                //--- GadgetRegistry sanitization
+                if (!done) {
+                    //--- invoke the sanitization process only when the import is not done as expected
+                    sanitizeGadgetRegistry(gadgetUpgrade.getName());
+
+                }
+
             }
         } catch (Exception e) {
             LOG.error("Could not upgrade local gadget", e);
@@ -132,6 +140,37 @@ public class UpgradeLocalGadgetsPlugin extends UpgradeProductPlugin {
     public boolean shouldProceedToUpgrade(String newVersion, String previousVersion) {
         // --- return true only for the first version of platform
         return VersionComparator.isAfter(newVersion, previousVersion);
+    }
+
+    /**
+     * When gadget is not imported correctly by the upgrade plugin
+     * then remove it from GadgetRegistry and delegate the import process to GadgetDeployer
+     * @param gadgetName
+     */
+    private void sanitizeGadgetRegistry (String gadgetName) throws IllegalArgumentException {
+
+        chromatticLifeCycle.openContext();
+
+        try {
+            Gadget gadget = gadgetRegistryService.getGadget(gadgetName);
+            if (gadget == null) {
+                LOG.debug("The gadget '" + gadgetName + "' doesn't exist in GadgetRegistry store.");
+            }   else{
+                LOG.info("Sanitize the  gadget '" + gadgetName + "' in the GadgetRegistry store.");
+                try {
+                    gadgetRegistryService.removeGadget(gadgetName);
+                } catch (Exception noSuchGadgetException) {
+                    // if gadget doesn't exist
+                    if (LOG.isDebugEnabled()) {
+                        LOG.error("Exception occurs during the sanitization of the Gadgetregistry [TARGET GADGET : " + gadget.getName()+"]");
+                    }
+                }
+            }
+
+        } finally {
+            chromatticLifeCycle.closeContext(true);
+        }
+
     }
 
 }
