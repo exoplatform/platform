@@ -616,6 +616,11 @@ public class UINavigationNodeSelector extends UIContainer {
         return;
       }
 
+      if(isExistsInTree(sourceNode, targetNode)) {
+        context.getUIApplication().addMessage(new ApplicationMessage("UIPageNodeSelector.msg.paste.wrongLocation", null, ApplicationMessage.WARNING));
+        return;
+      }
+
       UITree uitree = uiNodeSelector.getChild(UITree.class);
       UIRightClickPopupMenu popup = uitree.getUIRightClickPopupMenu();
       popup.setActions(new String[] { "AddNode", "EditPageNode", "EditSelectedNode", "CopyNode", "CutNode", "CloneNode",
@@ -679,6 +684,20 @@ public class UINavigationNodeSelector extends UIContainer {
 
     private boolean isExistChild(TreeNode parent, TreeNode child) {
       return parent != null && parent.getChild(child.getName()) != null;
+    }
+
+    private boolean isExistsInTree(TreeNode parent, TreeNode child) {
+      if(parent == null || child == null) {
+        return false;
+      }
+      TreeNode p = child.getParent();
+      while (p != null) {
+        if(parent.getId().equals(p.getId())) {
+          return true;
+        }
+        p = p.getParent();
+      }
+      return false;
     }
   }
 
