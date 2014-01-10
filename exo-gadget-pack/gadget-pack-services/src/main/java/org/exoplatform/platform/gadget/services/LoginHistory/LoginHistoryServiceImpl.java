@@ -20,6 +20,8 @@ import org.exoplatform.container.ExoContainerContext;
 import org.exoplatform.container.xml.InitParams;
 import org.exoplatform.container.xml.ValueParam;
 import org.exoplatform.services.jcr.RepositoryService;
+import org.exoplatform.services.jcr.access.PermissionType;
+import org.exoplatform.services.jcr.core.ExtendedNode;
 import org.exoplatform.services.jcr.core.ManageableRepository;
 import org.exoplatform.services.jcr.ext.common.SessionProvider;
 import org.exoplatform.services.jcr.impl.core.query.QueryImpl;
@@ -37,8 +39,10 @@ import javax.jcr.query.QueryManager;
 import javax.jcr.query.QueryResult;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 
 
 /**
@@ -99,6 +103,13 @@ public class LoginHistoryServiceImpl implements LoginHistoryService, Startable {
             Node rootNode = session.getRootNode();
             if (!rootNode.hasNode(HOME)) {
                 Node homeNode = rootNode.addNode(HOME, "exo:LoginHisSvc_loginHistoryService");
+                homeNode.addMixin("exo:privilegeable");
+                Map<String, String[]> permissions = new HashMap<String, String[]>();
+                permissions.put("*:/platform/administrators", PermissionType.ALL);
+                permissions.put("*:/platform/users", new String[]{PermissionType.READ});
+                ((ExtendedNode)homeNode).setPermissions(permissions);
+                                                       
+                homeNode.addMixin("exo:owneable");
                 rootNode.save();
                 // --- PLF-2493 : Umbrella for usability issues
                 if (homeNode.canAddMixin("exo:hiddenable")) {
