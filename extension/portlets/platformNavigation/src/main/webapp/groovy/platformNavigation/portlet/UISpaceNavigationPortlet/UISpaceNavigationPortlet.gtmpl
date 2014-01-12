@@ -33,7 +33,6 @@
 <%
   String restUrl = uicomponent.getRestUrl();
   String defaultValueForTextSearch = _ctx.appRes("UISpaceNavigationPortlet.msg.filter-spaces");
-  def moreSpacesLabel = _ctx.appRes("UISpaceNavigationPortlet.label.more");
   def seeSpacesLabel = _ctx.appRes("UISpaceNavigationPortlet.label.see");
   String noSpace = _ctx.appRes("UISpaceNavigationPortlet.msg.no-space");
   String selectSpaceActionDyna = "";
@@ -75,11 +74,12 @@
 		def spaceNotDisplayed = uicomponent.numberOfRemainSpaces();
       		def moreSpacesLink = uicomponent.event("Increment");
 			if(spaceNotDisplayed>0){
+                          seeSpacesLabel = seeSpacesLabel.replace("{0}", String.valueOf(spaceNotDisplayed));
       		print """
       			<div class="moreSpace">
       				""" ;
       				print """
-      				<a href="$moreSpacesLink" class="btn" onclick="">$seeSpacesLabel $spaceNotDisplayed $moreSpacesLabel</a>
+      				<a href="$moreSpacesLink" class="btn" onclick="">$seeSpacesLabel</a>
       				""" ;
       				print """
       			</div>
