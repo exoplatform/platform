@@ -38,11 +38,9 @@
 
         def ownerId = navigation.getKey().getName();
         String navTitle = OrganizationUtils.getGroupLabel(ownerId);
-        //def lang=Util.getPortalRequestContext().getUserPortalConfig().getPortalConfig().getLocale();
-        def groupId= navTitle +" "+ _ctx.appRes("UIGroupsNavigationPortlet.label") ;
         println """
                       <h5 class="title">
-                         $groupId
+                         $navTitle
                       </h5>
 					  <ul class="groupNavigation">
 				""";
