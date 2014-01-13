@@ -376,7 +376,7 @@
       }
 			
 			.uiLogin .uiIconError{
-                background: url("/eXoResources/skin/images/Icons/uiIconColor.png") no-repeat left top;
+                background: url("/eXoSkin/skin/images/Icons/uiIconColor.png") no-repeat left top;
 				padding-left: 20px;
 			}
 
