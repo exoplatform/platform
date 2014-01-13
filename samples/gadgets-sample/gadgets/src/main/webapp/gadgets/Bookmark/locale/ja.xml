@@ -29,7 +29,7 @@
   <msg name="url">URL</msg>
   <msg name="delete">削除</msg>
   <msg name="edit">編集</msg>
-  <msg name="cancel">#{word.cancel}</msg>
+  <msg name="cancel">キャンセル</msg>
   <msg name="emptyBookmarkPre">ブックマークがありません： クリックして追加できます</msg>
-  <msg name="emptyBookmarkSuf">ボタン</msg>
+  <msg name="addBookmark">Add Bookmark</msg>
 </messagebundle>
