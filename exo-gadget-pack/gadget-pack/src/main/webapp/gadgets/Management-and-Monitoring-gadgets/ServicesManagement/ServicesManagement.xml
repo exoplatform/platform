@@ -50,6 +50,7 @@
       <Locale lang="zh_CN" messages="locale/zh_CN.xml"/>
       <Locale lang="fi" messages="locale/fi.xml"/>
       <Locale lang="lt" messages="locale/lt.xml"/>
+      <Locale lang="no" messages="locale/no.xml"/>
       <Require feature="dynamic-height"/>
       <Require feature="minimessage"/>
       <Require feature="views"/>

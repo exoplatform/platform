@@ -29,7 +29,7 @@
   <msg name="url">URL</msg>
   <msg name="delete">Ta bort</msg>
   <msg name="edit">Redigera</msg>
-  <msg name="cancel">#{word.cancel}</msg>
+  <msg name="cancel">Avbryt</msg>
   <msg name="emptyBookmarkPre">Du har inte något bokmärke: lägga till dem genom att klicka på</msg>
-  <msg name="emptyBookmarkSuf">knappen</msg>
+  <msg name="addBookmark">Add Bookmark</msg>
 </messagebundle>

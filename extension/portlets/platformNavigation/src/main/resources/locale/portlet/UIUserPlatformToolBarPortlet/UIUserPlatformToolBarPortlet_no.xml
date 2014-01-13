@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bundle>
+<UIUserPlatformToolBarPortlet>
+<label>
+<activities>My Activity Stream</activities>
+<profile>My Profile</profile>
+<network>Mitt nettverk</network>
+<wiki>My Wiki</wiki>
+<account>Innstillinger</account>
+<language>Change Language</language>
+<logout>Logout</logout>
+        <dashboard>My Dashboard</dashboard>
+</label>
+</UIUserPlatformToolBarPortlet>
+</bundle>
