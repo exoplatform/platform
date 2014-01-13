@@ -13,7 +13,7 @@
   <parent>
     <artifactId>platform-sample-acme-intranet</artifactId>
     <groupId>org.exoplatform.platform</groupId>
-    <version>4.1.0-SNAPSHOT</version>
+    <version>4.1.x-plf-stabilization-SNAPSHOT</version>
   </parent>
   <artifactId>platform-sample-acme-intranet-portlet</artifactId>
   <packaging>war</packaging>
@@ -54,5 +54,52 @@
   </dependencies>
   <build>
     <finalName>acme-intranet-portlet</finalName>
+    <plugins>
+      <!-- Copy project less files -->
+      <plugin>
+        <artifactId>maven-resources-plugin</artifactId>
+        <executions>
+          <execution>
+            <id>copy-resources</id>
+            <phase>generate-resources</phase>
+            <goals>
+              <goal>copy-resources</goal>
+            </goals>
+            <configuration>
+              <outputDirectory>${project.build.directory}/${project.build.finalName}</outputDirectory>
+              <resources>
+                <resource>
+                  <directory>${basedir}/src/main/webapp</directory>
+                  <includes>
+                    <include>skin/less/**</include>
+                  </includes>
+                </resource>
+              </resources>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+      <!-- Plugin to create css from less File to be able to build the skin -->
+      <plugin>
+        <groupId>org.lesscss</groupId>
+        <artifactId>lesscss-maven-plugin</artifactId>
+        <executions>
+          <execution>
+            <id>administration</id>
+            <phase>process-resources</phase>
+            <goals>
+              <goal>compile</goal>
+            </goals>
+            <configuration>
+              <sourceDirectory>${project.build.directory}/${project.build.finalName}/skin/less</sourceDirectory>
+              <outputDirectory>${project.build.directory}/${project.build.finalName}/skin/css</outputDirectory>
+              <includes>
+                <include>SpaceSummaryInfoPortlet.less</include>
+              </includes>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
   </build>
 </project>
