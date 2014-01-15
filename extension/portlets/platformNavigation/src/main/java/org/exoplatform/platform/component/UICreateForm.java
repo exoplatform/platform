@@ -45,7 +45,7 @@ import org.exoplatform.wiki.utils.Utils;
 
 public class UICreateForm extends UIForm {
 
-    private static final Log log = ExoLogger.getLogger(UICreateForm.class);
+    private static final Log LOG = ExoLogger.getLogger(UICreateForm.class);
     static String LOCATION = "In Location".intern();
     private static final String SWITCH_SPACE_ACTION = "SwitchSpace";
     public static final String SPACE_SWITCHER = "uiWikiSpaceSwitcher_CreateWiki";
@@ -94,7 +94,7 @@ public class UICreateForm extends UIForm {
                 event.getRequestContext().getJavascriptManager().getRequireJS().addScripts("(function(){ window.location.href = '" + permalink + "';})();");
 
             } else {
-                log.warn(String.format("Wrong wiki id: [%s], can not change space", uiWikiSpaceSwitcher.getCurrentSpaceName()));
+                LOG.warn(String.format("Wrong wiki id: [%s], can not change space", uiWikiSpaceSwitcher.getCurrentSpaceName()));
             }
             Event<UIComponent> cancelEvent = uiCreateWiki.<UIComponent>getParent().createEvent("Cancel", Event.Phase.PROCESS, event.getRequestContext());
             if (cancelEvent != null) {
