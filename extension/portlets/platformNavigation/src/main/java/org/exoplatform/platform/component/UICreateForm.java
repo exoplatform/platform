@@ -90,7 +90,7 @@ public class UICreateForm extends UIForm {
             if (wiki != null) {
                 PageImpl wikiHome = (PageImpl) wiki.getWikiHome();
                 String permalink = Utils.getPermanlink(new WikiPageParams(wiki.getType(), wiki.getOwner(), wikiHome.getName()),true);
-                permalink += ADD_WIKI_PAGE;
+                permalink =new StringBuffer(permalink).append(ADD_WIKI_PAGE).toString();
                 event.getRequestContext().getJavascriptManager().getRequireJS().addScripts("(function(){ window.location.href = '" + permalink + "';})();");
 
             } else {
