@@ -4,7 +4,7 @@
      <label>
          <Spaces>فضاءاتي</Spaces>
          <Join>الانضمام إلى فضاء</Join>
-         <see>إظهار</see>
+         <see>عرض {0} فضاءات أكثر</see>
      </label>
      <msg>
          <filter-spaces>البحث عن فضاءات</filter-spaces>

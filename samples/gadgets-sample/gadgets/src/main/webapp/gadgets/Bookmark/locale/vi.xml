@@ -30,6 +30,6 @@
   <msg name="delete">Xóa</msg>
   <msg name="edit">Chỉnh sửa</msg>
   <msg name="cancel">Hủy bỏ</msg>
-  <msg name="emptyBookmarkPre">Bạn không có đánh dấu trang nào. Thêm vào bằng cách nhấp</msg>
-  <msg name="addBookmark">Add Bookmark</msg>
+  <msg name="emptyBookmarkPre">Bạn không có dấu trang nào. Nhấn vào nút "Thêm dấu trang" để thêm.</msg>
+  <msg name="addBookmark">Thêm dấu trang</msg>
 </messagebundle>
