@@ -17,7 +17,7 @@ import java.util.concurrent.ConcurrentHashMap;
  */
 public class CalendarPortletUtils {
 
-    private static final Log log = ExoLogger.getLogger(CalendarPortletUtils.class);
+    private static final Log LOG = ExoLogger.getLogger(CalendarPortletUtils.class);
     public final static String HOME_PAGE_CALENDAR_SETTINGS = "IntranetHomePageCalendarSettings";
     public final static int JOUR_MS = 86399999;
     private static ConcurrentHashMap<String, CalendarSetting> calendarSettingsByUserName = new ConcurrentHashMap<String, CalendarSetting>();
@@ -41,7 +41,7 @@ public class CalendarPortletUtils {
             CalendarSetting setting =getCalendarService().getCalendarSetting(user);
             return getCalendarInstanceBySetting(setting);
         } catch (Exception e) {
-            if (log.isWarnEnabled()) log.warn("Could not get calendar setting!", e);
+            if (LOG.isWarnEnabled()) LOG.warn("Could not get calendar setting!", e);
             Calendar calendar = Calendar.getInstance();
             calendar.setLenient(false);
             return calendar;
@@ -59,7 +59,7 @@ public class CalendarPortletUtils {
             }
             return setting;
         } catch (Exception e) {
-            log.warn("could not get calendar setting of user", e);
+            LOG.warn("could not get calendar setting of user", e);
             return null;
         }
 
@@ -105,7 +105,7 @@ public class CalendarPortletUtils {
            CalendarSetting setting = getCurrentUserCalendarSetting();
            return getCalendarInstanceBySetting(setting);
             } catch (Exception e) {
-             if (log.isWarnEnabled()) log.warn("Could not get calendar setting!", e);
+             if (LOG.isWarnEnabled()) LOG.warn("Could not get calendar setting!", e);
              Calendar calendar = Calendar.getInstance() ;
              calendar.setLenient(false);
              return calendar;

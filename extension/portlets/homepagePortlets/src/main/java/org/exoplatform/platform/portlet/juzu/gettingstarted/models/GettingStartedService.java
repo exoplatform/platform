@@ -46,7 +46,7 @@ import java.util.List;
  * @date 12/26/12
  */
 public class GettingStartedService {
-    private static final Log log = ExoLogger.getLogger(GettingStartedService.class);
+    private static final Log LOG = ExoLogger.getLogger(GettingStartedService.class);
 
     public static Boolean hasDocuments(Node node, String userId) {
         SessionProvider sProvider = null;
@@ -79,11 +79,11 @@ public class GettingStartedService {
             }
             }
         }catch (Exception e) {
-                log.error("Error in gettingStarted REST service: " + e.getLocalizedMessage(), e);
+                LOG.error("Error in gettingStarted REST service: " + e.getLocalizedMessage(), e);
             return false;
         }
         } catch (Exception E) {
-            log.error("Getting started Service : cannot check uploaded documents " + E.getLocalizedMessage(), E);
+            LOG.error("Getting started Service : cannot check uploaded documents " + E.getLocalizedMessage(), E);
             return false;
 
         } finally {
@@ -109,7 +109,7 @@ public class GettingStartedService {
             else
                 return false;
         } catch (Exception e) {
-            log.debug("Error in gettingStarted REST service: " + e.getMessage(), e);
+            LOG.debug("Error in gettingStarted REST service: " + e.getMessage(), e);
             return false;
         }
     }
@@ -126,7 +126,7 @@ public class GettingStartedService {
             else
                 return false;
         } catch (Exception e) {
-            log.debug("Error in gettingStarted REST service: " + e.getMessage(), e);
+            LOG.debug("Error in gettingStarted REST service: " + e.getMessage(), e);
             return false;
         }
     }
@@ -156,7 +156,7 @@ public class GettingStartedService {
             }
             return false;
         } catch (Exception e) {
-            log.debug("Error in gettingStarted service: " + e.getMessage(), e);
+            LOG.debug("Error in gettingStarted service: " + e.getMessage(), e);
             return false;
         }
     }
@@ -178,7 +178,7 @@ public class GettingStartedService {
             else
                 return false;
         } catch (Exception e) {
-            log.debug("Error in gettingStarted REST service: " + e.getMessage(), e);
+            LOG.debug("Error in gettingStarted REST service: " + e.getMessage(), e);
             return false;
         }
     }

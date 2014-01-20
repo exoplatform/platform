@@ -111,7 +111,7 @@ public class CalendarPortletController {
     @Inject
     SettingService settingService_;
 
-    private static final Log log = ExoLogger.getLogger(CalendarPortletController.class);
+    private static final Log LOG = ExoLogger.getLogger(CalendarPortletController.class);
 
     @Inject
     @Path("calendar.gtmpl")
@@ -167,7 +167,7 @@ public class CalendarPortletController {
         date_act = d.format(currentTime);
         String delim =  getDateDelimiter(date_act);
         if(delim != null && date_act.indexOf(delim) < 2 ) {
-             date_act = "0" + date_act;
+             date_act = new StringBuffer("0").append(date_act).toString();
                }
          Date comp = currentTime;
         HashMap parameters = new HashMap();
@@ -188,7 +188,7 @@ public class CalendarPortletController {
         }
 
         EntityEncoder.FULL.encode(dateLabel);
-        dateLabel = dateLabel + date_act;
+        dateLabel = new StringBuffer(dateLabel).append(date_act).toString();
         if (nonDisplayedCalendarList == null) {
             SettingValue settingNode = settingService_.get(Context.USER, Scope.APPLICATION, CalendarPortletUtils.HOME_PAGE_CALENDAR_SETTINGS);
             if ((settingNode != null) && (settingNode.getValue().toString().split(":").length == 2)) {
@@ -376,7 +376,7 @@ public class CalendarPortletController {
             listgroupCalendar = calendarService_.getGroupCalendars(getUserGroups(username), true, username);
             listUserCalendar = calendarService_.getUserCalendars(username, true);
         } catch (Exception e) {
-            log.error("Error while checking User Calendar :" + e.getMessage(), e);
+            LOG.error("Error while checking User Calendar :" + e.getMessage(), e);
         }
         for (GroupCalendarData g : listgroupCalendar) {
             for (org.exoplatform.calendar.service.Calendar c : g.getCalendars()) {
@@ -422,7 +422,7 @@ public class CalendarPortletController {
                       }
 
         } catch (Exception e) {
-            log.error("Error while checking User Events:" + e.getMessage(), e);
+            LOG.error("Error while checking User Events:" + e.getMessage(), e);
         }
         return userEvents;
     }
