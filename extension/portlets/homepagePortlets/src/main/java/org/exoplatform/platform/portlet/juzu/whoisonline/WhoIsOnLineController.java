@@ -20,7 +20,7 @@ import java.util.List;
  */
 public class WhoIsOnLineController {
 
-    private static final Log log = ExoLogger.getLogger(WhoIsOnLineController.class);
+    private static final Log LOG = ExoLogger.getLogger(WhoIsOnLineController.class);
 
     @Inject
     WhoIsOnline whoIsOnline;
@@ -41,12 +41,12 @@ public class WhoIsOnLineController {
             List<User> friends = whoIsOnline.getFriends(userId);
             if (friends == null) {
                 friends = new ArrayList<User>();
-                log.info("No  logged user | WhoIsOnLin Portlet will not be displayed");
+                LOG.info("No  logged user | WhoIsOnLin Portlet will not be displayed");
             }
             return index.with().set("users", friends).ok();
 
         } catch (Exception e) {
-            log.error("Error while rendering WhoIsOnLine Portlet :" + e.getMessage(), e);
+            LOG.error("Error while rendering WhoIsOnLine Portlet :" + e.getMessage(), e);
             return index.with().set("users", new ArrayList<User>()).ok();
         }
 
@@ -60,12 +60,12 @@ public class WhoIsOnLineController {
             List<User> friends = whoIsOnline.getFriends(userId);
             if (friends == null) {
                 friends = new ArrayList<User>();
-                log.info("No  logged user | WhoIsOnLin Portlet will not be displayed");
+                LOG.info("No  logged user | WhoIsOnLin Portlet will not be displayed");
             }
             return users.with().set("users", friends).ok();
 
         } catch (Exception e) {
-            log.error("Error while rendering WhoIsOnLine Portlet :" + e.getMessage(), e);
+            LOG.error("Error while rendering WhoIsOnLine Portlet :" + e.getMessage(), e);
             return users.with().set("users", new ArrayList<User>()).ok();
         }
     }

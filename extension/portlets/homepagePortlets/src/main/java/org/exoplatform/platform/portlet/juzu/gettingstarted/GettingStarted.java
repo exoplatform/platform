@@ -48,7 +48,7 @@ import java.util.MissingResourceException;
 
 public class GettingStarted {
 
-    private static final Log logger = ExoLogger.getLogger(GettingStarted.class);
+    private static final Log LOG = ExoLogger.getLogger(GettingStarted.class);
     HashMap parameters = new HashMap();
     HashMap<String, String> status = new HashMap();
     int progress = 0;
@@ -83,7 +83,7 @@ public class GettingStarted {
                 gettingStartedNode.getSession().save();
             }
         } catch (Exception E) {
-            logger.error("GettingStarted Portlet : Can not load properties", E.getLocalizedMessage(), E);
+            LOG.error("GettingStarted Portlet : Can not load properties", E.getLocalizedMessage(), E);
 
         } finally {
             if (sProvider != null)
@@ -114,7 +114,7 @@ public class GettingStarted {
                 }
             }
         } catch (Exception E) {
-            logger.error("GettingStarted Portlet : Can not delete Portlet from ApplicationRegistry", E.getLocalizedMessage(), E);
+            LOG.error("GettingStarted Portlet : Can not delete Portlet from ApplicationRegistry", E.getLocalizedMessage(), E);
 
         } finally {
             if (sProvider != null) {
@@ -188,7 +188,7 @@ public class GettingStarted {
                 bundle.put("activity", "#");
                 bundle.put("upload", GettingStartedUtils.UPLOAD_URL);
             } catch (MissingResourceException ex) {
-                logger.warn("##Missing Labels of GettingStarted Portlet");
+                LOG.warn("##Missing Labels of GettingStarted Portlet");
             }
             parameters.putAll(bundle);
             parameters.put(GettingStartedUtils.PROGRESS, new Integer(progress));
@@ -199,7 +199,7 @@ public class GettingStarted {
                 gettingStartedList.render(parameters);
             }
         } catch (Exception E) {
-            logger.error("GettingStarted Portlet : Can not load task list", E.getLocalizedMessage(), E);
+            LOG.error("GettingStarted Portlet : Can not load task list", E.getLocalizedMessage(), E);
 
         } finally {
             if (sProvider != null) {

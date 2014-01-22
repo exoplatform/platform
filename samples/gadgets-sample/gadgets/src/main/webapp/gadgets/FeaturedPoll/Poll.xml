@@ -21,6 +21,7 @@
 		<Locale lang="tr" messages="locale/tr.xml" />
 		<Locale lang="zh_CN" messages="locale/zh_CN.xml" />
 		<Locale lang="fi" messages="locale/fi.xml" />
+		<Locale lang="lt" messages="locale/lt.xml" />
 	</ModulePrefs>
     <Content type="html" view="default, home, profile">
         <![CDATA[

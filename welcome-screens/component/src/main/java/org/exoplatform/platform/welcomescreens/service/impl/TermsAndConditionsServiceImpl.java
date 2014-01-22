@@ -24,7 +24,7 @@ import javax.jcr.Node;
  */
 public class TermsAndConditionsServiceImpl implements TermsAndConditionsService {
 
-    private static final Log logger = ExoLogger.getLogger(TermsAndConditionsServiceImpl.class);
+    private static final Log LOG = ExoLogger.getLogger(TermsAndConditionsServiceImpl.class);
 
     private static final String CHROMATTIC_LIFECYCLE_NAME = "termsandconditions";
 
@@ -72,7 +72,7 @@ public class TermsAndConditionsServiceImpl implements TermsAndConditionsService 
       createTermsAndConditions();
     }
     else {
-      logger.debug("Terms and conditions: yet checked");
+      LOG.debug("Terms and conditions: yet checked");
     }
   }
 
@@ -92,7 +92,7 @@ public class TermsAndConditionsServiceImpl implements TermsAndConditionsService 
               publicApplicationNode.getSession().save();
           }
       } catch(Exception e) {
-        logger.error("Terms and conditions: cannot create node", e);
+        LOG.error("Terms and conditions: cannot create node", e);
       } finally {
           if (sessionProvider != null) {
               sessionProvider.close();
@@ -125,7 +125,7 @@ public class TermsAndConditionsServiceImpl implements TermsAndConditionsService 
 
               } catch (Exception E) {
 
-                  logger.error("Terms and conditions: connot get node", E);
+                  LOG.error("Terms and conditions: connot get node", E);
                   hasTermsAndConditionsNode = false;
 
               } finally {
@@ -137,7 +137,7 @@ public class TermsAndConditionsServiceImpl implements TermsAndConditionsService 
           }
 
       } catch(Exception e) {
-          logger.error("Terms and conditions: cannot check node", e);
+          LOG.error("Terms and conditions: cannot check node", e);
       }
 
       return hasTermsAndConditionsNode;

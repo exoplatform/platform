@@ -65,7 +65,7 @@ public class TermsAndConditionsFilter implements Filter {
       String reqUri = httpServletRequest.getRequestURI().toString();
       String queryString = httpServletRequest.getQueryString();
       if (queryString != null) {
-          reqUri += "?"+queryString;
+          reqUri =new StringBuffer(reqUri).append("?").append(queryString).toString();
       }
       
       // Get plf extension servlet context (because TermsAndConditionsFilter and terms-and-conditions servlet declaration are not on same context (webapp))

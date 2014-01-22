@@ -247,9 +247,8 @@ ServicesManagement.prototype.renderMethodsForCanvas = function(methodData) {
     }
     methodForCanvas += "</form></td>" + "<td>"
         + "<div class='MethodActionButton GadgetStyle FL'>"
-        + "<div class='ButtonLeft'>" + "<div class='ButtonRight'>"
-        + "<div class='ButtonMiddle'>" + "<a href='#'>Run</a>" + "</div>"
-        + "</div>" + "</div>" + "</div>" + "</td></tr>";
+        + "<a href='#' class='btn'>Run</a>" + "</div>"
+        + "</td></tr>";
 
   }
   if (methodForCanvas == "") {
@@ -278,9 +277,8 @@ ServicesManagement.prototype.renderPropertiesForCanvas = function(data) {
 
     propertyForCanvas += "<td>"
         + "<div class='PropertyActionButton GadgetStyle FL'>"
-        + "<div class='ButtonLeft'>" + "<div class='ButtonRight'>"
-        + "<div class='ButtonMiddle'>" + "<a href='#'>Get</a>" + "</div>"
-        + "</div>" + "</div>" + "</div>" + "</td></tr>";
+        + "<a href='#' class='btn'>Get</a>" + "</div>"
+        + "</td></tr>";
 
   }
   if (propertyForCanvas == "") {
@@ -317,7 +315,7 @@ ServicesManagement.prototype.showMinimessage = function(jsonMessage) {
     $(this.parentNode).attr("style", "vertical-align: top");
     $(this).html("");
   });
-  $(".mmlib_table .UIGrid").each(function() {
+  $(".mmlib_table .uiGrid").each(function() {
     $(this.parentNode).attr("style", "vertical-align: top");
   });
   
@@ -338,11 +336,11 @@ ServicesManagement.prototype.objToTable = function(obj) {
     return "empty object";
   }
 
-  var str = "<table cellspacing='0' class='UIGrid'>";
+  var str = "<table cellspacing='0' class='uiGrid table table-hover table-striped'>";
   if (obj.constructor == Array) {
     for ( var i = 0; i < obj.length; i++) {
-      var rowClass = i % 2 == 0 ? "EvenRow" : "OddRow";
-      str += "<tr class='" + rowClass + "'><td><div class='Text'>";
+   
+      str += "<tr><td><div class='text'>";
       str += eXo.gadget.ServicesManagement.objToTable(obj[i]);
       str += "</div></td></tr>";
     }
