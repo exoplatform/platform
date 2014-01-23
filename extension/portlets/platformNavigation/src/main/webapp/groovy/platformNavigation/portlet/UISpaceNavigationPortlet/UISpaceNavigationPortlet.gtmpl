@@ -80,7 +80,7 @@
                               <div class="moreSpace">
                                       """ ;
                                       print """
-                                      <a href="$moreSpacesLink" class="btn" onclick="">$seeSpacesLabel $spaceNotDisplayed $moreSpacesLabel</a>
+                                      <a href="javascript:void(0);" onclick="$moreSpacesLink" class="btn" onclick="">$seeSpacesLabel $spaceNotDisplayed $moreSpacesLabel</a>
                                       """ ;
                                       print """
                               </div>
@@ -88,7 +88,7 @@
               }
 %>
         <div class="joinSpace">
-                <a class="" href="<%= findSpacesLink %>">
+                <a class="" href="javascript:void(0);" onclick="<%= findSpacesLink %>">
                         <i class="uiIconPLFMan"></i>
                 <%=_ctx.appRes("UISpaceNavigationPortlet.label.Join")%>
                 </a>
