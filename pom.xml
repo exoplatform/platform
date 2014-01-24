@@ -312,9 +312,14 @@
         <artifactId>platform-sample-gadgets-sample-service</artifactId>
         <version>${project.version}</version>
       </dependency>
+        <dependency>
+            <groupId>org.exoplatform.platform</groupId>
+            <artifactId>platform-sample-wai-template-config</artifactId>
+            <version>${project.version}</version>
+        </dependency>
       <dependency>
         <groupId>org.exoplatform.platform</groupId>
-        <artifactId>platform-sample-wai-template</artifactId>
+        <artifactId>platform-sample-wai-template-webapp</artifactId>
         <version>${project.version}</version>
         <type>war</type>
       </dependency>
