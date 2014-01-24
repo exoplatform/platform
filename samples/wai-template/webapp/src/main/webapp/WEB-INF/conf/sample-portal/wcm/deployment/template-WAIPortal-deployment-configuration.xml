@@ -1,0 +1,856 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!--
+
+    Copyright (C) 2009 eXo Platform SAS.
+    
+    This is free software; you can redistribute it and/or modify it
+    under the terms of the GNU Lesser General Public License as
+    published by the Free Software Foundation; either version 2.1 of
+    the License, or (at your option) any later version.
+    
+    This software is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+    Lesser General Public License for more details.
+    
+    You should have received a copy of the GNU Lesser General Public
+    License along with this software; if not, write to the Free
+    Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
+    02110-1301 USA, or see the FSF site: http://www.fsf.org.
+
+-->
+
+<configuration
+   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xsi:schemaLocation="http://www.exoplatform.org/xml/ns/kernel_1_2.xsd http://www.exoplatform.org/xml/ns/kernel_1_2.xsd"
+   xmlns="http://www.exoplatform.org/xml/ns/kernel_1_2.xsd">
+
+  <external-component-plugins>
+    <target-component>org.exoplatform.services.wcm.portal.artifacts.CreatePortalArtifactsService</target-component>
+    <component-plugin>
+      <name>template-WAIPortal-webcontent</name>
+      <set-method>addPlugin</set-method>
+      <type>org.exoplatform.services.wcm.webcontent.InitialWebContentPlugin</type>
+      <description>This plugin deploy some initial webcontent as site artifact to site artifact folder of portal when a portal is created</description>
+      <init-params>
+        <object-param>
+          <name>WAIPortal Stylesheet Blue data</name>
+          <description>Deployment Descriptor</description>
+          <object type="org.exoplatform.services.deployment.DeploymentDescriptor">
+            <field name="target">
+              <object type="org.exoplatform.services.deployment.DeploymentDescriptor$Target">
+                <field name="workspace">
+                  <string>collaboration</string>
+                </field>
+                <field name="nodePath">
+                  <string>/sites/{portalName}/css</string>
+                </field>
+              </object>
+            </field>
+            <field name="sourcePath">
+              <string>war:/conf/sample-portal/wcm/artifacts/site-resources/WAIPortal/StylesheetGreen.xml</string>
+            </field>
+          </object>
+        </object-param>
+        <object-param>
+          <name>Home content</name>
+          <description>Deployment Descriptor</description>
+          <object type="org.exoplatform.services.deployment.DeploymentDescriptor">
+            <field name="target">
+              <object type="org.exoplatform.services.deployment.DeploymentDescriptor$Target">
+                <field name="workspace">
+                  <string>collaboration</string>
+                </field>
+                <field name="nodePath">
+                  <string>/sites/{portalName}/web contents</string>
+                </field>
+              </object>
+            </field>
+            <field name="sourcePath">
+              <string>war:/conf/sample-portal/wcm/artifacts/site-resources/WAIPortal/home.xml</string>
+            </field>
+          </object>
+        </object-param>
+<!--
+  Deployment of Folder Content
+-->        
+        <object-param>
+          <name>Features Folder</name>
+          <description>Deployment Descriptor</description>
+          <object type="org.exoplatform.services.deployment.DeploymentDescriptor">
+            <field name="target">
+              <object type="org.exoplatform.services.deployment.DeploymentDescriptor$Target">
+                <field name="workspace">
+                  <string>collaboration</string>
+                </field>
+                <field name="nodePath">
+                  <string>/sites/{portalName}/web contents</string>
+                </field>
+              </object>
+            </field>
+            <field name="sourcePath">
+              <string>war:/conf/sample-portal/wcm/artifacts/site-resources/WAIPortal/Features.xml</string>
+            </field>
+          </object>
+        </object-param>
+        <object-param>
+          <name>Technology Folder</name>
+          <description>Deployment Descriptor</description>
+          <object type="org.exoplatform.services.deployment.DeploymentDescriptor">
+            <field name="target">
+              <object type="org.exoplatform.services.deployment.DeploymentDescriptor$Target">
+                <field name="workspace">
+                  <string>collaboration</string>
+                </field>
+                <field name="nodePath">
+                  <string>/sites/{portalName}/web contents</string>
+                </field>
+              </object>
+            </field>
+            <field name="sourcePath">
+              <string>war:/conf/sample-portal/wcm/artifacts/site-resources/WAIPortal/Technology.xml</string>
+            </field>
+          </object>
+        </object-param>
+        <object-param>
+          <name>Competence Folder</name>
+          <description>Deployment Descriptor</description>
+          <object type="org.exoplatform.services.deployment.DeploymentDescriptor">
+            <field name="target">
+              <object type="org.exoplatform.services.deployment.DeploymentDescriptor$Target">
+                <field name="workspace">
+                  <string>collaboration</string>
+                </field>
+                <field name="nodePath">
+                  <string>/sites/{portalName}/web contents</string>
+                </field>
+              </object>
+            </field>
+            <field name="sourcePath">
+              <string>war:/conf/sample-portal/wcm/artifacts/site-resources/WAIPortal/Competence.xml</string>
+            </field>
+          </object>
+        </object-param>        
+        <object-param>
+          <name>Customers Folder</name>
+          <description>Deployment Descriptor</description>
+          <object type="org.exoplatform.services.deployment.DeploymentDescriptor">
+            <field name="target">
+              <object type="org.exoplatform.services.deployment.DeploymentDescriptor$Target">
+                <field name="workspace">
+                  <string>collaboration</string>
+                </field>
+                <field name="nodePath">
+                  <string>/sites/{portalName}/web contents</string>
+                </field>
+              </object>
+            </field>
+            <field name="sourcePath">
+              <string>war:/conf/sample-portal/wcm/artifacts/site-resources/WAIPortal/Customers.xml</string>
+            </field>
+          </object>
+        </object-param>
+        <object-param>
+          <name>French Folder</name>
+          <description>Deployment Descriptor</description>
+          <object type="org.exoplatform.services.deployment.DeploymentDescriptor">
+            <field name="target">
+              <object type="org.exoplatform.services.deployment.DeploymentDescriptor$Target">
+                <field name="workspace">
+                  <string>collaboration</string>
+                </field>
+                <field name="nodePath">
+                  <string>/sites/{portalName}/web contents</string>
+                </field>
+              </object>
+            </field>
+            <field name="sourcePath">
+              <string>war:/conf/sample-portal/wcm/artifacts/site-resources/WAIPortal/FR.xml</string>
+            </field>
+          </object>
+        </object-param>
+        
+<!--
+  Deployment of Site Artifacts
+-->
+        <object-param>
+          <name>Portal Footer</name>
+          <description>Deployment Descriptor</description>
+          <object type="org.exoplatform.services.deployment.DeploymentDescriptor">
+            <field name="target">
+              <object type="org.exoplatform.services.deployment.DeploymentDescriptor$Target">
+                <field name="workspace">
+                  <string>collaboration</string>
+                </field>
+                <field name="nodePath">
+                  <string>/sites/{portalName}/web contents/site artifacts</string>
+                </field>
+              </object>
+            </field>
+            <field name="sourcePath">
+              <string>war:/conf/sample-portal/wcm/artifacts/site-resources/WAIPortal/WAIPortalFooter.xml</string>
+            </field>
+          </object>
+        </object-param>
+        <object-param>
+          <name>Portal SiteArtifact FR</name>
+          <description>Deployment Descriptor</description>
+          <object type="org.exoplatform.services.deployment.DeploymentDescriptor">
+            <field name="target">
+              <object type="org.exoplatform.services.deployment.DeploymentDescriptor$Target">
+                <field name="workspace">
+                  <string>collaboration</string>
+                </field>
+                <field name="nodePath">
+                  <string>/sites/{portalName}/web contents/site artifacts</string>
+                </field>
+              </object>
+            </field>
+            <field name="sourcePath">
+              <string>war:/conf/sample-portal/wcm/artifacts/site-resources/WAIPortal/WAIPortal_FR.xml</string>
+            </field>
+          </object>
+        </object-param>
+        <object-param>
+          <name>Accessibility content</name>
+          <description>Deployment Descriptor</description>
+          <object type="org.exoplatform.services.deployment.DeploymentDescriptor">
+            <field name="target">
+              <object type="org.exoplatform.services.deployment.DeploymentDescriptor$Target">
+                <field name="workspace">
+                  <string>collaboration</string>
+                </field>
+                <field name="nodePath">
+                  <string>/sites/{portalName}/web contents</string>
+                </field>
+              </object>
+            </field>
+            <field name="sourcePath">
+              <string>war:/conf/sample-portal/wcm/artifacts/site-resources/WAIPortal/Accessibility.xml</string>
+            </field>
+          </object>
+        </object-param>
+        
+      </init-params>
+    </component-plugin>
+    
+    <component-plugin>
+      <name>template-WAIPortal-taxonomy-tree</name>
+      <set-method>addPlugin</set-method>
+      <type>org.exoplatform.services.wcm.category.CreateTaxonomyPlugin</type>
+      <description>This plugin deploy taxonomy tree to categories folder of portal when a portal is created</description>
+      <init-params>
+        <value-param>
+          <name>autoCreateWithNewSite</name>
+          <value>true</value>
+        </value-param>
+        <value-param>
+          <name>workspace</name>
+          <value>collaboration</value>
+        </value-param>
+        <value-param>
+          <name>path</name>
+          <value>/sites/{portalName}/categories</value>
+        </value-param>
+        <value-param>
+          <name>treeName</name>
+          <value>{treeName}</value>
+        </value-param>
+        <object-param>
+          <name>permission.configuration</name>
+          <object type="org.exoplatform.services.cms.taxonomy.impl.TaxonomyConfig">
+            <field name="taxonomies">
+              <collection type="java.util.ArrayList">
+                <value>
+                  <object type="org.exoplatform.services.cms.taxonomy.impl.TaxonomyConfig$Taxonomy">
+                    <field name="permissions">
+                      <collection type="java.util.ArrayList">
+                        <value>
+                          <object type="org.exoplatform.services.cms.taxonomy.impl.TaxonomyConfig$Permission">
+                            <field name="identity">
+                              <string>any</string>
+                            </field>
+                            <field name="read">
+                              <string>true</string>
+                            </field>
+                            <field name="addNode">
+                              <string>false</string>
+                            </field>
+                            <field name="setProperty">
+                              <string>false</string>
+                            </field>
+                            <field name="remove">
+                              <string>false</string>
+                            </field>
+                          </object>
+                        </value>
+                        <value>
+                          <object type="org.exoplatform.services.cms.taxonomy.impl.TaxonomyConfig$Permission">
+                            <field name="identity">
+                              <string>*:/platform/administrators</string>
+                            </field>
+                            <field name="read">
+                              <string>true</string>
+                            </field>
+                            <field name="addNode">
+                              <string>true</string>
+                            </field>
+                            <field name="setProperty">
+                              <string>true</string>
+                            </field>
+                            <field name="remove">
+                              <string>true</string>
+                            </field>
+                          </object>
+                        </value>
+                        <value>
+                          <object type="org.exoplatform.services.cms.taxonomy.impl.TaxonomyConfig$Permission">
+                            <field name="identity">
+                              <string>*:/platform/web-contributors</string>
+                            </field>
+                            <field name="read">
+                              <string>true</string>
+                            </field>
+                            <field name="addNode">
+                              <string>true</string>
+                            </field>
+                            <field name="setProperty">
+                              <string>true</string>
+                            </field>
+                            <field name="remove">
+                              <string>true</string>
+                            </field>
+                          </object>
+                        </value>
+                      </collection>
+                    </field>
+                  </object>
+                </value>
+              </collection>
+            </field>
+          </object>
+        </object-param>
+        <object-param>
+          <name>predefined.actions</name>
+          <description>description</description>
+          <object type="org.exoplatform.services.cms.actions.impl.ActionConfig">
+            <field name="actions">
+              <collection type="java.util.ArrayList">
+                <value>
+                  <object type="org.exoplatform.services.cms.actions.impl.ActionConfig$TaxonomyAction">
+                    <field name="type">
+                      <string>exo:taxonomyAction</string>
+                    </field>
+                    <field name="name">
+                      <string>taxonomyAction</string>
+                    </field>
+                    <field name="description">
+                      <string/>
+                    </field>
+                    <field name="homePath">
+                      <string>collaboration:/sites/{portalName}/categories/{treeName}</string>
+                    </field>
+                    <field name="targetWspace">
+                      <string>collaboration</string>
+                    </field>
+                    <field name="targetPath">
+                      <string>/sites/{portalName}/web contents</string>
+                    </field>
+                    <field name="lifecyclePhase">
+                      <collection type="java.util.ArrayList">
+                        <value>
+                          <string>node_added</string>
+                        </value>
+                      </collection>
+                    </field>
+                    <field name="roles">
+                      <string>*:/platform/users</string>
+                    </field>
+                    <field name="mixins">
+                      <collection type="java.util.ArrayList">
+                        <value>
+                          <object type="org.exoplatform.services.cms.actions.impl.ActionConfig$Mixin">
+                            <field name="name">
+                              <string>mix:affectedNodeTypes</string>
+                            </field>
+                            <field name="properties">
+                              <string>exo:affectedNodeTypeNames=nt:file,exo:cssFile,exo:htmlFile,exo:jsFile,exo:webContent,exo:pictureOnHeadWebcontent,wai:siteSearchBox,wai:siteNavigationWebContent,wai:siteBreadcrumb,exo:link</string>
+                            </field>
+                          </object>
+                        </value>
+                      </collection>
+                    </field>
+                  </object>
+                </value>
+              </collection>
+            </field>
+          </object>
+        </object-param>
+        <object-param>
+          <name>taxonomy.configuration</name>
+          <description>configuration predefined taxonomies to inject in jcr</description>
+          <object type="org.exoplatform.services.cms.taxonomy.impl.TaxonomyConfig">
+            <field name="taxonomies">
+              <collection type="java.util.ArrayList">
+                <!-- Features taxonomy -->
+                <value>
+                  <object type="org.exoplatform.services.cms.taxonomy.impl.TaxonomyConfig$Taxonomy">
+                    <field name="name">
+                      <string>Features</string>
+                    </field>
+                    <field name="path">
+                      <string>/Features</string>
+                    </field>
+                    <field name="permissions">
+                      <collection type="java.util.ArrayList">
+                        <value>
+                          <object type="org.exoplatform.services.cms.taxonomy.impl.TaxonomyConfig$Permission">
+                            <field name="identity">
+                              <string>any</string>
+                            </field>
+                            <field name="read">
+                              <string>true</string>
+                            </field>
+                            <field name="addNode">
+                              <string>false</string>
+                            </field>
+                            <field name="setProperty">
+                              <string>false</string>
+                            </field>
+                            <field name="remove">
+                              <string>false</string>
+                            </field>
+                          </object>
+                        </value>
+                        <value>
+                          <object type="org.exoplatform.services.cms.taxonomy.impl.TaxonomyConfig$Permission">
+                            <field name="identity">
+                              <string>*:/platform/administrators</string>
+                            </field>
+                            <field name="read">
+                              <string>true</string>
+                            </field>
+                            <field name="addNode">
+                              <string>true</string>
+                            </field>
+                            <field name="setProperty">
+                              <string>true</string>
+                            </field>
+                            <field name="remove">
+                              <string>true</string>
+                            </field>
+                          </object>
+                        </value>
+                        <value>
+                          <object type="org.exoplatform.services.cms.taxonomy.impl.TaxonomyConfig$Permission">
+                            <field name="identity">
+                              <string>*:/platform/web-contributors</string>
+                            </field>
+                            <field name="read">
+                              <string>true</string>
+                            </field>
+                            <field name="addNode">
+                              <string>true</string>
+                            </field>
+                            <field name="setProperty">
+                              <string>true</string>
+                            </field>
+                            <field name="remove">
+                              <string>true</string>
+                            </field>
+                          </object>
+                        </value>
+                      </collection>
+                    </field>
+                  </object>
+                </value>
+                <!-- End of definition of Features taxonomy -->
+                <!-- Technology taxonomy -->
+                <value>
+                  <object type="org.exoplatform.services.cms.taxonomy.impl.TaxonomyConfig$Taxonomy">
+                    <field name="name">
+                      <string>Technology</string>
+                    </field>
+                    <field name="path">
+                      <string>/Technology</string>
+                    </field>
+                    <field name="permissions">
+                      <collection type="java.util.ArrayList">
+                        <value>
+                          <object type="org.exoplatform.services.cms.taxonomy.impl.TaxonomyConfig$Permission">
+                            <field name="identity">
+                              <string>any</string>
+                            </field>
+                            <field name="read">
+                              <string>true</string>
+                            </field>
+                            <field name="addNode">
+                              <string>false</string>
+                            </field>
+                            <field name="setProperty">
+                              <string>false</string>
+                            </field>
+                            <field name="remove">
+                              <string>false</string>
+                            </field>
+                          </object>
+                        </value>
+                        <value>
+                          <object type="org.exoplatform.services.cms.taxonomy.impl.TaxonomyConfig$Permission">
+                            <field name="identity">
+                              <string>*:/platform/administrators</string>
+                            </field>
+                            <field name="read">
+                              <string>true</string>
+                            </field>
+                            <field name="addNode">
+                              <string>true</string>
+                            </field>
+                            <field name="setProperty">
+                              <string>true</string>
+                            </field>
+                            <field name="remove">
+                              <string>true</string>
+                            </field>
+                          </object>
+                        </value>
+                        <value>
+                          <object type="org.exoplatform.services.cms.taxonomy.impl.TaxonomyConfig$Permission">
+                            <field name="identity">
+                              <string>*:/platform/web-contributors</string>
+                            </field>
+                            <field name="read">
+                              <string>true</string>
+                            </field>
+                            <field name="addNode">
+                              <string>true</string>
+                            </field>
+                            <field name="setProperty">
+                              <string>true</string>
+                            </field>
+                            <field name="remove">
+                              <string>true</string>
+                            </field>
+                          </object>
+                        </value>
+                      </collection>
+                    </field>
+                  </object>
+                </value>
+                <!-- End of definition of Technology taxonomy -->
+                <!-- Competence taxonomy -->
+                <value>
+                  <object type="org.exoplatform.services.cms.taxonomy.impl.TaxonomyConfig$Taxonomy">
+                    <field name="name">
+                      <string>Competence</string>
+                    </field>
+                    <field name="path">
+                      <string>/Competence</string>
+                    </field>
+                    <field name="permissions">
+                      <collection type="java.util.ArrayList">
+                        <value>
+                          <object type="org.exoplatform.services.cms.taxonomy.impl.TaxonomyConfig$Permission">
+                            <field name="identity">
+                              <string>any</string>
+                            </field>
+                            <field name="read">
+                              <string>true</string>
+                            </field>
+                            <field name="addNode">
+                              <string>false</string>
+                            </field>
+                            <field name="setProperty">
+                              <string>false</string>
+                            </field>
+                            <field name="remove">
+                              <string>false</string>
+                            </field>
+                          </object>
+                        </value>
+                        <value>
+                          <object type="org.exoplatform.services.cms.taxonomy.impl.TaxonomyConfig$Permission">
+                            <field name="identity">
+                              <string>*:/platform/administrators</string>
+                            </field>
+                            <field name="read">
+                              <string>true</string>
+                            </field>
+                            <field name="addNode">
+                              <string>true</string>
+                            </field>
+                            <field name="setProperty">
+                              <string>true</string>
+                            </field>
+                            <field name="remove">
+                              <string>true</string>
+                            </field>
+                          </object>
+                        </value>
+                        <value>
+                          <object type="org.exoplatform.services.cms.taxonomy.impl.TaxonomyConfig$Permission">
+                            <field name="identity">
+                              <string>*:/platform/web-contributors</string>
+                            </field>
+                            <field name="read">
+                              <string>true</string>
+                            </field>
+                            <field name="addNode">
+                              <string>true</string>
+                            </field>
+                            <field name="setProperty">
+                              <string>true</string>
+                            </field>
+                            <field name="remove">
+                              <string>true</string>
+                            </field>
+                          </object>
+                        </value>
+                      </collection>
+                    </field>
+                  </object>
+                </value>
+                <!-- End of definition of Competence taxonomy -->
+                <!-- Customers taxonomy -->
+                <value>
+                  <object type="org.exoplatform.services.cms.taxonomy.impl.TaxonomyConfig$Taxonomy">
+                    <field name="name">
+                      <string>Customers</string>
+                    </field>
+                    <field name="path">
+                      <string>/Customers</string>
+                    </field>
+                    <field name="permissions">
+                      <collection type="java.util.ArrayList">
+                        <value>
+                          <object type="org.exoplatform.services.cms.taxonomy.impl.TaxonomyConfig$Permission">
+                            <field name="identity">
+                              <string>any</string>
+                            </field>
+                            <field name="read">
+                              <string>true</string>
+                            </field>
+                            <field name="addNode">
+                              <string>false</string>
+                            </field>
+                            <field name="setProperty">
+                              <string>false</string>
+                            </field>
+                            <field name="remove">
+                              <string>false</string>
+                            </field>
+                          </object>
+                        </value>
+                        <value>
+                          <object type="org.exoplatform.services.cms.taxonomy.impl.TaxonomyConfig$Permission">
+                            <field name="identity">
+                              <string>*:/platform/administrators</string>
+                            </field>
+                            <field name="read">
+                              <string>true</string>
+                            </field>
+                            <field name="addNode">
+                              <string>true</string>
+                            </field>
+                            <field name="setProperty">
+                              <string>true</string>
+                            </field>
+                            <field name="remove">
+                              <string>true</string>
+                            </field>
+                          </object>
+                        </value>
+                        <value>
+                          <object type="org.exoplatform.services.cms.taxonomy.impl.TaxonomyConfig$Permission">
+                            <field name="identity">
+                              <string>*:/platform/web-contributors</string>
+                            </field>
+                            <field name="read">
+                              <string>true</string>
+                            </field>
+                            <field name="addNode">
+                              <string>true</string>
+                            </field>
+                            <field name="setProperty">
+                              <string>true</string>
+                            </field>
+                            <field name="remove">
+                              <string>true</string>
+                            </field>
+                          </object>
+                        </value>
+                      </collection>
+                    </field>
+                  </object>
+                </value>
+                <!-- End of definition of Customers taxonomy -->
+              </collection>
+            </field>
+          </object>
+        </object-param>
+      </init-params>
+    </component-plugin>
+
+    <component-plugin>
+      <name>template-WAIPortal-link</name>
+      <set-method>addPlugin</set-method>
+      <type>org.exoplatform.services.wcm.link.CreatePortalLinkPlugin</type>
+      <description>This plugin deploy some initial webcontent as site artifact to site artifact folder of portal when a portal is created</description>
+      <init-params>
+        <object-param>
+          <name>link01</name>
+          <description>Deployment Descriptor</description>
+          <object type="org.exoplatform.services.deployment.plugins.LinkDeploymentDescriptor">
+            <field name="sourcePath">
+              <string>${gatein.jcr.repository.default:repository}:collaboration:/sites/{portalName}/web contents/home</string>
+            </field>
+            <field name="targetPath">
+              <string>${gatein.jcr.repository.default:repository}:collaboration:/sites/{portalName}/categories/{portalName}</string>
+            </field>
+          </object>
+        </object-param>
+        <object-param>
+          <name>link02</name>
+          <description>Deployment Descriptor</description>
+          <object type="org.exoplatform.services.deployment.plugins.LinkDeploymentDescriptor">
+            <field name="sourcePath">
+              <string>${gatein.jcr.repository.default:repository}:collaboration:/sites/{portalName}/web contents/competence/prepare-your-team</string>
+            </field>
+            <field name="targetPath">
+              <string>${gatein.jcr.repository.default:repository}:collaboration:/sites/{portalName}/categories/{portalName}/Competence</string>
+            </field>
+          </object>
+        </object-param>
+        <object-param>
+          <name>link03</name>
+          <description>Deployment Descriptor</description>
+          <object type="org.exoplatform.services.deployment.plugins.LinkDeploymentDescriptor">
+            <field name="sourcePath">
+              <string>${gatein.jcr.repository.default:repository}:collaboration:/sites/{portalName}/web contents/competence/work-with-a-partner</string>
+            </field>
+            <field name="targetPath">
+              <string>${gatein.jcr.repository.default:repository}:collaboration:/sites/{portalName}/categories/{portalName}/Competence</string>
+            </field>
+          </object>
+        </object-param>
+        <object-param>
+          <name>link04</name>
+          <description>Deployment Descriptor</description>
+          <object type="org.exoplatform.services.deployment.plugins.LinkDeploymentDescriptor">
+            <field name="sourcePath">
+              <string>${gatein.jcr.repository.default:repository}:collaboration:/sites/{portalName}/web contents/customers/customer-success-stories</string>
+            </field>
+            <field name="targetPath">
+              <string>${gatein.jcr.repository.default:repository}:collaboration:/sites/{portalName}/categories/{portalName}/Customers</string>
+            </field>
+          </object>
+        </object-param>
+        <object-param>
+          <name>link05</name>
+          <description>Deployment Descriptor</description>
+          <object type="org.exoplatform.services.deployment.plugins.LinkDeploymentDescriptor">
+            <field name="sourcePath">
+              <string>${gatein.jcr.repository.default:repository}:collaboration:/sites/{portalName}/web contents/customers/subscription-support</string>
+            </field>
+            <field name="targetPath">
+              <string>${gatein.jcr.repository.default:repository}:collaboration:/sites/{portalName}/categories/{portalName}/Customers</string>
+            </field>
+          </object>
+        </object-param>
+        <object-param>
+          <name>link06</name>
+          <description>Deployment Descriptor</description>
+          <object type="org.exoplatform.services.deployment.plugins.LinkDeploymentDescriptor">
+            <field name="sourcePath">
+              <string>${gatein.jcr.repository.default:repository}:collaboration:/sites/{portalName}/web contents/features/portal-content</string>
+            </field>
+            <field name="targetPath">
+              <string>${gatein.jcr.repository.default:repository}:collaboration:/sites/{portalName}/categories/{portalName}/Features</string>
+            </field>
+          </object>
+        </object-param>
+        <object-param>
+          <name>link07</name>
+          <description>Deployment Descriptor</description>
+          <object type="org.exoplatform.services.deployment.plugins.LinkDeploymentDescriptor">
+            <field name="sourcePath">
+              <string>${gatein.jcr.repository.default:repository}:collaboration:/sites/{portalName}/web contents/features/social-collaboration</string>
+            </field>
+            <field name="targetPath">
+              <string>${gatein.jcr.repository.default:repository}:collaboration:/sites/{portalName}/categories/{portalName}/Features</string>
+            </field>
+          </object>
+        </object-param>
+        <object-param>
+          <name>link08</name>
+          <description>Deployment Descriptor</description>
+          <object type="org.exoplatform.services.deployment.plugins.LinkDeploymentDescriptor">
+            <field name="sourcePath">
+              <string>${gatein.jcr.repository.default:repository}:collaboration:/sites/{portalName}/web contents/features/the-platform-difference</string>
+            </field>
+            <field name="targetPath">
+              <string>${gatein.jcr.repository.default:repository}:collaboration:/sites/{portalName}/categories/{portalName}/Features</string>
+            </field>
+          </object>
+        </object-param>
+        <object-param>
+          <name>link09</name>
+          <description>Deployment Descriptor</description>
+          <object type="org.exoplatform.services.deployment.plugins.LinkDeploymentDescriptor">
+            <field name="sourcePath">
+              <string>${gatein.jcr.repository.default:repository}:collaboration:/sites/{portalName}/web contents/technology/integration</string>
+            </field>
+            <field name="targetPath">
+              <string>${gatein.jcr.repository.default:repository}:collaboration:/sites/{portalName}/categories/{portalName}/Technology</string>
+            </field>
+          </object>
+        </object-param>
+        <object-param>
+          <name>link10</name>
+          <description>Deployment Descriptor</description>
+          <object type="org.exoplatform.services.deployment.plugins.LinkDeploymentDescriptor">
+            <field name="sourcePath">
+              <string>${gatein.jcr.repository.default:repository}:collaboration:/sites/{portalName}/web contents/technology/technical-specifications</string>
+            </field>
+            <field name="targetPath">
+              <string>${gatein.jcr.repository.default:repository}:collaboration:/sites/{portalName}/categories/{portalName}/Technology</string>
+            </field>
+          </object>
+        </object-param>
+      </init-params>
+    </component-plugin>
+
+    <component-plugin>
+      <name>template-WAIPortal-publication</name>
+      <set-method>addPlugin</set-method>
+      <type>org.exoplatform.services.wcm.extensions.deployment.CreatePortalPublicationPlugin</type>
+      <description>Publication Deployment Plugin</description>
+      <init-params>
+        <object-param>
+          <name>pub01</name>
+          <description>Deployment Descriptor</description>
+          <object type="org.exoplatform.services.wcm.extensions.deployment.PublicationDeploymentDescriptor">
+            <field name="contents">
+              <collection type="java.util.ArrayList">
+                <value><string>collaboration:/sites/{portalName}/web contents/accessibility</string></value>
+                <value><string>collaboration:/sites/{portalName}/web contents/site artifacts/Footer</string></value>
+                <value><string>collaboration:/sites/{portalName}/web contents/home</string></value>
+                <value><string>collaboration:/sites/{portalName}/web contents/technology/integration</string></value>
+                <value><string>collaboration:/sites/{portalName}/web contents/technology/technical-specifications</string></value>
+                <value><string>collaboration:/sites/{portalName}/web contents/features/portal-content</string></value>
+                <value><string>collaboration:/sites/{portalName}/web contents/features/social-collaboration</string></value>
+                <value><string>collaboration:/sites/{portalName}/web contents/features/the-platform-difference</string></value>
+                <value><string>collaboration:/sites/{portalName}/web contents/customers/customer-success-stories</string></value>
+                <value><string>collaboration:/sites/{portalName}/web contents/customers/subscription-support</string></value>
+                <value><string>collaboration:/sites/{portalName}/web contents/competence/prepare-your-team</string></value>
+                <value><string>collaboration:/sites/{portalName}/web contents/competence/work-with-a-partner</string></value>
+              </collection>
+            </field>
+          </object>
+        </object-param>
+      </init-params>
+    </component-plugin>
+
+  </external-component-plugins>
+
+</configuration>

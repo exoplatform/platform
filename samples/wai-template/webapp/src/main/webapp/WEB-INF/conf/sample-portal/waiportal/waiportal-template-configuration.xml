@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!--
+
+    Copyright (C) 2009 eXo Platform SAS.
+    
+    This is free software; you can redistribute it and/or modify it
+    under the terms of the GNU Lesser General Public License as
+    published by the Free Software Foundation; either version 2.1 of
+    the License, or (at your option) any later version.
+    
+    This software is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+    Lesser General Public License for more details.
+    
+    You should have received a copy of the GNU Lesser General Public
+    License along with this software; if not, write to the Free
+    Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
+    02110-1301 USA, or see the FSF site: http://www.fsf.org.
+
+-->
+
+<configuration 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.exoplatform.org/xml/ns/kernel_1_2.xsd http://www.exoplatform.org/xml/ns/kernel_1_2.xsd"
+	xmlns="http://www.exoplatform.org/xml/ns/kernel_1_2.xsd">
+
+  <external-component-plugins>
+    <!-- The full qualified name of the UserPortalConfigService -->  
+    <target-component>org.exoplatform.portal.config.UserPortalConfigService</target-component>
+    <component-plugin>
+      <!-- The name of the plugin -->
+      <name>new.portal.config.user.listener</name>
+      <!-- The name of the method to call on the UserPortalConfigService in order to register the NewPortalConfigs -->
+      <set-method>initListener</set-method>
+      <!-- The full qualified name of the NewPortalConfigListener -->
+      <type>org.exoplatform.portal.config.NewPortalConfigListener</type>
+      <description>this listener init the portal configuration</description>
+      <init-params>
+        <value-param>
+          <name>default.portal</name>
+          <description>The default portal for checking db is empty or not</description>
+          <value>classic</value>
+        </value-param> 
+        <object-param>
+          <name>site.templates.location</name>
+          <description>description</description>
+          <object type="org.exoplatform.portal.config.SiteConfigTemplates">
+            <field name="location">
+              <string>war:/conf/sample-portal/waiportal</string>
+            </field>
+            <field name="portalTemplates">
+              <collection type="java.util.HashSet">
+                <value>
+                  <string>WAIPortal</string>
+                </value>
+              </collection>
+            </field>
+          </object>
+        </object-param>
+        <object-param>
+          <name>group.configuration</name>
+          <description>description</description>
+          <object type="org.exoplatform.portal.config.NewPortalConfig">
+            <field name="predefinedOwner">
+              <collection type="java.util.HashSet">
+                <value>
+                  <string>/platform/web-contributors</string>
+                </value>
+              </collection>
+            </field>
+            <field name="ownerType">
+              <string>group</string>
+            </field>
+            <field name="templateLocation">
+              <string>war:/conf/sample-portal/waiportal</string>
+            </field>
+          </object>
+        </object-param>
+      </init-params>
+    </component-plugin>
+  </external-component-plugins>
+
+</configuration>

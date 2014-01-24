@@ -1,0 +1,138 @@
+<%
+/**
+ * by The eXo Platform SAS
+ * Author : eXoPlatform
+            Nguyen The Vinh 
+ * Feb 21, 2012  
+*/
+import java.util.HashMap;
+import java.util.List;
+
+import javax.jcr.Node;
+import javax.portlet.PortletPreferences;
+
+import org.exoplatform.services.wcm.publication.WCMComposer;
+
+import org.exoplatform.webui.application.WebuiRequestContext;
+import org.exoplatform.webui.application.portlet.PortletRequestContext;
+import org.exoplatform.wcm.webui.clv.UICLVPortlet;
+import org.exoplatform.portal.application.PortalRequestContext;
+
+import org.exoplatform.web.url.navigation.NavigationResource;
+import org.exoplatform.web.url.navigation.NodeURL;
+
+import org.exoplatform.portal.webui.util.Util;
+import org.exoplatform.wcm.webui.Utils;
+import org.exoplatform.services.wcm.utils.WCMCoreUtils;
+import org.exoplatform.wcm.webui.reader.ContentReader;
+
+public void renderCategories() {
+  renderFixPageMenu("", "CategoryNavigationTemplate.label.home");  
+  renderCategoryMenu();
+  renderFixPageMenu("Accessibility", "CategoryNavigationTemplate.label.Accessibility");
+}
+
+public void renderFixPageMenu(page, label) {
+  PortletRequestContext portletRequestContext = WebuiRequestContext.getCurrentInstance();
+  PortletPreferences preferences = portletRequestContext.getRequest().getPreferences();
+  def folderPath = preferences.getValue(UICLVPortlet.PREFERENCE_ITEM_PATH, null);
+  def data = folderPath.split(":");
+  def repository = data[0];
+  def workspace = data[1];
+  def itemPath = data[2];    
+  //render the Home menu
+  def lblHome = _ctx.appRes(label);
+  
+  //build the url
+  PortalRequestContext portalRequestContext = Util.getPortalRequestContext();
+  NodeURL nodeURL = Util.getPortalRequestContext().createURL(NodeURL.TYPE);
+  NavigationResource resource = new NavigationResource(portalRequestContext.getSiteType(), portalRequestContext.getSiteName(), page);
+  nodeURL.setResource(resource);
+  def homeURL = nodeURL.toString();
+  
+  %>
+    <li><a href="$homeURL" class="TabLeft" rel="tooltip" data-placement="bottom" title="$lblHome">$lblHome</a></li>
+  <%
+}
+    
+private void renderCategoryMenu() {
+  PortletRequestContext portletRequestContext = WebuiRequestContext.getCurrentInstance();
+  PortletPreferences preferences = portletRequestContext.getRequest().getPreferences();
+  def folderPath = preferences.getValue(UICLVPortlet.PREFERENCE_ITEM_PATH, null);
+  def data = folderPath.split(":");
+  def repository = data[0];
+  def workspace = data[1];
+  def itemPath = data[2];
+    
+  //render category menu
+  WCMComposer wcmComposer = WCMCoreUtils.getService(WCMComposer.class);
+  HashMap<String, String> filters = new HashMap<String, String>();
+  filters = new HashMap<String, String>();
+  filters.put(WCMComposer.FILTER_MODE, Utils.getCurrentMode());  
+  
+  PortalRequestContext portalRequestContext = Util.getPortalRequestContext();
+  def selectedCategory = portalRequestContext.getRequestParameter("category-name");
+    
+  def categories = uicomponent.getCategories(false);
+  for (category in categories) {
+    def path = category.getPath();
+    def categoryName = category.getName();
+    def categoryTitle = category.getTitle();
+      
+    %>
+      <li><a href="javascript:void(0);" id="$categoryName" class="TabLeft" title="$categoryTitle">$categoryTitle</a>
+    <%
+      
+    //render sub menu  
+    List<Node> contents = wcmComposer.getContents(workspace, path, filters, WCMCoreUtils.getUserSessionProvider());    
+    if (contents != null && contents.size() > 0) {
+      %>
+        <ul style="display: block;" class="SubMenu">
+      <%
+      for (content in contents) {
+        def nodePath = content.getPath();
+        def nodeTitle = org.exoplatform.services.cms.impl.Utils.getTitle(content);
+      
+        //if content is a frozenNode, we'll get the original node 
+        if (content.isNodeType("nt:frozenNode")) {
+          String uuid = content.getProperty("jcr:frozenUuid").getString();
+          Node originalNode = content.getSession().getNodeByUUID(uuid);
+          nodePath = originalNode.getPath();
+          nodeTitle = org.exoplatform.services.cms.impl.Utils.getTitle(originalNode);
+        }
+        nodeTitle = ContentReader.getEscapeHtmlContent(nodeTitle);        
+        //build the url
+        NodeURL nodeURL = Util.getPortalRequestContext().createURL(NodeURL.TYPE);
+        NavigationResource resource = new NavigationResource(portalRequestContext.getSiteType(), portalRequestContext.getSiteName(), "");
+        nodeURL.setResource(resource);
+        nodeURL.setQueryParameterValue("category", categoryTitle);
+        nodeURL.setQueryParameterValue("category-name", categoryName);
+        nodeURL.setQueryParameterValue("content-title", nodeTitle);
+        nodeURL.setQueryParameterValue("content-id", "/" + repository + "/" + workspace + nodePath);
+        def contentURL = nodeURL.toString();
+        
+        %>
+          <li><a href="$contentURL" rel="tooltip" data-placement="bottom" title="$nodeTitle">$nodeTitle</a></li>
+        <%
+      }
+      
+      %>
+        </ul>
+      <%
+    }    
+    %>
+      </li>
+    <%
+  }  
+}  
+%>
+<div class="UISiteMapContainer">
+    <a name="WAIPortalSkipToContent"></a>
+    <h1 class="SiteMapTitle"><%=_ctx.appRes("Toolbar.SiteMap")%></h1>
+    <ul>
+    <%
+      renderCategories();
+    %>
+    </ul>
+</div>
+<div class="ClearFix">&nbsp;</div>

@@ -1,0 +1,56 @@
+<!--
+
+    Copyright (C) 2009 eXo Platform SAS.
+    
+    This is free software; you can redistribute it and/or modify it
+    under the terms of the GNU Lesser General Public License as
+    published by the Free Software Foundation; either version 2.1 of
+    the License, or (at your option) any later version.
+    
+    This software is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+    Lesser General Public License for more details.
+    
+    You should have received a copy of the GNU Lesser General Public
+    License along with this software; if not, write to the Free
+    Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
+    02110-1301 USA, or see the FSF site: http://www.fsf.org.
+
+-->
+
+<webui-configuration>  
+  <application>     
+    <init-params>
+      <param>
+        <name>application.resource.bundle</name>
+        <value>locale.portal.expression, locale.portal.services, locale.portal.webui, locale.portal.demo_webui</value>
+      </param>
+    </init-params>
+
+    <ui-component-root>org.exoplatform.portal.webui.workspace.UIPortalApplication</ui-component-root>    
+    <state-manager>org.exoplatform.portal.application.PortalStateManager</state-manager>
+
+    <application-lifecycle-listeners>       
+      <listener>org.exoplatform.portal.application.UserSiteLifeCycle</listener>
+      <listener>org.exoplatform.portal.application.PortalLogoutLifecycle</listener>
+      <listener>org.exoplatform.portal.application.PortalStatisticLifecycle</listener>
+      <listener>org.exoplatform.portal.application.PortalApplicationLifecycle</listener>
+      <listener>org.exoplatform.webui.application.MonitorApplicationLifecycle</listener>
+      <listener>org.exoplatform.portal.application.UserProfileLifecycle</listener>
+	  <listener>org.exoplatform.portal.application.localization.LocalizationLifecycle</listener> 
+    </application-lifecycle-listeners>
+
+    <events>
+      <event>
+        <event-name>portal.application.lifecycle.event</event-name>
+        <listener>org.exoplatform.webui.event.ConsoleEventMonitorListener</listener>
+      </event>
+
+      <event>
+        <event-name>portal.execution.lifecycle.event</event-name>
+        <listener>org.exoplatform.webui.event.ConsoleEventMonitorListener</listener>
+      </event>
+    </events>
+  </application>
+</webui-configuration>

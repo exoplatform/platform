@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bundle>
+  <Signin>
+    <welcome>Hoş geldiniz</welcome>
+    <login>Uturum Aç</login>
+    <logout>Oturumu Kapat</logout>
+    <language>
+      <en>İngilizce'ye geç</en>
+      <fr>Fransızca'ya geç</fr>
+    </language>
+    <register>Kayıt Ol</register>
+  </Signin>
+  <Toolbar>
+    <SkipToContent>İçeriğe geç</SkipToContent>
+    <SiteMap>Site Haritası</SiteMap>
+    <Accessibility>Erişilebilirlik</Accessibility>
+    <NormalSize>Normal Boy</NormalSize>
+    <MediumSize>Orta Boy</MediumSize>
+    <LargeSize>Büyük Boy</LargeSize>
+    <NormalContrast>Normal kontrast</NormalContrast>
+    <HighContrast>Yüksek contrast</HighContrast>
+    <Search>Arama</Search>
+  </Toolbar>
+  <Logo>
+    <GoHome>Ana sayfaya git</GoHome>
+  </Logo>
+  <acme>
+    <label>ACME şablonu</label>
+  </acme>  
+  <WAIPortal>
+    <label>Örnek erişilebilir Web site</label>
+  </WAIPortal>
+</bundle>

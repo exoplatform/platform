@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <artifactId>platform-sample-wai-template</artifactId>
+    <groupId>org.exoplatform.platform</groupId>
+      <version>4.0.x-SNAPSHOT</version>
+  </parent>
+  <artifactId>platform-sample-wai-template-webapp</artifactId>
+  <packaging>war</packaging>
+  <name>eXo WAI Template WAR</name>
+  <description>eXo WAI Template WAR</description>
+    <dependencies>
+        <dependency>
+            <groupId>org.exoplatform.commons</groupId>
+            <artifactId>commons-component-common</artifactId>
+            <scope>runtime</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.exoplatform.ecms</groupId>
+            <artifactId>ecms-core-services</artifactId>
+            <scope>runtime</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.exoplatform.ecms</groupId>
+            <artifactId>ecms-ext-authoring-services</artifactId>
+            <scope>runtime</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.exoplatform.kernel</groupId>
+            <artifactId>exo.kernel.container</artifactId>
+            <scope>runtime</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.gatein.portal</groupId>
+            <artifactId>exo.portal.component.portal</artifactId>
+            <scope>runtime</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.gatein.portal</groupId>
+            <artifactId>exo.portal.component.resources</artifactId>
+            <scope>runtime</scope>
+        </dependency>
+    </dependencies>
+    <build>
+        <finalName>platform-wai-template</finalName>
+    </build>
+</project>

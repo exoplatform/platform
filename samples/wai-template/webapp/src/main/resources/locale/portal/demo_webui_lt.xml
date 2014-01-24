@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bundle>
+  <Signin>
+    <welcome>Welcome</welcome>
+    <login>Login</login>
+    <logout>Logout</logout>
+    <language>
+      <en>Switch to English</en>
+      <fr>Switch to French</fr>
+    </language>
+    <register>Register</register>
+  </Signin>
+  <Toolbar>
+    <SkipToContent>Skip to content</SkipToContent>
+    <SiteMap>Site Map</SiteMap>
+    <Accessibility>Accessibility</Accessibility>
+    <NormalSize>Normal Size</NormalSize>
+    <MediumSize>Medium Size</MediumSize>
+    <LargeSize>Large Size</LargeSize>
+    <NormalContrast>Normal Contrast</NormalContrast>
+    <HighContrast>High Contrast</HighContrast>
+    <Search>Search</Search>
+  </Toolbar>
+  <Logo>
+    <GoHome>Go to Home</GoHome>
+  </Logo>
+  <acme>
+    <label>ACME Template</label>
+  </acme>  
+  <WAIPortal>
+    <label>Sample Accessible Website</label>
+  </WAIPortal>
+</bundle>

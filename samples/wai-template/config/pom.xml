@@ -2,15 +2,11 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <parent>
-    <artifactId>platform-sample</artifactId>
+    <artifactId>platform-sample-wai-template</artifactId>
     <groupId>org.exoplatform.platform</groupId>
-    <version>4.0.x-SNAPSHOT</version>
+      <version>4.0.x-SNAPSHOT</version>
   </parent>
-  <artifactId>platform-sample-wai-template</artifactId>
-  <packaging>pom</packaging>
-  <name>eXo WAI Template</name>
-  <description>eXo WAI Template</description> <modules>
-    <module>config</module>
-    <module>webapp</module>
-</modules>
+  <artifactId>platform-sample-wai-template-config</artifactId>
+  <packaging>jar</packaging>
+  <name>eXo Platform - WAI Template Config</name>
 </project>
