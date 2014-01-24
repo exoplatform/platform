@@ -88,7 +88,7 @@
               }
 %>
         <div class="joinSpace">
-                <a class="" href="javascript:void(0);" onclick="<%= findSpacesLink %>">
+                <a class="" href="<%= findSpacesLink %>">
                         <i class="uiIconPLFMan"></i>
                 <%=_ctx.appRes("UISpaceNavigationPortlet.label.Join")%>
                 </a>
