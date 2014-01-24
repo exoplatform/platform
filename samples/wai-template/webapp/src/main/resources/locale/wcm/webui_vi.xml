@@ -22,20 +22,20 @@
 <bundle>
   <UIPortalApplication>
     <title>
-      <abort>Abandonner</abort>
+      <abort>Hủy</abort>
     </title>
   </UIPortalApplication>
   
   <CategoryNavigationTemplate>
-  	<label>
-  		<home>Accueil</home>
-  <Accessibility>Accessibilité</Accessibility>
-  	</label>
-  </CategoryNavigationTemplate>  
+  <label>
+  <home>Trang chủ</home>
+  <Accessibility>Trợ năng</Accessibility>
+  </label>
+  </CategoryNavigationTemplate>
   
   <Breadcrumb>
-  	<label>
-  		<home>Accueil</home>
-  	</label>  
+  <label>
+  <home>Trang chủ</home>
+  </label>  
   </Breadcrumb>
 </bundle>
