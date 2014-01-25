@@ -9,7 +9,7 @@
          <Myactivities>My Activity Stream</Myactivities>
          <Myprofile>My Profile</Myprofile>
          <Myconnections>My Connections</Myconnections>
-         <Mywiki>My Wiki</Mywiki>
+         <Mywiki>Моя Wiki</Mywiki>
          <Mydashboard>My Dashboard</Mydashboard>
       </label>
    </UIUserNavigationPortlet>

@@ -2,7 +2,7 @@
 <bundle>
    <UIAdminToolbarPortlet>
       <action>
-         <AddPage>Add Page</AddPage>
+         <AddPage>Добавить страницу</AddPage>
          <EditNavigation>Navigation</EditNavigation>
          <Content>Content</Content>
          <Editor>Edit</Editor>
