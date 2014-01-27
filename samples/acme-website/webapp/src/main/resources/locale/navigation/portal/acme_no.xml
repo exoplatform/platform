@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bundle>
+  <portal>
+    <acme>
+      <overview>Overview</overview>
+      <products>Products</products>
+      <news>News</news>
+      <contactus>Questions?</contactus>
+      <newsletters>Newsletters</newsletters>
+      <confirmation>Contact Form Confirmation</confirmation>
+      <detail>Detaljer</detail>
+  <catalog>Catalog</catalog>
+      <printviewer>Print page</printviewer>
+      <searchResult>Søk</searchResult>
+      <newAccount>New Account</newAccount>
+      <groupnavigation>Group Navigation</groupnavigation>
+      <portalnavigation>Portal Navigation</portalnavigation>
+      <documents>Documents</documents>
+      <unifiedSearch>Søk</unifiedSearch>
+    </acme>
+  </portal>
+</bundle>
