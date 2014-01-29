@@ -45,7 +45,7 @@
 <ListShowCLVByStringInput>Parameter Name:</ListShowCLVByStringInput>
 <DetailTargetPageInputSet>Page for Detail:</DetailTargetPageInputSet>
 <DetailShowCLVByStringInput>Parameter Name:</DetailShowCLVByStringInput>
-<List>List</List>
+<List>Список</List>
 <Detail>Деталь</Detail>
 </label>
 <action>
@@ -55,14 +55,14 @@
 </UINavigationForm>
 <Visible>
 <label>
-<VisibleEnable>Yes</VisibleEnable>
-<VisibleDisable>No</VisibleDisable>
+<VisibleEnable>Да</VisibleEnable>
+<VisibleDisable>Нет</VisibleDisable>
 </label>
 </Visible>
 <Clickable>
 <label>
-<ClickableEnable>Yes</ClickableEnable>
-<ClickableDisable>No</ClickableDisable>
+<ClickableEnable>Да</ClickableEnable>
+<ClickableDisable>Нет</ClickableDisable>
 </label>
 </Clickable>
 <NavigationNodeInputSet>
@@ -90,12 +90,12 @@
 </NavigationSelectorPopupWindow>
 <ListTargetPageSelectorPopupWindow>
 <title>
-<UIPageSelector>Page Selector</UIPageSelector>
+<UIPageSelector>Указатель страницы</UIPageSelector>
 </title>
 </ListTargetPageSelectorPopupWindow>
 <DetailTargetPageSelectorPopupWindow>
 <title>
-<UIPageSelector>Page Selector</UIPageSelector>
+<UIPageSelector>Указатель страницы</UIPageSelector>
 </title>
 </DetailTargetPageSelectorPopupWindow>
 </bundle>

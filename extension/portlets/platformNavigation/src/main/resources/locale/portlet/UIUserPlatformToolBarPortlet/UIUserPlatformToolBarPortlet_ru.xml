@@ -7,8 +7,8 @@
 <network>My Connections</network>
 <wiki>Моя Wiki</wiki>
 <account>Settings</account>
-<language>Change Language</language>
-<logout>Logout</logout>
+<language>Изменить язык</language>
+<logout>Выйти</logout>
         <dashboard>My Dashboard</dashboard>
 </label>
 </UIUserPlatformToolBarPortlet>

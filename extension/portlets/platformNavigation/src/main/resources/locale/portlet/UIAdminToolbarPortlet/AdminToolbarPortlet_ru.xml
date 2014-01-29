@@ -3,11 +3,11 @@
    <UIAdminToolbarPortlet>
       <action>
          <AddPage>Добавить страницу</AddPage>
-         <EditNavigation>Navigation</EditNavigation>
-         <Content>Content</Content>
+         <EditNavigation>Навигация</EditNavigation>
+         <Content>Содержимое</Content>
          <Editor>Edit</Editor>
          <Page>Page</Page>
-         <Site>Site</Site>
+         <Site>Сайт</Site>
          <Layout>Edit Layout</Layout>
          <siteLayout>Layout</siteLayout>
          <ManagePages>Manage Pages</ManagePages>
@@ -21,25 +21,25 @@
 
   <UISEOForm>
     <label>
-      <title>Title:</title>  
-      <description>Description:</description>
-      <keywords>Keywords:</keywords>
-      <language>Language:</language>
-      <robots>Robots:</robots>
-      <sitemap>Sitemap:</sitemap>
+      <title>Название:</title>  
+      <description>Описание:</description>
+      <keywords>Ключевые слова:</keywords>
+      <language>Язык:</language>
+      <robots>Роботы:</robots>
+      <sitemap>Карта сайта:</sitemap>
       <sitemapvisible>Visible in sitemap</sitemapvisible>
   <isInherited>Inherited from parent page</isInherited>
-      <priority>Priority:</priority>
-      <frequency>Frequency:</frequency>
+      <priority>Приоритет:</priority>
+      <frequency>Частота:</frequency>
       <select-language>Select Language</select-language>
       <option>
-        <Always>Always</Always>
-        <Hourly>Hourly</Hourly>
-        <Daily>Daily</Daily>
-        <Weekly>Weekly</Weekly>
-        <Monthly>Monthly</Monthly>
-        <Yearly>Yearly</Yearly>
-        <Never>Never</Never>
+        <Always>Всегда</Always>
+        <Hourly>Каждый час</Hourly>
+        <Daily>Ежедневно</Daily>
+        <Weekly>Еженедельно</Weekly>
+        <Monthly>Ежемесячно</Monthly>
+        <Yearly>Ежегодно</Yearly>
+        <Never>Никогда</Never>
       </option> 
     </label>
  
@@ -49,13 +49,13 @@
     </action>
     <msg>
       <repository-exception>An unexpected error occurred. Cannot save page metadata.</repository-exception>
-      <confirm-delete>Are you sure you want to delete these SEO data?</confirm-delete>
+      <confirm-delete>Вы уверены, что вы хотите удалить эти данные SEO?</confirm-delete>
     </msg>
     <title>
     <seo-delete>Delete</seo-delete>
     </title>
 <help> 
-  <priority>Valid values range from 0.0 to 1.0.</priority>
+  <priority>Диапазон допустимых значений от 0.0 до 1.0.</priority>
   <description>Help searchers: let them know that the following page has a link with what they are looking for.</description>
   <keywords>Most important terms in the page must be separated by a comma.</keywords>  
     </help>  
@@ -67,7 +67,7 @@
   </UISEOPopupWindow>    
   <UISEOToolbarForm>
   <title>
-      <seo>SEO Management</seo>
+      <seo>Управление SEO</seo>
   </title>
   <label>
     <seo>SEO</seo>
@@ -82,8 +82,8 @@
   <Locale>
     <label>      
       <it>Italian</it>      
-      <fr>French</fr>
-      <en>English</en>      
+      <fr>Французский</fr>
+      <en>Английский</en>      
     </label>
   </Locale>
   
