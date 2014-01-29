@@ -2,8 +2,8 @@
 <bundle>
 <UISetupPlatformToolBarPortlet>
 <label>
-<applications>Applications</applications>
-<content>Content</content>
+<applications>Приложения</applications>
+<content>Содержимое</content>
 <siteExplorer>Sites Explorer</siteExplorer>
 <wcmAdmin>Content Administration</wcmAdmin>
 <users>Пользователи</users>
@@ -12,7 +12,7 @@
 <portal>Портал</portal>
 <administration>Administration</administration>
 <groupnavigation>Group Sites</groupnavigation>
-<pageManagement>Pages</pageManagement>
+<pageManagement>Страницы</pageManagement>
 <portalnavigation>Sites</portalnavigation>
 <servicesManagement>Management</servicesManagement>
 <monitoring>Monitoring</monitoring>

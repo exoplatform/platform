@@ -31,8 +31,8 @@
   <msg name="forums.statistic.at">at</msg>  
   <msg name="forums.weekly.statistic.title">Forums Weekly Statistics</msg>
   <msg name="forums.weekly.statistic.post.open">Post(s) Created</msg>
-  <msg name="forums.weekly.statistic.next">Next</msg>
-  <msg name="forums.weekly.statistic.prev">Previous</msg>
+  <msg name="forums.weekly.statistic.next">Далее</msg>
+  <msg name="forums.weekly.statistic.prev">Предыдущий</msg>
   <msg name="forums.weekly.statistic.view.chart">View as chart</msg>
   <msg name="forums.weekly.statistic.view.list">View as list</msg>
   <msg name="forums.statistic.see.total.statistic">Global Statistics</msg>

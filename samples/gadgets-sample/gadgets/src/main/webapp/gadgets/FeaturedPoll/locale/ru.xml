@@ -21,15 +21,15 @@
 -->
 <messagebundle>
   <msg name="title">Featured Poll</msg>
-  <msg name="setting">View</msg>
+  <msg name="setting">Показать</msg>
   <msg name="vote">Vote</msg>
-  <msg name="voteAgain">Vote Again</msg>
+  <msg name="voteAgain">Проголосовать еще раз</msg>
   <msg name="warning">Please choose at least one option</msg>
-  <msg name="option">Options</msg>
+  <msg name="option">Параметры</msg>
   <msg name="percent">Percent</msg>
   <msg name="voter">Voters</msg>
   <msg name="total">Total</msg>
-  <msg name="discuss">Discuss in Forum</msg>
+  <msg name="discuss">Обсудить на форуме</msg>
   <msg name="nopoll">No Polls Yet</msg>  
   <msg name="createPoll">Create Your Own Poll</msg>    
 </messagebundle>
