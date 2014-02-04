@@ -22,28 +22,34 @@
 <configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://www.exoplatform.org/xml/ns/kernel_1_2.xsd http://www.exoplatform.org/xml/ns/kernel_1_2.xsd"
   xmlns="http://www.exoplatform.org/xml/ns/kernel_1_2.xsd">
+
+  <component>
+    <key>org.infinispan.transaction.lookup.TransactionManagerLookup</key>
+    <type>org.exoplatform.services.transaction.infinispan.JBossStandaloneJTAManagerLookup</type>
+  </component>
+
   <component>
     <key>org.exoplatform.services.transaction.TransactionService</key>
-    <type>org.exoplatform.services.transaction.jbosscache.JBossTransactionsService</type>
+    <type>org.exoplatform.services.transaction.infinispan.JBossTransactionsService</type>
     <init-params>
       <value-param>
         <name>timeout</name>
-        <value>${gatein.jcr.transaction.timeout:420}</value>
+        <value>3000</value>
       </value-param>
     </init-params>
   </component>
   
   <component>
     <key>org.exoplatform.services.cache.ExoCacheFactory</key>
-    <type>org.exoplatform.services.cache.impl.jboss.ExoCacheFactoryImpl</type>
+    <type>org.exoplatform.services.cache.impl.infinispan.ExoCacheFactoryImpl</type>
     <init-params>
       <value-param>
         <name>cache.config.template</name>
-        <value>${exo.cache.config.template:jar:/conf/platform/cache/jbosscache/local/cache-config.xml}</value>
+        <value>${exo.cache.config.template:war:/conf/infinispan/local/config.xml}</value>
       </value-param>
       <value-param profiles="cluster">
         <name>cache.config.template</name>
-        <value>${exo.cache.config.template:jar:/conf/platform/cache/jbosscache/cluster/cache-config.xml}</value>
+        <value>${exo.cache.config.template:war:/conf/infinispan/cluster/config.xml}</value>
       </value-param>
     </init-params>
   </component>

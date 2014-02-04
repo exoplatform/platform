@@ -35,12 +35,12 @@
         <type>org.gatein.common.transaction.JTAUserTransactionLifecycleServiceImpl</type>
     </component>
     <component>
-        <key>org.jboss.cache.transaction.TransactionManagerLookup</key>
-        <type>org.jboss.cache.transaction.JBossStandaloneJTAManagerLookup</type>
+        <key>org.infinispan.transaction.lookup.TransactionManagerLookup</key>
+        <type>org.exoplatform.services.transaction.infinispan.JBossStandaloneJTAManagerLookup</type>
     </component>
     <component>
         <key>org.exoplatform.services.transaction.TransactionService</key>
-        <type>org.exoplatform.services.transaction.jbosscache.JBossTransactionsService</type>
+        <type>org.exoplatform.services.transaction.infinispan.JBossTransactionsService</type>
         <init-params>
             <value-param>
                 <name>timeout</name>

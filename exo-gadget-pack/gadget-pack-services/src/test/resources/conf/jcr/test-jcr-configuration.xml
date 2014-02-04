@@ -37,8 +37,7 @@
 	<component>
 		<type>org.exoplatform.services.jcr.impl.ext.action.SessionActionCatalog</type>
 	</component>
-	DataDistributionManager
-	
+
 	<external-component-plugins>
 		<target-component>org.exoplatform.services.naming.InitialContextInitializer</target-component>
 		<component-plugin>

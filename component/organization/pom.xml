@@ -111,6 +111,10 @@
       <artifactId>jcl-over-slf4j</artifactId>
       <scope>test</scope>
     </dependency>
+      <dependency>
+          <groupId>org.exoplatform.kernel</groupId>
+          <artifactId>exo.kernel.component.ext.cache.impl.infinispan.v5</artifactId>
+      </dependency>
   </dependencies>
   <build>
     <plugins>

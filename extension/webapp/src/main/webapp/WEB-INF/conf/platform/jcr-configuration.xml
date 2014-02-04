@@ -38,19 +38,4 @@
    <component>
       <type>org.exoplatform.services.rest.ext.service.RestServicesListApplication</type>
    </component>
-   <external-component-plugins>
-    <target-component>org.exoplatform.services.jcr.config.RepositoryServiceConfiguration</target-component>
-    <component-plugin>
-      <name>Sample RepositoryServiceConfiguration Plugin</name>
-      <set-method>addConfig</set-method>
-      <type>org.exoplatform.services.jcr.impl.config.RepositoryServiceConfigurationPlugin</type>
-      <init-params>
-        <value-param>
-          <name>conf-path</name>
-          <description>JCR configuration file</description>
-          <value>war:/conf/platform/repository-configuration.xml</value>
-        </value-param>
-      </init-params>
-    </component-plugin>
-  </external-component-plugins>
 </configuration>
