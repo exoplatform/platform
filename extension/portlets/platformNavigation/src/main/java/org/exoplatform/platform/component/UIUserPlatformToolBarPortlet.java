@@ -17,6 +17,7 @@
 package org.exoplatform.platform.component;
 
 import org.exoplatform.container.ExoContainer;
+import org.exoplatform.platform.common.navigation.NavigationUtils;
 import org.exoplatform.platform.webui.NavigationURLUtils;
 import org.exoplatform.portal.config.UserPortalConfig;
 import org.exoplatform.portal.mop.SiteKey;
@@ -25,8 +26,9 @@ import org.exoplatform.portal.mop.user.UserNavigation;
 import org.exoplatform.portal.mop.user.UserNode;
 import org.exoplatform.portal.mop.user.UserPortal;
 import org.exoplatform.portal.webui.util.Util;
-import org.exoplatform.services.organization.OrganizationService;
-import org.exoplatform.services.organization.User;
+import org.exoplatform.services.log.ExoLogger;
+import org.exoplatform.services.log.Log;
+import org.exoplatform.services.security.ConversationRegistry;
 import org.exoplatform.social.core.identity.model.Identity;
 import org.exoplatform.social.core.identity.provider.OrganizationIdentityProvider;
 import org.exoplatform.social.core.service.LinkProvider;
@@ -46,24 +48,45 @@ import java.util.Collections;
 template = "app:/groovy/platformNavigation/portlet/UIUserPlatformToolBarPortlet/UIUserPlatformToolBarPortlet.gtmpl")
 public class UIUserPlatformToolBarPortlet extends UIPortletApplication {
 
+    private static final Log LOG = ExoLogger.getLogger(UIUserPlatformToolBarPortlet.class);
     private String currentPortalName = null;
     private boolean socialPortal = false;
     private static final String USER = "/user/";
     private static final String WIKI_HOME = "/WikiHome";
     private static final String WIKI_REF = "wiki";
+    private ConversationRegistry conversationRegistry;
+    public UIUserPlatformToolBarPortlet() throws Exception {
+        this.conversationRegistry = conversationRegistry;
 
-  public UIUserPlatformToolBarPortlet() throws Exception {
+    }
 
-  }
+    public String getFullName() throws Exception {
 
+        // --- Full Name to be loaded fromConversationState
+        String fullName = "";
 
+        // --- Load the Full name from the ConversationState else use Social API to load firstName and lastName
+        fullName = NavigationUtils.getUserFromConversationState(true);
 
-  public User getUser() throws Exception {
-    OrganizationService service = getApplicationComponent(OrganizationService.class);
-    String userName = Util.getPortalRequestContext().getRemoteUser();
-    User user = service.getUserHandler().findUserByName(userName);
-    return user;
-  }
+        //--- return the FullName from ConversationState if exist
+        if (NavigationUtils.present(fullName)) {
+            if (LOG.isDebugEnabled()) {
+                LOG.debug("loading ["+fullName+"] from Conversation State");
+            }
+            return fullName;
+        }
+
+        //---Load User from Social Identity
+        Identity viewerIdentity = Utils.getViewerIdentity(true);
+        if (viewerIdentity != null) {
+            fullName = viewerIdentity.getProfile().getFullName();
+            if (LOG.isDebugEnabled()) {
+                LOG.debug("IdentityManager : loaded ["+fullName+"] from social Profile");
+            }
+        }
+        return fullName;
+    }
+
 
   private String getCurrentPortalName() {
     return Util.getPortalRequestContext().getPortalOwner();
