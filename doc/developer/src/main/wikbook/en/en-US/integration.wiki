@@ -8,7 +8,7 @@ When logging into the portal, you can gain access to many systems through portle
 
 h2. Central Authentication Service (CAS) {anchor:id=DEV.SystemIntegration.CenterAuthenticationService}
 
-Central Authentication Service (CAS) is a Web Single-Sign-On (WebSSO), developed by JA-SIG as an open source project. CAS enables you to work on different applications to log in only once and to be recognized and authenticated by all applications. Details about CAS can be found [here|http://www.ja-sig.org/products/cas/].
+Central Authentication Service (CAS) is a Web Single-Sign-On (WebSSO), developed by JA-SIG as an open source project. CAS enables you to work on different applications to log in only once and to be recognized and authenticated by all applications. Details about CAS can be found [here|http://www.ja-sig.org/cas].
 
 The CAS integration consists of two steps:
 
