@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bundle>
+  <portal>
+    <acme>
+      <overview>概述</overview>
+      <products>產品</products>
+      <news>新聞</news>
+      <contactus>什麼問題嗎？</contactus>
+      <newsletters>新聞快遞</newsletters>
+      <confirmation>聯繫表單確認</confirmation>
+      <detail>詳細資料</detail>
+  <catalog>目錄</catalog>
+      <printviewer>列印頁面</printviewer>
+      <searchResult>搜索</searchResult>
+      <newAccount>新增帳號</newAccount>
+      <groupnavigation>導航群組</groupnavigation>
+      <portalnavigation>入口網站導航</portalnavigation>
+      <documents>文件</documents>
+      <unifiedSearch>搜索</unifiedSearch>
+    </acme>
+  </portal>
+</bundle>

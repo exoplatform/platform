@@ -74,6 +74,9 @@
    </UICreateEvent>
     <UIUploadFile>
         <Select>حدّد الملف</Select>
+        <action>
+          <close>#{word.close}</close>
+        </action>
     </UIUploadFile>
    <Choix>
       <label>

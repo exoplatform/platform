@@ -2,13 +2,13 @@
 <bundle>
  <UISpaceNavigationPortlet>
      <label>
-         <Spaces>My Spaces</Spaces>
-         <Join>Join a space</Join>
-         <see>Show {0} More Spaces</see>
+         <Spaces>Мои области</Spaces>
+         <Join>Присоединиться к области</Join>
+         <see>Показать {0} больше областей</see>
      </label>
      <msg>
-         <filter-spaces>Search Spaces</filter-spaces>
-         <no-space>No space found</no-space>
+         <filter-spaces>Поиск областей</filter-spaces>
+         <no-space>Область не найдена</no-space>
      </msg>
 
 </UISpaceNavigationPortlet>
