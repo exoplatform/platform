@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bundle>
+<UISetupPlatformToolBarPortlet>
+<label>
+<applications>應用程式</applications>
+<content>內容</content>
+<siteExplorer>網站資源管理器</siteExplorer>
+<wcmAdmin>內容管理員</wcmAdmin>
+<users>使用者</users>
+<newStaff>新增使用者</newStaff>
+<org-management>群組和角色</org-management>
+<portal>入口網站</portal>
+<administration>系統管理</administration>
+<groupnavigation>群組網站</groupnavigation>
+<pageManagement>頁面</pageManagement>
+<portalnavigation>網站</portalnavigation>
+<servicesManagement>管理</servicesManagement>
+<monitoring>監控</monitoring>
+<spaces>空間</spaces>
+<Branding>品牌</Branding>
+<ide>IDE</ide>
+<search>搜索</search>
+</label>
+</UISetupPlatformToolBarPortlet>
+</bundle>

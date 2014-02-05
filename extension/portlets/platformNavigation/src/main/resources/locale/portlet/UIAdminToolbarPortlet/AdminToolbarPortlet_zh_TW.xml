@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bundle>
+   <UIAdminToolbarPortlet>
+      <action>
+         <AddPage>新增頁面</AddPage>
+         <EditNavigation>導航</EditNavigation>
+         <Content>內容</Content>
+         <Editor>編輯</Editor>
+         <Page>頁面</Page>
+         <Site>網站</Site>
+         <Layout>編輯佈局</Layout>
+         <siteLayout>佈局</siteLayout>
+         <ManagePages>管理頁面</ManagePages>
+         <GroupSite>群組網站</GroupSite>
+         <Properties>#{UISEOToolbarForm.label.seo}</Properties>
+         <AddSite>新增網站</AddSite>
+      </action>
+<ManageSites>管理網站</ManageSites>
+<ManageGroupSites>管理群組網站</ManageGroupSites>
+   </UIAdminToolbarPortlet>
+
+  <UISEOForm>
+    <label>
+      <title>標題：</title>  
+      <description>描述：</description>
+      <keywords>關鍵字：</keywords>
+      <language>語言：</language>
+      <robots>機器人：</robots>
+      <sitemap>網站地圖：</sitemap>
+      <sitemapvisible>在網站地圖中可見</sitemapvisible>
+  <isInherited>繼承自父頁面</isInherited>
+      <priority>優先:</priority>
+      <frequency>頻率：</frequency>
+      <select-language>選擇語言</select-language>
+      <option>
+        <Always>總是</Always>
+        <Hourly>每小時</Hourly>
+        <Daily>每日</Daily>
+        <Weekly>每週</Weekly>
+        <Monthly>每月</Monthly>
+        <Yearly>每年</Yearly>
+        <Never>從來沒有</Never>
+      </option> 
+    </label>
+ 
+    <action>
+      <Save>#{word.save}</Save>
+      <Cancel>#{word.cancel}</Cancel>
+    </action>
+    <msg>
+      <repository-exception>出現意外的錯誤。不能保存頁面的中繼資料。</repository-exception>
+      <confirm-delete>您確定要刪除這些搜索引擎優化資料嗎?</confirm-delete>
+    </msg>
+    <title>
+    <seo-delete>刪除</seo-delete>
+    </title>
+<help> 
+  <priority>有效值範圍從 0.0 到 1.0。</priority>
+  <description>幫助搜索者： 他們正在尋找一個連結，讓他們知道下面的頁面有。</description>
+  <keywords>頁面中最重要的條款必須用逗號分隔。</keywords>  
+    </help>  
+  </UISEOForm>
+  <UISEOPopupWindow>
+  <title>
+      <UISEOForm>#{UISEOToolbarForm.title.seo}</UISEOForm>
+  </title>
+  </UISEOPopupWindow>    
+  <UISEOToolbarForm>
+  <title>
+      <seo>搜索引擎優化管理</seo>
+  </title>
+  <label>
+    <seo>搜索引擎優化</seo>
+  </label>
+  </UISEOToolbarForm>  
+  <FloatNumberValidator>
+    <msg>
+      <Invalid-number>優先順序欄位有一個無效值。請輸入一個數字，介於 0.0 和 1.0 之間。</Invalid-number>
+    </msg>
+  </FloatNumberValidator>
+  
+  <Locale>
+    <label>      
+      <it>義大利文</it>      
+      <fr>法文</fr>
+      <en>英文</en>      
+    </label>
+  </Locale>
+  
+</bundle>

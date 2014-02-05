@@ -74,6 +74,9 @@
    </UICreateEvent>
     <UIUploadFile>
         <Select>Datei auswählen</Select>
+        <action>
+          <close>#{word.close}</close>
+        </action>
     </UIUploadFile>
    <Choix>
       <label>

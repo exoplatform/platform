@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+
+    Copyright (C) 2009 eXo Platform SAS.
+    
+    This is free software; you can redistribute it and/or modify it
+    under the terms of the GNU Lesser General Public License as
+    published by the Free Software Foundation; either version 2.1 of
+    the License, or (at your option) any later version.
+    
+    This software is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+    Lesser General Public License for more details.
+    
+    You should have received a copy of the GNU Lesser General Public
+    License along with this software; if not, write to the Free
+    Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
+    02110-1301 USA, or see the FSF site: http://www.fsf.org.
+
+-->
+<messagebundle>  
+  <msg name="title">服務管理</msg>
+  <msg name="services">服務</msg>
+  <msg name="name">名稱</msg>
+  <msg name="description">描述</msg>
+  <msg name="noDescription">没有描述</msg>
+  <msg name="method">方法</msg>
+  <msg name="parameters">參數</msg>
+  <msg name="action">操作</msg>
+  <msg name="value">值</msg>
+  <msg name="services_url">服務 URL</msg>
+  <msg name="failManage">直到我們支持OAuth時，暫時不能管理其他主機服務</msg>
+  <msg name="noServices">沒有服務的提供或您沒有足夠權限</msg>
+  <msg name="noMethod">沒有方法</msg>
+  <msg name="noProperty">無屬性</msg>
+  <msg name="badURL">檢索資料時出錯請檢查您的 URL 偏好選項</msg>
+</messagebundle>

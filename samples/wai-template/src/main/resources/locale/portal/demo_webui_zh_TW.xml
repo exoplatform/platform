@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bundle>
+  <Signin>
+    <welcome>歡迎</welcome>
+    <login>登錄</login>
+    <logout>登出</logout>
+    <language>
+      <en>切換到英文</en>
+      <fr>切換到法文</fr>
+    </language>
+    <register>註冊</register>
+  </Signin>
+  <Toolbar>
+    <SkipToContent>跳過內容</SkipToContent>
+    <SiteMap>網站導覽</SiteMap>
+    <Accessibility>協助工具</Accessibility>
+    <NormalSize>正常大小</NormalSize>
+    <MediumSize>中等大小</MediumSize>
+    <LargeSize>大尺寸</LargeSize>
+    <NormalContrast>正常對比</NormalContrast>
+    <HighContrast>高對比</HighContrast>
+    <Search>搜索</Search>
+  </Toolbar>
+  <Logo>
+    <GoHome>回到首頁</GoHome>
+  </Logo>
+  <acme>
+    <label>ACME 範本</label>
+  </acme>  
+  <WAIPortal>
+    <label>訪問網站的範例</label>
+  </WAIPortal>
+</bundle>
