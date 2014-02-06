@@ -192,7 +192,8 @@ public class UISpaceNavigationPortlet extends UIPortletApplication {
             	spaceURL = spaceURL.substring(portalContainerName.length()+2);
             }
             String fullUrl = ((HttpServletRequest) pContext.getRequest()).getRequestURL().toString();
-            String subUrl = StringUtils.substringBefore(fullUrl,"/"+spaceURL);
+            String subUrl = StringUtils.substringBefore(fullUrl,Util.getPortalRequestContext().getRequest().getRequestURI());
+            subUrl +="/"+ portalContainerName;
             String applicationDisplayed = "";
             String constructURL =  fullUrl.substring(subUrl.length()+1);
             if (fullUrl.contains(SPACE_URL_PATTERN)) {
