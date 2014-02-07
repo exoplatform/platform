@@ -3,12 +3,12 @@
 #{param name=_ctx/}
 #{param name=groups/}
 <div id="notificationAdmin" class="uiNotificationAdmin">
-	<h4 class="titleWithBorder">${_ctx.appRes("NotificationAdmin.title")}</h4>
+	<h3 class="mgB20">${_ctx.appRes("NotificationAdmin.title")}</h3>
 	<div id="confirmMessage" style="display:none">
 		<i class="uiIconSuccess"></i><span class="message"></span>
 	</div>
 	<form id="senderForm" class="senderForm">
-		<h6>${_ctx.appRes("NotificationAdmin.label.notificationsSender")}</h6>
+		<h4 class="titleWithBorder mgB20">${_ctx.appRes("NotificationAdmin.label.notificationsSender")}</h4>
 		<div class="control-groups clearfix">
 			<label for="senderName" class="pull-left"> ${_ctx.appRes("NotificationAdmin.label.sender.name")}:&nbsp;</label>
 			<div class="pull-left">
@@ -22,7 +22,7 @@
 		</div>
 	</form>
 
-	<h6>${_ctx.appRes("NotificationAdmin.label.notificationTypes")}</h6>
+	<h4 class="titleWithBorder mgB20">${_ctx.appRes("NotificationAdmin.label.notificationTypes")}</h4>
 	<table class="uiGrid table  table-hover table-striped">
 	  <thead>
 	    <tr>
