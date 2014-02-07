@@ -32,7 +32,7 @@ import org.exoplatform.portal.config.model.PortalConfig;
 
 public class UpgradeGroupSiteLayoutPlugin extends UpgradeProductPlugin {
 
-    private static final Log LOG = ExoLogger.getLogger(UpgradeSpaceHomePagePlugin.class);
+    private static final Log LOG = ExoLogger.getLogger(UpgradeGroupSiteLayoutPlugin.class);
 
     private static final String GROUP_SITE_TEMPLATE_NAME = "group.site.template.name";
 

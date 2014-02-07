@@ -23,9 +23,10 @@ import org.exoplatform.social.core.service.LinkProvider;
 def isSpace = uicomponent.isSpace();
 def uicomponentId = uicomponent.getId();
 
+
 %>
 
-<link rel="stylesheet" type="text/css" href="/acme-intranet-portlet/skin/SpaceSummaryInfoPortlet/DefaultSkin/Stylesheet.css" ></link>
+<link rel="stylesheet" type="text/css" href="/acme-intranet-portlet/skin/css/SpaceSummaryInfoPortlet.css" ></link>
 
 <div class="UISpaceSummaryInfoPortlet" id="$uicomponentId">
 	<%

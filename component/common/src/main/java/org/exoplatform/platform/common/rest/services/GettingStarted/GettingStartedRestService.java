@@ -54,7 +54,7 @@ import java.util.List;
 @Produces(MediaType.APPLICATION_JSON)
 public class GettingStartedRestService implements ResourceContainer {
 
-    private static final Log log = ExoLogger.getLogger(GettingStartedRestService.class);
+    private static final Log LOG = ExoLogger.getLogger(GettingStartedRestService.class);
     private static final CacheControl cacheControl;
     static {
         RuntimeDelegate.setInstance(new RuntimeDelegateImpl());
@@ -117,7 +117,7 @@ public class GettingStartedRestService implements ResourceContainer {
                     .cacheControl(cacheControl)
                     .build();
         } catch (Exception e) {
-            log.debug("Error in gettingStarted REST service: " + e.getMessage(), e);
+            LOG.debug("Error in gettingStarted REST service: " + e.getMessage(), e);
             return Response.status(HTTPStatus.INTERNAL_ERROR).cacheControl(cacheControl).build();
         } finally {
             if (sProvider != null) {
@@ -145,7 +145,7 @@ public class GettingStartedRestService implements ResourceContainer {
             else
                 return false;
         } catch (Exception e) {
-            log.debug("Error in gettingStarted REST service: " + e.getMessage(), e);
+            LOG.debug("Error in gettingStarted REST service: " + e.getMessage(), e);
             return false;
         }
     }
@@ -162,7 +162,7 @@ public class GettingStartedRestService implements ResourceContainer {
             else
                 return false;
         } catch (Exception e) {
-            log.debug("Error in gettingStarted REST service: " + e.getMessage(), e);
+            LOG.debug("Error in gettingStarted REST service: " + e.getMessage(), e);
             return false;
         }
     }
@@ -197,7 +197,7 @@ public class GettingStartedRestService implements ResourceContainer {
             }
             else return false;
         } catch (Exception e) {
-            log.debug("Error in gettingStarted REST service: " + e.getMessage(), e);
+            LOG.debug("Error in gettingStarted REST service: " + e.getMessage(), e);
             return false;
         }
     }
@@ -219,7 +219,7 @@ public class GettingStartedRestService implements ResourceContainer {
             else
                 return false;
         } catch (Exception e) {
-            log.debug("Error in gettingStarted REST service: " + e.getMessage(), e);
+            LOG.debug("Error in gettingStarted REST service: " + e.getMessage(), e);
             return false;
         }
     }

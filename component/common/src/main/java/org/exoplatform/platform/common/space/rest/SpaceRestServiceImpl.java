@@ -18,7 +18,15 @@
  */
 package org.exoplatform.platform.common.space.rest;
 
-import java.util.*;
+import org.exoplatform.commons.utils.ListAccess;
+import org.exoplatform.container.PortalContainer;
+import org.exoplatform.services.log.ExoLogger;
+import org.exoplatform.services.log.Log;
+import org.exoplatform.services.rest.resource.ResourceContainer;
+import org.exoplatform.social.core.space.SpaceFilter;
+import org.exoplatform.social.core.space.model.Space;
+import org.exoplatform.social.core.space.spi.SpaceService;
+
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.QueryParam;
@@ -26,14 +34,7 @@ import javax.ws.rs.core.CacheControl;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.SecurityContext;
-import org.exoplatform.container.PortalContainer;
-import org.exoplatform.services.log.ExoLogger;
-import org.exoplatform.services.log.Log;
-import org.exoplatform.services.rest.resource.ResourceContainer;
-import org.exoplatform.social.core.space.SpaceFilter;
-import org.exoplatform.commons.utils.ListAccess;
-import org.exoplatform.social.core.space.model.Space;
-import org.exoplatform.social.core.space.spi.SpaceService;
+import java.util.*;
 /**
  * @author <a href="kmenzli@exoplatform.com">kmenzli</a>
  * @date 01/12/12
@@ -41,7 +42,7 @@ import org.exoplatform.social.core.space.spi.SpaceService;
 @Path("/space")
 public class SpaceRestServiceImpl implements ResourceContainer {
 
-    private static final Log logger = ExoLogger.getLogger(SpaceRestServiceImpl.class);
+    private static final Log LOG = ExoLogger.getLogger(SpaceRestServiceImpl.class);
 
     private final SpaceService spaceService;
 
@@ -61,6 +62,7 @@ public class SpaceRestServiceImpl implements ResourceContainer {
     @Path("/user/searchSpace/")
     public Response searchSpaces(@QueryParam("keyword") String keyword,@Context SecurityContext sc) {
         StringBuffer baseSpaceURL = null;
+        List<Space> spaces = new ArrayList<Space>();
         try {
 
             List<Space> alphabeticallySort = new ArrayList<Space>();
@@ -73,9 +75,15 @@ public class SpaceRestServiceImpl implements ResourceContainer {
             } else {
                 listAccess = spaceService.getMemberSpacesByFilter(userId, new SpaceFilter(keyword));
             }
+            //--- List of searchedSpaces
             List<Space> spacesSearched = Arrays.asList(listAccess.load(0, MAX_LOADED_SPACES_BY_REQUEST));
-            List<Space> spaces = spaceService.getLastAccessedSpace(userId, null, 0, MAX_LOADED_SPACES_BY_REQUEST);
-            List<Space> removedSpaces = new ArrayList<Space>();
+            //--- List of spaces sorted by access/alphabet
+            ListAccess<Space> allSpacesSorted = spaceService.getVisitedSpaces(userId, null);
+            //--- Convert user spaces to List collection
+            spaces = Arrays.asList(allSpacesSorted.load(0,MAX_LOADED_SPACES_BY_REQUEST));
+
+            List<Space> sortedSearchedSpaces = new ArrayList<Space>();
+
             for (Space space : spaces) {
                 baseSpaceURL = new StringBuffer();
 
@@ -94,23 +102,17 @@ public class SpaceRestServiceImpl implements ResourceContainer {
                     }
 
                     space.setUrl(baseSpaceURL.toString());
-                }
-                else {
-                    removedSpaces.add(space);
+
+                    sortedSearchedSpaces.add(space);
                 }
             }
 
-            spaces.removeAll(removedSpaces);
 
-            alphabeticallySort = alphabeticallySpaceSort (spaces,spacesSearched,spaceService);
-
-            spaces.addAll(alphabeticallySort);
-
-            return Response.ok(spaces, "application/json").cacheControl(cacheControl).build();
+            return Response.ok(sortedSearchedSpaces, "application/json").cacheControl(cacheControl).build();
 
         } catch (Exception ex) {
-            if (logger.isWarnEnabled()) {
-                logger.warn("An exception happens when searchSpaces", ex);
+            if (LOG.isWarnEnabled()) {
+                LOG.warn("An exception happens when searchSpaces", ex);
             }
         }
         return Response.status(500).cacheControl(cacheControl).build();
@@ -123,61 +125,4 @@ public class SpaceRestServiceImpl implements ResourceContainer {
         }
         return false;
     }
-
-    /**
-     * Return space not yet visdited by alphabetically
-     * @param renderedSpaces
-     * @param searchedSpaces
-     * @param spaceService
-     * @return
-     */
-    private static List<Space> alphabeticallySpaceSort(List<Space> renderedSpaces, List<Space> searchedSpaces, SpaceService spaceService) {
-        List<String> renderedSpacesId = new ArrayList<String>();
-        List<String> searchedSpacesId = new ArrayList<String>();
-        List<Space> alphabeticallySpaces = new ArrayList<Space>();
-        StringBuffer baseSpaceURL = null;
-
-        for (Space searchedSpace : searchedSpaces) {
-            searchedSpacesId.add(searchedSpace.getId());
-        }
-        for (Space renderedSpace : renderedSpaces) {
-            renderedSpacesId.add(renderedSpace.getId());
-        }
-        searchedSpacesId.removeAll(renderedSpacesId);
-
-        for (String spacesId : searchedSpacesId) {
-            alphabeticallySpaces.add(spaceService.getSpaceById(spacesId));
-        }
-        Collections.sort(alphabeticallySpaces,new Comparator<Space>()
-        {
-            public int compare(Space s1, Space f2)
-            {
-                return s1.getPrettyName().toString().compareTo(f2.getPrettyName().toString());
-            }
-        });
-
-        /** Build the correct space URL when it is rendered on left navigation*/
-        for (Space alphabeticallySpace : alphabeticallySpaces) {
-            baseSpaceURL = new StringBuffer();
-            baseSpaceURL.append(PortalContainer.getCurrentPortalContainerName()+ "/g/:spaces:") ;
-            String groupId = alphabeticallySpace.getGroupId();
-            String permanentSpaceName = groupId.split("/")[2];
-            if (permanentSpaceName.equals(alphabeticallySpace.getPrettyName())) {
-                baseSpaceURL.append(permanentSpaceName) ;
-                baseSpaceURL.append("/");
-                baseSpaceURL.append(permanentSpaceName) ;
-            } else {
-                baseSpaceURL.append(permanentSpaceName) ;
-                baseSpaceURL.append("/");
-                baseSpaceURL.append(alphabeticallySpace.getPrettyName()) ;
-            }
-            alphabeticallySpace.setUrl(baseSpaceURL.toString());
-
-        }
-
-        return alphabeticallySpaces;
-    }
-
-
-
 }

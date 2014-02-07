@@ -52,7 +52,7 @@ import java.util.List;
 @Produces("application/json")
 
 public class PeopleAndSpacesRestService implements ResourceContainer {
-    private static final Log log = ExoLogger.getLogger(PeopleAndSpacesRestService.class);
+    private static final Log LOG = ExoLogger.getLogger(PeopleAndSpacesRestService.class);
 
     private static final CacheControl cacheControl;
     private static final String OPENSOCIAL_VIEWER_ID = "opensocial_viewer_id" ;
@@ -145,7 +145,7 @@ public class PeopleAndSpacesRestService implements ResourceContainer {
             return Response.ok(jsonArray.toString(), MediaType.APPLICATION_JSON).cacheControl(cacheControl).build();
 
         } catch (Exception e) {
-            log.error("Error in space invitation rest service: " + e.getMessage(), e);
+            LOG.error("Error in space invitation rest service: " + e.getMessage(), e);
             return Response.ok("error").cacheControl(cacheControl).build();
         }
     }

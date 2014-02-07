@@ -18,6 +18,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.File;
 import java.io.IOException;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -36,6 +39,7 @@ public class UnlockService implements Startable {
 
     private static final Log LOG = ExoLogger.getExoLogger(UnlockService.class);
     private static String registrationFormUrl = null;
+    private static String defaultPingBackUrl = null;
     private static String extendFormUrl = null;
     private static String subscriptionUrl = null;
     private static String calledUrl = null;
@@ -57,6 +61,7 @@ public class UnlockService implements Startable {
         restContext = ExoContainerContext.getCurrentContainer().getContext().getRestContextName();
         this.productInformations = productInformations;
         registrationFormUrl = ((ValueParam) params.get("registrationFormUrl")).getValue();
+        defaultPingBackUrl = ((ValueParam) params.get("defaultPingBackUrl")).getValue();
         extendFormUrl = ((ValueParam) params.get("extendFormUrl")).getValue();
         subscriptionUrl = ((ValueParam) params.get("subscriptionUrl")).getValue();
         KEY_CONTENT = ((ValueParam) params.get("KeyContent")).getValue().trim();
@@ -363,6 +368,8 @@ public class UnlockService implements Startable {
             String hashMD5Added = request.getParameter("hashMD5");
             String pc = request.getParameter("pc");
             int delay;
+            boolean callPingBack = false;
+            String productEdition = "";
             if (hashMD5Added != null) {
                 try {
                     if((pc!=null)&&(!pc.equals(productCode)))
@@ -380,6 +387,12 @@ public class UnlockService implements Startable {
                     request.getRequestDispatcher("WEB-INF/jsp/welcome-screens/unlockTrial.jsp").include(request, response);
                     return;
                 }
+                try {
+                    productEdition = productInformations.getEdition();
+                } catch (MissingProductInformationException MPIE) {
+                    LOG.error("[Unlock Service] : cannot load le platform edition from JCR ",MPIE );
+                    productEdition = ProductInformations.EXPRESS_EDITION;
+                }
                 if (delay == -1) {
                     //shutDown executor -> unlimited duration so no need to computeUnlockInformation everyday
                     //to check if it's outdated
@@ -390,6 +403,13 @@ public class UnlockService implements Startable {
                     Utils.writeToFile(Utils.PRODUCT_CODE, productCode, Utils.HOME_CONFIG_FILE_LOCATION);
                     outdated = false;
                     isUnlocked = true; // to disappear the trial banner
+                   //--- call the enterprise ping back URL (only when the registered edition is and enterprise edition)
+                   if ((!callPingBack && (productEdition.equalsIgnoreCase(ProductInformations.ENTERPRISE_EDITION)))) {
+                       if(callPingBack()) {
+                           LOG.info("[Ping Back] : call to "+defaultPingBackUrl.concat("-ent")+" is done succesfully ");
+                           callPingBack = true;
+                       }
+                   }
                     if (UnlockService.getExecutor() != null)
                         executor.shutdown();
                     response.sendRedirect(UnlockService.calledUrl);
@@ -408,6 +428,13 @@ public class UnlockService implements Startable {
                         Utils.writeToFile(Utils.IS_EXTENDED, new String(Base64.encodeBase64("true".getBytes())) , Utils.HOME_CONFIG_FILE_LOCATION);
                         isUnlocked = true;
                     }
+                    //--- call the enterprise ping back URL (only when the registered edition is and enterprise edition)
+                    if ((!callPingBack && (productEdition.equalsIgnoreCase(ProductInformations.ENTERPRISE_EDITION)))) {
+                        if(callPingBack()) {
+                            LOG.info("[Ping Back] : call to "+defaultPingBackUrl.concat("-ent")+" is done succesfully ");
+                            callPingBack = true;
+                        }
+                    }
                     response.sendRedirect(UnlockService.calledUrl);
                     return;
                 } catch (Exception exception) {
@@ -423,6 +450,26 @@ public class UnlockService implements Startable {
         @Override
         protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
             doPost(request, response);
+        }
+        protected boolean callPingBack () {
+            String pingServerURL = defaultPingBackUrl.concat("-ent");
+            URL url = null;
+            HttpURLConnection urlConn = null;
+            try {
+                url = new URL(pingServerURL);
+                urlConn = (HttpURLConnection) url.openConnection();
+                urlConn.connect();
+                return (HttpURLConnection.HTTP_NOT_FOUND != urlConn.getResponseCode());
+            } catch (MalformedURLException e) {
+                LOG.error("[Ping Back Call] : Error creating HTTP connection to  : " + pingServerURL);
+
+            } catch (IOException e) {
+                LOG.error("[Ping Back Call] : Error creating HTTP connection to : " + pingServerURL);
+            } finally {
+                urlConn.disconnect();
+                LOG.info("[Ping Back Call] : connection to ["+pingServerURL+"] is released");
+            }
+            return false;
         }
     }
 }

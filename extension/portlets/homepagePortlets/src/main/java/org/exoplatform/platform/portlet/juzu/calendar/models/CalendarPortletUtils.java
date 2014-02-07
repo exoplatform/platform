@@ -17,7 +17,7 @@ import java.util.concurrent.ConcurrentHashMap;
  */
 public class CalendarPortletUtils {
 
-    private static final Log log = ExoLogger.getLogger(CalendarPortletUtils.class);
+    private static final Log LOG = ExoLogger.getLogger(CalendarPortletUtils.class);
     public final static String HOME_PAGE_CALENDAR_SETTINGS = "IntranetHomePageCalendarSettings";
     public final static int JOUR_MS = 86399999;
     private static ConcurrentHashMap<String, CalendarSetting> calendarSettingsByUserName = new ConcurrentHashMap<String, CalendarSetting>();
@@ -41,7 +41,7 @@ public class CalendarPortletUtils {
             CalendarSetting setting =getCalendarService().getCalendarSetting(user);
             return getCalendarInstanceBySetting(setting);
         } catch (Exception e) {
-            if (log.isWarnEnabled()) log.warn("Could not get calendar setting!", e);
+            if (LOG.isWarnEnabled()) LOG.warn("Could not get calendar setting!", e);
             Calendar calendar = Calendar.getInstance();
             calendar.setLenient(false);
             return calendar;
@@ -59,7 +59,7 @@ public class CalendarPortletUtils {
             }
             return setting;
         } catch (Exception e) {
-            log.warn("could not get calendar setting of user", e);
+            LOG.warn("could not get calendar setting of user", e);
             return null;
         }
 
@@ -81,5 +81,34 @@ public class CalendarPortletUtils {
         calendar.setMinimalDaysInFirstWeek(4);
         return calendar;
     }
+    public static Calendar getBeginDay(Calendar cal) {
+       Calendar newCal = (Calendar) cal.clone();
+       newCal.set(Calendar.HOUR_OF_DAY, 0) ;
+       newCal.set(Calendar.MINUTE, 0) ;
+       newCal.set(Calendar.SECOND, 0) ;
+       newCal.set(Calendar.MILLISECOND, 0) ;
+       return newCal ;
 
+    }
+    public static Calendar getEndDay(Calendar cal)  {
+       Calendar newCal = (Calendar) cal.clone();
+       newCal.set(Calendar.HOUR_OF_DAY, 0) ;
+       newCal.set(Calendar.MINUTE, 0) ;
+       newCal.set(Calendar.SECOND, 0) ;
+       newCal.set(Calendar.MILLISECOND, 0) ;
+       newCal.add(Calendar.HOUR_OF_DAY, 24) ;
+       return newCal ;
+    }
+
+    public static Calendar getCurrentCalendar() {
+      try {
+           CalendarSetting setting = getCurrentUserCalendarSetting();
+           return getCalendarInstanceBySetting(setting);
+            } catch (Exception e) {
+             if (LOG.isWarnEnabled()) LOG.warn("Could not get calendar setting!", e);
+             Calendar calendar = Calendar.getInstance() ;
+             calendar.setLenient(false);
+             return calendar;
+            }
+        }
 }

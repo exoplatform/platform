@@ -17,6 +17,8 @@
     <Locale lang="tr" messages="locale/tr.xml"/>
     <Locale lang="zh_CN" messages="locale/zh_CN.xml"/>
     <Locale lang="fi" messages="locale/fi.xml"/>
+    <Locale lang="lt" messages="locale/lt.xml"/>
+    <Locale lang="no" messages="locale/no.xml"/>
   </ModulePrefs>
   <Content type="html">
     <![CDATA[       
@@ -483,7 +485,7 @@
             $("#todayHeader a span").text("__MSG_loginHistory.today__");
             $("#earlierThisWeekHeader a span").text('__MSG_loginHistory.earlierThisWeek__');
             $("#earlierThisMonthHeader a span").text('__MSG_loginHistory.earlierThisMonth__');
-            $("#earlierHeader a span").text('<i class="__MSG_loginHistory.earlier__');
+            $("#earlierHeader a span").text('__MSG_loginHistory.earlier__');
             $("#selectedDayHeaderContainer").hide();
             showTodayLogins(userId);
             showEarlierThisWeekLogins(userId);

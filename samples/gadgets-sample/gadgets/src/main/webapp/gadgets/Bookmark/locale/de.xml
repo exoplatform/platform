@@ -29,7 +29,7 @@
   <msg name="url">URL</msg>
   <msg name="delete">Löschen</msg>
   <msg name="edit">Bearbeiten</msg>
-  <msg name="cancel">#{word.cancel}</msg>
+  <msg name="cancel">Abbrechen</msg>
   <msg name="emptyBookmarkPre">Sie haben kein Lesezeichen: Fügen Sie sie hinzu durch anklicken von</msg>
-  <msg name="emptyBookmarkSuf">Schaltfläche</msg>
+  <msg name="addBookmark">Add Bookmark</msg>
 </messagebundle>

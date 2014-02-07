@@ -12,6 +12,7 @@
 	  	uicomponent.renderChild(UINavigationNodeSelector.class);
 	  %>
 	</div>
+
   <div class="uiAction uiActionBorder"> 
     <a href="javascript:void(0);" onclick="<%=uicomponent.event("AddRootNode")%>" class="btn"><%=_ctx.appRes(uicomponent.getId() + ".action.addNode")%></a>
 		<a href="javascript:void(0);" onclick="<%=uicomponent.event("Save")%>" class="btn"><%=_ctx.appRes(uicomponent.getId() + ".action.Save")%></a>

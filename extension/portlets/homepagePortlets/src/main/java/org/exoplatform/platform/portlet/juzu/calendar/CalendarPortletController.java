@@ -33,6 +33,7 @@ import org.exoplatform.commons.api.settings.data.Context;
 import org.exoplatform.commons.api.settings.data.Scope;
 import org.exoplatform.commons.juzu.ajax.Ajax;
 import org.exoplatform.platform.portlet.juzu.calendar.models.CalendarPortletUtils;
+import org.exoplatform.portal.webui.util.Util;
 import org.exoplatform.services.log.ExoLogger;
 import org.exoplatform.services.log.Log;
 import org.exoplatform.services.organization.Group;
@@ -42,7 +43,6 @@ import org.gatein.common.text.EntityEncoder;
 
 import javax.inject.Inject;
 import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.util.*;
 import java.util.Calendar;
 
@@ -111,7 +111,7 @@ public class CalendarPortletController {
     @Inject
     SettingService settingService_;
 
-    private static final Log log = ExoLogger.getLogger(CalendarPortletController.class);
+    private static final Log LOG = ExoLogger.getLogger(CalendarPortletController.class);
 
     @Inject
     @Path("calendar.gtmpl")
@@ -144,25 +144,32 @@ public class CalendarPortletController {
         eventsDisplayedList.clear();
         String date_act = null;
         String username = RequestContext.getCurrentInstance().getRemoteUser();
-        Locale locale = RequestContext.getCurrentInstance().getLocale();
+        Locale locale =  Util.getPortalRequestContext().getLocale();
         DateFormat d = DateFormat.getDateInstance(DateFormat.SHORT, locale);
         DateFormat dTimezone = DateFormat.getDateInstance(DateFormat.SHORT, locale);
-        dTimezone.setCalendar(CalendarPortletUtils.getInstanceOfCurrentCalendar());
+        dTimezone.setCalendar(CalendarPortletUtils.getCurrentCalendar());
         Long date = new Date().getTime();
         int clickNumber = Integer.parseInt(nbclick);
         if (clickNumber != 0) date = incDecJour(date, clickNumber);
-        if(locale.getLanguage().equals("en")){
-            SimpleDateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy");
-            date_act = dateFormat.format(new Date(date));
-        }
-        else {
-            date_act = d.format(new Date(date));
-            SimpleDateFormat yearFormat = new SimpleDateFormat("yyyy");
-            String year = yearFormat.format(new Date(date));
-            String[] dateSplit = date_act.split("/");
-            if (dateSplit.length != 0) date_act = dateSplit[0] + "/" + dateSplit[1] + "/" + year;
-        }
-        Date comp = d.parse(date_act);
+        Date currentTime = new Date(date);
+        // Get Calendar object set to the date and time of the given Date object
+        Calendar cal =CalendarPortletUtils.getCurrentCalendar();
+        cal.setTime(currentTime);
+
+        // Set time fields to zero
+        cal.set(Calendar.HOUR_OF_DAY, 0);
+        cal.set(Calendar.MINUTE, 0);
+        cal.set(Calendar.SECOND, 0);
+        cal.set(Calendar.MILLISECOND, 0);
+
+        // Put it back in the Date object
+        currentTime = cal.getTime();
+        date_act = d.format(currentTime);
+        String delim =  getDateDelimiter(date_act);
+        if(delim != null && date_act.indexOf(delim) < 2 ) {
+             date_act = new StringBuffer("0").append(date_act).toString();
+               }
+         Date comp = currentTime;
         HashMap parameters = new HashMap();
         String defaultCalendarLabel = "Default";
         String dateLabel = "";
@@ -181,21 +188,21 @@ public class CalendarPortletController {
         }
 
         EntityEncoder.FULL.encode(dateLabel);
-        dateLabel = dateLabel + date_act;
+        dateLabel = new StringBuffer(dateLabel).append(date_act).toString();
         if (nonDisplayedCalendarList == null) {
             SettingValue settingNode = settingService_.get(Context.USER, Scope.APPLICATION, CalendarPortletUtils.HOME_PAGE_CALENDAR_SETTINGS);
             if ((settingNode != null) && (settingNode.getValue().toString().split(":").length == 2)) {
                 nonDisplayedCalendarList = settingNode.getValue().toString().split(":")[1].split(",");
             }
         }
-        List<CalendarEvent> userEvents = getEvents(username);
+        List<CalendarEvent> userEvents = getEvents(username,cal);
         if ((userEvents != null) && (!userEvents.isEmpty())) {
             Iterator itr = userEvents.iterator();
             while (itr.hasNext()) {
                 CalendarEvent event = (CalendarEvent) itr.next();
                 Date from = d.parse(dTimezone.format(event.getFromDateTime()));
                 Date to = d.parse(dTimezone.format(event.getToDateTime()));
-                if ((event.getEventType().equals(CalendarEvent.TYPE_EVENT)) && (from.compareTo(comp) <= 0) && (to.compareTo(comp) >= 0)) {
+                if ((event.getEventType().equals(CalendarEvent.TYPE_EVENT)) && (from.compareTo(d.parse(dTimezone.format(comp))) <= 0) && (to.compareTo(d.parse(dTimezone.format(comp))) >= 0)) {
                     if (!CalendarPortletUtils.contains(nonDisplayedCalendarList, event.getCalendarId())) {
                         org.exoplatform.calendar.service.Calendar calendar = calendarService_.getUserCalendar(username, event.getCalendarId());
                         if (calendar == null) {
@@ -369,7 +376,7 @@ public class CalendarPortletController {
             listgroupCalendar = calendarService_.getGroupCalendars(getUserGroups(username), true, username);
             listUserCalendar = calendarService_.getUserCalendars(username, true);
         } catch (Exception e) {
-            log.error("Error while checking User Calendar :" + e.getMessage(), e);
+            LOG.error("Error while checking User Calendar :" + e.getMessage(), e);
         }
         for (GroupCalendarData g : listgroupCalendar) {
             for (org.exoplatform.calendar.service.Calendar c : g.getCalendars()) {
@@ -383,22 +390,51 @@ public class CalendarPortletController {
         return list;
     }
 
-    List<CalendarEvent> getEvents(String username) {
+    List<CalendarEvent> getEvents(String username , Calendar cal) {
+
+        Map<String, Map<String, CalendarEvent>> recurrenceEventsMap   = new LinkedHashMap<String, Map<String, CalendarEvent>>();
         String[] calList = getCalendarsIdList(username);
+        Calendar begin = CalendarPortletUtils.getBeginDay(cal);
+        Calendar end =CalendarPortletUtils.getEndDay(cal) ;
+        end.add(Calendar.MILLISECOND, -1);
 
         EventQuery eventQuery = new EventQuery();
-
+        eventQuery.setFromDate(begin);
+        eventQuery.setToDate(end);
         eventQuery.setOrderBy(new String[]{Utils.EXO_FROM_DATE_TIME});
 
         eventQuery.setCalendarId(calList);
         List<CalendarEvent> userEvents = null;
         try {
             userEvents = calendarService_.getEvents(username, eventQuery, calList);
+            String timezone = CalendarPortletUtils.getCurrentUserCalendarSetting().getTimeZone();
+            List<CalendarEvent> originalRecurEvents = calendarService_.getOriginalRecurrenceEvents(username, eventQuery.getFromDate(), eventQuery.getToDate(),calList);
+                if (originalRecurEvents != null && originalRecurEvents.size() > 0) {
+                      Iterator<CalendarEvent> recurEventsIter = originalRecurEvents.iterator();
+                          while (recurEventsIter.hasNext()) {
+                             CalendarEvent recurEvent = recurEventsIter.next();
+                             Map<String,CalendarEvent> tempMap = calendarService_.getOccurrenceEvents(recurEvent, eventQuery.getFromDate(), eventQuery.getToDate(), timezone);
+                                if (tempMap != null) {
+                                      recurrenceEventsMap.put(recurEvent.getId(), tempMap);
+                                      userEvents.addAll(tempMap.values());
+                                      }
+                                }
+                      }
 
         } catch (Exception e) {
-            log.error("Error while checking User Events:" + e.getMessage(), e);
+            LOG.error("Error while checking User Events:" + e.getMessage(), e);
         }
         return userEvents;
     }
+    private String getDateDelimiter(String date) {
+       String[] availableDelimiter = {"/","-","."};
+       for (String delim : availableDelimiter) {
+            if (date.indexOf(delim) > 0) {
+                        return delim;
+                       }
+               }
+          return null;
+        }
 }
+
 
