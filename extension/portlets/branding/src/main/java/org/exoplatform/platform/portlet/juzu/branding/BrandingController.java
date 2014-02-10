@@ -106,6 +106,7 @@ public class BrandingController {
     parameters.put("urlUploadFile", BrandingController_.uploadFile(null));
     parameters.put("imageUrl", getLogoUrl(httpContext, true));
     ResourceBundle rs = renderContext.getApplicationContext().resolveBundle(renderContext.getUserContext().getLocale());
+    parameters.put("pagetitle", rs.getString("pagetitle.label"));
     parameters.put("selectlogo", rs.getString("selectlogo.label"));
     parameters.put("noteselectlogo", rs.getString("noteselectlogo.label"));
     parameters.put("upload", rs.getString("upload.label"));
