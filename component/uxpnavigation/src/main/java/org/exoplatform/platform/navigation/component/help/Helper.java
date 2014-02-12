@@ -52,7 +52,7 @@ public class Helper {
             String nav=Util.getUIPortal().getNavPath().getName();
             String url = Util.getPortalRequestContext().getRequest().getRequestURL().toString();
             if((url.contains("/:spaces:"))||(url.contains("/spaces/")))   {
-                if(url.contains("documents"))  {
+                if(url.contains("documents") && url.endsWith("/documents"))  {
                     return "space:document";
                 }
                 else if(url.contains("wiki")) {
