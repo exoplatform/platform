@@ -8,13 +8,13 @@
     <Require feature="dynamic-height" />
     <Locale messages="locale/default.xml" />
     <Locale lang="fr" messages="locale/fr.xml" />
-    <Locale lang="es" messages="locale/es_ES.xml" />
+    <Locale lang="es_ES" messages="locale/es_ES.xml" />
     <Locale lang="vi" messages="locale/vi.xml" />
-    <Locale lang="sv" messages="locale/sv_SE.xml"/>
+    <Locale lang="sv_SE" messages="locale/sv_SE.xml"/>
     <Locale lang="ja" messages="locale/ja.xml"/>
     <Locale lang="ar" messages="locale/ar.xml"/>
     <Locale lang="de" messages="locale/de.xml"/>
-    <Locale lang="pt" messages="locale/pt_BR.xml"/>
+    <Locale lang="pt_BR" messages="locale/pt_BR.xml"/>
     <Locale lang="it" messages="locale/it.xml"/>
     <Locale lang="ru" messages="locale/ru.xml"/>
     <Locale lang="tr" messages="locale/tr.xml"/>
