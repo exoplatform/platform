@@ -866,6 +866,21 @@
     </dependency>
     <dependency>
       <groupId>org.exoplatform.ecms</groupId>
+      <artifactId>exo-ecms-upgrade-waiportal-translations</artifactId>
+      <version>${org.exoplatform.ecms.version}</version>
+      <exclusions>
+      	<exclusion>
+          <groupId>org.exoplatform.jcr</groupId>
+          <artifactId>exo.jcr.component.ext</artifactId>
+        </exclusion>
+        <exclusion>
+          <groupId>org.exoplatform.ecms</groupId>
+          <artifactId>exo-ecms-core-services</artifactId>
+        </exclusion>
+      </exclusions>
+    </dependency>
+    <dependency>
+      <groupId>org.exoplatform.ecms</groupId>
       <artifactId>exo-ecms-upgrade-voting-nodetype</artifactId>
       <version>${org.exoplatform.ecms.version}</version>
       <exclusions>
