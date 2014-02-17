@@ -88,7 +88,7 @@ public class CommandHandler {
     int argsIndex = 4;
     if (args[2].contains("-u")) {
       environmentMap = new HashMap<String, Object>(1);
-      environmentMap.put("jmx.remote.credentials", new String[] { args[2].substring(1), args[3].substring(1) });
+      environmentMap.put("jmx.remote.credentials", new String[] { args[2].substring(2), args[3].substring(2) });
       argsIndex = 6;
     }
     beanName = args[argsIndex - 2];
