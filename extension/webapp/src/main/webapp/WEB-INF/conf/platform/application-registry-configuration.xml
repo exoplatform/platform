@@ -292,12 +292,12 @@
                     </object>
                   </value><value>
                     <object type="org.exoplatform.application.registry.Application">
-                      <field name="applicationName"><string>WikiPortlet</string></field>
+                      <field name="applicationName"><string>wiki</string></field>
                       <field name="categoryName"><string>collaboration</string></field>
                       <field name="displayName"><string>Wiki</string></field>
                       <field name="description"><string>Wiki Portlet</string></field>
                       <field name="type"><string>portlet</string></field>
-                      <field name="contentId"><string>wiki/WikiPortlet</string></field>
+                      <field name="contentId"><string>wiki/wiki</string></field>
                       <field name="accessPermissions">
                         <collection type="java.util.ArrayList" item-type="java.lang.String">
                           <value><string>*:/platform/users</string></value>
