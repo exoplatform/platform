@@ -18,6 +18,7 @@
 	</div>
 	
 	<div class="logoForm boxContent">
+		<h3>${pagetitle}</h3>
 		<h4 class="titleWithBorder">${selectlogo}</h4>
 		<div class="clearfix">
 			<div class="pull-left">
