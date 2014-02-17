@@ -2,8 +2,8 @@
 <bundle>
    <UIUserPlatformToolBarCreatePortlet>
       <label>
-         <topic>Topic</topic>
-         <poll>Poll</poll>
+         <topic>Тема</topic>
+         <poll>Опрос</poll>
          <eventtask>Event/Task</eventtask>
          <upload>Upload a File</upload>
          <wiki>Wiki Page</wiki>

@@ -4,7 +4,7 @@
      <label>
          <Spaces>Alanlarım</Spaces>
          <Join>Bir alana katılın</Join>
-         <see>Göster</see>
+         <see>{0} Alan Daha Göster</see>
      </label>
      <msg>
          <filter-spaces>Alanlarda Ara</filter-spaces>

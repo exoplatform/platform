@@ -20,16 +20,16 @@
 
 -->
 <messagebundle>  
-  <msg name="title">Services Management</msg>
-  <msg name="services">Services</msg>
+  <msg name="title">Управление услугами</msg>
+  <msg name="services">Услуги</msg>
   <msg name="name">Name</msg>
   <msg name="description">Description</msg>
   <msg name="noDescription">No Description</msg>
-  <msg name="method">Method</msg>
-  <msg name="parameters">Parameters</msg>
+  <msg name="method">Метод</msg>
+  <msg name="parameters">Параметры</msg>
   <msg name="action">Действие</msg>
-  <msg name="value">Value</msg>
-  <msg name="services_url">Services URL</msg>
+  <msg name="value">Значение</msg>
+  <msg name="services_url">URL-адрес служб</msg>
   <msg name="failManage">Temporarily cannot manage services from other hosts until we support OAuth</msg>
   <msg name="noServices">Either no service is available or you do not have sufficient permission</msg>
   <msg name="noMethod">No Method</msg>

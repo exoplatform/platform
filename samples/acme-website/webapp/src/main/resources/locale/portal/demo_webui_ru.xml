@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <bundle>
   <Signin>
-    <welcome>Welcome</welcome>
-    <login>Login</login>
-    <logout>Logout</logout>
-    <language>Change Language</language>
+    <welcome>Добро пожаловать</welcome>
+    <login>Авторизация</login>
+    <logout>Выйти</logout>
+    <language>Изменить язык</language>
     <register>Register</register>
   </Signin>
 
