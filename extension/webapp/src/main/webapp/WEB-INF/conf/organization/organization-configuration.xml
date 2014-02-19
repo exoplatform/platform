@@ -28,9 +28,7 @@
     <component-plugin>
       <name>init.service.listener</name>
       <set-method>addListenerPlugin</set-method>
-      <!-- Workaround : disable gatein root paswword setup -->
-      <!-- type>org.exoplatform.services.organization.OrganizationDatabaseInitializer</type -->
-      <type>org.gatein.portal.installer.SetupOrganizationDatabaseInitializer</type>
+      <type>org.exoplatform.services.organization.OrganizationDatabaseInitializer</type>
       <description>this listener populate organization data for the first launch</description>
       <init-params>
         <value-param>
