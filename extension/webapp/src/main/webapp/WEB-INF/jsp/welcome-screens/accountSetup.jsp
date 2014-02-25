@@ -1,4 +1,6 @@
 <%@ page import="org.exoplatform.platform.common.account.setup.web.PingBackServlet" %>
+<%@ page import="org.exoplatform.container.PortalContainer" %>
+<%@ page import="org.exoplatform.portal.config.UserACL" %>
 <%
     /**
      * Copyright ( C ) 2012 eXo Platform SAS.
@@ -21,6 +23,7 @@
 %>
 <%@ page language="java" %>
 <%
+    UserACL userACL = (UserACL)PortalContainer.getInstance().getComponentInstanceOfType(UserACL.class);
     String usernameRegExp = System.getProperty("gatein.validators.username.regexp");
     if(usernameRegExp==null) usernameRegExp="";
     String formatMsg = System.getProperty("gatein.validators.username.format.message");
@@ -86,7 +89,7 @@
             <p class="desc">Login as root user with the following password for super administrator access</p>
             <div class="control-group" id="adminUsernameId">
                 <label class="control-label">Username:</label>
-                <div class="controls"><input type="text" name="adminFirstName" id="adminFirstName" placeholder="root" readonly="readonly" class="inputFieldLarge disable" /></div>
+                <div class="controls"><input type="text" name="adminFirstName" id="adminFirstName" placeholder="<%=userACL.getSuperUser()%>" readonly="readonly" class="inputFieldLarge disable" /></div>
             </div>
             <div class="control-group" id="adminPasswordId">
                 <label class="control-label">Password:</label>
