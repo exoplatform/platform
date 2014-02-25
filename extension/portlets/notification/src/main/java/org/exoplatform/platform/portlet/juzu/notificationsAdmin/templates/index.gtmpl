@@ -11,14 +11,14 @@
 		<h4 class="titleWithBorder mgB20">${_ctx.appRes("NotificationAdmin.label.notificationsSender")}</h4>
 		<div class="control-groups clearfix">
 			<label for="senderName" class="pull-left"> ${_ctx.appRes("NotificationAdmin.label.sender.name")}:&nbsp;</label>
-			<div class="pull-left">
+			<div class="pull-left mgR20">
 				<input id="senderName" name="name" type="text" value="${senderName}" placeholder="Name"/>&nbsp;&nbsp;
 			</div>
 			<label for="senderEmail" class="pull-left">${_ctx.appRes("NotificationAdmin.label.sender.address")}:&nbsp;</label>
-			<div class="pull-left">
+			<div class="pull-left mgR20">
 				<input id="senderEmail" class="right" type="text" name="email" value="${senderEmail}" placeholder="Email"/>&nbsp;
 			</div>
-			<input id="btSetSender" class="center" type="button" value="${_ctx.appRes('NotificationAdmin.label.save')}"/>
+			<input id="btSetSender" class="btn btn-primary" type="button" value="${_ctx.appRes('NotificationAdmin.label.save')}"/>
 		</div>
 	</form>
 
