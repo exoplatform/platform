@@ -263,14 +263,6 @@
       </object-param>
     </init-params>
   </component>
-    <!--
-            it is just a  workaround because it's configured in the Root container in gatein ,
-            it will be moved soon and we can remove this configuration .
-        -->
-    <component>
-        <key>org.exoplatform.web.security.security.SecureRandomService</key>
-        <type>org.exoplatform.web.security.security.SecureRandomService</type>
-    </component>
   <!--
 		it is necessary to declare this empty plugin in order to activate the
 		extension mechanism
