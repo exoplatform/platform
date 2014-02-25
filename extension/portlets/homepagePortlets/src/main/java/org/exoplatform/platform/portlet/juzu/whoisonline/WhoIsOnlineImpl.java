@@ -1,9 +1,12 @@
 package org.exoplatform.platform.portlet.juzu.whoisonline;
 
+import org.exoplatform.container.ExoContainer;
 import org.exoplatform.container.ExoContainerContext;
 import org.exoplatform.forum.service.ForumService;
 import org.exoplatform.services.log.ExoLogger;
 import org.exoplatform.services.log.Log;
+import org.exoplatform.services.user.UserStateModel;
+import org.exoplatform.services.user.UserStateService;
 import org.exoplatform.social.core.identity.model.Identity;
 import org.exoplatform.social.core.identity.model.Profile;
 import org.exoplatform.social.core.identity.provider.OrganizationIdentityProvider;
@@ -28,9 +31,12 @@ public class WhoIsOnlineImpl implements WhoIsOnline {
         if (userId == null) return userOnLineList;
         
         try {
-            ForumService forumService = (ForumService) ExoContainerContext.getCurrentContainer().getComponentInstanceOfType(ForumService.class);
-            IdentityManager identityManager = (IdentityManager) ExoContainerContext.getCurrentContainer().getComponentInstanceOfType(IdentityManager.class);
-            List<String> users = forumService.getOnlineUsers();
+            ExoContainer container = ExoContainerContext.getCurrentContainer();
+            ForumService forumService = (ForumService) container.getComponentInstanceOfType(ForumService.class);
+            IdentityManager identityManager = (IdentityManager) container.getComponentInstanceOfType(IdentityManager.class);
+            UserStateService userStateService = (UserStateService) container.getComponentInstanceOfType(UserStateService.class);
+            //List<String> users = forumService.getOnlineUsers();
+            List<UserStateModel> users = userStateService.online(); 
             if (users.contains(userId)) {
                 users.remove(userId);
             }
@@ -41,7 +47,8 @@ public class WhoIsOnlineImpl implements WhoIsOnline {
 
             User userOnLine = null;
             
-            for (String user : users) {
+            for (UserStateModel userModel : users) {
+                String user = userModel.getUserId();
                 userOnLine = new User(user);
                 Identity userIdentity = identityManager.getOrCreateIdentity(OrganizationIdentityProvider.NAME, user,false);
                 Profile userProfile = userIdentity.getProfile();
