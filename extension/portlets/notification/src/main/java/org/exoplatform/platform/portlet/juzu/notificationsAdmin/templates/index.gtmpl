@@ -55,8 +55,14 @@
         <td class="left">
           ${_ctx.pluginRes("UINotification.title." + pluginId, pluginId)}                    
         </td>
-        <td class="center">                       
-           <input type="button" class="providerAction ${status}" name="${pluginId}">
+        <td class="center">    
+          <div class="inputContainer" style="width: 60px;">
+        <% if (status == "enable")  { %>                   
+           <input type="checkbox" class="providerAction yesno ${status}" checked="checked" name="${pluginId}">
+        <% } else { %>
+           <input type="checkbox" class="providerAction yesno ${status}" name="${pluginId}">
+        <% } %>
+          </div>
         </td>
       </tr>      
 	    <% } %>    
@@ -72,4 +78,22 @@
 		<span id="msgSaveOK">${_ctx.appRes("NotificationAdmin.msg.saveOK")}</span>
 		<span id="msgSaveKO">${_ctx.appRes("NotificationAdmin.msg.saveKO")}</span>
 	</div>
+	
+	<script type="text/javascript">
+		require(["PORTLET/platform-notification/NotificationsAdminJuzuPortlet","SHARED/jquery", "SHARED/iphonePlugin"], function (notificationsAdmin, gj)
+		{
+			gj('input.providerAction').each(function()
+			{
+				gj(this).iphoneStyle({
+					checkedLabel:'YES',
+					uncheckedLabel:'NO'});
+
+				gj(this).change(function()
+				{
+					gj(this).trigger("click");
+				});
+			});
+		});
+  </script>
+  
 </div>

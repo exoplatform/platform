@@ -6,8 +6,6 @@
         NOK : 'NOK'
       },
       label : {
-          Enable : $("span#labelEnable", localizeStatus).text(),
-          Disable : $("span#labelDisable", localizeStatus).text(),
           Information : $("span#Information", localizeStatus).text(),
           Error : $("span#Error", localizeStatus).text(),
           OK : $("span#labelOK", localizeStatus).text()
@@ -17,14 +15,11 @@
         NOK: $("span#msgSaveKO", localizeStatus).text()
       },
       init : function() {
-        var buttons = $("input.providerAction");
-        buttons.on('click', function(e) {
-          NotificationAdmin.switchStatus($(this).attr('name'), $(this).hasClass("disable"));
-        });
-        //
-        buttons.each(function(index) {
-          $(this).attr('value', ($(this).hasClass('enable')) ? NotificationAdmin.label.Disable : NotificationAdmin.label.Enable);
-        });
+		var buttons = $("div.inputContainer");
+	    buttons.on('click', function(e) {
+		  var input = $(this).find('input.providerAction');
+	      NotificationAdmin.switchStatus(input.attr('name'), input.hasClass("disable"));
+	    });
         //
         $("#btSetSender").click(function() {
           NotificationAdmin.saveSenderInfo($("input#senderName").val(), $("input#senderEmail").val());
@@ -44,8 +39,7 @@
             var plugin = $("tr#" + data.pluginId);
             plugin.attr("class", clazz);
             var action = $('input[name=' + data.pluginId + ']')
-            action.attr('class', 'providerAction ' + clazz);
-            action.val((data.isEnable === true) ? NotificationAdmin.label.Disable : NotificationAdmin.label.Enable);
+            action.attr('class', 'providerAction yesno ' + clazz);
           }
         }).fail(function(jqXHR, textStatus) {
           alert("Request failed: " + textStatus + ". " + jqXHR);
