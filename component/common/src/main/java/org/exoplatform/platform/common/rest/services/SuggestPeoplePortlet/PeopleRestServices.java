@@ -218,7 +218,6 @@ public class PeopleRestServices implements ResourceContainer {
 
   }
 
-
   @GET
   @Path("contacts/suggestions")
   public Response getSuggestions(@Context SecurityContext sc, @Context UriInfo uriInfo) {
