@@ -2,42 +2,42 @@
 <bundle>
    <UIAdminToolbarPortlet>
       <action>
-         <AddPage>Add Page</AddPage>
-         <EditNavigation>Navigation</EditNavigation>
-         <Content>Content</Content>
+         <AddPage>Pridėti puslapį</AddPage>
+         <EditNavigation>Navigacija</EditNavigation>
+         <Content>Turinys</Content>
          <Editor>Redaguoti</Editor>
-         <Page>Page</Page>
-         <Site>Site</Site>
-         <Layout>Edit Layout</Layout>
-         <siteLayout>Layout</siteLayout>
-         <ManagePages>Manage Pages</ManagePages>
+         <Page>Puslapis</Page>
+         <Site>Svetainė</Site>
+         <Layout>Redaguoti išdėstymą</Layout>
+         <siteLayout>Išdėstymas</siteLayout>
+         <ManagePages>Tvarkyti puslapius</ManagePages>
          <GroupSite>Group Site</GroupSite>
          <Properties>#{UISEOToolbarForm.label.seo}</Properties>
-         <AddSite>Add Site</AddSite>
+         <AddSite>Pridėti svetainę</AddSite>
       </action>
-<ManageSites>Manage Sites</ManageSites>
+<ManageSites>Valdyti svetaines</ManageSites>
 <ManageGroupSites>Manage Group Sites</ManageGroupSites>
    </UIAdminToolbarPortlet>
 
   <UISEOForm>
     <label>
-      <title>Title:</title>  
-      <description>Description:</description>
-      <keywords>Keywords:</keywords>
+      <title>Antraštė:</title>  
+      <description>Aprašymas:</description>
+      <keywords>Raktažodžiai:</keywords>
       <language>Language:</language>
-      <robots>Robots:</robots>
-      <sitemap>Sitemap:</sitemap>
-      <sitemapvisible>Visible in sitemap</sitemapvisible>
-  <isInherited>Inherited from parent page</isInherited>
-      <priority>Priority:</priority>
-      <frequency>Frequency:</frequency>
-      <select-language>Select Language</select-language>
+      <robots>Robotai:</robots>
+      <sitemap>Svetainės žemėlapis:</sitemap>
+      <sitemapvisible>Matomas svetainės žemėlapyje</sitemapvisible>
+  <isInherited>Paveldėtas iš pagrindinio puslapio</isInherited>
+      <priority>Prioritetas:</priority>
+      <frequency>Dažnis:</frequency>
+      <select-language>Pasirinkite kalbą</select-language>
       <option>
-        <Always>Always</Always>
+        <Always>Visada</Always>
         <Hourly>Hourly</Hourly>
         <Daily>Daily</Daily>
-        <Weekly>Weekly</Weekly>
-        <Monthly>Monthly</Monthly>
+        <Weekly>Kas savaitę</Weekly>
+        <Monthly>Kas mėnesį</Monthly>
         <Yearly>Yearly</Yearly>
         <Never>Never</Never>
       </option> 
@@ -49,13 +49,13 @@
     </action>
     <msg>
       <repository-exception>An unexpected error occurred. Cannot save page metadata.</repository-exception>
-      <confirm-delete>Are you sure you want to delete these SEO data?</confirm-delete>
+      <confirm-delete>Ar tikrai norite ištrinti šiuos SEO duomenis?</confirm-delete>
     </msg>
     <title>
-    <seo-delete>Delete</seo-delete>
+    <seo-delete>Ištrinti</seo-delete>
     </title>
 <help> 
-  <priority>Valid values range from 0.0 to 1.0.</priority>
+  <priority>Leistinos reikšmės svyruoja nuo 0,0 iki 1,0.</priority>
   <description>Help searchers: let them know that the following page has a link with what they are looking for.</description>
   <keywords>Most important terms in the page must be separated by a comma.</keywords>  
     </help>  
@@ -67,7 +67,7 @@
   </UISEOPopupWindow>    
   <UISEOToolbarForm>
   <title>
-      <seo>SEO Management</seo>
+      <seo>SEO valdymas</seo>
   </title>
   <label>
     <seo>SEO</seo>

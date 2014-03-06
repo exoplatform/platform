@@ -2,12 +2,12 @@
 <bundle>
  <UISpaceNavigationPortlet>
      <label>
-         <Spaces>My Spaces</Spaces>
-         <Join>Join a space</Join>
+         <Spaces>Mano erdvės</Spaces>
+         <Join>Prisijungti prie erdvės</Join>
          <see>Show {0} More Spaces</see>
      </label>
      <msg>
-         <filter-spaces>Search Spaces</filter-spaces>
+         <filter-spaces>Ieškoti erdvių</filter-spaces>
          <no-space>No space found</no-space>
      </msg>
 

@@ -2,11 +2,11 @@
 <bundle>
    <UIUserPlatformToolBarCreatePortlet>
       <label>
-         <topic>Topic</topic>
-         <poll>Poll</poll>
-         <eventtask>Event/Task</eventtask>
-         <upload>Upload a File</upload>
-         <wiki>Wiki Page</wiki>
+         <topic>Tema</topic>
+         <poll>Apklausa</poll>
+         <eventtask>Įvykis/užduotis</eventtask>
+         <upload>Įkelti failą</upload>
+         <wiki>Wiki puslapis</wiki>
 
       </label>
    </UIUserPlatformToolBarCreatePortlet>
@@ -52,7 +52,7 @@
          <EndEvent>To</EndEvent>
          <StartEvent>From</StartEvent>
          <Calendar>Select Calendar</Calendar>
-         <all-day>All Day</all-day>
+         <all-day>Visą dieną</all-day>
          <defaultCalendarId>Default</defaultCalendarId>
       </label>
       <msg>
@@ -73,15 +73,15 @@
       </action>
    </UICreateEvent>
     <UIUploadFile>
-        <Select>Select File</Select>
+        <Select>Pasirinkti failą</Select>
         <action>
           <close>#{word.close}</close>
         </action>
     </UIUploadFile>
    <Choix>
       <label>
-         <Event>Event</Event>
-         <Task>Task</Task>
+         <Event>Įvykis</Event>
+         <Task>Užduotis</Task>
       </label>
    </Choix>
 </bundle>
