@@ -6,11 +6,11 @@
          <profile>Profile</profile>
          <connections>Connections</connections>
          <wiki>Wiki</wiki>
-         <Myactivities>My Activity Stream</Myactivities>
-         <Myprofile>My Profile</Myprofile>
-         <Myconnections>My Connections</Myconnections>
-         <Mywiki>My Wiki</Mywiki>
-         <Mydashboard>My Dashboard</Mydashboard>
+         <Myactivities>Mano veiklos srautas</Myactivities>
+         <Myprofile>Mano profilis</Myprofile>
+         <Myconnections>Mano jungtys</Myconnections>
+         <Mywiki>Mano Wiki</Mywiki>
+         <Mydashboard>Mano prietaisų skydas</Mydashboard>
       </label>
    </UIUserNavigationPortlet>
 </bundle>
