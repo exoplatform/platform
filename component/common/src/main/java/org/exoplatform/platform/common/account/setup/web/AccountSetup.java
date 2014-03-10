@@ -4,6 +4,7 @@ import org.exoplatform.commons.api.settings.SettingService;
 import org.exoplatform.commons.api.settings.SettingValue;
 import org.exoplatform.commons.api.settings.data.Context;
 import org.exoplatform.commons.api.settings.data.Scope;
+import org.exoplatform.commons.utils.PropertyManager;
 import org.exoplatform.container.PortalContainer;
 import org.exoplatform.container.component.ComponentRequestLifecycle;
 import org.exoplatform.container.component.RequestLifeCycle;
@@ -40,20 +41,35 @@ public class AccountSetup extends HttpServlet {
     private final static String PLATFORM_DEVELOPERS_GROUP = "/developers";
     private final static String PLATFORM_PLATFORM_USERS_GROUP ="/platform/users";
     private final static String MEMBERSHIP_TYPE_MANAGER = "*";
-    private final static String INTRANET_HOME = "/portal/intranet";     //A verifier
+    private final static String INTRANET_HOME = "/portal/intranet";
     private final static String INITIAL_URI_PARAM = "initialURI";
     private final static String ACCOUNT_SETUP_BUTTON = "setupbutton";
     private final static String SETUP_SKIP_BUTTON = "skipform";
     public static Boolean SETUP_SKIP = false;
+    private static final String ACCOUNT_SETUP_SKIP_PROPERTY = "accountsetup.skip";
+    SettingService settingService;
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String redirectURI = null;
         String accountsetupbutton = request.getParameter(ACCOUNT_SETUP_BUTTON);
-        if(accountsetupbutton.equals(SETUP_SKIP_BUTTON)){
-            SETUP_SKIP = true;
-            redirectURI = "/" + PortalContainer.getCurrentPortalContainerName();
-            } else {
+
+        boolean isDevMod = PropertyManager.isDevelopping();
+        // check accountsetup.skip flag in configuration.properties
+        String propertySetupSkip =  PropertyManager.getProperty(ACCOUNT_SETUP_SKIP_PROPERTY);
+        if (propertySetupSkip == null) {
+          logger.debug("Property accountsetup.skip not found in configuration.properties ");
+          propertySetupSkip = "false";
+        }
+        settingService = (SettingService) PortalContainer.getInstance().getComponentInstanceOfType(SettingService.class);
+        SettingValue accountSetupNode = settingService.get(Context.GLOBAL, Scope.GLOBAL, ACCOUNT_SETUP_NODE);
+        if (accountsetupbutton.equals(SETUP_SKIP_BUTTON) || accountSetupNode != null || propertySetupSkip.equals("true") || isDevMod) {
+          if (logger.isWarnEnabled()) {
+            logger.warn("Direct access to Account Setup Form.");
+          }
+          SETUP_SKIP = true;
+          redirectURI = "/" + PortalContainer.getCurrentPortalContainerName();
+        } else {
         EntityEncoder encoder = EntityEncoder.FULL;
         String userNameAccount = request.getParameter(USER_NAME_ACCOUNT);
         String firstNameAccount = request.getParameter(FIRST_NAME_ACCOUNT);
@@ -63,7 +79,6 @@ public class AccountSetup extends HttpServlet {
         String adminPassword = request.getParameter(ADMIN_PASSWORD);
         OrganizationService orgService;
         UserHandler userHandler;
-        SettingService settingService_;
         User user;
         Group group = null;
         MembershipType membershipType = null;
@@ -134,9 +149,8 @@ public class AccountSetup extends HttpServlet {
                 LOG.error("Can not set password to the created user", e);
             }
         } finally {
-            settingService_ =  (SettingService) PortalContainer.getInstance().getComponentInstanceOfType(SettingService.class);
-            if(settingService_.get(Context.GLOBAL, Scope.GLOBAL, ACCOUNT_SETUP_NODE)==null)
-                settingService_.set(Context.GLOBAL, Scope.GLOBAL, ACCOUNT_SETUP_NODE, SettingValue.create("setup over:" + "true"));
+            if (accountSetupNode == null)
+              settingService.set(Context.GLOBAL, Scope.GLOBAL, ACCOUNT_SETUP_NODE, SettingValue.create("setup over:" + "true"));
             RequestLifeCycle.end();
         }
         // Redirect to requested page
