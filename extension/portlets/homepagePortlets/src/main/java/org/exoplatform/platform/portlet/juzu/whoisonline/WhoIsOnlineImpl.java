@@ -32,14 +32,9 @@ public class WhoIsOnlineImpl implements WhoIsOnline {
         
         try {
             ExoContainer container = ExoContainerContext.getCurrentContainer();
-            ForumService forumService = (ForumService) container.getComponentInstanceOfType(ForumService.class);
             IdentityManager identityManager = (IdentityManager) container.getComponentInstanceOfType(IdentityManager.class);
             UserStateService userStateService = (UserStateService) container.getComponentInstanceOfType(UserStateService.class);
-            //List<String> users = forumService.getOnlineUsers();
-            List<UserStateModel> users = userStateService.online(); 
-            if (users.contains(userId)) {
-                users.remove(userId);
-            }
+            List<UserStateModel> users = userStateService.online();             
             Collections.reverse(users);
             if (users.size() > MAX_USER) {
                 users = users.subList(0, INDEX_USER);
@@ -49,6 +44,8 @@ public class WhoIsOnlineImpl implements WhoIsOnline {
             
             for (UserStateModel userModel : users) {
                 String user = userModel.getUserId();
+                String superUserName = System.getProperty("exo.super.user");
+                if (user.equals(userId) || user.equals(superUserName)) continue;
                 userOnLine = new User(user);
                 Identity userIdentity = identityManager.getOrCreateIdentity(OrganizationIdentityProvider.NAME, user,false);
                 Profile userProfile = userIdentity.getProfile();
