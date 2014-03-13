@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <bundle>
   <Signin>
-    <welcome>Welcome</welcome>
-    <login>Login</login>
-    <logout>Logout</logout>
+    <welcome>Добро пожаловать</welcome>
+    <login>Авторизация</login>
+    <logout>Выйти</logout>
     <language>
       <en>Switch to English</en>
       <fr>Switch to French</fr>

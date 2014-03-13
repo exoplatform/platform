@@ -30,6 +30,6 @@
   <msg name="delete">حذف</msg>
   <msg name="edit">تغيير</msg>
   <msg name="cancel">الغاء</msg>
-  <msg name="emptyBookmarkPre">لم يكن لديك أي إشارة مرجعية: قُم بإضافتهم عن طريق النّقر على</msg>
-  <msg name="addBookmark">Add Bookmark</msg>
+  <msg name="emptyBookmarkPre">لم يكن لديك أي إشارة مرجعية: قُم بإضافتهم عن طريق النّقر على "إضافة الإشارة المرجعية".</msg>
+  <msg name="addBookmark">إضافة الإشارة المرجعية</msg>
 </messagebundle>

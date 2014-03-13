@@ -30,6 +30,6 @@
   <msg name="delete">Ta bort</msg>
   <msg name="edit">Redigera</msg>
   <msg name="cancel">Avbryt</msg>
-  <msg name="emptyBookmarkPre">Du har inte något bokmärke: lägga till dem genom att klicka på</msg>
+  <msg name="emptyBookmarkPre">You don't have any bookmark. Add them by clicking on the button "Add Bookmark".</msg>
   <msg name="addBookmark">Add Bookmark</msg>
 </messagebundle>
