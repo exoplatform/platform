@@ -58,14 +58,14 @@ public class AccountSetup extends HttpServlet {
         // check accountsetup.skip flag in configuration.properties
         String propertySetupSkip =  PropertyManager.getProperty(ACCOUNT_SETUP_SKIP_PROPERTY);
         if (propertySetupSkip == null) {
-          logger.debug("Property accountsetup.skip not found in configuration.properties ");
+          LOG.debug("Property accountsetup.skip not found in configuration.properties ");
           propertySetupSkip = "false";
         }
         settingService = (SettingService) PortalContainer.getInstance().getComponentInstanceOfType(SettingService.class);
         SettingValue accountSetupNode = settingService.get(Context.GLOBAL, Scope.GLOBAL, ACCOUNT_SETUP_NODE);
         if (accountsetupbutton.equals(SETUP_SKIP_BUTTON) || accountSetupNode != null || propertySetupSkip.equals("true") || isDevMod) {
-          if (logger.isWarnEnabled()) {
-            logger.warn("Direct access to Account Setup Form.");
+          if (LOG.isWarnEnabled()) {
+            LOG.warn("Direct access to Account Setup Form.");
           }
           SETUP_SKIP = true;
           redirectURI = "/" + PortalContainer.getCurrentPortalContainerName();
