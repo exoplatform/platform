@@ -5,10 +5,10 @@
     <login>Авторизация</login>
     <logout>Выйти</logout>
     <language>Изменить язык</language>
-    <register>Register</register>
+    <register>Регистрация</register>
   </Signin>
 
   <ACMEPortal>
-    <label>ACME Template</label>
+    <label>Шаблон АСМЕ</label>
   </ACMEPortal>
 </bundle>
