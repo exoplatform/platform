@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bundle>
+<UIUserPlatformToolBarPortlet>
+<label>
+<activities>我的活動流</activities>
+<profile>我的設定檔</profile>
+<network>我的連接</network>
+<wiki>我的 Wiki</wiki>
+<account>設定</account>
+<language>更改語言</language>
+<logout>登出</logout>
+        <dashboard>我的儀表板</dashboard>
+</label>
+</UIUserPlatformToolBarPortlet>
+</bundle>

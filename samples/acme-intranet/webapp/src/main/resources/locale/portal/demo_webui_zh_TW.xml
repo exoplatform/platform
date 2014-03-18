@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bundle>
+  <Signin>
+    <welcome>歡迎</welcome>
+    <login>登錄</login>
+    <logout>登出</logout>
+    <language>更改語言</language>
+    <register>註冊</register>
+  </Signin>
+
+  <ACMEPortal>
+    <label>ACME 範本</label>
+  </ACMEPortal>
+</bundle>

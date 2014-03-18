@@ -22,17 +22,17 @@
 <messagebundle>  
   <msg name="title">Управление услугами</msg>
   <msg name="services">Услуги</msg>
-  <msg name="name">Name</msg>
-  <msg name="description">Description</msg>
-  <msg name="noDescription">No Description</msg>
+  <msg name="name">Название</msg>
+  <msg name="description">Описание</msg>
+  <msg name="noDescription">Нет описания</msg>
   <msg name="method">Метод</msg>
   <msg name="parameters">Параметры</msg>
   <msg name="action">Действие</msg>
   <msg name="value">Значение</msg>
   <msg name="services_url">URL-адрес служб</msg>
-  <msg name="failManage">Temporarily cannot manage services from other hosts until we support OAuth</msg>
-  <msg name="noServices">Either no service is available or you do not have sufficient permission</msg>
-  <msg name="noMethod">No Method</msg>
-  <msg name="noProperty">No Property</msg>
-  <msg name="badURL">There was an error while retrieving data. Please check your URL preference</msg>
+  <msg name="failManage">Временно невозможно управлять службами с других главных компьютеров до тех пор, пока мы поддерживаем OAuth</msg>
+  <msg name="noServices">Нет доступных услуг, либо у вас недостаточно прав доступа</msg>
+  <msg name="noMethod">Методы отсутствуют</msg>
+  <msg name="noProperty">Свойства отсутствуют</msg>
+  <msg name="badURL">Ошибка при извлечении данных, пожалуйста, проверьте настройки URL</msg>
 </messagebundle>
