@@ -40,19 +40,19 @@ JavascriptManager jsmanager = rcontext.getJavascriptManager();
 
 		<% if(uicomponent.getChildren().size()==0){%>
 			<li>
-				<a href="<%=uicomponent.event("AddEvent","AddEvent")%>" class="ToolBarActivityIcon"><i class="uiIconPLFEventTask"></i>$labelEvent</a>
+				<a href="javascript:void(0);" onclick="<%=uicomponent.event("AddEvent","AddEvent")%>" class="ToolBarActivityIcon"><i class="uiIconPLFEventTask"></i>$labelEvent</a>
 			</li>
       <li>
-				<a href="<%=uicomponent.event("Poll", parStatusPoll)%>" class="ToolBarActivityIcon"><i class="uiIconPoll"></i>$labelPoll</a>
+				<a href="javascript:void(0);" onclick="<%=uicomponent.event("Poll", parStatusPoll)%>" class="ToolBarActivityIcon"><i class="uiIconPoll"></i>$labelPoll</a>
 			</li>
 			<li>
-				<a href="<%=uicomponent.event("Topic", parStatusTopic)%>" class="ToolBarActivityIcon"><i class="uiIconUIForms"></i>$labelTopic</a>
+				<a href="javascript:void(0);" onclick="<%=uicomponent.event("Topic", parStatusTopic)%>" class="ToolBarActivityIcon"><i class="uiIconUIForms"></i>$labelTopic</a>
 			</li>
 			<li>
-				<a href="<%=uicomponent.event("Upload","Upload")%>" class="ToolBarActivityIcon"><i class="uiIconUpload"></i>$labelUpload</a>
+				<a href="javascript:void(0);" onclick="<%=uicomponent.event("Upload","Upload")%>" class="ToolBarActivityIcon"><i class="uiIconUpload"></i>$labelUpload</a>
 			</li>
 			<li>
-	    	<a href="<%=uicomponent.event("Wiki","Wiki")%>" class="ToolBarActivityIcon"><i class="uiIconWikiWiki"></i>$labelWiki</a>
+	    	<a href="javascript:void(0);" onclick="<%=uicomponent.event("Wiki","Wiki")%>" class="ToolBarActivityIcon"><i class="uiIconWikiWiki"></i>$labelWiki</a>
 	    </li>
 
 		<%}else{%>

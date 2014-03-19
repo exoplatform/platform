@@ -2,51 +2,51 @@
 <bundle>
 <UIActionBar>
 <tooltip>
-<ContentNavigation>Content Navigation</ContentNavigation>
+<ContentNavigation>Навигация по содержимому</ContentNavigation>
 </tooltip>
 </UIActionBar>
 <UIViewFormTabPane>
 <label>
-<contentNavigation>Navigation by Content</contentNavigation>
+<contentNavigation>Навигация по содержимому</contentNavigation>
 </label>
 </UIViewFormTabPane>
 <UIPopupWindow>
 <title>
-<UINavigationForm>Navigation Form</UINavigationForm>
+<UINavigationForm>Форма навигации</UINavigationForm>
 </title>
 </UIPopupWindow>
 <PopulateToMenu>
 <dialog>
 <label>
 <id>ID:</id>
-<name>Name:</name>
-<lifecycle>Lifecycle:</lifecycle>
-<isDeep>Is Deep:</isDeep>
-<nodetypes>Node Types:</nodetypes>
-<description>Description:</description>
-<affectedNodeTypeNames>Affected Node Types:</affectedNodeTypeNames>
-<navigationNode>Navigation Node:</navigationNode>
-<index>Index:</index>
-<clickable>Clickable:</clickable>
-<page>Page:</page>
-<childrenPage>Children Page:</childrenPage>
+<name>Название:</name>
+<lifecycle>Жизненный цикл:</lifecycle>
+<isDeep>Глубокий:</isDeep>
+<nodetypes>Типы узлов:</nodetypes>
+<description>Описание:</description>
+<affectedNodeTypeNames>Попавшие под воздействие типы узлов:</affectedNodeTypeNames>
+<navigationNode>Узел навигации:</navigationNode>
+<index>Индекс:</index>
+<clickable>Элемент с гиперссылкой:</clickable>
+<page>Страница:</page>
+<childrenPage>Дочерняя страница:</childrenPage>
 </label>
 </dialog>
 </PopulateToMenu>
 <UINavigationForm>
 <label>
-<Node>Parent's Folder:</Node>
-<Visible>Visible :</Visible>
-<NavigationNodeInputSet>Target Parent Navigation:</NavigationNodeInputSet>
-<Index>Display Order:</Index>
-<Clickable>Clickable :</Clickable>
-<NavigationControls>Navigation Controls</NavigationControls>
-<ListTargetPageFormInputSet>Page for List:</ListTargetPageFormInputSet>
-<ListShowCLVByStringInput>Parameter Name:</ListShowCLVByStringInput>
-<DetailTargetPageInputSet>Page for Detail:</DetailTargetPageInputSet>
-<DetailShowCLVByStringInput>Parameter Name:</DetailShowCLVByStringInput>
-<List>List</List>
-<Detail>Деталь</Detail>
+<Node>Корневая папка:</Node>
+<Visible>Видимый :</Visible>
+<NavigationNodeInputSet>Целевая навигация родительского объекта:</NavigationNodeInputSet>
+<Index>Порядок отображения:</Index>
+<Clickable>Элемент с гиперссылкой :</Clickable>
+<NavigationControls>Элементы управления навигацией</NavigationControls>
+<ListTargetPageFormInputSet>Страница для списка:</ListTargetPageFormInputSet>
+<ListShowCLVByStringInput>Название параметра:</ListShowCLVByStringInput>
+<DetailTargetPageInputSet>Страница для детализации:</DetailTargetPageInputSet>
+<DetailShowCLVByStringInput>Название параметра:</DetailShowCLVByStringInput>
+<List>Список</List>
+<Detail>Подробность</Detail>
 </label>
 <action>
 <Save>#{word.save}</Save>
@@ -55,47 +55,47 @@
 </UINavigationForm>
 <Visible>
 <label>
-<VisibleEnable>Yes</VisibleEnable>
-<VisibleDisable>No</VisibleDisable>
+<VisibleEnable>Да</VisibleEnable>
+<VisibleDisable>Нет</VisibleDisable>
 </label>
 </Visible>
 <Clickable>
 <label>
-<ClickableEnable>Yes</ClickableEnable>
-<ClickableDisable>No</ClickableDisable>
+<ClickableEnable>Да</ClickableEnable>
+<ClickableDisable>Нет</ClickableDisable>
 </label>
 </Clickable>
 <NavigationNodeInputSet>
 <title>
-<SelectNavigationNode>Select Navigation Node</SelectNavigationNode>
-<RemoveNavigationNode>Очистить</RemoveNavigationNode>
+<SelectNavigationNode>Выбрать узел навигации</SelectNavigationNode>
+<RemoveNavigationNode>Сброс</RemoveNavigationNode>
 </title>
 </NavigationNodeInputSet>
 <ListTargetPageFormInputSet>
 <title>
-<SelectListTargetPage>Select Target Page</SelectListTargetPage>
-<RemoveListTargetPage>Очистить</RemoveListTargetPage>
+<SelectListTargetPage>Выберите страницу, на которую хотите перейти</SelectListTargetPage>
+<RemoveListTargetPage>Сброс</RemoveListTargetPage>
 </title>
 </ListTargetPageFormInputSet>
 <DetailTargetPageInputSet>
 <title>
-<SelectDetailTargetPage>Select Children Target Page</SelectDetailTargetPage>
-<RemoveDetailTargetPage>Очистить</RemoveDetailTargetPage>
+<SelectDetailTargetPage>Выберите дочернюю страницу, на которую хотите перейти</SelectDetailTargetPage>
+<RemoveDetailTargetPage>Сброс</RemoveDetailTargetPage>
 </title>
 </DetailTargetPageInputSet>
 <NavigationSelectorPopupWindow>
 <title>
-<UINavigationSelector>Navigation Selector</UINavigationSelector>
+<UINavigationSelector>Выбор навигации</UINavigationSelector>
 </title>
 </NavigationSelectorPopupWindow>
 <ListTargetPageSelectorPopupWindow>
 <title>
-<UIPageSelector>Page Selector</UIPageSelector>
+<UIPageSelector>Указатель страницы</UIPageSelector>
 </title>
 </ListTargetPageSelectorPopupWindow>
 <DetailTargetPageSelectorPopupWindow>
 <title>
-<UIPageSelector>Page Selector</UIPageSelector>
+<UIPageSelector>Указатель страницы</UIPageSelector>
 </title>
 </DetailTargetPageSelectorPopupWindow>
 </bundle>

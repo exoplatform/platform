@@ -2,24 +2,24 @@
 <bundle>
 <UISetupPlatformToolBarPortlet>
 <label>
-<applications>Applications</applications>
-<content>Content</content>
-<siteExplorer>Sites Explorer</siteExplorer>
-<wcmAdmin>Content Administration</wcmAdmin>
+<applications>Приложения</applications>
+<content>Содержимое</content>
+<siteExplorer>Обозреватель сайтов</siteExplorer>
+<wcmAdmin>Управление контентом</wcmAdmin>
 <users>Пользователи</users>
-<newStaff>Add Users</newStaff>
-<org-management>Groups and Roles</org-management>
-<portal>Portal</portal>
-<administration>Administration</administration>
-<groupnavigation>Group Sites</groupnavigation>
-<pageManagement>Pages</pageManagement>
-<portalnavigation>Sites</portalnavigation>
-<servicesManagement>Management</servicesManagement>
-<monitoring>Monitoring</monitoring>
-<spaces>Spaces</spaces>
-<Branding>Branding</Branding>
+<newStaff>Добавить пользователей</newStaff>
+<org-management>Группы и роли</org-management>
+<portal>Портал</portal>
+<administration>Администрирование</administration>
+<groupnavigation>Сайты группы</groupnavigation>
+<pageManagement>Страницы</pageManagement>
+<portalnavigation>Сайты</portalnavigation>
+<servicesManagement>Управление</servicesManagement>
+<monitoring>Мониторинг</monitoring>
+<spaces>Области</spaces>
+<Branding>Фирменная символика</Branding>
 <ide>IDE</ide>
-<search>Search</search>
+<search>Поиск</search>
 </label>
 </UISetupPlatformToolBarPortlet>
 </bundle>

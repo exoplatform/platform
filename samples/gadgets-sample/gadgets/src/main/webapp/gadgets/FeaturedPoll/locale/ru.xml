@@ -20,16 +20,16 @@
 
 -->
 <messagebundle>
-  <msg name="title">Featured Poll</msg>
-  <msg name="setting">View</msg>
-  <msg name="vote">Vote</msg>
-  <msg name="voteAgain">Vote Again</msg>
-  <msg name="warning">Please choose at least one option</msg>
-  <msg name="option">Options</msg>
-  <msg name="percent">Percent</msg>
-  <msg name="voter">Voters</msg>
-  <msg name="total">Total</msg>
-  <msg name="discuss">Discuss in Forum</msg>
-  <msg name="nopoll">No Polls Yet</msg>  
-  <msg name="createPoll">Create Your Own Poll</msg>    
+  <msg name="title">Рекомендуемый опрос</msg>
+  <msg name="setting">Показать</msg>
+  <msg name="vote">Проголосовать</msg>
+  <msg name="voteAgain">Проголосовать еще раз</msg>
+  <msg name="warning">Пожалуйста, выберите по крайней мере один из вариантов</msg>
+  <msg name="option">Опции</msg>
+  <msg name="percent">Процент</msg>
+  <msg name="voter">Участники опроса</msg>
+  <msg name="total">Всего</msg>
+  <msg name="discuss">Обсудить на форуме</msg>
+  <msg name="nopoll">Еще нет опросов</msg>  
+  <msg name="createPoll">Создать свой опрос</msg>    
 </messagebundle>

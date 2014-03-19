@@ -94,14 +94,14 @@
             <% } %>
             <li class="divider">&nbsp;</li>
             <li>
-              <a href="$accountSetting"><i class="uiIconSetting"></i>$labelaccount</a>
+              <a href="javascript:void(0);" onclick="$accountSetting"><i class="uiIconSetting"></i>$labelaccount</a>
             </li>
             <li>
-              <a href="$changeLanguageAction"><i class="uiIconFlags"></i>$labellanguage</a>     
+              <a href="javascript:void(0);" onclick="$changeLanguageAction"><i class="uiIconFlags"></i>$labellanguage</a>
             </li>
             <li class="divider">&nbsp;</li>
             <li onclick="eXo.portal.logout();">
-                <a href="#"><i class="uiIconPLFLogout"></i>$labellogout</a>
+                <a href="javascript:void(0);"><i class="uiIconPLFLogout"></i>$labellogout</a>
             </li>
         </ul>
    

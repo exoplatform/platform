@@ -2,44 +2,44 @@
 <bundle>
    <UIAdminToolbarPortlet>
       <action>
-         <AddPage>Add Page</AddPage>
-         <EditNavigation>Navigation</EditNavigation>
-         <Content>Content</Content>
-         <Editor>Edit</Editor>
-         <Page>Page</Page>
-         <Site>Site</Site>
-         <Layout>Edit Layout</Layout>
-         <siteLayout>Layout</siteLayout>
-         <ManagePages>Manage Pages</ManagePages>
-         <GroupSite>Group Site</GroupSite>
+         <AddPage>Добавить страницу</AddPage>
+         <EditNavigation>Навигация</EditNavigation>
+         <Content>Содержимое</Content>
+         <Editor>Редактировать</Editor>
+         <Page>Страница</Page>
+         <Site>Сайт</Site>
+         <Layout>Редактировать макет страницы</Layout>
+         <siteLayout>Макет</siteLayout>
+         <ManagePages>Управление страницами</ManagePages>
+         <GroupSite>Сайт группы</GroupSite>
          <Properties>#{UISEOToolbarForm.label.seo}</Properties>
-         <AddSite>Add Site</AddSite>
+         <AddSite>Добавить сайт</AddSite>
       </action>
-<ManageSites>Manage Sites</ManageSites>
-<ManageGroupSites>Manage Group Sites</ManageGroupSites>
+<ManageSites>Управление сайтами</ManageSites>
+<ManageGroupSites>Управление сайтами группы</ManageGroupSites>
    </UIAdminToolbarPortlet>
 
   <UISEOForm>
     <label>
-      <title>Title:</title>  
-      <description>Description:</description>
-      <keywords>Keywords:</keywords>
-      <language>Language:</language>
-      <robots>Robots:</robots>
-      <sitemap>Sitemap:</sitemap>
-      <sitemapvisible>Visible in sitemap</sitemapvisible>
-  <isInherited>Inherited from parent page</isInherited>
-      <priority>Priority:</priority>
-      <frequency>Frequency:</frequency>
-      <select-language>Select Language</select-language>
+      <title>Заголовок:</title>  
+      <description>Описание:</description>
+      <keywords>Ключевые слова:</keywords>
+      <language>Язык:</language>
+      <robots>Роботы:</robots>
+      <sitemap>Карта сайта:</sitemap>
+      <sitemapvisible>Видимый на карте сайта</sitemapvisible>
+  <isInherited>Унаследованное от исходной страницы</isInherited>
+      <priority>Приоритет:</priority>
+      <frequency>Частота:</frequency>
+      <select-language>Выбрать язык</select-language>
       <option>
-        <Always>Always</Always>
-        <Hourly>Hourly</Hourly>
-        <Daily>Daily</Daily>
-        <Weekly>Weekly</Weekly>
-        <Monthly>Monthly</Monthly>
-        <Yearly>Yearly</Yearly>
-        <Never>Never</Never>
+        <Always>Всегда</Always>
+        <Hourly>Каждый час</Hourly>
+        <Daily>Ежедневно</Daily>
+        <Weekly>Еженедельно</Weekly>
+        <Monthly>Ежемесячно</Monthly>
+        <Yearly>Ежегодно</Yearly>
+        <Never>Никогда</Never>
       </option> 
     </label>
  
@@ -48,16 +48,16 @@
       <Cancel>#{word.cancel}</Cancel>
     </action>
     <msg>
-      <repository-exception>An unexpected error occurred. Cannot save page metadata.</repository-exception>
-      <confirm-delete>Are you sure you want to delete these SEO data?</confirm-delete>
+      <repository-exception>Произошла непредвиденная ошибка. Не удается сохранить метаданные страницы.</repository-exception>
+      <confirm-delete>Вы уверены, что вы хотите удалить эти данные SEO?</confirm-delete>
     </msg>
     <title>
-    <seo-delete>Delete</seo-delete>
+    <seo-delete>Удалить</seo-delete>
     </title>
 <help> 
-  <priority>Valid values range from 0.0 to 1.0.</priority>
-  <description>Help searchers: let them know that the following page has a link with what they are looking for.</description>
-  <keywords>Most important terms in the page must be separated by a comma.</keywords>  
+  <priority>Диапазон допустимых значений от 0.0 до 1.0.</priority>
+  <description>Помогите поисковикам: сообщите, если следующая страница имеет связь с тем, что они ищут.</description>
+  <keywords>Наиболее важные термины на странице должны быть разделены запятой.</keywords>  
     </help>  
   </UISEOForm>
   <UISEOPopupWindow>
@@ -67,7 +67,7 @@
   </UISEOPopupWindow>    
   <UISEOToolbarForm>
   <title>
-      <seo>SEO Management</seo>
+      <seo>Управление SEO</seo>
   </title>
   <label>
     <seo>SEO</seo>
@@ -75,15 +75,15 @@
   </UISEOToolbarForm>  
   <FloatNumberValidator>
     <msg>
-      <Invalid-number>Priority field has an invalid value. Please enter a number between 0.0 and 1.0.</Invalid-number>
+      <Invalid-number>Приоритетное поле содержит недопустимое значение. Пожалуйста, введите число между 0.0 и 1.0.</Invalid-number>
     </msg>
   </FloatNumberValidator>
   
   <Locale>
     <label>      
-      <it>Italian</it>      
-      <fr>French</fr>
-      <en>English</en>      
+      <it>Итальянский</it>      
+      <fr>Французский</fr>
+      <en>Английский</en>      
     </label>
   </Locale>
   

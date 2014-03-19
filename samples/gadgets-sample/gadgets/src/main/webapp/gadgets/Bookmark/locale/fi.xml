@@ -29,7 +29,7 @@
   <msg name="url">URL</msg>
   <msg name="delete">Delete</msg>
   <msg name="edit">Edit</msg>
-  <msg name="cancel">#{word.cancel}</msg>
-  <msg name="emptyBookmarkPre">You don't have any bookmark : add them by clicking on</msg>
-  <msg name="emptyBookmarkSuf">button</msg>
+  <msg name="cancel">Cancel</msg>
+  <msg name="emptyBookmarkPre">You don't have any bookmark. Add them by clicking on the button "Add Bookmark".</msg>
+  <msg name="addBookmark">Add Bookmark</msg>
 </messagebundle>

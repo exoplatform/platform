@@ -1,33 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <bundle>
   <Signin>
-    <welcome>Welcome</welcome>
-    <login>Login</login>
-    <logout>Logout</logout>
+    <welcome>Добро пожаловать</welcome>
+    <login>Авторизация</login>
+    <logout>Выйти</logout>
     <language>
-      <en>Switch to English</en>
-      <fr>Switch to French</fr>
+      <en>Переключиться на английский язык</en>
+      <fr>Переключиться на французский язык</fr>
     </language>
-    <register>Register</register>
+    <register>Регистрация</register>
   </Signin>
   <Toolbar>
-    <SkipToContent>Skip to content</SkipToContent>
-    <SiteMap>Site Map</SiteMap>
-    <Accessibility>Accessibility</Accessibility>
-    <NormalSize>Normal Size</NormalSize>
-    <MediumSize>Medium Size</MediumSize>
-    <LargeSize>Large Size</LargeSize>
-    <NormalContrast>Normal Contrast</NormalContrast>
-    <HighContrast>High Contrast</HighContrast>
-    <Search>Search</Search>
+    <SkipToContent>Перейти к контенту</SkipToContent>
+    <SiteMap>Карта сайта</SiteMap>
+    <Accessibility>Спец. возможности</Accessibility>
+    <NormalSize>Обычный размер</NormalSize>
+    <MediumSize>Средний размер</MediumSize>
+    <LargeSize>Большой размер</LargeSize>
+    <NormalContrast>Нормальная контрастность</NormalContrast>
+    <HighContrast>Высокая контрастность</HighContrast>
+    <Search>Поиск</Search>
   </Toolbar>
   <Logo>
-    <GoHome>Go to Home</GoHome>
+    <GoHome>Перейти на стартовую страницу</GoHome>
   </Logo>
   <acme>
-    <label>ACME Template</label>
+    <label>Шаблон АСМЕ</label>
   </acme>  
   <WAIPortal>
-    <label>Sample Accessible Website</label>
+    <label>Пример доступного веб-сайта</label>
   </WAIPortal>
 </bundle>

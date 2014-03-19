@@ -40,7 +40,7 @@
 		<ul class="dropdown-menu">
       <% if(uicomponent.isSpaceManager()) { %>
 			<li>
-				<a href="<%=uicomponent.event("ChangeEditing")%>">
+				<a href="javascript:void(0);" onclick="<%=uicomponent.event("ChangeEditing")%>">
 					$quickEditLabel
 					<i class="$quiEditClass"></i>
 				</a>
@@ -57,7 +57,7 @@
           String editPageRequest = "javascript:ajaxGet(eXo.env.server.createPortalURL('" + uicomponent.getUIPageId() + "', 'EditCurrentPage', true))";
         %>
 					<li>
-						<a href="$editPageRequest">
+						<a href="javascript:void(0);" onclick="$editPageRequest">
 							$editPageLabel
 						</a>
 					</li>
@@ -68,7 +68,7 @@
 					</li>	  				
 					<li class="divider">&nbsp;</li>
 					<li>	
-						<a href="javascript:ajaxGet(eXo.env.server.createPortalURL('UIWorkingWorkspace', 'PageCreationWizard', true))">
+						<a href="javascript:void(0);" onclick="ajaxGet(eXo.env.server.createPortalURL('UIWorkingWorkspace', 'PageCreationWizard', true))">
 							$addPageLabel
 						</a>
 					</li>
@@ -83,7 +83,7 @@
 				<ul class="dropdown-menu">
 					<% if(userCouldEditPortal){ %>
 					<li>	
-						<a href="javascript:ajaxGet(eXo.env.server.createPortalURL('UIWorkingWorkspace', 'EditInline', true))">
+						<a href="javascript:void(0);" onclick="ajaxGet(eXo.env.server.createPortalURL('UIWorkingWorkspace', 'EditInline', true))">
 							$editSiteLayout
 						</a>
 					</li>

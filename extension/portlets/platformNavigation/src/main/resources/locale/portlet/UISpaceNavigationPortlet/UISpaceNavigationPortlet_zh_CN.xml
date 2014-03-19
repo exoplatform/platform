@@ -4,8 +4,7 @@
      <label>
          <Spaces>我的空间</Spaces>
          <Join>加入空间</Join>
-         <more>更多空间</more>
-         <see>显示</see>
+         <see>Show {0} More Spaces</see>
      </label>
      <msg>
          <filter-spaces>搜索空间</filter-spaces>
