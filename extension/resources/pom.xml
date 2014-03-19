@@ -4,7 +4,7 @@
   <parent>
     <artifactId>platform-extension</artifactId>
     <groupId>org.exoplatform.platform</groupId>
-    <version>4.0.x-SNAPSHOT</version>
+    <version>4.0.5</version>
   </parent>
   <artifactId>platform-extension-resources</artifactId>
   <packaging>war</packaging>

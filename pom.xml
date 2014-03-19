@@ -9,7 +9,7 @@
   </parent>
   <groupId>org.exoplatform.platform</groupId>
   <artifactId>platform</artifactId>
-  <version>4.0.x-SNAPSHOT</version>
+  <version>4.0.5</version>
   <packaging>pom</packaging>
   <name>eXo Platform</name>
   <description>Parent POM for platform projects.</description>
@@ -23,7 +23,7 @@
   <scm>
     <connection>scm:git:git://github.com/exoplatform/platform.git</connection>
     <developerConnection>scm:git:git@github.com:exoplatform/platform.git</developerConnection>
-    <tag>HEAD</tag>
+    <tag>4.0.5</tag>
     <url>https://fisheye.exoplatform.com/browse/platform</url>
   </scm>
   <properties>
