@@ -40,26 +40,26 @@
     <!-- **************************************** -->
     <org.exoplatform.depmgt.version>7.4</org.exoplatform.depmgt.version>
     <!-- JCR Project Dependencies -->
-    <org.exoplatform.kernel.version>2.4.8-GA-SNAPSHOT</org.exoplatform.kernel.version>
-    <org.exoplatform.core.version>2.5.8-GA-SNAPSHOT</org.exoplatform.core.version>
-    <org.exoplatform.ws.version>2.3.8-GA-SNAPSHOT</org.exoplatform.ws.version>
-    <org.exoplatform.jcr.version>1.15.8-GA-SNAPSHOT</org.exoplatform.jcr.version>
+    <org.exoplatform.kernel.version>2.4.8-GA</org.exoplatform.kernel.version>
+    <org.exoplatform.core.version>2.5.8-GA</org.exoplatform.core.version>
+    <org.exoplatform.ws.version>2.3.8-GA</org.exoplatform.ws.version>
+    <org.exoplatform.jcr.version>1.15.8-GA</org.exoplatform.jcr.version>
     <!-- GateIn Project Dependencies -->
     <org.gatein.shindig.version>2.0.2.Final-gatein-4</org.gatein.shindig.version>
     <org.gatein.common.version>2.1.0.Final</org.gatein.common.version>
     <org.gatein.wci.version>2.3.0.Final</org.gatein.wci.version>
     <org.gatein.pc.version>2.4.0.Final</org.gatein.pc.version>
     <org.gatein.sso.version>1.3.1.Final</org.gatein.sso.version>
-    <org.gatein.portal.version>3.5.9.Final-SNAPSHOT</org.gatein.portal.version>
+    <org.gatein.portal.version>3.5.9.Final</org.gatein.portal.version>
     <!-- Platform Project Dependencies -->
-    <org.exoplatform.commons.version>4.0.x-SNAPSHOT</org.exoplatform.commons.version>
-    <org.exoplatform.ecms.version>4.0.x-SNAPSHOT</org.exoplatform.ecms.version>
-    <org.exoplatform.social.version>4.0.x-SNAPSHOT</org.exoplatform.social.version>
-    <org.exoplatform.forum.version>4.0.x-SNAPSHOT</org.exoplatform.forum.version>
-    <org.exoplatform.wiki.version>4.0.x-SNAPSHOT</org.exoplatform.wiki.version>
-    <org.exoplatform.calendar.version>4.0.x-SNAPSHOT</org.exoplatform.calendar.version>
-    <org.exoplatform.integ.version>4.0.x-SNAPSHOT</org.exoplatform.integ.version>
-    <org.exoplatform.platform-ui.version>4.0.x-SNAPSHOT</org.exoplatform.platform-ui.version>
+    <org.exoplatform.commons.version>4.0.5</org.exoplatform.commons.version>
+    <org.exoplatform.ecms.version>4.0.5</org.exoplatform.ecms.version>
+    <org.exoplatform.social.version>4.0.5</org.exoplatform.social.version>
+    <org.exoplatform.forum.version>4.0.5</org.exoplatform.forum.version>
+    <org.exoplatform.wiki.version>4.0.5</org.exoplatform.wiki.version>
+    <org.exoplatform.calendar.version>4.0.5</org.exoplatform.calendar.version>
+    <org.exoplatform.integ.version>4.0.5</org.exoplatform.integ.version>
+    <org.exoplatform.platform-ui.version>4.0.5</org.exoplatform.platform-ui.version>
   </properties>
   <dependencyManagement>
     <!-- ### NEVER CHANGE THIS ORDER OF DEPMGT ### -->
