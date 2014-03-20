@@ -5,8 +5,6 @@ import org.exoplatform.commons.utils.ListAccess;
 import org.exoplatform.container.ExoContainerContext;
 import org.exoplatform.services.log.ExoLogger;
 import org.exoplatform.services.log.Log;
-import org.exoplatform.services.organization.OrganizationService;
-import org.exoplatform.services.organization.User;
 import org.exoplatform.services.rest.impl.RuntimeDelegateImpl;
 import org.exoplatform.services.rest.resource.ResourceContainer;
 import org.exoplatform.social.core.identity.model.Identity;
@@ -14,20 +12,26 @@ import org.exoplatform.social.core.identity.model.Profile;
 import org.exoplatform.social.core.identity.provider.OrganizationIdentityProvider;
 import org.exoplatform.social.core.manager.IdentityManager;
 import org.exoplatform.social.core.manager.RelationshipManager;
-import org.exoplatform.social.core.profile.ProfileFilter;
 import org.exoplatform.social.core.relationship.model.Relationship;
 import org.json.JSONArray;
 import org.json.JSONObject;
+
+import java.net.URI;
+import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
-import javax.ws.rs.core.*;
+import javax.ws.rs.core.CacheControl;
+import javax.ws.rs.core.Context;
+import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
+import javax.ws.rs.core.SecurityContext;
+import javax.ws.rs.core.UriInfo;
 import javax.ws.rs.ext.RuntimeDelegate;
-import java.net.URI;
-import java.util.*;
-import java.util.Map.Entry;
 
 
 @Path("/homepage/intranet/people/")
@@ -223,12 +227,11 @@ public class PeopleRestServices implements ResourceContainer {
             }
 
             IdentityManager identityManager = (IdentityManager) ExoContainerContext.getCurrentContainer().getComponentInstanceOfType(IdentityManager.class);
-            Identity identity = identityManager.getOrCreateIdentity(OrganizationIdentityProvider.NAME, userId);
+            Identity identity = identityManager.getOrCreateIdentity(OrganizationIdentityProvider.NAME, userId, false);
             RelationshipManager relationshipManager = (RelationshipManager) ExoContainerContext.getCurrentContainer().getComponentInstanceOfType(RelationshipManager.class);
-            OrganizationService orgManager = (OrganizationService) ExoContainerContext.getCurrentContainer().getComponentInstanceOfType(OrganizationService.class);
             
             ListAccess<Identity> connectionList = relationshipManager.getConnections(identity);
-            Map<Identity, Integer> suggestions = relationshipManager.getSuggestions(identity, 0, 30);
+            Map<Identity, Integer> suggestions = relationshipManager.getSuggestions(identity, 20, 250, 2, 1);
 
             JSONObject jsonGlobal = new JSONObject();
             JSONArray jsonArray = new JSONArray();
@@ -238,7 +241,7 @@ public class PeopleRestServices implements ResourceContainer {
               
               if (id.getRemoteId().equals("root")) continue;
               JSONObject json = new JSONObject();
-              String avatar = id.getProfile().getAvatarImageSource();
+              String avatar = id.getProfile().getAvatarUrl();
               if (avatar == null) {
                 avatar = "/social-resources/skin/images/ShareImages/UserAvtDefault.png";
               }
@@ -255,13 +258,7 @@ public class PeopleRestServices implements ResourceContainer {
 
               //set mutual friend number
               json.put("number", suggestion.getValue());
-              User user = orgManager.getUserHandler().findUserByName(id.getRemoteId());
-              if(user != null && user.getCreatedDate() != null){
-                json.put("createdDate",user.getCreatedDate().getTime());
-              }
-              else{
-                json.put("createdDate",new Date().getTime());
-              }
+              json.put("createdDate",id.getProfile().getCreatedTime());
               jsonArray.put(json);
             }
             jsonGlobal.put("items",jsonArray);
