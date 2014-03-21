@@ -1,0 +1,99 @@
+#{param name=senderName/}
+#{param name=senderEmail/}
+#{param name=_ctx/}
+#{param name=groups/}
+<div id="notificationAdmin" class="uiNotificationAdmin">
+	<h3 class="mgB20">${_ctx.appRes("NotificationAdmin.title")}</h3>
+	<div id="confirmMessage" style="display:none">
+		<i class="uiIconSuccess"></i><span class="message"></span>
+	</div>
+	<form id="senderForm" class="senderForm">
+		<h4 class="titleWithBorder mgB20">${_ctx.appRes("NotificationAdmin.label.notificationsSender")}</h4>
+		<div class="control-groups clearfix">
+			<label for="senderName" class="pull-left"> ${_ctx.appRes("NotificationAdmin.label.sender.name")}:&nbsp;</label>
+			<div class="pull-left mgR20">
+				<input id="senderName" name="name" type="text" value="${senderName}" placeholder="Name"/>&nbsp;&nbsp;
+			</div>
+			<label for="senderEmail" class="pull-left">${_ctx.appRes("NotificationAdmin.label.sender.address")}:&nbsp;</label>
+			<div class="pull-left mgR20">
+				<input id="senderEmail" class="right" type="text" name="email" value="${senderEmail}" placeholder="Email"/>&nbsp;
+			</div>
+			<input id="btSetSender" class="btn btn-primary" type="button" value="${_ctx.appRes('NotificationAdmin.label.save')}"/>
+		</div>
+	</form>
+
+	<h4 class="titleWithBorder mgB20">${_ctx.appRes("NotificationAdmin.label.notificationTypes")}</h4>
+	<table class="uiGrid table  table-hover table-striped">
+	  <thead>
+	    <tr>
+	      <th>${_ctx.appRes("NotificationAdmin.label.notification")}</th>
+	      <th>${_ctx.appRes("NotificationAdmin.label.title")}</th>
+	      <th class="center">${_ctx.appRes("NotificationAdmin.label.action")}</th>
+	    </tr>
+	  </thead>
+	  <tbody>
+	  <% for(def group : groups) {
+	    	List pluginInfos = group.getProviderDatas();
+	    	if(pluginInfos == null || pluginInfos.size() == 0) {
+			    continue;
+			  }
+	  %>
+	    <tr>
+	       <td class="group-title"><strong>${_ctx.pluginRes(group.getResourceBundleKey(), group.getGroupId())}</strong></td>
+	       <td></td>
+	       <td></td> 
+	    </tr>  
+	    
+	    <% for (def provider : pluginInfos) {
+	         def pluginId = provider.getType();
+	         def status = (provider.isActive() ? "enable" : "disable");
+	    %>      
+      <tr id="${pluginId}" class="${status}">       
+        <td class="left">
+          <label for="${pluginId}">${_ctx.pluginRes(provider.getResourceBundleKey(), pluginId)}</label>
+        </td>
+        <td class="left">
+          ${_ctx.pluginRes("UINotification.title." + pluginId, pluginId)}                    
+        </td>
+        <td class="center">    
+          <div class="inputContainer" style="width: 60px;">
+        <% if (status == "enable")  { %>                   
+           <input type="checkbox" class="providerAction yesno ${status}" checked="checked" name="${pluginId}">
+        <% } else { %>
+           <input type="checkbox" class="providerAction yesno ${status}" name="${pluginId}">
+        <% } %>
+          </div>
+        </td>
+      </tr>      
+	    <% } %>    
+	  <% } %>
+	  </tbody>
+	</table>
+	<div style="display:none;" id="labelBundle">
+		<span id="labelEnable">${_ctx.appRes("NotificationAdmin.label.Enable")}</span>
+		<span id="labelDisable">${_ctx.appRes("NotificationAdmin.label.Disable")}</span>
+		<span id="labelOK">${_ctx.appRes("NotificationAdmin.label.OK")}</span>
+		<span id="Information">${_ctx.appRes("NotificationAdmin.label.Information")}</span>
+		<span id="Error">${_ctx.appRes("NotificationAdmin.label.Error")}</span>
+		<span id="msgSaveOK">${_ctx.appRes("NotificationAdmin.msg.saveOK")}</span>
+		<span id="msgSaveKO">${_ctx.appRes("NotificationAdmin.msg.saveKO")}</span>
+	</div>
+	
+	<script type="text/javascript">
+		require(["PORTLET/platform-notification/NotificationsAdminJuzuPortlet","SHARED/jquery", "SHARED/iphonePlugin"], function (notificationsAdmin, gj)
+		{
+			gj('input.providerAction').each(function()
+			{
+				gj(this).iphoneStyle({
+					checkedLabel:'YES',
+					uncheckedLabel:'NO'});
+
+				gj(this).change(function()
+				{
+					gj(this).trigger("click");
+				});
+			});
+		});
+  </script>
+  
+</div>

@@ -2,6 +2,7 @@
   import org.exoplatform.portal.config.model.PageNode;
   import java.util.List;
   import org.exoplatform.web.application.JavascriptManager;
+  import org.exoplatform.commons.utils.CommonsUtils;
 
 %>
 <%// Begin render page nodes method
@@ -11,6 +12,10 @@
     }
 
     for(PageNode pageNode : pageNodes) {
+      if (uicomponent.NOTIFICATION_NODE_NAME.equals(pageNode.getName())) {
+        if (CommonsUtils.isFeatureActive(uicomponent.NOTIFICATION_NODE_NAME) == false)
+          continue;
+      }
       if(!uicomponent.hasPermissionOnPageNode(pageNode)) {
         continue;
       }
