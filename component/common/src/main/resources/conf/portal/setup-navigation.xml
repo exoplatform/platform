@@ -43,13 +43,13 @@
                 <name>wcmAdmin</name>
                 <label>#{UISetupPlatformToolBarPortlet.label.wcmAdmin}</label>
                 <page-reference>group::platform/web-contributors::WcmAdmin</page-reference>
-            </node>
+            </node>    
             <node>
                 <uri>search</uri>
                 <name>search</name>
                 <label>#{UISetupPlatformToolBarPortlet.label.search}</label>
                 <page-reference>group::platform/administrators::search</page-reference>
-            </node>
+            </node>        
         </node>
         <node>
             <uri>portal</uri>
@@ -80,6 +80,12 @@
                 <label>#{UISetupPlatformToolBarPortlet.label.Branding}</label>
                 <page-reference>group::platform/administrators::branding</page-reference>
             </node>
+            <node>
+                <uri>notification</uri>
+                <name>notification</name>
+                <label>#{UISetupPlatformToolBarPortlet.label.Notification}</label>
+                <page-reference>group::platform/administrators::notification</page-reference>
+            </node>            
         </node>
         <node>
             <uri>administration</uri>
@@ -97,7 +103,7 @@
                 <name>monitoring</name>
                 <label>#{UISetupPlatformToolBarPortlet.label.monitoring}</label>
                 <page-reference>group::platform/administrators::monitoring</page-reference>
-            </node>
+            </node>  
         </node>
     </page-nodes>
 </node-navigation>
