@@ -5,7 +5,7 @@
          <AddPage>Add Page</AddPage>
          <EditNavigation>Navigation</EditNavigation>
          <Content>Content</Content>
-         <Editor>Edit</Editor>
+         <Editor>Redaguoti</Editor>
          <Page>Page</Page>
          <Site>Site</Site>
          <Layout>Edit Layout</Layout>
@@ -82,8 +82,8 @@
   <Locale>
     <label>      
       <it>Italian</it>      
-      <fr>French</fr>
-      <en>English</en>      
+      <fr>Prancūzų</fr>
+      <en>Anglų</en>      
     </label>
   </Locale>
   

@@ -36,8 +36,8 @@
         boolean isOwner=  uicomponent.isProfileOwner();       
         for (node in uicomponent.getUserNodesAsList()) {
             def nodeLabel;
-            def str="UIUserNavigationPortlet.label."+node;
-            if (isOwner && ! node.equals(uicomponent.NOTIFICATION_SETTINGS)) str="UIUserNavigationPortlet.label.My"+node;
+            def str="UIUserNavigationPortlet.label.My"+node;
+            if ((!isOwner) && (!node.equals(uicomponent.DASHBOARD_URI))) str="UIUserNavigationPortlet.label."+node;
             nodeLabel = _ctx.appRes(str);
             pageURL = urlList[i];
             def navigationTabClass = "";

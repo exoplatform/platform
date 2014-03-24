@@ -28,7 +28,7 @@
   <msg name="name">Name</msg>
   <msg name="url">URL</msg>
   <msg name="delete">Delete</msg>
-  <msg name="edit">Edit</msg>
+  <msg name="edit">Redaguoti</msg>
   <msg name="cancel">Atšaukti</msg>
   <msg name="emptyBookmarkPre">You don't have any bookmark. Add them by clicking on the button "Add Bookmark".</msg>
   <msg name="addBookmark">Add Bookmark</msg>
