@@ -57,14 +57,16 @@ public class NavigationServiceHandler implements Startable {
             session = publicApplicationNode.getSession();
             rootNode = session.getRootNode();
             if(session.itemExists(path)){
-                Node logosNode = rootNode.getNode(path);
-                if (logosNode.hasNode(logo_name)) {
-                    ImageNode = logosNode.getNode(logo_name);
-                    pathImageNode = ImageNode.getPath()+"?"+System.currentTimeMillis();
-                }
+              Node logosNode = rootNode.getNode(path);
+              if (logosNode.hasNode(logo_name)) {
+                 ImageNode = logosNode.getNode(logo_name);
+                 pathImageNode = ImageNode.getPath()+"?"+System.currentTimeMillis();
+              }
+            } else {
+               logger.warn("Can not get LOGO from " + path + " : default LOGO will be used");
             }
         } catch (Exception e) {
-            logger.error("Can not get path of Logo : default LOGO will be used" + e.getMessage(), e);
+            logger.error("Exception occurs during getting path of Logo : default LOGO will be used" + e.getMessage(), e);
             return null;
         }
         finally {
