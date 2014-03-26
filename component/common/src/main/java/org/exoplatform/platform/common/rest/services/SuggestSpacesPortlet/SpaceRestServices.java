@@ -79,9 +79,9 @@ public class SpaceRestServices implements ResourceContainer {
             ListAccess<Identity> connectionsLA = identityManager.getConnectionsWithListAccess(identity);
             
             final Map<Space, Integer> spacesWithMemberNum = new HashMap<Space, Integer>();
-            int maxConnectionsToLoad = 250;
-            int maxSpacesToLoad = 100;
-            int maxSuggestions = 2;
+            int maxConnectionsToLoad = 100;
+            int maxSpacesToLoad = 50;
+            int maxSuggestions = 10;
             int totalConnections = connectionsLA.getSize();
             Random random = new Random();
             Identity[] connections;
@@ -146,8 +146,16 @@ public class SpaceRestServices implements ResourceContainer {
                 }
               }
             } else {
-              for (int idx = 0; idx < suggestedSpaces.length && idx < maxSuggestions; idx++) {
-                JSONObject json = buildJSONObject(suggestedSpaces[idx], 0);
+              // Propose the last spaces
+              List<Space> lastSpaces = spaceService.getLastSpaces(20);
+              for (Space space : lastSpaces) {
+                if (space.getVisibility().equals(Space.HIDDEN))
+                  continue;
+                if (space.getRegistration().equals(Space.CLOSE))
+                  continue;
+                if (spaceService.isMember(space, identity.getRemoteId())) 
+                  continue;
+                JSONObject json = buildJSONObject(space, 0);
                 jsonArray.put(json);
               }
             }

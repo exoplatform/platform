@@ -17,6 +17,8 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.net.URI;
+import java.util.Collections;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
@@ -231,11 +233,26 @@ public class PeopleRestServices implements ResourceContainer {
             RelationshipManager relationshipManager = (RelationshipManager) ExoContainerContext.getCurrentContainer().getComponentInstanceOfType(RelationshipManager.class);
             
             ListAccess<Identity> connectionList = relationshipManager.getConnections(identity);
-            Map<Identity, Integer> suggestions = relationshipManager.getSuggestions(identity, 20, 250, 2, 1);
+            int size = connectionList.getSize();
+            Map<Identity, Integer> suggestions;
+            if (size > 0) {
+              suggestions = relationshipManager.getSuggestions(identity, 20, 50, 10);
+            } else {
+              suggestions = Collections.emptyMap();
+            }
 
             JSONObject jsonGlobal = new JSONObject();
             JSONArray jsonArray = new JSONArray();
-
+            if (suggestions.isEmpty()) {
+              // Returns the last users
+              List<Identity> identities = identityManager.getLastIdentities(10);
+              suggestions = new HashMap<Identity, Integer>();
+              for (Identity id : identities) {
+                if (size > 0 && relationshipManager.get(identity, id) != null)
+                  continue;
+                suggestions.put(id, new Integer(0));
+              }
+            }
             for (Entry<Identity, Integer> suggestion : suggestions.entrySet()) {
               Identity id = suggestion.getKey();
               
@@ -262,7 +279,7 @@ public class PeopleRestServices implements ResourceContainer {
               jsonArray.put(json);
             }
             jsonGlobal.put("items",jsonArray);
-            jsonGlobal.put("noConnections",connectionList.getSize());
+            jsonGlobal.put("noConnections", size);
             return Response.ok(jsonGlobal.toString(), MediaType.APPLICATION_JSON).cacheControl(cacheControl).build();
         } catch (Exception e) {
             log.error("Error in getting GS progress: " + e.getMessage(), e);
