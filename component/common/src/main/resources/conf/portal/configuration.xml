@@ -32,6 +32,9 @@
     <component profiles="all">
         <type>org.exoplatform.platform.common.rest.services.InvitationsPortlet.PeopleAndSpacesRestService</type>
     </component>
+    <component>
+        <type>org.exoplatform.platform.common.rest.services.FeatureToggles.FeatureTogglesRestService</type>
+    </component>
     <component profiles="all">
         <type>org.exoplatform.platform.common.rest.services.GettingStarted.DeleteGadgetService</type>
     </component>
@@ -82,10 +85,16 @@
                                 <string>social-portlet</string>
                             </value>
                             <value>
+                                <string>social-juzu</string>
+                            </value>
+                            <value>
                                 <string>social</string>
                             </value>
                             <value>
                                 <string>social-extension</string>
+                            </value>
+                            <value>
+                                <string>social-notification-extension</string>
                             </value>
                             <value>
                                 <string>ksResources</string>
@@ -221,10 +230,16 @@
                                 <string>social-portlet</string>
                             </value>
                             <value>
+                                <string>social-juzu</string>
+                            </value>
+                            <value>
                                 <string>social</string>
                             </value>
                             <value>
                                 <string>social-extension</string>
+                            </value>
+                            <value>
+                                <string>social-notification-extension</string>
                             </value>
                            <value>
                               <string>homepage-portlets</string>

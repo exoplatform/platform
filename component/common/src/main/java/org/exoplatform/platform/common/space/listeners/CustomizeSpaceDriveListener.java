@@ -84,5 +84,13 @@ public class CustomizeSpaceDriveListener extends SpaceListenerPlugin {
   public void spaceAccessEdited(SpaceLifeCycleEvent event) {
     
   }
+  
+  @Override
+  public void addInvitedUser(SpaceLifeCycleEvent event) {
+  }
+
+  @Override
+  public void addPendingUser(SpaceLifeCycleEvent event) {
+  }
 
 }

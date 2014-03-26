@@ -26,4 +26,4 @@
 					<%uicomponent.renderChildren();%>
 				</div>
 
-				<div class="uiActionBorder"><button type="button" href="javascript:void(0);" onclick="<%=uicomponent.event("Cancel")%>" class="btn" style="">Cancel</button></div>
+				<div class="uiActionBorder"><button type="button" href="javascript:void(0);" onclick="<%=uicomponent.event("Cancel")%>" class="btn" style=""><%= _ctx.appRes("UIUploadFile.action.close") %></button></div>

@@ -90,7 +90,7 @@
 					<% } %>
 					<% if(userCouldEditNavigation){ %>
 					<li>	
-						<a href="<%=uicomponent.event("EditNavigation", null);%>">
+						<a href="javascript:void(0);" onclick="<%=uicomponent.event("EditNavigation", null);%>">
 							$editNavigation
 						</a>
 					</li>
