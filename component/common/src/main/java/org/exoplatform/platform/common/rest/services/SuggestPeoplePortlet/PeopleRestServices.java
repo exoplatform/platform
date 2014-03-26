@@ -3,6 +3,7 @@ package org.exoplatform.platform.common.rest.services.SuggestPeoplePortlet;
 import org.exoplatform.common.http.HTTPStatus;
 import org.exoplatform.commons.utils.ListAccess;
 import org.exoplatform.container.ExoContainerContext;
+import org.exoplatform.portal.config.UserACL;
 import org.exoplatform.services.log.ExoLogger;
 import org.exoplatform.services.log.Log;
 import org.exoplatform.services.rest.impl.RuntimeDelegateImpl;
@@ -231,6 +232,7 @@ public class PeopleRestServices implements ResourceContainer {
             IdentityManager identityManager = (IdentityManager) ExoContainerContext.getCurrentContainer().getComponentInstanceOfType(IdentityManager.class);
             Identity identity = identityManager.getOrCreateIdentity(OrganizationIdentityProvider.NAME, userId, false);
             RelationshipManager relationshipManager = (RelationshipManager) ExoContainerContext.getCurrentContainer().getComponentInstanceOfType(RelationshipManager.class);
+            UserACL userACL = (UserACL) ExoContainerContext.getCurrentContainer().getComponentInstanceOfType(UserACL.class);
             
             ListAccess<Identity> connectionList = relationshipManager.getConnections(identity);
             int size = connectionList.getSize();
@@ -256,7 +258,7 @@ public class PeopleRestServices implements ResourceContainer {
             for (Entry<Identity, Integer> suggestion : suggestions.entrySet()) {
               Identity id = suggestion.getKey();
               
-              if (id.getRemoteId().equals("root")) continue;
+              if (id.getRemoteId().equals(userACL.getSuperUser())) continue;
               JSONObject json = new JSONObject();
               String avatar = id.getProfile().getAvatarUrl();
               if (avatar == null) {

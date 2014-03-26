@@ -147,7 +147,7 @@ public class SpaceRestServices implements ResourceContainer {
               }
             } else {
               // Propose the last spaces
-              List<Space> lastSpaces = spaceService.getLastSpaces(20);
+              List<Space> lastSpaces = spaceService.getLastSpaces(10);
               for (Space space : lastSpaces) {
                 if (space.getVisibility().equals(Space.HIDDEN))
                   continue;
