@@ -250,7 +250,7 @@ public class PeopleRestServices implements ResourceContainer {
               List<Identity> identities = identityManager.getLastIdentities(10);
               suggestions = new HashMap<Identity, Integer>();
               for (Identity id : identities) {
-                if (size > 0 && relationshipManager.get(identity, id) != null)
+                if (identity.equals(id) || relationshipManager.get(identity, id) != null)
                   continue;
                 suggestions.put(id, new Integer(0));
               }

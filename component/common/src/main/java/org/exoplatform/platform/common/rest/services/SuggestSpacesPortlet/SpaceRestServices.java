@@ -71,6 +71,8 @@ public class SpaceRestServices implements ResourceContainer {
             // new create system with no spaces
             int size = suggestedSpacesLA.getSize();
             if (size == 0) {
+              jsonGlobal.put("items",jsonArray);
+              jsonGlobal.put("noConnections", 0);
               return Response.ok(jsonGlobal.toString(), MediaType.APPLICATION_JSON).cacheControl(cacheControl).build();
             }
             
@@ -101,9 +103,9 @@ public class SpaceRestServices implements ResourceContainer {
             for (Space space : suggestedSpaces) {
               for (Identity connector : connections) {
                 //
-                if (space.getVisibility().equals(Space.HIDDEN))
+                if (Space.HIDDEN.equals(space.getVisibility()))
                   continue;
-                if (space.getRegistration().equals(Space.CLOSE))
+                if (Space.CLOSE.equals(space.getRegistration()))
                   continue;
                 if (!spaceService.isMember(space, connector.getRemoteId())) 
                   continue;
@@ -149,12 +151,14 @@ public class SpaceRestServices implements ResourceContainer {
               // Propose the last spaces
               List<Space> lastSpaces = spaceService.getLastSpaces(10);
               for (Space space : lastSpaces) {
-                if (space.getVisibility().equals(Space.HIDDEN))
+                if (Space.HIDDEN.equals(space.getVisibility()))
                   continue;
-                if (space.getRegistration().equals(Space.CLOSE))
+                if (Space.CLOSE.equals(space.getRegistration()))
                   continue;
                 if (spaceService.isMember(space, identity.getRemoteId())) 
                   continue;
+                if (spaceService.isPendingUser(space, identity.getRemoteId())) 
+                   continue;
                 JSONObject json = buildJSONObject(space, 0);
                 jsonArray.put(json);
               }
@@ -177,7 +181,7 @@ public class SpaceRestServices implements ResourceContainer {
       }
       
       String spaceType = "";
-      if (space.getRegistration().equals(Space.OPEN)) {
+      if (space.getRegistration() == null || space.getRegistration().equals(Space.OPEN)) {
           spaceType = "Public";
       } else {
           spaceType = "Private";
@@ -190,7 +194,7 @@ public class SpaceRestServices implements ResourceContainer {
       json.put("spaceUrl", space.getUrl());
       json.put("avatarUrl", avatar);
       json.put("registration", space.getRegistration());
-      json.put("members", space.getMembers().length);
+      json.put("members", space.getMembers() == null ? 0 : space.getMembers().length);
       json.put("privacy", spaceType);
       json.put("number", k);
       json.put("createdDate", space.getCreatedTime());
