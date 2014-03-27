@@ -27,7 +27,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
       
         <link rel="stylesheet" type="text/css" href="/exo-gadget-resources/skin/exo-gadget/gadget-common.css" />
-        <link rel="stylesheet" type="text/css" href="/exo-gadget-resources/script/jquery/plugins/jqplot/1.0.0/jquery.jqplot.min.css" />
+        <link rel="stylesheet" type="text/css" href="/exo-gadget-resources/script/jquery/plugins/jqplot/1.0.5/jquery.jqplot.min.css" />
         <link rel="stylesheet" type="text/css" href="/exo-gadget-resources/skin/flexigrid/flexigrid.custom.css" />
         <link rel="stylesheet" type="text/css" href="/gadget-pack/skin/css/loginHistory-jquery-ui-1.8.13.custom.css" />
         <link rel="stylesheet" type="text/css" href="/gadget-pack/skin/css/loginHistory.css" />
@@ -37,11 +37,11 @@
         <script language="javascript" type="text/javascript" src="/exo-gadget-resources/script/jquery/plugins/date.js/date.js"></script>
         <script language="javascript" type="text/javascript" src="/exo-gadget-resources/script/jquery/plugins/jquery.timers/1.2/jquery.timers.js"></script>
         <script language="javascript" type="text/javascript" src="/exo-gadget-resources/script/jquery/plugins/flexigrid/1.1/js/flexigrid.pack.js"></script>
-        <script language="javascript" type="text/javascript" src="/exo-gadget-resources/script/jquery/plugins/jqplot/1.0.0/jquery.jqplot.min.js"></script>
-        <script language="javascript" type="text/javascript" src="/exo-gadget-resources/script/jquery/plugins/jqplot/1.0.0/plugins/jqplot.barRenderer.min.js"></script>
-        <script language="javascript" type="text/javascript" src="/exo-gadget-resources/script/jquery/plugins/jqplot/1.0.0/plugins/jqplot.categoryAxisRenderer.min.js"></script>
-        <script language="javascript" type="text/javascript" src="/exo-gadget-resources/script/jquery/plugins/jqplot/1.0.0/plugins/jqplot.highlighter.min.js"></script>
-        <script language="javascript" type="text/javascript" src="/exo-gadget-resources/script/jquery/plugins/jqplot/1.0.0/plugins/jqplot.pointLabels.min.js"></script>
+        <script language="javascript" type="text/javascript" src="/exo-gadget-resources/script/jquery/plugins/jqplot/1.0.5/jquery.jqplot.min.js"></script>
+        <script language="javascript" type="text/javascript" src="/exo-gadget-resources/script/jquery/plugins/jqplot/1.0.5/plugins/jqplot.barRenderer.min.js"></script>
+        <script language="javascript" type="text/javascript" src="/exo-gadget-resources/script/jquery/plugins/jqplot/1.0.5/plugins/jqplot.categoryAxisRenderer.min.js"></script>
+        <script language="javascript" type="text/javascript" src="/exo-gadget-resources/script/jquery/plugins/jqplot/1.0.5/plugins/jqplot.highlighter.min.js"></script>
+        <script language="javascript" type="text/javascript" src="/exo-gadget-resources/script/jquery/plugins/jqplot/1.0.5/plugins/jqplot.pointLabels.min.js"></script>
         <script language="javascript" type="text/javascript" src="/exo-gadget-resources/script/utils/pretty.date.js"></script>
         <script language="javascript" type="text/javascript" src="script/jquery-ui-1.8.13.custom.min.js"></script>
         <script language="javascript" type="text/javascript" src="script/jquery-datatables.min.js"></script>
