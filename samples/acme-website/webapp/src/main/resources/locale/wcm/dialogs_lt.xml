@@ -23,12 +23,12 @@
 <Product>
 <dialog>
 <label>
-<name>Name</name>
-<title>Title</title>
-<illustrationImage>Illustration Image</illustrationImage>
-<summary>Summary</summary>
-<benefits>Benefits</benefits>
-<features>Features</features>
+<name>Pavadinimas</name>
+<title>Antraštė</title>
+<illustrationImage>Iliustracijos nuotrauka</illustrationImage>
+<summary>Santrauka</summary>
+<benefits>Nauda</benefits>
+<features>Funkcijos</features>
 </label>
 </dialog>
 </Product>

@@ -11,12 +11,12 @@
          <Layout>Redaguoti išdėstymą</Layout>
          <siteLayout>Išdėstymas</siteLayout>
          <ManagePages>Tvarkyti puslapius</ManagePages>
-         <GroupSite>Group Site</GroupSite>
+         <GroupSite>Grupės svetainė</GroupSite>
          <Properties>#{UISEOToolbarForm.label.seo}</Properties>
          <AddSite>Pridėti svetainę</AddSite>
       </action>
 <ManageSites>Valdyti svetaines</ManageSites>
-<ManageGroupSites>Manage Group Sites</ManageGroupSites>
+<ManageGroupSites>Valdyti grupės svetaines</ManageGroupSites>
    </UIAdminToolbarPortlet>
 
   <UISEOForm>
@@ -24,7 +24,7 @@
       <title>Antraštė:</title>  
       <description>Aprašymas:</description>
       <keywords>Raktažodžiai:</keywords>
-      <language>Language:</language>
+      <language>Kalba:</language>
       <robots>Robotai:</robots>
       <sitemap>Svetainės žemėlapis:</sitemap>
       <sitemapvisible>Matomas svetainės žemėlapyje</sitemapvisible>
@@ -34,12 +34,12 @@
       <select-language>Pasirinkite kalbą</select-language>
       <option>
         <Always>Visada</Always>
-        <Hourly>Hourly</Hourly>
-        <Daily>Daily</Daily>
+        <Hourly>Kas valandą</Hourly>
+        <Daily>Kasdien</Daily>
         <Weekly>Kas savaitę</Weekly>
         <Monthly>Kas mėnesį</Monthly>
-        <Yearly>Yearly</Yearly>
-        <Never>Never</Never>
+        <Yearly>Kas metus</Yearly>
+        <Never>Niekada</Never>
       </option> 
     </label>
  
@@ -48,7 +48,7 @@
       <Cancel>#{word.cancel}</Cancel>
     </action>
     <msg>
-      <repository-exception>An unexpected error occurred. Cannot save page metadata.</repository-exception>
+      <repository-exception>Įvyko netikėta klaida. Negalima įrašyti puslapio metaduomenų.</repository-exception>
       <confirm-delete>Ar tikrai norite ištrinti šiuos SEO duomenis?</confirm-delete>
     </msg>
     <title>
@@ -56,8 +56,8 @@
     </title>
 <help> 
   <priority>Leistinos reikšmės svyruoja nuo 0,0 iki 1,0.</priority>
-  <description>Help searchers: let them know that the following page has a link with what they are looking for.</description>
-  <keywords>Most important terms in the page must be separated by a comma.</keywords>  
+  <description>Padėti vartotojams: leiskite jiems žinoti, kad šis puslapis yra susijęs su tai ko jie ieško.</description>
+  <keywords>Svarbiausios sąlygos puslapyje turi būti atskirtos kableliu.</keywords>  
     </help>  
   </UISEOForm>
   <UISEOPopupWindow>
@@ -75,13 +75,13 @@
   </UISEOToolbarForm>  
   <FloatNumberValidator>
     <msg>
-      <Invalid-number>Priority field has an invalid value. Please enter a number between 0.0 and 1.0.</Invalid-number>
+      <Invalid-number>Prioriteto laukelyje yra neleistina reikšmė. Įveskite skaičių nuo 0,0 iki 1,0.</Invalid-number>
     </msg>
   </FloatNumberValidator>
   
   <Locale>
     <label>      
-      <it>Italian</it>      
+      <it>Italų</it>      
       <fr>Prancūzų</fr>
       <en>Anglų</en>      
     </label>

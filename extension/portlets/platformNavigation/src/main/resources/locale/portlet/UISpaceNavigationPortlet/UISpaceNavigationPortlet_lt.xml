@@ -4,11 +4,11 @@
      <label>
          <Spaces>Mano erdvės</Spaces>
          <Join>Prisijungti prie erdvės</Join>
-         <see>Show {0} More Spaces</see>
+         <see>Rodyti {0} daugiau erdvių</see>
      </label>
      <msg>
          <filter-spaces>Ieškoti erdvių</filter-spaces>
-         <no-space>No space found</no-space>
+         <no-space>Jokių erdvių nerasta</no-space>
      </msg>
 
 </UISpaceNavigationPortlet>
