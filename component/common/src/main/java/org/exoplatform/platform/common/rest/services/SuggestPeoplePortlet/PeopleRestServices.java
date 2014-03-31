@@ -2,6 +2,7 @@ package org.exoplatform.platform.common.rest.services.SuggestPeoplePortlet;
 
 import org.exoplatform.common.http.HTTPStatus;
 import org.exoplatform.commons.utils.ListAccess;
+import org.exoplatform.container.ExoContainer;
 import org.exoplatform.container.ExoContainerContext;
 import org.exoplatform.portal.config.UserACL;
 import org.exoplatform.services.log.ExoLogger;
@@ -52,6 +53,12 @@ public class PeopleRestServices implements ResourceContainer {
         cacheControl.setNoStore(true);
     }
 
+    // The owner of the rest component
+    private final ExoContainer container;
+
+    public PeopleRestServices(ExoContainerContext ctx) {
+        this.container = ctx.getContainer();
+    }
 
     @GET
     @Path("contacts/pending")
@@ -64,9 +71,9 @@ public class PeopleRestServices implements ResourceContainer {
                 return Response.status(HTTPStatus.INTERNAL_ERROR).cacheControl(cacheControl).build();
             }
 
-            IdentityManager identityManager = (IdentityManager) ExoContainerContext.getCurrentContainer().getComponentInstanceOfType(IdentityManager.class);
+            IdentityManager identityManager = (IdentityManager) container.getComponentInstanceOfType(IdentityManager.class);
             Identity identity = identityManager.getOrCreateIdentity(OrganizationIdentityProvider.NAME, userId);
-            RelationshipManager relationshipManager = (RelationshipManager) ExoContainerContext.getCurrentContainer().getComponentInstanceOfType(RelationshipManager.class);
+            RelationshipManager relationshipManager = (RelationshipManager) container.getComponentInstanceOfType(RelationshipManager.class);
             List<Relationship> relations = relationshipManager.getPending(identity);
 
             JSONArray jsonArray = new JSONArray();
@@ -107,9 +114,9 @@ public class PeopleRestServices implements ResourceContainer {
                 return Response.status(HTTPStatus.INTERNAL_ERROR).cacheControl(cacheControl).build();
             }
 
-            IdentityManager identityManager = (IdentityManager) ExoContainerContext.getCurrentContainer().getComponentInstanceOfType(IdentityManager.class);
+            IdentityManager identityManager = (IdentityManager) container.getComponentInstanceOfType(IdentityManager.class);
             Identity identity = identityManager.getOrCreateIdentity(OrganizationIdentityProvider.NAME, userId);
-            RelationshipManager relationshipManager = (RelationshipManager) ExoContainerContext.getCurrentContainer().getComponentInstanceOfType(RelationshipManager.class);
+            RelationshipManager relationshipManager = (RelationshipManager) container.getComponentInstanceOfType(RelationshipManager.class);
             List<Relationship> relations = relationshipManager.getIncoming(identity);
 
             JSONArray jsonArray = new JSONArray();
@@ -152,9 +159,9 @@ public class PeopleRestServices implements ResourceContainer {
                 return Response.status(HTTPStatus.INTERNAL_ERROR).cacheControl(cacheControl).build();
             }
 
-            IdentityManager identityManager = (IdentityManager) ExoContainerContext.getCurrentContainer().getComponentInstanceOfType(IdentityManager.class);
+            IdentityManager identityManager = (IdentityManager) container.getComponentInstanceOfType(IdentityManager.class);
             Identity identity = identityManager.getOrCreateIdentity(OrganizationIdentityProvider.NAME, userId);
-            RelationshipManager relationshipManager = (RelationshipManager) ExoContainerContext.getCurrentContainer().getComponentInstanceOfType(RelationshipManager.class);
+            RelationshipManager relationshipManager = (RelationshipManager) container.getComponentInstanceOfType(RelationshipManager.class);
 
             System.out.println("request accepted.");
 
@@ -178,9 +185,9 @@ public class PeopleRestServices implements ResourceContainer {
                 return Response.status(HTTPStatus.INTERNAL_ERROR).cacheControl(cacheControl).build();
             }
 
-            IdentityManager identityManager = (IdentityManager) ExoContainerContext.getCurrentContainer().getComponentInstanceOfType(IdentityManager.class);
+            IdentityManager identityManager = (IdentityManager) container.getComponentInstanceOfType(IdentityManager.class);
             Identity identity = identityManager.getOrCreateIdentity(OrganizationIdentityProvider.NAME, userId);
-            RelationshipManager relationshipManager = (RelationshipManager) ExoContainerContext.getCurrentContainer().getComponentInstanceOfType(RelationshipManager.class);
+            RelationshipManager relationshipManager = (RelationshipManager) container.getComponentInstanceOfType(RelationshipManager.class);
 
             relationshipManager.deny(relationshipManager.getRelationshipById(relationId));
 
@@ -203,9 +210,9 @@ public class PeopleRestServices implements ResourceContainer {
                 return Response.status(HTTPStatus.INTERNAL_ERROR).cacheControl(cacheControl).build();
             }
 
-            IdentityManager identityManager = (IdentityManager) ExoContainerContext.getCurrentContainer().getComponentInstanceOfType(IdentityManager.class);
+            IdentityManager identityManager = (IdentityManager) container.getComponentInstanceOfType(IdentityManager.class);
             Identity identity = identityManager.getOrCreateIdentity(OrganizationIdentityProvider.NAME, userId);
-            RelationshipManager relationshipManager = (RelationshipManager) ExoContainerContext.getCurrentContainer().getComponentInstanceOfType(RelationshipManager.class);
+            RelationshipManager relationshipManager = (RelationshipManager) container.getComponentInstanceOfType(RelationshipManager.class);
 
             relationshipManager.invite(identity, identityManager.getIdentity(relationId));
 
@@ -229,56 +236,60 @@ public class PeopleRestServices implements ResourceContainer {
                 return Response.status(HTTPStatus.INTERNAL_ERROR).cacheControl(cacheControl).build();
             }
 
-            IdentityManager identityManager = (IdentityManager) ExoContainerContext.getCurrentContainer().getComponentInstanceOfType(IdentityManager.class);
+            IdentityManager identityManager = (IdentityManager) container.getComponentInstanceOfType(IdentityManager.class);
             Identity identity = identityManager.getOrCreateIdentity(OrganizationIdentityProvider.NAME, userId, false);
-            RelationshipManager relationshipManager = (RelationshipManager) ExoContainerContext.getCurrentContainer().getComponentInstanceOfType(RelationshipManager.class);
-            UserACL userACL = (UserACL) ExoContainerContext.getCurrentContainer().getComponentInstanceOfType(UserACL.class);
+            RelationshipManager relationshipManager = (RelationshipManager) container.getComponentInstanceOfType(RelationshipManager.class);
+            UserACL userACL = (UserACL) container.getComponentInstanceOfType(UserACL.class);
             
             ListAccess<Identity> connectionList = relationshipManager.getConnections(identity);
             int size = connectionList.getSize();
             Map<Identity, Integer> suggestions;
             if (size > 0) {
-              suggestions = relationshipManager.getSuggestions(identity, 20, 50, 10);
+                suggestions = relationshipManager.getSuggestions(identity, 20, 50, 10);
+                if (suggestions.size() == 1 && suggestions.keySet().iterator().next().getRemoteId().equals(userACL.getSuperUser())) {
+                    // The only suggestion is the super user so we clear the suggestion list
+                    suggestions = Collections.emptyMap();
+                }
             } else {
-              suggestions = Collections.emptyMap();
+                suggestions = Collections.emptyMap();
             }
 
             JSONObject jsonGlobal = new JSONObject();
             JSONArray jsonArray = new JSONArray();
             if (suggestions.isEmpty()) {
-              // Returns the last users
-              List<Identity> identities = identityManager.getLastIdentities(10);
-              suggestions = new HashMap<Identity, Integer>();
-              for (Identity id : identities) {
-                if (identity.equals(id) || relationshipManager.get(identity, id) != null)
-                  continue;
-                suggestions.put(id, new Integer(0));
-              }
+                // Returns the last users
+                List<Identity> identities = identityManager.getLastIdentities(10);
+                suggestions = new HashMap<Identity, Integer>();
+                for (Identity id : identities) {
+                    if (identity.equals(id) || relationshipManager.get(identity, id) != null)
+                        continue;
+                    suggestions.put(id, new Integer(0));
+                }
             }
             for (Entry<Identity, Integer> suggestion : suggestions.entrySet()) {
-              Identity id = suggestion.getKey();
+                Identity id = suggestion.getKey();
               
-              if (id.getRemoteId().equals(userACL.getSuperUser())) continue;
-              JSONObject json = new JSONObject();
-              String avatar = id.getProfile().getAvatarUrl();
-              if (avatar == null) {
-                avatar = "/social-resources/skin/images/ShareImages/UserAvtDefault.png";
-              }
-              String position = id.getProfile().getPosition();
-              if (position == null) {
-                position = "";
-              }
-              json.put("suggestionName", id.getProfile().getFullName());
-              json.put("suggestionId", id.getId());
-              json.put("contacts", relationshipManager.getConnections(id).getSize());
-              json.put("avatar", avatar);
-              json.put("profile", id.getProfile().getUrl());
-              json.put("title", position);
+                if (id.getRemoteId().equals(userACL.getSuperUser())) continue;
+                JSONObject json = new JSONObject();
+                String avatar = id.getProfile().getAvatarUrl();
+                if (avatar == null) {
+                    avatar = "/social-resources/skin/images/ShareImages/UserAvtDefault.png";
+                }
+                String position = id.getProfile().getPosition();
+                if (position == null) {
+                    position = "";
+                }
+                json.put("suggestionName", id.getProfile().getFullName());
+                json.put("suggestionId", id.getId());
+                json.put("contacts", relationshipManager.getConnections(id).getSize());
+                json.put("avatar", avatar);
+                json.put("profile", id.getProfile().getUrl());
+                json.put("title", position);
 
-              //set mutual friend number
-              json.put("number", suggestion.getValue());
-              json.put("createdDate",id.getProfile().getCreatedTime());
-              jsonArray.put(json);
+                //set mutual friend number
+                json.put("number", suggestion.getValue());
+                json.put("createdDate",id.getProfile().getCreatedTime());
+                jsonArray.put(json);
             }
             jsonGlobal.put("items",jsonArray);
             jsonGlobal.put("noConnections", size);
