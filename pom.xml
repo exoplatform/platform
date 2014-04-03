@@ -41,10 +41,10 @@
     <org.exoplatform.depmgt.version>9-upgrade-gatein-3.7.x-SNAPSHOT</org.exoplatform.depmgt.version>
     <!-- JCR Project Dependencies -->
 
-      <org.exoplatform.kernel.version>2.5.0-Alpha4</org.exoplatform.kernel.version>
-      <org.exoplatform.core.version>2.6.0-Alpha4</org.exoplatform.core.version>
-      <org.exoplatform.ws.version>2.4.0-Alpha4</org.exoplatform.ws.version>
-      <org.exoplatform.jcr.version>1.16.0-Alpha4</org.exoplatform.jcr.version>
+    <org.exoplatform.kernel.version>2.5.0-CR2</org.exoplatform.kernel.version>
+    <org.exoplatform.core.version>2.6.0-CR2</org.exoplatform.core.version>
+    <org.exoplatform.ws.version>2.4.0-CR2</org.exoplatform.ws.version>
+    <org.exoplatform.jcr.version>1.16.0-CR2</org.exoplatform.jcr.version>
     <!-- GateIn Project Dependencies -->
     <org.gatein.shindig.version>2.0.2.Final-gatein-4</org.gatein.shindig.version>
     <org.gatein.common.version>2.2.2.Final</org.gatein.common.version>
