@@ -46,5 +46,5 @@
   <msg name="loginHistory.allUsers">كافة المستخدمين</msg>
   <msg name="loginHistory.unknow">مجهول</msg>
   <msg name="loginHistory.next">الموالي</msg>
-  <msg name="loginHistory.ago">Ago</msg>
+  <msg name="loginHistory.ago">منذ</msg>
 </messagebundle>
