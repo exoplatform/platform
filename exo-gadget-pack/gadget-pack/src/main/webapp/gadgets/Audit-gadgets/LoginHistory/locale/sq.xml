@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xmfl version='1.0' encoding='UTF-8'?>
+
+<!--
+
+    Copyright (C) 2009 eXo Platform SAS.
+    
+    This is free software; you can redistribute it and/or modify it
+    under the terms of the GNU Lesser General Public License as
+    published by the Free Software Foundation; either version 2.1 of
+    the License, or (at your option) any later version.
+    
+    This software is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+    Lesser General Public License for more details.
+    
+    You should have received a copy of the GNU Lesser General Public
+    License along with this software; if not, write to the Free
+    Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
+    02110-1301 USA, or see the FSF site: http://www.fsf.org.
+
+-->
+<messagebundle>
+  <msg name="loginHistory.title">crwdns6785661:0crwdne6785661:0</msg>
+  <msg name="loginHistory.user">crwdns6785662:0crwdne6785662:0</msg>
+  <msg name="loginHistory.find">crwdns6785663:0crwdne6785663:0</msg>
+  <msg name="loginHistory.latest">crwdns6785664:0crwdne6785664:0</msg>
+  <msg name="loginHistory.lastLogin">crwdns6785665:0crwdne6785665:0</msg>
+  <msg name="loginHistory.beforeThat">crwdns6785666:0crwdne6785666:0</msg>
+  <msg name="loginHistory.more">crwdns6785667:0crwdne6785667:0</msg>
+  <msg name="loginHistory.stats">crwdns6785668:0crwdne6785668:0</msg>
+  <msg name="loginHistory.history">crwdns6785669:0crwdne6785669:0</msg>
+  <msg name="loginHistory.global">crwdns6785670:0crwdne6785670:0</msg>
+  <msg name="loginHistory.week">crwdns6785671:0crwdne6785671:0</msg>
+  <msg name="loginHistory.lastLoginsView">crwdns6785672:0crwdne6785672:0</msg>
+  <msg name="loginHistory.historyView">crwdns6785673:0crwdne6785673:0</msg>
+  <msg name="loginHistory.statisticsView">crwdns6785674:0crwdne6785674:0</msg>
+  <msg name="loginHistory.averagePerDay">crwdns6785675:0crwdne6785675:0</msg>
+  <msg name="loginHistory.averagePerWeek">crwdns6785676:0crwdne6785676:0</msg>
+  <msg name="loginHistory.averagePerMonth">crwdns6785677:0crwdne6785677:0</msg>
+  <msg name="loginHistory.today">crwdns6785678:0crwdne6785678:0</msg>
+  <msg name="loginHistory.earlierThisWeek">crwdns6785679:0crwdne6785679:0</msg>
+  <msg name="loginHistory.earlierThisMonth">crwdns6785680:0crwdne6785680:0</msg>
+  <msg name="loginHistory.earlier">crwdns6785681:0crwdne6785681:0</msg>
+  <msg name="loginHistory.allUsers">crwdns6785682:0crwdne6785682:0</msg>
+  <msg name="loginHistory.unknow">crwdns6785683:0crwdne6785683:0</msg>
+  <msg name="loginHistory.next">crwdns6785684:0crwdne6785684:0</msg>
+  <msg name="loginHistory.ago">crwdns6785685:0crwdne6785685:0</msg>
+</messagebundle>

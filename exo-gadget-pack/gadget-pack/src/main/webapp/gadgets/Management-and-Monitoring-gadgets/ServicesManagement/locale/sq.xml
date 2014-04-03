@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+
+    Copyright (C) 2009 eXo Platform SAS.
+    
+    This is free software; you can redistribute it and/or modify it
+    under the terms of the GNU Lesser General Public License as
+    published by the Free Software Foundation; either version 2.1 of
+    the License, or (at your option) any later version.
+    
+    This software is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+    Lesser General Public License for more details.
+    
+    You should have received a copy of the GNU Lesser General Public
+    License along with this software; if not, write to the Free
+    Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
+    02110-1301 USA, or see the FSF site: http://www.fsf.org.
+
+-->
+<messagebundle>  
+  <msg name="title">crwdns6785646:0crwdne6785646:0</msg>
+  <msg name="services">crwdns6785647:0crwdne6785647:0</msg>
+  <msg name="name">crwdns6785648:0crwdne6785648:0</msg>
+  <msg name="description">crwdns6785649:0crwdne6785649:0</msg>
+  <msg name="noDescription">crwdns6785650:0crwdne6785650:0</msg>
+  <msg name="method">crwdns6785651:0crwdne6785651:0</msg>
+  <msg name="parameters">crwdns6785652:0crwdne6785652:0</msg>
+  <msg name="action">crwdns6785653:0crwdne6785653:0</msg>
+  <msg name="value">crwdns6785654:0crwdne6785654:0</msg>
+  <msg name="services_url">crwdns6785655:0crwdne6785655:0</msg>
+  <msg name="failManage">crwdns6785656:0crwdne6785656:0</msg>
+  <msg name="noServices">crwdns6785657:0crwdne6785657:0</msg>
+  <msg name="noMethod">crwdns6785658:0crwdne6785658:0</msg>
+  <msg name="noProperty">crwdns6785659:0crwdne6785659:0</msg>
+  <msg name="badURL">crwdns6785660:0crwdne6785660:0</msg>
+</messagebundle>
