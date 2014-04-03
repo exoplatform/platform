@@ -31,7 +31,7 @@
   <msg name="loginHistory.more">Di più</msg>
   <msg name="loginHistory.stats">stats</msg>
   <msg name="loginHistory.history">Storico</msg>
-  <msg name="loginHistory.global">Global</msg>
+  <msg name="loginHistory.global">Globale</msg>
   <msg name="loginHistory.week">Settimana</msg>
   <msg name="loginHistory.lastLoginsView">Ultimi Login</msg>
   <msg name="loginHistory.historyView">Storico</msg>
@@ -46,5 +46,5 @@
   <msg name="loginHistory.allUsers">Tutti gli Utenti</msg>
   <msg name="loginHistory.unknow">Sconosciuto</msg>
   <msg name="loginHistory.next">Prossimo</msg>
-  <msg name="loginHistory.ago">Ago</msg>
+  <msg name="loginHistory.ago">fa</msg>
 </messagebundle>
