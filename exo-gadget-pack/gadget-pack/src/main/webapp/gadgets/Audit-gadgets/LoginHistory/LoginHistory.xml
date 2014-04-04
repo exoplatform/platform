@@ -16,9 +16,6 @@
     <Locale lang="ru" messages="locale/ru.xml"/>
     <Locale lang="tr" messages="locale/tr.xml"/>
     <Locale lang="zh_CN" messages="locale/zh_CN.xml"/>
-    <Locale lang="fi" messages="locale/fi.xml"/>
-    <Locale lang="lt" messages="locale/lt.xml"/>
-    <Locale lang="no" messages="locale/no.xml"/>
     <Locale lang="zh_TW" messages="locale/zh_TW.xml"/>
   </ModulePrefs>
   <Content type="html">
