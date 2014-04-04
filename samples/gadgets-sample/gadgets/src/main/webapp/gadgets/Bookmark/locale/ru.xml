@@ -21,7 +21,7 @@
 -->
 <messagebundle>
   <msg name="title">Закладки</msg>
-  <msg name="customize">Customize</msg>
+  <msg name="customize">Настройки</msg>
   <msg name="save">#{word.save}</msg>
   <msg name="add">Добавить</msg>
   <msg name="ok">ОК</msg>

@@ -11,7 +11,7 @@
          <Myconnections>Мои контакты</Myconnections>
          <Mywiki>Моя Вики-страница</Mywiki>
          <Mydashboard>Моя панель мониторинга</Mydashboard>
-         <NotificationSettingsPortlet>Notifications</NotificationSettingsPortlet>
+         <NotificationSettingsPortlet>Уведомления</NotificationSettingsPortlet>
       </label>
    </UIUserNavigationPortlet>
 </bundle>
