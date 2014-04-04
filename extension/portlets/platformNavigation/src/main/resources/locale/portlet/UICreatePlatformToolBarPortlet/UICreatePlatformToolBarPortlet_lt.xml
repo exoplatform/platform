@@ -27,7 +27,7 @@
       <label>
          <SelectAForum>Pasirinkti forumą</SelectAForum>
          <location>Vieta</location>
-         <forumId>And Forum</forumId>
+         <forumId>Ir forumas</forumId>
          <FilterForums>Filtruoti Forumus</FilterForums>
       </label>
    </UICreateTopic>
@@ -35,7 +35,7 @@
       <label>
          <SelectAForum>Pasirinkite forumą</SelectAForum>
          <location>Vieta</location>
-         <forumId>And Forum</forumId>
+         <forumId>Ir forumas</forumId>
          <FilterForums>Filtruoti Forumus</FilterForums>
       </label>
    </UICreatePoll>

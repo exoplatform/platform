@@ -29,15 +29,15 @@
 <index>Indeksas:</index>
 <clickable>Spaudžiamas:</clickable>
 <page>Puslapis:</page>
-<childrenPage>Children Page:</childrenPage>
+<childrenPage>Atšakų puslapis:</childrenPage>
 </label>
 </dialog>
 </PopulateToMenu>
 <UINavigationForm>
 <label>
-<Node>Parent's Folder:</Node>
+<Node>Pirminis aplankas:</Node>
 <Visible>Matomas :</Visible>
-<NavigationNodeInputSet>Target Parent Navigation:</NavigationNodeInputSet>
+<NavigationNodeInputSet>Tikslinė pirminė navigacija:</NavigationNodeInputSet>
 <Index>Rodymo tvarka:</Index>
 <Clickable>Spaudžiamas :</Clickable>
 <NavigationControls>Navigacijos kontrolė</NavigationControls>
@@ -79,7 +79,7 @@
 </ListTargetPageFormInputSet>
 <DetailTargetPageInputSet>
 <title>
-<SelectDetailTargetPage>Select Children Target Page</SelectDetailTargetPage>
+<SelectDetailTargetPage>Pasirinkite atšakų paskirties puslapį</SelectDetailTargetPage>
 <RemoveDetailTargetPage>Atstatyti</RemoveDetailTargetPage>
 </title>
 </DetailTargetPageInputSet>
