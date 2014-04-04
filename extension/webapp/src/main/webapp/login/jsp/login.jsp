@@ -471,7 +471,15 @@
                         });
                     });
                 </script>
-
+<div>
+<h3>Information:</h3>
+<ul>
+<li>Translate in-context <a target="_blank" href="http://live-translations.exoplatform.org/">eXo Platform 4.1</a></li>
+<li>Keep translating eXo Platform 4.0, click <a target="_blank" href="http://translations-review-PLF4.0.exoplatform.org">here</a></li>
+<li>More information, please visit <a target="_blank" href="http://community.exoplatform.com/portal/g/:spaces:translations/translations">Community</a></li>
+</li>
+</ul>
+</div>
 				<div id="UIPortalLoginFormAction" class="loginButton">
 					<button class="button" tabindex="4"  onclick="login();"><%=res.getString("portal.login.Signin")%></button>
 				</div>
