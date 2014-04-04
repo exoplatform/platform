@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bundle>
+<UIBreadCrumbsNavigationPortlet>
+    <label>
+        <ChangePicture>Změna avatara</ChangePicture>
+    </label>
+</UIBreadCrumbsNavigationPortlet>
+ <UIBreadCrumbPopupAvatarUploader>
+      <title>
+         <UIAvatarUploader>Nahrát avatara</UIAvatarUploader>
+         <UIAvatarUploadContent>Náhled avatara</UIAvatarUploadContent>
+      </title>
+ </UIBreadCrumbPopupAvatarUploader>
+</bundle>
