@@ -1,16 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Module>
-    <ModulePrefs title="Featured Poll" author="Do Thanh Tung"
-     author_email="tungdt@exoplatform.com"
-     thumbnail="/intranet-gadgets/skin/images/FeaturedPoll/Polls.png"
-     description="Show a featured poll">
-        <Require feature="opensocial-0.8"/>
-        <Require feature="dynamic-height"/>
-        <Require feature="views"/>
-        <Require feature="settitle"/>
-        <Require feature="minimessage"/>
-        <Locale messages="locale/default.xml"/>
-        <Locale lang="fr" messages="locale/fr.xml"/>
+	<ModulePrefs title="Featured Poll" author="Do Thanh Tung" author_email="tungdt@exoplatform.com" thumbnail="/intranet-gadgets/skin/images/FeaturedPoll/Polls.png" description="Show a featured poll">
+		<Require feature="setprefs" />
+		<Require feature="opensocial-0.8" />
+		<Require feature="dynamic-height" />
+		<Require feature="views" />
+		<Require feature="settitle" />
+		<Require feature="minimessage" />
+		<Locale messages="locale/default.xml" />
+		<Locale lang="fr" messages="locale/fr.xml" />
       	<Locale lang="es_ES" messages="locale/es_ES.xml"/>
       	<Locale lang="vi" messages="locale/vi.xml" />
       	<Locale lang="sv_SE" messages="locale/sv_SE.xml" />
@@ -26,33 +24,33 @@
         <Locale lang="lt" messages="locale/lt.xml"/>
 	<Locale lang="no" messages="locale/no.xml"/>
 	<Locale lang="zh_TW" messages="locale/zh_TW.xml"/>
-    </ModulePrefs>
-    <Content type="html" view="default, home, profile">
+	</ModulePrefs>
+	<UserPref name="votedValue" datatype="hidden" default_value="" />
+	<Content type="html" view="default, home, profile">
         <![CDATA[   
-    <link rel="stylesheet" href="/intranet-gadgets/skin/css/Poll.css" type="text/css"/>
-    <link rel="stylesheet" type="text/css" href="/exo-gadget-resources/skin/exo-gadget/gadget-common.css" />
-    <link rel="stylesheet" type="text/css" href="/eXoResources/skin/bootstrap/css/bootstrap.css" />
-    <link rel="stylesheet" type="text/css" href="/eXoResources/skin/css/Core.css" />
-    <script src="/exo-gadget-resources/script/jquery/1.6.2/jquery.min.js"></script>
-    <script type="text/javascript">
-    var MODULE_ID = __MODULE_ID__;    
-    </script>
-
-    <script type="text/javascript" src="script/poll.js"></script>
-    
-    <!-- View of the gadget  -->
-    <div class="uiGadgetThemes uiBox">
-      <h6 class="gadgetTitle title center clearfix">
-        __MSG_title__
-        <a class="actionIcon pull-right settingBt" title="Settings" rel="tooltip" data-placement="bottom" onclick=""><i class="uiIconSetting"></i></a>
-      </h6>
-      <!-- Display poll  -->
-      <div class="gadContent">
-        <div class="listpoll"  id="listpoll"></div>
-        <div  id="poll" class="poll"></div>
-        <div id="createpoll" style="text-align: center"></div>
-      </div>
-    </div>
-  ]]>
-    </Content>
+		    <link rel="stylesheet" href="/intranet-gadgets/skin/css/Poll.css" type="text/css"/>
+		    <link rel="stylesheet" type="text/css" href="/exo-gadget-resources/skin/exo-gadget/gadget-common.css" />
+		    <link rel="stylesheet" type="text/css" href="/eXoResources/skin/bootstrap/css/bootstrap.css" />
+		    <link rel="stylesheet" type="text/css" href="/eXoResources/skin/css/Core.css" />
+		    <script language="javascript" type="text/javascript" src="/eXoResources/javascript/jquery-1.7.1.js"></script>
+				<script language="javascript" type="text/javascript" src="/eXoResources/skin/bootstrap/js/bootstrap-tooltip.js"></script>
+		    <script type="text/javascript">
+		    var MODULE_ID = __MODULE_ID__;    
+		    </script>
+		    <script type="text/javascript" src="script/poll.js"></script>
+		    <!-- View of the gadget  -->
+		    <div id="uiFeaturePoll" class="uiGadgetThemes uiBox">
+		      <h6 class="gadgetTitle title center clearfix">
+		        __MSG_title__
+		        <a class="actionIcon pull-right settingBt" title="Settings" data-toggle="tooltip" data-placement="left" data-original-title="Setting" onclick=""><i class="uiIconSetting"></i></a>
+		      </h6>
+		      <!-- Display poll  -->
+		      <div class="gadContent">
+		        <div class="listpoll"  id="listpoll"></div>
+		        <div  id="poll" class="poll"></div>
+		        <div id="createpoll" style="text-align: center"></div>
+		      </div>
+		    </div>
+		  ]]>
+	</Content>
 </Module>
