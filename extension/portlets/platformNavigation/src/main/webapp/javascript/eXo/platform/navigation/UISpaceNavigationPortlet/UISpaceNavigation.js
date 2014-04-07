@@ -105,7 +105,12 @@
             }
         },
         ajaxRedirect: function (url) {
-            window.parent.location.href = url ;
+            if(self == top) {            
+                window.parent.location.href = url;
+            } else {
+                //Iframe case
+                window.location.href = url;
+            }
         }
     };
 

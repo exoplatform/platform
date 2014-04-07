@@ -22,7 +22,7 @@ import java.util.Map;
 import javax.ws.rs.core.SecurityContext;
 
 @ConfiguredBy({
-   @ConfigurationUnit(scope = ContainerScope.PORTAL, path = "conf/standalone/exo.platform.test-configuration.xml"),
+   @ConfigurationUnit(scope = ContainerScope.PORTAL, path = "conf/standalone/exo.platform.test-configuration.xml")
 })
 public abstract class BaseRestServicesTestCase extends BaseExoTestCase {
 
