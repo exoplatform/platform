@@ -17,7 +17,9 @@
     <Locale lang="ru" messages="locale/ru.xml"/>
     <Locale lang="tr" messages="locale/tr.xml"/>
     <Locale lang="zh_CN" messages="locale/zh_CN.xml"/>
-    <Locale lang="zh_TW" messages="locale/zh_TW.xml"/>  
+    <Locale lang="zh_TW" messages="locale/zh_TW.xml"/>
+    <Locale lang="lt" messages="locale/lt.xml"/>
+    <Locale lang="cs" messages="locale/cs.xml"/>  
 </ModulePrefs>
 <Content type="html">
 <![CDATA[ 
