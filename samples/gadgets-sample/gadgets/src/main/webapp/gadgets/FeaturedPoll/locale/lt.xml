@@ -20,16 +20,16 @@
 
 -->
 <messagebundle>
-  <msg name="title">Featured Poll</msg>
-  <msg name="setting">View</msg>
-  <msg name="vote">Vote</msg>
-  <msg name="voteAgain">Vote Again</msg>
-  <msg name="warning">Please choose at least one option</msg>
-  <msg name="option">Options</msg>
-  <msg name="percent">Percent</msg>
-  <msg name="voter">Voters</msg>
-  <msg name="total">Total</msg>
-  <msg name="discuss">Discuss in Forum</msg>
-  <msg name="nopoll">No Polls Yet</msg>  
-  <msg name="createPoll">Create Your Own Poll</msg>    
+  <msg name="title">Rekomenduojama apklausa</msg>
+  <msg name="setting">Rodyti</msg>
+  <msg name="vote">Balsuoti</msg>
+  <msg name="voteAgain">Balsuoti iš naujo</msg>
+  <msg name="warning">Prašome pasirinkti bent vieną variantą</msg>
+  <msg name="option">Parinktys</msg>
+  <msg name="percent">Procentai</msg>
+  <msg name="voter">Balsuotojai</msg>
+  <msg name="total">Iš viso</msg>
+  <msg name="discuss">Diskutuoti forume</msg>
+  <msg name="nopoll">Dar nėra jokių apklausų</msg>  
+  <msg name="createPoll">Sukurti savo apklausą</msg>    
 </messagebundle>
