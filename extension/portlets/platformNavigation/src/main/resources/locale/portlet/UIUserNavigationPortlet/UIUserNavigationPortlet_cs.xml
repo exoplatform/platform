@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bundle>
+   <UIUserNavigationPortlet>
+      <label>
+         <activities>Sled aktivit</activities>
+         <profile>Profil</profile>
+         <connections>Kontakty</connections>
+         <wiki>Wiki</wiki>
+         <Myactivities>Moje aktivity</Myactivities>
+         <Myprofile>Můj profil</Myprofile>
+         <Myconnections>Moje kontakty</Myconnections>
+         <Mywiki>Moje Wiki</Mywiki>
+         <Mydashboard>Můj Dashboard</Mydashboard>
+         <NotificationSettingsPortlet>Notifications</NotificationSettingsPortlet>
+      </label>
+   </UIUserNavigationPortlet>
+</bundle>

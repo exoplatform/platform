@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bundle>
+<UISetupPlatformToolBarPortlet>
+<label>
+<applications>Aplikace</applications>
+<content>Obsah</content>
+<siteExplorer>Průzkumník webů</siteExplorer>
+<wcmAdmin>Správa obsahu</wcmAdmin>
+<users>Uživatelé</users>
+<newStaff>Přidat uživatele</newStaff>
+<org-management>Skupiny a role</org-management>
+<portal>Portál</portal>
+<administration>Administrace</administration>
+<groupnavigation>Stránky skupiny</groupnavigation>
+<pageManagement>Stránky</pageManagement>
+<portalnavigation>Weby</portalnavigation>
+<servicesManagement>Správa</servicesManagement>
+<monitoring>Monitorování</monitoring>
+<spaces>Skupiny</spaces>
+<Branding>Logo</Branding>
+      <Notification>Email Notifications</Notification>
+<ide>IDE</ide>
+<search>Hledat</search>
+</label>
+</UISetupPlatformToolBarPortlet>
+</bundle>
