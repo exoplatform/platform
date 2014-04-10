@@ -33,7 +33,7 @@
     <link rel="stylesheet" type="text/css" href="/exo-gadget-resources/skin/exo-gadget/gadget-common.css" />
     <link rel="stylesheet" type="text/css" href="/eXoResources/skin/bootstrap/css/bootstrap.css" />
     <link rel="stylesheet" type="text/css" href="/eXoResources/skin/css/Core.css" />
-    <script src="/exo-gadget-resources/script/jquery/1.6.2/jquery.min.js"></script>
+    <script language="javascript" type="text/javascript" src="/eXoResources/javascript/jquery-1.7.1.js"></script>
     <script type="text/javascript">
     var MODULE_ID = __MODULE_ID__;    
     </script>

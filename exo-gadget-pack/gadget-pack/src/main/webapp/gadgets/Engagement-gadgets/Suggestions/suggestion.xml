@@ -29,7 +29,7 @@
   <title>Friend suggestion</title>
   <link type="text/css" rel="stylesheet" href="/exo-gadget-resources/skin/exo-gadget/gadget-common.css" />
   <link type="text/css" rel="stylesheet" href="/gadget-pack/skin/css/suggestion.css" />
-  <script language="javascript" type="text/javascript" src="/exo-gadget-resources/script/jquery/1.6.2/jquery.min.js"></script>
+  <script language="javascript" type="text/javascript" src="/eXoResources/javascript/jquery-1.7.1.js"></script>
   <script language="javascript" type="text/javascript" src="scripts/suggestion.js"></script>
   <script type="text/javascript">   
     renderSuggestFriends();
