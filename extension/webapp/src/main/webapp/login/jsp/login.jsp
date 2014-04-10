@@ -397,7 +397,7 @@
 
 		</style>
 
-    <script type="text/javascript" src="/platform-extension/javascript/jquery-1.7.1.js"></script>
+    <script type="text/javascript" src="/eXoResources/javascript/jquery-1.7.1.js"></script>
     <script type="text/javascript" src="/platform-extension/javascript/iphone-style-checkboxes.js"></script>
     <script type="text/javascript">
         $(document).ready(function() {
