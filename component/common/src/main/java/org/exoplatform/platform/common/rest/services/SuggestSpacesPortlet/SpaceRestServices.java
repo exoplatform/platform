@@ -93,7 +93,7 @@ public class SpaceRestServices implements ResourceContainer {
                 json.put("name", space.getName());
                 json.put("spaceId", space.getId());
                 json.put("displayName", space.getDisplayName());
-				json.put("description", space.getDescription());
+		json.put("description", space.getDescription());
                 json.put("spaceUrl", space.getUrl());
                 json.put("avatarUrl", avatar);
                 json.put("registration", space.getRegistration());
