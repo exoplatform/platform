@@ -192,6 +192,7 @@
                     link += "<div class='spacePicture pull-left'><div class='avatarXSmall'><img src='"+item.avatarUrl+"'></div></div>";
                     link += "<div class='spaceInfo'>";
                     link += "<div class='spaceName'>"+item.displayName+"</div>";
+		    link += "<div class='spaceDescription'>"+item.description+"</div>";
                     if(item.privacy=="Private")
                         link += "<div class='spacePrivacy'><i class='uiIconSocGroup uiIconSocLightGray'></i>"+privateLabel+"&nbsp;-&nbsp;"+item.members+"&nbsp;"+spaceMember+"</div>";
                     else
