@@ -243,7 +243,7 @@ public class PeopleRestServices implements ResourceContainer {
             Identity identity = identityManager.getOrCreateIdentity(OrganizationIdentityProvider.NAME, userId,true);
             
             ListAccess<Identity> connectionList = relationshipManager.getConnections(identity);
-			List<Identity> connections = identityManager.getConnections(identity);
+	    List<Identity> connections = identityManager.getConnections(identity);
             Map<Identity, Integer> suggestions = relationshipManager.getSuggestions(identity, 0, 30);
 
             JSONObject jsonGlobal = new JSONObject();
@@ -282,7 +282,7 @@ public class PeopleRestServices implements ResourceContainer {
                 position = "";
               }
 			  
-			  List<String> connectionListCommon = new ArrayList<String>();
+	      List<String> connectionListCommon = new ArrayList<String>();
               for (Identity i : identityManager.getConnections(socialIdentity)) {
                   for (Identity j : connections) {
                       if (j.equals(i)) {
@@ -299,7 +299,7 @@ public class PeopleRestServices implements ResourceContainer {
               json.put("title", position);
                 //--- set mutual friend number
               json.put("number", suggestion.getValue());
-			  json.put("connectionListCommon", connectionListCommon);
+              json.put("connectionListCommon", connectionListCommon);
                 //--- Get date from timestamp
                 Timestamp userCreationTimestamp = new Timestamp(socialProfile.getCreatedTime());
                 Date userCreationDate = new Date(userCreationTimestamp.getTime());
