@@ -89,11 +89,24 @@
                     link += "<div class='peopleInfo'>";
                     link += "<div class='peopleName'><a href='"+item.profile+"' target='_parent'>"+item.suggestionName+"</a></div>";
                     link += "<div style='display:none;' class='peopleAction' ><a class='connect btn-primary btn btn-mini' href='#' onclick='return false'>"+connect+"</a><a class='ignore' href='#' onclick='return false'><i class='uiIconClose'></i></a></div>";
-                    link +="<div class='peoplePosition'>"+item.title+"</div><div class='peopleConnection'>"+item.number+"&nbsp;"+connection+"</div>";
+                    link +="<div class='peoplePosition'>"+item.title+"</div><a href='#' id='peopleConnection_"+item.suggestionId+"'><div class='peopleConnection'>"+item.number+"&nbsp;"+connection+"</div></a>";
+					var connectionListCommon = item.connectionListCommon;
+					link += "<div style='display:none' id='connectionListCommon"+item.suggestionId+"' class='connectionListCommon'>";
+					for (var j = 0; j < connectionListCommon.length; j++) {
+					    link += connectionListCommon[j]+"&nbsp;";
+        	        }
+					link += "</div>";
                     link += "</div></li>";
 
                     $("#suggestions").append(link);
-
+					$("#peopleConnection_"+item.suggestionId).click(function(){
+					    if ($("#connectionListCommon"+item.suggestionId).is(":hidden")){
+							$("#connectionListCommon"+item.suggestionId).show();
+						}
+						else {
+							$("#connectionListCommon"+item.suggestionId).hide();
+						}
+                    });
                     $("#"+item.suggestionId).mouseover(function(){
                         var $item = $(this);
                         $item.find(".peopleName, .peoplePosition, .peopleConnection").addClass("actionAppears");
@@ -192,6 +205,7 @@
                     link += "<div class='spacePicture pull-left'><div class='avatarXSmall'><img src='"+item.avatarUrl+"'></div></div>";
                     link += "<div class='spaceInfo'>";
                     link += "<div class='spaceName'>"+item.displayName+"</div>";
+					link += "<div class='spaceDescription'>"+item.description+"</div>";
                     if(item.privacy=="Private")
                         link += "<div class='spacePrivacy'><i class='uiIconSocGroup uiIconSocLightGray'></i>"+privateLabel+"&nbsp;-&nbsp;"+item.members+"&nbsp;"+spaceMember+"</div>";
                     else
@@ -202,11 +216,24 @@
                         link += "<div class='spaceAction' ><a class='connect btn-primary btn btn-mini' href='#' onclick='return false'>"+requestLabel+"</a>";
 
                     link += "<a class='ignore' href='#' onclick='return false'><i class='uiIconClose'></i></a></div>";
-                    link += "<div class='spaceCommon'>"+item.number+"&nbsp;"+member+"</div>";
+                    link += "<a href='#' id='spaceCommon_"+item.spaceId+"'><div class='spaceCommon'>"+item.number+"&nbsp;"+member+"</div></a>";
+					var connectionListMember = item.connectionListMember;
+					link += "<div style='display:none' id='connectionListMember_"+item.spaceId+"' class='connectionListMember'>";
+					for (var j = 0; j < connectionListMember.length; j++) {
+					    link += connectionListMember[j]+"&nbsp;";
+        	        }
+					link += "</div>";
                     link += "</div></li>";
 
                     $("#suggestionsspace").append(link);
-
+					$("#spaceCommon_"+item.spaceId).click(function(){
+					    if ($("#connectionListMember_"+item.spaceId).is(":hidden")){
+							$("#connectionListMember_"+item.spaceId).show();
+						}
+						else {
+							$("#connectionListMember_"+item.spaceId).hide();
+						}
+                    });
                     $("#"+item.spaceId).mouseover(function(){
                         var $item = $(this);
                         $item.find(".spacePrivacy, .spaceCommon, .spaceName").addClass("actionspaceAppears");;

@@ -25,6 +25,7 @@ import javax.ws.rs.core.*;
 import javax.ws.rs.ext.RuntimeDelegate;
 import java.net.URI;
 import java.sql.Timestamp;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
@@ -242,7 +243,7 @@ public class PeopleRestServices implements ResourceContainer {
             Identity identity = identityManager.getOrCreateIdentity(OrganizationIdentityProvider.NAME, userId,true);
             
             ListAccess<Identity> connectionList = relationshipManager.getConnections(identity);
-
+			List<Identity> connections = identityManager.getConnections(identity);
             Map<Identity, Integer> suggestions = relationshipManager.getSuggestions(identity, 0, 30);
 
             JSONObject jsonGlobal = new JSONObject();
@@ -280,6 +281,15 @@ public class PeopleRestServices implements ResourceContainer {
               if (position == null) {
                 position = "";
               }
+			  
+			  List<String> connectionListCommon = new ArrayList<String>();
+              for (Identity i : identityManager.getConnections(socialIdentity)) {
+                  for (Identity j : connections) {
+                      if (j.equals(i)) {
+                    	  connectionListCommon.add(j.getRemoteId());
+                      }
+                  }
+              }
 
                 json.put("suggestionName", socialProfile.getFullName());
                 json.put("suggestionId", socialIdentity.getId());
@@ -289,6 +299,7 @@ public class PeopleRestServices implements ResourceContainer {
               json.put("title", position);
                 //--- set mutual friend number
               json.put("number", suggestion.getValue());
+			  json.put("connectionListCommon", connectionListCommon);
                 //--- Get date from timestamp
                 Timestamp userCreationTimestamp = new Timestamp(socialProfile.getCreatedTime());
                 Date userCreationDate = new Date(userCreationTimestamp.getTime());
