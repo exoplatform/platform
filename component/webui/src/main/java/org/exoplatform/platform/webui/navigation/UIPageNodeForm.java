@@ -131,7 +131,7 @@ public class UIPageNodeForm extends UIFormTabPane
       uiFormLanguagesSelectBox.setOnChange(LANGUAGES_ONCHANGE);
       
       uiSettingSet.addUIFormInput(new UIFormStringInput("URI", "URI", null).setEditable(false))
-              .addUIFormInput(new UIFormStringInput("name", "name", null).addValidator(MandatoryValidator.class).addValidator(UserConfigurableValidator.class, UserConfigurableValidator.IDENTIFIER))
+              .addUIFormInput(new UIFormStringInput("name", "name", null).addValidator(MandatoryValidator.class).addValidator(UserConfigurableValidator.class, UserConfigurableValidator.PAGE_NAME))
               .addUIFormInput(uiSwitchLabelMode)
               .addUIFormInput(new UIFormStringInput(LABEL, LABEL, null).addValidator(StringLengthValidator.class, 3, 120))
               .addUIFormInput(uiFormLanguagesSelectBox)
