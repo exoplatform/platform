@@ -2,8 +2,6 @@ package org.exoplatform.platform.common.rest.services.SuggestSpacesPortlet;
 
 import org.exoplatform.common.http.HTTPStatus;
 import org.exoplatform.commons.utils.ListAccess;
-import org.exoplatform.container.ExoContainer;
-import org.exoplatform.container.ExoContainerContext;
 import org.exoplatform.services.log.ExoLogger;
 import org.exoplatform.services.log.Log;
 import org.exoplatform.services.rest.impl.RuntimeDelegateImpl;
@@ -53,11 +51,12 @@ public class SpaceRestServices implements ResourceContainer {
         cacheControl.setNoStore(true);
     }
 
-    // The owner of the rest component
-    private final ExoContainer container;
+    private final SpaceService spaceService;
+    private final IdentityManager identityManager;
 
-    public SpaceRestServices(ExoContainerContext ctx) {
-        this.container = ctx.getContainer();
+    public SpaceRestServices(SpaceService spaceService, IdentityManager identityManager) {
+        this.spaceService = spaceService;
+        this.identityManager = identityManager;
     }
 
     @GET
@@ -73,7 +72,6 @@ public class SpaceRestServices implements ResourceContainer {
                 return Response.status(HTTPStatus.INTERNAL_ERROR).cacheControl(cacheControl).build();
             }
 
-            SpaceService spaceService = (SpaceService) container.getComponentInstanceOfType(SpaceService.class);
             ListAccess<Space> suggestedSpacesLA = spaceService.getPublicSpacesWithListAccess(userId);
 
             // new create system with no spaces
@@ -84,7 +82,6 @@ public class SpaceRestServices implements ResourceContainer {
               return Response.ok(jsonGlobal.toString(), MediaType.APPLICATION_JSON).cacheControl(cacheControl).build();
             }
             
-            IdentityManager identityManager = (IdentityManager) container.getComponentInstanceOfType(IdentityManager.class);
             Identity identity = identityManager.getOrCreateIdentity(OrganizationIdentityProvider.NAME, userId, false);
             ListAccess<Identity> connectionsLA = identityManager.getConnectionsWithListAccess(identity);
             
@@ -220,8 +217,6 @@ public class SpaceRestServices implements ResourceContainer {
                 return Response.status(HTTPStatus.INTERNAL_ERROR).cacheControl(cacheControl).build();
             }
 
-            SpaceService spaceService = (SpaceService) container.getComponentInstanceOfType(SpaceService.class);
-
             if (spaceService.isInvitedUser(spaceService.getSpaceById(spaceName), userId))
                 spaceService.addMember(spaceService.getSpaceById(spaceName), userId);
 
@@ -244,7 +239,6 @@ public class SpaceRestServices implements ResourceContainer {
                 return Response.status(HTTPStatus.INTERNAL_ERROR).cacheControl(cacheControl).build();
             }
 
-            SpaceService spaceService = (SpaceService) container.getComponentInstanceOfType(SpaceService.class);
             spaceService.removeInvitedUser(spaceService.getSpaceById(spaceName), userId);
 
             return Response.ok("{}", MediaType.APPLICATION_JSON).cacheControl(cacheControl).build();
@@ -265,7 +259,6 @@ public class SpaceRestServices implements ResourceContainer {
                 return Response.status(HTTPStatus.INTERNAL_ERROR).cacheControl(cacheControl).build();
             }
 
-            SpaceService spaceService = (SpaceService) container.getComponentInstanceOfType(SpaceService.class);
             spaceService.addPendingUser(spaceService.getSpaceById(spaceName), userId);
 
             return Response.ok("{}", MediaType.APPLICATION_JSON).cacheControl(cacheControl).build();
@@ -286,7 +279,6 @@ public class SpaceRestServices implements ResourceContainer {
                 return Response.status(HTTPStatus.INTERNAL_ERROR).cacheControl(cacheControl).build();
             }
 
-            SpaceService spaceService = (SpaceService) container.getComponentInstanceOfType(SpaceService.class);
             if (spaceService.getSpaceById(spaceName).getRegistration().equals("open"))
                 spaceService.addMember(spaceService.getSpaceById(spaceName), userId);
 
@@ -309,7 +301,6 @@ public class SpaceRestServices implements ResourceContainer {
                 return Response.status(HTTPStatus.INTERNAL_ERROR).cacheControl(cacheControl).build();
             }
 
-            SpaceService spaceService = (SpaceService) container.getComponentInstanceOfType(SpaceService.class);
             List<Space> mySpaces = spaceService.getAccessibleSpaces(userId);
 
             JSONArray jsonArray = new JSONArray();
@@ -343,7 +334,6 @@ public class SpaceRestServices implements ResourceContainer {
                 return Response.status(HTTPStatus.INTERNAL_ERROR).cacheControl(cacheControl).build();
             }
 
-            SpaceService spaceService = (SpaceService) container.getComponentInstanceOfType(SpaceService.class);
             ListAccess<Space> publicSpaces = spaceService.getPublicSpacesWithListAccess(userId);
 
             JSONArray jsonArray = new JSONArray();

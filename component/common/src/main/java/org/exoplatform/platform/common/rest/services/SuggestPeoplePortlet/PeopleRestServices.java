@@ -2,8 +2,6 @@ package org.exoplatform.platform.common.rest.services.SuggestPeoplePortlet;
 
 import org.exoplatform.common.http.HTTPStatus;
 import org.exoplatform.commons.utils.ListAccess;
-import org.exoplatform.container.ExoContainer;
-import org.exoplatform.container.ExoContainerContext;
 import org.exoplatform.portal.config.UserACL;
 import org.exoplatform.services.log.ExoLogger;
 import org.exoplatform.services.log.Log;
@@ -37,7 +35,6 @@ import javax.ws.rs.core.SecurityContext;
 import javax.ws.rs.core.UriInfo;
 import javax.ws.rs.ext.RuntimeDelegate;
 
-
 @Path("/homepage/intranet/people/")
 @Produces("application/json")
 public class PeopleRestServices implements ResourceContainer {
@@ -46,18 +43,26 @@ public class PeopleRestServices implements ResourceContainer {
 
     private static final CacheControl cacheControl;
 
+    private static final String DEFAULT_AVATAR = "/social-resources/skin/images/ShareImages/UserAvtDefault.png";
+
+    private UserACL userACL;
+
+    private IdentityManager identityManager;
+
+    private  RelationshipManager relationshipManager;
+
+
     static {
         RuntimeDelegate.setInstance(new RuntimeDelegateImpl());
         cacheControl = new CacheControl();
         cacheControl.setNoCache(true);
         cacheControl.setNoStore(true);
     }
+    public PeopleRestServices(UserACL userACL, IdentityManager identityManager,  RelationshipManager relationshipManager) {
+        this.userACL = userACL;
+        this.identityManager = identityManager;
+        this.relationshipManager =  relationshipManager;
 
-    // The owner of the rest component
-    private final ExoContainer container;
-
-    public PeopleRestServices(ExoContainerContext ctx) {
-        this.container = ctx.getContainer();
     }
 
     @GET
@@ -71,9 +76,7 @@ public class PeopleRestServices implements ResourceContainer {
                 return Response.status(HTTPStatus.INTERNAL_ERROR).cacheControl(cacheControl).build();
             }
 
-            IdentityManager identityManager = (IdentityManager) container.getComponentInstanceOfType(IdentityManager.class);
             Identity identity = identityManager.getOrCreateIdentity(OrganizationIdentityProvider.NAME, userId);
-            RelationshipManager relationshipManager = (RelationshipManager) container.getComponentInstanceOfType(RelationshipManager.class);
             List<Relationship> relations = relationshipManager.getPending(identity);
 
             JSONArray jsonArray = new JSONArray();
@@ -114,9 +117,7 @@ public class PeopleRestServices implements ResourceContainer {
                 return Response.status(HTTPStatus.INTERNAL_ERROR).cacheControl(cacheControl).build();
             }
 
-            IdentityManager identityManager = (IdentityManager) container.getComponentInstanceOfType(IdentityManager.class);
             Identity identity = identityManager.getOrCreateIdentity(OrganizationIdentityProvider.NAME, userId);
-            RelationshipManager relationshipManager = (RelationshipManager) container.getComponentInstanceOfType(RelationshipManager.class);
             List<Relationship> relations = relationshipManager.getIncoming(identity);
 
             JSONArray jsonArray = new JSONArray();
@@ -159,11 +160,9 @@ public class PeopleRestServices implements ResourceContainer {
                 return Response.status(HTTPStatus.INTERNAL_ERROR).cacheControl(cacheControl).build();
             }
 
-            IdentityManager identityManager = (IdentityManager) container.getComponentInstanceOfType(IdentityManager.class);
             Identity identity = identityManager.getOrCreateIdentity(OrganizationIdentityProvider.NAME, userId);
-            RelationshipManager relationshipManager = (RelationshipManager) container.getComponentInstanceOfType(RelationshipManager.class);
 
-            System.out.println("request accepted.");
+            log.debug("request accepted.");
 
             relationshipManager.confirm(relationshipManager.getRelationshipById(relationId));
 
@@ -185,9 +184,7 @@ public class PeopleRestServices implements ResourceContainer {
                 return Response.status(HTTPStatus.INTERNAL_ERROR).cacheControl(cacheControl).build();
             }
 
-            IdentityManager identityManager = (IdentityManager) container.getComponentInstanceOfType(IdentityManager.class);
             Identity identity = identityManager.getOrCreateIdentity(OrganizationIdentityProvider.NAME, userId);
-            RelationshipManager relationshipManager = (RelationshipManager) container.getComponentInstanceOfType(RelationshipManager.class);
 
             relationshipManager.deny(relationshipManager.getRelationshipById(relationId));
 
@@ -210,9 +207,7 @@ public class PeopleRestServices implements ResourceContainer {
                 return Response.status(HTTPStatus.INTERNAL_ERROR).cacheControl(cacheControl).build();
             }
 
-            IdentityManager identityManager = (IdentityManager) container.getComponentInstanceOfType(IdentityManager.class);
             Identity identity = identityManager.getOrCreateIdentity(OrganizationIdentityProvider.NAME, userId);
-            RelationshipManager relationshipManager = (RelationshipManager) container.getComponentInstanceOfType(RelationshipManager.class);
 
             relationshipManager.invite(identity, identityManager.getIdentity(relationId));
 
@@ -236,10 +231,7 @@ public class PeopleRestServices implements ResourceContainer {
                 return Response.status(HTTPStatus.INTERNAL_ERROR).cacheControl(cacheControl).build();
             }
 
-            IdentityManager identityManager = (IdentityManager) container.getComponentInstanceOfType(IdentityManager.class);
             Identity identity = identityManager.getOrCreateIdentity(OrganizationIdentityProvider.NAME, userId, false);
-            RelationshipManager relationshipManager = (RelationshipManager) container.getComponentInstanceOfType(RelationshipManager.class);
-            UserACL userACL = (UserACL) container.getComponentInstanceOfType(UserACL.class);
             
             ListAccess<Identity> connectionList = relationshipManager.getConnections(identity);
             int size = connectionList.getSize();
@@ -271,24 +263,25 @@ public class PeopleRestServices implements ResourceContainer {
               
                 if (id.getRemoteId().equals(userACL.getSuperUser())) continue;
                 JSONObject json = new JSONObject();
-                String avatar = id.getProfile().getAvatarUrl();
+                Profile socialProfile = id.getProfile();
+                String avatar = socialProfile.getAvatarUrl();
                 if (avatar == null) {
-                    avatar = "/social-resources/skin/images/ShareImages/UserAvtDefault.png";
+                    avatar = DEFAULT_AVATAR;
                 }
-                String position = id.getProfile().getPosition();
+                String position = socialProfile.getPosition();
                 if (position == null) {
                     position = "";
                 }
-                json.put("suggestionName", id.getProfile().getFullName());
+                json.put("suggestionName", socialProfile.getFullName());
                 json.put("suggestionId", id.getId());
                 json.put("contacts", relationshipManager.getConnections(id).getSize());
                 json.put("avatar", avatar);
-                json.put("profile", id.getProfile().getUrl());
+                json.put("profile", socialProfile.getUrl());
                 json.put("title", position);
 
                 //set mutual friend number
                 json.put("number", suggestion.getValue());
-                json.put("createdDate",id.getProfile().getCreatedTime());
+                json.put("createdDate",socialProfile.getCreatedTime());
                 jsonArray.put(json);
             }
             jsonGlobal.put("items",jsonArray);

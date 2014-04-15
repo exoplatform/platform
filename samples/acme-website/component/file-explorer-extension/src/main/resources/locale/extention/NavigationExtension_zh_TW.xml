@@ -7,7 +7,7 @@
 </UIActionBar>
 <UIViewFormTabPane>
 <label>
-<contentNavigation>由內容導航</contentNavigation>
+<contentNavigation>內容導引</contentNavigation>
 </label>
 </UIViewFormTabPane>
 <UIPopupWindow>
