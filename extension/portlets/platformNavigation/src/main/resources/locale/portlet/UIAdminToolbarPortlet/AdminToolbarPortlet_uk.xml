@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bundle>
+   <UIAdminToolbarPortlet>
+      <action>
+         <AddPage>Додати сторінку</AddPage>
+         <EditNavigation>Навігація</EditNavigation>
+         <Content>Контент</Content>
+         <Editor>Редагувати</Editor>
+         <Page>Сторінка</Page>
+         <Site>Сайт</Site>
+         <Layout>Редагувати макет сторінки</Layout>
+         <siteLayout>Макет</siteLayout>
+         <ManagePages>Управління сторінками</ManagePages>
+         <GroupSite>Сайт групи</GroupSite>
+         <Properties>#{UISEOToolbarForm.label.seo}</Properties>
+         <AddSite>Додати сайт</AddSite>
+      </action>
+<ManageSites>Керування сайтами</ManageSites>
+<ManageGroupSites>Керування сайтами групи</ManageGroupSites>
+   </UIAdminToolbarPortlet>
+
+  <UISEOForm>
+    <label>
+      <title>Назва:</title>  
+      <description>Опис:</description>
+      <keywords>Ключові слова:</keywords>
+      <language>Мова:</language>
+      <robots>Роботи:</robots>
+      <sitemap>Мапа сайту:</sitemap>
+      <sitemapvisible>Видимий на мапі сайту</sitemapvisible>
+  <isInherited>Успадковано від початкової сторінки</isInherited>
+      <priority>Пріоритет:</priority>
+      <frequency>Частота:</frequency>
+      <select-language>Вибір мови</select-language>
+      <option>
+        <Always>Завжди</Always>
+        <Hourly>Погодинно</Hourly>
+        <Daily>Щодня</Daily>
+        <Weekly>Щотижня</Weekly>
+        <Monthly>Щомісяця</Monthly>
+        <Yearly>Щороку</Yearly>
+        <Never>Ніколи</Never>
+      </option> 
+    </label>
+ 
+    <action>
+      <Save>#{word.save}</Save>
+      <Cancel>#{word.cancel}</Cancel>
+    </action>
+    <msg>
+      <repository-exception>Сталася неочікувана помилка. Не вдалося зберегти  метадані сторінки.</repository-exception>
+      <confirm-delete>Ви дійсно бажаєте видалити ці дані SEO?</confirm-delete>
+    </msg>
+    <title>
+    <seo-delete>Видалити</seo-delete>
+    </title>
+<help> 
+  <priority>Припустимі значення в діапазоні від 0,0 до 1,0.</priority>
+  <description>Допоможіть шукачам: повідомте, якщо наступна сторінка має зв'язок з тим, що вони шукають.</description>
+  <keywords>Найважливіші терміни на сторінці відокремлені комою.</keywords>  
+    </help>  
+  </UISEOForm>
+  <UISEOPopupWindow>
+  <title>
+      <UISEOForm>#{UISEOToolbarForm.title.seo}</UISEOForm>
+  </title>
+  </UISEOPopupWindow>    
+  <UISEOToolbarForm>
+  <title>
+      <seo>Курування SEO</seo>
+  </title>
+  <label>
+    <seo>SEO</seo>
+  </label>
+  </UISEOToolbarForm>  
+  <FloatNumberValidator>
+    <msg>
+      <Invalid-number>Пріоритетне поле має неприпустиме значення. Будь ласка, введіть число між 0.0 та 1.0.</Invalid-number>
+    </msg>
+  </FloatNumberValidator>
+  
+  <Locale>
+    <label>      
+      <it>Італійська</it>      
+      <fr>Французька</fr>
+      <en>Англійська</en>      
+    </label>
+  </Locale>
+  
+</bundle>
