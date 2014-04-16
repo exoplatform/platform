@@ -25,7 +25,7 @@
   <msg name="save">#{word.save}</msg>
   <msg name="add">Pridėti</msg>
   <msg name="ok">Gerai</msg>
-  <msg name="name">Pavadinimas</msg>
+  <msg name="name">Vardas</msg>
   <msg name="url">URL</msg>
   <msg name="delete">Ištrinti</msg>
   <msg name="edit">Redaguoti</msg>

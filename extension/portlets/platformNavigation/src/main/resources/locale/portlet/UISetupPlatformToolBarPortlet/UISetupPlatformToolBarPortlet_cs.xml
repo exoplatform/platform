@@ -4,21 +4,20 @@
 <label>
 <applications>Aplikace</applications>
 <content>Obsah</content>
-<siteExplorer>Průzkumník webů</siteExplorer>
-<wcmAdmin>Správa obsahu</wcmAdmin>
-<users>Uživatelé</users>
-<newStaff>Přidat uživatele</newStaff>
+<siteExplorer>PrÅ¯zkumnÃ­k webÅ¯</siteExplorer>
+<wcmAdmin>SprÃ¡va obsahu</wcmAdmin>
+<users>UÅ¾ivatelÃ©</users>
+<newStaff>PÅidat uÅ¾ivatele</newStaff>
 <org-management>Skupiny a role</org-management>
-<portal>Portál</portal>
+<portal>PortÃ¡l</portal>
 <administration>Administrace</administration>
-<groupnavigation>Stránky skupiny</groupnavigation>
-<pageManagement>Stránky</pageManagement>
+<groupnavigation>StrÃ¡nky skupiny</groupnavigation>
+<pageManagement>StrÃ¡nky</pageManagement>
 <portalnavigation>Weby</portalnavigation>
-<servicesManagement>Správa</servicesManagement>
-<monitoring>Monitorování</monitoring>
+<servicesManagement>SprÃ¡va</servicesManagement>
+<monitoring>MonitorovÃ¡nÃ­</monitoring>
 <spaces>Skupiny</spaces>
 <Branding>Logo</Branding>
-      <Notification>Email Notifications</Notification>
 <ide>IDE</ide>
 <search>Hledat</search>
 </label>

@@ -2,15 +2,14 @@
 <bundle>
 <UIUserPlatformToolBarPortlet>
 <label>
-<NotificationSettingsPortlet>Notifications</NotificationSettingsPortlet>
 <activities>Moje aktivity</activities>
-<profile>Můj profil</profile>
+<profile>MÅ¯j profil</profile>
 <network>Moje kontakty</network>
 <wiki>Moje Wiki</wiki>
-<account>Nastavení</account>
-<language>Změnit jazyk</language>
-<logout>Odhlásit</logout>
-        <dashboard>Můj Dashboard</dashboard>
+<account>NastavenÃ­</account>
+<language>ZmÄnit jazyk</language>
+<logout>OdhlÃ¡sit</logout>
+        <dashboard>MÅ¯j Dashboard</dashboard>
 </label>
 </UIUserPlatformToolBarPortlet>
 </bundle>

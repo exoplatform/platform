@@ -28,7 +28,7 @@
   <msg name="forums.statistic.total.member">Viso narių:</msg>
   <msg name="forums.statistic.active.member">Aktyvūs nariai:</msg>
   <msg name="forums.statistic.maximum.user">Didžiausias interneto vartotojų skaičius:</msg>  
-  <msg name="forums.statistic.at">at</msg>  
+  <msg name="forums.statistic.at">:</msg>  
   <msg name="forums.weekly.statistic.title">Forumų savaitinė statistika</msg>
   <msg name="forums.weekly.statistic.post.open">Pranešimas(ai) sukurti</msg>
   <msg name="forums.weekly.statistic.next">Kitas</msg>

@@ -7,11 +7,10 @@
          <connections>Kontakty</connections>
          <wiki>Wiki</wiki>
          <Myactivities>Moje aktivity</Myactivities>
-         <Myprofile>Můj profil</Myprofile>
+         <Myprofile>MÅ¯j profil</Myprofile>
          <Myconnections>Moje kontakty</Myconnections>
          <Mywiki>Moje Wiki</Mywiki>
-         <Mydashboard>Můj Dashboard</Mydashboard>
-         <NotificationSettingsPortlet>Notifications</NotificationSettingsPortlet>
+         <Mydashboard>MÅ¯j Dashboard</Mydashboard>
       </label>
    </UIUserNavigationPortlet>
 </bundle>
