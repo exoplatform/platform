@@ -63,6 +63,16 @@
 
 					</div>
 			</div>
+      <div class="control-group">
+        <label class="control-label" for="content-lang"><%=_ctx.appRes("ElementSet.dialog.label.language")%></label>
+        <div class="controls">
+          <%
+            String lang = org.exoplatform.portal.webui.util.Util.getPortalRequestContext().getLocale().toString();
+            String[] fieldLang = ["jcrPath=/node/exo:language", "script=ecm-explorer/widget/FillSelectBoxWithLanguage.groovy", lang] ;
+            uicomponent.addSelectBoxField("content-lang", fieldLang) ;
+          %>
+        </div>
+      </div>
 			<div class="control-group">
 				<label class="control-label" for="content-lang"><%=_ctx.appRes("ElementSet.dialog.label.language")%></label>
 				<div class="controls">
