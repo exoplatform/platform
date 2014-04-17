@@ -64,7 +64,7 @@
 						<field name="templateLocation">
 							<string>war:/conf/office-extension/portal</string>
 						</field>
-						<field name="importMode"><string>merge</string></field>
+						<field name="importMode"><string>${portal.import-mode:merge}</string></field>
 					</object>
 				</object-param>
 				<object-param>
