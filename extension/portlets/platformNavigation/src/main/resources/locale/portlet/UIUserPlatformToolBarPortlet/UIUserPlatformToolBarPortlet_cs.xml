@@ -2,7 +2,7 @@
 <bundle>
 <UIUserPlatformToolBarPortlet>
 <label>
-<NotificationSettingsPortlet>Notifications</NotificationSettingsPortlet>
+<NotificationSettingsPortlet>Upozornění</NotificationSettingsPortlet>
 <activities>Moje aktivity</activities>
 <profile>Můj profil</profile>
 <network>Moje kontakty</network>
