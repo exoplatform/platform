@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bundle>
+<UIUserPlatformToolBarPortlet>
+<label>
+<NotificationSettingsPortlet>Notifications</NotificationSettingsPortlet>
+<activities>Мій потік діяльності</activities>
+<profile>Мій профіль</profile>
+<network>Мої контакти</network>
+<wiki>Моя вікі-сторінка</wiki>
+<account>Налаштування</account>
+<language>Змінити мову</language>
+<logout>Вийти</logout>
+        <dashboard>Моя панель інструментів</dashboard>
+</label>
+</UIUserPlatformToolBarPortlet>
+</bundle>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bundle>
+   <UIUserNavigationPortlet>
+      <label>
+         <activities>Потік діяльності</activities>
+         <profile>Профіль</profile>
+         <connections>Список контактів</connections>
+         <wiki>Wiki</wiki>
+         <Myactivities>Мій потік діяльності</Myactivities>
+         <Myprofile>Мій профіль</Myprofile>
+         <Myconnections>Мої контакти</Myconnections>
+         <Mywiki>Моя вікі-сторінка</Mywiki>
+         <Mydashboard>Моя панель інструментів</Mydashboard>
+         <NotificationSettingsPortlet>Notifications</NotificationSettingsPortlet>
+      </label>
+   </UIUserNavigationPortlet>
+</bundle>
