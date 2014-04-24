@@ -45,11 +45,9 @@
     <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
     <link href="/platform-extension/css/welcome-screens/jquery.qtip.min.css" rel="stylesheet" type="text/css" />
     <link href="/platform-extension/css/welcome-screens/Style.css" rel="stylesheet" type="text/css" />
-
-    <script type="text/javascript" src="/platform-extension/javascript/jquery-1.7.1.js"></script>
+    <script type="text/javascript" src="/eXoResources/javascript/jquery-1.7.1.js"></script>
     <script type="text/javascript" src="/platform-extension/javascript/ie-placeholder.js"></script>
     <script type="text/javascript" src="/platform-extension/javascript/welcome-screens/welcomescreens.js"></script>
-
 <head>
 <div class="backLight"></div>
 <div class="uiWelcomeBox" id="AccountSetup1"  >
