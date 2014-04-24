@@ -81,7 +81,7 @@
               <a href="$connectionLink"><i class="uiIconPLFMyConnection"></i>$labelnetwork</a>
             </li>
             <li>
-              <a href="$wikiLink"><i class="uiIconWikiWiki"></i>$labelWiki</a>
+              <a href="$wikiLink"><i class="uiIconWikiMyWiki"></i>$labelWiki</a>
             </li>
             <li>
               <a href="<%=createDashboardLink%>"><i class="uiIconPLFDashboard"></i>$labelDashboard</a>
