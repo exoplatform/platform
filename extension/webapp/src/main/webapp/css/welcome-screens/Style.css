@@ -61,10 +61,38 @@ a {
     border: 1px solid #cdcdcd;
     border-radius: 4px 4px 4px 4px;
     box-shadow: 0 1px 1px rgba(0,0,0,0.1) inset;
-    color: #999;
+    color: #333;
     height: 28px;
     padding: 0 6px;
+    outline: none;
+     font-size: 13px;
 }
+.uiWelcomeBox input::-webkit-input-placeholder {
+   color: #999999;
+}
+
+.uiWelcomeBox input:-moz-placeholder { 
+  color: #999999;
+}
+
+.uiWelcomeBox input::-moz-placeholder { 
+   color: #999999;
+}
+
+.uiWelcomeBox input:-ms-input-placeholder {  
+   color: #999999; 
+}
+
+.uiWelcomeBox input[type="text"]:focus,.uiWelcomeBox input[type="password"]:focus {
+  color: #333;
+  border-color: #94b0df;
+  box-shadow: 0px 0px 5px rgba(19, 75, 159, 0.45) ;
+  background-position: 0 -41px;
+   outline: none;
+}
+.uiWelcomeBox input[type="text"]:active,.uiWelcomeBox input[type="password"]:active {
+  color: #333;
+ } 
 
 .uiWelcomeBox input.disable {
     background-color: #e6e6e6;
@@ -93,6 +121,7 @@ a {
     width: 100px;
     text-decoration: none;
     margin: 0 5px;
+    padding: 0;
     text-shadow: 0 1px 1px rgba(255, 255, 255, 0.75);
     box-shadow: 0 1px 0 rgba(255, 255, 255, 0.2) inset, 0 1px 2px rgba(0, 0, 0, 0.05);
 }
@@ -119,6 +148,10 @@ a {
 	background-repeat: repeat-x;
 }
 
+.uiWelcomeBox button:focus,.uiWelcomeBox button:active {
+   outline: none;
+ }
+  
 .uiWelcomeBox .form-horizontal .control-group:before, .uiWelcomeBox .form-horizontal .control-group:after {
     content: "";
     display: table;
@@ -131,7 +164,7 @@ a {
 
 .uiWelcomeBox .form-horizontal .control-label {
     float: left;
-    padding-top: 5px;
+    padding-top: 7px;
     text-align: right;
     width: 75px;
 }
