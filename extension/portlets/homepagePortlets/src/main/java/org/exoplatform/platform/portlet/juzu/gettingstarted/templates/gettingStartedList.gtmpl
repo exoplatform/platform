@@ -33,11 +33,11 @@
 
         </div>
         <ul class ="gsList" id="gsList">
-            <li class="${status['gs_profile']}" ><a  target="_parent" href=${profile} >&{Upload.label}</a></li>
-            <li class="${status['gs_connect']}" ><a  target="_parent" href=${connect} >&{Connect.Label}</a></li>
-            <li class="${status['gs_space']}" ><a target="_parent" href=${space} >&{Space.Label}</a></li>
-            <li class="${status['gs_activities']}" ><a target="_parent" href=${activity} >&{Activity.Label} </a></li>
-            <li class="${status['gs_document']}" ><a target="_parent" href=${upload}>&{Document.Label}</a></li>
+            <li class="${status['gs_profile']}" ><a  target="_self" href=${profile} >&{Upload.label}</a></li>
+            <li class="${status['gs_connect']}" ><a  target="_self" href=${connect} >&{Connect.Label}</a></li>
+            <li class="${status['gs_space']}" ><a target="_self" href=${space} >&{Space.Label}</a></li>
+            <li class="${status['gs_activities']}" ><a target="_self" href=${activity} >&{Activity.Label} </a></li>
+            <li class="${status['gs_document']}" ><a target="_self" href=${upload}>&{Document.Label}</a></li>
         </ul>
 
     </div>
