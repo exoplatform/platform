@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bundle>
+  <Signin>
+    <welcome>Vítejte</welcome>
+    <login>Přihlášení</login>
+    <logout>Odhlásit</logout>
+    <language>Změnit jazyk</language>
+    <register>Registrace</register>
+  </Signin>
+
+  <ACMEPortal>
+    <label>ACME šablona</label>
+  </ACMEPortal>
+</bundle>

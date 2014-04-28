@@ -30,7 +30,7 @@
   <msg name="forums.statistic.maximum.user">最大線上使用者數：</msg>  
   <msg name="forums.statistic.at">在</msg>  
   <msg name="forums.weekly.statistic.title">論壇每週統計</msg>
-  <msg name="forums.weekly.statistic.post.open">帖子創建數</msg>
+  <msg name="forums.weekly.statistic.post.open">貼(s)產生</msg>
   <msg name="forums.weekly.statistic.next">下一步</msg>
   <msg name="forums.weekly.statistic.prev">上一步</msg>
   <msg name="forums.weekly.statistic.view.chart">查看作為圖表</msg>

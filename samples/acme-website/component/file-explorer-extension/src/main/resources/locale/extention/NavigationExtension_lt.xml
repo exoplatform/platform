@@ -2,51 +2,51 @@
 <bundle>
 <UIActionBar>
 <tooltip>
-<ContentNavigation>Content Navigation</ContentNavigation>
+<ContentNavigation>Turinio navigacija</ContentNavigation>
 </tooltip>
 </UIActionBar>
 <UIViewFormTabPane>
 <label>
-<contentNavigation>Navigation by Content</contentNavigation>
+<contentNavigation>Navigacija pagal turinį</contentNavigation>
 </label>
 </UIViewFormTabPane>
 <UIPopupWindow>
 <title>
-<UINavigationForm>Navigation Form</UINavigationForm>
+<UINavigationForm>Navigacijos forma</UINavigationForm>
 </title>
 </UIPopupWindow>
 <PopulateToMenu>
 <dialog>
 <label>
 <id>ID:</id>
-<name>Name:</name>
-<lifecycle>Lifecycle:</lifecycle>
-<isDeep>Is Deep:</isDeep>
-<nodetypes>Node Types:</nodetypes>
-<description>Description:</description>
-<affectedNodeTypeNames>Affected Node Types:</affectedNodeTypeNames>
-<navigationNode>Navigation Node:</navigationNode>
-<index>Index:</index>
-<clickable>Clickable:</clickable>
-<page>Page:</page>
-<childrenPage>Children Page:</childrenPage>
+<name>Vardas:</name>
+<lifecycle>Gyvenimo ciklas:</lifecycle>
+<isDeep>Yra giliai:</isDeep>
+<nodetypes>Mazgo tipai:</nodetypes>
+<description>Aprašymas:</description>
+<affectedNodeTypeNames>Įtakoti mazgų tipai:</affectedNodeTypeNames>
+<navigationNode>Navigacijos mazgas:</navigationNode>
+<index>Indeksas:</index>
+<clickable>Spaudžiamas:</clickable>
+<page>Puslapis:</page>
+<childrenPage>Atšakų puslapis:</childrenPage>
 </label>
 </dialog>
 </PopulateToMenu>
 <UINavigationForm>
 <label>
-<Node>Parent's Folder:</Node>
-<Visible>Visible :</Visible>
-<NavigationNodeInputSet>Target Parent Navigation:</NavigationNodeInputSet>
-<Index>Display Order:</Index>
-<Clickable>Clickable :</Clickable>
-<NavigationControls>Navigation Controls</NavigationControls>
-<ListTargetPageFormInputSet>Page for List:</ListTargetPageFormInputSet>
-<ListShowCLVByStringInput>Parameter Name:</ListShowCLVByStringInput>
-<DetailTargetPageInputSet>Page for Detail:</DetailTargetPageInputSet>
-<DetailShowCLVByStringInput>Parameter Name:</DetailShowCLVByStringInput>
-<List>List</List>
-<Detail>Detail</Detail>
+<Node>Pirminis aplankas:</Node>
+<Visible>Matomas :</Visible>
+<NavigationNodeInputSet>Tikslinė pirminė navigacija:</NavigationNodeInputSet>
+<Index>Rodymo tvarka:</Index>
+<Clickable>Spaudžiamas :</Clickable>
+<NavigationControls>Navigacijos kontrolė</NavigationControls>
+<ListTargetPageFormInputSet>Puslapis sąrašui:</ListTargetPageFormInputSet>
+<ListShowCLVByStringInput>Parametro pavadinimas:</ListShowCLVByStringInput>
+<DetailTargetPageInputSet>Puslapis išsamiai informacijai:</DetailTargetPageInputSet>
+<DetailShowCLVByStringInput>Parametro pavadinimas:</DetailShowCLVByStringInput>
+<List>Sąrašas</List>
+<Detail>Išsamiai</Detail>
 </label>
 <action>
 <Save>#{word.save}</Save>
@@ -55,47 +55,47 @@
 </UINavigationForm>
 <Visible>
 <label>
-<VisibleEnable>Yes</VisibleEnable>
-<VisibleDisable>No</VisibleDisable>
+<VisibleEnable>Taip</VisibleEnable>
+<VisibleDisable>Ne</VisibleDisable>
 </label>
 </Visible>
 <Clickable>
 <label>
-<ClickableEnable>Yes</ClickableEnable>
-<ClickableDisable>No</ClickableDisable>
+<ClickableEnable>Taip</ClickableEnable>
+<ClickableDisable>Ne</ClickableDisable>
 </label>
 </Clickable>
 <NavigationNodeInputSet>
 <title>
-<SelectNavigationNode>Select Navigation Node</SelectNavigationNode>
-<RemoveNavigationNode>Reset</RemoveNavigationNode>
+<SelectNavigationNode>Pasirinkite navigacijos mazgą</SelectNavigationNode>
+<RemoveNavigationNode>Atstatyti</RemoveNavigationNode>
 </title>
 </NavigationNodeInputSet>
 <ListTargetPageFormInputSet>
 <title>
-<SelectListTargetPage>Select Target Page</SelectListTargetPage>
-<RemoveListTargetPage>Reset</RemoveListTargetPage>
+<SelectListTargetPage>Pasirinkite paskirties puslapį</SelectListTargetPage>
+<RemoveListTargetPage>Atstatyti</RemoveListTargetPage>
 </title>
 </ListTargetPageFormInputSet>
 <DetailTargetPageInputSet>
 <title>
-<SelectDetailTargetPage>Select Children Target Page</SelectDetailTargetPage>
-<RemoveDetailTargetPage>Reset</RemoveDetailTargetPage>
+<SelectDetailTargetPage>Pasirinkite atšakų paskirties puslapį</SelectDetailTargetPage>
+<RemoveDetailTargetPage>Atstatyti</RemoveDetailTargetPage>
 </title>
 </DetailTargetPageInputSet>
 <NavigationSelectorPopupWindow>
 <title>
-<UINavigationSelector>Navigation Selector</UINavigationSelector>
+<UINavigationSelector>Navigacijos selektorius</UINavigationSelector>
 </title>
 </NavigationSelectorPopupWindow>
 <ListTargetPageSelectorPopupWindow>
 <title>
-<UIPageSelector>Page Selector</UIPageSelector>
+<UIPageSelector>Puslapio parinkimas</UIPageSelector>
 </title>
 </ListTargetPageSelectorPopupWindow>
 <DetailTargetPageSelectorPopupWindow>
 <title>
-<UIPageSelector>Page Selector</UIPageSelector>
+<UIPageSelector>Puslapio parinkimas</UIPageSelector>
 </title>
 </DetailTargetPageSelectorPopupWindow>
 </bundle>
