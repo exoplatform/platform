@@ -18,6 +18,7 @@
     <Locale lang="lt" messages="locale/lt.xml"/>
     <Locale lang="no" messages="locale/no.xml"/>
     <Locale lang="zh_TW" messages="locale/zh_TW.xml"/>    
+    <Locale lang="cs" messages="locale/cs.xml"/>  
     <Require feature="dynamic-height"/>
   </ModulePrefs>
   
@@ -132,7 +133,7 @@
             + '"/> \
                           </div> \
                        <button type="button" class="btn btn-primary pull-left save">__MSG_ok__</button> \
-                       <button type="button" class="btn pull-left cancel">Cancel</button> \
+                       <button type="button" class="btn pull-left cancel">__MSG_cancel__</button> \
                        </div> \
                        </li> ');
         $("#BookmarkList").append($(element));
@@ -293,8 +294,8 @@
                     <div class="editZone clearfix">  \
                       <div class="uiGrayLightBox pull-left" >     \
                              <div class="alert-error"></div> \
-                             <input type="text" class ="editName" placeholder="Title"/>    \
-                             <input type="text" class ="editLink" placeholder="URL"/> \
+                             <input type="text" class ="editName" placeholder="__MSG_title__"/>    \
+                             <input type="text" class ="editLink" placeholder="__MSG_url__"/> \
                         </div> \
                      <button type="button" class="btn btn-primary pull-left save">__MSG_add__</button> \
                      <button type="button" class="btn pull-left cancel">__MSG_cancel__</button> \
@@ -338,18 +339,17 @@
 
     </script>
   </head>
- 
      <div id="content" class="UIGadgetThemes bookmark uiBox">
        <h6 class="title left">          
          __MSG_title__
-             <a class="actionIcon pull-right" href="#" id="customize" ref="tooltip" data-placement="left" data-original-title="Add Bookmark">
+             <a class="actionIcon pull-right" href="#" id="customize" ref="tooltip" data-placement="left" data-original-title="__MSG_addBookmark__">
                  <i class="uiIconPlus uiIconLightGray"></i>
              </a>
        </h6>
        
       <div class="uiContentBox">
         <div id="emptyMsg" style="display:none;">
-           __MSG_emptyBookmarkPre__ <i class="uiIconPlus uiIconLightGray"></i> __MSG_emptyBookmarkSuf__
+           __MSG_emptyBookmarkPre__
         </div>
           <ul id="BookmarkList"></ul>
         </div>

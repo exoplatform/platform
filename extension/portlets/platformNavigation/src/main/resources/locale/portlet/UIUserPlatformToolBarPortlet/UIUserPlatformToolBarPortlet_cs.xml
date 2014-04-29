@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bundle>
+<UIUserPlatformToolBarPortlet>
+<label>
+<activities>Moje aktivity</activities>
+<profile>Můj profil</profile>
+<network>Moje kontakty</network>
+<wiki>Moje Wiki</wiki>
+<account>Nastavení</account>
+<language>Změnit jazyk</language>
+<logout>Odhlásit</logout>
+        <dashboard>Můj Dashboard</dashboard>
+</label>
+</UIUserPlatformToolBarPortlet>
+</bundle>

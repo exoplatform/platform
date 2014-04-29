@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bundle>
+  <portal>
+    <acme>
+      <overview>Přehled</overview>
+      <products>Produkty</products>
+      <news>Novinky</news>
+      <contactus>Otázky?</contactus>
+      <newsletters>Bulletiny</newsletters>
+      <confirmation>Potvrzení kontaktního formuláře</confirmation>
+      <detail>Podrobnosti</detail>
+  <catalog>Katalog</catalog>
+      <printviewer>Tisk stránky</printviewer>
+      <searchResult>Hledat</searchResult>
+      <newAccount>Nový účet</newAccount>
+      <groupnavigation>Navigace skupin</groupnavigation>
+      <portalnavigation>Navigace portálu</portalnavigation>
+      <documents>Dokumenty</documents>
+      <unifiedSearch>Hledat</unifiedSearch>
+    </acme>
+  </portal>
+</bundle>

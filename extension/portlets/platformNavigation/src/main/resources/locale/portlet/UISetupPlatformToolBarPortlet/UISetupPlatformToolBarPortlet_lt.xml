@@ -2,24 +2,24 @@
 <bundle>
 <UISetupPlatformToolBarPortlet>
 <label>
-<applications>Applications</applications>
-<content>Content</content>
-<siteExplorer>Sites Explorer</siteExplorer>
-<wcmAdmin>Content Administration</wcmAdmin>
-<users>Users</users>
-<newStaff>Add Users</newStaff>
-<org-management>Groups and Roles</org-management>
-<portal>Portal</portal>
-<administration>Administration</administration>
-<groupnavigation>Group Sites</groupnavigation>
-<pageManagement>Pages</pageManagement>
-<portalnavigation>Sites</portalnavigation>
-<servicesManagement>Management</servicesManagement>
-<monitoring>Monitoring</monitoring>
-<spaces>Spaces</spaces>
-<Branding>Branding</Branding>
+<applications>Programos</applications>
+<content>Turinys</content>
+<siteExplorer>Svetainės naršyklė</siteExplorer>
+<wcmAdmin>Turinio administravimas</wcmAdmin>
+<users>Vartotojai</users>
+<newStaff>Įtraukti vartotojus</newStaff>
+<org-management>Grupės ir rolės</org-management>
+<portal>Portalas</portal>
+<administration>Administravimas</administration>
+<groupnavigation>Grupės svetainės</groupnavigation>
+<pageManagement>Puslapiai</pageManagement>
+<portalnavigation>Svetainės</portalnavigation>
+<servicesManagement>Valdymas</servicesManagement>
+<monitoring>Monitoringas</monitoring>
+<spaces>Erdvės</spaces>
+<Branding>Prekės ženklas</Branding>
 <ide>IDE</ide>
-<search>Search</search>
+<search>Paieška</search>
 </label>
 </UISetupPlatformToolBarPortlet>
 </bundle>

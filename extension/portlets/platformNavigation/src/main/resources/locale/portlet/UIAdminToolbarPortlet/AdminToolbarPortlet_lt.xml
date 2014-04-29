@@ -2,44 +2,44 @@
 <bundle>
    <UIAdminToolbarPortlet>
       <action>
-         <AddPage>Add Page</AddPage>
-         <EditNavigation>Navigation</EditNavigation>
-         <Content>Content</Content>
-         <Editor>Edit</Editor>
-         <Page>Page</Page>
-         <Site>Site</Site>
-         <Layout>Edit Layout</Layout>
-         <siteLayout>Layout</siteLayout>
-         <ManagePages>Manage Pages</ManagePages>
-         <GroupSite>Group Site</GroupSite>
+         <AddPage>Pridėti puslapį</AddPage>
+         <EditNavigation>Navigacija</EditNavigation>
+         <Content>Turinys</Content>
+         <Editor>Redaguoti</Editor>
+         <Page>Puslapis</Page>
+         <Site>Svetainė</Site>
+         <Layout>Redaguoti išdėstymą</Layout>
+         <siteLayout>Išdėstymas</siteLayout>
+         <ManagePages>Tvarkyti puslapius</ManagePages>
+         <GroupSite>Grupės svetainė</GroupSite>
          <Properties>#{UISEOToolbarForm.label.seo}</Properties>
-         <AddSite>Add Site</AddSite>
+         <AddSite>Pridėti svetainę</AddSite>
       </action>
-<ManageSites>Manage Sites</ManageSites>
-<ManageGroupSites>Manage Group Sites</ManageGroupSites>
+<ManageSites>Valdyti svetaines</ManageSites>
+<ManageGroupSites>Valdyti grupės svetaines</ManageGroupSites>
    </UIAdminToolbarPortlet>
 
   <UISEOForm>
     <label>
-      <title>Title:</title>  
-      <description>Description:</description>
-      <keywords>Keywords:</keywords>
-      <language>Language:</language>
-      <robots>Robots:</robots>
-      <sitemap>Sitemap:</sitemap>
-      <sitemapvisible>Visible in sitemap</sitemapvisible>
-  <isInherited>Inherited from parent page</isInherited>
-      <priority>Priority:</priority>
-      <frequency>Frequency:</frequency>
-      <select-language>Select Language</select-language>
+      <title>Antraštė:</title>  
+      <description>Aprašymas:</description>
+      <keywords>Raktažodžiai:</keywords>
+      <language>Kalba:</language>
+      <robots>Robotai:</robots>
+      <sitemap>Svetainės žemėlapis:</sitemap>
+      <sitemapvisible>Matomas svetainės žemėlapyje</sitemapvisible>
+  <isInherited>Paveldėtas iš pagrindinio puslapio</isInherited>
+      <priority>Prioritetas:</priority>
+      <frequency>Dažnis:</frequency>
+      <select-language>Pasirinkite kalbą</select-language>
       <option>
-        <Always>Always</Always>
-        <Hourly>Hourly</Hourly>
-        <Daily>Daily</Daily>
-        <Weekly>Weekly</Weekly>
-        <Monthly>Monthly</Monthly>
-        <Yearly>Yearly</Yearly>
-        <Never>Never</Never>
+        <Always>Visada</Always>
+        <Hourly>Kas valandą</Hourly>
+        <Daily>Kasdien</Daily>
+        <Weekly>Kas savaitę</Weekly>
+        <Monthly>Kas mėnesį</Monthly>
+        <Yearly>Kas metus</Yearly>
+        <Never>Niekada</Never>
       </option> 
     </label>
  
@@ -48,16 +48,16 @@
       <Cancel>#{word.cancel}</Cancel>
     </action>
     <msg>
-      <repository-exception>An unexpected error occurred. Cannot save page metadata.</repository-exception>
-      <confirm-delete>Are you sure you want to delete these SEO data?</confirm-delete>
+      <repository-exception>Įvyko netikėta klaida. Negalima įrašyti puslapio metaduomenų.</repository-exception>
+      <confirm-delete>Ar tikrai norite ištrinti šiuos SEO duomenis?</confirm-delete>
     </msg>
     <title>
-    <seo-delete>Delete</seo-delete>
+    <seo-delete>Ištrinti</seo-delete>
     </title>
 <help> 
-  <priority>Valid values range from 0.0 to 1.0.</priority>
-  <description>Help searchers: let them know that the following page has a link with what they are looking for.</description>
-  <keywords>Most important terms in the page must be separated by a comma.</keywords>  
+  <priority>Leistinos reikšmės svyruoja nuo 0,0 iki 1,0.</priority>
+  <description>Padėti vartotojams: leiskite jiems žinoti, kad šis puslapis yra susijęs su tai ko jie ieško.</description>
+  <keywords>Svarbiausios sąlygos puslapyje turi būti atskirtos kableliu.</keywords>  
     </help>  
   </UISEOForm>
   <UISEOPopupWindow>
@@ -67,7 +67,7 @@
   </UISEOPopupWindow>    
   <UISEOToolbarForm>
   <title>
-      <seo>SEO Management</seo>
+      <seo>SEO valdymas</seo>
   </title>
   <label>
     <seo>SEO</seo>
@@ -75,15 +75,15 @@
   </UISEOToolbarForm>  
   <FloatNumberValidator>
     <msg>
-      <Invalid-number>Priority field has an invalid value. Please enter a number between 0.0 and 1.0.</Invalid-number>
+      <Invalid-number>Prioriteto laukelyje yra neleistina reikšmė. Įveskite skaičių nuo 0,0 iki 1,0.</Invalid-number>
     </msg>
   </FloatNumberValidator>
   
   <Locale>
     <label>      
-      <it>Italian</it>      
-      <fr>French</fr>
-      <en>English</en>      
+      <it>Italų</it>      
+      <fr>Prancūzų</fr>
+      <en>Anglų</en>      
     </label>
   </Locale>
   

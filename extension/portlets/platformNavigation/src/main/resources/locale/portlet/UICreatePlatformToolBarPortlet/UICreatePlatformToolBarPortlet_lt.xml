@@ -2,21 +2,21 @@
 <bundle>
    <UIUserPlatformToolBarCreatePortlet>
       <label>
-         <topic>Topic</topic>
-         <poll>Poll</poll>
-         <eventtask>Event/Task</eventtask>
-         <upload>Upload a File</upload>
-         <wiki>Wiki Page</wiki>
+         <topic>Tema</topic>
+         <poll>Apklausa</poll>
+         <eventtask>Įvykis/užduotis</eventtask>
+         <upload>Įkelti failą</upload>
+         <wiki>Wiki puslapis</wiki>
 
       </label>
    </UIUserPlatformToolBarCreatePortlet>
    <UICreateList>
       <label>
-         <topic>topic</topic>
-         <poll>poll</poll>
-         <CreateANew>Create a new {1}:</CreateANew>
-         <NoForum>Sorry, no forum is available yet to create a {1}. Start by creating your own space.</NoForum>
-         <RequireSelectForum>Please select a forum.</RequireSelectForum>
+         <topic>temą</topic>
+         <poll>apklausą</poll>
+         <CreateANew>Sukurti naują {1}:</CreateANew>
+         <NoForum>Atsiprašome, dar nėra forumo, pagal kurį būtų galima sukurti {1}. Pradėkite kurti savo erdvę.</NoForum>
+         <RequireSelectForum>Pasirinkite forumą.</RequireSelectForum>
       </label>
       <action>
          <Next>#{word.next}</Next>
@@ -25,47 +25,47 @@
    </UICreateList>
    <UICreateTopic>
       <label>
-         <SelectAForum>Select a Forum</SelectAForum>
-         <location>In Location</location>
-         <forumId>And Forum</forumId>
-         <FilterForums>Filter Forums</FilterForums>
+         <SelectAForum>Pasirinkti forumą</SelectAForum>
+         <location>Vieta</location>
+         <forumId>Ir forumas</forumId>
+         <FilterForums>Filtruoti Forumus</FilterForums>
       </label>
    </UICreateTopic>
    <UICreatePoll>
       <label>
-         <SelectAForum>Select Forum</SelectAForum>
-         <location>In Location</location>
-         <forumId>And Forum</forumId>
-         <FilterForums>Filter Forums</FilterForums>
+         <SelectAForum>Pasirinkite forumą</SelectAForum>
+         <location>Vieta</location>
+         <forumId>Ir forumas</forumId>
+         <FilterForums>Filtruoti Forumus</FilterForums>
       </label>
    </UICreatePoll>
    <UICreateWiki>
       <label>
-         <title>Create a new Wiki Page:</title>
-         <location>In Location</location>
+         <title>Sukurti naują Wiki puslapį:</title>
+         <location>Vieta</location>
       </label>
    </UICreateWiki>
    <UICreateEvent>
       <label>
          <Title>#{word.title}</Title>
-         <Choix>Add New:</Choix>
-         <EndEvent>To</EndEvent>
-         <StartEvent>From</StartEvent>
-         <Calendar>Select Calendar</Calendar>
-         <all-day>All Day</all-day>
-         <defaultCalendarId>Default</defaultCalendarId>
+         <Choix>Pridėti naują:</Choix>
+         <EndEvent>Iki</EndEvent>
+         <StartEvent>Nuo</StartEvent>
+         <Calendar>Pasirinkti kalendorių</Calendar>
+         <all-day>Visą dieną</all-day>
+         <defaultCalendarId>Numatytasis</defaultCalendarId>
       </label>
       <msg>
-         <summary-field-required>The field "Title" is required.</summary-field-required>
-         <fromDate-format>The "From" date format is incorrect.</fromDate-format>
-         <toDate-format>The "To" date format is incorrect.</toDate-format>
-         <logic-required>Sorry, you cannot create an event that ends before it starts.</logic-required>
-         <cant-add-event-on-remote-calendar>You cannot add event to remote calendar</cant-add-event-on-remote-calendar>
+         <summary-field-required>Reikalingas laukas "Pavadinimas".</summary-field-required>
+         <fromDate-format>"Nuo" datos formatas yra neteisingas.</fromDate-format>
+         <toDate-format>Datos formatas "iki" yra neteisingas.</toDate-format>
+         <logic-required>Atsiprašome, jūs negalite sukurti įvykio, kuris baigiasi jam neprasidėjus.</logic-required>
+         <cant-add-event-on-remote-calendar>Jūs negalite pridėti įvykio į nuotolinį kalendorių.</cant-add-event-on-remote-calendar>
          <add-successfully>
-            <Event>The Event was added to {1}</Event>
-            <Task>The Task was added to {1}</Task>
+            <Event>Įvykis buvo įtrauktas į {1}</Event>
+            <Task>Užduotis buvo įtraukta į {1}</Task>
          </add-successfully>
-         <add-unsuccessfully>{0} was not added.</add-unsuccessfully>
+         <add-unsuccessfully>{0} nebuvo įtrauktas(-a).</add-unsuccessfully>
       </msg>
       <action>
          <Next>#{word.save}</Next>
@@ -73,15 +73,15 @@
       </action>
    </UICreateEvent>
     <UIUploadFile>
-        <Select>Select File</Select>
+        <Select>Pasirinkti failą</Select>
         <action>
           <close>#{word.close}</close>
         </action>
     </UIUploadFile>
    <Choix>
       <label>
-         <Event>Event</Event>
-         <Task>Task</Task>
+         <Event>Įvykis</Event>
+         <Task>Užduotis</Task>
       </label>
    </Choix>
 </bundle>

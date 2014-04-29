@@ -23,6 +23,7 @@
     <Locale lang="lt" messages="locale/lt.xml"/>
     <Locale lang="no" messages="locale/no.xml"/>
     <Locale lang="zh_TW" messages="locale/zh_TW.xml"/>    
+    <Locale lang="cs" messages="locale/cs_TW.xml"/> 
   </ModulePrefs>
   <Content type="html">
     <![CDATA[     
@@ -30,16 +31,17 @@
       <title>Memory</title>
       <link rel="stylesheet" type="text/css" href="/exo-gadget-resources/skin/exo-gadget/gadget-common.css" />
       <link type="text/css" rel="stylesheet" href="/gadget-pack/skin/css/monitoring.css" />
-      <link rel="stylesheet" type="text/css" href="/exo-gadget-resources/script/jquery/plugins/jqplot/1.0.0/jquery.jqplot.min.css" />
+      <link rel="stylesheet" type="text/css" href="/exo-gadget-resources/script/jquery/plugins/jqplot/1.0.5/jquery.jqplot.min.css" />
       <link rel="stylesheet" type="text/css" href="/eXoResources/skin/bootstrap/css/bootstrap.css" />
     
-      <script language="javascript" type="text/javascript" src="/exo-gadget-resources/script/jquery/1.6.2/jquery.min.js"></script>
+      <!--[if IE]><script language="javascript" type="text/javascript" src="/exo-gadget-resources/script/jquery/plugins/jqplot/1.0.5/excanvas.js"></script><![endif]-->
+	  <script language="javascript" type="text/javascript" src="/exo-gadget-resources/script/jquery/plugins/jqplot/1.0.5/jquery.min.js"></script>
+	  <script language="javascript" type="text/javascript" src="/exo-gadget-resources/script/jquery/plugins/jqplot/1.0.5/jquery.jqplot.min.js"></script>
       <script language="javascript" type="text/javascript" src="script/memory-utils.js"></script>
       <script language="javascript" type="text/javascript" src="/exo-gadget-resources/script/jquery/plugins/jquery.timers/1.2/jquery.timers.js"></script>
-      <!--[if IE]><script language="javascript" type="text/javascript" src="script/excanvas.min.js"></script><![endif]-->
-      <script language="javascript" type="text/javascript" src="/exo-gadget-resources/script/jquery/plugins/jqplot/1.0.0/jquery.jqplot.min.js"></script>
-      <script language="javascript" type="text/javascript" src="/exo-gadget-resources/script/jquery/plugins/jqplot/1.0.0/plugins/jqplot.pieRenderer.min.js"></script>
-      <script language="javascript" type="text/javascript" src="/exo-gadget-resources/script/jquery/plugins/jqplot/1.0.0/plugins/jqplot.highlighter.min.js"></script>
+
+      <script language="javascript" type="text/javascript" src="/exo-gadget-resources/script/jquery/plugins/jqplot/1.0.5/plugins/jqplot.pieRenderer.min.js"></script>
+      <script language="javascript" type="text/javascript" src="/exo-gadget-resources/script/jquery/plugins/jqplot/1.0.5/plugins/jqplot.highlighter.min.js"></script>
       <script type="text/javascript">
         function loadInfos() {
           var items = [];

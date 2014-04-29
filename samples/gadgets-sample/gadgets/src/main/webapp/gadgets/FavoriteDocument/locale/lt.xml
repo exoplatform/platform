@@ -20,10 +20,10 @@
 
 -->
 <messagebundle>
-  <msg name="title">Favorite Documents</msg>
-  <msg name="titleFav">My Favorites</msg>
-  <msg name="titleDoc">My Documents</msg>  
-  <msg name="nofav">You have no favorite document</msg>
-  <msg name="nodoc">You have no document</msg>
-  <msg name="showall">Show All</msg>
+  <msg name="title">Mėgstamiausi dokumentai</msg>
+  <msg name="titleFav">Mano mėgstamiausi</msg>
+  <msg name="titleDoc">Mano dokumentai</msg>  
+  <msg name="nofav">Jūs neturite mėgstamiausių dokumentų</msg>
+  <msg name="nodoc">Jūs neturite jokių dokumentų</msg>
+  <msg name="showall">Rodyti visus</msg>
 </messagebundle>

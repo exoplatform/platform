@@ -16,6 +16,7 @@
  ***************************************************************************/
 package org.exoplatform.platform.gadget.services.LoginHistory;
 
+import org.exoplatform.services.listener.Asynchronous;
 import org.exoplatform.services.listener.Event;
 import org.exoplatform.services.listener.Listener;
 import org.exoplatform.services.log.ExoLogger;
@@ -28,8 +29,9 @@ import org.exoplatform.services.security.ConversationState;
  * Created by The eXo Platform SARL Author : Tung Vu Minh tungvm@exoplatform.com
  * Apr 21, 2011 6:19:21 PM
  */
+@Asynchronous
 public class LoginHistoryListener extends Listener<ConversationRegistry, ConversationState> {
-	private static final Log LOG = ExoLogger.getLogger(LoginHistoryListener.class);
+    private static final Log LOG = ExoLogger.getLogger(LoginHistoryListener.class);
     private final LoginHistoryService loginHistoryService;
 
     public LoginHistoryListener(LoginHistoryService loginHistoryService) throws Exception {

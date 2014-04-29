@@ -2,14 +2,14 @@
 <bundle>
 <UIUserPlatformToolBarPortlet>
 <label>
-<activities>My Activity Stream</activities>
-<profile>My Profile</profile>
-<network>My Connections</network>
-<wiki>My Wiki</wiki>
-<account>Settings</account>
-<language>Change Language</language>
-<logout>Logout</logout>
-        <dashboard>My Dashboard</dashboard>
+<activities>Mano veiklos srautas</activities>
+<profile>Mano profilis</profile>
+<network>Mano jungtys</network>
+<wiki>Mano Wiki</wiki>
+<account>Nustatymai</account>
+<language>Pakeisti kalbą</language>
+<logout>Atsijungti</logout>
+        <dashboard>Mano prietaisų skydas</dashboard>
 </label>
 </UIUserPlatformToolBarPortlet>
 </bundle>

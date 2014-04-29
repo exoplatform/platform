@@ -20,19 +20,19 @@
 
 -->
 <messagebundle>  
-  <msg name="title">Services Management</msg>
-  <msg name="services">Services</msg>
-  <msg name="name">Name</msg>
-  <msg name="description">Description</msg>
-  <msg name="noDescription">No Description</msg>
-  <msg name="method">Method</msg>
-  <msg name="parameters">Parameters</msg>
-  <msg name="action">Action</msg>
-  <msg name="value">Value</msg>
-  <msg name="services_url">Services URL</msg>
-  <msg name="failManage">Temporarily cannot manage services from other hosts until we support OAuth</msg>
-  <msg name="noServices">Either no service is available or you do not have sufficient permission</msg>
-  <msg name="noMethod">No Method</msg>
-  <msg name="noProperty">No Property</msg>
-  <msg name="badURL">There was an error while retrieving data. Please check your URL preference</msg>
+  <msg name="title">Paslaugų valdymas</msg>
+  <msg name="services">Paslaugos</msg>
+  <msg name="name">Pavadinimas</msg>
+  <msg name="description">Aprašymas</msg>
+  <msg name="noDescription">Nėra aprašo</msg>
+  <msg name="method">Metodas</msg>
+  <msg name="parameters">Parametrai</msg>
+  <msg name="action">Veiksmas</msg>
+  <msg name="value">Reikšmė</msg>
+  <msg name="services_url">Paslaugų URL</msg>
+  <msg name="failManage">Laikinai negalima valdyti paslaugų iš kitų kompiuterių, kol mes neįdiėgsime OAuth palaikymo</msg>
+  <msg name="noServices">Paslauga yra neprieinama arba jūs neturite pakankamai teisių</msg>
+  <msg name="noMethod">Nėra metodo</msg>
+  <msg name="noProperty">Nėra savybės</msg>
+  <msg name="badURL">Įvyko klaida nuskaitant duomenis. Prašome patikrinti savo URL nuostatas</msg>
 </messagebundle>

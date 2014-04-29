@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bundle>
+   <UIAdminToolbarPortlet>
+      <action>
+         <AddPage>Přidat stránku</AddPage>
+         <EditNavigation>Navigace</EditNavigation>
+         <Content>Obsah</Content>
+         <Editor>Upravit</Editor>
+         <Page>Stránka</Page>
+         <Site>Web</Site>
+         <Layout>Upravit rozvržení</Layout>
+         <siteLayout>Rozvržení</siteLayout>
+         <ManagePages>Spravovat stránky</ManagePages>
+         <GroupSite>Stránky skupiny</GroupSite>
+         <Properties>#{UISEOToolbarForm.label.seo}</Properties>
+         <AddSite>Přidat web</AddSite>
+      </action>
+<ManageSites>Správa webů</ManageSites>
+<ManageGroupSites>Správa stránek skupiny</ManageGroupSites>
+   </UIAdminToolbarPortlet>
+
+  <UISEOForm>
+    <label>
+      <title>Nadpis:</title>  
+      <description>Popis:</description>
+      <keywords>Klíčová slova:</keywords>
+      <language>Jazyk:</language>
+      <robots>Roboti:</robots>
+      <sitemap>Mapa stránek:</sitemap>
+      <sitemapvisible>Viditelné v mapě stránek</sitemapvisible>
+  <isInherited>Zděděno z nadřazené stránky</isInherited>
+      <priority>Priorita:</priority>
+      <frequency>Frekvence:</frequency>
+      <select-language>Vybrat jazyk</select-language>
+      <option>
+        <Always>Vždy</Always>
+        <Hourly>Každou hodinu</Hourly>
+        <Daily>Denně</Daily>
+        <Weekly>Týdně</Weekly>
+        <Monthly>Měsíčně</Monthly>
+        <Yearly>Ročně</Yearly>
+        <Never>Nikdy</Never>
+      </option> 
+    </label>
+ 
+    <action>
+      <Save>#{word.save}</Save>
+      <Cancel>#{word.cancel}</Cancel>
+    </action>
+    <msg>
+      <repository-exception>Došlo k neočekávané chybě. Metadata stránky nelze uložit.</repository-exception>
+      <confirm-delete>Jste si jisti, že chcete odstranit tyto údaje SEO?</confirm-delete>
+    </msg>
+    <title>
+    <seo-delete>Odstranit</seo-delete>
+    </title>
+<help> 
+  <priority>Platné hodnoty jsou v rozsahu od 0.0 do 1.0.</priority>
+  <description>Pomozte hledajícím: ať vědí, že na následující stránce se nachází odkaz na stránku, kterou hledají.</description>
+  <keywords>Nejdůležitější termíny na stránce musí být odděleny čárkou.</keywords>  
+    </help>  
+  </UISEOForm>
+  <UISEOPopupWindow>
+  <title>
+      <UISEOForm>#{UISEOToolbarForm.title.seo}</UISEOForm>
+  </title>
+  </UISEOPopupWindow>    
+  <UISEOToolbarForm>
+  <title>
+      <seo>Správa SEO</seo>
+  </title>
+  <label>
+    <seo>SEO</seo>
+  </label>
+  </UISEOToolbarForm>  
+  <FloatNumberValidator>
+    <msg>
+      <Invalid-number>Pole Priorita má neplatnou hodnotu. Zadejte číslo od 0,0 do 1,0.</Invalid-number>
+    </msg>
+  </FloatNumberValidator>
+  
+  <Locale>
+    <label>      
+      <it>Italština</it>      
+      <fr>Francouzština</fr>
+      <en>Angličtina</en>      
+    </label>
+  </Locale>
+  
+</bundle>
