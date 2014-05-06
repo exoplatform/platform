@@ -1,4 +1,4 @@
-@import "../variables.less"; 
+@import "../variables.less";
 @import "../mixins.less";
 
 .uiBreadcumbsNavigationPortlet {
@@ -8,7 +8,7 @@
 	padding: 11px;
 	height: 68px;
 
-	.userAvt { 
+	.userAvt {
 		width: 68px;
 		img {
 			border: 1px solid @white;
@@ -39,13 +39,11 @@
 		color: @blue;
 		font-size: 12px;
 	}
-	
 	.uiAvatarUploadContent {
 		.avatarInfo {
 			a.avatarLargeWithBorder {
 				margin: 15px 0 15px 15px;
 			}
-			
 			.form-horizontal .controls {
 				overflow: hidden;
 				text-overflow: ellipsis;
@@ -61,6 +59,7 @@
         list-style: none;
         margin: 0;
         padding: 10px 0px;
+        position: relative;
         .navItemSelected{
             padding: 5px 25px;
             font-weight: bold;
@@ -68,13 +67,15 @@
             border-top: 1px solid @borderColor;
             border-bottom: 1px solid @borderColor;
             box-shadow: inset 0 -1px 1px rgba(0, 0, 0, 0.1);
+            display: block;
+            .text-overflow;
             &:after {
                 background: @blueLight;
                 border: 1px solid @blueDark;
                 content: "";
-                height: 30px;
                 left: 0;
-                margin-top: -6px;
+                top: 10px;
+                bottom: 10px;
                 position: absolute;
                 width: 5px;
             }
