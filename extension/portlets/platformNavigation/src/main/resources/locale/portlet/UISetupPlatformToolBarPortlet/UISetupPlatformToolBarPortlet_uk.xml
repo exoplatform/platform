@@ -2,25 +2,25 @@
 <bundle>
 <UISetupPlatformToolBarPortlet>
 <label>
-<applications>ÐÐ¾Ð´Ð°ÑÐºÐ¸</applications>
-<content>ÐÐ¾Ð½ÑÐµÐ½Ñ</content>
-<siteExplorer>ÐÐ³Ð»ÑÐ´Ð°Ñ ÑÐ°Ð¹ÑÑÐ²</siteExplorer>
-<wcmAdmin>Ð£Ð¿ÑÐ°Ð²Ð»ÑÐ½Ð½Ñ ÐºÐ¾Ð½ÑÐµÐ½ÑÐ¾Ð¼</wcmAdmin>
-<users>ÐÐ¾ÑÐ¸ÑÑÑÐ²Ð°ÑÑ</users>
-<newStaff>ÐÐ¾Ð´Ð°ÑÐ¸ ÐºÐ¾ÑÐ¸ÑÑÑÐ²Ð°ÑÑÐ²</newStaff>
-<org-management>ÐÑÑÐ¿Ð¸ ÑÐ° ÑÐ¾Ð»Ñ</org-management>
-<portal>ÐÐ¾ÑÑÐ°Ð»</portal>
-<administration>ÐÐ´Ð¼ÑÐ½ÑÑÑÑÑÐ²Ð°Ð½Ð½Ñ</administration>
-<groupnavigation>Ð¡Ð°Ð¹ÑÐ¸ Ð³ÑÑÐ¿Ð¸</groupnavigation>
-<pageManagement>Ð¡ÑÐ¾ÑÑÐ½ÐºÐ¸</pageManagement>
-<portalnavigation>Ð¡Ð°Ð¹ÑÐ¸</portalnavigation>
-<servicesManagement>Ð£Ð¿ÑÐ°Ð²Ð»ÑÐ½Ð½Ñ</servicesManagement>
-<monitoring>ÐÐ¾Ð½ÑÑÐ¾ÑÐ¸Ð½Ð³</monitoring>
-<spaces>ÐÐ±Ð»Ð°ÑÑÑ</spaces>
-<Branding>Ð¤ÑÑÐ¼Ð¾Ð²Ð° ÑÐ¸Ð¼Ð²Ð¾Ð»ÑÐºÐ°</Branding>
+<applications>Додатки</applications>
+<content>Контент</content>
+<siteExplorer>Оглядач сайтів</siteExplorer>
+<wcmAdmin>Управління контентом</wcmAdmin>
+<users>Користувачі</users>
+<newStaff>Додати користувачів</newStaff>
+<org-management>Групи та ролі</org-management>
+<portal>Портал</portal>
+<administration>Адміністрування</administration>
+<groupnavigation>Сайти групи</groupnavigation>
+<pageManagement>Сторінки</pageManagement>
+<portalnavigation>Сайти</portalnavigation>
+<servicesManagement>Управління</servicesManagement>
+<monitoring>Моніторинг</monitoring>
+<spaces>Області</spaces>
+<Branding>Фірмова символіка</Branding>
       <Notification>Email Notifications</Notification>
 <ide>IDE</ide>
-<search>ÐÐ¾ÑÑÐº</search>
+<search>Пошук</search>
 </label>
 </UISetupPlatformToolBarPortlet>
 </bundle>
