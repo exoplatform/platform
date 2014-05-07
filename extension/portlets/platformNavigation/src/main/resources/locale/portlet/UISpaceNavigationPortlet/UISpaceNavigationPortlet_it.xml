@@ -4,7 +4,7 @@
      <label>
          <Spaces>Miei Spazi</Spaces>
          <Join>Iscriversi a uno spazio</Join>
-         <see>Visualizza {0} più spazi</see>
+         <see>Show {0} More Spaces</see>
      </label>
      <msg>
          <filter-spaces>Ricercare spazi</filter-spaces>
