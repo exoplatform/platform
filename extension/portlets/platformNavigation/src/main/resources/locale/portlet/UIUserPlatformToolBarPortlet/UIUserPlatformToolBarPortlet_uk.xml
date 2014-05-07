@@ -3,14 +3,14 @@
 <UIUserPlatformToolBarPortlet>
 <label>
 <NotificationSettingsPortlet>Notifications</NotificationSettingsPortlet>
-<activities>Мій потік діяльності</activities>
-<profile>Мій профіль</profile>
-<network>Мої контакти</network>
-<wiki>Моя вікі-сторінка</wiki>
-<account>Налаштування</account>
-<language>Змінити мову</language>
-<logout>Вийти</logout>
-        <dashboard>Моя панель інструментів</dashboard>
+<activities>ÐÑÐ¹ Ð¿Ð¾ÑÑÐº Ð´ÑÑÐ»ÑÐ½Ð¾ÑÑÑ</activities>
+<profile>ÐÑÐ¹ Ð¿ÑÐ¾ÑÑÐ»Ñ</profile>
+<network>ÐÐ¾Ñ ÐºÐ¾Ð½ÑÐ°ÐºÑÐ¸</network>
+<wiki>ÐÐ¾Ñ Ð²ÑÐºÑ-ÑÑÐ¾ÑÑÐ½ÐºÐ°</wiki>
+<account>ÐÐ°Ð»Ð°ÑÑÑÐ²Ð°Ð½Ð½Ñ</account>
+<language>ÐÐ¼ÑÐ½Ð¸ÑÐ¸ Ð¼Ð¾Ð²Ñ</language>
+<logout>ÐÐ¸Ð¹ÑÐ¸</logout>
+        <dashboard>ÐÐ¾Ñ Ð¿Ð°Ð½ÐµÐ»Ñ ÑÐ½ÑÑÑÑÐ¼ÐµÐ½ÑÑÐ²</dashboard>
 </label>
 </UIUserPlatformToolBarPortlet>
 </bundle>

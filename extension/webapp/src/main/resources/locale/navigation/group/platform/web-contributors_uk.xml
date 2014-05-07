@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <bundle>
   <administration>
-    <siteExplorer>Content Explorer</siteExplorer>
-    <wcmAdmin>Управління контентом</wcmAdmin>
+    <siteExplorer>ÐÐ³Ð»ÑÐ´Ð°Ñ ÐºÐ¾Ð½ÑÐµÐ½ÑÑ</siteExplorer>
+    <wcmAdmin>Ð£Ð¿ÑÐ°Ð²Ð»ÑÐ½Ð½Ñ ÐºÐ¾Ð½ÑÐµÐ½ÑÐ¾Ð¼</wcmAdmin>
   </administration>
 </bundle>

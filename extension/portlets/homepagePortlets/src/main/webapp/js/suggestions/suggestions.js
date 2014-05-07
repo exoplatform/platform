@@ -20,6 +20,10 @@
         return b.createdDate - a.createdDate;
     } ;
 
+    function sortByNumOfMember(a, b){
+        return b.members - a.members;
+    } ;
+    
     Array.prototype.shuffle = function() {
         var len = this.length;
         var i = len;
@@ -166,20 +170,9 @@
                     $("#spaceSuggest").show();
                 }
 
-                list.items.shuffle();
-                var newUser=true;
-                for(var k= 0; k < list.items.length; k++)
-                {
-                    if(list.items[k].number!=0){
-                        newUser=false;
-                    }
-                }
-
-                if(newUser==true || list.noConnections==0){
-                    list.items.sort(sortByCreatedDate) ;
+                if(list.noConnections==0){
+                    list.items.sort(sortByNumOfMember) ;
                 }else{
-                    list.items.sort(dynamicSort("displayName"));
-                    // sort my most contacts instead of random
                     list.items.sort(sortByContacts);
                 }
                 $.each(list.items, function(i, item){
