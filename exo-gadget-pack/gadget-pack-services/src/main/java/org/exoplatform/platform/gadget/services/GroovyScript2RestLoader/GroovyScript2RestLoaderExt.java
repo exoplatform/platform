@@ -1,10 +1,5 @@
 package org.exoplatform.platform.gadget.services.GroovyScript2RestLoader;
 
-import javax.jcr.Node;
-import javax.jcr.PathNotFoundException;
-import javax.jcr.Session;
-import javax.ws.rs.Path;
-
 import org.exoplatform.container.configuration.ConfigurationManager;
 import org.exoplatform.container.xml.InitParams;
 import org.exoplatform.services.jcr.RepositoryService;
@@ -19,6 +14,11 @@ import org.exoplatform.services.log.Log;
 import org.exoplatform.services.rest.ext.groovy.GroovyJaxrsPublisher;
 import org.exoplatform.services.rest.impl.ResourceBinder;
 import org.exoplatform.services.script.groovy.GroovyScriptInstantiator;
+
+import javax.jcr.Node;
+import javax.jcr.PathNotFoundException;
+import javax.jcr.Session;
+import javax.ws.rs.Path;
 
 @Path("script/groovy")
 public class GroovyScript2RestLoaderExt extends GroovyScript2RestLoader{
@@ -89,9 +89,12 @@ public class GroovyScript2RestLoaderExt extends GroovyScript2RestLoader{
                     String nodeName = loadPlugin.getNode();
                     Node node = null;
                     try{
-                        node = (Node)session.getItem(nodeName);
-                        node.remove();
-                        session.save();
+                        if(session.itemExists(nodeName)) {
+                            node = (Node)session.getItem(nodeName);
+                            node.remove();
+                            session.save();
+                        }
+
                     } catch (PathNotFoundException e){
                         LOG.info(nodeName + " not found", e);
                     }

@@ -28,6 +28,8 @@ import org.picocontainer.Startable;
 
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.List;
 
 import javax.jcr.Node;
@@ -95,6 +97,13 @@ public class ForumsWeeklyStatisticServiceImp implements ForumsWeeklyStatisticSer
       if (!forumHome.hasNode(STATISTIC_WEEK_HOME)) {
         Node statisticWeekHome = forumHome.addNode(STATISTIC_WEEK_HOME, "nt:unstructured");
         session.save();
+        // Initiate the first Forum Weekly Statistic
+        ForumsWeeklyStatistic weeklyStatistic = new ForumsWeeklyStatistic();
+        weeklyStatistic.setStartDate(new Date());
+        weeklyStatistic.setLastStatEntry(new Date());
+        weeklyStatistic.setPostsCountOfWeek(getPostCountForumStatistic());
+        weeklyStatistic.setStartPostsCountOfWeek(getPostCountForumStatistic());
+        saveForumsWeeklyStatistic(weeklyStatistic);
       }
     } catch (Exception e) {
       LOG.error("can not start ForumsWeeklyStatisticService", e);
@@ -250,5 +259,4 @@ public class ForumsWeeklyStatisticServiceImp implements ForumsWeeklyStatisticSer
     }
     return 0;
   }
-
 }

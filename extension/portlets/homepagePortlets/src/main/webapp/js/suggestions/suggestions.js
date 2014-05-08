@@ -91,7 +91,7 @@
 
                     link += "<div class='peoplePicture pull-left'><div class='avatarXSmall'><a href='"+item.profile+"'><img src='"+item.avatar+"'></a></div></div>";
                     link += "<div class='peopleInfo'>";
-                    link += "<div class='peopleName'><a href='"+item.profile+"' target='_parent'>"+item.suggestionName+"</a></div>";
+                    link += "<div class='peopleName'><a href='"+item.profile+"' target='_self'>"+item.suggestionName+"</a></div>";
                     link += "<div class='peopleContainer clearfix'>";
 					link += "<div style='display:none;' class='peopleAction' ><a class='connect btn-primary btn btn-mini' href='#' onclick='return false'>"+connect+"</a><a class='ignore' href='#' onclick='return false'> <i class='uiIconClose'></i></a></div>";
                     link +="<div class='peopleDisplay'><div class='peoplePosition'>"+item.title+"</div><div class='peopleConnection'>"+item.number+"&nbsp;"+connection+"</div></div>";

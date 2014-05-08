@@ -161,6 +161,14 @@ public class Util {
   }
 
   public static void createMembershipFolder(Session session, Membership membership) throws Exception {
+    if (!hasUserFolder(session, membership.getUserName())) {
+      LOG.debug("listeners of user " + membership.getUserName() + " aren't executed, ignore membership integration feature.");
+      return;
+    }
+    if (!hasGroupFolder(session, membership.getGroupId())) {
+      LOG.debug("listeners of group " + membership.getGroupId() + " aren't executed, ignore membership integration feature.");
+      return;
+    }
     createFolder(getMembershipsFolder(session), membership.getGroupId().replace("/", SPECIAL_CHARACTER_REPLACEMENT)
         + MEMBERSHIP_SEPARATOR + membership.getMembershipType().replace("*", SPECIAL_CHARACTER_REPLACEMENT)
         + MEMBERSHIP_SEPARATOR + membership.getUserName());
