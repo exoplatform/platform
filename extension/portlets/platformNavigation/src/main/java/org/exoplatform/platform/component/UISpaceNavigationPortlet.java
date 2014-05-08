@@ -5,9 +5,12 @@ import org.exoplatform.commons.utils.ListAccess;
 import org.exoplatform.container.PortalContainer;
 import org.exoplatform.portal.application.PortalRequestContext;
 import org.exoplatform.portal.application.RequestNavigationData;
+import org.exoplatform.portal.mop.user.UserNavigation;
+import org.exoplatform.portal.mop.user.UserNode;
 import org.exoplatform.portal.webui.util.Util;
 import org.exoplatform.services.log.ExoLogger;
 import org.exoplatform.services.log.Log;
+import org.exoplatform.social.core.space.SpaceUtils;
 import org.exoplatform.social.core.space.model.Space;
 import org.exoplatform.social.core.space.spi.SpaceService;
 import org.exoplatform.social.webui.Utils;
@@ -191,24 +194,23 @@ public class UISpaceNavigationPortlet extends UIPortletApplication {
             if (spaceURL.contains(portalContainerName)) {
                 spaceURL = spaceURL.substring(portalContainerName.length()+2);
             }
+            
             String fullUrl = ((HttpServletRequest) pContext.getRequest()).getRequestURL().toString();
             String subUrl = StringUtils.substringBefore(fullUrl,Util.getPortalRequestContext().getRequest().getRequestURI());
             subUrl +="/"+ portalContainerName;
             String applicationDisplayed = "";
             String constructURL = fullUrl.substring(subUrl.length()+1);
+            subUrl =new StringBuffer(subUrl).append("/").append(spaceURL).toString();
             if (fullUrl.contains(SPACE_URL_PATTERN)) {
                 int count = StringUtils.countMatches(constructURL, "/");
-                if(count == 2){
-                    subUrl =new StringBuffer(subUrl).append("/").append(spaceURL).toString();
-                } else {
-                    applicationDisplayed = constructURL.substring(constructURL.lastIndexOf("/"));
-                    subUrl =new StringBuffer(subUrl).append("/").append(spaceURL).append(applicationDisplayed).toString();
+                
+                if(count != 2){
+                  applicationDisplayed = constructURL.substring(constructURL.lastIndexOf("/") + 1);
+                  String selectedAppNodeName = uisource.checkAndGetExistingAppNodeName(space, applicationDisplayed); 
+                  if (selectedAppNodeName != null)
+                    subUrl =new StringBuffer(subUrl).append("/").append(selectedAppNodeName).toString();
                 }
             }
-            else {
-                subUrl =new StringBuffer(subUrl).append("/").append(spaceURL).toString();
-            }
-
 
             uisource.setReload(true);
             event.getRequestContext().getJavascriptManager().getRequireJS().require("SHARED/navigation-spaces-search", "spaceSearchNavigationPortlet").addScripts("spaceSearchNavigationPortlet.ajaxRedirect('"+subUrl+"');");
@@ -268,5 +270,37 @@ public class UISpaceNavigationPortlet extends UIPortletApplication {
 
     public void setOldNavigation(String oldNavigation) {
         this.oldNavigation = oldNavigation;
+    }
+    
+    private String checkAndGetExistingAppNodeName(Space space, String appId) throws Exception {
+      if (appId == null) return null;
+      String groupId = space.getGroupId();
+      UserNavigation userNav = SpaceUtils.getGroupNavigation(groupId);
+      UserNode homeNode = SpaceUtils.getHomeNodeWithChildren(userNav, space.getUrl());
+      for (UserNode node : homeNode.getChildren()) {
+        if (appId.equals(node.getName())) return appId;
+      }
+      
+      // in case application name has been changed
+      String leftSpaceGroupId = Util.getPortalRequestContext()
+          .getControllerContext().getParameter(RequestNavigationData.REQUEST_SITE_NAME);
+      Space leftSpace = spaceService.getSpaceByGroupId(leftSpaceGroupId);
+      String[] leftSpaceApps = leftSpace.getApp().split(",");
+      String selectedAppId = ""; 
+      for (String app : leftSpaceApps) {
+        if (app.contains(appId.replace("_", " "))) {
+          selectedAppId = app.split(":")[0];
+          break;
+        }
+      }
+      
+      if (selectedAppId.isEmpty()) return null;
+      
+      String[] spaceApps = space.getApp().split(",");
+      for (String spaceApp : spaceApps) {
+        if (spaceApp.contains(selectedAppId)) return spaceApp.split(":")[1].replace(" ", "_");
+      }
+      
+      return null;
     }
 }
