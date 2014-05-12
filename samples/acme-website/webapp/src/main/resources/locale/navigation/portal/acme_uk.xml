@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bundle>
+  <portal>
+    <acme>
+      <overview>Огляд</overview>
+      <products>Продукція</products>
+      <news>Новини</news>
+      <contactus>Питання?</contactus>
+      <newsletters>Інформаційні бюлетені</newsletters>
+      <confirmation>Підтвердження форми зворотнього зв'язку</confirmation>
+      <detail>Подробиці</detail>
+  <catalog>Каталог</catalog>
+      <printviewer>Друк сторінки</printviewer>
+      <searchResult>Пошук</searchResult>
+      <newAccount>Новий обліковий запис</newAccount>
+      <groupnavigation>Навігація групи</groupnavigation>
+      <portalnavigation>Навігація порталу</portalnavigation>
+      <documents>Документи</documents>
+      <unifiedSearch>Пошук</unifiedSearch>
+    </acme>
+  </portal>
+</bundle>

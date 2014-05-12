@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bundle>
+<UISetupPlatformToolBarPortlet>
+<label>
+<applications>Додатки</applications>
+<content>Контент</content>
+<siteExplorer>Оглядач сайтів</siteExplorer>
+<wcmAdmin>Управління контентом</wcmAdmin>
+<users>Користувачі</users>
+<newStaff>Додати користувачів</newStaff>
+<org-management>Групи та ролі</org-management>
+<portal>Портал</portal>
+<administration>Адміністрування</administration>
+<groupnavigation>Сайти групи</groupnavigation>
+<pageManagement>Сторінки</pageManagement>
+<portalnavigation>Сайти</portalnavigation>
+<servicesManagement>Управління</servicesManagement>
+<monitoring>Моніторинг</monitoring>
+<spaces>Області</spaces>
+<Branding>Фірмова символіка</Branding>
+<ide>IDE</ide>
+<search>Пошук</search>
+</label>
+</UISetupPlatformToolBarPortlet>
+</bundle>

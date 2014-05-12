@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bundle>
+   <UIUserPlatformToolBarCreatePortlet>
+      <label>
+         <topic>Тема</topic>
+         <poll>Опитування</poll>
+         <eventtask>Подія/Завдання</eventtask>
+         <upload>Завантажити файл</upload>
+         <wiki>Вікі-сторінка</wiki>
+
+      </label>
+   </UIUserPlatformToolBarCreatePortlet>
+   <UICreateList>
+      <label>
+         <topic>тема</topic>
+         <poll>опитування</poll>
+         <CreateANew>Створити нову {1}:</CreateANew>
+         <NoForum>На жаль, ще немає доступного форуму для створення {1}. Почніть з створення власної області.</NoForum>
+         <RequireSelectForum>Будь ласка, виберіть форум.</RequireSelectForum>
+      </label>
+      <action>
+         <Next>#{word.next}</Next>
+         <Cancel>#{word.cancel}</Cancel>
+      </action>
+   </UICreateList>
+   <UICreateTopic>
+      <label>
+         <SelectAForum>Виберіть форум</SelectAForum>
+         <location>У місці</location>
+         <forumId>І форум</forumId>
+         <FilterForums>Фільтрувати форуми</FilterForums>
+      </label>
+   </UICreateTopic>
+   <UICreatePoll>
+      <label>
+         <SelectAForum>Вибрати форум</SelectAForum>
+         <location>У місці</location>
+         <forumId>І форум</forumId>
+         <FilterForums>Фільтрувати форуми</FilterForums>
+      </label>
+   </UICreatePoll>
+   <UICreateWiki>
+      <label>
+         <title>Створити нову вікі-сторінку:</title>
+         <location>У місці</location>
+      </label>
+   </UICreateWiki>
+   <UICreateEvent>
+      <label>
+         <Title>#{word.title}</Title>
+         <Choix>Додати новий:</Choix>
+         <EndEvent>До</EndEvent>
+         <StartEvent>Від</StartEvent>
+         <Calendar>Виберіть календар</Calendar>
+         <all-day>Весь день</all-day>
+         <defaultCalendarId>За замовчуванням</defaultCalendarId>
+      </label>
+      <msg>
+         <summary-field-required>Поле "Назва" є обов'язковим.</summary-field-required>
+         <fromDate-format>Невірний формат дати "Від".</fromDate-format>
+         <toDate-format>Невірний формат дати "До".</toDate-format>
+         <logic-required>На жаль, не можна створити подію, яка закінчується до її початку.</logic-required>
+         <cant-add-event-on-remote-calendar>Не можна додати подію у віддалений календар</cant-add-event-on-remote-calendar>
+         <add-successfully>
+            <Event>Подія була додана до {1}</Event>
+            <Task>Завдання було додано до {1}</Task>
+         </add-successfully>
+         <add-unsuccessfully>{0} не було додано.</add-unsuccessfully>
+      </msg>
+      <action>
+         <Next>#{word.save}</Next>
+         <Cancel>#{word.cancel}</Cancel>
+      </action>
+   </UICreateEvent>
+    <UIUploadFile>
+        <Select>Вибрати файл</Select>
+        <action>
+          <close>#{word.close}</close>
+        </action>
+    </UIUploadFile>
+   <Choix>
+      <label>
+         <Event>Подія</Event>
+         <Task>Завдання</Task>
+      </label>
+   </Choix>
+</bundle>

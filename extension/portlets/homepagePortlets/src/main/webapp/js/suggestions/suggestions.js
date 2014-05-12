@@ -20,6 +20,10 @@
         return b.createdDate - a.createdDate;
     } ;
 
+    function sortByNumOfMember(a, b){
+        return b.members - a.members;
+    } ;
+    
     Array.prototype.shuffle = function() {
         var len = this.length;
         var i = len;
@@ -87,7 +91,7 @@
 
                     link += "<div class='peoplePicture pull-left'><div class='avatarXSmall'><a href='"+item.profile+"'><img src='"+item.avatar+"'></a></div></div>";
                     link += "<div class='peopleInfo'>";
-                    link += "<div class='peopleName'><a href='"+item.profile+"' target='_parent'>"+item.suggestionName+"</a></div>";
+                    link += "<div class='peopleName'><a href='"+item.profile+"' target='_self'>"+item.suggestionName+"</a></div>";
                     link += "<div class='peopleContainer clearfix'>";
 					link += "<div style='display:none;' class='peopleAction' ><a class='connect btn-primary btn btn-mini' href='#' onclick='return false'>"+connect+"</a><a class='ignore' href='#' onclick='return false'> <i class='uiIconClose'></i></a></div>";
                     link +="<div class='peopleDisplay'><div class='peoplePosition'>"+item.title+"</div><div class='peopleConnection'>"+item.number+"&nbsp;"+connection+"</div></div>";
@@ -166,20 +170,9 @@
                     $("#spaceSuggest").show();
                 }
 
-                list.items.shuffle();
-                var newUser=true;
-                for(var k= 0; k < list.items.length; k++)
-                {
-                    if(list.items[k].number!=0){
-                        newUser=false;
-                    }
-                }
-
-                if(newUser==true || list.noConnections==0){
-                    list.items.sort(sortByCreatedDate) ;
+                if(list.noConnections==0){
+                    list.items.sort(sortByNumOfMember) ;
                 }else{
-                    list.items.sort(dynamicSort("displayName"));
-                    // sort my most contacts instead of random
                     list.items.sort(sortByContacts);
                 }
                 $.each(list.items, function(i, item){

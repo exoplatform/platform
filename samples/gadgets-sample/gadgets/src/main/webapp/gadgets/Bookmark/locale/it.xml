@@ -30,6 +30,6 @@
   <msg name="delete">Cancellare</msg>
   <msg name="edit">Modificare</msg>
   <msg name="cancel">Annulla</msg>
-  <msg name="emptyBookmarkPre">You don't have any bookmark. Add them by clicking on the button "Add Bookmark".</msg>
-  <msg name="addBookmark">Add Bookmark</msg>
+  <msg name="emptyBookmarkPre">Non ha nessun bookmark. Aggiungere cliccando sul pulsante "Aggiungi bookmark".</msg>
+  <msg name="addBookmark">Aggiungi segnalibro</msg>
 </messagebundle>
