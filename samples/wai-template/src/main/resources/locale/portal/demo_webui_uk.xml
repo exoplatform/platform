@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bundle>
+  <Signin>
+    <welcome>Вітаємо</welcome>
+    <login>Логін</login>
+    <logout>Вийти</logout>
+    <language>
+      <en>Перейти на англійську мову</en>
+      <fr>Перейти на французьку мову</fr>
+    </language>
+    <register>Реєстрація</register>
+  </Signin>
+  <Toolbar>
+    <SkipToContent>Перейти до контенту</SkipToContent>
+    <SiteMap>Мапа сайту</SiteMap>
+    <Accessibility>Спеціальні можливості</Accessibility>
+    <NormalSize>Звичайний розмір</NormalSize>
+    <MediumSize>Середній розмір</MediumSize>
+    <LargeSize>Великий розмір</LargeSize>
+    <NormalContrast>Нормальний контраст</NormalContrast>
+    <HighContrast>Високий контраст</HighContrast>
+    <Search>Пошук</Search>
+  </Toolbar>
+  <Logo>
+    <GoHome>Перейти на головну сторінку</GoHome>
+  </Logo>
+  <acme>
+    <label>ACME шаблон</label>
+  </acme>  
+  <WAIPortal>
+    <label>Зразок доступного веб-сайту</label>
+  </WAIPortal>
+</bundle>

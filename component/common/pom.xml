@@ -99,6 +99,11 @@
       <artifactId>exo.ws.rest.core</artifactId>
     </dependency>
     <dependency>
+      <groupId>org.exoplatform.ws</groupId>
+      <artifactId>exo.ws.testframework</artifactId>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
       <groupId>org.gatein.common</groupId>
       <artifactId>common-common</artifactId>
     </dependency>
@@ -129,6 +134,11 @@
     <dependency>
       <groupId>org.gatein.shindig</groupId>
       <artifactId>shindig-social-api</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.exoplatform.commons</groupId>
+      <artifactId>commons-testing</artifactId>
+      <scope>test</scope>
     </dependency>
     <dependency>
       <groupId>picocontainer</groupId>
