@@ -18,6 +18,8 @@
     <Locale lang="lt" messages="locale/lt.xml"/>
     <Locale lang="no" messages="locale/no.xml"/>
     <Locale lang="zh_TW" messages="locale/zh_TW.xml"/>    
+    <Locale lang="cs" messages="locale/cs.xml"/>  
+    <Locale lang="uk" messages="locale/uk.xml"/>
     <Require feature="dynamic-height"/>
   </ModulePrefs>
   

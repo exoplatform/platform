@@ -52,6 +52,12 @@
       <type>org.exoplatform.services.wcm.extensions.deployment.WCMPublicationDeploymentPlugin</type>
       <description>WCM Plublication Deployment Plugin</description>
       <init-params>
+        <value-param>
+            <name>override</name>
+            <description>The flag parameter to decide if portal metadata is overriden on restarting server</description>
+            <value>${acme.portalConfig.metadata.override:false}</value>
+        </value-param>
+      
         <object-param>
           <name>ACME French translations directory</name>
           <description>Deployment Descriptor</description>
@@ -316,7 +322,7 @@
             </field>           
           </object>
         </object-param>
-        <object-param>
+        <!--object-param>
           <name>ACME Stylesheet Green data</name>
           <description>Deployment Descriptor</description>
           <object type="org.exoplatform.services.wcm.extensions.deployment.WCMPublicationDeploymentDescriptor">
@@ -359,7 +365,7 @@
               <string>publish-first-publication</string>
             </field>            
           </object>
-        </object-param>
+        </object-param-->
         <!--
 		<object-param>
           <name>ACME jquery.js data</name>

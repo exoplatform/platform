@@ -1,33 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <bundle>
   <Signin>
-    <welcome>Welcome</welcome>
-    <login>Login</login>
-    <logout>Logout</logout>
+    <welcome>Sveiki</welcome>
+    <login>Prisijungti</login>
+    <logout>Atsijungti</logout>
     <language>
-      <en>Switch to English</en>
-      <fr>Switch to French</fr>
+      <en>Perjungti į anglų</en>
+      <fr>Perjungti į prancūzų</fr>
     </language>
-    <register>Register</register>
+    <register>Registruotis</register>
   </Signin>
   <Toolbar>
-    <SkipToContent>Skip to content</SkipToContent>
-    <SiteMap>Site Map</SiteMap>
-    <Accessibility>Accessibility</Accessibility>
-    <NormalSize>Normal Size</NormalSize>
-    <MediumSize>Medium Size</MediumSize>
-    <LargeSize>Large Size</LargeSize>
-    <NormalContrast>Normal Contrast</NormalContrast>
-    <HighContrast>High Contrast</HighContrast>
-    <Search>Search</Search>
+    <SkipToContent>Praleisti į turinį</SkipToContent>
+    <SiteMap>Svetainės žemėlapis</SiteMap>
+    <Accessibility>Pritaikymas neįgaliesiems</Accessibility>
+    <NormalSize>Normalus dydis</NormalSize>
+    <MediumSize>Vidutinis dydis</MediumSize>
+    <LargeSize>Didelis dydis</LargeSize>
+    <NormalContrast>Normalus kontrastas</NormalContrast>
+    <HighContrast>Didelis kontrastas</HighContrast>
+    <Search>Ieškoti</Search>
   </Toolbar>
   <Logo>
-    <GoHome>Go to Home</GoHome>
+    <GoHome>Eiti į pradžią</GoHome>
   </Logo>
   <acme>
-    <label>ACME Template</label>
+    <label>ACME šablonas</label>
   </acme>  
   <WAIPortal>
-    <label>Sample Accessible Website</label>
+    <label>Pavyzdinė prieinama svetainė</label>
   </WAIPortal>
 </bundle>

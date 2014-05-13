@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bundle>
+  <Signin>
+    <welcome>Vítejte</welcome>
+    <login>Přihlášení</login>
+    <logout>Odhlásit</logout>
+    <language>
+      <en>Přepnout do angličtiny</en>
+      <fr>Přepnout do francouzštiny</fr>
+    </language>
+    <register>Registrace</register>
+  </Signin>
+  <Toolbar>
+    <SkipToContent>Přeskočit na obsah</SkipToContent>
+    <SiteMap>Mapa stránek</SiteMap>
+    <Accessibility>Usnadnění přístupu</Accessibility>
+    <NormalSize>Normání velikost</NormalSize>
+    <MediumSize>Střední velikost</MediumSize>
+    <LargeSize>Velká velikost</LargeSize>
+    <NormalContrast>Normální kontrast</NormalContrast>
+    <HighContrast>Vysoký kontrast</HighContrast>
+    <Search>Hledat</Search>
+  </Toolbar>
+  <Logo>
+    <GoHome>Přejít na domovskou stránku</GoHome>
+  </Logo>
+  <acme>
+    <label>ACME šablona</label>
+  </acme>  
+  <WAIPortal>
+    <label>Vzorová webová stránka</label>
+  </WAIPortal>
+</bundle>

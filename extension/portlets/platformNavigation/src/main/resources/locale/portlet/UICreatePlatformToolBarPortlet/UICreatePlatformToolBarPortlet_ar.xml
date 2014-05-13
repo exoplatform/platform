@@ -2,7 +2,7 @@
 <bundle>
    <UIUserPlatformToolBarCreatePortlet>
       <label>
-         <topic>Topic</topic>
+         <topic>مواضيع</topic>
          <poll>استطلاع رأي</poll>
          <eventtask>حدث/مهمّة</eventtask>
          <upload>تحميل ملف</upload>

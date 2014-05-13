@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bundle>
+<UIBreadCrumbsNavigationPortlet>
+    <label>
+        <ChangePicture>Змінити аватар</ChangePicture>
+    </label>
+</UIBreadCrumbsNavigationPortlet>
+ <UIBreadCrumbPopupAvatarUploader>
+      <title>
+         <UIAvatarUploader>Завантажити аватар</UIAvatarUploader>
+         <UIAvatarUploadContent>Попередній перегляд аватара</UIAvatarUploadContent>
+      </title>
+ </UIBreadCrumbPopupAvatarUploader>
+</bundle>

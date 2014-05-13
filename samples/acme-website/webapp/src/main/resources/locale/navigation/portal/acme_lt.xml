@@ -2,21 +2,21 @@
 <bundle>
   <portal>
     <acme>
-      <overview>Overview</overview>
-      <products>Products</products>
-      <news>News</news>
-      <contactus>Questions?</contactus>
-      <newsletters>Newsletters</newsletters>
-      <confirmation>Contact Form Confirmation</confirmation>
-      <detail>Details</detail>
-  <catalog>Catalog</catalog>
-      <printviewer>Print page</printviewer>
-      <searchResult>Search</searchResult>
-      <newAccount>New Account</newAccount>
-      <groupnavigation>Group Navigation</groupnavigation>
-      <portalnavigation>Portal Navigation</portalnavigation>
-      <documents>Documents</documents>
-      <unifiedSearch>Search</unifiedSearch>
+      <overview>Apžvalga</overview>
+      <products>Produktai</products>
+      <news>Naujienos</news>
+      <contactus>Turite klausimų?</contactus>
+      <newsletters>Naujienlaiškiai</newsletters>
+      <confirmation>Kontakto formos patvirtinimas</confirmation>
+      <detail>Išsamiai</detail>
+  <catalog>Katalogas</catalog>
+      <printviewer>Spausdinti puslapį</printviewer>
+      <searchResult>Paieška</searchResult>
+      <newAccount>Nauja paskyra</newAccount>
+      <groupnavigation>Grupės navigacija</groupnavigation>
+      <portalnavigation>Portalo navigacija</portalnavigation>
+      <documents>Dokumentai</documents>
+      <unifiedSearch>Paieška</unifiedSearch>
     </acme>
   </portal>
 </bundle>
