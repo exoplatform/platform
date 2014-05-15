@@ -16,7 +16,7 @@
 
         // User Profile Popup initialize
         var portal = eXo.social.portal;
-        var restUrl = window.location.origin + portal.context + '/' + portal.rest + '/social/people' + '/getPeopleInfo/{0}.json';
+        var restUrl = '//' + window.location.host + portal.context + '/' + portal.rest + '/social/people' + '/getPeopleInfo/{0}.json';
 
 
 
