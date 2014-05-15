@@ -18,7 +18,7 @@
 <PopulateToMenu>
 <dialog>
 <label>
-<id>ID:</id>
+<id>Идентификатор:</id>
 <name>Название:</name>
 <lifecycle>Жизненный цикл:</lifecycle>
 <isDeep>Глубокий:</isDeep>

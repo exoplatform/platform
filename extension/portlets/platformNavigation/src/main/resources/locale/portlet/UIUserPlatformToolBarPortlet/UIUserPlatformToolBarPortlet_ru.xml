@@ -2,6 +2,7 @@
 <bundle>
 <UIUserPlatformToolBarPortlet>
 <label>
+<NotificationSettingsPortlet>Оповещения</NotificationSettingsPortlet>
 <activities>Моя лента активности</activities>
 <profile>Мой профиль</profile>
 <network>Мои контакты</network>

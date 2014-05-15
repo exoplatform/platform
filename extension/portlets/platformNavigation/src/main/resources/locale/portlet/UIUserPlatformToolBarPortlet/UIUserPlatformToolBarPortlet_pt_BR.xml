@@ -2,6 +2,7 @@
 <bundle>
 <UIUserPlatformToolBarPortlet>
 <label>
+<NotificationSettingsPortlet>Notifications</NotificationSettingsPortlet>
 <activities>Meu fluxo de atividade</activities>
 <profile>Meu perfil</profile>
 <network>Minhas conexões</network>

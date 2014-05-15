@@ -5,7 +5,7 @@
     <login>登錄</login>
     <logout>登出</logout>
     <language>更改語言</language>
-    <register>註冊</register>
+    <register>注册</register>
   </Signin>
 
   <ACMEPortal>

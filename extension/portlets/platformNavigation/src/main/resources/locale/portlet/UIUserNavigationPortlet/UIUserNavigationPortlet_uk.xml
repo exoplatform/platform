@@ -11,6 +11,7 @@
          <Myconnections>Мої контакти</Myconnections>
          <Mywiki>Моя вікі-сторінка</Mywiki>
          <Mydashboard>Моя панель інструментів</Mydashboard>
+         <NotificationSettingsPortlet>Notifications</NotificationSettingsPortlet>
       </label>
    </UIUserNavigationPortlet>
 </bundle>
