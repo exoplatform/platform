@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <bundle>
   <administration>
-    <siteExplorer>Průzkumník obashu</siteExplorer>
+    <siteExplorer>Content Explorer</siteExplorer>
     <wcmAdmin>Správa obsahu</wcmAdmin>
   </administration>
 </bundle>

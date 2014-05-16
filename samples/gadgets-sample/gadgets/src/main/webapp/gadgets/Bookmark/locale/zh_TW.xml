@@ -21,7 +21,7 @@
 -->
 <messagebundle>
   <msg name="title">書籤</msg>
-  <msg name="customize">Customize</msg>
+  <msg name="customize">自訂</msg>
   <msg name="save">#{word.save}</msg>
   <msg name="add">新增</msg>
   <msg name="ok">OK</msg>

@@ -322,7 +322,7 @@
             </field>           
           </object>
         </object-param>
-        <!--object-param>
+        <object-param>
           <name>ACME Stylesheet Green data</name>
           <description>Deployment Descriptor</description>
           <object type="org.exoplatform.services.wcm.extensions.deployment.WCMPublicationDeploymentDescriptor">
@@ -365,7 +365,7 @@
               <string>publish-first-publication</string>
             </field>            
           </object>
-        </object-param-->
+        </object-param>
         <!--
 		<object-param>
           <name>ACME jquery.js data</name>

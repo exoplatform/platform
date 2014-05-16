@@ -11,6 +11,7 @@
          <Myconnections>Kết nối</Myconnections>
          <Mywiki>Wiki</Mywiki>
          <Mydashboard>Bảng Ứng dụng</Mydashboard>
+         <NotificationSettingsPortlet>Notifications</NotificationSettingsPortlet>
       </label>
    </UIUserNavigationPortlet>
 </bundle>

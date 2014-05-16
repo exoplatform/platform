@@ -11,6 +11,7 @@
          <Myconnections>علاقاتي</Myconnections>
          <Mywiki>ويكي خاصة</Mywiki>
          <Mydashboard>لوحة المعلومات الخاصّة بي</Mydashboard>
+         <NotificationSettingsPortlet>Notifications</NotificationSettingsPortlet>
       </label>
    </UIUserNavigationPortlet>
 </bundle>
