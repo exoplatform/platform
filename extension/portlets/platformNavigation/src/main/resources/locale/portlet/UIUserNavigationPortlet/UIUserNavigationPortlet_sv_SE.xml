@@ -11,6 +11,7 @@
          <Myconnections>Mina anslutningar</Myconnections>
          <Mywiki>Min Wiki</Mywiki>
          <Mydashboard>Min instrumentpanel</Mydashboard>
+         <NotificationSettingsPortlet>Notifications</NotificationSettingsPortlet>
       </label>
    </UIUserNavigationPortlet>
 </bundle>

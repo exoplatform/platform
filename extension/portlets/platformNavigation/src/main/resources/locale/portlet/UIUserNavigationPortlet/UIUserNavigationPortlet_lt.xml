@@ -11,6 +11,7 @@
          <Myconnections>Mano jungtys</Myconnections>
          <Mywiki>Mano Wiki</Mywiki>
          <Mydashboard>Mano prietaisų skydas</Mydashboard>
+         <NotificationSettingsPortlet>Notifications</NotificationSettingsPortlet>
       </label>
    </UIUserNavigationPortlet>
 </bundle>

@@ -11,6 +11,7 @@
          <Myconnections>Bağlantılarım</Myconnections>
          <Mywiki>Wikim</Mywiki>
          <Mydashboard>Panelim</Mydashboard>
+         <NotificationSettingsPortlet>Notifications</NotificationSettingsPortlet>
       </label>
    </UIUserNavigationPortlet>
 </bundle>

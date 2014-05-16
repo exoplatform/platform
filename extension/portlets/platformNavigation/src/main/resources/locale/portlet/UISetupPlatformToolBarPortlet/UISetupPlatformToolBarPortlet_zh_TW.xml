@@ -18,6 +18,7 @@
 <monitoring>監控</monitoring>
 <spaces>空間</spaces>
 <Branding>品牌</Branding>
+      <Notification>Email Notifications</Notification>
 <ide>IDE</ide>
 <search>搜索</search>
 </label>

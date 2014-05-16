@@ -18,6 +18,7 @@
 			<monitoring>Surveillance</monitoring>
 			<spaces>Espaces</spaces>
 <Branding>Thème</Branding>
+      <Notification>Notifications par email</Notification>
 			<ide>IDE</ide>
 			<search>Recherche</search>
 		</label>

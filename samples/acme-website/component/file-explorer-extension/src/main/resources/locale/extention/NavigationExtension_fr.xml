@@ -36,7 +36,7 @@
 	<UINavigationForm>
 		<label>
 			<Node>Dossier parent :</Node>
-			<Visible>Visible :</Visible>
+<Visible>Affiché :</Visible>
 			<NavigationNodeInputSet>La navigation parent cible :</NavigationNodeInputSet>
 <Index>Ordre d'Affichage :</Index>
 <Clickable>Cliquable :</Clickable>
