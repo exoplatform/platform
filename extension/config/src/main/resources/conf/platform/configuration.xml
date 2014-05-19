@@ -17,7 +17,7 @@
       </value-param>
       <value-param>
         <name>ignore.unregistered.webapp</name>
-        <value>true</value>
+        <value>${ignore.unregistered.webapp:true}</value>
       </value-param>       
       <!-- The name of the default security realm -->
       <value-param>
