@@ -28,6 +28,8 @@
         <Locale lang="zh_TW" messages="locale/zh_TW.xml"/>
         <Locale lang="cs" messages="locale/cs.xml"/>
         <Locale lang="uk" messages="locale/uk.xml"/>
+        <Locale lang="fa" messages="locale/fa.xml"/>
+        <Locale lang="el" messages="locale/el.xml"/>
     </ModulePrefs>
     <Content type="html" view="default, home, profile">
         <![CDATA[   

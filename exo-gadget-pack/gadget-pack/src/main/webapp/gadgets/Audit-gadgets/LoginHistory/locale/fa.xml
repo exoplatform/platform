@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xmfl version='1.0' encoding='UTF-8'?>
+
+<!--
+
+    Copyright (C) 2009 eXo Platform SAS.
+    
+    This is free software; you can redistribute it and/or modify it
+    under the terms of the GNU Lesser General Public License as
+    published by the Free Software Foundation; either version 2.1 of
+    the License, or (at your option) any later version.
+    
+    This software is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+    Lesser General Public License for more details.
+    
+    You should have received a copy of the GNU Lesser General Public
+    License along with this software; if not, write to the Free
+    Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
+    02110-1301 USA, or see the FSF site: http://www.fsf.org.
+
+-->
+<messagebundle>
+  <msg name="loginHistory.title">تاریخچه ورود</msg>
+  <msg name="loginHistory.user">کاربر</msg>
+  <msg name="loginHistory.find">یافتن</msg>
+  <msg name="loginHistory.latest">تنظیم مجدد</msg>
+  <msg name="loginHistory.lastLogin">آخرین ورود</msg>
+  <msg name="loginHistory.beforeThat">قبل از آن</msg>
+  <msg name="loginHistory.more">بیشتر</msg>
+  <msg name="loginHistory.stats">آمار</msg>
+  <msg name="loginHistory.history">تاريخچه</msg>
+  <msg name="loginHistory.global">Global</msg>
+  <msg name="loginHistory.week">هفته</msg>
+  <msg name="loginHistory.lastLoginsView">آخرین ورودها</msg>
+  <msg name="loginHistory.historyView">تاريخچه</msg>
+  <msg name="loginHistory.statisticsView">آمار</msg>
+  <msg name="loginHistory.averagePerDay">متوسط ورود در روز</msg>
+  <msg name="loginHistory.averagePerWeek">متوسط ورود در هفته</msg>
+  <msg name="loginHistory.averagePerMonth">متوسط ورود در ماه</msg>
+  <msg name="loginHistory.today">امروز</msg>
+  <msg name="loginHistory.earlierThisWeek">اوایل این هفته</msg>
+  <msg name="loginHistory.earlierThisMonth">اوایل این ماه</msg>
+  <msg name="loginHistory.earlier">پیش از آن</msg>
+  <msg name="loginHistory.allUsers">تمام کاربران</msg>
+  <msg name="loginHistory.unknow">نا مشخص</msg>
+  <msg name="loginHistory.next">بعدی</msg>
+  <msg name="loginHistory.ago">Ago</msg>
+  <msg name="loginHistory.search_user">Search user</msg>
+</messagebundle>

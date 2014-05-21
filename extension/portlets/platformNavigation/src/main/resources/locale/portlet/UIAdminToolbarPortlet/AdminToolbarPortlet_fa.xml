@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bundle>
+   <UIAdminToolbarPortlet>
+      <action>
+         <AddPage>اضافه کردن صفحه</AddPage>
+         <EditNavigation>هدایت</EditNavigation>
+         <Content>محتوا</Content>
+         <Editor>ويرايش</Editor>
+         <Page>صفحه</Page>
+         <Site>سایت</Site>
+         <Layout>ویرایش چیدمان</Layout>
+         <siteLayout>چیدمان</siteLayout>
+         <ManagePages>مدیریت صفحات</ManagePages>
+         <GroupSite>سایت گروه</GroupSite>
+         <Properties>#{UISEOToolbarForm.label.seo}</Properties>
+         <AddSite>اضافه کردن سایت</AddSite>
+      </action>
+<ManageSites>مدیریت سایت ها</ManageSites>
+<ManageGroupSites>مدیریت سایت گروه ها</ManageGroupSites>
+   </UIAdminToolbarPortlet>
+
+  <UISEOForm>
+    <label>
+      <title>عنوان:</title>  
+      <description>شرح:</description>
+      <keywords>کلمات کلیدی:</keywords>
+      <language>زبان:</language>
+      <robots>روبات ها:</robots>
+      <sitemap>نقشه سایت:</sitemap>
+      <sitemapvisible>قابل مشاهده در نقشه سایت</sitemapvisible>
+  <isInherited>از صفحه پدر به ارث رسیده</isInherited>
+      <priority>اولويت:</priority>
+      <frequency>تکرار:</frequency>
+      <select-language>یک زبان را انتخاب کنید</select-language>
+      <option>
+        <Always>همیشه</Always>
+        <Hourly>ساعتی</Hourly>
+        <Daily>روزانه</Daily>
+        <Weekly>هفتگی</Weekly>
+        <Monthly>ماهانه</Monthly>
+        <Yearly>سالانه</Yearly>
+        <Never>هرگز</Never>
+      </option> 
+    </label>
+ 
+    <action>
+      <Save>#{word.save}</Save>
+      <Cancel>#{word.cancel}</Cancel>
+    </action>
+    <msg>
+      <repository-exception>یک خطای غیر منتظره رخ داده. ذخیره سازی صفحه فراداده ها ممکن نیست.</repository-exception>
+      <confirm-delete>آیا مطمئن هستید که می خواهید این اطلاعات جستجوگرها را حذف کنید؟</confirm-delete>
+    </msg>
+    <title>
+    <seo-delete>حذف</seo-delete>
+    </title>
+<help> 
+  <priority>محدوده مقادیر معتبر بین 0.0 و1.0.</priority>
+  <description>کمک به جستجوگران: به آنها اجازه دهید بدانند که صفحه زیر شامل لینکی است که آنها دنبالش می گردند.</description>
+  <keywords>در این صفحه مهمترین اصطلاحات باید با کاما جدا شوند.</keywords>  
+    </help>  
+  </UISEOForm>
+  <UISEOPopupWindow>
+  <title>
+      <UISEOForm>#{UISEOToolbarForm.title.seo}</UISEOForm>
+  </title>
+  </UISEOPopupWindow>    
+  <UISEOToolbarForm>
+  <title>
+      <seo>مدیریت جستجوگرها</seo>
+  </title>
+  <label>
+    <seo>جستجوگرها</seo>
+  </label>
+  </UISEOToolbarForm>  
+  <FloatNumberValidator>
+    <msg>
+      <Invalid-number>مقدار فیلد اولویت نامعتبر می باشد. لطفا یک عدد بین 0.0 و 1.0 وارد کنید.</Invalid-number>
+    </msg>
+  </FloatNumberValidator>
+  
+  <Locale>
+    <label>      
+      <it>ایتالیایی</it>      
+      <fr>فرانسوی</fr>
+      <en>انگلیسی</en>      
+    </label>
+  </Locale>
+  
+</bundle>

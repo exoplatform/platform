@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bundle>
+   <UIUserPlatformToolBarCreatePortlet>
+      <label>
+         <topic>موضوع ها</topic>
+         <poll>نظرسنجی</poll>
+         <eventtask>رویداد/وظیفه</eventtask>
+         <upload>آپلود فایل</upload>
+         <wiki>صفحه ویکی</wiki>
+
+      </label>
+   </UIUserPlatformToolBarCreatePortlet>
+   <UICreateList>
+      <label>
+         <topic>موضوع</topic>
+         <poll>نظرسنجی</poll>
+         <CreateANew>یک {1} جدید ایجاد کنید:</CreateANew>
+         <NoForum>متاسفانه، هنوز هیچ فرومی برای ایجاد {1} در دسترس نیست. برای شروع یک فضا برای خود ایجاد کنید.</NoForum>
+         <RequireSelectForum>لطفاً یک فروم انتخاب کنید.</RequireSelectForum>
+      </label>
+      <action>
+         <Next>#{word.next}</Next>
+         <Cancel>#{word.cancel}</Cancel>
+      </action>
+   </UICreateList>
+   <UICreateTopic>
+      <label>
+         <SelectAForum>یک فروم انتخاب کنید</SelectAForum>
+         <location>در محل</location>
+         <forumId>و فروم</forumId>
+         <FilterForums>فیلتر فروم ها</FilterForums>
+      </label>
+   </UICreateTopic>
+   <UICreatePoll>
+      <label>
+         <SelectAForum>انتخاب فروم</SelectAForum>
+         <location>در محل</location>
+         <forumId>و فروم</forumId>
+         <FilterForums>فیلتر فروم ها</FilterForums>
+      </label>
+   </UICreatePoll>
+   <UICreateWiki>
+      <label>
+         <title>ایجاد یک صفحه جدید ویکی:</title>
+         <location>در محل</location>
+      </label>
+   </UICreateWiki>
+   <UICreateEvent>
+      <label>
+         <Title>#{word.title}</Title>
+         <Choix>افزودن جدید:</Choix>
+         <EndEvent>به</EndEvent>
+         <StartEvent>از</StartEvent>
+         <Calendar>انتخاب تقویم</Calendar>
+         <all-day>هر روز</all-day>
+         <defaultCalendarId>پیش فرض</defaultCalendarId>
+      </label>
+      <msg>
+         <summary-field-required>فیلد "عنوان" مورد نیاز است.</summary-field-required>
+         <fromDate-format>فرمت تاریخ "از" نامعتبر است.</fromDate-format>
+         <toDate-format>فرمت تاریخ "تا" نامعتبر است.</toDate-format>
+         <logic-required>رویدادی که تاریخ اتمام آن قبل از تاریخ شروع آن باشد قابل اضافه شدن نیست.</logic-required>
+         <cant-add-event-on-remote-calendar>شما نمی توانید رویدادی در تقویم غیر محلی ایجاد کنید</cant-add-event-on-remote-calendar>
+         <add-successfully>
+            <Event>این رویداد به {1} اضافه شد</Event>
+            <Task>وظیفه به {1} اضافه شد</Task>
+         </add-successfully>
+         <add-unsuccessfully>{0} اضافه نشد.</add-unsuccessfully>
+      </msg>
+      <action>
+         <Next>#{word.save}</Next>
+         <Cancel>#{word.cancel}</Cancel>
+      </action>
+   </UICreateEvent>
+    <UIUploadFile>
+        <Select>انتخاب فایل</Select>
+        <action>
+          <close>#{word.close}</close>
+        </action>
+    </UIUploadFile>
+   <Choix>
+      <label>
+         <Event>رویداد</Event>
+         <Task>وظیفه</Task>
+      </label>
+   </Choix>
+</bundle>

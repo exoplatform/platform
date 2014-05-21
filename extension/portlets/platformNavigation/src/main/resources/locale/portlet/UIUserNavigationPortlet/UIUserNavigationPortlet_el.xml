@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bundle>
+   <UIUserNavigationPortlet>
+      <label>
+         <activities>Ροή Δραστηριοτήτων</activities>
+         <profile>Προφίλ</profile>
+         <connections>Συνδέσεις</connections>
+         <wiki>Συνεργατική σελίδα (Wiki)</wiki>
+         <Myactivities>Η ροή των δραστηριοτήτων μου</Myactivities>
+         <Myprofile>Το προφίλ μου</Myprofile>
+         <Myconnections>Οι συνδέσεις μου</Myconnections>
+         <Mywiki>To Wiki μου</Mywiki>
+         <Mydashboard>Το ταμπλό μου</Mydashboard>
+      </label>
+   </UIUserNavigationPortlet>
+</bundle>

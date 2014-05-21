@@ -21,4 +21,9 @@
 -->
 <messagebundle>
   <msg name="title_memory">Память</msg>
+  <msg name="used">Used</msg>
+  <msg name="free">Free</msg>
+  <msg name="total">Всего</msg>
+  <msg name="heap">Heap memory</msg>
+  <msg name="non-heap">Non-heap memory</msg>
 </messagebundle>

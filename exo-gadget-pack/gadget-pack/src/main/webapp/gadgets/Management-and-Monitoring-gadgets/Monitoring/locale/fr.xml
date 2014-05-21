@@ -21,4 +21,9 @@
 -->
 <messagebundle>
   <msg name="title_memory">Mémoire</msg>
+  <msg name="used">Utilisé</msg>
+  <msg name="free">Libre</msg>
+  <msg name="total">Total</msg>
+  <msg name="heap">Mémoire Heap</msg>
+  <msg name="non-heap">Mémoire Non-heap</msg>
 </messagebundle>

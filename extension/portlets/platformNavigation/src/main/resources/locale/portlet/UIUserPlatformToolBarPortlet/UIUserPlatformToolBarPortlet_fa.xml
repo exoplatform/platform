@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bundle>
+<UIUserPlatformToolBarPortlet>
+<label>
+<activities>جریان فعالیت های من</activities>
+<profile>مشخصات من</profile>
+<network>ارتباطات من</network>
+<wiki>ویکی من</wiki>
+<account>تنظیمات</account>
+<language>تغییر زبان</language>
+<logout>خروج</logout>
+        <dashboard>داشبورد من</dashboard>
+</label>
+</UIUserPlatformToolBarPortlet>
+</bundle>
