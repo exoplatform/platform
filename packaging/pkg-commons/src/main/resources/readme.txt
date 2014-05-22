@@ -7,7 +7,7 @@ Follow the installation procedure and start eXo Platform 3.5 now!
 System requirements
 -------------------
 
-    * CPU: 3GHz
+    * CPU: 4GHz
     * Memory: 4GB of RAM
     * Disk: 400MB
     * OS: Windows, Linux or Mac OS X
@@ -38,9 +38,9 @@ Going Further
 -------------
 Your next stop will depend on who you are:
 
-    * Developers: learn how to build your own portal, gadgets, REST services or eXo-based applications in the Developer Guide [http://community.exoplatform.org/rest/jcr/repository/knowledge/doc/PLF305/developer/html/index.html] and the Reference Documentation [http://community.exoplatform.org/rest/jcr/repository/knowledge/doc/PLF305/refguide/html/index.html]    
-   * Administrators: learn how to install eXo Platform on a server in the Administrator Guide: http://community.exoplatform.org/rest/jcr/repository/knowledge/doc/PLF305/admin/html/index.html
-    * End Users: learn more about using the features in the User Manuals: http://community.exoplatform.org/rest/jcr/repository/knowledge/doc/PLF305/user/index.html
+    * Developers: learn how to build your own portal, gadgets, REST services or eXo-based applications in the [Developer Guide](http://docs.exoplatform.com/PLF35/DeveloperGuide.html) and the [Reference Documentation](http://docs.exoplatform.com/PLF35/JCRReferenceGuide.html)
+    * Administrators: learn how to install eXo Platform on a server in the Administrator Guide: http://docs.exoplatform.com/PLF35/AdministratorGuide.html
+    * End Users: learn more about using the features in the User Manuals: http://docs.exoplatform.com/PLF35/UserGuide.html
 
 ------------------
 External Resources
@@ -49,8 +49,8 @@ External Resources
 Support				http://support.exoplatform.com
 Training			http://www.exoplatform.com/company/public/website/services/development/development-training
 Consulting			http://www.exoplatform.com/company/public/website/services/development/development-consulting
-Corporate Website	http://www.exoplatform.com
+Corporate Website		http://www.exoplatform.com
 Blog				http://blog.exoplatform.org
-Community Website	http://community.exoplatform.org
+Community Website		http://community.exoplatform.org
 Forum				http://forum.exoplatform.org
 

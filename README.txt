@@ -38,16 +38,16 @@ Going Further
 -------------
 Your next stop will depend on who you are:
 
-    * Developers: learn how to build your own portal, gadgets, REST services or eXo-based applications in the Developer Guide [http://docs.exoplatform.org/PLF35/topic/org.exoplatform.doc.35/bk03.html] and the Reference Documentation [http://docs.exoplatform.org/PLF35/topic/org.exoplatform.doc.35/bk05.html]    
-   * Administrators: learn how to install eXo Platform on a server in the Administrator Guide: http://docs.exoplatform.org/PLF35/topic/org.exoplatform.doc.35/bk02.html
-    * End Users: learn more about using the features in the User Manuals: http://docs.exoplatform.org/PLF35/topic/org.exoplatform.doc.35/bk01.html
+    * Developers: learn how to build your own portal, gadgets, REST services or eXo-based applications in the [Developer Guide](http://docs.exoplatform.com/PLF35/DeveloperGuide.html) and the [Reference Documentation](http://docs.exoplatform.com/PLF35/JCRReferenceGuide.html)
+    * Administrators: learn how to install eXo Platform on a server in the Administrator Guide: http://docs.exoplatform.com/PLF35/AdministratorGuide.html
+    * End Users: learn more about using the features in the User Manuals: http://docs.exoplatform.com/PLF35/UserGuide.html
 
 ------------------
 External Resources
 ------------------
 
 Support			http://support.exoplatform.com
-Training			http://www.exoplatform.com/company/public/website/services/development/development-training
+Training		http://www.exoplatform.com/company/public/website/services/development/development-training
 Consulting		http://www.exoplatform.com/company/public/website/services/development/development-consulting
 Corporate Website	http://www.exoplatform.com
 Blog			http://blog.exoplatform.org
