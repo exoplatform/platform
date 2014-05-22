@@ -21,6 +21,7 @@ package org.exoplatform.platform.common.rest;
 import org.exoplatform.common.http.HTTPStatus;
 import org.exoplatform.commons.info.ProductInformations;
 import org.exoplatform.container.PortalContainer;
+import org.exoplatform.portal.config.UserACL;
 import org.exoplatform.services.jcr.RepositoryService;
 import org.exoplatform.services.jcr.core.ManageableRepository;
 import org.exoplatform.services.jcr.ext.common.SessionProvider;
@@ -49,9 +50,11 @@ public class PlatformInformationRESTService implements ResourceContainer {
     public final  String    ANONYMOUS_USER  ="__anonim"  ;
 
     private ProductInformations platformInformations;
+    private UserACL userACL;
 
-    public PlatformInformationRESTService(ProductInformations productInformations) {
+    public PlatformInformationRESTService(ProductInformations productInformations, UserACL userACL) {
         this.platformInformations = productInformations;
+        this.userACL = userACL;
     }
 
     @GET
@@ -113,8 +116,10 @@ public class PlatformInformationRESTService implements ResourceContainer {
                 jsonPlatformInfo.setDuration(platformInformations.getDuration());
                 jsonPlatformInfo.setDateOfKeyGeneration(platformInformations.getDateOfLicence());
                 jsonPlatformInfo.setNbUsers(platformInformations.getNumberOfUsers());
-                jsonPlatformInfo.setProductCode(platformInformations.getProductCode());
-                jsonPlatformInfo.setUnlockKey(platformInformations.getProductKey());
+                if (userACL.isUserInGroup(userACL.getAdminGroups())) {
+                  jsonPlatformInfo.setProductCode(platformInformations.getProductCode());
+                  jsonPlatformInfo.setUnlockKey(platformInformations.getProductKey());
+                }
             }
             if (LOG.isDebugEnabled()) {
                 LOG.debug("Getting Platform Informations: eXo Platform (v" + platformInformations.getVersion() + " - build "
