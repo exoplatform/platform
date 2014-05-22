@@ -59,6 +59,9 @@
             <field name="templateLocation">
               <string>war:/conf/acme-portal/portal</string>
             </field>
+            <field name="importMode">
+              <string>${acme.portalConfig.metadata.importmode:merge}</string>
+            </field>
           </object>
         </object-param>
       </init-params>
