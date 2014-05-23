@@ -114,12 +114,7 @@ public class PlatformInformationRESTService implements ResourceContainer {
             }
             if ((platformInformations.getEdition() != null) && (!platformInformations.getEdition().equals(""))) {
                 jsonPlatformInfo.setDuration(platformInformations.getDuration());
-                jsonPlatformInfo.setDateOfKeyGeneration(platformInformations.getDateOfLicence());
                 jsonPlatformInfo.setNbUsers(platformInformations.getNumberOfUsers());
-                if (userACL.isUserInGroup(userACL.getAdminGroups())) {
-                  jsonPlatformInfo.setProductCode(platformInformations.getProductCode());
-                  jsonPlatformInfo.setUnlockKey(platformInformations.getProductKey());
-                }
             }
             if (LOG.isDebugEnabled()) {
                 LOG.debug("Getting Platform Informations: eXo Platform (v" + platformInformations.getVersion() + " - build "
@@ -170,10 +165,6 @@ public class PlatformInformationRESTService implements ResourceContainer {
         private String runningProfile;
         private String nbUsers;
         private String duration;
-        private String buildNumber;
-        private String productCode;
-        private String dateOfKeyGeneration;
-        private String unlockKey;
         private String currentRepoName;
         private String defaultWorkSpaceName;
         private String userHomeNodePath;
@@ -189,40 +180,12 @@ public class PlatformInformationRESTService implements ResourceContainer {
             this.duration = duration;
         }
 
-        public void setProductCode(String productCode) {
-            this.productCode = productCode;
-        }
-
-        public String getUnlockKey() {
-            return unlockKey;
-        }
-
-        public void setUnlockKey(String unlockKey) {
-            this.unlockKey = unlockKey;
-        }
-
-        public void setDateOfKeyGeneration(String dateOfKeyGeneration) {
-            this.dateOfKeyGeneration = dateOfKeyGeneration;
-        }
-
         public String getNbUsers() {
             return nbUsers;
         }
 
-        public String getProductCode() {
-            return productCode;
-        }
-
-        public String getDateOfKeyGeneration() {
-            return dateOfKeyGeneration;
-        }
-
         public String getDuration() {
             return duration;
-        }
-
-        public String getBuildNumber() {
-            return buildNumber;
         }
 
         public String getPlatformVersion() {

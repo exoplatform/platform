@@ -95,7 +95,6 @@ public class UpgradeProductInfoNodePlugin extends UpgradeProductPlugin {
       }
       Map<String, String[]> perms = new HashMap<String, String[]>();
       perms.put(IdentityConstants.SYSTEM, PermissionType.ALL);
-      perms.put("*:" + userAcl.getAdminGroups(), PermissionType.ALL);
       extendedNode.setPermissions(perms);
       extendedNode.save();
       LOG.info("Product info node upgraded successfully!");
