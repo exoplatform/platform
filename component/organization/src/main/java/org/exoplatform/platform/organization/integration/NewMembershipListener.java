@@ -19,6 +19,8 @@ package org.exoplatform.platform.organization.integration;
 import javax.jcr.Session;
 
 import org.exoplatform.services.jcr.RepositoryService;
+import org.exoplatform.services.log.ExoLogger;
+import org.exoplatform.services.log.Log;
 import org.exoplatform.services.organization.Membership;
 import org.exoplatform.services.organization.MembershipEventListener;
 
@@ -30,6 +32,8 @@ import org.exoplatform.services.organization.MembershipEventListener;
  * @author Boubaker KHANFIR
  */
 public class NewMembershipListener extends MembershipEventListener {
+
+  private static final Log LOG = ExoLogger.getLogger(NewMembershipListener.class);
 
   private RepositoryService repositoryService;
 
@@ -47,8 +51,12 @@ public class NewMembershipListener extends MembershipEventListener {
     Session session = null;
     try {
       session = repositoryService.getCurrentRepository().getSystemSession(Util.WORKSPACE);
-      if (!Util.hasMembershipFolder(session, m)) {
-        Util.createMembershipFolder(session, m);
+      if (Util.hasUserFolder(session, m.getUserName())) {
+        if (!Util.hasMembershipFolder(session, m)) {
+          Util.createMembershipFolder(session, m);
+        }
+      } else {
+        LOG.warn("Membership listeners can't be invoked on membership '" + m + "' because the user isn't synchronized yet.");
       }
     } finally {
       if (session != null) {
