@@ -44,7 +44,7 @@ public class FirstLoginListener extends Listener<ConversationRegistry, Conversat
   public void onEvent(Event<ConversationRegistry, ConversationState> event) throws Exception {
     String userId = event.getData().getIdentity().getUserId();
     if (LOG.isDebugEnabled()) {
-      LOG.debug("Apply listeners for user" + userId);
+      LOG.debug("Apply listeners for user " + userId);
     }
     organizationIntegrationService.syncUser(userId, EventType.ADDED.toString());
     if (LOG.isDebugEnabled()) {
