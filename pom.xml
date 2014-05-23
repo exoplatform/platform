@@ -446,6 +446,13 @@
       <!-- due to exclusion inheritance on ehcache-core required by the gadget-server -->
       <dependency>
         <groupId>org.gatein.portal</groupId>
+        <artifactId>exo.portal.parent</artifactId>
+        <version>${org.gatein.portal.version}</version>
+        <classifier>source-release</classifier>
+        <type>zip</type>
+      </dependency>
+      <dependency>
+        <groupId>org.gatein.portal</groupId>
         <artifactId>exo.portal.component.application-registry</artifactId>
         <version>${org.gatein.portal.version}</version>
       </dependency>
