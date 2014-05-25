@@ -54,7 +54,7 @@
                 var free = formatOctets(memory.max - memory.used);
                 var used = formatOctets(memory.used);
                 var total = formatOctets(memory.max);              
-                dataGraphs[key]=[memory.type, [free, used, total], [['used', memory.used], ['free', memory.max - memory.used]]];
+                dataGraphs[key]=[memory.type, [free, used, total], [['__MSG_used__', memory.used], ['__MSG_free__', memory.max - memory.used]]];
                 items.push('<div id="memoryGraph_'+memory.type+'" class="graph-memory-zone"> </div>');
               });
             });
@@ -100,19 +100,19 @@
               var tableGrip = "<table class='list-memory uiGrid table table-hover table-striped'>" +
                       "<tbody>" +
                       "<tr>" +
-                      "<td class='memory-label'>Used</td>" +
+                      "<td class='memory-label'>__MSG_used__</td>" +
                       "<td class='center'>" +
                       memoryStats[1] +
                       "</td>" +
                       "</tr>" +
                       "<tr>" +
-                      "<td class='memory-label'>Free</td>" +
+                      "<td class='memory-label'>__MSG_free__</td>" +
                       "<td class='center'>" +
                       memoryStats[0] +
                       "</td>" +
                       "</tr>" +
                       "<tr>" +
-                      "<td class='memory-label'>Total</td>" +
+                      "<td class='memory-label'>__MSG_total__</td>" +
                       "<td class='center'>" +
                       memoryStats[2] +
                       "</td>" +
@@ -120,7 +120,9 @@
                       "</tbody>" +   
                       "</table>";
               var memoryGraphParent = $(this).parent();
-              var sel = $("<div class='chart-container'><h6>" +memoryType+ " memory</h6></div>").append(this);
+              var prefs = new gadgets.Prefs();
+              var memory_name = prefs.getMsg(memoryType);
+              var sel = $("<div class='chart-container'><h6>" + memory_name + "</h6></div>").append(this);
               sel.appendTo(memoryGraphParent);
               //$(this).remove();
               var table = $(this).find("table");

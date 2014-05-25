@@ -6,13 +6,13 @@ function formatOctets (octets) {
   var M = 1024 * K;
   var G = 1024 * M;
   if (octets < K) {
-    return octets + " Octets";
+    return octets + " Bytes";
   } else if (octets < M) {
-    return round2decimals(octets / K) + " Ko" ;
+    return round2decimals(octets / K) + " KB" ;
   } else if (octets < G) {
-    return round2decimals(octets / M) + " Mo" ;
+    return round2decimals(octets / M) + " MB" ;
   } else {
-    return round2decimals(octets / G) + " Go";
+    return round2decimals(octets / G) + " GB";
   }
 }
 
