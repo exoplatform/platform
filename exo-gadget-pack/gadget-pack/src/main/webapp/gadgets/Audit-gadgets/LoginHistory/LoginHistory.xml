@@ -708,15 +708,15 @@
 	            <button id='globalHistoryBtn' class="btn">__MSG_loginHistory.historyView__</button>
 	          </div>
 	          <div id="lastLoginsDiv">
-	            <input class="searchUser" id="searchTxt" type="text" placeholder="Search user" name="titleInput">
+	            <input class="searchUser" id="searchTxt" type="text" placeholder="__MSG_loginHistory.search_user__" name="titleInput">
 	            <div id="lastLoginsContainerDiv">
 	              <div id="lastLoginsDataDiv">
 	                <table id="lastLoginsTable" class="uiGrid table table-hover table-striped">
 	                <thead>
 	                <tr>
-	                  <th>User <i class="uiIcon_ pull-right"></i></th>
-	                    <th>Last login  <i class="uiIcon_ pull-right"></i></th>
-	                    <th>Before that  <i class="uiIcon_ pull-right"></i></th>
+	                  <th>__MSG_loginHistory.user__ <i class="uiIcon_ pull-right"></i></th>
+	                    <th>__MSG_loginHistory.lastLogin__  <i class="uiIcon_ pull-right"></i></th>
+	                    <th>__MSG_loginHistory.beforeThat__  <i class="uiIcon_ pull-right"></i></th>
 	                </tr>
 	              </thead>
 	                </table>
