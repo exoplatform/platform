@@ -21,9 +21,9 @@
 -->
 <messagebundle>
   <msg name="title_memory">Bộ nhớ</msg>
-  <msg name="used">Used</msg>
-  <msg name="free">Free</msg>
+  <msg name="used">Đã dùng</msg>
+  <msg name="free">Còn trống</msg>
   <msg name="total">Tổng số</msg>
-  <msg name="heap">Heap memory</msg>
-  <msg name="non-heap">Non-heap memory</msg>
+  <msg name="heap">Bộ nhớ heap</msg>
+  <msg name="non-heap">Bộ nhớ khác</msg>
 </messagebundle>

@@ -21,9 +21,9 @@
 -->
 <messagebundle>
   <msg name="title_memory">Память</msg>
-  <msg name="used">Used</msg>
-  <msg name="free">Free</msg>
+  <msg name="used">Используется</msg>
+  <msg name="free">Бесплатно</msg>
   <msg name="total">Всего</msg>
-  <msg name="heap">Heap memory</msg>
-  <msg name="non-heap">Non-heap memory</msg>
+  <msg name="heap">Динамическая память</msg>
+  <msg name="non-heap">статическая память</msg>
 </messagebundle>

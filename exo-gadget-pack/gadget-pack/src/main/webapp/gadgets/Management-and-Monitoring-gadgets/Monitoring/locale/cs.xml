@@ -21,9 +21,9 @@
 -->
 <messagebundle>
   <msg name="title_memory">Paměť</msg>
-  <msg name="used">Used</msg>
-  <msg name="free">Free</msg>
+  <msg name="used">Použitá</msg>
+  <msg name="free">Volná</msg>
   <msg name="total">Celkem</msg>
-  <msg name="heap">Heap memory</msg>
-  <msg name="non-heap">Non-heap memory</msg>
+  <msg name="heap">Paměť haldy</msg>
+  <msg name="non-heap">Ostatní paměť</msg>
 </messagebundle>

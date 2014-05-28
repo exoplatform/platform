@@ -20,19 +20,19 @@
 
 -->
 <messagebundle>  
-  <msg name="title">Services Management</msg>
-  <msg name="services">Services</msg>
+  <msg name="title">Tjeneste administrasjon</msg>
+  <msg name="services">Tjenester</msg>
   <msg name="name">Navn</msg>
   <msg name="description">Beskrivelse</msg>
-  <msg name="noDescription">No Description</msg>
-  <msg name="method">Method</msg>
-  <msg name="parameters">Parameters</msg>
-  <msg name="action">Action</msg>
-  <msg name="value">Value</msg>
-  <msg name="services_url">Services URL</msg>
-  <msg name="failManage">Temporarily cannot manage services from other hosts until we support OAuth</msg>
-  <msg name="noServices">Either no service is available or you do not have sufficient permission</msg>
-  <msg name="noMethod">No Method</msg>
-  <msg name="noProperty">No Property</msg>
-  <msg name="badURL">There was an error while retrieving data. Please check your URL preference</msg>
+  <msg name="noDescription">Ingen beskrivelse</msg>
+  <msg name="method">Metode</msg>
+  <msg name="parameters">Parametere</msg>
+  <msg name="action">Handling</msg>
+  <msg name="value">Verdi</msg>
+  <msg name="services_url">Tjeneste URL'er</msg>
+  <msg name="failManage">Det er ikke mulig å administrere tjenester fra andre maskiner før vi har lagt til støtte for OAuth</msg>
+  <msg name="noServices">Ingen tjeneste er tilgjengelig, eller  så har du ikke tilstrekkelige rettigheter</msg>
+  <msg name="noMethod">Ingen metode</msg>
+  <msg name="noProperty">Ingen egenskap</msg>
+  <msg name="badURL">Det oppstod en feil under henting av data. Sjekk URLen som er lagt inn</msg>
 </messagebundle>

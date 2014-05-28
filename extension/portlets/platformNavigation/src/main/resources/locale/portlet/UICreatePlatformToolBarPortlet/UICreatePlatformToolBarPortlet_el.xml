@@ -14,7 +14,7 @@
       <label>
          <topic>θέμα</topic>
          <poll>δημοσκόπηση</poll>
-         <CreateANew>Δημιουργία νέου {1}:</CreateANew>
+         <CreateANew>Δημιουργήστε {1}:</CreateANew>
          <NoForum>Λυπάμαι, δεν υπάρχει κάποιο φόρουμ για να δημιουργηθεί εκεί ένα {1}. Ξεκινήστε με τη δημιουργία ενός δικού σας Χώρου.</NoForum>
          <RequireSelectForum>Παρακαλώ επιλέξτε ένα φόρουμ.</RequireSelectForum>
       </label>
@@ -48,7 +48,7 @@
    <UICreateEvent>
       <label>
          <Title>#{word.title}</Title>
-         <Choix>Προσθήκη νέας:</Choix>
+         <Choix>Προσθήκη νέου:</Choix>
          <EndEvent>Έως</EndEvent>
          <StartEvent>Από</StartEvent>
          <Calendar>Επιλέξτε ημερολόγιο</Calendar>

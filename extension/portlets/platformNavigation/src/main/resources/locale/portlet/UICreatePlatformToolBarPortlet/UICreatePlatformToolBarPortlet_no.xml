@@ -2,20 +2,20 @@
 <bundle>
    <UIUserPlatformToolBarCreatePortlet>
       <label>
-         <topic>Topic</topic>
-         <poll>Poll</poll>
-         <eventtask>Event/Task</eventtask>
-         <upload>Upload a File</upload>
-         <wiki>Wiki Page</wiki>
+         <topic>Emne</topic>
+         <poll>Avstemning</poll>
+         <eventtask>Arrangement/aktivitet</eventtask>
+         <upload>Last opp en fil</upload>
+         <wiki>Wiki side</wiki>
 
       </label>
    </UIUserPlatformToolBarCreatePortlet>
    <UICreateList>
       <label>
-         <topic>topic</topic>
-         <poll>poll</poll>
-         <CreateANew>Create a new {1}:</CreateANew>
-         <NoForum>Sorry, no forum is available yet to create a {1}. Start by creating your own space.</NoForum>
+         <topic>Emne</topic>
+         <poll>Avstemning</poll>
+         <CreateANew>Opprett en ny {1}:</CreateANew>
+         <NoForum>Beklager, ingen forum er tilgjengelig ennå for å opprette en {1}. Start med å lage ditt eget fellesskap.</NoForum>
          <RequireSelectForum>Velg et forum.</RequireSelectForum>
       </label>
       <action>
@@ -25,47 +25,47 @@
    </UICreateList>
    <UICreateTopic>
       <label>
-         <SelectAForum>Select a Forum</SelectAForum>
-         <location>In Location</location>
-         <forumId>And Forum</forumId>
-         <FilterForums>Filter Forums</FilterForums>
+         <SelectAForum>Velg et Forum</SelectAForum>
+         <location>Plassering</location>
+         <forumId>Og Forum</forumId>
+         <FilterForums>Filtrer Forum</FilterForums>
       </label>
    </UICreateTopic>
    <UICreatePoll>
       <label>
-         <SelectAForum>Select Forum</SelectAForum>
-         <location>In Location</location>
-         <forumId>And Forum</forumId>
-         <FilterForums>Filter Forums</FilterForums>
+         <SelectAForum>Velg et Forum</SelectAForum>
+         <location>Plassering</location>
+         <forumId>Og Forum</forumId>
+         <FilterForums>Filtrer Forum</FilterForums>
       </label>
    </UICreatePoll>
    <UICreateWiki>
       <label>
-         <title>Create a new Wiki Page:</title>
-         <location>In Location</location>
+         <title>Opprett en ny Wiki side:</title>
+         <location>Plassering</location>
       </label>
    </UICreateWiki>
    <UICreateEvent>
       <label>
          <Title>#{word.title}</Title>
-         <Choix>Add New:</Choix>
-         <EndEvent>To</EndEvent>
-         <StartEvent>From</StartEvent>
-         <Calendar>Select Calendar</Calendar>
+         <Choix>Legg til ny:</Choix>
+         <EndEvent>Til</EndEvent>
+         <StartEvent>Fra</StartEvent>
+         <Calendar>Velg kalender</Calendar>
          <all-day>Hele dagen</all-day>
-         <defaultCalendarId>Default</defaultCalendarId>
+         <defaultCalendarId>Standard</defaultCalendarId>
       </label>
       <msg>
-         <summary-field-required>The field "Title" is required.</summary-field-required>
-         <fromDate-format>The "From" date format is incorrect.</fromDate-format>
-         <toDate-format>The "To" date format is incorrect.</toDate-format>
-         <logic-required>Sorry, you cannot create an event that ends before it starts.</logic-required>
-         <cant-add-event-on-remote-calendar>You cannot add event to remote calendar</cant-add-event-on-remote-calendar>
+         <summary-field-required>Feltet "Tittel" er påkrevd.</summary-field-required>
+         <fromDate-format>Fra-dato er formatert feil.</fromDate-format>
+         <toDate-format>Til-dato er formatert feil.</toDate-format>
+         <logic-required>Beklager, kan ikke du opprette en hendelse som slutter før den starter.</logic-required>
+         <cant-add-event-on-remote-calendar>Du kan ikke legge til hendelser i en ekstern kalender</cant-add-event-on-remote-calendar>
          <add-successfully>
-            <Event>The Event was added to {1}</Event>
-            <Task>The Task was added to {1}</Task>
+            <Event>Hendelsen ble lagt til {1}</Event>
+            <Task>Oppgaven ble lagt til {1}</Task>
          </add-successfully>
-         <add-unsuccessfully>{0} was not added.</add-unsuccessfully>
+         <add-unsuccessfully>{0} ble ikke lagt til.</add-unsuccessfully>
       </msg>
       <action>
          <Next>#{word.save}</Next>
@@ -73,7 +73,7 @@
       </action>
    </UICreateEvent>
     <UIUploadFile>
-        <Select>Select File</Select>
+        <Select>Velg fil</Select>
         <action>
           <close>#{word.close}</close>
         </action>
