@@ -56,5 +56,31 @@
 			</object-param>
 		  </init-params>
 		</component-plugin>
+    <component-plugin profiles="cluster">
+      <name>addExoCacheConfig</name>
+      <set-method>addExoCacheConfig</set-method>
+      <type>org.exoplatform.services.cache.ExoCacheConfigPlugin</type>
+      <description>add Exo Cache Config</description>
+      <init-params>
+        <object-param>
+          <name>cache.config.TemplateService</name>
+          <description>The JBoss Cache configuration for the template service</description>
+          <object type="org.exoplatform.services.cache.impl.jboss.ea.EAExoCacheConfig">
+            <field name="name">
+              <string>TemplateService</string>
+            </field>
+            <field name="expirationTimeout">
+              <long>${cache.exo.portal.templateservice.expiration:600000}</long>
+            </field>
+            <field name="maxNodes">
+              <int>${cache.exo.portal.templateservice.maxnodes:5000}</int>
+            </field>
+            <field name="distributed">
+              <boolean>true</boolean>
+            </field>
+          </object>
+        </object-param>
+      </init-params>
+    </component-plugin>
 	</external-component-plugins>	
 </configuration>
