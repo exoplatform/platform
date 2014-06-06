@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bundle>
+   <UIAdminToolbarPortlet>
+      <action>
+         <AddPage>Προσθήκη σελίδας</AddPage>
+         <EditNavigation>Πλοήγηση</EditNavigation>
+         <Content>Περιεχόμενο</Content>
+         <Editor>Εργαλεία</Editor>
+         <Page>Σελίδα</Page>
+         <Site>Τοποθεσία</Site>
+         <Layout>Επεξεργασία διάταξης</Layout>
+         <siteLayout>Διάταξη</siteLayout>
+         <ManagePages>Διαχείριση σελίδων</ManagePages>
+         <GroupSite>Τοποθεσία Ομάδας</GroupSite>
+         <Properties>#{UISEOToolbarForm.label.seo}</Properties>
+         <AddSite>Προσθήκη Τοποθεσίας</AddSite>
+      </action>
+<ManageSites>Διαχείριση τοποθεσιών</ManageSites>
+<ManageGroupSites>Διαχείριση Τοποθεσιών Ομάδων</ManageGroupSites>
+   </UIAdminToolbarPortlet>
+
+  <UISEOForm>
+    <label>
+      <title>Τίτλος:</title>  
+      <description>Περιγραφή:</description>
+      <keywords>Λέξεις-κλειδιά:</keywords>
+      <language>Γλώσσα:</language>
+      <robots>Ρομπότ ιστού:</robots>
+      <sitemap>Χάρτης ιστότοπου:</sitemap>
+      <sitemapvisible>Ορατό στο χάρτη του ιστότοπου</sitemapvisible>
+  <isInherited>Κληρονoμήθηκαν από τη γονική σελίδα</isInherited>
+      <priority>Προτεραιότητα:</priority>
+      <frequency>Συχνότητα:</frequency>
+      <select-language>Επιλέξτε μια γλώσσα</select-language>
+      <option>
+        <Always>Πάντα</Always>
+        <Hourly>Ωριαία</Hourly>
+        <Daily>Καθημερινά</Daily>
+        <Weekly>Εβδομαδιαία</Weekly>
+        <Monthly>Μηνιαία</Monthly>
+        <Yearly>Ετήσια</Yearly>
+        <Never>Ποτέ</Never>
+      </option> 
+    </label>
+ 
+    <action>
+      <Save>#{word.save}</Save>
+      <Cancel>#{word.cancel}</Cancel>
+    </action>
+    <msg>
+      <repository-exception>Παρουσιάστηκε μη αναμενόμενο σφάλμα. Δεν μπορούν να σωθούν τα μεταδεδομένα της σελίδας.</repository-exception>
+      <confirm-delete>Είστε βέβαιοι ότι θέλετε να διαγράψετε αυτά τα δεδομένα που αφορούν τις βελτιστοποιήσεις για τις μηχανές αναζήτησης (SEO);</confirm-delete>
+    </msg>
+    <title>
+    <seo-delete>Διαγραφή</seo-delete>
+    </title>
+<help> 
+  <priority>Έγκυρες τιμές από 0.0 έως 1.0.</priority>
+  <description>Βοηθήστε τις αναζητήσεις: Κάντε γνωστό ότι στη σελίδα υπάρχει ένας σύνδεσμος που ψάχνουν.</description>
+  <keywords>Οι πιο σημαντικοί όροι που χαρακτηρίζουν τη σελίδα. Χρησιμοποιήστε το κόμμα ως διαχωριστικό.</keywords>  
+    </help>  
+  </UISEOForm>
+  <UISEOPopupWindow>
+  <title>
+      <UISEOForm>#{UISEOToolbarForm.title.seo}</UISEOForm>
+  </title>
+  </UISEOPopupWindow>    
+  <UISEOToolbarForm>
+  <title>
+      <seo>Διαχείριση βελτιστοποιήσεων για τις μηχανές αναζήτησης</seo>
+  </title>
+  <label>
+    <seo>Βελτιστοποίηση για μηχανή αναζήτησης</seo>
+  </label>
+  </UISEOToolbarForm>  
+  <FloatNumberValidator>
+    <msg>
+      <Invalid-number>Το πεδίο προτεραιότητα έχει μια μη έγκυρη τιμή. Πληκτρολογήστε έναν αριθμό μεταξύ 0.0 και 1.0.</Invalid-number>
+    </msg>
+  </FloatNumberValidator>
+  
+  <Locale>
+    <label>      
+      <it>Ιταλικά</it>      
+      <fr>Γαλλικά</fr>
+      <en>Αγγλικά</en>      
+    </label>
+  </Locale>
+  
+</bundle>
