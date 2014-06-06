@@ -20,6 +20,7 @@
     <Locale lang="uk" messages="locale/uk.xml"/>
     <Locale lang="no" messages="locale/no.xml"/>
     <Locale lang="el" messages="locale/el.xml"/>
+    <Locale lang="pl" messages="locale/pl.xml"/>
     <Require feature="dynamic-height"/>
   </ModulePrefs>
   
