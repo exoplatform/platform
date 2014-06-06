@@ -20,6 +20,8 @@
     <Locale lang="lt" messages="locale/lt.xml"/>
     <Locale lang="cs" messages="locale/cs.xml"/>
     <Locale lang="uk" messages="locale/uk.xml"/>
+    <Locale lang="no" messages="locale/no.xml"/>
+    <Locale lang="el" messages="locale/el.xml"/>
   </ModulePrefs>
   <Content type="html">
     <![CDATA[       
