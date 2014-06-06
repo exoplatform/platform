@@ -20,16 +20,16 @@
 
 -->
 <messagebundle>
-  <msg name="title">Featured Poll</msg>
-  <msg name="setting">View</msg>
-  <msg name="vote">Vote</msg>
-  <msg name="voteAgain">Vote Again</msg>
-  <msg name="warning">Please choose at least one option</msg>
-  <msg name="option">Options</msg>
-  <msg name="percent">Percent</msg>
-  <msg name="voter">Voters</msg>
-  <msg name="total">Total</msg>
-  <msg name="discuss">Discuss in Forum</msg>
-  <msg name="nopoll">No Polls Yet</msg>  
-  <msg name="createPoll">Create Your Own Poll</msg>    
+  <msg name="title">Avstemning</msg>
+  <msg name="setting">Vis</msg>
+  <msg name="vote">Stem</msg>
+  <msg name="voteAgain">Stem igjen</msg>
+  <msg name="warning">Velg minst ett alternativ</msg>
+  <msg name="option">Alternativer</msg>
+  <msg name="percent">Prosent</msg>
+  <msg name="voter">Velgere</msg>
+  <msg name="total">Totalt</msg>
+  <msg name="discuss">Diskuter i forumet</msg>
+  <msg name="nopoll">Ingen avstemning ennå</msg>  
+  <msg name="createPoll">Lag din egen avstemning</msg>    
 </messagebundle>

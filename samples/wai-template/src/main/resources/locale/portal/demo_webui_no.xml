@@ -1,33 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <bundle>
   <Signin>
-    <welcome>Welcome</welcome>
-    <login>Login</login>
-    <logout>Logout</logout>
+    <welcome>Velkommen</welcome>
+    <login>Innlogging</login>
+    <logout>Logg ut</logout>
     <language>
-      <en>Switch to English</en>
-      <fr>Switch to French</fr>
+      <en>Bytte til engelsk</en>
+      <fr>Bytte til fransk</fr>
     </language>
-    <register>Register</register>
+    <register>Registrer</register>
   </Signin>
   <Toolbar>
-    <SkipToContent>Skip to content</SkipToContent>
-    <SiteMap>Site Map</SiteMap>
-    <Accessibility>Accessibility</Accessibility>
-    <NormalSize>Normal Size</NormalSize>
-    <MediumSize>Medium Size</MediumSize>
-    <LargeSize>Large Size</LargeSize>
-    <NormalContrast>Normal Contrast</NormalContrast>
-    <HighContrast>High Contrast</HighContrast>
+    <SkipToContent>Hopp til innhold</SkipToContent>
+    <SiteMap>Nettstedskart</SiteMap>
+    <Accessibility>Tilgjengelighet</Accessibility>
+    <NormalSize>Normal størrelse</NormalSize>
+    <MediumSize>Medium størrelse</MediumSize>
+    <LargeSize>Stor størrelse</LargeSize>
+    <NormalContrast>Normal kontrast</NormalContrast>
+    <HighContrast>Høy kontrast</HighContrast>
     <Search>Søk</Search>
   </Toolbar>
   <Logo>
-    <GoHome>Go to Home</GoHome>
+    <GoHome>Gå til startsiden</GoHome>
   </Logo>
   <acme>
-    <label>ACME Template</label>
+    <label>ACME mal</label>
   </acme>  
   <WAIPortal>
-    <label>Sample Accessible Website</label>
+    <label>Tilgjengelig eksempel nettsted</label>
   </WAIPortal>
 </bundle>
