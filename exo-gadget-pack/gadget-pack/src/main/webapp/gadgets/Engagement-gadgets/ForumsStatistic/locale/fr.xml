@@ -26,7 +26,7 @@
   <msg name="forums.statistic.total.topic">Nombre de Discussions:</msg>
   <msg name="forums.statistic.total.post">Nombre de Membres:</msg>
   <msg name="forums.statistic.total.member">Nombre de Membres:</msg>
-  <msg name="forums.statistic.active.member">Membres Actifs:</msg>
+  <msg name="forums.statistic.active.member">Membres récemment actifs:</msg>
   <msg name="forums.statistic.maximum.user">Nombre Maximum d'Utilisateurs:</msg>  
   <msg name="forums.statistic.at">le</msg>  
   <msg name="forums.weekly.statistic.title">Statistiques Hebdomadaires</msg>
