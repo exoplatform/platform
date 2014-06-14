@@ -6,6 +6,7 @@
     thumbnail="/gadget-pack/skin/images/Statistics/chronometre.png">
     <Require feature="settitle" />
     <Require feature="dynamic-height" />
+    <Locale messages="locale/default.xml" />
   </ModulePrefs>
 <Content type="html">
 <![CDATA[
@@ -90,12 +91,12 @@
                 items.push('<li>');
                 items.push('<div class="appData clearfix">');
                 items.push('<span id="application_'+i+'_'+key+'" class="appTitle pull-left" data-placement="bottom" rel="tooltip" data-original-title="' +applicationID+'"><b>'+applicationID+'</b></span>');
-                items.push('<span class="'+avgExecTimeCssClass+'" title="Average execution time (ms)">'+formatInteger(Math.round(application.averageTime))+' '+application.timeUnit+'</span>');
+                items.push('<span class="'+avgExecTimeCssClass+'" title="__MSG_avg_exec_time__">'+formatInteger(Math.round(application.averageTime))+' '+application.timeUnit+'</span>');
                 items.push('</div>');
                 items.push('<p class="appDetailTime">');
-                items.push('min: '+formatInteger(application.minTime)+' '+application.timeUnit);
-                items.push(' | max: '+formatInteger(application.maxTime)+' '+application.timeUnit);
-                items.push(' | exec: '+formatInteger(application.execution));
+                items.push('__MSG_min__: '+formatInteger(application.minTime)+' '+application.timeUnit);
+                items.push(' | __MSG_max__: '+formatInteger(application.maxTime)+' '+application.timeUnit);
+                items.push(' | __MSG_exec__: '+formatInteger(application.execution));
                 items.push('</p>');
                 items.push('</li>');
               });
@@ -119,7 +120,7 @@
               var allAppsContainer = $('#applications .allApps');
               var tenAppsBtn = $('#applications .tenAppsBtn');
               var tenAppsContainer = $('#applications .tenSlowestApps');
-              allAppsBtn.text("All (" + length + ")");
+              allAppsBtn.text("__MSG_all_apps__ (" + length + ")");
               $(allAppsBtn).click(function() {
                 $(this).addClass("active");
                 allAppsContainer.show();
@@ -158,16 +159,16 @@
     </head>
     <body>
       <div id="my_gadget" class="UIGadgetThemes appStatistics uiBox">
-        <h6 class="title center">Application Statistics</h6>
+        <h6 class="title center">__MSG_title_apps__</h6>
         <div id="applications" class="uiContentBox">
           <div class="center">
               <div class="btn-group clearfix">
-                <button class="btn tenAppsBtn active" type="button">10 slowest</button>
-                <button class="btn allAppsBtn" type="button">All</button>
+                <button class="btn tenAppsBtn active" type="button">__MSG_ten_slowest_apps__</button>
+                <button class="btn allAppsBtn" type="button">__MSG_all_apps__</button>
               </div>
           </div>
           <div class="gadgetData">
-              Loading data ...
+              __MSG_loading__
           </div>
         </div>
       </div>
