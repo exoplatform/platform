@@ -167,7 +167,7 @@
           <a class="uiIconClose pull-right" title="Close Window" rel="tooltip" data-placement="bottom" onclick=""></a>
         </h6>
         <div id="memoryInfos" class="gadContent templates">
-          Loading data ...
+          __MSG_loading__
         </div>
       </div>
     </body>
