@@ -9,6 +9,7 @@
     <Require feature="dynamic-height" />
     <Require feature="tabs" />
     <Require feature="setprefs" />
+    <Locale messages="locale/default.xml" />
   </ModulePrefs>
   <Content type="html">
     <![CDATA[ 
@@ -135,9 +136,10 @@
                   
                   itemsCachesConsumption.push('<div id="cache_consumption_'+cacheId+'" class="cache">');
                   itemsCachesConsumption.push('<a data-placement="bottom" data-toggle="tooltip" href="javascript:void(0)" data-original-title="'+cacheId+'"><b>'+cacheLabel.fromCamel()+'</b></a>');
-                  itemsCachesConsumption.push('<div class="itemGraph clearfix" style="position: relative">');
-                  itemsCachesConsumption.push('<div class="usedPercent" data-placement="bottom" data-toggle="tooltip" data-original-title="'+capacityUsedPercentage_rounded+'% Used" style="width:'+capacityUsedPercentage_rounded+'%"> </div>');
-                  itemsCachesConsumption.push('<div class="graph" data-placement="bottom" data-toggle="tooltip" data-original-title="'+capacityFreePercentage_rounded+'% Free" style="width:100%"> </div>');
+
+                  itemsCachesConsumption.push('<div class="itemGraph clearfix">');
+                  itemsCachesConsumption.push('<div class="usedPercent" data-placement="bottom" data-toggle="tooltip" data-original-title="'+capacityUsedPercentage_rounded+'% __MSG_used__" style="width:'+capacityUsedPercentage_rounded+'%"> </div>');
+                  itemsCachesConsumption.push('<div class="graph" data-placement="bottom" data-toggle="tooltip" data-original-title="'+capacityFreePercentage_rounded+'% __MSG_free__" style="width:'+capacityFreePercentage_rounded+'%"> </div>');
                   if (capacityUsedPercentage_rounded > 0 && capacityUsedPercentage_rounded < 100) {
                       itemsCachesConsumption.push('<div class="slash" style="position: absolute; left: '+capacityUsedPercentage_rounded+'%; top: 0; width: 1px; height: 18px; background: #fff; display: block; z-index: 2;"><span></span></div>');
                   }
@@ -157,9 +159,10 @@
                   
                   itemsCachesHit.push('<div id="cache_hit_'+cacheId+'" class="cache">');
                   itemsCachesHit.push('<a data-placement="bottom" data-toggle="tooltip" href="javascript:void(0)" data-original-title="'+cacheId+'"><b>'+cacheLabel.fromCamel()+'</b></a>');
-                  itemsCachesHit.push('<div class="itemGraph clearfix" style="position: relative">');
-                  itemsCachesHit.push('<div class="usedPercent" data-placement="bottom" data-toggle="tooltip" data-original-title="'+ratioMissPercentage_rounded+'% Miss Ratio" style="width:'+ratioMissPercentage_rounded+'%, position: absolute;"> </div>');
-                  itemsCachesHit.push('<div class="graph" data-placement="bottom" data-toggle="tooltip" data-original-title="'+ratioHitPercentage_rounded+'% Hit Ratio" style="width:100%"> </div>');
+
+                  itemsCachesHit.push('<div class="itemGraph clearfix">');
+                  itemsCachesHit.push('<div class="usedPercent" data-placement="bottom" data-toggle="tooltip" data-original-title="'+ratioMissPercentage_rounded+'% __MSG_miss__" style="width:'+ratioMissPercentage_rounded+'%"> </div>');
+                  itemsCachesHit.push('<div class="graph" data-placement="bottom" data-toggle="tooltip" data-original-title="'+ratioHitPercentage_rounded+'% __MSG_hit__" style="width:'+ratioHitPercentage_rounded+'%"> </div>');
                   if (ratioMissPercentage_rounded > 0 && ratioMissPercentage_rounded < 100) {
                       itemsCachesHit.push('<div class="slash" style="position: absolute; left: '+ratioMissPercentage_rounded+'%; top: 0; width: 1px; height: 18px; background: #fff; display: block; z-index: 2;"><span></span></div>');
                   }
@@ -181,11 +184,11 @@
                   }
                   itemsCachesDetails.push('<span class="detail_value pull-right" data-placement="bottom" data-toggle="tooltip" data-original-title="Use / Free = ' + cache.capacityUsed + ' / ' + cache.capacityFree + '">');
                   itemsCachesDetails.push('<span class="'+fillRatioUsageCssClass+'">'+Math.round(cache.capacityUsedPercentage)+' %</span>');
-                  itemsCachesDetails.push('&nbsp;full</span>');
+                  itemsCachesDetails.push('&nbsp;__MSG_full__</span>');
                   itemsCachesDetails.push('</p>');
                   itemsCachesDetails.push('<ul class="cache_details">');
-                  itemsCachesDetails.push('<li class="detail_ligne clearfix"><span class="detail_label">max size &nbsp;</span><span class="detail_value pull-right">'+cache.capacity+'</span></li>');
-                  itemsCachesDetails.push('<li class="detail_ligne clearfix"><span class="detail_label">Time to live &nbsp;</span><span class="detail_value pull-right">'+cache.ttl+'</span></li>');
+                  itemsCachesDetails.push('<li class="detail_ligne clearfix"><span class="detail_label">__MSG_max_size__ &nbsp;</span><span class="detail_value pull-right">'+cache.capacity+'</span></li>');
+                  itemsCachesDetails.push('<li class="detail_ligne clearfix"><span class="detail_label">__MSG_time_to_live__ &nbsp;</span><span class="detail_value pull-right">'+cache.ttl+'</span></li>');
                   // do we have warning or error on Hit Ratio ?
                   var hitRatioUsageCssClass = "";
                   if (cache.missCountPercentage >= 75) {
@@ -196,8 +199,8 @@
                     hitRatioUsageCssClass = "usage_ok";
                   }
                   itemsCachesDetails.push('<li class="detail_ligne clearfix">');
-                  itemsCachesDetails.push('<span class="detail_label">Hit / Missed &nbsp;</span>');
-                  itemsCachesDetails.push('<span class="detail_value pull-right" data-placement="bottom" data-toggle="tooltip" data-original-title="Hit / Miss = ' + cache.hitCount + ' / ' + cache.missCount + '"> ');
+                  itemsCachesDetails.push('<span class="detail_label">__MSG_hit__ / __MSG_miss__ &nbsp;</span>');
+                  itemsCachesDetails.push('<span class="detail_value pull-right" data-placement="bottom" data-toggle="tooltip" data-original-title="__MSG_hit__ / __MSG_miss__ = ' + cache.hitCount + ' / ' + cache.missCount + '"> ');
                   itemsCachesDetails.push('<span class="'+hitRatioUsageCssClass+'">'+Math.round(cache.hitCountPercentage)+' %</span> / '+Math.round(cache.missCountPercentage)+' %</span>');
                   itemsCachesDetails.push('</li>');
                   itemsCachesDetails.push('</ul>');
@@ -253,26 +256,26 @@
         
         <div id="caches_gadget" class="UIGadgetThemes cacheLevel uiBox">
           <h6 class="title center">
-            Caches level
+            __MSG_title_caches__
           </h6>
           <div class="uiContentBox">
             <div class="center">
               <div class="btn-group clearfix" data-toggle="buttons-radio">
                 <button class="btn" type="button" id="tab_consumption">
-                  Consumption
+                  __MSG_consumption__
                 </button>
                 <button class="btn" type="button" id="tab_hitratio">
-                  Hit ratio
+                  __MSG_hit_ratio__
                 </button>
                 <button class="btn" type="button" id="tab_details">
-                  Details
+                  __MSG_details__
                 </button>
               </div>
             </div>
             <div class="cacheCont">
-              <div id="caches-tab-consumption" class="templates">Loading data ...</div>
-              <div id="caches-tab-hit" class="templates">Loading data ...</div>
-              <div id="caches-tab-details" class="templates">Loading data ...</div>
+              <div id="caches-tab-consumption" class="templates">__MSG_loading__</div>
+              <div id="caches-tab-hit" class="templates">__MSG_loading__</div>
+              <div id="caches-tab-details" class="templates">__MSG_loading__</div>
             </div>
           </div>
         </div>
