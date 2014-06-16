@@ -35,7 +35,7 @@
   <msg name="loginHistory.week">一週</msg>
   <msg name="loginHistory.lastLoginsView">最後登錄</msg>
   <msg name="loginHistory.historyView">歷史</msg>
-  <msg name="loginHistory.statisticsView">统计</msg>
+  <msg name="loginHistory.statisticsView">統計</msg>
   <msg name="loginHistory.averagePerDay">平均登錄 / 天</msg>
   <msg name="loginHistory.averagePerWeek">平均登錄 / 週</msg>
   <msg name="loginHistory.averagePerMonth">平均登錄 / 月</msg>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bundle>
+<UISetupPlatformToolBarPortlet>
+<label>
+<applications>Εφαρμογές</applications>
+<content>Περιεχόμενο</content>
+<siteExplorer>Περιηγητής Τοποθεσιών</siteExplorer>
+<wcmAdmin>Διαχείριση περιεχομένου</wcmAdmin>
+<users>Χρήστες</users>
+<newStaff>Προσθήκη χρηστών</newStaff>
+<org-management>Ομάδες και ρόλοι</org-management>
+<portal>Πύλη</portal>
+<administration>Διαχείριση</administration>
+<groupnavigation>Τοποθεσίας Ομάδας</groupnavigation>
+<pageManagement>Σελίδες</pageManagement>
+<portalnavigation>Τοποθεσίες</portalnavigation>
+<servicesManagement>Διαχείριση</servicesManagement>
+<monitoring>Παρακολούθηση</monitoring>
+<spaces>Χώροι</spaces>
+<Branding>Εταιρική ταυτότητα</Branding>
+      <Notification>Email Notifications</Notification>
+<ide>Περιβάλλον ολοκληρωμένης ανάπτυξης</ide>
+<search>Αναζήτηση</search>
+</label>
+</UISetupPlatformToolBarPortlet>
+</bundle>

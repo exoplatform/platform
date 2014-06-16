@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bundle>
+<UIBreadCrumbsNavigationPortlet>
+    <label>
+        <ChangePicture>Αλλαγή εικόνας</ChangePicture>
+    </label>
+</UIBreadCrumbsNavigationPortlet>
+ <UIBreadCrumbPopupAvatarUploader>
+      <title>
+         <UIAvatarUploader>Ανεβάστε ένα προσωπείο (avatar)</UIAvatarUploader>
+         <UIAvatarUploadContent>Προεπισκόπιση Προσωπείου</UIAvatarUploadContent>
+      </title>
+ </UIBreadCrumbPopupAvatarUploader>
+</bundle>

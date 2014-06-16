@@ -2,16 +2,16 @@
 <bundle>
    <UIUserNavigationPortlet>
       <label>
-         <activities>活動流</activities>
+         <activities>活動趨勢</activities>
          <profile>設定檔</profile>
-         <connections>連接</connections>
+         <connections>聯繫</connections>
          <wiki>Wiki</wiki>
-         <Myactivities>我的活動流</Myactivities>
+         <Myactivities>我的活動趨勢</Myactivities>
          <Myprofile>我的設定檔</Myprofile>
-         <Myconnections>我的連接</Myconnections>
+         <Myconnections>我的聯繫</Myconnections>
          <Mywiki>我的 Wiki</Mywiki>
          <Mydashboard>我的儀表板</Mydashboard>
-         <NotificationSettingsPortlet>Notifications</NotificationSettingsPortlet>
+         <NotificationSettingsPortlet>通知</NotificationSettingsPortlet>
       </label>
    </UIUserNavigationPortlet>
 </bundle>

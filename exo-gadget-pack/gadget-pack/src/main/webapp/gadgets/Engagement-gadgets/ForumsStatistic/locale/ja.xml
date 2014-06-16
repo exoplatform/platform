@@ -26,7 +26,7 @@
   <msg name="forums.statistic.total.topic">総トピック数:</msg>
   <msg name="forums.statistic.total.post">合計投稿数</msg>
   <msg name="forums.statistic.total.member">合計メンバー数：</msg>
-  <msg name="forums.statistic.active.member">アクティブメンバー数：</msg>
+  <msg name="forums.statistic.active.member">Recently Active Members:</msg>
   <msg name="forums.statistic.maximum.user">オンライン ユーザーの最大数:</msg>  
   <msg name="forums.statistic.at">で</msg>  
   <msg name="forums.weekly.statistic.title">フォーラム週間の統計情報</msg>

@@ -26,7 +26,7 @@
   <msg name="forums.statistic.total.topic">Toplam Konu:</msg>
   <msg name="forums.statistic.total.post">Toplam Mesaj:</msg>
   <msg name="forums.statistic.total.member">Toplam Üye:</msg>
-  <msg name="forums.statistic.active.member">Aktif Üye:</msg>
+  <msg name="forums.statistic.active.member">Recently Active Members:</msg>
   <msg name="forums.statistic.maximum.user">Çevrimiçi kullanıcı sayısı üst sınırı:</msg>  
   <msg name="forums.statistic.at">de</msg>  
   <msg name="forums.weekly.statistic.title">Haftalık Forum İstatistikleri</msg>

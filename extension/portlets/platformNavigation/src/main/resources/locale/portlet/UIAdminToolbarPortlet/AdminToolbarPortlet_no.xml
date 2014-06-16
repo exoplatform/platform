@@ -3,43 +3,43 @@
    <UIAdminToolbarPortlet>
       <action>
          <AddPage>Legg til side</AddPage>
-         <EditNavigation>Navigation</EditNavigation>
-         <Content>Content</Content>
+         <EditNavigation>Navigering</EditNavigation>
+         <Content>Innhold</Content>
          <Editor>Rediger</Editor>
-         <Page>Page</Page>
-         <Site>Site</Site>
+         <Page>Side</Page>
+         <Site>Nettsted</Site>
          <Layout>Rediger layout</Layout>
          <siteLayout>Layout</siteLayout>
          <ManagePages>Administrere sider</ManagePages>
-         <GroupSite>Group Site</GroupSite>
+         <GroupSite>Gruppe nettsider</GroupSite>
          <Properties>#{UISEOToolbarForm.label.seo}</Properties>
-         <AddSite>Add Site</AddSite>
+         <AddSite>Legge til nettsted</AddSite>
       </action>
-<ManageSites>Manage Sites</ManageSites>
-<ManageGroupSites>Manage Group Sites</ManageGroupSites>
+<ManageSites>Administrer nettsteder</ManageSites>
+<ManageGroupSites>Administrere gruppe nettsteder</ManageGroupSites>
    </UIAdminToolbarPortlet>
 
   <UISEOForm>
     <label>
-      <title>Title:</title>  
-      <description>Description:</description>
-      <keywords>Keywords:</keywords>
-      <language>Language:</language>
-      <robots>Robots:</robots>
-      <sitemap>Sitemap:</sitemap>
-      <sitemapvisible>Visible in sitemap</sitemapvisible>
+      <title>Tittel:</title>  
+      <description>Beskrivelse:</description>
+      <keywords>Nøkkelord:</keywords>
+      <language>Språk:</language>
+      <robots>Roboter:</robots>
+      <sitemap>Nettstedskart:</sitemap>
+      <sitemapvisible>Synlig i nettstedskartet</sitemapvisible>
   <isInherited>Arvet fra overordnet side</isInherited>
-      <priority>Priority:</priority>
-      <frequency>Frequency:</frequency>
-      <select-language>Select Language</select-language>
+      <priority>Prioritet:</priority>
+      <frequency>Frekvens:</frequency>
+      <select-language>Velg språk</select-language>
       <option>
-        <Always>Always</Always>
-        <Hourly>Hourly</Hourly>
-        <Daily>Daily</Daily>
-        <Weekly>Weekly</Weekly>
-        <Monthly>Monthly</Monthly>
-        <Yearly>Yearly</Yearly>
-        <Never>Never</Never>
+        <Always>Alltid</Always>
+        <Hourly>Hver time</Hourly>
+        <Daily>Daglig</Daily>
+        <Weekly>Ukentlig</Weekly>
+        <Monthly>Månedlig</Monthly>
+        <Yearly>Årlig</Yearly>
+        <Never>Aldri</Never>
       </option> 
     </label>
  
@@ -48,16 +48,16 @@
       <Cancel>#{word.cancel}</Cancel>
     </action>
     <msg>
-      <repository-exception>An unexpected error occurred. Cannot save page metadata.</repository-exception>
-      <confirm-delete>Are you sure you want to delete these SEO data?</confirm-delete>
+      <repository-exception>Det oppstod en uventet feil. Kan ikke lagre sidens metadata.</repository-exception>
+      <confirm-delete>Er du sikker på at du vil slette disse SEO data?</confirm-delete>
     </msg>
     <title>
     <seo-delete>Slette</seo-delete>
     </title>
 <help> 
-  <priority>Valid values range from 0.0 to 1.0.</priority>
-  <description>Help searchers: let them know that the following page has a link with what they are looking for.</description>
-  <keywords>Most important terms in the page must be separated by a comma.</keywords>  
+  <priority>Gyldige verdier er  fra 0,0 til 1,0.</priority>
+  <description>Hjelp de som søker: la dem få vite at denne side har en link med det de leter etter.</description>
+  <keywords>De viktigste ordene og uttrykkene på siden må være atskilt med semikolon.</keywords>  
     </help>  
   </UISEOForm>
   <UISEOPopupWindow>
@@ -75,15 +75,15 @@
   </UISEOToolbarForm>  
   <FloatNumberValidator>
     <msg>
-      <Invalid-number>Priority field has an invalid value. Please enter a number between 0.0 and 1.0.</Invalid-number>
+      <Invalid-number>Feltet prioritet har en ugyldig verdi. Angi et nummer mellom 0.0 og 1.0.</Invalid-number>
     </msg>
   </FloatNumberValidator>
   
   <Locale>
     <label>      
-      <it>Italian</it>      
-      <fr>French</fr>
-      <en>English</en>      
+      <it>Italiensk</it>      
+      <fr>Fransk</fr>
+      <en>Engelsk</en>      
     </label>
   </Locale>
   

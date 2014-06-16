@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xmfl version='1.0' encoding='UTF-8'?>
+
+<!--
+
+    Copyright (C) 2009 eXo Platform SAS.
+    
+    This is free software; you can redistribute it and/or modify it
+    under the terms of the GNU Lesser General Public License as
+    published by the Free Software Foundation; either version 2.1 of
+    the License, or (at your option) any later version.
+    
+    This software is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+    Lesser General Public License for more details.
+    
+    You should have received a copy of the GNU Lesser General Public
+    License along with this software; if not, write to the Free
+    Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
+    02110-1301 USA, or see the FSF site: http://www.fsf.org.
+
+-->
+<messagebundle>
+  <msg name="forums.statistic.title">crwdns6785844:0crwdne6785844:0</msg>
+  <msg name="forums.statistic.total.topic">crwdns6785845:0crwdne6785845:0</msg>
+  <msg name="forums.statistic.total.post">crwdns6785846:0crwdne6785846:0</msg>
+  <msg name="forums.statistic.total.member">crwdns6785847:0crwdne6785847:0</msg>
+  <msg name="forums.statistic.active.member">crwdns6796242:0crwdne6796242:0</msg>
+  <msg name="forums.statistic.maximum.user">crwdns6785849:0crwdne6785849:0</msg>  
+  <msg name="forums.statistic.at">crwdns6785850:0crwdne6785850:0</msg>  
+  <msg name="forums.weekly.statistic.title">crwdns6785851:0crwdne6785851:0</msg>
+  <msg name="forums.weekly.statistic.post.open">crwdns6785852:0crwdne6785852:0</msg>
+  <msg name="forums.weekly.statistic.next">crwdns6785853:0crwdne6785853:0</msg>
+  <msg name="forums.weekly.statistic.prev">crwdns6785854:0crwdne6785854:0</msg>
+  <msg name="forums.weekly.statistic.view.chart">crwdns6785855:0crwdne6785855:0</msg>
+  <msg name="forums.weekly.statistic.view.list">crwdns6785856:0crwdne6785856:0</msg>
+  <msg name="forums.statistic.see.total.statistic">crwdns6785857:0crwdne6785857:0</msg>
+  <msg name="forums.statistic.see.weekly.statistic">crwdns6785858:0crwdne6785858:0</msg>  
+</messagebundle>

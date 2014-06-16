@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bundle>
+  <Signin>
+    <welcome>Καλώς ήρθατε</welcome>
+    <login>Είσοδος</login>
+    <logout>Αποσύνδεση</logout>
+    <language>
+      <en>Αλλαγή σε Αγγλικά</en>
+      <fr>Αλλαγή σε Γαλλικά</fr>
+    </language>
+    <register>Εγγραφή</register>
+  </Signin>
+  <Toolbar>
+    <SkipToContent>Μετάβαση στο περιεχόμενο</SkipToContent>
+    <SiteMap>Χάρτης ιστότοπου</SiteMap>
+    <Accessibility>Προσβασιμότητα</Accessibility>
+    <NormalSize>Κανονικό μέγεθος</NormalSize>
+    <MediumSize>Μεσαίο μέγεθος</MediumSize>
+    <LargeSize>Μεγάλο μέγεθος</LargeSize>
+    <NormalContrast>Κανονική αντίθεση</NormalContrast>
+    <HighContrast>Υψηλή αντίθεση</HighContrast>
+    <Search>Αναζήτηση</Search>
+  </Toolbar>
+  <Logo>
+    <GoHome>Μετάβαση στην Αρχική</GoHome>
+  </Logo>
+  <acme>
+    <label>Πρότυπο ACME</label>
+  </acme>  
+  <WAIPortal>
+    <label>Δείγμα προσβάσιμης ιστοσελίδας</label>
+  </WAIPortal>
+</bundle>

@@ -34,7 +34,7 @@
    <UICreatePoll>
       <label>
          <SelectAForum>選擇論壇</SelectAForum>
-         <location>中的位置</location>
+         <location>在位置</location>
          <forumId>和論壇</forumId>
          <FilterForums>論壇篩選器</FilterForums>
       </label>
@@ -42,7 +42,7 @@
    <UICreateWiki>
       <label>
          <title>建立一個新的 Wiki 頁面：</title>
-         <location>中的位置</location>
+         <location>在位置</location>
       </label>
    </UICreateWiki>
    <UICreateEvent>

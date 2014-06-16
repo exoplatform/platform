@@ -11,12 +11,12 @@
       <detail>詳細資料</detail>
   <catalog>目錄</catalog>
       <printviewer>列印頁面</printviewer>
-      <searchResult>搜索</searchResult>
+      <searchResult>搜尋</searchResult>
       <newAccount>新增帳號</newAccount>
       <groupnavigation>導航群組</groupnavigation>
-      <portalnavigation>入口網站導航</portalnavigation>
+      <portalnavigation>瀏覽入口網</portalnavigation>
       <documents>文件</documents>
-      <unifiedSearch>搜索</unifiedSearch>
+      <unifiedSearch>搜尋</unifiedSearch>
     </acme>
   </portal>
 </bundle>

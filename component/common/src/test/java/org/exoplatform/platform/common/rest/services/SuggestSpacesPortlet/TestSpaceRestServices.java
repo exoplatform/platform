@@ -92,6 +92,7 @@ public class TestSpaceRestServices extends BaseRestServicesTestCase {
         space5.setId("space5");
         space5.setVisibility(Space.PUBLIC);
         space5.setRegistration(Space.OPEN);
+        space5.setInvitedUsers(new String[]{});
         ssResults.put("getPublicSpacesWithListAccess", new MockListAccess<Space>(new Space[]{space1, space2, space3,
            space4, space5}));
         ssResults.put("getLastSpaces", Arrays.asList(space1, space2, space3, space4, space5));
@@ -99,6 +100,11 @@ public class TestSpaceRestServices extends BaseRestServicesTestCase {
             public Object invoke(Object[] args) {
                 return ArrayUtils.contains(((Space)args[0]).getMembers(), args[1]);
             }
+        });
+        ssResults.put("isInvitedUser", new Invoker() {
+          public Object invoke(Object[] args) {
+              return ArrayUtils.contains(((Space)args[0]).getInvitedUsers(), args[1]);
+          }
         });
         ssResults.put("isPendingUser", new Invoker() {
             public Object invoke(Object[] args) {
