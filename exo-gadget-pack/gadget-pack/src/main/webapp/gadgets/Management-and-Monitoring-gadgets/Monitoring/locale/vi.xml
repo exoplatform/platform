@@ -26,4 +26,14 @@
   <msg name="total">Tổng số</msg>
   <msg name="heap">Bộ nhớ heap</msg>
   <msg name="non-heap">Bộ nhớ khác</msg>
+  <msg name="loading">Đang tải dữ liệu ...</msg>
+  <msg name="title_caches">Các bộ nhớ cache</msg>
+  <msg name="consumption">Tiêu thụ</msg>
+  <msg name="hit_ratio">Tỉ lệ thành công</msg>
+  <msg name="details">Chi tiết</msg>
+  <msg name="hit">Thành công</msg>
+  <msg name="miss">Trật</msg>
+  <msg name="full">đầy</msg>
+  <msg name="max_size">Kích thước tối đa</msg>
+  <msg name="time_to_live">Thời gian sống</msg>
 </messagebundle>
