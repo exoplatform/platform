@@ -57,10 +57,16 @@
 				ajaxLoading.show();
 			},
 			success : function(data) {
-				isChangeLogo = false;
-				UpdateTopBarNavigation(data);
 				cleanMessage();
-				$("#saveinfo").show();
+				if (data.error == "0") {
+					UpdateTopBarNavigation(data);
+					$("#saveinfo").show();
+				} else {
+					UpdatePreviewLogoAndStyle();
+					$("input#file").replaceWith($("input#file").val("").clone(true));
+					$("#savenotok").show();
+				}
+				isChangeLogo = false;
 				uiMaskLayer.removeMasks(maskLayer);
 				ajaxLoading.hide();
 			}
@@ -306,6 +312,7 @@
 	 */
 
 	function cleanMessage() {
+		$("#savenotok").hide();
 		$("#saveinfo").hide();
 		$("#cancelinfo").hide();
 		$("#mustpng").hide();
@@ -313,6 +320,7 @@
 
 	function showMessageError() {
 		$("#saveinfo").hide();
+		$("#savenotok").hide();
 		$("#cancelinfo").hide();
 		$("#mustpng").show();
 	}

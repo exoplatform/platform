@@ -16,6 +16,9 @@
 	<div class="alert" id="mustpng">
 		<i class="uiIconWarning"></i>${mustpng}
 	</div>
+	<div class="alert" id="savenotok">
+		<i class="uiIconWarning"></i>${savenotok}
+	</div>
 	
 	<div class="logoForm boxContent">
 		<h4 class="titleWithBorder">${selectlogo}</h4>

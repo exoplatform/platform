@@ -19,6 +19,7 @@ package org.exoplatform.platform.portlet.juzu.branding;
 import java.io.IOException;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Locale;
@@ -43,8 +44,13 @@ import org.exoplatform.commons.api.settings.data.Context;
 import org.exoplatform.commons.api.settings.data.Scope;
 import org.exoplatform.commons.juzu.ajax.Ajax;
 import org.exoplatform.container.ExoContainerContext;
+import org.exoplatform.services.security.ConversationState;
+import org.exoplatform.services.log.ExoLogger;
+import org.exoplatform.services.log.Log;
 import org.exoplatform.platform.portlet.juzu.branding.models.BrandingDataStorageService;
+import org.exoplatform.portal.config.UserACL;
 import org.exoplatform.web.application.RequestContext;
+
 
 /**
  * Created by The eXo Platform SAS Author : Nguyen Viet Bang
@@ -52,6 +58,8 @@ import org.exoplatform.web.application.RequestContext;
  */
 
 public class BrandingController {
+	
+  private static final Log LOG               = ExoLogger.getExoLogger(BrandingController.class);
 
   public static String       BAR_NAVIGATION_STYLE_KEY = "bar_navigation_style";
 
@@ -120,6 +128,7 @@ public class BrandingController {
     parameters.put("save", rs.getString("save.label"));
     parameters.put("cancel", rs.getString("cancel.label"));
     parameters.put("saveok", rs.getString("info.saveok.label"));
+    parameters.put("savenotok", rs.getString("info.savenotok.label"));
     parameters.put("cancelok", rs.getString("info.cancelok.label"));
     parameters.put("mustpng", rs.getString("mustpng.label"));
     return index.ok(parameters);
@@ -156,16 +165,20 @@ public class BrandingController {
   @Ajax
   @Resource
   public Response.Content save(String style, String isChangeLogo, HttpContext httpContext) {
-    if (isChangeLogo != null && Boolean.valueOf(isChangeLogo)) {
-      dataStorageService.saveLogo();
+    if (isAdmin()) {
+      if (isChangeLogo != null && Boolean.valueOf(isChangeLogo)) {
+        dataStorageService.saveLogo();
+      }
+      if (style != null && style != "") {
+        settingService.set(Context.GLOBAL, Scope.GLOBAL, BAR_NAVIGATION_STYLE_KEY, SettingValue.create(style));
+      }
+      return getResource(httpContext);
+    } else {
+      LOG.info("Cannot save branding due to insufficient permission.");
     }
-    if (style != null && style != "") {
-      settingService.set(Context.GLOBAL,
-                         Scope.GLOBAL,
-                         BAR_NAVIGATION_STYLE_KEY,
-                         SettingValue.create(style));
-    }
-    return getResource(httpContext);
+    Map<String, String> result = new HashMap<String, String>();
+    result.put("error", "1");
+    return (createJSON(result));
   }
 
   /**
@@ -210,6 +223,7 @@ public class BrandingController {
       style = (String) settingService.get(Context.GLOBAL, Scope.GLOBAL, BAR_NAVIGATION_STYLE_KEY)
                                      .getValue();
     }
+    result.put("error", "0");
     result.put("style", style);
     result.put("logoUrl", getLogoUrl(httpContext, true));
     return createJSON(result);
@@ -268,5 +282,21 @@ public class BrandingController {
     };
     return textObject;
   }
-
+  private boolean isAdmin() {
+    try {
+      UserACL userACL = (UserACL) ExoContainerContext.getCurrentContainer()
+                .getComponentInstanceOfType(UserACL.class);
+      if (userACL == null) return false;
+      ConversationState state = ConversationState.getCurrent();
+      if (state == null) return false;
+      String userId = state.getIdentity().getUserId();
+      if (userId == null) return false;
+      if (userId.equalsIgnoreCase(userACL.getSuperUser()) ) {
+        return true;
+      }
+      return state.getIdentity().isMemberOf(userACL.getAdminGroups());
+    } catch (Exception e) {
+      return false;
+    }
+  }
 }
