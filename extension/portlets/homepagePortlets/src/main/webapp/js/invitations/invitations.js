@@ -113,9 +113,9 @@
                         else
                             visibility = privatelabel;
                         if (spacelabel == "Space")
-                            link += "<div class='spaceproperties'><div class='spaceInviteAction'  ><a class='connect  btn-primary btn btn-mini' href='#' onclick='return false'>"+acceptlabel+"</a>  <a class='deny' href='#' onclick='return false'><i class='uiIconClose'></i></a></div><div class='spacevisibility'><i class='uiIconSocGroup uiIconSocLightGray'></i>&nbsp"+visibility+" "+spacelabel+" - " +item.membersNumber+" "+memberslabel+"</div></div>"
+                            link += "<div class='spaceproperties'><div class='spaceInviteAction'  ><a class='accept  btn-primary btn btn-mini' href='#' onclick='return false'>"+acceptlabel+"</a>  <a class='deny' href='#' onclick='return false'><i class='uiIconClose'></i></a></div><div class='spacevisibility'><i class='uiIconSocGroup uiIconSocLightGray'></i>&nbsp"+visibility+" "+spacelabel+" - " +item.membersNumber+" "+memberslabel+"</div></div>"
                         else
-                            link += "<div class='spaceproperties'><div class='spaceInviteAction'  ><a class='connect  btn-primary btn btn-mini' href='#' onclick='return false'>"+acceptlabel+"</a>  <a class='deny' href='#' onclick='return false'><i class='uiIconClose'></i></a></div><div class='spacevisibility'><i class='uiIconSocGroup uiIconSocLightGray'></i>&nbsp"+spacelabel+" "+visibility+" - " +item.membersNumber+" "+memberslabel+"</div></div>"
+                            link += "<div class='spaceproperties'><div class='spaceInviteAction'  ><a class='accept  btn-primary btn btn-mini' href='#' onclick='return false'>"+acceptlabel+"</a>  <a class='deny' href='#' onclick='return false'><i class='uiIconClose'></i></a></div><div class='spacevisibility'><i class='uiIconSocGroup uiIconSocLightGray'></i>&nbsp"+spacelabel+" "+visibility+" - " +item.membersNumber+" "+memberslabel+"</div></div>"
                         link += "</div></li>";
 
                         $("#requests").append(link);
@@ -132,7 +132,7 @@
                             $item.find(".spaceInviteAction").removeClass('active');
                         });
 
-                        $("#"+item.spaceId+" a.connect").live("click", function(){
+                        $("#"+item.spaceId+" a.accept").live("click", function(){
                             $.getJSON("/rest/homepage/intranet/spaces/accept/"+item.spaceId, null);
 
                             if($("#requests").children().length == 1) {

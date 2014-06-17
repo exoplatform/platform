@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bundle>
+<UIUserPlatformToolBarPortlet>
+<label>
+<NotificationSettingsPortlet>crwdns6785968:0crwdne6785968:0</NotificationSettingsPortlet>
+<activities>crwdns6785969:0crwdne6785969:0</activities>
+<profile>crwdns6785970:0crwdne6785970:0</profile>
+<network>crwdns6785971:0crwdne6785971:0</network>
+<wiki>crwdns6785972:0crwdne6785972:0</wiki>
+<account>crwdns6785973:0crwdne6785973:0</account>
+<language>crwdns6785974:0crwdne6785974:0</language>
+<logout>crwdns6785975:0crwdne6785975:0</logout>
+        <dashboard>crwdns6785976:0crwdne6785976:0</dashboard>
+</label>
+</UIUserPlatformToolBarPortlet>
+</bundle>

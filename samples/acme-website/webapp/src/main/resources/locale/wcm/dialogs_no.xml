@@ -24,11 +24,11 @@
 <dialog>
 <label>
 <name>Navn</name>
-<title>Title</title>
-<illustrationImage>Illustration Image</illustrationImage>
-<summary>Summary</summary>
-<benefits>Benefits</benefits>
-<features>Features</features>
+<title>Tittel</title>
+<illustrationImage>Illustrasjons bilde</illustrationImage>
+<summary>Sammendrag</summary>
+<benefits>Fordeler</benefits>
+<features>Funksjoner</features>
 </label>
 </dialog>
 </Product>

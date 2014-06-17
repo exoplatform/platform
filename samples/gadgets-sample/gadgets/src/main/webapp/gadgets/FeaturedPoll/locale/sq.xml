@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+
+    Copyright (C) 2009 eXo Platform SAS.
+    
+    This is free software; you can redistribute it and/or modify it
+    under the terms of the GNU Lesser General Public License as
+    published by the Free Software Foundation; either version 2.1 of
+    the License, or (at your option) any later version.
+    
+    This software is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+    Lesser General Public License for more details.
+    
+    You should have received a copy of the GNU Lesser General Public
+    License along with this software; if not, write to the Free
+    Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
+    02110-1301 USA, or see the FSF site: http://www.fsf.org.
+
+-->
+<messagebundle>
+  <msg name="title">crwdns6785897:0crwdne6785897:0</msg>
+  <msg name="setting">crwdns6785898:0crwdne6785898:0</msg>
+  <msg name="vote">crwdns6785899:0crwdne6785899:0</msg>
+  <msg name="voteAgain">crwdns6785900:0crwdne6785900:0</msg>
+  <msg name="warning">crwdns6785901:0crwdne6785901:0</msg>
+  <msg name="option">crwdns6785902:0crwdne6785902:0</msg>
+  <msg name="percent">crwdns6785903:0crwdne6785903:0</msg>
+  <msg name="voter">crwdns6785904:0crwdne6785904:0</msg>
+  <msg name="total">crwdns6785905:0crwdne6785905:0</msg>
+  <msg name="discuss">crwdns6785906:0crwdne6785906:0</msg>
+  <msg name="nopoll">crwdns6785907:0crwdne6785907:0</msg>  
+  <msg name="createPoll">crwdns6785908:0crwdne6785908:0</msg>    
+</messagebundle>

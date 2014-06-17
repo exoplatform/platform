@@ -26,7 +26,7 @@
   <msg name="forums.statistic.total.topic">العدد الجملي للمواضيع:</msg>
   <msg name="forums.statistic.total.post">العدد الجملي للمشاركات:</msg>
   <msg name="forums.statistic.total.member">العدد الجملي للأعضاء:</msg>
-  <msg name="forums.statistic.active.member">الأعضاء النـّـاشطون:</msg>
+  <msg name="forums.statistic.active.member">Recently Active Members:</msg>
   <msg name="forums.statistic.maximum.user">العدد الأقصى المستخدمين:</msg>  
   <msg name="forums.statistic.at">في</msg>  
   <msg name="forums.weekly.statistic.title">الإحصائيات الأسبوعية</msg>

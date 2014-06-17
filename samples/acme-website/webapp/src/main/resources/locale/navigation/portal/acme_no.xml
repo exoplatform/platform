@@ -2,20 +2,20 @@
 <bundle>
   <portal>
     <acme>
-      <overview>Overview</overview>
-      <products>Products</products>
-      <news>News</news>
-      <contactus>Questions?</contactus>
-      <newsletters>Newsletters</newsletters>
-      <confirmation>Contact Form Confirmation</confirmation>
+      <overview>Oversikt</overview>
+      <products>Produkter</products>
+      <news>Nyheter</news>
+      <contactus>Spørsmål?</contactus>
+      <newsletters>Nyhetsbrev</newsletters>
+      <confirmation>Kontaktskjema bekreftelse</confirmation>
       <detail>Detaljer</detail>
-  <catalog>Catalog</catalog>
-      <printviewer>Print page</printviewer>
+  <catalog>Katalogen</catalog>
+      <printviewer>Utskriftsside</printviewer>
       <searchResult>Søk</searchResult>
-      <newAccount>New Account</newAccount>
-      <groupnavigation>Group Navigation</groupnavigation>
-      <portalnavigation>Portal Navigation</portalnavigation>
-      <documents>Documents</documents>
+      <newAccount>Ny konto</newAccount>
+      <groupnavigation>Gruppe navigasjon</groupnavigation>
+      <portalnavigation>Portal navigasjon</portalnavigation>
+      <documents>Dokumenter</documents>
       <unifiedSearch>Søk</unifiedSearch>
     </acme>
   </portal>

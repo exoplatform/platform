@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bundle>
+  <Signin>
+    <welcome>crwdns6785919:0crwdne6785919:0</welcome>
+    <login>crwdns6785920:0crwdne6785920:0</login>
+    <logout>crwdns6785921:0crwdne6785921:0</logout>
+    <language>crwdns6785922:0crwdne6785922:0</language>
+    <register>crwdns6785923:0crwdne6785923:0</register>
+  </Signin>
+
+  <ACMEPortal>
+    <label>crwdns6785924:0crwdne6785924:0</label>
+  </ACMEPortal>
+</bundle>

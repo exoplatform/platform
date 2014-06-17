@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bundle>
+<UISetupPlatformToolBarPortlet>
+<label>
+<applications>crwdns6785977:0crwdne6785977:0</applications>
+<content>crwdns6785978:0crwdne6785978:0</content>
+<siteExplorer>crwdns6785979:0crwdne6785979:0</siteExplorer>
+<wcmAdmin>crwdns6785980:0crwdne6785980:0</wcmAdmin>
+<users>crwdns6785981:0crwdne6785981:0</users>
+<newStaff>crwdns6785982:0crwdne6785982:0</newStaff>
+<org-management>crwdns6785983:0crwdne6785983:0</org-management>
+<portal>crwdns6785984:0crwdne6785984:0</portal>
+<administration>crwdns6785985:0crwdne6785985:0</administration>
+<groupnavigation>crwdns6785986:0crwdne6785986:0</groupnavigation>
+<pageManagement>crwdns6785987:0crwdne6785987:0</pageManagement>
+<portalnavigation>crwdns6785988:0crwdne6785988:0</portalnavigation>
+<servicesManagement>crwdns6785989:0crwdne6785989:0</servicesManagement>
+<monitoring>crwdns6785990:0crwdne6785990:0</monitoring>
+<spaces>crwdns6785991:0crwdne6785991:0</spaces>
+<Branding>crwdns6785992:0crwdne6785992:0</Branding>
+      <Notification>crwdns6785993:0crwdne6785993:0</Notification>
+<ide>crwdns6785994:0crwdne6785994:0</ide>
+<search>crwdns6785995:0crwdne6785995:0</search>
+</label>
+</UISetupPlatformToolBarPortlet>
+</bundle>

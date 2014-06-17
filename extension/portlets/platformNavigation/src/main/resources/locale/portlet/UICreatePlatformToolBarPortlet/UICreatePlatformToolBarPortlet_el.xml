@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bundle>
+   <UIUserPlatformToolBarCreatePortlet>
+      <label>
+         <topic>Θέμα</topic>
+         <poll>Δημοσκόπηση</poll>
+         <eventtask>Γεγονός/Εργασία</eventtask>
+         <upload>Ανεβάστε ένα Αρχείο</upload>
+         <wiki>Συνεργατική Σελίδα (Wiki)</wiki>
+
+      </label>
+   </UIUserPlatformToolBarCreatePortlet>
+   <UICreateList>
+      <label>
+         <topic>θέμα</topic>
+         <poll>δημοσκόπηση</poll>
+         <CreateANew>Δημιουργήστε {1}:</CreateANew>
+         <NoForum>Λυπάμαι, δεν υπάρχει κάποιο φόρουμ για να δημιουργηθεί εκεί ένα {1}. Ξεκινήστε με τη δημιουργία ενός δικού σας Χώρου.</NoForum>
+         <RequireSelectForum>Παρακαλώ επιλέξτε ένα φόρουμ.</RequireSelectForum>
+      </label>
+      <action>
+         <Next>#{word.next}</Next>
+         <Cancel>#{word.cancel}</Cancel>
+      </action>
+   </UICreateList>
+   <UICreateTopic>
+      <label>
+         <SelectAForum>Επιλέξτε ένα φόρουμ</SelectAForum>
+         <location>Στην θέση</location>
+         <forumId>Και το φόρουμ</forumId>
+         <FilterForums>Φίλτρο φόρουμ</FilterForums>
+      </label>
+   </UICreateTopic>
+   <UICreatePoll>
+      <label>
+         <SelectAForum>Επιλέξτε ένα φόρουμ</SelectAForum>
+         <location>Στην θέση</location>
+         <forumId>Και το φόρουμ</forumId>
+         <FilterForums>Φίλτρο φόρουμ</FilterForums>
+      </label>
+   </UICreatePoll>
+   <UICreateWiki>
+      <label>
+         <title>Δημιουργία νέας συνεργατικής σελίδας (Wiki):</title>
+         <location>Στην θέση</location>
+      </label>
+   </UICreateWiki>
+   <UICreateEvent>
+      <label>
+         <Title>#{word.title}</Title>
+         <Choix>Προσθήκη νέου:</Choix>
+         <EndEvent>Έως</EndEvent>
+         <StartEvent>Από</StartEvent>
+         <Calendar>Επιλέξτε ημερολόγιο</Calendar>
+         <all-day>Όλη την ημέρα</all-day>
+         <defaultCalendarId>Προεπιλογή</defaultCalendarId>
+      </label>
+      <msg>
+         <summary-field-required>Απαιτείται το πεδίο "Τίτλος".</summary-field-required>
+         <fromDate-format>Η μορφή της ημερομηνίας έναρξης είναι λανθασμένη.</fromDate-format>
+         <toDate-format>Η μορφή της ημερομηνίας λήξης είναι λανθασμένη.</toDate-format>
+         <logic-required>Συγνώμη, δεν μπορείτε να δημιουργήσετε ένα γεγονός που τελειώνει πριν από την έναρξή του.</logic-required>
+         <cant-add-event-on-remote-calendar>Δεν μπορείτε να προσθέσετε γεγονός σε απομακρυσμένο ημερολόγιο</cant-add-event-on-remote-calendar>
+         <add-successfully>
+            <Event>Το γεγονός προστέθηκε στο {1}</Event>
+            <Task>Η εργασία προστέθηκε στο {1}</Task>
+         </add-successfully>
+         <add-unsuccessfully>{0} δεν προστέθηκε.</add-unsuccessfully>
+      </msg>
+      <action>
+         <Next>#{word.save}</Next>
+         <Cancel>#{word.cancel}</Cancel>
+      </action>
+   </UICreateEvent>
+    <UIUploadFile>
+        <Select>Επιλέξτε αρχείο</Select>
+        <action>
+          <close>#{word.close}</close>
+        </action>
+    </UIUploadFile>
+   <Choix>
+      <label>
+         <Event>Γεγονός</Event>
+         <Task>Εργασία</Task>
+      </label>
+   </Choix>
+</bundle>

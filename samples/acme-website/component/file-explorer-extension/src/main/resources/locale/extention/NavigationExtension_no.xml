@@ -2,17 +2,17 @@
 <bundle>
 <UIActionBar>
 <tooltip>
-<ContentNavigation>Content Navigation</ContentNavigation>
+<ContentNavigation>Innholds navigasjon</ContentNavigation>
 </tooltip>
 </UIActionBar>
 <UIViewFormTabPane>
 <label>
-<contentNavigation>Navigation by Content</contentNavigation>
+<contentNavigation>Navigering etter innhold</contentNavigation>
 </label>
 </UIViewFormTabPane>
 <UIPopupWindow>
 <title>
-<UINavigationForm>Navigation Form</UINavigationForm>
+<UINavigationForm>Navigeringsskjema</UINavigationForm>
 </title>
 </UIPopupWindow>
 <PopulateToMenu>
@@ -20,33 +20,33 @@
 <label>
 <id>ID:</id>
 <name>navn:</name>
-<lifecycle>Lifecycle:</lifecycle>
-<isDeep>Is Deep:</isDeep>
-<nodetypes>Node Types:</nodetypes>
+<lifecycle>Livssyklus:</lifecycle>
+<isDeep>Er dypt:</isDeep>
+<nodetypes>Nodetyper:</nodetypes>
 <description>Beskrivelse:</description>
-<affectedNodeTypeNames>Affected Node Types:</affectedNodeTypeNames>
-<navigationNode>Navigation Node:</navigationNode>
-<index>Index:</index>
-<clickable>Clickable:</clickable>
-<page>Page:</page>
-<childrenPage>Children Page:</childrenPage>
+<affectedNodeTypeNames>Berørt nodetyper:</affectedNodeTypeNames>
+<navigationNode>Navigasjon Node:</navigationNode>
+<index>Indeks:</index>
+<clickable>Klikkbar:</clickable>
+<page>Side:</page>
+<childrenPage>Under side:</childrenPage>
 </label>
 </dialog>
 </PopulateToMenu>
 <UINavigationForm>
 <label>
 <Node>Overordnet mappe:</Node>
-<Visible>Visible :</Visible>
-<NavigationNodeInputSet>Target Parent Navigation:</NavigationNodeInputSet>
-<Index>Display Order:</Index>
-<Clickable>Clickable :</Clickable>
-<NavigationControls>Navigation Controls</NavigationControls>
-<ListTargetPageFormInputSet>Page for List:</ListTargetPageFormInputSet>
-<ListShowCLVByStringInput>Parameter Name:</ListShowCLVByStringInput>
-<DetailTargetPageInputSet>Page for Detail:</DetailTargetPageInputSet>
-<DetailShowCLVByStringInput>Parameter Name:</DetailShowCLVByStringInput>
-<List>List</List>
-<Detail>Detail</Detail>
+<Visible>Synlig :</Visible>
+<NavigationNodeInputSet>Målets overordnede navigering:</NavigationNodeInputSet>
+<Index>Visningsrekkefølge:</Index>
+<Clickable>Klikkbar :</Clickable>
+<NavigationControls>Navigeringskontroll</NavigationControls>
+<ListTargetPageFormInputSet>Side liste:</ListTargetPageFormInputSet>
+<ListShowCLVByStringInput>Parameternavn:</ListShowCLVByStringInput>
+<DetailTargetPageInputSet>Siden for detaljer:</DetailTargetPageInputSet>
+<DetailShowCLVByStringInput>Parameternavn:</DetailShowCLVByStringInput>
+<List>Liste</List>
+<Detail>Detaljer</Detail>
 </label>
 <action>
 <Save>#{word.save}</Save>
@@ -55,47 +55,47 @@
 </UINavigationForm>
 <Visible>
 <label>
-<VisibleEnable>Yes</VisibleEnable>
-<VisibleDisable>No</VisibleDisable>
+<VisibleEnable>Ja</VisibleEnable>
+<VisibleDisable>Nei</VisibleDisable>
 </label>
 </Visible>
 <Clickable>
 <label>
-<ClickableEnable>Yes</ClickableEnable>
-<ClickableDisable>No</ClickableDisable>
+<ClickableEnable>Ja</ClickableEnable>
+<ClickableDisable>Nei</ClickableDisable>
 </label>
 </Clickable>
 <NavigationNodeInputSet>
 <title>
-<SelectNavigationNode>Select Navigation Node</SelectNavigationNode>
-<RemoveNavigationNode>Reset</RemoveNavigationNode>
+<SelectNavigationNode>Velg navigerings node</SelectNavigationNode>
+<RemoveNavigationNode>Tilbakestill</RemoveNavigationNode>
 </title>
 </NavigationNodeInputSet>
 <ListTargetPageFormInputSet>
 <title>
-<SelectListTargetPage>Select Target Page</SelectListTargetPage>
-<RemoveListTargetPage>Reset</RemoveListTargetPage>
+<SelectListTargetPage>Velg målsiden</SelectListTargetPage>
+<RemoveListTargetPage>Tilbakestill</RemoveListTargetPage>
 </title>
 </ListTargetPageFormInputSet>
 <DetailTargetPageInputSet>
 <title>
-<SelectDetailTargetPage>Select Children Target Page</SelectDetailTargetPage>
-<RemoveDetailTargetPage>Reset</RemoveDetailTargetPage>
+<SelectDetailTargetPage>Velg under målside</SelectDetailTargetPage>
+<RemoveDetailTargetPage>Tilbakestill</RemoveDetailTargetPage>
 </title>
 </DetailTargetPageInputSet>
 <NavigationSelectorPopupWindow>
 <title>
-<UINavigationSelector>Navigation Selector</UINavigationSelector>
+<UINavigationSelector>Navigasjon velger</UINavigationSelector>
 </title>
 </NavigationSelectorPopupWindow>
 <ListTargetPageSelectorPopupWindow>
 <title>
-<UIPageSelector>Page Selector</UIPageSelector>
+<UIPageSelector>Sidevelger</UIPageSelector>
 </title>
 </ListTargetPageSelectorPopupWindow>
 <DetailTargetPageSelectorPopupWindow>
 <title>
-<UIPageSelector>Page Selector</UIPageSelector>
+<UIPageSelector>Sidevelger</UIPageSelector>
 </title>
 </DetailTargetPageSelectorPopupWindow>
 </bundle>

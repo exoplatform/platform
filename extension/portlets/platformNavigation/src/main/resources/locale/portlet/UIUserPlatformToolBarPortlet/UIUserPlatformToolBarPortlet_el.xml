@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bundle>
+<UIUserPlatformToolBarPortlet>
+<label>
+<NotificationSettingsPortlet>Notifications</NotificationSettingsPortlet>
+<activities>Η ροή των δραστηριοτήτων μου</activities>
+<profile>Το προφίλ μου</profile>
+<network>Οι συνδέσεις μου</network>
+<wiki>To Wiki μου</wiki>
+<account>Ρυθμίσεις</account>
+<language>Αλλαγή γλώσσας</language>
+<logout>Αποσύνδεση</logout>
+        <dashboard>Ο πίνακας εργαλείων μου</dashboard>
+</label>
+</UIUserPlatformToolBarPortlet>
+</bundle>

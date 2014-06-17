@@ -168,6 +168,8 @@ public class SpaceRestServices implements ResourceContainer {
                   continue;
                 if (spaceService.isPendingUser(space, identity.getRemoteId())) 
                    continue;
+                if (spaceService.isInvitedUser(space, identity.getRemoteId())) 
+                  continue;
                 JSONObject json = buildJSONObject(space, 0);
                 jsonArray.put(json);
               }

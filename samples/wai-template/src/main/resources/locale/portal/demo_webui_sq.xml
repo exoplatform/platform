@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bundle>
+  <Signin>
+    <welcome>crwdns6785824:0crwdne6785824:0</welcome>
+    <login>crwdns6785825:0crwdne6785825:0</login>
+    <logout>crwdns6785826:0crwdne6785826:0</logout>
+    <language>
+      <en>crwdns6785827:0crwdne6785827:0</en>
+      <fr>crwdns6785828:0crwdne6785828:0</fr>
+    </language>
+    <register>crwdns6785829:0crwdne6785829:0</register>
+  </Signin>
+  <Toolbar>
+    <SkipToContent>crwdns6785830:0crwdne6785830:0</SkipToContent>
+    <SiteMap>crwdns6785831:0crwdne6785831:0</SiteMap>
+    <Accessibility>crwdns6785832:0crwdne6785832:0</Accessibility>
+    <NormalSize>crwdns6785833:0crwdne6785833:0</NormalSize>
+    <MediumSize>crwdns6785834:0crwdne6785834:0</MediumSize>
+    <LargeSize>crwdns6785835:0crwdne6785835:0</LargeSize>
+    <NormalContrast>crwdns6785836:0crwdne6785836:0</NormalContrast>
+    <HighContrast>crwdns6785837:0crwdne6785837:0</HighContrast>
+    <Search>crwdns6785838:0crwdne6785838:0</Search>
+  </Toolbar>
+  <Logo>
+    <GoHome>crwdns6785839:0crwdne6785839:0</GoHome>
+  </Logo>
+  <acme>
+    <label>crwdns6785840:0crwdne6785840:0</label>
+  </acme>  
+  <WAIPortal>
+    <label>crwdns6785841:0crwdne6785841:0</label>
+  </WAIPortal>
+</bundle>
