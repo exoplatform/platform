@@ -47,8 +47,6 @@ import org.exoplatform.container.ExoContainerContext;
 import org.exoplatform.services.security.ConversationState;
 import org.exoplatform.services.log.ExoLogger;
 import org.exoplatform.services.log.Log;
-import org.exoplatform.services.organization.MembershipHandler;
-import org.exoplatform.services.organization.OrganizationService;
 import org.exoplatform.platform.portlet.juzu.branding.models.BrandingDataStorageService;
 import org.exoplatform.portal.config.UserACL;
 import org.exoplatform.web.application.RequestContext;
@@ -289,22 +287,14 @@ public class BrandingController {
       UserACL userACL = (UserACL) ExoContainerContext.getCurrentContainer()
                 .getComponentInstanceOfType(UserACL.class);
       if (userACL == null) return false;
-      OrganizationService oService = (OrganizationService) ExoContainerContext.getCurrentContainer()
-            .getComponentInstanceOfType(OrganizationService.class);
-      if (oService == null) return false;
-      MembershipHandler membershipHandler = oService.getMembershipHandler();
-      if (membershipHandler == null) return false;
       ConversationState state = ConversationState.getCurrent();
-      String userId = (state != null) ? state.getIdentity().getUserId() : null;
+      if (state == null) return false;
+      String userId = state.getIdentity().getUserId();
       if (userId == null) return false;
       if (userId.equalsIgnoreCase(userACL.getSuperUser()) ) {
         return true;
       }
-      Collection adminMembership = membershipHandler.findMembershipsByUserAndGroup(userId,userACL.getAdminGroups());
-      if (adminMembership != null && !adminMembership.isEmpty()) {
-        return true;
-      }
-      return false;
+      return state.getIdentity().isMemberOf(userACL.getAdminGroups());
     } catch (Exception e) {
       return false;
     }
