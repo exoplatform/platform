@@ -26,7 +26,7 @@
   <msg name="forums.statistic.total.topic">Celkem témat:</msg>
   <msg name="forums.statistic.total.post">Celkem příspěvků:</msg>
   <msg name="forums.statistic.total.member">Celkem členů:</msg>
-  <msg name="forums.statistic.active.member">Recently Active Members:</msg>
+  <msg name="forums.statistic.active.member">Nedávno aktivní členové:</msg>
   <msg name="forums.statistic.maximum.user">Maximální počet uživatelů online:</msg>  
   <msg name="forums.statistic.at">jako</msg>  
   <msg name="forums.weekly.statistic.title">Týdenní statistiky fóra</msg>
