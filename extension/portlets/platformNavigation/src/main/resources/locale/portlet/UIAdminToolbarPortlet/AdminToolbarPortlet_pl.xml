@@ -5,7 +5,7 @@
          <AddPage>Add Page</AddPage>
          <EditNavigation>Navigation</EditNavigation>
          <Content>Content</Content>
-         <Editor>Edytuj</Editor>
+         <Editor>Edit</Editor>
          <Page>Page</Page>
          <Site>Site</Site>
          <Layout>Edit Layout</Layout>
@@ -21,23 +21,23 @@
 
   <UISEOForm>
     <label>
-      <title>Tytuł:</title>  
+      <title>Title:</title>  
       <description>Description:</description>
-      <keywords>Słowa kluczowe:</keywords>
-      <language>Język:</language>
-      <robots>Roboty:</robots>
-      <sitemap>Mapa strony:</sitemap>
+      <keywords>Keywords:</keywords>
+      <language>Language:</language>
+      <robots>Robots:</robots>
+      <sitemap>Sitemap:</sitemap>
       <sitemapvisible>Visible in sitemap</sitemapvisible>
-  <isInherited>Dziedzicz ze strony nadrzędnej</isInherited>
-      <priority>Priorytet:</priority>
-      <frequency>Częstotliwość:</frequency>
+  <isInherited>Inherited from parent page</isInherited>
+      <priority>Priority:</priority>
+      <frequency>Frequency:</frequency>
       <select-language>Select Language</select-language>
       <option>
         <Always>Always</Always>
         <Hourly>Hourly</Hourly>
         <Daily>Daily</Daily>
-        <Weekly>Co tydzień</Weekly>
-        <Monthly>Co miesiąc</Monthly>
+        <Weekly>Weekly</Weekly>
+        <Monthly>Monthly</Monthly>
         <Yearly>Yearly</Yearly>
         <Never>Never</Never>
       </option> 
@@ -49,13 +49,13 @@
     </action>
     <msg>
       <repository-exception>An unexpected error occurred. Cannot save page metadata.</repository-exception>
-      <confirm-delete>Czy na pewno chcesz usunąć te dane SEO?</confirm-delete>
+      <confirm-delete>Are you sure you want to delete these SEO data?</confirm-delete>
     </msg>
     <title>
     <seo-delete>Delete</seo-delete>
     </title>
 <help> 
-  <priority>Prawidłowe wartości to od 0.0 do 1.0.</priority>
+  <priority>Valid values range from 0.0 to 1.0.</priority>
   <description>Help searchers: let them know that the following page has a link with what they are looking for.</description>
   <keywords>Most important terms in the page must be separated by a comma.</keywords>  
     </help>  
@@ -67,7 +67,7 @@
   </UISEOPopupWindow>    
   <UISEOToolbarForm>
   <title>
-      <seo>Zarządzanie SEO</seo>
+      <seo>SEO Management</seo>
   </title>
   <label>
     <seo>SEO</seo>

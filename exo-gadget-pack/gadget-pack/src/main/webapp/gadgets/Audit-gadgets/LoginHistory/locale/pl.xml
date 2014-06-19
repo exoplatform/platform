@@ -32,14 +32,14 @@
   <msg name="loginHistory.stats">Stats</msg>
   <msg name="loginHistory.history">History</msg>
   <msg name="loginHistory.global">Global</msg>
-  <msg name="loginHistory.week">Tydzień</msg>
+  <msg name="loginHistory.week">Week</msg>
   <msg name="loginHistory.lastLoginsView">Last Logins</msg>
   <msg name="loginHistory.historyView">History</msg>
   <msg name="loginHistory.statisticsView">Statistics</msg>
   <msg name="loginHistory.averagePerDay">Average logins / day</msg>
   <msg name="loginHistory.averagePerWeek">Average logins / week</msg>
   <msg name="loginHistory.averagePerMonth">Average logins / month</msg>
-  <msg name="loginHistory.today">Dzisiaj</msg>
+  <msg name="loginHistory.today">Today</msg>
   <msg name="loginHistory.earlierThisWeek">Earlier this week</msg>
   <msg name="loginHistory.earlierThisMonth">Earlier this month</msg>
   <msg name="loginHistory.earlier">Earlier</msg>
