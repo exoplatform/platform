@@ -20,20 +20,15 @@
 
 -->
 <messagebundle>
-  <msg name="title_memory">Paměť</msg>
-  <msg name="used">Použitá</msg>
-  <msg name="free">Volná</msg>
-  <msg name="total">Celkem</msg>
-  <msg name="heap">Paměť haldy</msg>
-  <msg name="non-heap">Ostatní paměť</msg>
-  <msg name="loading">Nahrávám data ...</msg>
-  <msg name="title_caches">Úrovně cache</msg>
-  <msg name="consumption">Spotřeba</msg>
-  <msg name="hit_ratio">Poměr přístupů</msg>
-  <msg name="details">Podrobnosti</msg>
-  <msg name="hit">Hit</msg>
-  <msg name="miss">Miss</msg>
-  <msg name="full">plná</msg>
-  <msg name="max_size">Maximální velikost</msg>
-  <msg name="time_to_live">Doba uchování v cache (TTL)</msg>
+  <msg name="title_templates">Στατιστικά προτύπων</msg>
+  <msg name="ten_slowest_templates">Τα 10 πιο αργά πρότυπα</msg>
+  <msg name="all_templates">Όλα τα πρότυπα</msg>
+  <msg name="title_apps">Στατιστικά εφαρμογών</msg>
+  <msg name="ten_slowest_apps">Οι 10 πιο αργές εφαρμογές</msg>
+  <msg name="all_apps">Όλες οι εφαρμογές</msg>
+  <msg name="avg_exec_time">Μέσος χρόνος εκτέλεσης (σε ms)</msg>
+  <msg name="min">Ελάχιστο</msg>
+  <msg name="max">Μέγιστο</msg>
+  <msg name="exec">#exec</msg>
+  <msg name="loading">Φόρτωση δεδομένων...</msg>
 </messagebundle>

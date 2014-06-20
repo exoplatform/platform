@@ -20,20 +20,15 @@
 
 -->
 <messagebundle>
-  <msg name="title_memory">Paměť</msg>
-  <msg name="used">Použitá</msg>
-  <msg name="free">Volná</msg>
-  <msg name="total">Celkem</msg>
-  <msg name="heap">Paměť haldy</msg>
-  <msg name="non-heap">Ostatní paměť</msg>
-  <msg name="loading">Nahrávám data ...</msg>
-  <msg name="title_caches">Úrovně cache</msg>
-  <msg name="consumption">Spotřeba</msg>
-  <msg name="hit_ratio">Poměr přístupů</msg>
-  <msg name="details">Podrobnosti</msg>
-  <msg name="hit">Hit</msg>
-  <msg name="miss">Miss</msg>
-  <msg name="full">plná</msg>
-  <msg name="max_size">Maximální velikost</msg>
-  <msg name="time_to_live">Doba uchování v cache (TTL)</msg>
+  <msg name="title_templates">Thống kê các mẫu</msg>
+  <msg name="ten_slowest_templates">10 mẫu chậm nhất</msg>
+  <msg name="all_templates">Tất cả</msg>
+  <msg name="title_apps">Thống kê các ứng dụng</msg>
+  <msg name="ten_slowest_apps">10 ứng dụng chậm nhất</msg>
+  <msg name="all_apps">Tất cả</msg>
+  <msg name="avg_exec_time">Thời gian trung bình (ms)</msg>
+  <msg name="min">tối thiểu</msg>
+  <msg name="max">tối đa</msg>
+  <msg name="exec">số lần</msg>
+  <msg name="loading">Đang tải dữ liệu ...</msg>
 </messagebundle>
