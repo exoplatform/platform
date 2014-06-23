@@ -20,6 +20,10 @@
 
 -->
 <messagebundle>
-  <msg name="title">10 slowest templates</msg>
-  <msg name="title-all">All templates statistics</msg>
+  <msg name="title">Favorite Documents</msg>
+  <msg name="titleFav">My Favorites</msg>
+  <msg name="titleDoc">My Documents</msg>  
+  <msg name="nofav">You have no favorite document</msg>
+  <msg name="nodoc">You have no document</msg>
+  <msg name="showall">Show All</msg>
 </messagebundle>

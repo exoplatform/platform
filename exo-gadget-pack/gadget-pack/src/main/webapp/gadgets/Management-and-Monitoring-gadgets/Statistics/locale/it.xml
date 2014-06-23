@@ -1,4 +1,4 @@
-﻿<?xml version='1.0' encoding='UTF-8'?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!--
 
     Copyright (C) 2009 eXo Platform SAS.
@@ -19,8 +19,7 @@
     02110-1301 USA, or see the FSF site: http://www.fsf.org.
 
 -->
-
 <messagebundle>
-  <msg name="title"> 10 template più lenti</msg>
-  <msg name="title-all">Statistiche di tutti i template</msg>
+  <msg name="title">10 slowest templates</msg>
+  <msg name="title-all">All templates statistics</msg>
 </messagebundle>

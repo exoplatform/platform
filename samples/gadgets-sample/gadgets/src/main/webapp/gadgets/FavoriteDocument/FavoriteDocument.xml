@@ -26,6 +26,7 @@
     <Locale lang="uk" messages="locale/uk.xml"/>
     <Locale lang="no" messages="locale/no.xml"/>
     <Locale lang="el" messages="locale/el.xml"/>
+    <Locale lang="pl" messages="locale/pl.xml"/>
     <Require feature="opensocial-0.8" />
     <Require feature="dynamic-height"/>
   </ModulePrefs>

@@ -19,7 +19,17 @@
     02110-1301 USA, or see the FSF site: http://www.fsf.org.
 
 -->
-<messagebundle>
-  <msg name="title">10 slowest templates</msg>
-  <msg name="title-all">All templates statistics</msg>
-</messagebundle>
+<bundle>
+<Product>
+<dialog>
+<label>
+<name>Name</name>
+<title>Title</title>
+<illustrationImage>Illustration Image</illustrationImage>
+<summary>Summary</summary>
+<benefits>Benefits</benefits>
+<features>Features</features>
+</label>
+</dialog>
+</Product>
+</bundle>
