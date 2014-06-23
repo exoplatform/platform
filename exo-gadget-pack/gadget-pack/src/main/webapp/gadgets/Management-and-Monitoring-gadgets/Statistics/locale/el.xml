@@ -20,6 +20,6 @@
 
 -->
 <messagebundle>
-  <msg name="title">10 slowest templates</msg>
-  <msg name="title-all">All templates statistics</msg>
+  <msg name="title">Τα 10 πιο αργά πρότυπα</msg>
+  <msg name="title-all">Στατιστικά στοιχεία προτύπων</msg>
 </messagebundle>
