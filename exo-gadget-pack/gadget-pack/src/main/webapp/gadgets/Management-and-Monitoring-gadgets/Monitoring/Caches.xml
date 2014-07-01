@@ -10,6 +10,28 @@
     <Require feature="tabs" />
     <Require feature="setprefs" />
     <Locale messages="locale/default.xml" />
+    <Locale lang="fr" messages="locale/fr.xml" />
+    <Locale lang="es_ES" messages="locale/es_ES.xml" />
+    <Locale lang="vi" messages="locale/vi.xml" />
+    <Locale lang="sv_SE" messages="locale/sv_SE.xml"/>
+    <Locale lang="ja" messages="locale/ja.xml"/>
+    <Locale lang="ar" messages="locale/ar.xml"/>
+    <Locale lang="de" messages="locale/de.xml"/>
+    <Locale lang="pt_BR" messages="locale/pt_BR.xml"/>
+    <Locale lang="it" messages="locale/it.xml"/>
+    <Locale lang="ru" messages="locale/ru.xml"/>
+    <Locale lang="tr" messages="locale/tr.xml"/>
+    <Locale lang="zh_CN" messages="locale/zh_CN.xml"/>
+    <Locale lang="zh_TW" messages="locale/zh_TW.xml"/>
+    <Locale lang="lt" messages="locale/lt.xml"/>
+    <Locale lang="cs" messages="locale/cs.xml"/>
+    <Locale lang="uk" messages="locale/uk.xml"/>
+    <Locale lang="no" messages="locale/no.xml"/>
+    <Locale lang="el" messages="locale/el.xml"/>
+    <Locale lang="pl" messages="locale/pl.xml"/>
+    <Locale lang="fa" messages="locale/fa.xml"/>
+    <Locale lang="ro" messages="locale/ro.xml"/>
+    <Locale lang="ca" messages="locale/ca.xml"/>
   </ModulePrefs>
   <Content type="html">
     <![CDATA[ 
