@@ -33,6 +33,7 @@ import org.exoplatform.social.core.space.SpaceException;
 import org.exoplatform.social.core.space.SpaceUtils;
 import org.exoplatform.social.core.space.model.Space;
 import org.exoplatform.social.core.space.spi.SpaceService;
+import org.exoplatform.social.webui.Utils;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.core.UIPageIterator;
 import org.exoplatform.webui.core.UIPortletApplication;
@@ -55,17 +56,19 @@ public class UISpaceSummaryInfoPortlet extends UIPortletApplication {
   private List<User> administratorsList = null;
   private final UIPageIterator iteratorAdministrators;
   private static final Log LOG = ExoLogger.getLogger(UISpaceSummaryInfoPortlet.class);
+  private String spaceUrl;
 
   public UISpaceSummaryInfoPortlet() throws Exception {
     iteratorAdministrators = createUIComponent(UIPageIterator.class, null, ITERATOR_ADMINISTRATORS_ID);
     addChild(iteratorAdministrators);
     SpaceService spaceService = getSpaceService();
-    Space space = spaceService.getSpaceByUrl(SpaceUtils.getSpaceUrl());
+    spaceUrl = Utils.getSpaceUrlByContext();
+    Space space = spaceService.getSpaceByUrl(spaceUrl);
     if (space != null) {
       isSpace = true;
     }else{
       if(LOG.isDebugEnabled()){
-        LOG.debug("Can not add the portlet to this page navigation.\nSPACE_URL preference could not be set.");
+        LOG.debug("Can not add the portlet to this page navigation.");
       }
     }
   }
@@ -77,7 +80,7 @@ public class UISpaceSummaryInfoPortlet extends UIPortletApplication {
    */
   public String getSpaceDisplayName() {
     SpaceService spaceService = getSpaceService();
-    Space space = spaceService.getSpaceByUrl(SpaceUtils.getSpaceUrl());
+    Space space = spaceService.getSpaceByUrl(spaceUrl);
     if (space != null) {
       return space.getDisplayName();
     } else {
@@ -92,7 +95,7 @@ public class UISpaceSummaryInfoPortlet extends UIPortletApplication {
    */
   public String getSpaceDescription() {
     SpaceService spaceService = getSpaceService();
-    Space space = spaceService.getSpaceByUrl(SpaceUtils.getSpaceUrl());
+    Space space = spaceService.getSpaceByUrl(spaceUrl);
     if (space != null) {
       return space.getDescription();
     } else {
@@ -124,7 +127,7 @@ public class UISpaceSummaryInfoPortlet extends UIPortletApplication {
    */
   public int getSpaceMembersNumber() throws SpaceException {
     SpaceService spaceService = getSpaceService();
-    Space space = spaceService.getSpaceByUrl(SpaceUtils.getSpaceUrl());
+    Space space = spaceService.getSpaceByUrl(spaceUrl);
     if(space != null){
       return SpaceUtils.countMembers(space);
     }else{
@@ -139,7 +142,7 @@ public class UISpaceSummaryInfoPortlet extends UIPortletApplication {
    */
   public String getSpaceFullURL() {
     SpaceService spaceService = getSpaceService();
-    Space space = spaceService.getSpaceByUrl(SpaceUtils.getSpaceUrl());
+    Space space = spaceService.getSpaceByUrl(spaceUrl);
     if(space != null){
       return Util.getPortalRequestContext().getPortalURI() + space.getUrl();
     }else{
@@ -197,7 +200,7 @@ public class UISpaceSummaryInfoPortlet extends UIPortletApplication {
    */
   public void initAdministrators() throws Exception {
     SpaceService spaceService = getSpaceService();
-    Space space = spaceService.getSpaceByUrl(SpaceUtils.getSpaceUrl());
+    Space space = spaceService.getSpaceByUrl(spaceUrl);
     administratorsList = new ArrayList<User>();
     OrganizationService orgSrc = getApplicationComponent(OrganizationService.class);
     UserHandler userHandler = orgSrc.getUserHandler();

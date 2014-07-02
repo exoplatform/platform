@@ -53,6 +53,12 @@
       <version>${org.exoplatform.social.version}</version>
       <scope>provided</scope>
     </dependency>
+    <dependency>
+      <groupId>org.exoplatform.social</groupId>
+      <artifactId>exo.social.component.webui</artifactId>
+      <version>${org.exoplatform.social.version}</version>
+      <scope>provided</scope>
+    </dependency>
     </dependencies>
   <build>
     <finalName>acme-intranet-portlet</finalName>
