@@ -26,7 +26,7 @@
   <msg name="total">Total</msg>
   <msg name="heap">Mémoire Heap</msg>
   <msg name="non-heap">Mémoire Non-heap</msg>
-  <msg name="loading">Loading data ...</msg>
+  <msg name="loading">En cours de chargement des données ...</msg>
   <msg name="title_caches">Cache Levels</msg>
   <msg name="consumption">Consumption</msg>
   <msg name="hit_ratio">Hit ratio</msg>
