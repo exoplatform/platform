@@ -75,9 +75,9 @@
 
           
           $("#connections_requests_nb").html("(0)");
-          $("#connections_requests_handler").html("<div class='light_message'>__MSG_no_new_contact__</div>");
+          $("#connections_requests_handler").html("<tbody><tr><td class='light_message'>__MSG_no_new_contact__</td></tr></tbody>");
           $("#space_requests_nb").html("(0)");;
-          $("#space_requests_handler").html("<div class='light_message'>__MSG_no_new_space__</div>");
+          $("#space_requests_handler").html("<tbody><tr><td class='light_message'>__MSG_no_new_space__</td></tr></tbody>");
           showPeople();
                     
           //
