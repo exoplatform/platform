@@ -89,7 +89,7 @@
                                  <string>wiki</string>
                               </field>
                               <field name="portletName">
-                                 <string>WikiPortlet</string>
+                                 <string>wiki</string>
                               </field>
                               <field name="appTitle">
                                  <string>Wiki</string>

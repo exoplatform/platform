@@ -975,7 +975,7 @@
          <portlet-application>
             <portlet>
                <application-ref>wiki</application-ref>
-               <portlet-ref>WikiPortlet</portlet-ref>
+               <portlet-ref>wiki</portlet-ref>
             </portlet>
             <title>Wiki Portlet</title>
             <access-permissions>Everyone</access-permissions>
