@@ -20,6 +20,6 @@
 
 -->
 <messagebundle>
-  <msg name="title">10 slowest templates</msg>
-  <msg name="title-all">All templates statistics</msg>
+  <msg name="title">Les 10 templates les plus lents</msg>
+  <msg name="title-all">Statistiques de tous les templates</msg>
 </messagebundle>

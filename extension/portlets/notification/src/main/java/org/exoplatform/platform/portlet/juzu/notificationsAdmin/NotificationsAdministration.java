@@ -142,7 +142,7 @@ public class NotificationsAdministration {
     data.set("name", name);
     data.set("email",email);
     if(name != null && name.length() > 0
-         && isValidEmailAddresses(email)) {
+         && NotificationUtils.isValidEmailAddresses(email)) {
       settingService.set(org.exoplatform.commons.api.settings.data.Context.GLOBAL, Scope.GLOBAL, NotificationPluginUtils.NOTIFICATION_SENDER_NAME, SettingValue.create(name));
       settingService.set(org.exoplatform.commons.api.settings.data.Context.GLOBAL, Scope.GLOBAL, NotificationPluginUtils.NOTIFICATION_SENDER_EMAIL, SettingValue.create(email));
       data.set("status","OK");
@@ -151,24 +151,6 @@ public class NotificationsAdministration {
     }
     
     return Response.ok(data.toString()).withMimeType("application/json");
-  }
-  
-  public static boolean isValidEmailAddresses(String addressList){
-    if (addressList == null || addressList.trim().length() == 0)
-      return false;
-    addressList = StringUtils.remove(addressList, " ");
-    addressList = StringUtils.replace(addressList, ";", ",");
-    try {
-      InternetAddress[] iAdds = InternetAddress.parse(addressList, true);
-      String emailRegex = "[_A-Za-z0-9-]+(\\.[_A-Za-z0-9-]+)*@[_A-Za-z0-9-.]+\\.[A-Za-z]{2,5}";
-      for (int i = 0; i < iAdds.length; i++) {
-        if (!iAdds[i].getAddress().matches(emailRegex))
-          return false;
-      }
-    } catch (AddressException e) {
-      return false;
-    }
-    return true;
   }
   
   public class Context {
