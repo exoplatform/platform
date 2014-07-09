@@ -36,6 +36,8 @@ import org.exoplatform.container.ExoContainerContext;
 import org.exoplatform.forum.service.ForumService;
 import org.exoplatform.services.log.ExoLogger;
 import org.exoplatform.services.log.Log;
+import org.exoplatform.services.organization.OrganizationService;
+import org.exoplatform.services.organization.User;
 import org.exoplatform.services.rest.impl.RuntimeDelegateImpl;
 import org.exoplatform.services.rest.resource.ResourceContainer;
 import org.exoplatform.social.common.RealtimeListAccess;
@@ -134,20 +136,25 @@ public class OnlineRestService implements ResourceContainer {
 			}
 			
 			ForumService forumService = (ForumService)ExoContainerContext.getCurrentContainer().getComponentInstanceOfType(ForumService.class);
+			OrganizationService organizationService = (OrganizationService)ExoContainerContext.getCurrentContainer().getComponentInstanceOfType(OrganizationService.class);
 			List<String> users = forumService.getOnlineUsers();
-			List<Object> profiles = new ArrayList<Object>(users.size());
+			List<Object> profiles = new ArrayList<Object>();
 			
 			for(String userId : users) {
 				if(userId.equals(viewerId)) {
 					continue;
 				}
-				ContactBean contactBean = new ContactBean();
-				contactBean.setId(userId);
-				contactBean.setFullName(forumService.getUserInfo(userId).getFullName());
-				String profileLink = LinkProvider.getProfileLink(userId);
-				contactBean.setProfileLink(profileLink);
-				
-				profiles.add(contactBean);
+				//check if user existed
+				User user = organizationService.getUserHandler().findUserByName(userId);
+				if(user !=null){
+  				ContactBean contactBean = new ContactBean();
+  				contactBean.setId(userId);
+  				contactBean.setFullName(user.getFullName());
+  				String profileLink = LinkProvider.getProfileLink(userId);
+  				contactBean.setProfileLink(profileLink);
+  				
+  				profiles.add(contactBean);
+				}
 			}
 			MessageBean data = new MessageBean();
 			data.setData(profiles);
