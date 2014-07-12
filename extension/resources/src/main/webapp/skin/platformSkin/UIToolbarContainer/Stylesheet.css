@@ -549,3 +549,7 @@
 .UIToolbarContainer .MenuItemContainer .MenuItem .SEOMenuItem{
 	height:24px;
 }
+
+.UIHorizontalTabs .UITab {
+    cursor: default;
+}
