@@ -47,4 +47,5 @@
   <msg name="loginHistory.unknow">Desconhecido</msg>
   <msg name="loginHistory.next">Próximo</msg>
   <msg name="loginHistory.ago">Atrás</msg>
+  <msg name="loginHistory.search_user">Search user</msg>
 </messagebundle>
