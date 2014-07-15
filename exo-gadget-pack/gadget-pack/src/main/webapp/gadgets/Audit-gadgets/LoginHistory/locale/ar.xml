@@ -47,4 +47,5 @@
   <msg name="loginHistory.unknow">مجهول</msg>
   <msg name="loginHistory.next">الموالي</msg>
   <msg name="loginHistory.ago">منذ</msg>
+  <msg name="loginHistory.search_user">Search user</msg>
 </messagebundle>
