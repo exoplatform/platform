@@ -3,6 +3,18 @@
    xsi:schemaLocation="http://www.exoplatform.org/xml/ns/kernel_1_2.xsd http://www.exoplatform.org/xml/ns/kernel_1_2.xsd"
    xmlns="http://www.exoplatform.org/xml/ns/kernel_1_2.xsd">
 
+   <!-- PLF-4469 : configuration.properties must be loaded from classpath to get default settings -->
+   <component>
+     <key>org.exoplatform.container.PropertyConfigurator</key>
+     <type>org.exoplatform.container.PropertyConfigurator</type>
+     <init-params>
+       <value-param>
+         <name>properties.url</name>
+         <value>jar:/conf/platform/configuration.properties</value>
+       </value-param>
+     </init-params>
+   </component>
+
   <!-- PLF-4469 : Load user configuration from ${gatein.conf.dir}/exo.properties if it exists -->
   <component>
     <key>org.exoplatform.platform.common.container.ExtendedPropertyConfigurator</key>
@@ -39,10 +51,6 @@
       <object-param>
         <name>default.portal.definition</name>
         <object type="org.exoplatform.container.definition.PortalContainerDefinition">
-          <!-- The path to the external properties file -->
-          <field name="externalSettingsPath">
-            <string>configuration.properties</string>
-          </field>
           <field name="dependencies">
             <collection type="java.util.ArrayList">
                <!-- gatein -->
