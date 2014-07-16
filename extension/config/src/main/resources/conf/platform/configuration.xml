@@ -3,6 +3,18 @@
    xsi:schemaLocation="http://www.exoplatform.org/xml/ns/kernel_1_2.xsd http://www.exoplatform.org/xml/ns/kernel_1_2.xsd"
    xmlns="http://www.exoplatform.org/xml/ns/kernel_1_2.xsd">
 
+  <!-- PLF-4469 : Load user configuration from ${gatein.conf.dir}/exo.properties if it exists -->
+  <component>
+    <key>org.exoplatform.platform.common.container.ExtendedPropertyConfigurator</key>
+    <type>org.exoplatform.platform.common.container.ExtendedPropertyConfigurator</type>
+    <init-params>
+      <values-param>
+        <name>properties.urls</name>
+        <value>file:${gatein.conf.dir}/exo.properties</value>
+      </values-param>
+    </init-params>
+  </component>
+
   <!-- This declares the default portal container for Platform -->
   <component>
     <type>org.exoplatform.container.definition.PortalContainerConfig</type>
