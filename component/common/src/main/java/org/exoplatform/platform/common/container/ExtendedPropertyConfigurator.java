@@ -29,6 +29,7 @@ import org.exoplatform.container.xml.ValuesParam;
 import org.exoplatform.services.log.ExoLogger;
 import org.exoplatform.services.log.Log;
 
+import java.io.FileNotFoundException;
 import java.net.URL;
 import java.util.Iterator;
 import java.util.Map;
@@ -43,7 +44,7 @@ import org.picocontainer.Startable;
  * {@code
  * <component>
  *   <key>ExtendedPropertyConfigurator</key>
- *   <returnType>org.exoplatform.platform.container.ExtendedPropertyConfigurator</returnType>
+ *   <type>org.exoplatform.platform.common.container.ExtendedPropertyConfigurator</type>
  *   <init-params>
  *     <properties-param>
  *      <name>properties</name>
@@ -60,8 +61,10 @@ import org.picocontainer.Startable;
  * </pre>
  *
  * Note that <i>properties</i> and <i>properties.url</i> optional and can be omitted.
+ * Note that if a path in <i>properties.url</i> doesn't exist it will be skipped with an info message
  *
  * @author pnedonosko
+ * @author aheritier
  *
  */
 public class ExtendedPropertyConfigurator implements Startable {
@@ -110,6 +113,9 @@ public class ExtendedPropertyConfigurator implements Startable {
           URL url = null;
           try {
             url = confManager.getURL(path);
+            // Test if the Url is available before going further
+            // We don't want an error reported by ContainerUtil.loadProperties when it doesn't exist
+            url.openStream().close();
             LOG.info("Using property file " + url + " to set configuration properties.");
             Map<String, String> props = ContainerUtil.loadProperties(url);
             if (props != null) {
@@ -119,6 +125,8 @@ public class ExtendedPropertyConfigurator implements Startable {
                 PropertyManager.setProperty(propertyName, propertyValue);
               }
             }
+          } catch (FileNotFoundException fne) {
+            LOG.info("Configuration file " + path + " doesn't exist");
           } catch (Exception e) {
             LOG.error("Cannot load extension property file " + path
                 + (url != null ? " resolved as " + url : ""), e);
