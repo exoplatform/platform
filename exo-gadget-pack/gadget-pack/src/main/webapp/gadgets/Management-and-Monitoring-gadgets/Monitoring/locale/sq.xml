@@ -21,19 +21,19 @@
 -->
 <messagebundle>
   <msg name="title_memory">crwdns6785704:0crwdne6785704:0</msg>
-  <msg name="used">Used</msg>
-  <msg name="free">Free</msg>
-  <msg name="total">Total</msg>
-  <msg name="heap">Heap memory</msg>
-  <msg name="non-heap">Non-heap memory</msg>
-  <msg name="loading">Loading data ...</msg>
-  <msg name="title_caches">Cache Levels</msg>
-  <msg name="consumption">Consumption</msg>
-  <msg name="hit_ratio">Hit ratio</msg>
-  <msg name="details">Details</msg>
-  <msg name="hit">Hit</msg>
-  <msg name="miss">Miss</msg>
-  <msg name="full">full</msg>
-  <msg name="max_size">Max size</msg>
-  <msg name="time_to_live">Time to live</msg>
+  <msg name="used">crwdns6796320:0crwdne6796320:0</msg>
+  <msg name="free">crwdns6796321:0crwdne6796321:0</msg>
+  <msg name="total">crwdns6796322:0crwdne6796322:0</msg>
+  <msg name="heap">crwdns6796323:0crwdne6796323:0</msg>
+  <msg name="non-heap">crwdns6796324:0crwdne6796324:0</msg>
+  <msg name="loading">crwdns6796325:0crwdne6796325:0</msg>
+  <msg name="title_caches">crwdns6796326:0crwdne6796326:0</msg>
+  <msg name="consumption">crwdns6796327:0crwdne6796327:0</msg>
+  <msg name="hit_ratio">crwdns6796328:0crwdne6796328:0</msg>
+  <msg name="details">crwdns6796329:0crwdne6796329:0</msg>
+  <msg name="hit">crwdns6796330:0crwdne6796330:0</msg>
+  <msg name="miss">crwdns6796331:0crwdne6796331:0</msg>
+  <msg name="full">crwdns6796332:0crwdne6796332:0</msg>
+  <msg name="max_size">crwdns6796333:0crwdne6796333:0</msg>
+  <msg name="time_to_live">crwdns6796334:0crwdne6796334:0</msg>
 </messagebundle>
