@@ -32,20 +32,20 @@
          <properties-param >
             <name>properties</name>
             <description>Filter used to notify caches</description>
-            <property name="gatein.jcr.cache.config" value="file:${gatein.conf.dir}/jcr/jbosscache/local/cache-config.xml" />
-            <property name="gatein.jcr.cache.config.workspace.portal-system" value="file:${gatein.conf.dir}/jcr/jbosscache/local/config_portal-system.xml" />
-            <property name="gatein.jcr.lock.cache.config" value="file:${gatein.conf.dir}/jcr/jbosscache/local/lock-config.xml" />
-            <property name="gatein.jcr.index.cache.config" value="file:${gatein.conf.dir}/jcr/jbosscache/local/indexer-config.xml" />
-            <property name="exo.cache.config.template" value="file:${gatein.conf.dir}/cache/jbosscache/local/cache-config.xml" />
+            <property name="gatein.jcr.cache.config" value="jar:/conf/platform/jcr/jbosscache/local/cache-config.xml" />
+            <property name="gatein.jcr.cache.config.workspace.portal-system" value="jar:/conf/platform/jcr/jbosscache/local/config_portal-system.xml" />
+            <property name="gatein.jcr.lock.cache.config" value="jar:/conf/platform/jcr/jbosscache/local/lock-config.xml" />
+            <property name="gatein.jcr.index.cache.config" value="jar:/conf/platform/jcr/jbosscache/local/indexer-config.xml" />
+            <property name="exo.cache.config.template" value="jar:/conf/platform/cache/jbosscache/local/cache-config.xml" />
          </properties-param>
          <properties-param profiles="cluster,cluster-index-local">
             <name>properties</name>
             <description>Filter used to notify caches</description>
-            <property name="gatein.jcr.cache.config" value="file:${gatein.conf.dir}/jcr/jbosscache/cluster/cache-config.xml" />
-            <property name="gatein.jcr.cache.config.workspace.portal-system" value="file:${gatein.conf.dir}/jcr/jbosscache/cluster/config_portal-system.xml" />
-            <property name="gatein.jcr.lock.cache.config" value="file:${gatein.conf.dir}/jcr/jbosscache/cluster/lock-config.xml" />
-            <property name="gatein.jcr.index.cache.config" value="file:${gatein.conf.dir}/jcr/jbosscache/cluster/indexer-config.xml" />
-            <property name="exo.cache.config.template" value="file:${gatein.conf.dir}/cache/jbosscache/cluster/cache-config.xml" />
+            <property name="gatein.jcr.cache.config" value="jar:/conf/platform/jcr/jbosscache/cluster/cache-config.xml" />
+            <property name="gatein.jcr.cache.config.workspace.portal-system" value="jar:/conf/platform/jcr/jbosscache/cluster/config_portal-system.xml" />
+            <property name="gatein.jcr.lock.cache.config" value="jar:/conf/platform/jcr/jbosscache/cluster/lock-config.xml" />
+            <property name="gatein.jcr.index.cache.config" value="jar:/conf/platform/jcr/jbosscache/cluster/indexer-config.xml" />
+            <property name="exo.cache.config.template" value="jar:/conf/platform/cache/jbosscache/cluster/cache-config.xml" />
          </properties-param>
       </init-params>
    </component>
