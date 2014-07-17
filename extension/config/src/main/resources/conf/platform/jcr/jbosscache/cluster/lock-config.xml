@@ -20,13 +20,14 @@
 -->
 <jbosscache xmlns="urn:jboss:jbosscache-core:config:3.1">
 
-  <jmxStatistics enabled="${gatein.jgroups.jmxstatistics.enable:true}" />
+  <jmxStatistics enabled="${gatein.jgroups.jmxstatistics.enable}" />
 
   <locking useLockStriping="false" concurrencyLevel="64" lockParentForChildInsertRemove="false" lockAcquisitionTimeout="20000" />
 
-  <clustering mode="replication" clusterName="${jboss.partition.name:DefaultPartition}-${jbosscache-cluster-name}">
+  <clustering mode="replication" clusterName="${jboss.partition.name}-${jbosscache-cluster-name}">
     <stateRetrieval timeout="20000" fetchInMemoryState="false" />
-    <sync />
+    <jgroupsConfig configFile="${gatein.jgroups.config}" />
+    <sync replTimeout="${cache.cluster.jcr.lock.replication.timeout}" />
   </clustering>
 
   <loaders passivation="false" shared="true">

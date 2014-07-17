@@ -20,12 +20,12 @@
 -->
 <jbosscache xmlns="urn:jboss:jbosscache-core:config:3.1">
 
-  <jmxStatistics enabled="${gatein.jgroups.jmxstatistics.enable:true}" />
+  <jmxStatistics enabled="${gatein.jgroups.jmxstatistics.enable}" />
 
   <clustering mode="replication" clusterName="exo-cache-cluster">
     <stateRetrieval timeout="20000" fetchInMemoryState="false" />
-    <sync replTimeout="60000" />
     <jgroupsConfig configFile="${gatein.jgroups.config}" />
+    <sync replTimeout="${cache.cluster.replication.timeout}" />
   </clustering>
 
 </jbosscache>
