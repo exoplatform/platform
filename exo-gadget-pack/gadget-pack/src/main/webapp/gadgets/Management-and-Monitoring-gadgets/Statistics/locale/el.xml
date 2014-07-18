@@ -20,15 +20,15 @@
 
 -->
 <messagebundle>
-  <msg name="title_templates">Template Statistics</msg>
-  <msg name="ten_slowest_templates">10 slowest templates</msg>
-  <msg name="all_templates">All templates</msg>
-  <msg name="title_apps">Application Statistics</msg>
-  <msg name="ten_slowest_apps">10 slowest applications</msg>
-  <msg name="all_apps">All applications</msg>
-  <msg name="avg_exec_time">Average execution time (ms)</msg>
-  <msg name="min">min</msg>
-  <msg name="max">max</msg>
+  <msg name="title_templates">Στατιστικά προτύπων</msg>
+  <msg name="ten_slowest_templates">Τα 10 πιο αργά πρότυπα</msg>
+  <msg name="all_templates">Όλα τα πρότυπα</msg>
+  <msg name="title_apps">Στατιστικά εφαρμογών</msg>
+  <msg name="ten_slowest_apps">Οι 10 πιο αργές εφαρμογές</msg>
+  <msg name="all_apps">Όλες οι εφαρμογές</msg>
+  <msg name="avg_exec_time">Μέσος χρόνος εκτέλεσης (σε ms)</msg>
+  <msg name="min">Ελάχιστο</msg>
+  <msg name="max">Μέγιστο</msg>
   <msg name="exec">#exec</msg>
-  <msg name="loading">Loading data ...</msg>
+  <msg name="loading">Φόρτωση δεδομένων ...</msg>
 </messagebundle>
