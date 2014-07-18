@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+
+    Copyright (C) 2003-2014 eXo Platform SAS.
+
+    This is free software; you can redistribute it and/or modify it
+    under the terms of the GNU Lesser General Public License as
+    published by the Free Software Foundation; either version 3 of
+    the License, or (at your option) any later version.
+
+    This software is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+    Lesser General Public License for more details.
+
+    You should have received a copy of the GNU Lesser General Public
+    License along with this software; if not, write to the Free
+    Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
+    02110-1301 USA, or see the FSF site: http://www.fsf.org.
+
+-->
+<infinispan
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="urn:infinispan:config:5.1 http://www.infinispan.org/schemas/infinispan-config-5.1.xsd"
+    xmlns="urn:infinispan:config:5.1">
+  <global>
+    <globalJmxStatistics
+        enabled="true"
+        cacheManagerName="plidm"
+        jmxDomain="org.infinispan.plidm"
+        mBeanServerLookup="org.infinispan.jmx.PlatformMBeanServerLookup" />
+  </global>
+  <default>
+    <jmxStatistics enabled="true" />
+    <!-- JTA configuration. transactionManagerLookupClass will be configured programmatically to be:
+         - "org.infinispan.transaction.lookup.JBossTransactionManagerLookup" in JBoss AS environment
+         - "org.infinispan.transaction.lookup.JBossStandaloneJTAManagerLookup" in non-JBoss environment -->
+    <transaction transactionMode="TRANSACTIONAL" lockingMode="OPTIMISTIC" autoCommit="true" />
+    <invocationBatching enabled="true" />
+    <expiration lifespan="1800000" wakeUpInterval="5000" />
+    <eviction strategy="LRU" maxEntries="100000" />
+  </default>
+</infinispan>

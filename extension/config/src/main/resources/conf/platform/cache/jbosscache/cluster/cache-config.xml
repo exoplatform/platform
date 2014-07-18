@@ -22,7 +22,7 @@
   <jmxStatistics enabled="${gatein.jgroups.jmxstatistics.enable}" />
   <clustering mode="replication" clusterName="exo-cache-cluster">
     <stateRetrieval timeout="20000" fetchInMemoryState="false" />
-    <jgroupsConfig configFile="${gatein.jgroups.config}" />
+    <jgroupsConfig configFile="${jcr.jgroups.config}" />
     <sync replTimeout="${exo.cache.cluster.replication.timeout}" />
   </clustering>
 </jbosscache>

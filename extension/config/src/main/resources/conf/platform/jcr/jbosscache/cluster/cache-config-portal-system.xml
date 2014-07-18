@@ -23,7 +23,7 @@
   <locking useLockStriping="false" concurrencyLevel="64" lockParentForChildInsertRemove="false" lockAcquisitionTimeout="20000" />
   <clustering mode="replication" clusterName="${jboss.partition.name}-${jbosscache-cluster-name}">
     <stateRetrieval timeout="20000" fetchInMemoryState="false" />
-    <jgroupsConfig configFile="${gatein.jgroups.config}" />
+    <jgroupsConfig configFile="${jcr.jgroups.config}" />
     <sync replTimeout="${exo.cache.cluster.jcr.workspace.portalsystem.replication.timeout}" />
   </clustering>
   <!-- Eviction configuration -->

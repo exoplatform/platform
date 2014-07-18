@@ -19,7 +19,7 @@
 
 -->
 <config>
-  <!-- jgroups.tcp.start_port defines the start of the range of TCP ports the server should bind to.
+  <!-- jcr.jgroups.tcp.start_port defines the start of the range of TCP ports the server should bind to.
   The server socket is bound to the first available port from start_port.
   If no available port is found (e.g., because of a firewall) before the end_port, the server throws an exception.
   If no end_port is provided or end_port < start_port then there is no upper limit on the port range.
@@ -29,7 +29,7 @@
   because TCCPING requires listing the nodes and their corresponding ports. -->
   <TCP
       singleton_name="exo-transport-tcp"
-      start_port="${jgroups.tcp.start_port}"
+      start_port="${jcr.jgroups.tcp.start_port}"
       loopback="true"
       recv_buf_size="20000000"
       send_buf_size="640000"
@@ -56,13 +56,13 @@
       oob_thread_pool.queue_enabled="false"
       oob_thread_pool.queue_max_size="100"
       oob_thread_pool.rejection_policy="run" />
-  <!-- jgroups.tcpping.initial_hosts : Initial hosts in your cluster - Comma separated list of entries hostname[port]. ex : host1[7800],host2[8800],host3[9800] -->
-  <!-- jgroups.tcpping.num_initial_members : Initial number of hosts in your cluster -->
+  <!-- jcr.jgroups.tcp.tcpping.initial_hosts : Initial hosts in your cluster - Comma separated list of entries hostname[port]. ex : host1[7800],host2[8800],host3[9800] -->
+  <!-- jcr.jgroups.tcp.tcpping.num_initial_members : Initial number of hosts in your cluster -->
   <TCPPING
       timeout="3000"
-      initial_hosts="${jgroups.tcpping.initial_hosts}"
+      initial_hosts="${jcr.jgroups.tcp.tcpping.initial_hosts}"
       port_range="1"
-      num_initial_members="${jgroups.tcpping.num_initial_members}" />
+      num_initial_members="${jcr.jgroups.tcp.tcpping.num_initial_members}" />
   <MERGE2
       max_interval="100000"
       min_interval="20000" />
