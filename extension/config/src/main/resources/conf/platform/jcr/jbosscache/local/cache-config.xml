@@ -1,6 +1,6 @@
 <!--
 
-    Copyright (C) 2003-2013 eXo Platform SAS.
+    Copyright (C) 2003-2014 eXo Platform SAS.
 
     This is free software; you can redistribute it and/or modify it
     under the terms of the GNU Lesser General Public License as
@@ -19,20 +19,17 @@
 
 -->
 <jbosscache xmlns="urn:jboss:jbosscache-core:config:3.1">
-
   <jmxStatistics enabled="${gatein.jgroups.jmxstatistics.enable}" />
-
   <locking useLockStriping="false" concurrencyLevel="64" lockParentForChildInsertRemove="false" lockAcquisitionTimeout="20000" />
-
   <!-- Configure the TransactionManager -->
   <transaction transactionManagerLookupClass="org.jboss.cache.transaction.JBossStandaloneJTAManagerLookup" />
-
   <!-- Eviction configuration -->
   <eviction wakeUpInterval="5000">
-    <default algorithmClass="org.jboss.cache.eviction.FIFOAlgorithm" actionPolicyClass="org.exoplatform.services.jcr.impl.dataflow.persistent.jbosscache.ParentNodeEvictionActionPolicy" eventQueueSize="1000000">
+    <default algorithmClass="org.jboss.cache.eviction.FIFOAlgorithm"
+             actionPolicyClass="org.exoplatform.services.jcr.impl.dataflow.persistent.jbosscache.ParentNodeEvictionActionPolicy"
+             eventQueueSize="1000000">
       <property name="maxNodes" value="${gatein.jcr.cache.size}" />
       <property name="minTimeToLive" value="0" />
     </default>
   </eviction>
-
 </jbosscache>

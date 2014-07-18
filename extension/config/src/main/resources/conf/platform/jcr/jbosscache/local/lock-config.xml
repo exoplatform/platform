@@ -1,6 +1,6 @@
 <!--
 
-    Copyright (C) 2003-2013 eXo Platform SAS.
+    Copyright (C) 2003-2014 eXo Platform SAS.
 
     This is free software; you can redistribute it and/or modify it
     under the terms of the GNU Lesser General Public License as
@@ -19,16 +19,14 @@
 
 -->
 <jbosscache xmlns="urn:jboss:jbosscache-core:config:3.1">
-
   <jmxStatistics enabled="${gatein.jgroups.jmxstatistics.enable}" />
-
   <locking useLockStriping="false" concurrencyLevel="64" lockParentForChildInsertRemove="false" lockAcquisitionTimeout="20000" />
-
   <loaders passivation="false" shared="true">
     <preload>
       <node fqn="/" />
     </preload>
-    <loader class="org.exoplatform.services.jcr.impl.core.lock.jbosscache.JDBCCacheLoader" async="false" fetchPersistentState="false" ignoreModifications="false" purgeOnStartup="false">
+    <loader class="org.exoplatform.services.jcr.impl.core.lock.jbosscache.JDBCCacheLoader" async="false"
+            fetchPersistentState="false" ignoreModifications="false" purgeOnStartup="false">
       <properties>
         cache.jdbc.table.name=${jbosscache-cl-cache.jdbc.table.name}
         cache.jdbc.table.create=${jbosscache-cl-cache.jdbc.table.create}
