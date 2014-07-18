@@ -199,7 +199,7 @@
                   } else {
                     fillRatioUsageCssClass = "usage_ok";
                   }
-                  itemsCachesDetails.push('<span class="detail_value pull-right" data-placement="bottom" data-toggle="tooltip" data-original-title="Use / Free = ' + cache.capacityUsed + ' / ' + cache.capacityFree + '">');
+                  itemsCachesDetails.push('<span class="detail_value pull-right" data-placement="bottom" data-toggle="tooltip" data-original-title="__MSG_used__ / __MSG_free__ = ' + cache.capacityUsed + ' / ' + cache.capacityFree + '">');
                   itemsCachesDetails.push('<span class="'+fillRatioUsageCssClass+'">'+Math.round(cache.capacityUsedPercentage)+' %</span>');
                   itemsCachesDetails.push('&nbsp;__MSG_full__</span>');
                   itemsCachesDetails.push('</p>');
