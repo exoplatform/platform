@@ -23,23 +23,20 @@ import org.exoplatform.container.PropertyConfigurator;
 import org.exoplatform.container.configuration.ConfigurationManager;
 import org.exoplatform.container.util.ContainerUtil;
 import org.exoplatform.container.xml.InitParams;
-import org.exoplatform.container.xml.PropertiesParam;
-import org.exoplatform.container.xml.Property;
 import org.exoplatform.container.xml.ValuesParam;
 import org.exoplatform.services.log.ExoLogger;
 import org.exoplatform.services.log.Log;
 
 import java.io.FileNotFoundException;
 import java.net.URL;
-import java.util.Iterator;
 import java.util.Map;
 import org.picocontainer.Startable;
 
 /**
  * Allow set system properties.
- *
+ * <p/>
  * Example of configuration:
- *
+ * <p/>
  * <pre>
  * {@code
  * <component>
@@ -59,52 +56,29 @@ import org.picocontainer.Startable;
  * </component>
  * }
  * </pre>
- *
+ * <p/>
  * Note that <i>properties</i> and <i>properties.url</i> optional and can be omitted.
  * Note that if a path in <i>properties.url</i> doesn't exist it will be skipped with an info message
  *
  * @author pnedonosko
  * @author aheritier
- *
  */
-public class ExtendedPropertyConfigurator implements Startable {
+public class ExtendedPropertyConfigurator extends PropertyConfigurator implements Startable {
 
-  /** The logger. */
+  /**
+   * The logger.
+   */
   private static final Log LOG = ExoLogger.getExoLogger(ExtendedPropertyConfigurator.class);
 
   /**
-   * Constructor used by ExoContainer. It depends on {@link PropertyConfigurator} to let basic
-   * configuration to be loaded first.
+   * Constructor used by ExoContainer.
    *
    * @param {@link InitParams} params
    * @param {@link ConfigurationManager} confManager
-   * @param {@link PropertyConfigurator} basicConfigurator
    */
   public ExtendedPropertyConfigurator(InitParams params,
-                                      ConfigurationManager confManager,
-                                      PropertyConfigurator basicConfigurator) {
-
-    PropertiesParam propertiesParam = params.getPropertiesParam("properties");
-    if (propertiesParam != null) {
-      StringBuilder log = new StringBuilder();
-      for (Iterator<Property> i = propertiesParam.getPropertyIterator(); i.hasNext();) {
-        Property property = i.next();
-        String name = property.getName();
-        String value = property.getValue();
-        log.append('\t');
-        log.append(name);
-        log.append('=');
-        log.append(value);
-        log.append('\r');
-        log.append('\n');
-        PropertyManager.setProperty(name, value);
-      }
-      String msg = log.toString();
-      if (msg.length() > 0) {
-        LOG.info("Initialized properties from init param: \r\n" + msg);
-      }
-    }
-
+                                      ConfigurationManager confManager) {
+    super(params, confManager);
     ValuesParam exts = params.getValuesParam("properties.urls");
     if (exts != null) {
       for (Object val : exts.getValues()) {
@@ -129,7 +103,7 @@ public class ExtendedPropertyConfigurator implements Startable {
             LOG.info("Configuration file " + path + " doesn't exist");
           } catch (Exception e) {
             LOG.error("Cannot load extension property file " + path
-                + (url != null ? " resolved as " + url : ""), e);
+                          + (url != null ? " resolved as " + url : ""), e);
           }
         }
       }

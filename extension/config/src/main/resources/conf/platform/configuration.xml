@@ -3,26 +3,17 @@
    xsi:schemaLocation="http://www.exoplatform.org/xml/ns/kernel_1_2.xsd http://www.exoplatform.org/xml/ns/kernel_1_2.xsd"
    xmlns="http://www.exoplatform.org/xml/ns/kernel_1_2.xsd">
 
-   <!-- PLF-4469 : configuration.properties must be loaded from classpath to get default settings -->
-   <component>
-     <key>org.exoplatform.container.PropertyConfigurator</key>
-     <type>org.exoplatform.container.PropertyConfigurator</type>
-     <init-params>
-       <value-param>
-         <name>properties.url</name>
-         <value>jar:/conf/platform/configuration.properties</value>
-       </value-param>
-     </init-params>
-   </component>
-
-  <!-- PLF-4469 : Load user configuration from ${gatein.conf.dir}/exo.properties if it exists -->
+  <!-- PLF-4469 : Let's replace the PropertyConfigurator to be able to load optional files - without any error -->
   <component>
-    <key>org.exoplatform.platform.common.container.ExtendedPropertyConfigurator</key>
+    <key>org.exoplatform.container.PropertyConfigurator</key>
     <type>org.exoplatform.platform.common.container.ExtendedPropertyConfigurator</type>
     <init-params>
       <values-param>
         <name>properties.urls</name>
+        <!-- PLF-4469 : Load user configuration from ${gatein.conf.dir}/exo.properties if it exists -->
         <value>file:${gatein.conf.dir}/exo.properties</value>
+        <!-- PLF-4469 : configuration.properties must be loaded from classpath to get default settings -->
+        <value>jar:/conf/platform/configuration.properties</value>
       </values-param>
     </init-params>
   </component>
