@@ -24,7 +24,7 @@
   <clustering mode="replication" clusterName="${jboss.partition.name}-${jbosscache-cluster-name}">
     <stateRetrieval timeout="20000" fetchInMemoryState="false" />
     <jgroupsConfig configFile="${gatein.jgroups.config}" />
-    <sync replTimeout="${cache.cluster.jcr.replication.timeout}" />
+    <sync replTimeout="${exo.cache.cluster.jcr.replication.timeout}" />
   </clustering>
   <!-- Eviction configuration -->
   <eviction wakeUpInterval="5000">
