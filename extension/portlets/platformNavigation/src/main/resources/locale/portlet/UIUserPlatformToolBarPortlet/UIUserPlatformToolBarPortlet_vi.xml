@@ -2,7 +2,7 @@
 <bundle>
 <UIUserPlatformToolBarPortlet>
 <label>
-<NotificationSettingsPortlet>Notifications</NotificationSettingsPortlet>
+<NotificationSettingsPortlet>Thông báo</NotificationSettingsPortlet>
 <activities>Chuỗi Hoạt động</activities>
 <profile>Hồ sơ</profile>
 <network>Danh sách bạn bè</network>
