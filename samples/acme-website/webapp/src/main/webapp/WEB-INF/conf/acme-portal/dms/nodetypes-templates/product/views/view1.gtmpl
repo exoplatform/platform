@@ -10,7 +10,7 @@
         import javax.jcr.Session;
         import javax.portlet.PortletRequest;
         import org.exoplatform.ecm.webui.comparator.NodeNameComparator;
-        import org.exoplatform.ecm.webui.comparator.PropertyValueComparator;
+        import org.exoplatform.ecm.utils.comparator.PropertyValueComparator;
         import org.exoplatform.portal.webui.util.Util;
         import org.exoplatform.services.cms.folksonomy.NewFolksonomyService;
         import org.exoplatform.services.cms.taxonomy.TaxonomyService;
