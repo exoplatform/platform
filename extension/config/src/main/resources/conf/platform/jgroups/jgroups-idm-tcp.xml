@@ -20,11 +20,11 @@
 -->
 <config xmlns="urn:org:jgroups"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-        xsi:schemaLocation="urn:org:jgroups file:schema/JGroups-3.0.xsd">
+        xsi:schemaLocation="urn:org:jgroups http://www.jgroups.org/schema/JGroups-3.2.xsd">
   <TCP
       singleton_name="idm-transport-tcp"
-      bind_addr="${idm.jgroups.tcp.bind_addr}"
-      bind_port="${idm.jgroups.tcp.bind_port}"
+      bind_addr="${idm.jgroups.tcp.bind_addr:127.0.0.1}"
+      bind_port="${idm.jgroups.tcp.bind_port:7900}"
       port_range="30"
       loopback="true"
       recv_buf_size="20m"
@@ -62,11 +62,11 @@
        />
   -->
   <MPING
-      bind_addr="${idm.jgroups.tcp.bind_addr}"
+      bind_addr="${idm.jgroups.tcp.mping.bind_addr:127.0.0.1}"
       break_on_coord_rsp="true"
-      mcast_addr="${idm.jgroups.tcp.mping.mcast_addr}"
-      mcast_port="${idm.jgroups.tcp.mping.mcast_port}"
-      ip_ttl="${idm.jgroups.tcp.mping.ip_ttl}"
+      mcast_addr="${idm.jgroups.tcp.mping.mcast_addr:228.2.4.6}"
+      mcast_port="${idm.jgroups.tcp.mping.mcast_port:43366}"
+      ip_ttl="${idm.jgroups.tcp.mping.ip_ttl:2}"
       num_initial_members="3" />
   <MERGE2
       max_interval="30000"

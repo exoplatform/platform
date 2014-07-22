@@ -20,12 +20,12 @@
 -->
 <config xmlns="urn:org:jgroups"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-        xsi:schemaLocation="urn:org:jgroups file:schema/JGroups-3.0.xsd">
+        xsi:schemaLocation="urn:org:jgroups http://www.jgroups.org/schema/JGroups-3.2.xsd">
   <UDP
       singleton_name="idm-transport-udp"
-      bind_port="${idm.jgroups.udp.bind_port}"
-      mcast_addr="${idm.jgroups.udp.mcast_addr}"
-      mcast_port="${idm.jgroups.udp.mcast_port}"
+      bind_port="${idm.jgroups.udp.bind_port:56300}"
+      mcast_addr="${idm.jgroups.udp.mcast_addr:230.0.0.4}"
+      mcast_port="${idm.jgroups.udp.mcast_port:46700}"
       tos="8"
       ucast_recv_buf_size="20m"
       ucast_send_buf_size="640k"
@@ -35,11 +35,11 @@
       discard_incompatible_packets="true"
       max_bundle_size="64000"
       max_bundle_timeout="30"
-      ip_ttl="${idm.jgroups.udp.ip_ttl}"
+      ip_ttl="${idm.jgroups.udp.ip_ttl:2}"
       enable_bundling="true"
       enable_diagnostics="true"
-      diagnostics_addr="${idm.jgroups.udp.diagnostics_addr}"
-      diagnostics_port="${idm.jgroups.udp.diagnostics_port}"
+      diagnostics_addr="${idm.jgroups.udp.diagnostics_addr:224.0.75.75}"
+      diagnostics_port="${idm.jgroups.udp.diagnostics_port:7500}"
       thread_naming_pattern="pl"
       thread_pool.enabled="true"
       thread_pool.min_threads="20"

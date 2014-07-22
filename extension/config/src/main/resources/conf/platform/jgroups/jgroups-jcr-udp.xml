@@ -21,8 +21,8 @@
 <config>
   <UDP
       singleton_name="exo-transport-udp"
-      mcast_addr="${jcr.jgroups.udp.mcast_addr}"
-      mcast_port="${jcr.jgroups.udp.mcast_port}"
+      mcast_addr="${jcr.jgroups.udp.mcast_addr:228.10.10.10}"
+      mcast_port="${jcr.jgroups.udp.mcast_port:45488}"
       tos="8"
       ucast_recv_buf_size="20000000"
       ucast_send_buf_size="640000"
@@ -33,7 +33,7 @@
       max_bundle_size="64000"
       max_bundle_timeout="30"
       use_incoming_packet_handler="true"
-      ip_ttl="${jcr.jgroups.udp.ip_ttl}"
+      ip_ttl="${jcr.jgroups.udp.ip_ttl:2}"
       enable_bundling="false"
       enable_diagnostics="true"
       thread_naming_pattern="cl"
