@@ -25,7 +25,7 @@
       enabled="true" />
   <clustering
       mode="replication"
-      clusterName="${jboss.partition.name}-${jbosscache-cluster-name}">
+      clusterName="${jboss.partition.name}-exo-cache-cluster">
     <stateRetrieval
         timeout="${exo.cache.cluster.stateretrieval.timeout:20000}"
         fetchInMemoryState="${exo.cache.cluster.stateretrieval.fetchinmemorystate:false}" />
