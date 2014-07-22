@@ -31,7 +31,7 @@
     <default algorithmClass="org.jboss.cache.eviction.FIFOAlgorithm"
              actionPolicyClass="org.exoplatform.services.jcr.impl.dataflow.persistent.jbosscache.ParentNodeEvictionActionPolicy"
              eventQueueSize="1000000">
-      <property name="maxNodes" value="${gatein.jcr.cache.size}" />
+      <property name="maxNodes" value="${exo.jcr.cache.size}" />
       <property name="minTimeToLive" value="0" />
     </default>
   </eviction>
