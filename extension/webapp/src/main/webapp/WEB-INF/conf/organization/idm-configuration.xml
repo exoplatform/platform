@@ -109,22 +109,22 @@
 
       <value-param>
         <name>apiCacheConfig</name>
-        <value>${gatein.idm.api.cache.config:jar:/conf/platform/picketlink-idm/infinispan/local-config.xml}</value>
+        <value>${gatein.idm.api.cache.config:jar:/conf/platform/idm/infinispan/local-config.xml}</value>
       </value-param>
 
       <value-param profiles="cluster">
         <name>apiCacheConfig</name>
-        <value>${gatein.idm.api.cache.config:jar:/conf/platform/picketlink-idm/infinispan/cluster-config.xml}</value>
+        <value>${gatein.idm.api.cache.config:jar:/conf/platform/idm/infinispan/cluster-config.xml}</value>
       </value-param>
 
       <value-param>
         <name>storeCacheConfig</name>
-        <value>${gatein.idm.store.cache.config:jar:/conf/platform/picketlink-idm/infinispan/local-config.xml}</value>
+        <value>${gatein.idm.store.cache.config:jar:/conf/platform/idm/infinispan/local-config.xml}</value>
       </value-param>
 
       <value-param profiles="cluster">
         <name>storeCacheConfig</name>
-        <value>${gatein.idm.store.cache.config:jar:/conf/platform/picketlink-idm/infinispan/cluster-config.xml}</value>
+        <value>${gatein.idm.store.cache.config:jar:/conf/platform/idm/infinispan/cluster-config.xml}</value>
       </value-param>
 
         <value-param>
