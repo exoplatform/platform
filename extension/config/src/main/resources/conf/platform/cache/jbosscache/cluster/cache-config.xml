@@ -20,7 +20,7 @@
 -->
 <jbosscache xmlns="urn:jboss:jbosscache-core:config:3.1">
   <jmxStatistics enabled="${gatein.jgroups.jmxstatistics.enable}" />
-  <clustering mode="replication" clusterName="exo-cache-cluster">
+  <clustering mode="replication" clusterName="${jboss.partition.name}-${jbosscache-cluster-name}">
     <stateRetrieval timeout="20000" fetchInMemoryState="false" />
     <jgroupsConfig configFile="${jcr.jgroups.config}" />
     <sync replTimeout="${exo.cache.cluster.replication.timeout}" />
