@@ -22,81 +22,81 @@
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:schemaLocation="urn:org:jgroups http://www.jgroups.org/schema/JGroups-3.2.xsd">
   <UDP
-      singleton_name="idm-transport-udp"
-      bind_port="${idm.jgroups.udp.bind_port:56300}"
-      mcast_addr="${idm.jgroups.udp.mcast_addr:230.0.0.4}"
-      mcast_port="${idm.jgroups.udp.mcast_port:46700}"
-      tos="8"
-      ucast_recv_buf_size="20m"
-      ucast_send_buf_size="640k"
-      mcast_recv_buf_size="25m"
-      mcast_send_buf_size="640k"
-      loopback="true"
-      discard_incompatible_packets="true"
-      max_bundle_size="64000"
-      max_bundle_timeout="30"
-      ip_ttl="${idm.jgroups.udp.ip_ttl:2}"
-      enable_bundling="true"
-      enable_diagnostics="true"
-      diagnostics_addr="${idm.jgroups.udp.diagnostics_addr:224.0.75.75}"
-      diagnostics_port="${idm.jgroups.udp.diagnostics_port:7500}"
-      thread_naming_pattern="pl"
-      thread_pool.enabled="true"
-      thread_pool.min_threads="20"
-      thread_pool.max_threads="300"
-      thread_pool.keep_alive_time="5000"
-      thread_pool.queue_enabled="true"
-      thread_pool.queue_max_size="1000"
-      thread_pool.rejection_policy="Discard"
-      oob_thread_pool.enabled="true"
-      oob_thread_pool.min_threads="20"
-      oob_thread_pool.max_threads="300"
-      oob_thread_pool.keep_alive_time="1000"
-      oob_thread_pool.queue_enabled="false"
-      oob_thread_pool.queue_max_size="100"
-      oob_thread_pool.rejection_policy="Discard"
+      singleton_name="${exo.cluster.idm.jgroups.udp.singleton_name:idm-transport-udp}"
+      bind_port="${exo.cluster.idm.jgroups.udp.bind_port:56300}"
+      mcast_addr="${exo.cluster.idm.jgroups.udp.mcast_addr:230.0.0.4}"
+      mcast_port="${exo.cluster.idm.jgroups.udp.mcast_port:46700}"
+      tos="${exo.cluster.idm.jgroups.udp.tos:8}"
+      ucast_recv_buf_size="${exo.cluster.idm.jgroups.udp.ucast_recv_buf_size:20m}"
+      ucast_send_buf_size="${exo.cluster.idm.jgroups.udp.ucast_send_buf_size:640k}"
+      mcast_recv_buf_size="${exo.cluster.idm.jgroups.udp.mcast_recv_buf_size:25m}"
+      mcast_send_buf_size="${exo.cluster.idm.jgroups.udp.mcast_send_buf_size:640k}"
+      loopback="${exo.cluster.idm.jgroups.udp.loopback:true}"
+      discard_incompatible_packets="${exo.cluster.idm.jgroups.udp.discard_incompatible_packets:true}"
+      max_bundle_size="${exo.cluster.idm.jgroups.udp.max_bundle_size:64000}"
+      max_bundle_timeout="${exo.cluster.idm.jgroups.udp.max_bundle_timeout:30}"
+      ip_ttl="${exo.cluster.idm.jgroups.udp.ip_ttl:2}"
+      enable_bundling="${exo.cluster.idm.jgroups.udp.enable_bundling:true}"
+      enable_diagnostics="${exo.cluster.idm.jgroups.udp.enable_diagnostics:true}"
+      diagnostics_addr="${exo.cluster.idm.jgroups.udp.diagnostics_addr:224.0.75.75}"
+      diagnostics_port="${exo.cluster.idm.jgroups.udp.diagnostics_port:7500}"
+      thread_naming_pattern="${exo.cluster.idm.jgroups.udp.thread_naming_pattern:pl}"
+      thread_pool.enabled="${exo.cluster.idm.jgroups.udp.thread_pool.enabled:true}"
+      thread_pool.min_threads="${exo.cluster.idm.jgroups.udp.thread_pool.min_threads:20}"
+      thread_pool.max_threads="${exo.cluster.idm.jgroups.udp.thread_pool.max_threads:300}"
+      thread_pool.keep_alive_time="${exo.cluster.idm.jgroups.udp.thread_pool.keep_alive_time:5000}"
+      thread_pool.queue_enabled="${exo.cluster.idm.jgroups.udp.thread_pool.queue_enabled:true}"
+      thread_pool.queue_max_size="${exo.cluster.idm.jgroups.udp.thread_pool.queue_max_size:1000}"
+      thread_pool.rejection_policy="${exo.cluster.idm.jgroups.udp.thread_pool.rejection_policy:Discard}"
+      oob_thread_pool.enabled="${exo.cluster.idm.jgroups.udp.oob_thread_pool.enabled:true}"
+      oob_thread_pool.min_threads="${exo.cluster.idm.jgroups.udp.oob_thread_pool.min_threads:20}"
+      oob_thread_pool.max_threads="${exo.cluster.idm.jgroups.udp.oob_thread_pool.max_threads:300}"
+      oob_thread_pool.keep_alive_time="${exo.cluster.idm.jgroups.udp.oob_thread_pool.keep_alive_time:1000}"
+      oob_thread_pool.queue_enabled="${exo.cluster.idm.jgroups.udp.oob_thread_pool.queue_enabled:false}"
+      oob_thread_pool.queue_max_size="${exo.cluster.idm.jgroups.udp.oob_thread_pool.queue_max_size:100}"
+      oob_thread_pool.rejection_policy="${exo.cluster.idm.jgroups.udp.oob_thread_pool.rejection_policy:Discard}"
       />
   <PING
-      timeout="2000"
-      num_initial_members="3" />
+      timeout="${exo.cluster.idm.jgroups.ping.timeout:2000}"
+      num_initial_members="${exo.cluster.idm.jgroups.ping.num_initial_members:3}" />
   <MERGE2
-      max_interval="100000"
-      min_interval="20000" />
+      max_interval="${exo.cluster.idm.jgroups.merge2.max_interval:100000}"
+      min_interval="${exo.cluster.idm.jgroups.merge2.min_interval:20000}" />
   <FD_SOCK />
   <FD
-      timeout="6000"
-      max_tries="5" />
+      timeout="${exo.cluster.idm.jgroups.fd.timeout:6000}"
+      max_tries="${exo.cluster.idm.jgroups.fd.max_tries:5}" />
   <VERIFY_SUSPECT
-      timeout="1500" />
+      timeout="${exo.cluster.idm.jgroups.verify_suspect.timeout:1500}" />
   <BARRIER />
   <pbcast.NAKACK
-      use_mcast_xmit="true"
-      retransmit_timeout="300,600,1200,2400,4800"
-      discard_delivered_msgs="true" />
+      use_mcast_xmit="${exo.cluster.idm.jgroups.pbcast.nakack.use_mcast_xmit:true}"
+      retransmit_timeout="${exo.cluster.idm.jgroups.pbcast.nakack.retransmit_timeout:300,600,1200,2400,4800}"
+      discard_delivered_msgs="${exo.cluster.idm.jgroups.pbcast.nakack.discard_delivered_msgs:true}" />
   <UNICAST2
-      timeout="300,600,1200,2400,3600"
-      stable_interval="5000"
-      max_bytes="1m" />
+      timeout="${exo.cluster.idm.jgroups.unicast2.timeout:300,600,1200,2400,3600}"
+      stable_interval="${exo.cluster.idm.jgroups.unicast2.stable_interval:5000}"
+      max_bytes="${exo.cluster.idm.jgroups.unicast2.max_bytes:1m}" />
   <pbcast.STABLE
-      stability_delay="1000"
-      desired_avg_gossip="50000"
-      max_bytes="400000" />
+      stability_delay="${exo.cluster.idm.jgroups.pbcast.stable.stability_delay:1000}"
+      desired_avg_gossip="${exo.cluster.idm.jgroups.pbcast.stable.desired_avg_gossip:50000}"
+      max_bytes="${exo.cluster.idm.jgroups.pbcast.stable.max_bytes:400000}" />
   <pbcast.GMS
-      print_local_addr="true"
-      join_timeout="3000"
-      view_bundling="true"
-      view_ack_collection_timeout="5000"
-      resume_task_timeout="7500" />
+      print_local_addr="${exo.cluster.idm.jgroups.pbcast.gms.print_local_addr:true}"
+      join_timeout="${exo.cluster.idm.jgroups.pbcast.gms.join_timeout:3000}"
+      view_bundling="${exo.cluster.idm.jgroups.pbcast.gms.view_bundling:true}"
+      view_ack_collection_timeout="${exo.cluster.idm.jgroups.pbcast.gms.view_ack_collection_timeout:5000}"
+      resume_task_timeout="${exo.cluster.idm.jgroups.pbcast.gms.resume_task_timeout:7500}" />
   <UFC
-      max_credits="2000000"
-      ignore_synchronous_response="true" />
+      max_credits="${exo.cluster.idm.jgroups.ufc.max_credits:2000000}"
+      ignore_synchronous_response="${exo.cluster.idm.jgroups.ufc.ignore_synchronous_response:true}" />
   <MFC
-      max_credits="2000000"
-      ignore_synchronous_response="true" />
+      max_credits="${exo.cluster.idm.jgroups.mfc.max_credits:2000000}"
+      ignore_synchronous_response="${exo.cluster.idm.jgroups.mfc.ignore_synchronous_response:true}" />
   <FRAG2
-      frag_size="60000" />
+      frag_size="${exo.cluster.idm.jgroups.frag2.frag_size:60000}" />
   <RSVP
-      timeout="60000"
-      resend_interval="500"
-      ack_on_delivery="false" />
+      timeout="${exo.cluster.idm.jgroups.rsvp.timeout:60000}"
+      resend_interval="${exo.cluster.idm.jgroups.rsvp.resend_interval:500}"
+      ack_on_delivery="${exo.cluster.idm.jgroups.rsvp.ack_on_delivery:false}" />
 </config>
