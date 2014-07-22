@@ -100,7 +100,7 @@ public class ExtendedPropertyConfigurator extends PropertyConfigurator implement
               }
             }
           } catch (FileNotFoundException fne) {
-            LOG.info("Configuration file " + path + " doesn't exist");
+            LOG.info("Skipping configuration file " + path + ". File doesn't exist.");
           } catch (Exception e) {
             LOG.error("Cannot load extension property file " + path
                           + (url != null ? " resolved as " + url : ""), e);
