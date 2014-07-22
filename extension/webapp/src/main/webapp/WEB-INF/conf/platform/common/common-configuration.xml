@@ -39,11 +39,11 @@
     <init-params>
       <value-param>
         <name>cache.config.template</name>
-        <value>${exo.cache.config.template:war:/conf/jbosscache/local/config.xml}</value>
+        <value>${exo.cache.config.template:jar:/conf/platform/cache/jbosscache/local/cache-config.xml}</value>
       </value-param>
       <value-param profiles="cluster">
         <name>cache.config.template</name>
-        <value>${exo.cache.config.template:war:/conf/jbosscache/cluster/config.xml}</value>
+        <value>${exo.cache.config.template:jar:/conf/platform/cache/jbosscache/cluster/cache-config.xml}</value>
       </value-param>
     </init-params>
   </component>
