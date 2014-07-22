@@ -24,7 +24,7 @@
   <clustering mode="replication" clusterName="${jboss.partition.name}-${jbosscache-cluster-name}">
     <stateRetrieval timeout="20000" fetchInMemoryState="false" />
     <jgroupsConfig configFile="${jcr.jgroups.config}" />
-    <sync replTimeout="${exo.cache.cluster.jcr.indexer.replication.timeout}" />
+    <sync replTimeout="${exo.cache.cluster.jcr.indexer.replication.timeout:15000}" />
   </clustering>
   <!-- Configure the TransactionManager -->
   <transaction transactionManagerLookupClass="org.jboss.cache.transaction.JBossStandaloneJTAManagerLookup" />

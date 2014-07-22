@@ -25,6 +25,6 @@
         timeout="${exo.cache.cluster.stateretrieval.timeout:20000}"
         fetchInMemoryState="${exo.cache.cluster.stateretrieval.fetchinmemorystate:false}" />
     <jgroupsConfig configFile="${jcr.jgroups.config}" />
-    <sync replTimeout="${exo.cache.cluster.replication.timeout}" />
+    <sync replTimeout="${exo.cache.cluster.replication.timeout:60000}" />
   </clustering>
 </jbosscache>
