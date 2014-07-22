@@ -21,14 +21,26 @@
 <jbosscache xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
             xsi:schemaLocation="urn:jboss:jbosscache-core:config:3.2 http://www.jboss.org/schema/jbosscache/jbosscache-config-3.2.xsd"
             xmlns="urn:jboss:jbosscache-core:config:3.2">
-  <jmxStatistics enabled="true" />
-  <locking useLockStriping="false" concurrencyLevel="64" lockParentForChildInsertRemove="false" lockAcquisitionTimeout="20000" />
-  <loaders passivation="false" shared="true">
+  <jmxStatistics
+      enabled="true" />
+  <locking
+      useLockStriping="false"
+      concurrencyLevel="64"
+      lockParentForChildInsertRemove="false"
+      lockAcquisitionTimeout="20000" />
+  <loaders
+      passivation="false"
+      shared="true">
     <preload>
-      <node fqn="/" />
+      <node
+          fqn="/" />
     </preload>
-    <loader class="org.exoplatform.services.jcr.impl.core.lock.jbosscache.JDBCCacheLoader" async="false"
-            fetchPersistentState="false" ignoreModifications="false" purgeOnStartup="false">
+    <loader
+        class="org.exoplatform.services.jcr.impl.core.lock.jbosscache.JDBCCacheLoader"
+        async="false"
+        fetchPersistentState="false"
+        ignoreModifications="false"
+        purgeOnStartup="false">
       <properties>
         cache.jdbc.table.name=${jbosscache-cl-cache.jdbc.table.name}
         cache.jdbc.table.create=${jbosscache-cl-cache.jdbc.table.create}

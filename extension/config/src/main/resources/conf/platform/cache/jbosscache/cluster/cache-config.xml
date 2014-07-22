@@ -21,12 +21,17 @@
 <jbosscache xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
             xsi:schemaLocation="urn:jboss:jbosscache-core:config:3.2 http://www.jboss.org/schema/jbosscache/jbosscache-config-3.2.xsd"
             xmlns="urn:jboss:jbosscache-core:config:3.2">
-  <jmxStatistics enabled="true" />
-  <clustering mode="replication" clusterName="${jboss.partition.name}-${jbosscache-cluster-name}">
+  <jmxStatistics
+      enabled="true" />
+  <clustering
+      mode="replication"
+      clusterName="${jboss.partition.name}-${jbosscache-cluster-name}">
     <stateRetrieval
         timeout="${exo.cache.cluster.stateretrieval.timeout:20000}"
         fetchInMemoryState="${exo.cache.cluster.stateretrieval.fetchinmemorystate:false}" />
-    <jgroupsConfig configFile="${jcr.jgroups.config}" />
-    <sync replTimeout="${exo.cache.cluster.replication.timeout:60000}" />
+    <jgroupsConfig
+        configFile="${jcr.jgroups.config}" />
+    <sync
+        replTimeout="${exo.cache.cluster.replication.timeout:60000}" />
   </clustering>
 </jbosscache>

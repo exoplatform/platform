@@ -21,17 +21,29 @@
 <jbosscache xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
             xsi:schemaLocation="urn:jboss:jbosscache-core:config:3.2 http://www.jboss.org/schema/jbosscache/jbosscache-config-3.2.xsd"
             xmlns="urn:jboss:jbosscache-core:config:3.2">
-  <jmxStatistics enabled="true" />
-  <locking useLockStriping="false" concurrencyLevel="64" lockParentForChildInsertRemove="false" lockAcquisitionTimeout="20000" />
+  <jmxStatistics
+      enabled="true" />
+  <locking
+      useLockStriping="false"
+      concurrencyLevel="64"
+      lockParentForChildInsertRemove="false"
+      lockAcquisitionTimeout="20000" />
   <!-- Configure the TransactionManager -->
-  <transaction transactionManagerLookupClass="org.jboss.cache.transaction.JBossStandaloneJTAManagerLookup" />
+  <transaction
+      transactionManagerLookupClass="org.jboss.cache.transaction.JBossStandaloneJTAManagerLookup" />
   <!-- Eviction configuration -->
-  <eviction wakeUpInterval="5000">
-    <default algorithmClass="org.jboss.cache.eviction.FIFOAlgorithm"
-             actionPolicyClass="org.exoplatform.services.jcr.impl.dataflow.persistent.jbosscache.ParentNodeEvictionActionPolicy"
-             eventQueueSize="1000000">
-      <property name="maxNodes" value="${exo.jcr.cache.size}" />
-      <property name="minTimeToLive" value="0" />
+  <eviction
+      wakeUpInterval="5000">
+    <default
+        algorithmClass="org.jboss.cache.eviction.FIFOAlgorithm"
+        actionPolicyClass="org.exoplatform.services.jcr.impl.dataflow.persistent.jbosscache.ParentNodeEvictionActionPolicy"
+        eventQueueSize="1000000">
+      <property
+          name="maxNodes"
+          value="${exo.jcr.cache.size}" />
+      <property
+          name="minTimeToLive"
+          value="0" />
     </default>
   </eviction>
 </jbosscache>
