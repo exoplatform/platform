@@ -18,7 +18,9 @@
     02110-1301 USA, or see the FSF site: http://www.fsf.org.
 
 -->
-<jbosscache xmlns="urn:jboss:jbosscache-core:config:3.1">
+<jbosscache xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xsi:schemaLocation="urn:jboss:jbosscache-core:config:3.2 http://www.jboss.org/schema/jbosscache/jbosscache-config-3.2.xsd"
+            xmlns="urn:jboss:jbosscache-core:config:3.2">
   <jmxStatistics enabled="true" />
   <clustering mode="replication" clusterName="${jboss.partition.name}-${jbosscache-cluster-name}">
     <stateRetrieval
