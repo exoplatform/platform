@@ -63,7 +63,7 @@
       </value-param>
       <value-param>
         <name>jgroups-cluster-name</name>
-        <value>RPCService-Cluster</value>
+        <value>${jboss.partition.name}-RPCService-Cluster</value>
       </value-param>
       <value-param>
         <name>jgroups-default-timeout</name>
