@@ -32,6 +32,6 @@
     <jgroupsConfig
         configFile="${jcr.jgroups.config}" />
     <sync
-        replTimeout="${exo.cache.cluster.replication.timeout:60000}" />
+        replTimeout="${exo.cache.cluster.sync.repltimeout:60000}" />
   </clustering>
 </jbosscache>

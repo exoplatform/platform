@@ -27,17 +27,17 @@
       useLockStriping="false"
       concurrencyLevel="64"
       lockParentForChildInsertRemove="false"
-      lockAcquisitionTimeout="20000" />
+      lockAcquisitionTimeout="${exo.jcr.lock.lockacquisitiontimeout:20000}" />
   <clustering
       mode="replication"
       clusterName="${jboss.partition.name}-${jbosscache-cluster-name}">
     <stateRetrieval
-        timeout="20000"
-        fetchInMemoryState="false" />
+        timeout="${exo.jcr.cluster.lock.stateretrieval.timeout:20000}"
+        fetchInMemoryState="${exo.jcr.cluster.lock.stateretrieval.fetchinmemorystate:false}" />
     <jgroupsConfig
         configFile="${jcr.jgroups.config}" />
     <sync
-        replTimeout="${exo.cache.cluster.jcr.lock.replication.timeout:15000}" />
+        replTimeout="${exo.jcr.cluster.lock.sync.repltimeout:15000}" />
   </clustering>
   <loaders
       passivation="false"

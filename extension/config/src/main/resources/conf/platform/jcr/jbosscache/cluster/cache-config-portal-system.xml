@@ -27,31 +27,31 @@
       useLockStriping="false"
       concurrencyLevel="64"
       lockParentForChildInsertRemove="false"
-      lockAcquisitionTimeout="20000" />
+      lockAcquisitionTimeout="${exo.jcr.systemworkspace.lockacquisitiontimeout:20000}" />
   <clustering
       mode="replication"
       clusterName="${jboss.partition.name}-${jbosscache-cluster-name}">
     <stateRetrieval
-        timeout="20000"
-        fetchInMemoryState="false" />
+        timeout="${exo.jcr.cluster.systemworkspace.stateretrieval.timeout:20000}"
+        fetchInMemoryState="${exo.jcr.cluster.systemworkspace.stateretrieval.fetchinmemorystate:false}" />
     <jgroupsConfig
         configFile="${jcr.jgroups.config}" />
     <sync
-        replTimeout="${exo.cache.cluster.jcr.workspace.portalsystem.replication.timeout:15000}" />
+        replTimeout="${exo.jcr.cluster.systemworkspace.sync.repltimeout:15000}" />
   </clustering>
   <!-- Eviction configuration -->
   <eviction
-      wakeUpInterval="5000">
+      wakeUpInterval="${exo.jcr.systemworkspace.eviction.wakeupinterval:5000}">
     <default
         algorithmClass="org.jboss.cache.eviction.LRUAlgorithm"
         actionPolicyClass="org.exoplatform.services.jcr.impl.dataflow.persistent.jbosscache.ParentNodeEvictionActionPolicy"
-        eventQueueSize="1000000">
+        eventQueueSize="${exo.jcr.systemworkspace.eviction.eventqueuesize:1000000}">
       <property
           name="maxNodes"
-          value="300000" />
+          value="${exo.jcr.systemworkspace.eviction.maxnodes:300000}" />
       <property
           name="timeToLive"
-          value="60000" />
+          value="${exo.jcr.systemworkspace.eviction.timetolive:60000}" />
     </default>
   </eviction>
 </jbosscache>

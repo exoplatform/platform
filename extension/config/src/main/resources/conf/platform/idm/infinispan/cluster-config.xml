@@ -26,7 +26,7 @@
   <global>
     <!-- Jgroups configuration will be injected programmatically -->
     <transport clusterName="${jboss.partition.name}-idm"
-               distributedSyncTimeout="${exo.cluster.idm.infinispan.transport.distributedSyncTimeout:60000}"
+               distributedSyncTimeout="${exo.idm.cluster.transport.distributedsynctimeout:60000}"
                nodeName="${jboss.node.name:gtn}">
       <properties>
         <property name="configurationFile" value="${idm.jgroups.config}" />
@@ -44,7 +44,7 @@
     <clustering
         mode="replication">
       <stateTransfer
-          timeout="${exo.cluster.idm.infinispan.stateTransfer.timeout:60000}"
+          timeout="${exo.idm.cluster.statetransfer.timeout:60000}"
           fetchInMemoryState="true" />
       <async />
     </clustering>
@@ -58,10 +58,10 @@
     <invocationBatching
         enabled="true" />
     <expiration
-        lifespan="${exo.idm.infinispan.expiration.lifespan:1800000}"
-        wakeUpInterval="${exo.idm.infinispan.expiration.wakeUpInterval:5000}" />
+        lifespan="${exo.idm.expiration.lifespan:1800000}"
+        wakeUpInterval="${exo.idm.expiration.wakeupinterval:5000}" />
     <eviction
-        strategy="${exo.idm.infinispan.eviction.strategy:LRU}"
-        maxEntries="${exo.idm.infinispan.eviction.maxEntries:100000}" />
+        strategy="${exo.idm.eviction.strategy:LRU}"
+        maxEntries="${exo.idm.eviction.maxentries:100000}" />
   </default>
 </infinispan>

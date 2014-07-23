@@ -20,77 +20,77 @@
 -->
 <config>
   <UDP
-      singleton_name="${exo.cluster.jcr.jgroups.udp.singleton_name:exo-transport-udp}"
-      mcast_addr="${exo.cluster.jcr.jgroups.udp.mcast_addr:228.10.10.10}"
-      mcast_port="${exo.cluster.jcr.jgroups.udp.mcast_port:45488}"
-      tos="${exo.cluster.jcr.jgroups.udp.tos:8}"
-      ucast_recv_buf_size="${exo.cluster.jcr.jgroups.udp.ucast_recv_buf_size:20000000}"
-      ucast_send_buf_size="${exo.cluster.jcr.jgroups.udp.ucast_send_buf_size:640000}"
-      mcast_recv_buf_size="${exo.cluster.jcr.jgroups.udp.mcast_recv_buf_size:25000000}"
-      mcast_send_buf_size="${exo.cluster.jcr.jgroups.udp.mcast_send_buf_size:640000}"
-      loopback="${exo.cluster.jcr.jgroups.udp.loopback:false}"
-      discard_incompatible_packets="${exo.cluster.jcr.jgroups.udp.discard_incompatible_packets:true}"
-      max_bundle_size="${exo.cluster.jcr.jgroups.udp.max_bundle_size:64000}"
-      max_bundle_timeout="${exo.cluster.jcr.jgroups.udp.max_bundle_timeout:30}"
-      use_incoming_packet_handler="${exo.cluster.jcr.jgroups.udp.use_incoming_packet_handler:true}"
-      ip_ttl="${exo.cluster.jcr.jgroups.udp.ip_ttl:2}"
-      enable_bundling="${exo.cluster.jcr.jgroups.udp.enable_bundling:false}"
-      enable_diagnostics="${exo.cluster.jcr.jgroups.udp.enable_diagnostics:true}"
-      thread_naming_pattern="${exo.cluster.jcr.jgroups.udp.thread_naming_pattern:cl}"
-      use_concurrent_stack="${exo.cluster.jcr.jgroups.udp.use_concurrent_stack:true}"
-      thread_pool.enabled="${exo.cluster.jcr.jgroups.udp.thread_pool.enabled:true}"
-      thread_pool.min_threads="${exo.cluster.jcr.jgroups.udp.thread_pool.min_threads:10}"
-      thread_pool.max_threads="${exo.cluster.jcr.jgroups.udp.thread_pool.max_threads:1000}"
-      thread_pool.keep_alive_time="${exo.cluster.jcr.jgroups.udp.thread_pool.keep_alive_time:5000}"
-      thread_pool.queue_enabled="${exo.cluster.jcr.jgroups.udp.thread_pool.queue_enabled:true}"
-      thread_pool.queue_max_size="${exo.cluster.jcr.jgroups.udp.thread_pool.queue_max_size:1000}"
-      thread_pool.rejection_policy="${exo.cluster.jcr.jgroups.udp.thread_pool.rejection_policy:discard}"
-      oob_thread_pool.enabled="${exo.cluster.jcr.jgroups.udp.oob_thread_pool.enabled:true}"
-      oob_thread_pool.min_threads="${exo.cluster.jcr.jgroups.udp.oob_thread_pool.min_threads:5}"
-      oob_thread_pool.max_threads="${exo.cluster.jcr.jgroups.udp.oob_thread_pool.max_threads:1000}"
-      oob_thread_pool.keep_alive_time="${exo.cluster.jcr.jgroups.udp.oob_thread_pool.keep_alive_time:5000}"
-      oob_thread_pool.queue_enabled="${exo.cluster.jcr.jgroups.udp.oob_thread_pool.queue_enabled:false}"
-      oob_thread_pool.queue_max_size="${exo.cluster.jcr.jgroups.udp.oob_thread_pool.queue_max_size:1000}"
-      oob_thread_pool.rejection_policy="${exo.cluster.jcr.jgroups.udp.oob_thread_pool.rejection_policy:Run}" />
+      singleton_name="${exo.jcr.cluster.jgroups.udp.singleton_name:exo-transport-udp}"
+      mcast_addr="${exo.jcr.cluster.jgroups.udp.mcast_addr:228.10.10.10}"
+      mcast_port="${exo.jcr.cluster.jgroups.udp.mcast_port:45488}"
+      tos="${exo.jcr.cluster.jgroups.udp.tos:8}"
+      ucast_recv_buf_size="${exo.jcr.cluster.jgroups.udp.ucast_recv_buf_size:20000000}"
+      ucast_send_buf_size="${exo.jcr.cluster.jgroups.udp.ucast_send_buf_size:640000}"
+      mcast_recv_buf_size="${exo.jcr.cluster.jgroups.udp.mcast_recv_buf_size:25000000}"
+      mcast_send_buf_size="${exo.jcr.cluster.jgroups.udp.mcast_send_buf_size:640000}"
+      loopback="${exo.jcr.cluster.jgroups.udp.loopback:false}"
+      discard_incompatible_packets="${exo.jcr.cluster.jgroups.udp.discard_incompatible_packets:true}"
+      max_bundle_size="${exo.jcr.cluster.jgroups.udp.max_bundle_size:64000}"
+      max_bundle_timeout="${exo.jcr.cluster.jgroups.udp.max_bundle_timeout:30}"
+      use_incoming_packet_handler="${exo.jcr.cluster.jgroups.udp.use_incoming_packet_handler:true}"
+      ip_ttl="${exo.jcr.cluster.jgroups.udp.ip_ttl:2}"
+      enable_bundling="${exo.jcr.cluster.jgroups.udp.enable_bundling:false}"
+      enable_diagnostics="${exo.jcr.cluster.jgroups.udp.enable_diagnostics:true}"
+      thread_naming_pattern="${exo.jcr.cluster.jgroups.udp.thread_naming_pattern:cl}"
+      use_concurrent_stack="${exo.jcr.cluster.jgroups.udp.use_concurrent_stack:true}"
+      thread_pool.enabled="${exo.jcr.cluster.jgroups.udp.thread_pool.enabled:true}"
+      thread_pool.min_threads="${exo.jcr.cluster.jgroups.udp.thread_pool.min_threads:10}"
+      thread_pool.max_threads="${exo.jcr.cluster.jgroups.udp.thread_pool.max_threads:1000}"
+      thread_pool.keep_alive_time="${exo.jcr.cluster.jgroups.udp.thread_pool.keep_alive_time:5000}"
+      thread_pool.queue_enabled="${exo.jcr.cluster.jgroups.udp.thread_pool.queue_enabled:true}"
+      thread_pool.queue_max_size="${exo.jcr.cluster.jgroups.udp.thread_pool.queue_max_size:1000}"
+      thread_pool.rejection_policy="${exo.jcr.cluster.jgroups.udp.thread_pool.rejection_policy:discard}"
+      oob_thread_pool.enabled="${exo.jcr.cluster.jgroups.udp.oob_thread_pool.enabled:true}"
+      oob_thread_pool.min_threads="${exo.jcr.cluster.jgroups.udp.oob_thread_pool.min_threads:5}"
+      oob_thread_pool.max_threads="${exo.jcr.cluster.jgroups.udp.oob_thread_pool.max_threads:1000}"
+      oob_thread_pool.keep_alive_time="${exo.jcr.cluster.jgroups.udp.oob_thread_pool.keep_alive_time:5000}"
+      oob_thread_pool.queue_enabled="${exo.jcr.cluster.jgroups.udp.oob_thread_pool.queue_enabled:false}"
+      oob_thread_pool.queue_max_size="${exo.jcr.cluster.jgroups.udp.oob_thread_pool.queue_max_size:1000}"
+      oob_thread_pool.rejection_policy="${exo.jcr.cluster.jgroups.udp.oob_thread_pool.rejection_policy:Run}" />
   <PING
-      timeout="${exo.cluster.jcr.jgroups.ping.timeout:2000}"
-      num_initial_members="${exo.cluster.jcr.jgroups.ping.num_initial_members:3}" />
+      timeout="${exo.jcr.cluster.jgroups.ping.timeout:2000}"
+      num_initial_members="${exo.jcr.cluster.jgroups.ping.num_initial_members:3}" />
   <MERGE2
-      max_interval="${exo.cluster.jcr.jgroups.merge2.max_interval:30000}"
-      min_interval="${exo.cluster.jcr.jgroups.merge2.min_interval:10000}" />
+      max_interval="${exo.jcr.cluster.jgroups.merge2.max_interval:30000}"
+      min_interval="${exo.jcr.cluster.jgroups.merge2.min_interval:10000}" />
   <FD_SOCK />
   <FD
-      timeout="${exo.cluster.jcr.jgroups.fd.timeout:10000}"
-      max_tries="${exo.cluster.jcr.jgroups.fd.max_tries:5}"
-      shun="${exo.cluster.jcr.jgroups.fd.shun:true}" />
+      timeout="${exo.jcr.cluster.jgroups.fd.timeout:10000}"
+      max_tries="${exo.jcr.cluster.jgroups.fd.max_tries:5}"
+      shun="${exo.jcr.cluster.jgroups.fd.shun:true}" />
   <VERIFY_SUSPECT
-      timeout="${exo.cluster.jcr.jgroups.verify_suspect.timeout:1500}" />
+      timeout="${exo.jcr.cluster.jgroups.verify_suspect.timeout:1500}" />
   <BARRIER />
   <pbcast.NAKACK
-      use_stats_for_retransmission="${exo.cluster.jcr.jgroups.pbcast.nakack.use_stats_for_retransmission:false}"
-      exponential_backoff="${exo.cluster.jcr.jgroups.pbcast.nakack.exponential_backoff:150}"
-      use_mcast_xmit="${exo.cluster.jcr.jgroups.pbcast.nakack.use_mcast_xmit:true}"
-      gc_lag="${exo.cluster.jcr.jgroups.pbcast.nakack.gc_lag:0}"
-      retransmit_timeout="${exo.cluster.jcr.jgroups.pbcast.nakack.retransmit_timeout:50,300,600,1200}"
-      discard_delivered_msgs="${exo.cluster.jcr.jgroups.pbcast.nakack.discard_delivered_msgs:true}" />
+      use_stats_for_retransmission="${exo.jcr.cluster.jgroups.pbcast.nakack.use_stats_for_retransmission:false}"
+      exponential_backoff="${exo.jcr.cluster.jgroups.pbcast.nakack.exponential_backoff:150}"
+      use_mcast_xmit="${exo.jcr.cluster.jgroups.pbcast.nakack.use_mcast_xmit:true}"
+      gc_lag="${exo.jcr.cluster.jgroups.pbcast.nakack.gc_lag:0}"
+      retransmit_timeout="${exo.jcr.cluster.jgroups.pbcast.nakack.retransmit_timeout:50,300,600,1200}"
+      discard_delivered_msgs="${exo.jcr.cluster.jgroups.pbcast.nakack.discard_delivered_msgs:true}" />
   <UNICAST
-      timeout="${exo.cluster.jcr.jgroups.unicast.timeout:300,600,1200}" />
+      timeout="${exo.jcr.cluster.jgroups.unicast.timeout:300,600,1200}" />
   <pbcast.STABLE
-      stability_delay="${exo.cluster.jcr.jgroups.pbcast.stable.stability_delay:1000}"
-      desired_avg_gossip="${exo.cluster.jcr.jgroups.pbcast.stable.desired_avg_gossip:50000}"
-      max_bytes="${exo.cluster.jcr.jgroups.pbcast.stable.max_bytes:1000000}" />
+      stability_delay="${exo.jcr.cluster.jgroups.pbcast.stable.stability_delay:1000}"
+      desired_avg_gossip="${exo.jcr.cluster.jgroups.pbcast.stable.desired_avg_gossip:50000}"
+      max_bytes="${exo.jcr.cluster.jgroups.pbcast.stable.max_bytes:1000000}" />
   <VIEW_SYNC
-      avg_send_interval="${exo.cluster.jcr.jgroups.view_sync.avg_send_interval:60000}" />
+      avg_send_interval="${exo.jcr.cluster.jgroups.view_sync.avg_send_interval:60000}" />
   <pbcast.GMS
-      print_local_addr="${exo.cluster.jcr.jgroups.pbcast.gms.print_local_addr:true}"
-      join_timeout="${exo.cluster.jcr.jgroups.pbcast.gmsa.join_timeout:3000}"
-      shun="${exo.cluster.jcr.jgroups.pbcast.gms.shun:false}"
-      view_bundling="${exo.cluster.jcr.jgroups.pbcast.gms.view_bundling:true}" />
+      print_local_addr="${exo.jcr.cluster.jgroups.pbcast.gms.print_local_addr:true}"
+      join_timeout="${exo.jcr.cluster.jgroups.pbcast.gmsa.join_timeout:3000}"
+      shun="${exo.jcr.cluster.jgroups.pbcast.gms.shun:false}"
+      view_bundling="${exo.jcr.cluster.jgroups.pbcast.gms.view_bundling:true}" />
   <FC
-      max_credits="${exo.cluster.jcr.jgroups.fc.max_credits:500000}"
-      min_threshold="${exo.cluster.jcr.jgroups.fc.min_threshold:0.20}" />
+      max_credits="${exo.jcr.cluster.jgroups.fc.max_credits:500000}"
+      min_threshold="${exo.jcr.cluster.jgroups.fc.min_threshold:0.20}" />
   <FRAG2
-      frag_size="${exo.cluster.jcr.jgroups.frag2.frag_size:60000}" />
+      frag_size="${exo.jcr.cluster.jgroups.frag2.frag_size:60000}" />
   <!--pbcast.STREAMING_STATE_TRANSFER /-->
   <pbcast.STATE_TRANSFER />
   <pbcast.FLUSH />

@@ -27,7 +27,7 @@
       useLockStriping="false"
       concurrencyLevel="64"
       lockParentForChildInsertRemove="false"
-      lockAcquisitionTimeout="20000" />
+      lockAcquisitionTimeout="${exo.jcr.indexer.lockacquisitiontimeout:20000}" />
   <!-- Configure the TransactionManager -->
   <transaction
       transactionManagerLookupClass="org.jboss.cache.transaction.JBossStandaloneJTAManagerLookup" />

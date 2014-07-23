@@ -27,23 +27,23 @@
       useLockStriping="false"
       concurrencyLevel="64"
       lockParentForChildInsertRemove="false"
-      lockAcquisitionTimeout="20000" />
+      lockAcquisitionTimeout="${exo.jcr.workspace.lockacquisitiontimeout:20000}" />
   <!-- Configure the TransactionManager -->
   <transaction
       transactionManagerLookupClass="org.jboss.cache.transaction.JBossStandaloneJTAManagerLookup" />
   <!-- Eviction configuration -->
   <eviction
-      wakeUpInterval="5000">
+      wakeUpInterval="${exo.jcr.workspace.eviction.wakeupinterval:5000}">
     <default
         algorithmClass="org.jboss.cache.eviction.FIFOAlgorithm"
         actionPolicyClass="org.exoplatform.services.jcr.impl.dataflow.persistent.jbosscache.ParentNodeEvictionActionPolicy"
-        eventQueueSize="1000000">
+        eventQueueSize="${exo.jcr.workspace.eviction.eventqueuesize:1000000}">
       <property
           name="maxNodes"
-          value="${exo.jcr.cache.size}" />
+          value="${exo.jcr.workspace.eviction.maxnodes:1000000}" />
       <property
           name="minTimeToLive"
-          value="0" />
+          value="${exo.jcr.workspace.eviction.mintimetolive:0}" />
     </default>
   </eviction>
 </jbosscache>

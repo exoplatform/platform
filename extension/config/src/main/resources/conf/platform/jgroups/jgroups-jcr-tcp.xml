@@ -20,72 +20,72 @@
 -->
 <config>
   <TCP
-      singleton_name="${exo.cluster.jcr.jgroups.tcp.singleton_name:exo-transport-tcp}"
-      start_port="${exo.cluster.jcr.jgroups.tcp.start_port:7800}"
-      loopback="${exo.cluster.jcr.jgroups.tcp.loopback:true}"
-      recv_buf_size="${exo.cluster.jcr.jgroups.tcp.recv_buf_size:20000000}"
-      send_buf_size="${exo.cluster.jcr.jgroups.tcp.send_buf_size:640000}"
-      discard_incompatible_packets="${exo.cluster.jcr.jgroups.tcp.discard_incompatible_packets:true}"
-      max_bundle_size="${exo.cluster.jcr.jgroups.tcp.max_bundle_size:64000}"
-      max_bundle_timeout="${exo.cluster.jcr.jgroups.tcp.max_bundle_timeout:30}"
-      use_incoming_packet_handler="${exo.cluster.jcr.jgroups.tcp.use_incoming_packet_handler:true}"
-      enable_bundling="${exo.cluster.jcr.jgroups.tcp.enable_bundling:false}"
-      use_send_queues="${exo.cluster.jcr.jgroups.tcp.use_send_queues:false}"
-      sock_conn_timeout="${exo.cluster.jcr.jgroups.tcp.sock_conn_timeout:300}"
-      skip_suspected_members="${exo.cluster.jcr.jgroups.tcp.skip_suspected_members:true}"
-      use_concurrent_stack="${exo.cluster.jcr.jgroups.tcp.use_concurrent_stack:true}"
-      thread_pool.enabled="${exo.cluster.jcr.jgroups.tcp.thread_pool.enabled:true}"
-      thread_pool.min_threads="${exo.cluster.jcr.jgroups.tcp.thread_pool.min_threads:10}"
-      thread_pool.max_threads="${exo.cluster.jcr.jgroups.tcp.thread_pool.max_threads:1000}"
-      thread_pool.keep_alive_time="${exo.cluster.jcr.jgroups.tcp.thread_pool.keep_alive_time:5000}"
-      thread_pool.queue_enabled="${exo.cluster.jcr.jgroups.tcp.thread_pool.queue_enabled:false}"
-      thread_pool.queue_max_size="${exo.cluster.jcr.jgroups.tcp.thread_pool.queue_max_size:1000}"
-      thread_pool.rejection_policy="${exo.cluster.jcr.jgroups.tcp.thread_pool.rejection_policy:Run}"
-      oob_thread_pool.enabled="${exo.cluster.jcr.jgroups.tcp.oob_thread_pool.enabled:true}"
-      oob_thread_pool.min_threads="${exo.cluster.jcr.jgroups.tcp.oob_thread_pool.min_threads:5}"
-      oob_thread_pool.max_threads="${exo.cluster.jcr.jgroups.tcp.oob_thread_pool.max_threads:1000}"
-      oob_thread_pool.keep_alive_time="${exo.cluster.jcr.jgroups.tcp.oob_thread_pool.keep_alive_time:5000}"
-      oob_thread_pool.queue_enabled="${exo.cluster.jcr.jgroups.tcp.oob_thread_pool.queue_enabled:false}"
-      oob_thread_pool.queue_max_size="${exo.cluster.jcr.jgroups.tcp.oob_thread_pool.queue_max_size:1000}"
-      oob_thread_pool.rejection_policy="${exo.cluster.jcr.jgroups.tcp.oob_thread_pool.rejection_policy:Run}" />
+      singleton_name="${exo.jcr.cluster.jgroups.tcp.singleton_name:exo-transport-tcp}"
+      start_port="${exo.jcr.cluster.jgroups.tcp.start_port:7800}"
+      loopback="${exo.jcr.cluster.jgroups.tcp.loopback:true}"
+      recv_buf_size="${exo.jcr.cluster.jgroups.tcp.recv_buf_size:20000000}"
+      send_buf_size="${exo.jcr.cluster.jgroups.tcp.send_buf_size:640000}"
+      discard_incompatible_packets="${exo.jcr.cluster.jgroups.tcp.discard_incompatible_packets:true}"
+      max_bundle_size="${exo.jcr.cluster.jgroups.tcp.max_bundle_size:64000}"
+      max_bundle_timeout="${exo.jcr.cluster.jgroups.tcp.max_bundle_timeout:30}"
+      use_incoming_packet_handler="${exo.jcr.cluster.jgroups.tcp.use_incoming_packet_handler:true}"
+      enable_bundling="${exo.jcr.cluster.jgroups.tcp.enable_bundling:false}"
+      use_send_queues="${exo.jcr.cluster.jgroups.tcp.use_send_queues:false}"
+      sock_conn_timeout="${exo.jcr.cluster.jgroups.tcp.sock_conn_timeout:300}"
+      skip_suspected_members="${exo.jcr.cluster.jgroups.tcp.skip_suspected_members:true}"
+      use_concurrent_stack="${exo.jcr.cluster.jgroups.tcp.use_concurrent_stack:true}"
+      thread_pool.enabled="${exo.jcr.cluster.jgroups.tcp.thread_pool.enabled:true}"
+      thread_pool.min_threads="${exo.jcr.cluster.jgroups.tcp.thread_pool.min_threads:10}"
+      thread_pool.max_threads="${exo.jcr.cluster.jgroups.tcp.thread_pool.max_threads:1000}"
+      thread_pool.keep_alive_time="${exo.jcr.cluster.jgroups.tcp.thread_pool.keep_alive_time:5000}"
+      thread_pool.queue_enabled="${exo.jcr.cluster.jgroups.tcp.thread_pool.queue_enabled:false}"
+      thread_pool.queue_max_size="${exo.jcr.cluster.jgroups.tcp.thread_pool.queue_max_size:1000}"
+      thread_pool.rejection_policy="${exo.jcr.cluster.jgroups.tcp.thread_pool.rejection_policy:Run}"
+      oob_thread_pool.enabled="${exo.jcr.cluster.jgroups.tcp.oob_thread_pool.enabled:true}"
+      oob_thread_pool.min_threads="${exo.jcr.cluster.jgroups.tcp.oob_thread_pool.min_threads:5}"
+      oob_thread_pool.max_threads="${exo.jcr.cluster.jgroups.tcp.oob_thread_pool.max_threads:1000}"
+      oob_thread_pool.keep_alive_time="${exo.jcr.cluster.jgroups.tcp.oob_thread_pool.keep_alive_time:5000}"
+      oob_thread_pool.queue_enabled="${exo.jcr.cluster.jgroups.tcp.oob_thread_pool.queue_enabled:false}"
+      oob_thread_pool.queue_max_size="${exo.jcr.cluster.jgroups.tcp.oob_thread_pool.queue_max_size:1000}"
+      oob_thread_pool.rejection_policy="${exo.jcr.cluster.jgroups.tcp.oob_thread_pool.rejection_policy:Run}" />
   <TCPPING
-      timeout="${exo.cluster.jcr.jgroups.tcpping.timeout:3000}"
-      initial_hosts="${exo.cluster.jcr.jgroups.tcpping.initial_hosts:localhost[7800]}"
-      port_range="${exo.cluster.jcr.jgroups.tcpping.port_range:1}"
-      num_initial_members="${exo.cluster.jcr.jgroups.tcpping.num_initial_members:1}" />
+      timeout="${exo.jcr.cluster.jgroups.tcpping.timeout:3000}"
+      initial_hosts="${exo.jcr.cluster.jgroups.tcpping.initial_hosts:localhost[7800]}"
+      port_range="${exo.jcr.cluster.jgroups.tcpping.port_range:1}"
+      num_initial_members="${exo.jcr.cluster.jgroups.tcpping.num_initial_members:1}" />
   <MERGE2
-      max_interval="${exo.cluster.jcr.jgroups.merge2.max_interval:100000}"
-      min_interval="${exo.cluster.jcr.jgroups.merge2.min_interval:20000}" />
+      max_interval="${exo.jcr.cluster.jgroups.merge2.max_interval:100000}"
+      min_interval="${exo.jcr.cluster.jgroups.merge2.min_interval:20000}" />
   <FD_SOCK />
   <FD
-      timeout="${exo.cluster.jcr.jgroups.fd.timeout:10000}"
-      max_tries="${exo.cluster.jcr.jgroups.fd.max_tries:5}"
-      shun="${exo.cluster.jcr.jgroups.fd.shun:true}" />
+      timeout="${exo.jcr.cluster.jgroups.fd.timeout:10000}"
+      max_tries="${exo.jcr.cluster.jgroups.fd.max_tries:5}"
+      shun="${exo.jcr.cluster.jgroups.fd.shun:true}" />
   <VERIFY_SUSPECT
-      timeout="${exo.cluster.jcr.jgroups.verify_subject.timeout:1500}" />
+      timeout="${exo.jcr.cluster.jgroups.verify_subject.timeout:1500}" />
   <BARRIER />
   <pbcast.NAKACK
-      use_mcast_xmit="${exo.cluster.jcr.jgroups.pbcast.nakack.use_mcast_xmit:false}"
-      gc_lag="${exo.cluster.jcr.jgroups.pbcast.nakack.gc_lag:0}"
-      retransmit_timeout="${exo.cluster.jcr.jgroups.pbcast.nakack.retransmit_timeout:300,600,1200,2400,4800}"
-      discard_delivered_msgs="${exo.cluster.jcr.jgroups.pbcast.nakack.discard_delivered_msgs:true}" />
+      use_mcast_xmit="${exo.jcr.cluster.jgroups.pbcast.nakack.use_mcast_xmit:false}"
+      gc_lag="${exo.jcr.cluster.jgroups.pbcast.nakack.gc_lag:0}"
+      retransmit_timeout="${exo.jcr.cluster.jgroups.pbcast.nakack.retransmit_timeout:300,600,1200,2400,4800}"
+      discard_delivered_msgs="${exo.jcr.cluster.jgroups.pbcast.nakack.discard_delivered_msgs:true}" />
   <UNICAST
-      timeout="${exo.cluster.jcr.jgroups.unicast.timeout:300,600,1200}" />
+      timeout="${exo.jcr.cluster.jgroups.unicast.timeout:300,600,1200}" />
   <pbcast.STABLE
-      stability_delay="${exo.cluster.jcr.jgroups.pbcast.stable.stability_delay:1000}"
-      desired_avg_gossip="${exo.cluster.jcr.jgroups.pbcast.stable.desired_avg_gossip:50000}"
-      max_bytes="${exo.cluster.jcr.jgroups.pbcast.stable.max_bytes:400000}" />
+      stability_delay="${exo.jcr.cluster.jgroups.pbcast.stable.stability_delay:1000}"
+      desired_avg_gossip="${exo.jcr.cluster.jgroups.pbcast.stable.desired_avg_gossip:50000}"
+      max_bytes="${exo.jcr.cluster.jgroups.pbcast.stable.max_bytes:400000}" />
   <VIEW_SYNC
-      avg_send_interval="${exo.cluster.jcr.jgroups.view_sync.avg_send_interval:60000}" />
+      avg_send_interval="${exo.jcr.cluster.jgroups.view_sync.avg_send_interval:60000}" />
   <pbcast.GMS
-      print_local_addr="${exo.cluster.jcr.jgroups.pbcast.gms.print_local_addr:true}"
-      join_timeout="${exo.cluster.jcr.jgroups.pbcast.gms.join_timeout:3000}"
-      shun="${exo.cluster.jcr.jgroups.pbcast.gms.shun:true}"
-      view_bundling="${exo.cluster.jcr.jgroups.pbcast.gms.view_bundling:true}" />
+      print_local_addr="${exo.jcr.cluster.jgroups.pbcast.gms.print_local_addr:true}"
+      join_timeout="${exo.jcr.cluster.jgroups.pbcast.gms.join_timeout:3000}"
+      shun="${exo.jcr.cluster.jgroups.pbcast.gms.shun:true}"
+      view_bundling="${exo.jcr.cluster.jgroups.pbcast.gms.view_bundling:true}" />
   <FC
-      max_credits="${exo.cluster.jcr.jgroups.fc.max_credits:2000000}"
-      min_threshold="${exo.cluster.jcr.jgroups.fc.min_threshold:0.10}" />
+      max_credits="${exo.jcr.cluster.jgroups.fc.max_credits:2000000}"
+      min_threshold="${exo.jcr.cluster.jgroups.fc.min_threshold:0.10}" />
   <FRAG2
-      frag_size="${exo.cluster.jcr.jgroups.frag2.frag_size:60000}" />
+      frag_size="${exo.jcr.cluster.jgroups.frag2.frag_size:60000}" />
   <pbcast.STREAMING_STATE_TRANSFER />
 </config>

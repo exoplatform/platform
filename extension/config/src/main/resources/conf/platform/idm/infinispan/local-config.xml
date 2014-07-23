@@ -43,10 +43,10 @@
     <invocationBatching
         enabled="true" />
     <expiration
-        lifespan="${exo.idm.infinispan.expiration.lifespan:1800000}"
-        wakeUpInterval="${exo.idm.infinispan.expiration.wakeUpInterval:5000}" />
+        lifespan="${exo.idm.expiration.lifespan:1800000}"
+        wakeUpInterval="${exo.idm.expiration.wakeupinterval:5000}" />
     <eviction
-        strategy="${exo.idm.infinispan.eviction.strategy:LRU}"
-        maxEntries="${exo.idm.infinispan.eviction.maxEntries:100000}" />
+        strategy="${exo.idm.eviction.strategy:LRU}"
+        maxEntries="${exo.idm.eviction.maxentries:100000}" />
   </default>
 </infinispan>

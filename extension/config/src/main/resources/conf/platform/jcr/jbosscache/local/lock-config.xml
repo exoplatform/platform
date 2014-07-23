@@ -27,7 +27,7 @@
       useLockStriping="false"
       concurrencyLevel="64"
       lockParentForChildInsertRemove="false"
-      lockAcquisitionTimeout="20000" />
+      lockAcquisitionTimeout="${exo.jcr.lock.lockacquisitiontimeout:20000}" />
   <loaders
       passivation="false"
       shared="true">
