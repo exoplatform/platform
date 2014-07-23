@@ -27,7 +27,7 @@
     <!-- Jgroups configuration will be injected programmatically -->
     <transport clusterName="${jboss.partition.name}-idm"
                distributedSyncTimeout="${exo.idm.cluster.transport.distributedsynctimeout:60000}"
-               nodeName="${jboss.node.name:gtn}">
+               nodeName="${exo.cluster.node.name}">
       <properties>
         <property name="configurationFile" value="${idm.jgroups.config}" />
       </properties>
