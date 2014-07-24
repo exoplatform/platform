@@ -30,7 +30,7 @@
       lockAcquisitionTimeout="${exo.jcr.indexer.lockacquisitiontimeout:40000}" />
   <clustering
       mode="replication"
-      clusterName="${jboss.partition.name}-${jbosscache-cluster-name}">
+      clusterName="${exo.cluster.partition.name}-${jbosscache-cluster-name}">
     <stateRetrieval
         timeout="${exo.jcr.cluster.indexer.stateretrieval.timeout:20000}"
         fetchInMemoryState="${exo.jcr.cluster.indexer.stateretrieval.fetchinmemorystate:false}" />

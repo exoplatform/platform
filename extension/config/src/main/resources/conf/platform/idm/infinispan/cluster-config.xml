@@ -25,7 +25,7 @@
     xmlns="urn:infinispan:config:5.1">
   <global>
     <!-- Jgroups configuration will be injected programmatically -->
-    <transport clusterName="${jboss.partition.name}-idm"
+    <transport clusterName="${exo.cluster.partition.name}-idm"
                distributedSyncTimeout="${exo.idm.cluster.transport.distributedsynctimeout:60000}"
                nodeName="${exo.cluster.node.name}">
       <properties>
