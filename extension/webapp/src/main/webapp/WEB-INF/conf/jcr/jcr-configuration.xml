@@ -59,7 +59,7 @@
     <init-params>
       <value-param>
         <name>jgroups-configuration</name>
-        <value>${gatein.jcr.jgroups.config}</value>
+        <value>${exo.jcr.cluster.jgroups.config.url}</value>
       </value-param>
       <value-param>
         <name>jgroups-cluster-name</name>

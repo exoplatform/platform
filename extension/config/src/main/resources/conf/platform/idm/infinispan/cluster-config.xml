@@ -29,7 +29,7 @@
                distributedSyncTimeout="${exo.idm.cluster.transport.distributedsynctimeout:60000}"
                nodeName="${exo.cluster.node.name}">
       <properties>
-        <property name="configurationFile" value="${idm.jgroups.config}" />
+        <property name="configurationFile" value="${exo.idm.cluster.jgroups.config}" />
       </properties>
     </transport>
     <globalJmxStatistics

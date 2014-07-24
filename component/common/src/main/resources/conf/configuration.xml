@@ -29,7 +29,7 @@
       <key>CacheManagementProperty</key>
       <type>org.exoplatform.container.PropertyConfigurator</type>
       <init-params>
-         <properties-param >
+         <properties-param>
             <name>properties</name>
             <description>Filter used to notify caches</description>
             <property name="gatein.jcr.cache.config" value="jar:/conf/platform/jcr/jbosscache/local/cache-config.xml" />

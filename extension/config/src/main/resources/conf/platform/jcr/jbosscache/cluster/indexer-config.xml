@@ -35,7 +35,7 @@
         timeout="${exo.jcr.cluster.indexer.stateretrieval.timeout:20000}"
         fetchInMemoryState="${exo.jcr.cluster.indexer.stateretrieval.fetchinmemorystate:false}" />
     <jgroupsConfig
-        configFile="${jcr.jgroups.config}" />
+        configFile="${exo.jcr.cluster.jgroups.config}" />
     <sync
         replTimeout="${exo.jcr.cluster.indexer.sync.repltimeout:15000}" />
   </clustering>
