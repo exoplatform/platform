@@ -33,7 +33,7 @@
       transactionManagerLookupClass="org.jboss.cache.transaction.JBossStandaloneJTAManagerLookup" />
   <!-- Eviction configuration -->
   <eviction
-      wakeUpInterval="${exo.jcr.systemworkspace.eviction.wakeupinterval:5000}">
+      wakeUpInterval="${exo.jcr.systemworkspace.eviction.wakeupinterval:2000}">
     <default
         algorithmClass="org.jboss.cache.eviction.LRUAlgorithm"
         actionPolicyClass="org.exoplatform.services.jcr.impl.dataflow.persistent.jbosscache.ParentNodeEvictionActionPolicy"

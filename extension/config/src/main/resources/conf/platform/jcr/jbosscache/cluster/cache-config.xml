@@ -41,7 +41,7 @@
   </clustering>
   <!-- Eviction configuration -->
   <eviction
-      wakeUpInterval="${exo.jcr.workspace.eviction.wakeupinterval:5000}">
+      wakeUpInterval="${exo.jcr.workspace.eviction.wakeupinterval:2000}">
     <default
         algorithmClass="org.jboss.cache.eviction.FIFOAlgorithm"
         actionPolicyClass="org.exoplatform.services.jcr.impl.dataflow.persistent.jbosscache.ParentNodeEvictionActionPolicy"
