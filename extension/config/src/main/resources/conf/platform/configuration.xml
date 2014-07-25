@@ -17,20 +17,6 @@
         <!-- PLF-4469 : configuration.properties must be loaded from classpath to get default settings -->
         <value>jar:/conf/platform/configuration.properties</value>
       </values-param>
-      <properties-param>
-        <name>properties</name>
-        <description>Jgroups configuration</description>
-        <property name="exo.jcr.cluster.jgroups.config" value="/conf/platform/jgroups/jgroups-jcr-udp.xml" />
-        <property name="exo.jcr.cluster.jgroups.config-url" value="jar:/conf/platform/jgroups/jgroups-jcr-udp.xml" />
-        <property name="exo.idm.cluster.jgroups.config" value="/conf/platform/jgroups/jgroups-idm-udp.xml" />
-      </properties-param>
-      <properties-param profiles="cluster-jgroups-tcp">
-        <name>properties</name>
-        <description>Jgroups configuration</description>
-        <property name="exo.jcr.cluster.jgroups.config" value="/conf/platform/jgroups/jgroups-jcr-tcp.xml" />
-        <property name="exo.jcr.cluster.jgroups.config-url" value="jar:/conf/platform/jgroups/jgroups-jcr-tcp.xml" />
-        <property name="exo.idm.cluster.jgroups.config" value="/conf/platform/jgroups/jgroups-idm-tcp.xml" />
-      </properties-param>
     </init-params>
   </component>
 

@@ -25,6 +25,27 @@
       xsi:schemaLocation="http://www.exoplaform.org/xml/ns/kernel_1_2.xsd http://www.exoplaform.org/xml/ns/kernel_1_2.xsd"
       xmlns="http://www.exoplaform.org/xml/ns/kernel_1_2.xsd">
 
+  <component>
+     <key>JGroupsProperty</key>
+     <type>org.exoplatform.platform.common.container.ExtendedPropertyConfigurator</type>
+     <init-params>
+       <properties-param>
+         <name>properties</name>
+         <description>Jgroups configuration</description>
+         <property name="exo.jcr.cluster.jgroups.config" value="/conf/platform/jgroups/jgroups-jcr-udp.xml" />
+         <property name="exo.jcr.cluster.jgroups.config-url" value="jar:/conf/platform/jgroups/jgroups-jcr-udp.xml" />
+         <property name="exo.idm.cluster.jgroups.config" value="/conf/platform/jgroups/jgroups-idm-udp.xml" />
+       </properties-param>
+       <properties-param profiles="cluster-jgroups-tcp">
+         <name>properties</name>
+         <description>Jgroups configuration</description>
+         <property name="exo.jcr.cluster.jgroups.config" value="/conf/platform/jgroups/jgroups-jcr-tcp.xml" />
+         <property name="exo.jcr.cluster.jgroups.config-url" value="jar:/conf/platform/jgroups/jgroups-jcr-tcp.xml" />
+         <property name="exo.idm.cluster.jgroups.config" value="/conf/platform/jgroups/jgroups-idm-tcp.xml" />
+       </properties-param>
+     </init-params>
+  </component>
+
    <component>
       <key>CacheManagementProperty</key>
       <type>org.exoplatform.platform.common.container.ExtendedPropertyConfigurator</type>
