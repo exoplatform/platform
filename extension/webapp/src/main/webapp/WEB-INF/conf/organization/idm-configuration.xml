@@ -109,12 +109,12 @@
 
       <value-param>
         <name>apiCacheConfig</name>
-        <value>${gatein.idm.api.cache.config:jar:/conf/platform/idm/infinispan/local-config.xml}</value>
+        <value>${exo.idm.api.cache.config:jar:/conf/platform/idm/infinispan/local-config.xml}</value>
       </value-param>
 
       <value-param profiles="cluster">
         <name>apiCacheConfig</name>
-        <value>${gatein.idm.api.cache.config:jar:/conf/platform/idm/infinispan/cluster-config.xml}</value>
+        <value>${exo.idm.api.cache.config:jar:/conf/platform/idm/infinispan/cluster-config.xml}</value>
       </value-param>
 
       <value-param>
