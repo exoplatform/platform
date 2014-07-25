@@ -75,9 +75,6 @@
                <!-- commons -->
 
                <value>
-                  <string>fck</string>
-               </value>
-               <value>
                   <string>commons-extension</string>
                </value>
                <value>
