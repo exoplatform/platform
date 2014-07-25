@@ -92,7 +92,7 @@
                                  <string>WikiPortlet</string>
                               </field>
                               <field name="appTitle">
-                                 <string>Wiki</string>
+                                 <string>wiki</string>
                               </field>
                               <field name="removable">
                                  <boolean>true</boolean>

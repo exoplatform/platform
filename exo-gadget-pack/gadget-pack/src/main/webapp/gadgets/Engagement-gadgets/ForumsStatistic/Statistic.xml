@@ -183,7 +183,7 @@
                     var time = new Date(dateLong);
                     var onlineTime = time.toDateString() + ' ' + time.toLocaleTimeString() ;
                     items.push('<div class="IconLink"><i class="uiIconMiniArrowRight uiIconLightGray caretIcon"></i>' + "__MSG_forums.statistic.maximum.user__"  + ' ' +'</div>');
-                    items.push('<div class="IconLink"><i><span class="num">' + maximumUser + '</span> __MSG_forums.statistic.at__ <span class="num">' + onlineTime +'</span></i></div>' );
+                    items.push('<div class="IconLink"><span class="num">' + maximumUser + '</span> __MSG_forums.statistic.at__ <span class="num">' + onlineTime +'</span></div>' );
 
                   });
                 });

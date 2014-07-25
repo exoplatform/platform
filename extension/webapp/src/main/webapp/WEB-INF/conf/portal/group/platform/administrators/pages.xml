@@ -34,6 +34,12 @@
             <portlet>
                 <application-ref>exoadmin</application-ref>
                 <portlet-ref>ApplicationRegistryPortlet</portlet-ref>
+                <preferences>
+                  <preference>
+                    <name>showImport</name>
+                    <value>false</value>
+                  </preference>
+                </preferences>
             </portlet>
             <title>Application Registry</title>
             <access-permissions>manager:/platform/administrators</access-permissions>

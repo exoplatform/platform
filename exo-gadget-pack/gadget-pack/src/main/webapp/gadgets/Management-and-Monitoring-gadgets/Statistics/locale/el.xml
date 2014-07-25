@@ -20,6 +20,15 @@
 
 -->
 <messagebundle>
-  <msg name="title">Τα 10 πιο αργά πρότυπα</msg>
-  <msg name="title-all">Στατιστικά στοιχεία προτύπων</msg>
+  <msg name="title_templates">Στατιστικά προτύπων</msg>
+  <msg name="ten_slowest_templates">Τα 10 πιο αργά πρότυπα</msg>
+  <msg name="all_templates">Όλα τα πρότυπα</msg>
+  <msg name="title_apps">Στατιστικά εφαρμογών</msg>
+  <msg name="ten_slowest_apps">Οι 10 πιο αργές εφαρμογές</msg>
+  <msg name="all_apps">Όλες οι εφαρμογές</msg>
+  <msg name="avg_exec_time">Μέσος χρόνος εκτέλεσης (σε ms)</msg>
+  <msg name="min">Ελάχιστο</msg>
+  <msg name="max">Μέγιστο</msg>
+  <msg name="exec">#exec</msg>
+  <msg name="loading">Φόρτωση δεδομένων ...</msg>
 </messagebundle>

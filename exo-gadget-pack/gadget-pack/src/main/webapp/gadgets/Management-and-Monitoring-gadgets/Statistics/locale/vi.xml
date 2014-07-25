@@ -20,6 +20,15 @@
 
 -->
 <messagebundle>
-  <msg name="title">10 slowest templates</msg>
-  <msg name="title-all">All templates statistics</msg>
+  <msg name="title_templates">Thống kê các mẫu</msg>
+  <msg name="ten_slowest_templates">10 mẫu chậm nhất</msg>
+  <msg name="all_templates">Tất cả</msg>
+  <msg name="title_apps">Thống kê các ứng dụng</msg>
+  <msg name="ten_slowest_apps">10 ứng dụng chậm nhất</msg>
+  <msg name="all_apps">Tất cả</msg>
+  <msg name="avg_exec_time">Thời gian trung bình (ms)</msg>
+  <msg name="min">tối thiểu</msg>
+  <msg name="max">tối đa</msg>
+  <msg name="exec">số lần</msg>
+  <msg name="loading">Đang tải dữ liệu ...</msg>
 </messagebundle>
