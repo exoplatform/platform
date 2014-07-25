@@ -120,12 +120,12 @@
     <description>Default configuration for the chinese simplified locale</description>
   </locale-config>
 
-  <locale-config>
+  <!--locale-config>
     <locale>fi</locale>
     <output-encoding>UTF-8</output-encoding>
     <input-encoding>UTF-8</input-encoding>
     <description>Default configuration for the finnish locale</description>
-  </locale-config>
+  </locale-config-->
   
   <locale-config>
     <locale>lt</locale>
