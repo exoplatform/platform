@@ -10,10 +10,10 @@
     <init-params>
       <values-param>
         <name>properties.urls</name>
-        <!-- PLF-4469 : Load user configuration from ${gatein.conf.dir}/exo.properties if it exists -->
-        <value>file:${gatein.conf.dir}/exo.properties</value>
+        <!-- PLF-4469 : Load user configuration from ${exo.conf.dir}/exo.properties if it exists -->
+        <value>file:${exo.conf.dir}/exo.properties</value>
         <!-- PLF-4469 : Additional configuration file dedicated to upgrades -->
-        <value>file:${gatein.conf.dir}/upgrade.properties</value>
+        <value>file:${exo.conf.dir}/upgrade.properties</value>
         <!-- PLF-4469 : configuration.properties must be loaded from classpath to get default settings -->
         <value>jar:/conf/platform/configuration.properties</value>
       </values-param>
