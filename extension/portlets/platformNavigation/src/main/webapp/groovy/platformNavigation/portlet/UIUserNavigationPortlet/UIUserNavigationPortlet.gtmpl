@@ -19,11 +19,6 @@
      */
 %>
 <%
-    import org.exoplatform.portal.webui.util.Util;
-    import org.exoplatform.social.webui.Utils;
-    import org.exoplatform.social.core.service.LinkProvider;
-    import org.exoplatform.platform.webui.NavigationURLUtils;
-    import org.exoplatform.webui.core.UIPopupWindow;
     def uicomponentId = uicomponent.id;
 %>
 

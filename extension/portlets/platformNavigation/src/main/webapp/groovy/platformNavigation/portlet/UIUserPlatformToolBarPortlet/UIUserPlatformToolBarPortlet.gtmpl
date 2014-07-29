@@ -32,9 +32,10 @@
     import org.gatein.common.text.EntityEncoder;
     import org.exoplatform.commons.utils.CommonsUtils;
 
-
     def rcontext = _ctx.getRequestContext();
-    JavascriptManager jsmanager = rcontext.getJavascriptManager();
+    JavascriptManager jsManager = rcontext.getJavascriptManager();
+
+    jsManager.require("SHARED/wcm-utils", "wcmutils").addScripts("wcmutils.WCMUtils.pingUserStatus();");
     def user = uicomponent.getUser();
     PortalURL nodeURL = nodeurl();
     def labelActivities = _ctx.appRes("UIUserPlatformToolBarPortlet.label.activities");
