@@ -22,8 +22,16 @@
         <access-permissions>*:/platform/users</access-permissions>
         <container id="UIToolbarContainer" template="system:/groovy/portal/webui/container/UIToolbarContainer.gtmpl">
             <access-permissions>*:/platform/users</access-permissions>
+            <container id="TopLeftNavigationContainer" template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
+              <name>TopLeftNavigationContainer</name>
+              <factory-id>addonContainer</factory-id>
+            </container>
             <container id="HomeLink" template="war:/groovy/portal/webui/container/UIHomeLinkContainer.gtmpl">
                 <access-permissions>*:/platform/users</access-permissions>
+            </container>
+            <container id="TopRightNavigationContainer" template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
+              <name>TopRightNavigationContainer</name>
+              <factory-id>addonContainer</factory-id>
             </container>
             <container id="UIHelpPlatformToolbarPortlet" template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
                 <portlet-application>
@@ -90,7 +98,15 @@
                     <show-info-bar>false</show-info-bar>
                 </portlet-application>
             </container>
+            <container id="TopNavigationContainer" template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
+              <name>TopNavigationContainer</name>
+              <factory-id>addonContainer</factory-id>
+            </container>
         </container>
     </container>
     <site-body/>
+    <container id="BottomAllContainer" template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
+      <name>BottomAllContainer</name>
+      <factory-id>addonContainer</factory-id>
+    </container>
 </container>
