@@ -3,6 +3,23 @@
    xsi:schemaLocation="http://www.exoplatform.org/xml/ns/kernel_1_2.xsd http://www.exoplatform.org/xml/ns/kernel_1_2.xsd"
    xmlns="http://www.exoplatform.org/xml/ns/kernel_1_2.xsd">
 
+  <!-- PLF-4469 : Let's replace the PropertyConfigurator to be able to load optional files - without any error -->
+  <component>
+    <key>org.exoplatform.container.PropertyConfigurator</key>
+    <type>org.exoplatform.platform.common.container.ExtendedPropertyConfigurator</type>
+    <init-params>
+      <values-param>
+        <name>properties.urls</name>
+        <!-- PLF-4469 : Load user configuration from ${exo.conf.dir}/exo.properties if it exists -->
+        <value>file:${exo.conf.dir}/exo.properties</value>
+        <!-- PLF-4469 : Additional configuration file dedicated to upgrades -->
+        <value>file:${exo.conf.dir}/upgrade.properties</value>
+        <!-- PLF-4469 : configuration.properties must be loaded from classpath to get default settings -->
+        <value>jar:/conf/platform/configuration.properties</value>
+      </values-param>
+    </init-params>
+  </component>
+
   <!-- This declares the default portal container for Platform -->
   <component>
     <type>org.exoplatform.container.definition.PortalContainerConfig</type>
@@ -27,10 +44,6 @@
       <object-param>
         <name>default.portal.definition</name>
         <object type="org.exoplatform.container.definition.PortalContainerDefinition">
-          <!-- The path to the external properties file -->
-          <field name="externalSettingsPath">
-            <string>configuration.properties</string>
-          </field>
           <field name="dependencies">
             <collection type="java.util.ArrayList">
                <!-- gatein -->
