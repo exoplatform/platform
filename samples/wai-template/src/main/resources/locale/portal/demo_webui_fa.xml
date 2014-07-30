@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bundle>
+  <Signin>
+    <welcome>خوش آمدید</welcome>
+    <login>ورود</login>
+    <logout>خروج</logout>
+    <language>
+      <en>تعویض به انگلیسی</en>
+      <fr>تعویض به فرانسه</fr>
+    </language>
+    <register>ثبت نام</register>
+  </Signin>
+  <Toolbar>
+    <SkipToContent>پرش به محتوا</SkipToContent>
+    <SiteMap>نقشه سایت</SiteMap>
+    <Accessibility>قابلیت دسترسی</Accessibility>
+    <NormalSize>اندازه عادی</NormalSize>
+    <MediumSize>اندازه متوسط</MediumSize>
+    <LargeSize>اندازه بزرگ</LargeSize>
+    <NormalContrast>کنتراست عادی</NormalContrast>
+    <HighContrast>کنتراست بالا</HighContrast>
+    <Search>جستجو</Search>
+  </Toolbar>
+  <Logo>
+    <GoHome>رفتن به صفحه اصلی</GoHome>
+  </Logo>
+  <acme>
+    <label>الگوی ACME</label>
+  </acme>  
+  <WAIPortal>
+    <label>نمونه وب سایت قابل دسترس</label>
+  </WAIPortal>
+</bundle>

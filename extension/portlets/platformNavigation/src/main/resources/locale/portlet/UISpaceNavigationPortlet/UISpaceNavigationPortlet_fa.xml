@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bundle>
+ <UISpaceNavigationPortlet>
+     <label>
+         <Spaces>فضاهاي من</Spaces>
+         <Join>پیوستن به یک فضا</Join>
+         <see>نمایش {0} فضای بیشتر</see>
+     </label>
+     <msg>
+         <filter-spaces>جستجوی در فضاها</filter-spaces>
+         <no-space>هیچ فضایی  یافت نشد</no-space>
+     </msg>
+
+</UISpaceNavigationPortlet>
+</bundle>
