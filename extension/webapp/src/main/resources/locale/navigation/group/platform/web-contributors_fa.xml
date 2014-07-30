@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <bundle>
   <administration>
-    <siteExplorer>مرورگر محتوا</siteExplorer>
+    <siteExplorer>Content Explorer</siteExplorer>
     <wcmAdmin>مدیریت محتوا</wcmAdmin>
   </administration>
 </bundle>
