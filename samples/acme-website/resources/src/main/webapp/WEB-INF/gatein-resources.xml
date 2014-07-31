@@ -25,13 +25,7 @@
 	
 	<!-- portal Skin for acme portal -->
 	
-    <portal-skin>
-		<skin-name>Default</skin-name>
-		<skin-module>Acme</skin-module>
-		<css-path>/skin/css/Style.css</css-path>
-		<css-priority>6</css-priority>
-        <overwrite>true</overwrite>
-	</portal-skin>
+   
 
     <portal>
         <name>acme</name>
