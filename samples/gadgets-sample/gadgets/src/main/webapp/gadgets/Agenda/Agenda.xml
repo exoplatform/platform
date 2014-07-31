@@ -15,7 +15,7 @@
     <![CDATA[
 	<link rel="stylesheet" href="/intranet-gadgets/skin/css/Agenda.css" type="text/css" />
     <link type="text/css" rel="stylesheet" href="/exo-gadget-resources/skin/exo-gadget/gadget-common.css" />
-   	<script type="text/javascript" src="js/jquery.js"></script>
+    <script language="javascript" type="text/javascript" src="/eXoResources/javascript/jquery-1.7.1.js"></script>
 	<script type="text/javascript" src="js/tasks.js"></script>
     
 	<script type="text/javascript">        

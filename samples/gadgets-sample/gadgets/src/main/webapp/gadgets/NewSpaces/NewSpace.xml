@@ -28,7 +28,7 @@
     
     <script type="text/javascript" src="./script/newSpaces.js"></script>
     <script type="text/javascript" src="./script/date.format.js"></script>
-    <script language="javascript" type="text/javascript" src="/exo-gadget-resources/script/jquery/1.6.2/jquery.min.js"></script>
+    <script language="javascript" type="text/javascript" src="/eXoResources/javascript/jquery-1.7.1.js"></script>
        
     <div id="NewSpaces-Gadget" class="UIGadgetThemes UIYellowThemes">
       <div class="TitGad ClearFix">
