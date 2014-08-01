@@ -83,7 +83,7 @@
       avg_send_interval="${exo.jcr.cluster.jgroups.view_sync.avg_send_interval:60000}" />
   <pbcast.GMS
       print_local_addr="${exo.jcr.cluster.jgroups.pbcast.gms.print_local_addr:true}"
-      join_timeout="${exo.jcr.cluster.jgroups.pbcast.gmsa.join_timeout:3000}"
+      join_timeout="${exo.jcr.cluster.jgroups.pbcast.gms.join_timeout:3000}"
       shun="${exo.jcr.cluster.jgroups.pbcast.gms.shun:false}"
       view_bundling="${exo.jcr.cluster.jgroups.pbcast.gms.view_bundling:true}" />
   <FC
