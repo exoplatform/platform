@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!--
+
+   Copyright (C) 2009 eXo Platform SAS. This is free software; you can redistribute it and/or modify it under the
+   terms of the GNU Lesser General Public License as published by the Free Software Foundation; either version 2.1 of
+   the License, or (at your option) any later version. This software is distributed in the hope that it will be
+   useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR
+   PURPOSE. See the GNU Lesser General Public License for more details. You should have received a copy of the GNU
+   Lesser General Public License along with this software; if not, write to the Free Software Foundation, Inc., 51
+   Franklin St, Fifth Floor, Boston, MA 02110-1301 USA, or see the FSF site: http://www.fsf.org.
+-->
+<configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+               xsi:schemaLocation="http://www.exoplatform.org/xml/ns/kernel_1_2.xsd http://www.exoplatform.org/xml/ns/kernel_1_2.xsd"
+               xmlns="http://www.exoplatform.org/xml/ns/kernel_1_2.xsd">
+
+  <component>
+    <key>org.exoplatform.services.document.DocumentReaderService</key>
+    <type>org.exoplatform.services.document.impl.tika.TikaDocumentReaderServiceImpl</type>
+
+    <component-plugins>
+      <component-plugin>
+        <name>pdf.document.reader</name>
+        <set-method>addDocumentReader</set-method>
+        <type>org.exoplatform.services.document.impl.PDFDocumentReader</type>
+        <description>to read the pdf inputstream</description>
+      </component-plugin>
+
+      <component-plugin>
+        <name>document.readerMSWord</name>
+        <set-method>addDocumentReader</set-method>
+        <type>org.exoplatform.services.document.impl.MSWordDocumentReader</type>
+        <description>to read the ms word inputstream</description>
+      </component-plugin>
+
+      <component-plugin>
+        <name>document.readerMSXWord</name>
+        <set-method>addDocumentReader</set-method>
+        <type>org.exoplatform.services.document.impl.MSXWordDocumentReader</type>
+        <description>to read the ms word inputstream</description>
+      </component-plugin>
+
+      <!--component-plugin>
+         <name>document.readerMSExcel</name>
+         <set-method>addDocumentReader</set-method>
+         <type>org.exoplatform.services.document.impl.MSExcelDocumentReader</type>
+         <description>to read the ms excel inputstream</description>
+      </component-plugin-->
+
+      <!--component-plugin>
+        <name>document.readerMSXExcel</name>
+        <set-method>addDocumentReader</set-method>
+        <type>org.exoplatform.services.document.impl.MSXExcelDocumentReader</type>
+        <description>to read the ms excel inputstream</description>
+      </component-plugin-->
+
+      <component-plugin>
+        <name>document.readerMSOutlook</name>
+        <set-method>addDocumentReader</set-method>
+        <type>org.exoplatform.services.document.impl.MSOutlookDocumentReader</type>
+        <description>to read the ms outlook inputstream</description>
+      </component-plugin>
+
+      <component-plugin>
+        <name>PPTdocument.reader</name>
+        <set-method>addDocumentReader</set-method>
+        <type>org.exoplatform.services.document.impl.PPTDocumentReader</type>
+        <description>to read the ms ppt inputstream</description>
+      </component-plugin>
+
+      <component-plugin>
+        <name>MSXPPTdocument.reader</name>
+        <set-method>addDocumentReader</set-method>
+        <type>org.exoplatform.services.document.impl.MSXPPTDocumentReader</type>
+        <description>to read the ms pptx inputstream</description>
+      </component-plugin>
+
+      <component-plugin>
+        <name>document.readerHTML</name>
+        <set-method>addDocumentReader</set-method>
+        <type>org.exoplatform.services.document.impl.HTMLDocumentReader</type>
+        <description>to read the html inputstream</description>
+      </component-plugin>
+
+      <component-plugin>
+        <name>document.readerXML</name>
+        <set-method>addDocumentReader</set-method>
+        <type>org.exoplatform.services.document.impl.XMLDocumentReader</type>
+        <description>to read the xml inputstream</description>
+      </component-plugin>
+
+      <component-plugin>
+        <name>TPdocument.reader</name>
+        <set-method>addDocumentReader</set-method>
+        <type>org.exoplatform.services.document.impl.TextPlainDocumentReader</type>
+        <description>to read the plain text inputstream</description>
+        <init-params>
+          <!--
+             values-param> <name>defaultEncoding</name> <description>description</description> <value>UTF-8</value>
+             </values-param
+          -->
+        </init-params>
+      </component-plugin>
+
+      <component-plugin>
+        <name>document.readerOO</name>
+        <set-method>addDocumentReader</set-method>
+        <type>org.exoplatform.services.document.impl.OpenOfficeDocumentReader</type>
+        <description>to read the OO inputstream</description>
+      </component-plugin>
+
+    </component-plugins>
+
+    <init-params>
+      <value-param>
+        <name>tika-configuration</name>
+        <value>war:/conf/core/tika-config.xml</value>
+      </value-param>
+    </init-params>
+
+  </component>
+</configuration>
