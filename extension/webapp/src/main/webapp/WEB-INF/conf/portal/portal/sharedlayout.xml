@@ -22,15 +22,15 @@
         <access-permissions>*:/platform/users</access-permissions>
         <container id="UIToolbarContainer" template="system:/groovy/portal/webui/container/UIToolbarContainer.gtmpl">
             <access-permissions>*:/platform/users</access-permissions>
-            <container id="TopLeftNavigationContainer" template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
-              <name>TopLeftNavigationContainer</name>
+            <container id="left-topNavigation-container" template="system:/groovy/portal/webui/container/UIAddOnContainer.gtmpl">
+              <name>left-topNavigation-container</name>
               <factory-id>addonContainer</factory-id>
             </container>
             <container id="HomeLink" template="war:/groovy/portal/webui/container/UIHomeLinkContainer.gtmpl">
                 <access-permissions>*:/platform/users</access-permissions>
             </container>
-            <container id="TopRightNavigationContainer" template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
-              <name>TopRightNavigationContainer</name>
+            <container id="right-topNavigation-container" template="system:/groovy/portal/webui/container/UIAddOnContainer.gtmpl">
+              <name>right-topNavigation-container</name>
               <factory-id>addonContainer</factory-id>
             </container>
             <container id="UIHelpPlatformToolbarPortlet" template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
@@ -98,15 +98,15 @@
                     <show-info-bar>false</show-info-bar>
                 </portlet-application>
             </container>
-            <container id="TopNavigationContainer" template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
-              <name>TopNavigationContainer</name>
+            <container id="center-topNavigation-container" template="system:/groovy/portal/webui/container/UIAddOnContainer.gtmpl">
+              <name>center-topNavigation-container</name>
               <factory-id>addonContainer</factory-id>
             </container>
         </container>
     </container>
     <site-body/>
-    <container id="BottomAllContainer" template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
-      <name>BottomAllContainer</name>
+    <container id="bottom-all-container" template="system:/groovy/portal/webui/container/UIAddOnContainer.gtmpl">
+      <name>bottom-all-container</name>
       <factory-id>addonContainer</factory-id>
     </container>
 </container>

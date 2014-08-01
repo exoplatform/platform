@@ -77,8 +77,8 @@
                         <show-info-bar>false</show-info-bar>
                     </portlet-application>
                 </container>
-                <container id="LeftNavigationContainer" template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
-				          <name>LeftNavigationContainer</name>
+                <container id="bottom-leftNavigation-container" template="system:/groovy/portal/webui/container/UIAddOnContainer.gtmpl">
+				          <name>bottom-leftNavigation-container</name>
 				          <access-permissions>*:/platform/users</access-permissions>
 				          <factory-id>addonContainer</factory-id>
                 </container>

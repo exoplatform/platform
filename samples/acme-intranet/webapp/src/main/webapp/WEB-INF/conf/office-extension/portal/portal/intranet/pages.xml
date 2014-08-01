@@ -32,8 +32,8 @@
             <access-permissions>*:/platform/users</access-permissions>
             <container id="OfficeMiddle" template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
               <access-permissions>*:/platform/users</access-permissions>
-              <container id="TopSocialContainer" template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
-                <name>TopSocialContainer</name>
+              <container id="top-social-container" template="system:/groovy/portal/webui/container/UIAddOnContainer.gtmpl">
+                <name>top-social-container</name>
                 <access-permissions>*:/platform/users</access-permissions>
                 <factory-id>addonContainer</factory-id>
               </container>
@@ -123,16 +123,16 @@
                     <show-application-mode>false</show-application-mode>
                 </portlet-application>
               </container>
-              <container id="BottomSocialContainer" template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
-                <name>BottomSocialContainer</name>
+              <container id="bottom-social-container" template="system:/groovy/portal/webui/container/UIAddOnContainer.gtmpl">
+                <name>bottom-social-container</name>
                 <access-permissions>*:/platform/users</access-permissions>
                 <factory-id>addonContainer</factory-id>
               </container>
             </container>
             <container id="OfficeRight" template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
                 <access-permissions>*:/platform/users</access-permissions>
-                <container id="TopRightGadgetContainer" template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
-                  <name>TopRightGadgetContainer</name>
+                <container id="top-gadget-container" template="system:/groovy/portal/webui/container/UIAddOnContainer.gtmpl">
+                  <name>top-gadget-container</name>
                   <access-permissions>*:/platform/users</access-permissions>
                   <factory-id>addonContainer</factory-id>
                 </container>
@@ -199,8 +199,8 @@
 		                    <show-application-mode>false</show-application-mode>
 		                </portlet-application>
                 </container>
-                <container id="BottomRightGadgetContainer" template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
-                  <name>BottomRightGadgetContainer</name>
+                <container id="bottom-gadget-container" template="system:/groovy/portal/webui/container/UIAddOnContainer.gtmpl">
+                  <name>bottom-gadget-container</name>
                   <access-permissions>*:/platform/users</access-permissions>
                   <factory-id>addonContainer</factory-id>
                 </container>
@@ -888,8 +888,8 @@
 	            <show-application-mode>false</show-application-mode>
 	        </portlet-application>
         </container>
-        <container id="BottomDocumentContainer" template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
-	        <name>BottomDocumentContainer</name>
+        <container id="bottom-document-container" template="system:/groovy/portal/webui/container/UIAddOnContainer.gtmpl">
+	        <name>bottom-document-container</name>
 	        <access-permissions>*:/platform/users</access-permissions>
 	        <factory-id>addonContainer</factory-id>
         </container>
@@ -1076,8 +1076,8 @@
             <show-application-mode>false</show-application-mode>
          </portlet-application>
       </container>
-      <container id="BottomWikiContainer" template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
-        <name>BottomWikiContainer</name>
+      <container id="bottom-wiki-container" template="system:/groovy/portal/webui/container/UIAddOnContainer.gtmpl">
+        <name>bottom-wiki-container</name>
         <access-permissions>*:/platform/users</access-permissions>
         <factory-id>addonContainer</factory-id>
       </container>
