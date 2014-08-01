@@ -21,15 +21,18 @@
 -->
 <infinispan
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="urn:infinispan:config:5.1 http://www.infinispan.org/schemas/infinispan-config-5.1.xsd"
-    xmlns="urn:infinispan:config:5.1">
+    xsi:schemaLocation="urn:infinispan:config:5.2 http://www.infinispan.org/schemas/infinispan-config-5.2.xsd"
+    xmlns="urn:infinispan:config:5.2">
   <global>
     <!-- Jgroups configuration will be injected programmatically -->
-    <transport clusterName="${exo.cluster.partition.name}-idm"
-               distributedSyncTimeout="${exo.idm.cluster.transport.distributedsynctimeout:60000}"
-               nodeName="${exo.cluster.node.name}">
+    <transport
+        clusterName="${exo.cluster.partition.name}-idm"
+        distributedSyncTimeout="${exo.idm.cluster.transport.distributedsynctimeout:60000}"
+        nodeName="${exo.cluster.node.name}">
       <properties>
-        <property name="configurationFile" value="${exo.idm.cluster.jgroups.config}" />
+        <property
+            name="configurationFile"
+            value="${exo.idm.cluster.jgroups.config}" />
       </properties>
     </transport>
     <globalJmxStatistics
