@@ -62,7 +62,7 @@
       max_tries="${exo.jcr.cluster.jgroups.fd.max_tries:5}"
       shun="${exo.jcr.cluster.jgroups.fd.shun:true}" />
   <VERIFY_SUSPECT
-      timeout="${exo.jcr.cluster.jgroups.verify_subject.timeout:1500}" />
+      timeout="${exo.jcr.cluster.jgroups.verify_suspect.timeout:1500}" />
   <BARRIER />
   <pbcast.NAKACK
       use_mcast_xmit="${exo.jcr.cluster.jgroups.pbcast.nakack.use_mcast_xmit:false}"
