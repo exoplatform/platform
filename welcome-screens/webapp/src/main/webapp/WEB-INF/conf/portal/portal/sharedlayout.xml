@@ -99,8 +99,8 @@
                     <show-info-bar>false</show-info-bar>
                 </portlet-application>
             </container>
-            <container id="center-topNavigation-container" template="system:/groovy/portal/webui/container/UIAddOnContainer.gtmpl">
-				      <name>center-topNavigation-container</name>
+            <container id="middle-topNavigation-container" template="system:/groovy/portal/webui/container/UIAddOnContainer.gtmpl">
+				      <name>middle-topNavigation-container</name>
 				      <factory-id>addonContainer</factory-id>
             </container>
           </container>
