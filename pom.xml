@@ -696,6 +696,12 @@
         <artifactId>wci-jboss7</artifactId>
         <version>${org.gatein.wci.version}</version>
       </dependency>
+      <!-- Mobile site redirection -->
+      <dependency>
+        <groupId>org.gatein.web</groupId>
+        <artifactId>redirect</artifactId>
+        <version>${org.gatein.portal.version}</version>
+      </dependency>
       <!-- Import versions from jcr project -->
       <dependency>
         <groupId>org.exoplatform.jcr</groupId>
