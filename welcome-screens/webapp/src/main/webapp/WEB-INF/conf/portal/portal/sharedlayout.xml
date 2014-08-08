@@ -23,8 +23,16 @@
         <access-permissions>*:/platform/users</access-permissions>
         <container id="UIToolbarContainer" template="system:/groovy/portal/webui/container/UIToolbarContainer.gtmpl">
             <access-permissions>*:/platform/users</access-permissions>
+            <container id="left-topNavigation-container" template="system:/groovy/portal/webui/container/UIAddOnContainer.gtmpl">
+              <name>left-topNavigation-container</name>
+              <factory-id>addonContainer</factory-id>
+            </container>
             <container id="HomeLink" template="war:/groovy/portal/webui/container/UIHomeLinkContainer.gtmpl">
                 <access-permissions>*:/platform/users</access-permissions>
+            </container>
+            <container id="right-topNavigation-container" template="system:/groovy/portal/webui/container/UIAddOnContainer.gtmpl">
+              <name>right-topNavigation-container</name>
+              <factory-id>addonContainer</factory-id>
             </container>
             <container id="UIHelpPlatformToolbarPortlet" template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
                 <portlet-application>
@@ -91,20 +99,27 @@
                     <show-info-bar>false</show-info-bar>
                 </portlet-application>
             </container>
-        </container>
-
+            <container id="middle-topNavigation-container" template="system:/groovy/portal/webui/container/UIAddOnContainer.gtmpl">
+				      <name>middle-topNavigation-container</name>
+				      <factory-id>addonContainer</factory-id>
+            </container>
+          </container>
         </container>
     </container>
     <container id="RightBody" template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
         <access-permissions>Everyone</access-permissions>
         <site-body> </site-body>
     </container>
+    <container id="bottom-all-container" template="system:/groovy/portal/webui/container/UIAddOnContainer.gtmpl">
+      <name>bottom-all-container</name>
+      <factory-id>addonContainer</factory-id>
+    </container>
     <container id="UIPLFFooterwlcmScreen"  template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
         <access-permissions>*:/platform/users</access-permissions>
         <container id="WLCFooter" template="war:/groovy/welcomescreens/welcomescreensFooter.gtmpl">
             <access-permissions>*:/platform/users</access-permissions>
         </container>
-</container>
+    </container>
 </container>
 
 

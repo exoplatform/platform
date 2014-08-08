@@ -31,8 +31,14 @@
         <container id="Officebody" template="system:/groovy/portal/webui/container/UITableColumnContainer.gtmpl">
             <access-permissions>*:/platform/users</access-permissions>
             <container id="OfficeMiddle" template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
+              <access-permissions>*:/platform/users</access-permissions>
+              <container id="top-social-container" template="system:/groovy/portal/webui/container/UIAddOnContainer.gtmpl">
+                <name>top-social-container</name>
                 <access-permissions>*:/platform/users</access-permissions>
-
+                <factory-id>addonContainer</factory-id>
+              </container>
+              <container id="OfficeMiddleCLVContainer" template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
+                <access-permissions>*:/platform/users</access-permissions>
                 <portlet-application>
                     <portlet>
                         <application-ref>presentation</application-ref>
@@ -103,7 +109,16 @@
                     <show-application-state>false</show-application-state>
                     <show-application-mode>false</show-application-mode>
                 </portlet-application>
-
+              </container>
+              
+              <container id="middle-social-container" template="system:/groovy/portal/webui/container/UIAddOnContainer.gtmpl">
+                <name>middle-social-container</name>
+                <access-permissions>*:/platform/users</access-permissions>
+                <factory-id>addonContainer</factory-id>
+              </container>
+              
+              <container id="OfficeMiddleASContainer" template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
+                <access-permissions>*:/platform/users</access-permissions>
                 <!-- user activities portlet -->
                 <portlet-application>
                     <portlet>
@@ -116,69 +131,83 @@
                     <show-application-state>false</show-application-state>
                     <show-application-mode>false</show-application-mode>
                 </portlet-application>
+              </container>
             </container>
             <container id="OfficeRight" template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
                 <access-permissions>*:/platform/users</access-permissions>
-                <portlet-application>
-                    <portlet>
-                        <application-ref>homepage-portlets</application-ref>
-                        <portlet-ref>GettingStartedPortlet</portlet-ref>
-                    </portlet>
-                    <title>Getting Started</title>
-                    <access-permissions>*:/platform/users</access-permissions>
-                    <show-info-bar>false</show-info-bar>
-                    <show-application-state>false</show-application-state>
-                    <show-application-mode>false</show-application-mode>
-                </portlet-application>
-
-                <portlet-application>
-                    <portlet>
-                        <application-ref>homepage-portlets</application-ref>
-                        <portlet-ref>HomePageCalendarPortlet</portlet-ref>
-                    </portlet>
-                    <title>Calendar Portlet</title>
-                    <access-permissions>*:/platform/users</access-permissions>
-                    <show-info-bar>false</show-info-bar>
-                    <show-application-state>false</show-application-state>
-                    <show-application-mode>false</show-application-mode>
-                </portlet-application>
-
-                <portlet-application>
-                    <portlet>
-                        <application-ref>homepage-portlets</application-ref>
-                        <portlet-ref>Invitations</portlet-ref>
-                    </portlet>
-                    <title>Invitations</title>
-                    <access-permissions>*:/platform/users</access-permissions>
-                    <show-info-bar>false</show-info-bar>
-                    <show-application-state>false</show-application-state>
-                    <show-application-mode>false</show-application-mode>
-                </portlet-application>
-
-                <portlet-application>
-                    <portlet>
-                        <application-ref>homepage-portlets</application-ref>
-                        <portlet-ref>SuggestionsPeopleSpace</portlet-ref>
-                    </portlet>
-                    <title>SuggestionsPeopleSpace</title>
-                    <access-permissions>*:/platform/users</access-permissions>
-                    <show-info-bar>false</show-info-bar>
-                    <show-application-state>false</show-application-state>
-                    <show-application-mode>false</show-application-mode>
-                </portlet-application>
-
-
-                <portlet-application>
-                    <portlet>
-                        <application-ref>homepage-portlets</application-ref>
-                        <portlet-ref>WhoIsOnLinPortlet</portlet-ref>
-                    </portlet>
-                    <title>Who is on line</title>
-                    <access-permissions>*:/platform/users</access-permissions>
-                    <show-info-bar>false</show-info-bar>
-                    <show-application-state>false</show-application-state>
-                    <show-application-mode>false</show-application-mode>
-                </portlet-application>
+                <container id="top-application-container" template="system:/groovy/portal/webui/container/UIAddOnContainer.gtmpl">
+                  <name>top-application-container</name>
+                  <access-permissions>*:/platform/users</access-permissions>
+                  <factory-id>addonContainer</factory-id>
+                </container>
+                <container id="OfficeRightMiddle" template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
+		                <access-permissions>*:/platform/users</access-permissions>
+		                <portlet-application>
+		                    <portlet>
+		                        <application-ref>homepage-portlets</application-ref>
+		                        <portlet-ref>GettingStartedPortlet</portlet-ref>
+		                    </portlet>
+		                    <title>Getting Started</title>
+		                    <access-permissions>*:/platform/users</access-permissions>
+		                    <show-info-bar>false</show-info-bar>
+		                    <show-application-state>false</show-application-state>
+		                    <show-application-mode>false</show-application-mode>
+		                </portlet-application>
+		
+		                <portlet-application>
+		                    <portlet>
+		                        <application-ref>homepage-portlets</application-ref>
+		                        <portlet-ref>HomePageCalendarPortlet</portlet-ref>
+		                    </portlet>
+		                    <title>Calendar Portlet</title>
+		                    <access-permissions>*:/platform/users</access-permissions>
+		                    <show-info-bar>false</show-info-bar>
+		                    <show-application-state>false</show-application-state>
+		                    <show-application-mode>false</show-application-mode>
+		                </portlet-application>
+		
+		                <portlet-application>
+		                    <portlet>
+		                        <application-ref>homepage-portlets</application-ref>
+		                        <portlet-ref>Invitations</portlet-ref>
+		                    </portlet>
+		                    <title>Invitations</title>
+		                    <access-permissions>*:/platform/users</access-permissions>
+		                    <show-info-bar>false</show-info-bar>
+		                    <show-application-state>false</show-application-state>
+		                    <show-application-mode>false</show-application-mode>
+		                </portlet-application>
+		
+		                <portlet-application>
+		                    <portlet>
+		                        <application-ref>homepage-portlets</application-ref>
+		                        <portlet-ref>SuggestionsPeopleSpace</portlet-ref>
+		                    </portlet>
+		                    <title>SuggestionsPeopleSpace</title>
+		                    <access-permissions>*:/platform/users</access-permissions>
+		                    <show-info-bar>false</show-info-bar>
+		                    <show-application-state>false</show-application-state>
+		                    <show-application-mode>false</show-application-mode>
+		                </portlet-application>
+		
+		
+		                <portlet-application>
+		                    <portlet>
+		                        <application-ref>homepage-portlets</application-ref>
+		                        <portlet-ref>WhoIsOnLinPortlet</portlet-ref>
+		                    </portlet>
+		                    <title>Who is on line</title>
+		                    <access-permissions>*:/platform/users</access-permissions>
+		                    <show-info-bar>false</show-info-bar>
+		                    <show-application-state>false</show-application-state>
+		                    <show-application-mode>false</show-application-mode>
+		                </portlet-application>
+                </container>
+                <container id="bottom-application-container" template="system:/groovy/portal/webui/container/UIAddOnContainer.gtmpl">
+                  <name>bottom-application-container</name>
+                  <access-permissions>*:/platform/users</access-permissions>
+                  <factory-id>addonContainer</factory-id>
+                </container>
             </container>
         </container>
     </page>
@@ -759,105 +788,116 @@
         <title>documents</title>
         <access-permissions>*:/platform/users</access-permissions>
         <edit-permission>*:/platform/administrators</edit-permission>
-        <portlet-application>
-            <portlet>
-                <application-ref>ecmexplorer</application-ref>
-                <portlet-ref>FileExplorerPortlet</portlet-ref>
-                <preferences>
-                    <preference>
-                        <name>workspace</name>
-                        <value></value>
-                        <read-only>false</read-only>
-                    </preference>
-                    <preference>
-                        <name>path</name>
-                        <value></value>
-                        <read-only>false</read-only>
-                    </preference>
-                    <preference>
-                        <name>drive</name>
-                        <value></value>
-                        <read-only>false</read-only>
-                    </preference>
-                    <preference>
-                        <name>views</name>
-                        <value></value>
-                        <read-only>false</read-only>
-                    </preference>
-                    <preference>
-                        <name>allowCreateFolders</name>
-                        <value>true</value>
-                        <read-only>false</read-only>
-                    </preference>
-                    <preference>
-                        <name>categoryMandatoryWhenFileUpload</name>
-                        <value>false</value>
-                        <read-only>false</read-only>
-                    </preference>
-                    <preference>
-                        <name>uploadFileSizeLimitMB</name>
-                        <value>150</value>
-                        <read-only>false</read-only>
-                    </preference>
-                    <preference>
-                        <name>usecase</name>
-                        <value>selection</value>
-                        <read-only>false</read-only>
-                    </preference>
-                    <preference>
-                        <name>driveName</name>
-                        <value>Personal Documents</value>
-                        <read-only>false</read-only>
-                    </preference>
-                    <preference>
-                        <name>trashHomeNodePath</name>
-                        <value>/Trash</value>
-                        <read-only>false</read-only>
-                    </preference>
-                    <preference>
-                        <name>trashRepository</name>
-                        <value>repository</value>
-                        <read-only>false</read-only>
-                    </preference>
-                    <preference>
-                        <name>trashWorkspace</name>
-                        <value>collaboration</value>
-                        <read-only>false</read-only>
-                    </preference>
-                    <preference>
-                        <name>editInNewWindow</name>
-                        <value>false</value>
-                        <read-only>false</read-only>
-                    </preference>
-
-                    <preference>
-                        <name>showTopBar</name>
-                        <value>true</value>
-                        <read-only>false</read-only>
-                    </preference>
-                    <preference>
-                        <name>showActionBar</name>
-                        <value>true</value>
-                        <read-only>false</read-only>
-                    </preference>
-                    <preference>
-                        <name>showSideBar</name>
-                        <value>true</value>
-                        <read-only>false</read-only>
-                    </preference>
-                    <preference>
-                        <name>showFilterBar</name>
-                        <value>true</value>
-                        <read-only>false</read-only>
-                    </preference>
-                </preferences>
-            </portlet>
-            <title>documents</title>
+        <container id="DocumentContainer" template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
+          <access-permissions>*:/platform/users</access-permissions>
+          <container id="DocumentTopContainer" template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
             <access-permissions>*:/platform/users</access-permissions>
-            <show-info-bar>false</show-info-bar>
-            <show-application-state>false</show-application-state>
-            <show-application-mode>false</show-application-mode>
-        </portlet-application>
+	           <portlet-application>
+	            <portlet>
+	                <application-ref>ecmexplorer</application-ref>
+	                <portlet-ref>FileExplorerPortlet</portlet-ref>
+	                <preferences>
+	                    <preference>
+	                        <name>workspace</name>
+	                        <value></value>
+	                        <read-only>false</read-only>
+	                    </preference>
+	                    <preference>
+	                        <name>path</name>
+	                        <value></value>
+	                        <read-only>false</read-only>
+	                    </preference>
+	                    <preference>
+	                        <name>drive</name>
+	                        <value></value>
+	                        <read-only>false</read-only>
+	                    </preference>
+	                    <preference>
+	                        <name>views</name>
+	                        <value></value>
+	                        <read-only>false</read-only>
+	                    </preference>
+	                    <preference>
+	                        <name>allowCreateFolders</name>
+	                        <value>true</value>
+	                        <read-only>false</read-only>
+	                    </preference>
+	                    <preference>
+	                        <name>categoryMandatoryWhenFileUpload</name>
+	                        <value>false</value>
+	                        <read-only>false</read-only>
+	                    </preference>
+	                    <preference>
+	                        <name>uploadFileSizeLimitMB</name>
+	                        <value>150</value>
+	                        <read-only>false</read-only>
+	                    </preference>
+	                    <preference>
+	                        <name>usecase</name>
+	                        <value>selection</value>
+	                        <read-only>false</read-only>
+	                    </preference>
+	                    <preference>
+	                        <name>driveName</name>
+	                        <value>Personal Documents</value>
+	                        <read-only>false</read-only>
+	                    </preference>
+	                    <preference>
+	                        <name>trashHomeNodePath</name>
+	                        <value>/Trash</value>
+	                        <read-only>false</read-only>
+	                    </preference>
+	                    <preference>
+	                        <name>trashRepository</name>
+	                        <value>repository</value>
+	                        <read-only>false</read-only>
+	                    </preference>
+	                    <preference>
+	                        <name>trashWorkspace</name>
+	                        <value>collaboration</value>
+	                        <read-only>false</read-only>
+	                    </preference>
+	                    <preference>
+	                        <name>editInNewWindow</name>
+	                        <value>false</value>
+	                        <read-only>false</read-only>
+	                    </preference>
+	
+	                    <preference>
+	                        <name>showTopBar</name>
+	                        <value>true</value>
+	                        <read-only>false</read-only>
+	                    </preference>
+	                    <preference>
+	                        <name>showActionBar</name>
+	                        <value>true</value>
+	                        <read-only>false</read-only>
+	                    </preference>
+	                    <preference>
+	                        <name>showSideBar</name>
+	                        <value>true</value>
+	                        <read-only>false</read-only>
+	                    </preference>
+	                    <preference>
+	                        <name>showFilterBar</name>
+	                        <value>true</value>
+	                        <read-only>false</read-only>
+	                    </preference>
+	                </preferences>
+	            </portlet>
+	            <title>documents</title>
+	            <access-permissions>*:/platform/users</access-permissions>
+	            <show-info-bar>false</show-info-bar>
+	            <show-application-state>false</show-application-state>
+	            <show-application-mode>false</show-application-mode>
+	        </portlet-application>
+        </container>
+        <container id="bottom-document-container" template="system:/groovy/portal/webui/container/UIAddOnContainer.gtmpl">
+	        <name>bottom-document-container</name>
+	        <access-permissions>*:/platform/users</access-permissions>
+	        <factory-id>addonContainer</factory-id>
+        </container>
+      </container>        
     </page>
     <page>
         <name>searchResult</name>
@@ -1040,6 +1080,12 @@
             <show-application-mode>false</show-application-mode>
          </portlet-application>
       </container>
+      <container id="bottom-wiki-container" template="system:/groovy/portal/webui/container/UIAddOnContainer.gtmpl">
+        <name>bottom-wiki-container</name>
+        <access-permissions>*:/platform/users</access-permissions>
+        <factory-id>addonContainer</factory-id>
+      </container>
+      
    </page>
 
     <page>
