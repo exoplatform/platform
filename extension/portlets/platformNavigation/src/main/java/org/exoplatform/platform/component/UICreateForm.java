@@ -59,6 +59,7 @@ public class UICreateForm extends UIForm {
         uiWikiSpaceSwitcher.setCurrentSpaceName(getCurrentWiki());
         EventUIComponent eventComponent1 = new EventUIComponent(CREATE_FORM_CONTAINER, SWITCH_SPACE_ACTION, EventUIComponent.EVENTTYPE.EVENT);
         uiWikiSpaceSwitcher.init(eventComponent1);
+        urlWiki = uiWikiSpaceSwitcher.getPortalSpaceId();
     }
 
     public String[] getActions() {
