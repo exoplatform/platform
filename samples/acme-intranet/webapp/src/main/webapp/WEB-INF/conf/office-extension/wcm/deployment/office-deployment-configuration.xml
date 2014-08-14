@@ -46,8 +46,8 @@
     <component-plugin>
       <name>Content Initializer Service</name>
       <set-method>addPlugin</set-method>
-      <type>org.exoplatform.services.deployment.plugins.XMLDeploymentPlugin</type>
-      <description>XML Deployment Plugin</description>
+      <type>org.exoplatform.services.wcm.extensions.deployment.WCMPublicationDeploymentPlugin</type>
+      <description>WCM Deployment Plugin</description>
       <init-params>
         <value-param>
           <name>override</name>
@@ -57,7 +57,7 @@
         <object-param>
           <name>Office jira Data</name>
           <description>Deployment Descriptor</description>
-          <object type="org.exoplatform.services.deployment.DeploymentDescriptor">
+          <object type="org.exoplatform.services.wcm.extensions.deployment.WCMPublicationDeploymentDescriptor">
             <field name="target">
               <object type="org.exoplatform.services.deployment.DeploymentDescriptor$Target">
                 <field name="workspace">
@@ -71,15 +71,15 @@
             <field name="sourcePath">
               <string>war:/conf/office-extension/wcm/artifacts/site-resources/office/announcement.xml</string>
             </field>
-            <field name="cleanupPublication">
-              <boolean>true</boolean>
+            <field name="cleanupPublicationType">
+              <string>publish-first-publication</string>
             </field>
           </object>
         </object-param>
         <object-param>
           <name>ACME Intranet Images data</name>
           <description>Deployment Descriptor</description>
-          <object type="org.exoplatform.services.deployment.DeploymentDescriptor">
+          <object type="org.exoplatform.services.wcm.extensions.deployment.WCMPublicationDeploymentDescriptor">
             <field name="target">
               <object type="org.exoplatform.services.deployment.DeploymentDescriptor$Target">
                 <field name="workspace">
@@ -93,15 +93,15 @@
             <field name="sourcePath">
               <string>war:/conf/office-extension/wcm/artifacts/site-resources/office/Images.xml</string>
             </field>
-            <field name="cleanupPublication">
-              <boolean>true</boolean>
+            <field name="cleanupPublicationType">
+              <string>publish-first-publication</string>
             </field>
           </object>
         </object-param>
         <object-param>
           <name>ACME Intranet Stylesheet data</name>
           <description>Deployment Descriptor</description>
-          <object type="org.exoplatform.services.deployment.DeploymentDescriptor">
+          <object type="org.exoplatform.services.wcm.extensions.deployment.WCMPublicationDeploymentDescriptor">
             <field name="target">
               <object type="org.exoplatform.services.deployment.DeploymentDescriptor$Target">
                 <field name="workspace">
@@ -115,8 +115,8 @@
             <field name="sourcePath">
               <string>war:/conf/office-extension/wcm/artifacts/site-resources/office/Stylesheet.xml</string>
             </field>
-            <field name="cleanupPublication">
-              <boolean>true</boolean>
+            <field name="cleanupPublicationType">
+              <string>publish-first-publication</string>
             </field>
           </object>
         </object-param>
