@@ -28,8 +28,23 @@
       xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd">
 
   <display-name>platform-extension</display-name>
+
   <absolute-ordering />
   
+  <filter>
+    <filter-name>LocalizationFilter</filter-name>
+    <filter-class>org.exoplatform.portal.application.localization.LocalizationFilter</filter-class>
+  </filter>
+
+  <filter-mapping>
+    <filter-name>LocalizationFilter</filter-name>
+    <url-pattern>*.jsp</url-pattern>
+    <dispatcher>INCLUDE</dispatcher>
+    <dispatcher>FORWARD</dispatcher>
+    <dispatcher>REQUEST</dispatcher>
+    <dispatcher>ERROR</dispatcher>
+  </filter-mapping>
+ 
   <listener>
     <listener-class>org.exoplatform.container.web.PortalContainerConfigOwner</listener-class>
   </listener>
