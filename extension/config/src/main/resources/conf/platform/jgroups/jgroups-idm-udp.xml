@@ -23,6 +23,7 @@
         xsi:schemaLocation="urn:org:jgroups http://www.jgroups.org/schema/JGroups-3.2.xsd">
   <UDP
       singleton_name="${exo.idm.cluster.jgroups.udp.singleton_name:idm-transport-udp}"
+      bind_addr="${exo.idm.cluster.jgroups.udp.bind_addr:127.0.0.1}"
       bind_port="${exo.idm.cluster.jgroups.udp.bind_port:56300}"
       mcast_addr="${exo.idm.cluster.jgroups.udp.mcast_addr:230.0.0.4}"
       mcast_port="${exo.idm.cluster.jgroups.udp.mcast_port:46700}"

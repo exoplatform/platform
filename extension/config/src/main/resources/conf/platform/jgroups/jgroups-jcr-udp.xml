@@ -21,6 +21,7 @@
 <config>
   <UDP
       singleton_name="${exo.jcr.cluster.jgroups.udp.singleton_name:exo-transport-udp}"
+      bind_addr="${exo.jcr.cluster.jgroups.udp.bind_addr:127.0.0.1}"
       mcast_addr="${exo.jcr.cluster.jgroups.udp.mcast_addr:228.10.10.10}"
       mcast_port="${exo.jcr.cluster.jgroups.udp.mcast_port:45488}"
       tos="${exo.jcr.cluster.jgroups.udp.tos:8}"

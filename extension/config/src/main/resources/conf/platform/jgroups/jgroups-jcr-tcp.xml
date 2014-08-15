@@ -21,6 +21,7 @@
 <config>
   <TCP
       singleton_name="${exo.jcr.cluster.jgroups.tcp.singleton_name:exo-transport-tcp}"
+      bind_addr="${exo.jcr.cluster.jgroups.tcp.bind_addr:127.0.0.1}"
       start_port="${exo.jcr.cluster.jgroups.tcp.start_port:7800}"
       loopback="${exo.jcr.cluster.jgroups.tcp.loopback:true}"
       recv_buf_size="${exo.jcr.cluster.jgroups.tcp.recv_buf_size:20000000}"
