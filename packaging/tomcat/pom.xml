@@ -1713,12 +1713,19 @@
       <artifactId>exo-ecms-apps-wai-template</artifactId>
       <version>${org.exoplatform.ecms.version}</version>
       <type>war</type>
-      </dependency>
+    </dependency>
     <!-- com.sun.xml.stream.sjsxp for XML parser -->
     <dependency>
       <groupId>com.sun.xml.stream</groupId>
       <artifactId>sjsxp</artifactId>
       <version>${version.sun.xml.stream}</version>
+      <scope>provided</scope>
+      <type>jar</type>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.tomcat</groupId>
+      <artifactId>tomcat-catalina-jmx-remote</artifactId>
+      <version>${org.apache.tomcat.version}</version>
       <scope>provided</scope>
       <type>jar</type>
     </dependency>

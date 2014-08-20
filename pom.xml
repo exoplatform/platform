@@ -75,6 +75,7 @@
 		<jcrom.version>1.2</jcrom.version><!-- Used by CS -->
 		<org.slf4j.version>1.5.8</org.slf4j.version>
 		<org.apache.jackrabbit.version>1.6.4</org.apache.jackrabbit.version><!-- needed for cs -->
+        <org.apache.tomcat.version>6.0.32</org.apache.tomcat.version>
 		<org.hsqldb.version>2.0.0</org.hsqldb.version>
 		<!-- eXo documentations -->
 		<org.exoplatform.doc.doc-style.version>1.0.13-SNAPSHOT</org.exoplatform.doc.doc-style.version>
