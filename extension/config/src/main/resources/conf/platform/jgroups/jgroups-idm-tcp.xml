@@ -1,27 +1,8 @@
-<!--
 
-    Copyright (C) 2003-2014 eXo Platform SAS.
-
-    This is free software; you can redistribute it and/or modify it
-    under the terms of the GNU Lesser General Public License as
-    published by the Free Software Foundation; either version 3 of
-    the License, or (at your option) any later version.
-
-    This software is distributed in the hope that it will be useful,
-    but WITHOUT ANY WARRANTY; without even the implied warranty of
-    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
-    Lesser General Public License for more details.
-
-    You should have received a copy of the GNU Lesser General Public
-    License along with this software; if not, write to the Free
-    Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
-    02110-1301 USA, or see the FSF site: http://www.fsf.org.
-
--->
 <config xmlns="urn:org:jgroups"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:schemaLocation="urn:org:jgroups http://www.jgroups.org/schema/JGroups-3.2.xsd">
-  <TCP
+	<TCP
       singleton_name="${exo.idm.cluster.jgroups.tcp.singleton_name:idm-transport-tcp}"
       bind_addr="${exo.idm.cluster.jgroups.tcp.bind_addr:127.0.0.1}"
       bind_port="${exo.idm.cluster.jgroups.tcp.bind_port:7900}"
@@ -52,56 +33,55 @@
       oob_thread_pool.queue_max_size="${exo.idm.cluster.jgroups.tcp.oob_thread_pool.queue_max_size:100}"
       oob_thread_pool.rejection_policy="${exo.idm.cluster.jgroups.tcp.oob_thread_pool.rejection_policy:Discard}"
       />
-  <!-- Ergonomics, new in JGroups 2.11, are disabled by default in TCPPING until JGRP-1253 is resolved -->
-  <!--
-  <TCPPING timeout="${exo.idm.cluster.jgroups.tcpping.timeout:3000"
+	<TCPPING timeout="${exo.idm.cluster.jgroups.tcpping.timeout:3000"
            initial_hosts="${exo.idm.cluster.jgroups.tcpping.initial_hosts:localhost[7800],localhost[7801]}"
            port_range="${exo.idm.cluster.jgroups.tcpping.port_range:5}"
            num_initial_members="${exo.idm.cluster.jgroups.tcpping.num_initial_members:3}"
            ergonomics="${exo.idm.cluster.jgroups.tcpping.ergonomics:false}"
        />
-  -->
-  <MPING
-      bind_addr="${exo.idm.cluster.jgroups.mping.bind_addr:127.0.0.1}"
-      break_on_coord_rsp="${exo.idm.cluster.jgroups.mping.break_on_coord_rsp:true}"
-      mcast_addr="${exo.idm.cluster.jgroups.mping.mcast_addr:228.2.4.6}"
-      mcast_port="${exo.idm.cluster.jgroups.mping.mcast_port:43366}"
-      ip_ttl="${exo.idm.cluster.jgroups.mping.ip_ttl:2}"
-      num_initial_members="${exo.idm.cluster.jgroups.mping.num_initial_members:3}" />
-  <MERGE2
+	<!--
+	  <MPING
+		  bind_addr="${exo.idm.cluster.jgroups.mping.bind_addr:127.0.0.1}"
+		  break_on_coord_rsp="${exo.idm.cluster.jgroups.mping.break_on_coord_rsp:true}"
+		  mcast_addr="${exo.idm.cluster.jgroups.mping.mcast_addr:228.2.4.6}"
+		  mcast_port="${exo.idm.cluster.jgroups.mping.mcast_port:43366}"
+		  ip_ttl="${exo.idm.cluster.jgroups.mping.ip_ttl:2}"
+		  num_initial_members="${exo.idm.cluster.jgroups.mping.num_initial_members:3}" />
+	-->
+	<MERGE2
       max_interval="${exo.idm.cluster.jgroups.merge2.max_interval:30000}"
       min_interval="${exo.idm.cluster.jgroups.merge2.min_interval:10000}" />
-  <FD_SOCK />
-  <FD
+	<FD_SOCK />
+	<FD
       timeout="${exo.idm.cluster.jgroups.fd.timeout:3000}"
       max_tries="${exo.idm.cluster.jgroups.fd.max_tries:3}" />
-  <VERIFY_SUSPECT
+	<VERIFY_SUSPECT
       timeout="${exo.idm.cluster.jgroups.verify_suspect.timeout:1500}" />
-  <pbcast.NAKACK
+	<pbcast.NAKACK
       use_mcast_xmit="${exo.idm.cluster.jgroups.pbcast.nakack.use_mcast_xmit:false}"
       retransmit_timeout="${exo.idm.cluster.jgroups.pbcast.nakack.retransmit_timeout:300,600,1200,2400,4800}"
       discard_delivered_msgs="${exo.idm.cluster.jgroups.pbcast.nakack.discard_delivered_msgs:false}" />
-  <UNICAST2
+	<UNICAST2
       timeout="${exo.idm.cluster.jgroups.unicast2.timeout:300,600,1200}"
       stable_interval="${exo.idm.cluster.jgroups.unicast2.stable_interval:5000}"
       max_bytes="${exo.idm.cluster.jgroups.unicast2.max_bytes:1m}" />
-  <pbcast.STABLE
+	<pbcast.STABLE
       stability_delay="${exo.idm.cluster.jgroups.pbcast.stable.stability_delay:500}"
       desired_avg_gossip="${exo.idm.cluster.jgroups.pbcast.stable.desired_avg_gossip:5000}"
       max_bytes="${exo.idm.cluster.jgroups.pbcast.stable.max_bytes:1m}" />
-  <pbcast.GMS
+	<pbcast.GMS
       print_local_addr="${exo.idm.cluster.jgroups.pbcast.gms.print_local_addr:true}"
       join_timeout="${exo.idm.cluster.jgroups.pbcast.gms.join_timeout:3000}"
       view_bundling="${exo.idm.cluster.jgroups.pbcast.gms.view_bundling:true}" />
-  <UFC
+	<UFC
       max_credits="${exo.idm.cluster.jgroups.ufc.max_credits:200k}"
       min_threshold="${exo.idm.cluster.jgroups.ufc.min_threshold:0.20}" />
-  <MFC
+	<MFC
       max_credits="${exo.idm.cluster.jgroups.mfc.max_credits:200k}"
       min_threshold="${exo.idm.cluster.jgroups.mfc.min_threshold:0.20}" />
-  <FRAG2
+	<FRAG2
       frag_size="${exo.idm.cluster.jgroups.frag2.frag_size:60000}" />
-  <RSVP
+	<RSVP
       timeout="${exo.idm.cluster.jgroups.rsvp.timeout:60000}"
       resend_interval="${exo.idm.cluster.jgroups.rsvp.resend_interval:500}"
       ack_on_delivery="${exo.idm.cluster.jgroups.rsvp.ack_on_delivery:false}" />
