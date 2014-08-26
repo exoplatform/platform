@@ -21,6 +21,7 @@
 
 <%@ page import="java.net.URLEncoder"%>
 <%@ page import="javax.servlet.http.Cookie"%>
+<%@ page import="org.exoplatform.web.login.LoginError"%>
 <%@ page import="org.exoplatform.container.PortalContainer"%>
 <%@ page import="org.exoplatform.services.resources.ResourceBundleService"%>
 <%@ page import="org.exoplatform.portal.resource.SkinService"%>
@@ -55,7 +56,12 @@
   //
   String uri = (String)request.getAttribute("org.gatein.portal.login.initial_uri");
   boolean error = request.getAttribute("org.gatein.portal.login.error") != null;
-
+  String errorParam = (String)request.getParameter(org.exoplatform.web.login.LoginError.ERROR_PARAM);
+  LoginError errorData = null;
+  if (errorParam != null) {
+      errorData = LoginError.parse(errorParam);
+  }
+  
   response.setCharacterEncoding("UTF-8"); 
   response.setContentType("text/html; charset=UTF-8");
 %>
@@ -100,10 +106,17 @@
 	      <div class="loginContent">
 				<div class="titleLogin">
 					<%/*Begin form*/%>
+          <% if (error || errorData != null) {
+              if (errorData != null) {
+						if (org.exoplatform.web.login.LoginError.DISABLED_USER_ERROR == errorData.getCode()) {
+        	 %>
+          <div class="signinFail"><i class="uiIconError"></i><%=res.getString("UILoginForm.label.DisabledUserSignin")%></div>
           <%
-                if(error) {
-          %>
-          <div class="signinFail"><i class="uiIconError"></i><%=res.getString("portal.login.SigninFail")%></div><%}%>
+        				}
+        		  } else {%>          
+          <div class="signinFail"><i class="uiIconError"></i><%=res.getString("portal.login.SigninFail")%></div>          
+          <%  }
+             }%>
 				</div>
         <div class="centerLoginContent">
           <form name="loginForm" action="<%= contextPath + "/login"%>" method="post" style="margin: 0px;">
