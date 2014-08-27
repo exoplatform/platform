@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xmfl version='1.0' encoding='UTF-8'?>
+
+<!--
+
+    Copyright (C) 2009 eXo Platform SAS.
+    
+    This is free software; you can redistribute it and/or modify it
+    under the terms of the GNU Lesser General Public License as
+    published by the Free Software Foundation; either version 2.1 of
+    the License, or (at your option) any later version.
+    
+    This software is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+    Lesser General Public License for more details.
+    
+    You should have received a copy of the GNU Lesser General Public
+    License along with this software; if not, write to the Free
+    Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
+    02110-1301 USA, or see the FSF site: http://www.fsf.org.
+
+-->
+<messagebundle>
+  <msg name="loginHistory.title">Istoric Conectare</msg>
+  <msg name="loginHistory.user">Utilizator</msg>
+  <msg name="loginHistory.find">Caută</msg>
+  <msg name="loginHistory.latest">Reset</msg>
+  <msg name="loginHistory.lastLogin">Ultima autentificare</msg>
+  <msg name="loginHistory.beforeThat">Înainte de asta</msg>
+  <msg name="loginHistory.more">Mai mult</msg>
+  <msg name="loginHistory.stats">Statistici</msg>
+  <msg name="loginHistory.history">Istoric</msg>
+  <msg name="loginHistory.global">Global</msg>
+  <msg name="loginHistory.week">Săptămână</msg>
+  <msg name="loginHistory.lastLoginsView">Ultimele autentificări</msg>
+  <msg name="loginHistory.historyView">Istoric</msg>
+  <msg name="loginHistory.statisticsView">Statistici</msg>
+  <msg name="loginHistory.averagePerDay">Medie de conectări pe zi</msg>
+  <msg name="loginHistory.averagePerWeek">Medie de conectări pe săptămână</msg>
+  <msg name="loginHistory.averagePerMonth">Medie de conectări pe lună</msg>
+  <msg name="loginHistory.today">Astăzi</msg>
+  <msg name="loginHistory.earlierThisWeek">La începutul acestei săptămâni</msg>
+  <msg name="loginHistory.earlierThisMonth">La începutul acestei luni</msg>
+  <msg name="loginHistory.earlier">Mai devreme</msg>
+  <msg name="loginHistory.allUsers">Toţi utilizatorii</msg>
+  <msg name="loginHistory.unknow">Necunoscut</msg>
+  <msg name="loginHistory.next">Înainte</msg>
+  <msg name="loginHistory.ago">Ago</msg>
+  <msg name="loginHistory.search_user">Caută utilizator</msg>
+</messagebundle>

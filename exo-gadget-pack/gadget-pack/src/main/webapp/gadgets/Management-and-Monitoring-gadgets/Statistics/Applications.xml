@@ -27,6 +27,7 @@
     <Locale lang="el" messages="locale/el.xml"/>
     <Locale lang="pl" messages="locale/pl.xml"/>
     <Locale lang="fa" messages="locale/fa.xml"/>
+    <Locale lang="ro" messages="locale/ro.xml"/>
   </ModulePrefs>
 <Content type="html">
 <![CDATA[

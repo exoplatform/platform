@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bundle>
+   <UIUserNavigationPortlet>
+      <label>
+         <activities>Activități</activities>
+         <profile>Profil</profile>
+         <connections>Contacte</connections>
+         <wiki>Wiki</wiki>
+         <Myactivities>Flux activități</Myactivities>
+         <Myprofile>Profilul meu</Myprofile>
+         <Myconnections>Colaboratorii mei</Myconnections>
+         <Mywiki>Wiki</Mywiki>
+         <Mydashboard>Tablou de bord</Mydashboard>
+         <NotificationSettingsPortlet>Notificări</NotificationSettingsPortlet>
+      </label>
+   </UIUserNavigationPortlet>
+</bundle>

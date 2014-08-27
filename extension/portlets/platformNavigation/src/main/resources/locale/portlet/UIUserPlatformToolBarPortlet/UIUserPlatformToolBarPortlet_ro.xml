@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bundle>
+<UIUserPlatformToolBarPortlet>
+<label>
+<NotificationSettingsPortlet>Notificări</NotificationSettingsPortlet>
+<activities>Flux activități</activities>
+<profile>Profilul meu</profile>
+<network>Colaboratori</network>
+<wiki>Wiki</wiki>
+<account>Setări</account>
+<language>Schimbă limba</language>
+<logout>Deconectare</logout>
+        <dashboard>Tablou de bord</dashboard>
+</label>
+</UIUserPlatformToolBarPortlet>
+</bundle>

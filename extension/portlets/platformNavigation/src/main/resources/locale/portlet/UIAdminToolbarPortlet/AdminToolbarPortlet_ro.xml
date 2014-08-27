@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bundle>
+   <UIAdminToolbarPortlet>
+      <action>
+         <AddPage>Adaugă pagină</AddPage>
+         <EditNavigation>Navigare</EditNavigation>
+         <Content>Conţinut</Content>
+         <Editor>Editare</Editor>
+         <Page>Pagina</Page>
+         <Site>Site-ul</Site>
+         <Layout>Editare machetă</Layout>
+         <siteLayout>Macheta</siteLayout>
+         <ManagePages>Gestionați pagini</ManagePages>
+         <GroupSite>Site-ul de grup</GroupSite>
+         <Properties>#{UISEOToolbarForm.label.seo}</Properties>
+         <AddSite>Adaugă Site</AddSite>
+      </action>
+<ManageSites>Gestionează site-uri</ManageSites>
+<ManageGroupSites>Gestiona site-uri de grup</ManageGroupSites>
+   </UIAdminToolbarPortlet>
+
+  <UISEOForm>
+    <label>
+      <title>Titlu:</title>  
+      <description>Description:</description>
+      <keywords>Cuvinte cheie:</keywords>
+      <language>Limba:</language>
+      <robots>Roboţi:</robots>
+      <sitemap>hartă site:</sitemap>
+      <sitemapvisible>Vizibil în harta site-ului</sitemapvisible>
+  <isInherited>Moştenit de la pagina părinte</isInherited>
+      <priority>Prioritate:</priority>
+      <frequency>Frecvență:</frequency>
+      <select-language>Selectează limba</select-language>
+      <option>
+        <Always>Întotdeauna</Always>
+        <Hourly>Pe oră</Hourly>
+        <Daily>Zilnic</Daily>
+        <Weekly>Săptămânal</Weekly>
+        <Monthly>Lunar</Monthly>
+        <Yearly>Anual</Yearly>
+        <Never>Niciodată</Never>
+      </option> 
+    </label>
+ 
+    <action>
+      <Save>#{word.save}</Save>
+      <Cancel>#{word.cancel}</Cancel>
+    </action>
+    <msg>
+      <repository-exception>Eroare neașteptată. Nu pot salva metadatele paginii.</repository-exception>
+      <confirm-delete>Sigur ștergeți aceste date de SEO?</confirm-delete>
+    </msg>
+    <title>
+    <seo-delete>Şterge</seo-delete>
+    </title>
+<help> 
+  <priority>Valorile valide variază de la 0.0 la 1.0.</priority>
+  <description>Ajuta la căutare: spuneţi-le că următoarea pagină are o legătură care este căutată.</description>
+  <keywords>Cei mai importanţi termeni în pagină separați prin virgulă.</keywords>  
+    </help>  
+  </UISEOForm>
+  <UISEOPopupWindow>
+  <title>
+      <UISEOForm>#{UISEOToolbarForm.title.seo}</UISEOForm>
+  </title>
+  </UISEOPopupWindow>    
+  <UISEOToolbarForm>
+  <title>
+      <seo>SEO Management</seo>
+  </title>
+  <label>
+    <seo>SEO</seo>
+  </label>
+  </UISEOToolbarForm>  
+  <FloatNumberValidator>
+    <msg>
+      <Invalid-number>Câmpul prioritate are o valoare invalidă. Trebuie să fie un număr între 0.0 și 1.0.</Invalid-number>
+    </msg>
+  </FloatNumberValidator>
+  
+  <Locale>
+    <label>      
+      <it>Italiană</it>      
+      <fr>Franceză</fr>
+      <en>Engleză</en>      
+    </label>
+  </Locale>
+  
+</bundle>

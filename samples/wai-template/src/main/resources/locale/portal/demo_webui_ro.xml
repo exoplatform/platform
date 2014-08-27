@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bundle>
+  <Signin>
+    <welcome>Bine ai venit</welcome>
+    <login>Autentificare</login>
+    <logout>Deconectare</logout>
+    <language>
+      <en>Comutaţi la limba engleză</en>
+      <fr>Comută la  Franceză</fr>
+    </language>
+    <register>Înregistrare</register>
+  </Signin>
+  <Toolbar>
+    <SkipToContent>Sari la conţinut</SkipToContent>
+    <SiteMap>Harta site-ului</SiteMap>
+    <Accessibility>Accesibilitate</Accessibility>
+    <NormalSize>Dimensiune normală</NormalSize>
+    <MediumSize>Dimensiune medie</MediumSize>
+    <LargeSize>De mari dimensiuni</LargeSize>
+    <NormalContrast>Contrast normal</NormalContrast>
+    <HighContrast>Contrast înalt</HighContrast>
+    <Search>Căutare</Search>
+  </Toolbar>
+  <Logo>
+    <GoHome>Du-te la Acasă</GoHome>
+  </Logo>
+  <acme>
+    <label>Șablon ACME</label>
+  </acme>  
+  <WAIPortal>
+    <label>Exemplu de site web accesibil</label>
+  </WAIPortal>
+</bundle>

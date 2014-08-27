@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bundle>
+  <portal>
+    <acme>
+      <overview>Prezentare generală</overview>
+      <products>Produse</products>
+      <news>Ştiri</news>
+      <contactus>Întrebări?</contactus>
+      <newsletters>Buletine de ştiri</newsletters>
+      <confirmation>Confirmare Formular de contact</confirmation>
+      <detail>Detalii</detail>
+  <catalog>Catalog</catalog>
+      <printviewer>Printează pagina</printviewer>
+      <searchResult>Căutare</searchResult>
+      <newAccount>Cont nou</newAccount>
+      <groupnavigation>Navigare grupuri</groupnavigation>
+      <portalnavigation>Navigare portal</portalnavigation>
+      <documents>Documente</documents>
+      <unifiedSearch>Căutare</unifiedSearch>
+    </acme>
+  </portal>
+</bundle>
