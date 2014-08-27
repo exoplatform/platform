@@ -71,14 +71,14 @@ a {
 		&::-webkit-input-placeholder {
 		   color: @placeholderText;
 		}
-		&:-moz-placeholder { 
+		&:-moz-placeholder {
 		  color: @placeholderText;
 		}
-		&::-moz-placeholder { 
+		&::-moz-placeholder {
 		   color: @placeholderText;
 		}
-		&:-ms-input-placeholder {  
-		   color: @placeholderText; 
+		&:-ms-input-placeholder {
+		   color: @placeholderText;
 		}
 		&:focus {
 		  border-color: #94b0df;
@@ -111,25 +111,25 @@ a {
 		 cursor: pointer;
 		display: inline-block;
 		font-weight: bold;
-		text-align: center;    
+		text-align: center;
 		vertical-align: top;
 		text-decoration: none;
 		padding: 0;
 		margin: 0 5px;
 	  // Hover state
 	  &:hover {
-		#gradient > .vertical(@grayMediumWhiteSmoke, @btnBackgroundHighlight);
-		/*.buttonBackground(@grayMediumWhiteSmoke, @btnBackgroundHighlight, @grayDark, 0 1px 1px rgba(255,255,255,.75));*/
+		#gradient > .vertical(@componentBackgroundHover, @btnBackgroundHighlight);
+		/*.buttonBackground(@componentBackgroundHover, @btnBackgroundHighlight, @grayDark, 0 1px 1px rgba(255,255,255,.75));*/
 	  }
 	}
-	
+
    .btn-primary ,#Greetings button,.btn:first-child{
 	   .buttonBackground(@btnPrimaryBackground, @btnPrimaryBackgroundHighlight);
 		border-color: @btnPrimaryBorder;
 		color: @white;
 		.box-shadow(~'0 1px 0 rgba(255, 255, 255, 0.2) inset, 0 1px 2px rgba(0, 0, 0, 0.05)');
 		&:hover {
-			.buttonBackground(@blueLight, @btnPrimaryBackgroundHighlight);
+			.buttonBackground(@primaryLightColor, @btnPrimaryBackgroundHighlight);
 		}
 
 	}
@@ -203,11 +203,11 @@ a {
    .border-radius(7px);
 }
  .uiIconError {
-    background: url("/eXoResources/skin/images/Icons/uiIconColor.png") no-repeat scroll left top transparent;
+    background: url("@{images-path}/Icons/uiIconColor.png") no-repeat scroll left top transparent;
     padding-left: 20px;
 }
 .uiIconWarning {
-  	background: url("/eXoResources/skin/images/Icons/uiIconColor.png") no-repeat -20px top transparent;
+  	background: url("@{images-path}/Icons/uiIconColor.png") no-repeat -20px top transparent;
 	padding-left: 20px;
  }
 

@@ -2,7 +2,7 @@
 @import "../mixins.less";
 
 .uiBreadcumbsNavigationPortlet {
-	background: @grayMediumWhiteSmoke;
+	background: @componentBackgroundHover;
 	border-bottom: 1px solid @borderColor;
 	color: @textColor;
 	padding: 11px;
@@ -36,7 +36,7 @@
 	}
 
 	.changeAvatar {
-		color: @blue;
+		color: @primaryColor;
 		font-size: 12px;
 	}
 	.uiAvatarUploadContent {
@@ -70,8 +70,8 @@
             display: block;
             .text-overflow;
             &:after {
-                background: @blueLight;
-                border: 1px solid @blueDark;
+                background: @primaryLightColor;
+                border: 1px solid @primaryDarkColor;
                 content: "";
                 left: 0;
                 top: 10px;

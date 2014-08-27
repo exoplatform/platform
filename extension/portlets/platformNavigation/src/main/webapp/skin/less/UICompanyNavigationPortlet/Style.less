@@ -1,4 +1,4 @@
-@import "../variables.less"; 
+@import "../variables.less";
 @import "../mixins.less";
 
 /**************** variables *********************/
@@ -13,8 +13,8 @@
 .uiCompanyNavigationPortlet {
 	.title {
 		text-transform: uppercase;
-		color: @blue;
-		#gradient > .vertical-three-colors(@grayLighter, @grayLighter, 49%, @grayMediumWhiteSmoke);
+		color: @primaryColor;
+		#gradient > .vertical-three-colors(@componentBackgroundLight, @componentBackgroundLight, 49%, @componentBackgroundHover);
 		height: 40px; line-height: 41px;
 		padding: 0 15px;
 		margin: 0;
@@ -28,14 +28,14 @@
 		list-style: none;
 		margin: 0;
 		padding: 10px 0px;
-	
+
 		.navItem {
 			padding: 5px 25px;
 			display: block;
 			border-top: 1px solid transparent;
 			border-bottom: 1px solid transparent;
 		}
-		
+
 		.navItemSelected {
 			padding: 7px 25px;
 			 position: relative;
@@ -44,8 +44,8 @@
 				border-bottom: 1px solid @borderColor;
 				.box-shadow(0 0px 3px rgba(0, 0, 0, 0.11));
 			&:after {
-				background: @blueLight;
-				    border: 1px solid @blueDark;
+				background: @primaryLightColor;
+				    border: 1px solid @primaryDarkColor;
 				    border-left: 0;
 				    .box-shadow(~"inset -1px 0px 2px rgba(255, 255, 255, 0.14)");
 				    content: "";
@@ -59,7 +59,7 @@
 				font-weight: bold;
 			}
 		}
-		
+
 		> li > a {
 			display: block;
             width: auto;
@@ -68,11 +68,11 @@
             text-overflow: ellipsis;
             white-space: nowrap;
 			> i {
-				margin-right: 8px;			
+				margin-right: 8px;
 			}
 		}
 		> li > a:hover {
-			color: @blue;
+			color: @primaryColor;
 		}
 	}
 }
