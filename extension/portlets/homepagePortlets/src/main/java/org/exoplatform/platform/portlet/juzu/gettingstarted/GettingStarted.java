@@ -34,6 +34,7 @@ import org.exoplatform.web.application.RequestContext;
 
 import javax.annotation.PostConstruct;
 import javax.inject.Inject;
+import javax.jcr.ItemExistsException;
 import javax.jcr.Node;
 import javax.jcr.Property;
 import javax.jcr.PropertyIterator;
@@ -68,10 +69,11 @@ public class GettingStarted {
     public void init() {
         String remoteUser = null;
         SessionProvider sProvider = null;
+        Node userPrivateNode = null;
         try {
             remoteUser = RequestContext.getCurrentInstance().getRemoteUser();
             sProvider = SessionProvider.createSystemProvider();
-            Node userPrivateNode = nodeHierarchyCreator_.getUserNode(sProvider, remoteUser).getNode(GettingStartedUtils.JCR_APPLICATION_NODE);
+            userPrivateNode = nodeHierarchyCreator_.getUserNode(sProvider, remoteUser).getNode(GettingStartedUtils.JCR_APPLICATION_NODE);
             if (!userPrivateNode.hasNode(GettingStartedUtils.JCR_GS_NODE)) {
                 Node gettingStartedNode = userPrivateNode.addNode(GettingStartedUtils.JCR_GS_NODE);
                 gettingStartedNode.setProperty(GettingStartedUtils.JCR_DELETE_GADGET_PROPERTY_NAME, false);
@@ -82,6 +84,15 @@ public class GettingStarted {
                 gettingStartedNode.setProperty(GettingStartedUtils.JCR_DOCUMENT_PROPERTY_NAME, false);
                 gettingStartedNode.getSession().save();
             }
+        } catch (ItemExistsException e) {
+          if (LOG.isInfoEnabled()) {
+            LOG.info(GettingStartedUtils.JCR_GS_NODE + " already exists!");
+            try {
+              userPrivateNode.refresh(false);
+            } catch (RepositoryException ex) {
+              //do nothing
+            }
+          }
         } catch (Exception E) {
             LOG.error("GettingStarted Portlet : Can not load properties", E.getLocalizedMessage(), E);
 
@@ -170,6 +181,7 @@ public class GettingStarted {
                 if (progress > 100) progress = 100;
                 if (progress == 100) Isshow = false;
             } else {
+              try {
                 Node gettingStartedNode = userPrivateNode.addNode(GettingStartedUtils.JCR_GS_NODE);
                 userPrivateNode.save();
                 gettingStartedNode.setProperty(GettingStartedUtils.JCR_DELETE_GADGET_PROPERTY_NAME, false);
@@ -179,6 +191,16 @@ public class GettingStarted {
                 gettingStartedNode.setProperty(GettingStartedUtils.JCR_ACTIVITY_PROPERTY_NAME, false);
                 gettingStartedNode.setProperty(GettingStartedUtils.JCR_DOCUMENT_PROPERTY_NAME, false);
                 gettingStartedNode.save();
+              } catch (ItemExistsException e) {
+                if (LOG.isInfoEnabled()) {
+                  LOG.info(GettingStartedUtils.JCR_GS_NODE + " already exists!");
+                  try {
+                    userPrivateNode.refresh(false);
+                  } catch (RepositoryException ex) {
+                    //do nothing
+                  }
+                }
+              }
             }
 
             try {
