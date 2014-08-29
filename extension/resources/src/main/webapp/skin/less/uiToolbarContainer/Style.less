@@ -358,35 +358,36 @@
 
 .UIToolbarContainerDark {
 	.NormalContainerBlock .ToolbarContainer {
-			#gradient > .vertical(#5b5b5b, #474747);
-			border-bottom: 1px solid #2c3440;
+			#gradient > .vertical(@toolbarDarkStartBackground, @toolbarDarkEndBackground);
+			border-bottom: 1px solid @toolbarDarkBorder;
 		}
 
 		.uiDropdownWithIcon {
-			background: url(/eXoPlatformResources/skin/images/ToolbarContainer/line.png) no-repeat top left;
+			background: url("/eXoPlatformResources/skin/images/ToolbarContainer/line.png") no-repeat top left;
 		 	> a {
-			color: @white;
+				color: @toolbarDarkLinkColor;
 			}
 			> a:hover,.uiDropdownWithIcon.open > a {
 				background: #3f3f3f;
+				color: @toolbarDarkLinkHoverColor;
 			}
 		}
 }
 
 .UIToolbarContainerLight {
 	.NormalContainerBlock .ToolbarContainer {
-			#gradient > .vertical(#f4f4f4, #d4d4d4);
-			border-bottom: 1px solid @borderColor;
+			#gradient > .vertical(@toolbarLightStartBackground, @toolbarLightEndBackground);
+			border-bottom: 1px solid @toolbarLightBorder;
 		}
 
 		.uiDropdownWithIcon {
-			background: url(/eXoPlatformResources/skin/images/ToolbarContainer/line.png) no-repeat bottom left;
+			background: url("/eXoPlatformResources/skin/images/ToolbarContainer/line.png") no-repeat bottom left;
 		 	> a {
-			color: #4c4c4c;
+			color: @toolbarDarkLinkColor;
 			}
 			> a:hover,.uiDropdownWithIcon.open > a {
 				background: rgba(128,128,128,0.3);
-				color: @textColor;
+				color: @toolbarDarkLinkHoverColor;
 			}
 		}
 }
