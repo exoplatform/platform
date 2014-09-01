@@ -2,7 +2,7 @@
 <bundle>
    <UIUserNavigationPortlet>
       <label>
-         <activities>Ροή Δραστηριοτήτων</activities>
+         <activities>Δραστηριότητες</activities>
          <profile>Προφίλ</profile>
          <connections>Συνδέσεις</connections>
          <wiki>Συνεργατική σελίδα (Wiki)</wiki>

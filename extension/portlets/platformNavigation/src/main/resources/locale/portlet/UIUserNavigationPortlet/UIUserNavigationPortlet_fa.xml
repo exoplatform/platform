@@ -2,7 +2,7 @@
 <bundle>
    <UIUserNavigationPortlet>
       <label>
-         <activities>جریان فعالیت ها</activities>
+         <activities>فعالیت ها</activities>
          <profile>مشخصات</profile>
          <connections>ارتباطات</connections>
          <wiki>ویکی</wiki>

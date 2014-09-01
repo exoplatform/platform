@@ -2,7 +2,7 @@
 <bundle>
    <UIUserNavigationPortlet>
       <label>
-         <activities>الأنشطة و المستجدّات</activities>
+         <activities>الأنشطة</activities>
          <profile>الملفّ الشخصي</profile>
          <connections>اتصالات</connections>
          <wiki>ويكي</wiki>
