@@ -2,7 +2,7 @@
 <bundle>
    <UIUserNavigationPortlet>
       <label>
-         <activities>Sled aktivit</activities>
+         <activities>Příspěvky</activities>
          <profile>Profil</profile>
          <connections>Kontakty</connections>
          <wiki>Wiki</wiki>
