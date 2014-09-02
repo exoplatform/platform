@@ -2,7 +2,7 @@
 <bundle>
    <UIUserNavigationPortlet>
       <label>
-         <activities>アクティビティ ストリーム</activities>
+         <activities>アクテビティ</activities>
          <profile>プロフィール</profile>
          <connections>つながり</connections>
          <wiki>Wiki</wiki>
