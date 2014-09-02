@@ -223,7 +223,7 @@ public class GettingStarted {
             parameters.put(GettingStartedUtils.WIDTH, new Integer((Math.round((200 * progress) / 100))).toString());
             parameters.put(GettingStartedUtils.STATUS, status);
             parameters.put(GettingStartedUtils.SHOW, Isshow.toString());
-            if ((isChange) || (reload.equals("true"))) {
+            if ((isChange) || ("true".equals(reload))) {
                 return gettingStartedList.ok(parameters);
             }
         } catch (Exception E) {
