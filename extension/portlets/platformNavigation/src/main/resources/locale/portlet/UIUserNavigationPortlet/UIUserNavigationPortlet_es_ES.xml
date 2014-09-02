@@ -2,7 +2,7 @@
 <bundle>
    <UIUserNavigationPortlet>
       <label>
-         <activities>Flujo de Actividades</activities>
+         <activities>Actividades</activities>
          <profile>Perfil</profile>
          <connections>Conexiones</connections>
          <wiki>Wiki</wiki>
