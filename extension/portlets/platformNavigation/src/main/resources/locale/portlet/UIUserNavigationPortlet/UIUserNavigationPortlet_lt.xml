@@ -2,7 +2,7 @@
 <bundle>
    <UIUserNavigationPortlet>
       <label>
-         <activities>Veiklų srautas</activities>
+         <activities>Veiklos</activities>
          <profile>Profilis</profile>
          <connections>Jungtys</connections>
          <wiki>Wiki</wiki>
