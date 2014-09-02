@@ -2,7 +2,7 @@
 <bundle>
    <UIUserNavigationPortlet>
       <label>
-         <activities>活动流</activities>
+         <activities>活动</activities>
          <profile>配置文件</profile>
          <connections>联系人</connections>
          <wiki>wiki</wiki>
