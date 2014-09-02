@@ -2,7 +2,7 @@
 <bundle>
    <UIUserNavigationPortlet>
       <label>
-         <activities>Лента активности</activities>
+         <activities>Деятельность</activities>
          <profile>Профиль</profile>
          <connections>Список контактов</connections>
          <wiki>Вики</wiki>
