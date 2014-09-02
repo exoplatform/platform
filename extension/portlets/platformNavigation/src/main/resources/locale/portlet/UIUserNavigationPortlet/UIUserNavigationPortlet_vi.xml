@@ -2,7 +2,7 @@
 <bundle>
    <UIUserNavigationPortlet>
       <label>
-         <activities>Chuỗi Hoạt động</activities>
+         <activities>Hoạt động</activities>
          <profile>Hồ sơ</profile>
          <connections>Kết nối</connections>
          <wiki>Wiki</wiki>
