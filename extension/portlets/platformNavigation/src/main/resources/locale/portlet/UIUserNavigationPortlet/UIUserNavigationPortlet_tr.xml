@@ -2,7 +2,7 @@
 <bundle>
    <UIUserNavigationPortlet>
       <label>
-         <activities>Etkinlik Akışı</activities>
+         <activities>Aktiviteler</activities>
          <profile>Profil</profile>
          <connections>Bağlantılar</connections>
          <wiki>Wiki</wiki>
