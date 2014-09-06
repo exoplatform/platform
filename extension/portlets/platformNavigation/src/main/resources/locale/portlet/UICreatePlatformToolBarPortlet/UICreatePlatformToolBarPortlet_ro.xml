@@ -2,21 +2,21 @@
 <bundle>
    <UIUserPlatformToolBarCreatePortlet>
       <label>
-         <topic>Topic</topic>
-         <poll>Poll</poll>
-         <eventtask>Event/Task</eventtask>
-         <upload>Upload a File</upload>
-         <wiki>Wiki Page</wiki>
+         <topic>Subiect</topic>
+         <poll>Sondaj</poll>
+         <eventtask>Eveniment/activitate</eventtask>
+         <upload>Încarcă un fişier</upload>
+         <wiki>Pagina wiki</wiki>
 
       </label>
    </UIUserPlatformToolBarCreatePortlet>
    <UICreateList>
       <label>
-         <topic>topic</topic>
-         <poll>poll</poll>
-         <CreateANew>Create a new {1}:</CreateANew>
-         <NoForum>Sorry, no forum is available yet to create a {1}. Start by creating your own space.</NoForum>
-         <RequireSelectForum>Please select a forum.</RequireSelectForum>
+         <topic>subiect</topic>
+         <poll>sondaj</poll>
+         <CreateANew>Creează un {1}:</CreateANew>
+         <NoForum>Ne pare rău, Forumul nu este încă disponibil pentru a crea un {1}. Începe prin a crea propriul Spaţiu.</NoForum>
+         <RequireSelectForum>Vă rugăm să selectaţi un forum.</RequireSelectForum>
       </label>
       <action>
          <Next>#{word.next}</Next>
@@ -25,47 +25,47 @@
    </UICreateList>
    <UICreateTopic>
       <label>
-         <SelectAForum>Select a Forum</SelectAForum>
-         <location>In Location</location>
-         <forumId>And Forum</forumId>
-         <FilterForums>Filter Forums</FilterForums>
+         <SelectAForum>Selectaţi un Forum</SelectAForum>
+         <location>Locaţie</location>
+         <forumId>Şi Forum</forumId>
+         <FilterForums>Filtru forumuri</FilterForums>
       </label>
    </UICreateTopic>
    <UICreatePoll>
       <label>
-         <SelectAForum>Select Forum</SelectAForum>
-         <location>In Location</location>
-         <forumId>And Forum</forumId>
-         <FilterForums>Filter Forums</FilterForums>
+         <SelectAForum>Selectaţi Forum</SelectAForum>
+         <location>Locaţie</location>
+         <forumId>Şi Forum</forumId>
+         <FilterForums>Filtru forumuri</FilterForums>
       </label>
    </UICreatePoll>
    <UICreateWiki>
       <label>
-         <title>Create a new Wiki Page:</title>
-         <location>In Location</location>
+         <title>Creați o nouă Pagină Wiki:</title>
+         <location>Locaţie</location>
       </label>
    </UICreateWiki>
    <UICreateEvent>
       <label>
          <Title>#{word.title}</Title>
-         <Choix>Add New:</Choix>
-         <EndEvent>To</EndEvent>
-         <StartEvent>From</StartEvent>
-         <Calendar>Select Calendar</Calendar>
-         <all-day>All Day</all-day>
-         <defaultCalendarId>Default</defaultCalendarId>
+         <Choix>Adăugă:</Choix>
+         <EndEvent>Până la</EndEvent>
+         <StartEvent>De la</StartEvent>
+         <Calendar>Selectează Calendarul</Calendar>
+         <all-day>Toată ziua</all-day>
+         <defaultCalendarId>Implicit</defaultCalendarId>
       </label>
       <msg>
-         <summary-field-required>The field "Title" is required.</summary-field-required>
-         <fromDate-format>The "From" date format is incorrect.</fromDate-format>
-         <toDate-format>The "To" date format is incorrect.</toDate-format>
-         <logic-required>Sorry, you cannot create an event that ends before it starts.</logic-required>
-         <cant-add-event-on-remote-calendar>You cannot add event to remote calendar</cant-add-event-on-remote-calendar>
+         <summary-field-required>Câmpul "Titlul" este necesar.</summary-field-required>
+         <fromDate-format>Formatul câmpului "De la" este incorect.</fromDate-format>
+         <toDate-format>Formatul câmpului "data la" este incorect.</toDate-format>
+         <logic-required>Ne pare rau, nu puteţi crea un eveniment care se termină înainte de a începe.</logic-required>
+         <cant-add-event-on-remote-calendar>Nu puteți adăuga un eveniment la calendare externe</cant-add-event-on-remote-calendar>
          <add-successfully>
-            <Event>The Event was added to {1}</Event>
-            <Task>The Task was added to {1}</Task>
+            <Event>Evenimentul a fost adăugat la {1}</Event>
+            <Task>Activitatea a fost adăugată la {1}</Task>
          </add-successfully>
-         <add-unsuccessfully>{0} was not added.</add-unsuccessfully>
+         <add-unsuccessfully>{0} nu a fost adăugat.</add-unsuccessfully>
       </msg>
       <action>
          <Next>#{word.save}</Next>
@@ -73,15 +73,15 @@
       </action>
    </UICreateEvent>
     <UIUploadFile>
-        <Select>Select File</Select>
+        <Select>Selectaţi fişierul</Select>
         <action>
           <close>#{word.close}</close>
         </action>
     </UIUploadFile>
    <Choix>
       <label>
-         <Event>Event</Event>
-         <Task>Task</Task>
+         <Event>Eveniment</Event>
+         <Task>Activitate</Task>
       </label>
    </Choix>
 </bundle>

@@ -20,16 +20,16 @@
 
 -->
 <messagebundle>
-  <msg name="title">Bookmarks</msg>
-  <msg name="customize">Customize</msg>
+  <msg name="title">Semne de carte</msg>
+  <msg name="customize">Personalizează</msg>
   <msg name="save">#{word.save}</msg>
-  <msg name="add">Add</msg>
-  <msg name="ok">OK</msg>
-  <msg name="name">Name</msg>
+  <msg name="add">Adaugă</msg>
+  <msg name="ok">Ok</msg>
+  <msg name="name">Nume</msg>
   <msg name="url">URL</msg>
-  <msg name="delete">Delete</msg>
-  <msg name="edit">Edit</msg>
-  <msg name="cancel">Cancel</msg>
-  <msg name="emptyBookmarkPre">You don't have any bookmark. Add them by clicking on the button "Add Bookmark".</msg>
-  <msg name="addBookmark">Add Bookmark</msg>
+  <msg name="delete">Şterge</msg>
+  <msg name="edit">Modifică</msg>
+  <msg name="cancel">Renunță</msg>
+  <msg name="emptyBookmarkPre">Nu aveţi niciun semn de carte. Adaugă-le făcând clic pe butonul "Adaugă semn de carte".</msg>
+  <msg name="addBookmark">Adaugă semn de carte</msg>
 </messagebundle>

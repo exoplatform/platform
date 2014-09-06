@@ -2,25 +2,25 @@
 <bundle>
 <UISetupPlatformToolBarPortlet>
 <label>
-<applications>Applications</applications>
-<content>Content</content>
-<siteExplorer>Sites Explorer</siteExplorer>
-<wcmAdmin>Content Administration</wcmAdmin>
-<users>Users</users>
-<newStaff>Add Users</newStaff>
-<org-management>Groups and Roles</org-management>
+<applications>Aplicaţii</applications>
+<content>Conţinut</content>
+<siteExplorer>Navigare siteuri</siteExplorer>
+<wcmAdmin>Administrare conţinut</wcmAdmin>
+<users>Utilizatori</users>
+<newStaff>Adaugă utilizatori</newStaff>
+<org-management>Grupuri si roluri</org-management>
 <portal>Portal</portal>
-<administration>Administration</administration>
-<groupnavigation>Group Sites</groupnavigation>
-<pageManagement>Pages</pageManagement>
-<portalnavigation>Sites</portalnavigation>
+<administration>Administrare</administration>
+<groupnavigation>Site-uri de grup</groupnavigation>
+<pageManagement>Pagini</pageManagement>
+<portalnavigation>Site-uri</portalnavigation>
 <servicesManagement>Management</servicesManagement>
-<monitoring>Monitoring</monitoring>
-<spaces>Spaces</spaces>
+<monitoring>Monitorizare</monitoring>
+<spaces>Spații</spaces>
 <Branding>Branding</Branding>
-      <Notification>Email Notifications</Notification>
+      <Notification>Notificări prin e-mail</Notification>
 <ide>IDE</ide>
-<search>Search</search>
+<search>Căutare</search>
 </label>
 </UISetupPlatformToolBarPortlet>
 </bundle>

@@ -2,44 +2,44 @@
 <bundle>
    <UIAdminToolbarPortlet>
       <action>
-         <AddPage>Add Page</AddPage>
-         <EditNavigation>Navigation</EditNavigation>
-         <Content>Content</Content>
-         <Editor>Edit</Editor>
-         <Page>Page</Page>
-         <Site>Site</Site>
-         <Layout>Edit Layout</Layout>
-         <siteLayout>Layout</siteLayout>
-         <ManagePages>Manage Pages</ManagePages>
-         <GroupSite>Group Site</GroupSite>
+         <AddPage>Adaugă pagină</AddPage>
+         <EditNavigation>Navigare</EditNavigation>
+         <Content>Conţinut</Content>
+         <Editor>Editare</Editor>
+         <Page>Pagina</Page>
+         <Site>Site-ul</Site>
+         <Layout>Editare machetă</Layout>
+         <siteLayout>Macheta</siteLayout>
+         <ManagePages>Gestionați pagini</ManagePages>
+         <GroupSite>Site-ul de grup</GroupSite>
          <Properties>#{UISEOToolbarForm.label.seo}</Properties>
-         <AddSite>Add Site</AddSite>
+         <AddSite>Adaugă Site</AddSite>
       </action>
-<ManageSites>Manage Sites</ManageSites>
-<ManageGroupSites>Manage Group Sites</ManageGroupSites>
+<ManageSites>Gestionează site-uri</ManageSites>
+<ManageGroupSites>Gestiona site-uri de grup</ManageGroupSites>
    </UIAdminToolbarPortlet>
 
   <UISEOForm>
     <label>
-      <title>Title:</title>  
+      <title>Titlu:</title>  
       <description>Description:</description>
-      <keywords>Keywords:</keywords>
-      <language>Language:</language>
-      <robots>Robots:</robots>
-      <sitemap>Sitemap:</sitemap>
-      <sitemapvisible>Visible in sitemap</sitemapvisible>
-  <isInherited>Inherited from parent page</isInherited>
-      <priority>Priority:</priority>
-      <frequency>Frequency:</frequency>
-      <select-language>Select Language</select-language>
+      <keywords>Cuvinte cheie:</keywords>
+      <language>Limba:</language>
+      <robots>Roboţi:</robots>
+      <sitemap>hartă site:</sitemap>
+      <sitemapvisible>Vizibil în harta site-ului</sitemapvisible>
+  <isInherited>Moştenit de la pagina părinte</isInherited>
+      <priority>Prioritate:</priority>
+      <frequency>Frecvență:</frequency>
+      <select-language>Selectează limba</select-language>
       <option>
-        <Always>Always</Always>
-        <Hourly>Hourly</Hourly>
-        <Daily>Daily</Daily>
-        <Weekly>Weekly</Weekly>
-        <Monthly>Monthly</Monthly>
-        <Yearly>Yearly</Yearly>
-        <Never>Never</Never>
+        <Always>Întotdeauna</Always>
+        <Hourly>Pe oră</Hourly>
+        <Daily>Zilnic</Daily>
+        <Weekly>Săptămânal</Weekly>
+        <Monthly>Lunar</Monthly>
+        <Yearly>Anual</Yearly>
+        <Never>Niciodată</Never>
       </option> 
     </label>
  
@@ -48,16 +48,16 @@
       <Cancel>#{word.cancel}</Cancel>
     </action>
     <msg>
-      <repository-exception>An unexpected error occurred. Cannot save page metadata.</repository-exception>
-      <confirm-delete>Are you sure you want to delete these SEO data?</confirm-delete>
+      <repository-exception>Eroare neașteptată. Nu pot salva metadatele paginii.</repository-exception>
+      <confirm-delete>Sigur ștergeți aceste date de SEO?</confirm-delete>
     </msg>
     <title>
-    <seo-delete>Delete</seo-delete>
+    <seo-delete>Şterge</seo-delete>
     </title>
 <help> 
-  <priority>Valid values range from 0.0 to 1.0.</priority>
-  <description>Help searchers: let them know that the following page has a link with what they are looking for.</description>
-  <keywords>Most important terms in the page must be separated by a comma.</keywords>  
+  <priority>Valorile valide variază de la 0.0 la 1.0.</priority>
+  <description>Ajuta la căutare: spuneţi-le că următoarea pagină are o legătură care este căutată.</description>
+  <keywords>Cei mai importanţi termeni în pagină separați prin virgulă.</keywords>  
     </help>  
   </UISEOForm>
   <UISEOPopupWindow>
@@ -75,15 +75,15 @@
   </UISEOToolbarForm>  
   <FloatNumberValidator>
     <msg>
-      <Invalid-number>Priority field has an invalid value. Please enter a number between 0.0 and 1.0.</Invalid-number>
+      <Invalid-number>Câmpul prioritate are o valoare invalidă. Trebuie să fie un număr între 0.0 și 1.0.</Invalid-number>
     </msg>
   </FloatNumberValidator>
   
   <Locale>
     <label>      
-      <it>Italian</it>      
-      <fr>French</fr>
-      <en>English</en>      
+      <it>Italiană</it>      
+      <fr>Franceză</fr>
+      <en>Engleză</en>      
     </label>
   </Locale>
   

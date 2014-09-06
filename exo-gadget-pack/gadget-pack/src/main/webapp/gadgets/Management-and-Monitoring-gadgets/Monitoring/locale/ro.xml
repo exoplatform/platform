@@ -20,20 +20,20 @@
 
 -->
 <messagebundle>
-  <msg name="title_memory">Memory</msg>
-  <msg name="used">Used</msg>
-  <msg name="free">Free</msg>
+  <msg name="title_memory">Memorie</msg>
+  <msg name="used">Utilizat</msg>
+  <msg name="free">Liber</msg>
   <msg name="total">Total</msg>
-  <msg name="heap">Heap memory</msg>
-  <msg name="non-heap">Non-heap memory</msg>
-  <msg name="loading">Loading data ...</msg>
-  <msg name="title_caches">Cache Levels</msg>
-  <msg name="consumption">Consumption</msg>
+  <msg name="heap">Memorie heap</msg>
+  <msg name="non-heap">Memorie non-heap</msg>
+  <msg name="loading">Se încarcă date...</msg>
+  <msg name="title_caches">Niveluri cache</msg>
+  <msg name="consumption">Consumul</msg>
   <msg name="hit_ratio">Hit ratio</msg>
-  <msg name="details">Details</msg>
+  <msg name="details">Detalii</msg>
   <msg name="hit">Hit</msg>
   <msg name="miss">Miss</msg>
-  <msg name="full">full</msg>
-  <msg name="max_size">Max size</msg>
-  <msg name="time_to_live">Time to live</msg>
+  <msg name="full">complet</msg>
+  <msg name="max_size">Dimensiune Max</msg>
+  <msg name="time_to_live">Timp de viață</msg>
 </messagebundle>

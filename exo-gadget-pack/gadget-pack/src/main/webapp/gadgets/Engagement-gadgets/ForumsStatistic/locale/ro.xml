@@ -22,19 +22,19 @@
 
 -->
 <messagebundle>
-  <msg name="forums.statistic.title">Forum Statistics</msg>
-  <msg name="forums.statistic.total.topic">Total Topics:</msg>
-  <msg name="forums.statistic.total.post">Total Posts:</msg>
-  <msg name="forums.statistic.total.member">Total Members:</msg>
-  <msg name="forums.statistic.active.member">Recently Active Members:</msg>
-  <msg name="forums.statistic.maximum.user">Maximum number of online users:</msg>  
-  <msg name="forums.statistic.at">at</msg>  
-  <msg name="forums.weekly.statistic.title">Forums Weekly Statistics</msg>
-  <msg name="forums.weekly.statistic.post.open">Post(s) Created</msg>
-  <msg name="forums.weekly.statistic.next">Next</msg>
-  <msg name="forums.weekly.statistic.prev">Previous</msg>
-  <msg name="forums.weekly.statistic.view.chart">View as chart</msg>
-  <msg name="forums.weekly.statistic.view.list">View as list</msg>
-  <msg name="forums.statistic.see.total.statistic">Global Statistics</msg>
-  <msg name="forums.statistic.see.weekly.statistic">Weekly Statistics</msg>  
+  <msg name="forums.statistic.title">Statistici forum</msg>
+  <msg name="forums.statistic.total.topic">Total subiecte:</msg>
+  <msg name="forums.statistic.total.post">Total mesaje:</msg>
+  <msg name="forums.statistic.total.member">Total membri:</msg>
+  <msg name="forums.statistic.active.member">Membri Activi:</msg>
+  <msg name="forums.statistic.maximum.user">Numărul maxim de utilizatori online:</msg>  
+  <msg name="forums.statistic.at">la</msg>  
+  <msg name="forums.weekly.statistic.title">Statistici săptămânale forumuri</msg>
+  <msg name="forums.weekly.statistic.post.open">Postări create</msg>
+  <msg name="forums.weekly.statistic.next">Înainte</msg>
+  <msg name="forums.weekly.statistic.prev">Anterior</msg>
+  <msg name="forums.weekly.statistic.view.chart">Vezi ca diagramă</msg>
+  <msg name="forums.weekly.statistic.view.list">Vezi ca listă</msg>
+  <msg name="forums.statistic.see.total.statistic">Statistici globale</msg>
+  <msg name="forums.statistic.see.weekly.statistic">Statistici săptămânale</msg>  
 </messagebundle>

@@ -2,21 +2,21 @@
 <bundle>
   <portal>
     <acme>
-      <overview>Overview</overview>
-      <products>Products</products>
-      <news>News</news>
-      <contactus>Questions?</contactus>
-      <newsletters>Newsletters</newsletters>
-      <confirmation>Contact Form Confirmation</confirmation>
-      <detail>Details</detail>
+      <overview>Prezentare generală</overview>
+      <products>Produse</products>
+      <news>Ştiri</news>
+      <contactus>Întrebări?</contactus>
+      <newsletters>Buletine de ştiri</newsletters>
+      <confirmation>Confirmare Formular de contact</confirmation>
+      <detail>Detalii</detail>
   <catalog>Catalog</catalog>
-      <printviewer>Print page</printviewer>
-      <searchResult>Search</searchResult>
-      <newAccount>New Account</newAccount>
-      <groupnavigation>Group Navigation</groupnavigation>
-      <portalnavigation>Portal Navigation</portalnavigation>
-      <documents>Documents</documents>
-      <unifiedSearch>Search</unifiedSearch>
+      <printviewer>Printează pagina</printviewer>
+      <searchResult>Căutare</searchResult>
+      <newAccount>Cont nou</newAccount>
+      <groupnavigation>Navigare grupuri</groupnavigation>
+      <portalnavigation>Navigare portal</portalnavigation>
+      <documents>Documente</documents>
+      <unifiedSearch>Căutare</unifiedSearch>
     </acme>
   </portal>
 </bundle>

@@ -1,33 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <bundle>
   <Signin>
-    <welcome>Welcome</welcome>
-    <login>Login</login>
-    <logout>Logout</logout>
+    <welcome>Bine ai venit</welcome>
+    <login>Autentificare</login>
+    <logout>Deconectare</logout>
     <language>
-      <en>Switch to English</en>
-      <fr>Switch to French</fr>
+      <en>Comutaţi la limba engleză</en>
+      <fr>Comută la  Franceză</fr>
     </language>
-    <register>Register</register>
+    <register>Înregistrare</register>
   </Signin>
   <Toolbar>
-    <SkipToContent>Skip to content</SkipToContent>
-    <SiteMap>Site Map</SiteMap>
-    <Accessibility>Accessibility</Accessibility>
-    <NormalSize>Normal Size</NormalSize>
-    <MediumSize>Medium Size</MediumSize>
-    <LargeSize>Large Size</LargeSize>
-    <NormalContrast>Normal Contrast</NormalContrast>
-    <HighContrast>High Contrast</HighContrast>
-    <Search>Search</Search>
+    <SkipToContent>Sari la conţinut</SkipToContent>
+    <SiteMap>Harta site-ului</SiteMap>
+    <Accessibility>Accesibilitate</Accessibility>
+    <NormalSize>Dimensiune normală</NormalSize>
+    <MediumSize>Dimensiune medie</MediumSize>
+    <LargeSize>De mari dimensiuni</LargeSize>
+    <NormalContrast>Contrast normal</NormalContrast>
+    <HighContrast>Contrast înalt</HighContrast>
+    <Search>Căutare</Search>
   </Toolbar>
   <Logo>
-    <GoHome>Go to Home</GoHome>
+    <GoHome>Du-te la Acasă</GoHome>
   </Logo>
   <acme>
-    <label>ACME Template</label>
+    <label>Șablon ACME</label>
   </acme>  
   <WAIPortal>
-    <label>Sample Accessible Website</label>
+    <label>Exemplu de site web accesibil</label>
   </WAIPortal>
 </bundle>

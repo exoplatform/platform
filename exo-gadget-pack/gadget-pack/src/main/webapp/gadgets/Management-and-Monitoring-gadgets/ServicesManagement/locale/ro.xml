@@ -20,19 +20,19 @@
 
 -->
 <messagebundle>  
-  <msg name="title">Services Management</msg>
-  <msg name="services">Services</msg>
-  <msg name="name">Name</msg>
-  <msg name="description">Description</msg>
-  <msg name="noDescription">No Description</msg>
-  <msg name="method">Method</msg>
-  <msg name="parameters">Parameters</msg>
-  <msg name="action">Action</msg>
-  <msg name="value">Value</msg>
-  <msg name="services_url">Services URL</msg>
-  <msg name="failManage">Temporarily cannot manage services from other hosts until we support OAuth</msg>
-  <msg name="noServices">Either no service is available or you do not have sufficient permission</msg>
-  <msg name="noMethod">No Method</msg>
-  <msg name="noProperty">No Property</msg>
-  <msg name="badURL">There was an error while retrieving data. Please check your URL preference</msg>
+  <msg name="title">Management servicii</msg>
+  <msg name="services">Servicii</msg>
+  <msg name="name">Nume</msg>
+  <msg name="description">Descriere</msg>
+  <msg name="noDescription">Nici o descriere</msg>
+  <msg name="method">Metoda</msg>
+  <msg name="parameters">Parametrii</msg>
+  <msg name="action">Acțiune</msg>
+  <msg name="value">Valoare</msg>
+  <msg name="services_url">URL servicii</msg>
+  <msg name="failManage">Temporar nu pot gestiona serviciile de pe altă platformă,  vom introduce OAuth</msg>
+  <msg name="noServices">Serviciul nu este disponibil sau nu aveți suficiente permisiuni</msg>
+  <msg name="noMethod">Nici o metodă</msg>
+  <msg name="noProperty">Nici o proprietate</msg>
+  <msg name="badURL">A existat o eroare în timpul aducerii datelor. Vă rugăm să verificaţi adresa URL</msg>
 </messagebundle>
