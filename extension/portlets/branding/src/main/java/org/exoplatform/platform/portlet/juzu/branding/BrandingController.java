@@ -199,7 +199,7 @@ public class BrandingController {
           + System.currentTimeMillis();
     }
     if (!isExiste(logoUrl)) {
-      logoUrl = "/eXoSkin/skin/less/platform/skin/images/ToolbarContainer/HomeIcon.png";
+      logoUrl = "/eXoSkin/skin/images/platform/skin/ToolbarContainer/HomeIcon.png";
     }
     return logoUrl;
   }

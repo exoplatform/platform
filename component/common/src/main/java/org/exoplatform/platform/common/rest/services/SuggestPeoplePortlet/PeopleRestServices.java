@@ -42,7 +42,7 @@ public class PeopleRestServices implements ResourceContainer {
 
   private static final CacheControl cacheControl;
 
-  private static final String DEFAULT_AVATAR = "/social-resources/skin/images/ShareImages/UserAvtDefault.png";
+  private static final String DEFAULT_AVATAR = "/eXoSkin/skin/images/social/skin/ShareImages/UserAvtDefault.png";
 
   private UserACL userACL;
 
