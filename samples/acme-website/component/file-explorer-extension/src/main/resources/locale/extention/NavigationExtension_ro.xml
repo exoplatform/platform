@@ -7,7 +7,7 @@
 </UIActionBar>
 <UIViewFormTabPane>
 <label>
-<contentNavigation>Navigation by Content</contentNavigation>
+<contentNavigation>Navigare după conținut</contentNavigation>
 </label>
 </UIViewFormTabPane>
 <UIPopupWindow>
@@ -21,23 +21,23 @@
 <id>ID:</id>
 <name>Nume:</name>
 <lifecycle>Ciclul de viaţă:</lifecycle>
-<isDeep>Is Deep:</isDeep>
+<isDeep>Recursiv:</isDeep>
 <nodetypes>Tipuri de module:</nodetypes>
 <description>Descriere:</description>
 <affectedNodeTypeNames>Tipuri de module afectate:</affectedNodeTypeNames>
-<navigationNode>Navigation Node:</navigationNode>
+<navigationNode>Modul de navigare:</navigationNode>
 <index>Index:</index>
 <clickable>Clic:</clickable>
 <page>Pagina:</page>
-<childrenPage>Children Page:</childrenPage>
+<childrenPage>Sub-Pagină:</childrenPage>
 </label>
 </dialog>
 </PopulateToMenu>
 <UINavigationForm>
 <label>
-<Node>Parent's Folder:</Node>
+<Node>Folder părinte:</Node>
 <Visible>Vizibil:</Visible>
-<NavigationNodeInputSet>Target Parent Navigation:</NavigationNodeInputSet>
+<NavigationNodeInputSet>Țintă navigare:</NavigationNodeInputSet>
 <Index>Ordinea de afişare:</Index>
 <Clickable>Clic:</Clickable>
 <NavigationControls>Comenzi de navigare</NavigationControls>
