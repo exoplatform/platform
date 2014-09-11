@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bundle>
+  <Signin>
+    <welcome>Benvingut/da</welcome>
+    <login>Inicia la sessió</login>
+    <logout>Tanca la sessió</logout>
+    <language>
+      <en>Canviar al Anglès</en>
+      <fr>Canvia al Francès</fr>
+    </language>
+    <register>Registrar-se</register>
+  </Signin>
+  <Toolbar>
+    <SkipToContent>Passa al contingut</SkipToContent>
+    <SiteMap>Mapa del Lloc</SiteMap>
+    <Accessibility>Accessibilitat</Accessibility>
+    <NormalSize>Mida normal</NormalSize>
+    <MediumSize>Mida mitjana</MediumSize>
+    <LargeSize>Mida gran</LargeSize>
+    <NormalContrast>Contrast normal</NormalContrast>
+    <HighContrast>Contrast alt</HighContrast>
+    <Search>Cerca</Search>
+  </Toolbar>
+  <Logo>
+    <GoHome>Anar a l'Inici</GoHome>
+  </Logo>
+  <acme>
+    <label>Plantilla ACME</label>
+  </acme>  
+  <WAIPortal>
+    <label>Lloc Accessible (Exemple)</label>
+  </WAIPortal>
+</bundle>
