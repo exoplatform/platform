@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bundle>
+<UIActionBar>
+<tooltip>
+<ContentNavigation>Navegació de contingut</ContentNavigation>
+</tooltip>
+</UIActionBar>
+<UIViewFormTabPane>
+<label>
+<contentNavigation>Navegació per continguts</contentNavigation>
+</label>
+</UIViewFormTabPane>
+<UIPopupWindow>
+<title>
+<UINavigationForm>Formulari de navegació</UINavigationForm>
+</title>
+</UIPopupWindow>
+<PopulateToMenu>
+<dialog>
+<label>
+<id>ID:</id>
+<name>Nom:</name>
+<lifecycle>Cicle de vida:</lifecycle>
+<isDeep>Recursiu:</isDeep>
+<nodetypes>Tipus de node:</nodetypes>
+<description>Descripció:</description>
+<affectedNodeTypeNames>Tipus de Node afectats:</affectedNodeTypeNames>
+<navigationNode>Node de navegació:</navigationNode>
+<index>Índex:</index>
+<clickable>Clicable:</clickable>
+<page>Pàgina:</page>
+<childrenPage>Pàgina de secundaria:</childrenPage>
+</label>
+</dialog>
+</PopulateToMenu>
+<UINavigationForm>
+<label>
+<Node>Carpeta principal:</Node>
+<Visible>Visible :</Visible>
+<NavigationNodeInputSet>L'objectiu de navegació principal:</NavigationNodeInputSet>
+<Index>Ordre de visualització:</Index>
+<Clickable>Clicable :</Clickable>
+<NavigationControls>Controls de navegació</NavigationControls>
+<ListTargetPageFormInputSet>Llista de Pàgines:</ListTargetPageFormInputSet>
+<ListShowCLVByStringInput>Nom del paràmetre:</ListShowCLVByStringInput>
+<DetailTargetPageInputSet>Pàgina de detall:</DetailTargetPageInputSet>
+<DetailShowCLVByStringInput>Nom del paràmetre:</DetailShowCLVByStringInput>
+<List>Llista</List>
+<Detail>Detall</Detail>
+</label>
+<action>
+<Save>#{word.save}</Save>
+<Cancel>#{word.cancel}</Cancel>
+</action>
+</UINavigationForm>
+<Visible>
+<label>
+<VisibleEnable>Sí</VisibleEnable>
+<VisibleDisable>No</VisibleDisable>
+</label>
+</Visible>
+<Clickable>
+<label>
+<ClickableEnable>Sí</ClickableEnable>
+<ClickableDisable>No</ClickableDisable>
+</label>
+</Clickable>
+<NavigationNodeInputSet>
+<title>
+<SelectNavigationNode>Selecciona un Node de Navegació</SelectNavigationNode>
+<RemoveNavigationNode>Restablir</RemoveNavigationNode>
+</title>
+</NavigationNodeInputSet>
+<ListTargetPageFormInputSet>
+<title>
+<SelectListTargetPage>Selecciona la pàgina de destí</SelectListTargetPage>
+<RemoveListTargetPage>Restablir</RemoveListTargetPage>
+</title>
+</ListTargetPageFormInputSet>
+<DetailTargetPageInputSet>
+<title>
+<SelectDetailTargetPage>Selecciona la pàgina de destí secundària</SelectDetailTargetPage>
+<RemoveDetailTargetPage>Restablir</RemoveDetailTargetPage>
+</title>
+</DetailTargetPageInputSet>
+<NavigationSelectorPopupWindow>
+<title>
+<UINavigationSelector>Selector de Navegació</UINavigationSelector>
+</title>
+</NavigationSelectorPopupWindow>
+<ListTargetPageSelectorPopupWindow>
+<title>
+<UIPageSelector>Selector de pàgina</UIPageSelector>
+</title>
+</ListTargetPageSelectorPopupWindow>
+<DetailTargetPageSelectorPopupWindow>
+<title>
+<UIPageSelector>Selector de pàgina</UIPageSelector>
+</title>
+</DetailTargetPageSelectorPopupWindow>
+</bundle>

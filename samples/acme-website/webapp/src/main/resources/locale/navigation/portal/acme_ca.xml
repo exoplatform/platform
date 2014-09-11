@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bundle>
+  <portal>
+    <acme>
+      <overview>Vista general</overview>
+      <products>Productes</products>
+      <news>Notícies</news>
+      <contactus>Preguntes?</contactus>
+      <newsletters>Butlletins de notícies</newsletters>
+      <confirmation>Confirmació del formulari de contacte</confirmation>
+      <detail>Detalls</detail>
+  <catalog>Catàleg</catalog>
+      <printviewer>Imprimeix la pàgina</printviewer>
+      <searchResult>Cerca</searchResult>
+      <newAccount>Nou compte</newAccount>
+      <groupnavigation>Navegació dels Grups</groupnavigation>
+      <portalnavigation>Navegació del Portal</portalnavigation>
+      <documents>Documents</documents>
+      <unifiedSearch>Cerca</unifiedSearch>
+    </acme>
+  </portal>
+</bundle>

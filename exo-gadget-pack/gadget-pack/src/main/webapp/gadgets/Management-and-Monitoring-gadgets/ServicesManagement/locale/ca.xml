@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+
+    Copyright (C) 2009 eXo Platform SAS.
+    
+    This is free software; you can redistribute it and/or modify it
+    under the terms of the GNU Lesser General Public License as
+    published by the Free Software Foundation; either version 2.1 of
+    the License, or (at your option) any later version.
+    
+    This software is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+    Lesser General Public License for more details.
+    
+    You should have received a copy of the GNU Lesser General Public
+    License along with this software; if not, write to the Free
+    Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
+    02110-1301 USA, or see the FSF site: http://www.fsf.org.
+
+-->
+<messagebundle>  
+  <msg name="title">Gestió de serveis</msg>
+  <msg name="services">Serveis</msg>
+  <msg name="name">Nom</msg>
+  <msg name="description">Descripció</msg>
+  <msg name="noDescription">Sense descripció</msg>
+  <msg name="method">Mètode</msg>
+  <msg name="parameters">Paràmetres</msg>
+  <msg name="action">Acció</msg>
+  <msg name="value">Valor</msg>
+  <msg name="services_url">URL de Serveis</msg>
+  <msg name="failManage">Temporalment no es poden gestionar serveis d'un altre host mentres no donem suport OAuth</msg>
+  <msg name="noServices">O bé cap servei està disponible, o bé no té permisos suficients</msg>
+  <msg name="noMethod">Cap mètode</msg>
+  <msg name="noProperty">Sense propietat</msg>
+  <msg name="badURL">Hi ha hagut un error recuperant les dades. Si us plau, comprovi la URL del servei</msg>
+</messagebundle>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bundle>
+<UIBreadCrumbsNavigationPortlet>
+    <label>
+        <ChangePicture>Canvia la Foto</ChangePicture>
+    </label>
+</UIBreadCrumbsNavigationPortlet>
+ <UIBreadCrumbPopupAvatarUploader>
+      <title>
+         <UIAvatarUploader>Puja una Foto</UIAvatarUploader>
+         <UIAvatarUploadContent>Vista prèvia de la Foto</UIAvatarUploadContent>
+      </title>
+ </UIBreadCrumbPopupAvatarUploader>
+</bundle>
