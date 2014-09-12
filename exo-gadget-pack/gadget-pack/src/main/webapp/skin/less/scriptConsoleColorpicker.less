@@ -1,3 +1,6 @@
+@import "variables.less";
+@import "mixins.less";
+// ---------------------------
 .colorpicker {
   width: 356px;
   height: 176px;
@@ -13,7 +16,7 @@
   left: 14px;
   top: 13px;
   position: absolute;
-  background: #f00;
+  background: @red;
   overflow: hidden;
   cursor: crosshair;
 }
@@ -58,7 +61,7 @@
   height: 30px;
   left: 213px;
   top: 13px;
-  background: #f00;
+  background: @red;
 }
 .colorpicker_current_color {
   position: absolute;
@@ -66,7 +69,7 @@
   height: 30px;
   left: 283px;
   top: 13px;
-  background: #f00;
+  background: @red;
 }
 .colorpicker input {
   background-color: transparent;
@@ -74,7 +77,7 @@
   position: absolute;
   font-size: 10px;
   font-family: Arial, Helvetica, sans-serif;
-  color: #898989;
+  color: @textLightColor;
   top: 4px;
   right: 11px;
   text-align: right;

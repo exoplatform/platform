@@ -1,3 +1,6 @@
+@import "variables.less";
+@import "mixins.less";
+// ----------------------------------
 .ContentDisabled {
     background: url('/intranet-gadgets/skin/images/Agenda/warningIcon.png') no-repeat scroll 10px 8px #FFFFBB;
     border-radius: 4px 4px 4px 4px;
@@ -13,7 +16,7 @@
 
 .UIGadgetThemes .GadCont .customLink {
 	text-decoration:underline;
-	color:#226ab4; 
+	color: @linkColor;
 	cursor:pointer;
 	font-weight: normal;
 }
@@ -22,11 +25,11 @@
 }
 
 .arrowRight {
-        background: url('/intranet-gadgets/skin/images/Agenda/IconLink.gif') no-repeat right 7px;        
+        background: url('/intranet-gadgets/skin/images/Agenda/IconLink.gif') no-repeat right 7px;
 }
 
 .ThemeColor {
-	color: #226ab4;
+	color: @linkColor;
 }
 
 .TxtDarkBlue {
@@ -53,8 +56,8 @@
 
 .UIGadgetThemes .GadCont .Question {
 	font-weight: normal;
-}	
-	
+}
+
 /** MyTasks **/
 
 .UIGadgetThemes .MyTasks .CheckBox {
@@ -64,15 +67,15 @@
 .UIGadgetThemes .MyTasks .CheckBox input {
 	margin: 0px 3px 0px 0px;
 }
-	
+
 .UIGadgetThemes .MyTasks .CheckBox span {
-	color: #226AB4;
+	color: @linkColor;
 	padding-left: 10px;
 	cursor: pointer;
 	font-weight: normal;
 }
 .UIGadgetThemes .MyTasks .TaskDone {
-	color:#cccccc;
+	color: @borderColor;
 }
 
 .UIGadgetThemes .MyTasks .TaskDetail {
@@ -85,20 +88,20 @@
 .UIGadgetThemes .UpcomingEvents .IconLink {
 	padding-left: 10px;
 	margin-bottom: 5px;
-	color: #484848;
+	color: @textColor;
 	display: block;
 	text-decoration: none;
 	background-position: left 7px;
 }
 
 .UIGadgetThemes .UpcomingEvents span {
-	color: #226AB4;
+	color: @linkColor;
 	padding-left: 10px;
 	font-weight: normal;
 }
 
 .UIGadgetThemes .EventDetail {
-	display:none;  
+	display:none;
 	margin:0px 0px 10px 15px;
 }
 

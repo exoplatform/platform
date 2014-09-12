@@ -1,5 +1,8 @@
+@import "variables.less";
+@import "mixins.less";
+// ----------------------------------
 .UIGadgetThemes .FavoritesList .ReadPost {
- color:#cccccc;
+ color: @borderColor;
 }
 
 .UIGadgetThemes .GadCont span {
@@ -9,20 +12,20 @@
 
 .UIGadgetThemes .GadCont .customLink {
 	text-decoration:underline;
-	color:#226ab4; 
+	color: @linkColor;
 	cursor:pointer;
 	font-weight: normal;
 }
 
 .UIGadgetThemes .FavoritesList .CreatedDate {
- color:#707070;
+ color: @textMediumColor;
  font-style: italic;
  padding-left: 25px;
  padding-top: 2px;
 }
 
 .UIGadgetThemes .Icon {
-  color: #000000;
+  color: @black;
   margin-bottom: 5px;
   padding-left: 25px;
   text-decoration: none;
@@ -45,27 +48,27 @@
 }
 
 .favoriteDoc .fileDesc a {
-	color: #333;
+	color: @textColor;
   line-height: 16px;
 }
 
 .favoriteDoc .fileDesc a .fileExtension {
-	color: #999;
+	color: @textLightColor;
 	font-size: 12px;
 	font-weight: normal;
 	margin-left: 3px;
 }
 
 .favoriteDoc .fileDesc a:hover {
-	color: #2f5e92;
+	color: @linkColor;
 }
 
 .favoriteDoc .fileDesc a:hover .fileExtension {
-	color: #2f5e92;
+	color: @linkColor;
 }
 
 .favoriteDoc .fileDesc p {
-	color: #999999;
+	color: @textLightColor;
 	font-size: 12px;
   line-height: 16px;
   margin-bottom: 0;

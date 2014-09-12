@@ -1,7 +1,9 @@
+@import "variables.less";
+@import "mixins.less";
+// ----------------------------------
 /************** BookMarks **********/
-
 .Button {
-  vertical-align: text-top;  
+  vertical-align: text-top;
 }
 
 .BookMarks {
@@ -37,14 +39,14 @@
 .ContBookmark .LabelBelow {margin-left: 4.5px;}
 
 .ContBookmark input {
-  border: 1px solid #ccc;
+  border: 1px solid @borderColor;
   padding: 0px 5px;
   -moz-border-radius: 3px;
   -webkit-border-radius: 3px;
   border-radius: 3px;
   width: 135px;
   height: 23px;
-  color: #4d4d4d;
+  color: @textColor;
   font-size: 11px;
   float: left;
   margin: 0px 5px 0px 0px;
@@ -55,12 +57,12 @@
   float: left;
   margin: 5px 4px 0px 0px;
   }
-  
+
 .ContBookmark .ButtonDel {
   display: block;
   float: left;
   margin-top: 5px;
-}  
+}
 
 .ContBookmark .btnAdd {
   font-size: 12px;

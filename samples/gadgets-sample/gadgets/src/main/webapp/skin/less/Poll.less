@@ -1,8 +1,11 @@
-.uiGadgetThemes{ 
+@import "variables.less";
+@import "mixins.less";
+// ----------------------------------
+.uiGadgetThemes{
 	.gadContent {
 		padding: 8px 16px;
 		.question, .question .text{
-			color: #2f5e92;
+			color: @linkColor;
 		}
 		.question{
 			margin: 5px 0 10px;
@@ -25,9 +28,9 @@
 				padding: 4px 0 12px;
 				line-height: 30px;
 				margin: 0px;
-				border-bottom: 1px solid #cfcfcf;
+				border-bottom: 1px solid @borderColor;
 			}
-			
+
 			.uiCheckbox{
 				display: block;
 				margin: 8px 0;
@@ -37,15 +40,15 @@
 			margin-top: 0;
 			font-weight: normal;
 		}
-		
+
 		.discuss{
-			color: #333333;
+			color: @textColor;
 			display: inline-block;
 			float: right;
 			font-size: 13px;
 			font-weight: normal;
 		}
-		
+
 		.voteResult{
 			font-size: 12px;
 			border: none;
@@ -62,26 +65,26 @@
 				text-align: right
 			}
 		}
-		
+
 		.btnform{
 			line-height: 28px;
-			border-top: 1px solid #cfcfcf;
+			border-top: 1px solid @borderColor;
 			padding: 14px 0 6px;
 			text-align: left;
 		}
-		
+
 		.voteResult tr:first-child td:first-child{
 			width: 180px;
 		}
-		
+
 		.voteResult td, .voteResult th{
 			border: none;
 		}
-		
+
 		.voteResult thead{
-			background-color: #ccc;
+			background-color: @borderColor;
 		}
-		
+
 		.horizontalBG{
 			width: 100%;
 			min-width: 103px;
@@ -102,7 +105,7 @@
 			-moz-box-shadow: 0 1px 1px #c0c0c0 inset;
 			box-shadow: 0 1px 1px #c0c0c0 inset;
 		}
-		
+
 		.horizontalBar {
 			height: 10px;
 			-webkit-border-radius: 5px 0 0 5px;
@@ -117,10 +120,10 @@
 			background-repeat: repeat-x;
 			filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff5d83c3', endColorstr='#ff456697', GradientType=0);
 		}
-		
+
 		.listpoll {
 			display:none;
-			margin: 6px 2px 8px 0;			
+			margin: 6px 2px 8px 0;
 			.form-horizontal{
 				padding: 0px;
 			}
@@ -144,11 +147,11 @@
 				width: 100%;
 			}
 		}
-		
+
 		.pollList{
 			width: 100%;
 		}
-		
+
 		.miniMessage{
 			font-size: 12px;
 			padding:10px 0px;
@@ -156,7 +159,7 @@
 			background:red;
 			width: 100%;
 		}
-		
+
 		td {
 			padding: 5px 0;
 		}
@@ -164,11 +167,11 @@
 			display: block;
 			margin: 8px 0;
 		}
-		
+
 		.btn{
 			margin: 0px;
 		}
-		
+
 		form{
 			margin: 0px;
 		}

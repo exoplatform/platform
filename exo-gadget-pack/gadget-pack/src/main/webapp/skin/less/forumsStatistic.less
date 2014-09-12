@@ -1,3 +1,6 @@
+@import "variables.less";
+@import "mixins.less";
+// ---------------------------
 .uiBox {
 	.title {
 		.actionIcon {
@@ -15,9 +18,9 @@
 
 .TotalStatisticArea{
 	border-top: none!important;
-  min-height:150px;
+  	min-height:150px;
 	.num {
-		color: #2f5e92;
+		color: @linkColor;
 	}
 }
 
@@ -49,7 +52,7 @@
 .WeeklyStatisticArea {
 	.IconLink {
 		> i {
-			color: #2f5e92;
+			color: @linkColor;
 			font-style: normal;
 		}
 	}

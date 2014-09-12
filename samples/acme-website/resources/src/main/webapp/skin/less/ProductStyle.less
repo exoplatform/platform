@@ -25,15 +25,15 @@ li {
 	padding-bottom: 7px;
 	width: 230px;
 	.Title {
-		background: #e1e1e1;
+		background: @componentBackgroundHover;
 		border-top: 1px solid @white;
 		font-size: 12px;
-		color: #282828;
+		color: @borderColor;
 		line-height: 24px;
 		padding-left: 15px;
 	}
 	.CategT {
-		background:#fec621;
+		background: #fec621;
 		line-height: 28px;
 		.border-radius(8px 8px 0 0);
 		padding: 0 0 0 15px;
@@ -44,7 +44,7 @@ li {
 	}
 	
 	.CategC {
-		background: #f6f6f6;
+		background: @componentBackgroundLight;
 		padding-bottom: 20px;
 		.border-radius( 0 0 8px 8px);
 	}
@@ -486,7 +486,7 @@ li {
 
 
 .UIPresentationContainer .ResourBoxC {
-     #gradient > .vertical (#e6e6e6,#fefefe);
+     #gradient > .vertical (@componentBackgroundHover,#fefefe);
     color: #FF9C00;
 	.border-radius(10px 10px 0 0);
     font-size: 36px !important;
