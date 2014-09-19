@@ -1,11 +1,3 @@
-<div class="AjaxLoadingMask" id="AjaxLoadingMask" style="display: none; margin: auto;">
-			<div class="LoadingContainer">
-				<div class="LoadingText">Loading</div>
-				<span class="LoadingProgressBar"></span>
-			</div>
-</div>
-		
-		
 <div class="uiBrandingPortlet">
 	<div class="alert" id="cancelinfo">
 		<i class="uiIconWarning"></i>${cancelok}
@@ -19,7 +11,7 @@
 	<div class="alert" id="savenotok">
 		<i class="uiIconWarning"></i>${savenotok}
 	</div>
-	
+
 	<div class="logoForm boxContent">
 		<h3>${pagetitle}</h3>
 		<h4 class="titleWithBorder">${selectlogo}</h4>
@@ -36,24 +28,24 @@
 				 <input type='hidden' id='browser' name='browser' />
 			     <input type='file' id='file' name='file' style="display: none;" />
 				</form>
-			
+
 				<div class="uiAction">
 					<input id="btUpload" class="btn btn-primate" type="button"  value="${upload}"/>
 				</div>
 			</div>
 	  </div>
 	</div>
-		
+
 	<div class="navigationStyle boxContent">
 		<h4 class="titleWithBorder">${selectstyle}</h4>
-		
+
 		<div class="btn-group uiDropdownWithIcon" id="navigationStyle">
 			<div data-toggle="dropdown" class="btn dropdown-toggle">
 				<span></span>
-				<span class="spiter"></span> 
+				<span class="spiter"></span>
 				<span class="caret"></span>
 			</div>
-		
+
 			<ul role="menu" class="dropdown-menu">
 				<li>
 					<a href="#" class="OptionItem" id="Light">${lightstyle}</a>
@@ -62,16 +54,16 @@
 					<a href="#" class="OptionItem" id="Dark">${darkstyle}</a>
 				</li>
 			</ul>
-		</div>		
+		</div>
 	</div>
-	
+
 	<div class="preview boxContent">
 		<h4 class="titleWithBorder">${preview}</h3>
 		<div id="StylePreview">
 			<img id="ajaxUploading2" alt="" src="/platform-branding/skin/images/ajax-loader.gif"	style="display:none" >
 		</div>
 	</div>
-	
+
 	<div class="uiAction boxContent">
 		<button id="save" class="btn btn-primate" type="button" value="${save}">${save}</button>
 		<button id="cancel" class="btn" type="button" value="${cancel}"/>${cancel}</button>
