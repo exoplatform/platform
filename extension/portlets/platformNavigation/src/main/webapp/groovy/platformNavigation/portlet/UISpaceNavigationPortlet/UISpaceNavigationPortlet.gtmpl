@@ -24,6 +24,7 @@
   import org.exoplatform.social.core.service.LinkProvider;
   import java.util.Collection;
   import org.exoplatform.web.application.JavascriptManager;
+  import org.apache.commons.lang.StringEscapeUtils;
 
     def findSpacesLink = NavigationURLUtils.getURLInCurrentPortal("all-spaces");
     uicomponent.refresh();
@@ -39,7 +40,7 @@
   String selectSpaceActionDyna = "";
   def rcontext = _ctx.getRequestContext() ;
   def jsManager = rcontext.getJavascriptManager();
-  jsManager.require("SHARED/navigation-spaces-search", "spacesearch").addScripts("spacesearch.init('" + uicomponent.id + "','" + restUrl + "','" + defaultValueForTextSearch +"','" + noSpace + "','" + selectSpaceActionDyna + "');");
+  jsManager.require("SHARED/navigation-spaces-search", "spacesearch").addScripts("spacesearch.init('" + uicomponent.id + "','" + restUrl + "','" + StringEscapeUtils.escapeJavaScript(defaultValueForTextSearch) +"','" + StringEscapeUtils.escapeJavaScript(noSpace) + "','" + selectSpaceActionDyna + "');");
 %>
 
 <div class="uiSpaceNavigationPortlet" id="$uicomponent.id">
