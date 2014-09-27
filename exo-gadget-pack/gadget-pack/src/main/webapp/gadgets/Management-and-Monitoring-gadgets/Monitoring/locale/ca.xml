@@ -32,7 +32,7 @@
   <msg name="hit_ratio">Hit ratio</msg>
   <msg name="details">Detalls</msg>
   <msg name="hit">Hit</msg>
-  <msg name="miss">oblidar</msg>
+  <msg name="miss">Oblidar</msg>
   <msg name="full">ple</msg>
   <msg name="max_size">Mida màxima</msg>
   <msg name="time_to_live">Temps de vida</msg>
