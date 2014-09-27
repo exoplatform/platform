@@ -6,12 +6,12 @@
          <profile>Profilo</profile>
          <connections>Connessioni</connections>
          <wiki>Wiki</wiki>
-         <Myactivities>Il Mio Flusso di Attività</Myactivities>
+         <Myactivities>Le mie attività</Myactivities>
          <Myprofile>Mio Profilo</Myprofile>
          <Myconnections>Mie Connessioni</Myconnections>
          <Mywiki>Mio Wiki</Mywiki>
          <Mydashboard>Mio Dashboard</Mydashboard>
-         <NotificationSettingsPortlet>Notifications</NotificationSettingsPortlet>
+         <NotificationSettingsPortlet>My Notifications</NotificationSettingsPortlet>
       </label>
    </UIUserNavigationPortlet>
 </bundle>
