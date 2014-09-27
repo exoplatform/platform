@@ -2,8 +2,8 @@
 <bundle>
 <UIUserPlatformToolBarPortlet>
 <label>
-<NotificationSettingsPortlet>Thông báo</NotificationSettingsPortlet>
-<activities>Chuỗi Hoạt động</activities>
+<NotificationSettingsPortlet>My Notifications</NotificationSettingsPortlet>
+<activities>Hoạt động cá nhân</activities>
 <profile>Hồ sơ</profile>
 <network>Danh sách bạn bè</network>
 <wiki>Wiki</wiki>
