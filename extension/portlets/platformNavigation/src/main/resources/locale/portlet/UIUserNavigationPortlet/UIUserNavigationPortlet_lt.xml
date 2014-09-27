@@ -6,12 +6,12 @@
          <profile>Profilis</profile>
          <connections>Jungtys</connections>
          <wiki>Wiki</wiki>
-         <Myactivities>Mano veiklos srautas</Myactivities>
+         <Myactivities>Mano veiklos</Myactivities>
          <Myprofile>Mano profilis</Myprofile>
          <Myconnections>Mano jungtys</Myconnections>
          <Mywiki>Mano Wiki</Mywiki>
          <Mydashboard>Mano prietaisų skydas</Mydashboard>
-         <NotificationSettingsPortlet>Notifications</NotificationSettingsPortlet>
+         <NotificationSettingsPortlet>My Notifications</NotificationSettingsPortlet>
       </label>
    </UIUserNavigationPortlet>
 </bundle>
