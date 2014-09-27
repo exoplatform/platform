@@ -97,7 +97,7 @@
 	  function shareKeyPress(e) {
 		// look for window.event in case event isn't passed in
 		if (window.event) { e = window.event; }
-		if (e.keyCode == 13) {
+		if (e.keyCode == 13 && !e.shiftKey) {
 			//For enter.
 			try {
 				<%= uicomponent.event("PostMessage");%>;
