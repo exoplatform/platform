@@ -2,8 +2,8 @@
 <bundle>
 <UIUserPlatformToolBarPortlet>
 <label>
-<NotificationSettingsPortlet>通知</NotificationSettingsPortlet>
-<activities>我的活動趨勢</activities>
+<NotificationSettingsPortlet>我的通知</NotificationSettingsPortlet>
+<activities>我的活動</activities>
 <profile>我的設定檔</profile>
 <network>我的聯繫</network>
 <wiki>我的 Wiki</wiki>
