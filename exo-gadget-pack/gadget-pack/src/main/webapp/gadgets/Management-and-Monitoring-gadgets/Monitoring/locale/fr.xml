@@ -25,8 +25,8 @@
   <msg name="free">Libre</msg>
   <msg name="total">Total</msg>
   <msg name="heap">Mémoire Heap</msg>
-  <msg name="non-heap">Mémoire Non-heap</msg>  <msg name="loading">Chargement des données ...</msg>
-
+  <msg name="non-heap">Mémoire Non-heap</msg>
+  <msg name="loading">Chargement des données ...</msg>
   <msg name="title_caches">Caches</msg>
   <msg name="consumption">Consommation</msg>
   <msg name="hit_ratio">Ratio de hit</msg>
