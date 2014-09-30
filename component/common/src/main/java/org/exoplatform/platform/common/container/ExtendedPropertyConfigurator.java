@@ -23,12 +23,15 @@ import org.exoplatform.container.PropertyConfigurator;
 import org.exoplatform.container.configuration.ConfigurationManager;
 import org.exoplatform.container.util.ContainerUtil;
 import org.exoplatform.container.xml.InitParams;
+import org.exoplatform.container.xml.PropertiesParam;
+import org.exoplatform.container.xml.Property;
 import org.exoplatform.container.xml.ValuesParam;
 import org.exoplatform.services.log.ExoLogger;
 import org.exoplatform.services.log.Log;
 
 import java.io.FileNotFoundException;
 import java.net.URL;
+import java.util.Iterator;
 import java.util.Map;
 import org.picocontainer.Startable;
 
@@ -44,8 +47,16 @@ import org.picocontainer.Startable;
  *   <type>org.exoplatform.platform.common.container.ExtendedPropertyConfigurator</type>
  *   <init-params>
  *     <properties-param>
- *      <name>properties</name>
+ *      <name>MyPropertySet1</name>
  *      <property name="myproperty" value="myvalue" />
+ *     </properties-param>
+ *     <properties-param profile="myProfile">
+ *      <name>MyPropertySet1</name>
+ *      <property name="myproperty" value="myvalue2" />
+ *     </properties-param>
+ *     <properties-param>
+ *      <name>MyPropertySet1</name>
+ *      <property name="myproperty2" value="myothervalue" />
  *     </properties-param>
  *     <values-param>
  *       <name>properties.urls</name>
@@ -57,11 +68,12 @@ import org.picocontainer.Startable;
  * }
  * </pre>
  * <p/>
- * Note that <i>properties</i> and <i>properties.url</i> optional and can be omitted.
+ * Note that <i>properties-param</i> entries and <i>properties.url</i> optional and can be omitted.
  * Note that if a path in <i>properties.url</i> doesn't exist it will be skipped with an info message
  *
  * @author pnedonosko
  * @author aheritier
+ * @author nfilotto
  */
 public class ExtendedPropertyConfigurator extends PropertyConfigurator implements Startable {
 
@@ -78,7 +90,7 @@ public class ExtendedPropertyConfigurator extends PropertyConfigurator implement
    */
   public ExtendedPropertyConfigurator(InitParams params,
                                       ConfigurationManager confManager) {
-    super(params, confManager);
+    super(loadPropertiesParams(params), confManager);
     ValuesParam exts = params.getValuesParam("properties.urls");
     if (exts != null) {
       for (Object val : exts.getValues()) {
@@ -108,6 +120,32 @@ public class ExtendedPropertyConfigurator extends PropertyConfigurator implement
         }
       }
     }
+  }
+
+  /**
+   * Register all properties defined as <i>properties-param</i> in the {@link org.exoplatform.commons.utils.PropertyManager}.
+   * <i>properties</i> entry isn't processed here but done by the parent {@link org.exoplatform.container.PropertyConfigurator}.
+   * @param params The list of InitParams to register
+   * @return The <i>params</i> list passed in parameter
+   */
+  private static InitParams loadPropertiesParams(InitParams params) {
+    if (params != null) {
+      Iterator<PropertiesParam> it = params.getPropertiesParamIterator();
+      while (it.hasNext()) {
+        PropertiesParam propertiesParam = it.next();
+        LOG.debug("Going to initialize properties from init param");
+        for (Iterator<Property> i = propertiesParam.getPropertyIterator(); i.hasNext(); ) {
+          Property property = i.next();
+          String name = property.getName();
+          String value = property.getValue();
+          LOG.debug("Adding property from init param " + name + " = " + value);
+          PropertyManager.setProperty(name, value);
+        }
+        if ("properties".equals(propertiesParam.getName()))
+          it.remove();
+      }
+    }
+    return params;
   }
 
   /**

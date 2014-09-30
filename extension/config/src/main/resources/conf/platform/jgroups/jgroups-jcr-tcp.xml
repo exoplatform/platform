@@ -21,6 +21,7 @@
 <config>
   <TCP
       singleton_name="${exo.jcr.cluster.jgroups.tcp.singleton_name:exo-transport-tcp}"
+      bind_addr="${exo.jcr.cluster.jgroups.tcp.bind_addr:127.0.0.1}"
       start_port="${exo.jcr.cluster.jgroups.tcp.start_port:7800}"
       loopback="${exo.jcr.cluster.jgroups.tcp.loopback:true}"
       recv_buf_size="${exo.jcr.cluster.jgroups.tcp.recv_buf_size:20000000}"
@@ -51,7 +52,7 @@
   <TCPPING
       timeout="${exo.jcr.cluster.jgroups.tcpping.timeout:3000}"
       initial_hosts="${exo.jcr.cluster.jgroups.tcpping.initial_hosts:localhost[7800]}"
-      port_range="${exo.jcr.cluster.jgroups.tcpping.port_range:1}"
+      port_range="${exo.jcr.cluster.jgroups.tcpping.port_range:0}"
       num_initial_members="${exo.jcr.cluster.jgroups.tcpping.num_initial_members:1}" />
   <MERGE2
       max_interval="${exo.jcr.cluster.jgroups.merge2.max_interval:100000}"

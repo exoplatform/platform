@@ -52,15 +52,13 @@
       oob_thread_pool.queue_max_size="${exo.idm.cluster.jgroups.tcp.oob_thread_pool.queue_max_size:100}"
       oob_thread_pool.rejection_policy="${exo.idm.cluster.jgroups.tcp.oob_thread_pool.rejection_policy:Discard}"
       />
-  <!-- Ergonomics, new in JGroups 2.11, are disabled by default in TCPPING until JGRP-1253 is resolved -->
-  <!--
-  <TCPPING timeout="${exo.idm.cluster.jgroups.tcpping.timeout:3000"
-           initial_hosts="${exo.idm.cluster.jgroups.tcpping.initial_hosts:localhost[7800],localhost[7801]}"
-           port_range="${exo.idm.cluster.jgroups.tcpping.port_range:5}"
-           num_initial_members="${exo.idm.cluster.jgroups.tcpping.num_initial_members:3}"
+  <TCPPING timeout="${exo.idm.cluster.jgroups.tcpping.timeout:3000}"
+           initial_hosts="${exo.idm.cluster.jgroups.tcpping.initial_hosts:localhost[7900]}"
+           port_range="${exo.idm.cluster.jgroups.tcpping.port_range:0}"
+           num_initial_members="${exo.idm.cluster.jgroups.tcpping.num_initial_members:1}"
            ergonomics="${exo.idm.cluster.jgroups.tcpping.ergonomics:false}"
        />
-  -->
+  <!--
   <MPING
       bind_addr="${exo.idm.cluster.jgroups.mping.bind_addr:127.0.0.1}"
       break_on_coord_rsp="${exo.idm.cluster.jgroups.mping.break_on_coord_rsp:true}"
@@ -68,6 +66,7 @@
       mcast_port="${exo.idm.cluster.jgroups.mping.mcast_port:43366}"
       ip_ttl="${exo.idm.cluster.jgroups.mping.ip_ttl:2}"
       num_initial_members="${exo.idm.cluster.jgroups.mping.num_initial_members:3}" />
+  -->
   <MERGE2
       max_interval="${exo.idm.cluster.jgroups.merge2.max_interval:30000}"
       min_interval="${exo.idm.cluster.jgroups.merge2.min_interval:10000}" />

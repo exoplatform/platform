@@ -23,9 +23,10 @@
         xsi:schemaLocation="urn:org:jgroups http://www.jgroups.org/schema/JGroups-3.2.xsd">
   <UDP
       singleton_name="${exo.idm.cluster.jgroups.udp.singleton_name:idm-transport-udp}"
-      bind_port="${exo.idm.cluster.jgroups.udp.bind_port:56300}"
-      mcast_addr="${exo.idm.cluster.jgroups.udp.mcast_addr:230.0.0.4}"
-      mcast_port="${exo.idm.cluster.jgroups.udp.mcast_port:46700}"
+      bind_addr="${exo.idm.cluster.jgroups.udp.bind_addr:127.0.0.1}"
+      bind_port="${exo.idm.cluster.jgroups.udp.bind_port:26600}"
+      mcast_addr="${exo.idm.cluster.jgroups.udp.mcast_addr:228.10.10.10}"
+      mcast_port="${exo.idm.cluster.jgroups.udp.mcast_port:27600}"
       tos="${exo.idm.cluster.jgroups.udp.tos:8}"
       ucast_recv_buf_size="${exo.idm.cluster.jgroups.udp.ucast_recv_buf_size:20m}"
       ucast_send_buf_size="${exo.idm.cluster.jgroups.udp.ucast_send_buf_size:640k}"
@@ -58,7 +59,7 @@
       />
   <PING
       timeout="${exo.idm.cluster.jgroups.ping.timeout:2000}"
-      num_initial_members="${exo.idm.cluster.jgroups.ping.num_initial_members:3}" />
+      num_initial_members="${exo.idm.cluster.jgroups.ping.num_initial_members:1}" />
   <MERGE2
       max_interval="${exo.idm.cluster.jgroups.merge2.max_interval:100000}"
       min_interval="${exo.idm.cluster.jgroups.merge2.min_interval:20000}" />

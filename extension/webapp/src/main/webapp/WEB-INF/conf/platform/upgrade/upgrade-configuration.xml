@@ -304,6 +304,7 @@
 	        </value-param>
 	      </init-params>
       </component-plugin>
+
       <component-plugin>
         <name>PCVPortletUpgradePlugin</name>
         <set-method>addUpgradePlugin</set-method>
