@@ -2,8 +2,8 @@
 <bundle>
 <UIUserPlatformToolBarPortlet>
 <label>
-<NotificationSettingsPortlet>Notifications</NotificationSettingsPortlet>
-<activities>تيار النشاط الخاص بي</activities>
+<NotificationSettingsPortlet>My Notifications</NotificationSettingsPortlet>
+<activities>آخر أخباري</activities>
 <profile>ملفي الشخصي</profile>
 <network>علاقاتي</network>
 <wiki>ويكي خاصة</wiki>

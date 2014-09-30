@@ -1,28 +1,27 @@
-@import "variables.less"; 
+@import "variables.less";
 @import "mixins.less";
-
-
+// -------------------------
 .uiInvitations{
 
 	ul li{
 	    margin-top: 15px;
 	    margin-bottom: 15px;
-		position: relative;		
+		position: relative;
 		&.peopleList + .spaceList {
 			padding-top: 15px;
 			border-top: 1px solid @borderColor;
 		}
 	}
-	
+
 
     .peopleInvitePosition, .spacevisibility,.name, .spaceInviteName {
        .text-overflow;
 		color: @grayLight;
 		width: 95%;
     }
-    
+
     .name, .spaceInviteName {
-		font-weight: bold;		
+		font-weight: bold;
 		color: @linkColor;
 	}
 
@@ -48,12 +47,12 @@
     .actionInviteAppears, .actionSpaceAppears {
        width: auto;
     }
-	
+
 	.peopleInviteInfo, .spaceInviteInfo {
 	    margin-left: 65px;
     	position: relative;
 	}
-	
+
 	.spacePrivacy {
 	    .text-overflow;
 	    color: @grayLight;

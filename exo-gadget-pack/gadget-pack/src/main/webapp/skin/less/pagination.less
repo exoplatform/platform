@@ -1,12 +1,15 @@
+@import "variables.less";
+@import "mixins.less";
+// ---------------------------
 .pagination {
-            font-size: 80%;
-            margin-left:15px
-        }
-        
+    font-size: 80%;
+    margin-left:15px
+}
+
 .pagination a {
     text-decoration: none;
-  border: solid 1px #000;
-  color: #000;
+    border: solid 1px @black;
+    color: @black;
 }
 
 .pagination a, .pagination span {
@@ -18,13 +21,13 @@
 }
 
 .pagination .current {
-    background: #226AB4;
-    color: #FFF;
-    border: solid 1px #226AB4;
+    background: @linkColor;
+    color: @white;
+    border: solid 1px @linkColor;
 }
 
 .pagination .current.prev, .pagination .current.next{
-  color:#999;
-  border-color:#999;
-  background:#fff;
+  color: @textLightColor;
+  border-color: @grayLight;
+  background: @white;
 }

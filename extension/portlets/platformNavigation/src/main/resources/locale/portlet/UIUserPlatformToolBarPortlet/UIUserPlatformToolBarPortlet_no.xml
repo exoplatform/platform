@@ -2,8 +2,8 @@
 <bundle>
 <UIUserPlatformToolBarPortlet>
 <label>
-<NotificationSettingsPortlet>Notifications</NotificationSettingsPortlet>
-<activities>Min aktivitetsstrøm</activities>
+<NotificationSettingsPortlet>My Notifications</NotificationSettingsPortlet>
+<activities>Mine aktiviteter</activities>
 <profile>Min profil</profile>
 <network>Mitt nettverk</network>
 <wiki>Min Wiki</wiki>

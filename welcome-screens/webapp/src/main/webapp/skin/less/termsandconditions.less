@@ -1,6 +1,6 @@
 @import "variables.less";
 @import "mixins.less";
-
+// ----------------------------------
 body {
     background: url("/platform-extension/skin/images/login_texture.jpg") repeat;
     font-family: @baseFontFamily;
@@ -74,8 +74,8 @@ a {
 		text-align: center;
 		 padding: 25px 30px;
 	}
-	.btn{	   		
-		.border-radius(4px);   
+	.btn{
+		.border-radius(4px);
 		cursor: pointer;
 		display: inline-block;
 		font-weight: bold;
@@ -87,15 +87,15 @@ a {
 		width: 100px;
 		text-decoration: none;
 		color: @white;
-		 border: 1px solid #224886;
+		border: 1px solid @linkColor;
 		font-family: HelveticaNeue, Arial, sans-serif;
-		.buttonBackground(@btnPrimaryBackground, @btnPrimaryBackgroundHighlight);		
+		.buttonBackground(@btnPrimaryBackground, @btnPrimaryBackgroundHighlight);
 		.box-shadow(~'0 1px 0 rgba(255, 255, 255, 0.2) inset, 0 1px 2px rgba(0, 0, 0, 0.05)');
 		&:hover {
-			.buttonBackground(@blueLight, @btnPrimaryBackgroundHighlight);
-		}	
+			.buttonBackground(@primaryLightColor, @btnPrimaryBackgroundHighlight);
+		}
 	}
-	
+
 	button.inactive {
 		.opacity(50);
 		cursor: default;
@@ -107,7 +107,7 @@ a {
 		line-height: 20px;
 		input[type="checkbox"]:checked,
 		input[type="checkbox"]:not(:checked) {
-			margin: 4px 0 0; 
+			margin: 4px 0 0;
 			opacity: 0;
 			padding: 0;
 			outline: 0 none;
@@ -130,8 +130,8 @@ a {
 
 
 .uiWelcomeBox .uiCheckbox input[type="checkbox"]:checked + span:after {
-    border-bottom: 2px solid #466799;
-    border-left: 2px solid #466799;
+    border-bottom: 2px solid @primaryColor;
+    border-left: 2px solid @primaryColor;
     content: "";
     .size(3px,6px);
     -webkit-transform: skew(45deg, -49deg);
@@ -150,7 +150,7 @@ a {
 }
 
 .uiWelcomeBox .uiCheckbox input[type="checkbox"] + span:before {
-    background: #d2d2d2;
+    background: @componentBackgroundHover;
     .border-radius(3px);
     .box-shadow(~'0 1px 2px rgba(0, 0, 0, 0.17) inset');
     .square(12px);

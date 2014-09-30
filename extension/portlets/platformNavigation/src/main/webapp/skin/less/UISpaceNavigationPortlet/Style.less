@@ -1,21 +1,12 @@
-@import "../variables.less"; 
+@import "../variables.less";
 @import "../mixins.less";
-
-/**************** variables *********************/
-
-
-/**************** mixin *************************/
-
-
-/*************** less *******************/
-
-
+// -------------------------
 .uiSpaceNavigationPortlet {
 	padding-bottom: 20px;
 	.title {
 		text-transform: uppercase;
 		color: @linkColor;
-		#gradient > .vertical(@grayLighter, @grayMediumWhiteSmoke);
+		#gradient > .vertical(@componentBackgroundLight, @componentBackgroundHover);
 		height: 40px; line-height: 41px;
 		padding: 0 15px;
 		margin: 0;
@@ -26,7 +17,7 @@
 	}
 
 	.searchInput input {
-		border: 1px solid #CDCDCD;
+		border: 1px solid @borderColor;
     	.border-radius(4px);
     	 .box-shadow(~"inset 0 1px 1px rgba(0, 0, 0, 0.1)");
 	    height: 28px;
@@ -37,10 +28,10 @@
 	     color: @grayLight;
     	&.Focus {
 		   color: @grayDark;
-		}	
-	}	
-	
-			
+		}
+	}
+
+
 	.spaceNavigation {
 		list-style: none;
         margin: 0;
@@ -84,8 +75,8 @@
             border-bottom: 1px solid @borderColor;
             .box-shadow(0 0px 3px rgba(0, 0, 0, 0.11));
 			&:after {
-				background: @blueLight;
-				    border: 1px solid @blueDark;
+				background: @primaryLightColor;
+				    border: 1px solid @primaryDarkColor;
 				    border-left: 0;
 				    .box-shadow(~"inset -1px 0px 2px rgba(255, 255, 255, 0.14)");
 				    content: "";
@@ -106,7 +97,7 @@
     	text-align: center;
     	 margin: 0 0 10px 0;
 		> a {
-			#gradient > .vertical(@white, @grayWhiteSmoke);
+			#gradient > .vertical(@white, @componentBackground);
 			height: 24px;
 			line-height: 24px;
 			border: 1px solid @borderColor;
@@ -117,7 +108,7 @@
 			.border-radius(3px);
 			font-size: 12px;
 			&:hover {
-				background-color: @grayMediumWhiteSmoke;
+				background-color: @componentBackgroundHover;
 			}
 		}
 	}

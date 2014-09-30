@@ -6,12 +6,12 @@
          <profile>Profil</profile>
          <connections>Kopplingar</connections>
          <wiki>Wiki</wiki>
-         <Myactivities>Min aktivitets ström</Myactivities>
+         <Myactivities>Min Aktiviteter</Myactivities>
          <Myprofile>Min profil</Myprofile>
          <Myconnections>Mina anslutningar</Myconnections>
          <Mywiki>Min Wiki</Mywiki>
          <Mydashboard>Min instrumentpanel</Mydashboard>
-         <NotificationSettingsPortlet>Notifications</NotificationSettingsPortlet>
+         <NotificationSettingsPortlet>My Notifications</NotificationSettingsPortlet>
       </label>
    </UIUserNavigationPortlet>
 </bundle>

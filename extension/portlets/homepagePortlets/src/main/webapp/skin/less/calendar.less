@@ -1,36 +1,35 @@
-@import "variables.less"; 
-@import "mixins.less";
-
-
 /**
-         * Copyright ( C ) 2012 eXo Platform SAS.
-         *
-         * This is free software; you can redistribute it and/or modify it
-         * under the terms of the GNU Lesser General Public License as
-         * published by the Free Software Foundation; either version 2.1 of
-         * the License, or (at your option) any later version.
-         *
-         * This software is distributed in the hope that it will be useful,
-         * but WITHOUT ANY WARRANTY; without even the implied warranty of
-         * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
-         * Lesser General Public License for more details.
-         *
-         * You should have received a copy of the GNU Lesser General Public
-         * License along with this software; if not, write to the Free
-         * Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
-         * 02110-1301 USA, or see the FSF site: http://www.fsf.org.
-         */
+ * Copyright ( C ) 2012 eXo Platform SAS.
+ *
+ * This is free software; you can redistribute it and/or modify it
+ * under the terms of the GNU Lesser General Public License as
+ * published by the Free Software Foundation; either version 2.1 of
+ * the License, or (at your option) any later version.
+ *
+ * This software is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this software; if not, write to the Free
+ * Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
+ * 02110-1301 USA, or see the FSF site: http://www.fsf.org.
+ */
 
+@import "variables.less";
+@import "mixins.less";
+// -------------------------
 .calendarPortlet  {
 	.calendarPortletData {
 		a {
-		
+
 			color: @textColor;
 		}
 		.currentDateContainer {
 			overflow: hidden;//hack ie8 click on arrow icon
 		}
-		.uiContentBox { 
+		.uiContentBox {
 			padding: 15px;
 		}
 		.title  .actionIcon {
@@ -39,12 +38,12 @@
 			margin: 0;
 		}
 		.taskTitle {
-			background-color: @grayLighter;
+			background-color: @componentBackgroundLight;
 		}
 		.eventsList {
 			li {
-				.border-radius(@borderRadiusSmall + 1);				
-				border: 1px solid transparent;				
+				.border-radius(@borderRadiusSmall + 1);
+				border: 1px solid transparent;
 				margin: 0 0 10px 0;
 				> div {
 					padding: 0 4px 0 0;
@@ -52,23 +51,23 @@
 				}
 				.itemColor {
 					.border-radius(@borderRadiusSmall 0 0 @borderRadiusSmall);
-					background-color: @grayWhiteSmoke;
-					padding: 4px 4px 4px 8px;					
-					
+					background-color: @componentBackground;
+					padding: 4px 4px 4px 8px;
+
 				}
-				
-				&.pastEvent {					
+
+				&.pastEvent {
 					.opacity(45);
 					.itemColor {
-						background-color: @grayMediumWhiteSmoke;
+						background-color: @componentBackgroundHover;
 							a,.time span {color: @grayLight;}
-					}		
-					
+					}
+
 				}
 				&:hover {
 					border: 1px solid @borderColor;
 				}
-				
+
 				&:last-child {
 					margin-bottom: 0;
 				}
@@ -84,9 +83,9 @@
 				 text-align: right;
 				font-size: @baseFontSize - 1;
 			}
-			
+
 		}
-		
+
 		.tasksList {
 			li {
 				padding: 0 0 0 20px;
@@ -110,13 +109,13 @@
 			.taskLateNotCompleted {
 				background-position: 0 -91px;
 			}
-			
+
 		}
 		.settingsContainerPage {
 			margin:0px 10px 10px 10px ;
 		}
 	}
-	
+
 }
 
 .calendarName {
@@ -228,7 +227,7 @@
 /*setting calendar */
 .settingsCalContainer {
 	.DisplayedCalendarContainer {
-		.calendarName { 
+		.calendarName {
 			padding: 0 4px;
 			margin: 0 5px 4px 0;
 			span {
@@ -239,7 +238,7 @@
 				.text-overflow;
 			}
 		}
-		.uiIconDel { 
+		.uiIconDel {
 			.square(14px);
 			background: url(/homepage-portlets/skin/images/calendar/del.png) no-repeat 2px center;
 			cursor:pointer;
@@ -247,7 +246,7 @@
 			 background-position: -13px center;
 			}
 		}
-	}	
+	}
 	.uiBox  .uiContentBox {
 		padding: 15px;
 	}
@@ -266,7 +265,7 @@
 
 	.calendarItems {
 		margin: 0 -15px;
-		.calendarItem {	
+		.calendarItem {
 			padding: 0px 15px;
 			height: 24px;
 			line-height: 24px;
@@ -277,18 +276,18 @@
 				display: none;
 			}
 			&:hover {
-				background: @grayMediumWhiteSmoke;
+				background: @componentBackgroundHover;
 				& .addButton {
 					display: block;
 				}
-				 
+
 			}
-			.uiIconAdd{	
+			.uiIconAdd{
 				.square(14px);
-				background: url(/homepage-portlets/skin/images/calendar/add.png) no-repeat 2px 2px; 
+				background: url(/homepage-portlets/skin/images/calendar/add.png) no-repeat 2px 2px;
 			}
 			.calName {
-				height: 20px; 
+				height: 20px;
 				.text-overflow;
 				display: block;
 			}

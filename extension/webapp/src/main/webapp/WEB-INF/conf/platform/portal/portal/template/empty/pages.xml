@@ -96,19 +96,39 @@
 		<edit-permission>*:/platform/administrators</edit-permission>
 		<portlet-application>
 			<portlet>
-				<application-ref>presentation</application-ref>
-				<portlet-ref>ParameterizedContentViewerPortlet</portlet-ref>
+        <application-ref>presentation</application-ref>
+        <portlet-ref>SingleContentViewer</portlet-ref>
 				<preferences>
-					<preference>
-						<name>showTitle</name>
-						<value>true</value>
-						<read-only>false</read-only>
-					</preference>
-					<preference>
-						<name>showDateCreated</name>
-						<value>true</value>
-						<read-only>false</read-only>
-					</preference>
+          <preference>
+            <name>ShowPrintAction</name>
+            <value>true</value>
+            <read-only>false</read-only>
+          </preference>
+          <preference>
+            <name>ShowTitle</name>
+            <value>true</value>
+            <read-only>false</read-only>
+          </preference>
+          <preference>
+            <name>ShowDate</name>
+            <value>true</value>
+            <read-only>false</read-only>
+          </preference>
+          <preference>
+            <name>ShowOptionBar</name>
+            <value>true</value>
+            <read-only>false</read-only>
+          </preference>
+          <preference>
+            <name>ContextEnable</name>
+            <value>true</value>
+            <read-only>false</read-only>
+          </preference>
+          <preference>
+            <name>ParameterName</name>
+            <value>content-id</value>
+            <read-only>false</read-only>
+          </preference>
 				</preferences>
 			</portlet>
 			<title>Detail</title>
@@ -125,22 +145,22 @@
 		<edit-permission>*:/platform/administrators</edit-permission>
 		<show-max-window>true</show-max-window>
 		<portlet-application>
-			<portlet>
-				<application-ref>presentation</application-ref>
-				<portlet-ref>ParameterizedContentViewerPortlet</portlet-ref>
-				<preferences>
-					<preference>
-						<name>showTitle</name>
-						<value>true</value>
-						<read-only>false</read-only>
-					</preference>
-					<preference>
-						<name>showDateCreated</name>
-						<value>true</value>
-						<read-only>false</read-only>
-					</preference>
-				</preferences>
-			</portlet>
+      <portlet>
+        <application-ref>presentation</application-ref>
+        <portlet-ref>SingleContentViewer</portlet-ref>
+        <preferences>
+          <preference>
+            <name>ContextEnable</name>
+            <value>true</value>
+            <read-only>false</read-only>
+          </preference>
+          <preference>
+            <name>ParameterName</name>
+            <value>content-id</value>
+            <read-only>false</read-only>
+          </preference> 
+        </preferences>
+      </portlet>
 			<title>Print viewer</title>
 			<access-permissions>Everyone</access-permissions>
 			<show-info-bar>false</show-info-bar>

@@ -1,4 +1,4 @@
-@import "../variables.less"; 
+@import "../variables.less";
 @import "../mixins.less";
 
 /**************** variables *********************/
@@ -12,26 +12,26 @@
 
 	.title {
 		text-transform: uppercase;
-		color: @blue;
-		#gradient > .vertical(@grayLighter, @grayMediumWhiteSmoke);
+		color: @primaryColor;
+		#gradient > .vertical(@componentBackgroundLight, @componentBackgroundHover);
 		height: 40px; line-height: 41px;
 		padding: 0 15px;
 		margin: 0;
-		 .box-shadow(~"inset 0 1px 0 @white,0 1px 0 @white");
-		 border-bottom: 1px solid @borderColor;
-    border-top: 1px solid @borderColor;
-			text-shadow: 0 1px 1px @white;
+		.box-shadow(~"inset 0 1px 0 @white,0 1px 0 @white");
+		border-bottom: 1px solid @borderColor;
+    	border-top: 1px solid @borderColor;
+		text-shadow: 0 1px 1px @white;
 		text-overflow: ellipsis;
 		overflow: hidden;
-		white-space: nowrap;		
+		white-space: nowrap;
 	}
-	
+
 	.groupNavigation {
 		list-style: none;
 		margin: 0;
 		padding: 5px 0 15px 0;
-		
-		.groupItem  {			
+
+		.groupItem  {
 			> div {
 				padding: 8px 10px 0;
 				display: block;
@@ -48,7 +48,7 @@
 					 background-position: 2px -118px;
 					cursor: pointer;
 				}
-				
+
 			}
 			 .groupItem { // child item
 			 	.groupIcon  {
@@ -64,8 +64,8 @@
 				border-bottom: 1px solid @borderColor;
 				.box-shadow(0 0px 3px rgba(0, 0, 0, 0.11));
 				&:after {
-					background: @blueLight;
-				    border: 1px solid @blueDark;
+					background: @primaryLightColor;
+				    border: 1px solid @primaryDarkColor;
 				    border-left: 0;
 				    .box-shadow(~"inset -1px 0px 2px rgba(255, 255, 255, 0.14)");
 				    content: "";
@@ -78,11 +78,11 @@
 				> a {
 					font-weight: bold;
 					.user-select(none);
-				}					
+				}
 			}
-		
-		}				
-		
+
+		}
+
 		.groupIcon {
 			.user-select(none);
 			color: @gray;
@@ -90,6 +90,6 @@
 				color: @linkColorHover;
 			}
 		}
-       
+
 	}
 }

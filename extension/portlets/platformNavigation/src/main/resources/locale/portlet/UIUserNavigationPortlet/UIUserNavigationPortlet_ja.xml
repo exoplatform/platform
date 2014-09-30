@@ -6,12 +6,12 @@
          <profile>プロフィール</profile>
          <connections>つながり</connections>
          <wiki>Wiki</wiki>
-         <Myactivities>マイ アクティビティ ストリーム</Myactivities>
+         <Myactivities>私のアクティビティ</Myactivities>
          <Myprofile>マイプロフィール</Myprofile>
          <Myconnections>つながり</Myconnections>
          <Mywiki>Wiki</Mywiki>
          <Mydashboard>マイダッシュ ボード</Mydashboard>
-         <NotificationSettingsPortlet>Notifications</NotificationSettingsPortlet>
+         <NotificationSettingsPortlet>My Notifications</NotificationSettingsPortlet>
       </label>
    </UIUserNavigationPortlet>
 </bundle>

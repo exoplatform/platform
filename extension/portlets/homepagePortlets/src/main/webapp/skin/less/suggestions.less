@@ -1,19 +1,18 @@
-@import "variables.less"; 
+@import "variables.less";
 @import "mixins.less";
-
+// -------------------------
 .uiSuggestions{
 	.peopleList{
 		ul li {
 		    margin-bottom: 15px;
 		    margin-top: 15px;
 		}
-		
-		
+
 		.peoplePosition,.peopleConnection ,.peopleName {
 		    .text-overflow;
 		    color: @grayLight;
 		    width: 95%;
-		} 
+		}
 		.peopleName {
 		    font-weight: bold;
 		}
@@ -31,46 +30,43 @@
 				display: block;
 			}
 		}
-		
+
 		.peopleInfo {
 		    margin-left: 65px;
 			position: relative;
 		}
-		
+
 		.peoplePicture {
 		    padding-top: 2px;
 			margin-left: 15px;
-		    
 		}
 
         .actionAppears {
             width: auto;
         }
-		
-		
+
+
 	}
-	
+
 	#emptyMessage {
 	    padding: 5px;
 	    font-weight: bold;
 	}
-	
-		
+
 	.spaceList{
 		border-top: solid 1px @borderColor;
-	
+
 		ul li {
 		    margin-bottom: 15px;
 		    margin-top: 15px;
 		}
-	
+
 		.spaceHeader {
 		    font-weight: bold;
 		    margin-bottom: 12px;
 		    padding-top: 5px;
 		}
-		
-		
+
 		.spaceAction {
 	     	white-space: nowrap;
 		    font-size: 10px;
@@ -83,31 +79,31 @@
 				display: block;
 			}
 		}
-		
+
 		.spaceInfo {
 			margin-left: 65px;
 			position: relative;
 		}
-		
+
 		.spacePicture {
 		    padding-top: 2px;
 			margin-left: 15px;
 		}
-		
+
 		.spacePrivacy,.spaceCommon,.spaceName {
 		    .text-overflow;
 		    color: @grayLight;
 		    width: 95%;
-		}	
+		}
 		.spaceName {
 		    font-weight: bold;
 		    color: @linkColor;
 		}
-			
+
         .actionspaceAppears {
             width: auto;
         }
 
     }
-	
+
 }

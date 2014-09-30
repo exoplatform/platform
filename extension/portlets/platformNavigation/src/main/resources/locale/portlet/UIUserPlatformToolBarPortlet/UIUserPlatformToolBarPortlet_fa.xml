@@ -2,8 +2,8 @@
 <bundle>
 <UIUserPlatformToolBarPortlet>
 <label>
-<NotificationSettingsPortlet>Notifications</NotificationSettingsPortlet>
-<activities>جریان فعالیت های من</activities>
+<NotificationSettingsPortlet>My Notifications</NotificationSettingsPortlet>
+<activities>فعالیت های من</activities>
 <profile>مشخصات من</profile>
 <network>ارتباطات من</network>
 <wiki>ویکی من</wiki>

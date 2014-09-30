@@ -1,3 +1,6 @@
+@import "variables.less";
+@import "mixins.less";
+// ----------------------------------
 .requests_container {
   display: none;
 }
@@ -43,13 +46,13 @@
   background-color: red;
   color: white;
 }
-       
+
 .customLink {
   text-decoration:underline;
-  color: #226ab4;
+  color: @linkColor;
   cursor:pointer;
 }
-		 
+
 .UIgadgetthemes .Gadcont span {
   font-weight: bold;
 }

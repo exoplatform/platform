@@ -15,7 +15,7 @@
          <topic>Tema</topic>
          <poll>Encuesta</poll>
          <CreateANew>Crear un nuevo {1}:</CreateANew>
-         <NoForum>Lo sentimos, no hay foro disponible aún para crear un {1}. Empezar por crear su propio espacio.</NoForum>
+         <NoForum>Lo sentimos, aún no hay ningún foro disponible para crear una {1}. Empiece creando su propio espacio.</NoForum>
          <RequireSelectForum>Por favor seleccione un foro.</RequireSelectForum>
       </label>
       <action>
@@ -65,7 +65,7 @@
             <Event>El evento ha sido añadido a {1}</Event>
             <Task>La tarea ha sido añadida a {1}</Task>
          </add-successfully>
-         <add-unsuccessfully>{0} no fue agregado.</add-unsuccessfully>
+         <add-unsuccessfully>{0} no fue añadido.</add-unsuccessfully>
       </msg>
       <action>
          <Next>#{word.save}</Next>

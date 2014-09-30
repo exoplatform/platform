@@ -1,13 +1,22 @@
+@import "variables.less";
+@import "mixins.less";
+// ---------------------------
 body {
   font-family: Verdana, Arial, Helvetica, sans-serif;
   font-size: 11px;
-  background: #FFF;
+  background: @white;
 
 }
 
 * {margin:0;padding:0;}
-a {color:#333; text-decoration:none}
-a:hover {color:#ccc; text-decoration:none}
+a {
+  color: @textColor;
+  text-decoration:none
+}
+a:hover {
+  color: @borderColor;
+  text-decoration:none;
+}
 
 h1 {
   font-family: Georgia, serif;
@@ -40,10 +49,10 @@ h2{
   left:0;
   top:0;
   z-index:9000;
-  background-color:#000;
+  background-color: @black;
   display:none;
 }
-  
+
  .Boxwindow {
   position:absolute;
   left:0;
@@ -60,14 +69,14 @@ h2{
 }
 
  #dialogHelp {
-  width:90%; 
+  width:90%;
   height:90%;
   padding:10px;
-  background-color:#ffffff;
+  background-color: @white;
 }
 
  #dialogColor {
-  width:326px; 
+  width:326px;
   height:229px;
   padding:50px 0 20px 25px;
 }
@@ -78,7 +87,7 @@ h2{
   top:5px;
   width:24px;
   height:24px;
-  text-align:center;  
+  text-align:center;
   background: url('/gadget-pack/skin/images/eXoScriptingConsole/closeIcon.png') no-repeat left center;
   text-indent:-9999999px;
   outline:none;
@@ -134,7 +143,7 @@ h2{
 
 .UIGadgetConsole .ToolBarMenu  li  .item {
   display:block;
-  padding: 0 0 0 20px;  
+  padding: 0 0 0 20px;
 }
 .UIGadgetConsole .ToolBarMenu  li  .ColorItem {
   background: url('/gadget-pack/skin/images/eXoScriptingConsole/colorIcon.png') no-repeat left center;

@@ -6,12 +6,12 @@
          <profile>مشخصات</profile>
          <connections>ارتباطات</connections>
          <wiki>ویکی</wiki>
-         <Myactivities>جریان فعالیت من</Myactivities>
+         <Myactivities>فعالیت های من</Myactivities>
          <Myprofile>مشخصات من</Myprofile>
          <Myconnections>ارتباطات من</Myconnections>
          <Mywiki>ویکی من</Mywiki>
          <Mydashboard>داشبورد من</Mydashboard>
-         <NotificationSettingsPortlet>Notifications</NotificationSettingsPortlet>
+         <NotificationSettingsPortlet>My Notifications</NotificationSettingsPortlet>
       </label>
    </UIUserNavigationPortlet>
 </bundle>
