@@ -64,9 +64,8 @@
 							%>		
 								<div>
 									<img src="$imgSrc" style="width:100px;" alt="Illustration"/>
-									<a onclick="$actionLink">
-										<img src="/eXoResources/skin/DefaultSkin/background/Blank.gif" class="ActionIcon Remove16x16Icon" alt="" />
-									</a>
+									<a  onclick="$actionLink"  data-placement="bottom" rel="tooltip" class="actionIcon"  data-original-title="<%=_ctx.appRes("Ecm.dialog.label.remove")%>"><i class="uiIconDelete uiIconLightGray"></i></a>									
+									
 								</div>
 							<%
 						} else {
