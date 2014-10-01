@@ -156,9 +156,8 @@
 											%>		
 												<div>
 													<img src="$imgSrc" rel="tooltip" data-placement="bottom" title="<%=_ctx.appRes("Ecm.dialog.label.remove")%>" alt="<%=_ctx.appRes("Ecm.dialog.label.remove")%>" width="100px" height="80px"/>
-													<a href="$actionLink">
-														<img rel="tooltip" data-placement="bottom" title="<%=_ctx.appRes("Ecm.dialog.label.remove")%>" alt="<%=_ctx.appRes("Ecm.dialog.label.remove")%>" src="/eXoResources/skin/DefaultSkin/background/Blank.gif" class="ActionIcon Remove16x16Icon"/>
-													</a>
+													<a  onclick="$actionLink"  data-placement="bottom" rel="tooltip" class="actionIcon"  data-original-title="<%=_ctx.appRes("Ecm.dialog.label.remove")%>"><i class="uiIconDelete uiIconLightGray"></i></a>
+																	
 												</div>
 											<%
 										} else {
