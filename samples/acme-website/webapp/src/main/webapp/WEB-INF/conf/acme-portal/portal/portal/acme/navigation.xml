@@ -29,7 +29,9 @@
     <node>
       <uri>overview</uri>
       <name>overview</name>
-      <label>#{portal.acme.overview}</label>
+      <label xml:lang="en">Home</label>
+      <label xml:lang="fr">Présentation</label>
+      <label xml:lang="it">Panoramica</label>
       <visibility>DISPLAYED</visibility>
       <page-reference>portal::acme::overview</page-reference>
     </node>
@@ -37,7 +39,9 @@
     <node>
       <uri>news</uri>
       <name>news</name>
-      <label>#{portal.acme.news}</label>
+      <label xml:lang="en">News</label>
+      <label xml:lang="fr">Actualités</label>
+      <label xml:lang="it">Notizie</label>
       <visibility>DISPLAYED</visibility>
       <page-reference>portal::acme::news</page-reference>
     </node>
@@ -45,7 +49,9 @@
     <node>
       <uri>products</uri>
       <name>products</name>
-      <label>#{portal.acme.products}</label>
+      <label xml:lang="en">Products</label>
+      <label xml:lang="fr">Produits</label>
+      <label xml:lang="it">Prodotti</label>
       <visibility>DISPLAYED</visibility>
       <page-reference>portal::acme::products</page-reference>
     </node>
@@ -53,12 +59,16 @@
     <node>
       <uri>contactus</uri>
       <name>contactus</name>
-      <label>#{portal.acme.contactus}</label>
+      <label xml:lang="en">Questions?</label>
+      <label xml:lang="fr">Questions?</label>
+      <label xml:lang="it">Domande?</label>
       <page-reference>portal::acme::contactus</page-reference>
       <node>
         <uri>contactus/confirmation</uri>
         <name>confirmation</name>
-        <label>#{portal.acme.confirmation}</label>
+      <label xml:lang="en">Contact Form Confirmation</label>
+      <label xml:lang="fr">Confirmation de contact</label>
+      <label xml:lang="it">Conferma Form Contatti</label>
         <visibility>HIDDEN</visibility>
         <page-reference>portal::acme::confirmation</page-reference>
       </node>
@@ -67,7 +77,9 @@
     <node>
       <uri>detail</uri>
       <name>detail</name>
-      <label>#{portal.acme.detail}</label>
+      <label xml:lang="en">Details</label>
+      <label xml:lang="fr">Détails</label>
+      <label xml:lang="it">Dettagli</label>
       <visibility>SYSTEM</visibility>
       <page-reference>portal::acme::detail</page-reference>
     </node>
@@ -75,7 +87,9 @@
 	<node>
       <uri>catalog</uri>
       <name>catalog</name>
-      <label>#{portal.acme.catalog}</label>
+      <label xml:lang="en">Catalog</label>
+      <label xml:lang="fr">Catalogue</label>
+      <label xml:lang="it">Catalogo</label>
       <visibility>SYSTEM</visibility>
       <page-reference>portal::acme::catalog</page-reference>
     </node>
@@ -83,7 +97,9 @@
     <node>
       <uri>printviewer</uri>
       <name>printviewer</name>
-      <label>#{portal.acme.printviewer}</label>
+      <label xml:lang="en">Print page</label>
+      <label xml:lang="fr">Page d'impression</label>
+      <label xml:lang="it">Pagina Stampa</label>
       <visibility>SYSTEM</visibility>
       <page-reference>portal::acme::printviewer</page-reference>
     </node>
@@ -91,7 +107,9 @@
     <node>
       <uri>searchResult</uri>
       <name>searchResult</name>
-      <label>#{portal.acme.searchResult}</label>
+      <label xml:lang="en">Search</label>
+      <label xml:lang="fr">Résultats de recherche</label>
+      <label xml:lang="it">Cerca</label>
       <visibility>HIDDEN</visibility>
       <page-reference>portal::acme::searchResult</page-reference>
     </node>
@@ -99,7 +117,9 @@
     <node>
       <uri>newAccount</uri>
       <name>newAccount</name>
-      <label>#{portal.acme.newAccount}</label>
+      <label xml:lang="en">New Account</label>
+      <label xml:lang="fr">Nouveau compte</label>
+      <label xml:lang="it">Nuovo Account</label>
       <visibility>HIDDEN</visibility>
       <page-reference>portal::acme::newAccount</page-reference>
     </node>
