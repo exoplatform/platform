@@ -82,25 +82,29 @@ public class PCVPortletUpgradePlugin extends UpgradeProductPlugin {
       while (iter.hasNext()) {
         try {
           Node node = iter.nextNode();
-          node.setProperty("mop:contentid", "presentation/SingleContentViewer");
-          Node mopState = node.getNode("mop:state");
-          if (!mopState.hasNode("ContextEnable")) {
-            Node contextEnable = mopState.addNode("ContextEnable", "mop:portletpreference");
-            contextEnable.setProperty("mop:readonly", false);
-            Value[] value = new Value[1];
-            value[0] = session.getValueFactory().createValue("true");
-            contextEnable.setProperty("mop:value", value);
-          }
-          if (!mopState.hasNode("mop:ParameterName")) {
-            Node contextEnable = mopState.addNode("mop:ParameterName", "mop:portletpreference");
-            contextEnable.setProperty("mop:readonly", false);
-            Value[] value = new Value[1];
-            value[0] = session.getValueFactory().createValue("content-id");
-            contextEnable.setProperty("mop:value", value);
-          }
-          node.save();
-          if (LOG.isInfoEnabled()) {
-            LOG.info("Migrate node: " + node.getPath());
+          if (node.hasProperty("mop:contentid")) {
+            node.setProperty("mop:contentid", "presentation/SingleContentViewer");
+            if (node.hasNode("mop:state")) {
+              Node mopState = node.getNode("mop:state");
+              if (!mopState.hasNode("ContextEnable")) {
+                Node contextEnable = mopState.addNode("ContextEnable", "mop:portletpreference");
+                contextEnable.setProperty("mop:readonly", false);
+                Value[] value = new Value[1];
+                value[0] = session.getValueFactory().createValue("true");
+                contextEnable.setProperty("mop:value", value);
+              }
+              if (!mopState.hasNode("mop:ParameterName")) {
+                Node contextEnable = mopState.addNode("mop:ParameterName", "mop:portletpreference");
+                contextEnable.setProperty("mop:readonly", false);
+                Value[] value = new Value[1];
+                value[0] = session.getValueFactory().createValue("content-id");
+                contextEnable.setProperty("mop:value", value);
+              }
+              node.save();
+              if (LOG.isInfoEnabled()) {
+                LOG.info("Migrate node: " + node.getPath());
+              }
+            }
           }
         } catch (Exception e) {
           if (LOG.isErrorEnabled()) {
