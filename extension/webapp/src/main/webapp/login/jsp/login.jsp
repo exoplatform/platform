@@ -265,15 +265,15 @@
 				padding: 2px 0 11px;
 			}
 			
-			.uiLogin .iPhoneCheckDisabled {
+			.uiLogin .switchBtnDisabled {
 			   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity = 50);
 			   opacity: 0.5;
 			}
 			
-			.uiLogin .iPhoneCheckContainer, .iPhoneCheckContainer label {
+			.uiLogin .uiSwitchBtn, .uiSwitchBtn label {
 				-moz-user-select: none;
 			}
-			.uiLogin .iPhoneCheckContainer {
+			.uiLogin .uiSwitchBtn {
 				-webkit-transform: translate3d(0, 0, 0);
 			   position: relative;
 			   height: 21px;
@@ -283,14 +283,14 @@
 			   float: left;
 			   margin-right: 15px;
 			}
-			.uiLogin .iPhoneCheckContainer input {
+			.uiLogin .uiSwitchBtn input {
 				position: absolute;
 				top: 1px;
 				left: 30px;
 				filter: progid:DXImageTransform.Microsoft.Alpha(Opacity = 0);
 				opacity: 0;
 			}
-			.uiLogin .iPhoneCheckContainer label.iPhoneCheckLabelOff {
+			.uiLogin .uiSwitchBtn label.switchBtnLabelOff {
 				background-color: rgba(0, 0, 0, 0.035);
 				background-image: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.09));
 				background-repeat: repeat-x;
@@ -303,12 +303,12 @@
 				text-shadow: 1px 0 0 #FFFFFF;
 				height: 17px;
 			}
-			.uiLogin label.iPhoneCheckLabelOff span {
+			.uiLogin label.switchBtnLabelOff span {
 				line-height: 18px;
 				padding-right: 17px;
 			}
 			
-			.uiLogin .iPhoneCheckContainer label.iPhoneCheckLabelOn {
+			.uiLogin .uiSwitchBtn label.switchBtnLabelOn {
 				background-color: #476CA7;
 				background-image: linear-gradient(to bottom, #4B72B4, #426393);
 				background-repeat: repeat-x;
@@ -323,12 +323,12 @@
 				text-shadow: 0 0 2px rgba(0, 0, 0, 0.6);
 				text-align: center;
 			}
-			.uiLogin .iPhoneCheckContainer, .iPhoneCheckContainer label {
+			.uiLogin .uiSwitchBtn, .uiSwitchBtn label {
 				user-select: none;
 			   -moz-user-select: none;
 			   -khtml-user-select: none;
 			}
-			.uiLogin .iPhoneCheckContainer label {
+			.uiLogin .uiSwitchBtn label {
 				white-space: nowrap;
 				font-size: 11px;
 				line-height: 16px;
@@ -342,11 +342,11 @@
 				top: 1;
 				overflow: hidden;
 			}
-			.uiLogin label.iPhoneCheckLabelOn span {
+			.uiLogin label.switchBtnLabelOn span {
 				line-height: 18px;
 				padding: 0 8px 0 4px;
 			}
-			.uiLogin .iPhoneCheckHandle {
+			.uiLogin .switchBtnHandle {
 				background-color: #F9F9F9;
 				background-image: linear-gradient(to bottom, #FFFFFF, #F1F1F1);
 				background-repeat: repeat-x;
@@ -397,7 +397,7 @@
 		</style>
 
     <script type="text/javascript" src="/platform-extension/javascript/jquery-1.7.1.js"></script>
-    <script type="text/javascript" src="/platform-extension/javascript/iphone-style-checkboxes.js"></script>
+    <script type="text/javascript" src="/platform-extension/javascript/switch-button.js"></script>
     <script type="text/javascript">
         $(document).ready(function() {
             var startlabelfooter = jQuery("#platformInfoDiv").data("labelfooter");
