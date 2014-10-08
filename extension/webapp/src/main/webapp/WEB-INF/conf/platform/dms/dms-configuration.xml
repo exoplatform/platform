@@ -77,6 +77,7 @@
       <values-param>
           <name>untrusted-user-agents</name>
           <value>Microsoft Office Core Storage Infrastructure/1.0</value>
+          <value>gvfs/1.20.1</value>
       </values-param>
 
     </init-params>
