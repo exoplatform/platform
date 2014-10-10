@@ -118,7 +118,7 @@
 			</ul><!--eventsList-->
 			<%} else{
 			%>
-			<span> <center>&{no.events.label} </center></span>
+			<span class="muted empty"> <center>&{no.events.label} </center></span>
 			<%}%>
 		</div><!--events-->
 		<% if ((tasksDisplayedList != null) && (tasksDisplayedList.size() != 0)) { %>
