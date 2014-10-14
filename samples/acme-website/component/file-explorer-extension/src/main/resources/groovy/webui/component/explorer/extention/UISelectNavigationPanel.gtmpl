@@ -29,10 +29,10 @@
 			      <%if(!uicomponent.isExceptedNodeType(node)) {%>
 				      <tr>
 				        <td>
-				        <%
-						  String nodeName = node.getURI();
-				        %>
-				          
+				          <%
+				            String nodeName = node.getResolvedLabel();
+				          %>
+				          <i class="uiIconLightGray DefaultPageIcon uiIconGroup" title="$nodeName"></i>&nbsp;				          
 				          $nodeName
 				        </td>
 				        <td class="center">
