@@ -169,6 +169,18 @@ public class CalendarPortletController {
         if(delim != null && date_act.indexOf(delim) < 2 ) {
              date_act = new StringBuffer("0").append(date_act).toString();
                }
+               
+        String dprefix= null ;
+        if(delim != null && date_act.indexOf(delim) >= 2 ) {
+            dprefix = date_act.substring(date_act.indexOf(delim)+1);
+            if(delim != null && dprefix.indexOf(delim) < 2 ) {
+                 dprefix = new StringBuffer("0").append(dprefix).toString();
+            }
+         date_act = date_act.substring(0,date_act.indexOf(delim)+1) + dprefix;
+
+        }
+               
+               
          Date comp = currentTime;
         HashMap parameters = new HashMap();
         String defaultCalendarLabel = "Default";
