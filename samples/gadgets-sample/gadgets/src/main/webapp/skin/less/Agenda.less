@@ -1,6 +1,6 @@
-@import "variables.less";
-@import "mixins.less";
-// ----------------------------------
+@import "variables-exo.less";
+@import "mixins-exo.less";
+//============================================
 .ContentDisabled {
     background: url('/intranet-gadgets/skin/images/Agenda/warningIcon.png') no-repeat scroll 10px 8px #FFFFBB;
     border-radius: 4px 4px 4px 4px;
@@ -8,7 +8,7 @@
 }
 
 .FixThis {
-    background-color: #FFFFBB;
+    background-color: @componentBackground;
     border-radius: 4px 4px 4px 4px;
     padding: 2px 10px;
     text-align: center;
@@ -33,29 +33,11 @@
 }
 
 .TxtDarkBlue {
-	color: #231a67;
+	color: @primaryDarkColor;
 }
 
 .TxtGray {
-	color: #484848;
-}
-
-.UIGadgetThemes .TitGad .ContTit {
-	margin-right: 45px;
-}
-
-.UIGadgetThemes .GadCont {
-	padding: 20px 15px;
-	font-size: 12px;
-}
-
-.UIGadgetThemes .GadCont span{
-	font-weight: bold;
-	color: #1a1a1a;
-}
-
-.UIGadgetThemes .GadCont .Question {
-	font-weight: normal;
+	color: @textLightColor;
 }
 
 /** MyTasks **/
@@ -75,7 +57,10 @@
 	font-weight: normal;
 }
 .UIGadgetThemes .MyTasks .TaskDone {
-	color: @borderColor;
+	color: @textLightColor;
+	> span {
+		color: @textLightColor;
+	}
 }
 
 .UIGadgetThemes .MyTasks .TaskDetail {

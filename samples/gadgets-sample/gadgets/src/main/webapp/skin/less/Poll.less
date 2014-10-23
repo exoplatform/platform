@@ -1,6 +1,6 @@
-@import "variables.less";
-@import "mixins.less";
-// ----------------------------------
+@import "variables-exo.less";
+@import "mixins-exo.less";
+//============================================
 .uiGadgetThemes{
 	.gadContent {
 		padding: 8px 16px;
@@ -93,17 +93,8 @@
 			-moz-border-radius: 5px;
 			border-radius: 5px;
 			overflow: hidden;
-			background-color: #dcdcdc;
-			background-image: -moz-linear-gradient(top, #d3d3d3, #eaeaea);
-			background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#d3d3d3), to(#eaeaea));
-			background-image: -webkit-linear-gradient(top, #d3d3d3, #eaeaea);
-			background-image: -o-linear-gradient(top, #d3d3d3, #eaeaea);
-			background-image: linear-gradient(to bottom, #d3d3d3, #eaeaea);
-			background-repeat: repeat-x;
-			filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffd3d3d3', endColorstr='#ffeaeaea', GradientType=0);
-			-webkit-box-shadow: 0 1px 1px #c0c0c0 inset;
-			-moz-box-shadow: 0 1px 1px #c0c0c0 inset;
-			box-shadow: 0 1px 1px #c0c0c0 inset;
+			#gradient > .vertical(@componentBackgroundHover, @componentBackground);
+			.box-shadow(0 1px 1px #c0c0c0 inset);
 		}
 
 		.horizontalBar {
@@ -111,14 +102,7 @@
 			-webkit-border-radius: 5px 0 0 5px;
 			-moz-border-radius: 5px 0 0 5px;
 			border-radius: 5px 0 0 5px;
-			background-color: #5377b1;
-			background-image: -moz-linear-gradient(top, #5d83c3, #456697);
-			background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#5d83c3), to(#456697));
-			background-image: -webkit-linear-gradient(top, #5d83c3, #456697);
-			background-image: -o-linear-gradient(top, #5d83c3, #456697);
-			background-image: linear-gradient(to bottom, #5d83c3, #456697);
-			background-repeat: repeat-x;
-			filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff5d83c3', endColorstr='#ff456697', GradientType=0);
+			#gradient > .vertical(@primaryLightColor, @primaryColor);
 		}
 
 		.listpoll {
