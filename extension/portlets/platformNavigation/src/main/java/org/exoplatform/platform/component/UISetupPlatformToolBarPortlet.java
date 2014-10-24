@@ -50,9 +50,13 @@ public class UISetupPlatformToolBarPortlet extends UIPortletApplication {
 
   public boolean hasPermissionOnPageNode(PageNode pageNode) throws Exception {
     Boolean hasPermission = null;
+    
+    String keyPermissionMap = pageNode.getName();
+    
     // If page reference isn't null, verify if user can access it
     if (pageNode.getPageReference() != null) {
-      hasPermission = pagePermissionsMap.get(pageNode.getPageReference());
+      keyPermissionMap = keyPermissionMap.concat(":" + pageNode.getPageReference());
+      hasPermission = pagePermissionsMap.get(keyPermissionMap);
       // hasPermission information isn't cached yet
       if (hasPermission == null) {
         UserNode userNode = getOriginalUserNode(pageNode.getPageReference());
@@ -76,7 +80,7 @@ public class UISetupPlatformToolBarPortlet extends UIPortletApplication {
     if (hasPermission == null) {
       hasPermission = false;
     }
-    pagePermissionsMap.put(pageNode.getPageReference(), hasPermission);
+    pagePermissionsMap.put(keyPermissionMap, hasPermission);
     return hasPermission;
   }
 
