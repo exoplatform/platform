@@ -56,6 +56,10 @@
           <description>The flag parameter to decide if portal metadata is overriden on restarting server</description>
           <value>${acme.portalConfig.metadata.override:false}</value>
         </value-param>
+        <value-param>
+          <name>siteName</name>
+          <value>acme</value>
+        </value-param>
         <object-param>
           <name>ACME French translations directory</name>
           <description>Deployment Descriptor</description>
@@ -932,6 +936,10 @@
           <name>override</name>
           <description>The flag parameter to decide if portal metadata is overriden on restarting server</description>
           <value>${acme.portalConfig.metadata.override:false}</value>
+        </value-param>
+        <value-param>
+          <name>siteName</name>
+          <value>acme</value>
         </value-param>
         <!-- put "acme-news-1" in categories -->
         <object-param>
