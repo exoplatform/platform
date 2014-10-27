@@ -1,10 +1,12 @@
 @import "variables-exo.less";
 @import "mixins-exo.less";
 //============================================
-body, td, div, span, p, table, form {
-    font-family: helvetica,Arial,sans-serif;
-    font-size: 13px;
-    color: #333;
+body {
+  margin: 0;
+  font-family: @baseFontFamily;
+  font-size: @baseFontSize;
+  line-height: @baseLineHeight;
+  color: @textColor;
 }
 html, body {
     background: none;
@@ -74,7 +76,7 @@ a:link,a:visited,a:active,a:hover {
     color: @linkColor;
 }
 a.btn-primary {
-    color: #fff;
+    color: @white;
 }
 img {
     border: none;
@@ -83,12 +85,12 @@ img {
     .TitGad {
         line-height: 25px;
         padding: 0 5px 0 8px;
-        background: #f8f8f8;
+        background: @componentBackgroundLight;
         border: 1px solid @borderColor;
         border-radius: 3px;
         -moz-border-radius: 3px;
         -webkit-border-radius: 3px;
-        color: #333;
+        color: @textColor;
         .ContTit {
             font-size: 13px;
             font-weight:bold;
@@ -107,11 +109,11 @@ img {
         float: right;
         padding-right: 12px;
         font-size: 11px;
-        color: #484848;
+        color: @textColor;
         display: block;
     }
     .IconLink {
-        color: #000000;
+        color: @textColor;
         padding-left: 10px;
         text-decoration: none;
         display: block;
@@ -141,7 +143,7 @@ img {
     }
 }
 .light_message {
-    color: #999999;
+    color: @textLightColor;
 }
 .uiBox {
     margin-bottom: 0;
