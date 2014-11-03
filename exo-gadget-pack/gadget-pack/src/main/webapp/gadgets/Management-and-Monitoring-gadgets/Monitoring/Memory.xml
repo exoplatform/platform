@@ -34,10 +34,10 @@
     <![CDATA[     
     <head>
       <title>Memory</title>
-      <link rel="stylesheet" type="text/css" href="/exo-gadget-resources/skin/exo-gadget/gadget-common.css" />
-      <link type="text/css" rel="stylesheet" href="/gadget-pack/skin/css/monitoring.css" />
+      <link rel="stylesheet" type="text/css" href="/eXoSkin/skin/css/platform/portlets/samples/gadgets-sample/exo-gadget-resources/gadget-common.css" />
+      <link type="text/css" rel="stylesheet" href="/eXoSkin/skin/css/platform/portlets/gadget-pack/monitoring.css" />
       <link rel="stylesheet" type="text/css" href="/exo-gadget-resources/script/jquery/plugins/jqplot/1.0.0/jquery.jqplot.min.css" />
-      <link rel="stylesheet" type="text/css" href="/eXoSkin/skin/bootstrap/css/bootstrap.css" />
+    
       <!--[if IE]><script language="javascript" type="text/javascript" src="/exo-gadget-resources/script/jquery/plugins/jqplot/1.0.5/excanvas.js"></script><![endif]-->
 	  <script language="javascript" type="text/javascript" src="/exo-gadget-resources/script/jquery/plugins/jqplot/1.0.5/jquery.min.js"></script>
 	  <script language="javascript" type="text/javascript" src="/exo-gadget-resources/script/jquery/plugins/jqplot/1.0.5/jquery.jqplot.min.js"></script>

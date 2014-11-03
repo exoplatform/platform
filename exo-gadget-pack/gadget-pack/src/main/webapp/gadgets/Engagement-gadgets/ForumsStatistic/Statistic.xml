@@ -31,13 +31,11 @@
 <![CDATA[   
  <head>
       <title>Forums Statistics</title>
-			<link rel="stylesheet" type="text/css" href="/eXoResources/skin/bootstrap/css/bootstrap.css" />
-			<link rel="stylesheet" type="text/css" href="/eXoResources/skin/css/Core.css" />
+			<link rel="stylesheet" type="text/css" href="/eXoSkin/skin/css/Core.css" />
       <link type="text/css" rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.9/themes/ui-lightness/jquery-ui.css" />
-      <link rel="stylesheet" type="text/css" href="/exo-gadget-resources/skin/exo-gadget/gadget-common.css" />
-      <link rel="stylesheet" type="text/css" href="/exo-gadget-resources/script/jquery/plugins/jqplot/1.0.5/jquery.jqplot.min.css" />
-      <link type="text/css" rel="stylesheet" href="/gadget-pack/skin/css/forumsStatistic.css" />
-
+      <link rel="stylesheet" type="text/css" href="/eXoSkin/skin/css/platform/portlets/samples/gadgets-sample/exo-gadget-resources/gadget-common.css" />
+       <link rel="stylesheet" type="text/css" href="/exo-gadget-resources/script/jquery/plugins/jqplot/1.0.5/jquery.jqplot.min.css" />
+       <link type="text/css" rel="stylesheet" href="/eXoSkin/skin/css/platform/portlets/gadget-pack/forumsStatistic.css" />
       <script language="javascript" type="text/javascript" src="/eXoResources/javascript/jquery-1.7.1.js"></script>
       <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.9/jquery-ui.min.js"></script>
       <script type="text/javascript" src="script/date.format.js"></script>

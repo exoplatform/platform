@@ -31,10 +31,9 @@
   <![CDATA[     
     
   <head>
-    <link type="text/css" rel="stylesheet" href="/exo-gadget-resources/skin/exo-gadget/gadget-common.css" />
-    <link type="text/css" rel="stylesheet" href="/intranet-gadgets/skin/css/Bookmark.css" />
-    <link rel="stylesheet" type="text/css" href="/eXoSkin/skin/bootstrap/css/bootstrap.css" />
-    <link rel="stylesheet" type="text/css" href="/eXoSkin/skin/css/Core.css" />
+    <link type="text/css" rel="stylesheet" href="/eXoSkin/skin/css/Core.css" />    
+    <link type="text/css" rel="stylesheet" href="/eXoSkin/skin/css/platform/portlets/samples/gadgets-sample/exo-gadget-resources/gadget-common.css" />
+    <link type="text/css" rel="stylesheet" href="/eXoSkin/skin/css/platform/portlets/samples/gadgets-sample/gadgets/Bookmark.css" />
   <style type="text/css">
    /* Bookmark */
          
@@ -363,5 +362,4 @@
   ]]>
 </Content>
 </Module>
-
 

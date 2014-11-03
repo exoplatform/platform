@@ -16,10 +16,9 @@
     <![CDATA[     
     <head>
       <title>__MSG_title__</title>
-    <link rel="stylesheet" type="text/css" href="/eXoResources/skin/bootstrap/css/bootstrap.css" />
-      <link rel="stylesheet" type="text/css" href="/eXoResources/skin/css/Core.css" />
-      <link rel="stylesheet" type="text/css" href="/exo-gadget-resources/skin/exo-gadget/gadget-common.css" />
-      <link rel="stylesheet" type="text/css" href="/intranet-gadgets/skin/css/Invitations.css" />
+      <link rel="stylesheet" type="text/css" href="/eXoSkin/skin/css/Core.css" />
+      <link rel="stylesheet" type="text/css" href="/eXoSkin/skin/css/platform/portlets/samples/gadgets-sample/exo-gadget-resources/gadget-common.css" />
+      <link rel="stylesheet" type="text/css" href="/eXoSkin/skin/css/platform/portlets/samples/gadgets-sample/gadgets/Invitations.css" />
       <script language="javascript" type="text/javascript" src="scripts/jquery/1.5.2/jquery.min.js"></script>
       <script language="javascript" type="text/javascript" src="scripts/jquery/plugins/jquery.timers-1.2.js"></script>
       <script type="text/javascript">

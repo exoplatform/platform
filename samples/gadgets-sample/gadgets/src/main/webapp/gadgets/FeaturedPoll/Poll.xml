@@ -33,30 +33,28 @@
 	</ModulePrefs>
     <Content type="html" view="default, home, profile">
         <![CDATA[
-    <link rel="stylesheet" href="/intranet-gadgets/skin/css/Poll.css" type="text/css"/>
-    <link rel="stylesheet" type="text/css" href="/exo-gadget-resources/skin/exo-gadget/gadget-common.css" />
-    <link rel="stylesheet" type="text/css" href="/eXoSkin/skin/bootstrap/css/bootstrap.css" />
-    <link rel="stylesheet" type="text/css" href="/eXoSkin/skin/css/Core.css" />
-    <script src="/exo-gadget-resources/script/jquery/1.6.2/jquery.min.js"></script>
-    <script type="text/javascript">
-    var MODULE_ID = __MODULE_ID__;    
-    </script>
-
-    <script type="text/javascript" src="script/poll.js"></script>
-    
-    <!-- View of the gadget  -->
-    <div class="uiGadgetThemes uiBox">
-      <h6 class="gadgetTitle title center clearfix">
-        __MSG_title__
-        <a class="actionIcon pull-right settingBt" title="Settings" rel="tooltip" data-placement="bottom" onclick=""><i class="uiIconSetting"></i></a>
-      </h6>
-      <!-- Display poll  -->
-      <div class="gadContent">
-        <div class="listpoll"  id="listpoll"></div>
-        <div  id="poll" class="poll"></div>
-        <div id="createpoll" style="text-align: center"></div>
-      </div>
-    </div>
-  ]]>
+			<link type="text/css" rel="stylesheet" href="/eXoSkin/skin/css/Core.css" />
+			<link type="text/css" rel="stylesheet" href="/eXoSkin/skin/css/platform/portlets/samples/gadgets-sample/exo-gadget-resources/gadget-common.css" />
+			<link type="text/css" rel="stylesheet" href="/eXoSkin/skin/css/platform/portlets/samples/gadgets-sample/gadgets/Poll.css" />
+			<script language="javascript" type="text/javascript" src="/eXoResources/javascript/jquery-1.7.1.js"></script>
+			<script language="javascript" type="text/javascript" src="/eXoResources/skin/bootstrap/js/bootstrap-tooltip.js"></script>
+			<script type="text/javascript">
+			var MODULE_ID = __MODULE_ID__;    
+			</script>
+			<script type="text/javascript" src="script/poll.js"></script>
+			<!-- View of the gadget  -->
+			<div id="uiFeaturePoll" class="uiGadgetThemes uiBox">
+			  <h6 class="gadgetTitle title left clearfix">
+				__MSG_title__
+				<a class="actionIcon pull-right settingBt" id="tooltipSetting" data-toggle="tooltip" data-placement="left" data-original-title="Setting" onclick=""><i class="uiIconSetting uiIconLightGray"></i></a>
+			  </h6>
+			  <!-- Display poll  -->
+			  <div class="gadContent">
+				<div class="listpoll"  id="listpoll"></div>
+				<div  id="poll" class="poll"></div>
+				<div id="createpoll" style="text-align: center"></div>
+			  </div>
+			</div>
+		]]>
     </Content>
 </Module>
