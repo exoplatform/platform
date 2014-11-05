@@ -20,6 +20,7 @@
 package org.exoplatform.platform.portlet.juzu.invitations;
 
 import juzu.Path;
+import juzu.Response;
 import juzu.View;
 import juzu.template.Template;
 
@@ -37,7 +38,7 @@ public class Invitations {
     Template index;
 
     @View
-    public void index() {
-        index.render();
+    public Response.Content index() {
+        return index.ok();
     }
 }

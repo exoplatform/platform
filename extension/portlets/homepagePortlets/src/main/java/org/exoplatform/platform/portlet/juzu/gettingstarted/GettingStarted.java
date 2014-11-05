@@ -20,6 +20,7 @@ package org.exoplatform.platform.portlet.juzu.gettingstarted;
 
 import juzu.Path;
 import juzu.Resource;
+import juzu.Response;
 import juzu.View;
 import juzu.template.Template;
 import org.exoplatform.commons.juzu.ajax.Ajax;
@@ -103,13 +104,13 @@ public class GettingStarted {
     }
 
     @View
-    public void index() throws Exception {
-        gettingStarted.render();
+    public Response.Content index() throws Exception {
+        return gettingStarted.ok();
     }
 
     @Ajax
     @Resource
-    public void delete() throws Exception {
+    public Response.Content delete() throws Exception {
         //set Delete
         String userId = null;
         SessionProvider sProvider = null;
@@ -132,12 +133,12 @@ public class GettingStarted {
                 sProvider.close();
             }
         }
-        gettingStarted.render();
+        return gettingStarted.ok();
     }
 
     @Ajax
     @Resource
-    public void getGsList(String reload) throws Exception {
+    public Response getGsList(String reload) throws Exception {
         HashMap bundle = new HashMap();
         Boolean Isshow = true;
         boolean isChange = false;
@@ -218,7 +219,7 @@ public class GettingStarted {
             parameters.put(GettingStartedUtils.STATUS, status);
             parameters.put(GettingStartedUtils.SHOW, Isshow.toString());
             if ((isChange) || (reload.equals("true"))) {
-                gettingStartedList.render(parameters);
+                return gettingStartedList.ok(parameters);
             }
         } catch (Exception E) {
             LOG.error("GettingStarted Portlet : Can not load task list", E.getLocalizedMessage(), E);
@@ -228,7 +229,7 @@ public class GettingStarted {
                 sProvider.close();
             }
         }
-
+        return Response.ok();
     }
 
     private boolean updateAction(Property tempProp, Node gettingStartedNode) throws RepositoryException {

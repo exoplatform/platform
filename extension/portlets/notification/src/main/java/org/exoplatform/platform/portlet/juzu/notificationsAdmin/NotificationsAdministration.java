@@ -24,8 +24,6 @@ import java.util.Map;
 import java.util.ResourceBundle;
 
 import javax.inject.Inject;
-import javax.mail.internet.AddressException;
-import javax.mail.internet.InternetAddress;
 import javax.servlet.http.HttpServletRequest;
 
 import juzu.Path;
@@ -33,7 +31,8 @@ import juzu.Resource;
 import juzu.Response;
 import juzu.View;
 import juzu.impl.common.JSON;
-import juzu.request.RenderContext;
+import juzu.request.ApplicationContext;
+import juzu.request.UserContext;
 import juzu.template.Template;
 
 import org.apache.commons.lang.StringUtils;
@@ -77,15 +76,14 @@ public class NotificationsAdministration {
   private Locale locale = Locale.ENGLISH;
   
   @View
-  public void index(RenderContext renderContext){
+  public Response index(ApplicationContext applicationContext, UserContext userContext){
     //Redirect yo the home's page when the feature is off
     if (! CommonsUtils.isFeatureActive(NotificationUtils.FEATURE_NAME)) {
-      redirectToHomePage();
-      return;
+      return redirectToHomePage();
     }
     
-    this.locale = renderContext.getUserContext().getLocale();
-    ResourceBundle rs = renderContext.getApplicationContext().resolveBundle(this.locale);
+    this.locale = userContext.getLocale();
+    ResourceBundle rs = applicationContext.resolveBundle(this.locale);
     Map<String, Object> parameters = new HashMap<String, Object>();
     parameters.put("_ctx", new Context(rs));   
     
@@ -98,10 +96,10 @@ public class NotificationsAdministration {
     parameters.put("senderName", senderName != null ? (String)senderName.getValue() : System.getProperty("exo.notifications.portalname", "eXo"));
     parameters.put("senderEmail", senderEmail != null ? (String)senderEmail.getValue() : System.getProperty("gatein.email.smtp.from", "noreply@exoplatform.com"));
     
-    index.render(parameters);      
+    return index.ok(parameters);
   }  
  
-  private void redirectToHomePage() {
+  private Response redirectToHomePage() {
     PortalRequestContext portalRequestContext = Util.getPortalRequestContext();
     HttpServletRequest currentServletRequest = portalRequestContext.getRequest();
     StringBuilder sb = new StringBuilder();
@@ -115,6 +113,8 @@ public class NotificationsAdministration {
     JavascriptManager jsManager = ctx.getJavascriptManager();
     jsManager.addJavascript("try { window.location.href='" + sb.toString() + "' } catch(e) {" +
             "window.location.href('" + sb.toString() + "') }");
+
+    return Response.redirect(sb.toString());
   }
   
   @Ajax
