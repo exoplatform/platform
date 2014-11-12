@@ -75,6 +75,7 @@
     <output-encoding>UTF-8</output-encoding>
     <input-encoding>UTF-8</input-encoding>
     <description>Default configuration for the arabe locale</description>
+    <orientation>rt</orientation>
   </locale-config> 
 
   <locale-config>
