@@ -18,7 +18,6 @@
  */
 package org.exoplatform.platform.common.account.setup.rest;
 
-import org.exoplatform.commons.utils.CommonsUtils;
 import org.exoplatform.container.PortalContainer;
 import org.exoplatform.services.log.ExoLogger;
 import org.exoplatform.services.log.Log;
@@ -59,17 +58,14 @@ public class WelcomeScreenRestService implements ResourceContainer {
         boolean userExists = false;
         JSONObject jsonObject = new JSONObject();
         OrganizationService orgService = (OrganizationService) PortalContainer.getInstance().getComponentInstanceOfType(OrganizationService.class);
-        CommonsUtils.startRequest(orgService);
+        UserHandler userHandler = orgService.getUserHandler();
         try {
-          UserHandler userHandler = orgService.getUserHandler();
             if (userHandler.findUserByName(username) != null) {
                 userExists = true;
             }
 
         } catch (Exception e) {
             LOG.error("An error occurred while checking if username exists.", e);
-        } finally {
-          CommonsUtils.endRequest(orgService);
         }
         try {
             jsonObject.put("userExists", userExists);

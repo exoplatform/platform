@@ -16,7 +16,6 @@
  ***************************************************************************/
 package org.exoplatform.platform.gadget.services.LoginHistory;
 
-import org.exoplatform.commons.utils.CommonsUtils;
 import org.exoplatform.container.ExoContainerContext;
 import org.exoplatform.container.xml.InitParams;
 import org.exoplatform.container.xml.ValueParam;
@@ -575,16 +574,13 @@ public class LoginHistoryServiceImpl implements LoginHistoryService, Startable {
     }
 
     private String getUserFullName(String userId) {
-      OrganizationService service = (OrganizationService) ExoContainerContext.getCurrentContainer()
-          .getComponentInstanceOfType(OrganizationService.class);
-      CommonsUtils.startRequest(service);
-      try {
-          return service.getUserHandler().findUserByName(userId).getFullName();
-      } catch (Exception e) {
-          return userId;
-      } finally {
-        CommonsUtils.endRequest(service);
-      }
+        try {
+            OrganizationService service = (OrganizationService) ExoContainerContext.getCurrentContainer()
+                    .getComponentInstanceOfType(OrganizationService.class);
+            return service.getUserHandler().findUserByName(userId).getFullName();
+        } catch (Exception e) {
+            return userId;
+        }
     }
 }
 

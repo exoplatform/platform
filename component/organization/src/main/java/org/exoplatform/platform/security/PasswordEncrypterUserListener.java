@@ -1,7 +1,5 @@
 package org.exoplatform.platform.security;
 
-import org.apache.poi.util.CommonsLogger;
-import org.exoplatform.commons.utils.CommonsUtils;
 import org.exoplatform.services.log.ExoLogger;
 import org.exoplatform.services.log.Log;
 import org.exoplatform.services.organization.OrganizationService;
@@ -27,28 +25,23 @@ public class PasswordEncrypterUserListener extends UserEventListener {
   @Override
   public void preSave(User user, boolean isNew) throws Exception {
     if (passwordEncrypter != null && user.getPassword() != null) {
-      CommonsUtils.startRequest(organizationService);
-      try {
-        User persistedUser = organizationService.getUserHandler().findUserByName(user.getUserName());
-        if (persistedUser == null || persistedUser.getPassword() == null) {
-          if (LOG.isDebugEnabled()) {
-            LOG.debug("Encrypting password for a new user " + user.getUserName());
-          }
-          String encodedPassword = new String(passwordEncrypter.encrypt(user.getPassword().getBytes()));
-          user.setPassword(encodedPassword);
-        } else if (!user.getPassword().equals(persistedUser.getPassword())) {
-          if (LOG.isDebugEnabled()) {
-            LOG.debug("Encrypting changed password for user " + user.getUserName());
-          }
-          String encodedPassword = new String(passwordEncrypter.encrypt(user.getPassword().getBytes()));
-          user.setPassword(encodedPassword);
-        } else {
-          if (LOG.isDebugEnabled()) {
-            LOG.debug("Nothing to encrypt for user " + user.getUserName() + ": password no changed.");
-          }
+      User persistedUser = organizationService.getUserHandler().findUserByName(user.getUserName());
+      if (persistedUser == null || persistedUser.getPassword() == null) {
+        if (LOG.isDebugEnabled()) {
+          LOG.debug("Encrypting password for a new user " + user.getUserName());
         }
-      } finally {
-        CommonsUtils.endRequest(organizationService);
+        String encodedPassword = new String(passwordEncrypter.encrypt(user.getPassword().getBytes()));
+        user.setPassword(encodedPassword);
+      } else if (!user.getPassword().equals(persistedUser.getPassword())) {
+        if (LOG.isDebugEnabled()) {
+          LOG.debug("Encrypting changed password for user " + user.getUserName());
+        }
+        String encodedPassword = new String(passwordEncrypter.encrypt(user.getPassword().getBytes()));
+        user.setPassword(encodedPassword);
+      } else {
+        if (LOG.isDebugEnabled()) {
+          LOG.debug("Nothing to encrypt for user " + user.getUserName() + ": password no changed.");
+        }
       }
     }
   }
