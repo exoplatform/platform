@@ -2,7 +2,6 @@ package org.exoplatform.platform.organization.injector;
 
 import java.util.List;
 
-import org.exoplatform.commons.utils.CommonsUtils;
 import org.exoplatform.container.component.BaseComponentPlugin;
 import org.exoplatform.container.xml.InitParams;
 import org.exoplatform.services.log.ExoLogger;
@@ -45,34 +44,29 @@ public class DataPlugin extends BaseComponentPlugin {
     if (groups == null || groups.isEmpty()) {
       return;
     }
-    try {
-      CommonsUtils.startRequest(organizationService);
-      for (OrganizationConfig.Group data : groups) {
-        String groupId = null;
-        String parentId = data.getParentId();
-        if (parentId == null || parentId.length() == 0)
-          groupId = "/" + data.getName();
-        else
-          groupId = data.getParentId() + "/" + data.getName();
-  
-        if (organizationService.getGroupHandler().findGroupById(groupId) == null) {
-          LOG.info("    Creating Group " + groupId);
-          Group group = organizationService.getGroupHandler().createGroupInstance();
-          group.setGroupName(data.getName());
-          group.setDescription(data.getDescription());
-          group.setLabel(data.getLabel());
-          if (parentId == null || parentId.length() == 0) {
-            organizationService.getGroupHandler().addChild(null, group, false);
-          } else {
-            Group parentGroup = organizationService.getGroupHandler().findGroupById(parentId);
-            organizationService.getGroupHandler().addChild(parentGroup, group, false);
-          }
+    for (OrganizationConfig.Group data : groups) {
+      String groupId = null;
+      String parentId = data.getParentId();
+      if (parentId == null || parentId.length() == 0)
+        groupId = "/" + data.getName();
+      else
+        groupId = data.getParentId() + "/" + data.getName();
+
+      if (organizationService.getGroupHandler().findGroupById(groupId) == null) {
+        LOG.info("    Creating Group " + groupId);
+        Group group = organizationService.getGroupHandler().createGroupInstance();
+        group.setGroupName(data.getName());
+        group.setDescription(data.getDescription());
+        group.setLabel(data.getLabel());
+        if (parentId == null || parentId.length() == 0) {
+          organizationService.getGroupHandler().addChild(null, group, false);
         } else {
-          LOG.info("    Ignoring existing Group " + groupId);
+          Group parentGroup = organizationService.getGroupHandler().findGroupById(parentId);
+          organizationService.getGroupHandler().addChild(parentGroup, group, false);
         }
+      } else {
+        LOG.info("    Ignoring existing Group " + groupId);
       }
-    } finally {
-      CommonsUtils.endRequest(organizationService);
     }
   }
 
@@ -84,21 +78,16 @@ public class DataPlugin extends BaseComponentPlugin {
     if (types == null || types.isEmpty()) {
       return;
     }
-    try {
-      CommonsUtils.startRequest(organizationService);
-      for (OrganizationConfig.MembershipType data : types) {
-        if (organizationService.getMembershipTypeHandler().findMembershipType(data.getType()) == null) {
-          LOG.info("    Creating MembershipType " + data.getType());
-          MembershipType type = organizationService.getMembershipTypeHandler().createMembershipTypeInstance();
-          type.setName(data.getType());
-          type.setDescription(data.getDescription());
-          organizationService.getMembershipTypeHandler().createMembershipType(type, false);
-        } else {
-          LOG.info("    Ignoring existing MembershipType " + data.getType());
-        }
+    for (OrganizationConfig.MembershipType data : types) {
+      if (organizationService.getMembershipTypeHandler().findMembershipType(data.getType()) == null) {
+        LOG.info("    Creating MembershipType " + data.getType());
+        MembershipType type = organizationService.getMembershipTypeHandler().createMembershipTypeInstance();
+        type.setName(data.getType());
+        type.setDescription(data.getDescription());
+        organizationService.getMembershipTypeHandler().createMembershipType(type, false);
+      } else {
+        LOG.info("    Ignoring existing MembershipType " + data.getType());
       }
-    } finally {
-      CommonsUtils.endRequest(organizationService);
     }
   }
 
@@ -109,45 +98,40 @@ public class DataPlugin extends BaseComponentPlugin {
     if (users == null || users.isEmpty()) {
       return;
     }
-    try {
-      CommonsUtils.startRequest(organizationService);
-      MembershipHandler mhandler = organizationService.getMembershipHandler();
-      for (int i = 0; i < users.size(); i++) {
-        OrganizationConfig.User data = (OrganizationConfig.User) users.get(i);
-        User user = organizationService.getUserHandler().createUserInstance(data.getUserName());
-        user.setPassword(data.getPassword());
-        user.setFirstName(data.getFirstName());
-        user.setLastName(data.getLastName());
-        user.setEmail(data.getEmail());
-  
-        if (organizationService.getUserHandler().findUserByName(data.getUserName()) == null) {
-          LOG.info("    Creating user " + data.getUserName());
-          organizationService.getUserHandler().createUser(user, false);
-        } else {
-          LOG.info("    Ignoring existing User " + data.getUserName());
-        }
-  
-        String groups = data.getGroups();
-        if (groups != null && !groups.isEmpty()) {
-          String[] entry = groups.split(",");
-          for (int j = 0; j < entry.length; j++) {
-            String[] temp = entry[j].trim().split(":");
-            String membership = temp[0];
-            String groupId = temp[1];
-            if (mhandler.findMembershipByUserGroupAndType(data.getUserName(), groupId, membership) == null) {
-              Group group = organizationService.getGroupHandler().findGroupById(groupId);
-              MembershipType mt = organizationService.getMembershipTypeHandler().createMembershipTypeInstance();
-              mt.setName(membership);
-              mhandler.linkMembership(user, group, mt, false);
-              LOG.info("    Creating membership " + data.getUserName() + ", " + groupId + ", " + membership);
-            } else {
-              LOG.info("    Ignoring existing membership " + data.getUserName() + ", " + groupId + ", " + membership);
-            }
+    MembershipHandler mhandler = organizationService.getMembershipHandler();
+    for (int i = 0; i < users.size(); i++) {
+      OrganizationConfig.User data = (OrganizationConfig.User) users.get(i);
+      User user = organizationService.getUserHandler().createUserInstance(data.getUserName());
+      user.setPassword(data.getPassword());
+      user.setFirstName(data.getFirstName());
+      user.setLastName(data.getLastName());
+      user.setEmail(data.getEmail());
+
+      if (organizationService.getUserHandler().findUserByName(data.getUserName()) == null) {
+        LOG.info("    Creating user " + data.getUserName());
+        organizationService.getUserHandler().createUser(user, false);
+      } else {
+        LOG.info("    Ignoring existing User " + data.getUserName());
+      }
+
+      String groups = data.getGroups();
+      if (groups != null && !groups.isEmpty()) {
+        String[] entry = groups.split(",");
+        for (int j = 0; j < entry.length; j++) {
+          String[] temp = entry[j].trim().split(":");
+          String membership = temp[0];
+          String groupId = temp[1];
+          if (mhandler.findMembershipByUserGroupAndType(data.getUserName(), groupId, membership) == null) {
+            Group group = organizationService.getGroupHandler().findGroupById(groupId);
+            MembershipType mt = organizationService.getMembershipTypeHandler().createMembershipTypeInstance();
+            mt.setName(membership);
+            mhandler.linkMembership(user, group, mt, false);
+            LOG.info("    Creating membership " + data.getUserName() + ", " + groupId + ", " + membership);
+          } else {
+            LOG.info("    Ignoring existing membership " + data.getUserName() + ", " + groupId + ", " + membership);
           }
         }
       }
-    } finally {
-      CommonsUtils.endRequest(organizationService);
     }
   }
 }
