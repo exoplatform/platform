@@ -126,6 +126,14 @@
             <visibility>SYSTEM</visibility>
             <page-reference>portal::intranet::profile</page-reference>
         </node>
+
+        <node>
+            <uri>edit-profile</uri>
+            <name>edit-profile</name>
+            <label>#{portal.intranet.edit-profile}</label>
+            <visibility>SYSTEM</visibility>
+            <page-reference>portal::intranet::edit-profile</page-reference>
+        </node>
         
         <node>
             <uri>notifications</uri>
