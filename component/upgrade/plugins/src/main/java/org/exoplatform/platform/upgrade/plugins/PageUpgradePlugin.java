@@ -87,14 +87,32 @@ public class PageUpgradePlugin extends UpgradeProductPlugin {
     }
     try {
       RequestLifeCycle.begin(ExoContainerContext.getCurrentContainer());
-      addBottomLeftNavigationContainer();
       addTopApplicationContainer();
+      addBottomLeftNavigationContainer();
       //addBottomApplicationContainer();
       //addTopSocialContainer();
       addBottomWikiContainer();
       addBottomDocumentContainer();
       if (LOG.isInfoEnabled()) {
         LOG.info(this.getClass().getName() + " finished successfully!");
+      }
+    } catch (AlreadyUpgradeException aue) {
+      if (LOG.isInfoEnabled()) {
+        LOG.info("Data was already upgraded!");
+        LOG.info(this.getClass().getName() + " finished successfully!");
+      }
+    } catch (WrongModelObjectException we) {
+      if (LOG.isWarnEnabled()) {
+        StringBuilder sb = 
+        new StringBuilder().append("An unexpected error occurs when migrating pages. ")
+            .append(we.getObjectId())
+            .append(" is not found or not in its original position.")
+            .append(" If you have modified the intranet home page layout by yourself, ")
+            .append("please add the dynamic containers manually, following these links:\n")
+            .append("http://blog.exoplatform.com/en/2014/09/18/super-easy-guide-inject-portlets-wherever-want and\n")
+            .append("http://docs.exoplatform.com/public/topic/PLF41/PLFDevGuide.DevelopingApplications.")
+            .append("DevelopingPortlet.Deployment.Injection.html");
+        LOG.warn(sb.toString());
       }
     } catch (Exception e) {
       if (LOG.isErrorEnabled()) {
@@ -105,11 +123,24 @@ public class PageUpgradePlugin extends UpgradeProductPlugin {
     }
   }
   
+  private <T extends ModelObject>T getModelObject(ArrayList<ModelObject> list, Class<T> type, int position,
+                                                  String objectId) throws Exception{
+    if (list != null && list.size() > position) {
+      ModelObject rest = list.get(position);
+      if (type.isInstance(rest)) {
+        return type.cast(rest);
+      }
+    }
+    throw new WrongModelObjectException(objectId);
+  }
+  
   private void addBottomLeftNavigationContainer() throws Exception {
     PortalConfig config = dataStorage.getPortalConfig(INTRANET);
-    Container navigationBody = (Container)config.getPortalLayout().getChildren().get(0);
+    Container navigationBody = getModelObject(config.getPortalLayout().getChildren(), Container.class, 0, NAVIGATION_BODY); 
+        //(Container)config.getPortalLayout().getChildren().get(0);
     if (NAVIGATION_BODY.equals(navigationBody.getId())) {
-      Container leftNavigation = (Container)navigationBody.getChildren().get(0);
+      Container leftNavigation = getModelObject(navigationBody.getChildren(), Container.class, 0, LEFT_NAVIGATION); 
+          //(Container)navigationBody.getChildren().get(0);
       if (LEFT_NAVIGATION.equals(leftNavigation.getId())) {
         Container bottomLeftNavigation = 
             createContainer(BOTTOM_LEFT_NAVIGATION, ADDON_TEMPLATE, PERMISSION, ADDON_CONTAINER); 
@@ -184,11 +215,26 @@ public class PageUpgradePlugin extends UpgradeProductPlugin {
       PageKey pageKey = new PageKey(siteKey, homepage);
       Page page = dataStorage.getPage(pageKey.format());
       if (page == null) continue;
-      Container officebody = (Container)page.getChildren().get(0);
-      Container officeMiddle = (Container)officebody.getChildren().get(0);
-      Container officeRight = (Container)officebody.getChildren().get(1);
-      Application<?> clv = (Application<?>)officeMiddle.getChildren().get(0);
-      Application<?> as  = (Application<?>)officeMiddle.getChildren().get(1);
+      Container officebody = getModelObject(page.getChildren(), Container.class, 0, "OfficeBody"); 
+          //(Container)page.getChildren().get(0);
+      Container officeMiddle = getModelObject(officebody.getChildren(), Container.class, 0, "OfficeMiddle");
+          //(Container)officebody.getChildren().get(0);
+      Container officeRight = getModelObject(officebody.getChildren(), Container.class, 1, "OfficeRight");
+          //(Container)officebody.getChildren().get(1);
+      //test if data was overwritten
+      ArrayList<ModelObject> mol = officeMiddle.getChildren();
+      if (mol.size() > 0) {
+        ModelObject mo = mol.get(0);
+        if (mo instanceof Container) {
+          if (TOP_SOCIAL_CONTAINER.equals(((Container)mo).getId())) {
+            throw new AlreadyUpgradeException();
+          }
+        }
+      }
+      Application<?> clv = getModelObject(officeMiddle.getChildren(), Application.class, 0, "UICLVPortlet");
+          //(Application<?>)officeMiddle.getChildren().get(0);
+      Application<?> as  = getModelObject(officeMiddle.getChildren(), Application.class, 1, "UIUserActivityStreamPortlet"); 
+          //(Application<?>)officeMiddle.getChildren().get(1);
       ArrayList<ModelObject> rightAppList = officeRight.getChildren();
       //----------------------------------------------------------------
         ArrayList<ModelObject> middleAppContainers = new ArrayList<ModelObject>();
@@ -261,4 +307,22 @@ public class PageUpgradePlugin extends UpgradeProductPlugin {
     return VersionComparator.isAfter(newVersion,previousVersion);
   }
 
+  private class WrongModelObjectException extends Exception {
+    private static final long serialVersionUID = 6546836038718678185L;
+    private String objectId;
+    public WrongModelObjectException(String id) {
+      super();
+      objectId = id;
+    }
+    
+    public String getObjectId() {
+      return objectId;
+    }
+  }
+  
+  private class AlreadyUpgradeException extends Exception {
+
+    private static final long serialVersionUID = 2396696144814043287L;
+    
+  }
 }
