@@ -37,7 +37,7 @@
 				        </td>
 				        <td class="center">
 		              <a class="actionIcon" href="javascript:void(0);" onclick="<%=uicomponent.event("Select", node.getURI())%>">
-		                <i class="uiIconSelectPage" ></i>
+		                <i class="uiIconSelectPage uiIconLightGray"></i>
 		              </a>
 				        </td>
 				      </tr>
