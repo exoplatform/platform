@@ -59,8 +59,6 @@ public class UINavigationTree extends UITree {
       builder.append(" <i class=\"")
              .append(className)
              .append(" ")
-             .append(iconGroup)
-             .append(" ")
              .append(nodeGroupIcon)
              .append(note)
              .append("\"")
