@@ -87,13 +87,18 @@ public class PageUpgradePlugin extends UpgradeProductPlugin {
     }
     try {
       RequestLifeCycle.begin(ExoContainerContext.getCurrentContainer());
-      addBottomLeftNavigationContainer();
       addTopApplicationContainer();
+      addBottomLeftNavigationContainer();
       //addBottomApplicationContainer();
       //addTopSocialContainer();
       addBottomWikiContainer();
       addBottomDocumentContainer();
       if (LOG.isInfoEnabled()) {
+        LOG.info(this.getClass().getName() + " finished successfully!");
+      }
+    } catch (AlreadyUpgradeException aue) {
+      if (LOG.isInfoEnabled()) {
+        LOG.info("Data was already upgraded!");
         LOG.info(this.getClass().getName() + " finished successfully!");
       }
     } catch (WrongModelObjectException we) {
@@ -216,6 +221,16 @@ public class PageUpgradePlugin extends UpgradeProductPlugin {
           //(Container)officebody.getChildren().get(0);
       Container officeRight = getModelObject(officebody.getChildren(), Container.class, 1, "OfficeRight");
           //(Container)officebody.getChildren().get(1);
+      //test if data was overwritten
+      ArrayList<ModelObject> mol = officeMiddle.getChildren();
+      if (mol.size() > 0) {
+        ModelObject mo = mol.get(0);
+        if (mo instanceof Container) {
+          if (TOP_SOCIAL_CONTAINER.equals(((Container)mo).getId())) {
+            throw new AlreadyUpgradeException();
+          }
+        }
+      }
       Application<?> clv = getModelObject(officeMiddle.getChildren(), Application.class, 0, "UICLVPortlet");
           //(Application<?>)officeMiddle.getChildren().get(0);
       Application<?> as  = getModelObject(officeMiddle.getChildren(), Application.class, 1, "UIUserActivityStreamPortlet"); 
@@ -303,5 +318,11 @@ public class PageUpgradePlugin extends UpgradeProductPlugin {
     public String getObjectId() {
       return objectId;
     }
+  }
+  
+  private class AlreadyUpgradeException extends Exception {
+
+    private static final long serialVersionUID = 2396696144814043287L;
+    
   }
 }
