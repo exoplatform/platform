@@ -20,13 +20,13 @@
 
 -->
 <configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-               xsi:schemaLocation="http://www.exoplatform.org/xml/ns/kernel_1_2.xsd http://www.exoplatform.org/xml/ns/kernel_1_2.xsd"
-               xmlns="http://www.exoplatform.org/xml/ns/kernel_1_2.xsd">
+               xsi:schemaLocation="http://www.exoplatform.org/xml/ns/kernel_1_3.xsd http://www.exoplatform.org/xml/ns/kernel_1_3.xsd"
+               xmlns="http://www.exoplatform.org/xml/ns/kernel_1_3.xsd">
 
-  <external-component-plugins>
+  <external-component-plugins profiles="all">
     <target-component>org.exoplatform.platform.common.service.MenuConfiguratorService</target-component>
-    <component-plugin profiles="all">
-      <name>Weemo MenuConfigurationService Plugin</name>
+    <component-plugin>
+      <name>Notification MenuConfigurationService Plugin</name>
       <set-method>addNavigation</set-method>
       <type>org.exoplatform.platform.common.service.plugin.MenuConfiguratorAddNodePlugin</type>
       <init-params>
@@ -34,6 +34,22 @@
           <name>extended.setup.navigation.file</name>
           <value>war:/conf/platform/notification-setup/notification-setup-navigation.xml</value>
         </value-param>
+        <value-param>
+          <name>isChild</name>
+          <value>false</value>
+        </value-param>
+        <object-param>
+          <name>target.node.config</name>
+          <description>The target node</description>
+          <object type="org.exoplatform.portal.config.model.PageNode">
+            <field name="name">
+              <string>portal</string>              
+            </field>
+            <field name="pageReference">
+              <string>group::platform/administrators::branding</string>
+            </field>
+          </object>
+        </object-param>
       </init-params>
     </component-plugin>
   </external-component-plugins>
