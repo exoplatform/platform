@@ -45,4 +45,6 @@
   <import>war:/conf/authoring/authoring-configuration.xml</import>
 
   <import>war:/conf/welcome-screens/account-setup/account-setup-configuration.xml</import>
+
+  <import profiles="all">war:/conf/platform/notification-setup/notification-configuration.xml</import>
 </configuration>
