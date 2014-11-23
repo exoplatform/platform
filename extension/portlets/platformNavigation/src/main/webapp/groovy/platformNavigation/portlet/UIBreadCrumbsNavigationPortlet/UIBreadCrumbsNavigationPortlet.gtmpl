@@ -1,91 +1,41 @@
- <%
-     /**
-      * Copyright ( C ) 2012 eXo Platform SAS.
-      *
-      * This is free software; you can redistribute it and/or modify it
-      * under the terms of the GNU Lesser General Public License as
-      * published by the Free Software Foundation; either version 2.1 of
-      * the License, or (at your option) any later version.
-      *
-      * This software is distributed in the hope that it will be useful,
-      * but WITHOUT ANY WARRANTY; without even the implied warranty of
-      * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
-      * Lesser General Public License for more details.
-      *
-      * You should have received a copy of the GNU Lesser General Public
-      * License along with this software; if not, write to the Free
-      * Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
-      * 02110-1301 USA, or see the FSF site: http://www.fsf.org.
-      */
-
- %>
+<div class="uiBreadcumbsNavigationPortlet clearfix" id="$uicomponent.id">
 <%
-
-import org.exoplatform.portal.mop.user.UserNavigation;
-import java.util.List;
-import org.exoplatform.portal.mop.user.UserNode;
-import org.exoplatform.portal.webui.util.Util;
-import org.exoplatform.portal.application.PortalRequestContext;
-import org.gatein.common.text.EntityEncoder;
-import org.exoplatform.commons.utils.HTMLEntityEncoder;
-import org.exoplatform.web.url.PortalURL;
-import org.exoplatform.web.url.navigation.NavigationResource;
-import org.exoplatform.social.core.service.LinkProvider;
-import org.exoplatform.social.core.space.model.Space;
-import org.exoplatform.portal.mop.user.UserPortal;
-import org.exoplatform.webui.core.UIPopupWindow;
-
-    def changePictureLabel = _ctx.appRes(uicomponent.id + ".label.ChangePicture");
-	boolean isUserUrl=uicomponent.isUserUrl();
-	boolean isSpaceUrl=uicomponent.isSpaceUrl();
-    boolean isGroupUrl=uicomponent.isGroupUrl();
-	if(isUserUrl || isSpaceUrl ){
-
-	String actionLink;
-	String nodeName;
-	String srcImage;
-	String ownerId=null;
-
-	 if(isSpaceUrl) {
-
-        ownerId = uicomponent.getSpaceUrl();
-        if(ownerId!=null){
-			nodeName=uicomponent.getSpacename(ownerId);
-			srcImage=uicomponent.getImageSource(ownerId);
-        }
-	}else{
-           ownerId=uicomponent.getOwnerRemoteId();
-		   if(ownerId!=null){
-           actionLink=uicomponent.getProfileURL(ownerId)
-		   nodeName=uicomponent.getUserFullName(ownerId);
-		   srcImage=uicomponent.getAvatarURL(ownerId);
-            }
-		}
-
-        %>
-	<div class="uiBreadcumbsNavigationPortlet clearfix" id="$uicomponent.id">
-	 <% uicomponent.renderChild(UIPopupWindow.class); %>
-	  <div class="userAvt pull-left">
-	  	<img title="$nodeName" alt="$nodeName" src="$srcImage" />
-	  </div>
-		<div class="breadcumbEntry">
-		  <div class="name">$nodeName</div>
-	   <%if (uicomponent.isOwner() && isUserUrl) { %>
-			<a class="changeAvatar" onclick="<%=uicomponent.event("ChangePicture")%>; return false;" href="javascript:void(0)">$changePictureLabel</a>
-
-      <% } %>
-	  </div>
-	</div>
-
-
-<%}else{
-if(isGroupUrl){
- String pageLabel=uicomponent.getEncodedResolvedLabel();
+  boolean isUserUrl = uicomponent.isUserUrl();
+  boolean isSpaceUrl = uicomponent.isSpaceUrl();
+  if(isUserUrl || isSpaceUrl ){
+    String nodeName = "";
+    String srcImage = "";
+    if(isSpaceUrl) {
+      String spaceUrl = uicomponent.getSpaceUrl();
+      if(spaceUrl != null){
+        nodeName = uicomponent.getSpacename(spaceUrl);
+        srcImage = uicomponent.getImageSource(spaceUrl);
+      }
+    } else {
+      def profile = uicomponent.getOwnerProfile();
+      if(profile != null){
+        nodeName = profile.getFullName();
+        srcImage = uicomponent.getAvatarURL(profile);
+      }
+    }
 %>
-<div class="uiBreadcumbsNavigationsPortlet clearfix" id="$uicomponent.id">
-<div class="uiBreadcumbsNavigations">
-		  <div class="navItemSelected">$pageLabel</div>
- </div>
+    <div class="userAvt pull-left">
+      <img title="$nodeName" alt="$nodeName" src="$srcImage" />
+    </div>
+    <div class="breadcumbEntry">
+      <div class="name">$nodeName</div>
+    <% if (uicomponent.isOwner() && isUserUrl) { %>
+      <a class="changeAvatar" onclick="window.location.href=window.location.origin + '/portal/intranet/edit-profile'" 
+         href="javascript:void(0)"><i class="uiIconEdit uiIconLightGray"></i> <%=_ctx.appRes("UIBreadCrumbsNavigationPortlet.label.EditProfile")%></a>
+    <% } %>
+    </div>
+<%} else {
+    if(uicomponent.isGroupUrl()){
+      String pageLabel = uicomponent.getEncodedResolvedLabel();
+%>
+    <div class="uiBreadcumbsNavigations">
+      <div class="navItemSelected">$pageLabel</div>
+    </div>
+<%  }
+  }%>
 </div>
-<%}
-}%>

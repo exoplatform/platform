@@ -1,14 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <bundle>
-<UIBreadCrumbsNavigationPortlet>
+	<UIBreadCrumbsNavigationPortlet>
     <label>
-        <ChangePicture>Change Avatar</ChangePicture>
+      <EditProfile>Edit my Profile</EditProfile>
     </label>
-</UIBreadCrumbsNavigationPortlet>
- <UIBreadCrumbPopupAvatarUploader>
-      <title>
-         <UIAvatarUploader>Upload an Avatar</UIAvatarUploader>
-         <UIAvatarUploadContent>Avatar Preview</UIAvatarUploadContent>
-      </title>
- </UIBreadCrumbPopupAvatarUploader>
+	</UIBreadCrumbsNavigationPortlet>
 </bundle>
