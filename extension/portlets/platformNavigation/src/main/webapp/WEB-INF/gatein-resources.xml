@@ -16,8 +16,6 @@
 <gatein-resources xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
                   xsi:schemaLocation="http://www.gatein.org/xml/ns/gatein_resources_1_3 http://www.gatein.org/xml/ns/gatein_resources_1_3"
                   xmlns="http://www.gatein.org/xml/ns/gatein_resources_1_3">
-
-   
     <portlet>
         <name>PlatformAdminToolbarPortlet</name>
         <module>
@@ -40,9 +38,9 @@
             <depends>
                 <module>base</module>
             </depends>
-           <depends>
-              <module>bts_dropdown</module>
-           </depends>
+            <depends>
+                <module>bts_dropdown</module>
+            </depends>
             <!--
             <depends>
                 <module>socialcomposer</module>
@@ -129,6 +127,26 @@
             </depends>
         </module>
     </portlet>
+
+    <portlet>
+      <name>NotificationPopoverToolbarPortlet</name>
+      <module>
+        <script>
+          <path>/javascript/eXo/platform/navigation/Notification/NotificationPopover.js</path>
+        </script>
+        <depends>
+          <module>jquery</module>
+          <as>jQuery</as>
+        </depends>
+        <depends>
+          <module>webNotifications</module>
+        </depends>
+        <depends>
+          <module>commons-cometd3</module>
+        </depends>
+      </module>
+    </portlet>
+
     <module>
         <name>navigation-spaces-search</name>
        <load-group>plf_navigation</load-group>

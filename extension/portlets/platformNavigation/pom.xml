@@ -187,9 +187,11 @@
                 <include>UICompanyNavigationPortlet/Style.less</include>
                 <include>UIGroupsNavigationPortlet/Style.less</include>
                 <include>UIHelpPlatformToolbarPortlet/Style.less</include>
+                <include>UINotificationPopoverToolbarPortlet/Style.less</include>
                 <include>UISearchPlatformToolbarPortlet/Style.less</include>
                 <include>UISpaceNavigationPortlet/Style.less</include>
                 <include>UIUserNavigationPortlet/Style.less</include>
+                <include>platformNavigation.less</include>
               </includes>
             </configuration>
           </execution>

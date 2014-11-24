@@ -53,6 +53,30 @@
         </portlet-info>
     </portlet>
 
+    <portlet>
+        <description xml:lang="EN">Notification Popover Portlet</description>
+        <portlet-name>NotificationPopoverToolbarPortlet</portlet-name>
+        <display-name xml:lang="EN">Notification Popover Portlet</display-name>
+        <portlet-class>org.exoplatform.webui.application.portlet.PortletApplicationController</portlet-class>
+        <init-param>
+            <name>webui.configuration</name>
+            <!-- must match the path to configuration file -->
+            <value>/WEB-INF/conf/portlet/UINotificationPopoverToolbarPortlet/configuration.xml</value>
+        </init-param>
+        <expiration-cache>0</expiration-cache>
+        <supports>
+            <mime-type>text/html</mime-type>
+            <portlet-mode>help</portlet-mode>
+        </supports>
+        <supported-locale>en</supported-locale>
+        
+        <resource-bundle>locale.portlet.UIUserPlatformToolBarPortlet.UIUserPlatformToolBarPortlet</resource-bundle>
+        <!-- resource-bundle>locale.portlet.UINotificationPopoverToolbarPortlet.UINotificationPopoverToolbarPortlet</resource-bundle -->
+        <portlet-info>
+            <title>Notification Popover Portlet</title>
+            <short-title>Notification Popover</short-title>
+        </portlet-info>
+    </portlet>
 
     <portlet>
         <description xml:lang="EN">Setup Menu Portlet</description>
