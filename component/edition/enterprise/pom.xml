@@ -4,7 +4,7 @@
   <parent>
     <artifactId>platform-component-edition</artifactId>
     <groupId>org.exoplatform.platform</groupId>
-    <version>4.2.x-SNAPSHOT</version>
+    <version>4.2.x-plf-notification-web-SNAPSHOT</version>
   </parent>
   <artifactId>platform-component-edition-enterprise</artifactId>
   <packaging>jar</packaging>

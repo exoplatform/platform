@@ -9,7 +9,7 @@
   </parent>
   <groupId>org.exoplatform.platform</groupId>
   <artifactId>platform</artifactId>
-  <version>4.2.x-SNAPSHOT</version>
+  <version>4.2.x-plf-notification-web-SNAPSHOT</version>
   <packaging>pom</packaging>
   <name>eXo Platform</name>
   <description>Parent POM for platform projects.</description>
@@ -53,14 +53,14 @@
     <org.gatein.portal.version>4.2.x-PLF-SNAPSHOT</org.gatein.portal.version>
 
     <!-- Platform Project Dependencies -->
-    <org.exoplatform.commons.version>4.2.x-SNAPSHOT</org.exoplatform.commons.version>
-    <org.exoplatform.ecms.version>4.2.x-SNAPSHOT</org.exoplatform.ecms.version>
-    <org.exoplatform.social.version>4.2.x-SNAPSHOT</org.exoplatform.social.version>
-    <org.exoplatform.forum.version>4.2.x-SNAPSHOT</org.exoplatform.forum.version>
-    <org.exoplatform.wiki.version>4.2.x-SNAPSHOT</org.exoplatform.wiki.version>
-    <org.exoplatform.calendar.version>4.2.x-SNAPSHOT</org.exoplatform.calendar.version>
-    <org.exoplatform.integ.version>4.2.x-SNAPSHOT</org.exoplatform.integ.version>
-    <org.exoplatform.platform-ui.version>4.2.x-SNAPSHOT</org.exoplatform.platform-ui.version>
+    <org.exoplatform.commons.version>4.2.x-commons-notification-web-SNAPSHOT</org.exoplatform.commons.version>
+    <org.exoplatform.ecms.version>4.2.x-ecms-notification-web-SNAPSHOT</org.exoplatform.ecms.version>
+    <org.exoplatform.social.version>4.2.x-soc-notification-web-SNAPSHOT</org.exoplatform.social.version>
+    <org.exoplatform.forum.version>4.2.x-forum-notification-web-SNAPSHOT</org.exoplatform.forum.version>
+    <org.exoplatform.wiki.version>4.2.x-wiki-notification-web-SNAPSHOT</org.exoplatform.wiki.version>
+    <org.exoplatform.calendar.version>4.2.x-cal-notification-web-SNAPSHOT</org.exoplatform.calendar.version>
+    <org.exoplatform.integ.version>4.2.x-integ-notification-web-SNAPSHOT</org.exoplatform.integ.version>
+    <org.exoplatform.platform-ui.version>4.2.x-plfui-notification-web-SNAPSHOT</org.exoplatform.platform-ui.version>
 
   </properties>
   <dependencyManagement>

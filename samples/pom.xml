@@ -4,7 +4,7 @@
   <parent>
     <artifactId>platform</artifactId>
     <groupId>org.exoplatform.platform</groupId>
-    <version>4.2.x-SNAPSHOT</version>
+    <version>4.2.x-plf-notification-web-SNAPSHOT</version>
   </parent>
   <artifactId>platform-sample</artifactId>
   <packaging>pom</packaging>
