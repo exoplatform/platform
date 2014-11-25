@@ -18,7 +18,22 @@
  */
 package org.exoplatform.platform.common.rest.services.GettingStarted;
 
+import javax.jcr.Node;
+import javax.jcr.Property;
+import javax.jcr.PropertyIterator;
+import javax.ws.rs.GET;
+import javax.ws.rs.Path;
+import javax.ws.rs.Produces;
+import javax.ws.rs.core.CacheControl;
+import javax.ws.rs.core.Context;
+import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
+import javax.ws.rs.core.SecurityContext;
+import javax.ws.rs.core.UriInfo;
+import javax.ws.rs.ext.RuntimeDelegate;
+
 import org.exoplatform.common.http.HTTPStatus;
+import org.exoplatform.commons.utils.ListAccess;
 import org.exoplatform.container.ExoContainerContext;
 import org.exoplatform.services.jcr.ext.common.SessionProvider;
 import org.exoplatform.services.jcr.ext.hierarchy.NodeHierarchyCreator;
@@ -34,21 +49,10 @@ import org.exoplatform.social.core.identity.provider.OrganizationIdentityProvide
 import org.exoplatform.social.core.manager.ActivityManager;
 import org.exoplatform.social.core.manager.IdentityManager;
 import org.exoplatform.social.core.manager.RelationshipManager;
-import org.exoplatform.social.core.relationship.model.Relationship;
 import org.exoplatform.social.core.space.model.Space;
 import org.exoplatform.social.core.space.spi.SpaceService;
 import org.json.JSONArray;
 import org.json.JSONObject;
-
-import javax.jcr.Node;
-import javax.jcr.Property;
-import javax.jcr.PropertyIterator;
-import javax.ws.rs.GET;
-import javax.ws.rs.Path;
-import javax.ws.rs.Produces;
-import javax.ws.rs.core.*;
-import javax.ws.rs.ext.RuntimeDelegate;
-import java.util.List;
 
 @Path("homepage/intranet/getting-started/")
 @Produces(MediaType.APPLICATION_JSON)
@@ -136,8 +140,7 @@ public class GettingStartedRestService implements ResourceContainer {
         try {
             IdentityManager identityManager = (IdentityManager) ExoContainerContext.getCurrentContainer()
                     .getComponentInstanceOfType(IdentityManager.class);
-            Identity identity = identityManager.getOrCreateIdentity(OrganizationIdentityProvider.NAME,
-                    userId);
+            Identity identity = identityManager.getOrCreateIdentity(OrganizationIdentityProvider.NAME, userId);
             Profile profile = identity.getProfile();
 
             if (profile.getAvatarUrl() != null)
@@ -155,12 +158,9 @@ public class GettingStartedRestService implements ResourceContainer {
         try {
             SpaceService spaceService = (SpaceService) ExoContainerContext.getCurrentContainer()
                     .getComponentInstanceOfType(SpaceService.class);
-            List<Space> spaces = spaceService.getAccessibleSpaces(userId);
-
-            if (spaces.size() != 0)
-                return true;
-            else
-                return false;
+            Space[] spaces = spaceService.getAccessibleSpacesWithListAccess(userId).load(0, 1);
+            return spaces != null && spaces.length > 0;
+            
         } catch (Exception e) {
             LOG.debug("Error in gettingStarted REST service: " + e.getMessage(), e);
             return false;
@@ -180,7 +180,7 @@ public class GettingStartedRestService implements ResourceContainer {
 
             if (activities.getSize() != 0) {
 
-                 if ((hasAvatar(userId)) && (hasContacts(userId)) && (hasSpaces(userId)) && (activities.getSize() >= 5))
+            if ((hasAvatar(userId)) && (hasContacts(userId)) && (hasSpaces(userId)) && (activities.getSize() >= 5))
                 return true;
             else if ((hasAvatar(userId)) && (hasContacts(userId)) && (!hasSpaces(userId)) && (activities.getSize() >= 4))
                 return true;
@@ -212,12 +212,9 @@ public class GettingStartedRestService implements ResourceContainer {
                     .getComponentInstanceOfType(RelationshipManager.class);
             Identity identity = identityManager.getOrCreateIdentity(OrganizationIdentityProvider.NAME,
                     userId);
-            List<Relationship> confirmedContacts = relationshipManager.getContacts(identity);
+            ListAccess<Identity> confirmedContacts = relationshipManager.getConnections(identity);
 
-            if (confirmedContacts.size() != 0)
-                return true;
-            else
-                return false;
+            return confirmedContacts.getSize() > 0;
         } catch (Exception e) {
             LOG.debug("Error in gettingStarted REST service: " + e.getMessage(), e);
             return false;
