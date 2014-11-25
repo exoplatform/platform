@@ -2,13 +2,13 @@
 <bundle>
 <UIBreadCrumbsNavigationPortlet>
     <label>
-        <ChangePicture>crwdns6785867:0crwdne6785867:0</ChangePicture>
+      <EditProfile>crwdns6812907:0crwdne6812907:0</EditProfile>
     </label>
-</UIBreadCrumbsNavigationPortlet>
- <UIBreadCrumbPopupAvatarUploader>
       <title>
-         <UIAvatarUploader>crwdns6785868:0crwdne6785868:0</UIAvatarUploader>
-         <UIAvatarUploadContent>crwdns6785869:0crwdne6785869:0</UIAvatarUploadContent>
+      <EditProfile>crwdns6812908:0crwdne6812908:0</EditProfile>
+    </title>
+    <title>
+      <MyProfile>crwdns6812909:0crwdne6812909:0</MyProfile>
       </title>
- </UIBreadCrumbPopupAvatarUploader>
+</UIBreadCrumbsNavigationPortlet>
 </bundle>

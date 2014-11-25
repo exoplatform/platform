@@ -6,9 +6,9 @@
 <content>Turinys</content>
 <siteExplorer>Svetainės naršyklė</siteExplorer>
 <wcmAdmin>Turinio administravimas</wcmAdmin>
-<users>Vartotojai</users>
+<users>Manage Community</users>
 <newStaff>Įtraukti vartotojus</newStaff>
-<org-management>Grupės ir rolės</org-management>
+<org-management>Manage Community</org-management>
 <portal>Portalas</portal>
 <administration>Administravimas</administration>
 <groupnavigation>Grupės svetainės</groupnavigation>
@@ -18,7 +18,7 @@
 <monitoring>Monitoringas</monitoring>
 <spaces>Erdvės</spaces>
 <Branding>Prekės ženklas</Branding>
-      <Notification>Email Notifications</Notification>
+      <Notification>Priminimai</Notification>
 <ide>IDE</ide>
 <search>Paieška</search>
 </label>

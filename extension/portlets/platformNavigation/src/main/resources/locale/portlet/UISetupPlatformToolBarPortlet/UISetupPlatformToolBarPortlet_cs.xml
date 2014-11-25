@@ -6,9 +6,9 @@
 <content>Obsah</content>
 <siteExplorer>Průzkumník webů</siteExplorer>
 <wcmAdmin>Správa obsahu</wcmAdmin>
-<users>Uživatelé</users>
+<users>Manage Community</users>
 <newStaff>Přidat uživatele</newStaff>
-<org-management>Skupiny a role</org-management>
+<org-management>Manage Community</org-management>
 <portal>Portál</portal>
 <administration>Administrace</administration>
 <groupnavigation>Stránky skupiny</groupnavigation>
@@ -18,7 +18,7 @@
 <monitoring>Monitorování</monitoring>
 <spaces>Skupiny</spaces>
 <Branding>Logo</Branding>
-      <Notification>E-mailová upozornění</Notification>
+      <Notification>Oznámení</Notification>
 <ide>IDE</ide>
 <search>Hledat</search>
 </label>

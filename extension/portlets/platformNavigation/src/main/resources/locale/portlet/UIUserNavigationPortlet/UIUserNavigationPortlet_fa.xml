@@ -12,6 +12,7 @@
          <Mywiki>ویکی من</Mywiki>
          <Mydashboard>داشبورد من</Mydashboard>
          <NotificationSettingsPortlet>My Notifications</NotificationSettingsPortlet>
+         <More>بیشتر</More>
       </label>
    </UIUserNavigationPortlet>
 </bundle>

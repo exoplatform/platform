@@ -6,9 +6,9 @@
 <content>Περιεχόμενο</content>
 <siteExplorer>Περιηγητής Τοποθεσιών</siteExplorer>
 <wcmAdmin>Διαχείριση περιεχομένου</wcmAdmin>
-<users>Χρήστες</users>
+<users>Manage Community</users>
 <newStaff>Προσθήκη χρηστών</newStaff>
-<org-management>Ομάδες και ρόλοι</org-management>
+<org-management>Manage Community</org-management>
 <portal>Πύλη</portal>
 <administration>Διαχείριση</administration>
 <groupnavigation>Τοποθεσίας Ομάδας</groupnavigation>
@@ -18,7 +18,7 @@
 <monitoring>Παρακολούθηση</monitoring>
 <spaces>Χώροι</spaces>
 <Branding>Εταιρική ταυτότητα</Branding>
-      <Notification>Email Notifications</Notification>
+      <Notification>Ειδοποιήσεις</Notification>
 <ide>Περιβάλλον ολοκληρωμένης ανάπτυξης</ide>
 <search>Αναζήτηση</search>
 </label>

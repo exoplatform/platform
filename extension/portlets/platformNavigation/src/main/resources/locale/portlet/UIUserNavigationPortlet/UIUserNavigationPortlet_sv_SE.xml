@@ -12,6 +12,7 @@
          <Mywiki>Min Wiki</Mywiki>
          <Mydashboard>Min instrumentpanel</Mydashboard>
          <NotificationSettingsPortlet>My Notifications</NotificationSettingsPortlet>
+         <More>Mer</More>
       </label>
    </UIUserNavigationPortlet>
 </bundle>

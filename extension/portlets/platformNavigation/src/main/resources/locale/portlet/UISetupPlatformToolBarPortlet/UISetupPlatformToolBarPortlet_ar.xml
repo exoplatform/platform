@@ -6,9 +6,9 @@
 <content>المحتوى</content>
 <siteExplorer>مُـستكشف المواقع</siteExplorer>
 <wcmAdmin>إدارة المحتوى</wcmAdmin>
-<users>المستخدمين</users>
+<users>Manage Community</users>
 <newStaff>إضافة مستخدمين</newStaff>
-<org-management>المجموعات و الأدوار</org-management>
+<org-management>Manage Community</org-management>
 <portal>بوّابة</portal>
 <administration>ادارة</administration>
 <groupnavigation>مواقع المجموعات</groupnavigation>
@@ -18,7 +18,7 @@
 <monitoring>المراقبة</monitoring>
 <spaces>فضاءات</spaces>
 <Branding>الشّكل</Branding>
-      <Notification>Email Notifications</Notification>
+      <Notification>الإشعارات</Notification>
 <ide>IDE</ide>
 <search>البحث</search>
 </label>

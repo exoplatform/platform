@@ -22,19 +22,19 @@
 
 -->
 <messagebundle>
-  <msg name="forums.statistic.title">crwdns6785844:0crwdne6785844:0</msg>
-  <msg name="forums.statistic.total.topic">crwdns6785845:0crwdne6785845:0</msg>
-  <msg name="forums.statistic.total.post">crwdns6785846:0crwdne6785846:0</msg>
-  <msg name="forums.statistic.total.member">crwdns6785847:0crwdne6785847:0</msg>
-  <msg name="forums.statistic.active.member">crwdns6796242:0crwdne6796242:0</msg>
-  <msg name="forums.statistic.maximum.user">crwdns6785849:0crwdne6785849:0</msg>  
-  <msg name="forums.statistic.at">crwdns6785850:0crwdne6785850:0</msg>  
-  <msg name="forums.weekly.statistic.title">crwdns6785851:0crwdne6785851:0</msg>
-  <msg name="forums.weekly.statistic.post.open">crwdns6785852:0crwdne6785852:0</msg>
-  <msg name="forums.weekly.statistic.next">crwdns6785853:0crwdne6785853:0</msg>
-  <msg name="forums.weekly.statistic.prev">crwdns6785854:0crwdne6785854:0</msg>
-  <msg name="forums.weekly.statistic.view.chart">crwdns6785855:0crwdne6785855:0</msg>
-  <msg name="forums.weekly.statistic.view.list">crwdns6785856:0crwdne6785856:0</msg>
-  <msg name="forums.statistic.see.total.statistic">crwdns6785857:0crwdne6785857:0</msg>
-  <msg name="forums.statistic.see.weekly.statistic">crwdns6785858:0crwdne6785858:0</msg>  
+  <msg name="forums.statistic.title">crwdns6812884:0crwdne6812884:0</msg>
+  <msg name="forums.statistic.total.topic">crwdns6812885:0crwdne6812885:0</msg>
+  <msg name="forums.statistic.total.post">crwdns6812886:0crwdne6812886:0</msg>
+  <msg name="forums.statistic.total.member">crwdns6812887:0crwdne6812887:0</msg>
+  <msg name="forums.statistic.active.member">crwdns6812888:0crwdne6812888:0</msg>
+  <msg name="forums.statistic.maximum.user">crwdns6812889:0crwdne6812889:0</msg>  
+  <msg name="forums.statistic.at">crwdns6812890:0crwdne6812890:0</msg>  
+  <msg name="forums.weekly.statistic.title">crwdns6812891:0crwdne6812891:0</msg>
+  <msg name="forums.weekly.statistic.post.open">crwdns6812892:0crwdne6812892:0</msg>
+  <msg name="forums.weekly.statistic.next">crwdns6812893:0crwdne6812893:0</msg>
+  <msg name="forums.weekly.statistic.prev">crwdns6812894:0crwdne6812894:0</msg>
+  <msg name="forums.weekly.statistic.view.chart">crwdns6812895:0crwdne6812895:0</msg>
+  <msg name="forums.weekly.statistic.view.list">crwdns6812896:0crwdne6812896:0</msg>
+  <msg name="forums.statistic.see.total.statistic">crwdns6812897:0crwdne6812897:0</msg>
+  <msg name="forums.statistic.see.weekly.statistic">crwdns6812898:0crwdne6812898:0</msg>  
 </messagebundle>

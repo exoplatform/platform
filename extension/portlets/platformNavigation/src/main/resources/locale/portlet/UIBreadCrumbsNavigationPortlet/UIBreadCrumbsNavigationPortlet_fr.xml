@@ -2,13 +2,13 @@
 <bundle>
 <UIBreadCrumbsNavigationPortlet>
     <label>
-        <ChangePicture>Changer la Photo</ChangePicture>
+      <EditProfile>Modifier mon Profil</EditProfile>
     </label>
-</UIBreadCrumbsNavigationPortlet>
-   <UIBreadCrumbPopupAvatarUploader>
       <title>
-         <UIAvatarUploader>Ajouter une Photo</UIAvatarUploader>
-         <UIAvatarUploadContent>Aperçu</UIAvatarUploadContent>
+      <EditProfile>Modifier le Profil</EditProfile>
+    </title>
+    <title>
+      <MyProfile>Mon Profil</MyProfile>
       </title>
-   </UIBreadCrumbPopupAvatarUploader>
+</UIBreadCrumbsNavigationPortlet>
 </bundle>

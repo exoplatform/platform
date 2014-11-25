@@ -2,13 +2,13 @@
 <bundle>
 <UIBreadCrumbsNavigationPortlet>
     <label>
-        <ChangePicture>アバターの変更</ChangePicture>
+      <EditProfile>Edit my Profile</EditProfile>
     </label>
-</UIBreadCrumbsNavigationPortlet>
- <UIBreadCrumbPopupAvatarUploader>
       <title>
-         <UIAvatarUploader>アバターのアップロード</UIAvatarUploader>
-         <UIAvatarUploadContent>アバターのプレビュー</UIAvatarUploadContent>
+      <EditProfile>プロフィールを編集</EditProfile>
+    </title>
+    <title>
+      <MyProfile>マイプロフィール</MyProfile>
       </title>
- </UIBreadCrumbPopupAvatarUploader>
+</UIBreadCrumbsNavigationPortlet>
 </bundle>

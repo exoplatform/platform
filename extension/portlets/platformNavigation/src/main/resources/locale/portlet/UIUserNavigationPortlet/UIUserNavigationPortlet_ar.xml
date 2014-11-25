@@ -12,6 +12,7 @@
          <Mywiki>ويكي خاصة</Mywiki>
          <Mydashboard>لوحة المعلومات الخاصّة بي</Mydashboard>
          <NotificationSettingsPortlet>My Notifications</NotificationSettingsPortlet>
+         <More>المزيد</More>
       </label>
    </UIUserNavigationPortlet>
 </bundle>

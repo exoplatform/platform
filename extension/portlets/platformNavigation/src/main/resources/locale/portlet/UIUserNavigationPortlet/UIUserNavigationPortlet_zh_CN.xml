@@ -11,7 +11,8 @@
          <Myconnections>我的联系人</Myconnections>
          <Mywiki>我的 Wiki</Mywiki>
          <Mydashboard>我的仪表板</Mydashboard>
-         <NotificationSettingsPortlet>My Notifications</NotificationSettingsPortlet>
+         <NotificationSettingsPortlet>我的通知</NotificationSettingsPortlet>
+         <More>更多</More>
       </label>
    </UIUserNavigationPortlet>
 </bundle>

@@ -6,9 +6,9 @@
 <content>Innhold</content>
 <siteExplorer>Nettsteds utforsker</siteExplorer>
 <wcmAdmin>Innholds administrasjon</wcmAdmin>
-<users>Brukere</users>
+<users>Manage Community</users>
 <newStaff>Legge til brukere</newStaff>
-<org-management>Grupper og roller</org-management>
+<org-management>Manage Community</org-management>
 <portal>Portal</portal>
 <administration>Administrasjon</administration>
 <groupnavigation>Gruppe nettsteder</groupnavigation>
@@ -18,7 +18,7 @@
 <monitoring>Overvåke</monitoring>
 <spaces>Fellesskap</spaces>
 <Branding>Merkenavn tilpassing</Branding>
-      <Notification>Email Notifications</Notification>
+      <Notification>Varslinger</Notification>
 <ide>IDE</ide>
 <search>Søk</search>
 </label>

@@ -6,9 +6,9 @@
 <content>Содержимое</content>
 <siteExplorer>Обозреватель сайтов</siteExplorer>
 <wcmAdmin>Управление контентом</wcmAdmin>
-<users>Пользователи</users>
+<users>Manage Community</users>
 <newStaff>Добавить пользователей</newStaff>
-<org-management>Группы и роли</org-management>
+<org-management>Manage Community</org-management>
 <portal>Портал</portal>
 <administration>Администрирование</administration>
 <groupnavigation>Сайты группы</groupnavigation>
@@ -18,7 +18,7 @@
 <monitoring>Мониторинг</monitoring>
 <spaces>Области</spaces>
 <Branding>Фирменная символика</Branding>
-      <Notification>Email-уведомления</Notification>
+      <Notification>Оповещения</Notification>
 <ide>IDE</ide>
 <search>Поиск</search>
 </label>

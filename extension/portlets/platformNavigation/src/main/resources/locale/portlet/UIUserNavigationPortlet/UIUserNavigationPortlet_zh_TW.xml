@@ -12,6 +12,7 @@
          <Mywiki>我的 Wiki</Mywiki>
          <Mydashboard>我的儀表板</Mydashboard>
          <NotificationSettingsPortlet>我的通知</NotificationSettingsPortlet>
+         <More>更多</More>
       </label>
    </UIUserNavigationPortlet>
 </bundle>
