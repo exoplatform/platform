@@ -10,7 +10,7 @@
          <Myprofile>Profilul meu</Myprofile>
          <Myconnections>Colaboratorii mei</Myconnections>
          <Mywiki>Wiki</Mywiki>
-         <Mydashboard>Tablou de bord</Mydashboard>
+         <Mydashboard>Tabloul de bord</Mydashboard>
          <NotificationSettingsPortlet>Notificări</NotificationSettingsPortlet>
       </label>
    </UIUserNavigationPortlet>

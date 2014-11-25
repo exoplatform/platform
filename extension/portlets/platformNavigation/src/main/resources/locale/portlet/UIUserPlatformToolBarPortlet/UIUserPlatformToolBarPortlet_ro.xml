@@ -5,12 +5,12 @@
 <NotificationSettingsPortlet>Notificări</NotificationSettingsPortlet>
 <activities>Activităţile mele</activities>
 <profile>Profilul meu</profile>
-<network>Colaboratori</network>
-<wiki>Wiki</wiki>
+<network>Colaboratorii mei</network>
+<wiki>Pagini Wiki</wiki>
 <account>Setări</account>
 <language>Schimbă limba</language>
 <logout>Deconectare</logout>
-        <dashboard>Tablou de bord</dashboard>
+        <dashboard>Tabloul de bord</dashboard>
 </label>
 </UIUserPlatformToolBarPortlet>
 </bundle>

@@ -32,7 +32,7 @@
   <msg name="hit_ratio">Hit ratio</msg>
   <msg name="details">Detalles</msg>
   <msg name="hit">Hit</msg>
-  <msg name="miss">Miss</msg>
+  <msg name="miss">Señora</msg>
   <msg name="full">completo</msg>
   <msg name="max_size">Tamaño máximo</msg>
   <msg name="time_to_live">Tiempo de espera</msg>

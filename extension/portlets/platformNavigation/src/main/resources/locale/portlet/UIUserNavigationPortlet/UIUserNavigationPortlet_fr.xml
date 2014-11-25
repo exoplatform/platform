@@ -4,12 +4,12 @@
         <label>
          <activities>Activités</activities>
          <profile>Profil</profile>
-            <connections>Connexions</connections>
+         <connections>Connexions</connections>
             <wiki>Wiki</wiki>
          <Myactivities>Mes Activités</Myactivities>
          <Myprofile>Mon Profil</Myprofile>
          <Myconnections>Mes Connexions</Myconnections>
-            <Mywiki>Mon Wiki</Mywiki>
+         <Mywiki>Mon Wiki</Mywiki>
          <Mydashboard>Mon Tableau de Bord</Mydashboard>
          <NotificationSettingsPortlet>Mes Notifications</NotificationSettingsPortlet>
         </label>

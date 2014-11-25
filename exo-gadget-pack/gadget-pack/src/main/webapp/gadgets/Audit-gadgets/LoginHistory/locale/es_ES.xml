@@ -27,7 +27,7 @@
   <msg name="loginHistory.find">Buscar</msg>
   <msg name="loginHistory.latest">Resetear</msg>
   <msg name="loginHistory.lastLogin">Último ingreso</msg>
-  <msg name="loginHistory.beforeThat">Antes que</msg>
+  <msg name="loginHistory.beforeThat">Anterior al último</msg>
   <msg name="loginHistory.more">Más</msg>
   <msg name="loginHistory.stats">Estadísticas</msg>
   <msg name="loginHistory.history">Historia</msg>
@@ -42,10 +42,10 @@
   <msg name="loginHistory.today">Hoy</msg>
   <msg name="loginHistory.earlierThisWeek">A inicios de esta semana</msg>
   <msg name="loginHistory.earlierThisMonth">A principios de este mes</msg>
-  <msg name="loginHistory.earlier">Hace poco</msg>
+  <msg name="loginHistory.earlier">Hace más</msg>
   <msg name="loginHistory.allUsers">Todos los usuarios</msg>
   <msg name="loginHistory.unknow">Desconocido</msg>
   <msg name="loginHistory.next">Siguiente</msg>
   <msg name="loginHistory.ago">Hace</msg>
-  <msg name="loginHistory.search_user">Search user</msg>
+  <msg name="loginHistory.search_user">Buscar usuario</msg>
 </messagebundle>

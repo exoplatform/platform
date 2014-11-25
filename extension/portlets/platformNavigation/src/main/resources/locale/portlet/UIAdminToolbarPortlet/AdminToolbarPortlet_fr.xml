@@ -4,7 +4,7 @@
 		<action>
          <AddPage>Ajouter</AddPage>
 			<EditNavigation>Navigation</EditNavigation>
-			<Content>Contenu</Content>
+         <Content>Contenu</Content>
          <Editor>Modifier</Editor>
 			<Page>Page</Page>
 			<Site>Site</Site>
@@ -21,17 +21,17 @@
   
   <UISEOForm>
     <label>
-      <title>Titre: </title> 
+      <title>Titre:</title>  
       <description>Description: </description>
-      <keywords>Mots clés: </keywords>
-      <language>Langue: </language>
+      <keywords>Mots clés:</keywords>
+      <language>Langue:</language>
       <robots>Robots: </robots>
       <sitemap>Sitemap: </sitemap>
       <sitemapvisible>Visible dans le sitemap</sitemapvisible>
   <isInherited>Hérité de la page parent</isInherited>
-      <priority>Priorité: </priority>
-      <frequency>Fréquence: </frequency>
-      <select-language>Sélectionnez une langue</select-language>  
+      <priority>Priorité:</priority>
+      <frequency>Fréquence:</frequency>
+      <select-language>Sélectionnez une langue</select-language>
       <option>
         <Always>Toujours</Always>
         <Hourly>Toutes les heures</Hourly>
@@ -49,13 +49,13 @@
     </action>
     <msg>
       <repository-exception>Une erreur inattendue est apparue lors de l'enregistrement des métadonnées.</repository-exception>
-      <confirm-delete>Êtes-vous sûr de vouloir supprimer les données SEO?</confirm-delete>	
+      <confirm-delete>Êtes-vous sûr de vouloir supprimer les données SEO?</confirm-delete>
     </msg>
     <title>
-    	<seo-delete>Supprimer</seo-delete>
+    <seo-delete>Supprimer</seo-delete>
     </title>
 	<help> 
-	  <priority>Valeurs valides de 0.0 à 1.0.</priority>
+  <priority>Valeurs valides de 0.0 à 1.0.</priority>
   <description>Aidez les utilisateurs a savoir en quoi cette page a un lien avec ce qu'ils recherchent.</description>
   <keywords>Les termes les plus importants de la page doivent être séparés par une virgule.</keywords>  
     </help>	 	  

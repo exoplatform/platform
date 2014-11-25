@@ -2,13 +2,13 @@
 <bundle>
     <UISpaceNavigationPortlet>
         <label>
-            <Spaces>Mes Espaces</Spaces>
+         <Spaces>Mes Espaces</Spaces>
          <Join>Rejoindre un espace</Join>
          <see>Montrer {0} Espaces de Plus</see>
         </label>
         <msg>
          <filter-spaces>Rechercher des Espaces</filter-spaces>
-            <no-space>Aucun espace trouvé</no-space>
+         <no-space>Aucun espace trouvé</no-space>
         </msg>
 
     </UISpaceNavigationPortlet>

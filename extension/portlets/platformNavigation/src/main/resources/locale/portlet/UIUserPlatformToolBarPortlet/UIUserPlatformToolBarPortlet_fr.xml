@@ -3,13 +3,13 @@
 	<UIUserPlatformToolBarPortlet>
 		<label>
 <NotificationSettingsPortlet>Mes Notifications</NotificationSettingsPortlet>
-		<activities>Mes Activités</activities>
-		<profile>Mon Profil</profile>
-		<network>Mes Connexions</network>
-		<wiki>Mon Wiki</wiki>
-		<account>Paramètres</account>
-		<language>Changer de Langue</language>
-		<logout>Se Déconnecter</logout>
+<activities>Mes Activités</activities>
+<profile>Mon Profil</profile>
+<network>Mes Connexions</network>
+<wiki>Mon Wiki</wiki>
+<account>Paramètres</account>
+<language>Changer de Langue</language>
+<logout>Se Déconnecter</logout>
         <dashboard>Mon Tableau de Bord</dashboard>
 		</label>
 	</UIUserPlatformToolBarPortlet>

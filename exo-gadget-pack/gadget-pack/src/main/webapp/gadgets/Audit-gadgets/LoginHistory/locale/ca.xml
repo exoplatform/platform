@@ -27,7 +27,7 @@
   <msg name="loginHistory.find">Troba</msg>
   <msg name="loginHistory.latest">Restablir</msg>
   <msg name="loginHistory.lastLogin">Darrer inici de sessió</msg>
-  <msg name="loginHistory.beforeThat">Abans que</msg>
+  <msg name="loginHistory.beforeThat">Anterior al darrer</msg>
   <msg name="loginHistory.more">Més</msg>
   <msg name="loginHistory.stats">Edtadístiques</msg>
   <msg name="loginHistory.history">Històric</msg>
@@ -40,9 +40,9 @@
   <msg name="loginHistory.averagePerWeek">Mitjana de connexions / setmana</msg>
   <msg name="loginHistory.averagePerMonth">Mitjana de connexions / mes</msg>
   <msg name="loginHistory.today">Avui</msg>
-  <msg name="loginHistory.earlierThisWeek">Principis d'aquesta setmana</msg>
-  <msg name="loginHistory.earlierThisMonth">Principis d'aquest mes</msg>
-  <msg name="loginHistory.earlier">A principis</msg>
+  <msg name="loginHistory.earlierThisWeek">Principis de setmana</msg>
+  <msg name="loginHistory.earlierThisMonth">Principis de mes</msg>
+  <msg name="loginHistory.earlier">Més enllà</msg>
   <msg name="loginHistory.allUsers">Tots els usuaris</msg>
   <msg name="loginHistory.unknow">Desconegut</msg>
   <msg name="loginHistory.next">Següent</msg>
