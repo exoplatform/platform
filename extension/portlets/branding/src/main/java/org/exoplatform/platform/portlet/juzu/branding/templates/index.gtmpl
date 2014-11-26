@@ -43,7 +43,7 @@
 			<div data-toggle="dropdown" class="btn dropdown-toggle">
 				<span></span>
 				<span class="spiter"></span>
-				<i class="uiIconArrowDown uiIconLightGray"></i>
+				<i class="uiIconMiniArrowDown uiIconLightGray"></i>
 			</div>
 
 			<ul role="menu" class="dropdown-menu">
