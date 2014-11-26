@@ -104,6 +104,14 @@
         </node>
         
         <node>
+            <uri>allNotifications</uri>
+            <name>allNotifications</name>
+            <label>#{portal.intranet.allNotifications}</label>
+            <visibility>SYSTEM</visibility>
+            <page-reference>portal::intranet::allNotifications</page-reference>
+        </node>
+        
+        <node>
             <uri>activity</uri>
             <name>activity</name>
             <label>#{portal.intranet.activity}</label>

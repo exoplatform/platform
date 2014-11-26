@@ -366,6 +366,29 @@
 	  </page>
 
     <page>
+      <name>allNotifications</name>
+      <title>All Notifications</title>
+      <access-permissions>*:/platform/users</access-permissions>
+      <edit-permission>manager:/platform/administrators</edit-permission>
+      <container id="sociallayout" template="system:/groovy/portal/webui/container/UITableColumnContainer.gtmpl">
+        <access-permissions>*:/platform/users</access-permissions>
+        <container id="AllNotifications" template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
+          <access-permissions>*:/platform/users</access-permissions>
+          <portlet-application>
+            <portlet>
+              <application-ref>social-portlet</application-ref>
+              <portlet-ref>IntranetNotificationsPortlet</portlet-ref>
+            </portlet>
+            <title>All Notifications</title>
+            <access-permissions>*:/platform/users</access-permissions>
+            <show-info-bar>false</show-info-bar>
+            <show-application-state>true</show-application-state>
+          </portlet-application>
+        </container>
+      </container>
+    </page>
+    
+    <page>
         <name>profile</name>
         <title>Profile</title>
         <access-permissions>*:/platform/users</access-permissions>
