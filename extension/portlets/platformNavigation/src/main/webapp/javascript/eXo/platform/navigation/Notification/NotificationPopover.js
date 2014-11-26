@@ -44,7 +44,7 @@
         NotificationPopover.portlet.find('.dropdown-toggle:first').on('click', function() { console.log('Show menu')});
       },
       appendMessage : function(message) {
-        var newItem = NotificationPopover.applyAction($('<li></li>').html(message));
+        var newItem = NotificationPopover.applyAction($($('<ul></ul>').html(message).html()));
         
         //
         var target = $('<ul></ul>').append(NotificationPopover.popupItem.find('li'));
@@ -80,10 +80,13 @@
           }
         }).find('a').click(function(evt) {
           evt.stopPropagation();
-          window.location.href= $(this).attr('href');
+          var href = $(this).attr('href');
+          if(href && href.indexOf('javascript') !== 0) {
+            window.location.href= href;
+          }
         });
         //
-        item.find('.remove-item').on('click', function(evt){
+        item.find('.remove-item').off('click').on('click', function(evt){
           evt.stopPropagation();
           //
           var elm = $(this);
@@ -91,7 +94,7 @@
           //
           var rest = elm.data('rest');
           if(rest  && rest.length > 0) {
-            $.ajax('GET', rest);
+            $.ajax(rest);
           }
           //
           var link = elm.data('link');
@@ -100,6 +103,7 @@
           }
           //
           elm.parents('li:first').remove();
+          
         });
         //
         return item;
@@ -109,7 +113,7 @@
         var badge = NotificationPopover.portlet.find('span.badgeDefault:first');
         var current = parseInt(badge.text().trim());
         if(current <= 1) {
-          badge.text("0").hide();
+          NotificationPopover.markAllRead();
         } else {
           badge.text((current - 1) + "");
         }
@@ -117,6 +121,7 @@
       markAllRead : function(evt) {
         NotificationPopover.portlet.find('ul.displayItems:first').find('li.unread').removeClass('unread');
         NotificationPopover.portlet.find('span.badgeDefault:first').text('0').hide();
+        NotificationPopover.portlet.find('.actionMark:first').hide();
       },
       markItemRead : function(item) {
         var action = NotificationPopover.markReadLink + item.data('id');

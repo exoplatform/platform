@@ -249,7 +249,7 @@
     </page>
     <page>
     <name>notification</name>
-    <title>Email Notifications Administration</title>
+    <title>Notifications Administration</title>
     <access-permissions>manager:/platform/administrators</access-permissions>
     <edit-permission>manager:/platform/administrators</edit-permission>
     <portlet-application>
@@ -258,7 +258,7 @@
         <portlet-ref>NotificationsAdminJuzuPortlet</portlet-ref>
         <preferences></preferences>
       </portlet>
-      <title>Email Notifications Administration</title>
+      <title>Notifications Administration</title>
       <access-permissions>manager:/platform/administrators</access-permissions>
       <show-info-bar>false</show-info-bar>
       <show-application-state>false</show-application-state>

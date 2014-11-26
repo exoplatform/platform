@@ -1,4 +1,4 @@
-<div class="uiNotificationPopoverToolbarPortlet clearfix" id="$uicomponent.id">
+<div class="uiNotificationPopoverToolbarPortlet clearfix" style="<%=(uicomponent.isIntranetActive() ? "" : "display:none")%>" id="$uicomponent.id">
 	<div style="display:none" class="all-actions">
 		<%
 			List actions = uicomponent.getActions();
