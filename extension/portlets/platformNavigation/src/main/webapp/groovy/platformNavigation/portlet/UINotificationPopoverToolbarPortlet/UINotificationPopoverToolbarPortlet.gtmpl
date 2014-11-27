@@ -27,7 +27,7 @@
 				%>
 				</ul>
 			</li>
-			<li class="actionLink"><a class="btn btn-primary" href="/portal/intranet/allNotifications/">View All</a></li>
+			<li class="actionLink"><div><a class="btn btn-primary btn-sm" href="/portal/intranet/activities/">View All</a><div></li>
 		</ul>
 	</div>
 </div>

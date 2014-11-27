@@ -1,0 +1,76 @@
+@import "../variables.less";
+@import "../mixins.less";
+// -------------------------
+.uiNotificationPopoverToolbarPortlet {
+	.badgeRed {
+		background-color: red;
+		color: #ffffff;
+	}
+	.badgeNotification {
+		position: absolute;
+		top: 3px; right: 3px; 
+		display:none;
+	}
+	.dropdown-menu {
+		padding: 0;
+	}
+	.actionMark {
+		display:none;
+		text-align: right;
+		padding: 5px 10px;
+		> a {
+			display: inline-block;
+			color: #2f5e92;
+			padding: 0!important;
+			&:hover {
+				background: none;
+				color: #2f5e92;
+			}
+		}
+	}
+	.actionLink {
+		vertical-align: middle;
+		text-align: center;
+		border-top: 1px solid @borderColor;
+		padding: 10px;
+	}
+	.displayItems {
+		min-width: 350px;
+		max-width: 400px;
+		> li.unread {
+			background-color: azure;
+		}
+		> li {
+			display: block;
+			width: auto;
+			overflow: hidden;
+			text-overflow: ellipsis;
+			white-space: nowrap;
+			padding: 6px 25px 6px 10px;
+			border-top: 1px solid @borderColor;
+			position: relative;
+			> .remove-item {
+				position: absolute;
+				top: 0;
+				right: 5px;
+				padding: 0px;
+				margin: 0px;
+				cursor: pointer;
+				> i {
+					margin: 0px;
+				}
+			}
+			.content {
+				.text-overflow;
+			}
+			.avatarSmall {
+				margin-top: 4px;
+			}
+			.lastUpdatedTime {
+				color: @textLightColor;
+				font-size: 12px;
+				font-style: italic;
+			}
+		}
+	}
+}
