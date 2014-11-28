@@ -10,7 +10,7 @@
 	<div class="uiDropdownWithIcon dropdown pull-right">
 		<a href="#" class="dropdown-toggle" data-toggle="dropdown">
 			<i class="uiIconPLF24x24Bell">
-				<span class="badgeDefault badgeRed mini badgeNotification">0</span>
+				<span class="badgeDefault badgePrimary mini badgeNotification">0</span>
 			</i>
 		</a>
 		<%
@@ -27,7 +27,7 @@
 				%>
 				</ul>
 			</li>
-			<li class="actionLink"><div><a class="btn btn-primary btn-sm" href="/portal/intranet/activities/">View All</a><div></li>
+			<li class="actionLink"><div><a class="btn btn-primary btn-small" href="/portal/intranet/activities/">View All</a><div></li>
 		</ul>
 	</div>
 </div>

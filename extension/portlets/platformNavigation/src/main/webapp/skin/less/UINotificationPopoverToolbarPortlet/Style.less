@@ -18,13 +18,22 @@
 		display:none;
 		text-align: right;
 		padding: 5px 10px;
+		border-bottom: 1px solid  @borderColor;
 		> a {
 			display: inline-block;
-			color: #2f5e92;
+			color: @linkColor;
 			padding: 0!important;
 			&:hover {
 				background: none;
-				color: #2f5e92;
+				color: @linkColorHover;
+			}
+		}
+	}
+	.actionMark.markAll {
+		display: block;
+		+ li .displayItems {
+			li:first-child {
+				.border-radius(0);
 			}
 		}
 	}
@@ -37,17 +46,14 @@
 	.displayItems {
 		min-width: 350px;
 		max-width: 400px;
-		> li.unread {
-			background-color: azure;
+		.text-bold {
+			font-weight: bold;
 		}
 		> li {
 			display: block;
-			width: auto;
-			overflow: hidden;
-			text-overflow: ellipsis;
-			white-space: nowrap;
 			padding: 6px 25px 6px 10px;
 			border-top: 1px solid @borderColor;
+			border-top: none;
 			position: relative;
 			> .remove-item {
 				position: absolute;
@@ -56,12 +62,21 @@
 				padding: 0px;
 				margin: 0px;
 				cursor: pointer;
-				> i {
+				> .uiIconClose {
 					margin: 0px;
 				}
 			}
+			.status {
+				display: block;
+				max-height: 40px;
+				overflow: hidden;
+			}
 			.content {
+				padding-bottom: 20px;
 				.text-overflow;
+				.confirm {
+					margin: 3px 0;
+				}
 			}
 			.avatarSmall {
 				margin-top: 4px;
@@ -70,6 +85,41 @@
 				color: @textLightColor;
 				font-size: 12px;
 				font-style: italic;
+				bottom: 6px;
+				font-size: 12px;
+				font-style: italic;
+				left: 45px;
+				position: absolute;
+			}
+			+ li {
+				border-top: 1px solid @borderColor;
+			}
+			&.unread {
+				background-color: @quoteSecondBackground;
+			}
+			&:hover {
+				#gradient > .vertical(@dropdownLinkBackgroundHover, darken(@dropdownLinkBackgroundHover, 15%));
+				color: @white;
+				> .remove-item {
+					> .uiIconClose, > .uiIconClose:hover {
+						background-image: url("@{images-path}/Icons/uiIconsWhite.png")!important;
+					}
+				}
+				a {
+					color: @white!important;
+				}
+				.btn {
+					color: @textColor!important;
+					&.btn-primary {
+						color: @white!important;
+					}
+				}
+				.lastUpdatedTime {
+					color: @white;
+				}
+			}
+			&:first-child {
+				.border-top-radius(@borderRadiusSmall);
 			}
 		}
 	}
