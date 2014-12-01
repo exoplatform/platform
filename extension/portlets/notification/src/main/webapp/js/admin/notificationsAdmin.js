@@ -29,20 +29,19 @@
         });
       },
       
-      switchStatus : function(pluginId, isEnable) {
+      switchStatus : function(checkboxId, isEnable) {
         //
         $("#notificationAdmin").jzAjax({
           url : "NotificationsAdministration.saveActivePlugin()",
           data : {
-            "pluginId" : pluginId,
+            "checkboxId" : checkboxId,
             "enable" : isEnable
           },
           success : function(data) {
             var clazz = (data.isEnable === true) ? 'enable' : 'disable';
-            var plugin = $("tr#" + data.pluginId);
-            plugin.attr("class", clazz);
-            var action = $('input[name=' + data.pluginId + ']')
+            var action = $('input[name=' + data.checkboxId + ']')
             action.attr('class', 'providerAction yesno ' + clazz);
+            action.parents('td:first').attr('class', 'center ' + clazz)
           }
         }).fail(function(jqXHR, textStatus) {
           alert("Request failed: " + textStatus + ". " + jqXHR);

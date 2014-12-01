@@ -38,6 +38,7 @@ import juzu.template.Template;
 import org.exoplatform.commons.api.notification.model.GroupProvider;
 import org.exoplatform.commons.api.notification.plugin.NotificationPluginUtils;
 import org.exoplatform.commons.api.notification.plugin.config.PluginConfig;
+import org.exoplatform.commons.api.notification.service.setting.ChannelManager;
 import org.exoplatform.commons.api.notification.service.setting.PluginSettingService;
 import org.exoplatform.commons.api.settings.SettingService;
 import org.exoplatform.commons.api.settings.SettingValue;
@@ -67,10 +68,13 @@ public class NotificationsAdministration {
   ResourceBundle bundle;  
   
   @Inject
-  PluginSettingService providerSettingService;
+  PluginSettingService pluginSettingService;
   
   @Inject
   SettingService settingService;
+
+  @Inject
+  ChannelManager channelManager;
 
   private Locale locale = Locale.ENGLISH;
   
@@ -86,8 +90,11 @@ public class NotificationsAdministration {
     Map<String, Object> parameters = new HashMap<String, Object>();
     parameters.put("_ctx", new Context(rs));   
     
-    List<GroupProvider> groups = providerSettingService.getGroupPlugins();
+    List<GroupProvider> groups = pluginSettingService.getGroupPlugins();
     parameters.put("groups", groups);     
+    //
+    List<String> channels = channelManager.getChannelIds();
+    parameters.put("channels", channels);
     
     //try to get sender name and email from database. If fail, get default value from properties file
     SettingValue<?> senderName = settingService.get(org.exoplatform.commons.api.settings.data.Context.GLOBAL, Scope.GLOBAL, NotificationPluginUtils.NOTIFICATION_SENDER_NAME);
@@ -118,18 +125,18 @@ public class NotificationsAdministration {
 
   @Ajax
   @Resource
-  public Response saveActivePlugin(String pluginId, String enable) {
+  public Response saveActivePlugin(String checkboxId, String enable) {
     JSON data = new JSON();
     try {
       if (enable.equals("true") || enable.equals("false")) {
-        if(pluginId.indexOf("intranet") == 0) {
-          providerSettingService.saveInetanetPlugin(pluginId.replace("intranet", ""), Boolean.valueOf(enable));
-        } else {
-          providerSettingService.savePlugin(pluginId, Boolean.valueOf(enable));
-        }
+        String channelId = checkboxId.split("_")[0];
+        String pluginId = checkboxId.split("_")[1];
+        pluginSettingService.saveActivePlugin(channelId, pluginId, Boolean.valueOf(enable));
+        //
         Boolean isEnable = new Boolean(enable);
         data.set("status", "ok");
         data.set("pluginId", pluginId);
+        data.set("checkboxId", checkboxId);
         data.set("isEnable", (isEnable)); // current status
       } else {
         data.set("status", "false");
@@ -179,17 +186,16 @@ public class NotificationsAdministration {
     }
     
     private String getBundlePath(String id) {
-      PluginConfig pluginConfig = providerSettingService.getPluginConfig(id);
+      PluginConfig pluginConfig = pluginSettingService.getPluginConfig(id);
       if (pluginConfig != null) {
-        return pluginConfig.getTemplateConfig().getBundlePath();
+        return pluginConfig.getBundlePath();
       }
       //
       if (GroupProvider.defaultGroupIds.contains(id)) {
-        return providerSettingService.getPluginConfig(DigestDailyPlugin.ID)
-            .getTemplateConfig().getBundlePath();
+        return pluginSettingService.getPluginConfig(DigestDailyPlugin.ID).getBundlePath();
       }
       //
-      List<GroupProvider> groups = providerSettingService.getGroupPlugins();
+      List<GroupProvider> groups = pluginSettingService.getGroupPlugins();
       for (GroupProvider groupProvider : groups) {
         if (groupProvider.getGroupId().equals(id)) {
           return groupProvider.getProviderDatas().get(0).getBundlePath();

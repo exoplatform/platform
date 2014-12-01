@@ -2,6 +2,7 @@
 #{param name=senderEmail/}
 #{param name=_ctx/}
 #{param name=groups/}
+#{param name=channels/}
 <div id="notificationAdmin" class="uiNotificationAdmin">
 	<h3 class="mgB20">${_ctx.appRes("NotificationAdmin.title")}</h3>
 	<div id="confirmMessage" style="display:none">
@@ -14,8 +15,13 @@
 	    <tr>
 	      <th>${_ctx.appRes("NotificationAdmin.label.notification")}</th>
 	      <th>${_ctx.appRes("NotificationAdmin.label.title")}</th>
-	      <th class="center">${_ctx.appRes("NotificationAdmin.label.EnableEmailNotificationsAction")}</th>
-	      <th class="center">${_ctx.appRes("NotificationAdmin.label.EnableIntranetNotificationsAction")}</th>
+      	<%
+					for(channel in channels) {
+				%>
+				<th class="center">${_ctx.appRes("NotificationAdmin.label." + channel)}</th>
+				<%
+					}
+				%>
 	    </tr>
 	  </thead>
 	  <tbody>
@@ -29,41 +35,42 @@
 	       <td class="group-title"><strong>${_ctx.pluginRes(group.getResourceBundleKey(), group.getGroupId())}</strong></td>
 	       <td></td>
 	       <td></td> 
-	       <td></td> 
+				<%
+					for(int i = 1; i < channels.size(); ++i) {
+				%>
+					<td></td>
+				<%
+					}
+				%>
 	    </tr>  
 	    
 	    <% for (def provider : pluginInfos) {
 	      	 String pluginId = provider.getType();
-	         String status = (provider.isActive() ? "enable" : "disable");
-	         String statusNotify = (provider.isIntranetActive() ? "enable" : "disable");
 	    %>      
-      <tr id="${pluginId}">       
+      <tr>       
         <td class="left">
           <label for="${pluginId}">${_ctx.pluginRes(provider.getResourceBundleKey(), pluginId)}</label>
         </td>
         <td class="left">
           ${_ctx.pluginRes("UINotification.title." + pluginId, pluginId)}                    
         </td>
-        <td class="center ${status}">    
+        <%
+					for(channelId in channels) {
+					  String status = (provider.isChannelActive(channelId) ? "enable" : "disable");
+					  String checkboxName = channelId + "_" + pluginId;
+				%>
+				<td class="center ${status}">    
           <div class="inputContainer" style="width: 60px;">
         <% if (status == "enable")  { %>                   
-           <input type="checkbox" class="providerAction yesno ${status}" checked="checked" name="${pluginId}">
+           <input type="checkbox" class="providerAction yesno ${status}" checked="checked" name="${checkboxName}" id="${checkboxName}"/>
         <% } else { %>
-           <input type="checkbox" class="providerAction yesno ${status}" name="${pluginId}">
+           <input type="checkbox" class="providerAction yesno ${status}" name="${checkboxName}" id="${checkboxName}"/>
         <% } %>
           </div>
         </td>
-        
-        <td class="center ${statusNotify}">    
-          <div class="inputContainer" style="width: 60px;">
-        <% if (statusNotify == "enable")  { %>                   
-           <input type="checkbox" class="providerAction yesno ${statusNotify}" checked="checked" name="intranet${pluginId}">
-        <% } else { %>
-           <input type="checkbox" class="providerAction yesno ${statusNotify}" name="intranet${pluginId}">
-        <% } %>
-          </div>
-        </td>
-        
+				<%
+					}
+				%>
       </tr>      
 	    <% } %>    
 	  <% } %>

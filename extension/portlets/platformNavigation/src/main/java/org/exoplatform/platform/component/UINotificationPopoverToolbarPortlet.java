@@ -63,7 +63,7 @@ public class UINotificationPopoverToolbarPortlet extends UIPortletApplication {
     if (currentUser == null || currentUser.isEmpty()) {
       currentUser = WebuiRequestContext.getCurrentInstance().getRemoteUser();
     }
-    return userSettingService.get(currentUser).isIntranetActive();
+    return userSettingService.get(currentUser).isChannelActive(dataStorage.getChannelId());
   }
   
   public static class MarkReadActionListener extends EventListener<UINotificationPopoverToolbarPortlet> {
