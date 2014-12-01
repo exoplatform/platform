@@ -31,7 +31,7 @@
   <msg name="loginHistory.more">Daha</msg>
   <msg name="loginHistory.stats">İstatistikler</msg>
   <msg name="loginHistory.history">Geçmiş</msg>
-  <msg name="loginHistory.global">Küresel</msg>
+  <msg name="loginHistory.global">Global</msg>
   <msg name="loginHistory.week">Hafta</msg>
   <msg name="loginHistory.lastLoginsView">Son oturum açma</msg>
   <msg name="loginHistory.historyView">Geçmiş</msg>
