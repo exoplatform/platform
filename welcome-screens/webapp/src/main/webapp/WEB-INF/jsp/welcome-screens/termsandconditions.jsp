@@ -38,7 +38,7 @@
 		<title>eXo Subscription Agreement</title>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 
-		<link href="<%=request.getContextPath()%>/skin/css/termsandconditions.css" rel="stylesheet" type="text/css"/>
+		<link href="/eXoSkin/skin/css/platform/portlets/welcome-screens/termsandconditions.css" rel="stylesheet" type="text/css"/>
 	</head>
 	<body>
 		<div class="backLight"></div>
