@@ -2,9 +2,8 @@
 @import "../mixins.less";
 // -------------------------
 .uiNotificationPopoverToolbarPortlet {
-	.badgeRed {
-		background-color: red;
-		color: #ffffff;
+	.badgeNotification {
+		font-style: normal;
 	}
 	.badgeNotification {
 		position: absolute;
@@ -43,9 +42,20 @@
 		border-top: 1px solid @borderColor;
 		padding: 10px;
 	}
+	.dropdown-menu {
+		> li {
+			&.no-items {
+				padding: 25px 10px 25px;
+				text-align: center;
+				color: @textLightColor;
+				background: url("/platformNavigation/skin/images/UINotificationPopoverToolbarPortlet/iconBell.png") no-repeat center center transparent;
+			}
+		}
+	}
 	.displayItems {
-		min-width: 350px;
-		max-width: 400px;
+		min-width: 300px;
+		max-width: 300px;
+		max-height: 500px;
 		.text-bold {
 			font-weight: bold;
 		}
@@ -57,13 +67,17 @@
 			position: relative;
 			> .remove-item {
 				position: absolute;
-				top: 0;
+				top: 7px;
 				right: 5px;
 				padding: 0px;
 				margin: 0px;
 				cursor: pointer;
 				> .uiIconClose {
 					margin: 0px;
+					.opacity(80);
+					&:hover {
+						.opacity(100);
+					}
 				}
 			}
 			.status {
@@ -72,27 +86,23 @@
 				overflow: hidden;
 			}
 			.content {
-				padding-bottom: 20px;
+				font-weight: bold;
 				.text-overflow;
+				font-size: 12px;
 				.confirm {
 					margin: 3px 0;
 				}
 			}
-			.avatarSmall {
+			.avatarXSmall {
 				margin-top: 4px;
 			}
 			.lastUpdatedTime {
 				color: @textLightColor;
 				font-size: 12px;
-				font-style: italic;
-				bottom: 6px;
-				font-size: 12px;
-				font-style: italic;
-				left: 45px;
-				position: absolute;
 			}
-			+ li {
-				border-top: 1px solid @borderColor;
+			[class^="uiIcon"] {
+				vertical-align: -3px;
+				margin-right: 7px;
 			}
 			&.unread {
 				background-color: @quoteSecondBackground;
@@ -100,6 +110,7 @@
 			&:hover {
 				#gradient > .vertical(@dropdownLinkBackgroundHover, darken(@dropdownLinkBackgroundHover, 15%));
 				color: @white;
+				cursor: pointer;
 				> .remove-item {
 					> .uiIconClose, > .uiIconClose:hover {
 						background-image: url("@{images-path}/Icons/uiIconsWhite.png")!important;
@@ -116,6 +127,12 @@
 				}
 				.lastUpdatedTime {
 					color: @white;
+				}
+				.uiIconLightGray {
+					background-image: url("@{images-path}/Icons/uiIconsWhite.png");
+				}
+				.uiIconSocLightGray	{
+					background-image: url("/social-resources/skin/images/Icons/uiIconsSocWhite.png");
 				}
 			}
 			&:first-child {
