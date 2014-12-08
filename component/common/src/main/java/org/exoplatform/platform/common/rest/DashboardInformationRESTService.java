@@ -107,7 +107,7 @@ public class DashboardInformationRESTService implements ResourceContainer {
                       info.setId(pageNode.getName());
                       info.setLabel(pageNode.getLabel());
                       // Create URI to WS REST
-                      // wsSubPath = PortalContainer.getCurrentRestContextName() + "/private" + WS_ROOT_PATH + "/" + userId + "/" + getPageName(pageNode.getPageReference());
+                      wsSubPath = PortalContainer.getCurrentRestContextName() + "/private" + WS_ROOT_PATH + "/" + userId + "/" + getPageName(pageNode.getPageReference());
                       wsURI = uriInfo.getBaseUriBuilder().replaceMatrix(wsSubPath).build();
                       // Create URI to dashboard into portal
                       dashboardSubPath = PortalContainer.getCurrentPortalContainerName() + "/u/" + userId + "/" + pageNode.getName();
@@ -352,5 +352,20 @@ public class DashboardInformationRESTService implements ResourceContainer {
     public void setGadgetDescription(String gadgetDescription) {
       this.gadgetDescription = gadgetDescription;
     }
+  }
+
+
+  /**
+   * Simple utility method to extract a page name from a page ref
+   * @param pageRef
+   * @return
+   */
+  private String getPageName(String pageRef) {
+      String pageName = "";
+
+      String[] refs = pageRef.split("::");
+      pageName = refs[refs.length-1];
+
+      return pageName;
   }
 }
