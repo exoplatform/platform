@@ -17,10 +17,6 @@ import org.exoplatform.webui.core.lifecycle.UIApplicationLifecycle;
 import org.exoplatform.webui.event.Event;
 import org.exoplatform.webui.event.EventListener;
 
-/**
- * @author <a href="rtouzi@exoplatform.com">rtouzi</a>
- * @date 01/11/12
- */
 @ComponentConfig(
     lifecycle = UIApplicationLifecycle.class,
     template = "app:/groovy/platformNavigation/portlet/UINotificationPopoverToolbarPortlet/UINotificationPopoverToolbarPortlet.gtmpl",

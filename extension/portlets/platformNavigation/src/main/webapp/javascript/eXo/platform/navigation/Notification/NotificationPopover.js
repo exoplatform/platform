@@ -34,12 +34,15 @@
           NotificationPopover.applyAction($(this));
         });
         //
-        var current = NotificationPopover.popupItem.find('li').length;
+        var current = NotificationPopover.popupItem.find('li.unread').length;
         if(current > 0) {
           NotificationPopover.portlet.find('span.badgeDefault:first').text(current).show();
         }
         // markAllRead
-        NotificationPopover.portlet.find('.actionMark:first').find('a').click(NotificationPopover.markAllRead);
+        NotificationPopover.portlet.find('.actionMark:first').find('a').click(function (evt) {
+          evt.stopPropagation();
+          NotificationPopover.markAllRead();
+        });
         //
         NotificationPopover.portlet.find('.dropdown-toggle:first').on('click', function() { console.log('Show menu')});
       },
@@ -66,6 +69,7 @@
         }
         //
         NotificationPopover.portlet.find('.actionMark:first').show();
+        NotificationPopover.portlet.find('.no-items:first').hide();
       },
       applyAction : function(item) {
         item.find('.contentSmall:first').on('click', function(evt) {
@@ -131,15 +135,10 @@
           badge.text((current - 1) + "");
         }
       },
-      markAllRead : function(evt) {
+      markAllRead : function() {
         NotificationPopover.portlet.find('ul.displayItems:first').find('li.unread').removeClass('unread');
         NotificationPopover.portlet.find('span.badgeDefault:first').text('0').hide();
         NotificationPopover.portlet.find('.actionMark:first').hide();
-        //
-        var action = $(this).data('action');
-        if(action && action.length > 0) {
-          $.globalEval(action.replace('javascript', ''));
-        }
       },
       markItemRead : function(item) {
         var action = NotificationPopover.markReadLink + item.data('id');
@@ -151,7 +150,13 @@
         var action = NotificationPopover.removeLink + item.data('id');
         window.ajaxGet(action);
         //
-        NotificationPopover.downBadge();
+        if(item.hasClass('unread')) {
+          NotificationPopover.downBadge();
+        }
+        //
+        if(NotificationPopover.popupItem.find('li').length == 1) {
+          NotificationPopover.showElm(NotificationPopover.portlet.find('.no-items:first'));
+        }
       }
   };
   

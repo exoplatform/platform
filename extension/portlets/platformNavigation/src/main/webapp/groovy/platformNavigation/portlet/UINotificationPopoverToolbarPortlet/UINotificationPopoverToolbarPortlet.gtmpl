@@ -18,8 +18,8 @@
 		  String display = (notifications.size() == 0) ? "block" : "none";
 		%>
 		<ul class="dropdown-menu" id="NotificationPopup">
-		  <li class="no-items" style="display:${display}">No notifications</li>
-			<li class="actionMark right"><a href="javascript:void(0)" data-action="<%=uicomponent.event("MarkAllRead")%>">Mark all as read</a></li>
+		  <li class="no-items" style="display:${display}"><%=_ctx.appRes("UINotificationPopoverToolbarPortlet.label.NoNotifications") %></li>
+			<li class="actionMark right"><a href="javascript:void(0)" onclick="<%=uicomponent.event("MarkAllRead")%>"><%=_ctx.appRes("UINotificationPopoverToolbarPortlet.label.MarkAllAsRead") %></a></li>
 			<li>
 				<ul class="displayItems">
 					<% 
@@ -29,7 +29,7 @@
 				  %>
 				</ul>
 			</li>
-			<li class="actionLink"><div><a class="btn" href="/portal/intranet/allNotifications/">View All</a></div></li>
+			<li class="actionLink"><div><a class="btn" href="/portal/intranet/allNotifications/"><%=_ctx.appRes("UINotificationPopoverToolbarPortlet.label.ViewAll") %></a></div></li>
 		</ul>
 	</div>
 </div>

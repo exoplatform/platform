@@ -70,8 +70,7 @@
         </supports>
         <supported-locale>en</supported-locale>
         
-        <resource-bundle>locale.portlet.UIUserPlatformToolBarPortlet.UIUserPlatformToolBarPortlet</resource-bundle>
-        <!-- resource-bundle>locale.portlet.UINotificationPopoverToolbarPortlet.UINotificationPopoverToolbarPortlet</resource-bundle -->
+        <resource-bundle>locale.portlet.UINotificationPopoverToolbarPortlet.UINotificationPopoverToolbarPortlet</resource-bundle>
         <portlet-info>
             <title>Notification Popover Portlet</title>
             <short-title>Notification Popover</short-title>
