@@ -125,24 +125,18 @@ public class NotificationsAdministration {
 
   @Ajax
   @Resource
-  public Response saveActivePlugin(String checkboxId, String enable) {
+  public Response saveActivePlugin(String pluginId, String inputs) {
     JSON data = new JSON();
     try {
-      if (enable.equals("true") || enable.equals("false")) {
-        String channelId = checkboxId.split("_")[0];
-        String pluginId = checkboxId.split("_")[1];
-        pluginSettingService.saveActivePlugin(channelId, pluginId, Boolean.valueOf(enable));
-        //
-        Boolean isEnable = new Boolean(enable);
-        data.set("status", "ok");
-        data.set("pluginId", pluginId);
-        data.set("checkboxId", checkboxId);
-        data.set("isEnable", (isEnable)); // current status
-      } else {
-        data.set("status", "false");
-        data.set("error", "Bad input: need to set true/false value to enable or disable send intranet notification the plugin");
+      Map<String, String> datas = parserParams(inputs);
+
+      for (String channelId : datas.keySet()) {
+        pluginSettingService.saveActivePlugin(channelId, pluginId, Boolean.valueOf(datas.get(channelId)));
       }
+      data.set("status", "ok");
+      data.set("result", datas);
     } catch (Exception e) {
+      LOG.error("Failed to save settings", e);
       data.set("status", "false");
       data.set("error", "Exception: " + e.getMessage());
     }
@@ -166,7 +160,17 @@ public class NotificationsAdministration {
     
     return Response.ok(data.toString()).withMimeType("application/json");
   }
-  
+
+  private Map<String, String> parserParams(String params) {
+    Map<String, String> datas = new HashMap<String, String>();
+    String[] arrays = params.split("&");
+    for (int i = 0; i < arrays.length; i++) {
+      String[] data = arrays[i].split("=");
+      datas.put(data[0], data[1]);
+    }
+    return datas;
+  }
+
   public class Context {
     ResourceBundle rs;
 
@@ -198,7 +202,7 @@ public class NotificationsAdministration {
       List<GroupProvider> groups = pluginSettingService.getGroupPlugins();
       for (GroupProvider groupProvider : groups) {
         if (groupProvider.getGroupId().equals(id)) {
-          return groupProvider.getProviderDatas().get(0).getBundlePath();
+          return groupProvider.getPluginInfos().get(0).getBundlePath();
         }
       }
       return "";

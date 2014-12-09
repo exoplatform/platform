@@ -15,18 +15,12 @@
 	    <tr>
 	      <th>${_ctx.appRes("NotificationAdmin.label.notification")}</th>
 	      <th>${_ctx.appRes("NotificationAdmin.label.title")}</th>
-      	<%
-					for(channel in channels) {
-				%>
-				<th class="center">${_ctx.appRes("NotificationAdmin.label." + channel)}</th>
-				<%
-					}
-				%>
+				<th class="center">${_ctx.appRes("NotificationAdmin.label.Enable")}</th>
 	    </tr>
 	  </thead>
 	  <tbody>
 	  <% for(def group : groups) {
-	    	List pluginInfos = group.getProviderDatas();
+	    	List pluginInfos = group.getPluginInfos();
 	    	if(pluginInfos == null || pluginInfos.size() == 0) {
 			    continue;
 			  }
@@ -35,42 +29,68 @@
 	       <td class="group-title"><strong>${_ctx.pluginRes(group.getResourceBundleKey(), group.getGroupId())}</strong></td>
 	       <td></td>
 	       <td></td> 
-				<%
-					for(int i = 1; i < channels.size(); ++i) {
-				%>
-					<td></td>
-				<%
-					}
-				%>
 	    </tr>  
 	    
-	    <% for (def provider : pluginInfos) {
-	      	 String pluginId = provider.getType();
+	    <% for (def pluginInfo : pluginInfos) {
+	      	 String pluginId = pluginInfo.getType();
 	    %>      
       <tr>       
         <td class="left">
-          <label for="${pluginId}">${_ctx.pluginRes(provider.getResourceBundleKey(), pluginId)}</label>
+          <label for="${pluginId}">${_ctx.pluginRes(pluginInfo.getResourceBundleKey(), pluginId)}</label>
         </td>
         <td class="left">
           ${_ctx.pluginRes("UINotification.title." + pluginId, pluginId)}                    
         </td>
-        <%
-					for(channelId in channels) {
-					  String status = (provider.isChannelActive(channelId) ? "enable" : "disable");
-					  String checkboxName = channelId + "_" + pluginId;
-				%>
-				<td class="center ${status}">    
-          <div class="inputContainer" style="width: 60px;">
-        <% if (status == "enable")  { %>                   
-           <input type="checkbox" class="providerAction yesno ${status}" checked="checked" name="${checkboxName}" id="${checkboxName}"/>
-        <% } else { %>
-           <input type="checkbox" class="providerAction yesno ${status}" name="${checkboxName}" id="${checkboxName}"/>
-        <% } %>
-          </div>
-        </td>
-				<%
-					}
-				%>
+        <td class="left">
+          <div id="${pluginId}" class="plugin-container clearfix view">
+            <div class="left-view pull-left">
+			        <div class="view-mode">
+			        <%
+			          String clazz = "hide";
+		            int i = 0;
+								for(channelId in channels) {
+								  String status = "";
+								  if(!pluginInfo.isChannelActive(channelId)) {
+								    status = "hide";
+								    ++i;
+								  }
+								%>
+				           <div class="${channelId} ${status}"><i class="uiIconPLF${channelId}"></i> ${_ctx.appRes("NotificationAdmin.label." + channelId)}</div>
+								<%
+								}
+			          if(i == channels.size) {
+			            clazz = "";
+			          }
+			        %>
+			         <span class="${clazz}">${_ctx.appRes("NotificationAdmin.label.NoNotifications")}</span>
+							</div>
+							<div class="edit-mode">
+		          <%
+		            for(channelId in channels) {
+		              String checkboxName = channelId + pluginId;
+		          %>
+			          <div>
+			            <span class="uiCheckbox">
+			          <% if (pluginInfo.isChannelActive(channelId))  { %>
+			              <input type="checkbox" class="checkbox" data-channel="${channelId}" checked="checked" name="${checkboxName}" id="${checkboxName}"/>
+			          <% } else { %>
+			              <input type="checkbox" class="checkbox" data-channel="${channelId}" name="${checkboxName}" id="${checkboxName}"/>
+			          <% } %>
+			              <span>${_ctx.appRes("NotificationAdmin.label." + channelId)}</span>
+			            </span>
+			          </div>
+		          <%
+		          }
+		          %>
+		          </div>
+		        </div>
+		        
+		        <div class="right-view pull-right">
+						  <button id="btAction${pluginId}" data-plugin="${pluginId}" class="btn btn-primary save-setting">${_ctx.appRes('NotificationAdmin.label.save')}</button>
+						  <a href="javascript:void(0);" class="edit-setting"><i class="uiIconEdit uiIconLightGray"></i></a>
+						</div>
+				  </div>
+				</td>
       </tr>      
 	    <% } %>    
 	  <% } %>
@@ -95,6 +115,8 @@
 	<div style="display:none;" id="labelBundle">
 		<span id="labelEnable">${_ctx.appRes("NotificationAdmin.label.Enable")}</span>
 		<span id="labelDisable">${_ctx.appRes("NotificationAdmin.label.Disable")}</span>
+		<span id="labelEmailNotifications">${_ctx.appRes("NotificationAdmin.label.email")}</span>
+		<span id="labelIntranetNotifications">${_ctx.appRes("NotificationAdmin.label.intranet")}</span>
 		<span id="labelOK">${_ctx.appRes("NotificationAdmin.label.OK")}</span>
 		<span id="Information">${_ctx.appRes("NotificationAdmin.label.Information")}</span>
 		<span id="Error">${_ctx.appRes("NotificationAdmin.label.Error")}</span>
