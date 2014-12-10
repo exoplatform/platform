@@ -178,13 +178,19 @@
                 $.each(list.items, function(i, item){
 
                     var link = "";
+                    var spaceAvatar;
 
                     if (i < 2)
                     { link += "<li class='clearfix' id='"+item.spaceId+"'>";}
                     else
                     { link += "<li class='clearfix'' style='display:none;' id='"+item.spaceId+"'>" }
+                    if (item.spaceAvatarUrl == undefined) { 
+                      spaceAvatar =  "/eXoSkin/skin/images/themes/default/social/skin/ShareImages/SpaceAvtDefault.png"; 
+                    } else { 
+                      spaceAvatar = item.avatarUrl;     
+                    }
 
-                    link += "<div class='spacePicture pull-left'><div class='avatarXSmall'><img src='"+item.avatarUrl+"'></div></div>";
+                    link += "<div class='spacePicture pull-left'><div class='avatarXSmall'><img src='"+spaceAvatar+"'></div></div>";
                     link += "<div class='spaceInfo'>";
                     link += "<div class='spaceName'>"+item.displayName+"</div>";
                     link += "<div class='spaceContent clearfix'>";
