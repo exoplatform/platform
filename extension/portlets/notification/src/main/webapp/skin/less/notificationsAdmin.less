@@ -1,3 +1,6 @@
+@import "variables.less";
+@import "mixins.less";
+//================================
 .uiNotificationAdmin {
 	padding: 20px 30px;
     .senderForm {
@@ -21,33 +24,86 @@
     background-image: url("/eXoPlatformResources/skin/images/icons/uiIconsPLFDarkGray.png");
     background-repeat: no-repeat;
   }
-  .uiIconPLFintranet {
+  .uiIconPLFWeb {
     background-position: -100px -20px;
   }
-  .uiIconPLFemail {
+  .uiIconPLFMail {
     background-position: -160px -60px;
     background-image: url("/eXoResources/skin/images/Icons/uiIconsLightGray.png") !important;
-  }  
+  }
 	.uiGrid.table {
-        tr.disable {
-        	color: gray;
-        }
-        tr {
-        	td.left label, td >label{
-    	    	padding-left: 20px;
-        	}
-        	td .view .edit-mode,
-          td .view .save-setting {
-            display: none;
-          }
-          td .edit .view-mode,
-          td .edit .edit-setting {
-            display: none;
-          }
-        
-        }
+		thead {
+			th:last-child {
+				width: 40%;
+			}
+		}
+		tr.disable {
+			color: gray;
+		}
+		tr {
+			td {
+				&:first-child{
+					>label{
+						padding-left: 20px;
+					}
+				}
+			}
+			td .view .edit-mode,
+			td .view .save-setting {
+				display: none;
+			}
+			td .edit .view-mode,
+			td .edit .edit-setting {
+				display: none;
+			}
+
+		}
 	}
-    .inputContainer {
-        margin: 0 auto;
-    }
+	[class^="uiIconPLF"] {
+		display: inline-block;
+		width: 16px;
+		height: 16px;
+		*margin-right: .3em;
+		line-height: 16px;
+		vertical-align: text-top;
+		background-image: url("/eXoPlatformResources/skin/images/icons/uiIconsPLFLightGray.png");
+		background-repeat: no-repeat;
+	}
+	.uiIconPLFWeb {
+		background-position: -100px -20px;
+	}
+	.uiIconPLFMail {
+		background-position: -160px -60px;
+		background-image: url("/eXoResources/skin/images/Icons/uiIconsLightGray.png") !important;
+	}
+	.view-mode, .edit-mode {
+		> div {
+			padding: 2px 0;
+		}
+	}
+	.view-mode {
+		[class^="uiIconPLF"] {
+			margin-right: 4px;
+		}
+	}
+	.edit-mode {
+		.uiCheckbox {
+			margin-left: 0;
+			.checkbox + span {
+				padding-left: 6px;
+			}
+		}
+	}
+	.plugin-container {
+		position: relative;
+		.right-view {
+			position: absolute;
+			top: 50%;
+			right: 0;
+			.translate(0, -50%);
+		}
+	}
+	.inputContainer {
+		margin: 0 auto;
+	}
 }

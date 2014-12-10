@@ -13,9 +13,9 @@
 	<table class="uiGrid table  table-hover table-striped">
 	  <thead>
 	    <tr>
-	      <th>${_ctx.appRes("NotificationAdmin.label.notification")}</th>
-	      <th>${_ctx.appRes("NotificationAdmin.label.title")}</th>
-				<th class="center">${_ctx.appRes("NotificationAdmin.label.Enable")}</th>
+	      	<th>${_ctx.appRes("NotificationAdmin.label.notification")}</th>
+	      	<th>${_ctx.appRes("NotificationAdmin.label.title")}</th>
+			<th>${_ctx.appRes("NotificationAdmin.label.Enable")}</th>
 	    </tr>
 	  </thead>
 	  <tbody>
@@ -28,18 +28,18 @@
 	    <tr>
 	       <td class="group-title"><strong>${_ctx.pluginRes(group.getResourceBundleKey(), group.getGroupId())}</strong></td>
 	       <td></td>
-	       <td></td> 
-	    </tr>  
-	    
+	       <td></td>
+	    </tr>
+
 	    <% for (def pluginInfo : pluginInfos) {
 	      	 String pluginId = pluginInfo.getType();
-	    %>      
-      <tr>       
+	    %>
+      <tr>
         <td class="left">
           <label for="${pluginId}">${_ctx.pluginRes(pluginInfo.getResourceBundleKey(), pluginId)}</label>
         </td>
         <td class="left">
-          ${_ctx.pluginRes("UINotification.title." + pluginId, pluginId)}                    
+          ${_ctx.pluginRes("UINotification.title." + pluginId, pluginId)}
         </td>
         <td class="left">
           <div id="${pluginId}" class="plugin-container clearfix view">
@@ -49,13 +49,14 @@
 			          String clazz = "hide";
 		            int i = 0;
 								for(channelId in channels) {
+								  String channelKey = _ctx.getChannelKey(channelId);
 								  String status = "";
 								  if(!pluginInfo.isChannelActive(channelId)) {
 								    status = "hide";
 								    ++i;
 								  }
 								%>
-				           <div class="${channelId} ${status}"><i class="uiIconPLF${channelId}"></i> ${_ctx.appRes("NotificationAdmin.label." + channelId)}</div>
+				           <div class="${channelId} ${status}"><i class="uiIconPLF${_ctx.capitalizeFirstLetter(channelKey)}"></i> ${_ctx.appRes("NotificationAdmin.label." + channelKey)}</div>
 								<%
 								}
 			          if(i == channels.size) {
@@ -67,36 +68,37 @@
 							<div class="edit-mode">
 		          <%
 		            for(channelId in channels) {
+		              String channelKey = _ctx.getChannelKey(channelId);
 		              String checkboxName = channelId + pluginId;
 		          %>
 			          <div>
-			            <span class="uiCheckbox">
+			            <label class="uiCheckbox">
 			          <% if (pluginInfo.isChannelActive(channelId))  { %>
 			              <input type="checkbox" class="checkbox" data-channel="${channelId}" checked="checked" name="${checkboxName}" id="${checkboxName}"/>
 			          <% } else { %>
 			              <input type="checkbox" class="checkbox" data-channel="${channelId}" name="${checkboxName}" id="${checkboxName}"/>
 			          <% } %>
-			              <span>${_ctx.appRes("NotificationAdmin.label." + channelId)}</span>
-			            </span>
+			              <span>${_ctx.appRes("NotificationAdmin.label." + channelKey)}</span>
+			            </label>
 			          </div>
 		          <%
 		          }
 		          %>
 		          </div>
 		        </div>
-		        
+
 		        <div class="right-view pull-right">
 						  <button id="btAction${pluginId}" data-plugin="${pluginId}" class="btn btn-primary save-setting">${_ctx.appRes('NotificationAdmin.label.save')}</button>
 						  <a href="javascript:void(0);" class="edit-setting"><i class="uiIconEdit uiIconLightGray"></i></a>
 						</div>
 				  </div>
 				</td>
-      </tr>      
-	    <% } %>    
+      </tr>
+	    <% } %>
 	  <% } %>
 	  </tbody>
 	</table>
-	
+
 	<form id="senderForm" class="senderForm">
     <h4 class="titleWithBorder mgB20">${_ctx.appRes("NotificationAdmin.label.notificationsSender")}</h4>
     <div class="control-groups clearfix">
@@ -111,17 +113,17 @@
       <input id="btSetSender" class="btn btn-primary" type="button" value="${_ctx.appRes('NotificationAdmin.label.save')}"/>
     </div>
   </form>
-  
+
 	<div style="display:none;" id="labelBundle">
 		<span id="labelEnable">${_ctx.appRes("NotificationAdmin.label.Enable")}</span>
 		<span id="labelDisable">${_ctx.appRes("NotificationAdmin.label.Disable")}</span>
-		<span id="labelEmailNotifications">${_ctx.appRes("NotificationAdmin.label.email")}</span>
-		<span id="labelIntranetNotifications">${_ctx.appRes("NotificationAdmin.label.intranet")}</span>
+		<span id="labelEmailNotifications">${_ctx.appRes("NotificationAdmin.label.mail")}</span>
+		<span id="labelIntranetNotifications">${_ctx.appRes("NotificationAdmin.label.web")}</span>
 		<span id="labelOK">${_ctx.appRes("NotificationAdmin.label.OK")}</span>
 		<span id="Information">${_ctx.appRes("NotificationAdmin.label.Information")}</span>
 		<span id="Error">${_ctx.appRes("NotificationAdmin.label.Error")}</span>
 		<span id="msgSaveOK">${_ctx.appRes("NotificationAdmin.msg.saveOK")}</span>
 		<span id="msgSaveKO">${_ctx.appRes("NotificationAdmin.msg.saveKO")}</span>
 	</div>
-  
+
 </div>
