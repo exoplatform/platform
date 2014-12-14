@@ -95,12 +95,13 @@ public class NotificationsAdministration {
     List<GroupProvider> groups = pluginSettingService.getGroupPlugins();
     parameters.put("groups", groups);     
     //
-    List<String> channels = getChannels();
-    parameters.put("channels", channels);
+    parameters.put("channels", getChannels());
     
     //try to get sender name and email from database. If fail, get default value from properties file
-    SettingValue<?> senderName = settingService.get(org.exoplatform.commons.api.settings.data.Context.GLOBAL, Scope.GLOBAL, NotificationPluginUtils.NOTIFICATION_SENDER_NAME);
-    SettingValue<?> senderEmail = settingService.get(org.exoplatform.commons.api.settings.data.Context.GLOBAL, Scope.GLOBAL, NotificationPluginUtils.NOTIFICATION_SENDER_EMAIL);
+    SettingValue<?> senderName = settingService.get(org.exoplatform.commons.api.settings.data.Context.GLOBAL,
+                                                    Scope.GLOBAL, NotificationPluginUtils.NOTIFICATION_SENDER_NAME);
+    SettingValue<?> senderEmail = settingService.get(org.exoplatform.commons.api.settings.data.Context.GLOBAL,
+                                                     Scope.GLOBAL, NotificationPluginUtils.NOTIFICATION_SENDER_EMAIL);
     parameters.put("senderName", senderName != null ? (String)senderName.getValue() : System.getProperty("exo.notifications.portalname", "eXo"));
     parameters.put("senderEmail", senderEmail != null ? (String)senderEmail.getValue() : System.getProperty("gatein.email.smtp.from", "noreply@exoplatform.com"));
     
@@ -139,7 +140,6 @@ public class NotificationsAdministration {
     JSON data = new JSON();
     try {
       Map<String, String> datas = parserParams(inputs);
-
       for (String channelId : datas.keySet()) {
         pluginSettingService.saveActivePlugin(channelId, pluginId, Boolean.valueOf(datas.get(channelId)));
       }
@@ -159,15 +159,15 @@ public class NotificationsAdministration {
     JSON data = new JSON();
     data.set("name", name);
     data.set("email",email);
-    if(name != null && name.length() > 0
-         && NotificationUtils.isValidEmailAddresses(email)) {
-      settingService.set(org.exoplatform.commons.api.settings.data.Context.GLOBAL, Scope.GLOBAL, NotificationPluginUtils.NOTIFICATION_SENDER_NAME, SettingValue.create(name));
-      settingService.set(org.exoplatform.commons.api.settings.data.Context.GLOBAL, Scope.GLOBAL, NotificationPluginUtils.NOTIFICATION_SENDER_EMAIL, SettingValue.create(email));
+    if(name != null && name.length() > 0 && NotificationUtils.isValidEmailAddresses(email)) {
+      settingService.set(org.exoplatform.commons.api.settings.data.Context.GLOBAL, Scope.GLOBAL,
+                         NotificationPluginUtils.NOTIFICATION_SENDER_NAME, SettingValue.create(name));
+      settingService.set(org.exoplatform.commons.api.settings.data.Context.GLOBAL, Scope.GLOBAL,
+                         NotificationPluginUtils.NOTIFICATION_SENDER_EMAIL, SettingValue.create(email));
       data.set("status","OK");
     } else {
       data.set("status","NOK");
     }
-    
     return Response.ok(data.toString()).withMimeType("application/json");
   }
 

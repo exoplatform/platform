@@ -55,7 +55,7 @@ public class UINotificationPopoverToolbarPortlet extends UIPortletApplication {
     return event(actionName).replace("javascript:ajaxGet('", "").replace("')", "&" + OBJECTID + "=");
   }
 
-  protected boolean isIntranetActive() {
+  protected boolean isWebActive() {
     if (currentUser == null || currentUser.isEmpty()) {
       currentUser = WebuiRequestContext.getCurrentInstance().getRemoteUser();
     }
