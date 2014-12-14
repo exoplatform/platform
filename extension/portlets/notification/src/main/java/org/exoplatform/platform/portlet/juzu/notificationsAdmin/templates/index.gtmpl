@@ -7,20 +7,6 @@
 	<div id="confirmMessage" style="display:none">
 		<i class="uiIconSuccess"></i><span class="message"></span>
 	</div>
-	<form id="senderForm" class="senderForm">
-		<h4 class="titleWithBorder mgB20">${_ctx.appRes("NotificationAdmin.label.notificationsSender")}</h4>
-		<div class="control-groups clearfix">
-			<label for="senderName" class="pull-left"> ${_ctx.appRes("NotificationAdmin.label.sender.name")}:&nbsp;</label>
-			<div class="pull-left mgR20">
-				<input id="senderName" name="name" type="text" value="${senderName}" placeholder="Name"/>&nbsp;&nbsp;
-			</div>
-			<label for="senderEmail" class="pull-left">${_ctx.appRes("NotificationAdmin.label.sender.address")}:&nbsp;</label>
-			<div class="pull-left mgR20">
-				<input id="senderEmail" class="right" type="text" name="email" value="${senderEmail}" placeholder="Email"/>&nbsp;
-			</div>
-			<input id="btSetSender" class="btn btn-primary" type="button" value="${_ctx.appRes('NotificationAdmin.label.save')}"/>
-		</div>
-	</form>
 
 	<h4 class="titleWithBorder mgB20">${_ctx.appRes("NotificationAdmin.label.notificationTypes")}</h4>
 	<table class="uiGrid table  table-hover table-striped">
@@ -28,7 +14,8 @@
 	    <tr>
 	      <th>${_ctx.appRes("NotificationAdmin.label.notification")}</th>
 	      <th>${_ctx.appRes("NotificationAdmin.label.title")}</th>
-	      <th class="center">${_ctx.appRes("NotificationAdmin.label.action")}</th>
+	      <th class="center">${_ctx.appRes("NotificationAdmin.label.EnableEmailNotificationsAction")}</th>
+	      <th class="center">${_ctx.appRes("NotificationAdmin.label.EnableIntranetNotificationsAction")}</th>
 	    </tr>
 	  </thead>
 	  <tbody>
@@ -42,20 +29,22 @@
 	       <td class="group-title"><strong>${_ctx.pluginRes(group.getResourceBundleKey(), group.getGroupId())}</strong></td>
 	       <td></td>
 	       <td></td> 
+	       <td></td> 
 	    </tr>  
 	    
 	    <% for (def provider : pluginInfos) {
-	         def pluginId = provider.getType();
-	         def status = (provider.isActive() ? "enable" : "disable");
+	      	 String pluginId = provider.getType();
+	         String status = (provider.isActive() ? "enable" : "disable");
+	         String statusNotify = (provider.isIntranetActive() ? "enable" : "disable");
 	    %>      
-      <tr id="${pluginId}" class="${status}">       
+      <tr id="${pluginId}">       
         <td class="left">
           <label for="${pluginId}">${_ctx.pluginRes(provider.getResourceBundleKey(), pluginId)}</label>
         </td>
         <td class="left">
           ${_ctx.pluginRes("UINotification.title." + pluginId, pluginId)}                    
         </td>
-        <td class="center">    
+        <td class="center ${status}">    
           <div class="inputContainer" style="width: 60px;">
         <% if (status == "enable")  { %>                   
            <input type="checkbox" class="providerAction yesno ${status}" checked="checked" name="${pluginId}">
@@ -64,11 +53,38 @@
         <% } %>
           </div>
         </td>
+        
+        <td class="center ${statusNotify}">    
+          <div class="inputContainer" style="width: 60px;">
+        <% if (statusNotify == "enable")  { %>                   
+           <input type="checkbox" class="providerAction yesno ${statusNotify}" checked="checked" name="intranet${pluginId}">
+        <% } else { %>
+           <input type="checkbox" class="providerAction yesno ${statusNotify}" name="intranet${pluginId}">
+        <% } %>
+          </div>
+        </td>
+        
       </tr>      
 	    <% } %>    
 	  <% } %>
 	  </tbody>
 	</table>
+	
+	<form id="senderForm" class="senderForm">
+    <h4 class="titleWithBorder mgB20">${_ctx.appRes("NotificationAdmin.label.notificationsSender")}</h4>
+    <div class="control-groups clearfix">
+      <label for="senderName" class="pull-left"> ${_ctx.appRes("NotificationAdmin.label.sender.name")}:&nbsp;</label>
+      <div class="pull-left mgR20">
+        <input id="senderName" name="name" type="text" value="${senderName}" placeholder="Name"/>&nbsp;&nbsp;
+      </div>
+      <label for="senderEmail" class="pull-left">${_ctx.appRes("NotificationAdmin.label.sender.address")}:&nbsp;</label>
+      <div class="pull-left mgR20">
+        <input id="senderEmail" class="right" type="text" name="email" value="${senderEmail}" placeholder="Email"/>&nbsp;
+      </div>
+      <input id="btSetSender" class="btn btn-primary" type="button" value="${_ctx.appRes('NotificationAdmin.label.save')}"/>
+    </div>
+  </form>
+  
 	<div style="display:none;" id="labelBundle">
 		<span id="labelEnable">${_ctx.appRes("NotificationAdmin.label.Enable")}</span>
 		<span id="labelDisable">${_ctx.appRes("NotificationAdmin.label.Disable")}</span>
@@ -78,22 +94,5 @@
 		<span id="msgSaveOK">${_ctx.appRes("NotificationAdmin.msg.saveOK")}</span>
 		<span id="msgSaveKO">${_ctx.appRes("NotificationAdmin.msg.saveKO")}</span>
 	</div>
-	
-	<script type="text/javascript">
-		require(["PORTLET/platform-notification/NotificationsAdminJuzuPortlet","SHARED/jquery", "SHARED/iphonePlugin"], function (notificationsAdmin, gj)
-		{
-			gj('input.providerAction').each(function()
-			{
-				gj(this).iphoneStyle({
-					checkedLabel:'YES',
-					uncheckedLabel:'NO'});
-
-				gj(this).change(function()
-				{
-					gj(this).trigger("click");
-				});
-			});
-		});
-  </script>
   
 </div>
