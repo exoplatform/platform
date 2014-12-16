@@ -1,10 +1,21 @@
 package org.exoplatform.platform.component;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import org.exoplatform.commons.api.notification.NotificationContext;
+import org.exoplatform.commons.api.notification.channel.AbstractChannel;
+import org.exoplatform.commons.api.notification.channel.ChannelManager;
+import org.exoplatform.commons.api.notification.channel.template.AbstractTemplateBuilder;
+import org.exoplatform.commons.api.notification.model.ChannelKey;
+import org.exoplatform.commons.api.notification.model.MessageInfo;
+import org.exoplatform.commons.api.notification.model.NotificationInfo;
 import org.exoplatform.commons.api.notification.service.setting.UserSettingService;
 import org.exoplatform.commons.api.notification.service.storage.IntranetNotificationDataStorage;
+import org.exoplatform.commons.notification.channel.WebChannel;
+import org.exoplatform.commons.notification.impl.NotificationContextImpl;
+import org.exoplatform.commons.utils.CommonsUtils;
 import org.exoplatform.portal.application.PortalRequestContext;
 import org.exoplatform.services.log.ExoLogger;
 import org.exoplatform.services.log.Log;
@@ -44,7 +55,18 @@ public class UINotificationPopoverToolbarPortlet extends UIPortletApplication {
   }
 
   protected List<String> getNotifications() throws Exception {
-    return dataStorage.getNotificationContent(currentUser, true);
+    List<String> messages = new ArrayList<String>();
+    List<NotificationInfo> infos = dataStorage.get(currentUser, 0, 8);
+    ChannelManager channelManager = CommonsUtils.getService(ChannelManager.class);
+    AbstractChannel webChannel = channelManager.getChannel(new ChannelKey(WebChannel.ID));
+    for (NotificationInfo info : infos) {
+      AbstractTemplateBuilder builder = webChannel.getTemplateBuilder(info.getKey());
+      NotificationContext nCtx = NotificationContextImpl.cloneInstance();
+      nCtx.setNotificationInfo(info);
+      MessageInfo msg = builder.buildMessage(nCtx);
+      messages.add(msg.getBody());
+    }
+    return messages;
   }
 
   protected List<String> getActions() {
@@ -59,7 +81,7 @@ public class UINotificationPopoverToolbarPortlet extends UIPortletApplication {
     if (currentUser == null || currentUser.isEmpty()) {
       currentUser = WebuiRequestContext.getCurrentInstance().getRemoteUser();
     }
-    return userSettingService.get(currentUser).isChannelActive(dataStorage.getChannelId());
+    return userSettingService.get(currentUser).isChannelActive(WebChannel.ID);
   }
   
   public static class MarkReadActionListener extends EventListener<UINotificationPopoverToolbarPortlet> {
