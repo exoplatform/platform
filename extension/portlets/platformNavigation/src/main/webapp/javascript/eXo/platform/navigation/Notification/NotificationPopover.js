@@ -1,4 +1,4 @@
-(function($){
+(function(Cometd, $){
   var NotificationPopover = {
       popupId : 'NotificationPopup',
       maxItem : 13,
@@ -6,24 +6,27 @@
       popupItem : null,
       markReadLink : '',
       removeLink : '',
-      init : function() {
-        //
-        var socketUrl = 'ws://' + location.hostname + ':8181/channels/notification-web/' + window.eXo.env.portal.userName;
-        var socket = new WebSocket(socketUrl);
-        socket.onmessage = function(evt) {
-          var obj = JSON.parse(evt.data);
-          NotificationPopover.appendMessage(obj.message);
-        }
-        socket.onopen = function(evt) {
-          if (socket.readyState == WebSocket.OPEN) {
-            socket.send('{"action": "subscribe", "identifier" : "notification-web"}');
+      initCometd : function(eXoUser, eXoToken, contextName) {
+        if (String(eXoToken) != '') {
+          if (Cometd.isConnected() === false) {
+            if (NotificationPopover.currentUser !== eXoUser || NotificationPopover.currentUser === '') {
+              NotificationPopover.currentUser = eXoUser;
+              document.cookie = 'forumCurrentUserId=' + escape(eXoUser) + ';path=/portal';
+              Cometd._connecting = false;
+              Cometd.currentTransport = null;
+              Cometd.clientId = null;
+            }
+            Cometd.url = '/' + contextName + '/cometd';
+            Cometd.exoId = eXoUser;
+            Cometd.exoToken = eXoToken;
+            Cometd.addOnConnectionReadyCallback(NotificationPopover.subcribeSendNotification);
+            Cometd.init(Cometd.url);
           } else {
-            window.console.log("The socket is not open.");
+            NotificationPopover.subcribeSendNotification();
           }
         }
-        socket.onclose = function(evt) {
-          window.console.log("Web Socket closed.");
-        }
+      },
+      init : function() {
         //
         NotificationPopover.portlet = $('#' + NotificationPopover.popupId).parents('.uiNotificationPopoverToolbarPortlet:first');
         NotificationPopover.markReadLink = NotificationPopover.portlet.find('#MarkRead').text();
@@ -45,6 +48,12 @@
         });
         //
         NotificationPopover.portlet.find('.dropdown-toggle:first').on('click', function() { console.log('Show menu')});
+      },
+      subcribeSendNotification : function() {
+        Cometd.subscribe('/eXo/Application/web/NotificationMessage', function(eventObj) {
+          var obj = JSON.parse(eventObj.data);
+          NotificationPopover.appendMessage(obj.body);
+        });
       },
       appendMessage : function(message) {
         var newItem = NotificationPopover.applyAction($($('<ul></ul>').html(message).html()));
@@ -162,4 +171,4 @@
   
   NotificationPopover.init();
   return NotificationPopover;
-})(jQuery);
+})(cometd, jQuery);

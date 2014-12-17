@@ -18,6 +18,8 @@ import org.exoplatform.webui.core.UIPortletApplication;
 import org.exoplatform.webui.core.lifecycle.UIApplicationLifecycle;
 import org.exoplatform.webui.event.Event;
 import org.exoplatform.webui.event.EventListener;
+import org.exoplatform.ws.frameworks.cometd.ContinuationService;
+import org.mortbay.cometd.continuation.EXoContinuationBayeux;
 
 @ComponentConfig(
     lifecycle = UIApplicationLifecycle.class,
@@ -31,17 +33,31 @@ import org.exoplatform.webui.event.EventListener;
 public class UINotificationPopoverToolbarPortlet extends UIPortletApplication {
   private static final Log LOG = ExoLogger.getLogger(UINotificationPopoverToolbarPortlet.class);
   private String currentUser = "";
-  private WebNotificationService webNftService;
-  private UserSettingService userSettingService;
+  private final WebNotificationService webNftService;
+  private final UserSettingService userSettingService;
+  private final ContinuationService continuation;
+  private final EXoContinuationBayeux bayeux;
 
   public UINotificationPopoverToolbarPortlet() throws Exception {
     webNftService = getApplicationComponent(WebNotificationService.class);
     userSettingService = getApplicationComponent(UserSettingService.class);
+    continuation = getApplicationComponent(ContinuationService.class);
+    bayeux = getApplicationComponent(EXoContinuationBayeux.class);
   }
   
   @Override
   public void processRender(WebuiApplication app, WebuiRequestContext context) throws Exception {
     this.currentUser = context.getRemoteUser();
+    StringBuilder scripts = new StringBuilder("NotificationPopoverToolbarPortlet.initCometd('");
+    scripts.append(currentUser).append("', '")
+           .append(getUserToken()).append("', '")
+           .append(getCometdContextName()).append("');");
+    
+    context.getJavascriptManager().getRequireJS()
+           .require("SHARED/commons-cometd", "cometd")
+           .require("PORTLET/platformNavigation/NotificationPopoverToolbarPortlet", "NotificationPopoverToolbarPortlet")
+           .addScripts(scripts.toString());
+    //
     super.processRender(app, context);
   }
 
@@ -63,6 +79,19 @@ public class UINotificationPopoverToolbarPortlet extends UIPortletApplication {
       currentUser = WebuiRequestContext.getCurrentInstance().getRemoteUser();
     }
     return userSettingService.get(currentUser).isChannelActive(WebChannel.ID);
+  }
+  
+  protected String getCometdContextName() {
+    return (bayeux == null ? "cometd" : bayeux.getCometdContextName());
+  }
+
+  public String getUserToken() {
+    try {
+      return continuation.getUserToken(currentUser);
+    } catch (Exception e) {
+      LOG.error("Could not retrieve continuation token for user " + currentUser, e);
+      return "";
+    }
   }
   
   public static class MarkReadActionListener extends EventListener<UINotificationPopoverToolbarPortlet> {
