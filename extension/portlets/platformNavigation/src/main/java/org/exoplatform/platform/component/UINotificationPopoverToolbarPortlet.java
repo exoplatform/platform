@@ -32,17 +32,19 @@ import org.mortbay.cometd.continuation.EXoContinuationBayeux;
 )
 public class UINotificationPopoverToolbarPortlet extends UIPortletApplication {
   private static final Log LOG = ExoLogger.getLogger(UINotificationPopoverToolbarPortlet.class);
-  private String currentUser = "";
   private final WebNotificationService webNftService;
   private final UserSettingService userSettingService;
   private final ContinuationService continuation;
   private final EXoContinuationBayeux bayeux;
+  private String currentUser = "";
+  private int MAX_NUMBER_ON_MENU = 8;
 
   public UINotificationPopoverToolbarPortlet() throws Exception {
     webNftService = getApplicationComponent(WebNotificationService.class);
     userSettingService = getApplicationComponent(UserSettingService.class);
     continuation = getApplicationComponent(ContinuationService.class);
     bayeux = getApplicationComponent(EXoContinuationBayeux.class);
+    MAX_NUMBER_ON_MENU = Integer.valueOf(System.getProperty("exo.notifications.maxitems", "8"));
   }
   
   @Override
@@ -62,7 +64,7 @@ public class UINotificationPopoverToolbarPortlet extends UIPortletApplication {
   }
 
   protected List<String> getNotifications() throws Exception {
-    WebFilter filter = new WebFilter(currentUser, true, 8);
+    WebFilter filter = new WebFilter(currentUser, true, MAX_NUMBER_ON_MENU);
     return webNftService.getNotificationContents(filter);
   }
 
