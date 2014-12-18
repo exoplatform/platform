@@ -98,7 +98,6 @@ public class UINotificationPopoverToolbarPortlet extends UIPortletApplication {
     public void execute(Event<UINotificationPopoverToolbarPortlet> event) throws Exception {
       String notificationId = event.getRequestContext().getRequestParameter(OBJECTID);
       UINotificationPopoverToolbarPortlet portlet = event.getSource();
-      LOG.info("Run action MarkReadActionListener");
       portlet.webNftService.markRead(notificationId);
       // Ignore reload portlet
       ((PortalRequestContext) event.getRequestContext().getParentAppRequestContext()).ignoreAJAXUpdateOnPortlets(true);
@@ -109,8 +108,7 @@ public class UINotificationPopoverToolbarPortlet extends UIPortletApplication {
     public void execute(Event<UINotificationPopoverToolbarPortlet> event) throws Exception {
       String notificationId = event.getRequestContext().getRequestParameter(OBJECTID);
       UINotificationPopoverToolbarPortlet portlet = event.getSource();
-      LOG.info("Run action RemoveActionListener: " + notificationId);
-      portlet.webNftService.remove(portlet.currentUser, notificationId);
+      portlet.webNftService.hidePopover(notificationId);
       // Ignore reload portlet
       ((PortalRequestContext) event.getRequestContext().getParentAppRequestContext()).ignoreAJAXUpdateOnPortlets(true);
     }
@@ -119,7 +117,6 @@ public class UINotificationPopoverToolbarPortlet extends UIPortletApplication {
   public static class MarkAllReadActionListener extends EventListener<UINotificationPopoverToolbarPortlet> {
     public void execute(Event<UINotificationPopoverToolbarPortlet> event) throws Exception {
       UINotificationPopoverToolbarPortlet portlet = event.getSource();
-      LOG.info("Run action MarkAllReadActionListener: " + portlet.currentUser);
       portlet.webNftService.markReadAll(portlet.currentUser);
       // Ignore reload portlet
       ((PortalRequestContext) event.getRequestContext().getParentAppRequestContext()).ignoreAJAXUpdateOnPortlets(true);
