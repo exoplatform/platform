@@ -47,7 +47,9 @@
           NotificationPopover.markAllRead();
         });
         //
-        NotificationPopover.portlet.find('.dropdown-toggle:first').on('click', function() { console.log('Show menu')});
+        NotificationPopover.portlet.find('.dropdown-toggle:first').on('click', function() { 
+          NotificationPopover.portlet.find('span.badgeDefault:first').text('0').hide();
+        });
       },
       subcribeSendNotification : function() {
         Cometd.subscribe('/eXo/Application/web/NotificationMessage', function(eventObj) {
