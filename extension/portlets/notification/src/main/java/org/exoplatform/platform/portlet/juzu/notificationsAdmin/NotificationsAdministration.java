@@ -192,11 +192,15 @@ public class NotificationsAdministration {
       try {
         return rs.getString(key).replaceAll("'", "&#39;").replaceAll("\"", "&#34;");
       } catch (java.util.MissingResourceException e) {
-        LOG.warn("Can't find resource for bundle key " + key);
+        LOG.debug("Can't find resource for bundle key " + key);
+        if(key.indexOf("NotificationAdmin.label.channel.") == 0) {
+          return appRes("NotificationAdmin.label.default.channel")
+              .replace("{0}", capitalizeFirstLetter(key.replace("NotificationAdmin.label.channel.", "")));
+        }
       } catch (Exception e) {
         LOG.debug("Error when get resource bundle key " + key, e);
       }
-      return key;
+      return capitalizeFirstLetter(key.substring(key.lastIndexOf(".") + 1));
     }
     
     private String getBundlePath(String id) {

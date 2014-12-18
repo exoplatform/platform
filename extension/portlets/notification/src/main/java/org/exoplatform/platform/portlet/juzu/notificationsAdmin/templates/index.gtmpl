@@ -56,7 +56,7 @@
 								    ++i;
 								  }
 								%>
-				           <div class="${channelId} ${status}"><i class="uiIconPLF${_ctx.capitalizeFirstLetter(channelKey)}"></i> ${_ctx.appRes("NotificationAdmin.label." + channelKey)}</div>
+				           <div class="${channelId} ${status}"><i class="uiIconPLF${_ctx.capitalizeFirstLetter(channelKey)}"></i> ${_ctx.appRes("NotificationAdmin.label.channel." + channelKey)}</div>
 								<%
 								}
 			          if(i == channels.size) {
@@ -78,7 +78,7 @@
 			          <% } else { %>
 			              <input type="checkbox" class="checkbox" data-channel="${channelId}" name="${checkboxName}" id="${checkboxName}"/>
 			          <% } %>
-			              <span>${_ctx.appRes("NotificationAdmin.label." + channelKey)}</span>
+			              <span>${_ctx.appRes("NotificationAdmin.label.channel." + channelKey)}</span>
 			            </label>
 			          </div>
 		          <%
