@@ -1,4 +1,4 @@
-<div class="uiNotificationPopoverToolbarPortlet clearfix" style="<%=(uicomponent.isWebActive() ? "" : "display:none")%>" id="$uicomponent.id">
+<div data-max-item="${uicomponent.MAX_NUMBER_ON_MENU}" class="uiNotificationPopoverToolbarPortlet clearfix" style="<%=(uicomponent.isWebActive() ? "" : "display:none")%>" id="$uicomponent.id">
 	<div style="display:none" class="all-actions">
 		<%
 			List actions = uicomponent.getActions();

@@ -1,7 +1,9 @@
 (function(Cometd, $){
   var NotificationPopover = {
       popupId : 'NotificationPopup',
-      maxItem : 13,
+      maxItem : 8,
+      nbUnreadNotif : 0,
+      nbDisplay : 0,
       portlet : null,
       popupItem : null,
       markReadLink : '',
@@ -39,9 +41,13 @@
           NotificationPopover.applyAction($(this));
         });
         //
-        var current = NotificationPopover.popupItem.find('li.unread').length;
-        if(current > 0) {
-          NotificationPopover.portlet.find('span.badgeDefault:first').text(current).show();
+        NotificationPopover.maxItem = NotificationPopover.portlet.data('max-item') || 8;
+        NotificationPopover.nbUnreadNotif = NotificationPopover.popupItem.find('li.unread').length;
+        NotificationPopover.nbDisplay = NotificationPopover.nbUnreadNotif;
+        if(NotificationPopover.nbDisplay > 0) {
+          var number = (NotificationPopover.nbDisplay <= NotificationPopover.maxItem) ? NotificationPopover.nbDisplay : (NotificationPopover.maxItem + "+");
+          NotificationPopover.portlet.find('span.badgeDefault:first').text(number).show();
+          NotificationPopover.portlet.find('.actionMark:first').show();
         }
         // markAllRead
         NotificationPopover.portlet.find('.actionMark:first').find('a').click(function (evt) {
@@ -50,6 +56,7 @@
         });
         //
         NotificationPopover.portlet.find('.dropdown-toggle:first').on('click', function() { 
+          NotificationPopover.nbDisplay = 0;
           NotificationPopover.portlet.find('span.badgeDefault:first').text('0').hide();
         });
       },
@@ -73,13 +80,14 @@
         NotificationPopover.popupItem.prepend(newItem.hide());
         NotificationPopover.showElm(newItem)
         //
+        NotificationPopover.nbUnreadNotif = parseInt(NotificationPopover.nbUnreadNotif) + 1;
         var badge = NotificationPopover.portlet.find('span.badgeDefault:first');
-        var current = parseInt(badge.text());
-        if(current > NotificationPopover.maxItem) {
-          badge.text(NotificationPopover.maxItem + "+").show();
+        if(parseInt(NotificationPopover.nbDisplay) >= NotificationPopover.maxItem) {
+          NotificationPopover.nbDisplay += "+";
         } else {
-          badge.text((current + 1) + "").show();
+          NotificationPopover.nbDisplay = parseInt(NotificationPopover.nbDisplay) + 1;
         }
+        badge.text(NotificationPopover.nbDisplay).show();
         //
         NotificationPopover.portlet.find('.actionMark:first').show();
         NotificationPopover.portlet.find('.no-items:first').hide();
@@ -160,11 +168,12 @@
       downBadge : function() {
         //
         var badge = NotificationPopover.portlet.find('span.badgeDefault:first');
-        var current = parseInt(badge.text().trim());
-        if(current <= 1) {
+        NotificationPopover.nbUnreadNotif = parseInt(NotificationPopover.nbUnreadNotif) - 1;
+        NotificationPopover.nbDisplay = parseInt(NotificationPopover.nbDisplay) - 1;
+        if(NotificationPopover.nbUnreadNotif < 1) {
           NotificationPopover.markAllRead();
-        } else {
-          badge.text((current - 1) + "");
+        } else if (NotificationPopover.nbDisplay >= 1) {
+          badge.text(NotificationPopover.nbDisplay);
         }
       },
       markAllRead : function() {
