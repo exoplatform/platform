@@ -140,9 +140,17 @@ public class UIBreadCrumbsNavigationPortlet extends UIPortletApplication {
   }
   
   private String getWikiURL() {
-    return NavigationURLUtils.getURLInCurrentPortal(WIKI_REF) + USER + getOwnerProfile().getIdentity().getRemoteId() + WIKI_HOME;
+    return NavigationURLUtils.getURLInCurrentPortal(WIKI_REF) + USER + getCurrentLogin() + WIKI_HOME;
   }
 
+  public static String getCurrentLogin() {
+    String currentUserName = org.exoplatform.platform.navigation.component.utils.NavigationUtils.getCurrentLoginUser();
+    if (currentUserName == null || currentUserName.equals("")) {
+        return Utils.getViewerRemoteId();
+    }
+    return currentUserName;
+  }
+  
   private Profile getOwnerProfile() {
     return Utils.getOwnerIdentity(true).getProfile();
   }

@@ -46,6 +46,8 @@ import org.exoplatform.services.jcr.impl.core.query.QueryImpl;
 import org.exoplatform.services.log.ExoLogger;
 import org.exoplatform.services.log.Log;
 import org.exoplatform.services.organization.OrganizationService;
+import org.exoplatform.services.organization.User;
+import org.exoplatform.services.security.ConversationState;
 import org.picocontainer.Startable;
 
 
@@ -580,7 +582,13 @@ public class LoginHistoryServiceImpl implements LoginHistoryService, Startable {
     }
 
     private String getUserFullName(String userId) {
+        ConversationState state = ConversationState.getCurrent();
+        User user = null;
         try {
+            if (state != null && state.getIdentity() != null && state.getIdentity().getUserId() != null && state.getIdentity().getUserId().equals(userId)) {
+              user = (User) state.getAttribute("UserProfile");
+              return user.getFullName();
+            }
             OrganizationService service = (OrganizationService) ExoContainerContext.getCurrentContainer()
                     .getComponentInstanceOfType(OrganizationService.class);
             return service.getUserHandler().findUserByName(userId).getFullName();

@@ -36,6 +36,7 @@ import org.exoplatform.services.log.ExoLogger;
 import org.exoplatform.services.log.Log;
 import org.exoplatform.services.organization.Group;
 import org.exoplatform.services.organization.OrganizationService;
+import org.exoplatform.services.security.ConversationState;
 import org.exoplatform.web.application.RequestContext;
 import org.gatein.common.text.EntityEncoder;
 
@@ -356,13 +357,18 @@ public class CalendarPortletController {
 
 
     public String[] getUserGroups(String username) throws Exception {
-        Object[] objs = organization_.getGroupHandler().findGroupsOfUser(username).toArray();
-        String[] groups = new String[objs.length];
-        for (int i = 0; i < objs.length; i++) {
-            groups[i] = ((Group) objs[i]).getId();
+        String [] groupsList;
+        if (username == RequestContext.getCurrentInstance().getRemoteUser()) {
+            Set<String> groups = ConversationState.getCurrent().getIdentity().getGroups();
+            groupsList = groups.toArray(new String[groups.size()]);
+        } else {
+            Object[] objs = organization_.getGroupHandler().findGroupsOfUser(username).toArray();
+            groupsList = new String[objs.length];
+            for (int i = 0; i < objs.length; i++) {
+            	groupsList[i] = ((Group) objs[i]).getId();
+            }
         }
-        return groups;
-
+        return groupsList;
     }
 
     public List getAllCal(String username) throws Exception {

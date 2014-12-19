@@ -6,6 +6,7 @@ import org.exoplatform.portal.application.PortalRequestContext;
 import org.exoplatform.portal.webui.util.Util;
 import org.exoplatform.services.log.ExoLogger;
 import org.exoplatform.services.log.Log;
+import org.exoplatform.services.security.ConversationState;
 import org.exoplatform.social.core.identity.provider.OrganizationIdentityProvider;
 import org.exoplatform.social.core.manager.IdentityManager;
 import org.exoplatform.web.controller.QualifiedName;
@@ -37,5 +38,9 @@ public class NavigationUtils {
       return null;
     }
     return null;
-  } 
+  }
+  
+  public static String getCurrentLoginUser() {
+    return ConversationState.getCurrent().getIdentity().getUserId();
+  }  
 }
