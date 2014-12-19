@@ -27,7 +27,8 @@ import org.mortbay.cometd.continuation.EXoContinuationBayeux;
     events = {
       @EventConfig(listeners = UINotificationPopoverToolbarPortlet.MarkAllReadActionListener.class),
       @EventConfig(listeners = UINotificationPopoverToolbarPortlet.MarkReadActionListener.class),
-      @EventConfig(listeners = UINotificationPopoverToolbarPortlet.RemoveActionListener.class)
+      @EventConfig(listeners = UINotificationPopoverToolbarPortlet.RemoveActionListener.class),
+      @EventConfig(listeners = UINotificationPopoverToolbarPortlet.DeleteActionListener.class)
     }
 )
 public class UINotificationPopoverToolbarPortlet extends UIPortletApplication {
@@ -69,7 +70,7 @@ public class UINotificationPopoverToolbarPortlet extends UIPortletApplication {
   }
 
   protected List<String> getActions() {
-    return Arrays.asList("MarkRead", "Remove");
+    return Arrays.asList("MarkRead", "Remove", "Delete");
   }
   
   protected String getActionUrl(String actionName) throws Exception {
@@ -111,6 +112,16 @@ public class UINotificationPopoverToolbarPortlet extends UIPortletApplication {
       String notificationId = event.getRequestContext().getRequestParameter(OBJECTID);
       UINotificationPopoverToolbarPortlet portlet = event.getSource();
       portlet.webNftService.hidePopover(notificationId);
+      // Ignore reload portlet
+      ((PortalRequestContext) event.getRequestContext().getParentAppRequestContext()).ignoreAJAXUpdateOnPortlets(true);
+    }
+  }
+  
+  public static class DeleteActionListener extends EventListener<UINotificationPopoverToolbarPortlet> {
+    public void execute(Event<UINotificationPopoverToolbarPortlet> event) throws Exception {
+      String notificationId = event.getRequestContext().getRequestParameter(OBJECTID);
+      UINotificationPopoverToolbarPortlet portlet = event.getSource();
+      portlet.webNftService.remove(notificationId);
       // Ignore reload portlet
       ((PortalRequestContext) event.getRequestContext().getParentAppRequestContext()).ignoreAJAXUpdateOnPortlets(true);
     }

@@ -6,6 +6,7 @@
       popupItem : null,
       markReadLink : '',
       removeLink : '',
+      deleteLink : '',
       initCometd : function(eXoUser, eXoToken, contextName) {
         if (String(eXoToken) != '') {
           if (Cometd.isConnected() === false) {
@@ -31,6 +32,7 @@
         NotificationPopover.portlet = $('#' + NotificationPopover.popupId).parents('.uiNotificationPopoverToolbarPortlet:first');
         NotificationPopover.markReadLink = NotificationPopover.portlet.find('#MarkRead').text();
         NotificationPopover.removeLink = NotificationPopover.portlet.find('#Remove').text();
+        NotificationPopover.deleteLink = NotificationPopover.portlet.find('#Delete').text();
         //
         NotificationPopover.popupItem = NotificationPopover.portlet.find('ul.displayItems:first');
         NotificationPopover.popupItem.find('li').each(function(i) {
@@ -119,6 +121,25 @@
           NotificationPopover.removeElm(elm.parents('li:first'));
         });
         //
+        item.find('.delete-item').off('click').on('click', function(evt){
+          evt.stopPropagation();
+          //
+          var elm = $(this);
+          NotificationPopover.deleteItem(elm.parents('li:first'));
+          //
+          var rest = elm.data('rest');
+          if(rest  && rest.length > 0) {
+            $.ajax(rest);
+          }
+          //
+          var link = elm.data('link');
+          if(link  && link.length > 0) {
+            window.location.href = link;
+          }
+          //
+          NotificationPopover.removeElm(elm.parents('li:first'));
+        });
+        //
         return item;
       },
       removeElm : function(elm) {
@@ -159,6 +180,18 @@
       },
       removeItem : function(item) {
         var action = NotificationPopover.removeLink + item.data('id');
+        window.ajaxGet(action);
+        //
+        if(item.hasClass('unread')) {
+          NotificationPopover.downBadge();
+        }
+        //
+        if(NotificationPopover.popupItem.find('li').length == 1) {
+          NotificationPopover.showElm(NotificationPopover.portlet.find('.no-items:first'));
+        }
+      },
+      deleteItem : function(item) {
+        var action = NotificationPopover.deleteLink + item.data('id');
         window.ajaxGet(action);
         //
         if(item.hasClass('unread')) {
