@@ -34,77 +34,7 @@
     <link type="text/css" rel="stylesheet" href="/eXoSkin/skin/css/Core.css" />    
     <link type="text/css" rel="stylesheet" href="/eXoSkin/skin/css/platform/portlets/samples/gadgets-sample/exo-gadget-resources/gadget-common.css" />
     <link type="text/css" rel="stylesheet" href="/eXoSkin/skin/css/platform/portlets/samples/gadgets-sample/gadgets/Bookmark.css" />
-  <style type="text/css">
-   /* Bookmark */
-         
-      .bookmark ul {
-      margin: 0;
-      padding: 0;
-      }
-      
-      .bookmark ul li {
-        margin: 0 0 5px;
-      }
-          
-      .bookmark ul li a.bookmarkTit {
-      padding: 2px 10px;
-      display: block;
-      color: #2f5e92;
-      font-weight: bold;
-      line-hight: 12px;
-      }
-      
-      .bookmark ul li a.bookmarkTit:hover {
-      text-decoration: none;
-      }
-      
-      .bookmark ul li:hover {
-      background: #ebebeb;
-      border-radius: 2px;
-      }
-      
-      .bookmark ul li.active:hover, .bookmark ul li.addBookmark:hover {
-      background: none;
-      border-radius: 0;
-      }
-      
-      .bookmark ul li .editHoverZone {
-      margin: 4px 5px 0 0;
-      }
-      
-      .bookmark ul li .editHoverZone a {
-      margin: 0 5px;
-      }
-      
-          .bookmark .editZone {
-            margin: 10px 10px 0 10px;
-          }
-          
-          .bookmark .editZone .btn {
-            margin: 10px 10px 0 0;
-          }
-          
-          .bookmark .bookmarkItem {
-            padding: 0 10px;  
-          }
-          
-          .bookmark .bookmarkItem:hover {
-            background: #e6e6e6;    
-            border-radius: 4px;
-          }
-          
-          .bookmark .uiGrayLightBox {
-            padding: 5px 7px;
-      margin-right: 10px;
-          }
-          
-          .bookmark .uiGrayLightBox input {
-            margin: 5px 0px;
-      width: 100%;
-      height: 28px;
-          }
-          
-  </style>
+
     <script language="javascript" type="text/javascript" src="/eXoResources/javascript/jquery-1.7.1.js"></script>
     <script language="javascript" type="text/javascript" src="/eXoResources/skin/bootstrap/js/bootstrap-tooltip.js"></script>
   
