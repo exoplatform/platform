@@ -580,8 +580,8 @@ public class LoginHistoryServiceImpl implements LoginHistoryService, Startable {
         User user = null;
         try {
             if (state != null && state.getIdentity() != null && state.getIdentity().getUserId() != null && state.getIdentity().getUserId().equals(userId)) {
-                user = (User) state.getAttribute("UserProfile");
-                return user.getFullName();
+              user = (User) state.getAttribute("UserProfile");
+              return user.getFullName();
             }
             OrganizationService service = (OrganizationService) ExoContainerContext.getCurrentContainer()
                     .getComponentInstanceOfType(OrganizationService.class);

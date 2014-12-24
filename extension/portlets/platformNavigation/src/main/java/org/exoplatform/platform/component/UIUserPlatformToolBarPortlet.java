@@ -59,12 +59,12 @@ public class UIUserPlatformToolBarPortlet extends UIPortletApplication {
 
   }
 
-  public User getUser() throws Exception {
-    User user = null;
-    ConversationState state = ConversationState.getCurrent();
-    user = (User) state.getAttribute("UserProfile");
-    return user;
-  }
+    public User getUser() throws Exception {
+      User user = null;
+      ConversationState state = ConversationState.getCurrent();
+      user = (User) state.getAttribute("UserProfile");
+      return user;
+    }
 
   private String getCurrentPortalName() {
     return Util.getPortalRequestContext().getPortalOwner();

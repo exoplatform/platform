@@ -107,13 +107,11 @@ public class CalendarPortletController {
 
     @Inject
     CalendarService calendarService_;
-    
+    @Inject
+    OrganizationService organization_;
     @Inject
     SettingService settingService_;
 
-    @Inject
-    OrganizationService organization_;
-    
     private static final Log LOG = ExoLogger.getLogger(CalendarPortletController.class);
 
     @Inject
