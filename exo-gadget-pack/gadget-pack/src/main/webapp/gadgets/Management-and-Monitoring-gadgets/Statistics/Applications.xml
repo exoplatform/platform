@@ -34,62 +34,10 @@
 <![CDATA[
     <head>
       <title>Applications Statistics</title>
-      <link rel="stylesheet" type="text/css" href="/eXoSkin/skin/css/platform/portlets/samples/gadgets-sample/exo-gadget-resources/gadget-common.css" />
       <link rel="stylesheet" type="text/css" href="/eXoSkin/skin/css/Core.css" />
-      
-        <style type="text/css">
-        
-          .appStatistics ul li {
-            margin-top: 20px;
-          }
-          
-          .appData:hover {
-            background: #e6e6e6;
-            border-radius: 4px;
-          }
-          
-          .appData .appTitle {
-            overflow: hidden;
-            text-overflow: ellipsis;
-            white-space: nowrap;
-            width: 55%;
-            display: inline-block;
-            padding: 0 10px;
-            color: #333;
-          }
-          
-          .appData span {
-            padding: 0 10px;
-            border-radius: 4px;
-            font-size: 12px;
-          }
-          
-          .appData .yellow {
-            background: #eedf1d;
-            color: #fff;
-          }
-          
-          .appData .red {
-            background: #e6585e;
-            color: #fff;
-          }
-          
-          .appDetailTime {
-            padding: 0 10px;
-            color: #808080;
-            font-size: 11px;
-          }
-          
-		  .btn-group .btn {
-          	background-color: #F9F9F9;
-          } 
-                   
-          .btn-group .btn.active {
-			color: #2F5E92;
-			background-color: #E6E6E6;
-          }
-          
-        </style>
+      <link rel="stylesheet" type="text/css" href="/eXoSkin/skin/css/platform/portlets/samples/gadgets-sample/exo-gadget-resources/gadget-common.css" />
+      <link rel="stylesheet" type="text/css" href="/eXoSkin/skin/css/platform/portlets/gadget-pack/applicationsStatistics.css" />
+
       <script language="javascript" type="text/javascript" src="/eXoResources/javascript/jquery-1.7.1.js"></script>
       <script language="javascript" type="text/javascript" src="script/jquery-plugins/jquery.number_format.js"></script>
       <script language="javascript" type="text/javascript" src="script/utils.js"></script>
