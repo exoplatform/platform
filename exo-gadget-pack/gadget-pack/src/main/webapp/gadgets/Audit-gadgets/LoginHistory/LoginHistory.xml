@@ -743,9 +743,9 @@
 	                 <div class="clearfix selectWeek">
 	                   <button class="pull-right btn"> Week <i class="uiIconMiniArrowDown"></i></button>
 	                   <div class='btn-group'>
-	                     <button class="btn" id="prevBtn" rel="tooltip" data-placement="bottom" title="Preview" ><i class="uiIconArrowLeft"></i></button>
+	                     <button class="btn" id="prevBtn" rel="tooltip" data-placement="bottom" title="Preview" >&nbsp;<i class="uiIconArrowLeft"></i>&nbsp;</button>
 	                     <button class="btn" id="loginStatsChartTitle">Week 44</button>
-	                     <button class="btn" id="nextBtn" rel="tooltip" data-placement="bottom" title="Next"><i class="uiIconArrowRight"></i></button>
+	                     <button class="btn" id="nextBtn" rel="tooltip" data-placement="bottom" title="Next">&nbsp;<i class="uiIconArrowRight"></i>&nbsp;</button>
 	                   </div>
 	                 </div>
 	                 <div id="loginStatsChart" style="height:150px;"></div>
