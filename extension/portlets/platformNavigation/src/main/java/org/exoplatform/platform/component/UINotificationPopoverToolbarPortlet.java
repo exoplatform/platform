@@ -3,7 +3,7 @@ package org.exoplatform.platform.component;
 import java.util.Arrays;
 import java.util.List;
 
-import org.exoplatform.commons.api.notification.model.WebFilter;
+import org.exoplatform.commons.api.notification.model.WebNotificationFilter;
 import org.exoplatform.commons.api.notification.service.WebNotificationService;
 import org.exoplatform.commons.api.notification.service.setting.UserSettingService;
 import org.exoplatform.commons.notification.channel.WebChannel;
@@ -65,8 +65,7 @@ public class UINotificationPopoverToolbarPortlet extends UIPortletApplication {
   }
 
   protected List<String> getNotifications() throws Exception {
-    WebFilter filter = new WebFilter(currentUser, true, MAX_NUMBER_ON_MENU);
-    return webNftService.getNotificationContents(filter);
+    return webNftService.get(new WebNotificationFilter(currentUser, true), 0, MAX_NUMBER_ON_MENU);
   }
 
   protected List<String> getActions() {
@@ -109,9 +108,9 @@ public class UINotificationPopoverToolbarPortlet extends UIPortletApplication {
 
   public static class RemoveActionListener extends EventListener<UINotificationPopoverToolbarPortlet> {
     public void execute(Event<UINotificationPopoverToolbarPortlet> event) throws Exception {
-      String notificationId = event.getRequestContext().getRequestParameter(OBJECTID);
+      String id = event.getRequestContext().getRequestParameter(OBJECTID);
       UINotificationPopoverToolbarPortlet portlet = event.getSource();
-      portlet.webNftService.hidePopover(notificationId);
+      portlet.webNftService.hidePopover(id);
       // Ignore reload portlet
       ((PortalRequestContext) event.getRequestContext().getParentAppRequestContext()).ignoreAJAXUpdateOnPortlets(true);
     }
@@ -119,9 +118,9 @@ public class UINotificationPopoverToolbarPortlet extends UIPortletApplication {
   
   public static class DeleteActionListener extends EventListener<UINotificationPopoverToolbarPortlet> {
     public void execute(Event<UINotificationPopoverToolbarPortlet> event) throws Exception {
-      String notificationId = event.getRequestContext().getRequestParameter(OBJECTID);
+      String id = event.getRequestContext().getRequestParameter(OBJECTID);
       UINotificationPopoverToolbarPortlet portlet = event.getSource();
-      portlet.webNftService.remove(notificationId);
+      portlet.webNftService.remove(id);
       // Ignore reload portlet
       ((PortalRequestContext) event.getRequestContext().getParentAppRequestContext()).ignoreAJAXUpdateOnPortlets(true);
     }
@@ -130,7 +129,7 @@ public class UINotificationPopoverToolbarPortlet extends UIPortletApplication {
   public static class MarkAllReadActionListener extends EventListener<UINotificationPopoverToolbarPortlet> {
     public void execute(Event<UINotificationPopoverToolbarPortlet> event) throws Exception {
       UINotificationPopoverToolbarPortlet portlet = event.getSource();
-      portlet.webNftService.markReadAll(portlet.currentUser);
+      portlet.webNftService.markAllRead(portlet.currentUser);
       // Ignore reload portlet
       ((PortalRequestContext) event.getRequestContext().getParentAppRequestContext()).ignoreAJAXUpdateOnPortlets(true);
     }
