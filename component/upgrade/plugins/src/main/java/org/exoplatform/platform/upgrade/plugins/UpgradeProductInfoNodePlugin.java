@@ -90,6 +90,9 @@ public class UpgradeProductInfoNodePlugin extends UpgradeProductPlugin {
       Node productVersionDeclarationNode = applicationDataNode.getNode(UPGRADE_PRODUCT_SERVICE_NODE_NAME + "/"
           + PRODUCT_VERSION_DECLARATION_NODE_NAME);
       ExtendedNode extendedNode = (ExtendedNode)productVersionDeclarationNode;
+      if (!extendedNode.isCheckedOut()) {
+        extendedNode.checkout();
+      }
       if (extendedNode.canAddMixin("exo:privilegeable")) {
         extendedNode.addMixin("exo:privilegeable");
       }
