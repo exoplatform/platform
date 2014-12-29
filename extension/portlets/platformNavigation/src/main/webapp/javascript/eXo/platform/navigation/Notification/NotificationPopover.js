@@ -68,8 +68,10 @@
       },
       appendMessage : function(message) {
         var newItem = NotificationPopover.applyAction($($('<ul></ul>').html(message).html()));
+        var id = newItem.data('id');
         //
         var target = $('<ul></ul>').append(NotificationPopover.popupItem.find('li'));
+        target.find('li[data-id=' + id + ']').remove();
         target.find('li').each(function(i){
           if((i + 1) < NotificationPopover.maxItem) {
             NotificationPopover.popupItem.append($(this));
