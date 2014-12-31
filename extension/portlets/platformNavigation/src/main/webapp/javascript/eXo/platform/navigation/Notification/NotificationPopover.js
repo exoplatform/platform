@@ -102,13 +102,13 @@
           //
           var link = $(this).data('link');
           if(link  && link.length > 0) {
-            window.location.href = link;
+            var T = setTimeout(function() {clearTimeout(T); window.location.href = link;}, 500);
           }
         }).find('a').click(function(evt) {
           evt.stopPropagation();
           var href = $(this).attr('href');
           if(href && href.indexOf('javascript') !== 0) {
-            window.location.href= href;
+            var T = setTimeout(function() {clearTimeout(T); window.location.href = href;}, 500);
           }
         });
         //
