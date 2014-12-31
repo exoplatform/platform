@@ -46,7 +46,7 @@
 <div class="uiSpaceNavigationPortlet" id="$uicomponent.id">
   <h5 class="title"><a href="/portal/intranet/spaces"><%=_ctx.appRes("UISpaceNavigationPortlet.label.Spaces")%></a></h5>
   <!-- Merge exoadmin:  navigation-->
-    <div class="searchInput"><input type="text" class="searchText LostFocus" value="<%=defaultValueForTextSearch%>"/></div>
+    <div class="searchInput"><input type="text" class="searchText " placeholder="<%=defaultValueForTextSearch%>"/></div>
 
         <ul class="spaceNavigation">
 
