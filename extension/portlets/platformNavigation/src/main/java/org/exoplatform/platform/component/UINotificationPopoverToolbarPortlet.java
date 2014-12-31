@@ -57,7 +57,7 @@ public class UINotificationPopoverToolbarPortlet extends UIPortletApplication {
            .append(getCometdContextName()).append("');");
     
     context.getJavascriptManager().getRequireJS()
-           .require("SHARED/commons-cometd", "cometd")
+           .require("SHARED/jquery_cometd", "cometd")
            .require("PORTLET/platformNavigation/NotificationPopoverToolbarPortlet", "NotificationPopoverToolbarPortlet")
            .addScripts(scripts.toString());
     //
