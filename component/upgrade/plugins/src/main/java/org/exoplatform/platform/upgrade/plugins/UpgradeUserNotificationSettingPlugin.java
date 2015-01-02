@@ -56,7 +56,8 @@ public class UpgradeUserNotificationSettingPlugin extends UpgradeProductPlugin {
 
   @Override
   public void processUpgrade(String oldVersion, String newVersion) {
-    SessionProvider sProvider = NotificationSessionManager.getOrCreateSessionProvider();
+    boolean created = NotificationSessionManager.createSystemProvider();
+    SessionProvider sProvider = NotificationSessionManager.getSessionProvider();
     try {
       Session session = AbstractService.getSession(sProvider, workspace);
       Node userNodes = session.getRootNode().getNode(AbstractService.SETTING_NODE).getNode(AbstractService.SETTING_USER_NODE);
@@ -102,6 +103,8 @@ public class UpgradeUserNotificationSettingPlugin extends UpgradeProductPlugin {
       }
     } catch (Exception e) {
       LOG.debug("Failed to migrate user setting", e);
+    } finally { 
+      NotificationSessionManager.closeSessionProvider(created);
     }
   }
 
