@@ -468,6 +468,19 @@
         <artifactId>exo.portal.component.identity</artifactId>
         <version>${org.gatein.portal.version}</version>
       </dependency>
+      <!-- SSO -->
+      <dependency>
+        <groupId>org.gatein.sso</groupId>
+        <artifactId>sso-integration</artifactId>
+        <version>${org.gatein.sso.version}</version>
+        <exclusions>
+          <exclusion>
+            <groupId>org.gatein.sso</groupId>
+            <artifactId>sso-agent</artifactId>
+          </exclusion>
+        </exclusions>
+      </dependency>
+
       <!-- DON'T REMOVE : needed for product packaging -->
       <!-- org.exoplatform.management.RestManagementProvider used but not declared in GateIn ? -->
       <dependency>
@@ -644,11 +657,6 @@
         <groupId>org.gatein.shindig</groupId>
         <artifactId>shindig-social-api</artifactId>
         <version>${org.gatein.shindig.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>org.gatein.sso</groupId>
-        <artifactId>sso-saml-plugin</artifactId>
-        <version>${org.gatein.sso.version}</version>
       </dependency>
       <!-- To be replaced by an import of GateIn WCI parent POM -->
       <!-- DON'T REMOVE : used for packaging -->

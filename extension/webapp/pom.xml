@@ -93,6 +93,10 @@
       <artifactId>servlet-api</artifactId>
       <scope>provided</scope>
     </dependency>
+    <dependency>
+      <groupId>org.gatein.sso</groupId>
+      <artifactId>sso-integration</artifactId>
+    </dependency>
     <!-- To replace the old xstream:xstream version from picocontainer -->
     <dependency>
       <groupId>com.thoughtworks.xstream</groupId>
@@ -269,37 +273,6 @@
       <groupId>org.gatein.portal</groupId>
       <artifactId>exo.portal.component.web.api</artifactId>
       <scope>runtime</scope>
-    </dependency>
-    <dependency>
-      <groupId>org.gatein.sso</groupId>
-      <artifactId>sso-saml-plugin</artifactId>
-      <scope>runtime</scope>
-      <exclusions>
-        <exclusion>
-          <artifactId>httpclient</artifactId>
-          <groupId>org.apache.httpcomponents</groupId>
-        </exclusion>
-        <exclusion>
-          <artifactId>jbossweb</artifactId>
-          <groupId>org.jboss.web</groupId>
-        </exclusion>
-        <exclusion>
-          <artifactId>jboss-negotiation-common</artifactId>
-          <groupId>org.jboss.security</groupId>
-        </exclusion>
-        <exclusion>
-          <artifactId>jboss-negotiation-spnego</artifactId>
-          <groupId>org.jboss.security</groupId>
-        </exclusion>
-        <exclusion>
-          <artifactId>jboss-servlet-api_3.0_spec</artifactId>
-          <groupId>org.jboss.spec.javax.servlet</groupId>
-        </exclusion>
-        <exclusion>
-          <artifactId>jbossxacml</artifactId>
-          <groupId>org.jboss.security</groupId>
-        </exclusion>
-      </exclusions>
     </dependency>
     <!-- Add missing runtime deps from Gatein and JCR -->
     <!-- This is just a simple workaround -->
