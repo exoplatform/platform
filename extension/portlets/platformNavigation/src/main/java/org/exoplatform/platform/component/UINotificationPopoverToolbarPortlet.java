@@ -3,6 +3,7 @@ package org.exoplatform.platform.component;
 import java.util.Arrays;
 import java.util.List;
 
+import org.exoplatform.commons.api.notification.NotificationMessageUtils;
 import org.exoplatform.commons.api.notification.model.WebNotificationFilter;
 import org.exoplatform.commons.api.notification.service.WebNotificationService;
 import org.exoplatform.commons.api.notification.service.setting.UserSettingService;
@@ -28,6 +29,7 @@ import org.mortbay.cometd.continuation.EXoContinuationBayeux;
       @EventConfig(listeners = UINotificationPopoverToolbarPortlet.MarkAllReadActionListener.class),
       @EventConfig(listeners = UINotificationPopoverToolbarPortlet.MarkReadActionListener.class),
       @EventConfig(listeners = UINotificationPopoverToolbarPortlet.RemoveActionListener.class),
+      @EventConfig(listeners = UINotificationPopoverToolbarPortlet.ClearBadgeActionListener.class),
       @EventConfig(listeners = UINotificationPopoverToolbarPortlet.DeleteActionListener.class)
     }
 )
@@ -37,20 +39,20 @@ public class UINotificationPopoverToolbarPortlet extends UIPortletApplication {
   private final UserSettingService userSettingService;
   private final ContinuationService continuation;
   private final EXoContinuationBayeux bayeux;
+  private int maxItemsInPopover;
   private String currentUser = "";
-  private int MAX_NUMBER_ON_MENU = 8;
 
   public UINotificationPopoverToolbarPortlet() throws Exception {
     webNftService = getApplicationComponent(WebNotificationService.class);
     userSettingService = getApplicationComponent(UserSettingService.class);
     continuation = getApplicationComponent(ContinuationService.class);
     bayeux = getApplicationComponent(EXoContinuationBayeux.class);
-    MAX_NUMBER_ON_MENU = Integer.valueOf(System.getProperty("exo.notifications.maxitems", "8"));
   }
   
   @Override
   public void processRender(WebuiApplication app, WebuiRequestContext context) throws Exception {
     this.currentUser = context.getRemoteUser();
+    this.maxItemsInPopover = NotificationMessageUtils.getMaxItemsInPopover();
     StringBuilder scripts = new StringBuilder("NotificationPopoverToolbarPortlet.initCometd('");
     scripts.append(currentUser).append("', '")
            .append(getUserToken()).append("', '")
@@ -65,11 +67,11 @@ public class UINotificationPopoverToolbarPortlet extends UIPortletApplication {
   }
 
   protected List<String> getNotifications() throws Exception {
-    return webNftService.get(new WebNotificationFilter(currentUser, true), 0, MAX_NUMBER_ON_MENU);
+    return webNftService.get(new WebNotificationFilter(currentUser, true), 0, maxItemsInPopover);
   }
 
   protected List<String> getActions() {
-    return Arrays.asList("MarkRead", "Remove", "Delete");
+    return Arrays.asList("MarkRead", "Remove", "Delete", "ClearBadge");
   }
   
   protected String getActionUrl(String actionName) throws Exception {
@@ -85,6 +87,10 @@ public class UINotificationPopoverToolbarPortlet extends UIPortletApplication {
   
   protected String getCometdContextName() {
     return (bayeux == null ? "cometd" : bayeux.getCometdContextName());
+  }
+
+  protected int getNumberOfMessage() {
+    return webNftService.getNumberOfMessage(currentUser);
   }
 
   public String getUserToken() {
@@ -130,6 +136,15 @@ public class UINotificationPopoverToolbarPortlet extends UIPortletApplication {
     public void execute(Event<UINotificationPopoverToolbarPortlet> event) throws Exception {
       UINotificationPopoverToolbarPortlet portlet = event.getSource();
       portlet.webNftService.markAllRead(portlet.currentUser);
+      // Ignore reload portlet
+      ((PortalRequestContext) event.getRequestContext().getParentAppRequestContext()).ignoreAJAXUpdateOnPortlets(true);
+    }
+  }
+
+  public static class ClearBadgeActionListener extends EventListener<UINotificationPopoverToolbarPortlet> {
+    public void execute(Event<UINotificationPopoverToolbarPortlet> event) throws Exception {
+      UINotificationPopoverToolbarPortlet portlet = event.getSource();
+      portlet.webNftService.clearNumberOfMessage(portlet.currentUser);
       // Ignore reload portlet
       ((PortalRequestContext) event.getRequestContext().getParentAppRequestContext()).ignoreAJAXUpdateOnPortlets(true);
     }
