@@ -129,12 +129,6 @@
           NotificationPopover.markItemRead($(this).parents('li:first'));
           //
           NotificationPopover.openURL($(this).data('link'));
-        }).find('a').click(function(evt) {
-          evt.stopPropagation();
-          var href = $(this).attr('href');
-          if(href && href.indexOf('javascript') !== 0) {
-            NotificationPopover.openURL(href);
-          }
         });
         //
         item.find('.remove-item').off('click')
