@@ -19,6 +19,7 @@
       }
     }
 %>
+	<div class ="uiContainer">
     <div class="userAvt pull-left">
       <img title="$nodeName" alt="$nodeName" src="$srcImage" />
     </div>
@@ -29,13 +30,16 @@
          href="javascript:void(0)"><i class="uiIconEdit uiIconLightGray"></i> <%=_ctx.appRes("UIBreadCrumbsNavigationPortlet.label.EditProfile")%></a>
     <% } %>
     </div>
+  </div>
 <%} else {
     if(uicomponent.isGroupUrl()){
       String pageLabel = uicomponent.getEncodedResolvedLabel();
 %>
+	<div class ="uiContainer">
     <div class="uiBreadcumbsNavigations">
       <div class="navItemSelected">$pageLabel</div>
     </div>
+  </div>
 <%  }
   }%>
 </div>
