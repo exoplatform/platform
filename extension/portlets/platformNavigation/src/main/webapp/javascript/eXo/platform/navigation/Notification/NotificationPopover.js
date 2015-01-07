@@ -57,6 +57,11 @@
         if(NotificationPopover.popupItem.find('li.unread').length > 0) {
           NotificationPopover.portlet.find('.actionMark:first').show();
         }
+        // show/hide ViewAll page
+        if(NotificationPopover.popupItem.find('li').length == 0) {
+          NotificationPopover.portlet.find('.actionLink:first').hide();
+        }
+        
         // markAllRead
         NotificationPopover.portlet.find('.actionMark:first').find('a').click(function (evt) {
           evt.stopPropagation();
@@ -104,6 +109,7 @@
         //
         NotificationPopover.portlet.find('.actionMark:first').show();
         NotificationPopover.portlet.find('.no-items:first').hide();
+        NotificationPopover.portlet.find('.actionLink:first').show();
       },
       openURL : function (url) {
         if(url && url.length > 0) {
