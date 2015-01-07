@@ -28,9 +28,9 @@ import org.mortbay.cometd.continuation.EXoContinuationBayeux;
     events = {
       @EventConfig(listeners = UINotificationPopoverToolbarPortlet.MarkAllReadActionListener.class),
       @EventConfig(listeners = UINotificationPopoverToolbarPortlet.MarkReadActionListener.class),
-      @EventConfig(listeners = UINotificationPopoverToolbarPortlet.RemoveActionListener.class),
-      @EventConfig(listeners = UINotificationPopoverToolbarPortlet.ClearBadgeActionListener.class),
-      @EventConfig(listeners = UINotificationPopoverToolbarPortlet.DeleteActionListener.class)
+      @EventConfig(listeners = UINotificationPopoverToolbarPortlet.RemovePopoverActionListener.class),
+      @EventConfig(listeners = UINotificationPopoverToolbarPortlet.ResetNumberOnBadgeActionListener.class),
+      @EventConfig(listeners = UINotificationPopoverToolbarPortlet.TakeEventActionListener.class)
     }
 )
 public class UINotificationPopoverToolbarPortlet extends UIPortletApplication {
@@ -71,7 +71,7 @@ public class UINotificationPopoverToolbarPortlet extends UIPortletApplication {
   }
 
   protected List<String> getActions() {
-    return Arrays.asList("MarkRead", "Remove", "Delete", "ClearBadge");
+    return Arrays.asList("MarkRead", "RemovePopover", "TakeEvent", "ResetNumberOnBadge");
   }
   
   protected String getActionUrl(String actionName) throws Exception {
@@ -90,7 +90,7 @@ public class UINotificationPopoverToolbarPortlet extends UIPortletApplication {
   }
 
   protected int getNumberOfMessage() {
-    return webNftService.getNumberOfMessage(currentUser);
+    return webNftService.getNumberOnBadge(currentUser);
   }
 
   public String getUserToken() {
@@ -112,7 +112,7 @@ public class UINotificationPopoverToolbarPortlet extends UIPortletApplication {
     }
   }
 
-  public static class RemoveActionListener extends EventListener<UINotificationPopoverToolbarPortlet> {
+  public static class RemovePopoverActionListener extends EventListener<UINotificationPopoverToolbarPortlet> {
     public void execute(Event<UINotificationPopoverToolbarPortlet> event) throws Exception {
       String id = event.getRequestContext().getRequestParameter(OBJECTID);
       UINotificationPopoverToolbarPortlet portlet = event.getSource();
@@ -122,7 +122,7 @@ public class UINotificationPopoverToolbarPortlet extends UIPortletApplication {
     }
   }
   
-  public static class DeleteActionListener extends EventListener<UINotificationPopoverToolbarPortlet> {
+  public static class TakeEventActionListener extends EventListener<UINotificationPopoverToolbarPortlet> {
     public void execute(Event<UINotificationPopoverToolbarPortlet> event) throws Exception {
       String id = event.getRequestContext().getRequestParameter(OBJECTID);
       UINotificationPopoverToolbarPortlet portlet = event.getSource();
@@ -141,10 +141,10 @@ public class UINotificationPopoverToolbarPortlet extends UIPortletApplication {
     }
   }
 
-  public static class ClearBadgeActionListener extends EventListener<UINotificationPopoverToolbarPortlet> {
+  public static class ResetNumberOnBadgeActionListener extends EventListener<UINotificationPopoverToolbarPortlet> {
     public void execute(Event<UINotificationPopoverToolbarPortlet> event) throws Exception {
       UINotificationPopoverToolbarPortlet portlet = event.getSource();
-      portlet.webNftService.clearNumberOfMessage(portlet.currentUser);
+      portlet.webNftService.resetNumberOnBadge(portlet.currentUser);
       // Ignore reload portlet
       ((PortalRequestContext) event.getRequestContext().getParentAppRequestContext()).ignoreAJAXUpdateOnPortlets(true);
     }

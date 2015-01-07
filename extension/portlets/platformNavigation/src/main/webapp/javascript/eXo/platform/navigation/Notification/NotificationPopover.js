@@ -6,8 +6,9 @@
       portlet : null,
       popupItem : null,
       markReadLink : '',
-      removeLink : '',
-      deleteLink : '',
+      removePopoverLink : '',
+      takeEventLink : '',
+      resetNumberOnBadgeLink : '',
       initCometd : function(eXoUser, eXoToken, contextName) {
       if(!NotificationPopover.Cometd) NotificationPopover.Cometd = $.cometd;
         var eXoProps = {'exoId': eXoUser, 'exoToken': eXoToken};
@@ -34,9 +35,9 @@
         //
         NotificationPopover.portlet = $('#' + NotificationPopover.popupId).parents('.uiNotificationPopoverToolbarPortlet:first');
         NotificationPopover.markReadLink = NotificationPopover.portlet.find('#MarkRead').text();
-        NotificationPopover.removeLink = NotificationPopover.portlet.find('#Remove').text();
-        NotificationPopover.deleteLink = NotificationPopover.portlet.find('#Delete').text();
-        NotificationPopover.clearBadgeLink = NotificationPopover.portlet.find('#ClearBadge').text();
+        NotificationPopover.removePopoverLink = NotificationPopover.portlet.find('#RemovePopover').text();
+        NotificationPopover.takeEventLink = NotificationPopover.portlet.find('#TakeEvent').text();
+        NotificationPopover.resetNumberOnBadgeLink = NotificationPopover.portlet.find('#ResetNumberOnBadge').text();
         //
         NotificationPopover.popupItem = NotificationPopover.portlet.find('ul.displayItems:first');
         NotificationPopover.popupItem.find('li').each(function(i) {
@@ -66,7 +67,7 @@
           NotificationPopover.badgeElm.text('0').hide();
           // call action clear badge
           if (NotificationPopover.nbDisplay > 0) {
-            NotificationPopover.ajaxRequest(NotificationPopover.clearBadgeLink + 'clear');
+            NotificationPopover.ajaxRequest(NotificationPopover.resetNumberOnBadgeLink + 'reset');
           }
           NotificationPopover.nbDisplay = 0;
         });
@@ -75,25 +76,22 @@
         var newItem = NotificationPopover.applyAction($($('<ul></ul>').html(message.body).html()));
         var id = newItem.data('id');
         //
-        var target = $('<ul></ul>').append(NotificationPopover.popupItem.find('li'));
-        var updateItem = target.find('li[data-id=' + id + ']');
-        var isUpdate = (updateItem.length > 0);
-        if (isUpdate) {
-          updateItem.remove();
+        var existItem = NotificationPopover.popupItem.find('li[data-id=' + id + ']');
+        var isExisting = existItem.length > 0;
+        if (isExisting) {
+          //this process only mentions case like or comment, 
+          //the content must be updated and NotificationID still kept
+          existItem.remove();
+        } else if (NotificationPopover.popupItem.find('li').length === NotificationPopover.maxItem){
+          NotificationPopover.popupItem.find('li:last').remove();
         }
-        target.find('li').each(function(i){
-          if((i + 1) < NotificationPopover.maxItem) {
-            NotificationPopover.popupItem.append($(this));
-          }
-        });
-        target.remove();
         //
         NotificationPopover.popupItem.prepend(newItem.hide());
         NotificationPopover.showElm(newItem);
         //
         var badgeElm = NotificationPopover.badgeElm;
-        if (isUpdate) {
-          NotificationPopover.nbDisplay = (message.badgeNumber == 0) ? 1 : message.badgeNumber;
+        if (isExisting) {
+          NotificationPopover.nbDisplay = (message.numberOnBadge == 0) ? 1 : message.numberOnBadge;
         } else {
           NotificationPopover.nbDisplay = parseInt(NotificationPopover.nbDisplay) + 1;
         }
@@ -140,25 +138,22 @@
         });
         //
         item.find('.remove-item').off('click')
-            .on('click', NotificationPopover.removeAction);
-        item.find('.delete-item').off('click')
-            .on('click', NotificationPopover.removeAction);
+            .on('click', function(evt) { evt.stopPropagation(); NotificationPopover.doAction($(this), NotificationPopover.removePopoverLink); });
+        item.find('.action-item').off('click')
+            .on('click', function(evt) { evt.stopPropagation(); NotificationPopover.doAction($(this), NotificationPopover.takeEventLink); });
         //
         return item;
       },
-      removeAction : function(evt) {
-        evt.stopPropagation();
-        //
-        var elm = $(this);
-        var link = (elm.hasClass('delete-item')) ? NotificationPopover.deleteLink : NotificationPopover.removeLink;
-        NotificationPopover.removeItem(elm.parents('li:first'), link);
-        //
-        NotificationPopover.ajaxRequest(elm.data('rest'));
-        //
-        NotificationPopover.removeElm(elm.parents('li:first'));
-        //
-        NotificationPopover.openURL(elm.data('link'));
-      },
+      doAction : function(elm, link) {
+          //call ajax to remove this notification, and do something in commons side
+          NotificationPopover.removeItem(elm.parents('li:first'), link);
+          //call rest on social side: for example accept/refuse relationship
+          NotificationPopover.ajaxRequest(elm.data('rest'));
+          //remove this element on UI
+          NotificationPopover.removeElm(elm.parents('li:first'));
+          //redirect to the uri, for example: view activity detail
+          NotificationPopover.openURL(elm.data('link'));
+        },
       removeElm : function(elm) {
         elm.css('overflow', 'hidden').animate({
           height : '0px'
@@ -176,7 +171,7 @@
       },
       markAllRead : function() {
         NotificationPopover.portlet.find('ul.displayItems:first').find('li.unread').removeClass('unread');
-        NotificationPopover.portlet.find('span.badgeDefault:first').text('0').hide();
+        NotificationPopover.badgeElm.text("0").hide();
         NotificationPopover.portlet.find('.actionMark:first').hide();
       },
       markItemRead : function(item) {
