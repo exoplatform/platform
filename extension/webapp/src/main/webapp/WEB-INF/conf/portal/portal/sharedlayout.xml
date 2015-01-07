@@ -55,6 +55,16 @@
                     <show-info-bar>false</show-info-bar>
                 </portlet-application>
             </container>
+            <container id="NotificationPopoverPortlet" template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
+                <portlet-application>
+                    <portlet>
+                        <application-ref>platformNavigation</application-ref>
+                        <portlet-ref>NotificationPopoverToolbarPortlet</portlet-ref>
+                    </portlet>
+                    <access-permissions>*:/platform/users</access-permissions>
+                    <show-info-bar>false</show-info-bar>
+                </portlet-application>
+            </container>
             <container id="SearchPortlet" template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
                 <portlet-application>
                     <portlet>
@@ -71,16 +81,6 @@
                     <portlet>
                         <application-ref>platformNavigation</application-ref>
                         <portlet-ref>UICreatePlatformToolBarPortlet</portlet-ref>
-                    </portlet>
-                    <access-permissions>*:/platform/users</access-permissions>
-                    <show-info-bar>false</show-info-bar>
-                </portlet-application>
-            </container>
-            <container id="NotificationPopoverPortlet" template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
-                <portlet-application>
-                    <portlet>
-                        <application-ref>platformNavigation</application-ref>
-                        <portlet-ref>NotificationPopoverToolbarPortlet</portlet-ref>
                     </portlet>
                     <access-permissions>*:/platform/users</access-permissions>
                     <show-info-bar>false</show-info-bar>
