@@ -178,4 +178,21 @@
          <module>jquery</module>
       </depends>
    </module>
+   
+   <module>
+    <name>ui-user-nav</name>
+    <script>
+       <path>/javascript/eXo/platform/navigation/UIUserNavigationPortlet/UIUserNavigation.js</path>
+    </script>
+    <depends>
+       <module>base</module>
+    </depends>
+    <depends>
+      <module>jquery</module>
+      <as>jq</as>
+    </depends>
+    <depends>
+      <module>bts_dropdown</module>
+    </depends>
+  </module>
 </gatein-resources>
