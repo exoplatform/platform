@@ -118,6 +118,7 @@
             window.open(url, "_self");
           }, 500);
         }
+        return this;
       },
       ajaxRequest : function (url, callBack) {
         if(url && url.length > 0) {
@@ -127,6 +128,7 @@
             }
           });
         }
+        return this;
       },
       applyAction : function(item) {
         item.find('.contentSmall:first').on('click', function(evt) {
@@ -145,14 +147,14 @@
         return item;
       },
       doAction : function(elm, link) {
-          //call ajax to remove this notification, and do something in commons side
-          NotificationPopover.removeItem(elm.parents('li:first'), link);
-          //call rest on social side: for example accept/refuse relationship
-          NotificationPopover.ajaxRequest(elm.data('rest'));
-          //remove this element on UI
-          NotificationPopover.removeElm(elm.parents('li:first'));
-          //redirect to the uri, for example: view activity detail
-          NotificationPopover.openURL(elm.data('link'));
+          //1.call ajax to remove this notification, and do something in commons side
+          //2.call rest on social side: for example accept/refuse relationship
+          //3.remove this element on UI
+          //4.redirect to the uri, for example: view activity detail
+          NotificationPopover.removeItem(elm.parents('li:first'), link)
+                             .ajaxRequest(elm.data('rest'))
+                             .removeElm(elm.parents('li:first'))
+                             .openURL(elm.data('link'));
         },
       removeElm : function(elm) {
         elm.css('overflow', 'hidden').animate({
@@ -160,6 +162,7 @@
         }, 300, function() {
           $(this).remove();
         });
+        return this;
       },
       showElm : function(elm) {
         elm.css({'visibility':'hidden', 'overflow':'hidden'}).show();
@@ -185,6 +188,7 @@
         if(NotificationPopover.popupItem.find('li').length == 1) {
           NotificationPopover.showElm(NotificationPopover.portlet.find('.no-items:first'));
         }
+        return this;
       }
   };
   
