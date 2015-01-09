@@ -43,7 +43,7 @@
           <description>Status Profile Portlet</description>
           <object type="org.exoplatform.commons.addons.PortletModel">
             <field name="contentId">
-              <string>social-portlet/StatusProfilePortlet</string>
+              <string>social-juzu/StatusProfilePortlet</string>
             </field>
           </object>
         </object-param>
