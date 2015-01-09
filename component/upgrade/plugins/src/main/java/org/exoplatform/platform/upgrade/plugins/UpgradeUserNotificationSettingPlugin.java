@@ -51,11 +51,16 @@ public class UpgradeUserNotificationSettingPlugin extends UpgradeProductPlugin {
   public static final String NAME_PATTERN = "exo:{CHANNELID}Channel";
   public UpgradeUserNotificationSettingPlugin(InitParams initParams) {
     super(initParams);
-    workspace = CommonsUtils.getService(NotificationConfiguration.class).getWorkspace();
+    NotificationConfiguration configuration = CommonsUtils.getService(NotificationConfiguration.class);
+    workspace = configuration != null ? configuration.getWorkspace() : null;
   }
 
   @Override
   public void processUpgrade(String oldVersion, String newVersion) {
+    if (workspace == null) {
+      return;
+    }
+    //
     boolean created = NotificationSessionManager.createSystemProvider();
     SessionProvider sProvider = NotificationSessionManager.getSessionProvider();
     try {

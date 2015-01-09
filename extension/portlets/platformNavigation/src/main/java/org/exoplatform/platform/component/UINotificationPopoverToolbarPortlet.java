@@ -1,5 +1,6 @@
 package org.exoplatform.platform.component;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -67,7 +68,7 @@ public class UINotificationPopoverToolbarPortlet extends UIPortletApplication {
   }
 
   protected List<String> getNotifications() throws Exception {
-    return webNftService.get(new WebNotificationFilter(currentUser, true), 0, maxItemsInPopover);
+    return webNftService == null ? new ArrayList<String>() : webNftService.get(new WebNotificationFilter(currentUser, true), 0, maxItemsInPopover);
   }
 
   protected List<String> getActions() {
@@ -82,7 +83,7 @@ public class UINotificationPopoverToolbarPortlet extends UIPortletApplication {
     if (currentUser == null || currentUser.isEmpty()) {
       currentUser = WebuiRequestContext.getCurrentInstance().getRemoteUser();
     }
-    return userSettingService.get(currentUser).isChannelActive(WebChannel.ID);
+    return userSettingService == null ? false : userSettingService.get(currentUser).isChannelActive(WebChannel.ID);
   }
   
   protected String getCometdContextName() {
@@ -90,7 +91,7 @@ public class UINotificationPopoverToolbarPortlet extends UIPortletApplication {
   }
 
   protected int getNumberOfMessage() {
-    return webNftService.getNumberOnBadge(currentUser);
+    return webNftService == null ? 0 : webNftService.getNumberOnBadge(currentUser);
   }
 
   public String getUserToken() {
