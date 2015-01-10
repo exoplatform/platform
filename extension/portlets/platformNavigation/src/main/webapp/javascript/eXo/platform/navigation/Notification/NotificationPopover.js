@@ -1,4 +1,4 @@
-(function($){
+(function($, cCometD){
   var NotificationPopover = {
       popupId : 'NotificationPopup',
       maxItem : 8,
@@ -10,25 +10,19 @@
       takeEventLink : '',
       resetNumberOnBadgeLink : '',
       initCometd : function(eXoUser, eXoToken, contextName) {
-      if(!NotificationPopover.Cometd) NotificationPopover.Cometd = $.cometd;
-        var eXoProps = {'exoId': eXoUser, 'exoToken': eXoToken};
+      if(!NotificationPopover.Cometd) NotificationPopover.Cometd = cCometD;
         var loc = window.location;
         NotificationPopover.Cometd.configure({
-            url: loc.protocol + '//' + loc.hostname + (loc.port ? ':' + loc.port : '')  + '/' + contextName + '/cometd'
+            url: loc.protocol + '//' + loc.hostname + (loc.port ? ':' + loc.port : '')  + '/' + contextName + '/cometd',
+            'exoId': eXoUser, 'exoToken': eXoToken
         });
     
         if (NotificationPopover.currentUser !== eXoUser || NotificationPopover.currentUser === '') {
           NotificationPopover.currentUser = eXoUser;
-          if (NotificationPopover.Cometd.isDisconnected()) {
-            NotificationPopover.Cometd.handshake(eXoProps, function(reply) {
-              if (reply.successful) {
-                NotificationPopover.Cometd.subscribe('/eXo/Application/web/NotificationMessage', null, function(eventObj) {
-                  var message = JSON.parse(eventObj.data);
-                  NotificationPopover.appendMessage(message);
-                }, eXoProps);//end function
-              }//end if successful
-            });//end handshake
-          }//end disconnected
+          NotificationPopover.Cometd.subscribe('/eXo/Application/web/NotificationMessage', null, function(eventObj) {
+            var message = JSON.parse(eventObj.data);
+            NotificationPopover.appendMessage(message);
+          });
         }//end user
       },//end method
       init : function() {
@@ -194,4 +188,4 @@
   
   NotificationPopover.init();
   return NotificationPopover;
-})(jQuery);
+})(jQuery, cCometD);
