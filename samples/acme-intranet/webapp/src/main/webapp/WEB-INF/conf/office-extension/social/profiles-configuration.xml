@@ -73,7 +73,7 @@
           <description>Action Profile Portlet</description>
           <object type="org.exoplatform.commons.addons.PortletModel">
             <field name="contentId">
-              <string>social-portlet/ActionProfilePortlet</string>
+              <string>social-juzu/ActionProfilePortlet</string>
             </field>
           </object>
         </object-param>
