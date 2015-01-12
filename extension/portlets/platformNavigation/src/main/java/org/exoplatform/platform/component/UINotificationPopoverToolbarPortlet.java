@@ -127,7 +127,8 @@ public class UINotificationPopoverToolbarPortlet extends UIPortletApplication {
     public void execute(Event<UINotificationPopoverToolbarPortlet> event) throws Exception {
       String id = event.getRequestContext().getRequestParameter(OBJECTID);
       UINotificationPopoverToolbarPortlet portlet = event.getSource();
-      portlet.webNftService.remove(id);
+      //this action should be removed
+      //portlet.webNftService.remove(id);
       // Ignore reload portlet
       ((PortalRequestContext) event.getRequestContext().getParentAppRequestContext()).ignoreAJAXUpdateOnPortlets(true);
     }

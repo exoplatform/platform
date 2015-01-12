@@ -72,7 +72,7 @@
         });
       },
       appendMessage : function(message) {
-        var newItem = NotificationPopover.applyAction($($('<ul></ul>').html(message.body).html()));
+        var newItem = $($('<ul></ul>').html(message.body).html());
         var id = newItem.data('id');
         //
         var existItem = NotificationPopover.popupItem.find('li[data-id=' + id + ']');
@@ -80,26 +80,24 @@
         if (isExisting) {
           //this process only mentions case like or comment, 
           //the content must be updated and NotificationID still kept
-          existItem.remove();
+          existItem.hide();
+          existItem.replaceWith(newItem);
+          NotificationPopover.showElm(NotificationPopover.applyAction(existItem));
         } else if (NotificationPopover.popupItem.find('li').length === NotificationPopover.maxItem){
           NotificationPopover.popupItem.find('li:last').remove();
-        }
-        //
-        NotificationPopover.popupItem.prepend(newItem.hide());
-        NotificationPopover.showElm(newItem);
-        //
-        var badgeElm = NotificationPopover.badgeElm;
-        if (isExisting) {
-          NotificationPopover.nbDisplay = (message.numberOnBadge == 0) ? 1 : message.numberOnBadge;
-        } else {
+        } else if (!isExisting) {
+          NotificationPopover.popupItem.prepend(NotificationPopover.applyAction(newItem).hide());
+          NotificationPopover.showElm(newItem);
+          //
+          var badgeElm = NotificationPopover.badgeElm;
           NotificationPopover.nbDisplay = parseInt(NotificationPopover.nbDisplay) + 1;
+          if (NotificationPopover.nbDisplay > NotificationPopover.maxItem) {
+            badgeElm.text(NotificationPopover.maxItem + "+");
+          } else {
+            badgeElm.text(NotificationPopover.nbDisplay);
+          }
+          badgeElm.show();
         }
-        if (NotificationPopover.nbDisplay > NotificationPopover.maxItem) {
-          badgeElm.text(NotificationPopover.maxItem + "+");
-        } else {
-          badgeElm.text(NotificationPopover.nbDisplay);
-        }
-        badgeElm.show();
         //
         NotificationPopover.portlet.find('.actionMark:first').show();
         NotificationPopover.portlet.find('.no-items:first').hide();
@@ -134,22 +132,27 @@
         });
         //
         item.find('.remove-item').off('click')
-            .on('click', function(evt) { evt.stopPropagation(); NotificationPopover.doAction($(this), NotificationPopover.removePopoverLink); });
+            .on('click', function(evt) {
+                evt.stopPropagation(); 
+                //1.call ajax to remove this notification, and do something in commons side
+                //2.remove this element on UI
+                NotificationPopover.removeItem($(this).parents('li:first'))
+                                   .removeElm($(this).parents('li:first'));
+
+             });
         item.find('.action-item').off('click')
-            .on('click', function(evt) { evt.stopPropagation(); NotificationPopover.doAction($(this), NotificationPopover.takeEventLink); });
+            .on('click', function(evt) { evt.stopPropagation(); NotificationPopover.doAction($(this)); });
         //
         return item;
       },
-      doAction : function(elm, link) {
-          //1.call ajax to remove this notification, and do something in commons side
-          //2.call rest on social side: for example accept/refuse relationship
-          //3.remove this element on UI
-          //4.redirect to the uri, for example: view activity detail
-          NotificationPopover.removeItem(elm.parents('li:first'), link)
-                             .ajaxRequest(elm.data('rest'))
-                             .removeElm(elm.parents('li:first'))
+      doAction : function(elm) {
+          //1. call rest on social side: for example accept/refuse relationship
+          //2. do action to update the message and send back
+          //3. redirect to the uri, for example: view activity detail
+          var id = elm.parents('li:first').data('id');
+          NotificationPopover.ajaxRequest(elm.data('rest') + "/" + id)
                              .openURL(elm.data('link'));
-        },
+      },
       removeElm : function(elm) {
         elm.css('overflow', 'hidden').animate({
           height : '0px'
@@ -175,15 +178,21 @@
         var action = NotificationPopover.markReadLink + item.data('id');
         window.ajaxGet(action);
       },
-      removeItem : function(item, link) {
-        var action = link + item.data('id');
+      removeItem : function(item) {
+        var action = NotificationPopover.removePopoverLink + item.data('id');
         window.ajaxGet(action);
         //
         if(NotificationPopover.popupItem.find('li').length == 1) {
           NotificationPopover.showElm(NotificationPopover.portlet.find('.no-items:first'));
         }
         return this;
+      },
+      doTakeAction : function(item) {
+        var action = NotificationPopover.takeEventLink + item.data('id');
+        window.ajaxGet(action);
+        return this;
       }
+      
   };
   
   NotificationPopover.init();
