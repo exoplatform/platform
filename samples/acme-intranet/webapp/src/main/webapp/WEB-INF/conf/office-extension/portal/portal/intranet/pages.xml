@@ -479,7 +479,7 @@
             <access-permissions>*:/platform/users</access-permissions>
             <portlet-application>
               <portlet>
-                <application-ref>social-portlet</application-ref>
+                <application-ref>social-juzu</application-ref>
                 <portlet-ref>ExperienceProfilePortlet</portlet-ref>
               </portlet>
               <title>Experience Profile Portlet</title>
@@ -523,7 +523,7 @@
             <access-permissions>*:/platform/users</access-permissions>
             <portlet-application>
               <portlet>
-                <application-ref>social-portlet</application-ref>
+                <application-ref>social-juzu</application-ref>
                 <portlet-ref>MiniConnectionsPortlet</portlet-ref>
               </portlet>
               <title>Connections User Portlet</title>
