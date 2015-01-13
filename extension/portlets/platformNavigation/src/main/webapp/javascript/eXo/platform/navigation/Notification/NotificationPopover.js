@@ -74,18 +74,26 @@
       appendMessage : function(message) {
         var newItem = $($('<ul></ul>').html(message.body).html());
         var id = newItem.data('id');
+        var moveTop = message.moveTop;
         //
         var existItem = NotificationPopover.popupItem.find('li[data-id=' + id + ']');
         var isExisting = existItem.length > 0;
         if (isExisting) {
           //this process only mentions case like or comment, 
           //the content must be updated and NotificationID still kept
-          existItem.hide();
-          existItem.replaceWith(newItem);
-          NotificationPopover.showElm(NotificationPopover.applyAction(existItem));
+          if (moveTop) {
+            existItem.remove();
+          } else {
+            existItem.hide();
+            existItem.replaceWith(newItem);
+            NotificationPopover.showElm(NotificationPopover.applyAction(existItem));
+          }
+          
         } else if (NotificationPopover.popupItem.find('li').length === NotificationPopover.maxItem){
           NotificationPopover.popupItem.find('li:last').remove();
-        } else if (!isExisting) {
+        } 
+        
+        if (moveTop) {
           NotificationPopover.popupItem.prepend(NotificationPopover.applyAction(newItem).hide());
           NotificationPopover.showElm(newItem);
           //
