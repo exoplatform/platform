@@ -150,6 +150,8 @@
              });
         item.find('.action-item').off('click')
             .on('click', function(evt) { evt.stopPropagation(); NotificationPopover.doAction($(this)); });
+        item.find('.cancel-item').off('click')
+            .on('click', function(evt) { evt.stopPropagation(); NotificationPopover.doCancelAction($(this)); });
         //
         return item;
       },
@@ -157,9 +159,14 @@
           //1. call rest on social side: for example accept/refuse relationship
           //2. do action to update the message and send back
           //3. redirect to the uri, for example: view activity detail
-          var id = elm.parents('li:first').data('id');
-          NotificationPopover.ajaxRequest(elm.data('rest') + "/" + id)
+          //var id = elm.parents('li:first').data('id');
+          NotificationPopover.ajaxRequest(elm.data('rest'))
                              .openURL(elm.data('link'));
+      },
+      doCancelAction : function(elm) {
+        var id = elm.parents('li:first').data('id');
+        NotificationPopover.ajaxRequest(elm.data('rest') + "/" + id)
+                             .removeElm(elm.parents('li:first'));
       },
       removeElm : function(elm) {
         elm.css('overflow', 'hidden').animate({
@@ -194,13 +201,7 @@
           NotificationPopover.showElm(NotificationPopover.portlet.find('.no-items:first'));
         }
         return this;
-      },
-      doTakeAction : function(item) {
-        var action = NotificationPopover.takeEventLink + item.data('id');
-        window.ajaxGet(action);
-        return this;
       }
-      
   };
   
   NotificationPopover.init();
