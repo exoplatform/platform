@@ -50,7 +50,7 @@
     <org.gatein.wci.version>2.3.0.Final</org.gatein.wci.version>
     <org.gatein.pc.version>2.4.0.Final</org.gatein.pc.version>
     <org.gatein.sso.version>1.3.1.Final</org.gatein.sso.version>
-    <org.gatein.portal.version>3.5.x-PLF-SNAPSHOT</org.gatein.portal.version>
+    <org.gatein.portal.version>4.2.x-PLF-SNAPSHOT</org.gatein.portal.version>
 
     <!-- Platform Project Dependencies -->
     <org.exoplatform.commons.version>4.2.x-SNAPSHOT</org.exoplatform.commons.version>
