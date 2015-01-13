@@ -63,7 +63,7 @@
 			            clazz = "";
 			          }
 			        %>
-			         <span class="${clazz}">${_ctx.appRes("NotificationAdmin.label.NoNotifications")}</span>
+			         <span class="${clazz}"><i>${_ctx.appRes("NotificationAdmin.label.NoNotifications")}</i></span>
 							</div>
 							<div class="edit-mode">
 		          <%
