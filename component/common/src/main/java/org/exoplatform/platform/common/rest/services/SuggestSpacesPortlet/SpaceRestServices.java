@@ -188,7 +188,7 @@ public class SpaceRestServices implements ResourceContainer {
     private JSONObject buildJSONObject(Space space, int k) throws JSONException {
       String avatar = space.getAvatarUrl();
       if (avatar == null) {
-          avatar = "/eXoSkin/skin/images/social/skin/ShareImages/UserAvtDefault.png";
+          avatar = "/eXoSkin/skin/images/Default/social/skin/ShareImages/UserAvtDefault.png";
       }
       
       String spaceType = "";

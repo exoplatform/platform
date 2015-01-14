@@ -18,7 +18,7 @@
 		<div class="clearfix">
 			<div class="pull-left">
 				<div id="PreviewImgDiv" class="previewLogo" >
-					<img id="ajaxUploading1" alt="" src="/eXoSkin/skin/images/platform/portlets/branding/ajax-loader.gif"  style="display:none" >
+					<img id="ajaxUploading1" alt="" src="/eXoSkin/skin/images/Default/platform/portlets/branding/ajax-loader.gif"  style="display:none" >
 				 	<img id="PreviewImg" alt="" >
 			  </div>
 			  <div class="info">${noteselectlogo}</div>
@@ -60,7 +60,7 @@
 	<div class="preview boxContent">
 		<h4 class="titleWithBorder">${preview}</h3>
 		<div id="StylePreview">
-			<img id="ajaxUploading2" alt="" src="/eXoSkin/skin/images/platform/portlets/branding/ajax-loader.gif"	style="display:none" >
+			<img id="ajaxUploading2" alt="" src="/eXoSkin/skin/images/Default/platform/portlets/branding/ajax-loader.gif"	style="display:none" >
 		</div>
 	</div>
 

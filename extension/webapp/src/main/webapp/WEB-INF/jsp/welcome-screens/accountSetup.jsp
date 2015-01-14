@@ -111,7 +111,7 @@
                 <strong>You are almost done</strong>, add your colleagues to your new social
                 intranet and start collaborating together.
             </p>
-            <div class="screenShot"><a href="javascript:void(0);"><img src="/eXoSkin/skin/images/platform/portlets/extensions/greetingSS.png" alt="" width="404" height="172"/></a></div>
+            <div class="screenShot"><a href="javascript:void(0);"><img src="/eXoSkin/skin/images/Default/platform/portlets/extensions/greetingSS.png" alt="" width="404" height="172"/></a></div>
         </div>
         <div class="bottom"><button name="setupbutton" value="submitform" class="btn btn-primary">Start</button></div>
     </div>

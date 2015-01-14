@@ -37,7 +37,7 @@
                 var name = spaces[i].displayName;
                 var imageUrl=spaces[i].avatarUrl;
                 if (imageUrl == null) {
-                    imageUrl = "/eXoSkin/skin/images/social/skin/ShareImages/SpaceAvtDefault.png";
+                    imageUrl = "/eXoSkin/skin/images/Default/social/skin/ShareImages/SpaceAvtDefault.png";
                 }
                 var spaceDiv = "<li class='spaceItem'>"+"<a class='spaceIcon avatarMini'"
                     + "' href='" + spaceUrl + "' title='" + name + "'><img src='"+imageUrl+"'/>"
