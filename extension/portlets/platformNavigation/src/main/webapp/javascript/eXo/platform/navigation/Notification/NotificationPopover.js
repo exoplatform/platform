@@ -86,7 +86,7 @@
           } else {
             existItem.hide();
             existItem.replaceWith(newItem);
-            NotificationPopover.showElm(NotificationPopover.applyAction(existItem));
+            NotificationPopover.showElm(NotificationPopover.applyAction(newItem));
           }
           
         } else if (NotificationPopover.popupItem.find('li').length === NotificationPopover.maxItem){
