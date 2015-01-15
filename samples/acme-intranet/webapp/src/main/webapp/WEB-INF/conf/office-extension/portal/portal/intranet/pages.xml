@@ -457,7 +457,7 @@
             <access-permissions>*:/platform/users</access-permissions>
             <portlet-application>
               <portlet>
-                <application-ref>social-portlet</application-ref>
+                <application-ref>social-juzu</application-ref>
                 <portlet-ref>BasicProfilePortlet</portlet-ref>
               </portlet>
               <title>Profile</title>
@@ -499,7 +499,7 @@
             <access-permissions>*:/platform/users</access-permissions>
             <portlet-application>
               <portlet>
-                <application-ref>social-portlet</application-ref>
+                <application-ref>social-juzu</application-ref>
                 <portlet-ref>RecentActivitiesPortlet</portlet-ref>
               </portlet>
               <title>Recent Activities Portlet</title>
