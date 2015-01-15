@@ -9,6 +9,7 @@
       removePopoverLink : '',
       takeEventLink : '',
       resetNumberOnBadgeLink : '',
+      showViewAll : '',
       initCometd : function(eXoUser, eXoToken, contextName) {
       if(!NotificationPopover.Cometd) NotificationPopover.Cometd = cCometD;
         var loc = window.location;
@@ -52,7 +53,8 @@
           NotificationPopover.portlet.find('.actionMark:first').show();
         }
         // show/hide ViewAll page
-        if(NotificationPopover.popupItem.find('li').length == 0) {
+        NotificationPopover.showViewAll = NotificationPopover.portlet.find('#hasNotifications').text();
+        if(NotificationPopover.popupItem.find('li').length == 0 && (NotificationPopover.showViewAll == "false")) {
           NotificationPopover.portlet.find('.actionLink:first').hide();
         }
         
@@ -110,6 +112,7 @@
         NotificationPopover.portlet.find('.actionMark:first').show();
         NotificationPopover.portlet.find('.no-items:first').hide();
         NotificationPopover.portlet.find('.actionLink:first').show();
+        NotificationPopover.showViewAll = "true";
       },
       openURL : function (url) {
         if(url && url.length > 0) {
@@ -165,8 +168,12 @@
       },
       doCancelAction : function(elm) {
         var id = elm.parents('li:first').data('id');
-        NotificationPopover.ajaxRequest(elm.data('rest') + "/" + id)
-                             .removeElm(elm.parents('li:first'));
+        NotificationPopover.ajaxRequest(elm.data('rest'), function(userWebNotification) {
+          if (!userWebNotification.showViewAll) {
+            NotificationPopover.portlet.find('.actionLink:first').hide();
+            NotificationPopover.showViewAll = "false";
+          }
+        }).removeItem(elm.parents('li:first')).removeElm(elm.parents('li:first'));
       },
       removeElm : function(elm) {
         elm.css('overflow', 'hidden').animate({
@@ -199,6 +206,9 @@
         //
         if(NotificationPopover.popupItem.find('li').length == 1) {
           NotificationPopover.showElm(NotificationPopover.portlet.find('.no-items:first'));
+          NotificationPopover.portlet.find('.actionMark:first').hide();
+        } else if(NotificationPopover.popupItem.find('li.unread').length == 1 && item.hasClass('unread')) {
+          NotificationPopover.portlet.find('.actionMark:first').hide();
         }
         return this;
       }

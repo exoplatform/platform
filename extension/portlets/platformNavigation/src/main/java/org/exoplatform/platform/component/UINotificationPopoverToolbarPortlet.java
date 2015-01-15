@@ -80,9 +80,6 @@ public class UINotificationPopoverToolbarPortlet extends UIPortletApplication {
   }
 
   protected boolean isWebActive() {
-    if (currentUser == null || currentUser.isEmpty()) {
-      currentUser = WebuiRequestContext.getCurrentInstance().getRemoteUser();
-    }
     return userSettingService == null ? false : userSettingService.get(currentUser).isChannelActive(WebChannel.ID);
   }
   
@@ -92,6 +89,12 @@ public class UINotificationPopoverToolbarPortlet extends UIPortletApplication {
 
   protected int getNumberOfMessage() {
     return webNftService == null ? 0 : webNftService.getNumberOnBadge(currentUser);
+  }
+  
+  protected boolean hasNotifications() throws Exception {
+    if (getNumberOfMessage() > 0 || getNotifications().size() > 0) 
+      return true;
+    return webNftService == null ? false : webNftService.get(new WebNotificationFilter(currentUser), 0, 1).size() > 0;
   }
 
   public String getUserToken() {

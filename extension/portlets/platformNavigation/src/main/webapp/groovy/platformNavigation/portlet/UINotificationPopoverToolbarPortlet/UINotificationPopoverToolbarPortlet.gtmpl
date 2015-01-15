@@ -7,6 +7,7 @@
 			}
 		%>
 		<div id="maxItemsInPopover"><%=uicomponent.maxItemsInPopover%></div>
+		<div id="hasNotifications"><%=uicomponent.hasNotifications()%></div>
 	</div>
 	<div class="uiDropdownWithIcon dropdown pull-right">
 		<a href="#" class="dropdown-toggle" data-toggle="dropdown">
