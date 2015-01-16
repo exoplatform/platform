@@ -4,6 +4,10 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import javax.portlet.MimeResponse;
+import javax.portlet.ResourceRequest;
+import javax.portlet.ResourceURL;
+
 import org.exoplatform.commons.api.notification.NotificationMessageUtils;
 import org.exoplatform.commons.api.notification.model.WebNotificationFilter;
 import org.exoplatform.commons.api.notification.service.WebNotificationService;
@@ -21,6 +25,7 @@ import org.exoplatform.webui.core.lifecycle.UIApplicationLifecycle;
 import org.exoplatform.webui.event.Event;
 import org.exoplatform.webui.event.EventListener;
 import org.exoplatform.ws.frameworks.cometd.ContinuationService;
+import org.json.JSONObject;
 import org.mortbay.cometd.continuation.EXoContinuationBayeux;
 
 @ComponentConfig(
@@ -36,6 +41,7 @@ import org.mortbay.cometd.continuation.EXoContinuationBayeux;
 )
 public class UINotificationPopoverToolbarPortlet extends UIPortletApplication {
   private static final Log LOG = ExoLogger.getLogger(UINotificationPopoverToolbarPortlet.class);
+  private static final String EXO_NOTIFICATION_POPOVER_LIST = "exo.notification.popover.list";
   private final WebNotificationService webNftService;
   private final UserSettingService userSettingService;
   private final ContinuationService continuation;
@@ -67,6 +73,40 @@ public class UINotificationPopoverToolbarPortlet extends UIPortletApplication {
     super.processRender(app, context);
   }
 
+  @Override
+  public void serveResource(WebuiRequestContext context) throws Exception {
+    super.serveResource(context);
+    ResourceRequest req = context.getRequest();
+    String resourceId = req.getResourceID();
+    //
+    List<String> notifications = getNotifications();
+    //
+    StringBuffer sb = new StringBuffer();
+    for (String notif : notifications) {
+      sb.append(notif);  
+    }
+    //
+    MimeResponse res = context.getResponse();
+    res.setContentType("application/json");
+    //
+    JSONObject object = new JSONObject();
+    object.put("notifications", sb.toString());
+    //
+    res.getWriter().write(object.toString());
+  }
+  
+  protected String buildResourceURL() {
+    try {
+      WebuiRequestContext ctx = WebuiRequestContext.getCurrentInstance();
+      MimeResponse res = ctx.getResponse();
+      ResourceURL rsURL = res.createResourceURL();
+      rsURL.setResourceID(EXO_NOTIFICATION_POPOVER_LIST);
+      return rsURL.toString();
+    } catch (Exception e) {
+      return "";
+    }
+  }
+  
   protected List<String> getNotifications() throws Exception {
     return webNftService == null ? new ArrayList<String>() : webNftService.get(new WebNotificationFilter(currentUser, true), 0, maxItemsInPopover);
   }

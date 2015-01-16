@@ -1,4 +1,5 @@
 <div class="uiNotificationPopoverToolbarPortlet clearfix" style="<%=(uicomponent.isWebActive() ? "" : "display:none")%>" id="$uicomponent.id">
+	<div id="PopoverServeResourceLink" data-url="<%=uicomponent.buildResourceURL()%>"></div>
 	<div style="display:none" class="all-actions">
 		<%
 			List actions = uicomponent.getActions();
@@ -24,11 +25,6 @@
 			<li class="actionMark right"><a href="javascript:void(0)" onclick="<%=uicomponent.event("MarkAllRead")%>"><%=_ctx.appRes("UINotificationPopoverToolbarPortlet.label.MarkAllAsRead") %></a></li>
 			<li>
 				<ul class="displayItems">
-					<% 
-					 for(notification in notifications) { 
-						 print(notification);
-					 }
-				  %>
 				</ul>
 			</li>
 			<li class="actionLink"><div><a class="btn" href="/portal/intranet/allNotifications/"><%=_ctx.appRes("UINotificationPopoverToolbarPortlet.label.ViewAll") %></a></div></li>

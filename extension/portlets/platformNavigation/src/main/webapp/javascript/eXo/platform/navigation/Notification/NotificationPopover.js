@@ -5,6 +5,7 @@
       nbDisplay : 0,
       portlet : null,
       popupItem : null,
+      popoverServeResourceLink : null,
       markReadLink : '',
       removePopoverLink : '',
       takeEventLink : '',
@@ -29,6 +30,7 @@
       init : function() {
         //
         NotificationPopover.portlet = $('#' + NotificationPopover.popupId).parents('.uiNotificationPopoverToolbarPortlet:first');
+        NotificationPopover.popoverServeResourceLink = NotificationPopover.portlet.find('div#PopoverServeResourceLink:first');
         NotificationPopover.markReadLink = NotificationPopover.portlet.find('#MarkRead').text();
         NotificationPopover.removePopoverLink = NotificationPopover.portlet.find('#RemovePopover').text();
         NotificationPopover.takeEventLink = NotificationPopover.portlet.find('#TakeEvent').text();
@@ -65,6 +67,26 @@
         });
         //
         NotificationPopover.portlet.find('.dropdown-toggle:first').on('click', function() { 
+          var uiDropdownWithIcon = NotificationPopover.portlet.find('div.uiDropdownWithIcon:first');
+          if (uiDropdownWithIcon.hasClass('open')) {
+            return;
+          }
+          
+          //
+          NotificationPopover.popupItem.find('li').remove();  
+          //
+          $.ajax({
+            url: NotificationPopover.popoverServeResourceLink.data('url')
+          }).done(function(data) {
+            var notifications = data.notifications;
+            if (notifications && notifications.length > 0) {
+              NotificationPopover.popupItem.append(notifications);
+              NotificationPopover.popupItem.find('li').each(function(i) {
+                NotificationPopover.applyAction($(this));
+              });
+            }
+          });
+          
           NotificationPopover.badgeElm.text('0').hide();
           // call action clear badge
           if (NotificationPopover.nbDisplay > 0) {
