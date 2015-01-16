@@ -40,7 +40,7 @@
 
       <value-param>
         <name>update-policy</name>
-        <value>${webdav.update-policy:update}</value>
+        <value>${webdav.update-policy:create-version}</value>
         <!--value>create-version</value-->
         <!--value>replace</value -->
         <!-- value>add</value -->
