@@ -1,4 +1,8 @@
-<script>	function displayProfileInfo(popupId, popupMaskLayerId, displayValue) {		var popup = document.getElementById(popupId);		popup.style.display= displayValue;		var popupMaskLayer = document.getElementById(popupMaskLayerId);		popupMaskLayer.style.display= displayValue;
+<script>
+	function displayProfileInfo(popupId, popupMaskLayerId, displayValue) {
+    var popup = document.getElementById(popupId);		popup.style.display= displayValue;
+    var popupMaskLayer = document.getElementById(popupMaskLayerId);
+    popupMaskLayer.style.display= displayValue;
 	}
 </script>
 <div class="ContentPortletDisabled"><strong>APP_NAME</strong> requires the <strong>PROFILE</strong> profile. <a href="#" onclick="displayProfileInfo('APP_ID_popup', 'APP_ID_PopupMaskLayer', 'block')">[Fix this]</a>.</div>
