@@ -42,8 +42,8 @@
       <artifactId>exo.kernel.container</artifactId>
     </dependency>
     <dependency>
-      <groupId>org.exoplatform.platform-ui</groupId>
-      <artifactId>platform-ui-webui-core</artifactId>
+      <groupId>org.gatein.portal</groupId>
+      <artifactId>exo.portal.webui.core</artifactId>
     </dependency> 
     <dependency>
       <groupId>org.gatein.common</groupId>

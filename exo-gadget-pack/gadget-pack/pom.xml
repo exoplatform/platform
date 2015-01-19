@@ -14,12 +14,6 @@
     <!-- We want to be sure to use the right version in the dependency plugin but it's not required in the package -->
     <dependency>
       <groupId>org.exoplatform.platform-ui</groupId>
-      <artifactId>platform-ui-web-eXoResources</artifactId>
-      <type>war</type>
-      <scope>provided</scope>
-    </dependency>
-    <dependency>
-      <groupId>org.exoplatform.platform-ui</groupId>
       <artifactId>platform-ui-skin</artifactId>
       <type>war</type>
       <scope>provided</scope>

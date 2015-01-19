@@ -59,8 +59,8 @@
       <artifactId>platform-component-webui</artifactId>
     </dependency>
     <dependency>
-      <groupId>org.exoplatform.platform-ui</groupId>
-      <artifactId>platform-ui-webui-core</artifactId>
+      <groupId>org.gatein.portal</groupId>
+      <artifactId>exo.portal.webui.core</artifactId>
     </dependency> 
     <dependency>
       <groupId>org.exoplatform.social</groupId>
@@ -108,12 +108,6 @@
       <scope>provided</scope>
     </dependency>
     <!-- We want to be sure to use the right version in the dependency plugin but it's not required in the package -->
-    <dependency>
-      <groupId>org.exoplatform.platform-ui</groupId>
-      <artifactId>platform-ui-web-eXoResources</artifactId>
-      <type>war</type>
-      <scope>provided</scope>
-    </dependency>
     <dependency>
       <groupId>org.exoplatform.platform-ui</groupId>
       <artifactId>platform-ui-skin</artifactId>

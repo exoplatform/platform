@@ -28,8 +28,8 @@
       <artifactId>exo.kernel.commons</artifactId>
     </dependency>
     <dependency>
-      <groupId>org.exoplatform.platform-ui</groupId>
-      <artifactId>platform-ui-webui-core</artifactId>
+      <groupId>org.gatein.portal</groupId>
+      <artifactId>exo.portal.webui.core</artifactId>
     </dependency> 
     <dependency>
       <groupId>org.exoplatform.social</groupId>
