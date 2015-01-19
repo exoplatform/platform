@@ -35,7 +35,7 @@
                             link += "<li class='clearfix peopleList' style='display:none;' id='"+item.relationId+"'>";
                         var peopleAvatar;
                         if (item.senderAvatarUrl == undefined)
-                            peopleAvatar = "/eXoSkin/skin/images/Default/social/skin/ShareImages/UserAvtDefault.png";
+                            peopleAvatar = "/eXoSkin/skin/images/themes/default/social/skin/ShareImages/UserAvtDefault.png";
                         else
                             peopleAvatar = item.senderAvatarUrl;
                         link += "<div class='peopleInvitePicture pull-left avatarXSmall'><a href='"+item.profile_url+"'><img src='"+peopleAvatar+"'></a></div>";
@@ -102,7 +102,7 @@
                             link += "<li class='clearfix spaceList' style='display:none;' id='"+item.spaceId+"'>";
                         var spaceAvatar;
                         if (item.spaceAvatarUrl == undefined)
-                            spaceAvatar =  "/eXoSkin/skin/images/Default/social/skin/ShareImages/UserAvtDefault.png";
+                            spaceAvatar =  "/eXoSkin/skin/images/themes/default/social/skin/ShareImages/UserAvtDefault.png";
                         else
                             spaceAvatar = item.spaceAvatarUrl;
                         link += "<div class='spaceInvitePicture pull-left avatarXSmall'><img src='"+spaceAvatar+"'></div>";
