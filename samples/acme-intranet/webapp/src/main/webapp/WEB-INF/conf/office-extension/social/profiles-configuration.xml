@@ -36,35 +36,6 @@
         </value-param>
         <value-param>
           <name>containerName</name>
-          <value>status-profile-container</value>
-        </value-param>
-        <object-param>
-          <name>StatusProfilePortlet</name>
-          <description>Status Profile Portlet</description>
-          <object type="org.exoplatform.commons.addons.PortletModel">
-            <field name="contentId">
-              <string>social-juzu/StatusProfilePortlet</string>
-            </field>
-          </object>
-        </object-param>
-      </init-params>
-    </component-plugin>
-  </external-component-plugins>
-
-  <external-component-plugins>
-    <target-component>org.exoplatform.commons.addons.AddOnService</target-component>
-    <component-plugin>
-      <name>addPlugin</name>
-      <set-method>addPlugin</set-method>
-      <type>org.exoplatform.commons.addons.AddOnPluginImpl</type>
-      <description>add application Config</description>
-      <init-params>
-        <value-param>
-          <name>priority</name>
-          <value>1</value>
-        </value-param>
-        <value-param>
-          <name>containerName</name>
           <value>action-profile-container</value>
         </value-param>
 
