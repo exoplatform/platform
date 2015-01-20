@@ -35,6 +35,7 @@ public class UIBreadCrumbsNavigationPortlet extends UIPortletApplication {
   private static final String          WIKI_HOME             = "/WikiHome";
 
   private static final String          WIKI_REF              = "wiki";
+  private static final String          EDIT_PROFILE_NODE     = "edit-profile";
 
   public UIBreadCrumbsNavigationPortlet() throws Exception {
     userService = getApplicationComponent(UserNavigationHandlerService.class);
@@ -102,6 +103,15 @@ public class UIBreadCrumbsNavigationPortlet extends UIPortletApplication {
       return false;
   }
 
+  protected boolean isEditProfilePage() throws Exception {
+    String uri = Util.getUIPortal().getSelectedUserNode().getURI();
+    if (uri.endsWith(EDIT_PROFILE_NODE)) {
+      return true;
+    }
+    
+    return false;  
+  }
+  
   private String getWikiURL() {
     return NavigationURLUtils.getURLInCurrentPortal(WIKI_REF) + USER + getOwnerProfile().getIdentity().getRemoteId() + WIKI_HOME;
   }

@@ -25,7 +25,7 @@
     </div>
     <div class="breadcumbEntry">
       <div class="name">$nodeName</div>
-    <% if (uicomponent.isOwner() && isUserUrl) { %>
+    <% if (uicomponent.isOwner() && isUserUrl && !uicomponent.isEditProfilePage()) { %>
       <a class="changeAvatar" onclick="window.location.href=window.location.origin + '/portal/intranet/edit-profile'" 
          href="javascript:void(0)"><i class="uiIconEdit uiIconLightGray"></i> <%=_ctx.appRes("UIBreadCrumbsNavigationPortlet.label.EditProfile")%></a>
     <% } %>
