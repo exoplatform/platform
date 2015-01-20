@@ -126,7 +126,7 @@ public class PeopleRestServices implements ResourceContainer {
         Identity senderId = relation.getSender();
         String avatar = senderId.getProfile().getAvatarImageSource();
         if (avatar == null) {
-          avatar = "/social-resources/skin/ShareImages/Avatar.gif";
+          avatar = "/eXoSkin/skin/images/system/Avatar.gif";
         }
 
         JSONObject json = new JSONObject();
