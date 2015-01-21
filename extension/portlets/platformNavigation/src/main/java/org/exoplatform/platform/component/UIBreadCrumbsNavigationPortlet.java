@@ -1,10 +1,12 @@
 package org.exoplatform.platform.component;
 
 import java.util.List;
+import java.util.ResourceBundle;
 
 import org.exoplatform.platform.common.service.MenuConfiguratorService;
 import org.exoplatform.platform.navigation.component.breadcrumb.UserNavigationHandlerService;
 import org.exoplatform.platform.webui.NavigationURLUtils;
+import org.exoplatform.portal.application.PortalRequestContext;
 import org.exoplatform.portal.mop.SiteType;
 import org.exoplatform.portal.mop.user.UserNavigation;
 import org.exoplatform.portal.mop.user.UserNode;
@@ -14,6 +16,8 @@ import org.exoplatform.social.core.identity.model.Profile;
 import org.exoplatform.social.core.service.LinkProvider;
 import org.exoplatform.social.core.space.model.Space;
 import org.exoplatform.social.webui.Utils;
+import org.exoplatform.webui.application.WebuiApplication;
+import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.core.UIPortletApplication;
 import org.exoplatform.webui.core.lifecycle.UIApplicationLifecycle;
@@ -36,11 +40,28 @@ public class UIBreadCrumbsNavigationPortlet extends UIPortletApplication {
 
   private static final String          WIKI_REF              = "wiki";
   private static final String          EDIT_PROFILE_NODE     = "edit-profile";
+  private static final String          MY_PROFILE_TITLE      = "UIBreadCrumbsNavigationPortlet.title.MyProfile";
 
   public UIBreadCrumbsNavigationPortlet() throws Exception {
     userService = getApplicationComponent(UserNavigationHandlerService.class);
   }
 
+  @Override
+  public void processRender(WebuiApplication app, WebuiRequestContext context) throws Exception {
+    if (isUserUrl() || isEditProfilePage()) {
+      if (isOwner() || isEditProfilePage()) {
+        ResourceBundle resApp = context.getApplicationResourceBundle();
+        String title = resApp.getString(MY_PROFILE_TITLE);
+        Util.getPortalRequestContext().getRequest().setAttribute(PortalRequestContext.REQUEST_TITLE, title);        
+      } else {
+        Util.getPortalRequestContext().getRequest()
+        .setAttribute(PortalRequestContext.REQUEST_TITLE, getOwnerProfile().getFullName());
+      }
+      
+    }
+    super.processRender(app, context);
+  }
+  
   protected UserNavigation getSelectedNode() throws Exception {
     UserNode node = Util.getUIPortal().getSelectedUserNode();
     UserNavigation nav = getUserPortal().getNavigation(node.getNavigation().getKey());

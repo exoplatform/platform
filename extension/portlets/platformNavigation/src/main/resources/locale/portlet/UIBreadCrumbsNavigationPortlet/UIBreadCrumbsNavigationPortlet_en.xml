@@ -4,5 +4,8 @@
     <label>
       <EditProfile>Edit my Profile</EditProfile>
     </label>
+    <title>
+      <MyProfile>My Profile</MyProfile>
+    </title>
 	</UIBreadCrumbsNavigationPortlet>
 </bundle>
