@@ -414,7 +414,7 @@
         <access-permissions>*:/platform/users</access-permissions>
         <portlet-application>
           <portlet>
-            <application-ref>social-juzu</application-ref>
+            <application-ref>social-portlet</application-ref>
             <portlet-ref>StatusProfilePortlet</portlet-ref>
           </portlet>
           <title>Status Profile Portlet</title>
@@ -450,7 +450,7 @@
             <access-permissions>*:/platform/users</access-permissions>
             <portlet-application>
               <portlet>
-                <application-ref>social-juzu</application-ref>
+                <application-ref>social-portlet</application-ref>
                 <portlet-ref>BasicProfilePortlet</portlet-ref>
               </portlet>
               <title>Profile</title>
@@ -472,7 +472,7 @@
             <access-permissions>*:/platform/users</access-permissions>
             <portlet-application>
               <portlet>
-                <application-ref>social-juzu</application-ref>
+                <application-ref>social-portlet</application-ref>
                 <portlet-ref>ExperienceProfilePortlet</portlet-ref>
               </portlet>
               <title>Experience Profile Portlet</title>
@@ -492,7 +492,7 @@
             <access-permissions>*:/platform/users</access-permissions>
             <portlet-application>
               <portlet>
-                <application-ref>social-juzu</application-ref>
+                <application-ref>social-portlet</application-ref>
                 <portlet-ref>RecentActivitiesPortlet</portlet-ref>
               </portlet>
               <title>Recent Activities Portlet</title>
@@ -516,7 +516,7 @@
             <access-permissions>*:/platform/users</access-permissions>
             <portlet-application>
               <portlet>
-                <application-ref>social-juzu</application-ref>
+                <application-ref>social-portlet</application-ref>
                 <portlet-ref>MiniConnectionsPortlet</portlet-ref>
               </portlet>
               <title>Connections User Portlet</title>
