@@ -40,6 +40,7 @@ public class UIBreadCrumbsNavigationPortlet extends UIPortletApplication {
 
   private static final String          WIKI_REF              = "wiki";
   private static final String          EDIT_PROFILE_NODE     = "edit-profile";
+  private static final String          PROFILE_PATH          = "/profile";
   private static final String          MY_PROFILE_TITLE      = "UIBreadCrumbsNavigationPortlet.title.MyProfile";
 
   public UIBreadCrumbsNavigationPortlet() throws Exception {
@@ -48,7 +49,7 @@ public class UIBreadCrumbsNavigationPortlet extends UIPortletApplication {
 
   @Override
   public void processRender(WebuiApplication app, WebuiRequestContext context) throws Exception {
-    if (isUserUrl() || isEditProfilePage()) {
+    if (isUserUrl() && isOnProfilePage() || isEditProfilePage()) {
       if (isOwner() || isEditProfilePage()) {
         ResourceBundle resApp = context.getApplicationResourceBundle();
         String title = resApp.getString(MY_PROFILE_TITLE);
@@ -131,6 +132,11 @@ public class UIBreadCrumbsNavigationPortlet extends UIPortletApplication {
     }
     
     return false;  
+  }
+
+  private boolean isOnProfilePage() throws Exception {
+    System.out.println(Util.getPortalRequestContext().getRequest().getRequestURL().toString());
+    return Util.getPortalRequestContext().getRequest().getRequestURL().toString().contains(PROFILE_PATH);
   }
   
   private String getWikiURL() {
