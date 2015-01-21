@@ -135,7 +135,6 @@ public class UIBreadCrumbsNavigationPortlet extends UIPortletApplication {
   }
 
   private boolean isOnProfilePage() throws Exception {
-    System.out.println(Util.getPortalRequestContext().getRequest().getRequestURL().toString());
     return Util.getPortalRequestContext().getRequest().getRequestURL().toString().contains(PROFILE_PATH);
   }
   
