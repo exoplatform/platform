@@ -46,9 +46,6 @@
         NotificationPopover.badgeElm = badgeElm;
         NotificationPopover.nbDisplay = parseInt(badgeElm.text());
         if (NotificationPopover.nbDisplay > 0) {
-          if (NotificationPopover.nbDisplay > NotificationPopover.maxItem) {
-            badgeElm.text(NotificationPopover.maxItem + "+");
-          }
           badgeElm.show();
         }
         if(NotificationPopover.popupItem.find('li.unread').length > 0) {
@@ -128,14 +125,8 @@
           NotificationPopover.popupItem.prepend(NotificationPopover.applyAction(newItem).hide());
           NotificationPopover.showElm(newItem);
           //
-          var badgeElm = NotificationPopover.badgeElm;
           NotificationPopover.nbDisplay = parseInt(NotificationPopover.nbDisplay) + 1;
-          if (NotificationPopover.nbDisplay > NotificationPopover.maxItem) {
-            badgeElm.text(NotificationPopover.maxItem + "+");
-          } else {
-            badgeElm.text(NotificationPopover.nbDisplay);
-          }
-          badgeElm.show();
+          NotificationPopover.badgeElm.text(NotificationPopover.nbDisplay).show();
         }
         //
         NotificationPopover.portlet.find('.actionMark:first').show();
