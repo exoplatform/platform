@@ -78,6 +78,9 @@ public class UINotificationPopoverToolbarPortlet extends UIPortletApplication {
     super.serveResource(context);
     ResourceRequest req = context.getRequest();
     String resourceId = req.getResourceID();
+    if (!EXO_NOTIFICATION_POPOVER_LIST.equals(resourceId)) {
+      return;
+    }
     //
     List<String> notifications = getNotifications();
     //
@@ -91,6 +94,7 @@ public class UINotificationPopoverToolbarPortlet extends UIPortletApplication {
     //
     JSONObject object = new JSONObject();
     object.put("notifications", sb.toString());
+    object.put("showViewAll", hasNotifications());
     //
     res.getWriter().write(object.toString());
   }

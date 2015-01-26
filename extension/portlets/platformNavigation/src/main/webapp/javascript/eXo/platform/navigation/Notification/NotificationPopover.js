@@ -54,11 +54,6 @@
         if(NotificationPopover.popupItem.find('li.unread').length > 0) {
           NotificationPopover.portlet.find('.actionMark:first').show();
         }
-        // show/hide ViewAll page
-        NotificationPopover.showViewAll = NotificationPopover.portlet.find('#hasNotifications').text();
-        if(NotificationPopover.popupItem.find('li').length == 0 && (NotificationPopover.showViewAll == "false")) {
-          NotificationPopover.portlet.find('.actionLink:first').hide();
-        }
         
         // markAllRead
         NotificationPopover.portlet.find('.actionMark:first').find('a').click(function (evt) {
@@ -84,7 +79,19 @@
               NotificationPopover.popupItem.find('li').each(function(i) {
                 NotificationPopover.applyAction($(this));
               });
+            } else {
+              NotificationPopover.portlet.find('.no-items:first').show();
             }
+            // show/hide ViewAll page
+            if (data.showViewAll == false) {
+              NotificationPopover.portlet.find('.actionLink:first').hide();
+            } else {
+              NotificationPopover.portlet.find('.actionLink:first').show();
+            }
+            
+            if(NotificationPopover.popupItem.find('li.unread').length > 0) {
+	          NotificationPopover.portlet.find('.actionMark:first').show();
+	        }
           });
           
           NotificationPopover.badgeElm.text('0').hide();
@@ -134,7 +141,6 @@
         NotificationPopover.portlet.find('.actionMark:first').show();
         NotificationPopover.portlet.find('.no-items:first').hide();
         NotificationPopover.portlet.find('.actionLink:first').show();
-        NotificationPopover.showViewAll = "true";
       },
       openURL : function (url) {
         if(url && url.length > 0) {
