@@ -35,8 +35,7 @@ import org.mortbay.cometd.continuation.EXoContinuationBayeux;
       @EventConfig(listeners = UINotificationPopoverToolbarPortlet.MarkAllReadActionListener.class),
       @EventConfig(listeners = UINotificationPopoverToolbarPortlet.MarkReadActionListener.class),
       @EventConfig(listeners = UINotificationPopoverToolbarPortlet.RemovePopoverActionListener.class),
-      @EventConfig(listeners = UINotificationPopoverToolbarPortlet.ResetNumberOnBadgeActionListener.class),
-      @EventConfig(listeners = UINotificationPopoverToolbarPortlet.TakeEventActionListener.class)
+      @EventConfig(listeners = UINotificationPopoverToolbarPortlet.ResetNumberOnBadgeActionListener.class)
     }
 )
 public class UINotificationPopoverToolbarPortlet extends UIPortletApplication {
@@ -116,7 +115,7 @@ public class UINotificationPopoverToolbarPortlet extends UIPortletApplication {
   }
 
   protected List<String> getActions() {
-    return Arrays.asList("MarkRead", "RemovePopover", "TakeEvent", "ResetNumberOnBadge");
+    return Arrays.asList("MarkRead", "RemovePopover", "ResetNumberOnBadge");
   }
   
   protected String getActionUrl(String actionName) throws Exception {
@@ -165,17 +164,6 @@ public class UINotificationPopoverToolbarPortlet extends UIPortletApplication {
       String id = event.getRequestContext().getRequestParameter(OBJECTID);
       UINotificationPopoverToolbarPortlet portlet = event.getSource();
       portlet.webNftService.hidePopover(id);
-      // Ignore reload portlet
-      ((PortalRequestContext) event.getRequestContext().getParentAppRequestContext()).ignoreAJAXUpdateOnPortlets(true);
-    }
-  }
-  
-  public static class TakeEventActionListener extends EventListener<UINotificationPopoverToolbarPortlet> {
-    public void execute(Event<UINotificationPopoverToolbarPortlet> event) throws Exception {
-      String id = event.getRequestContext().getRequestParameter(OBJECTID);
-      UINotificationPopoverToolbarPortlet portlet = event.getSource();
-      //this action should be removed
-      //portlet.webNftService.remove(id);
       // Ignore reload portlet
       ((PortalRequestContext) event.getRequestContext().getParentAppRequestContext()).ignoreAJAXUpdateOnPortlets(true);
     }
