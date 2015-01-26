@@ -56,19 +56,32 @@
           
           .cacheLevel .itemGraph {
             margin-top: 5px;
+            position: relative;
+            overflow: hidden;
+            background: -webkit-gradient(linear, left top, right top, from(#e6e6e6), to(#f0f0f0));
+            background: -webkit-linear-gradient(top, #e6e6e6, #f0f0f0);
+            background: -moz-linear-gradient(top, #e6e6e6, #f0f0f0);
+            background: -o-linear-gradient(top, #e6e6e6, #f0f0f0);
+            background: -ms-linear-gradient(top, #e6e6e6, #f0f0f0);
+            background: linear-gradient(top, #e6e6e6, #f0f0f0);
+            background-color: #e6e6e6;
+            -webkit-border-radius: 20px;
+            -moz-border-radius: 20px;
+            border-radius: 20px;
           }
           
           .cacheLevel .graph {
-            background-color: #3370B4;
-            background-image: linear-gradient(to bottom, #3370b4, #2d629d);
-            border-radius: 2px;
             height: 18px;
+            background: -webkit-gradient(linear, left top, right top, from(#3370b4), to(#2d629d));
+            background: -webkit-linear-gradient(top, #3370b4, #2d629d);
+            background: -moz-linear-gradient(top, #3370b4, #2d629d);
+            background: -o-linear-gradient(top, #3370b4, #2d629d);
+            background: -ms-linear-gradient(top, #3370b4, #2d629d);
+            background: linear-gradient(top, #3370b4, #2d629d);
+            background-color: #3370b4;
           }
           
           .cacheLevel .usedPercent {
-            background-color: #D30019;
-        background-image: linear-gradient(to bottom, #d30019, #b90016);
-            border-radius: 2px;
             height: 18px;
             position: absolute;
             left: 0;
@@ -76,6 +89,13 @@
             top: 0;
             z-index: 10;
             float: left;
+            background: -webkit-gradient(linear, left top, right top, from(#d30019), to(#b90016));
+            background: -webkit-linear-gradient(top, #d30019, #b90016);
+            background: -moz-linear-gradient(top, #d30019, #b90016);
+            background: -o-linear-gradient(top, #d30019, #b90016);
+            background: -ms-linear-gradient(top, #d30019, #b90016);
+            background: linear-gradient(top, #d30019, #b90016);
+            background-color: #d30019;
           }
           
           .cacheLevel .cache a b {
