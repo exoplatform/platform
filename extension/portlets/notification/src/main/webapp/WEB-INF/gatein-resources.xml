@@ -13,14 +13,6 @@
 
 <gatein-resources xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.gatein.org/xml/ns/gatein_resources_1_3 http://www.gatein.org/xml/ns/gatein_resources_1_3"
    xmlns="http://www.gatein.org/xml/ns/gatein_resources_1_3">
-  <portlet-skin>
-    <application-name>platform-notification</application-name>
-    <portlet-name>NotificationsAdminJuzuPortlet</portlet-name>
-    <skin-name>Default</skin-name>
-    <css-path>/skin/css/notificationsAdmin.css</css-path>
-    <css-priority>1</css-priority>
-  </portlet-skin>
-  
   <portlet>
     <name>NotificationsAdminJuzuPortlet</name>
     <module>
@@ -36,5 +28,4 @@
       </depends>
     </module>
   </portlet>
-    
 </gatein-resources>

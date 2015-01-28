@@ -13,16 +13,15 @@
   </ModulePrefs>
   <UserPref name="baseurl" display_name="__MSG_baseurl__" datatype="string" value="/portal/rest/ks/forum/getmessage" required="true"/>
   <UserPref name="url" display_name="__MSG_subscribeurl__" datatype="string" value="/forum" required="true"/>
-  <UserPref name="limit" display_name="__MSG_limit__" default_value="10" datatype="string"/>  
+  <UserPref name="limit" display_name="__MSG_limit__" default_value="10" datatype="string"/>
   <Content type="html">
-    <![CDATA[       
-      <link rel="stylesheet" type="text/css" href="/exo-gadget-resources/skin/exo-gadget/gadget-common.css" />
-      <link rel="stylesheet" type="text/css" href="/gadget-pack/skin/css/latestForumPosts.css" />
-      <link rel="stylesheet" type="text/css" href="/eXoResources/skin/bootstrap/css/bootstrap.css" />
-      <link rel="stylesheet" type="text/css" href="/eXoResources/skin/css/Core.css" />  
+    <![CDATA[
+      <link rel="stylesheet" type="text/css" href="/eXoSkin/skin/css/Core.css" />
+      <link rel="stylesheet" type="text/css" href="/eXoSkin/skin/css/platform/portlets/samples/gadgets-sample/exo-gadget-resources/gadget-common.css" />
+      <link rel="stylesheet" type="text/css" href="/eXoSkin/skin/css/platform/portlets/gadget-pack/latestForumPosts.css" />
       <script language="javascript" type="text/javascript" src="/eXoResources/javascript/jquery-1.7.1.js"></script>
       <script type="text/javascript" src="skin/latestForumPosts.js"></script>
-     
+
       <div class="UIGadgetThemes uiBox" id="gadgetContent">
         <h6 class="title left">
           __MSG_title__

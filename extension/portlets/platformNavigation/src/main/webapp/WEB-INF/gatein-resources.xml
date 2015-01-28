@@ -17,48 +17,7 @@
                   xsi:schemaLocation="http://www.gatein.org/xml/ns/gatein_resources_1_3 http://www.gatein.org/xml/ns/gatein_resources_1_3"
                   xmlns="http://www.gatein.org/xml/ns/gatein_resources_1_3">
 
-    <portlet-skin>
-        <application-name>platformNavigation</application-name>
-        <portlet-name>UICompanyNavigationPortlet</portlet-name>
-        <skin-name>Default</skin-name>
-        <css-path>/skin/css/UICompanyNavigationPortlet/Style.css</css-path>
-    </portlet-skin>
-    <portlet-skin>
-        <application-name>platformNavigation</application-name>
-        <portlet-name>UIBreadCrumbsNavigationPortlet</portlet-name>
-        <skin-name>Default</skin-name>
-        <css-path>/skin/css/UIBreadCrumbsNavigationPortlet/Style.css</css-path>
-    </portlet-skin>
-    <portlet-skin>
-        <application-name>platformNavigation</application-name>
-        <portlet-name>UIGroupsNavigationPortlet</portlet-name>
-        <skin-name>Default</skin-name>
-        <css-path>/skin/css/UIGroupsNavigationPortlet/Style.css</css-path>
-    </portlet-skin>
-    <portlet-skin>
-        <application-name>platformNavigation</application-name>
-        <portlet-name>UIHelpPlatformToolbarPortlet</portlet-name>
-        <skin-name>Default</skin-name>
-        <css-path>/skin/css/UIHelpPlatformToolbarPortlet/Style.css</css-path>
-    </portlet-skin>
-    <portlet-skin>
-        <application-name>platformNavigation</application-name>
-        <portlet-name>UISearchPlatformToolbarPortlet</portlet-name>
-        <skin-name>Default</skin-name>
-        <css-path>/skin/css/UISearchPlatformToolbarPortlet/Style.css</css-path>
-    </portlet-skin>
-    <portlet-skin>
-        <application-name>platformNavigation</application-name>
-        <portlet-name>UISpaceNavigationPortlet</portlet-name>
-        <skin-name>Default</skin-name>
-        <css-path>/skin/css/UISpaceNavigationPortlet/Style.css</css-path>
-    </portlet-skin>
-    <portlet-skin>
-        <application-name>platformNavigation</application-name>
-        <portlet-name>UIUserNavigationPortlet</portlet-name>
-        <skin-name>Default</skin-name>
-        <css-path>/skin/css/UIUserNavigationPortlet/Style.css</css-path>
-    </portlet-skin>
+   
     <portlet>
         <name>PlatformAdminToolbarPortlet</name>
         <module>

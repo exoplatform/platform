@@ -20,10 +20,9 @@
   
   <Content type="html">
     <![CDATA[
-	<link rel="stylesheet" type="text/css" href="/eXoResources/skin/bootstrap/css/bootstrap.css" />    
-	<link rel="stylesheet" type="text/css" href="/eXoResources/skin/css/Core.css" />
-    <link rel="stylesheet" type="text/css" href="/exo-gadget-resources/skin/exo-gadget/gadget-common.css" />
-    <link type="text/css" rel="stylesheet" href="/gadget-pack/skin/css/topVoteTopic.css" />
+	<link rel="stylesheet" type="text/css" href="/eXoSkin/skin/css/Core.css" />
+    <link rel="stylesheet" type="text/css" href="/eXoSkin/skin/css/platform/portlets/samples/gadgets-sample/exo-gadget-resources/gadget-common.css" />
+    <link type="text/css" rel="stylesheet" href="/eXoSkin/skin/css/platform/portlets/gadget-pack/topVoteTopic.css" />
         
     <script type="text/javascript" src="./script/topVoteTopic.js"></script>
     <script type="text/javascript" src="./script/date.format.js"></script>

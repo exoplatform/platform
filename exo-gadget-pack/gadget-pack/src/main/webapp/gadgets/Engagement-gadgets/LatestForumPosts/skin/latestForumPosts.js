@@ -237,6 +237,7 @@ eXoLastpostGadget.prototype.notify = function(){
   var msg = gadgets.Prefs().getMsg("noevent");
   document.getElementById("ItemContainer").innerHTML = '<div class="light_message">' + msg + '</div>';
   eXoLastpostGadget.setLink();
+  gadgets.window.adjustHeight($("#gadgetContent").get(0).offsetHeight);
 }
 
 eXoLastpostGadget =  new eXoLastpostGadget();

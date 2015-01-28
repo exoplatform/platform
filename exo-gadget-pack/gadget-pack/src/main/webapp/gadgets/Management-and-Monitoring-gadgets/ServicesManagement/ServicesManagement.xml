@@ -64,9 +64,8 @@
    </ModulePrefs>
    <UserPref name="servicesURL" display_name="__MSG_services_url__" default_value="/rest/management" required="true"/>
    <Content type="html" view="home">
-      <![CDATA[         
-      	<link rel="stylesheet" type="text/css" href="/eXoResources/skin/bootstrap/css/bootstrap.css" /> 
-      	<link rel="stylesheet" type="text/css" href="/eXoResources/skin/css/Core.css" />
+      <![CDATA[
+      	<link rel="stylesheet" type="text/css" href="/eXoSkin/skin/css/Core.css" />
         <link rel="stylesheet" type="text/css" href="/gadget-pack/skin/css/home.css"></link>
         <script language="javascript" type="text/javascript" src="/exo-gadget-resources/script/jquery/1.6.2/jquery.min.js"></script>
         <script src="script/script.js" type="text/javascript"></script>    
@@ -157,9 +156,8 @@
     ]]>
    </Content>
    <Content type="html" view="canvas">
-      <![CDATA[         
-      	<link rel="stylesheet" type="text/css" href="/eXoResources/skin/bootstrap/css/bootstrap.css" /> 
-      	<link rel="stylesheet" type="text/css" href="/eXoResources/skin/css/Core.css" />
+      <![CDATA[
+      	<link rel="stylesheet" type="text/css" href="/eXoSkin/skin/css/Core.css" />
         <link rel="stylesheet" type="text/css" href="/gadget-pack/skin/css/canvas.css"></link>
         <script language="javascript" type="text/javascript" src="/exo-gadget-resources/script/jquery/1.6.2/jquery.min.js"></script>     
         <script src="script/script.js"></script>

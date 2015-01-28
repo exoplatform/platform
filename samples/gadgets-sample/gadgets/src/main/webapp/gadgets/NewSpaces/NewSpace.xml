@@ -23,10 +23,9 @@
   
   <Content type="html">
     <![CDATA[     
-    <link rel="stylesheet" type="text/css" href="/eXoResources/skin/bootstrap/css/bootstrap.css" />    
-    <link rel="stylesheet" type="text/css" href="/eXoResources/skin/css/Core.css" />
-	<link type="text/css" rel="stylesheet" href="/exo-gadget-resources/skin/exo-gadget/gadget-common.css" />
-	<link type="text/css" rel="stylesheet" href="/intranet-gadgets/skin/css/NewSpace.css"/>
+    <link rel="stylesheet" type="text/css" href="/eXoSkin/skin/css/Core.css" />
+    <link rel="stylesheet" type="text/css" href="/eXoSkin/skin/css/platform/portlets/samples/gadgets-sample/exo-gadget-resources/gadget-common.css" />
+    <link rel="stylesheet" type="text/css" href="/eXoSkin/skin/css/platform/portlets/samples/gadgets-sample/gadgets/NewSpace.css"/>
     
     <script type="text/javascript" src="./script/newSpaces.js"></script>
     <script type="text/javascript" src="./script/date.format.js"></script>

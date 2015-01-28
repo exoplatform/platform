@@ -44,7 +44,7 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
     <link href="/platform-extension/css/welcome-screens/jquery.qtip.min.css" rel="stylesheet" type="text/css" />
-    <link href="/platform-extension/skin/css/welcome-screens.css" rel="stylesheet" type="text/css" />
+    <link href="/eXoSkin/skin/css/platform/portlets/extensions/welcome-screens.css" rel="stylesheet" type="text/css" />
 
     <script type="text/javascript" src="/platform-extension/javascript/jquery-1.7.1.js"></script>
     <script type="text/javascript" src="/platform-extension/javascript/ie-placeholder.js"></script>
@@ -111,7 +111,7 @@
                 <strong>You are almost done</strong>, add your colleagues to your new social
                 intranet and start collaborating together.
             </p>
-            <div class="screenShot"><a href="javascript:void(0);"><img src="/platform-extension/skin/images/greetingSS.png" alt="" width="404" height="172"/></a></div>
+            <div class="screenShot"><a href="javascript:void(0);"><img src="/eXoSkin/skin/images/themes/default/platform/portlets/extensions/greetingSS.png" alt="" width="404" height="172"/></a></div>
         </div>
         <div class="bottom"><button name="setupbutton" value="submitform" class="btn btn-primary">Start</button></div>
     </div>

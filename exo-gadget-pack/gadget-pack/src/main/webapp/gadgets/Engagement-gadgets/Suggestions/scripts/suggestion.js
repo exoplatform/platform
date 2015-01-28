@@ -16,7 +16,7 @@ function renderSuggestFriends() {
       
       var text = "mutual friend";
       var display = "block";
-      if(!avatar) avatar = "/social-resources/skin/ShareImages/activity/AvatarPeople.gif";
+      if(!avatar) avatar = "/eXoSkin/skin/images/themes/default/social/skin/Activity/AvatarPeople.gif";
       strHTML +=  '<div class="ClearFix" style="border-bottom: none; margin-top: 5px; display: ' + display + ';">';
       strHTML +=  '  <div class="avatar"><img src="'+ avatar +'" width="32" height="32" alt="avatar" title="' + name + '" /></div>';
       strHTML   +=     '<div class="info">';
@@ -75,7 +75,7 @@ function mutualFriends(ids) {
     var id = data["id"];
     var fullname = data["fullName"];
     var avatar = data["avatarPath"];
-    if(!avatar) avatar = "/social-resources/skin/ShareImages/activity/AvatarPeople.gif";
+    if(!avatar) avatar = "/eXoSkin/skin/images/themes/default/social/skin/Activity/AvatarPeople.gif";
     htm += "<div class='ContainerFR ClearFix' style='margin-top:5px; width: 42px; float:left; padding-right: 10px;'>";
     htm += "  <center>";
     htm += "    <div><img src='"+ avatar +"' width='30' height='30' alt='avatar' title='" + fullname + "'/></div>";

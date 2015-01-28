@@ -85,7 +85,7 @@
             println """
 				<li class="groupItem">					
                     <div class="$cssClazz">
-						<i class="uiIconArrowDown uiIconLightGray"></i><a data-placement="bottom" rel="tooltip" data-toggle="tooltip" class="groupIcon" href="$href" data-original-title="$label">$shortLabel</a>
+						<i class="uiIconMiniArrowDown uiIconLightGray"></i><a data-placement="bottom" rel="tooltip" data-toggle="tooltip" class="groupIcon" href="$href" data-original-title="$label">$shortLabel</a>
 					</div>
                     <ul class="childrenContainer" style="display: $display">
 					""";

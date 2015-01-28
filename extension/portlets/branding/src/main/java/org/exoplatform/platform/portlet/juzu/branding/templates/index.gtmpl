@@ -18,7 +18,7 @@
 		<div class="clearfix">
 			<div class="pull-left">
 				<div id="PreviewImgDiv" class="previewLogo" >
-					<img id="ajaxUploading1" alt="" src="/platform-branding/skin/images/ajax-loader.gif"  style="display:none" >
+					<img id="ajaxUploading1" alt="" src="/eXoSkin/skin/images/themes/default/platform/portlets/branding/ajax-loader.gif"  style="display:none" >
 				 	<img id="PreviewImg" alt="" >
 			  </div>
 			  <div class="info">${noteselectlogo}</div>
@@ -43,7 +43,7 @@
 			<div data-toggle="dropdown" class="btn dropdown-toggle">
 				<span></span>
 				<span class="spiter"></span>
-				<span class="caret"></span>
+				<i class="uiIconMiniArrowDown uiIconLightGray"></i>
 			</div>
 
 			<ul role="menu" class="dropdown-menu">
@@ -60,7 +60,7 @@
 	<div class="preview boxContent">
 		<h4 class="titleWithBorder">${preview}</h3>
 		<div id="StylePreview">
-			<img id="ajaxUploading2" alt="" src="/platform-branding/skin/images/ajax-loader.gif"	style="display:none" >
+			<img id="ajaxUploading2" alt="" src="/eXoSkin/skin/images/themes/default/platform/portlets/branding/ajax-loader.gif"	style="display:none" >
 		</div>
 	</div>
 

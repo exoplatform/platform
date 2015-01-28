@@ -111,7 +111,7 @@
     <!-- We want to be sure to use the right version in the dependency plugin but it's not required in the package -->
     <dependency>
       <groupId>org.exoplatform.platform-ui</groupId>
-      <artifactId>platform-ui-web-eXoResources</artifactId>
+      <artifactId>platform-ui-skin</artifactId>
       <type>war</type>
       <scope>provided</scope>
     </dependency>
@@ -124,6 +124,7 @@
   <build>
     <finalName>homepage-portlets</finalName>
     <plugins>
+    <!--
       <plugin>
         <artifactId>maven-resources-plugin</artifactId>
         <executions>
@@ -161,7 +162,7 @@
               <artifactItems>
                 <artifactItem>
                   <groupId>org.exoplatform.platform-ui</groupId>
-                  <artifactId>platform-ui-web-eXoResources</artifactId>
+                  <artifactId>platform-ui-skin</artifactId>
                   <type>war</type>
                   <overWrite>false</overWrite>
                   <outputDirectory>${project.build.directory}/${project.build.finalName}</outputDirectory>
@@ -193,6 +194,7 @@
           </execution>
         </executions>
       </plugin>
+      -->
        <!-- Precompile the template class in maven (this is optional) -->
        <plugin>
           <groupId>org.codehaus.gmaven</groupId>

@@ -42,7 +42,7 @@ public class PeopleRestServices implements ResourceContainer {
 
   private static final CacheControl cacheControl;
 
-  private static final String DEFAULT_AVATAR = "/social-resources/skin/images/ShareImages/UserAvtDefault.png";
+  private static final String DEFAULT_AVATAR = "/eXoSkin/skin/images/themes/default/social/skin/ShareImages/UserAvtDefault.png";
 
   private UserACL userACL;
 
@@ -126,7 +126,7 @@ public class PeopleRestServices implements ResourceContainer {
         Identity senderId = relation.getSender();
         String avatar = senderId.getProfile().getAvatarImageSource();
         if (avatar == null) {
-          avatar = "/social-resources/skin/ShareImages/Avatar.gif";
+          avatar = "/eXoSkin/skin/images/system/Avatar.gif";
         }
 
         JSONObject json = new JSONObject();
@@ -217,7 +217,6 @@ public class PeopleRestServices implements ResourceContainer {
     }
 
   }
-
 
   @GET
   @Path("contacts/suggestions")

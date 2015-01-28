@@ -95,7 +95,7 @@
     <!-- We want to be sure to use the right version in the dependency plugin but it's not required in the package -->
     <dependency>
       <groupId>org.exoplatform.platform-ui</groupId>
-      <artifactId>platform-ui-web-eXoResources</artifactId>
+      <artifactId>platform-ui-skin</artifactId>
       <type>war</type>
       <scope>provided</scope>
     </dependency>
@@ -103,6 +103,7 @@
   <build>
     <finalName>platform-branding</finalName>
     <plugins>
+    <!-- Copy project less files 
       <plugin>
         <artifactId>maven-resources-plugin</artifactId>
         <executions>
@@ -126,31 +127,6 @@
           </execution>
         </executions>
       </plugin>
-       <!-- Precompile the template class in maven (this is optional) -->
-       <plugin>
-          <groupId>org.codehaus.gmaven</groupId>
-          <artifactId>gmaven-plugin</artifactId>
-          <configuration>
-             <providerSelection>1.7</providerSelection>
-          </configuration>
-          <executions>
-             <execution>
-                <goals>
-                   <goal>compile</goal>
-                </goals>
-                <configuration>
-                   <sources>
-                      <fileset>
-                         <directory>${project.build.outputDirectory}</directory>
-                         <includes>
-                            <include>**/*.groovy</include>
-                         </includes>
-                      </fileset>
-                   </sources>
-                </configuration>
-             </execution>
-          </executions>
-       </plugin>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-dependency-plugin</artifactId>
@@ -165,7 +141,7 @@
               <artifactItems>
                 <artifactItem>
                   <groupId>org.exoplatform.platform-ui</groupId>
-                  <artifactId>platform-ui-web-eXoResources</artifactId>
+                  <artifactId>platform-ui-skin</artifactId>
                   <type>war</type>
                   <overWrite>false</overWrite>
                   <outputDirectory>${project.build.directory}/${project.build.finalName}</outputDirectory>
@@ -197,6 +173,33 @@
           </execution>
         </executions>
       </plugin>
+      -->
+       <!-- Precompile the template class in maven (this is optional) -->
+       <plugin>
+          <groupId>org.codehaus.gmaven</groupId>
+          <artifactId>gmaven-plugin</artifactId>
+          <configuration>
+             <providerSelection>1.7</providerSelection>
+          </configuration>
+          <executions>
+             <execution>
+                <goals>
+                   <goal>compile</goal>
+                </goals>
+                <configuration>
+                   <sources>
+                      <fileset>
+                         <directory>${project.build.outputDirectory}</directory>
+                         <includes>
+                            <include>**/*.groovy</include>
+                         </includes>
+                      </fileset>
+                   </sources>
+                </configuration>
+             </execution>
+          </executions>
+       </plugin>
+      
       <plugin>
         <artifactId>maven-assembly-plugin</artifactId>
         <executions>

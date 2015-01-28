@@ -19,7 +19,7 @@
 	<head>
 		<title>Welcome to eXo Platform</title>
 		<link rel="shortcut icon" type="image/x-icon"  href="<%=contextPath%>/favicon.ico" />
-		<link rel="stylesheet" type="text/css" href="<%=contextPath%>/skin/css/unlockTrial.css"/>
+		<link rel="stylesheet" type="text/css" href="/eXoSkin/skin/css/platform/portlets/welcome-screens/unlockTrial.css"/>
 		<script type='text/javascript'>
 			function formValidation() {
 				if(document.unlockForm.hashMD5.value!="")
