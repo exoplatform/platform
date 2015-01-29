@@ -3,16 +3,23 @@ package org.exoplatform.platform.component;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Set;
 
 import javax.portlet.MimeResponse;
 import javax.portlet.ResourceRequest;
 import javax.portlet.ResourceURL;
 
+import org.exoplatform.commons.api.notification.NotificationContext;
 import org.exoplatform.commons.api.notification.NotificationMessageUtils;
+import org.exoplatform.commons.api.notification.model.NotificationInfo;
 import org.exoplatform.commons.api.notification.model.WebNotificationFilter;
 import org.exoplatform.commons.api.notification.service.WebNotificationService;
 import org.exoplatform.commons.api.notification.service.setting.UserSettingService;
 import org.exoplatform.commons.notification.channel.WebChannel;
+import org.exoplatform.commons.notification.impl.service.storage.cache.CachedWebNotificationStorage;
+import org.exoplatform.commons.utils.CommonsUtils;
+import org.exoplatform.container.ExoContainer;
+import org.exoplatform.container.ExoContainerContext;
 import org.exoplatform.portal.application.PortalRequestContext;
 import org.exoplatform.services.log.ExoLogger;
 import org.exoplatform.services.log.Log;
@@ -41,6 +48,7 @@ import org.mortbay.cometd.continuation.EXoContinuationBayeux;
 public class UINotificationPopoverToolbarPortlet extends UIPortletApplication {
   private static final Log LOG = ExoLogger.getLogger(UINotificationPopoverToolbarPortlet.class);
   private static final String EXO_NOTIFICATION_POPOVER_LIST = "exo.notification.popover.list";
+  private static final String CLUSTER_NOTIFICATION_POPOVER_LIST = "cluster.notification.popover.list";
   private final WebNotificationService webNftService;
   private final UserSettingService userSettingService;
   private final ContinuationService continuation;
@@ -77,33 +85,64 @@ public class UINotificationPopoverToolbarPortlet extends UIPortletApplication {
     super.serveResource(context);
     ResourceRequest req = context.getRequest();
     String resourceId = req.getResourceID();
-    if (!EXO_NOTIFICATION_POPOVER_LIST.equals(resourceId)) {
+    if (EXO_NOTIFICATION_POPOVER_LIST.equals(resourceId)) {
+      //
+      List<String> notifications = getNotifications();
+      //
+      StringBuffer sb = new StringBuffer();
+      for (String notif : notifications) {
+        sb.append(notif);  
+      }
+      //
+      MimeResponse res = context.getResponse();
+      res.setContentType("application/json");
+      //
+      JSONObject object = new JSONObject();
+      object.put("notifications", sb.toString());
+      object.put("showViewAll", hasNotifications());
+      //
+      res.getWriter().write(object.toString());
       return;
     }
-    //
-    List<String> notifications = getNotifications();
-    //
-    StringBuffer sb = new StringBuffer();
-    for (String notif : notifications) {
-      sb.append(notif);  
+    if (CLUSTER_NOTIFICATION_POPOVER_LIST.equals(resourceId)) {
+      String notificationId = req.getParameter("notifId");
+      int badge = clusteringProcess(notificationId);
+      if(badge > 0) {
+        MimeResponse res = context.getResponse();
+        res.setContentType("application/json");
+        JSONObject object = new JSONObject();
+        object.put("badge", String.valueOf(badge));
+        res.getWriter().write(object.toString());
+      }
+      ///
     }
-    //
-    MimeResponse res = context.getResponse();
-    res.setContentType("application/json");
-    //
-    JSONObject object = new JSONObject();
-    object.put("notifications", sb.toString());
-    object.put("showViewAll", hasNotifications());
-    //
-    res.getWriter().write(object.toString());
   }
   
-  protected String buildResourceURL() {
+  private int clusteringProcess(String notifId) {
+    Set<String> profiles = ExoContainerContext.getCurrentContainer().getProfiles();
+    if (profiles.contains("cluster")) {
+      LOG.info("Run web notification in cluster mode");
+      CachedWebNotificationStorage cachedWebNotificationStorage = CommonsUtils.getService(CachedWebNotificationStorage.class);
+      List<NotificationInfo> infos = cachedWebNotificationStorage.get(new WebNotificationFilter(currentUser, true), 0, 8);
+      NotificationInfo ntf = cachedWebNotificationStorage.get(notifId);
+      if (! infos.contains(ntf)) {
+        LOG.info("Not exist in the cache");
+        cachedWebNotificationStorage.moveTopPopover(ntf);
+        cachedWebNotificationStorage.moveTopViewAll(ntf);
+        cachedWebNotificationStorage.clearWebNotificationCountCache(currentUser);
+        //
+        return cachedWebNotificationStorage.getNumberOnBadge(currentUser);
+      }
+    }
+    return 0;
+  }
+  
+  protected String buildResourceURL(String key) {
     try {
       WebuiRequestContext ctx = WebuiRequestContext.getCurrentInstance();
       MimeResponse res = ctx.getResponse();
       ResourceURL rsURL = res.createResourceURL();
-      rsURL.setResourceID(EXO_NOTIFICATION_POPOVER_LIST);
+      rsURL.setResourceID(key);
       return rsURL.toString();
     } catch (Exception e) {
       return "";

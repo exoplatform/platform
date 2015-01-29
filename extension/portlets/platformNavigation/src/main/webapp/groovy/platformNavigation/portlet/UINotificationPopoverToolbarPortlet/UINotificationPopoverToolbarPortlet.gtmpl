@@ -1,5 +1,6 @@
 <div class="uiNotificationPopoverToolbarPortlet clearfix" style="<%=(uicomponent.isWebActive() ? "" : "display:none")%>" id="$uicomponent.id">
-	<div id="PopoverServeResourceLink" data-url="<%=uicomponent.buildResourceURL()%>"></div>
+	<div id="PopoverServeResourceLink" data-url="<%=uicomponent.buildResourceURL(uicomponent.EXO_NOTIFICATION_POPOVER_LIST)%>"></div>
+	<div id="ClusterUpdateCachedLink" data-url="<%=uicomponent.buildResourceURL(uicomponent.CLUSTER_NOTIFICATION_POPOVER_LIST)%>"></div>
 	<div style="display:none" class="all-actions">
 		<%
 			List actions = uicomponent.getActions();

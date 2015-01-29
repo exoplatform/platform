@@ -5,6 +5,7 @@
       portlet : null,
       popupItem : null,
       popoverServeResourceLink : null,
+      clusterUpdateCachedLink : null,
       markReadLink : '',
       removePopoverLink : '',
       resetNumberOnBadgeLink : '',
@@ -34,6 +35,7 @@
         me.removePopoverLink = me.portlet.find('#RemovePopover').text();
         me.resetNumberOnBadgeLink = me.portlet.find('#ResetNumberOnBadge').text();
         me.popoverServeResourceLink = me.portlet.find('div#PopoverServeResourceLink:first');
+        me.clusterUpdateCachedLink = me.portlet.find('div#ClusterUpdateCachedLink:first');
         //
         me.popupItem = me.portlet.find('ul.displayItems:first');
         me.popupItem.find('li').each(function(i) {
@@ -118,14 +120,20 @@
           webNotif.showElm(newItem);
         }
         //
-        badgeElm.text(message.numberOnBadge);
+        me.badgeElm.text(message.numberOnBadge);
         if(parseInt(message.numberOnBadge) > 0) {
-          badgeElm.show();
+          me.badgeElm.show();
         }
         //
         me.portlet.find('.actionMark:first').show();
         me.portlet.find('.no-items:first').hide();
         me.portlet.find('.actionLink:first').show();
+        //work-around in case of clustering
+        webNotif.ajaxRequest(me.clusterUpdateCachedLink.data('url') + '&notifId=' + id, function(data) {
+      	  if(data && data.badge > 0) {
+      	    me.badgeElm.text(data.badge).show();
+      	  }
+        });
       },
       applyAction : function(item) {
         item.find('.contentSmall:first').on('click', function(evt) {
