@@ -35,10 +35,8 @@
     if(uicomponent.isGroupUrl()){
       String pageLabel = uicomponent.getEncodedResolvedLabel();
 %>
-	<div class ="uiContainer">
-    <div class="uiBreadcumbsNavigations">
-      <div class="navItemSelected">$pageLabel</div>
-    </div>
+  <div class="uiBreadcumbsNavigations">
+    <div class="navItemSelected">$pageLabel</div>
   </div>
 <%  }
   }%>
