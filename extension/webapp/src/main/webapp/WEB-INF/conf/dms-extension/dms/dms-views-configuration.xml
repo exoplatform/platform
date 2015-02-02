@@ -114,8 +114,8 @@
                     <field name="tabName"><string>Authoring</string></field>
                     <field name="buttons">
                     	 <string>
-                    	 	 addCategory; addFolder; addDocument; editDocument; upload; viewPermissions; managePublications; manageCategories; taggingDocument; vote; watchDocument; publicationRequestApproval; publicationApproveContent; publicationPublish; addLocalizationLink; comment  
-																						</string>
+                         addCategory; addFolder; addDocument; editDocument; upload; viewPermissions; managePublications; manageCategories; taggingDocument; vote; watchDocument; publicationRequestApproval; publicationApproveContent; publicationPublish; addLocalizationLink; comment
+												</string>
                     </field>
                   </object>
                 </value>
@@ -138,9 +138,9 @@
                     <field name="tabName"><string>Collaboration</string></field>
                     <field name="buttons">
                     	 <string>
-                    	 	 addCategory; addDocument; editDocument; upload; viewPermissions; managePublications; manageCategories; taggingDocument; vote; watchDocument; publicationRequestApproval; publicationApproveContent; publicationPublish; comment 
-																				  </string>
-																				</field>
+                         addCategory; addDocument; editDocument; upload; viewPermissions; managePublications; manageCategories; taggingDocument; vote; watchDocument; publicationRequestApproval; publicationApproveContent; publicationPublish; comment
+      								  </string>
+											</field>
                   </object>
                 </value>
               </collection>
