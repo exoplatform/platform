@@ -123,6 +123,8 @@
         me.badgeElm.text(message.numberOnBadge);
         if(parseInt(message.numberOnBadge) > 0) {
           me.badgeElm.show();
+        } else {
+          me.badgeElm.hide();
         }
         //
         me.portlet.find('.actionMark:first').show();
