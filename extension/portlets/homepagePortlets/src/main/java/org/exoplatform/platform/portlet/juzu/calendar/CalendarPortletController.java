@@ -43,6 +43,7 @@ import org.gatein.common.text.EntityEncoder;
 
 import javax.inject.Inject;
 import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.*;
 import java.util.Calendar;
 
@@ -146,6 +147,8 @@ public class CalendarPortletController {
         String username = RequestContext.getCurrentInstance().getRemoteUser();
         Locale locale =  Util.getPortalRequestContext().getLocale();
         DateFormat d = DateFormat.getDateInstance(DateFormat.SHORT, locale);
+        SimpleDateFormat Simpledate = (SimpleDateFormat) d;
+        Simpledate.applyPattern("dd/MM/yyyy");
         DateFormat dTimezone = DateFormat.getDateInstance(DateFormat.SHORT, locale);
         dTimezone.setCalendar(CalendarPortletUtils.getCurrentCalendar());
         Long date = new Date().getTime();
@@ -166,10 +169,8 @@ public class CalendarPortletController {
         currentTime = cal.getTime();
         date_act = d.format(currentTime);
         String delim =  getDateDelimiter(date_act);
-        if(delim != null && date_act.indexOf(delim) < 2 ) {
-             date_act = new StringBuffer("0").append(date_act).toString();
-               }
-         Date comp = currentTime;
+      
+        Date comp = currentTime;
         HashMap parameters = new HashMap();
         String defaultCalendarLabel = "Default";
         String dateLabel = "";
