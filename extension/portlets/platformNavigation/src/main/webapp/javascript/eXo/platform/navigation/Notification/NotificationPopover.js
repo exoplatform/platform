@@ -151,7 +151,7 @@
                 evt.stopPropagation(); 
                 //1.call ajax to remove this notification, and do something in commons side
                 //2.remove this element on UI
-                var elm = $(this);
+                var elm = $(this).parents('li:first');
                 NotificationPopover.removeItem(elm)
                 webNotif.removeElm(elm);
              });
