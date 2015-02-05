@@ -17,7 +17,7 @@
 			</i>
 		</a>
 		<ul class="dropdown-menu" id="NotificationPopup">
-			<li class="pd-10-0">
+			<li class="pd-10-0 LoadingIndicatorBlock">
 				<div class="LoadingIndicator" id="LoadingIndicator" style="display:none">
 				<% for (int i = 0; i < 9; ++i) { %>
 					<div id="rotateG_0$i" class="blockG"></div>

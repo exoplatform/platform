@@ -105,7 +105,7 @@
       },
       initIndicator : function() {
         var me = NotificationPopover;
-        var loadingIndicator = me.portlet.find('div.LoadingIndicator:first');
+        var loadingIndicator = me.portlet.find('li.LoadingIndicatorBlock:first');
         //
         $.ajaxSetup({
           beforeSend : function() {
