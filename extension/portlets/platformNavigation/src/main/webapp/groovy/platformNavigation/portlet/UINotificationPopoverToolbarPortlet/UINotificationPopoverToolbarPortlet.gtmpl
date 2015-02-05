@@ -17,7 +17,15 @@
 			</i>
 		</a>
 		<ul class="dropdown-menu" id="NotificationPopup">
-		  <li class="no-items" style="display:none"><%=_ctx.appRes("UINotificationPopoverToolbarPortlet.label.NoNotifications") %></li>
+			<li class="pd-10-0">
+				<div class="LoadingIndicator" id="LoadingIndicator" style="display:none">
+				<% for (int i = 0; i < 9; ++i) { %>
+					<div id="rotateG_0$i" class="blockG"></div>
+				<% } %>
+				</div>
+				<div class="center"><%=_ctx.appRes("UINotificationPopoverToolbarPortlet.msg.Loading") %>...</div>
+			</li>
+			<li class="no-items" style="display:none"><%=_ctx.appRes("UINotificationPopoverToolbarPortlet.label.NoNotifications") %></li>
 			<li class="actionMark right"><a href="javascript:void(0)" onclick="<%=uicomponent.event("MarkAllRead")%>"><%=_ctx.appRes("UINotificationPopoverToolbarPortlet.label.MarkAllAsRead") %></a></li>
 			<li>
 				<ul class="displayItems">

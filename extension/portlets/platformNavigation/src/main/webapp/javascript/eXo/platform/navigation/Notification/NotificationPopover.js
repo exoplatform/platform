@@ -36,7 +36,10 @@
         me.resetNumberOnBadgeLink = me.portlet.find('#ResetNumberOnBadge').text();
         me.popoverServeResourceLink = me.portlet.find('div#PopoverServeResourceLink:first');
         me.clusterUpdateCachedLink = me.portlet.find('div#ClusterUpdateCachedLink:first');
+        me.uiDropdownWithIcon = me.portlet.find('div.uiDropdownWithIcon:first');
+        me.viewAllBtn = me.uiDropdownWithIcon.find('li.actionLink');
         //
+        me.viewAllBtn.hide();
         me.popupItem = me.portlet.find('ul.displayItems:first');
         me.popupItem.find('li').each(function(i) {
           me.applyAction($(this));
@@ -58,12 +61,13 @@
         });
         //
         me.portlet.find('.dropdown-toggle:first').on('click', function() { 
-          var uiDropdownWithIcon = me.portlet.find('div.uiDropdownWithIcon:first');
-          if (uiDropdownWithIcon.hasClass('open')) {
+          if (me.uiDropdownWithIcon.hasClass('open')) {
             return;
           }
           //
-          me.popupItem.html('');  
+          me.popupItem.html('');
+          me.viewAllBtn.hide();
+          me.portlet.find('.actionMark:first').hide();
           //
           $.ajax({
             url: me.popoverServeResourceLink.data('url')
@@ -71,6 +75,7 @@
             var notifications = data.notifications;
             if (notifications && notifications.length > 0) {
               me.popupItem.append(notifications);
+              me.viewAllBtn.show();
               me.popupItem.find('li').each(function(i) {
                 me.applyAction($(this));
               });
@@ -92,6 +97,23 @@
             webNotif.ajaxRequest(me.resetNumberOnBadgeLink + 'reset');
           }
           me.badgeElm.text('0').hide();
+        });
+        //
+        $(document).ready(function() {
+          me.initIndicator();
+        });
+      },
+      initIndicator : function() {
+        var me = NotificationPopover;
+        var loadingIndicator = me.portlet.find('div.LoadingIndicator:first');
+        //
+        $.ajaxSetup({
+          beforeSend : function() {
+            loadingIndicator.show();
+          },
+          complete : function() {
+            loadingIndicator.hide();
+          }
         });
       },
       appendMessage : function(message) {

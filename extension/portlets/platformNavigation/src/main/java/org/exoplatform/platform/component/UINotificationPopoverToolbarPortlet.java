@@ -9,7 +9,6 @@ import javax.portlet.MimeResponse;
 import javax.portlet.ResourceRequest;
 import javax.portlet.ResourceURL;
 
-import org.exoplatform.commons.api.notification.NotificationContext;
 import org.exoplatform.commons.api.notification.NotificationMessageUtils;
 import org.exoplatform.commons.api.notification.model.NotificationInfo;
 import org.exoplatform.commons.api.notification.model.WebNotificationFilter;
@@ -18,7 +17,6 @@ import org.exoplatform.commons.api.notification.service.setting.UserSettingServi
 import org.exoplatform.commons.notification.channel.WebChannel;
 import org.exoplatform.commons.notification.impl.service.storage.cache.CachedWebNotificationStorage;
 import org.exoplatform.commons.utils.CommonsUtils;
-import org.exoplatform.container.ExoContainer;
 import org.exoplatform.container.ExoContainerContext;
 import org.exoplatform.portal.application.PortalRequestContext;
 import org.exoplatform.services.log.ExoLogger;
