@@ -50,13 +50,20 @@
 				color: @textLightColor;
 				background: url("/platformNavigation/skin/images/UINotificationPopoverToolbarPortlet/iconBell.png") no-repeat center center transparent;
 			}
+			&.blank {
+				+ .actionLink {
+					border-top: none;
+				}
+			}
 		}
 	}
 	.displayItems {
 		min-width: 300px;
 		max-width: 300px;
-		max-height: 500px;
-		overflow: auto;
+		overflow: hidden;
+		&.scroll {
+			overflow: auto;
+		}
 		.text-bold {
 			font-weight: bold;
 		}
@@ -85,6 +92,8 @@
 				display: block;
 				max-height: 40px;
 				overflow: hidden;
+				line-height: 18px;
+				margin-bottom: 3px;
 			}
 			.content {
 				font-weight: bold;
@@ -95,9 +104,12 @@
 					&.btn-primary {
 						font-weight: bold;
 					}
+					+ .btn {
+						margin-left: 7px;
+					}
 				}
 				.confirm {
-					margin: 3px 0;
+					margin-bottom: 3px;
 				}
 			}
 			.avatarXSmall {
