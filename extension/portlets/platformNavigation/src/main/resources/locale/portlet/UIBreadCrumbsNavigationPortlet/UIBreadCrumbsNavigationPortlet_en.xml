@@ -5,6 +5,9 @@
       <EditProfile>Edit my Profile</EditProfile>
     </label>
     <title>
+      <EditProfile>Edit Profile</EditProfile>
+    </title>
+    <title>
       <MyProfile>My Profile</MyProfile>
     </title>
 	</UIBreadCrumbsNavigationPortlet>

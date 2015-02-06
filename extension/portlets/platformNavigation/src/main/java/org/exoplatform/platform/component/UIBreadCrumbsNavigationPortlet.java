@@ -42,6 +42,7 @@ public class UIBreadCrumbsNavigationPortlet extends UIPortletApplication {
   private static final String          EDIT_PROFILE_NODE     = "edit-profile";
   private static final String          PROFILE_PATH          = "/profile";
   private static final String          MY_PROFILE_TITLE      = "UIBreadCrumbsNavigationPortlet.title.MyProfile";
+  private static final String          EDIT_MY_PROFILE_TITLE = "UIBreadCrumbsNavigationPortlet.title.EditProfile";
 
   public UIBreadCrumbsNavigationPortlet() throws Exception {
     userService = getApplicationComponent(UserNavigationHandlerService.class);
@@ -50,15 +51,15 @@ public class UIBreadCrumbsNavigationPortlet extends UIPortletApplication {
   @Override
   public void processRender(WebuiApplication app, WebuiRequestContext context) throws Exception {
     if (isUserUrl() && isOnProfilePage() || isEditProfilePage()) {
-      if (isOwner() || isEditProfilePage()) {
-        ResourceBundle resApp = context.getApplicationResourceBundle();
-        String title = resApp.getString(MY_PROFILE_TITLE);
-        Util.getPortalRequestContext().getRequest().setAttribute(PortalRequestContext.REQUEST_TITLE, title);        
-      } else {
-        Util.getPortalRequestContext().getRequest()
-        .setAttribute(PortalRequestContext.REQUEST_TITLE, getOwnerProfile().getFullName());
+      ResourceBundle resApp = context.getApplicationResourceBundle();
+      String title = getOwnerProfile().getFullName();
+      if (isEditProfilePage()) {
+        title = resApp.getString(EDIT_MY_PROFILE_TITLE);
+      } else if (isOwner())  {
+        title = resApp.getString(MY_PROFILE_TITLE);
       }
       
+      Util.getPortalRequestContext().getRequest().setAttribute(PortalRequestContext.REQUEST_TITLE, title);
     }
     super.processRender(app, context);
   }
