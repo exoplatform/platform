@@ -459,7 +459,7 @@
               <show-application-state>true</show-application-state>
             </portlet-application>
           </container>
-          <container id="left-profile-container" template="system:/groovy/portal/webui/container/UIAddOnContainer.gtmpl">
+          <container id="left-profile-container" template="system:/groovy/portal/webui/container/UIAddOnColumnContainer.gtmpl">
             <name>left-profile-container</name>
             <access-permissions>*:/platform/users</access-permissions>
             <factory-id>addonContainer</factory-id>
@@ -482,7 +482,7 @@
             </portlet-application>
           </container>
 
-          <container id="middle-profile-container" template="system:/groovy/portal/webui/container/UIAddOnContainer.gtmpl">
+          <container id="middle-profile-container" template="system:/groovy/portal/webui/container/UIAddOnColumnContainer.gtmpl">
             <name>middle-profile-container</name>
             <access-permissions>*:/platform/users</access-permissions>
             <factory-id>addonContainer</factory-id>
@@ -506,7 +506,7 @@
         <container id="right-column-container" template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
           <access-permissions>*:/platform/users</access-permissions>
 
-          <container id="righttop-profile-container" template="system:/groovy/portal/webui/container/UIAddOnContainer.gtmpl">
+          <container id="righttop-profile-container" template="system:/groovy/portal/webui/container/UIAddOnColumnContainer.gtmpl">
             <name>righttop-profile-container</name>
             <access-permissions>*:/platform/users</access-permissions>
             <factory-id>addonContainer</factory-id>
@@ -526,7 +526,7 @@
             </portlet-application>
           </container>
 
-          <container id="rightbottom-profile-container" template="system:/groovy/portal/webui/container/UIAddOnContainer.gtmpl">
+          <container id="rightbottom-profile-container" template="system:/groovy/portal/webui/container/UIAddOnColumnContainer.gtmpl">
             <name>rightbottom-profile-container</name>
             <access-permissions>*:/platform/users</access-permissions>
             <factory-id>addonContainer</factory-id>
@@ -557,11 +557,6 @@
 
       <container id="socialTopLayout" template="system:/groovy/portal/webui/container/UITableColumnContainer.gtmpl">
         <access-permissions>*:/platform/users</access-permissions>
-        <container id="label-profile-container" template="system:/groovy/portal/webui/container/UIAddOnContainer.gtmpl">
-          <name>action-editprofile-container</name>
-          <access-permissions>*:/platform/users</access-permissions>
-          <factory-id>addonContainer</factory-id>
-        </container>
         <container id="action-editprofile-container" template="system:/groovy/portal/webui/container/UIAddOnContainer.gtmpl">
           <name>action-editprofile-container</name>
           <access-permissions>*:/platform/users</access-permissions>
@@ -587,8 +582,8 @@
               <show-application-state>true</show-application-state>
             </portlet-application>
           </container>
-          <container id="left-editprofile-container" template="system:/groovy/portal/webui/container/UIAddOnContainer.gtmpl">
-            <name>left-profile-container</name>
+          <container id="left-editprofile-container" template="system:/groovy/portal/webui/container/UIAddOnColumnContainer.gtmpl">
+            <name>left-editprofile-container</name>
             <access-permissions>*:/platform/users</access-permissions>
             <factory-id>addonContainer</factory-id>
           </container>
@@ -596,8 +591,8 @@
 
         <container id="right-column-container" template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
           <access-permissions>*:/platform/users</access-permissions>
-          <container id="right-editprofile-container" template="system:/groovy/portal/webui/container/UIAddOnContainer.gtmpl">
-            <name>righttop-profile-container</name>
+          <container id="right-editprofile-container" template="system:/groovy/portal/webui/container/UIAddOnColumnContainer.gtmpl">
+            <name>right-profile-container</name>
             <access-permissions>*:/platform/users</access-permissions>
             <factory-id>addonContainer</factory-id>
           </container>
