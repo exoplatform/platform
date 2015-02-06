@@ -10,6 +10,8 @@
       removePopoverLink : '',
       resetNumberOnBadgeLink : '',
       showViewAll : '',
+      isLive : false,
+      liveTimeMenu : 30000, // milliseconds
       initCometd : function(eXoUser, eXoToken, contextName) {
         var me = NotificationPopover;
         if(!me.Cometd) me.Cometd = cCometD;
@@ -34,8 +36,8 @@
         me.markReadLink = me.portlet.find('#MarkRead').text();
         me.removePopoverLink = me.portlet.find('#RemovePopover').text();
         me.resetNumberOnBadgeLink = me.portlet.find('#ResetNumberOnBadge').text();
-        me.popoverServeResourceLink = me.portlet.find('div#PopoverServeResourceLink:first');
-        me.clusterUpdateCachedLink = me.portlet.find('div#ClusterUpdateCachedLink:first');
+        me.clusterUpdateCachedLink = me.portlet.find('div#ClusterUpdateCachedLink:first').text();
+        me.popoverServeResourceLink = me.portlet.find('div#PopoverServeResourceLink:first').text();
         me.uiDropdownWithIcon = me.portlet.find('div.uiDropdownWithIcon:first');
         me.viewAllBtn = me.uiDropdownWithIcon.find('li.actionLink');
         //
@@ -60,61 +62,61 @@
           webNotif.markAllRead();
         });
         //
-        me.portlet.find('.dropdown-toggle:first').on('click', function() { 
-          if (me.uiDropdownWithIcon.hasClass('open')) {
-            return;
+        me.portlet.find('.dropdown-toggle:first').on('click', function() {
+          var bagdeNumber = parseInt(me.badgeElm.text());
+          //
+          if (me.uiDropdownWithIcon.hasClass('open') == false && me.isLive == false) {
+            // show/hide elements
+            me.popupItem.html('');
+            me.viewAllBtn.hide();
+            me.portlet.find('.actionMark:first').hide();
+            me.portlet.find('li.loadingIndicator:first').show();
+            // ajax get data items
+            me.isLive = true;
+            webNotif.ajaxRequest(me.popoverServeResourceLink, me.renderMenu);
           }
-          //
-          me.popupItem.html('');
-          me.viewAllBtn.hide();
-          me.portlet.find('.actionMark:first').hide();
-          //
-          $.ajax({
-            url: me.popoverServeResourceLink.data('url')
-          }).done(function(data) {
-            var notifications = data.notifications;
-            if (notifications && notifications.length > 0) {
-              me.popupItem.append(notifications);
-              me.viewAllBtn.show();
-              me.popupItem.find('li').each(function(i) {
-                me.applyAction($(this));
-              });
-            } else {
-              me.portlet.find('.no-items:first').show();
-            }
-            // show/hide ViewAll page
-            if (data.showViewAll == false) {
-              me.portlet.find('.actionLink:first').hide();
-            } else {
-              me.portlet.find('.actionLink:first').show();
-            }
-            if(me.popupItem.find('li.unread').length > 0) {
-              me.portlet.find('.actionMark:first').show();
-            }
-          });
           // call action clear badge
-          if (parseInt(me.badgeElm.text()) > 0) {
+          if (bagdeNumber > 0) {
+            me.badgeElm.text('0').hide();
             webNotif.ajaxRequest(me.resetNumberOnBadgeLink + 'reset');
           }
-          me.badgeElm.text('0').hide();
-        });
-        //
-        $(document).ready(function() {
-          me.initIndicator();
         });
       },
-      initIndicator : function() {
+      renderMenu : function(data) {
         var me = NotificationPopover;
-        var loadingIndicator = me.portlet.find('li.LoadingIndicatorBlock:first');
+        var notifications = data.notifications;
+        me.portlet.find('li.loadingIndicator:first').hide();
+        if (notifications && notifications.length > 0) {
+          me.popupItem.append(notifications);
+          me.viewAllBtn.show();
+          me.popupItem.find('li').each(function(i) {
+            me.applyAction($(this));
+          });
+        } else {
+          me.portlet.find('.no-items:first').show();
+        }
+        // show/hide ViewAll page
+        if (data.showViewAll == false) {
+          me.portlet.find('.actionLink:first').hide();
+        } else {
+          me.portlet.find('.actionLink:first').show();
+        }
+        if(me.popupItem.find('li.unread').length > 0) {
+          me.portlet.find('.actionMark:first').show();
+        }
         //
-        $.ajaxSetup({
-          beforeSend : function() {
-            loadingIndicator.show();
-          },
-          complete : function() {
-            loadingIndicator.hide();
-          }
-        });
+        me.startMenuLifecycle();
+      },
+      startMenuLifecycle : function() {
+        var me = NotificationPopover;
+        if (me.T) {
+          window.clearTimeout(me.T);
+        }
+        me.isLive = true;
+        me.T = window.setTimeout(me.endMenuLifecycle, me.liveTimeMenu);
+      },
+      endMenuLifecycle : function() {
+        NotificationPopover.isLive = false;
       },
       appendMessage : function(message) {
         var newItem = $($('<ul></ul>').html(message.body).html());
@@ -153,7 +155,7 @@
         me.portlet.find('.no-items:first').hide();
         me.portlet.find('.actionLink:first').show();
         //work-around in case of clustering
-        webNotif.ajaxRequest(me.clusterUpdateCachedLink.data('url') + '&notifId=' + id, function(data) {
+        webNotif.ajaxRequest(me.clusterUpdateCachedLink + '&notifId=' + id, function(data) {
       	  if(data && data.badge > 0) {
       	    me.badgeElm.text(data.badge).show();
       	  }

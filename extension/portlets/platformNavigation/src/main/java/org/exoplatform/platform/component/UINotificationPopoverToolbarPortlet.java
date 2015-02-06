@@ -170,9 +170,9 @@ public class UINotificationPopoverToolbarPortlet extends UIPortletApplication {
   protected int getNumberOfMessage() {
     return webNftService == null ? 0 : webNftService.getNumberOnBadge(currentUser);
   }
-  
+
   protected boolean hasNotifications() throws Exception {
-    if (getNumberOfMessage() > 0 || getNotifications().size() > 0) 
+    if (getNotifications().size() > 0) 
       return true;
     return webNftService == null ? false : webNftService.get(new WebNotificationFilter(currentUser), 0, 1).size() > 0;
   }

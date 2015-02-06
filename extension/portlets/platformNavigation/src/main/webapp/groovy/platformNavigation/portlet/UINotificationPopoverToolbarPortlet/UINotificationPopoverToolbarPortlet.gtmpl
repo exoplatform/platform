@@ -1,7 +1,7 @@
 <div class="uiNotificationPopoverToolbarPortlet clearfix" style="<%=(uicomponent.isWebActive() ? "" : "display:none")%>" id="$uicomponent.id">
-	<div id="PopoverServeResourceLink" data-url="<%=uicomponent.buildResourceURL(uicomponent.EXO_NOTIFICATION_POPOVER_LIST)%>"></div>
-	<div id="ClusterUpdateCachedLink" data-url="<%=uicomponent.buildResourceURL(uicomponent.CLUSTER_NOTIFICATION_POPOVER_LIST)%>"></div>
 	<div style="display:none" class="all-actions">
+		<div id="ClusterUpdateCachedLink"><%=uicomponent.buildResourceURL(uicomponent.CLUSTER_NOTIFICATION_POPOVER_LIST)%></div>
+		<div id="PopoverServeResourceLink"><%=uicomponent.buildResourceURL(uicomponent.EXO_NOTIFICATION_POPOVER_LIST)%></div>
 		<%
 			List actions = uicomponent.getActions();
 			for(action in actions) {
@@ -17,13 +17,9 @@
 			</i>
 		</a>
 		<ul class="dropdown-menu" id="NotificationPopup">
-			<li class="pd-10-0 LoadingIndicatorBlock">
-				<div class="LoadingIndicator" id="LoadingIndicator" style="display:none">
-				<% for (int i = 0; i < 9; ++i) { %>
-					<div id="rotateG_0$i" class="blockG"></div>
-				<% } %>
-				</div>
-				<div class="center"><%=_ctx.appRes("UINotificationPopoverToolbarPortlet.msg.Loading") %>...</div>
+			<li class="loadingIndicator" style="display:none">
+				<span class="uiLoadingIconMedium"></span>
+				<div class="loadingText"><%=_ctx.appRes("UINotificationPopoverToolbarPortlet.label.Loading") %>...</div>
 			</li>
 			<li class="no-items" style="display:none"><%=_ctx.appRes("UINotificationPopoverToolbarPortlet.label.NoNotifications") %></li>
 			<li class="actionMark right"><a href="javascript:void(0)" onclick="<%=uicomponent.event("MarkAllRead")%>"><%=_ctx.appRes("UINotificationPopoverToolbarPortlet.label.MarkAllAsRead") %></a></li>

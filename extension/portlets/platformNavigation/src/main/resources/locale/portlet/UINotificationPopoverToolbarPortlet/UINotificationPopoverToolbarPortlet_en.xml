@@ -5,6 +5,7 @@
 			<MarkAllAsRead>Mark all as read</MarkAllAsRead>
 			<NoNotifications>No notifications</NoNotifications>
 			<ViewAll>View All</ViewAll>
+			<Loading>Loading</Loading>
 		</label>
 	</UINotificationPopoverToolbarPortlet>
 </bundle>
