@@ -592,7 +592,7 @@
         <container id="right-column-container" template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
           <access-permissions>*:/platform/users</access-permissions>
           <container id="right-editprofile-container" template="system:/groovy/portal/webui/container/UIAddOnColumnContainer.gtmpl">
-            <name>right-profile-container</name>
+            <name>right-editprofile-container</name>
             <access-permissions>*:/platform/users</access-permissions>
             <factory-id>addonContainer</factory-id>
           </container>
