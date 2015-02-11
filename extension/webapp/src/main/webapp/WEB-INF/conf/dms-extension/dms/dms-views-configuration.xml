@@ -41,7 +41,7 @@
                     <field name="tabName"><string>Admin</string></field>
                     <field name="buttons">
                       <string>
-                        upload; addFolder; viewMetadatas; viewPermissions; editDocument; manageActions; manageRelations; viewProperties; manageAuditing; showJCRStructure
+                        openDocument; upload; addFolder; viewMetadatas; viewPermissions; editDocument; manageActions; manageRelations; viewProperties; manageAuditing; showJCRStructure
                       </string>
                     </field>
                   </object>
