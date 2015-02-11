@@ -206,9 +206,6 @@
                   <string>forumResources</string>
                </value>
                <value profiles="all">
-                  <string>faq</string>
-               </value>
-               <value profiles="all">
                   <string>forum</string>
                </value>
                <value profiles="all">

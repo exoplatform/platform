@@ -250,51 +250,6 @@
                         <value>
                            <object type="org.exoplatform.social.core.space.SpaceApplicationConfigPlugin$SpaceApplication">
                               <field name="portletApp">
-                                 <string>faq</string>
-                              </field>
-                              <field name="portletName">
-                                 <string>AnswersPortlet</string>
-                              </field>
-                              <field name="appTitle">
-                                 <string>Answer</string>
-                              </field>
-                              <field name="removable">
-                                 <boolean>true</boolean>
-                              </field>
-                              <field name="order">
-                                 <int>7</int>
-                              </field>
-                              <field name="uri">
-                                 <string>answer</string>
-                              </field>
-                           </object>
-                        </value>
-                        <value>
-                           <object type="org.exoplatform.social.core.space.SpaceApplicationConfigPlugin$SpaceApplication">
-                              <field name="portletApp">
-                                 <string>faq</string>
-                              </field>
-                              <field name="portletName">
-                                 <string>FAQPortlet</string>
-                              </field>
-                              <field name="appTitle">
-                                 <string>FAQ</string>
-                              </field>
-                              <field name="removable">
-                                 <boolean>true</boolean>
-                              </field>
-                              <field name="order">
-                                 <int>9</int>
-                              </field>
-                              <field name="uri">
-                                 <string>faq</string>
-                              </field>
-                           </object>
-                        </value>
-
-                        <value>
-                           <object type="org.exoplatform.social.core.space.SpaceApplicationConfigPlugin$SpaceApplication">
-                              <field name="portletApp">
                                  <string>social-portlet</string>
                               </field>
                               <field name="portletName">

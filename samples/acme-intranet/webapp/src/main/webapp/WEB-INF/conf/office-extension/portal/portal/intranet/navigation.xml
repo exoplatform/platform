@@ -243,22 +243,6 @@
             <visibility>SYSTEM</visibility>
             <page-reference>portal::intranet::detail</page-reference>
         </node>
-
-        <node>
-            <uri>FAQ</uri>
-            <name>FAQ</name>
-            <label>#{portal.intranet.faq}</label>
-            <visibility>SYSTEM</visibility>
-            <page-reference>portal::intranet::faq</page-reference>
-        </node>
-
-        <node>
-            <uri>answers</uri>
-            <name>answers</name>
-            <label>#{portal.intranet.answers}</label>
-            <visibility>SYSTEM</visibility>
-            <page-reference>portal::intranet::answers</page-reference>
-        </node>
 		<node>
 			<uri>space-access</uri>
 			<name>space-access</name>
