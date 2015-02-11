@@ -81,6 +81,11 @@
             webNotif.ajaxRequest(me.resetNumberOnBadgeLink + 'reset');
           }
         });
+        $(document).ready(function() {
+          if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+            me.portlet.addClass('mobile-mode');
+          }
+        });
       },
       renderMenu : function(data) {
         var me = NotificationPopover;

@@ -201,3 +201,54 @@
 		}
   }
 }
+/* Fix Responsive*/
+@media (max-width: 480px) {
+	.uiNotificationPopoverToolbarPortlet {
+		.displayItems {
+			max-width: none;
+			min-width: auto;
+		}
+		.uiDropdownWithIcon {
+			&.dropdown {
+				position: static;
+			}
+		}
+	}
+	.UIToolbarContainer {
+		.uiNotificationPopoverToolbarPortlet {
+			.uiDropdownWithIcon > .dropdown-menu {
+				.border-top-right-radius(0);
+				.border-top-left-radius(0);
+				left: 0;
+				margin-top: 0;
+				&:after, &:before {
+					display: none!important;
+				}
+			}
+		}
+	}
+}
+.uiNotificationPopoverToolbarPortlet.mobile-mode {
+	.displayItems {
+		max-width: none;
+		min-width: auto;
+	}
+	.uiDropdownWithIcon {
+		&.dropdown {
+			position: static;
+		}
+	}
+}
+.UIToolbarContainer {
+	.uiNotificationPopoverToolbarPortlet.mobile-mode {
+		.uiDropdownWithIcon > .dropdown-menu {
+			.border-top-right-radius(0);
+			.border-top-left-radius(0);
+			left: 0;
+			margin-top: 0;
+			&:after, &:before {
+				display: none!important;
+			}
+		}
+	}
+}
