@@ -50,7 +50,7 @@
   //Use SkinService to get the css
   SkinService skinService = (SkinService) PortalContainer.getCurrentInstance(session.getServletContext())
                           .getComponentInstanceOfType(SkinService.class);
-  String loginCssPath = skinService.getSkin("portal/login", "default").getCSSPath();
+  String loginCssPath = skinService.getSkin("portal/login", "Default").getCSSPath();
 
   //
   String uri = (String)request.getAttribute("org.gatein.portal.login.initial_uri");
