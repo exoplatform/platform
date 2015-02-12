@@ -54,7 +54,7 @@
           badgeElm.show();
         }
         if(me.popupItem.find('li.unread').length > 0) {
-          me.portlet.find('.actionMark:first').show();
+          me.portlet.find('.actionMark:first').addClass('markAll');
         }
         // markAllRead
         me.portlet.find('.actionMark:first').find('a').click(function (evt) {
@@ -69,7 +69,7 @@
             // show/hide elements
             me.popupItem.html('');
             me.viewAllBtn.hide();
-            me.portlet.find('.actionMark:first').hide();
+            me.portlet.find('.actionMark:first').removeClass('markAll');
             me.portlet.find('li.loadingIndicator:first').show();
             // ajax get data items
             me.isLive = true;
@@ -107,7 +107,7 @@
           me.portlet.find('.actionLink:first').show();
         }
         if(me.popupItem.find('li.unread').length > 0) {
-          me.portlet.find('.actionMark:first').show();
+          me.portlet.find('.actionMark:first').addClass('markAll');
         }
         //
         me.startMenuLifecycle();
@@ -156,7 +156,7 @@
           me.badgeElm.hide();
         }
         //
-        me.portlet.find('.actionMark:first').show();
+        me.portlet.find('.actionMark:first').addClass('markAll');
         me.portlet.find('.no-items:first').hide();
         me.portlet.find('.actionLink:first').show();
         //work-around in case of clustering
@@ -212,7 +212,7 @@
       markAllRead : function() {
         NotificationPopover.portlet.find('ul.displayItems:first').find('li.unread').removeClass('unread');
         NotificationPopover.badgeElm.text("0").hide();
-        NotificationPopover.portlet.find('.actionMark:first').hide();
+        NotificationPopover.portlet.find('.actionMark:first').removeClass('markAll');
       },
       markItemRead : function(item) {
         var action = NotificationPopover.markReadLink + item.data('id');
@@ -225,9 +225,9 @@
         //
         if(me.popupItem.find('li').length == 1) {
           webNotif.showElm(me.portlet.find('.no-items:first'));
-          me.portlet.find('.actionMark:first').hide();
+          me.portlet.find('.actionMark:first').removeClass('markAll');
         } else if(me.popupItem.find('li.unread').length == 1 && item.hasClass('unread')) {
-          me.portlet.find('.actionMark:first').hide();
+          me.portlet.find('.actionMark:first').removeClass('markAll');
         }
         webNotif.removeElm(item);
         return this;
