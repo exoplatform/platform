@@ -78,6 +78,9 @@
           <name>untrusted-user-agents</name>
           <value>Microsoft Office Core Storage Infrastructure/1.0</value>
           <value>gvfs/1.20.1</value>
+          <value>Microsoft Office Excel 2013</value>
+          <value>Microsoft Office Word 2013</value>
+          <value>Microsoft Office PowerPoint 2013</value>
       </values-param>
 
     </init-params>
