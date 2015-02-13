@@ -42,6 +42,7 @@ import org.gatein.common.text.EntityEncoder;
 import javax.inject.Inject;
 import java.nio.charset.Charset;
 import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.*;
 import java.util.Calendar;
 
@@ -133,6 +134,27 @@ public class CalendarPortletController {
         return container.ok();
     }
 
+        // Format the Date pattern
+    private String formatDate(Locale locale) {
+        String datePattern = "";
+        DateFormat dateFormat = SimpleDateFormat.getDateInstance(DateFormat.SHORT, locale);
+        // convert to unique pattern
+        datePattern = ((SimpleDateFormat)dateFormat).toPattern();
+        if (!datePattern.contains("yy")) {
+        datePattern = datePattern.replaceAll("y", "yy");
+        }
+        if (!datePattern.contains("yyyy")) {
+        datePattern = datePattern.replaceAll("yy", "yyyy");
+        }
+        if (!datePattern.contains("dd")) {
+        datePattern = datePattern.replaceAll("d", "dd");
+        }
+        if (!datePattern.contains("MM")) {
+        datePattern= datePattern.replaceAll("M", "MM");
+        }
+        return datePattern;
+        }
+
     @Ajax
     @Resource
     public Response.Content calendarHome() throws Exception {
@@ -144,7 +166,8 @@ public class CalendarPortletController {
         String date_act = null;
         String username = CalendarPortletUtils.getCurrentUser();
         Locale locale =  Util.getPortalRequestContext().getLocale();
-        DateFormat d = DateFormat.getDateInstance(DateFormat.SHORT, locale);
+        String dp= formatDate(locale);
+        DateFormat d = new SimpleDateFormat(dp);
         DateFormat dTimezone = DateFormat.getDateInstance(DateFormat.SHORT, locale);
         dTimezone.setCalendar(CalendarPortletUtils.getCurrentCalendar());
         Long date = new Date().getTime();
@@ -164,11 +187,7 @@ public class CalendarPortletController {
         // Put it back in the Date object
         currentTime = cal.getTime();
         date_act = d.format(currentTime);
-        String delim =  getDateDelimiter(date_act);
-        if(delim != null && date_act.indexOf(delim) < 2 ) {
-             date_act = new StringBuffer("0").append(date_act).toString();
-               }
-         Date comp = currentTime;
+        Date comp = currentTime;
         String defaultCalendarLabel = "Default";
         String dateLabel = "";
         try {
