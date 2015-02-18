@@ -8,6 +8,7 @@ import org.exoplatform.commons.utils.PropertyManager;
 import org.exoplatform.container.PortalContainer;
 import org.exoplatform.container.component.ComponentRequestLifecycle;
 import org.exoplatform.container.component.RequestLifeCycle;
+import org.exoplatform.portal.config.UserACL;
 import org.exoplatform.services.log.ExoLogger;
 import org.exoplatform.services.log.Log;
 import org.exoplatform.services.organization.*;
@@ -77,6 +78,7 @@ public class AccountSetup extends HttpServlet {
         String userPasswordAccount = request.getParameter(USER_PASSWORD_ACCOUNT);
         String adminPassword = request.getParameter(ADMIN_PASSWORD);
         OrganizationService orgService;
+        UserACL userACL;
         UserHandler userHandler;
         User user;
         Group group = null;
@@ -84,6 +86,7 @@ public class AccountSetup extends HttpServlet {
 
         try {
             orgService = (OrganizationService) PortalContainer.getInstance().getComponentInstanceOfType(OrganizationService.class);
+            userACL = (UserACL) PortalContainer.getInstance().getComponentInstanceOfType(UserACL.class);
             RequestLifeCycle.begin((ComponentRequestLifecycle) orgService);
             // --- Get MemberShipType Service
             MembershipTypeHandler membershipTypeHandler = orgService.getMembershipTypeHandler();
@@ -141,7 +144,8 @@ public class AccountSetup extends HttpServlet {
 
             // Set password for admin user
             try {
-                User adminUser = userHandler.findUserByName(ADMIN_FIRST_NAME);
+
+                User adminUser = userHandler.findUserByName(userACL.getSuperUser());
                 adminUser.setPassword(adminPassword);
                 orgService.getUserHandler().saveUser(adminUser, false);
             } catch (Exception e) {
