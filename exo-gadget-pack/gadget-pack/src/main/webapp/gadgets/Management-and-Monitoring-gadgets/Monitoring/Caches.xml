@@ -79,15 +79,12 @@
             background: -ms-linear-gradient(top, #3370b4, #2d629d);
             background: linear-gradient(top, #3370b4, #2d629d);
             background-color: #3370b4;
+            overflow: hidden;
           }
           
           .cacheLevel .usedPercent {
             height: 18px;
-            position: absolute;
-            left: 0;
             display: block;
-            top: 0;
-            z-index: 10;
             float: left;
             background: -webkit-gradient(linear, left top, right top, from(#d30019), to(#b90016));
             background: -webkit-linear-gradient(top, #d30019, #b90016);
