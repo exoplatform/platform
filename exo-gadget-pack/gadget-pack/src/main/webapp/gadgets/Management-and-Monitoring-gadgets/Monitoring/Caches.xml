@@ -57,7 +57,6 @@
           .cacheLevel .itemGraph {
             margin-top: 5px;
             position: relative;
-            overflow: hidden;
             background: -webkit-gradient(linear, left top, right top, from(#e6e6e6), to(#f0f0f0));
             background: -webkit-linear-gradient(top, #e6e6e6, #f0f0f0);
             background: -moz-linear-gradient(top, #e6e6e6, #f0f0f0);
@@ -65,9 +64,6 @@
             background: -ms-linear-gradient(top, #e6e6e6, #f0f0f0);
             background: linear-gradient(top, #e6e6e6, #f0f0f0);
             background-color: #e6e6e6;
-            -webkit-border-radius: 20px;
-            -moz-border-radius: 20px;
-            border-radius: 20px;
           }
           
           .cacheLevel .graph {
@@ -94,7 +90,12 @@
             background: linear-gradient(top, #d30019, #b90016);
             background-color: #d30019;
           }
-          
+          .cacheLevel .graph,
+          .cacheLevel .usedPercent {
+            -webkit-border-radius: 2px;
+            -moz-border-radius: 2px;
+            border-radius: 2px;
+          }
           .cacheLevel .cache a b {
             color: #333;
           }
