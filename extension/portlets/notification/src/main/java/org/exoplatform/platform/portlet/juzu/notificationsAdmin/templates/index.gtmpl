@@ -89,7 +89,7 @@
 
 		        <div class="right-view pull-right">
 						  <button id="btAction${pluginId}" data-plugin="${pluginId}" class="btn btn-primary save-setting">${_ctx.appRes('NotificationAdmin.label.save')}</button>
-						  <a href="javascript:void(0);" class="edit-setting"><i class="uiIconEdit uiIconLightGray"></i></a>
+						  <a href="javascript:void(0);" class="edit-setting actionIcon"><i class="uiIconEdit uiIconLightGray"></i></a>
 						</div>
 				  </div>
 				</td>
