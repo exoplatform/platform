@@ -151,7 +151,7 @@ eXoEventGadget.prototype.getPrefs = function(){
 //TODO: Need a new solution for creating url replace for using parent 
 eXoEventGadget.prototype.setLink = function(){
 	var url   = eXoEventGadget.prefs.url;
-    baseUrl = "http://" +  top.location.host + parent.eXo.env.portal.context + "/" + parent.eXo.env.portal.portalName;
+    baseUrl = "//" +  top.location.host + parent.eXo.env.portal.context + "/" + parent.eXo.env.portal.portalName;
 	a = document.getElementById("ShowAll");
 	url = (url)?baseUrl + url: baseUrl + "/calendar";
 	a.href = url;
@@ -355,7 +355,7 @@ eXoEventGadget.prototype.onLoadHander = function(){
 }
 
 eXoEventGadget.prototype.initiate = function(){
-	var url = "http://" +  top.location.host + parent.eXo.env.portal.context + "/rest/cs/calendar/getcalendars";
+	var url = "//" +  top.location.host + parent.eXo.env.portal.context + "/rest/cs/calendar/getcalendars";
 	eXoEventGadget.ajaxAsyncGetRequest(url,eXoEventGadget.getDefaultCalendar);
 }
 
