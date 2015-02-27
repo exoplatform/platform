@@ -73,12 +73,12 @@
             me.portlet.find('li.loadingIndicator:first').show();
             // ajax get data items
             me.isLive = true;
-            webNotif.ajaxRequest(me.popoverServeResourceLink, me.renderMenu);
+            webNotif.ajaxReq(me.popoverServeResourceLink, me.renderMenu);
           }
           // call action clear badge
           if (bagdeNumber > 0) {
             me.badgeElm.text('0').hide();
-            webNotif.ajaxRequest(me.resetNumberOnBadgeLink + 'reset');
+            webNotif.ajaxReq(me.resetNumberOnBadgeLink + 'reset');
           }
         });
         $(document).ready(function() {
@@ -160,7 +160,7 @@
         me.portlet.find('.no-items:first').hide();
         me.portlet.find('.actionLink:first').show();
         //work-around in case of clustering
-        webNotif.ajaxRequest(me.clusterUpdateCachedLink + '&notifId=' + id, function(data) {
+        webNotif.ajaxReq(me.clusterUpdateCachedLink + '&notifId=' + id, function(data) {
       	  if(data && data.badge > 0) {
       	    me.badgeElm.text(data.badge).show();
       	  }
@@ -199,7 +199,7 @@
           //1. call rest on social side: for example accept/refuse relationship
           //2. redirect to the uri, for example: view activity detail
           //var id = elm.parents('li:first').data('id');
-        webNotif.ajaxRequest($(elm).data('rest')).openURL($(elm).data('link'));
+        webNotif.ajaxReq($(elm).data('rest')).openURL($(elm).data('link'));
       },
       doCancelAction : function(object) {
         var me = NotificationPopover;
