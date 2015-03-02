@@ -34,7 +34,7 @@ public class WhoIsOnLineController {
     Template users;
 
     @View
-    public Response.Render index() {
+    public Response.Content index() {
         try {
 
             String userId = RequestContext.getCurrentInstance().getRemoteUser();
@@ -54,7 +54,7 @@ public class WhoIsOnLineController {
 
     @Ajax
     @Resource
-    public Response.Render users() {
+    public Response.Content users() {
         try {
             String userId = RequestContext.getCurrentInstance().getRemoteUser();
             List<User> friends = whoIsOnline.getFriends(userId);

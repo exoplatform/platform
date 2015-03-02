@@ -1,6 +1,7 @@
 package org.exoplatform.platform.portlet.juzu.suggestions;
 
 import juzu.Path;
+import juzu.Response;
 import juzu.View;
 import juzu.template.Template;
 
@@ -16,7 +17,7 @@ public class SuggestionsPeopleSpace {
     Template list;
 
     @View
-    public void index() {
-        list.render();
+    public Response.Content index() {
+        return list.ok();
     }
 }

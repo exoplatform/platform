@@ -19,10 +19,7 @@
 
 package org.exoplatform.platform.portlet.juzu.calendar;
 
-import juzu.Path;
-import juzu.Resource;
-import juzu.SessionScoped;
-import juzu.View;
+import juzu.*;
 import juzu.template.Template;
 import org.apache.commons.lang.ArrayUtils;
 import org.exoplatform.calendar.service.*;
@@ -130,13 +127,13 @@ public class CalendarPortletController {
     org.exoplatform.platform.portlet.juzu.calendar.templates.calendarPortletContainer container;
 
     @View
-    public void index() {
-        container.render();
+    public Response.Content index() {
+        return container.ok();
     }
 
     @Ajax
     @Resource
-    public void calendarHome() throws Exception {
+    public Response.Content calendarHome() throws Exception {
 
         displayedCalendar.clear();
         displayedCalendarMap.clear();
@@ -170,7 +167,6 @@ public class CalendarPortletController {
              date_act = new StringBuffer("0").append(date_act).toString();
                }
          Date comp = currentTime;
-        HashMap parameters = new HashMap();
         String defaultCalendarLabel = "Default";
         String dateLabel = "";
         try {
@@ -228,17 +224,17 @@ public class CalendarPortletController {
             Collections.sort(eventsDisplayedList, eventsComparator);
             Collections.sort(tasksDisplayedList, tasksComparator);
         }
-        calendar.with().
+        return calendar.with().
                 set("displayedCalendar", displayedCalendar).
                 set("calendarDisplayedMap", displayedCalendarMap).
                 set("eventsDisplayedList", eventsDisplayedList).
                 set("tasksDisplayedList", tasksDisplayedList).
-                set("date_act", dateLabel).render();
+                set("date_act", dateLabel).ok();
     }
 
     @Ajax
     @Resource
-    public void setting() throws Exception {
+    public Response.Content setting() throws Exception {
         calendarDisplayedList.clear();
         calendarNonDisplayedList.clear();
         String username = RequestContext.getCurrentInstance().getRemoteUser();
@@ -257,13 +253,13 @@ public class CalendarPortletController {
                 calendarDisplayedList.add(c);
             }
         }
-        setting.with().set("displayedCalendar", calendarDisplayedList).
-                set("nonDisplayedCalendar", calendarNonDisplayedList).render();
+        return setting.with().set("displayedCalendar", calendarDisplayedList).
+                set("nonDisplayedCalendar", calendarNonDisplayedList).ok();
     }
 
     @Ajax
     @Resource
-    public void addCalendar(String calendarId) throws Exception {
+    public Response.Content addCalendar(String calendarId) throws Exception {
 
             StringBuilder cals = new StringBuilder();
             int i = 0;
@@ -275,12 +271,12 @@ public class CalendarPortletController {
             }
             settingService_.remove(Context.USER, Scope.APPLICATION, CalendarPortletUtils.HOME_PAGE_CALENDAR_SETTINGS);
             settingService_.set(Context.USER, Scope.APPLICATION, CalendarPortletUtils.HOME_PAGE_CALENDAR_SETTINGS, SettingValue.create("NonDisplayedCalendar:" + cals.toString()));
-        setting();
+        return setting();
     }
 
     @Ajax
     @Resource
-    public void deleteCalendar(String calendarId) throws Exception {
+    public Response.Content deleteCalendar(String calendarId) throws Exception {
 
         nonDisplayedCalendarList = (String[]) ArrayUtils.add(nonDisplayedCalendarList, calendarId);
         StringBuffer cal = new StringBuffer();
@@ -291,31 +287,31 @@ public class CalendarPortletController {
         }
         settingService_.remove(Context.USER, Scope.APPLICATION, CalendarPortletUtils.HOME_PAGE_CALENDAR_SETTINGS);
         settingService_.set(Context.USER, Scope.APPLICATION, CalendarPortletUtils.HOME_PAGE_CALENDAR_SETTINGS, SettingValue.create("NonDisplayedCalendar:" + cal.toString()));
-        setting();
+        return setting();
     }
 
 
     @Ajax
     @Resource
-    public void incDate(String nbClick) throws Exception {
+    public Response.Content incDate(String nbClick) throws Exception {
         int clickNumber = Integer.parseInt(nbclick);
         clickNumber++;
         nbclick = new Integer(clickNumber).toString();
-        calendarHome();
+        return calendarHome();
     }
 
     @Ajax
     @Resource
-    public void decDate(String nbClick) throws Exception {
+    public Response.Content decDate(String nbClick) throws Exception {
         int clickNumber = Integer.parseInt(nbclick);
         clickNumber--;
         nbclick = new Integer(clickNumber).toString();
-        calendarHome();
+        return calendarHome();
     }
 
     @Ajax
     @Resource
-    public void getSearchResult(String key) {
+    public Response.Content getSearchResult(String key) {
 
         Iterator itr = null;
         if (calendarNonDisplayedList != null) itr = calendarNonDisplayedList.iterator();
@@ -326,7 +322,7 @@ public class CalendarPortletController {
         }
        // String label = "Default Personal Calendar";
 
-        search.with().set("searchResultList", searchResult).render();
+        return search.with().set("searchResultList", searchResult).ok();
     }
 
 

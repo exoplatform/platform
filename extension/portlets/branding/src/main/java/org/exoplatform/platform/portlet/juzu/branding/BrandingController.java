@@ -16,13 +16,10 @@
  */
 package org.exoplatform.platform.portlet.juzu.branding;
 
-import juzu.Path;
-import juzu.Resource;
-import juzu.Response;
-import juzu.View;
-import juzu.io.Stream;
+import juzu.*;
+import juzu.request.ApplicationContext;
 import juzu.request.HttpContext;
-import juzu.request.RenderContext;
+import juzu.request.UserContext;
 import juzu.template.Template;
 import org.apache.commons.fileupload.FileItem;
 import org.exoplatform.commons.api.settings.SettingService;
@@ -36,13 +33,13 @@ import org.exoplatform.portal.config.UserACL;
 import org.exoplatform.services.log.ExoLogger;
 import org.exoplatform.services.log.Log;
 import org.exoplatform.services.security.ConversationState;
-
+import org.json.JSONException;
+import org.json.JSONObject;
 import javax.inject.Inject;
 import java.io.IOException;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.Map;
 import java.util.ResourceBundle;
 
@@ -77,7 +74,6 @@ public class BrandingController {
    * 
    * @param httpContext
    * @param file
-   * @param style
    * @return Response.Content
    * @throws IOException
    */
@@ -87,15 +83,19 @@ public class BrandingController {
       if (file != null && file.getContentType().contains("png")) {
         dataStorageService.saveLogoPreview(file);
       }
-      Map<String, String> result = new HashMap<String, String>();
-      result.put("logoUrl", getLogoUrl(httpContext, false));
-      return createJSON(result);
+      JSONObject result = new JSONObject();
+      try {
+        result.put("logoUrl", getLogoUrl(httpContext, false));
+      } catch (JSONException ex) {
+
+      }
+      return Response.ok(result.toString()).with(PropertyType.MIME_TYPE, "application/json");
     } else {
       if (file != null && file.getContentType().contains("png")) {
         dataStorageService.saveLogoPreview(file);
-        return createText(getLogoUrl(httpContext, false));
+        return Response.ok(getLogoUrl(httpContext, false));
       } else {
-        return createText("false");
+        return Response.ok("false");
       }
     }
   }
@@ -108,25 +108,10 @@ public class BrandingController {
    * @return Response
    */
   @View
-  public Response index(HttpContext httpContext, RenderContext renderContext) {
+  public Response index(HttpContext httpContext) {
     Map<String, Object> parameters = new HashMap<String, Object>();
     parameters.put("urlUploadFile", BrandingController_.uploadFile(null));
     parameters.put("imageUrl", getLogoUrl(httpContext, true));
-    ResourceBundle rs = renderContext.getApplicationContext().resolveBundle(renderContext.getUserContext().getLocale());
-    parameters.put("pagetitle", rs.getString("pagetitle.label"));
-    parameters.put("selectlogo", rs.getString("selectlogo.label"));
-    parameters.put("noteselectlogo", rs.getString("noteselectlogo.label"));
-    parameters.put("upload", rs.getString("upload.label"));
-    parameters.put("selectstyle", rs.getString("selectstyle.label"));
-    parameters.put("darkstyle",rs.getString("style.dark.label"));
-    parameters.put("lightstyle",rs.getString("style.light.label"));
-    parameters.put("preview", rs.getString("preview.label"));
-    parameters.put("save", rs.getString("save.label"));
-    parameters.put("cancel", rs.getString("cancel.label"));
-    parameters.put("saveok", rs.getString("info.saveok.label"));
-    parameters.put("savenotok", rs.getString("info.savenotok.label"));
-    parameters.put("cancelok", rs.getString("info.cancelok.label"));
-    parameters.put("mustpng", rs.getString("mustpng.label"));
     return index.ok(parameters);
   }
 
@@ -172,9 +157,13 @@ public class BrandingController {
     } else {
       LOG.info("Cannot save branding due to insufficient permission.");
     }
-    Map<String, String> result = new HashMap<String, String>();
-    result.put("error", "1");
-    return (createJSON(result));
+    JSONObject result = new JSONObject();
+    try {
+      result.put("error", "1");
+    } catch (JSONException ex) {
+
+    }
+    return Response.ok(result.toString()).with(PropertyType.MIME_TYPE, "application/json");
   }
 
   /**
@@ -212,72 +201,24 @@ public class BrandingController {
    */
   @Ajax
   @Resource
-  public Response.Content<Stream.Char> getResource(HttpContext httpContext) {
-    Map<String, String> result = new HashMap<String, String>();
+  public Response.Content getResource(HttpContext httpContext) {
+    JSONObject json = new JSONObject();
     String style = "Dark";
     if (settingService.get(Context.GLOBAL, Scope.GLOBAL, BAR_NAVIGATION_STYLE_KEY) != null) {
       style = (String) settingService.get(Context.GLOBAL, Scope.GLOBAL, BAR_NAVIGATION_STYLE_KEY)
                                      .getValue();
     }
-    result.put("error", "0");
-    result.put("style", style);
-    result.put("logoUrl", getLogoUrl(httpContext, true));
-    return createJSON(result);
+
+    try {
+      json.put("error", "0");
+      json.put("style", style);
+      json.put("logoUrl", getLogoUrl(httpContext, true));
+    } catch (JSONException ex) {
+
+    }
+    return Response.ok(json.toString()).with(PropertyType.MIME_TYPE, "application/json");
   }
 
-  /**
-   * create a object JSON from the map.
-   * 
-   * @param Map<String, String> data
-   * @return Response.Content
-   */
-  private Response.Content<Stream.Char> createJSON(final Map<String, String> data) {
-    Response.Content<Stream.Char> json = new Response.Content<Stream.Char>(200, Stream.Char.class) {
-      @Override
-      public String getMimeType() {
-        return "application/json";
-      }
-
-      @Override
-      public void send(Stream.Char stream) throws IOException {
-        stream.append("{");
-        Iterator<Map.Entry<String, String>> i = data.entrySet().iterator();
-        while (i.hasNext()) {
-          Map.Entry<String, String> entry = i.next();
-          stream.append("\"" + entry.getKey() + "\"");
-          stream.append(":");
-          stream.append("\"" + entry.getValue() + "\"");
-          if (i.hasNext()) {
-            stream.append(",");
-          }
-        }
-        stream.append("}");
-      }
-    };
-    return json;
-  }
-
-  /**
-   * create a object text/html
-   * 
-   * @param text
-   * @return
-   */
-  private Response.Content<Stream.Char> createText(final String text) {
-    Response.Content<Stream.Char> textObject = new Response.Content<Stream.Char>(200,
-                                                                                 Stream.Char.class) {
-      @Override
-      public String getMimeType() {
-        return "text/html";
-      }
-
-      @Override
-      public void send(Stream.Char stream) throws IOException {
-        stream.append(text);
-      }
-    };
-    return textObject;
-  }
   private boolean isAdmin() {
     try {
       UserACL userACL = (UserACL) ExoContainerContext.getCurrentContainer()

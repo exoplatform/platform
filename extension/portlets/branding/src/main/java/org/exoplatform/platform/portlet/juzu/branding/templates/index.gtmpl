@@ -1,27 +1,27 @@
 <div class="uiBrandingPortlet">
 	<div class="alert" id="cancelinfo">
-		<i class="uiIconWarning"></i>${cancelok}
+		<i class="uiIconWarning"></i>&{info.cancelok.label}
 	</div>
 	<div class="alert alert-success" id="saveinfo">
-		<i class="uiIconSuccess"></i>${saveok}
+		<i class="uiIconSuccess"></i>&{info.saveok.label}
 	</div>
 	<div class="alert" id="mustpng">
-		<i class="uiIconWarning"></i>${mustpng}
+		<i class="uiIconWarning"></i>&{mustpng.label}
 	</div>
 	<div class="alert" id="savenotok">
-		<i class="uiIconWarning"></i>${savenotok}
+		<i class="uiIconWarning"></i>&{info.savenotok.label}
 	</div>
 
 	<div class="logoForm boxContent">
-		<h3>${pagetitle}</h3>
-		<h4 class="titleWithBorder">${selectlogo}</h4>
+		<h3>&{pagetitle.label}</h3>
+		<h4 class="titleWithBorder">&{selectlogo.label}</h4>
 		<div class="clearfix">
 			<div class="pull-left">
 				<div id="PreviewImgDiv" class="previewLogo" >
 					<img id="ajaxUploading1" alt="" src="/eXoSkin/skin/images/themes/default/platform/portlets/branding/ajax-loader.gif"  style="display:none" >
 				 	<img id="PreviewImg" alt="" >
 			  </div>
-			  <div class="info">${noteselectlogo}</div>
+			  <div class="info">&{noteselectlogo.label}</div>
 		  </div>
 		  <div class="pull-left">
 				<form id="form" enctype="multipart/form-data" action="${urlUploadFile}"  method="POST">
@@ -30,14 +30,14 @@
 				</form>
 
 				<div class="uiAction">
-					<input id="btUpload" class="btn btn-primate" type="button"  value="${upload}"/>
+					<input id="btUpload" class="btn btn-primate" type="button"  value="&{upload.label}"/>
 				</div>
 			</div>
 	  </div>
 	</div>
 
 	<div class="navigationStyle boxContent">
-		<h4 class="titleWithBorder">${selectstyle}</h4>
+		<h4 class="titleWithBorder">&{selectstyle.label}</h4>
 
 		<div class="btn-group uiDropdownWithIcon" id="navigationStyle">
 			<div data-toggle="dropdown" class="btn dropdown-toggle">
@@ -48,24 +48,24 @@
 
 			<ul role="menu" class="dropdown-menu">
 				<li>
-					<a href="#" class="OptionItem" id="Light">${lightstyle}</a>
+					<a href="#" class="OptionItem" id="Light">&{style.light.label}</a>
 				</li>
 				<li>
-					<a href="#" class="OptionItem" id="Dark">${darkstyle}</a>
+					<a href="#" class="OptionItem" id="Dark">&{style.dark.label}</a>
 				</li>
 			</ul>
 		</div>
 	</div>
 
 	<div class="preview boxContent">
-		<h4 class="titleWithBorder">${preview}</h3>
+		<h4 class="titleWithBorder">&{preview.label}</h3>
 		<div id="StylePreview">
 			<img id="ajaxUploading2" alt="" src="/eXoSkin/skin/images/themes/default/platform/portlets/branding/ajax-loader.gif"	style="display:none" >
 		</div>
 	</div>
 
 	<div class="uiAction boxContent">
-		<button id="save" class="btn btn-primate" type="button" value="${save}">${save}</button>
-		<button id="cancel" class="btn" type="button" value="${cancel}"/>${cancel}</button>
+		<button id="save" class="btn btn-primate" type="button" value="&{save.label}">&{save.label}</button>
+		<button id="cancel" class="btn" type="button" value="&{cancel.label}"/>&{cancel.label}</button>
 	</div>
 </div>

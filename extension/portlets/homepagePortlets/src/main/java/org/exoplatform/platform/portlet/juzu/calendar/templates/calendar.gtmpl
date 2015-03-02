@@ -23,13 +23,18 @@
 <%
     import java.text.DateFormat;
     import org.exoplatform.calendar.service.CalendarEvent;
+    import juzu.request.RequestContext;
+    import juzu.request.ApplicationContext;
+    import juzu.request.UserContext;
 
     import java.util.Locale;
-     import juzu.impl.request.Request;
-     import juzu.request.RequestContext;
-     import org.exoplatform.platform.portlet.juzu.calendar.models.CalendarPortletUtils;
-   RequestContext requestContext = Request.getCurrent().getContext();
-   Locale locale= requestContext.getUserContext().getLocale();
+    import juzu.impl.request.Request;
+    import juzu.request.RequestContext;
+    import org.exoplatform.platform.portlet.juzu.calendar.models.CalendarPortletUtils;
+
+    Request request = Request.getCurrent();
+    UserContext userContext = request.getUserContext();
+    Locale locale= userContext.getLocale();
     DateFormat sdf4=DateFormat.getDateTimeInstance(DateFormat.SHORT,DateFormat.SHORT,locale);
     DateFormat sdf3=DateFormat.getDateTimeInstance(DateFormat.SHORT,DateFormat.SHORT,locale);
    	DateFormat sdf1= DateFormat.getDateInstance(DateFormat.SHORT,locale);

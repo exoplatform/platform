@@ -18,13 +18,17 @@
    */ %>
   <%
         import org.exoplatform.portal.webui.util.Util;
-
         import juzu.impl.request.Request;
         import juzu.request.RequestContext;
+        import juzu.request.ApplicationContext;
+        import juzu.request.UserContext;
         import org.apache.commons.lang.StringEscapeUtils;
 
-        RequestContext requestContext = Request.getCurrent().getContext();
-        ResourceBundle bundle= requestContext.getApplicationContext().resolveBundle(requestContext.getUserContext().getLocale()) ;
+        Request request = Request.getCurrent();
+        ApplicationContext appContext = request.getApplicationContext();
+        UserContext userContext = request.getUserContext();
+
+        ResourceBundle bundle= appContext.resolveBundle(userContext.getLocale()) ;
     
         def youHaveSentAnInvitation=bundle.getString("message.label");
         def statusTitle=StringEscapeUtils.escapeJavaScript(bundle.getString("Loading.label"));
