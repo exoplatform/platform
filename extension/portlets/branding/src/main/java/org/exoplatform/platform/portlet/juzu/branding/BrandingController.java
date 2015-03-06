@@ -22,6 +22,7 @@ import juzu.request.HttpContext;
 import juzu.request.UserContext;
 import juzu.template.Template;
 import org.apache.commons.fileupload.FileItem;
+import org.apache.commons.lang.StringUtils;
 import org.exoplatform.commons.api.settings.SettingService;
 import org.exoplatform.commons.api.settings.SettingValue;
 import org.exoplatform.commons.api.settings.data.Context;
@@ -150,7 +151,7 @@ public class BrandingController {
       if (isChangeLogo != null && Boolean.valueOf(isChangeLogo)) {
         dataStorageService.saveLogo();
       }
-      if (style != null && style != "") {
+      if (StringUtils.isNotEmpty(style)) {
         settingService.set(Context.GLOBAL, Scope.GLOBAL, BAR_NAVIGATION_STYLE_KEY, SettingValue.create(style));
       }
       return getResource(httpContext);

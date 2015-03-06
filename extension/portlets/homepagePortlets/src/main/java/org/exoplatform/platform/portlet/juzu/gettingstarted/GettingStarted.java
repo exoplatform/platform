@@ -91,7 +91,9 @@ public class GettingStarted {
             try {
               userPrivateNode.refresh(false);
             } catch (RepositoryException ex) {
-              //do nothing
+              if (LOG.isErrorEnabled()) {
+                LOG.error("Can not refresh userPrivateNode", ex);
+              }
             }
           }
         } catch (Exception E) {
@@ -198,7 +200,9 @@ public class GettingStarted {
                   try {
                     userPrivateNode.refresh(false);
                   } catch (RepositoryException ex) {
-                    //do nothing
+                    if (LOG.isErrorEnabled()) {
+                      LOG.error("Can not refresh userPrivateNode", ex);
+                    }
                   }
                 }
               }
