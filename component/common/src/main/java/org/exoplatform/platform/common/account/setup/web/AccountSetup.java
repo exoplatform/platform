@@ -52,6 +52,7 @@ public class AccountSetup extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String redirectURI = null;
         String accountsetupbutton = request.getParameter(ACCOUNT_SETUP_BUTTON);
+        boolean isValidSetup = true;
 
         boolean isDevMod = PropertyManager.isDevelopping();
         // check accountsetup.skip flag in configuration.properties
@@ -100,42 +101,45 @@ public class AccountSetup extends HttpServlet {
                 userHandler.createUser(user, true);
             } catch (Exception e) {
                 logger.error("Can not create User", e);
+                isValidSetup = false;
             }
 
-            // Assign the membership "*:/platform/administrators"  to the created user
-            try {
-                group = orgService.getGroupHandler().findGroupById(PLATFORM_USERS_GROUP);
-                membershipType = membershipTypeHandler.findMembershipType(MEMBERSHIP_TYPE_MANAGER);
-                orgService.getMembershipHandler().linkMembership(user, group, membershipType, true);
-            } catch (Exception e) {
-                logger.error("Can not assign *:/platform/administrators membership to the created user", e);
-            }
+            if (isValidSetup) {
+              // Assign the membership "*:/platform/administrators"  to the created user
+              try {
+                  group = orgService.getGroupHandler().findGroupById(PLATFORM_USERS_GROUP);
+                  membershipType = membershipTypeHandler.findMembershipType(MEMBERSHIP_TYPE_MANAGER);
+                  orgService.getMembershipHandler().linkMembership(user, group, membershipType, true);
+              } catch (Exception e) {
+                  logger.error("Can not assign *:/platform/administrators membership to the created user", e);
+              }
 
-            // Assign the membership "*:/platform/web-contributors"  to the created user
-            try {
-                group = orgService.getGroupHandler().findGroupById(PLATFORM_WEB_CONTRIBUTORS_GROUP);
-                membershipType = membershipTypeHandler.findMembershipType(MEMBERSHIP_TYPE_MANAGER);
-                orgService.getMembershipHandler().linkMembership(user, group, membershipType, true);
-            } catch (Exception e) {
-                logger.error("Can not assign *:/platform/web-contributors membership to the created user", e);
-            }
+              // Assign the membership "*:/platform/web-contributors"  to the created user
+              try {
+                  group = orgService.getGroupHandler().findGroupById(PLATFORM_WEB_CONTRIBUTORS_GROUP);
+                  membershipType = membershipTypeHandler.findMembershipType(MEMBERSHIP_TYPE_MANAGER);
+                  orgService.getMembershipHandler().linkMembership(user, group, membershipType, true);
+              } catch (Exception e) {
+                  logger.error("Can not assign *:/platform/web-contributors membership to the created user", e);
+              }
 
-            // Assign the membership "member:/developer"  to the created user
-            try {
-                group = orgService.getGroupHandler().findGroupById(PLATFORM_DEVELOPERS_GROUP);
-                membershipType = membershipTypeHandler.findMembershipType(MEMBERSHIP_TYPE_MANAGER);
-                orgService.getMembershipHandler().linkMembership(user, group, membershipType, true);
-            } catch (Exception e) {
-                logger.error("Can not assign *:/developers membership to the created user", e);
-            }
+              // Assign the membership "member:/developer"  to the created user
+              try {
+                  group = orgService.getGroupHandler().findGroupById(PLATFORM_DEVELOPERS_GROUP);
+                  membershipType = membershipTypeHandler.findMembershipType(MEMBERSHIP_TYPE_MANAGER);
+                  orgService.getMembershipHandler().linkMembership(user, group, membershipType, true);
+              } catch (Exception e) {
+                  logger.error("Can not assign *:/developers membership to the created user", e);
+              }
 
-            // Assign the membership "*:/platform/users"  to the created user
-            try {
-                group = orgService.getGroupHandler().findGroupById(PLATFORM_PLATFORM_USERS_GROUP);
-                membershipType = membershipTypeHandler.findMembershipType(MEMBERSHIP_TYPE_MANAGER);
-                orgService.getMembershipHandler().linkMembership(user, group, membershipType, true);
-            } catch (Exception e) {
-                logger.error("Can not assign *:/platform/users membership to the created user", e);
+              // Assign the membership "*:/platform/users"  to the created user
+              try {
+                  group = orgService.getGroupHandler().findGroupById(PLATFORM_PLATFORM_USERS_GROUP);
+                  membershipType = membershipTypeHandler.findMembershipType(MEMBERSHIP_TYPE_MANAGER);
+                  orgService.getMembershipHandler().linkMembership(user, group, membershipType, true);
+              } catch (Exception e) {
+                  logger.error("Can not assign *:/platform/users membership to the created user", e);
+              }
             }
 
 
@@ -146,19 +150,23 @@ public class AccountSetup extends HttpServlet {
                 orgService.getUserHandler().saveUser(adminUser, false);
             } catch (Exception e) {
                 logger.error("Can not set password to the created user", e);
+                isValidSetup = false;
             }
         } finally {
-            if (accountSetupNode == null)
-              settingService.set(Context.GLOBAL, Scope.GLOBAL, ACCOUNT_SETUP_NODE, SettingValue.create("setup over:" + "true"));
             RequestLifeCycle.end();
         }
-        // Redirect to requested page
-        redirectURI = "/" + PortalContainer.getCurrentPortalContainerName() + "/login?" + "username=" + URLEncoder.encode(userNameAccount, "UTF-8") + "&password=" + userPasswordAccount + "&initialURI=" + INTRANET_HOME;
+        if (isValidSetup) {
+          if (accountSetupNode == null) 
+              settingService.set(Context.GLOBAL, Scope.GLOBAL, ACCOUNT_SETUP_NODE, SettingValue.create("setup over:" + "true"));
+          // Redirect to requested page
+          redirectURI = "/" + PortalContainer.getCurrentPortalContainerName() + "/login?" + "username=" + URLEncoder.encode(userNameAccount, "UTF-8") + "&password=" + userPasswordAccount + "&initialURI=" + INTRANET_HOME;
+        } else {
+          redirectURI = "/" + PortalContainer.getCurrentPortalContainerName();
         }
-        response.setCharacterEncoding("UTF-8");
-        response.sendRedirect(redirectURI);
-        }
-    //}
+      }
+      response.setCharacterEncoding("UTF-8");
+      response.sendRedirect(redirectURI);
+    }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
