@@ -16,11 +16,22 @@
  */
 package org.exoplatform.platform.portlet.juzu.branding;
 
-import juzu.*;
-import juzu.request.ApplicationContext;
+import java.io.IOException;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.util.HashMap;
+import java.util.Map;
+
+import javax.inject.Inject;
+
+import juzu.Path;
+import juzu.PropertyType;
+import juzu.Resource;
+import juzu.Response;
+import juzu.View;
 import juzu.request.HttpContext;
-import juzu.request.UserContext;
 import juzu.template.Template;
+
 import org.apache.commons.fileupload.FileItem;
 import org.apache.commons.lang.StringUtils;
 import org.exoplatform.commons.api.settings.SettingService;
@@ -36,13 +47,6 @@ import org.exoplatform.services.log.Log;
 import org.exoplatform.services.security.ConversationState;
 import org.json.JSONException;
 import org.json.JSONObject;
-import javax.inject.Inject;
-import java.io.IOException;
-import java.net.HttpURLConnection;
-import java.net.URL;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.ResourceBundle;
 
 
 /**
@@ -88,7 +92,9 @@ public class BrandingController {
       try {
         result.put("logoUrl", getLogoUrl(httpContext, false));
       } catch (JSONException ex) {
-
+        if (LOG.isErrorEnabled()) {
+          LOG.error("Can not put logoUrl value", ex);
+        }
       }
       return Response.ok(result.toString()).with(PropertyType.MIME_TYPE, "application/json");
     } else {
@@ -162,7 +168,9 @@ public class BrandingController {
     try {
       result.put("error", "1");
     } catch (JSONException ex) {
-
+      if (LOG.isErrorEnabled()) {
+        LOG.error("Can not put error value", ex);
+      }
     }
     return Response.ok(result.toString()).with(PropertyType.MIME_TYPE, "application/json");
   }
@@ -215,7 +223,9 @@ public class BrandingController {
       json.put("style", style);
       json.put("logoUrl", getLogoUrl(httpContext, true));
     } catch (JSONException ex) {
-
+      if (LOG.isErrorEnabled()) {
+        LOG.error("Can not put json value", ex);
+      }
     }
     return Response.ok(json.toString()).with(PropertyType.MIME_TYPE, "application/json");
   }
