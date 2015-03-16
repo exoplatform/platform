@@ -99,6 +99,32 @@
     <dependency>
       <groupId>org.gatein.sso</groupId>
       <artifactId>sso-integration</artifactId>
+       <exclusions>
+        <exclusion>
+          <artifactId>httpclient</artifactId>
+          <groupId>org.apache.httpcomponents</groupId>
+        </exclusion>
+        <exclusion>
+          <artifactId>jbossweb</artifactId>
+          <groupId>org.jboss.web</groupId>
+        </exclusion>
+        <exclusion>
+          <artifactId>jboss-negotiation-common</artifactId>
+          <groupId>org.jboss.security</groupId>
+        </exclusion>
+        <exclusion>
+          <artifactId>jboss-negotiation-spnego</artifactId>
+          <groupId>org.jboss.security</groupId>
+        </exclusion>
+        <exclusion>
+          <artifactId>jboss-servlet-api_3.0_spec</artifactId>
+          <groupId>org.jboss.spec.javax.servlet</groupId>
+        </exclusion>
+        <exclusion>
+          <artifactId>jbossxacml</artifactId>
+          <groupId>org.jboss.security</groupId>
+        </exclusion>
+      </exclusions>
     </dependency>
     <!-- To replace the old xstream:xstream version from picocontainer -->
     <dependency>

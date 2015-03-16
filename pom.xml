@@ -40,7 +40,6 @@
     <!-- **************************************** -->
     <org.exoplatform.depmgt.version>9-upgrade-gatein-3.7.x-SNAPSHOT</org.exoplatform.depmgt.version>
     <!-- JCR Project Dependencies -->
-
     <org.exoplatform.kernel.version>2.5.1-GA</org.exoplatform.kernel.version>
     <org.exoplatform.core.version>2.6.1-GA</org.exoplatform.core.version>
     <org.exoplatform.ws.version>2.4.1-GA</org.exoplatform.ws.version>
@@ -69,6 +68,17 @@
     <!-- * Your own modules -->
     <!-- * And projects below you -->
     <dependencies>
+      <dependency>
+        <groupId>javax.ccpp</groupId>
+        <artifactId>ccpp</artifactId>
+        <version>1.0</version>
+      </dependency>
+      <!-- TO BE MOVED IN DEPMGT POM -->
+      <dependency>
+        <groupId>org.apache.portals.bridges</groupId>
+        <artifactId>portals-bridges-common</artifactId>
+        <version>1.0.4</version>
+      </dependency>
       <!-- Import versions of external dependencies to use -->
       <dependency>
         <groupId>org.exoplatform</groupId>
@@ -77,13 +87,91 @@
         <type>pom</type>
         <scope>import</scope>
       </dependency>
+      <!-- Import versions from calendar project -->
+      <dependency>
+        <groupId>org.exoplatform.calendar</groupId>
+        <artifactId>calendar</artifactId>
+        <version>${org.exoplatform.calendar.version}</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+      <!-- Import versions from commons project -->
+      <dependency>
+        <groupId>org.exoplatform.commons</groupId>
+        <artifactId>commons</artifactId>
+        <version>${org.exoplatform.commons.version}</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+      <!-- Import versions from core project -->
+      <dependency>
+        <groupId>org.exoplatform.core</groupId>
+        <artifactId>core-parent</artifactId>
+        <version>${org.exoplatform.core.version}</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+      <!-- Import versions from ecms project -->
+      <dependency>
+        <groupId>org.exoplatform.ecms</groupId>
+        <artifactId>ecms</artifactId>
+        <version>${org.exoplatform.ecms.version}</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+      <!-- Import versions from forum project -->
+      <dependency>
+        <groupId>org.exoplatform.forum</groupId>
+        <artifactId>forum</artifactId>
+        <version>${org.exoplatform.forum.version}</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+      <!-- Import versions from integration project -->
+      <dependency>
+        <groupId>org.exoplatform.integration</groupId>
+        <artifactId>integ</artifactId>
+        <version>${org.exoplatform.integ.version}</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+      <!-- Import versions from jcr project -->
+      <dependency>
+        <groupId>org.exoplatform.jcr</groupId>
+        <artifactId>jcr-parent</artifactId>
+        <version>${org.exoplatform.jcr.version}</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+      <!-- This artifact isn't declared in kernel parent -->
+      <!-- We enforce it to have the good version in our packaging -->
+      <dependency>
+        <groupId>org.exoplatform.kernel</groupId>
+        <artifactId>exo.kernel.component.ext.cache.impl.infinispan.v5</artifactId>
+        <version>${org.exoplatform.kernel.version}</version>
+      </dependency>
+      <!-- This artifact isn't declared in kernel parent -->
+      <!-- We enforce it to have the good version in our packaging -->
+      <dependency>
+        <groupId>org.exoplatform.kernel</groupId>
+        <artifactId>exo.kernel.component.ext.cache.impl.jboss.v3</artifactId>
+        <version>${org.exoplatform.kernel.version}</version>
+      </dependency>
+      <!-- Import versions from kernel project -->
+      <dependency>
+        <groupId>org.exoplatform.kernel</groupId>
+        <artifactId>kernel-parent</artifactId>
+        <version>${org.exoplatform.kernel.version}</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
       <!-- Declare our own artifacts -->
       <dependency>
         <groupId>org.exoplatform.platform</groupId>
         <artifactId>platform</artifactId>
         <version>${project.version}</version>
-        <classifier>source-release</classifier>
         <type>zip</type>
+        <classifier>source-release</classifier>
       </dependency>
       <dependency>
         <groupId>org.exoplatform.platform</groupId>
@@ -178,25 +266,25 @@
       </dependency>
       <dependency>
         <groupId>org.exoplatform.platform</groupId>
-        <artifactId>platform-extension-portlets-platformNavigation</artifactId>
+        <artifactId>platform-extension-portlets-notification</artifactId>
         <version>${project.version}</version>
         <type>war</type>
       </dependency>
       <dependency>
         <groupId>org.exoplatform.platform</groupId>
-        <artifactId>platform-extension-portlets-platformNavigation</artifactId>
+        <artifactId>platform-extension-portlets-notification</artifactId>
         <version>${project.version}</version>
         <type>pom</type>
       </dependency>
       <dependency>
         <groupId>org.exoplatform.platform</groupId>
-        <artifactId>platform-extension-portlets-notification</artifactId>
+        <artifactId>platform-extension-portlets-platformNavigation</artifactId>
         <version>${project.version}</version>
         <type>war</type>
       </dependency>
       <dependency>
         <groupId>org.exoplatform.platform</groupId>
-        <artifactId>platform-extension-portlets-notification</artifactId>
+        <artifactId>platform-extension-portlets-platformNavigation</artifactId>
         <version>${project.version}</version>
         <type>pom</type>
       </dependency>
@@ -360,43 +448,11 @@
         <version>${project.version}</version>
         <type>pom</type>
       </dependency>
-      <!-- Import versions from integration project -->
+      <!-- Import versions from platform-ui project -->
       <dependency>
-        <groupId>org.exoplatform.integration</groupId>
-        <artifactId>integ</artifactId>
-        <version>${org.exoplatform.integ.version}</version>
-        <type>pom</type>
-        <scope>import</scope>
-      </dependency>
-      <!-- Import versions from forum project -->
-      <dependency>
-        <groupId>org.exoplatform.forum</groupId>
-        <artifactId>forum</artifactId>
-        <version>${org.exoplatform.forum.version}</version>
-        <type>pom</type>
-        <scope>import</scope>
-      </dependency>
-      <!-- Import versions from calendar project -->
-      <dependency>
-        <groupId>org.exoplatform.calendar</groupId>
-        <artifactId>calendar</artifactId>
-        <version>${org.exoplatform.calendar.version}</version>
-        <type>pom</type>
-        <scope>import</scope>
-      </dependency>
-      <!-- Import versions from wiki project -->
-      <dependency>
-        <groupId>org.exoplatform.wiki</groupId>
-        <artifactId>wiki</artifactId>
-        <version>${org.exoplatform.wiki.version}</version>
-        <type>pom</type>
-        <scope>import</scope>
-      </dependency>
-      <!-- Import versions from ecms project -->
-      <dependency>
-        <groupId>org.exoplatform.ecms</groupId>
-        <artifactId>ecms</artifactId>
-        <version>${org.exoplatform.ecms.version}</version>
+        <groupId>org.exoplatform.platform-ui</groupId>
+        <artifactId>platform-ui</artifactId>
+        <version>${org.exoplatform.platform-ui.version}</version>
         <type>pom</type>
         <scope>import</scope>
       </dependency>
@@ -408,28 +464,28 @@
         <type>pom</type>
         <scope>import</scope>
       </dependency>
-      <!-- Import versions from commons project -->
+      <!-- Import versions from wiki project -->
       <dependency>
-        <groupId>org.exoplatform.commons</groupId>
-        <artifactId>commons</artifactId>
-        <version>${org.exoplatform.commons.version}</version>
+        <groupId>org.exoplatform.wiki</groupId>
+        <artifactId>wiki</artifactId>
+        <version>${org.exoplatform.wiki.version}</version>
         <type>pom</type>
         <scope>import</scope>
       </dependency>
-      <!-- Import versions from platform-ui project -->
+      <!-- Import versions from ws project -->
       <dependency>
-        <groupId>org.exoplatform.platform-ui</groupId>
-        <artifactId>platform-ui</artifactId>
-        <version>${org.exoplatform.platform-ui.version}</version>
+        <groupId>org.exoplatform.ws</groupId>
+        <artifactId>ws-parent</artifactId>
+        <version>${org.exoplatform.ws.version}</version>
         <type>pom</type>
         <scope>import</scope>
       </dependency>
       <!-- DON'T REMOVE : used for packaging -->
       <!-- org.gatein.cdi.CDIInjectionListener used but not declared in GateIn ? -->
       <dependency>
-          <groupId>org.gatein.cdi</groupId>
-          <artifactId>gatein-cdi-injection</artifactId>
-          <version>${org.gatein.portal.version}</version>
+        <groupId>org.gatein.cdi</groupId>
+        <artifactId>gatein-cdi-injection</artifactId>
+        <version>${org.gatein.portal.version}</version>
       </dependency>
       <!-- To be replaced by an import of GateIn Common parent POM -->
       <dependency>
@@ -449,16 +505,6 @@
         <artifactId>pc-api</artifactId>
         <version>${org.gatein.pc.version}</version>
       </dependency>
-      <!-- To be replaced by an import of GateIn Portal parent POM -->
-      <!-- CAN'T be replaced for now by an import of GateIn Portal parent POM -->
-      <!-- due to exclusion inheritance on ehcache-core required by the gadget-server -->
-      <dependency>
-        <groupId>org.gatein.portal</groupId>
-        <artifactId>exo.portal.parent</artifactId>
-        <version>${org.gatein.portal.version}</version>
-        <classifier>source-release</classifier>
-        <type>zip</type>
-      </dependency>
       <dependency>
         <groupId>org.gatein.portal</groupId>
         <artifactId>exo.portal.component.application-registry</artifactId>
@@ -474,32 +520,12 @@
         <artifactId>exo.portal.component.identity</artifactId>
         <version>${org.gatein.portal.version}</version>
       </dependency>
-      <!-- SSO -->
-      <dependency>
-        <groupId>org.gatein.sso</groupId>
-        <artifactId>sso-integration</artifactId>
-        <version>${org.gatein.sso.version}</version>
-        <exclusions>
-          <exclusion>
-            <groupId>org.gatein.sso</groupId>
-            <artifactId>sso-agent</artifactId>
-          </exclusion>
-        </exclusions>
-      </dependency>
-
       <!-- DON'T REMOVE : needed for product packaging -->
       <!-- org.exoplatform.management.RestManagementProvider used but not declared in GateIn ? -->
       <dependency>
         <groupId>org.gatein.portal</groupId>
         <artifactId>exo.portal.component.management</artifactId>
         <version>${org.gatein.portal.version}</version>
-      </dependency>
-      <!-- DON'T REMOVE : needed for product packaging -->
-      <!-- org.gatein.security.oauth.webapi.OAuthDelegateFilter used but not declared in GateIn ? -->
-      <dependency>
-          <groupId>org.gatein.portal</groupId>
-          <artifactId>exo.portal.component.web.oauth-web</artifactId>
-          <version>${org.gatein.portal.version}</version>
       </dependency>
       <dependency>
         <groupId>org.gatein.portal</groupId>
@@ -531,6 +557,20 @@
         <version>${org.gatein.portal.version}</version>
       </dependency>
       <!-- DON'T REMOVE : needed for product packaging -->
+      <!-- org.gatein.security.oauth.webapi.OAuthDelegateFilter used but not declared in GateIn ? -->
+      <dependency>
+        <groupId>org.gatein.portal</groupId>
+        <artifactId>exo.portal.component.web.oauth-web</artifactId>
+        <version>${org.gatein.portal.version}</version>
+      </dependency>
+      <!-- DON'T REMOVE : needed for product packaging -->
+      <dependency>
+        <groupId>org.gatein.portal</groupId>
+        <artifactId>exo.portal.component.web.oauth-web</artifactId>
+        <version>${org.gatein.portal.version}</version>
+      </dependency>
+      <!-- DON'T REMOVE : needed for product packaging -->
+      <!-- org.gatein.security.oauth.webapi.OAuthDelegateFilter used but not declared in GateIn ? -->
       <dependency>
         <groupId>org.gatein.portal</groupId>
         <artifactId>exo.portal.component.web.oauth-web</artifactId>
@@ -560,13 +600,6 @@
         <artifactId>exo.portal.component.web.server</artifactId>
         <version>${org.gatein.portal.version}</version>
       </dependency>
-      <!-- DON'T REMOVE : needed for product packaging -->
-      <!-- org.gatein.security.oauth.webapi.OAuthDelegateFilter used but not declared in GateIn ? -->
-      <dependency>
-          <groupId>org.gatein.portal</groupId>
-          <artifactId>exo.portal.component.web.oauth-web</artifactId>
-          <version>${org.gatein.portal.version}</version>
-      </dependency>
       <!-- DON'T REMOVE : used for packaging -->
       <dependency>
         <groupId>org.gatein.portal</groupId>
@@ -586,6 +619,16 @@
         <artifactId>exo.portal.gadgets-server</artifactId>
         <version>${org.gatein.portal.version}</version>
         <type>war</type>
+      </dependency>
+      <!-- To be replaced by an import of GateIn Portal parent POM -->
+      <!-- CAN'T be replaced for now by an import of GateIn Portal parent POM -->
+      <!-- due to exclusion inheritance on ehcache-core required by the gadget-server -->
+      <dependency>
+        <groupId>org.gatein.portal</groupId>
+        <artifactId>exo.portal.parent</artifactId>
+        <version>${org.gatein.portal.version}</version>
+        <type>zip</type>
+        <classifier>source-release</classifier>
       </dependency>
       <!-- DON'T REMOVE : needed for product packaging -->
       <dependency>
@@ -639,6 +682,12 @@
       <!-- DON'T REMOVE : needed for product packaging -->
       <dependency>
         <groupId>org.gatein.portal</groupId>
+        <artifactId>exo.portal.webui.core</artifactId>
+        <version>${org.gatein.portal.version}</version>
+      </dependency>
+      <!-- DON'T REMOVE : needed for product packaging -->
+      <dependency>
+        <groupId>org.gatein.portal</groupId>
         <artifactId>exo.portal.webui.dashboard</artifactId>
         <version>${org.gatein.portal.version}</version>
       </dependency>
@@ -652,12 +701,6 @@
       <dependency>
         <groupId>org.gatein.portal</groupId>
         <artifactId>exo.portal.webui.framework</artifactId>
-        <version>${org.gatein.portal.version}</version>
-      </dependency>
-      <!-- DON'T REMOVE : needed for product packaging -->
-      <dependency>
-        <groupId>org.gatein.portal</groupId>
-        <artifactId>exo.portal.webui.core</artifactId>
         <version>${org.gatein.portal.version}</version>
       </dependency>
       <!-- DON'T REMOVE : needed for product packaging -->
@@ -683,17 +726,23 @@
         <artifactId>shindig-social-api</artifactId>
         <version>${org.gatein.shindig.version}</version>
       </dependency>
-      <!-- To be replaced by an import of GateIn WCI parent POM -->
-      <!-- DON'T REMOVE : used for packaging -->
+      <!-- SSO -->
       <dependency>
-        <groupId>org.gatein.wci</groupId>
-        <artifactId>wci-tomcat7</artifactId>
-        <version>${org.gatein.wci.version}</version>
+        <groupId>org.gatein.sso</groupId>
+        <artifactId>sso-integration</artifactId>
+        <version>${org.gatein.sso.version}</version>
       </dependency>
       <!-- DON'T REMOVE : used for packaging -->
       <dependency>
         <groupId>org.gatein.wci</groupId>
         <artifactId>wci-jboss7</artifactId>
+        <version>${org.gatein.wci.version}</version>
+      </dependency>
+      <!-- To be replaced by an import of GateIn WCI parent POM -->
+      <!-- DON'T REMOVE : used for packaging -->
+      <dependency>
+        <groupId>org.gatein.wci</groupId>
+        <artifactId>wci-tomcat7</artifactId>
         <version>${org.gatein.wci.version}</version>
       </dependency>
       <!-- Mobile site redirection -->
@@ -702,62 +751,10 @@
         <artifactId>redirect</artifactId>
         <version>${org.gatein.portal.version}</version>
       </dependency>
-      <!-- Import versions from jcr project -->
       <dependency>
-        <groupId>org.exoplatform.jcr</groupId>
-        <artifactId>jcr-parent</artifactId>
-        <version>${org.exoplatform.jcr.version}</version>
-        <type>pom</type>
-        <scope>import</scope>
-      </dependency>
-      <!-- Import versions from ws project -->
-      <dependency>
-        <groupId>org.exoplatform.ws</groupId>
-        <artifactId>ws-parent</artifactId>
-        <version>${org.exoplatform.ws.version}</version>
-        <type>pom</type>
-        <scope>import</scope>
-      </dependency>
-      <!-- Import versions from core project -->
-      <dependency>
-        <groupId>org.exoplatform.core</groupId>
-        <artifactId>core-parent</artifactId>
-        <version>${org.exoplatform.core.version}</version>
-        <type>pom</type>
-        <scope>import</scope>
-      </dependency>
-      <!-- Import versions from kernel project -->
-      <dependency>
-        <groupId>org.exoplatform.kernel</groupId>
-        <artifactId>kernel-parent</artifactId>
-        <version>${org.exoplatform.kernel.version}</version>
-        <type>pom</type>
-        <scope>import</scope>
-      </dependency>
-        <!-- This artifact isn't declared in kernel parent -->
-        <!-- We enforce it to have the good version in our packaging -->
-        <dependency>
-            <groupId>org.exoplatform.kernel</groupId>
-            <artifactId>exo.kernel.component.ext.cache.impl.infinispan.v5</artifactId>
-            <version>${org.exoplatform.kernel.version}</version>
-        </dependency>
-      <!-- This artifact isn't declared in kernel parent -->
-      <!-- We enforce it to have the good version in our packaging -->
-      <dependency>
-        <groupId>org.exoplatform.kernel</groupId>
-        <artifactId>exo.kernel.component.ext.cache.impl.jboss.v3</artifactId>
-        <version>${org.exoplatform.kernel.version}</version>
-      </dependency>
-      <!-- TO BE MOVED IN DEPMGT POM -->
-      <dependency>
-        <groupId>org.apache.portals.bridges</groupId>
-        <artifactId>portals-bridges-common</artifactId>
-        <version>1.0.4</version>
-      </dependency>
-      <dependency>
-        <groupId>javax.ccpp</groupId>
-        <artifactId>ccpp</artifactId>
-        <version>1.0</version>
+        <groupId>org.gatein.sso</groupId>
+        <artifactId>sso-saml-plugin</artifactId>
+        <version>${org.gatein.sso.version}</version>
       </dependency>
     </dependencies>
   </dependencyManagement>

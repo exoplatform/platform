@@ -34,20 +34,20 @@
       <properties-param>
         <name>CacheManagementProperties</name>
         <description>Filter used to notify caches</description>
-        <property name="exo.jcr.cache.config" value="jar:/conf/platform/jcr/jbosscache/local/cache-config.xml" />
-        <property name="exo.jcr.cache.config.workspace.portal-system" value="jar:/conf/platform/jcr/jbosscache/local/cache-config-portal-system.xml" />
-        <property name="exo.jcr.lock.cache.config" value="jar:/conf/platform/jcr/jbosscache/local/lock-config.xml" />
-        <property name="exo.jcr.index.cache.config" value="jar:/conf/platform/jcr/jbosscache/local/indexer-config.xml" />
-        <property name="exo.cache.config.template" value="jar:/conf/platform/cache/jbosscache/local/cache-config.xml" />
+        <property name="exo.jcr.cache.config" value="jar:/conf/platform/jcr/infinispan/local/cache-config.xml" />
+        <property name="exo.jcr.cache.config.workspace.portal-system" value="jar:/conf/platform/jcr/infinispan/local/cache-config-portal-system.xml" />
+        <property name="exo.jcr.lock.cache.config" value="jar:/conf/platform/jcr/infinispan/local/lock-config.xml" />
+        <property name="exo.jcr.index.cache.config" value="jar:/conf/platform/jcr/infinispan/local/indexer-config.xml" />
+        <property name="exo.cache.config.template" value="jar:/conf/platform/cache/infinispan/local/cache-config.xml" />
       </properties-param>
       <properties-param profiles="cluster">
         <name>CacheManagementProperties</name>
         <description>Filter used to notify caches</description>
-        <property name="exo.jcr.cache.config" value="jar:/conf/platform/jcr/jbosscache/cluster/cache-config.xml" />
-        <property name="exo.jcr.cache.config.workspace.portal-system" value="jar:/conf/platform/jcr/jbosscache/cluster/cache-config-portal-system.xml" />
-        <property name="exo.jcr.lock.cache.config" value="jar:/conf/platform/jcr/jbosscache/cluster/lock-config.xml" />
-        <property name="exo.jcr.index.cache.config" value="jar:/conf/platform/jcr/jbosscache/cluster/indexer-config.xml" />
-        <property name="exo.cache.config.template" value="jar:/conf/platform/cache/jbosscache/cluster/cache-config.xml" />
+        <property name="exo.jcr.cache.config" value="jar:/conf/platform/jcr/infinispan/cluster/cache-config.xml" />
+        <property name="exo.jcr.cache.config.workspace.portal-system" value="jar:/conf/platform/jcr/infinispan/cluster/cache-config-portal-system.xml" />
+        <property name="exo.jcr.lock.cache.config" value="jar:/conf/platform/jcr/infinispan/cluster/lock-config.xml" />
+        <property name="exo.jcr.index.cache.config" value="jar:/conf/platform/jcr/infinispan/cluster/indexer-config.xml" />
+        <property name="exo.cache.config.template" value="jar:/conf/platform/cache/infinispan/cluster/cache-config.xml" />
       </properties-param>
       <properties-param>
         <name>ChangeFilterClass</name>
