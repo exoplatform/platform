@@ -52,7 +52,7 @@
                     <field name="buttons">
                       <string>
                         openDocument; upload; addFolder; viewMetadatas; viewPermissions; editDocument; manageActions;
-                        manageRelations; viewProperties; manageAuditing; showJCRStructure
+                        manageRelations; checkIn; checkOut; viewProperties; manageAuditing; showJCRStructure
                       </string>
                     </field>
                   </object>
@@ -85,7 +85,7 @@
                     <field name="buttons">
                       <string>
                         openDocument; upload; addFolder; viewMetadatas; viewPermissions; editDocument; taggingDocument;
-                        vote; overloadThumbnail; watchDocument; manageVersions; comment
+                        vote; overloadThumbnail; watchDocument; manageVersions; checkIn; checkOut; comment
                       </string>
                     </field>
                   </object>
@@ -121,7 +121,7 @@
                     <field name="buttons">
                       <string>
                         openDocument; upload; addFolder; viewMetadatas; viewPermissions; editDocument; taggingDocument;
-                        vote; watchDocument; manageVersions; comment
+                        vote; watchDocument; manageVersions; checkIn; checkOut; comment
                       </string>
                     </field>
                   </object>
