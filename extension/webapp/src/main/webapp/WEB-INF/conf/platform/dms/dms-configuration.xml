@@ -54,7 +54,7 @@
       <value-param>
         <name>auto-version</name>
         <!--value>checkout-checkin</value-->
-        <value>${webdav.auto-version:checkout}</value>
+        <value>${webdav.auto-version:checkin-checkout}</value>
       </value-param>
 
       <!--
