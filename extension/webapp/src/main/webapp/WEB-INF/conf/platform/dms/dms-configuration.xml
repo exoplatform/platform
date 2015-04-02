@@ -81,6 +81,9 @@
           <value>Microsoft Office Excel 2013</value>
           <value>Microsoft Office Word 2013</value>
           <value>Microsoft Office PowerPoint 2013</value>
+          <value>Microsoft Office Word 2013 (15.0.4701) Windows NT 6.1</value>
+          <value>Microsoft Office Excel 2013 (15.0.4701) Windows NT 6.1</value>
+          <value>Microsoft Office PowerPoint 2013 (15.0.4701) Windows NT 6.1</value>
       </values-param>
 
     </init-params>
