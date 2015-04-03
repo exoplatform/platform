@@ -140,7 +140,7 @@ public class CalendarPortletController {
         tasksDisplayedList.clear();
         eventsDisplayedList.clear();
         String date_act = null;
-        String username = RequestContext.getCurrentInstance().getRemoteUser();
+        String username = CalendarPortletUtils.getCurrentUser();
         Locale locale =  Util.getPortalRequestContext().getLocale();
         DateFormat d = DateFormat.getDateInstance(DateFormat.SHORT, locale);
         DateFormat dTimezone = DateFormat.getDateInstance(DateFormat.SHORT, locale);

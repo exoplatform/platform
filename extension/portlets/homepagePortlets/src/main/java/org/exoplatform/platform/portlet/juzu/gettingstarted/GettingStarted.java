@@ -30,6 +30,7 @@ import org.exoplatform.services.jcr.ext.common.SessionProvider;
 import org.exoplatform.services.jcr.ext.hierarchy.NodeHierarchyCreator;
 import org.exoplatform.services.log.ExoLogger;
 import org.exoplatform.services.log.Log;
+import org.exoplatform.services.security.ConversationState;
 import org.exoplatform.social.core.service.LinkProvider;
 import org.exoplatform.web.application.RequestContext;
 
@@ -72,7 +73,7 @@ public class GettingStarted {
         SessionProvider sProvider = null;
         Node userPrivateNode = null;
         try {
-            remoteUser = RequestContext.getCurrentInstance().getRemoteUser();
+            remoteUser = ConversationState.getCurrent().getIdentity().getUserId();
             sProvider = SessionProvider.createSystemProvider();
             userPrivateNode = nodeHierarchyCreator_.getUserNode(sProvider, remoteUser).getNode(GettingStartedUtils.JCR_APPLICATION_NODE);
             if (!userPrivateNode.hasNode(GettingStartedUtils.JCR_GS_NODE)) {
