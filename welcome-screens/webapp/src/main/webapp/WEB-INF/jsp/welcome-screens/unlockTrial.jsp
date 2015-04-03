@@ -55,7 +55,7 @@
 				<div class="<%=css%>">
 					<strong> <%=label1%>  <%=rday%> <%=label2%></strong>
 				</div>
-       <div class="unlock-title">
+       <div class="product-label">
          <span>Product Code&#58;</span>
          <input type="text" class="Text" name="pc" value="<%=UnlockService.getProductCode() %>">
          <a data-toggle="popover" data-placement="top" data-content="This code identifies your eXo Platform instance. It is required to generate an unique unlock key." onmouseover="showPopover(this);" onmouseout="hidePopover(this);">
@@ -69,18 +69,17 @@
          <div id="KEYERROR" class="uiIconError"><%=request.getAttribute("errorMessage").toString() %></div>
        <% }%>
        <div class="steps clearfix">
-         <div class="rightCol firstItem pull-right"><strong>Pickup your favorite <a class="" href="<%=UnlockService.getSubscriptionUrl()%>" target="_blank">subscription plan</a> and purchase a subscription</strong>
-           <a target="_blank" class="btn btn-large btn-primary buy-button" href="<%=UnlockService.getRegistrationFormUrl()%>?pc=<%=UnlockService.getProductCode()%>">Buy</a>
+         <div class="rightCol firstItem pull-right"><strong>Pickup your favorite plan and purchase a subscription</strong>
+           <a target="_blank" class="btn buy-button" href="<%=UnlockService.getRegistrationFormUrl()%>?pc=<%=UnlockService.getProductCode()%>">Buy</a>
          </div>
          <div class="stepsNumber pull-left">1</div>
        </div>
        <form action="<%=contextPath%>/trial" method="post" name="unlockForm" onsubmit="return formValidation();">
          <div class="steps clearfix">
            <div class="rightCol pull-right">
-             <p>
-               <strong>Enter your unlock key you received in the confirmation email</strong>
-             </p>
-             <span>Unlock Key&#58;</span>
+             <strong>Enter your unlock key you received in the confirmation email</strong>
+             </br>
+             <span class="unlock-label">Unlock Key&#58;</span>
              <input class="Text" type="text" name="hashMD5" id="hashMD5">
              <button class="btn">Unlock</button>
            </div>

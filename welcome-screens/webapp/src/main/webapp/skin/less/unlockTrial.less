@@ -69,21 +69,33 @@ a {
 		padding: 10px 23px;
 		position: static;
 		width: auto;
+		vertical-align: text-top;
 		 p {
 			text-align: center;
 		}
 		.buy-button {
-			margin: 0 auto;
-			width: 115px;
 			display: block;
+			font-size: large;
+			margin: 0 auto;
+			width: 70px;
 		}
-		.unlock-title {
+		.product-label {
+			margin-bottom: 5%;
+			margin-left: 3%;
 			span {
-				font-size: 17px;
+				font-size: large;
 				font-weight: bold;
+				vertical-align: middle;
 			}
-			text-align: center;
-			margin-bottom: 30px;
+			input {
+				font-size: large;
+				letter-spacing: 1px;
+				width: 64%;
+			}
+		}
+		.unlock-label {
+			font-size: medium;
+			font-weight: bold;
 		}
 	}
 	.bottom {
@@ -99,7 +111,7 @@ a {
 		.border-radius(4px);
 		.box-shadow(~'0 1px 1px rgba(0,0,0,0.1) inset');
 		color: @grayLight;
-		height: 28px;
+		height: 34px;
 		margin: 0 5px 0 0;
 		padding: 0 6px;
 		width: 170px;
@@ -134,7 +146,7 @@ a {
 		line-height: 25px;
 		text-align: center;
 		text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
-		vertical-align: top;
+		vertical-align: middle;
 		width: 115px;
 		text-decoration: none;
 		font-family: HelveticaNeue, Arial, sans-serif;
