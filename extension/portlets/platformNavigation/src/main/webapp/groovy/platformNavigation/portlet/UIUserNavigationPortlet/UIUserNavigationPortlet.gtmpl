@@ -20,6 +20,11 @@
 %>
 <%
     def uicomponentId = uicomponent.id;
+
+    String moreLabel = _ctx.appRes("${uicomponentId}.label.More").replace("'", "\\47");
+    _ctx.getRequestContext().getJavascriptManager()
+      .require("SHARED/ui-user-nav", "uiusernav")
+      .addScripts("uiusernav.initNavigation('" + moreLabel + "');");
 %>
 
 <div class="uiUserNavigationPortlet ClearFix" id="$uicomponentId">

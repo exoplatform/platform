@@ -71,8 +71,11 @@ public class UIUserNavigationPortlet extends UIPortletApplication {
         UserNode selectedNode = uiPortal.getSelectedUserNode();
         if (selectedNode.getURI().contains(nav)) return true;
         if (NOTIFICATION_SETTINGS.equals(nav) && "notifications".equals(selectedNode.getURI())) return true;
-        else if(Util.getPortalRequestContext().getRequest().getRequestURL().toString().contains(nav))   return true;
-        else return false;
+        //case dashbord
+        String requestUrl = Util.getPortalRequestContext().getRequest().getRequestURL().toString();
+        if(DASHBOARD_URI.equals(nav) && requestUrl.contains(DashboardUtils.getDashboardURL())) return true;
+        //
+        return false;
     }
 
     public boolean isProfileOwner() {

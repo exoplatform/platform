@@ -17,6 +17,7 @@
 package org.exoplatform.platform.portlet.juzu.notificationsAdmin;
 
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
@@ -35,7 +36,8 @@ import juzu.request.ApplicationContext;
 import juzu.request.UserContext;
 import juzu.template.Template;
 
-import org.apache.commons.lang.StringUtils;
+import org.exoplatform.commons.api.notification.channel.AbstractChannel;
+import org.exoplatform.commons.api.notification.channel.ChannelManager;
 import org.exoplatform.commons.api.notification.model.GroupProvider;
 import org.exoplatform.commons.api.notification.plugin.NotificationPluginUtils;
 import org.exoplatform.commons.api.notification.plugin.config.PluginConfig;
@@ -68,10 +70,13 @@ public class NotificationsAdministration {
   ResourceBundle bundle;  
   
   @Inject
-  PluginSettingService providerSettingService;
+  PluginSettingService pluginSettingService;
   
   @Inject
   SettingService settingService;
+
+  @Inject
+  ChannelManager channelManager;
 
   private Locale locale = Locale.ENGLISH;
   
@@ -87,18 +92,30 @@ public class NotificationsAdministration {
     Map<String, Object> parameters = new HashMap<String, Object>();
     parameters.put("_ctx", new Context(rs));   
     
-    List<GroupProvider> groups = providerSettingService.getGroupPlugins();
+    List<GroupProvider> groups = pluginSettingService.getGroupPlugins();
     parameters.put("groups", groups);     
+    //
+    parameters.put("channels", getChannels());
     
     //try to get sender name and email from database. If fail, get default value from properties file
-    SettingValue<?> senderName = settingService.get(org.exoplatform.commons.api.settings.data.Context.GLOBAL, Scope.GLOBAL, NotificationPluginUtils.NOTIFICATION_SENDER_NAME);
-    SettingValue<?> senderEmail = settingService.get(org.exoplatform.commons.api.settings.data.Context.GLOBAL, Scope.GLOBAL, NotificationPluginUtils.NOTIFICATION_SENDER_EMAIL);
+    SettingValue<?> senderName = settingService.get(org.exoplatform.commons.api.settings.data.Context.GLOBAL,
+                                                    Scope.GLOBAL, NotificationPluginUtils.NOTIFICATION_SENDER_NAME);
+    SettingValue<?> senderEmail = settingService.get(org.exoplatform.commons.api.settings.data.Context.GLOBAL,
+                                                     Scope.GLOBAL, NotificationPluginUtils.NOTIFICATION_SENDER_EMAIL);
     parameters.put("senderName", senderName != null ? (String)senderName.getValue() : System.getProperty("exo.notifications.portalname", "eXo"));
     parameters.put("senderEmail", senderEmail != null ? (String)senderEmail.getValue() : System.getProperty("gatein.email.smtp.from", "noreply@exoplatform.com"));
     
     return index.ok(parameters);
   }  
- 
+
+  private List<String> getChannels() {
+    List<String> channels = new ArrayList<String>();
+    for (AbstractChannel channel : channelManager.getChannels()) {
+      channels.add(channel.getId());
+    }
+    return channels;
+  }
+
   private Response redirectToHomePage() {
     PortalRequestContext portalRequestContext = Util.getPortalRequestContext();
     HttpServletRequest currentServletRequest = portalRequestContext.getRequest();
@@ -116,22 +133,23 @@ public class NotificationsAdministration {
 
     return Response.redirect(sb.toString());
   }
-  
+
   @Ajax
   @Resource
-  public Response saveActivePlugin(String pluginId, String enable) {
-    try{
-      if (enable.equals("true") || enable.equals("false"))
-        providerSettingService.savePlugin(pluginId, Boolean.valueOf(enable));
-      else throw new Exception("Bad input exception: need to set true/false value to enable or disable the provider");
-    }catch(Exception e){
-      return new Response.Error("Exception in switching stat of provider "+pluginId+". " + e.toString());
-    }
-    Boolean isEnable = new Boolean(enable);    
+  public Response saveActivePlugin(String pluginId, String inputs) {
     JSON data = new JSON();
-    data.set("pluginId", pluginId);
-    data.set("isEnable", (isEnable)); // current status
-   
+    try {
+      Map<String, String> datas = parserParams(inputs);
+      for (String channelId : datas.keySet()) {
+        pluginSettingService.saveActivePlugin(channelId, pluginId, Boolean.valueOf(datas.get(channelId)));
+      }
+      data.set("status", "ok");
+      data.set("result", datas);
+    } catch (Exception e) {
+      LOG.error("Failed to save settings", e);
+      data.set("status", "false");
+      data.set("error", "Exception: " + e.getMessage());
+    }
     return Response.ok(data.toString()).withMimeType("application/json");
   }
   
@@ -141,18 +159,28 @@ public class NotificationsAdministration {
     JSON data = new JSON();
     data.set("name", name);
     data.set("email",email);
-    if(name != null && name.length() > 0
-         && NotificationUtils.isValidEmailAddresses(email)) {
-      settingService.set(org.exoplatform.commons.api.settings.data.Context.GLOBAL, Scope.GLOBAL, NotificationPluginUtils.NOTIFICATION_SENDER_NAME, SettingValue.create(name));
-      settingService.set(org.exoplatform.commons.api.settings.data.Context.GLOBAL, Scope.GLOBAL, NotificationPluginUtils.NOTIFICATION_SENDER_EMAIL, SettingValue.create(email));
+    if(name != null && name.length() > 0 && NotificationUtils.isValidEmailAddresses(email)) {
+      settingService.set(org.exoplatform.commons.api.settings.data.Context.GLOBAL, Scope.GLOBAL,
+                         NotificationPluginUtils.NOTIFICATION_SENDER_NAME, SettingValue.create(name));
+      settingService.set(org.exoplatform.commons.api.settings.data.Context.GLOBAL, Scope.GLOBAL,
+                         NotificationPluginUtils.NOTIFICATION_SENDER_EMAIL, SettingValue.create(email));
       data.set("status","OK");
     } else {
       data.set("status","NOK");
     }
-    
     return Response.ok(data.toString()).withMimeType("application/json");
   }
-  
+
+  private Map<String, String> parserParams(String params) {
+    Map<String, String> datas = new HashMap<String, String>();
+    String[] arrays = params.split("&");
+    for (int i = 0; i < arrays.length; i++) {
+      String[] data = arrays[i].split("=");
+      datas.put(data[0], data[1]);
+    }
+    return datas;
+  }
+
   public class Context {
     ResourceBundle rs;
 
@@ -164,28 +192,31 @@ public class NotificationsAdministration {
       try {
         return rs.getString(key).replaceAll("'", "&#39;").replaceAll("\"", "&#34;");
       } catch (java.util.MissingResourceException e) {
-        LOG.warn("Can't find resource for bundle key " + key);
+        LOG.debug("Can't find resource for bundle key " + key);
+        if(key.indexOf("NotificationAdmin.label.channel.") == 0) {
+          return appRes("NotificationAdmin.label.default.channel")
+              .replace("{0}", capitalizeFirstLetter(key.replace("NotificationAdmin.label.channel.", "")));
+        }
       } catch (Exception e) {
         LOG.debug("Error when get resource bundle key " + key, e);
       }
-      return key;
+      return capitalizeFirstLetter(key.substring(key.lastIndexOf(".") + 1));
     }
     
     private String getBundlePath(String id) {
-      PluginConfig pluginConfig = providerSettingService.getPluginConfig(id);
+      PluginConfig pluginConfig = pluginSettingService.getPluginConfig(id);
       if (pluginConfig != null) {
-        return pluginConfig.getTemplateConfig().getBundlePath();
+        return pluginConfig.getBundlePath();
       }
       //
       if (GroupProvider.defaultGroupIds.contains(id)) {
-        return providerSettingService.getPluginConfig(DigestDailyPlugin.ID)
-            .getTemplateConfig().getBundlePath();
+        return pluginSettingService.getPluginConfig(DigestDailyPlugin.ID).getBundlePath();
       }
       //
-      List<GroupProvider> groups = providerSettingService.getGroupPlugins();
+      List<GroupProvider> groups = pluginSettingService.getGroupPlugins();
       for (GroupProvider groupProvider : groups) {
         if (groupProvider.getGroupId().equals(id)) {
-          return groupProvider.getProviderDatas().get(0).getBundlePath();
+          return groupProvider.getPluginInfos().get(0).getBundlePath();
         }
       }
       return "";
@@ -194,6 +225,14 @@ public class NotificationsAdministration {
     public String pluginRes(String key, String id) {
       String path = getBundlePath(id);
       return TemplateUtils.getResourceBundle(key, locale, path);
+    }
+
+    public String getChannelKey(String channelId) {
+      return channelId.replace("_CHANNEL", "").toLowerCase();
+    }
+
+    public String capitalizeFirstLetter(String original) {
+      return original.length() <= 1 ? original : original.substring(0, 1).toUpperCase() + original.substring(1);
     }
   }
 }

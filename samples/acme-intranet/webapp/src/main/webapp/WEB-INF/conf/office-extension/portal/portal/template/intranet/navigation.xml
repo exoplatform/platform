@@ -48,6 +48,14 @@
     <visibility>SYSTEM</visibility>
     <page-reference>portal::@owner@::profile</page-reference>
    </node>
+
+   <node>
+    <uri>edit-profile</uri>
+    <name>edit-profile</name>
+    <label>#{portal.@owner@.edit-profile}</label>
+    <visibility>SYSTEM</visibility>
+    <page-reference>portal::@owner@::edit-profile</page-reference>
+   </node>
    
    <node>
     <uri>connections</uri>

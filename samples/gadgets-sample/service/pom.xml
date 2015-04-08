@@ -4,7 +4,7 @@
   <parent>
     <artifactId>platform-sample-gadgets-sample</artifactId>
     <groupId>org.exoplatform.platform</groupId>
-    <version>4.2.x-SNAPSHOT</version>
+    <version>4.2.x-plf-user-profile-redesign-SNAPSHOT</version>
   </parent>
   <artifactId>platform-sample-gadgets-sample-service</artifactId>
   <packaging>jar</packaging>

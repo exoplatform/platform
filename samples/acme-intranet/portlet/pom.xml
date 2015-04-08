@@ -13,7 +13,7 @@
   <parent>
     <artifactId>platform-sample-acme-intranet</artifactId>
     <groupId>org.exoplatform.platform</groupId>
-    <version>4.2.x-SNAPSHOT</version>
+    <version>4.2.x-plf-user-profile-redesign-SNAPSHOT</version>
   </parent>
   <artifactId>platform-sample-acme-intranet-portlet</artifactId>
   <packaging>war</packaging>

@@ -4,7 +4,7 @@
   <parent>
     <artifactId>platform-component-upgrade</artifactId>
     <groupId>org.exoplatform.platform</groupId>
-    <version>4.2.x-SNAPSHOT</version>
+    <version>4.2.x-plf-user-profile-redesign-SNAPSHOT</version>
   </parent>
   <artifactId>platform-component-upgrade-plugins</artifactId>
   <name>eXo Platform - Upgrade plugins</name>
@@ -12,6 +12,14 @@
     <dependency>
       <groupId>javax.jcr</groupId>
       <artifactId>jcr</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.exoplatform.commons</groupId>
+      <artifactId>commons-api</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.exoplatform.commons</groupId>
+      <artifactId>commons-component-common</artifactId>
     </dependency>
     <dependency>
       <groupId>org.exoplatform.commons</groupId>

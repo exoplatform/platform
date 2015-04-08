@@ -342,6 +342,43 @@
           </value-param>
         </init-params>
       </component-plugin>      
+      
+      <component-plugin>
+	      <name>UpgradeUserNotificationSettingPlugin</name>
+	      <set-method>addUpgradePlugin</set-method>
+	      <type>org.exoplatform.platform.upgrade.plugins.UpgradeUserNotificationSettingPlugin</type>
+	      <description>User Notification Setting Updater</description>
+	      <init-params>
+	        <value-param>
+	          <name>product.group.id</name>
+	          <description>The groupId of the product</description>
+	          <value>org.exoplatform.platform</value>
+	        </value-param>
+	        <value-param>
+	          <name>plugin.execution.order</name>
+	          <description>The plugin execution order</description>
+	          <value>2</value>
+	        </value-param>
+	      </init-params>
+	    </component-plugin>
+      <component-plugin>
+	      <name>UpgradeNotifcationNodeTypePlugin</name>
+	      <set-method>addUpgradePlugin</set-method>
+	      <type>org.exoplatform.platform.upgrade.plugins.UpgradeNotifcationNodeTypePlugin</type>
+	      <description>User Notification Setting Updater</description>
+	      <init-params>
+	        <value-param>
+	          <name>product.group.id</name>
+	          <description>The groupId of the product</description>
+	          <value>org.exoplatform.platform</value>
+	        </value-param>
+	        <value-param>
+	          <name>plugin.execution.order</name>
+	          <description>The plugin execution order</description>
+	          <value>2</value>
+	        </value-param>
+	      </init-params>
+	    </component-plugin>
    </external-component-plugins>
    <!--
   Not FOUND

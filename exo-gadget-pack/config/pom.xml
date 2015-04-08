@@ -4,7 +4,7 @@
   <parent>
     <artifactId>platform-exo-gadget-pack</artifactId>
     <groupId>org.exoplatform.platform</groupId>
-    <version>4.2.x-SNAPSHOT</version>
+    <version>4.2.x-plf-user-profile-redesign-SNAPSHOT</version>
   </parent>
   <artifactId>platform-exo-gadget-pack-config</artifactId>
   <packaging>jar</packaging>
