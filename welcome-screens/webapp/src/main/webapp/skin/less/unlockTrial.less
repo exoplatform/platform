@@ -15,26 +15,6 @@ a {
     color: @linkColor;
 }
 
-.pull-left {
-    float: left;
-}
-
-.pull-right {
-    float: right;
-}
-
-
-.clearfix:before,
-.clearfix:after {
-    display: table;
-    content: "";
-	 line-height: 0;
-    }
-
-.clearfix:after {
-    clear: both;
-}
-
 .backLight {
     .border-radius(80px);
     .box-shadow(0 0 200px @white);
@@ -69,8 +49,31 @@ a {
 		padding: 10px 23px;
 		position: static;
 		width: auto;
+		vertical-align: text-top;
 		 p {
 			text-align: center;
+		}
+		.btn-buy {
+			font-size: large;
+			padding: 10px 50px;
+		}
+		.product-label {
+			margin-bottom: 5%;
+			margin-left: 3%;
+			span {
+				font-size: large;
+				font-weight: bold;
+				vertical-align: middle;
+			}
+			input {
+				font-size: large;
+				letter-spacing: 1px;
+				width: 64%;
+			}
+		}
+		.unlock-label {
+			font-size: medium;
+			font-weight: bold;
 		}
 	}
 	.bottom {
@@ -81,60 +84,6 @@ a {
 			text-decoration: none;
 		}
 	}
-	 input {
-		border: 1px solid #cdcdcd;
-		.border-radius(4px);
-		.box-shadow(~'0 1px 1px rgba(0,0,0,0.1) inset');
-		color: @grayLight;
-		height: 28px;
-		margin: 0 5px 0 0;
-		padding: 0 6px;
-		width: 170px;
-		font-size: @baseFontSize;
-		&::-webkit-input-placeholder {
-		   color: @textColor;
-		}
-		&:-moz-placeholder {
-		   color: @textColor;
-		}
-		&::-moz-placeholder {
-		    color: @textColor;
-		}
-		&:-ms-input-placeholder {
-		    color: @textColor;
-		}
-		&:focus {
-		  border-color: #94b0df;
-		  .box-shadow(~'inset 0 1px 1px rgba(0,0,0,.075), 0 0 5px rgba(29,75,159,.6)');
-		   color: @textColor;
-		}
-		&.disable {
-			background-color: #e6e6e6;
-		}
-	}
-	 .btn {
-		.border-radius(4px);
-		color: @white;
-		cursor: pointer;
-		display: inline-block;
-		font-weight: bold;
-		line-height: 25px;
-		text-align: center;
-		text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
-		vertical-align: top;
-		width: 115px;
-		text-decoration: none;
-		font-family: HelveticaNeue, Arial, sans-serif;
-		font-size: @baseFontSize;
-		border: 1px solid #224886;
-		.buttonBackground(@btnPrimaryBackground, @btnPrimaryBackgroundHighlight);
-			.box-shadow(~'0 1px 0 rgba(255, 255, 255, 0.2) inset, 0 1px 2px rgba(0, 0, 0, 0.05)');
-			&:hover {
-				.buttonBackground(@primaryLightColor, @btnPrimaryBackgroundHighlight);
-			}
-		}
-
-
 	.backOutdated {
 		background: #e97f7f;
 		color: @white;
@@ -158,8 +107,8 @@ a {
 .uiWelcomeBox  {
 	.rightCol {
 		width: 420px;
-		 a {
-			text-decoration: none;
+		.center {
+			padding-right: 43px;		
 		}
 	}
 	.steps {
@@ -167,13 +116,6 @@ a {
 	}
 	.firstItem {
 		line-height: 35px;
-	}
-	 .rightCol.pull-right > div {
-		margin-top: 5px;
-		span {
-			width: 85px;
-			display: inline-block;
-		}
 	}
 	.stepsNumber {
 		background: #B5B5B5;
@@ -188,12 +130,16 @@ a {
 		width: 38px;
 		float: left;
 	}
-	 .uiIconError {
-		background: url("/platform-extension/skin/images/errorIcon.png") no-repeat left center;
-		display: inline-block;
-		padding-left: 20px;
-		margin-bottom: 30px;
-		margin-left: 12px;
+	input.Text {
+		width: 203px;
+		margin: 0 5px 0 0;
+	}
+	.alert.alert-error {
+		margin: 0 43px 15px 0;
+		.uiIconError {
+			background: url("/platform-extension/skin/images/errorIcon.png") no-repeat left center;
+			white-space: nowrap;
+		}
 	}
 
 }
