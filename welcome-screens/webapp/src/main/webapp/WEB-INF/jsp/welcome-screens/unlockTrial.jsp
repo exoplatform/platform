@@ -65,9 +65,7 @@
        <p>
          <strong>You must own a valid subscription in order to unlock this eXo Platform instance</strong>
        </p>
-       <% if(request.getAttribute("errorMessage") != null && !request.getAttribute("errorMessage").toString().isEmpty()) {%>
-         <div id="KEYERROR" class="uiIconError"><%=request.getAttribute("errorMessage").toString() %></div>
-       <% }%>
+       
        <div class="steps clearfix">
          <div class="rightCol firstItem pull-right"><strong>Pickup your favorite plan and purchase a subscription</strong>
            <div class="center"><a target="_blank" class="btn btn-large btn-buy btn-primary" href="<%=UnlockService.getRegistrationFormUrl()%>?pc=<%=UnlockService.getProductCode()%>">Buy</a></div>
@@ -79,6 +77,9 @@
            <div class="rightCol pull-right">
              <strong>Enter your unlock key you received in the confirmation email</strong>
              <br /><br />
+             <% if(request.getAttribute("errorMessage") != null && !request.getAttribute("errorMessage").toString().isEmpty()) {%>
+	         <div id="KEYERROR" class="alert alert-error"><i class="uiIconError"></i><%=request.getAttribute("errorMessage").toString() %></div>
+	       <% }%>
              <span class="unlock-label">Unlock Key&#58;</span>
              <input class="Text" type="text" name="hashMD5" id="hashMD5">
              <button class="btn btn-primary">Unlock</button>
