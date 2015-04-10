@@ -19,8 +19,8 @@
 	<head>
 		<title>Welcome to eXo Platform</title>
 		<link rel="shortcut icon" type="image/x-icon"  href="<%=contextPath%>/favicon.ico" />
-		<link rel="stylesheet" type="text/css" href="/eXoResources/skin/css/Core.css"/>
 		<link rel="stylesheet" type="text/css" href="/eXoResources/skin/bootstrap/css/bootstrap.css"/>
+		<link rel="stylesheet" type="text/css" href="/eXoResources/skin/css/Core.css"/>
 		<link rel="stylesheet" type="text/css" href="<%=contextPath%>/skin/css/unlockTrial.css"/>
 		<script type="text/javascript" src="/platform-extension/javascript/jquery-1.7.1.js"></script>
 		<script type="text/javascript" src="/eXoResources/skin/bootstrap/js/bootstrap-tooltip.js"></script>
@@ -59,18 +59,16 @@
          <span>Product Code&#58;</span>
          <input type="text" class="Text" name="pc" value="<%=UnlockService.getProductCode() %>">
          <a data-toggle="popover" data-placement="top" data-content="This code identifies your eXo Platform instance. It is required to generate an unique unlock key." onmouseover="showPopover(this);" onmouseout="hidePopover(this);">
-           <i class="uiIconQuestion uiIconDarkGray"></i> 
+           <i class="uiIconQuestion uiIconLightGray"></i> 
          </a>
        </div>
        <p>
          <strong>You must own a valid subscription in order to unlock this eXo Platform instance</strong>
        </p>
-       <% if(request.getAttribute("errorMessage") != null && !request.getAttribute("errorMessage").toString().isEmpty()) {%>
-         <div id="KEYERROR" class="uiIconError"><%=request.getAttribute("errorMessage").toString() %></div>
-       <% }%>
+       
        <div class="steps clearfix">
          <div class="rightCol firstItem pull-right"><strong>Pickup your favorite plan and purchase a subscription</strong>
-           <a target="_blank" class="btn buy-button" href="<%=UnlockService.getRegistrationFormUrl()%>?pc=<%=UnlockService.getProductCode()%>">Buy</a>
+           <div class="center"><a target="_blank" class="btn btn-large btn-buy btn-primary" href="<%=UnlockService.getRegistrationFormUrl()%>?pc=<%=UnlockService.getProductCode()%>">Buy</a></div>
          </div>
          <div class="stepsNumber pull-left">1</div>
        </div>
@@ -78,10 +76,13 @@
          <div class="steps clearfix">
            <div class="rightCol pull-right">
              <strong>Enter your unlock key you received in the confirmation email</strong>
-             </br>
+             <br /><br />
+             <% if(request.getAttribute("errorMessage") != null && !request.getAttribute("errorMessage").toString().isEmpty()) {%>
+	         <div id="KEYERROR" class="alert alert-error"><i class="uiIconError"></i><%=request.getAttribute("errorMessage").toString() %></div>
+	       <% }%>
              <span class="unlock-label">Unlock Key&#58;</span>
              <input class="Text" type="text" name="hashMD5" id="hashMD5">
-             <button class="btn">Unlock</button>
+             <button class="btn btn-primary">Unlock</button>
            </div>
            <div class="stepsNumber pull-left">2</div>
          </div>
