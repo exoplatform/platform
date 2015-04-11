@@ -58,7 +58,7 @@
        <div class="product-label">
          <span>Product Code&#58;</span>
          <input type="text" class="Text" name="pc" value="<%=UnlockService.getProductCode() %>">
-         <a data-toggle="popover" data-placement="top" data-content="This code identifies your eXo Platform instance. It is required to generate an unique unlock key." onmouseover="showPopover(this);" onmouseout="hidePopover(this);">
+         <a data-toggle="popover" data-placement="top" data-content="This code identifies your eXo Platform instance. It is required to generate a unique unlock key." onmouseover="showPopover(this);" onmouseout="hidePopover(this);">
            <i class="uiIconQuestion uiIconLightGray"></i> 
          </a>
        </div>
@@ -91,7 +91,7 @@
 
 			<div class="bottom">
 				Question about your eXo Platform evaluation?<br />
-Contact us at <a href="mailto:info@exoplatform.com">info@exoplatform.com</a> or our website <a href="http://www.exoplatform.com" target="_blank">www.exoplatform.com</a>
+Contact us at <a href="mailto:info@exoplatform.com">info@exoplatform.com</a> or on our website <a href="http://www.exoplatform.com" target="_blank">www.exoplatform.com</a>
 			</div>
 		</div>
 	</body>
