@@ -75,7 +75,7 @@
        <form action="<%=contextPath%>/trial" method="post" name="unlockForm" onsubmit="return formValidation();">
          <div class="steps clearfix">
            <div class="rightCol pull-right">
-             <strong>Enter your unlock key you received in the confirmation email</strong>
+             <strong>Enter the unlock key you received in the confirmation email</strong>
              <br /><br />
              <% if(request.getAttribute("errorMessage") != null && !request.getAttribute("errorMessage").toString().isEmpty()) {%>
 	         <div id="KEYERROR" class="alert alert-error"><i class="uiIconError"></i><%=request.getAttribute("errorMessage").toString() %></div>
