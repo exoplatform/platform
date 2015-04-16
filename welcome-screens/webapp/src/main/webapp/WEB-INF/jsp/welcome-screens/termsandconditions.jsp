@@ -114,7 +114,8 @@
 				<p class="c15"><span class="c0 c4">1.9 &ldquo;Software&rdquo;</span><span class="c0">&nbsp;means the tested and certified software 
 						  in object code format provided by eXo to Customer, as specified on the Order Form, pursuant to this Agreement as of the Effective Date or a future date, including
 						  any Documentation incorporated therein, and Updates to such software that eXo may provide to Customer from time to time as part of eXo Products Maintenance Program,  
-						  as defined at <a href="http://www.exoplatform.com/maintenance-program"/>. For the avoidance of doubt and unless otherwise specified, 
+						  as defined at <span class="c0 c25"><a class="c8" target="_blank" href="http://www.exoplatform.com/maintenance-program">http://www.exoplatform.com/maintenance-program<a/></span>. 
+						  For the avoidance of doubt and unless otherwise specified, 
 						  Third-Party Software and/or eXo Add-Ons, that may be available through the Software, (a) do not form a part of the Software, (b) are solely governed by their own licenses  
 						  and/or terms and conditions, (c) are not covered by this Agreement, and (d) may be downloaded and installed by the Customer under its sole responsibility and liability. As a limited 
 						  exception to the aforesaid, eXo Add-Ons listed in <span class="c0 c4">Appendix 3 (&ldquo;eXo Official Add-Ons&rdquo;)</span> are governed and supported under the conditions of this 
