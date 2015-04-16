@@ -313,12 +313,12 @@
 						  if Customer is a software or hardware vendor, or Customer is performing testing or
 						  benchmarking on the Software.</span></p>
 
-				<p class="c15"><span class="c0 c4">3.4 Third-Party Software.&nbsp;</span> <span class="c0">The Third-Party Software is licensed to Customer under the terms of the applicable
-						  open source license conditions and/or copyright notices that can be found in the
-						  open_source_licenses file, the documentation or other materials accompanying the
-						  Software.&nbsp; Copyrights to the Open Source Software are held by copyright holders
-						  indicated in the copyright notices in the corresponding source files or in the
-						  open_source_licenses file or other materials accompanying the Software.</span></p>
+				<p class="c15"><span class="c0 c4">3.4 Third-Party Software.&nbsp;</span> <span class="c0">The Third-Party Software 
+						  is licensed under the terms of the applicable 
+						  license conditions, whether open source or not, and/or copyright notices that can be found in the licenses file, 
+						  the documentation or other materials accompanying the Third-Party Software. Copyrights to the Third-Party 
+						  Software are held by copyright holders indicated in the copyright notices in the corresponding source files or 
+						  in the licenses file or other materials accompanying the Third-Party Software.</span></p>
 
 				<p class="c15"><span class="c0 c4">4. License Fees and Payment</span></p>
 
@@ -327,33 +327,34 @@
 						  Form. Customer may purchase additional Licenses via Subscription by placing any order
 						  in accordance with Section 2.2.&nbsp; Any added Licenses will be subject to the
 						  following:&nbsp; (i) added Licenses will be coterminous with the pre-existing Term
-						  (either the initial Term or the renewal Term); (ii) the Subscription fee for the added
+						  (either the initial Term or the renewal Term); (ii) the Subscription fees for the added
 						  Licenses will be the then-current, generally applicable Subscription fee for such; and
 						  (iii) any Licenses added in the middle of a billing period will be prorated for that
 						  billing period.&nbsp; eXo reserves the right to modify its Subscription fees at any
 						  time, upon at least thirty (30) days prior notice to Customer, which notice may be
 						  provided by e-mail.</span></p>
 
-				<p class="c15"><span class="c0 c4">4.2 Billing and Renewal.</span><span class=
-																								"c0">&nbsp; eXo charges and collects in advance for the Subscription.&nbsp; eXo will
+				<p class="c15"><span class="c0 c4">4.2 Billing and Renewal.</span><span class="c0">&nbsp; eXo charges 
+						  and collects in advance the Subscription fees. eXo will
 						  automatically renew and issue an invoice each billing period on the subsequent
 						  anniversary of the Subscription unless either party gives written notice of its intent
-						  not to renew at least thirty (30) days prior to the end of the current contract
-						  term.&nbsp; Upon any renewal, eXo&rsquo;s then-current terms and conditions for the
-						  Subscription Services and this Agreement will apply. The renewal charge will be equal
-						  to the then-current number of CPUs times eXo&rsquo;s then-current list price
-						  Subscription fee at the time of renewal.&nbsp; Fees for any other services will be
-						  charged on an as-quoted basis.&nbsp;&nbsp; All eXo supplied Software and Subscription
+						  not to renew at least ninety (90) days prior to the end of the current contract
+						  term. Upon any renewal, eXo&rsquo;s then-current terms and conditions for the
+						  Support Services and this Agreement will apply. The renewal charge will be equal
+						  to the then-current number of CORE Processors and/or Registered Users limitation times 
+						  eXo&rsquo;s then-current list price 
+						  Subscription fee at the time of renewal. Fees for any other services will be
+						  charged on an as-quoted basis. All eXo supplied Software and Support
 						  Services will only be delivered to Customer electronically through the Internet. Unless
 						  otherwise specified on an Order Form, all invoices will be paid within thirty (30) days
-						  from the date of the invoice. Fees are non-refundable upon payment, unless otherwise
-						  set forth herein. Payments will be made without right of set-off or chargeback. All
-						  payments must be made in U.S. Dollars or Euros, as set forth in the applicable Order
-						  Form.&nbsp; Customer is responsible for all applicable Customer bank fees. &nbsp;Late
+						  from the date of the invoice. Fees for Support Services are non-refundable upon payment. 
+						  Payments will be made without right of set-off or chargeback. All
+						  payments must be made in the currency stated in the Order
+						  Form. Late
 						  payments will accrue interest at the rate of one and one half percent (1&frac12;%) per
 						  month, or, if lower, the maximum rate permitted under applicable law. If payment of any
 						  fee is overdue, eXo may also suspend provision of the Subscription Services until such
-						  delinquency is corrected</span></p>
+						  delinquency is corrected.</span></p>
 
 				<p class="c15"><span class="c0 c4">4.3 Taxes.</span><span class="c0">&nbsp; The amounts
 						  payable to eXo under this Agreement do not include any taxes, levies, or similar
@@ -361,7 +362,7 @@
 						  (</span><span class="c0 c4">&ldquo;Taxes&rdquo;</span><span class="c0">).&nbsp;
 						  Customer will pay (or reimburse eXo for the payment of) all Taxes except taxes on
 						  eXo&rsquo;s net income, unless Customer provides eXo a valid state sales/use/excise tax
-						  exemption certificate or Direct Pay Permit. If Customer is required to pay any
+						  exemption certificate or direct pay permit. If Customer is required to pay any
 						  withholding tax, charge or levy in respect of any payments due to eXo hereunder,
 						  Customer agrees to gross up payments actually made such that eXo shall receive sums due
 						  hereunder in full and free of any deduction for any such withholding tax, charge or
@@ -369,12 +370,12 @@
 
 				<p class="c15"><span class="c0 c4">4.4 Audit Rights.</span><span class="c0">&nbsp;
 						  Customer will maintain accurate records as to its use of the Software as authorized by
-						  this Agreement, for at least two (2) years from the last day on which Subscription
+						  this Agreement, for at least two (2) years from the last day on which Support 
 						  Services expired for the applicable Software.&nbsp; eXo, or persons designated by eXo,
 						  will, at any time during the period when Customer is obliged to maintain such records,
 						  be entitled to audit such records and to ascertain completeness and accuracy, in order
 						  to verify that the Software are used by Customer in accordance with the terms of this
-						  Agreement and that Customer has paid the applicable license fees and Subscription
+						  Agreement and that Customer has paid the applicable Subscription fees and Support 
 						  Services fees for the Software, provided that: (a) eXo may conduct no more than one (1)
 						  audit in any twelve (12) month period; (b) any such audit shall be subject to a
 						  mutually agreed upon non-disclosure agreement negotiated in good faith and entered into
@@ -388,16 +389,16 @@
 						  such audit.&nbsp; Any such audit will be performed at eXo&rsquo;s expense, provided,
 						  however, that Customer shall promptly reimburse eXo for the cost of such audit and any
 						  applicable fees if such audit reveals an underpayment by Customer of more than five
-						  percent (5%) of the license amounts payable by Customer to eXo for the period
+						  percent (5%) of the Subscription fees payable by Customer to eXo for the period
 						  audited.</span></p>
 
 				<p class="c15"><span class="c0 c4">5. Term and Termination</span></p>
 
 				<p class="c15"><span class="c0 c4">5.1 Term.</span><span class="c0">&nbsp; Unless
 						  otherwise stated in the applicable Order Form, the Term of this Agreement will begin on
-						  the Effective Date and will continue until terminated as set forth in this Agreement,
-						  or until such time as either party shall notify the other of its intent to terminate
-						  the agreement by providing ninety (90) advanced written notice.</span></p>
+						  the Effective Date and will continue for a firm period of three (3) years. Thereafter, this Agreement 
+						  will be automatically renewed for additional terms of one (1) year each under standard list price and 
+						  terms in effect at this date, unless notice to the contrary is given in writing ninety (90) days prior to such termination. </span></p>
 
 				<p class="c15"><span class="c0 c4">5.2 Termination for Cause.</span><span class=
 																								  "c0">&nbsp; Either party may terminate this Agreement for cause if the other party
@@ -408,13 +409,14 @@
 						  the foregoing time period, this Agreement will automatically terminate upon the
 						  conclusion of such period.&nbsp; Notwithstanding the foregoing, eXo, in its sole
 						  discretion, may terminate this Agreement if Customer violates its obligations under
-						  Sections 3 or 7.</span></p>
+						  Sections 3 and/or 7.</span></p>
 
-				<p class="c15"><span class="c0 c4">5.3 Effects of Termination.</span><span class=
-																								   "c0">&nbsp; Upon termination of this Agreement for any reason:&nbsp; (a) any amounts
-						  owed to eXo under this Agreement before such termination will be immediately due and
-						  payable; (b) all License rights granted in this Agreement and any Order Form will
-						  immediately terminate; (c) Customer must promptly stop all use of the Software; (d)
+				<p class="c15"><span class="c0 c4">5.3 Effects of Termination.</span><span class="c0">&nbsp; Upon termination 
+						  of this Agreement for any reason or expiration:&nbsp; (a) any amounts
+						  owed to eXo under this Agreement before such termination or expiration will be immediately due and
+						  payable; (b) all License rights granted in this Agreement before such termination or expiration and in 
+						  any Order Form will
+						  immediately terminate; (c) Customer must immediately stop all use of the Software; (d)
 						  Customer must erase all copies of the Software from Customer&rsquo;s computers, and
 						  destroy all copies of the Software and Documentation on tangible media in
 						  Customer&rsquo;s possession or control or return such copies to eXo; (e) each party
@@ -427,26 +429,26 @@
 				<p class="c15"><span class="c0 c4">6. Proprietary Rights.</span></p>
 
 				<p class="c15"><span class="c0 c4">6.1</span><span class="c0">&nbsp;As between the
-						  parties, Customer acknowledges and agrees the Software, including its sequence,
-						  structure, organization, and source code constitute certain valuable intellectual
+						  parties, Customer acknowledges and agrees that the Software, including its sequence,
+						  structure, organization, and source code, constitute certain valuable intellectual
 						  property rights including copyrights, trademarks, service marks, trade secrets,
 						  patents, patent applications, contractual rights of non-disclosure or any other
-						  intellectual property or proprietary right, however arising of eXo and its
+						  intellectual property or proprietary right, arising of eXo and/or its
 						  suppliers.&nbsp; The Software is licensed and not sold to Customer, and no title or
 						  ownership to the Software or the intellectual property rights embodied therein passes
 						  as a result of this Agreement or any act pursuant to this Agreement.&nbsp; The Software
-						  and Documentation are the exclusive property of eXo and its suppliers, and all rights,
+						  and Documentation are the exclusive property of eXo and/or its suppliers, and all rights,
 						  title and interest in and to such not expressly granted to Customer in this Agreement
-						  are reserved. &nbsp;eXo owns all copies of the Software, however made.&nbsp; Nothing in
-						  this Agreement will be deemed to grant, by implication, estoppel or otherwise, a
+						  are reserved. &nbsp;eXo owns all copies of the Software, in any form.&nbsp; Nothing in
+						  this Agreement will be deemed to grant, under any legal theory, a
 						  license under any of eXo&rsquo;s existing or future patents (or the existing or future
 						  patents of its suppliers).</span></p>
 
 				<p class="c15"><span class="c0 c4">6.2</span> <span class="c0">Customer acknowledges
-						  that in the course of performing any Subscription Services, eXo may create software or
+						  that in the course of performing any Support Services, eXo may create software or
 						  other works of authorship (collectively &ldquo;Work Product&rdquo;). Subject to
 						  Customer&rsquo;s rights in the Customer Confidential Information, eXo shall own all
-						  right title and interest in such Work Product, including all intellectual property
+						  right, title and interest in such Work Products, including all intellectual property
 						  rights therein and thereto.&nbsp; If any Work Product is delivered to Customer pursuant
 						  to or in connection with the performance of Subscription Services (a
 					&ldquo;Deliverable&rdquo;), eXo hereby grants to Customer a license to such Deliverable
@@ -454,8 +456,8 @@
 						  Section 3 above.</span></p>
 
 				<p class="c15"><span class="c0 c4">6.3</span> <span class="c0">Customer is not
-						  obtaining any intellectual property right in or to any materials provided by eXo to
-						  Customer in connection with the provision to Customer of Subscription Services
+						  obtaining any intellectual property right in or to any materials, works of authorship, software provided by eXo to
+						  Customer in connection with the provision to Customer of Support Services
 						  (&ldquo;Materials&rdquo;), other than the rights of use specifically granted in this
 						  Agreement.&nbsp; Customer will be entitled to keep and use all Materials provided by
 						  eXo to Customer, but without any other license to exercise any of the intellectual
