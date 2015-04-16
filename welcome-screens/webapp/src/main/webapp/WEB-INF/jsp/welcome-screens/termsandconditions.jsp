@@ -165,7 +165,7 @@
 
 				<p class="c15"><span class="c0 c4">2.1 Scope of Agreement.</span><span class=
 																							   "c0">&nbsp; This Agreement governs all transactions between the parties with respect to
-						  the Software and Subscription Services provided hereunder.</span></p>
+						  the Software and Services provided hereunder.</span></p>
 
 				<p class="c15"><span class="c0 c4">2.2 Orders.</span><span class="c0">&nbsp; Customer
 						  may from time to time place orders with eXo to purchase a Subscription at eXo&rsquo;s
@@ -353,7 +353,7 @@
 						  Form. Late
 						  payments will accrue interest at the rate of one and one half percent (1&frac12;%) per
 						  month, or, if lower, the maximum rate permitted under applicable law. If payment of any
-						  fee is overdue, eXo may also suspend provision of the Subscription Services until such
+						  fee is overdue, eXo may also suspend provision of the Support Services until such
 						  delinquency is corrected.</span></p>
 
 				<p class="c15"><span class="c0 c4">4.3 Taxes.</span><span class="c0">&nbsp; The amounts
@@ -450,7 +450,7 @@
 						  Customer&rsquo;s rights in the Customer Confidential Information, eXo shall own all
 						  right, title and interest in such Work Products, including all intellectual property
 						  rights therein and thereto.&nbsp; If any Work Product is delivered to Customer pursuant
-						  to or in connection with the performance of Subscription Services (a
+						  to or in connection with the performance of Support Services (a
 					&ldquo;Deliverable&rdquo;), eXo hereby grants to Customer a license to such Deliverable
 						  under the same terms and conditions Customer&rsquo;s license to Software set forth in
 						  Section 3 above.</span></p>
@@ -526,24 +526,24 @@
 						  due to negligence or misuse or abuse of the Software.&nbsp; Any replacement or error
 						  correction will not extend the original Warranty Period.</span></p>
 
-				<p class="c15"><span class="c0 c4">8.2 Subscription Services.&nbsp;</span> <span class=
-																										 "c0">The Subscription Services shall be deemed to be accepted by Customer upon
-						  delivery. eXo warrants that the Subscription Services to be performed hereunder will be
+				<p class="c15"><span class="c0 c4">8.2 Support Services.&nbsp;</span> <span class=
+																										 "c0">The Support Services shall be deemed to be accepted by Customer upon
+						  delivery. eXo warrants that the Support Services to be performed hereunder will be
 						  done in a workmanlike manner and shall conform to standards of the industry.
 						  eXo&rsquo;s sole liability (and Customer&rsquo;s sole and exclusive remedy) for any
 						  breach of this warranty shall be for eXo to re-perform the applicable Subscription
 						  Services; provided that eXo is notified in writing of such non-conformity within three
-						  (3) days following the performance of the relevant Subscription Services.</span></p>
+						  (3) days following the performance of the relevant Support Services.</span></p>
 
 				<p class="c15"><span class="c0 c4">8.3 Disclaimer.</span><span class="c0">&nbsp; THE
-						  SOFTWARE AND ANY SUBSCRIPTION SERVICES PROVIDED HEREUNDER ARE PROVIDED &ldquo;AS
+						  SOFTWARE AND ANY SUPPORT SERVICES PROVIDED HEREUNDER ARE PROVIDED &ldquo;AS
 						  IS.&rdquo;&nbsp; EXCEPT FOR THE EXPRESS WARRANTIES PROVIDED IN SECTIONS 8.1 AND 8.2,
-						  EXO MAKES NO OTHER WARRANTIES WITH RESPECT TO THE SOFTWARE, SUBSCRIPTION SERVICES OR
+						  EXO MAKES NO OTHER WARRANTIES WITH RESPECT TO THE SOFTWARE, SUPPORT SERVICES OR
 						  ANY OTHER MATERIAL, INFORMATION OR SERVICES PROVIDED HEREUNDER.&nbsp; EXO HEREBY
 						  DISCLAIMS ALL OTHER WARRANTIES, WHETHER EXPRESS, IMPLIED OR STATUTORY, INCLUDING THE
 						  IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, ACCURACY,
 						  RESULT, EFFORT, TITLE AND NON-INFRINGEMENT.&nbsp; EXO DOES NOT WARRANT THAT ANY
-						  SOFTWARE OR ANY SUBSCRIPTION SERVICES WILL BE PROVIDED ERROR FREE, WILL OPERATE WITHOUT
+						  SOFTWARE OR ANY SUPPORT SERVICES WILL BE PROVIDED ERROR FREE, WILL OPERATE WITHOUT
 						  INTERRUPTION OR WILL FULFILL ANY OF CUSTOMER&rsquo;S PARTICULAR PURPOSES OR
 						  NEEDS.&nbsp; CUSTOMER ACKNOWLEDGES THAT IT HAS RELIED ON NO WARRANTIES OTHER THAN THE
 						  EXPRESS WARRANTIES SET FORTH IN SECTIONS 8.1 AND 8.2 AND THAT NO WARRANTIES ARE MADE BY
@@ -560,12 +560,12 @@
 						  profits, lost data or business interruption, even if such party has been advised of,
 						  knows of, or should know of the possibility of such damages, AND (II) ANY CLAIM
 						  ATTRIBUTABLE TO ERRORS, OMISSIONS OR OTHER INACCURACIES IN OR DESTRUCTIVE PROPERTIES OF
-						  THE SOFTWARE OR ANY SUBSCRIPTION SERVICES. &nbsp;REGARDLESS OF THE CAUSE OF ACTION,
+						  THE SOFTWARE OR ANY SUPPORT SERVICES. &nbsp;REGARDLESS OF THE CAUSE OF ACTION,
 						  WHETHER IN CONTRACT, TORT OR OTHERWISE. NEITHER PARTY&rsquo;S TOTAL CUMULATIVE
 						  LIABILITY FOR ACTUAL DAMAGES ARISING OUT OF OR RELATED TO THIS AGREEMENT WILL EXCEED
 						  THE TOTAL AMOUNT OF SUBSCRIPTION FEES THAT CUSTOMER HAS PAID FOR THE SOFTWARE OR
-						  SUBSCRIPTION SERVICES GIVING RISE TO SUCH LIABILITY.&nbsp; NEITHER PARTY SHALL BRING
-						  ANY CLAIM BASED ON THE SOFTWARE NOR THE SUBSCRIPTION SERVICES PROVIDED HEREUNDER MORE
+						  Support Services GIVING RISE TO SUCH LIABILITY.&nbsp; NEITHER PARTY SHALL BRING
+						  ANY CLAIM BASED ON THE SOFTWARE NOR THE SUPPORT SERVICES PROVIDED HEREUNDER MORE
 						  THAN EIGHTEEN (18) MONTHS AFTER THE CAUSE OF ACTION ACCRUES. NOTWITHSTANDING ANYTHING
 						  TO THE CONTRARY HEREIN, THE LIMITATIONS OF THIS SECTION 9 WILL NOT APPLY TO OR
 						  OTHERWISE LIMIT EITHER PARTY&rsquo;S BREACH OF ITS OBLIGATIONS OF NONDISCLOSURE UNDER
@@ -618,7 +618,7 @@
 				<p class="c15"><span class="c0 c4">11.1 Non-Solicitation.</span> <span class=
 																							   "c0">Customer may not hire, or directly or indirectly solicit or employ, any employee
 						  or contractor of eXo who is or was involved in the development, use or provision of
-						  Subscription Services to Customer, without the prior written consent of eXo, for a
+						  Support Services to Customer, without the prior written consent of eXo, for a
 						  period of: (i) two (2) years after the termination of this Agreement, or (ii) during
 						  the time the employee is employed by eXo and for a period of one (1) year thereafter,
 						  whichever is later.</span></p>
@@ -737,37 +737,37 @@
 
 				<p class="c23 c6"></p>
 
-				<p class="c7"><span class="c0 c4">Appendix 1: Subscription Services</span></p>
+				<p class="c7"><span class="c0 c4">Appendix 1: Support Services</span></p>
 
 				<p class="c9 c6 c14"></p>
 
-				<p class="c1"><span class="c0 c4">1. &nbsp;eXo Subscription Services</span></p>
+				<p class="c1"><span class="c0 c4">1. &nbsp;eXo Support Services</span></p>
 
-				<p class="c1"><span class="c0">The Subscription Services are intended only for use by
+				<p class="c1"><span class="c0">The Support Services are intended only for use by
 						  Customer (including through its contractors and agents) and for the benefit of the
 						  Customer and only for the Installed Systems (as defined below) for which Customer has
-						  purchased a Subscription. &nbsp;Any unauthorized use of the Subscription Services will
+						  purchased a Subscription. &nbsp;Any unauthorized use of the Support Services will
 						  be deemed to be a material breach of this Agreement. Each Installed Systems running eXo
 						  Software will require an active Subscription.</span></p>
 
 				<p class="c1"><span class="c0">During the time that Customer has paid the applicable
 						  annual Subscription fees, Customer will receive access to (a) the applicable eXo
 						  Software via the eXo portal, (b) the applicable Software Updates, when and if
-						  available, via the eXo portal, and (c) the applicable level of Subscription Services
-						  described in Section 2 herein. &nbsp;eXo only provides production Subscription Services
+						  available, via the eXo portal, and (c) the applicable level of Support Services
+						  described in Section 2 herein. &nbsp;eXo only provides production Support Services
 						  for generally available Software. &nbsp;</span></p>
 
 				<p class="c1"><span class="c0">1.1 Installed Systems</span></p>
 
-				<p class="c1"><span class="c0">For purposes of the Subscription Services described in
+				<p class="c1"><span class="c0">For purposes of the Support Services described in
 						  this Appendix, the term &ldquo;Installed System&rdquo; means a group of CORE Processors
 						  (e.g., up to 64 or up to 256) for which Customer is receiving Subscription
 						  Services.</span></p>
 
-				<p class="c1"><span class="c0">1.2 Subscription Services Start Date</span></p>
+				<p class="c1"><span class="c0">1.2 Support Services Start Date</span></p>
 
 				<p class="c1"><span class="c0">Unless otherwise agreed in an Order Form, the
-						  Subscription Services will begin on the date Customer purchases the Subscription as set
+						  Support Services will begin on the date Customer purchases the Subscription as set
 						  forth in the applicable Order Form.</span></p>
 
 				<p class="c1"><span class="c0">1.3 Development Purposes</span></p>
@@ -783,7 +783,7 @@
 						  and/or applications for a purpose other than development and/or prototyping software or
 						  hardware.</span></p>
 
-				<p class="c1"><span class="c0 c4">2. Subscription Services details</span></p>
+				<p class="c1"><span class="c0 c4">2. Support Services details</span></p>
 
 				<table cellpadding="0" cellspacing="0" class="c26">
 					<tbody>
@@ -965,7 +965,7 @@
 
 				<p class="c12 c6"></p>
 
-				<p class="c12"><span class="c0">Level One, Two and Three Subscription services will be
+				<p class="c12"><span class="c0">Level One, Two and Three Support Services will be
 						  provided in the English language only. eXo will respond according to the support
 						  collaboration targets and guidelines as defined here after. eXo will specify initial
 						  technical escalation contacts, which may be updated from time to time , which may be in
@@ -1261,7 +1261,7 @@
 						  http://www.exoplatform.com/maintenance-program. eXo will provide Updates for a prior
 						  Release for at least one (1) year after a new Release is made available, except when
 						  specified as "early release" after which eXo may in its sole discretion discontinue
-						  Subscription Services for that prior Version.</span></p>
+						  Support Services for that prior Version.</span></p>
 
 				<p class="c1 c6"></p>
 
@@ -1300,7 +1300,7 @@
 				<p class="c9 c6 c14 c20"></p>
 
 				<p class="c9 c14"><span class="c0">The Consulting Services do not include any
-						  Subscription Services.</span></p>
+						  Support Services.</span></p>
 
 				<p class="c9 c6 c14"></p>
 
@@ -1385,7 +1385,7 @@
 
 				<ol class="c19" start="6">
 					<li class="c9 c11"><span class="c0">The Training Services do not include any
-							Subscription Services.</span></li>
+							Support Services.</span></li>
 				</ol>
 
 				<p class="c9 c6"></p>
@@ -1519,7 +1519,7 @@
 				</ol>
 
 				<p class="c1"><span class="c0">The Specific Development Services don&rsquo;t include
-						  any Subscription Services.</span></p>
+						  any Support Services.</span></p>
 
 				<ol class="c28" start="2">
 					<li class="c1 c22"><span class="c0 c4">Performance and Deliverables</span></li>
