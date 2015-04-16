@@ -83,12 +83,12 @@
          <properties-param profiles="cluster">
             <name>properties</name>
             <description>Filter used to notify changes in the jcr index in cluster</description>
-            <property name="gatein.jcr.index.changefilterclass" value="org.exoplatform.services.jcr.impl.core.query.jbosscache.LocalIndexChangesFilter" />
+            <property name="gatein.jcr.index.changefilterclass" value="org.exoplatform.services.jcr.impl.core.query.ispn.LocalIndexChangesFilter" />
          </properties-param>
          <properties-param profiles="cluster-index-shared">
             <name>properties</name>
             <description>Filter used to notify changes in the jcr index in cluster</description>
-            <property name="gatein.jcr.index.changefilterclass" value="org.exoplatform.services.jcr.impl.core.query.jbosscache.JBossCacheIndexChangesFilter" />
+            <property name="gatein.jcr.index.changefilterclass" value="org.exoplatform.services.jcr.impl.core.query.ispn.ISPNIndexChangesFilter" />
          </properties-param>
       </init-params>
    </component>

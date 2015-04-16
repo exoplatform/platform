@@ -94,7 +94,6 @@
   <pbcast.GMS
       print_local_addr="${exo.jcr.cluster.jgroups.pbcast.gms.print_local_addr:true}"
       join_timeout="${exo.jcr.cluster.jgroups.pbcast.gms.join_timeout:3000}"
-      shun="${exo.jcr.cluster.jgroups.pbcast.gms.shun:false}"
       view_bundling="${exo.jcr.cluster.jgroups.pbcast.gms.view_bundling:true}" />
   <UFC
       max_credits="${exo.jcr.cluster.jgroups.ufc.max_credits:2M}"
@@ -106,6 +105,7 @@
       frag_size="${exo.jcr.cluster.jgroups.frag2.frag_size:60K}" />
   <RSVP
       resend_interval="${exo.jcr.cluster.jgroups.rsvp.resend_interval:2000}"
+      ack_on_delivery="${exo.jcr.cluster.jgroups.rsvp.ack_on_delivery:false}"
       timeout="${exo.jcr.cluster.jgroups.rsvp.timeout:10000}" />
   <pbcast.STATE_TRANSFER />
   <!-- pbcast.FLUSH  /-->
