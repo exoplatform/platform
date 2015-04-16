@@ -383,7 +383,7 @@ public class UnlockService implements Startable {
                     delay = 0;
                 }
                 if (( delay > -1)&&(delay<=0)) {
-                    request.setAttribute("errorMessage", "Sorry this evaluation key is not valid.");
+                    request.setAttribute("errorMessage", "Sorry this key is not valid.");
                     request.getRequestDispatcher("WEB-INF/jsp/welcome-screens/unlockTrial.jsp").include(request, response);
                     return;
                 }
