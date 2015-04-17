@@ -947,8 +947,7 @@
                 </table>
 
                 <p class="c11">
-                  <span class="c2"></span><span class="c19">(*) </span>
-                  <span class="c19">Extended Lifetime Support is available under nonstandard conditions as defined in an applicable Order Form. 
+                  <span class="c2">(*)Extended Lifetime Support is available under nonstandard conditions as defined in an applicable Order Form. 
                         For the avoidance of doubt, no Extended Lifetime Support is included in any Subscription agreement and all 
                         Extended Lifetime Support offers require a baseline existing Subscription as defined in this agreement.</span></p>	
 
@@ -1068,10 +1067,10 @@
 						  collaboration or escalation, it is essential that all parties remain engaged until the
 						  case is resolved or qualified with a lesser severity level. This includes at least:</span></p>
 						  <ul>
-						  	<li class="c10"><span class="c6">Access to all relevant contact information and
+						  	<li><span class="c6">Access to all relevant contact information and
 						  technical activity to date, logs, technical parameters, and all information 
 						  available to eXo Support Desk allowing for a deep analysis.</span></li>
-						    <li class="c10"><span class="c6">Execution of recommendations and procedures emitted by eXo Support Desk</span></li>
+						    <li><span class="c6">Execution of recommendations and procedures emitted by eXo Support Desk</span></li>
 						  </ul>
 						  	
 				<p class="c12 c6"></p>
@@ -1117,9 +1116,10 @@
 						  agreement</span></p>
 				-->
 				
-				<p class="c11 c13"><span class="c6"></span></p><p class="c11"><span class="c6">Summary of support services by subscription plan :</span></p>
-				<a href="#" name="ba1b106cda130bd3043cfc6ad6ccfcef0df10f28"></a>
-				<a href="#" name="1"></a>
+				<p class="c11 c13"><span class="c6"></span></p>
+				
+				<p class="c11"><span class="c6">Summary of support services by subscription plan :</span></p>
+
 				<table cellpadding="0" cellspacing="0" class="c53">
 					<tbody>
 						<tr class="c87">
