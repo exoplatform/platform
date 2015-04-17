@@ -780,6 +780,7 @@
 
 				<p class="c1"><span class="c0 c4">2. Support Services details</span></p>
 
+				<!--
 				<table cellpadding="0" cellspacing="0" class="c26">
 					<tbody>
 					<tr class="c16">
@@ -810,6 +811,7 @@
 					</tr>
 					</tbody>
 				</table>
+				-->
 
 				<p class="c1 c6"></p>
 
@@ -817,13 +819,7 @@
 					<tbody>
 					<tr class="c16">
 						<td class="c38">
-							<p class="c7"><span class="c0 c4">eXo Platform Enterprise Edition</span></p>
-
-							<p class="c7"><span class="c0 c4">eXo Platform UXPaaS Edition</span></p>
-
-							<p class="c7 c6"></p>
-
-							<p class="c7"><span class="c0 c4">Standard Subscription</span></p>
+							<p class="c7"><span class="c0 c4">Enterprise Basic Subscription</span></p>
 						</td>
 
 						<td class="c32">
@@ -834,16 +830,22 @@
 
 								<li class="c9 c11"><span class="c0">Multi-year support and Update policies</span></li>
 
-                                <li class="c9 c11"><span class="c0">Access to user, IT operation Documentation</span></li>
+                                <li class="c9 c11"><span class="c0">Access to Documentation and technical guides <span class="c9 c12">(development, installation, administration)</span></span></li>
+                                
+                                <li class="c9 c11"><span class="c0">Access to Basic Support Services <span class="c9 c12">(As defined in section 3)</span></span></li>             
 
-                                <li class="c9 c11"><span class="c0">Certified Updates, patches and bug fixes through Maintenance
-                                    benefits program   (As defined in section 5)</span></li>
+                                <li class="c9 c11"><span class="c0">Sotfware certified updates, patches and bug fixes through Maintenance
+                                    benefits program <span class="c9 c12">(As defined in section 5)</span></span></li>
 
-                                <li class="c9 c11"><span class="c0">eXo Business Day Production Support  (As defined in section 3)</span></li>
+                                <li class="c9 c11"><span class="c0">Access to professional services <span class="c9 c12">(As defined in section 6)</span></span></li>
 
-                                <li class="c9 c11"><span class="c0">Unit: 8, 16 or 64 Core Processor band</span></li>
+                                <li class="c9 c11"><span class="c0">Authorized deployment typology: Single Server</span></li>
 
-                                <li class="c9 c11"><span class="c0">16 or 64 Core Processor Band only for eXo Platform UXPaaS</span></li>
+                                <li class="c9 c11"><span class="c0">Authorized environments: Pre-production, Production</span></li>                               
+
+                                <li class="c9 c11"><span class="c0">Unit: Registered user</span></li>
+
+                                <li class="c9 c11"><span class="c0">Registered users: Limited</span></li>
 
 
 							</ol>
@@ -858,13 +860,8 @@
                     <tbody>
                     <tr class="c16">
                         <td class="c38">
-                            <p class="c7"><span class="c0 c4">eXo Platform Enterprise</span></p>
+                            <p class="c7"><span class="c0 c4">Enterprise Standard Subscription</span></p>
 
-                            <p class="c7"><span class="c0 c4">eXo Platform UXPaaS</span></p>
-
-                            <p class="c7 c6"></p>
-
-                            <p class="c7"><span class="c0 c4">Premium Subscription</span></p>
                         </td>
 
                         <td class="c32">
@@ -875,18 +872,26 @@
 
                                 <li class="c9 c11"><span class="c0">Multi-year support and Update policies</span></li>
 
-                                <li class="c9 c11"><span class="c0">Access to user,  IT operation Documentation</span></li>
+                                <li class="c9 c11"><span class="c0">Access to Documentation and technical guides <span class="c9 c12">(development, installation, administration)</span></span></li>
+                                
+                                <li class="c9 c11"><span class="c0">Access to Standard Support Services <span class="c9 c12">(As defined in section 3)</span></span></li>             
 
-                                <li class="c9 c11"><span class="c0">Certified Updates, patches and bug fixes through Maintenance
-                                    benefits program  (As defined in section 5)</span></li>
+                                <li class="c9 c11"><span class="c0">Sotfware certified updates, patches and bug fixes through Maintenance
+                                    benefits program <span class="c9 c12">(As defined in section 5)</span></span></li>
 
-                                <li class="c9 c11"><span class="c0">24/7 Production Support  (As defined in section 3)</span></li>
+                                <li class="c9 c11"><span class="c0">Access to professional services <span class="c9 c12">(As defined in section 6)</span></span></li>
 
-                                <li class="c9 c11"><span class="c0">Unit: 8, 16 or 64 Core Processor band</span></li>
+                                <li class="c9 c11"><span class="c0">Authorized deployment typology: Multi Server, High Availability</span></li>
 
-                                <li class="c9 c11"><span class="c0">16 or 64 Core Processor Band only for eXo Platform UXPaaS and
-                                    eXo Platform for Jboss</span></li>
+                                <li class="c9 c11"><span class="c0">Authorized environments: Pre-production, Production, Integration, Acceptance, 
+                                									Staging Development
+                                </span></li>
 
+                                <li class="c9 c11"><span class="c0">Unit: Core Processor band</span></li>
+
+                                <li class="c9 c11"><span class="c0">Registered users: Unlimited</span></li>
+
+                                <li class="c9 c11"><span class="c0">Not included: Onsite localized service desk; Extended lifetime support (*)</span></li>
 
                             </ol>
 
@@ -896,8 +901,58 @@
                     </tbody>
                 </table>
 
-				<p class="c1 c6"></p>
+                <table cellpadding="0" cellspacing="0" class="c26">
+                    <tbody>
+                    <tr class="c16">
+                        <td class="c38">
+                            <p class="c7"><span class="c0 c4">Enterprise Premium Subscription</span></p>
 
+                        </td>
+
+                        <td class="c32">
+                            <p class="c9 c6"></p>
+
+                            <ol class="c19" start="1">
+                                <li class="c9 c11"><span class="c0">Access to certified Production-ready Software</span></li>
+
+                                <li class="c9 c11"><span class="c0">Multi-year support and Update policies</span></li>
+
+                                <li class="c9 c11"><span class="c0">Access to Documentation and technical guides <span class="c9 c12">(development, installation, administration)</span></span></li>
+                                
+                                <li class="c9 c11"><span class="c0">Access to Premium Support Services <span class="c9 c12">(As defined in section 3)</span></span></li>             
+
+                                <li class="c9 c11"><span class="c0">Sotfware certified updates, patches and bug fixes through Maintenance
+                                    benefits program <span class="c9 c12">(As defined in section 5)</span></span></li>
+
+                                <li class="c9 c11"><span class="c0">Access to professional services <span class="c9 c12">(As defined in section 6)</span></span></li>
+
+                                <li class="c9 c11"><span class="c0">Authorized deployment typology: Multi Server, High Availability</span></li>
+
+                                <li class="c9 c11"><span class="c0">Authorized environments: Pre-production, Production, Integration, Acceptance, 
+                                									Staging Development
+                                </span></li>
+
+                                <li class="c9 c11"><span class="c0">Unit: Core Processor band</span></li>
+
+                                <li class="c9 c11"><span class="c0">Registered users: Unlimited</span></li>
+
+                                <li class="c9 c11"><span class="c0">Not included: Onsite localized service desk; Extended lifetime support (*); Technical Account Manager</span></li>
+
+                            </ol>
+
+                            <p class="c9 c6 c35"></p>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+
+                <p class="c11">
+                  <span class="c2"></span><span class="c19">(*) </span>
+                  <span class="c19">Extended Lifetime Support is available under nonstandard conditions as defined in an applicable Order Form. 
+                        For the avoidance of doubt, no Extended Lifetime Support is included in any Subscription agreement and all 
+                        Extended Lifetime Support offers require a baseline existing Subscription as defined in this agreement.</span></p>	
+
+				<!--
 				<table cellpadding="0" cellspacing="0" class="c26">
 					<tbody>
 					<tr class="c16">
@@ -951,26 +1006,24 @@
 					</tr>
 					</tbody>
 				</table>
+				-->
 
 				<p class="c1 c6"></p>
 
 				<p class="c1"><span class="c0 c4">3. Support</span></p>
 
-				<p class="c12"><span class="c0">3.1 Technical Support Procedures</span></p>
+				<p class="c12"><span class="c0">3.1 Support Procedures</span></p>
 
 				<p class="c12 c6"></p>
 
-				<p class="c12"><span class="c0">Level One, Two and Three Support Services will be
-						  provided in the English language only. eXo will respond according to the support
-						  collaboration targets and guidelines as defined here after. eXo will specify initial
-						  technical escalation contacts, which may be updated from time to time , which may be in
-						  the form of electronic mail.</span></p>
+				<p class="c12"><span class="c0">Support Services are 
+						  provided in the English and/or French languages only. eXo will respond according to SLAs 
+						  as defined hereafter. eXo and Customer will specify initial
+						  technical contacts, which may be updated upon request.</span></p>
 
 				<ol class="c19" start="1">
-					<li class="c12 c11"><span class="c0 c4">Level One Support</span><span class=
-																								  "c0">&nbsp;means the first point of Customer contact, confirms post warranty or
-							service contract, and basic troubleshooting, and provides solution or dispatch on
-							most Errors.</span></li>
+					<li class="c12 c11"><span class="c0 c4">Level One Support</span><span class="c0">&nbsp;means technical acknowledgement of support requests, documentation of requests, 
+							basic troubleshooting, and providing commons solutions. If no solution is found, a <span class="c0 c4">Level Two</span> escalation is made.</span></li>
 
 					<li class="c12 c11"><span class="c0 c4">Level Two Support</span><span class=
 																								  "c0">&nbsp;means the escalation point for Level One Support. Level Two Support
@@ -992,33 +1045,47 @@
 				<p class="c12 c6"></p>
 
 				<p class="c12"><span class="c0">Incident severity levels (defined below) are utilized
-						  in establishing the Error impact to the Customer upon Error receipt and will be used to
+						  in establishing the incident impact to the Customer upon incident receipt and will be used to
 						  set expectations between Customer and eXo. Severities are established by eXo in
 						  accordance with the Severity Level definitions below during escalation and are subject
 						  to change during the life of each specific incident.</span></p>
 
 				<p class="c12 c6"></p>
 
-				<p class="c12"><span class="c0">3.3 Technical Support Engagement</span></p>
+				<p class="c12"><span class="c0">Incident severity levels (defined below) are utilized
+						  in establishing the incident impact to the Customer upon incident receipt and will be used to
+						  set expectations between Customer and eXo. Severities are established by eXo in
+						  accordance with the Severity Level definitions below during escalation and are subject
+						  to change during the life of each specific incident.</span></p>
+
+				<p class="c12 c6"></p>
+
+				<p class="c12"><span class="c0">3.3 Mutual obligations</span></p>
 
 				<p class="c12 c6"></p>
 
 				<p class="c12"><span class="c0">To help ensure a smooth transition during technical
 						  collaboration or escalation, it is essential that all parties remain engaged until the
-						  next level is fully engaged, including access to all relevant contact information and
-						  technical activity to date.</span></p>
-
+						  case is resolved or qualified with a lesser severity level. This includes at least:</span></p>
+						  <ul>
+						  	<li class="c10"><span class="c6">Access to all relevant contact information and
+						  technical activity to date, logs, technical parameters, and all information 
+						  available to eXo Support Desk allowing for a deep analysis.</span></li>
+						    <li class="c10"><span class="c6">Execution of recommendations and procedures emitted by eXo Support Desk</span></li>
+						  </ul>
+						  	
 				<p class="c12 c6"></p>
 
-				<p class="c12"><span class="c0">3.4 Solution Delivery</span></p>
+				<p class="c12"><span class="c0">3.4 Support and Software Delivery</span></p>
 
 				<p class="c12 c6"></p>
 
 				<p class="c12"><span class="c0">Unless otherwise set forth in an applicable Order Form,
-						  (1) eXo will be the primary source for communication with Customer' and (2) Updates,
+						  (1) eXo will be the primary source for communication with Customer' and 
+						  (2) The Software, Software Updates,
 						  when and if available, will be delivered to Customer via eXo Network. Customer will
-						  provide eXo with two (2) Named Contacts for escalation of Customer issues related to
-						  the eXo Software. Customer will provide to eXo data, anecdotes, and other information
+						  provide eXo with the number of named contacts as stated in the applicable Order Form. 
+						  Customer will provide to eXo data, anecdotes, and other information
 						  reasonably necessary to enable eXo to evaluate the level of customer service being
 						  provided to 'Customer'.</span></p>
 
@@ -1028,13 +1095,18 @@
 
 				<p class="c12 c6"></p>
 
-				<p class="c12"><span class="c0">Production Support consists of assistance for
-						  installation, usage, configuration and diagnosis on the applicable Software. Support
-						  does not include assistance with code development, system and/or network design,
-						  architectural design, upgrade or for third party software made available with eXo
+				<p class="c12"><span class="c0">Support Services consists of assistance for
+						  installation, usage, configuration and diagnosis on the applicable Software in a Production environment. 
+						  Support Services are provided only according to the Supported Environments Policy listed </span>
+						  <span class="c63"><a class="c1" href="http://www.exoplatform.com/supported-environments">http://www.exoplatform.com/supported-environments</a></span></p> 
+						  
+						  <p class="c11"><span class="c6">Support Services are not provided on environments outside of the scope referenced above. 
+						  Support does not include assistance with code development, system and/or network design,
+						  architectural design, upgrade for the Software or for third party software made available with eXo
 						  Software. eXo does not provide maintenance and/or support for Software that has been
-						  modified or that is running on hardware that is not supported.</span></p>
+						  modified or that is running on hardware and/or third party software that is not supported.</span></p>
 
+				<!--
 				<p class="c12 c6"></p>
 
 				<p class="c9"><span class="c0">Development Support consists of assistance for
@@ -1043,10 +1115,125 @@
 						  deployments and upgrades &nbsp;are not included within the scope of Development
 						  Support, but rather are available on a consulting basis under the terms of a separate
 						  agreement</span></p>
-
+				-->
+				
+				<p class="c11 c13"><span class="c6"></span></p><p class="c11"><span class="c6">Summary of support services by subscription plan :</span></p>
+				<a href="#" name="ba1b106cda130bd3043cfc6ad6ccfcef0df10f28"></a>
+				<a href="#" name="1"></a>
+				<table cellpadding="0" cellspacing="0" class="c53">
+					<tbody>
+						<tr class="c87">
+							<td class="c33" colspan="4" rowspan="1">
+								<p class="c60 c48 c13"><span class="c37 c58"></span></p>
+								<p class="c60 c48"><span class="c58 c37">Support Services Summary</span></p>
+								<p class="c60 c48 c13"><span class="c58 c37"></span></p>
+							</td>
+						</tr>
+						<tr class="c20">
+							<td class="c31" colspan="1" rowspan="1"><p class="c0 c13"><span class="c21 c6"></span></p></td>
+							<td class="c54" colspan="1" rowspan="1"><p class="c11"><span class="c16 c19">Basic</span></p></td>
+							<td class="c32" colspan="1" rowspan="1"><p class="c0"><span class="c5 c37">Standard</span></p></td>
+							<td class="c82 c84" colspan="1" rowspan="1"><p class="c0"><span class="c5 c37">Premium</span></p></td>
+						</tr>
+						<tr class="c20">
+							<td class="c31 c28" colspan="1" rowspan="1"><p class="c0"><span class="c30 c28">Level 1 Support </span></p></td>
+							<td class="c18 c28" colspan="1" rowspan="1"><p class="c0 c13"><span class="c21 c6"></span></p></td>
+							<td class="c8 c28" colspan="1" rowspan="1"><p class="c0 c13"><span class="c21 c6"></span></p></td>
+							<td class="c27 c28" colspan="1" rowspan="1"><p class="c0 c13"><span class="c21 c6"></span></p></td>
+						</tr>
+						<tr class="c20">
+							<td class="c31" colspan="1" rowspan="1"><p class="c69 c48"><span class="c16 c6">Ticket Limit</span></p></td>
+							<td class="c18" colspan="1" rowspan="1"><p class="c0"><span class="c21 c6">Limited</span></p></td>
+							<td class="c8" colspan="1" rowspan="1"><p class="c0"><span class="c21 c6">Unlimited</span></p></td>
+							<td class="c27" colspan="1" rowspan="1"><p class="c0"><span class="c21 c6">Unlimited</span></p></td>
+						</tr>
+						<tr class="c20">
+							<td class="c31" colspan="1" rowspan="1"><p class="c69 c48"><span class="c16 c6">Usage information</span></p></td>
+							<td class="c18" colspan="1" rowspan="1"><p class="c0"><span class="c21 c6">V</span></p></td>
+							<td class="c8" colspan="1" rowspan="1"><p class="c0"><span class="c21 c6">V</span></p></td>
+							<td class="c27" colspan="1" rowspan="1"><p class="c0"><span class="c21 c6">V</span></p></td>
+						</tr>
+						<tr class="c20">
+							<td class="c31" colspan="1" rowspan="1"><p class="c69 c48"><span class="c16 c6">Installation instructions</span></p></td>
+							<td class="c18" colspan="1" rowspan="1"><p class="c0"><span class="c21 c6">V</span></p></td>
+							<td class="c8" colspan="1" rowspan="1"><p class="c0"><span class="c21 c6">V</span></p></td>
+							<td class="c27" colspan="1" rowspan="1"><p class="c0"><span class="c21 c6">V</span></p></td>
+						</tr><tr class="c20">
+							<td class="c31" colspan="1" rowspan="1"><p class="c0 c13"><span class="c16 c6"></span></p></td>
+							<td class="c18" colspan="1" rowspan="1"><p class="c0 c13"><span class="c21 c6"></span></p></td>
+							<td class="c8" colspan="1" rowspan="1"><p class="c0 c13"><span class="c21 c6"></span></p></td>
+							<td class="c27" colspan="1" rowspan="1"><p class="c0 c13"><span class="c21 c6"></span></p></td>
+						</tr>
+						<tr class="c20">
+							<td class="c31 c28" colspan="1" rowspan="1"><p class="c0"><span class="c30 c28">Level 2 Support</span></p></td>
+							<td class="c18 c28" colspan="1" rowspan="1"><p class="c0 c13"><span class="c21 c6"></span></p></td>
+							<td class="c8 c28" colspan="1" rowspan="1"><p class="c0 c13"><span class="c21 c6"></span></p></td>
+							<td class="c27 c28" colspan="1" rowspan="1"><p class="c0 c13"><span class="c21 c6"></span></p></td>
+						</tr>
+						<tr class="c20">
+							<td class="c31" colspan="1" rowspan="1"><p class="c69 c48"><span class="c16 c6">Ticket Limit</span></p></td>
+							<td class="c18" colspan="1" rowspan="1"><p class="c0"><span class="c21 c6">Limited</span></p></td>
+							<td class="c8" colspan="1" rowspan="1"><p class="c0"><span class="c21 c6">Unlimited</span></p></td>
+							<td class="c27" colspan="1" rowspan="1"><p class="c0"><span class="c21 c6">Unlimited</span></p></td>
+						</tr>
+						<tr class="c20">
+							<td class="c31" colspan="1" rowspan="1"><p class="c69 c48"><span class="c16 c6">Troubleshooting</span></p></td>
+							<td class="c18" colspan="1" rowspan="1"><p class="c0"><span class="c21 c6">V</span></p></td>
+							<td class="c8" colspan="1" rowspan="1"><p class="c0"><span class="c21 c6">V</span></p></td>
+							<td class="c27" colspan="1" rowspan="1"><p class="c0"><span class="c21 c6">V</span></p></td>
+						</tr>
+						<tr class="c20">
+							<td class="c31" colspan="1" rowspan="1"><p class="c69 c48"><span class="c16 c6">Issue management</span></p></td>
+							<td class="c18" colspan="1" rowspan="1"><p class="c0"><span class="c21 c6">V</span></p></td>
+							<td class="c8" colspan="1" rowspan="1"><p class="c0"><span class="c21 c6">V</span></p></td>
+							<td class="c27" colspan="1" rowspan="1"><p class="c0"><span class="c21 c6">V</span></p></td>
+						</tr>
+						<tr class="c20">
+							<td class="c31" colspan="1" rowspan="1"><p class="c69 c48"><span class="c16 c6">Workarounds and procedures</span></p></td>
+							<td class="c18" colspan="1" rowspan="1"><p class="c0"><span class="c21 c6">V</span></p></td>
+							<td class="c8" colspan="1" rowspan="1"><p class="c0"><span class="c21 c6">V</span></p></td>
+							<td class="c27" colspan="1" rowspan="1"><p class="c0"><span class="c21 c6">V</span></p></td>
+						</tr>
+						<tr class="c20">
+							<td class="c31" colspan="1" rowspan="1"><p class="c48 c69"><span class="c16 c6">Ongoing SLA</span></p></td>
+							<td class="c18" colspan="1" rowspan="1"><p class="c0 c13"><span class="c21 c6"></span></p></td>
+							<td class="c8" colspan="1" rowspan="1"><p class="c0"><span class="c21 c6">V</span></p></td>
+							<td class="c27" colspan="1" rowspan="1"><p class="c0"><span class="c21 c6">V</span></p></td>
+						</tr>
+						<tr class="c20">
+							<td class="c31 c28" colspan="1" rowspan="1"><p class="c0"><span class="c28 c30">Level 3 Support</span></p></td>
+							<td class="c18 c28" colspan="1" rowspan="1"><p class="c0 c13"><span class="c21 c6"></span></p></td>
+							<td class="c8 c28" colspan="1" rowspan="1"><p class="c0 c13"><span class="c6 c21"></span></p></td>
+							<td class="c27 c28" colspan="1" rowspan="1"><p class="c0 c13"><span class="c21 c6"></span></p></td>
+						</tr>
+						<tr class="c20">
+							<td class="c31" colspan="1" rowspan="1"><p class="c69 c48"><span class="c16 c6">Maintenance versions</span></p></td>
+							<td class="c18" colspan="1" rowspan="1"><p class="c0"><span class="c21 c6">V</span></p></td>
+							<td class="c8" colspan="1" rowspan="1"><p class="c0"><span class="c21 c6">V</span></p></td>
+							<td class="c27" colspan="1" rowspan="1"><p class="c0"><span class="c21 c6">V</span></p></td>
+						</tr>
+						<tr class="c20">
+							<td class="c31" colspan="1" rowspan="1"><p class="c69 c48"><span class="c6 c16">Cumulative patches versions</span></p></td>
+							<td class="c18" colspan="1" rowspan="1"><p class="c0 c13"><span class="c21 c6"></span></p></td>
+							<td class="c8" colspan="1" rowspan="1"><p class="c0"><span class="c21 c6">V</span></p></td>
+							<td class="c27" colspan="1" rowspan="1"><p class="c0"><span class="c21 c6">V</span></p></td>
+						</tr>
+						<tr class="c20">
+							<td class="c31" colspan="1" rowspan="1"><p class="c69 c48"><span class="c16 c6">One-off patches</span></p></td>
+							<td class="c18" colspan="1" rowspan="1"><p class="c0 c13"><span class="c21 c6"></span></p></td>
+							<td class="c8" colspan="1" rowspan="1"><p class="c0"><span class="c21 c6">V</span></p></td>
+							<td class="c27" colspan="1" rowspan="1"><p class="c0"><span class="c21 c6">V</span></p></td>
+						</tr>
+					</tbody>
+				</table>
+				
+				<p class="c11 c13"><span class="c6"></span></p>
+				
+				<p class="c11"><span class="c6 c46">For more details </span><span class="c63 c46"><a class="c1" href="http://www.exoplatform.com/sla">http://www.exoplatform.com/sla</a></span></p>
+				
 				<p class="c12 c6"></p>
 
-				<p class="c12"><span class="c0 c4">4. Support Guidelines</span></p>
+				<p class="c11"><span class="c2">3.6 Support Guidelines</span></p>
 
 				<p class="c12 c6"></p>
 
@@ -1059,97 +1246,90 @@
 
 				<p class="c12"><span class="c0 c4">Table: Support Guidelines</span></p>
 
-				<table cellpadding="0" cellspacing="0" class="c26">
+				<!--<p class="c11"><span class="c2">Table: Support Guidelines</span></p>-->
+
+				<p class="c6 c12"></p>
+
+				<table cellpadding="0" cellspacing="0" class="c65">
 					<tbody>
-					<tr class="c16">
-						<td class="c10">
-							<p class="c9"><span class="c0 c4">Production Support</span></p>
-						</td>
+						<tr class="c20">
+							<td class="c41" colspan="1" rowspan="1"><p class="c11 c13"><span class="c16 c19"></span></p></td>
+							<td class="c71" colspan="1" rowspan="1"><p class="c11"><span class="c16 c19">Basic</span></p></td>
+							<td class="c38" colspan="1" rowspan="1"><p class="c0"><span class="c5 c37">Standard</span></p></td>
+							<td class="c34" colspan="1" rowspan="1"><p class="c0"><span class="c5 c37">Premium</span></p></td>
+						</tr>
+						<tr class="c20">
+							<td class="c41" colspan="1" rowspan="1"><p class="c25"><span class="c5 c37">Hours of Coverage</span></p></td>
+							<td class="c43" colspan="1" rowspan="1"><p class="c0"><span class="c5">Standard Business Hours</span></p></td>
+							<td class="c38" colspan="1" rowspan="1"><p class="c0"><span class="c5">Standard Business Hours</span></p></td>
+							<td class="c34" colspan="1" rowspan="1"><p class="c0"><span class="c5">24x7</span></p></td>
+						</tr>
+						<tr class="c20">
+							<td class="c41" colspan="1" rowspan="1"><p class="c25"><span class="c5 c37">Support Channel</span></p></td>
+							<td class="c43" colspan="1" rowspan="1"><p class="c0"><span class="c5">Web</span></p></td>
+							<td class="c38" colspan="1" rowspan="1"><p class="c0"><span class="c5">Web</span></p></td>
+							<td class="c34" colspan="1" rowspan="1"><p class="c0"><span class="c5">Web and Phone</span></p></td>
+						</tr>
+						<tr class="c29">
+							<td class="c41" colspan="1" rowspan="1"><p class="c25"><span class="c5 c37">Tickets</span></p></td>
+							<td class="c71" colspan="1" rowspan="1"><p class="c0"><span class="c3">Limited</span></p></td>
+							<td class="c38" colspan="1" rowspan="1"><p class="c0"><span class="c5">Unlimited</span></p></td>
+							<td class="c34" colspan="1" rowspan="1"><p class="c0"><span class="c5">Unlimited</span></p></td>
+						</tr>
+						<tr class="c20">
+							<td class="c41" colspan="1" rowspan="1"><p class="c25"><span class="c5 c37">Number of Named Contacts</span></p></td>
+							<td class="c71" colspan="1" rowspan="1"><p class="c0"><span class="c3">1</span></p></td>
+							<td class="c38" colspan="1" rowspan="1"><p class="c0"><span class="c5">3</span></p></td>
+							<td class="c34" colspan="1" rowspan="1"><p class="c0"><span class="c5">5</span></p></td>
+						</tr>
+						<tr class="c20">
+							<td class="c41" colspan="1" rowspan="1"><p class="c0 c13"><span class="c16 c19"></span></p></td>
+							<td class="c43" colspan="1" rowspan="1"><p class="c0 c13"><span class="c16 c19"></span></p></td>
+							<td class="c38" colspan="1" rowspan="1"><p class="c0 c13"><span class="c16 c19"></span></p></td>
+							<td class="c34" colspan="1" rowspan="1"><p class="c0 c13"><span class="c16 c19"></span></p></td>
+						</tr>
+						<tr class="c20">
+							<td class="c41" colspan="1" rowspan="1"><p class="c25"><span class="c5 c37">Target Response Times and Guidelines:</span></p></td>
+							<td class="c81" colspan="1" rowspan="1"><p class="c0 c13"><span class="c16 c19"></span></p></td>
+							<td class="c38" colspan="1" rowspan="1"><p class="c0 c13"><span class="c16 c19"></span></p></td>
+							<td class="c34" colspan="1" rowspan="1"><p class="c0 c13"><span class="c16 c19"></span></p></td>
+						</tr>
+						<tr class="c20">
+							<td class="c41" colspan="1" rowspan="1"><p class="c25"><span class="c5 c37">Severity 1 (Blocker): </span>
+								<span class="c5">An Error which severely impacts Customer&rsquo;s production environment (such as loss of production data) or in which 
+									Customer&rsquo;s production systems are not functioning. 
+									The situation halts Customer&rsquo;s business operations, and no procedural work around exists.</span></p></td>
+							<td class="c71" colspan="1" rowspan="1"><p class="c0"><span class="c3">x</span></p></td>
+							<td class="c38" colspan="1" rowspan="1"><p class="c0"><span class="c5">1 Business Hour</span></p></td>
+							<td class="c34" colspan="1" rowspan="1"><p class="c0"><span class="c5">1 hour on a 24x7 basis</span></p></td>
+						</tr>
+						<tr class="c20">
+							<td class="c41" colspan="1" rowspan="1"><p class="c25"><span class="c5 c37">Severity 2 (Major): </span>
+								<span class="c5">An Error where Customer&rsquo;s system is functioning but in a severely reduced capacity. The situation is causing a 
+									high impact to portions of Customer&rsquo;s business operations, and no procedural work around exists.</span></p></td>
+							<td class="c71" colspan="1" rowspan="1"><p class="c0"><span class="c3">x</span></p></td>
+							<td class="c38" colspan="1" rowspan="1"><p class="c0"><span class="c5">4 Business Hours</span></p></td>
+							<td class="c34" colspan="1" rowspan="1"><p class="c0"><span class="c5">4 Hours on a 24x7 basis</span></p></td>
+						</tr>
+						<tr class="c20">
+							<td class="c41" colspan="1" rowspan="1"><p class="c25"><span class="c5 c37">Severity 3 (Minor): </span>
+								<span class="c5">An Error which involves partial, non-critical functionality loss of a production or development system. There is a 
+									medium-to-low impact on Customer&rsquo;s business, but Customer&rsquo;s business continues to function, including by using a procedural work around.</span></p></td>
+							<td class="c43" colspan="1" rowspan="1"><p class="c0"><span class="c5">2 Business Days</span></p></td>
+							<td class="c38" colspan="1" rowspan="1"><p class="c0"><span class="c5">2 Business Days</span></p></td>
+							<td class="c34" colspan="1" rowspan="1"><p class="c0"><span class="c5">1 Business Day</span></p></td>
+						</tr>
+						<tr class="c20">
+							<td class="c41" colspan="1" rowspan="1"><p class="c25"><span class="c5 c37">Severity 4 (None/Info): </span>
+								<span class="c5">A general usage question, reporting of a documentation error or recommendation for a future product enhancement or modification. 
+								There is low-to-no impact on Customer&rsquo;s business or the performance or functionality of Customer&rsquo;s system.</span></p></td>
+							<td class="c43" colspan="1" rowspan="1"><p class="c0"><span class="c5">3 Business Days</span></p></td>
+							<td class="c38" colspan="1" rowspan="1"><p class="c0"><span class="c5">3 Business Days</span></p></td>
+							<td class="c34" colspan="1" rowspan="1"><p class="c0"><span class="c5">2 Business Days</span></p></td>
+						</tr>
+					</tbody>
+				</table>
 
-						<td class="c2">
-							<p class="c7"><span class="c0 c4">Standard</span></p>
-						</td>
-
-						<td class="c13">
-							<p class="c7"><span class="c0 c4">Premium</span></p>
-						</td>
-					</tr>
-
-					<tr class="c16">
-						<td class="c10">
-							<p class="c9"><span class="c0 c4">Hours of Coverage</span><span class=
-																									"c0">&nbsp;</span></p>
-						</td>
-
-						<td class="c2">
-							<p class="c7"><span class="c0">Standard Business Hours</span></p>
-						</td>
-
-						<td class="c13">
-							<p class="c7"><span class="c0">Standard Business Hours &amp; 24x7</span></p>
-						</td>
-					</tr>
-
-					<tr class="c16">
-						<td class="c10">
-							<p class="c9"><span class="c0 c4">Support Channel</span><span class=
-																								  "c0">&nbsp;</span></p>
-						</td>
-
-						<td class="c2">
-							<p class="c7"><span class="c0">Web</span></p>
-						</td>
-
-						<td class="c13">
-							<p class="c7"><span class="c0">Web and Phone</span></p>
-						</td>
-					</tr>
-
-					<tr class="c16">
-						<td class="c10">
-							<p class="c9"><span class="c0 c4">Number of Cases</span><span class=
-																								  "c0">&nbsp;</span></p>
-						</td>
-
-						<td class="c2">
-							<p class="c7"><span class="c0">Unlimited</span></p>
-						</td>
-
-						<td class="c13">
-							<p class="c7"><span class="c0">Unlimited</span></p>
-						</td>
-					</tr>
-
-					<tr class="c16">
-						<td class="c10">
-							<p class="c9"><span class="c0 c4">Number of Named Contacts</span></p>
-						</td>
-
-						<td class="c2">
-							<p class="c7"><span class="c0">3<br/></span></p>
-						</td>
-
-						<td class="c13">
-							<p class="c7"><span class="c0">5<br/></span></p>
-						</td>
-					</tr>
-
-					<tr class="c16">
-						<td class="c10">
-							<p class="c9"><span class="c0 c4">Software Maintenance</span><span class=
-																									   "c0">&nbsp;</span></p>
-						</td>
-
-						<td class="c2">
-							<p class="c7"><span class="c0">via eXo management portal</span></p>
-						</td>
-
-						<td class="c13">
-							<p class="c7"><span class="c0">via eXo management portal</span></p>
-						</td>
-					</tr>
-                    </tbody>
-                </table>
                 <p class="c6 c12"></p>
 
                 <p class="c12"><span class="c0 c4">Target Response Times and Guidelines:</span></p>
@@ -1233,19 +1413,14 @@
 
 				<p class="c12 c6"></p>
 
-				<p class="c12"><span class="c0">4.1 Support Processes</span></p>
+				<p class="c11"><span class="c6 c37">3.7 Support Processes</span></p>
 
-				<p class="c12"><span class="c0">Both Customer and eXo will document and maintain
-						  support contact detail, Error reporting and status procedures, management escalation
-						  contacts, Error resolution process flows and service level expectations.</span></p>
-
-				<p class="c12"><span class="c0">Support Processes are ruled by the eXo Subscription
-						  Services description made available at
-						  http://www.exoplatform.com/support-operations</span></p>
+				<p class="c12"><span class="c0">Support Processes are available at
+						  <span class="c74"><a class="c1" href="http://www.exoplatform.com/support-operations">http://www.exoplatform.com/support-operations</a><span class="c6">.</span></p>
 
 				<p class="c12 c6"></p>
 
-				<p class="c12"><span class="c0 c4">5. Maintenance Benefits</span></p>
+				<p class="c12"><span class="c0 c4">4. Maintenance Benefits</span></p>
 
 				<p class="c12 c6"></p>
 
@@ -1253,10 +1428,7 @@
 						  annual Subscription fees, eXo shall provide to Customer copyrighted patches and Updates
 						  for the installed Software (including any related Documentation) which are commercially
 						  released. Maintenance benefits are ruled by the eXo maintenance program visible at
-						  http://www.exoplatform.com/maintenance-program. eXo will provide Updates for a prior
-						  Release for at least one (1) year after a new Release is made available, except when
-						  specified as "early release" after which eXo may in its sole discretion discontinue
-						  Support Services for that prior Version.</span></p>
+						  <a class="c1" href="http://www.exoplatform.com/maintenance-program">http://www.exoplatform.com/maintenance-program</a></span><span class="c6">.</span></p>
 
 				<p class="c1 c6"></p>
 
@@ -1267,6 +1439,12 @@
 				<p class="c7"><span class="c0 c4">Appendix 2: Additional Services</span></p>
 
 				<p class="c9 c6 c14"></p>
+				
+				<p class="c9 c6 c14"><span class="c6">eXo provides services exclusively to customers covered by a 
+					valid enterprise subscription plan. Details as to the services offered can be found here </span>
+					<span class="c46 c63"><a class="c1" href="http://www.exoplatform.com/en/services/overview">http://www.exoplatform.com/company/en/services/overview</a></span><span class="c6">.</span></p>
+
+				<p class="c9 c6 c14"><span class="c6">Terms and conditions governing eXo&rsquo;s services delivery processes are stated below. </span></p>
 
 				<ol class="c21" start="1">
 					<li class="c1 c27 c29"><span class="c0 c4">eXo Consulting Services</span></li>
@@ -1330,7 +1508,7 @@
 						  services, those are meant to be delivered under the operational responsibility of the
 						  Customer.</span></p>
 
-				<p class="c9 c14"><span class="c0">eXo&rsquo;s agrees to provide the Customer with
+				<p class="c9 c14"><span class="c0">eXo agrees to provide the Customer with
 						  reasonable advance notice in the event eXo expects a failure on its part to satisfy a
 						  delivery date in an Order Form.</span></p>
 
@@ -1344,9 +1522,9 @@
 						  prior to delivery and paid upon the timeframe specified in the related Order
 						  Form.</span></p>
 
-				<p class="c1"><span class="c0">The delivery shall then occur within a timeframe of
+				<p class="c1"><span class="c0">Unless stated in the applicable Order Form, the delivery shall then occur within a timeframe of
 						  three (3) months, starting on the effective date of the related Order Form. Any
-						  remaining amount of Consulting Services remaining past those three months will be lost
+						  remaining amount of Consulting Services past those three months will be lost
 						  and invoiced as if delivered.</span></p>
 
 				<p class="c1"><span class="c0">The Consulting Services will be agreed to be received
@@ -1400,14 +1578,14 @@
 						  nature of Training Services needed in accordance with the involved project.</span></p>
 
 				<p class="c9 c14"><span class="c0">Training Services available scoping unit is to be
-						  selected among the Training Services offer visible at</span> <span class=
-																									 "c0 c25"><a class="c8"
-																												 target="_blank" href=
-						"http://www.exoplatform.com/company/en/services/development-training">http://www.exoplatform.com/company/en/services/development-training</a></span>
+						  selected among the Training Services offer visible at</span> 
+						  <span class="c0 c25"><a class="c8" target="_blank" href="http://www.exoplatform.com/company/en/services/development-training">http://www.exoplatform.com/company/en/services/development-training</a></span>
 				</p>
-
+				
+				<!--
 				<p class="c9 c6 c14"><span class="c0 c25"><a class="c8" target="_blank" href=
 						"http://www.exoplatform.com/company/en/services/development-training"></a></span></p>
+				-->
 
 				<ol class="c28" start="3">
 					<li class="c1 c22"><span class="c0 c4">Equipment and Facilities</span></li>
@@ -1454,8 +1632,9 @@
 
 				<p class="c1"><span class="c0">The delivery shall then occur within a timeframe of
 						  three (3) months, starting with the date of appliance of the related Order Form. Any
-						  remaining amount of Training Services remaining past those three months will be
-						  lost.</span></p>
+						  remaining amount of Training Services past those three months will be
+						  lost. Cancellation of Training Services are subject to eXo&rsquo;s Cancellation Policy, 
+						  as set forth at </span><span class="c74"><a class="c1" href="http://www.exoplatform.com/company/en/services/development-training">http://www.exoplatform.com/company/en/services/development-training</a></span></p>
 
 				<p class="c1"><span class="c0">Unless specified in the Order Form, additional fees such
 						  as transport, lodging, third party materials including software licenses, hardware,
@@ -1465,6 +1644,7 @@
 
 				<p class="c9 c6 c14"></p>
 
+				<!--
 				<ol class="c28" start="7">
 					<li class="c1 c22"><span class="c0 c4">Cancellation Policy</span></li>
 				</ol>
@@ -1491,6 +1671,7 @@
 						  credit. Every effort will be made to reschedule a cancelled class or transfer
 						  enrollments to a later date.</span></p><a href="#" target="_blank" name="id.43e09b9fd5fe" id=
 						"id.43e09b9fd5fe"></a>
+				-->
 
 				<ol class="c21" start="3">
 					<li class="c1 c27 c29"><span class="c0 c4">eXo Specific Development
@@ -1586,6 +1767,71 @@
 						  Customer.</span></p>
 
 				<p class="c1 c6"></p>
+				
+			<p class="c0"><span class="c2">Appendix 3: eXo Official Add-ons</span></p>
+			<p class="c11 c13"><span class="c2"></span></p>
+
+			<table cellpadding="0" cellspacing="0" class="c65">
+				<tbody>
+					<tr class="c20">
+						<td class="c15" colspan="1" rowspan="1"><p class="c0"><span class="c42 c37 c59">Add-on name</span></p></td>
+						<td class="c79" colspan="1" rowspan="1"><p class="c0"><span class="c16 c42">Introduces Specific Terms</span></p></td>
+						<td class="c22" colspan="1" rowspan="1"><p class="c0"><span class="c16 c42">Requires an active Enterprise Subscription</span></p></td>
+						<td class="c35" colspan="1" rowspan="1"><p class="c0"><span class="c5 c37">Requires an additional subscription fee</span></p></td>
+					</tr>
+					<tr class="c20">
+						<td class="c15" colspan="1" rowspan="1"><p class="c25"><span class="c5 c37">exo-acme-sample - eXo ACME Website Sample</span></p></td>
+						<td class="c47" colspan="1" rowspan="1"><p class="c0"><span class="c5">No</span></p></td>
+						<td class="c22" colspan="1" rowspan="1"><p class="c0"><span class="c5">Basic, Standard or Premium</span></p></td>
+						<td class="c35" colspan="1" rowspan="1"><p class="c0"><span class="c5">No</span></p></td>
+					</tr>
+					<tr class="c20">
+						<td class="c15" colspan="1" rowspan="1"><p class="c25"><span class="c5 c37">exo-chat - eXo Chat</span></p></td>
+						<td class="c47" colspan="1" rowspan="1"><p class="c0"><span class="c5">No</span></p></td>
+						<td class="c22" colspan="1" rowspan="1"><p class="c0"><span class="c5">Basic, Standard or Premium</span></p></td>
+						<td class="c35" colspan="1" rowspan="1"><p class="c0"><span class="c5">No</span></p></td>
+					</tr>
+					<tr class="c20">
+						<td class="c15" colspan="1" rowspan="1"><p class="c25"><span class="c16 c42">exo-cmis-addon - eXo CMIS Integration</span></p></td>
+						<td class="c47" colspan="1" rowspan="1"><p class="c0"><span class="c5">No</span></p></td>
+						<td class="c22" colspan="1" rowspan="1"><p class="c0"><span class="c5">Basic, Standard or Premium</span></p></td>
+						<td class="c35" colspan="1" rowspan="1"><p class="c0"><span class="c5">No</span></p></td>
+					</tr>
+					<tr class="c20">
+						<td class="c15" colspan="1" rowspan="1"><p class="c25"><span class="c16 c42">exo-crash - eXo CRaSH Add-on</span></p></td>
+						<td class="c47" colspan="1" rowspan="1"><p class="c0"><span class="c5">No</span></p></td>
+						<td class="c22" colspan="1" rowspan="1"><p class="c0"><span class="c5">Basic, Standard or Premium</span></p></td>
+						<td class="c35" colspan="1" rowspan="1"><p class="c0"><span class="c5">No</span></p></td>
+					</tr>
+					<tr class="c20">
+						<td class="c15" colspan="1" rowspan="1"><p class="c25"><span class="c16 c42">exo-ide-addon - eXo IDE Add-on</span></p></td>
+						<td class="c47" colspan="1" rowspan="1"><p class="c0"><span class="c5">No</span></p></td>
+						<td class="c22" colspan="1" rowspan="1"><p class="c0"><span class="c5">Basic, Standard or Premium</span></p></td>
+						<td class="c35" colspan="1" rowspan="1"><p class="c0"><span class="c5">No</span></p></td>
+					</tr>
+					<tr class="c20">
+						<td class="c15" colspan="1" rowspan="1"><p class="c25"><span class="c16 c42">exo-wai-sample - eXo WAI Sample</span></p></td>
+						<td class="c47" colspan="1" rowspan="1"><p class="c0"><span class="c5">No</span></p></td>
+						<td class="c22" colspan="1" rowspan="1"><p class="c0"><span class="c5">Basic, Standard or Premium</span></p></td>
+						<td class="c35" colspan="1" rowspan="1"><p class="c0"><span class="c5">No</span></p></td>
+					</tr>
+					<tr class="c20">
+						<td class="c15" colspan="1" rowspan="1"><p class="c25"><span class="c16 c42">exo-video-calls - eXo Video Calls</span></p></td>
+						<td class="c47" colspan="1" rowspan="1"><p class="c0"><span class="c21 c42">Yes (*)</span></p></td>
+						<td class="c22" colspan="1" rowspan="1"><p class="c0"><span class="c21 c42">Basic, Standard or Premium</span></p></td>
+						<td class="c35" colspan="1" rowspan="1"><p class="c0"><span class="c21 c42">Yes</span></p></td>
+					</tr>
+				</tbody>
+			</table>
+			
+			<p class="c11 c13"><span class="c2"></span></p>
+			
+			<p class="c25"><span class="c6">(*)</span><span class="c6">eXo Video Calls Add-on is governed and supported under the conditions of 
+				the MSA and the SLA as provided under the same Subscription Service Level as the Subscription Service Level applicable to the 
+				Software. For the avoidance of doubt and as long as the Subscription remains in force, eXo Video Calls Add-on will be deemed a part of 
+				the Software as defined by Section 1.9 of the MSA. </span></p>
+	
+				
 			</div>
 			<div class="bottom clearfix">
 				<form name="tcForm" action="<%= contextPath + "/terms-and-conditions-action"%>" method="post">
