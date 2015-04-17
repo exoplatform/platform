@@ -114,7 +114,7 @@
 				<p class="c15"><span class="c0 c4">1.9 &ldquo;Software&rdquo;</span><span class="c0">&nbsp;means the tested and certified software 
 						  in object code format provided by eXo to Customer, as specified on the Order Form, pursuant to this Agreement as of the Effective Date or a future date, including
 						  any Documentation incorporated therein, and Updates to such software that eXo may provide to Customer from time to time as part of eXo Products Maintenance Program,  
-						  as defined at <span class="c0 c25"><a class="c8" target="_blank" href="http://www.exoplatform.com/maintenance-program">http://www.exoplatform.com/maintenance-program<a/></span>. 
+						  as defined at <span class="c0 c25"><a class="c8" target="_blank" href="http://www.exoplatform.com/maintenance-program">http://www.exoplatform.com/maintenance-program</a></span>. 
 						  For the avoidance of doubt and unless otherwise specified, 
 						  Third-Party Software and/or eXo Add-Ons, that may be available through the Software, (a) do not form a part of the Software, (b) are solely governed by their own licenses  
 						  and/or terms and conditions, (c) are not covered by this Agreement, and (d) may be downloaded and installed by the Customer under its sole responsibility and liability. As a limited 
@@ -527,8 +527,8 @@
 						  due to negligence or misuse or abuse of the Software.&nbsp; Any replacement or error
 						  correction will not extend the original Warranty Period.</span></p>
 
-				<p class="c15"><span class="c0 c4">8.2 Support Services.&nbsp;</span> <span class=
-																										 "c0">The Support Services shall be deemed to be accepted by Customer upon
+				<p class="c15"><span class="c0 c4">8.2 Support Services.&nbsp;</span> <span class="c0">
+						  The Support Services shall be deemed to be accepted by Customer upon
 						  delivery. eXo warrants that the Support Services to be performed hereunder will be
 						  done in a workmanlike manner and shall conform to standards of the industry.
 						  eXo&rsquo;s sole liability (and Customer&rsquo;s sole and exclusive remedy) for any
@@ -552,7 +552,8 @@
 						  THAT THE PRICES OFFERED UNDER THIS AGREEMENT REFLECT THESE NEGOTIATED WARRANTY
 						  PROVISIONS.&nbsp; TO THE EXTENT THAT EXO CANNOT DISCLAIM ANY SUCH WARRANTY AS A MATTER
 						  OF APPLICABLE LAW, THE SCOPE AND DURATION OF SUCH WARRANTY WILL BE THE MINIMUM
-						  PERMITTED UNDER SUCH LAW.&nbsp;</span></p>
+						  PERMITTED UNDER SUCH LAW. TO THE AVOIDANCE OF DOUBT, IN NO EVENT WILL THE APPLICABLE LAW 
+						  HAS ANY EFFECT ON THE LIMITATION OF LIABILITY SET FORTH SECTION 9.</span></p>
 
 				<p class="c15"><span class="c0 c4">9. Limitation of Liability.&nbsp;</span>
 						  <span class="c0">Neither party will be liable to any other party for any indirect,
@@ -565,7 +566,7 @@
 						  WHETHER IN CONTRACT, TORT OR OTHERWISE. NEITHER PARTY&rsquo;S TOTAL CUMULATIVE
 						  LIABILITY FOR ACTUAL DAMAGES ARISING OUT OF OR RELATED TO THIS AGREEMENT WILL EXCEED
 						  THE TOTAL AMOUNT OF SUBSCRIPTION FEES THAT CUSTOMER HAS PAID FOR THE SOFTWARE OR
-						  Support Services GIVING RISE TO SUCH LIABILITY.&nbsp; NEITHER PARTY SHALL BRING
+						  SUPPORT SERVICES GIVING RISE TO SUCH LIABILITY.&nbsp; NEITHER PARTY SHALL BRING
 						  ANY CLAIM BASED ON THE SOFTWARE NOR THE SUPPORT SERVICES PROVIDED HEREUNDER MORE
 						  THAN EIGHTEEN (18) MONTHS AFTER THE CAUSE OF ACTION ACCRUES. NOTWITHSTANDING ANYTHING
 						  TO THE CONTRARY HEREIN, THE LIMITATIONS OF THIS SECTION 9 WILL NOT APPLY TO OR
@@ -581,8 +582,8 @@
 
 				<p class="c15"><span class="c0 c4">10.1 eXo&rsquo;s Obligation</span><span class=
 																								   "c0">.&nbsp; Subject to the remainder of Section 10, eXo will defend Customer against
-						  any third party claim that the Software licensed hereunder infringes any U.S. patents
-						  or U.S. copyrights registered or issued as of the Effective Date (&ldquo;Infringement
+						  any third party claim that the Software licensed hereunder infringes any copyrights 
+						  registered or issued as of the Effective Date (&ldquo;Infringement
 						  Claim&rdquo;) and indemnify Customer from the resulting costs and damages awarded
 						  against Customer to the third party making such Infringement Claim, by a court of
 						  competent jurisdiction or agreed to in settlement ; provided that Customer&nbsp; (i)
@@ -602,7 +603,8 @@
 						  less straight-line depreciation based on a three (3) year useful life.</span></p>
 
 				<p class="c15"><span class="c0 c4">10.3 Exclusions</span><span class="c0">.&nbsp; eXo
-						  shall have no liability if the alleged infringement is based on (1) combination with
+						  shall have no liability after the termination of the Agreement, and if the alleged infringement 
+						  is based on (1) combination with
 						  non-eXo products, (2) use for a purpose or in a manner for which the Software were not
 						  designed, (3) use of any older version of the Software when use of a newer eXo revision
 						  would have avoided the infringement, (4) any modification not made by anyone other than
@@ -616,6 +618,7 @@
 
 				<p class="c15"><span class="c0 c4">11. General</span></p>
 
+				<!--
 				<p class="c15"><span class="c0 c4">11.1 Non-Solicitation.</span> <span class=
 																							   "c0">Customer may not hire, or directly or indirectly solicit or employ, any employee
 						  or contractor of eXo who is or was involved in the development, use or provision of
@@ -623,8 +626,9 @@
 						  period of: (i) two (2) years after the termination of this Agreement, or (ii) during
 						  the time the employee is employed by eXo and for a period of one (1) year thereafter,
 						  whichever is later.</span></p>
+				-->
 
-				<p class="c15"><span class="c0 c4">11.2 &nbsp;Notices.</span><span class="c0">&nbsp;
+				<p class="c15"><span class="c0 c4">11.1 &nbsp;Notices.</span><span class="c0">&nbsp;
 						  All notices under this Agreement must be delivered in writing in person, by courier, or
 						  by certified or registered mail (postage prepaid and return receipt requested) to the
 						  other party at the address set forth in the applicable Order Form and will be effective
@@ -632,7 +636,7 @@
 						  above, whichever occurs sooner.&nbsp; Either party may change its address by giving
 						  written notice of the new address to the other party.</span></p>
 
-				<p class="c15"><span class="c0 c4">11.3 Relationship of the Parties.</span><span class=
+				<p class="c15"><span class="c0 c4">11.2 Relationship of the Parties.</span><span class=
 																										 "c0">&nbsp; The parties hereto are independent contractors.&nbsp; Nothing in this
 						  Agreement shall be deemed to create an agency, employment, partnership, fiduciary or
 						  joint venture relationship between the parties.&nbsp; Neither party has the power or
@@ -640,7 +644,7 @@
 						  otherwise create or assume any obligation on behalf of the other party for any purpose
 						  whatsoever.&nbsp; There are no third party beneficiaries to this
 						  Agreement.<br/></span></p>
-
+				<!--
 				<p class="c15"><span class="c0 c4">11.4 Compliance with Export Control
 						  Laws.</span><span class="c0">&nbsp; Customer acknowledges and agrees that it will
 						  comply with all applicable export and import control laws and regulations of the United
@@ -648,19 +652,16 @@
 						  Customer will not export or re-export Software without all required United States and
 						  foreign government licenses.&nbsp; Customer will defend, indemnify, and hold harmless
 						  eXo from any breach of the foregoing.</span></p>
+				-->
 
-				<p class="c15"><span class="c0 c4">11.5 Assignments.</span><span class="c0">&nbsp; In
-						  the event of a transfer of all or substantially all of Customer&rsquo;s business
-						  assets, whether by merger, sale of assets, sale of stock or otherwise, Customer may
-						  assign or transfer, by operation of law or otherwise, any of its rights or delegate any
+				<p class="c15"><span class="c0 c4">11.3 Assignments.</span><span class="c0">&nbsp; Customer may
+						  assign or transfer any of its rights or delegate any
 						  of its duties under this Agreement (including its licenses with respect to the
-						  Software) to any third party upon prior written notice to eXo, provided the assignee,
-						  transferee, or surviving entity is not a competitor of eXo, in which case Customer must
-						  obtain eXo&rsquo;s prior written approval.&nbsp; Any other attempted assignment or
+						  Software) to any third party unless expressly authorized in writing by eXo.&nbsp; Any other attempted assignment or
 						  transfer by Customer in violation of the foregoing will be void. Subject to the
 						  foregoing, this Agreement will be binding upon and will inure to the benefit of the
 						  parties and their respective successors and assigns.&nbsp;&nbsp;</span></p>
-
+				<!--
 				<p class="c15"><span class="c0 c4">11.6 U.S. Government End Users.</span><span class=
 																									   "c0">&nbsp; The Software and any other software covered under this Agreement are
 						  "commercial items" as that term is defined at 48 C.F.R. 2.101, consisting of
@@ -669,27 +670,20 @@
 						  C.F.R. 227.7202-1 through 227.7202-4, all U.S. Government end users acquire the
 						  Software and any other software and documentation covered under this Agreement with
 						  only those rights set forth therein.</span></p>
+				-->
 
-				<p class="c15"><span class="c0 c4">11.7 Governing Law and Venue.</span><span class=
-																									 "c0">&nbsp; This Agreement will be governed by the laws of the State of California in
-						  the United States of America, as such laws apply to contracts between California
-						  residents entered into and performed entirely within California, without regard to
-						  California&rsquo;s conflict of law principles.&nbsp; The United Nations Convention on
-						  Contracts for the International Sale of Goods and the Uniform Computer Information
-						  Transactions Act (UCITA) do not apply to this Agreement.&nbsp; Any action or proceeding
-						  arising from or relating to this Agreement must be brought exclusively in a federal
-						  court in the Northern District of California or in state court in San Francisco County,
-						  California, and each party irrevocably consents to such personal jurisdiction and
-						  waives all objections thereto.&nbsp; The parties hereto have expressly agreed that this
-						  Agreement will be written and construed in the English language.</span></p>
+				<p class="c15"><span class="c0 c4">11.4 Governing Law and Venue.</span><span class="c0">&nbsp; This Agreement 
+						  will be governed by the laws of France and the Paris Courts will have exclusive jurisdiction 
+						  over any dispute arising out or connected with this Agreement. The parties 
+						  hereto have expressly agreed that this Agreement will be construed in the French language.</span></p>
 
-				<p class="c15"><span class="c0 c4">11.8 Marketing Activities.</span><span class=
+				<p class="c15"><span class="c0 c4">11.5 Marketing Activities.</span><span class=
 																								  "c0">&nbsp; Customer agrees that eXo may from time to time identify Customer (with its
-						  name, logo and/or trademark) as a eXo customer in or on its Web site, sales and
+						  name, logo and/or trademark) as an eXo customer in or on its web site, sales and
 						  marketing materials or press releases, subject to Customer&rsquo;s trademark and logo
 						  usage guidelines provided by Customer.</span></p>
 
-				<p class="c15"><span class="c0 c4">11.9 Remedies.</span><span class="c0">&nbsp; Except
+				<p class="c15"><span class="c0 c4">11.6 Remedies.</span><span class="c0">&nbsp; Except
 						  as specifically provided otherwise in this Agreement, the parties&rsquo; rights and
 						  remedies under this Agreement are cumulative.&nbsp; Customer acknowledges that the
 						  Software contains valuable trade secrets and proprietary information of eXo and that
@@ -701,12 +695,12 @@
 						  and other collection expenses, in addition to any other relief it may
 						  receive.</span></p>
 
-				<p class="c15"><span class="c0 c4">11.10 Waivers.</span><span class="c0">&nbsp; All
+				<p class="c15"><span class="c0 c4">11.7 Waivers.</span><span class="c0">&nbsp; All
 						  waivers must be in writing.&nbsp; Any waiver or failure to enforce any provision of
 						  this Agreement on one occasion will not be deemed a waiver of any other provision or of
 						  such provision on any other occasion.</span></p>
 
-				<p class="c15"><span class="c0 c4">11.11 Severability.</span><span class="c0">&nbsp; If
+				<p class="c15"><span class="c0 c4">11.8 Severability.</span><span class="c0">&nbsp; If
 						  any provision of this Agreement is adjudicated to be unenforceable, such provision will
 						  be changed and interpreted to accomplish the objectives of such provision to the
 						  greatest extent possible under applicable law and the remaining provisions will
@@ -714,7 +708,7 @@
 						  foregoing, Customer agrees that Section 9 will remain in effect notwithstanding the
 						  unenforceability of any provision in Section 8.3.</span></p>
 
-				<p class="c15"><span class="c0 c4">11.12 Force Majeure.</span><span class="c0">&nbsp;
+				<p class="c15"><span class="c0 c4">11.9 Force Majeure.</span><span class="c0">&nbsp;
 						  Except for Customer's obligations to pay eXo hereunder, neither party shall be liable
 						  to the other party for any failure or delay in performance caused by reasons beyond its
 						  reasonable control to the extent the occurrence is caused by fires, floods, epidemics,
@@ -723,7 +717,7 @@
 						  wars, terrorism, riots, civil unrest, sabotage, theft or other criminal acts of third
 						  parties.</span></p>
 
-				<p class="c15"><span class="c0 c4">11.13 Entire Agreement.</span><span class=
+				<p class="c15"><span class="c0 c4">11.10 Entire Agreement.</span><span class=
 																							   "c0">&nbsp; This Agreement (including each Order Form, and attachment thereto)
 						  constitutes the entire agreement between the parties regarding the subject hereof and
 						  supersedes all prior or contemporaneous agreements, understandings and communications,
@@ -733,8 +727,8 @@
 						  on either party&rsquo;s form documents, including any purchase order or click-through
 						  agreement contained on a Web site and any conflicting terms in any
 					&ldquo;click-to-accept&rdquo; end user license agreement that may be embedded within
-						  the Software, except for terms regarding Open Source Software which are incorporated
-						  herein by reference under Section 3.4 (&ldquo;Open Source Software&rdquo;).</span></p>
+						  the Software, except for terms regarding Third-Party Software which are incorporated
+						  herein by reference under Section 3.4 (&ldquo;Third-Party Software&rdquo;).</span></p>
 
 				<p class="c23 c6"></p>
 
@@ -762,8 +756,8 @@
 
 				<p class="c1"><span class="c0">For purposes of the Support Services described in
 						  this Appendix, the term &ldquo;Installed System&rdquo; means a group of CORE Processors
-						  (e.g., up to 64 or up to 256) for which Customer is receiving Subscription
-						  Services.</span></p>
+						  (e.g., up to 64 or up to 256) or a number of Registered Users (e.g, up to 25 or up to 250) 
+						  for which Customer is receiving Support Services.</span></p>
 
 				<p class="c1"><span class="c0">1.2 Support Services Start Date</span></p>
 
@@ -790,7 +784,7 @@
 					<tbody>
 					<tr class="c16">
 						<td class="c18">
-							<p class="c7"><span class="c0 c4">&nbsp;eXo Platform Express Edition</span></p>
+							<p class="c7"><span class="c0 c4">&nbsp;Enterprise Basic Subscription</span></p>
 
 							<p class="c7 c6"></p>
 						</td>
