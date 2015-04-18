@@ -604,7 +604,6 @@ public class LoginHistoryServiceImpl implements LoginHistoryService, Startable {
         StringBuilder sb = new StringBuilder();
         sb.append("SELECT * FROM exo:LoginHisSvc_userProfile WHERE")
         .append(" exo:LoginHisSvc_lastLogin >= " + Long.toString(fromTime))
-        .append(" AND exo:LoginHisSvc_beforeLastLogin >=" + Long.toString(fromTime))
         .append(" ORDER BY exo:LoginHisSvc_lastLogin DESC");
         QueryImpl query = (QueryImpl) queryManager.createQuery(sb.toString(), Query.SQL);
         QueryResult result = query.execute();
