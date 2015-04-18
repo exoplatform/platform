@@ -1125,116 +1125,101 @@
 				<!--table cellpadding="0" cellspacing="0" class="c53"-->
 				<table cellpadding="0" cellspacing="0" class="c26">
 					<tbody>
-					    <!--
-						<tr class="c20">
-							<td class="c31" colspan="4" rowspan="1">
-								<p class="c60 c48 c13"><span class="c37 c58"></span></p>
-								<p class="c60 c48"><span class="c58 c37">Support Services Summary</span></p>
-								<p class="c60 c48 c13"><span class="c58 c37"></span></p>
-							</td>
-						</tr>
-						-->
 						<tr class="c16">
-							<td class="c5" colspan="1" rowspan="1"><p class="c9"><span class="c19 c3 c11">Subscription Plan</span></p></td>
-							<td class="c32 c41" colspan="1" rowspan="1"><p class="c9"><span class="c19 c3 c11">Basic</span></p></td>
-							<td class="c32 c41" colspan="1" rowspan="1"><p class="c9"><span class="c19 c3 c11">Standard</span></p></td>
-							<td class="c32 c41" colspan="1" rowspan="1"><p class="c9"><span class="c19 c3 c11">Premium</span></p></td>
+							<td class="c10"><p class="c9"><span class="c0 c4">Subscription Plan</span></p></td>
+							<td class="c2"><p class="c7"><span class="c0 c4">Basic</span></p></td>
+							<td class="c2"><p class="c7"><span class="c0 c4">Standard</span></p></td>
+							<td class="c2"><p class="c7"><span class="c0 c4">Premium</span></p></td>
 						</tr>
 						<tr class="c16">
-							<td class="c5" colspan="1" rowspan="1"><p class="c9"><span class="c19 c3 c11">Level 1 Support </span></p></td>
-							<td class="c32 c41" colspan="1" rowspan="1"><p class="c9"><span class="c19 c3 c11"></span></p></td>
-							<td class="c32 c41" colspan="1" rowspan="1"><p class="c9"><span class="c19 c3 c11"></span></p></td>
-							<td class="c32 c41" colspan="1" rowspan="1"><p class="c9"><span class="c19 c3 c11"></span></p></td>
+							<td class="c10"><p class="c9"><span class="c0 c4">Level 1 Support </span></p></td>
+							<td class="c2"><p class="c7"><span class="c0"></span></p></td>
+							<td class="c2"><p class="c7"><span class="c0"></span></p></td>
+							<td class="c2"><p class="c7"><span class="c0"></span></p></td>
 						</tr>
 						<tr class="c16">
-							<td class="c5" colspan="1" rowspan="1"><p class="c9"><span class="c19 c3 c11">Ticket Limit</span></p></td>
-							<td class="c32" colspan="1" rowspan="1"><p class="c9"><span class="c19 c3 c11">Limited</span></p></td>
-							<td class="c32" colspan="1" rowspan="1"><p class="c9"><span class="c19 c3 c11">Unlimited</span></p></td>
-							<td class="c32" colspan="1" rowspan="1"><p class="c9"><span class="c19 c3 c11">Unlimited</span></p></td>
+							<td class="c10"><p class="c9"><span class="c0 c4">Ticket Limit</span></p></td>
+							<td class="c2"><p class="c7"><span class="c0">Limited</span></p></td>
+							<td class="c2"><p class="c7"><span class="c0">Unlimited</span></p></td>
+							<td class="c2"><p class="c7"><span class="c0">Unlimited</span></p></td>
 						</tr>
 						<tr class="c16">
-							<td class="c5" colspan="1" rowspan="1"><p class="c9"><span class="c19 c3 c11">Usage information</span></p></td>
-							<td class="c32" colspan="1" rowspan="1"><p class="c9"><span class="c19 c3 c11">V</span></p></td>
-							<td class="c32" colspan="1" rowspan="1"><p class="c9"><span class="c19 c3 c11">V</span></p></td>
-							<td class="c32" colspan="1" rowspan="1"><p class="c9"><span class="c19 c3 c11">V</span></p></td>
+							<td class="c10"><p class="c9"><span class="c0 c4">Usage information</span></p></td>
+							<td class="c2"><p class="c7"><span class="c0">V</span></p></td>
+							<td class="c2"><p class="c7"><span class="c0">V</span></p></td>
+							<td class="c2"><p class="c7"><span class="c0">V</span></p></td>
 						</tr>
-						<tr class="c20">
-							<td class="c31 c28" colspan="1" rowspan="1"><p class="c0"><span class="c16 c6">Installation instructions</span></p></td>
-							<td class="c18" colspan="1" rowspan="1"><p class="c0"><span class="c21 c6">V</span></p></td>
-							<td class="c8" colspan="1" rowspan="1"><p class="c0"><span class="c21 c6">V</span></p></td>
-							<td class="c27" colspan="1" rowspan="1"><p class="c0"><span class="c21 c6">V</span></p></td>
-						</tr><tr class="c20">
-							<td class="c31" colspan="1" rowspan="1"><p class="c0 c13"><span class="c16 c6"></span></p></td>
-							<td class="c18" colspan="1" rowspan="1"><p class="c0 c13"><span class="c21 c6"></span></p></td>
-							<td class="c8" colspan="1" rowspan="1"><p class="c0 c13"><span class="c21 c6"></span></p></td>
-							<td class="c27" colspan="1" rowspan="1"><p class="c0 c13"><span class="c21 c6"></span></p></td>
+						<tr class="c16">
+							<td class="c10"><p class="c9"><span class="c0 c4">Installation instructions</span></p></td>
+							<td class="c2"><p class="c7"><span class="c0">V</span></p></td>
+							<td class="c2"><p class="c7"><span class="c0">V</span></p></td>
+							<td class="c2"><p class="c7"><span class="c0">V</span></p></td>
+						<tr class="c16">
+							<td class="c10"><p class="c9"><span class="c0 c4">Level 2 Support</span></p></td>
+							<td class="c2"><p class="c7"><span class="c0"></span></p></td>
+							<td class="c2"><p class="c7"><span class="c0"></span></p></td>
+							<td class="c2"><p class="c7"><span class="c0"></span></p></td>
 						</tr>
-						<tr class="c20">
-							<td class="c31 c28" colspan="1" rowspan="1"><p class="c0"><span class="c30 c28">Level 2 Support</span></p></td>
-							<td class="c18 c28" colspan="1" rowspan="1"><p class="c0 c13"><span class="c21 c6"></span></p></td>
-							<td class="c8 c28" colspan="1" rowspan="1"><p class="c0 c13"><span class="c21 c6"></span></p></td>
-							<td class="c27 c28" colspan="1" rowspan="1"><p class="c0 c13"><span class="c21 c6"></span></p></td>
+						<tr class="c16">
+							<td class="c10"><p class="c9"><span class="c0 c4">Ticket Limit</span></p></td>
+							<td class="c2"><p class="c7"><span class="c0">Limited</span></p></td>
+							<td class="c2"><p class="c7"><span class="c0">Unlimited</span></p></td>
+							<td class="c2"><p class="c7"><span class="c0">Unlimited</span></p></td>
 						</tr>
-						<tr class="c20">
-							<td class="c31 c28" colspan="1" rowspan="1"><p class="c0"><span class="c16 c6">Ticket Limit</span></p></td>
-							<td class="c18" colspan="1" rowspan="1"><p class="c0"><span class="c21 c6">Limited</span></p></td>
-							<td class="c8" colspan="1" rowspan="1"><p class="c0"><span class="c21 c6">Unlimited</span></p></td>
-							<td class="c27" colspan="1" rowspan="1"><p class="c0"><span class="c21 c6">Unlimited</span></p></td>
+						<tr class="c16">
+							<td class="c10"><p class="c9"><span class="c0 c4">Troubleshooting</span></p></td>
+							<td class="c2"><p class="c7"><span class="c0">V</span></p></td>
+							<td class="c2"><p class="c7"><span class="c0">V</span></p></td>
+							<td class="c2"><p class="c7"><span class="c0">V</span></p></td>
 						</tr>
-						<tr class="c20">
-							<td class="c31 c28" colspan="1" rowspan="1"><p class="c0"><span class="c16 c6">Troubleshooting</span></p></td>
-							<td class="c18" colspan="1" rowspan="1"><p class="c0"><span class="c21 c6">V</span></p></td>
-							<td class="c8" colspan="1" rowspan="1"><p class="c0"><span class="c21 c6">V</span></p></td>
-							<td class="c27" colspan="1" rowspan="1"><p class="c0"><span class="c21 c6">V</span></p></td>
+						<tr class="c16">
+							<td class="c10"><p class="c9"><span class="c0 c4">Issue management</span></p></td>
+							<td class="c2"><p class="c7"><span class="c0">V</span></p></td>
+							<td class="c2"><p class="c7"><span class="c0">V</span></p></td>
+							<td class="c2"><p class="c7"><span class="c0">V</span></p></td>
 						</tr>
-						<tr class="c20">
-							<td class="c31 c28" colspan="1" rowspan="1"><p class="c0"><span class="c16 c6">Issue management</span></p></td>
-							<td class="c18" colspan="1" rowspan="1"><p class="c0"><span class="c21 c6">V</span></p></td>
-							<td class="c8" colspan="1" rowspan="1"><p class="c0"><span class="c21 c6">V</span></p></td>
-							<td class="c27" colspan="1" rowspan="1"><p class="c0"><span class="c21 c6">V</span></p></td>
+						<tr class="c16">
+							<td class="c10"><p class="c9"><span class="c0 c4">Workarounds and procedures</span></p></td>
+							<td class="c2"><p class="c7"><span class="c0">V</span></p></td>
+							<td class="c2"><p class="c7"><span class="c0">V</span></p></td>
+							<td class="c2"><p class="c7"><span class="c0">V</span></p></td>
 						</tr>
-						<tr class="c20">
-							<td class="c31 c28" colspan="1" rowspan="1"><p class="c0"><span class="c16 c6">Workarounds and procedures</span></p></td>
-							<td class="c18" colspan="1" rowspan="1"><p class="c0"><span class="c21 c6">V</span></p></td>
-							<td class="c8" colspan="1" rowspan="1"><p class="c0"><span class="c21 c6">V</span></p></td>
-							<td class="c27" colspan="1" rowspan="1"><p class="c0"><span class="c21 c6">V</span></p></td>
+						<tr class="c16">
+							<td class="c10"><p class="c9"><span class="c0 c4">Ongoing SLA</span></p></td>
+							<td class="c2"><p class="c7"><span class="c0"></span></p></td>
+							<td class="c2"><p class="c7"><span class="c0">V</span></p></td>
+							<td class="c2"><p class="c7"><span class="c0">V</span></p></td>
 						</tr>
-						<tr class="c20">
-							<td class="c31 c28" colspan="1" rowspan="1"><p class="c0"><span class="c16 c6">Ongoing SLA</span></p></td>
-							<td class="c18" colspan="1" rowspan="1"><p class="c0 c13"><span class="c21 c6"></span></p></td>
-							<td class="c8" colspan="1" rowspan="1"><p class="c0"><span class="c21 c6">V</span></p></td>
-							<td class="c27" colspan="1" rowspan="1"><p class="c0"><span class="c21 c6">V</span></p></td>
+						<tr class="c16">
+							<td class="c10"><p class="c9"><span class="c0 c4">Level 3 Support</span></p></td>
+							<td class="c2"><p class="c7"><span class="c0"></span></p></td>
+							<td class="c2"><p class="c7"><span class="c0"></span></p></td>
+							<td class="c2"><p class="c7"><span class="c0"></span></p></td>
 						</tr>
-						<tr class="c20">
-							<td class="c31 c28" colspan="1" rowspan="1"><p class="c0"><span class="c28 c30">Level 3 Support</span></p></td>
-							<td class="c18 c28" colspan="1" rowspan="1"><p class="c0 c13"><span class="c21 c6"></span></p></td>
-							<td class="c8 c28" colspan="1" rowspan="1"><p class="c0 c13"><span class="c6 c21"></span></p></td>
-							<td class="c27 c28" colspan="1" rowspan="1"><p class="c0 c13"><span class="c21 c6"></span></p></td>
+						<tr class="c16">
+							<td class="c10"><p class="c9"><span class="c0 c4">Maintenance versions</span></p></td>
+							<td class="c2"><p class="c7"><span class="c0">V</span></p></td>
+							<td class="c2"><p class="c7"><span class="c0">V</span></p></td>
+							<td class="c2"><p class="c7"><span class="c0">V</span></p></td>
 						</tr>
-						<tr class="c20">
-							<td class="c31" colspan="1" rowspan="1"><p class="c0"><span class="c16 c6">Maintenance versions</span></p></td>
-							<td class="c18" colspan="1" rowspan="1"><p class="c0"><span class="c21 c6">V</span></p></td>
-							<td class="c8" colspan="1" rowspan="1"><p class="c0"><span class="c21 c6">V</span></p></td>
-							<td class="c27" colspan="1" rowspan="1"><p class="c0"><span class="c21 c6">V</span></p></td>
+						<tr class="c16">
+							<td class="c10"><p class="c9"><span class="c0 c4">Cumulative patches versions</span></p></td>
+							<td class="c2"><p class="c7"><span class="c0"></span></p></td>
+							<td class="c2"><p class="c7"><span class="c0">V</span></p></td>
+							<td class="c2"><p class="c7"><span class="c0">V</span></p></td>
 						</tr>
-						<tr class="c20">
-							<td class="c31" colspan="1" rowspan="1"><p class="c0"><span class="c6 c16">Cumulative patches versions</span></p></td>
-							<td class="c18" colspan="1" rowspan="1"><p class="c0 c13"><span class="c21 c6"></span></p></td>
-							<td class="c8" colspan="1" rowspan="1"><p class="c0"><span class="c21 c6">V</span></p></td>
-							<td class="c27" colspan="1" rowspan="1"><p class="c0"><span class="c21 c6">V</span></p></td>
-						</tr>
-						<tr class="c20">
-							<td class="c31" colspan="1" rowspan="1"><p class="c0"><span class="c16 c6">One-off patches</span></p></td>
-							<td class="c18" colspan="1" rowspan="1"><p class="c0 c13"><span class="c21 c6"></span></p></td>
-							<td class="c8" colspan="1" rowspan="1"><p class="c0"><span class="c21 c6">V</span></p></td>
-							<td class="c27" colspan="1" rowspan="1"><p class="c0"><span class="c21 c6">V</span></p></td>
+						<tr class="c16">
+							<td class="c10"><p class="c9"><span class="c0 c4">One-off patches</span></p></td>
+							<td class="c2"><p class="c7"><span class="c0"></span></p></td>
+							<td class="c2"><p class="c7"><span class="c0">V</span></p></td>
+							<td class="c2"><p class="c7"><span class="c0">V</span></p></td>
 						</tr>
 					</tbody>
 				</table>
 				
-				<p class="c11 c13"><span class="c6"></span></p>
+				<!--p class="c12"><span class="c0"></span></p-->
 				
-				<p class="c11"><span class="c6 c46">For more details </span><span class="c0 c25"><a class="c8" target="_blank" href="http://www.exoplatform.com/sla">http://www.exoplatform.com/sla</a></span></p>
+				<p class="c12"><span class="c0">For more details </span><span class="c0 c25"><a class="c8" target="_blank" href="http://www.exoplatform.com/sla">http://www.exoplatform.com/sla</a></span></p>
 				
 				<p class="c12 c6"></p>
 
@@ -1251,89 +1236,42 @@
 
 				<p class="c12"><span class="c0 c4">Table: Support Guidelines</span></p>
 
-				<!--<p class="c11"><span class="c2">Table: Support Guidelines</span></p>-->
-
 				<p class="c6 c12"></p>
 
 				<table cellpadding="0" cellspacing="0" class="c26">
 					<tbody>
 						<tr class="c16">
-							<td class="c41" colspan="1" rowspan="1"><p class="c9"><span class="c19 c3 c11">Subscription Plan</span></p></td>
-							<td class="c71" colspan="1" rowspan="1"><p class="c11"><span class="c16 c19">Basic</span></p></td>
-							<td class="c38" colspan="1" rowspan="1"><p class="c0"><span class="c5 c37">Standard</span></p></td>
-							<td class="c34" colspan="1" rowspan="1"><p class="c0"><span class="c5 c37">Premium</span></p></td>
+							<td class="c10"><p class="c9"><span class="c0 c4">Subscription Plan</span></p></td>
+							<td class="c2"><p class="c7"><span class="c0 c4">Basic</span></p></td>
+							<td class="c2"><p class="c7"><span class="c0 c4">Standard</span></p></td>
+							<td class="c2"><p class="c7"><span class="c0 c4">Premium</span></p></td>
 						</tr>
-						<tr class="c20">
-							<td class="c41" colspan="1" rowspan="1"><p class="c25"><span class="c5 c37">Hours of Coverage</span></p></td>
-							<td class="c43" colspan="1" rowspan="1"><p class="c0"><span class="c5">Standard Business Hours</span></p></td>
-							<td class="c38" colspan="1" rowspan="1"><p class="c0"><span class="c5">Standard Business Hours</span></p></td>
-							<td class="c34" colspan="1" rowspan="1"><p class="c0"><span class="c5">24x7</span></p></td>
+						<tr class="c16">
+							<td class="c10"><p class="c9"><span class="c0 c4">Hours of Coverage</span></p></td>
+							<td class="c2"><p class="c7"><span class="c0">Standard Business Hours</span></p></td>
+							<td class="c2"><p class="c7"><span class="c0">Standard Business Hours</span></p></td>
+							<td class="c2"><p class="c7"><span class="c0">24x7</span></p></td>
 						</tr>
-						<tr class="c20">
-							<td class="c41" colspan="1" rowspan="1"><p class="c25"><span class="c5 c37">Support Channel</span></p></td>
-							<td class="c43" colspan="1" rowspan="1"><p class="c0"><span class="c5">Web</span></p></td>
-							<td class="c38" colspan="1" rowspan="1"><p class="c0"><span class="c5">Web</span></p></td>
-							<td class="c34" colspan="1" rowspan="1"><p class="c0"><span class="c5">Web and Phone</span></p></td>
+						<tr class="c16">
+							<td class="c10"><p class="c9"><span class="c0 c4">Support Channel</span></p></td>
+							<td class="c2"><p class="c7"><span class="c0">Web</span></p></td>
+							<td class="c2"><p class="c7"><span class="c0">Web</span></p></td>
+							<td class="c2"><p class="c7"><span class="c0">Web and Phone</span></p></td>
 						</tr>
-						<tr class="c29">
-							<td class="c41" colspan="1" rowspan="1"><p class="c25"><span class="c5 c37">Tickets</span></p></td>
-							<td class="c71" colspan="1" rowspan="1"><p class="c0"><span class="c3">Limited</span></p></td>
-							<td class="c38" colspan="1" rowspan="1"><p class="c0"><span class="c5">Unlimited</span></p></td>
-							<td class="c34" colspan="1" rowspan="1"><p class="c0"><span class="c5">Unlimited</span></p></td>
+						<tr class="c16">
+							<td class="c10"><p class="c9"><span class="c0 c4">Tickets</span></p></td>
+							<td class="c2"><p class="c7"><span class="c0">Limited</span></p></td>
+							<td class="c2"><p class="c7"><span class="c0">Unlimited</span></p></td>
+							<td class="c2"><p class="c7"><span class="c0">Unlimited</span></p></td>
 						</tr>
-						<tr class="c20">
-							<td class="c41" colspan="1" rowspan="1"><p class="c25"><span class="c5 c37">Number of Named Contacts</span></p></td>
-							<td class="c71" colspan="1" rowspan="1"><p class="c0"><span class="c3">1</span></p></td>
-							<td class="c38" colspan="1" rowspan="1"><p class="c0"><span class="c5">3</span></p></td>
-							<td class="c34" colspan="1" rowspan="1"><p class="c0"><span class="c5">5</span></p></td>
-						</tr>
-						<tr class="c20">
-							<td class="c41" colspan="1" rowspan="1"><p class="c0 c13"><span class="c16 c19"></span></p></td>
-							<td class="c43" colspan="1" rowspan="1"><p class="c0 c13"><span class="c16 c19"></span></p></td>
-							<td class="c38" colspan="1" rowspan="1"><p class="c0 c13"><span class="c16 c19"></span></p></td>
-							<td class="c34" colspan="1" rowspan="1"><p class="c0 c13"><span class="c16 c19"></span></p></td>
-						</tr>
-						<tr class="c20">
-							<td class="c41" colspan="1" rowspan="1"><p class="c25"><span class="c5 c37">Target Response Times and Guidelines:</span></p></td>
-							<td class="c81" colspan="1" rowspan="1"><p class="c0 c13"><span class="c16 c19"></span></p></td>
-							<td class="c38" colspan="1" rowspan="1"><p class="c0 c13"><span class="c16 c19"></span></p></td>
-							<td class="c34" colspan="1" rowspan="1"><p class="c0 c13"><span class="c16 c19"></span></p></td>
-						</tr>
-						<tr class="c20">
-							<td class="c41" colspan="1" rowspan="1"><p class="c25"><span class="c5 c37">Severity 1 (Blocker): </span>
-								<span class="c5">An Error which severely impacts Customer&rsquo;s production environment (such as loss of production data) or in which 
-									Customer&rsquo;s production systems are not functioning. 
-									The situation halts Customer&rsquo;s business operations, and no procedural work around exists.</span></p></td>
-							<td class="c71" colspan="1" rowspan="1"><p class="c0"><span class="c3">x</span></p></td>
-							<td class="c38" colspan="1" rowspan="1"><p class="c0"><span class="c5">1 Business Hour</span></p></td>
-							<td class="c34" colspan="1" rowspan="1"><p class="c0"><span class="c5">1 hour on a 24x7 basis</span></p></td>
-						</tr>
-						<tr class="c20">
-							<td class="c41" colspan="1" rowspan="1"><p class="c25"><span class="c5 c37">Severity 2 (Major): </span>
-								<span class="c5">An Error where Customer&rsquo;s system is functioning but in a severely reduced capacity. The situation is causing a 
-									high impact to portions of Customer&rsquo;s business operations, and no procedural work around exists.</span></p></td>
-							<td class="c71" colspan="1" rowspan="1"><p class="c0"><span class="c3">x</span></p></td>
-							<td class="c38" colspan="1" rowspan="1"><p class="c0"><span class="c5">4 Business Hours</span></p></td>
-							<td class="c34" colspan="1" rowspan="1"><p class="c0"><span class="c5">4 Hours on a 24x7 basis</span></p></td>
-						</tr>
-						<tr class="c20">
-							<td class="c41" colspan="1" rowspan="1"><p class="c25"><span class="c5 c37">Severity 3 (Minor): </span>
-								<span class="c5">An Error which involves partial, non-critical functionality loss of a production or development system. There is a 
-									medium-to-low impact on Customer&rsquo;s business, but Customer&rsquo;s business continues to function, including by using a procedural work around.</span></p></td>
-							<td class="c43" colspan="1" rowspan="1"><p class="c0"><span class="c5">2 Business Days</span></p></td>
-							<td class="c38" colspan="1" rowspan="1"><p class="c0"><span class="c5">2 Business Days</span></p></td>
-							<td class="c34" colspan="1" rowspan="1"><p class="c0"><span class="c5">1 Business Day</span></p></td>
-						</tr>
-						<tr class="c20">
-							<td class="c41" colspan="1" rowspan="1"><p class="c25"><span class="c5 c37">Severity 4 (None/Info): </span>
-								<span class="c5">A general usage question, reporting of a documentation error or recommendation for a future product enhancement or modification. 
-								There is low-to-no impact on Customer&rsquo;s business or the performance or functionality of Customer&rsquo;s system.</span></p></td>
-							<td class="c43" colspan="1" rowspan="1"><p class="c0"><span class="c5">3 Business Days</span></p></td>
-							<td class="c38" colspan="1" rowspan="1"><p class="c0"><span class="c5">3 Business Days</span></p></td>
-							<td class="c34" colspan="1" rowspan="1"><p class="c0"><span class="c5">2 Business Days</span></p></td>
+						<tr class="c16">
+							<td class="c10"><p class="c9"><span class="c0 c4">Number of Named Contacts</span></p></td>
+							<td class="c2"><p class="c7"><span class="c0">1</span></p></td>
+							<td class="c2"><p class="c7"><span class="c0">3</span></p></td>
+							<td class="c2"><p class="c7"><span class="c0">5</span></p></td>
 						</tr>
 					</tbody>
-				</table>
+				</table>						
 
                 <p class="c6 c12"></p>
 
@@ -1341,7 +1279,12 @@
 
                 <table cellpadding="0" cellspacing="0" class="c26">
                     <tbody>
-
+						<tr class="c16">
+							<td class="c10"><p class="c9"><span class="c0 c4">Subscription Plan</span></p></td>
+							<td class="c2"><p class="c7"><span class="c0 c4">Basic</span></p></td>
+							<td class="c2"><p class="c7"><span class="c0 c4">Standard</span></p></td>
+							<td class="c2"><p class="c7"><span class="c0 c4">Premium</span></p></td>
+						</tr>		                    
 					<tr class="c16">
 						<td class="c10">
 							<p class="c9"><span class="c0 c4">Severity 1 (Blocker):</span><span class=
@@ -1352,10 +1295,14 @@
 						</td>
 
 						<td class="c2">
-							<p class="c7"><span class="c0">4 Business Hours</span></p>
+							<p class="c7"><span class="c0">x</span></p>
 						</td>
 
-						<td class="c13">
+						<td class="c2">
+							<p class="c7"><span class="c0">1 Business Hour</span></p>
+						</td>
+
+						<td class="c2">
 							<p class="c7"><span class="c0">1 hour on a 24x7 basis</span></p>
 						</td>
 					</tr>
@@ -1370,11 +1317,15 @@
 						</td>
 
 						<td class="c2">
-							<p class="c7"><span class="c0">1 Business Day</span></p>
+							<p class="c7"><span class="c0">x</span></p>
+						</td>
+
+						<td class="c2">
+							<p class="c7"><span class="c0">4 Business Hours</span></p>
 						</td>
 
 						<td class="c13">
-							<p class="c7"><span class="c0">4 Business Hours</span></p>
+							<p class="c7"><span class="c0">4 Hours on a 24x7 basis</span></p>
 						</td>
 					</tr>
 
@@ -1392,8 +1343,13 @@
 						</td>
 
 						<td class="c13">
-							<p class="c7"><span class="c0">2 Business Day</span></p>
+							<p class="c7"><span class="c0">2 Business Days</span></p>
 						</td>
+
+						<td class="c13">
+							<p class="c7"><span class="c0">1 Business Day</span></p>
+						</td>
+						
 					</tr>
 
 					<tr class="c16">
@@ -1412,13 +1368,17 @@
 						<td class="c13">
 							<p class="c7"><span class="c0">3 Business Days</span></p>
 						</td>
+
+						<td class="c13">
+							<p class="c7"><span class="c0">2 Business Days</span></p>
+						</td>
 					</tr>
 					</tbody>
 				</table>
 
 				<p class="c12 c6"></p>
 
-				<p class="c11"><span class="c6 c37">3.7 Support Processes</span></p>
+				<p class="c12"><span class="c0">3.7 Support Processes</span></p>
 
 				<p class="c12"><span class="c0">Support Processes are available at
 						  <span class="c0 c25"><a class="c8" target="_blank" href="http://www.exoplatform.com/support-operations">http://www.exoplatform.com/support-operations</a><span class="c6">.</span></p>
@@ -1435,21 +1395,17 @@
 						  released. Maintenance benefits are ruled by the eXo maintenance program visible at
 						  <span class="c0 c25"><a class="c8" target="_blank" href="http://www.exoplatform.com/maintenance-program">http://www.exoplatform.com/maintenance-program</a></span><span class="c6">.</span></p>
 
-				<p class="c1 c6"></p>
-
-				<p class="c23 c6"></p>
-
-				<p class="c6 c23"></p>
+				<p class="c12 c6"></p>
 
 				<p class="c7"><span class="c0 c4">Appendix 2: Additional Services</span></p>
 
 				<p class="c9 c6 c14"></p>
 				
-				<p class="c9 c6 c14"><span class="c6">eXo provides services exclusively to customers covered by a 
-					valid enterprise subscription plan. Details as to the services offered can be found here </span>
-					<span class="c0 c25"><a class="c8" target="_blank" href="http://www.exoplatform.com/en/services/overview">http://www.exoplatform.com/company/en/services/overview</a></span><span class="c6">.</span></p>
+				<p class="c12"><span class="c0">eXo provides services exclusively to customers covered by a 
+					valid enterprise subscription plan. Details as to the services offered can be found here 
+					<span class="c0 c25"><a class="c8" target="_blank" href="http://www.exoplatform.com/en/services/overview">http://www.exoplatform.com/company/en/services/overview</a></span><span class="c6">.</span></span></p>
 
-				<p class="c9 c6 c14"><span class="c6">Terms and conditions governing eXo&rsquo;s services delivery processes are stated below. </span></p>
+				<p class="c12"><span class="c0">Terms and conditions governing eXo&rsquo;s services delivery processes are stated below. </span></p>
 
 				<ol class="c21" start="1">
 					<li class="c1 c27 c29"><span class="c0 c4">eXo Consulting Services</span></li>
@@ -1557,11 +1513,6 @@
 					<li class="c9 c11"><span class="c0">&ldquo;Training Services&rdquo; means eXo&rsquo;s
 							training courses, including eXo&rsquo;s publicly available courses and courses
 							provided at a site designated by the Customer</span></li>
-				</ol>
-
-				<p class="c9"><span class="c0">&nbsp;</span></p>
-
-				<ol class="c19" start="6">
 					<li class="c9 c11"><span class="c0">The Training Services do not include any
 							Support Services.</span></li>
 				</ol>
@@ -1712,13 +1663,9 @@
 						  and delivery dates according to the technical offer appendix provided by eXo with such
 						  Order Form. &nbsp;</span></p>
 
-				<p class="c9 c6 c14"></p>
-
 				<p class="c9 c14"><span class="c0">eXo and the Customer agree to scope the amount and
 						  nature of Specific Development Services needed in accordance with the involved
 						  project.</span></p>
-
-				<p class="c9 c6 c14"></p>
 
 				<p class="c9 c14"><span class="c0">Specific Development Services are generally tied to
 						  a technical and organizational offer which will:</span></p>
@@ -1732,13 +1679,9 @@
 							warrant the result.</span></li>
 				</ol>
 
-				<p class="c9 c6 c14 c27"></p>
-
 				<p class="c9 c14 c20 c31"><span class="c0">Such an offer will be attached to an Order
 						  Form and are subject to changes emitted through a Change Order, as set forth
 						  below.</span></p>
-
-				<p class="c9 c6 c14 c20 c31"></p>
 
 				<p class="c9 c14 c20 c31"><span class="c0 c4">Change Order.</span> <span class=
 																								 "c0">&nbsp;The parties may, upon mutual agreement in a written order, at any time, make
@@ -1747,8 +1690,6 @@
 						  an increase or decrease in the time required for performance of any part of the
 						  Specific Development Services, the parties will make an equitable adjustment in
 						  delivery schedule and shall modify applicable Order Form accordingly.</span></p>
-
-				<p class="c9 c6 c14 c20 c31"></p>
 
 				<p class="c9 c6 c14"></p>
 
@@ -1771,67 +1712,72 @@
 						  the scope of the delivery and shall be provided or ordered separately by the
 						  Customer.</span></p>
 
-				<p class="c1 c6"></p>
+				<!--p class="c1 c6"></p-->
 				
-			<p class="c0"><span class="c2">Appendix 3: eXo Official Add-ons</span></p>
-			<p class="c11 c13"><span class="c2"></span></p>
+			<p class="c7"><span class="c0 c4">Appendix 3: eXo Official Add-ons</span></p>
 
 			<table cellpadding="0" cellspacing="0" class="c26">
 				<tbody>
-					<tr class="c20">
-						<td class="c15" colspan="1" rowspan="1"><p class="c0"><span class="c42 c37">Add-on name</span></p></td>
-						<td class="c79" colspan="1" rowspan="1"><p class="c0"><span class="c16 c42">Introduces Specific Terms</span></p></td>
-						<td class="c22" colspan="1" rowspan="1"><p class="c0"><span class="c16 c42">Requires an active Enterprise Subscription</span></p></td>
-						<td class="c35" colspan="1" rowspan="1"><p class="c0"><span class="c5 c37">Requires an additional subscription fee</span></p></td>
+					<tr class="c16">
+						<td class="c10"><p class="c0"><span class="c0 c4">Add-on name</span></p></td>
+						<td class="c2"><p class="c7"><span class="c0 c4">Introduces Specific Terms</span></p></td>
+						<td class="c2"><p class="c7"><span class="c0 c4">Requires an active Enterprise Subscription</span></p></td>
+						<td class="c2"><p class="c7"><span class="c0 c4">Requires an additional subscription fee</span></p></td>
 					</tr>
-					<tr class="c20">
-						<td class="c15" colspan="1" rowspan="1"><p class="c25"><span class="c5 c37">exo-acme-sample - eXo ACME Website Sample</span></p></td>
-						<td class="c47" colspan="1" rowspan="1"><p class="c0"><span class="c5">No</span></p></td>
-						<td class="c22" colspan="1" rowspan="1"><p class="c0"><span class="c5">Basic, Standard or Premium</span></p></td>
-						<td class="c35" colspan="1" rowspan="1"><p class="c0"><span class="c5">No</span></p></td>
+					<tr class="c16">
+						<td class="c10"><p class="c9"><span class="c0 c4">exo-acme-sample - eXo ACME Website Sample</span></p></td>
+						<td class="c2"><p class="c7"><span class="c0">No</span></p></td>
+						<td class="c2"><p class="c7"><span class="c0">Basic, Standard or Premium</span></p></td>
+						<td class="c2"><p class="c7"><span class="c0">No</span></p></td>
 					</tr>
-					<tr class="c20">
-						<td class="c15" colspan="1" rowspan="1"><p class="c25"><span class="c5 c37">exo-chat - eXo Chat</span></p></td>
-						<td class="c47" colspan="1" rowspan="1"><p class="c0"><span class="c5">No</span></p></td>
-						<td class="c22" colspan="1" rowspan="1"><p class="c0"><span class="c5">Basic, Standard or Premium</span></p></td>
-						<td class="c35" colspan="1" rowspan="1"><p class="c0"><span class="c5">No</span></p></td>
+					<tr class="c16">
+						<td class="c10"><p class="c9"><span class="c0 c4">exo-wai-sample - eXo WAI Sample</span></p></td>
+						<td class="c2"><p class="c7"><span class="c0">No</span></p></td>
+						<td class="c2"><p class="c7"><span class="c0">Basic, Standard or Premium</span></p></td>
+						<td class="c2"><p class="c7"><span class="c0">No</span></p></td>
 					</tr>
-					<tr class="c20">
-						<td class="c15" colspan="1" rowspan="1"><p class="c25"><span class="c16 c42">exo-cmis-addon - eXo CMIS Integration</span></p></td>
-						<td class="c47" colspan="1" rowspan="1"><p class="c0"><span class="c5">No</span></p></td>
-						<td class="c22" colspan="1" rowspan="1"><p class="c0"><span class="c5">Basic, Standard or Premium</span></p></td>
-						<td class="c35" colspan="1" rowspan="1"><p class="c0"><span class="c5">No</span></p></td>
+					<tr class="c16">
+						<td class="c10"><p class="c9"><span class="c0 c4">exo-chat - eXo Chat</span></p></td>
+						<td class="c2"><p class="c7"><span class="c0">No</span></p></td>
+						<td class="c2"><p class="c7"><span class="c0">Basic, Standard or Premium</span></p></td>
+						<td class="c2"><p class="c7"><span class="c0">No</span></p></td>
 					</tr>
-					<tr class="c20">
-						<td class="c15" colspan="1" rowspan="1"><p class="c25"><span class="c16 c42">exo-crash - eXo CRaSH Add-on</span></p></td>
-						<td class="c47" colspan="1" rowspan="1"><p class="c0"><span class="c5">No</span></p></td>
-						<td class="c22" colspan="1" rowspan="1"><p class="c0"><span class="c5">Basic, Standard or Premium</span></p></td>
-						<td class="c35" colspan="1" rowspan="1"><p class="c0"><span class="c5">No</span></p></td>
+					<tr class="c16">
+						<td class="c10"><p class="c9"><span class="c0 c4">exo-video-calls - eXo Video Calls</span></p></td>
+						<td class="c2"><p class="c7"><span class="c0">Yes (*)</span></p></td>
+						<td class="c2"><p class="c7"><span class="c0">Basic, Standard or Premium</span></p></td>
+						<td class="c2"><p class="c7"><span class="c0">Yes</span></p></td>
 					</tr>
-					<tr class="c20">
-						<td class="c15" colspan="1" rowspan="1"><p class="c25"><span class="c16 c42">exo-ide-addon - eXo IDE Add-on</span></p></td>
-						<td class="c47" colspan="1" rowspan="1"><p class="c0"><span class="c5">No</span></p></td>
-						<td class="c22" colspan="1" rowspan="1"><p class="c0"><span class="c5">Basic, Standard or Premium</span></p></td>
-						<td class="c35" colspan="1" rowspan="1"><p class="c0"><span class="c5">No</span></p></td>
+					<tr class="c16">
+						<td class="c10"><p class="c9"><span class="c0 c4">exo-cmis-addon - eXo CMIS Integration</span></p></td>
+						<td class="c2"><p class="c7"><span class="c0">No</span></p></td>
+						<td class="c2"><p class="c7"><span class="c0">Basic, Standard or Premium</span></p></td>
+						<td class="c2"><p class="c7"><span class="c0">No</span></p></td>
 					</tr>
-					<tr class="c20">
-						<td class="c15" colspan="1" rowspan="1"><p class="c25"><span class="c16 c42">exo-wai-sample - eXo WAI Sample</span></p></td>
-						<td class="c47" colspan="1" rowspan="1"><p class="c0"><span class="c5">No</span></p></td>
-						<td class="c22" colspan="1" rowspan="1"><p class="c0"><span class="c5">Basic, Standard or Premium</span></p></td>
-						<td class="c35" colspan="1" rowspan="1"><p class="c0"><span class="c5">No</span></p></td>
+					<tr class="c16">
+						<td class="c10"><p class="c9"><span class="c0 c4">exo-crash-tomcat - eXo CRaSH Add-on for Tomcat</span></p></td>
+						<td class="c2"><p class="c7"><span class="c0">No</span></p></td>
+						<td class="c2"><p class="c7"><span class="c0">Basic, Standard or Premium</span></p></td>
+						<td class="c2"><p class="c7"><span class="c0">No</span></p></td>
 					</tr>
-					<tr class="c20">
-						<td class="c15" colspan="1" rowspan="1"><p class="c25"><span class="c16 c42">exo-video-calls - eXo Video Calls</span></p></td>
-						<td class="c47" colspan="1" rowspan="1"><p class="c0"><span class="c21 c42">Yes (*)</span></p></td>
-						<td class="c22" colspan="1" rowspan="1"><p class="c0"><span class="c21 c42">Basic, Standard or Premium</span></p></td>
-						<td class="c35" colspan="1" rowspan="1"><p class="c0"><span class="c21 c42">Yes</span></p></td>
+					<tr class="c16">
+						<td class="c10"><p class="c9"><span class="c0 c4">exo-crash-jboss - eXo CRaSH Add-on for Jboss</span></p></td>
+						<td class="c2"><p class="c7"><span class="c0">No</span></p></td>
+						<td class="c2"><p class="c7"><span class="c0">Standard or Premium</span></p></td>
+						<td class="c2"><p class="c7"><span class="c0">No</span></p></td>
+					</tr>
+					<tr class="c16">
+						<td class="c10"><p class="c9"><span class="c0 c4">exo-ide-addon - eXo IDE Add-on</span></p></td>
+						<td class="c2"><p class="c7"><span class="c0">No</span></p></td>
+						<td class="c2"><p class="c7"><span class="c0">Basic, Standard or Premium</span></p></td>
+						<td class="c2"><p class="c7"><span class="c0">No</span></p></td>
 					</tr>
 				</tbody>
 			</table>
 			
-			<p class="c11 c13"><span class="c2"></span></p>
+			<p class="c15"><span class="c0"></span></p>
 			
-			<p class="c25"><span class="c6">(*)</span><span class="c6">eXo Video Calls Add-on is governed and supported under the conditions of 
+			<p class="c15"><span class="c0">(*) eXo Video Calls Add-on is governed and supported under the conditions of 
 				the MSA and the SLA as provided under the same Subscription Service Level as the Subscription Service Level applicable to the 
 				Software. For the avoidance of doubt and as long as the Subscription remains in force, eXo Video Calls Add-on will be deemed a part of 
 				the Software as defined by Section 1.9 of the MSA. </span></p>
