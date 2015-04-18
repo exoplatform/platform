@@ -823,7 +823,7 @@
 						</td>
 
 						<td class="c32">
-							<p class="c9 c6"></p>
+							<!--p class="c9 c6"></p-->
 
 							<ol class="c19" start="1">
 								<li class="c9 c11"><span class="c0">Access to certified Production-ready Software</span></li>
@@ -850,11 +850,13 @@
 
 							</ol>
 
-							<p class="c9 c6 c35"></p>
+							<!--p class="c9 c6 c35"></p-->
 						</td>
 					</tr>
 					</tbody>
 				</table>
+
+				<p class="c1 c6"></p>
 
                 <table cellpadding="0" cellspacing="0" class="c26">
                     <tbody>
@@ -865,7 +867,7 @@
                         </td>
 
                         <td class="c32">
-                            <p class="c9 c6"></p>
+                            <!--<p class="c9 c6"></p>-->
 
                             <ol class="c19" start="1">
                                 <li class="c9 c11"><span class="c0">Access to certified Production-ready Software</span></li>
@@ -895,11 +897,13 @@
 
                             </ol>
 
-                            <p class="c9 c6 c35"></p>
+                            <!--<p class="c9 c6 c35"></p>-->
                         </td>
                     </tr>
                     </tbody>
                 </table>
+                
+                <p class="c1 c6"></p>
 
                 <table cellpadding="0" cellspacing="0" class="c26">
                     <tbody>
@@ -910,7 +914,7 @@
                         </td>
 
                         <td class="c32">
-                            <p class="c9 c6"></p>
+                            <!--<p class="c9 c6"></p>-->
 
                             <ol class="c19" start="1">
                                 <li class="c9 c11"><span class="c0">Access to certified Production-ready Software</span></li>
@@ -940,14 +944,14 @@
 
                             </ol>
 
-                            <p class="c9 c6 c35"></p>
+                            <!--<p class="c9 c6 c35"></p>-->
                         </td>
                     </tr>
                     </tbody>
                 </table>
 
-                <p class="c11">
-                  <span class="c2">(*)Extended Lifetime Support is available under nonstandard conditions as defined in an applicable Order Form. 
+				<!--p class="c1 c6"></p-->
+                <p class="c15"><span class="c0">(*) Extended Lifetime Support is available under nonstandard conditions as defined in an applicable Order Form. 
                         For the avoidance of doubt, no Extended Lifetime Support is included in any Subscription agreement and all 
                         Extended Lifetime Support offers require a baseline existing Subscription as defined in this agreement.</span></p>	
 
@@ -1011,9 +1015,7 @@
 
 				<p class="c1"><span class="c0 c4">3. Support</span></p>
 
-				<p class="c12"><span class="c0">3.1 Support Procedures</span></p>
-
-				<p class="c12 c6"></p>
+				<p class="c15"><span class="c0 c4">3.1 Support Procedures</span></p>
 
 				<p class="c12"><span class="c0">Support Services are 
 						  provided in the English and/or French languages only. eXo will respond according to SLAs 
@@ -1097,18 +1099,18 @@
 				<p class="c12"><span class="c0">Support Services consists of assistance for
 						  installation, usage, configuration and diagnosis on the applicable Software in a Production environment. 
 						  Support Services are provided only according to the Supported Environments Policy listed </span>
-						  <span class="c63"><a class="c1" href="http://www.exoplatform.com/supported-environments">http://www.exoplatform.com/supported-environments</a></span></p> 
+						  <span class="c0 c25"><a class="c8" target="_blank" href="http://www.exoplatform.com/supported-environments">http://www.exoplatform.com/supported-environments</a>.</span></p> 
 						  
-						  <p class="c11"><span class="c6">Support Services are not provided on environments outside of the scope referenced above. 
+				<p class="c12"><span class="c0">Support Services are not provided on environments outside of the scope referenced above. 
 						  Support does not include assistance with code development, system and/or network design,
 						  architectural design, upgrade for the Software or for third party software made available with eXo
 						  Software. eXo does not provide maintenance and/or support for Software that has been
 						  modified or that is running on hardware and/or third party software that is not supported.</span></p>
 
 				<!--
-				<p class="c12 c6"></p>
+				<p class="c1 c0"></p>
 
-				<p class="c9"><span class="c0">Development Support consists of assistance for
+				<p class="c1"><span class="c0">Development Support consists of assistance for
 						  installation, usage, configuration, code development guidelines, and diagnosis on the
 						  applicable Software. Requests for architecture, design, development, prototyping,
 						  deployments and upgrades &nbsp;are not included within the scope of Development
@@ -1116,45 +1118,48 @@
 						  agreement</span></p>
 				-->
 				
-				<p class="c11 c13"><span class="c6"></span></p>
+				<!--p class="c1"><span class="c0"></span></p-->
 				
-				<p class="c11"><span class="c6">Summary of support services by subscription plan :</span></p>
+				<p class="c12"><span class="c0">Summary of support services by subscription plan :</span></p>
 
-				<table cellpadding="0" cellspacing="0" class="c53">
+				<!--table cellpadding="0" cellspacing="0" class="c53"-->
+				<table cellpadding="0" cellspacing="0" class="c26">
 					<tbody>
-						<tr class="c87">
-							<td class="c33" colspan="4" rowspan="1">
+					    <!--
+						<tr class="c20">
+							<td class="c31" colspan="4" rowspan="1">
 								<p class="c60 c48 c13"><span class="c37 c58"></span></p>
 								<p class="c60 c48"><span class="c58 c37">Support Services Summary</span></p>
 								<p class="c60 c48 c13"><span class="c58 c37"></span></p>
 							</td>
 						</tr>
-						<tr class="c20">
-							<td class="c31" colspan="1" rowspan="1"><p class="c0 c13"><span class="c21 c6"></span></p></td>
-							<td class="c54" colspan="1" rowspan="1"><p class="c11"><span class="c16 c19">Basic</span></p></td>
-							<td class="c32" colspan="1" rowspan="1"><p class="c0"><span class="c5 c37">Standard</span></p></td>
-							<td class="c82 c84" colspan="1" rowspan="1"><p class="c0"><span class="c5 c37">Premium</span></p></td>
+						-->
+						<tr class="c16">
+							<td class="c5" colspan="1" rowspan="1"><p class="c9"><span class="c19 c3 c11">Subscription Plan</span></p></td>
+							<td class="c32 c41" colspan="1" rowspan="1"><p class="c9"><span class="c19 c3 c11">Basic</span></p></td>
+							<td class="c32 c41" colspan="1" rowspan="1"><p class="c9"><span class="c19 c3 c11">Standard</span></p></td>
+							<td class="c32 c41" colspan="1" rowspan="1"><p class="c9"><span class="c19 c3 c11">Premium</span></p></td>
+						</tr>
+						<tr class="c16">
+							<td class="c5" colspan="1" rowspan="1"><p class="c9"><span class="c19 c3 c11">Level 1 Support </span></p></td>
+							<td class="c32 c41" colspan="1" rowspan="1"><p class="c9"><span class="c19 c3 c11"></span></p></td>
+							<td class="c32 c41" colspan="1" rowspan="1"><p class="c9"><span class="c19 c3 c11"></span></p></td>
+							<td class="c32 c41" colspan="1" rowspan="1"><p class="c9"><span class="c19 c3 c11"></span></p></td>
+						</tr>
+						<tr class="c16">
+							<td class="c5" colspan="1" rowspan="1"><p class="c9"><span class="c19 c3 c11">Ticket Limit</span></p></td>
+							<td class="c32" colspan="1" rowspan="1"><p class="c9"><span class="c19 c3 c11">Limited</span></p></td>
+							<td class="c32" colspan="1" rowspan="1"><p class="c9"><span class="c19 c3 c11">Unlimited</span></p></td>
+							<td class="c32" colspan="1" rowspan="1"><p class="c9"><span class="c19 c3 c11">Unlimited</span></p></td>
+						</tr>
+						<tr class="c16">
+							<td class="c5" colspan="1" rowspan="1"><p class="c9"><span class="c19 c3 c11">Usage information</span></p></td>
+							<td class="c32" colspan="1" rowspan="1"><p class="c9"><span class="c19 c3 c11">V</span></p></td>
+							<td class="c32" colspan="1" rowspan="1"><p class="c9"><span class="c19 c3 c11">V</span></p></td>
+							<td class="c32" colspan="1" rowspan="1"><p class="c9"><span class="c19 c3 c11">V</span></p></td>
 						</tr>
 						<tr class="c20">
-							<td class="c31 c28" colspan="1" rowspan="1"><p class="c0"><span class="c30 c28">Level 1 Support </span></p></td>
-							<td class="c18 c28" colspan="1" rowspan="1"><p class="c0 c13"><span class="c21 c6"></span></p></td>
-							<td class="c8 c28" colspan="1" rowspan="1"><p class="c0 c13"><span class="c21 c6"></span></p></td>
-							<td class="c27 c28" colspan="1" rowspan="1"><p class="c0 c13"><span class="c21 c6"></span></p></td>
-						</tr>
-						<tr class="c20">
-							<td class="c31" colspan="1" rowspan="1"><p class="c69 c48"><span class="c16 c6">Ticket Limit</span></p></td>
-							<td class="c18" colspan="1" rowspan="1"><p class="c0"><span class="c21 c6">Limited</span></p></td>
-							<td class="c8" colspan="1" rowspan="1"><p class="c0"><span class="c21 c6">Unlimited</span></p></td>
-							<td class="c27" colspan="1" rowspan="1"><p class="c0"><span class="c21 c6">Unlimited</span></p></td>
-						</tr>
-						<tr class="c20">
-							<td class="c31" colspan="1" rowspan="1"><p class="c69 c48"><span class="c16 c6">Usage information</span></p></td>
-							<td class="c18" colspan="1" rowspan="1"><p class="c0"><span class="c21 c6">V</span></p></td>
-							<td class="c8" colspan="1" rowspan="1"><p class="c0"><span class="c21 c6">V</span></p></td>
-							<td class="c27" colspan="1" rowspan="1"><p class="c0"><span class="c21 c6">V</span></p></td>
-						</tr>
-						<tr class="c20">
-							<td class="c31" colspan="1" rowspan="1"><p class="c69 c48"><span class="c16 c6">Installation instructions</span></p></td>
+							<td class="c31 c28" colspan="1" rowspan="1"><p class="c0"><span class="c16 c6">Installation instructions</span></p></td>
 							<td class="c18" colspan="1" rowspan="1"><p class="c0"><span class="c21 c6">V</span></p></td>
 							<td class="c8" colspan="1" rowspan="1"><p class="c0"><span class="c21 c6">V</span></p></td>
 							<td class="c27" colspan="1" rowspan="1"><p class="c0"><span class="c21 c6">V</span></p></td>
@@ -1171,31 +1176,31 @@
 							<td class="c27 c28" colspan="1" rowspan="1"><p class="c0 c13"><span class="c21 c6"></span></p></td>
 						</tr>
 						<tr class="c20">
-							<td class="c31" colspan="1" rowspan="1"><p class="c69 c48"><span class="c16 c6">Ticket Limit</span></p></td>
+							<td class="c31 c28" colspan="1" rowspan="1"><p class="c0"><span class="c16 c6">Ticket Limit</span></p></td>
 							<td class="c18" colspan="1" rowspan="1"><p class="c0"><span class="c21 c6">Limited</span></p></td>
 							<td class="c8" colspan="1" rowspan="1"><p class="c0"><span class="c21 c6">Unlimited</span></p></td>
 							<td class="c27" colspan="1" rowspan="1"><p class="c0"><span class="c21 c6">Unlimited</span></p></td>
 						</tr>
 						<tr class="c20">
-							<td class="c31" colspan="1" rowspan="1"><p class="c69 c48"><span class="c16 c6">Troubleshooting</span></p></td>
+							<td class="c31 c28" colspan="1" rowspan="1"><p class="c0"><span class="c16 c6">Troubleshooting</span></p></td>
 							<td class="c18" colspan="1" rowspan="1"><p class="c0"><span class="c21 c6">V</span></p></td>
 							<td class="c8" colspan="1" rowspan="1"><p class="c0"><span class="c21 c6">V</span></p></td>
 							<td class="c27" colspan="1" rowspan="1"><p class="c0"><span class="c21 c6">V</span></p></td>
 						</tr>
 						<tr class="c20">
-							<td class="c31" colspan="1" rowspan="1"><p class="c69 c48"><span class="c16 c6">Issue management</span></p></td>
+							<td class="c31 c28" colspan="1" rowspan="1"><p class="c0"><span class="c16 c6">Issue management</span></p></td>
 							<td class="c18" colspan="1" rowspan="1"><p class="c0"><span class="c21 c6">V</span></p></td>
 							<td class="c8" colspan="1" rowspan="1"><p class="c0"><span class="c21 c6">V</span></p></td>
 							<td class="c27" colspan="1" rowspan="1"><p class="c0"><span class="c21 c6">V</span></p></td>
 						</tr>
 						<tr class="c20">
-							<td class="c31" colspan="1" rowspan="1"><p class="c69 c48"><span class="c16 c6">Workarounds and procedures</span></p></td>
+							<td class="c31 c28" colspan="1" rowspan="1"><p class="c0"><span class="c16 c6">Workarounds and procedures</span></p></td>
 							<td class="c18" colspan="1" rowspan="1"><p class="c0"><span class="c21 c6">V</span></p></td>
 							<td class="c8" colspan="1" rowspan="1"><p class="c0"><span class="c21 c6">V</span></p></td>
 							<td class="c27" colspan="1" rowspan="1"><p class="c0"><span class="c21 c6">V</span></p></td>
 						</tr>
 						<tr class="c20">
-							<td class="c31" colspan="1" rowspan="1"><p class="c48 c69"><span class="c16 c6">Ongoing SLA</span></p></td>
+							<td class="c31 c28" colspan="1" rowspan="1"><p class="c0"><span class="c16 c6">Ongoing SLA</span></p></td>
 							<td class="c18" colspan="1" rowspan="1"><p class="c0 c13"><span class="c21 c6"></span></p></td>
 							<td class="c8" colspan="1" rowspan="1"><p class="c0"><span class="c21 c6">V</span></p></td>
 							<td class="c27" colspan="1" rowspan="1"><p class="c0"><span class="c21 c6">V</span></p></td>
@@ -1207,19 +1212,19 @@
 							<td class="c27 c28" colspan="1" rowspan="1"><p class="c0 c13"><span class="c21 c6"></span></p></td>
 						</tr>
 						<tr class="c20">
-							<td class="c31" colspan="1" rowspan="1"><p class="c69 c48"><span class="c16 c6">Maintenance versions</span></p></td>
+							<td class="c31" colspan="1" rowspan="1"><p class="c0"><span class="c16 c6">Maintenance versions</span></p></td>
 							<td class="c18" colspan="1" rowspan="1"><p class="c0"><span class="c21 c6">V</span></p></td>
 							<td class="c8" colspan="1" rowspan="1"><p class="c0"><span class="c21 c6">V</span></p></td>
 							<td class="c27" colspan="1" rowspan="1"><p class="c0"><span class="c21 c6">V</span></p></td>
 						</tr>
 						<tr class="c20">
-							<td class="c31" colspan="1" rowspan="1"><p class="c69 c48"><span class="c6 c16">Cumulative patches versions</span></p></td>
+							<td class="c31" colspan="1" rowspan="1"><p class="c0"><span class="c6 c16">Cumulative patches versions</span></p></td>
 							<td class="c18" colspan="1" rowspan="1"><p class="c0 c13"><span class="c21 c6"></span></p></td>
 							<td class="c8" colspan="1" rowspan="1"><p class="c0"><span class="c21 c6">V</span></p></td>
 							<td class="c27" colspan="1" rowspan="1"><p class="c0"><span class="c21 c6">V</span></p></td>
 						</tr>
 						<tr class="c20">
-							<td class="c31" colspan="1" rowspan="1"><p class="c69 c48"><span class="c16 c6">One-off patches</span></p></td>
+							<td class="c31" colspan="1" rowspan="1"><p class="c0"><span class="c16 c6">One-off patches</span></p></td>
 							<td class="c18" colspan="1" rowspan="1"><p class="c0 c13"><span class="c21 c6"></span></p></td>
 							<td class="c8" colspan="1" rowspan="1"><p class="c0"><span class="c21 c6">V</span></p></td>
 							<td class="c27" colspan="1" rowspan="1"><p class="c0"><span class="c21 c6">V</span></p></td>
@@ -1229,13 +1234,13 @@
 				
 				<p class="c11 c13"><span class="c6"></span></p>
 				
-				<p class="c11"><span class="c6 c46">For more details </span><span class="c63 c46"><a class="c1" href="http://www.exoplatform.com/sla">http://www.exoplatform.com/sla</a></span></p>
+				<p class="c11"><span class="c6 c46">For more details </span><span class="c0 c25"><a class="c8" target="_blank" href="http://www.exoplatform.com/sla">http://www.exoplatform.com/sla</a></span></p>
 				
 				<p class="c12 c6"></p>
 
-				<p class="c11"><span class="c2">3.6 Support Guidelines</span></p>
+				<p class="c12"><span class="c0">3.6 Support Guidelines</span></p>
 
-				<p class="c12 c6"></p>
+				<!--p class="c12 c6"></p-->
 
 				<p class="c12"><span class="c0">eXo will use commercially reasonable efforts to provide
 						  support in accordance with the guidelines set forth in Table below. eXo's Technical
@@ -1250,10 +1255,10 @@
 
 				<p class="c6 c12"></p>
 
-				<table cellpadding="0" cellspacing="0" class="c65">
+				<table cellpadding="0" cellspacing="0" class="c26">
 					<tbody>
-						<tr class="c20">
-							<td class="c41" colspan="1" rowspan="1"><p class="c11 c13"><span class="c16 c19"></span></p></td>
+						<tr class="c16">
+							<td class="c41" colspan="1" rowspan="1"><p class="c9"><span class="c19 c3 c11">Subscription Plan</span></p></td>
 							<td class="c71" colspan="1" rowspan="1"><p class="c11"><span class="c16 c19">Basic</span></p></td>
 							<td class="c38" colspan="1" rowspan="1"><p class="c0"><span class="c5 c37">Standard</span></p></td>
 							<td class="c34" colspan="1" rowspan="1"><p class="c0"><span class="c5 c37">Premium</span></p></td>
@@ -1416,7 +1421,7 @@
 				<p class="c11"><span class="c6 c37">3.7 Support Processes</span></p>
 
 				<p class="c12"><span class="c0">Support Processes are available at
-						  <span class="c74"><a class="c1" href="http://www.exoplatform.com/support-operations">http://www.exoplatform.com/support-operations</a><span class="c6">.</span></p>
+						  <span class="c0 c25"><a class="c8" target="_blank" href="http://www.exoplatform.com/support-operations">http://www.exoplatform.com/support-operations</a><span class="c6">.</span></p>
 
 				<p class="c12 c6"></p>
 
@@ -1428,7 +1433,7 @@
 						  annual Subscription fees, eXo shall provide to Customer copyrighted patches and Updates
 						  for the installed Software (including any related Documentation) which are commercially
 						  released. Maintenance benefits are ruled by the eXo maintenance program visible at
-						  <a class="c1" href="http://www.exoplatform.com/maintenance-program">http://www.exoplatform.com/maintenance-program</a></span><span class="c6">.</span></p>
+						  <span class="c0 c25"><a class="c8" target="_blank" href="http://www.exoplatform.com/maintenance-program">http://www.exoplatform.com/maintenance-program</a></span><span class="c6">.</span></p>
 
 				<p class="c1 c6"></p>
 
@@ -1442,7 +1447,7 @@
 				
 				<p class="c9 c6 c14"><span class="c6">eXo provides services exclusively to customers covered by a 
 					valid enterprise subscription plan. Details as to the services offered can be found here </span>
-					<span class="c46 c63"><a class="c1" href="http://www.exoplatform.com/en/services/overview">http://www.exoplatform.com/company/en/services/overview</a></span><span class="c6">.</span></p>
+					<span class="c0 c25"><a class="c8" target="_blank" href="http://www.exoplatform.com/en/services/overview">http://www.exoplatform.com/company/en/services/overview</a></span><span class="c6">.</span></p>
 
 				<p class="c9 c6 c14"><span class="c6">Terms and conditions governing eXo&rsquo;s services delivery processes are stated below. </span></p>
 
@@ -1634,7 +1639,7 @@
 						  three (3) months, starting with the date of appliance of the related Order Form. Any
 						  remaining amount of Training Services past those three months will be
 						  lost. Cancellation of Training Services are subject to eXo&rsquo;s Cancellation Policy, 
-						  as set forth at </span><span class="c74"><a class="c1" href="http://www.exoplatform.com/company/en/services/development-training">http://www.exoplatform.com/company/en/services/development-training</a></span></p>
+						  as set forth at </span><span class="c0 c25"><a class="c8" target="_blank" href="http://www.exoplatform.com/company/en/services/development-training">http://www.exoplatform.com/company/en/services/development-training</a></span></p>
 
 				<p class="c1"><span class="c0">Unless specified in the Order Form, additional fees such
 						  as transport, lodging, third party materials including software licenses, hardware,
@@ -1771,10 +1776,10 @@
 			<p class="c0"><span class="c2">Appendix 3: eXo Official Add-ons</span></p>
 			<p class="c11 c13"><span class="c2"></span></p>
 
-			<table cellpadding="0" cellspacing="0" class="c65">
+			<table cellpadding="0" cellspacing="0" class="c26">
 				<tbody>
 					<tr class="c20">
-						<td class="c15" colspan="1" rowspan="1"><p class="c0"><span class="c42 c37 c59">Add-on name</span></p></td>
+						<td class="c15" colspan="1" rowspan="1"><p class="c0"><span class="c42 c37">Add-on name</span></p></td>
 						<td class="c79" colspan="1" rowspan="1"><p class="c0"><span class="c16 c42">Introduces Specific Terms</span></p></td>
 						<td class="c22" colspan="1" rowspan="1"><p class="c0"><span class="c16 c42">Requires an active Enterprise Subscription</span></p></td>
 						<td class="c35" colspan="1" rowspan="1"><p class="c0"><span class="c5 c37">Requires an additional subscription fee</span></p></td>
