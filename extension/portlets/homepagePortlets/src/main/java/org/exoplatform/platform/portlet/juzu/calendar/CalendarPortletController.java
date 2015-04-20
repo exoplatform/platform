@@ -20,6 +20,7 @@
 package org.exoplatform.platform.portlet.juzu.calendar;
 
 import juzu.*;
+import juzu.impl.common.Tools;
 import juzu.template.Template;
 import org.apache.commons.lang.ArrayUtils;
 import org.exoplatform.calendar.service.*;
@@ -39,6 +40,7 @@ import org.exoplatform.web.application.RequestContext;
 import org.gatein.common.text.EntityEncoder;
 
 import javax.inject.Inject;
+import java.nio.charset.Charset;
 import java.text.DateFormat;
 import java.util.*;
 import java.util.Calendar;
@@ -229,7 +231,7 @@ public class CalendarPortletController {
                 set("calendarDisplayedMap", displayedCalendarMap).
                 set("eventsDisplayedList", eventsDisplayedList).
                 set("tasksDisplayedList", tasksDisplayedList).
-                set("date_act", dateLabel).ok();
+                set("date_act", dateLabel).ok().withCharset(Tools.UTF_8);
     }
 
     @Ajax
@@ -254,7 +256,7 @@ public class CalendarPortletController {
             }
         }
         return setting.with().set("displayedCalendar", calendarDisplayedList).
-                set("nonDisplayedCalendar", calendarNonDisplayedList).ok();
+                set("nonDisplayedCalendar", calendarNonDisplayedList).ok().withCharset(Tools.UTF_8);
     }
 
     @Ajax
@@ -322,7 +324,7 @@ public class CalendarPortletController {
         }
        // String label = "Default Personal Calendar";
 
-        return search.with().set("searchResultList", searchResult).ok();
+        return search.with().set("searchResultList", searchResult).ok().withCharset(Tools.UTF_8);
     }
 
 

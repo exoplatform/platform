@@ -22,6 +22,7 @@ import juzu.Path;
 import juzu.Resource;
 import juzu.Response;
 import juzu.View;
+import juzu.impl.common.Tools;
 import juzu.template.Template;
 import org.exoplatform.commons.juzu.ajax.Ajax;
 import org.exoplatform.platform.portlet.juzu.gettingstarted.models.GettingStartedService;
@@ -108,7 +109,7 @@ public class GettingStarted {
 
     @View
     public Response.Content index() throws Exception {
-        return gettingStarted.ok();
+        return gettingStarted.ok().withCharset(Tools.UTF_8);
     }
 
     @Ajax
@@ -224,7 +225,7 @@ public class GettingStarted {
             parameters.put(GettingStartedUtils.STATUS, status);
             parameters.put(GettingStartedUtils.SHOW, Isshow.toString());
             if ((isChange) || ("true".equals(reload))) {
-                return gettingStartedList.ok(parameters);
+                return gettingStartedList.ok(parameters).withCharset(Tools.UTF_8);
             }
         } catch (Exception E) {
             LOG.error("GettingStarted Portlet : Can not load task list", E.getLocalizedMessage(), E);
