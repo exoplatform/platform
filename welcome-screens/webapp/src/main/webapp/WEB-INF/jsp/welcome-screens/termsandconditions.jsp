@@ -732,37 +732,37 @@
 
 				<p class="c23 c6"></p>
 
-				<p class="c7"><span class="c0 c4">Appendix 1: Support Services</span></p>
+				<p class="c7"><span class="c0 c4">Appendix 1: Subscription Services</span></p>
 
 				<p class="c9 c6 c14"></p>
 
-				<p class="c1"><span class="c0 c4">1. &nbsp;eXo Support Services</span></p>
+				<p class="c1"><span class="c0 c4">1. &nbsp;eXo Subscription Services</span></p>
 
-				<p class="c1"><span class="c0">The Support Services are intended only for use by
+				<p class="c1"><span class="c0">The Subscription Services are intended only for use by
 						  Customer (including through its contractors and agents) and for the benefit of the
 						  Customer and only for the Installed Systems (as defined below) for which Customer has
-						  purchased a Subscription. &nbsp;Any unauthorized use of the Support Services will
+						  purchased a Subscription. &nbsp;Any unauthorized use of the Subscription Services will
 						  be deemed to be a material breach of this Agreement. Each Installed Systems running eXo
 						  Software will require an active Subscription.</span></p>
 
 				<p class="c1"><span class="c0">During the time that Customer has paid the applicable
 						  annual Subscription fees, Customer will receive access to (a) the applicable eXo
 						  Software via the eXo portal, (b) the applicable Software Updates, when and if
-						  available, via the eXo portal, and (c) the applicable level of Support Services
-						  described in Section 2 herein. &nbsp;eXo only provides production Support Services
+						  available, via the eXo portal, and (c) the applicable level of Subscription Services
+						  described in Section 2 herein. &nbsp;eXo only provides production Subscription Services
 						  for generally available Software. &nbsp;</span></p>
 
 				<p class="c1"><span class="c0">1.1 Installed Systems</span></p>
 
-				<p class="c1"><span class="c0">For purposes of the Support Services described in
+				<p class="c1"><span class="c0">For purposes of the Subscription Services described in
 						  this Appendix, the term &ldquo;Installed System&rdquo; means a group of CORE Processors
 						  (e.g., up to 64 or up to 256) or a number of Registered Users (e.g, up to 25 or up to 250) 
-						  for which Customer is receiving Support Services.</span></p>
+						  for which Customer is receiving Subscription Services.</span></p>
 
-				<p class="c1"><span class="c0">1.2 Support Services Start Date</span></p>
+				<p class="c1"><span class="c0">1.2 Subscription Services Start Date</span></p>
 
 				<p class="c1"><span class="c0">Unless otherwise agreed in an Order Form, the
-						  Support Services will begin on the date Customer purchases the Subscription as set
+						  Subscription Services will begin on the date Customer purchases the Subscription as set
 						  forth in the applicable Order Form.</span></p>
 
 				<p class="c1"><span class="c0">1.3 Development Purposes</span></p>
@@ -778,7 +778,7 @@
 						  and/or applications for a purpose other than development and/or prototyping software or
 						  hardware.</span></p>
 
-				<p class="c1"><span class="c0 c4">2. Support Services details</span></p>
+				<p class="c1"><span class="c0 c4">2. Subscription Services details</span></p>
 
 				<!--
 				<table cellpadding="0" cellspacing="0" class="c26">
@@ -1017,7 +1017,7 @@
 
 				<p class="c15"><span class="c0 c4">3.1 Support Procedures</span></p>
 
-				<p class="c12"><span class="c0">Support Services are 
+				<p class="c12"><span class="c0">Subscription Services are 
 						  provided in the English and/or French languages only. eXo will respond according to SLAs 
 						  as defined hereafter. eXo and Customer will specify initial
 						  technical contacts, which may be updated upon request.</span></p>
@@ -1434,7 +1434,7 @@
 				<p class="c9 c6 c14 c20"></p>
 
 				<p class="c9 c14"><span class="c0">The Consulting Services do not include any
-						  Support Services.</span></p>
+						  Subscription Services.</span></p>
 
 				<p class="c9 c6 c14"></p>
 
@@ -1514,7 +1514,7 @@
 							training courses, including eXo&rsquo;s publicly available courses and courses
 							provided at a site designated by the Customer</span></li>
 					<li class="c9 c11"><span class="c0">The Training Services do not include any
-							Support Services.</span></li>
+							Subscription Services.</span></li>
 				</ol>
 
 				<p class="c9 c6"></p>
@@ -1651,7 +1651,7 @@
 				</ol>
 
 				<p class="c1"><span class="c0">The Specific Development Services don&rsquo;t include
-						  any Support Services.</span></p>
+						  any Subscription Services.</span></p>
 
 				<ol class="c28" start="2">
 					<li class="c1 c22"><span class="c0 c4">Performance and Deliverables</span></li>
