@@ -40,7 +40,6 @@ import org.exoplatform.web.application.RequestContext;
 import org.gatein.common.text.EntityEncoder;
 
 import javax.inject.Inject;
-import java.nio.charset.Charset;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.*;
