@@ -97,13 +97,13 @@
 				<p class="c15"><span class="c0 c4">1.4 &ldquo;Error&rdquo;</span><span class="c0">&nbsp;means a reproducible failure of the Software to perform in substantial
 						  conformity with its Documentation, and considered as such by eXo.</span></p>
 
-				<p class="c15"><span class="c0 c4">1.5 &ldquo;Error&rdquo;</span><span class="c0">&nbsp;means an extension module or plugin published by eXo enhancing the Software 
+				<p class="c15"><span class="c0 c4">1.5 &ldquo;eXo Add-Ons&rdquo;</span><span class="c0">&nbsp;means an extension module or plugin published by eXo enhancing the Software 
 						  with new functionalities.</span></p>
 
 				<p class="c15"><span class="c0 c4">1.6 &ldquo;License&rdquo;</span><span class="c0">&nbsp;means a license granted, in accordance with a Subscription, by eXo to
 						  Customer to allow installation and use of the Software.</span></p>
 						  
-				<p class="c15"><span class="c0 c4">1.7 &ldquo;License&rdquo;</span><span class="c0">&nbsp;means various third-party software components licensed under the terms of 
+				<p class="c15"><span class="c0 c4">1.7 &ldquo;Third-Party Software&rdquo;</span><span class="c0">&nbsp;means various third-party software components licensed under the terms of 
 						  applicable license agreements, whether open source or not, included in the materials relating to such software. Third-Party Software is composed of individual 
 						  software components, each of which has its own copyright and its own applicable license conditions.</span></p>
 
@@ -121,7 +121,7 @@
 						  exception to the aforesaid, eXo Add-Ons listed in <span class="c0 c4">Appendix 3 (&ldquo;eXo Official Add-Ons&rdquo;)</span> are governed and supported under the conditions of this 
 						  Agreement under the same Subscription Service Level as the Subscription applicable to the Software.</span></p>
 
-				<p class="c15"><span class="c0 c4">1.10 &ldquo;Subscription&rdquo;</span><span class="c0">&nbsp;means the license for the Software and , if applicable, the access to Support Services ordered 
+				<p class="c15"><span class="c0 c4">1.10 &ldquo;Subscription&rdquo;</span><span class="c0">&nbsp;means the license for the Software and, if applicable, the access to Support Services ordered 
 						  and paid for by Customer and provided by eXo as specified on the Order Form. </span></p>
 
 
@@ -169,7 +169,7 @@
 						  the Software and Services provided hereunder.</span></p>
 
 				<p class="c15"><span class="c0 c4">2.2 Orders.</span><span class="c0">&nbsp; Customer
-						  may from time to time place orders with eXo to purchase a Subscription at eXo&rsquo;s
+						  may place orders with eXo to purchase a Subscription at eXo&rsquo;s
 						  then-current prices. Customer may transmit such orders to eXo by mail,
 						  fax, email or other electronic channels. Customer may, for its convenience,
 						  submit orders using its standard forms, but no terms, provisions or conditions of any
@@ -190,9 +190,9 @@
 						  specified in the Order Form. The Software will be deemed accepted by Customer upon delivery of the
 						  Activation Key.&nbsp;</span></p>
 
-				<p class="c15"><span class="c0 c4">2.5 Installation Services.</span><span class=
+				<p class="c15"><span class="c0 c4">2.5 Installation.</span><span class=
 																								  "c0">&nbsp; Customer will be responsible for installing the Software on its computers
-						  as permitted under this Agreement.Installation services may be purchased on at
+						  as permitted under this Agreement. Installation services may be purchased on a 
 						  time-and-materials basis at eXo&rsquo;s then-current rates as specified on the
 						  applicable Order Form.</span></p>
 
@@ -253,8 +253,7 @@
 
 				<p class="c15"><span class="c0 c4">3.1 Grant.</span><span class="c0">&nbsp; For each
 						  Subscription that Customer purchases, eXo grants Customer a limited, non-exclusive,
-						  non-transferable, non-sublicensable (except as provided in Section 11.4) License under
-						  the Subscription for the Term to:</span></p>
+						  non-transferable, non-sublicensable (except as provided in Section 11.3) License for the Term to:</span></p>
 
 				<p class="c15"><span class="c0 c4">a)</span><span class="c0">&nbsp;use, install and
 						  execute the Software licensed hereunder (in object code format) on any computers solely
@@ -284,7 +283,7 @@
 						  Customer shall not itself, or through any parent, subsidiary, affiliate, agent or other
 						  third party:</span></p>
 
-				<p class="c15"><span class="c0">(a) decompile, disassemble, translate, reverse engineer
+				<p class="c15"><span class="c0">a) decompile, disassemble, translate, reverse engineer
 						  or otherwise attempt to derive source code from the Software, in whole or in part, nor
 						  will Customer use any mechanical, electronic or other method to trace, decompile,
 						  disassemble, or identify the source code of the Software or encourage others to do so,
@@ -295,23 +294,23 @@
 						  reasonably requested information to allow eXo to assess Customer&rsquo;s claim and, at
 						  eXo&rsquo;s sole discretion, to provide alternatives that reduce any adverse impact on
 						  eXo&rsquo;s intellectual property or other rights;<br/>
-						  (b) allow access or permit use of the Software by any users other than Customer&rsquo;s
+						  b) allow access or permit use of the Software by any users other than Customer&rsquo;s
 						  employees, or authorized third-party contractors who are providing services to Customer
 						  and agree in writing to abide by the terms of this Agreement, provided further that
 						  Customer shall be liable for any failure by such employees and third-party contractors
 						  to comply with the terms of this Agreement,<br/>
-						  (c) create, develop, license, install, use, or deploy any third party software or
+						  c) create, develop, license, install, use, or deploy any third party software or
 						  services to circumvent, enable, modify or provide access, permissions or rights which
 						  violate the technical restrictions of the Software, any additional licensing terms
 						  provided by eXo via product documentation, notification, and the terms of this
 						  Agreement,<br/>
-						  (d) modify or create derivative works based upon the Software,<br/>
-						  (e) use the Software in connection with any business operation for which Customer
+						  d) modify or create derivative works based upon the Software,<br/>
+						  e) use the Software in connection with any business operation for which Customer
 						  provides services to third parties, or<br/>
-						  (f) disclose the results of any benchmark test of the Software to any third party
+						  f) disclose the results of any benchmark test of the Software to any third party
 						  without eXo&rsquo;s prior written approval, unless otherwise expressly permitted
 						  herein, provided, however, that the foregoing restriction shall apply to Customer only
-						  if Customer is a software or hardware vendor, or Customer is performing testing or
+						  if Customer is a software or hardware vendor, or if Customer is performing testing or
 						  benchmarking on the Software.</span></p>
 
 				<p class="c15"><span class="c0 c4">3.4 Third-Party Software.&nbsp;</span> <span class="c0">The Third-Party Software 
@@ -335,7 +334,7 @@
 						  time, upon at least thirty (30) days prior notice to Customer, which notice may be
 						  provided by e-mail.</span></p>
 
-				<p class="c15"><span class="c0 c4">4.2 Billing and Renewal.</span><span class="c0">&nbsp; eXo charges 
+				<p class="c15"><span class="c0 c4">4.2 Billing and Renewal.</span><span class="c0">&nbsp; eXo charges for 
 						  and collects in advance the Subscription fees. eXo will
 						  automatically renew and issue an invoice each billing period on the subsequent
 						  anniversary of the Subscription unless either party gives written notice of its intent
@@ -354,7 +353,7 @@
 						  Form. Late
 						  payments will accrue interest at the rate of one and one half percent (1&frac12;%) per
 						  month, or, if lower, the maximum rate permitted under applicable law. If payment of any
-						  fee is overdue, eXo may also suspend provision of the Support Services until such
+						  fee is overdue, eXo may also suspend provision of the Support Services and the License of the Software until such
 						  delinquency is corrected.</span></p>
 
 				<p class="c15"><span class="c0 c4">4.3 Taxes.</span><span class="c0">&nbsp; The amounts
@@ -393,7 +392,7 @@
 						  percent (5%) of the Subscription fees payable by Customer to eXo for the period
 						  audited.</span></p>
 
-				<p class="c15"><span class="c0 c4">5. Term and Termination</span></p>
+				<p class="c15"><span class="c0 c4">5. Term, Termination and Expiration</span></p>
 
 				<p class="c15"><span class="c0 c4">5.1 Term.</span><span class="c0">&nbsp; Unless
 						  otherwise stated in the applicable Order Form, the Term of this Agreement will begin on
@@ -485,7 +484,7 @@
 						  such Confidential Information except as expressly permitted under this Agreement, and
 						  shall not disclose such Confidential Information to any third party without the
 						  Discloser's prior written consent; provided, however, the Recipient may disclose
-						  Confidential Information to its employees and contractors on a need-to-know-basis who
+						  Confidential Information to its employees and contractors on a need-to-know-basis, who
 						  have an agreement with the Recipient that would protect the Discloser to the same
 						  extent and which restricts disclosure of the Confidential Information in the same
 						  manner as this Agreement.&nbsp; The Recipient is liable for all acts and omissions of
@@ -503,8 +502,7 @@
 						  Recipient, without restriction, at the time of disclosure; or (e) is disclosed pursuant
 						  to the order or requirement of a court, administrative agency, or other governmental
 						  body; provided, however, that the Recipient shall provide prompt notice thereof to the
-						  Discloser and shall use its reasonable best efforts to obtain a protective order or
-						  otherwise prevent public disclosure of such information. Recipient shall, at
+						  Discloser and shall use its reasonable best efforts to prevent public disclosure of such information. Recipient shall, at
 						  Discloser&rsquo;s request, return all originals, copies, reproductions and summaries of
 						  Confidential Information and all other tangible materials and devices provided to the
 						  Recipient as Confidential Information, or at Discloser's option, certify destruction of
@@ -589,7 +587,7 @@
 						  competent jurisdiction or agreed to in settlement ; provided that Customer&nbsp; (i)
 						  notifies eXo promptly in writing of such Infringement Claim, (ii) grants eXo sole
 						  control over the defense and settlement thereof, and (iii) reasonably cooperates in
-						  response to a eXo request for assistance.&nbsp; eXo will have the exclusive right to
+						  response to an eXo request for assistance.&nbsp; eXo will have the exclusive right to
 						  defend any such Infringement Claim and make settlements thereof at its own discretion,
 						  and Customer may not settle or compromise such Infringement Claim, except with prior
 						  written consent of eXo.&nbsp;</span></p>
@@ -607,9 +605,9 @@
 						  is based on (1) combination with
 						  non-eXo products, (2) use for a purpose or in a manner for which the Software were not
 						  designed, (3) use of any older version of the Software when use of a newer eXo revision
-						  would have avoided the infringement, (4) any modification not made by anyone other than
+						  would have avoided the infringement, (4) any modification made by anyone other than
 						  eXo, (5) any modifications made by eXo pursuant to Customer&rsquo;s specific
-						  instructions, , or (6) any intellectual property right owned or licensed by Customer,
+						  instructions, or (6) any intellectual property right owned or licensed by Customer,
 						  excluding the Software.</span></p>
 
 				<p class="c15"><span class="c0 c4">10.4 Limitation.&nbsp; THIS SECTION STATES
@@ -654,7 +652,7 @@
 						  eXo from any breach of the foregoing.</span></p>
 				-->
 
-				<p class="c15"><span class="c0 c4">11.3 Assignments.</span><span class="c0">&nbsp; Customer may
+				<p class="c15"><span class="c0 c4">11.3 Assignments.</span><span class="c0">&nbsp; Customer may not
 						  assign or transfer any of its rights or delegate any
 						  of its duties under this Agreement (including its licenses with respect to the
 						  Software) to any third party unless expressly authorized in writing by eXo.&nbsp; Any other attempted assignment or
@@ -834,8 +832,8 @@
                                 
                                 <li class="c9 c11"><span class="c0">Access to Basic Support Services <span class="c9 c12">(As defined in section 3)</span></span></li>             
 
-                                <li class="c9 c11"><span class="c0">Sotfware certified updates, patches and bug fixes through Maintenance
-                                    benefits program <span class="c9 c12">(As defined in section 5)</span></span></li>
+                                <li class="c9 c11"><span class="c0">Sotfware certified updates, patches and bug fixes through Maintenance 
+                                    program <span class="c9 c12">(As defined in section 5)</span></span></li>
 
                                 <li class="c9 c11"><span class="c0">Access to professional services <span class="c9 c12">(As defined in section 6)</span></span></li>
 
@@ -879,7 +877,7 @@
                                 <li class="c9 c11"><span class="c0">Access to Standard Support Services <span class="c9 c12">(As defined in section 3)</span></span></li>             
 
                                 <li class="c9 c11"><span class="c0">Sotfware certified updates, patches and bug fixes through Maintenance
-                                    benefits program <span class="c9 c12">(As defined in section 5)</span></span></li>
+                                     program <span class="c9 c12">(As defined in section 5)</span></span></li>
 
                                 <li class="c9 c11"><span class="c0">Access to professional services <span class="c9 c12">(As defined in section 6)</span></span></li>
 
@@ -926,7 +924,7 @@
                                 <li class="c9 c11"><span class="c0">Access to Premium Support Services <span class="c9 c12">(As defined in section 3)</span></span></li>             
 
                                 <li class="c9 c11"><span class="c0">Sotfware certified updates, patches and bug fixes through Maintenance
-                                    benefits program <span class="c9 c12">(As defined in section 5)</span></span></li>
+                                     program <span class="c9 c12">(As defined in section 5)</span></span></li>
 
                                 <li class="c9 c11"><span class="c0">Access to professional services <span class="c9 c12">(As defined in section 6)</span></span></li>
 
@@ -1053,12 +1051,6 @@
 
 				<p class="c12 c6"></p>
 
-				<p class="c12"><span class="c0">Incident severity levels (defined below) are utilized
-						  in establishing the incident impact to the Customer upon incident receipt and will be used to
-						  set expectations between Customer and eXo. Severities are established by eXo in
-						  accordance with the Severity Level definitions below during escalation and are subject
-						  to change during the life of each specific incident.</span></p>
-
 				<p class="c12 c6"></p>
 
 				<p class="c12"><span class="c0">3.3 Mutual obligations</span></p>
@@ -1104,7 +1096,8 @@
 				<p class="c12"><span class="c0">Support Services are not provided on environments outside of the scope referenced above. 
 						  Support does not include assistance with code development, system and/or network design,
 						  architectural design, upgrade for the Software or for third party software made available with eXo
-						  Software. eXo does not provide maintenance and/or support for Software that has been
+						  Software. Such demands can be made available through the purchasing of additional professional services.  
+						  eXo does not provide maintenance and/or support for Software that has been
 						  modified or that is running on hardware and/or third party software that is not supported.</span></p>
 
 				<!--
@@ -1668,7 +1661,7 @@
 						  project.</span></p>
 
 				<p class="c9 c14"><span class="c0">Specific Development Services are generally tied to
-						  a technical and organizational offer which will:</span></p>
+						   statement of work which will:</span></p>
 
 				<ol class="c19" start="1">
 					<li class="c9 c11 c14"><span class="c0">Specify the applicable documents or materials
