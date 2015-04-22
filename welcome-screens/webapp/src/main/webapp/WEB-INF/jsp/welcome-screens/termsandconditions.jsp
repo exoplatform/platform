@@ -1013,7 +1013,7 @@
 
 				<p class="c1"><span class="c0 c4">3. Support</span></p>
 
-				<p class="c15"><span class="c0 c4">3.1 Support Procedures</span></p>
+				<p class="c12"><span class="c0">3.1 Support Procedures</span></p>
 
 				<p class="c12"><span class="c0">Subscription Services are 
 						  provided in the English and/or French languages only. eXo will respond according to SLAs 
@@ -1041,21 +1041,13 @@
 
 				<p class="c12"><span class="c0">3.2 Support Incident Response by Severity</span></p>
 
-				<p class="c12 c6"></p>
-
 				<p class="c12"><span class="c0">Incident severity levels (defined below) are utilized
 						  in establishing the incident impact to the Customer upon incident receipt and will be used to
 						  set expectations between Customer and eXo. Severities are established by eXo in
 						  accordance with the Severity Level definitions below during escalation and are subject
 						  to change during the life of each specific incident.</span></p>
 
-				<p class="c12 c6"></p>
-
-				<p class="c12 c6"></p>
-
 				<p class="c12"><span class="c0">3.3 Mutual obligations</span></p>
-
-				<p class="c12 c6"></p>
 
 				<p class="c12"><span class="c0">To help ensure a smooth transition during technical
 						  collaboration or escalation, it is essential that all parties remain engaged until the
@@ -1067,11 +1059,7 @@
 						    <li><span class="c6">Execution of recommendations and procedures emitted by eXo Support Desk</span></li>
 						  </ul>
 						  	
-				<p class="c12 c6"></p>
-
 				<p class="c12"><span class="c0">3.4 Support and Software Delivery</span></p>
-
-				<p class="c12 c6"></p>
 
 				<p class="c12"><span class="c0">Unless otherwise set forth in an applicable Order Form,
 						  (1) eXo will be the primary source for communication with Customer' and 
@@ -1082,11 +1070,7 @@
 						  reasonably necessary to enable eXo to evaluate the level of customer service being
 						  provided to 'Customer'.</span></p>
 
-				<p class="c12 c6"></p>
-
 				<p class="c12"><span class="c0">3.5 Support Scope of Coverage</span></p>
-
-				<p class="c12 c6"></p>
 
 				<p class="c12"><span class="c0">Support Services consists of assistance for
 						  installation, usage, configuration and diagnosis on the applicable Software in a Production environment. 
@@ -1100,22 +1084,8 @@
 						  eXo does not provide maintenance and/or support for Software that has been
 						  modified or that is running on hardware and/or third party software that is not supported.</span></p>
 
-				<!--
-				<p class="c1 c0"></p>
-
-				<p class="c1"><span class="c0">Development Support consists of assistance for
-						  installation, usage, configuration, code development guidelines, and diagnosis on the
-						  applicable Software. Requests for architecture, design, development, prototyping,
-						  deployments and upgrades &nbsp;are not included within the scope of Development
-						  Support, but rather are available on a consulting basis under the terms of a separate
-						  agreement</span></p>
-				-->
-				
-				<!--p class="c1"><span class="c0"></span></p-->
-				
 				<p class="c12"><span class="c0">Summary of support services by subscription plan :</span></p>
 
-				<!--table cellpadding="0" cellspacing="0" class="c53"-->
 				<table cellpadding="0" cellspacing="0" class="c26">
 					<tbody>
 						<tr class="c16">
@@ -1210,15 +1180,11 @@
 					</tbody>
 				</table>
 				
-				<!--p class="c12"><span class="c0"></span></p-->
-				
 				<p class="c12"><span class="c0">For more details </span><span class="c0 c25"><a class="c8" target="_blank" href="http://www.exoplatform.com/sla">http://www.exoplatform.com/sla</a></span></p>
 				
 				<p class="c12 c6"></p>
 
 				<p class="c12"><span class="c0">3.6 Support Guidelines</span></p>
-
-				<!--p class="c12 c6"></p-->
 
 				<p class="c12"><span class="c0">eXo will use commercially reasonable efforts to provide
 						  support in accordance with the guidelines set forth in Table below. eXo's Technical
@@ -1531,11 +1497,6 @@
 						  <span class="c0 c25"><a class="c8" target="_blank" href="http://www.exoplatform.com/company/en/services/development-training">http://www.exoplatform.com/company/en/services/development-training</a></span>
 				</p>
 				
-				<!--
-				<p class="c9 c6 c14"><span class="c0 c25"><a class="c8" target="_blank" href=
-						"http://www.exoplatform.com/company/en/services/development-training"></a></span></p>
-				-->
-
 				<ol class="c28" start="3">
 					<li class="c1 c22"><span class="c0 c4">Equipment and Facilities</span></li>
 				</ol>
@@ -1592,35 +1553,6 @@
 						  Customer.</span></p>
 
 				<p class="c9 c6 c14"></p>
-
-				<!--
-				<ol class="c28" start="7">
-					<li class="c1 c22"><span class="c0 c4">Cancellation Policy</span></li>
-				</ol>
-
-				<p class="c1"><span class="c0">Class registrations are not confirmed until Purchase
-						  Order is received. eXo reserves the right to cancel registrations if Purchase Order is
-						  not received within 10 business days of registration submittal, and a minimum of 2
-						  business days prior to the start date of the course.</span></p>
-
-				<p class="c1"><span class="c0">All purchases of training are final and
-						  non-refundable.</span></p>
-
-				<p class="c1"><span class="c0">You may either reschedule or select credit toward a
-						  future class up to 14 calendar days prior to the start date of the class you are
-						  currently registered for. The credit must be used within 3 months of the original
-						  course start date.</span></p>
-
-				<p class="c1"><span class="c0">Course enrollment substitutions are acceptable any time
-						  up to the course start date, but the eXo training coordinator must be notified prior to
-						  the class start date.</span></p>
-
-				<p class="c1"><span class="c0">eXo reserves the right to cancel any class. If a class
-						  is cancelled, we will contact students by telephone and email to arrange for training
-						  credit. Every effort will be made to reschedule a cancelled class or transfer
-						  enrollments to a later date.</span></p><a href="#" target="_blank" name="id.43e09b9fd5fe" id=
-						"id.43e09b9fd5fe"></a>
-				-->
 
 				<ol class="c21" start="3">
 					<li class="c1 c27 c29"><span class="c0 c4">eXo Specific Development
