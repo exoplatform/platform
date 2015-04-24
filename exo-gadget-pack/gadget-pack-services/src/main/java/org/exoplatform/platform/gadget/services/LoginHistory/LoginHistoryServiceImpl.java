@@ -16,6 +16,24 @@
  ***************************************************************************/
 package org.exoplatform.platform.gadget.services.LoginHistory;
 
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.LinkedHashMap;
+import java.util.LinkedHashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+
+import javax.jcr.Node;
+import javax.jcr.NodeIterator;
+import javax.jcr.RepositoryException;
+import javax.jcr.Session;
+import javax.jcr.query.Query;
+import javax.jcr.query.QueryManager;
+import javax.jcr.query.QueryResult;
+
 import org.exoplatform.container.ExoContainerContext;
 import org.exoplatform.container.xml.InitParams;
 import org.exoplatform.container.xml.ValueParam;
@@ -28,21 +46,9 @@ import org.exoplatform.services.jcr.impl.core.query.QueryImpl;
 import org.exoplatform.services.log.ExoLogger;
 import org.exoplatform.services.log.Log;
 import org.exoplatform.services.organization.OrganizationService;
+import org.exoplatform.services.organization.User;
+import org.exoplatform.services.security.ConversationState;
 import org.picocontainer.Startable;
-
-import javax.jcr.Node;
-import javax.jcr.NodeIterator;
-import javax.jcr.RepositoryException;
-import javax.jcr.Session;
-import javax.jcr.query.Query;
-import javax.jcr.query.QueryManager;
-import javax.jcr.query.QueryResult;
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
 
 
 /**
@@ -55,6 +61,8 @@ public class LoginHistoryServiceImpl implements LoginHistoryService, Startable {
     private static String HOME = "exo:LoginHistoryHome";
     private static String LOGIN_HISTORY = "loginHistory";
     private static String LOGIN_COUNTER = "loginCounter";
+    private static String BEFORE_LAST_LOGIN = "exo:LoginHisSvc_beforeLastLogin";
+    private static String LAST_LOGIN_TIME = "exo:LoginHisSvc_lastLogin";
     private static int MAX_NUM_OF_LOGIN_HISTORY_ENTRIES = 0;
     private static int DAYS_FOR_KEEPING_USER_STATISTIC = 0;
     private static int DAYS_FOR_KEEPING_GLOBAL_STATISTIC = 0;
@@ -574,13 +582,125 @@ public class LoginHistoryServiceImpl implements LoginHistoryService, Startable {
     }
 
     private String getUserFullName(String userId) {
+        ConversationState state = ConversationState.getCurrent();
+        User user = null;
         try {
+            if (state != null && state.getIdentity() != null && state.getIdentity().getUserId() != null && state.getIdentity().getUserId().equals(userId)) {
+              user = (User) state.getAttribute("UserProfile");
+              return user.getFullName();
+            }
             OrganizationService service = (OrganizationService) ExoContainerContext.getCurrentContainer()
                     .getComponentInstanceOfType(OrganizationService.class);
             return service.getUserHandler().findUserByName(userId).getFullName();
         } catch (Exception e) {
             return userId;
         }
+    }
+
+    /**
+     * Get the list of all users who are logged after fromTime
+     * 
+     * @param fromTime
+     * @return the list of user's name 
+     */
+    public Set<String> getLastUsersLogin(long fromTime) throws Exception {
+      Set<String> users = new LinkedHashSet<String>();
+      SessionProvider sProvider = SessionProvider.createSystemProvider();
+      try {
+        Session session = this.getSession(sProvider);
+        QueryManager queryManager = session.getWorkspace().getQueryManager();
+        StringBuilder sb = new StringBuilder();
+        sb.append("SELECT * FROM exo:LoginHisSvc_userProfile WHERE")
+        .append(" exo:LoginHisSvc_lastLogin >= " + Long.toString(fromTime))
+        .append(" ORDER BY exo:LoginHisSvc_lastLogin DESC");
+        QueryImpl query = (QueryImpl) queryManager.createQuery(sb.toString(), Query.SQL);
+        QueryResult result = query.execute();
+        NodeIterator nodeIterator = result.getNodes();
+        while (nodeIterator.hasNext()) {
+          Node node = nodeIterator.nextNode();
+          String userId = node.getProperty("exo:LoginHisSvc_userId").getString();
+          users.add(userId);
+        }
+        return users;
+      } catch (Exception e) {
+        LOG.debug("Error while getting login history of users " + e.getMessage(), e);
+      } finally {
+        sProvider.close();
+      }
+      return null;
+    }
+    
+    /**
+     * An user is inactive if his last login is more than a number of days 
+     * 
+     * @param userId user's name
+     * @param days the number of days to verify if user is active or not
+     * @return
+     */
+    public boolean isActiveUser(String userId, int days) {
+      SessionProvider sProvider = SessionProvider.createSystemProvider();
+      try {
+        Session session = this.getSession(sProvider);
+        Node homeNode = session.getRootNode().getNode(HOME);
+        if (! homeNode.hasNode(userId)) {
+          return false;
+        }
+        Node userNode = homeNode.getNode(userId);
+        long beforeLastLogin = userNode.getProperty(BEFORE_LAST_LOGIN).getLong();
+        // return true if it's the first login of user
+        if (beforeLastLogin == 0) return true;
+        //
+        Calendar cal = Calendar.getInstance();
+        cal.set(Calendar.DAY_OF_MONTH, cal.get(Calendar.DAY_OF_MONTH) - days);
+        long limitTime = cal.getTimeInMillis(); 
+        return beforeLastLogin >= limitTime;
+      } catch (Exception e) {
+        LOG.error("Error while get the last login of current user", e);
+      }
+      return false;
+    }
+    
+    public Map<String, Integer> getActiveUsers(long fromTime) {
+      Map<String, Integer> users = new LinkedHashMap<String, Integer>();
+      SessionProvider sProvider = SessionProvider.createSystemProvider();
+      try {
+        Session session = this.getSession(sProvider);
+        QueryManager queryManager = session.getWorkspace().getQueryManager();
+        StringBuilder sb = new StringBuilder();
+        sb.append("SELECT * FROM exo:LoginHisSvc_userProfile WHERE")
+          .append(" exo:LoginHisSvc_lastLogin >= " + Long.toString(fromTime))
+          .append(" AND exo:LoginHisSvc_beforeLastLogin > 0")
+          .append(" ORDER BY exo:LoginHisSvc_lastLogin DESC");
+        QueryImpl query = (QueryImpl) queryManager.createQuery(sb.toString(), Query.SQL);
+        QueryResult result = query.execute();
+        NodeIterator nodeIterator = result.getNodes();
+        while (nodeIterator.hasNext()) {
+          Node node = nodeIterator.nextNode();
+          String userId = node.getProperty("exo:LoginHisSvc_userId").getString();
+          long numberOfLogin = node.getNode(LOGIN_HISTORY).getProperty("exo:LoginHisSvc_loginHistory_lastIndex").getLong();
+          users.put(userId, (int) numberOfLogin);
+        }
+        return users;
+      } catch (Exception e) {
+        LOG.debug("Error while getting login history of users " + e.getMessage(), e);
+      } finally {
+        sProvider.close();
+      }
+      return null;
+    }
+    
+    public long getBeforeLastLogin(String userId) throws Exception {
+      SessionProvider sProvider = SessionProvider.createSystemProvider();
+      try {
+        Session session = this.getSession(sProvider);
+        Node homeNode = session.getRootNode().getNode(HOME);
+        return !homeNode.hasNode(userId) ? 0 : homeNode.getNode(userId).getProperty("exo:LoginHisSvc_beforeLastLogin").getLong();
+      } catch (Exception e) {
+        LOG.debug("Error while retrieving " + userId + "'s last login: " + e.getMessage(), e);
+        throw e;
+      } finally {
+        sProvider.close();
+      }
     }
 }
 

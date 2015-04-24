@@ -27,8 +27,8 @@ import org.exoplatform.portal.mop.user.UserPortal;
 import org.exoplatform.portal.webui.util.Util;
 import org.exoplatform.services.log.ExoLogger;
 import org.exoplatform.services.log.Log;
-import org.exoplatform.services.organization.OrganizationService;
 import org.exoplatform.services.organization.User;
+import org.exoplatform.services.security.ConversationState;
 import org.exoplatform.social.core.identity.model.Identity;
 import org.exoplatform.social.core.identity.provider.OrganizationIdentityProvider;
 import org.exoplatform.social.core.service.LinkProvider;
@@ -58,12 +58,13 @@ public class UIUserPlatformToolBarPortlet extends UIPortletApplication {
   public UIUserPlatformToolBarPortlet() throws Exception {
 
   }
-    public User getUser() throws Exception {
-        OrganizationService service = getApplicationComponent(OrganizationService.class);
-        String userName = Util.getPortalRequestContext().getRemoteUser();
-        User user = service.getUserHandler().findUserByName(userName);
-        return user;
-    }
+
+  public User getUser() throws Exception {
+    User user = null;
+    ConversationState state = ConversationState.getCurrent();
+    user = (User) state.getAttribute("UserProfile");
+    return user;
+  }
 
   private String getCurrentPortalName() {
     return Util.getPortalRequestContext().getPortalOwner();

@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.exoplaform.org/xml/ns/kernel_1_1.xsd http://www.exoplaform.org/xml/ns/kernel_1_1.xsd"
+	xmlns="http://www.exoplaform.org/xml/ns/kernel_1_1.xsd">
+  <external-component-plugins>
+    <target-component>org.exoplatform.services.listener.ListenerService</target-component>	
+    <component-plugin profiles="all">
+      <name>ActivityNotify.event.NodeCreated</name>
+      <set-method>addListener</set-method>
+      <type>org.exoplatform.wcm.ext.component.activity.listener.ContentCreateActivityListener</type>
+      <description>this listener will publish an activity when a content has been	created and initiated state</description>
+    </component-plugin>
+	
+    <component-plugin profiles="all">
+      <name>ActivityNotify.event.FileCreated</name>
+      <set-method>addListener</set-method>
+      <type>org.exoplatform.wcm.ext.component.activity.listener.FileCreateActivityListener</type>
+      <description>this listener will publish an activity when a file has been	created and initiated state</description>
+    </component-plugin>
+		
+    <component-plugin profiles="all">
+      <name>ActivityNotify.event.StateChanged</name>
+      <set-method>addListener</set-method>
+      <type>org.exoplatform.wcm.ext.component.activity.listener.PublicationStateActivityListener</type>
+      <description>this listener will publish an activity when the state of a content	has been changed</description>
+    </component-plugin>
+		
+    <component-plugin profiles="all">
+      <name>ActivityNotify.event.PropertyUpdated</name>
+      <set-method>addListener</set-method>
+      <type>org.exoplatform.wcm.ext.component.activity.listener.ContentUpdateActivityListener</type>
+      <description>this listener will publish an activity when a content has been	updated</description>
+    </component-plugin>
+		
+    <component-plugin profiles="all">
+      <name>FileActivityNotify.event.PropertyAdded</name>
+      <set-method>addListener</set-method>
+      <type>org.exoplatform.wcm.ext.component.activity.listener.FileAddPropertyActivityListener</type>
+      <description>this listener will create a new comment when a property has been	added</description>
+    </component-plugin>
+	
+    <component-plugin profiles="all">
+      <name>FileActivityNotify.event.PropertyRemoved</name>
+      <set-method>addListener</set-method>
+      <type>org.exoplatform.wcm.ext.component.activity.listener.FileRemovePropertyActivityListener</type>
+      <description>this listener will create a new comment/activity when a property has been removed</description>
+    </component-plugin>
+		
+    <component-plugin profiles="all">
+      <name>FileActivityNotify.event.FileRemoved</name>
+      <set-method>addListener</set-method>
+      <type>org.exoplatform.wcm.ext.component.activity.listener.FileRemoveActivityListener</type>
+      <description>this listener will create a new comment/activity when a property has been removed</description>
+    </component-plugin>	
+
+    <component-plugin profiles="all">
+      <name>FileActivityNotify.event.PropertyUpdated</name>
+      <set-method>addListener</set-method>
+      <type>org.exoplatform.wcm.ext.component.activity.listener.FileUpdateActivityListener</type>
+      <description>this listener will create a new comment when a property has been	updated</description>
+    </component-plugin>
+
+    <component-plugin profiles="all">
+      <name>ActivityNotify.event.AttachmentAdded</name>
+      <set-method>addListener</set-method>
+      <type>org.exoplatform.wcm.ext.component.activity.listener.AttachmentActivityListener</type>
+      <description>this listener will publish an activity when an attachment added</description>
+    </component-plugin>
+    
+    <component-plugin profiles="all">
+      <name>ActivityNotify.event.AttachmentRemoved</name>
+      <set-method>addListener</set-method>
+      <type>org.exoplatform.wcm.ext.component.activity.listener.AttachmentActivityListener</type>
+      <description>this listener will publish an activity when an attachment removed</description>
+    </component-plugin>
+    
+    <component-plugin profiles="all">
+      <name>ActivityNotify.event.CategoryAdded</name>
+      <set-method>addListener</set-method>
+      <type>org.exoplatform.wcm.ext.component.activity.listener.CategoryActivityListener</type>
+      <description>this listener will publish an activity when a Category added</description>
+    </component-plugin>
+    
+    <component-plugin profiles="all">
+      <name>ActivityNotify.event.CategoryRemoved</name>
+      <set-method>addListener</set-method>
+      <type>org.exoplatform.wcm.ext.component.activity.listener.CategoryActivityListener</type>
+      <description>this listener will publish an activity when a Category removed</description>
+    </component-plugin>
+    
+    <component-plugin profiles="all">
+      <name>ActivityNotify.event.TagAdded</name>
+      <set-method>addListener</set-method>
+      <type>org.exoplatform.wcm.ext.component.activity.listener.TagActivityListener</type>
+      <description>this listener will publish an activity when tags added</description>
+    </component-plugin>
+    
+    <component-plugin profiles="all">
+      <name>ActivityNotify.event.TagRemoved</name>
+      <set-method>addListener</set-method>
+      <type>org.exoplatform.wcm.ext.component.activity.listener.TagActivityListener</type>
+      <description>this listener will publish an activity when tags removed</description>
+    </component-plugin>
+    
+    <component-plugin profiles="all">
+      <name>ActivityNotify.event.CommentAdded</name>
+      <set-method>addListener</set-method>
+      <type>org.exoplatform.wcm.ext.component.activity.listener.CommentAddedActivityListener</type>
+      <description>this listener will publish an activity when comment added</description>
+    </component-plugin>
+    
+    <component-plugin profiles="all">
+      <name>ActivityNotify.event.CommentUpdated</name>
+      <set-method>addListener</set-method>
+      <type>org.exoplatform.wcm.ext.component.activity.listener.CommentUpdatedActivityListener</type>
+      <description>this listener will publish an activity when comment updated</description>
+    </component-plugin>
+    
+    <component-plugin profiles="all">
+      <name>ActivityNotify.event.CommentRemoved</name>
+      <set-method>addListener</set-method>
+      <type>org.exoplatform.wcm.ext.component.activity.listener.CommentRemovedActivityListener</type>
+      <description>this listener will publish an activity when comment removed</description>
+    </component-plugin>
+    
+    <component-plugin profiles="all">
+      <name>ActivityNotify.event.NodeMoved</name>
+      <set-method>addListener</set-method>
+      <type>org.exoplatform.wcm.ext.component.activity.listener.ContentMovedActivityListener</type>
+      <description>this listener will publish an activity when a content has been updated</description>
+    </component-plugin>
+    
+    <component-plugin profiles="all">
+      <name>ActivityNotify.event.NodeRemoved</name>
+      <set-method>addListener</set-method>
+      <type>org.exoplatform.wcm.ext.component.activity.listener.ContentRemovedActivityListener</type>
+      <description>this listener will publish an activity when a content has been updated</description>
+    </component-plugin>
+    
+    <component-plugin profiles="all">
+      <name>ActivityNotify.event.RevisionChanged</name>
+      <set-method>addListener</set-method>
+      <type>org.exoplatform.wcm.ext.component.activity.listener.ContentRevisionActivityListener</type>
+      <description>this listener will publish an activity when content revision changed</description>
+    </component-plugin>
+  </external-component-plugins>
+</configuration>

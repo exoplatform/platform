@@ -3,6 +3,7 @@ package org.exoplatform.platform.portlet.juzu.suggestions;
 import juzu.Path;
 import juzu.Response;
 import juzu.View;
+import juzu.impl.common.Tools;
 import juzu.template.Template;
 
 import javax.inject.Inject;
@@ -18,6 +19,6 @@ public class SuggestionsPeopleSpace {
 
     @View
     public Response.Content index() {
-        return list.ok();
+        return list.ok().withCharset(Tools.UTF_8);
     }
 }

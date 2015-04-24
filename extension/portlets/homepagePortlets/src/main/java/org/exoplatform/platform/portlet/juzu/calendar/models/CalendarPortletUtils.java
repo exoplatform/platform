@@ -5,7 +5,7 @@ import org.exoplatform.calendar.service.CalendarSetting;
 import org.exoplatform.container.PortalContainer;
 import org.exoplatform.services.log.ExoLogger;
 import org.exoplatform.services.log.Log;
-import org.exoplatform.web.application.RequestContext;
+import org.exoplatform.services.security.ConversationState;
 
 import java.util.Calendar;
 import java.util.TimeZone;
@@ -70,7 +70,7 @@ public class CalendarPortletUtils {
     }
 
     static public String getCurrentUser() throws Exception {
-        return RequestContext.getCurrentInstance().getRemoteUser();
+        return ConversationState.getCurrent().getIdentity().getUserId();
     }
 
     public static Calendar getCalendarInstanceBySetting(final CalendarSetting calendarSetting) {

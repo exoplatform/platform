@@ -21,8 +21,13 @@
             <%}%> 
 		 </div>		  
         <%}%>       
-  <%if (uicomponent.getUIPageIterator().getAvailable() == 0) {%>
-    <%} else {%>
+  <%if (uicomponent.getUIPageIterator().getAvailable() == 0) {
+    if (!uicomponent.isViewMode()) {%>
+    <div class="emptyContent">
+      <span><%= _ctx.appRes(uicomponent.getParent().getMessageKey()) %></span>
+    </div>
+    <%}
+  } else {%>
 
     <div id="$uicomponent.id" class="UICLVPresentation">
         <%

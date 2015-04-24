@@ -2,25 +2,25 @@
 <bundle>
 <UISetupPlatformToolBarPortlet>
 <label>
-<applications>Applications</applications>
-<content>Content</content>
-<siteExplorer>Sites Explorer</siteExplorer>
-<wcmAdmin>Content Administration</wcmAdmin>
-<users>Users</users>
-<newStaff>Add Users</newStaff>
-<org-management>Groups and Roles</org-management>
+<applications>Aplikacje</applications>
+<content>Zawartość</content>
+<siteExplorer>Eksplorator stron</siteExplorer>
+<wcmAdmin>Zarządzanie treścią</wcmAdmin>
+<users>Użytkownicy</users>
+<newStaff>Dodaj użytkowników</newStaff>
+<org-management>Grupy i Role</org-management>
 <portal>Portal</portal>
-<administration>Administration</administration>
-<groupnavigation>Group Sites</groupnavigation>
-<pageManagement>Pages</pageManagement>
-<portalnavigation>Sites</portalnavigation>
-<servicesManagement>Management</servicesManagement>
-<monitoring>Monitoring</monitoring>
-<spaces>Spaces</spaces>
+<administration>Administracja</administration>
+<groupnavigation>Strony grup</groupnavigation>
+<pageManagement>Strony</pageManagement>
+<portalnavigation>Witryny</portalnavigation>
+<servicesManagement>Zarządzanie</servicesManagement>
+<monitoring>Monitorowanie</monitoring>
+<spaces>Obszary</spaces>
 <Branding>Branding</Branding>
-      <Notification>Email Notifications</Notification>
+      <Notification>Powiadomienia e-mail</Notification>
 <ide>IDE</ide>
-<search>Search</search>
+<search>Szukaj</search>
 </label>
 </UISetupPlatformToolBarPortlet>
 </bundle>

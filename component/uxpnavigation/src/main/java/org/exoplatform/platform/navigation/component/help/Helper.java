@@ -20,6 +20,7 @@ package org.exoplatform.platform.navigation.component.help;
 
 import org.exoplatform.platform.navigation.component.utils.DashboardUtils;
 import org.exoplatform.platform.navigation.component.utils.NavigationUtils;
+import org.exoplatform.portal.application.PortalRequestContext;
 import org.exoplatform.portal.mop.SiteKey;
 import org.exoplatform.portal.mop.user.UserNode;
 import org.exoplatform.portal.webui.util.Util;
@@ -28,6 +29,7 @@ import org.exoplatform.services.log.Log;
 import org.exoplatform.social.core.space.model.Space;
 import org.exoplatform.social.core.space.spi.SpaceService;
 import org.exoplatform.social.webui.Utils;
+import org.exoplatform.web.controller.QualifiedName;
 
 /**
  * @author <a href="kmenzli@exoplatform.com">Kmenzli</a>
@@ -128,7 +130,18 @@ public class Helper {
         }
     }
     public static boolean isProfileOwner() {
-        return Utils.getViewerRemoteId().equals(NavigationUtils.getCurrentUser());
+      PortalRequestContext request = Util.getPortalRequestContext() ;
+      String currentPath = request.getControllerContext().getParameter(QualifiedName.parse("gtn:path"));
+      String []splitCurrentUser = currentPath.split("/");
+      String userNameInFirstPath = currentPath.split("/")[splitCurrentUser.length - 1];
+      String userNameInSecondPath = currentPath.split("/")[splitCurrentUser.length - 2];
+      if (userNameInFirstPath != null && userNameInFirstPath.equals(Utils.getViewerRemoteId())) {
+        return true;
+      }
+      if (userNameInSecondPath != null && userNameInSecondPath.equals(Utils.getViewerRemoteId())) {
+        return true;
+      }
+      return false;
     }
     public static String getCurrentPortal()
     {

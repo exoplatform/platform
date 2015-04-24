@@ -1,0 +1,33 @@
+<div class="uiNotificationPopoverToolbarPortlet clearfix" style="<%=(uicomponent.isWebActive() ? "" : "display:none")%>" id="$uicomponent.id">
+	<div style="display:none" class="all-actions">
+		<div id="ClusterUpdateCachedLink"><%=uicomponent.buildResourceURL(uicomponent.CLUSTER_NOTIFICATION_POPOVER_LIST)%></div>
+		<div id="PopoverServeResourceLink"><%=uicomponent.buildResourceURL(uicomponent.EXO_NOTIFICATION_POPOVER_LIST)%></div>
+		<%
+			List actions = uicomponent.getActions();
+			for(action in actions) {
+				print("<div id=\"" + action + "\">" + uicomponent.getActionUrl(action) + "</div>");
+			}
+		%>
+		<div id="maxItemsInPopover"><%=uicomponent.maxItemsInPopover%></div>
+	</div>
+	<div class="uiDropdownWithIcon dropdown pull-right">
+		<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+			<i class="uiIconPLF24x24Bell">
+				<span class="badgeDefault badgePrimary mini badgeNotification"><%=uicomponent.getNumberOfMessage()%></span>
+			</i>
+		</a>
+		<ul class="dropdown-menu" id="NotificationPopup">
+			<li class="loadingIndicator" style="display:none">
+				<span class="uiLoadingIconMedium"></span>
+				<div class="loadingText"><%=_ctx.appRes("UINotificationPopoverToolbarPortlet.label.Loading") %>...</div>
+			</li>
+			<li class="no-items" style="display:none"><%=_ctx.appRes("UINotificationPopoverToolbarPortlet.label.NoNotifications") %></li>
+			<li class="actionMark right"><a href="javascript:void(0)" onclick="<%=uicomponent.event("MarkAllRead")%>"><%=_ctx.appRes("UINotificationPopoverToolbarPortlet.label.MarkAllAsRead") %></a></li>
+			<li>
+				<ul class="displayItems">
+				</ul>
+			</li>
+			<li class="actionLink"><div><a class="btn" href="/portal/intranet/allNotifications/"><%=_ctx.appRes("UINotificationPopoverToolbarPortlet.label.ViewAll") %></a></div></li>
+		</ul>
+	</div>
+</div>

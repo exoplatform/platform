@@ -133,7 +133,7 @@ eXoLastpostGadget.prototype.getPrefs = function(){
 
 //TODO: Need a new solution for creating url replace for using parent
 eXoLastpostGadget.prototype.setLink = function(){
-  var host = "http://" +  top.location.host + parent.eXo.env.portal.context + "/" + parent.eXo.env.portal.accessMode + "/" + parent.eXo.env.portal.portalName;
+  var host = "//" +  top.location.host + parent.eXo.env.portal.context + "/" + parent.eXo.env.portal.accessMode + "/" + parent.eXo.env.portal.portalName;
   var baseurl   = eXoLastpostGadget.prefs.baseurl;
   var url = (baseurl)?host + baseurl: host + "/forum";
   var a = document.getElementById("ShowAll");

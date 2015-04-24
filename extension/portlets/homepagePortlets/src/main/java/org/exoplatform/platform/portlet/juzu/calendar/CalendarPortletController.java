@@ -20,6 +20,7 @@
 package org.exoplatform.platform.portlet.juzu.calendar;
 
 import juzu.*;
+import juzu.impl.common.Tools;
 import juzu.template.Template;
 import org.apache.commons.lang.ArrayUtils;
 import org.exoplatform.calendar.service.*;
@@ -35,11 +36,13 @@ import org.exoplatform.services.log.ExoLogger;
 import org.exoplatform.services.log.Log;
 import org.exoplatform.services.organization.Group;
 import org.exoplatform.services.organization.OrganizationService;
+import org.exoplatform.services.security.ConversationState;
 import org.exoplatform.web.application.RequestContext;
 import org.gatein.common.text.EntityEncoder;
 
 import javax.inject.Inject;
 import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.*;
 import java.util.Calendar;
 
@@ -131,6 +134,27 @@ public class CalendarPortletController {
         return container.ok();
     }
 
+        // Format the Date pattern
+    private String formatDate(Locale locale) {
+        String datePattern = "";
+        DateFormat dateFormat = SimpleDateFormat.getDateInstance(DateFormat.SHORT, locale);
+        // convert to unique pattern
+        datePattern = ((SimpleDateFormat)dateFormat).toPattern();
+        if (!datePattern.contains("yy")) {
+        datePattern = datePattern.replaceAll("y", "yy");
+        }
+        if (!datePattern.contains("yyyy")) {
+        datePattern = datePattern.replaceAll("yy", "yyyy");
+        }
+        if (!datePattern.contains("dd")) {
+        datePattern = datePattern.replaceAll("d", "dd");
+        }
+        if (!datePattern.contains("MM")) {
+        datePattern= datePattern.replaceAll("M", "MM");
+        }
+        return datePattern;
+        }
+
     @Ajax
     @Resource
     public Response.Content calendarHome() throws Exception {
@@ -140,9 +164,10 @@ public class CalendarPortletController {
         tasksDisplayedList.clear();
         eventsDisplayedList.clear();
         String date_act = null;
-        String username = RequestContext.getCurrentInstance().getRemoteUser();
+        String username = CalendarPortletUtils.getCurrentUser();
         Locale locale =  Util.getPortalRequestContext().getLocale();
-        DateFormat d = DateFormat.getDateInstance(DateFormat.SHORT, locale);
+        String dp= formatDate(locale);
+        DateFormat d = new SimpleDateFormat(dp);
         DateFormat dTimezone = DateFormat.getDateInstance(DateFormat.SHORT, locale);
         dTimezone.setCalendar(CalendarPortletUtils.getCurrentCalendar());
         Long date = new Date().getTime();
@@ -162,11 +187,7 @@ public class CalendarPortletController {
         // Put it back in the Date object
         currentTime = cal.getTime();
         date_act = d.format(currentTime);
-        String delim =  getDateDelimiter(date_act);
-        if(delim != null && date_act.indexOf(delim) < 2 ) {
-             date_act = new StringBuffer("0").append(date_act).toString();
-               }
-         Date comp = currentTime;
+        Date comp = currentTime;
         String defaultCalendarLabel = "Default";
         String dateLabel = "";
         try {
@@ -229,7 +250,7 @@ public class CalendarPortletController {
                 set("calendarDisplayedMap", displayedCalendarMap).
                 set("eventsDisplayedList", eventsDisplayedList).
                 set("tasksDisplayedList", tasksDisplayedList).
-                set("date_act", dateLabel).ok();
+                set("date_act", dateLabel).ok().withCharset(Tools.UTF_8);
     }
 
     @Ajax
@@ -254,7 +275,7 @@ public class CalendarPortletController {
             }
         }
         return setting.with().set("displayedCalendar", calendarDisplayedList).
-                set("nonDisplayedCalendar", calendarNonDisplayedList).ok();
+                set("nonDisplayedCalendar", calendarNonDisplayedList).ok().withCharset(Tools.UTF_8);
     }
 
     @Ajax
@@ -322,7 +343,7 @@ public class CalendarPortletController {
         }
        // String label = "Default Personal Calendar";
 
-        return search.with().set("searchResultList", searchResult).ok();
+        return search.with().set("searchResultList", searchResult).ok().withCharset(Tools.UTF_8);
     }
 
 
@@ -336,13 +357,18 @@ public class CalendarPortletController {
 
 
     public String[] getUserGroups(String username) throws Exception {
-        Object[] objs = organization_.getGroupHandler().findGroupsOfUser(username).toArray();
-        String[] groups = new String[objs.length];
-        for (int i = 0; i < objs.length; i++) {
-            groups[i] = ((Group) objs[i]).getId();
+        String [] groupsList;
+        if (username == RequestContext.getCurrentInstance().getRemoteUser()) {
+            Set<String> groups = ConversationState.getCurrent().getIdentity().getGroups();
+            groupsList = groups.toArray(new String[groups.size()]);
+        } else {
+            Object[] objs = organization_.getGroupHandler().findGroupsOfUser(username).toArray();
+            groupsList = new String[objs.length];
+            for (int i = 0; i < objs.length; i++) {
+            	groupsList[i] = ((Group) objs[i]).getId();
+            }
         }
-        return groups;
-
+        return groupsList;
     }
 
     public List getAllCal(String username) throws Exception {

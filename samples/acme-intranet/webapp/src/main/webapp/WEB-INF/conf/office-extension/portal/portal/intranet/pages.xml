@@ -347,6 +347,7 @@
 	    <title>Activity</title>
 	    <access-permissions>*:/platform/users</access-permissions>
 	    <edit-permission>manager:/platform/administrators</edit-permission>
+	    
 	    <container id="sociallayout" template="system:/groovy/portal/webui/container/UITableColumnContainer.gtmpl">
 	      <access-permissions>*:/platform/users</access-permissions>
 	      <container id="ProfileActivity" template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
@@ -363,47 +364,261 @@
 	        </portlet-application>
 	      </container>
 	    </container>
+	    
 	  </page>
 
     <page>
-        <name>profile</name>
-        <title>Profile</title>
+      <name>allNotifications</name>
+      <title>All Notifications</title>
+      <access-permissions>*:/platform/users</access-permissions>
+      <edit-permission>manager:/platform/administrators</edit-permission>
+      <container id="sociallayout" template="system:/groovy/portal/webui/container/UITableColumnContainer.gtmpl">
         <access-permissions>*:/platform/users</access-permissions>
-        <edit-permission>manager:/platform/administrators</edit-permission>
-        <!--  <container id="sociallayout" template="system:/groovy/portal/webui/container/UITableColumnContainer.gtmpl">
-      <access-permissions>*:/platform/users</access-permissions>  -->
-        <container id="UIUserNavigationPortlet" template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
+        <container id="AllNotifications" template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
+          <access-permissions>*:/platform/users</access-permissions>
+          <portlet-application>
+            <portlet>
+              <application-ref>social-portlet</application-ref>
+              <portlet-ref>IntranetNotificationsPortlet</portlet-ref>
+            </portlet>
+            <title>All Notifications</title>
             <access-permissions>*:/platform/users</access-permissions>
-            <portlet-application>
-                <portlet>
-                    <application-ref>platformNavigation</application-ref>
-                    <portlet-ref>UIUserNavigationPortlet</portlet-ref>
-                </portlet>
-                <title>User Navigation Portlet</title>
-                <access-permissions>*:/platform/users</access-permissions>
-                <show-info-bar>false</show-info-bar>
-                <show-application-state>true</show-application-state>
-            </portlet-application>
+            <show-info-bar>false</show-info-bar>
+            <show-application-state>true</show-application-state>
+          </portlet-application>
         </container>
-        <container id="ProfilePortlet" template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
-            <access-permissions>*:/platform/users</access-permissions>
-            <portlet-application>
-                <portlet>
-                    <application-ref>social-portlet</application-ref>
-                    <portlet-ref>ProfilePortlet</portlet-ref>
-                </portlet>
-                <title>Profile</title>
-                <access-permissions>*:/platform/users</access-permissions>
-                <show-info-bar>false</show-info-bar>
-                <show-application-state>true</show-application-state>
-            </portlet-application>
-        </container>
-        <!-- </container>     -->
+      </container>
     </page>
     
     <page>
+      <name>profile</name>
+      <title>Profile</title>
+      <access-permissions>*:/platform/users</access-permissions>
+      <edit-permission>manager:/platform/administrators</edit-permission>
+
+      <container id="UIUserNavigationPortlet" template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
+        <access-permissions>*:/platform/users</access-permissions>
+        <portlet-application>
+          <portlet>
+            <application-ref>platformNavigation</application-ref>
+            <portlet-ref>UIUserNavigationPortlet</portlet-ref>
+          </portlet>
+          <title>User Navigation Portlet</title>
+          <access-permissions>*:/platform/users</access-permissions>
+          <show-info-bar>false</show-info-bar>
+          <show-application-state>true</show-application-state>
+        </portlet-application>
+      </container>
+
+      <container id="socialTopLayout" template="system:/groovy/portal/webui/container/UITableColumnContainer.gtmpl">
+        <access-permissions>*:/platform/users</access-permissions>
+        <portlet-application>
+          <portlet>
+            <application-ref>social-portlet</application-ref>
+            <portlet-ref>StatusProfilePortlet</portlet-ref>
+          </portlet>
+          <title>Status Profile Portlet</title>
+          <access-permissions>*:/platform/users</access-permissions>
+          <show-info-bar>false</show-info-bar>
+          <show-application-state>true</show-application-state>
+        </portlet-application>
+        <container id="action-profile-container" template="system:/groovy/portal/webui/container/UIAddOnContainer.gtmpl">
+          <name>action-profile-container</name>
+            <access-permissions>*:/platform/users</access-permissions>
+            <factory-id>addonContainer</factory-id>
+          <!-- 
+          <portlet-application>
+            <portlet>
+              <application-ref>social-portlet</application-ref>
+              <portlet-ref>ActionProfilePortlet</portlet-ref>
+            </portlet>
+            <title>Action Profile Portlet</title>
+            <access-permissions>*:/platform/users</access-permissions>
+            <show-info-bar>false</show-info-bar>
+            <show-application-state>true</show-application-state>
+          </portlet-application>
+          -->
+        </container>
+      </container>
+
+      <container id="socialMainLayout" template="system:/groovy/portal/webui/container/UITableColumnContainer.gtmpl">
+        <access-permissions>*:/platform/users</access-permissions>
+
+        <container id="left-column-container" template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
+          <access-permissions>*:/platform/users</access-permissions>
+          <container id="BasicProfilePortlet" template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
+            <access-permissions>*:/platform/users</access-permissions>
+            <portlet-application>
+              <portlet>
+                <application-ref>social-portlet</application-ref>
+                <portlet-ref>BasicProfilePortlet</portlet-ref>
+              </portlet>
+              <title>Profile</title>
+              <access-permissions>*:/platform/users</access-permissions>
+              <show-info-bar>false</show-info-bar>
+              <show-application-state>true</show-application-state>
+            </portlet-application>
+          </container>
+          <container id="left-profile-container" template="system:/groovy/portal/webui/container/UIAddOnColumnContainer.gtmpl">
+            <name>left-profile-container</name>
+            <access-permissions>*:/platform/users</access-permissions>
+            <factory-id>addonContainer</factory-id>
+          </container>
+        </container>
+
+        <container id="center-column-container" template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
+          <access-permissions>*:/platform/users</access-permissions>
+          <container id="ExperienceProfilePortlet" template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
+            <access-permissions>*:/platform/users</access-permissions>
+            <portlet-application>
+              <portlet>
+                <application-ref>social-portlet</application-ref>
+                <portlet-ref>ExperienceProfilePortlet</portlet-ref>
+              </portlet>
+              <title>Experience Profile Portlet</title>
+              <access-permissions>*:/platform/users</access-permissions>
+              <show-info-bar>false</show-info-bar>
+              <show-application-state>true</show-application-state>
+            </portlet-application>
+          </container>
+
+          <container id="middle-profile-container" template="system:/groovy/portal/webui/container/UIAddOnColumnContainer.gtmpl">
+            <name>middle-profile-container</name>
+            <access-permissions>*:/platform/users</access-permissions>
+            <factory-id>addonContainer</factory-id>
+          </container>
+          
+          <container id="RecentActivitiesPortlet" template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
+            <access-permissions>*:/platform/users</access-permissions>
+            <portlet-application>
+              <portlet>
+                <application-ref>social-portlet</application-ref>
+                <portlet-ref>RecentActivitiesPortlet</portlet-ref>
+              </portlet>
+              <title>Recent Activities Portlet</title>
+              <access-permissions>*:/platform/users</access-permissions>
+              <show-info-bar>false</show-info-bar>
+              <show-application-state>true</show-application-state>
+            </portlet-application>
+          </container>
+        </container>
+
+        <container id="right-column-container" template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
+          <access-permissions>*:/platform/users</access-permissions>
+
+          <container id="righttop-profile-container" template="system:/groovy/portal/webui/container/UIAddOnColumnContainer.gtmpl">
+            <name>righttop-profile-container</name>
+            <access-permissions>*:/platform/users</access-permissions>
+            <factory-id>addonContainer</factory-id>
+          </container>
+
+          <container id="MiniConnectionsPortlet" template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
+            <access-permissions>*:/platform/users</access-permissions>
+            <portlet-application>
+              <portlet>
+                <application-ref>social-portlet</application-ref>
+                <portlet-ref>MiniConnectionsPortlet</portlet-ref>
+              </portlet>
+              <title>Connections User Portlet</title>
+              <access-permissions>*:/platform/users</access-permissions>
+              <show-info-bar>false</show-info-bar>
+              <show-application-state>true</show-application-state>
+            </portlet-application>
+          </container>
+
+          <container id="rightbottom-profile-container" template="system:/groovy/portal/webui/container/UIAddOnColumnContainer.gtmpl">
+            <name>rightbottom-profile-container</name>
+            <access-permissions>*:/platform/users</access-permissions>
+            <factory-id>addonContainer</factory-id>
+          </container>
+        </container>
+      </container>
+    </page>
+
+    <page>
+      <name>edit-profile</name>
+      <title>Edit Profile</title>
+      <access-permissions>*:/platform/users</access-permissions>
+      <edit-permission>manager:/platform/administrators</edit-permission>
+
+      <container id="UIUserNavigationPortlet" template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
+        <access-permissions>*:/platform/users</access-permissions>
+        <portlet-application>
+          <portlet>
+            <application-ref>platformNavigation</application-ref>
+            <portlet-ref>UIUserNavigationPortlet</portlet-ref>
+          </portlet>
+          <title>User Navigation Portlet</title>
+          <access-permissions>*:/platform/users</access-permissions>
+          <show-info-bar>false</show-info-bar>
+          <show-application-state>true</show-application-state>
+        </portlet-application>
+      </container>
+
+      <container id="socialTopLayout" template="system:/groovy/portal/webui/container/UITableColumnContainer.gtmpl">
+        <access-permissions>*:/platform/users</access-permissions>
+        <container id="action-editprofile-container" template="system:/groovy/portal/webui/container/UIAddOnContainer.gtmpl">
+          <name>action-editprofile-container</name>
+          <access-permissions>*:/platform/users</access-permissions>
+          <factory-id>addonContainer</factory-id>
+        </container>
+      </container>
+
+      <container id="socialMainLayout" template="system:/groovy/portal/webui/container/UITableColumnContainer.gtmpl">
+        <access-permissions>*:/platform/users</access-permissions>
+
+        <container id="left-column-container" template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
+          <access-permissions>*:/platform/users</access-permissions>
+          <container id="EditUserProfilePortlet" template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
+            <access-permissions>*:/platform/users</access-permissions>
+            <portlet-application>
+              <portlet>
+                <application-ref>social-portlet</application-ref>
+                <portlet-ref>EditUserProfilePortlet</portlet-ref>
+              </portlet>
+              <title>Edit Profile</title>
+              <access-permissions>*:/platform/users</access-permissions>
+              <show-info-bar>false</show-info-bar>
+              <show-application-state>true</show-application-state>
+            </portlet-application>
+          </container>
+          <container id="left-editprofile-container" template="system:/groovy/portal/webui/container/UIAddOnColumnContainer.gtmpl">
+            <name>left-editprofile-container</name>
+            <access-permissions>*:/platform/users</access-permissions>
+            <factory-id>addonContainer</factory-id>
+          </container>
+        </container>
+
+        <container id="right-column-container" template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
+          <access-permissions>*:/platform/users</access-permissions>
+          <container id="right-editprofile-container" template="system:/groovy/portal/webui/container/UIAddOnColumnContainer.gtmpl">
+            <name>right-editprofile-container</name>
+            <access-permissions>*:/platform/users</access-permissions>
+            <factory-id>addonContainer</factory-id>
+          </container>
+        </container>
+      </container>
+      
+      <container id="ActionSavePortlet" template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
+        <access-permissions>*:/platform/users</access-permissions>
+        <!--
+        <portlet-application>
+          <portlet>
+            <application-ref>platformNavigation</application-ref>
+            <portlet-ref>ActionSavePortlet</portlet-ref>
+          </portlet>
+          <title>Action Save Portlet</title>
+          <access-permissions>*:/platform/users</access-permissions>
+          <show-info-bar>false</show-info-bar>
+          <show-application-state>true</show-application-state>
+        </portlet-application>
+        -->
+      </container>
+    </page>
+
+    <page>
       <name>notifications</name>
-      <title>Notification Settings</title>
+      <title>Notifications Settings</title>
       <access-permissions>*:/platform/users</access-permissions>
       <edit-permission>manager:/platform/administrators</edit-permission>
       <container id="UIUserNavigationPortlet" template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
@@ -426,7 +641,7 @@
             <application-ref>social-juzu</application-ref>
             <portlet-ref>NotificationSettingsPortlet</portlet-ref>
           </portlet>
-          <title>Notification Settings</title>
+          <title>Notifications Settings</title>
           <access-permissions>*:/platform/users</access-permissions>
           <show-info-bar>false</show-info-bar>
           <show-application-state>true</show-application-state>

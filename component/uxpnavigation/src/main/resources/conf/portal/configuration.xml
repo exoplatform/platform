@@ -80,6 +80,7 @@
             <values-param>
                 <name>user.navigation.uri</name>
                 <value>profile</value>
+                <value>edit-profile</value>
                 <value>connections</value>
                 <value>activities</value>
                 <value>connections/all-people</value>

@@ -40,7 +40,7 @@
 
       <value-param>
         <name>update-policy</name>
-        <value>${webdav.update-policy:update}</value>
+        <value>${webdav.update-policy:create-version}</value>
         <!--value>create-version</value-->
         <!--value>replace</value -->
         <!-- value>add</value -->
@@ -54,7 +54,7 @@
       <value-param>
         <name>auto-version</name>
         <!--value>checkout-checkin</value-->
-        <value>${webdav.auto-version:checkout}</value>
+        <value>${webdav.auto-version:checkin-checkout}</value>
       </value-param>
 
       <!--
@@ -78,6 +78,12 @@
           <name>untrusted-user-agents</name>
           <value>Microsoft Office Core Storage Infrastructure/1.0</value>
           <value>gvfs/1.20.1</value>
+          <value>Microsoft Office Excel 2013</value>
+          <value>Microsoft Office Word 2013</value>
+          <value>Microsoft Office PowerPoint 2013</value>
+          <value>Microsoft Office Word 2013 (15.0.4701) Windows NT 6.1</value>
+          <value>Microsoft Office Excel 2013 (15.0.4701) Windows NT 6.1</value>
+          <value>Microsoft Office PowerPoint 2013 (15.0.4701) Windows NT 6.1</value>
       </values-param>
 
     </init-params>

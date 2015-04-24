@@ -104,6 +104,14 @@
         </node>
         
         <node>
+            <uri>allNotifications</uri>
+            <name>allNotifications</name>
+            <label>#{portal.intranet.allNotifications}</label>
+            <visibility>SYSTEM</visibility>
+            <page-reference>portal::intranet::allNotifications</page-reference>
+        </node>
+        
+        <node>
             <uri>activity</uri>
             <name>activity</name>
             <label>#{portal.intranet.activity}</label>
@@ -117,6 +125,14 @@
             <label>#{portal.intranet.profile}</label>
             <visibility>SYSTEM</visibility>
             <page-reference>portal::intranet::profile</page-reference>
+        </node>
+
+        <node>
+            <uri>edit-profile</uri>
+            <name>edit-profile</name>
+            <label>#{portal.intranet.edit-profile}</label>
+            <visibility>SYSTEM</visibility>
+            <page-reference>portal::intranet::edit-profile</page-reference>
         </node>
         
         <node>

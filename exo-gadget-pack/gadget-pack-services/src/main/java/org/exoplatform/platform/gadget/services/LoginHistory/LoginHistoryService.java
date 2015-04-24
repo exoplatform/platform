@@ -17,6 +17,8 @@
 package org.exoplatform.platform.gadget.services.LoginHistory;
 
 import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
 
 
@@ -36,9 +38,17 @@ public interface LoginHistoryService {
 
 	public abstract List<LoginHistoryBean> getLoginHistory(String userId, long fromTime, long toTime) throws Exception;
 	
+	public abstract Set<String> getLastUsersLogin(long fromTime) throws Exception;
+	
+	public abstract boolean isActiveUser(String userId, int days);
+	
+	public abstract Map<String, Integer> getActiveUsers(long fromTime);
+	
 	public abstract List<LoginCounterBean> getLoginCountPerDaysInWeek(String userId, long week) throws Exception;
 	
 	public abstract List<LoginCounterBean> getLoginCountPerWeeksInMonths(String userId, long fromMonth, int numOfMonths) throws Exception;
 	
 	public abstract List<LoginCounterBean> getLoginCountPerMonthsInYear(String userId, long year) throws Exception;
+	
+	public long getBeforeLastLogin(String userId) throws Exception;
 }
