@@ -161,12 +161,12 @@
     <description>Default configuration for the Greek locale</description>
   </locale-config>
 
-  <!--locale-config>
+  <locale-config>
     <locale>pl</locale>
     <output-encoding>UTF-8</output-encoding>
     <input-encoding>UTF-8</input-encoding>
     <description>Default configuration for the Polish locale</description>
-  </locale-config-->
+  </locale-config>
 
   <locale-config>
     <locale>fa</locale>
