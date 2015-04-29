@@ -24,6 +24,10 @@ public class NavigationUtils {
     PortalRequestContext request = Util.getPortalRequestContext() ;
     String currentPath = request.getControllerContext().getParameter(QualifiedName.parse("gtn:path"));
     String []splitCurrentUser = currentPath.split("/");
+    if (splitCurrentUser.length <= 1) {
+      // current path doesn't contain user account
+      return null;
+    }
     String currentUserName = currentPath.split("/")[splitCurrentUser.length - 1];
     try {
       if ((currentUserName != null)&& (idm.getOrCreateIdentity(OrganizationIdentityProvider.NAME, currentUserName, false) != null)) return currentUserName;
@@ -32,9 +36,7 @@ public class NavigationUtils {
         return currentUserName;
       }
     } catch (Exception e) {
-      if(LOG.isDebugEnabled()) {
-        LOG.debug("Could not found Identity of user " + currentUserName);
-      }
+      LOG.warn("Cannot find Identity of user " + currentUserName, e);
       return null;
     }
     return null;
