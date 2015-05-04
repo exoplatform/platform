@@ -48,6 +48,8 @@
                          value="http://docs.exoplatform.com/PLF41/PLFUserGuide.WorkingWithSpaces.html"/>
                <property name="personnal:connections"
                          value="http://docs.exoplatform.com/PLF41/PLFUserGuide.ManagingYourPersonalApplications.ManagingYourConnections.html"/>
+               <property name="personnal:activities"
+                         value="http://docs.exoplatform.com/PLF41/PLFUserGuide.ManagingYourPersonalApplications.ManagingYourActivityStream.html"/>
                <property name="personnal:profile"
                          value="http://docs.exoplatform.com/PLF41/PLFUserGuide.ManagingYourPersonalApplications.ManagingYourProfile.html"/>
                <property name="personnal:wiki"
