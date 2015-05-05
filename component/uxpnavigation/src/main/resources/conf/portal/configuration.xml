@@ -39,7 +39,7 @@
                <property name="Company Context Forum"
                          value="http://docs.exoplatform.com/PLF42/PLFUserGuide.BuildingYourForum.html"/>
                <property name="Company Context FAQ:Answers"
-                         value="http://docs.exoplatform.com/PLF42/PLFUserGuide.BuildingYourAnswers.html"/>
+                         value="http://docs.exoplatform.com/PLF42/eXoAddonsGuide.Answers.html"/>
                <property name="Company Context Documents"
                          value="http://docs.exoplatform.com/PLF42/PLFUserGuide.ManagingYourDocuments.html"/>
                <property name="Company Context Connections"
@@ -69,7 +69,7 @@
                <property name="space:calendar"
                          value=" http://docs.exoplatform.com/PLF42/PLFUserGuide.ManagingYourCalendars.html"/>
                <property name="space:faq_annswer"
-                         value=" http://docs.exoplatform.com/PLF42/PLFUserGuide.BuildingYourAnswers.html"/>
+                         value="http://docs.exoplatform.com/PLF42/eXoAddonsGuide.Answers.html"/>
                <property name="space:document"
                          value=" http://docs.exoplatform.com/PLF42/PLFUserGuide.ManagingYourDocuments.html"/>
                <property name="default"
