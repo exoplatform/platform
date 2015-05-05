@@ -94,6 +94,9 @@ public class Helper {
             else if((url.contains("activities"))&&(isProfileOwner())){
               return "personnal:activities";
             }
+            else if((url.contains("notifications"))&&(isProfileOwner())){
+              return "personnal:notifications";
+            }
             else if(url.contains("all-spaces")){
                 return "personnal:all-spaces";
             }
