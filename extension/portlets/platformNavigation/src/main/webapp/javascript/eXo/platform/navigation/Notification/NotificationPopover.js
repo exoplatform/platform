@@ -18,8 +18,8 @@
         var loc = window.location;
         me.Cometd.configure({
             url: loc.protocol + '//' + loc.hostname + (loc.port ? ':' + loc.port : '')  + '/' + contextName + '/cometd',
-            'exoId': eXoUser, 'exoToken': eXoToken,
-            logLevel: 'debug'
+            'exoId': eXoUser, 'exoToken': eXoToken
+            //logLevel: 'debug'
         });
     
         if (me.currentUser !== eXoUser || me.currentUser === '') {
