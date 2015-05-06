@@ -85,7 +85,6 @@ public class PopulateToMenu implements CmsScript {
 				Node parentNode = node.getParent();
 				if(parentNode.isNodeType("exo:navigable")){
 					node.setProperty("exo:clickable", true);
-					node.save();
 				}else{
 					node.setProperty("exo:navigationNode", navigationNode);
 					node.setProperty("exo:index", Long.parseLong(index));
@@ -94,12 +93,11 @@ public class PopulateToMenu implements CmsScript {
 					node.setProperty("exo:pageParamId", "folder-id");
 					node.setProperty("exo:childrenPage", childrenPage);
 					node.setProperty("exo:childrenPageParamId", "content-id");
-					node.save();
 					if(node.hasNodes()) {
 						propagateVisibility(node, true);
 						}
 				}
-				session.save();
+				node.save();
 			}
 		}
     } catch(Exception e) {
