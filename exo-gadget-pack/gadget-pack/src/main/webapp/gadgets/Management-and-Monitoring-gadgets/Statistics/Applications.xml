@@ -43,6 +43,15 @@
       <script language="javascript" type="text/javascript" src="script/utils.js"></script>
       <script language="javascript" type="text/javascript" src="/eXoResources/skin/bootstrap/js/bootstrap-tooltip.js"></script>
       <script type="text/javascript">
+        function escapeHtml(key) {
+          var prefs = new gadgets.Prefs();
+          var str = prefs.getMsg(key);
+          return (str + '').replace(/&/g, "&amp;")
+                           .replace(/</g, "&lt;")
+                           .replace(/>/g, "&gt;")
+                           .replace(/"/g, "&quot;")
+                           .replace(/'/g, "&#039;");
+        }
         function processData(items, data, clazz) {
           $.each(data, function(i, liste) {
               items.push('<ul class="' + clazz +'">');
@@ -60,12 +69,12 @@
                 items.push('<li>');
                 items.push('<div class="appData clearfix">');
                 items.push('<span id="application_'+i+'_'+key+'" class="appTitle pull-left" data-placement="bottom" rel="tooltip" data-original-title="' +applicationID+'"><b>'+applicationID+'</b></span>');
-                items.push('<span class="'+avgExecTimeCssClass+'" title="__MSG_avg_exec_time__">'+formatInteger(Math.round(application.averageTime))+' '+application.timeUnit+'</span>');
+                items.push('<span class="'+avgExecTimeCssClass+'" title="' + escapeHtml("avg_exec_time") + '">'+formatInteger(Math.round(application.averageTime))+' '+application.timeUnit+'</span>');
                 items.push('</div>');
                 items.push('<p class="appDetailTime">');
-                items.push('__MSG_min__: '+formatInteger(application.minTime)+' '+application.timeUnit);
-                items.push(' | __MSG_max__: '+formatInteger(application.maxTime)+' '+application.timeUnit);
-                items.push(' | __MSG_exec__: '+formatInteger(application.execution));
+                items.push(escapeHtml("min")+': '+formatInteger(application.minTime)+' '+application.timeUnit);
+                items.push(' | '+escapeHtml("max")+': '+formatInteger(application.maxTime)+' '+application.timeUnit);
+                items.push(' | '+escapeHtml("exec")+': '+formatInteger(application.execution));
                 items.push('</p>');
                 items.push('</li>');
               });
@@ -89,7 +98,7 @@
               var allAppsContainer = $('#applications .allApps');
               var tenAppsBtn = $('#applications .tenAppsBtn');
               var tenAppsContainer = $('#applications .tenSlowestApps');
-              allAppsBtn.text("__MSG_all_apps__ (" + length + ")");
+              allAppsBtn.text(escapeHtml("all_apps")+"(" + length + ")");
               $(allAppsBtn).click(function() {
                 $(this).addClass("active");
                 allAppsContainer.show();
