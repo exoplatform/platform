@@ -66,7 +66,8 @@ public class AnswerPageUpgradePlugin extends UpgradeProductPlugin {
         if (page == null) continue;
         ArrayList<ModelObject> children = page.getChildren();
         for(int i = 0; i < children.size(); i++) {
-          if(NAVIGATION.equals(((Container)children.get(i)).getId())){
+          ModelObject child = children.get(i);
+          if(child instanceof Container && NAVIGATION.equals(((Container)child).getId())){
             page.getChildren().remove(i);
             if (LOG.isInfoEnabled()) {
               LOG.info(pageName + " removed!");
