@@ -47,10 +47,14 @@
       <script language="javascript" type="text/javascript" src="/exo-gadget-resources/script/jquery/plugins/jqplot/1.0.5/plugins/jqplot.pieRenderer.min.js"></script>
       <script language="javascript" type="text/javascript" src="/exo-gadget-resources/script/jquery/plugins/jqplot/1.0.5/plugins/jqplot.highlighter.min.js"></script>
       <script type="text/javascript">
-        function addSlashes(key) {
+        function escapeHtml(key) {
           var prefs = new gadgets.Prefs();
           var str = prefs.getMsg(key);
-          return (str + '').replace(/'/g, "\'").replace(/"/g, '\"');
+          return (str + '').replace(/&/g, "&amp;")
+                           .replace(/</g, "&lt;")
+                           .replace(/>/g, "&gt;")
+                           .replace(/"/g, "&quot;")
+                           .replace(/'/g, "&#039;");
         }
         function loadInfos() {
           var items = [];
@@ -62,7 +66,7 @@
                 var free = formatOctets(memory.max - memory.used);
                 var used = formatOctets(memory.used);
                 var total = formatOctets(memory.max);              
-                dataGraphs[key]=[memory.type, [free, used, total], [[addSlashes("used"), memory.used], [addSlashes("free"), memory.max - memory.used]]];
+                dataGraphs[key]=[memory.type, [free, used, total], [[escapeHtml("used"), memory.used], [escapeHtml("free"), memory.max - memory.used]]];
                 items.push('<div id="memoryGraph_'+memory.type+'" class="graph-memory-zone"> </div>');
               });
             });
@@ -108,19 +112,19 @@
               var tableGrip = "<table class='list-memory uiGrid table table-hover table-striped'>" +
                       "<tbody>" +
                       "<tr>" +
-                      "<td class='memory-label'>" + addSlashes("used") + "</td>" +
+                      "<td class='memory-label'>" + escapeHtml("used") + "</td>" +
                       "<td class='center'>" +
                       memoryStats[1] +
                       "</td>" +
                       "</tr>" +
                       "<tr>" +
-                      "<td class='memory-label'>" +  addSlashes("free") + "</td>" +
+                      "<td class='memory-label'>" +  escapeHtml("free") + "</td>" +
                       "<td class='center'>" +
                       memoryStats[0] +
                       "</td>" +
                       "</tr>" +
                       "<tr>" +
-                      "<td class='memory-label'>" + addSlashes("total") + "</td>" +
+                      "<td class='memory-label'>" + escapeHtml("total") + "</td>" +
                       "<td class='center'>" +
                       memoryStats[2] +
                       "</td>" +
@@ -128,7 +132,7 @@
                       "</tbody>" +   
                       "</table>";
               var memoryGraphParent = $(this).parent();
-              var sel = $("<div class='chart-container'><h6>" +addSlashes(memoryType) + " memory</h6></div>").append(this);
+              var sel = $("<div class='chart-container'><h6>" +escapeHtml(memoryType) + " memory</h6></div>").append(this);
               sel.appendTo(memoryGraphParent);
               //$(this).remove();
               var table = $(this).find("table");
