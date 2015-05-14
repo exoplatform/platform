@@ -4,6 +4,8 @@
     import org.exoplatform.wcm.webui.clv.UICLVPortlet;
     import org.exoplatform.wcm.webui.Utils;
     import org.exoplatform.services.wcm.core.NodeLocation;
+    import org.apache.commons.lang.StringEscapeUtils;
+
 
     def header = uicomponent.getHeader();
     def rssLink = uicomponent.getRssLink();
@@ -52,6 +54,7 @@
 
           if (itemTitle != null && itemTitle.trim().length() != 0)
             itemName = itemTitle;
+          def _trustedItemName = org.exoplatform.services.deployment.Utils.sanitize(StringEscapeUtils.unescapeHtml(itemName));
 
           def itemSummary = uicomponent.getSummary(viewNode);
           def itemSummaryField = uicomponent.getSummaryField(viewNode);
@@ -64,7 +67,7 @@
         <%=uicomponent.addQuickEditDiv("Column1", viewNode)%>
 
               <%if(isShowImage) {%>
-        <a class="Image" title="$itemName"><img alt="$itemName" src="$imgSrc" /></a><%
+        <a class="Image" title="$_trustedItemName"><img alt="$_trustedItemName" src="$imgSrc" /></a><%
               }%>
                 <%if (isShowTitle) {
           if (isShowLink) {%>
