@@ -26,7 +26,7 @@ def uicomponentId = uicomponent.getId();
 
 %>
 
-<link rel="stylesheet" type="text/css" href="/acme-intranet-portlet/skin/css/SpaceSummaryInfoPortlet.css" ></link>
+<link rel="stylesheet" type="text/css" href="/eXoSkin/skin/css/platform/samples/acme-intranet/SpaceSummaryInfoPortlet.css" ></link>
 
 <div class="UISpaceSummaryInfoPortlet" id="$uicomponentId">
 	<%

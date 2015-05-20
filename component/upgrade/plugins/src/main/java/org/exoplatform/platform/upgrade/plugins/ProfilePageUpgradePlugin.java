@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2003-2014 eXo Platform SAS.
+ * Copyright (C) 2003-2015 eXo Platform SAS.
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as published by
@@ -16,7 +16,7 @@
  */
 package org.exoplatform.platform.upgrade.plugins;
 
-import java.util.ArrayList;
+import java.util.Date;
 
 import org.exoplatform.commons.upgrade.UpgradeProductPlugin;
 import org.exoplatform.commons.version.util.VersionComparator;
@@ -24,32 +24,42 @@ import org.exoplatform.container.ExoContainerContext;
 import org.exoplatform.container.component.RequestLifeCycle;
 import org.exoplatform.container.xml.InitParams;
 import org.exoplatform.portal.config.DataStorage;
-import org.exoplatform.portal.config.model.Container;
-import org.exoplatform.portal.config.model.ModelObject;
+import org.exoplatform.portal.config.UserPortalConfigService;
 import org.exoplatform.portal.config.model.Page;
 import org.exoplatform.portal.mop.SiteKey;
 import org.exoplatform.portal.mop.SiteType;
+import org.exoplatform.portal.mop.importer.Imported;
+import org.exoplatform.portal.mop.importer.Imported.Status;
 import org.exoplatform.portal.mop.page.PageKey;
+import org.exoplatform.portal.mop.page.PageService;
+import org.exoplatform.portal.pom.config.POMSession;
+import org.exoplatform.portal.pom.config.POMSessionManager;
 import org.exoplatform.services.log.ExoLogger;
 import org.exoplatform.services.log.Log;
+import org.gatein.mop.api.workspace.Workspace;
 
 /**
  * Created by The eXo Platform SAS
  * Author : eXoPlatform
  *          exo@exoplatform.com
- * Aug 15, 2014  
- * This plugin will remove redundant navigation bar in Answers page and FAQ page
+ * May 15, 2015  
  */
-public class AnswerPageUpgradePlugin extends UpgradeProductPlugin {
+public class ProfilePageUpgradePlugin extends UpgradeProductPlugin {
 
-  private static final Log LOG = ExoLogger.getLogger(AnswerPageUpgradePlugin.class.getName());
+  private static final Log LOG = ExoLogger.getLogger(ProfilePageUpgradePlugin.class.getName());
   private static final String INTRANET = "intranet";
-  private static final String NAVIGATION = "UIUserNavigationPortlet";
+  private static final String PROFILE_PAGE = "profile";
   private DataStorage dataStorage;
+  private UserPortalConfigService portalConfigService;
+  private final POMSessionManager pomMgr;
+  private PageService pageService;
 
-  public AnswerPageUpgradePlugin(DataStorage dataStorage, InitParams initParams) {
+  public ProfilePageUpgradePlugin(UserPortalConfigService portalConfigService, POMSessionManager pomMgr, DataStorage dataStorage, PageService pageService, InitParams initParams) {
     super(initParams);
     this.dataStorage = dataStorage;
+    this.portalConfigService = portalConfigService;
+    this.pomMgr = pomMgr;
+    this.pageService = pageService;
   }
 
   @Override
@@ -59,33 +69,43 @@ public class AnswerPageUpgradePlugin extends UpgradeProductPlugin {
     }
     try {
       RequestLifeCycle.begin(ExoContainerContext.getCurrentContainer());
-      for (String pageName : new String[] {"answers", "faq"}) {
         SiteKey siteKey = new SiteKey(SiteType.PORTAL, INTRANET);
-        PageKey pageKey = new PageKey(siteKey, pageName);
+        PageKey pageKey = new PageKey(siteKey, PROFILE_PAGE);
         Page page = dataStorage.getPage(pageKey.format());
-        if (page == null) continue;
-        ArrayList<ModelObject> children = page.getChildren();
-        for(int i = 0; i < children.size(); i++) {
-          ModelObject child = children.get(i);
-          if(child instanceof Container && NAVIGATION.equals(((Container)child).getId())){
-            page.getChildren().remove(i);
-            if (LOG.isInfoEnabled()) {
-              LOG.info(pageName + " removed!");
-            }
-            break;
-          }
-        }      
-        dataStorage.save(page);
-      }
-      if (LOG.isInfoEnabled()) {
-        LOG.info(this.getClass().getName() + " finished successfully!");
-      }
+        if (page == null) return;
+        pageService.destroyPage(pageKey);
+        
+        if (LOG.isInfoEnabled()) {
+          LOG.info(PROFILE_PAGE + " page has been removed!");
+        }
+        
+        POMSession session = pomMgr.getSession();
+        Workspace workspace = session.getWorkspace();
+        Imported imported = workspace.adapt(Imported.class);
+        imported.setLastModificationDate(new Date());
+        imported.setStatus(Status.WANT_REIMPORT.status());
+        session.save();
+        LOG.info("Import status updated successfully!");
     } catch (Exception e) {
       if (LOG.isErrorEnabled()) {
         LOG.error("An unexpected error occurs when migrating pages:", e);        
       }
     } finally {
       RequestLifeCycle.end();
+    }
+    
+    try {
+      LOG.info("Starts to reimport portal configuration....");
+      
+      portalConfigService.start();
+      if (LOG.isInfoEnabled()) {
+        LOG.info(this.getClass().getName() + " finished successfully!");
+      }
+
+    } catch (Exception e) {
+      if (LOG.isErrorEnabled()) {
+        LOG.error("An unexpected error occurs when migrating pages:", e);
+      }
     }
   }
 

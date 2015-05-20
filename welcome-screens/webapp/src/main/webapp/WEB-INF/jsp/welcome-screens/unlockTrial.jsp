@@ -55,23 +55,23 @@
 				<div class="<%=css%>">
 					<strong> <%=label1%>  <%=rday%> <%=label2%></strong>
 				</div>
-       <div class="product-label">
-         <span>Product Code&#58;</span>
-         <input type="text" class="Text" name="pc" value="<%=UnlockService.getProductCode() %>">
-         <a data-toggle="popover" data-placement="top" data-content="This code identifies your eXo Platform instance. It is required to generate a unique unlock key." onmouseover="showPopover(this);" onmouseout="hidePopover(this);">
-           <i class="uiIconQuestion uiIconLightGray"></i> 
-         </a>
-       </div>
-       <p>
-         <strong>You must own a valid subscription in order to unlock this eXo Platform instance</strong>
-       </p>
-       <div class="steps clearfix">
-         <div class="rightCol firstItem pull-right"><strong>Pickup your favorite plan and purchase a subscription</strong>
-           <div class="center"><a target="_blank" class="btn btn-large btn-buy btn-primary" href="<%=UnlockService.getRegistrationFormUrl()%>?pc=<%=UnlockService.getProductCode()%>">Buy</a></div>
-         </div>
-         <div class="stepsNumber pull-left">1</div>
-       </div>
        <form action="<%=contextPath%>/trial" method="post" name="unlockForm" onsubmit="return formValidation();">
+         <div class="product-label">
+           <span>Product Code&#58;</span>
+           <input type="text" class="Text" name="pc" value="<%=UnlockService.getProductCode() %>">
+           <a data-toggle="popover" data-placement="top" data-content="This code identifies your eXo Platform instance. It is required to generate a unique unlock key." onmouseover="showPopover(this);" onmouseout="hidePopover(this);">
+             <i class="uiIconQuestion uiIconLightGray"></i>
+           </a>
+         </div>
+         <p>
+           <strong>You must own a valid subscription in order to unlock this eXo Platform instance</strong>
+         </p>
+         <div class="steps clearfix">
+           <div class="rightCol firstItem pull-right"><strong>Pickup your favorite plan and purchase a subscription</strong>
+             <div class="center"><a target="_blank" class="btn btn-large btn-buy btn-primary" href="<%=UnlockService.getRegistrationFormUrl()%>?pc=<%=UnlockService.getProductCode()%>">Buy</a></div>
+           </div>
+           <div class="stepsNumber pull-left">1</div>
+         </div>
          <div class="steps clearfix">
            <div class="rightCol pull-right">
              <strong>Enter the unlock key you received in the confirmation email</strong>

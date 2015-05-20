@@ -1,13 +1,14 @@
 <%
  import java.util.Calendar;
  import java.text.SimpleDateFormat;
+ import org.exoplatform.ecm.utils.text.Text;
  private String getTimestampName() {
  	Calendar now = Calendar.getInstance();
  	SimpleDateFormat formatter = new SimpleDateFormat("yyyy.MM.dd '-' hh'h'mm'm'ss");
  	return formatter.format(now.getTime());
  }
- String timestampName = getTimestampName();
- %>
+ String timestampName = Text.convertJcrChars(getTimestampName());
+%>
 <div class="uiForm FormLayout FormScrollLayout">  
 <% uiform.begin() %>    
 	<%/* start render action*/%>
