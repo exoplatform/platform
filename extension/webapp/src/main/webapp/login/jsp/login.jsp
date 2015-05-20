@@ -24,6 +24,8 @@
 <%@ page import="org.exoplatform.web.login.LoginError"%>
 <%@ page import="org.exoplatform.container.PortalContainer"%>
 <%@ page import="org.exoplatform.services.resources.ResourceBundleService"%>
+<%@ page import="org.gatein.security.oauth.spi.OAuthProviderType"%>
+<%@ page import="org.gatein.security.oauth.spi.OAuthProviderTypeRegistry"%>
 <%@ page import="org.exoplatform.portal.resource.SkinService"%>
 <%@ page import="java.util.ResourceBundle"%>
 <%@ page import="org.gatein.common.text.EntityEncoder"%>
@@ -39,10 +41,11 @@
       username = encoder.encode(username);
   }
 
-  ResourceBundleService service = (ResourceBundleService) PortalContainer.getCurrentInstance(session.getServletContext())
-  														.getComponentInstanceOfType(ResourceBundleService.class);
+  PortalContainer portalContainer = PortalContainer.getCurrentInstance(session.getServletContext());
+  ResourceBundleService service = (ResourceBundleService) portalContainer.getComponentInstanceOfType(ResourceBundleService.class);
   ResourceBundle res = service.getResourceBundle(service.getSharedResourceBundleNames(), request.getLocale()) ;
-  
+
+  OAuthProviderTypeRegistry registry = (OAuthProviderTypeRegistry) portalContainer.getComponentInstanceOfType(OAuthProviderTypeRegistry.class);
   Cookie cookie = new Cookie(org.exoplatform.web.login.LoginServlet.COOKIE_NAME, "");
 	cookie.setPath(request.getContextPath());
 	cookie.setMaxAge(0);
@@ -167,6 +170,31 @@
 				</script>
 				</form>
 				<%/*End form*/%>
+        </div>
+        <div>
+            <% if(registry.isOAuthEnabled()) { %>
+            <script type="text/javascript">
+                function goSocialLoginUrl(url) {
+                    if(document.getElementById('rememberme').checked) {
+                        url += '&_rememberme=true';
+                    }
+                    window.location = url;
+                    return false;
+                }
+            </script>
+            <div id="social-pane">
+                <div class="signInDelimiter">
+                    <%=res.getString("UILoginForm.label.mobile.login.oauth.Delimiter")%>
+                </div>
+                <div id="social-login">
+                    <% for (OAuthProviderType oauthProvType : registry.getEnabledOAuthProviders()) { %>
+                    <a href="javascript:void(0)" onclick="goSocialLoginUrl('<%= oauthProvType.getInitOAuthURL(contextPath, uri) %>')" id="login-<%= oauthProvType.getKey() %>">
+                        <i class="uiIconOauth <%= oauthProvType.getKey().toLowerCase() %>"></i>
+                    </a>
+                    <% } %>
+                </div>
+            </div>
+            <% } %>
         </div>
       </div>
     	</div>

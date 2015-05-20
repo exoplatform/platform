@@ -40,7 +40,7 @@
       <listener>org.exoplatform.portal.application.localization.LocalizationLifecycle</listener>
       <listener>org.exoplatform.wiki.service.impl.WikiSpaceAccessLifecycle</listener>
       <listener>org.exoplatform.social.webui.space.access.SpaceAccessApplicationLifecycle</listener>
-      <listener>org.exoplatform.portal.application.oauth.OAuthLifecycle</listener>
+      <listener>org.exoplatform.oauth.webui.OAuthLifecycle</listener>
     </application-lifecycle-listeners>
 
     <events>

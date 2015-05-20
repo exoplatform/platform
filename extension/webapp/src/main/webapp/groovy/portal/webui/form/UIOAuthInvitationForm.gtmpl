@@ -1,0 +1,82 @@
+<%
+        import org.exoplatform.webui.form.UIFormInputBase;
+        import org.exoplatform.web.application.JavascriptManager;
+
+        def rcontext = _ctx.getRequestContext();
+        JavascriptManager jsManager = rcontext.getJavascriptManager();
+        jsManager.require("SHARED/uiForm");
+        String fieldName; %>
+<div class="uiFormWithTitle uiBox $uicomponent.id" onkeypress="javascript:SubmitAction.call(this, event);">
+<h5 class="title"><%=_ctx.appRes(uicomponent.getName() + ".title")%></h5>
+<div class="uiContentBox">
+    <% uiform.begin() %>
+        <div class="content">
+            <%
+            boolean required = false;
+            for (field in uiform.getChildren()) {
+            if (!required && field instanceof UIFormInputBase) {
+            required = ((UIFormInputBase) field).isMandatory();
+            }
+            }
+            if (required && false) {
+            %>
+            <%=_ctx.appRes("legend.required_field") %> (*)
+            <%
+            }
+            %>
+           
+                <p>
+                    <%=_ctx.appRes("UIOAuthInvitationForm.message.detectedUser")%>
+                    <strong><%= uicomponent.getDetectedUserName() %></strong>
+                </p>
+                <p><%=_ctx.appRes("UIOAuthInvitationForm.message.inviteMessage")%></p>
+               
+            <%
+            for(field in uiform.getChildren()) {
+            if(field.isRendered()) {
+            %>
+            <p class="clearfix">
+                <%fieldName = uicomponent.getLabel(field.getName());%>
+                <%if(field instanceof UIFormInputBase && !fieldName.equals(uicomponent.getId())) { %>
+                    <%if(fieldName != null && fieldName.length() > 0) {%>
+                    <label class="pull-left" for="<%= field.getName() %>"><%=uicomponent.getLabel(field.getName()) %></label>
+                    <%}%>
+                <% if(field instanceof UIFormInputBase && field.isEditable()) { %>
+                    <span class="pull-left"><% uiform.renderField(field) %></span>
+                <% }else { %>
+                    <span class="pull-left"><% uiform.renderField(field) %></span>
+                <% } %>
+                <%} else {%>
+                    <span class="pull-left"><% uiform.renderField(field) %></span>
+                <%}%>
+            </p>
+            <%
+            }
+            }
+            %>
+        </div>
+        <%//Rerender this	component with the new structure%>
+        <%// start render action%>
+        <div class="uiAction uiActionBorder">
+            <% for(action in uicomponent.getActions()) {
+            String actionLabel = _ctx.appRes(uicomponent.getName() + ".action." + action)
+            String link = uicomponent.event(action);
+            %>
+            <a href="javascript:void(0);" onclick="$link" class="btn btn-<%= action.toLowerCase() %> ActionButton LightBlueStyle">$actionLabel</a>
+            <%}%>
+        </div>
+        <%// end render action%>
+    <%uiform.end()%>
+    </div>
+</div>
+<script language="javascript">
+function SubmitAction(event) {
+    var event = window.event || event;
+    var code;
+    if(event.keyCode) code = event.keyCode;
+    else if (event.which) code = event.which;
+    if(code ==13) {
+        this.onsubmit = function(){ return false; }
+    }
+}
+</script>

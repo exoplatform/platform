@@ -1,0 +1,60 @@
+<%  
+  import org.exoplatform.web.application.JavascriptManager;
+  import javax.servlet.http.HttpSession;
+  import org.gatein.security.oauth.spi.OAuthProviderTypeRegistry;
+  def rcontext = _ctx.getRequestContext();
+  JavascriptManager jsmanager = rcontext.getJavascriptManager();
+  jsmanager.addCustomizedOnLoadScript('document.getElementById("UIPortalComponentLogin").username.focus();');
+  HttpSession session = rcontext.getRequest().getSession();
+  String requestPath = rcontext.getInitialURI();
+  String contextPath = rcontext.getRequestContextPath();
+  //session.setAttribute("initialURI", requestPath);
+%>
+<div class="uiBoxWithTitle uiBox uiLogin">
+  <h5 class="title"><%=_ctx.appRes("UILoginForm.label.Signin")%></h5>
+  <div class="uiContentBox">
+    <form class="form-horizontal" id="$uicomponent.id" name="loginForm" action="<%= contextPath + "/login"%>" method="post" style="margin: 0px;">
+    <input type="hidden" name="initialURI" value="<%=requestPath %>"/>
+    <div class="control-group">
+      <label class="control-label" for="username"><%=_ctx.appRes("UILoginForm.label.UserName")%>&#58;</label>
+      <div class="controls">
+        <input class="UserName" type="text" name="username" id="username"/>
+      </div>
+    </div>
+    <div class="control-group">
+      <label class="control-label" for="password"><%=_ctx.appRes("UILoginForm.label.password")%>&#58;</label>
+      <div class="controls">
+        <input class="Password" type="password" name="password" id="password"/>
+      </div>
+    </div>
+    <div class="control-group">
+      <div class="control-label"></div>
+      <div class="controls">
+        <span class="uiCheckbox"><input type="checkbox" class="checkbox" value="true" name="rememberme" id="rememberme"/><span></span></span>
+        <label for="rememberme" style="display: inline-block;"><%=_ctx.appRes("UILoginForm.label.RememberOnComputer")%></label>
+      </div>
+    </div>
+    <div class="control-group">
+      <div class="control-label"></div>
+      <div class="controls"><a href="javascript:void(0);" onclick="<%= uicomponent.event("ForgetPassword") %>"><%=_ctx.appRes("UILoginForm.label.forgot")%></a></div>
+    </div>
+    <div class="uiAction uiActionBorder"> 
+       <input type="submit" name="signIn" class="btn" value="<%=_ctx.appRes("UILoginForm.label.Signin")%>"></input>
+       <input type="button" name="discard" class="btn" value="<%=_ctx.appRes("UILoginForm.label.Discard")%>" onclick="<%=uicomponent.event("Close");%>"></input>
+    </div> 
+    </form>
+  </div>
+  <%
+    OAuthProviderTypeRegistry registry = uicomponent.getApplicationComponent(OAuthProviderTypeRegistry.class);
+    if (registry.isOAuthEnabled()) {
+  %>
+  <div id="social-pane">
+    <div class="signInDelimiter">
+      <span><%=_ctx.appRes("UILoginForm.label.Delimiter")%></span>
+    </div>
+    <%
+          uicomponent.renderChildren();
+      }
+    %>
+  </div>
+</div>

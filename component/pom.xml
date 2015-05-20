@@ -18,5 +18,6 @@
     <module>webui</module>
     <module>jmxclient</module>
     <module>uxpnavigation</module>
+    <module>oauth-auth</module>
   </modules>
 </project>
