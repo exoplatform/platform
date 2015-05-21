@@ -80,7 +80,7 @@
           <div class="DateAndMail">$itemDateCreated by $itemOwner</div>
         <%}
                 if (isShowSummary) {%>
-          <div class="Summary">
+          <div class="Summary content-display">
             <%if (itemSummaryField!=null) {
               print uicomponent.getInlineEditingField(viewNode, itemSummaryField, itemSummary, "TEXTAREA", "Text_"+String.valueOf(i), "CLV1ColumnPresent", true);
             }%>
