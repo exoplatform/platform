@@ -299,6 +299,22 @@
           <artifactId>jbossxacml</artifactId>
           <groupId>org.jboss.security</groupId>
         </exclusion>
+         <exclusion>
+            <artifactId>spring-context</artifactId>
+            <groupId>org.springframework</groupId>
+         </exclusion>
+         <exclusion>
+            <artifactId>spring-beans</artifactId>
+            <groupId>org.springframework</groupId>
+         </exclusion>
+         <exclusion>
+            <artifactId>spring-core</artifactId>
+            <groupId>org.springframework</groupId>
+         </exclusion>
+         <exclusion>
+            <artifactId>spring-aop</artifactId>
+            <groupId>org.springframework</groupId>
+         </exclusion>
       </exclusions>
     </dependency>
     <!-- Add missing runtime deps from Gatein and JCR -->
