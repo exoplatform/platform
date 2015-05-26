@@ -258,9 +258,10 @@ public class SpaceCustomizationService {
               customSpaceHomePage.getDescription(),
               customSpaceHomePage.isShowMaxWindow(),
               customSpaceHomePage.getFactoryId(),
-              customSpaceHomePage.getAccessPermissions() != null ?
-              Arrays.asList(customSpaceHomePage.getAccessPermissions()) : null,
-              customSpaceHomePage.getEditPermission());
+              customSpaceHomePage.getAccessPermissions() != null ? Arrays.asList(customSpaceHomePage.getAccessPermissions()) : null,
+              customSpaceHomePage.getEditPermission(),
+              customSpaceHomePage.getMoveAppsPermissions() != null ? Arrays.asList(customSpaceHomePage.getMoveAppsPermissions()) : null,
+              customSpaceHomePage.getMoveContainersPermissions() != null ? Arrays.asList(customSpaceHomePage.getMoveContainersPermissions()) : null);
       
       pageService.savePage(new PageContext(pageKey, pageState));
       dataStorageService.save(customSpaceHomePage);

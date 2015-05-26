@@ -32,6 +32,7 @@
 	</module>
    <module>
       <name>platform-left-navigation</name>
+      <as>platformLeftNavigation</as>
       <script>
          <path>/javascript/eXo/platform/leftnavigation/UILeftNavigation.js</path>
       </script>

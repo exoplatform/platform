@@ -350,5 +350,13 @@
 			<type>org.exoplatform.services.cms.listeners.AddMixinToNewUserListener</type>
 			<description>Add mixin exo:userFolder into user folder</description>
 		</component-plugin>
+
+		 <component-plugin>
+				<name>ChangeStatusUserListener</name>
+				<set-method>addListenerPlugin</set-method>
+				<type>org.exoplatform.services.cms.listeners.ChangeStatusUserListener</type>
+				<description>Change permission of user node according to user status</description>
+			</component-plugin>
+
 	</external-component-plugins>
 </configuration>

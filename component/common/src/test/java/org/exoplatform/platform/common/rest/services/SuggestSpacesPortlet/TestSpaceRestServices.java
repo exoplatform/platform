@@ -47,12 +47,12 @@ public class TestSpaceRestServices extends BaseRestServicesTestCase {
         // There are nothing to suggest
         Map<String, Object> imResults = new HashMap<String, Object>();
         IdentityManager im = createProxy(IdentityManager.class, imResults);
-        getContainer().registerComponentInstance(im);
+        getContainer().registerComponentInstance("IdentityManager", im);
 
         Map<String, Object> ssResults = new HashMap<String, Object>();
         ssResults.put("getPublicSpacesWithListAccess", new MockListAccess<Space>(new Space[]{}));
         SpaceService ss = createProxy(SpaceService.class, ssResults);
-        getContainer().registerComponentInstance(ss);
+        getContainer().registerComponentInstance("SpaceService", ss);
 
         resp = launcher.service("GET", path, "", null, null, envctx);
         assertEquals(200, resp.getStatus());
@@ -122,7 +122,7 @@ public class TestSpaceRestServices extends BaseRestServicesTestCase {
         assertFalse(resp.getEntity().toString().contains("space4"));
         assertTrue(resp.getEntity().toString().contains("space5"));
 
-        getContainer().unregisterComponentByInstance(ss);
-        getContainer().unregisterComponentByInstance(im);
+        getContainer().unregisterComponent("SpaceService");
+        getContainer().unregisterComponent("IdentityManager");
     }
 }
