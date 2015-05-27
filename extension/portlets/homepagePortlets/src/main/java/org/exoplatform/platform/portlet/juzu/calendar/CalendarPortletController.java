@@ -435,6 +435,8 @@ public class CalendarPortletController {
                       Iterator<CalendarEvent> recurEventsIter = originalRecurEvents.iterator();
                           while (recurEventsIter.hasNext()) {
                              CalendarEvent recurEvent = recurEventsIter.next();
+                             // don't build virtual event when the original RecurrenceEvents occurs on that day
+                             if (recurEvent.getFromDateTime().compareTo(begin.getTime()) > 0) continue;
                              Map<String,CalendarEvent> tempMap = calendarService_.getOccurrenceEvents(recurEvent, eventQuery.getFromDate(), eventQuery.getToDate(), timezone);
                                 if (tempMap != null) {
                                       recurrenceEventsMap.put(recurEvent.getId(), tempMap);
