@@ -559,6 +559,7 @@ public class OrganizationIntegrationService implements Startable {
     if (LOG.isDebugEnabled()) {
       LOG.debug("\tUser listeners invocation, operation= " + eventType + ", for user= " + username);
     }
+    username = username.toLowerCase();
     EventType event = EventType.valueOf(eventType);
     switch (event) {
       case DELETED: {
@@ -715,6 +716,7 @@ public class OrganizationIntegrationService implements Startable {
     if (LOG.isDebugEnabled()) {
       LOG.debug("Memberships listeners invocation, operation= " + eventType + ", for membership=" + username + ":" + groupId);
     }
+    username = username.toLowerCase();
 
     EventType event = EventType.valueOf(eventType);
     switch (event) {
@@ -837,6 +839,7 @@ public class OrganizationIntegrationService implements Startable {
       LOG.debug("\tMembership listeners invocation, operation= " + eventType + ", for membership= " + membershipType + ":"
           + username + ":" + groupId);
     }
+    username = username.toLowerCase();
 
     switch (eventType) {
       case DELETED: {
@@ -1020,6 +1023,7 @@ public class OrganizationIntegrationService implements Startable {
     if (LOG.isDebugEnabled()) {
       LOG.debug("\t\tMemberships listeners invocation, operation= " + eventType + ", for user= " + username);
     }
+    username = username.toLowerCase();
     switch (eventType) {
       case DELETED: {
         Session session = null;
@@ -1114,6 +1118,7 @@ public class OrganizationIntegrationService implements Startable {
     if (LOG.isDebugEnabled()) {
       LOG.debug("\t\tProfile listeners invocation, operation= " + eventType + ", for user= " + username);
     }
+    username = username.toLowerCase();
     switch (eventType) {
       case ADDED:
       case UPDATED: {
