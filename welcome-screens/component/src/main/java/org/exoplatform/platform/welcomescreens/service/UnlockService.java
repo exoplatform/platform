@@ -368,15 +368,11 @@ public class UnlockService implements Startable {
             String hashMD5Added = request.getParameter("hashMD5");
             String pc = request.getParameter("pc");
             int delay;
-            String errorMessage = "Invalid unlock key.";
             boolean callPingBack = false;
             String productEdition = "";
             if (hashMD5Added != null) {
                 try {
-                    if (hashMD5Added.isEmpty()) {
-                      delay = 0;
-                      errorMessage = "Unlock key is mandatory.";
-                    } else if((pc!=null)&&(!pc.equals(productCode)))
+                    if((pc!=null)&&(!pc.equals(productCode)))
                     {
                         delay = decodeKey(pc, hashMD5Added);
                     }
@@ -387,7 +383,7 @@ public class UnlockService implements Startable {
                     delay = 0;
                 }
                 if (( delay > -1)&&(delay<=0)) {
-                    request.setAttribute("errorMessage", errorMessage);
+                    request.setAttribute("errorMessage", "Invalid unlock key.");
                     request.getRequestDispatcher("WEB-INF/jsp/welcome-screens/unlockTrial.jsp").include(request, response);
                     return;
                 }
