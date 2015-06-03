@@ -35,12 +35,12 @@
       <listener>org.exoplatform.portal.application.UserSiteLifeCycle</listener>
       <listener>org.exoplatform.portal.application.PortalLogoutLifecycle</listener>
       <listener>org.exoplatform.portal.application.PortalStatisticLifecycle</listener>
-      <listener>org.exoplatform.portal.application.PortalApplicationLifecycle</listener>
       <listener>org.exoplatform.webui.application.MonitorApplicationLifecycle</listener>
       <listener>org.exoplatform.portal.application.UserProfileLifecycle</listener>
       <listener>org.exoplatform.portal.application.localization.LocalizationLifecycle</listener>
       <listener>org.exoplatform.wiki.service.impl.WikiSpaceAccessLifecycle</listener>
-      <listener>org.exoplatform.social.webui.space.access.SpaceAccessApplicationLifecycle</listener>  
+      <listener>org.exoplatform.social.webui.space.access.SpaceAccessApplicationLifecycle</listener>
+      <listener>org.exoplatform.portal.application.oauth.OAuthLifecycle</listener>
     </application-lifecycle-listeners>
 
     <events>

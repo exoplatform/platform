@@ -55,7 +55,7 @@
 
   <component profiles="cluster">
     <key>org.exoplatform.services.rpc.RPCService</key>
-    <type>org.exoplatform.services.rpc.impl.RPCServiceImpl</type>
+    <type>org.exoplatform.services.rpc.jgv3.RPCServiceImpl</type>
     <init-params>
       <value-param>
         <name>jgroups-configuration</name>

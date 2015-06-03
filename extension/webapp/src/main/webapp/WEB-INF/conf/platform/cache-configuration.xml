@@ -65,19 +65,12 @@
         <object-param>
           <name>cache.config.TemplateService</name>
           <description>The JBoss Cache configuration for the template service</description>
-          <object type="org.exoplatform.services.cache.impl.jboss.ea.EAExoCacheConfig">
-            <field name="name">
-              <string>TemplateService</string>
-            </field>
-            <field name="expirationTimeout">
-              <long>${cache.exo.portal.templateservice.expiration:600000}</long>
-            </field>
-            <field name="maxNodes">
-              <int>${cache.exo.portal.templateservice.maxnodes:5000}</int>
-            </field>
-            <field name="distributed">
-              <boolean>true</boolean>
-            </field>
+          <object type="org.exoplatform.services.cache.impl.infinispan.generic.GenericExoCacheConfig">
+            <field name="name"><string>TemplateService</string></field>
+	         <field name="strategy"><string>LIRS</string></field>
+            <field name="maxEntries"><int>${cache.exo.portal.templateservice.maxnodes:5000}</int></field>
+            <field name="lifespan"><long>${cache.exo.portal.templateservice.expiration:600000}</long></field>
+            <field name="replicated"><boolean>true</boolean></field>
           </object>
         </object-param>
       </init-params>

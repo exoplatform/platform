@@ -18,6 +18,22 @@
  */
 package org.exoplatform.platform.common.rest.services.InvitationsPortlet;
 
+import java.net.URI;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
+import javax.ws.rs.GET;
+import javax.ws.rs.Path;
+import javax.ws.rs.Produces;
+import javax.ws.rs.core.CacheControl;
+import javax.ws.rs.core.Context;
+import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
+import javax.ws.rs.core.SecurityContext;
+import javax.ws.rs.core.UriInfo;
+import javax.ws.rs.ext.RuntimeDelegate;
+
 import org.exoplatform.common.http.HTTPStatus;
 import org.exoplatform.commons.utils.ListAccess;
 import org.exoplatform.services.log.ExoLogger;
@@ -28,21 +44,10 @@ import org.exoplatform.social.core.identity.model.Identity;
 import org.exoplatform.social.core.identity.provider.OrganizationIdentityProvider;
 import org.exoplatform.social.core.manager.IdentityManager;
 import org.exoplatform.social.core.manager.RelationshipManager;
-import org.exoplatform.social.core.relationship.model.Relationship;
 import org.exoplatform.social.core.space.model.Space;
 import org.exoplatform.social.core.space.spi.SpaceService;
 import org.json.JSONArray;
 import org.json.JSONObject;
-
-import javax.ws.rs.GET;
-import javax.ws.rs.Path;
-import javax.ws.rs.Produces;
-import javax.ws.rs.core.*;
-import javax.ws.rs.ext.RuntimeDelegate;
-import java.net.URI;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 
 /**
  * @author <a href="hzekri@exoplatform.com">hzekri</a>
@@ -109,9 +114,9 @@ public class PeopleAndSpacesRestService implements ResourceContainer {
             }
 
             //people
-            Identity identity = identityManager.getOrCreateIdentity(OrganizationIdentityProvider.NAME, userId);
-            List<Relationship> relations = relationshipManager.getIncoming(identity);
-
+            Identity identity = identityManager.getOrCreateIdentity(OrganizationIdentityProvider.NAME, userId, false);
+            ListAccess<Identity> incomingRelationship = relationshipManager.getIncomingWithListAccess(identity);
+            Identity[] senders = incomingRelationship.load(0, incomingRelationship.getSize());
 
             JSONArray jsonArray = new JSONArray();
 
@@ -128,17 +133,16 @@ public class PeopleAndSpacesRestService implements ResourceContainer {
                 jsonArray.put(json);
             }
 
-            for (Relationship relation : relations) {
+            for (Identity sender : senders) {
 
-                Identity senderId = relation.getSender();
-                String avatar = senderId.getProfile().getAvatarImageSource();
+                String avatar = sender.getProfile().getAvatarImageSource();
                 JSONObject json = new JSONObject();
                 json.put(INVITATION_TYPE, PEOPLE_INVITATION_TYPE);
-                json.put(SENDER_NAME, senderId.getProfile().getFullName());
-                json.put(RELATION_ID, relation.getId());
+                json.put(SENDER_NAME, sender.getProfile().getFullName());
+                json.put(RELATION_ID, relationshipManager.get(identity, sender).getId());
                 json.put(SENDER_AVATAR_URL, avatar);
-                json.put(SENDER_POSITION, senderId.getProfile().getPosition());
-                json.put(SENDER_PROFILE_URL, senderId.getProfile().getUrl());
+                json.put(SENDER_POSITION, sender.getProfile().getPosition());
+                json.put(SENDER_PROFILE_URL, sender.getProfile().getUrl());
                 jsonArray.put(json);
             }
 

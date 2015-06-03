@@ -20,34 +20,34 @@
       <properties-param>
         <name>JGroupsProperties</name>
         <description>Jgroups configuration</description>
-        <property name="exo.jcr.cluster.jgroups.config" value="/conf/platform/jgroups/jgroups-jcr-udp.xml" />
+        <property name="exo.jcr.cluster.jgroups.config" value="jar:/conf/platform/jgroups/jgroups-jcr-udp.xml" />
         <property name="exo.jcr.cluster.jgroups.config-url" value="jar:/conf/platform/jgroups/jgroups-jcr-udp.xml" />
-        <property name="exo.idm.cluster.jgroups.config" value="/conf/platform/jgroups/jgroups-idm-udp.xml" />
+        <property name="exo.idm.cluster.jgroups.config" value="conf/platform/jgroups/jgroups-idm-udp.xml" />
       </properties-param>
       <properties-param profiles="cluster-jgroups-tcp">
         <name>JGroupsProperties</name>
         <description>Jgroups configuration</description>
-        <property name="exo.jcr.cluster.jgroups.config" value="/conf/platform/jgroups/jgroups-jcr-tcp.xml" />
+        <property name="exo.jcr.cluster.jgroups.config" value="jar:/conf/platform/jgroups/jgroups-jcr-tcp.xml" />
         <property name="exo.jcr.cluster.jgroups.config-url" value="jar:/conf/platform/jgroups/jgroups-jcr-tcp.xml" />
-        <property name="exo.idm.cluster.jgroups.config" value="/conf/platform/jgroups/jgroups-idm-tcp.xml" />
+        <property name="exo.idm.cluster.jgroups.config" value="conf/platform/jgroups/jgroups-idm-tcp.xml" />
       </properties-param>
       <properties-param>
         <name>CacheManagementProperties</name>
         <description>Filter used to notify caches</description>
-        <property name="exo.jcr.cache.config" value="jar:/conf/platform/jcr/jbosscache/local/cache-config.xml" />
-        <property name="exo.jcr.cache.config.workspace.portal-system" value="jar:/conf/platform/jcr/jbosscache/local/cache-config-portal-system.xml" />
-        <property name="exo.jcr.lock.cache.config" value="jar:/conf/platform/jcr/jbosscache/local/lock-config.xml" />
-        <property name="exo.jcr.index.cache.config" value="jar:/conf/platform/jcr/jbosscache/local/indexer-config.xml" />
-        <property name="exo.cache.config.template" value="jar:/conf/platform/cache/jbosscache/local/cache-config.xml" />
+        <property name="exo.jcr.cache.config" value="jar:/conf/platform/jcr/infinispan/local/cache-config.xml" />
+        <property name="exo.jcr.cache.config.workspace.portal-system" value="jar:/conf/platform/jcr/infinispan/local/cache-config-portal-system.xml" />
+        <property name="exo.jcr.lock.cache.config" value="jar:/conf/platform/jcr/infinispan/local/lock-config.xml" />
+        <property name="exo.jcr.index.cache.config" value="jar:/conf/platform/jcr/infinispan/local/indexer-config.xml" />
+        <property name="exo.cache.config.template" value="jar:/conf/platform/cache/infinispan/local/cache-config.xml" />
       </properties-param>
       <properties-param profiles="cluster">
         <name>CacheManagementProperties</name>
         <description>Filter used to notify caches</description>
-        <property name="exo.jcr.cache.config" value="jar:/conf/platform/jcr/jbosscache/cluster/cache-config.xml" />
-        <property name="exo.jcr.cache.config.workspace.portal-system" value="jar:/conf/platform/jcr/jbosscache/cluster/cache-config-portal-system.xml" />
-        <property name="exo.jcr.lock.cache.config" value="jar:/conf/platform/jcr/jbosscache/cluster/lock-config.xml" />
-        <property name="exo.jcr.index.cache.config" value="jar:/conf/platform/jcr/jbosscache/cluster/indexer-config.xml" />
-        <property name="exo.cache.config.template" value="jar:/conf/platform/cache/jbosscache/cluster/cache-config.xml" />
+        <property name="exo.jcr.cache.config" value="jar:/conf/platform/jcr/infinispan/cluster/cache-config.xml" />
+        <property name="exo.jcr.cache.config.workspace.portal-system" value="jar:/conf/platform/jcr/infinispan/cluster/cache-config-portal-system.xml" />
+        <property name="exo.jcr.lock.cache.config" value="jar:/conf/platform/jcr/infinispan/cluster/lock-config.xml" />
+        <property name="exo.jcr.index.cache.config" value="jar:/conf/platform/jcr/infinispan/cluster/indexer-config.xml" />
+        <property name="exo.cache.config.template" value="jar:/conf/platform/cache/infinispan/cluster/cache-config.xml" />
       </properties-param>
       <properties-param>
         <name>ChangeFilterClass</name>
@@ -57,12 +57,12 @@
       <properties-param profiles="cluster">
         <name>ChangeFilterClass</name>
         <description>Filter used to notify changes in the jcr index in cluster</description>
-        <property name="gatein.jcr.index.changefilterclass" value="org.exoplatform.services.jcr.impl.core.query.jbosscache.LocalIndexChangesFilter" />
+        <property name="gatein.jcr.index.changefilterclass" value="org.exoplatform.services.jcr.impl.core.query.ispn.LocalIndexChangesFilter" />
       </properties-param>
       <properties-param profiles="cluster-index-shared">
         <name>ChangeFilterClass</name>
         <description>Filter used to notify changes in the jcr index in cluster</description>
-        <property name="gatein.jcr.index.changefilterclass" value="org.exoplatform.services.jcr.impl.core.query.jbosscache.JBossCacheIndexChangesFilter" />
+        <property name="gatein.jcr.index.changefilterclass" value="org.exoplatform.services.jcr.impl.core.query.ispn.ISPNIndexChangesFilter" />
       </properties-param>
     </init-params>
   </component>
@@ -263,7 +263,6 @@
       </object-param>
     </init-params>
   </component>
-
   <!--
 		it is necessary to declare this empty plugin in order to activate the
 		extension mechanism

@@ -51,18 +51,18 @@ public class TestPeopleRestServices extends BaseRestServicesTestCase {
         imResults.put("getOrCreateIdentity", idFoo);
         imResults.put("getLastIdentities", Arrays.asList(idRoot, idFoo));
         IdentityManager im = createProxy(IdentityManager.class, imResults);
-        getContainer().registerComponentInstance(im);
+        getContainer().registerComponentInstance("IdentityManager", im);
 
         Map<String, Object> rmResults = new HashMap<String, Object>();
         rmResults.put("getConnections", new MockListAccess<Identity>(new Identity[]{}));
 
         RelationshipManager rm = createProxy(RelationshipManager.class, rmResults);
-        getContainer().registerComponentInstance(rm);
+        getContainer().registerComponentInstance("RelationshipManager", rm);
 
         UserACLMetaData md = new UserACLMetaData();
         md.setSuperUser(idRoot.getRemoteId());
         UserACL uACL = new UserACL(md);
-        getContainer().registerComponentInstance(uACL);
+        getContainer().registerComponentInstance("UserACL", uACL);
 
         resp = launcher.service("GET", path, "", null, null, envctx);
         assertEquals(200, resp.getStatus());
@@ -97,9 +97,9 @@ public class TestPeopleRestServices extends BaseRestServicesTestCase {
         assertTrue(resp.getEntity().toString().contains(idBar.getRemoteId()));
         assertFalse(resp.getEntity().toString().contains(idFoo.getRemoteId()));
 
-        getContainer().unregisterComponentByInstance(uACL);
-        getContainer().unregisterComponentByInstance(rm);
-        getContainer().unregisterComponentByInstance(im);
+        getContainer().unregisterComponent("UserACL");
+        getContainer().unregisterComponent("RelationshipManager");
+        getContainer().unregisterComponent("IdentityManager");
     }
 
 }

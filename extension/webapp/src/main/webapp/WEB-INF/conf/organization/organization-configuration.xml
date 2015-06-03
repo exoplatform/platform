@@ -321,7 +321,7 @@
                       <string>Root</string>
                     </field>
                     <field name="email">
-                      <string>root@localhost</string>
+                      <string>root@gatein.com</string>
                     </field>
                     <field name="groups">
                       <string>*:/platform/administrators,*:/platform/users,*:/platform/web-contributors,*:/organization/employees,member:/organization/management/executive-board</string>
