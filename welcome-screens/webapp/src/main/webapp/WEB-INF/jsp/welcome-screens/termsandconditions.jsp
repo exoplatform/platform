@@ -46,9 +46,11 @@
 			<div class="header">Terms and Conditions Agreement</div>
 			<div class="content" id="AccountSetup">
 
+               	<!--
 				<p class="c15 c17"><span class="c0 c4">eXo Platform SAS</span><span class="c0"><br/>
 						  stock company with a capital of 184,588 euros, registered with the Vannes Commerce Registry under the number B 450 511 506, 
 						  with its registered seat at Parc d’Innovation de Bretagne Sud, 56038 Vannes - France</span></p>
+			    -->
 
 				<p class="c15 c17"><span class="c0 c4">Master Subscription Agreement</span></p>
 
@@ -62,14 +64,19 @@
 				<p class="c9"><span class="c0"><br/>
 						  This</span> <span class="c0 c4">Master Subscription Agreement</span> <span class="c0">(the</span> <span
 						class="c0 c4">&ldquo;Agreement&rdquo;</span><span class="c0">)
-						  is entered into by and between eXo&nbsp;Platform SAS, with its principal place of
-						  business at PIBS, Le Prisme 56038 Vannes - France
+						  is entered into by and between eXo&nbsp;Platform (either &ldquo;eXo Platform SAS&rdquo; or &ldquo;eXo Platform NA LLC&rdquo;)
+						  as referred in the Order Form or any other order form related to the purchase of products 
+						  and/or services related to this Agreement and, if there is no precision, with eXo Platform NA LLC, 
+						  a limited liability company of the laws of California registered before the registry of 
+						  Californian companies under number 200920410095 and having its principal office 51 Federal Street, Suite 350, 
+						  San Francisco, California 94105, United-States 						  
 						  (</span><span class="c0 c4">&ldquo;eXo&rdquo;</span><span class="c0">) and the
 						  purchaser or user of eXo product and/or services that accepts the terms of this
 						  Agreement (</span><span class="c0 c4">&ldquo;Customer&rdquo;</span><span class="c0">).
-						  The effective date of this Agreement (<span class="c0 c4">"Effective Date"</span>) is the earlier of these two dates: 
-						  the date of signature or acceptance of this Agreement by entering into an Order Form by the Customer or 
-						  the date of use of eXo products and/or services by the Customer.</span></p>
+						  The effective date of this Agreement (<span class="c0 c4">"Effective Date"</span>) is the earlier of these three dates: 
+						  the date of signature or acceptance of this Agreement by entering into an Order Form by the Customer,  
+						  the date of use of eXo products and/or services by the Customer, or  the date of purchase and payment 
+						  of eXo products and/or services through eXo online selling platform.</span></p>
 
 				<p class="c15"><span class="c0">Whereas eXo and Customer desire to establish certain
 						  terms and conditions under which Customer will, from time to time, be licensed software and
@@ -119,7 +126,7 @@
 						  Third-Party Software and/or eXo Add-Ons, that may be available through the Software, (a) do not form a part of the Software, (b) are solely governed by their own licenses  
 						  and/or terms and conditions, (c) are not covered by this Agreement, and (d) may be downloaded and installed by the Customer under its sole responsibility and liability. As a limited 
 						  exception to the aforesaid, eXo Add-Ons listed in <span class="c0 c4">Appendix 3 (&ldquo;eXo Official Add-Ons&rdquo;)</span> are governed and supported under the conditions of this 
-						  Agreement under the same Subscription Service Level as the Subscription applicable to the Software.</span></p>
+						  Agreement under the same level of Support Services as the Support Services applicable to the Software.</span></p>
 
 				<p class="c15"><span class="c0 c4">1.10 &ldquo;Subscription&rdquo;</span><span class="c0">&nbsp;means the license for the Software and, if applicable, the access to Support Services ordered 
 						  and paid for by Customer and provided by eXo as specified on the Order Form. </span></p>
@@ -129,25 +136,6 @@
 						  by eXo to Customer as part of the Subscription and as further defined in Section 2.6 and <span class="c0 c25"><a class="c8" target="_blank" href=
 								  "http://www.exoplatform.com/SLA">http://www.exoplatform.com/SLA</a></span><span class="c0">&nbsp; and/or as may be specified on the applicable Order Form.</span>
 				</p>
-				
-				<!--
-				<p class="c15"><span class="c0 c4">1.11 &ldquo;Named Contact&rdquo;</span> <span class="c0">means an employee of Customer who is proficient on the Software.</span>
-				</p>
-
-				<p class="c15"><span class="c0 c4">1.7 &ldquo;Open Source Software&rdquo;</span>
-						  <span class="c0">means various open source software components licensed under the terms
-						  of applicable open source license agreements included in the materials relating to such
-						  software.&nbsp; Open Source Software is composed of individual software components,
-						  each of which has its own copyright and its own applicable license
-						  conditions.</span></p>
-
-				<p class="c15"><span class="c0 c4">1.13 &ldquo;Release&rdquo;</span><span class="c0">&nbsp;means a later version of the Software identified by a change in the first
-						  digit to the left of the decimal point ((X).xx); Version Release means a later version
-						  of the Software identified by a change in the first digit to the right of the decimal
-						  point ((x).Xx); and Maintenance Release means a later version of the Software
-						  identified by a change in the second digit to the right of the decimal point
-						  ((x).xX).</span></p>
-				-->
 
 				<p class="c15"><span class="c0 c4">1.12 &ldquo;Term&rdquo;</span><span class="c0">&nbsp;means the period of time for the Subscription as specified in the Order Form.</span></p>
 
@@ -164,8 +152,7 @@
 
 				<p class="c15"><span class="c0 c4">2. General Terms</span></p>
 
-				<p class="c15"><span class="c0 c4">2.1 Scope of Agreement.</span><span class=
-																							   "c0">&nbsp; This Agreement governs all transactions between the parties with respect to
+				<p class="c15"><span class="c0 c4">2.1 Scope of Agreement.</span><span class="c0">&nbsp; This Agreement governs all transactions between the parties with respect to
 						  the Software and Services provided hereunder.</span></p>
 
 				<p class="c15"><span class="c0 c4">2.2 Orders.</span><span class="c0">&nbsp; Customer
@@ -190,8 +177,7 @@
 						  specified in the Order Form. The Software will be deemed accepted by Customer upon delivery of the
 						  Activation Key.&nbsp;</span></p>
 
-				<p class="c15"><span class="c0 c4">2.5 Installation.</span><span class=
-																								  "c0">&nbsp; Customer will be responsible for installing the Software on its computers
+				<p class="c15"><span class="c0 c4">2.5 Installation.</span><span class="c0">&nbsp; Customer will be responsible for installing the Software on its computers
 						  as permitted under this Agreement. Installation services may be purchased on a 
 						  time-and-materials basis at eXo&rsquo;s then-current rates as specified on the
 						  applicable Order Form.</span></p>
@@ -259,9 +245,7 @@
 						  execute the Software licensed hereunder (in object code format) on any computers solely
 						  for Customer&rsquo;s own business purposes;&nbsp;</span></p>
 
-				<p class="c15"><span class="c0 c4">b)</span> <span class="c0">use,</span><span class=
-																									   "c0 c4">&nbsp;</span><span
-						class="c0">install the Software licensed hereunder (in
+				<p class="c15"><span class="c0 c4">b)</span> <span class="c0">use, install the Software licensed hereunder (in
 						  object code format) with respect for the number of allowed CORE Processors and/or the limitation of Registered Users, 
 						  as designated in the applicable Order Form, solely for Customer’s own business purposes;</span></p>
 
@@ -330,7 +314,7 @@
 						  (either the initial Term or the renewal Term); (ii) the Subscription fees for the added
 						  Licenses will be the then-current, generally applicable Subscription fee for such; and
 						  (iii) any Licenses added in the middle of a billing period will be prorated for that
-						  billing period.&nbsp; eXo reserves the right to modify its Subscription fees at any
+						  billing period. eXo reserves the right to modify its Subscription fees at any
 						  time, upon at least thirty (30) days prior notice to Customer, which notice may be
 						  provided by e-mail.</span></p>
 
@@ -366,7 +350,7 @@
 						  withholding tax, charge or levy in respect of any payments due to eXo hereunder,
 						  Customer agrees to gross up payments actually made such that eXo shall receive sums due
 						  hereunder in full and free of any deduction for any such withholding tax, charge or
-						  levy.&nbsp;</span></p>
+						  levy.</span></p>
 
 				<p class="c15"><span class="c0 c4">4.4 Audit Rights.</span><span class="c0">&nbsp;
 						  Customer will maintain accurate records as to its use of the Software as authorized by
@@ -374,7 +358,7 @@
 						  Services expired for the applicable Software.&nbsp; eXo, or persons designated by eXo,
 						  will, at any time during the period when Customer is obliged to maintain such records,
 						  be entitled to audit such records and to ascertain completeness and accuracy, in order
-						  to verify that the Software are used by Customer in accordance with the terms of this
+						  to verify that the Software is used by Customer in accordance with the terms of this
 						  Agreement and that Customer has paid the applicable Subscription fees and Support 
 						  Services fees for the Software, provided that: (a) eXo may conduct no more than one (1)
 						  audit in any twelve (12) month period; (b) any such audit shall be subject to a
@@ -396,9 +380,10 @@
 
 				<p class="c15"><span class="c0 c4">5.1 Term.</span><span class="c0">&nbsp; Unless
 						  otherwise stated in the applicable Order Form, the Term of this Agreement will begin on
-						  the Effective Date and will continue for a firm period of three (3) years. Thereafter, this Agreement 
+						  the Effective Date and will continue for the period set forth in the Order Form. Thereafter, this Agreement 
 						  will be automatically renewed for additional terms of one (1) year each under standard list price and 
-						  terms in effect at this date, unless notice to the contrary is given in writing ninety (90) days prior to such termination. </span></p>
+						  terms in effect at this date, unless notice to the contrary is given in writing ninety (90) days prior to such termination 
+						  or unless otherwise stated in the applicable Order Form.</span></p>
 
 				<p class="c15"><span class="c0 c4">5.2 Termination for Cause.</span><span class=
 																								  "c0">&nbsp; Either party may terminate this Agreement for cause if the other party
@@ -446,7 +431,7 @@
 
 				<p class="c15"><span class="c0 c4">6.2</span> <span class="c0">Customer acknowledges
 						  that in the course of performing any Support Services, eXo may create software or
-						  other works of authorship (collectively &ldquo;Work Product&rdquo;). Subject to
+						  other works of authorship (collectively &ldquo;Work Products&rdquo;). Subject to
 						  Customer&rsquo;s rights in the Customer Confidential Information, eXo shall own all
 						  right, title and interest in such Work Products, including all intellectual property
 						  rights therein and thereto.&nbsp; If any Work Product is delivered to Customer pursuant
@@ -616,16 +601,6 @@
 
 				<p class="c15"><span class="c0 c4">11. General</span></p>
 
-				<!--
-				<p class="c15"><span class="c0 c4">11.1 Non-Solicitation.</span> <span class=
-																							   "c0">Customer may not hire, or directly or indirectly solicit or employ, any employee
-						  or contractor of eXo who is or was involved in the development, use or provision of
-						  Support Services to Customer, without the prior written consent of eXo, for a
-						  period of: (i) two (2) years after the termination of this Agreement, or (ii) during
-						  the time the employee is employed by eXo and for a period of one (1) year thereafter,
-						  whichever is later.</span></p>
-				-->
-
 				<p class="c15"><span class="c0 c4">11.1 &nbsp;Notices.</span><span class="c0">&nbsp;
 						  All notices under this Agreement must be delivered in writing in person, by courier, or
 						  by certified or registered mail (postage prepaid and return receipt requested) to the
@@ -642,15 +617,6 @@
 						  otherwise create or assume any obligation on behalf of the other party for any purpose
 						  whatsoever.&nbsp; There are no third party beneficiaries to this
 						  Agreement.<br/></span></p>
-				<!--
-				<p class="c15"><span class="c0 c4">11.4 Compliance with Export Control
-						  Laws.</span><span class="c0">&nbsp; Customer acknowledges and agrees that it will
-						  comply with all applicable export and import control laws and regulations of the United
-						  States and the foreign jurisdiction in which the Software is used and, in particular,
-						  Customer will not export or re-export Software without all required United States and
-						  foreign government licenses.&nbsp; Customer will defend, indemnify, and hold harmless
-						  eXo from any breach of the foregoing.</span></p>
-				-->
 
 				<p class="c15"><span class="c0 c4">11.3 Assignments.</span><span class="c0">&nbsp; Customer may not
 						  assign or transfer any of its rights or delegate any
@@ -659,21 +625,20 @@
 						  transfer by Customer in violation of the foregoing will be void. Subject to the
 						  foregoing, this Agreement will be binding upon and will inure to the benefit of the
 						  parties and their respective successors and assigns.&nbsp;&nbsp;</span></p>
-				<!--
-				<p class="c15"><span class="c0 c4">11.6 U.S. Government End Users.</span><span class=
-																									   "c0">&nbsp; The Software and any other software covered under this Agreement are
-						  "commercial items" as that term is defined at 48 C.F.R. 2.101, consisting of
-						  "commercial computer software" and "commercial computer software documentation" as such
-						  terms are used in 48 C.F.R. 12.212.&nbsp; Consistent with 48 C.F.R. 12.212 and 48
-						  C.F.R. 227.7202-1 through 227.7202-4, all U.S. Government end users acquire the
-						  Software and any other software and documentation covered under this Agreement with
-						  only those rights set forth therein.</span></p>
-				-->
 
-				<p class="c15"><span class="c0 c4">11.4 Governing Law and Venue.</span><span class="c0">&nbsp; This Agreement 
+				<p class="c15"><span class="c0 c4">11.4 Governing Law and Venue.</span>
+				
+				<p class="c15"><span class="c0 c4">11.4.1</span><span class="c0">&nbsp; If this Agreement is 
+						  entered into with eXo Platform SAS, it  
 						  will be governed by the laws of France and the Paris Courts will have exclusive jurisdiction 
-						  over any dispute arising out or connected with this Agreement. The parties 
-						  hereto have expressly agreed that this Agreement will be construed in the French language.</span></p>
+						  over any dispute arising out or connected with this Agreement
+						  and the French version of the Agreement will prevail.</span></p>
+
+				<p class="c15"><span class="c0 c4">11.4.2</span><span class="c0">&nbsp; If this Agreement is 
+						  entered into with eXo Platform NA LLC, it will be governed by the laws applicable in 
+						  the state of New York and by the applicable federal laws of United States of America, 
+						  the New York state Courts will have exclusive jurisdiction over any dispute arising out or 
+						  connected with this Agreement, and the English version of this Agreement will prevail.</span></p>						  
 
 				<p class="c15"><span class="c0 c4">11.5 Marketing Activities.</span><span class=
 																								  "c0">&nbsp; Customer agrees that eXo may from time to time identify Customer (with its
@@ -777,39 +742,6 @@
 						  hardware.</span></p>
 
 				<p class="c1"><span class="c0 c4">2. Subscription Services details</span></p>
-
-				<!--
-				<table cellpadding="0" cellspacing="0" class="c26">
-					<tbody>
-					<tr class="c16">
-						<td class="c18">
-							<p class="c7"><span class="c0 c4">&nbsp;Enterprise Basic Subscription</span></p>
-
-							<p class="c7 c6"></p>
-						</td>
-
-						<td class="c34">
-							<p class="c9 c6"></p>
-
-                            <ol class="c33" start="1">
-								<li class="c9 c11"><span class="c0">Access to certified Production-ready Software</span></li>
-
-								<li class="c9 c11"><span class="c0">Access to user, IT operation Documentation</span></li>
-
-								<li class="c9 c11"><span class="c0">Certified Updates, patches and bug fixes through Maintenance benefits
-                                    program   (As defined in section 5)</span></li>
-
-								<li class="c9 c11"><span class="c0">Unit: up to 25, 50, 100 or 500 users</span></li>
-							</ol>
-
-							<p class="c9 c6"></p>
-
-							<p class="c9 c6"></p>
-						</td>
-					</tr>
-					</tbody>
-				</table>
-				-->
 
 				<p class="c1 c6"></p>
 
@@ -953,62 +885,6 @@
                         For the avoidance of doubt, no Extended Lifetime Support is included in any Subscription agreement and all 
                         Extended Lifetime Support offers require a baseline existing Subscription as defined in this agreement.</span></p>	
 
-				<!--
-				<table cellpadding="0" cellspacing="0" class="c26">
-					<tbody>
-					<tr class="c16">
-						<td class="c37">
-							<p class="c7"><span class="c0 c4">Technical Account Manager</span></p>
-
-							<p class="c7 c6"></p>
-						</td>
-
-						<td class="c5">
-							<p class="c6 c9"></p>
-
-							<ol class="c19" start="16">
-								<li class="c9 c11"><span class="c0">Designated technical account
-									leader</span></li>
-
-								<li class="c9 c11"><span class="c0">Availability: eXo Business Days, excluding eXo holidays</span></li>
-
-								<li class="c9 c11"><span class="c0">Target response time: Four (4) hours</span></li>
-
-								<li class="c9 c11"><span class="c0">On-Site Coverage: &nbsp;Two (2) on-site technical reviews per year by eXo</span></li>
-
-								<li class="c9 c11"><span class="c0">Customer &nbsp;Named Contacts : Two (2)</span></li>
-
-								<li class="c9 c11"><span class="c0">Scope of Coverage: &nbsp;</span></li>
-							</ol>
-
-							<ol class="c33" start="1">
-								<li class="c9 c24"><span class="c0">Centralized management of Subscription
-									Services by a team of skilled eXo support engineers familiar with
-									Customer&rsquo;s technical environment.</span></li>
-
-								<li class="c9 c24"><span class="c0">Early identification of issues related to
-									the deployment of eXo Software (beta testing, bug/feature
-									escalation/resolution).</span></li>
-
-								<li class="c9 c24"><span class="c0">Access to current information relating to
-									eXo&rsquo;s technology and development plans.</span></li>
-
-								<li class="c9 c24"><span class="c0">eXo liaison for Customer into eXo&rsquo;s
-									product engineering team</span></li>
-							</ol>
-
-							<ol class="c19" start="22">
-								<li class="c9 c11"><span class="c0">Requires an active Subscription.
-									&nbsp;(e.g. eXo Platform &nbsp;Production Subscription Premium)</span></li>
-							</ol>
-
-							<p class="c9 c6 c20"></p>
-						</td>
-					</tr>
-					</tbody>
-				</table>
-				-->
-
 				<p class="c1 c6"></p>
 
 				<p class="c1"><span class="c0 c4">3. Support</span></p>
@@ -1079,7 +955,7 @@
 						  
 				<p class="c12"><span class="c0">Support Services are not provided on environments outside of the scope referenced above. 
 						  Support does not include assistance with code development, system and/or network design,
-						  architectural design, upgrade for the Software or for third party software made available with eXo
+						  architectural design, upgrade for the Software or for third party software made available with the 
 						  Software. Such demands can be made available through the purchasing of additional professional services.  
 						  eXo does not provide maintenance and/or support for Software that has been
 						  modified or that is running on hardware and/or third party software that is not supported.</span></p>
@@ -1697,15 +1573,58 @@
 						<td class="c2"><p class="c7"><span class="c0">Basic, Standard or Premium</span></p></td>
 						<td class="c2"><p class="c7"><span class="c0">No</span></p></td>
 					</tr>
+					<tr class="c16">
+						<td class="c10"><p class="c9"><span class="c0 c4">exo-remote-edit - eXo Remote Edit</span></p></td>
+						<td class="c2"><p class="c7"><span class="c0">No</span></p></td>
+						<td class="c2"><p class="c7"><span class="c0">Basic, Standard or Premium</span></p></td>
+						<td class="c2"><p class="c7"><span class="c0">No</span></p></td>
+					</tr>
+					<tr class="c16">
+						<td class="c10"><p class="c9"><span class="c0 c4">exo-cas - eXo CAS integration</span></p></td>
+						<td class="c2"><p class="c7"><span class="c0">No</span></p></td>
+						<td class="c2"><p class="c7"><span class="c0">Basic, Standard or Premium</span></p></td>
+						<td class="c2"><p class="c7"><span class="c0">No</span></p></td>
+					</tr>
+					<tr class="c16">
+						<td class="c10"><p class="c9"><span class="c0 c4">exo-saml - eXo SAML2 integration</span></p></td>
+						<td class="c2"><p class="c7"><span class="c0">No</span></p></td>
+						<td class="c2"><p class="c7"><span class="c0">Standard or Premium</span></p></td>
+						<td class="c2"><p class="c7"><span class="c0">No</span></p></td>
+					</tr>
+					<tr class="c16">
+						<td class="c10"><p class="c9"><span class="c0 c4">exo-spnego - eXo SPNEGO integration</span></p></td>
+						<td class="c2"><p class="c7"><span class="c0">No</span></p></td>
+						<td class="c2"><p class="c7"><span class="c0">Basic, Standard or Premium</span></p></td>
+						<td class="c2"><p class="c7"><span class="c0">No</span></p></td>
+					</tr>
+					<tr class="c16">
+						<td class="c10"><p class="c9"><span class="c0 c4">exo-openam - eXo OpenAM integration</span></p></td>
+						<td class="c2"><p class="c7"><span class="c0">No</span></p></td>
+						<td class="c2"><p class="c7"><span class="c0">Basic, Standard or Premium</span></p></td>
+						<td class="c2"><p class="c7"><span class="c0">No</span></p></td>
+					</tr>
+					<tr class="c16">
+						<td class="c10"><p class="c9"><span class="c0 c4">exo-josso - eXo JOSSO integration, exo-josso-181 - eXo JOSSO 1.8.1 integration</span></p></td>
+						<td class="c2"><p class="c7"><span class="c0">No</span></p></td>
+						<td class="c2"><p class="c7"><span class="c0">Basic, Standard or Premium</span></p></td>
+						<td class="c2"><p class="c7"><span class="c0">No</span></p></td>
+					</tr>
+					<tr class="c16">
+						<td class="c10"><p class="c9"><span class="c0 c4">exo-answers - eXo Answers</span></p></td>
+						<td class="c2"><p class="c7"><span class="c0">No</span></p></td>
+						<td class="c2"><p class="c7"><span class="c0">Basic, Standard or Premium</span></p></td>
+						<td class="c2"><p class="c7"><span class="c0">No</span></p></td>
+					</tr>
 				</tbody>
 			</table>
 			
 			<p class="c15"><span class="c0"></span></p>
 			
 			<p class="c15"><span class="c0">(*) eXo Video Calls Add-on is governed and supported under the conditions of 
-				the MSA and the SLA as provided under the same Subscription Service Level as the Subscription Service Level applicable to the 
-				Software. For the avoidance of doubt and as long as the Subscription remains in force, eXo Video Calls Add-on will be deemed a part of 
-				the Software as defined by Section 1.9 of the MSA. </span></p>
+				this Agreement and under the same Subscription Service Level as the Subscription Service Level applicable to the 
+				Software. For the avoidance of doubt and as long as both the Software Subscription and eXo Video Calls Add-on  
+				remain in force, eXo Video Calls Add-on will be deemed a part of 
+				the Software as defined by Section 1.9 of this Agreement.</span></p>
 	
 				
 			</div>
