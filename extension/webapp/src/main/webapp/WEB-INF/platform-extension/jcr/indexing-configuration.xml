@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<!DOCTYPE configuration SYSTEM "http://www.exoplatform.org/dtd/indexing-configuration-1.2.dtd">
+<configuration xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:wiki="http://exoplatform.org/wiki/1.0/" xmlns:exo="http://exoplatform.org/exo/1.0/" xmlns:publication="http://exoplatform.org/publication/1.0/">
+    <aggregate primaryType="nt:file">
+        <include primaryType="nt:resource">jcr:content</include>
+    </aggregate>
+    <aggregate primaryType="wiki:attachment">
+        <include primaryType="nt:resource">jcr:content</include>
+    </aggregate>
+    <index-rule nodeType="nt:resource">
+        <property useInExcerpt="false">jcr:mimeType</property>
+        <property useInExcerpt="false">jcr:encoding</property>
+        <property useInExcerpt="false">jcr:lastModified</property>
+    </index-rule>
+    <index-rule nodeType="nt:file">
+        <property useInExcerpt="false">publication:revisionData</property>
+        <property useInExcerpt="false">publication:currentState</property>
+        <property useInExcerpt="false">exo:title</property>
+        <property useInExcerpt="false">exo:owner</property>
+        <property useInExcerpt="false">publication:history</property>
+        <property useInExcerpt="false">publication:lastUser</property>
+        <property useInExcerpt="false">publication:lifecycleName</property>
+        <property useInExcerpt="false">publication:lifecycle</property>
+    </index-rule>
+</configuration>
