@@ -3,20 +3,6 @@
                xsi:schemaLocation="http://www.exoplatform.org/xml/ns/kernel_1_2.xsd http://www.exoplatform.org/xml/ns/kernel_1_2.xsd"
                xmlns="http://www.exoplatform.org/xml/ns/kernel_1_2.xsd">
 
-    <component>
-        <key>org.exoplatform.services.jcr.ext.audit.AuditService</key>
-        <type>org.exoplatform.services.jcr.ext.audit.AuditServiceImpl</type>
-        <init-params>
-            <!-- Group or user who may view audit information -->
-            <value-param>
-                <name>adminIdentity</name>
-                <value>${ecms.audit.adminIdentity:*:/platform/administrators}</value>
-            </value-param>
-        </init-params>
-    </component>
-
-
-
     <external-component-plugins>
         <!-- The full qualified name of the RepositoryServiceConfiguration -->
         <target-component>org.exoplatform.services.jcr.config.RepositoryServiceConfiguration</target-component>
