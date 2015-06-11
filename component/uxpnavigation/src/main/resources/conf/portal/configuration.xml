@@ -49,9 +49,9 @@
                <property name="personnal:connections"
                          value="http://docs.exoplatform.com/PLF42/PLFUG/APPS/CONNECTIONS.html"/>
                <property name="personnal:activities"
-                         value="http://docs.exoplatform.com/PLF42/PLFUserGuide.ManagingYourPersonalApplications.ManagingYourActivityStream.html"/>
+                         value="http://docs.exoplatform.com/PLF42/PLFUG/APPS/ACTIVITY.html"/>
                <property name="personnal:notifications"
-                         value="http://docs.exoplatform.com/PLF42/PLFUserGuide.ManagingYourPersonalApplications.ManagingEmailNotification.html"/>
+                         value="http://docs.exoplatform.com/PLF42/PLFUG/APPS/NOTIFICATIONS.html"/>
                <property name="personnal:profile"
                          value="http://docs.exoplatform.com/PLF42/PLFUG/APPS/PROFILE.html"/>
                <property name="personnal:wiki"
