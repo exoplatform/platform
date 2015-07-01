@@ -6,9 +6,9 @@
 <content>Innehåll</content>
 <siteExplorer>utforskare för webbplatser</siteExplorer>
 <wcmAdmin>Innehållsadministration</wcmAdmin>
-<users>Användare</users>
+<users>Community</users>
 <newStaff>Lägg till användare</newStaff>
-<org-management>Grupper och roller</org-management>
+<org-management>Manage Community</org-management>
 <portal>Portal</portal>
 <administration>Administration</administration>
 <groupnavigation>Grupp platser</groupnavigation>
@@ -18,7 +18,7 @@
 <monitoring>Övervakning</monitoring>
 <spaces>Webb-ytor</spaces>
 <Branding>Branding</Branding>
-      <Notification>Email Notifications</Notification>
+      <Notification>Notifikationer</Notification>
 <ide>IDE</ide>
 <search>Sök</search>
 </label>

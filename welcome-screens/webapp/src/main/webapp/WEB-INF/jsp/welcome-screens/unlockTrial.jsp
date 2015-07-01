@@ -30,7 +30,7 @@
 				if(document.unlockForm.hashMD5.value!="")
 					return true;
 				else {
-					ERROR.innerHTML="Unlock key is mandatory.";
+					document.getElementById("ERROR").style.display = "block";
 					var elem = document.getElementById("KEYERROR");
 					if (elem!=null) elem.style.display = "none";
 					return false;
@@ -76,6 +76,7 @@
            <div class="rightCol pull-right">
              <strong>Enter the unlock key you received in the confirmation email</strong>
              <br /><br />
+             <div id="ERROR" class="alert alert-error" style="display: none;"><i class="uiIconError"></i>Unlock key is mandatory.</div>
              <% if(request.getAttribute("errorMessage") != null && !request.getAttribute("errorMessage").toString().isEmpty()) {%>
 		         <div id="KEYERROR" class="alert alert-error"><i class="uiIconError"></i><%=request.getAttribute("errorMessage").toString() %></div>
 		       <% }%>

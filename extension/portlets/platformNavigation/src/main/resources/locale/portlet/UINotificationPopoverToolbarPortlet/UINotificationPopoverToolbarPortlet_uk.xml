@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bundle>
+<UINotificationPopoverToolbarPortlet>
+<label>
+<MarkAllAsRead>Mark all as read</MarkAllAsRead>
+<NoNotifications>No notifications</NoNotifications>
+<ViewAll>View All</ViewAll>
+<Loading>Loading</Loading>
+</label>
+</UINotificationPopoverToolbarPortlet>
+</bundle>

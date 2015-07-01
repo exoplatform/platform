@@ -6,9 +6,9 @@
 <content>Контент</content>
 <siteExplorer>Оглядач сайтів</siteExplorer>
 <wcmAdmin>Управління контентом</wcmAdmin>
-<users>Користувачі</users>
+<users>Community</users>
 <newStaff>Додати користувачів</newStaff>
-<org-management>Групи та ролі</org-management>
+<org-management>Manage Community</org-management>
 <portal>Портал</portal>
 <administration>Адміністрування</administration>
 <groupnavigation>Сайти групи</groupnavigation>
@@ -18,7 +18,7 @@
 <monitoring>Моніторинг</monitoring>
 <spaces>Області</spaces>
 <Branding>Фірмова символіка</Branding>
-      <Notification>Email Notifications</Notification>
+      <Notification>Сповіщення</Notification>
 <ide>IDE</ide>
 <search>Пошук</search>
 </label>

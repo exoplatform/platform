@@ -12,6 +12,7 @@
          <Mywiki>Моя вікі-сторінка</Mywiki>
          <Mydashboard>Моя панель інструментів</Mydashboard>
          <NotificationSettingsPortlet>Мої сповіщення</NotificationSettingsPortlet>
+         <More>Більше</More>
       </label>
    </UIUserNavigationPortlet>
 </bundle>

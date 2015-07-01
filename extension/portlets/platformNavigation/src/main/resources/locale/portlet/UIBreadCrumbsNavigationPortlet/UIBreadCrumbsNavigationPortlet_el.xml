@@ -2,13 +2,13 @@
 <bundle>
 <UIBreadCrumbsNavigationPortlet>
     <label>
-        <ChangePicture>Αλλαγή εικόνας</ChangePicture>
+      <EditProfile>Edit my Profile</EditProfile>
     </label>
-</UIBreadCrumbsNavigationPortlet>
- <UIBreadCrumbPopupAvatarUploader>
       <title>
-         <UIAvatarUploader>Ανεβάστε ένα προσωπείο (avatar)</UIAvatarUploader>
-         <UIAvatarUploadContent>Προεπισκόπιση Προσωπείου</UIAvatarUploadContent>
+      <EditProfile>Αλλαγή Προφίλ</EditProfile>
+    </title>
+    <title>
+      <MyProfile>Το προφίλ μου</MyProfile>
       </title>
- </UIBreadCrumbPopupAvatarUploader>
+</UIBreadCrumbsNavigationPortlet>
 </bundle>

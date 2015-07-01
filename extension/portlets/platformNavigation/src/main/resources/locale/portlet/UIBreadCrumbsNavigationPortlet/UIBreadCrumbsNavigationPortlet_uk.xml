@@ -2,13 +2,13 @@
 <bundle>
 <UIBreadCrumbsNavigationPortlet>
     <label>
-        <ChangePicture>Змінити аватар</ChangePicture>
+      <EditProfile>Edit my Profile</EditProfile>
     </label>
-</UIBreadCrumbsNavigationPortlet>
- <UIBreadCrumbPopupAvatarUploader>
       <title>
-         <UIAvatarUploader>Завантажити аватар</UIAvatarUploader>
-         <UIAvatarUploadContent>Попередній перегляд аватара</UIAvatarUploadContent>
+      <EditProfile>Редагувати профіль</EditProfile>
+    </title>
+    <title>
+      <MyProfile>Мій профіль</MyProfile>
       </title>
- </UIBreadCrumbPopupAvatarUploader>
+</UIBreadCrumbsNavigationPortlet>
 </bundle>

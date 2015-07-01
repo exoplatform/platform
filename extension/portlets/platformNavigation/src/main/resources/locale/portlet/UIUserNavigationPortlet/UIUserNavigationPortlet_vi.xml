@@ -12,6 +12,7 @@
          <Mywiki>Wiki</Mywiki>
          <Mydashboard>Bảng Ứng dụng</Mydashboard>
          <NotificationSettingsPortlet>Thiết lập các thông báo</NotificationSettingsPortlet>
+         <More>Hiện thêm</More>
       </label>
    </UIUserNavigationPortlet>
 </bundle>

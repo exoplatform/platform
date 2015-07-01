@@ -2,13 +2,13 @@
 <bundle>
 <UIBreadCrumbsNavigationPortlet>
     <label>
-        <ChangePicture>تغيير الصورة الرمزية</ChangePicture>
+      <EditProfile>تعديل ملفي الشّخصي</EditProfile>
     </label>
-</UIBreadCrumbsNavigationPortlet>
- <UIBreadCrumbPopupAvatarUploader>
       <title>
-         <UIAvatarUploader>تحميل الصورة الرمزية</UIAvatarUploader>
-         <UIAvatarUploadContent>استعراض مُـسبق للصورة الرّمزية</UIAvatarUploadContent>
+      <EditProfile>تعديل الملف الشخصي</EditProfile>
+    </title>
+    <title>
+      <MyProfile>ملفي الشخصي</MyProfile>
       </title>
- </UIBreadCrumbPopupAvatarUploader>
+</UIBreadCrumbsNavigationPortlet>
 </bundle>

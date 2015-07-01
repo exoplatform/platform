@@ -6,9 +6,9 @@
 			<content>Content</content>
 			<siteExplorer>Sites Explorer</siteExplorer>
 			<wcmAdmin>Content Administration</wcmAdmin>
-			<users>Users</users>
+<users>Community</users>
 			<newStaff>Add Users</newStaff>
-<org-management>Community</org-management>
+<org-management>Manage Community</org-management>
 			<portal>Portal</portal>
 			<administration>Administration</administration>
 			<groupnavigation>Group Sites</groupnavigation>
