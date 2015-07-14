@@ -15,6 +15,7 @@
 %>
 
 <div id="<%=uicomponent.id%>">
+<a href="javascript:void(0)" class="mobile-visible pull-left toggle-left-bar"><span>&#45;</span><span>&#45;</span><span>&#45;</span></a>
 <a href="<%=NavigationURLUtils.getCurrentPortalURL()%>" class="HomeLink">
     <img src="$imgSrc" alt="Home" >
 </a>
