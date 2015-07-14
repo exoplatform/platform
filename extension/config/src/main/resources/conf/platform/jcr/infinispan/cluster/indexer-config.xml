@@ -74,7 +74,7 @@
         enabled="true" />
     <eviction
         strategy="NONE" />
-    <loaders passivation="false" shared="true" preload="false">
+    <loaders passivation="false" shared="false" preload="false">
       <store
           class="${infinispan-cachestore-classname}"
           fetchPersistentState="false"
