@@ -39,16 +39,16 @@
         def ownerId = navigation.getKey().getName();
         String navTitle = OrganizationUtils.getGroupLabel(ownerId);
         println """
-                      <h5 class="title">
-                         $navTitle
+                      <h5 class="title accordionBar clearfix">
+                         $navTitle 
                       </h5>
-					  <ul class="groupNavigation">
+					  <div class="accordionCont"><ul class="groupNavigation">
 				""";
         for (UserNode node : nodes) {
             renderPageNodeGroup(node);
         }
         println """
-				      </ul>
+				      </ul></div>
 				   
 				""";
     }

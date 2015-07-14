@@ -44,12 +44,12 @@
 %>
 
 <div class="uiSpaceNavigationPortlet" id="$uicomponent.id">
-  <h5 class="title"><a href="/portal/intranet/spaces"><%=_ctx.appRes("UISpaceNavigationPortlet.label.Spaces")%></a></h5>
+  <h5 class="title accordionBar clearfix"><a href="/portal/intranet/spaces"><%=_ctx.appRes("UISpaceNavigationPortlet.label.Spaces")%></a></h5>
+   <div class="spaceCont accordionCont ">
   <!-- Merge exoadmin:  navigation-->
-    <div class="spaceCont">
-      <div class="searchInput"><input type="text" class="searchText " placeholder="<%=defaultValueForTextSearch%>"/></div>
+    <div class="searchInput"><input type="text" class="searchText " placeholder="<%=defaultValueForTextSearch%>"/></div>
 
-        <ul class="spaceNavigation">
+        <ul class="spaceNavigation ">
 
     <%
       for(space in userSpaces) {
@@ -95,5 +95,5 @@
                 <%=_ctx.appRes("UISpaceNavigationPortlet.label.Join")%>
                 </a>
         </div>
-</div>
+        </div>
 </div>

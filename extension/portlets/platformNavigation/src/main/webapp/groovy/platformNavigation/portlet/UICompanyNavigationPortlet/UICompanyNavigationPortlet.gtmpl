@@ -93,11 +93,13 @@
     }
 %>
 <div class="uiCompanyNavigationPortlet">
-    <h5 class="title">
-        <%= _ctx.appRes("UICompanyNavigationPortlet.CompanyBar")  %>
+    <h5 class="title accordionBar clearfix">
+        <%= _ctx.appRes("UICompanyNavigationPortlet.CompanyBar")  %> 
     </h5>
+	<div class="accordionCont">
     <%
         renderCurrentPortal();
     %>
+	</div>
 </div>
 
