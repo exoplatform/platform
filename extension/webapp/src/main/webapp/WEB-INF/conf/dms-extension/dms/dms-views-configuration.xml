@@ -84,7 +84,7 @@
                     </field>
                     <field name="buttons">
                       <string>
-                        openDocument; upload; addFolder; viewMetadatas; viewPermissions; editDocument; taggingDocument;
+                        shareDocuments; openDocument; upload; addFolder; viewMetadatas; viewPermissions; editDocument; taggingDocument;
                         vote; overloadThumbnail; watchDocument; manageVersions; checkIn; checkOut; comment
                       </string>
                     </field>
