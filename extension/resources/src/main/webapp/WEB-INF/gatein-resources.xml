@@ -41,5 +41,15 @@
          <as>$</as>
       </depends>
    </module>
-
+	<module>
+      <name>platform-responsive</name>
+      <as>platformResponsive</as>
+      <script>
+         <path>/javascript/eXo/platform/responsive/responsive.js</path>
+      </script>
+      <depends>
+         <module>jquery</module>
+         <as>$</as>
+      </depends>
+   </module>
 </gatein-resources>
