@@ -31,7 +31,7 @@
       <init-params>
          <value-param profiles="jboss">
             <name>always-managed</name>
-            <value>${gatein.jcr.datasource.managed:false}</value>
+            <value>${gatein.jcr.datasource.managed:true}</value>
          </value-param>
       </init-params>
    </component>
