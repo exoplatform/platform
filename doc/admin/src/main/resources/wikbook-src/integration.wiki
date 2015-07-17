@@ -278,41 +278,41 @@ Use REST
 The organization integration management API is also exposed as REST.
 You need to login as an administrator first, then use one of those links:
 
-* _/portal/rest/management/orgsync/syncUser?username=USERNAME&eventType=EVENT_
+* _/rest/management/orgsync/syncUser?username=USERNAME&eventType=EVENT_
 
 ||Para-value||Description||
 |USERNAME|Select a username.|
 |EVENT|Select one of the following values. {example} {example} - *ADDED* - Select this option if the user is not yet integrated into eXo Platform. This will integrate the use and his/her memberships and groups. {example}{example} - *UPDATED* - Select this option if the user field or membership has been modified/added/deleted. This will update the user profiles integrated into eXo Platform and all related memberships. {example} {example} - *DELETED* - Select this option if the user has been deleted from the organization data source. So the user profile will be deleted from eXo Platform.|
 
 
-* _/portal/rest/management/orgsync/syncAllUsers?eventType=EVENT_
+* _/rest/management/orgsync/syncAllUsers?eventType=EVENT_
 
 ||Para-value||Description||
 |EVENT|Select one of the following values: {example} {example} - *ADDED* - Search for users who are added to the Organization data source, but not yet integrated. Those users will then be synchronized. {example} {example} - *UPDATED* - Search for users that are present in the Organization data source and already integrated into eXo Platform. Those profiles will be updated. {example} {example} - *DELETED* - Search for users that are deleted from the Organization data source, but their profiles are still always existing in eXo Platform. Those profiles are then deleted.|
 
 Also, you can request for synchronizing all users.
 
-* _/portal/rest/management/orgsync/syncGroup?groupId=GROUP\_ID&eventType=EVENT_
+* _/rest/management/orgsync/syncGroup?groupId=GROUP\_ID&eventType=EVENT_
 
 ||Para-value||Description||
 |GROUP\_ID|Select a groupId, such as /platform/users.|
 |EVENT|Select one of the following values: {example} {example} - *ADDED* - Select this option if the group is not yet integrated into eXo Platform. This will integrate the group. {example} {example} - *UPDATED* - This option is not used any longer. {example} {example} - *DELETED* - Select this option if the group has been deleted from Organization data source. The group profile is then deleted from eXo Platform.|
 
-* _/portal/rest/management/orgsync/syncAllGroups?eventType=EVENT_
+* _/rest/management/orgsync/syncAllGroups?eventType=EVENT_
 
 ||Para-value||Description||
 |EVENT|Select one of the following values: {example} {example} - *ADDED* - Search for groups that are added to the Organization data source, but not yet integrated into eXo Platform. Those groups will be integrated. {example} {example} - *UPDATED*: This option is not used any longer. {example} {example} - *DELETED* - Search for groups that are deleted from the Organization data source, but their profiles are still existed in eXo Platform. Those profiles are then deleted.|
 
 You can also request for synchronizing all groups.
 
-* _/portal/rest/management/orgsync/syncMembership?groupId=GROUP\_ID&username=USERNAME&eventType=EVENT_
+* _/rest/management/orgsync/syncMembership?groupId=GROUP\_ID&username=USERNAME&eventType=EVENT_
 
 ||Para-value||Description||
 |GROUP\_ID|Select a groupId, such as /platform/users.|
 |USERNAME|Select a username.|
 |EVENT|Select one of the following values: {example} {example} - *ADDED* - Search for memberships that are added to the Organization data source, but not yet integrated into eXo Platform. Those memberships will be integrated. {example} {example} - *UPDATED* - This option is not used any longer. {example} {example} - *DELETED* - Search for memberships that are deleted from the Organization data source. This will synchronize user's memberships related to the selected group.|
 
-* _/portal/rest/management/orgsync/syncAll_: This will synchronize all groups and users.
+* _/rest/management/orgsync/syncAll_: This will synchronize all groups and users.
 
 {docbook}
 <para xml:id="ADM.Integration.Use_JMX">
