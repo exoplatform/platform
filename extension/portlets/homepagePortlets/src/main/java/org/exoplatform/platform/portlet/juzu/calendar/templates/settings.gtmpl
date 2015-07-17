@@ -41,7 +41,7 @@
         </div>
         <div class= "uiContentBox " >
             <p>&{display.additional.calendar.label}</p>
-            <input type="text"  class="PLFcalendarSearchKey" value="&{search.calendar.label}"/>
+            <input type="text"  class="PLFcalendarSearchKey" placeholder="&{search.calendar.label}"/>
             <ul id="nonDisplayedCalendarContainer" class="calendarItems NonDisplayedCalendar">
                 <% if (nonDisplayedCalendar != null) {
                     nonDisplayedCalendar.each { cal ->
@@ -51,7 +51,7 @@
                 <li id="${cal.id}" class="calendarItem clearfix" title="${calendarName}">
                     <a href="javascript:void(0);" class="addButton pull-right" style="display: none;" data-placement="bottom" rel="tooltip" data-original-title="add">
                         <input type="hidden" name="calendarId" value="${cal.id}"/>
-                        <i class="uiIconAdd "></i>
+                        <i class="uiIconSimplePlusMini uiIconLightGray"></i>
                     </a>
                     <a class="${cal.calendarColor} colorBox pull-left" href="javascript:void(0);"></a>
                     <a  href="javascript:void(0);" class="calName" data-original-title="${calendarName}" data-placement="bottom" rel="tooltip">${calendarName}</a>
