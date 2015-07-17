@@ -1,12 +1,24 @@
 (function($) {
-	// add toggle right button
-	$(".OfficeMiddleTDContainer").append("<a href='javascript:void(0)' class='visible-tablet  toggle-right-bar'><i class='uiIconArrowLeft'></i><i class='uiIconArrowRight' ></i></a>");
-	
 	var taApp = {}; 
+	// add toggle right button
+	
+	$("body").append("<a href='javascript:void(0)' class='visible-tablet  toggle-right-bar'><i class='uiIconArrowLeft'></i><i class='uiIconArrowRight' ></i></a>");	
+	taApp.setPositionRightButton = function(){
+		var _w = $(window).width();		 
+		 if ( _w  < 1025 && _w > 600) {				 
+			var _h = $(window).height();
+			var toggle_right_bar = $('.toggle-right-bar').height();
+			var tem= (_h - toggle_right_bar) / 2 ;
+			$('.toggle-right-bar').css('top',tem);
+		 }		
+	}
+	taApp.setPositionRightButton();
+	$(window).resize(function(){
+		taApp.setPositionRightButton();
+	});
 
 	// Toggle left bar
-	$('.toggle-left-bar').on('click',function(){
-		
+	$('.toggle-left-bar').on('click',function(){		
 		if($('body').hasClass('open-left-bar')) {
 			taApp.hideLeftPanel();	
 		}
@@ -68,8 +80,7 @@
     // display sub menu on mobile
 
      $('.dropdown-submenu > a').on('click', function(evt) {     	  
-		 var _w = Math.max($(window).width());
-		 
+		 var _w = Math.max($(window).width());		 
 		 if ( _w < 1025 ) {
 		 	 evt.stopPropagation();
      	     evt.preventDefault();
@@ -88,7 +99,7 @@
 		 }
 	});
 
-
+	
 	// function accordion for left navigation
     
  taApp.left_nav_accordion=function(){
@@ -147,22 +158,37 @@
 		}
 		
 	};
-
+	
+	// trigger back item when client lost focus on sub menu
+	$('#UISetupPlatformToolBarPortlet,#UIUserPlatformToolBarPortlet').on('click',  function(event) {
+		$('.back-item').click();
+	});
+	
 	$('#UIUserPlatformToolBarPortlet').on('click',  function(event) {
 		event.preventDefault();
 		taApp.showProfileMenu();
 	});
 	
+	
 	// Search action on top navigation
 	taApp.search_on_top_nav = function(){
 		var _w = $(window).width();
 		if (_w < 481) {
-			$("#ToolBarSearch").append("<span><i class='uiIconClose uiIconWhite'></i></span>");
-			$('.UIToolbarContainer .ToolbarContainer').addClass('active');
-
-			$("#ToolBarSearch input[name='adminkeyword']").focusout(function(){
-				$('.UIToolbarContainer .ToolbarContainer').removeClass('active');
+			$("#ToolBarSearch").prepend("<span class='pull-right'><i class='uiIconClose uiIconWhite'></i></span>");
+			
+			$('#ToolBarSearch').addClass('clearfix');
+			
+			var bar = $('.UIToolbarContainer .ToolbarContainer');
+			bar.addClass('active');
+			var bar_input = $("#ToolBarSearch input[type='text']");
+					
+			bar_input.css('width', _w - 70);
+			
+			bar_input.blur(function(){
+				$(this).hide();
+				bar.removeClass('active');
 				$('#ToolBarSearch .uiIconClose').remove();
+				$('#ToolBarSearch .uiQuickSearchResult').hide();
 			});
 		}
 	};
@@ -215,5 +241,6 @@
 		 });
 	}
 	taApp.setHeightMenu();
+	
 })($);
 
