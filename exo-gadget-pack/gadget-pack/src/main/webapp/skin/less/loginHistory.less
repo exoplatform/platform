@@ -3,7 +3,7 @@
 
 
 .loginHistoryContent {height:100px; overflow:auto;}
-.loginHistoryItem {color:#484848;}
+.loginHistoryItem {color:#484848; width: 12%; padding-right: 10px;}
 .loginHistoryItemDetail {font-size:9px; margin-left:3px; color:#757575;}
 .customLink:hover {text-decoration:underline; color:#226ab4; cursor:pointer;}
 
@@ -24,29 +24,29 @@
 .uiGadgetThemes{
 	.btn-group{
 		text-align: center;
-		margin: 4px 90px 15px 19px;
+		margin: 0 0 15px;
 		display: block;
 	}
 	.uiContentBox{
 		height: auto;
 		overflow: auto;
+		padding: 20px 10px!important;
 	}
 	.gadContent{
-		min-width: 285px;
 		.searchUser{
 			width: 100%;
 			margin-bottom: 15px;
 		}
 		.statisticDiv{
 			.btn-group{
-				text-align: center;
+				text-align: left;
 				margin: 1px 90px 1px 6px;
 				.btn{
 					padding: 4px;
 				}
 			}
-			.btn:nth-child(2n+2){		
-				min-width: 124px;
+			.btn.middleBtn{		
+				min-width: 95px;
     			padding: 3px 8px;
 				text-align: center;
 			}
@@ -137,6 +137,7 @@
 			}
 			.accordion-toggle a{
 				padding: 5px 5px 5px 15px;
+				outline: none;
 			}
 			/*.collapsed{
 				background: #f4f4f4;
@@ -152,7 +153,7 @@
 					color: #226AB4;
 				}
 				td{
-					line-height: 28px;
+					line-height: 24px;
 				}
 			}
 			
@@ -168,3 +169,6 @@
 	color: #2F5E92;
 	background-color: #E6E6E6;
   }
+.uiGrid.table {
+	margin-bottom: 0;
+}
