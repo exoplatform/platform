@@ -106,6 +106,7 @@
 		var companyNav = $('.uiCompanyNavigationPortlet .title.accordionBar').addClass('active');	
 		$('.title.accordionBar').prepend('<i class="uiIconArrowRight pull-right"></i>');	
 		$('.uiCompanyNavigationPortlet .accordionCont').addClass('active').show();
+		$('.uiSpaceNavigationPortlet .joinSpace').insertBefore('.uiSpaceNavigationPortlet .spaceNavigation');
 		$('#LeftNavigation .accordionBar').click(function(){	
 
 			var subContent = $(this).next();
@@ -183,6 +184,7 @@
 			var bar_input = $("#ToolBarSearch input[type='text']");
 					
 			bar_input.css('width', _w - 70);
+			$('.uiQuickSearchResult').css('width', _w - 70);
 			
 			bar_input.blur(function(){
 				$(this).hide();
