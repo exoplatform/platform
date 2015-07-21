@@ -6,9 +6,9 @@
 <content>İçerik</content>
 <siteExplorer>Site Gezgini</siteExplorer>
 <wcmAdmin>İçerik Yönetimi</wcmAdmin>
-<users>Kullanıcılar</users>
+<users>Community</users>
 <newStaff>Kullanıcılar Ekle</newStaff>
-<org-management>Gruplar ve Roller</org-management>
+<org-management>Manage Community</org-management>
 <portal>Portal</portal>
 <administration>Yönetim</administration>
 <groupnavigation>Grup Siteleri</groupnavigation>
@@ -18,7 +18,7 @@
 <monitoring>İzleme</monitoring>
 <spaces>Alanlar</spaces>
 <Branding>Marka</Branding>
-      <Notification>Email Notifications</Notification>
+      <Notification>Bildirimler</Notification>
 <ide>IDE</ide>
 <search>Arama</search>
 </label>

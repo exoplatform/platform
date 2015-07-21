@@ -6,9 +6,9 @@
 <content>Contingut</content>
 <siteExplorer>Explorador de Llocs</siteExplorer>
 <wcmAdmin>Gestió de continguts</wcmAdmin>
-<users>Usuaris</users>
+<users>Comunitat</users>
 <newStaff>Afegeix Usuaris/es</newStaff>
-<org-management>Rols i Grups</org-management>
+<org-management>Gestiona la Comunitat</org-management>
 <portal>Portal</portal>
 <administration>Adminstració</administration>
 <groupnavigation>Llocs dels Grups</groupnavigation>
@@ -18,7 +18,7 @@
 <monitoring>Monitorització</monitoring>
 <spaces>Espais</spaces>
 <Branding>Logotips</Branding>
-      <Notification>Notificacions per correu</Notification>
+      <Notification>Notificacions</Notification>
 <ide>IDE</ide>
 <search>Cerca</search>
 </label>

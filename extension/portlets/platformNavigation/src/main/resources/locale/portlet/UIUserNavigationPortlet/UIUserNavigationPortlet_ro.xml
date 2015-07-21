@@ -12,6 +12,7 @@
          <Mywiki>Wiki</Mywiki>
          <Mydashboard>Tabloul de bord</Mydashboard>
          <NotificationSettingsPortlet>Notificări</NotificationSettingsPortlet>
+         <More>Mai mult</More>
       </label>
    </UIUserNavigationPortlet>
 </bundle>

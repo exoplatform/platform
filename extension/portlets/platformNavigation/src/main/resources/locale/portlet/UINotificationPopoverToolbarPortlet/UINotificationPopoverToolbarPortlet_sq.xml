@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bundle>
+<UINotificationPopoverToolbarPortlet>
+<label>
+<MarkAllAsRead>crwdns6812649:0crwdne6812649:0</MarkAllAsRead>
+<NoNotifications>crwdns6812650:0crwdne6812650:0</NoNotifications>
+<ViewAll>crwdns6812651:0crwdne6812651:0</ViewAll>
+<Loading>crwdns6812652:0crwdne6812652:0</Loading>
+</label>
+</UINotificationPopoverToolbarPortlet>
+</bundle>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bundle>
+<UINotificationPopoverToolbarPortlet>
+<label>
+<MarkAllAsRead>Đánh dấu đã đọc</MarkAllAsRead>
+<NoNotifications>Không có thông báo</NoNotifications>
+<ViewAll>Xem toàn bộ</ViewAll>
+<Loading>Đang tải</Loading>
+</label>
+</UINotificationPopoverToolbarPortlet>
+</bundle>

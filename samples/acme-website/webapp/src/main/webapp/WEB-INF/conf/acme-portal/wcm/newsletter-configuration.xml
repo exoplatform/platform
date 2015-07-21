@@ -145,13 +145,13 @@
     <component-plugin>
       <name>Content Initializer Service</name>
       <set-method>addPlugin</set-method>
-      <type>org.exoplatform.services.deployment.plugins.XMLDeploymentPlugin</type>
+      <type>org.exoplatform.services.wcm.extensions.deployment.WCMPublicationDeploymentPlugin</type>
       <description>XML Deployment Plugin</description>
       <init-params>
         <object-param>
           <name>Demo newsletter for acme site</name>
           <description>Deployment Descriptor</description>
-          <object type="org.exoplatform.services.deployment.DeploymentDescriptor">
+          <object type="org.exoplatform.services.wcm.extensions.deployment.WCMPublicationDeploymentDescriptor">
             <field name="target">
               <object type="org.exoplatform.services.deployment.DeploymentDescriptor$Target">
                 <field name="workspace">

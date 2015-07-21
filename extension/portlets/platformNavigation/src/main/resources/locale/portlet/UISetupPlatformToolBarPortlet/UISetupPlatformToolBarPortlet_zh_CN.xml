@@ -6,9 +6,9 @@
 <content>内容</content>
 <siteExplorer>站点资源管理器</siteExplorer>
 <wcmAdmin>内容管理</wcmAdmin>
-<users>用户</users>
+<users>Community</users>
 <newStaff>添加用户</newStaff>
-<org-management>组和角色</org-management>
+<org-management>Manage Community</org-management>
 <portal>门户站点</portal>
 <administration>管理</administration>
 <groupnavigation>群组站点</groupnavigation>
@@ -18,7 +18,7 @@
 <monitoring>监测</monitoring>
 <spaces>空间</spaces>
 <Branding>品牌</Branding>
-      <Notification>Email Notifications</Notification>
+      <Notification>通知</Notification>
 <ide>集成开发工具</ide>
 <search>搜索</search>
 </label>

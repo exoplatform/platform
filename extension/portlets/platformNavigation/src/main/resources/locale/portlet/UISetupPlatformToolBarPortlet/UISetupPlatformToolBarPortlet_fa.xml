@@ -6,9 +6,9 @@
 <content>محتوا</content>
 <siteExplorer>مرورگر سایت</siteExplorer>
 <wcmAdmin>مدیریت محتوا</wcmAdmin>
-<users>کاربران</users>
+<users>Community</users>
 <newStaff>افزودن کاربرها</newStaff>
-<org-management>گروه ها و نقش ها</org-management>
+<org-management>Manage Community</org-management>
 <portal>پرتال</portal>
 <administration>مدیریت</administration>
 <groupnavigation>سایت گروه ها</groupnavigation>
@@ -18,7 +18,7 @@
 <monitoring>نظارت کردن</monitoring>
 <spaces>فضاها</spaces>
 <Branding>علامت گذاری</Branding>
-      <Notification>Email Notifications</Notification>
+      <Notification>اطلاعیه ها</Notification>
 <ide>محیط نرم افزاری</ide>
 <search>جستجو</search>
 </label>

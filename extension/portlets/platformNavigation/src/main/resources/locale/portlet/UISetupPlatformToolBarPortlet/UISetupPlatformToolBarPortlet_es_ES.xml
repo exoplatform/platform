@@ -6,9 +6,9 @@
 <content>Contenido</content>
 <siteExplorer>Explorador de Sitios</siteExplorer>
 <wcmAdmin>Administración de contenido</wcmAdmin>
-<users>Usuarios</users>
+<users>Community</users>
 <newStaff>Agregar usuarios</newStaff>
-<org-management>Grupos y Roles</org-management>
+<org-management>Manage Community</org-management>
 <portal>Portal</portal>
 <administration>Administración</administration>
 <groupnavigation>Sitios del grupo</groupnavigation>
@@ -18,7 +18,7 @@
 <monitoring>Monitoreo</monitoring>
 <spaces>Espacios</spaces>
 <Branding>Apariencia</Branding>
-      <Notification>Notificaciones por correo electrónico</Notification>
+      <Notification>Notificaciones</Notification>
 <ide>IDE</ide>
 <search>Búsqueda</search>
 </label>

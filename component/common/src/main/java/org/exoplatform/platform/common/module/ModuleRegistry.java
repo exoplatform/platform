@@ -25,6 +25,7 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 import java.util.Set;
+import java.util.concurrent.ConcurrentHashMap;
 
 import org.exoplatform.container.PortalContainer;
 import org.exoplatform.container.xml.InitParams;
@@ -48,7 +49,7 @@ public class ModuleRegistry implements Startable {
 
   private static final Log LOG = ExoLogger.getExoLogger(ModuleRegistry.class);
 
-  private Map<String, Boolean> isPortletActiveCache = new HashMap<String, Boolean>();
+  private Map<String, Boolean> isPortletActiveCache = new ConcurrentHashMap<String, Boolean>();
   private boolean isPortletDisplayNamesImported = false;
 
   /**

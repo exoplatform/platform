@@ -2,13 +2,13 @@
 <bundle>
 <UIBreadCrumbsNavigationPortlet>
     <label>
-        <ChangePicture>تغییر صورتک</ChangePicture>
+      <EditProfile>Edit my Profile</EditProfile>
     </label>
-</UIBreadCrumbsNavigationPortlet>
- <UIBreadCrumbPopupAvatarUploader>
       <title>
-         <UIAvatarUploader>آپلود صورتک</UIAvatarUploader>
-         <UIAvatarUploadContent>پیش نمایش صورتک</UIAvatarUploadContent>
+      <EditProfile>Edit Profile</EditProfile>
+    </title>
+    <title>
+      <MyProfile>مشخصات من</MyProfile>
       </title>
- </UIBreadCrumbPopupAvatarUploader>
+</UIBreadCrumbsNavigationPortlet>
 </bundle>

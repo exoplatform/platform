@@ -12,6 +12,7 @@
          <Mywiki>Wiki</Mywiki>
          <Mydashboard>マイダッシュ ボード</Mydashboard>
          <NotificationSettingsPortlet>My Notifications</NotificationSettingsPortlet>
+         <More>もっと</More>
       </label>
    </UIUserNavigationPortlet>
 </bundle>

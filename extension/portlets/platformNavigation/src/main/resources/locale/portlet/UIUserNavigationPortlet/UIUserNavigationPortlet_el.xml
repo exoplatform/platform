@@ -12,6 +12,7 @@
          <Mywiki>To Wiki μου</Mywiki>
          <Mydashboard>Το ταμπλό μου</Mydashboard>
          <NotificationSettingsPortlet>Οι ειδοποιήσεις μου</NotificationSettingsPortlet>
+         <More>Περισσότερα</More>
       </label>
    </UIUserNavigationPortlet>
 </bundle>

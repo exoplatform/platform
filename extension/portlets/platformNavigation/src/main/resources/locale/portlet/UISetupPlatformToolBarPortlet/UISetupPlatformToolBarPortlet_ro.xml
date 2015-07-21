@@ -6,9 +6,9 @@
 <content>Conţinut</content>
 <siteExplorer>Navigare siteuri</siteExplorer>
 <wcmAdmin>Administrare conţinut</wcmAdmin>
-<users>Utilizatori</users>
+<users>Community</users>
 <newStaff>Adaugă utilizatori</newStaff>
-<org-management>Grupuri si roluri</org-management>
+<org-management>Manage Community</org-management>
 <portal>Portal</portal>
 <administration>Administrare</administration>
 <groupnavigation>Site-uri de grup</groupnavigation>
@@ -18,7 +18,7 @@
 <monitoring>Monitorizare</monitoring>
 <spaces>Spații</spaces>
 <Branding>Personalizare</Branding>
-      <Notification>Notificări prin e-mail</Notification>
+      <Notification>Notificări</Notification>
 <ide>IDE</ide>
 <search>Căutare</search>
 </label>
