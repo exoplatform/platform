@@ -718,6 +718,12 @@
         <artifactId>exo.portal.webui.portlet</artifactId>
         <version>${org.gatein.portal.version}</version>
       </dependency>
+      <!-- DON'T REMOVE : needed for product packaging -->
+      <dependency>
+        <groupId>org.gatein.cdi</groupId>
+        <artifactId>gatein-cdi-contexts</artifactId>
+        <version>${org.gatein.portal.version}</version>
+      </dependency>      
       <!-- To be replaced by an import of GateIn Shinding parent POM -->
       <dependency>
         <groupId>org.gatein.shindig</groupId>
