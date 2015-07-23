@@ -78,75 +78,78 @@
         <script type="text/javascript" src="/platform-extension/javascript/switch-button.js"></script>
     </head>
     <body>
-        <div class="uiFormWithTitle uiBox uiOauthRegister">
-            <h5 class="title"><%=res.getString("UIRegisterForm.title")%></h5>
-            <div class="uiContentBox">
-                <% if (errors.size() > 0) { %>
-                <div class="error">
-                    <ul>
-                        <% for (String error : errors) { %>
-                        <li><%=error%></li>
-                        <%}%>
-                    </ul>
-                </div>
-                <%}%>
-                <form name="registerForm" action="<%= contextPath + "/login"%>" method="post" style="margin: 0px;">
-                    <div class="content">
-                        <div class="form-horizontal">
-                            <div class="control-group">
-                                <label class="control-label"><%=res.getString("UIRegisterForm.label.username")%></label>
-                                <div class="controls">
-                                    <input class="username <%if(errorFields.contains("username")) out.print(errorClass);%>" name="username" type="text" value="<%=(user.getUserName() == null ? "" : user.getUserName())%>" />
-                                </div>
-                            </div>
 
-                            <div class="control-group">
-                                <label class="control-label"><%=res.getString("UIRegisterForm.label.password")%></label>
-                                <div class="controls">
-                                    <input class="password <%if(errorFields.contains("password")) out.print(errorClass);%>" name="password" type="password" />
-                                </div>
-                            </div>
-                            <div class="control-group">
-                                <label class="control-label"><%=res.getString("UIRegisterForm.label.confirmPassword")%></label>
-                                <div class="controls">
-                                    <input class="password <%if(errorFields.contains("password2")) out.print(errorClass);%>" name="password2" type="password" />
-                                </div>
-                            </div>
-                            <div class="control-group">
-                                <label class="control-label"><%=res.getString("UIRegisterForm.label.firstName")%></label>
-                                <div class="controls">
-                                    <input type="text" class="<%if(errorFields.contains("firstName")) out.print(errorClass);%>" name="firstName" value="<%=(user.getFirstName() == null ? "" : user.getFirstName())%>"/>
-                                </div>
-                            </div>
-                            <div class="control-group">
-                                <label class="control-label"><%=res.getString("UIRegisterForm.label.lastName")%></label>
-                                <div class="controls">
-                                    <input type="text" class="<%if(errorFields.contains("lastName")) out.print(errorClass);%>" name="lastName" value="<%=(user.getLastName() == null ? "" : user.getLastName())%>"/>
-                                </div>
-                            </div>
-                            <div class="control-group">
-                                <label class="control-label"><%=res.getString("UIRegisterForm.label.displayName")%></label>
-                                <div class="controls">
-                                    <input type="text" class="<%if(errorFields.contains("displayName")) out.print(errorClass);%>" name="displayName" value="<%=(user.getDisplayName() == null ? "" : user.getDisplayName())%>"/>
-                                </div>
-                            </div>
-                            <div class="control-group">
-                                <label class="control-label"><%=res.getString("UIRegisterForm.label.emailAddress")%></label>
-                                <div class="controls">
-                                    <input type="email" class="<%if(errorFields.contains("email")) out.print(errorClass);%>" name="email" value="<%=(user.getEmail() == null ? "" : user.getEmail())%>" />
-                                </div>
-                            </div>
-
-                            <input type="hidden" name="login_controller" value="submit_register"/>
-                        </div>
-                    </div>
-                    <div id="UIPortalLoginFormAction" class="uiAction">
-                        <button type="submit" class="btn btn-primary"><%=res.getString("UIRegisterForm.action.SubscribeOAuth")%></button>
-                        <button type="reset" class="btn ActionButton LightBlueStyle"><%=res.getString("UIRegisterForm.action.Reset")%></button>
-                        <a class="btn ActionButton LightBlueStyle" href="<%= contextPath + "/login?login_controller=oauth_cancel"%>"><%=res.getString("UIRegisterForm.action.Cancel")%></a>
-                    </div>
-                </form>
+        <div class="UIPopupWindow uiPopup modal uiOauthRegister UIDragObject NormalStyle" style="width: 560px; margin-left: -280px;">
+          <div class="popupHeader ClearFix">
+              <a href="<%= contextPath + "/login?login_controller=oauth_cancel"%>" class="uiIconClose pull-right" aria-hidden="true" ></a>
+              <span class="PopupTitle popupTitle"><%=res.getString("UIRegisterForm.title")%></span>
+          </div>
+          <div class="PopupContent popupContent">
+              <% if (errors.size() > 0) { %>
+              <div class="alert alert-error mgT0 mgB20">
+                <ul>
+                    <% for (String error : errors) { %>
+                    <li><i class="uiIconError"></i><span><%=error%></span></li>
+                    <%}%>
+                </ul>
             </div>
+            <%}%>
+            <form name="registerForm" action="<%= contextPath + "/login"%>" method="post" style="margin: 0px;">
+                <div class="content">
+                    <div class="form-horizontal">
+                        <div class="control-group">
+                            <label class="control-label"><%=res.getString("UIRegisterForm.label.username")%></label>
+                            <div class="controls">
+                                <input class="username <%if(errorFields.contains("username")) out.print(errorClass);%>" name="username" type="text" value="<%=(user.getUserName() == null ? "" : user.getUserName())%>" />
+                            </div>
+                        </div>
+
+                        <div class="control-group">
+                            <label class="control-label"><%=res.getString("UIRegisterForm.label.password")%></label>
+                            <div class="controls">
+                                <input class="password <%if(errorFields.contains("password")) out.print(errorClass);%>" name="password" type="password" />
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <label class="control-label"><%=res.getString("UIRegisterForm.label.confirmPassword")%></label>
+                            <div class="controls">
+                                <input class="password <%if(errorFields.contains("password2")) out.print(errorClass);%>" name="password2" type="password" />
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <label class="control-label"><%=res.getString("UIRegisterForm.label.firstName")%></label>
+                            <div class="controls">
+                                <input type="text" class="<%if(errorFields.contains("firstName")) out.print(errorClass);%>" name="firstName" value="<%=(user.getFirstName() == null ? "" : user.getFirstName())%>"/>
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <label class="control-label"><%=res.getString("UIRegisterForm.label.lastName")%></label>
+                            <div class="controls">
+                                <input type="text" class="<%if(errorFields.contains("lastName")) out.print(errorClass);%>" name="lastName" value="<%=(user.getLastName() == null ? "" : user.getLastName())%>"/>
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <label class="control-label"><%=res.getString("UIRegisterForm.label.displayName")%></label>
+                            <div class="controls">
+                                <input type="text" class="<%if(errorFields.contains("displayName")) out.print(errorClass);%>" name="displayName" value="<%=(user.getDisplayName() == null ? "" : user.getDisplayName())%>"/>
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <label class="control-label"><%=res.getString("UIRegisterForm.label.emailAddress")%></label>
+                            <div class="controls">
+                                <input type="email" class="<%if(errorFields.contains("email")) out.print(errorClass);%>" name="email" value="<%=(user.getEmail() == null ? "" : user.getEmail())%>" />
+                            </div>
+                        </div>
+
+                        <input type="hidden" name="login_controller" value="submit_register"/>
+                    </div>
+                </div>
+                <div id="UIPortalLoginFormAction" class="uiAction uiActionBorder">
+                    <button type="submit" class="btn btn-primary"><%=res.getString("UIRegisterForm.action.SubscribeOAuth")%></button>
+                    <button type="reset" class="btn ActionButton LightBlueStyle"><%=res.getString("UIRegisterForm.action.Reset")%></button>
+                </div>
+            </form>
         </div>
+    </div>
     </body>
 </html>

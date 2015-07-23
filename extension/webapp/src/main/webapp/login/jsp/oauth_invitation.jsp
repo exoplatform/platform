@@ -65,31 +65,37 @@
         <script type="text/javascript" src="/platform-extension/javascript/switch-button.js"></script>
     </head>
     <body>
-        <div class="uiFormWithTitle uiBox uiOauthInvitation">
-            <h5 class="title"><%= res.getString("UIOAuthInvitationForm.title") %></h5>
-            <div class="uiContentBox">
-                <form name="registerForm" action="<%= contextPath + "/login"%>" method="post" style="margin: 0px;">
-                    <div class="content">
-                        <p><%=res.getString("UIOAuthInvitationForm.message.detectedUser")%><br/><strong><%=detectedUser.getUserName()%>/<%= detectedUser.getEmail() %></strong></p>
-                        <p><%=res.getString("UIOAuthInvitationForm.message.inviteMessage")%></p>
-                        <% if (error != null) { %>
-                        <p class="error"><%=error%></p>
-                        <%}%>
-                        <p class="clearfix">
-                            <label><%=res.getString("UIOAuthInvitationForm.label.password")%></label>
-                            <span class="pull-right">
-                                <input class="password <%=(error != null ? "error" : "")%>" type="password" name="password" placeholder="<%=res.getString("portal.login.Password")%>" onblur="this.placeholder = '<%=res.getString("portal.login.Password")%>'" onfocus="this.placeholder = ''"/>
+        <div class="UIPopupWindow modal uiOauthInvitation uiPopup UIDragObject NormalStyle" style="width: 430px; margin-left: -215px">
+          <div class="popupHeader ClearFix">
+              <a href="<%= contextPath + "/login?login_controller=oauth_cancel"%>" class="uiIconClose pull-right" aria-hidden="true" ></a>
+              <span class="PopupTitle popupTitle"><%= res.getString("UIOAuthInvitationForm.title") %></span>
+          </div>
+          <div class="PopupContent popupContent">
+            <form name="registerForm" action="<%= contextPath + "/login"%>" method="post" style="margin: 0px;">
+            <div class="content mgT5">
+                    <p><%=res.getString("UIOAuthInvitationForm.message.detectedUser")%><br/><strong><%=detectedUser.getUserName()%>/<%= detectedUser.getEmail() %></strong></p>
+                    <p><%=res.getString("UIOAuthInvitationForm.message.inviteMessage")%></p>
+                    <p class="clearfix">
+                        <label><%=res.getString("UIOAuthInvitationForm.label.password")%></label>
+                        <span class="pull-right">
+                            <input class="password mg0-ipt <%=(error != null ? "error" : "")%>" type="password" name="password" placeholder="<%=res.getString("portal.login.Password")%>" onblur="this.placeholder = '<%=res.getString("portal.login.Password")%>'" onfocus="this.placeholder = ''"/>
+                            <span class="toggle-popover valign-middle" data-toggle="popover" title="A Title" data-content="If you initially registered with a social account, please sign in with this account to update your user settings and link another social accounts.">
+                                <i class="uiIconQuestion uiIconLightGray"></i>
                             </span>
-                            <input type="hidden" name="login_controller" value="confirm_account"/>
-                        </p>
-                    </div>
-                    <div class="uiAction uiActionBorder">
-                        <button type="submit" class="btn btn-primary"><%=res.getString("portal.login.Confirm")%></button>
-                        <a class="btn ActionButton LightBlueStyle" href="<%= contextPath + "/login?login_controller=register"%>"><%=res.getString("portal.login.CreateNewAccount")%></a>
-                        <a class="btn ActionButton LightBlueStyle" href="<%= contextPath + "/login?login_controller=oauth_cancel"%>"><%=res.getString("portal.login.cancel")%></a>
-                    </div>
-                </form>
-            </div>
+                            <% if (error != null) { %>
+                            <br>
+                            <span class="error mgT5"><i class="uiIconColorError"></i> <%=error%></span>
+                            <%}%>
+                        </span>
+                        <input type="hidden" name="login_controller" value="confirm_account"/>
+                    </p>
+                </div>
+                <div class="uiAction uiActionBorder">
+                    <button type="submit" class="btn btn-primary"><%=res.getString("portal.login.Confirm")%></button>
+                    <a class="btn ActionButton LightBlueStyle" href="<%= contextPath + "/login?login_controller=register"%>"><%=res.getString("portal.login.CreateNewAccount")%></a>
+                </div>
+            </form>
         </div>
+    </div>
     </body>
 </html>
