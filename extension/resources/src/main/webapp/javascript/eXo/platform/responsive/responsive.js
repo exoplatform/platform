@@ -174,7 +174,7 @@
 	// Search action on top navigation
 	taApp.search_on_top_nav = function(){
 		var _w = $(window).width();
-		if (_w < 481) {
+		if (_w < 1025) {
 			$("#ToolBarSearch").prepend("<span class='pull-right'><i class='uiIconClose uiIconWhite'></i></span>");
 			
 			$('#ToolBarSearch').addClass('clearfix');
