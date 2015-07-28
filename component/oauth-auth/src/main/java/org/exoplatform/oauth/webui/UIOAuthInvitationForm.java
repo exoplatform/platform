@@ -80,7 +80,7 @@ public class UIOAuthInvitationForm extends UIForm {
 
         addUIFormInput(new UIFormStringInput(PASSWORD, PASSWORD, null)
                 .setType(UIFormStringInput.PASSWORD_TYPE)
-                .addValidator(MandatoryValidator.class)
+                //.addValidator(MandatoryValidator.class)
                 .addValidator(PasswordStringLengthValidator.class, 6, 30));
 
         setActions(ACTIONS);

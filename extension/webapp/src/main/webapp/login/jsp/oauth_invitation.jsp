@@ -65,7 +65,7 @@
         <script type="text/javascript" src="/platform-extension/javascript/switch-button.js"></script>
     </head>
     <body>
-        <div class="UIPopupWindow modal uiOauthInvitation uiPopup UIDragObject NormalStyle" style="width: 430px; margin-left: -215px">
+        <div class="UIPopupWindow modal uiOauthInvitation uiPopup UIDragObject NormalStyle" style="width: 430px; margin-left: -215px; border-radius: 4px">
           <div class="popupHeader ClearFix">
               <a href="<%= contextPath + "/login?login_controller=oauth_cancel"%>" class="uiIconClose pull-right" aria-hidden="true" ></a>
               <span class="PopupTitle popupTitle"><%= res.getString("UIOAuthInvitationForm.title") %></span>
@@ -75,20 +75,26 @@
             <div class="content mgT5">
                     <p><%=res.getString("UIOAuthInvitationForm.message.detectedUser")%><br/><strong><%=detectedUser.getUserName()%>/<%= detectedUser.getEmail() %></strong></p>
                     <p><%=res.getString("UIOAuthInvitationForm.message.inviteMessage")%></p>
-                    <p class="clearfix">
-                        <label><%=res.getString("UIOAuthInvitationForm.label.password")%></label>
-                        <span class="pull-right">
+                    <div class="clearfix">
+                        <label class="pull-left"><%=res.getString("UIOAuthInvitationForm.label.password")%></label>
+                        <div class="pull-right">
                             <input class="password mg0-ipt <%=(error != null ? "error" : "")%>" type="password" name="password" placeholder="<%=res.getString("portal.login.Password")%>" onblur="this.placeholder = '<%=res.getString("portal.login.Password")%>'" onfocus="this.placeholder = ''"/>
-                            <span class="toggle-popover valign-middle" data-toggle="popover" title="A Title" data-content="If you initially registered with a social account, please sign in with this account to update your user settings and link another social accounts.">
+                            <div class="parentPosition" style="display:inline-block;" onmouseout="(function(elm) {$(elm).find('.popupOverContent:first').hide();})(this)" onmouseover="(function(elm) {$(elm).find('.popupOverContent:first').show();})(this)">
                                 <i class="uiIconQuestion uiIconLightGray"></i>
-                            </span>
+                                <div class="gotPosition" style="position: relative; display:block">
+                                    <div class="popover left popupOverContent" style="width: 230px; left: -232px; top: -73px; display: none;">
+                                        <span class="arrow" style="top: 52%;"></span>
+                                        <div class="popover-content"><%=res.getString("UIOAuthInvitationForm.tooltip.message")%></div>
+                                    </div>
+                                </div>
+                            </div>
                             <% if (error != null) { %>
                             <br>
                             <span class="error mgT5"><i class="uiIconColorError"></i> <%=error%></span>
                             <%}%>
-                        </span>
+                        </div>
                         <input type="hidden" name="login_controller" value="confirm_account"/>
-                    </p>
+                    </div>
                 </div>
                 <div class="uiAction uiActionBorder">
                     <button type="submit" class="btn btn-primary"><%=res.getString("portal.login.Confirm")%></button>

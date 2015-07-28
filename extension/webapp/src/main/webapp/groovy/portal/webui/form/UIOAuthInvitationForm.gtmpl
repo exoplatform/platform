@@ -4,59 +4,44 @@
 
         def rcontext = _ctx.getRequestContext();
         JavascriptManager jsManager = rcontext.getJavascriptManager();
-        jsManager.require("SHARED/uiForm");
+        String script = 'jq(document).ready(function($) {$(\'.'+ uicomponent.id +' [data-toggle="popover" ]\').popover().mouseover(function(e) {$(this).popover("show")}).mouseout(function(e){$(this).popover("hide")}) });';
+
+        jsManager.require("SHARED/jquery", 'jq')
+                .require("SHARED/bts_popover")
+                .require("SHARED/uiForm")
+                .addScripts(script);
         String fieldName; %>
 <div class="uiFormWithTitle uiBox $uicomponent.id" onkeypress="javascript:SubmitAction.call(this, event);">
 <h5 class="title"><%=_ctx.appRes(uicomponent.getName() + ".title")%></h5>
 <div class="uiContentBox">
     <% uiform.begin() %>
         <div class="content">
-            <%
-            boolean required = false;
-            for (field in uiform.getChildren()) {
-            if (!required && field instanceof UIFormInputBase) {
-            required = ((UIFormInputBase) field).isMandatory();
-            }
-            }
-            if (required && false) {
-            %>
-            <%=_ctx.appRes("legend.required_field") %> (*)
-            <%
-            }
-            %>
-           
-                <p>
-                    <%=_ctx.appRes("UIOAuthInvitationForm.message.detectedUser")%>
-                    <strong><%= uicomponent.getDetectedUserName() %></strong>
-                </p>
-                <p><%=_ctx.appRes("UIOAuthInvitationForm.message.inviteMessage")%></p>
-               
-            <%
-            for(field in uiform.getChildren()) {
-            if(field.isRendered()) {
-            %>
-            <p class="clearfix">
-                <%fieldName = uicomponent.getLabel(field.getName());%>
-                <%if(field instanceof UIFormInputBase && !fieldName.equals(uicomponent.getId())) { %>
-                    <%if(fieldName != null && fieldName.length() > 0) {%>
-                    <label class="pull-left" for="<%= field.getName() %>"><%=uicomponent.getLabel(field.getName()) %></label>
-                    <%}%>
-                <% if(field instanceof UIFormInputBase && field.isEditable()) { %>
-                    <span class="pull-left"><% uiform.renderField(field) %></span>
-                <% }else { %>
-                    <span class="pull-left"><% uiform.renderField(field) %></span>
-                <% } %>
-                <%} else {%>
-                    <span class="pull-left"><% uiform.renderField(field) %></span>
-                <%}%>
+            <p>
+                <%=_ctx.appRes("UIOAuthInvitationForm.message.detectedUser")%>
+                <strong><%= uicomponent.getDetectedUserName() %></strong>
             </p>
-            <%
-            }
-            }
-            %>
+            <p><%=_ctx.appRes("UIOAuthInvitationForm.message.inviteMessage")%></p>
+            <div class="clearfix">
+                <%
+                def field = uiform.getUIInput("password");
+                %>
+                <label class="pull-left" for="<%= field.getName() %>" style="padding: 4px 4px 0 0;"><%=uicomponent.getLabel(field.getName()) %></label>
+                <div class="pull-left">
+                    <% uiform.renderField(field) %>
+                </div>
+                <div class="pull-left" style="padding: 4px">
+                    <span class=""
+                      tabindex="0"
+                      data-toggle="popover"
+                      data-placement="left"
+                      data-trigger="focus"
+                      data-content="<%=_ctx.appRes("UIOAuthInvitationForm.tooltip.message")%>"
+                      title="">
+                        <i class="uiIconQuestion uiIconLightGray"></i>
+                    </span>
+                </div>
+            </div>
         </div>
-        <%//Rerender this	component with the new structure%>
-        <%// start render action%>
         <div class="uiAction uiActionBorder">
             <% for(action in uicomponent.getActions()) {
             String actionLabel = _ctx.appRes(uicomponent.getName() + ".action." + action)

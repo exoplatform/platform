@@ -79,7 +79,7 @@
     </head>
     <body>
 
-        <div class="UIPopupWindow uiPopup modal uiOauthRegister UIDragObject NormalStyle" style="width: 560px; margin-left: -280px;">
+        <div class="UIPopupWindow uiPopup modal uiOauthRegister UIDragObject NormalStyle" style="width: 560px; margin-left: -280px; border-radius: 4px">
           <div class="popupHeader ClearFix">
               <a href="<%= contextPath + "/login?login_controller=oauth_cancel"%>" class="uiIconClose pull-right" aria-hidden="true" ></a>
               <span class="PopupTitle popupTitle"><%=res.getString("UIRegisterForm.title")%></span>
@@ -101,6 +101,7 @@
                             <label class="control-label"><%=res.getString("UIRegisterForm.label.username")%></label>
                             <div class="controls">
                                 <input class="username <%if(errorFields.contains("username")) out.print(errorClass);%>" name="username" type="text" value="<%=(user.getUserName() == null ? "" : user.getUserName())%>" />
+                                <span> *</span>
                             </div>
                         </div>
 
@@ -108,24 +109,28 @@
                             <label class="control-label"><%=res.getString("UIRegisterForm.label.password")%></label>
                             <div class="controls">
                                 <input class="password <%if(errorFields.contains("password")) out.print(errorClass);%>" name="password" type="password" />
+                                <span> *</span>
                             </div>
                         </div>
                         <div class="control-group">
                             <label class="control-label"><%=res.getString("UIRegisterForm.label.confirmPassword")%></label>
                             <div class="controls">
                                 <input class="password <%if(errorFields.contains("password2")) out.print(errorClass);%>" name="password2" type="password" />
+                                <span> *</span>
                             </div>
                         </div>
                         <div class="control-group">
                             <label class="control-label"><%=res.getString("UIRegisterForm.label.firstName")%></label>
                             <div class="controls">
                                 <input type="text" class="<%if(errorFields.contains("firstName")) out.print(errorClass);%>" name="firstName" value="<%=(user.getFirstName() == null ? "" : user.getFirstName())%>"/>
+                                <span> *</span>
                             </div>
                         </div>
                         <div class="control-group">
                             <label class="control-label"><%=res.getString("UIRegisterForm.label.lastName")%></label>
                             <div class="controls">
                                 <input type="text" class="<%if(errorFields.contains("lastName")) out.print(errorClass);%>" name="lastName" value="<%=(user.getLastName() == null ? "" : user.getLastName())%>"/>
+                                <span> *</span>
                             </div>
                         </div>
                         <div class="control-group">
@@ -138,6 +143,7 @@
                             <label class="control-label"><%=res.getString("UIRegisterForm.label.emailAddress")%></label>
                             <div class="controls">
                                 <input type="email" class="<%if(errorFields.contains("email")) out.print(errorClass);%>" name="email" value="<%=(user.getEmail() == null ? "" : user.getEmail())%>" />
+                                <span> *</span>
                             </div>
                         </div>
 
