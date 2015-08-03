@@ -23,6 +23,7 @@
 
 package org.exoplatform.oauth.webui;
 
+import org.exoplatform.oauth.OAuthConst;
 import org.exoplatform.portal.application.PortalRequestContext;
 import org.exoplatform.portal.webui.util.Util;
 import org.exoplatform.portal.webui.workspace.UIMaskWorkspace;
@@ -70,6 +71,11 @@ public class OAuthLifecycle implements ApplicationLifecycle<PortalRequestContext
         HttpSession httpSession = httpRequest.getSession();
         UIPortalApplication uiApp = Util.getUIPortalApplication();
 
+        Boolean isOnFlyError = (Boolean)httpRequest.getSession().getAttribute(OAuthConst.SESSION_KEY_ON_FLY_ERROR);
+        if (isOnFlyError != null) {
+            httpRequest.getSession().removeAttribute(OAuthConst.SESSION_KEY_ON_FLY_ERROR);
+        }
+
         User oauthAuthenticatedUser = (User)authRegistry.getAttributeOfClient(httpRequest, OAuthConstants.ATTRIBUTE_AUTHENTICATED_PORTAL_USER);
 
         // Display Registration form after successful OAuth authentication.
@@ -88,6 +94,12 @@ public class OAuthLifecycle implements ApplicationLifecycle<PortalRequestContext
                 uiMaskWS.setCssClasses("TransparentMask");
                 uiMaskWS.setWindowSize(-1, -1);
                 uiMaskWS.setUIComponent(uiRegisterOauth);
+
+                if (isOnFlyError != null && isOnFlyError) {
+                    ApplicationMessage msg = new ApplicationMessage("UIRegisterForm.message.signUpOnFlyError", new Object[0], ApplicationMessage.WARNING);
+                    msg.setArgsLocalized(false);
+                    uiApp.addMessage(msg);
+                }
             }
         }
 

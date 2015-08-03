@@ -88,6 +88,7 @@ public class OauthSignupOnflyFilter extends OAuthAbstractFilter {
                     return;
                 } else {
                     req.getSession().setAttribute(SESSION_KEY_SIGNUP_ON_FLY_ERROR, oauth);
+                    req.getSession().setAttribute(OAuthConst.SESSION_KEY_ON_FLY_ERROR, Boolean.TRUE);
                 }
             }
         }

@@ -49,11 +49,18 @@
         user = new UserImpl();
     }
 
+    Boolean isOnFlyError = (Boolean)request.getAttribute("isOnFlyError");
+
     List<String> errors = (List<String>)request.getAttribute("register_errors");
     Set<String> errorFields = (Set<String>)request.getAttribute("register_error_fields");
     if (errors == null) {
         errors = new ArrayList<String>();
     }
+
+    if (isOnFlyError != null && isOnFlyError) {
+        errors.add(0, res.getString("UIRegisterForm.message.signUpOnFlyError"));
+    }
+
     if (errorFields == null) {
         errorFields = new HashSet<String>();
     }

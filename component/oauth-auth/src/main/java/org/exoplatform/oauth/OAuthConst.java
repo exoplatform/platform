@@ -23,5 +23,6 @@ package org.exoplatform.oauth;
  * @author <a href="mailto:tuyennt@exoplatform.com">Tuyen Nguyen The</a>.
  */
 public interface OAuthConst {
+  public static final String SESSION_KEY_ON_FLY_ERROR = "oauth_onfly_error";
   public static final String ATTRIBUTE_AUTHENTICATED_PORTAL_USER_DETECTED = "_authenticatedPortalUserDetected";
 }

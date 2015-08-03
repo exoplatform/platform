@@ -100,6 +100,12 @@ public class OAuthLoginServletFilter extends OAuthAbstractFilter {
         MessageResolver messageResolver = new MessageResolver(bundle);
         ServletContext context = getContext();
 
+        Boolean isOnFlyError = (Boolean)req.getSession().getAttribute(OAuthConst.SESSION_KEY_ON_FLY_ERROR);
+        if (isOnFlyError != null) {
+            req.getSession().removeAttribute(OAuthConst.SESSION_KEY_ON_FLY_ERROR);
+            req.setAttribute("isOnFlyError", isOnFlyError);
+        }
+
         User portalUser = (User) authReg.getAttributeOfClient(req, OAuthConstants.ATTRIBUTE_AUTHENTICATED_PORTAL_USER);
         User detectedUser = (User)authReg.getAttributeOfClient(req, OAuthConst.ATTRIBUTE_AUTHENTICATED_PORTAL_USER_DETECTED);
         req.setAttribute("portalUser", portalUser);
