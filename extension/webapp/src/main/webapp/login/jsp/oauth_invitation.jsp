@@ -42,7 +42,12 @@
     Collection<SkinConfig> skins = skinService.getPortalSkins("Default");
     String loginCssPath = skinService.getSkin("portal/login", "Default").getCSSPath();
 
+    User portalUser = (User)request.getAttribute("portalUser");
     User detectedUser = (User)request.getAttribute("detectedUser");
+    String detected = detectedUser.getUserName();
+    if (!detected.equals(portalUser.getUserName()) && detectedUser.getEmail().equals(portalUser.getEmail())) {
+        detected = detectedUser.getEmail();
+    }
 
     String error = (String)request.getAttribute("invitationConfirmError");
 
@@ -73,7 +78,7 @@
           <div class="PopupContent popupContent">
             <form name="registerForm" action="<%= contextPath + "/login"%>" method="post" style="margin: 0px;">
             <div class="content mgT5">
-                    <p><%=res.getString("UIOAuthInvitationForm.message.detectedUser")%><br/><strong><%=detectedUser.getUserName()%>/<%= detectedUser.getEmail() %></strong></p>
+                    <p><%=res.getString("UIOAuthInvitationForm.message.detectedUser")%><br/><strong><%=detected %></strong></p>
                     <p><%=res.getString("UIOAuthInvitationForm.message.inviteMessage")%></p>
                     <div class="clearfix">
                         <label class="pull-left"><%=res.getString("UIOAuthInvitationForm.label.password")%></label>
@@ -98,7 +103,7 @@
                 </div>
                 <div class="uiAction uiActionBorder">
                     <button type="submit" class="btn btn-primary"><%=res.getString("portal.login.Confirm")%></button>
-                    <a class="btn ActionButton LightBlueStyle" href="<%= contextPath + "/login?login_controller=register"%>"><%=res.getString("portal.login.CreateNewAccount")%></a>
+                    <a class="btn ActionButton LightBlueStyle" href="<%= contextPath + "/login?login_controller=register"%>"><%=res.getString("UIOAuthInvitationForm.action.NewAccount")%></a>
                 </div>
             </form>
         </div>

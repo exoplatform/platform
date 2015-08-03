@@ -119,7 +119,11 @@ public class UIRegisterOAuth extends UIContainer {
                 getChild(UIRegisterForm.class).setRendered(false);
                 UIOAuthInvitationForm invitationForm = getChild(UIOAuthInvitationForm.class);
                 invitationForm.setRendered(true);
-                invitationForm.setDetectedUserName(detectedUser.getUserName() + "/" + detectedUser.getEmail());
+                String detected = detectedUser.getUserName();
+                if (!detected.equals(pUser.getUserName()) && detectedUser.getEmail().equals(pUser.getEmail())) {
+                    detected = detectedUser.getEmail();
+                }
+                invitationForm.setDetectedUserName(detected);
             } else {
                 getChild(UIRegisterForm.class).setRendered(true);
                 getChild(UIOAuthInvitationForm.class).setRendered(false);
