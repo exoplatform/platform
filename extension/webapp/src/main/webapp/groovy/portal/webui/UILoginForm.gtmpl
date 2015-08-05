@@ -10,38 +10,31 @@
   String contextPath = rcontext.getRequestContextPath();
   //session.setAttribute("initialURI", requestPath);
 %>
-<div class="uiBoxWithTitle uiBox uiLogin">
-  <h5 class="title"><%=_ctx.appRes("UILoginForm.label.Signin")%></h5>
-  <div class="uiContentBox">
-    <form class="form-horizontal" id="$uicomponent.id" name="loginForm" action="<%= contextPath + "/login"%>" method="post" style="margin: 0px;">
-    <input type="hidden" name="initialURI" value="<%=requestPath %>"/>
-    <div class="control-group">
-      <label class="control-label" for="username"><%=_ctx.appRes("UILoginForm.label.UserName")%>&#58;</label>
-      <div class="controls">
-        <input class="UserName" type="text" name="username" id="username"/>
+<div class="uiLogin">
+  <h4 class="title center"><%=_ctx.appRes("UILoginForm.label.Signin")%></h4>
+  <div class="centerLoginContent">
+    <form id="$uicomponent.id" name="loginForm" action="<%= contextPath + "/login"%>" method="post" style="margin: 0px;">
+	  <input type="hidden" name="initialURI" value="<%=requestPath %>"/>
+	  <input tabindex="1" class="username" type="text" name="username" id="username" placeholder="<%=_ctx.appRes("UILoginForm.label.UserName")%>" onblur="this.placeholder = '<%=_ctx.appRes("UILoginForm.label.UserName.blur")%>'" onfocus="this.placeholder = ''"/>
+      <input tabindex="2" class="password" type="password" name="password" id="password" placeholder="<%=_ctx.appRes("UILoginForm.label.password")%>" onblur="this.placeholder = '<%=_ctx.appRes("UILoginForm.label.password.blur")%>'" onfocus="this.placeholder = ''"/>
+      <div class="spaceRole">
+	     <div class="uiSwitchBtn" style="width: 60px;"><input type="checkbox" data-no="No" data-yes="Yes" value="true" name="rememberme" id="rememberme" style="visibility: hidden;" checked="checked" class="yesno" tabindex="3"><label class="switchBtnLabelOff" style="width: 51px;">
+            <span style="margin-right: -41px;">No</span>
+          </label><label class="switchBtnLabelOn" style="width: 50px;">
+            <span>Yes</span>
+          </label><div class="switchBtnHandle" style="left: 41px;">
+            <div class="switchBtnHandleRight">
+              <div class="switchBtnHandleCenter"></div>
+            </div>
+          </div>
+        </div>
+        <label for="rememberme" class="rememberTxt">Remember My Login</label>
       </div>
-    </div>
-    <div class="control-group">
-      <label class="control-label" for="password"><%=_ctx.appRes("UILoginForm.label.password")%>&#58;</label>
-      <div class="controls">
-        <input class="Password" type="password" name="password" id="password"/>
-      </div>
-    </div>
-    <div class="control-group">
-      <div class="control-label"></div>
-      <div class="controls">
-        <span class="uiCheckbox"><input type="checkbox" class="checkbox" value="true" name="rememberme" id="rememberme"/><span></span></span>
-        <label for="rememberme" style="display: inline-block;"><%=_ctx.appRes("UILoginForm.label.RememberOnComputer")%></label>
-      </div>
-    </div>
-    <div class="control-group">
-      <div class="control-label"></div>
-      <div class="controls"><a href="javascript:void(0);" onclick="<%= uicomponent.event("ForgetPassword") %>"><%=_ctx.appRes("UILoginForm.label.forgot")%></a></div>
-    </div>
-    <div class="uiAction uiActionBorder"> 
-       <input type="submit" name="signIn" class="btn" value="<%=_ctx.appRes("UILoginForm.label.Signin")%>"></input>
-       <input type="button" name="discard" class="btn" value="<%=_ctx.appRes("UILoginForm.label.Discard")%>" onclick="<%=uicomponent.event("Close");%>"></input>
-    </div> 
+      <div class="forgetPass"><a href="javascript:void(0);" onclick="<%= uicomponent.event("ForgetPassword") %>"><%=_ctx.appRes("UILoginForm.label.forgot")%></a></div>
+      <div class="uiAction uiActionBorder"> 
+  		<input type="submit" name="signIn" class="btn" value="<%=_ctx.appRes("UILoginForm.label.Signin")%>"></input>
+  		<input type="button" name="discard" class="btn" value="<%=_ctx.appRes("UILoginForm.label.Discard")%>" onclick="<%=uicomponent.event("Close");%>"></input>
+      </div> 
     </form>
   </div>
   <%
