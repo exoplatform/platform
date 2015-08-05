@@ -12,7 +12,10 @@
                 .addScripts(script);
         String fieldName; %>
 <div class="uiFormWithTitle uiBox $uicomponent.id" onkeypress="javascript:SubmitAction.call(this, event);">
-<h5 class="title"><%=_ctx.appRes(uicomponent.getName() + ".title")%></h5>
+<h5 class="title clearfix">
+  <a href="#" class="pull-right"><i class="uiIconClose"></i></a>
+  <%=_ctx.appRes(uicomponent.getName() + ".title")%>
+</h5>
 <div class="uiContentBox">
     <% uiform.begin() %>
         <div class="content">
