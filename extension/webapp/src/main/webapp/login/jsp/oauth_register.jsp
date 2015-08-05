@@ -86,12 +86,12 @@
     </head>
     <body>
 
-        <div class="UIPopupWindow uiPopup modal uiOauthRegister UIDragObject NormalStyle" style="width: 560px; margin-left: -280px; border-radius: 4px">
+        <div class="UIPopupWindow uiPopup modal uiOauthRegister UIDragObject NormalStyle">
           <div class="popupHeader ClearFix">
-              <a href="<%= contextPath + "/login?login_controller=oauth_cancel"%>" class="uiIconClose pull-right" aria-hidden="true" ></a>
-              <span class="PopupTitle popupTitle"><%=res.getString("UIRegisterForm.title")%></span>
+              <a href="<%= contextPath + "/login?login_controller=oauth_cancel"%>" class="pull-right" aria-hidden="true" ><i class="uiIconClose uiIconWhite"></i></a>
+              <span class="popupTitle center"><%=res.getString("UIRegisterForm.title")%></span>
           </div>
-          <div class="PopupContent popupContent">
+          <div class="popupContent">
               <% if (errors.size() > 0) { %>
               <div class="alert alert-error mgT0 mgB20">
                 <ul>
@@ -157,7 +157,7 @@
                         <input type="hidden" name="login_controller" value="submit_register"/>
                     </div>
                 </div>
-                <div id="UIPortalLoginFormAction" class="uiAction uiActionBorder">
+                <div id="UIPortalLoginFormAction" class="uiAction">
                     <button type="submit" class="btn btn-primary"><%=res.getString("UIRegisterForm.action.SubscribeOAuth")%></button>
                     <button type="reset" class="btn ActionButton LightBlueStyle"><%=res.getString("UIRegisterForm.action.Reset")%></button>
                 </div>
