@@ -4,6 +4,10 @@
   import org.gatein.security.oauth.spi.OAuthProviderTypeRegistry;
   def rcontext = _ctx.getRequestContext();
   JavascriptManager jsmanager = rcontext.getJavascriptManager();
+  def script = 'jq("#rememberme").each(function() {var yeslabel = jq(this).data("yes");var nolabel = jq(this).data("no");jq(this).iphoneStyle({checkedLabel: yeslabel,uncheckedLabel: nolabel,disabledClass: "switchBtnDisabled",containerClass: "uiSwitchBtn",labelOnClass: "switchBtnLabelOn",labelOffClass: "switchBtnLabelOff",handleClass: "switchBtnHandle"});});';
+  jsmanager.require("SHARED/jquery", "jq")
+    .require("SHARED/iphoneStyleCheckbox", "iphoneStyle")
+    .addScripts(script);
   jsmanager.addCustomizedOnLoadScript('document.getElementById("UIPortalComponentLogin").username.focus();');
   HttpSession session = rcontext.getRequest().getSession();
   String requestPath = rcontext.getInitialURI();
@@ -15,20 +19,11 @@
   <div class="centerLoginContent">
     <form id="$uicomponent.id" name="loginForm" action="<%= contextPath + "/login"%>" method="post" style="margin: 0px;">
 	  <input type="hidden" name="initialURI" value="<%=requestPath %>"/>
-	  <input tabindex="1" class="username" type="text" name="username" id="username" placeholder="<%=_ctx.appRes("UILoginForm.label.UserName")%>" onblur="this.placeholder = '<%=_ctx.appRes("UILoginForm.label.UserName.blur")%>'" onfocus="this.placeholder = ''"/>
-      <input tabindex="2" class="password" type="password" name="password" id="password" placeholder="<%=_ctx.appRes("UILoginForm.label.password")%>" onblur="this.placeholder = '<%=_ctx.appRes("UILoginForm.label.password.blur")%>'" onfocus="this.placeholder = ''"/>
+	  <input tabindex="1" class="username" type="text" name="username" id="username" placeholder="<%=_ctx.appRes("UILoginForm.label.UserName")%>" />
+      <input tabindex="2" class="password" type="password" name="password" id="password" placeholder="<%=_ctx.appRes("UILoginForm.label.password")%>" />
       <div class="spaceRole">
-	     <div class="uiSwitchBtn" style="width: 60px;"><input type="checkbox" data-no="No" data-yes="Yes" value="true" name="rememberme" id="rememberme" style="visibility: hidden;" checked="checked" class="yesno" tabindex="3"><label class="switchBtnLabelOff" style="width: 51px;">
-            <span style="margin-right: -41px;">No</span>
-          </label><label class="switchBtnLabelOn" style="width: 50px;">
-            <span>Yes</span>
-          </label><div class="switchBtnHandle" style="left: 41px;">
-            <div class="switchBtnHandleRight">
-              <div class="switchBtnHandleCenter"></div>
-            </div>
-          </div>
-        </div>
-        <label for="rememberme" class="rememberTxt">Remember My Login</label>
+          <input type="checkbox" class="checkbox" value="true" checked="checked" name="rememberme" id="rememberme" data-yes="<%=_ctx.appRes("portal.login.Yes")%>" data-no="<%=_ctx.appRes("portal.login.No")%>"/>
+          <label for="rememberme1" class="rememberTxt"><%=_ctx.appRes("UILoginForm.label.RememberOnComputer")%></label>
       </div>
       <div class="forgetPass"><a href="javascript:void(0);" onclick="<%= uicomponent.event("ForgetPassword") %>"><%=_ctx.appRes("UILoginForm.label.forgot")%></a></div>
       <div class="uiAction uiActionBorder"> 
