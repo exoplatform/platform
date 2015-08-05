@@ -3,12 +3,15 @@
     container : $('#UIToolbarContainer'),
     init : function() {
       if ($('.OfficeRightTDContainer').length != 0) {    
-        $('body').append($('<a href="javascript:void(0)" class="visible-tablet toggle-right-bar"><span></span><span></span><span></span></a>'));  
+       $('.OfficeMiddleTDContainer').append($('<a href="javascript:void(0)" class="visible-tablet toggle-right-bar"><span></span><span></span><span></span></a>'));  
+         var _h = $(window).height(); 
+         console.log(_h);
+         $('.toggle-right-bar').css('top',_h/2);    
       }
       this.toggleLeftBar();
       this.toggleRightBar();
       this.leftNavAccordion();
-    this.displaySubMenu();
+      this.displaySubMenu();
       // trigger back item when client lost focus on sub menu
       $('#UISetupPlatformToolBarPortlet').on('click', function(evt) {
         $('.back-item').trigger('click');
