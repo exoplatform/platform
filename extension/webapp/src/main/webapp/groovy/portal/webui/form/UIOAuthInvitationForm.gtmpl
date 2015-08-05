@@ -13,7 +13,7 @@
         String fieldName; %>
 <div class="uiFormWithTitle uiBox $uicomponent.id" onkeypress="javascript:SubmitAction.call(this, event);">
 <h5 class="title clearfix">
-  <a href="#" class="pull-right"><i class="uiIconClose"></i></a>
+  <a href="javascript:void(0);" onclick="<%=uicomponent.event("Cancel")%>" class="pull-right"><i class="uiIconClose"></i></a>
   <%=_ctx.appRes(uicomponent.getName() + ".title")%>
 </h5>
 <div class="uiContentBox">
@@ -47,10 +47,11 @@
         </div>
         <div class="uiAction uiActionBorder">
             <% for(action in uicomponent.getActions()) {
-            String actionLabel = _ctx.appRes(uicomponent.getName() + ".action." + action)
-            String link = uicomponent.event(action);
+                if(action == "Cancel") continue;
+                String actionLabel = _ctx.appRes(uicomponent.getName() + ".action." + action)
+                String link = uicomponent.event(action);
             %>
-            <a href="javascript:void(0);" onclick="$link" class="btn btn-<%= action.toLowerCase() %> ActionButton LightBlueStyle">$actionLabel</a>
+                <a href="javascript:void(0);" onclick="$link" class="btn btn-<%= action.toLowerCase() %> ActionButton LightBlueStyle">$actionLabel</a>
             <%}%>
         </div>
         <%// end render action%>
