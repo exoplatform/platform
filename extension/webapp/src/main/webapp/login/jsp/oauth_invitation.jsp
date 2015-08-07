@@ -95,7 +95,7 @@
                             </div>
                             <% if (error != null) { %>
                             <br>
-                            <span class="error mgT5"><i class="uiIconColorError"></i> <%=error%></span>
+                            <span class="mgT5" style="display: inline-block"><i class="uiIconColorError"></i> <%=error%></span>
                             <%}%>
                         </div>
                         <input type="hidden" name="login_controller" value="confirm_account"/>
