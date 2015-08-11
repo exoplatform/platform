@@ -1,4 +1,15 @@
 (function($) {
+  // Check Size Window
+  var windowsize = $(window).width();
+  $(window).resize(function() {
+    windowsize = $(window).width();
+  });
+
+  if(windowsize < 1025) {
+    $('body').addClass('open-right-bar');
+  }
+
+
   var tabManagerApp = {
     container : $('#UIToolbarContainer'),
     init : function() {
@@ -81,12 +92,14 @@
     showRightPanel : function() {
       var rightNavi= $('.OfficeRightTDContainer');
       $('body,html').css('overflow-y',"visible");
+      $('body').removeClass('open-right-bar');
       $('body').addClass('hidden-right-bar');      
       rightNavi.addClass('expanded');      
     },
     hideRightPanel : function() {
       var rightNavi= $('.OfficeRightTDContainer');
       $('body').removeClass('hidden-right-bar');  
+      $('body').addClass('open-right-bar');  
       rightNavi.removeClass('expanded');    
     },
     displaySubMenu : function () {
