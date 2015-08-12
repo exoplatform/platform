@@ -6,7 +6,7 @@
   });
 
   if(windowsize < 1025) {
-    $('body').addClass('open-right-bar');
+    $('body').addClass('open-right-bar');	
   }
 
 
@@ -15,9 +15,9 @@
     init : function() {
       if ($('.OfficeRightTDContainer').length != 0) {    
        $('.OfficeMiddleTDContainer').append($('<a href="javascript:void(0)" class="visible-tablet toggle-right-bar"><span></span><span></span><span></span></a>'));  
-         var _h = $(window).height(); 
-         console.log(_h);
-         $('.toggle-right-bar').css('top',_h/2);    
+        var _h = $(window).height(); 
+        $('.toggle-right-bar').css('top',_h/2);  
+		$('#OfficeRight').css('height',$('.RightBodyTDContainer ').height());		 
       }
       this.toggleLeftBar();
       this.toggleRightBar();
@@ -85,7 +85,8 @@
     },
     hideLeftPanel : function() {
       var leftNavi= $('.LeftNavigationTDContainer:first');
-      $('body').removeClass('open-left-bar');  
+      $('body').removeClass('open-left-bar');
+      $('body,html').css('overflow-y','');
       $('.mask-layer-right').remove();
       leftNavi.removeClass('expanded');    
     },
@@ -137,7 +138,7 @@
     },
     leftNavAccordion : function() {
       var aTitle = $('#LeftNavigation .accordionBar').find('a');
-      if ( $(window).width() < 481 ) {
+      if ( $(window).width() < 1025 ) {
       var companyNav = $('.uiCompanyNavigationPortlet .title.accordionBar').addClass('active');  
       $('.title.accordionBar').prepend('<i class="uiIconArrowRight pull-right"></i>');  
       $('.uiCompanyNavigationPortlet .accordionCont').addClass('active').show();       
@@ -168,8 +169,8 @@
       var dropdow_menu = $('#UIUserPlatformToolBarPortlet .dropdown-menu');
       var avatar = $('.uiUserToolBarPortlet .dropdown-toggle').clone();
       var help_button = $('.uiHelpPLFToolbarPortlet .dropdown-toggle').clone().attr('class','help-link');
-      
-      if ( winWidth < 481 &&  $('.action_top').length == 0 ) {
+
+      if ( winWidth < 481 &&  $('.action_top').length == 0 &&  $(' #UISetupPlatformToolBarPortlet').length != 0) {
         dropdow_menu.prepend(avatar);
         dropdow_menu.prepend($('<li class="divider top mobile-visible">&nbsp;</li>'));
         dropdow_menu.prepend($('<li class="clearfix avatar-help-action mobile-visible"></li>'));
@@ -203,6 +204,7 @@
       //
       if(_w < 1025 && toolBar.find('span.action_close').length == 0) {
         bar.addClass('active');
+       // bar.parents('#UIToolbarContainer').addClass('active_search');
         toolBar.append('<span class="action_close"><i class="uiIconClose uiIconWhite"></i></span>');
       }
       
@@ -211,6 +213,7 @@
         bar_input.blur(function(){
           $(this).hide();
           bar.removeClass('active');
+         // bar.parents('#UIToolbarContainer').removeClass('active_search');
           $('#ToolBarSearch .action_close').remove();
           $('#ToolBarSearch .uiQuickSearchResult').hide();
           if($(window).width() < 768) {
@@ -219,8 +222,8 @@
         });
         //
         if(_w < 768) {
-          bar_input.css('width', _w - 120);
-          $('.uiQuickSearchResult').css('width', _w - 120);
+          bar_input.css('width', _w - 50);
+          $('.uiQuickSearchResult').css('width', _w - 50);
           //
           $('.uiMasklayer,.action_close').click(function(){
             $("#ToolBarSearch input[type='text']").trigger('blur');
@@ -260,6 +263,7 @@
       tabManagerApp.searchOnTopNavivation();
     }
         tabManagerApp.setHeightMenu();
+		$('#OfficeRight').css('height',$('.RightBodyTDContainer ').height());
     }, 50);
   });
   
