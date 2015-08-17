@@ -41,6 +41,7 @@ import javax.servlet.http.HttpServletRequest;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
+import java.util.Random;
 
 public class OAuthRegistrationServicesImpl implements OAuthRegistrationServices {
   private static Logger log = LoggerFactory.getLogger(OAuthRegistrationServicesImpl.class);
@@ -132,7 +133,7 @@ public class OAuthRegistrationServicesImpl implements OAuthRegistrationServices 
     public User createGateInUser(OAuthPrincipal<? extends AccessTokenContext> principal) {
       OAuthProviderType providerType = principal.getOauthProviderType();
       User user = providerType.getOauthPrincipalProcessor().convertToGateInUser(principal);
-      user.setPassword("");
+      user.setPassword(randomPassword(16));
 
       try {
         orgService.getUserHandler().createUser(user, true);
@@ -156,5 +157,19 @@ public class OAuthRegistrationServicesImpl implements OAuthRegistrationServices 
       }
 
       return user;
+    }
+
+    private String randomPassword(int length) {
+      final String CHAR_ENABLED = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+
+      char[] chars = new char[length];
+      Random random = new Random();
+      int rand;
+      final int len = CHAR_ENABLED.length();
+      for (int i = 0; i < length; i++) {
+        rand = random.nextInt(len) % len;
+        chars[i] = CHAR_ENABLED.charAt(rand);
+      }
+      return new String(chars);
     }
 }

@@ -177,9 +177,6 @@ public class OAuthLoginServletFilter extends OAuthAbstractFilter {
                 new Credential[]{new UsernameCredential(username), new PasswordCredential(password)};
         Authenticator authenticator = getService(Authenticator.class);
         try {
-            if (password == null || password.trim().isEmpty()) {
-                throw new LoginException("Password must not empty");
-            }
             OrganizationService orgService = getService(OrganizationService.class);
             String user = authenticator.validateUser(credentials);
             if(user != null && !user.isEmpty()) {
