@@ -36,6 +36,7 @@ import org.exoplatform.services.security.UsernameCredential;
 import org.exoplatform.web.application.AbstractApplicationMessage;
 import org.exoplatform.web.security.AuthenticationRegistry;
 import org.exoplatform.webui.exception.MessageException;
+import org.exoplatform.webui.form.UIForm;
 import org.exoplatform.webui.form.UIFormStringInput;
 import org.exoplatform.webui.form.validator.MandatoryValidator;
 import org.exoplatform.webui.form.validator.PasswordStringLengthValidator;
@@ -339,14 +340,14 @@ public class OAuthLoginServletFilter extends OAuthAbstractFilter {
         //
         validator = new UserConfigurableValidator(UserConfigurableValidator.EMAIL);
         String email = user.getEmail();
-        validate("email", email, new Validator[]{mandatory, validator}, rb, errorMessages, errorFields);
-        if (!errorFields.contains("email")) {
+        validate("emailAddress", email, new Validator[]{mandatory, validator}, rb, errorMessages, errorFields);
+        if (!errorFields.contains("emailAddress")) {
             try {
                 Query query = new Query();
                 query.setEmail(email);
                 ListAccess<User> users = orgService.getUserHandler().findUsersByQuery(query, UserStatus.ANY);
                 if (users != null && users.getSize() > 0) {
-                    errorFields.add("email");
+                    errorFields.add("emailAddress");
                     errorMessages.add(bundle.resolve("UIAccountInputSet.msg.email-exist", email));
                 }
             } catch (Exception ex) {
@@ -355,11 +356,20 @@ public class OAuthLoginServletFilter extends OAuthAbstractFilter {
         }
     }
 
-    private void validate(String field, String value, Validator[] validators, ResourceBundle bundle,
+    private void validate(String field, String value, Validator[] validators, final ResourceBundle bundle,
                                                         List<String> errorMessages, Set<String> errorFields) {
         try {
+            UIForm form = new UIForm() {
+              @Override
+              public String getLabel(String label) throws Exception {
+                return this.getLabel(bundle, label);
+              }
+            };
+            form.setId("UIRegisterForm");
+            UIFormStringInput uiFormStringInput = new UIFormStringInput(field, field, value);
+            form.addUIFormInput(uiFormStringInput);
             for(Validator validator : validators) {
-                validator.validate(new UIFormStringInput(field, field, value));
+                validator.validate(uiFormStringInput);
             }
         } catch (Exception e) {
             errorFields.add(field);

@@ -149,7 +149,7 @@
                         <div class="control-group">
                             <label class="control-label"><%=res.getString("UIRegisterForm.label.emailAddress")%></label>
                             <div class="controls">
-                                <input type="email" class="<%if(errorFields.contains("email")) out.print(errorClass);%>" name="email" value="<%=(user.getEmail() == null ? "" : user.getEmail())%>" />
+                                <input type="text" class="<%if(errorFields.contains("emailAddress")) out.print(errorClass);%>" name="email" value="<%=(user.getEmail() == null ? "" : user.getEmail())%>" />
                                 <span> *</span>
                             </div>
                         </div>
