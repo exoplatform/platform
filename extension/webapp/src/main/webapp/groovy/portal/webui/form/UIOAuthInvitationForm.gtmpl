@@ -1,0 +1,71 @@
+<%
+        import org.exoplatform.webui.form.UIFormInputBase;
+        import org.exoplatform.web.application.JavascriptManager;
+
+        def rcontext = _ctx.getRequestContext();
+        JavascriptManager jsManager = rcontext.getJavascriptManager();
+        String script = 'jq(document).ready(function($) {$(\'.'+ uicomponent.id +' [data-toggle="popover" ]\').popover().mouseover(function(e) {$(this).popover("show")}).mouseout(function(e){$(this).popover("hide")}) });';
+
+        jsManager.require("SHARED/jquery", 'jq')
+                .require("SHARED/bts_popover")
+                .require("SHARED/uiForm")
+                .addScripts(script);
+        String fieldName; %>
+<div class="uiFormWithTitle uiBox $uicomponent.id" onkeypress="javascript:SubmitAction.call(this, event);">
+<h5 class="title clearfix">
+  <a href="javascript:void(0);" onclick="<%=uicomponent.event("Cancel")%>" class="pull-right"><i class="uiIconClose"></i></a>
+  <%=_ctx.appRes(uicomponent.getName() + ".title")%>
+</h5>
+<div class="uiContentBox">
+    <% uiform.begin() %>
+        <div class="content">
+            <p>
+                <%=_ctx.appRes("UIOAuthInvitationForm.message.detectedUser")%>
+                <strong><%= uicomponent.getDetectedUserName() %></strong>
+            </p>
+            <p><%=_ctx.appRes("UIOAuthInvitationForm.message.inviteMessage")%></p>
+            <div class="clearfix">
+                <%
+                def field = uiform.getUIInput("password");
+                %>
+                <label class="pull-left" for="<%= field.getName() %>" style="padding: 4px 4px 0 0;"><%=uicomponent.getLabel(field.getName()) %></label>
+                <div class="pull-left">
+                    <% uiform.renderField(field) %>
+                </div>
+                <div class="pull-left" style="padding: 4px">
+                    <span class=""
+                      tabindex="0"
+                      data-toggle="popover"
+                      data-placement="left"
+                      data-trigger="focus"
+                      data-content="<%=_ctx.appRes("UIOAuthInvitationForm.tooltip.message")%>"
+                      title="">
+                        <i class="uiIconQuestion uiIconLightGray"></i>
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div class="uiAction uiActionBorder">
+            <% for(action in uicomponent.getActions()) {
+                if(action == "Cancel") continue;
+                String actionLabel = _ctx.appRes(uicomponent.getName() + ".action." + action)
+                String link = uicomponent.event(action);
+            %>
+                <a href="javascript:void(0);" onclick="$link" class="btn btn-<%= action.toLowerCase() %> ActionButton LightBlueStyle">$actionLabel</a>
+            <%}%>
+        </div>
+        <%// end render action%>
+    <%uiform.end()%>
+    </div>
+</div>
+<script language="javascript">
+function SubmitAction(event) {
+    var event = window.event || event;
+    var code;
+    if(event.keyCode) code = event.keyCode;
+    else if (event.which) code = event.which;
+    if(code ==13) {
+        this.onsubmit = function(){ return false; }
+    }
+}
+</script>

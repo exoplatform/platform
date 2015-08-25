@@ -1,0 +1,24 @@
+<%
+   import org.gatein.security.oauth.spi.OAuthProviderType;
+   import org.gatein.security.oauth.spi.OAuthProviderTypeRegistry;
+   import org.exoplatform.portal.webui.util.Util;
+   import org.exoplatform.portal.application.PortalRequestContext;
+   PortalRequestContext prc = Util.getPortalRequestContext();
+   String contextPath = prc.getRequestContextPath();
+   String requestURI = prc.getRequestURI();
+   OAuthProviderTypeRegistry registry = uicomponent.getApplicationComponent(OAuthProviderTypeRegistry.class);
+
+   def module = _ctx.getRequestContext().getJavascriptManager().require("SHARED/uiSocialLoginButtons", "uiSocialLoginButtons");
+   module.addScripts("uiSocialLoginButtons.init();");
+%>
+   <div id="social-login">
+<%
+   for (OAuthProviderType oauthProvType : registry.getEnabledOAuthProviders()) {
+%>
+      <a href="<%= oauthProvType.getInitOAuthURL(contextPath, requestURI); %>" id="login-<%= oauthProvType.getKey(); %>" class="login-button">
+         <i class="uiIconOauth <%= oauthProvType.getKey().toLowerCase() %>"></i>
+      </a>
+<%
+   }
+%>
+   </div>

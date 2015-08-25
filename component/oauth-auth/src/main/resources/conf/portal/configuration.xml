@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+
+    Copyright (C) 2009 eXo Platform SAS.
+    
+    This is free software; you can redistribute it and/or modify it
+    under the terms of the GNU Lesser General Public License as
+    published by the Free Software Foundation; either version 2.1 of
+    the License, or (at your option) any later version.
+    
+    This software is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+    Lesser General Public License for more details.
+    
+    You should have received a copy of the GNU Lesser General Public
+    License along with this software; if not, write to the Free
+    Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
+    02110-1301 USA, or see the FSF site: http://www.fsf.org.
+
+-->
+
+<configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+               xsi:schemaLocation="http://www.exoplaform.org/xml/ns/kernel_1_2.xsd http://www.exoplaform.org/xml/ns/kernel_1_2.xsd"
+               xmlns="http://www.exoplaform.org/xml/ns/kernel_1_2.xsd">
+
+  <component>
+    <key>org.exoplatform.oauth.service.OAuthRegistrationServices</key>
+    <type>org.exoplatform.oauth.service.impl.OAuthRegistrationServicesImpl</type>
+    <init-params>
+      <value-param>
+        <name>registerOnFly</name>
+        <value>${gatein.oauth.registraterOnFly:FACEBOOK,GOOGLE,LINKEDIN}</value>
+      </value-param>
+    </init-params>
+  </component>
+
+  <external-component-plugins>
+    <!-- The full qualified name of the ExtensibleFilter -->
+    <target-component>org.exoplatform.web.filter.ExtensibleFilter</target-component>
+    <component-plugin>
+      <!-- The name of the plugin -->
+      <name>OauthSignupOnFlyFilter</name>
+      <!-- The name of the method to call on the ExtensibleFilter in order to register the FilterDefinitions -->
+      <set-method>addFilterDefinitions</set-method>
+      <!-- The full qualified name of the FilterDefinitionPlugin -->
+      <type>org.exoplatform.web.filter.FilterDefinitionPlugin</type>
+      <init-params>
+        <object-param>
+          <name>Oauth Filter Definition</name>
+          <object type="org.exoplatform.web.filter.FilterDefinition">
+            <!-- The filter instance -->
+            <field name="filter">
+              <object type="org.exoplatform.oauth.filter.OauthSignupOnflyFilter">
+              </object>
+            </field>
+            <!-- The mapping to use -->
+            <!-- WARNING: the mapping is expressed with regular expressions -->
+            <field name="patterns">
+              <collection type="java.util.ArrayList" item-type="java.lang.String">
+                <value>
+                  <string>/.*</string>
+                </value>
+              </collection>
+            </field>
+          </object>
+        </object-param>
+      </init-params>
+    </component-plugin>
+    <component-plugin>
+      <!-- The name of the plugin -->
+      <name>OauthLoginServletFilter</name>
+      <!-- The name of the method to call on the ExtensibleFilter in order to register the FilterDefinitions -->
+      <set-method>addFilterDefinitions</set-method>
+      <!-- The full qualified name of the FilterDefinitionPlugin -->
+      <type>org.exoplatform.web.filter.FilterDefinitionPlugin</type>
+      <init-params>
+        <object-param>
+          <name>Oauth Filter Definition</name>
+          <object type="org.exoplatform.web.filter.FilterDefinition">
+            <!-- The filter instance -->
+            <field name="filter">
+              <object type="org.exoplatform.oauth.filter.OAuthLoginServletFilter"></object>
+            </field>
+            <!-- The mapping to use -->
+            <!-- WARNING: the mapping is expressed with regular expressions -->
+            <field name="patterns">
+              <collection type="java.util.ArrayList" item-type="java.lang.String">
+                <value>
+                  <string>/login</string>
+                </value>
+                <value>
+                  <string>/dologin</string>
+                </value>
+              </collection>
+            </field>
+          </object>
+        </object-param>
+      </init-params>
+    </component-plugin>
+  </external-component-plugins>
+</configuration>

@@ -523,6 +523,16 @@
         <artifactId>exo.portal.component.identity</artifactId>
         <version>${org.gatein.portal.version}</version>
       </dependency>
+      <dependency>
+        <groupId>org.gatein.portal</groupId>
+        <artifactId>exo.portal.component.web.oauth-common</artifactId>
+        <version>${org.gatein.portal.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.exoplatform.platform</groupId>
+        <artifactId>platform-component-oauth-auth</artifactId>
+        <version>${project.version}</version>
+      </dependency>
       <!-- DON'T REMOVE : needed for product packaging -->
       <!-- org.exoplatform.management.RestManagementProvider used but not declared in GateIn ? -->
       <dependency>
