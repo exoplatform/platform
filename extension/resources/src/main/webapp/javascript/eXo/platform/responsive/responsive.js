@@ -14,7 +14,7 @@
     container : $('#UIToolbarContainer'),
     init : function() {
       if ($('.OfficeRightTDContainer').length != 0) {    
-       $('.OfficeMiddleTDContainer').append($('<a href="javascript:void(0)" class="visible-tablet toggle-right-bar"><span></span><span></span><span></span></a>'));  
+       $('.OfficeMiddleTDContainer').append($('<a href="javascript:void(0)" class="visible-tablet toggle-right-bar"><i class="uiIconVerticalLines"></i></a>'));
         var _h = $(window).height(); 
         $('.toggle-right-bar').css('top',_h/2);  
 		$('#OfficeRight').css('height',$('.RightBodyTDContainer ').height());		 
@@ -65,39 +65,41 @@
     toggleRightBar : function() {
       $('.toggle-right-bar').on('click',function() {
         if($('body').hasClass('hidden-right-bar')) {
-          tabManagerApp.hideRightPanel();    
-        } else {
           tabManagerApp.showRightPanel();
+        } else {
+          tabManagerApp.hideRightPanel();
         }
       });
     },
     showLeftPanel : function() {
-      var leftNavi= $('.LeftNavigationTDContainer:first');
-      $('body').addClass('open-left-bar');    
-      $('.mask-layer-right').remove();
+        var leftNavi= $('.LeftNavigationTDContainer:first');
+        $('body').addClass('open-left-bar');
+        $('body').removeClass('hidden-left-bar');
+        $('.mask-layer-right').remove();
       $('#RightBody').before('<div class="mask-layer-right"></div>');
       $('.RightBodyTDContainer:first').css('height', leftNavi.height());
       $('body,html').css('overflow-y',"hidden");
       $('.mask-layer-right').on('click',function(){
-        tabManagerApp.hideLeftPanel();  
+        tabManagerApp.hideLeftPanel();
       });
       leftNavi.addClass('expanded');      
     },
     hideLeftPanel : function() {
-      var leftNavi= $('.LeftNavigationTDContainer:first');
-      $('body').removeClass('open-left-bar');
-      $('body,html').css('overflow-y','');
-      $('.mask-layer-right').remove();
-      leftNavi.removeClass('expanded');    
+        var leftNavi= $('.LeftNavigationTDContainer:first');
+        $('body').removeClass('open-left-bar');
+        $('body').addClass('hidden-left-bar');
+        $('body,html').css('overflow-y','');
+        $('.mask-layer-right').remove();
+        leftNavi.removeClass('expanded');
     },
-    showRightPanel : function() {
+      hideRightPanel: function() {
       var rightNavi= $('.OfficeRightTDContainer');
       $('body,html').css('overflow-y',"visible");
       $('body').removeClass('open-right-bar');
       $('body').addClass('hidden-right-bar');      
       rightNavi.addClass('expanded');      
     },
-    hideRightPanel : function() {
+      showRightPanel : function() {
       var rightNavi= $('.OfficeRightTDContainer');
       $('body').removeClass('hidden-right-bar');  
       $('body').addClass('open-right-bar');  
@@ -248,13 +250,32 @@
   //OnLoad
   $(document).ready(function(event) {
     tabManagerApp.init();
-  /*$("body").on("swiperight",function(){
-      $('.toggle-left-bar').trigger('click');
-  });
-  $("body").on("swipeleft",function(){
-      $('.toggle-right-bar ').trigger('click');
-  });
-*/
+
+     // add event touch on mobile
+
+      $('body').on('swipe', function (event) {
+          if(event.direction === 'right') { // or right, down, left
+              if($(this).hasClass('open-right-bar')) {
+                  tabManagerApp.hideRightPanel();
+              } else if ($(this).hasClass('hidden-right-bar')) {
+                  tabManagerApp.showLeftPanel();
+              }
+          }
+         if(event.direction === 'left') { // or right, down, left
+             if($(this).hasClass('hidden-right-bar') && $(this).hasClass('hidden-left-bar')) {
+                 tabManagerApp.showRightPanel();
+             }
+
+             if($(this).hasClass('open-left-bar') ) {
+                 tabManagerApp.hideLeftPanel();
+             }
+
+
+         }
+      });
+
+      //end event touch on mobile
+
   });
   //OnResize
   $(window).resize(function(event) {

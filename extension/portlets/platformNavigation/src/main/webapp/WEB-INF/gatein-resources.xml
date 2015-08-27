@@ -49,9 +49,9 @@
             <depends>
                 <module>social-core</module>
             </depends>
-			<!--<depends>
-                <module>jquery_mobile</module>
-            </depends> -->
+			<depends>
+                <module>jquery-touch</module>
+            </depends> 
 			<depends>
                 <module>platform-responsive</module>
             </depends>
