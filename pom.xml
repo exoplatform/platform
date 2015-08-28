@@ -579,19 +579,6 @@
       <!-- DON'T REMOVE : needed for product packaging -->
       <dependency>
         <groupId>org.gatein.portal</groupId>
-        <artifactId>exo.portal.component.web.oauth-web</artifactId>
-        <version>${org.gatein.portal.version}</version>
-      </dependency>
-      <!-- DON'T REMOVE : needed for product packaging -->
-      <!-- org.gatein.security.oauth.webapi.OAuthDelegateFilter used but not declared in GateIn ? -->
-      <dependency>
-        <groupId>org.gatein.portal</groupId>
-        <artifactId>exo.portal.component.web.oauth-web</artifactId>
-        <version>${org.gatein.portal.version}</version>
-      </dependency>
-      <!-- DON'T REMOVE : needed for product packaging -->
-      <dependency>
-        <groupId>org.gatein.portal</groupId>
         <artifactId>exo.portal.component.web.resources</artifactId>
         <version>${org.gatein.portal.version}</version>
       </dependency>
