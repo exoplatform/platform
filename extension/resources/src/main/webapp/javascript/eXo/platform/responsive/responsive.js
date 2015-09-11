@@ -1,12 +1,9 @@
 (function($) {
   // Check Size Window
   var windowsize = $(window).width();
-  $(window).resize(function() {
-    windowsize = $(window).width();
-  });
 
   if(windowsize < 1025) {
-    $('body').addClass('open-right-bar');	
+    $('body').addClass('open-right-bar');  
   }
 
 
@@ -14,10 +11,10 @@
     container : $('#UIToolbarContainer'),
     init : function() {
       if ($('.OfficeRightTDContainer').length != 0) {    
-       $('.OfficeMiddleTDContainer').append($('<a href="javascript:void(0)" class="visible-tablet toggle-right-bar"><i class="uiIconVerticalLines"></i></a>'));
+        $('.OfficeMiddleTDContainer').append($('<a href="javascript:void(0)" class="visible-tablet toggle-right-bar"><i class="uiIconVerticalLines"></i></a>'));
         var _h = $(window).height(); 
         $('.toggle-right-bar').css('top',_h/2);  
-		$('#OfficeRight').css('height',$('.RightBodyTDContainer ').height());		 
+        $('#OfficeRight').css('height',$('.RightBodyTDContainer ').height());     
       }
       this.toggleLeftBar();
       this.toggleRightBar();
@@ -37,7 +34,7 @@
         tabManagerApp.searchOnTopNavivation();
       });
       // adapt dropdown menu with screen size if height too big
-      $('.UIToolbarContainer .dropdown-toggle').on('click',  function(event) {  
+      $('.UIToolbarContainer .dropdown-toggle').on('click', function(event) {  
         tabManagerApp.setHeightMenu();
       });
       //
@@ -48,13 +45,12 @@
       if ( _w  < 1025 && _w > 767) {         
         var _h = $(window).height();
         tabManagerApp.container.find('.toggle-right-bar:first').css('top', function() {
-           return (_h - $(this).height()) / 2
+           return (_h - $(this).height()) / 2;
         });
       }
     },
     toggleLeftBar : function() {
-       $('.toggle-left-bar').on('click',function() {
-     
+       $('.toggle-left-bar').on('click', function() {
         if($('body').hasClass('open-left-bar')) {
           tabManagerApp.hideLeftPanel();  
         } else {
@@ -63,7 +59,7 @@
       });
     },
     toggleRightBar : function() {
-      $('.toggle-right-bar').on('click',function() {
+      $('.toggle-right-bar').on('click', function() {
         if($('body').hasClass('hidden-right-bar')) {
           tabManagerApp.showRightPanel();
         } else {
@@ -72,10 +68,10 @@
       });
     },
     showLeftPanel : function() {
-        var leftNavi= $('.LeftNavigationTDContainer:first');
-        $('body').addClass('open-left-bar');
-        $('body').removeClass('hidden-left-bar');
-        $('.mask-layer-right').remove();
+      var leftNavi= $('.LeftNavigationTDContainer:first');
+      $('body').addClass('open-left-bar');
+      $('body').removeClass('hidden-left-bar');
+      $('.mask-layer-right').remove();
       $('#RightBody').before('<div class="mask-layer-right"></div>');
       $('.RightBodyTDContainer:first').css('height', leftNavi.height());
       $('body,html').css('overflow-y',"hidden");
@@ -85,21 +81,21 @@
       leftNavi.addClass('expanded');      
     },
     hideLeftPanel : function() {
-        var leftNavi= $('.LeftNavigationTDContainer:first');
-        $('body').removeClass('open-left-bar');
-        $('body').addClass('hidden-left-bar');
-        $('body,html').css('overflow-y','');
-        $('.mask-layer-right').remove();
-        leftNavi.removeClass('expanded');
+      var leftNavi= $('.LeftNavigationTDContainer:first');
+      $('body').removeClass('open-left-bar');
+      $('body').addClass('hidden-left-bar');
+      $('body,html').css('overflow-y','');
+      $('.mask-layer-right').remove();
+      leftNavi.removeClass('expanded');
     },
-      hideRightPanel: function() {
+    hideRightPanel: function() {
       var rightNavi= $('.OfficeRightTDContainer');
       $('body,html').css('overflow-y',"visible");
       $('body').removeClass('open-right-bar');
       $('body').addClass('hidden-right-bar');      
       rightNavi.addClass('expanded');      
     },
-      showRightPanel : function() {
+    showRightPanel : function() {
       var rightNavi= $('.OfficeRightTDContainer');
       $('body').removeClass('hidden-right-bar');  
       $('body').addClass('open-right-bar');  
@@ -213,14 +209,18 @@
       bar_input.off('blur');
       if(_w < 1025) {
         bar_input.blur(function(){
-          $(this).hide();
-          bar.removeClass('active');
-         // bar.parents('#UIToolbarContainer').removeClass('active_search');
-          $('#ToolBarSearch .action_close').remove();
-          $('#ToolBarSearch .uiQuickSearchResult').hide();
-          if($(window).width() < 768) {
-            $('#RightBody > .uiMasklayer').remove();  
-          }
+          var bar_input = $(this);
+          var T = setTimeout(function() {
+            bar_input.hide();
+            bar.removeClass('active');
+           // bar.parents('#UIToolbarContainer').removeClass('active_search');
+            $('#ToolBarSearch .action_close').remove();
+            $('#ToolBarSearch .uiQuickSearchResult').hide();
+            if($(window).width() < 768) {
+              $('#RightBody > .uiMasklayer').remove();  
+            }
+            clearTimeout(T);
+          }, 200);
         });
         //
         if(_w < 768) {
@@ -255,22 +255,20 @@
 
       $('body').on('swipe', function (event) {
           if(event.direction === 'right') { // or right, down, left
-              if($(this).hasClass('open-right-bar')) {
-                  tabManagerApp.hideRightPanel();
-              } else if ($(this).hasClass('hidden-right-bar')) {
-                  tabManagerApp.showLeftPanel();
-              }
+            if($(this).hasClass('open-right-bar')) {
+              tabManagerApp.hideRightPanel();
+            } else if ($(this).hasClass('hidden-right-bar')) {
+              tabManagerApp.showLeftPanel();
+            }
           }
          if(event.direction === 'left') { // or right, down, left
-             if($(this).hasClass('hidden-right-bar') && $(this).hasClass('hidden-left-bar')) {
-                 tabManagerApp.showRightPanel();
-             }
+           if($(this).hasClass('hidden-right-bar') && $(this).hasClass('hidden-left-bar')) {
+             tabManagerApp.showRightPanel();
+           }
 
-             if($(this).hasClass('open-left-bar') ) {
-                 tabManagerApp.hideLeftPanel();
-             }
-
-
+           if($(this).hasClass('open-left-bar') ) {
+             tabManagerApp.hideLeftPanel();
+           }
          }
       });
 
@@ -279,13 +277,32 @@
   });
   //OnResize
   $(window).resize(function(event) {
+    windowsize = $(window).width();
     setTimeout(function() {
       if($('#ToolBarSearch').find('.action_close').length > 0) {
-      tabManagerApp.searchOnTopNavivation();
-    }
-        tabManagerApp.setHeightMenu();
-		$('#OfficeRight').css('height',$('.RightBodyTDContainer ').height());
+        tabManagerApp.searchOnTopNavivation();
+      }
+      tabManagerApp.setHeightMenu();
+    $('#OfficeRight').css('height',$('.RightBodyTDContainer ').height());
     }, 50);
   });
-  
+  /*
+  // Check device display
+  window.checkDevice = function() {
+    var body = $('body:first').removeClass('phoneDisplay').removeClass('tabletDisplay').removeClass('tabletLDisplay');
+    var isMobile = body.find('.visible-phone:first').css('display') !== 'none';
+    var isTablet = body.find('.visible-tablet:first').css('display') !== 'none';
+    var isTabletL = body.find('.visible-tabletL:first').css('display') !== 'none';
+    if (isMobile) {
+      body.addClass('phoneDisplay');
+    }
+    if (isTablet) {
+      body.addClass('tabletDisplay');
+    }
+    if (isTabletL) {
+      body.addClass('tabletLDisplay');
+    }
+    return {'isMobile' : isMobile, 'isTablet' : isTablet, 'isTabletL' : isTabletL};
+  };
+  */
 })($);
