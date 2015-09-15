@@ -147,8 +147,10 @@
             $(this).removeClass('active');
             subContent.slideUp().removeClass('active');
           } else {
-            $('#LeftNavigation .accordionBar').removeClass('active');
-            $('.accordionCont').removeClass('active').slideUp();
+            if(eXo.commons.Utils.checkDevice().isTablet) {
+              $('#LeftNavigation .accordionBar').removeClass('active');
+              $('.accordionCont').removeClass('active').slideUp();
+            }
             $(this).addClass('active');
             subContent.slideDown().addClass('active');
           }

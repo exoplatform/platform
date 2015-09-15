@@ -68,5 +68,9 @@
          <module>jquery</module>
          <as>$</as>
       </depends>
+		<depends>
+			<module>common-utils</module>
+			<as>common_utils</as>
+		</depends>
    </module>
 </gatein-resources>
