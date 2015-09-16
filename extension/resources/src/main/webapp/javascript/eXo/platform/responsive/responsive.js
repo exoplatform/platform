@@ -135,19 +135,21 @@
       });
     },
     leftNavAccordion : function() {
+      $('#LeftNavigation .accordionBar').unbind("click");
       var aTitle = $('#LeftNavigation .accordionBar').find('a');
       if ( $(window).width() < 1025 ) {
       var companyNav = $('.uiCompanyNavigationPortlet .title.accordionBar').addClass('active');  
       $('.title.accordionBar').prepend('<i class="uiIconArrowRight pull-right"></i>');  
       $('.uiCompanyNavigationPortlet .accordionCont').addClass('active').show();       
-        $('.uiSpaceNavigationPortlet .joinSpace').insertBefore($('.uiSpaceNavigationPortlet .spaceNavigation'));
-        $('#LeftNavigation .accordionBar').click(function(e){  
+      $('.uiSpaceNavigationPortlet .joinSpace').insertBefore($('.uiSpaceNavigationPortlet .spaceNavigation'));
+        $('#LeftNavigation .accordionBar').click(function(e){
+          if(windowsize>1024) return;
           var subContent = $(this).next();
           if ($(this).hasClass('active')) {
             $(this).removeClass('active');
             subContent.slideUp().removeClass('active');
           } else {
-            if(eXo.commons.Utils.checkDevice().isTablet) {
+            if(windowsize<480) {
               $('#LeftNavigation .accordionBar').removeClass('active');
               $('.accordionCont').removeClass('active').slideUp();
             }
@@ -280,6 +282,7 @@
   //OnResize
   $(window).resize(function(event) {
     windowsize = $(window).width();
+    tabManagerApp.leftNavAccordion();
     setTimeout(function() {
       if($('#ToolBarSearch').find('.action_close').length > 0) {
         tabManagerApp.searchOnTopNavivation();
@@ -307,4 +310,16 @@
     return {'isMobile' : isMobile, 'isTablet' : isTablet, 'isTabletL' : isTabletL};
   };
   */
+
+  function Responsive() {};
+
+  Responsive.prototype.drawNavigation = function(){
+    tabManagerApp.leftNavAccordion();
+    $('#LeftNavigation .accordionBar').last().click();
+  }
+  eXo.ecm.Responsive = new Responsive();
+  return {
+    Responsive : eXo.ecm.Responsive
+  };
+
 })($);

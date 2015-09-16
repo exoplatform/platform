@@ -230,9 +230,10 @@ public class UISpaceNavigationPortlet extends UIPortletApplication {
 
             uisource.setReload(false);
 
+            event.getRequestContext().getJavascriptManager().getRequireJS().require("SHARED/platform-responsive").addScripts("eXo.ecm.Responsive.drawSpaceAcess(); ");
             event.getRequestContext().addUIComponentToUpdateByAjax(uisource);
         }
-    }
+    }   
 
     protected String getRestUrl() {
         return getCurrentRestURL().concat(MY_SPACE_REST_URL);
