@@ -34,6 +34,7 @@ public class ExoScriptingConsole{
 	
 	public String run(String script) throws Exception{
 		_out.getBuffer().setLength(0);
+		_engine.eval("if (typeof println == 'undefined') this.println = print;");
 		_engine.eval(script);
 		_history.append(script).append("\n");
 		_stdout.flush();

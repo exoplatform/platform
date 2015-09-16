@@ -4,7 +4,7 @@
   <parent>
     <artifactId>maven-parent-pom</artifactId>
     <groupId>org.exoplatform</groupId>
-    <version>14</version>
+    <version>15</version>
     <relativePath />
   </parent>
   <groupId>org.exoplatform.platform</groupId>
@@ -523,6 +523,16 @@
         <artifactId>exo.portal.component.identity</artifactId>
         <version>${org.gatein.portal.version}</version>
       </dependency>
+      <dependency>
+        <groupId>org.gatein.portal</groupId>
+        <artifactId>exo.portal.component.web.oauth-common</artifactId>
+        <version>${org.gatein.portal.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.exoplatform.platform</groupId>
+        <artifactId>platform-component-oauth-auth</artifactId>
+        <version>${project.version}</version>
+      </dependency>
       <!-- DON'T REMOVE : needed for product packaging -->
       <!-- org.exoplatform.management.RestManagementProvider used but not declared in GateIn ? -->
       <dependency>
@@ -557,19 +567,6 @@
       <dependency>
         <groupId>org.gatein.portal</groupId>
         <artifactId>exo.portal.component.web.controller</artifactId>
-        <version>${org.gatein.portal.version}</version>
-      </dependency>
-      <!-- DON'T REMOVE : needed for product packaging -->
-      <!-- org.gatein.security.oauth.webapi.OAuthDelegateFilter used but not declared in GateIn ? -->
-      <dependency>
-        <groupId>org.gatein.portal</groupId>
-        <artifactId>exo.portal.component.web.oauth-web</artifactId>
-        <version>${org.gatein.portal.version}</version>
-      </dependency>
-      <!-- DON'T REMOVE : needed for product packaging -->
-      <dependency>
-        <groupId>org.gatein.portal</groupId>
-        <artifactId>exo.portal.component.web.oauth-web</artifactId>
         <version>${org.gatein.portal.version}</version>
       </dependency>
       <!-- DON'T REMOVE : needed for product packaging -->
@@ -718,6 +715,12 @@
         <artifactId>exo.portal.webui.portlet</artifactId>
         <version>${org.gatein.portal.version}</version>
       </dependency>
+      <!-- DON'T REMOVE : needed for product packaging -->
+      <dependency>
+        <groupId>org.gatein.cdi</groupId>
+        <artifactId>gatein-cdi-contexts</artifactId>
+        <version>${org.gatein.portal.version}</version>
+      </dependency>      
       <!-- To be replaced by an import of GateIn Shinding parent POM -->
       <dependency>
         <groupId>org.gatein.shindig</groupId>
