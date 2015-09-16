@@ -26,9 +26,10 @@
       });
       //
       $('#UIUserPlatformToolBarPortlet').on('click', function (evt) {
-        tabManagerApp.showProfileMenu();
+       
         $('.back-item').trigger('click');
       });
+      tabManagerApp.showProfileMenu();
       //
       $('#ToolBarSearch > a').click(function(){
         tabManagerApp.searchOnTopNavivation();
@@ -135,24 +136,20 @@
       });
     },
     leftNavAccordion : function() {
-      $('#LeftNavigation .accordionBar').unbind("click");
       var aTitle = $('#LeftNavigation .accordionBar').find('a');
       if ( $(window).width() < 1025 ) {
       var companyNav = $('.uiCompanyNavigationPortlet .title.accordionBar').addClass('active');  
       $('.title.accordionBar').prepend('<i class="uiIconArrowRight pull-right"></i>');  
       $('.uiCompanyNavigationPortlet .accordionCont').addClass('active').show();       
-      $('.uiSpaceNavigationPortlet .joinSpace').insertBefore($('.uiSpaceNavigationPortlet .spaceNavigation'));
-        $('#LeftNavigation .accordionBar').click(function(e){
-          if(windowsize>1024) return;
+        $('.uiSpaceNavigationPortlet .joinSpace').insertBefore($('.uiSpaceNavigationPortlet .spaceNavigation'));
+        $('#LeftNavigation .accordionBar').click(function(e){  
           var subContent = $(this).next();
           if ($(this).hasClass('active')) {
             $(this).removeClass('active');
             subContent.slideUp().removeClass('active');
           } else {
-            if(windowsize<480) {
-              $('#LeftNavigation .accordionBar').removeClass('active');
-              $('.accordionCont').removeClass('active').slideUp();
-            }
+            $('#LeftNavigation .accordionBar').removeClass('active');
+            $('.accordionCont').removeClass('active').slideUp();
             $(this).addClass('active');
             subContent.slideDown().addClass('active');
           }
@@ -172,7 +169,7 @@
       var avatar = $('.uiUserToolBarPortlet .dropdown-toggle').clone();
       var help_button = $('.uiHelpPLFToolbarPortlet .dropdown-toggle').clone().attr('class','help-link');
 
-      if ( winWidth < 481 &&  $('.action_top').length == 0 &&  $(' #UISetupPlatformToolBarPortlet').length != 0) {
+      if ( $('.action_top').length == 0 ) {
         dropdow_menu.prepend(avatar);
         dropdow_menu.prepend($('<li class="divider top mobile-visible">&nbsp;</li>'));
         dropdow_menu.prepend($('<li class="clearfix avatar-help-action mobile-visible"></li>'));
@@ -195,6 +192,13 @@
           $('.chatStatusPortlet  .dropdown-toggle').trigger('click');
           return false;
         });
+      }
+    },
+    showHideAvatarHelp : function(){
+      if ( winWidth < 481 &&  $('.action_top').length == 0 ) {
+        $('.avatar-help-action.mobile-visible').show();
+      }else{
+        $('.avatar-help-action.mobile-visible').hide();
       }
     },
     searchOnTopNavivation : function() {
@@ -282,14 +286,16 @@
   //OnResize
   $(window).resize(function(event) {
     windowsize = $(window).width();
-    tabManagerApp.leftNavAccordion();
+    
     setTimeout(function() {
       if($('#ToolBarSearch').find('.action_close').length > 0) {
         tabManagerApp.searchOnTopNavivation();
       }
       tabManagerApp.setHeightMenu();
+      showHideAvatarHelp();
     $('#OfficeRight').css('height',$('.RightBodyTDContainer ').height());
     }, 50);
+
   });
   /*
   // Check device display
@@ -310,16 +316,4 @@
     return {'isMobile' : isMobile, 'isTablet' : isTablet, 'isTabletL' : isTabletL};
   };
   */
-
-  function Responsive() {};
-
-  Responsive.prototype.drawNavigation = function(){
-    tabManagerApp.leftNavAccordion();
-    $('#LeftNavigation .accordionBar').last().click();
-  }
-  eXo.ecm.Responsive = new Responsive();
-  return {
-    Responsive : eXo.ecm.Responsive
-  };
-
 })($);
