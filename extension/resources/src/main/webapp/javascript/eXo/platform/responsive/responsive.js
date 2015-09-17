@@ -178,16 +178,16 @@
     showProfileMenu : function() {
       var winWidth = $(window).width();
       var dropdow_menu = $('#UIUserPlatformToolBarPortlet .dropdown-menu');
-      var avatar = $('.uiUserToolBarPortlet .dropdown-toggle').clone();
-      var help_button = $('.uiHelpPLFToolbarPortlet .dropdown-toggle').clone().attr('class','help-link');
+      var avatar = $('#NavigationPortlet .uiUserToolBarPortlet .dropdown-toggle').clone();
+      var help_button = $('#NavigationPortlet .uiHelpPLFToolbarPortlet .dropdown-toggle').clone().attr('class','help-link');
 
       if ( $('.action_top').length == 0 ) {
-        dropdow_menu.prepend(avatar);
+        // dropdow_menu.prepend(avatar);
         dropdow_menu.prepend($('<li class="divider top mobile-visible">&nbsp;</li>'));
         dropdow_menu.prepend($('<li class="clearfix avatar-help-action mobile-visible"></li>'));
-        $('.avatar-help-action').append($('<div class="help-link-box"></div>'));
-        $('.help-link-box').append(help_button);
-        $('.avatar-help-action').append(avatar);
+        $('#NavigationPortlet .avatar-help-action').append($('<div class="help-link-box"></div>'));
+        $('#NavigationPortlet .help-link-box').append(help_button);
+        $('#NavigationPortlet .avatar-help-action').append(avatar);
         if ($('#UISetupPlatformToolBarPortlet .uiIconPLF24x24Setup').length != 0) {
           dropdow_menu.prepend($('<li class="clearfix action_top mobile-visible"><span class="action-addon"> <span class="admin-setup"><i class="uiIconPLF24x24Setup"></i></span></span></li>'));
         }
@@ -272,7 +272,7 @@
     tabManagerApp.init();
 
      // add event touch on mobile
-
+/*
       $('body').on('swipe', function (event) {
           if(event.direction === 'right') { // or right, down, left
             if($(this).hasClass('open-right-bar')) {
@@ -291,7 +291,7 @@
            }
          }
       });
-
+*/
       //end event touch on mobile
 
   });
