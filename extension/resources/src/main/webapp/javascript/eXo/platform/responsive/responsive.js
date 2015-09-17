@@ -139,15 +139,15 @@
       var aTitle = $('#LeftNavigation .accordionBar').find('a');
       if ( windowsize < 1025 ) {
       
-	  if (windowsize <= 480 ) { //mobile 
-		  $('.title.accordionBar').first().addClass('active');  	  
-		  $('.accordionCont').first().addClass('active').show();     
-	  }else{
-		  $('.title.accordionBar').addClass('active');  	  
-		  $('.accordionCont').addClass('active').show();     
-	  }
-	      
-	  
+    if (windowsize <= 480 ) { //mobile 
+      $('.title.accordionBar').first().addClass('active');      
+      $('.accordionCont').first().addClass('active').show();     
+    }else{
+      $('.title.accordionBar').addClass('active');      
+      $('.accordionCont').addClass('active').show();     
+    }
+        
+    
       $('.title.accordionBar').prepend('<i class="uiIconArrowRight pull-right"></i>');  
       $('.uiSpaceNavigationPortlet .joinSpace').insertBefore($('.uiSpaceNavigationPortlet .spaceNavigation'));
         $('#LeftNavigation .accordionBar').click(function(e){
@@ -165,7 +165,7 @@
             subContent.slideDown().addClass('active');
           }
         });
-		
+    
         aTitle.data('link',  function() { return $(this).attr('href'); }).attr('href', 'javascript:void(0)');
       } else {
         aTitle.each(function(i) {
@@ -176,18 +176,14 @@
       }
     },
     showProfileMenu : function() {
-      var winWidth = $(window).width();
-      var dropdow_menu = $('#UIUserPlatformToolBarPortlet .dropdown-menu');
-      var avatar = $('#NavigationPortlet .uiUserToolBarPortlet .dropdown-toggle').clone();
-      var help_button = $('#NavigationPortlet .uiHelpPLFToolbarPortlet .dropdown-toggle').clone().attr('class','help-link');
+      var dropdow_menu = $('#UIUserPlatformToolBarPortlet .dropdown-menu'),
+          avatar = $('#NavigationPortlet .uiUserToolBarPortlet .dropdown-toggle').clone(),
+          help_button = $('#NavigationPortlet .uiHelpPLFToolbarPortlet .dropdown-toggle').clone().attr('class','help-link');
 
       if ( $('.action_top').length == 0 ) {
         // dropdow_menu.prepend(avatar);
-        dropdow_menu.prepend($('<li class="divider top mobile-visible">&nbsp;</li>'));
-        dropdow_menu.prepend($('<li class="clearfix avatar-help-action mobile-visible"></li>'));
-        $('#NavigationPortlet .avatar-help-action').append($('<div class="help-link-box"></div>'));
-        $('#NavigationPortlet .help-link-box').append(help_button);
-        $('#NavigationPortlet .avatar-help-action').append(avatar);
+        dropdow_menu.prepend($('<li class="clearfix avatar-help-action mobile-visible"></li><li class="divider top mobile-visible">&nbsp;</li>'));
+        $('#NavigationPortlet .avatar-help-action').append($('<div class="help-link-box"></div>')).append(avatar).find('.help-link-box').append(help_button);
         if ($('#UISetupPlatformToolBarPortlet .uiIconPLF24x24Setup').length != 0) {
           dropdow_menu.prepend($('<li class="clearfix action_top mobile-visible"><span class="action-addon"> <span class="admin-setup"><i class="uiIconPLF24x24Setup"></i></span></span></li>'));
         }
@@ -207,7 +203,7 @@
       }
     },
     showHideAvatarHelp : function(){
-      if ( winWidth < 481 &&  $('.action_top').length == 0 ) {
+      if ( windowsize < 481 &&  $('.action_top').length == 0 ) {
         $('.avatar-help-action.mobile-visible').show();
       }else{
         $('.avatar-help-action.mobile-visible').hide();
@@ -272,7 +268,7 @@
     tabManagerApp.init();
 
      // add event touch on mobile
-/*
+
       $('body').on('swipe', function (event) {
           if(event.direction === 'right') { // or right, down, left
             if($(this).hasClass('open-right-bar')) {
@@ -291,7 +287,7 @@
            }
          }
       });
-*/
+
       //end event touch on mobile
 
   });
