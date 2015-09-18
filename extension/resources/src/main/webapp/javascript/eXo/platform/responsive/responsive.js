@@ -202,13 +202,13 @@
         });
       }
     },
-    showHideAvatarHelp : function(){
-      if ( windowsize < 481 &&  $('.action_top').length == 0 ) {
-        $('.avatar-help-action.mobile-visible').show();
-      }else{
-        $('.avatar-help-action.mobile-visible').hide();
-      }
-    },
+
+
+
+
+
+
+
     searchOnTopNavivation : function() {
      // var _w = $(window).width();
       var bar = $('.UIToolbarContainer .ToolbarContainer');    
@@ -300,7 +300,7 @@
         tabManagerApp.searchOnTopNavivation();
       }
       tabManagerApp.setHeightMenu();
-      showHideAvatarHelp();
+
     $('#OfficeRight').css('height',$('.RightBodyTDContainer ').height());
     }, 50);
 
