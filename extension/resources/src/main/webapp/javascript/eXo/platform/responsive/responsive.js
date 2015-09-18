@@ -250,7 +250,7 @@
       }
     },
     setHeightMenu : function(){
-      var dropdow_toggle=$('.UIToolbarContainer .dropdown-toggle');
+      var dropdow_toggle=$('.UIToolbarContainer .dropdown-toggle, .UIToolbarContainer .dropdown-menu');
       //var _w = $(window).width();
       if (windowsize < 768 ) {
         var dropdowWidth =  dropdow_toggle.next().height();
