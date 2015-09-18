@@ -270,17 +270,17 @@
      // add event touch on mobile
 
       $('body').on('swipe', function (event) {
-          if(event.direction === 'right') { // or right, down, left
-            if($(this).hasClass('open-right-bar')) {
-              tabManagerApp.hideRightPanel();
-            } else if ($(this).hasClass('hidden-right-bar')) {
-              tabManagerApp.showLeftPanel();
-            }
-          }
+          // if(event.direction === 'right') { // or right, down, left
+          //   if($(this).hasClass('open-right-bar')) {
+          //     tabManagerApp.hideRightPanel();
+          //   } else if ($(this).hasClass('hidden-right-bar')) {
+          //     tabManagerApp.showLeftPanel();
+          //   }
+          // }
          if(event.direction === 'left') { // or right, down, left
-           if($(this).hasClass('hidden-right-bar') && $(this).hasClass('hidden-left-bar')) {
-             tabManagerApp.showRightPanel();
-           }
+           // if($(this).hasClass('hidden-right-bar') && $(this).hasClass('hidden-left-bar')) {
+           //   tabManagerApp.showRightPanel();
+           // }
 
            if($(this).hasClass('open-left-bar') ) {
              tabManagerApp.hideLeftPanel();
