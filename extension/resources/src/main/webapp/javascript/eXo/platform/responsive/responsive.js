@@ -227,7 +227,7 @@
         bar_input.blur(function(){
           var bar_input = $(this);
           var T = setTimeout(function() {
-            bar_input.hide();
+            bar_input.hide().removeClass('loadding');
             bar.removeClass('active');
            // bar.parents('#UIToolbarContainer').removeClass('active_search');
             $('#ToolBarSearch .action_close').remove();
@@ -244,7 +244,7 @@
           $('.uiQuickSearchResult').css('width', windowsize - 50);
           //
           $('.uiMasklayer,.action_close').click(function(){
-            $("#ToolBarSearch input[type='text']").trigger('blur');
+            $("#ToolBarSearch input[type='text']").trigger('blur').removeClass('loadding');
           });
         }
       }
