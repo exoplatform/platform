@@ -19,6 +19,7 @@
 
             parent.toggleClass('open');
 
+            var uiCreateList = parent.find("#UICreateList");
             if(!!parent.find("#QuickAddEventContainer").length){
              uiCreateList.addClass('openingAddEvent');
             }
