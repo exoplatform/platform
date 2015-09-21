@@ -136,6 +136,7 @@
       });
     },
     leftNavAccordion : function() {
+	$('#LeftNavigation .accordionBar').unbind("click");	
       var aTitle = $('#LeftNavigation .accordionBar').find('a');
       if ( windowsize < 1025 ) {
       
@@ -308,7 +309,7 @@
 
   function Responsive() {};
 
-  Responsive.prototype.drawNavigation = function(){
+  Responsive.prototype.drawSpaceAcess = function(){
     tabManagerApp.leftNavAccordion();
     $('#LeftNavigation .accordionBar').last().click();
   }
