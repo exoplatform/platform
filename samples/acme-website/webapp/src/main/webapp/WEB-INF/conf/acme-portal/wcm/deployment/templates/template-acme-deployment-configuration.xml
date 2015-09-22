@@ -771,7 +771,7 @@
                         <value>
                            <object type="org.exoplatform.services.cms.taxonomy.impl.TaxonomyConfig$Taxonomy">
                               <field name="name">
-                                 <string>DefenseTaxonomy</string>
+                                 <string>Defense</string>
                               </field>
                               <field name="path">
                                  <string>/Defense</string>
@@ -843,7 +843,7 @@
                         <value>
                            <object type="org.exoplatform.services.cms.taxonomy.impl.TaxonomyConfig$Taxonomy">
                               <field name="name">
-                                 <string>VisionTaxonomy</string>
+                                 <string>Vision</string>
                               </field>
                               <field name="path">
                                  <string>/Defense/Vision</string>
@@ -915,7 +915,7 @@
                         <value>
                            <object type="org.exoplatform.services.cms.taxonomy.impl.TaxonomyConfig$Taxonomy">
                               <field name="name">
-                                 <string>InvisibilityTaxonomy</string>
+                                 <string>Invisibility</string>
                               </field>
                               <field name="path">
                                  <string>/Defense/Invisibility</string>
@@ -987,7 +987,7 @@
                         <value>
                            <object type="org.exoplatform.services.cms.taxonomy.impl.TaxonomyConfig$Taxonomy">
                               <field name="name">
-                                 <string>HealingTaxonomy</string>
+                                 <string>Healing</string>
                               </field>
                               <field name="path">
                                  <string>/Defense/Healing</string>
@@ -1059,7 +1059,7 @@
                         <value>
                            <object type="org.exoplatform.services.cms.taxonomy.impl.TaxonomyConfig$Taxonomy">
                               <field name="name">
-                                 <string>ImmunityTaxonomy</string>
+                                 <string>Immunity</string>
                               </field>
                               <field name="path">
                                  <string>/Defense/Immunity</string>
@@ -1131,7 +1131,7 @@
                         <value>
                            <object type="org.exoplatform.services.cms.taxonomy.impl.TaxonomyConfig$Taxonomy">
                               <field name="name">
-                                 <string>MovementTaxonomy</string>
+                                 <string>Movement</string>
                               </field>
                               <field name="path">
                                  <string>/Movement</string>
@@ -1203,7 +1203,7 @@
                         <value>
                            <object type="org.exoplatform.services.cms.taxonomy.impl.TaxonomyConfig$Taxonomy">
                               <field name="name">
-                                 <string>NaturalElementsTaxonomy</string>
+                                 <string>Natural Elements</string>
                               </field>
                               <field name="path">
                                  <string>/Natural Elements</string>
