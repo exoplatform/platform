@@ -61,7 +61,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
         <link rel="shortcut icon" type="image/x-icon"  href="<%=contextPath%>/favicon.ico" />
         <% for (SkinConfig skin : skins) {
-            if ("CoreSkin".equals(skin.getModule()) || "CoreSkin1".equals(skin.getModule())) {%>
+            if ("CoreSkin".equals(skin.getModule())) {%>
                 <link href="<%=skin.getCSSPath()%>" rel="stylesheet" type="text/css" test="<%=skin.getModule()%>"/>
             <%}%>
         <%}%>
