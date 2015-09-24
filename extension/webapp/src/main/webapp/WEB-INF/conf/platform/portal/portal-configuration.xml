@@ -80,6 +80,11 @@
 		</init-params>   
 	</component>
 
+  <component>
+    <key>org.gatein.forgetpassword.service.ForgetPasswordService</key>
+    <type>org.exoplatform.forgetpassword.PlatformForgetPasswordServiceImpl</type>
+  </component>
+
 	<external-component-plugins>
 		<!-- The full qualified name of the UserPortalConfigService -->
 		<target-component>org.exoplatform.portal.config.UserPortalConfigService</target-component>

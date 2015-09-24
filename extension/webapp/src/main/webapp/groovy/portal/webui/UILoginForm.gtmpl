@@ -25,7 +25,7 @@
           <input type="checkbox" class="checkbox" value="true" checked="checked" name="rememberme" id="rememberme" data-yes="<%=_ctx.appRes("portal.login.Yes")%>" data-no="<%=_ctx.appRes("portal.login.No")%>"/>
           <label for="rememberme1" class="rememberTxt"><%=_ctx.appRes("UILoginForm.label.RememberOnComputer")%></label>
       </div>
-      <div class="forgetPass"><a href="javascript:void(0);" onclick="<%= uicomponent.event("ForgetPassword") %>"><%=_ctx.appRes("UILoginForm.label.forgot")%></a></div>
+      <div class="forgetPass"><a href="<%= uicomponent.getForgetPasswordURL() %>"><%=_ctx.appRes("UILoginForm.label.forgot")%></a></div>
       <div class="uiAction uiActionBorder"> 
   		<input type="submit" name="signIn" class="btn" value="<%=_ctx.appRes("UILoginForm.label.Signin")%>"></input>
   		<input type="button" name="discard" class="btn" value="<%=_ctx.appRes("UILoginForm.label.Discard")%>" onclick="<%=uicomponent.event("Close");%>"></input>

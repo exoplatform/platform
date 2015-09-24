@@ -29,6 +29,12 @@
 <%@ page import="org.exoplatform.portal.resource.SkinService"%>
 <%@ page import="java.util.ResourceBundle"%>
 <%@ page import="org.gatein.common.text.EntityEncoder"%>
+<%@ page import="org.exoplatform.web.WebAppController" %>
+<%@ page import="org.exoplatform.web.controller.router.Router" %>
+<%@ page import="java.util.Map" %>
+<%@ page import="org.exoplatform.web.controller.QualifiedName" %>
+<%@ page import="java.util.HashMap" %>
+<%@ page import="org.gatein.forgetpassword.handler.ForgetPasswordHandler" %>
 <%@ page language="java" %>
 <%
   String contextPath = request.getContextPath() ;
@@ -43,7 +49,8 @@
 
   PortalContainer portalContainer = PortalContainer.getCurrentInstance(session.getServletContext());
   ResourceBundleService service = (ResourceBundleService) portalContainer.getComponentInstanceOfType(ResourceBundleService.class);
-  ResourceBundle res = service.getResourceBundle(service.getSharedResourceBundleNames(), request.getLocale()) ;
+  WebAppController webAppController = (WebAppController)portalContainer.getComponentInstanceOfType(WebAppController.class);
+  ResourceBundle res = service.getResourceBundle(service.getSharedResourceBundleNames(), request.getLocale());
 
   OAuthProviderTypeRegistry registry = (OAuthProviderTypeRegistry) portalContainer.getComponentInstanceOfType(OAuthProviderTypeRegistry.class);
   Cookie cookie = new Cookie(org.exoplatform.web.login.LoginServlet.COOKIE_NAME, "");
@@ -54,6 +61,11 @@
   SkinService skinService = (SkinService) PortalContainer.getCurrentInstance(session.getServletContext())
                           .getComponentInstanceOfType(SkinService.class);
   String loginCssPath = skinService.getSkin("portal/login", "Default").getCSSPath();
+
+  Router router = webAppController.getRouter();
+  Map<QualifiedName, String> params = new HashMap<QualifiedName, String>();
+  params.put(WebAppController.HANDLER_PARAM, ForgetPasswordHandler.NAME);
+  String forgotPasswordPath = router.render(params);
 
   //
   String uri = (String)request.getAttribute("org.gatein.portal.login.initial_uri");
@@ -156,7 +168,9 @@
                         });
                     });
                 </script>
-
+                <div>
+                    <a href="<%= contextPath + forgotPasswordPath %>" title="<%=res.getString("gatein.forgotPassword.loginLinkTitle")%>"><%=res.getString("gatein.forgotPassword.loginLinkTitle")%></a>
+                </div>
 				<div id="UIPortalLoginFormAction" class="loginButton">
 					<button class="button" tabindex="4"  onclick="login();"><%=res.getString("portal.login.Signin")%></button>
 				</div>
