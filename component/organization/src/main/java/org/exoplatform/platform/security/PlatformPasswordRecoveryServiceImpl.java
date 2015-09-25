@@ -27,8 +27,8 @@ import org.exoplatform.services.mail.MailService;
 import org.exoplatform.services.organization.OrganizationService;
 import org.exoplatform.services.resources.ResourceBundleService;
 import org.exoplatform.web.WebAppController;
+import org.exoplatform.web.login.recovery.PasswordRecoveryServiceImpl;
 import org.exoplatform.web.security.security.RemindPasswordTokenService;
-import org.gatein.forgetpassword.service.impl.ForgetPasswordServiceImpl;
 
 
 /**
@@ -40,9 +40,9 @@ import org.gatein.forgetpassword.service.impl.ForgetPasswordServiceImpl;
  *
  * @author <a href="mailto:tuyennt@exoplatform.com">Tuyen Nguyen The</a>.
  */
-public class PlatformForgetPasswordServiceImpl extends ForgetPasswordServiceImpl {
+public class PlatformPasswordRecoveryServiceImpl extends PasswordRecoveryServiceImpl {
     private final SettingService settingService;
-    public PlatformForgetPasswordServiceImpl(OrganizationService orgService,
+    public PlatformPasswordRecoveryServiceImpl(OrganizationService orgService,
                                              MailService mailService,
                                              ResourceBundleService bundleService,
                                              RemindPasswordTokenService remindPasswordTokenService,

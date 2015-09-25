@@ -81,8 +81,8 @@
 	</component>
 
   <component>
-    <key>org.gatein.forgetpassword.service.ForgetPasswordService</key>
-    <type>org.exoplatform.forgetpassword.PlatformForgetPasswordServiceImpl</type>
+    <key>org.exoplatform.web.login.recovery.PasswordRecoveryService</key>
+    <type>org.exoplatform.platform.security.PlatformPasswordRecoveryServiceImpl</type>
   </component>
 
 	<external-component-plugins>
