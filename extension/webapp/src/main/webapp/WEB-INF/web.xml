@@ -69,7 +69,17 @@
         <url-pattern>/accountSetup</url-pattern>
     </servlet-mapping>
 
-    <servlet>
+  <servlet>
+    <servlet-name>SoftwareRegisterViewServlet</servlet-name>
+    <servlet-class>org.exoplatform.platform.common.software.register.web.SoftwareRegisterViewServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>SoftwareRegisterActionServlet</servlet-name>
+    <servlet-class>org.exoplatform.platform.common.software.register.web.SoftwareRegisterActionServlet</servlet-class>
+  </servlet>
+
+
+  <servlet>
         <servlet-name>PingBackServlet</servlet-name>
         <servlet-class>org.exoplatform.platform.common.account.setup.web.PingBackServlet</servlet-class>
         <init-param>
@@ -83,4 +93,14 @@
         <servlet-name>PingBackServlet</servlet-name>
         <url-pattern>/PingBackServlet</url-pattern>
     </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>SoftwareRegisterViewServlet</servlet-name>
+    <url-pattern>/software-register</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>SoftwareRegisterActionServlet</servlet-name>
+    <url-pattern>/software-register-action</url-pattern>
+  </servlet-mapping>
+
 </web-app>

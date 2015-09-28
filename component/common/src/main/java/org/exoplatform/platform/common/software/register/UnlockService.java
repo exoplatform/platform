@@ -1,6 +1,7 @@
-package org.exoplatform.platform.welcomescreens.service;
+package org.exoplatform.platform.common.software.register;
 
 import org.apache.commons.codec.binary.Base64;
+import org.apache.commons.lang.StringUtils;
 import org.exoplatform.commons.info.MissingProductInformationException;
 import org.exoplatform.commons.info.ProductInformations;
 import org.exoplatform.container.ExoContainerContext;
@@ -56,6 +57,8 @@ public class UnlockService implements Startable {
     private static ScheduledExecutorService executor;
     private static ProductInformations productInformations;
     public static String ERROR = "";
+    private static final int RETRY_ALLOW = 2;
+    private static boolean isSkip=false;
 
     public UnlockService(ProductInformations productInformations, InitParams params) throws MissingProductInformationException {
         restContext = ExoContainerContext.getCurrentContainer().getContext().getRestContextName();
@@ -70,6 +73,48 @@ public class UnlockService implements Startable {
         Utils.HOME_CONFIG_FILE_LOCATION = Utils.EXO_HOME_FOLDER + "/" + Utils.PRODUCT_NAME + "/license.xml";
     }
 
+    public static boolean isIsSkip() {
+        return isSkip;
+    }
+
+    public static void setIsSkip(boolean isSkip) {
+        UnlockService.isSkip = isSkip;
+    }
+
+    public static boolean isRegisted() {
+        try {
+            String registerStatus = Utils.readFromFile(Utils.SW_REG_STATUS, Utils.HOME_CONFIG_FILE_LOCATION);
+            String productCode = Utils.readFromFile(Utils.PRODUCT_CODE, Utils.HOME_CONFIG_FILE_LOCATION);
+            String productKey = Utils.readFromFile(Utils.PRODUCT_KEY, Utils.HOME_CONFIG_FILE_LOCATION);
+            if(StringUtils.equals(productKey, productInformations.getProductKey())
+                    && StringUtils.equals(productCode, productInformations.getProductCode()))
+            return Boolean.parseBoolean(registerStatus);
+        }catch(Exception ex){
+            return false;
+        }
+        return false;
+    }
+
+    public static boolean canSkipRegister(){
+        String numberSkip = Utils.readFromFile(Utils.SW_REG_SKIPPED, Utils.HOME_CONFIG_FILE_LOCATION);
+        try{
+            return RETRY_ALLOW>Integer.parseInt(numberSkip)?true:false;
+        }catch (NumberFormatException nfe){
+            return false;
+        }
+    }
+
+    public static int updateNumberRetry(){
+        String numberRetry = Utils.readFromFile(Utils.SW_REG_SKIPPED, Utils.HOME_CONFIG_FILE_LOCATION);
+        try{
+            int currentRetry = Integer.parseInt(numberRetry);
+            Utils.writeToFile(Utils.SW_REG_SKIPPED, String.valueOf(++currentRetry), Utils.HOME_CONFIG_FILE_LOCATION);
+            return currentRetry;
+        }catch (NumberFormatException nfe){
+            Utils.writeToFile(Utils.SW_REG_SKIPPED, String.valueOf("1"), Utils.HOME_CONFIG_FILE_LOCATION);
+        }
+        return 0;
+    }
     public void start() {
         if (!new File(Utils.HOME_CONFIG_FILE_LOCATION).exists()) {
             if (checkLicenceInJcr()) return;
