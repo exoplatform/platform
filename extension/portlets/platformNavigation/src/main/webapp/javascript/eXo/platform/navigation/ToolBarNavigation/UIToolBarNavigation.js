@@ -18,27 +18,10 @@
             var parent = $("#" + baseId);
 
             parent.toggleClass('open');
-
-            var uiCreateList = parent.find("#UICreateList");
-            if(!!parent.find("#QuickAddEventContainer").length){
-             uiCreateList.addClass('openingAddEvent');
-            }
-
-            if(!!parent.find("#UICreatePoll").length){
-             uiCreateList.addClass('openingAddPoll');
-            }
-
-            if(!!parent.find("#UICreateTopic").length){
-             uiCreateList.addClass('openingCreatePoll');
-            }
-
-            if(!!parent.find("#UploadFileSelectorPopUpWindow").length){
-             uiCreateList.addClass('openingUploadFile');
-            }
-            
-            if(!!parent.find("#UICreateForm").length){
-             uiCreateList.addClass('openingWiki');
-            }
+			$('#UICreateList').find('.btn').next().click(function(){
+			  $('#UICreateList').hide().removeClass('create-form-dropdown').delay(200).show(200);
+			//create new wiki page on top navigation
+		  });     
         }
     };
 

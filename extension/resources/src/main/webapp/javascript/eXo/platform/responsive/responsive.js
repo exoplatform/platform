@@ -108,8 +108,8 @@
         
         var dropdown = dropdownSub.parents('.dropdown-menu');
         
-        var _w = $(window).width();     
-        if ( _w < 1025 ) {
+       // var _w = $(window).width();     
+        if ( windowsize < 1025 ) {
         evt.stopPropagation();
            evt.preventDefault();
            var backButton = $('<li class="back-item"><a href="javascript:void(0)"><i class="uiIconArrowLeft" style="margin-right: 2px;"></i>Back</a></li>');
@@ -177,19 +177,17 @@
       }
     },
     showProfileMenu : function() {
-      var dropdow_menu = $('#UIUserPlatformToolBarPortlet .dropdown-menu'),
-          avatar = $('#NavigationPortlet .uiUserToolBarPortlet .dropdown-toggle').clone(),
-          help_button = $('#NavigationPortlet .uiHelpPLFToolbarPortlet .dropdown-toggle').clone().attr('class','help-link');
-
-      if ( $('.action_top').length == 0 ) {
+      var dropdow_menu = $('#UIUserPlatformToolBarPortlet > .dropdown-menu'),
+          avatar = $('#NavigationPortlet .uiUserToolBarPortlet > .dropdown-toggle').clone(),
+          help_button = $('#NavigationPortlet .uiHelpPLFToolbarPortlet > .dropdown-toggle').clone().attr('class','help-link');
         // dropdow_menu.prepend(avatar);
-        dropdow_menu.prepend($('<li class="clearfix avatar-help-action mobile-visible"></li><li class="divider top mobile-visible">&nbsp;</li>'));
+        //dropdow_menu.prepend($('<li class="clearfix avatar-help-action mobile-visible"></li><li class="divider top mobile-visible">&nbsp;</li>'));
         $('#NavigationPortlet .avatar-help-action').append($('<div class="help-link-box"></div>')).append(avatar).find('.help-link-box').append(help_button);
         if ($('#UISetupPlatformToolBarPortlet .uiIconPLF24x24Setup').length != 0) {
-          dropdow_menu.prepend($('<li class="clearfix action_top mobile-visible"><span class="action-addon"> <span class="admin-setup"><i class="uiIconPLF24x24Setup"></i></span></span></li>'));
+           $('.uiUserToolBarPortlet .action_top').prepend($('<span class="action-addon"> <span class="admin-setup"><i class="uiIconPLF24x24Setup"></i></span></span>'));
         }
         if (tabManagerApp.container.find('.uiNotifChatIcon').length != 0) {
-          $('.action_top').prepend('<span class="action-addon"><span class="uiNotifChatIcon chat-button"><span id="chat-notification"></span></span></span>');
+          $('.uiUserToolBarPortlet .action_top').prepend('<span class="action-addon"><span class="uiNotifChatIcon chat-button"><span id="chat-notification"></span></span></span>');
         }
          // show dropdown menu of administration menu
         $('.admin-setup').on('click', function(){
@@ -201,7 +199,6 @@
           $('.chatStatusPortlet  .dropdown-toggle').trigger('click');
           return false;
         });
-      }
     },
 
 
@@ -290,7 +287,10 @@
       });
 
       //end event touch on mobile
-
+	$('#UICreateList').find('.btn').next().click(function(){
+		  $('#UICreateList').hide().removeClass('create-form-dropdown').delay(200).show(200);
+	   //create new wiki page on top navigation
+	  });
   });
   //OnResize
   $(window).resize(function(event) {
@@ -311,7 +311,9 @@
 
   Responsive.prototype.drawSpaceAcess = function(){
     tabManagerApp.leftNavAccordion();
-    $('#LeftNavigation .accordionBar').last().click();
+    if(eXo.commons.Utils.checkDevice().isSmallMobile) {		  
+		$('#LeftNavigation .uiSpaceNavigationPortlet .accordionBar').click();
+	  }
   }
   eXo.ecm.Responsive = new Responsive();
   return {
