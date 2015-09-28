@@ -31,6 +31,7 @@
     <Locale lang="ro" messages="locale/ro.xml"/>
     <Locale lang="ca" messages="locale/ca.xml"/>
     <Locale lang="fi" messages="locale/fi.xml"/>
+    <Locale lang="nl" messages="locale/nl.xml"/>
     <Require feature="opensocial-0.8" />
     <Require feature="dynamic-height"/>
   </ModulePrefs>
