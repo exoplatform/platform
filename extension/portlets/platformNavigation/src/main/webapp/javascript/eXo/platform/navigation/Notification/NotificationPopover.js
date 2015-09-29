@@ -98,6 +98,13 @@
           me.popupItem.find('li').each(function(i) {
             me.applyAction($(this));
           });
+          
+          // Long message of text will be truncated by CSS
+          $.each(me.portlet.find('.displayItems').find('.content'), function(i, item) {
+            if ($(item).html().trim().length > 120 && $(item).children(".confirm").length == 0) {
+              $(item).css('height','40px');
+            }
+          });
         } else {
           me.portlet.find('.no-items:first').show();
         }
