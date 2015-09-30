@@ -63,7 +63,7 @@
         def hasChild = (childrenNodes != null) && !childrenNodes.isEmpty();
         String href = NavigationURLUtils.getURL(node);
         boolean toolong = (node.resolvedLabel.length() > 16);
-        String shortLabel = (toolong ? node.resolvedLabel.substring(0, 15) + "..." : node.resolvedLabel);
+        String shortLabel = node.resolvedLabel;
         String label=node.resolvedLabel;
         String
         def icon=node.getIcon();
