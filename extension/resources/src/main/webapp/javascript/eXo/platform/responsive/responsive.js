@@ -31,9 +31,9 @@
       });
       tabManagerApp.showProfileMenu();
       //
-      $('#ToolBarSearch > a').click(function(){
-        tabManagerApp.searchOnTopNavivation();
-      });
+      // $('#ToolBarSearch > a').click(function(){
+      //   tabManagerApp.searchOnTopNavivation();
+      // });
       // adapt dropdown menu with screen size if height too big
       $('.UIToolbarContainer .dropdown-toggle').on('click', function(event) {  
         tabManagerApp.setHeightMenu();
@@ -136,7 +136,7 @@
       });
     },
     leftNavAccordion : function() {
-	$('#LeftNavigation .accordionBar').unbind("click");	
+  $('#LeftNavigation .accordionBar').unbind("click"); 
       var aTitle = $('#LeftNavigation .accordionBar').find('a');
       if ( windowsize < 1025 ) {
       
@@ -207,46 +207,47 @@
 
 
 
-    searchOnTopNavivation : function() {
-     // var _w = $(window).width();
-      var bar = $('.UIToolbarContainer .ToolbarContainer');    
-      var toolBar = $("#ToolBarSearch");
-      var bar_input = toolBar.find("input[type='text']");
-      $('#RightBody').prepend('<div class="uiMasklayer"></div>');
-      //
-      if(windowsize < 1025 && toolBar.find('span.action_close').length == 0) {
-        bar.addClass('active');
-       // bar.parents('#UIToolbarContainer').addClass('active_search');
-        toolBar.append('<span class="action_close"><i class="uiIconClose uiIconWhite"></i></span>');
-      }
+    // searchOnTopNavivation : function() {
+
+     // // var _w = $(window).width();
+     //  var bar = $('.UIToolbarContainer .ToolbarContainer');    
+     //  var toolBar = $("#ToolBarSearch");
+     //  var bar_input = toolBar.find("input[type='text']");
+     //  $('#RightBody').prepend('<div class="uiMasklayer"></div>');
+     //  //
+     //  if(windowsize < 1025 && toolBar.find('span.action_close').length == 0) {
+     //    bar.addClass('active');
+     //   // bar.parents('#UIToolbarContainer').addClass('active_search');
+     //    toolBar.append('<span class="action_close"><i class="uiIconClose uiIconWhite"></i></span>');
+     //  }
       
-      bar_input.off('blur');
-      if(windowsize < 1025) {
-        bar_input.blur(function(){
-          var bar_input = $(this);
-          var T = setTimeout(function() {
-            bar_input.hide().removeClass('loadding');
-            bar.removeClass('active');
-           // bar.parents('#UIToolbarContainer').removeClass('active_search');
-            $('#ToolBarSearch .action_close').remove();
-            $('#ToolBarSearch .uiQuickSearchResult').hide();
-            if(windowsize < 768) {
-              $('#RightBody > .uiMasklayer').remove();  
-            }
-            clearTimeout(T);
-          }, 200);
-        });
-        //
-        if(windowsize < 768) {
-          bar_input.css('width', windowsize - 50);
-          $('.uiQuickSearchResult').css('width', windowsize - 50);
-          //
-          $('.uiMasklayer,.action_close').click(function(){
-            $("#ToolBarSearch input[type='text']").trigger('blur').removeClass('loadding');
-          });
-        }
-      }
-    },
+     //  bar_input.off('blur');
+     //  if(windowsize < 1025) {
+     //    bar_input.blur(function(){
+     //      var bar_input = $(this);
+     //      var T = setTimeout(function() {
+     //        bar_input.hide().removeClass('loadding');
+     //        bar.removeClass('active');
+     //       // bar.parents('#UIToolbarContainer').removeClass('active_search');
+     //        $('#ToolBarSearch .action_close').remove();
+     //        $('#ToolBarSearch .uiQuickSearchResult').hide();
+     //        if(windowsize < 768) {
+     //          $('#RightBody > .uiMasklayer').remove();  
+     //        }
+     //        clearTimeout(T);
+     //      }, 200);
+     //    });
+     //    //
+     //    if(windowsize < 768) {
+     //      bar_input.css('width', windowsize - 50);
+     //      $('.uiQuickSearchResult').css('width', windowsize - 50);
+     //      //
+     //      $('.uiMasklayer,.action_close').click(function(){
+     //        $("#ToolBarSearch input[type='text']").trigger('blur').removeClass('loadding');
+     //      });
+     //    }
+     //  }
+    // },
     setHeightMenu : function(){
       var dropdow_toggle=$('.UIToolbarContainer .dropdown-toggle, .UIToolbarContainer .dropdown-menu');
       //var _w = $(window).width();
@@ -287,19 +288,28 @@
       });
 
       //end event touch on mobile
-	$('#UICreateList').find('.btn').next().click(function(){
+	   $('#UICreateList').find('.btn').next().click(function(){
 		  $('#UICreateList').hide().removeClass('create-form-dropdown').delay(200).show(200);
 	   //create new wiki page on top navigation
 	  });
+     //change icon search in toolbar to icon close input search
+    $("#ToolBarSearch .uiIconPLF24x24Search").on('click', function(){
+      $(this).toggleClass('uiIconCloseSearchBox')
+             .parents('#ToolBarSearch').find('input[type="text"]').toggleClass("showInputSearch")
+             .parents('#ToolBarSearch').find('.uiQuickSearchResult').hide()
+             .parents('#PlatformAdminToolbarContainer').toggleClass('activeInputSearch');
+    });
+
+
   });
   //OnResize
   $(window).resize(function(event) {
     windowsize = $(window).width();
     
     setTimeout(function() {
-      if($('#ToolBarSearch').find('.action_close').length > 0) {
-        tabManagerApp.searchOnTopNavivation();
-      }
+      // if($('#ToolBarSearch').find('.action_close').length > 0) {
+      //   tabManagerApp.searchOnTopNavivation();
+      // }
       tabManagerApp.setHeightMenu();
 
     $('#OfficeRight').css('height',$('.RightBodyTDContainer ').height());
@@ -311,9 +321,15 @@
 
   Responsive.prototype.drawSpaceAcess = function(){
     tabManagerApp.leftNavAccordion();
+<<<<<<< Updated upstream
     if(eXo.commons.Utils.checkDevice().isSmallMobile) {		  
 		$('#LeftNavigation .uiSpaceNavigationPortlet .accordionBar').click();
 	  }
+=======
+    if(eXo.commons.Utils.checkDevice().isSmallMobile) {     
+    $('#LeftNavigation .uiSpaceNavigationPortlet .accordionBar').click();
+    }
+>>>>>>> Stashed changes
   }
   eXo.ecm.Responsive = new Responsive();
   return {
