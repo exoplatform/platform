@@ -321,15 +321,9 @@
 
   Responsive.prototype.drawSpaceAcess = function(){
     tabManagerApp.leftNavAccordion();
-<<<<<<< Updated upstream
     if(eXo.commons.Utils.checkDevice().isSmallMobile) {		  
 		$('#LeftNavigation .uiSpaceNavigationPortlet .accordionBar').click();
 	  }
-=======
-    if(eXo.commons.Utils.checkDevice().isSmallMobile) {     
-    $('#LeftNavigation .uiSpaceNavigationPortlet .accordionBar').click();
-    }
->>>>>>> Stashed changes
   }
   eXo.ecm.Responsive = new Responsive();
   return {
