@@ -132,7 +132,7 @@
                       "</tbody>" +   
                       "</table>";
               var memoryGraphParent = $(this).parent();
-              var sel = $("<div class='chart-container'><h6>" +escapeHtml(memoryType) + " memory</h6></div>").append(this);
+              var sel = $("<div class='chart-container'><h6>" +escapeHtml(memoryType)+ "</h6></div>").append(this);
               sel.appendTo(memoryGraphParent);
               //$(this).remove();
               var table = $(this).find("table");
