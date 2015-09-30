@@ -19,14 +19,11 @@
 
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ page import="org.exoplatform.platform.common.software.register.UnlockService" %>
 <%
   String contextPath = request.getContextPath();
   String lang = request.getLocale().getLanguage();
   response.setCharacterEncoding("UTF-8");
   response.setContentType("text/html; charset=UTF-8");
-  boolean isRegisted = UnlockService.isRegisted();
-  boolean canSKip = UnlockService.canSkipRegister();
 %>
 <html>
 <head>
@@ -36,12 +33,9 @@
 
 </head>
 <body>
-  <a href="<%=contextPath+"/software-register-auth"%>">Register your software</a>
+  <a href="#">Complete Register your software</a>
   <form id="frmSoftwareRegistration" action="<%=contextPath+"/software-register-action"%>" method="post">
-    <input type="hidden" name="value" />
-    <input type="button" name="btnContinue" value="Continue" <%if(!isRegisted){%>disabled<%}%> />
-    <input type="button" name="btnSkip" value="Skip" <%if(!canSKip){%>disabled<%}%> />
-    <input type="button" name="btnCompleteRegistration" value="Complete Registration"/>
+    <input type="button" name="btnContinue" value="Continue"/>
   </form>
 </body>
 </html>

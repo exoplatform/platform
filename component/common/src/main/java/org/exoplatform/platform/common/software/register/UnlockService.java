@@ -1,7 +1,10 @@
 package org.exoplatform.platform.common.software.register;
 
 import org.apache.commons.codec.binary.Base64;
-import org.apache.commons.lang.StringUtils;
+import org.exoplatform.commons.api.settings.SettingService;
+import org.exoplatform.commons.api.settings.SettingValue;
+import org.exoplatform.commons.api.settings.data.Context;
+import org.exoplatform.commons.api.settings.data.Scope;
 import org.exoplatform.commons.info.MissingProductInformationException;
 import org.exoplatform.commons.info.ProductInformations;
 import org.exoplatform.container.ExoContainerContext;
@@ -13,7 +16,11 @@ import org.exoplatform.services.log.Log;
 import org.exoplatform.web.filter.Filter;
 import org.picocontainer.Startable;
 
-import javax.servlet.*;
+import javax.servlet.FilterChain;
+import javax.servlet.ServletContext;
+import javax.servlet.ServletException;
+import javax.servlet.ServletRequest;
+import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -48,6 +55,7 @@ public class UnlockService implements Startable {
     private static String KEY_CONTENT = null;
     private static boolean isUnlocked = false;
     private static boolean showTermsandConditions = true;
+    private static boolean showSoftwareRegistration = true;
     private static boolean outdated = false;
     private static int delayPeriod = Utils.DEFAULT_DELAY_PERIOD;
     private static int nbDaysBeforeExpiration = 0;
@@ -59,8 +67,10 @@ public class UnlockService implements Startable {
     public static String ERROR = "";
     private static final int RETRY_ALLOW = 2;
     private static boolean isSkip=false;
+    private static SettingService settingService ;
+    public final static String SOFTWARE_REGISTRATION_NODE = "softwareRegistrationNode";
 
-    public UnlockService(ProductInformations productInformations, InitParams params) throws MissingProductInformationException {
+    public UnlockService(ProductInformations productInformations, InitParams params, SettingService settingService) throws MissingProductInformationException {
         restContext = ExoContainerContext.getCurrentContainer().getContext().getRestContextName();
         this.productInformations = productInformations;
         registrationFormUrl = ((ValueParam) params.get("registrationFormUrl")).getValue();
@@ -71,6 +81,7 @@ public class UnlockService implements Startable {
         String tmpValue = ((ValueParam) params.get("delayPeriod")).getValue();
         delayPeriod = (tmpValue == null || tmpValue.isEmpty()) ? Utils.DEFAULT_DELAY_PERIOD : Integer.parseInt(tmpValue);
         Utils.HOME_CONFIG_FILE_LOCATION = Utils.EXO_HOME_FOLDER + "/" + Utils.PRODUCT_NAME + "/license.xml";
+        this.settingService = settingService;
     }
 
     public static boolean isIsSkip() {
@@ -83,16 +94,17 @@ public class UnlockService implements Startable {
 
     public static boolean isRegisted() {
         try {
+            boolean softwareRegistedDone = false;
+            SettingValue accountSetupNode = settingService.get(Context.GLOBAL, Scope.GLOBAL, SOFTWARE_REGISTRATION_NODE);
+
+            if(accountSetupNode!=null){
+                softwareRegistedDone=true;
+            }
             String registerStatus = Utils.readFromFile(Utils.SW_REG_STATUS, Utils.HOME_CONFIG_FILE_LOCATION);
-            String productCode = Utils.readFromFile(Utils.PRODUCT_CODE, Utils.HOME_CONFIG_FILE_LOCATION);
-            String productKey = Utils.readFromFile(Utils.PRODUCT_KEY, Utils.HOME_CONFIG_FILE_LOCATION);
-            if(StringUtils.equals(productKey, productInformations.getProductKey())
-                    && StringUtils.equals(productCode, productInformations.getProductCode()))
-            return Boolean.parseBoolean(registerStatus);
+            return Boolean.parseBoolean(registerStatus) && softwareRegistedDone;
         }catch(Exception ex){
             return false;
         }
-        return false;
     }
 
     public static boolean canSkipRegister(){
@@ -138,6 +150,7 @@ public class UnlockService implements Startable {
                 outdated = false;
                 isUnlocked = true;
                 showTermsandConditions = false;
+                showSoftwareRegistration = false;
                 return;
             }
         }
@@ -192,6 +205,7 @@ public class UnlockService implements Startable {
                     isUnlocked = true;
                     PingBackServlet.writePingBackFormDisplayed(true);
                     showTermsandConditions = false;
+                    showSoftwareRegistration = false;
                     Utils.writeToFile(Utils.PRODUCT_CODE, productCode, Utils.HOME_CONFIG_FILE_LOCATION);
                     Utils.writeToFile(Utils.PRODUCT_KEY, unlockKey, Utils.HOME_CONFIG_FILE_LOCATION);
                     return true;
@@ -233,6 +247,10 @@ public class UnlockService implements Startable {
 
     public static boolean showTermsAndConditions(){
          return showTermsandConditions;
+    }
+
+    public static boolean showSoftwareRegistration() {
+        return showSoftwareRegistration;
     }
 
     public static String getSubscriptionUrl() {

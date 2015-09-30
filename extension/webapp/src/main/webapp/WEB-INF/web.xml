@@ -74,6 +74,10 @@
     <servlet-class>org.exoplatform.platform.common.software.register.web.SoftwareRegisterViewServlet</servlet-class>
   </servlet>
   <servlet>
+    <servlet-name>SoftwareRegisterAuthViewServlet</servlet-name>
+    <servlet-class>org.exoplatform.platform.common.software.register.web.SoftwareRegisterAuthViewServlet</servlet-class>
+  </servlet>
+  <servlet>
     <servlet-name>SoftwareRegisterActionServlet</servlet-name>
     <servlet-class>org.exoplatform.platform.common.software.register.web.SoftwareRegisterActionServlet</servlet-class>
   </servlet>
@@ -101,6 +105,10 @@
   <servlet-mapping>
     <servlet-name>SoftwareRegisterActionServlet</servlet-name>
     <url-pattern>/software-register-action</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>SoftwareRegisterAuthViewServlet</servlet-name>
+    <url-pattern>/software-register-auth</url-pattern>
   </servlet-mapping>
 
 </web-app>

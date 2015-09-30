@@ -43,6 +43,15 @@ public class SoftwareRegisterFilter implements Filter {
       REST_URI = ExoContainerContext.getCurrentContainer().getContext().getRestContextName();
   }
 
+  private boolean checkRequest(boolean requestSkip){
+    if(requestSkip){
+      if(!UnlockService.isUnlocked() && UnlockService.canSkipRegister()){
+        return true;
+      }
+      return false;
+    }
+    return true;
+  }
   public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
     HttpServletRequest httpServletRequest = (HttpServletRequest)request;
     HttpServletResponse httpServletResponse = (HttpServletResponse)response;
@@ -52,12 +61,12 @@ public class SoftwareRegisterFilter implements Filter {
     boolean isLoginUri = (requestUri.contains(loginRequestUri) || requestUri.contains(dologinRequestUri));
     boolean isRestUri = (requestUri.contains(REST_URI));
     boolean isDevMod = PropertyManager.isDevelopping();
-    boolean isUnlocked = UnlockService.isUnlocked();
-    boolean canSkip = UnlockService.canSkipRegister();
     boolean requestSkip = UnlockService.isIsSkip();
-    if(!isLoginUri && !isRestUri && !UnlockService.isRegisted()
-            && (!(isUnlocked && requestSkip) || !(!isUnlocked && canSkip && requestSkip) || (!isUnlocked && !canSkip && requestSkip))) {
-      //Skip updated
+
+
+    if(!isRestUri && !UnlockService.isRegisted()
+            && UnlockService.showSoftwareRegistration() && checkRequest(requestSkip)) {
+
       UnlockService.updateNumberRetry();
       // Get full url
       String reqUri = httpServletRequest.getRequestURI().toString();
@@ -68,7 +77,7 @@ public class SoftwareRegisterFilter implements Filter {
 
       // Get plf extension servlet context (because TermsAndConditionsFilter and terms-and-conditions servlet declaration are not on same context (webapp))
       ServletContext welcomrScreensContext = httpServletRequest.getSession().getServletContext().getContext(PLF_COMMUNITY_SERVLET_CTX);
-      // Forward to resource from this context: 
+      // Forward to resource from this context:
       String uriTarget = (new StringBuilder()).append(SR_SERVLET_URL + "?" + INITIAL_URI_PARAM_NAME + "=").append(reqUri).toString();
       welcomrScreensContext.getRequestDispatcher(uriTarget).forward(httpServletRequest, httpServletResponse);
       return;

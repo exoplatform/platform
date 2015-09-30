@@ -1,10 +1,11 @@
 package org.exoplatform.platform.common.software.register.web;
 
-import org.apache.commons.lang.StringUtils;
+import org.exoplatform.commons.api.settings.SettingService;
+import org.exoplatform.commons.api.settings.SettingValue;
+import org.exoplatform.commons.api.settings.data.Context;
+import org.exoplatform.commons.api.settings.data.Scope;
+import org.exoplatform.container.PortalContainer;
 import org.exoplatform.platform.common.software.register.UnlockService;
-import org.exoplatform.platform.common.software.register.Utils;
-import org.exoplatform.services.log.ExoLogger;
-import org.exoplatform.services.log.Log;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -19,23 +20,16 @@ import java.io.IOException;
  * On 9/28/15
  * Software register to Tribe
  */
-public class SoftwareRegisterActionServlet extends HttpServlet {
+public class SoftwareRegisterAuthViewServlet extends HttpServlet {
 
   private static final long serialVersionUID = 1L;
-  private static final Log logger = ExoLogger.getLogger(SoftwareRegisterActionServlet.class);
+  private final static String SR_JSP_RESOURCE = "/WEB-INF/jsp/welcome-screens/softwareregister-success.jsp";
 
   @Override
   protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-    String redirectURI = "/portal/";
-    String value = request.getParameter("value");
-    int xx = Integer.parseInt(Utils.readFromFile(Utils.SW_REG_SKIPPED, Utils.HOME_CONFIG_FILE_LOCATION));
-    if(xx>10){
-      //Utils.writeToFile(Utils.SW_REG_STATUS, String.valueOf("true"), Utils.HOME_CONFIG_FILE_LOCATION);
-    }
-    if(StringUtils.equals("skip", value)) {
-      UnlockService.setIsSkip(true);
-    }
-    response.sendRedirect(redirectURI);
+    SettingService settingService = PortalContainer.getInstance().getComponentInstanceOfType(SettingService.class);
+    settingService.set(Context.GLOBAL, Scope.GLOBAL, UnlockService.SOFTWARE_REGISTRATION_NODE, SettingValue.create("Software registered:" + "true"));
+    getServletContext().getRequestDispatcher(SR_JSP_RESOURCE).forward(request, response);
   }
 
   @Override
