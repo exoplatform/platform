@@ -8,6 +8,10 @@ package org.exoplatform.platform.common.software.register.service;
  * Software register to Tribe service
  */
 public interface SoftwareRegistrationService {
+
+  public final static String SOFTWARE_REGISTRATION_NODE = "softwareRegistrationNode";
+  public final static String SOFTWARE_REGISTRATION_SKIPPED = "softwareRegistrationSkipped";
+
   /**
    * Check has your software registered to Tribe
    * @return boolean value
@@ -18,4 +22,13 @@ public interface SoftwareRegistrationService {
    * Check is registered and create if not exist
    */
   public void checkSoftwareRegistration();
+
+  /**
+   * get Skipped number
+   * max is 2
+   * @return
+   */
+  public int getSkippedNumber();
+
+  public void updateSkippedNumber();
 }

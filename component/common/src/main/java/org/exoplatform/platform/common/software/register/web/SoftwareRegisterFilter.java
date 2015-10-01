@@ -44,10 +44,8 @@ public class SoftwareRegisterFilter implements Filter {
   }
 
   private boolean checkRequest(boolean requestSkip){
-    if(requestSkip){
-      if(!UnlockService.isUnlocked() && UnlockService.canSkipRegister()){
-        return true;
-      }
+    if(!requestSkip) return true;
+    if(!(UnlockService.isUnlocked() && UnlockService.canSkipRegister()) || (UnlockService.isUnlocked())){
       return false;
     }
     return true;
@@ -66,15 +64,12 @@ public class SoftwareRegisterFilter implements Filter {
 
     if(!isRestUri && !UnlockService.isRegisted()
             && UnlockService.showSoftwareRegistration() && checkRequest(requestSkip)) {
-
-      UnlockService.updateNumberRetry();
       // Get full url
       String reqUri = httpServletRequest.getRequestURI().toString();
       String queryString = httpServletRequest.getQueryString();
       if (queryString != null) {
           reqUri =new StringBuffer(reqUri).append("?").append(queryString).toString();
       }
-
       // Get plf extension servlet context (because TermsAndConditionsFilter and terms-and-conditions servlet declaration are not on same context (webapp))
       ServletContext welcomrScreensContext = httpServletRequest.getSession().getServletContext().getContext(PLF_COMMUNITY_SERVLET_CTX);
       // Forward to resource from this context:

@@ -1,6 +1,10 @@
 package org.exoplatform.platform.common.software.register.service.impl;
 
 import org.chromattic.api.ChromatticSession;
+import org.exoplatform.commons.api.settings.SettingService;
+import org.exoplatform.commons.api.settings.SettingValue;
+import org.exoplatform.commons.api.settings.data.Context;
+import org.exoplatform.commons.api.settings.data.Scope;
 import org.exoplatform.commons.chromattic.ChromatticLifeCycle;
 import org.exoplatform.commons.chromattic.ChromatticManager;
 import org.exoplatform.platform.common.software.register.service.SoftwareRegistrationService;
@@ -26,16 +30,39 @@ public class SoftwareRegistrationServiceImpl implements SoftwareRegistrationServ
   private ChromatticLifeCycle lifeCycle;
   private NodeHierarchyCreator nodeHierarchyCreator;
   private static boolean hasSoftwareRegisteredNode = false;
+  private static SettingService settingService ;
 
   public ChromatticSession getSession() {
     return lifeCycle.getChromattic().openSession();
   }
 
-  public SoftwareRegistrationServiceImpl(ChromatticManager chromatticManager, NodeHierarchyCreator nodeHierarchyCreator) {
+  public SoftwareRegistrationServiceImpl(ChromatticManager chromatticManager,
+                                         NodeHierarchyCreator nodeHierarchyCreator,
+                                         SettingService settingService) {
     this.lifeCycle = chromatticManager.getLifeCycle(CHROMATTIC_LIFECYCLE_NAME);
     this.nodeHierarchyCreator = nodeHierarchyCreator;
+    this.settingService = settingService;
   }
 
+  @Override
+  public void updateSkippedNumber() {
+    int skippedNumber = getSkippedNumber();
+    settingService.set(Context.GLOBAL, Scope.GLOBAL, SOFTWARE_REGISTRATION_SKIPPED,
+            new SettingValue<Object>(String.valueOf(++skippedNumber)));
+  }
+
+  /**
+   *{@inheritDoc}
+   */
+  @Override
+  public int getSkippedNumber() {
+    SettingValue settingValue = settingService.get(Context.GLOBAL, Scope.GLOBAL, SOFTWARE_REGISTRATION_SKIPPED);
+    if(settingValue!=null){
+      return Integer.parseInt(settingValue.getValue().toString());
+    }
+    settingService.set(Context.GLOBAL, Scope.GLOBAL, SOFTWARE_REGISTRATION_SKIPPED, new SettingValue<Object>("0"));
+    return 0;
+  }
 
   /**
    *{@inheritDoc}
@@ -43,7 +70,7 @@ public class SoftwareRegistrationServiceImpl implements SoftwareRegistrationServ
   @Override
   public boolean isSoftwareRegistered() {
     boolean isChecked = false;
-    if(hasTermsAndConditions()) {
+    if(hasSoftwareRegistration()) {
       isChecked = true;
     }
     return isChecked;
@@ -54,7 +81,16 @@ public class SoftwareRegistrationServiceImpl implements SoftwareRegistrationServ
    */
   @Override
   public void checkSoftwareRegistration() {
+    if (lifeCycle.getContext() == null) {
+      lifeCycle.openContext();
+    }
 
+    if(!hasSoftwareRegistration()) {
+      createSoftwareRegistrationNode();
+    }
+    else {
+      LOG.debug("Terms and conditions: yet checked");
+    }
   }
 
   /**
@@ -74,7 +110,6 @@ public class SoftwareRegistrationServiceImpl implements SoftwareRegistrationServ
     } finally {
       if (sessionProvider != null) {
         sessionProvider.close();
-
       }
     }
   }
@@ -83,7 +118,7 @@ public class SoftwareRegistrationServiceImpl implements SoftwareRegistrationServ
    * Check existed software registration node
    * @return
    */
-  private boolean hasTermsAndConditions() {
+  private boolean hasSoftwareRegistration() {
     SessionProvider sessionProvider = null;
     try {
       if (hasSoftwareRegisteredNode)  {

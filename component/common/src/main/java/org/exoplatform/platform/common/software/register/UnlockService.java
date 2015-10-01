@@ -2,15 +2,13 @@ package org.exoplatform.platform.common.software.register;
 
 import org.apache.commons.codec.binary.Base64;
 import org.exoplatform.commons.api.settings.SettingService;
-import org.exoplatform.commons.api.settings.SettingValue;
-import org.exoplatform.commons.api.settings.data.Context;
-import org.exoplatform.commons.api.settings.data.Scope;
 import org.exoplatform.commons.info.MissingProductInformationException;
 import org.exoplatform.commons.info.ProductInformations;
 import org.exoplatform.container.ExoContainerContext;
 import org.exoplatform.container.xml.InitParams;
 import org.exoplatform.container.xml.ValueParam;
 import org.exoplatform.platform.common.account.setup.web.PingBackServlet;
+import org.exoplatform.platform.common.software.register.service.SoftwareRegistrationService;
 import org.exoplatform.services.log.ExoLogger;
 import org.exoplatform.services.log.Log;
 import org.exoplatform.web.filter.Filter;
@@ -65,12 +63,15 @@ public class UnlockService implements Startable {
     private static ScheduledExecutorService executor;
     private static ProductInformations productInformations;
     public static String ERROR = "";
-    private static final int RETRY_ALLOW = 2;
+    private static final int SKIPPED_ALLOW = 2;
     private static boolean isSkip=false;
-    private static SettingService settingService ;
-    public final static String SOFTWARE_REGISTRATION_NODE = "softwareRegistrationNode";
 
-    public UnlockService(ProductInformations productInformations, InitParams params, SettingService settingService) throws MissingProductInformationException {
+    private static SoftwareRegistrationService softwareRegistrationService;
+
+    public UnlockService(ProductInformations productInformations, InitParams params,
+                         SettingService settingService,
+                         SoftwareRegistrationService softwareRegistrationService)
+            throws MissingProductInformationException {
         restContext = ExoContainerContext.getCurrentContainer().getContext().getRestContextName();
         this.productInformations = productInformations;
         registrationFormUrl = ((ValueParam) params.get("registrationFormUrl")).getValue();
@@ -81,7 +82,7 @@ public class UnlockService implements Startable {
         String tmpValue = ((ValueParam) params.get("delayPeriod")).getValue();
         delayPeriod = (tmpValue == null || tmpValue.isEmpty()) ? Utils.DEFAULT_DELAY_PERIOD : Integer.parseInt(tmpValue);
         Utils.HOME_CONFIG_FILE_LOCATION = Utils.EXO_HOME_FOLDER + "/" + Utils.PRODUCT_NAME + "/license.xml";
-        this.settingService = settingService;
+        this.softwareRegistrationService = softwareRegistrationService;
     }
 
     public static boolean isIsSkip() {
@@ -94,39 +95,18 @@ public class UnlockService implements Startable {
 
     public static boolean isRegisted() {
         try {
-            boolean softwareRegistedDone = false;
-            SettingValue accountSetupNode = settingService.get(Context.GLOBAL, Scope.GLOBAL, SOFTWARE_REGISTRATION_NODE);
-
-            if(accountSetupNode!=null){
-                softwareRegistedDone=true;
-            }
-            String registerStatus = Utils.readFromFile(Utils.SW_REG_STATUS, Utils.HOME_CONFIG_FILE_LOCATION);
-            return Boolean.parseBoolean(registerStatus) && softwareRegistedDone;
+            boolean registerStatus = softwareRegistrationService.isSoftwareRegistered();
+            return registerStatus;
         }catch(Exception ex){
             return false;
         }
     }
 
     public static boolean canSkipRegister(){
-        String numberSkip = Utils.readFromFile(Utils.SW_REG_SKIPPED, Utils.HOME_CONFIG_FILE_LOCATION);
-        try{
-            return RETRY_ALLOW>Integer.parseInt(numberSkip)?true:false;
-        }catch (NumberFormatException nfe){
-            return false;
-        }
+        int skippedNumber = softwareRegistrationService.getSkippedNumber();
+        return SKIPPED_ALLOW>skippedNumber?true:false;
     }
 
-    public static int updateNumberRetry(){
-        String numberRetry = Utils.readFromFile(Utils.SW_REG_SKIPPED, Utils.HOME_CONFIG_FILE_LOCATION);
-        try{
-            int currentRetry = Integer.parseInt(numberRetry);
-            Utils.writeToFile(Utils.SW_REG_SKIPPED, String.valueOf(++currentRetry), Utils.HOME_CONFIG_FILE_LOCATION);
-            return currentRetry;
-        }catch (NumberFormatException nfe){
-            Utils.writeToFile(Utils.SW_REG_SKIPPED, String.valueOf("1"), Utils.HOME_CONFIG_FILE_LOCATION);
-        }
-        return 0;
-    }
     public void start() {
         if (!new File(Utils.HOME_CONFIG_FILE_LOCATION).exists()) {
             if (checkLicenceInJcr()) return;
