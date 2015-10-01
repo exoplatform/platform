@@ -18,7 +18,7 @@
       }
       this.toggleLeftBar();
       this.toggleRightBar();
-      this.leftNavAccordion();
+      // this.leftNavAccordion();
       this.displaySubMenu();
       // trigger back item when client lost focus on sub menu
       $('#UISetupPlatformToolBarPortlet').on('click', function(evt) {
@@ -135,47 +135,48 @@
         }
       });
     },
-    leftNavAccordion : function() {
-  $('#LeftNavigation .accordionBar').unbind("click"); 
-      var aTitle = $('#LeftNavigation .accordionBar').find('a');
-      if ( windowsize < 1025 ) {
-      
-    if (windowsize <= 480 ) { //mobile 
-      $('.title.accordionBar').first().addClass('active');      
-      $('.accordionCont').first().addClass('active').show();     
-    }else{
-      $('.title.accordionBar').addClass('active');      
-      $('.accordionCont').addClass('active').show();     
-    }
+    // leftNavAccordion : function() {
+      // $('#LeftNavigation .accordionBar').unbind("click"); 
+      //   var aTitle = $('#LeftNavigation .accordionBar').find('a');
+      //   if ( windowsize < 1025 ) {
+        
+      // if (windowsize <= 480 ) { //mobile 
+      //   $('.title.accordionBar').first().addClass('active');      
+      //   $('.accordionCont').first().addClass('active').show();     
+      // }else{
+      //   $('.title.accordionBar').addClass('active');      
+      //   $('.accordionCont').addClass('active').show();     
+      // }
         
     
-      $('.title.accordionBar').prepend('<i class="uiIconArrowRight pull-right"></i>');  
-      $('.uiSpaceNavigationPortlet .joinSpace').insertBefore($('.uiSpaceNavigationPortlet .spaceNavigation'));
-        $('#LeftNavigation .accordionBar').click(function(e){
-          if(windowsize>1024) return;
-          var subContent = $(this).next();
-          if ($(this).hasClass('active')) {
-            $(this).removeClass('active');
-            subContent.slideUp().removeClass('active');
-          } else {
-             if(windowsize<480) {
-              $('#LeftNavigation .accordionBar').removeClass('active');
-              $('.accordionCont').removeClass('active').slideUp();
-            }
-            $(this).addClass('active');
-            subContent.slideDown().addClass('active');
-          }
-        });
+      // $('.title.accordionBar').prepend('<i class="uiIconArrowRight pull-right"></i>');  
+      // $('.uiSpaceNavigationPortlet .joinSpace').insertBefore($('.uiSpaceNavigationPortlet .spaceNavigation'));
+      //   $('#LeftNavigation .accordionBar').click(function(e){
+      //     if(windowsize>1024) return;
+      //     var subContent = $(this).next();
+      //     if ($(this).hasClass('active')) {
+      //       $(this).removeClass('active');
+      //       subContent.slideUp().removeClass('active');
+      //     } else {
+      //        if(windowsize<480) {
+      //         $('#LeftNavigation .accordionBar').removeClass('active');
+      //         $('.accordionCont').removeClass('active').slideUp();
+      //       }
+      //       $(this).addClass('active');
+      //       subContent.slideDown().addClass('active');
+      //     }
+      //   });
     
-        aTitle.data('link',  function() { return $(this).attr('href'); }).attr('href', 'javascript:void(0)');
-      } else {
-        aTitle.each(function(i) {
-          if($(this).data('link')) {
-            $(this).attr('href',  function() { return $(this).data('link'); });
-          }
-        });
-      }
-    },
+      //   aTitle.data('link',  function() { return $(this).attr('href'); }).attr('href', 'javascript:void(0)');
+      // } else {
+      //   aTitle.each(function(i) {
+      //     if($(this).data('link')) {
+      //       $(this).attr('href',  function() { return $(this).data('link'); });
+      //     }
+      //   });
+      // }
+    // },
+    
     showProfileMenu : function() {
       var dropdow_menu = $('#UIUserPlatformToolBarPortlet > .dropdown-menu'),
           avatar = $('#NavigationPortlet .uiUserToolBarPortlet > .dropdown-toggle').clone(),
@@ -288,16 +289,37 @@
       });
 
       //end event touch on mobile
-	   $('#UICreateList').find('.btn').next().click(function(){
-		  $('#UICreateList').hide().removeClass('create-form-dropdown').delay(200).show(200);
-	   //create new wiki page on top navigation
-	  });
+     $('#UICreateList').find('.btn').next().click(function(){
+      $('#UICreateList').hide().removeClass('create-form-dropdown').delay(200).show(200);
+     //create new wiki page on top navigation
+    });
      //change icon search in toolbar to icon close input search
     $("#ToolBarSearch .uiIconPLF24x24Search").on('click', function(){
       $(this).toggleClass('uiIconCloseSearchBox')
-             .parents('#ToolBarSearch').find('input[type="text"]').toggleClass("showInputSearch")
+             .parents('#ToolBarSearch').find('input[type="text"]').toggleClass("showInputSearch").removeClass('loadding')
              .parents('#ToolBarSearch').find('.uiQuickSearchResult').hide()
-             .parents('#PlatformAdminToolbarContainer').toggleClass('activeInputSearch');
+             .parents('#PlatformAdminToolbarContainer').toggleClass('activeInputSearch')
+             .parents('body').toggleClass('quickSearchDisplay');
+    });
+
+    //left accordion navigation
+    $('.LeftNavigationTDContainer').find('.navItemSelected, .active, .spaceItemSelected').parents('.accordionCont').parent().addClass('showAccordionBar');
+    $('.LeftNavigationTDContainer .accordionBar').on('click', function(){
+      if(eXo.commons.Utils.checkDevice().isSmallMobile) {
+        $('.LeftNavigationTDContainer .accordionBar').parent().removeClass('ShowMobileAccordionBar showAccordionBar').addClass('hidePadAccordionBar');
+        $(this).parent().toggleClass('ShowMobileAccordionBar').removeClass('hidePadAccordionBar');
+      }else
+      if(eXo.commons.Utils.checkDevice().isSmallMobile || eXo.commons.Utils.checkDevice().isTablet || eXo.commons.Utils.checkDevice().isTabletL) {
+        $('.LeftNavigationTDContainer .accordionBar').parent().removeClass('showAccordionBar');
+        $(this).parent().toggleClass('hidePadAccordionBar');
+        $('.LeftNavigationTDContainer .UIRowContainer').each(function(){
+          if($(this).find('.accordionBar').parent().hasClass('hidePadAccordionBar')){
+            $(this).find('.accordionBar').parent().removeClass('ShowMobileAccordionBar');
+          }else{
+            $(this).find('.accordionBar').parent().addClass('ShowMobileAccordionBar');
+          }
+        })
+      }
     });
 
 
@@ -317,17 +339,17 @@
 
   });
 
-  function Responsive() {};
+  // function Responsive() {};
 
-  Responsive.prototype.drawSpaceAcess = function(){
-    tabManagerApp.leftNavAccordion();
-    if(eXo.commons.Utils.checkDevice().isSmallMobile) {		  
-		$('#LeftNavigation .uiSpaceNavigationPortlet .accordionBar').click();
-	  }
-  }
-  eXo.ecm.Responsive = new Responsive();
-  return {
-    Responsive : eXo.ecm.Responsive
-  };
+  // Responsive.prototype.drawSpaceAcess = function(){
+  //   tabManagerApp.leftNavAccordion();
+  //   if(eXo.commons.Utils.checkDevice().isSmallMobile) {     
+  //   $('#LeftNavigation .uiSpaceNavigationPortlet .accordionBar').click();
+  //   }
+  // }
+  // eXo.ecm.Responsive = new Responsive();
+  // return {
+  //   Responsive : eXo.ecm.Responsive
+  // };
 
 })($);

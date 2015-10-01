@@ -94,7 +94,7 @@
 %>
 <div class="uiCompanyNavigationPortlet">
     <h5 class="title accordionBar clearfix">
-        <%= _ctx.appRes("UICompanyNavigationPortlet.CompanyBar")  %> 
+        <%= _ctx.appRes("UICompanyNavigationPortlet.CompanyBar")  %> <i class="uiIconArrowRight pull-right"></i>
     </h5>
 	<div class="accordionCont">
     <%
