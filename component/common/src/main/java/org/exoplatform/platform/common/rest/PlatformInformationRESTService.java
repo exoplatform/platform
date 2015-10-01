@@ -135,6 +135,49 @@ public class PlatformInformationRESTService implements ResourceContainer {
             }
         }
     }
+    
+    public JsonPlatformInfo getJsonPlatformInfo() {
+      SessionProvider sessionProvider = null;
+      try {
+          PortalContainer container = PortalContainer.getInstance();
+          sessionProvider = SessionProvider.createSystemProvider();
+          RepositoryService repoService = (RepositoryService) container.getComponentInstanceOfType(RepositoryService.class);
+          String plfProfile = PortalContainer.getProfiles().toString().trim();
+          String runningProfile = plfProfile.substring(1, plfProfile.length() - 1);
+          ManageableRepository repo = repoService.getCurrentRepository();
+          JsonPlatformInfo jsonPlatformInfo = new JsonPlatformInfo();
+          jsonPlatformInfo.setPlatformVersion(platformInformations.getVersion());
+          jsonPlatformInfo.setPlatformBuildNumber(platformInformations.getBuildNumber());
+          jsonPlatformInfo.setPlatformRevision(platformInformations.getRevision());
+          jsonPlatformInfo.setIsMobileCompliant(isMobileCompliant().toString());
+          jsonPlatformInfo.setRunningProfile(runningProfile);
+          jsonPlatformInfo.setCurrentRepoName(repo.getConfiguration().getName());
+          jsonPlatformInfo.setPlatformEdition(getPlatformEdition());
+          jsonPlatformInfo.setDefaultWorkSpaceName(repo.getConfiguration().getDefaultWorkspaceName());
+          jsonPlatformInfo.setUserHomeNodePath("");
+          if ((platformInformations.getEdition() != null) && (!platformInformations.getEdition().equals(""))) {
+              jsonPlatformInfo.setDuration(platformInformations.getDuration());
+              jsonPlatformInfo.setDateOfKeyGeneration(platformInformations.getDateOfLicence());
+              jsonPlatformInfo.setNbUsers(platformInformations.getNumberOfUsers());
+              if (userACL.isUserInGroup(userACL.getAdminGroups())) {
+                jsonPlatformInfo.setProductCode(platformInformations.getProductCode());
+                jsonPlatformInfo.setUnlockKey(platformInformations.getProductKey());
+              }
+          }
+          if (LOG.isDebugEnabled()) {
+              LOG.debug("Getting Platform Informations: eXo Platform (v" + platformInformations.getVersion() + " - build "
+                      + platformInformations.getBuildNumber() + " - rev. " + platformInformations.getRevision());
+          }
+          return jsonPlatformInfo;
+      } catch (Exception e) {
+          LOG.error("An error occured while getting platform version information.", e);
+          return null;
+      } finally {
+          if (sessionProvider!=null) {
+              sessionProvider.close ();
+          }
+      }
+  }
 
     private Boolean isMobileCompliant() {
         String platformEdition = getPlatformEdition();
