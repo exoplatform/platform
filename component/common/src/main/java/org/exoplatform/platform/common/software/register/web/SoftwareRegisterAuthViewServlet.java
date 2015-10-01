@@ -32,10 +32,13 @@ public class SoftwareRegisterAuthViewServlet extends HttpServlet {
     SoftwareRegistrationService softwareRegistrationService = PortalContainer.getInstance().getComponentInstanceOfType(SoftwareRegistrationService.class);
 
     String code = request.getParameter("code");
-    SoftwareRegistration softwareRegistration = softwareRegistrationService.getAccessToken(code);
+    SoftwareRegistration softwareRegistration =
+            softwareRegistrationService.getAccessToken(code, SoftwareRegistrationService.SOFTWARE_REGISTRATION_RETURN_URL);
     if(softwareRegistration!=null && softwareRegistration.getAccess_token()!=null) {
-      settingService.set(Context.GLOBAL, Scope.GLOBAL, SoftwareRegistrationService.SOFTWARE_REGISTRATION_NODE, SettingValue.create("Software registered:" + "true"));
+      settingService.set(Context.GLOBAL, Scope.GLOBAL,
+              SoftwareRegistrationService.SOFTWARE_REGISTRATION_NODE, SettingValue.create("Software registered:" + "true"));
       softwareRegistrationService.checkSoftwareRegistration();
+      softwareRegistrationService.sendPlfInformation(softwareRegistration.getAccess_token());
       getServletContext().setAttribute("status", "success");
     }else {
       getServletContext().setAttribute("status", "failed");

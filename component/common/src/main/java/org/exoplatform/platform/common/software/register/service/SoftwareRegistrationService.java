@@ -13,6 +13,8 @@ public interface SoftwareRegistrationService {
 
   public final static String SOFTWARE_REGISTRATION_NODE = "softwareRegistrationNode";
   public final static String SOFTWARE_REGISTRATION_SKIPPED = "softwareRegistrationSkipped";
+  public final static String SOFTWARE_REGISTRATION_HOST = "http://191.168.1.131:8080";
+  public final static String SOFTWARE_REGISTRATION_RETURN_URL = "http://localhost:8080/registrationPLF/software-register-auth";
 
   /**
    * Check has your software registered to Tribe
@@ -39,5 +41,7 @@ public interface SoftwareRegistrationService {
    * @param code
    * @return
    */
-  public SoftwareRegistration getAccessToken(String code);
+  public SoftwareRegistration getAccessToken(String code, String returnURL);
+
+  public boolean sendPlfInformation(String accessToken);
 }
