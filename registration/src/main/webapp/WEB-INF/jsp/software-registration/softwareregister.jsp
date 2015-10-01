@@ -32,11 +32,11 @@
 <head>
   <title>Register your Software</title>
   <script type="text/javascript" src="/platform-extension/javascript/jquery-1.7.1.js"></script>
-  <script type="text/javascript" src="/platform-extension/javascript/welcome-screens/software-registration.js"></script>
+  <script type="text/javascript" src="/registrationPLF/javascript/registration/software-registration.js"></script>
 
 </head>
 <body>
-  <a href="<%=contextPath+"/software-register-auth"%>">Register your software</a>
+  <a href="http://192.168.1.131:8080/portal/authorize?client_id=x6iCo6YWmw&response_type=code&redirect_uri=http://localhost:8080/registrationPLF/software-register-auth"%>">Register your software</a>
   <form id="frmSoftwareRegistration" action="<%=contextPath+"/software-register-action"%>" method="post">
     <input type="hidden" name="value" />
     <input type="button" name="btnContinue" value="Continue" <%if(!isRegisted){%>disabled<%}%> />

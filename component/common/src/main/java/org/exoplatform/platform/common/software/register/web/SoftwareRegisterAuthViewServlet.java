@@ -5,6 +5,7 @@ import org.exoplatform.commons.api.settings.SettingValue;
 import org.exoplatform.commons.api.settings.data.Context;
 import org.exoplatform.commons.api.settings.data.Scope;
 import org.exoplatform.container.PortalContainer;
+import org.exoplatform.platform.common.software.register.model.SoftwareRegistration;
 import org.exoplatform.platform.common.software.register.service.SoftwareRegistrationService;
 
 import javax.servlet.ServletException;
@@ -23,14 +24,22 @@ import java.io.IOException;
 public class SoftwareRegisterAuthViewServlet extends HttpServlet {
 
   private static final long serialVersionUID = 1L;
-  private final static String SR_JSP_RESOURCE = "/WEB-INF/jsp/welcome-screens/softwareregister-success.jsp";
+  private final static String SR_JSP_RESOURCE = "/WEB-INF/jsp/software-registration/softwareregister-success.jsp";
 
   @Override
   protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
     SettingService settingService = PortalContainer.getInstance().getComponentInstanceOfType(SettingService.class);
-    settingService.set(Context.GLOBAL, Scope.GLOBAL, SoftwareRegistrationService.SOFTWARE_REGISTRATION_NODE, SettingValue.create("Software registered:" + "true"));
     SoftwareRegistrationService softwareRegistrationService = PortalContainer.getInstance().getComponentInstanceOfType(SoftwareRegistrationService.class);
-    softwareRegistrationService.checkSoftwareRegistration();
+
+    String code = request.getParameter("code");
+    SoftwareRegistration softwareRegistration = softwareRegistrationService.getAccessToken(code);
+    if(softwareRegistration!=null && softwareRegistration.getAccess_token()!=null) {
+      settingService.set(Context.GLOBAL, Scope.GLOBAL, SoftwareRegistrationService.SOFTWARE_REGISTRATION_NODE, SettingValue.create("Software registered:" + "true"));
+      softwareRegistrationService.checkSoftwareRegistration();
+      getServletContext().setAttribute("status", "success");
+    }else {
+      getServletContext().setAttribute("status", "failed");
+    }
     getServletContext().getRequestDispatcher(SR_JSP_RESOURCE).forward(request, response);
   }
 

@@ -21,6 +21,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%
   String contextPath = request.getContextPath();
+  String status = request.getServletContext().getAttribute("status").toString();
   String lang = request.getLocale().getLanguage();
   response.setCharacterEncoding("UTF-8");
   response.setContentType("text/html; charset=UTF-8");
@@ -29,10 +30,13 @@
 <head>
   <title>Register your Software</title>
   <script type="text/javascript" src="/platform-extension/javascript/jquery-1.7.1.js"></script>
-  <script type="text/javascript" src="/platform-extension/javascript/welcome-screens/software-registration.js"></script>
+  <script type="text/javascript" src="/registrationPLF/javascript/registration/software-registration.js"></script>
 
 </head>
 <body>
+
+<h1><%=status%></h1>
+
   <a href="#">Complete Register your software</a>
   <form id="frmSoftwareRegistration" action="<%=contextPath+"/software-register-action"%>" method="post">
     <input type="button" name="btnContinue" value="Continue"/>

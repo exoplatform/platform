@@ -16,7 +16,7 @@ import java.io.IOException;
 public class SoftwareRegisterViewServlet extends HttpServlet {
 
   private static final long serialVersionUID = 1L;
-  private final static String SR_JSP_RESOURCE = "/WEB-INF/jsp/welcome-screens/softwareregister.jsp";
+  private final static String SR_JSP_RESOURCE = "/WEB-INF/jsp/software-registration/softwareregister.jsp";
 
   @Override
   protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

@@ -1,5 +1,7 @@
 package org.exoplatform.platform.common.software.register.service;
 
+import org.exoplatform.platform.common.software.register.model.SoftwareRegistration;
+
 /**
  * Created by The eXo Platform SEA
  * Author : eXoPlatform
@@ -31,4 +33,11 @@ public interface SoftwareRegistrationService {
   public int getSkippedNumber();
 
   public void updateSkippedNumber();
+
+  /**
+   * Get access token from community side
+   * @param code
+   * @return
+   */
+  public SoftwareRegistration getAccessToken(String code);
 }

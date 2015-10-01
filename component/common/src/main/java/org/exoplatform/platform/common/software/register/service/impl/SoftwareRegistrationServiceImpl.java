@@ -1,5 +1,12 @@
 package org.exoplatform.platform.common.software.register.service.impl;
 
+import org.apache.http.HttpResponse;
+import org.apache.http.NameValuePair;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.entity.UrlEncodedFormEntity;
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.impl.client.DefaultHttpClient;
+import org.apache.http.message.BasicNameValuePair;
 import org.chromattic.api.ChromatticSession;
 
 import com.google.api.client.auth.oauth2.BearerToken;
@@ -18,6 +25,7 @@ import org.exoplatform.commons.info.ProductInformations;
 import org.exoplatform.container.PortalContainer;
 import org.exoplatform.platform.common.rest.PlatformInformationRESTService;
 import org.exoplatform.platform.common.rest.PlatformInformationRESTService.JsonPlatformInfo;
+import org.exoplatform.platform.common.software.register.model.SoftwareRegistration;
 import org.exoplatform.platform.common.software.register.service.SoftwareRegistrationService;
 import org.exoplatform.portal.config.UserACL;
 import org.exoplatform.services.jcr.RepositoryService;
@@ -26,6 +34,7 @@ import org.exoplatform.services.jcr.ext.common.SessionProvider;
 import org.exoplatform.services.jcr.ext.hierarchy.NodeHierarchyCreator;
 import org.exoplatform.services.log.ExoLogger;
 import org.exoplatform.services.log.Log;
+import org.json.JSONObject;
 
 import javax.jcr.Node;
 import javax.ws.rs.core.CacheControl;
@@ -34,6 +43,10 @@ import javax.ws.rs.core.Response;
 import javax.ws.rs.core.SecurityContext;
 
 import org.json.JSONObject;
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by The eXo Platform SEA
@@ -67,6 +80,55 @@ public class SoftwareRegistrationServiceImpl implements SoftwareRegistrationServ
     this.platformInformationRESTService = platformInformationRESTService;
   }
 
+  /**
+   *{@inheritDoc}
+   */
+  @Override
+  public SoftwareRegistration getAccessToken(String code) {
+    String url = "http://192.168.1.131:8080/portal/accessToken";
+    try {
+      HttpClient client = new DefaultHttpClient();
+      HttpPost post = new HttpPost(url);
+      List<NameValuePair> urlParameters = new ArrayList<>();
+      urlParameters.add(new BasicNameValuePair("grant_type", "authorization_code"));
+      urlParameters.add(new BasicNameValuePair("code", code));
+      urlParameters.add(new BasicNameValuePair("redirect_uri", "http://localhost:8080/registrationPLF/software-register-auth"));
+      urlParameters.add(new BasicNameValuePair("client_id", "x6iCo6YWmw"));
+      urlParameters.add(new BasicNameValuePair("client_secret", "3XNzbpuTSx5HqJsBSwgl"));
+
+      post.setEntity(new UrlEncodedFormEntity(urlParameters));
+
+      HttpResponse response = client.execute(post);
+
+      BufferedReader rd = new BufferedReader(
+              new InputStreamReader(response.getEntity().getContent()));
+
+      StringBuffer result = new StringBuffer();
+      String line = "";
+      while ((line = rd.readLine()) != null) {
+        result.append(line);
+      }
+
+      SoftwareRegistration softwareRegistration = new SoftwareRegistration();
+      JSONObject responseData = new JSONObject(result.toString());
+      if(response.getStatusLine().getStatusCode() == HTTPStatus.OK) {
+        String accessToken = responseData.getString("access_token");
+        softwareRegistration.setAccess_token(accessToken);
+      }else {
+        String errorCode = responseData.getString("error_code");
+        softwareRegistration.setError_code(errorCode);
+      }
+
+      return softwareRegistration;
+    }catch(Exception ex){
+      ex.printStackTrace();
+    }
+    return null;
+  }
+
+  /**
+   *{@inheritDoc}
+   */
   @Override
   public void updateSkippedNumber() {
     int skippedNumber = getSkippedNumber();

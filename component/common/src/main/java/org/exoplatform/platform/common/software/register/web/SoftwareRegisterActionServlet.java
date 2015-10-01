@@ -2,7 +2,6 @@ package org.exoplatform.platform.common.software.register.web;
 
 import org.apache.commons.lang.StringUtils;
 import org.exoplatform.platform.common.software.register.UnlockService;
-import org.exoplatform.platform.common.software.register.Utils;
 import org.exoplatform.platform.common.software.register.service.SoftwareRegistrationService;
 import org.exoplatform.services.log.ExoLogger;
 import org.exoplatform.services.log.Log;
@@ -31,10 +30,6 @@ public class SoftwareRegisterActionServlet extends HttpServlet {
     String redirectURI = "/portal/";
     String value = request.getParameter("value");
     SoftwareRegistrationService softwareRegistrationService = WCMCoreUtils.getService(SoftwareRegistrationService.class);
-    int xx = Integer.parseInt(Utils.readFromFile(Utils.SW_REG_SKIPPED, Utils.HOME_CONFIG_FILE_LOCATION));
-    if(xx>10){
-      //Utils.writeToFile(Utils.SW_REG_STATUS, String.valueOf("true"), Utils.HOME_CONFIG_FILE_LOCATION);
-    }
     if(StringUtils.equals("skip", value)) {
       UnlockService.setIsSkip(true);
       softwareRegistrationService.updateSkippedNumber();

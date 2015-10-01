@@ -32,7 +32,7 @@ import java.io.IOException;
 public class SoftwareRegisterFilter implements Filter {
 
   private static final Log logger = ExoLogger.getLogger(SoftwareRegisterFilter.class);
-  private static final String PLF_COMMUNITY_SERVLET_CTX = "/platform-extension";
+  private static final String PLF_COMMUNITY_SERVLET_CTX = "/registrationPLF";
   private static final String SR_SERVLET_URL = "/software-register";
   private static final String INITIAL_URI_PARAM_NAME = "initialURI";
   private static final String LOGIN_URI = "/login";

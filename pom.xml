@@ -19,6 +19,7 @@
     <module>samples</module>
     <module>exo-gadget-pack</module>
     <module>welcome-screens</module>
+    <module>registration</module>
   </modules>
   <scm>
     <connection>scm:git:git://github.com/exoplatform/platform.git</connection>
