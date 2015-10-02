@@ -1,13 +1,11 @@
 package org.exoplatform.platform.common.software.register.service.impl;
 
-import com.sun.jersey.api.client.Client;
-import com.sun.jersey.api.client.ClientResponse;
-import com.sun.jersey.api.client.WebResource;
 import org.apache.http.HttpResponse;
 import org.apache.http.NameValuePair;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.entity.UrlEncodedFormEntity;
 import org.apache.http.client.methods.HttpPost;
+import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.message.BasicNameValuePair;
 import org.chromattic.api.ChromatticSession;
@@ -221,33 +219,33 @@ public class SoftwareRegistrationServiceImpl implements SoftwareRegistrationServ
    */
   public boolean sendPlfInformation(String accessTokencode) {
     try {
-      Client client = Client.create();
-      WebResource webResource = client
-              .resource(SOFTWARE_REGISTRATION_HOST+"/portal/rest/registerLocalPlatformInformation/register");
-      webResource.header("Authorization", "Bearer " + accessTokencode);
+      String url = SOFTWARE_REGISTRATION_HOST+"/portal/rest/registerLocalPlatformInformation/register";
+      HttpClient client = new DefaultHttpClient();
+      HttpPost httpPost = new HttpPost(url);
 
       JsonPlatformInfo jsonPlatformInfo = platformInformationRESTService.getJsonPlatformInfo();
       JSONObject jsonObj = new JSONObject(jsonPlatformInfo);
 
       String input = jsonObj.toString();
 
-      ClientResponse response = webResource.type("application/json")
-              .post(ClientResponse.class, input);
+      httpPost.setHeader("Accept", "application/json");
+      httpPost.setHeader("Content-type", "application/json");
+      httpPost.setHeader("Authorization", "Bearer " + accessTokencode);
+      httpPost.setEntity(new StringEntity(input));
 
-      if (response.getStatus() != 200) {
-        LOG.warn("Failed : HTTP error code : " + response.getStatus());
+      HttpResponse response = client.execute(httpPost);
+
+      if (response.getStatusLine().getStatusCode() != 200) {
+        LOG.warn("Failed : HTTP error code : " + response.getStatusLine().getStatusCode());
         return false;
       }
-
       LOG.info("Output from Server .... \n");
-      String output = response.getEntity(String.class);
-      LOG.info(output);
       return true;
-
     } catch (Exception e) {
       LOG.warn("Can not send Platform information to eXo community", e);
       return false;
     }
+
   }
 
 }
