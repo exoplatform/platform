@@ -14,6 +14,24 @@ public class SoftwareRegistration {
   private String access_token;
   private String error_code;
   private String error_msg;
+  private boolean isNotReachable;
+  private boolean pushInfo;
+
+  public boolean isPushInfo() {
+    return pushInfo;
+  }
+
+  public void setPushInfo(boolean pushInfo) {
+    this.pushInfo = pushInfo;
+  }
+
+  public boolean isNotReachable() {
+    return isNotReachable;
+  }
+
+  public void setNotReachable(boolean isNotReachable) {
+    this.isNotReachable = isNotReachable;
+  }
 
   public String getError_code() {
     return error_code;

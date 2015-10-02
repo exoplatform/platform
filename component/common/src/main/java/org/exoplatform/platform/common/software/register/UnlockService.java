@@ -53,7 +53,6 @@ public class UnlockService implements Startable {
     private static String KEY_CONTENT = null;
     private static boolean isUnlocked = false;
     private static boolean showTermsandConditions = true;
-    private static boolean showSoftwareRegistration = true;
     private static boolean outdated = false;
     private static int delayPeriod = Utils.DEFAULT_DELAY_PERIOD;
     private static int nbDaysBeforeExpiration = 0;
@@ -130,7 +129,6 @@ public class UnlockService implements Startable {
                 outdated = false;
                 isUnlocked = true;
                 showTermsandConditions = false;
-                showSoftwareRegistration = false;
                 return;
             }
         }
@@ -185,7 +183,6 @@ public class UnlockService implements Startable {
                     isUnlocked = true;
                     PingBackServlet.writePingBackFormDisplayed(true);
                     showTermsandConditions = false;
-                    showSoftwareRegistration = false;
                     Utils.writeToFile(Utils.PRODUCT_CODE, productCode, Utils.HOME_CONFIG_FILE_LOCATION);
                     Utils.writeToFile(Utils.PRODUCT_KEY, unlockKey, Utils.HOME_CONFIG_FILE_LOCATION);
                     return true;
@@ -227,10 +224,6 @@ public class UnlockService implements Startable {
 
     public static boolean showTermsAndConditions(){
          return showTermsandConditions;
-    }
-
-    public static boolean showSoftwareRegistration() {
-        return showSoftwareRegistration;
     }
 
     public static String getSubscriptionUrl() {

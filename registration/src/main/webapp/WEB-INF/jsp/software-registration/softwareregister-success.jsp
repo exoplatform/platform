@@ -37,7 +37,6 @@
 
 <h1><%=status%></h1>
 
-  <a href="#">Complete Register your software</a>
   <form id="frmSoftwareRegistration" action="<%=contextPath+"/software-register-action"%>" method="post">
     <input type="button" name="btnContinue" value="Continue"/>
   </form>

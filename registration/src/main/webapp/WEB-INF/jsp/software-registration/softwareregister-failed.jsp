@@ -19,16 +19,12 @@
 
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ page import="org.exoplatform.platform.common.software.register.UnlockService" %>
 <%
   String contextPath = request.getContextPath();
+  String status = request.getServletContext().getAttribute("status").toString();
   String lang = request.getLocale().getLanguage();
   response.setCharacterEncoding("UTF-8");
   response.setContentType("text/html; charset=UTF-8");
-  boolean isRegisted = UnlockService.isRegisted();
-  boolean canSKip = UnlockService.canSkipRegister();
-
-  String registrationURL = request.getServletContext().getAttribute("registrationURL").toString();
 %>
 <html>
 <head>
@@ -38,11 +34,12 @@
 
 </head>
 <body>
-  <a href="<%=registrationURL%>">Register your software</a>
-  <form id="frmSoftwareRegistration" action="<%=contextPath+"/software-register-action"%>" method="post">
-    <input type="hidden" name="value" />
-    <input type="button" name="btnContinue" value="Continue" <%if(!isRegisted){%>disabled<%}%> />
-    <input type="button" name="btnSkip" value="Skip" <%if(!canSKip){%>disabled<%}%> />
-  </form>
+<h1>Failed</h1>
+<form id="frmSoftwareRegistration" action="<%=contextPath+"/software-register-action"%>" method="post">
+  <input type="hidden" name="value" />
+  <input type="button" name="btnContinue" value="Continue" disabled />
+  <input type="button" name="btnSkip" value="Skip" />
+  <input type="button" name="btnCompleteRegistration" value="Complete Registration"/>
+</form>
 </body>
 </html>

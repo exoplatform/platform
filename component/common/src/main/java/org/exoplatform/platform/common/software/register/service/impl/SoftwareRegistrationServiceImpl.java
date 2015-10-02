@@ -70,8 +70,9 @@ public class SoftwareRegistrationServiceImpl implements SoftwareRegistrationServ
    * {@inheritDoc}
    */
   @Override
-  public SoftwareRegistration getAccessToken(String code, String returnURL) {
+  public SoftwareRegistration registrationPLF(String code, String returnURL) {
     String url = SOFTWARE_REGISTRATION_HOST +"/portal/accessToken";
+    SoftwareRegistration softwareRegistration = new SoftwareRegistration();
     try {
       HttpClient client = new DefaultHttpClient();
       HttpPost post = new HttpPost(url);
@@ -92,11 +93,12 @@ public class SoftwareRegistrationServiceImpl implements SoftwareRegistrationServ
         result.append(line);
       }
 
-      SoftwareRegistration softwareRegistration = new SoftwareRegistration();
       JSONObject responseData = new JSONObject(result.toString());
       if (response.getStatusLine().getStatusCode() == HTTPStatus.OK) {
         String accessToken = responseData.getString("access_token");
         softwareRegistration.setAccess_token(accessToken);
+        boolean pushInfo = sendPlfInformation(accessToken);
+        softwareRegistration.setPushInfo(pushInfo);
       } else {
         String errorCode = responseData.getString("error_code");
         softwareRegistration.setError_code(errorCode);
@@ -104,9 +106,9 @@ public class SoftwareRegistrationServiceImpl implements SoftwareRegistrationServ
 
       return softwareRegistration;
     } catch (Exception ex) {
-      ex.printStackTrace();
+      softwareRegistration.setNotReachable(true);
     }
-    return null;
+    return softwareRegistration;
   }
 
   /**
@@ -217,7 +219,7 @@ public class SoftwareRegistrationServiceImpl implements SoftwareRegistrationServ
   /**
    * {@inheritDoc}
    */
-  public boolean sendPlfInformation(String accessTokencode) {
+  private boolean sendPlfInformation(String accessTokencode) {
     try {
       String url = SOFTWARE_REGISTRATION_HOST+"/portal/rest/registerLocalPlatformInformation/register";
       HttpClient client = new DefaultHttpClient();
@@ -239,7 +241,6 @@ public class SoftwareRegistrationServiceImpl implements SoftwareRegistrationServ
         LOG.warn("Failed : HTTP error code : " + response.getStatusLine().getStatusCode());
         return false;
       }
-      LOG.info("Output from Server .... \n");
       return true;
     } catch (Exception e) {
       LOG.warn("Can not send Platform information to eXo community", e);

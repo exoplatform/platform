@@ -24,7 +24,8 @@ import java.io.IOException;
 public class SoftwareRegisterAuthViewServlet extends HttpServlet {
 
   private static final long serialVersionUID = 1L;
-  private final static String SR_JSP_RESOURCE = "/WEB-INF/jsp/software-registration/softwareregister-success.jsp";
+  private final static String SR_JSP_RESOURCE_SUCCESS = "/WEB-INF/jsp/software-registration/softwareregister-success.jsp";
+  private final static String SR_JSP_RESOURCE_NOT_REACHEBLE = "/WEB-INF/jsp/software-registration/softwareregister-failed.jsp";
 
   @Override
   protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -32,22 +33,31 @@ public class SoftwareRegisterAuthViewServlet extends HttpServlet {
     SoftwareRegistrationService softwareRegistrationService = PortalContainer.getInstance().getComponentInstanceOfType(SoftwareRegistrationService.class);
 
     String code = request.getParameter("code");
-    SoftwareRegistration softwareRegistration =
-            softwareRegistrationService.getAccessToken(code, SoftwareRegistrationService.SOFTWARE_REGISTRATION_RETURN_URL);
-    if(softwareRegistration!=null && softwareRegistration.getAccess_token()!=null) {
+
+    SoftwareRegistration softwareRegistration = softwareRegistrationService.registrationPLF(code, getReturnURL(request));
+    if (softwareRegistration.isPushInfo()) {
       settingService.set(Context.GLOBAL, Scope.GLOBAL,
               SoftwareRegistrationService.SOFTWARE_REGISTRATION_NODE, SettingValue.create("Software registered:" + "true"));
       softwareRegistrationService.checkSoftwareRegistration();
-      softwareRegistrationService.sendPlfInformation(softwareRegistration.getAccess_token());
       getServletContext().setAttribute("status", "success");
+    }else if(softwareRegistration.isNotReachable()){
+      getServletContext().setAttribute("status", "failed");
+      getServletContext().setAttribute("notReacheble", "true");
+      getServletContext().getRequestDispatcher(SR_JSP_RESOURCE_NOT_REACHEBLE).forward(request, response);
     }else {
       getServletContext().setAttribute("status", "failed");
     }
-    getServletContext().getRequestDispatcher(SR_JSP_RESOURCE).forward(request, response);
+    getServletContext().getRequestDispatcher(SR_JSP_RESOURCE_SUCCESS).forward(request, response);
   }
 
   @Override
   protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
     doPost(request, response);
+  }
+
+  public static String getReturnURL(HttpServletRequest request){
+    String returnUrl = SoftwareRegistrationService.SOFTWARE_REGISTRATION_RETURN_URL;
+    returnUrl = returnUrl.replace("{0}", request.getServerName());
+    return returnUrl.replace("{1}", String.valueOf(request.getServerPort()));
   }
 }

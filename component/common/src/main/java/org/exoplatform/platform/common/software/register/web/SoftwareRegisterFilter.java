@@ -1,5 +1,6 @@
 package org.exoplatform.platform.common.software.register.web;
 
+import org.apache.commons.lang.StringUtils;
 import org.exoplatform.commons.utils.PropertyManager;
 import org.exoplatform.container.ExoContainerContext;
 import org.exoplatform.platform.common.software.register.UnlockService;
@@ -60,19 +61,17 @@ public class SoftwareRegisterFilter implements Filter {
     boolean isRestUri = (requestUri.contains(REST_URI));
     boolean isDevMod = PropertyManager.isDevelopping();
     boolean requestSkip = UnlockService.isIsSkip();
-
+    String notReacheble = (String)httpServletRequest.getAttribute("notReacheble");
 
     if(!isRestUri && !UnlockService.isRegisted()
-            && UnlockService.showSoftwareRegistration() && checkRequest(requestSkip)) {
+            && !StringUtils.equals(notReacheble, "true") && checkRequest(requestSkip)) {
       // Get full url
       String reqUri = httpServletRequest.getRequestURI().toString();
       String queryString = httpServletRequest.getQueryString();
       if (queryString != null) {
           reqUri =new StringBuffer(reqUri).append("?").append(queryString).toString();
       }
-      // Get plf extension servlet context (because TermsAndConditionsFilter and terms-and-conditions servlet declaration are not on same context (webapp))
       ServletContext welcomrScreensContext = httpServletRequest.getSession().getServletContext().getContext(PLF_COMMUNITY_SERVLET_CTX);
-      // Forward to resource from this context:
       String uriTarget = (new StringBuilder()).append(SR_SERVLET_URL + "?" + INITIAL_URI_PARAM_NAME + "=").append(reqUri).toString();
       welcomrScreensContext.getRequestDispatcher(uriTarget).forward(httpServletRequest, httpServletResponse);
       return;
