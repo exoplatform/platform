@@ -38,11 +38,14 @@
 
 </head>
 <body>
-  <a href="<%=registrationURL%>">Register your software</a>
-  <form id="frmSoftwareRegistration" action="<%=contextPath+"/software-register-action"%>" method="post">
-    <input type="hidden" name="value" />
-    <input type="button" name="btnContinue" value="Continue" <%if(!isRegisted){%>disabled<%}%> />
-    <input type="button" name="btnSkip" value="Skip" <%if(!canSKip){%>disabled<%}%> />
-  </form>
+  <div class="loading">Loading...</div>
+  <div class="plf-registration" >
+    <a href="<%=registrationURL%>">Register your software</a>
+    <form id="frmSoftwareRegistration" action="<%=contextPath+"/software-register-action"%>" method="post">
+      <input type="hidden" name="value" />
+      <input type="button" name="btnContinue" value="Continue" <%if(!isRegisted){%>disabled<%}%> />
+      <input type="button" name="btnSkip" value="Skip" <%if(!canSKip){%>disabled<%}%> />
+    </form>
+  </div>
 </body>
 </html>

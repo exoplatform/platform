@@ -16,8 +16,21 @@ $(document).ready(function() {
         frmSoftwareRegistration.submit();
     });
 
-    btnCompleteRegistration.click(function(){
-        txtValue.val("completeRegistration");
-        frmSoftwareRegistration.submit();
+    $.ajax({
+        url: "/rest/plf/checkConnection",
+        beforeSend: function( xhr ) {
+            console.log("loading....");
+            $(".loading").show();
+            $(".plf-registration").hide();
+        }
+    })
+    .done(function( data ) {
+        if(data==="true"){
+            $(".plf-registration").show();
+        }else{
+            $("body").append("<div> Error, Could not contact with http://www.exoplatform.com </div>");
+        }
+        $(".loading").hide();
+
     });
 });

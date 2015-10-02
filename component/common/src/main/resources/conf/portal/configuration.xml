@@ -361,6 +361,9 @@
         <key>org.exoplatform.platform.common.software.register.service.SoftwareRegistrationService</key>
         <type>org.exoplatform.platform.common.software.register.service.impl.SoftwareRegistrationServiceImpl</type>
     </component>
+    <component>
+        <type>org.exoplatform.platform.common.software.register.service.RestPLFRegistration</type>
+    </component>
     <external-component-plugins>
         <target-component>org.exoplatform.commons.chromattic.ChromatticManager</target-component>
         <component-plugin>
