@@ -303,7 +303,8 @@
     });
 
     //left accordion navigation
-    $('.LeftNavigationTDContainer').find('.navItemSelected, .active, .spaceItemSelected').parents('.accordionCont').parent().addClass('showAccordionBar');
+    $('#UISpaceNavigationPortlet').addClass('showAccordionBar');
+    $('.LeftNavigationTDContainer').find('.navItemSelected, .active').parents('.accordionCont').parent().addClass('showAccordionBar').parents('.LeftNavigationTDContainer').find('#UISpaceNavigationPortlet').removeClass('showAccordionBar');
     $('.LeftNavigationTDContainer .accordionBar').on('click', function(){
       if(eXo.commons.Utils.checkDevice().isSmallMobile) {
         $('.LeftNavigationTDContainer .accordionBar').parent().removeClass('ShowMobileAccordionBar showAccordionBar').addClass('hidePadAccordionBar');
