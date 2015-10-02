@@ -7,7 +7,9 @@ $(document).ready(function() {
     var txtValue = $("input[name=value]");
 
     btnContinue.click(function(){
-        txtValue.val("continue");
+        if(txtValue.val()===undefined || txtValue.val()==="") {
+            txtValue.val("continue");
+        }
         frmSoftwareRegistration.submit();
     });
 
@@ -20,17 +22,22 @@ $(document).ready(function() {
         url: "/rest/plf/checkConnection",
         beforeSend: function( xhr ) {
             console.log("loading....");
-            $(".loading").show();
-            $(".plf-registration").hide();
+            $(".loading-text").show();
+            //$(".plf-registration").hide();
         }
     })
     .done(function( data ) {
         if(data==="true"){
             $(".plf-registration").show();
         }else{
-            $("body").append("<div> Error, Could not contact with http://www.exoplatform.com </div>");
+            $(".plf-registration .signin-title").hide();
+            $(".plf-registration .registrationURL").hide();
+            $(".plf-registration input[name=btnSkip]").hide();
+            $(".plf-registration input[name=btnContinue]").removeAttr("disabled");
+            $(".plf-registration input[name=value]").val("notReacheble");
+
         }
-        $(".loading").hide();
+        $(".loading-text").hide();
 
     });
 });

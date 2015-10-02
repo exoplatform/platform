@@ -34,6 +34,10 @@ public class SoftwareRegisterActionServlet extends HttpServlet {
       UnlockService.setIsSkip(true);
       softwareRegistrationService.updateSkippedNumber();
     }
+    if(StringUtils.equals("notReacheble", value)){
+      UnlockService.setNotReacheble(true);
+      request.setAttribute("notReacheble", "notReacheble");
+    }
     response.sendRedirect(redirectURI);
   }
 

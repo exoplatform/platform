@@ -63,7 +63,7 @@ public class SoftwareRegisterFilter implements Filter {
     boolean requestSkip = UnlockService.isIsSkip();
     String notReacheble = (String)httpServletRequest.getAttribute("notReacheble");
 
-    if(!isRestUri && !UnlockService.isRegisted()
+    if(!isRestUri && !UnlockService.isRegisted() && !UnlockService.isNotReacheble()
             && !StringUtils.equals(notReacheble, "true") && checkRequest(requestSkip)) {
       // Get full url
       String reqUri = httpServletRequest.getRequestURI().toString();

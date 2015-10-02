@@ -20,6 +20,7 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ page import="org.exoplatform.platform.common.software.register.UnlockService" %>
+<%@ page import="org.exoplatform.platform.common.account.setup.web.PingBackServlet" %>
 <%
   String contextPath = request.getContextPath();
   String lang = request.getLocale().getLanguage();
@@ -38,11 +39,22 @@
 
 </head>
 <body>
-  <div class="loading">Loading...</div>
+
+  <div class="loading">
+    <%@include file="PLFRegistrationIntro.jsp"%>
+  <div class="signin-title" >Sign in to the eXo Tribe:</div>
+  <div class="loading-text" >Loading...</div>
+  </div>
+
+  <div class="not-connected" style="display: none;">
+    Well, about that...
+    Seems we cannot reach the eXo Tribe at the moment. You can skip this step and register your software at the next start
+  </div>
   <div class="plf-registration" >
-    <a href="<%=registrationURL%>">Register your software</a>
+    <div class="signin-title"  style="display: none" >Sign in and register your installation on the Tribe</div>
+    <a class="registrationURL" href="<%=registrationURL%>">Register your software</a>
     <form id="frmSoftwareRegistration" action="<%=contextPath+"/software-register-action"%>" method="post">
-      <input type="hidden" name="value" />
+      <input type="hidden" name="value" value="<%=session.getAttribute("notReacheble")%>"/>
       <input type="button" name="btnContinue" value="Continue" <%if(!isRegisted){%>disabled<%}%> />
       <input type="button" name="btnSkip" value="Skip" <%if(!canSKip){%>disabled<%}%> />
     </form>

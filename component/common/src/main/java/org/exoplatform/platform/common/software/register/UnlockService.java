@@ -64,6 +64,7 @@ public class UnlockService implements Startable {
     public static String ERROR = "";
     private static final int SKIPPED_ALLOW = 2;
     private static boolean isSkip=false;
+    private static boolean notReacheble = false;
 
     private static SoftwareRegistrationService softwareRegistrationService;
 
@@ -82,6 +83,14 @@ public class UnlockService implements Startable {
         delayPeriod = (tmpValue == null || tmpValue.isEmpty()) ? Utils.DEFAULT_DELAY_PERIOD : Integer.parseInt(tmpValue);
         Utils.HOME_CONFIG_FILE_LOCATION = Utils.EXO_HOME_FOLDER + "/" + Utils.PRODUCT_NAME + "/license.xml";
         this.softwareRegistrationService = softwareRegistrationService;
+    }
+
+    public static boolean isNotReacheble() {
+        return notReacheble;
+    }
+
+    public static void setNotReacheble(boolean notReacheble) {
+        UnlockService.notReacheble = notReacheble;
     }
 
     public static boolean isIsSkip() {
