@@ -18,18 +18,35 @@
  */
 package org.exoplatform.platform.common.software.register.service;
 
-import org.exoplatform.platform.common.account.setup.web.PingBackServlet;
+import org.exoplatform.services.log.ExoLogger;
+import org.exoplatform.services.log.Log;
 import org.exoplatform.services.rest.resource.ResourceContainer;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.core.Response;
+import java.io.IOException;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.URL;
 
 @Path("/plf")
 public class RestPLFRegistration implements ResourceContainer {
+    private static final Log LOG = ExoLogger.getExoLogger(RestPLFRegistration.class);
     @GET
     @Path("checkConnection")
     public Response checkConnection() throws Exception {
-        return Response.ok(String.valueOf(PingBackServlet.isConnectedToInternet())).build();
+        String pingServerURL = SoftwareRegistrationService.SOFTWARE_REGISTRATION_HOST;
+        try {
+            URL url = new URL(pingServerURL);
+            HttpURLConnection urlConn = (HttpURLConnection) url.openConnection();
+            urlConn.connect();
+            return Response.ok(String.valueOf(HttpURLConnection.HTTP_NOT_FOUND != urlConn.getResponseCode())).build();
+        } catch (MalformedURLException e) {
+            LOG.error("LeadCapture : Error creating HTTP connection to the server : " + pingServerURL);
+        } catch (IOException e) {
+            LOG.error("LeadCapture : Error creating HTTP connection to the server : " + pingServerURL);
+        }
+        return Response.ok(String.valueOf(false)).build();
     }
 }

@@ -141,14 +141,16 @@ public class SoftwareRegistrationServiceImpl implements SoftwareRegistrationServ
    */
   @Override
   public boolean isSoftwareRegistered() {
-    /*
-    boolean isChecked = false;
-    if (hasSoftwareRegistration()) {
-      isChecked = true;
-    }*/
     //Check plf registration on local
     String currStatus = Utils.readFromFile(Utils.SW_REG_STATUS, Utils.HOME_CONFIG_FILE_LOCATION);
-    return StringUtils.equals(currStatus, platformInformationRESTService.getPlatformEdition().concat("-true"));
+    String currVersions = Utils.readFromFile(platformInformationRESTService.getPlatformEdition().concat("-")
+            .concat(Utils.SW_REG_PLF_VERSION), Utils.HOME_CONFIG_FILE_LOCATION);
+    if(StringUtils.isEmpty(currStatus) || StringUtils.isEmpty(currVersions)) return false;
+    boolean plfRegistrationStatus
+            = currStatus.contains(platformInformationRESTService.getPlatformEdition().concat("-true"));
+    boolean plfVersionRegistrationStatus
+            = currVersions.contains(platformInformationRESTService.getJsonPlatformInfo().getPlatformVersion());
+    return plfRegistrationStatus && plfVersionRegistrationStatus;
   }
 
   /**
@@ -156,22 +158,24 @@ public class SoftwareRegistrationServiceImpl implements SoftwareRegistrationServ
    */
   @Override
   public void checkSoftwareRegistration() {
-    /*
-    if (lifeCycle.getContext() == null) {
-      lifeCycle.openContext();
-    }
-
-    if (!hasSoftwareRegistration()) {
-      createSoftwareRegistrationNode();
-    } else {
-      LOG.debug("Terms and conditions: yet checked");
-    }*/
     //Persisted registration status on local
-    Utils.writeToFile(Utils.SW_REG_STATUS, platformInformationRESTService.getPlatformEdition().concat("-true"),
-            Utils.HOME_CONFIG_FILE_LOCATION);
-    Utils.writeToFile(Utils.SW_REG_PLF_VERSION, platformInformationRESTService.getPlatformEdition().concat("-")
-                    .concat(platformInformationRESTService.getJsonPlatformInfo().getPlatformVersion()),
-            Utils.HOME_CONFIG_FILE_LOCATION);
+    String currentRegStatus = Utils.readFromFile(Utils.SW_REG_STATUS, Utils.HOME_CONFIG_FILE_LOCATION);
+    if(StringUtils.isEmpty(currentRegStatus)){
+      currentRegStatus = platformInformationRESTService.getPlatformEdition().concat("-true");
+    }else if(!currentRegStatus.contains(platformInformationRESTService.getPlatformEdition().concat("-true"))){
+      currentRegStatus = currentRegStatus.concat(",").concat(platformInformationRESTService.getPlatformEdition().concat("-true"));
+    }
+    Utils.writeToFile(Utils.SW_REG_STATUS, currentRegStatus, Utils.HOME_CONFIG_FILE_LOCATION);
+
+    String plfVersionsKey = platformInformationRESTService.getPlatformEdition().concat("-").concat(Utils.SW_REG_PLF_VERSION);
+    String plfVersions = Utils.readFromFile(plfVersionsKey, Utils.HOME_CONFIG_FILE_LOCATION);
+    if(StringUtils.isEmpty(plfVersions)){
+      plfVersions = platformInformationRESTService.getJsonPlatformInfo().getPlatformVersion();
+    }else if (!plfVersions.contains(platformInformationRESTService.getJsonPlatformInfo().getPlatformVersion())){
+      plfVersions = plfVersions.concat(",").concat(platformInformationRESTService.getJsonPlatformInfo().getPlatformVersion());
+    }
+    Utils.writeToFile(platformInformationRESTService.getPlatformEdition().concat("-").concat(Utils.SW_REG_PLF_VERSION),
+            plfVersions, Utils.HOME_CONFIG_FILE_LOCATION);
   }
 
   /**

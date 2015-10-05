@@ -32,6 +32,10 @@ public class SoftwareRegisterAuthViewServlet extends HttpServlet {
     SettingService settingService = PortalContainer.getInstance().getComponentInstanceOfType(SettingService.class);
     SoftwareRegistrationService softwareRegistrationService = PortalContainer.getInstance().getComponentInstanceOfType(SoftwareRegistrationService.class);
 
+    if(softwareRegistrationService.isSoftwareRegistered()){
+      response.sendRedirect("/");
+      return;
+    }
     String code = request.getParameter("code");
 
     SoftwareRegistration softwareRegistration = softwareRegistrationService.registrationPLF(code, getReturnURL(request));
@@ -44,10 +48,12 @@ public class SoftwareRegisterAuthViewServlet extends HttpServlet {
       getServletContext().setAttribute("status", "failed");
       getServletContext().setAttribute("notReacheble", "true");
       getServletContext().getRequestDispatcher(SR_JSP_RESOURCE_NOT_REACHEBLE).forward(request, response);
+      return;
     }else {
       getServletContext().setAttribute("status", "failed");
     }
     getServletContext().getRequestDispatcher(SR_JSP_RESOURCE_SUCCESS).forward(request, response);
+    return;
   }
 
   @Override
