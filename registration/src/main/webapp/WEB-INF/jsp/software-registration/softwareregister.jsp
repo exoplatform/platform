@@ -42,6 +42,9 @@
 
   <div class="loading">
     <%@include file="PLFRegistrationIntro.jsp"%>
+
+
+
   <div class="signin-title" >Sign in to the eXo Tribe:</div>
   <div class="loading-text" >Loading...</div>
   </div>

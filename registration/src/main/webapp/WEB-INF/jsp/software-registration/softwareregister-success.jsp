@@ -34,6 +34,7 @@
 
 </head>
 <body>
+<%@include file="PLFRegistrationIntro.jsp"%>
 
 <h1><%=status%></h1>
 

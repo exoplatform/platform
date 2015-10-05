@@ -13,7 +13,7 @@ public interface SoftwareRegistrationService {
 
   public final static String SOFTWARE_REGISTRATION_NODE = "softwareRegistrationNode";
   public final static String SOFTWARE_REGISTRATION_SKIPPED = "softwareRegistrationSkipped";
-  public final static String SOFTWARE_REGISTRATION_HOST = "http://192.168.3.21:8080";
+  public final static String SOFTWARE_REGISTRATION_HOST = "http://192.168.3.36:8080";
   public final static String SOFTWARE_REGISTRATION_PATH = "/portal/authorize";
   public final static String SOFTWARE_REGISTRATION_RETURN_URL = "http://{0}:{1}/registrationPLF/software-register-auth";
   public final static String SOFTWARE_REGISTRATION_CLIENT_ID = "client_id=x6iCo6YWmw";
