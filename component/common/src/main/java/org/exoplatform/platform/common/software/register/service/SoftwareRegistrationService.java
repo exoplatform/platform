@@ -18,6 +18,7 @@ public interface SoftwareRegistrationService {
   public final static String SOFTWARE_REGISTRATION_RETURN_URL = "http://{0}:{1}/registrationPLF/software-register-auth";
   public final static String SOFTWARE_REGISTRATION_CLIENT_ID = "client_id=x6iCo6YWmw";
   public final static String SOFTWARE_REGISTRATION_RESPONSE_TYPE = "response_type=code";
+  public final static String SOFTWARE_REGISTRATION_SKIP = "accountsetup.register.skip";
 
   /**
    * Check has your software registered to Tribe
@@ -46,4 +47,9 @@ public interface SoftwareRegistrationService {
    */
   public SoftwareRegistration registrationPLF(String code, String returnURL);
 
+  /**
+   * Check configuration allow skip platform register
+   * @return
+   */
+  public boolean isSkipPlatformRegistration();
 }

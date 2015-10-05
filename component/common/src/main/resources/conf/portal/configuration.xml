@@ -360,6 +360,13 @@
     <component>
         <key>org.exoplatform.platform.common.software.register.service.SoftwareRegistrationService</key>
         <type>org.exoplatform.platform.common.software.register.service.impl.SoftwareRegistrationServiceImpl</type>
+        <init-params>
+            <value-param>
+                <name>accountsetup.register.skip</name>
+                <description>To allow skip plf registration</description>
+                <value>${accountsetup.register.skip:false}</value>
+            </value-param>
+        </init-params>
     </component>
     <component>
         <type>org.exoplatform.platform.common.software.register.service.RestPLFRegistration</type>

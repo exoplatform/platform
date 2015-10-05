@@ -19,6 +19,7 @@ import org.exoplatform.commons.chromattic.ChromatticLifeCycle;
 import org.exoplatform.commons.chromattic.ChromatticManager;
 import org.exoplatform.commons.info.ProductInformations;
 import org.exoplatform.container.PortalContainer;
+import org.exoplatform.container.xml.InitParams;
 import org.exoplatform.platform.common.rest.PlatformInformationRESTService;
 import org.exoplatform.platform.common.rest.PlatformInformationRESTService.JsonPlatformInfo;
 import org.exoplatform.platform.common.software.register.Utils;
@@ -53,6 +54,7 @@ public class SoftwareRegistrationServiceImpl implements SoftwareRegistrationServ
   private static boolean hasSoftwareRegisteredNode = false;
   private static SettingService settingService;
   private PlatformInformationRESTService platformInformationRESTService;
+  private InitParams initParams;
 
   public ChromatticSession getSession() {
     return lifeCycle.getChromattic().openSession();
@@ -61,11 +63,22 @@ public class SoftwareRegistrationServiceImpl implements SoftwareRegistrationServ
   public SoftwareRegistrationServiceImpl(ChromatticManager chromatticManager,
                                          NodeHierarchyCreator nodeHierarchyCreator,
                                          SettingService settingService,
-                                         PlatformInformationRESTService platformInformationRESTService) {
+                                         PlatformInformationRESTService platformInformationRESTService,
+                                         InitParams initParams) {
     this.lifeCycle = chromatticManager.getLifeCycle(CHROMATTIC_LIFECYCLE_NAME);
     this.nodeHierarchyCreator = nodeHierarchyCreator;
     this.settingService = settingService;
     this.platformInformationRESTService = platformInformationRESTService;
+    this.initParams = initParams;
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public boolean isSkipPlatformRegistration() {
+    String skipPLFRegister = initParams.getValueParam(SOFTWARE_REGISTRATION_SKIP).getValue();
+    return StringUtils.equals("true", skipPLFRegister);
   }
 
   /**

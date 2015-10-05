@@ -3,7 +3,9 @@ package org.exoplatform.platform.common.software.register.web;
 import org.apache.commons.lang.StringUtils;
 import org.exoplatform.commons.utils.PropertyManager;
 import org.exoplatform.container.ExoContainerContext;
+import org.exoplatform.container.PortalContainer;
 import org.exoplatform.platform.common.software.register.UnlockService;
+import org.exoplatform.platform.common.software.register.service.SoftwareRegistrationService;
 import org.exoplatform.services.log.ExoLogger;
 import org.exoplatform.services.log.Log;
 import org.exoplatform.web.filter.Filter;
@@ -62,9 +64,12 @@ public class SoftwareRegisterFilter implements Filter {
     boolean isDevMod = PropertyManager.isDevelopping();
     boolean requestSkip = UnlockService.isIsSkip();
     String notReacheble = (String)httpServletRequest.getAttribute("notReacheble");
+    SoftwareRegistrationService plfRegisterService =
+            PortalContainer.getInstance().getComponentInstanceOfType(SoftwareRegistrationService.class);
 
     if(!isRestUri && !UnlockService.isRegisted() && !UnlockService.isNotReacheble()
-            && !StringUtils.equals(notReacheble, "true") && checkRequest(requestSkip)) {
+            && !StringUtils.equals(notReacheble, "true") && checkRequest(requestSkip)
+            && !plfRegisterService.isSkipPlatformRegistration()) {
       // Get full url
       String reqUri = httpServletRequest.getRequestURI().toString();
       String queryString = httpServletRequest.getQueryString();
