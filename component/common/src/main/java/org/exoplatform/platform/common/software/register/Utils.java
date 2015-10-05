@@ -37,6 +37,7 @@ public class Utils {
     public static String HOME_CONFIG_FILE_LOCATION;
     public static final String SW_REG_SKIPPED = "skipped";
     public static final String SW_REG_STATUS = "status";
+    public static final String SW_REG_PLF_VERSION = "version";
 
     public static String getModifiedMD5Code(byte[] dataToHash) {
         Security.addProvider(new BouncyCastleProvider());

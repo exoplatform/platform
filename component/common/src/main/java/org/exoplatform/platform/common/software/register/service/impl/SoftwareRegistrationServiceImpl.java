@@ -1,5 +1,6 @@
 package org.exoplatform.platform.common.software.register.service.impl;
 
+import org.apache.commons.lang.StringUtils;
 import org.apache.http.HttpResponse;
 import org.apache.http.NameValuePair;
 import org.apache.http.client.HttpClient;
@@ -20,6 +21,7 @@ import org.exoplatform.commons.info.ProductInformations;
 import org.exoplatform.container.PortalContainer;
 import org.exoplatform.platform.common.rest.PlatformInformationRESTService;
 import org.exoplatform.platform.common.rest.PlatformInformationRESTService.JsonPlatformInfo;
+import org.exoplatform.platform.common.software.register.Utils;
 import org.exoplatform.platform.common.software.register.model.SoftwareRegistration;
 import org.exoplatform.platform.common.software.register.service.SoftwareRegistrationService;
 import org.exoplatform.services.jcr.ext.common.SessionProvider;
@@ -139,11 +141,14 @@ public class SoftwareRegistrationServiceImpl implements SoftwareRegistrationServ
    */
   @Override
   public boolean isSoftwareRegistered() {
+    /*
     boolean isChecked = false;
     if (hasSoftwareRegistration()) {
       isChecked = true;
-    }
-    return isChecked;
+    }*/
+    //Check plf registration on local
+    String currStatus = Utils.readFromFile(Utils.SW_REG_STATUS, Utils.HOME_CONFIG_FILE_LOCATION);
+    return StringUtils.equals(currStatus, platformInformationRESTService.getPlatformEdition().concat("-true"));
   }
 
   /**
@@ -151,6 +156,7 @@ public class SoftwareRegistrationServiceImpl implements SoftwareRegistrationServ
    */
   @Override
   public void checkSoftwareRegistration() {
+    /*
     if (lifeCycle.getContext() == null) {
       lifeCycle.openContext();
     }
@@ -159,7 +165,13 @@ public class SoftwareRegistrationServiceImpl implements SoftwareRegistrationServ
       createSoftwareRegistrationNode();
     } else {
       LOG.debug("Terms and conditions: yet checked");
-    }
+    }*/
+    //Persisted registration status on local
+    Utils.writeToFile(Utils.SW_REG_STATUS, platformInformationRESTService.getPlatformEdition().concat("-true"),
+            Utils.HOME_CONFIG_FILE_LOCATION);
+    Utils.writeToFile(Utils.SW_REG_PLF_VERSION, platformInformationRESTService.getPlatformEdition().concat("-")
+                    .concat(platformInformationRESTService.getJsonPlatformInfo().getPlatformVersion()),
+            Utils.HOME_CONFIG_FILE_LOCATION);
   }
 
   /**

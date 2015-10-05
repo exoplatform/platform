@@ -187,7 +187,7 @@ public class PlatformInformationRESTService implements ResourceContainer {
         );
     }
 
-    private String getPlatformEdition() {
+    public String getPlatformEdition() {
         try {
             Class<?> c = Class.forName("org.exoplatform.platform.edition.PlatformEdition");
             Method getEditionMethod = c.getMethod("getEdition");
