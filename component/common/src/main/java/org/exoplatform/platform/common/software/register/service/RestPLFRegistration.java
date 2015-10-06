@@ -24,6 +24,7 @@ import org.exoplatform.services.rest.resource.ResourceContainer;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
+import javax.ws.rs.Produces;
 import javax.ws.rs.core.Response;
 import java.io.IOException;
 import java.net.HttpURLConnection;
@@ -35,6 +36,7 @@ public class RestPLFRegistration implements ResourceContainer {
     private static final Log LOG = ExoLogger.getExoLogger(RestPLFRegistration.class);
     @GET
     @Path("checkConnection")
+    @Produces("html/text")
     public Response checkConnection() throws Exception {
         String pingServerURL = SoftwareRegistrationService.SOFTWARE_REGISTRATION_HOST;
         try {

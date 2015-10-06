@@ -1,5 +1,6 @@
 package org.exoplatform.platform.common.software.register.web;
 
+import org.apache.commons.lang.StringUtils;
 import org.exoplatform.commons.api.settings.SettingService;
 import org.exoplatform.commons.api.settings.SettingValue;
 import org.exoplatform.commons.api.settings.data.Context;
@@ -24,6 +25,7 @@ import java.io.IOException;
 public class SoftwareRegisterAuthViewServlet extends HttpServlet {
 
   private static final long serialVersionUID = 1L;
+  private final static String SR_JSP_RESOURCE = "/WEB-INF/jsp/software-registration/softwareregister.jsp";
   private final static String SR_JSP_RESOURCE_SUCCESS = "/WEB-INF/jsp/software-registration/softwareregister-success.jsp";
   private final static String SR_JSP_RESOURCE_NOT_REACHEBLE = "/WEB-INF/jsp/software-registration/softwareregister-failed.jsp";
 
@@ -37,6 +39,12 @@ public class SoftwareRegisterAuthViewServlet extends HttpServlet {
       return;
     }
     String code = request.getParameter("code");
+    if(StringUtils.isEmpty(code)){
+      //String errorCode = request.getParameter("error");
+      getServletContext().setAttribute("status", "failed");
+      getServletContext().getRequestDispatcher(SR_JSP_RESOURCE).forward(request, response);
+      return;
+    }
 
     SoftwareRegistration softwareRegistration = softwareRegistrationService.registrationPLF(code, getReturnURL(request));
     if (softwareRegistration.isPushInfo()) {

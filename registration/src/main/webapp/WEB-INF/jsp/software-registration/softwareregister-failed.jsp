@@ -41,9 +41,9 @@
 
 <h1>Failed</h1>
 <form id="frmSoftwareRegistration" action="<%=contextPath+"/software-register-action"%>" method="post">
-  <input type="hidden" name="value" />
-  <input type="button" name="btnContinue" value="Continue" <%if(!isRegisted){%>disabled<%}%> />
-  <input type="button" name="btnSkip" value="Skip" <%if(!canSKip){%>disabled<%}%> />
+  <input type="hidden" name="value" value="<%=session.getAttribute("notReacheble")%>"/>
+  <input type="button" name="btnContinue" value="Continue" <%if(!isRegisted){%>disabled="disabled"<%}%> />
+  <input type="button" name="btnSkip" value="Skip" <%if(!canSKip){%>disabled="disabled"<%}%> />
 </form>
 </body>
 </html>
