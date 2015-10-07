@@ -115,7 +115,7 @@ public class SoftwareRegistrationServiceImpl implements SoftwareRegistrationServ
         boolean pushInfo = sendPlfInformation(accessToken);
         softwareRegistration.setPushInfo(pushInfo);
       } else {
-        String errorCode = responseData.getString("error_code");
+        String errorCode = responseData.getString("error");
         softwareRegistration.setError_code(errorCode);
       }
 

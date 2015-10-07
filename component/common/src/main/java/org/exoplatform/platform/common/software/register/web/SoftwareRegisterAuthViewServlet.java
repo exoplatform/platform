@@ -40,8 +40,6 @@ public class SoftwareRegisterAuthViewServlet extends HttpServlet {
     }
     String code = request.getParameter("code");
     if(StringUtils.isEmpty(code)){
-      //String errorCode = request.getParameter("error");
-      getServletContext().setAttribute("status", "failed");
       getServletContext().getRequestDispatcher(SR_JSP_RESOURCE).forward(request, response);
       return;
     }
@@ -53,12 +51,13 @@ public class SoftwareRegisterAuthViewServlet extends HttpServlet {
       softwareRegistrationService.checkSoftwareRegistration();
       getServletContext().setAttribute("status", "success");
     }else if(softwareRegistration.isNotReachable()){
-      getServletContext().setAttribute("status", "failed");
-      getServletContext().setAttribute("notReacheble", "true");
+      request.getSession().setAttribute("notReacheble", "true");
       getServletContext().getRequestDispatcher(SR_JSP_RESOURCE_NOT_REACHEBLE).forward(request, response);
       return;
     }else {
       getServletContext().setAttribute("status", "failed");
+      response.sendRedirect("/");
+      return;
     }
     getServletContext().getRequestDispatcher(SR_JSP_RESOURCE_SUCCESS).forward(request, response);
     return;

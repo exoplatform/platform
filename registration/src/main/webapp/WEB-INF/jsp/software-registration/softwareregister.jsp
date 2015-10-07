@@ -30,6 +30,7 @@
   boolean canSKip = UnlockService.canSkipRegister();
 
   String registrationURL = request.getServletContext().getAttribute("registrationURL").toString();
+  String errorCode = request.getParameter("error");
 %>
 <html>
 <head>
@@ -49,7 +50,7 @@
   <div class="loading-text" >Loading...</div>
   </div>
 
-  <% if(!"cancel".equals(session.getAttribute("status"))){ %>
+  <% if(errorCode!=null){ %>
   <div>Cancel</div>
   <%}%>
 
