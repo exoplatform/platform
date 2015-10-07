@@ -21,13 +21,11 @@ $(document).ready(function() {
     $.ajax({
         url: "/rest/plf/checkConnection",
         beforeSend: function( xhr ) {
-            $(".loading-text, .signin-title, .imgNoInternet, .not-connected").show();
-            $(".signin-regis-title, .imgHasInternet").hide();
-            //$(".plf-registration").hide();
+            $(".loading-text").show();
         }
     })
     .done(function( data ) {
-        $(".loading-text, .signin-title").hide();
+
         if(data==="true"){
             $(".plf-registration").show();
             $(".imgHasInternet, .registrationURL, .signin-regis-title").show();
@@ -38,8 +36,8 @@ $(document).ready(function() {
             $(".plf-registration input[name=btnSkip]").hide();
             $(".plf-registration input[name=btnContinue]").removeAttr("disabled");
             $(".plf-registration input[name=value]").val("notReacheble");
-
+            $(".imgNoInternet, .not-connected, .plf-registration input[name=btnContinue]").show();
         }
-        $(".loading-text").hide();
+            $(".loading-text, .signin-title").hide();
     });
 });

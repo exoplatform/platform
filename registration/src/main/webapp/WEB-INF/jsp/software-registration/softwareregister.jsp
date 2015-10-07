@@ -34,6 +34,7 @@
   boolean canSKip = UnlockService.canSkipRegister();
 
   String registrationURL = request.getServletContext().getAttribute("registrationURL").toString();
+  String notReacheble = (String)session.getAttribute("notReacheble");
    String errorCode = request.getParameter("error");
   //
   SkinService skinService = (SkinService) PortalContainer.getCurrentInstance(session.getServletContext()).getComponentInstanceOfType(SkinService.class);
@@ -58,24 +59,27 @@
       <% if(errorCode!=null){ %>
       <div class="alert alert-warning"><i class="uiIconWarning"></i>The registration process has been cancelled.   Please try again or contact the <a href="http://support.exoplatform.com"> support.</a></div>
       <%}%>
-      <div class="signin-regis-title" ><strong>Sign in and register your installation on the Tribe</strong></div>
-      <img src="/eXoSkin/skin/images/themes/default/platform/portlets/extensions/tribe1.png" class="img-responsive imgNoInternet"/>
-      <img src="/eXoSkin/skin/images/themes/default/platform/portlets/extensions/tribe2.png" class="img-responsive imgHasInternet"/>
-      <div class="not-connected" >
+      <%if("true".equals(notReacheble)){%>
+        <div class="alert alert-error"><i class="uiIconError"></i>The registration process could not complete. Please try again or contact the <a href="http://support.exoplatform.com"> support.</a></div>
+      <% session.removeAttribute("notReacheble"); }%>
+      <div class="signin-regis-title" style="display:none;"><strong>Sign in and register your installation on the Tribe</strong></div>
+      <img src="/eXoSkin/skin/images/themes/default/platform/portlets/extensions/tribe1.png" class="img-responsive imgNoInternet" style="display: none;"/>
+      <img src="/eXoSkin/skin/images/themes/default/platform/portlets/extensions/tribe2.png" class="img-responsive imgHasInternet" style="display: none;" />
+      <div class="not-connected" style="display: none;">
         <div class="text-center"><strong>Well, about that...</strong></div>
         <div class="text-center">It seems we cannot reach the eXo Tribe at the moment, You can skip this step and register your software at the next start</div>
       </div>
       <div class="signin-title"><strong>Sign in to the eXo Tribe:</strong></div>
       <div class="loading-text"></div>
-      <div class="plf-registration" >
+      <div class="plf-registration">
         
         <form id="frmSoftwareRegistration" action="<%=contextPath+"/software-register-action"%>" method="post">
           
           <div class="uiAction" id="UIPortalLoginFormAction">
-            <input class="btn" type="hidden" name="value" value="<%=session.getAttribute("notReacheble")%>"/>
-            <a class="registrationURL btn btn-primary" href="<%=registrationURL%>">Register your software</a>
+            <input class="btn" type="hidden" name="value" value="<%if("true".equals(notReacheble)){%>notReacheble<%}%>"/>
+            <a class="registrationURL btn btn-primary" href="<%=registrationURL%>" style="display: none;" >Register your software</a>
             <input class="btn btn-primary" type="button" name="btnContinue" value="Continue"/>
-            <input class="btn" type="button" name="btnSkip" value="Skip" <%if(!canSKip){%>disabled="disabled<%}%> />
+            <input class="btn" type="button" name="btnSkip" value="Skip" <%if(!canSKip && !"true".equals(notReacheble)){%>disabled="disabled"<%}%> />
           </div>
           
         </form>

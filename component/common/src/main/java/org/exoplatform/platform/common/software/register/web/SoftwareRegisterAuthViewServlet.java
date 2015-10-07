@@ -27,7 +27,6 @@ public class SoftwareRegisterAuthViewServlet extends HttpServlet {
   private static final long serialVersionUID = 1L;
   private final static String SR_JSP_RESOURCE = "/WEB-INF/jsp/software-registration/softwareregister.jsp";
   private final static String SR_JSP_RESOURCE_SUCCESS = "/WEB-INF/jsp/software-registration/softwareregister-success.jsp";
-  private final static String SR_JSP_RESOURCE_NOT_REACHEBLE = "/WEB-INF/jsp/software-registration/softwareregister-failed.jsp";
 
   @Override
   protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -52,7 +51,7 @@ public class SoftwareRegisterAuthViewServlet extends HttpServlet {
       getServletContext().setAttribute("status", "success");
     }else if(softwareRegistration.isNotReachable()){
       request.getSession().setAttribute("notReacheble", "true");
-      getServletContext().getRequestDispatcher(SR_JSP_RESOURCE_NOT_REACHEBLE).forward(request, response);
+      getServletContext().getRequestDispatcher(SR_JSP_RESOURCE).forward(request, response);
       return;
     }else {
       getServletContext().setAttribute("status", "failed");
