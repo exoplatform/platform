@@ -112,7 +112,7 @@ public class UnlockService implements Startable {
 
     public static boolean canSkipRegister(){
         int skippedNumber = softwareRegistrationService.getSkippedNumber();
-        return SKIPPED_ALLOW>skippedNumber?true:false;
+        return SKIPPED_ALLOW>skippedNumber || UnlockService.isUnlocked();
     }
 
     public void start() {
