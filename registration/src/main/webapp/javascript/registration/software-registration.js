@@ -22,7 +22,7 @@ $(document).ready(function() {
         url: "/rest/plf/checkConnection",
         beforeSend: function( xhr ) {
             $(".loading-text, .signin-title, .imgNoInternet, .not-connected").show();
-            $(".signin-regis-title").hide();
+            $(".signin-regis-title, .imgHasInternet").hide();
             //$(".plf-registration").hide();
         }
     })
@@ -31,7 +31,7 @@ $(document).ready(function() {
         if(data==="true"){
             $(".plf-registration").show();
             $(".imgHasInternet, .registrationURL, .signin-regis-title").show();
-            $(".imgNoInternet, .not-connected").hide();
+            $(".imgNoInternet, .not-connected, .plf-registration input[name=btnContinue]").hide();
         }else{
             $(".plf-registration .signin-title").hide();
             $(".plf-registration .registrationURL").hide();

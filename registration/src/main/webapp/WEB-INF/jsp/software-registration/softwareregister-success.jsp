@@ -18,17 +18,24 @@
     02110-1301 USA, or see the FSF site: http://www.fsf.org.
 
 --%>
+
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page import="org.exoplatform.portal.resource.SkinService"%>
+<%@ page import="org.exoplatform.container.PortalContainer"%>
 <%
   String contextPath = request.getContextPath();
   String status = request.getServletContext().getAttribute("status").toString();
   String lang = request.getLocale().getLanguage();
   response.setCharacterEncoding("UTF-8");
-  response.setContentType("text/html; charset=UTF-8");
+  response.setContentType("text/html; charset=UTF-8");  
+
+  SkinService skinService = (SkinService) PortalContainer.getCurrentInstance(session.getServletContext()).getComponentInstanceOfType(SkinService.class);
+  String cssPath = skinService.getSkin("portal/SoftwareRegistration", "Default").getCSSPath();
 %>
 <html>
 <head>
   <title>Register your Software</title>
+  <link href="<%=cssPath%>" rel="stylesheet" type="text/css"/>
   <script type="text/javascript" src="/platform-extension/javascript/jquery-1.7.1.js"></script>
   <script type="text/javascript" src="/registrationPLF/javascript/registration/software-registration.js"></script>
 
@@ -37,7 +44,7 @@
   <div class="UIPopupWindow uiPopup UIDragObject popupDarkStyle">
     <div class="popupHeader ClearFix">
         <span class="popupTitle center">Register your Software</span>
-    </div>
+    </div> 
     <div class="popupContent">
       <%@include file="PLFRegistrationIntro.jsp"%>
 
@@ -52,4 +59,3 @@
   </div>
 </body>
 </html>
-
