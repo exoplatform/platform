@@ -41,31 +41,42 @@
 </head>
 <body>
 
-  <div class="loading">
-    <%@include file="PLFRegistrationIntro.jsp"%>
+  <div class="UIPopupWindow uiPopup UIDragObject popupDarkStyle">
+    <div class="popupHeader ClearFix">
+        <span class="popupTitle center">Register your Software</span>
+    </div>
+    <div class="popupContent">
+      <%@include file="PLFRegistrationIntro.jsp"%> 
+      <div class="signin-regis-title" ><strong>Sign in and register your installation on the Tribe</strong></div>
+      <img src="/eXoSkin/skin/images/themes/default/platform/portlets/extensions/tribe1.png" class="img-responsive imgNoInternet"/>
+      <img src="/eXoSkin/skin/images/themes/default/platform/portlets/extensions/tribe2.png" class="img-responsive imgHasInternet"/>
 
+      <% if(errorCode!=null){ %>
+      <div>Cancel</div>
+      <%}%>
 
+      <div class="not-connected" >
+        <div class="text-center"><strong>Well, about that...</strong></div>
+        <div class="text-center">It seems we cannot reach the eXo Tribe at the moment, You can skip this step and register your software at the next start</div>
+      </div>
+      <div class="signin-title"><strong>Sign in to the eXo Tribe:</strong></div>
+      <div class="loading-text"></div>
+      <div class="plf-registration" >
+        
+        <form id="frmSoftwareRegistration" action="<%=contextPath+"/software-register-action"%>" method="post">
+          
+          <div class="uiAction" id="UIPortalLoginFormAction">
+            <input class="btn" type="hidden" name="value" value="<%=session.getAttribute("notReacheble")%>"/>
+            <a class="registrationURL btn btn-primary" href="<%=registrationURL%>">Register your software</a>
+            <input class="btn" type="button" name="btnSkip" value="Skip" <%if(!canSKip){%>disabled="disabled<%}%> />
+          </div>
+          
+        </form>
+      </div>
 
-  <div class="signin-title" >Sign in to the eXo Tribe:</div>
-  <div class="loading-text" >Loading...</div>
+    </div>
   </div>
-
-  <% if(errorCode!=null){ %>
-  <div>Cancel</div>
-  <%}%>
-
-  <div class="not-connected" style="display: none;">
-    Well, about that...
-    Seems we cannot reach the eXo Tribe at the moment. You can skip this step and register your software at the next start
-  </div>
-  <div class="plf-registration" >
-    <div class="signin-title"  style="display: none" >Sign in and register your installation on the Tribe</div>
-    <a class="registrationURL" href="<%=registrationURL%>">Register your software</a>
-    <form id="frmSoftwareRegistration" action="<%=contextPath+"/software-register-action"%>" method="post">
-      <input type="hidden" name="value" />
-      <input type="button" name="btnContinue" value="Continue" <%if(!isRegisted){%>disabled="disabled"<%}%> />
-      <input type="button" name="btnSkip" value="Skip" <%if(!canSKip){%>disabled="disabled"<%}%> />
-    </form>
-  </div>
+  
+  
 </body>
 </html>

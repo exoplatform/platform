@@ -34,12 +34,22 @@
 
 </head>
 <body>
-<%@include file="PLFRegistrationIntro.jsp"%>
+  <div class="UIPopupWindow uiPopup UIDragObject popupDarkStyle">
+    <div class="popupHeader ClearFix">
+        <span class="popupTitle center">Register your Software</span>
+    </div>
+    <div class="popupContent">
+      <%@include file="PLFRegistrationIntro.jsp"%>
 
-<h1>Not Reacheble</h1>
-<form id="frmSoftwareRegistration" action="<%=contextPath+"/software-register-action"%>" method="post">
-  <input type="hidden" name="value" value="notReacheble"/>
-  <input type="button" name="btnContinue" value="Continue" />
-</form>
+      <div class="alert alert-error"><i class="uiIconError">The registration process could not complete. Please try again or contact the <a href="#"> support.</a></div>
+      <img src="/eXoSkin/skin/images/themes/default/platform/portlets/extensions/tribe2.png" class="img-responsive"/>
+      <div class="uiAction">
+        <form id="frmSoftwareRegistration" action="<%=contextPath+"/software-register-action"%>" method="post">
+          <input type="hidden" name="value" value="notReacheble"/>
+          <input class="btn btn-primary" type="button" name="btnContinue" value="Continue" />
+        </form>
+      </div>
+    </div>
+  </div>
 </body>
 </html>

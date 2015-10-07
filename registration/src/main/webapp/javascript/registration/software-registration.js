@@ -21,14 +21,17 @@ $(document).ready(function() {
     $.ajax({
         url: "/rest/plf/checkConnection",
         beforeSend: function( xhr ) {
-            console.log("loading....");
-            $(".loading-text").show();
+            $(".loading-text, .signin-title, .imgNoInternet, .not-connected").show();
+            $(".signin-regis-title").hide();
             //$(".plf-registration").hide();
         }
     })
     .done(function( data ) {
+        $(".loading-text, .signin-title").hide();
         if(data==="true"){
             $(".plf-registration").show();
+            $(".imgHasInternet, .registrationURL, .signin-regis-title").show();
+            $(".imgNoInternet, .not-connected").hide();
         }else{
             $(".plf-registration .signin-title").hide();
             $(".plf-registration .registrationURL").hide();
@@ -38,6 +41,5 @@ $(document).ready(function() {
 
         }
         $(".loading-text").hide();
-
     });
 });

@@ -34,12 +34,22 @@
 
 </head>
 <body>
-<%@include file="PLFRegistrationIntro.jsp"%>
+  <div class="UIPopupWindow uiPopup UIDragObject popupDarkStyle">
+    <div class="popupHeader ClearFix">
+        <span class="popupTitle center">Register your Software</span>
+    </div>
+    <div class="popupContent">
+      <%@include file="PLFRegistrationIntro.jsp"%>
 
-<h1><%=status%></h1>
-
-  <form id="frmSoftwareRegistration" action="<%=contextPath+"/software-register-action"%>" method="post">
-    <input type="button" name="btnContinue" value="Continue"/>
-  </form>
+      <div class="alert alert-success"><i class="uiIconSuccess"></i><strong>Thank you!</strong> You installation has been succcesfully registered<%=status%></div>
+      <img src="/eXoSkin/skin/images/themes/default/platform/portlets/extensions/tribe3.png" class="img-responsive"/>
+      <div class="uiAction">
+        <form id="frmSoftwareRegistration" action="<%=contextPath+"/software-register-action"%>" method="post">
+          <input class="btn btn-primary" type="button" name="btnContinue" value="Continue"/>
+        </form>
+      </div>
+    </div>
+  </div>
 </body>
 </html>
+
