@@ -43,5 +43,6 @@
         <property useInExcerpt="false">exo:titlePublished</property>
         <property useInExcerpt="false">publication:liveDate</property>
         <property useInExcerpt="false">publication:liveRevision</property>
+        <property useInExcerpt="false">exo:trashId</property>
     </index-rule>
 </configuration>
