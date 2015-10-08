@@ -33,8 +33,9 @@ public class SoftwareRegisterActionServlet extends HttpServlet {
       softwareRegistrationService.setRequestSkip(true);
       softwareRegistrationService.updateSkippedNumber();
     }
-    if(StringUtils.equals("notReacheble", value)){
-      request.setAttribute("notReacheble", "notReacheble");
+    if(StringUtils.equals("notReachable", value)){
+      request.getSession().setAttribute("notReachable", "true");
+      redirectURI+="?notReachable=true";
     }
     response.sendRedirect(redirectURI);
   }

@@ -35,7 +35,7 @@ $(document).ready(function() {
             $(".plf-registration .registrationURL").hide();
             $(".plf-registration input[name=btnSkip]").hide();
             $(".plf-registration input[name=btnContinue]").removeAttr("disabled");
-            $(".plf-registration input[name=value]").val("notReacheble");
+            $(".plf-registration input[name=value]").val("notReachable");
             $(".imgNoInternet, .not-connected, .plf-registration input[name=btnContinue]").show();
         }
             $(".loading-text, .signin-title").hide();

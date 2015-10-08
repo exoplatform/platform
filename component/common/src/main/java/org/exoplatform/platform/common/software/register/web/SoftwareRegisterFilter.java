@@ -61,10 +61,14 @@ public class SoftwareRegisterFilter implements Filter {
     String requestUri = httpServletRequest.getRequestURI();
     boolean isRestUri = (requestUri.contains(REST_URI));
     boolean requestSkip = plfRegisterService.isRequestSkip();
-    String notReacheble = (String)httpServletRequest.getAttribute("notReacheble");
+    String notReachable = (String)httpServletRequest.getSession().getAttribute("notReachable");
+    if(notReachable==null){
+      notReachable = httpServletRequest.getParameter("notReachable");
+      httpServletRequest.getSession().setAttribute("notReachable", notReachable);
+    }
 
     if(!isRestUri && !plfRegisterService.isSoftwareRegistered()
-            && !StringUtils.equals(notReacheble, "true") && checkRequest(requestSkip)
+            && !StringUtils.equals(notReachable, "true") && checkRequest(requestSkip)
             && !plfRegisterService.isSkipPlatformRegistration()) {
       // Get full url
       String reqUri = httpServletRequest.getRequestURI().toString();

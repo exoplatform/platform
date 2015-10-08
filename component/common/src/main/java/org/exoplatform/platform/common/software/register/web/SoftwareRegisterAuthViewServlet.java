@@ -50,7 +50,7 @@ public class SoftwareRegisterAuthViewServlet extends HttpServlet {
       softwareRegistrationService.checkSoftwareRegistration();
       getServletContext().setAttribute("status", "success");
     }else if(softwareRegistration.isNotReachable()){
-      request.getSession().setAttribute("notReacheble", "true");
+      request.getSession().setAttribute("notReachable", "true");
       getServletContext().getRequestDispatcher(SR_JSP_RESOURCE).forward(request, response);
       return;
     }else {
