@@ -1,14 +1,12 @@
 package org.exoplatform.platform.common.software.register;
 
 import org.apache.commons.codec.binary.Base64;
-import org.exoplatform.commons.api.settings.SettingService;
 import org.exoplatform.commons.info.MissingProductInformationException;
 import org.exoplatform.commons.info.ProductInformations;
 import org.exoplatform.container.ExoContainerContext;
 import org.exoplatform.container.xml.InitParams;
 import org.exoplatform.container.xml.ValueParam;
 import org.exoplatform.platform.common.account.setup.web.PingBackServlet;
-import org.exoplatform.platform.common.software.register.service.SoftwareRegistrationService;
 import org.exoplatform.services.log.ExoLogger;
 import org.exoplatform.services.log.Log;
 import org.exoplatform.web.filter.Filter;
@@ -62,15 +60,9 @@ public class UnlockService implements Startable {
     private static ScheduledExecutorService executor;
     private static ProductInformations productInformations;
     public static String ERROR = "";
-    private static final int SKIPPED_ALLOW = 2;
-    private static boolean isSkip=false;
-    private static boolean notReacheble = false;
 
-    private static SoftwareRegistrationService softwareRegistrationService;
 
-    public UnlockService(ProductInformations productInformations, InitParams params,
-                         SettingService settingService,
-                         SoftwareRegistrationService softwareRegistrationService)
+    public UnlockService(ProductInformations productInformations, InitParams params)
             throws MissingProductInformationException {
         restContext = ExoContainerContext.getCurrentContainer().getContext().getRestContextName();
         this.productInformations = productInformations;
@@ -82,37 +74,6 @@ public class UnlockService implements Startable {
         String tmpValue = ((ValueParam) params.get("delayPeriod")).getValue();
         delayPeriod = (tmpValue == null || tmpValue.isEmpty()) ? Utils.DEFAULT_DELAY_PERIOD : Integer.parseInt(tmpValue);
         Utils.HOME_CONFIG_FILE_LOCATION = Utils.EXO_HOME_FOLDER + "/" + Utils.PRODUCT_NAME + "/license.xml";
-        this.softwareRegistrationService = softwareRegistrationService;
-    }
-
-    public static boolean isNotReacheble() {
-        return notReacheble;
-    }
-
-    public static void setNotReacheble(boolean notReacheble) {
-        UnlockService.notReacheble = notReacheble;
-    }
-
-    public static boolean isIsSkip() {
-        return isSkip;
-    }
-
-    public static void setIsSkip(boolean isSkip) {
-        UnlockService.isSkip = isSkip;
-    }
-
-    public static boolean isRegisted() {
-        try {
-            boolean registerStatus = softwareRegistrationService.isSoftwareRegistered();
-            return registerStatus;
-        }catch(Exception ex){
-            return false;
-        }
-    }
-
-    public static boolean canSkipRegister(){
-        int skippedNumber = softwareRegistrationService.getSkippedNumber();
-        return SKIPPED_ALLOW>skippedNumber || UnlockService.isUnlocked();
     }
 
     public void start() {

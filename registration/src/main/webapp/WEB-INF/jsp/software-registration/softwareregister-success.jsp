@@ -48,7 +48,7 @@
     <div class="popupContent">
       <%@include file="PLFRegistrationIntro.jsp"%>
 
-      <div class="alert alert-success"><i class="uiIconSuccess"></i><strong>Thank you!</strong> You installation has been succcesfully registered <%=status%></div>
+      <div class="alert alert-success"><i class="uiIconSuccess"></i><strong>Thank you!</strong> You installation has been succcesfully registered.</div>
       <img src="/eXoSkin/skin/images/themes/default/platform/portlets/extensions/tribe3.png" class="img-responsive"/>
       <div class="uiAction">
         <form id="frmSoftwareRegistration" action="<%=contextPath+"/software-register-action"%>" method="post">

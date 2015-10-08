@@ -366,6 +366,14 @@
                 <description>To allow skip plf registration</description>
                 <value>${accountsetup.register.skip:false}</value>
             </value-param>
+            <value-param>
+                <name>accountsetup.register.host</name>
+                <value>${accountsetup.register.host:https://community.exoplatform.com}</value>
+            </value-param>
+            <value-param>
+                <name>accountsetup.register.skipAllow</name>
+                <value>${accountsetup.register.skipAllow:2}</value>
+            </value-param>
         </init-params>
     </component>
     <component>

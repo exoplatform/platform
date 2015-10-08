@@ -1,7 +1,6 @@
 package org.exoplatform.platform.common.software.register.web;
 
 import org.apache.commons.lang.StringUtils;
-import org.exoplatform.commons.utils.PropertyManager;
 import org.exoplatform.container.ExoContainerContext;
 import org.exoplatform.container.PortalContainer;
 import org.exoplatform.platform.common.software.register.UnlockService;
@@ -41,14 +40,16 @@ public class SoftwareRegisterFilter implements Filter {
   private static final String LOGIN_URI = "/login";
   private static final String DOLOGIN_URI = "/dologin";
   private static String REST_URI;
+  private SoftwareRegistrationService plfRegisterService;
 
   public SoftwareRegisterFilter() {
-      REST_URI = ExoContainerContext.getCurrentContainer().getContext().getRestContextName();
+    REST_URI = ExoContainerContext.getCurrentContainer().getContext().getRestContextName();
   }
 
   private boolean checkRequest(boolean requestSkip){
+    plfRegisterService = PortalContainer.getInstance().getComponentInstanceOfType(SoftwareRegistrationService.class);
     if(!requestSkip) return true;
-    if(!(UnlockService.isUnlocked() && UnlockService.canSkipRegister()) || (UnlockService.isUnlocked())){
+    if(!(UnlockService.isUnlocked() && plfRegisterService.canSkipRegister()) || (UnlockService.isUnlocked())){
       return false;
     }
     return true;
@@ -56,18 +57,13 @@ public class SoftwareRegisterFilter implements Filter {
   public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
     HttpServletRequest httpServletRequest = (HttpServletRequest)request;
     HttpServletResponse httpServletResponse = (HttpServletResponse)response;
+    plfRegisterService = PortalContainer.getInstance().getComponentInstanceOfType(SoftwareRegistrationService.class);
     String requestUri = httpServletRequest.getRequestURI();
-    String loginRequestUri = httpServletRequest.getContextPath() + LOGIN_URI;
-    String dologinRequestUri = httpServletRequest.getContextPath() + DOLOGIN_URI;
-    boolean isLoginUri = (requestUri.contains(loginRequestUri) || requestUri.contains(dologinRequestUri));
     boolean isRestUri = (requestUri.contains(REST_URI));
-    boolean isDevMod = PropertyManager.isDevelopping();
-    boolean requestSkip = UnlockService.isIsSkip();
+    boolean requestSkip = plfRegisterService.isRequestSkip();
     String notReacheble = (String)httpServletRequest.getAttribute("notReacheble");
-    SoftwareRegistrationService plfRegisterService =
-            PortalContainer.getInstance().getComponentInstanceOfType(SoftwareRegistrationService.class);
 
-    if(!isRestUri && !UnlockService.isRegisted() && !UnlockService.isNotReacheble()
+    if(!isRestUri && !plfRegisterService.isSoftwareRegistered()
             && !StringUtils.equals(notReacheble, "true") && checkRequest(requestSkip)
             && !plfRegisterService.isSkipPlatformRegistration()) {
       // Get full url

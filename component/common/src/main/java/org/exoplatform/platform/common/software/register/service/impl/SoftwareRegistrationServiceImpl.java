@@ -22,6 +22,7 @@ import org.exoplatform.container.PortalContainer;
 import org.exoplatform.container.xml.InitParams;
 import org.exoplatform.platform.common.rest.PlatformInformationRESTService;
 import org.exoplatform.platform.common.rest.PlatformInformationRESTService.JsonPlatformInfo;
+import org.exoplatform.platform.common.software.register.UnlockService;
 import org.exoplatform.platform.common.software.register.Utils;
 import org.exoplatform.platform.common.software.register.model.SoftwareRegistration;
 import org.exoplatform.platform.common.software.register.service.SoftwareRegistrationService;
@@ -55,6 +56,10 @@ public class SoftwareRegistrationServiceImpl implements SoftwareRegistrationServ
   private static SettingService settingService;
   private PlatformInformationRESTService platformInformationRESTService;
   private InitParams initParams;
+  private String softwareRegistrationHost = SOFTWARE_REGISTRATION_HOST_DEFAULT;
+  private UnlockService unlockService;
+  private boolean isRequestSkip;
+  private int skipedNum=0;
 
   public ChromatticSession getSession() {
     return lifeCycle.getChromattic().openSession();
@@ -64,12 +69,18 @@ public class SoftwareRegistrationServiceImpl implements SoftwareRegistrationServ
                                          NodeHierarchyCreator nodeHierarchyCreator,
                                          SettingService settingService,
                                          PlatformInformationRESTService platformInformationRESTService,
-                                         InitParams initParams) {
+                                         InitParams initParams,
+                                         UnlockService unlockService) {
     this.lifeCycle = chromatticManager.getLifeCycle(CHROMATTIC_LIFECYCLE_NAME);
     this.nodeHierarchyCreator = nodeHierarchyCreator;
     this.settingService = settingService;
     this.platformInformationRESTService = platformInformationRESTService;
     this.initParams = initParams;
+    if(initParams!=null && initParams.getValueParam(SOFTWARE_REGISTRATION_HOST) !=null){
+      this.softwareRegistrationHost = initParams.getValueParam(SOFTWARE_REGISTRATION_HOST).getValue();
+    }
+    this.unlockService = unlockService;
+    skipedNum = Integer.parseInt(initParams.getValueParam(SOFTWARE_REGISTRATION_SKIP_ALLOW).getValue());
   }
 
   /**
@@ -86,7 +97,7 @@ public class SoftwareRegistrationServiceImpl implements SoftwareRegistrationServ
    */
   @Override
   public SoftwareRegistration registrationPLF(String code, String returnURL) {
-    String url = SOFTWARE_REGISTRATION_HOST +"/portal/accessToken";
+    String url = softwareRegistrationHost +"/portal/accessToken";
     SoftwareRegistration softwareRegistration = new SoftwareRegistration();
     try {
       HttpClient client = new DefaultHttpClient();
@@ -136,11 +147,13 @@ public class SoftwareRegistrationServiceImpl implements SoftwareRegistrationServ
             new SettingValue<Object>(String.valueOf(++skippedNumber)));
   }
 
-  /**
-   * {@inheritDoc}
-   */
   @Override
-  public int getSkippedNumber() {
+  public boolean canSkipRegister() {
+    int _skipedNum = getSkippedNumber();
+    return _skipedNum<skipedNum||unlockService.isUnlocked();
+  }
+
+  private int getSkippedNumber() {
     SettingValue settingValue = settingService.get(Context.GLOBAL, Scope.GLOBAL, SOFTWARE_REGISTRATION_SKIPPED);
     if (settingValue != null) {
       return Integer.parseInt(settingValue.getValue().toString());
@@ -250,7 +263,7 @@ public class SoftwareRegistrationServiceImpl implements SoftwareRegistrationServ
    */
   private boolean sendPlfInformation(String accessTokencode) {
     try {
-      String url = SOFTWARE_REGISTRATION_HOST+"/portal/rest/registerLocalPlatformInformation/register";
+      String url = softwareRegistrationHost+"/portal/rest/registerLocalPlatformInformation/register";
       HttpClient client = new DefaultHttpClient();
       HttpPost httpPost = new HttpPost(url);
 
@@ -276,6 +289,30 @@ public class SoftwareRegistrationServiceImpl implements SoftwareRegistrationServ
       return false;
     }
 
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public String getSoftwareRegistrationHost() {
+    return softwareRegistrationHost;
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public boolean isRequestSkip() {
+    return isRequestSkip;
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public void setRequestSkip(boolean isRequestSkip) {
+    this.isRequestSkip = isRequestSkip;
   }
 
 }

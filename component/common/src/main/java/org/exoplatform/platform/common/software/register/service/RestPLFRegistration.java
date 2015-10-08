@@ -21,6 +21,7 @@ package org.exoplatform.platform.common.software.register.service;
 import org.exoplatform.services.log.ExoLogger;
 import org.exoplatform.services.log.Log;
 import org.exoplatform.services.rest.resource.ResourceContainer;
+import org.exoplatform.services.wcm.utils.WCMCoreUtils;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
@@ -38,7 +39,8 @@ public class RestPLFRegistration implements ResourceContainer {
     @Path("checkConnection")
     @Produces("html/text")
     public Response checkConnection() throws Exception {
-        String pingServerURL = SoftwareRegistrationService.SOFTWARE_REGISTRATION_HOST;
+        SoftwareRegistrationService registrationService = WCMCoreUtils.getService(SoftwareRegistrationService.class);
+        String pingServerURL = registrationService.getSoftwareRegistrationHost();
         try {
             URL url = new URL(pingServerURL);
             HttpURLConnection urlConn = (HttpURLConnection) url.openConnection();

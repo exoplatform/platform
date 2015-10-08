@@ -1,7 +1,6 @@
 package org.exoplatform.platform.common.software.register.web;
 
 import org.apache.commons.lang.StringUtils;
-import org.exoplatform.platform.common.software.register.UnlockService;
 import org.exoplatform.platform.common.software.register.service.SoftwareRegistrationService;
 import org.exoplatform.services.log.ExoLogger;
 import org.exoplatform.services.log.Log;
@@ -31,11 +30,10 @@ public class SoftwareRegisterActionServlet extends HttpServlet {
     String value = request.getParameter("value");
     SoftwareRegistrationService softwareRegistrationService = WCMCoreUtils.getService(SoftwareRegistrationService.class);
     if(StringUtils.equals("skip", value)) {
-      UnlockService.setIsSkip(true);
+      softwareRegistrationService.setRequestSkip(true);
       softwareRegistrationService.updateSkippedNumber();
     }
     if(StringUtils.equals("notReacheble", value)){
-      UnlockService.setNotReacheble(true);
       request.setAttribute("notReacheble", "notReacheble");
     }
     response.sendRedirect(redirectURI);

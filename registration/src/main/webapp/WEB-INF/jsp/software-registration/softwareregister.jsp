@@ -19,7 +19,7 @@
 
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ page import="org.exoplatform.platform.common.software.register.UnlockService" %>
+<%@ page import="org.exoplatform.platform.common.software.register.service.SoftwareRegistrationService" %>
 <%@ page import="org.exoplatform.platform.common.account.setup.web.PingBackServlet" %>
 
 
@@ -30,8 +30,10 @@
   String lang = request.getLocale().getLanguage();
   response.setCharacterEncoding("UTF-8");
   response.setContentType("text/html; charset=UTF-8");
-  boolean isRegisted = UnlockService.isRegisted();
-  boolean canSKip = UnlockService.canSkipRegister();
+  SoftwareRegistrationService registrationService
+          = PortalContainer.getCurrentInstance(session.getServletContext()).getComponentInstanceOfType(SoftwareRegistrationService.class);
+  boolean isRegisted = registrationService.isSoftwareRegistered();
+  boolean canSKip = registrationService.canSkipRegister();
 
   String registrationURL = request.getServletContext().getAttribute("registrationURL").toString();
   String notReacheble = (String)session.getAttribute("notReacheble");
