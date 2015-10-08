@@ -14,8 +14,8 @@ import org.exoplatform.webui.core.lifecycle.UIFormLifecycle;
 import org.exoplatform.webui.event.Event;
 import org.exoplatform.webui.event.EventListener;
 import org.exoplatform.webui.form.UIForm;
+import org.exoplatform.wiki.mow.api.Page;
 import org.exoplatform.wiki.mow.api.Wiki;
-import org.exoplatform.wiki.mow.core.api.wiki.PageImpl;
 import org.exoplatform.wiki.service.WikiPageParams;
 import org.exoplatform.wiki.service.WikiService;
 import org.exoplatform.wiki.utils.Utils;
@@ -89,7 +89,7 @@ public class UICreateForm extends UIForm {
                 wiki = wikiService.getWikiById(uiCreateWiki.getUrlWiki());
             }
             if (wiki != null) {
-                PageImpl wikiHome = (PageImpl) wiki.getWikiHome();
+                Page wikiHome = wiki.getWikiHome();
                 String permalink = Utils.getPermanlink(new WikiPageParams(wiki.getType(), wiki.getOwner(), wikiHome.getName()),true);
                 permalink =new StringBuffer(permalink).append(ADD_WIKI_PAGE).toString();
                 event.getRequestContext().getJavascriptManager().getRequireJS().addScripts("(function(){ window.location.href = '" + permalink + "';})();");
