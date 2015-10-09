@@ -9,6 +9,7 @@
     </aggregate>
     <index-rule nodeType="nt:resource">
         <property useInExcerpt="false">jcr:mimeType</property>
+        <property useInExcerpt="false">exo:owner</property>
         <property useInExcerpt="false">jcr:encoding</property>
         <property useInExcerpt="false">jcr:lastModified</property>
     </index-rule>
@@ -44,5 +45,6 @@
         <property useInExcerpt="false">publication:liveDate</property>
         <property useInExcerpt="false">publication:liveRevision</property>
         <property useInExcerpt="false">exo:trashId</property>
+        <property useInExcerpt="false">exo:active</property>
     </index-rule>
 </configuration>
