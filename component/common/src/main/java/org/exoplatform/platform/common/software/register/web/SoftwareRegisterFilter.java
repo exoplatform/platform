@@ -49,10 +49,10 @@ public class SoftwareRegisterFilter implements Filter {
   private boolean checkRequest(boolean requestSkip){
     plfRegisterService = PortalContainer.getInstance().getComponentInstanceOfType(SoftwareRegistrationService.class);
     if(!requestSkip) return true;
-    if(!(UnlockService.isUnlocked() && plfRegisterService.canSkipRegister()) || (UnlockService.isUnlocked())){
+    if(plfRegisterService.canSkipRegister() || (UnlockService.isUnlocked())){
       return false;
     }
-    return true;
+    return plfRegisterService.canSkipRegister();
   }
   public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
     HttpServletRequest httpServletRequest = (HttpServletRequest)request;
