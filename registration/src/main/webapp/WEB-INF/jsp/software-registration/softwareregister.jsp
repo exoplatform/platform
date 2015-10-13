@@ -59,7 +59,7 @@
     <div class="popupContent">
       <%@include file="PLFRegistrationIntro.jsp"%> 
       <% if(errorCode!=null){ %>
-      <div class="alert alert-warning"><i class="uiIconWarning"></i>The registration process has been cancelled.   Please try again or contact the <a href="http://support.exoplatform.com"> support.</a></div>
+      <div class="alert alert-warning"><i class="uiIconWarning"></i>The registration process has been cancelled. Please try again or contact the <a href="http://support.exoplatform.com"> support.</a></div>
       <%}%>
       <%if("true".equals(notReachable)){%>
         <div class="alert alert-error"><i class="uiIconError"></i>The registration process could not complete. Please try again or contact the <a href="http://support.exoplatform.com"> support.</a></div>
@@ -69,7 +69,7 @@
       <img src="/eXoSkin/skin/images/themes/default/platform/portlets/extensions/tribe2.png" class="img-responsive imgHasInternet" style="display: none;" />
       <div class="not-connected" style="display: none;">
         <div class="text-center"><strong>Well, about that...</strong></div>
-        <div class="text-center">It seems we cannot reach the eXo Tribe at the moment, You can skip this step and register your software at the next start</div>
+        <div class="text-center">It seems we cannot reach the eXo Tribe at the moment. You can skip this step and register your software at the next start.</div>
       </div>
       <div class="signin-title"><strong>Sign in to the eXo Tribe:</strong></div>
       <div class="loading-text"></div>
