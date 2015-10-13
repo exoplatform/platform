@@ -32,7 +32,7 @@ import org.exoplatform.web.security.security.RemindPasswordTokenService;
 
 
 /**
- * This class is override of {@link org.gatein.forgetpassword.service.impl.ForgetPasswordServiceImpl}
+ * This class is override of {@link org.exoplatform.web.login.recovery.PasswordRecoveryServiceImpl}
  * It overrides 2 method: getSenderName() and getSenderEmail()
  * to get these information from "Notification administrator" page (Administration -> Portal -> Notifications)
  *

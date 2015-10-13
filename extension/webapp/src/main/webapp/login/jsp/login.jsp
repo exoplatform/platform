@@ -34,7 +34,7 @@
 <%@ page import="java.util.Map" %>
 <%@ page import="org.exoplatform.web.controller.QualifiedName" %>
 <%@ page import="java.util.HashMap" %>
-<%@ page import="org.gatein.forgetpassword.handler.ForgetPasswordHandler" %>
+<%@ page import="org.exoplatform.web.login.recovery.PasswordRecoveryHandler" %>
 <%@ page language="java" %>
 <%
   String contextPath = request.getContextPath() ;
@@ -64,7 +64,7 @@
 
   Router router = webAppController.getRouter();
   Map<QualifiedName, String> params = new HashMap<QualifiedName, String>();
-  params.put(WebAppController.HANDLER_PARAM, ForgetPasswordHandler.NAME);
+  params.put(WebAppController.HANDLER_PARAM, PasswordRecoveryHandler.NAME);
   String forgotPasswordPath = router.render(params);
 
   //
