@@ -737,6 +737,55 @@
         <groupId>org.gatein.sso</groupId>
         <artifactId>sso-integration</artifactId>
         <version>${org.gatein.sso.version}</version>
+        <exclusions>
+          <exclusion>
+            <groupId>org.gatein.sso</groupId>
+            <artifactId>sso-agent</artifactId>
+          </exclusion>
+        </exclusions>
+      </dependency>
+      <dependency>
+        <groupId>org.gatein.sso</groupId>
+        <artifactId>sso-agent</artifactId>
+        <version>${org.gatein.sso.version}</version>
+        <exclusions>
+          <exclusion>
+            <groupId>org.gatein.sso</groupId>
+            <artifactId>sso-auth-callback</artifactId>
+          </exclusion>
+          <exclusion>
+            <groupId>org.jasig.cas.client</groupId>
+            <artifactId>cas-client-core</artifactId>
+          </exclusion>
+          <exclusion>
+            <groupId>org.josso</groupId>
+            <artifactId>josso-agent</artifactId>
+          </exclusion>
+          <exclusion>
+            <groupId>org.josso</groupId>
+            <artifactId>josso-servlet-agent</artifactId>
+          </exclusion>
+          <exclusion>
+            <groupId>org.josso</groupId>
+            <artifactId>josso-agent-shared</artifactId>
+          </exclusion>
+          <exclusion>
+            <groupId>org.josso</groupId>
+            <artifactId>josso-protocol-client</artifactId>
+          </exclusion>
+          <exclusion>
+            <groupId>org.jboss.security</groupId>
+            <artifactId>jboss-negotiation-spnego</artifactId>
+          </exclusion>
+          <exclusion>
+            <groupId>org.picketlink</groupId>
+            <artifactId>picketlink-federation</artifactId>
+          </exclusion>
+          <exclusion>
+            <groupId>org.picketlink.distribution</groupId>
+            <artifactId>picketlink-jbas7</artifactId>
+          </exclusion>
+        </exclusions>
       </dependency>
       <!-- DON'T REMOVE : used for packaging -->
       <dependency>
@@ -756,11 +805,6 @@
         <groupId>org.gatein.web</groupId>
         <artifactId>redirect</artifactId>
         <version>${org.gatein.portal.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>org.gatein.sso</groupId>
-        <artifactId>sso-saml-plugin</artifactId>
-        <version>${org.gatein.sso.version}</version>
       </dependency>
     </dependencies>
   </dependencyManagement>
