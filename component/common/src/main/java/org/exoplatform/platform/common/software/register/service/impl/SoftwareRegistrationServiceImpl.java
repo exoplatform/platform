@@ -80,7 +80,13 @@ public class SoftwareRegistrationServiceImpl implements SoftwareRegistrationServ
       this.softwareRegistrationHost = initParams.getValueParam(SOFTWARE_REGISTRATION_HOST).getValue();
     }
     this.unlockService = unlockService;
-    skipedNum = Integer.parseInt(initParams.getValueParam(SOFTWARE_REGISTRATION_SKIP_ALLOW).getValue());
+    try {
+      skipedNum = Integer.parseInt(initParams.getValueParam(SOFTWARE_REGISTRATION_SKIP_ALLOW).getValue());
+    }catch (NumberFormatException nfe){
+      if(LOG.isWarnEnabled()){
+        LOG.warn("Skip allow configuration of PLF registration has been ignored!");
+      }
+    }
   }
 
   /**
@@ -89,7 +95,8 @@ public class SoftwareRegistrationServiceImpl implements SoftwareRegistrationServ
   @Override
   public boolean isSkipPlatformRegistration() {
     String skipPLFRegister = initParams.getValueParam(SOFTWARE_REGISTRATION_SKIP).getValue();
-    return StringUtils.equals("true", skipPLFRegister);
+    if(skipPLFRegister==null) return false;
+    return StringUtils.equals("true", skipPLFRegister.trim());
   }
 
   /**
