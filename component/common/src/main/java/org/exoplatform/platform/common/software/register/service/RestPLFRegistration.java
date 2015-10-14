@@ -47,9 +47,13 @@ public class RestPLFRegistration implements ResourceContainer {
             urlConn.connect();
             return Response.ok(String.valueOf(HttpURLConnection.HTTP_OK == urlConn.getResponseCode())).build();
         } catch (MalformedURLException e) {
-            LOG.error("LeadCapture : Error creating HTTP connection to the server : " + pingServerURL);
+            if(LOG.isErrorEnabled()) {
+                LOG.error("LeadCapture : Error creating HTTP connection to the server : " + pingServerURL);
+            }
         } catch (IOException e) {
-            LOG.error("LeadCapture : Error creating HTTP connection to the server : " + pingServerURL);
+            if(LOG.isErrorEnabled()) {
+                LOG.error("LeadCapture : Error creating HTTP connection to the server : " + pingServerURL);
+            }
         }
         return Response.ok(String.valueOf(false)).build();
     }
