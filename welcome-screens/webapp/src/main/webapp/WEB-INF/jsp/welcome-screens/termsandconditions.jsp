@@ -1630,13 +1630,13 @@
 			</div>
 			<div class="bottom clearfix">
 				<form name="tcForm" action="<%= contextPath + "/terms-and-conditions-action"%>" method="post">
-					<div class="pull-right">
-						<button class="btn inactive" disabled="disabled" id="continueButton" onclick="validate();">Continue</button>
-					</div>
 					<div class="pull-left">
 						<label class="uiCheckbox"><input type="checkbox" id="agreement" name="checktc" value="false" onclick="toggleState();" class="checkbox"/>
 							<span>I agree with this terms and conditions agreement.</span>
 						</label>
+					</div>
+					<div class="pull-right">
+						<button class="btn inactive" disabled="disabled" id="continueButton" onclick="validate();">Continue</button>
 					</div>
 					<script type="text/javascript" src="<%=contextPath%>/javascript/welcomescreens.js"></script>
 				</form>
