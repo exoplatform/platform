@@ -289,10 +289,10 @@
       });
 
       //end event touch on mobile
-     $('#UICreateList').find('.btn').next().click(function(){
+   /*  $('#UICreateList').find('.btn').next().click(function(){
       $('#UICreateList').hide().removeClass('create-form-dropdown').delay(200).show(200);
      //create new wiki page on top navigation
-    });
+    });*/
      //change icon search in toolbar to icon close input search
     $("#ToolBarSearch .uiIconPLF24x24Search").on('click', function(){
       $(this).toggleClass('uiIconCloseSearchBox')
