@@ -428,7 +428,7 @@ public class OrganizationIntegrationService implements Startable {
           }
           invokeListenersToSavedGroup(group, event.equals(EventType.ADDED));
         } catch (Exception e) {
-          LOG.error("\t\t" + "Error occured while invoking listeners of group: " + groupId, e);
+          LOG.error("\t\t" + "Error occurred while invoking listeners of group: " + groupId, e);
         } finally {
           endRequest();
         }
@@ -479,7 +479,7 @@ public class OrganizationIntegrationService implements Startable {
             syncUser(username, eventType);
           }
         } catch (Exception e) {
-          LOG.error("\t\tUnknown error was occured while preparing to proceed users deletion", e);
+          LOG.error("\t\tUnknown error occurred while preparing to proceed users deletion", e);
         } finally {
           endRequest();
           if (session != null) {
@@ -500,7 +500,7 @@ public class OrganizationIntegrationService implements Startable {
             syncUser(username, eventType);
           }
         } catch (Exception e) {
-          LOG.error("\tUnknown error was occured while preparing to proceed users update", e);
+          LOG.error("\tUnknown error occurred while preparing to proceed user update", e);
         } finally {
           endRequest();
           if (session != null) {
@@ -531,7 +531,7 @@ public class OrganizationIntegrationService implements Startable {
             i += 10;
           }
         } catch (Exception e) {
-          LOG.error("\tUnknown error was occured while preparing to proceed users update", e);
+          LOG.error("\tUnknown error occurred while preparing to proceed user update", e);
         } finally {
           endRequest();
           if (session != null) {
@@ -572,7 +572,7 @@ public class OrganizationIntegrationService implements Startable {
           picketLinkIDMCacheService.invalidateAll();
           user = organizationService.getUserHandler().findUserByName(username);
         } catch (Exception e) {
-          LOG.warn("\t\tError occured while verifying if user is present in Datasource or not."
+          LOG.warn("\t\tError occurred while verifying if user is present in Datasource or not."
               + " This may not cause a problem :" + e.getMessage());
         } finally {
           endRequest();
@@ -722,7 +722,7 @@ public class OrganizationIntegrationService implements Startable {
             memberships = (List<Membership>) organizationService.getMembershipHandler().findMembershipsByUserAndGroup(username,
                 groupId);
           } catch (Exception e) {
-            LOG.error("\t\tError occured while verifying if membership is present in Datasource or not. This may not cause a problem :"
+            LOG.error("\t\tError occurred while verifying if membership is present in Datasource or not. This may not cause a problem :"
                 + e.getMessage());
           }
           if (memberships == null) {
@@ -735,7 +735,7 @@ public class OrganizationIntegrationService implements Startable {
             }
           }
         } catch (Exception e) {
-          LOG.error("\t\tUnknown error was occured while preparing to proceed membership deletion", e);
+          LOG.error("\t\tUnknown error occurred while preparing to proceed membership deletion", e);
         } finally {
           endRequest();
           if (session != null) {
@@ -755,7 +755,7 @@ public class OrganizationIntegrationService implements Startable {
             memberships = (List<Membership>) organizationService.getMembershipHandler().findMembershipsByUserAndGroup(username,
                 groupId);
           } catch (Exception e) {
-            LOG.error("\t\tError occured while verifying if membership is present in Datasource or not. This may not cause a problem :"
+            LOG.error("\t\tError occurred while verifying if membership is present in Datasource or not. This may not cause a problem :"
                 + e.getMessage());
           }
           if (memberships == null || memberships.isEmpty()) {
@@ -796,7 +796,7 @@ public class OrganizationIntegrationService implements Startable {
             }
           }
         } catch (Exception e) {
-          LOG.error("\t\tUnknown error was occured while preparing to proceed membership deletion", e);
+          LOG.error("\t\tUnknown error occurred while preparing to proceed membership deletion", e);
         } finally {
           endRequest();
           if (session != null) {
@@ -824,7 +824,7 @@ public class OrganizationIntegrationService implements Startable {
             membership = organizationService.getMembershipHandler().findMembershipByUserGroupAndType(username, groupId,
                 membershipType);
           } catch (Exception e) {
-            LOG.warn("\t\tError occured while verifying if membership is present in Datasource or not. This may not cause a problem :"
+            LOG.warn("\t\tError occurred while verifying if membership is present in Datasource or not. This may not cause a problem :"
                 + e.getMessage());
           } finally {
             endRequest();
@@ -867,7 +867,7 @@ public class OrganizationIntegrationService implements Startable {
             LOG.error("\t\tFailed to call listeners on Membership (" + membership.getId() + ")", e);
           }
         } catch (Exception e) {
-          LOG.error("\t\tUnknown error was occured while preparing to proceed membership deletion", e);
+          LOG.error("\t\tUnknown error occurred while preparing to proceed membership deletion", e);
         } finally {
           endRequest();
         }
@@ -1018,7 +1018,7 @@ public class OrganizationIntegrationService implements Startable {
             LOG.error("\t\t\tUser " + username + " was deleted, but some memberships are always existing : " + userMemberships);
           }
         } catch (Exception e) {
-          LOG.error("\t\t\tUnknown error was occured while preparing to proceed membership deletion", e);
+          LOG.error("\t\t\tUnknown error occurred while preparing to proceed membership deletion", e);
         } finally {
           endRequest();
           if (session != null) {
@@ -1151,7 +1151,7 @@ public class OrganizationIntegrationService implements Startable {
           try {
             userProfile = organizationService.getUserProfileHandler().findUserProfileByName(username);
           } catch (Exception e) {
-            LOG.warn("\t\t\tError occured while verifying if userProfile is present in Datasource or not. This may not cause a problem :"
+            LOG.warn("\t\t\tError occurred while verifying if userProfile is present in Datasource or not. This may not cause a problem :"
                 + e.getMessage());
           } finally {
             endRequest();
@@ -1207,7 +1207,7 @@ public class OrganizationIntegrationService implements Startable {
           Group parentGroup = organizationService.getGroupHandler().findGroupById(group.getParentId());
           invokeListenersToSavedGroup(parentGroup, isNew);
         } catch (Exception e) {
-          LOG.warn("\t\tError occured while attempting to get parent of " + group.getId()
+          LOG.warn("\t\tError occurred while attempting to get parent of " + group.getId()
               + " Group. Listeners will not be applied on parent " + group.getParentId(), e);
         }
       }

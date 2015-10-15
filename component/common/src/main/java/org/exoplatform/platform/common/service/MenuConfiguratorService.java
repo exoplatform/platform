@@ -104,7 +104,7 @@ public class MenuConfiguratorService implements Startable {
       }
 
     } catch (Exception e) {
-      throw new IllegalStateException("Unkown error occured when setting Setup menu items.", e);
+      throw new IllegalStateException("Unknown error occurred when setting Setup menu items.", e);
     }
   }
 

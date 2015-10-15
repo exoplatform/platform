@@ -206,7 +206,7 @@ public  class PingBackServlet extends HttpServlet {
             }
             return platformEdition;
         } catch (Exception e) {
-            LOG.error("An error occured while getting the platform edition information.", e);
+            LOG.error("An error occurred while getting the platform edition information.", e);
         }
         return null;
     }

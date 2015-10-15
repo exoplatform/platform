@@ -162,7 +162,7 @@ public class ModuleRegistry implements Startable {
         }
         isPortletDisplayNamesImported = true;
       } catch (PortletInvokerException exception) {
-        LOG.error("Error occured when trying to import portlets", exception);
+        LOG.error("Error occurred when trying to import portlets", exception);
       }
       if (portletDisplayNames.get(portletName) != null) {
         portletDisplayName = portletDisplayNames.get(portletName).getValue(locale, true).getString();

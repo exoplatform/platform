@@ -127,7 +127,7 @@ public class PlatformInformationRESTService implements ResourceContainer {
             }
             return Response.ok(jsonPlatformInfo, MediaType.APPLICATION_JSON).cacheControl(cacheControl).build();
         } catch (Exception e) {
-            LOG.error("An error occured while getting platform version information.", e);
+            LOG.error("An error occurred while getting platform version information.", e);
             return Response.status(HTTPStatus.INTERNAL_ERROR).cacheControl(cacheControl).build();
         } finally {
             if (sessionProvider!=null) {
@@ -155,7 +155,7 @@ public class PlatformInformationRESTService implements ResourceContainer {
             }
             return platformEdition;
         } catch (Exception e) {
-            LOG.error("An error occured while getting the platform edition information.", e);
+            LOG.error("An error occurred while getting the platform edition information.", e);
         }
         return null;
     }
