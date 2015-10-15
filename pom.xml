@@ -779,6 +779,10 @@
           </exclusion>
           <exclusion>
             <groupId>org.picketlink</groupId>
+            <artifactId>picketlink-core</artifactId>
+          </exclusion>
+          <exclusion>
+            <groupId>org.picketlink</groupId>
             <artifactId>picketlink-federation</artifactId>
           </exclusion>
           <exclusion>
