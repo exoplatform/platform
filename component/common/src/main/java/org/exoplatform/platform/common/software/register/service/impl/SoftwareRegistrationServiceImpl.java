@@ -270,7 +270,7 @@ public class SoftwareRegistrationServiceImpl implements SoftwareRegistrationServ
    */
   private boolean sendPlfInformation(String accessTokencode) {
     try {
-      String url = softwareRegistrationHost+"/portal/rest/registerLocalPlatformInformation/register";
+      String url = softwareRegistrationHost+"/portal/rest/registerSoftware/register";
       HttpClient client = new DefaultHttpClient();
       HttpPost httpPost = new HttpPost(url);
 

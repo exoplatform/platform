@@ -8,6 +8,8 @@ import org.exoplatform.commons.api.settings.data.Scope;
 import org.exoplatform.container.PortalContainer;
 import org.exoplatform.platform.common.software.register.model.SoftwareRegistration;
 import org.exoplatform.platform.common.software.register.service.SoftwareRegistrationService;
+import org.exoplatform.services.log.ExoLogger;
+import org.exoplatform.services.log.Log;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -24,6 +26,8 @@ import java.io.IOException;
  */
 public class SoftwareRegisterAuthViewServlet extends HttpServlet {
 
+  private static final Log LOG = ExoLogger.getLogger(SoftwareRegisterAuthViewServlet.class);
+
   private static final long serialVersionUID = 1L;
   private final static String SR_JSP_RESOURCE = "/WEB-INF/jsp/software-registration/softwareregister.jsp";
   private final static String SR_JSP_RESOURCE_SUCCESS = "/WEB-INF/jsp/software-registration/softwareregister-success.jsp";
@@ -39,7 +43,14 @@ public class SoftwareRegisterAuthViewServlet extends HttpServlet {
     }
     String code = request.getParameter("code");
     if(StringUtils.isEmpty(code)){
-      getServletContext().getRequestDispatcher(SR_JSP_RESOURCE).forward(request, response);
+      try {
+        getServletContext().getRequestDispatcher(SR_JSP_RESOURCE).forward(request, response);
+      }catch (Exception se){
+        if(LOG.isErrorEnabled()){
+          LOG.error(se);
+        }
+        response.sendRedirect("/");
+      }
       return;
     }
 
