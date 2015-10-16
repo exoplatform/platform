@@ -1,8 +1,5 @@
 package org.exoplatform.platform.common.software.register.web;
 
-import org.exoplatform.platform.common.software.register.service.SoftwareRegistrationService;
-import org.exoplatform.services.wcm.utils.WCMCoreUtils;
-
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -23,15 +20,6 @@ public class SoftwareRegisterViewServlet extends HttpServlet {
 
   @Override
   protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-    SoftwareRegistrationService registrationService = WCMCoreUtils.getService(SoftwareRegistrationService.class);
-    String returnURL = SoftwareRegisterAuthViewServlet.getReturnURL(request);
-    StringBuffer registrationURL = new StringBuffer();
-    registrationURL.append(registrationService.getSoftwareRegistrationHost());
-    registrationURL.append(SoftwareRegistrationService.SOFTWARE_REGISTRATION_PATH);
-    registrationURL.append("?").append(SoftwareRegistrationService.SOFTWARE_REGISTRATION_CLIENT_ID);
-    registrationURL.append("&").append(SoftwareRegistrationService.SOFTWARE_REGISTRATION_RESPONSE_TYPE);
-    registrationURL.append("&redirect_uri=").append(returnURL);
-    getServletContext().setAttribute("registrationURL", registrationURL);
     getServletContext().getRequestDispatcher(SR_JSP_RESOURCE).forward(request, response);
   }
 

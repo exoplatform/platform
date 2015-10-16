@@ -20,6 +20,7 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ page import="org.exoplatform.platform.common.software.register.service.SoftwareRegistrationService" %>
+<%@ page import="org.exoplatform.platform.common.software.register.web.SoftwareRegisterAuthViewServlet" %>
 <%@ page import="org.exoplatform.platform.common.account.setup.web.PingBackServlet" %>
 
 
@@ -32,10 +33,17 @@
   response.setContentType("text/html; charset=UTF-8");
   SoftwareRegistrationService registrationService
           = PortalContainer.getCurrentInstance(session.getServletContext()).getComponentInstanceOfType(SoftwareRegistrationService.class);
-  boolean isRegisted = registrationService.isSoftwareRegistered();
   boolean canSKip = registrationService.canSkipRegister();
 
-  String registrationURL = request.getServletContext().getAttribute("registrationURL").toString();
+  String returnURL = SoftwareRegisterAuthViewServlet.getReturnURL(request);
+  StringBuffer _registrationURL = new StringBuffer();
+  _registrationURL.append(registrationService.getSoftwareRegistrationHost());
+  _registrationURL.append(SoftwareRegistrationService.SOFTWARE_REGISTRATION_PATH);
+  _registrationURL.append("?").append(SoftwareRegistrationService.SOFTWARE_REGISTRATION_CLIENT_ID);
+  _registrationURL.append("&").append(SoftwareRegistrationService.SOFTWARE_REGISTRATION_RESPONSE_TYPE);
+  _registrationURL.append("&redirect_uri=").append(returnURL);
+
+  String registrationURL = new String(_registrationURL);
   String notReachable = (String)session.getAttribute("notReachable");
    String errorCode = request.getParameter("error");
   //
