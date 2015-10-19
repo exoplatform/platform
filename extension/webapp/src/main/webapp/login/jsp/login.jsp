@@ -1,3 +1,4 @@
+
 <%--
 
     Copyright (C) 2009 eXo Platform SAS.
@@ -29,12 +30,9 @@
 <%@ page import="org.exoplatform.portal.resource.SkinService"%>
 <%@ page import="java.util.ResourceBundle"%>
 <%@ page import="org.gatein.common.text.EntityEncoder"%>
-<%@ page import="org.exoplatform.web.WebAppController" %>
-<%@ page import="org.exoplatform.web.controller.router.Router" %>
-<%@ page import="java.util.Map" %>
+<%@ page import="org.exoplatform.web.login.recovery.PasswordRecoveryService" %>
+<%@ page import="org.exoplatform.platform.security.PlatformPasswordRecoveryServiceImpl" %>
 <%@ page import="org.exoplatform.web.controller.QualifiedName" %>
-<%@ page import="java.util.HashMap" %>
-<%@ page import="org.exoplatform.web.login.recovery.PasswordRecoveryHandler" %>
 <%@ page language="java" %>
 <%
   String contextPath = request.getContextPath() ;
@@ -49,7 +47,6 @@
 
   PortalContainer portalContainer = PortalContainer.getCurrentInstance(session.getServletContext());
   ResourceBundleService service = (ResourceBundleService) portalContainer.getComponentInstanceOfType(ResourceBundleService.class);
-  WebAppController webAppController = (WebAppController)portalContainer.getComponentInstanceOfType(WebAppController.class);
   ResourceBundle res = service.getResourceBundle(service.getSharedResourceBundleNames(), request.getLocale());
 
   OAuthProviderTypeRegistry registry = (OAuthProviderTypeRegistry) portalContainer.getComponentInstanceOfType(OAuthProviderTypeRegistry.class);
@@ -62,10 +59,8 @@
                           .getComponentInstanceOfType(SkinService.class);
   String loginCssPath = skinService.getSkin("portal/login", "Default").getCSSPath();
 
-  Router router = webAppController.getRouter();
-  Map<QualifiedName, String> params = new HashMap<QualifiedName, String>();
-  params.put(WebAppController.HANDLER_PARAM, PasswordRecoveryHandler.NAME);
-  String forgotPasswordPath = router.render(params);
+  PlatformPasswordRecoveryServiceImpl passRecoveryServ = (PlatformPasswordRecoveryServiceImpl)portalContainer.getComponentInstanceOfType(PasswordRecoveryService.class);
+  String forgotPasswordPath = passRecoveryServ.getPasswordRecoverURL();
 
   //
   String uri = (String)request.getAttribute("org.gatein.portal.login.initial_uri");

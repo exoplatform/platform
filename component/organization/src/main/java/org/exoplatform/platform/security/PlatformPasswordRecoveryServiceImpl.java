@@ -19,6 +19,9 @@
 
 package org.exoplatform.platform.security;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import org.exoplatform.commons.api.notification.plugin.NotificationPluginUtils;
 import org.exoplatform.commons.api.settings.SettingService;
 import org.exoplatform.commons.api.settings.SettingValue;
@@ -27,6 +30,9 @@ import org.exoplatform.services.mail.MailService;
 import org.exoplatform.services.organization.OrganizationService;
 import org.exoplatform.services.resources.ResourceBundleService;
 import org.exoplatform.web.WebAppController;
+import org.exoplatform.web.controller.QualifiedName;
+import org.exoplatform.web.controller.router.Router;
+import org.exoplatform.web.login.recovery.PasswordRecoveryHandler;
 import org.exoplatform.web.login.recovery.PasswordRecoveryServiceImpl;
 import org.exoplatform.web.security.security.RemindPasswordTokenService;
 
@@ -42,6 +48,8 @@ import org.exoplatform.web.security.security.RemindPasswordTokenService;
  */
 public class PlatformPasswordRecoveryServiceImpl extends PasswordRecoveryServiceImpl {
     private final SettingService settingService;
+    private WebAppController controller;
+
     public PlatformPasswordRecoveryServiceImpl(OrganizationService orgService,
                                              MailService mailService,
                                              ResourceBundleService bundleService,
@@ -49,6 +57,7 @@ public class PlatformPasswordRecoveryServiceImpl extends PasswordRecoveryService
                                              WebAppController controller,
                                              SettingService settingService) {
         super(orgService, mailService, bundleService, remindPasswordTokenService, controller);
+        this.controller  = controller;
         this.settingService = settingService;
     }
 
@@ -70,5 +79,14 @@ public class PlatformPasswordRecoveryServiceImpl extends PasswordRecoveryService
         } else {
             return (String)value.getValue();
         }
+    }
+
+    // EXOGTN-2114 Workaround for Java 8 Backward compatibility.
+    // TODO: Consider to introduce this method to the interface.
+    public String getPasswordRecoverURL() {
+        Router router = controller.getRouter();
+        Map<QualifiedName, String> params = new HashMap<QualifiedName, String>();
+        params.put(WebAppController.HANDLER_PARAM, PasswordRecoveryHandler.NAME);
+        return router.render(params);
     }
 }
