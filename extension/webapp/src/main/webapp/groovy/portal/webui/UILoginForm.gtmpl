@@ -42,7 +42,7 @@
     </div>
     <%
           uicomponent.renderChildren();
-      }
     %>
   </div>
+  <%}%>
 </div>
