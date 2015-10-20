@@ -57,7 +57,6 @@ import org.exoplatform.services.organization.User;
 import org.exoplatform.services.organization.UserEventListener;
 import org.exoplatform.services.organization.UserProfile;
 import org.exoplatform.services.organization.UserProfileEventListener;
-import org.exoplatform.services.organization.idm.PicketLinkIDMCacheService;
 import org.exoplatform.services.organization.impl.GroupImpl;
 import org.exoplatform.services.organization.impl.MembershipImpl;
 import org.exoplatform.services.organization.impl.UserImpl;
@@ -566,10 +565,6 @@ public class OrganizationIntegrationService implements Startable {
         User user = null;
         startRequest();
         try {
-          //Need to clean integrationCache before testing on User information, because after remove/update User
-          //from LDAP, New information are not synchronized in Cache which is making confusion
-          PicketLinkIDMCacheService picketLinkIDMCacheService = (PicketLinkIDMCacheService) container.getComponentInstanceOfType(PicketLinkIDMCacheService.class);
-          picketLinkIDMCacheService.invalidateAll();
           user = organizationService.getUserHandler().findUserByName(username);
         } catch (Exception e) {
           LOG.warn("\t\tError occurred while verifying if user is present in Datasource or not."
@@ -577,20 +572,48 @@ public class OrganizationIntegrationService implements Startable {
         } finally {
           endRequest();
         }
-        if (user != null && user.getEmail() != null) {
+        if (user != null) {
           LOG.warn("\t\tUser exists: can't invoke delete listeners on the existant user : " + username);
           return;
         }
-        //calling User listeners at this level is insufficient to remove all useless user information, Need to call remove User with broadcast set to true
+        invokeUserMembershipsListeners(username, event);
+        invokeUserProfileListeners(username, event);
+        Session session = null;
         startRequest();
         try {
-          this.organizationService.getUserHandler().removeUser(username, true);
-          invokeUserMembershipsListeners(username, event);
-          invokeUserProfileListeners(username, event);
+          session = repositoryService.getCurrentRepository().getSystemSession(Util.WORKSPACE);
+          if (Util.hasUserFolder(session, username)) {
+            LOG.info("Invoke user deletion: " + username);
+            user = new UserImpl(username);
+            Collection<UserEventListener> userDAOListeners = userDAOListeners_.values();
+            for (UserEventListener userEventListener : userDAOListeners) {
+              startRequest();
+              try {
+                userEventListener.preDelete(user);
+              } catch (Exception e) {
+                LOG.error(
+                    "\t\tFailed to call preDelete on " + username + " User with listener : " + userEventListener.getClass(), e);
+              } finally {
+                endRequest();
+              }
+              startRequest();
+              try {
+                userEventListener.postDelete(user);
+              } catch (Exception e) {
+                LOG.error(
+                    "\t\tFailed to call postDelete on " + username + " User with listener : " + userEventListener.getClass(), e);
+              } finally {
+                endRequest();
+              }
+            }
+          }
         } catch (Exception e) {
-          LOG.error("\t\tProblem is occured when removing user: '" + username + "'", e);
+          LOG.error("\t\tFailed to initialize " + username + " User", e);
         } finally {
           endRequest();
+          if (session != null) {
+            session.logout();
+          }
         }
         break;
       }
