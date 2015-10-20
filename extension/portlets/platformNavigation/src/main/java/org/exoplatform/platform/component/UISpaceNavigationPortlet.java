@@ -109,7 +109,6 @@ public class UISpaceNavigationPortlet extends UIPortletApplication {
      * @throws Exception
      */
     public void refresh() throws Exception {
-        if(this.offset > spaceListAccess.getSize()) this.offset=0;
         setCurrentNavigation(Util.getPortalRequestContext().getRequest().getRequestURI());
         boolean navChanged = getCurrentNavigation().equals(getOldNavigation());
         if ((this.reload && selectedSpaceId == null) || !navChanged) {
