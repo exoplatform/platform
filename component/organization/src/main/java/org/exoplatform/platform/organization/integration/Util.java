@@ -310,26 +310,22 @@ public class Util {
 
   public static List<Membership> getActivatedMembershipsRelatedToUser(Session session, String username) throws Exception {
     List<Membership> activatedMemberships = new ArrayList<Membership>();
-    try {
-      NodeIterator membershipNodesIterator = getUserNode(session, username).getNodes();
-      while (membershipNodesIterator.hasNext()) {
-        Node membershipNode = membershipNodesIterator.nextNode();
-        String membershipId = membershipNode.getName();
-        String[] membershipElements = membershipId.split(MEMBERSHIP_SEPARATOR);
+    NodeIterator membershipNodesIterator = getUserNode(session, username).getNodes();
+    while (membershipNodesIterator.hasNext()) {
+      Node membershipNode = membershipNodesIterator.nextNode();
+      String membershipId = membershipNode.getName();
+      String[] membershipElements = membershipId.split(MEMBERSHIP_SEPARATOR);
 
-        String membershipType = membershipElements[0].replace(SPECIAL_CHARACTER_REPLACEMENT, "*");
-        String groupId = membershipElements[1].replace(SPECIAL_CHARACTER_REPLACEMENT, "/");
+      String membershipType = membershipElements[0].replace(SPECIAL_CHARACTER_REPLACEMENT, "*");
+      String groupId = membershipElements[1].replace(SPECIAL_CHARACTER_REPLACEMENT, "/");
 
-        MembershipImpl membership = new MembershipImpl();
-        membership.setGroupId(groupId);
-        membership.setMembershipType(membershipType);
-        membership.setUserName(username);
-        membership.setId(computeId(membership));
+      MembershipImpl membership = new MembershipImpl();
+      membership.setGroupId(groupId);
+      membership.setMembershipType(membershipType);
+      membership.setUserName(username);
+      membership.setId(computeId(membership));
 
-        activatedMemberships.add(membership);
-      }
-    } catch (Exception e) {
-      LOG.info("Cannot get the node of user: '"+username+"'. This user doesn't exist anymore.");
+      activatedMemberships.add(membership);
     }
     return activatedMemberships;
   }
