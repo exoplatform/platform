@@ -31,7 +31,6 @@
 <%@ page import="java.util.ResourceBundle"%>
 <%@ page import="org.gatein.common.text.EntityEncoder"%>
 <%@ page import="org.exoplatform.web.login.recovery.PasswordRecoveryService" %>
-<%@ page import="org.exoplatform.platform.security.PlatformPasswordRecoveryServiceImpl" %>
 <%@ page import="org.exoplatform.web.controller.QualifiedName" %>
 <%@ page language="java" %>
 <%
@@ -59,8 +58,8 @@
                           .getComponentInstanceOfType(SkinService.class);
   String loginCssPath = skinService.getSkin("portal/login", "Default").getCSSPath();
 
-  PlatformPasswordRecoveryServiceImpl passRecoveryServ = (PlatformPasswordRecoveryServiceImpl)portalContainer.getComponentInstanceOfType(PasswordRecoveryService.class);
-  String forgotPasswordPath = passRecoveryServ.getPasswordRecoverURL();
+  PasswordRecoveryService passRecoveryServ = portalContainer.getComponentInstanceOfType(PasswordRecoveryService.class);
+  String forgotPasswordPath = passRecoveryServ.getPasswordRecoverURL(null, null);
 
   //
   String uri = (String)request.getAttribute("org.gatein.portal.login.initial_uri");
