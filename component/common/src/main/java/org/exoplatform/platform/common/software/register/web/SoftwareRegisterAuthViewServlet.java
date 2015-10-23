@@ -10,6 +10,7 @@ import org.exoplatform.platform.common.software.register.model.SoftwareRegistrat
 import org.exoplatform.platform.common.software.register.service.SoftwareRegistrationService;
 import org.exoplatform.services.log.ExoLogger;
 import org.exoplatform.services.log.Log;
+import org.exoplatform.services.wcm.utils.WCMCoreUtils;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -54,7 +55,7 @@ public class SoftwareRegisterAuthViewServlet extends HttpServlet {
       return;
     }
 
-    SoftwareRegistration softwareRegistration = softwareRegistrationService.registrationPLF(code, getReturnURL(request));
+    SoftwareRegistration softwareRegistration = softwareRegistrationService.registrationPLF(code, getRegistrationURL(request));
     if (softwareRegistration.isPushInfo()) {
       settingService.set(Context.GLOBAL, Scope.GLOBAL,
               SoftwareRegistrationService.SOFTWARE_REGISTRATION_NODE, SettingValue.create("Software registered:" + "true"));
@@ -66,6 +67,7 @@ public class SoftwareRegisterAuthViewServlet extends HttpServlet {
       return;
     }else {
       getServletContext().setAttribute("status", "failed");
+      request.getSession().setAttribute("notReachable", "true");
       response.sendRedirect("/");
       return;
     }
@@ -75,12 +77,23 @@ public class SoftwareRegisterAuthViewServlet extends HttpServlet {
 
   @Override
   protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    String registrationULR = SoftwareRegisterAuthViewServlet.getRegistrationURL(request);
+    request.setAttribute("registrationURL", registrationULR);
+    request.getSession().setAttribute("registrationURL", registrationULR);
     doPost(request, response);
   }
 
-  public static String getReturnURL(HttpServletRequest request){
+  public static String getRegistrationURL(HttpServletRequest request){
+    SoftwareRegistrationService registrationService = WCMCoreUtils.getService(SoftwareRegistrationService.class);
     String returnUrl = SoftwareRegistrationService.SOFTWARE_REGISTRATION_RETURN_URL;
     returnUrl = returnUrl.replace("{0}", request.getServerName());
-    return returnUrl.replace("{1}", String.valueOf(request.getServerPort()));
+    returnUrl = returnUrl.replace("{1}", String.valueOf(request.getServerPort()));
+    StringBuffer _registrationURL = new StringBuffer();
+    _registrationURL.append(registrationService.getSoftwareRegistrationHost());
+    _registrationURL.append(SoftwareRegistrationService.SOFTWARE_REGISTRATION_PATH);
+    _registrationURL.append("?").append(SoftwareRegistrationService.SOFTWARE_REGISTRATION_CLIENT_ID);
+    _registrationURL.append("&").append(SoftwareRegistrationService.SOFTWARE_REGISTRATION_RESPONSE_TYPE);
+    _registrationURL.append("&redirect_uri=").append(returnUrl);
+    return _registrationURL.toString();
   }
 }

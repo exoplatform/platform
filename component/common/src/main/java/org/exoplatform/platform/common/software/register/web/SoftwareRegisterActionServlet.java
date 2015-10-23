@@ -42,6 +42,9 @@ public class SoftwareRegisterActionServlet extends HttpServlet {
 
   @Override
   protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    String registrationULR = SoftwareRegisterAuthViewServlet.getRegistrationURL(request);
+    request.setAttribute("registrationURL", registrationULR);
+    request.getSession().setAttribute("registrationURL", registrationULR);
     doPost(request, response);
   }
 }

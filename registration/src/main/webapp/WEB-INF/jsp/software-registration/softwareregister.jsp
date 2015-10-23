@@ -33,6 +33,7 @@
   boolean canSKip = registrationService.canSkipRegister();
 
   String registrationURL = (String)request.getAttribute("registrationURL");
+
   String notReachable = (String)session.getAttribute("notReachable");
    String errorCode = request.getParameter("error");
   //
@@ -47,8 +48,7 @@
   <script type="text/javascript" src="/platform-extension/javascript/jquery-1.7.1.js"></script>
   <script type="text/javascript" src="/registrationPLF/javascript/registration/software-registration.js"></script>
 </head>
-<body> 
-
+<body>
   <div class="UIPopupWindow uiPopup UIDragObject popupDarkStyle">
     <div class="popupHeader ClearFix">
         <span class="popupTitle center">Register your Software</span>
