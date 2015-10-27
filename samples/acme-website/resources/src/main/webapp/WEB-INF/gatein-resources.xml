@@ -22,9 +22,17 @@
 <gatein-resources xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
                   xsi:schemaLocation="http://www.gatein.org/xml/ns/gatein_resources_1_3 http://www.gatein.org/xml/ns/gatein_resources_1_3"
                   xmlns="http://www.gatein.org/xml/ns/gatein_resources_1_3">
-	
-	<!-- portal Skin for acme portal -->
-	
+
+
+    <!-- portal Skin for acme portal -->
+
+    <portal-skin>
+        <skin-name>Default</skin-name>
+        <skin-module>Acme</skin-module>
+        <css-path>/skin/css/Style.css</css-path>
+        <css-priority>6</css-priority>
+        <overwrite>true</overwrite>
+    </portal-skin>
    
 
     <portal>

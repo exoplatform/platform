@@ -1,0 +1,37 @@
+//======================================================//
+//                 VARIABLES EXO PLATFORM               //
+//======================================================//
+
+// Base color
+
+@baseColor:                 #000000; // text color , border color, and other UI elements..
+
+// Background color
+@baseBackground:                 #ffffff; // default background , background for content display....
+
+// Primary Color
+@primaryColor:			#2f5e92; // primary button and link color...
+
+// Background primary color
+@primaryBackground:		#f0f0f0; // main background such as , header popup background, tab items...
+
+
+
+// -------------------------Color  generation formula -------------------------//
+
+//Return true if base color is darker ( this is default skin)
+.setColor (@a) when (lightness(@a) < 50%) {
+    @borderColor:             lighten(@baseColor, 80%); // #cccccc
+    @primaryBackgroundHover:  darken(@primaryBackground, 4%);
+    @primaryBackgroundLight:  lighten(@primaryBackground, 3%);
+
+}
+
+//Return true if base color is lighter
+.setColor (@a) when (lightness(@a) >= 50%) {
+    @borderColor:             darken(@baseColor, 20%);
+    @primaryBackgroundLight:  lighten(@primaryBackground, 4%);
+    @primaryBackgroundHover : darken(@primaryBackground, 3%);
+
+}
+.setColor(@baseColor);
