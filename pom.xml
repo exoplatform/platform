@@ -533,6 +533,7 @@
         <artifactId>platform-component-oauth-auth</artifactId>
         <version>${project.version}</version>
       </dependency>
+
       <!-- DON'T REMOVE : needed for product packaging -->
       <!-- org.exoplatform.management.RestManagementProvider used but not declared in GateIn ? -->
       <dependency>
