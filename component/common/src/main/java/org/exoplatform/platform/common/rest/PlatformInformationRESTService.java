@@ -159,10 +159,8 @@ public class PlatformInformationRESTService implements ResourceContainer {
               jsonPlatformInfo.setDuration(platformInformations.getDuration());
               jsonPlatformInfo.setDateOfKeyGeneration(platformInformations.getDateOfLicence());
               jsonPlatformInfo.setNbUsers(platformInformations.getNumberOfUsers());
-              if (userACL.isUserInGroup(userACL.getAdminGroups())) {
-                jsonPlatformInfo.setProductCode(platformInformations.getProductCode());
-                jsonPlatformInfo.setUnlockKey(platformInformations.getProductKey());
-              }
+              jsonPlatformInfo.setProductCode(platformInformations.getProductCode());
+              jsonPlatformInfo.setUnlockKey(platformInformations.getProductKey());
           }
           if (LOG.isDebugEnabled()) {
               LOG.debug("Getting Platform Informations: eXo Platform (v" + platformInformations.getVersion() + " - build "
