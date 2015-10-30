@@ -30,6 +30,7 @@
 			<module>social-core</module>
 		</depends>
 	</module>
+	
    <module>
       <name>platform-left-navigation</name>
       <as>platformLeftNavigation</as>
@@ -41,5 +42,35 @@
          <as>$</as>
       </depends>
    </module>
-
+   <module>
+		<name>jquery-touch</name>
+		 <as>jqueryTouch</as>
+		<script>
+		  <adapter>
+			(function($) {
+			  var _$ = window.jQuery; window.jQuery = $;
+			  <include>/javascript/eXo/platform/responsive/toe.min.js</include>
+			  window.jQuery = _$;
+			})($);
+		  </adapter>
+		</script>
+		<depends>
+		  <module>jquery</module>
+		</depends>
+	  </module>
+	<module>
+      <name>platform-responsive</name>
+      <as>platformResponsive</as>
+      <script>
+         <path>/javascript/eXo/platform/responsive/responsive.js</path>
+      </script>
+      <depends>
+         <module>jquery</module>
+         <as>$</as>
+      </depends>
+		<depends>
+			<module>common-utils</module>
+			<as>common_utils</as>
+		</depends>
+   </module>
 </gatein-resources>

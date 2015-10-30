@@ -39,16 +39,16 @@
         def ownerId = navigation.getKey().getName();
         String navTitle = OrganizationUtils.getGroupLabel(ownerId);
         println """
-                      <h5 class="title">
-                         $navTitle
+                      <h5 class="title accordionBar clearfix">
+                         $navTitle <i class="uiIconArrowRight pull-right"></i>
                       </h5>
-					  <ul class="groupNavigation">
+					  <div class="accordionCont"><ul class="groupNavigation">
 				""";
         for (UserNode node : nodes) {
             renderPageNodeGroup(node);
         }
         println """
-				      </ul>
+				      </ul></div>
 				   
 				""";
     }
@@ -63,7 +63,7 @@
         def hasChild = (childrenNodes != null) && !childrenNodes.isEmpty();
         String href = NavigationURLUtils.getURL(node);
         boolean toolong = (node.resolvedLabel.length() > 16);
-        String shortLabel = (toolong ? node.resolvedLabel.substring(0, 15) + "..." : node.resolvedLabel);
+        String shortLabel = node.resolvedLabel;
         String label=node.resolvedLabel;
         String
         def icon=node.getIcon();

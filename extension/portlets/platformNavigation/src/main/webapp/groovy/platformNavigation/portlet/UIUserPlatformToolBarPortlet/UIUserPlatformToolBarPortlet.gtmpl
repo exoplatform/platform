@@ -70,8 +70,10 @@
             <img src="<%=uicomponent.getAvatarURL()%>" alt="avatar"/> $fullName
         </a>
         <ul class="dropdown-menu">
-            <% if (uicomponent.isSocialPortal()) { %>
-
+            <% if (uicomponent.isSocialPortal()) { %>			
+			<li class="clearfix action_top mobile-visible"></li>
+			<li class="clearfix avatar-help-action mobile-visible"></li>
+			<li class="divider top mobile-visible">&nbsp;</li>
             <li>
               <a href="$profileLink"><i class="uiIconPLFProfile"></i>$labelProfile</a>
             </li>

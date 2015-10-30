@@ -65,7 +65,7 @@
   		  if (hrefLower.contains("home")) {
    			   icon = "uiIconHome";
   		  } else if (hrefLower.contains("connexions")) {
-  			   icon = "uiIconUser";
+  			   icon = "uiIconPLFMyConnection";
  		   } else if (hrefLower.contains("wiki")) {
   		       icon = "uiIconWiki";
   		  } else if (hrefLower.contains("documents")) {
@@ -93,11 +93,13 @@
     }
 %>
 <div class="uiCompanyNavigationPortlet">
-    <h5 class="title">
-        <%= _ctx.appRes("UICompanyNavigationPortlet.CompanyBar")  %>
+    <h5 class="title accordionBar clearfix">
+        <%= _ctx.appRes("UICompanyNavigationPortlet.CompanyBar")  %> <i class="uiIconArrowRight pull-right"></i>
     </h5>
+	<div class="accordionCont">
     <%
         renderCurrentPortal();
     %>
+	</div>
 </div>
 
