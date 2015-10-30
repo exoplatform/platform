@@ -1,7 +1,19 @@
 <?xml version="1.0"?>
 <!DOCTYPE configuration SYSTEM "http://www.exoplatform.org/dtd/indexing-configuration-1.2.dtd">
 <configuration xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:wiki="http://exoplatform.org/wiki/1.0/" xmlns:exo="http://www.exoplatform.com/jcr/exo/1.0" xmlns:publication="http://www.exoplatform.com/jcr/publication/1.1/">
-    <index-rule nodeType="nt:base">
+    <aggregate primaryType="nt:file">
+        <include primaryType="nt:resource">jcr:content</include>
+    </aggregate>
+    <aggregate primaryType="wiki:attachment">
+        <include primaryType="nt:resource">jcr:content</include>
+    </aggregate>
+    <index-rule nodeType="nt:resource">
+        <property useInExcerpt="false">jcr:mimeType</property>
+        <property useInExcerpt="false">exo:owner</property>
+        <property useInExcerpt="false">jcr:encoding</property>
+        <property useInExcerpt="false">jcr:lastModified</property>
+    </index-rule>
+    <index-rule nodeType="nt:file">
         <property useInExcerpt="false">exo:name</property>
         <property useInExcerpt="false">jcr:primaryType</property>
         <property useInExcerpt="false">jcr:mixinTypes</property>
@@ -34,17 +46,5 @@
         <property useInExcerpt="false">publication:liveRevision</property>
         <property useInExcerpt="false">exo:trashId</property>
         <property useInExcerpt="false">exo:active</property>
-    </index-rule>
-    <aggregate primaryType="nt:file">
-        <include primaryType="nt:resource">jcr:content</include>
-    </aggregate>
-    <aggregate primaryType="wiki:attachment">
-        <include primaryType="nt:resource">jcr:content</include>
-    </aggregate>
-    <index-rule nodeType="nt:resource">
-        <property useInExcerpt="false">jcr:mimeType</property>
-        <property useInExcerpt="false">exo:owner</property>
-        <property useInExcerpt="false">jcr:encoding</property>
-        <property useInExcerpt="false">jcr:lastModified</property>
     </index-rule>
 </configuration>
