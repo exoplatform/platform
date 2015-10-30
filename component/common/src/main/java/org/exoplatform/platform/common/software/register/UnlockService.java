@@ -1,6 +1,7 @@
 package org.exoplatform.platform.common.software.register;
 
 import org.apache.commons.codec.binary.Base64;
+import org.apache.commons.lang.StringUtils;
 import org.exoplatform.commons.info.MissingProductInformationException;
 import org.exoplatform.commons.info.ProductInformations;
 import org.exoplatform.container.ExoContainerContext;
@@ -73,7 +74,13 @@ public class UnlockService implements Startable {
         KEY_CONTENT = ((ValueParam) params.get("KeyContent")).getValue().trim();
         String tmpValue = ((ValueParam) params.get("delayPeriod")).getValue();
         delayPeriod = (tmpValue == null || tmpValue.isEmpty()) ? Utils.DEFAULT_DELAY_PERIOD : Integer.parseInt(tmpValue);
-        Utils.HOME_CONFIG_FILE_LOCATION = Utils.EXO_HOME_FOLDER + "/" + Utils.PRODUCT_NAME + "/license.xml";
+        String lisensePath = params.getValueParam("exo.license.path").getValue();
+        Utils.HOME_CONFIG_FILE_LOCATION = Utils.EXO_HOME_FOLDER + "/" + Utils.PRODUCT_NAME;
+        if(!StringUtils.equals("default", lisensePath)) {
+            checkCustomizeFolder(lisensePath);
+        }
+        Utils.HOME_CONFIG_FILE_LOCATION += "/license.xml";
+
     }
 
     public void start() {
@@ -136,6 +143,27 @@ public class UnlockService implements Startable {
                 }
             }
         }, 1, 1, TimeUnit.MINUTES);
+    }
+
+
+    /**
+     * Check valid of customize path
+     * @param lisensePath
+     */
+    private void checkCustomizeFolder(String lisensePath){
+        File lisenseFolder = new File(lisensePath);
+        if(!lisenseFolder.exists()) {
+            boolean canMakeDir = lisenseFolder.mkdirs();
+            if(!canMakeDir) {
+                LOG.error("The customize lisense.xml path cannot be use. Default value will be applied.");
+                return;
+            }
+        }
+        if(lisenseFolder.canWrite()){
+            Utils.HOME_CONFIG_FILE_LOCATION = lisensePath;
+        } else {
+            LOG.error("The customize lisense.xml path cannot be use. Default value will be applied.");
+        }
     }
 
     private boolean checkLicenceInJcr() {

@@ -355,6 +355,11 @@
                 <name>defaultPingBackUrl</name>
                 <value>http://www.exoplatform.com/company/en/products/e-01011000-01101111</value>
             </value-param>
+            <value-param>
+                <name>exo.license.path</name>
+                <description>To allow customize license.xml patn</description>
+                <value>${exo.license.path:default}</value>
+            </value-param>
         </init-params>
     </component>
     <component>
