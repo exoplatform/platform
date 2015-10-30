@@ -147,7 +147,7 @@ public class UnlockService implements Startable {
 
 
     /**
-     * Check valid of customize path
+     * Check and update customize path
      * @param lisensePath
      */
     private void checkCustomizeFolder(String lisensePath){
@@ -155,14 +155,14 @@ public class UnlockService implements Startable {
         if(!lisenseFolder.exists()) {
             boolean canMakeDir = lisenseFolder.mkdirs();
             if(!canMakeDir) {
-                LOG.error("The customize lisense.xml path cannot be use. Default value will be applied.");
+                LOG.error("The customize lisense.xml path cannot be use, default value will be applied.");
                 return;
             }
         }
         if(lisenseFolder.canWrite()){
             Utils.HOME_CONFIG_FILE_LOCATION = lisensePath;
         } else {
-            LOG.error("The customize lisense.xml path cannot be use. Default value will be applied.");
+            LOG.error("The customize lisense.xml path cannot be use, default value will be applied.");
         }
     }
 
