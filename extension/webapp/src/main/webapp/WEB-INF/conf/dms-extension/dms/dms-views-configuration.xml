@@ -51,8 +51,9 @@
                     </field>
                     <field name="buttons">
                       <string>
-                        shareDocuments; openDocument; upload; addFolder; viewMetadatas; viewPermissions; editDocument; manageActions;
-                        manageRelations; checkIn; checkOut; viewProperties; manageAuditing; showJCRStructure
+                        shareDocuments; openDocument; upload; uploadNewVersion; addFolder; viewMetadatas; viewPermissions; editDocument;
+                        editProperty; manageActions;
+                        manageRelations; manageVersions; checkIn; checkOut; viewProperties; manageAuditing; showJCRStructure
                       </string>
                     </field>
                   </object>
@@ -84,7 +85,8 @@
                     </field>
                     <field name="buttons">
                       <string>
-                        shareDocuments; openDocument; upload; addFolder; viewMetadatas; viewPermissions; editDocument; taggingDocument;
+                        shareDocuments; openDocument; upload; uploadNewVersion; addFolder; viewMetadatas; viewPermissions; editDocument;
+                        editProperty; taggingDocument;
                         vote; overloadThumbnail; watchDocument; manageVersions; checkIn; checkOut; comment
                       </string>
                     </field>
@@ -120,7 +122,8 @@
                     </field>
                     <field name="buttons">
                       <string>
-                        shareDocuments; openDocument; upload; addFolder; viewMetadatas; viewPermissions; editDocument; taggingDocument;
+                        shareDocuments; openDocument; upload; uploadNewVersion; addFolder; viewMetadatas; viewPermissions; editDocument;
+                        editProperty; taggingDocument;
                         vote; watchDocument; manageVersions; checkIn; checkOut; comment
                       </string>
                     </field>
@@ -153,9 +156,9 @@
                     </field>
                     <field name="buttons">
                       <string>
-                        shareDocuments; addCategory; addFolder; addDocument; editDocument; upload; viewPermissions; managePublications;
+                        shareDocuments;addCategory; addFolder; addDocument; editDocument; editProperty; upload; uploadNewVersion; viewPermissions; managePublications;
                         manageCategories; taggingDocument; vote; watchDocument; publicationRequestApproval;
-                        publicationApproveContent; publicationPublish; addLocalizationLink; comment
+                        publicationApproveContent; manageVersions; publicationPublish; addLocalizationLink; comment
                       </string>
                     </field>
                   </object>
@@ -187,9 +190,9 @@
                     </field>
                     <field name="buttons">
                       <string>
-                        shareDocuments; addCategory; addDocument; editDocument; upload; viewPermissions; managePublications;
+                        shareDocuments; addCategory; addDocument; editDocument; editProperty; upload; uploadNewVersion; viewPermissions; managePublications;
                         manageCategories; taggingDocument; vote; watchDocument; publicationRequestApproval;
-                        publicationApproveContent; publicationPublish; comment
+                        publicationApproveContent; manageVersions; publicationPublish; comment
                       </string>
                     </field>
                   </object>
