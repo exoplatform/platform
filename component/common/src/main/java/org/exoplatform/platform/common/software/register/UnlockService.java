@@ -76,7 +76,7 @@ public class UnlockService implements Startable {
         delayPeriod = (tmpValue == null || tmpValue.isEmpty()) ? Utils.DEFAULT_DELAY_PERIOD : Integer.parseInt(tmpValue);
         String lisensePath = params.getValueParam("exo.license.path").getValue();
         Utils.HOME_CONFIG_FILE_LOCATION = Utils.EXO_HOME_FOLDER + "/" + Utils.PRODUCT_NAME;
-        if(!StringUtils.equals("default", lisensePath)) {
+        if(StringUtils.isNotEmpty(lisensePath)) {
             checkCustomizeFolder(lisensePath);
         }
         Utils.HOME_CONFIG_FILE_LOCATION += "/license.xml";
