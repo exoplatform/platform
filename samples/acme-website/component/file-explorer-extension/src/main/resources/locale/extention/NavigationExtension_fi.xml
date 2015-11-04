@@ -46,7 +46,7 @@
 <DetailTargetPageInputSet>Page for Detail:</DetailTargetPageInputSet>
 <DetailShowCLVByStringInput>Parameter Name:</DetailShowCLVByStringInput>
 <List>List</List>
-<Detail>Lisätieto</Detail>
+<Detail>Detail</Detail>
 </label>
 <action>
 <Save>#{word.save}</Save>

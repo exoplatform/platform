@@ -30,6 +30,6 @@
   <msg name="delete">删除</msg>
   <msg name="edit">编辑</msg>
   <msg name="cancel">取消</msg>
-  <msg name="emptyBookmarkPre">你不要有任何的书签。通过点击"添加书签"按钮添加它们。</msg>
-  <msg name="addBookmark">添加书签</msg>
+  <msg name="emptyBookmarkPre">You don't have any bookmark. Add them by clicking on the button "Add Bookmark".</msg>
+  <msg name="addBookmark">Add Bookmark</msg>
 </messagebundle>
