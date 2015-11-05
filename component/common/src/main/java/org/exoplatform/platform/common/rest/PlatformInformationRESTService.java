@@ -21,6 +21,7 @@ package org.exoplatform.platform.common.rest;
 import org.exoplatform.common.http.HTTPStatus;
 import org.exoplatform.commons.info.ProductInformations;
 import org.exoplatform.container.PortalContainer;
+import org.exoplatform.platform.common.software.register.Utils;
 import org.exoplatform.portal.config.UserACL;
 import org.exoplatform.services.jcr.RepositoryService;
 import org.exoplatform.services.jcr.core.ManageableRepository;
@@ -161,6 +162,8 @@ public class PlatformInformationRESTService implements ResourceContainer {
               jsonPlatformInfo.setNbUsers(platformInformations.getNumberOfUsers());
               jsonPlatformInfo.setProductCode(platformInformations.getProductCode());
               jsonPlatformInfo.setUnlockKey(platformInformations.getProductKey());
+          }else{
+              jsonPlatformInfo.setProductCode(Utils.readFromFile(Utils.PRODUCT_CODE, Utils.HOME_CONFIG_FILE_LOCATION));
           }
           if (LOG.isDebugEnabled()) {
               LOG.debug("Getting Platform Informations: eXo Platform (v" + platformInformations.getVersion() + " - build "
