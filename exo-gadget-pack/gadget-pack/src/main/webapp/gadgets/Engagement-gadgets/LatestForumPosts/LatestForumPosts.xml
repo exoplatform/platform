@@ -30,6 +30,7 @@
     <Locale lang="ca" messages="locale/ca.xml"/>
     <Locale lang="fi" messages="locale/fi.xml"/>
     <Locale lang="nl" messages="locale/nl.xml"/>
+    <Locale lang="sl" messages="locale/sl.xml"/>
     <Require feature="setprefs"/>
     <Require feature="dynamic-height"/>
   </ModulePrefs>
