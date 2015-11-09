@@ -160,6 +160,7 @@ public class UnlockService implements Startable {
             }
         }
         if(lisenseFolder.canWrite()){
+            if(lisenseFolder.isFile()) lisensePath = lisenseFolder.getParent();
             Utils.HOME_CONFIG_FILE_LOCATION = lisensePath;
         } else {
             LOG.error("The customize lisense.xml path cannot be use, default value will be applied.");
