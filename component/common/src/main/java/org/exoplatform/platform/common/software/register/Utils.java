@@ -35,6 +35,8 @@ public class Utils {
     public static final DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
     public static final String PRODUCT_CODE = "ProductCode";
     public static String HOME_CONFIG_FILE_LOCATION;
+    public static String HOME_CONFIG_LOCATION;
+    public static final String LICENSE_FILE = "license.xml";
     public static final String SW_REG_SKIPPED = "skipped";
     public static final String SW_REG_STATUS = "status";
     public static final String SW_REG_PLF_VERSION = "version";

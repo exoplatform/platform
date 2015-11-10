@@ -4,6 +4,7 @@ import org.exoplatform.commons.info.MissingProductInformationException;
 import org.exoplatform.commons.info.ProductInformations;
 import org.exoplatform.container.PortalContainer;
 import org.exoplatform.platform.common.rest.PlatformInformationRESTService;
+import org.exoplatform.platform.common.software.register.Utils;
 import org.exoplatform.services.log.ExoLogger;
 import org.exoplatform.services.log.Log;
 
@@ -31,10 +32,6 @@ public  class PingBackServlet extends HttpServlet {
     private static final long serialVersionUID = 6467955354840693802L;
     private static boolean loopfuseFormDisplayed = false;
     public static final String LOOP_FUSE_FORM_DISPLAYED = "formDisplayed";
-    public static final String USER_HOME = System.getProperty("user.home");
-    public static final String EXO_HOME_FOLDER = USER_HOME + "/.eXo";
-    public static final String PING_BACK_FILE = "license.xml";
-    public static final String PRODUCT_NAME = "Platform";
     public static final String COMMUNITY_EDITION = "community";
     private static String edition = "";
 
@@ -133,9 +130,9 @@ public  class PingBackServlet extends HttpServlet {
         ProductInformations productInformations = (ProductInformations) PortalContainer.getInstance().getComponentInstanceOfType(ProductInformations.class);
         edition = getPlatformEdition(productInformations);
         if ((edition!=null)&&(edition.equals(PlatformInformationRESTService.COMMUNITY_EDITION))) {
-            return EXO_HOME_FOLDER +"/"+ PRODUCT_NAME+"/"+PlatformInformationRESTService.COMMUNITY_EDITION+".xml";
+            return Utils.HOME_CONFIG_LOCATION+"/"+PlatformInformationRESTService.COMMUNITY_EDITION+".xml";
         }
-        return EXO_HOME_FOLDER +"/"+ PRODUCT_NAME + "/" + PING_BACK_FILE;
+        return Utils.HOME_CONFIG_FILE_LOCATION;
     }
 
     public static String getPingBackUrl() {

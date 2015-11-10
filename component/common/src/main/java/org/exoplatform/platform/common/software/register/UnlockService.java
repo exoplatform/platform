@@ -75,11 +75,11 @@ public class UnlockService implements Startable {
         String tmpValue = ((ValueParam) params.get("delayPeriod")).getValue();
         delayPeriod = (tmpValue == null || tmpValue.isEmpty()) ? Utils.DEFAULT_DELAY_PERIOD : Integer.parseInt(tmpValue);
         String lisensePath = params.getValueParam("exo.license.path").getValue();
-        Utils.HOME_CONFIG_FILE_LOCATION = Utils.EXO_HOME_FOLDER + "/" + Utils.PRODUCT_NAME;
-        if(StringUtils.isNotEmpty(lisensePath)) {
+        Utils.HOME_CONFIG_LOCATION = Utils.EXO_HOME_FOLDER + "/" + Utils.PRODUCT_NAME;
+        Utils.HOME_CONFIG_FILE_LOCATION = Utils.HOME_CONFIG_LOCATION + "/" + Utils.LICENSE_FILE;
+        if(StringUtils.isNotBlank(lisensePath) && !StringUtils.equals(lisensePath, Utils.HOME_CONFIG_FILE_LOCATION)) {
             checkCustomizeFolder(lisensePath);
         }
-        Utils.HOME_CONFIG_FILE_LOCATION += "/license.xml";
 
     }
 
@@ -151,19 +151,27 @@ public class UnlockService implements Startable {
      * @param lisensePath
      */
     private void checkCustomizeFolder(String lisensePath){
-        File lisenseFolder = new File(lisensePath);
-        if(!lisenseFolder.exists()) {
-            boolean canMakeDir = lisenseFolder.mkdirs();
-            if(!canMakeDir) {
+        File lisenseFile = new File(lisensePath);
+        if(!StringUtils.endsWith(lisensePath, Utils.LICENSE_FILE)) {
+            if(lisenseFile.exists() && lisenseFile.mkdirs()) {
                 LOG.error("The customize lisense.xml path cannot be use, default value will be applied.");
                 return;
             }
-        }
-        if(lisenseFolder.canWrite()){
-            if(lisenseFolder.isFile()) lisensePath = lisenseFolder.getParent();
-            Utils.HOME_CONFIG_FILE_LOCATION = lisensePath;
-        } else {
-            LOG.error("The customize lisense.xml path cannot be use, default value will be applied.");
+            if(lisenseFile.isFile()){
+                if(lisenseFile.canWrite()) {
+                    Utils.HOME_CONFIG_LOCATION = lisenseFile.getParent();
+                    Utils.HOME_CONFIG_FILE_LOCATION = lisenseFile.getPath();
+                }
+            } else {
+                Utils.HOME_CONFIG_LOCATION = lisenseFile.getPath();
+                Utils.HOME_CONFIG_FILE_LOCATION = Utils.HOME_CONFIG_LOCATION + "/" + Utils.LICENSE_FILE;
+            }
+        }else {
+            if ((lisenseFile.getParentFile().exists() && lisenseFile.canWrite())
+                || lisenseFile.getParentFile().mkdirs()) {
+                Utils.HOME_CONFIG_LOCATION = lisenseFile.getParent();
+                Utils.HOME_CONFIG_FILE_LOCATION = lisenseFile.getPath();
+            }
         }
     }
 
