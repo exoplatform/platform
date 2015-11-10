@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bundle>
+ <UISpaceNavigationPortlet>
+     <label>
+         <Spaces>Moji prostori</Spaces>
+         <Join>Pridruži se prostoru</Join>
+         <see>Prikaži še {0} prostorov</see>
+     </label>
+     <msg>
+         <filter-spaces>Iskanje prostorov</filter-spaces>
+         <no-space>Ne najdem prostora</no-space>
+     </msg>
+
+</UISpaceNavigationPortlet>
+</bundle>

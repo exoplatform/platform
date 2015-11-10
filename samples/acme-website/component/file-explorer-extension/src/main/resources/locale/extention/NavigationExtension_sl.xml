@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bundle>
+<UIActionBar>
+<tooltip>
+<ContentNavigation>Krmarjenje po vsebini</ContentNavigation>
+</tooltip>
+</UIActionBar>
+<UIViewFormTabPane>
+<label>
+<contentNavigation>Krmarjenje po vsebini</contentNavigation>
+</label>
+</UIViewFormTabPane>
+<UIPopupWindow>
+<title>
+<UINavigationForm>Obrazec za krmarjenje</UINavigationForm>
+</title>
+</UIPopupWindow>
+<PopulateToMenu>
+<dialog>
+<label>
+<id>ID:</id>
+<name>Ime:</name>
+<lifecycle>Življenjski cikel:</lifecycle>
+<isDeep>je Globoko:</isDeep>
+<nodetypes>Vrste vozlišč:</nodetypes>
+<description>Opis:</description>
+<affectedNodeTypeNames>Prizadete vrste vozlišč:</affectedNodeTypeNames>
+<navigationNode>Vozlišče za krmarjenje:</navigationNode>
+<index>Indeks:</index>
+<clickable>Se lahko klikne:</clickable>
+<page>Stran:</page>
+<childrenPage>Podrejena stran:</childrenPage>
+</label>
+</dialog>
+</PopulateToMenu>
+<UINavigationForm>
+<label>
+<Node>Nadrejena mapa:</Node>
+<Visible>Vidno:</Visible>
+<NavigationNodeInputSet>Ciljno nadrejeno krmarjenje:</NavigationNodeInputSet>
+<Index>Vrstni red prikaza:</Index>
+<Clickable>Se lahko klikne:</Clickable>
+<NavigationControls>Kontrolniki za krmarjenje</NavigationControls>
+<ListTargetPageFormInputSet>Strani za seznam:</ListTargetPageFormInputSet>
+<ListShowCLVByStringInput>Ime parametra:</ListShowCLVByStringInput>
+<DetailTargetPageInputSet>Stran za podrobnosti:</DetailTargetPageInputSet>
+<DetailShowCLVByStringInput>Ime parametra:</DetailShowCLVByStringInput>
+<List>Seznam</List>
+<Detail>Podrobnost</Detail>
+</label>
+<action>
+<Save>#{word.save}</Save>
+<Cancel>#{word.cancel}</Cancel>
+</action>
+</UINavigationForm>
+<Visible>
+<label>
+<VisibleEnable>Da</VisibleEnable>
+<VisibleDisable>Ne</VisibleDisable>
+</label>
+</Visible>
+<Clickable>
+<label>
+<ClickableEnable>Da</ClickableEnable>
+<ClickableDisable>Ne</ClickableDisable>
+</label>
+</Clickable>
+<NavigationNodeInputSet>
+<title>
+<SelectNavigationNode>Izberi vozlišče za krmarjenje</SelectNavigationNode>
+<RemoveNavigationNode>Ponastavi</RemoveNavigationNode>
+</title>
+</NavigationNodeInputSet>
+<ListTargetPageFormInputSet>
+<title>
+<SelectListTargetPage>Izberi ciljno stran</SelectListTargetPage>
+<RemoveListTargetPage>Ponastavi</RemoveListTargetPage>
+</title>
+</ListTargetPageFormInputSet>
+<DetailTargetPageInputSet>
+<title>
+<SelectDetailTargetPage>Izberite podrejeno ciljno stran</SelectDetailTargetPage>
+<RemoveDetailTargetPage>Ponastavi</RemoveDetailTargetPage>
+</title>
+</DetailTargetPageInputSet>
+<NavigationSelectorPopupWindow>
+<title>
+<UINavigationSelector>Izbirnik krmarjenja</UINavigationSelector>
+</title>
+</NavigationSelectorPopupWindow>
+<ListTargetPageSelectorPopupWindow>
+<title>
+<UIPageSelector>Izbirnik strani</UIPageSelector>
+</title>
+</ListTargetPageSelectorPopupWindow>
+<DetailTargetPageSelectorPopupWindow>
+<title>
+<UIPageSelector>Izbirnik strani</UIPageSelector>
+</title>
+</DetailTargetPageSelectorPopupWindow>
+</bundle>

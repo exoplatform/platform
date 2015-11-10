@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bundle>
+  <administration>
+    <siteExplorer>Raziskovalec vsebine</siteExplorer>
+    <wcmAdmin>Urejanje Vsebine</wcmAdmin>
+  </administration>
+</bundle>

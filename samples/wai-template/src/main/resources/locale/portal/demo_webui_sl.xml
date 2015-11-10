@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bundle>
+  <Signin>
+    <welcome>Dobrodošli</welcome>
+    <login>Prijava</login>
+    <logout>Odjava</logout>
+    <language>
+      <en>Preklopi na angleščino</en>
+      <fr>Preklopite na francoščino</fr>
+    </language>
+    <register>Registracija</register>
+  </Signin>
+  <Toolbar>
+    <SkipToContent>Preskoči na vsebino</SkipToContent>
+    <SiteMap>Zemljevid strani</SiteMap>
+    <Accessibility>Dostopnost</Accessibility>
+    <NormalSize>Običajna velikost</NormalSize>
+    <MediumSize>Srednja velikost</MediumSize>
+    <LargeSize>Večja velikost</LargeSize>
+    <NormalContrast>Normalen kontrast</NormalContrast>
+    <HighContrast>Visok kontrast</HighContrast>
+    <Search>Išči</Search>
+  </Toolbar>
+  <Logo>
+    <GoHome>Domov</GoHome>
+  </Logo>
+  <acme>
+    <label>ACME predloga</label>
+  </acme>  
+  <WAIPortal>
+    <label>Vzorec dostopne spletne strani</label>
+  </WAIPortal>
+</bundle>
