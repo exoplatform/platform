@@ -10,7 +10,6 @@
   <import>war:/conf/platform/dms/dms-configuration.xml</import>
   <import>war:/conf/dms-extension/dms/dms-drives-configuration.xml</import>
   <import>war:/conf/dms-extension/dms/dms-views-configuration.xml</import>
-  <import>war:/platform-extension/jcr/jcr-configuration.xml</import>
   <!--
   Not FOUND
   TODO : FIX OR REMOVE
