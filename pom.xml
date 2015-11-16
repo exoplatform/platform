@@ -40,10 +40,10 @@
     <!-- **************************************** -->
     <org.exoplatform.depmgt.version>11-SNAPSHOT</org.exoplatform.depmgt.version>
     <!-- JCR Project Dependencies -->
-    <org.exoplatform.kernel.version>2.5.3-GA</org.exoplatform.kernel.version>
-    <org.exoplatform.core.version>2.6.3-GA</org.exoplatform.core.version>
-    <org.exoplatform.ws.version>2.4.3-GA</org.exoplatform.ws.version>
-    <org.exoplatform.jcr.version>1.16.3-GA</org.exoplatform.jcr.version>
+    <org.exoplatform.kernel.version>2.5.4-GA</org.exoplatform.kernel.version>
+    <org.exoplatform.core.version>2.6.4-GA</org.exoplatform.core.version>
+    <org.exoplatform.ws.version>2.4.4-GA</org.exoplatform.ws.version>
+    <org.exoplatform.jcr.version>1.16.4-GA</org.exoplatform.jcr.version>
     <!-- GateIn Project Dependencies -->
     <org.gatein.shindig.version>2.0.2.Final-gatein-4</org.gatein.shindig.version>
 
