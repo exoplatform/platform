@@ -19,6 +19,7 @@
     <module>samples</module>
     <module>exo-gadget-pack</module>
     <module>welcome-screens</module>
+    <module>registration</module>
   </modules>
   <scm>
     <connection>scm:git:git://github.com/exoplatform/platform.git</connection>
@@ -448,6 +449,18 @@
       <dependency>
         <groupId>org.exoplatform.platform</groupId>
         <artifactId>platform-welcome-screens-webapp</artifactId>
+        <version>${project.version}</version>
+        <type>pom</type>
+      </dependency>
+      <dependency>
+        <groupId>org.exoplatform.platform</groupId>
+        <artifactId>platform-registration</artifactId>
+        <version>${project.version}</version>
+        <type>war</type>
+      </dependency>
+      <dependency>
+        <groupId>org.exoplatform.platform</groupId>
+        <artifactId>platform-registration</artifactId>
         <version>${project.version}</version>
         <type>pom</type>
       </dependency>

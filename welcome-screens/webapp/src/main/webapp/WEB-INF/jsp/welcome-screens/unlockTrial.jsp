@@ -1,4 +1,4 @@
-<%@ page import="org.exoplatform.platform.welcomescreens.service.UnlockService" %>
+<%@ page import="org.exoplatform.platform.common.software.register.UnlockService" %>
 <%
     int rday = UnlockService.getNbDaysBeforeExpiration();
     boolean outdated = UnlockService.isOutdated();

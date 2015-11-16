@@ -1,6 +1,7 @@
-package org.exoplatform.platform.welcomescreens.service;
+package org.exoplatform.platform.common.software.register;
 
 import org.apache.commons.codec.binary.Base64;
+import org.apache.commons.lang.StringUtils;
 import org.exoplatform.commons.info.MissingProductInformationException;
 import org.exoplatform.commons.info.ProductInformations;
 import org.exoplatform.container.ExoContainerContext;
@@ -12,7 +13,11 @@ import org.exoplatform.services.log.Log;
 import org.exoplatform.web.filter.Filter;
 import org.picocontainer.Startable;
 
-import javax.servlet.*;
+import javax.servlet.FilterChain;
+import javax.servlet.ServletContext;
+import javax.servlet.ServletException;
+import javax.servlet.ServletRequest;
+import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -57,7 +62,9 @@ public class UnlockService implements Startable {
     private static ProductInformations productInformations;
     public static String ERROR = "";
 
-    public UnlockService(ProductInformations productInformations, InitParams params) throws MissingProductInformationException {
+
+    public UnlockService(ProductInformations productInformations, InitParams params)
+            throws MissingProductInformationException {
         restContext = ExoContainerContext.getCurrentContainer().getContext().getRestContextName();
         this.productInformations = productInformations;
         registrationFormUrl = ((ValueParam) params.get("registrationFormUrl")).getValue();
@@ -67,7 +74,13 @@ public class UnlockService implements Startable {
         KEY_CONTENT = ((ValueParam) params.get("KeyContent")).getValue().trim();
         String tmpValue = ((ValueParam) params.get("delayPeriod")).getValue();
         delayPeriod = (tmpValue == null || tmpValue.isEmpty()) ? Utils.DEFAULT_DELAY_PERIOD : Integer.parseInt(tmpValue);
-        Utils.HOME_CONFIG_FILE_LOCATION = Utils.EXO_HOME_FOLDER + "/" + Utils.PRODUCT_NAME + "/license.xml";
+        String lisensePath = params.getValueParam("exo.license.path").getValue();
+        Utils.HOME_CONFIG_LOCATION = Utils.EXO_HOME_FOLDER + "/" + Utils.PRODUCT_NAME;
+        Utils.HOME_CONFIG_FILE_LOCATION = Utils.HOME_CONFIG_LOCATION + "/" + Utils.LICENSE_FILE;
+        if(StringUtils.isNotBlank(lisensePath) && !StringUtils.equals(lisensePath, Utils.HOME_CONFIG_FILE_LOCATION)) {
+            checkCustomizeFolder(lisensePath);
+        }
+
     }
 
     public void start() {
@@ -130,6 +143,36 @@ public class UnlockService implements Startable {
                 }
             }
         }, 1, 1, TimeUnit.MINUTES);
+    }
+
+
+    /**
+     * Check and update customize path
+     * @param lisensePath
+     */
+    private void checkCustomizeFolder(String lisensePath){
+        File lisenseFile = new File(lisensePath);
+        if(!StringUtils.endsWith(lisensePath, Utils.LICENSE_FILE)) {
+            if(lisenseFile.exists() && lisenseFile.mkdirs()) {
+                LOG.error("The customize lisense.xml path cannot be use, default value will be applied.");
+                return;
+            }
+            if(lisenseFile.isFile()){
+                if(lisenseFile.canWrite()) {
+                    Utils.HOME_CONFIG_LOCATION = lisenseFile.getParent();
+                    Utils.HOME_CONFIG_FILE_LOCATION = lisenseFile.getPath();
+                }
+            } else {
+                Utils.HOME_CONFIG_LOCATION = lisenseFile.getPath();
+                Utils.HOME_CONFIG_FILE_LOCATION = Utils.HOME_CONFIG_LOCATION + "/" + Utils.LICENSE_FILE;
+            }
+        }else {
+            if ((lisenseFile.getParentFile().exists() && lisenseFile.canWrite())
+                || lisenseFile.getParentFile().mkdirs()) {
+                Utils.HOME_CONFIG_LOCATION = lisenseFile.getParent();
+                Utils.HOME_CONFIG_FILE_LOCATION = lisenseFile.getPath();
+            }
+        }
     }
 
     private boolean checkLicenceInJcr() {

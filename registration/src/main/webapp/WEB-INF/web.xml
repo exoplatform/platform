@@ -27,7 +27,7 @@
       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
       xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd">
 
-  <display-name>platform-extension</display-name>
+  <display-name>registrationPLF</display-name>
 
   <absolute-ordering />
   
@@ -49,40 +49,30 @@
     <listener-class>org.exoplatform.container.web.PortalContainerConfigOwner</listener-class>
   </listener>
 
-    <servlet>
-        <servlet-name>accountSetup</servlet-name>
-        <servlet-class>org.exoplatform.platform.common.account.setup.web.AccountSetup</servlet-class>
-    </servlet>
-
-    <servlet-mapping>
-        <servlet-name>accountSetup</servlet-name>
-        <url-pattern>/accountSetupAction</url-pattern>
-    </servlet-mapping>
-
-    <servlet>
-        <servlet-name>accountSetupViewServlet</servlet-name>
-        <servlet-class>org.exoplatform.platform.common.account.setup.web.AccountSetupViewServlet</servlet-class>
-    </servlet>
-
-    <servlet-mapping>
-        <servlet-name>accountSetupViewServlet</servlet-name>
-        <url-pattern>/accountSetup</url-pattern>
-    </servlet-mapping>
-
   <servlet>
-        <servlet-name>PingBackServlet</servlet-name>
-        <servlet-class>org.exoplatform.platform.common.account.setup.web.PingBackServlet</servlet-class>
-        <init-param>
-            <param-name>pingBackUrl</param-name>
-            <param-value>http://www.exoplatform.com/company/en/products/e-01011000-01101111</param-value>
-        </init-param>
-        <load-on-startup>0</load-on-startup>
-    </servlet>
+    <servlet-name>SoftwareRegisterViewServlet</servlet-name>
+    <servlet-class>org.exoplatform.platform.common.software.register.web.SoftwareRegisterViewServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>SoftwareRegisterAuthViewServlet</servlet-name>
+    <servlet-class>org.exoplatform.platform.common.software.register.web.SoftwareRegisterAuthViewServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>SoftwareRegisterActionServlet</servlet-name>
+    <servlet-class>org.exoplatform.platform.common.software.register.web.SoftwareRegisterActionServlet</servlet-class>
+  </servlet>
 
-    <servlet-mapping>
-        <servlet-name>PingBackServlet</servlet-name>
-        <url-pattern>/PingBackServlet</url-pattern>
-    </servlet-mapping>
-
+  <servlet-mapping>
+    <servlet-name>SoftwareRegisterViewServlet</servlet-name>
+    <url-pattern>/software-register</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>SoftwareRegisterActionServlet</servlet-name>
+    <url-pattern>/software-register-action</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>SoftwareRegisterAuthViewServlet</servlet-name>
+    <url-pattern>/software-register-auth</url-pattern>
+  </servlet-mapping>
 
 </web-app>

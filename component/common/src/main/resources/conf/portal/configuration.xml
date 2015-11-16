@@ -327,4 +327,91 @@
    <component>
      <type>org.exoplatform.platform.common.navigation.NavigationServiceHandler</type>
    </component>
+
+    <component>
+        <type>org.exoplatform.platform.common.software.register.UnlockService</type>
+        <init-params>
+            <value-param>
+                <name>delayPeriod</name>
+                <value>30</value>
+            </value-param>
+            <value-param>
+                <name>KeyContent</name>
+                <value>Platform 4 - 30 days evaluation</value>
+            </value-param>
+            <value-param>
+                <name>registrationFormUrl</name>
+                <value>http://exoplatform.com/buy</value>
+            </value-param>
+            <value-param>
+                <name>extendFormUrl</name>
+                <value>http://www.exoplatform.com/extend-your-evaluation</value>
+            </value-param>
+            <value-param>
+                <name>subscriptionUrl</name>
+                <value>http://www.exoplatform.com/company/en/products/editions</value>
+            </value-param>
+            <value-param>
+                <name>defaultPingBackUrl</name>
+                <value>http://www.exoplatform.com/company/en/products/e-01011000-01101111</value>
+            </value-param>
+            <value-param>
+                <name>exo.license.path</name>
+                <description>To allow customize license.xml patn</description>
+                <value>${exo.license.path:}</value>
+            </value-param>
+        </init-params>
+    </component>
+    <component>
+        <key>org.exoplatform.platform.common.software.register.service.SoftwareRegistrationService</key>
+        <type>org.exoplatform.platform.common.software.register.service.impl.SoftwareRegistrationServiceImpl</type>
+        <init-params>
+            <value-param>
+                <name>accountsetup.register.skip</name>
+                <description>To allow skip plf registration</description>
+                <value>${accountsetup.register.skip:false}</value>
+            </value-param>
+            <value-param>
+                <name>accountsetup.register.host</name>
+                <value>${accountsetup.register.host:https://community.exoplatform.com}</value>
+            </value-param>
+            <value-param>
+                <name>accountsetup.register.skipAllow</name>
+                <value>${accountsetup.register.skipAllow:2}</value>
+            </value-param>
+        </init-params>
+    </component>
+    <component>
+        <type>org.exoplatform.platform.common.software.register.service.RestPLFRegistration</type>
+    </component>
+    <external-component-plugins>
+        <target-component>org.exoplatform.commons.chromattic.ChromatticManager</target-component>
+        <component-plugin>
+            <name>chromattic</name>
+            <set-method>addLifeCycle</set-method>
+            <type>org.exoplatform.commons.chromattic.ChromatticLifeCycle</type>
+            <init-params>
+                <value-param>
+                    <name>domain-name</name>
+                    <value>softwareRegistration</value>
+                </value-param>
+                <value-param>
+                    <name>workspace-name</name>
+                    <value>collaboration</value>
+                </value-param>
+                <values-param>
+                    <name>entities</name>
+                    <value>org.chromattic.ext.ntdef.NTFile</value>
+                    <value>org.chromattic.ext.ntdef.NTFolder</value>
+                    <value>org.chromattic.ext.ntdef.NTResource</value>
+                </values-param>
+                <properties-param>
+                    <name>options</name>
+                    <property name="org.chromattic.api.Option.root_node.path" value="/exo:applications"/>
+                    <property name="org.chromattic.api.Option.root_node.create" value="true"/>
+                </properties-param>
+            </init-params>
+        </component-plugin>
+    </external-component-plugins>
+
 </configuration>
