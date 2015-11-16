@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bundle>
+  <portal>
+    <acme>
+      <overview>Overzicht</overview>
+      <products>Producten</products>
+      <news>Nieuws</news>
+      <contactus>Vragen?</contactus>
+      <newsletters>Nieuwsbrieven</newsletters>
+      <confirmation>Contact formulier bevestiging</confirmation>
+      <detail>Kalender details</detail>
+  <catalog>Catalogus</catalog>
+      <printviewer>Pagina afdrukken</printviewer>
+      <searchResult>Zoek</searchResult>
+      <newAccount>Nieuw account</newAccount>
+      <groupnavigation>Groep navigatie</groupnavigation>
+      <portalnavigation>Portal navigatie</portalnavigation>
+      <documents>Documenten</documents>
+      <unifiedSearch>Zoek</unifiedSearch>
+    </acme>
+  </portal>
+</bundle>

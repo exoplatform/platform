@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bundle>
+   <UIUserNavigationPortlet>
+      <label>
+         <activities>Activiteiten</activities>
+         <profile>Profiel</profile>
+         <connections>Connecties</connections>
+         <wiki>Wiki</wiki>
+         <Myactivities>Mijn activiteiten</Myactivities>
+         <Myprofile>Mijn Profiel</Myprofile>
+         <Myconnections>Mijn connecties</Myconnections>
+         <Mywiki>Mijn Wiki</Mywiki>
+         <Mydashboard>Mijn Dashboard</Mydashboard>
+         <NotificationSettingsPortlet>Mijn Notificaties</NotificationSettingsPortlet>
+         <More>Meer</More>
+      </label>
+   </UIUserNavigationPortlet>
+</bundle>
