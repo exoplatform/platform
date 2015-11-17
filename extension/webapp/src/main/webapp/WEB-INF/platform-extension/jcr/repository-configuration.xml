@@ -53,6 +53,7 @@
 	              <property name="excerptprovider-class" value="org.exoplatform.services.jcr.impl.core.query.lucene.DefaultHTMLExcerpt"/>
 	              <property name="analyzer" value="org.exoplatform.services.jcr.analyzer.IgnoreAccentAnalyzer"/>
 	              <property name="indexing-configuration-path" value="war:/platform-extension/jcr/indexing-configuration.xml" />
+	              <property name="reindexing-page-size" value="1000" />
 	            </properties>
 	          </query-handler>
 	          <lock-manager class="org.exoplatform.services.jcr.impl.core.lock.infinispan.ISPNCacheableLockManagerImpl">
