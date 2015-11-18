@@ -35,7 +35,7 @@ public class SoftwareRegisterActionServlet extends HttpServlet {
     }
     if(StringUtils.equals("notReachable", value)){
       request.getSession().setAttribute("notReachable", "true");
-      redirectURI+="?notReachable=true";
+      redirectURI+="?"+SoftwareRegisterFilter.NOT_REACHABLE;
     }
     response.sendRedirect(redirectURI);
   }

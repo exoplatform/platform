@@ -1,6 +1,7 @@
 package org.exoplatform.platform.common.software.register.web;
 
 import org.apache.commons.lang.StringUtils;
+import org.exoplatform.commons.utils.PropertyManager;
 import org.exoplatform.container.ExoContainerContext;
 import org.exoplatform.container.PortalContainer;
 import org.exoplatform.platform.common.software.register.UnlockService;
@@ -19,26 +20,25 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 /**
- * Filter responsible of Terms and conditions displaying.
- * Call T&C service to know if T&C are checked, if not, forward to T&C page
+ * Filter platform registration screen displaying.
  * <p>
- * 2 conditions to forward to termes and conditions page:
+ * Conditions to forward to platform registration page:
  * <ul>
- * <li>Request URI is not a login URI. In this case we need to execute T&C process after login process</li>
- * <li>T&C is not checked</li>
+ * <li>eXo Community is not reachable</li>
+ * <li>User can skip registration</li>
+ * <li>User is not register local PLF with community</li>
  * </ul>
- * 
- * @author Clement
+ *
+ * @author ToanNH
  *
  */
 public class SoftwareRegisterFilter implements Filter {
 
+  public static final String NOT_REACHABLE = "NOT_REACHABLE";
   private static final Log logger = ExoLogger.getLogger(SoftwareRegisterFilter.class);
   private static final String PLF_COMMUNITY_SERVLET_CTX = "/registrationPLF";
   private static final String SR_SERVLET_URL = "/software-register";
   private static final String INITIAL_URI_PARAM_NAME = "initialURI";
-  private static final String LOGIN_URI = "/login";
-  private static final String DOLOGIN_URI = "/dologin";
   private static String REST_URI;
   private SoftwareRegistrationService plfRegisterService;
 
@@ -62,12 +62,15 @@ public class SoftwareRegisterFilter implements Filter {
     boolean isRestUri = (requestUri.contains(REST_URI));
     boolean requestSkip = plfRegisterService.isRequestSkip();
     String notReachable = (String)httpServletRequest.getSession().getAttribute("notReachable");
-    if(notReachable==null){
-      notReachable = httpServletRequest.getParameter("notReachable");
-      httpServletRequest.getSession().setAttribute("notReachable", notReachable);
+    boolean isDevMod = PropertyManager.isDevelopping();
+    if(notReachable==null) {
+      notReachable = httpServletRequest.getQueryString();
+      if (StringUtils.equals(notReachable, this.NOT_REACHABLE)) {
+        notReachable="true";
+        httpServletRequest.getSession().setAttribute("notReachable", notReachable);
+      }
     }
-
-    if(!isRestUri && !plfRegisterService.isSoftwareRegistered()
+    if(!isRestUri && !plfRegisterService.isSoftwareRegistered() && !isDevMod
             && !StringUtils.equals(notReachable, "true") && checkRequest(requestSkip)
             && !plfRegisterService.isSkipPlatformRegistration()) {
       // Get full url
@@ -76,9 +79,10 @@ public class SoftwareRegisterFilter implements Filter {
       if (queryString != null) {
           reqUri =new StringBuffer(reqUri).append("?").append(queryString).toString();
       }
-      ServletContext welcomrScreensContext = httpServletRequest.getSession().getServletContext().getContext(PLF_COMMUNITY_SERVLET_CTX);
-      String uriTarget = (new StringBuilder()).append(SR_SERVLET_URL + "?" + INITIAL_URI_PARAM_NAME + "=").append(reqUri).toString();
-      welcomrScreensContext.getRequestDispatcher(uriTarget).forward(httpServletRequest, httpServletResponse);
+      ServletContext platformRegisterContext = httpServletRequest.getSession().getServletContext().getContext(PLF_COMMUNITY_SERVLET_CTX);
+      String uriTarget = (new StringBuilder()).append(SR_SERVLET_URL).append("?").append(INITIAL_URI_PARAM_NAME)
+          .append("=").append(reqUri).toString();
+      platformRegisterContext.getRequestDispatcher(uriTarget).forward(httpServletRequest, httpServletResponse);
       return;
     }
     chain.doFilter(request, response);
