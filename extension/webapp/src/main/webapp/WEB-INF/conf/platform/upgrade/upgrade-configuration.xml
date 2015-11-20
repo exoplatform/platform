@@ -323,9 +323,9 @@
 	        </value-param>
 	        
 	        <value-param>
-	          <name>threadNum</name>
+	          <name>numberOfThreads</name>
 	          <description>number of execution threads</description>
-	          <value>${commons.upgrade.DisableUserUpgradePlugin.threadNum:20}</value>
+	          <value>${commons.upgrade.DisableUserUpgradePlugin.numberOfThreads:20}</value>
 	        </value-param>
 	        
 	        <value-param>

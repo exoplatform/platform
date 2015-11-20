@@ -50,21 +50,19 @@ public class DisableUserUpgradePlugin extends UpgradeProductPlugin {
 
   private static final Log LOG = ExoLogger.getLogger(DisableUserUpgradePlugin.class.getName());
   
-  private OrganizationService service;
-  
-  private PicketLinkIDMService idmService;
+  private OrganizationService service;  
   
   private int threadNum = 20;
   
   private int batchSize = 100;
   
-  public static final String THREAD_CONFIG = "threadNum";
+  public static final String THREAD_CONFIG = "numberOfThreads";
   
   public static final String BATCH_CONFIG = "batchSize";
 
   private static final String VERSION = "4.3";
 
-  public DisableUserUpgradePlugin(OrganizationService service, PicketLinkIDMService idmService, InitParams initParams) {
+  public DisableUserUpgradePlugin(OrganizationService service, InitParams initParams) {
     super(initParams);
     if (initParams.containsKey(THREAD_CONFIG)) {
       int tn = threadNum;
@@ -86,8 +84,7 @@ public class DisableUserUpgradePlugin extends UpgradeProductPlugin {
         batchSize = b;
       }
     }
-    this.service = service;
-    this.idmService = idmService;
+    this.service = service;    
   }
 
   @Override
@@ -125,6 +122,7 @@ public class DisableUserUpgradePlugin extends UpgradeProductPlugin {
       final AtomicLong count = new AtomicLong();
       List<Future<Boolean>> results = new LinkedList<Future<Boolean>>();      
       final ExoContainer container = ExoContainerContext.getCurrentContainer();
+      final PicketLinkIDMService idmService = container.getComponentInstanceOfType(PicketLinkIDMService.class);
       final int threadSize = tSize;
       final ListAccess<User> usrs = users;
       final int totalSize = size;
