@@ -144,6 +144,7 @@ public class DisableUserUpgradePlugin extends UpgradeProductPlugin {
             
             int startBatch = start;
             int endBatch = startBatch + batchSize;
+            endBatch = endBatch > end ? end : endBatch;
             while (endBatch <= totalSize && endBatch <= end && startBatch < endBatch) {
               LOG.info("{} start: {}, end: {}", Thread.currentThread(), startBatch, endBatch);        
               RequestLifeCycle.begin(impl);
