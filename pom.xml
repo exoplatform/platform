@@ -9,7 +9,7 @@
   </parent>
   <groupId>org.exoplatform.platform</groupId>
   <artifactId>platform</artifactId>
-  <version>4.3.x-SNAPSHOT</version>
+  <version>4.3.x-RC-SNAPSHOT</version>
   <packaging>pom</packaging>
   <name>eXo Platform</name>
   <description>Parent POM for platform projects.</description>
@@ -39,7 +39,7 @@
     <!-- **************************************** -->
     <!-- Project Dependencies -->
     <!-- **************************************** -->
-    <org.exoplatform.depmgt.version>11-SNAPSHOT</org.exoplatform.depmgt.version>
+    <org.exoplatform.depmgt.version>11-RC-SNAPSHOT</org.exoplatform.depmgt.version>
     <!-- JCR Project Dependencies -->
     <org.exoplatform.kernel.version>2.5.4-GA</org.exoplatform.kernel.version>
     <org.exoplatform.core.version>2.6.4-GA</org.exoplatform.core.version>
@@ -52,17 +52,17 @@
     <org.gatein.wci.version>2.4.1.Final</org.gatein.wci.version>
     <org.gatein.pc.version>2.5.1.Final</org.gatein.pc.version>
     <org.gatein.sso.version>1.4.5.Final</org.gatein.sso.version>
-    <org.gatein.portal.version>4.3.x-PLF-SNAPSHOT</org.gatein.portal.version>
+    <org.gatein.portal.version>4.3.x-PLF-RC-SNAPSHOT</org.gatein.portal.version>
 
     <!-- Platform Project Dependencies -->
-    <org.exoplatform.commons.version>4.3.x-SNAPSHOT</org.exoplatform.commons.version>
-    <org.exoplatform.ecms.version>4.3.x-SNAPSHOT</org.exoplatform.ecms.version>
-    <org.exoplatform.social.version>4.3.x-SNAPSHOT</org.exoplatform.social.version>
-    <org.exoplatform.forum.version>4.3.x-SNAPSHOT</org.exoplatform.forum.version>
-    <org.exoplatform.wiki.version>4.3.x-SNAPSHOT</org.exoplatform.wiki.version>
-    <org.exoplatform.calendar.version>4.3.x-SNAPSHOT</org.exoplatform.calendar.version>
-    <org.exoplatform.integ.version>4.3.x-SNAPSHOT</org.exoplatform.integ.version>
-    <org.exoplatform.platform-ui.version>4.3.x-SNAPSHOT</org.exoplatform.platform-ui.version>
+    <org.exoplatform.commons.version>4.3.x-RC-SNAPSHOT</org.exoplatform.commons.version>
+    <org.exoplatform.ecms.version>4.3.x-RC-SNAPSHOT</org.exoplatform.ecms.version>
+    <org.exoplatform.social.version>4.3.x-RC-SNAPSHOT</org.exoplatform.social.version>
+    <org.exoplatform.forum.version>4.3.x-RC-SNAPSHOT</org.exoplatform.forum.version>
+    <org.exoplatform.wiki.version>4.3.x-RC-SNAPSHOT</org.exoplatform.wiki.version>
+    <org.exoplatform.calendar.version>4.3.x-RC-SNAPSHOT</org.exoplatform.calendar.version>
+    <org.exoplatform.integ.version>4.3.x-RC-SNAPSHOT</org.exoplatform.integ.version>
+    <org.exoplatform.platform-ui.version>4.3.x-RC-SNAPSHOT</org.exoplatform.platform-ui.version>
 
   </properties>
   <dependencyManagement>
