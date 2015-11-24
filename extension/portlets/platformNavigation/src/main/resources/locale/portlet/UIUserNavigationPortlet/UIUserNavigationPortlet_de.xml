@@ -11,7 +11,7 @@
          <Myconnections>Meine Verbindungen</Myconnections>
          <Mywiki>Mein Wiki</Mywiki>
          <Mydashboard>Mein Dashboard</Mydashboard>
-         <NotificationSettingsPortlet>Meine Benachrichtigungen</NotificationSettingsPortlet>
+         <NotificationSettingsPortlet>My Notifications</NotificationSettingsPortlet>
          <More>Mehr</More>
       </label>
    </UIUserNavigationPortlet>

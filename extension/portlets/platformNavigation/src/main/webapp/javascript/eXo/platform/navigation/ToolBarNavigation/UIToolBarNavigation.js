@@ -18,6 +18,10 @@
             var parent = $("#" + baseId);
 
             parent.toggleClass('open');
+			$('#UICreateList').find('.btn').next().click(function(){
+			  $('#UICreateList').css('opacity','0').removeClass('create-form-dropdown').delay(200).css('opacity','1');
+			//create new wiki page on top navigation
+		  });     
         }
     };
 

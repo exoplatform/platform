@@ -174,6 +174,11 @@ public class CalendarPortletController {
         int clickNumber = Integer.parseInt(nbclick);
         if (clickNumber != 0) date = incDecJour(date, clickNumber);
         Date currentTime = new Date(date);
+        // get current date base on calendar setting
+        CalendarSetting calSetting = CalendarPortletUtils.getCurrentUserCalendarSetting();
+        String strTimeZone = calSetting.getTimeZone();
+        dTimezone.setTimeZone(TimeZone.getTimeZone(strTimeZone));
+        date_act = dTimezone.format(currentTime);
         // Get Calendar object set to the date and time of the given Date object
         Calendar cal =CalendarPortletUtils.getCurrentCalendar();
         cal.setTime(currentTime);
@@ -186,7 +191,6 @@ public class CalendarPortletController {
 
         // Put it back in the Date object
         currentTime = cal.getTime();
-        date_act = d.format(currentTime);
         Date comp = currentTime;
         String defaultCalendarLabel = "Default";
         String dateLabel = "";
@@ -435,6 +439,8 @@ public class CalendarPortletController {
                       Iterator<CalendarEvent> recurEventsIter = originalRecurEvents.iterator();
                           while (recurEventsIter.hasNext()) {
                              CalendarEvent recurEvent = recurEventsIter.next();
+                             // don't build virtual event when the original RecurrenceEvents occurs on that day
+                             if (recurEvent.getFromDateTime().compareTo(begin.getTime()) > 0) continue;
                              Map<String,CalendarEvent> tempMap = calendarService_.getOccurrenceEvents(recurEvent, eventQuery.getFromDate(), eventQuery.getToDate(), timezone);
                                 if (tempMap != null) {
                                       recurrenceEventsMap.put(recurEvent.getId(), tempMap);

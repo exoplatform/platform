@@ -232,7 +232,7 @@ public class UISpaceNavigationPortlet extends UIPortletApplication {
 
             event.getRequestContext().addUIComponentToUpdateByAjax(uisource);
         }
-    }
+    }   
 
     protected String getRestUrl() {
         return getCurrentRestURL().concat(MY_SPACE_REST_URL);

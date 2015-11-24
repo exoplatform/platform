@@ -1,4 +1,4 @@
-<%@ page import="org.exoplatform.platform.welcomescreens.service.UnlockService" %>
+<%@ page import="org.exoplatform.platform.common.software.register.UnlockService" %>
 <%
     int rday = UnlockService.getNbDaysBeforeExpiration();
     boolean outdated = UnlockService.isOutdated();
@@ -17,6 +17,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<title>Welcome to eXo Platform</title>
 		<link rel="shortcut icon" type="image/x-icon"  href="<%=contextPath%>/favicon.ico" />	
 		<link rel="stylesheet" type="text/css" href="/eXoSkin/skin/bootstrap/css/bootstrap.css"/>
@@ -67,24 +68,27 @@
            <strong>You must own a valid subscription in order to unlock this eXo Platform instance</strong>
          </p>
          <div class="steps clearfix">
-           <div class="rightCol firstItem pull-right"><strong>Pickup your favorite plan and purchase a subscription</strong>
-             <div class="center"><a target="_blank" class="btn btn-large btn-buy btn-primary" href="<%=UnlockService.getRegistrationFormUrl()%>?pc=<%=UnlockService.getProductCode()%>">Buy</a></div>
+         	<div class="stepsNumber pull-left">1</div>
+           <div class="rightCol firstItem"><strong>Pickup your favorite plan and purchase a subscription</strong>
+            <div class="center"><a target="_blank" class="btn btn-large btn-buy btn-primary" href="<%=UnlockService.getRegistrationFormUrl()%>?pc=<%=UnlockService.getProductCode()%>">Buy</a></div>
            </div>
-           <div class="stepsNumber pull-left">1</div>
+           
          </div>
          <div class="steps clearfix">
-           <div class="rightCol pull-right">
+         	<div class="stepsNumber pull-left">2</div>
+           <div class="rightCol">
              <strong>Enter the unlock key you received in the confirmation email</strong>
-             <br /><br />
+             <br />
              <div id="ERROR" class="alert alert-error" style="display: none;"><i class="uiIconError"></i>Unlock key is mandatory.</div>
              <% if(request.getAttribute("errorMessage") != null && !request.getAttribute("errorMessage").toString().isEmpty()) {%>
 		         <div id="KEYERROR" class="alert alert-error"><i class="uiIconError"></i><%=request.getAttribute("errorMessage").toString() %></div>
 		       <% }%>
+		     <button class="btn btn-primary btn-unlock">Unlock</button>
              <span class="unlock-label">Unlock Key&#58;</span>
-             <input class="Text" type="text" name="hashMD5" id="hashMD5">
-             <button class="btn btn-primary">Unlock</button>
+             <div class="form-input"><input class="Text" type="text" name="hashMD5" id="hashMD5"></div>
+             
            </div>
-           <div class="stepsNumber pull-left">2</div>
+           
          </div>
        </form>
 			</div>

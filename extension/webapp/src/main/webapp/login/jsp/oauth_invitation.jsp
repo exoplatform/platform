@@ -58,10 +58,11 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
         <title>Oauth invitation</title>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>		
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="shortcut icon" type="image/x-icon"  href="<%=contextPath%>/favicon.ico" />
         <% for (SkinConfig skin : skins) {
-            if ("CoreSkin".equals(skin.getModule()) || "CoreSkin1".equals(skin.getModule())) {%>
+            if ("CoreSkin".equals(skin.getModule())) {%>
                 <link href="<%=skin.getCSSPath()%>" rel="stylesheet" type="text/css" test="<%=skin.getModule()%>"/>
             <%}%>
         <%}%>
@@ -69,7 +70,8 @@
         <script type="text/javascript" src="/platform-extension/javascript/jquery-1.7.1.js"></script>
         <script type="text/javascript" src="/platform-extension/javascript/switch-button.js"></script>
     </head>
-    <body>
+    <body class="modal-open">
+	<div class="uiPopupWrapper">
         <div class="UIPopupWindow modal uiOauthInvitation uiPopup UIDragObject NormalStyle" style="width: 430px; margin-left: -215px; border-radius: 4px">
           <div class="popupHeader ClearFix">
               <a href="<%= contextPath + "/login?login_controller=oauth_cancel"%>" class="uiIconClose pull-right" aria-hidden="true" ></a>
@@ -82,7 +84,7 @@
                     <p><%=res.getString("UIOAuthInvitationForm.message.inviteMessage")%></p>
                     <div class="clearfix">
                         <label class="pull-left"><%=res.getString("UIOAuthInvitationForm.label.password")%></label>
-                        <div class="pull-right">
+                        <div class="pull-right password-field">
                             <input class="password mg0-ipt <%=(error != null ? "error" : "")%>" type="password" name="password" placeholder="<%=res.getString("portal.login.Password")%>" onblur="this.placeholder = '<%=res.getString("portal.login.Password")%>'" onfocus="this.placeholder = ''"/>
                             <div class="parentPosition" style="display:inline-block;" onmouseout="(function(elm) {$(elm).find('.popupOverContent:first').hide();})(this)" onmouseover="(function(elm) {$(elm).find('.popupOverContent:first').show();})(this)">
                                 <i class="uiIconQuestion uiIconLightGray"></i>
@@ -107,6 +109,7 @@
                 </div>
             </form>
         </div>
+    </div>
     </div>
     </body>
 </html>

@@ -49,145 +49,152 @@
             <depends>
                 <module>social-core</module>
             </depends>
-        </module>
-    </portlet>
-
-    <portlet>
-        <name>UICreatePlatformToolBarPortlet</name>
-        <module>
-            <depends>
-                <module>navigation-toolbar</module>
-            </depends>
-            <depends>
-                <module>base</module>
-            </depends>
-            <depends>
-                <module>bts_dropdown</module>
-            </depends>
-        </module>
-    </portlet>
-    <!--Begin-->
-    <portlet>
-        <name>UIHelpPlatformToolBarPortlet</name>
-        <module>
-            <depends>
-                <module>base</module>
-            </depends>
-
-            <depends>
-                <module>social-core</module>
-            </depends>
-        </module>
-    </portlet>
-    <!--END-->
-    <portlet>
-        <name>UIUserNavigationPortlet</name>
-        <module>
-            <depends>
-                <module>webui-ext</module>
-            </depends>
-        </module>
-    </portlet>
-    <portlet>
-        <name>UICompanyNavigationPortlet</name>
-        <module>
-            <depends>
-                <module>navigation</module>
-            </depends>
-        </module>
-    </portlet>
-    <portlet>
-        <name>UISearchPlatformToolbarPortlet</name>
-        <module>
-            <script>
-                <path>/javascript/eXo/platform/search/Search.js</path>
-            </script>
-            <depends>
-                <module>jquery</module>
-                <as>$</as>
-            </depends>
-        </module>
-    </portlet>
-    <portlet>
-        <name>UIGroupsNavigationPortlet</name>
-        <scripts>
-            <script>
-                <path>/javascript/eXo/platform/navigation/UIGroupsNavigationPortlet/UIGroupsNavigation.js</path>
-            </script>
-            <depends>
-                <scripts>bootstrap</scripts>
-            </depends>
-        </scripts>
-    </portlet>
-    <portlet>
-        <name>UIBreadCrumbsNavigationPortlet</name>
-        <module>
-            <depends>
-                <module>navigation</module>
+			<depends>
+                <module>jquery-touch</module>
+            </depends> 
+			<depends>
+                <module>platform-responsive</module>
             </depends>
         </module>
     </portlet>
 
-    <portlet>
-      <name>NotificationPopoverToolbarPortlet</name>
-      <module>
-        <script>
-          <path>/javascript/eXo/platform/navigation/Notification/NotificationPopover.js</path>
-        </script>
-        <depends>
-          <module>jquery</module>
-          <as>jQuery</as>
-        </depends>
-        <depends>
-          <module>webNotifications</module>
-        </depends>
-        <depends>
-          <module>commons-cometd3</module>
-        </depends>
-      </module>
-    </portlet>
-
+	<portlet>
+    <name>UICreatePlatformToolBarPortlet</name>
     <module>
-       <name>navigation-spaces-search</name>
-       <as>navigationSpacesSearch</as>
-       <load-group>plf_navigation</load-group>
-        <script>
-            <path>/javascript/eXo/platform/navigation/UISpaceNavigationPortlet/UISpaceNavigation.js</path>
-        </script>
-        <depends>
-            <module>jquery</module>
-            <as>$</as>
-        </depends>
+      <depends>
+        <module>navigation-toolbar</module>
+      </depends>
+      <depends>
+        <module>base</module>
+      </depends>
+      <depends>
+        <module>bts_dropdown</module>
+      </depends>
     </module>
+  </portlet>
+  <!--Begin-->
+  <portlet>
+    <name>UIHelpPlatformToolBarPortlet</name>
+    <module>
+      <depends>
+        <module>base</module>
+      </depends>
 
-   <module>
-      <name>navigation-toolbar</name>
-       <as>navigationToolbar</as>
-      <load-group>plf_navigation</load-group>
+      <depends>
+        <module>social-core</module>
+      </depends>
+    </module>
+  </portlet>
+  <!--END-->
+  <portlet>
+    <name>UIUserNavigationPortlet</name>
+    <module>
+      <depends>
+        <module>webui-ext</module>
+      </depends>
+    </module>
+  </portlet>
+  <portlet>
+    <name>UICompanyNavigationPortlet</name>
+    <module>
+      <depends>
+        <module>navigation</module>
+      </depends>
+    </module>
+  </portlet>
+  <portlet>
+    <name>UISearchPlatformToolbarPortlet</name>
+    <module>
       <script>
-         <path>/javascript/eXo/platform/navigation/ToolBarNavigation/UIToolBarNavigation.js</path>
+        <path>/javascript/eXo/platform/search/Search.js</path>
       </script>
       <depends>
-      <module>base</module>
-   </depends>
+        <module>jquery</module>
+        <as>$</as>
+      </depends>
+    </module>
+  </portlet>
+  <portlet>
+    <name>UIGroupsNavigationPortlet</name>
+    <scripts>
+      <script>
+        <path>/javascript/eXo/platform/navigation/UIGroupsNavigationPortlet/UIGroupsNavigation.js</path>
+      </script>
       <depends>
-         <module>uiPopup</module>
+        <scripts>bootstrap</scripts>
+      </depends>
+    </scripts>
+  </portlet>
+  <portlet>
+    <name>UIBreadCrumbsNavigationPortlet</name>
+    <module>
+      <depends>
+        <module>navigation</module>
+      </depends>
+    </module>
+  </portlet>
+
+  <portlet>
+    <name>NotificationPopoverToolbarPortlet</name>
+    <module>
+      <script>
+        <path>/javascript/eXo/platform/navigation/Notification/NotificationPopover.js</path>
+      </script>
+      <depends>
+        <module>jquery</module>
+        <as>jQuery</as>
       </depends>
       <depends>
-         <module>portalRequest</module>
+        <module>webNotifications</module>
       </depends>
       <depends>
-         <module>jquery</module>
+        <module>commons-cometd3</module>
       </depends>
-   </module>
-   
-   <module>
-    <name>ui-user-nav</name>
+    </module>
+  </portlet>
+
+  <module>
+    <name>navigation-spaces-search</name>
+    <as>navigationSpacesSearch</as>
+    <load-group>plf_navigation</load-group>
     <script>
-       <path>/javascript/eXo/platform/navigation/UIUserNavigationPortlet/UIUserNavigation.js</path>
+      <path>/javascript/eXo/platform/navigation/UISpaceNavigationPortlet/UISpaceNavigation.js</path>
     </script>
     <depends>
-       <module>base</module>
+      <module>jquery</module>
+      <as>$</as>
+    </depends>
+  </module>
+
+  <module>
+    <name>navigation-toolbar</name>
+    <as>navigationToolbar</as>
+    <load-group>plf_navigation</load-group>
+    <script>
+      <path>/javascript/eXo/platform/navigation/ToolBarNavigation/UIToolBarNavigation.js</path>
+    </script>
+    <depends>
+      <module>base</module>
+    </depends>
+    <depends>
+      <module>uiPopup</module>
+    </depends>
+    <depends>
+      <module>portalRequest</module>
+    </depends>
+    <depends>
+      <module>jquery</module>
+    </depends>
+  </module>
+
+  <module>
+    <name>ui-user-nav</name>
+    <as>uiusernav</as>
+    <script>
+      <path>/javascript/eXo/platform/navigation/UIUserNavigationPortlet/UIUserNavigation.js</path>
+    </script>
+    <depends>
+      <module>base</module>
     </depends>
     <depends>
       <module>jquery</module>

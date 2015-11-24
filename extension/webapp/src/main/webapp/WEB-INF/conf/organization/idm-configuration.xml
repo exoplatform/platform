@@ -292,6 +292,35 @@
                 <boolean>true</boolean>
             </field>
 
+            <!--
+            When this option is set to true:
+              If use fresh user-database or existed user-database of GateIn 3.7 or above, it will work fine with disable-user feature.
+              If use existed user-database of GateIn 3.6 or below, Some method introduced by disable-user feature will not
+              return existed-user because it is impossible to select user has not an attribute by query with PLIDM,
+              so you need to migrate data before use disable-user feature.
+            When this option is set to false:
+              All method return collection user of UserHandler interface will ignore param 'enabledOnly'.
+              They will always return both enable and disabled user
+
+            If you setup a fresh user-database or use existed user-database of GateIn 3.7 or above,
+            it's recommended to switch this option to true to use disable-user feature
+            If you has existed user-database of Gatein 3.6 or below, it's recommended to migrate data and set this option to true to use disable-user
+            feature or set this option to false.
+            -->
+            <field name="filterDisabledUsersInQueries">
+              <boolean>true</boolean>
+            </field>
+          
+            <!-- 
+            This option is used to toogle disable-user feature
+            By default, this option is set to TRUE
+            When this option is set to FALSE,
+              the disable-user feature is deactivated, and 'filterDisabledUsersInQueries' option is ignored
+            -->
+            <field name="disableUserActived">
+              <boolean>${exo.disable.user.activated:true}</boolean>
+            </field>
+
             <!-- If true, the property lastLoginTime of user will be updated after successful authentication of this user to portal.
                  If false, the property won't be updated, which could have performance improvement in systems with many concurrent user logins -->
             <field name="updateLastLoginTimeAfterAuthentication">

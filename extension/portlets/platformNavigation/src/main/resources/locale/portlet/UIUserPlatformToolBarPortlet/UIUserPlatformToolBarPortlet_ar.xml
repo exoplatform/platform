@@ -2,7 +2,7 @@
 <bundle>
 <UIUserPlatformToolBarPortlet>
 <label>
-<NotificationSettingsPortlet>الإشعارات الخاصّة بي</NotificationSettingsPortlet>
+<NotificationSettingsPortlet>My Notifications</NotificationSettingsPortlet>
 <activities>آخر أخباري</activities>
 <profile>ملفي الشخصي</profile>
 <network>علاقاتي</network>

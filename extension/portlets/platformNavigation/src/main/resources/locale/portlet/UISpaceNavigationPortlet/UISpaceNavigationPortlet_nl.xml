@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bundle>
+ <UISpaceNavigationPortlet>
+     <label>
+         <Spaces>Mijn ruimten</Spaces>
+         <Join>Deelnemen aan een ruimte</Join>
+         <see>Toon {0} meer ruimten</see>
+     </label>
+     <msg>
+         <filter-spaces>Zoek ruimten</filter-spaces>
+         <no-space>Geen ruimten vanaf, gevonden</no-space>
+     </msg>
+
+</UISpaceNavigationPortlet>
+</bundle>

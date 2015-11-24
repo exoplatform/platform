@@ -21,6 +21,7 @@ package org.exoplatform.platform.common.rest;
 import org.exoplatform.common.http.HTTPStatus;
 import org.exoplatform.commons.info.ProductInformations;
 import org.exoplatform.container.PortalContainer;
+import org.exoplatform.platform.common.software.register.Utils;
 import org.exoplatform.portal.config.UserACL;
 import org.exoplatform.services.jcr.RepositoryService;
 import org.exoplatform.services.jcr.core.ManageableRepository;
@@ -127,7 +128,7 @@ public class PlatformInformationRESTService implements ResourceContainer {
             }
             return Response.ok(jsonPlatformInfo, MediaType.APPLICATION_JSON).cacheControl(cacheControl).build();
         } catch (Exception e) {
-            LOG.error("An error occured while getting platform version information.", e);
+            LOG.error("An error occurred while getting platform version information.", e);
             return Response.status(HTTPStatus.INTERNAL_ERROR).cacheControl(cacheControl).build();
         } finally {
             if (sessionProvider!=null) {
@@ -135,6 +136,49 @@ public class PlatformInformationRESTService implements ResourceContainer {
             }
         }
     }
+    
+    public JsonPlatformInfo getJsonPlatformInfo() {
+      SessionProvider sessionProvider = null;
+      try {
+          PortalContainer container = PortalContainer.getInstance();
+          sessionProvider = SessionProvider.createSystemProvider();
+          RepositoryService repoService = (RepositoryService) container.getComponentInstanceOfType(RepositoryService.class);
+          String plfProfile = PortalContainer.getProfiles().toString().trim();
+          String runningProfile = plfProfile.substring(1, plfProfile.length() - 1);
+          ManageableRepository repo = repoService.getCurrentRepository();
+          JsonPlatformInfo jsonPlatformInfo = new JsonPlatformInfo();
+          jsonPlatformInfo.setPlatformVersion(platformInformations.getVersion());
+          jsonPlatformInfo.setPlatformBuildNumber(platformInformations.getBuildNumber());
+          jsonPlatformInfo.setPlatformRevision(platformInformations.getRevision());
+          jsonPlatformInfo.setIsMobileCompliant(isMobileCompliant().toString());
+          jsonPlatformInfo.setRunningProfile(runningProfile);
+          jsonPlatformInfo.setCurrentRepoName(repo.getConfiguration().getName());
+          jsonPlatformInfo.setPlatformEdition(getPlatformEdition());
+          jsonPlatformInfo.setDefaultWorkSpaceName(repo.getConfiguration().getDefaultWorkspaceName());
+          jsonPlatformInfo.setUserHomeNodePath("");
+          if ((platformInformations.getEdition() != null) && (!platformInformations.getEdition().equals(""))) {
+              jsonPlatformInfo.setDuration(platformInformations.getDuration());
+              jsonPlatformInfo.setDateOfKeyGeneration(platformInformations.getDateOfLicence());
+              jsonPlatformInfo.setNbUsers(platformInformations.getNumberOfUsers());
+              jsonPlatformInfo.setProductCode(platformInformations.getProductCode());
+              jsonPlatformInfo.setUnlockKey(platformInformations.getProductKey());
+          }else{
+              jsonPlatformInfo.setProductCode(Utils.readFromFile(Utils.PRODUCT_CODE, Utils.HOME_CONFIG_FILE_LOCATION));
+          }
+          if (LOG.isDebugEnabled()) {
+              LOG.debug("Getting Platform Informations: eXo Platform (v" + platformInformations.getVersion() + " - build "
+                      + platformInformations.getBuildNumber() + " - rev. " + platformInformations.getRevision());
+          }
+          return jsonPlatformInfo;
+      } catch (Exception e) {
+          LOG.error("An error occured while getting platform version information.", e);
+          return null;
+      } finally {
+          if (sessionProvider!=null) {
+              sessionProvider.close ();
+          }
+      }
+  }
 
     private Boolean isMobileCompliant() {
         String platformEdition = getPlatformEdition();
@@ -144,7 +188,7 @@ public class PlatformInformationRESTService implements ResourceContainer {
         );
     }
 
-    private String getPlatformEdition() {
+    public String getPlatformEdition() {
         try {
             Class<?> c = Class.forName("org.exoplatform.platform.edition.PlatformEdition");
             Method getEditionMethod = c.getMethod("getEdition");
@@ -155,7 +199,7 @@ public class PlatformInformationRESTService implements ResourceContainer {
             }
             return platformEdition;
         } catch (Exception e) {
-            LOG.error("An error occured while getting the platform edition information.", e);
+            LOG.error("An error occurred while getting the platform edition information.", e);
         }
         return null;
     }

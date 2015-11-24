@@ -126,7 +126,7 @@ public class DashboardInformationRESTService implements ResourceContainer {
       // Response to client
       return Response.ok(list, MediaType.APPLICATION_JSON).cacheControl(cacheControl).build();
     } catch (Exception e) {
-        LOG.error("An error occured while getting dashboards information.", e);
+        LOG.error("An error occurred while getting dashboards information.", e);
         return Response.status(HTTPStatus.INTERNAL_ERROR).cacheControl(cacheControl).build();
     }
   }
@@ -191,7 +191,7 @@ public class DashboardInformationRESTService implements ResourceContainer {
       return Response.ok(gadgetsInfo, MediaType.APPLICATION_JSON).cacheControl(cacheControl).build();
     } 
     catch (Exception e) {
-      LOG.error("An error occured while getting dashboards information.", e);
+      LOG.error("An error occurred while getting dashboards information.", e);
       return Response.status(HTTPStatus.INTERNAL_ERROR).cacheControl(cacheControl).build();
     }
     finally {

@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bundle>
+   <UIUserPlatformToolBarCreatePortlet>
+      <label>
+         <topic>Onderwerp</topic>
+         <poll>eXo Poll</poll>
+         <eventtask>Evenement/Taak</eventtask>
+         <upload>Een bestand uploaden</upload>
+         <wiki>Wiki-pagina</wiki>
+
+      </label>
+   </UIUserPlatformToolBarCreatePortlet>
+   <UICreateList>
+      <label>
+         <topic>onderwerp</topic>
+         <poll>poll</poll>
+         <CreateANew>Maak een nieuwe {1}:</CreateANew>
+         <NoForum>Sorry, is geen forum beschikbaar nog voor het maken van een {1}. Begint met het maken van uw eigen ruimte.</NoForum>
+         <RequireSelectForum>Selecteer een forum.</RequireSelectForum>
+      </label>
+      <action>
+         <Next>#{word.next}</Next>
+         <Cancel>#{word.cancel}</Cancel>
+      </action>
+   </UICreateList>
+   <UICreateTopic>
+      <label>
+         <SelectAForum>Selecteer een Forum</SelectAForum>
+         <location>Op locatie</location>
+         <forumId>En Forum</forumId>
+         <FilterForums>Filter Forums</FilterForums>
+      </label>
+   </UICreateTopic>
+   <UICreatePoll>
+      <label>
+         <SelectAForum>Selecteer Forum</SelectAForum>
+         <location>Op locatie</location>
+         <forumId>En Forum</forumId>
+         <FilterForums>Filter Forums</FilterForums>
+      </label>
+   </UICreatePoll>
+   <UICreateWiki>
+      <label>
+         <title>Maak een nieuwe Wiki Page:</title>
+         <location>Op locatie</location>
+      </label>
+   </UICreateWiki>
+   <UICreateEvent>
+      <label>
+         <Title>#{word.title}</Title>
+         <Choix>Nieuw toevoegen:</Choix>
+         <EndEvent>Aan</EndEvent>
+         <StartEvent>Van</StartEvent>
+         <Calendar>Selecteer kalender</Calendar>
+         <all-day>De hele dag</all-day>
+         <defaultCalendarId>Standaard</defaultCalendarId>
+      </label>
+      <msg>
+         <summary-field-required>Het veld "Titel" is vereist.</summary-field-required>
+         <fromDate-format>Ongeldig Van datum formaat.</fromDate-format>
+         <toDate-format>Aan datum ongeldig formaat.</toDate-format>
+         <logic-required>Sorry, kunt geen u maken een gebeurtenis die wordt beëindigd voordat het begint.</logic-required>
+         <cant-add-event-on-remote-calendar>U kunt geen gebeurtenis aan externe agenda toevoegen</cant-add-event-on-remote-calendar>
+         <add-successfully>
+            <Event>De gebeurtenis werd toegevoegd aan {1}</Event>
+            <Task>De taak werd toegevoegd aan {1}</Task>
+         </add-successfully>
+         <add-unsuccessfully>{0} is niet toegevoegd.</add-unsuccessfully>
+      </msg>
+      <action>
+         <Next>#{word.save}</Next>
+         <Cancel>#{word.cancel}</Cancel>
+      </action>
+   </UICreateEvent>
+    <UIUploadFile>
+        <Select>Selecteer bestand</Select>
+        <action>
+          <close>#{word.close}</close>
+        </action>
+    </UIUploadFile>
+   <Choix>
+      <label>
+         <Event>Evenement</Event>
+         <Task>Taak</Task>
+      </label>
+   </Choix>
+</bundle>

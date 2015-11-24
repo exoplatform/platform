@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bundle>
+   <UIAdminToolbarPortlet>
+      <action>
+         <AddPage>Pagina toevoegen</AddPage>
+         <EditNavigation>Navigatie</EditNavigation>
+         <Content>Inhoud</Content>
+         <Editor>Bewerken</Editor>
+         <Page>Pagina</Page>
+         <Site>Site portaal</Site>
+         <Layout>Opmaak bewerken</Layout>
+         <siteLayout>Opmaak</siteLayout>
+         <ManagePages>Beheer pagina's</ManagePages>
+         <GroupSite>Groep Site</GroupSite>
+         <Properties>#{UISEOToolbarForm.label.seo}</Properties>
+         <AddSite>Site toevoegen</AddSite>
+      </action>
+<ManageSites>Sites beheren</ManageSites>
+<ManageGroupSites>Groep Sites beheren</ManageGroupSites>
+   </UIAdminToolbarPortlet>
+
+  <UISEOForm>
+    <label>
+      <title>Title:</title>  
+      <description>Beschrijving</description>
+      <keywords>Keywords:</keywords>
+      <language>Language:</language>
+      <robots>Robots:</robots>
+      <sitemap>Sitemap:</sitemap>
+      <sitemapvisible>Zichtbaar in Sitemap</sitemapvisible>
+  <isInherited>Overgenomen van bovenliggende pagina</isInherited>
+      <priority>Prioriteit: </priority>
+      <frequency>Frequentie:</frequency>
+      <select-language>Taal selecteren</select-language>
+      <option>
+        <Always>Altijd</Always>
+        <Hourly>Ieder uur</Hourly>
+        <Daily>Dagelijks</Daily>
+        <Weekly>Wekelijks</Weekly>
+        <Monthly>Maandelijkse</Monthly>
+        <Yearly>Jaarlijks</Yearly>
+        <Never>Nooit</Never>
+      </option> 
+    </label>
+ 
+    <action>
+      <Save>#{word.save}</Save>
+      <Cancel>#{word.cancel}</Cancel>
+    </action>
+    <msg>
+      <repository-exception>Er is een onverwachte fout opgetreden. Pagina metagegevens niet kan opslaan.</repository-exception>
+      <confirm-delete>Weet u zeker dat u wilt verwijderen van deze SEO gegevens?</confirm-delete>
+    </msg>
+    <title>
+    <seo-delete>Verwijderen</seo-delete>
+    </title>
+<help> 
+  <priority>Geldige waarden variëren van 0.0 te 1.0.</priority>
+  <description>Zoekers helpen: ze laten weten dat de volgende pagina is een link die ze zoekt.</description>
+  <keywords>Meest belangrijke termen in de pagina moeten worden gescheiden door een komma.</keywords>  
+    </help>  
+  </UISEOForm>
+  <UISEOPopupWindow>
+  <title>
+      <UISEOForm>#{UISEOToolbarForm.title.seo}</UISEOForm>
+  </title>
+  </UISEOPopupWindow>    
+  <UISEOToolbarForm>
+  <title>
+      <seo>SEO Management</seo>
+  </title>
+  <label>
+    <seo>SEO</seo>
+  </label>
+  </UISEOToolbarForm>  
+  <FloatNumberValidator>
+    <msg>
+      <Invalid-number>Veld prioriteit heeft een ongeldige waarde. Voer een getal tussen 0,0 en 1,0.</Invalid-number>
+    </msg>
+  </FloatNumberValidator>
+  
+  <Locale>
+    <label>      
+      <it>Italiaans</it>      
+      <fr>Frans</fr>
+      <en>Engels</en>      
+    </label>
+  </Locale>
+  
+</bundle>

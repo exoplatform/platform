@@ -2,8 +2,8 @@
 <bundle>
 <UINotificationPopoverToolbarPortlet>
 <label>
-<MarkAllAsRead>Marcar-ho tot com llegit</MarkAllAsRead>
-<NoNotifications>No hi ha notificacions</NoNotifications>
+<MarkAllAsRead>Marca-ho tot com a llegit</MarkAllAsRead>
+<NoNotifications>Sense notificacions</NoNotifications>
 <ViewAll>Mostrar-ho tot</ViewAll>
 <Loading>Carregant</Loading>
 </label>

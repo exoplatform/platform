@@ -16,8 +16,9 @@
 		});
 	}
 	UpdatePreviewLogoAndStyle();
-	$("#PlatformAdminToolbarContainer").clone().appendTo($("#StylePreview"));
-	$('#StylePreview').bind({
+	 $("#PlatformAdminToolbarContainer").clone().attr("id", "PlatformAdminToolbarContainer-preview").appendTo($("#StylePreview"));
+	 $('#StylePreview #PlatformAdminToolbarContainer-preview').bind({
+	
 		hover : function(e) {
 			e.stopPropagation();
 			e.preventDefault();
@@ -252,7 +253,7 @@
 				data : fd,
 				beforeSend : function() {
 					$("#PreviewImg").hide();
-					$("#StylePreview #PlatformAdminToolbarContainer").hide();
+					$("#StylePreview #PlatformAdminToolbarContainer-preview").hide();
 					$("#ajaxUploading1").show();
 					$("#ajaxUploading2").show();
 				},
@@ -267,7 +268,7 @@
 					$("input#file").replaceWith(
 							$("input#file").val("").clone(true));
 					previewLogoFromUrl(data.logoUrl);
-					$("#StylePreview #PlatformAdminToolbarContainer").show();
+					$("#StylePreview #PlatformAdminToolbarContainer-preview").show();
 					$("#PreviewImg").show();
 					isChangeLogo = true;
 				}

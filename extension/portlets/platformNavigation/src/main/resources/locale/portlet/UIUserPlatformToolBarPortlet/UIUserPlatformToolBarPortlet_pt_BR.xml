@@ -2,8 +2,8 @@
 <bundle>
 <UIUserPlatformToolBarPortlet>
 <label>
-<NotificationSettingsPortlet>Minhas Notificações</NotificationSettingsPortlet>
-<activities>Minhas Atividades</activities>
+<NotificationSettingsPortlet>My Notifications</NotificationSettingsPortlet>
+<activities>My Activities</activities>
 <profile>Meu perfil</profile>
 <network>Minhas conexões</network>
 <wiki>Meu Wiki</wiki>

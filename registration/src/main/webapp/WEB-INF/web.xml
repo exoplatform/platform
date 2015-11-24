@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+
+<!--
+
+    Copyright (C) 2009 eXo Platform SAS.
+
+    This is free software; you can redistribute it and/or modify it
+    under the terms of the GNU Lesser General Public License as
+    published by the Free Software Foundation; either version 2.1 of
+    the License, or (at your option) any later version.
+
+    This software is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+    Lesser General Public License for more details.
+
+    You should have received a copy of the GNU Lesser General Public
+    License along with this software; if not, write to the Free
+    Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
+    02110-1301 USA, or see the FSF site: http://www.fsf.org.
+
+-->
+<web-app
+      version="3.0"
+      metadata-complete="true"
+      xmlns="http://java.sun.com/xml/ns/javaee"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd">
+
+  <display-name>registrationPLF</display-name>
+
+  <absolute-ordering />
+  
+  <filter>
+    <filter-name>LocalizationFilter</filter-name>
+    <filter-class>org.exoplatform.portal.application.localization.LocalizationFilter</filter-class>
+  </filter>
+
+  <filter-mapping>
+    <filter-name>LocalizationFilter</filter-name>
+    <url-pattern>*.jsp</url-pattern>
+    <dispatcher>INCLUDE</dispatcher>
+    <dispatcher>FORWARD</dispatcher>
+    <dispatcher>REQUEST</dispatcher>
+    <dispatcher>ERROR</dispatcher>
+  </filter-mapping>
+ 
+  <listener>
+    <listener-class>org.exoplatform.container.web.PortalContainerConfigOwner</listener-class>
+  </listener>
+
+  <servlet>
+    <servlet-name>SoftwareRegisterViewServlet</servlet-name>
+    <servlet-class>org.exoplatform.platform.common.software.register.web.SoftwareRegisterViewServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>SoftwareRegisterAuthViewServlet</servlet-name>
+    <servlet-class>org.exoplatform.platform.common.software.register.web.SoftwareRegisterAuthViewServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>SoftwareRegisterActionServlet</servlet-name>
+    <servlet-class>org.exoplatform.platform.common.software.register.web.SoftwareRegisterActionServlet</servlet-class>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>SoftwareRegisterViewServlet</servlet-name>
+    <url-pattern>/software-register</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>SoftwareRegisterActionServlet</servlet-name>
+    <url-pattern>/software-register-action</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>SoftwareRegisterAuthViewServlet</servlet-name>
+    <url-pattern>/software-register-auth</url-pattern>
+  </servlet-mapping>
+
+</web-app>

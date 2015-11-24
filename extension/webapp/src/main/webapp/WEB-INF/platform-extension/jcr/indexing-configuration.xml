@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<!DOCTYPE configuration SYSTEM "http://www.exoplatform.org/dtd/indexing-configuration-1.2.dtd">
+<configuration xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:wiki="http://exoplatform.org/wiki/1.0/" xmlns:exo="http://www.exoplatform.com/jcr/exo/1.0" xmlns:publication="http://www.exoplatform.com/jcr/publication/1.1/">
+    <aggregate primaryType="nt:file">
+        <include primaryType="nt:resource">jcr:content</include>
+    </aggregate>
+    <aggregate primaryType="wiki:attachment">
+        <include primaryType="nt:resource">jcr:content</include>
+    </aggregate>
+</configuration>

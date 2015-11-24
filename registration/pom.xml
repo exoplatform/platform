@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <parent>
+    <artifactId>platform</artifactId>
+    <groupId>org.exoplatform.platform</groupId>
+    <version>4.3.x-SNAPSHOT</version>
+  </parent>
+  <modelVersion>4.0.0</modelVersion>
+
+  <artifactId>platform-registration</artifactId>
+  <name>eXo Platform - Register your Software to Tribe</name>
+  <packaging>war</packaging>
+
+  <dependencies>
+    <dependency>
+      <groupId>org.exoplatform.platform</groupId>
+      <artifactId>platform-component-common</artifactId>
+    </dependency>
+  </dependencies>
+  <build>
+    <finalName>registrationPLF</finalName>
+  </build>
+</project>

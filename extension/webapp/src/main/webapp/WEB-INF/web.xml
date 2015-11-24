@@ -69,7 +69,7 @@
         <url-pattern>/accountSetup</url-pattern>
     </servlet-mapping>
 
-    <servlet>
+  <servlet>
         <servlet-name>PingBackServlet</servlet-name>
         <servlet-class>org.exoplatform.platform.common.account.setup.web.PingBackServlet</servlet-class>
         <init-param>
@@ -83,4 +83,6 @@
         <servlet-name>PingBackServlet</servlet-name>
         <url-pattern>/PingBackServlet</url-pattern>
     </servlet-mapping>
+
+
 </web-app>

@@ -2,13 +2,13 @@
 <bundle>
 <UIBreadCrumbsNavigationPortlet>
     <label>
-      <EditProfile>Editar meu perfil</EditProfile>
+      <EditProfile>Edit my Profile</EditProfile>
     </label>
       <title>
-      <EditProfile>Editar perfil</EditProfile>
+      <EditProfile>Edit Profile</EditProfile>
     </title>
     <title>
-      <MyProfile>Meu perfil</MyProfile>
+      <MyProfile>My Profile</MyProfile>
       </title>
 </UIBreadCrumbsNavigationPortlet>
 </bundle>

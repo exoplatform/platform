@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bundle>
+   <UIUserPlatformToolBarCreatePortlet>
+      <label>
+         <topic>Tema</topic>
+         <poll>Anketa</poll>
+         <eventtask>Dogodek/opravilo</eventtask>
+         <upload>Prenesi datoteko</upload>
+         <wiki>Wiki stran</wiki>
+
+      </label>
+   </UIUserPlatformToolBarCreatePortlet>
+   <UICreateList>
+      <label>
+         <topic>tema</topic>
+         <poll>anketa</poll>
+         <CreateANew>Ustvari novo {1}:</CreateANew>
+         <NoForum>Oprostite, noben forum še ne obstaja da bi lahko ustvarili {1}. Začnite z ustvarjanjem svojega prostora.</NoForum>
+         <RequireSelectForum>Prosimo izberite forum.</RequireSelectForum>
+      </label>
+      <action>
+         <Next>#{word.next}</Next>
+         <Cancel>#{word.cancel}</Cancel>
+      </action>
+   </UICreateList>
+   <UICreateTopic>
+      <label>
+         <SelectAForum>Izberi Forum</SelectAForum>
+         <location>Na lokaciji</location>
+         <forumId>In Forum</forumId>
+         <FilterForums>Filtriraj forume</FilterForums>
+      </label>
+   </UICreateTopic>
+   <UICreatePoll>
+      <label>
+         <SelectAForum>Izberi Forum</SelectAForum>
+         <location>Na lokaciji</location>
+         <forumId>In forum</forumId>
+         <FilterForums>Filtriraj Forume</FilterForums>
+      </label>
+   </UICreatePoll>
+   <UICreateWiki>
+      <label>
+         <title>Ustvari novo Wiki stran:</title>
+         <location>Na lokaciji</location>
+      </label>
+   </UICreateWiki>
+   <UICreateEvent>
+      <label>
+         <Title>#{word.title}</Title>
+         <Choix>Dodaj novo:</Choix>
+         <EndEvent>do</EndEvent>
+         <StartEvent>Od</StartEvent>
+         <Calendar>Izberi koledar</Calendar>
+         <all-day>Ves dan</all-day>
+         <defaultCalendarId>Privzeto</defaultCalendarId>
+      </label>
+      <msg>
+         <summary-field-required>Polje "Naslov" je zahtevano.</summary-field-required>
+         <fromDate-format>Oblika datuma »Od« ni pravilna.</fromDate-format>
+         <toDate-format>Oblika datuma »Do« ni pravilna.</toDate-format>
+         <logic-required>Oprostite, ne morete ustvariti dogodka, ki se konča preden se začne.</logic-required>
+         <cant-add-event-on-remote-calendar>Ne morete dodati dogodka v oddaljen koledar</cant-add-event-on-remote-calendar>
+         <add-successfully>
+            <Event>Dogodek je bil dodan {1}</Event>
+            <Task>Opravilo je bilo dodano {1}</Task>
+         </add-successfully>
+         <add-unsuccessfully>{0} ni bil dodan.</add-unsuccessfully>
+      </msg>
+      <action>
+         <Next>#{word.save}</Next>
+         <Cancel>#{word.cancel}</Cancel>
+      </action>
+   </UICreateEvent>
+    <UIUploadFile>
+        <Select>Izberi datoteko</Select>
+        <action>
+          <close>#{word.close}</close>
+        </action>
+    </UIUploadFile>
+   <Choix>
+      <label>
+         <Event>Dogodek</Event>
+         <Task>Naloga</Task>
+      </label>
+   </Choix>
+</bundle>

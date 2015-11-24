@@ -12,6 +12,7 @@
             <name>Terms and Conditions Filter</name>
             <set-method>addFilterDefinitions</set-method>
             <type>org.exoplatform.web.filter.FilterDefinitionPlugin</type>
+            <priority>1</priority>
             <init-params>
                 <object-param>
                     <name>Terms and Conditions Filter</name>
@@ -31,9 +32,33 @@
             </init-params>
         </component-plugin>
         <component-plugin profiles="all">
+            <name>Software register to Tribe</name>
+            <set-method>addFilterDefinitions</set-method>
+            <type>org.exoplatform.web.filter.FilterDefinitionPlugin</type>
+            <priority>2</priority>
+            <init-params>
+                <object-param>
+                    <name>Software register to Tribe</name>
+                    <object type="org.exoplatform.web.filter.FilterDefinition">
+                        <field name="filter" >
+                            <object type="org.exoplatform.platform.common.software.register.web.SoftwareRegisterFilter" />
+                        </field>
+                        <field name="patterns" >
+                            <collection type="java.util.ArrayList" item-type="java.lang.String">
+                                <value>
+                                    <string>.*</string>
+                                </value>
+                            </collection>
+                        </field>
+                    </object>
+                </object-param>
+            </init-params>
+        </component-plugin>
+        <component-plugin profiles="all">
             <name>Account Setup Filter</name>
             <set-method>addFilterDefinitions</set-method>
             <type>org.exoplatform.web.filter.FilterDefinitionPlugin</type>
+            <priority>3</priority>
             <init-params>
                 <object-param>
                     <name>Account Setup Filter</name>

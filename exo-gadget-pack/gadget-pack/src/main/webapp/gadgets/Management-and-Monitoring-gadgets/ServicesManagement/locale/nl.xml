@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+
+    Copyright (C) 2009 eXo Platform SAS.
+    
+    This is free software; you can redistribute it and/or modify it
+    under the terms of the GNU Lesser General Public License as
+    published by the Free Software Foundation; either version 2.1 of
+    the License, or (at your option) any later version.
+    
+    This software is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+    Lesser General Public License for more details.
+    
+    You should have received a copy of the GNU Lesser General Public
+    License along with this software; if not, write to the Free
+    Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
+    02110-1301 USA, or see the FSF site: http://www.fsf.org.
+
+-->
+<messagebundle>  
+  <msg name="title">Services-beheer</msg>
+  <msg name="services">Diensten</msg>
+  <msg name="name">Naam</msg>
+  <msg name="description">Beschrijving</msg>
+  <msg name="noDescription">Geen beschrijving</msg>
+  <msg name="method">Methode</msg>
+  <msg name="parameters">Parameters</msg>
+  <msg name="action">Actie</msg>
+  <msg name="value">Waarde</msg>
+  <msg name="services_url">Diensten URL</msg>
+  <msg name="failManage">Tijdelijk beheren niet diensten in andere hosts totdat we OAuth ondersteunen</msg>
+  <msg name="noServices">Geen service is beschikbaar of u bent niet voldoende gemachtigd</msg>
+  <msg name="noMethod">Geen methode</msg>
+  <msg name="noProperty">Geen eigenschap</msg>
+  <msg name="badURL">Er is een fout opgetreden bij het ophalen van gegevens. Controleer uw voorkeur URL</msg>
+</messagebundle>

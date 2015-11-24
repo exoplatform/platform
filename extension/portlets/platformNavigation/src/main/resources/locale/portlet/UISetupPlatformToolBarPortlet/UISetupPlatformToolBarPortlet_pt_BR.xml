@@ -8,7 +8,7 @@
 <wcmAdmin>Administração de conteúdo</wcmAdmin>
 <users>Community</users>
 <newStaff>Adicionar Usuários</newStaff>
-<org-management>Gerenciar Usuários e Grupos</org-management>
+<org-management>Manage Community</org-management>
 <portal>Portal</portal>
 <administration>Administração</administration>
 <groupnavigation>Sites do grupo</groupnavigation>
@@ -18,7 +18,7 @@
 <monitoring>Monitoramento</monitoring>
 <spaces>Espaços</spaces>
 <Branding>Marca</Branding>
-      <Notification>Notificações</Notification>
+      <Notification>Notifications</Notification>
 <ide>IDE</ide>
 <search>Buscar</search>
 </label>

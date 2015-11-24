@@ -73,10 +73,11 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
         <title>Oauth register</title>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>		
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="shortcut icon" type="image/x-icon"  href="<%=contextPath%>/favicon.ico" />
         <% for (SkinConfig skin : skins) {
-            if ("CoreSkin".equals(skin.getModule()) || "CoreSkin1".equals(skin.getModule())) {%>
+            if ("CoreSkin".equals(skin.getModule())) {%>
                 <link href="<%=skin.getCSSPath()%>" rel="stylesheet" type="text/css" test="<%=skin.getModule()%>"/>
             <%}%>
         <%}%>
@@ -84,8 +85,8 @@
         <script type="text/javascript" src="/platform-extension/javascript/jquery-1.7.1.js"></script>
         <script type="text/javascript" src="/platform-extension/javascript/switch-button.js"></script>
     </head>
-    <body>
-
+    <body class="modal-open">
+	<div class="uiPopupWrapper">
         <div class="UIPopupWindow uiPopup modal uiOauthRegister UIDragObject NormalStyle">
           <div class="popupHeader ClearFix">
               <a href="<%= contextPath + "/login?login_controller=oauth_cancel"%>" class="pull-right" aria-hidden="true" ><i class="uiIconClose uiIconWhite"></i></a>
@@ -164,5 +165,6 @@
             </form>
         </div>
     </div>
+	</div>
     </body>
 </html>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bundle>
+<UINotificationPopoverToolbarPortlet>
+<label>
+<MarkAllAsRead>Označi vse kot prebrano</MarkAllAsRead>
+<NoNotifications>Ni obvestil</NoNotifications>
+<ViewAll>Prikaži vse</ViewAll>
+<Loading>Nalaganje</Loading>
+</label>
+</UINotificationPopoverToolbarPortlet>
+</bundle>

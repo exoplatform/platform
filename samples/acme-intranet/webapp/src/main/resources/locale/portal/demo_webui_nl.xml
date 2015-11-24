@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bundle>
+  <Signin>
+    <welcome>Welkom</welcome>
+    <login>Inloggen</login>
+    <logout>Log uit</logout>
+    <language>Verander taal</language>
+    <register>Registreren</register>
+  </Signin>
+
+  <ACMEPortal>
+    <label>ACME sjabloon</label>
+  </ACMEPortal>
+</bundle>

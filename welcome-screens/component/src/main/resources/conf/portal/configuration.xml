@@ -1,36 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.exoplatform.org/xml/ns/kernel_1_2.xsd http://www.exoplatform.org/xml/ns/kernel_1_2.xsd" xmlns="http://www.exoplatform.org/xml/ns/kernel_1_2.xsd">
 
-    <component>
-        <type>org.exoplatform.platform.welcomescreens.service.UnlockService</type>
-        <init-params>
-            <value-param>
-                <name>delayPeriod</name>
-                <value>30</value>
-            </value-param>
-            <value-param>
-                <name>KeyContent</name>
-                <value>Platform 4 - 30 days evaluation</value>
-            </value-param>
-            <value-param>
-                <name>registrationFormUrl</name>
-                <value>http://exoplatform.com/buy</value>
-            </value-param>
-            <value-param>
-                <name>extendFormUrl</name>
-                <value>http://www.exoplatform.com/extend-your-evaluation</value>
-            </value-param>
-            <value-param>
-                <name>subscriptionUrl</name>
-                <value>http://www.exoplatform.com/company/en/products/editions</value>
-            </value-param>
-            <value-param>
-                <name>defaultPingBackUrl</name>
-                <value>http://www.exoplatform.com/company/en/products/e-01011000-01101111</value>
-            </value-param>
-        </init-params>
-    </component>
-
     <external-component-plugins>
         <target-component>org.exoplatform.commons.chromattic.ChromatticManager</target-component>
         <component-plugin>
@@ -72,7 +42,7 @@
                     <name>Unlock Filter</name>
                     <object type="org.exoplatform.web.filter.FilterDefinition">
                         <field name="filter">
-                            <object type="org.exoplatform.platform.welcomescreens.service.UnlockService$UnlockFilter"/>
+                            <object type="org.exoplatform.platform.common.software.register.UnlockService$UnlockFilter"/>
                         </field>
                         <field name="patterns">
                             <collection type="java.util.ArrayList" item-type="java.lang.String">

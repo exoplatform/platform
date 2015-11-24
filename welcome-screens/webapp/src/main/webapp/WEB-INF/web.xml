@@ -32,7 +32,7 @@
 
     <servlet>
         <servlet-name>UnlockServlet</servlet-name>
-        <servlet-class>org.exoplatform.platform.welcomescreens.service.UnlockService$UnlockServlet</servlet-class>
+        <servlet-class>org.exoplatform.platform.common.software.register.UnlockService$UnlockServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>UnlockServlet</servlet-name>
@@ -47,6 +47,15 @@
         <servlet-class>org.exoplatform.platform.welcomescreens.web.TermsAndConditionsActionServlet</servlet-class>
     </servlet>
 
+    <servlet>
+        <servlet-name>SoftwareRegisterViewServlet</servlet-name>
+        <servlet-class>org.exoplatform.platform.common.software.register.web.SoftwareRegisterViewServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>SoftwareRegisterActionServlet</servlet-name>
+        <servlet-class>org.exoplatform.platform.common.software.register.web.SoftwareRegisterActionServlet</servlet-class>
+    </servlet>
+    
     <servlet-mapping>
         <servlet-name>TermsAndConditionsViewServlet</servlet-name>
         <url-pattern>/terms-and-conditions</url-pattern>
@@ -55,5 +64,14 @@
     <servlet-mapping>
         <servlet-name>TermsAndConditionsActionServlet</servlet-name>
         <url-pattern>/terms-and-conditions-action</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>SoftwareRegisterViewServlet</servlet-name>
+        <url-pattern>/software-register</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SoftwareRegisterActionServlet</servlet-name>
+        <url-pattern>/software-register-action</url-pattern>
     </servlet-mapping>
 </web-app>

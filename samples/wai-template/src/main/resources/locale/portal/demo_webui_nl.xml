@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bundle>
+  <Signin>
+    <welcome>Welkom</welcome>
+    <login>Inloggen</login>
+    <logout>Log uit</logout>
+    <language>
+      <en>Overschakelen naar Engels</en>
+      <fr>Overschakelen naar het Frans</fr>
+    </language>
+    <register>Registreren</register>
+  </Signin>
+  <Toolbar>
+    <SkipToContent>Ga naar de inhoud</SkipToContent>
+    <SiteMap>Sitemap</SiteMap>
+    <Accessibility>Toegankelijkheid</Accessibility>
+    <NormalSize>Normale grootte</NormalSize>
+    <MediumSize>Middelgrote</MediumSize>
+    <LargeSize>Groot formaat</LargeSize>
+    <NormalContrast>Normaal Contrast</NormalContrast>
+    <HighContrast>Hoog Contrast</HighContrast>
+    <Search>Zoek</Search>
+  </Toolbar>
+  <Logo>
+    <GoHome>Ga naar Home</GoHome>
+  </Logo>
+  <acme>
+    <label>ACME sjabloon</label>
+  </acme>  
+  <WAIPortal>
+    <label>Monster toegankelijke Website</label>
+  </WAIPortal>
+</bundle>

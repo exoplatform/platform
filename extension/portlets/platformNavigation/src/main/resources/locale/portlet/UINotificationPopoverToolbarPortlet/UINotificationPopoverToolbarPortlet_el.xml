@@ -2,10 +2,10 @@
 <bundle>
 <UINotificationPopoverToolbarPortlet>
 <label>
-<MarkAllAsRead>Mark all as read</MarkAllAsRead>
-<NoNotifications>No notifications</NoNotifications>
-<ViewAll>View All</ViewAll>
-<Loading>Loading</Loading>
+<MarkAllAsRead>Σήμανση όλων ως αναγνωσμένα</MarkAllAsRead>
+<NoNotifications>Καμία ειδοποίηση</NoNotifications>
+<ViewAll>Προβολή όλων</ViewAll>
+<Loading>Γίνεται φόρτωση</Loading>
 </label>
 </UINotificationPopoverToolbarPortlet>
 </bundle>

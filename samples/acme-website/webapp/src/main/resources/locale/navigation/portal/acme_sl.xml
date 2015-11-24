@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bundle>
+  <portal>
+    <acme>
+      <overview>Pregled</overview>
+      <products>Artikli</products>
+      <news>Novice</news>
+      <contactus>Vprašanja?</contactus>
+      <newsletters>Glasila</newsletters>
+      <confirmation>Potrditev kontaktnega obrazca</confirmation>
+      <detail>Podrobnosti</detail>
+  <catalog>Katalog</catalog>
+      <printviewer>Natisni stran</printviewer>
+      <searchResult>Išči</searchResult>
+      <newAccount>Nov račun</newAccount>
+      <groupnavigation>Krmarjenje skupine</groupnavigation>
+      <portalnavigation>Krmarjenje po portalu</portalnavigation>
+      <documents>Dokumenti</documents>
+      <unifiedSearch>Išči</unifiedSearch>
+    </acme>
+  </portal>
+</bundle>

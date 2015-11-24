@@ -1,4 +1,4 @@
-package org.exoplatform.platform.welcomescreens.service;
+package org.exoplatform.platform.common.software.register;
 
 import org.apache.commons.codec.binary.Base64;
 import org.bouncycastle.jce.provider.BouncyCastleProvider;
@@ -35,6 +35,11 @@ public class Utils {
     public static final DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
     public static final String PRODUCT_CODE = "ProductCode";
     public static String HOME_CONFIG_FILE_LOCATION;
+    public static String HOME_CONFIG_LOCATION;
+    public static final String LICENSE_FILE = "license.xml";
+    public static final String SW_REG_SKIPPED = "skipped";
+    public static final String SW_REG_STATUS = "status";
+    public static final String SW_REG_PLF_VERSION = "version";
 
     public static String getModifiedMD5Code(byte[] dataToHash) {
         Security.addProvider(new BouncyCastleProvider());

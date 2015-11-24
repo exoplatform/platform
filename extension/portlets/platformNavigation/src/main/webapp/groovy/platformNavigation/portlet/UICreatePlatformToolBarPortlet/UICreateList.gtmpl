@@ -36,13 +36,12 @@ def rcontext = _ctx.getRequestContext() ;
 JavascriptManager jsmanager = rcontext.getJavascriptManager();
 %>
 <span  class="dropdown-menu" style="display:none;white-space:nowrap;"></span>
-<ul id="$uicomponent.id" class="dropdown-menu">
-
-		<% if(uicomponent.getChildren().size()==0){%>
-			<li>
+ <% if(uicomponent.getChildren().size()==0) {%>
+	<ul id="$uicomponent.id" class="dropdown-menu">		
+		<li>
 				<a href="javascript:void(0);" onclick="<%=uicomponent.event("AddEvent","AddEvent")%>" class="ToolBarActivityIcon"><i class="uiIconPLFEventTask"></i>$labelEvent</a>
-			</li>
-      <li>
+		</li>
+        <li>
 				<a href="javascript:void(0);" onclick="<%=uicomponent.event("Poll", parStatusPoll)%>" class="ToolBarActivityIcon"><i class="uiIconPoll"></i>$labelPoll</a>
 			</li>
 			<li>
@@ -54,10 +53,12 @@ JavascriptManager jsmanager = rcontext.getJavascriptManager();
 			<li>
 	    	<a href="javascript:void(0);" onclick="<%=uicomponent.event("Wiki","Wiki")%>" class="ToolBarActivityIcon"><i class="uiIconWikiWiki"></i>$labelWiki</a>
 	    </li>
-
-		<%}else{%>
-             <li>
+	</ul>
+<%}else{%>
+	<ul id="$uicomponent.id" class="dropdown-menu  create-form-dropdown">
+         <li class="dropdown-menu-sub <%=uicomponent.getChildren().get(0).id%>">
 	    	<%uicomponent.renderChildren();%>
-	    	</li>
-		<%}%>
-</ul>
+	    </li>
+	</ul>
+<%}%>
+

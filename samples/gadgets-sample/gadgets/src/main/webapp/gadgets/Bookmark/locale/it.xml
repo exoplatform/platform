@@ -24,12 +24,12 @@
   <msg name="customize">Personalizzare</msg>
   <msg name="save">#{word.save}</msg>
   <msg name="add">Aggiungere</msg>
-  <msg name="ok">Ok</msg>
+  <msg name="ok">OK</msg>
   <msg name="name">Nome</msg>
-  <msg name="url">Url</msg>
+  <msg name="url">URL</msg>
   <msg name="delete">Cancellare</msg>
   <msg name="edit">Modificare</msg>
   <msg name="cancel">Annulla</msg>
-  <msg name="emptyBookmarkPre">Non hai alcun segnalibro. Aggiungili cliccando sul pulsante "Aggiungi segnalibro".</msg>
-  <msg name="addBookmark">Aggiungi segnalibro</msg>
+  <msg name="emptyBookmarkPre">You don't have any bookmark. Add them by clicking on the button "Add Bookmark".</msg>
+  <msg name="addBookmark">Add Bookmark</msg>
 </messagebundle>

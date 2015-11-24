@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bundle>
+<UIActionBar>
+<tooltip>
+<ContentNavigation>Inhoud navigatie</ContentNavigation>
+</tooltip>
+</UIActionBar>
+<UIViewFormTabPane>
+<label>
+<contentNavigation>Navigatie door inhoud</contentNavigation>
+</label>
+</UIViewFormTabPane>
+<UIPopupWindow>
+<title>
+<UINavigationForm>Navigatie formulier</UINavigationForm>
+</title>
+</UIPopupWindow>
+<PopulateToMenu>
+<dialog>
+<label>
+<id>-ID:</id>
+<name>Naam:</name>
+<lifecycle>Levenscyclus:</lifecycle>
+<isDeep>Is diep:</isDeep>
+<nodetypes>Node type:</nodetypes>
+<description>Beschrijving:</description>
+<affectedNodeTypeNames>Nodes met probleem:</affectedNodeTypeNames>
+<navigationNode>Navigatiemodus:</navigationNode>
+<index>Index:</index>
+<clickable>Klikbare:</clickable>
+<page>Pagina:</page>
+<childrenPage>Kinderen pagina:</childrenPage>
+</label>
+</dialog>
+</PopulateToMenu>
+<UINavigationForm>
+<label>
+<Node>De bovenliggende map:</Node>
+<Visible>Zichtbaar:</Visible>
+<NavigationNodeInputSet>Doel bovenliggende navigatie:</NavigationNodeInputSet>
+<Index>De volgorde van weergave:</Index>
+<Clickable>Klikbare:</Clickable>
+<NavigationControls>Navigatiecontrole</NavigationControls>
+<ListTargetPageFormInputSet>Pagina voor lijst:</ListTargetPageFormInputSet>
+<ListShowCLVByStringInput>Parameternaam:</ListShowCLVByStringInput>
+<DetailTargetPageInputSet>Pagina voor Detail:</DetailTargetPageInputSet>
+<DetailShowCLVByStringInput>Parameternaam:</DetailShowCLVByStringInput>
+<List>Lijst</List>
+<Detail>Detail</Detail>
+</label>
+<action>
+<Save>#{word.save}</Save>
+<Cancel>#{word.cancel}</Cancel>
+</action>
+</UINavigationForm>
+<Visible>
+<label>
+<VisibleEnable>Ja</VisibleEnable>
+<VisibleDisable>Nee</VisibleDisable>
+</label>
+</Visible>
+<Clickable>
+<label>
+<ClickableEnable>Ja</ClickableEnable>
+<ClickableDisable>Nee</ClickableDisable>
+</label>
+</Clickable>
+<NavigationNodeInputSet>
+<title>
+<SelectNavigationNode>Selecteer navigatienode</SelectNavigationNode>
+<RemoveNavigationNode>#{word.reset}</RemoveNavigationNode>
+</title>
+</NavigationNodeInputSet>
+<ListTargetPageFormInputSet>
+<title>
+<SelectListTargetPage>Selecteer de doelpagina</SelectListTargetPage>
+<RemoveListTargetPage>#{word.reset}</RemoveListTargetPage>
+</title>
+</ListTargetPageFormInputSet>
+<DetailTargetPageInputSet>
+<title>
+<SelectDetailTargetPage>Selecteer de doelpagina kinderen</SelectDetailTargetPage>
+<RemoveDetailTargetPage>#{word.reset}</RemoveDetailTargetPage>
+</title>
+</DetailTargetPageInputSet>
+<NavigationSelectorPopupWindow>
+<title>
+<UINavigationSelector>Navigatie Selector</UINavigationSelector>
+</title>
+</NavigationSelectorPopupWindow>
+<ListTargetPageSelectorPopupWindow>
+<title>
+<UIPageSelector>Pagina selecteur</UIPageSelector>
+</title>
+</ListTargetPageSelectorPopupWindow>
+<DetailTargetPageSelectorPopupWindow>
+<title>
+<UIPageSelector>Pagina selecteur</UIPageSelector>
+</title>
+</DetailTargetPageSelectorPopupWindow>
+</bundle>

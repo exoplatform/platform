@@ -11,7 +11,7 @@
          <Myconnections>Mitt nettverk</Myconnections>
          <Mywiki>Min Wiki</Mywiki>
          <Mydashboard>Mitt dashboard</Mydashboard>
-         <NotificationSettingsPortlet>Mine varsler</NotificationSettingsPortlet>
+         <NotificationSettingsPortlet>My Notifications</NotificationSettingsPortlet>
          <More>Mer</More>
       </label>
    </UIUserNavigationPortlet>
