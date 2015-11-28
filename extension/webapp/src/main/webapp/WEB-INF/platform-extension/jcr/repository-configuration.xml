@@ -70,6 +70,7 @@
 	              <property name="infinispan-cl-cache.jdbc.timestamp.column" value="timestamp" />
 	              <property name="infinispan-cl-cache.jdbc.datasource" value="${gatein.jcr.datasource.name}${container.name.suffix}" />
 	              <property name="infinispan-cl-cache.jdbc.connectionFactory" value="org.infinispan.loaders.jdbc.connectionfactory.ManagedConnectionFactory" />
+	              <property name="infinispan-cl-cache.jdbc.dialect" value="${gatein.jcr.datasource.dialect}" />
 	            </properties>
 	          </lock-manager>
 	        </workspace>
