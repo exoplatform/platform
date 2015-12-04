@@ -188,7 +188,7 @@
                 <value>
                   <object type="org.exoplatform.services.cms.taxonomy.impl.TaxonomyConfig$Taxonomy">
                     <field name="name">
-                      <string>allTaxonomy</string>
+                      <string>All</string>
                     </field>
                     <field name="path">
                       <string>/All</string>
@@ -260,7 +260,7 @@
                 <value>
                   <object type="org.exoplatform.services.cms.taxonomy.impl.TaxonomyConfig$Taxonomy">
                     <field name="name">
-                      <string>FireTaxonomy</string>
+                      <string>Fire</string>
                     </field>
                     <field name="path">
                       <string>/All/Fire</string>
@@ -332,7 +332,7 @@
                 <value>
                   <object type="org.exoplatform.services.cms.taxonomy.impl.TaxonomyConfig$Taxonomy">
                     <field name="name">
-                      <string>WaterTaxonomy</string>
+                      <string>Water</string>
                     </field>
                     <field name="path">
                       <string>/All/Water</string>
@@ -404,7 +404,7 @@
                 <value>
                   <object type="org.exoplatform.services.cms.taxonomy.impl.TaxonomyConfig$Taxonomy">
                     <field name="name">
-                      <string>AirTaxonomy</string>
+                      <string>Air</string>
                     </field>
                     <field name="path">
                       <string>/All/Air</string>
@@ -476,7 +476,7 @@
                 <value>
                   <object type="org.exoplatform.services.cms.taxonomy.impl.TaxonomyConfig$Taxonomy">
                     <field name="name">
-                      <string>EarthTaxonomy</string>
+                      <string>Earth</string>
                     </field>
                     <field name="path">
                       <string>/All/Earth</string>
