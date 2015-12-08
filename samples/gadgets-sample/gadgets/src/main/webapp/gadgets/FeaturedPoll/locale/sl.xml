@@ -22,8 +22,8 @@
 <messagebundle>
   <msg name="title">Priporočena anketa</msg>
   <msg name="setting">Prikaz</msg>
-  <msg name="vote">Glasujte</msg>
-  <msg name="voteAgain">Ponovno glasujte</msg>
+  <msg name="vote">Glasuj</msg>
+  <msg name="voteAgain">Glasuj ponovno</msg>
   <msg name="warning">Izberite vsaj eno možnost</msg>
   <msg name="option">Možnosti</msg>
   <msg name="percent">Odstotkov</msg>
