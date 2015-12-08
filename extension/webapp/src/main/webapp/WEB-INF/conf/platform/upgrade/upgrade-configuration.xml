@@ -393,7 +393,7 @@
         </init-params>
       </component-plugin>      
       
-      <component-plugin>
+      <component-plugin profiles="all">
 	      <name>UpgradeUserNotificationSettingPlugin</name>
 	      <set-method>addUpgradePlugin</set-method>
 	      <type>org.exoplatform.platform.upgrade.plugins.UpgradeUserNotificationSettingPlugin</type>
@@ -411,7 +411,7 @@
 	        </value-param>
 	      </init-params>
 	    </component-plugin>
-      <component-plugin>
+      <component-plugin profiles="all">
 	      <name>UpgradeNotifcationNodeTypePlugin</name>
 	      <set-method>addUpgradePlugin</set-method>
 	      <type>org.exoplatform.platform.upgrade.plugins.UpgradeNotifcationNodeTypePlugin</type>
