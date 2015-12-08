@@ -59,7 +59,7 @@
          <summary-field-required>Polje "Naslov" je zahtevano.</summary-field-required>
          <fromDate-format>Oblika datuma »Od« ni pravilna.</fromDate-format>
          <toDate-format>Oblika datuma »Do« ni pravilna.</toDate-format>
-         <logic-required>Oprostite, ne morete ustvariti dogodka, ki se konča preden se začne.</logic-required>
+         <logic-required>Oprostite, ne morete ustvariti dogodka, ki se konča, preden se začne.</logic-required>
          <cant-add-event-on-remote-calendar>Ne morete dodati dogodka v oddaljen koledar</cant-add-event-on-remote-calendar>
          <add-successfully>
             <Event>Dogodek je bil dodan {1}</Event>

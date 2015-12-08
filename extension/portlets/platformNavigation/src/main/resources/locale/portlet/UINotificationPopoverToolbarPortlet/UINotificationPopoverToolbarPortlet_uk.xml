@@ -2,10 +2,10 @@
 <bundle>
 <UINotificationPopoverToolbarPortlet>
 <label>
-<MarkAllAsRead>Mark all as read</MarkAllAsRead>
-<NoNotifications>No notifications</NoNotifications>
-<ViewAll>View All</ViewAll>
-<Loading>Loading</Loading>
+<MarkAllAsRead>Позначити всі як прочитані</MarkAllAsRead>
+<NoNotifications>Немає повідомлень</NoNotifications>
+<ViewAll>Переглянути все</ViewAll>
+<Loading>Завантаження</Loading>
 </label>
 </UINotificationPopoverToolbarPortlet>
 </bundle>

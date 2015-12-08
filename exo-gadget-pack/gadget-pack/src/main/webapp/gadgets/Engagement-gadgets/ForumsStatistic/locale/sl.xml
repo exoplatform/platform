@@ -23,11 +23,11 @@
 -->
 <messagebundle>
   <msg name="forums.statistic.title">Statistika foruma</msg>
-  <msg name="forums.statistic.total.topic">Skupaj Tem:</msg>
+  <msg name="forums.statistic.total.topic">Skupno število tem:</msg>
   <msg name="forums.statistic.total.post">Skupaj objav:</msg>
   <msg name="forums.statistic.total.member">Skupaj članov:</msg>
   <msg name="forums.statistic.active.member">Nedavno aktivnih članov:</msg>
-  <msg name="forums.statistic.maximum.user">Največje število online uporabnikov:</msg>  
+  <msg name="forums.statistic.maximum.user">Največje število prisotnih uporabnikov:</msg>  
   <msg name="forums.statistic.at">v/na</msg>  
   <msg name="forums.weekly.statistic.title">Tedenska statistika Forumov</msg>
   <msg name="forums.weekly.statistic.post.open">Objavo(ve) ustvaril(a)</msg>
