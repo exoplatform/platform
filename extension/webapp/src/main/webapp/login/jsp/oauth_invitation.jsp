@@ -26,9 +26,6 @@
 <%@ page import="org.exoplatform.services.organization.User"%>
 <%@ page import="java.util.Collection" %>
 <%@ page import="org.exoplatform.portal.resource.SkinConfig" %>
-<%@ page import="org.exoplatform.portal.resource.SkinVisitor" %>
-<%@ page import="java.util.Map" %>
-<%@ page import="org.exoplatform.portal.resource.SkinKey" %>
 <%@ page language="java" %>
 <%
     PortalContainer portalContainer = PortalContainer.getCurrentInstance(session.getServletContext());
