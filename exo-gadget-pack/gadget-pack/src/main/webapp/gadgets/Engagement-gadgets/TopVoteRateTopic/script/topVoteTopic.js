@@ -53,44 +53,48 @@
       var html = '';
       var len = topicList.length;
 
-      for(var i = 0 ; i < len; i++){  
-        var item = topicList[i];
-        var voteRating = item.voteRating;
-        var roundVoteRating = Math.round(Number(item.voteRating));
-        //var displayVoteRating = Math.round(voteRating*100)/100;
-        var displayVoteRating = voteRating + "";
-        if(displayVoteRating.length >=3){
-          displayVoteRating = displayVoteRating.substring(0, 3)
-        }
-        var numberUnvoteStart = 5-roundVoteRating;
-        var halfStar = roundVoteRating - voteRating;
-        var displayHalfStar = 0;
-        if(halfStar > 0.25 && halfStar <= 0.75) {
-          roundVoteRating = roundVoteRating-1;
-          displayHalfStar = 1;
-        }
+      if (len == 0) {
+        html += '<div class="light_message">' + gadgets.Prefs().getMsg("topic.top.vote.notopic") + '</div>';
+      } else {
+        for(var i = 0 ; i < len; i++){  
+          var item = topicList[i];
+          var voteRating = item.voteRating;
+          var roundVoteRating = Math.round(Number(item.voteRating));
+          //var displayVoteRating = Math.round(voteRating*100)/100;
+          var displayVoteRating = voteRating + "";
+          if(displayVoteRating.length >=3){
+            displayVoteRating = displayVoteRating.substring(0, 3)
+          }
+          var numberUnvoteStart = 5-roundVoteRating;
+          var halfStar = roundVoteRating - voteRating;
+          var displayHalfStar = 0;
+          if(halfStar > 0.25 && halfStar <= 0.75) {
+            roundVoteRating = roundVoteRating-1;
+            displayHalfStar = 1;
+          }
 
-        html += '<div><a target="_blank" href=\"'+ item.link + '\" class="IconLink"><i class="uiIconMiniArrowRight uiIconLightGray caretIcon"></i>' + item.title +'</a></div>';
-        html += '<div class = "ClearFix mgB5">';
-        html += '<div class="RatingInfoContainer" title="'+ gadgets.Prefs().getMsg("topic.top.vote.rate")  + ' '+ displayVoteRating + '/5 ' + gadgets.Prefs().getMsg("topic.top.vote.with") + ' ' +  item.numberOfUserVoteRating + ' ' + gadgets.Prefs().getMsg("topic.top.vote.votes") + '">';
-        html += '<div class="AvgRatingImages ClearFix">';
-        
-        for(var j = 1 ; j <= roundVoteRating; j++){
-          html += '<div class="VoteIcon Voted"><span></span></div>';
+          html += '<div><a target="_blank" href=\"'+ item.link + '\" class="IconLink"><i class="uiIconMiniArrowRight uiIconLightGray caretIcon"></i>' + item.title +'</a></div>';
+          html += '<div class = "ClearFix mgB5">';
+          html += '<div class="RatingInfoContainer" title="'+ gadgets.Prefs().getMsg("topic.top.vote.rate")  + ' '+ displayVoteRating + '/5 ' + gadgets.Prefs().getMsg("topic.top.vote.with") + ' ' +  item.numberOfUserVoteRating + ' ' + gadgets.Prefs().getMsg("topic.top.vote.votes") + '">';
+          html += '<div class="AvgRatingImages ClearFix">';
+          
+          for(var j = 1 ; j <= roundVoteRating; j++){
+            html += '<div class="VoteIcon Voted"><span></span></div>';
+          }
+          if(displayHalfStar == 1){
+            html += '<div class="VoteIcon HalfVoted"><span></span></div>';
+          }
+          for(var k = roundVoteRating + displayHalfStar; k < 5; k++){
+             html += '<div class="VoteIcon Unvoted"><span></span></div>';
+          }
+          
+          html += '</div>';
+          html += '</div>';
+          var cratedDate = new Date(item.createDate.time);
+          var createdDateStr = (cratedDate.format("yyyy/mm/dd"));
+          html += '<div class="TopicDetail">' + item.owner + ' - ' + createdDateStr + '</div>';
+          html += '</div>';
         }
-        if(displayHalfStar == 1){
-          html += '<div class="VoteIcon HalfVoted"><span></span></div>';
-        }
-        for(var k = roundVoteRating + displayHalfStar; k < 5; k++){
-           html += '<div class="VoteIcon Unvoted"><span></span></div>';
-        }
-        
-        html += '</div>';
-        html += '</div>';
-        var cratedDate = new Date(item.createDate.time);
-        var createdDateStr = (cratedDate.format("yyyy/mm/dd"));
-        html += '<div class="TopicDetail">' + item.owner + ' - ' + createdDateStr + '</div>';
-        html += '</div>';
       }
       html += '';
       cont.innerHTML = html;
