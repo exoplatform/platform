@@ -157,7 +157,13 @@ public class SoftwareRegistrationServiceImpl implements SoftwareRegistrationServ
   @Override
   public boolean canSkipRegister() {
     int _skipedNum = getSkippedNumber();
-    return _skipedNum<skipedNum||unlockService.isUnlocked();
+    return _skipedNum <= skipedNum || unlockService.isUnlocked();
+  }
+
+  @Override
+  public boolean canShowSkipBtn() {
+    int _skipedNum = getSkippedNumber();
+    return _skipedNum < skipedNum || unlockService.isUnlocked();
   }
 
   private int getSkippedNumber() {

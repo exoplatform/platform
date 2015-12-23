@@ -32,7 +32,7 @@
   response.setContentType("text/html; charset=UTF-8");
   SoftwareRegistrationService registrationService
           = PortalContainer.getCurrentInstance(session.getServletContext()).getComponentInstanceOfType(SoftwareRegistrationService.class);
-  boolean canSKip = registrationService.canSkipRegister();
+  boolean canSKip = registrationService.canShowSkipBtn();
 
   String registrationURL = (String)request.getAttribute("registrationURL");
 

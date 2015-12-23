@@ -367,17 +367,17 @@
         <type>org.exoplatform.platform.common.software.register.service.impl.SoftwareRegistrationServiceImpl</type>
         <init-params>
             <value-param>
-                <name>accountsetup.register.skip</name>
+                <name>registration.skip</name>
                 <description>To allow skip plf registration</description>
-                <value>${accountsetup.register.skip:false}</value>
+                <value>${registration.skip:false}</value>
             </value-param>
             <value-param>
-                <name>accountsetup.register.host</name>
-                <value>${accountsetup.register.host:https://community.exoplatform.com}</value>
+                <name>registration.host</name>
+                <value>${registration.host:https://community.exoplatform.com}</value>
             </value-param>
             <value-param>
-                <name>accountsetup.register.skipAllow</name>
-                <value>${accountsetup.register.skipAllow:2}</value>
+                <name>registration.skipAllow</name>
+                <value>${registration.skipAllow:2}</value>
             </value-param>
         </init-params>
     </component>

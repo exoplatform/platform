@@ -52,7 +52,7 @@ public class SoftwareRegisterFilter implements Filter {
     if(plfRegisterService.canSkipRegister() || (UnlockService.isUnlocked())){
       return false;
     }
-    return plfRegisterService.canSkipRegister();
+    return !plfRegisterService.canSkipRegister();
   }
   public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
     HttpServletRequest httpServletRequest = (HttpServletRequest)request;
