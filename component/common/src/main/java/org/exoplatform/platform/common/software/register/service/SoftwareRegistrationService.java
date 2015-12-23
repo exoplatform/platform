@@ -13,14 +13,14 @@ public interface SoftwareRegistrationService {
 
   public final static String SOFTWARE_REGISTRATION_NODE = "softwareRegistrationNode";
   public final static String SOFTWARE_REGISTRATION_SKIPPED = "softwareRegistrationSkipped";
-  public final static String SOFTWARE_REGISTRATION_HOST = "accountsetup.register.host";
   public final static String SOFTWARE_REGISTRATION_HOST_DEFAULT = "https://community.exoplatform.com";
   public final static String SOFTWARE_REGISTRATION_PATH = "/portal/authorize";
   public final static String SOFTWARE_REGISTRATION_RETURN_URL = "http://{0}:{1}/registration/software-register-auth";
   public final static String SOFTWARE_REGISTRATION_CLIENT_ID = "client_id=x6iCo6YWmw";
   public final static String SOFTWARE_REGISTRATION_RESPONSE_TYPE = "response_type=code";
-  public final static String SOFTWARE_REGISTRATION_SKIP = "accountsetup.register.skip";
-  public final static String SOFTWARE_REGISTRATION_SKIP_ALLOW = "accountsetup.register.skipAllow";
+  public final static String SOFTWARE_REGISTRATION_HOST = "registration.host";
+  public final static String SOFTWARE_REGISTRATION_SKIP = "registration.skip";
+  public final static String SOFTWARE_REGISTRATION_SKIP_ALLOW = "registration.skipAllow";
 
   /**
    * Check has your software registered to Tribe
@@ -39,6 +39,8 @@ public interface SoftwareRegistrationService {
    * @return
    */
   public boolean canSkipRegister();
+
+  public boolean canShowSkipBtn();
 
   public void updateSkippedNumber();
 

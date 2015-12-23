@@ -74,11 +74,11 @@ public class UnlockService implements Startable {
         KEY_CONTENT = ((ValueParam) params.get("KeyContent")).getValue().trim();
         String tmpValue = ((ValueParam) params.get("delayPeriod")).getValue();
         delayPeriod = (tmpValue == null || tmpValue.isEmpty()) ? Utils.DEFAULT_DELAY_PERIOD : Integer.parseInt(tmpValue);
-        String lisensePath = params.getValueParam("exo.license.path").getValue();
+        String licensePath = params.getValueParam("exo.license.path").getValue();
         Utils.HOME_CONFIG_LOCATION = Utils.EXO_HOME_FOLDER + "/" + Utils.PRODUCT_NAME;
         Utils.HOME_CONFIG_FILE_LOCATION = Utils.HOME_CONFIG_LOCATION + "/" + Utils.LICENSE_FILE;
-        if(StringUtils.isNotBlank(lisensePath) && !StringUtils.equals(lisensePath, Utils.HOME_CONFIG_FILE_LOCATION)) {
-            checkCustomizeFolder(lisensePath);
+        if(StringUtils.isNotBlank(licensePath) && !StringUtils.equals(licensePath, Utils.HOME_CONFIG_FILE_LOCATION)) {
+            checkCustomizeFolder(licensePath);
         }
 
     }
