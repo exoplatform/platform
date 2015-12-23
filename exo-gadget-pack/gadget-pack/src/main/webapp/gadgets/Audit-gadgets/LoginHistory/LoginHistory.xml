@@ -722,9 +722,9 @@
 	                <table id="lastLoginsTable" class="uiGrid table table-hover table-striped">
 	                <thead>
 	                <tr>
-	                  <th>__MSG_loginHistory.user__ <i class="uiIcon_ pull-right"></i></th>
-	                    <th>__MSG_loginHistory.lastLogin__  <i class="uiIcon_ pull-right"></i></th>
-	                    <th>__MSG_loginHistory.beforeThat__  <i class="uiIcon_ pull-right"></i></th>
+	                  <th>__MSG_loginHistory.user__ <i class="uiIconRotateLeft pull-right"></i></th>
+	                    <th>__MSG_loginHistory.lastLogin__  <i class="uiIconRotateLeft pull-right"></i></th>
+	                    <th>__MSG_loginHistory.beforeThat__  <i class="uiIconRotateLeft pull-right"></i></th>
 	                </tr>
 	              </thead>
 	                </table>
