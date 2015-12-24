@@ -140,7 +140,13 @@ public class UICreateForm extends UIForm {
 
             WikiService wikiService = (WikiService) PortalContainer.getComponent(WikiService.class);
             // --- get the real name of the selected wiki (label to display)
-            String wikiName = wikiService.getWikiNameById(wikiUrlPattern.toString());
+            String wikiName = "";
+            try {
+              wikiName = wikiService.getWikiNameById(wikiUrlPattern.toString());
+            } catch (NullPointerException e) {
+              Wiki wiki = wikiService.createWiki(org.exoplatform.wiki.commons.Utils.getWikiTypeFromWikiId(wikiId), org.exoplatform.wiki.commons.Utils.getWikiOwnerFromWikiId(wikiId));
+              wikiName = wikiService.getWikiNameById(wikiUrlPattern.toString());
+            }
             // --- set the wiki navigation URL
             uiCreateWiki.setUrlWiki(wikiUrlPattern.toString());
             // --- Update Selected wiki in UISpaceSwitcher
