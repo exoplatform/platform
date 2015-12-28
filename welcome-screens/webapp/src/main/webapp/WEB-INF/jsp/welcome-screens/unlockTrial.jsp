@@ -62,7 +62,7 @@
 			</div>
 			<div class="content">
 				<div class="<%=css%>">
-					<strong> <%=label1.replace("{1}", rday + "")%></strong>
+					<strong> <%=label1.replaceAll("\\{1}", rday + "")%></strong>
 				</div>
        <form action="<%=contextPath%>/trial" method="post" name="unlockForm" onsubmit="return formValidation();">
          <div class="product-label">
@@ -103,7 +103,7 @@
 
 			<div class="bottom">
 				<%=rb.getString("UnlockTrial.label.question_about")%><br />
-<%=rb.getString("UnlockTrial.label.contact_us").replace("{1}","<a href=\"mailto:info@exoplatform.com\">info@exoplatform.com</a>")%> <a href="http://www.exoplatform.com" target="_blank">www.exoplatform.com</a>
+<%=rb.getString("UnlockTrial.label.contact_us").replaceAll("\\{1}","<a href=\"mailto:info@exoplatform.com\">info@exoplatform.com</a>")%> <a href="http://www.exoplatform.com" target="_blank">www.exoplatform.com</a>
 			</div>
 		</div>
 	</body>

@@ -64,10 +64,10 @@
     <div class="popupContent">
       <%@include file="PLFRegistrationIntro.jsp"%> 
       <% if(errorCode!=null){ %>
-      <div class="alert alert-warning"><i class="uiIconWarning"></i><%=rb.getString("SoftwareRegister.label.warning").replace("{1}",rb.getString("SoftwareRegister.label.warning_cancelled"))%> <a href="http://support.exoplatform.com"> <%=rb.getString("SoftwareRegister.label.support")%></a></div>
+      <div class="alert alert-warning"><i class="uiIconWarning"></i><%=rb.getString("SoftwareRegister.label.warning").replaceAll("\\{1}", rb.getString("SoftwareRegister.label.warning_cancelled"))%> <a href="http://support.exoplatform.com"> <%=rb.getString("SoftwareRegister.label.support")%></a></div>
       <%}%>
       <%if("true".equals(notReachable)){%>
-        <div class="alert alert-error"><i class="uiIconError"></i><%=rb.getString("SoftwareRegister.label.warning").replace("{1}",rb.getString("SoftwareRegister.label.warning_not_complete"))%> <a href="http://support.exoplatform.com"> <%=rb.getString("SoftwareRegister.label.support")%></a></div>
+        <div class="alert alert-error"><i class="uiIconError"></i><%=rb.getString("SoftwareRegister.label.warning").replaceAll("\\{1}",rb.getString("SoftwareRegister.label.warning_not_complete"))%> <a href="http://support.exoplatform.com"> <%=rb.getString("SoftwareRegister.label.support")%></a></div>
       <% session.removeAttribute("notReachable"); }%>
       <div class="signin-regis-title" style="display:none;"><strong><%=rb.getString("SoftwareRegister.label.sign_in_regist")%></strong></div>
       <img src="/eXoSkin/skin/images/themes/default/platform/portlets/extensions/tribe1.png" class="img-responsive imgNoInternet" style="display: none;"/>
