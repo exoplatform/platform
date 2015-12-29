@@ -36,7 +36,7 @@ public class SoftwareRegisterFilter implements Filter {
 
   public static final String NOT_REACHABLE = "NOT_REACHABLE";
   private static final Log logger = ExoLogger.getLogger(SoftwareRegisterFilter.class);
-  private static final String PLF_COMMUNITY_SERVLET_CTX = "/registrationPLF";
+  private static final String PLF_COMMUNITY_SERVLET_CTX = "/registration";
   private static final String SR_SERVLET_URL = "/software-register";
   private static final String INITIAL_URI_PARAM_NAME = "initialURI";
   private static String REST_URI;

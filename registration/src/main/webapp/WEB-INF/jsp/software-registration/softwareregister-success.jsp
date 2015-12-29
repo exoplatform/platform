@@ -46,7 +46,7 @@
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
   <link href="<%=cssPath%>" rel="stylesheet" type="text/css"/>
   <script type="text/javascript" src="/platform-extension/javascript/jquery-1.7.1.js"></script>
-  <script type="text/javascript" src="/registrationPLF/javascript/registration/software-registration.js"></script>
+  <script type="text/javascript" src="/registration/javascript/registration/software-registration.js"></script>
 
 </head>
 <body  class="modal-open">
