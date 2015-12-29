@@ -18,6 +18,6 @@
     </dependency>
   </dependencies>
   <build>
-    <finalName>registrationPLF</finalName>
+    <finalName>registration</finalName>
   </build>
 </project>
