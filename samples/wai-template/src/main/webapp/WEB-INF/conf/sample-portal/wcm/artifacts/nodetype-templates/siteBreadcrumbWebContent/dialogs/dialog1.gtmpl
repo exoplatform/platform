@@ -122,7 +122,7 @@
 										}
 									}
 									if("".equals(htmlContent)) {
-										htmlContent = "<div id=\"breadcrumb-generator\"><div class=\"UIWCMBreadcrumbsPortlet\"><div class=\"BCHome16x16Icon\"><span></span></div></div></div>";
+										htmlContent = "<div id=\"breadcrumb-generator\"><div class=\"UIWCMBreadcrumbsPortlet content-display\"><div class=\"BCHome16x16Icon\"><span></span></div></div></div>";
 									}
 									String[] htmlArguments = ["jcrPath=/node/default.html/jcr:content/jcr:data", "options=toolbar:CompleteWCM,height:'410px',noSanitization", htmlContent];
 			    					uicomponent.addRichtextField(htmlWYSIWYGFormId, htmlArguments) ;

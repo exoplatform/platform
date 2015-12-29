@@ -114,7 +114,7 @@
 								}
 							}
 							if ("".equals(htmlContent)) {
-								htmlContent = "<div class=\"UIWCMSearchBoxPortlet\"><div class=\"ACMESearchBox\"><div class=\"siteSearchBox\" id=\"siteSearchBox\"><div class=\"keywordInput\"><input type=\"text\" onkeypress=\"eXo.ecm.SearchPortlet.quickSearchOnEnter(event)\" name=\"keyword\" class=\"keyword\"/></div><div class=\"SearchBoxIcon\" onclick=\"eXo.ecm.SearchPortlet.quickSearch()\"><span></span></div></div><div style=\"clear: right;\"><span></span></div></div></div>";
+								htmlContent = "<div class=\"UIWCMSearchBoxPortlet content-display\"><div class=\"ACMESearchBox\"><div class=\"siteSearchBox\" id=\"siteSearchBox\"><div class=\"keywordInput\"><input type=\"text\" onkeypress=\"eXo.ecm.SearchPortlet.quickSearchOnEnter(event)\" name=\"keyword\" class=\"keyword\"/></div><div class=\"SearchBoxIcon\" onclick=\"eXo.ecm.SearchPortlet.quickSearch()\"><span></span></div></div><div style=\"clear: right;\"><span></span></div></div></div>";
 							}
 							String[] htmlArguments = ["jcrPath=/node/default.html/jcr:content/jcr:data", "options=toolbar:CompleteWCM,height:'410px',noSanitization", htmlContent];
 							uicomponent.addRichtextField(htmlWYSIWYGFormId, htmlArguments) ;
