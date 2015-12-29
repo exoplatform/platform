@@ -16,7 +16,7 @@ public interface SoftwareRegistrationService {
   public final static String SOFTWARE_REGISTRATION_HOST = "accountsetup.register.host";
   public final static String SOFTWARE_REGISTRATION_HOST_DEFAULT = "https://community.exoplatform.com";
   public final static String SOFTWARE_REGISTRATION_PATH = "/portal/authorize";
-  public final static String SOFTWARE_REGISTRATION_RETURN_URL = "http://{0}:{1}/registrationPLF/software-register-auth";
+  public final static String SOFTWARE_REGISTRATION_RETURN_URL = "http://{0}:{1}/registration/software-register-auth";
   public final static String SOFTWARE_REGISTRATION_CLIENT_ID = "client_id=x6iCo6YWmw";
   public final static String SOFTWARE_REGISTRATION_RESPONSE_TYPE = "response_type=code";
   public final static String SOFTWARE_REGISTRATION_SKIP = "accountsetup.register.skip";
