@@ -40,6 +40,8 @@
                          value="https://www.exoplatform.com/docs/PLF43/PLFUG/FORUM.html"/>
                <property name="Company Context FAQ:Answers"
                          value="https://www.exoplatform.com/docs/PLF43/PLFUG/ANSWERS.html"/>
+               <property name="Company Context Tasks" 
+                         value="https://www.exoplatform.com/docs/PLF43/PLFUG/APPS/TASK.html"/>
                <property name="Company Context Documents"
                          value="https://www.exoplatform.com/docs/PLF43/PLFUG/DOCUMENTS.html"/>
                <property name="Company Context Connections"
@@ -70,6 +72,8 @@
                          value="https://www.exoplatform.com/docs/PLF43/PLFUG/CALENDAR.html"/>
                <property name="space:faq_annswer"
                          value="https://www.exoplatform.com/docs/PLF43/PLFUG/ANSWERS.html"/>
+               <property name="space:tasks"
+                         value="https://www.exoplatform.com/docs/PLF43/PLFUG/APPS/TASK.html"/>
                <property name="space:document"
                          value="https://www.exoplatform.com/docs/PLF43/PLFUG/DOCUMENTS.html"/>
                <property name="default"
