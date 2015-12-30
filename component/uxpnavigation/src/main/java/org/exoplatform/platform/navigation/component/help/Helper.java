@@ -58,6 +58,9 @@ public class Helper {
                 else if(url.contains("wiki")) {
                     return "space:wiki";
                 }
+                else if(url.contains("tasks")) {
+                    return "space:tasks";
+                }
                 else if((url.contains("answer"))||(url.contains("faq")) || (url.contains("poll"))) {
                     return "space:faq_annswer";
                 }
@@ -113,6 +116,9 @@ public class Helper {
             }
             else if((nav!=null)&&(nav.equals("wiki"))){
                 return "Company Context Wiki";
+            }
+            else if((nav!=null)&&(nav.equals("tasks"))){
+                return "Company Context Tasks";
             }
             else if((nav!=null)&&(nav.equals("documents"))){
                 return "Company Context Documents";
