@@ -187,9 +187,9 @@
         if ($('#UISetupPlatformToolBarPortlet .uiIconPLF24x24Setup').length != 0) {
            $('.uiUserToolBarPortlet .action_top').prepend($('<span class="action-addon"> <span class="admin-setup"><i class="uiIconPLF24x24Setup"></i></span></span>'));
         }
-        if (tabManagerApp.container.find('.uiNotifChatIcon').length != 0) {
-          $('.uiUserToolBarPortlet .action_top').prepend('<span class="action-addon"><span class="uiNotifChatIcon chat-button"><span id="chat-notification"></span></span></span>');
-        }
+        // if (tabManagerApp.container.find('.uiNotifChatIcon').length != 0) {
+        //   $('.uiUserToolBarPortlet .action_top').prepend('<span class="action-addon"><span class="uiNotifChatIcon chat-button"><span id="chat-notification"></span></span></span>');
+        // }
          // show dropdown menu of administration menu
         $('.admin-setup').on('click', function(){
           $('.uiSetupPlatformToolBarPortlet .dropdown-toggle').trigger('click');

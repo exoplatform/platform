@@ -21,10 +21,10 @@
 <id>ID:</id>
 <name>Ime:</name>
 <lifecycle>Življenjski cikel:</lifecycle>
-<isDeep>je Globoko:</isDeep>
+<isDeep>Podrobneje:</isDeep>
 <nodetypes>Vrste vozlišč:</nodetypes>
 <description>Opis:</description>
-<affectedNodeTypeNames>Prizadete vrste vozlišč:</affectedNodeTypeNames>
+<affectedNodeTypeNames>Vpliva na vrste vozlišč:</affectedNodeTypeNames>
 <navigationNode>Vozlišče za krmarjenje:</navigationNode>
 <index>Indeks:</index>
 <clickable>Se lahko klikne:</clickable>

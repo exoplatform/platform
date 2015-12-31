@@ -81,28 +81,26 @@ public class UICreateForm extends UIForm {
             UICreateForm uiCreateWiki = event.getSource();
             UISpacesSwitcher uiWikiSpaceSwitcher = uiCreateWiki.getChildById(SPACE_SWITCHER);
             WikiService wikiService = (WikiService) PortalContainer.getComponent(WikiService.class);
-            Wiki wiki = null;
+            String wikiId = "";
             if (uiWikiSpaceSwitcher.getCurrentSpaceName().equals(Util.getPortalRequestContext().getPortalOwner())) {
-                wiki = wikiService.getWikiById("/"+PortalContainer.getCurrentPortalContainerName()+"/"+Util.getPortalRequestContext().getPortalOwner());
-
+              wikiId = "/"+PortalContainer.getCurrentPortalContainerName()+"/"+Util.getPortalRequestContext().getPortalOwner();
             } else {
-                wiki = wikiService.getWikiById(uiCreateWiki.getUrlWiki());
+              wikiId = uiCreateWiki.getUrlWiki();
             }
-            if (wiki != null) {
-                Page wikiHome = wiki.getWikiHome();
-                String permalink = Utils.getPermanlink(new WikiPageParams(wiki.getType(), wiki.getOwner(), wikiHome.getName()),true);
-                permalink =new StringBuffer(permalink).append(ADD_WIKI_PAGE).toString();
-                event.getRequestContext().getJavascriptManager().getRequireJS().addScripts("(function(){ window.location.href = '" + permalink + "';})();");
-
-            } else {
-                LOG.warn(String.format("Wrong wiki id: [%s], can not change space", uiWikiSpaceSwitcher.getCurrentSpaceName()));
+            Wiki wiki = wikiService.getWikiById(wikiId);
+            if(wiki == null) {
+              wiki = wikiService.createWiki(org.exoplatform.wiki.commons.Utils.getWikiTypeFromWikiId(wikiId), org.exoplatform.wiki.commons.Utils.getWikiOwnerFromWikiId(wikiId));
             }
+            Page wikiHome = wiki.getWikiHome();
+            String permalink = Utils.getPermanlink(new WikiPageParams(wiki.getType(), wiki.getOwner(), wikiHome.getName()),true);
+            permalink =new StringBuffer(permalink).append(ADD_WIKI_PAGE).toString();
+            event.getRequestContext().getJavascriptManager().getRequireJS().addScripts("(function(){ window.location.href = '" + permalink + "';})();");
+            
             Event<UIComponent> cancelEvent = uiCreateWiki.<UIComponent>getParent().createEvent("Cancel", Event.Phase.PROCESS, event.getRequestContext());
             if (cancelEvent != null) {
                 cancelEvent.broadcast();
             }
         }
-
     }
 
    public static class CancelActionListener extends EventListener<UICreateForm> {
@@ -140,7 +138,13 @@ public class UICreateForm extends UIForm {
 
             WikiService wikiService = (WikiService) PortalContainer.getComponent(WikiService.class);
             // --- get the real name of the selected wiki (label to display)
-            String wikiName = wikiService.getWikiNameById(wikiUrlPattern.toString());
+            String wikiName = "";
+            try {
+              wikiName = wikiService.getWikiNameById(wikiUrlPattern.toString());
+            } catch (NullPointerException e) {
+              Wiki wiki = wikiService.createWiki(org.exoplatform.wiki.commons.Utils.getWikiTypeFromWikiId(wikiId), org.exoplatform.wiki.commons.Utils.getWikiOwnerFromWikiId(wikiId));
+              wikiName = wikiService.getWikiNameById(wikiUrlPattern.toString());
+            }
             // --- set the wiki navigation URL
             uiCreateWiki.setUrlWiki(wikiUrlPattern.toString());
             // --- Update Selected wiki in UISpaceSwitcher

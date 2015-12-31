@@ -22,6 +22,9 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ page import="org.exoplatform.portal.resource.SkinService"%>
 <%@ page import="org.exoplatform.container.PortalContainer"%>
+<%@ page import="org.exoplatform.container.PortalContainer"%>
+<%@ page import="org.exoplatform.services.resources.ResourceBundleService"%>
+<%@ page import="java.util.ResourceBundle" %>
 <%
   String contextPath = request.getContextPath();
   String status = request.getServletContext().getAttribute("status").toString();
@@ -31,30 +34,34 @@
 
   SkinService skinService = (SkinService) PortalContainer.getCurrentInstance(session.getServletContext()).getComponentInstanceOfType(SkinService.class);
   String cssPath = skinService.getSkin("portal/SoftwareRegistration", "Default").getCSSPath();
+    
+  PortalContainer portalContainer = PortalContainer.getCurrentInstance(session.getServletContext());
+  ResourceBundleService service = (ResourceBundleService) portalContainer.getComponentInstanceOfType(ResourceBundleService.class);
+  ResourceBundle rb = service.getResourceBundle("locale.portal.webui", request.getLocale());
 %>
 <html>
 <head>
-  <title>Register your Software</title>
+  <title><%=rb.getString("SoftwareRegister.label.register")%></title>
   <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
   <link href="<%=cssPath%>" rel="stylesheet" type="text/css"/>
   <script type="text/javascript" src="/platform-extension/javascript/jquery-1.7.1.js"></script>
-  <script type="text/javascript" src="/registrationPLF/javascript/registration/software-registration.js"></script>
+  <script type="text/javascript" src="/registration/javascript/registration/software-registration.js"></script>
 
 </head>
 <body  class="modal-open">
   <div class="UIPopupWindow uiPopup UIDragObject popupDarkStyle">
     <div class="popupHeader ClearFix">
-        <span class="popupTitle center">Register your Software</span>
+        <span class="popupTitle center"><%=rb.getString("SoftwareRegister.label.register")%></span>
     </div> 
     <div class="popupContent">
       <%@include file="PLFRegistrationIntro.jsp"%>
 
-      <div class="alert alert-success"><i class="uiIconSuccess"></i><strong>Thank you!</strong> You installation has been successfully registered.</div>
+      <div class="alert alert-success"><i class="uiIconSuccess"></i><strong><%=rb.getString("SoftwareRegisterSuccess.label.thanks")%></strong> <%=rb.getString("SoftwareRegisterSuccess.label.successfully_registered")%></div>
       <img src="/eXoSkin/skin/images/themes/default/platform/portlets/extensions/tribe3.png" class="img-responsive"/>
       <div class="uiAction">
         <form id="frmSoftwareRegistration" action="<%=contextPath+"/software-register-action"%>" method="post">
-          <input class="btn btn-primary" type="button" name="btnContinue" value="Continue"/>
+          <input class="btn btn-primary" type="button" name="btnContinue" value="<%=rb.getString("SoftwareRegister.label.continue")%>"/>
         </form>
       </div>
     </div>

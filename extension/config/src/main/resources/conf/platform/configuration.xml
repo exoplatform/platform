@@ -98,6 +98,9 @@
                   <string>portal</string>
                </value>
                <value>
+                  <string>registration</string>
+               </value>
+               <value>
                   <string>dashboard</string>
                </value>
                <value>

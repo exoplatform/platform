@@ -40,7 +40,7 @@
   String selectSpaceActionDyna = "";
   def rcontext = _ctx.getRequestContext() ;
   def jsManager = rcontext.getJavascriptManager();
-  jsManager.require("SHARED/navigation-spaces-search", "spacesearch").addScripts("spacesearch.init('" + uicomponent.id + "','" + restUrl + "','" + StringEscapeUtils.escapeJavaScript(defaultValueForTextSearch) +"','" + StringEscapeUtils.escapeJavaScript(noSpace) + "','" + selectSpaceActionDyna + "');");
+  jsManager.require("SHARED/navigation-spaces-search", "spacesearch").addScripts("spacesearch.init('" + uicomponent.id + "','" + restUrl + "','" + StringEscapeUtils.escapeJavaScript(noSpace) + "','" + selectSpaceActionDyna + "');");
 %>
 
 <div class="uiSpaceNavigationPortlet" id="$uicomponent.id">
