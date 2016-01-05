@@ -1,0 +1,32 @@
+
+.loginHistoryContent{height:100px;overflow:auto;}
+.loginHistoryItem{color:#333333;}
+.loginHistoryItemDetail{font-size:9px;margin-left:3px;color:#808080;}
+.customLink:hover{text-decoration:underline;color:#2f5e92;cursor:pointer;}
+#accordion .ui-icon{display:none;}
+#accordion .ui-accordion-header a{padding-left:8px;}
+#accordion .ui-accordion-content{padding-left:16px;}
+.sorting_asc i{background-position:0 -120px;}
+.sorting_desc i{background-position:-20px -120px;}
+.sorting i{background-position:-180px -200px;}
+.uiGadgetThemes .uiContentBox{height:auto;overflow:auto;}
+.uiGadgetThemes .gadContent{margin:0 -10px;}.uiGadgetThemes .gadContent .searchUser{width:100%;margin-bottom:15px;}
+.uiGadgetThemes .gadContent .statisticDiv .btn-group{text-align:center;margin:1px 0px 1px 0px;}.uiGadgetThemes .gadContent .statisticDiv .btn-group .btn{padding:4px;}
+.uiGadgetThemes .gadContent .statisticDiv .btn:nth-child(2n+2){min-width:110px;padding:3px 8px;text-align:center;}
+.uiGadgetThemes .gadContent .statisticDiv .selectWeek{margin:15px 9px 10px;}
+.uiGadgetThemes .gadContent .userForm{border-top:1px solid #cccccc;}.uiGadgetThemes .gadContent .userForm legend{display:block;width:auto;padding:5px;margin-bottom:0px;font-size:13px;line-height:20px;color:#333333;border:0;border-bottom:none;}
+.uiGadgetThemes .gadContent .userForm .userContent .leftContent{width:55px;}.uiGadgetThemes .gadContent .userForm .userContent .leftContent .iteamIcon{width:26px;height:26px;padding:8px 7px 5px;margin:12px 0;}
+.uiGadgetThemes .gadContent .userForm .userContent .leftContent .caret{border:none;content:"";display:inline-block;height:0;vertical-align:top;width:0;position:absolute;top:13px;left:40px;}
+.uiGadgetThemes .gadContent .userForm .userContent .leftContent .selectIteam{background:#999999;border-radius:3px;position:relative;}.uiGadgetThemes .gadContent .userForm .userContent .leftContent .selectIteam .iconDetail{background:url("../images/Statistics/StasticsIcon.png") no-repeat left 3px;}
+.uiGadgetThemes .gadContent .userForm .userContent .leftContent .selectIteam .iconStastics{background:url("../images/Statistics/StasticsIcon.png") no-repeat left -24px;}
+.uiGadgetThemes .gadContent .userForm .userContent .leftContent .selectIteam .caret{border-left:7px solid #999999;border-top:7px solid transparent;border-right:7px solid transparent;border-bottom:7px solid transparent;}
+.uiGadgetThemes .gadContent .userForm .userContent .leftContent i{width:24px;height:24px;display:block;}
+.uiGadgetThemes .gadContent .userForm .userContent .leftContent .iconStastics{background:url("../images/Statistics/StasticsIcon.png") no-repeat left bottom;}
+.uiGadgetThemes .gadContent .userForm .userContent .leftContent .iconDetail{background:url("../images/Statistics/StasticsIcon.png") no-repeat left -50px;}
+.uiGadgetThemes .gadContent .userForm .userContent .rightContent{margin-left:55px;overflow:auto;border-left:1px solid #cccccc;padding-left:8px;}
+.uiGadgetThemes .gadContent .accordion{border-radius:4px;overflow:hidden;}.uiGadgetThemes .gadContent .accordion .expaned{background:linear-gradient(to bottom, #ffffff, #f0f0f0) repeat scroll 0 0 transparent;border-bottom:1px solid #cccccc;border-radius:0;}
+.uiGadgetThemes .gadContent .accordion .accordion-toggle a{padding:5px 5px 5px 15px;}
+.uiGadgetThemes .gadContent .accordion .timePost{color:#b3b3b3;}
+.uiGadgetThemes .gadContent .accordion .accordion-body{overflow-y:auto;max-height:100px;}.uiGadgetThemes .gadContent .accordion .accordion-body a{color:#2f5e92;}
+.uiGadgetThemes .gadContent .accordion .accordion-body td{line-height:28px;}
+.historyDivPosition .accordion .accordion-inner{padding-top:0;padding-bottom:0;}

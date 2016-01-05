@@ -1,0 +1,6 @@
+
+.pagination{font-size:80%;margin-left:15px;}
+.pagination a{text-decoration:none;border:solid 1px #000000;color:#000000;}
+.pagination a,.pagination span{display:block;float:left;padding:0.3em 0.5em;margin-right:5px;margin-bottom:5px;}
+.pagination .current{background:#2f5e92;color:#ffffff;border:solid 1px #2f5e92;}
+.pagination .current.prev,.pagination .current.next{color:#999999;border-color:#999999;background:#ffffff;}
