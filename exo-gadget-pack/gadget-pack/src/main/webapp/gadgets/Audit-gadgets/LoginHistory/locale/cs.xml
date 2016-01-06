@@ -47,5 +47,5 @@
   <msg name="loginHistory.unknow">Neznámé</msg>
   <msg name="loginHistory.next">Další</msg>
   <msg name="loginHistory.ago">Ago</msg>
-  <msg name="loginHistory.search_user">Search user</msg>
+  <msg name="loginHistory.search_user">Vyhledat uživatele</msg>
 </messagebundle>

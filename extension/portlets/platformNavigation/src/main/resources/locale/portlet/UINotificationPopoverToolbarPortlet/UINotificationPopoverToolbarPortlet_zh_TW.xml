@@ -2,7 +2,7 @@
 <bundle>
 <UINotificationPopoverToolbarPortlet>
 <label>
-<MarkAllAsRead>Mark all as read</MarkAllAsRead>
+<MarkAllAsRead>全部標示已讀取</MarkAllAsRead>
 <NoNotifications>No notifications</NoNotifications>
 <ViewAll>View All</ViewAll>
 <Loading>Loading</Loading>

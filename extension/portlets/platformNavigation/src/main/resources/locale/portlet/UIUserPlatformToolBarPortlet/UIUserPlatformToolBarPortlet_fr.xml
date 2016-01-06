@@ -7,10 +7,10 @@
 <profile>Mon Profil</profile>
 <network>Mes Connexions</network>
 <wiki>Mon Wiki</wiki>
-<account>Compte</account>
-<language>Changer de Langue</language>
-<logout>Se Déconnecter</logout>
-        <dashboard>Mon Tableau de Bord</dashboard>
+<account>Mon Compte</account>
+<language>Changer de langue</language>
+<logout>Déconnexion</logout>
+        <dashboard>Mon Tableau de bord</dashboard>
 		</label>
 	</UIUserPlatformToolBarPortlet>
 </bundle>

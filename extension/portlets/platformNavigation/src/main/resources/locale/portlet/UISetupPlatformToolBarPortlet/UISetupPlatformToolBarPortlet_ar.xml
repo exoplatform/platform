@@ -6,9 +6,9 @@
 <content>المحتوى</content>
 <siteExplorer>مُـستكشف المواقع</siteExplorer>
 <wcmAdmin>إدارة المحتوى</wcmAdmin>
-<users>Community</users>
+<users>الجماعة</users>
 <newStaff>إضافة مستخدمين</newStaff>
-<org-management>Manage Community</org-management>
+<org-management>إدارة المستخدمين والمجموعات</org-management>
 <portal>بوّابة</portal>
 <administration>ادارة</administration>
 <groupnavigation>مواقع المجموعات</groupnavigation>
@@ -19,7 +19,7 @@
 <spaces>فضاءات</spaces>
 <Branding>الشّكل</Branding>
       <Notification>الإشعارات</Notification>
-<ide>IDE</ide>
+<ide>نظام برمجة متكامل IDE</ide>
 <search>البحث</search>
 </label>
 </UISetupPlatformToolBarPortlet>
