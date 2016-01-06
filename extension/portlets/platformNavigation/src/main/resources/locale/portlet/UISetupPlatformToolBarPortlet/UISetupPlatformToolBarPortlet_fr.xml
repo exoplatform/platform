@@ -4,8 +4,8 @@
 		<label>
 			<applications>Applications</applications>
 <content>Contenu</content>
-<siteExplorer>Explorateur de Sites</siteExplorer>
-<wcmAdmin>Administration de contenu</wcmAdmin>
+<siteExplorer>Gestion de Contenu</siteExplorer>
+<wcmAdmin>Administration de Contenu</wcmAdmin>
 <users>Communauté</users>
 <newStaff>Ajouter un Utilisateur</newStaff>
 <org-management>Gérer la Communauté</org-management>

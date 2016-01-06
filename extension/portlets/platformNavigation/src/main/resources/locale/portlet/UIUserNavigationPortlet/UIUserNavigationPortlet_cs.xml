@@ -2,16 +2,16 @@
 <bundle>
    <UIUserNavigationPortlet>
       <label>
-         <activities>Příspěvky</activities>
+         <activities>Sled aktivit</activities>
          <profile>Profil</profile>
          <connections>Kontakty</connections>
          <wiki>Wiki</wiki>
-         <Myactivities>Moje příspěvky</Myactivities>
+         <Myactivities>Moje aktivity</Myactivities>
          <Myprofile>Můj profil</Myprofile>
          <Myconnections>Moje kontakty</Myconnections>
          <Mywiki>Moje Wiki</Mywiki>
          <Mydashboard>Můj Dashboard</Mydashboard>
-         <NotificationSettingsPortlet>Moje upozornění</NotificationSettingsPortlet>
+         <NotificationSettingsPortlet>Oznámení</NotificationSettingsPortlet>
          <More>Více</More>
       </label>
    </UIUserNavigationPortlet>

@@ -24,7 +24,7 @@
   <msg name="customize">Prilagodi</msg>
   <msg name="save">#{word.save}</msg>
   <msg name="add">Dodaj</msg>
-  <msg name="ok">OK</msg>
+  <msg name="ok">V redu</msg>
   <msg name="name">Ime</msg>
   <msg name="url">URL</msg>
   <msg name="delete">Izbriši</msg>

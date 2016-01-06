@@ -11,7 +11,7 @@
     <register>Registro</register>
   </Signin>
   <Toolbar>
-    <SkipToContent>Saltar al contenido</SkipToContent>
+    <SkipToContent>Salir al contenido</SkipToContent>
     <SiteMap>Mapa del Sitio</SiteMap>
     <Accessibility>Accesibilidad</Accessibility>
     <NormalSize>Tamaño normal</NormalSize>

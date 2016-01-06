@@ -2,12 +2,12 @@
 <bundle>
 <UIUserPlatformToolBarPortlet>
 <label>
-<NotificationSettingsPortlet>My Notifications</NotificationSettingsPortlet>
+<NotificationSettingsPortlet>Bildirimlerim</NotificationSettingsPortlet>
 <activities>Faliyetlerim</activities>
 <profile>Profilim</profile>
 <network>Bağlantılarım</network>
 <wiki>Wikim</wiki>
-<account>Account</account>
+<account>Hesap</account>
 <language>Dili Değiştir</language>
 <logout>Oturumu Kapat</logout>
         <dashboard>Panelim</dashboard>

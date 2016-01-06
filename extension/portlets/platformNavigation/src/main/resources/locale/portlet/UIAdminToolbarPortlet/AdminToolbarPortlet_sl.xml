@@ -15,8 +15,8 @@
          <Properties>#{UISEOToolbarForm.label.seo}</Properties>
          <AddSite>Dodaj spletno mesto</AddSite>
       </action>
-<ManageSites>Upravljanje mest</ManageSites>
-<ManageGroupSites>Upravljanje mesta skupine</ManageGroupSites>
+<ManageSites>Upravljanje spletnih mest</ManageSites>
+<ManageGroupSites>Upravljanje spletnega mesta skupine</ManageGroupSites>
    </UIAdminToolbarPortlet>
 
   <UISEOForm>

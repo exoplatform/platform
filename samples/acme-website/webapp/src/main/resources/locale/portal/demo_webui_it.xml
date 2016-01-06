@@ -2,7 +2,7 @@
 <bundle>
   <Signin>
     <welcome>Benvenuto</welcome>
-    <login>Login</login>
+    <login>Entra</login>
     <logout>Uscire</logout>
     <language>Cambiare Lingua</language>
     <register>Registrarsi</register>

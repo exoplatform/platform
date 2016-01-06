@@ -33,7 +33,7 @@
   <msg name="details">Podrobnosti</msg>
   <msg name="hit">Hit</msg>
   <msg name="miss">Miss</msg>
-  <msg name="full">full</msg>
+  <msg name="full">Plné</msg>
   <msg name="max_size">Max size</msg>
   <msg name="time_to_live">Time to live</msg>
 </messagebundle>

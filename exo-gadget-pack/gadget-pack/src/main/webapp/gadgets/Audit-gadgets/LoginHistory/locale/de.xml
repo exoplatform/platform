@@ -47,5 +47,5 @@
   <msg name="loginHistory.unknow">Unbekannt</msg>
   <msg name="loginHistory.next">Weiter</msg>
   <msg name="loginHistory.ago">vor</msg>
-  <msg name="loginHistory.search_user">Search user</msg>
+  <msg name="loginHistory.search_user">Nutzer suchen</msg>
 </messagebundle>

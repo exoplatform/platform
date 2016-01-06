@@ -2,12 +2,12 @@
 <bundle>
 <UIUserPlatformToolBarPortlet>
 <label>
-<NotificationSettingsPortlet>My Notifications</NotificationSettingsPortlet>
+<NotificationSettingsPortlet>الإشعارات الخاصّة بي</NotificationSettingsPortlet>
 <activities>آخر أخباري</activities>
 <profile>ملفي الشخصي</profile>
 <network>علاقاتي</network>
 <wiki>ويكي خاصة</wiki>
-<account>Account</account>
+<account>الحساب</account>
 <language>تغيير اللغة</language>
 <logout>تسجيل الخروج</logout>
         <dashboard>لوحة المعلومات الخاصة بي</dashboard>

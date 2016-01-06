@@ -2,7 +2,7 @@
 <bundle>
 <UIUserPlatformToolBarPortlet>
 <label>
-<NotificationSettingsPortlet>My Notifications</NotificationSettingsPortlet>
+<NotificationSettingsPortlet>我的通知</NotificationSettingsPortlet>
 <activities>我的活动</activities>
 <profile>我的配置文件</profile>
 <network>我的联系人</network>

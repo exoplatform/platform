@@ -26,7 +26,7 @@
   <msg name="forums.statistic.total.topic">主题总数：</msg>
   <msg name="forums.statistic.total.post">帖子总数：</msg>
   <msg name="forums.statistic.total.member">会员总数：</msg>
-  <msg name="forums.statistic.active.member">Recently Active Members:</msg>
+  <msg name="forums.statistic.active.member">活动成员：</msg>
   <msg name="forums.statistic.maximum.user">最大在线用户数：</msg>  
   <msg name="forums.statistic.at">在</msg>  
   <msg name="forums.weekly.statistic.title">论坛每周统计</msg>
