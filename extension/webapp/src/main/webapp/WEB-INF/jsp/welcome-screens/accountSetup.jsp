@@ -80,7 +80,7 @@
             </div>
             <div class="control-group" id="fullnameId">
                 <label class="control-label"><%=rb.getString("AccountSetupViewServlet.label.full_Name")%>:</label>
-                <div class="controls"><input type="text" name="firstNameAccount" id="firstNameAccount" placeholder="<%=rb.getString("AccountSetupViewServlet.label.first_Name")%>" class="inputFieldMedium"/><input type="text" name="lastNameAccount" id="lastNameAccount" placeholder="Last name" class="inputFieldMedium" /></div>
+                <div class="controls"><input type="text" name="firstNameAccount" id="firstNameAccount" placeholder="<%=rb.getString("AccountSetupViewServlet.label.first_Name")%>" class="inputFieldMedium"/><input type="text" name="lastNameAccount" id="lastNameAccount" placeholder="<%=rb.getString("AccountSetupViewServlet.label.last_Name")%>" class="inputFieldMedium" /></div>
             </div>
             <div class="control-group" id="emailId">
                 <label class="control-label"><%=rb.getString("AccountSetupViewServlet.label.email")%>:</label>
