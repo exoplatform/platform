@@ -62,9 +62,8 @@
 
           //def isShowSummary = uicomponent.isShowField(UICLVPortlet.PREFERENCE_SHOW_SUMMARY) && itemSummary != null;
           //def  html = viewNode.getNode("default.html/jcr:content").getProperty("jcr:data").getString();
-        %>
-
-        <%=uicomponent.addQuickEditDiv("Column1", viewNode)%>
+          uicomponent.addQuickEditDiv("Column1", viewNode);
+          %>
 
               <%if(isShowImage) {%>
         <a class="Image" title="$_trustedItemName"><img alt="$_trustedItemName" src="$imgSrc" /></a><%
