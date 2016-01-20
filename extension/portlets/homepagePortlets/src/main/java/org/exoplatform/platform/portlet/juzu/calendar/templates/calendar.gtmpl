@@ -57,7 +57,7 @@
 			</div>
 		</h6>
 		<div id="CalendarContainer" class="events uiContentBox">
-			<div class="eventTitle">
+			<div id="eventTitle" class="eventTitle">
 				<% if (displayedCalendar != null) {
 
 					displayedCalendar.each { cal ->
@@ -69,7 +69,7 @@
 				}
 				%>
 			</div>
-				<%if ((eventsDisplayedList != null) && (eventsDisplayedList.size() != 0)) {%>
+				<% if ((eventsDisplayedList != null) && (eventsDisplayedList.size() != 0)) { def timer = eventsDisplayedList.size(); %>
 			<ul class="eventsList ">
 				<%
 					def from;
@@ -80,6 +80,9 @@
 						    if (new Date().compareTo(sdf4.parse(sdf3.format(event.toDateTime))) > 0) eventCss = "pastEvent";
 							else eventCss = "eventItems" ;
 					    def href="/portal/intranet/calendar/details/"+event.id;
+                if(event.getExceptionIds()) {
+					if (event.getExceptionIds().contains(calServ.buildRecurrenceId(event.getFromDateTime(), username))) { timer = timer - 1; return }
+					}
 				%>
 				<li class="${eventCss}"  id="${event.id}">
 					<div class="${color}">
@@ -119,9 +122,13 @@
 						</div>
 					</div>
 				</li><!--eventItems-->
-				<% }  %>
+				<% } %>
 			</ul><!--eventsList-->
-			<%} else{
+			<% if ( timer == 0) { %>
+				<script>document.getElementById("eventTitle").innerHTML = "";</script>
+				<span class="muted empty"> <center>&{no.events.label} </center></span>
+			<% }
+             } else{
 			%>
 			<span class="muted empty"> <center>&{no.events.label} </center></span>
 			<%}%>
