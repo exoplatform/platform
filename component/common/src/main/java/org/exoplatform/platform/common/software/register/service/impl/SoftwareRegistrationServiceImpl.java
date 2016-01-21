@@ -17,8 +17,6 @@ import org.exoplatform.commons.api.settings.data.Context;
 import org.exoplatform.commons.api.settings.data.Scope;
 import org.exoplatform.commons.chromattic.ChromatticLifeCycle;
 import org.exoplatform.commons.chromattic.ChromatticManager;
-import org.exoplatform.commons.info.ProductInformations;
-import org.exoplatform.container.PortalContainer;
 import org.exoplatform.container.xml.InitParams;
 import org.exoplatform.platform.common.rest.PlatformInformationRESTService;
 import org.exoplatform.platform.common.rest.PlatformInformationRESTService.JsonPlatformInfo;
@@ -60,6 +58,8 @@ public class SoftwareRegistrationServiceImpl implements SoftwareRegistrationServ
   private UnlockService unlockService;
   private boolean isRequestSkip;
   private int skipedNum=0;
+  private String currStatus;
+  private String currVersions;
 
   public ChromatticSession getSession() {
     return lifeCycle.getChromattic().openSession();
@@ -80,6 +80,10 @@ public class SoftwareRegistrationServiceImpl implements SoftwareRegistrationServ
       this.softwareRegistrationHost = initParams.getValueParam(SOFTWARE_REGISTRATION_HOST).getValue();
     }
     this.unlockService = unlockService;
+    this.currStatus = Utils.readFromFile(Utils.SW_REG_STATUS, Utils.HOME_CONFIG_FILE_LOCATION);
+    this.currVersions = Utils.readFromFile(platformInformationRESTService.getPlatformEdition().concat("-")
+       .concat(Utils.SW_REG_PLF_VERSION), Utils.HOME_CONFIG_FILE_LOCATION);
+
     try {
       skipedNum = Integer.parseInt(initParams.getValueParam(SOFTWARE_REGISTRATION_SKIP_ALLOW).getValue());
     }catch (NumberFormatException nfe){
@@ -181,9 +185,6 @@ public class SoftwareRegistrationServiceImpl implements SoftwareRegistrationServ
   @Override
   public boolean isSoftwareRegistered() {
     //Check plf registration on local
-    String currStatus = Utils.readFromFile(Utils.SW_REG_STATUS, Utils.HOME_CONFIG_FILE_LOCATION);
-    String currVersions = Utils.readFromFile(platformInformationRESTService.getPlatformEdition().concat("-")
-            .concat(Utils.SW_REG_PLF_VERSION), Utils.HOME_CONFIG_FILE_LOCATION);
     if(StringUtils.isEmpty(currStatus) || StringUtils.isEmpty(currVersions)) return false;
     boolean plfRegistrationStatus
             = currStatus.contains(platformInformationRESTService.getPlatformEdition().concat("-true"));
@@ -205,6 +206,7 @@ public class SoftwareRegistrationServiceImpl implements SoftwareRegistrationServ
       currentRegStatus = currentRegStatus.concat(",").concat(platformInformationRESTService.getPlatformEdition().concat("-true"));
     }
     Utils.writeToFile(Utils.SW_REG_STATUS, currentRegStatus, Utils.HOME_CONFIG_FILE_LOCATION);
+    this.currStatus= currentRegStatus;
 
     String plfVersionsKey = platformInformationRESTService.getPlatformEdition().concat("-").concat(Utils.SW_REG_PLF_VERSION);
     String plfVersions = Utils.readFromFile(plfVersionsKey, Utils.HOME_CONFIG_FILE_LOCATION);
@@ -215,6 +217,7 @@ public class SoftwareRegistrationServiceImpl implements SoftwareRegistrationServ
     }
     Utils.writeToFile(platformInformationRESTService.getPlatformEdition().concat("-").concat(Utils.SW_REG_PLF_VERSION),
             plfVersions, Utils.HOME_CONFIG_FILE_LOCATION);
+    this.currVersions = plfVersions;
   }
 
   /**
