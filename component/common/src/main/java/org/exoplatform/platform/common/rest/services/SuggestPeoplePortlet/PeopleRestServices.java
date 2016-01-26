@@ -28,10 +28,7 @@ import javax.ws.rs.core.SecurityContext;
 import javax.ws.rs.core.UriInfo;
 import javax.ws.rs.ext.RuntimeDelegate;
 import java.net.URI;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.Map.Entry;
 
 @Path("/homepage/intranet/people/")
@@ -235,7 +232,13 @@ public class PeopleRestServices implements ResourceContainer {
       int size = connectionList.getSize();
       Map<Identity, Integer> suggestions;
       if (size > 0) {
-        suggestions = relationshipManager.getSuggestions(identity, 20, 50, 10);
+        try {
+          suggestions = relationshipManager.getSuggestions(identity, 20, 50, 10);
+        } catch (Exception E) {
+          log.error("#### Unexpected error occurred during ["+identity.getRemoteId()+"]'s suggestions Loading ", E.getMessage(),E);
+          suggestions = new LinkedHashMap<Identity, Integer>();
+
+        }
         if (suggestions.size() == 1 && suggestions.keySet().iterator().next().getRemoteId().equals(userACL.getSuperUser())) {
           // The only suggestion is the super user so we clear the suggestion list
           suggestions = Collections.emptyMap();
