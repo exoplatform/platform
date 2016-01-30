@@ -51,12 +51,14 @@ public class UICreateForm extends UIForm {
     public static final String SPACE_SWITCHER = "uiWikiSpaceSwitcher_CreateWiki";
     private static final String CREATE_FORM_CONTAINER = "UICreateForm";
     private static final String ADD_WIKI_PAGE = "#AddPage";
+    private static final String SPACES_SWITCHER_WIKI_APP_ID = "Wiki";
     private String urlWiki = "";
 
     public UICreateForm() throws Exception {
         // Init space switcher
         UISpacesSwitcher uiWikiSpaceSwitcher = addChild(UISpacesSwitcher.class, null, SPACE_SWITCHER);
         uiWikiSpaceSwitcher.setCurrentSpaceName(getCurrentWiki());
+        uiWikiSpaceSwitcher.setAppId(SPACES_SWITCHER_WIKI_APP_ID);
         EventUIComponent eventComponent1 = new EventUIComponent(CREATE_FORM_CONTAINER, SWITCH_SPACE_ACTION, EventUIComponent.EVENTTYPE.EVENT);
         uiWikiSpaceSwitcher.init(eventComponent1);
         urlWiki = uiWikiSpaceSwitcher.getPortalSpaceId();
