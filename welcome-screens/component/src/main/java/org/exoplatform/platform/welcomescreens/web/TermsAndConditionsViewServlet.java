@@ -7,7 +7,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 /**
- * Servlet responsible of the first display of Terms&Conditions
+ * Servlet responsible of the first display of TermsAndConditions
  * @author Clement
  *
  */

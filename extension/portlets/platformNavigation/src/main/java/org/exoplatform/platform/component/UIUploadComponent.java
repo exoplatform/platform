@@ -13,7 +13,6 @@ import org.exoplatform.webui.event.EventListener;
 
 /**
  * @author <a href="fbradai@exoplatform.com">Fbradai</a>
- * @date 3/21/13
  */
 
 @ComponentConfig(

@@ -37,7 +37,6 @@ import javax.ws.rs.core.SecurityContext;
 import java.util.*;
 /**
  * @author <a href="kmenzli@exoplatform.com">kmenzli</a>
- * @date 01/12/12
  */
 @Path("/space")
 public class SpaceRestServiceImpl implements ResourceContainer {

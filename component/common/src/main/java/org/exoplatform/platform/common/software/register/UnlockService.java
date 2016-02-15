@@ -37,7 +37,6 @@ import java.util.concurrent.TimeUnit;
 
 /**
  * @author <a href="fbradai@exoplatform.com">Fbradai</a>
- * @date 1/17/13
  */
 public class UnlockService implements Startable {
 

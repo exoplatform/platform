@@ -39,7 +39,6 @@ import java.util.*;
 
 /**
  * @author <a href="fbradai@exoplatform.com">Fbradai</a>
- * @date 22/11/12
  */
 
 @ComponentConfig(

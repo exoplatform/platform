@@ -31,7 +31,6 @@ import java.io.IOException;
 
 /**
  * @author <a href="hzekri@exoplatform.com">hzekri</a>
- * @date 18/01/13
  */
 public class TermsAndConditionsActionServlet extends HttpServlet {
 

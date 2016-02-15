@@ -61,7 +61,7 @@ public class IntranetSpaceServiceImpl implements IntranetSpaceService {
   private static final String JCR_ROOT = "/jcr:root";
   /**
    * IntranetSpaceServiceImpl constructor
-   * @param dataLocation
+   * @param repoService
    * @throws Exception
    */
   public IntranetSpaceServiceImpl(RepositoryService repoService) throws Exception{
@@ -103,7 +103,7 @@ public class IntranetSpaceServiceImpl implements IntranetSpaceService {
 
   /**
    * 
-   * @see org.exoplatform.intranet.component.social.IntranetSpaceService#getLatestCreatedSpace()
+   * @see org.exoplatform.platform.gadget.services.newspaces.IntranetSpaceService#getLatestCreatedSpace(int, String, List)
    */
   public List<IntranetSpace> getLatestCreatedSpace(int maxday, String language, List<String> allGroupAndMembershipOfUser) {
     //check permission

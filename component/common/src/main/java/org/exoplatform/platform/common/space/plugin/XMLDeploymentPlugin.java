@@ -44,16 +44,14 @@ public class XMLDeploymentPlugin extends SpaceListenerPlugin {
    * 
    * @param initParams
    *          the init params
-   * @param configurationManager
-   *          the configuration manager
-   * @param repositoryService
-   *          the repository service
+   * @param spaceCustomizationService
+   *          the space customization service
    * @param nodeHierarchyCreator
    *          the nodeHierarchyCreator service
    */
-  public XMLDeploymentPlugin(InitParams initParams, SpaceCustomizationService spaceCustomizationService_,
+  public XMLDeploymentPlugin(InitParams initParams, SpaceCustomizationService spaceCustomizationService,
       NodeHierarchyCreator nodeHierarchyCreator) {
-    this.spaceCustomizationService = spaceCustomizationService_;
+    this.spaceCustomizationService = spaceCustomizationService;
     this.initParams = initParams;
   }
 

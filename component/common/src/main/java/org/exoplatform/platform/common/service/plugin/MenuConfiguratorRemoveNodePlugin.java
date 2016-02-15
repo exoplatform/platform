@@ -28,7 +28,6 @@ import org.exoplatform.services.log.Log;
 import java.util.List;
 /**
  * @author <a href="hzekri@exoplatform.com">hzekri</a>
- * @date 30/07/13
  */
 public class MenuConfiguratorRemoveNodePlugin extends BaseComponentPlugin {
     private MenuConfiguratorService menuConfiguratorService;

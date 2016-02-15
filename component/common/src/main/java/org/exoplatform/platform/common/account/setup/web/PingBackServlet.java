@@ -22,7 +22,6 @@ import java.util.Properties;
 
 /**
  * @author <a href="fbradai@exoplatform.com">Fbradai</a>
- * @date 3/21/13
  */
 
 public  class PingBackServlet extends HttpServlet {

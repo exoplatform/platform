@@ -36,11 +36,8 @@ public interface IntranetSpaceService {
   
   /**
    * Request to join Open Space,
-   * @param spaceId
+   * @param spaceUrl
    * @param userId
-   * @param maxday
-   * @param language
-   * @param allGroupAndMembershipOfUser
    * @return list contain IntranetSpace bean that user has joined
    */
   public List<IntranetSpace> requestToJoinOpenSpace(String spaceUrl,String userId);

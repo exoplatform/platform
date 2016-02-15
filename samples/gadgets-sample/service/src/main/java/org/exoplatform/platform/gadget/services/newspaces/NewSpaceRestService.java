@@ -110,7 +110,6 @@ public class NewSpaceRestService implements ResourceContainer {
    
    /**
     * request to join space
-    * @param maxtime
     * @param spaceUrl
     * @return space information that user has join OR empty if request was failure
     */

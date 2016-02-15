@@ -18,7 +18,6 @@ import java.io.IOException;
 
 /**
  * @author <a href="fbradai@exoplatform.com">Fbradai</a>
- * @date 3/4/13
  */
 public class AccountSetupFilter implements Filter {
     private static final String PLF_PLATFORM_EXTENSION_SERVLET_CTX = "/platform-extension";

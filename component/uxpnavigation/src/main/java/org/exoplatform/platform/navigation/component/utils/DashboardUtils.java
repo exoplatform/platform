@@ -42,7 +42,6 @@ import java.util.Iterator;
 
 /**
  * @author <a href="fbradai@exoplatform.com">Fbradai</a>
- * @date 22/11/12
  */
 public class DashboardUtils {
     //////////////////////////////////////////////////////////

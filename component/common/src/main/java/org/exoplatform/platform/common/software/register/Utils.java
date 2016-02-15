@@ -17,7 +17,6 @@ import java.util.Properties;
 
 /**
  * @author <a href="fbradai@exoplatform.com">Fbradai</a>
- * @date 1/17/13
  */
 
 public class Utils {

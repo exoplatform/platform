@@ -28,7 +28,6 @@ import javax.inject.Inject;
 
 /**
  * @author <a href="hzekri@exoplatform.com">hzekri</a>
- * @date 10/12/12
  */
 
 public class Invitations {

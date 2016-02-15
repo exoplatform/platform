@@ -30,7 +30,7 @@ import org.exoplatform.web.url.navigation.NodeURL;
 public class NavigationURLUtils {
 
   /**
-   * @param url
+   * @param uri
    * @return URL of the page with selected URI in the current portal
    */
   public static String getURLInCurrentPortal(String uri) {
@@ -52,7 +52,7 @@ public class NavigationURLUtils {
 
   /**
    * @param portalName
-   * @param url
+   * @param uri
    * @return URL of the page with selected URI in the selected portal
    */
   public static String getPortalURL(String portalName, String uri) {
@@ -64,7 +64,7 @@ public class NavigationURLUtils {
 
   /**
    * @param siteKey
-   * @param url
+   * @param uri
    * @return URL of the page with selected URI in the selected navigation
    */
   public static String getURL(SiteKey siteKey, String uri) {

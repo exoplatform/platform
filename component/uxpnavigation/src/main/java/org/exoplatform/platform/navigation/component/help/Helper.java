@@ -31,7 +31,6 @@ import org.exoplatform.social.webui.Utils;
 
 /**
  * @author <a href="kmenzli@exoplatform.com">Kmenzli</a>
- * @date 05/11/12
  */
 
 public class Helper {

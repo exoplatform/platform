@@ -51,7 +51,7 @@ public class PortletDisablerFilter implements RenderFilter {
   }
 
   /**
-   * Serves {@link #DISABLED_JSP} if the portlet is not a valid dependency
+   * Serves a page with a message if the portlet is not a valid dependency
    * of the current portal container.
    */
   public void doFilter(RenderRequest request, RenderResponse response, FilterChain chain) throws IOException, PortletException {

@@ -42,7 +42,6 @@ import java.util.List;
 
 /**
  * @author <a href="fbradai@exoplatform.com">Fbradai</a>
- * @date 20/11/12
  */
 @ComponentConfig(lifecycle = UIApplicationLifecycle.class, template = "app:/groovy/platformNavigation/portlet/UICompanyNavigationPortlet/UICompanyNavigationPortlet.gtmpl")
 public class UICompanyNavigationPortlet extends UIPortletApplication {

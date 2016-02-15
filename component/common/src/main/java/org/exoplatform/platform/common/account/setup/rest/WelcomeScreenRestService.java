@@ -34,7 +34,6 @@ import javax.ws.rs.core.Response;
 
 /**
  * @author <a href="hzekri@exoplatform.com">hzekri</a>
- * @date 12/02/13
  */
 
 @Path("/welcomeScreen")

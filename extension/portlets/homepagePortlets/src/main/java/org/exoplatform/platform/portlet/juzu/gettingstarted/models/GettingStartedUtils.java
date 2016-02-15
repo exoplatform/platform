@@ -2,7 +2,6 @@ package org.exoplatform.platform.portlet.juzu.gettingstarted.models;
 
 /**
  * @author <a href="fbradai@exoplatform.com">Fbradai</a>
- * @date 1/10/13
  */
 public class GettingStartedUtils {
 

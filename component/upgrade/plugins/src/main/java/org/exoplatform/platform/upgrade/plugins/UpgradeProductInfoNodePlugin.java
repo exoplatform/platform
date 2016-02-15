@@ -40,8 +40,8 @@ import org.exoplatform.services.security.IdentityConstants;
  *          exo@exoplatform.com
  * May 22, 2014
  * 
- *   This plugin remove any:read permission from node <br/>
- *   /Application Data/ProductInformationsService/productVersionDeclarationNode <br/>
+ *   This plugin remove any:read permission from node <br>
+ *   /Application Data/ProductInformationsService/productVersionDeclarationNode <br>
  *   and allow only __system and administrators to access this node
  */
 public class UpgradeProductInfoNodePlugin extends UpgradeProductPlugin {

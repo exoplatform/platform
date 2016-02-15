@@ -13,7 +13,6 @@ import java.util.concurrent.ConcurrentHashMap;
 
 /**
  * @author <a href="fbradai@exoplatform.com">Fbradai</a>
- * @date 1/10/13
  */
 public class CalendarPortletUtils {
 

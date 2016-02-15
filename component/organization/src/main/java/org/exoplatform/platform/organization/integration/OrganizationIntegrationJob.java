@@ -24,8 +24,7 @@ import org.exoplatform.services.scheduler.BaseJob;
 import org.exoplatform.services.scheduler.JobContext;
 
 /**
- * This is a scheduled job that invoke all OrganizationService listeners on
- * Users & Groups.
+ * This is a scheduled job that invoke all OrganizationService listeners on Users and Groups.
  * 
  * @author Boubaker KHANFIR
  */

@@ -19,7 +19,6 @@ import java.util.List;
 
 /**
  * @author <a href="rtouzi@exoplatform.com">rtouzi</a>
- * @date 09/11/12
  */
 @ComponentConfig(
         template = "app:/groovy/platformNavigation/portlet/UICreatePlatformToolBarPortlet/UICreateList.gtmpl",

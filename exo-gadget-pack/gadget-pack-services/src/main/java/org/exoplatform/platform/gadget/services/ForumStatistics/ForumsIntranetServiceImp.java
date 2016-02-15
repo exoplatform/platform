@@ -58,7 +58,7 @@ public class ForumsIntranetServiceImp implements ForumsIntranetService {
   /**
    * get Top {maxcount} rated of topics by permission of userId
    * 
-   * @param userId String is userId of user login
+   * @param allInfoOfUser List of users ids
    * @param maxcount maximum of result
    * @return top {maxcount} rated of topics
    * @throws Exception

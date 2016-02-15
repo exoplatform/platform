@@ -22,7 +22,6 @@ import java.net.URLEncoder;
 
 /**
  * @author <a href="fbradai@exoplatform.com">Fbradai</a>
- * @date 3/1/13
  */
 public class AccountSetup extends HttpServlet {
 

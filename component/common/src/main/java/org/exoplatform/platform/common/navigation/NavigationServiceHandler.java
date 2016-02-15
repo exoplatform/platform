@@ -30,7 +30,6 @@ import javax.jcr.Session;
 
 /**
  * @author <a href="hzekri@exoplatform.com">hzekri</a>
- * @date 26/11/12
  */
 public class NavigationServiceHandler implements Startable {
 

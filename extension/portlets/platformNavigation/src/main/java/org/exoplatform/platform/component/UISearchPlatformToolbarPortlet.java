@@ -24,7 +24,6 @@ import org.exoplatform.webui.core.lifecycle.UIApplicationLifecycle;
 
 /**
  * @author <a href="hzekri@exoplatform.com">hzekri</a>
- * @date 05/11/12
  */
 
 @ComponentConfig(lifecycle = UIApplicationLifecycle.class, template = "app:/groovy/platformNavigation/portlet/UISearchPlatformToolBarPortlet/UISearchPlatformToolBarPortlet.gtmpl")

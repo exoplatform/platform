@@ -36,7 +36,6 @@ import java.net.URI;
 
 /**
  * @author <a href="fbradai@exoplatform.com">Fbradai</a>
- * @date 10/12/12
  */
 @Path("homepage/intranet/getting-started/deletePortlet/")
 @Produces(MediaType.APPLICATION_JSON)

@@ -39,7 +39,7 @@ import org.exoplatform.webui.core.UIPortletApplication;
 import org.exoplatform.webui.core.lifecycle.UIApplicationLifecycle;
 
 /**
- * {@link UISpaceSummaryInfoPortlet} used as a portlet displaying space summary. <br />
+ * {@link UISpaceSummaryInfoPortlet} used as a portlet displaying space summary. <br>
  * Created by The eXo Platform MEA
  * 
  * @author <a href="mailto:anouar.chattouna@exoplatform.com">Anouar Chattouna</a>

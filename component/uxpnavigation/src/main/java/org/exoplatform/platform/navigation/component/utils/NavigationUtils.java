@@ -13,7 +13,6 @@ import org.exoplatform.web.controller.QualifiedName;
 
 /**
  * @author <a href="fbradai@exoplatform.com">Fbradai</a>
- * @date 2/13/13
  */
 public class NavigationUtils {
   private static final Log LOG = ExoLogger.getLogger(NavigationUtils.class);

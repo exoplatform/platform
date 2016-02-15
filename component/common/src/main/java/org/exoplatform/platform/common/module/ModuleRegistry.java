@@ -39,7 +39,7 @@ import org.picocontainer.Startable;
 
 /**
  * Main registry to store and manage eXo Platform modules. Modules can be
- * registered and also activated.<br/>
+ * registered and also activated.<br>
  * Created by The eXo Platform SAS Author : eXoPlatform exo@exoplatform.com
  * Jun 24, 2010
  */

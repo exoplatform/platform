@@ -14,7 +14,6 @@ import java.io.IOException;
 
 /**
  * @author <a href="fbradai@exoplatform.com">Fbradai</a>
- * @date 3/19/13
  */
 public class AccountSetupViewServlet extends HttpServlet {
     private final static String INTRANET_HOME_PAGE = "/portal/intranet";

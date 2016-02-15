@@ -16,12 +16,12 @@ import java.io.IOException;
 
 /**
  * Filter responsible of Terms and conditions displaying.
- * Call T&C service to know if T&C are checked, if not, forward to T&C page
+ * Call TermsAndConditions service to know if TermsAndConditions are checked, if not, forward to TermsAndConditions page
  * <p>
  * 2 conditions to forward to termes and conditions page:
  * <ul>
- * <li>Request URI is not a login URI. In this case we need to execute T&C process after login process</li>
- * <li>T&C is not checked</li>
+ * <li>Request URI is not a login URI. In this case we need to execute TermsAndConditions process after login process</li>
+ * <li>TermsAndConditions is not checked</li>
  * </ul>
  * 
  * @author Clement

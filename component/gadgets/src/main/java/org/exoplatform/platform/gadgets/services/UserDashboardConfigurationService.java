@@ -161,7 +161,7 @@ public class UserDashboardConfigurationService {
 
   /**
    * Return the {@link Page} that have a dashbord of user that name is
-   * provided <br/>
+   * provided <br>
    * 
    * @param userId
    *          The user name.

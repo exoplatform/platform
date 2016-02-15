@@ -27,7 +27,6 @@ import org.exoplatform.services.log.Log;
 
 /**
  * @author <a href="kmenzli@exoplatform.com">Kmenzli</a>
- * @date 05/11/12
  */
 public class HelpServiceImpl implements HelpService {
 

@@ -24,7 +24,6 @@ import org.exoplatform.webui.core.lifecycle.UIApplicationLifecycle;
 
 /**
  * @author <a href="rtouzi@exoplatform.com">rtouzi</a>
- * @date 26/11/12
  */
 
 @ComponentConfig(

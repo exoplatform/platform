@@ -45,9 +45,6 @@ public class FeatureTogglesRestService implements ResourceContainer {
    * 
    * @param featureName Name of the feature.
    * @param active Its value must be "yes" or "no" that switches on or off the feature respectively.
-   * @authentication
-   * @request
-   * GET: http://localhost:8080/rest/homepage/intranet/features?name=notification&active=no
    * @return Redirects to the portal homepage.
    * @throws Exception
    */

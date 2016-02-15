@@ -20,7 +20,6 @@ package org.exoplatform.platform.navigation.component.help;
 
 /**
  * @author <a href="kmenzli@exoplatform.com">Kmenzli</a>
- * @date 05/11/12
  */
 public interface HelpService {
 

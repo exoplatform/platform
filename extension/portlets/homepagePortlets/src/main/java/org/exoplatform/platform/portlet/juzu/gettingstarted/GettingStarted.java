@@ -47,7 +47,6 @@ import java.util.MissingResourceException;
 
 /**
  * @author <a href="fbradai@exoplatform.com">Fbradai</a>
- * @date 07/12/12
  */
 
 public class GettingStarted {

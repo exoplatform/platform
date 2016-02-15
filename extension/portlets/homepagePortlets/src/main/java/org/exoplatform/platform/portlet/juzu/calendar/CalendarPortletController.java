@@ -48,7 +48,6 @@ import java.util.Calendar;
 
 /**
  * @author <a href="fbradai@exoplatform.com">Fbradai</a>
- * @date 13/12/12
  */
 
 @SessionScoped

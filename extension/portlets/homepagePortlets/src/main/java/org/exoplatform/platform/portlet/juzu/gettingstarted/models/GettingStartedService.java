@@ -39,7 +39,6 @@ import org.exoplatform.social.core.manager.IdentityManager;
 
 /**
  * @author <a href="fbradai@exoplatform.com">Fbradai</a>
- * @date 12/26/12
  */
 public class GettingStartedService {
     private static final Log LOG = ExoLogger.getLogger(GettingStartedService.class);

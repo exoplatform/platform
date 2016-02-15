@@ -51,7 +51,6 @@ import org.json.JSONObject;
 
 /**
  * @author <a href="hzekri@exoplatform.com">hzekri</a>
- * @date 14/12/12
  */
 @Path("/homepage/intranet/invitations/")
 @Produces("application/json")

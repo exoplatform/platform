@@ -20,7 +20,7 @@ import java.util.List;
 
 /**
  * A Module of the platform. Modules are optional features sets that extend
- * the capabilities of eXo Platform.<br/>
+ * the capabilities of eXo Platform.<br>
  * Created by The eXo Platform SAS Author : eXoPlatform exo@exoplatform.com
  * Jun 24, 2010
  */

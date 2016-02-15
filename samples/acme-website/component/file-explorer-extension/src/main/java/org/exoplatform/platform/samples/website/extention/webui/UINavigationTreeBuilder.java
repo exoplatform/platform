@@ -242,7 +242,7 @@ public class UINavigationTreeBuilder extends UIContainer {
   }
 
   /**
-   * When a node is change in tree. This method will render the children &
+   * When a node is change in tree. This method will render the children and
    * sibbling nodes of current node and broadcast change node event to other
    * uicomponent
    * 
@@ -297,7 +297,7 @@ public class UINavigationTreeBuilder extends UIContainer {
    * that is interested in processing a changeNodeAction event implements this
    * interface, and the object created with that class is registered with a
    * component using the component's
-   * <code>addChangeNodeActionListener<code> method. When
+   * <code>addChangeNodeActionListener</code> method. When
    * the changeNodeAction event occurs, that object's appropriate
    * method is invoked.
    * 

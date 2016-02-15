@@ -31,7 +31,6 @@ import java.util.List;
 
 /**
  * @author <a href="hzekri@exoplatform.com">hzekri</a>
- * @date 18/07/13
  */
 public class MenuConfiguratorAddNodePlugin extends BaseComponentPlugin {
     private ConfigurationManager configurationManager;

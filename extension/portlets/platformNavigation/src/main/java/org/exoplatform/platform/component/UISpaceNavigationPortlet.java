@@ -28,7 +28,6 @@ import java.util.LinkedList;
 import java.util.List;
 /**
  * @author <a href="rtouzi@exoplatform.com">rtouzi</a>
- * @date 22/11/12
  */
 @ComponentConfig(lifecycle = UIApplicationLifecycle.class, template = "app:/groovy/platformNavigation/portlet/UISpaceNavigationPortlet/UISpaceNavigationPortlet.gtmpl",
         events = {

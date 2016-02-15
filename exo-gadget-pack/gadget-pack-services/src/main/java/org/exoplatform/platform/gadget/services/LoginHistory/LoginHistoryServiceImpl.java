@@ -173,7 +173,7 @@ public class LoginHistoryServiceImpl implements LoginHistoryService, Startable {
      * Get last logins
      *
      * @param numItems
-     * @return List of <numItems> last login entries
+     * @return List of {numItems} last login entries
      * @throws Exception
      */
     public List<LastLoginBean> getLastLogins(int numItems, String userIdFilter) throws Exception {
@@ -370,7 +370,7 @@ public class LoginHistoryServiceImpl implements LoginHistoryService, Startable {
      * Get user login history
      *
      * @param userId
-     * @return List of login history entries in range [fromTime..toTime] of user <userId>
+     * @return List of login history entries in range [fromTime..toTime] of user {userId}
      * @throws Exception
      */
     public List<LoginHistoryBean> getLoginHistory(String userId, long fromTime, long toTime) throws Exception {

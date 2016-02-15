@@ -22,7 +22,6 @@ import org.exoplatform.wiki.utils.Utils;
 
 /**
  * @author <a href="rtouzi@exoplatform.com">rtouzi</a>
- * @date 08/11/12
  */
 
 @ComponentConfig(

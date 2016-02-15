@@ -61,7 +61,7 @@ public class LoginHistoryRestService implements ResourceContainer {
 
     /**
      * Get user login history
-     * <p/>
+     * <br>
      * REST service URL: /loginhistory/{userId}/{fromTime}/{toTime}
      *
      * @return: Login history entries from {fromTime} to {toTime} (in JSON data format) of user {userId}
@@ -88,7 +88,7 @@ public class LoginHistoryRestService implements ResourceContainer {
 
     /**
      * Get login count statistic in a week
-     * <p/>
+     * <br>
      * REST service URL: /loginhistory/weekstats/{userId}/{week}
      *
      * @return: List of login count per days in week {week} (in JSON data format) of user {userId}
@@ -118,7 +118,7 @@ public class LoginHistoryRestService implements ResourceContainer {
 
     /**
      * Get login count statistic in months
-     * <p/>
+     * <br>
      * REST service URL: /loginhistory/monthstats/{userId}/{fromMonth/{numOfMonth}}
      *
      * @return: List of login count per weeks in {numOfMonths} months start from {fromMonth} (in JSON data format) of user {userId}
@@ -148,7 +148,7 @@ public class LoginHistoryRestService implements ResourceContainer {
 
     /**
      * Get login count statistic in a year
-     * <p/>
+     * <br>
      * REST service URL: /loginhistory/yearstats/{userId}/{year}
      *
      * @return: List of login count per months in year {year} (in JSON data format) of user {userId}
@@ -178,7 +178,7 @@ public class LoginHistoryRestService implements ResourceContainer {
 
     /**
      * Get last {numItems} login history entries
-     * <p/>
+     * <br>
      * REST service URL: /loginhistory/lastlogins/{numItems}/{userIdFilter}
      *
      * @return: The list of last {numItems} login history entries (filtered by {userIdFilter}) in JSON data format

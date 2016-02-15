@@ -37,9 +37,8 @@ import org.picocontainer.Startable;
 
 /**
  * Allow set system properties.
- * <p/>
+ * <br>
  * Example of configuration:
- * <p/>
  * <pre>
  * {@code
  * <component>
@@ -67,7 +66,7 @@ import org.picocontainer.Startable;
  * </component>
  * }
  * </pre>
- * <p/>
+ * <br>
  * Note that <i>properties-param</i> entries and <i>properties.url</i> optional and can be omitted.
  * Note that if a path in <i>properties.url</i> doesn't exist it will be skipped with an info message
  *
@@ -85,8 +84,8 @@ public class ExtendedPropertyConfigurator extends PropertyConfigurator implement
   /**
    * Constructor used by ExoContainer.
    *
-   * @param {@link InitParams} params
-   * @param {@link ConfigurationManager} confManager
+   * @param params
+   * @param confManager
    */
   public ExtendedPropertyConfigurator(InitParams params,
                                       ConfigurationManager confManager) {

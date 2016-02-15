@@ -34,7 +34,7 @@ import org.exoplatform.web.security.security.RemindPasswordTokenService;
 /**
  * This class is override of {@link org.exoplatform.web.login.recovery.PasswordRecoveryServiceImpl}
  * It overrides 2 method: getSenderName() and getSenderEmail()
- * to get these information from "Notification administrator" page (Administration -> Portal -> Notifications)
+ * to get these information from "Notification administrator" page {@literal (Administration -> Portal -> Notifications)}
  *
  * This service will be configured in platform-extension.war to overwrite configuration in exogtn.
  *

@@ -64,7 +64,7 @@ import org.exoplatform.services.organization.impl.UserProfileImpl;
 import org.picocontainer.Startable;
 
 /**
- * This Service create Organization Model profiles, for User & Groups not
+ * This Service create Organization Model profiles, for User and Groups not
  * created via eXo OrganizationService.
  * 
  * @author Boubaker KHANFIR
@@ -678,8 +678,6 @@ public class OrganizationIntegrationService implements Startable {
    * 
    * @param username
    *          The user name
-   * @param eventType
-   *          ADDED/UPDATED/DELETED
    */
   @Managed
   @ManagedDescription("Test if User is synhronized")
