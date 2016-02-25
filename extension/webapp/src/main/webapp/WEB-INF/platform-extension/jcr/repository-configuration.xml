@@ -15,7 +15,6 @@
 	              <property name="max-buffer-size" value="204800"/>
 	              <property name="swap-directory" value="${gatein.jcr.data.dir}/swap/collaboration${container.name.suffix}"/>
 	              <property name="db-tablename-suffix" value="COLLAB"/>
-                     <property name="acl-bloomfilter-enabled" value="${gatein.jcr.bloomfilter.collaboration.enabled:true}"/>
 	            </properties>
 	            <value-storages>
 	              <value-storage id="collaboration" class="org.exoplatform.services.jcr.impl.storage.value.fs.TreeFileValueStorage">
