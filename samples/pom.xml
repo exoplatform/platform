@@ -4,7 +4,7 @@
   <parent>
     <artifactId>platform</artifactId>
     <groupId>org.exoplatform.platform</groupId>
-    <version>4.3.1-M04</version>
+    <version>4.3.x-SNAPSHOT</version>
   </parent>
   <artifactId>platform-sample</artifactId>
   <packaging>pom</packaging>
