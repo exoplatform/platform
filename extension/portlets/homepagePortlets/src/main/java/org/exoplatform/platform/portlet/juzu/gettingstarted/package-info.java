@@ -19,7 +19,12 @@
 
 @Application
 @Portlet
-@Bindings(@Binding(NodeHierarchyCreator.class))
+@Bindings({@Binding(NodeHierarchyCreator.class), 
+          @Binding(GettingStartedService.class),
+          @Binding(SpaceService.class),
+          @Binding(ActivityManager.class),
+          @Binding(RelationshipManager.class),
+          @Binding(IdentityManager.class)})
 package org.exoplatform.platform.portlet.juzu.gettingstarted;
 
 import juzu.Application;
@@ -27,4 +32,9 @@ import juzu.plugin.binding.Binding;
 import juzu.plugin.binding.Bindings;
 import juzu.plugin.portlet.Portlet;
 import org.exoplatform.services.jcr.ext.hierarchy.NodeHierarchyCreator;
+import org.exoplatform.platform.portlet.juzu.gettingstarted.models.GettingStartedService;
+import org.exoplatform.social.core.space.spi.SpaceService;
+import org.exoplatform.social.core.manager.ActivityManager;
+import org.exoplatform.social.core.manager.RelationshipManager;
+import org.exoplatform.social.core.manager.IdentityManager;
 

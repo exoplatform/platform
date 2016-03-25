@@ -66,6 +66,9 @@ public class GettingStarted {
     @Inject
     @Path("gettingStartedList.gtmpl")
     Template gettingStartedList;
+    
+    @Inject
+    private GettingStartedService startService;
 
     @PostConstruct
     public void init() {
@@ -255,14 +258,14 @@ public class GettingStarted {
 
     private boolean checkStatus(String gsPropertyName) {
         if (gsPropertyName.equals(GettingStartedUtils.JCR_CONNECT_PROPERTY_NAME))
-            return GettingStartedService.hasContacts(remoteUser);
+            return startService.hasContacts(remoteUser);
         else if (gsPropertyName.equals(GettingStartedUtils.JCR_ACTIVITY_PROPERTY_NAME))
-            return GettingStartedService.hasActivities(remoteUser);
+            return startService.hasActivities(remoteUser);
         else if (gsPropertyName.equals(GettingStartedUtils.JCR_DOCUMENT_PROPERTY_NAME))
-            return GettingStartedService.hasDocuments(null, remoteUser);
+            return startService.hasDocuments(null, remoteUser);
         else if (gsPropertyName.equals(GettingStartedUtils.JCR_SPACE_PROPERTY_NAME))
-            return GettingStartedService.hasSpaces(remoteUser);
-        else return GettingStartedService.hasAvatar(remoteUser);
+            return startService.hasSpaces(remoteUser);
+        else return startService.hasAvatar(remoteUser);
     }
 }
 
