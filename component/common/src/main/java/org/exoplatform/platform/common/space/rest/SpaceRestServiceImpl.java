@@ -34,6 +34,10 @@ import javax.ws.rs.core.CacheControl;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.SecurityContext;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.util.*;
 /**
  * @author <a href="kmenzli@exoplatform.com">kmenzli</a>
@@ -58,9 +62,10 @@ public class SpaceRestServiceImpl implements ResourceContainer {
         cacheControl.setNoStore(true);
 
     }
+
     @GET
     @Path("/user/searchSpace/")
-    public Response searchSpaces(@QueryParam("keyword") String keyword,@Context SecurityContext sc) {
+    public Response searchSpaces(@QueryParam("keyword") String keyword, @QueryParam("fields") String fields, @Context SecurityContext sc) {
         StringBuffer baseSpaceURL = null;
         List<Space> spaces = new ArrayList<Space>();
         try {
@@ -82,7 +87,7 @@ public class SpaceRestServiceImpl implements ResourceContainer {
             //--- Convert user spaces to List collection
             spaces = Arrays.asList(allSpacesSorted.load(0,MAX_LOADED_SPACES_BY_REQUEST));
 
-            List<Space> sortedSearchedSpaces = new ArrayList<Space>();
+            List<Object> sortedSearchedSpaces = new ArrayList<Object>();
 
             for (Space space : spaces) {
                 baseSpaceURL = new StringBuffer();
@@ -103,7 +108,7 @@ public class SpaceRestServiceImpl implements ResourceContainer {
 
                     space.setUrl(baseSpaceURL.toString());
 
-                    sortedSearchedSpaces.add(space);
+                    sortedSearchedSpaces.add(extractObject(space, fields));
                 }
             }
 
@@ -124,5 +129,30 @@ public class SpaceRestServiceImpl implements ResourceContainer {
             }
         }
         return false;
+    }
+
+    private Object extractObject(Object from, String fields) {
+      if (fields != null) {
+        String[] f = fields.split(",");
+
+        if (f.length > 0) {
+          JSONObject obj = new JSONObject(from);
+          Map<String, Object> map = new HashMap<String, Object>();
+
+          for (String name : f) {
+            if (obj.has(name)) {
+              try {
+                map.put(name, obj.get(name));
+              } catch (JSONException e) {
+                if (LOG.isWarnEnabled()) {
+                  LOG.warn("The key does NOT exist", e);
+                }
+              }
+            }
+          }
+          return map;
+        }
+      }
+      return from;
     }
 }

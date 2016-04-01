@@ -15,8 +15,8 @@
             var me = this;
 
             $.ajax({
-                async : false,
-                url : me.mySpaceRestUrl + "?keyword=" + keyword,
+                async : true,
+                url : me.mySpaceRestUrl + "?fields=id,url,displayName,avatarUrl&keyword=" + keyword,
                 type : 'GET',
                 data : '',
                 success : function(data) {
@@ -52,13 +52,16 @@
         },
         onTextSearchChange: function(uicomponentId) {
             var me = this;
-            var textSearch = $('#' + uicomponentId).find("input.searchText").val();
-
-            if (textSearch != me.lastSearchKeyword) {
-                me.lastSearchKeyword = textSearch;
-                me.requestData(textSearch, uicomponentId);
-                $('#' + uicomponentId).find(".moreSpace").hide();
-            }
+            clearTimeout(me.timeout);
+            me.timeout = setTimeout(function(){
+                var textSearch = $('#' + uicomponentId).find("input.searchText").val();
+                
+                if (textSearch != me.lastSearchKeyword) {
+                    me.lastSearchKeyword = textSearch;
+                    me.requestData(textSearch, uicomponentId);
+                    $('#' + uicomponentId).find(".moreSpace").hide();
+                }
+            }, 300);
         },
         ajaxRedirect: function (url) {
             if(self == top) {
