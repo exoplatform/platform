@@ -135,7 +135,13 @@
                     });
 
                     $("#"+item.suggestionId+" a.ignore").live("click", function(){
-                        //$.getJSON("/rest/homepage/intranet/people/contacts/ignore/"+item.suggestionId, null);
+                        $.ajax({
+                            url: "/rest/v1/social/usersRelationships/",
+                            contentType: "application/json",
+                            data: JSON.stringify({"sender": list.username,"receiver": item.username,"status":"IGNORED"}),
+                            type: "POST"
+                        });
+
                         if($("#suggestions").children().length == 1) {
                             $("#peopleSuggest").fadeOut(500, function () {
                                 $("#"+item.relationId).remove();
