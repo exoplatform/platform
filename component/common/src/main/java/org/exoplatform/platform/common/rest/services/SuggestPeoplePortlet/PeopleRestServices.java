@@ -270,6 +270,7 @@ public class PeopleRestServices implements ResourceContainer {
         if (position == null) {
           position = "";
         }
+        json.put("username", id.getRemoteId());
         json.put("suggestionName", socialProfile.getFullName());
         json.put("suggestionId", id.getId());
         json.put("contacts", relationshipManager.getConnections(id).getSize());
@@ -284,6 +285,7 @@ public class PeopleRestServices implements ResourceContainer {
       }
       jsonGlobal.put("items",jsonArray);
       jsonGlobal.put("noConnections", size);
+      jsonGlobal.put("username", userId);
       return Response.ok(jsonGlobal.toString(), MediaType.APPLICATION_JSON).cacheControl(cacheControl).build();
     } catch (Exception e) {
       log.error("Error in getting GS progress: " + e.getMessage(), e);
