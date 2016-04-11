@@ -23,13 +23,6 @@
 import org.exoplatform.web.application.JavascriptManager;
 
 
-def labelTopic = _ctx.appRes("UIUserPlatformToolBarCreatePortlet.label.topic");
-def labelPoll = _ctx.appRes("UIUserPlatformToolBarCreatePortlet.label.poll");
-def parStatusPoll = _ctx.appRes("UICreateList.label.poll");
-def parStatusTopic = _ctx.appRes("UICreateList.label.topic");
-def labelEvent = _ctx.appRes("UIUserPlatformToolBarCreatePortlet.label.eventtask");
-def labelUpload = _ctx.appRes("UIUserPlatformToolBarCreatePortlet.label.upload");
-def labelWiki = _ctx.appRes("UIUserPlatformToolBarCreatePortlet.label.wiki");
 //def doc="javascript:ajaxGet(eXo.env.server.createPortalURL('UIDocActivityComposer','SelectDocument',true));"
 
 def rcontext = _ctx.getRequestContext() ;
@@ -37,22 +30,17 @@ JavascriptManager jsmanager = rcontext.getJavascriptManager();
 %>
 <span  class="dropdown-menu" style="display:none;white-space:nowrap;"></span>
  <% if(uicomponent.getChildren().size()==0) {%>
-	<ul id="$uicomponent.id" class="dropdown-menu">		
-		<li>
-				<a href="javascript:void(0);" onclick="<%=uicomponent.event("AddEvent","AddEvent")%>" class="ToolBarActivityIcon"><i class="uiIconPLFEventTask"></i>$labelEvent</a>
-		</li>
-        <li>
-				<a href="javascript:void(0);" onclick="<%=uicomponent.event("Poll", parStatusPoll)%>" class="ToolBarActivityIcon"><i class="uiIconPoll"></i>$labelPoll</a>
-			</li>
-			<li>
-				<a href="javascript:void(0);" onclick="<%=uicomponent.event("Topic", parStatusTopic)%>" class="ToolBarActivityIcon"><i class="uiIconUIForms"></i>$labelTopic</a>
-			</li>
-			<li>
-				<a href="javascript:void(0);" onclick="<%=uicomponent.event("Upload","Upload")%>" class="ToolBarActivityIcon"><i class="uiIconUpload"></i>$labelUpload</a>
-			</li>
-			<li>
-	    	<a href="javascript:void(0);" onclick="<%=uicomponent.event("Wiki","Wiki")%>" class="ToolBarActivityIcon"><i class="uiIconWikiWiki"></i>$labelWiki</a>
-	    </li>
+	<ul id="$uicomponent.id" class="dropdown-menu">
+		<%
+			def extensions = uicomponent.getExtensions();
+			for (def ext : extensions) {
+				def actionLabel = _ctx.appRes("UIUserPlatformToolBarCreatePortlet.label." + ext.getName());
+			%>
+				<li>
+					<a href="javascript:void(0);" onclick="<%=uicomponent.event("QuickAdd", ext.getName())%>" class="ToolBarActivityIcon"><i class="$ext.category"></i>$actionLabel</a>
+				</li>
+			<%}
+		%>
 	</ul>
 <%}else{%>
 	<ul id="$uicomponent.id" class="dropdown-menu  create-form-dropdown">

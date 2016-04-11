@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<configuration
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.exoplatform.org/xml/ns/kernel_1_2.xsd http://www.exoplatform.org/xml/ns/kernel_1_2.xsd"
+        xmlns="http://www.exoplatform.org/xml/ns/kernel_1_2.xsd">
+
+  <external-component-plugins>
+    <!-- The full qualified name of the UIExtensionManager that manages all the UI Extensions -->
+    <target-component>org.exoplatform.webui.ext.UIExtensionManager</target-component>
+    <component-plugin>
+      <name>add.action</name>
+      <!-- The method to call to register a new UI Extension -->
+      <set-method>registerUIExtensionPlugin</set-method>
+      <type>org.exoplatform.webui.ext.UIExtensionPlugin</type>
+      <init-params>
+        <object-param>
+          <name>PLFQuickAddEvent</name>
+          <object type="org.exoplatform.webui.ext.UIExtension">
+            <!-- The type of extension, here it is the type related to the Action Bar in the File Explorer -->
+            <field name="type"><string>org.exoplatform.platform.component.UICreateList</string></field>
+
+            <field name="rank"><int>10</int></field>
+            <!-- The name of your action -->
+            <field name="name"><string>event</string></field>
+            <field name="category"><string>uiIconPLFEventTask</string></field>
+
+            <!-- The full qualified name of your webui component -->
+            <field name="component"><string>org.exoplatform.cs.event.UICreateEvent</string></field>
+          </object>
+        </object-param>
+        <object-param>
+          <name>PLFQuickAddPoll</name>
+          <object type="org.exoplatform.webui.ext.UIExtension">
+            <!-- The type of extension, here it is the type related to the Action Bar in the File Explorer -->
+            <field name="type"><string>org.exoplatform.platform.component.UICreateList</string></field>
+
+            <field name="rank"><int>20</int></field>
+            <!-- The name of your action -->
+            <field name="name"><string>poll</string></field>
+            <field name="category"><string>uiIconPoll</string></field>
+
+            <!-- The full qualified name of your webui component -->
+            <field name="component"><string>org.exoplatform.forum.create.UICreatePoll</string></field>
+          </object>
+        </object-param>
+        <object-param>
+          <name>PLFQuickAddTopic</name>
+          <object type="org.exoplatform.webui.ext.UIExtension">
+            <!-- The type of extension, here it is the type related to the Action Bar in the File Explorer -->
+            <field name="type"><string>org.exoplatform.platform.component.UICreateList</string></field>
+
+            <field name="rank"><int>30</int></field>
+            <!-- The name of your action -->
+            <field name="name"><string>topic</string></field>
+            <field name="category"><string>uiIconUIForms</string></field>
+
+            <!-- The full qualified name of your webui component -->
+            <field name="component"><string>org.exoplatform.forum.create.UICreateTopic</string></field>
+          </object>
+        </object-param>
+        <object-param>
+          <name>PLFQuickAddUpload</name>
+          <object type="org.exoplatform.webui.ext.UIExtension">
+            <!-- The type of extension, here it is the type related to the Action Bar in the File Explorer -->
+            <field name="type"><string>org.exoplatform.platform.component.UICreateList</string></field>
+
+            <field name="rank"><int>40</int></field>
+            <!-- The name of your action -->
+            <field name="name"><string>upload</string></field>
+            <field name="category"><string>uiIconUpload</string></field>
+
+            <!-- The full qualified name of your webui component -->
+            <field name="component"><string>org.exoplatform.platform.component.UIUploadComponent</string></field>
+          </object>
+        </object-param>
+        <object-param>
+          <name>PLFQuickAddWiki</name>
+          <object type="org.exoplatform.webui.ext.UIExtension">
+            <!-- The type of extension, here it is the type related to the Action Bar in the File Explorer -->
+            <field name="type"><string>org.exoplatform.platform.component.UICreateList</string></field>
+
+            <field name="rank"><int>50</int></field>
+            <!-- The name of your action -->
+            <field name="name"><string>wiki</string></field>
+            <field name="category"><string>uiIconWikiWiki</string></field>
+
+            <!-- The full qualified name of your webui component -->
+            <field name="component"><string>org.exoplatform.platform.component.UICreateForm</string></field>
+          </object>
+        </object-param>
+      </init-params>
+    </component-plugin>
+  </external-component-plugins>
+
+
+</configuration>
