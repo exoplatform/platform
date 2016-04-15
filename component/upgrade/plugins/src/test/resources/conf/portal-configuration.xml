@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<configuration
+   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xsi:schemaLocation="http://www.exoplatform.org/xml/ns/kernel_1_2.xsd http://www.exoplatform.org/xml/ns/kernel_1_2.xsd"
+   xmlns="http://www.exoplatform.org/xml/ns/kernel_1_2.xsd">
+    <import>classpath:/conf/exo.portal.component.identity-configuration.xml</import>
+	<import>classpath:/conf/exo.portal.component.test.jcr-configuration.xml</import>
+    <import>classpath:/conf/portal/exo.social.test.portal-configuration.xml</import>
+    <import>classpath:/conf/portal/exo.social.test.jcr-configuration.xml</import>
+    <import>classpath:/conf/portal/exo.social.test.configuration.xml</import>
+</configuration>

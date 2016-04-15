@@ -1,0 +1,27 @@
+<nodeTypes xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:mix="http://www.jcp.org/jcr/mix/1.0"
+           xmlns:jcr="http://www.jcp.org/jcr/1.0">
+
+  <nodeType name="exo:sortable" isMixin="true" hasOrderableChildNodes="false" primaryItemName="">
+    <propertyDefinitions>
+      <propertyDefinition name="exo:index" requiredType="Long" autoCreated="true" mandatory="false" onParentVersion="COPY" protected="false" multiple="false">
+        <valueConstraints/>       
+        <defaultValues>
+          <defaultValue>1000</defaultValue>
+        </defaultValues>
+      </propertyDefinition>
+      <propertyDefinition name="exo:title" requiredType="String" autoCreated="true" mandatory="false" onParentVersion="COPY" protected="false" multiple="false">
+        <valueConstraints/>       
+      </propertyDefinition>
+      <propertyDefinition name="exo:titlePublished" requiredType="String" autoCreated="true" mandatory="false" onParentVersion="COPY" protected="false" multiple="false">
+        <valueConstraints/>       
+      </propertyDefinition>
+      <propertyDefinition name="exo:name" requiredType="String" autoCreated="true" mandatory="false" onParentVersion="COPY" protected="false" multiple="false">
+        <valueConstraints/>       
+      </propertyDefinition>
+      <propertyDefinition name="publication:liveDate" requiredType="Date" autoCreated="true" mandatory="false" onParentVersion="COPY" protected="false" multiple="false">
+        <valueConstraints/>       
+      </propertyDefinition>      
+    </propertyDefinitions>
+  </nodeType>
+
+</nodeTypes>
