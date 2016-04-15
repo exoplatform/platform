@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2003-2013 eXo Platform SAS.
+ * Copyright (C) 2003-2016 eXo Platform SAS.
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as published by
@@ -46,6 +46,10 @@ import org.exoplatform.social.core.identity.provider.OrganizationIdentityProvide
 import org.exoplatform.social.core.manager.ActivityManager;
 import org.exoplatform.social.core.manager.IdentityManager;
 
+/**
+ * Created by The eXo Platform SAS Author : Boubaker Khanfir
+ * bkhanfir@exoplatform.com April 16, 2016
+ */
 public class MixinCleanerUpdaterTest extends BaseExoTestCase {
   private static final String    WS_NAME = "portal-test";
 
