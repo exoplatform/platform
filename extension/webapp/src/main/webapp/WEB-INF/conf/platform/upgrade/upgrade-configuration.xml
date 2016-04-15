@@ -17,6 +17,43 @@
 
    <external-component-plugins>
       <target-component>org.exoplatform.commons.upgrade.UpgradeProductService</target-component>
+	  <component-plugin>
+        <name>SocialMixinCleanerUpgradePlugin</name>
+        <set-method>addUpgradePlugin</set-method>
+        <type>org.exoplatform.platform.upgrade.plugins.MixinCleanerUpgradePlugin</type>
+        <description>eXo Social Nodes mixin cleaner</description>
+        <init-params>
+          <value-param>
+            <name>product.group.id</name>
+            <description>The groupId of the product</description>
+            <value>org.exoplatform.platform</value>
+          </value-param>
+          <value-param>
+            <name>workspace</name>
+            <description>The workspace name</description>
+            <value>social</value>
+          </value-param>
+          <value-param>
+            <name>path</name>
+            <description>Parent path of cleanup operation</description>
+            <value>/</value>
+          </value-param>
+          <values-param>
+            <name>mixins.to.clean</name>
+            <description>The workspace name</description>
+            <value>exo:sortable</value>
+            <value>exo:modify</value>
+            <value>exo:owneable</value>
+            <value>exo:datetime</value>
+          </values-param>
+          <values-param>
+            <name>mixins.clean.exception</name>
+            <description>The exceptional nodetypes that shouldn't be impacted by modification</description>
+            <value>exo:datetime;soc:spaceref</value>
+            <value>exo:modify;soc:spaceref</value>
+          </values-param>
+        </init-params>
+      </component-plugin>
       <component-plugin>
          <name>UpgradeProductInfoNodePlugin</name>
          <set-method>addUpgradePlugin</set-method>
