@@ -43,6 +43,8 @@ import org.exoplatform.container.xml.ValuesParam;
 import org.exoplatform.services.jcr.RepositoryService;
 import org.exoplatform.services.jcr.core.ManageableRepository;
 import org.exoplatform.services.jcr.ext.common.SessionProvider;
+import org.exoplatform.services.jcr.impl.core.NodeImpl;
+import org.exoplatform.services.jcr.impl.core.SessionImpl;
 import org.exoplatform.services.log.ExoLogger;
 import org.exoplatform.services.log.Log;
 import org.exoplatform.services.transaction.TransactionService;
@@ -55,13 +57,13 @@ public class MixinCleanerUpgradePlugin extends UpgradeProductPlugin {
 
   public static final String        DEFAULT_WORKSPACE_NAME         = "social";
 
-  private static final int          TRANSACTION_TIMEOUT_IN_SECONDS = 3600;
+  private static final int          TRANSACTION_TIMEOUT_IN_SECONDS = 86400;
 
   private static final String       PLUGIN_PROCEED_VERSION         = "4.3.0";
 
   private static final Log          log                            = ExoLogger.getLogger(MixinCleanerUpgradePlugin.class);
 
-  private static final int          FETCH_SIZE                     = 1000;
+  private static final int          NODES_IN_ONE_TRANSACTION       = 100;
 
   private final PortalContainer     portalContainer;
 
@@ -170,7 +172,7 @@ public class MixinCleanerUpgradePlugin extends UpgradeProductPlugin {
             }
             doMigration();
           }
-        }, MixinCleanerUpgradePlugin.class.getSimpleName()).start();
+        }, getName()).start();
       }
     });
   }
@@ -193,10 +195,10 @@ public class MixinCleanerUpgradePlugin extends UpgradeProductPlugin {
       // Get JCR Session
       ManageableRepository currentRepository = repositoryService.getCurrentRepository();
       session = SessionProvider.createSystemProvider().getSession(workspaceName, currentRepository);
+      ((SessionImpl) session).setTimeout(TRANSACTION_TIMEOUT_IN_SECONDS);
 
       // Begin transaction
       UserTransaction transaction = beginTransaction();
-
       if (!session.itemExists(jcrPath)) {
         throw new IllegalStateException("Cannot procced to upgrade, because doesn't exist in path " + workspaceName + ":"
             + jcrPath + "'");
@@ -205,20 +207,19 @@ public class MixinCleanerUpgradePlugin extends UpgradeProductPlugin {
       transaction = cleanUpChildreNodes(parentNode, session, transaction);
       session.save();
       transaction.commit();
+      log.info("Migration finished, proceeded nodes count = {}", totalCount);
     } catch (Exception e) {
-      log.error(e);
+      log.error("Migration interrupted because of the following error", e);
     } finally {
       if (session != null) {
         session.logout();
       }
     }
-    log.info("Migration finished, proceeded nodes count = {}", totalCount);
-
     upgradeFinished = true;
   }
 
   private UserTransaction cleanUpChildreNodes(Node parentNode, Session session, UserTransaction transaction) throws Exception {
-    NodeIterator nodeIterator = parentNode.getNodes();
+    NodeIterator nodeIterator = ((NodeImpl) parentNode).getNodesLazily(1);
     while (nodeIterator.hasNext()) {
       try {
         Node node = nodeIterator.nextNode();
@@ -254,7 +255,7 @@ public class MixinCleanerUpgradePlugin extends UpgradeProductPlugin {
             node.refresh(false);
           }
         }
-        if (totalCount.get() > 0 && totalCount.get() % FETCH_SIZE == 0) {
+        if (totalCount.get() > 0 && totalCount.get() % NODES_IN_ONE_TRANSACTION == 0) {
           session.save();
           transaction.commit();
           log.info("Migration in progress, proceeded nodes count = {}", totalCount);
@@ -264,6 +265,9 @@ public class MixinCleanerUpgradePlugin extends UpgradeProductPlugin {
         transaction = cleanUpChildreNodes(node, session, transaction);
       } catch (Exception e) {
         transaction.rollback();
+        long canceledNodes = totalCount.get() % NODES_IN_ONE_TRANSACTION;
+        log.error("Rollback '" + canceledNodes + "'  cleaned nodes", e);
+        totalCount.set(totalCount.get() - canceledNodes);
         transaction = beginTransaction();
       }
     }
