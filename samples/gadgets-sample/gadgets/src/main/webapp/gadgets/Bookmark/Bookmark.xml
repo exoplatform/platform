@@ -27,6 +27,8 @@
     <Locale lang="fi" messages="locale/fi.xml"/>
     <Locale lang="nl" messages="locale/nl.xml"/>
     <Locale lang="sl" messages="locale/sl.xml"/>
+    <Locale lang="he" messages="locale/he.xml"/>
+    <Locale lang="hu" messages="locale/hu.xml"/>
     <Require feature="dynamic-height"/>
   </ModulePrefs>
   
