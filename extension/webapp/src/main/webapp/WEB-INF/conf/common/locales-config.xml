@@ -217,5 +217,12 @@
     <description>Default configuration for the Hebrew locale</description>
   </locale-config>
 
+  <locale-config>
+    <locale>hu</locale>
+    <output-encoding>UTF-8</output-encoding>
+    <input-encoding>UTF-8</input-encoding>
+    <description>Default configuration for the Hungarian locale</description>
+  </locale-config>
+
 </locales-config>
 
