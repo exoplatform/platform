@@ -11,6 +11,7 @@ import javax.jcr.Node;
 import javax.jcr.Session;
 
 import org.exoplatform.commons.upgrade.UpgradeProductPlugin;
+import org.exoplatform.commons.version.util.VersionComparator;
 import org.exoplatform.container.configuration.ConfigurationManager;
 import org.exoplatform.container.xml.Component;
 import org.exoplatform.container.xml.ComponentPlugin;
@@ -32,20 +33,28 @@ import org.exoplatform.services.log.ExoLogger;
 import org.exoplatform.services.log.Log;
 
 public class UpgradeNodeTypesTemplatesService extends UpgradeProductPlugin {
-  private static final Log LOG = ExoLogger.getLogger(UpgradeNodeTypesTemplatesService.class);
+  private static final Log     LOG                  = ExoLogger.getLogger(UpgradeNodeTypesTemplatesService.class);
 
-  private TemplateService templateService = null;
+  private TemplateService      templateService      = null;
+
   private ConfigurationManager configurationManager = null;
-  private RepositoryService repositoryService = null;
-  private DMSConfiguration dmsConfiguration = null;
-  private String cmsTemplatesBasePath = null;
-  private List<String> pluginNamesList = new ArrayList<String>();
 
-  private String oldVersion;
+  private RepositoryService    repositoryService    = null;
 
-  public UpgradeNodeTypesTemplatesService(RepositoryService repositoryService, NodeHierarchyCreator nodeHierarchyCreator,
-      DMSConfiguration dmsConfiguration, TemplateService templateService, ConfigurationManager configurationManager,
-      InitParams initParams) {
+  private DMSConfiguration     dmsConfiguration     = null;
+
+  private String               cmsTemplatesBasePath = null;
+
+  private List<String>         pluginNamesList      = new ArrayList<String>();
+
+  private String               oldVersion;
+
+  public UpgradeNodeTypesTemplatesService(RepositoryService repositoryService,
+                                          NodeHierarchyCreator nodeHierarchyCreator,
+                                          DMSConfiguration dmsConfiguration,
+                                          TemplateService templateService,
+                                          ConfigurationManager configurationManager,
+                                          InitParams initParams) {
     super(initParams);
     this.templateService = templateService;
     this.configurationManager = configurationManager;
@@ -65,6 +74,7 @@ public class UpgradeNodeTypesTemplatesService extends UpgradeProductPlugin {
     }
   }
 
+  @Override
   public void processUpgrade(String oldVersion, String newVersion) {
     try {
       this.oldVersion = oldVersion;
@@ -72,8 +82,8 @@ public class UpgradeNodeTypesTemplatesService extends UpgradeProductPlugin {
       // Begin: Get all TemplateService declared componentPlugins
 
       // Get ExternalComponentPlugins
-      ExternalComponentPlugins externalComponentPlugins = configurationManager.getConfiguration().getExternalComponentPlugins(
-          TemplateService.class.getName());
+      ExternalComponentPlugins externalComponentPlugins = configurationManager.getConfiguration()
+                                                                              .getExternalComponentPlugins(TemplateService.class.getName());
       List<ComponentPlugin> componentPlugins = new ArrayList<ComponentPlugin>();
       if (externalComponentPlugins != null && externalComponentPlugins.getComponentPlugins() != null) {
         LOG.info("add Template Services externalComponentPlugins");
@@ -117,7 +127,8 @@ public class UpgradeNodeTypesTemplatesService extends UpgradeProductPlugin {
         }
         // End: Read ComponentPlugin's initParams
 
-        if (autoCreateInNewRepository) { // if templates are defined in multiple repositories
+        if (autoCreateInNewRepository) { // if templates are defined in multiple
+                                         // repositories
           LOG.info("templates are defined in multiple repositories, upgrade in all repos");
           List<RepositoryEntry> repositories = repositoryService.getConfig().getRepositoryConfigurations();
           for (RepositoryEntry repo : repositories) {
@@ -127,7 +138,8 @@ public class UpgradeNodeTypesTemplatesService extends UpgradeProductPlugin {
         } else { // if templates are defined in a single repository
           ValueParam valueParam = initParams.getValueParam("repository");
           String repository = valueParam != null ? valueParam.getValue() : repositoryService.getCurrentRepository()
-              .getConfiguration().getName();
+                                                                                            .getConfiguration()
+                                                                                            .getName();
           LOG.info("upgrade templates in '" + repository + "' repository");
           upgradePredefinedTemplates(repository, templatesConfig, storedLocation);
         }
@@ -139,8 +151,7 @@ public class UpgradeNodeTypesTemplatesService extends UpgradeProductPlugin {
     }
   }
 
-  private void upgradePredefinedTemplates(String repositoryName, List<TemplateConfig> templatesConfig, String storedLocation)
-      throws Exception {
+  private void upgradePredefinedTemplates(String repositoryName, List<TemplateConfig> templatesConfig, String storedLocation) throws Exception {
     // Begin: Get system session on dms-system workspace
     ManageableRepository repository = repositoryService.getRepository(repositoryName);
     DMSRepositoryConfiguration dmsRepoConfig = dmsConfiguration.getConfig();
@@ -181,14 +192,17 @@ public class UpgradeNodeTypesTemplatesService extends UpgradeProductPlugin {
     session.logout();
   }
 
-  private void updateTemplateContent(String basePath, TemplateConfig.NodeType nodeType, List templates, String templateType,
-      Node templatesHome) throws Exception {
+  private void updateTemplateContent(String basePath,
+                                     TemplateConfig.NodeType nodeType,
+                                     List templates,
+                                     String templateType,
+                                     Node templatesHome) throws Exception {
     for (Iterator iterator = templates.iterator(); iterator.hasNext();) {
       TemplateConfig.Template template = (TemplateConfig.Template) iterator.next();
       String templateFileName = template.getTemplateFile();
       InputStream in = configurationManager.getInputStream(basePath + templateFileName);
       String templateNodeName = templateFileName.substring(templateFileName.lastIndexOf("/") + 1,
-          templateFileName.lastIndexOf("."));
+                                                           templateFileName.lastIndexOf("."));
       if (!templatesHome.hasNode(nodeType.getNodetypeName())) {
         continue;
       }
@@ -201,8 +215,14 @@ public class UpgradeNodeTypesTemplatesService extends UpgradeProductPlugin {
         super.addNodeVersion(templateNode, oldVersion);
 
         // Update the template content by the new one
-        templateService.addTemplate(templateType, nodeType.getNodetypeName(), nodeType.getLabel(),
-            nodeType.getDocumentTemplate(), templateNodeName, template.getParsedRoles(), in, templatesHome);
+        templateService.addTemplate(templateType,
+                                    nodeType.getNodetypeName(),
+                                    nodeType.getLabel(),
+                                    nodeType.getDocumentTemplate(),
+                                    templateNodeName,
+                                    template.getParsedRoles(),
+                                    in,
+                                    templatesHome);
       } else {
         throw new IllegalStateException("Template for :" + templateNodeName + "not found");
       }
@@ -212,8 +232,9 @@ public class UpgradeNodeTypesTemplatesService extends UpgradeProductPlugin {
   /**
    * {@inheritDoc}
    */
+  @Override
   public boolean shouldProceedToUpgrade(String previousVersion, String newVersion) {
-    return true;
+    return VersionComparator.isAfter(newVersion, previousVersion);
   }
 
 }

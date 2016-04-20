@@ -20,19 +20,18 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.concurrent.atomic.AtomicLong;
 
 import javax.jcr.Node;
 import javax.jcr.NodeIterator;
 import javax.jcr.RepositoryException;
 import javax.jcr.Session;
 import javax.servlet.ServletContext;
-import javax.transaction.NotSupportedException;
-import javax.transaction.SystemException;
 import javax.transaction.UserTransaction;
 
 import org.apache.commons.lang.StringUtils;
 
+import org.exoplatform.commons.api.settings.SettingService;
+import org.exoplatform.commons.chromattic.ChromatticManager;
 import org.exoplatform.commons.upgrade.UpgradeProductPlugin;
 import org.exoplatform.commons.version.util.VersionComparator;
 import org.exoplatform.container.PortalContainer;
@@ -57,11 +56,11 @@ public class MixinCleanerUpgradePlugin extends UpgradeProductPlugin {
 
   public static final String        DEFAULT_WORKSPACE_NAME         = "social";
 
+  public static final int           UPDATE_LAST_NODE_FREQ          = 1000;
+
   private static final int          TRANSACTION_TIMEOUT_IN_SECONDS = 86400;
 
-  private static final String       PLUGIN_PROCEED_VERSION         = "4.3.0";
-
-  private static final Log          log                            = ExoLogger.getLogger(MixinCleanerUpgradePlugin.class);
+  private static final Log          LOG                            = ExoLogger.getLogger(MixinCleanerUpgradePlugin.class);
 
   private static final int          NODES_IN_ONE_TRANSACTION       = 100;
 
@@ -73,13 +72,19 @@ public class MixinCleanerUpgradePlugin extends UpgradeProductPlugin {
 
   private String                    workspaceName;
 
-  private AtomicLong                totalCount                     = new AtomicLong(0);
+  private long                      totalCount                     = 0;
 
   private Map<String, List<String>> mixinNames                     = null;
 
-  private String                    jcrPath;
+  private String                    jcrRootPath;
+
+  private long                      maxTreatedNodes                = 0;
 
   private boolean                   upgradeFinished                = false;
+
+  private String                    pluginNameAndVersion;
+
+  private String                    lastUpdatedPath;
 
   /**
    * @param portalContainer
@@ -91,8 +96,10 @@ public class MixinCleanerUpgradePlugin extends UpgradeProductPlugin {
   public MixinCleanerUpgradePlugin(PortalContainer portalContainer,
                                    RepositoryService repositoryService,
                                    TransactionService txService,
+                                   SettingService settingService,
+                                   ChromatticManager chromatticManager,
                                    InitParams initParams) {
-    super(initParams);
+    super(settingService, chromatticManager, initParams);
     this.repositoryService = repositoryService;
     this.txService = txService;
     this.portalContainer = portalContainer;
@@ -105,11 +112,13 @@ public class MixinCleanerUpgradePlugin extends UpgradeProductPlugin {
     }
     ValueParam pathParam = initParams.getValueParam("path");
     if (pathParam != null) {
-      jcrPath = pathParam.getValue();
+      jcrRootPath = pathParam.getValue();
     }
-    if (StringUtils.isBlank(jcrPath)) {
-      jcrPath = "/";
+    if (StringUtils.isBlank(jcrRootPath)) {
+      jcrRootPath = "/";
     }
+    lastUpdatedPath = jcrRootPath;
+
     ValuesParam mixinsValueParam = initParams.getValuesParam("mixins.to.clean");
     if (mixinsValueParam != null) {
       List<String> mixins = mixinsValueParam.getValues();
@@ -118,6 +127,17 @@ public class MixinCleanerUpgradePlugin extends UpgradeProductPlugin {
         if (!StringUtils.isBlank(mixin)) {
           mixinNames.put(mixin, null);
         }
+      }
+    }
+    ValueParam maxNodesParam = initParams.getValueParam("max.nodes.to.treat");
+    if (maxNodesParam != null) {
+      try {
+        maxTreatedNodes = Long.parseLong(maxNodesParam.getValue());
+        if (maxTreatedNodes < 0) {
+          throw new IllegalArgumentException("'maxTreatedNodes' parameter should be a positive integer.");
+        }
+      } catch (Exception e) {
+        LOG.error("Parameter '" + maxNodesParam.getName() + "' is not a valid number.", e);
       }
     }
     ValuesParam mixinsExceptionsValueParam = initParams.getValuesParam("mixins.clean.exception");
@@ -148,15 +168,22 @@ public class MixinCleanerUpgradePlugin extends UpgradeProductPlugin {
    *         return false
    */
   @Override
-  public boolean shouldProceedToUpgrade(String newVersion, String previousVersion) {
-    return VersionComparator.isAfter(newVersion, PLUGIN_PROCEED_VERSION);
+  public boolean shouldProceedToUpgrade(String newVersion, String oldVersion) {
+    String pluginNameAndVersion = newVersion + ".status";
+    String migrationStatus = getValue(pluginNameAndVersion);
+
+    return VersionComparator.isAfter(newVersion, oldVersion)
+        && (migrationStatus == null || !migrationStatus.equals(UPGRADE_COMPLETED_STATUS));
   }
 
   /**
    * {@inheritDoc}
    */
   @Override
-  public void processUpgrade(String oldVersion, String newVersion) {
+  public void processUpgrade(final String oldVersion, final String newVersion) {
+    pluginNameAndVersion = newVersion + ".status";
+    storeValueForPlugin(pluginNameAndVersion, jcrRootPath);
+
     PortalContainer.addInitTask(portalContainer.getPortalContext(), new PortalContainerPostInitTask() {
       @Override
       public void execute(ServletContext context, PortalContainer portalContainer) {
@@ -164,12 +191,6 @@ public class MixinCleanerUpgradePlugin extends UpgradeProductPlugin {
         new Thread(new Runnable() {
           @Override
           public void run() {
-            // Wait for 10 seconds until the server is fully started.
-            try {
-              Thread.sleep(10000);
-            } catch (InterruptedException e) {
-              // Nothing to do
-            }
             doMigration();
           }
         }, getName()).start();
@@ -184,13 +205,18 @@ public class MixinCleanerUpgradePlugin extends UpgradeProductPlugin {
     return upgradeFinished;
   }
 
+  public long getTotalCount() {
+    return totalCount;
+  }
+
   private void doMigration() {
-    log.info("Start migration");
+    LOG.info("Start migration, workspace = {}, root path = {}, maxNodes = {}", workspaceName, jcrRootPath, maxTreatedNodes);
 
     // Initialize counter
-    totalCount.set(0);
+    totalCount = 0;
 
     Session session = null;
+    UserTransaction transaction = null;
     try {
       // Get JCR Session
       ManageableRepository currentRepository = repositoryService.getCurrentRepository();
@@ -198,83 +224,128 @@ public class MixinCleanerUpgradePlugin extends UpgradeProductPlugin {
       ((SessionImpl) session).setTimeout(TRANSACTION_TIMEOUT_IN_SECONDS);
 
       // Begin transaction
-      UserTransaction transaction = beginTransaction();
-      if (!session.itemExists(jcrPath)) {
-        throw new IllegalStateException("Cannot procced to upgrade, because doesn't exist in path " + workspaceName + ":"
-            + jcrPath + "'");
+      transaction = beginTransaction();
+      if (!session.itemExists(jcrRootPath)) {
+        throw new IllegalStateException("Cannot procced to upgrade, path doesn't exist:" + workspaceName + ":" + jcrRootPath);
       }
-      Node parentNode = (Node) session.getItem(jcrPath);
-      transaction = cleanUpChildreNodes(parentNode, session, transaction);
+      Node parentNode = (Node) session.getItem(jcrRootPath);
+
+      transaction = cleanChildrenNodes(parentNode, session, transaction);
       session.save();
       transaction.commit();
-      log.info("Migration finished, proceeded nodes count = {}", totalCount);
+
+      if (maxTreatedNodes > 0 && totalCount == maxTreatedNodes) {
+        storeValueForPlugin(pluginNameAndVersion, lastUpdatedPath);
+      } else {
+        storeValueForPlugin(pluginNameAndVersion, UPGRADE_COMPLETED_STATUS);
+      }
+
+      LOG.info("Migration finished, proceeded nodes count = {}", totalCount);
     } catch (Exception e) {
-      log.error("Migration interrupted because of the following error", e);
+      LOG.error("Migration interrupted because of the following error", e);
+      try {
+        session.refresh(false);
+        transaction.rollback();
+      } catch (Exception e1) {
+        LOG.error("Error while rolling back transaction", e);
+      }
     } finally {
+      upgradeFinished = true;
       if (session != null) {
         session.logout();
       }
     }
-    upgradeFinished = true;
   }
 
-  private UserTransaction cleanUpChildreNodes(Node parentNode, Session session, UserTransaction transaction) throws Exception {
+  private UserTransaction cleanChildrenNodes(Node parentNode, Session session, UserTransaction transaction) throws Exception {
     NodeIterator nodeIterator = ((NodeImpl) parentNode).getNodesLazily(1);
-    while (nodeIterator.hasNext()) {
+    while (nodeIterator.hasNext() && (maxTreatedNodes == 0 || totalCount < maxTreatedNodes)) {
+      Node node = nodeIterator.nextNode();
+      boolean proceeded = false;
       try {
-        Node node = nodeIterator.nextNode();
         try {
-          boolean proceeded = false;
-
-          // Remove all mixins from nodes
-          for (String mixinName : mixinNames.keySet()) {
-            if (!node.isNodeType(mixinName)) {
-              continue;
-            }
-            // Ignore deletion of 'exo:datetime' and 'exo:modify' from
-            // nodes of type 'soc:spaceref'
-            // Those mixins are used to sort spaces by access time
-            if (isNodeType(node, mixinNames.get(mixinName))) {
-              log.debug("Ignore id: '{}', nodetype = '{}', remove mixin '{}'", node.getPath(), node.getPrimaryNodeType()
-                                                                                                   .getName(), mixinName);
-            } else {
-              log.debug("Proceed path: '{}', nodetype = '{}', remove mixin '{}'", node.getPath(), node.getPrimaryNodeType()
-                                                                                                      .getName(), mixinName);
-              node.removeMixin(mixinName);
-              node.save();
-              proceeded = true;
-            }
-          }
-          if (proceeded) {
-            totalCount.incrementAndGet();
-          }
+          proceeded = cleanSingleNodeMixins(node);
         } catch (Exception e) {
-          log.warn("Error updating node "
-              + (node == null ? "" : " with path " + node.getPath() + ", nodetype = " + node.getPrimaryNodeType().getName()), e);
           if (node != null) {
             node.refresh(false);
           }
+          throw e;
         }
-        if (totalCount.get() > 0 && totalCount.get() % NODES_IN_ONE_TRANSACTION == 0) {
-          session.save();
-          transaction.commit();
-          log.info("Migration in progress, proceeded nodes count = {}", totalCount);
-
-          transaction = beginTransaction();
+        // Commit transaction for each 100 cleaned nodes
+        if (proceeded && totalCount > 0 && totalCount % NODES_IN_ONE_TRANSACTION == 0) {
+          transaction = commitTransaction(node, session, transaction);
         }
-        transaction = cleanUpChildreNodes(node, session, transaction);
+        // Cleanup children nodes
+        transaction = cleanChildrenNodes(node, session, transaction);
       } catch (Exception e) {
+        // Rollback transation and decrease the proceeded nodes count
+        long canceledNodes = totalCount % NODES_IN_ONE_TRANSACTION;
+        LOG.error("Rollback '" + canceledNodes + "'  cleaned nodes", e);
+
+        session.refresh(false);
         transaction.rollback();
-        long canceledNodes = totalCount.get() % NODES_IN_ONE_TRANSACTION;
-        log.error("Rollback '" + canceledNodes + "'  cleaned nodes", e);
-        totalCount.set(totalCount.get() - canceledNodes);
+        totalCount -= canceledNodes;
+
+        // Restart transaction
         transaction = beginTransaction();
       }
     }
     return transaction;
   }
 
-  private boolean isNodeType(Node node, List<String> exceptionalNodeTypes) throws RepositoryException {
+  private UserTransaction commitTransaction(Node node, Session session, UserTransaction transaction) throws Exception {
+    // Commit mixin cleanup transaction
+    session.save();
+    transaction.commit();
+    if (totalCount > 0 && totalCount % UPDATE_LAST_NODE_FREQ == 0) {
+      // Store last updated node path each 1000 treated node
+      storeValueForPlugin(pluginNameAndVersion, node.getPath());
+    }
+    LOG.info("Migration in progress, proceeded nodes count = {}", totalCount);
+    transaction = beginTransaction();
+    return transaction;
+  }
+
+  private boolean cleanSingleNodeMixins(Node node) throws Exception {
+    boolean proceeded = false;
+
+    // Remove all mixins from nodes
+    for (String mixinName : mixinNames.keySet()) {
+      if (!node.isNodeType(mixinName)) {
+        continue;
+      }
+      // Ignore deletion of mixins on exceptional node types (specified by
+      // init-param)
+      if (isExceptionalNodeType(node, mixinNames.get(mixinName))) {
+        if (LOG.isDebugEnabled()) {
+          LOG.debug("Ignore node: '{}', nodetype = '{}', remove mixin '{}'",
+                    node.getPath(),
+                    node.getPrimaryNodeType().getName(),
+                    mixinName);
+        }
+      } else {
+        if (LOG.isDebugEnabled()) {
+          LOG.debug("Proceed node: '{}', nodetype = '{}', remove mixin '{}'",
+                    node.getPath(),
+                    node.getPrimaryNodeType().getName(),
+                    mixinName);
+        }
+        node.removeMixin(mixinName);
+        node.save();
+        lastUpdatedPath = node.getPath();
+        proceeded = true;
+      }
+    }
+    if (proceeded) {
+      if (LOG.isDebugEnabled()) {
+        LOG.debug("Proceeded node: '{}', nodetype = '{}'", node.getPath(), node.getPrimaryNodeType().getName());
+      }
+      totalCount++;
+    }
+    return proceeded;
+  }
+
+  private boolean isExceptionalNodeType(Node node, List<String> exceptionalNodeTypes) throws RepositoryException {
     if (exceptionalNodeTypes == null) {
       return false;
     }
@@ -286,7 +357,7 @@ public class MixinCleanerUpgradePlugin extends UpgradeProductPlugin {
     return false;
   }
 
-  private UserTransaction beginTransaction() throws SystemException, NotSupportedException {
+  private UserTransaction beginTransaction() throws Exception {
     UserTransaction transaction;
     transaction = txService.getUserTransaction();
     transaction.setTransactionTimeout(TRANSACTION_TIMEOUT_IN_SECONDS);

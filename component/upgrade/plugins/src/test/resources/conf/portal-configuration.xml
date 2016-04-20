@@ -26,4 +26,5 @@
     <import>classpath:/conf/portal/exo.social.test.portal-configuration.xml</import>
     <import>classpath:/conf/portal/exo.social.test.jcr-configuration.xml</import>
     <import>classpath:/conf/portal/exo.social.test.configuration.xml</import>
+    <import>classpath:/conf/portal/commons-configuration.xml</import>
 </configuration>

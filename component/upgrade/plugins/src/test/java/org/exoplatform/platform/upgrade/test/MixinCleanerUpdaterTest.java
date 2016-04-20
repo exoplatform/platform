@@ -22,14 +22,18 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Set;
 
+import javax.jcr.Node;
 import javax.jcr.NodeIterator;
 import javax.jcr.RepositoryException;
 import javax.jcr.Session;
 import javax.jcr.query.InvalidQueryException;
 import javax.jcr.query.Query;
 
+import org.exoplatform.commons.api.settings.SettingService;
+import org.exoplatform.commons.chromattic.ChromatticManager;
 import org.exoplatform.commons.testing.BaseExoTestCase;
 import org.exoplatform.container.PortalContainer;
+import org.exoplatform.container.component.RequestLifeCycle;
 import org.exoplatform.container.xml.InitParams;
 import org.exoplatform.container.xml.ValueParam;
 import org.exoplatform.container.xml.ValuesParam;
@@ -51,9 +55,13 @@ import org.exoplatform.social.core.manager.IdentityManager;
  * bkhanfir@exoplatform.com April 16, 2016
  */
 public class MixinCleanerUpdaterTest extends BaseExoTestCase {
-  private static final String    WS_NAME = "portal-test";
+  private static final String    OLD_VERSION = "1.0";
 
-  private final Log              LOG     = ExoLogger.getLogger(MixinCleanerUpdaterTest.class);
+  private static final String    NEW_VERSION = "1.1";
+
+  private static final String    WS_NAME     = "portal-test";
+
+  private final Log              LOG         = ExoLogger.getLogger(MixinCleanerUpdaterTest.class);
 
   private Set<ExoSocialActivity> tearDownActivityList;
 
@@ -67,6 +75,10 @@ public class MixinCleanerUpdaterTest extends BaseExoTestCase {
 
   private TransactionService     transactionService;
 
+  private SettingService         settingService;
+
+  private ChromatticManager      chromatticManager;
+
   protected Session              session;
 
   @Override
@@ -76,54 +88,121 @@ public class MixinCleanerUpdaterTest extends BaseExoTestCase {
     activityManager = getContainer().getComponentInstanceOfType(ActivityManager.class);
     repositoryService = getContainer().getComponentInstanceOfType(RepositoryService.class);
     transactionService = getContainer().getComponentInstanceOfType(TransactionService.class);
-
-    session = getSession();
+    settingService = getContainer().getComponentInstanceOfType(SettingService.class);
+    chromatticManager = getContainer().getComponentInstanceOfType(ChromatticManager.class);
 
     tearDownActivityList = new HashSet<ExoSocialActivity>();
     tearDownIdentityList = new HashSet<Identity>();
 
-    createActivity("root");
-    createActivity("john");
-    createActivity("mary");
-    createActivity("demo");
-    createActivity("ghost");
-    createActivity("raul");
-    createActivity("jame");
-    createActivity("paul");
+    for (int i = 0; i < 5; i++) {
+      RequestLifeCycle.begin(PortalContainer.getInstance());
+      try {
+        createActivity("jame");
+        createActivity("paul");
+        createActivity("root");
+        createActivity("john");
+        createActivity("mary");
+        createActivity("demo");
+        createActivity("ghost");
+        createActivity("raul");
+      } finally {
+        RequestLifeCycle.end();
+      }
+    }
+
+    session = getSession();
   }
 
   public void testUpgrade() throws Exception {
     assertEquals("Used workspace is different", session.getWorkspace().getName(), WS_NAME);
 
     // Get the number of nodes that wasn't updated
-    NodeIterator nodeIterator = getQueryResult("select * from soc:profiledefinition");
+    NodeIterator nodeIterator = getQueryResult("select * from soc:profiledefinition", Query.SQL);
     // exceptional nodes = (soc:profiledefinition COUNT)
     long exceptionalNodesCount = nodeIterator.getSize();
     LOG.info("Nodes of type soc:profiledefinition = {}", nodeIterator.getSize());
 
     // Get nodes count with mixin exo:sortable
-    nodeIterator = getQueryResult("select * from exo:sortable");
+    nodeIterator = getQueryResult("select * from exo:sortable", Query.SQL);
     assertTrue("No nodes was found with mixin exo:sortable", nodeIterator.getSize() > exceptionalNodesCount);
+    long mixinNodesCount = nodeIterator.getSize() - exceptionalNodesCount;
 
-    LOG.info("Cleanup '{}' social nodes.", nodeIterator.getSize());
+    LOG.info("Cleanup '{}' social nodes.", nodeIterator.getSize() - exceptionalNodesCount);
+    String pluginName = "SocialMixinCleanerUpgradePlugin";
+
     MixinCleanerUpgradePlugin socialMixinCleanerUpgradePlugin = new MixinCleanerUpgradePlugin(PortalContainer.getInstance(),
                                                                                               repositoryService,
                                                                                               transactionService,
-                                                                                              setInitParams());
-    socialMixinCleanerUpgradePlugin.processUpgrade(null, null);
+                                                                                              settingService,
+                                                                                              chromatticManager,
+                                                                                              setInitParams(100));
+
+    socialMixinCleanerUpgradePlugin.setName(pluginName);
+    socialMixinCleanerUpgradePlugin.processUpgrade(OLD_VERSION, NEW_VERSION);
+
+    assertTrue("Should process to upgrade is 'False'",
+               socialMixinCleanerUpgradePlugin.shouldProceedToUpgrade(NEW_VERSION, OLD_VERSION));
 
     // Wait until the upgrade is asynchronously finished
     while (!socialMixinCleanerUpgradePlugin.isUpgradeFinished()) {
       Thread.sleep(1000);
     }
 
-    // Get the nodes with mixin count, after clean up
-    nodeIterator = getQueryResult("select * from exo:sortable");
-    LOG.info("Not cleaned up social nodes: '{}'.", nodeIterator.getSize());
+    assertEquals("The number of treated nodes is not as expected", socialMixinCleanerUpgradePlugin.getTotalCount(), 100);
+    mixinNodesCount -= 100;
+
+    String migrationStatus = socialMixinCleanerUpgradePlugin.getValue(NEW_VERSION + ".status");
+    assertTrue("Migration status is not coherent: " + migrationStatus,
+               migrationStatus != null && !migrationStatus.equals(MixinCleanerUpgradePlugin.UPGRADE_COMPLETED_STATUS));
+
+    socialMixinCleanerUpgradePlugin = new MixinCleanerUpgradePlugin(PortalContainer.getInstance(),
+                                                                    repositoryService,
+                                                                    transactionService,
+                                                                    settingService,
+                                                                    chromatticManager,
+                                                                    setInitParams(0));
+    socialMixinCleanerUpgradePlugin.setName(pluginName);
+
+    assertTrue("Should process to upgrade is 'False'",
+               socialMixinCleanerUpgradePlugin.shouldProceedToUpgrade(NEW_VERSION, OLD_VERSION));
+
+    socialMixinCleanerUpgradePlugin.processUpgrade(OLD_VERSION, NEW_VERSION);
+
+    // Wait until the upgrade is asynchronously finished
+    while (!socialMixinCleanerUpgradePlugin.isUpgradeFinished()) {
+      Thread.sleep(1000);
+    }
+
+    // Get nodes of type exo:sortable count again
+    nodeIterator = getQueryResult("select * from exo:sortable", Query.SQL);
+    long nodesCount = nodeIterator.getSize();
+    // FIXME: workaround JCR-2443
+    if (nodeIterator.getSize() != exceptionalNodesCount) {
+      while (nodeIterator.hasNext()) {
+        Node node = nodeIterator.nextNode();
+        if (!node.isNodeType("exo:sortable")) {
+          // LOG.warn("Bug JCR-2443 happened on node '{}', node type '{}'.",
+          // node.getPath(), node.getPrimaryNodeType().getName());
+          nodesCount--;
+        }
+      }
+    }
+    nodeIterator = getQueryResult("select * from exo:sortable", Query.SQL);
+    // FIXME: workaround JCR-2443
+    if (nodeIterator.getSize() != exceptionalNodesCount) {
+      while (nodeIterator.hasNext()) {
+        Node node = nodeIterator.nextNode();
+        if (node.isNodeType("exo:sortable") && !node.isNodeType("soc:profiledefinition")) {
+          LOG.error("Node wasn't cleaned up '{}', node type '{}'.", node.getPath(), node.getPrimaryNodeType().getName());
+        }
+      }
+    }
 
     assertEquals("Social nodes wasn't cleaned up. It seems that there are some remaining nodes that uses exo:sortable",
-                 nodeIterator.getSize(),
-                 exceptionalNodesCount);
+                 exceptionalNodesCount,
+                 nodesCount);
+    assertTrue("Treated nodes are different from what was initially predicted",
+               mixinNodesCount <= socialMixinCleanerUpgradePlugin.getTotalCount());
   }
 
   @Override
@@ -137,6 +216,7 @@ public class MixinCleanerUpdaterTest extends BaseExoTestCase {
     }
   }
 
+  @SuppressWarnings("deprecation")
   private void createActivity(String userId) {
     Identity identity = identityManager.getOrCreateIdentity(OrganizationIdentityProvider.NAME, userId, true);
     tearDownIdentityList.add(identity);
@@ -154,21 +234,26 @@ public class MixinCleanerUpdaterTest extends BaseExoTestCase {
     //
     activity.isHidden(false);
     activity.isLocked(true);
-    activityManager.saveActivityNoReturn(identity, activity);
+
+    activity = activityManager.saveActivity(identity, activity);
     tearDownActivityList.add(activity);
   }
 
-  private NodeIterator getQueryResult(String statement) throws InvalidQueryException, RepositoryException {
-    Query query = session.getWorkspace().getQueryManager().createQuery(statement, Query.SQL);
+  private NodeIterator getQueryResult(String statement, String type) throws InvalidQueryException, RepositoryException {
+    Query query = session.getWorkspace().getQueryManager().createQuery(statement, type);
     NodeIterator nodeIterator = query.execute().getNodes();
     return nodeIterator;
   }
 
-  private InitParams setInitParams() {
+  private InitParams setInitParams(long maxNodesToTreat) {
     InitParams initParams = new InitParams();
     ValueParam workspaceParam = new ValueParam();
     workspaceParam.setName("workspace");
     workspaceParam.setValue(WS_NAME);
+
+    ValueParam maxNodesToTreatParam = new ValueParam();
+    maxNodesToTreatParam.setName("max.nodes.to.treat");
+    maxNodesToTreatParam.setValue("" + maxNodesToTreat);
 
     ValueParam groupIdParam = new ValueParam();
     groupIdParam.setName("product.group.id");
@@ -183,6 +268,7 @@ public class MixinCleanerUpdaterTest extends BaseExoTestCase {
     mixinsExceptionParam.setValues(Collections.singletonList("exo:sortable;soc:profiledefinition"));
 
     initParams.addParam(workspaceParam);
+    initParams.addParam(maxNodesToTreatParam);
     initParams.addParam(groupIdParam);
     initParams.addParam(mixinsParam);
     initParams.addParam(mixinsExceptionParam);
