@@ -151,9 +151,8 @@ public class MixinCleanerUpdaterTest extends BaseExoTestCase {
     assertEquals("The number of treated nodes is not as expected", socialMixinCleanerUpgradePlugin.getTotalCount(), 100);
     mixinNodesCount -= 100;
 
-    String migrationStatus = socialMixinCleanerUpgradePlugin.getValue(NEW_VERSION + ".status");
-    assertTrue("Migration status is not coherent: " + migrationStatus,
-               migrationStatus != null && !migrationStatus.equals(MixinCleanerUpgradePlugin.UPGRADE_COMPLETED_STATUS));
+    String migrationStatus = socialMixinCleanerUpgradePlugin.getValue(MixinCleanerUpgradePlugin.MIGRATION_STATUS);
+    assertNotSame("Migration status is not coherent. ", migrationStatus, MixinCleanerUpgradePlugin.UPGRADE_COMPLETED_STATUS);
 
     socialMixinCleanerUpgradePlugin = new MixinCleanerUpgradePlugin(PortalContainer.getInstance(),
                                                                     repositoryService,
@@ -173,6 +172,9 @@ public class MixinCleanerUpdaterTest extends BaseExoTestCase {
       Thread.sleep(1000);
     }
 
+    migrationStatus = socialMixinCleanerUpgradePlugin.getValue(MixinCleanerUpgradePlugin.MIGRATION_STATUS);
+    assertEquals("Migration status is not coherent. ", migrationStatus, MixinCleanerUpgradePlugin.UPGRADE_COMPLETED_STATUS);
+
     // Get nodes of type exo:sortable count again
     nodeIterator = getQueryResult("select * from exo:sortable", Query.SQL);
     long nodesCount = nodeIterator.getSize();
@@ -187,6 +189,7 @@ public class MixinCleanerUpdaterTest extends BaseExoTestCase {
         }
       }
     }
+
     nodeIterator = getQueryResult("select * from exo:sortable", Query.SQL);
     // FIXME: workaround JCR-2443
     if (nodeIterator.getSize() != exceptionalNodesCount) {

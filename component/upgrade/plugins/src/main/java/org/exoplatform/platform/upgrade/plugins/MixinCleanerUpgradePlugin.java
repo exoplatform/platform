@@ -56,7 +56,7 @@ public class MixinCleanerUpgradePlugin extends UpgradeProductPlugin {
 
   public static final String        DEFAULT_WORKSPACE_NAME         = "social";
 
-  private static final String       MIGRATION_STATUS               = "migration.status";
+  public static final String        MIGRATION_STATUS               = "migration.status";
 
   public static final int           UPDATE_LAST_NODE_FREQ          = 1000;
 
