@@ -56,6 +56,8 @@ public class MixinCleanerUpgradePlugin extends UpgradeProductPlugin {
 
   public static final String        DEFAULT_WORKSPACE_NAME         = "social";
 
+  private static final String       MIGRATION_STATUS               = "migration.status";
+
   public static final int           UPDATE_LAST_NODE_FREQ          = 1000;
 
   private static final int          TRANSACTION_TIMEOUT_IN_SECONDS = 86400;
@@ -81,10 +83,6 @@ public class MixinCleanerUpgradePlugin extends UpgradeProductPlugin {
   private long                      maxTreatedNodes                = 0;
 
   private boolean                   upgradeFinished                = false;
-
-  private String                    pluginNameAndVersion;
-
-  private String                    lastUpdatedPath;
 
   /**
    * @param portalContainer
@@ -117,7 +115,6 @@ public class MixinCleanerUpgradePlugin extends UpgradeProductPlugin {
     if (StringUtils.isBlank(jcrRootPath)) {
       jcrRootPath = "/";
     }
-    lastUpdatedPath = jcrRootPath;
 
     ValuesParam mixinsValueParam = initParams.getValuesParam("mixins.to.clean");
     if (mixinsValueParam != null) {
@@ -169,8 +166,7 @@ public class MixinCleanerUpgradePlugin extends UpgradeProductPlugin {
    */
   @Override
   public boolean shouldProceedToUpgrade(String newVersion, String oldVersion) {
-    String pluginNameAndVersion = newVersion + ".status";
-    String migrationStatus = getValue(pluginNameAndVersion);
+    String migrationStatus = getValue(MIGRATION_STATUS);
 
     return VersionComparator.isAfter(newVersion, oldVersion)
         && (migrationStatus == null || !migrationStatus.equals(UPGRADE_COMPLETED_STATUS));
@@ -181,8 +177,7 @@ public class MixinCleanerUpgradePlugin extends UpgradeProductPlugin {
    */
   @Override
   public void processUpgrade(final String oldVersion, final String newVersion) {
-    pluginNameAndVersion = newVersion + ".status";
-    storeValueForPlugin(pluginNameAndVersion, jcrRootPath);
+    storeValueForPlugin(MIGRATION_STATUS, "0");
 
     PortalContainer.addInitTask(portalContainer.getPortalContext(), new PortalContainerPostInitTask() {
       @Override
@@ -235,9 +230,9 @@ public class MixinCleanerUpgradePlugin extends UpgradeProductPlugin {
       transaction.commit();
 
       if (maxTreatedNodes > 0 && totalCount == maxTreatedNodes) {
-        storeValueForPlugin(pluginNameAndVersion, lastUpdatedPath);
+        storeValueForPlugin(MIGRATION_STATUS, "" + totalCount);
       } else {
-        storeValueForPlugin(pluginNameAndVersion, UPGRADE_COMPLETED_STATUS);
+        storeValueForPlugin(MIGRATION_STATUS, UPGRADE_COMPLETED_STATUS);
       }
 
       LOG.info("Migration finished, proceeded nodes count = {}", totalCount);
@@ -299,7 +294,7 @@ public class MixinCleanerUpgradePlugin extends UpgradeProductPlugin {
     transaction.commit();
     if (totalCount > 0 && totalCount % UPDATE_LAST_NODE_FREQ == 0) {
       // Store last updated node path each 1000 treated node
-      storeValueForPlugin(pluginNameAndVersion, node.getPath());
+      storeValueForPlugin(MIGRATION_STATUS, "" + totalCount);
     }
     LOG.info("Migration in progress, proceeded nodes count = {}", totalCount);
     transaction = beginTransaction();
@@ -332,7 +327,6 @@ public class MixinCleanerUpgradePlugin extends UpgradeProductPlugin {
         }
         node.removeMixin(mixinName);
         node.save();
-        lastUpdatedPath = node.getPath();
         proceeded = true;
       }
     }
