@@ -255,7 +255,7 @@ public class MixinCleanerUpdaterTest extends BaseExoTestCase {
     workspaceParam.setValue(WS_NAME);
 
     ValueParam maxNodesToTreatParam = new ValueParam();
-    maxNodesToTreatParam.setName("max.nodes.to.treat");
+    maxNodesToTreatParam.setName("mixinsCleanup.maxNodes");
     maxNodesToTreatParam.setValue("" + maxNodesToTreat);
 
     ValueParam groupIdParam = new ValueParam();
@@ -263,11 +263,11 @@ public class MixinCleanerUpdaterTest extends BaseExoTestCase {
     groupIdParam.setValue("org.exoplatform.social");
 
     ValuesParam mixinsParam = new ValuesParam();
-    mixinsParam.setName("mixins.to.clean");
+    mixinsParam.setName("mixinsCleanup.includes");
     mixinsParam.setValues(Collections.singletonList("exo:sortable"));
 
     ValuesParam mixinsExceptionParam = new ValuesParam();
-    mixinsExceptionParam.setName("mixins.clean.exception");
+    mixinsExceptionParam.setName("mixinsCleanup.excludes");
     mixinsExceptionParam.setValues(Collections.singletonList("exo:sortable;soc:profiledefinition"));
 
     initParams.addParam(workspaceParam);

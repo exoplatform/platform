@@ -89,7 +89,7 @@ public class MixinCleanerUpgradePlugin extends UpgradeProductPlugin {
    * @param repositoryService
    * @param txService
    * @param initParams workspace: workspace on which the operation will start.
-   *          mixins.to.clean, mixins.clean.exception
+   *          mixinsCleanup.includes, mixinsCleanup.excludes
    */
   public MixinCleanerUpgradePlugin(PortalContainer portalContainer,
                                    RepositoryService repositoryService,
@@ -116,7 +116,7 @@ public class MixinCleanerUpgradePlugin extends UpgradeProductPlugin {
       jcrRootPath = "/";
     }
 
-    ValuesParam mixinsValueParam = initParams.getValuesParam("mixins.to.clean");
+    ValuesParam mixinsValueParam = initParams.getValuesParam("mixinsCleanup.includes");
     if (mixinsValueParam != null) {
       List<String> mixins = mixinsValueParam.getValues();
       mixinNames = new HashMap<String, List<String>>();
@@ -126,7 +126,7 @@ public class MixinCleanerUpgradePlugin extends UpgradeProductPlugin {
         }
       }
     }
-    ValueParam maxNodesParam = initParams.getValueParam("max.nodes.to.treat");
+    ValueParam maxNodesParam = initParams.getValueParam("mixinsCleanup.maxNodes");
     if (maxNodesParam != null) {
       try {
         maxTreatedNodes = Long.parseLong(maxNodesParam.getValue());
@@ -137,7 +137,7 @@ public class MixinCleanerUpgradePlugin extends UpgradeProductPlugin {
         LOG.error("Parameter '" + maxNodesParam.getName() + "' is not a valid number.", e);
       }
     }
-    ValuesParam mixinsExceptionsValueParam = initParams.getValuesParam("mixins.clean.exception");
+    ValuesParam mixinsExceptionsValueParam = initParams.getValuesParam("mixinsCleanup.excludes");
     if (mixinsExceptionsValueParam != null) {
       List<String> mixins = mixinsExceptionsValueParam.getValues();
       // Values with value pattern MIXIN_TYPE;EXCEPTIONAL_NODE_TYPE_NAME
@@ -168,7 +168,7 @@ public class MixinCleanerUpgradePlugin extends UpgradeProductPlugin {
   public boolean shouldProceedToUpgrade(String newVersion, String oldVersion) {
     String migrationStatus = getValue(MIGRATION_STATUS);
 
-    return VersionComparator.isAfter(newVersion, oldVersion)
+    return (VersionComparator.isAfter(newVersion, oldVersion) || VersionComparator.isSame(newVersion, oldVersion))
         && (migrationStatus == null || !migrationStatus.equals(UPGRADE_COMPLETED_STATUS));
   }
 
