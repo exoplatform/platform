@@ -17,7 +17,7 @@
 
    <external-component-plugins>
       <target-component>org.exoplatform.commons.upgrade.UpgradeProductService</target-component>
-	  <component-plugin>
+      <component-plugin>
         <name>SocialMixinCleanerUpgradePlugin</name>
         <set-method>addUpgradePlugin</set-method>
         <type>org.exoplatform.platform.upgrade.plugins.MixinCleanerUpgradePlugin</type>
