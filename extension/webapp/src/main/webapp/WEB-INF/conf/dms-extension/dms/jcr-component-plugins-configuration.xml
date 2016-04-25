@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<configuration
+   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xsi:schemaLocation="http://www.exoplatform.org/xml/ns/kernel_1_2.xsd http://www.exoplatform.org/xml/ns/kernel_1_2.xsd"
+   xmlns="http://www.exoplatform.org/xml/ns/kernel_1_2.xsd">
+
+  <component>
+  	<type>org.exoplatform.services.jcr.impl.ext.action.SessionActionCatalog</type>
+  </component>
+	
+  <external-component-plugins>
+  	<target-component>org.exoplatform.services.jcr.RepositoryService</target-component>
+		 <component-plugin>
+	    <name>add.namespaces</name>
+	    <set-method>addPlugin</set-method>
+	    <type>org.exoplatform.services.jcr.impl.AddNamespacesPlugin</type>
+	    <init-params>
+	      <properties-param>
+	        <name>namespaces</name>
+	        <property name="dc" value="http://purl.org/dc/elements/1.1/"/>
+					    <property name="metadata" value="http://www.exoplatform.com/jcr/metadata/1.1/"/>
+					    <property name="jos" value="http://www.exoplatform.com/jcr-services/organization-service/1.0/"/>
+	      </properties-param>
+	    </init-params>
+	  </component-plugin>
+	  <component-plugin>
+	    <name>add.nodeType</name>
+	    <set-method>addPlugin</set-method>
+	    <type>org.exoplatform.services.jcr.impl.AddNodeTypePlugin</type>
+	    <init-params>
+	      <values-param>
+	        <name>autoCreatedInNewRepository</name>
+	        <description>Node types configuration file</description>
+	        <value>war:/conf/dms-extension/dms/nodetypes-ecm.xml</value>
+	        <!--
+	        <value>war:/conf/dms/business-process-nodetypes.xml</value>
+	        -->
+	      </values-param>
+	    </init-params>
+	  </component-plugin>
+	</external-component-plugins>
+					
+  <external-component-plugins>
+    <target-component>org.exoplatform.services.jcr.impl.ext.action.SessionActionCatalog</target-component>    	 
+    <component-plugin>
+	    <name>addActions</name>
+	    <set-method>addPlugin</set-method>
+	    <type>org.exoplatform.services.jcr.impl.ext.action.AddActionsPlugin</type>
+	    <description>add actions plugin</description>
+	    <init-params>
+	      <object-param>
+	        <name>actions</name>
+	        <object type="org.exoplatform.services.jcr.impl.ext.action.AddActionsPlugin$ActionsConfig">
+	          <field  name="actions">
+	            <collection type="java.util.ArrayList">
+<!-- Uncomment this tag if you wish to enable audit in the entire workspace by default.
+                  <value>
+                    <object type="org.exoplatform.services.jcr.impl.ext.action.ActionConfiguration">
+                      <field  name="eventTypes"><string>addNode</string></field>
+                      <field name="path"><string>/</string></field>
+                      <field  name="isDeep"><boolean>true</boolean></field>
+                      <field name="actionClassName"><string>org.exoplatform.services.jcr.ext.audit.AddAuditableAction</string></field>
+                   </object>
+                  </value>
+-->
+	              <value>
+	                <object type="org.exoplatform.services.jcr.impl.ext.action.ActionConfiguration">
+	                  <field  name="eventTypes"><string>addProperty,changeProperty,removeProperty</string></field>
+	                  <field  name="path"><string>/</string></field>
+	                  <field  name="nodeTypes"><string>exo:auditable</string></field>
+	                  <field  name="isDeep"><boolean>true</boolean></field>
+	                  <field  name="actionClassName"><string>org.exoplatform.services.jcr.ext.audit.AuditAction</string></field>
+	                </object>
+	              </value>
+	              <value>
+	                <object type="org.exoplatform.services.jcr.impl.ext.action.ActionConfiguration">
+	                  <field  name="eventTypes"><string>addMixin</string></field>
+	                  <field  name="path"><string>/</string></field>
+	                  <field  name="nodeTypes"><string>exo:auditable</string></field>
+	                  <field  name="isDeep"><boolean>false</boolean></field>
+	                  <field  name="actionClassName"><string>org.exoplatform.services.jcr.ext.audit.AuditAction</string></field>
+	                </object>
+	              </value>
+	              <value>
+	                <object type="org.exoplatform.services.jcr.impl.ext.action.ActionConfiguration">
+	                  <field  name="eventTypes"><string>removeNode</string></field>
+	                  <field  name="nodeTypes"><string>exo:auditable</string></field>
+	                  <field  name="isDeep"><boolean>false</boolean></field>
+	                  <field  name="actionClassName"><string>org.exoplatform.services.jcr.ext.audit.RemoveAuditableAction</string></field>
+	                </object>
+	              </value>
+                <value>
+	                <object type="org.exoplatform.services.jcr.impl.ext.action.ActionConfiguration">
+	                  <field  name="eventTypes"><string>addProperty,changeProperty</string></field>	                  	                  
+	                  <field  name="nodeTypes"><string>nt:resource</string></field>
+	                  <field  name="actionClassName"><string>org.exoplatform.services.jcr.ext.metadata.AddMetadataAction</string></field>
+	                </object>
+	              </value>
+                <value>
+	                <object type="org.exoplatform.services.jcr.impl.ext.action.ActionConfiguration">
+	                  <field  name="workspace"><string>knowledge,collaboration</string></field>	                  
+	                  <field  name="eventTypes"><string>addNode</string></field>	                  
+	                  <field  name="actionClassName"><string>org.exoplatform.services.jcr.ext.owner.AddOwneableAction</string></field>
+	                </object>
+	              </value>
+                <value>
+	                <object type="org.exoplatform.services.jcr.impl.ext.action.ActionConfiguration">
+	                  <field  name="workspace"><string>knowledge,collaboration</string></field>	                  
+	                  <field  name="eventTypes"><string>addNode</string></field>	                  
+	                  <field  name="actionClassName"><string>org.exoplatform.services.cms.jcrext.AddDateTimeAction</string></field>
+	                </object>
+	              </value>
+                <value>
+	                <object type="org.exoplatform.services.jcr.impl.ext.action.ActionConfiguration">
+	                  <field  name="workspace"><string>knowledge,collaboration</string></field>	                  
+	                  <field  name="eventTypes"><string>addProperty,changeProperty,removeProperty,addNode</string></field>	                  
+	                  <field  name="actionClassName"><string>org.exoplatform.services.cms.jcrext.ModifyNodeAction</string></field>
+	                </object>
+	              </value>	
+                <value>
+	                <object type="org.exoplatform.services.jcr.impl.ext.action.ActionConfiguration">
+	                  <field  name="workspace"><string>social</string></field>	                  
+	                  <field  name="eventTypes"><string>addNode</string></field>	                  
+	                  <field  name="nodeTypes"><string>soc:spaceref</string></field>	                  
+	                  <field  name="actionClassName"><string>org.exoplatform.services.cms.jcrext.AddDateTimeAction</string></field>
+	                </object>
+	              </value>
+                <value>
+	                <object type="org.exoplatform.services.jcr.impl.ext.action.ActionConfiguration">
+	                  <field  name="workspace"><string>social</string></field>	                  
+	                  <field  name="eventTypes"><string>addProperty,changeProperty,removeProperty,addNode</string></field>	                  
+	                  <field  name="nodeTypes"><string>soc:spaceref</string></field>	                  
+	                  <field  name="actionClassName"><string>org.exoplatform.services.cms.jcrext.ModifyNodeAction</string></field>
+	                </object>
+	              </value>								
+	              <value>
+	                <object type="org.exoplatform.services.jcr.impl.ext.action.ActionConfiguration">
+	                  <field  name="eventTypes"><string>addNode</string></field>	                  
+	                  <field  name="actionClassName"><string>org.exoplatform.services.cms.jcrext.AddFileDocumentAction</string></field>
+	                </object>
+	              </value>
+                <value>
+	                <object type="org.exoplatform.services.jcr.impl.ext.action.ActionConfiguration">
+	                  <field  name="eventTypes"><string>removeNode</string></field>	                  
+	                  <field  name="actionClassName"><string>org.exoplatform.services.cms.jcrext.RemoveNodeAction</string></field>
+	                </object>
+	              </value>
+                <value>
+                  <object type="org.exoplatform.services.jcr.impl.ext.action.ActionConfiguration">
+                    <field  name="eventTypes"><string>addNode</string></field>                     
+	                <field  name="workspace"><string>knowledge,collaboration</string></field>	                  
+                    <field  name="actionClassName"><string>org.exoplatform.services.cms.jcrext.AddNodeNameAction</string></field>
+                  </object>
+                </value>
+                <value>
+                    <object type="org.exoplatform.services.jcr.impl.ext.action.ActionConfiguration">
+                    <field  name="nodeTypes"><string>nt:file,nt:resource</string></field>
+                    <field  name="eventTypes"><string>addProperty</string></field>                     
+                    <field  name="actionClassName"><string>org.exoplatform.services.cms.jcrext.activity.AddFilePropertyActivityAction</string></field>
+                  </object>
+                </value>
+                <value>
+                    <object type="org.exoplatform.services.jcr.impl.ext.action.ActionConfiguration">
+                    <field  name="nodeTypes"><string>nt:file,nt:resource</string></field>
+                    <field  name="eventTypes"><string>removeProperty</string></field>                     
+                    <field  name="actionClassName"><string>org.exoplatform.services.cms.jcrext.activity.RemoveFilePropertyActivityAction</string></field>
+                  </object>
+                </value>
+                <value>
+                    <object type="org.exoplatform.services.jcr.impl.ext.action.ActionConfiguration">
+                    <field  name="nodeTypes"><string>nt:file,nt:resource</string></field>
+                    <field  name="eventTypes"><string>changeProperty</string></field>                     
+                    <field  name="actionClassName"><string>org.exoplatform.services.cms.jcrext.activity.EditFilePropertyActivityAction</string></field>
+                  </object>
+                </value>      
+                <!-- Vinh_NGUYEN Processing before notify Social Activity segment-->
+                <value>
+                    <object type="org.exoplatform.services.jcr.impl.ext.action.ActionConfiguration">
+                    <field  name="eventTypes"><string>changeProperty,addProperty</string></field>                     
+                    <field  name="actionClassName"><string>org.exoplatform.services.cms.jcrext.activity.EditPropertyActivityAction</string></field>
+                  </object>
+                </value>
+                <value>
+                    <object type="org.exoplatform.services.jcr.impl.ext.action.ActionConfiguration">
+                    <field  name="eventTypes"><string>removeNode</string></field>                     
+                    <field  name="actionClassName"><string>org.exoplatform.services.cms.jcrext.activity.RemoveNodeActivityAction</string></field>
+                  </object>
+                </value>
+                <value>
+                    <object type="org.exoplatform.services.jcr.impl.ext.action.ActionConfiguration">
+                    <field  name="eventTypes"><string>removeNode</string></field>                     
+                    <field  name="actionClassName"><string>org.exoplatform.services.cms.jcrext.activity.RemoveFileActivityAction</string></field>
+                  </object>
+                </value>
+                <value>
+                    <object type="org.exoplatform.services.jcr.impl.ext.action.ActionConfiguration">
+                    <field  name="eventTypes"><string>addNode</string></field>                     
+                    <field  name="actionClassName"><string>org.exoplatform.services.cms.jcrext.activity.AddNodeActivityAction</string></field>
+                  </object>
+                </value>
+                <!-- End of Social Activity segment-->
+	            </collection>
+	          </field>
+	        </object>
+	      </object-param>
+	    </init-params>
+	  </component-plugin>
+    
+	</external-component-plugins>    	
+	
+	   
+</configuration>
