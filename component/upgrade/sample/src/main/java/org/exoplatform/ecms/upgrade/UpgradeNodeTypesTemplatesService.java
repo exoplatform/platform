@@ -11,6 +11,7 @@ import javax.jcr.Node;
 import javax.jcr.Session;
 
 import org.exoplatform.commons.upgrade.UpgradeProductPlugin;
+import org.exoplatform.commons.version.util.VersionComparator;
 import org.exoplatform.container.configuration.ConfigurationManager;
 import org.exoplatform.container.xml.Component;
 import org.exoplatform.container.xml.ComponentPlugin;
@@ -213,7 +214,7 @@ public class UpgradeNodeTypesTemplatesService extends UpgradeProductPlugin {
    * {@inheritDoc}
    */
   public boolean shouldProceedToUpgrade(String previousVersion, String newVersion) {
-    return true;
+    return VersionComparator.isAfter(newVersion, previousVersion);
   }
 
 }
