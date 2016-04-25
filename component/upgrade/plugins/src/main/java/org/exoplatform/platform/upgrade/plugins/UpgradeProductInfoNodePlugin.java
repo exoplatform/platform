@@ -46,35 +46,31 @@ import org.exoplatform.services.security.IdentityConstants;
  *   and allow only __system and administrators to access this node
  */
 public class UpgradeProductInfoNodePlugin extends UpgradeProductPlugin {
-
-  private static final Log     LOG                                   = ExoLogger.getLogger(UpgradeProductInfoNodePlugin.class.getName());
-
+  
+  private static final Log LOG = ExoLogger.getLogger(UpgradeProductInfoNodePlugin.class.getName());
+  
   /**
    * Constant that will be used in nodeHierarchyCreator.getJcrPath: it
    * represents the Application data root node Alias
    */
-  private static final String  EXO_APPLICATIONS_DATA_NODE_ALIAS      = "exoApplicationDataNode";
-
+  private static final String EXO_APPLICATIONS_DATA_NODE_ALIAS = "exoApplicationDataNode";
+  
   /**
    * Service application data node name
    */
-  private static final String  UPGRADE_PRODUCT_SERVICE_NODE_NAME     = "ProductInformationsService";
+  private static final String UPGRADE_PRODUCT_SERVICE_NODE_NAME = "ProductInformationsService";
 
   /**
    * node name where the Product version declaration is
    */
-  private static final String  PRODUCT_VERSION_DECLARATION_NODE_NAME = "productVersionDeclarationNode";
-
-  private RepositoryService    repoService;
-
+  private static final String PRODUCT_VERSION_DECLARATION_NODE_NAME = "productVersionDeclarationNode";
+  
+  private RepositoryService repoService;
   private NodeHierarchyCreator nodeHierarchyCreator;
-
-  private UserACL              userAcl;
-
-  public UpgradeProductInfoNodePlugin(InitParams initParams,
-                                      RepositoryService repoService,
-                                      NodeHierarchyCreator nodeHierarchyCreator,
-                                      UserACL userAcl) {
+  private UserACL userAcl;
+  
+  public UpgradeProductInfoNodePlugin(InitParams initParams, RepositoryService repoService,
+                                      NodeHierarchyCreator nodeHierarchyCreator, UserACL userAcl) {
     super(initParams);
     this.repoService = repoService;
     this.nodeHierarchyCreator = nodeHierarchyCreator;
@@ -87,14 +83,14 @@ public class UpgradeProductInfoNodePlugin extends UpgradeProductPlugin {
     LOG.info("processing upgrading product info node...");
     try {
       String applicationDataRootNodePath = nodeHierarchyCreator.getJcrPath(EXO_APPLICATIONS_DATA_NODE_ALIAS);
-
+      
       sessionProvider = SessionProvider.createSystemProvider();
       String workspace = repoService.getCurrentRepository().getConfiguration().getDefaultWorkspaceName();
       Session session = sessionProvider.getSession(workspace, repoService.getCurrentRepository());
-      Node applicationDataNode = (Node) session.getItem(applicationDataRootNodePath);
+      Node applicationDataNode = (Node)session.getItem(applicationDataRootNodePath);
       Node productVersionDeclarationNode = applicationDataNode.getNode(UPGRADE_PRODUCT_SERVICE_NODE_NAME + "/"
           + PRODUCT_VERSION_DECLARATION_NODE_NAME);
-      ExtendedNode extendedNode = (ExtendedNode) productVersionDeclarationNode;
+      ExtendedNode extendedNode = (ExtendedNode)productVersionDeclarationNode;
       if (!extendedNode.isCheckedOut()) {
         extendedNode.checkout();
       }
@@ -107,7 +103,7 @@ public class UpgradeProductInfoNodePlugin extends UpgradeProductPlugin {
       extendedNode.setPermissions(perms);
       extendedNode.save();
       LOG.info("Product info node upgraded successfully!");
-    } catch (Exception e) {
+    } catch (Exception e){
       if (LOG.isWarnEnabled()) {
         LOG.warn("Can not upgrade product info node", e);
       }
@@ -120,8 +116,9 @@ public class UpgradeProductInfoNodePlugin extends UpgradeProductPlugin {
 
   @Override
   public boolean shouldProceedToUpgrade(String newVersion, String previousVersion) {
-    // --- return true only for the first version of platform
-    return VersionComparator.isAfter(newVersion, previousVersion);
+      // --- return true only for the first version of platform
+      return VersionComparator.isAfter(newVersion,previousVersion);
+      //return true;
   }
 
 }

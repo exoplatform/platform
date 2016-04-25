@@ -39,7 +39,7 @@
             <value>/</value>
           </value-param>
           <values-param>
-            <name>mixins.to.clean</name>
+            <name>mixinsCleanup.includes</name>
             <description>The workspace name</description>
             <value>exo:sortable</value>
             <value>exo:modify</value>
@@ -47,8 +47,8 @@
             <value>exo:datetime</value>
           </values-param>
           <values-param>
-            <name>mixins.clean.exception</name>
-            <description>The exceptional nodetypes that shouldn't be impacted by modification</description>
+            <name>mixinsCleanup.excludes</name>
+            <description>The exceptional nodetypes that shouldn't be impacted by modification, format = MIXIN;NODETYPE </description>
             <value>exo:datetime;soc:spaceref</value>
             <value>exo:modify;soc:spaceref</value>
           </values-param>
