@@ -20,6 +20,8 @@ import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 import javax.ws.rs.core.SecurityContext;
 
+import org.json.JSONObject;
+
 public class TestPeopleRestServices extends BaseRestServicesTestCase {
 
     protected Class<?> getComponentClass() {
@@ -67,10 +69,9 @@ public class TestPeopleRestServices extends BaseRestServicesTestCase {
         resp = launcher.service("GET", path, "", null, null, envctx);
         assertEquals(200, resp.getStatus());
         assertEquals("application/json", resp.getContentType().toString());
-        assertTrue(resp.getEntity().toString().contains("items"));
-        assertFalse(resp.getEntity().toString().contains(idRoot.getRemoteId()));
-        assertFalse(resp.getEntity().toString().contains(idBar.getRemoteId()));
-        assertFalse(resp.getEntity().toString().contains(idFoo.getRemoteId()));
+        JSONObject json = new JSONObject(resp.getEntity().toString());
+        assertTrue(json.has("items"));
+        assertTrue(json.getJSONArray("items").length() == 0);
 
         // No suggestion, using last users but don't propose user with whom you have a relationship already
         imResults.put("getLastIdentities", Arrays.asList(idBar, idFoo));
@@ -79,10 +80,9 @@ public class TestPeopleRestServices extends BaseRestServicesTestCase {
         resp = launcher.service("GET", path, "", null, null, envctx);
         assertEquals(200, resp.getStatus());
         assertEquals("application/json", resp.getContentType().toString());
-        assertTrue(resp.getEntity().toString().contains("items"));
-        assertFalse(resp.getEntity().toString().contains(idRoot.getRemoteId()));
-        assertFalse(resp.getEntity().toString().contains(idBar.getRemoteId()));
-        assertFalse(resp.getEntity().toString().contains(idFoo.getRemoteId()));
+        json = new JSONObject(resp.getEntity().toString());
+        assertTrue(json.has("items"));
+        assertTrue(json.getJSONArray("items").length() == 0);
 
         // The only suggestion is demo
         rmResults.put("getConnections", new MockListAccess<Identity>(new Identity[]{idBar}));
@@ -92,10 +92,10 @@ public class TestPeopleRestServices extends BaseRestServicesTestCase {
         resp = launcher.service("GET", path, "", null, null, envctx);
         assertEquals(200, resp.getStatus());
         assertEquals("application/json", resp.getContentType().toString());
-        assertTrue(resp.getEntity().toString().contains("items"));
-        assertFalse(resp.getEntity().toString().contains(idRoot.getRemoteId()));
-        assertTrue(resp.getEntity().toString().contains(idBar.getRemoteId()));
-        assertFalse(resp.getEntity().toString().contains(idFoo.getRemoteId()));
+        json = new JSONObject(resp.getEntity().toString());
+        assertTrue(json.has("items"));
+        assertTrue(json.getJSONArray("items").length() == 1);
+        assertEquals(json.getJSONArray("items").getJSONObject(0).getString("username"), idBar.getRemoteId());
 
         getContainer().unregisterComponent("UserACL");
         getContainer().unregisterComponent("RelationshipManager");
