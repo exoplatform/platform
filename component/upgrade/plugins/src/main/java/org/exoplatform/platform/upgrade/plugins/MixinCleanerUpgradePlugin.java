@@ -76,7 +76,7 @@ public class MixinCleanerUpgradePlugin extends UpgradeProductPlugin {
 
   private long                      totalCount                     = 0;
 
-  private Map<String, List<String>> mixinNames                     = null;
+  private Map<String, List<String>> mixinNames                     = new HashMap<String, List<String>>();                  ;
 
   private String                    jcrRootPath;
 
@@ -119,12 +119,14 @@ public class MixinCleanerUpgradePlugin extends UpgradeProductPlugin {
     ValuesParam mixinsValueParam = initParams.getValuesParam("mixinsCleanup.includes");
     if (mixinsValueParam != null) {
       List<String> mixins = mixinsValueParam.getValues();
-      mixinNames = new HashMap<String, List<String>>();
       for (String mixin : mixins) {
         if (!StringUtils.isBlank(mixin)) {
           mixinNames.put(mixin, null);
         }
       }
+    }
+    if (mixinNames.isEmpty()) {
+      LOG.warn("No mixins to cleanup, the mixins list is empty.");
     }
     ValueParam maxNodesParam = initParams.getValueParam("mixinsCleanup.maxNodes");
     if (maxNodesParam != null) {
