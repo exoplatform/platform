@@ -51,7 +51,9 @@
         transactionManagerLookupClass="org.exoplatform.services.transaction.infinispan.JBossStandaloneJTAManagerLookup"
         syncRollbackPhase="true"
         syncCommitPhase="true"
-        transactionMode="TRANSACTIONAL" />
+        transactionMode="TRANSACTIONAL"
+        lockingMode="PESSIMISTIC"
+       />
     <jmxStatistics
         enabled="true" />
     <eviction
