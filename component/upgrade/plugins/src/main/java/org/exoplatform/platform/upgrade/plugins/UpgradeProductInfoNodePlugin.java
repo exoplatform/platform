@@ -116,9 +116,7 @@ public class UpgradeProductInfoNodePlugin extends UpgradeProductPlugin {
 
   @Override
   public boolean shouldProceedToUpgrade(String newVersion, String previousVersion) {
-      // --- return true only for the first version of platform
       return VersionComparator.isAfter(newVersion,previousVersion);
-      //return true;
   }
 
 }
