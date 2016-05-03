@@ -31,7 +31,6 @@ import javax.transaction.UserTransaction;
 import org.apache.commons.lang.StringUtils;
 
 import org.exoplatform.commons.api.settings.SettingService;
-import org.exoplatform.commons.chromattic.ChromatticManager;
 import org.exoplatform.commons.upgrade.UpgradeProductPlugin;
 import org.exoplatform.commons.version.util.VersionComparator;
 import org.exoplatform.container.PortalContainer;
@@ -95,9 +94,8 @@ public class MixinCleanerUpgradePlugin extends UpgradeProductPlugin {
                                    RepositoryService repositoryService,
                                    TransactionService txService,
                                    SettingService settingService,
-                                   ChromatticManager chromatticManager,
                                    InitParams initParams) {
-    super(settingService, chromatticManager, initParams);
+    super(settingService, initParams);
     this.repositoryService = repositoryService;
     this.txService = txService;
     this.portalContainer = portalContainer;

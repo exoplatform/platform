@@ -30,7 +30,6 @@ import javax.jcr.query.InvalidQueryException;
 import javax.jcr.query.Query;
 
 import org.exoplatform.commons.api.settings.SettingService;
-import org.exoplatform.commons.chromattic.ChromatticManager;
 import org.exoplatform.commons.testing.BaseExoTestCase;
 import org.exoplatform.container.PortalContainer;
 import org.exoplatform.container.component.RequestLifeCycle;
@@ -77,8 +76,6 @@ public class MixinCleanerUpdaterTest extends BaseExoTestCase {
 
   private SettingService         settingService;
 
-  private ChromatticManager      chromatticManager;
-
   protected Session              session;
 
   @Override
@@ -89,7 +86,6 @@ public class MixinCleanerUpdaterTest extends BaseExoTestCase {
     repositoryService = getContainer().getComponentInstanceOfType(RepositoryService.class);
     transactionService = getContainer().getComponentInstanceOfType(TransactionService.class);
     settingService = getContainer().getComponentInstanceOfType(SettingService.class);
-    chromatticManager = getContainer().getComponentInstanceOfType(ChromatticManager.class);
 
     tearDownActivityList = new HashSet<ExoSocialActivity>();
     tearDownIdentityList = new HashSet<Identity>();
@@ -135,7 +131,6 @@ public class MixinCleanerUpdaterTest extends BaseExoTestCase {
                                                                                               repositoryService,
                                                                                               transactionService,
                                                                                               settingService,
-                                                                                              chromatticManager,
                                                                                               setInitParams(100));
 
     socialMixinCleanerUpgradePlugin.setName(pluginName);
@@ -160,7 +155,6 @@ public class MixinCleanerUpdaterTest extends BaseExoTestCase {
                                                                     repositoryService,
                                                                     transactionService,
                                                                     settingService,
-                                                                    chromatticManager,
                                                                     setInitParams(0));
     socialMixinCleanerUpgradePlugin.setName(pluginName);
 
@@ -214,7 +208,6 @@ public class MixinCleanerUpdaterTest extends BaseExoTestCase {
                                                                     repositoryService,
                                                                     transactionService,
                                                                     settingService,
-                                                                    chromatticManager,
                                                                     setInitParams(0));
     socialMixinCleanerUpgradePlugin.setName(pluginName);
 
