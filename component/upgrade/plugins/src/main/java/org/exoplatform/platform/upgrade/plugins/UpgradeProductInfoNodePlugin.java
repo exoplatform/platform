@@ -23,7 +23,6 @@ import javax.jcr.Node;
 import javax.jcr.Session;
 
 import org.exoplatform.commons.upgrade.UpgradeProductPlugin;
-import org.exoplatform.commons.version.util.VersionComparator;
 import org.exoplatform.container.xml.InitParams;
 import org.exoplatform.portal.config.UserACL;
 import org.exoplatform.services.jcr.RepositoryService;
@@ -117,8 +116,8 @@ public class UpgradeProductInfoNodePlugin extends UpgradeProductPlugin {
   @Override
   public boolean shouldProceedToUpgrade(String newVersion, String previousVersion) {
       // --- return true only for the first version of platform
-      return VersionComparator.isAfter(newVersion,previousVersion);
-      //return true;
+      //return VersionComparator.isAfter(newVersion,previousVersion);
+      return true;
   }
 
 }
