@@ -266,6 +266,10 @@ public class MixinCleanerUpdaterTest extends BaseExoTestCase {
     maxNodesToTreatParam.setName("mixinsCleanup.maxNodes");
     maxNodesToTreatParam.setValue("" + maxNodesToTreat);
 
+    ValueParam continueOnErrorParam = new ValueParam();
+    continueOnErrorParam.setName("mixinsCleanup.continueOnError");
+    continueOnErrorParam.setValue("false");
+
     ValueParam groupIdParam = new ValueParam();
     groupIdParam.setName("product.group.id");
     groupIdParam.setValue("org.exoplatform.social");

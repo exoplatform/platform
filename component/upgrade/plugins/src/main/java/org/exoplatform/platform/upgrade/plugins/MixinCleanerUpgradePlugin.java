@@ -83,6 +83,8 @@ public class MixinCleanerUpgradePlugin extends UpgradeProductPlugin {
 
   private boolean                   upgradeFinished                = false;
 
+  private boolean                   continueOnError                = true;
+
   /**
    * @param portalContainer
    * @param repositoryService
@@ -131,10 +133,18 @@ public class MixinCleanerUpgradePlugin extends UpgradeProductPlugin {
       try {
         maxTreatedNodes = Long.parseLong(maxNodesParam.getValue());
         if (maxTreatedNodes < 0) {
-          throw new IllegalArgumentException("'maxTreatedNodes' parameter should be a positive integer.");
+          maxTreatedNodes = 0;
         }
       } catch (Exception e) {
         LOG.error("Parameter '" + maxNodesParam.getName() + "' is not a valid number.", e);
+      }
+    }
+    ValueParam continueOnErrorParam = initParams.getValueParam("mixinsCleanup.continueOnError");
+    if (continueOnErrorParam != null) {
+      try {
+        continueOnError = Boolean.parseBoolean(continueOnErrorParam.getValue());
+      } catch (Exception e) {
+        LOG.error("Parameter '" + continueOnErrorParam.getName() + "' is not a valid boolean.", e);
       }
     }
     ValuesParam mixinsExceptionsValueParam = initParams.getValuesParam("mixinsCleanup.excludes");
@@ -264,7 +274,11 @@ public class MixinCleanerUpgradePlugin extends UpgradeProductPlugin {
           if (node != null) {
             node.refresh(false);
           }
-          throw e;
+          if (continueOnError) {
+            LOG.warn("An error occured while proceeding node: " + (node == null ? node : node.getPath()), e);
+          } else {
+            throw e;
+          }
         }
         // Commit transaction for each 100 cleaned nodes
         if (proceeded && totalCount > 0 && totalCount % NODES_IN_ONE_TRANSACTION == 0) {
