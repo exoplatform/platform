@@ -57,6 +57,7 @@ import org.exoplatform.services.organization.User;
 import org.exoplatform.services.organization.UserEventListener;
 import org.exoplatform.services.organization.UserProfile;
 import org.exoplatform.services.organization.UserProfileEventListener;
+import org.exoplatform.services.organization.idm.PicketLinkIDMCacheService;
 import org.exoplatform.services.organization.impl.GroupImpl;
 import org.exoplatform.services.organization.impl.MembershipImpl;
 import org.exoplatform.services.organization.impl.UserImpl;
@@ -101,12 +102,14 @@ public class OrganizationIntegrationService implements Startable {
   private RepositoryService repositoryService;
   private PortalContainer container;
   private boolean synchronizeGroups = false;
+  private PicketLinkIDMCacheService picketLinkIDMCacheService;
 
   public OrganizationIntegrationService(OrganizationService organizationService, RepositoryService repositoryService,
-      ConfigurationManager manager, PortalContainer container, InitParams initParams) {
+      ConfigurationManager manager, PortalContainer container, InitParams initParams, PicketLinkIDMCacheService picketLinkIDMCacheService) {
     this.organizationService = organizationService;
     this.repositoryService = repositoryService;
     this.container = container;
+    this.picketLinkIDMCacheService = picketLinkIDMCacheService;
     userDAOListeners_ = new LinkedHashMap<String, UserEventListener>();
     groupDAOListeners_ = new LinkedHashMap<String, GroupEventListener>();
     membershipDAOListeners_ = new LinkedHashMap<String, MembershipEventListener>();
@@ -389,6 +392,8 @@ public class OrganizationIntegrationService implements Startable {
       LOG.debug("\tGroup listeners invocation, operation= " + eventType + ", for group= " + groupId);
     }
     EventType event = EventType.valueOf(eventType);
+    // Invalidate plidmcache
+    picketLinkIDMCacheService.invalidateAll();
     switch (event) {
       case DELETED: {
         {
@@ -560,6 +565,8 @@ public class OrganizationIntegrationService implements Startable {
       LOG.debug("\tUser listeners invocation, operation= " + eventType + ", for user= " + username);
     }
     EventType event = EventType.valueOf(eventType);
+    // Invalidate plidmcache
+    picketLinkIDMCacheService.invalidateAll();
     switch (event) {
       case DELETED: {
         User user = null;
@@ -1031,7 +1038,7 @@ public class OrganizationIntegrationService implements Startable {
           } catch (Exception exception) {
             LOG.error("\t\t\tCouldn't process deletion of Memberships related to the user : " + username, exception);
           }
-          if (userMemberships == null || userMemberships.isEmpty()) {
+          if (userMemberships != null) {
             session = repositoryService.getCurrentRepository().getSystemSession(Util.WORKSPACE);
             List<Membership> memberships = Util.getActivatedMembershipsRelatedToUser(session, username);
             for (Membership membership : memberships) {
