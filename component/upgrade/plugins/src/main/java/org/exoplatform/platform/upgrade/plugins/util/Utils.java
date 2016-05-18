@@ -56,10 +56,13 @@ public class Utils {
   public static final String HSQLDB_QUERY_CONDITION   = "RAWTOHEX(svalue.DATA) = '@VALUE@'";
 
   public static String getQuery(Connection jdbcConn,
-                                WorkspaceEntry wsEntry,
-                                NamespaceRegistry namespaceRegistry,
+                                ManageableRepository repository,
+                                String workspaceName,
                                 Set<String> mixinNames,
                                 int fetchSize) throws Exception {
+    WorkspaceEntry wsEntry = Utils.getWorkspaceEntry(repository, workspaceName);
+    NamespaceRegistry namespaceRegistry = repository.getNamespaceRegistry();
+
     String dialect = resolveDialect(jdbcConn, wsEntry);
     if (dialect.startsWith(DialectConstants.DB_DIALECT_MYSQL)) {
       return getQuery(wsEntry, namespaceRegistry, Utils.MYSQL_QUERY, Utils.MYSQL_QUERY_CONDITION, mixinNames, fetchSize, false);

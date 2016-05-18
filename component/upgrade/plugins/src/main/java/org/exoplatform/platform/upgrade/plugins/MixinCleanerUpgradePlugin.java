@@ -28,6 +28,8 @@ import java.util.Map;
 import java.util.Set;
 
 import javax.jcr.ItemNotFoundException;
+import javax.jcr.LoginException;
+import javax.jcr.NoSuchWorkspaceException;
 import javax.jcr.Node;
 import javax.jcr.NodeIterator;
 import javax.jcr.RepositoryException;
@@ -48,7 +50,6 @@ import org.exoplatform.container.xml.ValueParam;
 import org.exoplatform.container.xml.ValuesParam;
 import org.exoplatform.platform.upgrade.plugins.util.Utils;
 import org.exoplatform.services.jcr.RepositoryService;
-import org.exoplatform.services.jcr.config.WorkspaceEntry;
 import org.exoplatform.services.jcr.core.ManageableRepository;
 import org.exoplatform.services.jcr.core.WorkspaceContainerFacade;
 import org.exoplatform.services.jcr.ext.common.SessionProvider;
@@ -247,101 +248,27 @@ public class MixinCleanerUpgradePlugin extends UpgradeProductPlugin {
     UserTransaction transaction = null;
     Connection jdbcConn = null;
     SessionProvider sessionProvider = null;
-    Statement stmt = null;
-    ResultSet rs = null;
-
     try {
-      // Get JCR Session
+      // Get JDBC Connection
       ManageableRepository currentRepository = repositoryService.getCurrentRepository();
-      WorkspaceContainerFacade containerFacade = currentRepository.getWorkspaceContainer(workspaceName);
-      if (containerFacade == null) {
-        throw new IllegalStateException("Workspace with name '" + workspaceName + "' wasn't found");
-      }
+      jdbcConn = getWorkspaceJDBCConnection(currentRepository);
 
       // Get JCR Session
       sessionProvider = SessionProvider.createSystemProvider();
-      session = sessionProvider.getSession(workspaceName, currentRepository);
-      ((SessionImpl) session).setTimeout(TRANSACTION_TIMEOUT_IN_SECONDS * 1000);
-      if (!session.itemExists(jcrRootPath)) {
-        throw new IllegalStateException("Cannot procced to upgrade, path doesn't exist:" + workspaceName + ":" + jcrRootPath);
-      }
+      session = getJCRSession(sessionProvider, currentRepository);
 
-      // Get SQL Query
-      JDBCWorkspaceDataContainer dataContainer = (JDBCWorkspaceDataContainer) containerFacade.getComponent(JDBCWorkspaceDataContainer.class);
-      jdbcConn = dataContainer.connFactory.getJdbcConnection();
-      WorkspaceEntry wEntry = Utils.getWorkspaceEntry(currentRepository, workspaceName);
-      String query = Utils.getQuery(jdbcConn,
-                                    wEntry,
-                                    currentRepository.getNamespaceRegistry(),
-                                    mixinNames.keySet(),
-                                    queryLimitSize);
+      String query = Utils.getQuery(jdbcConn, currentRepository, workspaceName, mixinNames.keySet(), queryLimitSize);
 
       // Begin transaction
       transaction = beginTransaction();
 
-      // If Query is null, we will browse the JCR using API
       if (query != null) {
-        boolean continueSearching = true;
-        do {
-          long initialTreatedNodesCount = totalCount;
-          long resultCount = 0;
-
-          stmt = jdbcConn.createStatement(java.sql.ResultSet.TYPE_FORWARD_ONLY, java.sql.ResultSet.CONCUR_READ_ONLY);
-          stmt.setQueryTimeout(TRANSACTION_TIMEOUT_IN_SECONDS);
-          rs = stmt.executeQuery(query);
-          try {
-            while ((maxTreatedNodes == 0 || totalCount < maxTreatedNodes) && rs.next()) {
-              resultCount++;
-              String id = rs.getString(1);
-              id = id.replaceAll(workspaceName, "");
-              Node node = null;
-              try {
-                node = ((SessionImpl) session).getNodeByIdentifier(id);
-              } catch (ItemNotFoundException e) {
-                LOG.warn("Item not found with id: '{}'", id);
-                continue;
-              }
-              // Avoid changing Root Node of Workspace
-              if (node.getPath().equals("/")) {
-                continue;
-              }
-              // Avoid changing Root Node of Workspace
-              if (!node.getPath().startsWith(jcrRootPath)) {
-                continue;
-              }
-              transaction = cleanNode(node, session, transaction, false);
-            }
-          } finally {
-            try {
-              if (rs != null) {
-                rs.close();
-              }
-              if (stmt != null) {
-                stmt.close();
-              }
-            } catch (SQLException e) {
-              LOG.error("Cannot close JDBC statement", e);
-            }
-          }
-          if (resultCount < queryLimitSize) {
-            continueSearching = false;
-          } else if (maxTreatedNodes > 0 && totalCount >= maxTreatedNodes) {
-            continueSearching = false;
-          } else if (((totalCount - initialTreatedNodesCount) * 2) < queryLimitSize) {
-            queryLimitSize *= 2;
-            query = Utils.getQuery(jdbcConn,
-                                   wEntry,
-                                   currentRepository.getNamespaceRegistry(),
-                                   mixinNames.keySet(),
-                                   queryLimitSize);
-          }
-          // Commit the transaction before relaunching the SQL query
-          transaction = commitTransaction(session, transaction, continueSearching);
-        } while (continueSearching);
+        // Get the list of items to cleanup, by SQL Query
+        transaction = cleanNodesByQuery(query, session, transaction, jdbcConn, currentRepository);
       } else {
+        // If Query is null, we will browse the JCR using API
         Node parentNode = (Node) session.getItem(jcrRootPath);
         transaction = cleanChildNodes(parentNode, session, transaction, true);
-        transaction = commitTransaction(session, transaction, false);
       }
 
       if (maxTreatedNodes > 0 && totalCount == maxTreatedNodes) {
@@ -379,13 +306,76 @@ public class MixinCleanerUpgradePlugin extends UpgradeProductPlugin {
     }
   }
 
+  private UserTransaction cleanNodesByQuery(String query,
+                                            Session session,
+                                            UserTransaction transaction,
+                                            Connection jdbcConn,
+                                            ManageableRepository currentRepository) throws Exception {
+    Statement stmt = null;
+    ResultSet rs = null;
+    boolean continueSearching = true;
+    do {
+      long initialTreatedNodesCount = totalCount;
+      long resultCount = 0;
+
+      stmt = jdbcConn.createStatement(java.sql.ResultSet.TYPE_FORWARD_ONLY, java.sql.ResultSet.CONCUR_READ_ONLY);
+      stmt.setQueryTimeout(TRANSACTION_TIMEOUT_IN_SECONDS);
+      rs = stmt.executeQuery(query);
+      try {
+        while ((maxTreatedNodes == 0 || totalCount < maxTreatedNodes) && rs.next()) {
+          resultCount++;
+          String id = rs.getString(1);
+          id = id.replaceAll(workspaceName, "");
+          Node node = null;
+          try {
+            node = ((SessionImpl) session).getNodeByIdentifier(id);
+          } catch (ItemNotFoundException e) {
+            LOG.warn("Item not found with id: '{}'", id);
+            continue;
+          }
+          // Avoid changing Root Node of Workspace
+          if (node.getPath().equals("/")) {
+            continue;
+          }
+          // Avoid changing Root Node of Workspace
+          if (!node.getPath().startsWith(jcrRootPath)) {
+            continue;
+          }
+          transaction = cleanNode(node, session, transaction, false);
+        }
+      } finally {
+        try {
+          if (rs != null) {
+            rs.close();
+          }
+          if (stmt != null) {
+            stmt.close();
+          }
+        } catch (SQLException e) {
+          LOG.error("Cannot close JDBC statement", e);
+        }
+      }
+      if (resultCount < queryLimitSize) {
+        continueSearching = false;
+      } else if (maxTreatedNodes > 0 && totalCount >= maxTreatedNodes) {
+        continueSearching = false;
+      } else if (((totalCount - initialTreatedNodesCount) * 2) < queryLimitSize) {
+        queryLimitSize *= 2;
+        query = Utils.getQuery(jdbcConn, currentRepository, workspaceName, mixinNames.keySet(), queryLimitSize);
+      }
+      // Commit the transaction before relaunching the SQL query
+      transaction = commitTransaction(session, transaction, continueSearching);
+    } while (continueSearching);
+    return transaction;
+  }
+
   private UserTransaction cleanChildNodes(Node parentNode, Session session, UserTransaction transaction, boolean treatChildren) throws Exception {
     NodeIterator nodeIterator = ((NodeImpl) parentNode).getNodesLazily(1);
     while (nodeIterator.hasNext() && (maxTreatedNodes == 0 || totalCount < maxTreatedNodes)) {
       Node node = nodeIterator.nextNode();
       transaction = cleanNode(node, session, transaction, treatChildren);
     }
-    return transaction;
+    return commitTransaction(session, transaction, false);
   }
 
   private UserTransaction cleanNode(Node node, Session session, UserTransaction transaction, boolean treatChildren) throws Exception {
@@ -436,19 +426,6 @@ public class MixinCleanerUpgradePlugin extends UpgradeProductPlugin {
     return transaction;
   }
 
-  private UserTransaction commitTransaction(Session session, UserTransaction transaction, boolean reNew) throws Exception {
-    // Commit mixin cleanup transaction
-    session.save();
-    if (transaction.getStatus() == Status.STATUS_ACTIVE) {
-      transaction.commit();
-    }
-    LOG.info("Migration in progress, proceeded nodes count = {}", totalCount);
-    if (reNew) {
-      transaction = beginTransaction();
-    }
-    return transaction;
-  }
-
   private boolean cleanSingleNodeMixins(Node node) throws Exception {
     boolean proceeded = false;
 
@@ -479,6 +456,42 @@ public class MixinCleanerUpgradePlugin extends UpgradeProductPlugin {
       totalCount++;
     }
     return proceeded;
+  }
+
+  private Session getJCRSession(SessionProvider sessionProvider, ManageableRepository currentRepository) throws LoginException,
+                                                                                                        NoSuchWorkspaceException,
+                                                                                                        RepositoryException {
+    Session session;
+    session = sessionProvider.getSession(workspaceName, currentRepository);
+    ((SessionImpl) session).setTimeout(TRANSACTION_TIMEOUT_IN_SECONDS * 1000);
+    if (!session.itemExists(jcrRootPath)) {
+      throw new IllegalStateException("Cannot procced to upgrade, path doesn't exist:" + workspaceName + ":" + jcrRootPath);
+    }
+    return session;
+  }
+
+  private Connection getWorkspaceJDBCConnection(ManageableRepository currentRepository) throws RepositoryException {
+    Connection jdbcConn;
+    WorkspaceContainerFacade containerFacade = currentRepository.getWorkspaceContainer(workspaceName);
+    if (containerFacade == null) {
+      throw new IllegalStateException("Workspace with name '" + workspaceName + "' wasn't found");
+    }
+    JDBCWorkspaceDataContainer dataContainer = (JDBCWorkspaceDataContainer) containerFacade.getComponent(JDBCWorkspaceDataContainer.class);
+    jdbcConn = dataContainer.connFactory.getJdbcConnection();
+    return jdbcConn;
+  }
+
+  private UserTransaction commitTransaction(Session session, UserTransaction transaction, boolean reNew) throws Exception {
+    // Commit mixin cleanup transaction
+    session.save();
+    if (transaction.getStatus() == Status.STATUS_ACTIVE) {
+      transaction.commit();
+    }
+    LOG.info("Migration in progress, proceeded nodes count = {}", totalCount);
+    if (reNew) {
+      transaction = beginTransaction();
+    }
+    return transaction;
   }
 
   private boolean isExceptionalNodeType(Node node, List<String> exceptionalNodeTypes) throws RepositoryException {
