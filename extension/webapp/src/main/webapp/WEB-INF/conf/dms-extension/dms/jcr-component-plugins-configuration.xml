@@ -121,7 +121,7 @@
 	                <object type="org.exoplatform.services.jcr.impl.ext.action.ActionConfiguration">
 	                  <field  name="workspace"><string>social</string></field>	                  
 	                  <field  name="eventTypes"><string>addNode</string></field>	                  
-	                  <field  name="nodeTypes"><string>soc:spaceref</string></field>	                  
+	                  <field  name="nodeTypes"><string>soc:spaceref,soc:spacedefinition</string></field>
 	                  <field  name="actionClassName"><string>org.exoplatform.services.cms.jcrext.AddDateTimeAction</string></field>
 	                </object>
 	              </value>
