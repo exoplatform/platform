@@ -138,12 +138,6 @@
 
                <!-- collab -->
                <value profiles="all">
-                  <string>calendar-extension</string>
-               </value>
-               <value profiles="all">
-                  <string>csResources</string>
-               </value>
-               <value profiles="all">
                   <string>calendar</string>
                </value>
 
