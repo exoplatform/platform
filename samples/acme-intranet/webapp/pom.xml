@@ -11,11 +11,6 @@
   <name>eXo Platform - Acme Intranet Webapp</name>
   <dependencies>
     <dependency>
-      <groupId>${project.groupId}</groupId>
-      <artifactId>platform-sample-acme-intranet-config</artifactId>
-      <scope>runtime</scope>
-    </dependency>
-    <dependency>
       <groupId>org.exoplatform.commons</groupId>
       <artifactId>commons-webui-ext</artifactId>
       <scope>runtime</scope>
