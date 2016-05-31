@@ -14,6 +14,5 @@
   <modules>
     <module>gadget-pack-services</module>
     <module>gadget-pack</module>
-    <module>config</module>
   </modules>
 </project>
