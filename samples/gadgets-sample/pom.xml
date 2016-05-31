@@ -13,6 +13,5 @@
     <module>exo-gadget-resources</module>
     <module>gadgets</module>
     <module>service</module>
-    <module>config</module>
   </modules>
 </project>

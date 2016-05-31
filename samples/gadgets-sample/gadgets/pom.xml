@@ -19,11 +19,6 @@
     </dependency>
     <dependency>
       <groupId>org.exoplatform.platform</groupId>
-      <artifactId>platform-sample-gadgets-sample-config</artifactId>
-      <scope>runtime</scope>
-    </dependency>
-    <dependency>
-      <groupId>org.exoplatform.platform</groupId>
       <artifactId>platform-sample-gadgets-sample-service</artifactId>
       <scope>runtime</scope>
     </dependency>

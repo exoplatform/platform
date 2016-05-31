@@ -376,11 +376,6 @@
       </dependency>
       <dependency>
         <groupId>org.exoplatform.platform</groupId>
-        <artifactId>platform-sample-gadgets-sample-config</artifactId>
-        <version>${project.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>org.exoplatform.platform</groupId>
         <artifactId>platform-sample-gadgets-sample-exo-gadget-resources</artifactId>
         <version>${project.version}</version>
         <type>war</type>
