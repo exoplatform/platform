@@ -352,11 +352,6 @@
       </dependency>
       <dependency>
         <groupId>org.exoplatform.platform</groupId>
-        <artifactId>platform-sample-acme-website-config</artifactId>
-        <version>${project.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>org.exoplatform.platform</groupId>
         <artifactId>platform-sample-acme-website-resources</artifactId>
         <version>${project.version}</version>
         <type>war</type>

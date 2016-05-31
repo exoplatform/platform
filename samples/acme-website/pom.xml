@@ -10,7 +10,6 @@
   <packaging>pom</packaging>
   <name>eXo Platform - Acme Website</name>
   <modules>
-    <module>config</module>
     <module>component/file-explorer-extension</module>
     <module>component/navigation-rest-service</module>
     <module>resources</module>
