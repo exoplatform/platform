@@ -12,6 +12,5 @@
   <modules>
     <module>component</module>
     <module>webapp</module>
-    <module>config</module>
   </modules>
 </project>
