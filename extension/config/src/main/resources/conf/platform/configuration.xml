@@ -214,9 +214,6 @@
                <value profiles="all">
                   <string>wiki-extension</string>
                </value>
-               <value profiles="all">
-                  <string>forum-extension</string>
-               </value>
                <!-- Contains shared layout -->
                <value>
                   <string>platform-extension</string>
