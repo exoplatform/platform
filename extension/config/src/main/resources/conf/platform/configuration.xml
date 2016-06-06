@@ -200,13 +200,7 @@
 
                <!-- Knowledge -->
                <value profiles="all">
-                  <string>forumResources</string>
-               </value>
-               <value profiles="all">
                   <string>forum</string>
-               </value>
-               <value profiles="all">
-                  <string>poll</string>
                </value>
                <value profiles="all">
                   <string>wiki</string>
