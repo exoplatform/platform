@@ -105,5 +105,11 @@
                 <page-reference>group::platform/administrators::monitoring</page-reference>
             </node>  
         </node>
+        <node>
+            <uri>searchIndexing</uri>
+            <name>searchIndexing</name>
+            <label>Search Indexing</label>
+            <page-reference>group::/platform/administrators::searchIndexing</page-reference>
+        </node>
     </page-nodes>
 </node-navigation>

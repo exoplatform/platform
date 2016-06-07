@@ -265,4 +265,19 @@
       <show-application-mode>false</show-application-mode>
     </portlet-application>
   </page>
+    <page>
+        <name>searchIndexing</name>
+        <title>Search Indexing</title>
+        <access-permissions>*:/platform/administrators</access-permissions>
+        <edit-permission>*:/platform/administrators</edit-permission>
+        <show-max-window>false</show-max-window>
+        <portlet-application>
+            <portlet>
+                <application-ref>platform-extension</application-ref>
+                <portlet-ref>SearchIndexingManagement</portlet-ref>
+            </portlet>
+            <access-permissions>*:/platform/administrators</access-permissions>
+            <show-info-bar>false</show-info-bar>
+        </portlet-application>
+    </page>
 </page-set>
