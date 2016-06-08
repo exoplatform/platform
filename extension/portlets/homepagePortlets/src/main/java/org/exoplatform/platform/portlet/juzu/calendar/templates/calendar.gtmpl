@@ -56,103 +56,92 @@
 				<center><a href="#">${date_act}</a></center>
 			</div>
 		</h6>
-		<div id="CalendarContainer" class="events uiContentBox">
-			<div class="eventTitle">
-				<% if (displayedCalendar != null) {
-
-					displayedCalendar.each { cal ->
-						def   calendarName= cal.name;
-
-				%>
-				<span class="calendarName ${cal.calendarColor}"  id="${cal.id}" title="${calendarName}">${calendarName}</span>
-				<% }
-				}
-				%>
-			</div>
-				<%if ((eventsDisplayedList != null) && (eventsDisplayedList.size() != 0)) {%>
-			<ul class="eventsList ">
-				<%
+		<a class="settingsLink actionIcon pull-right" data-placement="bottom" rel="tooltip" data-original-title="&{settings.label}"><i class="uiIconSetting uiIconLightGray"></i> </a>
+		<%if ((eventsDisplayedList != null) && (eventsDisplayedList.size() != 0)) {%>
+			<div id="CalendarContainer" class="events uiContentBox">
+				<div class="eventTitle">
+					<% if (displayedCalendar != null) {
+						displayedCalendar.each { cal ->
+							def   calendarName= cal.name;
+					%>
+							<span class="calendarName ${cal.calendarColor}"  id="${cal.id}" title="${calendarName}">${calendarName}</span>
+					<% }
+					}
+					%>
+				</div>
+				<ul class="eventsList ">
+					<%
 					def from;
 					def to;
 					eventsDisplayedList.each { event ->
-					    def color = calendarDisplayedMap[event.calendarId].calendarColor;
+						def color = calendarDisplayedMap[event.calendarId].calendarColor;
 						def eventCss = "";
-						    if (new Date().compareTo(sdf4.parse(sdf3.format(event.toDateTime))) > 0) eventCss = "pastEvent";
+							if (new Date().compareTo(sdf4.parse(sdf3.format(event.toDateTime))) > 0) eventCss = "pastEvent";
 							else eventCss = "eventItems" ;
-					    def href="/portal/intranet/calendar/details/"+event.id;
-				%>
-				<li class="${eventCss}"  id="${event.id}">
-					<div class="${color}">
-						<div class="clearfix itemColor" >
-							<div class="pull-left eventSummary">
-								<a href="${href}">${event.summary}</a>
+						def href="/portal/intranet/calendar/details/"+event.id;
+					%>
+						<li class="${eventCss}"  id="${event.id}">
+							<div class="${color}">
+								<div class="clearfix itemColor" >
+									<div class="pull-left eventSummary">
+										<a href="${href}">${event.summary}</a>
+									</div>
+									<div  class="pull-right time">
+										<% if (event.toDateTime.getTime() - event.fromDateTime.getTime() == 86399999) { %>
+											<span>&{all.day.label}</span>
+										<% } else if (event.toDateTime.getTime() - event.fromDateTime.getTime() > 86399999) {
+											from = sdf1.format(event.fromDateTime);
+											String year=event.fromDateTime.format("yyyy");
+											String[] dateSplit = from.split("/");
+											if(dateSplit.length!=0) from=dateSplit[0]+"/"+dateSplit[1]+"/"+year;
+											to = sdf1.format(event.toDateTime);
+											year=event.toDateTime.format("yyyy");
+											dateSplit =to.split("/");
+											if(dateSplit.length!=0) to=dateSplit[0]+"/"+dateSplit[1]+"/"+year;
+										%>
+											<span>${from}</span> -
+											<span>${to}</span>
+										<% } else if (event.toDateTime.getTime() - event.fromDateTime.getTime() < 86399999) {
+											from = sdf2.format(event.fromDateTime);
+											to = sdf2.format(event.toDateTime);
+											if(locale.getLanguage().equals("en")){
+												if(from.indexOf("00")==2)   from=from.substring(0,1)+ from.substring(4);
+												if(from.indexOf("00")==3)   from=from.substring(0,2)+ from.substring(5);
+												if(to.indexOf("00")==2)   to=to.substring(0,1) + to.substring(4);
+												if(to.indexOf("00")==3)   to=to.substring(0,2) + to.substring(5);
+											}
+										%>
+											<span> ${from} - ${to} </span>
+										<% } %>
+									</div>
+								</div>
 							</div>
-							<div  class="pull-right time">
-								<% if (event.toDateTime.getTime() - event.fromDateTime.getTime() == 86399999) { %>
-								<span>&{all.day.label}</span>
-								<% } else if (event.toDateTime.getTime() - event.fromDateTime.getTime() > 86399999) {
-									from = sdf1.format(event.fromDateTime);
-									String year=event.fromDateTime.format("yyyy");
-									String[] dateSplit = from.split("/");
-									if(dateSplit.length!=0) from=dateSplit[0]+"/"+dateSplit[1]+"/"+year;
-									to = sdf1.format(event.toDateTime);
-								year=event.toDateTime.format("yyyy");
-									dateSplit =to.split("/");
-									if(dateSplit.length!=0) to=dateSplit[0]+"/"+dateSplit[1]+"/"+year;
-								%>
-
-								<span>${from}</span> - 
-								<span>${to}</span>
-								<% } else if (event.toDateTime.getTime() - event.fromDateTime.getTime() < 86399999) {
-									from = sdf2.format(event.fromDateTime);
-									to = sdf2.format(event.toDateTime);
-									if(locale.getLanguage().equals("en")){
-										if(from.indexOf("00")==2)   from=from.substring(0,1)+ from.substring(4);
-										if(from.indexOf("00")==3)   from=from.substring(0,2)+ from.substring(5);
-										if(to.indexOf("00")==2)   to=to.substring(0,1) + to.substring(4);
-										if(to.indexOf("00")==3)   to=to.substring(0,2) + to.substring(5);
-									}
-								%>
-								<span> ${from} - ${to} </span>
-								<% } %>
-							</div>
-						</div>
-					</div>
-				</li><!--eventItems-->
-				<% }  %>
-			</ul><!--eventsList-->
-			<%} else{
-			%>
-			<span class="muted empty"> <center>&{no.events.label} </center></span>
-			<%}%>
-		</div><!--events-->
+						</li><!--eventItems-->
+					<% }  %>
+				</ul><!--eventsList-->
+			</div><!--events-->
+		<%}%>
 		<% if ((tasksDisplayedList != null) && (tasksDisplayedList.size() != 0)) { %>
-		<h6 class="title taskTitle">&{tasks.calendar.label}</h6>
-		<div class="tasks uiContentBox">
-			<ul class="tasksList">
-				<% def cssClass = "";
+			<h6 class="title taskTitle">&{tasks.calendar.label}</h6>
+			<div class="tasks uiContentBox">
+				<ul class="tasksList">
+					<% def cssClass = "";
 					if (tasksDisplayedList != null) {
-
 						tasksDisplayedList.each { task ->
 							if ((task.eventState).equals(CalendarEvent.COMPLETED)) cssClass = "taskCompleted";
 							else if (((task.eventState).equals(CalendarEvent.NEEDS_ACTION)) && ((sdf4.parse(sdf3.format(task.toDateTime))).compareTo(new Date()) > 0)) cssClass = "taskNotCompleted";
 							else if (((task.eventState).equals(CalendarEvent.NEEDS_ACTION)) && ((sdf4.parse(sdf3.format(task.toDateTime))).compareTo(new Date()) < 0))cssClass = "taskLateNotCompleted"  ;
 							def href="/portal/intranet/calendar/details/"+task.id;
-				%>
-				<li class="${cssClass}">
-					<a href="${href}" class="eventSummary ">
-									
-						${task.summary}
-					
-					</a>
-				</li>
-				<% }
-				} %>
-			</ul>
-		</div>
-		<% } %>	
-		<div class="settingsContainerPage clearfix" >
-			 <a class="settingsLink actionIcon pull-right " data-placement="left" rel="tooltip"   data-original-title="Setting"><i class="uiIconSetting uiIconLightGray"></i> </a>
-		</div>
+					%>
+							<li class="${cssClass}">
+							<a href="${href}" class="eventSummary ">
+							${task.summary}
+							</a>
+							</li>
+						<% }
+					} %>
+				</ul>
+			</div>
+		<% } %>
 	</div>
 </div>
