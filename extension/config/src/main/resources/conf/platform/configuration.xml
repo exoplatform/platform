@@ -200,22 +200,13 @@
 
                <!-- Knowledge -->
                <value profiles="all">
-                  <string>forumResources</string>
-               </value>
-               <value profiles="all">
                   <string>forum</string>
-               </value>
-               <value profiles="all">
-                  <string>poll</string>
                </value>
                <value profiles="all">
                   <string>wiki</string>
                </value>
                <value profiles="all">
                   <string>wiki-extension</string>
-               </value>
-               <value profiles="all">
-                  <string>forum-extension</string>
                </value>
                <!-- Contains shared layout -->
                <value>
