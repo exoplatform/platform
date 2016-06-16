@@ -33,6 +33,94 @@
       </value-param>
     </init-params>
   </component>
+
+  <component>
+    <type>org.exoplatform.services.scheduler.QueueTasks</type>
+  </component>
+
+  <component>
+    <key>org.exoplatform.services.scheduler.JobSchedulerService</key>
+    <type>org.exoplatform.services.scheduler.impl.JobSchedulerServiceImpl</type>
+  </component>
+
+  <component>
+    <key>org.exoplatform.services.scheduler.impl.QuartzSheduler</key>
+    <type>org.exoplatform.services.scheduler.impl.QuartzSheduler</type>
+    <init-params>
+      <!--Configure Main Scheduler Properties-->
+      <value-param>
+        <name>org.quartz.scheduler.instanceName</name>
+        <value>${exo.quartz.scheduler.instanceName}</value>
+      </value-param>
+      <value-param>
+        <name>org.quartz.scheduler.instanceId</name>
+        <value>${exo.quartz.scheduler.instanceId}</value>
+      </value-param>
+      <!--Configure ThreadPool-->
+      <value-param>
+        <name>org.quartz.threadPool.class</name>
+        <value>${exo.quartz.threadPool.class}</value>
+      </value-param>
+      <value-param>
+        <name>org.quartz.threadPool.threadPriority</name>
+        <value>${exo.quartz.threadPool.threadPriority}</value>
+      </value-param>
+      <value-param>
+        <name>org.quartz.threadPool.threadCount</name>
+        <value>${exo.quartz.threadPool.threadCount}</value>
+      </value-param>
+      <!-- Configure JobStore-->
+      <value-param>
+        <name>org.quartz.jobStore.misfireThreshold</name>
+        <value>${exo.quartz.jobStore.misfireThreshold}</value>
+      </value-param>
+      <value-param>
+        <name>org.quartz.jobStore.class</name>
+        <value>${exo.quartz.jobStore.class}</value>
+      </value-param>
+      <value-param>
+        <name>org.quartz.jobStore.driverDelegateClass</name>
+        <value>${exo.quartz.jobStore.driverDelegateClass}</value>
+      </value-param>
+      <value-param>
+        <name>org.quartz.jobStore.useProperties</name>
+        <value>${exo.quartz.jobStore.useProperties}</value>
+      </value-param>
+      <value-param>
+        <name>org.quartz.jobStore.dataSource</name>
+        <value>${exo.quartz.jobStore.dataSource}</value>
+      </value-param>
+      <value-param>
+        <name>org.quartz.jobStore.nonManagedTXDataSource</name>
+        <value>${exo.quartz.jobStore.nonManagedTXDataSource}</value>
+      </value-param>
+      <value-param>
+        <name>org.quartz.jobStore.tablePrefix</name>
+        <value>${exo.quartz.jobStore.tablePrefix}</value>
+      </value-param>
+      <value-param>
+        <name>org.quartz.jobStore.isClustered</name>
+        <value>false</value>
+      </value-param>
+      <value-param profiles="cluster">
+        <name>org.quartz.jobStore.isClustered</name>
+        <value>true</value>
+      </value-param>
+      <value-param profiles="cluster">
+        <name>org.quartz.jobStore.clusterCheckinInterval</name>
+        <value>${exo.quartz.jobStore.clusterCheckinInterval}</value>
+      </value-param>
+      <!-- Configure Datasources-->
+      <value-param>
+        <name>org.quartz.dataSource.quartzDS.jndiURL</name>
+        <value>${exo.quartz.dataSource.quartzDS.jndiURL}</value>
+      </value-param>
+      <value-param>
+        <name>org.quartz.dataSource.quartzDSNoTx.jndiURL</name>
+        <value>${exo.quartz.dataSource.quartzDSNoTx.jndiURL}</value>
+      </value-param>
+    </init-params>
+  </component>
   
   <component>
     <key>org.exoplatform.services.cache.ExoCacheFactory</key>
