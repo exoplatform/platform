@@ -50,11 +50,6 @@
     <type>org.exoplatform.platform.gadget.services.ForumStatistics.ForumRestService</type>
   </component> 
 
-  <!-- EXO SCRIPTING CONSOLE -->
-  <component>
-    <type>org.exoplatform.platform.gadget.services.ExoScriptingConsole.ExoScriptingConsoleRestService</type>
-  </component>
-
   <!-- JCR NODE TYPES -->
   <external-component-plugins>
   <target-component>org.exoplatform.services.jcr.RepositoryService</target-component>
