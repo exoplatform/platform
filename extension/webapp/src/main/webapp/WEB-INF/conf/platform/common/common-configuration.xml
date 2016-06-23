@@ -91,16 +91,40 @@
         <value>${exo.quartz.jobStore.dataSource}</value>
       </value-param>
       <value-param>
-        <name>org.quartz.jobStore.nonManagedTXDataSource</name>
-        <value>${exo.quartz.jobStore.nonManagedTXDataSource}</value>
-      </value-param>
-      <value-param>
         <name>org.quartz.jobStore.tablePrefix</name>
         <value>${exo.quartz.jobStore.tablePrefix}</value>
       </value-param>
       <value-param>
         <name>org.quartz.jobStore.isClustered</name>
         <value>false</value>
+      </value-param>
+      <value-param>
+        <name>org.quartz.jobStore.maxMisfiresToHandleAtATime</name>
+        <value>${exo.quartz.jobStore.maxMisfiresToHandleAtATime}</value>
+      </value-param>
+      <value-param>
+        <name>org.quartz.jobStore.dontSetAutoCommitFalse</name>
+        <value>${exo.quartz.jobStore.dontSetAutoCommitFalse}</value>
+      </value-param>
+      <value-param>
+        <name>org.quartz.jobStore.lockHandler.class</name>
+        <value>${exo.quartz.jobStore.lockHandler.class}</value>
+      </value-param>
+      <value-param>
+        <name>org.quartz.jobStore.driverDelegateInitString</name>
+        <value>${exo.quartz.jobStore.driverDelegateInitString}</value>
+      </value-param>
+      <value-param>
+        <name>org.quartz.jobStore.txIsolationLevelSerializable</name>
+        <value>${exo.quartz.jobStore.txIsolationLevelSerializable}</value>
+      </value-param>
+      <value-param>
+        <name>org.quartz.jobStore.selectWithLockSQL</name>
+        <value>${exo.quartz.jobStore.selectWithLockSQL}</value>
+      </value-param>
+      <value-param>
+        <name>org.quartz.jobStore.acquireTriggersWithinLock</name>
+        <value>${exo.quartz.jobStore.acquireTriggersWithinLock}</value>
       </value-param>
       <value-param profiles="cluster">
         <name>org.quartz.jobStore.isClustered</name>
@@ -114,10 +138,6 @@
       <value-param>
         <name>org.quartz.dataSource.quartzDS.jndiURL</name>
         <value>${exo.quartz.dataSource.quartzDS.jndiURL}</value>
-      </value-param>
-      <value-param>
-        <name>org.quartz.dataSource.quartzDSNoTx.jndiURL</name>
-        <value>${exo.quartz.dataSource.quartzDSNoTx.jndiURL}</value>
       </value-param>
     </init-params>
   </component>
