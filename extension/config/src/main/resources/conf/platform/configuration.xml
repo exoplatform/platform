@@ -130,9 +130,6 @@
                   <string>commons-extension</string>
                </value>
                <value>
-                  <string>CommonsResources</string>
-               </value>
-               <value>
                   <string>cometd</string>
                </value>
 
