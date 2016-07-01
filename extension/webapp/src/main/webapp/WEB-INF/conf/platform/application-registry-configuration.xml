@@ -161,38 +161,6 @@
               </field>
             </object>
           </object-param><object-param>
-            <name>development</name>
-            <description>description</description>
-            <object type="org.exoplatform.application.registry.ApplicationCategory">
-              <field name="name"><string>Development</string></field>
-              <field name="displayName"><string>Development</string></field>
-              <field name="description"><string>Applications for development</string></field>
-              <field name="accessPermissions">
-                <collection type="java.util.ArrayList" item-type="java.lang.String">
-                  <value><string>*:/developers</string></value>
-                </collection>
-              </field>
-              <field name="applications">
-                <collection type="java.util.ArrayList">
-                  <value>
-                    <object type="org.exoplatform.application.registry.Application">
-                      <field name="applicationName"><string>eXoScriptingConsole</string></field>
-                      <field name="categoryName"><string>development</string></field>
-                      <field name="displayName"><string>eXo Groovy Console</string></field>
-                      <field name="description"><string>This console allows scripting eXo API interactively</string></field>
-                      <field name="type"><string>gadget</string></field>
-                      <field name="contentId"><string>eXoScriptingConsole</string></field>
-                      <field name="accessPermissions">
-                        <collection type="java.util.ArrayList" item-type="java.lang.String">
-                          <value><string>*:/developers</string></value>
-                        </collection>
-                      </field>
-                    </object>
-                  </value>
-                </collection>
-              </field>
-            </object>
-          </object-param><object-param>
             <name>collaboration</name>
             <description>description</description>
             <object type="org.exoplatform.application.registry.ApplicationCategory">
