@@ -105,6 +105,26 @@
             </object>
           </object-param>
           <object-param>
+            <name>User Documents</name>
+            <description>User Documents</description>
+            <object type="org.exoplatform.services.cms.drives.DriveData">
+              <field  name="name"><string>User Documents</string></field>
+              <field  name="workspace"><string>collaboration</string></field>
+              <field  name="permissions"><string>*:/platform/administrators</string></field>
+              <field  name="homePath"><string>/Users/${userId}</string></field>
+              <field  name="icon"><string></string></field>
+              <field  name="views">
+                <string>List, Icons, Admin</string>
+              </field>
+              <field  name="viewPreferences"><boolean>false</boolean></field>
+              <field  name="viewNonDocument"><boolean>false</boolean></field>
+              <field  name="viewSideBar"><boolean>false</boolean></field>
+              <field  name="showHiddenNode"><boolean>false</boolean></field>
+              <field  name="allowCreateFolders"><string>nt:folder</string></field>
+              <field name="allowNodeTypesOnTree"><string>*</string></field>
+            </object>
+          </object-param>
+          <object-param>
             <name>Groups</name>
             <description>Groups drive template</description>
             <object type="org.exoplatform.services.cms.drives.DriveData">
