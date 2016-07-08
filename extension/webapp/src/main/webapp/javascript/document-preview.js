@@ -16,8 +16,9 @@
       openInDocuments: "Open in Documents"
     },
 
-    init: function (docId, downloadUrl, openUrl, options, labels) {
+    init: function (docId, docPath, downloadUrl, openUrl, options, labels) {
       this.docId = docId;
+      this.docPath = docPath;
       this.downloadUrl = downloadUrl;
       this.openUrl = openUrl;
 
