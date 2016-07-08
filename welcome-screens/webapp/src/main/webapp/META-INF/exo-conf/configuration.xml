@@ -18,17 +18,17 @@
                 </values-param>
                 <object-param>
                     <name>change</name>
-                    <object type="org.exoplatform.container.definition.PortalContainerDefinitionChange$AddDependencies">
+                    <object type="org.exoplatform.container.definition.PortalContainerDefinitionChange$AddDependenciesAfter">
                         <!-- The list of name of the dependencies to add -->
                         <field name="dependencies">
                             <collection type="java.util.ArrayList">
                                 <value>
-                                    <string>platform-extension</string>
-                                </value>
-                                <value>
                                     <string>welcome-screens</string>
                                 </value>
                             </collection>
+                        </field>
+                        <field name="target">
+                            <string>platform-extension</string>
                         </field>
                     </object>
                 </object-param>
