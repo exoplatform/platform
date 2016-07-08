@@ -1,0 +1,13 @@
+<gatein-resources xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                  xsi:schemaLocation="http://www.gatein.org/xml/ns/gatein_resources_1_3 http://www.gatein.org/xml/ns/gatein_resources_1_3"
+                  xmlns="http://www.gatein.org/xml/ns/gatein_resources_1_3">
+  <module>
+    <name>documentPreview</name>
+    <script>
+      <path>/javascript/document-preview.js</path>
+    </script>
+    <depends>
+      <module>jquery</module>
+    </depends>
+  </module>
+</gatein-resources>
