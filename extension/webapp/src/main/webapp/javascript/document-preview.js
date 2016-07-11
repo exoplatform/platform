@@ -25,14 +25,15 @@
       this.options = $.extend(this.defaultOptions, options);
       this.labels = $.extend(this.defaultLabels, labels);
 
-      this.create();
+      this.createSkeleton();
+      this.render();
     },
 
-    create: function () {
+    createSkeleton: function () {
       var docPreviewContainer = document.createElement("div");
       docPreviewContainer.innerHTML = ' \
         <div id="documentPreviewContainer" class="maskLayer" style="display: none"> \
-          <div class="uiDocumentPreview" id="uiDocumentPreview' + this.docId + '"> \
+          <div class="uiDocumentPreview" id="uiDocumentPreview"> \
             <div class="exitWindow"> \
               <a class="uiIconClose uiIconWhite" title="' + this.labels.close + '" onclick="documentPreview.hide()"></a> \
             </div> \
