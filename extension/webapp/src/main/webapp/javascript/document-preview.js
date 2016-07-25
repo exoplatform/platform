@@ -38,7 +38,48 @@
               <a class="uiIconClose uiIconWhite" title="' + this.labels.close + '" onclick="documentPreview.hide()"></a> \
             </div> \
             <div class="uiDocumentPreviewMainWindow clearfix"> \
-              <!-- put comment area here --> \
+              <!-- doc comments --> \
+              <div class="uiBox commentArea pull-right" id="$uicomponent.id"> \
+                <div class="title">\
+                  Title \
+                </div> \
+                <div class="uiContentBox"> \
+                  <div class="highlightBox"> \
+                    <div class="profile clearfix"> \
+                      <a title="authorFullName" href="authorProfileUri" class="avatarMedium pull-left"><img alt="$authorFullName" src="authorAvatarImgSrc"></a> \
+                      <div class="rightBlock"> \
+                        <a href="authorProfileUri">authorFullName</a> \
+                        <p class="dateTime">activityPostedTime</p> \
+                        <p class="descript" title="activityStatus">activityStatus</p> \
+                      </div> \
+                    </div> \
+                  </div> \
+                  <div class="actionBar clearfix "> \
+                    <ul class="pull-right"> \
+                      <li> \
+                        <a href="#" id = "previewCommentLink"> \
+                          <i class="uiIconComment uiIconLightGray"></i>&nbsp;commentSize \
+                        </a> \
+                      </li> \
+                      <li> \
+                        <a href="javascript:void(0);" onclick="likeActivityAction" rel="tooltip" data-placement="bottom" title="LikeActivity"> \
+                          <i class="uiIconThumbUp uiIconLightGray"></i>&nbsp;identityLikesNum \
+                        </a> \
+                      </li> \
+                    </ul> \
+                  </div> \
+                  <div> \
+                    <ul class="commentList"> \
+                    </ul> \
+                  </div> \
+                  <div class="commentInputBox"> \
+                    <a class="avatarXSmall pull-left" href="currentCommenterUri" title="currentCommenterFullName"><img src="currentCommenterAvatar" alt="currentCommenterFullName" /></a> \
+                      <div class="commentBox"> \
+                        <textarea placeholder="commentTextAreaPreview" cols="30" rows="10" id="commentTextAreaPreview" activityId="activityId" class="textarea"></textarea> \
+                      </div> \
+                    </div> \
+                </div> \
+              </div> \
               <div class="resizeButton " id="ShowHideAll"> \
                 <i style="display: block;" class="uiIconMiniArrowRight uiIconWhite"></i> \
               </div> \
