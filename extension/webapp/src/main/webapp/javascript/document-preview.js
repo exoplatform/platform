@@ -18,6 +18,12 @@
         fullname: "",
         avatarUrl: "",
         profileUrl: ""
+      },
+      activity: {
+        id: null,
+        postTime: "",
+        status: "",
+        likes: 0
       }
     },
 
@@ -72,8 +78,8 @@
                     <a title="' + this.settings.author.fullname + '" href="' + this.settings.author.profileUrl + '" class="avatarMedium pull-left"><img alt="' + this.settings.author.fullname + '" src="' + this.settings.author.avatarUrl + '"></a> \
                     <div class="rightBlock"> \
                       <a href="' + this.settings.author.profileUrl + '">' + this.settings.author.fullname + '</a> \
-                      <p class="dateTime">activityPostedTime</p> \
-                      <p class="descript" title="activityStatus">activityStatus</p> \
+                      <p class="dateTime">' + this.settings.activity.postTime + '</p> \
+                      <p class="descript" title="activityStatus">' + (this.settings.activity.status != null ? this.settings.activity.status : '') + '</p> \
                     </div> \
                   </div> \
                 </div> \
@@ -86,7 +92,7 @@
                     </li> \
                     <li> \
                       <a href="javascript:void(0);" onclick="likeActivityAction" rel="tooltip" data-placement="bottom" title="' + this.settings.labels.likeActivity + '"> \
-                        <i class="uiIconThumbUp uiIconLightGray"></i>&nbsp;identityLikesNum \
+                        <i class="uiIconThumbUp uiIconLightGray"></i>&nbsp;' + this.settings.activity.likes + ' \
                       </a> \
                     </li> \
                   </ul> \
