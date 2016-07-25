@@ -53,74 +53,80 @@
     },
 
     createSkeleton: function () {
-      var docPreviewContainer = document.createElement("div");
-      docPreviewContainer.innerHTML = ' \
-        <div id="documentPreviewContainer" class="maskLayer" style="display: none"> \
-          <div class="uiDocumentPreview" id="uiDocumentPreview"> \
-            <div class="exitWindow"> \
-              <a class="uiIconClose uiIconWhite" title="' + this.labels.close + '" onclick="documentPreview.hide()"></a> \
+      var docPreviewContainer = $("#documentPreviewContainer");
+
+      if(docPreviewContainer.length == 0) {
+        docPreviewContainer = $("<div />", {
+          id: "documentPreviewContainer",
+          class: "maskLayer"
+        }).appendTo('body');
+      }
+      docPreviewContainer.hide();
+
+      docPreviewContainer.html(' \
+        <div class="uiDocumentPreview" id="uiDocumentPreview"> \
+          <div class="exitWindow"> \
+            <a class="uiIconClose uiIconWhite" title="' + this.labels.close + '" onclick="documentPreview.hide()"></a> \
+          </div> \
+          <div class="uiDocumentPreviewMainWindow clearfix"> \
+            <!-- doc comments --> \
+            <div class="uiBox commentArea pull-right" id="$uicomponent.id"> \
+              <div class="title">\
+                Title \
+              </div> \
+              <div class="uiContentBox"> \
+                <div class="highlightBox"> \
+                  <div class="profile clearfix"> \
+                    <a title="' + this.author.fullname + '" href="' + this.author.profileUrl + '" class="avatarMedium pull-left"><img alt="' + this.author.fullname + '" src="' + this.author.avatarUrl + '"></a> \
+                    <div class="rightBlock"> \
+                      <a href="' + this.author.profileUrl + '">' + this.author.fullname + '</a> \
+                      <p class="dateTime">activityPostedTime</p> \
+                      <p class="descript" title="activityStatus">activityStatus</p> \
+                    </div> \
+                  </div> \
+                </div> \
+                <div class="actionBar clearfix "> \
+                  <ul class="pull-right"> \
+                    <li> \
+                      <a href="#" id = "previewCommentLink"> \
+                        <i class="uiIconComment uiIconLightGray"></i>&nbsp;commentSize \
+                      </a> \
+                    </li> \
+                    <li> \
+                      <a href="javascript:void(0);" onclick="likeActivityAction" rel="tooltip" data-placement="bottom" title="' + this.labels.likeActivity + '"> \
+                        <i class="uiIconThumbUp uiIconLightGray"></i>&nbsp;identityLikesNum \
+                      </a> \
+                    </li> \
+                  </ul> \
+                </div> \
+                <div> \
+                  <ul class="commentList"> \
+                  </ul> \
+                </div> \
+                <div class="commentInputBox"> \
+                  <a class="avatarXSmall pull-left" href="currentCommenterUri" title="currentCommenterFullName"><img src="currentCommenterAvatar" alt="currentCommenterFullName" /></a> \
+                    <div class="commentBox"> \
+                      <textarea placeholder="' + this.labels.postCommentHint + '" cols="30" rows="10" id="commentTextAreaPreview" activityId="activityId" class="textarea"></textarea> \
+                    </div> \
+                  </div> \
+              </div> \
             </div> \
-            <div class="uiDocumentPreviewMainWindow clearfix"> \
-              <!-- doc comments --> \
-              <div class="uiBox commentArea pull-right" id="$uicomponent.id"> \
-                <div class="title">\
-                  Title \
-                </div> \
-                <div class="uiContentBox"> \
-                  <div class="highlightBox"> \
-                    <div class="profile clearfix"> \
-                      <a title="' + this.author.fullname + '" href="' + this.author.profileUrl + '" class="avatarMedium pull-left"><img alt="' + this.author.fullname + '" src="' + this.author.avatarUrl + '"></a> \
-                      <div class="rightBlock"> \
-                        <a href="' + this.author.profileUrl + '">' + this.author.fullname + '</a> \
-                        <p class="dateTime">activityPostedTime</p> \
-                        <p class="descript" title="activityStatus">activityStatus</p> \
-                      </div> \
-                    </div> \
-                  </div> \
-                  <div class="actionBar clearfix "> \
-                    <ul class="pull-right"> \
-                      <li> \
-                        <a href="#" id = "previewCommentLink"> \
-                          <i class="uiIconComment uiIconLightGray"></i>&nbsp;commentSize \
-                        </a> \
-                      </li> \
-                      <li> \
-                        <a href="javascript:void(0);" onclick="likeActivityAction" rel="tooltip" data-placement="bottom" title="' + this.labels.likeActivity + '"> \
-                          <i class="uiIconThumbUp uiIconLightGray"></i>&nbsp;identityLikesNum \
-                        </a> \
-                      </li> \
-                    </ul> \
-                  </div> \
-                  <div> \
-                    <ul class="commentList"> \
-                    </ul> \
-                  </div> \
-                  <div class="commentInputBox"> \
-                    <a class="avatarXSmall pull-left" href="currentCommenterUri" title="currentCommenterFullName"><img src="currentCommenterAvatar" alt="currentCommenterFullName" /></a> \
-                      <div class="commentBox"> \
-                        <textarea placeholder="' + this.labels.postCommentHint + '" cols="30" rows="10" id="commentTextAreaPreview" activityId="activityId" class="textarea"></textarea> \
-                      </div> \
-                    </div> \
-                </div> \
+            <div class="resizeButton " id="ShowHideAll"> \
+              <i style="display: block;" class="uiIconMiniArrowRight uiIconWhite"></i> \
+            </div> \
+            <div id="documentPreviewContent"> \
+            </div> \
+            <!-- put vote area here --> \
+            <div class="previewBtn"> \
+              <div class="downloadBtn"> \
+                <a href="' + this.downloadUrl + '"><i class="uiIconDownload uiIconWhite"></i>&nbsp;' + this.labels.download + '</a> \
               </div> \
-              <div class="resizeButton " id="ShowHideAll"> \
-                <i style="display: block;" class="uiIconMiniArrowRight uiIconWhite"></i> \
-              </div> \
-              <div id="documentPreviewContent"> \
-              </div> \
-              <!-- put vote area here --> \
-              <div class="previewBtn"> \
-                <div class="downloadBtn"> \
-                  <a href="' + this.downloadUrl + '"><i class="uiIconDownload uiIconWhite"></i>&nbsp;' + this.labels.download + '</a> \
-                </div> \
-                <div class="openBtn"> \
-                  <a href="' + this.openUrl + '"><i class="uiIconGotoFolder uiIconWhite"></i>&nbsp;' + this.labels.openInDocuments + '</a> \
-                </div> \
+              <div class="openBtn"> \
+                <a href="' + this.openUrl + '"><i class="uiIconGotoFolder uiIconWhite"></i>&nbsp;' + this.labels.openInDocuments + '</a> \
               </div> \
             </div> \
           </div> \
-        </div>';
-      document.body.appendChild(docPreviewContainer);
+        </div>');
     },
 
     render: function () {
