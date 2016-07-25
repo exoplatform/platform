@@ -13,7 +13,9 @@
     defaultLabels: {
       close: "Close",
       download: "Download",
-      openInDocuments: "Open in Documents"
+      openInDocuments: "Open in Documents",
+      likeActivity: "Like",
+      postCommentHint: "Add your comment..."
     },
 
     init: function (docId, docPath, downloadUrl, openUrl, options, labels) {
@@ -62,7 +64,7 @@
                         </a> \
                       </li> \
                       <li> \
-                        <a href="javascript:void(0);" onclick="likeActivityAction" rel="tooltip" data-placement="bottom" title="LikeActivity"> \
+                        <a href="javascript:void(0);" onclick="likeActivityAction" rel="tooltip" data-placement="bottom" title="' + this.labels.likeActivity + '"> \
                           <i class="uiIconThumbUp uiIconLightGray"></i>&nbsp;identityLikesNum \
                         </a> \
                       </li> \
@@ -75,7 +77,7 @@
                   <div class="commentInputBox"> \
                     <a class="avatarXSmall pull-left" href="currentCommenterUri" title="currentCommenterFullName"><img src="currentCommenterAvatar" alt="currentCommenterFullName" /></a> \
                       <div class="commentBox"> \
-                        <textarea placeholder="commentTextAreaPreview" cols="30" rows="10" id="commentTextAreaPreview" activityId="activityId" class="textarea"></textarea> \
+                        <textarea placeholder="' + this.labels.postCommentHint + '" cols="30" rows="10" id="commentTextAreaPreview" activityId="activityId" class="textarea"></textarea> \
                       </div> \
                     </div> \
                 </div> \
