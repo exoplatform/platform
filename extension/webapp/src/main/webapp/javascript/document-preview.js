@@ -17,6 +17,11 @@
       likeActivity: "Like",
       postCommentHint: "Add your comment..."
     },
+    author: {
+      fullname: "",
+      avatarUrl: "",
+      profileUrl: ""
+    },
 
     init: function (docId, docPath, downloadUrl, openUrl, options, labels) {
       this.docId = docId;
@@ -27,8 +32,23 @@
       this.options = $.extend(this.defaultOptions, options);
       this.labels = $.extend(this.defaultLabels, labels);
 
-      this.createSkeleton();
-      this.render();
+      var self = this;
+      $.ajax({
+        url: "/rest/v1/social/users/" + eXo.env.portal.userName
+      }).done(function(data) {
+        if(data.fullname != null) {
+          self.author.fullname = data.fullname;
+        }
+        if(data.avatar != null) {
+          self.author.avatarUrl = data.avatar;
+        } else {
+          self.author.avatarUrl = "/eXoSkin/skin/images/system/SpaceAvtDefault.png";
+        }
+        self.author.profileUrl= "/" + eXo.env.portal.containerName + "/" + eXo.env.portal.portalName + "/" + eXo.env.portal.userName;
+      }).always(function() {
+        self.createSkeleton();
+        self.render();
+      });
     },
 
     createSkeleton: function () {
@@ -48,9 +68,9 @@
                 <div class="uiContentBox"> \
                   <div class="highlightBox"> \
                     <div class="profile clearfix"> \
-                      <a title="authorFullName" href="authorProfileUri" class="avatarMedium pull-left"><img alt="$authorFullName" src="authorAvatarImgSrc"></a> \
+                      <a title="' + this.author.fullname + '" href="' + this.author.profileUrl + '" class="avatarMedium pull-left"><img alt="' + this.author.fullname + '" src="' + this.author.avatarUrl + '"></a> \
                       <div class="rightBlock"> \
-                        <a href="authorProfileUri">authorFullName</a> \
+                        <a href="' + this.author.profileUrl + '">' + this.author.fullname + '</a> \
                         <p class="dateTime">activityPostedTime</p> \
                         <p class="descript" title="activityStatus">activityStatus</p> \
                       </div> \
