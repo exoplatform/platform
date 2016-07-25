@@ -1,50 +1,42 @@
 (function ($) {
   documentPreview = {
-    docId: null,
-    docPath: null,
-    downloadUrl: null,
-    openUrl: null,
-    options: null,
-    defaultOptions: {
+    settings: {
+      docId: null,
+      docPath: null,
+      downloadUrl: null,
+      openUrl: null,
       isWebContent: false,
-      showComments: false
-    },
-    labels: null,
-    defaultLabels: {
-      close: "Close",
-      download: "Download",
-      openInDocuments: "Open in Documents",
-      likeActivity: "Like",
-      postCommentHint: "Add your comment..."
-    },
-    author: {
-      fullname: "",
-      avatarUrl: "",
-      profileUrl: ""
+      showComments: false,
+      labels: {
+        close: "Close",
+        download: "Download",
+        openInDocuments: "Open in Documents",
+        likeActivity: "Like",
+        postCommentHint: "Add your comment..."
+      },
+      author: {
+        fullname: "",
+        avatarUrl: "",
+        profileUrl: ""
+      }
     },
 
-    init: function (docId, docPath, downloadUrl, openUrl, options, labels) {
-      this.docId = docId;
-      this.docPath = docPath;
-      this.downloadUrl = downloadUrl;
-      this.openUrl = openUrl;
-
-      this.options = $.extend(this.defaultOptions, options);
-      this.labels = $.extend(this.defaultLabels, labels);
+    init: function (docPreviewSettings) {
+      this.settings = $.extend(this.settings, docPreviewSettings);
 
       var self = this;
       $.ajax({
         url: "/rest/v1/social/users/" + eXo.env.portal.userName
       }).done(function(data) {
         if(data.fullname != null) {
-          self.author.fullname = data.fullname;
+          self.settings.author.fullname = data.fullname;
         }
         if(data.avatar != null) {
-          self.author.avatarUrl = data.avatar;
+          self.settings.author.avatarUrl = data.avatar;
         } else {
-          self.author.avatarUrl = "/eXoSkin/skin/images/system/SpaceAvtDefault.png";
+          self.settings.author.avatarUrl = "/eXoSkin/skin/images/system/SpaceAvtDefault.png";
         }
-        self.author.profileUrl= "/" + eXo.env.portal.containerName + "/" + eXo.env.portal.portalName + "/" + eXo.env.portal.userName;
+        self.settings.author.profileUrl= "/" + eXo.env.portal.containerName + "/" + eXo.env.portal.portalName + "/" + eXo.env.portal.userName;
       }).always(function() {
         self.createSkeleton();
         self.render();
@@ -66,7 +58,7 @@
       docPreviewContainer.html(' \
         <div class="uiDocumentPreview" id="uiDocumentPreview"> \
           <div class="exitWindow"> \
-            <a class="uiIconClose uiIconWhite" title="' + this.labels.close + '" onclick="documentPreview.hide()"></a> \
+            <a class="uiIconClose uiIconWhite" title="' + this.settings.labels.close + '" onclick="documentPreview.hide()"></a> \
           </div> \
           <div class="uiDocumentPreviewMainWindow clearfix"> \
             <!-- doc comments --> \
@@ -77,9 +69,9 @@
               <div class="uiContentBox"> \
                 <div class="highlightBox"> \
                   <div class="profile clearfix"> \
-                    <a title="' + this.author.fullname + '" href="' + this.author.profileUrl + '" class="avatarMedium pull-left"><img alt="' + this.author.fullname + '" src="' + this.author.avatarUrl + '"></a> \
+                    <a title="' + this.settings.author.fullname + '" href="' + this.settings.author.profileUrl + '" class="avatarMedium pull-left"><img alt="' + this.settings.author.fullname + '" src="' + this.settings.author.avatarUrl + '"></a> \
                     <div class="rightBlock"> \
-                      <a href="' + this.author.profileUrl + '">' + this.author.fullname + '</a> \
+                      <a href="' + this.settings.author.profileUrl + '">' + this.settings.author.fullname + '</a> \
                       <p class="dateTime">activityPostedTime</p> \
                       <p class="descript" title="activityStatus">activityStatus</p> \
                     </div> \
@@ -93,7 +85,7 @@
                       </a> \
                     </li> \
                     <li> \
-                      <a href="javascript:void(0);" onclick="likeActivityAction" rel="tooltip" data-placement="bottom" title="' + this.labels.likeActivity + '"> \
+                      <a href="javascript:void(0);" onclick="likeActivityAction" rel="tooltip" data-placement="bottom" title="' + this.settings.labels.likeActivity + '"> \
                         <i class="uiIconThumbUp uiIconLightGray"></i>&nbsp;identityLikesNum \
                       </a> \
                     </li> \
@@ -106,7 +98,7 @@
                 <div class="commentInputBox"> \
                   <a class="avatarXSmall pull-left" href="currentCommenterUri" title="currentCommenterFullName"><img src="currentCommenterAvatar" alt="currentCommenterFullName" /></a> \
                     <div class="commentBox"> \
-                      <textarea placeholder="' + this.labels.postCommentHint + '" cols="30" rows="10" id="commentTextAreaPreview" activityId="activityId" class="textarea"></textarea> \
+                      <textarea placeholder="' + this.settings.labels.postCommentHint + '" cols="30" rows="10" id="commentTextAreaPreview" activityId="activityId" class="textarea"></textarea> \
                     </div> \
                   </div> \
               </div> \
@@ -119,10 +111,10 @@
             <!-- put vote area here --> \
             <div class="previewBtn"> \
               <div class="downloadBtn"> \
-                <a href="' + this.downloadUrl + '"><i class="uiIconDownload uiIconWhite"></i>&nbsp;' + this.labels.download + '</a> \
+                <a href="' + this.settings.downloadUrl + '"><i class="uiIconDownload uiIconWhite"></i>&nbsp;' + this.settings.labels.download + '</a> \
               </div> \
               <div class="openBtn"> \
-                <a href="' + this.openUrl + '"><i class="uiIconGotoFolder uiIconWhite"></i>&nbsp;' + this.labels.openInDocuments + '</a> \
+                <a href="' + this.settings.openUrl + '"><i class="uiIconGotoFolder uiIconWhite"></i>&nbsp;' + this.settings.labels.openInDocuments + '</a> \
               </div> \
             </div> \
           </div> \
@@ -146,13 +138,13 @@
 
       var docContentContainer = $('#documentPreviewContent');
       var docContent = '';
-      if(this.options.isWebContent) {
+      if(this.settings.isWebContent) {
         docContent += '<div class="uiPreviewWebContent">';
       }
 
-      docContentContainer.load('/rest/private/contentviewer/repository/collaboration/' + this.docId);
+      docContentContainer.load('/rest/private/contentviewer/repository/collaboration/' + this.settings.docId);
 
-      if(this.options.isWebContent) {
+      if(this.settings.isWebContent) {
         docContent += '</div>';
       }
     },
