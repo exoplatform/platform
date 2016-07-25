@@ -48,6 +48,7 @@
       }).always(function() {
         self.createSkeleton();
         self.render();
+        self.show();
       });
     },
 
