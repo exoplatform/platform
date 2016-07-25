@@ -101,7 +101,7 @@
   var closeEventHandler = function(e) {
     $('#presentationMode').blur();
     if (e.keyCode == 27 && ("presentationMode" != e.target.id || $.browser.mozilla)) {
-      $(".exitWindow > .uiIconClose", $uiDocumentPreview).trigger("click");
+      $(".exitWindow > .uiIconClose", $('#uiDocumentPreview')).trigger("click");
     }
   }
 
