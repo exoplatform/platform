@@ -137,7 +137,6 @@
     },
 
     render: function () {
-      resizeEventHandler();
       $(window).on('resize', resizeEventHandler);
       $(document).on('keyup', closeEventHandler);
 
@@ -157,7 +156,11 @@
         docContent += '<div class="uiPreviewWebContent">';
       }
 
-      docContentContainer.load('/rest/private/contentviewer/repository/collaboration/' + this.settings.docId);
+      var self = this;
+      docContentContainer.load('/rest/private/contentviewer/repository/collaboration/' + this.settings.docId, function() {
+        resizeEventHandler();
+        self.show();
+      });
 
       if(this.settings.isWebContent) {
         docContent += '</div>';
