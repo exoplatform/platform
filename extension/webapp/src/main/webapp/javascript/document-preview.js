@@ -15,9 +15,10 @@
         postCommentHint: "Add your comment..."
       },
       author: {
-        fullname: "",
-        avatarUrl: "",
-        profileUrl: ""
+        username: null,
+        fullname: null,
+        avatarUrl: null,
+        profileUrl: null
       },
       activity: {
         id: null,
@@ -30,24 +31,32 @@
     init: function (docPreviewSettings) {
       this.settings = $.extend(this.settings, docPreviewSettings);
 
-      var self = this;
-      $.ajax({
-        url: "/rest/v1/social/users/" + eXo.env.portal.userName
-      }).done(function(data) {
-        if(data.fullname != null) {
-          self.settings.author.fullname = data.fullname;
-        }
-        if(data.avatar != null) {
-          self.settings.author.avatarUrl = data.avatar;
-        } else {
-          self.settings.author.avatarUrl = "/eXoSkin/skin/images/system/SpaceAvtDefault.png";
-        }
-        self.settings.author.profileUrl= "/" + eXo.env.portal.containerName + "/" + eXo.env.portal.portalName + "/" + eXo.env.portal.userName;
-      }).always(function() {
-        self.createSkeleton();
-        self.render();
-        self.show();
-      });
+      // if we miss author information, let's fetch them
+      if(this.settings.author.username != null
+        && (this.settings.author.fullname == null  || this.settings.author.avatarUrl == null || this.settings.author.profileUrl == null)) {
+        var self = this;
+        $.ajax({
+          url: "/rest/v1/social/users/" + self.settings.author.username
+        }).done(function (data) {
+          if (data.fullname != null) {
+            self.settings.author.fullname = data.fullname;
+          }
+          if (data.avatar != null) {
+            self.settings.author.avatarUrl = data.avatar;
+          } else {
+            self.settings.author.avatarUrl = "/eXoSkin/skin/images/system/SpaceAvtDefault.png";
+          }
+          self.settings.author.profileUrl = "/" + eXo.env.portal.containerName + "/" + eXo.env.portal.portalName + "/" + eXo.env.portal.userName;
+        }).always(function () {
+          self.createSkeleton();
+          self.render();
+          self.show();
+        });
+      } else {
+        this.createSkeleton();
+        this.render();
+        this.show();
+      }
     },
 
     createSkeleton: function () {
