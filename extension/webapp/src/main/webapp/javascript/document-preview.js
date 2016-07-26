@@ -12,7 +12,8 @@
         download: "Download",
         openInDocuments: "Open in Documents",
         likeActivity: "Like",
-        postCommentHint: "Add your comment..."
+        postCommentHint: "Add your comment...",
+        noComment: "No comment yet"
       },
       author: {
         username: null,
@@ -25,7 +26,8 @@
         postTime: "",
         status: "",
         likes: 0
-      }
+      },
+      comments: null
     },
 
     init: function (docPreviewSettings) {
@@ -51,11 +53,13 @@
           self.createSkeleton();
           self.render();
           self.show();
+          self.loadComments();
         });
       } else {
         this.createSkeleton();
         this.render();
         this.show();
+        this.loadComments();
       }
     },
 
@@ -95,8 +99,8 @@
                 <div class="actionBar clearfix "> \
                   <ul class="pull-right"> \
                     <li> \
-                      <a href="#" id = "previewCommentLink"> \
-                        <i class="uiIconComment uiIconLightGray"></i>&nbsp;commentSize \
+                      <a href="#" id="previewCommentLink"> \
+                        <i class="uiIconComment uiIconLightGray"></i>&nbsp;<span class="nbOfComments"></span> \
                       </a> \
                     </li> \
                     <li> \
@@ -106,7 +110,7 @@
                     </li> \
                   </ul> \
                 </div> \
-                <div> \
+                <div class="comments"> \
                   <ul class="commentList"> \
                   </ul> \
                 </div> \
@@ -134,6 +138,59 @@
             </div> \
           </div> \
         </div>');
+    },
+
+    loadComments: function() {
+      if(this.settings.comments == null && this.settings.activity.id != null) {
+        // load comments activity
+        var commentsContainer = $('#documentPreviewContainer .comments');
+        commentsContainer.html('<span class="uiLoadingIconSmall"></span>');
+
+        var self = this;
+        $.ajax({
+          url: '/rest/v1/social/activities/' + this.settings.activity.id + '/comments?expand=identity'
+        }).done(function(data) {
+          self.renderComments(data.comments);
+        });
+      } else if(this.settings.comments != null) {
+        this.renderComments(this.settings.comments);
+      } else {
+        this.renderComments([]);
+      }
+    },
+
+    renderComments: function(comments) {
+      var commentsContainer = $('#documentPreviewContainer .comments');
+      var commentsHtml = '';
+      if(comments != null && comments.length > 0) {
+        $('#documentPreviewContainer .nbOfComments').html(comments.length);
+        commentsHtml = '<ul class="commentList">';
+        $.each(comments, function (index, comment) {
+          var commenterProfileUrl = "/" + eXo.env.portal.containerName + "/" + eXo.env.portal.portalName + "/" + eXo.env.portal.userName;
+          var commenterAvatar = comment.identity.profile.avatar;
+          if (commenterAvatar == null) {
+            commenterAvatar = '/eXoSkin/skin/images/system/UserAvtDefault.png';
+          }
+          commentsHtml += '<li class="clearfix"> \
+            <a class="avatarXSmall pull-left" href="' + commenterProfileUrl + '" title="' + comment.identity.profile.fullname + '"><img src="' + commenterAvatar + '" alt="" /></a> \
+            <div class="rightBlock"> \
+              <div class="tit"> \
+                <a href="' + commenterProfileUrl + '" >' + comment.identity.profile.fullname + '</a> \
+                <span class="pull-right dateTime">' + comment.updateDate + '</span> \
+              </div> \
+              <p class="cont">' + comment.body + '</p> \
+              <a href="javascript:void(0)" id="$idDeleteComment" data-confirm="$labelToDeleteThisComment" data-delete="<%=uicomponent.event(uicomponent.REMOVE_COMMENT, it.id); %>"  class="close previewControllDelete"><i class="uiIconLightGray uiIconClose " commentId="$it.id"></i></a> \
+            </div> \
+          </li>';
+        })
+        commentsHtml += '</ul>';
+      } else {
+        $('#documentPreviewContainer .nbOfComments').html('0');
+        commentsHtml = '<div class="noComment"> \
+            <div class="info">' + this.settings.labels.noComment + '</div> \
+          </div>';
+      }
+      commentsContainer.html(commentsHtml);
     },
 
     render: function () {
