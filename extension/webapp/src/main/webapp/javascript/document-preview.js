@@ -151,20 +151,12 @@
       });
 
       var docContentContainer = $('#documentPreviewContent');
-      var docContent = '';
-      if(this.settings.isWebContent) {
-        docContent += '<div class="uiPreviewWebContent">';
-      }
 
       var self = this;
       docContentContainer.load('/rest/private/contentviewer/repository/collaboration/' + this.settings.docId, function() {
         resizeEventHandler();
         self.show();
       });
-
-      if(this.settings.isWebContent) {
-        docContent += '</div>';
-      }
     },
 
     show: function () {
