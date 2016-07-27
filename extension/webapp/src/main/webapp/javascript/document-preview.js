@@ -15,6 +15,12 @@
         postCommentHint: "Add your comment...",
         noComment: "No comment yet"
       },
+      user: {
+        username: null,
+        fullname: null,
+        avatarUrl: null,
+        profileUrl: null
+      },
       author: {
         username: null,
         fullname: null,
@@ -33,34 +39,70 @@
     init: function (docPreviewSettings) {
       this.settings = $.extend(this.settings, docPreviewSettings);
 
+      var promises = [];
+
       // if we miss author information, let's fetch them
       if(this.settings.author.username != null
         && (this.settings.author.fullname == null  || this.settings.author.avatarUrl == null || this.settings.author.profileUrl == null)) {
-        var self = this;
-        $.ajax({
-          url: "/rest/v1/social/users/" + self.settings.author.username
-        }).done(function (data) {
-          if (data.fullname != null) {
-            self.settings.author.fullname = data.fullname;
-          }
-          if (data.avatar != null) {
-            self.settings.author.avatarUrl = data.avatar;
-          } else {
-            self.settings.author.avatarUrl = "/eXoSkin/skin/images/system/SpaceAvtDefault.png";
-          }
-          self.settings.author.profileUrl = "/" + eXo.env.portal.containerName + "/" + eXo.env.portal.portalName + "/" + eXo.env.portal.userName;
-        }).always(function () {
-          self.createSkeleton();
-          self.render();
-          self.show();
-          self.loadComments();
-        });
-      } else {
-        this.createSkeleton();
-        this.render();
-        this.show();
-        this.loadComments();
+        promises.push(this.fetchActivityAuthorInformation());
       }
+      // if we miss current user information, let's fetch them
+      if(this.settings.user.fullname == null  || this.settings.user.avatarUrl == null || this.settings.user.profileUrl == null) {
+        promises.push(this.fetchUserInformation());
+      }
+
+      var self = this;
+      // wait for all users info fetches to be complete before rendering the component
+      Promise.all(promises).then(function() {
+        self.createSkeleton();
+        self.render();
+        self.show();
+        self.loadComments();
+      }, function(err) {
+        // error occurred
+      });
+    },
+
+    fetchUserInformation: function(callback) {
+      var self = this;
+      return $.ajax({
+        url: "/rest/v1/social/users/" + eXo.env.portal.userName
+      }).done(function (data) {
+        if (data.fullname != null) {
+          self.settings.user.fullname = data.fullname;
+        }
+        if (data.avatar != null) {
+          self.settings.user.avatarUrl = data.avatar;
+        } else {
+          self.settings.user.avatarUrl = "/eXoSkin/skin/images/system/SpaceAvtDefault.png";
+        }
+        self.settings.user.profileUrl = "/" + eXo.env.portal.containerName + "/" + eXo.env.portal.portalName + "/" + eXo.env.portal.userName;
+      }).always(function () {
+        if(typeof callback === 'function') {
+          callback();
+        }
+      });
+    },
+
+    fetchActivityAuthorInformation: function(callback) {
+      var self = this;
+      return $.ajax({
+        url: "/rest/v1/social/users/" + self.settings.author.username
+      }).done(function (data) {
+        if (data.fullname != null) {
+          self.settings.author.fullname = data.fullname;
+        }
+        if (data.avatar != null) {
+          self.settings.author.avatarUrl = data.avatar;
+        } else {
+          self.settings.author.avatarUrl = "/eXoSkin/skin/images/system/SpaceAvtDefault.png";
+        }
+        self.settings.author.profileUrl = "/" + eXo.env.portal.containerName + "/" + eXo.env.portal.portalName + "/" + self.settings.author.username;
+      }).always(function () {
+        if(typeof callback === 'function') {
+          callback();
+        }
+      });
     },
 
     createSkeleton: function () {
@@ -115,7 +157,8 @@
                   </ul> \
                 </div> \
                 <div class="commentInputBox"> \
-                  <a class="avatarXSmall pull-left" href="currentCommenterUri" title="currentCommenterFullName"><img src="currentCommenterAvatar" alt="currentCommenterFullName" /></a> \
+                  <a class="avatarXSmall pull-left" href="' + this.settings.user.profileUrl + '" title="' + this.settings.user.fullname + '"> \
+                    <img src="' + this.settings.user.avatarUrl + '" alt="' + this.settings.user.fullname + '" /></a> \
                     <div class="commentBox"> \
                       <textarea placeholder="' + this.settings.labels.postCommentHint + '" cols="30" rows="10" id="commentTextAreaPreview" activityId="activityId" class="textarea"></textarea> \
                     </div> \
