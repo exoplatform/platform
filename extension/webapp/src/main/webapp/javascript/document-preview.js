@@ -31,7 +31,8 @@
         id: null,
         postTime: "",
         status: "",
-        likes: 0
+        liked: null,
+        likes: null
       },
       comments: null
     },
@@ -49,6 +50,10 @@
       // if we miss current user information, let's fetch them
       if(this.settings.user.fullname == null  || this.settings.user.avatarUrl == null || this.settings.user.profileUrl == null) {
         promises.push(this.fetchUserInformation());
+      }
+      // if we don't have the number of likes, let's fetch it
+      if(this.settings.activity.id != null && this.settings.activity.likes == null) {
+        promises.push(this.fetchLikes());
       }
 
       var self = this;
@@ -105,6 +110,57 @@
       });
     },
 
+    fetchLikes: function() {
+      var self = this;
+      return $.ajax({
+        url: '/rest/v1/social/activities/' + this.settings.activity.id + '/likes'
+      }).done(function (data) {
+        if (data.likes != null) {
+          self.settings.activity.likes = data.likes.length;
+        }
+      }).fail(function () {
+        self.settings.activity.likes = 0;
+      });
+    },
+
+    like: function(like) {
+      var self = this;
+      if(like) {
+        return $.post('/rest/v1/social/activities/' + this.settings.activity.id + '/likes', {liker: eXo.env.portal.userName})
+          .done(function (data) {
+            self.settings.activity.liked = true;
+            self.settings.activity.likes++;
+            $('#documentPreviewContainer .nbOfLikes').html(self.settings.activity.likes);
+            self.refreshLikeLink();
+          }).fail(function () {
+            // error occurred
+          });
+      } else {
+        return $.ajax({
+            type: 'DELETE',
+            url: '/rest/v1/social/activities/' + this.settings.activity.id + '/likes/' + eXo.env.portal.userName
+          }).done(function (data) {
+            self.settings.activity.liked = false;
+            self.settings.activity.likes--;
+            $('#documentPreviewContainer .nbOfLikes').html(self.settings.activity.likes);
+            self.refreshLikeLink();
+          }).fail(function () {
+            // error occurred
+          });
+      }
+    },
+
+    refreshLikeLink: function() {
+      var likeIcon = $('#documentPreviewContainer #previewLikeLink .uiIconThumbUp');
+      if(this.settings.activity.liked == true) {
+        likeIcon.addClass('uiIconBlue');
+        likeIcon.removeClass('uiIconLightGray');
+      } else {
+        likeIcon.removeClass('uiIconBlue');
+        likeIcon.addClass('uiIconLightGray');
+      }
+    },
+
     createSkeleton: function () {
       var docPreviewContainer = $("#documentPreviewContainer");
 
@@ -146,8 +202,8 @@
                       </a> \
                     </li> \
                     <li> \
-                      <a href="javascript:void(0);" onclick="likeActivityAction" rel="tooltip" data-placement="bottom" title="' + this.settings.labels.likeActivity + '"> \
-                        <i class="uiIconThumbUp uiIconLightGray"></i>&nbsp;' + this.settings.activity.likes + ' \
+                      <a href="javascript:void(0);" id="previewLikeLink" onclick="documentPreview.like(!documentPreview.settings.activity.liked)" rel="tooltip" data-placement="bottom" title="' + this.settings.labels.likeActivity + '"> \
+                        <i class="uiIconThumbUp uiIconLightGray"></i>&nbsp;<span class="nbOfLikes"></span> \
                       </a> \
                     </li> \
                   </ul> \
@@ -249,6 +305,10 @@
           $(window).off('resize', resizeEventHandler);
         }, 500);
       });
+
+      // render like link and nb of likes
+      this.refreshLikeLink();
+      $('#documentPreviewContainer .nbOfLikes').html(this.settings.activity.likes);
 
       var docContentContainer = $('#documentPreviewContent');
 
