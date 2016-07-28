@@ -3,6 +3,7 @@
     settings: {
       docId: null,
       docPath: null,
+      docTitle: null,
       downloadUrl: null,
       openUrl: null,
       isWebContent: false,
@@ -181,7 +182,7 @@
             <!-- doc comments --> \
             <div class="uiBox commentArea pull-right" id="$uicomponent.id"> \
               <div class="title">\
-                Title \
+                <i class="uiIcon16x16FileDefault uiIcon16x16nt_file uiIcon16x16imagepng uiIconLightGray"></i>&nbsp;' + this.settings.docTitle + ' \
               </div> \
               <div class="uiContentBox"> \
                 <div class="highlightBox"> \
