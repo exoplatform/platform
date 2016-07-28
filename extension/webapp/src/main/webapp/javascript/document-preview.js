@@ -216,7 +216,7 @@
                   <a class="avatarXSmall pull-left" href="' + this.settings.user.profileUrl + '" title="' + this.settings.user.fullname + '"> \
                     <img src="' + this.settings.user.avatarUrl + '" alt="' + this.settings.user.fullname + '" /></a> \
                     <div class="commentBox"> \
-                      <textarea placeholder="' + this.settings.labels.postCommentHint + '" cols="30" rows="10" id="commentTextAreaPreview" activityId="activityId" class="textarea"></textarea> \
+                      <textarea id="commentInput" placeholder="' + this.settings.labels.postCommentHint + '" cols="30" rows="10" id="commentTextAreaPreview" activityId="activityId" class="textarea"></textarea> \
                     </div> \
                   </div> \
               </div> \
@@ -240,14 +240,12 @@
     },
 
     loadComments: function() {
-      if(this.settings.comments == null && this.settings.activity.id != null) {
+      if(this.settings.activity.id != null) {
         // load comments activity
-        var commentsContainer = $('#documentPreviewContainer .comments');
-        commentsContainer.html('<span class="uiLoadingIconSmall"></span>');
-
         var self = this;
         $.ajax({
-          url: '/rest/v1/social/activities/' + this.settings.activity.id + '/comments?expand=identity'
+          url: '/rest/v1/social/activities/' + this.settings.activity.id + '/comments?expand=identity',
+          cache: false
         }).done(function(data) {
           self.renderComments(data.comments);
         });
@@ -292,7 +290,28 @@
       commentsContainer.html(commentsHtml);
     },
 
+    postComment: function () {
+      var self = this;
+      var commentInput = $('#documentPreviewContainer #commentInput');
+      if(commentInput != null && $.trim(commentInput.val())) {
+        var commentContent = commentInput.val();
+        commentInput.val('');
+        return $.ajax({
+            type: 'POST',
+            url: '/rest/v1/social/activities/' + this.settings.activity.id + '/comments',
+            data: '{ "poster": ' + eXo.env.portal.userName + ',"title": "' + commentContent + '"}',
+            contentType: 'application/json'
+          }).done(function (data) {
+            self.loadComments();
+          }).fail(function () {
+            // error occurred
+          });
+      }
+    },
+
     render: function () {
+      var self = this;
+
       $(window).on('resize', resizeEventHandler);
       $(document).on('keyup', closeEventHandler);
 
@@ -309,6 +328,18 @@
       // render like link and nb of likes
       this.refreshLikeLink();
       $('#documentPreviewContainer .nbOfLikes').html(this.settings.activity.likes);
+
+      // comments events binding
+      $('#documentPreviewContainer #previewCommentLink').on('click', function() {
+        $('#documentPreviewContainer #commentInput').focus();
+      });
+
+      $('#commentInput').on('keypress', function(event) {
+          if (event.which == 13) {
+            event.preventDefault();
+            self.postComment();
+          }
+      });
 
       var docContentContainer = $('#documentPreviewContent');
 
