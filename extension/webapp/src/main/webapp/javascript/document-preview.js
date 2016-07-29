@@ -241,19 +241,65 @@
     },
 
     loadComments: function() {
+      var self = this;
       if(this.settings.activity.id != null) {
         // load comments activity
-        var self = this;
         $.ajax({
           url: '/rest/v1/social/activities/' + this.settings.activity.id + '/comments?expand=identity',
           cache: false
         }).done(function(data) {
           self.renderComments(data.comments);
         });
-      } else if(this.settings.comments != null) {
-        this.renderComments(this.settings.comments);
       } else {
-        this.renderComments([]);
+        // load document comments
+        $.ajax({
+          url: '/rest/contents/comment/all?jcrPath=/repository/collaboration' + this.settings.docPath,
+          dataType: 'xml',
+          cache: false
+        }).done(function(data) {
+          var promises = [];
+          var comments = [];
+          var commentorsUsernames = [];
+          var commentors = [];
+          $(data).find("comment").each(function() {
+            var commentor = $(this).find("commentor").text();
+            var content = $(this).find("content").text();
+            var date = $(this).find("date").text();
+            comments.push({
+              poster: commentor,
+              body: content,
+              updateDate: date,
+              identity: {
+                profile: null
+              }
+            });
+            // store commentors in an associative array to ensure uniqueness
+            commentorsUsernames[commentor] = commentor;
+          });
+
+          // fetch all commentors profiles
+          for(var key in commentorsUsernames) {
+            if (commentorsUsernames.hasOwnProperty(key)) {
+              promises.push($.ajax({
+                url: '/rest/v1/social/users/' + key
+              }).done(function (data) {
+                commentors[data.username] = data;
+              }));
+            }
+          }
+
+          // launch commentors profiles fetches using promise to allow to launch them in parallel
+          // and to wait for the end of all requests to continue
+          Promise.all(promises).then(function() {
+            // complete comments objects with commentors profiles
+            $.each(comments, function(index, comment) {
+              comment.identity.profile = commentors[comment.poster];
+            });
+            self.renderComments(comments);
+          }, function(err) {
+            // error occurred
+          });
+        });
       }
     },
 
@@ -264,7 +310,7 @@
         $('#documentPreviewContainer .nbOfComments').html(comments.length);
         commentsHtml = '<ul class="commentList">';
         $.each(comments, function (index, comment) {
-          var commenterProfileUrl = "/" + eXo.env.portal.containerName + "/" + eXo.env.portal.portalName + "/" + eXo.env.portal.userName;
+          var commenterProfileUrl = "/" + eXo.env.portal.containerName + "/" + eXo.env.portal.portalName + "/" + comment.identity.profile.username;
           var commenterAvatar = comment.identity.profile.avatar;
           if (commenterAvatar == null) {
             commenterAvatar = '/eXoSkin/skin/images/system/UserAvtDefault.png';
