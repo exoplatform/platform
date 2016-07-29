@@ -326,9 +326,14 @@
         }, 500);
       });
 
-      // render like link and nb of likes
-      this.refreshLikeLink();
-      $('#documentPreviewContainer .nbOfLikes').html(this.settings.activity.likes);
+      if(this.settings.activity.id != null) {
+        // render like link and nb of likes
+        this.refreshLikeLink();
+        $('#documentPreviewContainer .nbOfLikes').html(this.settings.activity.likes);
+      } else {
+        // hide like link since there is no linked activity
+        $('#documentPreviewContainer #previewLikeLink').hide();
+      }
 
       // comments events binding
       $('#documentPreviewContainer #previewCommentLink').on('click', function() {
