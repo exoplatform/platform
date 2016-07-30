@@ -1,6 +1,6 @@
 (function ($) {
   documentPreview = {
-    settings: {
+    defaultSettings: {
       docId: null,
       docPath: null,
       docTitle: null,
@@ -37,9 +37,10 @@
       },
       comments: null
     },
+    settings: {},
 
     init: function (docPreviewSettings) {
-      this.settings = $.extend(this.settings, docPreviewSettings);
+      this.settings = $.extend(this.defaultSettings, docPreviewSettings);
 
       var promises = [];
 
