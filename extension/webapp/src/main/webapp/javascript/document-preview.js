@@ -343,7 +343,9 @@
       if(commentInput != null && $.trim(commentInput.val())) {
         var commentContent = commentInput.val();
         commentInput.val('');
-        return $.ajax({
+        if(this.settings.activity.id != null) {
+          // post comment on the activity
+          return $.ajax({
             type: 'POST',
             url: '/rest/v1/social/activities/' + this.settings.activity.id + '/comments',
             data: '{ "poster": ' + eXo.env.portal.userName + ',"title": "' + commentContent + '"}',
@@ -353,6 +355,19 @@
           }).fail(function () {
             // error occurred
           });
+        } else {
+          // post comment on the document
+          return $.ajax({
+            type: 'POST',
+            url: '/rest/contents/comment/add',
+            data: 'jcrPath=/repository/collaboration' + this.settings.docPath + '&comment=' + commentContent,
+            contentType: 'application/x-www-form-urlencoded'
+          }).done(function (data) {
+            self.loadComments();
+          }).fail(function () {
+            // error occurred
+          });
+        }
       }
     },
 
