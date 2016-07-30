@@ -265,7 +265,9 @@
             var commentor = $(this).find("commentor").text();
             var content = $(this).find("content").text();
             var date = $(this).find("date").text();
-            comments.push({
+            // insert the comment as the first element since we want to display comments from the oldest to the
+            // newest whereas the web service returns in the opposite order
+            comments.unshift({
               poster: commentor,
               body: content,
               updateDate: date,
