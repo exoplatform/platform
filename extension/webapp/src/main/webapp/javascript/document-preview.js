@@ -390,6 +390,36 @@
         }, 500);
       });
 
+      // Bind expanded/collapsed event
+      var uiDocumentPreview = $('#documentPreviewContainer');
+      $('.resizeButton .uiIconMiniArrowLeft, .resizeButton .uiIconMiniArrowRight', uiDocumentPreview).click(function() {
+        var uiIconMiniArrow = $(this);
+        var commentArea = $('.commentArea', uiDocumentPreview);
+        var uiPreviewWebContent = $('.uiPreviewWebContent', uiDocumentPreview);
+        var fileContent = $('.fileContent', uiDocumentPreview);
+        var resizeButton = $('.resizeButton', uiDocumentPreview);
+        var previewButtons = $('.previewBtn', uiDocumentPreview);
+        var EmbedHtml = $('.EmbedHtml', uiDocumentPreview);
+        if (uiIconMiniArrow.hasClass('uiIconMiniArrowRight')) {
+          commentArea.css('display', 'none');
+          uiPreviewWebContent.css('margin-right', '30px');
+          EmbedHtml.css('margin-right', '30px');
+          fileContent.css('margin-right', '30px');
+          resizeButton.css('right', '5px');
+          previewButtons.css('margin-right', '30px');
+        } else {
+          commentArea.css('display', 'block');
+          uiPreviewWebContent.css('margin-right', '335px');
+          EmbedHtml.css('margin-right', '335px');
+          fileContent.css('margin-right', '335px');
+          resizeButton.css('right', '310px');
+          previewButtons.css('margin-right', '335px');
+        }
+        uiIconMiniArrow.toggleClass('uiIconMiniArrowLeft');
+        uiIconMiniArrow.toggleClass('uiIconMiniArrowRight');
+        resizeEventHandler();
+      });
+
       if(this.settings.activity.id != null) {
         // render like link and nb of likes
         this.refreshLikeLink();
