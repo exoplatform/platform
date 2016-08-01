@@ -230,11 +230,11 @@
             </div> \
             <!-- put vote area here --> \
             <div class="previewBtn"> \
-              <div class="downloadBtn"> \
-                <a href="' + this.settings.downloadUrl + '"><i class="uiIconDownload uiIconWhite"></i>&nbsp;' + this.settings.labels.download + '</a> \
-              </div> \
               <div class="openBtn"> \
                 <a href="' + this.settings.openUrl + '"><i class="uiIconGotoFolder uiIconWhite"></i>&nbsp;' + this.settings.labels.openInDocuments + '</a> \
+              </div> \
+              <div class="downloadBtn"> \
+                <a href="' + this.settings.downloadUrl + '"><i class="uiIconDownload uiIconWhite"></i>&nbsp;' + this.settings.labels.download + '</a> \
               </div> \
             </div> \
           </div> \
