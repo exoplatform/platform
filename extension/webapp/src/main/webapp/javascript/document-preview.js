@@ -231,6 +231,9 @@
               <i style="display: block;" class="uiIconMiniArrowRight uiIconWhite"></i> \
             </div> \
             <div id="documentPreviewContent"' + (this.settings.doc.isWebContent == true ? ' class="uiPreviewWebContent"' : '') + '> \
+              <div class="loading"> \
+                <i class="uiLoadingIconMedium uiIconLightGray"></i> \
+              </div>\
             </div> \
             <!-- put vote area here --> \
             <div class="previewBtn"> \
@@ -400,7 +403,7 @@
         var uiIconMiniArrow = $(this);
         var commentArea = $('.commentArea', uiDocumentPreview);
         var uiPreviewWebContent = $('.uiPreviewWebContent', uiDocumentPreview);
-        var fileContent = $('.fileContent', uiDocumentPreview);
+        var fileContent = $('#documentPreviewContent', uiDocumentPreview);
         var resizeButton = $('.resizeButton', uiDocumentPreview);
         var previewButtons = $('.previewBtn', uiDocumentPreview);
         var EmbedHtml = $('.EmbedHtml', uiDocumentPreview);
@@ -447,10 +450,11 @@
 
       var docContentContainer = $('#documentPreviewContent');
 
-      var self = this;
+      $('.loading', docContentContainer).show();
+      this.show();
       docContentContainer.load('/rest/private/contentviewer/' + this.settings.doc.repository + '/' + this.settings.doc.workspace + '/' + this.settings.doc.id, function() {
+        $('.loading', docContentContainer).hide();
         resizeEventHandler();
-        self.show();
       });
     },
 
