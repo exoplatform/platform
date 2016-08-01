@@ -230,7 +230,7 @@
             <div class="resizeButton " id="ShowHideAll"> \
               <i style="display: block;" class="uiIconMiniArrowRight uiIconWhite"></i> \
             </div> \
-            <div id="documentPreviewContent"> \
+            <div id="documentPreviewContent"' + (this.settings.doc.isWebContent == true ? ' class="uiPreviewWebContent"' : '') + '> \
             </div> \
             <!-- put vote area here --> \
             <div class="previewBtn"> \
