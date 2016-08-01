@@ -1,12 +1,16 @@
 (function ($) {
   documentPreview = {
     defaultSettings: {
-      docId: null,
-      docPath: null,
-      docTitle: null,
-      downloadUrl: null,
-      openUrl: null,
-      isWebContent: false,
+      doc: {
+        id: null,
+        repository: null,
+        workspace: null,
+        path: null,
+        title: null,
+        downloadUrl: null,
+        openUrl: null,
+        isWebContent: false
+      },
       showComments: false,
       labels: {
         close: "Close",
@@ -183,7 +187,7 @@
             <!-- doc comments --> \
             <div class="uiBox commentArea pull-right" id="$uicomponent.id"> \
               <div class="title">\
-                <i class="uiIcon16x16FileDefault uiIcon16x16nt_file uiIcon16x16imagepng uiIconLightGray"></i>&nbsp;' + this.settings.docTitle + ' \
+                <i class="uiIcon16x16FileDefault uiIcon16x16nt_file uiIcon16x16imagepng uiIconLightGray"></i>&nbsp;' + this.settings.doc.title + ' \
               </div> \
               <div class="uiContentBox"> \
                 <div class="highlightBox"> \
@@ -231,10 +235,10 @@
             <!-- put vote area here --> \
             <div class="previewBtn"> \
               <div class="openBtn"> \
-                <a href="' + this.settings.openUrl + '"><i class="uiIconGotoFolder uiIconWhite"></i>&nbsp;' + this.settings.labels.openInDocuments + '</a> \
+                <a href="' + this.settings.doc.openUrl + '"><i class="uiIconGotoFolder uiIconWhite"></i>&nbsp;' + this.settings.labels.openInDocuments + '</a> \
               </div> \
               <div class="downloadBtn"> \
-                <a href="' + this.settings.downloadUrl + '"><i class="uiIconDownload uiIconWhite"></i>&nbsp;' + this.settings.labels.download + '</a> \
+                <a href="' + this.settings.doc.downloadUrl + '"><i class="uiIconDownload uiIconWhite"></i>&nbsp;' + this.settings.labels.download + '</a> \
               </div> \
             </div> \
           </div> \
@@ -254,7 +258,7 @@
       } else {
         // load document comments
         $.ajax({
-          url: '/rest/contents/comment/all?jcrPath=/repository/collaboration' + this.settings.docPath,
+          url: '/rest/contents/comment/all?jcrPath=/' + this.settings.doc.repository + '/' + this.settings.doc.workspace + this.settings.doc.path,
           dataType: 'xml',
           cache: false
         }).done(function(data) {
@@ -363,7 +367,7 @@
           return $.ajax({
             type: 'POST',
             url: '/rest/contents/comment/add',
-            data: 'jcrPath=/repository/collaboration' + this.settings.docPath + '&comment=' + commentContent,
+            data: 'jcrPath=/' + this.settings.doc.repository + '/' + this.settings.doc.workspace + this.settings.doc.path + '&comment=' + commentContent,
             contentType: 'application/x-www-form-urlencoded'
           }).done(function (data) {
             self.loadComments();
@@ -444,7 +448,7 @@
       var docContentContainer = $('#documentPreviewContent');
 
       var self = this;
-      docContentContainer.load('/rest/private/contentviewer/repository/collaboration/' + this.settings.docId, function() {
+      docContentContainer.load('/rest/private/contentviewer/' + this.settings.doc.repository + '/' + this.settings.doc.workspace + '/' + this.settings.doc.id, function() {
         resizeEventHandler();
         self.show();
       });
