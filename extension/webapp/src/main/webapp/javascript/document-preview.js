@@ -270,12 +270,14 @@
           var commentorsUsernames = [];
           var commentors = [];
           $(data).find("comment").each(function() {
+            var id = $(this).find("id").text();
             var commentor = $(this).find("commentor").text();
             var content = $(this).find("content").text();
             var date = $(this).find("date").text();
             // insert the comment as the first element since we want to display comments from the oldest to the
             // newest whereas the web service returns in the opposite order
             comments.unshift({
+              id: id,
               poster: commentor,
               body: content,
               updateDate: date,
@@ -314,6 +316,8 @@
     },
 
     renderComments: function(comments) {
+      var self = this;
+
       var commentsContainer = $('#documentPreviewContainer .comments');
       var commentsHtml = '';
       if(comments != null && comments.length > 0) {
@@ -333,7 +337,7 @@
                 <span class="pull-right dateTime">' + comment.updateDate + '</span> \
               </div> \
               <p class="cont">' + comment.body + '</p> \
-              <a href="javascript:void(0)" id="$idDeleteComment" data-confirm="$labelToDeleteThisComment" data-delete="<%=uicomponent.event(uicomponent.REMOVE_COMMENT, it.id); %>"  class="close previewControllDelete"><i class="uiIconLightGray uiIconClose " commentId="$it.id"></i></a> \
+              <a href="javascript:void(0)" data-comment-id="' + comment.id + '" class="close previewCommentDelete"><i class="uiIconLightGray uiIconClose "></i></a> \
             </div> \
           </li>';
         })
@@ -345,6 +349,11 @@
           </div>';
       }
       commentsContainer.html(commentsHtml);
+
+      // bind delete events
+      $('#documentPreviewContainer .previewCommentDelete').on('click', function() {
+        self.deleteComment($(this).attr('data-comment-id'));
+      });
     },
 
     postComment: function () {
@@ -378,6 +387,30 @@
             // error occurred
           });
         }
+      }
+    },
+
+    deleteComment: function(commentId) {
+      var self = this;
+
+      if(this.settings.activity.id != null) {
+        return $.ajax({
+          type: 'DELETE',
+          url: '/rest/v1/social/comments/' + commentId
+        }).done(function (data) {
+          self.loadComments();
+        }).fail(function () {
+          // error occurred
+        });
+      } else {
+        return $.ajax({
+          type: 'DELETE',
+          url: '/rest/contents/comment/?jcrPath=/' + this.settings.doc.repository + '/' + this.settings.doc.workspace + this.settings.doc.path + '&commentId=' + commentId
+        }).done(function (data) {
+          self.loadComments();
+        }).fail(function () {
+          // error occurred
+        });
       }
     },
 
