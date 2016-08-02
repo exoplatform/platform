@@ -318,7 +318,7 @@
     renderComments: function(comments) {
       var self = this;
 
-      var commentsContainer = $('#documentPreviewContainer .comments');
+      var commentsContainer = $('#documentPreviewContainer .commentArea .comments');
       var commentsHtml = '';
       if(comments != null && comments.length > 0) {
         $('#documentPreviewContainer .nbOfComments').html(comments.length);
