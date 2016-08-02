@@ -51,7 +51,7 @@
       // if we miss author information, let's fetch them
       if(this.settings.author.username != null
         && (this.settings.author.fullname == null  || this.settings.author.avatarUrl == null || this.settings.author.profileUrl == null)) {
-        promises.push(this.fetchActivityAuthorInformation());
+        promises.push(this.fetchAuthorInformation());
       }
       // if we miss current user information, let's fetch them
       if(this.settings.user.fullname == null  || this.settings.user.avatarUrl == null || this.settings.user.profileUrl == null) {
@@ -77,7 +77,8 @@
     fetchUserInformation: function(callback) {
       var self = this;
       return $.ajax({
-        url: "/rest/v1/social/users/" + eXo.env.portal.userName
+        url: "/rest/v1/social/users/" + eXo.env.portal.userName,
+        cache: false
       }).done(function (data) {
         if (data.fullname != null) {
           self.settings.user.fullname = data.fullname;
@@ -95,10 +96,11 @@
       });
     },
 
-    fetchActivityAuthorInformation: function(callback) {
+    fetchAuthorInformation: function(callback) {
       var self = this;
       return $.ajax({
-        url: "/rest/v1/social/users/" + self.settings.author.username
+        url: "/rest/v1/social/users/" + self.settings.author.username,
+        cache: false
       }).done(function (data) {
         if (data.fullname != null) {
           self.settings.author.fullname = data.fullname;
@@ -192,9 +194,9 @@
               <div class="uiContentBox"> \
                 <div class="highlightBox"> \
                   <div class="profile clearfix"> \
-                    <a title="' + this.settings.author.fullname + '" href="' + this.settings.author.profileUrl + '" class="avatarMedium pull-left"><img alt="' + this.settings.author.fullname + '" src="' + this.settings.author.avatarUrl + '"></a> \
+                    <a title="' + (this.settings.author.fullname != null ? this.settings.author.fullname : '') + '" href="' + this.settings.author.profileUrl + '" class="avatarMedium pull-left"><img alt="' + (this.settings.author.fullname != null ? this.settings.author.fullname : '') + '" src="' + this.settings.author.avatarUrl + '"></a> \
                     <div class="rightBlock"> \
-                      <a href="' + this.settings.author.profileUrl + '">' + this.settings.author.fullname + '</a> \
+                      <a href="' + this.settings.author.profileUrl + '">' + (this.settings.author.fullname != null ? this.settings.author.fullname : '') + '</a> \
                       <p class="dateTime">' + this.settings.activity.postTime + '</p> \
                       <p class="descript" title="activityStatus">' + (this.settings.activity.status != null ? this.settings.activity.status : '') + '</p> \
                     </div> \
