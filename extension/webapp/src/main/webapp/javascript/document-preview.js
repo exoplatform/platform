@@ -65,7 +65,6 @@
       var self = this;
       // wait for all users info fetches to be complete before rendering the component
       Promise.all(promises).then(function() {
-        self.createSkeleton();
         self.render();
         self.show();
         self.loadComments();
@@ -418,6 +417,8 @@
 
     render: function () {
       var self = this;
+
+      this.createSkeleton();
 
       $(window).on('resize', resizeEventHandler);
       $(document).on('keyup', closeEventHandler);
