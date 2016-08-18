@@ -173,8 +173,8 @@
 
       if(docPreviewContainer.length == 0) {
         docPreviewContainer = $("<div />", {
-          id: "documentPreviewContainer",
-          class: "maskLayer"
+          "id": "documentPreviewContainer",
+          "class": "maskLayer"
         }).appendTo('body');
       }
       docPreviewContainer.hide();
