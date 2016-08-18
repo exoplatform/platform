@@ -26,7 +26,7 @@
   <parent>
     <artifactId>platform-component</artifactId>
     <groupId>org.exoplatform.platform</groupId>
-    <version>4.3.x-SNAPSHOT</version>
+    <version>4.3.1-CP01</version>
   </parent>
   <modelVersion>4.0.0</modelVersion>
 
