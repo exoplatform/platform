@@ -7,6 +7,7 @@
         workspace: null,
         path: null,
         title: null,
+        fileType: null,
         downloadUrl: null,
         openUrl: null,
         isWebContent: false
@@ -179,6 +180,11 @@
       }
       docPreviewContainer.hide();
 
+      var cssClasses = '';
+      if (this.settings.doc.fileType) {
+    	  cssClasses = $.map(this.settings.doc.fileType.split(/\s+/g), function(type){return "uiIcon16x16" + type}).join(" ");    	  
+      }
+      
       docPreviewContainer.html(' \
         <div class="uiDocumentPreview" id="uiDocumentPreview"> \
           <div class="exitWindow"> \
@@ -188,7 +194,7 @@
             <!-- doc comments --> \
             <div class="uiBox commentArea pull-right" id="$uicomponent.id"> \
               <div class="title">\
-                <i class="uiIcon16x16FileDefault uiIcon16x16nt_file uiIcon16x16imagepng uiIconLightGray"></i>&nbsp;' + this.settings.doc.title + ' \
+                <i class="' + cssClasses + '"></i>&nbsp;' + this.settings.doc.title + ' \
               </div> \
               <div class="uiContentBox"> \
                 <div class="highlightBox"> \
