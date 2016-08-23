@@ -457,7 +457,7 @@
       } else {
         return $.ajax({
           type: 'DELETE',
-          url: '/rest/contents/comment/?jcrPath=/' + this.settings.doc.repository + '/' + this.settings.doc.workspace + this.settings.doc.path + '&commentId=' + commentId
+          url: '/rest/contents/comment/delete/?jcrPath=/' + this.settings.doc.repository + '/' + this.settings.doc.workspace + this.settings.doc.path + '&commentId=' + commentId
         }).done(function (data) {
           self.loadComments();
         }).fail(function () {
