@@ -89,6 +89,8 @@
           self.settings.user.avatarUrl = "/eXoSkin/skin/images/system/SpaceAvtDefault.png";
         }
         self.settings.user.profileUrl = "/" + eXo.env.portal.containerName + "/" + eXo.env.portal.portalName + "/" + eXo.env.portal.userName;
+      }).fail(function () {
+        console.log("Can not fetch user information!");
       }).always(function () {
         if(typeof callback === 'function') {
           callback();
@@ -111,6 +113,8 @@
           self.settings.author.avatarUrl = "/eXoSkin/skin/images/system/SpaceAvtDefault.png";
         }
         self.settings.author.profileUrl = "/" + eXo.env.portal.containerName + "/" + eXo.env.portal.portalName + "/" + self.settings.author.username;
+      }).fail(function () {
+        console.log("Can not fetch author information!");
       }).always(function () {
         if(typeof callback === 'function') {
           callback();
@@ -141,7 +145,7 @@
             $('#documentPreviewContainer .nbOfLikes').html(self.settings.activity.likes);
             self.refreshLikeLink();
           }).fail(function () {
-            // error occurred
+            console.log("Can not like document!");
           });
       } else {
         return $.ajax({
@@ -153,7 +157,7 @@
             $('#documentPreviewContainer .nbOfLikes').html(self.settings.activity.likes);
             self.refreshLikeLink();
           }).fail(function () {
-            // error occurred
+            console.log("Can not delete like of document!");
           });
       }
     },
@@ -264,6 +268,8 @@
           cache: false
         }).done(function(data) {
           self.renderComments(data.comments);
+        }).fail(function () {
+            console.log("Can not load comments!");
         });
       } else {
         // load document comments
@@ -318,6 +324,8 @@
           }, function(err) {
             // error occurred
           });
+        }).fail(function () {
+          console.log("Can not load comments!");
         });
       }
     },
@@ -424,7 +432,7 @@
           }).done(function (data) {
             self.loadComments();
           }).fail(function () {
-            // error occurred
+            console.log("Can not post comment!");
           });
         } else {
           // post comment on the document
@@ -436,7 +444,7 @@
           }).done(function (data) {
             self.loadComments();
           }).fail(function () {
-            // error occurred
+            console.log("Can not post comment!");
           });
         }
       }
@@ -452,7 +460,7 @@
         }).done(function (data) {
           self.loadComments();
         }).fail(function () {
-          // error occurred
+            console.log("Can not delete comment!");
         });
       } else {
         return $.ajax({
@@ -461,7 +469,7 @@
         }).done(function (data) {
           self.loadComments();
         }).fail(function () {
-          // error occurred
+            console.log("Can not delete comment!");
         });
       }
     },
