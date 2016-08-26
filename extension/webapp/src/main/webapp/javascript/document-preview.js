@@ -182,7 +182,7 @@
 
       var cssClasses = '';
       if (this.settings.doc.fileType) {
-    	  cssClasses = $.map(this.settings.doc.fileType.split(/\s+/g), function(type){return "uiIcon16x16" + type}).join(" ");    	  
+        cssClasses = $.map(this.settings.doc.fileType.split(/\s+/g), function(type){return "uiIcon16x16" + type}).join(" ");            
       }
       
       docPreviewContainer.html(' \
@@ -336,12 +336,13 @@
           if (commenterAvatar == null) {
             commenterAvatar = '/eXoSkin/skin/images/system/UserAvtDefault.png';
           }
+
           commentsHtml += '<li class="clearfix"> \
             <a class="avatarXSmall pull-left" href="' + commenterProfileUrl + '" title="' + comment.identity.profile.fullname + '"><img src="' + commenterAvatar + '" alt="" /></a> \
             <div class="rightBlock"> \
               <div class="tit"> \
                 <a href="' + commenterProfileUrl + '" >' + comment.identity.profile.fullname + '</a> \
-                <span class="pull-right dateTime">' + comment.updateDate + '</span> \
+                <span class="pull-right dateTime">' + self.convertDate(comment.updateDate) + '</span> \
               </div> \
               <p class="cont">' + comment.body + '</p> \
               <a href="javascript:void(0)" data-comment-id="' + comment.id + '" class="close previewCommentDelete"><i class="uiIconLightGray uiIconClose "></i></a> \
@@ -361,6 +362,50 @@
       $('#documentPreviewContainer .previewCommentDelete').on('click', function() {
         self.deleteComment($(this).attr('data-comment-id'));
       });
+    },
+    
+    convertDate: function(dateStr) {
+      var postedTime = Date.parse(dateStr);
+      
+      var time = (new Date().getTime() - postedTime) / 1000;
+      var value;
+      if (time < 60) {
+        return "${UIActivity.label.Less_Than_A_Minute}";
+      } else {
+        if (time < 120) {
+          return "${UIActivity.label.About_A_Minute}";
+        } else {
+          if (time < 3600) {
+            value = Math.round(time / 60);
+            return "${UIActivity.label.About_?_Minutes}".replace("{0}", value);
+          } else {
+            if (time < 7200) {
+              return "${UIActivity.label.About_An_Hour}";
+            } else {
+              if (time < 86400) {
+                value = Math.round(time / 3600);
+                return "${UIActivity.label.About_?_Hours}".replace("{0}", value);
+              } else {
+                if (time < 172800) {
+                  return "${UIActivity.label.About_A_Day}";
+                } else {
+                  if (time < 2592000) {
+                    value = Math.round(time / 86400);
+                    return "${UIActivity.label.About_?_Days}".replace("{0}", value);
+                  } else {
+                    if (time < 5184000) {
+                      return "${UIActivity.label.About_A_Month}";
+                    } else {
+                      value = Math.round(time / 2592000);
+                      return "${UIActivity.label.About_?_Months}".replace("{0}", value);
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
     },
 
     postComment: function () {
