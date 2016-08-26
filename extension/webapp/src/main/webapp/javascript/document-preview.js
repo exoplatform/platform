@@ -19,7 +19,13 @@
         openInDocuments: "Open in Documents",
         likeActivity: "Like",
         postCommentHint: "Add your comment...",
-        noComment: "No comment yet"
+        noComment: "No comment yet",
+        canNotLoadComments: "Can not load comments",
+        canNotAddComment: "Can not add comment",
+        canNotDeleteComment: "Can not delete comment",
+        canNotLoadLikes: "Can not load likes",
+        canNotLike: "Can not like document",
+        canNotUnlike: "Can not unlike document"
       },
       user: {
         username: null,
@@ -132,6 +138,7 @@
         }
       }).fail(function () {
         self.settings.activity.likes = 0;
+        self.showErrorMessage(self.settings.labels.canNotLoadLikes);
       });
     },
 
@@ -145,6 +152,7 @@
             $('#documentPreviewContainer .nbOfLikes').html(self.settings.activity.likes);
             self.refreshLikeLink();
           }).fail(function () {
+            self.showErrorMessage(self.settings.labels.canNotLike);
             console.log("Can not like document!");
           });
       } else {
@@ -157,6 +165,7 @@
             $('#documentPreviewContainer .nbOfLikes').html(self.settings.activity.likes);
             self.refreshLikeLink();
           }).fail(function () {
+            self.showErrorMessage(self.settings.labels.canNotUnLike);
             console.log("Can not delete like of document!");
           });
       }
@@ -225,7 +234,11 @@
                     </li> \
                   </ul> \
                 </div> \
-                <div class="comments"> \
+                <div class="alert alert-error" id="uiPreviewErrorMessage">\
+                  <i class="uiIconError" id="uiPreviewErrorMessageIcon"></i>\
+                  <span id="uiPreviewErrorMessageContent">Your email address is incorrect. Please try again!</span>\
+                </div>\
+                <div class="comments">\
                   <ul class="commentList"> \
                   </ul> \
                 </div> \
@@ -257,6 +270,15 @@
             </div> \
           </div> \
         </div>');
+      $("#uiPreviewErrorMessage").hide();
+      $("#uiPreviewErrorMessageIcon").click(function() {
+          $("#uiPreviewErrorMessage").hide();
+      })
+    },
+    
+    showErrorMessage: function(message) {
+      $("#uiPreviewErrorMessageContent").html(message);  
+      $("#uiPreviewErrorMessage").show();
     },
 
     loadComments: function() {
@@ -269,6 +291,7 @@
         }).done(function(data) {
           self.renderComments(data.comments);
         }).fail(function () {
+            self.showErrorMessage(self.settings.labels.canNotLoadComments);
             console.log("Can not load comments!");
         });
       } else {
@@ -325,7 +348,8 @@
             // error occurred
           });
         }).fail(function () {
-          console.log("Can not load comments!");
+            self.showErrorMessage(self.settings.labels.canNotLoadComments);
+            console.log("Can not load comments!");
         });
       }
     },
@@ -432,6 +456,7 @@
           }).done(function (data) {
             self.loadComments();
           }).fail(function () {
+            self.showErrorMessage(self.settings.labels.canNotAddComment);
             console.log("Can not post comment!");
           });
         } else {
@@ -444,6 +469,7 @@
           }).done(function (data) {
             self.loadComments();
           }).fail(function () {
+            self.showErrorMessage(self.settings.labels.canNotAddComment);
             console.log("Can not post comment!");
           });
         }
@@ -460,6 +486,7 @@
         }).done(function (data) {
           self.loadComments();
         }).fail(function () {
+            self.showErrorMessage(self.settings.labels.canNotDeleteComment);
             console.log("Can not delete comment!");
         });
       } else {
@@ -469,6 +496,7 @@
         }).done(function (data) {
           self.loadComments();
         }).fail(function () {
+            self.showErrorMessage(self.settings.labels.canNotDeleteComment);
             console.log("Can not delete comment!");
         });
       }
