@@ -258,7 +258,26 @@
               <div class="loading"> \
                 <i class="uiLoadingIconMedium uiIconLightGray"></i> \
               </div>\
-            </div> \
+            </div>\
+              <div id = "previewPopup" class="UIPopupWindow uiPopup UIDragObject NormalStyle" style="width: 560px; position: absolute; top: 30%; left: 30%; margin: 0 auto 20px; z-index: 1; max-width: 100%;display:none">\
+              <div class="popupHeader ClearFix">\
+                  <a id="previewPopupCloseIcon" class="uiIconClose pull-right" aria-hidden="true" ></a>\
+                  <span class="PopupTitle popupTitle">Popup header</span>\
+              </div>\
+              <div class="PopupContent popupContent">\
+                  <div class="form-horizontal resizable">\
+                      <div class="popupContent">\
+                      <span class="help-block">Example block-level help text here.</span>\
+                   </div>\
+                  </div>\
+                  <div class="uiAction uiActionBorder">\
+                      <button id="previewPopupDeleteButton" class="btn" onclick="" type="button">Delete</button>\
+                      <button id="previewPopupCloseButton" class="btn" onclick="" type="button">Cancel</button>\
+                  </div>\
+              </div>\
+              <span class="uiIconResize pull-right uiIconLightGray"></span>\
+            </div>\
+            \
             <!-- put vote area here --> \
             <div class="previewBtn"> \
               <div class="openBtn"> \
@@ -273,7 +292,10 @@
       $("#uiPreviewErrorMessage").hide();
       $("#uiPreviewErrorMessageIcon").click(function() {
           $("#uiPreviewErrorMessage").hide();
-      })
+      });
+      $("#previewPopupCloseIcon, #previewPopupCloseButton").click(function() {
+        $("#previewPopup").hide();
+      });
     },
     
     showErrorMessage: function(message) {
@@ -392,7 +414,13 @@
 
       // bind delete events
       $('#documentPreviewContainer .previewCommentDelete').on('click', function() {
-        self.deleteComment($(this).attr('data-comment-id'));
+        var commentId = $(this).attr('data-comment-id');
+        $("#previewPopup").show();
+        $("#previewPopupDeleteButton").unbind("click");
+        $("#previewPopupDeleteButton").on("click", function() {
+            $("#previewPopup").hide();
+            self.deleteComment(commentId);
+        });
       });
     },
     
