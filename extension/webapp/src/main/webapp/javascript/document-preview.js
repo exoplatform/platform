@@ -267,7 +267,7 @@
               <div class="PopupContent popupContent">\
                   <div class="form-horizontal resizable">\
                       <div class="popupContent">\
-                      <span class="help-block">Example block-level help text here.</span>\
+                      <span class="confirmationIcon contentMessage">Are you sure you want to delete this comment?</span>\
                    </div>\
                   </div>\
                   <div class="uiAction uiActionBorder">\
