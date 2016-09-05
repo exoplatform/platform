@@ -252,7 +252,8 @@
               </div> \
             </div> \
             <div class="resizeButton " id="ShowHideAll"> \
-              <i style="display: block;" class="uiIconMiniArrowRight uiIconWhite"></i> \
+              <i class="uiIconMiniArrowLeft uiIconWhite"></i> \
+              <i class="uiIconMiniArrowRight uiIconWhite"></i> \
             </div> \
             <div id="documentPreviewContent"' + (this.settings.doc.isWebContent == true ? ' class="uiPreviewWebContent"' : '') + '> \
               <div class="loading"> \
@@ -549,32 +550,9 @@
       });
 
       // Bind expanded/collapsed event
-      var uiDocumentPreview = $('#documentPreviewContainer');
+      var uiDocumentPreview = $('#uiDocumentPreview');
       $('.resizeButton .uiIconMiniArrowLeft, .resizeButton .uiIconMiniArrowRight', uiDocumentPreview).click(function() {
-        var uiIconMiniArrow = $(this);
-        var commentArea = $('.commentArea', uiDocumentPreview);
-        var uiPreviewWebContent = $('.uiPreviewWebContent', uiDocumentPreview);
-        var fileContent = $('#documentPreviewContent', uiDocumentPreview);
-        var resizeButton = $('.resizeButton', uiDocumentPreview);
-        var previewButtons = $('.previewBtn', uiDocumentPreview);
-        var EmbedHtml = $('.EmbedHtml', uiDocumentPreview);
-        if (uiIconMiniArrow.hasClass('uiIconMiniArrowRight')) {
-          commentArea.css('display', 'none');
-          uiPreviewWebContent.css('margin-right', '30px');
-          EmbedHtml.css('margin-right', '30px');
-          fileContent.css('margin-right', '30px');
-          resizeButton.css('right', '5px');
-          previewButtons.css('margin-right', '30px');
-        } else {
-          commentArea.css('display', 'block');
-          uiPreviewWebContent.css('margin-right', '335px');
-          EmbedHtml.css('margin-right', '335px');
-          fileContent.css('margin-right', '335px');
-          resizeButton.css('right', '310px');
-          previewButtons.css('margin-right', '335px');
-        }
-        uiIconMiniArrow.toggleClass('uiIconMiniArrowLeft');
-        uiIconMiniArrow.toggleClass('uiIconMiniArrowRight');
+        uiDocumentPreview.toggleClass("collapsed");
         resizeEventHandler();
       });
 
