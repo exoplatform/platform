@@ -378,4 +378,7 @@
     </dependency>
     <!-- END -->
   </dependencies>
+  <build>
+    <finalName>platform-extension</finalName>
+  </build>
 </project>
