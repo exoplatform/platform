@@ -8,7 +8,7 @@
   </parent>
   <artifactId>platform-component-common</artifactId>
   <packaging>jar</packaging>
-  <name>eXo Platform - Common</name>
+  <name>eXo PLF:: Platform - Common</name>
   <dependencies>
     <dependency>
       <groupId>commons-lang</groupId>

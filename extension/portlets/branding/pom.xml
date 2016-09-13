@@ -8,7 +8,7 @@
   </parent>
   <artifactId>platform-extension-portlet-branding</artifactId>
   <packaging>jar</packaging>
-  <name>eXo Platform - Branding Portlet</name>
+  <name>eXo PLF:: Platform - Branding Portlet</name>
   <dependencies>
     <dependency>
       <groupId>commons-fileupload</groupId>

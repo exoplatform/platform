@@ -8,7 +8,7 @@
   </parent>
   <artifactId>platform-extension-portlets-homepage</artifactId>
   <packaging>jar</packaging>
-  <name>eXo Platform - HomePage Portlets</name>
+  <name>eXo PLF:: Platform - HomePage Portlets</name>
   <dependencies>
     <dependency>
       <groupId>javax.portlet</groupId>

@@ -8,7 +8,7 @@
     </parent>
     <artifactId>platform-extension-portlets-notification</artifactId>
     <packaging>jar</packaging>
-    <name>eXo Notification Administration Portlet</name>
+    <name>eXo PLF:: Notification Administration Portlet</name>
     <dependencies>
         <dependency>
             <groupId>commons-fileupload</groupId>

@@ -33,7 +33,7 @@
   <artifactId>platform-component-oauth-auth</artifactId>
   <packaging>jar</packaging>
 
-  <name>eXo Platform Oauth authentication and authorization</name>
+  <name>eXo PLF:: Platform Oauth authentication and authorization</name>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

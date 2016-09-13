@@ -8,7 +8,7 @@
   </parent>
   <artifactId>platform-sample-gadgets-sample-config</artifactId>
   <packaging>jar</packaging>
-  <name>eXo Platform - Gadgets Config</name>
+  <name>eXo PLF:: Platform - Gadgets Config</name>
   <description>Gadget pack configuration</description>
   <build>
     <finalName>gadget-intranet-config</finalName>

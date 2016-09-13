@@ -8,7 +8,7 @@
   </parent>
   <artifactId>platform-sample-gadgets-sample-gadgets</artifactId>
   <packaging>war</packaging>
-  <name>eXo Platform - Gadgets</name>
+  <name>eXo PLF:: Platform - Gadgets</name>
   <dependencies>
     <!-- We want to be sure to use the right version in the dependency plugin but it's not required in the package -->
     <dependency>

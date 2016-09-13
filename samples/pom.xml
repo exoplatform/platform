@@ -8,7 +8,7 @@
   </parent>
   <artifactId>platform-sample</artifactId>
   <packaging>pom</packaging>
-  <name>eXo Platform - Samples</name>
+  <name>eXo PLF:: Platform - Samples</name>
   <modules>
     <module>acme-intranet</module>
     <module>gadgets-sample</module>

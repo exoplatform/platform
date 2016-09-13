@@ -8,7 +8,7 @@
   </parent>
   <artifactId>platform-extension-webapp</artifactId>
   <packaging>war</packaging>
-  <name>eXo Platform - Extension Webapp</name>
+  <name>eXo PLF:: Platform - Extension Webapp</name>
   <properties>
     <!-- Use version required by Juzu Less plugin -->
     <org.antlr.runtime.version>3.4</org.antlr.runtime.version>

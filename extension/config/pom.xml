@@ -8,7 +8,7 @@
   </parent>
   <artifactId>platform-extension-config</artifactId>
   <packaging>jar</packaging>
-  <name>eXo Platform - Container Config</name>
+  <name>eXo PLF:: Platform - Container Config</name>
   <build>
     <resources>
       <!-- Filtered resources -->

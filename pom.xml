@@ -11,7 +11,7 @@
   <artifactId>platform</artifactId>
   <version>4.4.x-SNAPSHOT</version>
   <packaging>pom</packaging>
-  <name>eXo Platform</name>
+  <name>eXo PLF:: Platform</name>
   <description>Parent POM for platform projects.</description>
   <modules>
     <module>component</module>
@@ -676,7 +676,7 @@
         <groupId>org.gatein.cdi</groupId>
         <artifactId>gatein-cdi-contexts</artifactId>
         <version>${org.gatein.portal.version}</version>
-      </dependency>      
+      </dependency>
       <!-- To be replaced by an import of GateIn Shinding parent POM -->
       <dependency>
         <groupId>org.gatein.shindig</groupId>

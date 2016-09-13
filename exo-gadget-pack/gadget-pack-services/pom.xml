@@ -8,7 +8,7 @@
   </parent>
   <artifactId>platform-exo-gadget-pack-gadget-pack-services</artifactId>
   <packaging>jar</packaging>
-  <name>eXo Gadget Pack - Services</name>
+  <name>eXo PLF:: Gadget Pack - Services</name>
   <description>Gadget pack services</description>
   <dependencies>
     <dependency>

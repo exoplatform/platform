@@ -8,7 +8,7 @@
   </parent>
   <artifactId>platform-sample-gadgets-sample-service</artifactId>
   <packaging>jar</packaging>
-  <name>eXo Platform - Service Gadgets</name>
+  <name>eXo PLF:: Platform - Service Gadgets</name>
   <dependencies>
     <dependency>
       <groupId>javax.jcr</groupId>

@@ -8,7 +8,7 @@
   </parent>
   <artifactId>platform-extension-portlets-platformNavigation</artifactId>
   <packaging>war</packaging>
-  <name>eXo Platform - Navigation Portlet</name>
+  <name>eXo PLF:: Platform - Navigation Portlet</name>
   <dependencies>
     <dependency>
       <groupId>javax.portlet</groupId>

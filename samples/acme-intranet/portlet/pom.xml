@@ -17,7 +17,7 @@
   </parent>
   <artifactId>platform-sample-acme-intranet-portlet</artifactId>
   <packaging>war</packaging>
-  <name>eXo Platform - Acme Intranet Space Summary Info Portlet</name>
+  <name>eXo PLF:: Platform - Acme Intranet Space Summary Info Portlet</name>
   <dependencies>
     <dependency>
       <groupId>org.exoplatform.core</groupId>

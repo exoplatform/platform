@@ -8,7 +8,7 @@
   </parent>
   <artifactId>platform-component-upgrade</artifactId>
   <packaging>pom</packaging>
-  <name>eXo Platform - Upgrade</name>
+  <name>eXo PLF:: Platform - Upgrade</name>
   <modules>
     <module>sample</module>
     <module>plugins</module>

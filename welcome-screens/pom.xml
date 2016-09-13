@@ -8,7 +8,7 @@
   </parent>
   <artifactId>platform-welcome-screens</artifactId>
   <packaging>pom</packaging>
-  <name>eXo Welcome Screens Config</name>
+  <name>eXo PLF:: Welcome Screens Config</name>
   <modules>
     <module>component</module>
     <module>webapp</module>

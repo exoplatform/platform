@@ -8,7 +8,7 @@
   </parent>
   <artifactId>platform-component-gadgets</artifactId>
   <packaging>jar</packaging>
-  <name>eXo Platform - Component Gadgets</name>
+  <name>eXo PLF:: Platform - Component Gadgets</name>
   <description>Populate gadgets for user dashboard and GadgetRegistry</description>
   <dependencies>
     <dependency>

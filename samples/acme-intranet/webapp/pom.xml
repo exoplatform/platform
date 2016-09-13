@@ -8,7 +8,7 @@
   </parent>
   <artifactId>platform-sample-acme-intranet-webapp</artifactId>
   <packaging>war</packaging>
-  <name>eXo Platform - Acme Intranet Webapp</name>
+  <name>eXo PLF:: Platform - Acme Intranet Webapp</name>
   <dependencies>
     <dependency>
       <groupId>org.exoplatform.commons</groupId>
