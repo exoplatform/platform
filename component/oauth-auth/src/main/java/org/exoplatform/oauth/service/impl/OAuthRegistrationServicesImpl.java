@@ -57,6 +57,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 import java.util.Random;
+import java.net.URLDecoder;
 
 public class OAuthRegistrationServicesImpl implements OAuthRegistrationServices {
   private static Logger log = LoggerFactory.getLogger(OAuthRegistrationServicesImpl.class);
@@ -124,13 +125,15 @@ public class OAuthRegistrationServicesImpl implements OAuthRegistrationServices 
         if (foundUser == null && cookies != null && cookies.length > 0) {
           for (Cookie cookie : cookies) {
             if (OAuthAbstractFilter.COOKIE_LAST_LOGIN.equals(cookie.getName())) {
-              username = cookie.getValue();
-              if(username != null && username.length() > 0) {
-                query = new Query();
-                query.setUserName(username);
-                users = userHandler.findUsersByQuery(query, UserStatus.ANY);
-                if(users != null && users.getSize() > 0) {
-                  foundUser = users.load(0, 1)[0];
+              if (cookie.getValue() != null) {
+                username = URLDecoder.decode(cookie.getValue(), "UTF-8");
+                if (username.length() > 0) {
+                  query = new Query();
+                  query.setUserName(username);
+                  users = userHandler.findUsersByQuery(query, UserStatus.ANY);
+                  if(users != null && users.getSize() > 0) {
+                    foundUser = users.load(0, 1)[0];
+                  }
                 }
               }
               break;

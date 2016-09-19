@@ -34,6 +34,7 @@ import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.net.URLEncoder;
 
 /**
  * @author <a href="mailto:tuyennt@exoplatform.com">Tuyen Nguyen The</a>.
@@ -48,10 +49,10 @@ public abstract class OAuthAbstractFilter implements Filter {
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
         HttpServletRequest req = (HttpServletRequest) request;
         HttpServletResponse res = (HttpServletResponse) response;
-
+        
         if (req.getRemoteUser() != null) {
             // User already loggedIn
-            Cookie cookie = new Cookie(COOKIE_LAST_LOGIN, req.getRemoteUser());
+            Cookie cookie = new Cookie(COOKIE_LAST_LOGIN, URLEncoder.encode(req.getRemoteUser(), "UTF-8"));
             cookie.setPath(req.getContextPath());
             cookie.setMaxAge(3600); // 1 hours = 60 * 60 seconds
             cookie.setHttpOnly(true);
