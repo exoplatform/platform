@@ -10,7 +10,6 @@
             <set-method>registerChangePlugin</set-method>
             <!-- The full qualified name of the PortalContainerDefinitionChangePlugin -->
             <type>org.exoplatform.container.definition.PortalContainerDefinitionChangePlugin</type>
-            <priority>100</priority>
             <init-params>
                 <values-param>
                     <name>default.portal.container</name>
@@ -18,7 +17,7 @@
                 </values-param>
                 <object-param>
                     <name>change</name>
-                    <object type="org.exoplatform.container.definition.PortalContainerDefinitionChange$AddDependenciesAfter">
+                    <object type="org.exoplatform.container.definition.PortalContainerDefinitionChange$AddDependencies">
                         <!-- The list of name of the dependencies to add -->
                         <field name="dependencies">
                             <collection type="java.util.ArrayList">
@@ -26,9 +25,6 @@
                                     <string>welcome-screens</string>
                                 </value>
                             </collection>
-                        </field>
-                        <field name="target">
-                            <string>platform-extension</string>
                         </field>
                     </object>
                 </object-param>
