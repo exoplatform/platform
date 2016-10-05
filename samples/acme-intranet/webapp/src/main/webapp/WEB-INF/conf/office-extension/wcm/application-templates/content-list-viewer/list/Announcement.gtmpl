@@ -53,7 +53,7 @@
 
           if (itemTitle != null && itemTitle.trim().length() != 0)
             itemName = itemTitle;
-          def _trustedItemName = org.exoplatform.commons.utils.HTMLSanitizer.sanitize(unescapeHtml);
+          def _trustedItemName = org.exoplatform.commons.utils.HTMLSanitizer.sanitize(itemName);
 
           def itemSummary = uicomponent.getSummary(viewNode);
           def itemSummaryField = uicomponent.getSummaryField(viewNode);
