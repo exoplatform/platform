@@ -35,20 +35,11 @@ public class WhoIsOnLineController {
     @View
     public Response.Content index() {
         try {
-
-            String userId = RequestContext.getCurrentInstance().getRemoteUser();
-            List<User> friends = whoIsOnline.getFriends(userId);
-            if (friends == null) {
-                friends = new ArrayList<User>();
-                LOG.info("No  logged user | WhoIsOnLin Portlet will not be displayed");
-            }
-            return index.with().set("users", friends).ok();
-
+            return index.with().set("users", new ArrayList<User>()).ok();
         } catch (Exception e) {
             LOG.error("Error while rendering WhoIsOnLine Portlet :" + e.getMessage(), e);
             return index.with().set("users", new ArrayList<User>()).ok();
         }
-
     }
 
     @Ajax
