@@ -139,10 +139,6 @@
                </value>
 
                <!-- ECM -->
-
-               <value>
-                  <string>eXoDMSGadgets</string>
-               </value>
                <value>
                   <string>eXoWCMResources</string>
                </value>
@@ -157,9 +153,6 @@
                </value>
                <value>
                   <string>ecm-wcm-extension</string>
-               </value>
-               <value>
-                  <string>platform-template-waiportal</string>
                </value>
                <value>
                   <string>presentation</string>
@@ -201,9 +194,6 @@
                </value>
                <value profiles="all">
                   <string>wiki</string>
-               </value>
-               <value profiles="all">
-                  <string>wiki-extension</string>
                </value>
                <!-- Contains shared layout -->
                <value>
