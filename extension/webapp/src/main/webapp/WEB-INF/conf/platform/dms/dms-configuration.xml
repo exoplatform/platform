@@ -86,6 +86,12 @@
           <value>Microsoft Office Word 2013 (15.0.4701) Windows NT 6.1</value>
           <value>Microsoft Office Excel 2013 (15.0.4701) Windows NT 6.1</value>
           <value>Microsoft Office PowerPoint 2013 (15.0.4701) Windows NT 6.1</value>
+          <value>Microsoft Office Word 2013 (15.0.4763) Windows NT 10.0</value>
+          <value>Microsoft Office Excel 2013 (15.0.4763) Windows NT 10.0</value>
+          <value>Microsoft Office PowerPoint 2013 (15.0.4763) Windows NT 10.0</value>
+          <value>Microsoft Office Word 2016 (16.0.6868.2060) Windows NT 10.0</value>
+          <value>Microsoft Office Excel 2016 (16.0.6868.2060) Windows NT 10.0</value>
+          <value>Microsoft Office PowerPoint 2016 (16.0.6868.2060) Windows NT 10.0</value>
       </values-param>
 
     </init-params>
