@@ -16,9 +16,12 @@
       labels: {
         close: "Close",
         download: "Download",
+        showComment: "Show comments",
         openInDocuments: "Open in Documents",
         likeActivity: "Like",
-        postCommentHint: "Add your comment...",
+        postCommentHint: "Use @ to identify a person in your comment...",
+        comment: "Comment",
+        cancel: "Cancel",
         noComment: "No comment yet",
         canNotLoadComments: "Can not load comments",
         canNotAddComment: "Can not add comment",
@@ -251,6 +254,8 @@
                     <img src="' + this.settings.user.avatarUrl + '" alt="' + this.settings.user.fullname + '" /></a> \
                     <div class="commentBox"> \
                       <textarea id="commentInput" placeholder="' + this.settings.labels.postCommentHint + '" cols="30" rows="10" id="commentTextAreaPreview" activityId="activityId" class="textarea"></textarea> \
+                      <button class="btn pull-left btn-primary" rel="tooltip" data-placement="bottom" title="comment" id="CommentButton" disabled>' + this.settings.labels.comment + '</button> \
+                      <button class="btn hidden-desktop pull-left" rel="tooltip" data-placement="bottom" title="cancel" id="CancelButton">' + this.settings.labels.cancel + '</button> \
                     </div> \
                   </div> \
               </div> \
@@ -285,6 +290,9 @@
             \
             <!-- put vote area here --> \
             <div class="previewBtn"> \
+              <div class="showComments visible-phone visible-tablet"> \
+                <a><i class="uiIconComment uiIconWhite"></i>&nbsp;' + this.settings.labels.showComment + '</a> \
+              </div> \
               <div class="openBtn"> \
                 <a href="' + this.settings.doc.openUrl + '"><i class="uiIconGotoFolder uiIconWhite"></i>&nbsp;' + this.settings.labels.openInDocuments + '</a> \
               </div> \
@@ -478,6 +486,10 @@
       var commentInput = $('#documentPreviewContainer #commentInput');
       if(commentInput != null && $.trim(commentInput.val())) {
         var commentContent = commentInput.val();
+        if (commentContent.charCodeAt(commentContent.length - 1) == 10 ) {
+          commentContent = commentContent.trim(commentContent.length - 1);
+        }
+        commentContent = commentContent.split('"').join('\\"');
         commentInput.val('');
         if(this.settings.activity.id != null) {
           // post comment on the activity
@@ -574,11 +586,55 @@
         $('#documentPreviewContainer #commentInput').focus();
       });
 
-      $('#commentInput').on('keypress', function(event) {
-          if (event.which == 13) {
-            event.preventDefault();
-            self.postComment();
+      CKEDITOR.basePath = '/commons-extension/ckeditor/';
+      $('textarea#commentInput').ckeditor({
+        customConfig: '/social-resources/javascript/eXo/social/ckeditorCustom/config.js',
+        placeholder: /*UIActivity.commentPlaceholder != null ? UIActivity.commentPlaceholder :*/ window.eXo.social.I18n.mentions.defaultMessage,
+        on : {
+          instanceReady : function ( evt ) {
+            // Hide the editor top bar.
+            document.getElementById( evt.editor.id + '_bottom' ).style.display = 'none';
+            document.getElementById( evt.editor.id + '_contents' ).style.height = '47px';
+          },
+          focus : function ( evt ) {
+            // Show the editor top bar.
+            document.getElementById( evt.editor.id + '_bottom' ).style.display = 'block';
+            document.getElementById( evt.editor.id + '_contents' ).style.height = '150px';
+          },
+          blur : function ( evt ) {
+            // Show the editor top bar.
+            document.getElementById( evt.editor.id + '_bottom' ).style.display = 'none';
+            document.getElementById( evt.editor.id + '_contents' ).style.height = '47px';
+          },
+          change: function( evt) {
+            var newData = evt.editor.getData();
+            if (newData && newData.length > 0) {
+              $('#CommentButton').removeAttr("disabled");
+            } else {
+              $('#CommentButton').prop("disabled", true);
+            }
           }
+        }
+      });
+
+      $('#CommentButton').on('click', function(event) {
+        self.postComment();
+      });
+
+      $('#CancelButton').on('click', function(event) {
+        $('.commentArea')[0].style.display = "none";
+        $('div.content.uiContentBox')[0].style.display = "block";
+        $('#documentPreviewContent')[0].style.display = "block";
+        $('.previewBtn')[0].style.display = "block"
+      });
+
+      $('.showComments').on('click', function(event) {
+        $('.commentArea')[0].style.height = $('#outerContainer')[0].clientHeight + "px";
+        $('.commentArea')[0].style.overflow = "auto";
+        $('.commentArea')[0].style.display = "block";
+        $('.previewBtn')[0].style.display = "none"
+        $('div.content.uiContentBox')[0].style.display = "none";
+
       });
 
       var docContentContainer = $('#documentPreviewContent');
