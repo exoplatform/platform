@@ -8,12 +8,11 @@
   </parent>
   <artifactId>platform-exo-gadget-pack</artifactId>
   <packaging>pom</packaging>
-  <name>eXo Gadget Pack</name>
+  <name>eXo PLF:: Gadget Pack</name>
   <description>eXo gadget pack</description>
   <!-- MODULES -->
   <modules>
     <module>gadget-pack-services</module>
     <module>gadget-pack</module>
-    <module>config</module>
   </modules>
 </project>

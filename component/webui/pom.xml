@@ -19,7 +19,7 @@
   </parent>
   <artifactId>platform-component-webui</artifactId>
   <packaging>jar</packaging>
-  <name>eXo Platform component WebUI</name>
+  <name>eXo PLF:: Platform component WebUI</name>
   <dependencies>
     <dependency>
       <groupId>org.exoplatform.commons</groupId>

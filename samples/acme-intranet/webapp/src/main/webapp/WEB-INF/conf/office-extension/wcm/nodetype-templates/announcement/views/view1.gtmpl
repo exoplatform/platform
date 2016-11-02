@@ -8,8 +8,14 @@
   import org.exoplatform.services.wcm.javascript.XJavascriptService;
 
   public boolean getPortletPreference(String name) {
-    String value = _ctx.getRequestContext().getRequest().getPreferences().getValue(name, null);
-    if(value != null) return Boolean.parseBoolean(value);
+    String value = null;
+    RequestContext requestContext = _ctx.getRequestContext();
+    if(requestContext instanceof PortletRequestContext) {
+      value = requestContext.getRequest().getPreferences().getValue(name, null);
+    }
+    if(value != null) {
+      return Boolean.parseBoolean(value);
+    }
     return false;
   }
 

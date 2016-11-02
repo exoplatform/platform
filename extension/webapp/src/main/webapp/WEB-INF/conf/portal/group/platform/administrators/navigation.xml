@@ -100,5 +100,11 @@
             <label>#{administration.notification}</label>
             <page-reference>group::/platform/administrators::notification</page-reference>
         </node>
+        <node>
+            <uri>searchIndexing</uri>
+            <name>searchIndexing</name>
+            <label>Search Indexing</label>
+            <page-reference>group::/platform/administrators::searchIndexing</page-reference>
+        </node>
     </page-nodes>
 </node-navigation>

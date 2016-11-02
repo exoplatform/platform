@@ -30,7 +30,19 @@
   <display-name>platform-extension</display-name>
 
   <absolute-ordering />
-  
+
+  <!-- Run mode: prod, dev or live -->
+  <context-param>
+    <param-name>juzu.run_mode</param-name>
+    <param-value>${juzu.run_mode:prod}</param-value>
+  </context-param>
+
+  <!-- Injection container to use: guice, spring, cdi or weld -->
+  <context-param>
+    <param-name>juzu.inject</param-name>
+    <param-value>guice</param-value>
+  </context-param>
+
   <filter>
     <filter-name>LocalizationFilter</filter-name>
     <filter-class>org.exoplatform.portal.application.localization.LocalizationFilter</filter-class>

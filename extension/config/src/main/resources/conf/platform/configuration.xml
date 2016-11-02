@@ -121,16 +121,13 @@
                <value>
                   <string>eXoResources</string>
                </value>
-							 <value>
-                  <string>eXoSkin</string>
-               </value>
+                <value>
+                    <string>eXoSkin</string>
+                </value>
                <!-- commons -->
 
                <value>
                   <string>commons-extension</string>
-               </value>
-               <value>
-                  <string>CommonsResources</string>
                </value>
                <value>
                   <string>cometd</string>
@@ -138,20 +135,10 @@
 
                <!-- collab -->
                <value profiles="all">
-                  <string>calendar-extension</string>
-               </value>
-               <value profiles="all">
-                  <string>csResources</string>
-               </value>
-               <value profiles="all">
                   <string>calendar</string>
                </value>
 
                <!-- ECM -->
-
-               <value>
-                  <string>eXoDMSGadgets</string>
-               </value>
                <value>
                   <string>eXoWCMResources</string>
                </value>
@@ -166,9 +153,6 @@
                </value>
                <value>
                   <string>ecm-wcm-extension</string>
-               </value>
-               <value>
-                  <string>platform-template-waiportal</string>
                </value>
                <value>
                   <string>presentation</string>
@@ -206,22 +190,10 @@
 
                <!-- Knowledge -->
                <value profiles="all">
-                  <string>forumResources</string>
-               </value>
-               <value profiles="all">
                   <string>forum</string>
                </value>
                <value profiles="all">
-                  <string>poll</string>
-               </value>
-               <value profiles="all">
                   <string>wiki</string>
-               </value>
-               <value profiles="all">
-                  <string>wiki-extension</string>
-               </value>
-               <value profiles="all">
-                  <string>forum-extension</string>
                </value>
                <!-- Contains shared layout -->
                <value>

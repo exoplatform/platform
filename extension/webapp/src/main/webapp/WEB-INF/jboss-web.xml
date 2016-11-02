@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<jboss-web>
+  <resource-ref>
+    <description>DB Connection</description>
+    <res-ref-name>exo-jpa_portal</res-ref-name>
+    <res-type>javax.sql.DataSource</res-type>
+    <res-auth>Container</res-auth>
+    <jndi-name>java:/comp/env/exo-jpa_portal</jndi-name>
+  </resource-ref>
+</jboss-web>

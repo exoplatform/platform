@@ -1,0 +1,102 @@
+<div id = "indexingManagement" class="indexing-service-management">
+
+    <!-- Title -->
+    <h1 class="page-header">Indexing Service Management Application</h1>
+
+    <!-- Stats -->
+    <div class="row-fluid indexing-stat">
+        <div class="span12">
+            <div class="row-fluid">
+                <div class="span4">
+                    <div class="connector-number-stat big-number-stat clearfix">
+                        <div class="big-number-data">
+                            <span class="col-left big-number" id="statNbConnector"></span>
+                            <span class="col-right">
+                                <p>Connectors</p>
+                                <em> registered</em>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="span4">
+                    <div class="operation-number-stat big-number-stat clearfix">
+                        <div class="big-number-data">
+                            <span class="col-left big-number" id="statNbOperation"></span>
+                            <span class="col-right">
+                                <p>Operations</p>
+                                <em> in queue</em>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="span4">
+                    <div class="error-number-stat big-number-stat clearfix">
+                        <div class="big-number-data">
+                            <span class="col-left big-number" id="statNbError"></span>
+                            <span class="col-right">
+                                <p>Errors</p>
+                                <em> catched</em>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Connector List -->
+    <div class="row-fluid indexing-connector-list">
+        <div class="span12">
+            <div class="panel panel-default">
+                <!-- Default panel contents -->
+                <div class="panel-heading">Indexing Connector Management</div>
+                <div class="panel-body">
+                    <p>List of all Indexing connectors currently register to the Indexing Service.
+                    You can can take some action such as disable/enable a connector or run a full reindexing.</p>
+                </div>
+                <table class="table" id="indexingConnectorTable">
+                    <thead>
+                    <tr>
+                        <th>Type</th>
+                        <th>Description</th>
+                        <th>Index</th>
+                        <th>State</th>
+                        <th>Actions</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- Indexing Operation List -->
+    <div class="row-fluid indexing-operation-list">
+        <div class="span12">
+            <div class="panel panel-default">
+                <!-- Default panel contents -->
+                <div class="panel-heading">Operation Indexing Management</div>
+                <div class="panel-body">
+                    <p>List of all indexing operations.</p>
+                </div>
+                <table class="table" id="indexingOperationTable">
+                    <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Type</th>
+                        <th>Entity Id</th>
+                        <th>Operation</th>
+                        <th>Timestamp</th>
+                        <th>Actions</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+</div>

@@ -8,7 +8,7 @@
   </parent>
   <artifactId>platform-extension-portlets</artifactId>
   <packaging>pom</packaging>
-  <name>eXo Platform - Extension Portlets</name>
+  <name>eXo PLF:: Platform - Extension Portlets</name>
   <modules>
     <module>platformNavigation</module>
     <module>homepagePortlets</module>

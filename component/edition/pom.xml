@@ -8,7 +8,7 @@
   </parent>
   <artifactId>platform-component-edition</artifactId>
   <packaging>pom</packaging>
-  <name>eXo Platform - Edition Information</name>
+  <name>eXo PLF:: Platform - Edition Information</name>
   <modules>
     <module>enterprise</module>
     <module>community</module>

@@ -8,5 +8,5 @@
   </parent>
   <artifactId>platform-component-edition-enterprise</artifactId>
   <packaging>jar</packaging>
-  <name>eXo Platform - Enterprise Edition Information</name>
+  <name>eXo PLF:: Platform - Enterprise Edition Information</name>
 </project>

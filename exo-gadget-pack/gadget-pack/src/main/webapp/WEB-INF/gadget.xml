@@ -41,10 +41,7 @@
   <gadget name="ServicesManagement">
     <path>/gadgets/Management-and-Monitoring-gadgets/ServicesManagement/ServicesManagement.xml</path>
   </gadget>
-
-  <gadget name="eXoScriptingConsole">
-    <path>/gadgets/Management-and-Monitoring-gadgets/eXoScriptingConsole/eXoScriptingConsole.xml</path>
-  </gadget>
+  
   <gadget name="LoginHistory">
     <path>/gadgets/Audit-gadgets/LoginHistory/LoginHistory.xml</path>
   </gadget>

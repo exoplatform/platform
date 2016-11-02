@@ -8,7 +8,7 @@
   </parent>
   <artifactId>platform-extension-resources</artifactId>
   <packaging>war</packaging>
-  <name>eXo Platform - Extension Resources</name>
+  <name>eXo PLF:: Platform - Extension Resources</name>
   <dependencies>
     <!-- We want to be sure to use the right version in the dependency plugin but it's not required in the package -->
     <dependency>

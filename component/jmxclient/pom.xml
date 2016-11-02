@@ -8,7 +8,7 @@
   </parent>
   <artifactId>platform-component-jmxclient</artifactId>
   <packaging>jar</packaging>
-  <name>eXo Platform - JMX Client</name>
+  <name>eXo PLF:: Platform - JMX Client</name>
   <build>
     <finalName>exo-cmd-jmxclient-${project.version}</finalName>
     <plugins>

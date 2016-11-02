@@ -8,7 +8,7 @@
     </parent>
     <artifactId>platform-sample-gadgets-sample-exo-gadget-resources</artifactId>
     <packaging>war</packaging>
-    <name>eXo Platform - GadgetResources</name>
+    <name>eXo PLF:: Platform - GadgetResources</name>
     <description>eXo gadget resources</description>
     <build>
         <finalName>exo-gadget-resources</finalName>

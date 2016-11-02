@@ -105,23 +105,31 @@
 	              </value>
                 <value>
 	                <object type="org.exoplatform.services.jcr.impl.ext.action.ActionConfiguration">
-	                  <field  name="workspace"><string>knowledge,collaboration</string></field>	                  
+	                  <field  name="workspace"><string>knowledge,collaboration</string></field>
 	                  <field  name="eventTypes"><string>addNode</string></field>	                  
 	                  <field  name="actionClassName"><string>org.exoplatform.services.cms.jcrext.AddDateTimeAction</string></field>
 	                </object>
 	              </value>
                 <value>
 	                <object type="org.exoplatform.services.jcr.impl.ext.action.ActionConfiguration">
-	                  <field  name="workspace"><string>knowledge,collaboration</string></field>	                  
+	                  <field  name="workspace"><string>knowledge,collaboration</string></field>
 	                  <field  name="eventTypes"><string>addProperty,changeProperty,removeProperty,addNode</string></field>	                  
 	                  <field  name="actionClassName"><string>org.exoplatform.services.cms.jcrext.ModifyNodeAction</string></field>
 	                </object>
 	              </value>
+				<value>
+	                <object type="org.exoplatform.services.jcr.impl.ext.action.ActionConfiguration">
+	                  <field  name="workspace"><string>portal-system</string></field>	                  
+	                  <field  name="eventTypes"><string>addProperty,changeProperty,removeProperty,addNode</string></field>	                  
+	                  <field  name="nodeTypes"><string>stg:simplecontext,ntf:message</string></field>	                  
+	                  <field  name="actionClassName"><string>org.exoplatform.services.cms.jcrext.ModifyNodeAction</string></field>
+	                </object>
+	              </value>	
                 <value>
 	                <object type="org.exoplatform.services.jcr.impl.ext.action.ActionConfiguration">
 	                  <field  name="workspace"><string>social</string></field>	                  
 	                  <field  name="eventTypes"><string>addNode</string></field>	                  
-	                  <field  name="nodeTypes"><string>soc:spaceref</string></field>	                  
+	                  <field  name="nodeTypes"><string>soc:spaceref,soc:spacedefinition</string></field>
 	                  <field  name="actionClassName"><string>org.exoplatform.services.cms.jcrext.AddDateTimeAction</string></field>
 	                </object>
 	              </value>

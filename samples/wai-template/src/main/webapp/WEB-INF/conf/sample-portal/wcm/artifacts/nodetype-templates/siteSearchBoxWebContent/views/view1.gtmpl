@@ -1,13 +1,17 @@
 <%
 	import org.exoplatform.webui.application.portlet.PortletRequestContext;
-	
+
 	public boolean getPortletPreference(String name) {
-    PortletRequestContext portletRequestContext = _ctx.getRequestContext() ;
-    String value = portletRequestContext.getRequest().getPreferences().getValue(name, null);
-    if(value != null) 
-      return Boolean.parseBoolean(value);
-    return false;
-  }
+		String value = null;
+		RequestContext requestContext = _ctx.getRequestContext();
+		if(requestContext instanceof PortletRequestContext) {
+			value = requestContext.getRequest().getPreferences().getValue(name, null);
+		}
+		if(value != null) {
+			return Boolean.parseBoolean(value);
+		}
+		return false;
+	}
   
   	def currentNode = uicomponent.getNode() ; 
     def html = currentNode.getNode("default.html/jcr:content").getProperty("jcr:data").getString();

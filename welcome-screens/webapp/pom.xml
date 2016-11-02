@@ -8,16 +8,11 @@
     </parent>
     <artifactId>platform-welcome-screens-webapp</artifactId>
     <packaging>war</packaging>
-    <name>eXo Welcome Screens Webapp</name>
+    <name>eXo PLF:: Welcome Screens Webapp</name>
     <dependencies>
         <dependency>
             <groupId>org.exoplatform.platform</groupId>
             <artifactId>platform-welcome-screens-component</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.exoplatform.platform</groupId>
-            <artifactId>platform-welcome-screens-config</artifactId>
-            <scope>runtime</scope>
         </dependency>
     </dependencies>
     <build>

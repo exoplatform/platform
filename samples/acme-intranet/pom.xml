@@ -8,9 +8,8 @@
   </parent>
   <artifactId>platform-sample-acme-intranet</artifactId>
   <packaging>pom</packaging>
-  <name>eXo Platform - Acme Intranet</name>
+  <name>eXo PLF:: Platform - Acme Intranet</name>
   <modules>
-    <module>config</module>
     <module>webapp</module>
     <module>portlet</module>
   </modules>

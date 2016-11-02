@@ -8,5 +8,5 @@
   </parent>
   <artifactId>platform-component-edition-community</artifactId>
   <packaging>jar</packaging>
-  <name>eXo Platform - Community Edition Information</name>
+  <name>eXo PLF:: Platform - Community Edition Information</name>
 </project>
