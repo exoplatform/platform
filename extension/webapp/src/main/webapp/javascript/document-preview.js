@@ -197,7 +197,10 @@
       if (this.settings.doc.fileType) {
         cssClasses = $.map(this.settings.doc.fileType.split(/\s+/g), function(type){return "uiIcon16x16" + type}).join(" ");            
       }
-      
+      var versionStyle = 'none';
+      if (this.settings.version != null) {
+        versionStyle = 'block';
+      }
       docPreviewContainer.html(' \
         <div class="uiDocumentPreview" id="uiDocumentPreview"> \
           <div class="exitWindow"> \
@@ -208,6 +211,7 @@
             <div class="uiBox commentArea pull-right" id="$uicomponent.id"> \
               <div class="title">\
                 <i class="' + cssClasses + '"></i>&nbsp;' + this.settings.doc.title + ' \
+                <span class="label pull-right" style="display:"' + versionStyle + ';">V' + (this.settings.version != null ? this.settings.version.number : '0') + '</span> \
               </div> \
               <div class="uiContentBox"> \
                 <div class="highlightBox"> \
@@ -595,7 +599,7 @@
       $('#documentPreviewContainer').hide();
     }
 
-  };
+  };;
 
   // Bind Esc key
   var closeEventHandler = function(e) {
