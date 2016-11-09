@@ -23,14 +23,14 @@
   <msg name="title_memory">Bộ nhớ</msg>
   <msg name="used">Đã dùng</msg>
   <msg name="free">Còn trống</msg>
-  <msg name="total">Tổng số</msg>
+  <msg name="total">Total</msg>
   <msg name="heap">Bộ nhớ heap</msg>
   <msg name="non-heap">Bộ nhớ khác</msg>
   <msg name="loading">Đang tải dữ liệu ...</msg>
   <msg name="title_caches">Các bộ nhớ cache</msg>
   <msg name="consumption">Sử dụng</msg>
   <msg name="hit_ratio">Tỉ lệ trúng</msg>
-  <msg name="details">Chi tiết</msg>
+  <msg name="details">Details</msg>
   <msg name="hit">Trúng</msg>
   <msg name="miss">Trật</msg>
   <msg name="full">đầy</msg>

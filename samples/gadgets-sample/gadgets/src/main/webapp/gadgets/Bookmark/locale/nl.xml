@@ -23,7 +23,7 @@
   <msg name="title">Bladwijzers</msg>
   <msg name="customize">Aanpassen</msg>
   <msg name="save">#{word.save}</msg>
-  <msg name="add">Toevoegen</msg>
+  <msg name="add">Add</msg>
   <msg name="ok">OK</msg>
   <msg name="name">Naam</msg>
   <msg name="url">URL</msg>

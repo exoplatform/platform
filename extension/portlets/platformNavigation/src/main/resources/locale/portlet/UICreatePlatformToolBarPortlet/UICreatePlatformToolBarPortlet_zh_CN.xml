@@ -4,7 +4,7 @@
       <label>
          <topic>主题</topic>
          <poll>投票</poll>
-         <eventtask>事件/任务</eventtask>
+         <event>Event</event>
          <upload>上传文件</upload>
          <wiki>wiki页面</wiki>
 

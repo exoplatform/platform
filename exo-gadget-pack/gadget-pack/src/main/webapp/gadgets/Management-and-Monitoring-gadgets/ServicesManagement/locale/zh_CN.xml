@@ -20,19 +20,19 @@
 
 -->
 <messagebundle>  
-  <msg name="title">服务管理</msg>
+  <msg name="title">Service Management</msg>
   <msg name="services">服务</msg>
   <msg name="name">名称</msg>
   <msg name="description">说明</msg>
-  <msg name="noDescription">没有说明</msg>
+  <msg name="noDescription">无说明</msg>
   <msg name="method">方法</msg>
   <msg name="parameters">参数</msg>
   <msg name="action">操作</msg>
   <msg name="value">值</msg>
   <msg name="services_url">服务 URL</msg>
   <msg name="failManage">暂时不能管理服务从其他主机直到我们支持 OAuth</msg>
-  <msg name="noServices">任何服务，或您没有足够的权限</msg>
-  <msg name="noMethod">没有一种方法</msg>
+  <msg name="noServices">无可用服务，或您没有足够权限</msg>
+  <msg name="noMethod">没有方法</msg>
   <msg name="noProperty">无属性</msg>
-  <msg name="badURL">检索数据时出错。请检查您的 URL 首选项</msg>
+  <msg name="badURL">取得数据时出错。请检查您的链接首选项</msg>
 </messagebundle>

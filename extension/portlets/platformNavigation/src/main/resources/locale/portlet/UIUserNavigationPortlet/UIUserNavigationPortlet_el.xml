@@ -2,17 +2,17 @@
 <bundle>
    <UIUserNavigationPortlet>
       <label>
-         <activities>Δραστηριότητες</activities>
+         <activities>Activities</activities>
          <profile>Προφίλ</profile>
          <connections>Συνδέσεις</connections>
          <wiki>Συνεργατική σελίδα (Wiki)</wiki>
-         <Myactivities>Οι δραστηριότητές μου</Myactivities>
+         <Myactivities>My Activities</Myactivities>
          <Myprofile>Το προφίλ μου</Myprofile>
          <Myconnections>Οι συνδέσεις μου</Myconnections>
          <Mywiki>To Wiki μου</Mywiki>
          <Mydashboard>Το ταμπλό μου</Mydashboard>
-         <NotificationSettingsPortlet>Οι ειδοποιήσεις μου</NotificationSettingsPortlet>
-         <More>Περισσότερα</More>
+         <NotificationSettingsPortlet>My Notifications</NotificationSettingsPortlet>
+         <More>More</More>
       </label>
    </UIUserNavigationPortlet>
 </bundle>

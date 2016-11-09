@@ -8,7 +8,7 @@
       <EditProfile>Profil bearbeiten</EditProfile>
     </title>
     <title>
-      <MyProfile>Mein Profil</MyProfile>
+      <MyProfile>My Profile</MyProfile>
       </title>
 </UIBreadCrumbsNavigationPortlet>
 </bundle>

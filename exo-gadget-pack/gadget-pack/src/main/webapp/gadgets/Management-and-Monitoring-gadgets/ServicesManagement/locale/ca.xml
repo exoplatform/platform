@@ -20,7 +20,7 @@
 
 -->
 <messagebundle>  
-  <msg name="title">Gestió de serveis</msg>
+  <msg name="title">Gestió del servei</msg>
   <msg name="services">Serveis</msg>
   <msg name="name">Nom</msg>
   <msg name="description">Descripció</msg>
@@ -31,8 +31,8 @@
   <msg name="value">Valor</msg>
   <msg name="services_url">URL de Serveis</msg>
   <msg name="failManage">Temporalment no es poden gestionar serveis d'un altre host mentres no donem suport OAuth</msg>
-  <msg name="noServices">O bé cap servei està disponible, o bé no té permisos suficients</msg>
+  <msg name="noServices">Cap servei disponible o no té prou permisos</msg>
   <msg name="noMethod">Cap mètode</msg>
-  <msg name="noProperty">Sense propietat</msg>
-  <msg name="badURL">Hi ha hagut un error recuperant les dades. Si us plau, comprovi la URL del servei</msg>
+  <msg name="noProperty">Cap propietat</msg>
+  <msg name="badURL">Error recuperant dades, si us plau comprovi la seva URL a les preferències</msg>
 </messagebundle>

@@ -2,17 +2,17 @@
 <bundle>
    <UIUserNavigationPortlet>
       <label>
-         <activities>Aktiviteter</activities>
+         <activities>Activities</activities>
          <profile>Profil</profile>
          <connections>Kopplingar</connections>
          <wiki>Wiki</wiki>
-         <Myactivities>Min Aktiviteter</Myactivities>
+         <Myactivities>My Activities</Myactivities>
          <Myprofile>Min profil</Myprofile>
-         <Myconnections>Mina anslutningar</Myconnections>
+         <Myconnections>Mina kopplingar</Myconnections>
          <Mywiki>Min Wiki</Mywiki>
          <Mydashboard>Min instrumentpanel</Mydashboard>
          <NotificationSettingsPortlet>My Notifications</NotificationSettingsPortlet>
-         <More>Mer</More>
+         <More>More</More>
       </label>
    </UIUserNavigationPortlet>
 </bundle>

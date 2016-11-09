@@ -20,7 +20,7 @@
 
 -->
 <messagebundle>  
-  <msg name="title">Tjeneste administrasjon</msg>
+  <msg name="title">Service Management</msg>
   <msg name="services">Tjenester</msg>
   <msg name="name">Navn</msg>
   <msg name="description">Beskrivelse</msg>

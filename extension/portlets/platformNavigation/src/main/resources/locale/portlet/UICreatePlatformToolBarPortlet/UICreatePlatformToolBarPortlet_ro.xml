@@ -4,7 +4,7 @@
       <label>
          <topic>Subiect</topic>
          <poll>Sondaj</poll>
-         <eventtask>Eveniment/activitate</eventtask>
+         <event>Event</event>
          <upload>Încarcă un fişier</upload>
          <wiki>Pagina wiki</wiki>
 
@@ -53,7 +53,7 @@
          <StartEvent>De la</StartEvent>
          <Calendar>Selectează Calendarul</Calendar>
          <all-day>Toată ziua</all-day>
-         <defaultCalendarId>Implicit</defaultCalendarId>
+         <defaultCalendarId>Default</defaultCalendarId>
       </label>
       <msg>
          <summary-field-required>Câmpul "Titlul" este necesar.</summary-field-required>

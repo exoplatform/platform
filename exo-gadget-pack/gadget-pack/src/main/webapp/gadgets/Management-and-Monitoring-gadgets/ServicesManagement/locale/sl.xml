@@ -24,15 +24,15 @@
   <msg name="services">Storitve</msg>
   <msg name="name">Ime</msg>
   <msg name="description">Opis</msg>
-  <msg name="noDescription">Brez opisa</msg>
+  <msg name="noDescription">Ni opisa</msg>
   <msg name="method">Metoda</msg>
   <msg name="parameters">Parametri</msg>
   <msg name="action">Dejanje</msg>
   <msg name="value">Vrednost</msg>
   <msg name="services_url">URL storitve</msg>
-  <msg name="failManage">Začasno ne morete upravljati storitev drugega gostitelja, dokler bomo podprli OAuth</msg>
-  <msg name="noServices">Ni na voljo nobene storitve ali pa nimate ustreznih dovoljenj</msg>
-  <msg name="noMethod">NI metod</msg>
+  <msg name="failManage">Začasno ne morete upravljati storitev drugega gostitelja, dokler ne bomo podprli OAuth</msg>
+  <msg name="noServices">Na voljo ni nobene storitve ali pa nimate ustreznega dovoljenja</msg>
+  <msg name="noMethod">Ni metode</msg>
   <msg name="noProperty">Ni lastnosti</msg>
-  <msg name="badURL">Med pridobivanjem podatkov je prišlo do napake. Preverite nastavitve URL</msg>
+  <msg name="badURL">Pri pridobivanju podatkov je prišlo do napake, preverite nastavitve URL</msg>
 </messagebundle>

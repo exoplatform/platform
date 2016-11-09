@@ -4,7 +4,7 @@
       <label>
          <topic>Tema</topic>
          <poll>Anketa</poll>
-         <eventtask>Dogodek/opravilo</eventtask>
+         <event>Dogodek</event>
          <upload>Prenesi datoteko</upload>
          <wiki>Wiki stran</wiki>
 
@@ -15,8 +15,8 @@
          <topic>tema</topic>
          <poll>anketa</poll>
          <CreateANew>Ustvari novo {1}:</CreateANew>
-         <NoForum>Oprostite, noben forum še ne obstaja da bi lahko ustvarili {1}. Začnite z ustvarjanjem svojega prostora.</NoForum>
-         <RequireSelectForum>Prosimo izberite forum.</RequireSelectForum>
+         <NoForum>Oprostite, noben forum še ne obstaja, da bi lahko ustvarili {1}. Začnite z ustvarjanjem svojega prostora.</NoForum>
+         <RequireSelectForum>Prosim, izberi forum.</RequireSelectForum>
       </label>
       <action>
          <Next>#{word.next}</Next>

@@ -2,8 +2,8 @@
 <bundle>
 <UIUserPlatformToolBarPortlet>
 <label>
-<NotificationSettingsPortlet>Mano pranešimai</NotificationSettingsPortlet>
-<activities>Mano veiklos</activities>
+<NotificationSettingsPortlet>My Notifications</NotificationSettingsPortlet>
+<activities>My Activities</activities>
 <profile>Mano profilis</profile>
 <network>Mano jungtys</network>
 <wiki>Mano Wiki</wiki>

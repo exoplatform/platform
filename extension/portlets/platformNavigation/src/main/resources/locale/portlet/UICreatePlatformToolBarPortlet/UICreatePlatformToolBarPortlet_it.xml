@@ -4,7 +4,7 @@
       <label>
          <topic>Discussione</topic>
          <poll>Sondaggio</poll>
-         <eventtask>Evento/Compito</eventtask>
+         <event>Event</event>
          <upload>Caricare un File</upload>
          <wiki>Pagina Wiki</wiki>
 

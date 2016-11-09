@@ -4,7 +4,7 @@
       <label>
          <topic>مواضيع</topic>
          <poll>استطلاع رأي</poll>
-         <eventtask>حدث/مهمّة</eventtask>
+         <event>Event</event>
          <upload>تحميل ملف</upload>
          <wiki>صفحة ويكي</wiki>
 

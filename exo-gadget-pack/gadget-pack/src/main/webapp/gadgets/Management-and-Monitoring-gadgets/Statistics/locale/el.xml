@@ -30,5 +30,5 @@
   <msg name="min">Ελάχιστο</msg>
   <msg name="max">Μέγιστο</msg>
   <msg name="exec">#exec</msg>
-  <msg name="loading">Φόρτωση δεδομένων ...</msg>
+  <msg name="loading">Loading data ...</msg>
 </messagebundle>

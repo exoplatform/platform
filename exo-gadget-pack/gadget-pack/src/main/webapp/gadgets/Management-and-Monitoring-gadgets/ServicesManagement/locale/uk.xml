@@ -20,7 +20,7 @@
 
 -->
 <messagebundle>  
-  <msg name="title">Керування послугами</msg>
+  <msg name="title">Service Management</msg>
   <msg name="services">Послуги</msg>
   <msg name="name">Ім’я</msg>
   <msg name="description">Опис</msg>
@@ -30,8 +30,8 @@
   <msg name="action">Дія</msg>
   <msg name="value">Значення</msg>
   <msg name="services_url">URL-адреса послуг</msg>
-  <msg name="failManage">Тимчасово неможливо керувати послугами від інших головних комп'ютерів, поки ми не підтримуємо OAuth</msg>
-  <msg name="noServices">Жодна служба не доступна або ви не маєте достатніх дозволів</msg>
+  <msg name="failManage">Поки ми не підтримуємо OAuth, не можна керувати послугами від іншого комп'ютера</msg>
+  <msg name="noServices">Немає доступних послуг, або ви не маєте достатньо дозволу</msg>
   <msg name="noMethod">Немає методу</msg>
   <msg name="noProperty">Немає властивості</msg>
   <msg name="badURL">Помилка під час отримання даних, будь ласка, перевірте ваші налаштування URL-адреси</msg>

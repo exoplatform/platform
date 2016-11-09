@@ -2,17 +2,17 @@
 <bundle>
    <UIUserNavigationPortlet>
       <label>
-         <activities>アクテビティ</activities>
+         <activities>Activities</activities>
          <profile>プロフィール</profile>
          <connections>つながり</connections>
          <wiki>Wiki</wiki>
-         <Myactivities>私のアクティビティ</Myactivities>
+         <Myactivities>My Activities</Myactivities>
          <Myprofile>マイプロフィール</Myprofile>
-         <Myconnections>つながり</Myconnections>
+         <Myconnections>私のつながり</Myconnections>
          <Mywiki>Wiki</Mywiki>
          <Mydashboard>マイダッシュ ボード</Mydashboard>
          <NotificationSettingsPortlet>My Notifications</NotificationSettingsPortlet>
-         <More>もっと</More>
+         <More>More</More>
       </label>
    </UIUserNavigationPortlet>
 </bundle>

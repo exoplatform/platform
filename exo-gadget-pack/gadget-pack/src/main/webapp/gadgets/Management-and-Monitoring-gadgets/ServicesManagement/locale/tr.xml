@@ -20,11 +20,11 @@
 
 -->
 <messagebundle>  
-  <msg name="title">Hizmet Yönetimi</msg>
+  <msg name="title">Service Management</msg>
   <msg name="services">Hizmetler</msg>
   <msg name="name">Ad</msg>
   <msg name="description">Açıklama</msg>
-  <msg name="noDescription">Açıklama yok</msg>
+  <msg name="noDescription">Açıklama Yok</msg>
   <msg name="method">Yöntem</msg>
   <msg name="parameters">Parametreler</msg>
   <msg name="action">Yöntem</msg>

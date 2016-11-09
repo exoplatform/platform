@@ -4,7 +4,7 @@
       <label>
          <topic>موضوع ها</topic>
          <poll>نظرسنجی</poll>
-         <eventtask>رویداد/وظیفه</eventtask>
+         <event>Event</event>
          <upload>آپلود فایل</upload>
          <wiki>صفحه ویکی</wiki>
 

@@ -4,7 +4,7 @@
       <label>
          <topic>Emne</topic>
          <poll>Avstemning</poll>
-         <eventtask>Arrangement/aktivitet</eventtask>
+         <event>Event</event>
          <upload>Last opp en fil</upload>
          <wiki>Wiki side</wiki>
 

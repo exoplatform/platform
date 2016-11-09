@@ -4,7 +4,7 @@
       <label>
          <topic>Onderwerp</topic>
          <poll>eXo Poll</poll>
-         <eventtask>Evenement/Taak</eventtask>
+         <event>Event</event>
          <upload>Een bestand uploaden</upload>
          <wiki>Wiki-pagina</wiki>
 

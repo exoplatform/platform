@@ -30,5 +30,5 @@
   <msg name="min">мінімум</msg>
   <msg name="max">максимум</msg>
   <msg name="exec">#exec</msg>
-  <msg name="loading">Завантаження даних...</msg>
+  <msg name="loading">Loading data ...</msg>
 </messagebundle>

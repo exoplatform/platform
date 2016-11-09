@@ -4,7 +4,7 @@
       <label>
          <topic>Téma</topic>
          <poll>Anketa</poll>
-         <eventtask>Událost/Úkol</eventtask>
+         <event>Event</event>
          <upload>Nahrát soubor</upload>
          <wiki>Wiki Stránka</wiki>
 

@@ -23,7 +23,7 @@
   <msg name="title">Zakładki</msg>
   <msg name="customize">Dostosuj</msg>
   <msg name="save">#{word.save}</msg>
-  <msg name="add">Dodaj</msg>
+  <msg name="add">Add</msg>
   <msg name="ok">OK</msg>
   <msg name="name">Nazwa</msg>
   <msg name="url">URL</msg>

@@ -52,7 +52,7 @@
       <confirm-delete>Sigur ștergeți aceste date de SEO?</confirm-delete>
     </msg>
     <title>
-    <seo-delete>Şterge</seo-delete>
+    <seo-delete>Delete</seo-delete>
     </title>
 <help> 
   <priority>Valorile valide variază de la 0.0 la 1.0.</priority>

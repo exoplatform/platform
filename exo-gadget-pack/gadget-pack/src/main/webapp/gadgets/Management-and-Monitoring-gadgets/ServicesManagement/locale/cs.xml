@@ -20,7 +20,7 @@
 
 -->
 <messagebundle>  
-  <msg name="title">Správa služeb</msg>
+  <msg name="title">Service Management</msg>
   <msg name="services">Služby</msg>
   <msg name="name">Název</msg>
   <msg name="description">Popis</msg>
@@ -31,7 +31,7 @@
   <msg name="value">Hodnota</msg>
   <msg name="services_url">URL služby</msg>
   <msg name="failManage">Dočasně nelze spravovat služby od jiných hostitelů, dokud budeme podporovat OAuth</msg>
-  <msg name="noServices">Buď není k dispozici žádná služba, nebo nemáte dostatečná oprávnění</msg>
+  <msg name="noServices">Žádná služba není k dispozici nebo nemáte dostatečná oprávnění</msg>
   <msg name="noMethod">Žádná metoda</msg>
   <msg name="noProperty">Žádná vlastnost</msg>
   <msg name="badURL">Při načítání dat došlo k chybě. Zkontrolujte prosím předvolby URL</msg>

@@ -3,7 +3,7 @@
 <UINotificationPopoverToolbarPortlet>
 <label>
 <MarkAllAsRead>Alle gelesenen markieren</MarkAllAsRead>
-<NoNotifications>Keine Benachrichtigungen</NoNotifications>
+<NoNotifications>No notifications</NoNotifications>
 <ViewAll>Alles anzeigen</ViewAll>
 <Loading>Lade</Loading>
 </label>

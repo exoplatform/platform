@@ -20,7 +20,7 @@
 
 -->
 <messagebundle>  
-  <msg name="title">Διαχείριση Υπηρεσιών</msg>
+  <msg name="title">Service Management</msg>
   <msg name="services">Υπηρεσίες</msg>
   <msg name="name">Όνομα</msg>
   <msg name="description">Περιγραφή</msg>
@@ -31,7 +31,7 @@
   <msg name="value">Τιμή</msg>
   <msg name="services_url">URL υπηρεσίας</msg>
   <msg name="failManage">Προσωρινά δεν είναι εφικτή η διαχείριση των υπηρεσιών από απομακρυσμένο διακομιστή καθώς απαιτείται η υποστήριξη του OAuth</msg>
-  <msg name="noServices">Είτε η υπηρεσία δεν είναι διαθέσιμη είτε δεν έχετε επαρκή δικαιώματα</msg>
+  <msg name="noServices">Δεν υπάρχουν διαθέσιμες υπηρεσίες ή δεν έχετε δικαιώματα για τη διαχείρισή τους</msg>
   <msg name="noMethod">Καμία μέθοδος</msg>
   <msg name="noProperty">Δεν υπάρχουν ιδιότητες</msg>
   <msg name="badURL">Παρουσιάστηκε σφάλμα κατά την ανάκτηση δεδομένων. Ελέγξτε το URL που έχετε ορίσει</msg>

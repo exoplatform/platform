@@ -20,7 +20,7 @@
 
 -->
 <messagebundle>  
-  <msg name="title">Management servicii</msg>
+  <msg name="title">Managementul de servicii</msg>
   <msg name="services">Servicii</msg>
   <msg name="name">Nume</msg>
   <msg name="description">Descriere</msg>
@@ -31,8 +31,8 @@
   <msg name="value">Valoare</msg>
   <msg name="services_url">URL servicii</msg>
   <msg name="failManage">Temporar nu pot gestiona serviciile de pe altă platformă,  vom introduce OAuth</msg>
-  <msg name="noServices">Serviciul nu este disponibil sau nu aveți suficiente permisiuni</msg>
+  <msg name="noServices">Nici un serviciu disponibil sau nu aveţi permisiuni suficiente</msg>
   <msg name="noMethod">Nici o metodă</msg>
   <msg name="noProperty">Nici o proprietate</msg>
-  <msg name="badURL">A existat o eroare în timpul aducerii datelor. Vă rugăm să verificaţi adresa URL</msg>
+  <msg name="badURL">Eroare în timpul aducerii datelor, vă rugăm să verificaţi adresa URL</msg>
 </messagebundle>

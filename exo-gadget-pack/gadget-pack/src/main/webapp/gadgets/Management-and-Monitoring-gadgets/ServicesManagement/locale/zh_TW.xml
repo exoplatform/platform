@@ -20,7 +20,7 @@
 
 -->
 <messagebundle>  
-  <msg name="title">服務管理</msg>
+  <msg name="title">Service Management</msg>
   <msg name="services">服務</msg>
   <msg name="name">名稱</msg>
   <msg name="description">描述</msg>

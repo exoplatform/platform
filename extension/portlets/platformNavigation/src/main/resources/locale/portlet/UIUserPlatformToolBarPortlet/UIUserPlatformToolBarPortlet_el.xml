@@ -2,12 +2,12 @@
 <bundle>
 <UIUserPlatformToolBarPortlet>
 <label>
-<NotificationSettingsPortlet>Οι ειδοποιήσεις μου</NotificationSettingsPortlet>
-<activities>Οι δραστηριότητές μου</activities>
+<NotificationSettingsPortlet>My Notifications</NotificationSettingsPortlet>
+<activities>My Activities</activities>
 <profile>Το προφίλ μου</profile>
 <network>Οι συνδέσεις μου</network>
 <wiki>To Wiki μου</wiki>
-<account>Λογαριασμός</account>
+<account>Account</account>
 <language>Αλλαγή γλώσσας</language>
 <logout>Αποσύνδεση</logout>
         <dashboard>Ο πίνακας εργαλείων μου</dashboard>

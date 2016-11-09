@@ -3,7 +3,7 @@
 <UIUserPlatformToolBarPortlet>
 <label>
 <NotificationSettingsPortlet>Thiết lập các thông báo</NotificationSettingsPortlet>
-<activities>Hoạt động cá nhân</activities>
+<activities>My Activities</activities>
 <profile>Hồ sơ</profile>
 <network>Danh sách bạn bè</network>
 <wiki>Wiki</wiki>

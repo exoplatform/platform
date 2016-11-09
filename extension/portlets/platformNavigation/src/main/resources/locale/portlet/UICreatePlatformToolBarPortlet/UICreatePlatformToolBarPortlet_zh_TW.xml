@@ -4,7 +4,7 @@
       <label>
          <topic>主題</topic>
          <poll>投票</poll>
-         <eventtask>事件/任務</eventtask>
+         <event>Event</event>
          <upload>上傳檔案</upload>
          <wiki>Wiki頁面</wiki>
 

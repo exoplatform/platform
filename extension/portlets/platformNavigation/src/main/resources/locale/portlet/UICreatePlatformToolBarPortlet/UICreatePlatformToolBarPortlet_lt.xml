@@ -4,7 +4,7 @@
       <label>
          <topic>Tema</topic>
          <poll>Apklausa</poll>
-         <eventtask>Įvykis/užduotis</eventtask>
+         <event>Event</event>
          <upload>Įkelti failą</upload>
          <wiki>Wiki puslapis</wiki>
 

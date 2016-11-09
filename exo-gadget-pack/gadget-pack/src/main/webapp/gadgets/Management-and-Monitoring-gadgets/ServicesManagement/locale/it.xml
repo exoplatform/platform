@@ -20,19 +20,19 @@
 
 -->
 <messagebundle>  
-  <msg name="title">Gestione Servizi</msg>
+  <msg name="title">Service Management</msg>
   <msg name="services">Servizi</msg>
   <msg name="name">Nome</msg>
   <msg name="description">Descrizione</msg>
-  <msg name="noDescription">Nessuna Descrizione</msg>
+  <msg name="noDescription">Nessuna descrizione</msg>
   <msg name="method">Metodo</msg>
   <msg name="parameters">Parametri</msg>
   <msg name="action">Azione</msg>
   <msg name="value">Valore</msg>
   <msg name="services_url">URL Servizi</msg>
-  <msg name="failManage">Gestione servizi temporaneamente indisponibile finché non supporteremo OAuth</msg>
-  <msg name="noServices">Nessun servizio disponibile oppure non possiede permessi adeguati per visualizzarli</msg>
-  <msg name="noMethod">Nessun Metodo</msg>
-  <msg name="noProperty">Nessun Proprietà</msg>
-  <msg name="badURL">Errore durante raccolta dati, prego controlli URL fornito</msg>
+  <msg name="failManage">Al momento è impossibile gestire i servizi da altri host finché non saremo in grado di suportare OAuth</msg>
+  <msg name="noServices">Nessun servizio disponibile oppure non possiede permessi adeguati</msg>
+  <msg name="noMethod">Nessun metodo</msg>
+  <msg name="noProperty">Nessun proprietà</msg>
+  <msg name="badURL">Errore durante la raccolta dei dati, prego controllare le impostazioni URL</msg>
 </messagebundle>

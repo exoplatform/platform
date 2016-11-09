@@ -8,7 +8,7 @@
 <wcmAdmin>إدارة المحتوى</wcmAdmin>
 <users>الجماعة</users>
 <newStaff>إضافة مستخدمين</newStaff>
-<org-management>إدارة المستخدمين والمجموعات</org-management>
+<org-management>Manage Community</org-management>
 <portal>بوّابة</portal>
 <administration>ادارة</administration>
 <groupnavigation>مواقع المجموعات</groupnavigation>
@@ -18,8 +18,8 @@
 <monitoring>المراقبة</monitoring>
 <spaces>فضاءات</spaces>
 <Branding>الشّكل</Branding>
-      <Notification>الإشعارات</Notification>
-<ide>نظام برمجة متكامل IDE</ide>
+      <Notification>Notifications</Notification>
+<ide>IDE</ide>
 <search>البحث</search>
 </label>
 </UISetupPlatformToolBarPortlet>

@@ -20,18 +20,18 @@
 
 -->
 <messagebundle>  
-  <msg name="title">La gestion des services</msg>
+  <msg name="title">Service Management</msg>
   <msg name="services">Services</msg>
   <msg name="name">Nom</msg>
   <msg name="description">Description</msg>
-  <msg name="noDescription">Aucune Description</msg>
+  <msg name="noDescription">Aucune description</msg>
   <msg name="method">Méthode</msg>
   <msg name="parameters">Paramètres</msg>
   <msg name="action">Action</msg>
   <msg name="value">Valeur</msg>
   <msg name="services_url">URL de services</msg>
   <msg name="failManage">Il nous est impossible de gérer les services de l'hôte distant car il requiert le support de oAuth</msg>
-  <msg name="noServices">Le service n'est pas disponible ou vous n'avez pas assez de droits</msg>
+  <msg name="noServices">Le service n'est pas disponible ou vos privilèges ne sont pas assez élevés.</msg>
   <msg name="noMethod">Aucune méthode</msg>
   <msg name="noProperty">Aucune propriété</msg>
   <msg name="badURL">Erreur lors de la récupération des données, veuillez vérifier l'URL de Service</msg>

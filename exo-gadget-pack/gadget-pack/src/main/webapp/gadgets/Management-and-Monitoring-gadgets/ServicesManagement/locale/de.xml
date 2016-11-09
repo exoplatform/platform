@@ -20,7 +20,7 @@
 
 -->
 <messagebundle>  
-  <msg name="title">Diensteverwaltung</msg>
+  <msg name="title">Service Management</msg>
   <msg name="services">Dienste</msg>
   <msg name="name">Name</msg>
   <msg name="description">Beschreibung</msg>
@@ -30,9 +30,9 @@
   <msg name="action">Aktion</msg>
   <msg name="value">Wert</msg>
   <msg name="services_url">Dienste URL</msg>
-  <msg name="failManage">Bis wir OAuth unterstützen können vorübergehend keine Dienste von anderen Rechnern verwaltet werden</msg>
-  <msg name="noServices">Entweder kein Dienst verfügbar ist oder Sie haben keine ausreichende Berechtigung</msg>
+  <msg name="failManage">Temporär können Dienste nicht von einem anderen Host verwaltet werden, bis wir OAuth unterstützen</msg>
+  <msg name="noServices">Kein Dienst verfügbar ist oder Sie haben keine ausreichenden Berechtigungen</msg>
   <msg name="noMethod">Keine Methode</msg>
   <msg name="noProperty">Keine Eigenschaft</msg>
-  <msg name="badURL">Fehler beim Abrufen von Daten, bitte überprüfen sie ihre URL Einstellung</msg>
+  <msg name="badURL">Fehler beim Abrufen von Daten, bitte überprüfen Sie Ihre URL Einstellung</msg>
 </messagebundle>

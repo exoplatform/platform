@@ -5,7 +5,7 @@
          <AddPage>Pagina toevoegen</AddPage>
          <EditNavigation>Navigatie</EditNavigation>
          <Content>Inhoud</Content>
-         <Editor>Bewerken</Editor>
+         <Editor>Edit</Editor>
          <Page>Pagina</Page>
          <Site>Site portaal</Site>
          <Layout>Opmaak bewerken</Layout>
@@ -52,7 +52,7 @@
       <confirm-delete>Weet u zeker dat u wilt verwijderen van deze SEO gegevens?</confirm-delete>
     </msg>
     <title>
-    <seo-delete>Verwijderen</seo-delete>
+    <seo-delete>Delete</seo-delete>
     </title>
 <help> 
   <priority>Geldige waarden variëren van 0.0 te 1.0.</priority>

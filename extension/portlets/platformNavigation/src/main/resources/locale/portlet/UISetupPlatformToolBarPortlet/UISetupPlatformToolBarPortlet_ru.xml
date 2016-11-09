@@ -8,7 +8,7 @@
 <wcmAdmin>Управление контентом</wcmAdmin>
 <users>Community</users>
 <newStaff>Добавить пользователей</newStaff>
-<org-management>Управление сообществом</org-management>
+<org-management>Manage Community</org-management>
 <portal>Портал</portal>
 <administration>Администрирование</administration>
 <groupnavigation>Сайты группы</groupnavigation>
@@ -18,7 +18,7 @@
 <monitoring>Мониторинг</monitoring>
 <spaces>Области</spaces>
 <Branding>Фирменная символика</Branding>
-      <Notification>Оповещения</Notification>
+      <Notification>Notifications</Notification>
 <ide>IDE</ide>
 <search>Поиск</search>
 </label>

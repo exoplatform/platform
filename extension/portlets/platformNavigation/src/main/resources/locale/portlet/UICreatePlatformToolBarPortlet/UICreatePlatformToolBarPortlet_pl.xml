@@ -4,7 +4,7 @@
       <label>
          <topic>Temat</topic>
          <poll>Ankieta</poll>
-         <eventtask>Wydarzenie/Zadanie</eventtask>
+         <event>Event</event>
          <upload>Prześlij plik</upload>
          <wiki>Strona Wiki</wiki>
 
@@ -53,7 +53,7 @@
          <StartEvent>Od</StartEvent>
          <Calendar>Wybierz kalendarz</Calendar>
          <all-day>Wszystkie dni</all-day>
-         <defaultCalendarId>Domyślne</defaultCalendarId>
+         <defaultCalendarId>Default</defaultCalendarId>
       </label>
       <msg>
          <summary-field-required>Pole "Tytuł" jest wymagane.</summary-field-required>

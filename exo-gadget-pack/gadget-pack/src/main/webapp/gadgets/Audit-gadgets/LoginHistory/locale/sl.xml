@@ -36,9 +36,9 @@
   <msg name="loginHistory.lastLoginsView">Zadnje prijave</msg>
   <msg name="loginHistory.historyView">Zgodovina</msg>
   <msg name="loginHistory.statisticsView">Statistika</msg>
-  <msg name="loginHistory.averagePerDay">Povprečno prijav / dan</msg>
+  <msg name="loginHistory.averagePerDay">Povprečno število prijav/dan</msg>
   <msg name="loginHistory.averagePerWeek">Povprečno prijav / teden</msg>
-  <msg name="loginHistory.averagePerMonth">Povprečno prijav/mesec</msg>
+  <msg name="loginHistory.averagePerMonth">Povprečno število prijav/mesec</msg>
   <msg name="loginHistory.today">Danes</msg>
   <msg name="loginHistory.earlierThisWeek">V začetku tega tedna</msg>
   <msg name="loginHistory.earlierThisMonth">V začetku tega meseca</msg>

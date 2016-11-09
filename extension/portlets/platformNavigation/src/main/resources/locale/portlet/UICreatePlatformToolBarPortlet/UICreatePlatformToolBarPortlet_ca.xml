@@ -4,7 +4,7 @@
       <label>
          <topic>Tema</topic>
          <poll>Enquesta</poll>
-         <eventtask>Esdeveniment/Tasca</eventtask>
+         <event>Event</event>
          <upload>Puja un Fitxer</upload>
          <wiki>Pàgina Wiki</wiki>
 

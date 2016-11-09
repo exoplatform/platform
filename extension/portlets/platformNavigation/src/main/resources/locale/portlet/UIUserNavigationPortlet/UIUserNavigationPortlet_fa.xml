@@ -2,17 +2,17 @@
 <bundle>
    <UIUserNavigationPortlet>
       <label>
-         <activities>فعالیت ها</activities>
+         <activities>Activities</activities>
          <profile>مشخصات</profile>
          <connections>ارتباطات</connections>
          <wiki>ویکی</wiki>
-         <Myactivities>فعالیت های من</Myactivities>
+         <Myactivities>My Activities</Myactivities>
          <Myprofile>مشخصات من</Myprofile>
          <Myconnections>ارتباطات من</Myconnections>
          <Mywiki>ویکی من</Mywiki>
          <Mydashboard>داشبورد من</Mydashboard>
          <NotificationSettingsPortlet>My Notifications</NotificationSettingsPortlet>
-         <More>بیشتر</More>
+         <More>More</More>
       </label>
    </UIUserNavigationPortlet>
 </bundle>
