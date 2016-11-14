@@ -273,7 +273,6 @@ public class PeopleRestServices implements ResourceContainer {
         json.put("username", id.getRemoteId());
         json.put("suggestionName", socialProfile.getFullName());
         json.put("suggestionId", id.getId());
-        json.put("contacts", relationshipManager.getConnections(id).getSize());
         json.put("avatar", avatar);
         json.put("profile", socialProfile.getUrl());
         json.put("title", position);
