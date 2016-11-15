@@ -22,7 +22,7 @@
 
 -->
 <messagebundle>
-  <msg name="forums.statistic.title">Forum Statistiken</msg>
+  <msg name="forums.statistic.title">Forenstatistiken</msg>
   <msg name="forums.statistic.total.topic">Themen Insgesamt:</msg>
   <msg name="forums.statistic.total.post">Beiträge insgesamt:</msg>
   <msg name="forums.statistic.total.member">Mitglieder insgesamt:</msg>
