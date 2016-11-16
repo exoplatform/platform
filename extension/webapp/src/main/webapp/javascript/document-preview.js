@@ -218,7 +218,7 @@
             <div class="uiBox commentArea pull-right" id="$uicomponent.id"> \
               <div class="title">\
                 <i class="' + cssClasses + '"></i>&nbsp;' + this.settings.doc.title + ' \
-                <span class="label pull-right" style="display:"' + versionStyle + ';">V' + (this.settings.version != null ? this.settings.version.number : '0') + '</span> \
+                <span class="label pull-right" style="display:' + versionStyle + ';">V' + (this.settings.version != null ? this.settings.version.number : '0') + '</span> \
               </div> \
               <div class="uiContentBox"> \
                 <div class="highlightBox"> \
@@ -610,9 +610,6 @@
         var $uiDocumentPreview = $('#uiDocumentPreview');
         var $commentArea = $('.commentArea', $uiDocumentPreview);
         var $commentList = $('.commentList', $commentArea);
-        if ($commentList[0]) {
-          $commentList[0].style.maxHeight =  $(window).height() - 430 + "px";
-        }
         $('#cke_commentInput .cke_contents')[0].style.height = "100px";
         $('.commentArea')[0].style.height = $(window).height()-80 + "px";
         $('.commentArea')[0].style.display = "block";
