@@ -1,4 +1,5 @@
 (function ($) {
+  MAX_LENGTH = 2000,
   documentPreview = {
     defaultSettings: {
       doc: {
@@ -16,9 +17,12 @@
       labels: {
         close: "Close",
         download: "Download",
+        showComment: "Show comments",
         openInDocuments: "Open in Documents",
         likeActivity: "Like",
-        postCommentHint: "Add your comment...",
+        postCommentHint: "Use @ to identify a person in your comment...",
+        comment: "Comment",
+        cancel: "Cancel",
         noComment: "No comment yet",
         canNotLoadComments: "Can not load comments",
         canNotAddComment: "Can not add comment",
@@ -136,6 +140,7 @@
         if (data.likes != null) {
           self.settings.activity.likes = data.likes.length;
         }
+        self.clearErrorMessage();
       }).fail(function () {
         self.settings.activity.likes = 0;
         self.showErrorMessage(self.settings.labels.canNotLoadLikes);
@@ -151,6 +156,7 @@
             self.settings.activity.likes++;
             $('#documentPreviewContainer .nbOfLikes').html(self.settings.activity.likes);
             self.refreshLikeLink();
+            self.clearErrorMessage();
           }).fail(function () {
             self.showErrorMessage(self.settings.labels.canNotLike);
             console.log("Can not like document!");
@@ -164,6 +170,7 @@
             self.settings.activity.likes--;
             $('#documentPreviewContainer .nbOfLikes').html(self.settings.activity.likes);
             self.refreshLikeLink();
+            self.clearErrorMessage();
           }).fail(function () {
             self.showErrorMessage(self.settings.labels.canNotUnLike);
             console.log("Can not delete like of document!");
@@ -211,7 +218,7 @@
             <div class="uiBox commentArea pull-right" id="$uicomponent.id"> \
               <div class="title">\
                 <i class="' + cssClasses + '"></i>&nbsp;' + this.settings.doc.title + ' \
-                <span class="label pull-right" style="display:"' + versionStyle + ';">V' + (this.settings.version != null ? this.settings.version.number : '0') + '</span> \
+                <span class="label pull-right" style="display:' + versionStyle + ';">V' + (this.settings.version != null ? this.settings.version.number : '0') + '</span> \
               </div> \
               <div class="uiContentBox"> \
                 <div class="highlightBox"> \
@@ -251,6 +258,8 @@
                     <img src="' + this.settings.user.avatarUrl + '" alt="' + this.settings.user.fullname + '" /></a> \
                     <div class="commentBox"> \
                       <textarea id="commentInput" placeholder="' + this.settings.labels.postCommentHint + '" cols="30" rows="10" id="commentTextAreaPreview" activityId="activityId" class="textarea"></textarea> \
+                      <button class="btn pull-left btn-primary" rel="tooltip" data-placement="bottom" title="comment" id="CommentButton" disabled>' + this.settings.labels.comment + '</button> \
+                      <button class="btn pull-left" rel="tooltip" data-placement="bottom" title="cancel" id="CancelButton">' + this.settings.labels.cancel + '</button> \
                     </div> \
                   </div> \
               </div> \
@@ -285,6 +294,9 @@
             \
             <!-- put vote area here --> \
             <div class="previewBtn"> \
+              <div class="showComments"> \
+                <a><i class="uiIconComment uiIconWhite"></i>&nbsp;' + this.settings.labels.showComment + '</a> \
+              </div> \
               <div class="openBtn"> \
                 <a href="' + this.settings.doc.openUrl + '"><i class="uiIconGotoFolder uiIconWhite"></i>&nbsp;' + this.settings.labels.openInDocuments + '</a> \
               </div> \
@@ -302,12 +314,14 @@
         $("#previewPopup").hide();
       });
     },
-    
     showErrorMessage: function(message) {
       $("#uiPreviewErrorMessageContent").html(message);  
       $("#uiPreviewErrorMessage").show();
     },
-
+    clearErrorMessage: function() {
+      $("#uiPreviewErrorMessageContent").html("");
+      $("#uiPreviewErrorMessage").hide();
+    },
     loadComments: function() {
       var self = this;
       if(this.settings.activity.id != null) {
@@ -316,7 +330,10 @@
           url: '/rest/v1/social/activities/' + this.settings.activity.id + '/comments?expand=identity',
           cache: false
         }).done(function(data) {
+          self.clearErrorMessage();
           self.renderComments(data.comments);
+          resizeEventHandler();
+          self.clearErrorMessage();
         }).fail(function () {
             self.showErrorMessage(self.settings.labels.canNotLoadComments);
             console.log("Can not load comments!");
@@ -374,6 +391,8 @@
           }, function(err) {
             // error occurred
           });
+          resizeEventHandler();
+          self.clearErrorMessage();
         }).fail(function () {
             self.showErrorMessage(self.settings.labels.canNotLoadComments);
             console.log("Can not load comments!");
@@ -404,7 +423,6 @@
                 <span class="pull-right dateTime">' + self.convertDate(comment.updateDate) + '</span> \
               </div> \
               <p class="cont">' + comment.body + '</p> \
-              <a href="javascript:void(0)" data-comment-id="' + comment.id + '" class="close previewCommentDelete"><i class="uiIconLightGray uiIconClose "></i></a> \
             </div> \
           </li>';
         })
@@ -416,17 +434,7 @@
           </div>';
       }
       commentsContainer.html(commentsHtml);
-
-      // bind delete events
-      $('#documentPreviewContainer .previewCommentDelete').on('click', function() {
-        var commentId = $(this).attr('data-comment-id');
-        $("#previewPopup").show();
-        $("#previewPopupDeleteButton").unbind("click");
-        $("#previewPopupDeleteButton").on("click", function() {
-            $("#previewPopup").hide();
-            self.deleteComment(commentId);
-        });
-      });
+      
     },
     
     convertDate: function(dateStr) {
@@ -478,16 +486,19 @@
       var commentInput = $('#documentPreviewContainer #commentInput');
       if(commentInput != null && $.trim(commentInput.val())) {
         var commentContent = commentInput.val();
-        commentInput.val('');
         if(this.settings.activity.id != null) {
+           var postData = { poster : eXo.env.portal.userName , title : commentContent };
           // post comment on the activity
           return $.ajax({
             type: 'POST',
             url: '/rest/v1/social/activities/' + this.settings.activity.id + '/comments',
-            data: '{ "poster": ' + eXo.env.portal.userName + ',"title": "' + commentContent + '"}',
+            data: JSON.stringify(postData),
             contentType: 'application/json'
           }).done(function (data) {
             self.loadComments();
+            $('#documentPreviewContainer #commentInput').ckeditorGet().destroy(true);
+            self.initCKEditor();
+            self.clearErrorMessage();
           }).fail(function () {
             self.showErrorMessage(self.settings.labels.canNotAddComment);
             console.log("Can not post comment!");
@@ -501,6 +512,7 @@
             contentType: 'application/x-www-form-urlencoded'
           }).done(function (data) {
             self.loadComments();
+            self.clearErrorMessage();
           }).fail(function () {
             self.showErrorMessage(self.settings.labels.canNotAddComment);
             console.log("Can not post comment!");
@@ -518,6 +530,7 @@
           url: '/rest/v1/social/comments/' + commentId
         }).done(function (data) {
           self.loadComments();
+          self.clearErrorMessage();
         }).fail(function () {
             self.showErrorMessage(self.settings.labels.canNotDeleteComment);
             console.log("Can not delete comment!");
@@ -528,6 +541,7 @@
           url: '/rest/contents/comment/delete/?jcrPath=/' + this.settings.doc.repository + '/' + this.settings.doc.workspace + this.settings.doc.path + '&commentId=' + commentId
         }).done(function (data) {
           self.loadComments();
+          self.clearErrorMessage();
         }).fail(function () {
             self.showErrorMessage(self.settings.labels.canNotDeleteComment);
             console.log("Can not delete comment!");
@@ -568,17 +582,29 @@
         // hide like link since there is no linked activity
         $('#documentPreviewContainer #previewLikeLink').hide();
       }
+      
+      this.initCKEditor();
 
-      // comments events binding
-      $('#documentPreviewContainer #previewCommentLink').on('click', function() {
-        $('#documentPreviewContainer #commentInput').focus();
+      $('#CommentButton').on('click', function(event) {
+        self.postComment();
       });
 
-      $('#commentInput').on('keypress', function(event) {
-          if (event.which == 13) {
-            event.preventDefault();
-            self.postComment();
-          }
+      $('#CancelButton').on('click', function(event) {
+        $('.commentArea')[0].style.display = "none";
+        $('#documentPreviewContent .UIResizableBlock')[0].style.display = "block";
+        $('.previewBtn')[0].style.display = "block"
+      });
+
+      $('.showComments').on('click', function(event) {
+        var $uiDocumentPreview = $('#uiDocumentPreview');
+        var $commentArea = $('.commentArea', $uiDocumentPreview);
+        var $commentList = $('.commentList', $commentArea);
+        $('#cke_commentInput .cke_contents')[0].style.height = "100px";
+        $('.commentArea')[0].style.height = $(window).height()-80 + "px";
+        $('.commentArea')[0].style.display = "block";
+        $('.previewBtn')[0].style.display = "none"
+        $('#documentPreviewContent .UIResizableBlock')[0].style.display = "none";
+
       });
 
       var docContentContainer = $('#documentPreviewContent');
@@ -590,7 +616,82 @@
         resizeEventHandler();
       });
     },
+    initCKEditor: function() {
+        var commentInput = $('#documentPreviewContainer #commentInput');
+        var extraPlugins = 'simpleLink,simpleImage,suggester';
 
+        // TODO this line is mandatory when a custom skin is defined, it should not be mandatory
+        CKEDITOR.basePath = '/commons-extension/ckeditor/';
+        commentInput.ckeditor({
+          customConfig: '/commons-extension/ckeditorCustom/config.js',
+          extraPlugins: extraPlugins,
+          on : {
+            instanceReady : function ( evt ) {
+              // Hide the editor toolbar
+              $("#CommentButton").prop("disabled", true);
+              $('#' + evt.editor.id + '_bottom').removeClass('cke_bottom_visible');
+
+            },
+            focus : function ( evt ) {
+              // Show the editor toolbar, except for smartphones in landscape mode
+              if ($(window).width() > 767 || $(window).width() < $(window).height()) {
+                //$('#' + evt.editor.id + '_bottom').css('display', 'block');
+                evt.editor.execCommand('autogrow');
+                var $content = $('#' + evt.editor.id + '_contents');
+                var contentHeight = $content.height();
+                var $ckeBottom = $('#' + evt.editor.id + '_bottom');
+                $ckeBottom[0].style.display = "block";
+                $ckeBottom.animate({
+                  height: "39"
+                }, {
+                  step: function(number, tween) {
+                    $content.height(contentHeight - number);
+                    if (number >= 9) {
+                      $ckeBottom.addClass('cke_bottom_visible');
+                    }
+                  }
+                });
+              } else {
+                $('#' + evt.editor.id + '_bottom').removeClass('cke_bottom_visible');
+                $('#' + evt.editor.id + '_bottom')[0].style.display = "none";
+              }
+            },
+            blur : function ( evt ) {
+              // Hide the editor toolbar
+              if ($(window).width() > 767 || $(window).width() < $(window).height()) {
+                $('#' + evt.editor.id + '_contents').css('height', $('#' + evt.editor.id + '_contents').height() + 39);
+                $('#' + evt.editor.id + '_bottom').css('height', '0px');
+                $('#' + evt.editor.id + '_bottom').removeClass('cke_bottom_visible');
+              }
+            },
+            change: function( evt) {
+                var newData = evt.editor.getData();
+                var pureText = newData? newData.replace(/<[^>]*>/g, "").replace(/&nbsp;/g,"").trim() : "";
+
+                if (pureText.length > 0 && pureText.length <= MAX_LENGTH) {
+                    $("#CommentButton").removeAttr("disabled");
+                } else {
+                    $("#CommentButton").prop("disabled", true);
+                }
+                
+                if (pureText.length <= MAX_LENGTH) {
+                    evt.editor.getCommand('simpleImage').enable();
+                } else {
+                    evt.editor.getCommand('simpleImage').disable();
+                }
+            },
+            key: function( evt) {
+                var newData = evt.editor.getData();
+                var pureText = newData? newData.replace(/<[^>]*>/g, "").replace(/&nbsp;/g,"").trim() : "";
+                if (pureText.length > MAX_LENGTH) {
+                    if ([8, 46, 33, 34, 35, 36, 37,38,39,40].indexOf(evt.data.keyCode) < 0) {
+                        evt.cancel();
+                    }
+                }
+            }
+          }
+        });
+    },
     show: function () {
       $('#documentPreviewContainer').show();
     },
@@ -623,7 +724,9 @@
     var $actionBarCommentArea = $('.actionBar', $commentArea);
     var commentAreaHeight = window.innerHeight - 30;
     $commentArea.height(commentAreaHeight);
-    $commentList.css('max-height', commentAreaHeight - $commentAreaTitle.innerHeight() - $commentInputBox.innerHeight() - $highlightBox.innerHeight() - $actionBarCommentArea.innerHeight() - 16); //16 is padding of commentList
+    if ($commentList[0]) {
+      $commentList[0].style.maxHeight =  $(window).height() - 430 + "px";
+    }
     $commentList.scrollTop(20000);
 
     // Media viewer, no preview file

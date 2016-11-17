@@ -39,5 +39,22 @@
     <depends>
       <module>jquery</module>
     </depends>
+    <depends>
+      <module>commons-editor</module>
+      <as>editor</as>
+    </depends>
+    <depends>
+      <module>socialUtil</module>
+    </depends>
+    <depends>
+      <module>mentionsPlugin</module>
+    </depends>
+    <depends>
+      <module>mentionsLib</module>
+      <as>mentions</as>
+    </depends>
+    <depends>
+      <module>suggester</module>
+    </depends>
   </module>
 </gatein-resources>
