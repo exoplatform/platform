@@ -423,7 +423,6 @@
                 <span class="pull-right dateTime">' + self.convertDate(comment.updateDate) + '</span> \
               </div> \
               <p class="cont">' + comment.body + '</p> \
-              <a href="javascript:void(0)" data-comment-id="' + comment.id + '" class="close previewCommentDelete"><i class="uiIconLightGray uiIconClose "></i></a> \
             </div> \
           </li>';
         })
@@ -435,17 +434,7 @@
           </div>';
       }
       commentsContainer.html(commentsHtml);
-
-      // bind delete events
-      $('#documentPreviewContainer .previewCommentDelete').on('click', function() {
-        var commentId = $(this).attr('data-comment-id');
-        $("#previewPopup").show();
-        $("#previewPopupDeleteButton").unbind("click");
-        $("#previewPopupDeleteButton").on("click", function() {
-            $("#previewPopup").hide();
-            self.deleteComment(commentId);
-        });
-      });
+      
     },
     
     convertDate: function(dateStr) {
