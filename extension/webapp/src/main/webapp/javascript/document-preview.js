@@ -300,7 +300,7 @@
               <div class="openBtn"> \
                 <a href="' + this.settings.doc.openUrl + '"><i class="uiIconGotoFolder uiIconWhite"></i>&nbsp;' + this.settings.labels.openInDocuments + '</a> \
               </div> \
-              <div class="downloadBtn"> \
+              <div class="downloadBtn"' + (this.settings.doc.downloadUrl ? '' : ' style="display: none;"') + '> \
                 <a href="' + this.settings.doc.downloadUrl + '"><i class="uiIconDownload uiIconWhite"></i>&nbsp;' + this.settings.labels.download + '</a> \
               </div> \
             </div> \
