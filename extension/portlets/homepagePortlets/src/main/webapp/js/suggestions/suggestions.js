@@ -193,7 +193,7 @@
                     if (item.spaceAvatarUrl == undefined) { 
                       spaceAvatar =  "/eXoSkin/skin/images/themes/default/social/skin/ShareImages/SpaceAvtDefault.png"; 
                     } else { 
-                      spaceAvatar = item.avatarUrl;     
+                      spaceAvatar = item.spaceAvatarUrl;
                     }
 
                     link += "<div class='spacePicture pull-left'><div class='avatarXSmall'><img src='"+spaceAvatar+"'></div></div>";
