@@ -47,7 +47,17 @@ public class SpaceRestServices implements ResourceContainer {
     private static final Log LOG = ExoLogger.getLogger(SpaceRestServices.class);
 
     private static final CacheControl cacheControl;
-
+    private static final String SPACE_NAME = "name";
+    private static final String SPACE_ID = "spaceId";
+    private static final String SPACE_DISPLAY_NAME = "displayName";
+    private static final String SPACE_URL = "spaceUrl";
+    private static final String SPACE_AVATAR_URL = "spaceAvatarUrl";
+    private static final String SPACE_REGISTRATION = "registration";
+    private static final String SPACE_MEMBERS = "members";
+    private static final String SPACE_PRIVACY = "privacy";
+    private static final String NUMBER = "number";
+    private static final String SPACE_CREATED_DATE = "createdDate";
+    private static final String ITEMS ="items";
     static {
         RuntimeDelegate.setInstance(new RuntimeDelegateImpl());
         cacheControl = new CacheControl();
@@ -81,7 +91,7 @@ public class SpaceRestServices implements ResourceContainer {
             // new create system with no spaces
             int size = suggestedSpacesLA.getSize();
             if (size == 0) {
-              jsonGlobal.put("items",jsonArray);
+              jsonGlobal.put(ITEMS,jsonArray);
               jsonGlobal.put("noConnections", 0);
               jsonGlobal.put("username", userId);
               return Response.ok(jsonGlobal.toString(), MediaType.APPLICATION_JSON).cacheControl(cacheControl).build();
@@ -182,7 +192,7 @@ public class SpaceRestServices implements ResourceContainer {
               }
             }
             
-            jsonGlobal.put("items",jsonArray);
+            jsonGlobal.put(ITEMS,jsonArray);
             jsonGlobal.put("noConnections", spacesWithMemberNum.size());
             jsonGlobal.put("username", userId);
             return Response.ok(jsonGlobal.toString(), MediaType.APPLICATION_JSON).cacheControl(cacheControl).build();
@@ -207,16 +217,16 @@ public class SpaceRestServices implements ResourceContainer {
       }
       
       JSONObject json = new JSONObject();
-      json.put("name", space.getPrettyName());
-      json.put("spaceId", space.getId());
-      json.put("displayName", space.getDisplayName());
-      json.put("spaceUrl", space.getUrl());
-      json.put("avatarUrl", avatar);
-      json.put("registration", space.getRegistration());
-      json.put("members", space.getMembers() == null ? 0 : space.getMembers().length);
-      json.put("privacy", spaceType);
-      json.put("number", k);
-      json.put("createdDate", space.getCreatedTime());
+      json.put(SPACE_NAME, space.getPrettyName());
+      json.put(SPACE_ID, space.getId());
+      json.put(SPACE_DISPLAY_NAME, space.getDisplayName());
+      json.put(SPACE_URL, space.getUrl());
+      json.put(SPACE_AVATAR_URL, avatar);
+      json.put(SPACE_REGISTRATION, space.getRegistration());
+      json.put(SPACE_MEMBERS, space.getMembers() == null ? 0 : space.getMembers().length);
+      json.put(SPACE_PRIVACY, spaceType);
+      json.put(NUMBER, k);
+      json.put(SPACE_CREATED_DATE, space.getCreatedTime());
       return json;
     }
 
@@ -327,11 +337,11 @@ public class SpaceRestServices implements ResourceContainer {
 
             for (Space space : mySpaces) {
                 JSONObject json = new JSONObject();
-                json.put("name", space.getName());
-                json.put("spaceId", space.getId());
-                json.put("displayName", space.getDisplayName());
-                json.put("spaceUrl", space.getUrl());
-                json.put("members", space.getMembers().length);
+                json.put(SPACE_NAME, space.getName());
+                json.put(SPACE_ID, space.getId());
+                json.put(SPACE_DISPLAY_NAME, space.getDisplayName());
+                json.put(SPACE_URL, space.getUrl());
+                json.put(SPACE_MEMBERS, space.getMembers().length);
                 jsonArray.put(json);
             }
 
@@ -369,9 +379,9 @@ public class SpaceRestServices implements ResourceContainer {
                         continue;
 
                     JSONObject json = new JSONObject();
-                    json.put("name", space.getName());
-                    json.put("displayName", space.getDisplayName());
-                    json.put("spaceId", space.getId());
+                    json.put(SPACE_NAME, space.getName());
+                    json.put(SPACE_DISPLAY_NAME, space.getDisplayName());
+                    json.put(SPACE_ID, space.getId());
                     jsonArray.put(json);
                 }
             }
