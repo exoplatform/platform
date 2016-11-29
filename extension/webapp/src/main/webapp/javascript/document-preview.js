@@ -14,23 +14,6 @@
         isWebContent: false
       },
       showComments: false,
-      labels: {
-        close: "Close",
-        download: "Download",
-        showComment: "Show comments",
-        openInDocuments: "Open in Documents",
-        likeActivity: "Like",
-        postCommentHint: "Use @ to identify a person in your comment...",
-        comment: "Comment",
-        cancel: "Cancel",
-        noComment: "No comment yet",
-        canNotLoadComments: "Can not load comments",
-        canNotAddComment: "Can not add comment",
-        canNotDeleteComment: "Can not delete comment",
-        canNotLoadLikes: "Can not load likes",
-        canNotLike: "Can not like document",
-        canNotUnlike: "Can not unlike document"
-      },
       user: {
         username: null,
         fullname: null,
@@ -143,7 +126,7 @@
         self.clearErrorMessage();
       }).fail(function () {
         self.settings.activity.likes = 0;
-        self.showErrorMessage(self.settings.labels.canNotLoadLikes);
+        self.showErrorMessage("${UIActivity.comment.canNotLoadLikes}");
       });
     },
 
@@ -158,7 +141,7 @@
             self.refreshLikeLink();
             self.clearErrorMessage();
           }).fail(function () {
-            self.showErrorMessage(self.settings.labels.canNotLike);
+            self.showErrorMessage("${UIActivity.comment.canNotLike}");
             console.log("Can not like document!");
           });
       } else {
@@ -172,7 +155,7 @@
             self.refreshLikeLink();
             self.clearErrorMessage();
           }).fail(function () {
-            self.showErrorMessage(self.settings.labels.canNotUnLike);
+            self.showErrorMessage("${UIActivity.comment.canNotUnLike}");
             console.log("Can not delete like of document!");
           });
       }
@@ -211,7 +194,7 @@
       docPreviewContainer.html(' \
         <div class="uiDocumentPreview" id="uiDocumentPreview"> \
           <div class="exitWindow"> \
-            <a class="uiIconClose uiIconWhite" title="' + this.settings.labels.close + '" onclick="documentPreview.hide()"></a> \
+            <a class="uiIconClose uiIconWhite" title="${UIActivity.comment.close}" onclick="documentPreview.hide()"></a> \
           </div> \
           <div class="uiDocumentPreviewMainWindow clearfix"> \
             <!-- doc comments --> \
@@ -239,7 +222,7 @@
                       </a> \
                     </li> \
                     <li> \
-                      <a href="javascript:void(0);" id="previewLikeLink" onclick="documentPreview.like(!documentPreview.settings.activity.liked)" rel="tooltip" data-placement="bottom" title="' + this.settings.labels.likeActivity + '"> \
+                      <a href="javascript:void(0);" id="previewLikeLink" onclick="documentPreview.like(!documentPreview.settings.activity.liked)" rel="tooltip" data-placement="bottom" title="${UIActivity.label.Like}"> \
                         <i class="uiIconThumbUp uiIconLightGray"></i>&nbsp;<span class="nbOfLikes"></span> \
                       </a> \
                     </li> \
@@ -257,9 +240,9 @@
                   <a class="avatarXSmall pull-left" href="' + this.settings.user.profileUrl + '" title="' + this.settings.user.fullname + '"> \
                     <img src="' + this.settings.user.avatarUrl + '" alt="' + this.settings.user.fullname + '" /></a> \
                     <div class="commentBox"> \
-                      <textarea id="commentInput" placeholder="' + this.settings.labels.postCommentHint + '" cols="30" rows="10" id="commentTextAreaPreview" activityId="activityId" class="textarea"></textarea> \
-                      <button class="btn pull-left btn-primary" rel="tooltip" data-placement="bottom" title="comment" id="CommentButton" disabled>' + this.settings.labels.comment + '</button> \
-                      <button class="btn pull-left" rel="tooltip" data-placement="bottom" title="cancel" id="CancelButton">' + this.settings.labels.cancel + '</button> \
+                      <textarea id="commentInput" placeholder="${UIActivity.comment.placeholder}" cols="30" rows="10" id="commentTextAreaPreview" activityId="activityId" class="textarea"></textarea> \
+                      <button class="btn pull-left btn-primary" rel="tooltip" data-placement="bottom" title="comment" id="CommentButton" disabled>${UIActivity.label.Comment}</button> \
+                      <button class="btn pull-left" rel="tooltip" data-placement="bottom" title="cancel" id="CancelButton">${UIActivity.label.Cancel}</button> \
                     </div> \
                   </div> \
               </div> \
@@ -295,13 +278,13 @@
             <!-- put vote area here --> \
             <div class="previewBtn"> \
               <div class="showComments"> \
-                <a><i class="uiIconComment uiIconWhite"></i>&nbsp;' + this.settings.labels.showComment + '</a> \
+                <a><i class="uiIconComment uiIconWhite"></i>&nbsp;${UIActivity.comment.showComment}</a> \
               </div> \
               <div class="openBtn"> \
-                <a href="' + this.settings.doc.openUrl + '"><i class="uiIconGotoFolder uiIconWhite"></i>&nbsp;' + this.settings.labels.openInDocuments + '</a> \
+                <a href="' + this.settings.doc.openUrl + '"><i class="uiIconGotoFolder uiIconWhite"></i>&nbsp;${UIActivity.comment.openInDocuments}</a> \
               </div> \
-              <div class="downloadBtn"' + (this.settings.doc.downloadUrl ? '' : ' style="display: none;"') + '> \
-                <a href="' + this.settings.doc.downloadUrl + '"><i class="uiIconDownload uiIconWhite"></i>&nbsp;' + this.settings.labels.download + '</a> \
+              <div class="downloadBtn"> \
+                <a href="' + this.settings.doc.downloadUrl + '"><i class="uiIconDownload uiIconWhite"></i>&nbsp;${UIActivity.comment.download}</a> \
               </div> \
             </div> \
           </div> \
@@ -335,7 +318,7 @@
           resizeEventHandler();
           self.clearErrorMessage();
         }).fail(function () {
-            self.showErrorMessage(self.settings.labels.canNotLoadComments);
+            self.showErrorMessage("${UIActivity.comment.canNotLoadComments}");
             console.log("Can not load comments!");
         });
       } else {
@@ -394,7 +377,7 @@
           resizeEventHandler();
           self.clearErrorMessage();
         }).fail(function () {
-            self.showErrorMessage(self.settings.labels.canNotLoadComments);
+            self.showErrorMessage("${UIActivity.comment.canNotLoadComments}");
             console.log("Can not load comments!");
         });
       }
@@ -430,7 +413,7 @@
       } else {
         $('#documentPreviewContainer .nbOfComments').html('0');
         commentsHtml = '<div class="noComment"> \
-            <div class="info">' + this.settings.labels.noComment + '</div> \
+            <div class="info">${UIActivity.comment.noComment}</div> \
           </div>';
       }
       commentsContainer.html(commentsHtml);
@@ -500,7 +483,7 @@
             self.initCKEditor();
             self.clearErrorMessage();
           }).fail(function () {
-            self.showErrorMessage(self.settings.labels.canNotAddComment);
+            self.showErrorMessage("${UIActivity.comment.canNotAddComment}");
             console.log("Can not post comment!");
           });
         } else {
@@ -514,7 +497,7 @@
             self.loadComments();
             self.clearErrorMessage();
           }).fail(function () {
-            self.showErrorMessage(self.settings.labels.canNotAddComment);
+            self.showErrorMessage("${UIActivity.comment.canNotAddComment}");
             console.log("Can not post comment!");
           });
         }
@@ -532,7 +515,7 @@
           self.loadComments();
           self.clearErrorMessage();
         }).fail(function () {
-            self.showErrorMessage(self.settings.labels.canNotDeleteComment);
+            self.showErrorMessage("${UIActivity.comment.canNotDeleteComment}");
             console.log("Can not delete comment!");
         });
       } else {
@@ -543,7 +526,7 @@
           self.loadComments();
           self.clearErrorMessage();
         }).fail(function () {
-            self.showErrorMessage(self.settings.labels.canNotDeleteComment);
+            self.showErrorMessage("${UIActivity.comment.canNotDeleteComment}");
             console.log("Can not delete comment!");
         });
       }
