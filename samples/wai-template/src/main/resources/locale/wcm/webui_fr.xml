@@ -27,15 +27,15 @@
   </UIPortalApplication>
   
   <CategoryNavigationTemplate>
-  	<label>
+  <label>
   <home>Accueil</home>
   <Accessibility>Accessibilité</Accessibility>
-  	</label>
-  </CategoryNavigationTemplate>  
+  </label>
+  </CategoryNavigationTemplate>
   
   <Breadcrumb>
-  	<label>
+  <label>
   <home>Accueil</home>
-  	</label>  
+  </label>  
   </Breadcrumb>
 </bundle>

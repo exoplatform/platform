@@ -21,16 +21,16 @@
 
   <UISEOForm>
     <label>
-      <title>Titel:</title>  
-      <description>Beskrivning:</description>
-      <keywords>Sökord:</keywords>
-      <language>Språk:</language>
-      <robots>Robotar:</robots>
-      <sitemap>Karta över webbplats:</sitemap>
+      <title>Title:</title>  
+      <description>Description:</description>
+      <keywords>Keywords:</keywords>
+      <language>Language:</language>
+      <robots>Robots:</robots>
+      <sitemap>Sitemap:</sitemap>
       <sitemapvisible>Synliga i karta på webbplats</sitemapvisible>
   <isInherited>Ärvts från överordnad sida</isInherited>
-      <priority>Prioritet:</priority>
-      <frequency>Antal:</frequency>
+      <priority>Priority:</priority>
+      <frequency>Frequency:</frequency>
       <select-language>Välj språk</select-language>
       <option>
         <Always>Alltid</Always>

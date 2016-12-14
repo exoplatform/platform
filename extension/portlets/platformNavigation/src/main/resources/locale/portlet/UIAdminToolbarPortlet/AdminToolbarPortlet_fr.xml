@@ -1,36 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <bundle>
    <UIAdminToolbarPortlet>
-		<action>
+      <action>
          <AddPage>Ajouter</AddPage>
-			<EditNavigation>Navigation</EditNavigation>
+         <EditNavigation>Navigation</EditNavigation>
          <Content>Contenu</Content>
          <Editor>Modifier</Editor>
-			<Page>Page</Page>
-			<Site>Site</Site>
+         <Page>Page</Page>
+         <Site>Site</Site>
          <Layout>Mise en Page</Layout>
          <siteLayout>Mise en Page</siteLayout>
          <ManagePages>Pages</ManagePages>
          <GroupSite>Site de Groupe</GroupSite>
          <Properties>#{UISEOToolbarForm.label.seo}</Properties>
          <AddSite>Ajouter un Site</AddSite>
-		</action>
+      </action>
 <ManageSites>Gestion des Sites</ManageSites>
 <ManageGroupSites>Gestion des Sites de Groupe</ManageGroupSites>
    </UIAdminToolbarPortlet>
-  
+
   <UISEOForm>
     <label>
-      <title>Titre:</title>  
-      <description>Description: </description>
-      <keywords>Mots clés:</keywords>
-      <language>Langue:</language>
-      <robots>Robots: </robots>
-      <sitemap>Sitemap: </sitemap>
+      <title>Title:</title>  
+      <description>Description:</description>
+      <keywords>Keywords:</keywords>
+      <language>Language:</language>
+      <robots>Robots:</robots>
+      <sitemap>Sitemap:</sitemap>
       <sitemapvisible>Visible dans le sitemap</sitemapvisible>
   <isInherited>Hérité de la page parent</isInherited>
-      <priority>Priorité:</priority>
-      <frequency>Fréquence:</frequency>
+      <priority>Priority:</priority>
+      <frequency>Frequency:</frequency>
       <select-language>Sélectionnez une langue</select-language>
       <option>
         <Always>Toujours</Always>
@@ -41,7 +41,7 @@
         <Yearly>Annuel</Yearly>
         <Never>Jamais</Never>
       </option> 
-    </label>    	  
+    </label>
  
     <action>
       <Save>#{word.save}</Save>
@@ -54,24 +54,24 @@
     <title>
     <seo-delete>Supprimer</seo-delete>
     </title>
-	<help> 
+<help> 
   <priority>Valeurs valides de 0.0 à 1.0.</priority>
   <description>Aidez les utilisateurs a savoir en quoi cette page a un lien avec ce qu'ils recherchent.</description>
   <keywords>Les termes les plus importants de la page doivent être séparés par une virgule.</keywords>  
-    </help>	 	  
+    </help>  
   </UISEOForm>
   <UISEOPopupWindow>
-  	<title>
+  <title>
       <UISEOForm>#{UISEOToolbarForm.title.seo}</UISEOForm>
-  	</title>
+  </title>
   </UISEOPopupWindow>    
   <UISEOToolbarForm>
-  	<title>
+  <title>
       <seo>Gestion SEO</seo>
-  	</title>
-  	<label>
-  	  <seo>SEO</seo>
-  	</label>
+  </title>
+  <label>
+    <seo>SEO</seo>
+  </label>
   </UISEOToolbarForm>  
   <FloatNumberValidator>
     <msg>

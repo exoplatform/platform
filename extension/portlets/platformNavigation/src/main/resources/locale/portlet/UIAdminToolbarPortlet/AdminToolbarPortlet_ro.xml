@@ -21,16 +21,16 @@
 
   <UISEOForm>
     <label>
-      <title>Titlu:</title>  
+      <title>Title:</title>  
       <description>Description:</description>
-      <keywords>Cuvinte cheie:</keywords>
-      <language>Limba:</language>
-      <robots>Roboţi:</robots>
-      <sitemap>hartă site:</sitemap>
+      <keywords>Keywords:</keywords>
+      <language>Language:</language>
+      <robots>Robots:</robots>
+      <sitemap>Sitemap:</sitemap>
       <sitemapvisible>Vizibil în harta site-ului</sitemapvisible>
   <isInherited>Moştenit de la pagina părinte</isInherited>
-      <priority>Prioritate:</priority>
-      <frequency>Frecvență:</frequency>
+      <priority>Priority:</priority>
+      <frequency>Frequency:</frequency>
       <select-language>Selectează limba</select-language>
       <option>
         <Always>Întotdeauna</Always>

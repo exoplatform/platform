@@ -21,16 +21,16 @@
 
   <UISEOForm>
     <label>
-      <title>Nadpis:</title>  
-      <description>Popis:</description>
-      <keywords>Klíčová slova:</keywords>
-      <language>Jazyk:</language>
-      <robots>Roboti:</robots>
-      <sitemap>Mapa stránek:</sitemap>
+      <title>Title:</title>  
+      <description>Description:</description>
+      <keywords>Keywords:</keywords>
+      <language>Language:</language>
+      <robots>Robots:</robots>
+      <sitemap>Sitemap:</sitemap>
       <sitemapvisible>Viditelné v mapě stránek</sitemapvisible>
   <isInherited>Zděděno z nadřazené stránky</isInherited>
-      <priority>Priorita:</priority>
-      <frequency>Frekvence:</frequency>
+      <priority>Priority:</priority>
+      <frequency>Frequency:</frequency>
       <select-language>Vybrat jazyk</select-language>
       <option>
         <Always>Vždy</Always>

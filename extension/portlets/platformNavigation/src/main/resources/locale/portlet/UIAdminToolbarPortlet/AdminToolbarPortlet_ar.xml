@@ -21,16 +21,16 @@
 
   <UISEOForm>
     <label>
-      <title>العنوان:</title>  
-      <description>الوصف</description>
-      <keywords>الكلمات المفاتيح:</keywords>
-      <language>اللغة:</language>
-      <robots>الروبوتات:</robots>
-      <sitemap>خريطة الموقع:</sitemap>
+      <title>Title:</title>  
+      <description>Description:</description>
+      <keywords>Keywords:</keywords>
+      <language>Language:</language>
+      <robots>Robots:</robots>
+      <sitemap>Sitemap:</sitemap>
       <sitemapvisible>مرئية في خريطة الموقع</sitemapvisible>
   <isInherited>الموروثة من الصفحة الأم</isInherited>
-      <priority>الأولوية:</priority>
-      <frequency>التردد:</frequency>
+      <priority>Priority:</priority>
+      <frequency>Frequency:</frequency>
       <select-language>اختيار اللغة</select-language>
       <option>
         <Always>دائما</Always>

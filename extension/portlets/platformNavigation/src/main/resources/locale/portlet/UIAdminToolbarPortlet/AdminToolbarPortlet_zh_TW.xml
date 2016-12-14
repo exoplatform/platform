@@ -21,16 +21,16 @@
 
   <UISEOForm>
     <label>
-      <title>標題：</title>  
-      <description>描述：</description>
-      <keywords>關鍵字：</keywords>
-      <language>語言：</language>
-      <robots>機器人：</robots>
-      <sitemap>網站地圖：</sitemap>
+      <title>Title:</title>  
+      <description>Description:</description>
+      <keywords>Keywords:</keywords>
+      <language>Language:</language>
+      <robots>Robots:</robots>
+      <sitemap>Sitemap:</sitemap>
       <sitemapvisible>在網站地圖中可見</sitemapvisible>
   <isInherited>繼承自父頁面</isInherited>
-      <priority>優先:</priority>
-      <frequency>頻率：</frequency>
+      <priority>Priority:</priority>
+      <frequency>Frequency:</frequency>
       <select-language>選擇語言</select-language>
       <option>
         <Always>總是</Always>

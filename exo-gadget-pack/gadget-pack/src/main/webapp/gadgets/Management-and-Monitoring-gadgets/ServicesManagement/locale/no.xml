@@ -31,7 +31,7 @@
   <msg name="value">Verdi</msg>
   <msg name="services_url">Tjeneste URL'er</msg>
   <msg name="failManage">Det er ikke mulig å administrere tjenester fra andre maskiner før vi har lagt til støtte for OAuth</msg>
-  <msg name="noServices">Ingen tjeneste er tilgjengelig, eller  så har du ikke tilstrekkelige rettigheter</msg>
+  <msg name="noServices">Ingen tjeneste er tilgjengelig, eller så har du ikke tilstrekkelige rettigheter</msg>
   <msg name="noMethod">Ingen metode</msg>
   <msg name="noProperty">Ingen egenskap</msg>
   <msg name="badURL">Det oppstod en feil under henting av data. Sjekk URLen som er lagt inn</msg>

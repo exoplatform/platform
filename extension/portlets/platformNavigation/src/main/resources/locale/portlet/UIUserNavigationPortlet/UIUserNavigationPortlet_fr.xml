@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <bundle>
-    <UIUserNavigationPortlet>
-        <label>
+   <UIUserNavigationPortlet>
+      <label>
          <activities>Activités</activities>
          <profile>Profil</profile>
          <connections>Réseau</connections>
-            <wiki>Wiki</wiki>
+         <wiki>Wiki</wiki>
          <Myactivities>Mes Activités</Myactivities>
          <Myprofile>Mon Profil</Myprofile>
          <Myconnections>Mes Connexions</Myconnections>
@@ -13,6 +13,6 @@
          <Mydashboard>Mon Tableau de bord</Mydashboard>
          <NotificationSettingsPortlet>Mes Notifications</NotificationSettingsPortlet>
          <More>Plus</More>
-        </label>
-    </UIUserNavigationPortlet>
+      </label>
+   </UIUserNavigationPortlet>
 </bundle>
