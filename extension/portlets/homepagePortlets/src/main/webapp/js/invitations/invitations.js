@@ -13,12 +13,18 @@
         spacelabel = $(this).data("spacelabel");
         publiclabel = $(this).data("publiclabel");
         privatelabel = $(this).data("privatelabel");
-
     });
 
-    return {
+    $(document).on("exo-invitation-updated", function() {
+      jqInvitations.initInvitations();
+    });
+
+    var jqInvitations = {
         initInvitations: function() {
             $.getJSON("/rest/homepage/intranet/invitations/allInvitations", function(items){
+                $("#requests").empty();
+                $("#inviteCounter").empty();
+                $("#InvitationsPortlet").hide();
 
                 if (items.length > 0){
                     $("#InvitationsPortlet").show();
@@ -178,5 +184,6 @@
             });
         }
     };
+  return jqInvitations;
 
 })($);
