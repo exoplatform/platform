@@ -169,9 +169,9 @@
         me.portlet.find('.actionLink:first').show();
         //work-around in case of clustering
         webNotif.ajaxReq(me.clusterUpdateCachedLink + '&notifId=' + id, function(data) {
-      	  if(data && data.badge > 0) {
-      	    me.badgeElm.text(data.badge).show();
-      	  }
+          if(data && data.badge > 0) {
+            me.badgeElm.text(data.badge).show();
+          }
         });
       },
       applyAction : function(item) {
@@ -207,7 +207,12 @@
           //1. call rest on social side: for example accept/refuse relationship
           //2. redirect to the uri, for example: view activity detail
           //var id = elm.parents('li:first').data('id');
-        webNotif.ajaxReq($(elm).data('rest')).openURL($(elm).data('link'));
+          //3. trigger a custom event to update other applications concerned by this change 
+        webNotif.ajaxReq($(elm).data('rest'),
+            function() {
+              $(document).trigger("exo-invitation-updated");
+            }
+        ).openURL($(elm).data('link'));
       },
       doCancelAction : function(object) {
         var me = NotificationPopover;
@@ -216,6 +221,7 @@
           me.showViewAll = "false";
         }
         me.removeItem(me.portlet.find('li[data-id=' + object.id + ']'));
+        $(document).trigger("exo-invitation-updated");
       },
       markAllRead : function() {
         NotificationPopover.portlet.find('ul.displayItems:first').find('li.unread').removeClass('unread');
