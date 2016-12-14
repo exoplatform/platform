@@ -21,16 +21,16 @@
 
   <UISEOForm>
     <label>
-      <title>Antraštė:</title>  
-      <description>Aprašymas:</description>
-      <keywords>Raktažodžiai:</keywords>
-      <language>Kalba:</language>
-      <robots>Robotai:</robots>
-      <sitemap>Svetainės žemėlapis:</sitemap>
+      <title>Title:</title>  
+      <description>Description:</description>
+      <keywords>Keywords:</keywords>
+      <language>Language:</language>
+      <robots>Robots:</robots>
+      <sitemap>Sitemap:</sitemap>
       <sitemapvisible>Matomas svetainės žemėlapyje</sitemapvisible>
   <isInherited>Paveldėtas iš pagrindinio puslapio</isInherited>
-      <priority>Prioritetas:</priority>
-      <frequency>Dažnis:</frequency>
+      <priority>Priority:</priority>
+      <frequency>Frequency:</frequency>
       <select-language>Pasirinkite kalbą</select-language>
       <option>
         <Always>Visada</Always>

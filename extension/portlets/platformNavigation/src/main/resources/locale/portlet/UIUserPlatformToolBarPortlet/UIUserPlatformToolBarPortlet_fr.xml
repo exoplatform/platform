@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <bundle>
-	<UIUserPlatformToolBarPortlet>
-		<label>
+<UIUserPlatformToolBarPortlet>
+<label>
 <NotificationSettingsPortlet>Mes Notifications</NotificationSettingsPortlet>
 <activities>Mes Activités</activities>
 <profile>Mon Profil</profile>
@@ -11,6 +11,6 @@
 <language>Changer de langue</language>
 <logout>Déconnexion</logout>
         <dashboard>Mon Tableau de bord</dashboard>
-		</label>
-	</UIUserPlatformToolBarPortlet>
+</label>
+</UIUserPlatformToolBarPortlet>
 </bundle>

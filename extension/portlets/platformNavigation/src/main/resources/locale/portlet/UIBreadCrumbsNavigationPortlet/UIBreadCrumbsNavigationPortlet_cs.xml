@@ -4,11 +4,11 @@
     <label>
       <EditProfile>Edit my Profile</EditProfile>
     </label>
-      <title>
+    <title>
       <EditProfile>Upravit profil</EditProfile>
     </title>
     <title>
       <MyProfile>Můj profil</MyProfile>
-      </title>
+    </title>
 </UIBreadCrumbsNavigationPortlet>
 </bundle>

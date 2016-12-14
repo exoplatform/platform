@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <bundle>
-	<UIBreadCrumbsNavigationPortlet>
+<UIBreadCrumbsNavigationPortlet>
     <label>
       <EditProfile>Edit my Profile</EditProfile>
     </label>
@@ -10,5 +10,5 @@
     <title>
       <MyProfile>My Profile</MyProfile>
     </title>
-	</UIBreadCrumbsNavigationPortlet>
+</UIBreadCrumbsNavigationPortlet>
 </bundle>

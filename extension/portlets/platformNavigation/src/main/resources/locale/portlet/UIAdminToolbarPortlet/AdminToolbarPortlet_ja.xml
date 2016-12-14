@@ -21,16 +21,16 @@
 
   <UISEOForm>
     <label>
-      <title>タイトル</title>  
-      <description>説明:</description>
-      <keywords>キーワード:</keywords>
-      <language>言語:</language>
-      <robots>ロボット:</robots>
-      <sitemap>サイトマップ：</sitemap>
+      <title>Title:</title>  
+      <description>Description:</description>
+      <keywords>Keywords:</keywords>
+      <language>Language:</language>
+      <robots>Robots:</robots>
+      <sitemap>Sitemap:</sitemap>
       <sitemapvisible>サイトマップで参照可能</sitemapvisible>
   <isInherited>親ページから継承</isInherited>
-      <priority>優先順位：</priority>
-      <frequency>頻度:</frequency>
+      <priority>Priority:</priority>
+      <frequency>Frequency:</frequency>
       <select-language>言語の選択</select-language>
       <option>
         <Always>常に</Always>

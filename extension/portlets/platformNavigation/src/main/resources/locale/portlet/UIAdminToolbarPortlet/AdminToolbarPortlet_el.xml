@@ -21,16 +21,16 @@
 
   <UISEOForm>
     <label>
-      <title>Τίτλος:</title>  
-      <description>Περιγραφή:</description>
-      <keywords>Λέξεις-κλειδιά:</keywords>
-      <language>Γλώσσα:</language>
-      <robots>Ρομπότ ιστού:</robots>
-      <sitemap>Χάρτης ιστότοπου:</sitemap>
+      <title>Title:</title>  
+      <description>Description:</description>
+      <keywords>Keywords:</keywords>
+      <language>Language:</language>
+      <robots>Robots:</robots>
+      <sitemap>Sitemap:</sitemap>
       <sitemapvisible>Ορατό στο χάρτη του ιστότοπου</sitemapvisible>
   <isInherited>Κληρονoμήθηκαν από τη γονική σελίδα</isInherited>
-      <priority>Προτεραιότητα:</priority>
-      <frequency>Συχνότητα:</frequency>
+      <priority>Priority:</priority>
+      <frequency>Frequency:</frequency>
       <select-language>Επιλέξτε μια γλώσσα</select-language>
       <option>
         <Always>Πάντα</Always>

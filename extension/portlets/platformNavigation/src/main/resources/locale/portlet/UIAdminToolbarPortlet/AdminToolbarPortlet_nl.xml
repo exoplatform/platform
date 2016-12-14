@@ -22,15 +22,15 @@
   <UISEOForm>
     <label>
       <title>Title:</title>  
-      <description>Beschrijving</description>
+      <description>Description:</description>
       <keywords>Keywords:</keywords>
       <language>Language:</language>
       <robots>Robots:</robots>
       <sitemap>Sitemap:</sitemap>
       <sitemapvisible>Zichtbaar in Sitemap</sitemapvisible>
   <isInherited>Overgenomen van bovenliggende pagina</isInherited>
-      <priority>Prioriteit: </priority>
-      <frequency>Frequentie:</frequency>
+      <priority>Priority:</priority>
+      <frequency>Frequency:</frequency>
       <select-language>Taal selecteren</select-language>
       <option>
         <Always>Altijd</Always>

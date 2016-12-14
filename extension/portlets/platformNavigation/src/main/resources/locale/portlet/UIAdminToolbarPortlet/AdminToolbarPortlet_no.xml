@@ -21,16 +21,16 @@
 
   <UISEOForm>
     <label>
-      <title>Tittel:</title>  
-      <description>Beskrivelse:</description>
-      <keywords>Nøkkelord:</keywords>
-      <language>Språk:</language>
-      <robots>Roboter:</robots>
-      <sitemap>Nettstedskart:</sitemap>
+      <title>Title:</title>  
+      <description>Description:</description>
+      <keywords>Keywords:</keywords>
+      <language>Language:</language>
+      <robots>Robots:</robots>
+      <sitemap>Sitemap:</sitemap>
       <sitemapvisible>Synlig i nettstedskartet</sitemapvisible>
   <isInherited>Arvet fra overordnet side</isInherited>
-      <priority>Prioritet:</priority>
-      <frequency>Frekvens:</frequency>
+      <priority>Priority:</priority>
+      <frequency>Frequency:</frequency>
       <select-language>Velg språk</select-language>
       <option>
         <Always>Alltid</Always>
