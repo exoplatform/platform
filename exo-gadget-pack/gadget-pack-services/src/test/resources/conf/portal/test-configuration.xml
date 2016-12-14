@@ -18,6 +18,11 @@
     <key>org.exoplatform.forum.common.jcr.KSDataLocation</key>
     <type>org.exoplatform.forum.common.jcr.KSDataLocation</type>
   </component>
+
+  <component>
+    <key>org.exoplatform.commons.chromattic.ChromatticManager</key>
+    <type>org.exoplatform.commons.chromattic.ChromatticManager</type>
+  </component>
         
   <external-component-plugins>
       <target-component>org.exoplatform.services.jcr.RepositoryService</target-component>
