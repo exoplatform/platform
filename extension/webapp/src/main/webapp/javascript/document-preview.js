@@ -608,6 +608,8 @@
         commentInput.ckeditor({
           customConfig: '/commons-extension/ckeditorCustom/config.js',
           extraPlugins: extraPlugins,
+          typeOfRelation: 'mention_comment',
+          spaceURL: this.settings.activity.spaceURL,
           on : {
             instanceReady : function ( evt ) {
               // Hide the editor toolbar
