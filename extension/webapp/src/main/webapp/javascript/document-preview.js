@@ -57,6 +57,11 @@
       }
 
       var self = this;
+
+      if(ES6Promise && !window.Promise ) {
+        ES6Promise.polyfill();
+      }
+
       // wait for all users info fetches to be complete before rendering the component
       Promise.all(promises).then(function() {
         self.render();

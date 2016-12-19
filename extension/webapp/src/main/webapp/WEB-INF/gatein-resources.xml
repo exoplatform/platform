@@ -56,5 +56,8 @@
     <depends>
       <module>suggester</module>
     </depends>
+    <depends>
+      <module>es6promise</module>
+    </depends>
   </module>
 </gatein-resources>
