@@ -5,10 +5,10 @@
       <EditProfile>Редагувати мій профіль</EditProfile>
     </label>
     <title>
-      <EditProfile>Edit Profile</EditProfile>
+      <EditProfile>Редагувати профіль</EditProfile>
     </title>
     <title>
-      <MyProfile>My Profile</MyProfile>
+      <MyProfile>Мій профіль</MyProfile>
     </title>
 </UIBreadCrumbsNavigationPortlet>
 </bundle>

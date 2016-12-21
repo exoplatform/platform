@@ -5,7 +5,7 @@
          <AddPage>Pagina toevoegen</AddPage>
          <EditNavigation>Navigatie</EditNavigation>
          <Content>Inhoud</Content>
-         <Editor>Edit</Editor>
+         <Editor>Bewerken</Editor>
          <Page>Pagina</Page>
          <Site>Site portaal</Site>
          <Layout>Opmaak bewerken</Layout>
@@ -22,15 +22,15 @@
   <UISEOForm>
     <label>
       <title>Title:</title>  
-      <description>Description:</description>
+      <description>Beschrijving</description>
       <keywords>Keywords:</keywords>
       <language>Language:</language>
       <robots>Robots:</robots>
       <sitemap>Sitemap:</sitemap>
       <sitemapvisible>Zichtbaar in Sitemap</sitemapvisible>
   <isInherited>Overgenomen van bovenliggende pagina</isInherited>
-      <priority>Priority:</priority>
-      <frequency>Frequency:</frequency>
+      <priority>Prioriteit: </priority>
+      <frequency>Frequentie:</frequency>
       <select-language>Taal selecteren</select-language>
       <option>
         <Always>Altijd</Always>
@@ -52,7 +52,7 @@
       <confirm-delete>Weet u zeker dat u wilt verwijderen van deze SEO gegevens?</confirm-delete>
     </msg>
     <title>
-    <seo-delete>Delete</seo-delete>
+    <seo-delete>Verwijderen</seo-delete>
     </title>
 <help> 
   <priority>Geldige waarden variëren van 0.0 te 1.0.</priority>

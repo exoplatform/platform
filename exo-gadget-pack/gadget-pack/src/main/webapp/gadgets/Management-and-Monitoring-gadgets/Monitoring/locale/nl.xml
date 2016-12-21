@@ -23,7 +23,7 @@
   <msg name="title_memory">Memory</msg>
   <msg name="used">Gebruikt</msg>
   <msg name="free">Vrij</msg>
-  <msg name="total">Total</msg>
+  <msg name="total">Totaal</msg>
   <msg name="heap">Heap memory</msg>
   <msg name="non-heap">Non-heap memory</msg>
   <msg name="loading">Laden van gegevens...</msg>

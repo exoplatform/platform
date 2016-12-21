@@ -8,7 +8,7 @@
       <en>Overschakelen naar Engels</en>
       <fr>Overschakelen naar het Frans</fr>
     </language>
-    <register>Register</register>
+    <register>Registreren</register>
   </Signin>
   <Toolbar>
     <SkipToContent>Ga naar de inhoud</SkipToContent>
@@ -28,6 +28,6 @@
     <label>ACME sjabloon</label>
   </acme>  
   <WAIPortal>
-    <label>Sample Accessible Website</label>
+    <label>Monster toegankelijke Website</label>
   </WAIPortal>
 </bundle>
