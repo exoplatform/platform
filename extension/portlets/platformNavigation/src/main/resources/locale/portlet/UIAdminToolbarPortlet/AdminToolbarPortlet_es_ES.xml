@@ -13,7 +13,7 @@
          <ManagePages>Administrar páginas</ManagePages>
          <GroupSite>Sitio de grupo</GroupSite>
          <Properties>#{UISEOToolbarForm.label.seo}</Properties>
-         <AddSite>Agregar sitio</AddSite>
+         <AddSite>Añadir sitio</AddSite>
       </action>
 <ManageSites>Administrar sitios</ManageSites>
 <ManageGroupSites>Administrar sitios del grupo</ManageGroupSites>
@@ -21,16 +21,16 @@
 
   <UISEOForm>
     <label>
-      <title>Title:</title>  
-      <description>Description:</description>
-      <keywords>Keywords:</keywords>
-      <language>Language:</language>
+      <title>Título:</title>  
+      <description>Descripción:</description>
+      <keywords>Palabras Clave:</keywords>
+      <language>idioma:</language>
       <robots>Robots:</robots>
-      <sitemap>Sitemap:</sitemap>
+      <sitemap>Mapa del sitio:</sitemap>
       <sitemapvisible>Visible en el mapa del sitio</sitemapvisible>
   <isInherited>Heredado de la página principal</isInherited>
-      <priority>Priority:</priority>
-      <frequency>Frequency:</frequency>
+      <priority>Prioridad:</priority>
+      <frequency>Frecuencia:</frequency>
       <select-language>Selecciona Idioma</select-language>
       <option>
         <Always>Siempre</Always>

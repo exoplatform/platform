@@ -23,7 +23,7 @@
   <msg name="title_memory">Speicher</msg>
   <msg name="used">Benutzt</msg>
   <msg name="free">Frei</msg>
-  <msg name="total">Total</msg>
+  <msg name="total">Gesamt</msg>
   <msg name="heap">Heap-Speicher</msg>
   <msg name="non-heap">Non-Heap-Speicher</msg>
   <msg name="loading">Daten werden geladen ...</msg>

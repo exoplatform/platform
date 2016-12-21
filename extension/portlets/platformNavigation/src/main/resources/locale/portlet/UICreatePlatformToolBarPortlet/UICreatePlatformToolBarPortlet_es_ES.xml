@@ -14,7 +14,7 @@
       <label>
          <topic>Tema</topic>
          <poll>Encuesta</poll>
-         <CreateANew>Crear un nuevo {1}:</CreateANew>
+         <CreateANew>Crear {1}:</CreateANew>
          <NoForum>Lo sentimos, aún no hay ningún foro disponible para crear una {1}. Empiece creando su propio espacio.</NoForum>
          <RequireSelectForum>Por favor seleccione un foro.</RequireSelectForum>
       </label>
@@ -42,14 +42,14 @@
    <UICreateWiki>
       <label>
          <title>Crear una nueva página Wiki:</title>
-         <location>En lugar</location>
+         <location>En</location>
       </label>
    </UICreateWiki>
    <UICreateEvent>
       <label>
          <Title>#{word.title}</Title>
-         <Choix>Agregar nuevo:</Choix>
-         <EndEvent>Para</EndEvent>
+         <Choix>Añadir nuevo:</Choix>
+         <EndEvent>A</EndEvent>
          <StartEvent>De</StartEvent>
          <Calendar>Seleccione Calendario</Calendar>
          <all-day>Todo el día</all-day>
@@ -60,7 +60,7 @@
          <fromDate-format>El formato de fecha "Desde" es incorrecto.</fromDate-format>
          <toDate-format>El formato de fecha "Hasta" es incorrecto.</toDate-format>
          <logic-required>Lo sentimos, no puede crear un evento que termina antes de que empiece.</logic-required>
-         <cant-add-event-on-remote-calendar>No puede agregar evento al calendario remoto</cant-add-event-on-remote-calendar>
+         <cant-add-event-on-remote-calendar>No puede añadir eventos al calendario remoto</cant-add-event-on-remote-calendar>
          <add-successfully>
             <Event>El evento ha sido añadido a {1}</Event>
             <Task>La tarea ha sido añadida a {1}</Task>
