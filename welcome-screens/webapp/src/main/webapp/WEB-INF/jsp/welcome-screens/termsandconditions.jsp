@@ -53,7 +53,9 @@
 						  with its registered seat at Parc d’Innovation de Bretagne Sud, 56038 Vannes - France</span></p>
 			    -->
 
-				<p class="c15 c17"><span class="c0 c4">Master Subscription Agreement</span></p>
+				<p class="c15 c17"><span class="c0">Last updated: December 23th, 2016</span></p>
+				<p class="c15 c17"><span class="c0 c4">eXo Platform SAS</span></p>
+				<p class="c15 c17"><span class="c0">Master Subscription Agreement</span></p>
 
 				<p class="c9"><span class="c0">PLEASE READ THIS MASTER SUBSCRIPTION AGREEMENT BEFORE
 						  PURCHASING OR USING THE PRODUCTS OR SERVICES. BY USING OR PURCHASING THE PRODUCTS OR
@@ -1523,97 +1525,104 @@
 					<tr class="c16">
 						<td class="c10"><p class="c0"><span class="c0 c4">Add-on name</span></p></td>
 						<td class="c2"><p class="c7"><span class="c0 c4">Introduces Specific Terms</span></p></td>
-						<td class="c2"><p class="c7"><span class="c0 c4">Requires an active Enterprise Subscription</span></p></td>
+						<td class="c2"><p class="c7"><span class="c0 c4">Eligible Subscription Plan</span></p></td>
 						<td class="c2"><p class="c7"><span class="c0 c4">Requires an additional subscription fee</span></p></td>
 					</tr>
 					<tr class="c16">
 						<td class="c10"><p class="c9"><span class="c0 c4">exo-acme-sample - eXo ACME Website Sample</span></p></td>
 						<td class="c2"><p class="c7"><span class="c0">No</span></p></td>
-						<td class="c2"><p class="c7"><span class="c0">Basic, Standard or Premium</span></p></td>
-						<td class="c2"><p class="c7"><span class="c0">No</span></p></td>
-					</tr>
-					<tr class="c16">
-						<td class="c10"><p class="c9"><span class="c0 c4">exo-wai-sample - eXo WAI Sample</span></p></td>
-						<td class="c2"><p class="c7"><span class="c0">No</span></p></td>
-						<td class="c2"><p class="c7"><span class="c0">Basic, Standard or Premium</span></p></td>
+						<td class="c2"><p class="c7"><span class="c0">Professional, Enterprise or Enterprise Plus</span></p></td>
 						<td class="c2"><p class="c7"><span class="c0">No</span></p></td>
 					</tr>
 					<tr class="c16">
 						<td class="c10"><p class="c9"><span class="c0 c4">exo-chat - eXo Chat</span></p></td>
 						<td class="c2"><p class="c7"><span class="c0">No</span></p></td>
-						<td class="c2"><p class="c7"><span class="c0">Basic, Standard or Premium</span></p></td>
+						<td class="c2"><p class="c7"><span class="c0">Professional, Enterprise or Enterprise Plus</span></p></td>
 						<td class="c2"><p class="c7"><span class="c0">No</span></p></td>
-					</tr>
-					<tr class="c16">
-						<td class="c10"><p class="c9"><span class="c0 c4">exo-video-calls - eXo Video Calls</span></p></td>
-						<td class="c2"><p class="c7"><span class="c0">Yes (*)</span></p></td>
-						<td class="c2"><p class="c7"><span class="c0">Basic, Standard or Premium</span></p></td>
-						<td class="c2"><p class="c7"><span class="c0">Yes</span></p></td>
 					</tr>
 					<tr class="c16">
 						<td class="c10"><p class="c9"><span class="c0 c4">exo-cmis-addon - eXo CMIS Integration</span></p></td>
 						<td class="c2"><p class="c7"><span class="c0">No</span></p></td>
-						<td class="c2"><p class="c7"><span class="c0">Basic, Standard or Premium</span></p></td>
+						<td class="c2"><p class="c7"><span class="c0">Professional, Enterprise or Enterprise Plus</span></p></td>
 						<td class="c2"><p class="c7"><span class="c0">No</span></p></td>
 					</tr>
 					<tr class="c16">
 						<td class="c10"><p class="c9"><span class="c0 c4">exo-crash-tomcat - eXo CRaSH Add-on for Tomcat</span></p></td>
 						<td class="c2"><p class="c7"><span class="c0">No</span></p></td>
-						<td class="c2"><p class="c7"><span class="c0">Basic, Standard or Premium</span></p></td>
+						<td class="c2"><p class="c7"><span class="c0">Professional, Enterprise or Enterprise Plus</span></p></td>
 						<td class="c2"><p class="c7"><span class="c0">No</span></p></td>
 					</tr>
 					<tr class="c16">
 						<td class="c10"><p class="c9"><span class="c0 c4">exo-crash-jboss - eXo CRaSH Add-on for Jboss</span></p></td>
 						<td class="c2"><p class="c7"><span class="c0">No</span></p></td>
-						<td class="c2"><p class="c7"><span class="c0">Standard or Premium</span></p></td>
+						<td class="c2"><p class="c7"><span class="c0">Professional, Enterprise or Enterprise Plus</span></p></td>
 						<td class="c2"><p class="c7"><span class="c0">No</span></p></td>
 					</tr>
 					<tr class="c16">
 						<td class="c10"><p class="c9"><span class="c0 c4">exo-ide-addon - eXo IDE Add-on</span></p></td>
 						<td class="c2"><p class="c7"><span class="c0">No</span></p></td>
-						<td class="c2"><p class="c7"><span class="c0">Basic, Standard or Premium</span></p></td>
+						<td class="c2"><p class="c7"><span class="c0">Professional, Enterprise or Enterprise Plus</span></p></td>
 						<td class="c2"><p class="c7"><span class="c0">No</span></p></td>
 					</tr>
 					<tr class="c16">
+						<td class="c10"><p class="c9"><span class="c0 c4">exo-wai-sample - eXo WAI Sample</span></p></td>
+						<td class="c2"><p class="c7"><span class="c0">No</span></p></td>
+						<td class="c2"><p class="c7"><span class="c0">Professional, Enterprise or Enterprise Plus</span></p></td>
+						<td class="c2"><p class="c7"><span class="c0">No</span></p></td>
+					</tr>
+					<tr class="c16">
+						<td class="c10"><p class="c9"><span class="c0 c4">exo-video-calls - eXo Video Calls</span></p></td>
+						<td class="c2"><p class="c7"><span class="c0">Yes (*)</span></p></td>
+						<td class="c2"><p class="c7"><span class="c0">Professional, Enterprise or Enterprise Plus</span></p></td>
+						<td class="c2"><p class="c7"><span class="c0">Yes</span></p></td>
+					</tr>
+
+					<tr class="c16">
 						<td class="c10"><p class="c9"><span class="c0 c4">exo-remote-edit - eXo Remote Edit</span></p></td>
 						<td class="c2"><p class="c7"><span class="c0">No</span></p></td>
-						<td class="c2"><p class="c7"><span class="c0">Basic, Standard or Premium</span></p></td>
+						<td class="c2"><p class="c7"><span class="c0">Professional, Enterprise or Enterprise Plus</span></p></td>
 						<td class="c2"><p class="c7"><span class="c0">No</span></p></td>
 					</tr>
 					<tr class="c16">
 						<td class="c10"><p class="c9"><span class="c0 c4">exo-cas - eXo CAS integration</span></p></td>
 						<td class="c2"><p class="c7"><span class="c0">No</span></p></td>
-						<td class="c2"><p class="c7"><span class="c0">Basic, Standard or Premium</span></p></td>
+						<td class="c2"><p class="c7"><span class="c0">Professional, Enterprise or Enterprise Plus</span></p></td>
 						<td class="c2"><p class="c7"><span class="c0">No</span></p></td>
 					</tr>
 					<tr class="c16">
 						<td class="c10"><p class="c9"><span class="c0 c4">exo-saml - eXo SAML2 integration</span></p></td>
 						<td class="c2"><p class="c7"><span class="c0">No</span></p></td>
-						<td class="c2"><p class="c7"><span class="c0">Standard or Premium</span></p></td>
+						<td class="c2"><p class="c7"><span class="c0">Professional, Enterprise or Enterprise Plus</span></p></td>
 						<td class="c2"><p class="c7"><span class="c0">No</span></p></td>
 					</tr>
 					<tr class="c16">
 						<td class="c10"><p class="c9"><span class="c0 c4">exo-spnego - eXo SPNEGO integration</span></p></td>
 						<td class="c2"><p class="c7"><span class="c0">No</span></p></td>
-						<td class="c2"><p class="c7"><span class="c0">Basic, Standard or Premium</span></p></td>
+						<td class="c2"><p class="c7"><span class="c0">Professional, Enterprise or Enterprise Plus</span></p></td>
 						<td class="c2"><p class="c7"><span class="c0">No</span></p></td>
 					</tr>
 					<tr class="c16">
 						<td class="c10"><p class="c9"><span class="c0 c4">exo-openam - eXo OpenAM integration</span></p></td>
 						<td class="c2"><p class="c7"><span class="c0">No</span></p></td>
-						<td class="c2"><p class="c7"><span class="c0">Basic, Standard or Premium</span></p></td>
+						<td class="c2"><p class="c7"><span class="c0">Professional, Enterprise or Enterprise Plus</span></p></td>
 						<td class="c2"><p class="c7"><span class="c0">No</span></p></td>
 					</tr>
 					<tr class="c16">
 						<td class="c10"><p class="c9"><span class="c0 c4">exo-josso - eXo JOSSO integration, exo-josso-181 - eXo JOSSO 1.8.1 integration</span></p></td>
 						<td class="c2"><p class="c7"><span class="c0">No</span></p></td>
-						<td class="c2"><p class="c7"><span class="c0">Basic, Standard or Premium</span></p></td>
+						<td class="c2"><p class="c7"><span class="c0">Professional, Enterprise or Enterprise Plus</span></p></td>
 						<td class="c2"><p class="c7"><span class="c0">No</span></p></td>
 					</tr>
 					<tr class="c16">
-						<td class="c10"><p class="c9"><span class="c0 c4">exo-answers - eXo Answers</span></p></td>
+						<td class="c10"><p class="c9"><span class="c0 c4">exo-tasks - eXo Tasks</span></p></td>
 						<td class="c2"><p class="c7"><span class="c0">No</span></p></td>
-						<td class="c2"><p class="c7"><span class="c0">Basic, Standard or Premium</span></p></td>
+						<td class="c2"><p class="c7"><span class="c0">Professional, Enterprise or Enterprise Plus</span></p></td>
+						<td class="c2"><p class="c7"><span class="c0">No</span></p></td>
+					</tr>
+					<tr class="c16">
+						<td class="c10"><p class="c9"><span class="c0 c4">exo-site-templates - eXo Site Templates</span></p><p class="c9"><span class="c0 c4">exo-web-pack - eXo Web Pack</span></p></td>
+						<td class="c2"><p class="c7"><span class="c0">No</span></p></td>
+						<td class="c2"><p class="c7"><span class="c0">Professional, Enterprise or Enterprise Plus</span></p></td>
 						<td class="c2"><p class="c7"><span class="c0">No</span></p></td>
 					</tr>
 				</tbody>
@@ -1626,6 +1635,9 @@
 				Software. For the avoidance of doubt and as long as both the Software Subscription and eXo Video Calls Add-on  
 				remain in force, eXo Video Calls Add-on will be deemed a part of 
 				the Software as defined by Section 1.9 of this Agreement.</span></p>
+			<p class="c15"><span class="c0">The table below lists all supported add-ons for currently supported versions
+				of eXo Platform Software. Not all versions of every add-on is supported with every version of eXo Platform Software.
+				Compatibility matrix is available at <span class="c0 c25"><a class="c8" target="_blank" href="https://www.exoplatform.com/supported-environments">https://www.exoplatform.com/supported-environments</a></span></span></p>
 	
 				
 			</div>
