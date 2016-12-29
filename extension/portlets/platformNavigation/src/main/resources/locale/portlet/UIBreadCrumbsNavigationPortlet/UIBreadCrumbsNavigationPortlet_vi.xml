@@ -5,10 +5,10 @@
       <EditProfile>Thay đổi hồ sơ</EditProfile>
     </label>
     <title>
-      <EditProfile>Edit Profile</EditProfile>
+      <EditProfile>Sửa Hồ sơ</EditProfile>
     </title>
     <title>
-      <MyProfile>My Profile</MyProfile>
+      <MyProfile>Hồ sơ của Tôi</MyProfile>
     </title>
 </UIBreadCrumbsNavigationPortlet>
 </bundle>

@@ -3,7 +3,7 @@
 <UINotificationPopoverToolbarPortlet>
 <label>
 <MarkAllAsRead>Σήμανση όλων ως αναγνωσμένα</MarkAllAsRead>
-<NoNotifications>No notifications</NoNotifications>
+<NoNotifications>Καμία ειδοποίηση</NoNotifications>
 <ViewAll>Προβολή όλων</ViewAll>
 <Loading>Γίνεται φόρτωση</Loading>
 </label>

@@ -2,12 +2,12 @@
 <bundle>
 <UIUserPlatformToolBarPortlet>
 <label>
-<NotificationSettingsPortlet>My Notifications</NotificationSettingsPortlet>
-<activities>My Activities</activities>
+<NotificationSettingsPortlet>Мои уведомления</NotificationSettingsPortlet>
+<activities>Моя деятельность</activities>
 <profile>Мой профиль</profile>
 <network>Мои контакты</network>
 <wiki>Моя Вики-страница</wiki>
-<account>Account</account>
+<account>Учётная запись</account>
 <language>Изменить язык</language>
 <logout>Выйти</logout>
         <dashboard>Моя панель мониторинга</dashboard>

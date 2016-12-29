@@ -9,7 +9,7 @@
          <Page>الصفحة</Page>
          <Site>موقع</Site>
          <Layout>تغير التخطيط</Layout>
-         <siteLayout>تخطيط</siteLayout>
+         <siteLayout>الواجهة</siteLayout>
          <ManagePages>إدارة الصفحات</ManagePages>
          <GroupSite>موقع المجموعة</GroupSite>
          <Properties>#{UISEOToolbarForm.label.seo}</Properties>
@@ -21,16 +21,16 @@
 
   <UISEOForm>
     <label>
-      <title>Title:</title>  
-      <description>Description:</description>
-      <keywords>Keywords:</keywords>
-      <language>Language:</language>
-      <robots>Robots:</robots>
-      <sitemap>Sitemap:</sitemap>
+      <title>العنوان:</title>  
+      <description>الوصف:</description>
+      <keywords>الكلمات المفاتيح:</keywords>
+      <language>اللغة:</language>
+      <robots>الروبوتات:</robots>
+      <sitemap>خريطة الموقع:</sitemap>
       <sitemapvisible>مرئية في خريطة الموقع</sitemapvisible>
   <isInherited>الموروثة من الصفحة الأم</isInherited>
-      <priority>Priority:</priority>
-      <frequency>Frequency:</frequency>
+      <priority>الأولوية:</priority>
+      <frequency>التردد:</frequency>
       <select-language>اختيار اللغة</select-language>
       <option>
         <Always>دائما</Always>

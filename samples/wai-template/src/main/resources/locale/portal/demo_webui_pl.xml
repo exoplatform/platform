@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <bundle>
   <Signin>
-    <welcome>Welcome</welcome>
-    <login>Login</login>
-    <logout>Logout</logout>
+    <welcome>Witamy</welcome>
+    <login>Zaloguj się</login>
+    <logout>Wyloguj się</logout>
     <language>
       <en>Przełącz na angielski</en>
       <fr>Przełącz na francuski</fr>
     </language>
-    <register>Register</register>
+    <register>Zarejestruj się</register>
   </Signin>
   <Toolbar>
     <SkipToContent>Przejdź do treści</SkipToContent>
@@ -25,7 +25,7 @@
     <GoHome>Przejdź do strony głównej</GoHome>
   </Logo>
   <acme>
-    <label>ACME Template</label>
+    <label>Szablon ACME</label>
   </acme>  
   <WAIPortal>
     <label>Próbka dostępnej strony</label>

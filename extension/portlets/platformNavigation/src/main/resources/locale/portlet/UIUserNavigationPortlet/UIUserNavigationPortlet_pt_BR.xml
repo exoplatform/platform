@@ -11,8 +11,8 @@
          <Myconnections>Minhas conexões</Myconnections>
          <Mywiki>Meu Wiki</Mywiki>
          <Mydashboard>Meu Painel</Mydashboard>
-         <NotificationSettingsPortlet>My Notifications</NotificationSettingsPortlet>
-         <More>More</More>
+         <NotificationSettingsPortlet>Minhas Notificações</NotificationSettingsPortlet>
+         <More>Mais</More>
       </label>
    </UIUserNavigationPortlet>
 </bundle>

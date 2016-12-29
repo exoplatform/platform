@@ -21,16 +21,16 @@
 
   <UISEOForm>
     <label>
-      <title>Title:</title>  
-      <description>Description:</description>
-      <keywords>Keywords:</keywords>
-      <language>Language:</language>
-      <robots>Robots:</robots>
-      <sitemap>Sitemap:</sitemap>
+      <title>タイトル</title>  
+      <description>説明:</description>
+      <keywords>キーワード:</keywords>
+      <language>言語:</language>
+      <robots>ロボット:</robots>
+      <sitemap>サイトマップ：</sitemap>
       <sitemapvisible>サイトマップで参照可能</sitemapvisible>
   <isInherited>親ページから継承</isInherited>
-      <priority>Priority:</priority>
-      <frequency>Frequency:</frequency>
+      <priority>優先順位：</priority>
+      <frequency>頻度:</frequency>
       <select-language>言語の選択</select-language>
       <option>
         <Always>常に</Always>
@@ -75,7 +75,7 @@
   </UISEOToolbarForm>  
   <FloatNumberValidator>
     <msg>
-      <Invalid-number>Priority field has an invalid value. Please enter a number between 0.0 and 1.0.</Invalid-number>
+      <Invalid-number>優先度フィールドには、無効な値があります。0.0 と 1.0 の間の数値を入力してください。</Invalid-number>
     </msg>
   </FloatNumberValidator>
   

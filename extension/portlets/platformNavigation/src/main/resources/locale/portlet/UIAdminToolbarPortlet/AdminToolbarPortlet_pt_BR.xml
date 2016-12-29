@@ -21,16 +21,16 @@
 
   <UISEOForm>
     <label>
-      <title>Title:</title>  
-      <description>Description:</description>
-      <keywords>Keywords:</keywords>
-      <language>Language:</language>
-      <robots>Robots:</robots>
-      <sitemap>Sitemap:</sitemap>
+      <title>Título:</title>  
+      <description>Descrição:</description>
+      <keywords>Palavras chave:</keywords>
+      <language>Idioma:</language>
+      <robots>Robôs:</robots>
+      <sitemap>Mapa do site:</sitemap>
       <sitemapvisible>Visível no mapa do site</sitemapvisible>
   <isInherited>Herdado da página pai</isInherited>
-      <priority>Priority:</priority>
-      <frequency>Frequency:</frequency>
+      <priority>Prioridade:</priority>
+      <frequency>Frequência:</frequency>
       <select-language>Selecionar idioma</select-language>
       <option>
         <Always>Sempre</Always>

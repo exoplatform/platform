@@ -4,7 +4,7 @@
       <label>
          <topic>Тема</topic>
          <poll>Опрос</poll>
-         <event>Event</event>
+         <event>Событие</event>
          <upload>Загрузить файл</upload>
          <wiki>Вики-страница</wiki>
 

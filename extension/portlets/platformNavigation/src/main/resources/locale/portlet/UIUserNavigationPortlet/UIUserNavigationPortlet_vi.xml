@@ -2,17 +2,17 @@
 <bundle>
    <UIUserNavigationPortlet>
       <label>
-         <activities>Activities</activities>
+         <activities>Hoạt động</activities>
          <profile>Hồ sơ</profile>
          <connections>Kết nối</connections>
          <wiki>Wiki</wiki>
-         <Myactivities>My Activities</Myactivities>
+         <Myactivities>Hoạt động cá nhân</Myactivities>
          <Myprofile>Hồ sơ</Myprofile>
          <Myconnections>Kết nối của Tôi</Myconnections>
          <Mywiki>Wiki</Mywiki>
          <Mydashboard>Bảng Ứng dụng</Mydashboard>
          <NotificationSettingsPortlet>Thiết lập các thông báo</NotificationSettingsPortlet>
-         <More>More</More>
+         <More>Hiện thêm</More>
       </label>
    </UIUserNavigationPortlet>
 </bundle>

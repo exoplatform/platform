@@ -23,14 +23,14 @@
   <msg name="title_memory">الذاكرة</msg>
   <msg name="used">مُستعمَل</msg>
   <msg name="free">مجاناً</msg>
-  <msg name="total">Total</msg>
+  <msg name="total">المجموع</msg>
   <msg name="heap">الذاكرة المؤقتة</msg>
   <msg name="non-heap">ليست بالذّاكرة المؤقتة</msg>
   <msg name="loading">تحميل البيانات ...</msg>
   <msg name="title_caches">مستويات التخزين المؤقت</msg>
   <msg name="consumption">الاستهلاك</msg>
   <msg name="hit_ratio">نسبة التخزين المؤقت</msg>
-  <msg name="details">Details</msg>
+  <msg name="details">تفاصيل</msg>
   <msg name="hit">النسبة</msg>
   <msg name="miss">Miss</msg>
   <msg name="full">جملي</msg>

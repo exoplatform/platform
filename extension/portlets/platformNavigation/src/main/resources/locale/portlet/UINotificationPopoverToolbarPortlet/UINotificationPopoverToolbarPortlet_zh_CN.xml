@@ -3,9 +3,9 @@
 <UINotificationPopoverToolbarPortlet>
 <label>
 <MarkAllAsRead>Mark all read</MarkAllAsRead>
-<NoNotifications>No notifications</NoNotifications>
+<NoNotifications>无通知</NoNotifications>
 <ViewAll>View all</ViewAll>
-<Loading>Loading</Loading>
+<Loading>加载中</Loading>
 </label>
 </UINotificationPopoverToolbarPortlet>
 </bundle>
