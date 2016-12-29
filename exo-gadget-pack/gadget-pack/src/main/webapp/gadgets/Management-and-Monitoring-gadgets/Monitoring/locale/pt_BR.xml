@@ -30,7 +30,7 @@
   <msg name="title_caches">Níveis de cache</msg>
   <msg name="consumption">Consumo</msg>
   <msg name="hit_ratio">Taxa de acertos</msg>
-  <msg name="details">Details</msg>
+  <msg name="details">Detalhes</msg>
   <msg name="hit">Hit</msg>
   <msg name="miss">Perdeu</msg>
   <msg name="full">Completo</msg>

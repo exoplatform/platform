@@ -6,9 +6,9 @@
 <content>コンテンツ</content>
 <siteExplorer>サイト エクスプ ローラー</siteExplorer>
 <wcmAdmin>コンテンツ管理</wcmAdmin>
-<users>Community</users>
+<users>コミュニティー</users>
 <newStaff>ユーザーを追加</newStaff>
-<org-management>Manage Community</org-management>
+<org-management>コミュニティを管理</org-management>
 <portal>ポータル</portal>
 <administration>アドミニストレーション</administration>
 <groupnavigation>グループ サイト</groupnavigation>
@@ -18,7 +18,7 @@
 <monitoring>モニタリング</monitoring>
 <spaces>スペース</spaces>
 <Branding>ブランディング</Branding>
-      <Notification>Notifications</Notification>
+      <Notification>通知</Notification>
 <ide>IDE</ide>
 <search>検索</search>
 </label>

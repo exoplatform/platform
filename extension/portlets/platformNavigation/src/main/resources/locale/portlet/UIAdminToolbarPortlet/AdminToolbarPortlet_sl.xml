@@ -21,16 +21,16 @@
 
   <UISEOForm>
     <label>
-      <title>Title:</title>  
-      <description>Description:</description>
-      <keywords>Keywords:</keywords>
-      <language>Language:</language>
-      <robots>Robots:</robots>
-      <sitemap>Sitemap:</sitemap>
+      <title>Naslov:</title>  
+      <description>Opis:</description>
+      <keywords>Ključne besede:</keywords>
+      <language>Jezik:</language>
+      <robots>Roboti:</robots>
+      <sitemap>Zemljevid strani:</sitemap>
       <sitemapvisible>Vidno v zemljevidu strani</sitemapvisible>
   <isInherited>Podedovano od nadrejene strani</isInherited>
-      <priority>Priority:</priority>
-      <frequency>Frequency:</frequency>
+      <priority>Prioriteta:</priority>
+      <frequency>Pogostost:</frequency>
       <select-language>Izberite jezik</select-language>
       <option>
         <Always>Vedno</Always>

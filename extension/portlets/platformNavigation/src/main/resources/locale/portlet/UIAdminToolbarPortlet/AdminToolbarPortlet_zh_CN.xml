@@ -21,16 +21,16 @@
 
   <UISEOForm>
     <label>
-      <title>Title:</title>  
-      <description>Description:</description>
-      <keywords>Keywords:</keywords>
-      <language>Language:</language>
-      <robots>Robots:</robots>
-      <sitemap>Sitemap:</sitemap>
+      <title>标题：</title>  
+      <description>说明：</description>
+      <keywords>关键字：</keywords>
+      <language>语言：</language>
+      <robots>机器人：</robots>
+      <sitemap>网站地图：</sitemap>
       <sitemapvisible>在站点地图中可见</sitemapvisible>
   <isInherited>继承自父页</isInherited>
-      <priority>Priority:</priority>
-      <frequency>Frequency:</frequency>
+      <priority>优先级：</priority>
+      <frequency>频率：</frequency>
       <select-language>选择一种语言</select-language>
       <option>
         <Always>总是</Always>

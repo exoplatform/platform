@@ -2,10 +2,10 @@
 <bundle>
 <UINotificationPopoverToolbarPortlet>
 <label>
-<MarkAllAsRead>Mark all as read</MarkAllAsRead>
-<NoNotifications>No notifications</NoNotifications>
-<ViewAll>View All</ViewAll>
-<Loading>Loading</Loading>
+<MarkAllAsRead>すべて既読にする</MarkAllAsRead>
+<NoNotifications>通知なし</NoNotifications>
+<ViewAll>すべて表示</ViewAll>
+<Loading>読み込み中</Loading>
 </label>
 </UINotificationPopoverToolbarPortlet>
 </bundle>

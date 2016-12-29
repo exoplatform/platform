@@ -21,16 +21,16 @@
 
   <UISEOForm>
     <label>
-      <title>Title:</title>  
-      <description>Description:</description>
-      <keywords>Keywords:</keywords>
-      <language>Language:</language>
-      <robots>Robots:</robots>
-      <sitemap>Sitemap:</sitemap>
+      <title>Başlık:</title>  
+      <description>Açıklama:</description>
+      <keywords>Anahtar Sözcükler:</keywords>
+      <language>Dil:</language>
+      <robots>Robotlar:</robots>
+      <sitemap>Site Haritası:</sitemap>
       <sitemapvisible>Site Haritasındaki görünür</sitemapvisible>
   <isInherited>Üst sayfadan miras</isInherited>
-      <priority>Priority:</priority>
-      <frequency>Frequency:</frequency>
+      <priority>Öncelik:</priority>
+      <frequency>Frekans:</frequency>
       <select-language>Dil Seçin</select-language>
       <option>
         <Always>Her zaman</Always>

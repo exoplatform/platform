@@ -8,7 +8,7 @@
 <wcmAdmin>Zarządzanie treścią</wcmAdmin>
 <users>Wspólnoty</users>
 <newStaff>Dodaj użytkowników</newStaff>
-<org-management>Manage Community</org-management>
+<org-management>Zarządzaj społecznością</org-management>
 <portal>Portal</portal>
 <administration>Administracja</administration>
 <groupnavigation>Strony grup</groupnavigation>
@@ -16,11 +16,11 @@
 <portalnavigation>Witryny</portalnavigation>
 <servicesManagement>Zarządzanie</servicesManagement>
 <monitoring>Monitorowanie</monitoring>
-<spaces>Spaces</spaces>
+<spaces>Obszary</spaces>
 <Branding>Branding</Branding>
-      <Notification>Notifications</Notification>
+      <Notification>Powiadomienia</Notification>
 <ide>IDE</ide>
-<search>Search</search>
+<search>Szukaj</search>
 </label>
 </UISetupPlatformToolBarPortlet>
 </bundle>

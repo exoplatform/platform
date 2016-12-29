@@ -47,5 +47,5 @@
   <msg name="loginHistory.unknow">不明</msg>
   <msg name="loginHistory.next">次へ</msg>
   <msg name="loginHistory.ago">前</msg>
-  <msg name="loginHistory.search_user">Search user</msg>
+  <msg name="loginHistory.search_user">ユーザを検索</msg>
 </messagebundle>

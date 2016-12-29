@@ -2,8 +2,8 @@
 <bundle>
 <UIUserPlatformToolBarPortlet>
 <label>
-<NotificationSettingsPortlet>My Notifications</NotificationSettingsPortlet>
-<activities>My Activities</activities>
+<NotificationSettingsPortlet>Bildirimlerim</NotificationSettingsPortlet>
+<activities>Faliyetlerim</activities>
 <profile>Profilim</profile>
 <network>Bağlantılarım</network>
 <wiki>Wikim</wiki>

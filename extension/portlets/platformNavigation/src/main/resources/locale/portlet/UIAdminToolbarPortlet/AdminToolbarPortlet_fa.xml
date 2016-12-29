@@ -21,16 +21,16 @@
 
   <UISEOForm>
     <label>
-      <title>Title:</title>  
-      <description>Description:</description>
-      <keywords>Keywords:</keywords>
-      <language>Language:</language>
-      <robots>Robots:</robots>
-      <sitemap>Sitemap:</sitemap>
+      <title>عنوان:</title>  
+      <description>شرح:</description>
+      <keywords>کلمات کلیدی:</keywords>
+      <language>زبان:</language>
+      <robots>روبات ها:</robots>
+      <sitemap>نقشه سایت:</sitemap>
       <sitemapvisible>قابل مشاهده در نقشه سایت</sitemapvisible>
   <isInherited>از صفحه پدر به ارث رسیده</isInherited>
-      <priority>Priority:</priority>
-      <frequency>Frequency:</frequency>
+      <priority>اولويت:</priority>
+      <frequency>تکرار:</frequency>
       <select-language>یک زبان را انتخاب کنید</select-language>
       <option>
         <Always>همیشه</Always>

@@ -21,16 +21,16 @@
 
   <UISEOForm>
     <label>
-      <title>Title:</title>  
-      <description>Description:</description>
-      <keywords>Keywords:</keywords>
-      <language>Language:</language>
-      <robots>Robots:</robots>
-      <sitemap>Sitemap:</sitemap>
+      <title>Заголовок:</title>  
+      <description>Описание:</description>
+      <keywords>Ключевые слова:</keywords>
+      <language>Язык:</language>
+      <robots>Роботы:</robots>
+      <sitemap>Карта сайта:</sitemap>
       <sitemapvisible>Видимый на карте сайта</sitemapvisible>
   <isInherited>Унаследованное от исходной страницы</isInherited>
-      <priority>Priority:</priority>
-      <frequency>Frequency:</frequency>
+      <priority>Приоритет:</priority>
+      <frequency>Частота:</frequency>
       <select-language>Выбрать язык</select-language>
       <option>
         <Always>Всегда</Always>

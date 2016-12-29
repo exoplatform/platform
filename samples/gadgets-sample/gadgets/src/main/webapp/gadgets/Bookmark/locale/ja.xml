@@ -30,6 +30,6 @@
   <msg name="delete">削除</msg>
   <msg name="edit">編集</msg>
   <msg name="cancel">キャンセル</msg>
-  <msg name="emptyBookmarkPre">You don't have any bookmark. Add them by clicking on the button "Add Bookmark".</msg>
-  <msg name="addBookmark">Add Bookmark</msg>
+  <msg name="emptyBookmarkPre">ブックマークが存在しません。"ブックマークを追加"のボタンをクリックして追加できます。</msg>
+  <msg name="addBookmark">ブックマークを追加</msg>
 </messagebundle>

@@ -5,10 +5,10 @@
       <EditProfile>تعديل ملفي الشّخصي</EditProfile>
     </label>
     <title>
-      <EditProfile>Edit Profile</EditProfile>
+      <EditProfile>تعديل الملف الشخصي</EditProfile>
     </title>
     <title>
-      <MyProfile>My Profile</MyProfile>
+      <MyProfile>ملفي الشخصي</MyProfile>
     </title>
 </UIBreadCrumbsNavigationPortlet>
 </bundle>
