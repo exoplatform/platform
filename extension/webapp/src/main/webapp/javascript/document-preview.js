@@ -684,10 +684,12 @@
     },
     show: function () {
       $('#documentPreviewContainer').show();
+      $('body').css('overflow', 'hidden');
     },
 
     hide: function () {
       $('#documentPreviewContainer').hide();
+      $('body').css('overflow', '');
     }
 
   };;
