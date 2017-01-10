@@ -712,7 +712,7 @@
     var $commentList = $('.commentList', $commentArea);
     var $highlightBox = $('.highlightBox', $commentArea);
     var $actionBarCommentArea = $('.actionBar', $commentArea);
-    var commentAreaHeight = window.innerHeight - 30;
+    var commentAreaHeight = window.innerHeight - 60;
     $commentArea.height(commentAreaHeight);
     if ($commentList[0]) {
       $commentList[0].style.maxHeight =  $(window).height() - 430 + "px";
