@@ -23,7 +23,7 @@
 			</li>
 			<li class="no-items" style="display:none"><%=_ctx.appRes("UINotificationPopoverToolbarPortlet.label.NoNotifications") %></li>
 			<li class="actionMark right"><a href="javascript:void(0)" onclick="<%=uicomponent.event("MarkAllRead")%>"><%=_ctx.appRes("UINotificationPopoverToolbarPortlet.label.MarkAllAsRead") %></a></li>
-			<li>
+			<li class="itemsContainer">
 				<ul class="displayItems">
 				</ul>
 			</li>
