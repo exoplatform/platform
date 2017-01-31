@@ -62,6 +62,10 @@ public class GettingStartedService {
 
             LinkManager linkManager = (LinkManager) ExoContainerContext.getCurrentContainer().getComponentInstanceOfType(LinkManager.class);
             String primaryType = userPrivateNode.getProperty("jcr:primaryType").getString();
+            if (primaryType.contains("exo:symlink")) {
+                Node targetNode=linkManager.getTarget(userPrivateNode);
+                docFound = hasDocuments(targetNode, userId);
+            }else{
             if (primaryType.contains("nt:file")) {
                 return true;
             } else {
@@ -73,7 +77,8 @@ public class GettingStartedService {
                     }
                 }
             }
-        } catch (Exception e) {
+            }
+        }catch (Exception e) {
                 log.error("Error in gettingStarted REST service: " + e.getLocalizedMessage(), e);
             return false;
         }
