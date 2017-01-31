@@ -109,9 +109,6 @@
     <sv:property sv:name="publication:liveDate" sv:type="Date">
         <sv:value>2010-10-04T16:16:33.942+01:00</sv:value>
     </sv:property>
-    <sv:property sv:name="publication:liveRevision" sv:type="Reference">
-        <sv:value/>
-    </sv:property>
     <sv:property sv:name="publication:revisionData" sv:type="String">
         <sv:value>77cbd5600a0001057c91f3b02684b7b2,unpublished,root</sv:value>
         <sv:value>77d0cb370a000105256fc85a830a3e27,published,root</sv:value>
