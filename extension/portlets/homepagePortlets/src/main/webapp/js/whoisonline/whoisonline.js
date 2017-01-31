@@ -6,12 +6,21 @@
         $("#OnlinePortlet").show();
     }
 
-    var showTooltip = function() {
+    var showTooltip = function(users) {
 
-        if($('#onlineList li').length == 0) {
-            $("#OnlinePortlet").hide();
-        } else {
+        if(users.length > 0) {
+            var txt = '';
+            for (var i = 0; i < users.length; i++) {
+                var user = users[i];
+                txt += '<li id="' + user.id + '">' +
+                    '<a class="avatarXSmall" href="' + user.profileUrl + '"><img src="' + user.avatar + '" alt="image" /></a>' +
+                    '</li>';
+            }
+            $('#onlineList').html(txt);
+
             $("#OnlinePortlet").show();
+        } else {
+            $("#OnlinePortlet").hide();
         }
 
         // User Profile Popup initialize
@@ -38,13 +47,8 @@
 
     var refresh = function() {
 
-        $.getJSON('/rest/platform/isusersessionalive', function (connected) {
-
-            if(connected == true){
-
-                $("#onlineList").jzLoad("WhoIsOnLineController.users()", showTooltip);
-
-            }
+        $.getJSON('/rest/state/onlinefriends', function (users) {
+            showTooltip(users);
         });
 
     };
@@ -57,16 +61,10 @@
             var labels = labels;
 
             glables = labels;
-            $.getJSON('/rest/platform/isusersessionalive', function (connected) {
-
-                if(connected == true){
-
-                    $("#onlineList").jzLoad("WhoIsOnLineController.users()", showTooltip);
-
-                }
+            $.getJSON('/rest/state/onlinefriends', function (users) {
+                showTooltip(users);
             });
 
         }
-
     };
 })($);

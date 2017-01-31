@@ -22,9 +22,6 @@ public class WhoIsOnLineController {
     private static final Log LOG = ExoLogger.getLogger(WhoIsOnLineController.class);
 
     @Inject
-    WhoIsOnline whoIsOnline;
-
-    @Inject
     @Path("index.gtmpl")
     Template index;
 
@@ -34,29 +31,6 @@ public class WhoIsOnLineController {
 
     @View
     public Response.Content index() {
-        try {
-            return index.with().set("users", new ArrayList<User>()).ok();
-        } catch (Exception e) {
-            LOG.error("Error while rendering WhoIsOnLine Portlet :" + e.getMessage(), e);
-            return index.with().set("users", new ArrayList<User>()).ok();
-        }
-    }
-
-    @Ajax
-    @Resource
-    public Response.Content users() {
-        try {
-            String userId = RequestContext.getCurrentInstance().getRemoteUser();
-            List<User> friends = whoIsOnline.getFriends(userId);
-            if (friends == null) {
-                friends = new ArrayList<User>();
-                LOG.info("No  logged user | WhoIsOnLin Portlet will not be displayed");
-            }
-            return users.with().set("users", friends).ok();
-
-        } catch (Exception e) {
-            LOG.error("Error while rendering WhoIsOnLine Portlet :" + e.getMessage(), e);
-            return users.with().set("users", new ArrayList<User>()).ok();
-        }
+        return index.ok();
     }
 }
