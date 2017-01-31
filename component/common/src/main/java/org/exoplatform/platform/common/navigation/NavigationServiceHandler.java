@@ -64,7 +64,7 @@ public class NavigationServiceHandler implements Startable {
               }
             }
         } catch (Exception e) {
-            logger.error("Can not get path of Logo : default LOGO will be used" + e.getMessage(), e);
+            logger.warn("Can not get path of Logo : default LOGO will be used");
             return null;
         }
         finally {
