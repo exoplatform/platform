@@ -102,7 +102,7 @@
                             link += "<li class='clearfix spaceList' style='display:none;' id='"+item.spaceId+"'>";
                         var spaceAvatar;
                         if (item.spaceAvatarUrl == undefined)
-                            spaceAvatar =  "/social-resources/skin/images/ShareImages/UserAvtDefault.png";
+                            spaceAvatar =  "/social-resources/skin/images/ShareImages/SpaceAvtDefault.png";
                         else
                             spaceAvatar = item.spaceAvatarUrl;
                         link += "<div class='spaceInvitePicture pull-left avatarXSmall'><img src='"+spaceAvatar+"'></div>";
