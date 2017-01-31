@@ -1,6 +1,5 @@
 @Portlet
 @Application(name = "WhoIsOnline")
-@Bindings(@Binding(value = WhoIsOnline.class, implementation = WhoIsOnlineImpl.class))
 package org.exoplatform.platform.portlet.juzu.whoisonline;
 
 import juzu.Application;

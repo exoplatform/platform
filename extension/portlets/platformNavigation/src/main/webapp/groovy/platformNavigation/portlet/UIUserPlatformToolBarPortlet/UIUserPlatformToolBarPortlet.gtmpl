@@ -31,11 +31,17 @@
     import org.exoplatform.platform.navigation.component.utils.DashboardUtils;
     import org.gatein.common.text.EntityEncoder;
     import org.exoplatform.commons.utils.CommonsUtils;
+    import org.apache.commons.lang.StringUtils;
 
     def rcontext = _ctx.getRequestContext();
     JavascriptManager jsManager = rcontext.getJavascriptManager();
 
-    jsManager.require("SHARED/wcm-utils", "wcmutils").addScripts("wcmutils.WCMUtils.pingUserStatus();");
+    int frequency = 15000;
+    if(StringUtils.isNotEmpty(System.getProperty("user.status.ping.frequency"))) {
+        frequency = Integer.parseInt(System.getProperty("user.status.ping.frequency"));
+    }
+
+    jsManager.require("SHARED/presence", "presence").addScripts("presence.sendPing(" + frequency + ");");
     def user = uicomponent.getUser();
     PortalURL nodeURL = nodeurl();
     def labelActivities = _ctx.appRes("UIUserPlatformToolBarPortlet.label.activities");

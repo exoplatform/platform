@@ -4,6 +4,9 @@
         <type>org.exoplatform.platform.common.account.setup.rest.WelcomeScreenRestService</type>
     </component>
     <component>
+        <type>org.exoplatform.platform.common.rest.RESTUserService</type>
+    </component>
+    <component>
         <type>org.exoplatform.platform.common.rest.PlatformInformationRESTService</type>
     </component>
     <component>
