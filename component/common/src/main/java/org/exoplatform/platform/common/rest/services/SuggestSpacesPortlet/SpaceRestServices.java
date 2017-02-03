@@ -11,6 +11,7 @@ import org.exoplatform.services.rest.resource.ResourceContainer;
 import org.exoplatform.social.core.identity.model.Identity;
 import org.exoplatform.social.core.identity.provider.OrganizationIdentityProvider;
 import org.exoplatform.social.core.manager.IdentityManager;
+import org.exoplatform.social.core.manager.RelationshipManager;
 import org.exoplatform.social.core.space.model.Space;
 import org.exoplatform.social.core.space.spi.SpaceService;
 import org.json.JSONArray;
@@ -82,12 +83,14 @@ public class SpaceRestServices implements ResourceContainer {
             if (size == 0) {
               jsonGlobal.put("items",jsonArray);
               jsonGlobal.put("noConnections", 0);
+              jsonGlobal.put("username", userId);
               return Response.ok(jsonGlobal.toString(), MediaType.APPLICATION_JSON).cacheControl(cacheControl).build();
             }
             
             IdentityManager identityManager = (IdentityManager) container.getComponentInstanceOfType(IdentityManager.class);
+            RelationshipManager relationshipManager = (RelationshipManager) container.getComponentInstanceOfType(RelationshipManager.class);
             Identity identity = identityManager.getOrCreateIdentity(OrganizationIdentityProvider.NAME, userId, false);
-            ListAccess<Identity> connectionsLA = identityManager.getConnectionsWithListAccess(identity);
+            ListAccess<Identity> connectionsLA = relationshipManager.getConnections(identity);
             
             final Map<Space, Integer> spacesWithMemberNum = new HashMap<Space, Integer>();
             int maxConnectionsToLoad = 100;
@@ -118,7 +121,8 @@ public class SpaceRestServices implements ResourceContainer {
                   continue;
                 if (!spaceService.isMember(space, connector.getRemoteId())) 
                   continue;
-                
+                if (!spaceService.isIgnored(space, connector.getRemoteId()))
+                  continue;
                 //
                 Integer value = spacesWithMemberNum.get(space);
                 
@@ -170,13 +174,17 @@ public class SpaceRestServices implements ResourceContainer {
                    continue;
                 if (spaceService.isInvitedUser(space, identity.getRemoteId())) 
                   continue;
+                if (spaceService.isIgnored(space, identity.getRemoteId()))
+                  continue;
                 JSONObject json = buildJSONObject(space, 0);
+                json.put("username", userId);
                 jsonArray.put(json);
               }
             }
             
             jsonGlobal.put("items",jsonArray);
             jsonGlobal.put("noConnections", spacesWithMemberNum.size());
+            jsonGlobal.put("username", userId);
             return Response.ok(jsonGlobal.toString(), MediaType.APPLICATION_JSON).cacheControl(cacheControl).build();
 
         } catch (Exception e) {

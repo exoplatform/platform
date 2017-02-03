@@ -254,8 +254,13 @@
                     });
 
                     $("#"+item.spaceId+" a.ignore").live("click", function(){
-                        //$.getJSON("/rest/homepage/intranet/people/contacts/ignore/"+item.suggestionId, null);
-                        if($("#suggestionsspace").children().length == 1) {
+                            $.ajax({
+                                   url: "/rest/v1/social/spacesMemberships/",
+                                   contentType: "application/json",
+                                   data: JSON.stringify({"user": item.username,"space": item.displayName, "status":"IGNORED"}),
+                                   type: "POST"
+                            });
+                            if($("#suggestionsspace").children().length == 1) {
                             $("#spaceSuggest").fadeOut(500, function () {
                                 $("#"+item.spaceId).remove();
                                 $("#spaceSuggest").hide();

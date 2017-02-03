@@ -8,6 +8,7 @@ import org.exoplatform.services.test.mock.MockHttpServletRequest;
 import org.exoplatform.social.core.identity.model.Identity;
 import org.exoplatform.social.core.identity.provider.OrganizationIdentityProvider;
 import org.exoplatform.social.core.manager.IdentityManager;
+import org.exoplatform.social.core.manager.RelationshipManager;
 import org.exoplatform.social.core.space.model.Space;
 import org.exoplatform.social.core.space.spi.SpaceService;
 
@@ -49,6 +50,10 @@ public class TestSpaceRestServices extends BaseRestServicesTestCase {
         IdentityManager im = createProxy(IdentityManager.class, imResults);
         getContainer().registerComponentInstance("IdentityManager", im);
 
+        Map<String, Object> relationShipResults = new HashMap<String, Object>();
+        RelationshipManager relationShip = createProxy(RelationshipManager.class, relationShipResults);
+        getContainer().registerComponentInstance("RelationshipManager", relationShip);
+
         Map<String, Object> ssResults = new HashMap<String, Object>();
         ssResults.put("getPublicSpacesWithListAccess", new MockListAccess<Space>(new Space[]{}));
         SpaceService ss = createProxy(SpaceService.class, ssResults);
@@ -64,7 +69,7 @@ public class TestSpaceRestServices extends BaseRestServicesTestCase {
         // Don't propose hidden and closed spaces but also spaces where the current user is already
         // a member or a pending member
         imResults.put("getOrCreateIdentity", idFoo);
-        imResults.put("getConnectionsWithListAccess", new MockListAccess<Identity>(new Identity[]{}));
+        relationShipResults.put("getConnections", new MockListAccess<Identity>(new Identity[]{}));
 
         Space space1 = new Space();
         space1.setPrettyName("space1");
@@ -92,10 +97,14 @@ public class TestSpaceRestServices extends BaseRestServicesTestCase {
         space5.setId("space5");
         space5.setVisibility(Space.PUBLIC);
         space5.setRegistration(Space.OPEN);
-        space5.setInvitedUsers(new String[]{});
-        ssResults.put("getPublicSpacesWithListAccess", new MockListAccess<Space>(new Space[]{space1, space2, space3,
-           space4, space5}));
-        ssResults.put("getLastSpaces", Arrays.asList(space1, space2, space3, space4, space5));
+        Space space6 = new Space();
+        space6.setPrettyName("space6");
+        space6.setId("space6");
+        space6.setVisibility(Space.PUBLIC);
+        space6.setRegistration(Space.OPEN);
+        ss.setIgnored(space6.getId(), idFoo.getRemoteId());
+        ssResults.put("getPublicSpacesWithListAccess", new MockListAccess<Space>(new Space[]{space1, space2, space3, space4, space5}));
+        ssResults.put("getLastSpaces", Arrays.asList(space1, space2, space3, space4, space5,space6));
         ssResults.put("isMember", new Invoker() {
             public Object invoke(Object[] args) {
                 return ArrayUtils.contains(((Space)args[0]).getMembers(), args[1]);
@@ -111,6 +120,12 @@ public class TestSpaceRestServices extends BaseRestServicesTestCase {
                 return ArrayUtils.contains(((Space)args[0]).getPendingUsers(), args[1]);
             }
        });
+        ssResults.put("isIgnored", new Invoker() {
+            public Object invoke(Object[] args) {
+                return ((Space)args[0]).getId().equals("space6");
+            }
+        });
+
 
         resp = launcher.service("GET", path, "", null, null, envctx);
         assertEquals(200, resp.getStatus());
@@ -121,6 +136,7 @@ public class TestSpaceRestServices extends BaseRestServicesTestCase {
         assertFalse(resp.getEntity().toString().contains("space3"));
         assertFalse(resp.getEntity().toString().contains("space4"));
         assertTrue(resp.getEntity().toString().contains("space5"));
+        assertFalse(resp.getEntity().toString().contains("space6"));
 
         getContainer().unregisterComponent("SpaceService");
         getContainer().unregisterComponent("IdentityManager");
