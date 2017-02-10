@@ -4,7 +4,7 @@
   <parent>
     <artifactId>platform-component</artifactId>
     <groupId>org.exoplatform.platform</groupId>
-    <version>4.5.x-SNAPSHOT</version>
+    <version>5.0.x-SNAPSHOT</version>
   </parent>
   <artifactId>platform-component-uxpnavigation</artifactId>
   <name>eXo PLF:: UXP Navigation</name>
@@ -23,7 +23,7 @@
       <artifactId>social-component-webui</artifactId>
     </dependency>
     <dependency>
-      <groupId>org.gatein.portal</groupId>
+      <groupId>org.exoplatform.gatein.portal</groupId>
       <artifactId>exo.portal.webui.portal</artifactId>
     </dependency>
   </dependencies>

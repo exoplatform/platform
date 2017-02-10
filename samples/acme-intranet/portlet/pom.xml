@@ -13,7 +13,7 @@
   <parent>
     <artifactId>platform-sample-acme-intranet</artifactId>
     <groupId>org.exoplatform.platform</groupId>
-    <version>4.5.x-SNAPSHOT</version>
+    <version>5.0.x-SNAPSHOT</version>
   </parent>
   <artifactId>platform-sample-acme-intranet-portlet</artifactId>
   <packaging>war</packaging>
@@ -28,7 +28,7 @@
       <artifactId>exo.kernel.commons</artifactId>
     </dependency>
     <dependency>
-      <groupId>org.gatein.portal</groupId>
+      <groupId>org.exoplatform.gatein.portal</groupId>
       <artifactId>exo.portal.webui.core</artifactId>
     </dependency> 
     <dependency>
@@ -40,15 +40,15 @@
       <artifactId>social-component-core</artifactId>
     </dependency>
     <dependency>
-      <groupId>org.gatein.portal</groupId>
+      <groupId>org.exoplatform.gatein.portal</groupId>
       <artifactId>exo.portal.webui.framework</artifactId>
     </dependency>
     <dependency>
-      <groupId>org.gatein.portal</groupId>
+      <groupId>org.exoplatform.gatein.portal</groupId>
       <artifactId>exo.portal.webui.portal</artifactId>
     </dependency>
     <dependency>
-      <groupId>org.gatein.portal</groupId>
+      <groupId>org.exoplatform.gatein.portal</groupId>
       <artifactId>exo.portal.webui.portlet</artifactId>
     </dependency>
   </dependencies>

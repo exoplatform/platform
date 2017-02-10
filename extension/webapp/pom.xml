@@ -4,7 +4,7 @@
   <parent>
     <artifactId>platform-extension</artifactId>
     <groupId>org.exoplatform.platform</groupId>
-    <version>4.5.x-SNAPSHOT</version>
+    <version>5.0.x-SNAPSHOT</version>
   </parent>
   <artifactId>platform-extension-webapp</artifactId>
   <packaging>war</packaging>
@@ -106,11 +106,11 @@
       <artifactId>common-common</artifactId>
     </dependency>
     <dependency>
-      <groupId>org.gatein.pc</groupId>
+      <groupId>org.exoplatform.gatein.pc</groupId>
       <artifactId>pc-api</artifactId>
     </dependency>
     <dependency>
-      <groupId>org.gatein.portal</groupId>
+      <groupId>org.exoplatform.gatein.portal</groupId>
       <artifactId>exo.portal.component.common</artifactId>
     </dependency>
     <dependency>
@@ -133,7 +133,7 @@
       <scope>provided</scope>
     </dependency>
     <dependency>
-      <groupId>org.gatein.sso</groupId>
+      <groupId>org.exoplatform.gatein.sso</groupId>
       <artifactId>sso-integration</artifactId>
        <exclusions>
         <exclusion>
@@ -163,7 +163,7 @@
       </exclusions>
     </dependency>
     <dependency>
-      <groupId>org.gatein.sso</groupId>
+      <groupId>org.exoplatform.gatein.sso</groupId>
       <artifactId>sso-agent</artifactId>
     </dependency>
     <!-- To replace the old xstream:xstream version from picocontainer -->
@@ -341,17 +341,17 @@
     <!-- Add missing runtime deps from Gatein and JCR -->
     <!-- This is just a simple workaround -->
     <dependency>
-      <groupId>org.gatein.portal</groupId>
+      <groupId>org.exoplatform.gatein.portal</groupId>
       <artifactId>exo.portal.component.application-registry</artifactId>
       <scope>runtime</scope>
     </dependency>
     <dependency>
-      <groupId>org.gatein.portal</groupId>
+      <groupId>org.exoplatform.gatein.portal</groupId>
       <artifactId>exo.portal.component.portal</artifactId>
       <scope>runtime</scope>
     </dependency>
     <dependency>
-      <groupId>org.gatein.portal</groupId>
+      <groupId>org.exoplatform.gatein.portal</groupId>
       <artifactId>exo.portal.component.web.api</artifactId>
       <scope>runtime</scope>
     </dependency>

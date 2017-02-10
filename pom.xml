@@ -9,7 +9,7 @@
   </parent>
   <groupId>org.exoplatform.platform</groupId>
   <artifactId>platform</artifactId>
-  <version>4.5.x-SNAPSHOT</version>
+  <version>5.0.x-SNAPSHOT</version>
   <packaging>pom</packaging>
   <name>eXo PLF:: Platform</name>
   <description>Parent POM for platform projects.</description>
@@ -39,31 +39,27 @@
     <!-- **************************************** -->
     <!-- Project Dependencies -->
     <!-- **************************************** -->
-    <org.exoplatform.depmgt.version>13-SNAPSHOT</org.exoplatform.depmgt.version>
-    <!-- JCR Project Dependencies -->
-    <org.exoplatform.kernel.version>2.7.x-SNAPSHOT</org.exoplatform.kernel.version>
-    <org.exoplatform.core.version>2.8.x-SNAPSHOT</org.exoplatform.core.version>
-    <org.exoplatform.ws.version>2.6.x-SNAPSHOT</org.exoplatform.ws.version>
-    <org.exoplatform.jcr.version>1.18.x-SNAPSHOT</org.exoplatform.jcr.version>
-    <!-- GateIn Project Dependencies -->
-    <org.gatein.shindig.version>2.0.2.Final-gatein-4</org.gatein.shindig.version>
-
-    <org.gatein.common.version>2.2.2.Final</org.gatein.common.version>
-    <org.gatein.wci.version>2.5.x-PLF-SNAPSHOT</org.gatein.wci.version>
-    <org.gatein.pc.version>2.6.x-PLF-SNAPSHOT</org.gatein.pc.version>
-    <org.gatein.sso.version>1.4.5.Final</org.gatein.sso.version>
-    <org.gatein.portal.version>4.5.x-PLF-SNAPSHOT</org.gatein.portal.version>
-
     <!-- Platform Project Dependencies -->
-    <org.exoplatform.commons.version>4.5.x-SNAPSHOT</org.exoplatform.commons.version>
-    <org.exoplatform.ecms.version>4.5.x-SNAPSHOT</org.exoplatform.ecms.version>
-    <org.exoplatform.social.version>4.5.x-SNAPSHOT</org.exoplatform.social.version>
-    <org.exoplatform.forum.version>4.5.x-SNAPSHOT</org.exoplatform.forum.version>
-    <org.exoplatform.wiki.version>4.5.x-SNAPSHOT</org.exoplatform.wiki.version>
-    <org.exoplatform.calendar.version>4.5.x-SNAPSHOT</org.exoplatform.calendar.version>
-    <org.exoplatform.integ.version>4.5.x-SNAPSHOT</org.exoplatform.integ.version>
-    <org.exoplatform.platform-ui.version>4.5.x-SNAPSHOT</org.exoplatform.platform-ui.version>
+    <org.exoplatform.depmgt.version>13-SNAPSHOT</org.exoplatform.depmgt.version>
+    <org.exoplatform.commons.version>5.0.x-SNAPSHOT</org.exoplatform.commons.version>
+    <org.exoplatform.ecms.version>5.0.x-SNAPSHOT</org.exoplatform.ecms.version>
+    <org.exoplatform.social.version>5.0.x-SNAPSHOT</org.exoplatform.social.version>
+    <org.exoplatform.forum.version>5.0.x-SNAPSHOT</org.exoplatform.forum.version>
+    <org.exoplatform.wiki.version>5.0.x-SNAPSHOT</org.exoplatform.wiki.version>
+    <org.exoplatform.calendar.version>5.0.x-SNAPSHOT</org.exoplatform.calendar.version>
+    <org.exoplatform.integ.version>5.0.x-SNAPSHOT</org.exoplatform.integ.version>
+    <org.exoplatform.platform-ui.version>5.0.x-SNAPSHOT</org.exoplatform.platform-ui.version>
+    <org.exoplatform.kernel.version>5.0.x-SNAPSHOT</org.exoplatform.kernel.version>
+    <org.exoplatform.core.version>5.0.x-SNAPSHOT</org.exoplatform.core.version>
+    <org.exoplatform.ws.version>5.0.x-SNAPSHOT</org.exoplatform.ws.version>
+    <org.exoplatform.jcr.version>5.0.x-SNAPSHOT</org.exoplatform.jcr.version>
+    <org.exoplatform.gatein.portal.version>5.0.x-SNAPSHOT</org.exoplatform.gatein.portal.version>
+    <org.exoplatform.gatein.wci.version>5.0.x-SNAPSHOT</org.exoplatform.gatein.wci.version>
+    <org.exoplatform.gatein.pc.version>5.0.x-SNAPSHOT</org.exoplatform.gatein.pc.version>
+    <org.exoplatform.gatein.sso.version>5.0.x-SNAPSHOT</org.exoplatform.gatein.sso.version>
 
+    <org.gatein.shindig.version>2.0.2.Final-gatein-4</org.gatein.shindig.version>
+    <org.gatein.common.version>2.2.2.Final</org.gatein.common.version>
     <juzu.version>1.1.0</juzu.version>
   </properties>
   <dependencyManagement>
@@ -443,7 +439,7 @@
       <dependency>
         <groupId>org.gatein.cdi</groupId>
         <artifactId>gatein-cdi-injection</artifactId>
-        <version>${org.gatein.portal.version}</version>
+        <version>${org.exoplatform.gatein.portal.version}</version>
       </dependency>
       <!-- To be replaced by an import of GateIn Common parent POM -->
       <dependency>
@@ -459,29 +455,29 @@
       </dependency>
       <!-- To be replaced by an import of GateIn PC parent POM -->
       <dependency>
-        <groupId>org.gatein.pc</groupId>
+        <groupId>org.exoplatform.gatein.pc</groupId>
         <artifactId>pc-api</artifactId>
-        <version>${org.gatein.pc.version}</version>
+        <version>${org.exoplatform.gatein.pc.version}</version>
       </dependency>
       <dependency>
-        <groupId>org.gatein.portal</groupId>
+        <groupId>org.exoplatform.gatein.portal</groupId>
         <artifactId>exo.portal.component.application-registry</artifactId>
-        <version>${org.gatein.portal.version}</version>
+        <version>${org.exoplatform.gatein.portal.version}</version>
       </dependency>
       <dependency>
-        <groupId>org.gatein.portal</groupId>
+        <groupId>org.exoplatform.gatein.portal</groupId>
         <artifactId>exo.portal.component.common</artifactId>
-        <version>${org.gatein.portal.version}</version>
+        <version>${org.exoplatform.gatein.portal.version}</version>
       </dependency>
       <dependency>
-        <groupId>org.gatein.portal</groupId>
+        <groupId>org.exoplatform.gatein.portal</groupId>
         <artifactId>exo.portal.component.identity</artifactId>
-        <version>${org.gatein.portal.version}</version>
+        <version>${org.exoplatform.gatein.portal.version}</version>
       </dependency>
       <dependency>
-        <groupId>org.gatein.portal</groupId>
+        <groupId>org.exoplatform.gatein.portal</groupId>
         <artifactId>exo.portal.component.web.oauth-common</artifactId>
-        <version>${org.gatein.portal.version}</version>
+        <version>${org.exoplatform.gatein.portal.version}</version>
       </dependency>
       <dependency>
         <groupId>org.exoplatform.platform</groupId>
@@ -492,190 +488,190 @@
       <!-- DON'T REMOVE : needed for product packaging -->
       <!-- org.exoplatform.management.RestManagementProvider used but not declared in GateIn ? -->
       <dependency>
-        <groupId>org.gatein.portal</groupId>
+        <groupId>org.exoplatform.gatein.portal</groupId>
         <artifactId>exo.portal.component.management</artifactId>
-        <version>${org.gatein.portal.version}</version>
+        <version>${org.exoplatform.gatein.portal.version}</version>
       </dependency>
       <dependency>
-        <groupId>org.gatein.portal</groupId>
+        <groupId>org.exoplatform.gatein.portal</groupId>
         <artifactId>exo.portal.component.portal</artifactId>
-        <version>${org.gatein.portal.version}</version>
+        <version>${org.exoplatform.gatein.portal.version}</version>
       </dependency>
       <!-- DON'T REMOVE : needed for product packaging -->
       <dependency>
-        <groupId>org.gatein.portal</groupId>
+        <groupId>org.exoplatform.gatein.portal</groupId>
         <artifactId>exo.portal.component.resources</artifactId>
-        <version>${org.gatein.portal.version}</version>
+        <version>${org.exoplatform.gatein.portal.version}</version>
       </dependency>
       <!-- DON'T REMOVE : needed for product packaging -->
       <dependency>
-        <groupId>org.gatein.portal</groupId>
+        <groupId>org.exoplatform.gatein.portal</groupId>
         <artifactId>exo.portal.component.scripting</artifactId>
-        <version>${org.gatein.portal.version}</version>
+        <version>${org.exoplatform.gatein.portal.version}</version>
       </dependency>
       <!-- DON'T REMOVE : needed for product packaging -->
       <dependency>
-        <groupId>org.gatein.portal</groupId>
+        <groupId>org.exoplatform.gatein.portal</groupId>
         <artifactId>exo.portal.component.web.api</artifactId>
-        <version>${org.gatein.portal.version}</version>
+        <version>${org.exoplatform.gatein.portal.version}</version>
       </dependency>
       <!-- DON'T REMOVE : needed for product packaging -->
       <dependency>
-        <groupId>org.gatein.portal</groupId>
+        <groupId>org.exoplatform.gatein.portal</groupId>
         <artifactId>exo.portal.component.web.controller</artifactId>
-        <version>${org.gatein.portal.version}</version>
+        <version>${org.exoplatform.gatein.portal.version}</version>
       </dependency>
       <!-- DON'T REMOVE : needed for product packaging -->
       <!-- org.gatein.security.oauth.webapi.OAuthDelegateFilter used but not declared in GateIn ? -->
       <dependency>
-        <groupId>org.gatein.portal</groupId>
+        <groupId>org.exoplatform.gatein.portal</groupId>
         <artifactId>exo.portal.component.web.oauth-web</artifactId>
-        <version>${org.gatein.portal.version}</version>
+        <version>${org.exoplatform.gatein.portal.version}</version>
       </dependency>
       <!-- DON'T REMOVE : needed for product packaging -->
       <dependency>
-        <groupId>org.gatein.portal</groupId>
+        <groupId>org.exoplatform.gatein.portal</groupId>
         <artifactId>exo.portal.component.web.resources</artifactId>
-        <version>${org.gatein.portal.version}</version>
+        <version>${org.exoplatform.gatein.portal.version}</version>
       </dependency>
       <!-- DON'T REMOVE : needed for product packaging -->
       <dependency>
-        <groupId>org.gatein.portal</groupId>
+        <groupId>org.exoplatform.gatein.portal</groupId>
         <artifactId>exo.portal.component.web.security</artifactId>
-        <version>${org.gatein.portal.version}</version>
+        <version>${org.exoplatform.gatein.portal.version}</version>
       </dependency>
       <!-- DON'T REMOVE : needed for product packaging -->
       <dependency>
-        <groupId>org.gatein.portal</groupId>
+        <groupId>org.exoplatform.gatein.portal</groupId>
         <artifactId>exo.portal.component.web.security-jboss</artifactId>
-        <version>${org.gatein.portal.version}</version>
+        <version>${org.exoplatform.gatein.portal.version}</version>
       </dependency>
       <!-- DON'T REMOVE : needed for product packaging -->
       <dependency>
-        <groupId>org.gatein.portal</groupId>
+        <groupId>org.exoplatform.gatein.portal</groupId>
         <artifactId>exo.portal.component.web.server</artifactId>
-        <version>${org.gatein.portal.version}</version>
+        <version>${org.exoplatform.gatein.portal.version}</version>
       </dependency>
       <!-- DON'T REMOVE : used for packaging -->
       <dependency>
-        <groupId>org.gatein.portal</groupId>
+        <groupId>org.exoplatform.gatein.portal</groupId>
         <artifactId>exo.portal.eXoGadgets</artifactId>
-        <version>${org.gatein.portal.version}</version>
+        <version>${org.exoplatform.gatein.portal.version}</version>
         <type>war</type>
       </dependency>
       <!-- DON'T REMOVE : needed for product packaging -->
       <dependency>
-        <groupId>org.gatein.portal</groupId>
+        <groupId>org.exoplatform.gatein.portal</groupId>
         <artifactId>exo.portal.gadgets-core</artifactId>
-        <version>${org.gatein.portal.version}</version>
+        <version>${org.exoplatform.gatein.portal.version}</version>
       </dependency>
       <!-- DON'T REMOVE : needed for product packaging -->
       <dependency>
-        <groupId>org.gatein.portal</groupId>
+        <groupId>org.exoplatform.gatein.portal</groupId>
         <artifactId>exo.portal.gadgets-server</artifactId>
-        <version>${org.gatein.portal.version}</version>
+        <version>${org.exoplatform.gatein.portal.version}</version>
         <type>war</type>
       </dependency>
       <!-- To be replaced by an import of GateIn Portal parent POM -->
       <!-- CAN'T be replaced for now by an import of GateIn Portal parent POM -->
       <!-- due to exclusion inheritance on ehcache-core required by the gadget-server -->
       <dependency>
-        <groupId>org.gatein.portal</groupId>
+        <groupId>org.exoplatform.gatein.portal</groupId>
         <artifactId>exo.portal.parent</artifactId>
-        <version>${org.gatein.portal.version}</version>
+        <version>${org.exoplatform.gatein.portal.version}</version>
         <type>zip</type>
         <classifier>source-release</classifier>
       </dependency>
       <!-- DON'T REMOVE : needed for product packaging -->
       <dependency>
-        <groupId>org.gatein.portal</groupId>
+        <groupId>org.exoplatform.gatein.portal</groupId>
         <artifactId>exo.portal.portlet.dashboard</artifactId>
-        <version>${org.gatein.portal.version}</version>
+        <version>${org.exoplatform.gatein.portal.version}</version>
         <type>war</type>
       </dependency>
       <!-- DON'T REMOVE : needed for product packaging -->
       <dependency>
-        <groupId>org.gatein.portal</groupId>
+        <groupId>org.exoplatform.gatein.portal</groupId>
         <artifactId>exo.portal.portlet.exoadmin</artifactId>
-        <version>${org.gatein.portal.version}</version>
+        <version>${org.exoplatform.gatein.portal.version}</version>
         <type>war</type>
       </dependency>
       <!-- DON'T REMOVE : needed for product packaging -->
       <dependency>
-        <groupId>org.gatein.portal</groupId>
+        <groupId>org.exoplatform.gatein.portal</groupId>
         <artifactId>exo.portal.portlet.web</artifactId>
-        <version>${org.gatein.portal.version}</version>
+        <version>${org.exoplatform.gatein.portal.version}</version>
         <type>war</type>
       </dependency>
       <!-- DON'T REMOVE : needed for product packaging -->
       <dependency>
-        <groupId>org.gatein.portal</groupId>
+        <groupId>org.exoplatform.gatein.portal</groupId>
         <artifactId>exo.portal.starter.war</artifactId>
-        <version>${org.gatein.portal.version}</version>
+        <version>${org.exoplatform.gatein.portal.version}</version>
         <type>war</type>
       </dependency>
       <!-- DON'T REMOVE : needed for product packaging -->
       <dependency>
-        <groupId>org.gatein.portal</groupId>
+        <groupId>org.exoplatform.gatein.portal</groupId>
         <artifactId>exo.portal.web.eXoResources</artifactId>
-        <version>${org.gatein.portal.version}</version>
+        <version>${org.exoplatform.gatein.portal.version}</version>
         <type>war</type>
       </dependency>
       <!-- DON'T REMOVE : needed for product packaging -->
       <dependency>
-        <groupId>org.gatein.portal</groupId>
+        <groupId>org.exoplatform.gatein.portal</groupId>
         <artifactId>exo.portal.web.portal</artifactId>
-        <version>${org.gatein.portal.version}</version>
+        <version>${org.exoplatform.gatein.portal.version}</version>
         <type>war</type>
       </dependency>
       <!-- DON'T REMOVE : needed for product packaging -->
       <dependency>
-        <groupId>org.gatein.portal</groupId>
+        <groupId>org.exoplatform.gatein.portal</groupId>
         <artifactId>exo.portal.web.rest</artifactId>
-        <version>${org.gatein.portal.version}</version>
+        <version>${org.exoplatform.gatein.portal.version}</version>
         <type>war</type>
       </dependency>
       <!-- DON'T REMOVE : needed for product packaging -->
       <dependency>
-        <groupId>org.gatein.portal</groupId>
+        <groupId>org.exoplatform.gatein.portal</groupId>
         <artifactId>exo.portal.webui.core</artifactId>
-        <version>${org.gatein.portal.version}</version>
+        <version>${org.exoplatform.gatein.portal.version}</version>
       </dependency>
       <!-- DON'T REMOVE : needed for product packaging -->
       <dependency>
-        <groupId>org.gatein.portal</groupId>
+        <groupId>org.exoplatform.gatein.portal</groupId>
         <artifactId>exo.portal.webui.dashboard</artifactId>
-        <version>${org.gatein.portal.version}</version>
+        <version>${org.exoplatform.gatein.portal.version}</version>
       </dependency>
       <!-- DON'T REMOVE : needed for product packaging -->
       <dependency>
-        <groupId>org.gatein.portal</groupId>
+        <groupId>org.exoplatform.gatein.portal</groupId>
         <artifactId>exo.portal.webui.eXo</artifactId>
-        <version>${org.gatein.portal.version}</version>
+        <version>${org.exoplatform.gatein.portal.version}</version>
       </dependency>
       <!-- DON'T REMOVE : needed for product packaging -->
       <dependency>
-        <groupId>org.gatein.portal</groupId>
+        <groupId>org.exoplatform.gatein.portal</groupId>
         <artifactId>exo.portal.webui.framework</artifactId>
-        <version>${org.gatein.portal.version}</version>
+        <version>${org.exoplatform.gatein.portal.version}</version>
       </dependency>
       <!-- DON'T REMOVE : needed for product packaging -->
       <dependency>
-        <groupId>org.gatein.portal</groupId>
+        <groupId>org.exoplatform.gatein.portal</groupId>
         <artifactId>exo.portal.webui.portal</artifactId>
-        <version>${org.gatein.portal.version}</version>
+        <version>${org.exoplatform.gatein.portal.version}</version>
       </dependency>
       <!-- DON'T REMOVE : needed for product packaging -->
       <dependency>
-        <groupId>org.gatein.portal</groupId>
+        <groupId>org.exoplatform.gatein.portal</groupId>
         <artifactId>exo.portal.webui.portlet</artifactId>
-        <version>${org.gatein.portal.version}</version>
+        <version>${org.exoplatform.gatein.portal.version}</version>
       </dependency>
       <!-- DON'T REMOVE : needed for product packaging -->
       <dependency>
         <groupId>org.gatein.cdi</groupId>
         <artifactId>gatein-cdi-contexts</artifactId>
-        <version>${org.gatein.portal.version}</version>
+        <version>${org.exoplatform.gatein.portal.version}</version>
       </dependency>
       <!-- To be replaced by an import of GateIn Shinding parent POM -->
       <dependency>
@@ -690,23 +686,23 @@
       </dependency>
       <!-- SSO -->
       <dependency>
-        <groupId>org.gatein.sso</groupId>
+        <groupId>org.exoplatform.gatein.sso</groupId>
         <artifactId>sso-integration</artifactId>
-        <version>${org.gatein.sso.version}</version>
+        <version>${org.exoplatform.gatein.sso.version}</version>
         <exclusions>
           <exclusion>
-            <groupId>org.gatein.sso</groupId>
+            <groupId>org.exoplatform.gatein.sso</groupId>
             <artifactId>sso-agent</artifactId>
           </exclusion>
         </exclusions>
       </dependency>
       <dependency>
-        <groupId>org.gatein.sso</groupId>
+        <groupId>org.exoplatform.gatein.sso</groupId>
         <artifactId>sso-agent</artifactId>
-        <version>${org.gatein.sso.version}</version>
+        <version>${org.exoplatform.gatein.sso.version}</version>
         <exclusions>
           <exclusion>
-            <groupId>org.gatein.sso</groupId>
+            <groupId>org.exoplatform.gatein.sso</groupId>
             <artifactId>sso-auth-callback</artifactId>
           </exclusion>
           <exclusion>
@@ -749,22 +745,22 @@
       </dependency>
       <!-- DON'T REMOVE : used for packaging -->
       <dependency>
-        <groupId>org.gatein.wci</groupId>
+        <groupId>org.exoplatform.gatein.wci</groupId>
         <artifactId>wci-jboss7</artifactId>
-        <version>${org.gatein.wci.version}</version>
+        <version>${org.exoplatform.gatein.wci.version}</version>
       </dependency>
       <!-- To be replaced by an import of GateIn WCI parent POM -->
       <!-- DON'T REMOVE : used for packaging -->
       <dependency>
-        <groupId>org.gatein.wci</groupId>
+        <groupId>org.exoplatform.gatein.wci</groupId>
         <artifactId>wci-tomcat7</artifactId>
-        <version>${org.gatein.wci.version}</version>
+        <version>${org.exoplatform.gatein.wci.version}</version>
       </dependency>
       <!-- Mobile site redirection -->
       <dependency>
         <groupId>org.gatein.web</groupId>
         <artifactId>redirect</artifactId>
-        <version>${org.gatein.portal.version}</version>
+        <version>${org.exoplatform.gatein.portal.version}</version>
       </dependency>
       <dependency>
         <groupId>org.juzu</groupId>
