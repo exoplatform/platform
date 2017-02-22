@@ -5,16 +5,16 @@
          <topic>Subiect</topic>
          <poll>Sondaj</poll>
          <event>Event</event>
-         <upload>Încarcă un fişier</upload>
-         <wiki>Pagina wiki</wiki>
+         <upload>File</upload>
+         <wiki>Wiki</wiki>
 
       </label>
    </UIUserPlatformToolBarCreatePortlet>
    <UICreateList>
       <label>
-         <topic>subiect</topic>
-         <poll>sondaj</poll>
-         <CreateANew>Creează un {1}:</CreateANew>
+         <topic>Topic</topic>
+         <poll>Poll</poll>
+         <CreateANew>New {1}:</CreateANew>
          <NoForum>Ne pare rău, Forumul nu este încă disponibil pentru a crea un {1}. Începe prin a crea propriul Spaţiu.</NoForum>
          <RequireSelectForum>Vă rugăm să selectaţi un forum.</RequireSelectForum>
       </label>
@@ -41,8 +41,8 @@
    </UICreatePoll>
    <UICreateWiki>
       <label>
-         <title>Creați o nouă Pagină Wiki:</title>
-         <location>Locaţie</location>
+         <title>New Wiki Page:</title>
+         <location>Location</location>
       </label>
    </UICreateWiki>
    <UICreateEvent>
@@ -51,7 +51,7 @@
          <Choix>Adăugă:</Choix>
          <EndEvent>Până la</EndEvent>
          <StartEvent>De la</StartEvent>
-         <Calendar>Selectează Calendarul</Calendar>
+         <Calendar>Calendar</Calendar>
          <all-day>Toată ziua</all-day>
          <defaultCalendarId>Default</defaultCalendarId>
       </label>

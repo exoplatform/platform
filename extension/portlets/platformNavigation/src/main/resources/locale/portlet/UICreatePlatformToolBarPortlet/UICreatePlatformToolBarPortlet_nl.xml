@@ -5,16 +5,16 @@
          <topic>Onderwerp</topic>
          <poll>eXo Poll</poll>
          <event>Evenement</event>
-         <upload>Een bestand uploaden</upload>
-         <wiki>Wiki-pagina</wiki>
+         <upload>File</upload>
+         <wiki>Wiki</wiki>
 
       </label>
    </UIUserPlatformToolBarCreatePortlet>
    <UICreateList>
       <label>
-         <topic>onderwerp</topic>
-         <poll>poll</poll>
-         <CreateANew>Maak een nieuwe {1}:</CreateANew>
+         <topic>Topic</topic>
+         <poll>Poll</poll>
+         <CreateANew>New {1}:</CreateANew>
          <NoForum>Sorry, is geen forum beschikbaar nog voor het maken van een {1}. Begint met het maken van uw eigen ruimte.</NoForum>
          <RequireSelectForum>Selecteer een forum.</RequireSelectForum>
       </label>
@@ -41,8 +41,8 @@
    </UICreatePoll>
    <UICreateWiki>
       <label>
-         <title>Maak een nieuwe Wiki Page:</title>
-         <location>Op locatie</location>
+         <title>New Wiki Page:</title>
+         <location>Location</location>
       </label>
    </UICreateWiki>
    <UICreateEvent>
@@ -51,7 +51,7 @@
          <Choix>Nieuw toevoegen:</Choix>
          <EndEvent>Aan</EndEvent>
          <StartEvent>Van</StartEvent>
-         <Calendar>Selecteer kalender</Calendar>
+         <Calendar>Calendar</Calendar>
          <all-day>De hele dag</all-day>
          <defaultCalendarId>Standaard</defaultCalendarId>
       </label>

@@ -5,16 +5,16 @@
          <topic>主题</topic>
          <poll>投票</poll>
          <event>事件</event>
-         <upload>上传文件</upload>
-         <wiki>wiki页面</wiki>
+         <upload>File</upload>
+         <wiki>Wiki</wiki>
 
       </label>
    </UIUserPlatformToolBarCreatePortlet>
    <UICreateList>
       <label>
-         <topic>主题</topic>
-         <poll>投票</poll>
-         <CreateANew>创建新 {1}：</CreateANew>
+         <topic>Topic</topic>
+         <poll>Poll</poll>
+         <CreateANew>New {1}:</CreateANew>
          <NoForum>对不起，没有论坛，还可创建 {1}。首先创建你自己的空间。</NoForum>
          <RequireSelectForum>请选择一个论坛。</RequireSelectForum>
       </label>
@@ -41,8 +41,8 @@
    </UICreatePoll>
    <UICreateWiki>
       <label>
-         <title>创建一个新的 Wiki 页面：</title>
-         <location>中的位置</location>
+         <title>New Wiki Page:</title>
+         <location>Location</location>
       </label>
    </UICreateWiki>
    <UICreateEvent>
@@ -51,7 +51,7 @@
          <Choix>添加新地址:</Choix>
          <EndEvent>到</EndEvent>
          <StartEvent>从</StartEvent>
-         <Calendar>选择日历</Calendar>
+         <Calendar>Calendar</Calendar>
          <all-day>全天</all-day>
          <defaultCalendarId>默认</defaultCalendarId>
       </label>

@@ -5,16 +5,16 @@
          <topic>Tema</topic>
          <poll>Apklausa</poll>
          <event>Event</event>
-         <upload>Įkelti failą</upload>
-         <wiki>Wiki puslapis</wiki>
+         <upload>File</upload>
+         <wiki>Wiki</wiki>
 
       </label>
    </UIUserPlatformToolBarCreatePortlet>
    <UICreateList>
       <label>
-         <topic>temą</topic>
-         <poll>apklausą</poll>
-         <CreateANew>Sukurti naują {1}:</CreateANew>
+         <topic>Topic</topic>
+         <poll>Poll</poll>
+         <CreateANew>New {1}:</CreateANew>
          <NoForum>Atsiprašome, dar nėra forumo, pagal kurį būtų galima sukurti {1}. Pradėkite kurti savo erdvę.</NoForum>
          <RequireSelectForum>Pasirinkite forumą.</RequireSelectForum>
       </label>
@@ -41,8 +41,8 @@
    </UICreatePoll>
    <UICreateWiki>
       <label>
-         <title>Sukurti naują Wiki puslapį:</title>
-         <location>Vieta</location>
+         <title>New Wiki Page:</title>
+         <location>Location</location>
       </label>
    </UICreateWiki>
    <UICreateEvent>
@@ -51,7 +51,7 @@
          <Choix>Pridėti naują:</Choix>
          <EndEvent>Iki</EndEvent>
          <StartEvent>Nuo</StartEvent>
-         <Calendar>Pasirinkti kalendorių</Calendar>
+         <Calendar>Calendar</Calendar>
          <all-day>Visą dieną</all-day>
          <defaultCalendarId>Numatytasis</defaultCalendarId>
       </label>

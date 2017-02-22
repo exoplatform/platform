@@ -5,16 +5,16 @@
          <topic>Topic</topic>
          <poll>Poll</poll>
          <event>Event</event>
-         <upload>Upload a File</upload>
-         <wiki>Wiki Page</wiki>
+         <upload>File</upload>
+         <wiki>Wiki</wiki>
 
       </label>
    </UIUserPlatformToolBarCreatePortlet>
    <UICreateList>
       <label>
-         <topic>topic</topic>
-         <poll>poll</poll>
-         <CreateANew>Create a new {1}:</CreateANew>
+         <topic>Topic</topic>
+         <poll>Poll</poll>
+         <CreateANew>New {1}:</CreateANew>
          <NoForum>Sorry, no forum is available yet to create a {1}. Start by creating your own space.</NoForum>
          <RequireSelectForum>Please select a forum.</RequireSelectForum>
       </label>
@@ -41,8 +41,8 @@
    </UICreatePoll>
    <UICreateWiki>
       <label>
-         <title>Create a new Wiki Page:</title>
-         <location>In Location</location>
+         <title>New Wiki Page:</title>
+         <location>Location</location>
       </label>
    </UICreateWiki>
    <UICreateEvent>
@@ -51,7 +51,7 @@
          <Choix>Add New:</Choix>
          <EndEvent>To</EndEvent>
          <StartEvent>From</StartEvent>
-         <Calendar>Select Calendar</Calendar>
+         <Calendar>Calendar</Calendar>
          <all-day>All Day</all-day>
          <defaultCalendarId>Default</defaultCalendarId>
       </label>

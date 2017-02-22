@@ -5,15 +5,15 @@
          <topic>Discussion</topic>
          <poll>Sondage</poll>
          <event>Événement</event>
-         <upload>Uploader un ficher</upload>
-         <wiki>Page Wiki</wiki>
+         <upload>Fichier</upload>
+         <wiki>Wiki</wiki>
 
       </label>
    </UIUserPlatformToolBarCreatePortlet>
    <UICreateList>
       <label>
-         <topic>une discussion</topic>
-         <poll>un sondage</poll>
+         <topic>une Discussion</topic>
+         <poll>un Sondage</poll>
          <CreateANew>Créer {1}:</CreateANew>
          <NoForum>Désolé, aucun forum n'est disponible pour l'instant pour créer {1}. Essayez de créer votre propre espace.</NoForum>
          <RequireSelectForum>Veuillez sélectionner un forum.</RequireSelectForum>
@@ -41,8 +41,8 @@
    </UICreatePoll>
    <UICreateWiki>
       <label>
-         <title>Créer une page wiki:</title>
-         <location>Dans</location>
+         <title>Créer une Page Wiki:</title>
+         <location>Emplacement</location>
       </label>
    </UICreateWiki>
    <UICreateEvent>

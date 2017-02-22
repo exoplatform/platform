@@ -5,16 +5,16 @@
          <topic>Θέμα</topic>
          <poll>Δημοσκόπηση</poll>
          <event>Γεγονός</event>
-         <upload>Ανεβάστε ένα Αρχείο</upload>
-         <wiki>Συνεργατική Σελίδα (Wiki)</wiki>
+         <upload>File</upload>
+         <wiki>Wiki</wiki>
 
       </label>
    </UIUserPlatformToolBarCreatePortlet>
    <UICreateList>
       <label>
-         <topic>θέμα</topic>
-         <poll>δημοσκόπηση</poll>
-         <CreateANew>Δημιουργήστε {1}:</CreateANew>
+         <topic>Topic</topic>
+         <poll>Poll</poll>
+         <CreateANew>New {1}:</CreateANew>
          <NoForum>Λυπάμαι, δεν υπάρχει κάποιο φόρουμ για να δημιουργηθεί εκεί ένα {1}. Ξεκινήστε με τη δημιουργία ενός δικού σας Χώρου.</NoForum>
          <RequireSelectForum>Παρακαλώ επιλέξτε ένα φόρουμ.</RequireSelectForum>
       </label>
@@ -41,8 +41,8 @@
    </UICreatePoll>
    <UICreateWiki>
       <label>
-         <title>Δημιουργία νέας συνεργατικής σελίδας (Wiki):</title>
-         <location>Στην θέση</location>
+         <title>New Wiki Page:</title>
+         <location>Location</location>
       </label>
    </UICreateWiki>
    <UICreateEvent>
@@ -51,7 +51,7 @@
          <Choix>Προσθήκη νέου:</Choix>
          <EndEvent>Έως</EndEvent>
          <StartEvent>Από</StartEvent>
-         <Calendar>Επιλέξτε ημερολόγιο</Calendar>
+         <Calendar>Calendar</Calendar>
          <all-day>Όλη την ημέρα</all-day>
          <defaultCalendarId>Προεπιλογή</defaultCalendarId>
       </label>

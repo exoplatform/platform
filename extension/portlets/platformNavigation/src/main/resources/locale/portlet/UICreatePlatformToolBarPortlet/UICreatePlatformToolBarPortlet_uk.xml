@@ -5,16 +5,16 @@
          <topic>Тема</topic>
          <poll>Опитування</poll>
          <event>Подія</event>
-         <upload>Завантажити файл</upload>
-         <wiki>Вікі-сторінка</wiki>
+         <upload>File</upload>
+         <wiki>Wiki</wiki>
 
       </label>
    </UIUserPlatformToolBarCreatePortlet>
    <UICreateList>
       <label>
-         <topic>тема</topic>
-         <poll>опитування</poll>
-         <CreateANew>Створити нову {1}:</CreateANew>
+         <topic>Topic</topic>
+         <poll>Poll</poll>
+         <CreateANew>New {1}:</CreateANew>
          <NoForum>На жаль, ще немає доступного форуму для створення {1}. Почніть з створення власної області.</NoForum>
          <RequireSelectForum>Будь ласка, виберіть форум.</RequireSelectForum>
       </label>
@@ -41,8 +41,8 @@
    </UICreatePoll>
    <UICreateWiki>
       <label>
-         <title>Створити нову вікі-сторінку:</title>
-         <location>У місці</location>
+         <title>New Wiki Page:</title>
+         <location>Location</location>
       </label>
    </UICreateWiki>
    <UICreateEvent>
@@ -51,7 +51,7 @@
          <Choix>Додати новий:</Choix>
          <EndEvent>До</EndEvent>
          <StartEvent>Від</StartEvent>
-         <Calendar>Виберіть календар</Calendar>
+         <Calendar>Calendar</Calendar>
          <all-day>Весь день</all-day>
          <defaultCalendarId>За замовчуванням</defaultCalendarId>
       </label>

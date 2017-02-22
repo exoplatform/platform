@@ -5,16 +5,16 @@
          <topic>Chủ đề</topic>
          <poll>Thăm dò ý kiến</poll>
          <event>Sự kiện</event>
-         <upload>Tải Tệp lên</upload>
-         <wiki>Trang Wiki</wiki>
+         <upload>File</upload>
+         <wiki>Wiki</wiki>
 
       </label>
    </UIUserPlatformToolBarCreatePortlet>
    <UICreateList>
       <label>
-         <topic>chủ đề</topic>
-         <poll>thăm dò</poll>
-         <CreateANew>Tạo mới {1}:</CreateANew>
+         <topic>Topic</topic>
+         <poll>Poll</poll>
+         <CreateANew>New {1}:</CreateANew>
          <NoForum>Rất tiếc là không có sẵn diễn đàn để tạo một {1}. Hãy bắt đầu bằng cách tạo nhóm riêng của bạn.</NoForum>
          <RequireSelectForum>Vui lòng chọn một diễn đàn.</RequireSelectForum>
       </label>
@@ -41,8 +41,8 @@
    </UICreatePoll>
    <UICreateWiki>
       <label>
-         <title>Tạo mới Trang Wiki:</title>
-         <location>Ở Vị trí</location>
+         <title>New Wiki Page:</title>
+         <location>Location</location>
       </label>
    </UICreateWiki>
    <UICreateEvent>
@@ -51,7 +51,7 @@
          <Choix>Thêm Mới:</Choix>
          <EndEvent>Đến</EndEvent>
          <StartEvent>Từ</StartEvent>
-         <Calendar>Chọn Lịch</Calendar>
+         <Calendar>Calendar</Calendar>
          <all-day>Cả Ngày</all-day>
          <defaultCalendarId>Mặc định</defaultCalendarId>
       </label>
