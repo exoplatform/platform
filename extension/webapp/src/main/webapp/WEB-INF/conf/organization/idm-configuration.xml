@@ -264,33 +264,6 @@
           <field name="sortMemberships">
             <boolean>true</boolean>
           </field>
-            <!-- For some LDAP configurations where part of users can duplicate in both DB and LDAP
-               it is not possible to count user efficiently for paginated query. Only way is to download
-               whole content of LDAP server and exclude duplicates manually to return accurate user count.
-               When this option is set to true GateIn will rely on user count information returned from PLIDM
-               which can return greater number of users then in real non duplicated count for perf reasons..
-               Those users will be filtered before returning search page however to not return nulls last entry
-               can be duplicated in returned user list.
-               If this value is set to false GateIn will perform whole non paginated query and filter it after.
-               It will result in more accurate results and paginated list size info however can affect performance 
-               If you have DB only setup, it's possible to switch this option to true. This may help to have better performance.
-               If you have DB+LDAP setup, it's necessary to keep this option as false, otherwise you can have inaccurate results -->
-
-            <field name="countPaginatedUsers">
-                <boolean>true</boolean>
-            </field>
-            <!-- For DB+LDAP it is not possible to efficiently perform paginated membership query. Only way is to download
-               all memberships from LDAP server and all memberships from DB and merge them together.
-               When this option is set to false GateIn will rely on membership count information returned from PLIDM
-               and it will use paginated membership queries based on this. This is better for performance but for DB+LDAP the
-               memberships pagination may not behave correctly.
-               If this value is set to true GateIn will perform whole non paginated query to obtain all memberships and filter it after.
-               It will result in more accurate results however can affect performance.
-               If you have DB only setup, it's possible to switch this option to false. This may help to have better performance.
-               If you have DB+LDAP setup, it's necessary to keep this option as true, otherwise you can have inaccurate results -->
-            <field name="skipPaginationInMembershipQuery">
-                <boolean>true</boolean>
-            </field>
 
             <!--
             When this option is set to true:
