@@ -37,7 +37,7 @@
     <globalJmxStatistics
         enabled="true"
         cacheManagerName="lock-manager"
-        jmxDomain="platform.insp.cache"
+        jmxDomain="jcr.ispn.cache"
         mBeanServerLookup="org.infinispan.jmx.PlatformMBeanServerLookup" />
   </global>
   <default>
