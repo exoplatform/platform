@@ -48,13 +48,13 @@
         mode="replication">
       <stateTransfer
           timeout="${exo.idm.cluster.statetransfer.timeout:60000}"
-          fetchInMemoryState="true" />
+          fetchInMemoryState="${exo.idm.cluster.statetransfer.fetchinmemorystate:true}" />
       <async />
     </clustering>
     <!-- JTA configuration. transactionManagerLookupClass will be configured programmatically to be:
          - "org.infinispan.transaction.lookup.JBossTransactionManagerLookup" in JBoss AS environment
          - "org.infinispan.transaction.lookup.JBossStandaloneJTAManagerLookup" in non-JBoss environment -->
-    <transaction
+  <transaction
         transactionMode="TRANSACTIONAL"
         lockingMode="OPTIMISTIC"
         autoCommit="true" />

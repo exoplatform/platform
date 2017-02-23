@@ -37,11 +37,11 @@
     <globalJmxStatistics
         enabled="true"
         cacheManagerName="template"
-        jmxDomain="platform.insp.cache"
+        jmxDomain="services.ispn.cache"
         mBeanServerLookup="org.infinispan.jmx.PlatformMBeanServerLookup" />
     <transport
         transportClass="org.infinispan.remoting.transport.jgroups.JGroupsTransport"
-        clusterName="${infinispan-cluster-name}"
+        clusterName="${exo.cluster.partition.name}-services"
         distributedSyncTimeout="20000">
       <properties>
         <property
@@ -55,23 +55,20 @@
         mode="replication">
       <stateTransfer
           timeout="${exo.cache.cluster.statetransfer.timeout:20000}"
-          fetchInMemoryState="${exo.cache.cluster.statetransfer.fetchinmemorystate:false}" />
+          fetchInMemoryState="${exo.cache.cluster.statetransfer.fetchinmemorystate:true}" />
       <sync
           replTimeout="${exo.cache.cluster.sync.repltimeout:20000}" />
     </clustering>
-    <locking
-        isolationLevel="READ_COMMITTED"
-        lockAcquisitionTimeout="${exo.cache.lockacquisitiontimeout:20000}"
-        writeSkewCheck="false"
-        concurrencyLevel="500"
-        useLockStriping="false" />
-    <transaction
-        transactionManagerLookupClass="org.exoplatform.services.transaction.infinispan.JBossStandaloneJTAManagerLookup"
-        syncRollbackPhase="true"
-        syncCommitPhase="true"
-        transactionMode="TRANSACTIONAL" />
+  <locking supportsConcurrentUpdates="false"/>
+  <!--transaction
+    transactionManagerLookupClass="org.infinispan.transaction.lookup.GenericTransactionManagerLookup"
+    syncRollbackPhase="false"
+    syncCommitPhase="false"
+    useEagerLocking="false" /-->
     <jmxStatistics
         enabled="true" />
+    <invocationBatching
+        enabled="false" />
     <eviction
         strategy="LIRS"
         threadPolicy="DEFAULT"

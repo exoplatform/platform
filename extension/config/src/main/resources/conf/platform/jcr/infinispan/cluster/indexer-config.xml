@@ -37,11 +37,11 @@
     <globalJmxStatistics
         enabled="true"
         cacheManagerName="indexer"
-        jmxDomain="platform.insp.cache"
+        jmxDomain="jcr.ispn.cache"
         mBeanServerLookup="org.infinispan.jmx.PlatformMBeanServerLookup" />
     <transport
         transportClass="org.infinispan.remoting.transport.jgroups.JGroupsTransport"
-        clusterName="${infinispan-cluster-name}"
+        clusterName="${exo.cluster.partition.name}-jcr-indexer"
         distributedSyncTimeout="20000">
       <properties>
         <property
