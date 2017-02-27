@@ -6,6 +6,8 @@
   import org.exoplatform.services.wcm.core.NodeLocation;
   import org.exoplatform.services.wcm.skin.XSkinService;
   import org.exoplatform.services.wcm.javascript.XJavascriptService;
+  import org.exoplatform.web.application.RequestContext;
+  import org.exoplatform.webui.application.portlet.PortletRequestContext;
 
   public boolean getPortletPreference(String name) {
     String value = null;
