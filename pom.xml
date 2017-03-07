@@ -60,7 +60,6 @@
 
     <org.gatein.shindig.version>2.0.2.Final-gatein-4</org.gatein.shindig.version>
     <org.gatein.common.version>2.2.2.Final</org.gatein.common.version>
-    <juzu.version>1.1.0</juzu.version>
   </properties>
   <dependencyManagement>
     <!-- ### NEVER CHANGE THIS ORDER OF DEPMGT ### -->
@@ -761,21 +760,6 @@
         <groupId>org.gatein.web</groupId>
         <artifactId>redirect</artifactId>
         <version>${org.exoplatform.gatein.portal.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>org.juzu</groupId>
-        <artifactId>juzu-plugins-validation</artifactId>
-        <version>${juzu.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>org.juzu</groupId>
-        <artifactId>juzu-plugins-less4j</artifactId>
-        <version>${juzu.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>org.juzu</groupId>
-        <artifactId>juzu-plugins-webjars</artifactId>
-        <version>${juzu.version}</version>
       </dependency>
     </dependencies>
   </dependencyManagement>
