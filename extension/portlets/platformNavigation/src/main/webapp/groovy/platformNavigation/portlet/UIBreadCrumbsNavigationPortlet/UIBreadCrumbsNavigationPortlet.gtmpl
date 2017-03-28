@@ -1,3 +1,6 @@
+<%
+    import org.apache.commons.lang.StringEscapeUtils;
+%>
 <div class="uiBreadcumbsNavigationPortlet clearfix" id="$uicomponent.id">
 <%
   boolean isUserUrl = uicomponent.isUserUrl();
@@ -14,7 +17,7 @@
     } else {
       def profile = uicomponent.getOwnerProfile();
       if(profile != null){
-        nodeName = profile.getFullName();
+        nodeName = StringEscapeUtils.escapeHtml(profile.getFullName());
         srcImage = uicomponent.getAvatarURL(profile);
       }
     }

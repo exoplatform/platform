@@ -19,6 +19,7 @@
 <%
 import org.exoplatform.webui.core.UIPageIterator;
 import org.exoplatform.social.core.service.LinkProvider;
+import org.apache.commons.lang.StringEscapeUtils;
 
 def isSpace = uicomponent.isSpace();
 def uicomponentId = uicomponent.getId();
@@ -56,7 +57,7 @@ def uicomponentId = uicomponent.getId();
 				<%
 				if (administratorsList.size() > 0) {
 					for(user in administratorsList) {
-						def userName = user.getFullName();
+						def userName = StringEscapeUtils.escapeHtml(user.getFullName());
 						def administratorIdentity = uicomponent.getIdentity(user.getUserName());
 						def adminProfileURL = uicomponent.getURI() + "/activities/" + administratorIdentity.getRemoteId();
 						def administratorImageSource = administratorIdentity.profile.avatarUrl;
