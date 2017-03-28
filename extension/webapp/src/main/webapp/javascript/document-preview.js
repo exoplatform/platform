@@ -1,4 +1,4 @@
-(function ($) {
+(function ($, XSSUtils) {
   MAX_LENGTH = 2000,
   documentPreview = {
     defaultSettings: {
@@ -196,6 +196,7 @@
       if (this.settings.version != null) {
         versionStyle = 'block';
       }
+      var authorFullName = XSSUtils.sanitizeString(this.settings.author.fullname != null ? this.settings.author.fullname : '');
       docPreviewContainer.html(' \
         <div class="uiDocumentPreview" id="uiDocumentPreview"> \
           <div class="exitWindow"> \
@@ -211,9 +212,9 @@
               <div class="uiContentBox"> \
                 <div class="highlightBox"> \
                   <div class="profile clearfix"> \
-                    <a title="' + (this.settings.author.fullname != null ? this.settings.author.fullname : '') + '" href="' + this.settings.author.profileUrl + '" class="avatarMedium pull-left"><img alt="' + (this.settings.author.fullname != null ? this.settings.author.fullname : '') + '" src="' + this.settings.author.avatarUrl + '"></a> \
+                    <a title="' + authorFullName + '" href="' + this.settings.author.profileUrl + '" class="avatarMedium pull-left"><img alt="' + authorFullName + '" src="' + this.settings.author.avatarUrl + '"></a> \
                     <div class="rightBlock"> \
-                      <a href="' + this.settings.author.profileUrl + '">' + (this.settings.author.fullname != null ? this.settings.author.fullname : '') + '</a> \
+                      <a href="' + this.settings.author.profileUrl + '">' + authorFullName + '</a> \
                       <p class="dateTime">' + this.settings.activity.postTime + '</p> \
                       <p class="descript" title="activityStatus">' + (this.settings.activity.status != null ? this.settings.activity.status : '') + '</p> \
                     </div> \
@@ -242,8 +243,8 @@
                   </ul> \
                 </div> \
                 <div class="commentInputBox"> \
-                  <a class="avatarXSmall pull-left" href="' + this.settings.user.profileUrl + '" title="' + this.settings.user.fullname + '"> \
-                    <img src="' + this.settings.user.avatarUrl + '" alt="' + this.settings.user.fullname + '" /></a> \
+                  <a class="avatarXSmall pull-left" href="' + this.settings.user.profileUrl + '" title="' + XSSUtils.sanitizeString(this.settings.user.fullname) + '"> \
+                    <img src="' + this.settings.user.avatarUrl + '" alt="' + XSSUtils.sanitizeString(this.settings.user.fullname) + '" /></a> \
                     <div class="commentBox"> \
                       <textarea id="commentInput" placeholder="${UIActivity.comment.placeholder}" cols="30" rows="10" id="commentTextAreaPreview" activityId="activityId" class="textarea"></textarea> \
                       <button class="btn pull-left btn-primary" rel="tooltip" data-placement="bottom" title="comment" id="CommentButton" disabled>${UIActivity.label.Comment}</button> \
@@ -404,10 +405,10 @@
           }
 
           commentsHtml += '<li class="clearfix"> \
-            <a class="avatarXSmall pull-left" href="' + commenterProfileUrl + '" title="' + comment.identity.profile.fullname + '"><img src="' + commenterAvatar + '" alt="" /></a> \
+            <a class="avatarXSmall pull-left" href="' + commenterProfileUrl + '" title="' + XSSUtils.sanitizeString(comment.identity.profile.fullname) + '"><img src="' + commenterAvatar + '" alt="" /></a> \
             <div class="rightBlock"> \
               <div class="tit"> \
-                <a href="' + commenterProfileUrl + '" >' + comment.identity.profile.fullname + '</a> \
+                <a href="' + commenterProfileUrl + '" >' + XSSUtils.sanitizeString(comment.identity.profile.fullname) + '</a> \
                 <span class="pull-right dateTime">' + self.convertDate(comment.updateDate) + '</span> \
               </div> \
               <p class="cont">' + comment.body + '</p> \
@@ -782,4 +783,4 @@
   }
 
   return documentPreview;
-})($);
+})($, XSSUtils);

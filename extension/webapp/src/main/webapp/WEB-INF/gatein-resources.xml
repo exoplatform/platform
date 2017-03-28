@@ -59,6 +59,9 @@
     <depends>
       <module>es6promise</module>
     </depends>
+    <depends>
+      <module>xss-utils</module>
+    </depends>
   </module>
 
   <module>

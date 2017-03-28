@@ -1,4 +1,4 @@
-(function ($) {
+(function ($, XSSUtils) {
     var visibility;
     var link;
     var acceptlabel;
@@ -47,7 +47,7 @@
                         link += "<div class='peopleInvitePicture pull-left avatarXSmall'><a href='"+item.profile_url+"'><img src='"+peopleAvatar+"'></a></div>";
                         link += "<div class='peopleInviteInfo'>";
 
-                        link += "<div class='peopleInviteName'><div class='name'><a href='"+item.profile_url+"'>"+item.senderName+"</a></div>";
+                        link += "<div class='peopleInviteName'><div class='name'><a href='"+item.profile_url+"'>"+XSSUtils.sanitizeString(item.senderName)+"</a></div>";
 						link += "<div class='inviteAction'><div class='peopleInviteAction'><a class='connect btn-primary btn btn-mini' href='#' onclick='return false'>"+acceptlabel+"</a> <a class='deny' href='#' onclick='return false'><i class='uiIconClose'></i></a></div>";
 						if (item.senderPosition != undefined)
                             link += "<div class='peopleInvitePosition'>"+item.senderPosition+"</div>";
@@ -113,7 +113,7 @@
                             spaceAvatar = item.spaceAvatarUrl;
                         link += "<div class='spaceInvitePicture pull-left avatarXSmall'><img src='"+spaceAvatar+"'></div>";
                         link += "<div class='spaceInviteInfo'>";
-                        link += "<div class='spaceInviteName'>"+item.spaceDisplayName+"</div>";
+                        link += "<div class='spaceInviteName'>"+XSSUtils.sanitizeString(item.spaceDisplayName)+"</div>";
                         if(item.spaceRegistration == "open")
                             visibility = publiclabel;
                         else
@@ -186,4 +186,4 @@
     };
   return jqInvitations;
 
-})($);
+})($, XSSUtils);

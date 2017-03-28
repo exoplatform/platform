@@ -1,4 +1,4 @@
-(function ($) {
+(function ($, XSSUtils) {
 
     function sortByContacts(a, b){
         return b.number - a.number;
@@ -91,7 +91,7 @@
 
                     link += "<div class='peoplePicture pull-left'><div class='avatarXSmall'><a href='"+item.profile+"'><img src='"+item.avatar+"'></a></div></div>";
                     link += "<div class='peopleInfo'>";
-                    link += "<div class='peopleName'><a href='"+item.profile+"' target='_self'>"+item.suggestionName+"</a></div>";
+                    link += "<div class='peopleName'><a href='"+item.profile+"' target='_self'>"+XSSUtils.sanitizeString(item.suggestionName)+"</a></div>";
                     link += "<div class='peopleContainer clearfix'>";
 					link += "<div style='display:none;' class='peopleAction' ><a class='connect btn-primary btn btn-mini' href='#' onclick='return false'>"+connect+"</a><a class='ignore' href='#' onclick='return false'> <i class='uiIconClose'></i></a></div>";
                     link +="<div class='peopleDisplay'><div class='peoplePosition'>"+item.title+"</div><div class='peopleConnection'>"+item.number+"&nbsp;"+connection+"</div></div>";
@@ -198,7 +198,7 @@
 
                     link += "<div class='spacePicture pull-left'><div class='avatarXSmall'><img src='"+spaceAvatar+"'></div></div>";
                     link += "<div class='spaceInfo'>";
-                    link += "<div class='spaceName'>"+item.displayName+"</div>";
+                    link += "<div class='spaceName'>"+XSSUtils.sanitizeString(item.displayName)+"</div>";
                     link += "<div class='spaceContent clearfix'>";
 					if(item.registration == "open")
                         link += "<div class='spaceAction' ><a class='connect btn-primary btn btn-mini' href='#' onclick='return false'>"+joinLabel+"</a>";
@@ -284,4 +284,4 @@
             });
         }
     };
-})($);
+})($, XSSUtils);
