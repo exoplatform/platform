@@ -76,22 +76,8 @@
 
       <values-param>
           <name>untrusted-user-agents</name>
-          <value>Microsoft Office Core Storage Infrastructure/1.0</value>
-          <value>gvfs/1.20.1</value><!-- Ubuntu 14.04 LTS -->
-          <value>gvfs/1.20.2</value><!-- Ubuntu 14.10 -->
-          <value>gvfs/1.20.3</value><!-- Ubuntu 14.04.2 LTS -->
-          <value>Microsoft Office Excel 2013</value>
-          <value>Microsoft Office Word 2013</value>
-          <value>Microsoft Office PowerPoint 2013</value>
-          <value>Microsoft Office Word 2013 (15.0.4701) Windows NT 6.1</value>
-          <value>Microsoft Office Excel 2013 (15.0.4701) Windows NT 6.1</value>
-          <value>Microsoft Office PowerPoint 2013 (15.0.4701) Windows NT 6.1</value>
-          <value>Microsoft Office Word 2013 (15.0.4763) Windows NT 10.0</value>
-          <value>Microsoft Office Excel 2013 (15.0.4763) Windows NT 10.0</value>
-          <value>Microsoft Office PowerPoint 2013 (15.0.4763) Windows NT 10.0</value>
-          <value>Microsoft Office Word 2016 (16.0.6868.2060) Windows NT 10.0</value>
-          <value>Microsoft Office Excel 2016 (16.0.6868.2060) Windows NT 10.0</value>
-          <value>Microsoft Office PowerPoint 2016 (16.0.6868.2060) Windows NT 10.0</value>
+          <value>gvfs/*</value>
+          <value>Microsoft Office .*</value>
       </values-param>
 
     </init-params>
