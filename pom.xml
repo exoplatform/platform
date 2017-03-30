@@ -39,30 +39,30 @@
     <!-- **************************************** -->
     <!-- Project Dependencies -->
     <!-- **************************************** -->
-    <org.exoplatform.depmgt.version>12.x-SNAPSHOT</org.exoplatform.depmgt.version>
+    <org.exoplatform.depmgt.version>12.1-RC04</org.exoplatform.depmgt.version>
     <!-- JCR Project Dependencies -->
-    <org.exoplatform.kernel.version>2.6.x-SNAPSHOT</org.exoplatform.kernel.version>
-    <org.exoplatform.core.version>2.7.x-SNAPSHOT</org.exoplatform.core.version>
-    <org.exoplatform.ws.version>2.5.x-SNAPSHOT</org.exoplatform.ws.version>
-    <org.exoplatform.jcr.version>1.17.x-SNAPSHOT</org.exoplatform.jcr.version>
+    <org.exoplatform.kernel.version>2.6.1-RC11</org.exoplatform.kernel.version>
+    <org.exoplatform.core.version>2.7.1-RC11</org.exoplatform.core.version>
+    <org.exoplatform.ws.version>2.5.1-RC11</org.exoplatform.ws.version>
+    <org.exoplatform.jcr.version>1.17.1-RC11</org.exoplatform.jcr.version>
     <!-- GateIn Project Dependencies -->
     <org.gatein.shindig.version>2.0.2.Final-gatein-4</org.gatein.shindig.version>
 
     <org.gatein.common.version>2.2.2.Final</org.gatein.common.version>
-    <org.gatein.wci.version>2.5.x-PLF-SNAPSHOT</org.gatein.wci.version>
-    <org.gatein.pc.version>2.6.x-PLF-SNAPSHOT</org.gatein.pc.version>
+    <org.gatein.wci.version>2.5.1-RC11-PLF</org.gatein.wci.version>
+    <org.gatein.pc.version>2.6.1-RC11-PLF</org.gatein.pc.version>
     <org.gatein.sso.version>1.4.5.Final</org.gatein.sso.version>
-    <org.gatein.portal.version>4.4.x-PLF-SNAPSHOT</org.gatein.portal.version>
+    <org.gatein.portal.version>4.4.1-RC11-PLF</org.gatein.portal.version>
 
     <!-- Platform Project Dependencies -->
-    <org.exoplatform.commons.version>4.4.x-SNAPSHOT</org.exoplatform.commons.version>
-    <org.exoplatform.ecms.version>4.4.x-SNAPSHOT</org.exoplatform.ecms.version>
-    <org.exoplatform.social.version>4.4.x-SNAPSHOT</org.exoplatform.social.version>
-    <org.exoplatform.forum.version>4.4.x-SNAPSHOT</org.exoplatform.forum.version>
-    <org.exoplatform.wiki.version>4.4.x-SNAPSHOT</org.exoplatform.wiki.version>
-    <org.exoplatform.calendar.version>4.4.x-SNAPSHOT</org.exoplatform.calendar.version>
-    <org.exoplatform.integ.version>4.4.x-SNAPSHOT</org.exoplatform.integ.version>
-    <org.exoplatform.platform-ui.version>4.4.x-SNAPSHOT</org.exoplatform.platform-ui.version>
+    <org.exoplatform.commons.version>4.4.1-RC11</org.exoplatform.commons.version>
+    <org.exoplatform.ecms.version>4.4.1-RC11</org.exoplatform.ecms.version>
+    <org.exoplatform.social.version>4.4.1-RC11</org.exoplatform.social.version>
+    <org.exoplatform.forum.version>4.4.1-RC11</org.exoplatform.forum.version>
+    <org.exoplatform.wiki.version>4.4.1-RC11</org.exoplatform.wiki.version>
+    <org.exoplatform.calendar.version>4.4.1-RC11</org.exoplatform.calendar.version>
+    <org.exoplatform.integ.version>4.4.1-RC11</org.exoplatform.integ.version>
+    <org.exoplatform.platform-ui.version>4.4.1-RC11</org.exoplatform.platform-ui.version>
   </properties>
   <dependencyManagement>
     <!-- ### NEVER CHANGE THIS ORDER OF DEPMGT ### -->
