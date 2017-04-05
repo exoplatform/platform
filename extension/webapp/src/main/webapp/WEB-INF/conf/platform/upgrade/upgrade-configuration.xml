@@ -17,7 +17,8 @@
 
    <external-component-plugins>
       <target-component>org.exoplatform.commons.upgrade.UpgradeProductService</target-component>
-      <component-plugin>
+      <!-- This plugin is not used anymore since the Social data is migrated from JCR to RDBMS-->
+      <!--component-plugin>
         <name>SocialMixinCleanerUpgradePlugin</name>
         <set-method>addUpgradePlugin</set-method>
         <type>org.exoplatform.platform.upgrade.plugins.MixinCleanerUpgradePlugin</type>
@@ -53,7 +54,7 @@
             <value>exo:modify;soc:spaceref</value>
           </values-param>
         </init-params>
-      </component-plugin>
+      </component-plugin-->
       <component-plugin>
          <name>UpgradeProductInfoNodePlugin</name>
          <set-method>addUpgradePlugin</set-method>
