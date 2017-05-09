@@ -384,7 +384,7 @@ public class OrganizationIntegrationService implements Startable {
    */
   @Managed
   @ManagedDescription("invoke a group listeners")
-  @Impact(ImpactType.WRITE)
+  @Impact(ImpactType.READ)
   public void syncGroup(@ManagedDescription("Group Id") @ManagedName("groupId") String groupId,
       @ManagedDescription("Event type ADDED, UPDATED or DELETED") @ManagedName("eventType") String eventType) {
 
