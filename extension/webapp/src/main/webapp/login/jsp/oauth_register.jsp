@@ -30,6 +30,7 @@
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="java.util.HashSet" %>
 <%@ page import="org.exoplatform.portal.resource.SkinConfig" %>
+<%@ page import="org.exoplatform.portal.config.UserPortalConfigService" %>
 <%@ page import="java.util.Collection" %>
 <%@ page language="java" %>
 <%
@@ -38,11 +39,11 @@
     ResourceBundle res = service.getResourceBundle(service.getSharedResourceBundleNames(), request.getLocale()) ;
     String contextPath = portalContainer.getPortalContext().getContextPath();
 
-    SkinService skinService = PortalContainer.getCurrentInstance(session.getServletContext())
-            .getComponentInstanceOfType(SkinService.class);
-
-    Collection<SkinConfig> skins = skinService.getPortalSkins("Default");
-    String loginCssPath = skinService.getSkin("portal/login", "Default").getCSSPath();
+    UserPortalConfigService userPortalConfigService = portalContainer.getComponentInstanceOfType(UserPortalConfigService.class);
+    SkinService skinService = portalContainer.getComponentInstanceOfType(SkinService.class);
+    String skinName = userPortalConfigService.getDefaultPortalSkinName();
+    Collection<SkinConfig> skins = skinService.getPortalSkins(skinName);
+    String loginCssPath = skinService.getSkin("portal/login", skinName).getCSSPath();
 
     User user = (User)request.getAttribute("portalUser");
     if (user == null) {

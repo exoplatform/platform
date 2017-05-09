@@ -32,6 +32,7 @@
 <%@ page import="org.gatein.common.text.EntityEncoder"%>
 <%@ page import="org.exoplatform.web.login.recovery.PasswordRecoveryService" %>
 <%@ page import="org.exoplatform.web.controller.QualifiedName" %>
+<%@ page import="org.exoplatform.portal.config.UserPortalConfigService" %>
 <%@ page language="java" %>
 <%
   String contextPath = request.getContextPath() ;
@@ -54,9 +55,10 @@
 	cookie.setMaxAge(0);
 	response.addCookie(cookie);
 
-  SkinService skinService = (SkinService) PortalContainer.getCurrentInstance(session.getServletContext())
-                          .getComponentInstanceOfType(SkinService.class);
-  String loginCssPath = skinService.getSkin("portal/login", "Default").getCSSPath();
+  UserPortalConfigService userPortalConfigService = portalContainer.getComponentInstanceOfType(UserPortalConfigService.class);
+  SkinService skinService = portalContainer.getComponentInstanceOfType(SkinService.class);
+  String skinName = userPortalConfigService.getDefaultPortalSkinName();
+  String loginCssPath = skinService.getSkin("portal/login", skinName).getCSSPath();
 
   PasswordRecoveryService passRecoveryServ = portalContainer.getComponentInstanceOfType(PasswordRecoveryService.class);
   String forgotPasswordPath = passRecoveryServ.getPasswordRecoverURL(null, null);

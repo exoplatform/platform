@@ -25,23 +25,28 @@
 <%@ page import="org.exoplatform.container.PortalContainer"%>
 <%@ page import="org.exoplatform.services.resources.ResourceBundleService"%>
 <%@ page import="java.util.ResourceBundle" %>
+<%@ page import="org.exoplatform.portal.config.UserPortalConfigService" %>
 <%
+  PortalContainer portalContainer = PortalContainer.getCurrentInstance(session.getServletContext());
+
   String contextPath = request.getContextPath();
   String lang = request.getLocale().getLanguage();
   response.setCharacterEncoding("UTF-8");
   response.setContentType("text/html; charset=UTF-8");
   SoftwareRegistrationService registrationService
-          = PortalContainer.getCurrentInstance(session.getServletContext()).getComponentInstanceOfType(SoftwareRegistrationService.class);
+          = portalContainer.getComponentInstanceOfType(SoftwareRegistrationService.class);
   boolean canSKip = registrationService.canShowSkipBtn();
 
   String registrationURL = (String)request.getAttribute("registrationURL");
 
   String notReachable = (String)session.getAttribute("notReachable");
    String errorCode = request.getParameter("error");
-  //
-  SkinService skinService = (SkinService) PortalContainer.getCurrentInstance(session.getServletContext()).getComponentInstanceOfType(SkinService.class);
-  String cssPath = skinService.getSkin("portal/SoftwareRegistration", "Default").getCSSPath();
-  PortalContainer portalContainer = PortalContainer.getCurrentInstance(session.getServletContext());
+
+  UserPortalConfigService userPortalConfigService = portalContainer.getComponentInstanceOfType(UserPortalConfigService.class);
+  SkinService skinService = portalContainer.getComponentInstanceOfType(SkinService.class);
+  String skinName = userPortalConfigService.getDefaultPortalSkinName();
+  String cssPath = skinService.getSkin("portal/SoftwareRegistration", skinName).getCSSPath();
+
   ResourceBundleService service = (ResourceBundleService) portalContainer.getComponentInstanceOfType(ResourceBundleService.class);
   ResourceBundle rb = service.getResourceBundle("locale.portal.webui", request.getLocale());
 

@@ -22,20 +22,23 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ page import="org.exoplatform.portal.resource.SkinService"%>
 <%@ page import="org.exoplatform.container.PortalContainer"%>
-<%@ page import="org.exoplatform.container.PortalContainer"%>
 <%@ page import="org.exoplatform.services.resources.ResourceBundleService"%>
+<%@ page import="org.exoplatform.portal.config.UserPortalConfigService" %>
 <%@ page import="java.util.ResourceBundle" %>
 <%
   String contextPath = request.getContextPath();
   String status = request.getServletContext().getAttribute("status").toString();
   String lang = request.getLocale().getLanguage();
   response.setCharacterEncoding("UTF-8");
-  response.setContentType("text/html; charset=UTF-8");  
+  response.setContentType("text/html; charset=UTF-8");
 
-  SkinService skinService = (SkinService) PortalContainer.getCurrentInstance(session.getServletContext()).getComponentInstanceOfType(SkinService.class);
-  String cssPath = skinService.getSkin("portal/SoftwareRegistration", "Default").getCSSPath();
-    
   PortalContainer portalContainer = PortalContainer.getCurrentInstance(session.getServletContext());
+
+  UserPortalConfigService userPortalConfigService = portalContainer.getComponentInstanceOfType(UserPortalConfigService.class);
+  SkinService skinService = portalContainer.getComponentInstanceOfType(SkinService.class);
+  String skinName = userPortalConfigService.getDefaultPortalSkinName();
+  String cssPath = skinService.getSkin("portal/SoftwareRegistration", skinName).getCSSPath();
+
   ResourceBundleService service = (ResourceBundleService) portalContainer.getComponentInstanceOfType(ResourceBundleService.class);
   ResourceBundle rb = service.getResourceBundle("locale.portal.webui", request.getLocale());
 %>
