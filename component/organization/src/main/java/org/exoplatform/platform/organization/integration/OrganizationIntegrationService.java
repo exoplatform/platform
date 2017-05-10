@@ -16,18 +16,6 @@
  */
 package org.exoplatform.platform.organization.integration;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.LinkedHashMap;
-import java.util.List;
-import java.util.Map;
-
-import javax.jcr.Session;
-
 import org.exoplatform.commons.utils.ListAccess;
 import org.exoplatform.container.PortalContainer;
 import org.exoplatform.container.component.ComponentPlugin;
@@ -36,33 +24,23 @@ import org.exoplatform.container.configuration.ConfigurationManager;
 import org.exoplatform.container.xml.Component;
 import org.exoplatform.container.xml.ExternalComponentPlugins;
 import org.exoplatform.container.xml.InitParams;
-import org.exoplatform.management.annotations.Impact;
-import org.exoplatform.management.annotations.ImpactType;
-import org.exoplatform.management.annotations.Managed;
-import org.exoplatform.management.annotations.ManagedDescription;
-import org.exoplatform.management.annotations.ManagedName;
+import org.exoplatform.management.annotations.*;
 import org.exoplatform.management.jmx.annotations.NameTemplate;
 import org.exoplatform.management.jmx.annotations.Property;
 import org.exoplatform.management.rest.annotations.RESTEndpoint;
 import org.exoplatform.services.jcr.RepositoryService;
 import org.exoplatform.services.log.ExoLogger;
 import org.exoplatform.services.log.Log;
-import org.exoplatform.services.organization.Group;
-import org.exoplatform.services.organization.GroupEventListener;
-import org.exoplatform.services.organization.Membership;
-import org.exoplatform.services.organization.MembershipEventListener;
-import org.exoplatform.services.organization.OrganizationService;
-import org.exoplatform.services.organization.OrganizationServiceInitializer;
-import org.exoplatform.services.organization.User;
-import org.exoplatform.services.organization.UserEventListener;
-import org.exoplatform.services.organization.UserProfile;
-import org.exoplatform.services.organization.UserProfileEventListener;
+import org.exoplatform.services.organization.*;
 import org.exoplatform.services.organization.idm.PicketLinkIDMCacheService;
 import org.exoplatform.services.organization.impl.GroupImpl;
 import org.exoplatform.services.organization.impl.MembershipImpl;
 import org.exoplatform.services.organization.impl.UserImpl;
 import org.exoplatform.services.organization.impl.UserProfileImpl;
 import org.picocontainer.Startable;
+
+import javax.jcr.Session;
+import java.util.*;
 
 /**
  * This Service create Organization Model profiles, for User and Groups not
@@ -574,8 +552,8 @@ public class OrganizationIntegrationService implements Startable {
         try {
           user = organizationService.getUserHandler().findUserByName(username);
         } catch (Exception e) {
-          LOG.warn("\t\tError occurred while verifying if user is present in Datasource or not."
-              + " This may not cause a problem :" + e.getMessage());
+          LOG.warn("\t\tError occurred while verifying if user is present in Datasource. The operation will be interrupted.", e);
+          return;
         } finally {
           endRequest();
         }
@@ -615,7 +593,7 @@ public class OrganizationIntegrationService implements Startable {
             }
           }
         } catch (Exception e) {
-          LOG.error("\t\tFailed to initialize " + username + " User", e);
+          LOG.error("\t\tFailed to delete " + username + " User", e);
         } finally {
           endRequest();
           if (session != null) {
