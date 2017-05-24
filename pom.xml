@@ -58,7 +58,7 @@
     <org.exoplatform.gatein.pc.version>5.0.x-SNAPSHOT</org.exoplatform.gatein.pc.version>
     <org.exoplatform.gatein.sso.version>5.0.x-SNAPSHOT</org.exoplatform.gatein.sso.version>
 
-    <org.gatein.shindig.version>2.0.2.Final-gatein-4</org.gatein.shindig.version>
+    <org.apache.shindig.version>2.5.2</org.apache.shindig.version>
     <org.gatein.common.version>2.2.2.Final</org.gatein.common.version>
   </properties>
   <dependencyManagement>
@@ -674,14 +674,14 @@
       </dependency>
       <!-- To be replaced by an import of GateIn Shinding parent POM -->
       <dependency>
-        <groupId>org.gatein.shindig</groupId>
+        <groupId>org.apache.shindig</groupId>
         <artifactId>shindig-gadgets</artifactId>
-        <version>${org.gatein.shindig.version}</version>
+        <version>${org.apache.shindig.version}</version>
       </dependency>
       <dependency>
-        <groupId>org.gatein.shindig</groupId>
+        <groupId>org.apache.shindig</groupId>
         <artifactId>shindig-social-api</artifactId>
-        <version>${org.gatein.shindig.version}</version>
+        <version>${org.apache.shindig.version}</version>
       </dependency>
       <!-- SSO -->
       <dependency>

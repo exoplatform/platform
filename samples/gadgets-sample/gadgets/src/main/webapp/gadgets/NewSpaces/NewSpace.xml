@@ -6,7 +6,7 @@
   author_email="tungdt@exoplatform.com"
   thumbnail="/intranet-gadgets/skin/images/NewSpaces/SpaceLogoDefault_61x61.gif"
   description="Display the latest created spaces">
-    <Require feature="opensocial-0.8" />
+    <Require feature="opensocial-2.5" />
     <Require feature="dynamic-height" />
     <Require feature="settitle" />
     <Require feature="views" />

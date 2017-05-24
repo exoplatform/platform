@@ -2,7 +2,7 @@
 <Module>
 	<ModulePrefs title="Featured Poll" author="Do Thanh Tung" author_email="tungdt@exoplatform.com" thumbnail="/intranet-gadgets/skin/images/FeaturedPoll/Polls.png" description="Show a featured poll">
 		<Require feature="setprefs" />
-		<Require feature="opensocial-0.8" />
+		<Require feature="opensocial-2.5" />
 		<Require feature="dynamic-height" />
 		<Require feature="views" />
 		<Require feature="settitle" />

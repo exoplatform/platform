@@ -21,31 +21,13 @@
 -->
 
 <messagebundle>
-  <msg name="title">
-    Mes Invitations
-  </msg>
-  <msg name="people">
-    Personnes 
-  </msg>
-  <msg name="space">
-    Espaces
-  </msg>
-  <msg name="no_new_contact">
-    Aucune nouvelle demande de connexion ...
-  </msg>
-  <msg name="no_new_space">
-    Vous n'êtes membre d'aucun espace ...
-  </msg>
-  <msg name="nothing">
-    Rien de nouveau pour vous ...
-  </msg>
-  <msg name="members">
-    membres
-  </msg>
-  <msg name="member">
-    membre
-  </msg>  
-  <msg name="find_more">
-    Plus
-  </msg>
+  <msg name="title">Mes Invitations</msg>
+  <msg name="people">Personnes</msg>
+  <msg name="space">Espaces</msg>
+  <msg name="no_new_contact">Aucune nouvelle demande de connexion ...</msg>
+  <msg name="no_new_space">Vous n'êtes membre d'aucun espace ...</msg>
+  <msg name="nothing">Rien de nouveau pour vous ...</msg>
+  <msg name="members">membres</msg>
+  <msg name="member">membre</msg>
+  <msg name="find_more">Plus</msg>
 </messagebundle>

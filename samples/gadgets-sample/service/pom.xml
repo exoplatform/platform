@@ -64,7 +64,7 @@
     </dependency>
     <dependency>
       <!-- need org.gatein.shindig.social.opensocial.model.Activity for OnlineRestService-->
-      <groupId>org.gatein.shindig</groupId>
+      <groupId>org.apache.shindig</groupId>
       <artifactId>shindig-social-api</artifactId>
     </dependency>
     <dependency>

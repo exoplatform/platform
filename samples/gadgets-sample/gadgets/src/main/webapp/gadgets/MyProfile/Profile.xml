@@ -4,7 +4,7 @@
     author_email="damien.lauberton@exoplatform.com"
     description="My Profile is a gadget to display the current user information for eXo Social."
     height="100" >
-    <Require feature="opensocial-0.8" />
+    <Require feature="opensocial-2.5" />
     <Require feature="dynamic-height" />
     <Require feature="views" />
     <Require feature="settitle" />

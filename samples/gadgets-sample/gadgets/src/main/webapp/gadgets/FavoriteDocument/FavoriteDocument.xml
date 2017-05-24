@@ -35,7 +35,7 @@
     <Locale lang="sl" messages="locale/sl.xml"/>
     <Locale lang="he" messages="locale/he.xml"/>
     <Locale lang="hu" messages="locale/hu.xml"/>
-    <Require feature="opensocial-0.8" />
+    <Require feature="opensocial-2.5" />
     <Require feature="dynamic-height"/>
   </ModulePrefs>
   <Content type="html">

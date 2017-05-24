@@ -21,16 +21,8 @@
 -->
 
 <messagebundle>
-  <msg name="title">
-    Who is online?
-  </msg>
-  <msg name="myConnections">
-    My Connections
-  </msg>
-  <msg name="other">
-    Others
-  </msg>
-  <msg name="noOnlineUsers">
-    No Online Users
-  </msg>  
+  <msg name="title">Who is online?</msg>
+  <msg name="myConnections">My Connections</msg>
+  <msg name="other">Others</msg>
+  <msg name="noOnlineUsers">No Online Users</msg>
 </messagebundle>

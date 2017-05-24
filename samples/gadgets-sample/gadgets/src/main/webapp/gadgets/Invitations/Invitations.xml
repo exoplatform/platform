@@ -6,7 +6,7 @@
   thumbnail="/intranet-gadgets/skin/images/Invitations/gadget-social-inbox-icon_80x80.png">
     <Require feature="settitle" />
     <Require feature="dynamic-height" />
-    <Require feature="opensocial-0.8" />
+    <Require feature="opensocial-2.5" />
     <Require feature="views" />
     <Locale messages="locales/default.xml" />
     <Locale lang="fr" messages="locales/fr.xml" />
