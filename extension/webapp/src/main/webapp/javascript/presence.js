@@ -1,9 +1,10 @@
 (function($) {
     var obj = {};
 
+    var url = eXo.env.server.context + "/" + eXo.env.portal.rest + "/state/ping";
     obj.sendPing = function(frequency) {
         $.ajax({
-            url: "/rest/state/ping/",
+            url: url,
             dataType: "json",
             context: this,
             success: function(data){
