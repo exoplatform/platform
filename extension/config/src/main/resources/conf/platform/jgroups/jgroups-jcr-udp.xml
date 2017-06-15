@@ -20,7 +20,7 @@
 -->
 <config xmlns="urn:org:jgroups"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-        xsi:schemaLocation="urn:org:jgroups http://www.jgroups.org/schema/JGroups-3.2.xsd">
+        xsi:schemaLocation="urn:org:jgroups http://www.jgroups.org/schema/JGroups-3.6.xsd">
   <UDP
       singleton_name="${exo.jcr.cluster.jgroups.udp.singleton_name:exo-transport-udp}"
       bind_addr="${exo.jcr.cluster.jgroups.udp.bind_addr:127.0.0.1}"
@@ -28,17 +28,15 @@
       mcast_addr="${exo.jcr.cluster.jgroups.udp.mcast_addr:228.10.10.10}"
       mcast_port="${exo.jcr.cluster.jgroups.udp.mcast_port:17600}"
       tos="${exo.jcr.cluster.jgroups.udp.tos:8}"
-      discard_incompatible_packets="${exo.jcr.cluster.jgroups.udp.discard_incompatible_packets:true}"
       ucast_recv_buf_size="${exo.jcr.cluster.jgroups.udp.ucast_recv_buf_size:20M}"
       ucast_send_buf_size="${exo.jcr.cluster.jgroups.udp.ucast_send_buf_size:640K}"
       mcast_recv_buf_size="${exo.jcr.cluster.jgroups.udp.mcast_recv_buf_size:25M}"
       mcast_send_buf_size="${exo.jcr.cluster.jgroups.udp.mcast_send_buf_size:640K}"
-      loopback="${exo.jcr.cluster.jgroups.udp.loopback:true}"
       max_bundle_size="${exo.jcr.cluster.jgroups.udp.max_bundle_size:64K}"
       max_bundle_timeout="${exo.jcr.cluster.jgroups.udp.max_bundle_timeout:30}"
       ip_ttl="${exo.jcr.cluster.jgroups.udp.ip_ttl:8}"
-      enable_bundling="${exo.jcr.cluster.jgroups.udp.enable_bundling:true}"
       enable_diagnostics="${exo.jcr.cluster.jgroups.udp.enable_diagnostics:true}"
+      bundler_type="${exo.jcr.cluster.jgroups.tcp.bundler_type:sender-sends-with-timer}"
       diagnostics_addr="${exo.jcr.cluster.jgroups.udp.diagnostics_addr:224.0.75.75}"
       diagnostics_port="${exo.jcr.cluster.jgroups.udp.diagnostics_port:7500}"
       thread_naming_pattern="${exo.jcr.cluster.jgroups.udp.thread_naming_pattern:cl}"
@@ -61,9 +59,7 @@
       oob_thread_pool.queue_enabled="${exo.jcr.cluster.jgroups.udp.oob_thread_pool.queue_enabled:false}"
       oob_thread_pool.queue_max_size="${exo.jcr.cluster.jgroups.udp.oob_thread_pool.queue_max_size:100}"
       oob_thread_pool.rejection_policy="${exo.jcr.cluster.jgroups.udp.oob_thread_pool.rejection_policy:Run}" />
-  <PING
-      timeout="${exo.jcr.cluster.jgroups.ping.timeout:2000}"
-      num_initial_members="${exo.jcr.cluster.jgroups.ping.num_initial_members:1}" />
+  <PING />
   <MERGE2
       max_interval="${exo.jcr.cluster.jgroups.merge2.max_interval:30000}"
       min_interval="${exo.jcr.cluster.jgroups.merge2.min_interval:10000}" />

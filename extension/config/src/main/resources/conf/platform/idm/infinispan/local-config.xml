@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
 
-    Copyright (C) 2003-2014 eXo Platform SAS.
+    Copyright (C) 2017 eXo Platform SAS.
 
     This is free software; you can redistribute it and/or modify it
     under the terms of the GNU Lesser General Public License as
-    published by the Free Software Foundation; either version 3 of
+    published by the Free Software Foundation; either version 2.1 of
     the License, or (at your option) any later version.
 
     This software is distributed in the hope that it will be useful,
@@ -19,34 +19,27 @@
     02110-1301 USA, or see the FSF site: http://www.fsf.org.
 
 -->
-<infinispan
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="urn:infinispan:config:5.2 http://www.infinispan.org/schemas/infinispan-config-5.2.xsd"
-    xmlns="urn:infinispan:config:5.2">
-  <global>
-    <globalJmxStatistics
-        enabled="true"
-        cacheManagerName="plidm"
-        jmxDomain="org.infinispan.plidm"
-        mBeanServerLookup="org.infinispan.jmx.PlatformMBeanServerLookup" />
-  </global>
-  <default>
-    <jmxStatistics
-        enabled="true" />
-    <!-- JTA configuration. transactionManagerLookupClass will be configured programmatically to be:
-         - "org.infinispan.transaction.lookup.JBossTransactionManagerLookup" in JBoss AS environment
-         - "org.infinispan.transaction.lookup.JBossStandaloneJTAManagerLookup" in non-JBoss environment -->
-    <transaction
-        transactionMode="TRANSACTIONAL"
-        lockingMode="OPTIMISTIC"
-        autoCommit="true" />
-    <invocationBatching
-        enabled="true" />
-    <expiration
-        lifespan="${exo.idm.expiration.lifespan:1800000}"
-        wakeUpInterval="${exo.idm.expiration.wakeupinterval:5000}" />
-    <eviction
-        strategy="${exo.idm.eviction.strategy:LRU}"
-        maxEntries="${exo.idm.eviction.maxentries:100000}" />
-  </default>
+<infinispan xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xmlns="urn:infinispan:config:8.2"
+            xsi:schemaLocation="urn:infinispan:config:8.2 http://www.infinispan.org/schemas/infinispan-config-8.2.xsd">
+  <threads>
+    <thread-factory name="infinispan-factory" group-name="infinispan" thread-name-pattern="%G %i" priority="5"/>
+
+    <!-- listener-executor -->
+    <blocking-bounded-queue-thread-pool name="infinispan-listener" thread-factory="infinispan-factory"
+                                        core-threads="1" max-threads="5" queue-length="0" keepalive-time="0"/>
+    <!-- expiration-executor -->
+    <scheduled-thread-pool name="infinispan-expiration" thread-factory="infinispan-factory" />
+  </threads>
+
+  <cache-container name="plidm"  default-cache="default" expiration-executor="infinispan-expiration"   listener-executor="infinispan-listener"
+                   statistics="true">
+    <jmx duplicate-domains="true" domain="org.infinispan.plidm" mbean-server-lookup="org.infinispan.jmx.PlatformMBeanServerLookup"/>
+    <local-cache-configuration name="default" statistics="true">
+      <locking isolation="READ_COMMITTED" concurrency-level="500" striping="false" write-skew="false" acquire-timeout="20000"/>
+      <transaction mode="BATCH" auto-commit="true" />
+      <eviction size="${exo.idm.eviction.maxentries:100000}" strategy="LRU" thread-policy="DEFAULT"/>
+      <expiration interval="${exo.idm.expiration.wakeupinterval:60000}" lifespan="${exo.idm.expiration.lifespan:1800000}"/>
+    </local-cache-configuration>
+  </cache-container>
 </infinispan>

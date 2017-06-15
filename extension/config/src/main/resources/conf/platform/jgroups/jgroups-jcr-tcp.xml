@@ -20,7 +20,7 @@
 -->
 <config xmlns="urn:org:jgroups"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-        xsi:schemaLocation="urn:org:jgroups http://www.jgroups.org/schema/JGroups-3.2.xsd">
+        xsi:schemaLocation="urn:org:jgroups http://www.jgroups.org/schema/JGroups-3.6.xsd">
   <!-- jgroups.tcp.start_port defines the start of the range of TCP ports the server should bind to.
     The server socket is bound to the first available port from start_port.
     If no available port is found (e.g., because of a firewall) before the end_port, the server throws an exception.
@@ -36,15 +36,12 @@
       singleton_name="${exo.jcr.cluster.jgroups.tcp.singleton_name:exo-transport-tcp}"
       bind_port="${exo.jcr.cluster.jgroups.tcp.bind_port:7800}"
       bind_addr="${exo.jcr.cluster.jgroups.tcp.bind_addr:127.0.0.1}"
-      loopback="${exo.jcr.cluster.jgroups.tcp.loopback:true}"
       recv_buf_size="${exo.jcr.cluster.jgroups.tcp.recv_buf_size:20M}"
       send_buf_size="${exo.jcr.cluster.jgroups.tcp.send_buf_size:640K}"
       max_bundle_size="${exo.jcr.cluster.jgroups.tcp.max_bundle_size:64K}"
       max_bundle_timeout="${exo.jcr.cluster.jgroups.tcp.max_bundle_timeout:30}"
-      enable_bundling="${exo.jcr.cluster.jgroups.tcp.enable_bundling:true}"
-      use_send_queues="${exo.jcr.cluster.jgroups.tcp.use_send_queues:true}"
       enable_diagnostics="${exo.jcr.cluster.jgroups.tcp.enable_diagnostics:false}"
-      send_queue_size="${exo.jcr.cluster.jgroups.tcp.send_queue_size:1000}"
+      bundler_type="${exo.jcr.cluster.jgroups.tcp.bundler_type:sender-sends-with-timer}"
       sock_conn_timeout="${exo.jcr.cluster.jgroups.tcp.sock_conn_timeout:300}"
       timer_type="${exo.jcr.cluster.jgroups.tcp.timer_type:new}"
       timer.min_threads="${exo.jcr.cluster.jgroups.tcp.timer.min_threads:5}"
@@ -66,10 +63,8 @@
       oob_thread_pool.queue_max_size="${exo.jcr.cluster.jgroups.tcp.oob_thread_pool.queue_max_size:1000}"
       oob_thread_pool.rejection_policy="${exo.jcr.cluster.jgroups.tcp.oob_thread_pool.rejection_policy:Discard}" />
   <TCPPING
-      timeout="${exo.jcr.cluster.jgroups.tcpping.timeout:3000}"
       initial_hosts="${exo.jcr.cluster.jgroups.tcpping.initial_hosts:localhost[7800]}"
       port_range="${exo.jcr.cluster.jgroups.tcpping.port_range:0}"
-      num_initial_members="${exo.jcr.cluster.jgroups.tcpping.num_initial_members:1}"
       ergonomics="${exo.jcr.cluster.jgroups.tcpping.ergonomics:false}" />
   <MERGE2
       max_interval="${exo.jcr.cluster.jgroups.merge2.max_interval:100000}"
@@ -98,10 +93,10 @@
       view_bundling="${exo.jcr.cluster.jgroups.pbcast.gms.view_bundling:true}" />
   <UFC
       max_credits="${exo.jcr.cluster.jgroups.ufc.max_credits:2M}"
-      min_threshold="${exo.jcr.cluster.jgroups.ufc.min_threshold:0.10}" />
+      min_threshold="${exo.jcr.cluster.jgroups.ufc.min_threshold:0.40}" />
   <MFC
       max_credits="${exo.jcr.cluster.jgroups.mfc.max_credits:2M}"
-      min_threshold="${exo.jcr.cluster.jgroups.mfc.min_threshold:0.10}" />
+      min_threshold="${exo.jcr.cluster.jgroups.mfc.min_threshold:0.40}" />
   <FRAG2
       frag_size="${exo.jcr.cluster.jgroups.frag2.frag_size:60K}" />
   <RSVP

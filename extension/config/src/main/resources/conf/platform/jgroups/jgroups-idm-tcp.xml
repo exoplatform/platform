@@ -20,22 +20,18 @@
 -->
 <config xmlns="urn:org:jgroups"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-        xsi:schemaLocation="urn:org:jgroups http://www.jgroups.org/schema/JGroups-3.2.xsd">
+        xsi:schemaLocation="urn:org:jgroups http://www.jgroups.org/schema/JGroups-3.6.xsd">
   <TCP
       singleton_name="${exo.idm.cluster.jgroups.tcp.singleton_name:idm-transport-tcp}"
       bind_addr="${exo.idm.cluster.jgroups.tcp.bind_addr:127.0.0.1}"
       bind_port="${exo.idm.cluster.jgroups.tcp.bind_port:7900}"
       port_range="${exo.idm.cluster.jgroups.tcp.port_range:30}"
-      loopback="${exo.idm.cluster.jgroups.tcp.loopback:true}"
       recv_buf_size="${exo.idm.cluster.jgroups.tcp.recv_buf_size:20m}"
       send_buf_size="${exo.idm.cluster.jgroups.tcp.send_buf_size:640k}"
       max_bundle_size="${exo.idm.cluster.jgroups.tcp.max_bundle_size:64000}"
       max_bundle_timeout="${exo.idm.cluster.jgroups.tcp.max_bundle_timeout:30}"
-      enable_bundling="${exo.idm.cluster.jgroups.tcp.enable_bundling:true}"
-      use_send_queues="${exo.idm.cluster.jgroups.tcp.use_send_queues:true}"
-      send_queue_size="${exo.idm.cluster.jgroups.tcp.send_queue_size:1000}"
       enable_diagnostics="${exo.idm.cluster.jgroups.tcp.enable_diagnostics:false}"
-      bundler_type="${exo.idm.cluster.jgroups.tcp.bundler_type:old}"
+      bundler_type="${exo.idm.cluster.jgroups.tcp.bundler_type:sender-sends-with-timer}"
       thread_naming_pattern="${exo.idm.cluster.jgroups.tcp.thread_naming_pattern:pl}"
       thread_pool.enabled="${exo.idm.cluster.jgroups.tcp.thread_pool.enabled:true}"
       thread_pool.min_threads="${exo.idm.cluster.jgroups.tcp.thread_pool.min_threads:5}"
@@ -52,10 +48,9 @@
       oob_thread_pool.queue_max_size="${exo.idm.cluster.jgroups.tcp.oob_thread_pool.queue_max_size:100}"
       oob_thread_pool.rejection_policy="${exo.idm.cluster.jgroups.tcp.oob_thread_pool.rejection_policy:Discard}"
       />
-  <TCPPING timeout="${exo.idm.cluster.jgroups.tcpping.timeout:3000}"
+  <TCPPING
            initial_hosts="${exo.idm.cluster.jgroups.tcpping.initial_hosts:localhost[7900]}"
            port_range="${exo.idm.cluster.jgroups.tcpping.port_range:0}"
-           num_initial_members="${exo.idm.cluster.jgroups.tcpping.num_initial_members:1}"
            ergonomics="${exo.idm.cluster.jgroups.tcpping.ergonomics:false}"
        />
   <!--
@@ -92,11 +87,11 @@
       join_timeout="${exo.idm.cluster.jgroups.pbcast.gms.join_timeout:3000}"
       view_bundling="${exo.idm.cluster.jgroups.pbcast.gms.view_bundling:true}" />
   <UFC
-      max_credits="${exo.idm.cluster.jgroups.ufc.max_credits:200k}"
-      min_threshold="${exo.idm.cluster.jgroups.ufc.min_threshold:0.20}" />
+      max_credits="${exo.idm.cluster.jgroups.ufc.max_credits:2m}"
+      min_threshold="${exo.idm.cluster.jgroups.ufc.min_threshold:0.40}" />
   <MFC
-      max_credits="${exo.idm.cluster.jgroups.mfc.max_credits:200k}"
-      min_threshold="${exo.idm.cluster.jgroups.mfc.min_threshold:0.20}" />
+      max_credits="${exo.idm.cluster.jgroups.mfc.max_credits:2m}"
+      min_threshold="${exo.idm.cluster.jgroups.mfc.min_threshold:0.40}" />
   <FRAG2
       frag_size="${exo.idm.cluster.jgroups.frag2.frag_size:60000}" />
   <RSVP

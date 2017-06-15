@@ -1,84 +1,52 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
 
-    Copyright (C) 2003-2014 eXo Platform SAS.
+    Copyright (C) 2017 eXo Platform SAS.
 
-    This file is part of eXo Platform - Container Config.
-
-    eXo Platform - Container Config is free software; you can redistribute it and/or modify it
+    This is free software; you can redistribute it and/or modify it
     under the terms of the GNU Lesser General Public License as
-    published by the Free Software Foundation; either version 3 of
+    published by the Free Software Foundation; either version 2.1 of
     the License, or (at your option) any later version.
 
-    eXo Platform - Container Config software is distributed in the hope that it will be useful,
+    This software is distributed in the hope that it will be useful,
     but WITHOUT ANY WARRANTY; without even the implied warranty of
     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
     Lesser General Public License for more details.
 
     You should have received a copy of the GNU Lesser General Public
-    License along with eXo Platform - Container Config; if not, write to the Free
+    License along with this software; if not, write to the Free
     Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
-    02110-1301 USA, or see <http://www.gnu.org/licenses/>.
+    02110-1301 USA, or see the FSF site: http://www.fsf.org.
 
 -->
-<infinispan
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="urn:infinispan:config:5.2 http://www.infinispan.org/schemas/infinispan-config-5.2.xsd"
-    xmlns="urn:infinispan:config:5.2">
-  <global>
-    <evictionScheduledExecutor
-        factory="org.infinispan.executors.DefaultScheduledExecutorFactory">
-      <properties>
-        <property
-            name="threadNamePrefix"
-            value="EvictionThread" />
-      </properties>
-    </evictionScheduledExecutor>
-    <globalJmxStatistics
-        enabled="true"
-        cacheManagerName="lock-manager"
-        jmxDomain="jcr.ispn.cache"
-        mBeanServerLookup="org.infinispan.jmx.PlatformMBeanServerLookup" />
-  </global>
-  <default>
-    <locking
-        isolationLevel="READ_COMMITTED"
-        lockAcquisitionTimeout="${exo.jcr.lock.lockacquisitiontimeout:20000}"
-        writeSkewCheck="false"
-        concurrencyLevel="500"
-        useLockStriping="false" />
-    <transaction
-        transactionManagerLookupClass="org.exoplatform.services.transaction.infinispan.JBossStandaloneJTAManagerLookup"
-        syncRollbackPhase="true"
-        syncCommitPhase="true"
-        transactionMode="TRANSACTIONAL" />
-    <jmxStatistics
-        enabled="true" />
-    <eviction
-        strategy="NONE" />
-    <loaders
-        passivation="false" shared="false" preload="true">
-      <store
-          class="org.exoplatform.services.jcr.infinispan.JdbcStringBasedCacheStore"
-          fetchPersistentState="true"
-          ignoreModifications="false"
-          purgeOnStartup="false">
-        <properties>
-          <property name="stringsTableNamePrefix" value="${infinispan-cl-cache.jdbc.table.name}" />
-          <property name="idColumnName" value="${infinispan-cl-cache.jdbc.id.column}" />
-          <property name="dataColumnName" value="${infinispan-cl-cache.jdbc.data.column}" />
-          <property name="timestampColumnName" value="${infinispan-cl-cache.jdbc.timestamp.column}" />
-          <property name="idColumnType" value="${infinispan-cl-cache.jdbc.id.type}" />
-          <property name="dataColumnType" value="${infinispan-cl-cache.jdbc.data.type}" />
-          <property name="timestampColumnType" value="${infinispan-cl-cache.jdbc.timestamp.type}" />
-          <property name="dropTableOnExit" value="${infinispan-cl-cache.jdbc.table.drop}" />
-          <property name="createTableOnStart" value="${infinispan-cl-cache.jdbc.table.create}" />
-          <property name="connectionFactoryClass" value="${infinispan-cl-cache.jdbc.connectionFactory}" />
-          <property name="datasourceJndiLocation" value="${infinispan-cl-cache.jdbc.datasource}" />
-        </properties>
-        <async
-            enabled="false" />
-      </store>
-    </loaders>
-  </default>
+<infinispan xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xmlns="urn:infinispan:config:8.2"
+            xsi:schemaLocation="urn:infinispan:config:8.2 http://www.infinispan.org/schemas/infinispan-config-8.2.xsd">
+  <threads>
+    <thread-factory name="infinispan-factory" group-name="infinispan" thread-name-pattern="%G %i" priority="5"/>
+
+    <!-- listener-executor -->
+    <blocking-bounded-queue-thread-pool name="infinispan-listener" thread-factory="infinispan-factory" core-threads="1" max-threads="1" queue-length="0" keepalive-time="0"/>
+  </threads>
+
+  <cache-container name="lock-manager"  default-cache="default" listener-executor="infinispan-listener"
+                   statistics="true">
+    <jmx duplicate-domains="true" domain="jcr.ispn.cache" mbean-server-lookup="org.infinispan.jmx.PlatformMBeanServerLookup"/>
+    <local-cache-configuration name="default" statistics="true">
+      <locking isolation="READ_COMMITTED" concurrency-level="500" striping="false" write-skew="false" acquire-timeout="${exo.jcr.lock.lockacquisitiontimeout:20000}"/>
+      <transaction mode="NON_XA" transaction-manager-lookup="org.exoplatform.services.transaction.infinispan.JBossStandaloneJTAManagerLookup" />
+      <eviction strategy="NONE" />
+      <expiration lifespan="-1" />
+      <persistence passivation="false">
+        <string-keyed-jdbc-store xmlns="urn:infinispan:config:store:jdbc:8.0" shared="false" fetch-state="true" read-only="false" purge="false" preload="true">
+          <string-keyed-table drop-on-exit="${infinispan-cl-cache.jdbc.table.drop}" create-on-start="${infinispan-cl-cache.jdbc.table.create}"
+                              prefix="${infinispan-cl-cache.jdbc.table.name}">
+            <id-column name="${infinispan-cl-cache.jdbc.id.column}" type="${infinispan-cl-cache.jdbc.id.type}" />
+            <data-column name="${infinispan-cl-cache.jdbc.data.column}" type="${infinispan-cl-cache.jdbc.data.type}" />
+            <timestamp-column name="${infinispan-cl-cache.jdbc.timestamp.column}" type="${infinispan-cl-cache.jdbc.timestamp.type}" />
+          </string-keyed-table>
+        </string-keyed-jdbc-store>
+      </persistence>
+    </local-cache-configuration>
+  </cache-container>
 </infinispan>
