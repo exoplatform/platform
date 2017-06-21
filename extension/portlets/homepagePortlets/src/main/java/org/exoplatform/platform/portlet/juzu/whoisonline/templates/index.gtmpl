@@ -52,7 +52,7 @@
         def jsManager = pcontext.getJavascriptManager();
         jsManager.require("SHARED/jQueryWhoIsOnLine", "wos").addScripts("wos.ajaxWhoIsOnLine($labels);");
   %>
-<div id="OnlinePortlet" class="onlinePortlet">
+<div id="OnlinePortlet" class="onlinePortlet" data-url="@{onlineFriends()}">
     <div id="onlineContent" class="uiBox">
         <h6 class="title center">&{header.label}</h6>
         <ul id="onlineList" class="gallery uiContentBox">

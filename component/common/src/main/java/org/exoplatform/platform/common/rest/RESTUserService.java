@@ -17,18 +17,10 @@
 package org.exoplatform.platform.common.rest;
 
 import org.apache.commons.lang.StringUtils;
-import org.exoplatform.common.http.HTTPStatus;
-import org.exoplatform.container.ExoContainer;
-import org.exoplatform.container.ExoContainerContext;
 import org.exoplatform.services.rest.resource.ResourceContainer;
 import org.exoplatform.services.security.ConversationState;
 import org.exoplatform.services.user.UserStateModel;
 import org.exoplatform.services.user.UserStateService;
-import org.exoplatform.social.core.identity.model.Identity;
-import org.exoplatform.social.core.identity.model.Profile;
-import org.exoplatform.social.core.identity.provider.OrganizationIdentityProvider;
-import org.exoplatform.social.core.manager.IdentityManager;
-import org.exoplatform.social.core.service.LinkProvider;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -42,26 +34,17 @@ import javax.ws.rs.core.Response.Status;
 import javax.xml.parsers.ParserConfigurationException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 
 @Path("/state/")
 public class RESTUserService implements ResourceContainer {
   private final UserStateService userService;
-  
-  protected static final String ACTIVITY  = "activity";
-  protected static final String STATUS    = "status";
-
-  private static final int MAX_USER = 17;
-  private static final int INDEX_USER = 18;
 
   public RESTUserService(UserStateService userService) {
     this.userService = userService;
   }
-  
-    
+
   @GET
   @Path("/ping/")
   @RolesAllowed("users")
@@ -71,28 +54,6 @@ public class RESTUserService implements ResourceContainer {
     String userId = ConversationState.getCurrent().getIdentity().getUserId();
     userService.ping(userId);
     return Response.ok().cacheControl(cacheControl).build();
-  }
-
-  @GET
-  @Path("/onlinefriends")
-  @Produces(MediaType.APPLICATION_JSON)
-  @RolesAllowed("users")
-  public Response onlineFriends() throws Exception {
-    try {
-      String userId = ConversationState.getCurrent().getIdentity().getUserId();
-
-      List<User> users = getOnlineFriends(userId);
-
-      CacheControl cacheControl = new CacheControl();
-      cacheControl.setNoCache(true);
-      cacheControl.setNoStore(true);
-      return Response.ok(users, MediaType.APPLICATION_JSON).cacheControl(cacheControl).build();
-
-    } catch (Exception e) {
-
-      return Response.status(HTTPStatus.INTERNAL_ERROR).build();
-
-    }
   }
 
   @GET
@@ -165,68 +126,5 @@ public class RESTUserService implements ResourceContainer {
       return Response.ok().build();
     }
     return Response.notModified().build();
-  }
-
-  private List<User> getOnlineFriends(String userId) {
-    List<User> userOnLineList = new ArrayList<User>();
-    if (userId == null) return userOnLineList;
-
-    try {
-      ExoContainer container = ExoContainerContext.getCurrentContainer();
-      IdentityManager identityManager = (IdentityManager) container.getComponentInstanceOfType(IdentityManager.class);
-      UserStateService userStateService = (UserStateService) container.getComponentInstanceOfType(UserStateService.class);
-      List<UserStateModel> users = userStateService.online();
-      Collections.reverse(users);
-      if (users.size() > MAX_USER) {
-        users = users.subList(0, INDEX_USER);
-      }
-
-      String superUserName = System.getProperty("exo.super.user");
-      for (UserStateModel userModel : users) {
-        String user = userModel.getUserId();
-        if (user.equals(userId) || user.equals(superUserName)) continue;
-        User userOnLine = new User();
-        Identity userIdentity = identityManager.getOrCreateIdentity(OrganizationIdentityProvider.NAME, user,false);
-        Profile userProfile = userIdentity.getProfile();
-        userOnLine.setId(userProfile.getId());
-        userOnLine.setProfileUrl(LinkProvider.getUserProfileUri(userIdentity.getRemoteId()));
-        userOnLine.setAvatar(userProfile.getAvatarImageSource() != null ? userProfile.getAvatarImageSource() : LinkProvider.PROFILE_DEFAULT_AVATAR_URL);
-        userOnLineList.add(userOnLine);
-      }
-      return userOnLineList;
-
-    } catch (Exception e) {
-      return null;
-    }
-  }
-
-  public class User {
-    public void setId(String userId) {
-      this.id = userId;
-    }
-
-    public void setProfileUrl(String profileUrl) {
-      this.profileUrl = profileUrl;
-    }
-
-    public void setAvatar(String avatar) {
-      this.avatar = avatar;
-    }
-
-    public String getId() {
-      return id;
-    }
-
-    public String getProfileUrl() {
-      return profileUrl;
-    }
-
-    public String getAvatar() {
-      return avatar;
-    }
-
-    String id;
-    String profileUrl;
-    String avatar;
   }
 }
