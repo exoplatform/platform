@@ -62,6 +62,9 @@
     <depends>
       <module>xss-utils</module>
     </depends>
+    <depends>
+      <module>openDocumentInOffice</module>
+    </depends>
   </module>
 
   <module>

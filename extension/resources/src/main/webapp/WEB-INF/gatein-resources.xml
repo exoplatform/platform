@@ -73,4 +73,27 @@
 			<as>common_utils</as>
 		</depends>
    </module>
+  <module>
+    <name>composerMultiUpload</name>
+    <as>composerMultiUpload</as>
+    <script>
+      <path>/javascript/eXo/social/webui/ComposerMultiUpload.js</path>
+    </script>
+    <depends>
+      <module>ecm-bootstrap</module>
+    </depends>
+    <depends>
+      <module>jquery</module>
+      <as>gj</as>
+    </depends>
+    <depends>
+      <module>uiPopupWindow</module>
+    </depends>
+    <depends>
+      <module>base</module>
+    </depends>
+    <depends>
+      <module>wcm-utils</module>
+    </depends>
+  </module>
 </gatein-resources>
