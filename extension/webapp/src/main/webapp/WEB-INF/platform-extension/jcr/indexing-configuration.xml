@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <!DOCTYPE configuration SYSTEM "http://www.exoplatform.org/dtd/indexing-configuration-1.2.dtd">
-<configuration xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:wiki="http://exoplatform.org/wiki/1.0/" xmlns:exo="http://www.exoplatform.com/jcr/exo/1.0" xmlns:publication="http://www.exoplatform.com/jcr/publication/1.1/">
+<configuration xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:wiki="http://exoplatform.org/wiki/1.0/" xmlns:exo="http://www.exoplatform.com/jcr/exo/1.0" xmlns:publication="http://www.exoplatform.com/jcr/publication/1.1/" xmlns:dc="http://purl.org/dc/elements/1.1/">
     <aggregate primaryType="nt:file">
         <include primaryType="nt:resource">jcr:content</include>
     </aggregate>
@@ -11,6 +11,20 @@
         <property useInExcerpt="false">jcr:mimeType</property>
         <property useInExcerpt="false">jcr:encoding</property>
         <property useInExcerpt="false">jcr:lastModified</property>
+        <property useInExcerpt="false">dc:title</property>
+        <property useInExcerpt="false">dc:resourceType</property>
+        <property useInExcerpt="false">dc:source</property>
+        <property useInExcerpt="false">dc:relation</property>
+        <property useInExcerpt="false">dc:description</property>
+        <property useInExcerpt="false">dc:rights</property>
+        <property useInExcerpt="false">dc:format</property>
+        <property useInExcerpt="false">dc:identifier</property>
+        <property useInExcerpt="false">dc:coverage</property>
+        <property useInExcerpt="false">dc:subject</property>
+        <property useInExcerpt="false">dc:creator</property>
+        <property useInExcerpt="false">dc:language</property>
+        <property useInExcerpt="false">dc:publisher</property>
+        <property useInExcerpt="false">dc:contributor</property>
     </index-rule>
     <index-rule nodeType="nt:base">
         <property useInExcerpt="false">exo:name</property>
