@@ -2,20 +2,20 @@
 <bundle>
    <UIUserPlatformToolBarCreatePortlet>
       <label>
-         <topic>موضوع ها</topic>
+         <topic>Discussion</topic>
          <poll>نظرسنجی</poll>
          <event>رویداد</event>
-         <upload>آپلود فایل</upload>
-         <wiki>صفحه ویکی</wiki>
+         <upload>File</upload>
+         <wiki>Wiki Page</wiki>
 
       </label>
    </UIUserPlatformToolBarCreatePortlet>
    <UICreateList>
       <label>
-         <topic>موضوع</topic>
-         <poll>نظرسنجی</poll>
-         <CreateANew>یک {1} جدید ایجاد کنید:</CreateANew>
-         <NoForum>متاسفانه، هنوز هیچ فرومی برای ایجاد {1} در دسترس نیست. برای شروع یک فضا برای خود ایجاد کنید.</NoForum>
+         <topic>discussion</topic>
+         <poll>Poll</poll>
+         <CreateANew>New {1}:</CreateANew>
+         <NoForum>Sorry, no forum is available yet in which you can create the {1}. Start by creating a space first and then try again.</NoForum>
          <RequireSelectForum>لطفاً یک فروم انتخاب کنید.</RequireSelectForum>
       </label>
       <action>
@@ -41,8 +41,8 @@
    </UICreatePoll>
    <UICreateWiki>
       <label>
-         <title>ایجاد یک صفحه جدید ویکی:</title>
-         <location>در محل</location>
+         <title>New Wiki Page:</title>
+         <location>Location</location>
       </label>
    </UICreateWiki>
    <UICreateEvent>
@@ -51,7 +51,7 @@
          <Choix>افزودن جدید:</Choix>
          <EndEvent>به</EndEvent>
          <StartEvent>از</StartEvent>
-         <Calendar>انتخاب تقویم</Calendar>
+         <Calendar>Calendar</Calendar>
          <all-day>هر روز</all-day>
          <defaultCalendarId>پیش فرض</defaultCalendarId>
       </label>

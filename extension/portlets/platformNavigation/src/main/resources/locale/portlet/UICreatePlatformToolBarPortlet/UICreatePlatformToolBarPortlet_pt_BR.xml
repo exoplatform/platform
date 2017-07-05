@@ -2,20 +2,20 @@
 <bundle>
    <UIUserPlatformToolBarCreatePortlet>
       <label>
-         <topic>Tópico</topic>
+         <topic>Discussion</topic>
          <poll>Enquete</poll>
          <event>Evento</event>
-         <upload>Enviar arquivo</upload>
-         <wiki>Página Wiki</wiki>
+         <upload>File</upload>
+         <wiki>Wiki Page</wiki>
 
       </label>
    </UIUserPlatformToolBarCreatePortlet>
    <UICreateList>
       <label>
-         <topic>tópico</topic>
-         <poll>enquete</poll>
-         <CreateANew>Crie uma nova {1}:</CreateANew>
-         <NoForum>Desculpa, nenhum fórum está disponível ainda para criar uma {1}. Comece criando o seu próprio espaço.</NoForum>
+         <topic>discussion</topic>
+         <poll>Poll</poll>
+         <CreateANew>New {1}:</CreateANew>
+         <NoForum>Sorry, no forum is available yet in which you can create the {1}. Start by creating a space first and then try again.</NoForum>
          <RequireSelectForum>Por favor, selecione um fórum.</RequireSelectForum>
       </label>
       <action>
@@ -41,8 +41,8 @@
    </UICreatePoll>
    <UICreateWiki>
       <label>
-         <title>Criar uma nova página Wiki:</title>
-         <location>Em</location>
+         <title>New Wiki Page:</title>
+         <location>Location</location>
       </label>
    </UICreateWiki>
    <UICreateEvent>
@@ -51,7 +51,7 @@
          <Choix>Adicionar novo:</Choix>
          <EndEvent>a</EndEvent>
          <StartEvent>De</StartEvent>
-         <Calendar>Selecionar calendário</Calendar>
+         <Calendar>Calendar</Calendar>
          <all-day>O dia todo</all-day>
          <defaultCalendarId>Padrão</defaultCalendarId>
       </label>

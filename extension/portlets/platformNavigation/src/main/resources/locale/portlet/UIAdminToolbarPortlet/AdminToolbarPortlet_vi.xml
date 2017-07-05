@@ -3,13 +3,13 @@
    <UIAdminToolbarPortlet>
       <action>
          <AddPage>Thêm Trang</AddPage>
-         <EditNavigation>Điều hướng</EditNavigation>
-         <Content>Nội dung</Content>
+         <EditNavigation>Edit Navigation</EditNavigation>
+         <Content>Edit Content</Content>
          <Editor>Chỉnh sửa</Editor>
          <Page>Trang</Page>
          <Site>Trang web</Site>
          <Layout>Bố cục</Layout>
-         <siteLayout>Bố cục</siteLayout>
+         <siteLayout>Edit Layout</siteLayout>
          <ManagePages>Quản lý Trang</ManagePages>
          <GroupSite>Nhóm Site</GroupSite>
          <Properties>#{UISEOToolbarForm.label.seo}</Properties>

@@ -2,20 +2,20 @@
 <bundle>
    <UIUserPlatformToolBarCreatePortlet>
       <label>
-         <topic>トピック</topic>
+         <topic>Discussion</topic>
          <poll>アンケート</poll>
          <event>イベント</event>
-         <upload>ファイルをアップロード</upload>
-         <wiki>Wiki ページ</wiki>
+         <upload>File</upload>
+         <wiki>Wiki Page</wiki>
 
       </label>
    </UIUserPlatformToolBarCreatePortlet>
    <UICreateList>
       <label>
-         <topic>トピック</topic>
-         <poll>ポール</poll>
-         <CreateANew>新しい {1} を作成</CreateANew>
-         <NoForum>申し訳ありませんが、{1} を作成するために必要となるフォーラムがまだ存在していません。まず、スペースを作成してください。</NoForum>
+         <topic>discussion</topic>
+         <poll>Poll</poll>
+         <CreateANew>New {1}:</CreateANew>
+         <NoForum>Sorry, no forum is available yet in which you can create the {1}. Start by creating a space first and then try again.</NoForum>
          <RequireSelectForum>フォーラムを選択してください</RequireSelectForum>
       </label>
       <action>
@@ -41,8 +41,8 @@
    </UICreatePoll>
    <UICreateWiki>
       <label>
-         <title>新しい Wiki ページを作成</title>
-         <location>ロケーションに</location>
+         <title>New Wiki Page:</title>
+         <location>Location</location>
       </label>
    </UICreateWiki>
    <UICreateEvent>
@@ -51,7 +51,7 @@
          <Choix>新規追加</Choix>
          <EndEvent>終了日</EndEvent>
          <StartEvent>開始日</StartEvent>
-         <Calendar>カレンダーを選択</Calendar>
+         <Calendar>Calendar</Calendar>
          <all-day>すべての日</all-day>
          <defaultCalendarId>デフォルト</defaultCalendarId>
       </label>

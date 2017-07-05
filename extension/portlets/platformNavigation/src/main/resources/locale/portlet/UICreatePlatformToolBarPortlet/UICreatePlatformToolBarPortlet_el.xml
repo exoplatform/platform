@@ -2,20 +2,20 @@
 <bundle>
    <UIUserPlatformToolBarCreatePortlet>
       <label>
-         <topic>Θέμα</topic>
+         <topic>Discussion</topic>
          <poll>Δημοσκόπηση</poll>
          <event>Γεγονός</event>
-         <upload>Ανεβάστε ένα Αρχείο</upload>
-         <wiki>Συνεργατική Σελίδα (Wiki)</wiki>
+         <upload>File</upload>
+         <wiki>Wiki Page</wiki>
 
       </label>
    </UIUserPlatformToolBarCreatePortlet>
    <UICreateList>
       <label>
-         <topic>θέμα</topic>
-         <poll>δημοσκόπηση</poll>
-         <CreateANew>Δημιουργήστε {1}:</CreateANew>
-         <NoForum>Λυπάμαι, δεν υπάρχει κάποιο φόρουμ για να δημιουργηθεί εκεί ένα {1}. Ξεκινήστε με τη δημιουργία ενός δικού σας Χώρου.</NoForum>
+         <topic>discussion</topic>
+         <poll>Poll</poll>
+         <CreateANew>New {1}:</CreateANew>
+         <NoForum>Sorry, no forum is available yet in which you can create the {1}. Start by creating a space first and then try again.</NoForum>
          <RequireSelectForum>Παρακαλώ επιλέξτε ένα φόρουμ.</RequireSelectForum>
       </label>
       <action>
@@ -41,8 +41,8 @@
    </UICreatePoll>
    <UICreateWiki>
       <label>
-         <title>Δημιουργία νέας συνεργατικής σελίδας (Wiki):</title>
-         <location>Στην θέση</location>
+         <title>New Wiki Page:</title>
+         <location>Location</location>
       </label>
    </UICreateWiki>
    <UICreateEvent>
@@ -51,7 +51,7 @@
          <Choix>Προσθήκη νέου:</Choix>
          <EndEvent>Έως</EndEvent>
          <StartEvent>Από</StartEvent>
-         <Calendar>Επιλέξτε ημερολόγιο</Calendar>
+         <Calendar>Calendar</Calendar>
          <all-day>Όλη την ημέρα</all-day>
          <defaultCalendarId>Προεπιλογή</defaultCalendarId>
       </label>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <messagebundle>
-  <msg name="title">Kanske du känner dessa människor?</msg>
+  <msg name="title">Do you know these people?</msg>
 
 
   <msg name="mutual-friends">Ömsesidig vän (er)</msg>

@@ -7,7 +7,7 @@
          <see>再显示 {0} 个小组</see>
      </label>
      <msg>
-         <filter-spaces>搜索空间</filter-spaces>
+         <filter-spaces>Find a space</filter-spaces>
          <no-space>末找到空间</no-space>
      </msg>
 

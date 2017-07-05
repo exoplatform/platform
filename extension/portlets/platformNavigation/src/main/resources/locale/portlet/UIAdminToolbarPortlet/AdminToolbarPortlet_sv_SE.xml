@@ -3,13 +3,13 @@
    <UIAdminToolbarPortlet>
       <action>
          <AddPage>Lägg till sida</AddPage>
-         <EditNavigation>Navigering</EditNavigation>
-         <Content>Innehåll</Content>
+         <EditNavigation>Edit Navigation</EditNavigation>
+         <Content>Edit Content</Content>
          <Editor>Redigera</Editor>
          <Page>Sida</Page>
          <Site>Webbplats</Site>
          <Layout>Redigera Layout</Layout>
-         <siteLayout>Layout</siteLayout>
+         <siteLayout>Redigera Layout</siteLayout>
          <ManagePages>Hantera sidor</ManagePages>
          <GroupSite>Grupp webbplats</GroupSite>
          <Properties>#{UISEOToolbarForm.label.seo}</Properties>

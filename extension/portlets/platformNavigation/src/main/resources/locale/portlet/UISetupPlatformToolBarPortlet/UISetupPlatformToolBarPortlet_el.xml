@@ -4,13 +4,13 @@
 <label>
 <applications>Εφαρμογές</applications>
 <content>Περιεχόμενο</content>
-<siteExplorer>Περιηγητής Τοποθεσιών</siteExplorer>
+<siteExplorer>Site Explorer</siteExplorer>
 <wcmAdmin>Διαχείριση περιεχομένου</wcmAdmin>
-<users>Κοινότητα</users>
+<users>Users</users>
 <newStaff>Προσθήκη χρηστών</newStaff>
-<org-management>Διαχείριση Κοινότητας</org-management>
+<org-management>Manage Users</org-management>
 <portal>Πύλη</portal>
-<administration>Διαχείριση</administration>
+<administration>Administration</administration>
 <groupnavigation>Τοποθεσίας Ομάδας</groupnavigation>
 <pageManagement>Σελίδες</pageManagement>
 <portalnavigation>Τοποθεσίες</portalnavigation>
@@ -20,7 +20,7 @@
 <Branding>Εταιρική ταυτότητα</Branding>
       <Notification>Ειδοποιήσεις</Notification>
 <ide>Περιβάλλον ολοκληρωμένης ανάπτυξης</ide>
-<search>Αναζήτηση</search>
+<search>Search Administration</search>
 </label>
 </UISetupPlatformToolBarPortlet>
 </bundle>

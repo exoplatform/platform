@@ -4,13 +4,13 @@
 <label>
 <applications>Aplicaciones</applications>
 <content>Contenido</content>
-<siteExplorer>Explorador de Sitios</siteExplorer>
+<siteExplorer>Site Explorer</siteExplorer>
 <wcmAdmin>Administración de contenido</wcmAdmin>
-<users>Comunidad</users>
+<users>Users</users>
 <newStaff>Añadir Usuarios</newStaff>
-<org-management>Administrar Usuarios y Grupos</org-management>
+<org-management>Manage Users</org-management>
 <portal>Portal</portal>
-<administration>Administración</administration>
+<administration>Administration</administration>
 <groupnavigation>Sitios del grupo</groupnavigation>
 <pageManagement>Páginas</pageManagement>
 <portalnavigation>Sitios</portalnavigation>
@@ -20,7 +20,7 @@
 <Branding>Apariencia</Branding>
       <Notification>Notificaciones</Notification>
 <ide>IDE</ide>
-<search>Búsqueda</search>
+<search>Search Administration</search>
 </label>
 </UISetupPlatformToolBarPortlet>
 </bundle>

@@ -4,13 +4,13 @@
 <label>
 <applications>应用程序</applications>
 <content>内容</content>
-<siteExplorer>站点资源管理器</siteExplorer>
+<siteExplorer>Site Explorer</siteExplorer>
 <wcmAdmin>内容管理</wcmAdmin>
-<users>管理用户和组</users>
+<users>Users</users>
 <newStaff>添加用户</newStaff>
-<org-management>组和角色</org-management>
+<org-management>Manage Users</org-management>
 <portal>门户站点</portal>
-<administration>管理</administration>
+<administration>Administration</administration>
 <groupnavigation>群组站点</groupnavigation>
 <pageManagement>页面</pageManagement>
 <portalnavigation>站点</portalnavigation>
@@ -20,7 +20,7 @@
 <Branding>品牌</Branding>
       <Notification>电子邮件通知</Notification>
 <ide>集成开发工具</ide>
-<search>搜索</search>
+<search>Search Administration</search>
 </label>
 </UISetupPlatformToolBarPortlet>
 </bundle>

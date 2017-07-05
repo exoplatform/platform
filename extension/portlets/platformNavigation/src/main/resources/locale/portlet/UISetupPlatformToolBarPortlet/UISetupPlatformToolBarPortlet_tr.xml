@@ -4,13 +4,13 @@
 <label>
 <applications>Uygulamalar</applications>
 <content>İçerik</content>
-<siteExplorer>Site Gezgini</siteExplorer>
+<siteExplorer>Site Explorer</siteExplorer>
 <wcmAdmin>İçerik Yönetimi</wcmAdmin>
-<users>Topluluk</users>
+<users>Users</users>
 <newStaff>Kullanıcılar Ekle</newStaff>
-<org-management>Topluluğu Yönet</org-management>
+<org-management>Manage Users</org-management>
 <portal>Portal</portal>
-<administration>Yönetim</administration>
+<administration>Administration</administration>
 <groupnavigation>Grup Siteleri</groupnavigation>
 <pageManagement>Sayfalar</pageManagement>
 <portalnavigation>Siteler</portalnavigation>
@@ -20,7 +20,7 @@
 <Branding>Marka</Branding>
       <Notification>Bildirimler</Notification>
 <ide>IDE</ide>
-<search>Arama</search>
+<search>Search Administration</search>
 </label>
 </UISetupPlatformToolBarPortlet>
 </bundle>

@@ -3,13 +3,13 @@
    <UIAdminToolbarPortlet>
       <action>
          <AddPage>Añadir una página</AddPage>
-         <EditNavigation>Navegación</EditNavigation>
-         <Content>Contenido</Content>
+         <EditNavigation>Edit Navigation</EditNavigation>
+         <Content>Edit Content</Content>
          <Editor>Editar</Editor>
          <Page>Página</Page>
          <Site>Sitio</Site>
          <Layout>Editar diseño</Layout>
-         <siteLayout>Diseño</siteLayout>
+         <siteLayout>Edit Layout</siteLayout>
          <ManagePages>Administrar páginas</ManagePages>
          <GroupSite>Sitio de grupo</GroupSite>
          <Properties>#{UISEOToolbarForm.label.seo}</Properties>

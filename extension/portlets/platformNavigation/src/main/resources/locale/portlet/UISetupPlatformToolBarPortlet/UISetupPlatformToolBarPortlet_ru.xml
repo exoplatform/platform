@@ -4,13 +4,13 @@
 <label>
 <applications>Приложения</applications>
 <content>Содержимое</content>
-<siteExplorer>Обозреватель сайтов</siteExplorer>
+<siteExplorer>Site Explorer</siteExplorer>
 <wcmAdmin>Управление контентом</wcmAdmin>
-<users>Сообщество</users>
+<users>Users</users>
 <newStaff>Добавить пользователей</newStaff>
-<org-management>Управление сообществом</org-management>
+<org-management>Manage Users</org-management>
 <portal>Портал</portal>
-<administration>Администрирование</administration>
+<administration>Administration</administration>
 <groupnavigation>Сайты группы</groupnavigation>
 <pageManagement>Страницы</pageManagement>
 <portalnavigation>Сайты</portalnavigation>
@@ -20,7 +20,7 @@
 <Branding>Фирменная символика</Branding>
       <Notification>Оповещения</Notification>
 <ide>IDE</ide>
-<search>Поиск</search>
+<search>Search Administration</search>
 </label>
 </UISetupPlatformToolBarPortlet>
 </bundle>

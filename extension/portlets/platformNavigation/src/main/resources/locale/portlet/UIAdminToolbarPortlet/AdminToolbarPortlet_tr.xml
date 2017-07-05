@@ -3,13 +3,13 @@
    <UIAdminToolbarPortlet>
       <action>
          <AddPage>Sayfa Ekle</AddPage>
-         <EditNavigation>Gezinti</EditNavigation>
-         <Content>İçerik</Content>
+         <EditNavigation>Edit Navigation</EditNavigation>
+         <Content>Edit Content</Content>
          <Editor>Düzenle</Editor>
          <Page>Sayfa</Page>
          <Site>Site</Site>
          <Layout>Yerleşimi Değiştir</Layout>
-         <siteLayout>Yerleşim</siteLayout>
+         <siteLayout>Edit Layout</siteLayout>
          <ManagePages>Sayfaları Yönet</ManagePages>
          <GroupSite>Grup Sitesi</GroupSite>
          <Properties>#{UISEOToolbarForm.label.seo}</Properties>

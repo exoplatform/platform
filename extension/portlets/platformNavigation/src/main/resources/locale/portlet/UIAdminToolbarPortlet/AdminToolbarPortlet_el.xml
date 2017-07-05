@@ -3,13 +3,13 @@
    <UIAdminToolbarPortlet>
       <action>
          <AddPage>Προσθήκη σελίδας</AddPage>
-         <EditNavigation>Πλοήγηση</EditNavigation>
-         <Content>Περιεχόμενο</Content>
+         <EditNavigation>Edit Navigation</EditNavigation>
+         <Content>Edit Content</Content>
          <Editor>Εργαλεία</Editor>
          <Page>Σελίδα</Page>
          <Site>Τοποθεσία</Site>
          <Layout>Επεξεργασία διάταξης</Layout>
-         <siteLayout>Διάταξη</siteLayout>
+         <siteLayout>Edit Layout</siteLayout>
          <ManagePages>Διαχείριση σελίδων</ManagePages>
          <GroupSite>Τοποθεσία Ομάδας</GroupSite>
          <Properties>#{UISEOToolbarForm.label.seo}</Properties>

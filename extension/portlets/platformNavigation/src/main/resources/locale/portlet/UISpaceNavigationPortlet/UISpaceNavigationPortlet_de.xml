@@ -7,7 +7,7 @@
          <see>Zeige {0} weitere Räume an</see>
      </label>
      <msg>
-         <filter-spaces>Spaces suchen</filter-spaces>
+         <filter-spaces>Find a space</filter-spaces>
          <no-space>Kein Raum gefunden</no-space>
      </msg>
 

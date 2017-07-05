@@ -2,20 +2,20 @@
 <bundle>
    <UIUserPlatformToolBarCreatePortlet>
       <label>
-         <topic>Ämne</topic>
+         <topic>Discussion</topic>
          <poll>Enkät</poll>
          <event>Event</event>
-         <upload>Ladda upp en fil</upload>
-         <wiki>Wiki-sida</wiki>
+         <upload>File</upload>
+         <wiki>Wiki Page</wiki>
 
       </label>
    </UIUserPlatformToolBarCreatePortlet>
    <UICreateList>
       <label>
-         <topic>Ämne</topic>
-         <poll>Enkät</poll>
-         <CreateANew>Skapa en ny {1}:</CreateANew>
-         <NoForum>Tyvärr, finns inget forum ännu för att skapa en {1}. Börja med att skapa ditt egen webb-yta.</NoForum>
+         <topic>discussion</topic>
+         <poll>Poll</poll>
+         <CreateANew>New {1}:</CreateANew>
+         <NoForum>Sorry, no forum is available yet in which you can create the {1}. Start by creating a space first and then try again.</NoForum>
          <RequireSelectForum>Välj ett forum.</RequireSelectForum>
       </label>
       <action>
@@ -41,8 +41,8 @@
    </UICreatePoll>
    <UICreateWiki>
       <label>
-         <title>Skapa en ny Wiki-Sida:</title>
-         <location>På plats</location>
+         <title>New Wiki Page:</title>
+         <location>Location</location>
       </label>
    </UICreateWiki>
    <UICreateEvent>
@@ -51,7 +51,7 @@
          <Choix>Lägg till ny:</Choix>
          <EndEvent>Till</EndEvent>
          <StartEvent>Från</StartEvent>
-         <Calendar>Välj kalender</Calendar>
+         <Calendar>Calendar</Calendar>
          <all-day>Hela dagen</all-day>
          <defaultCalendarId>Standard</defaultCalendarId>
       </label>

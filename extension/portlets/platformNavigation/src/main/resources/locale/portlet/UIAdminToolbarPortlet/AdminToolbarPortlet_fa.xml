@@ -3,13 +3,13 @@
    <UIAdminToolbarPortlet>
       <action>
          <AddPage>اضافه کردن صفحه</AddPage>
-         <EditNavigation>هدایت</EditNavigation>
-         <Content>محتوا</Content>
+         <EditNavigation>Edit Navigation</EditNavigation>
+         <Content>Edit Content</Content>
          <Editor>ويرايش</Editor>
          <Page>صفحه</Page>
          <Site>سایت</Site>
          <Layout>ویرایش چیدمان</Layout>
-         <siteLayout>چیدمان</siteLayout>
+         <siteLayout>Edit Layout</siteLayout>
          <ManagePages>مدیریت صفحات</ManagePages>
          <GroupSite>سایت گروه</GroupSite>
          <Properties>#{UISEOToolbarForm.label.seo}</Properties>

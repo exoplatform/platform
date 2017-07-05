@@ -7,7 +7,7 @@
          <see>Arată încă {0} spaţii</see>
      </label>
      <msg>
-         <filter-spaces>Caută spaţii</filter-spaces>
+         <filter-spaces>Find a space</filter-spaces>
          <no-space>Nu am găsit niciun spațiu</no-space>
      </msg>
 

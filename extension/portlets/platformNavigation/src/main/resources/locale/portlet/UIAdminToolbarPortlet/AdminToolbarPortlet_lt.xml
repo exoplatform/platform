@@ -3,13 +3,13 @@
    <UIAdminToolbarPortlet>
       <action>
          <AddPage>Pridėti puslapį</AddPage>
-         <EditNavigation>Navigacija</EditNavigation>
-         <Content>Turinys</Content>
+         <EditNavigation>Edit Navigation</EditNavigation>
+         <Content>Edit Content</Content>
          <Editor>Redaguoti</Editor>
          <Page>Puslapis</Page>
          <Site>Svetainė</Site>
          <Layout>Redaguoti išdėstymą</Layout>
-         <siteLayout>Išdėstymas</siteLayout>
+         <siteLayout>Edit Layout</siteLayout>
          <ManagePages>Tvarkyti puslapius</ManagePages>
          <GroupSite>Grupės svetainė</GroupSite>
          <Properties>#{UISEOToolbarForm.label.seo}</Properties>

@@ -3,13 +3,13 @@
    <UIAdminToolbarPortlet>
       <action>
          <AddPage>Dodaj stran</AddPage>
-         <EditNavigation>Krmarjenje</EditNavigation>
-         <Content>Vsebina</Content>
+         <EditNavigation>Edit Navigation</EditNavigation>
+         <Content>Edit Content</Content>
          <Editor>Uredi</Editor>
          <Page>Stran</Page>
          <Site>Spletno mesto</Site>
          <Layout>Uredi postavitev</Layout>
-         <siteLayout>Postavitev</siteLayout>
+         <siteLayout>Edit Layout</siteLayout>
          <ManagePages>Upravljanje strani</ManagePages>
          <GroupSite>Mesto skupine</GroupSite>
          <Properties>#{UISEOToolbarForm.label.seo}</Properties>

@@ -2,20 +2,20 @@
 <bundle>
    <UIUserPlatformToolBarCreatePortlet>
       <label>
-         <topic>Тема</topic>
+         <topic>Discussion</topic>
          <poll>Опрос</poll>
          <event>Событие</event>
-         <upload>Загрузить файл</upload>
-         <wiki>Вики-страница</wiki>
+         <upload>File</upload>
+         <wiki>Wiki Page</wiki>
 
       </label>
    </UIUserPlatformToolBarCreatePortlet>
    <UICreateList>
       <label>
-         <topic>тема</topic>
-         <poll>опрос</poll>
-         <CreateANew>Создать новый {1}:</CreateANew>
-         <NoForum>К сожалею, нет доступных форумов для создания {1}. Начните с создания собственного пространства.</NoForum>
+         <topic>discussion</topic>
+         <poll>Poll</poll>
+         <CreateANew>New {1}:</CreateANew>
+         <NoForum>Sorry, no forum is available yet in which you can create the {1}. Start by creating a space first and then try again.</NoForum>
          <RequireSelectForum>Пожалуйста, выберите форум.</RequireSelectForum>
       </label>
       <action>
@@ -41,8 +41,8 @@
    </UICreatePoll>
    <UICreateWiki>
       <label>
-         <title>Создать новую Вики-страницу:</title>
-         <location>В расположении</location>
+         <title>New Wiki Page:</title>
+         <location>Location</location>
       </label>
    </UICreateWiki>
    <UICreateEvent>
@@ -51,7 +51,7 @@
          <Choix>Добавить новое:</Choix>
          <EndEvent>До</EndEvent>
          <StartEvent>С</StartEvent>
-         <Calendar>Выбрать календарь</Calendar>
+         <Calendar>Calendar</Calendar>
          <all-day>Весь день</all-day>
          <defaultCalendarId>По умолчанию</defaultCalendarId>
       </label>

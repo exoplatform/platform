@@ -4,13 +4,13 @@
 <label>
 <applications>Applikasjoner</applications>
 <content>Innhold</content>
-<siteExplorer>Nettsteds utforsker</siteExplorer>
+<siteExplorer>Site Explorer</siteExplorer>
 <wcmAdmin>Innholds administrasjon</wcmAdmin>
-<users>Community</users>
+<users>Brukere</users>
 <newStaff>Legge til brukere</newStaff>
-<org-management>Manage Community</org-management>
+<org-management>Manage Users</org-management>
 <portal>Portal</portal>
-<administration>Administrasjon</administration>
+<administration>Administration</administration>
 <groupnavigation>Gruppe nettsteder</groupnavigation>
 <pageManagement>Sider</pageManagement>
 <portalnavigation>Nettsteder</portalnavigation>
@@ -20,7 +20,7 @@
 <Branding>Merkenavn tilpassing</Branding>
       <Notification>Notifications</Notification>
 <ide>IDE</ide>
-<search>Søk</search>
+<search>Search Administration</search>
 </label>
 </UISetupPlatformToolBarPortlet>
 </bundle>

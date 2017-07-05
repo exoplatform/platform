@@ -3,13 +3,13 @@
    <UIAdminToolbarPortlet>
       <action>
          <AddPage>Přidat stránku</AddPage>
-         <EditNavigation>Navigace</EditNavigation>
-         <Content>Obsah</Content>
+         <EditNavigation>Edit Navigation</EditNavigation>
+         <Content>Edit Content</Content>
          <Editor>Upravit</Editor>
          <Page>Stránka</Page>
          <Site>Web</Site>
          <Layout>Upravit rozvržení</Layout>
-         <siteLayout>Rozvržení</siteLayout>
+         <siteLayout>Edit Layout</siteLayout>
          <ManagePages>Spravovat stránky</ManagePages>
          <GroupSite>Stránky skupiny</GroupSite>
          <Properties>#{UISEOToolbarForm.label.seo}</Properties>

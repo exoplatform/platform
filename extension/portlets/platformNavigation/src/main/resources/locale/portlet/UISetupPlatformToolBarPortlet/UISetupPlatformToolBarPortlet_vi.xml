@@ -4,13 +4,13 @@
 <label>
 <applications>Ứng dụng</applications>
 <content>Nội dung</content>
-<siteExplorer>Trình duyệt Nội dung</siteExplorer>
+<siteExplorer>Site Explorer</siteExplorer>
 <wcmAdmin>Quản trị Nội dung</wcmAdmin>
-<users>Cộng đồng</users>
+<users>Users</users>
 <newStaff>Thêm Người dùng</newStaff>
-<org-management>Quản lý cộng đồng</org-management>
+<org-management>Manage Users</org-management>
 <portal>Cổng thông tin</portal>
-<administration>Quản trị</administration>
+<administration>Administration</administration>
 <groupnavigation>Site của Nhóm</groupnavigation>
 <pageManagement>Trang</pageManagement>
 <portalnavigation>Site</portalnavigation>
@@ -20,7 +20,7 @@
 <Branding>Thương hiệu</Branding>
       <Notification>Thông báo</Notification>
 <ide>IDE</ide>
-<search>Tìm kiếm</search>
+<search>Search Administration</search>
 </label>
 </UISetupPlatformToolBarPortlet>
 </bundle>

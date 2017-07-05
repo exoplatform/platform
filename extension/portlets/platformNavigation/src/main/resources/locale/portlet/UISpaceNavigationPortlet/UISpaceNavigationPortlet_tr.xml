@@ -7,7 +7,7 @@
          <see>{0} Alan Daha Göster</see>
      </label>
      <msg>
-         <filter-spaces>Alanlarda Ara</filter-spaces>
+         <filter-spaces>Find a space</filter-spaces>
          <no-space>Alan bulunamadı</no-space>
      </msg>
 

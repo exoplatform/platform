@@ -2,20 +2,20 @@
 <bundle>
    <UIUserPlatformToolBarCreatePortlet>
       <label>
-         <topic>Konu</topic>
+         <topic>Discussion</topic>
          <poll>Anket</poll>
          <event>Etkinlik</event>
-         <upload>Dosya Yükle</upload>
-         <wiki>Wiki Sayfası</wiki>
+         <upload>File</upload>
+         <wiki>Wiki Page</wiki>
 
       </label>
    </UIUserPlatformToolBarCreatePortlet>
    <UICreateList>
       <label>
-         <topic>konu</topic>
-         <poll>anket</poll>
-         <CreateANew>Yeni bir {1} oluşturun:</CreateANew>
-         <NoForum>Üzgünüm, hiçbir forum bir {1} yaratmak için henüz kullanılabilir değil. Kendi panonuzda oluşturursunuz.</NoForum>
+         <topic>discussion</topic>
+         <poll>Poll</poll>
+         <CreateANew>New {1}:</CreateANew>
+         <NoForum>Sorry, no forum is available yet in which you can create the {1}. Start by creating a space first and then try again.</NoForum>
          <RequireSelectForum>Lütfen bir forum seçin.</RequireSelectForum>
       </label>
       <action>
@@ -41,8 +41,8 @@
    </UICreatePoll>
    <UICreateWiki>
       <label>
-         <title>Yeni Wiki sayfası oluşturun:</title>
-         <location>Konum</location>
+         <title>New Wiki Page:</title>
+         <location>Location</location>
       </label>
    </UICreateWiki>
    <UICreateEvent>
@@ -51,7 +51,7 @@
          <Choix>Yeni ekle:</Choix>
          <EndEvent>Bitiş Tarihi</EndEvent>
          <StartEvent>Başlangıç Tarihi</StartEvent>
-         <Calendar>Takvimi Seçin</Calendar>
+         <Calendar>Calendar</Calendar>
          <all-day>Tüm Gün</all-day>
          <defaultCalendarId>Varsayılan</defaultCalendarId>
       </label>

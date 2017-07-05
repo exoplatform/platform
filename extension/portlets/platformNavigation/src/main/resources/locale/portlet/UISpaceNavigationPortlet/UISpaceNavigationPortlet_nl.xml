@@ -7,7 +7,7 @@
          <see>Toon {0} meer ruimten</see>
      </label>
      <msg>
-         <filter-spaces>Zoek ruimten</filter-spaces>
+         <filter-spaces>Find a space</filter-spaces>
          <no-space>Geen ruimten vanaf, gevonden</no-space>
      </msg>
 

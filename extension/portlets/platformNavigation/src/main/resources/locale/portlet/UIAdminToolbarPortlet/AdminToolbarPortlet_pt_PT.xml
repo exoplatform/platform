@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bundle>
+   <UIAdminToolbarPortlet>
+      <action>
+         <AddPage>Adicionar página</AddPage>
+         <EditNavigation>Edit Navigation</EditNavigation>
+         <Content>Edit Content</Content>
+         <Editor>Edit</Editor>
+         <Page>Page</Page>
+         <Site>Site</Site>
+         <Layout>Editar layout</Layout>
+         <siteLayout>Edit Layout</siteLayout>
+         <ManagePages>Gerenciar páginas</ManagePages>
+         <GroupSite>Site do grupo</GroupSite>
+         <Properties>#{UISEOToolbarForm.label.seo}</Properties>
+         <AddSite>Add Site</AddSite>
+      </action>
+<ManageSites>Gerenciar sites</ManageSites>
+<ManageGroupSites>Gerenciar sites do grupo</ManageGroupSites>
+   </UIAdminToolbarPortlet>
+
+  <UISEOForm>
+    <label>
+      <title>Título:</title>  
+      <description>Descrição:</description>
+      <keywords>Palavras chave:</keywords>
+      <language>Idioma:</language>
+      <robots>Robôs:</robots>
+      <sitemap>Mapa do site:</sitemap>
+      <sitemapvisible>Visível no mapa do site</sitemapvisible>
+  <isInherited>Herdado da página pai</isInherited>
+      <priority>Prioridade:</priority>
+      <frequency>Frequência:</frequency>
+      <select-language>Selecionar idioma</select-language>
+      <option>
+        <Always>Always</Always>
+        <Hourly>Hourly</Hourly>
+        <Daily>Daily</Daily>
+        <Weekly>Semanal</Weekly>
+        <Monthly>Monthly</Monthly>
+        <Yearly>Anualmente</Yearly>
+        <Never>Never</Never>
+      </option> 
+    </label>
+ 
+    <action>
+      <Save>#{word.save}</Save>
+      <Cancel>#{word.cancel}</Cancel>
+    </action>
+    <msg>
+      <repository-exception>Ocorreu um erro inesperado. Não é possível salvar os metadados da página.</repository-exception>
+      <confirm-delete>Tem certeza que deseja excluir esses dados SEO?</confirm-delete>
+    </msg>
+    <title>
+    <seo-delete>Excluir</seo-delete>
+    </title>
+<help> 
+  <priority>Valores válidos de 0.0 a 1.0.</priority>
+  <description>Ajudar buscadores: deixe-os saber que a página à seguir tem um link com o que eles estão procurando.</description>
+  <keywords>Os termos mais importantes na página devem ser separados por vírgula.</keywords>  
+    </help>  
+  </UISEOForm>
+  <UISEOPopupWindow>
+  <title>
+      <UISEOForm>#{UISEOToolbarForm.title.seo}</UISEOForm>
+  </title>
+  </UISEOPopupWindow>    
+  <UISEOToolbarForm>
+  <title>
+      <seo>Gerenciamento de SEO</seo>
+  </title>
+  <label>
+    <seo>SEO</seo>
+  </label>
+  </UISEOToolbarForm>  
+  <FloatNumberValidator>
+    <msg>
+      <Invalid-number>O campo "prioridade" tem um número inválido. Os valores válidos vão de 0.0 até 1.0.</Invalid-number>
+    </msg>
+  </FloatNumberValidator>
+  
+  <Locale>
+    <label>      
+      <it>Italian</it>      
+      <fr>French</fr>
+      <en>Inglês</en>      
+    </label>
+  </Locale>
+  
+</bundle>

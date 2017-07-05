@@ -3,13 +3,13 @@
    <UIAdminToolbarPortlet>
       <action>
          <AddPage>Pagina toevoegen</AddPage>
-         <EditNavigation>Navigatie</EditNavigation>
-         <Content>Inhoud</Content>
+         <EditNavigation>Edit Navigation</EditNavigation>
+         <Content>Edit Content</Content>
          <Editor>Bewerken</Editor>
          <Page>Pagina</Page>
          <Site>Site portaal</Site>
          <Layout>Opmaak bewerken</Layout>
-         <siteLayout>Opmaak</siteLayout>
+         <siteLayout>Edit Layout</siteLayout>
          <ManagePages>Beheer pagina's</ManagePages>
          <GroupSite>Groep Site</GroupSite>
          <Properties>#{UISEOToolbarForm.label.seo}</Properties>

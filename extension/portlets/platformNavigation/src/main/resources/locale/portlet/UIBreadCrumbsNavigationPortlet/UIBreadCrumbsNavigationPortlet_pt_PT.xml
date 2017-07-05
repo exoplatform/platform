@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bundle>
+<UIBreadCrumbsNavigationPortlet>
+    <label>
+      <EditProfile>Editar meu perfil</EditProfile>
+    </label>
+    <title>
+      <EditProfile>Editar perfil</EditProfile>
+    </title>
+    <title>
+      <MyProfile>Meu perfil</MyProfile>
+    </title>
+</UIBreadCrumbsNavigationPortlet>
+</bundle>

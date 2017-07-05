@@ -3,13 +3,13 @@
    <UIAdminToolbarPortlet>
       <action>
          <AddPage>添加页面</AddPage>
-         <EditNavigation>导航</EditNavigation>
-         <Content>内容</Content>
+         <EditNavigation>Edit Navigation</EditNavigation>
+         <Content>Edit Content</Content>
          <Editor>编辑</Editor>
          <Page>页面</Page>
          <Site>站点</Site>
          <Layout>编辑布局</Layout>
-         <siteLayout>布局</siteLayout>
+         <siteLayout>Edit Layout</siteLayout>
          <ManagePages>管理页面</ManagePages>
          <GroupSite>群组站点</GroupSite>
          <Properties>#{UISEOToolbarForm.label.seo}</Properties>

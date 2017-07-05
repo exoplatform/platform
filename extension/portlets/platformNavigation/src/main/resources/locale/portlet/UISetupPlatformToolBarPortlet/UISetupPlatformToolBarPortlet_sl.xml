@@ -4,13 +4,13 @@
 <label>
 <applications>Aplikacije</applications>
 <content>Vsebina</content>
-<siteExplorer>Raziskovalec mest</siteExplorer>
+<siteExplorer>Site Explorer</siteExplorer>
 <wcmAdmin>Urejanje vsebine</wcmAdmin>
-<users>Skupnost</users>
+<users>Users</users>
 <newStaff>Dodaj uporabnike</newStaff>
-<org-management>Upravljanje skupnosti</org-management>
+<org-management>Manage Users</org-management>
 <portal>Portal</portal>
-<administration>Skrbništvo</administration>
+<administration>Administration</administration>
 <groupnavigation>Skupna mesta</groupnavigation>
 <pageManagement>Strani</pageManagement>
 <portalnavigation>Mesta</portalnavigation>
@@ -20,7 +20,7 @@
 <Branding>Partnersko povezovanje</Branding>
       <Notification>Obvestila</Notification>
 <ide>IDE</ide>
-<search>Išči</search>
+<search>Search Administration</search>
 </label>
 </UISetupPlatformToolBarPortlet>
 </bundle>

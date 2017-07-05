@@ -4,13 +4,13 @@
 <label>
 <applications>應用程式</applications>
 <content>內容</content>
-<siteExplorer>網站資源管理器</siteExplorer>
+<siteExplorer>Site Explorer</siteExplorer>
 <wcmAdmin>內容管理員</wcmAdmin>
-<users>Community</users>
+<users>使用者</users>
 <newStaff>新增使用者</newStaff>
-<org-management>Manage Community</org-management>
+<org-management>Manage Users</org-management>
 <portal>入口網站</portal>
-<administration>系統管理</administration>
+<administration>Administration</administration>
 <groupnavigation>群組網站</groupnavigation>
 <pageManagement>頁面</pageManagement>
 <portalnavigation>網站</portalnavigation>
@@ -20,7 +20,7 @@
 <Branding>品牌</Branding>
       <Notification>Notifications</Notification>
 <ide>IDE</ide>
-<search>搜尋</search>
+<search>Search Administration</search>
 </label>
 </UISetupPlatformToolBarPortlet>
 </bundle>

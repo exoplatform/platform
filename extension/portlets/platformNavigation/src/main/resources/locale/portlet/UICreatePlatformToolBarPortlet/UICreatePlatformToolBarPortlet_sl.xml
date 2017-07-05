@@ -2,20 +2,20 @@
 <bundle>
    <UIUserPlatformToolBarCreatePortlet>
       <label>
-         <topic>Tema</topic>
+         <topic>Discussion</topic>
          <poll>Anketa</poll>
          <event>Dogodek</event>
-         <upload>Prenesi datoteko</upload>
-         <wiki>Wiki stran</wiki>
+         <upload>Datoteka</upload>
+         <wiki>Wiki Page</wiki>
 
       </label>
    </UIUserPlatformToolBarCreatePortlet>
    <UICreateList>
       <label>
-         <topic>tema</topic>
-         <poll>anketa</poll>
-         <CreateANew>Ustvari novo {1}:</CreateANew>
-         <NoForum>Oprostite, noben forum še ne obstaja, da bi lahko ustvarili {1}. Začnite z ustvarjanjem svojega prostora.</NoForum>
+         <topic>discussion</topic>
+         <poll>Anketa</poll>
+         <CreateANew>Novo {1}:</CreateANew>
+         <NoForum>Sorry, no forum is available yet in which you can create the {1}. Start by creating a space first and then try again.</NoForum>
          <RequireSelectForum>Prosim, izberi forum.</RequireSelectForum>
       </label>
       <action>
@@ -41,8 +41,8 @@
    </UICreatePoll>
    <UICreateWiki>
       <label>
-         <title>Ustvari novo Wiki stran:</title>
-         <location>Na lokaciji</location>
+         <title>New Wiki Page:</title>
+         <location>Location</location>
       </label>
    </UICreateWiki>
    <UICreateEvent>
@@ -51,7 +51,7 @@
          <Choix>Dodaj novo:</Choix>
          <EndEvent>do</EndEvent>
          <StartEvent>Od</StartEvent>
-         <Calendar>Izberi koledar</Calendar>
+         <Calendar>Calendar</Calendar>
          <all-day>Ves dan</all-day>
          <defaultCalendarId>Privzeto</defaultCalendarId>
       </label>

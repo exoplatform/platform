@@ -4,13 +4,13 @@
 <label>
 <applications>Programos</applications>
 <content>Turinys</content>
-<siteExplorer>Svetainės naršyklė</siteExplorer>
+<siteExplorer>Site Explorer</siteExplorer>
 <wcmAdmin>Turinio administravimas</wcmAdmin>
-<users>Community</users>
+<users>Vartotojai</users>
 <newStaff>Įtraukti vartotojus</newStaff>
-<org-management>Manage Community</org-management>
+<org-management>Manage Users</org-management>
 <portal>Portalas</portal>
-<administration>Administravimas</administration>
+<administration>Administration</administration>
 <groupnavigation>Grupės svetainės</groupnavigation>
 <pageManagement>Puslapiai</pageManagement>
 <portalnavigation>Svetainės</portalnavigation>
@@ -20,7 +20,7 @@
 <Branding>Prekės ženklas</Branding>
       <Notification>Notifications</Notification>
 <ide>IDE</ide>
-<search>Paieška</search>
+<search>Search Administration</search>
 </label>
 </UISetupPlatformToolBarPortlet>
 </bundle>

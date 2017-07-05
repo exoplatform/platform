@@ -7,7 +7,7 @@
          <see>Εμφάνιση {0} περισσότερων Χώρων</see>
      </label>
      <msg>
-         <filter-spaces>Αναζήτηση χώρων</filter-spaces>
+         <filter-spaces>Find a space</filter-spaces>
          <no-space>Δεν βρέθηκαν Χώροι</no-space>
      </msg>
 

@@ -3,13 +3,13 @@
    <UIAdminToolbarPortlet>
       <action>
          <AddPage>Adaugă pagină</AddPage>
-         <EditNavigation>Navigare</EditNavigation>
-         <Content>Conţinut</Content>
+         <EditNavigation>Edit Navigation</EditNavigation>
+         <Content>Edit Content</Content>
          <Editor>Editare</Editor>
          <Page>Pagina</Page>
          <Site>Site-ul</Site>
          <Layout>Editare machetă</Layout>
-         <siteLayout>Macheta</siteLayout>
+         <siteLayout>Edit Layout</siteLayout>
          <ManagePages>Gestionați pagini</ManagePages>
          <GroupSite>Site-ul de grup</GroupSite>
          <Properties>#{UISEOToolbarForm.label.seo}</Properties>

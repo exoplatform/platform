@@ -2,20 +2,20 @@
 <bundle>
    <UIUserPlatformToolBarCreatePortlet>
       <label>
-         <topic>Emne</topic>
+         <topic>Discussion</topic>
          <poll>Avstemning</poll>
          <event>Event</event>
-         <upload>Last opp en fil</upload>
-         <wiki>Wiki side</wiki>
+         <upload>File</upload>
+         <wiki>Wiki Page</wiki>
 
       </label>
    </UIUserPlatformToolBarCreatePortlet>
    <UICreateList>
       <label>
-         <topic>Emne</topic>
-         <poll>Avstemning</poll>
-         <CreateANew>Opprett en ny {1}:</CreateANew>
-         <NoForum>Beklager, ingen forum er tilgjengelig ennå for å opprette en {1}. Start med å lage ditt eget fellesskap.</NoForum>
+         <topic>discussion</topic>
+         <poll>Poll</poll>
+         <CreateANew>New {1}:</CreateANew>
+         <NoForum>Sorry, no forum is available yet in which you can create the {1}. Start by creating a space first and then try again.</NoForum>
          <RequireSelectForum>Velg et forum.</RequireSelectForum>
       </label>
       <action>
@@ -41,8 +41,8 @@
    </UICreatePoll>
    <UICreateWiki>
       <label>
-         <title>Opprett en ny Wiki side:</title>
-         <location>Plassering</location>
+         <title>New Wiki Page:</title>
+         <location>Location</location>
       </label>
    </UICreateWiki>
    <UICreateEvent>
@@ -51,7 +51,7 @@
          <Choix>Legg til ny:</Choix>
          <EndEvent>Til</EndEvent>
          <StartEvent>Fra</StartEvent>
-         <Calendar>Velg kalender</Calendar>
+         <Calendar>Calendar</Calendar>
          <all-day>Hele dagen</all-day>
          <defaultCalendarId>Standard</defaultCalendarId>
       </label>

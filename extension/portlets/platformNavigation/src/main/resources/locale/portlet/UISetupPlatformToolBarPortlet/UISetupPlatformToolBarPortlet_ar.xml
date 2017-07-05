@@ -4,13 +4,13 @@
 <label>
 <applications>تطبيقات</applications>
 <content>المحتوى</content>
-<siteExplorer>مُـستكشف المواقع</siteExplorer>
+<siteExplorer>Site Explorer</siteExplorer>
 <wcmAdmin>إدارة المحتوى</wcmAdmin>
-<users>الجماعة</users>
+<users>Users</users>
 <newStaff>إضافة مستخدمين</newStaff>
-<org-management>إدارة المستخدمين والمجموعات</org-management>
+<org-management>Manage Users</org-management>
 <portal>بوّابة</portal>
-<administration>ادارة</administration>
+<administration>Administration</administration>
 <groupnavigation>مواقع المجموعات</groupnavigation>
 <pageManagement>صفحات</pageManagement>
 <portalnavigation>مواقع</portalnavigation>
@@ -20,7 +20,7 @@
 <Branding>الشّكل</Branding>
       <Notification>الإشعارات</Notification>
 <ide>نظام برمجة متكامل IDE</ide>
-<search>البحث</search>
+<search>Search Administration</search>
 </label>
 </UISetupPlatformToolBarPortlet>
 </bundle>

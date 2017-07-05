@@ -4,11 +4,11 @@
 <label>
 <applications>Program</applications>
 <content>Innehåll</content>
-<siteExplorer>utforskare för webbplatser</siteExplorer>
+<siteExplorer>Site Explorer</siteExplorer>
 <wcmAdmin>Innehållsadministration</wcmAdmin>
-<users>Community</users>
+<users>Användare</users>
 <newStaff>Lägg till användare</newStaff>
-<org-management>Manage Community</org-management>
+<org-management>Manage Users</org-management>
 <portal>Portal</portal>
 <administration>Administration</administration>
 <groupnavigation>Grupp platser</groupnavigation>
@@ -20,7 +20,7 @@
 <Branding>Branding</Branding>
       <Notification>Notifications</Notification>
 <ide>IDE</ide>
-<search>Sök</search>
+<search>Search Administration</search>
 </label>
 </UISetupPlatformToolBarPortlet>
 </bundle>

@@ -22,7 +22,7 @@
 <messagebundle>
   <msg name="title">crwdns6785748:0crwdne6785748:0</msg>
   <msg name="customize">crwdns6785749:0crwdne6785749:0</msg>
-  <msg name="save">crwdns6785750:0{word.save}crwdne6785750:0</msg>
+  <msg name="save">crwdns6785750:0#{word.save}crwdne6785750:0</msg>
   <msg name="add">crwdns6785751:0crwdne6785751:0</msg>
   <msg name="ok">crwdns6785752:0crwdne6785752:0</msg>
   <msg name="name">crwdns6785753:0crwdne6785753:0</msg>

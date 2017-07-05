@@ -7,7 +7,7 @@
          <see>顯示更多 {0}的空間</see>
      </label>
      <msg>
-         <filter-spaces>搜尋共用空間</filter-spaces>
+         <filter-spaces>Find a space</filter-spaces>
          <no-space>沒有發現空間</no-space>
      </msg>
 

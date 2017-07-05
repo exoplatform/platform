@@ -4,13 +4,13 @@
 <label>
 <applications>Aplicacions</applications>
 <content>Contingut</content>
-<siteExplorer>Explorador de Llocs</siteExplorer>
+<siteExplorer>Site Explorer</siteExplorer>
 <wcmAdmin>Gestió de continguts</wcmAdmin>
-<users>Comunitat</users>
+<users>Users</users>
 <newStaff>Afegeix Usuaris/es</newStaff>
-<org-management>Gestiona la Comunitat</org-management>
+<org-management>Manage Users</org-management>
 <portal>Portal</portal>
-<administration>Adminstració</administration>
+<administration>Administration</administration>
 <groupnavigation>Llocs dels Grups</groupnavigation>
 <pageManagement>Pàgines</pageManagement>
 <portalnavigation>Llocs</portalnavigation>
@@ -20,7 +20,7 @@
 <Branding>Logotips</Branding>
       <Notification>Notificacions</Notification>
 <ide>IDE</ide>
-<search>Cerca</search>
+<search>Search Administration</search>
 </label>
 </UISetupPlatformToolBarPortlet>
 </bundle>
