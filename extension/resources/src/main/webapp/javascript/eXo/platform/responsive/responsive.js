@@ -51,13 +51,28 @@
       }
     },
     toggleLeftBar : function() {
-       $('.toggle-left-bar').on('click', function() {
-        if($('body').hasClass('open-left-bar')) {
-          tabManagerApp.hideLeftPanel();  
+      var collapseClass = 'collapse-left-bar';
+      var $menuButton = $('.toggle-left-bar');
+
+      var toggle = function() {
+        $body = $('body');
+        $body.toggleClass(collapseClass + ' expand-left-bar');
+        if ($(window).width()  < 1025) {
+          if($body.hasClass('open-left-bar')) {
+            tabManagerApp.hideLeftPanel();
+          } else {
+            tabManagerApp.showLeftPanel();
+          }
         } else {
-          tabManagerApp.showLeftPanel();  
+          window.localStorage.setItem('exo-platform-left-menu-collapsed/' + eXo.env.portal.userName, $body.hasClass(collapseClass));
+
+          $('.LeftNavigationTDContainer').off().on('transitionend', function() {
+            $("#LeftNavigation").perfectScrollbar('update');
+          });
         }
-      });
+      };
+
+      $('.toggle-left-bar').off().on('click', toggle);
     },
     toggleRightBar : function() {
       $('.toggle-right-bar').on('click', function() {
@@ -78,6 +93,7 @@
       $('body,html').css('overflow-y',"hidden");
       $('.mask-layer-right').on('click',function(){
         tabManagerApp.hideLeftPanel();
+        return false;
       });
       leftNavi.addClass('expanded');      
     },
@@ -352,5 +368,5 @@
   // return {
   //   Responsive : eXo.ecm.Responsive
   // };
-
+  return tabManagerApp
 })($);
