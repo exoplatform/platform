@@ -39,6 +39,11 @@
             <description>Parent path of cleanup operation</description>
             <value>/</value>
           </value-param>
+          <value-param>
+            <name>mixinsCleanup.continueOnError</name>
+            <description>Wheter continue if an error occured when proceeding one node or not</description>
+            <value>true</value>
+          </value-param>
           <values-param>
             <name>mixinsCleanup.includes</name>
             <description>The workspace name</description>

@@ -135,6 +135,7 @@ public class MixinCleanerUpdaterTest extends BaseExoTestCase {
 
     socialMixinCleanerUpgradePlugin.setName(pluginName);
     socialMixinCleanerUpgradePlugin.processUpgrade(OLD_VERSION, NEW_VERSION);
+    socialMixinCleanerUpgradePlugin.setQueryLimitSize(10);
 
     assertTrue("Should process to upgrade is 'False'",
                socialMixinCleanerUpgradePlugin.shouldProceedToUpgrade(NEW_VERSION, OLD_VERSION));
@@ -157,6 +158,7 @@ public class MixinCleanerUpdaterTest extends BaseExoTestCase {
                                                                     settingService,
                                                                     setInitParams(0));
     socialMixinCleanerUpgradePlugin.setName(pluginName);
+    socialMixinCleanerUpgradePlugin.setQueryLimitSize(10);
 
     assertTrue("Should process to upgrade is 'False'",
                socialMixinCleanerUpgradePlugin.shouldProceedToUpgrade(NEW_VERSION, OLD_VERSION));
@@ -265,6 +267,10 @@ public class MixinCleanerUpdaterTest extends BaseExoTestCase {
     ValueParam maxNodesToTreatParam = new ValueParam();
     maxNodesToTreatParam.setName("mixinsCleanup.maxNodes");
     maxNodesToTreatParam.setValue("" + maxNodesToTreat);
+
+    ValueParam continueOnErrorParam = new ValueParam();
+    continueOnErrorParam.setName("mixinsCleanup.continueOnError");
+    continueOnErrorParam.setValue("false");
 
     ValueParam groupIdParam = new ValueParam();
     groupIdParam.setName("product.group.id");
