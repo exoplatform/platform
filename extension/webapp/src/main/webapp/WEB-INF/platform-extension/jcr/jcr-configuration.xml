@@ -19,6 +19,11 @@
                     <description>JCR configuration file</description>
                     <value>war:/platform-extension/jcr/repository-configuration.xml</value>
                 </value-param>
+                <value-param profiles="recovery-index-rsync">
+                    <name>conf-path</name>
+                    <description>JCR configuration file</description>
+                    <value>war:/platform-extension/jcr/repository-rsync-configuration.xml</value>
+                </value-param>
             </init-params>
         </component-plugin>
     </external-component-plugins>
