@@ -3,24 +3,24 @@
 <UISetupPlatformToolBarPortlet>
 <label>
 <applications>Aplicações</applications>
-<content>Content</content>
-<siteExplorer>Site Explorer</siteExplorer>
-<wcmAdmin>Administração de conteúdo</wcmAdmin>
-<users>Users</users>
+<content>Conteúdo</content>
+<siteExplorer>Explorador de sites</siteExplorer>
+<wcmAdmin>Gestão de conteúdo</wcmAdmin>
+<users>Utilizadores</users>
 <newStaff>Adicionar utilizadores</newStaff>
-<org-management>Manage Users</org-management>
+<org-management>Gerir utilizadores e grupos</org-management>
 <portal>Portal</portal>
-<administration>Administration</administration>
+<administration>Administração</administration>
 <groupnavigation>Sites do grupo</groupnavigation>
-<pageManagement>Pages</pageManagement>
+<pageManagement>Páginas</pageManagement>
 <portalnavigation>Sites</portalnavigation>
 <servicesManagement>Gestão</servicesManagement>
 <monitoring>Monitorização</monitoring>
 <spaces>Espaços</spaces>
 <Branding>Marca</Branding>
-      <Notification>Notifications</Notification>
+      <Notification>Notificações</Notification>
 <ide>IDE</ide>
-<search>Search Administration</search>
+<search>Pesquisar</search>
 </label>
 </UISetupPlatformToolBarPortlet>
 </bundle>

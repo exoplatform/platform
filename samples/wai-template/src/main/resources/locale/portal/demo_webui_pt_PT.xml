@@ -11,9 +11,9 @@
     <register>Registrar</register>
   </Signin>
   <Toolbar>
-    <SkipToContent>Skip to content</SkipToContent>
+    <SkipToContent>Ir para conteúdo</SkipToContent>
     <SiteMap>Mapa do site</SiteMap>
-    <Accessibility>Accessibility</Accessibility>
+    <Accessibility>Acessibilidade</Accessibility>
     <NormalSize>Tamanho normal</NormalSize>
     <MediumSize>Tamanho médio</MediumSize>
     <LargeSize>Tamanho grande</LargeSize>
@@ -25,7 +25,7 @@
     <GoHome>Ir para a página inicial</GoHome>
   </Logo>
   <acme>
-    <label>ACME Template</label>
+    <label>Modelo ACME</label>
   </acme>  
   <WAIPortal>
     <label>Site acessível (exemplo)</label>

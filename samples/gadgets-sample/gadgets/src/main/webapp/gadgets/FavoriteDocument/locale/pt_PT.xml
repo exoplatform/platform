@@ -20,7 +20,7 @@
 
 -->
 <messagebundle>
-  <msg name="title">Favorite Documents</msg>
+  <msg name="title">Documentos favoritos</msg>
   <msg name="titleFav">Meus favoritos</msg>
   <msg name="titleDoc">Meus documentos</msg>  
   <msg name="nofav">Você não possui nenhum documento favorito</msg>

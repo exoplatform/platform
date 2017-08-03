@@ -47,6 +47,7 @@
    </UICreateWiki>
    <UICreateEvent>
       <label>
+         <Popup_title>crwdns6858574:0crwdne6858574:0</Popup_title>
          <Title>crwdns6785782:0#{word.title}crwdne6785782:0</Title>
          <Choix>crwdns6785783:0crwdne6785783:0</Choix>
          <EndEvent>crwdns6785784:0crwdne6785784:0</EndEvent>

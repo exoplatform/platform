@@ -3,20 +3,20 @@
    <UIAdminToolbarPortlet>
       <action>
          <AddPage>Adicionar página</AddPage>
-         <EditNavigation>Edit Navigation</EditNavigation>
-         <Content>Edit Content</Content>
-         <Editor>Edit</Editor>
-         <Page>Page</Page>
+         <EditNavigation>Navegação</EditNavigation>
+         <Content>Conteúdo</Content>
+         <Editor>Editar</Editor>
+         <Page>Página</Page>
          <Site>Site</Site>
          <Layout>Editar layout</Layout>
-         <siteLayout>Edit Layout</siteLayout>
-         <ManagePages>Gerenciar páginas</ManagePages>
+         <siteLayout>Layout</siteLayout>
+         <ManagePages>Gerir Páginas</ManagePages>
          <GroupSite>Site do grupo</GroupSite>
          <Properties>#{UISEOToolbarForm.label.seo}</Properties>
-         <AddSite>Add Site</AddSite>
+         <AddSite>Adicionar site</AddSite>
       </action>
-<ManageSites>Gerenciar sites</ManageSites>
-<ManageGroupSites>Gerenciar sites do grupo</ManageGroupSites>
+<ManageSites>Gerir Sites</ManageSites>
+<ManageGroupSites>Gerir Sites de Grupo</ManageGroupSites>
    </UIAdminToolbarPortlet>
 
   <UISEOForm>
@@ -33,13 +33,13 @@
       <frequency>Frequência:</frequency>
       <select-language>Selecionar idioma</select-language>
       <option>
-        <Always>Always</Always>
-        <Hourly>Hourly</Hourly>
-        <Daily>Daily</Daily>
+        <Always>Sempre</Always>
+        <Hourly>De hora em hora</Hourly>
+        <Daily>Diariamente</Daily>
         <Weekly>Semanal</Weekly>
-        <Monthly>Monthly</Monthly>
+        <Monthly>Mensalmente</Monthly>
         <Yearly>Anualmente</Yearly>
-        <Never>Never</Never>
+        <Never>Nunca</Never>
       </option> 
     </label>
  
@@ -48,7 +48,7 @@
       <Cancel>#{word.cancel}</Cancel>
     </action>
     <msg>
-      <repository-exception>Ocorreu um erro inesperado. Não é possível salvar os metadados da página.</repository-exception>
+      <repository-exception>Ocorreu um erro inesperado. Não é possível gravar os metadados da página.</repository-exception>
       <confirm-delete>Tem certeza que deseja excluir esses dados SEO?</confirm-delete>
     </msg>
     <title>
@@ -67,7 +67,7 @@
   </UISEOPopupWindow>    
   <UISEOToolbarForm>
   <title>
-      <seo>Gerenciamento de SEO</seo>
+      <seo>Gestão SEO</seo>
   </title>
   <label>
     <seo>SEO</seo>
@@ -81,8 +81,8 @@
   
   <Locale>
     <label>      
-      <it>Italian</it>      
-      <fr>French</fr>
+      <it>Italiano</it>      
+      <fr>Francês</fr>
       <en>Inglês</en>      
     </label>
   </Locale>
