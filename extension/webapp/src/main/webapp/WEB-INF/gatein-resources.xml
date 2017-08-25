@@ -44,6 +44,10 @@
       <as>editor</as>
     </depends>
     <depends>
+      <module>social-ui-activity</module>
+      <as>UIActivity</as>
+    </depends>
+    <depends>
       <module>socialUtil</module>
     </depends>
     <depends>

@@ -1,4 +1,4 @@
-(function ($, XSSUtils) {
+(function ($, UIActivity, XSSUtils) {
   MAX_LENGTH = 2000,
   documentPreview = {
     defaultSettings: {
@@ -37,6 +37,7 @@
         status: "",
         liked: null,
         likes: null,
+        comments: null,
         previous: null,
         next: null
       },
@@ -190,6 +191,78 @@
         likeIcon.removeClass('uiIconBlue');
         likeIcon.addClass('uiIconLightGray');
       }
+    },
+
+    toggleLikeComment: function(commentId) {
+      var self = this;
+
+      var comment = this.findComment(commentId);
+
+      if(!comment.liked) {
+        return $.post('/rest/v1/social/comments/' + commentId + '/likes', {liker: eXo.env.portal.userName})
+          .done(function (data) {
+            comment.liked = true;
+            comment.nbOfLikes++;
+
+            // update tooltip on likes count
+            var likeCommentCount = $('#documentPreviewContainer #likeCommentCount_' + commentId);
+            if(likeCommentCount.attr('title')) {
+              likeCommentCount.attr('title', self.settings.user.fullname + '\n' + likeCommentCount.attr('title'));
+            } else {
+              likeCommentCount.attr('title', self.settings.user.fullname);
+            }
+            // update nb of likes
+            likeCommentCount.html('(' + comment.nbOfLikes + ')');
+
+            likeCommentCount.addClass('commentLiked');
+            $('#documentPreviewContainer #likeCommentLink_' + commentId + ' i').addClass('commentLiked');
+
+            self.clearErrorMessage();
+          }).fail(function () {
+            self.showErrorMessage("${UIActivity.comment.canNotLike}");
+          });
+      } else {
+        return $.ajax({
+          type: 'DELETE',
+          url: '/rest/v1/social/comments/' + commentId + '/likes/' + eXo.env.portal.userName
+        }).done(function (data) {
+          comment.liked = false;
+          comment.nbOfLikes--;
+
+          var likeCommentCount = $('#documentPreviewContainer #likeCommentCount_' + commentId);
+          if(comment.likes.length > 0) {
+            // refresh tooltip on likes count
+            likeCommentCount.attr('title', comment.likes.filter(function(like) {
+              return like.username != eXo.env.portal.userName;
+            }).map(function(like) {
+              return like.fullname;
+            }).join('\n'));
+            // update nb of likes
+            likeCommentCount.html('(' + comment.nbOfLikes + ')');
+          } else {
+            likeCommentCount.empty();
+          }
+
+          likeCommentCount.removeClass('commentLiked');
+          $('#documentPreviewContainer #likeCommentLink_' + commentId + ' i').removeClass('commentLiked');
+
+          self.clearErrorMessage();
+        }).fail(function () {
+          self.showErrorMessage("${UIActivity.comment.canNotUnLike}");
+        });
+      }
+    },
+
+    findComment: function(commentId) {
+      for(i = 0; i < this.settings.activity.comments.length; i++) {
+        if(this.settings.activity.comments[i].id == commentId) {
+          return this.settings.activity.comments[i];
+        }
+      }
+    },
+
+    showLikersPopup: function(commentId) {
+      UIActivity.showLikersPopup(commentId);
     },
 
     createSkeleton: function () {
@@ -358,11 +431,18 @@
       if(this.settings.activity.id != null) {
         // load comments activity
         $.ajax({
-          url: '/rest/v1/social/activities/' + this.settings.activity.id + '/comments?expand=identity',
+          url: '/rest/v1/social/activities/' + this.settings.activity.id + '/comments?expand=identity,likes',
           cache: false
         }).done(function(data) {
           self.clearErrorMessage();
-          self.renderComments(data.comments);
+          self.settings.activity.comments = data.comments;
+          for(i = 0; i < self.settings.activity.comments.length; i++) {
+            self.settings.activity.comments[i].liked = self.settings.activity.comments[i].likes.some(function(like) {
+              return like.username == eXo.env.portal.userName;
+            });
+            self.settings.activity.comments[i].nbOfLikes = self.settings.activity.comments[i].likes.length;
+          }
+          self.renderComments(self.settings.activity.comments);
           resizeEventHandler();
           self.clearErrorMessage();
         }).fail(function () {
@@ -452,8 +532,25 @@
                 <a href="' + commenterProfileUrl + '" >' + XSSUtils.sanitizeString(comment.identity.profile.fullname) + '</a> \
                 <span class="pull-right dateTime">' + self.convertDate(comment.updateDate) + '</span> \
               </div> \
-              <p class="cont">' + comment.body + '</p> \
-            </div> \
+              <p class="cont">' + comment.body + '</p>';
+
+          // add like comment if the document is linked to an activity
+          if(self.settings.activity.id != null) {
+            var commentLikers = comment.likes.map(function(like) {
+              return like.fullname;
+            }).join('\n');
+
+            commentsHtml += '<ul class="pull-left statusAction"> \
+                <li> \
+                  <a onclick="documentPreview.toggleLikeComment(\'' + comment.id + '\')" class="likeCommentLink" data-placement="bottom" rel="tooltip" title="" id="likeCommentLink_' + comment.id + '" href="javascript:void(0);"> \
+                    <i class="uiIconThumbUp ' + (comment.liked ? 'commentLiked' : '') + '"></i> \
+                  </a> \
+                  <a onclick="documentPreview.showLikersPopup(\'' + comment.id + '\');" data-placement="bottom" class="likeCommentCount ' + (comment.liked ? 'commentLiked' : '') + '" data-html="true" rel="tooltip" title="' + commentLikers + '" id="likeCommentCount_' + comment.id + '" href="javascript:void(0);">' + (comment.likes.length > 0 ? '(' + comment.likes.length + ')' : '') + '</a> \
+                </li> \
+              </ul>';
+          }
+
+          commentsHtml += '  </div> \
           </li>';
         })
         commentsHtml += '</ul>';
@@ -543,6 +640,8 @@
             contentType: 'application/x-www-form-urlencoded'
           }).done(function (data) {
             self.loadComments();
+            $('#documentPreviewContainer #commentInput').ckeditorGet().destroy(true);
+            self.initCKEditor();
             self.clearErrorMessage();
           }).fail(function () {
             self.showErrorMessage("${UIActivity.comment.canNotAddComment}");
@@ -897,4 +996,4 @@
   }
 
   return documentPreview;
-})($, XSSUtils);
+})($, UIActivity, XSSUtils);
