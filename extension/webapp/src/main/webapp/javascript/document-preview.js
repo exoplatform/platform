@@ -536,9 +536,16 @@
 
           // add like comment if the document is linked to an activity
           if(self.settings.activity.id != null) {
-            var commentLikers = comment.likes.map(function(like) {
-              return like.fullname;
-            }).join('\n');
+            var maxNbLikersInTooltip = 10;
+            var moreThan10Likers = comment.likes.length > maxNbLikersInTooltip;
+            var commentLikers = '';
+            for(var i=0; i < comment.likes.length; i++) {
+              commentLikers += comment.likes[i].fullname + '\n';
+              if(moreThan10Likers && i == (maxNbLikersInTooltip - 2)) {
+                commentLikers += "${UIActivity.msg.MoreLikers}".replace("{0}", comment.likes.length - (maxNbLikersInTooltip - 1));
+                break;
+              }
+            }
 
             commentsHtml += '<ul class="pull-left statusAction"> \
                 <li> \
