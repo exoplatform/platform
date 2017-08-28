@@ -232,6 +232,7 @@
           var likeCommentCount = $('#documentPreviewContainer #likeCommentCount_' + commentId);
           if(comment.likes.length > 0) {
             // refresh tooltip on likes count
+            comment.likes.reverse();
             likeCommentCount.attr('title', comment.likes.filter(function(like) {
               return like.username != eXo.env.portal.userName;
             }).map(function(like) {
@@ -537,6 +538,7 @@
           // add like comment if the document is linked to an activity
           if(self.settings.activity.id != null) {
             var maxNbLikersInTooltip = 10;
+            comment.likes.reverse();
             var moreThan10Likers = comment.likes.length > maxNbLikersInTooltip;
             var commentLikers = '';
             for(var i=0; i < comment.likes.length; i++) {
