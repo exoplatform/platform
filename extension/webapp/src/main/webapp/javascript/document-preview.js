@@ -212,6 +212,7 @@
               likeCommentCount.attr('title', self.settings.user.fullname);
             }
             // update nb of likes
+            likeCommentCount.css('display', 'inline');
             likeCommentCount.html('(' + comment.nbOfLikes + ')');
 
             likeCommentCount.addClass('commentLiked');
@@ -233,7 +234,7 @@
           comment.nbOfLikes--;
 
           var likeCommentCount = $('#documentPreviewContainer #likeCommentCount_' + commentId);
-          if(comment.likes.length > 0) {
+          if(comment.nbOfLikes > 0) {
             // refresh tooltip on likes count
             comment.likes.reverse();
             likeCommentCount.attr('title', comment.likes.filter(function(like) {
@@ -244,7 +245,9 @@
             // update nb of likes
             likeCommentCount.html('(' + comment.nbOfLikes + ')');
           } else {
+            likeCommentCount.css('display', 'none');
             likeCommentCount.empty();
+            likeCommentCount.attr('title', '');
           }
 
           likeCommentCount.removeClass('commentLiked');
@@ -562,7 +565,7 @@
                   <a onclick="documentPreview.toggleLikeComment(\'' + comment.id + '\')" class="likeCommentLink" data-placement="bottom" rel="tooltip" title="' + likeTooltip + '" id="likeCommentLink_' + comment.id + '" href="javascript:void(0);"> \
                     <i class="uiIconThumbUp ' + (comment.liked ? 'commentLiked' : '') + '"></i> \
                   </a> \
-                  <a onclick="documentPreview.showLikersPopup(\'' + comment.id + '\');" data-placement="bottom" class="likeCommentCount ' + (comment.liked ? 'commentLiked' : '') + '" data-html="true" rel="tooltip" title="' + commentLikers + '" id="likeCommentCount_' + comment.id + '" href="javascript:void(0);">' + (comment.likes.length > 0 ? '(' + comment.likes.length + ')' : '') + '</a> \
+                  <a onclick="documentPreview.showLikersPopup(\'' + comment.id + '\');" data-placement="bottom" class="likeCommentCount ' + (comment.liked ? 'commentLiked' : '') + '" style="display: ' + (comment.likes.length > 0 ? 'inline' : 'none') +'" data-html="true" rel="tooltip" title="' + commentLikers + '" id="likeCommentCount_' + comment.id + '" href="javascript:void(0);">' + (comment.likes.length > 0 ? '(' + comment.likes.length + ')' : '') + '</a> \
                 </li> \
               </ul>';
           }
