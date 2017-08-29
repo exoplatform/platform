@@ -215,7 +215,10 @@
             likeCommentCount.html('(' + comment.nbOfLikes + ')');
 
             likeCommentCount.addClass('commentLiked');
-            $('#documentPreviewContainer #likeCommentLink_' + commentId + ' i').addClass('commentLiked');
+
+            var likeCommentLink = $('#documentPreviewContainer #likeCommentLink_' + commentId);
+            likeCommentLink.find('i').addClass('commentLiked');
+            likeCommentLink.attr('title', "${UIActivity.msg.UnlikeCommentActivity}");
 
             self.clearErrorMessage();
           }).fail(function () {
@@ -245,7 +248,10 @@
           }
 
           likeCommentCount.removeClass('commentLiked');
-          $('#documentPreviewContainer #likeCommentLink_' + commentId + ' i').removeClass('commentLiked');
+
+          var likeCommentLink = $('#documentPreviewContainer #likeCommentLink_' + commentId);
+          likeCommentLink.find('i').removeClass('commentLiked');
+          likeCommentLink.attr('title', "${UIActivity.msg.LikeActivity}");
 
           self.clearErrorMessage();
         }).fail(function () {
@@ -549,9 +555,11 @@
               }
             }
 
+            var likeTooltip = comment.liked ? "${UIActivity.msg.UnlikeCommentActivity}" : "${UIActivity.msg.LikeActivity}";
+
             commentsHtml += '<ul class="pull-left statusAction"> \
                 <li> \
-                  <a onclick="documentPreview.toggleLikeComment(\'' + comment.id + '\')" class="likeCommentLink" data-placement="bottom" rel="tooltip" title="" id="likeCommentLink_' + comment.id + '" href="javascript:void(0);"> \
+                  <a onclick="documentPreview.toggleLikeComment(\'' + comment.id + '\')" class="likeCommentLink" data-placement="bottom" rel="tooltip" title="' + likeTooltip + '" id="likeCommentLink_' + comment.id + '" href="javascript:void(0);"> \
                     <i class="uiIconThumbUp ' + (comment.liked ? 'commentLiked' : '') + '"></i> \
                   </a> \
                   <a onclick="documentPreview.showLikersPopup(\'' + comment.id + '\');" data-placement="bottom" class="likeCommentCount ' + (comment.liked ? 'commentLiked' : '') + '" data-html="true" rel="tooltip" title="' + commentLikers + '" id="likeCommentCount_' + comment.id + '" href="javascript:void(0);">' + (comment.likes.length > 0 ? '(' + comment.likes.length + ')' : '') + '</a> \
