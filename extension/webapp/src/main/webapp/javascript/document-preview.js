@@ -219,7 +219,7 @@
 
             var likeCommentLink = $('#documentPreviewContainer #likeCommentLink_' + commentId);
             likeCommentLink.find('i').addClass('commentLiked');
-            likeCommentLink.attr('title', "${UIActivity.msg.UnlikeCommentActivity}");
+            likeCommentLink.attr('title', "${UIActivity.msg.UnlikeComment}");
 
             self.clearErrorMessage();
           }).fail(function () {
@@ -254,7 +254,7 @@
 
           var likeCommentLink = $('#documentPreviewContainer #likeCommentLink_' + commentId);
           likeCommentLink.find('i').removeClass('commentLiked');
-          likeCommentLink.attr('title', "${UIActivity.msg.LikeActivity}");
+          likeCommentLink.attr('title', "${UIActivity.msg.LikeComment}");
 
           self.clearErrorMessage();
         }).fail(function () {
@@ -558,7 +558,7 @@
               }
             }
 
-            var likeTooltip = comment.liked ? "${UIActivity.msg.UnlikeCommentActivity}" : "${UIActivity.msg.LikeActivity}";
+            var likeTooltip = comment.liked ? "${UIActivity.msg.UnlikeComment}" : "${UIActivity.msg.LikeComment}";
 
             commentsHtml += '<ul class="pull-left statusAction"> \
                 <li> \
