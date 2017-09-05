@@ -107,26 +107,6 @@
         <value>idm_realm${container.name.suffix}</value>
       </value-param>
 
-      <value-param>
-        <name>apiCacheConfig</name>
-        <value>${exo.idm.api.cache.config:jar:/conf/platform/idm/infinispan/local-config.xml}</value>
-      </value-param>
-
-      <value-param profiles="cluster">
-        <name>apiCacheConfig</name>
-        <value>${exo.idm.api.cache.config:jar:/conf/platform/idm/infinispan/cluster-config.xml}</value>
-      </value-param>
-
-      <value-param>
-        <name>storeCacheConfig</name>
-        <value>${gatein.idm.store.cache.config:jar:/conf/platform/idm/infinispan/local-config.xml}</value>
-      </value-param>
-
-      <value-param profiles="cluster">
-        <name>storeCacheConfig</name>
-        <value>${gatein.idm.store.cache.config:jar:/conf/platform/idm/infinispan/cluster-config.xml}</value>
-      </value-param>
-
         <value-param>
             <name>skipExpirationOfStructureCacheEntries</name>
             <value>true</value>
