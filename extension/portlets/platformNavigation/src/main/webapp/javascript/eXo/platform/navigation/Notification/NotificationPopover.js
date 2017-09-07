@@ -234,8 +234,10 @@
       },
       removeItem : function(item) {
         var me = NotificationPopover;
-        var action = me.removePopoverLink + item.data('id');
-        window.ajaxGet(action);
+        if(item.length) {
+          var action = me.removePopoverLink + item.data('id');
+          window.ajaxGet(action);
+        }
         //
         if(me.popupItem.find('li').length == 1) {
           webNotif.showElm(me.portlet.find('.no-items:first'));
@@ -243,7 +245,9 @@
         } else if(me.popupItem.find('li.unread').length == 1 && item.hasClass('unread')) {
           me.portlet.find('.actionMark:first').removeClass('markAll');
         }
-        webNotif.removeElm(item);
+        if(item.length) {
+          webNotif.removeElm(item);
+        }
         return this;
       }
   };
