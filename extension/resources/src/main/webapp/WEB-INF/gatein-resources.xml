@@ -95,5 +95,8 @@
     <depends>
       <module>wcm-utils</module>
     </depends>
+    <depends>
+      <module>social-ui-activity-composer</module>
+    </depends>
   </module>
 </gatein-resources>

@@ -17,7 +17,7 @@
  * site: http://www.fsf.org.
  */
 
-(function(ecm_bootstrap, gj, base, wcm_utils) {
+(function(ecm_bootstrap, gj, base, wcm_utils, UIComposer) {
   var $ = gj;
   var uiUploadInput = {
     uploadingCount : 0,
@@ -26,11 +26,14 @@
 
     /**
      * Initialize upload and create a upload request to server
-     * 
+     *
      * @param {String}
      *          uploadIds identifier upload
      */
     initUploadEntry : function(id, uploadIds, limitCount, limitSizeInMB, megabyteMessage) {
+      if (!uiUploadInput.initialized) {
+        UIComposer.addPlugin(uiUploadInput);
+      }
       uiUploadInput.megabyteMessage = megabyteMessage;
       uiUploadInput.putData("DropFileBox", "id", id);
 
@@ -84,6 +87,7 @@
       uiUploadInput.putData(id, "limitedSize", limitSizeInMB);
 
       uiUploadInput.refreshUploadedList(id, uploadIds, true);
+      UIComposer.refreshShareButton();
 
       var parentContainer = uiUploadInput.getParentContainer(id);
       var input = parentContainer.find("input[type=file]");
@@ -141,9 +145,9 @@
           var $filesToShow = $(".fileSelection:containsCaseInsensitive('" + term + "')");
           $filesToShow.show();
 
-          $(".driveData:not(:containsCaseInsensitive('" + term + "'))").hide(); 
-          $(".folderSelection:not(:containsCaseInsensitive('" + term + "'))").hide(); 
-          $(".fileSelection:not(:containsCaseInsensitive('" + term + "'))").hide(); 
+          $(".driveData:not(:containsCaseInsensitive('" + term + "'))").hide();
+          $(".folderSelection:not(:containsCaseInsensitive('" + term + "'))").hide();
+          $(".fileSelection:not(:containsCaseInsensitive('" + term + "'))").hide();
 
           if($foldersToShow.length > 0) {
             $(".foldersTitle").show();
@@ -222,7 +226,7 @@
 
       var parentContainer = uiUploadInput.getParentContainer("uploadContainer" + id);
       $("#uploadContainer" + id).remove();
-      uiUploadInput.handleLimitReached(parentContainer.attr("id"));
+      uiUploadInput.onChange(parentContainer.attr("id"));
     },
     abortUpload : function(id, status) {
       var idx = $.inArray(status, uiUploadInput.uploadingFileQueue);
@@ -245,7 +249,7 @@
         console.log(err);
       }
 
-      uiUploadInput.handleLimitReached(status.parentId);
+      uiUploadInput.onChange(status.parentId);
     },
     remove : function(id, uploadIds) {
       if (!uploadIds) {
@@ -327,7 +331,7 @@
             return;
           }
 
-          if(!response.upload[status.uploadId] || !response.upload[status.uploadId].percent || 
+          if(!response.upload[status.uploadId] || !response.upload[status.uploadId].percent ||
               response.upload[status.uploadId].percent != 100) {
             status.uploadCnt.remove();
           } else {
@@ -336,7 +340,7 @@
             status.abortFile.hide();
             status.progress.delay(2000).fadeOut('slow');
           }
-          uiUploadInput.handleLimitReached(status.uploadCnt.attr("id"));
+          uiUploadInput.onChange(status.uploadCnt.attr("id"));
           var selectURL = $("#" + status.parentId + " .selectUploadURL").text();
           ajaxAsyncGetRequest(selectURL, false);
         },
@@ -352,11 +356,18 @@
             console.log(err);
           }
           status.uploadCnt.remove();
-          uiUploadInput.handleLimitReached(status.uploadCnt.attr("id"));
+          uiUploadInput.onChange(status.uploadCnt.attr("id"));
         }
       });
     },
-    handleLimitReached : function(id) {
+    hasContent : function () {
+        var $docComposer = $('.UIDocActivityComposer');
+        return $docComposer.hasClass('ActivityComposerExtItemSelected') &&
+            $('.UIActivityComposerContainer .MultiUploadContainer').find('.selectedFile').length > 0;
+    },
+    onChange : function(id) {
+      UIComposer.refreshShareButton();
+
       var limitCount = uiUploadInput.getData(id, "limitCount");
       var reached = uiUploadInput.getFilesCount(id) >= limitCount;
 
@@ -391,7 +402,7 @@
           }
         }
       }
-      uiUploadInput.handleLimitReached(id);
+      uiUploadInput.onChange(id);
 
       uiUploadInput.putData(id, "inputs", list);
 
@@ -557,7 +568,7 @@
         }
       }
 
-      uiUploadInput.handleLimitReached(id);
+      uiUploadInput.onChange(id);
 
       parentContainer.find("input[type=file]").val('');
     }
@@ -566,4 +577,4 @@
   return {
     UIUploadInput : uiUploadInput
   };
-})(ecm_bootstrap, gj, base, wcm_utils);
+})(ecm_bootstrap, gj, base, wcm_utils, socialUiActivityComposer);
