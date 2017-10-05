@@ -31,6 +31,7 @@
     import juzu.impl.request.Request;
     import juzu.request.RequestContext;
     import org.exoplatform.platform.portlet.juzu.calendar.models.CalendarPortletUtils;
+    import org.apache.commons.lang.StringEscapeUtils;
 
     Request request = Request.getCurrent();
     UserContext userContext = request.getUserContext();
@@ -84,7 +85,8 @@
 							<div class="${color}">
 								<div class="clearfix itemColor" >
 									<div class="pull-left eventSummary">
-										<a href="${href}">${event.summary}</a>
+									<% String summary = StringEscapeUtils.escapeHtml(event.summary) %>
+										<a href="${href}">${summary}</a>
 									</div>
 									<div  class="pull-right time">
 										<% if (event.toDateTime.getTime() - event.fromDateTime.getTime() == 86399999) { %>
@@ -135,7 +137,8 @@
 					%>
 							<li class="${cssClass}">
 							<a href="${href}" class="eventSummary ">
-							${task.summary}
+							<% String summary = StringEscapeUtils.escapeHtml(task.summary) %>
+							${summary}
 							</a>
 							</li>
 						<% }
