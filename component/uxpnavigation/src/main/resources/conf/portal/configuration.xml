@@ -32,52 +32,52 @@
                 <name>help.pages</name>
                 <description>Help Pages match definition</description>
                <property name="Company Context Home"
-                         value="https://www.exoplatform.com/docs/PLF44/PLFUG/GS/SOCHOME.html"/>
+                         value="https://www.exoplatform.com/docs/PLF50/PLFUG/GS/SOCHOME.html"/>
                <property name="Company Context Calendar"
-                         value="https://www.exoplatform.com/docs/PLF44/PLFUG/CALENDAR.html"/>
-               <property name="Company Context Wiki" value="https://www.exoplatform.com/docs/PLF44/PLFUG/WIKI.html"/>
+                         value="https://www.exoplatform.com/docs/PLF50/PLFUG/CALENDAR.html"/>
+               <property name="Company Context Wiki" value="https://www.exoplatform.com/docs/PLF50/PLFUG/WIKI.html"/>
                <property name="Company Context Forum"
-                         value="https://www.exoplatform.com/docs/PLF44/PLFUG/FORUM.html"/>
+                         value="https://www.exoplatform.com/docs/PLF50/PLFUG/FORUM.html"/>
                <property name="Company Context FAQ:Answers"
-                         value="https://www.exoplatform.com/docs/PLF44/PLFUG/ANSWERS.html"/>
+                         value="https://www.exoplatform.com/docs/PLF50/PLFUG/ANSWERS.html"/>
                <property name="Company Context Tasks" 
-                         value="https://www.exoplatform.com/docs/PLF44/PLFUG/APPS/TASK.html"/>
+                         value="https://www.exoplatform.com/docs/PLF50/PLFUG/APPS/TASK.html"/>
                <property name="Company Context Documents"
-                         value="https://www.exoplatform.com/docs/PLF44/PLFUG/DOCUMENTS.html"/>
+                         value="https://www.exoplatform.com/docs/PLF50/PLFUG/DOCUMENTS.html"/>
                <property name="Company Context Connections"
-                         value="https://www.exoplatform.com/docs/PLF44/PLFUG/APPS/CONNECTIONS.html"/>
+                         value="https://www.exoplatform.com/docs/PLF50/PLFUG/APPS/CONNECTIONS.html"/>
                <property name="personnal:all-spaces"
-                         value="https://www.exoplatform.com/docs/PLF44/PLFUG/SPACE.html"/>
+                         value="https://www.exoplatform.com/docs/PLF50/PLFUG/SPACE.html"/>
                <property name="personnal:connections"
-                         value="https://www.exoplatform.com/docs/PLF44/PLFUG/APPS/CONNECTIONS.html"/>
+                         value="https://www.exoplatform.com/docs/PLF50/PLFUG/APPS/CONNECTIONS.html"/>
                <property name="personnal:activities"
-                         value="https://www.exoplatform.com/docs/PLF44/PLFUG/APPS/ACTIVITY.html"/>
+                         value="https://www.exoplatform.com/docs/PLF50/PLFUG/APPS/ACTIVITY.html"/>
                <property name="personnal:notifications"
-                         value="https://www.exoplatform.com/docs/PLF44/PLFUG/APPS/NOTIFICATIONS.html"/>
+                         value="https://www.exoplatform.com/docs/PLF50/PLFUG/APPS/NOTIFICATIONS.html"/>
                <property name="personnal:profile"
-                         value="https://www.exoplatform.com/docs/PLF44/PLFUG/APPS/PROFILE.html"/>
+                         value="https://www.exoplatform.com/docs/PLF50/PLFUG/APPS/PROFILE.html"/>
                <property name="personnal:wiki"
-                         value="https://www.exoplatform.com/docs/PLF44/PLFUG/APPS/WIKI.html"/>
+                         value="https://www.exoplatform.com/docs/PLF50/PLFUG/APPS/WIKI.html"/>
                <property name="dashboard"
-                         value="https://www.exoplatform.com/docs/PLF44/PLFUG/APPS/DASHBOARD.html"/>
+                         value="https://www.exoplatform.com/docs/PLF50/PLFUG/APPS/DASHBOARD.html"/>
                <property name="space:activity_stream"
-                         value="https://www.exoplatform.com/docs/PLF44/PLFUG/SPACE.html"/>
+                         value="https://www.exoplatform.com/docs/PLF50/PLFUG/SPACE.html"/>
                <property name="space:manager"
-                         value="https://www.exoplatform.com/docs/PLF44/PLFUG/SPACE.html"/>
+                         value="https://www.exoplatform.com/docs/PLF50/PLFUG/SPACE.html"/>
                <property name="space:wiki"
-                         value="https://www.exoplatform.com/docs/PLF44/PLFUG/WIKI.html"/>
+                         value="https://www.exoplatform.com/docs/PLF50/PLFUG/WIKI.html"/>
                <property name="space:forum"
-                         value="https://www.exoplatform.com/docs/PLF44/PLFUG/FORUM.html"/>
+                         value="https://www.exoplatform.com/docs/PLF50/PLFUG/FORUM.html"/>
                <property name="space:calendar"
-                         value="https://www.exoplatform.com/docs/PLF44/PLFUG/CALENDAR.html"/>
+                         value="https://www.exoplatform.com/docs/PLF50/PLFUG/CALENDAR.html"/>
                <property name="space:faq_annswer"
-                         value="https://www.exoplatform.com/docs/PLF44/PLFUG/ANSWERS.html"/>
+                         value="https://www.exoplatform.com/docs/PLF50/PLFUG/ANSWERS.html"/>
                <property name="space:tasks"
-                         value="https://www.exoplatform.com/docs/PLF44/PLFUG/APPS/TASK.html"/>
+                         value="https://www.exoplatform.com/docs/PLF50/PLFUG/APPS/TASK.html"/>
                <property name="space:document"
-                         value="https://www.exoplatform.com/docs/PLF44/PLFUG/DOCUMENTS.html"/>
+                         value="https://www.exoplatform.com/docs/PLF50/PLFUG/DOCUMENTS.html"/>
                <property name="default"
-                         value="https://www.exoplatform.com/docs/PLF44/PLFUG.html"/>
+                         value="https://www.exoplatform.com/docs/PLF50/PLFUG.html"/>
             </properties-param>
         </init-params>
     </component>
