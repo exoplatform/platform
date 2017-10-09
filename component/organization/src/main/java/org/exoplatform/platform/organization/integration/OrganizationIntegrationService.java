@@ -289,6 +289,7 @@ public class OrganizationIntegrationService implements Startable {
     // Invoke listeners on groups, starting from parent groups to children
     Collections.sort(groups, GROUP_COMPARATOR);
 
+    picketLinkIDMCacheService.invalidateAll();
     EventType event = EventType.valueOf(eventType);
     switch (event) {
       case DELETED: {
@@ -436,6 +437,7 @@ public class OrganizationIntegrationService implements Startable {
 
     EventType event = EventType.valueOf(eventType);
     Session session = null;
+    picketLinkIDMCacheService.invalidateAll();
     switch (event) {
       case DELETED: {
         if (LOG.isDebugEnabled()) {
