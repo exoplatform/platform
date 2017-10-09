@@ -320,7 +320,7 @@
             </div> \
             <div class="uiDocumentPreviewMainWindow clearfix"> \
               <!-- doc comments --> \
-              <div class="uiBox commentArea pull-right" id="$uicomponent.id"> \
+              <div class="uiBox commentArea pull-right" id="commentArea"> \
                 <div class="title">\
                   <i class="' + cssClasses + '"></i>&nbsp;' + this.settings.doc.title + ' \
                   <span class="label pull-right" style="display:' + versionStyle + ';">V' + (this.settings.version != null ? this.settings.version.number : '0') + '</span> \
@@ -362,10 +362,15 @@
                     <a class="avatarXSmall pull-left" href="' + this.settings.user.profileUrl + '" title="' + XSSUtils.sanitizeString(this.settings.user.fullname) + '"> \
                       <img src="' + this.settings.user.avatarUrl + '" alt="' + XSSUtils.sanitizeString(this.settings.user.fullname) + '" /></a> \
                       <div class="commentBox"> \
-                        <textarea id="commentInput" placeholder="${UIActivity.comment.placeholder}" cols="30" rows="10" id="commentTextAreaPreview" activityId="activityId" class="textarea"></textarea> \
+                        <div class="commentTextInput"> \
+                          <textarea id="commentInput" placeholder="${UIActivity.comment.placeholder}" cols="30" rows="10" id="commentTextAreaPreview" activityId="activityId" class="textarea"></textarea> \
+                        </div>\
                         <button class="btn pull-left btn-primary" rel="tooltip" data-placement="bottom" title="comment" id="CommentButton" disabled>${UIActivity.label.Comment}</button> \
                         <button class="btn pull-left" rel="tooltip" data-placement="bottom" title="cancel" id="CancelButton">${UIActivity.label.Cancel}</button> \
                       </div> \
+                    </div> \
+                    <div class="parentCommentBlock hidden" onclick="documentPreview.showCommentBlockForActivity()"> \
+                      <a href="javascript:void(0)" class="ParentCommentLink">${UIActivity.label.Comment}</a> \
                     </div> \
                 </div> \
               </div> \
@@ -436,12 +441,12 @@
       $("#uiPreviewErrorMessageContent").html("");
       $("#uiPreviewErrorMessage").hide();
     },
-    loadComments: function() {
+    loadComments: function(commentActivityParentId, scrollToCommentId) {
       var self = this;
       if(this.settings.activity.id != null) {
         // load comments activity
         $.ajax({
-          url: '/rest/v1/social/activities/' + this.settings.activity.id + '/comments?expand=identity,likes',
+          url: '/rest/v1/social/activities/' + this.settings.activity.id + '/comments?expand=identity,likes,subComments',
           cache: false
         }).done(function(data) {
           self.clearErrorMessage();
@@ -452,7 +457,7 @@
             });
             self.settings.activity.comments[i].nbOfLikes = self.settings.activity.comments[i].likes.length;
           }
-          self.renderComments(self.settings.activity.comments);
+          self.renderComments(self.settings.activity.comments, commentActivityParentId, scrollToCommentId);
           resizeEventHandler();
           self.clearErrorMessage();
         }).fail(function () {
@@ -508,7 +513,7 @@
             $.each(comments, function(index, comment) {
               comment.identity.profile = commentors[comment.poster];
             });
-            self.renderComments(comments);
+            self.renderComments(comments, commentActivityParentId, scrollToCommentId);
           }, function(err) {
             // error occurred
           });
@@ -521,21 +526,48 @@
       }
     },
 
-    renderComments: function(comments) {
+    renderComments: function(comments, commentActivityParentId, scrollToCommentId) {
       var self = this;
 
       var commentsHtml = '';
       if(comments != null && comments.length > 0) {
         $('#documentPreviewContainer .nbOfComments').html(comments.length);
         commentsHtml = '<ul class="commentList">';
+        var subCommentIndex = 0;
+        var subCommentSize = 0;
+        var subCommentSize = 0;
+        var hideSubComments = false;
         $.each(comments, function (index, comment) {
           var commenterProfileUrl = "/" + eXo.env.portal.containerName + "/" + eXo.env.portal.portalName + "/" + comment.identity.profile.username;
           var commenterAvatar = comment.identity.profile.avatar;
           if (commenterAvatar == null) {
             commenterAvatar = '/eXoSkin/skin/images/system/UserAvtDefault.png';
           }
+          var commentClass = "";
+          var parentCommentIdString = comment.parentCommentId ? comment.parentCommentId : "";
+          if(comment.parentCommentId) {
+            subCommentIndex ++;
+            commentClass = "subCommentBlock";
+            if(hideSubComments) {
+                commentClass += " hidden";
+                if(subCommentIndex == subCommentSize) {
+                  commentsHtml += 
+                  '<li class="clearfix commentItem subCommentBlock subCommentShowAll" id="SubCommentShowAll_' + comment.parentCommentId + '"> \
+                      <p class="cont"> \
+                        <a href="javascript:void(0)" class="subCommentShowAllLink" data-parent-comment="' + comment.parentCommentId + '">' +
+                          "${UIActivity.label.ViewAllReplies}".replace("{0}", subCommentSize) + '\
+                        </a> \
+                      </p>\
+                  </li>';
+                }
+            }
+          } else {
+            subCommentIndex = 0;
+            subCommentSize = self.getSubCommentsSize(comments, comment.id);
+            hideSubComments = subCommentSize > 2 & comment.id !== commentActivityParentId;
+          }
 
-          commentsHtml += '<li class="clearfix"> \
+          commentsHtml += '<li class="clearfix commentItem ' + commentClass + '" data-comment="' + comment.id + '" data-parent-comment="' + parentCommentIdString + '"> \
             <a class="avatarXSmall pull-left" href="' + commenterProfileUrl + '" title="' + XSSUtils.sanitizeString(comment.identity.profile.fullname) + '"><img src="' + commenterAvatar + '" alt="" /></a> \
             <div class="rightBlock"> \
               <div class="tit"> \
@@ -567,6 +599,12 @@
                   </a> \
                   <a onclick="documentPreview.showLikersPopup(\'' + comment.id + '\');" data-placement="bottom" class="likeCommentCount ' + (comment.liked ? 'commentLiked' : '') + '" style="display: ' + (comment.likes.length > 0 ? 'inline' : 'none') +'" data-html="true" rel="tooltip" title="' + commentLikers + '" id="likeCommentCount_' + comment.id + '" href="javascript:void(0);">' + (comment.likes.length > 0 ? '(' + comment.likes.length + ')' : '') + '</a> \
                 </li> \
+                <li class="separator">-</li> \
+                <li> \
+                  <a class="replyCommentLink" data-placement="bottom" href="javascript:void(0);" data-comment="' + comment.id + '" data-parent-comment="' + parentCommentIdString + '"> \
+                  ${UIActivity.label.Reply}\
+                  </a> \
+                </li> \
               </ul>';
           }
 
@@ -576,13 +614,89 @@
         commentsHtml += '</ul>';
       } else {
         $('#documentPreviewContainer .nbOfComments').html('0');
-        commentsHtml = '<div class="noComment"> \
+        commentsHtml = '<div class="commentList noComment"> \
             <div class="info">${UIActivity.comment.noComment}</div> \
           </div>';
       }
       var commentsContainer = $('#documentPreviewContainer .commentArea .comments');
       commentsContainer.html(commentsHtml);
       commentsContainer.addClass('commentsLoaded');
+
+      $("#documentPreviewContainer .subCommentShowAllLink").on("click", function() {
+        var parentCommentId = $(this).attr('data-parent-comment');
+
+        $('#documentPreviewContainer #SubCommentShowAll_' + parentCommentId).hide();
+        $('#documentPreviewContainer [data-parent-comment=' + parentCommentId + ']').removeClass('hidden');
+      });
+
+      $(".replyCommentLink").on("click", function() {
+        var parentCommentId = $(this).attr("data-parent-comment");
+        var commentId = $(this).attr("data-comment");
+        parentCommentId = parentCommentId ? parentCommentId : commentId;
+        var commentInput = $('#documentPreviewContainer #commentInput');
+        commentInput.attr("data-parent-comment", parentCommentId);
+
+        $("#documentPreviewContainer .parentCommentBlock").removeClass("hidden");
+        var $commentList = $('#documentPreviewContainer .commentList');
+
+        var $inputContainer = $("#documentPreviewContainer .commentInputBox");
+        $('#documentPreviewContainer #commentInput').ckeditorGet().destroy(true);
+
+        $inputContainer.addClass("subCommentBlock");
+        $inputContainer.insertAfter($("#documentPreviewContainer .commentItem[data-comment=" + parentCommentId + "], #documentPreviewContainer .commentItem[data-parent-comment=" + parentCommentId + "]").last());
+        $inputContainer.find("#documentPreviewContainer .commentBox .commentTextInput").html($('<div>').append($inputContainer.find('textarea').clone()).html());
+
+        $("#documentPreviewContainer .commentItem").removeClass("focus");
+        $("#documentPreviewContainer .commentItem[data-comment=" + commentId + "]").addClass("focus");
+
+        var ele = $("#documentPreviewContainer .commentInputBox");
+        var elementToScroll = "#documentPreviewContainer .comments .commentList";
+        if (eXo.social.SocialUtil.checkDevice().isMobile === true) {
+          ele = $("#documentPreviewContainer [data-comment=" + commentId + "]");
+          elementToScroll = "#documentPreviewContainer .commentArea";
+        }
+        if(ele.length > 0 && ele.offset() && ele.parent().offset()) {
+          var nTop = ele.offset().top - ele.parent().offset().top + ele.parent().scrollTop();
+          $(elementToScroll).animate({
+            scrollTop: nTop
+          },1000);
+        }
+
+        self.initCKEditor();
+        self.clearErrorMessage();
+        self.showCommentLink(true, true, false);
+      });
+
+      if(scrollToCommentId && eXo.social.SocialUtil.checkDevice().isMobile === true) {
+        var ele = $("#documentPreviewContainer [data-comment=" + scrollToCommentId + "]");
+
+        if(ele.length > 0 && ele.offset() && ele.parent().offset()) {
+          var nTop = ele.offset().top - ele.parent().offset().top + ele.parent().scrollTop();
+          $("#documentPreviewContainer .commentArea").animate({
+            scrollTop: nTop
+          },1000);
+        }
+      }
+      self.showCommentLink(eXo.social.SocialUtil.checkDevice().isMobile, false, true);
+    },
+
+    showCommentBlockForActivity: function(comments, parentCommentId) {
+      $("#documentPreviewContainer .commentItem").removeClass("focus");
+      this.moveCKEditorInOriginalLocation();
+      this.initCKEditor();
+      this.clearErrorMessage();
+      this.showCommentLink(false, true, true);
+      resizeEventHandler();
+    },
+
+    getSubCommentsSize: function(comments, parentCommentId) {
+      var count = 0;
+      comments.forEach(function(comment) {
+        if(comment.parentCommentId == parentCommentId) {
+          count++;
+        }
+      })
+      return count;
     },
 
     convertDate: function(dateStr) {
@@ -634,8 +748,9 @@
       var commentInput = $('#documentPreviewContainer #commentInput');
       if(commentInput != null && $.trim(commentInput.val())) {
         var commentContent = commentInput.val();
+        var commentActivityParentId = commentInput.attr("data-parent-comment");
         if(this.settings.activity.id != null) {
-           var postData = { poster : eXo.env.portal.userName , title : commentContent };
+           var postData = { poster : eXo.env.portal.userName , title : commentContent, parentCommentId : commentActivityParentId };
           // post comment on the activity
           return $.ajax({
             type: 'POST',
@@ -643,8 +758,8 @@
             data: JSON.stringify(postData),
             contentType: 'application/json'
           }).done(function (data) {
-            self.loadComments();
-            $('#documentPreviewContainer #commentInput').ckeditorGet().destroy(true);
+            self.loadComments(commentActivityParentId, data.id);
+            self.moveCKEditorInOriginalLocation();
             self.initCKEditor();
             self.clearErrorMessage();
           }).fail(function () {
@@ -660,7 +775,7 @@
             contentType: 'application/x-www-form-urlencoded'
           }).done(function (data) {
             self.loadComments();
-            $('#documentPreviewContainer #commentInput').ckeditorGet().destroy(true);
+            self.moveCKEditorInOriginalLocation();
             self.initCKEditor();
             self.clearErrorMessage();
           }).fail(function () {
@@ -761,28 +876,45 @@
         }
         
         this.initCKEditor();
-  
-        $('#CommentButton').on('click', function(event) {
-          self.postComment();
-        });
-  
-        $('#CancelButton').on('click', function(event) {
-          $('.commentArea')[0].style.display = "none";
-          $('#documentPreviewContent .UIResizableBlock')[0].style.display = "block";
-          $('.previewBtn')[0].style.display = "block"
-        });
-  
-        $('.showComments').on('click', function(event) {
-          var $uiDocumentPreview = $('#uiDocumentPreview');
-          var $commentArea = $('.commentArea', $uiDocumentPreview);
-          var $commentList = $('.commentList', $commentArea);
-          $('#cke_commentInput .cke_contents')[0].style.height = "100px";
-          $('.commentArea')[0].style.height = $(window).height()-80 + "px";
-          $('.commentArea')[0].style.display = "block";
-          $('.previewBtn')[0].style.display = "none"
-          $('#documentPreviewContent .UIResizableBlock')[0].style.display = "none";
-  
-        });
+
+        if($('#CommentButton [data-action-initialized]').length == 0) {
+          $('#CommentButton').on('click', function(event) {
+            self.postComment();
+            self.showCommentLink(eXo.social.SocialUtil.checkDevice().isMobile, false, true);
+          });
+          $('#CommentButton').attr("data-action-initialized", "true");
+        }
+
+        if($('#CancelButton [data-action-initialized]').length == 0) {
+          $('#CancelButton').on('click', function(event) {
+            $('#documentPreviewContainer .commentArea')[0].style.display = "none";
+            $('#documentPreviewContent')[0].style.display = "block";
+            $('.previewBtn')[0].style.display = "block"
+            resizeEventHandler();
+          });
+          $('#CancelButton').attr("data-action-initialized", "true");
+        }
+
+        if($('.showComments [data-action-initialized]').length == 0) {
+          $('.showComments').on('click', function(event) {
+            var $uiDocumentPreview = $('#uiDocumentPreview');
+            var $commentArea = $('.commentArea', $uiDocumentPreview);
+            var $commentList = $('.commentList', $commentArea);
+            if($('#cke_commentInput .cke_contents').length > 0) {
+              $('#cke_commentInput .cke_contents')[0].style.height = "100px";
+            }
+            $('#documentPreviewContainer .commentArea')[0].style.display = "block";
+            $('.previewBtn')[0].style.display = "none"
+            $('#documentPreviewContent')[0].style.display = "none";
+            $("#documentPreviewContainer .parentCommentBlock").addClass("hidden");
+
+            self.moveCKEditorInOriginalLocation();
+            self.initCKEditor();
+            self.clearErrorMessage();
+            self.showCommentLink(eXo.social.SocialUtil.checkDevice().isMobile, false, false);
+          });
+          $('.showComments').attr("data-action-initialized", "true");
+        }
   
         $('.loading', docContentContainer).show();
         this.show();
@@ -792,6 +924,47 @@
         $('.loading', docContentContainer).hide();
         resizeEventHandler();
       });
+    },
+    showCommentLink: function(showComment, showCKEditor, isCKEditorInBottom) {
+      if(showComment) {
+        $('#documentPreviewContainer .parentCommentBlock').removeClass("hidden");
+      } else {
+        $('#documentPreviewContainer .parentCommentBlock').addClass("hidden");
+      }
+
+      if (eXo.social.SocialUtil.checkDevice().isMobile === true) {
+        var commentLinkRelative = showComment && showCKEditor;
+        if(commentLinkRelative) {
+          $('#documentPreviewContainer .parentCommentBlock').removeClass("FixedBlock");
+        } else {
+          $('#documentPreviewContainer .parentCommentBlock').addClass("FixedBlock");
+        }
+        if(showCKEditor) {
+          $("#documentPreviewContainer .commentArea").addClass("commentBoxOpen");
+          $('#documentPreviewContainer .commentInputBox').removeClass("hidden");
+        } else {
+          $("#documentPreviewContainer .commentArea").removeClass("commentBoxOpen");
+          $('#documentPreviewContainer .commentInputBox').addClass("hidden");
+        }
+      }
+
+      if(isCKEditorInBottom) {
+        $("#documentPreviewContainer .commentList").addClass("commentBoxOpen");
+      } else {
+        $("#documentPreviewContainer .commentList").removeClass("commentBoxOpen");
+      }
+    },
+    moveCKEditorInOriginalLocation: function() {
+      $('#documentPreviewContainer #commentInput').attr("data-parent-comment", null)
+      try {
+        $('#documentPreviewContainer #commentInput').ckeditorGet().destroy(true);
+      } catch(e) {
+      }
+
+      var $inputContainer = $("#documentPreviewContainer .commentInputBox");
+      $inputContainer.insertAfter($("#documentPreviewContainer .comments"));
+      $inputContainer.removeClass("subCommentBlock");
+      $inputContainer.find("#documentPreviewContainer .commentBox .commentTextInput").html($('<div>').append($inputContainer.find('textarea').clone()).html());
     },
     initCKEditor: function() {
         var commentInput = $('#documentPreviewContainer #commentInput');
@@ -946,11 +1119,6 @@
     var $commentList = $('.commentList', $commentArea);
     var $highlightBox = $('.highlightBox', $commentArea);
     var $actionBarCommentArea = $('.actionBar', $commentArea);
-    var commentAreaHeight = window.innerHeight - 60;
-    $commentArea.height(commentAreaHeight);
-    if ($commentList[0]) {
-      $commentList[0].style.maxHeight =  $(window).height() - 430 + "px";
-    }
     $commentList.scrollTop(20000);
 
     // Media viewer, no preview file
