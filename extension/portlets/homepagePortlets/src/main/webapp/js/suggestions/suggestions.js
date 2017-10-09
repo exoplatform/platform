@@ -111,7 +111,7 @@
                         $item.find(".peopleAction").removeClass('active').hide();
                     });
 
-                    $("#"+item.suggestionId+" a.connect").live("click", function(){
+                    $("#"+item.suggestionId).on('click', "a.connect", function(){
                         $.getJSON("/rest/homepage/intranet/people/contacts/connect/"+item.suggestionId, null);
 
                         if($("#suggestions").children().length == 1) {
@@ -134,7 +134,7 @@
                         }
                     });
 
-                    $("#"+item.suggestionId+" a.ignore").live("click", function(){
+                    $("#"+item.suggestionId).on('click', "a.ignore", function(){
                         $.ajax({
                             url: "/rest/v1/social/usersRelationships/",
                             contentType: "application/json",
@@ -229,57 +229,55 @@
                         $item.find(".spaceAction").removeClass('active').hide();
                     });
 
+                    $('body').on('click', "#" + item.spaceId + " a.connect", function() {
+                      $.getJSON("/rest/homepage/intranet/spaces/request/"+item.spaceId, null);
 
-                    $("#"+item.spaceId+" a.connect").live("click", function(){
-                        $.getJSON("/rest/homepage/intranet/spaces/request/"+item.spaceId, null);
-
-                        if($("#suggestionsspace").children().length == 1) {
-                            $("#spaceSuggest").fadeOut(500, function () {
-                                $("#"+item.spaceId).remove();
-                                $("#spaceSuggest").hide();
-                                if ($("#peopleSuggest").is(":hidden")){
-                                    $("#content").hide();
-                                }
+                      if($("#suggestionsspace").children().length == 1) {
+                        $("#spaceSuggest").fadeOut(500, function () {
+                          $("#"+item.spaceId).remove();
+                          $("#spaceSuggest").hide();
+                          if ($("#peopleSuggest").is(":hidden")){
+                            $("#content").hide();
+                          }
 
 
-                            });
-                        }
-                        else {
-                            $("#"+item.spaceId).fadeOut(500, function () {
-                                $("#"+item.spaceId).remove();
-                                $('#suggestionsspace li:hidden:first').fadeIn(500, function() {});
+                        });
+                      }
+                      else {
+                        $("#"+item.spaceId).fadeOut(500, function () {
+                          $("#"+item.spaceId).remove();
+                          $('#suggestionsspace li:hidden:first').fadeIn(500, function() {});
 
-                            });
-                        }
+                        });
+                      }
                     });
 
-                    $("#"+item.spaceId+" a.ignore").live("click", function(){
-                            $.ajax({
-                                   url: "/rest/v1/social/spacesMemberships/",
-                                   contentType: "application/json",
-                                   data: JSON.stringify({"user": item.username,"space": item.displayName, "status":"IGNORED"}),
-                                   type: "POST"
-                            });
-                            if($("#suggestionsspace").children().length == 1) {
-                            $("#spaceSuggest").fadeOut(500, function () {
-                                $("#"+item.spaceId).remove();
-                                $("#spaceSuggest").hide();
-                                if ($("#peopleSuggest").is(":hidden")){
-                                    $("#content").hide();
-                                }
+                    $('body').on('click', "#" + item.spaceId + " a.ignore", function() {
+                      $.ajax({
+                        url: "/rest/v1/social/spacesMemberships/",
+                        contentType: "application/json",
+                        data: JSON.stringify({"user": item.username,"space": item.displayName, "status":"IGNORED"}),
+                        type: "POST"
+                      });
+                      if($("#suggestionsspace").children().length == 1) {
+                        $("#spaceSuggest").fadeOut(500, function () {
+                          $("#"+item.spaceId).remove();
+                          $("#spaceSuggest").hide();
+                          if ($("#peopleSuggest").is(":hidden")){
+                            $("#content").hide();
+                          }
 
 
-                            });
-                        }
-                        else {
-                            $("#"+item.spaceId).fadeOut(500, function () {
-                                $("#"+item.spaceId).remove();
-                                $('#suggestionsspace li:hidden:first').fadeIn(500, function() {});
+                        });
+                      }
+                      else {
+                        $("#"+item.spaceId).fadeOut(500, function () {
+                          $("#"+item.spaceId).remove();
+                          $('#suggestionsspace li:hidden:first').fadeIn(500, function() {});
 
-                            });
-                        }
+                        });
+                      }
                     });
-
                 });
             });
         }

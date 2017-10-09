@@ -43,7 +43,7 @@
         <link rel="stylesheet" type="text/css" href="/exo-gadget-resources/skin/flexigrid/flexigrid.custom.css" />
         <link rel="stylesheet" type="text/css" href="/eXoSkin/skin/css/platform/portlets/gadget-pack/loginHistory-jquery-ui-1.8.13.custom.css" />
         <link rel="stylesheet" type="text/css" href="/eXoSkin/skin/css/platform/portlets/gadget-pack/loginHistory.css" />
-        <script language="javascript" type="text/javascript" src="/eXoResources/javascript/jquery-1.7.1.js"></script>
+        <script language="javascript" type="text/javascript" src="/eXoResources/javascript/jquery-3.2.1.js"></script>
         <script language="javascript" type="text/javascript" src="/exo-gadget-resources/script/jquery/plugins/date.js/date.js"></script>
         <script language="javascript" type="text/javascript" src="/exo-gadget-resources/script/jquery/plugins/jquery.timers/1.2/jquery.timers.js"></script>
         <script language="javascript" type="text/javascript" src="/exo-gadget-resources/script/jquery/plugins/flexigrid/1.1/js/flexigrid.pack.js"></script>

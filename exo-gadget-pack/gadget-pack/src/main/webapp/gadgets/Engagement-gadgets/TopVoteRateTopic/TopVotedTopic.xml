@@ -49,7 +49,7 @@
         
     <script type="text/javascript" src="./script/topVoteTopic.js"></script>
     <script type="text/javascript" src="./script/date.format.js"></script>
-    <script language="javascript" type="text/javascript" src="/exo-gadget-resources/script/jquery/1.6.2/jquery.min.js"></script>
+    <script language="javascript" type="text/javascript" src="/eXoResources/javascript/jquery-3.2.1.js"></script>
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.9/jquery-ui.min.js"></script>
     
     <div id="TopVotedTopic-Gadget" class="UIGadgetThemes uiBox">

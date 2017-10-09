@@ -41,17 +41,8 @@
       });
   
       $(window).resize(function(){
-        if (!$.browser.msie) {
-          reset();
-          autoMoveApps();
-        }
-      });
-  
-      $('.userNavigation').resize(function(){
-        if ($.browser.msie) {
-          reset();
-          autoMoveApps();
-        }
+        reset();
+        autoMoveApps();
       });
     },
   	reInitNavigation : function(index) {

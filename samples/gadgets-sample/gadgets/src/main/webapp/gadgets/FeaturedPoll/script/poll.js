@@ -155,9 +155,9 @@ function showResult(data) {
 	tbl.push('<div class="clearfix btnform">');
 	if (data.isAgainVote) {
 		tbl.push("<span class='uiAction'><button class='btn' type='button' id='btnVoteAgain' value='" + prefs.getMsg("voteAgain") + "'>Vote Again</button></span>");
-		$("#btnVoteAgain").live("click", function() {
-			showPoll(data, true);
-		});
+    $('body').on('click', "#btnVoteAgain", function() {
+      showPoll(data, true);
+    });
 	}
 	tbl.push('<strong class="pull-right"> ' + msgTotal + ': ' + voters + ' ' + msgVoter + '</strong>');
 	tbl.push('</div>');

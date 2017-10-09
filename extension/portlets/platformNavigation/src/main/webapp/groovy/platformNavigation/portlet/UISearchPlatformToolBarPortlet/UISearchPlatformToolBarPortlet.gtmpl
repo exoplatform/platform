@@ -24,7 +24,7 @@
 <div class="uiSearchPlatformToolBarPortlet uiDropdownWithIcon dropdown" id="ToolBarSearch">
 		<input id="adminkeyword" name="adminkeyword" value="$labelSearch"
 		       onkeypress="eXo.search.SearchAdminToolbar.quickSearchadminOnEnter(event);" type="text"/>
-		<a href="#" class="dropdown-toggle">
+		<a class="dropdown-toggle">
 			<i class="uiIconPLF24x24Search"></i>
 		</a>
 </div>

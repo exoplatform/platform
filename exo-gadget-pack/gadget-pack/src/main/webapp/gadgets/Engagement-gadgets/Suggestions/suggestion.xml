@@ -41,7 +41,7 @@
   <link rel="stylesheet" type="text/css" href="/eXoSkin/skin/css/Core.css" />
   <link type="text/css" rel="stylesheet" href="/eXoSkin/skin/css/platform/samples/gadgets-sample/exo-gadget-resources/gadget-common.css" />
   <link type="text/css" rel="stylesheet" href="/eXoSkin/skin/css/platform/portlets/gadget-pack/suggestion.css" />
-  <script language="javascript" type="text/javascript" src="/exo-gadget-resources/script/jquery/1.6.2/jquery.min.js"></script>
+  <script language="javascript" type="text/javascript" src="/eXoResources/javascript/jquery-3.2.1.js"></script>
   <script language="javascript" type="text/javascript" src="scripts/suggestion.js"></script>
   <script type="text/javascript">   
     renderSuggestFriends();

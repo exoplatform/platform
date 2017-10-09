@@ -56,7 +56,7 @@
     <link href="/platform-extension/css/welcome-screens/jquery.qtip.min.css" rel="stylesheet" type="text/css" />
     <link href="/eXoSkin/skin/css/platform/portlets/extensions/welcome-screens.css" rel="stylesheet" type="text/css" />
 
-    <script type="text/javascript" src="/platform-extension/javascript/jquery-1.7.1.js"></script>
+    <script type="text/javascript" src="/eXoResources/javascript/jquery-3.2.1.js"></script>
     <script type="text/javascript" src="/platform-extension/javascript/ie-placeholder.js"></script>
     <script type="text/javascript" src="/platform-extension/javascript/welcome-screens/welcomescreens.js"></script>
 

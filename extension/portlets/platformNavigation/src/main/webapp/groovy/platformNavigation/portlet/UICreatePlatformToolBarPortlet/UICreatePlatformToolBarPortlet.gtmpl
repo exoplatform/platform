@@ -38,7 +38,7 @@ JavascriptManager jsmanager = rcontext.getJavascriptManager();
 %>
 
 <div class="uiCreateToolBarPortlet uiDropdownWithIcon dropdown pull-right" id="$uicomponent.id">
-	<a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="uiIconPLF24x24Add"></i></a>
+	<a class="dropdown-toggle" data-toggle="dropdown"><i class="uiIconPLF24x24Add"></i></a>
 	<%uicomponent.renderChild(UICreateList.class);%>
 </div>
 

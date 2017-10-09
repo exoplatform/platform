@@ -31,7 +31,7 @@
 		<link rel="stylesheet" type="text/css" href="/eXoSkin/skin/bootstrap/css/bootstrap.css"/>
 		<link rel="stylesheet" type="text/css" href="/eXoSkin/skin/css/Core.css"/>
 		<link rel="stylesheet" type="text/css" href="/eXoSkin/skin/css/platform/portlets/welcome-screens/unlockTrial.css"/>
-		<script type="text/javascript" src="/platform-extension/javascript/jquery-1.7.1.js"></script>
+		<script type="text/javascript" src="/eXoResources/javascript/jquery-3.2.1.js"></script>
 		<script type="text/javascript" src="/eXoSkin/skin/bootstrap/js/bootstrap-tooltip.js"></script>
 		<script type="text/javascript" src="/eXoSkin/skin/bootstrap/js/bootstrap-popover.js"></script>
 		<script type='text/javascript'>

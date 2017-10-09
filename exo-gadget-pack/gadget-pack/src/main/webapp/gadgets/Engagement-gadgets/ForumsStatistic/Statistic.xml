@@ -41,7 +41,7 @@
       <link rel="stylesheet" type="text/css" href="/eXoSkin/skin/css/platform/samples/gadgets-sample/exo-gadget-resources/gadget-common.css" />
        <link rel="stylesheet" type="text/css" href="/exo-gadget-resources/script/jquery/plugins/jqplot/1.0.5/jquery.jqplot.min.css" />
        <link type="text/css" rel="stylesheet" href="/eXoSkin/skin/css/platform/portlets/gadget-pack/forumsStatistic.css" />
-      <script language="javascript" type="text/javascript" src="/eXoResources/javascript/jquery-1.7.1.js"></script>
+      <script language="javascript" type="text/javascript" src="/eXoResources/javascript/jquery-3.2.1.js"></script>
       <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.9/jquery-ui.min.js"></script>
       <script type="text/javascript" src="script/date.format.js"></script>
       <script language="javascript" type="text/javascript" src="/exo-gadget-resources/script/jquery/plugins/jqplot/1.0.5/jquery.jqplot.min.js"></script>

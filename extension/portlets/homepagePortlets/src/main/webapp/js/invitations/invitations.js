@@ -61,45 +61,44 @@
 
                         $("#"+item.relationId).mouseout(function() { $("#"+item.relationId+" .peopleInvitePosition").removeClass("actionInviteAppears"); $("#"+item.relationId+" .peopleInviteAction").removeClass('active'); });
 
-                        $("#"+item.relationId+" a.connect").live("click", function(){
-                            $.getJSON("/rest/homepage/intranet/people/contacts/confirm/"+item.relationId, null);
+                        $('body').on('click', "#" + item.relationId + " a.connect", function() {
+                          $.getJSON("/rest/homepage/intranet/people/contacts/confirm/"+item.relationId, null);
 
-                            if($("#requests").children().length == 1) {
-                                $("#InvitationsPortlet").fadeOut(500, function () {
-                                    $("#"+item.relationId).remove();
-                                    $("#InvitationsPortlet").hide();
-                                });
-                            }
-                            else {
-                                $("#"+item.relationId).fadeOut(500, function () {
-                                    $("#"+item.relationId).remove();
-                                    var count = parseInt($("#inviteCounter").html());
-                                    $("#inviteCounter").html(count-1);
-                                    $('#InvitationsPortlet li:hidden:first').fadeIn(500, function() {});
-                                });
-                            }
+                          if($("#requests").children().length == 1) {
+                            $("#InvitationsPortlet").fadeOut(500, function () {
+                              $("#"+item.relationId).remove();
+                              $("#InvitationsPortlet").hide();
+                            });
+                          }
+                          else {
+                            $("#"+item.relationId).fadeOut(500, function () {
+                              $("#"+item.relationId).remove();
+                              var count = parseInt($("#inviteCounter").html());
+                              $("#inviteCounter").html(count-1);
+                              $('#InvitationsPortlet li:hidden:first').fadeIn(500, function() {});
+                            });
+                          }
                         });
 
-                        $("#"+item.relationId+" a.deny").live("click", function(){
-                            $.getJSON("/rest/homepage/intranet/people/contacts/deny/"+item.relationId, null);
+                        $('body').on('click', "#" + item.relationId + " a.deny", function(){
+                          $.getJSON("/rest/homepage/intranet/people/contacts/deny/"+item.relationId, null);
 
-                            if($("#requests").children().length == 1) {
-                                $("#InvitationsPortlet").fadeOut(500, function () {
-                                    $("#"+item.relationId).remove();
-                                    $("#InvitationsPortlet").hide();
-                                });
-                            }
-                            else {
-                                $("#"+item.relationId).fadeOut(500, function () {
-                                    $("#"+item.relationId).remove();
-                                    var count = parseInt($("#inviteCounter").html());
-                                    $("#inviteCounter").html(count-1);
-                                    $('#InvitationsPortlet li:hidden:first').fadeIn(500, function() {});
+                          if($("#requests").children().length == 1) {
+                            $("#InvitationsPortlet").fadeOut(500, function () {
+                              $("#"+item.relationId).remove();
+                              $("#InvitationsPortlet").hide();
+                            });
+                          }
+                          else {
+                            $("#"+item.relationId).fadeOut(500, function () {
+                              $("#"+item.relationId).remove();
+                              var count = parseInt($("#inviteCounter").html());
+                              $("#inviteCounter").html(count-1);
+                              $('#InvitationsPortlet li:hidden:first').fadeIn(500, function() {});
 
-                                });
-                            }
+                            });
+                          }
                         });
-
                     }
                     else{
                         if (i < 4)
@@ -138,46 +137,44 @@
                             $item.find(".spaceInviteAction").removeClass('active');
                         });
 
-                        $("#"+item.spaceId+" a.accept").live("click", function(){
-                            $.getJSON("/rest/homepage/intranet/spaces/accept/"+item.spaceId, null);
+                        $('body').on('click', "#" + item.spaceId + " a.accept", function() {
+                          $.getJSON("/rest/homepage/intranet/spaces/accept/"+item.spaceId, null);
 
-                            if($("#requests").children().length == 1) {
-                                $("#InvitationsPortlet").fadeOut(500, function () {
-                                    $("#"+item.spaceId).remove();
-                                    $("#InvitationsPortlet").hide();
+                          if($("#requests").children().length == 1) {
+                            $("#InvitationsPortlet").fadeOut(500, function () {
+                              $("#"+item.spaceId).remove();
+                              $("#InvitationsPortlet").hide();
 
-                                });
-                            }
-                            else {
-                                $("#"+item.spaceId).fadeOut(500, function () {
-                                    $("#"+item.spaceId).remove();
-                                    var count = parseInt($("#inviteCounter").html());
-                                    $("#inviteCounter").html(count-1);
-                                    $('#InvitationsPortlet li:hidden:first').fadeIn(500, function() {});
-                                });
-                            }
+                            });
+                          }
+                          else {
+                            $("#"+item.spaceId).fadeOut(500, function () {
+                              $("#"+item.spaceId).remove();
+                              var count = parseInt($("#inviteCounter").html());
+                              $("#inviteCounter").html(count-1);
+                              $('#InvitationsPortlet li:hidden:first').fadeIn(500, function() {});
+                            });
+                          }
                         });
 
-                        $("#"+item.spaceId+" a.deny").live("click", function(){
-                            $.getJSON("/rest/homepage/intranet/spaces/deny/"+item.spaceId, null);
+                        $('body').on('click', "#" + item.spaceId + " a.deny", function() {
+                          $.getJSON("/rest/homepage/intranet/spaces/deny/"+item.spaceId, null);
 
-                            if($("#requests").children().length == 1) {
-                                $("#InvitationsPortlet").fadeOut(500, function () {
-                                    $("#"+item.spaceId).remove();
-                                    $("#InvitationsPortlet").hide();
-                                });
-                            }
-                            else {
-                                $("#"+item.spaceId).fadeOut(500, function () {
-                                    $("#"+item.spaceId).remove();
-                                    var count = parseInt($("#inviteCounter").html());
-                                    $("#inviteCounter").html(count-1);
-                                    $('#InvitationsPortlet li:hidden:first').fadeIn(500, function() {});
-                                });
-                            }
-                        });
-
-
+                          if($("#requests").children().length == 1) {
+                            $("#InvitationsPortlet").fadeOut(500, function () {
+                              $("#"+item.spaceId).remove();
+                              $("#InvitationsPortlet").hide();
+                            });
+                          }
+                          else {
+                            $("#"+item.spaceId).fadeOut(500, function () {
+                              $("#"+item.spaceId).remove();
+                              var count = parseInt($("#inviteCounter").html());
+                              $("#inviteCounter").html(count-1);
+                              $('#InvitationsPortlet li:hidden:first').fadeIn(500, function() {});
+                            });
+                          }
+                        })
                     }
                     $("#inviteCounter").html(i+1);
                 });
