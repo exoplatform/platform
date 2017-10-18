@@ -239,6 +239,7 @@ public class OrganizationIntegrationService implements Startable {
     }
 
     startRequest();
+    LOG.info("The synchronization is started for all LDAP users and groups, eventType: ADDED,DELETED");
     try {
 
       if (LOG.isDebugEnabled()) {
@@ -262,6 +263,7 @@ public class OrganizationIntegrationService implements Startable {
     } catch (Exception e) {
       LOG.error(e.getMessage(),e);
     }
+    LOG.info("The synchronization is finished for all LDAP users and groups, eventType: ADDED,DELETED");
     endRequest();
   }
 
@@ -293,6 +295,7 @@ public class OrganizationIntegrationService implements Startable {
     EventType event = EventType.valueOf(eventType);
     switch (event) {
       case DELETED: {
+        LOG.info("The synchronization is started for all LDAP groups, eventType: DELETED");
         // Invoke delete listeners on groups, starting from children groups
         // to parent
         Collections.reverse(groups);
@@ -313,9 +316,11 @@ public class OrganizationIntegrationService implements Startable {
             session.logout();
           }
         }
+        LOG.info("The synchronization is finished for all LDAP groups, eventType: DELETED");
         break;
       }
       case UPDATED: {
+        LOG.info("The synchronization is started for all LDAP groups, eventType: UPDATED");
         // Search for added groups that aren't yet integrated
         Session session = null;
         try {
@@ -329,9 +334,11 @@ public class OrganizationIntegrationService implements Startable {
             session.logout();
           }
         }
+        LOG.info("The synchronization is finished for all LDAP groups, eventType: UPDATED");
         break;
       }
       case ADDED: {
+        LOG.info("The synchronization is started for all LDAP groups, eventType: ADDED");
         // Search for added groups that aren't yet integrated
         Session session = null;
         try {
@@ -347,6 +354,7 @@ public class OrganizationIntegrationService implements Startable {
             session.logout();
           }
         }
+        LOG.info("The synchronization is finished for all LDAP groups, eventType: ADDED");
         break;
       }
     }
@@ -440,6 +448,7 @@ public class OrganizationIntegrationService implements Startable {
     picketLinkIDMCacheService.invalidateAll();
     switch (event) {
       case DELETED: {
+        LOG.info("The synchronization is started for all LDAP users, eventType: DELETED");
         if (LOG.isDebugEnabled()) {
           LOG.debug("\tSearch for deleted users and invoke related listeners.");
         }
@@ -451,13 +460,21 @@ public class OrganizationIntegrationService implements Startable {
           ListAccess<User> usersListAccess = organizationService.getUserHandler().findAllUsers();
 
           int i = 0;
+          int k = 0;
           while (i <= usersListAccess.getSize()) {
             int length = i + 10 <= usersListAccess.getSize() ? 10 : usersListAccess.getSize() - i;
             User[] users = usersListAccess.load(i, length);
             for (User user : users) {
               activatedUsers.remove(user.getUserName());
+              k++;
+              if(k%100==0){
+                LOG.info(k+" users are checked for deletion");
+              }
             }
             i += 10;
+          }
+          if(k%100!=0){
+            LOG.info(k+" users are checked for deletion");
           }
           for (String username : activatedUsers) {
             syncUser(username, eventType);
@@ -470,9 +487,11 @@ public class OrganizationIntegrationService implements Startable {
             session.logout();
           }
         }
+        LOG.info("The synchronization is finished for all LDAP users, eventType: DELETED");
         break;
       }
       case UPDATED: {
+        LOG.info("The synchronization is started for all LDAP users, eventType: UPDATED");
         if (LOG.isDebugEnabled()) {
           LOG.debug("\tAll users update invocation: Search for already existing users in Datasource and that are already integrated.");
         }
@@ -491,9 +510,11 @@ public class OrganizationIntegrationService implements Startable {
             session.logout();
           }
         }
+        LOG.info("The synchronization is finished for all LDAP users, eventType: UPDATED");
         break;
       }
       case ADDED: {
+        LOG.info("The synchronization is started for all LDAP users, eventType: ADDED");
         startRequest();
         try {
           session = repositoryService.getCurrentRepository().getSystemSession(Util.WORKSPACE);
@@ -504,6 +525,7 @@ public class OrganizationIntegrationService implements Startable {
           }
           ListAccess<User> usersListAccess = organizationService.getUserHandler().findAllUsers();
           int i = 0;
+          int k = 0 ;
           while (i <= usersListAccess.getSize()) {
             int length = i + 10 <= usersListAccess.getSize() ? 10 : usersListAccess.getSize() - i;
             User[] users = usersListAccess.load(i, length);
@@ -511,8 +533,15 @@ public class OrganizationIntegrationService implements Startable {
               if (!activatedUsers.contains(user.getUserName())) {
                 syncUser(user.getUserName(), eventType);
               }
+              k++;
+              if(k%100==0){
+                LOG.info(k+" users are checked for addition");
+              }
             }
             i += 10;
+          }
+          if(k%100!=0){
+            LOG.info(k+" users are checked for addition");
           }
         } catch (Exception e) {
           LOG.error("\tUnknown error occurred while preparing to proceed user update", e);
@@ -522,6 +551,7 @@ public class OrganizationIntegrationService implements Startable {
             session.logout();
           }
         }
+        LOG.info("The synchronization is finished for all LDAP users, eventType: ADDED");
         break;
       }
     }
