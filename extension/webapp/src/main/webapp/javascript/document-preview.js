@@ -968,7 +968,7 @@
     },
     initCKEditor: function() {
         var commentInput = $('#documentPreviewContainer #commentInput');
-        var extraPlugins = 'simpleLink,simpleImage,suggester';
+        var extraPlugins = 'simpleLink,selectImage,suggester';
 
         // TODO this line is mandatory when a custom skin is defined, it should not be mandatory
         CKEDITOR.basePath = '/commons-extension/ckeditor/';
@@ -1027,9 +1027,9 @@
                 }
                 
                 if (pureText.length <= MAX_LENGTH) {
-                    evt.editor.getCommand('simpleImage').enable();
+                    evt.editor.getCommand('selectImage').enable();
                 } else {
-                    evt.editor.getCommand('simpleImage').disable();
+                    evt.editor.getCommand('selectImage').disable();
                 }
             },
             key: function( evt) {
