@@ -47,8 +47,12 @@
 
 <div class="uiSpaceNavigationPortlet" id="$uicomponent.id">
   <h5 class="title accordionBar clearfix">
-  <i class="uiIconEcmsViewDocument" id="MySpacesItem" data-container="body" data-placement="right" rel="tooltip" data-toggle="tooltip" title="$spaceLabel"></i>
-      <a href="/portal/intranet/spaces">$spaceLabel</a><i class="uiIconArrowRight pull-right"></i></h5>
+    <a href="/portal/intranet/spaces">
+      <i class="uiIconEcmsViewDocument" id="MySpacesItem" data-container="body" data-placement="right" rel="tooltip" data-toggle="tooltip" title="$spaceLabel"></i>
+      <span>$spaceLabel</span>
+    </a>
+    <i class="uiIconArrowRight pull-right"></i>
+  </h5>
    <div class="spaceCont accordionCont ">
   <!-- Merge exoadmin:  navigation-->
     <div class="searchInput">
