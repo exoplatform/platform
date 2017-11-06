@@ -51,12 +51,9 @@
       }
     },
     toggleLeftBar : function() {
-      var collapseClass = 'collapse-left-bar';
-      var $menuButton = $('.toggle-left-bar');
 
       var toggle = function() {
         $body = $('body');
-        $body.toggleClass(collapseClass + ' expand-left-bar');
         if ($(window).width()  < 1025) {
           if($body.hasClass('open-left-bar')) {
             tabManagerApp.hideLeftPanel();
@@ -64,6 +61,8 @@
             tabManagerApp.showLeftPanel();
           }
         } else {
+          var collapseClass = 'collapse-left-bar';
+          $body.toggleClass(collapseClass + ' expand-left-bar');
           window.localStorage.setItem('exo-platform-left-menu-collapsed/' + eXo.env.portal.userName, $body.hasClass(collapseClass));
 
           $('.LeftNavigationTDContainer').off().on('transitionend', function() {
