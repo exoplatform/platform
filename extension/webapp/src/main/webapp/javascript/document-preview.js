@@ -291,11 +291,6 @@
         cssClasses = $.map(this.settings.doc.fileType.split(/\s+/g), function(type){return "uiIcon16x16" + type}).join(" ");            
       }
 
-      var versionStyle = 'none';
-      if (this.settings.version != null) {
-        versionStyle = 'block';
-      }
-
       if($('.commentsLoaded').length) {
         docPreviewContainer.find(".previewBtn").html(' \
             <div class="showComments"> \
@@ -307,10 +302,6 @@
           <div class="downloadBtn"> \
             <a href="' + this.settings.doc.downloadUrl + '"><i class="uiIconDownload uiIconWhite"></i>&nbsp;${UIActivity.comment.download}</a> \
           </div>');
-        docPreviewContainer.find(".commentArea > .title").html(' \
-            <i class="' + cssClasses + '"></i>&nbsp;' + this.settings.doc.title + ' \
-            <span class="label pull-right" style="display:' + versionStyle + ';">V' + (this.settings.version != null ? this.settings.version.number : '0') + '</span> \
-        </div>');
       } else {
         var authorFullName = XSSUtils.sanitizeString(this.settings.author.fullname != null ? this.settings.author.fullname : '');
         docPreviewContainer.html(' \
@@ -323,7 +314,6 @@
               <div class="uiBox commentArea pull-right" id="commentArea"> \
                 <div class="title">\
                   <i class="' + cssClasses + '"></i>&nbsp;' + this.settings.doc.title + ' \
-                  <span class="label pull-right" style="display:' + versionStyle + ';">V' + (this.settings.version != null ? this.settings.version.number : '0') + '</span> \
                 </div> \
                 <div class="uiContentBox"> \
                   <div class="highlightBox"> \
@@ -378,7 +368,7 @@
                 <i class="uiIconMiniArrowLeft uiIconWhite"></i> \
                 <i class="uiIconMiniArrowRight uiIconWhite"></i> \
               </div> \
-              <div id="documentPreviewContent" style="height:' + (window.innerHeight - 82) + 'px" ' + (this.settings.doc.isWebContent == true ? ' class="uiPreviewWebContent"' : '') + '> \
+              <div id="documentPreviewContent" style="height: calc( 100vh - 82px )" ' + (this.settings.doc.isWebContent == true ? ' class="uiPreviewWebContent"' : '') + '> \
                   <div class="loading"> \
                     <i class="uiLoadingIconMedium uiIconLightGray"></i> \
                   </div>\
@@ -1075,10 +1065,32 @@
     }
   }
 
+  var applyReverseEllipsis = function($parent) {
+    $parent.find('.ellipsis-reverse').each(function() {
+      var $ellipsisContent = $(this).find(".ellipsis-reverse-content");
+      var $ellipsisApply = $(this).find(".ellipsis-reverse-apply");
+      var $ellipsisApplyContent = $(this).find(".ellipsis-reverse-apply-content");
+      var $ellipsisFirstChild = $ellipsisApplyContent.find(' :first-child');
+      if(!$ellipsisApplyContent.length
+          || !$ellipsisContent.length
+          || !$(this).offset()
+          || !$ellipsisFirstChild
+          || !$ellipsisFirstChild.offset()
+          || !$ellipsisFirstChild.length) {
+        return;
+      }
+      var applyEllipsisReverse = $ellipsisFirstChild.offset().left - $(this).offset().left -15;
+      if(applyEllipsisReverse > 0) {
+        $ellipsisContent.addClass("hidden");
+      } else {
+        $ellipsisContent.removeClass("hidden");
+      }
+    })
+  };
+
   // Resize Event
   var resizeEventHandler = function() {
-    var pdfDisplayAreaHeight = window.innerHeight - 82;
-    $("#documentPreviewContent").css("height", pdfDisplayAreaHeight + "px");
+    var pdfDisplayAreaHeight = window.innerHeight - 143 - ((documentPreview.settings.doc.fileInfo || documentPreview.settings.doc.breadCrumb) ? 55 : 0);
     var $uiDocumentPreview = $('#uiDocumentPreview');
 
     // Show empty preview message
@@ -1090,17 +1102,54 @@
       }
     }
     // Show Next & previous buttons inside resizable div
-    if(documentPreview.settings.activity.next || documentPreview.settings.activity.previous) {
-      pdfDisplayAreaHeight = pdfDisplayAreaHeight - 60;
-      if($uiDocumentPreview.find("#NavCommands").length == 0) {
+    if($uiDocumentPreview.find("#NavCommands").length == 0) {
+      if(documentPreview.settings.doc && documentPreview.settings.doc.breadCrumb) {
+        var breadCrumbContent = '<div class="ellipsis-reverse-content hidden">...</div><div class="ellipsis-reverse-apply"><div class="ellipsis-reverse-apply-content">';
+        var folderIndex = 0;
+        var breadCrumbContentTooltip = "";
+        for (var folderName in documentPreview.settings.doc.breadCrumb) {
+          if (documentPreview.settings.doc.breadCrumb.hasOwnProperty(folderName)) {
+              var folderPath = documentPreview.settings.doc.breadCrumb[folderName];
+              if(folderIndex > 0) {
+                breadCrumbContent += '&nbsp;<i class="uiIconArrowRight"></i>&nbsp;';
+                breadCrumbContentTooltip += " > ";
+              }
+              breadCrumbContent += '<a href="' + folderPath + '" onclick="event.stopPropagation();window.location.href=this.href"> \
+                                      ' + folderName + ' \
+                                    </a>';
+              breadCrumbContentTooltip += folderName;
+              folderIndex++;
+          }
+        }
+        breadCrumbContent += '</div></div>';
+      }
+      var fileTitleBlock = '<div class="fileTitle"> \
+          <h4 class="fileName" data-container="body" rel="tooltip" data-placement="top" title="' + documentPreview.settings.doc.title + '"> \
+            <div class="ellipsis">' + documentPreview.settings.doc.title + '</div> \
+            ' + ((documentPreview.settings.version  && documentPreview.settings.version.number) ? ('<div class="label primary fileVersion"' + (documentPreview.settings.doc.openUrl ? 'onclick="window.location.href=\'' + documentPreview.settings.doc.openUrl +'&versions=true\'"' : "") + '>V' + documentPreview.settings.version.number + '</div>') : '') + '\
+          </h4>';
+      if(breadCrumbContent) {
+        fileTitleBlock += '<div class="breadCrumb ellipsis-reverse" data-container="body" rel="tooltip" data-placement="top" title="' + breadCrumbContentTooltip + '">' + breadCrumbContent + '</div>';
+      }
+      if(documentPreview.settings.doc.fileInfo) {
+        fileTitleBlock += '<div class="fileInfo ellipsis" data-container="body" rel="tooltip" data-placement="top" title="' + documentPreview.settings.doc.fileInfo + '">' + documentPreview.settings.doc.fileInfo + '</div>';
+      }
+      fileTitleBlock += '</div>';
+      if(documentPreview.settings.activity.next || documentPreview.settings.activity.previous) {
         $blockToAppendTo.append('<div id="NavCommands"> \
-             <div class="arrowPrevious ' + (documentPreview.settings.activity.previous ? '' : 'disabled') + '" onclick="documentPreview.goToPrevious()"  rel="tooltip" data-placement="top" title="${UIActivity.label.Previous}"><span></span></div> \
-             <div class="fileTitle"  rel="tooltip" data-placement="top" title="' + documentPreview.settings.doc.title + '">' + documentPreview.settings.doc.title + (documentPreview.settings.doc.size ? ('<br />' + documentPreview.settings.doc.size) : '') + '</div> \
-             <div class="arrowNext ' + (documentPreview.settings.activity.next ? '' : 'disabled') + '" onclick="documentPreview.goToNext()" rel="tooltip" data-placement="top" title="${UIActivity.label.Next}"><span></span></div> \
+             <div class="arrowPrevious ' + (documentPreview.settings.activity.previous ? '' : 'disabled') + '" onclick="documentPreview.goToPrevious()"  rel="tooltip" data-placement="top" title="${UIActivity.label.Previous}"><span></span></div>'
+             + fileTitleBlock +
+             '<div class="arrowNext ' + (documentPreview.settings.activity.next ? '' : 'disabled') + '" onclick="documentPreview.goToNext()" rel="tooltip" data-placement="top" title="${UIActivity.label.Next}"><span></span></div> \
           </div>'
         );
+      } else {
+        $blockToAppendTo.append('<div id="NavCommands">'
+            + fileTitleBlock +
+         '</div>'
+       );
       }
     }
+    applyReverseEllipsis($uiDocumentPreview);
 
     var $remoteEditDocument = $uiDocumentPreview.find(".remoteEditBtn");
     if($remoteEditDocument.length == 1 && !$remoteEditDocument.hasClass("updated")) {
@@ -1134,7 +1183,7 @@
     var $windowmediaplayer = $('#MediaPlayer1', $uiContentBox);
     var $embedWMP = $('embed', $windowmediaplayer);
 
-    $emptyDocumentPreview.height(pdfDisplayAreaHeight);
+    $emptyDocumentPreview.height(pdfDisplayAreaHeight - 40);
     $navigationContainer.height(pdfDisplayAreaHeight);
     $uiContentBox.height(pdfDisplayAreaHeight);
     $flowplayerContentDetail.height(pdfDisplayAreaHeight);
