@@ -6,6 +6,7 @@
     $('body').addClass('open-right-bar');  
   }
 
+  var leftPanelStateKeyPrefix = 'exo-platform-left-menu-collapsed/';
 
   var tabManagerApp = {
     container : $('#UIToolbarContainer'),
@@ -16,6 +17,12 @@
         $('.toggle-right-bar').css('top',_h/2);  
         $('#OfficeRight').css('height',$('.RightBodyTDContainer ').height());     
       }
+
+      // remove flag in local storage about left panel state on logout
+      window.addEventListener('exo-logout', function () {
+        window.localStorage.removeItem(leftPanelStateKeyPrefix + eXo.env.portal.userName);
+      }, false);
+
       this.toggleLeftBar();
       this.toggleRightBar();
       // this.leftNavAccordion();
@@ -63,7 +70,7 @@
         } else {
           var collapseClass = 'collapse-left-bar';
           $body.toggleClass(collapseClass + ' expand-left-bar');
-          window.localStorage.setItem('exo-platform-left-menu-collapsed/' + eXo.env.portal.userName, $body.hasClass(collapseClass));
+          window.localStorage.setItem(leftPanelStateKeyPrefix + eXo.env.portal.userName, $body.hasClass(collapseClass));
 
           $('.LeftNavigationTDContainer').off().on('transitionend', function() {
             $("#LeftNavigation").perfectScrollbar('update');
