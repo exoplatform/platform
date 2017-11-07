@@ -97,7 +97,7 @@
 %>
 <div class="uiCompanyNavigationPortlet">
     <h5 class="title accordionBar clearfix">
-      <div class="mobile-visible toggle-left-bar" id="HumbergerMenuItem">
+      <div class="mobile-visible toggle-left-bar" id="HamburgerMenuItem">
         <span></span>
         <span></span>
         <span></span>
