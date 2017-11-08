@@ -98,6 +98,7 @@ public class UINotificationPopoverToolbarPortlet extends UIPortletApplication {
       JSONObject object = new JSONObject();
       object.put("notifications", sb.toString());
       object.put("showViewAll", hasNotifications());
+      object.put("inlineImageLabel", context.getApplicationResourceBundle().getString("UINotificationPopoverToolbarPortlet.label.InlineImage"));
       //
       res.getWriter().write(object.toString());
       return;

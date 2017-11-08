@@ -91,8 +91,13 @@
       renderMenu : function(data) {
         var me = NotificationPopover;
         var notifications = data.notifications;
+
         me.portlet.find('li.loadingIndicator:first').hide();
         if (notifications && notifications.length > 0) {
+          var $notifications = $(notifications);
+          me.inlineImageLabel = data.inlineImageLabel;
+          $notifications.find(".contentSmall .content img").replaceWith("<i>[" + data.inlineImageLabel + "]</i>");
+          notifications = $('<div>').append($notifications.clone()).html();
           me.popupItem.append(notifications);
           me.viewAllBtn.show();
           me.popupItem.find('li').each(function(i) {
@@ -132,6 +137,10 @@
         NotificationPopover.isLive = false;
       },
       appendMessage : function(message) {
+        var $message = $(message.body);
+        $message.find(".contentSmall .content img").replaceWith("<i>[" + NotificationPopover.inlineImageLabel + "]</i>");
+        message.body = $('<div>').append($message.clone()).html();
+
         var newItem = $($('<ul></ul>').html(message.body).html());
         var id = newItem.data('id');
         var moveTop = message.moveTop;
