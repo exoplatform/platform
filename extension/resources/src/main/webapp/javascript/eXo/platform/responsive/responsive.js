@@ -18,11 +18,6 @@
         $('#OfficeRight').css('height',$('.RightBodyTDContainer ').height());     
       }
 
-      // remove flag in local storage about left panel state on logout
-      window.addEventListener('exo-logout', function () {
-        window.localStorage.removeItem(leftPanelStateKeyPrefix + eXo.env.portal.userName);
-      }, false);
-
       this.toggleLeftBar();
       this.toggleRightBar();
       // this.leftNavAccordion();
