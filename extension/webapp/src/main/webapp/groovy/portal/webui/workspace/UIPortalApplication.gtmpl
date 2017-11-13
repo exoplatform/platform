@@ -236,12 +236,9 @@
   //need this script to avoid animation of hamburger menu
   (function() {
     var collapseClass = 'collapse-left-bar';
+    var expandClass = 'expand-left-bar';
     var collapsed = window.localStorage.getItem('exo-platform-left-menu-collapsed/<%=rcontext.getRemoteUser()%>');
-    if (collapsed === 'false') {
-      document.body.className = 'expand-left-bar';
-    } else if (document.body.className.search(collapseClass) == -1) {
-      document.body.className = collapseClass;
-    }
+    document.body.className = collapsed === 'true' ? collapseClass : expandClass;
   })();
  </script>
  <div class="visible-tablet"></div><div class="visible-tabletL"></div><div class="visible-phone"></div><div class="visible-phone-small"></div>
