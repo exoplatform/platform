@@ -8,6 +8,11 @@
   import java.util.Enumeration;
   import org.json.JSONArray;  
   import org.apache.commons.lang.StringUtils;
+  import org.exoplatform.commons.api.settings.SettingService;
+  import org.exoplatform.commons.api.settings.SettingValue;
+  import org.exoplatform.commons.api.settings.data.Scope;
+  import org.exoplatform.commons.api.settings.data.Context;
+  import org.exoplatform.commons.utils.CommonsUtils;
   import org.exoplatform.webui.core.UIComponent;
   import org.exoplatform.portal.application.PortalRequestContext ;
   import org.exoplatform.portal.config.model.PortalProperties ;
@@ -35,7 +40,7 @@
   def portalSkins = uicomponent.getPortalSkins(wcmSkinVisitor);
   def portletSkins = uicomponent.getPortletSkins();
   def customSkins = uicomponent.getCustomSkins();
-  livePortalManagerService_ = WCMCoreUtils.getService(LivePortalManagerService.class);
+  livePortalManagerService_ = CommonsUtils.getService(LivePortalManagerService.class);
   def portalNode = livePortalManagerService_.getLivePortal(WCMCoreUtils.getSystemSessionProvider(), portalName);
   def livePortalScript = WCMCoreUtils.getSiteGlobalActiveJs(portalNode);
   for (module in scriptsURLs.keySet()) {
@@ -77,7 +82,7 @@
   def robots = "";
   PageMetadataModel metaModel = null;
   try {
-	  SEOService seoService = WCMCoreUtils.getService(SEOService.class);
+	  SEOService seoService = CommonsUtils.getService(SEOService.class);
 	  if(seoService != null) {	  
 		  metaModel = seoService.getMetadata(paramArray, pageReference, lang);
 		  if(metaModel != null) {
@@ -90,6 +95,16 @@
 		  }	   
 	  }
   } catch(Exception ex) {}
+
+  // Left Navigation State
+  SettingService settingService = CommonsUtils.getService(SettingService.class);
+  def collapseClass = "collapse-left-bar";
+  def expandClass = "expand-left-bar";
+  def leftPanelStateClass = expandClass;
+  SettingValue<?> leftPanelStateCollapsed = settingService.get(Context.USER, Scope.GLOBAL, "exo-platform-left-menu-collapsed");
+  if(leftPanelStateCollapsed != null && leftPanelStateCollapsed.getValue() != null) {
+    leftPanelStateClass = ((String) leftPanelStateCollapsed.getValue()).equals("true") ? collapseClass : expandClass;
+  }
 %>
 <!--[if IE 7]> <html class="ie7 lt-ie8 lt-ie9 lt-ie10"  xmlns="http://www.w3.org/1999/xhtml" xml:lang="$lang" lang="$lang" dir="$dir"> <![endif]-->
 <!--[if IE 8]> <html class="ie8 lt-ie9  lt-ie10"  xmlns="http://www.w3.org/1999/xhtml" xml:lang="$lang" lang="$lang" dir="$dir"> <![endif]-->
@@ -231,16 +246,7 @@
     <!-- /508 Compliancy -->
  </head>
 
- <body style="height: 100%;">
- <script type="text/javascript">
-  //need this script to avoid animation of hamburger menu
-  (function() {
-    var collapseClass = 'collapse-left-bar';
-    var expandClass = 'expand-left-bar';
-    var collapsed = window.localStorage.getItem('exo-platform-left-menu-collapsed/<%=rcontext.getRemoteUser()%>');
-    document.body.className = collapsed === 'true' ? collapseClass : expandClass;
-  })();
- </script>
+ <body class="$leftPanelStateClass" style="height: 100%;">
  <div class="visible-tablet"></div><div class="visible-tabletL"></div><div class="visible-phone"></div><div class="visible-phone-small"></div>
  <div class="$uicomponent.skin" id="UIPortalApplication" style="!height: 100%;">
      

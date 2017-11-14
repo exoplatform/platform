@@ -6,7 +6,7 @@
     $('body').addClass('open-right-bar');  
   }
 
-  var leftPanelStateKeyPrefix = 'exo-platform-left-menu-collapsed/';
+  var leftPanelStateKey = 'exo-platform-left-menu-collapsed';
 
   var tabManagerApp = {
     container : $('#UIToolbarContainer'),
@@ -52,6 +52,14 @@
         });
       }
     },
+    savePanelState : function(collapsed) {
+      $.ajax({
+        url: "/rest/v1/settings/USER," + eXo.env.portal.userName + "/GLOBAL/" + leftPanelStateKey,
+        contentType: "application/json",
+        data: JSON.stringify({"value": collapsed}),
+        type: "PUT"
+      });
+    },
     toggleLeftBar : function() {
 
       var toggle = function() {
@@ -65,7 +73,8 @@
         } else {
           var collapseClass = 'collapse-left-bar';
           $body.toggleClass(collapseClass + ' expand-left-bar');
-          window.localStorage.setItem(leftPanelStateKeyPrefix + eXo.env.portal.userName, $body.hasClass(collapseClass));
+
+          tabManagerApp.savePanelState($body.hasClass(collapseClass));
 
           $('.LeftNavigationTDContainer').off().on('transitionend', function() {
             $("#LeftNavigation").perfectScrollbar('update');
