@@ -40,7 +40,7 @@
         String navTitle = OrganizationUtils.getGroupLabel(ownerId);
         println """
                       <h5 class="title accordionBar clearfix">
-                         <i class="uiIconGadgets" data-container="body" data-placement="right" rel="tooltip" data-toggle="tooltip" data-original-title="$navTitle"></i> <span>$navTitle</span> <i class="uiIconArrowRight pull-right"></i>
+                         <i class="uiIconGroupNavigation" data-container="body" data-placement="right" rel="tooltip" data-toggle="tooltip" data-original-title="$navTitle"></i> <span>$navTitle</span> <i class="uiIconArrowRight pull-right"></i>
                       </h5>
 					  <div class="accordionCont"><ul class="groupNavigation">
 				""";
