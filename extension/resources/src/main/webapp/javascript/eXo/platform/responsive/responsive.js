@@ -63,6 +63,11 @@
     toggleLeftBar : function() {
 
       var toggle = function() {
+        // manage boris effect
+        var hamburgerMenu = $('.toggle-left-bar');
+        hamburgerMenu.addClass('toggle-left-bar-click');
+        setTimeout(function(){ hamburgerMenu.removeClass('toggle-left-bar-click'); }, 300);
+
         $body = $('body');
         if ($(window).width()  < 1025) {
           if($body.hasClass('open-left-bar')) {
