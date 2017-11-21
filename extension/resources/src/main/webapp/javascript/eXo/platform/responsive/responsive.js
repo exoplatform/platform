@@ -82,6 +82,7 @@
           tabManagerApp.savePanelState($body.hasClass(collapseClass));
 
           $('.LeftNavigationTDContainer').off().on('transitionend', function() {
+            $(window).trigger('resize');
             $("#LeftNavigation").perfectScrollbar('update');
           });
         }
