@@ -41,13 +41,23 @@
   def rcontext = _ctx.getRequestContext() ;
   def jsManager = rcontext.getJavascriptManager();
   jsManager.require("SHARED/navigation-spaces-search", "spacesearch").addScripts("spacesearch.init('" + uicomponent.id + "','" + restUrl + "','" + StringEscapeUtils.escapeJavaScript(noSpace) + "','" + selectSpaceActionDyna + "');");
+
+  def spaceLabel = _ctx.appRes("UISpaceNavigationPortlet.label.Spaces");
 %>
 
 <div class="uiSpaceNavigationPortlet" id="$uicomponent.id">
-  <h5 class="title accordionBar clearfix"><a href="/portal/intranet/spaces"><%=_ctx.appRes("UISpaceNavigationPortlet.label.Spaces")%></a><i class="uiIconArrowRight pull-right"></i></h5>
+  <h5 class="title accordionBar clearfix">
+    <a href="/portal/intranet/spaces">
+      <i class="uiIconSpaceNavigation" id="MySpacesItem" data-container="body" data-placement="right" rel="tooltip" data-toggle="tooltip" title="$spaceLabel"></i>
+      <span>$spaceLabel</span>
+    </a>
+    <i class="uiIconArrowRight pull-right"></i>
+  </h5>
    <div class="spaceCont accordionCont ">
   <!-- Merge exoadmin:  navigation-->
-    <div class="searchInput"><input type="text" class="searchText " placeholder="<%=defaultValueForTextSearch%>"/></div>
+    <div class="searchInput">
+    <input type="text" class="searchText " placeholder="<%=defaultValueForTextSearch%>"/>
+    </div>
 
         <ul class="spaceNavigation ">
 
@@ -65,7 +75,7 @@
                         }
         %>
                                 <li class="spaceItem $tabStyleNavigation">
-                                        <a href="javascript:void(0);" onclick="$link" class="spaceIcon avatarMini" ><img title="" alt="" src="$spaceImageSource" /><span data-placement="bottom" rel="tooltip" data-toggle="tooltip" data-original-title="$spaceDisplayName"> $spaceDisplayName</span></a>
+                                        <a href="javascript:void(0);" onclick="$link" class="spaceIcon avatarMini" ><img data-container="body" alt="" src="$spaceImageSource" data-placement="right" rel="tooltip" data-toggle="tooltip" title="$spaceDisplayName"/><span data-placement="bottom" rel="tooltip" data-toggle="tooltip" data-original-title="$spaceDisplayName"> $spaceDisplayName</span></a>
                                 </li>
         <%        } %> <!-- END FOR -->
 
@@ -88,11 +98,12 @@
                               </div>
                       """ ;
               }
+        def joinLabel = _ctx.appRes("UISpaceNavigationPortlet.label.Join");
 %>
         <div class="joinSpace">
                 <a class="" href="<%= findSpacesLink %>">
-                        <i class="uiIconPLFMan"></i>
-                <%=_ctx.appRes("UISpaceNavigationPortlet.label.Join")%>
+                <i class="uiIconPLFMan" id="JoinSpaceItem" data-container="body" data-placement="right" rel="tooltip" data-toggle="tooltip" title="$joinLabel"></i>
+                $joinLabel
                 </a>
         </div>
         </div>

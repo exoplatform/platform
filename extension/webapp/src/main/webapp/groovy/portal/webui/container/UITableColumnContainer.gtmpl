@@ -16,7 +16,10 @@
 		uicomponent.setId(componentId.substring("UIContainer-".length()));
 	}
 
-rcontext.getJavascriptManager().require("SHARED/platform-left-navigation", "platformLeftNavigation").addScripts("platformLeftNavigation.resize();");
+ rcontext.getJavascriptManager().require("SHARED/platform-left-navigation", "platformLeftNavigation")
+				 .require("SHARED/platform-responsive", "platformResponsive")
+				 .addScripts("platformLeftNavigation.init();")
+				 .addScripts("platformResponsive.toggleLeftBar();");
 	if (uiPortalApp.isEditing())
 	{
 	   JavascriptManager jsManager = rcontext.getJavascriptManager();

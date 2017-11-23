@@ -56,7 +56,7 @@
         else title = "";
         EntityEncoder entityEncoder = EntityEncoder.FULL;
         label = entityEncoder.encode(label);
-        if ((icon == null)||(icon.equals(""))) 
+        if ((icon == null)||(icon.equals("")))
 		{
   			if (href.lastIndexOf("/") == href.length() - 1) {
       			href = href.substring(0, href.length() - 1);
@@ -82,19 +82,27 @@
         print """
 			<li class="$tabStyleNavigation">
 		""";
+        String idMenuItem = "MenuItem"+node.name
         if(node.pageRef != null) {
-            print """<a href="$href" ><i class="$icon"></i><span data-placement="bottom" rel="tooltip" data-toggle="tooltip" $title data-original-title="$label">$label</span></a>""";
+          print """<a href="$href" ><i class="$icon" id="$idMenuItem" data-container="body" data-placement="right" rel="tooltip" data-toggle="tooltip" $title data-original-title="$label"></i><span data-placement="bottom" rel="tooltip" data-toggle="tooltip" $title data-original-title="$label">$label</span></a>""";
         } else {
-            print """<a href="#" ><i class="$icon"></i><span data-placement="bottom" rel="tooltip" data-toggle="tooltip" $title data-original-title="$label">$label</span></a>""";
+          print """<a href="#" ><i class="$icon" id="$idMenuItem" data-container="body" data-placement="right" rel="tooltip" data-toggle="tooltip" $title data-original-title="$label"></i><span data-placement="bottom" rel="tooltip" data-toggle="tooltip" $title data-original-title="$label">$label</span></a>""";
         }
         print """
 			</li>
 		""" ;
     }
+
+    String title = _ctx.appRes("UICompanyNavigationPortlet.CompanyBar");
 %>
 <div class="uiCompanyNavigationPortlet">
     <h5 class="title accordionBar clearfix">
-        <%= _ctx.appRes("UICompanyNavigationPortlet.CompanyBar")  %> <i class="uiIconArrowRight pull-right"></i>
+      <div class="mobile-visible toggle-left-bar" id="HamburgerMenuItem">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <span>$title</span> <i class="uiIconArrowRight pull-right"></i>
     </h5>
 	<div class="accordionCont">
     <%
@@ -102,4 +110,3 @@
     %>
 	</div>
 </div>
-

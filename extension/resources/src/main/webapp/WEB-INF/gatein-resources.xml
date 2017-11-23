@@ -13,66 +13,75 @@
 <gatein-resources xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
                   xsi:schemaLocation="http://www.exoplatform.org/xml/ns/gatein_resources_1_4 http://www.exoplatform.org/xml/ns/gatein_resources_1_4"
                   xmlns="http://www.exoplatform.org/xml/ns/gatein_resources_1_4">
-	<!-- portal Skin -->
-<!-- 	<portal-skin> -->
-<!-- 		<skin-name>Default</skin-name> -->
-<!-- 		<skin-module>Platform-default</skin-module> -->
-<!-- 		<css-path>/skin/Stylesheet.css</css-path> -->
-<!-- 		<css-priority>6</css-priority> -->
-<!-- 		<overwrite>true</overwrite> -->
-<!-- 	</portal-skin> -->
-	
-	<module>
-		<name>socialcomposer</name>
-		<!-- <script> <name>eXo.social.webui.UINavigationComposer</name> <path>/javascript/eXo/social/webui/UINavigationComposer.js</path> 
-			</script> -->
-		<depends>
-			<module>social-core</module>
-		</depends>
-	</module>
-	
-   <module>
-      <name>platform-left-navigation</name>
-      <as>platformLeftNavigation</as>
-      <script>
-         <path>/javascript/eXo/platform/leftnavigation/UILeftNavigation.js</path>
-      </script>
-      <depends>
-         <module>jquery</module>
-         <as>$</as>
-      </depends>
-   </module>
-   <module>
-		<name>jquery-touch</name>
-		 <as>jqueryTouch</as>
-		<script>
-		  <adapter>
-			(function($) {
-			  var _$ = window.jQuery; window.jQuery = $;
-			  <include>/javascript/eXo/platform/responsive/toe.min.js</include>
-			  window.jQuery = _$;
-			})($);
-		  </adapter>
-		</script>
-		<depends>
-		  <module>jquery</module>
-		</depends>
-	  </module>
-	<module>
-      <name>platform-responsive</name>
-      <as>platformResponsive</as>
-      <script>
-         <path>/javascript/eXo/platform/responsive/responsive.js</path>
-      </script>
-      <depends>
-         <module>jquery</module>
-         <as>$</as>
-      </depends>
-		<depends>
-			<module>common-utils</module>
-			<as>common_utils</as>
-		</depends>
-   </module>
+  <!-- portal Skin -->
+  <!-- 	<portal-skin> -->
+  <!-- 		<skin-name>Default</skin-name> -->
+  <!-- 		<skin-module>Platform-default</skin-module> -->
+  <!-- 		<css-path>/skin/Stylesheet.css</css-path> -->
+  <!-- 		<css-priority>6</css-priority> -->
+  <!-- 		<overwrite>true</overwrite> -->
+  <!-- 	</portal-skin> -->
+
+  <module>
+    <name>socialcomposer</name>
+    <!-- <script> <name>eXo.social.webui.UINavigationComposer</name> <path>/javascript/eXo/social/webui/UINavigationComposer.js</path>
+      </script> -->
+    <depends>
+      <module>social-core</module>
+    </depends>
+  </module>
+
+  <module>
+    <name>platform-left-navigation</name>
+    <as>platformLeftNavigation</as>
+    <script>
+      <path>/javascript/eXo/platform/leftnavigation/UILeftNavigation.js</path>
+    </script>
+    <depends>
+      <module>jquery</module>
+      <as>$</as>
+    </depends>
+    <depends>
+      <module>base</module>
+    </depends>
+    <depends>
+      <module>jq_perfect_scrollbar</module>
+    </depends>
+  </module>
+  <module>
+    <name>jquery-touch</name>
+    <as>jqueryTouch</as>
+    <script>
+      <adapter>
+        (function($) {
+        var _$ = window.jQuery; window.jQuery = $;
+        <include>/javascript/eXo/platform/responsive/toe.min.js</include>
+        window.jQuery = _$;
+        })($);
+      </adapter>
+    </script>
+    <depends>
+      <module>jquery</module>
+    </depends>
+  </module>
+  <module>
+    <name>platform-responsive</name>
+    <as>platformResponsive</as>
+    <script>
+      <path>/javascript/eXo/platform/responsive/responsive.js</path>
+    </script>
+    <depends>
+      <module>jquery</module>
+      <as>$</as>
+    </depends>
+    <depends>
+      <module>common-utils</module>
+      <as>common_utils</as>
+    </depends>
+    <depends>
+      <module>jq_perfect_scrollbar</module>
+    </depends>
+  </module>
   <module>
     <name>composerMultiUpload</name>
     <as>composerMultiUpload</as>

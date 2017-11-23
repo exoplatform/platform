@@ -40,7 +40,7 @@
         String navTitle = OrganizationUtils.getGroupLabel(ownerId);
         println """
                       <h5 class="title accordionBar clearfix">
-                         $navTitle <i class="uiIconArrowRight pull-right"></i>
+                         <i class="uiIconGroupNavigation" data-container="body" data-placement="right" rel="tooltip" data-toggle="tooltip" data-original-title="$navTitle"></i> <span>$navTitle</span> <i class="uiIconArrowRight pull-right"></i>
                       </h5>
 					  <div class="accordionCont"><ul class="groupNavigation">
 				""";
@@ -85,7 +85,7 @@
             println """
 				<li class="groupItem">					
                     <div class="$cssClazz">
-						<i class="uiIconMiniArrowDown uiIconLightGray"></i><a data-placement="bottom" rel="tooltip" data-toggle="tooltip" class="groupIcon" href="$href" data-original-title="$label">$shortLabel</a>
+						<i class="uiIconMiniArrowDown uiIconLightGray"></i><a class="groupIcon" href="$href"><i class="$icon" data-container="body" data-placement="right" rel="tooltip" data-toggle="tooltip" data-original-title="$label"></i> <span class="nodeLabel" data-placement="bottom" rel="tooltip" data-toggle="tooltip" data-original-title="$label">$shortLabel</span></a>
 					</div>
                     <ul class="childrenContainer" style="display: $display">
 					""";
@@ -107,7 +107,7 @@
         else {
             println """
 				<li class=" groupItem">					
-					<div class="$cssClazz"><a data-placement="bottom" rel="tooltip" data-toggle="tooltip" class="groupIcon" href="$href" data-original-title="$label">$shortLabel</a></div>
+					<div class="$cssClazz"><a class="groupIcon" href="$href"><i class="$icon" data-container="body" data-placement="right" rel="tooltip" data-toggle="tooltip" data-original-title="$label"></i> <span class="nodeLabel" data-placement="bottom" rel="tooltip" data-toggle="tooltip" data-original-title="$label">$shortLabel</span></a></div>
 				</li>
 
 				""";

@@ -6,6 +6,7 @@
     $('body').addClass('open-right-bar');  
   }
 
+  var leftPanelStateKey = 'exo-platform-left-menu-collapsed';
 
   var tabManagerApp = {
     container : $('#UIToolbarContainer'),
@@ -16,6 +17,7 @@
         $('.toggle-right-bar').css('top',_h/2);  
         $('#OfficeRight').css('height',$('.RightBodyTDContainer ').height());     
       }
+
       this.toggleLeftBar();
       this.toggleRightBar();
       // this.leftNavAccordion();
@@ -50,14 +52,43 @@
         });
       }
     },
-    toggleLeftBar : function() {
-       $('.toggle-left-bar').on('click', function() {
-        if($('body').hasClass('open-left-bar')) {
-          tabManagerApp.hideLeftPanel();  
-        } else {
-          tabManagerApp.showLeftPanel();  
-        }
+    savePanelState : function(collapsed) {
+      $.ajax({
+        url: "/rest/v1/settings/USER," + eXo.env.portal.userName + "/GLOBAL/" + leftPanelStateKey,
+        contentType: "application/json",
+        data: JSON.stringify({"value": collapsed}),
+        type: "PUT"
       });
+    },
+    toggleLeftBar : function() {
+
+      var toggle = function() {
+        // manage boris effect
+        var hamburgerMenu = $('.toggle-left-bar');
+        hamburgerMenu.addClass('toggle-left-bar-click');
+        setTimeout(function(){ hamburgerMenu.removeClass('toggle-left-bar-click'); }, 300);
+
+        $body = $('body');
+        if ($(window).width()  < 1025) {
+          if($body.hasClass('open-left-bar')) {
+            tabManagerApp.hideLeftPanel();
+          } else {
+            tabManagerApp.showLeftPanel();
+          }
+        } else {
+          var collapseClass = 'collapse-left-bar';
+          $body.toggleClass(collapseClass + ' expand-left-bar');
+
+          tabManagerApp.savePanelState($body.hasClass(collapseClass));
+
+          $('.LeftNavigationTDContainer').off().on('transitionend', function() {
+            $(window).trigger('resize');
+            $("#LeftNavigation").perfectScrollbar('update');
+          });
+        }
+      };
+
+      $('.toggle-left-bar').off().on('click', toggle);
     },
     toggleRightBar : function() {
       $('.toggle-right-bar').on('click', function() {
@@ -78,6 +109,7 @@
       $('body,html').css('overflow-y',"hidden");
       $('.mask-layer-right').on('click',function(){
         tabManagerApp.hideLeftPanel();
+        return false;
       });
       leftNavi.addClass('expanded');      
     },
@@ -352,5 +384,5 @@
   // return {
   //   Responsive : eXo.ecm.Responsive
   // };
-
+  return tabManagerApp
 })($);
