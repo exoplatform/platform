@@ -243,6 +243,10 @@ public class OrganizationIntegrationService implements Startable {
     try {
 
       if (LOG.isDebugEnabled()) {
+        LOG.debug(" Search for integrated Groups.");
+      }
+      syncAllGroups(EventType.UPDATED.toString());
+      if (LOG.isDebugEnabled()) {
         LOG.debug(" Search for non integrated Groups.");
       }
       syncAllGroups(EventType.ADDED.toString());
@@ -252,6 +256,10 @@ public class OrganizationIntegrationService implements Startable {
 
       syncAllGroups(EventType.DELETED.toString());
 
+      if (LOG.isDebugEnabled()) {
+        LOG.debug(" Search for integrated Users.");
+      }
+      syncAllUsers(EventType.UPDATED.toString());
       if (LOG.isDebugEnabled()) {
         LOG.debug(" Search for non integrated Users.");
       }
