@@ -4,6 +4,7 @@
 <label>
 <MarkAllAsRead>Σήμανση όλων ως αναγνωσμένα</MarkAllAsRead>
 <NoNotifications>Καμία ειδοποίηση</NoNotifications>
+<InlineImage>Inline image</InlineImage>
 <ViewAll>Προβολή όλων</ViewAll>
 <Loading>Γίνεται φόρτωση</Loading>
 </label>

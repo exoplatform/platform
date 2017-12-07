@@ -2,20 +2,20 @@
 <bundle>
    <UIUserPlatformToolBarCreatePortlet>
       <label>
-         <topic>Discussion</topic>
+         <topic>مواضيع</topic>
          <poll>استطلاع رأي</poll>
          <event>حدث</event>
          <upload>الملف</upload>
-         <wiki>Wiki Page</wiki>
+         <wiki>صفحة ويكي</wiki>
 
       </label>
    </UIUserPlatformToolBarCreatePortlet>
    <UICreateList>
       <label>
-         <topic>discussion</topic>
+         <topic>موضوع</topic>
          <poll>استطلاع رأي</poll>
          <CreateANew>إنشاء {1}:</CreateANew>
-         <NoForum>Sorry, no forum is available yet in which you can create the {1}. Start by creating a space first and then try again.</NoForum>
+         <NoForum>عذراً، لا يوجد الى حدّ الآن أيّ منتدى قابل لإنشاء {1}. إبدأ بإنشاء فضاء خاصّ بك.</NoForum>
          <RequireSelectForum>يرجى اختيار منتدى.</RequireSelectForum>
       </label>
       <action>
@@ -47,7 +47,7 @@
    </UICreateWiki>
    <UICreateEvent>
       <label>
-         <Popup_title>Create a new Event :</Popup_title>
+         <Popup_title>Create a new Event</Popup_title>
          <Title>#{word.title}</Title>
          <Choix>إضافة:</Choix>
          <EndEvent>إلى</EndEvent>

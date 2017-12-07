@@ -4,6 +4,7 @@
 <label>
 <MarkAllAsRead>Đánh dấu đã đọc</MarkAllAsRead>
 <NoNotifications>Không có thông báo</NoNotifications>
+<InlineImage>Inline image</InlineImage>
 <ViewAll>Xem toàn bộ</ViewAll>
 <Loading>Đang tải</Loading>
 </label>

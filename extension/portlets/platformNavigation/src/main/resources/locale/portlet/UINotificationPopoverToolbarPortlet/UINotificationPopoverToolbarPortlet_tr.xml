@@ -4,6 +4,7 @@
 <label>
 <MarkAllAsRead>Tümünü okundu olarak işaretle</MarkAllAsRead>
 <NoNotifications>Bildirim yok</NoNotifications>
+<InlineImage>Inline image</InlineImage>
 <ViewAll>Tümünü Göster</ViewAll>
 <Loading>Yükleniyor</Loading>
 </label>

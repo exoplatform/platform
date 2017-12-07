@@ -4,6 +4,7 @@
 <label>
 <MarkAllAsRead>Segna tutti come letti</MarkAllAsRead>
 <NoNotifications>Nessuna notifica</NoNotifications>
+<InlineImage>Inline image</InlineImage>
 <ViewAll>Visualizza tutto</ViewAll>
 <Loading>Caricamento</Loading>
 </label>

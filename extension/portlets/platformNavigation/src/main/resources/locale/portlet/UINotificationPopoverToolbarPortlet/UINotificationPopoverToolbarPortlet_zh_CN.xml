@@ -4,6 +4,7 @@
 <label>
 <MarkAllAsRead>Mark all read</MarkAllAsRead>
 <NoNotifications>无通知</NoNotifications>
+<InlineImage>Inline image</InlineImage>
 <ViewAll>View all</ViewAll>
 <Loading>加载中</Loading>
 </label>

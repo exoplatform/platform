@@ -4,6 +4,7 @@
 <label>
 <MarkAllAsRead>اعتبرها جميعاً رسائل مقروءة</MarkAllAsRead>
 <NoNotifications>لا توجد إشعارات</NoNotifications>
+<InlineImage>Inline image</InlineImage>
 <ViewAll>عرض الكل</ViewAll>
 <Loading>جاري التحميل</Loading>
 </label>

@@ -4,6 +4,7 @@
 <label>
 <MarkAllAsRead>Marca-ho tot com a llegit</MarkAllAsRead>
 <NoNotifications>Sense notificacions</NoNotifications>
+<InlineImage>Inline image</InlineImage>
 <ViewAll>Mostrar-ho tot</ViewAll>
 <Loading>Carregant</Loading>
 </label>

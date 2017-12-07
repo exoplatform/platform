@@ -4,6 +4,7 @@
 <label>
 <MarkAllAsRead>Позначити всі як прочитані</MarkAllAsRead>
 <NoNotifications>Немає повідомлень</NoNotifications>
+<InlineImage>Inline image</InlineImage>
 <ViewAll>Переглянути все</ViewAll>
 <Loading>Завантаження</Loading>
 </label>

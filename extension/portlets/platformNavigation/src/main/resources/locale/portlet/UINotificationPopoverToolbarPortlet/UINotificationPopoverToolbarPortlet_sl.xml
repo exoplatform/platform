@@ -4,6 +4,7 @@
 <label>
 <MarkAllAsRead>Označi vse kot prebrano</MarkAllAsRead>
 <NoNotifications>Ni obvestil</NoNotifications>
+<InlineImage>Vstavljena slika</InlineImage>
 <ViewAll>Prikaži vse</ViewAll>
 <Loading>Nalaganje</Loading>
 </label>

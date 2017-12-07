@@ -2,7 +2,7 @@
 <bundle>
    <UIUserPlatformToolBarCreatePortlet>
       <label>
-         <topic>Discussion</topic>
+         <topic>Discussió</topic>
          <poll>Enquesta</poll>
          <event>Esdeveniment</event>
          <upload>Fitxer</upload>
@@ -12,7 +12,7 @@
    </UIUserPlatformToolBarCreatePortlet>
    <UICreateList>
       <label>
-         <topic>discussion</topic>
+         <topic>debat</topic>
          <poll>Poll</poll>
          <CreateANew>New {1}:</CreateANew>
          <NoForum>Sorry, no forum is available yet in which you can create the {1}. Start by creating a space first and then try again.</NoForum>
@@ -47,12 +47,12 @@
    </UICreateWiki>
    <UICreateEvent>
       <label>
-         <Popup_title>Create a new Event :</Popup_title>
+         <Popup_title>Create a new Event</Popup_title>
          <Title>#{word.title}</Title>
          <Choix>Afegeix un nou:</Choix>
          <EndEvent>A</EndEvent>
          <StartEvent>Des de</StartEvent>
-         <Calendar>Calendar</Calendar>
+         <Calendar>Calendari</Calendar>
          <all-day>Tot el dia</all-day>
          <defaultCalendarId>Per defecte</defaultCalendarId>
       </label>
