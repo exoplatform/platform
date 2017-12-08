@@ -85,6 +85,13 @@
   </locale-config>
 
   <locale-config>
+    <locale>pt_PT</locale>
+    <output-encoding>UTF-8</output-encoding>
+    <input-encoding>UTF-8</input-encoding>
+    <description>Default configuration for the portuguese locale</description>
+  </locale-config>
+
+  <locale-config>
     <locale>it</locale>
     <output-encoding>UTF-8</output-encoding>
     <input-encoding>UTF-8</input-encoding>

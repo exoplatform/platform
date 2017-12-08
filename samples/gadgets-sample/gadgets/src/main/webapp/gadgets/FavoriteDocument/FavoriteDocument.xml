@@ -16,6 +16,7 @@
     <Locale lang="ar" messages="locale/ar.xml"/>
     <Locale lang="de" messages="locale/de.xml"/>
     <Locale lang="pt_BR" messages="locale/pt_BR.xml" />
+    <Locale lang="pt_PT" messages="locale/pt_PT.xml" />
     <Locale lang="it" messages="locale/it.xml" />
     <Locale lang="ru" messages="locale/ru.xml" />
     <Locale lang="tr" messages="locale/tr.xml" />
