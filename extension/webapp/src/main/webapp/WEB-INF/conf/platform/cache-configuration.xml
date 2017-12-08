@@ -70,7 +70,7 @@
 	         <field name="strategy"><string>LIRS</string></field>
             <field name="maxEntries"><int>${cache.exo.portal.templateservice.maxnodes:5000}</int></field>
             <field name="lifespan"><long>${cache.exo.portal.templateservice.expiration:-1}</long></field>
-            <field name="replicated"><boolean>true</boolean></field>
+			<field name="cacheMode"><string>${exo.cache.portal.templateservice.cacheMode:replication}</string></field>
           </object>
         </object-param>
       </init-params>

@@ -48,6 +48,7 @@
         <property name="exo.jcr.lock.cache.config" value="jar:/conf/platform/jcr/infinispan/cluster/lock-config.xml" />
         <property name="exo.jcr.index.cache.config" value="jar:/conf/platform/jcr/infinispan/cluster/indexer-config.xml" />
         <property name="exo.cache.config.template" value="jar:/conf/platform/cache/infinispan/cluster/cache-config.xml" />
+        <property name="exo.cache.async.config.template" value="jar:/conf/platform/cache/infinispan/cluster/cache-async-config.xml" />
       </properties-param>
       <properties-param>
         <name>ChangeFilterClass</name>

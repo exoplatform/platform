@@ -154,6 +154,10 @@
         <name>cache.config.template</name>
         <value>${exo.cache.config.template:jar:/conf/platform/cache/infinispan/cluster/cache-config.xml}</value>
       </value-param>
+      <value-param profiles="cluster">
+        <name>cache.async.config.template</name>
+        <value>${exo.cache.async.config.template:jar:/conf/platform/cache/infinispan/cluster/cache-async-config.xml}</value>
+      </value-param>
     </init-params>
   </component>
   
