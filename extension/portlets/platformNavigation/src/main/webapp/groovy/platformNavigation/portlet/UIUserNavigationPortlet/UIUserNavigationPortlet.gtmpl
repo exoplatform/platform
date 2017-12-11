@@ -1,65 +1,118 @@
 <%
-    /**
-     * Copyright ( C ) 2012 eXo Platform SAS.
-     *
-     * This is free software; you can redistribute it and/or modify it
-     * under the terms of the GNU Lesser General Public License as
-     * published by the Free Software Foundation; either version 2.1 of
-     * the License, or (at your option) any later version.
-     *
-     * This software is distributed in the hope that it will be useful,
-     * but WITHOUT ANY WARRANTY; without even the implied warranty of
-     * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
-     * Lesser General Public License for more details.
-     *
-     * You should have received a copy of the GNU Lesser General Public
-     * License along with this software; if not, write to the Free
-     * Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
-     * 02110-1301 USA, or see the FSF site: http://www.fsf.org.
-     */
+/**
+ * Copyright ( C ) 2012 eXo Platform SAS.
+ *
+ * This is free software; you can redistribute it and/or modify it
+ * under the terms of the GNU Lesser General Public License as
+ * published by the Free Software Foundation; either version 2.1 of
+ * the License, or (at your option) any later version.
+ *
+ * This software is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this software; if not, write to the Free
+ * Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
+ * 02110-1301 USA, or see the FSF site: http://www.fsf.org.
+ */
 %>
 <%
-    def uicomponentId = uicomponent.id;
+import org.apache.commons.lang.StringEscapeUtils;
 
-    String moreLabel = _ctx.appRes("${uicomponentId}.label.More").replace("'", "\\47");
-    _ctx.getRequestContext().getJavascriptManager()
-      .require("SHARED/ui-user-nav", "uiusernav")
-      .addScripts("uiusernav.initNavigation('" + moreLabel + "');");
+def uicomponentId = uicomponent.id;
+
+def nodeName = "";
+def srcImage = null;
+def profile = uicomponent.getOwnerProfile();
+if(profile != null){
+    nodeName = StringEscapeUtils.escapeHtml(profile.getFullName());
+    srcImage = uicomponent.getAvatarURL(profile);
+}
+if (srcImage == null) {
+    srcImage = "/eXoSkin/skin/images/system/UserAvtDefault.png"
+} else {
+    srcImage += "?t=" + profile.getAvatarLastUpdated();
+}
+def banner = StringEscapeUtils.escapeHtml(profile.getBannerUrl());
+def bannerCSS = "";
+if (banner != null) {
+    bannerCSS = "background: url(" + banner + "?t=" + profile.getBannerLastUpdated() + ") no-repeat left center;background-size: 100% auto;";
+}
+
+def si = uicomponent.getStatusInfo();
+
+String moreLabel = _ctx.appRes("${uicomponentId}.label.More").replace("'", "\\47");
+_ctx.getRequestContext().getJavascriptManager().require("SHARED/jquery", "jq")
+        .require("SHARED/bts_tooltip").addScripts("jq('*[rel=\"tooltip\"]').tooltip();")
+        .require("SHARED/ui-user-nav", "uiusernav")
+        .addScripts("uiusernav.initNavigation('" + moreLabel + "');")
+        .addScripts("uiusernav.initBanner();");
 %>
 
 <div class="uiUserNavigationPortlet ClearFix" id="$uicomponentId">
-   <ul class="nav nav-tabs userNavigation" style="">
-   <%
-        String[] urlList = uicomponent.getURLAsList();
-        def i = 0;
-        def pageURL;
-        boolean isOwner=  uicomponent.isProfileOwner();       
-        for (node in uicomponent.getUserNodesAsList()) {
-            def nodeLabel;
-            def str="UIUserNavigationPortlet.label."+node;
-            if (isOwner && ! node.equals(uicomponent.NOTIFICATION_SETTINGS)) str="UIUserNavigationPortlet.label.My"+node;
-            pageURL = urlList[i];
-            def navigationTabClass = "";
-            if ((uicomponent.isSelectedUserNavigation(node))||((node.equals(uicomponent.DASHBOARD_URI))&&(uicomponent.isSelectedUserNavigation("/u/")))) {
-                navigationTabClass = "active";
-            }
-    %>
 
-    <% if  ((node.equals(uicomponent.DASHBOARD_URI) || node.equals(uicomponent.NOTIFICATION_SETTINGS))&&(!isOwner))  continue; 
-       nodeLabel = _ctx.appRes(str);
-    %>
+<div class="uiProfileMenu">
+<div class="userAvt pull-left">
+<img title="$nodeName" alt="$nodeName" src="$srcImage">
+<a href="<%=uicomponent.event("ChangeAvatar");%>"><i class="uiIconCamera"></i></a>
+</div>
+  <div class="profileMenuNav" style="<%=bannerCSS%>">
+    <div class="profileMenuNavHeader">
+        <h3>
+            $nodeName 
+            <i class="<%=si.cssName%> uiIconLightGray" rel="tooltip" data-placement="right" title="<%=si.title%>"></i>
+        </h3>
+<ul class="profileMenuApps menuApps pull-left">
+<% if (uicomponent.isProfileOwner() && uicomponent.isUserUrl() && !uicomponent.isEditProfilePage()) { %>
+    <li>
+    <a class="changeAvatar btn" onclick="window.location.href=window.location.origin + '/portal/intranet/edit-profile'"
+    href="javascript:void(0)"><i class="uiIconEdit"></i> <span><%=_ctx.appRes("UIUserNavigationPortlet.label.EditProfile")%></span></a>
+    </li>
+<% } %>
+</ul>
+        <% if (banner != null) {%>
+        <a href="<%=uicomponent.event("DeleteBanner");%>"><i class="uiIconTrash"></i></a>
+        <%}%>
+        <a href="<%=uicomponent.event("ChangeBanner");%>"><i class="uiIconCamera"></i></a>
+</div>      
+    </div>
 
-		<li class="<%=navigationTabClass%>">
-			<a href="$pageURL">
-				<div class="uiIconApp<%=node%> uiIconDefaultApp"></div>
-				<span class="tabName"><%=nodeLabel%></span>
-			</a>
-		</li>
-   
-    <% 
-       i++;
+<ul class="nav nav-tabs userNavigation" style="">
+<%
+String[] urlList = uicomponent.getURLAsList();
+def i = 0;
+def pageURL;
+boolean isOwner=  uicomponent.isProfileOwner();
+for (node in uicomponent.getUserNodesAsList()) {
+    def nodeLabel;
+    def str="UIUserNavigationPortlet.label."+node;
+    if (isOwner && ! node.equals(uicomponent.NOTIFICATION_SETTINGS)) str="UIUserNavigationPortlet.label.My"+node;
+    pageURL = urlList[i];
+    def navigationTabClass = "";
+    if ((uicomponent.isSelectedUserNavigation(node))||((node.equals(uicomponent.DASHBOARD_URI))&&(uicomponent.isSelectedUserNavigation("/u/")))) {
+        navigationTabClass = "active";
     }
     %>
-	</ul>
 
+    <% if  ((node.equals(uicomponent.DASHBOARD_URI) || node.equals(uicomponent.NOTIFICATION_SETTINGS))&&(!isOwner))  continue;
+    nodeLabel = _ctx.appRes(str);
+    %>
+
+    <li class="<%=navigationTabClass%>">
+    <a href="$pageURL">
+    <div class="uiIconApp<%=node%> uiIconDefaultApp"></div>
+                    <span class="tabName"><%=nodeLabel%></span>
+    </a>
+            </li>
+
+    <%
+    i++;
+}
+%>
+</ul>
+
+  </div>
+  <div class="uiAvatarUploader"><% uicomponent.renderChild(org.exoplatform.social.webui.composer.PopupContainer.class); %></div>
 </div>

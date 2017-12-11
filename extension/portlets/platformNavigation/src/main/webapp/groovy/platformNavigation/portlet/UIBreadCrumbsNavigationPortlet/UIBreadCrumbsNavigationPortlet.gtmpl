@@ -1,46 +1,19 @@
 <%
-    import org.apache.commons.lang.StringEscapeUtils;
+    List<String> breadcumbs = uicomponent.getBreadcumbs();
 %>
 <div class="uiBreadcumbsNavigationPortlet clearfix" id="$uicomponent.id">
+<% if (!breadcumbs.isEmpty()) {%>
+  <div class="uiBreadcumbsNavigations">
+        <div class="navItemSelected">
+<%= _ctx.appRes("UISetupPlatformToolBarPortlet.label.administration")  %>
 <%
-  boolean isUserUrl = uicomponent.isUserUrl();
-  boolean isSpaceUrl = uicomponent.isSpaceUrl();
-  if(isUserUrl || isSpaceUrl ){
-    String nodeName = "";
-    String srcImage = "";
-    if(isSpaceUrl) {
-      String spaceUrl = uicomponent.getSpaceUrl();
-      if(spaceUrl != null){
-        nodeName = uicomponent.getSpacename(spaceUrl);
-        srcImage = uicomponent.getImageSource(spaceUrl);
-      }
-    } else {
-      def profile = uicomponent.getOwnerProfile();
-      if(profile != null){
-        nodeName = StringEscapeUtils.escapeHtml(profile.getFullName());
-        srcImage = uicomponent.getAvatarURL(profile);
-      }
+    for (String node : breadcumbs) {
+%>
+        <span class="breadcumbEntry">$node</span>
+<%
     }
 %>
-	<div class ="uiContainer">
-    <div class="userAvt pull-left">
-      <img title="$nodeName" alt="$nodeName" src="$srcImage" />
-    </div>
-    <div class="breadcumbEntry">
-      <div class="name">$nodeName</div>
-    <% if (uicomponent.isOwner() && isUserUrl && !uicomponent.isEditProfilePage()) { %>
-      <a class="changeAvatar" onclick="window.location.href=window.location.origin + '/portal/intranet/edit-profile'" 
-         href="javascript:void(0)"><i class="uiIconEdit uiIconLightGray"></i> <%=_ctx.appRes("UIBreadCrumbsNavigationPortlet.label.EditProfile")%></a>
-    <% } %>
-    </div>
+        </div>
   </div>
-<%} else {
-    if(uicomponent.isGroupUrl()){
-      String pageLabel = uicomponent.getEncodedResolvedLabel();
-%>
-  <div class="uiBreadcumbsNavigations">
-    <div class="navItemSelected">$pageLabel</div>
-  </div>
-<%  }
-  }%>
+<%}%>
 </div>

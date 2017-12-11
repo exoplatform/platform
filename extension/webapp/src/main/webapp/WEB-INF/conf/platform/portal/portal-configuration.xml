@@ -169,25 +169,82 @@
 						</field>
 					</object>
 				</object-param>
-            <object-param>
-               <name>group.configuration</name>
-               <description>description</description>
-               <object type="org.exoplatform.portal.config.NewPortalConfig">
-                  <field name="predefinedOwner">
-                     <collection type="java.util.HashSet">
-                        <value>
-                           <string>/platform/web-contributors</string>
-                        </value>
-                     </collection>
-                  </field>
-                  <field name="ownerType">
-                     <string>group</string>
-                  </field>
-                  <field name="templateLocation">
-                     <string>war:/conf/platform/portal</string>
-                  </field>
-               </object>
-            </object-param>
+			</init-params>
+		</component-plugin>
+		<component-plugin>
+			<!-- The name of the plugin -->
+			<name>web.contributor.config.user.listener</name>
+			<!-- The name of the method to call on the UserPortalConfigService in order to register the NewPortalConfigs -->
+			<set-method>initListener</set-method>
+			<!-- The full qualified name of the NewPortalConfigListener -->
+			<type>org.exoplatform.portal.config.NewPortalConfigListener</type>
+			<description>this listener init the portal configuration</description>
+			<init-params>
+				<value-param>
+					<name>override</name>
+					<description>The flag parameter to decide if portal metadata is overriden on restarting server</description>
+					<value>${intranet.portalConfig.metadata.override:false}</value>
+				</value-param>
+				<object-param>
+					<name>group.configuration</name>
+					<description>description</description>
+					<object type="org.exoplatform.portal.config.NewPortalConfig">
+						<field name="predefinedOwner">
+							<collection type="java.util.HashSet">
+								<value>
+									<string>/platform/web-contributors</string>
+								</value>
+							</collection>
+						</field>
+						<field name="ownerType">
+							<string>group</string>
+						</field>
+						<field name="templateLocation">
+							<string>war:/conf/platform/portal</string>
+						</field>
+						<field name="importMode">
+							<string>${intranet.portalConfig.metadata.importmode:merge}</string>
+						</field>
+					</object>
+				</object-param>
+			</init-params>
+		</component-plugin>
+		<component-plugin>
+			<!-- The name of the plugin -->
+			<name>new.portal.config.user.listener</name>
+			<!-- The name of the method to call on the UserPortalConfigService in order to register the NewPortalConfigs -->
+			<set-method>initListener</set-method>
+			<!-- The full qualified name of the NewPortalConfigListener -->
+			<type>org.exoplatform.portal.config.NewPortalConfigListener</type>
+			<description>this listener init the portal configuration</description>
+			<init-params>
+				<value-param>
+					<name>override</name>
+					<description>The flag parameter to decide if portal metadata is overriden on restarting server</description>
+					<value>${intranet.portalConfig.metadata.override:false}</value>
+				</value-param>
+				<object-param>
+					<name>group.configuration</name>
+					<description>description</description>
+					<object type="org.exoplatform.portal.config.NewPortalConfig">
+						<field name="predefinedOwner">
+							<collection type="java.util.HashSet">
+								<value>
+									<string>/platform/administrators</string>
+								</value>
+							</collection>
+						</field>
+						<field name="ownerType">
+							<string>group</string>
+						</field>
+						<field name="templateLocation">
+							<string>war:/conf/portal</string>
+						</field>
+						<field name="importMode">
+							<string>${intranet.portalConfig.metadata.importmode:merge}</string>
+						</field>
+					</object>
+				</object-param>
 			</init-params>
 		</component-plugin>
 	</external-component-plugins>
