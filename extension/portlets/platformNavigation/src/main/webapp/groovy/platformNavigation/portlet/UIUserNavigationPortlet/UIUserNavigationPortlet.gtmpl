@@ -72,11 +72,13 @@ _ctx.getRequestContext().getJavascriptManager().require("SHARED/jquery", "jq")
     </li>
 <% } %>
 </ul>
+        <div class="bannerControls">
+        <a href="<%=uicomponent.event("ChangeBanner");%>"><i class="uiIconCamera"></i></a>
         <% if (banner != null) {%>
         <a href="<%=uicomponent.event("DeleteBanner");%>"><i class="uiIconTrash"></i></a>
-        <%}%>
-        <a href="<%=uicomponent.event("ChangeBanner");%>"><i class="uiIconCamera"></i></a>
-</div>      
+        <%}%>        
+        </div>
+     </div>      
     </div>
 
 <ul class="nav nav-tabs userNavigation" style="">
