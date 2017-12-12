@@ -101,9 +101,11 @@
   def collapseClass = "collapse-left-bar";
   def expandClass = "expand-left-bar";
   def leftPanelStateClass = expandClass;
-  SettingValue<?> leftPanelStateCollapsed = settingService.get(Context.USER, Scope.GLOBAL, "exo-platform-left-menu-collapsed");
-  if(leftPanelStateCollapsed != null && leftPanelStateCollapsed.getValue() != null) {
-    leftPanelStateClass = ((String) leftPanelStateCollapsed.getValue()).equals("true") ? collapseClass : expandClass;
+  if(rcontext.getRemoteUser() != null) {
+	  SettingValue<?> leftPanelStateCollapsed = settingService.get(Context.USER.id(rcontext.getRemoteUser()), Scope.GLOBAL, "exo-platform-left-menu-collapsed");
+	  if(leftPanelStateCollapsed != null && leftPanelStateCollapsed.getValue() != null) {
+	    leftPanelStateClass = ((String) leftPanelStateCollapsed.getValue()).equals("true") ? collapseClass : expandClass;
+	  }
   }
 %>
 <!--[if IE 7]> <html class="ie7 lt-ie8 lt-ie9 lt-ie10"  xmlns="http://www.w3.org/1999/xhtml" xml:lang="$lang" lang="$lang" dir="$dir"> <![endif]-->
