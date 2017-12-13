@@ -57,10 +57,6 @@
             <value>classpath:/conf/portal/picketlink-idm-config.xml</value>
         </value-param>
         <value-param>
-            <name>apiCacheConfig</name>
-            <value>classpath:/conf/cache/infinispan.xml</value>
-        </value-param>
-        <value-param>
             <name>skipExpirationOfStructureCacheEntries</name>
             <value>true</value>
         </value-param>
