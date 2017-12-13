@@ -21,6 +21,7 @@ import org.exoplatform.container.ExoContainerContext;
 import org.exoplatform.portal.application.PortalRequestContext;
 import org.exoplatform.services.log.ExoLogger;
 import org.exoplatform.services.log.Log;
+import org.exoplatform.services.security.ConversationState;
 import org.exoplatform.webui.application.WebuiApplication;
 import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
@@ -64,57 +65,75 @@ public class UINotificationPopoverToolbarPortlet extends UIPortletApplication {
   @Override
   public void processRender(WebuiApplication app, WebuiRequestContext context) throws Exception {
     this.currentUser = context.getRemoteUser();
-    this.maxItemsInPopover = NotificationMessageUtils.getMaxItemsInPopover();
-    StringBuilder scripts = new StringBuilder("NotificationPopoverToolbarPortlet.initCometd('");
-    scripts.append(currentUser).append("', '")
-           .append(getUserToken()).append("', '")
-           .append(getCometdContextName()).append("');");
-    
-    context.getJavascriptManager().getRequireJS()
-           .require("SHARED/jquery_cometd", "cometd")
-           .require("PORTLET/platformNavigation/NotificationPopoverToolbarPortlet", "NotificationPopoverToolbarPortlet")
-           .addScripts(scripts.toString());
-    //
-    super.processRender(app, context);
+    //when the remote user is returned by the WebuiRequestContext, use conversation state to try getting the current userId
+    String currentUserId = getCurrentUserId();
+    if (this.currentUser != null && currentUserId != null) {
+      this.maxItemsInPopover = NotificationMessageUtils.getMaxItemsInPopover();
+      StringBuilder scripts = new StringBuilder("NotificationPopoverToolbarPortlet.initCometd('");
+      scripts.append(currentUser).append("', '")
+              .append(getUserToken()).append("', '")
+              .append(getCometdContextName()).append("');");
+
+      context.getJavascriptManager().getRequireJS()
+              .require("SHARED/jquery_cometd", "cometd")
+              .require("PORTLET/platformNavigation/NotificationPopoverToolbarPortlet", "NotificationPopoverToolbarPortlet")
+              .addScripts(scripts.toString());
+      //
+      super.processRender(app, context);
+    } else {
+      this.currentUser = "";
+      log.warn("Warning when execute the processRender() method for UINotificationPopoverToolbarPortlet class. The currentUserId or the currentUser is null");
+    }
   }
 
   @Override
   public void serveResource(WebuiRequestContext context) throws Exception {
     super.serveResource(context);
-    ResourceRequest req = context.getRequest();
-    String resourceId = req.getResourceID();
-    if (EXO_NOTIFICATION_POPOVER_LIST.equals(resourceId)) {
-      //
-      List<String> notifications = getNotifications();
-      //
-      StringBuffer sb = new StringBuffer();
-      for (String notif : notifications) {
-        sb.append(notif);  
-      }
-      //
-      MimeResponse res = context.getResponse();
-      res.setContentType("application/json");
-      //
-      JSONObject object = new JSONObject();
-      object.put("notifications", sb.toString());
-      object.put("showViewAll", hasNotifications());
-      object.put("inlineImageLabel", context.getApplicationResourceBundle().getString("UINotificationPopoverToolbarPortlet.label.InlineImage"));
-      //
-      res.getWriter().write(object.toString());
-      return;
-    }
-    if (CLUSTER_NOTIFICATION_POPOVER_LIST.equals(resourceId)) {
-      String notificationId = req.getParameter("notifId");
-      int badge = clusteringProcess(notificationId);
-      if(badge > 0) {
+    this.currentUser = context.getRemoteUser();
+    //when the remote user is returned by the WebuiRequestContext, use conversation state to try getting the current userId
+    String currentUserId = getCurrentUserId();
+    if (this.currentUser != null && currentUserId != null) {
+      ResourceRequest req = context.getRequest();
+      String resourceId = req.getResourceID();
+      if (EXO_NOTIFICATION_POPOVER_LIST.equals(resourceId)) {
+        //
+        List<String> notifications = getNotifications();
+        //
+        StringBuffer sb = new StringBuffer();
+        for (String notif : notifications) {
+          sb.append(notif);
+        }
+        //
         MimeResponse res = context.getResponse();
         res.setContentType("application/json");
+        //
         JSONObject object = new JSONObject();
-        object.put("badge", String.valueOf(badge));
+        object.put("notifications", sb.toString());
+        object.put("showViewAll", hasNotifications());
+        object.put("inlineImageLabel", context.getApplicationResourceBundle().getString("UINotificationPopoverToolbarPortlet.label.InlineImage"));
+        //
         res.getWriter().write(object.toString());
+        return;
       }
-      ///
+      if (CLUSTER_NOTIFICATION_POPOVER_LIST.equals(resourceId)) {
+        String notificationId = req.getParameter("notifId");
+        int badge = clusteringProcess(notificationId);
+        if (badge > 0) {
+          MimeResponse res = context.getResponse();
+          res.setContentType("application/json");
+          JSONObject object = new JSONObject();
+          object.put("badge", String.valueOf(badge));
+          res.getWriter().write(object.toString());
+        }
+      }
+    } else {
+      this.currentUser = "";
+      log.warn("Warning when execute the serveResource() method for UINotificationPopoverToolbarPortlet class. The currentUserId or the currentUser is null");
     }
+  }
+
+  private String getCurrentUserId() {
+    return ConversationState.getCurrent().getIdentity().getUserId();
   }
   
   private int clusteringProcess(String notifId) {
