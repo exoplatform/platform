@@ -22,6 +22,8 @@
 <%@ page import="javax.servlet.http.Cookie" %>
 <%@ page import="org.exoplatform.container.PortalContainer" %>
 <%@ page import="org.exoplatform.services.resources.ResourceBundleService" %>
+<%@ page import="org.exoplatform.portal.config.UserPortalConfigService" %>
+<%@ page import="org.exoplatform.portal.resource.SkinService"%>
 <%@ page import="java.util.ResourceBundle" %>
 <%@ page import="org.gatein.common.text.EntityEncoder" %>
 <%@ page language="java" %>
@@ -30,6 +32,12 @@
     String lang = request.getLocale().getLanguage();
     response.setCharacterEncoding("UTF-8");
     response.setContentType("text/html; charset=UTF-8");
+
+    PortalContainer portalContainer = PortalContainer.getCurrentInstance(session.getServletContext());
+    UserPortalConfigService userPortalConfigService = portalContainer.getComponentInstanceOfType(UserPortalConfigService.class);
+    String skinName = userPortalConfigService.getDefaultPortalSkinName();
+    SkinService skinService = portalContainer.getComponentInstanceOfType(SkinService.class);
+    String cssPath = skinService.getSkin("portal/Conditions", skinName).getCSSPath();
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="<%=lang%>" lang="<%=lang%>">
@@ -39,7 +47,7 @@
 		<title>eXo Subscription Agreement</title>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 
-		<link href="/eXoSkin/skin/css/platform/portlets/welcome-screens/termsandconditions.css" rel="stylesheet" type="text/css"/>
+		<link href="<%=cssPath%>" rel="stylesheet" type="text/css"/>
 	</head>
 	<body>
 		<div class="backLight"></div>

@@ -2,6 +2,8 @@
 <%@ page import="java.util.ResourceBundle" %>
 <%@ page import="org.exoplatform.container.PortalContainer"%>
 <%@ page import="org.exoplatform.services.resources.ResourceBundleService"%>
+<%@ page import="org.exoplatform.portal.config.UserPortalConfigService" %>
+<%@ page import="org.exoplatform.portal.resource.SkinService"%>
 
 
 <%
@@ -47,6 +49,11 @@
   PortalContainer portalContainer = PortalContainer.getCurrentInstance(session.getServletContext());
   ResourceBundleService service = (ResourceBundleService) portalContainer.getComponentInstanceOfType(ResourceBundleService.class);
   ResourceBundle rb = service.getResourceBundle(service.getSharedResourceBundleNames(), request.getLocale());
+
+  UserPortalConfigService userPortalConfigService = portalContainer.getComponentInstanceOfType(UserPortalConfigService.class);
+  String skinName = userPortalConfigService.getDefaultPortalSkinName();
+  SkinService skinService = portalContainer.getComponentInstanceOfType(SkinService.class);
+  String cssPath = skinService.getSkin("portal/AccountSetup", skinName).getCSSPath();
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="<%=lang%>">
@@ -54,7 +61,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
     <link href="/platform-extension/css/welcome-screens/jquery.qtip.min.css" rel="stylesheet" type="text/css" />
-    <link href="/eXoSkin/skin/css/platform/portlets/extensions/welcome-screens.css" rel="stylesheet" type="text/css" />
+    <link href="<%=cssPath%>" rel="stylesheet" type="text/css" />
 
     <script type="text/javascript" src="/eXoResources/javascript/jquery-3.2.1.js"></script>
     <script type="text/javascript" src="/platform-extension/javascript/ie-placeholder.js"></script>
@@ -120,7 +127,7 @@
             <p>
                 <strong><%=rb.getString("AccountSetupViewServlet.label.almost_done")%></strong>, <%=rb.getString("AccountSetupViewServlet.label.add_your_colleagues")%>.
             </p>
-            <div class="screenShot"><a href="javascript:void(0);"><img src="/eXoSkin/skin/images/themes/default/platform/portlets/extensions/greetingSS.png" alt="" width="404" height="172"/></a></div>
+            <div class="screenShot"><a href="javascript:void(0);"></a></div>
         </div>
         <div class="bottom"><button name="setupbutton" value="submitform" class="btn btn-primary"><%=rb.getString("AccountSetupViewServlet.label.start")%></button></div>
     </div>

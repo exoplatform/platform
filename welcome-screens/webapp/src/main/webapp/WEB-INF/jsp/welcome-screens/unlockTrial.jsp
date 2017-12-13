@@ -2,6 +2,8 @@
 <%@ page import="java.util.ResourceBundle" %>
 <%@ page import="org.exoplatform.container.PortalContainer"%>
 <%@ page import="org.exoplatform.services.resources.ResourceBundleService"%>
+<%@ page import="org.exoplatform.portal.config.UserPortalConfigService" %>
+<%@ page import="org.exoplatform.portal.resource.SkinService"%>
 <%
     int rday = UnlockService.getNbDaysBeforeExpiration();
     boolean outdated = UnlockService.isOutdated();
@@ -10,6 +12,12 @@
    PortalContainer portalContainer = PortalContainer.getCurrentInstance(session.getServletContext());
   ResourceBundleService service = (ResourceBundleService) portalContainer.getComponentInstanceOfType(ResourceBundleService.class);
   ResourceBundle rb = service.getResourceBundle("locale.portal.webui", request.getLocale());
+  UserPortalConfigService userPortalConfigService = portalContainer.getComponentInstanceOfType(UserPortalConfigService.class);
+  String skinName = userPortalConfigService.getDefaultPortalSkinName();
+  SkinService skinService = portalContainer.getComponentInstanceOfType(SkinService.class);
+  String trialCssPath = skinService.getSkin("trial/UnlockTrial", skinName).getCSSPath();
+  String coreCssPath = skinService.getPortalSkin("CoreSkin", skinName).getCSSPath();
+  String customCssPath = skinService.getPortalSkin("customModule", skinName).getCSSPath();
    
    
     String label1 = rb.getString("UnlockTrial.label.day_left");
@@ -28,9 +36,9 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<title><%=rb.getString("UnlockTrial.label.welcome")%></title>
 		<link rel="shortcut icon" type="image/x-icon"  href="<%=contextPath%>/favicon.ico" />	
-		<link rel="stylesheet" type="text/css" href="/eXoSkin/skin/bootstrap/css/bootstrap.css"/>
-		<link rel="stylesheet" type="text/css" href="/eXoSkin/skin/css/Core.css"/>
-		<link rel="stylesheet" type="text/css" href="/eXoSkin/skin/css/platform/portlets/welcome-screens/unlockTrial.css"/>
+		<link rel="stylesheet" type="text/css" href="<%=coreCssPath%>"/>
+		<link rel="stylesheet" type="text/css" href="<%=customCssPath%>"/>
+		<link rel="stylesheet" type="text/css" href="<%=trialCssPath%>"/>
 		<script type="text/javascript" src="/eXoResources/javascript/jquery-3.2.1.js"></script>
 		<script type="text/javascript" src="/eXoSkin/skin/bootstrap/js/bootstrap-tooltip.js"></script>
 		<script type="text/javascript" src="/eXoSkin/skin/bootstrap/js/bootstrap-popover.js"></script>
