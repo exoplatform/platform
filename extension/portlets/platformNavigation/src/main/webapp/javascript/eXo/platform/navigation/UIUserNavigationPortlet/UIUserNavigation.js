@@ -1,4 +1,4 @@
-(function($) {
+(function($, bannerUploader) {
   var UIUserNavigation = {
     MORE_LABEL : "",
     initNavigation : function(moreLabel) {
@@ -122,7 +122,17 @@
       $(tabContainer).css({"visibility":"visible"});
   	},
 
-    initBanner : function() {    
+    initAvatar : function(uploaderId) {
+      $(uploaderId + ' .uiIconCamera').on('click', function() {
+          bannerUploader.selectFile(uploaderId);
+      });
+    },
+
+    initBanner : function(uploaderId) {
+      $('.bannerControls .uiIconCamera').on('click', function() {
+          bannerUploader.selectFile(uploaderId);
+     });
+
      $(window).off('scroll.uiProfileMenu').on('scroll.uiProfileMenu', function() {
        var $container = $('#UIUserNavigationPortlet').closest('.UIRowContainer');
        if ($(window).scrollTop() > 130) {
@@ -160,4 +170,4 @@
   };
   
   return UIUserNavigation;
-})(jq);
+})(jq, bannerUploader);

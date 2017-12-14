@@ -203,5 +203,8 @@
     <depends>
       <module>bts_dropdown</module>
     </depends>
+    <depends>
+      <module>bannerUploader</module>
+    </depends>
   </module>
 </gatein-resources>

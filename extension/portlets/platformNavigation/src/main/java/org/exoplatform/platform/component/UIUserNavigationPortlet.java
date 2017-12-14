@@ -18,7 +18,12 @@
  */
 package org.exoplatform.platform.component;
 
+import java.util.Arrays;
+import java.util.List;
+import java.util.ResourceBundle;
+
 import org.apache.commons.lang.ArrayUtils;
+
 import org.exoplatform.commons.notification.NotificationUtils;
 import org.exoplatform.commons.utils.CommonsUtils;
 import org.exoplatform.platform.navigation.component.breadcrumb.UserNavigationHandlerService;
@@ -38,14 +43,10 @@ import org.exoplatform.services.log.ExoLogger;
 import org.exoplatform.services.log.Log;
 import org.exoplatform.services.user.UserStateService;
 import org.exoplatform.social.core.identity.model.Profile;
-import org.exoplatform.social.core.image.ImageUtils;
 import org.exoplatform.social.core.service.LinkProvider;
-import org.exoplatform.social.core.space.model.Space;
-import org.exoplatform.social.webui.UIAvatarUploader;
+import org.exoplatform.social.webui.UIBannerAvatarUploader;
 import org.exoplatform.social.webui.UIBannerUploader;
 import org.exoplatform.social.webui.Utils;
-import org.exoplatform.social.webui.composer.PopupContainer;
-import org.exoplatform.social.webui.space.UISpaceMenu;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.config.annotation.EventConfig;
 import org.exoplatform.webui.core.UIPortletApplication;
@@ -54,11 +55,6 @@ import org.exoplatform.webui.event.Event;
 import org.exoplatform.webui.event.EventListener;
 import org.exoplatform.webui.exception.MessageException;
 
-import java.util.Arrays;
-import java.util.List;
-import java.util.Map;
-import java.util.ResourceBundle;
-
 /**
  * @author <a href="fbradai@exoplatform.com">Fbradai</a>
  */
@@ -66,9 +62,7 @@ import java.util.ResourceBundle;
 
         template = "app:/groovy/platformNavigation/portlet/UIUserNavigationPortlet/UIUserNavigationPortlet.gtmpl",
         events = {
-                @EventConfig(listeners = UIUserNavigationPortlet.ChangeBannerActionListener.class),
-                @EventConfig(listeners = UIUserNavigationPortlet.DeleteBannerActionListener.class),
-                @EventConfig(listeners = UIUserNavigationPortlet.ChangeAvatarActionListener.class)
+                @EventConfig(listeners = UIUserNavigationPortlet.DeleteBannerActionListener.class)
         }
 )
 public class UIUserNavigationPortlet extends UIPortletApplication {
@@ -80,8 +74,6 @@ public class UIUserNavigationPortlet extends UIPortletApplication {
     public static final String WIKI_URI= "wiki";
     public static final String DASHBOARD_URI= "dashboard";
     private UserNodeFilterConfig toolbarFilterConfig;
-    private static final String POPUP_AVATAR_UPLOADER = "UIAvatarUploaderPopup";
-    private final static String POPUP_BANNER_UPLOADER = "UIPopupBannerUploader";
     public static String DEFAULT_TAB_NAME = "Tab_Default";
     private static final String USER ="/user/"  ;
     private static final String WIKI_HOME = "/WikiHome";
@@ -103,8 +95,8 @@ public class UIUserNavigationPortlet extends UIPortletApplication {
         builder.withReadWriteCheck().withVisibility(Visibility.DISPLAYED, Visibility.TEMPORAL).withTemporalCheck();
         toolbarFilterConfig = builder.build();
 
-        PopupContainer popupContainer = createUIComponent(PopupContainer.class, null, null);
-        addChild(popupContainer);
+        addChild(createUIComponent(UIBannerUploader.class, null, null));
+        addChild(createUIComponent(UIBannerAvatarUploader.class, null, null));
     }
 
     public boolean isSelectedUserNavigation(String nav) throws Exception {
@@ -302,17 +294,6 @@ public class UIUserNavigationPortlet extends UIPortletApplication {
     }
 
 
-    public static class ChangeAvatarActionListener extends EventListener<UIUserNavigationPortlet> {
-
-        @Override
-        public void execute(Event<UIUserNavigationPortlet> event) throws Exception {
-            UIUserNavigationPortlet portlet = event.getSource();
-            PopupContainer popupContainer = portlet.getChild(PopupContainer.class);
-            popupContainer.activate(UIAvatarUploader.class, 500, POPUP_AVATAR_UPLOADER);
-            event.getRequestContext().addUIComponentToUpdateByAjax(popupContainer);
-        }
-    }
-
     public static class DeleteBannerActionListener extends EventListener<UIUserNavigationPortlet> {
 
         @Override
@@ -333,14 +314,4 @@ public class UIUserNavigationPortlet extends UIPortletApplication {
         Utils.getIdentityManager().updateProfile(p);
     }
 
-    public static class ChangeBannerActionListener extends EventListener<UIUserNavigationPortlet> {
-
-        @Override
-        public void execute(Event<UIUserNavigationPortlet> event) throws Exception {
-            UIUserNavigationPortlet portlet = event.getSource();
-            PopupContainer popupContainer = portlet.getChild(PopupContainer.class);
-            popupContainer.activate(UIBannerUploader.class, 500, POPUP_BANNER_UPLOADER);
-            event.getRequestContext().addUIComponentToUpdateByAjax(popupContainer);
-        }
-    }
 }
