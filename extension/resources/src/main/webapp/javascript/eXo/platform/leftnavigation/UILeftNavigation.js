@@ -2,7 +2,6 @@
   var UILeftNavigation = {
     init: function () {
       var $leftNavi = $('#LeftNavigation');
-      this.resize();
       if ($(window).width()  > 1024) {
         $leftNavi.perfectScrollbar({'suppressScrollX': true});
       }
@@ -14,11 +13,6 @@
           $leftNavi.css('position', 'static').removeClass('ps').perfectScrollbar('destroy');
         }
       });
-    },
-    resize: function () {
-      var $leftNavi = $('#LeftNavigation').parent();
-      var myHeight = $(window).height();
-      $leftNavi.css('height', myHeight + 'px');
     }
   };
   return UILeftNavigation;

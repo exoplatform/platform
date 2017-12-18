@@ -14,8 +14,7 @@
       if ($('.OfficeRightTDContainer').length != 0) {    
         $('.OfficeMiddleTDContainer').append($('<a href="javascript:void(0)" class="visible-tablet toggle-right-bar"><i class="uiIconVerticalLines"></i></a>'));
         var _h = $(window).height(); 
-        $('.toggle-right-bar').css('top',_h/2);  
-        $('#OfficeRight').css('height',$('.RightBodyTDContainer ').height());     
+        $('.toggle-right-bar').css('top',_h/2);
       }
 
       this.toggleLeftBar();
@@ -36,10 +35,6 @@
       // $('#ToolBarSearch > a').click(function(){
       //   tabManagerApp.searchOnTopNavivation();
       // });
-      // adapt dropdown menu with screen size if height too big
-      $('.UIToolbarContainer .dropdown-toggle').on('click', function(event) {  
-        tabManagerApp.setHeightMenu();
-      });
       //
       this.setPositionRightButton();
     },
@@ -105,7 +100,6 @@
       $('body').removeClass('hidden-left-bar');
       $('.mask-layer-right').remove();
       $('#RightBody').before('<div class="mask-layer-right"></div>');
-      $('.RightBodyTDContainer:first').css('height', leftNavi.height());
       $('body,html').css('overflow-y',"hidden");
       $('.mask-layer-right').on('click',function(){
         tabManagerApp.hideLeftPanel();
@@ -281,19 +275,6 @@
      //    }
      //  }
     // },
-    setHeightMenu : function(){
-      var dropdow_toggle=$('.UIToolbarContainer .dropdown-toggle, .UIToolbarContainer .dropdown-menu');
-      //var _w = $(window).width();
-      if (windowsize < 768 ) {
-        var dropdowWidth =  dropdow_toggle.next().height();
-        
-        var max_height= Math.max($(window).height(), dropdowWidth) - 70 ;
-
-        dropdow_toggle.next().css({
-           'max-height' : max_height
-        }).addClass('overflow-y');
-      }
-    }
   };
   //OnLoad
   $(document).ready(function(event) {
@@ -355,20 +336,6 @@
       }
     });
 
-
-  });
-  //OnResize
-  $(window).resize(function(event) {
-    windowsize = $(window).width();
-    
-    setTimeout(function() {
-      // if($('#ToolBarSearch').find('.action_close').length > 0) {
-      //   tabManagerApp.searchOnTopNavivation();
-      // }
-      tabManagerApp.setHeightMenu();
-
-    $('#OfficeRight').css('height',$('.RightBodyTDContainer ').height());
-    }, 50);
 
   });
 
