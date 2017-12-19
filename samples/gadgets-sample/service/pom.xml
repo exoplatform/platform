@@ -4,7 +4,7 @@
   <parent>
     <artifactId>platform-sample-gadgets-sample</artifactId>
     <groupId>org.exoplatform.platform</groupId>
-    <version>5.0.x-SNAPSHOT</version>
+    <version>5.1.x-SNAPSHOT</version>
   </parent>
   <artifactId>platform-sample-gadgets-sample-service</artifactId>
   <packaging>jar</packaging>

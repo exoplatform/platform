@@ -4,7 +4,7 @@
   <parent>
     <artifactId>platform-extension-portlets</artifactId>
     <groupId>org.exoplatform.platform</groupId>
-    <version>5.0.x-SNAPSHOT</version>
+    <version>5.1.x-SNAPSHOT</version>
   </parent>
   <artifactId>platform-extension-portlets-platformNavigation</artifactId>
   <packaging>war</packaging>
