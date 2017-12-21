@@ -47,6 +47,8 @@ import org.exoplatform.social.core.service.LinkProvider;
 import org.exoplatform.social.webui.UIBannerAvatarUploader;
 import org.exoplatform.social.webui.UIBannerUploader;
 import org.exoplatform.social.webui.Utils;
+import org.exoplatform.webui.application.WebuiApplication;
+import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.config.annotation.EventConfig;
 import org.exoplatform.webui.core.UIPortletApplication;
@@ -88,6 +90,10 @@ public class UIUserNavigationPortlet extends UIPortletApplication {
 
     private UserNavigationHandlerService userService           = null;
 
+    private UIBannerUploader uiBanner = null;
+
+    private UIBannerAvatarUploader uiAvatarBanner = null;
+
     public UIUserNavigationPortlet() throws Exception {
         userService = getApplicationComponent(UserNavigationHandlerService.class);
 
@@ -95,8 +101,24 @@ public class UIUserNavigationPortlet extends UIPortletApplication {
         builder.withReadWriteCheck().withVisibility(Visibility.DISPLAYED, Visibility.TEMPORAL).withTemporalCheck();
         toolbarFilterConfig = builder.build();
 
-        addChild(createUIComponent(UIBannerUploader.class, null, null));
-        addChild(createUIComponent(UIBannerAvatarUploader.class, null, null));
+        uiBanner = createUIComponent(UIBannerUploader.class, null, null);
+        addChild(uiBanner);
+        uiAvatarBanner = createUIComponent(UIBannerAvatarUploader.class, null, null);
+        addChild(uiAvatarBanner);
+    }
+
+    @Override
+    public void processRender(WebuiApplication app, WebuiRequestContext context) throws Exception {
+      uiBanner.setRendered(isProfileOwner());
+      uiAvatarBanner.setRenderUpload(isProfileOwner());
+      super.processRender(app, context);
+    }
+
+    @Override
+    public void processRender(WebuiRequestContext context) throws Exception {
+      uiBanner.setRendered(isProfileOwner());
+      uiAvatarBanner.setRenderUpload(isProfileOwner());
+      super.processRender(context);
     }
 
     public boolean isSelectedUserNavigation(String nav) throws Exception {
