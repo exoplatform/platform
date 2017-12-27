@@ -25,7 +25,7 @@
     @Script(id = "connectorController" , value = "scripts/app/controller/connectorController.js"),
     @Script(id = "operationController" , value = "scripts/app/controller/operationController.js"),
     @Script(id = "appBroadcaster" , value = "scripts/app/broadcaster.js"),
-    @Script(id = "main" , value = "scripts/app/main.js")
+    @Script(id = "main" , value = "scripts/app/main.js", depends = {"statController", "connectorController", "operationController", "appBroadcaster"})
 })
 @Less({
     @Stylesheet(id = "indexingManagement-less", value = "styles/indexingManagement.less")
