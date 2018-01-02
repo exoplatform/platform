@@ -117,7 +117,6 @@ public class DisableUserUpgradePlugin extends UpgradeProductPlugin {
       final int odd = tSize == size ? 0 : size % threadNum;
       
       LOG.info("start upgrading {} users by {} threads, batchSize: {}", size, threadNum, batchSize);      
-      ExecutorService execService = Executors.newFixedThreadPool(threadNum);
       //
       final AtomicLong count = new AtomicLong();
       List<Future<Boolean>> results = new LinkedList<Future<Boolean>>();      
@@ -127,50 +126,55 @@ public class DisableUserUpgradePlugin extends UpgradeProductPlugin {
       final ListAccess<User> usrs = users;
       final int totalSize = size;
       
-      //
-      for (int i = 0; i < threadNum; i++) {
-        final int idx = i;
+      ExecutorService execService = Executors.newFixedThreadPool(threadNum);
+      try {
         //
-        results.add(execService.submit(new Callable<Boolean>() {
-          @Override
-          public Boolean call() throws Exception {
-            int start = idx * threadSize;
-            int end = start + threadSize;
-            if (idx == threadNum -1) {
-              end += odd;
-            }
-            
-            ExoContainerContext.setCurrentContainer(container);
-            
-            int startBatch = start;
-            int endBatch = startBatch + batchSize;
-            endBatch = endBatch > end ? end : endBatch;
-            while (endBatch <= totalSize && endBatch <= end && startBatch < endBatch) {
-              LOG.info("{} start: {}, end: {}", Thread.currentThread(), startBatch, endBatch);        
-              RequestLifeCycle.begin(impl);
-              IdentitySession session = idmService.getIdentitySession();
-              User[] tmp = usrs.load(startBatch, endBatch - startBatch);
-              try {
-                for (User u : tmp) {
-                  enableUser(u, session);
-                }
-                count.addAndGet(endBatch - startBatch);
-                startBatch = endBatch;
-                endBatch = startBatch + batchSize;
-                endBatch = endBatch > end ? end : endBatch;
-                LOG.info("{} finished successfully!", Thread.currentThread());
-              } catch (Exception e) {
-                LOG.error("An unexpected error occurs when migrating pages:", e);        
-                return false;
-              } finally {
-                RequestLifeCycle.end();
+        for (int i = 0; i < threadNum; i++) {
+          final int idx = i;
+          //
+          results.add(execService.submit(new Callable<Boolean>() {
+            @Override
+            public Boolean call() throws Exception {
+              int start = idx * threadSize;
+              int end = start + threadSize;
+              if (idx == threadNum -1) {
+                end += odd;
               }
+              
+              ExoContainerContext.setCurrentContainer(container);
+              
+              int startBatch = start;
+              int endBatch = startBatch + batchSize;
+              endBatch = endBatch > end ? end : endBatch;
+              while (endBatch <= totalSize && endBatch <= end && startBatch < endBatch) {
+                LOG.info("{} start: {}, end: {}", Thread.currentThread(), startBatch, endBatch);        
+                RequestLifeCycle.begin(impl);
+                IdentitySession session = idmService.getIdentitySession();
+                User[] tmp = usrs.load(startBatch, endBatch - startBatch);
+                try {
+                  for (User u : tmp) {
+                    enableUser(u, session);
+                  }
+                  count.addAndGet(endBatch - startBatch);
+                  startBatch = endBatch;
+                  endBatch = startBatch + batchSize;
+                  endBatch = endBatch > end ? end : endBatch;
+                  LOG.info("{} finished successfully!", Thread.currentThread());
+                } catch (Exception e) {
+                  LOG.error("An unexpected error occurs when migrating pages:", e);        
+                  return false;
+                } finally {
+                  RequestLifeCycle.end();
+                }
+              }
+              
+              return true;
             }
-            
-            return true;
-          }
-
-        }));
+  
+          }));
+        }
+      } finally {
+        execService.shutdown();
       }
       
       try {
