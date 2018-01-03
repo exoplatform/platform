@@ -1095,7 +1095,7 @@
 
     // Show empty preview message
     var $blockToAppendTo = $uiDocumentPreview.find(".UIResizableBlock");
-    if($blockToAppendTo.length == 0) {
+    if($blockToAppendTo.length == 0 && !documentPreview.settings.doc.isWebContent) {
       $blockToAppendTo = $("#documentPreviewContent");
       if($blockToAppendTo.find(".EmptyDocumentPreview").length == 0) {
         $blockToAppendTo.append("<div class='EmptyDocumentPreview'><div class='message'><div class='content'><i class='" + documentPreview.settings.doc.cssIcon + "'></i><br><span>${UIActivity.comment.noPreviewOfDocument}</span></div></div></div>");
