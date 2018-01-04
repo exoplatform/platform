@@ -23,11 +23,12 @@ import org.apache.commons.lang.StringEscapeUtils;
 
 def uicomponentId = uicomponent.id;
 
-def nodeName = "";
+def profileUsername = uicomponent.getOwnerRemoteId();
+def profileFullname = "";
 def srcImage = null;
 def profile = uicomponent.getOwnerProfile();
 if(profile != null){
-    nodeName = StringEscapeUtils.escapeHtml(profile.getFullName());
+    profileFullname = StringEscapeUtils.escapeHtml(profile.getFullName());
     srcImage = uicomponent.getAvatarURL(profile);
 }
 if (srcImage == null) {
@@ -65,8 +66,8 @@ if (uicomponent.isProfileOwner()) {
   <% uicomponent.renderChild(org.exoplatform.social.webui.UIBannerAvatarUploader.class); %>
   <div class="profileMenuNav" style="<%=bannerCSS%>">
     <div class="profileMenuNavHeader">
-        <h3>
-            $nodeName 
+        <h3 data-userid="$profileUsername">
+            $profileFullname 
             <i class="<%=si.cssName%> uiIconLightGray" rel="tooltip" data-placement="right" title="<%=si.title%>"></i>
         </h3>
 <ul class="profileMenuApps menuApps pull-left">
