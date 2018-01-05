@@ -25,7 +25,6 @@
   import org.exoplatform.portal.webui.workspace.UIWorkingWorkspace;
   import org.exoplatform.services.wcm.utils.WCMCoreUtils;
   import org.exoplatform.wcm.webui.reader.ContentReader;
-  import org.exoplatform.services.wcm.portal.LivePortalManagerService;
   import org.exoplatform.services.wcm.skin.WCMSkinVisitor;
   
   def rcontext = _ctx.getRequestContext() ;
@@ -40,9 +39,6 @@
   def portalSkins = uicomponent.getPortalSkins(wcmSkinVisitor);
   def portletSkins = uicomponent.getPortletSkins();
   def customSkins = uicomponent.getCustomSkins();
-  livePortalManagerService_ = CommonsUtils.getService(LivePortalManagerService.class);
-  def portalNode = livePortalManagerService_.getLivePortal(WCMCoreUtils.getSystemSessionProvider(), portalName);
-  def livePortalScript = WCMCoreUtils.getSiteGlobalActiveJs(portalNode);
   for (module in scriptsURLs.keySet()) {
     def url = !jsConfig.has("paths") ? null : 
               (!jsConfig.get("paths").has(module) ? null : jsConfig.get("paths").get(module));
@@ -205,14 +201,9 @@
          print(element);  
        }
     }
-    if(!StringUtils.isEmpty(livePortalScript)) { %>
-    <script type="text/javascript">
-    /* <![CDATA[ */ 
-      <%=livePortalScript%>
-    /* ]]> */   
-    </script>
-    <%}
-   %>
+    %>
+    <script type="text/javascript" src="<%=docBase%>/javascript/<%=portalName%>.js"></script>
+
     <!-- 508 Compliancy -->
     <style type="text/css">
       .skipHidden {
