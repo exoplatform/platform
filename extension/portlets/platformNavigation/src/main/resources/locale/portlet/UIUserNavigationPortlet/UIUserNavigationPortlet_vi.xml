@@ -13,6 +13,22 @@
          <Mydashboard>Bảng Ứng dụng</Mydashboard>
          <NotificationSettingsPortlet>Thiết lập các thông báo</NotificationSettingsPortlet>
          <More>Hiện thêm</More>
+         <EditProfile>Sửa Hồ sơ</EditProfile>
+         <available>Rảnh rỗi</available>
+         <offline>Gián tuyến</offline>
+         <away>Vắng</away>
+         <donotdisturb>Không làm phiền</donotdisturb>
+         <invisible>Ẩn</invisible>
       </label>
    </UIUserNavigationPortlet>
+   <UIAvatarUploaderPopup>
+      <title>
+         <UIAvatarUploader>Tải Ảnh lên</UIAvatarUploader>
+      </title>
+   </UIAvatarUploaderPopup>
+   <UIPopupBannerUploader>
+      <title>
+         <UIBannerUploader>Tải Ảnh lên</UIBannerUploader>
+      </title>
+   </UIPopupBannerUploader>
 </bundle>

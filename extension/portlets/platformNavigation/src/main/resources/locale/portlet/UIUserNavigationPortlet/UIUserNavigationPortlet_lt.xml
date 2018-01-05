@@ -13,6 +13,22 @@
          <Mydashboard>Mano prietaisų skydas</Mydashboard>
          <NotificationSettingsPortlet>My Notifications</NotificationSettingsPortlet>
          <More>More</More>
+         <EditProfile>Edit Profile</EditProfile>
+         <available>Laisvas</available>
+         <offline>Offline</offline>
+         <away>Away</away>
+         <donotdisturb>Do not disturb</donotdisturb>
+         <invisible>Invisible</invisible>
       </label>
    </UIUserNavigationPortlet>
+   <UIAvatarUploaderPopup>
+      <title>
+         <UIAvatarUploader>Įkelti paveiksliuką</UIAvatarUploader>
+      </title>
+   </UIAvatarUploaderPopup>
+   <UIPopupBannerUploader>
+      <title>
+         <UIBannerUploader>Įkelti paveiksliuką</UIBannerUploader>
+      </title>
+   </UIPopupBannerUploader>
 </bundle>

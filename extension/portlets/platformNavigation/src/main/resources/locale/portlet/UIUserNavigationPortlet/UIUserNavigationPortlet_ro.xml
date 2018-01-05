@@ -13,6 +13,22 @@
          <Mydashboard>My Dashboard</Mydashboard>
          <NotificationSettingsPortlet>My Notifications</NotificationSettingsPortlet>
          <More>More</More>
+         <EditProfile>Editează profilul</EditProfile>
+         <available>Disponibil</available>
+         <offline>Deconectat</offline>
+         <away>Plecat</away>
+         <donotdisturb>Nu deranjaţi</donotdisturb>
+         <invisible>Invizibil</invisible>
       </label>
    </UIUserNavigationPortlet>
+   <UIAvatarUploaderPopup>
+      <title>
+         <UIAvatarUploader>Încărcă o imagine</UIAvatarUploader>
+      </title>
+   </UIAvatarUploaderPopup>
+   <UIPopupBannerUploader>
+      <title>
+         <UIBannerUploader>Încărcă o imagine</UIBannerUploader>
+      </title>
+   </UIPopupBannerUploader>
 </bundle>

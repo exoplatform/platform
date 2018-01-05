@@ -13,6 +13,22 @@
          <Mydashboard>Моя панель мониторинга</Mydashboard>
          <NotificationSettingsPortlet>Мои уведомления</NotificationSettingsPortlet>
          <More>Еще</More>
+         <EditProfile>Редактировать профиль</EditProfile>
+         <available>Доступен</available>
+         <offline>Не в сети</offline>
+         <away>Нет на месте</away>
+         <donotdisturb>Не беспокоить</donotdisturb>
+         <invisible>Невидимый</invisible>
       </label>
    </UIUserNavigationPortlet>
+   <UIAvatarUploaderPopup>
+      <title>
+         <UIAvatarUploader>Загрузить изображение</UIAvatarUploader>
+      </title>
+   </UIAvatarUploaderPopup>
+   <UIPopupBannerUploader>
+      <title>
+         <UIBannerUploader>Загрузить изображение</UIBannerUploader>
+      </title>
+   </UIPopupBannerUploader>
 </bundle>

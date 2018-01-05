@@ -13,6 +13,22 @@
          <Mydashboard>Můj Dashboard</Mydashboard>
          <NotificationSettingsPortlet>Oznámení</NotificationSettingsPortlet>
          <More>Více</More>
+         <EditProfile>Upravit profil</EditProfile>
+         <available>K dispozici</available>
+         <offline>Offline</offline>
+         <away>Nepřítomný</away>
+         <donotdisturb>Do not disturb</donotdisturb>
+         <invisible>Invisible</invisible>
       </label>
    </UIUserNavigationPortlet>
+   <UIAvatarUploaderPopup>
+      <title>
+         <UIAvatarUploader>Nahrát obrázek</UIAvatarUploader>
+      </title>
+   </UIAvatarUploaderPopup>
+   <UIPopupBannerUploader>
+      <title>
+         <UIBannerUploader>Nahrát obrázek</UIBannerUploader>
+      </title>
+   </UIPopupBannerUploader>
 </bundle>

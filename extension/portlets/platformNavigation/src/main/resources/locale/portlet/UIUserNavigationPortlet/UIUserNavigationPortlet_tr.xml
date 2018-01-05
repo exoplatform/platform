@@ -13,6 +13,22 @@
          <Mydashboard>Panelim</Mydashboard>
          <NotificationSettingsPortlet>Bildirimlerim</NotificationSettingsPortlet>
          <More>Daha</More>
+         <EditProfile>Profil Düzenleme</EditProfile>
+         <available>Uygun</available>
+         <offline>Çevrimdışı</offline>
+         <away>Uzakta</away>
+         <donotdisturb>Rahatsız etmeyin</donotdisturb>
+         <invisible>Görünmez</invisible>
       </label>
    </UIUserNavigationPortlet>
+   <UIAvatarUploaderPopup>
+      <title>
+         <UIAvatarUploader>Bir Resim Yükleyin</UIAvatarUploader>
+      </title>
+   </UIAvatarUploaderPopup>
+   <UIPopupBannerUploader>
+      <title>
+         <UIBannerUploader>Bir Resim Yükleyin</UIBannerUploader>
+      </title>
+   </UIPopupBannerUploader>
 </bundle>

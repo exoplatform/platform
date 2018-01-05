@@ -13,6 +13,22 @@
          <Mydashboard>Το ταμπλό μου</Mydashboard>
          <NotificationSettingsPortlet>Οι ειδοποιήσεις μου</NotificationSettingsPortlet>
          <More>Περισσότερα</More>
+         <EditProfile>Αλλαγή Προφίλ</EditProfile>
+         <available>Διαθεσιμότητα</available>
+         <offline>Εκτός σύνδεσης</offline>
+         <away>Μη διαθέσιμος/η</away>
+         <donotdisturb>Μην ενοχλείτε</donotdisturb>
+         <invisible>Αόρατος</invisible>
       </label>
    </UIUserNavigationPortlet>
+   <UIAvatarUploaderPopup>
+      <title>
+         <UIAvatarUploader>Ανέβασμα Εικόνας</UIAvatarUploader>
+      </title>
+   </UIAvatarUploaderPopup>
+   <UIPopupBannerUploader>
+      <title>
+         <UIBannerUploader>Ανέβασμα Εικόνας</UIBannerUploader>
+      </title>
+   </UIPopupBannerUploader>
 </bundle>

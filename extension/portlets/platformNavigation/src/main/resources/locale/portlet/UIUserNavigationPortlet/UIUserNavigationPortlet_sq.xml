@@ -13,6 +13,22 @@
          <Mydashboard>crwdns6786074:0crwdne6786074:0</Mydashboard>
          <NotificationSettingsPortlet>crwdns6802113:0crwdne6802113:0</NotificationSettingsPortlet>
          <More>crwdns6812340:0crwdne6812340:0</More>
+         <EditProfile>crwdns6858658:0crwdne6858658:0</EditProfile>
+         <available>crwdns6858659:0crwdne6858659:0</available>
+         <offline>crwdns6858660:0crwdne6858660:0</offline>
+         <away>crwdns6858661:0crwdne6858661:0</away>
+         <donotdisturb>crwdns6858662:0crwdne6858662:0</donotdisturb>
+         <invisible>crwdns6858663:0crwdne6858663:0</invisible>
       </label>
    </UIUserNavigationPortlet>
+   <UIAvatarUploaderPopup>
+      <title>
+         <UIAvatarUploader>crwdns6858664:0crwdne6858664:0</UIAvatarUploader>
+      </title>
+   </UIAvatarUploaderPopup>
+   <UIPopupBannerUploader>
+      <title>
+         <UIBannerUploader>crwdns6858665:0crwdne6858665:0</UIBannerUploader>
+      </title>
+   </UIPopupBannerUploader>
 </bundle>

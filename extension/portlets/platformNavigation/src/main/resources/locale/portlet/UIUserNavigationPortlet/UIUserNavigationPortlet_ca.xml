@@ -13,6 +13,22 @@
          <Mydashboard>Tauler de Control</Mydashboard>
          <NotificationSettingsPortlet>Les Meves Notificacions</NotificationSettingsPortlet>
          <More>Més</More>
+         <EditProfile>Edita el Perfil</EditProfile>
+         <available>Disponibilitat</available>
+         <offline>Desconnectat</offline>
+         <away>Absent</away>
+         <donotdisturb>No molestar</donotdisturb>
+         <invisible>Invisible</invisible>
       </label>
    </UIUserNavigationPortlet>
+   <UIAvatarUploaderPopup>
+      <title>
+         <UIAvatarUploader>Puja una imatge</UIAvatarUploader>
+      </title>
+   </UIAvatarUploaderPopup>
+   <UIPopupBannerUploader>
+      <title>
+         <UIBannerUploader>Puja una imatge</UIBannerUploader>
+      </title>
+   </UIPopupBannerUploader>
 </bundle>

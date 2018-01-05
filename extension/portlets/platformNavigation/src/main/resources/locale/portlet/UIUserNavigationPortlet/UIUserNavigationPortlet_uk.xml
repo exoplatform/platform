@@ -13,6 +13,22 @@
          <Mydashboard>Моя панель інструментів</Mydashboard>
          <NotificationSettingsPortlet>Мої сповіщення</NotificationSettingsPortlet>
          <More>Більше</More>
+         <EditProfile>Редагувати профіль</EditProfile>
+         <available>Доступний</available>
+         <offline>Офлайн</offline>
+         <away>Немає на місці</away>
+         <donotdisturb>Не турбувати</donotdisturb>
+         <invisible>Невидимий</invisible>
       </label>
    </UIUserNavigationPortlet>
+   <UIAvatarUploaderPopup>
+      <title>
+         <UIAvatarUploader>Завантажити зображення</UIAvatarUploader>
+      </title>
+   </UIAvatarUploaderPopup>
+   <UIPopupBannerUploader>
+      <title>
+         <UIBannerUploader>Завантажити зображення</UIBannerUploader>
+      </title>
+   </UIPopupBannerUploader>
 </bundle>

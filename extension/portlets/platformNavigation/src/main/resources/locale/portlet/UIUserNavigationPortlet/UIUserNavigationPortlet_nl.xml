@@ -13,6 +13,22 @@
          <Mydashboard>Mijn Dashboard</Mydashboard>
          <NotificationSettingsPortlet>Mijn Notificaties</NotificationSettingsPortlet>
          <More>Meer</More>
+         <EditProfile>Profiel wijzigen</EditProfile>
+         <available>Toon deelnemers als</available>
+         <offline>Offline</offline>
+         <away>Afwezig</away>
+         <donotdisturb>Niet storen</donotdisturb>
+         <invisible>Onzichtbaar</invisible>
       </label>
    </UIUserNavigationPortlet>
+   <UIAvatarUploaderPopup>
+      <title>
+         <UIAvatarUploader>Een afbeelding uploaden</UIAvatarUploader>
+      </title>
+   </UIAvatarUploaderPopup>
+   <UIPopupBannerUploader>
+      <title>
+         <UIBannerUploader>Een afbeelding uploaden</UIBannerUploader>
+      </title>
+   </UIPopupBannerUploader>
 </bundle>
