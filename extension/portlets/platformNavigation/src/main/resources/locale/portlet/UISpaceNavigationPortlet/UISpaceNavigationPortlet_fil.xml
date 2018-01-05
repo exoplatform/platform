@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bundle>
+ <UISpaceNavigationPortlet>
+     <label>
+         <Spaces>My Spaces</Spaces>
+         <Join>Join a space</Join>
+         <see>Show {0} More Spaces</see>
+     </label>
+     <msg>
+         <filter-spaces>Find a space</filter-spaces>
+         <no-space>No space found</no-space>
+     </msg>
+
+</UISpaceNavigationPortlet>
+</bundle>

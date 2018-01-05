@@ -13,6 +13,22 @@
          <Mydashboard>Mon Tableau de bord</Mydashboard>
          <NotificationSettingsPortlet>Mes Notifications</NotificationSettingsPortlet>
          <More>Plus</More>
+         <EditProfile>Modifier le Profil</EditProfile>
+         <available>Disponibilité</available>
+         <offline>Déconnecté</offline>
+         <away>Absent</away>
+         <donotdisturb>Ne pas déranger</donotdisturb>
+         <invisible>Invisible</invisible>
       </label>
    </UIUserNavigationPortlet>
+   <UIAvatarUploaderPopup>
+      <title>
+         <UIAvatarUploader>Ajouter une Photo</UIAvatarUploader>
+      </title>
+   </UIAvatarUploaderPopup>
+   <UIPopupBannerUploader>
+      <title>
+         <UIBannerUploader>Ajouter une Photo</UIBannerUploader>
+      </title>
+   </UIPopupBannerUploader>
 </bundle>

@@ -13,6 +13,22 @@
          <Mydashboard>Mitt dashboard</Mydashboard>
          <NotificationSettingsPortlet>Mine varsler</NotificationSettingsPortlet>
          <More>More</More>
+         <EditProfile>Rediger profil</EditProfile>
+         <available>Tilgjengelig</available>
+         <offline>Frakoblet</offline>
+         <away>Borte</away>
+         <donotdisturb>Ikke forstyrr</donotdisturb>
+         <invisible>Invisible</invisible>
       </label>
    </UIUserNavigationPortlet>
+   <UIAvatarUploaderPopup>
+      <title>
+         <UIAvatarUploader>Last opp et bilde</UIAvatarUploader>
+      </title>
+   </UIAvatarUploaderPopup>
+   <UIPopupBannerUploader>
+      <title>
+         <UIBannerUploader>Last opp et bilde</UIBannerUploader>
+      </title>
+   </UIPopupBannerUploader>
 </bundle>

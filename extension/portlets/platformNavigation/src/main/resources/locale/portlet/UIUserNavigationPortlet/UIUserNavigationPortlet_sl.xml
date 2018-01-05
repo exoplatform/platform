@@ -13,6 +13,22 @@
          <Mydashboard>Moja nadzorna plošča</Mydashboard>
          <NotificationSettingsPortlet>Moja obvestila</NotificationSettingsPortlet>
          <More>Več</More>
+         <EditProfile>Uredi profil</EditProfile>
+         <available>Dosegljiv</available>
+         <offline>Nedosegljiv</offline>
+         <away>Odsoten</away>
+         <donotdisturb>Ne moti</donotdisturb>
+         <invisible>Neviden</invisible>
       </label>
    </UIUserNavigationPortlet>
+   <UIAvatarUploaderPopup>
+      <title>
+         <UIAvatarUploader>Prenesi sliko</UIAvatarUploader>
+      </title>
+   </UIAvatarUploaderPopup>
+   <UIPopupBannerUploader>
+      <title>
+         <UIBannerUploader>Prenesi sliko</UIBannerUploader>
+      </title>
+   </UIPopupBannerUploader>
 </bundle>

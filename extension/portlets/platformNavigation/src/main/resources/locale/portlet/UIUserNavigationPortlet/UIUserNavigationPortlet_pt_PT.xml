@@ -13,6 +13,22 @@
          <Mydashboard>Meu Painel</Mydashboard>
          <NotificationSettingsPortlet>As Minhas Notificações</NotificationSettingsPortlet>
          <More>Mais</More>
+         <EditProfile>Editar perfil</EditProfile>
+         <available>Disponível</available>
+         <offline>Offline</offline>
+         <away>Ausente</away>
+         <donotdisturb>Não incomodar</donotdisturb>
+         <invisible>Invisível</invisible>
       </label>
    </UIUserNavigationPortlet>
+   <UIAvatarUploaderPopup>
+      <title>
+         <UIAvatarUploader>Fazer upload de uma imagem</UIAvatarUploader>
+      </title>
+   </UIAvatarUploaderPopup>
+   <UIPopupBannerUploader>
+      <title>
+         <UIBannerUploader>Fazer upload de uma imagem</UIBannerUploader>
+      </title>
+   </UIPopupBannerUploader>
 </bundle>

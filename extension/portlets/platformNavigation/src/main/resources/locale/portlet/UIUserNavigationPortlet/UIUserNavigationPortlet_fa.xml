@@ -13,6 +13,22 @@
          <Mydashboard>داشبورد من</Mydashboard>
          <NotificationSettingsPortlet>اطلاعیه های من</NotificationSettingsPortlet>
          <More>بیشتر</More>
+         <EditProfile>ویرایش پروفایل</EditProfile>
+         <available>در دسترس</available>
+         <offline>آفلاین</offline>
+         <away>خارج از دسترس</away>
+         <donotdisturb>مزاحم نشوید</donotdisturb>
+         <invisible>نامرئی</invisible>
       </label>
    </UIUserNavigationPortlet>
+   <UIAvatarUploaderPopup>
+      <title>
+         <UIAvatarUploader>ارسال یک تصویر</UIAvatarUploader>
+      </title>
+   </UIAvatarUploaderPopup>
+   <UIPopupBannerUploader>
+      <title>
+         <UIBannerUploader>ارسال یک تصویر</UIBannerUploader>
+      </title>
+   </UIPopupBannerUploader>
 </bundle>

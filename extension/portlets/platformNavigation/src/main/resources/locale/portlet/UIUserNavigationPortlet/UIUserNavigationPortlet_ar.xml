@@ -13,6 +13,22 @@
          <Mydashboard>لوحة المعلومات الخاصّة بي</Mydashboard>
          <NotificationSettingsPortlet>الإشعارات الخاصّة بي</NotificationSettingsPortlet>
          <More>المزيد</More>
+         <EditProfile>تعديل الملف الشخصي</EditProfile>
+         <available>المـُـشاركون المُتواجدون</available>
+         <offline>غير متصل</offline>
+         <away>غير موجود</away>
+         <donotdisturb>عدم الإزعاج</donotdisturb>
+         <invisible>غير مرئي</invisible>
       </label>
    </UIUserNavigationPortlet>
+   <UIAvatarUploaderPopup>
+      <title>
+         <UIAvatarUploader>تحميل صورة</UIAvatarUploader>
+      </title>
+   </UIAvatarUploaderPopup>
+   <UIPopupBannerUploader>
+      <title>
+         <UIBannerUploader>تحميل صورة</UIBannerUploader>
+      </title>
+   </UIPopupBannerUploader>
 </bundle>

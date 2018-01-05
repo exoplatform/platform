@@ -13,6 +13,22 @@
          <Mydashboard>我的儀表板</Mydashboard>
          <NotificationSettingsPortlet>My Notifications</NotificationSettingsPortlet>
          <More>More</More>
+         <EditProfile>Edit Profile</EditProfile>
+         <available>可用</available>
+         <offline>離線</offline>
+         <away>離開</away>
+         <donotdisturb>請勿打擾</donotdisturb>
+         <invisible>Invisible</invisible>
       </label>
    </UIUserNavigationPortlet>
+   <UIAvatarUploaderPopup>
+      <title>
+         <UIAvatarUploader>上傳一張圖片</UIAvatarUploader>
+      </title>
+   </UIAvatarUploaderPopup>
+   <UIPopupBannerUploader>
+      <title>
+         <UIBannerUploader>上傳一張圖片</UIBannerUploader>
+      </title>
+   </UIPopupBannerUploader>
 </bundle>
