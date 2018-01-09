@@ -40,3 +40,4 @@ release.properties
 # Misc
 *.swp
 transaction.log
+rebel.xml
