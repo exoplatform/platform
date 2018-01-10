@@ -4,7 +4,7 @@
       <action>
          <AddPage>Lägg till sida</AddPage>
          <EditNavigation>Edit Navigation</EditNavigation>
-         <Content>Edit Content</Content>
+         <Content>Inline Edit</Content>
          <Editor>Redigera</Editor>
          <Page>Sida</Page>
          <Site>Webbplats</Site>

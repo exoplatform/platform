@@ -4,7 +4,7 @@
       <action>
          <AddPage>ページを追加</AddPage>
          <EditNavigation>Edit Navigation</EditNavigation>
-         <Content>Edit Content</Content>
+         <Content>Inline Edit</Content>
          <Editor>編集</Editor>
          <Page>ページ</Page>
          <Site>サイト</Site>

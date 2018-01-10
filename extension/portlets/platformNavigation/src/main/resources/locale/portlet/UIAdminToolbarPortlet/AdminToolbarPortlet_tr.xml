@@ -4,7 +4,7 @@
       <action>
          <AddPage>Sayfa Ekle</AddPage>
          <EditNavigation>Edit Navigation</EditNavigation>
-         <Content>Edit Content</Content>
+         <Content>Inline Edit</Content>
          <Editor>Düzenle</Editor>
          <Page>Sayfa</Page>
          <Site>Site</Site>

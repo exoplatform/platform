@@ -4,7 +4,7 @@
       <action>
          <AddPage>Přidat stránku</AddPage>
          <EditNavigation>Edit Navigation</EditNavigation>
-         <Content>Edit Content</Content>
+         <Content>Inline Edit</Content>
          <Editor>Upravit</Editor>
          <Page>Stránka</Page>
          <Site>Web</Site>
