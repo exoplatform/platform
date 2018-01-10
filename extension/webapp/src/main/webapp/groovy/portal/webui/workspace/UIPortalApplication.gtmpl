@@ -103,6 +103,11 @@
 	    leftPanelStateClass = ((String) leftPanelStateCollapsed.getValue()).equals("true") ? collapseClass : expandClass;
 	  }
   }
+  
+  def fullNavigationClass = "";
+  if (uicomponent.findComponentById("LeftNavigationPortlet") == null || (Util.getUIPortal().getMaximizedUIComponent() != null && Util.getUIPortal().getMaximizedUIComponent() instanceof org.exoplatform.portal.webui.page.UIPage)) {
+    fullNavigationClass = "full-topNavigation";
+  }
 %>
 <!--[if IE 7]> <html class="ie7 lt-ie8 lt-ie9 lt-ie10"  xmlns="http://www.w3.org/1999/xhtml" xml:lang="$lang" lang="$lang" dir="$dir"> <![endif]-->
 <!--[if IE 8]> <html class="ie8 lt-ie9  lt-ie10"  xmlns="http://www.w3.org/1999/xhtml" xml:lang="$lang" lang="$lang" dir="$dir"> <![endif]-->
@@ -239,7 +244,7 @@
     <!-- /508 Compliancy -->
  </head>
 
- <body class="$leftPanelStateClass" style="height: 100%;">
+ <body class="$leftPanelStateClass $fullNavigationClass" style="height: 100%;">
  <div class="visible-tablet"></div><div class="visible-tabletL"></div><div class="visible-phone"></div><div class="visible-phone-small"></div>
  <div class="$uicomponent.skin" id="UIPortalApplication" style="!height: 100%;">
      
