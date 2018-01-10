@@ -4,7 +4,7 @@
       <action>
          <AddPage>Legg til side</AddPage>
          <EditNavigation>Edit Navigation</EditNavigation>
-         <Content>Edit Content</Content>
+         <Content>Inline Edit</Content>
          <Editor>Rediger</Editor>
          <Page>Side</Page>
          <Site>Nettsted</Site>

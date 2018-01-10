@@ -4,7 +4,7 @@
       <action>
          <AddPage>添加页面</AddPage>
          <EditNavigation>Edit Navigation</EditNavigation>
-         <Content>Edit Content</Content>
+         <Content>Inline Edit</Content>
          <Editor>编辑</Editor>
          <Page>页面</Page>
          <Site>站点</Site>

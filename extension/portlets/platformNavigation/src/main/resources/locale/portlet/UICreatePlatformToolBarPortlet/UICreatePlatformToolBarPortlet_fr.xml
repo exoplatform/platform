@@ -6,16 +6,16 @@
          <poll>Sondage</poll>
          <event>Événement</event>
          <upload>Fichier</upload>
-         <wiki>Wiki Page</wiki>
+         <wiki>Wiki</wiki>
 
       </label>
    </UIUserPlatformToolBarCreatePortlet>
    <UICreateList>
       <label>
-         <topic>discussion</topic>
+         <topic>Discussion</topic>
          <poll>un Sondage</poll>
          <CreateANew>Créer {1}:</CreateANew>
-         <NoForum>Sorry, no forum is available yet in which you can create the {1}. Start by creating a space first and then try again.</NoForum>
+         <NoForum>Désolé, aucun forum n'est disponible pour l'instant pour créer {1}. Essayez de créer un espace puis reessayez.</NoForum>
          <RequireSelectForum>Veuillez sélectionner un forum.</RequireSelectForum>
       </label>
       <action>
@@ -47,7 +47,7 @@
    </UICreateWiki>
    <UICreateEvent>
       <label>
-         <Popup_title>Create a new Event</Popup_title>
+         <Popup_title>Créer un Evènement</Popup_title>
          <Title>#{word.title}</Title>
          <Choix>Ajouter:</Choix>
          <EndEvent>à</EndEvent>

@@ -3,8 +3,8 @@
    <UIAdminToolbarPortlet>
       <action>
          <AddPage>Ajouter</AddPage>
-         <EditNavigation>Edit Navigation</EditNavigation>
-         <Content>Edit Content</Content>
+         <EditNavigation>Navigation</EditNavigation>
+         <Content>Modification en ligne</Content>
          <Editor>Modifier</Editor>
          <Page>Page</Page>
          <Site>Site</Site>

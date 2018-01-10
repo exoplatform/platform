@@ -4,7 +4,7 @@
       <action>
          <AddPage>Aggiungere Pagina</AddPage>
          <EditNavigation>Edit Navigation</EditNavigation>
-         <Content>Edit Content</Content>
+         <Content>Inline Edit</Content>
          <Editor>Modificare</Editor>
          <Page>Pagina</Page>
          <Site>Sito</Site>

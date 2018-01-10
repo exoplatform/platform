@@ -4,7 +4,7 @@
       <action>
          <AddPage>Pridėti puslapį</AddPage>
          <EditNavigation>Edit Navigation</EditNavigation>
-         <Content>Edit Content</Content>
+         <Content>Inline Edit</Content>
          <Editor>Redaguoti</Editor>
          <Page>Puslapis</Page>
          <Site>Svetainė</Site>

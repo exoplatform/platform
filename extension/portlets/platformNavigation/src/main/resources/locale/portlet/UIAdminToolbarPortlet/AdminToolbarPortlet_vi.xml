@@ -4,7 +4,7 @@
       <action>
          <AddPage>Thêm Trang</AddPage>
          <EditNavigation>Edit Navigation</EditNavigation>
-         <Content>Edit Content</Content>
+         <Content>Inline Edit</Content>
          <Editor>Chỉnh sửa</Editor>
          <Page>Trang</Page>
          <Site>Trang web</Site>

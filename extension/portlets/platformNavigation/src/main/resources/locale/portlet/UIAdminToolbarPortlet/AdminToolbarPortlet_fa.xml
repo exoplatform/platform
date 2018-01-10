@@ -4,7 +4,7 @@
       <action>
          <AddPage>اضافه کردن صفحه</AddPage>
          <EditNavigation>Edit Navigation</EditNavigation>
-         <Content>Edit Content</Content>
+         <Content>Inline Edit</Content>
          <Editor>ويرايش</Editor>
          <Page>صفحه</Page>
          <Site>سایت</Site>

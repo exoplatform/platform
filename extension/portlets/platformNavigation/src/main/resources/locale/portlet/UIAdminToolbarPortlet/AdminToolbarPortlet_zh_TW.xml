@@ -4,7 +4,7 @@
       <action>
          <AddPage>新增頁面</AddPage>
          <EditNavigation>Edit Navigation</EditNavigation>
-         <Content>Edit Content</Content>
+         <Content>Inline Edit</Content>
          <Editor>編輯</Editor>
          <Page>頁面</Page>
          <Site>網站</Site>
