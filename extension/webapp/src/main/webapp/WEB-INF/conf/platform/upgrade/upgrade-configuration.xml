@@ -359,7 +359,16 @@
 	          <description>The plugin execution order</description>
 	          <value>1</value>
 	        </value-param>
-	        
+            <value-param>
+              <name>plugin.upgrade.target.version</name>
+              <description>plugin.upgrade.target.version</description>
+              <value>4.3.0</value>
+            </value-param>
+            <value-param>
+              <name>plugin.upgrade.execute.once</name>
+              <description>Execute this upgrade pluginonly once</description>
+              <value>true</value>
+            </value-param>
 	        <value-param>
 	          <name>numberOfThreads</name>
 	          <description>number of execution threads</description>
