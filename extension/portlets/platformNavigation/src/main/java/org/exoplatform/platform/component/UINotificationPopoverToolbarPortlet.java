@@ -3,21 +3,19 @@ package org.exoplatform.platform.component;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.Set;
 
 import javax.portlet.MimeResponse;
 import javax.portlet.ResourceRequest;
 import javax.portlet.ResourceURL;
 
+import org.json.JSONObject;
+import org.mortbay.cometd.continuation.EXoContinuationBayeux;
+
 import org.exoplatform.commons.api.notification.NotificationMessageUtils;
-import org.exoplatform.commons.api.notification.model.NotificationInfo;
 import org.exoplatform.commons.api.notification.model.WebNotificationFilter;
 import org.exoplatform.commons.api.notification.service.WebNotificationService;
 import org.exoplatform.commons.api.notification.service.setting.UserSettingService;
 import org.exoplatform.commons.notification.channel.WebChannel;
-import org.exoplatform.commons.notification.impl.service.storage.cache.CachedWebNotificationStorage;
-import org.exoplatform.commons.utils.CommonsUtils;
-import org.exoplatform.container.ExoContainerContext;
 import org.exoplatform.portal.application.PortalRequestContext;
 import org.exoplatform.services.log.ExoLogger;
 import org.exoplatform.services.log.Log;
@@ -31,8 +29,6 @@ import org.exoplatform.webui.core.lifecycle.UIApplicationLifecycle;
 import org.exoplatform.webui.event.Event;
 import org.exoplatform.webui.event.EventListener;
 import org.exoplatform.ws.frameworks.cometd.ContinuationService;
-import org.json.JSONObject;
-import org.mortbay.cometd.continuation.EXoContinuationBayeux;
 
 @ComponentConfig(
     lifecycle = UIApplicationLifecycle.class,
@@ -116,8 +112,7 @@ public class UINotificationPopoverToolbarPortlet extends UIPortletApplication {
         return;
       }
       if (CLUSTER_NOTIFICATION_POPOVER_LIST.equals(resourceId)) {
-        String notificationId = req.getParameter("notifId");
-        int badge = clusteringProcess(notificationId);
+        int badge = webNftService.getNumberOnBadge(this.currentUser);
         if (badge > 0) {
           MimeResponse res = context.getResponse();
           res.setContentType("application/json");
@@ -135,26 +130,7 @@ public class UINotificationPopoverToolbarPortlet extends UIPortletApplication {
   private String getCurrentUserId() {
     return ConversationState.getCurrent().getIdentity().getUserId();
   }
-  
-  private int clusteringProcess(String notifId) {
-    Set<String> profiles = ExoContainerContext.getCurrentContainer().getProfiles();
-    if (profiles.contains("cluster")) {
-      LOG.info("Run web notification in cluster mode");
-      CachedWebNotificationStorage cachedWebNotificationStorage = CommonsUtils.getService(CachedWebNotificationStorage.class);
-      List<NotificationInfo> infos = cachedWebNotificationStorage.get(new WebNotificationFilter(currentUser, true), 0, 8);
-      NotificationInfo ntf = cachedWebNotificationStorage.get(notifId);
-      if (! infos.contains(ntf)) {
-        LOG.info("Not exist in the cache");
-        cachedWebNotificationStorage.moveTopPopover(ntf);
-        cachedWebNotificationStorage.moveTopViewAll(ntf);
-        cachedWebNotificationStorage.clearWebNotificationCountCache(currentUser);
-        //
-        return cachedWebNotificationStorage.getNumberOnBadge(currentUser);
-      }
-    }
-    return 0;
-  }
-  
+
   protected String buildResourceURL(String key) {
     try {
       WebuiRequestContext ctx = WebuiRequestContext.getCurrentInstance();
