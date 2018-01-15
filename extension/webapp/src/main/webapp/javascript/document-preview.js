@@ -368,7 +368,7 @@
                 <i class="uiIconMiniArrowLeft uiIconWhite"></i> \
                 <i class="uiIconMiniArrowRight uiIconWhite"></i> \
               </div> \
-              <div id="documentPreviewContent" style="height: calc( 100vh - 82px )" ' + (this.settings.doc.isWebContent == true ? ' class="uiPreviewWebContent"' : '') + '> \
+              <div id="documentPreviewContent" ' + (this.settings.doc.isWebContent == true ? ' class="uiPreviewWebContent"' : '') + '> \
                   <div class="loading"> \
                     <i class="uiLoadingIconMedium uiIconLightGray"></i> \
                   </div>\
@@ -1222,7 +1222,6 @@
       $navigationContainer.css('overflow', 'hidden');
     }
 
-    $('.uiPreviewWebContent', $uiDocumentPreview).height(pdfDisplayAreaHeight - 30) // webcontent
     var $EmbedHtml =  $('.EmbedHtml', $uiDocumentPreview);
     $EmbedHtml.height(pdfDisplayAreaHeight) // External embedded
 
