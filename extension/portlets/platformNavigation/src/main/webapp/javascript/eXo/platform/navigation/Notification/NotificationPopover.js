@@ -42,7 +42,6 @@
         me.uiDropdownWithIcon = me.portlet.find('div.uiDropdownWithIcon:first');
         me.viewAllBtn = me.uiDropdownWithIcon.find('li.actionLink');
         //
-        me.viewAllBtn.hide();
         me.popupItem = me.portlet.find('ul.displayItems:first');
         me.popupItem.find('li').each(function(i) {
           me.applyAction($(this));
@@ -58,12 +57,12 @@
           me.portlet.find('.actionMark:first').addClass('markAll');
         }
         // markAllRead
-        me.portlet.find('.actionMark:first').find('a').click(function (evt) {
+        me.portlet.find('.actionMark:first').find('a').off('click').click(function (evt) {
           evt.stopPropagation();
           webNotif.markAllRead();
         });
         //
-        me.portlet.find('.dropdown-toggle:first').on('click', function() {
+        me.portlet.find('.dropdown-toggle:first').off('click').on('click', function() {
           var bagdeNumber = parseInt(me.badgeElm.text());
           //
           if (me.uiDropdownWithIcon.hasClass('open') == false && me.isLive == false) {
@@ -261,6 +260,8 @@
       }
   };
   //
+  NotificationPopover.init();
   webNotif.register(NotificationPopover);
+  
   return NotificationPopover;
 })(jQuery, webNotifications, cCometD);
