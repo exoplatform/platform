@@ -39,7 +39,7 @@ if (srcImage == null) {
 def banner = StringEscapeUtils.escapeHtml(profile.getBannerUrl());
 def bannerCSS = "";
 if (banner != null) {
-    bannerCSS = "background: url(" + banner + "?t=" + profile.getBannerLastUpdated() + ") no-repeat left center;background-size: 100% auto;";
+    bannerCSS = "background: url(" + banner + "?t=" + profile.getBannerLastUpdated() + ") no-repeat right/cover;";
 }
 
 def si = uicomponent.getStatusInfo();
