@@ -30,6 +30,7 @@ import javax.ws.rs.ext.RuntimeDelegate;
 import java.net.URI;
 import java.util.Collections;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
@@ -249,7 +250,7 @@ public class PeopleRestServices implements ResourceContainer {
       if (suggestions.isEmpty()) {
         // Returns the last users
         List<Identity> identities = identityManager.getLastIdentities(10);
-        suggestions = new HashMap<Identity, Integer>();
+        suggestions = new LinkedHashMap<Identity, Integer>();
         for (Identity id : identities) {
           if (identity.equals(id) || relationshipManager.get(identity, id) != null)
             continue;
