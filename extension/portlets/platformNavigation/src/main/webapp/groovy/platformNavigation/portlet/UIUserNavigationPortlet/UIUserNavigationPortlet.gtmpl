@@ -67,8 +67,8 @@ if (uicomponent.isProfileOwner()) {
   <div class="profileMenuNav" style="<%=bannerCSS%>">
     <div class="profileMenuNavHeader">
         <h3 data-userid="$profileUsername">
-            $profileFullname 
-            <i class="<%=si.cssName%> uiIconLightGray" rel="tooltip" data-placement="right" title="<%=si.title%>"></i>
+            <span>$profileFullname</span>
+            <i class="<%=si.cssName%> uiIconLightGray" rel="tooltip" data-container=".profileMenuNavHeader" data-placement="right" title="<%=si.title%>"></i>
         </h3>
 <ul class="profileMenuApps menuApps pull-left">
 <% if (uicomponent.isProfileOwner() && uicomponent.isUserUrl() && !uicomponent.isEditProfilePage()) { %>
