@@ -12,6 +12,7 @@
     <Locale lang="de" messages="locale/de.xml"/>
     <Locale lang="pt_BR" messages="locale/pt_BR.xml"/>
     <Locale lang="pt_PT" messages="locale/pt_PT.xml"/>
+    <Locale lang="id" messages="locale/it.xml"/>
     <Locale lang="it" messages="locale/it.xml"/>
     <Locale lang="ru" messages="locale/ru.xml"/>
     <Locale lang="tr" messages="locale/tr.xml"/>
@@ -27,6 +28,7 @@
     <Locale lang="ro" messages="locale/ro.xml"/>
     <Locale lang="ca" messages="locale/ca.xml"/>
     <Locale lang="fi" messages="locale/fi.xml"/>
+    <Locale lang="fil" messages="locale/fi.xml"/>
     <Locale lang="nl" messages="locale/nl.xml"/>
     <Locale lang="sl" messages="locale/sl.xml"/>
   </ModulePrefs>
