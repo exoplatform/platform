@@ -90,7 +90,7 @@
         <node>
             <uri>administration</uri>
             <name>administration</name>
-            <label>#{UISetupPlatformToolBarPortlet.label.administration}</label>
+            <label>#{UISetupPlatformToolBarPortlet.label.system}</label>
             <page-reference>group::platform/administrators::servicesManagement</page-reference>
             <node>
                 <uri>administration/management</uri>
