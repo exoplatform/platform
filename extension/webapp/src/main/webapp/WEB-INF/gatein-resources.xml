@@ -33,7 +33,6 @@
     <supported-locale>nl</supported-locale>
     <supported-locale>sl</supported-locale>
     <supported-locale>sq</supported-locale>
-    <supported-locale>id</supported-locale>
     <supported-locale>in</supported-locale>
     <script>
       <path>/javascript/document-preview.js</path>
