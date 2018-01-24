@@ -66,10 +66,20 @@ if (uicomponent.isProfileOwner()) {
   <% uicomponent.renderChild(org.exoplatform.social.webui.UIBannerAvatarUploader.class); %>
   <div class="profileMenuNav" style="<%=bannerCSS%>">
     <div class="profileMenuNavHeader">
-        <h3 data-userid="$profileUsername">
-            <span>$profileFullname</span>
-            <i class="<%=si.cssName%> uiIconLightGray" rel="tooltip" data-container=".profileMenuNavHeader" data-placement="right" title="<%=si.title%>"></i>
-        </h3>
+      <% if (uicomponent.isProfileOwner()) { %>
+        <div class="bannerControls">
+            <a href="#" data-toggle="popover" data-trigger="hover" data-content="<%=_ctx.appRes("UIUserNavigationPortlet.label.bannerSizeHint")%>" data-placement="left">
+              <i class="uiIconCamera"></i>
+            </a>
+            <% if (banner != null) {%>
+              <a href="<%=uicomponent.event("DeleteBanner");%>"><i class="uiIconTrash"></i></a>
+            <%}%>        
+        </div>
+      <%}%>    
+      <h3 data-userid="$profileUsername">
+          <span>$profileFullname</span>
+          <i class="<%=si.cssName%> uiIconLightGray" rel="tooltip" data-container=".profileMenuNavHeader" data-placement="right" title="<%=si.title%>"></i>
+      </h3>
 <ul class="profileMenuApps menuApps pull-left">
 <% if (uicomponent.isProfileOwner() && uicomponent.isUserUrl() && !uicomponent.isEditProfilePage()) { %>
     <li>
@@ -77,15 +87,7 @@ if (uicomponent.isProfileOwner()) {
     href="javascript:void(0)"><i class="uiIconEdit"></i> <span><%=_ctx.appRes("UIUserNavigationPortlet.label.EditProfile")%></span></a>
     </li>
 <% } %>
-</ul>
-        <% if (uicomponent.isProfileOwner()) { %>
-        <div class="bannerControls">
-	        <a href="#"><i class="uiIconCamera"></i></a>
-	        <% if (banner != null) {%>
-	          <a href="<%=uicomponent.event("DeleteBanner");%>"><i class="uiIconTrash"></i></a>
-	        <%}%>        
-        </div>
-        <%}%>        
+</ul>    
      </div>      
     </div>
 
