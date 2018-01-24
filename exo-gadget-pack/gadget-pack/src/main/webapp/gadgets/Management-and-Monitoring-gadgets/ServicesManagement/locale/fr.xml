@@ -31,7 +31,7 @@
   <msg name="value">Valeur</msg>
   <msg name="services_url">URL de services</msg>
   <msg name="failManage">Il nous est impossible de gérer les services de l'hôte distant car il requiert le support de oAuth</msg>
-  <msg name="noServices">Le service n'est pas disponible ou vos privilèges ne sont pas assez élevés.</msg>
+  <msg name="noServices">Aucun service n’est disponible ou vous n’avez pas le droit d'y accéder</msg>
   <msg name="noMethod">Aucune méthode</msg>
   <msg name="noProperty">Aucune propriété</msg>
   <msg name="badURL">Erreur lors de la récupération des données, veuillez vérifier l'URL de Service</msg>

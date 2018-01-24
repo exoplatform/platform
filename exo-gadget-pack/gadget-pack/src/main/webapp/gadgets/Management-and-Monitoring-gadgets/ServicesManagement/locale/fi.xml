@@ -31,7 +31,7 @@
   <msg name="value">Value</msg>
   <msg name="services_url">Services URL</msg>
   <msg name="failManage">Temporary can't manage services from other host until we support OAuth</msg>
-  <msg name="noServices">No service's available or you don't have enough permission</msg>
+  <msg name="noServices">No service is available or you don't have enough permission</msg>
   <msg name="noMethod">No method</msg>
   <msg name="noProperty">No property</msg>
   <msg name="badURL">Error while retrieving data, please check your URL preference</msg>

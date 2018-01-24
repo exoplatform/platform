@@ -19,6 +19,7 @@
          <away>離席中</away>
          <donotdisturb>サイレントモード</donotdisturb>
          <invisible>非表示</invisible>
+         <bannerSizeHint>Pick an image of 130 pixels height minimum.</bannerSizeHint>
       </label>
    </UIUserNavigationPortlet>
    <UIAvatarUploaderPopup>

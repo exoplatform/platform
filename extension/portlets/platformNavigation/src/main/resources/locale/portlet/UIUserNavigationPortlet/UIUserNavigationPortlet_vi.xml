@@ -19,6 +19,7 @@
          <away>Vắng</away>
          <donotdisturb>Không làm phiền</donotdisturb>
          <invisible>Ẩn</invisible>
+         <bannerSizeHint>Pick an image of 130 pixels height minimum.</bannerSizeHint>
       </label>
    </UIUserNavigationPortlet>
    <UIAvatarUploaderPopup>

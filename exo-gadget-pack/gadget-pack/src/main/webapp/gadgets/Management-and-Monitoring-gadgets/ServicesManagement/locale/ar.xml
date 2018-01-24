@@ -31,7 +31,7 @@
   <msg name="value">القيمة</msg>
   <msg name="services_url">خدمات URL</msg>
   <msg name="failManage">لا يمكن إدارة الخدمات بصفة مؤقّتة من مضيف آخر حتى يتمّ دعم الـ OAuth</msg>
-  <msg name="noServices">لا توجد أيّ خدمة متوفرة أو لم يكن لديك الصلاحيّات الكافية لرؤيتها</msg>
+  <msg name="noServices">لا توجد أيّ خدمة متوفرة أو ليس لديك الصلاحيّات الكافية لرؤيتها</msg>
   <msg name="noMethod">لا يوجد أسلوب</msg>
   <msg name="noProperty">لا توجد خاصيّة</msg>
   <msg name="badURL">حدث خطأ أثناء استرداد البيانات، الرجاء التحقق من خيارات الـ URL</msg>

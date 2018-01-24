@@ -8,11 +8,28 @@
          <wiki>Wiki</wiki>
          <Myactivities>My Activities</Myactivities>
          <Myprofile>My Profile</Myprofile>
-         <Myconnections>My Network</Myconnections>
+         <Myconnections>My Connections</Myconnections>
          <Mywiki>My Wiki</Mywiki>
          <Mydashboard>My Dashboard</Mydashboard>
          <NotificationSettingsPortlet>My Notifications</NotificationSettingsPortlet>
          <More>More</More>
+         <EditProfile>Edit Profile</EditProfile>
+         <available>Available</available>
+         <offline>Offline</offline>
+         <away>Away</away>
+         <donotdisturb>Do not disturb</donotdisturb>
+         <invisible>Invisible</invisible>
+         <bannerSizeHint>Pick an image of 130 pixels height minimum.</bannerSizeHint>
       </label>
    </UIUserNavigationPortlet>
+   <UIAvatarUploaderPopup>
+      <title>
+         <UIAvatarUploader>Upload an Image</UIAvatarUploader>
+      </title>
+   </UIAvatarUploaderPopup>
+   <UIPopupBannerUploader>
+      <title>
+         <UIBannerUploader>Upload an Image</UIBannerUploader>
+      </title>
+   </UIPopupBannerUploader>
 </bundle>

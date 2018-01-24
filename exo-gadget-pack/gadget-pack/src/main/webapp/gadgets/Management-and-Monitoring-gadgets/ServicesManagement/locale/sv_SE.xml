@@ -31,7 +31,7 @@
   <msg name="value">Värde</msg>
   <msg name="services_url">Servic-URL</msg>
   <msg name="failManage">Kan tillfälligt inte ge support från annan host tills vi stödjer OAuth</msg>
-  <msg name="noServices">Ingen service tillgänglig ellerså du har inte tillräcklig behörighet</msg>
+  <msg name="noServices">No service is available or you don't have enough permission</msg>
   <msg name="noMethod">Ingen metod</msg>
   <msg name="noProperty">Ingen egenskap</msg>
   <msg name="badURL">Fel vid hämtning av data, kontrollera inställningar för URL</msg>

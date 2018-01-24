@@ -19,6 +19,7 @@
          <away>Μη διαθέσιμος/η</away>
          <donotdisturb>Μην ενοχλείτε</donotdisturb>
          <invisible>Αόρατος</invisible>
+         <bannerSizeHint>Pick an image of 130 pixels height minimum.</bannerSizeHint>
       </label>
    </UIUserNavigationPortlet>
    <UIAvatarUploaderPopup>

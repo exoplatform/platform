@@ -19,6 +19,7 @@
          <away>Нет на месте</away>
          <donotdisturb>Не беспокоить</donotdisturb>
          <invisible>Невидимый</invisible>
+         <bannerSizeHint>Pick an image of 130 pixels height minimum.</bannerSizeHint>
       </label>
    </UIUserNavigationPortlet>
    <UIAvatarUploaderPopup>

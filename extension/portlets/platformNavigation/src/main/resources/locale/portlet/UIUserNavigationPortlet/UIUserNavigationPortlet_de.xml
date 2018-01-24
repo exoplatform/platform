@@ -19,6 +19,7 @@
          <away>Abwesend</away>
          <donotdisturb>Bitte nicht stören</donotdisturb>
          <invisible>Unsichtbar</invisible>
+         <bannerSizeHint>Pick an image of 130 pixels height minimum.</bannerSizeHint>
       </label>
    </UIUserNavigationPortlet>
    <UIAvatarUploaderPopup>
