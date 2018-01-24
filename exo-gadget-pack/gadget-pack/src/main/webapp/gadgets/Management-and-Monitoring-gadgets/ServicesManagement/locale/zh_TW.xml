@@ -31,7 +31,7 @@
   <msg name="value">值</msg>
   <msg name="services_url">服務 URL</msg>
   <msg name="failManage">直到我們支持OAuth時，暫時不能管理其他主機服務</msg>
-  <msg name="noServices">沒有服務的提供或您沒有足夠權限</msg>
+  <msg name="noServices">No service is available or you don't have enough permission</msg>
   <msg name="noMethod">沒有方法</msg>
   <msg name="noProperty">無屬性</msg>
   <msg name="badURL">檢索資料時出錯請檢查您的 URL 偏好選項</msg>

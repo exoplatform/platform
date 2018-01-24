@@ -19,6 +19,7 @@
          <away>離開</away>
          <donotdisturb>請勿打擾</donotdisturb>
          <invisible>Invisible</invisible>
+         <bannerSizeHint>Pick an image of 130 pixels height minimum.</bannerSizeHint>
       </label>
    </UIUserNavigationPortlet>
    <UIAvatarUploaderPopup>

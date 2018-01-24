@@ -31,7 +31,7 @@
   <msg name="value">Reikšmė</msg>
   <msg name="services_url">Paslaugų URL</msg>
   <msg name="failManage">Laikinai negalima valdyti paslaugų iš kito kompiuterio kol nebus palaikomas OAuth</msg>
-  <msg name="noServices">Paslauga yra neprieinama arba jūs neturite pakankamai teisių</msg>
+  <msg name="noServices">No service is available or you don't have enough permission</msg>
   <msg name="noMethod">Nėra metodo</msg>
   <msg name="noProperty">Nėra savybės</msg>
   <msg name="badURL">Įvyko klaida nuskaitant duomenis. Prašome patikrinti savo URL nuostatas</msg>

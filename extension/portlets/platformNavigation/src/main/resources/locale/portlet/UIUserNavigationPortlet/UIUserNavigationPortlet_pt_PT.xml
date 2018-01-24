@@ -19,6 +19,7 @@
          <away>Ausente</away>
          <donotdisturb>Não incomodar</donotdisturb>
          <invisible>Invisível</invisible>
+         <bannerSizeHint>Pick an image of 130 pixels height minimum.</bannerSizeHint>
       </label>
    </UIUserNavigationPortlet>
    <UIAvatarUploaderPopup>
