@@ -12,11 +12,10 @@
     <Locale lang="pt_BR" messages="locale/pt_BR.xml"/>
     <Locale lang="pt_PT" messages="locale/pt_PT.xml"/>
     <Locale lang="it" messages="locale/it.xml"/>
-    <Locale lang="id" messages="locale/it.xml"/>
     <Locale lang="ru" messages="locale/ru.xml"/>
     <Locale lang="tr" messages="locale/tr.xml"/>
     <Locale lang="zh_CN" messages="locale/zh_CN.xml"/>
-    <Locale lang="zh_TW" messages="locale/zh_TW.xml"/>    
+    <Locale lang="zh_TW" messages="locale/zh_TW.xml"/>
     <Locale lang="lt" messages="locale/lt.xml"/>
     <Locale lang="cs" messages="locale/cs.xml"/>
     <Locale lang="uk" messages="locale/uk.xml"/>
@@ -27,11 +26,11 @@
     <Locale lang="ro" messages="locale/ro.xml"/>
     <Locale lang="ca" messages="locale/ca.xml"/>
     <Locale lang="fi" messages="locale/fi.xml"/>
-    <Locale lang="fil" messages="locale/fi.xml"/>
     <Locale lang="nl" messages="locale/nl.xml"/>
     <Locale lang="sl" messages="locale/sl.xml"/>
     <Locale lang="he" messages="locale/he.xml"/>
     <Locale lang="hu" messages="locale/hu.xml"/>
+    <Locale lang="in" messages="locale/in.xml"/>
     <Require feature="dynamic-height"/>
   </ModulePrefs>
   
