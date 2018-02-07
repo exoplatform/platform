@@ -13,13 +13,13 @@
          <Mydashboard>Моя панель мониторинга</Mydashboard>
          <NotificationSettingsPortlet>Мои уведомления</NotificationSettingsPortlet>
          <More>Еще</More>
-         <EditProfile>Редактировать профиль</EditProfile>
+         <EditProfile>Редактировать</EditProfile>
          <available>Доступен</available>
          <offline>Не в сети</offline>
          <away>Нет на месте</away>
          <donotdisturb>Не беспокоить</donotdisturb>
          <invisible>Невидимый</invisible>
-         <bannerSizeHint>Pick an image of 130 pixels height minimum.</bannerSizeHint>
+         <bannerSizeHint>Choose an image at least 130 pixels high.</bannerSizeHint>
       </label>
    </UIUserNavigationPortlet>
    <UIAvatarUploaderPopup>

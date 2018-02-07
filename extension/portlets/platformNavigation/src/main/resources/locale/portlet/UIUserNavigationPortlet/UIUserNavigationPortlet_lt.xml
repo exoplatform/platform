@@ -13,13 +13,13 @@
          <Mydashboard>Mano prietaisų skydas</Mydashboard>
          <NotificationSettingsPortlet>My Notifications</NotificationSettingsPortlet>
          <More>More</More>
-         <EditProfile>Edit Profile</EditProfile>
+         <EditProfile>Redaguoti</EditProfile>
          <available>Laisvas</available>
          <offline>Offline</offline>
          <away>Away</away>
          <donotdisturb>Do not disturb</donotdisturb>
          <invisible>Invisible</invisible>
-         <bannerSizeHint>Pick an image of 130 pixels height minimum.</bannerSizeHint>
+         <bannerSizeHint>Choose an image at least 130 pixels high.</bannerSizeHint>
       </label>
    </UIUserNavigationPortlet>
    <UIAvatarUploaderPopup>

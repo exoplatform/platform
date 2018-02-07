@@ -13,13 +13,13 @@
          <Mydashboard>Bảng Ứng dụng</Mydashboard>
          <NotificationSettingsPortlet>Thiết lập các thông báo</NotificationSettingsPortlet>
          <More>Hiện thêm</More>
-         <EditProfile>Sửa Hồ sơ</EditProfile>
+         <EditProfile>Chỉnh sửa</EditProfile>
          <available>Rảnh rỗi</available>
          <offline>Gián tuyến</offline>
          <away>Vắng</away>
          <donotdisturb>Không làm phiền</donotdisturb>
          <invisible>Ẩn</invisible>
-         <bannerSizeHint>Pick an image of 130 pixels height minimum.</bannerSizeHint>
+         <bannerSizeHint>Choose an image at least 130 pixels high.</bannerSizeHint>
       </label>
    </UIUserNavigationPortlet>
    <UIAvatarUploaderPopup>

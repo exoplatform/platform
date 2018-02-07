@@ -13,13 +13,13 @@
          <Mydashboard>Panelim</Mydashboard>
          <NotificationSettingsPortlet>Bildirimlerim</NotificationSettingsPortlet>
          <More>Daha</More>
-         <EditProfile>Profil Düzenleme</EditProfile>
+         <EditProfile>Düzenle</EditProfile>
          <available>Uygun</available>
          <offline>Çevrimdışı</offline>
          <away>Uzakta</away>
          <donotdisturb>Rahatsız etmeyin</donotdisturb>
          <invisible>Görünmez</invisible>
-         <bannerSizeHint>Pick an image of 130 pixels height minimum.</bannerSizeHint>
+         <bannerSizeHint>Choose an image at least 130 pixels high.</bannerSizeHint>
       </label>
    </UIUserNavigationPortlet>
    <UIAvatarUploaderPopup>

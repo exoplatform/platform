@@ -13,13 +13,13 @@
          <Mydashboard>Moja nadzorna plošča</Mydashboard>
          <NotificationSettingsPortlet>Moja obvestila</NotificationSettingsPortlet>
          <More>Več</More>
-         <EditProfile>Uredi profil</EditProfile>
+         <EditProfile>Uredi</EditProfile>
          <available>Dosegljiv</available>
          <offline>Nedosegljiv</offline>
          <away>Odsoten</away>
          <donotdisturb>Ne moti</donotdisturb>
          <invisible>Neviden</invisible>
-         <bannerSizeHint>Pick an image of 130 pixels height minimum.</bannerSizeHint>
+         <bannerSizeHint>Choose an image at least 130 pixels high.</bannerSizeHint>
       </label>
    </UIUserNavigationPortlet>
    <UIAvatarUploaderPopup>

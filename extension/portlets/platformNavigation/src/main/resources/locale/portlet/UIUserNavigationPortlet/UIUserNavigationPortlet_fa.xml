@@ -13,13 +13,13 @@
          <Mydashboard>داشبورد من</Mydashboard>
          <NotificationSettingsPortlet>اطلاعیه های من</NotificationSettingsPortlet>
          <More>بیشتر</More>
-         <EditProfile>ویرایش پروفایل</EditProfile>
+         <EditProfile>ويرايش</EditProfile>
          <available>در دسترس</available>
          <offline>آفلاین</offline>
          <away>خارج از دسترس</away>
          <donotdisturb>مزاحم نشوید</donotdisturb>
          <invisible>نامرئی</invisible>
-         <bannerSizeHint>Pick an image of 130 pixels height minimum.</bannerSizeHint>
+         <bannerSizeHint>Choose an image at least 130 pixels high.</bannerSizeHint>
       </label>
    </UIUserNavigationPortlet>
    <UIAvatarUploaderPopup>

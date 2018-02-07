@@ -13,13 +13,13 @@
          <Mydashboard>Meu Painel</Mydashboard>
          <NotificationSettingsPortlet>Minhas Notificações</NotificationSettingsPortlet>
          <More>Mais</More>
-         <EditProfile>Editar perfil</EditProfile>
+         <EditProfile>Editar</EditProfile>
          <available>Disponível</available>
          <offline>Off-line</offline>
          <away>Ausente</away>
          <donotdisturb>Não perturbe</donotdisturb>
          <invisible>Invisível</invisible>
-         <bannerSizeHint>Pick an image of 130 pixels height minimum.</bannerSizeHint>
+         <bannerSizeHint>Choose an image at least 130 pixels high.</bannerSizeHint>
       </label>
    </UIUserNavigationPortlet>
    <UIAvatarUploaderPopup>

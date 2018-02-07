@@ -13,13 +13,13 @@
          <Mydashboard>マイダッシュ ボード</Mydashboard>
          <NotificationSettingsPortlet>自分への通知</NotificationSettingsPortlet>
          <More>もっと</More>
-         <EditProfile>プロフィールを編集</EditProfile>
+         <EditProfile>編集</EditProfile>
          <available>利用可能</available>
          <offline>オフライン</offline>
          <away>離席中</away>
          <donotdisturb>サイレントモード</donotdisturb>
          <invisible>非表示</invisible>
-         <bannerSizeHint>Pick an image of 130 pixels height minimum.</bannerSizeHint>
+         <bannerSizeHint>Choose an image at least 130 pixels high.</bannerSizeHint>
       </label>
    </UIUserNavigationPortlet>
    <UIAvatarUploaderPopup>
