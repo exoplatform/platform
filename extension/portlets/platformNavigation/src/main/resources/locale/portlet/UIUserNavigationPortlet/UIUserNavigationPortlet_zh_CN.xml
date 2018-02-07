@@ -13,13 +13,13 @@
          <Mydashboard>我的仪表板</Mydashboard>
          <NotificationSettingsPortlet>我的通知</NotificationSettingsPortlet>
          <More>更多</More>
-         <EditProfile>Edit Profile</EditProfile>
+         <EditProfile>编辑</EditProfile>
          <available>可用</available>
          <offline>离线</offline>
          <away>离开</away>
          <donotdisturb>请勿打扰</donotdisturb>
          <invisible>隐藏</invisible>
-         <bannerSizeHint>Pick an image of 130 pixels height minimum.</bannerSizeHint>
+         <bannerSizeHint>Choose an image at least 130 pixels high.</bannerSizeHint>
       </label>
    </UIUserNavigationPortlet>
    <UIAvatarUploaderPopup>

@@ -13,13 +13,13 @@
          <Mydashboard>Min instrumentpanel</Mydashboard>
          <NotificationSettingsPortlet>My Notifications</NotificationSettingsPortlet>
          <More>More</More>
-         <EditProfile>Redigera profil</EditProfile>
+         <EditProfile>Redigera</EditProfile>
          <available>Tillgängliga</available>
          <offline>Offline</offline>
          <away>Away</away>
          <donotdisturb>Do not disturb</donotdisturb>
          <invisible>Invisible</invisible>
-         <bannerSizeHint>Pick an image of 130 pixels height minimum.</bannerSizeHint>
+         <bannerSizeHint>Choose an image at least 130 pixels high.</bannerSizeHint>
       </label>
    </UIUserNavigationPortlet>
    <UIAvatarUploaderPopup>

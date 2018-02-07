@@ -13,13 +13,13 @@
          <Mydashboard>Το ταμπλό μου</Mydashboard>
          <NotificationSettingsPortlet>Οι ειδοποιήσεις μου</NotificationSettingsPortlet>
          <More>Περισσότερα</More>
-         <EditProfile>Αλλαγή Προφίλ</EditProfile>
+         <EditProfile>Επεξεργασία</EditProfile>
          <available>Διαθεσιμότητα</available>
          <offline>Εκτός σύνδεσης</offline>
          <away>Μη διαθέσιμος/η</away>
          <donotdisturb>Μην ενοχλείτε</donotdisturb>
          <invisible>Αόρατος</invisible>
-         <bannerSizeHint>Pick an image of 130 pixels height minimum.</bannerSizeHint>
+         <bannerSizeHint>Choose an image at least 130 pixels high.</bannerSizeHint>
       </label>
    </UIUserNavigationPortlet>
    <UIAvatarUploaderPopup>

@@ -13,13 +13,13 @@
          <Mydashboard>لوحة المعلومات الخاصّة بي</Mydashboard>
          <NotificationSettingsPortlet>الإشعارات الخاصّة بي</NotificationSettingsPortlet>
          <More>المزيد</More>
-         <EditProfile>تعديل الملف الشخصي</EditProfile>
+         <EditProfile>تغيير</EditProfile>
          <available>المـُـشاركون المُتواجدون</available>
          <offline>غير متصل</offline>
          <away>غير موجود</away>
          <donotdisturb>عدم الإزعاج</donotdisturb>
          <invisible>غير مرئي</invisible>
-         <bannerSizeHint>Pick an image of 130 pixels height minimum.</bannerSizeHint>
+         <bannerSizeHint>Choose an image at least 130 pixels high.</bannerSizeHint>
       </label>
    </UIUserNavigationPortlet>
    <UIAvatarUploaderPopup>
