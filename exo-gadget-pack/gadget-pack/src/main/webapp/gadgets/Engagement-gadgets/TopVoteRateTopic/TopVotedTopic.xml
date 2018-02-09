@@ -34,7 +34,7 @@
     <Locale lang="fi" messages="locale/fi.xml"/>
     <Locale lang="nl" messages="locale/nl.xml"/>
     <Locale lang="sl" messages="locale/sl.xml"/>
-    <Locale lang="in" messages="locale/in.xml"/>
+    <Locale lang="fil" messages="locale/fil.xml"/>
   </ModulePrefs>
   <UserPref name="maxcount" display_name="__MSG_topic.top.vote.maxcount__" default_value="5" datatype="enum" >
     <EnumValue value="5" />

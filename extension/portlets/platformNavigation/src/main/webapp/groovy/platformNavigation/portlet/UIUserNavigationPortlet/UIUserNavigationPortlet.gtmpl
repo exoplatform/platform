@@ -48,14 +48,14 @@ String moreLabel = _ctx.appRes("${uicomponentId}.label.More").replace("'", "\\47
 if (uicomponent.isProfileOwner()) {
 	_ctx.getRequestContext().getJavascriptManager().require("SHARED/jquery", "jq")
 	        .require("SHARED/bts_tooltip").addScripts("jq('*[rel=\"tooltip\"]').tooltip();")
-	        .require("SHARED/ui-user-nav", "uiusernav")
+	        .require("SHARED/ui-user-navigation", "uiusernav")
 	        .addScripts("uiusernav.initNavigation('" + moreLabel + "');")
 	        .addScripts("uiusernav.initBanner('#UIBannerUploader');")
 	        .addScripts("uiusernav.initAvatar('#UIBannerAvatarUploader');");
 } else {
     _ctx.getRequestContext().getJavascriptManager().require("SHARED/jquery", "jq")
             .require("SHARED/bts_tooltip").addScripts("jq('*[rel=\"tooltip\"]').tooltip();")
-            .require("SHARED/ui-user-nav", "uiusernav")
+            .require("SHARED/ui-user-navigation", "uiusernav")
             .addScripts("uiusernav.initNavigation('" + moreLabel + "');");
 }
 %>
