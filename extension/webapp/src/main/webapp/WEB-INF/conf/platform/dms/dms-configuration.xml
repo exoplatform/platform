@@ -78,6 +78,7 @@
           <name>untrusted-user-agents</name>
           <value>gvfs/*</value>
           <value>Microsoft Office .*</value>
+          <value>(Word|Excel|PowerPoint).*</value>
       </values-param>
 
     </init-params>
