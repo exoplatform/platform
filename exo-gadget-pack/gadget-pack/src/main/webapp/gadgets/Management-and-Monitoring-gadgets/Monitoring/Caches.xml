@@ -37,6 +37,7 @@
     <Locale lang="nl" messages="locale/nl.xml"/>
     <Locale lang="sl" messages="locale/sl.xml"/>
     <Locale lang="in" messages="locale/in.xml"/>
+    <Locale lang="fil" messages="locale/fil.xml"/>
   </ModulePrefs>
   <Content type="html">
     <![CDATA[ 

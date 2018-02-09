@@ -188,7 +188,7 @@
   </module>
 
   <module>
-    <name>ui-user-nav</name>
+    <name>ui-user-navigation</name>
     <as>uiusernav</as>
     <script>
       <path>/javascript/eXo/platform/navigation/UIUserNavigationPortlet/UIUserNavigation.js</path>

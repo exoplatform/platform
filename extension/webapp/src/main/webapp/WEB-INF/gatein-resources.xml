@@ -34,6 +34,7 @@
     <supported-locale>sl</supported-locale>
     <supported-locale>sq</supported-locale>
     <supported-locale>in</supported-locale>
+    <supported-locale>fil</supported-locale>
     <script>
       <path>/javascript/document-preview.js</path>
       <resource-bundle>locale.social.Webui</resource-bundle>

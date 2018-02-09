@@ -31,6 +31,7 @@
     <Locale lang="he" messages="locale/he.xml"/>
     <Locale lang="hu" messages="locale/hu.xml"/>
     <Locale lang="in" messages="locale/in.xml"/>
+    <Locale lang="fil" messages="locale/fil.xml"/>
     <Require feature="dynamic-height"/>
   </ModulePrefs>
   
