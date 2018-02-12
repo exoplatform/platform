@@ -35,6 +35,7 @@ public class TestEnableUserUpgradePlugin extends BasicTestCase {
         upgradePlugin.processUpgrade("4.4", "5.0");
 
         checkUserStatusAfterUpgrade();
+        cleanData();
     }
 
     private void checkUserStatusAfterUpgrade() throws Exception {
@@ -67,6 +68,16 @@ public class TestEnableUserUpgradePlugin extends BasicTestCase {
         } finally {
             RequestLifeCycle.end();
         }
+    }
 
+    private void cleanData() throws Exception {
+        try {
+            RequestLifeCycle.begin(container);
+            UserHandler userHandler = organizationService.getUserHandler();
+            userHandler.removeUser("testEnable", true);
+            userHandler.removeUser("testDisable", false);
+        } finally {
+            RequestLifeCycle.end();
+        }
     }
 }
