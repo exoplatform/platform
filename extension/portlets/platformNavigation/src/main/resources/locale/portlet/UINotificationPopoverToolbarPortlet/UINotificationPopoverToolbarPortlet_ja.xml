@@ -4,7 +4,7 @@
 <label>
 <MarkAllAsRead>すべて既読にする</MarkAllAsRead>
 <NoNotifications>通知なし</NoNotifications>
-<InlineImage>Inline image</InlineImage>
+<InlineImage>インライン画像</InlineImage>
 <ViewAll>すべて表示</ViewAll>
 <Loading>読み込み中</Loading>
 </label>

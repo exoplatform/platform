@@ -7,7 +7,7 @@
          <see>さらに {0} スペースを表示</see>
      </label>
      <msg>
-         <filter-spaces>Find a space</filter-spaces>
+         <filter-spaces>スペースを検索</filter-spaces>
          <no-space>スペースが見つかりません</no-space>
      </msg>
 

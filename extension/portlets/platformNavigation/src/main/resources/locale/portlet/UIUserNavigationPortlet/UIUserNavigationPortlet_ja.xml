@@ -19,7 +19,7 @@
          <away>離席中</away>
          <donotdisturb>サイレントモード</donotdisturb>
          <invisible>非表示</invisible>
-         <bannerSizeHint>Choose an image at least 130 pixels high.</bannerSizeHint>
+         <bannerSizeHint>少なくとも 高さ130 ピクセルのイメージを選択してください。</bannerSizeHint>
       </label>
    </UIUserNavigationPortlet>
    <UIAvatarUploaderPopup>

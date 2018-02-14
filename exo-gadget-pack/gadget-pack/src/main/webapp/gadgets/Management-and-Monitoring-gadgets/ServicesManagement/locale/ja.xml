@@ -31,7 +31,7 @@
   <msg name="value">値</msg>
   <msg name="services_url">サービス URL</msg>
   <msg name="failManage">OAuth をサポートするまで、一時的に、他のホストからサービスを管理することはできません。</msg>
-  <msg name="noServices">No service is available or you don't have enough permission</msg>
+  <msg name="noServices">サービスが利用できない、もしくは、十分な権限がありません。</msg>
   <msg name="noMethod">メソッドがありません</msg>
   <msg name="noProperty">プロパティがありません。</msg>
   <msg name="badURL">データ取得中にエラーが発生しました。URLの設定を確認してください。</msg>

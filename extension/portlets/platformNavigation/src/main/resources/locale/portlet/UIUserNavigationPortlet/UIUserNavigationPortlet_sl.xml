@@ -19,7 +19,7 @@
          <away>Odsoten</away>
          <donotdisturb>Ne moti</donotdisturb>
          <invisible>Neviden</invisible>
-         <bannerSizeHint>Choose an image at least 130 pixels high.</bannerSizeHint>
+         <bannerSizeHint>Izberite sliko višine vsaj 130 pikslov.</bannerSizeHint>
       </label>
    </UIUserNavigationPortlet>
    <UIAvatarUploaderPopup>

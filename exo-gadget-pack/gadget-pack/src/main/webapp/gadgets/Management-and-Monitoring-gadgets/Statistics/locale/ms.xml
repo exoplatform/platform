@@ -20,16 +20,15 @@
 
 -->
 <messagebundle>
-  <msg name="title">Bookmarks</msg>
-  <msg name="customize">Customize</msg>
-  <msg name="save">#{word.save}</msg>
-  <msg name="add">Add</msg>
-  <msg name="ok">OK</msg>
-  <msg name="name">Nama</msg>
-  <msg name="url">URL</msg>
-  <msg name="delete">Delete</msg>
-  <msg name="edit">Edit</msg>
-  <msg name="cancel">Cancel</msg>
-  <msg name="emptyBookmarkPre">You don't have any bookmark. Add them by clicking on the button "Add Bookmark".</msg>
-  <msg name="addBookmark">Add Bookmark</msg>
+  <msg name="title_templates">Template Statistics</msg>
+  <msg name="ten_slowest_templates">10 slowest templates</msg>
+  <msg name="all_templates">All templates</msg>
+  <msg name="title_apps">Application Statistics</msg>
+  <msg name="ten_slowest_apps">10 slowest applications</msg>
+  <msg name="all_apps">All applications</msg>
+  <msg name="avg_exec_time">Average execution time (ms)</msg>
+  <msg name="min">min</msg>
+  <msg name="max">max</msg>
+  <msg name="exec">#exec</msg>
+  <msg name="loading">Loading data ...</msg>
 </messagebundle>

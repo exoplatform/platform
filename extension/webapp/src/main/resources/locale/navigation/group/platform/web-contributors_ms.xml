@@ -2,6 +2,6 @@
 <bundle>
   <administration>
     <siteExplorer>Content Explorer</siteExplorer>
-    <wcmAdmin>Administrasi Konten</wcmAdmin>
+    <wcmAdmin>Content Administration</wcmAdmin>
   </administration>
 </bundle>
