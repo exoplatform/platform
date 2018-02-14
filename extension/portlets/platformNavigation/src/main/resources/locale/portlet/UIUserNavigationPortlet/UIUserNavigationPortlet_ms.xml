@@ -14,7 +14,7 @@
          <NotificationSettingsPortlet>My Notifications</NotificationSettingsPortlet>
          <More>More</More>
          <EditProfile>Edit</EditProfile>
-         <available>Magagamit</available>
+         <available>Available</available>
          <offline>Offline</offline>
          <away>Away</away>
          <donotdisturb>Do not disturb</donotdisturb>
@@ -24,12 +24,12 @@
    </UIUserNavigationPortlet>
    <UIAvatarUploaderPopup>
       <title>
-         <UIAvatarUploader>Ang Mag-upload ng Larawan</UIAvatarUploader>
+         <UIAvatarUploader>Upload an Image</UIAvatarUploader>
       </title>
    </UIAvatarUploaderPopup>
    <UIPopupBannerUploader>
       <title>
-         <UIBannerUploader>Ang Mag-upload ng Larawan</UIBannerUploader>
+         <UIBannerUploader>Upload an Image</UIBannerUploader>
       </title>
    </UIPopupBannerUploader>
 </bundle>

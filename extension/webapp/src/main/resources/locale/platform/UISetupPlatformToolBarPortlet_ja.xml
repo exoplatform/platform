@@ -4,13 +4,13 @@
 <label>
 <applications>アプリケーション</applications>
 <content>コンテンツ</content>
-<siteExplorer>Site Explorer</siteExplorer>
+<siteExplorer>サイト エクスプ ローラー</siteExplorer>
 <wcmAdmin>コンテンツ管理</wcmAdmin>
-<users>Users</users>
+<users>ユーザー</users>
 <newStaff>ユーザーを追加</newStaff>
-<org-management>Manage Users</org-management>
+<org-management>ユーザーを管理</org-management>
 <portal>ポータル</portal>
-<administration>Administration</administration>
+<administration>管理者</administration>
 <system>システム</system>
 <groupnavigation>グループ サイト</groupnavigation>
 <pageManagement>ページ</pageManagement>
@@ -21,7 +21,7 @@
 <Branding>ブランディング</Branding>
       <Notification>通知</Notification>
 <ide>IDE</ide>
-<search>Search Administration</search>
+<search>管理者を検索</search>
 </label>
 </UISetupPlatformToolBarPortlet>
 </bundle>

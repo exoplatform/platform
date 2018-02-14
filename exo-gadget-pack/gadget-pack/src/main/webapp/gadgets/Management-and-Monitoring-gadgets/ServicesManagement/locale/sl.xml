@@ -31,7 +31,7 @@
   <msg name="value">Vrednost</msg>
   <msg name="services_url">URL storitve</msg>
   <msg name="failManage">Začasno ne morete upravljati storitev drugega gostitelja, dokler ne bomo podprli OAuth</msg>
-  <msg name="noServices">No service is available or you don't have enough permission</msg>
+  <msg name="noServices">Na voljo ni nobene storitve ali pa nimate ustreznega dovoljenja</msg>
   <msg name="noMethod">Ni metode</msg>
   <msg name="noProperty">Ni lastnosti</msg>
   <msg name="badURL">Pri pridobivanju podatkov je prišlo do napake, preverite nastavitve URL</msg>

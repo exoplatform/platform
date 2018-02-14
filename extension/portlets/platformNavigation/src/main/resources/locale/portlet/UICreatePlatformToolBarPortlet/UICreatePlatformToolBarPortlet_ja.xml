@@ -2,20 +2,20 @@
 <bundle>
    <UIUserPlatformToolBarCreatePortlet>
       <label>
-         <topic>Discussion</topic>
+         <topic>ディスカッション</topic>
          <poll>アンケート</poll>
          <event>イベント</event>
-         <upload>File</upload>
-         <wiki>Wiki Page</wiki>
+         <upload>ファイル</upload>
+         <wiki>Wiki ページ</wiki>
 
       </label>
    </UIUserPlatformToolBarCreatePortlet>
    <UICreateList>
       <label>
-         <topic>discussion</topic>
-         <poll>Poll</poll>
-         <CreateANew>New {1}:</CreateANew>
-         <NoForum>Sorry, no forum is available yet in which you can create the {1}. Start by creating a space first and then try again.</NoForum>
+         <topic>ディスカッション</topic>
+         <poll>ポール</poll>
+         <CreateANew>新規 {1}:</CreateANew>
+         <NoForum>申し訳ありませんが、{1} を作成するために必要となるフォーラムがまだ存在していません。まず、スペースを作成してください。</NoForum>
          <RequireSelectForum>フォーラムを選択してください</RequireSelectForum>
       </label>
       <action>
@@ -41,18 +41,18 @@
    </UICreatePoll>
    <UICreateWiki>
       <label>
-         <title>New Wiki Page:</title>
-         <location>Location</location>
+         <title>新しい Wiki ページを作成</title>
+         <location>ロケーション</location>
       </label>
    </UICreateWiki>
    <UICreateEvent>
       <label>
-         <Popup_title>Create a new Event</Popup_title>
+         <Popup_title>新規イベントを作成</Popup_title>
          <Title>#{word.title}</Title>
          <Choix>新規追加</Choix>
          <EndEvent>終了日</EndEvent>
          <StartEvent>開始日</StartEvent>
-         <Calendar>Calendar</Calendar>
+         <Calendar>カレンダー</Calendar>
          <all-day>すべての日</all-day>
          <defaultCalendarId>デフォルト</defaultCalendarId>
       </label>

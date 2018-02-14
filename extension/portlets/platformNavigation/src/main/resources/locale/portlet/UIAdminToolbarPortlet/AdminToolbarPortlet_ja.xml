@@ -3,13 +3,13 @@
    <UIAdminToolbarPortlet>
       <action>
          <AddPage>ページを追加</AddPage>
-         <EditNavigation>Edit Navigation</EditNavigation>
-         <Content>Inline Edit</Content>
+         <EditNavigation>ナビゲーションを編集</EditNavigation>
+         <Content>インライン編集</Content>
          <Editor>編集</Editor>
          <Page>ページ</Page>
          <Site>サイト</Site>
          <Layout>レイアウトを編集</Layout>
-         <siteLayout>Edit Layout</siteLayout>
+         <siteLayout>レイアウトを編集</siteLayout>
          <ManagePages>ページを管理</ManagePages>
          <GroupSite>グループ サイト</GroupSite>
          <Properties>#{UISEOToolbarForm.label.seo}</Properties>

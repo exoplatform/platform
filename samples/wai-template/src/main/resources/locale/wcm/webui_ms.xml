@@ -19,17 +19,23 @@
     02110-1301 USA, or see the FSF site: http://www.fsf.org.
 
 -->
-<messagebundle>
-  <msg name="title">Bookmarks</msg>
-  <msg name="customize">Customize</msg>
-  <msg name="save">#{word.save}</msg>
-  <msg name="add">Add</msg>
-  <msg name="ok">OK</msg>
-  <msg name="name">Nama</msg>
-  <msg name="url">URL</msg>
-  <msg name="delete">Delete</msg>
-  <msg name="edit">Edit</msg>
-  <msg name="cancel">Cancel</msg>
-  <msg name="emptyBookmarkPre">You don't have any bookmark. Add them by clicking on the button "Add Bookmark".</msg>
-  <msg name="addBookmark">Add Bookmark</msg>
-</messagebundle>
+<bundle>
+  <UIPortalApplication>
+    <title>
+      <abort>Abort</abort>
+    </title>
+  </UIPortalApplication>
+  
+  <CategoryNavigationTemplate>
+  <label>
+  <home>Home</home>
+  <Accessibility>Accessibility</Accessibility>
+  </label>
+  </CategoryNavigationTemplate>
+  
+  <Breadcrumb>
+  <label>
+  <home>Home</home>
+  </label>  
+  </Breadcrumb>
+</bundle>

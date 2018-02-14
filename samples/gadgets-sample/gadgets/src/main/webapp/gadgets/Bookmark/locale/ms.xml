@@ -25,7 +25,7 @@
   <msg name="save">#{word.save}</msg>
   <msg name="add">Add</msg>
   <msg name="ok">OK</msg>
-  <msg name="name">Nama</msg>
+  <msg name="name">Name</msg>
   <msg name="url">URL</msg>
   <msg name="delete">Delete</msg>
   <msg name="edit">Edit</msg>

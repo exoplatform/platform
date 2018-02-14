@@ -2,34 +2,34 @@
 <bundle>
    <UIUserNavigationPortlet>
       <label>
-         <activities>Activities</activities>
-         <profile>Profile</profile>
-         <connections>Connections</connections>
+         <activities>Kegiatan</activities>
+         <profile>Profil</profile>
+         <connections>Koneksi</connections>
          <wiki>Wiki</wiki>
-         <Myactivities>My Activities</Myactivities>
-         <Myprofile>My Profile</Myprofile>
-         <Myconnections>My Connections</Myconnections>
-         <Mywiki>My Wiki</Mywiki>
-         <Mydashboard>My Dashboard</Mydashboard>
-         <NotificationSettingsPortlet>My Notifications</NotificationSettingsPortlet>
-         <More>More</More>
+         <Myactivities>Kegiatan Saya</Myactivities>
+         <Myprofile>Profil Saya</Myprofile>
+         <Myconnections>Koneksi saya</Myconnections>
+         <Mywiki>Wiki saya</Mywiki>
+         <Mydashboard>Dasbor Saya</Mydashboard>
+         <NotificationSettingsPortlet>Notifikasi Saya</NotificationSettingsPortlet>
+         <More>Lainnya</More>
          <EditProfile>Edit</EditProfile>
-         <available>Available</available>
-         <offline>Offline</offline>
-         <away>Away</away>
-         <donotdisturb>Do not disturb</donotdisturb>
-         <invisible>Invisible</invisible>
-         <bannerSizeHint>Choose an image at least 130 pixels high.</bannerSizeHint>
+         <available>Tersedia</available>
+         <offline>Tidak Aktif</offline>
+         <away>Jauh</away>
+         <donotdisturb>Jangan ganggu</donotdisturb>
+         <invisible>Tidak terlihat</invisible>
+         <bannerSizeHint>Pilih gambar setidaknya 130 piksel tinggi.</bannerSizeHint>
       </label>
    </UIUserNavigationPortlet>
    <UIAvatarUploaderPopup>
       <title>
-         <UIAvatarUploader>Upload an Image</UIAvatarUploader>
+         <UIAvatarUploader>Unggah gambar</UIAvatarUploader>
       </title>
    </UIAvatarUploaderPopup>
    <UIPopupBannerUploader>
       <title>
-         <UIBannerUploader>Upload an Image</UIBannerUploader>
+         <UIBannerUploader>Unggah gambar</UIBannerUploader>
       </title>
    </UIPopupBannerUploader>
 </bundle>
