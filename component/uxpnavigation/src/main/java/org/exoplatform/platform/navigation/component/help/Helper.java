@@ -21,6 +21,7 @@ package org.exoplatform.platform.navigation.component.help;
 import org.exoplatform.platform.navigation.component.utils.DashboardUtils;
 import org.exoplatform.platform.navigation.component.utils.NavigationUtils;
 import org.exoplatform.portal.mop.SiteKey;
+import org.exoplatform.portal.mop.SiteType;
 import org.exoplatform.portal.mop.user.UserNode;
 import org.exoplatform.portal.webui.util.Util;
 import org.exoplatform.services.log.ExoLogger;
@@ -128,9 +129,12 @@ public class Helper {
             else if((nav!=null)&&((nav.equals("connexions")))){
                 return "Company Context Connections";
             }
-            String dashboardUrl = DashboardUtils.getDashboardURL();
-            if(url.contains(dashboardUrl.substring(0, dashboardUrl.lastIndexOf("/")))){
-                return "dashboard";
+            SiteType siteType = Util.getUIPortal().getSiteType();
+            if (siteType != null && siteType.equals(SiteType.USER)) {
+              String dashboardUrl = DashboardUtils.getDashboardURL();
+              if(url.contains(dashboardUrl.substring(0, dashboardUrl.lastIndexOf("/")))){
+                  return "dashboard";
+              }
             }
             return DEFAULT_HELP_ID;
         } catch (Exception E) {

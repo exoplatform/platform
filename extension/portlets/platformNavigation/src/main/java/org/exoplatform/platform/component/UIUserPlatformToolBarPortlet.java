@@ -17,6 +17,7 @@
 package org.exoplatform.platform.component;
 
 import org.exoplatform.container.ExoContainer;
+import org.exoplatform.platform.navigation.component.utils.DashboardUtils;
 import org.exoplatform.platform.webui.NavigationURLUtils;
 import org.exoplatform.portal.config.UserPortalConfig;
 import org.exoplatform.portal.mop.SiteKey;
@@ -51,6 +52,7 @@ public class UIUserPlatformToolBarPortlet extends UIPortletApplication {
     private static final Log LOG = ExoLogger.getLogger(UIUserPlatformToolBarPortlet.class);
     private String currentPortalName = null;
     private boolean socialPortal = false;
+    private String userDashBoardURI = null;
     private static final String USER = "/user/";
     private static final String WIKI_HOME = "/WikiHome";
     private static final String WIKI_REF = "wiki";
@@ -64,6 +66,13 @@ public class UIUserPlatformToolBarPortlet extends UIPortletApplication {
         User user = service.getUserHandler().findUserByName(userName);
         return user;
     }
+
+  public String getUserDashBoardURI() throws Exception {
+    if (userDashBoardURI == null) {
+      userDashBoardURI = DashboardUtils.getDashboardURL();
+    }
+    return userDashBoardURI;
+  }
 
   private String getCurrentPortalName() {
     return Util.getPortalRequestContext().getPortalOwner();

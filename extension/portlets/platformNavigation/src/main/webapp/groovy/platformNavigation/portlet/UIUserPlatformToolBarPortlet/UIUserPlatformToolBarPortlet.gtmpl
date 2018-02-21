@@ -64,7 +64,7 @@
     def accountSetting = "javascript:if(document.getElementById('UIMaskWorkspace')) ajaxGet(eXo.env.server.createPortalURL('UIPortal', 'AccountSettings', true));"
 //String createDashboardLink = nodeURL.setResource(new NavigationResource(SiteType.USER, remoteUser, null)).toString();
     String clazz = "";
-    String createDashboardLink = DashboardUtils.getDashboardURL();
+    String createDashboardLink = uicomponent.getUserDashBoardURI();
 %>
 <div class="uiUserToolBarPortlet uiDropdownWithIcon dropdown pull-right" id="$uicomponent.id">
     
