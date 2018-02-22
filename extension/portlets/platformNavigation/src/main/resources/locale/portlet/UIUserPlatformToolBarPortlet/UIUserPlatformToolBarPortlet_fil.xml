@@ -8,8 +8,8 @@
 <network>My Connections</network>
 <wiki>My Wiki</wiki>
 <account>Account</account>
-<language>Change Language</language>
-<logout>Logout</logout>
+<language>Magpalit ng Lengguwahe</language>
+<logout>Mag-logout</logout>
         <dashboard>My Dashboard</dashboard>
 </label>
 </UIUserPlatformToolBarPortlet>

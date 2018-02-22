@@ -2,44 +2,44 @@
 <bundle>
    <UIAdminToolbarPortlet>
       <action>
-         <AddPage>Add Page</AddPage>
-         <EditNavigation>Edit Navigation</EditNavigation>
-         <Content>Inline Edit</Content>
-         <Editor>Edit</Editor>
+         <AddPage>Ang Magdagdag ng Pahina</AddPage>
+         <EditNavigation>Ang mag-edit ang Nabigasyon</EditNavigation>
+         <Content>Nakalinya na pag-edit</Content>
+         <Editor>Baguhin</Editor>
          <Page>Page</Page>
-         <Site>Site</Site>
-         <Layout>Edit Layout</Layout>
-         <siteLayout>Edit Layout</siteLayout>
-         <ManagePages>Manage Pages</ManagePages>
-         <GroupSite>Group Site</GroupSite>
+         <Site>Ang Sayt</Site>
+         <Layout>I-edit ang layout</Layout>
+         <siteLayout>I-edit ang layout</siteLayout>
+         <ManagePages>Ang pamahalaan ang mga pahina</ManagePages>
+         <GroupSite>Ang Groupo sa Sayt</GroupSite>
          <Properties>#{UISEOToolbarForm.label.seo}</Properties>
-         <AddSite>Add Site</AddSite>
+         <AddSite>Magdagdag ng site</AddSite>
       </action>
-<ManageSites>Manage Sites</ManageSites>
-<ManageGroupSites>Manage Group Sites</ManageGroupSites>
+<ManageSites>Ang Mamahala ng mga site</ManageSites>
+<ManageGroupSites>Ang Mamahala ng mga grupo ng mga site</ManageGroupSites>
    </UIAdminToolbarPortlet>
 
   <UISEOForm>
     <label>
-      <title>Title:</title>  
-      <description>Description:</description>
-      <keywords>Keywords:</keywords>
-      <language>Language:</language>
-      <robots>Robots:</robots>
-      <sitemap>Sitemap:</sitemap>
-      <sitemapvisible>Visible in sitemap</sitemapvisible>
-  <isInherited>Inherited from parent page</isInherited>
-      <priority>Priority:</priority>
-      <frequency>Frequency:</frequency>
-      <select-language>Select Language</select-language>
+      <title>Ang Pamagat:</title>  
+      <description>Ang Paglalarawan:</description>
+      <keywords>Ang mga Keyword:</keywords>
+      <language>Ang Wika:</language>
+      <robots>Ang Mga Robot:</robots>
+      <sitemap>Ang Saytmap:</sitemap>
+      <sitemapvisible>Ang Makikita sa saytmap</sitemapvisible>
+  <isInherited>Ang mana mula sa magulang na pahina</isInherited>
+      <priority>Ang Prayoridad:</priority>
+      <frequency>Ang Dalas:</frequency>
+      <select-language>Ang Pumili ng Wika</select-language>
       <option>
-        <Always>Always</Always>
-        <Hourly>Hourly</Hourly>
-        <Daily>Daily</Daily>
-        <Weekly>Weekly</Weekly>
-        <Monthly>Monthly</Monthly>
-        <Yearly>Yearly</Yearly>
-        <Never>Never</Never>
+        <Always>Palagi</Always>
+        <Hourly>Oras-Oras</Hourly>
+        <Daily>Araw-araw</Daily>
+        <Weekly>Linggo-linggo</Weekly>
+        <Monthly>Buwan-Buwan</Monthly>
+        <Yearly>Taon-taon</Yearly>
+        <Never>Hindi kailaman</Never>
       </option> 
     </label>
  
@@ -48,16 +48,16 @@
       <Cancel>#{word.cancel}</Cancel>
     </action>
     <msg>
-      <repository-exception>An unexpected error occurred. Cannot save page metadata.</repository-exception>
-      <confirm-delete>Are you sure you want to delete these SEO data?</confirm-delete>
+      <repository-exception>Isang di-inaasahang pagkakamali ang naganap. Hindi ma-save ang metadata ng pahina.</repository-exception>
+      <confirm-delete>Sigurado ka bang gusto mong burahin itong mga SEO data?</confirm-delete>
     </msg>
     <title>
-    <seo-delete>Delete</seo-delete>
+    <seo-delete>Burahin</seo-delete>
     </title>
 <help> 
-  <priority>Valid values range from 0.0 to 1.0.</priority>
-  <description>Help searchers: let them know that the following page has a link with what they are looking for.</description>
-  <keywords>Most important terms in the page must be separated by a comma.</keywords>  
+  <priority>Wastong hanay ay mula sa 0.0 hanggang sa 1.0.</priority>
+  <description>Tulungan ang mga naghahanap: ipaalam sa kanila na ang sumusunod na pahina ay may isang link sa kung ano ang hinahanap nila.</description>
+  <keywords>Ang pinakamahahalagang termino sa pahina ay dapat na pinaghiwalay ng isang kuwit.</keywords>  
     </help>  
   </UISEOForm>
   <UISEOPopupWindow>
@@ -67,7 +67,7 @@
   </UISEOPopupWindow>    
   <UISEOToolbarForm>
   <title>
-      <seo>SEO Management</seo>
+      <seo>Ang tagapamahala ng SEO</seo>
   </title>
   <label>
     <seo>SEO</seo>
@@ -75,15 +75,15 @@
   </UISEOToolbarForm>  
   <FloatNumberValidator>
     <msg>
-      <Invalid-number>Priority field has an invalid value. Please enter a number between 0.0 and 1.0.</Invalid-number>
+      <Invalid-number>Mayroong di-wastong halaga ang patlang ng Prayoridad. Pakiusap lamang na magpasok ng numero sa pagitan ng 0.0 at 1.0.</Invalid-number>
     </msg>
   </FloatNumberValidator>
   
   <Locale>
     <label>      
-      <it>Italian</it>      
-      <fr>French</fr>
-      <en>English</en>      
+      <it>Ang Italyano</it>      
+      <fr>Ang Pranses</fr>
+      <en>Ang Ingles</en>      
     </label>
   </Locale>
   

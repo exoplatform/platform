@@ -2,21 +2,21 @@
 <bundle>
    <UIUserPlatformToolBarCreatePortlet>
       <label>
-         <topic>Discussion</topic>
-         <poll>Poll</poll>
-         <event>Event</event>
+         <topic>Talakayan</topic>
+         <poll>Botohan</poll>
+         <event>Kaganapan</event>
          <upload>File</upload>
-         <wiki>Wiki Page</wiki>
+         <wiki>Pahina ng wiki</wiki>
 
       </label>
    </UIUserPlatformToolBarCreatePortlet>
    <UICreateList>
       <label>
-         <topic>discussion</topic>
-         <poll>Poll</poll>
-         <CreateANew>New {1}:</CreateANew>
-         <NoForum>Sorry, no forum is available yet in which you can create the {1}. Start by creating a space first and then try again.</NoForum>
-         <RequireSelectForum>Please select a forum.</RequireSelectForum>
+         <topic>talakayan</topic>
+         <poll>Botohan</poll>
+         <CreateANew>Bago {1}:</CreateANew>
+         <NoForum>Paumanhin, walang pang forum na magagamit sa ngayon kung saan maaari kang lumikha ng mga {1}. Magsimula sa pamamagitan ng paglikha ng espasyo sa una at pagkatapos ay subukang muli.</NoForum>
+         <RequireSelectForum>Mangyaring pumili ng isang forum.</RequireSelectForum>
       </label>
       <action>
          <Next>#{word.next}</Next>
@@ -25,42 +25,42 @@
    </UICreateList>
    <UICreateTopic>
       <label>
-         <SelectAForum>Select a Forum</SelectAForum>
-         <location>In Location</location>
-         <forumId>And Forum</forumId>
-         <FilterForums>Filter Forums</FilterForums>
+         <SelectAForum>Piliin ang forum</SelectAForum>
+         <location>Sa lokasyon</location>
+         <forumId>At Forum</forumId>
+         <FilterForums>I-filter ayon sa mga forum</FilterForums>
       </label>
    </UICreateTopic>
    <UICreatePoll>
       <label>
-         <SelectAForum>Select Forum</SelectAForum>
-         <location>In Location</location>
-         <forumId>And Forum</forumId>
-         <FilterForums>Filter Forums</FilterForums>
+         <SelectAForum>Piliin ang forum</SelectAForum>
+         <location>Sa lokasyon</location>
+         <forumId>At Forum</forumId>
+         <FilterForums>I-filter ayon sa mga forum</FilterForums>
       </label>
    </UICreatePoll>
    <UICreateWiki>
       <label>
-         <title>New Wiki Page:</title>
-         <location>Location</location>
+         <title>Bagong pahina sa Wiki:</title>
+         <location>Lokasyon</location>
       </label>
    </UICreateWiki>
    <UICreateEvent>
       <label>
-         <Popup_title>Create a new Event</Popup_title>
+         <Popup_title>Gumawa ng bagong kaganapan</Popup_title>
          <Title>#{word.title}</Title>
-         <Choix>Add New:</Choix>
-         <EndEvent>To</EndEvent>
-         <StartEvent>From</StartEvent>
-         <Calendar>Calendar</Calendar>
-         <all-day>All Day</all-day>
+         <Choix>Magdagdag ng bago:</Choix>
+         <EndEvent>Kay</EndEvent>
+         <StartEvent>Galing sa</StartEvent>
+         <Calendar>Kalendaryo</Calendar>
+         <all-day>Buong araw</all-day>
          <defaultCalendarId>Default</defaultCalendarId>
       </label>
       <msg>
-         <summary-field-required>The field "Title" is required.</summary-field-required>
-         <fromDate-format>The "From" date format is incorrect.</fromDate-format>
-         <toDate-format>The "To" date format is incorrect.</toDate-format>
-         <logic-required>Sorry, you cannot create an event that ends before it starts.</logic-required>
+         <summary-field-required>Ang patlang na "Title" ay kinakailangan.</summary-field-required>
+         <fromDate-format>Ang format ng petsa ng "From" ay hindi tama.</fromDate-format>
+         <toDate-format>Ang format ng petsa ng "To" ay hindi tama.</toDate-format>
+         <logic-required>Paumanhin, hindi ka makakagawa ng pangyayari na nagtapos na bago nagsimula.</logic-required>
          <cant-add-event-on-remote-calendar>You cannot add event to remote calendar</cant-add-event-on-remote-calendar>
          <add-successfully>
             <Event>The Event was added to {1}</Event>

@@ -2,11 +2,11 @@
 <bundle>
 <UINotificationPopoverToolbarPortlet>
 <label>
-<MarkAllAsRead>Mark all as read</MarkAllAsRead>
-<NoNotifications>No notifications</NoNotifications>
-<InlineImage>Inline image</InlineImage>
-<ViewAll>View All</ViewAll>
-<Loading>Loading</Loading>
+<MarkAllAsRead>Markahan lahat na nabasa na</MarkAllAsRead>
+<NoNotifications>Walang mga Notipikasyon</NoNotifications>
+<InlineImage>Naka-linya na ang imahe</InlineImage>
+<ViewAll>Lahat ay tanggihan</ViewAll>
+<Loading>Naglo-load</Loading>
 </label>
 </UINotificationPopoverToolbarPortlet>
 </bundle>

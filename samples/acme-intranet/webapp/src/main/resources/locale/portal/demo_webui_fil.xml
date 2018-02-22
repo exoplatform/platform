@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <bundle>
   <Signin>
-    <welcome>Welcome</welcome>
+    <welcome>Maligayang pagdating</welcome>
     <login>Login</login>
-    <logout>Logout</logout>
-    <language>Change Language</language>
+    <logout>Mag-logout</logout>
+    <language>Magpalit ng Lengguwahe</language>
     <register>Register</register>
   </Signin>
 

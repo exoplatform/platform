@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bundle>
+   <UIUserNavigationPortlet>
+      <label>
+         <activities>Activities</activities>
+         <profile>Profile</profile>
+         <connections>Əlaqələr</connections>
+         <wiki>Wiki</wiki>
+         <Myactivities>Fəaliyyətlərim</Myactivities>
+         <Myprofile>My Profile</Myprofile>
+         <Myconnections>Mənim Əlaqələrim</Myconnections>
+         <Mywiki>Wiki'm</Mywiki>
+         <Mydashboard>Mənim Panelim</Mydashboard>
+         <NotificationSettingsPortlet>Bidlirişlərim</NotificationSettingsPortlet>
+         <More>More</More>
+         <EditProfile>Edit</EditProfile>
+         <available>Available</available>
+         <offline>Xəttə deyil</offline>
+         <away>Uzaqda</away>
+         <donotdisturb>Narahat etməyin</donotdisturb>
+         <invisible>Gözəgörünməz</invisible>
+         <bannerSizeHint>Choose an image at least 130 pixels high.</bannerSizeHint>
+      </label>
+   </UIUserNavigationPortlet>
+   <UIAvatarUploaderPopup>
+      <title>
+         <UIAvatarUploader>Upload an Image</UIAvatarUploader>
+      </title>
+   </UIAvatarUploaderPopup>
+   <UIPopupBannerUploader>
+      <title>
+         <UIBannerUploader>Upload an Image</UIBannerUploader>
+      </title>
+   </UIPopupBannerUploader>
+</bundle>

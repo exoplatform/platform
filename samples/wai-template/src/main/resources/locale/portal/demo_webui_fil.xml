@@ -1,33 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <bundle>
   <Signin>
-    <welcome>Welcome</welcome>
-    <login>Login</login>
-    <logout>Logout</logout>
+    <welcome>Maligayang pagdating</welcome>
+    <login>Mag-login</login>
+    <logout>Mag-logout</logout>
     <language>
-      <en>Switch to English</en>
-      <fr>Switch to French</fr>
+      <en>Lumipat sa Ingles</en>
+      <fr>Lumipat sa Prances</fr>
     </language>
-    <register>Register</register>
+    <register>Ang rehistro</register>
   </Signin>
   <Toolbar>
-    <SkipToContent>Skip to content</SkipToContent>
+    <SkipToContent>Lumaktaw sa nilalaman</SkipToContent>
     <SiteMap>Site Map</SiteMap>
-    <Accessibility>Accessibility</Accessibility>
-    <NormalSize>Normal Size</NormalSize>
-    <MediumSize>Medium Size</MediumSize>
-    <LargeSize>Large Size</LargeSize>
-    <NormalContrast>Normal Contrast</NormalContrast>
-    <HighContrast>High Contrast</HighContrast>
-    <Search>Search</Search>
+    <Accessibility>Pagkakamit</Accessibility>
+    <NormalSize>Normal na laki</NormalSize>
+    <MediumSize>Medium na laki</MediumSize>
+    <LargeSize>Large na laki</LargeSize>
+    <NormalContrast>Normal na contrast</NormalContrast>
+    <HighContrast>Mataas na contrast</HighContrast>
+    <Search>Hanapin</Search>
   </Toolbar>
   <Logo>
-    <GoHome>Go to Home</GoHome>
+    <GoHome>Pumunta sa Home</GoHome>
   </Logo>
   <acme>
     <label>ACME Template</label>
   </acme>  
   <WAIPortal>
-    <label>Sample Accessible Website</label>
+    <label>Sample ng mapupuntahan na website</label>
   </WAIPortal>
 </bundle>

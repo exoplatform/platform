@@ -20,10 +20,10 @@
 
 -->
 <messagebundle>
-  <msg name="title">Favorite Documents</msg>
-  <msg name="titleFav">My Favorites</msg>
-  <msg name="titleDoc">My Documents</msg>  
-  <msg name="nofav">You have no favorite document</msg>
-  <msg name="nodoc">You have no document</msg>
-  <msg name="showall">Show All</msg>
+  <msg name="title">Ang Mga paboritong dokumento</msg>
+  <msg name="titleFav">Aking mga paborito</msg>
+  <msg name="titleDoc">Ang Aking mga dokumento</msg>  
+  <msg name="nofav">Ikaw ay walang paboritong documento</msg>
+  <msg name="nodoc">Ikaw ay walang dokumento</msg>
+  <msg name="showall">Ipakita lahat</msg>
 </messagebundle>

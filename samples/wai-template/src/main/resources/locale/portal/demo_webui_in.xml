@@ -1,33 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <bundle>
   <Signin>
-    <welcome>Welcome</welcome>
-    <login>Login</login>
-    <logout>Logout</logout>
+    <welcome>Selamat Datang</welcome>
+    <login>Masuk</login>
+    <logout>Keluar</logout>
     <language>
-      <en>Switch to English</en>
-      <fr>Switch to French</fr>
+      <en>Beralih ke bahasa Inggris</en>
+      <fr>Beralih ke bahasa Prancis</fr>
     </language>
-    <register>Register</register>
+    <register>Daftar</register>
   </Signin>
   <Toolbar>
-    <SkipToContent>Skip to content</SkipToContent>
-    <SiteMap>Site Map</SiteMap>
-    <Accessibility>Accessibility</Accessibility>
-    <NormalSize>Normal Size</NormalSize>
-    <MediumSize>Medium Size</MediumSize>
-    <LargeSize>Large Size</LargeSize>
-    <NormalContrast>Normal Contrast</NormalContrast>
-    <HighContrast>High Contrast</HighContrast>
-    <Search>Search</Search>
+    <SkipToContent>Melewatkan ke konten</SkipToContent>
+    <SiteMap>Peta Situs</SiteMap>
+    <Accessibility>Hak Akses</Accessibility>
+    <NormalSize>Ukuran normal</NormalSize>
+    <MediumSize>Ukuran sedang</MediumSize>
+    <LargeSize>Ukuran besar</LargeSize>
+    <NormalContrast>Kontras Normal</NormalContrast>
+    <HighContrast>Kontras tinggi</HighContrast>
+    <Search>Cari</Search>
   </Toolbar>
   <Logo>
-    <GoHome>Go to Home</GoHome>
+    <GoHome>kembali ke halaman depan</GoHome>
   </Logo>
   <acme>
-    <label>ACME Template</label>
+    <label>Template ACME</label>
   </acme>  
   <WAIPortal>
-    <label>Sample Accessible Website</label>
+    <label>Contoh Situs yang Dapat Diakses</label>
   </WAIPortal>
 </bundle>
