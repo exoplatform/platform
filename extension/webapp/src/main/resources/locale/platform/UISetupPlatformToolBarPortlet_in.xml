@@ -2,26 +2,26 @@
 <bundle>
 <UISetupPlatformToolBarPortlet>
 <label>
-<applications>Applications</applications>
-<content>Content</content>
-<siteExplorer>Site Explorer</siteExplorer>
-<wcmAdmin>Content Administration</wcmAdmin>
-<users>Users</users>
-<newStaff>Add Users</newStaff>
-<org-management>Manage Users</org-management>
+<applications>Aplikasi</applications>
+<content>Konten</content>
+<siteExplorer>Situs Penjelajah</siteExplorer>
+<wcmAdmin>Administrasi Konten</wcmAdmin>
+<users>Pengguna</users>
+<newStaff>Tambahkan Pengguna</newStaff>
+<org-management>Kelola Pengguna</org-management>
 <portal>Portal</portal>
-<administration>Administration</administration>
-<system>System</system>
-<groupnavigation>Group Sites</groupnavigation>
-<pageManagement>Pages</pageManagement>
-<portalnavigation>Sites</portalnavigation>
-<servicesManagement>Management</servicesManagement>
-<monitoring>Monitoring</monitoring>
-<spaces>Spaces</spaces>
-<Branding>Branding</Branding>
-      <Notification>Notifications</Notification>
+<administration>Administrasi</administration>
+<system>Sistem</system>
+<groupnavigation>Situs Group</groupnavigation>
+<pageManagement>Halaman</pageManagement>
+<portalnavigation>Situs</portalnavigation>
+<servicesManagement>Manajemen</servicesManagement>
+<monitoring>Mengawasi</monitoring>
+<spaces>Ruang</spaces>
+<Branding>Merek</Branding>
+      <Notification>Pemberitahuan</Notification>
 <ide>IDE</ide>
-<search>Search Administration</search>
+<search>Administrasi Pencarian</search>
 </label>
 </UISetupPlatformToolBarPortlet>
 </bundle>

@@ -2,21 +2,21 @@
 <bundle>
    <UIUserPlatformToolBarCreatePortlet>
       <label>
-         <topic>Discussion</topic>
-         <poll>Poll</poll>
-         <event>Event</event>
-         <upload>File</upload>
-         <wiki>Wiki Page</wiki>
+         <topic>Pembahasan</topic>
+         <poll>Pemilihan</poll>
+         <event>Kegiatan</event>
+         <upload>Berkas</upload>
+         <wiki>Wiki Halaman</wiki>
 
       </label>
    </UIUserPlatformToolBarCreatePortlet>
    <UICreateList>
       <label>
-         <topic>discussion</topic>
-         <poll>Poll</poll>
-         <CreateANew>New {1}:</CreateANew>
-         <NoForum>Sorry, no forum is available yet in which you can create the {1}. Start by creating a space first and then try again.</NoForum>
-         <RequireSelectForum>Please select a forum.</RequireSelectForum>
+         <topic>Pembahasan</topic>
+         <poll>Pemilihan</poll>
+         <CreateANew>Terbaru {1}:</CreateANew>
+         <NoForum>Maaf, tidak ada forum yang tersedia namun Anda bisa membuat {1}. Mulailah dengan membuat ruang pertama terlebih dahulu lalu coba lagi.</NoForum>
+         <RequireSelectForum>Silahkan memilih sebuah forum.</RequireSelectForum>
       </label>
       <action>
          <Next>#{word.next}</Next>
@@ -25,48 +25,48 @@
    </UICreateList>
    <UICreateTopic>
       <label>
-         <SelectAForum>Select a Forum</SelectAForum>
-         <location>In Location</location>
-         <forumId>And Forum</forumId>
-         <FilterForums>Filter Forums</FilterForums>
+         <SelectAForum>Memilih Forum</SelectAForum>
+         <location>Di lokasi</location>
+         <forumId>Dan Forum</forumId>
+         <FilterForums>Menyaring forum</FilterForums>
       </label>
    </UICreateTopic>
    <UICreatePoll>
       <label>
-         <SelectAForum>Select Forum</SelectAForum>
-         <location>In Location</location>
-         <forumId>And Forum</forumId>
-         <FilterForums>Filter Forums</FilterForums>
+         <SelectAForum>Pilih forum</SelectAForum>
+         <location>Di lokasi</location>
+         <forumId>Dan Forum</forumId>
+         <FilterForums>Menyaring forum</FilterForums>
       </label>
    </UICreatePoll>
    <UICreateWiki>
       <label>
-         <title>New Wiki Page:</title>
-         <location>Location</location>
+         <title>Halaman Baru Wiki:</title>
+         <location>Lokasi</location>
       </label>
    </UICreateWiki>
    <UICreateEvent>
       <label>
-         <Popup_title>Create a new Event</Popup_title>
+         <Popup_title>Buat kegiatan baru</Popup_title>
          <Title>#{word.title}</Title>
-         <Choix>Add New:</Choix>
-         <EndEvent>To</EndEvent>
-         <StartEvent>From</StartEvent>
-         <Calendar>Calendar</Calendar>
-         <all-day>All Day</all-day>
-         <defaultCalendarId>Default</defaultCalendarId>
+         <Choix>Tambahan baru:</Choix>
+         <EndEvent>Untuk</EndEvent>
+         <StartEvent>Dari</StartEvent>
+         <Calendar>Kalendar</Calendar>
+         <all-day>Sepanjang hari</all-day>
+         <defaultCalendarId>Standar</defaultCalendarId>
       </label>
       <msg>
-         <summary-field-required>The field "Title" is required.</summary-field-required>
-         <fromDate-format>The "From" date format is incorrect.</fromDate-format>
-         <toDate-format>The "To" date format is incorrect.</toDate-format>
-         <logic-required>Sorry, you cannot create an event that ends before it starts.</logic-required>
-         <cant-add-event-on-remote-calendar>You cannot add event to remote calendar</cant-add-event-on-remote-calendar>
+         <summary-field-required>Bidang "Judul" diperlukan.</summary-field-required>
+         <fromDate-format>Format tanggal "Dari" salah.</fromDate-format>
+         <toDate-format>Format tanggal "kepada" tidak benar.</toDate-format>
+         <logic-required>Maaf, Anda tidak dapat mengakhiri acara yang belum dimulai.</logic-required>
+         <cant-add-event-on-remote-calendar>Anda tidak dapat menambahkan acara yang masih jauh dari tanggalnya</cant-add-event-on-remote-calendar>
          <add-successfully>
-            <Event>The Event was added to {1}</Event>
-            <Task>The Task was added to {1}</Task>
+            <Event>Acara ditambahkan kedalam {1}</Event>
+            <Task>Tugas ditambahkan kedalam {1}</Task>
          </add-successfully>
-         <add-unsuccessfully>{0} was not added.</add-unsuccessfully>
+         <add-unsuccessfully>{0} tidak ada penambahan.</add-unsuccessfully>
       </msg>
       <action>
          <Next>#{word.save}</Next>
@@ -74,15 +74,15 @@
       </action>
    </UICreateEvent>
     <UIUploadFile>
-        <Select>Select File</Select>
+        <Select>Pilih file</Select>
         <action>
           <close>#{word.close}</close>
         </action>
     </UIUploadFile>
    <Choix>
       <label>
-         <Event>Event</Event>
-         <Task>Task</Task>
+         <Event>Kegiatan</Event>
+         <Task>Tugas</Task>
       </label>
    </Choix>
 </bundle>

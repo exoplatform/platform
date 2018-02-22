@@ -44,8 +44,8 @@
   <msg name="loginHistory.earlierThisMonth">Awal bulan ini</msg>
   <msg name="loginHistory.earlier">Sebelumnya</msg>
   <msg name="loginHistory.allUsers">Semua pengguna</msg>
-  <msg name="loginHistory.unknow">Unknow</msg>
-  <msg name="loginHistory.next">Next</msg>
+  <msg name="loginHistory.unknow">Tidak di ketahui</msg>
+  <msg name="loginHistory.next">Selanjutnya</msg>
   <msg name="loginHistory.ago">Ago</msg>
-  <msg name="loginHistory.search_user">Search user</msg>
+  <msg name="loginHistory.search_user">Pencarian pengguna</msg>
 </messagebundle>
