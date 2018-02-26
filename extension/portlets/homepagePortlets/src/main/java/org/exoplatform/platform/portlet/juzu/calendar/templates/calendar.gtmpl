@@ -95,11 +95,11 @@
 											from = sdf1.format(event.fromDateTime);
 											String year=event.fromDateTime.format("yyyy");
 											String[] dateSplit = from.split("/");
-											if(dateSplit.length!=0) from=dateSplit[0]+"/"+dateSplit[1]+"/"+year;
+											if(dateSplit.length > 1) from=dateSplit[0]+"/"+dateSplit[1]+"/"+year;
 											to = sdf1.format(event.toDateTime);
 											year=event.toDateTime.format("yyyy");
 											dateSplit =to.split("/");
-											if(dateSplit.length!=0) to=dateSplit[0]+"/"+dateSplit[1]+"/"+year;
+											if(dateSplit.length > 1) to=dateSplit[0]+"/"+dateSplit[1]+"/"+year;
 										%>
 											<span>${from}</span> -
 											<span>${to}</span>
