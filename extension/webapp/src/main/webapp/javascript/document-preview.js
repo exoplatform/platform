@@ -410,7 +410,7 @@
 
       if(this.settings.doc.remoteEditURL) {
         $(".previewBtn").append(
-            '<div class="remoteEditBtn"> \
+            '<div class="remoteEditBtn hidden-tabletL"> \
                <a  href="' + this.settings.doc.remoteEditURL + '"><i  style="display:none;" class="uiIcon16x16FileDefault uiIconEcmsOpenDocument_' + this.settings.activity.id + ' uiIconWhite ' + this.settings.doc.remoteEditClass + '"></i>&nbsp;' + this.settings.doc.remoteEditTitle + '</a> \
             </div>'
         );
