@@ -75,6 +75,7 @@ public class UIUserNavigationPortlet extends UIPortletApplication {
     public static final String CONNEXIONS_URI= "connections";
     public static final String WIKI_URI= "wiki";
     public static final String DASHBOARD_URI= "dashboard";
+    private static final String INVISIBLE = "invisible";
     private UserNodeFilterConfig toolbarFilterConfig;
     public static String DEFAULT_TAB_NAME = "Tab_Default";
     private static final String USER ="/user/"  ;
@@ -252,13 +253,15 @@ public class UIUserNavigationPortlet extends UIPortletApplication {
         boolean isOnline = stateService.isOnline(currentProfile.getIdentity().getRemoteId());
         if (isOnline) {
             String status = stateService.getUserState(currentProfile.getIdentity().getRemoteId()).getStatus();
-            si.setCssName(StatusIconCss.getIconCss(status));
-            si.setTitle(rb.getString(USER_STATUS_TITLE + status));
-        } else {
-            si.setCssName(StatusIconCss.getIconCss(OFFLINE_STATUS));
-            si.setTitle(rb.getString(OFFLINE_TITLE));
+            if (!INVISIBLE.equals(status)) {
+                si.setCssName(StatusIconCss.getIconCss(status));
+                si.setTitle(rb.getString(USER_STATUS_TITLE + status));
+                return si;
+            }
         }
-
+        //user status is offline or invisible: label is offline
+        si.setCssName(StatusIconCss.getIconCss(OFFLINE_STATUS));
+        si.setTitle(rb.getString(OFFLINE_TITLE));
         return si;
     }
 
