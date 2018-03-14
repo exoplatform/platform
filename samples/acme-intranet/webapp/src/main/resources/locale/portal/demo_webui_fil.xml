@@ -2,10 +2,10 @@
 <bundle>
   <Signin>
     <welcome>Maligayang pagdating</welcome>
-    <login>Login</login>
+    <login>Mag-login</login>
     <logout>Mag-logout</logout>
     <language>Magpalit ng Lengguwahe</language>
-    <register>Register</register>
+    <register>Ang rehistro</register>
   </Signin>
 
   <ACMEPortal>

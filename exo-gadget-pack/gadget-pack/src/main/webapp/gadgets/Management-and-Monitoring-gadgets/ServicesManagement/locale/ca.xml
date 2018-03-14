@@ -31,7 +31,7 @@
   <msg name="value">Valor</msg>
   <msg name="services_url">URL de Serveis</msg>
   <msg name="failManage">Temporalment no es poden gestionar serveis d'un altre host mentres no donem suport OAuth</msg>
-  <msg name="noServices">No service is available or you don't have enough permission</msg>
+  <msg name="noServices">No hi ha cap servei disponible o vostè no té prou permisos</msg>
   <msg name="noMethod">Cap mètode</msg>
   <msg name="noProperty">Cap propietat</msg>
   <msg name="badURL">Error recuperant dades, si us plau comprovi la seva URL a les preferències</msg>

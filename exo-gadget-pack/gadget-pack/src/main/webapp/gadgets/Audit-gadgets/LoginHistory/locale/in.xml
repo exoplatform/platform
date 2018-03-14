@@ -31,7 +31,7 @@
   <msg name="loginHistory.more">Lainnya</msg>
   <msg name="loginHistory.stats">Statistik</msg>
   <msg name="loginHistory.history">Riwayat</msg>
-  <msg name="loginHistory.global">Global</msg>
+  <msg name="loginHistory.global">Menyeluruh</msg>
   <msg name="loginHistory.week">Minggu</msg>
   <msg name="loginHistory.lastLoginsView">Terakhir masuk</msg>
   <msg name="loginHistory.historyView">Riwayat</msg>
@@ -46,6 +46,6 @@
   <msg name="loginHistory.allUsers">Semua pengguna</msg>
   <msg name="loginHistory.unknow">Tidak di ketahui</msg>
   <msg name="loginHistory.next">Selanjutnya</msg>
-  <msg name="loginHistory.ago">Ago</msg>
+  <msg name="loginHistory.ago">Yang telahlalu</msg>
   <msg name="loginHistory.search_user">Pencarian pengguna</msg>
 </messagebundle>

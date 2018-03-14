@@ -48,16 +48,16 @@
       <Cancel>#{word.cancel}</Cancel>
     </action>
     <msg>
-      <repository-exception>Terjadi kesalahan tidak terduga. Tidak dapat menyimpan halaman metadata.</repository-exception>
-      <confirm-delete>Apakah anda yakin ingin menghapus data SEO ini?</confirm-delete>
+      <repository-exception>Terjadi kesalahan tidak terduga. Tidak dapat menyimpan metadata halaman.</repository-exception>
+      <confirm-delete>Apakah anda yakin ingin untuk menghapus data SEO?</confirm-delete>
     </msg>
     <title>
     <seo-delete>Hapus</seo-delete>
     </title>
 <help> 
   <priority>Nilai yang valid berkisar dari 0.0 ke 1.0.</priority>
-  <description>Bantuan pencarian: memberitahu kepada mereka bahwa laman berikut memiliki tautan dengan apa yang mereka cari.</description>
-  <keywords>Kata yang paling dibutuhkan dilaman harus dipisahkan dengan koma.</keywords>  
+  <description>Pencarian bantuan: beritahu kepada mereka bahwa laman berikut memiliki tautan dengan apa yang mereka cari.</description>
+  <keywords>Istilah yang paling penting dari halaman harus dipisahkan dengan sebuah koma.</keywords>  
     </help>  
   </UISEOForm>
   <UISEOPopupWindow>
@@ -75,7 +75,7 @@
   </UISEOToolbarForm>  
   <FloatNumberValidator>
     <msg>
-      <Invalid-number>Bidang prioritas memiliki nilai yang tidak sesuai. Mohon masukkan angka antara 0.0 dan 1.0.</Invalid-number>
+      <Invalid-number>Bidang prioritas memiliki nilai yang tidak valid. Silahkan masukkan sebuah angka antara 0.0 dan 1.0.</Invalid-number>
     </msg>
   </FloatNumberValidator>
   

@@ -2,12 +2,12 @@
 <bundle>
    <UIAdminToolbarPortlet>
       <action>
-         <AddPage>Ang Magdagdag ng Pahina</AddPage>
-         <EditNavigation>Ang mag-edit ang Nabigasyon</EditNavigation>
+         <AddPage>Magdagdag ng Pahina</AddPage>
+         <EditNavigation>I-edit ang Nabigasyon</EditNavigation>
          <Content>Nakalinya na pag-edit</Content>
          <Editor>Baguhin</Editor>
-         <Page>Page</Page>
-         <Site>Ang Sayt</Site>
+         <Page>Ang Pahina</Page>
+         <Site>Ang Site</Site>
          <Layout>I-edit ang layout</Layout>
          <siteLayout>I-edit ang layout</siteLayout>
          <ManagePages>Ang pamahalaan ang mga pahina</ManagePages>

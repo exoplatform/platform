@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bundle>
+<UISetupPlatformToolBarPortlet>
+<label>
+<applications>درخواستیں</applications>
+<content>مواد</content>
+<siteExplorer>جگہ تلاش کرنے والا</siteExplorer>
+<wcmAdmin>مواد انتظامیہ</wcmAdmin>
+<users>صارفین</users>
+<newStaff>صارفین کا اضافہ کریں</newStaff>
+<org-management>صارفین کو سنبھالیں</org-management>
+<portal>پورٹل</portal>
+<administration>انتظامیہ</administration>
+<system>سسٹم</system>
+<groupnavigation>گروپ کی سائٹس</groupnavigation>
+<pageManagement>صفہے</pageManagement>
+<portalnavigation>سائٹس</portalnavigation>
+<servicesManagement>انتظامیه</servicesManagement>
+<monitoring>نگرانی</monitoring>
+<spaces>خالی جگہیں</spaces>
+<Branding>برانڈ سازی</Branding>
+      <Notification>اطلاعات</Notification>
+<ide>IDE</ide>
+<search>تلاش انتظامیہ</search>
+</label>
+</UISetupPlatformToolBarPortlet>
+</bundle>

@@ -7,7 +7,7 @@
          <see>Показать {0} больше областей</see>
      </label>
      <msg>
-         <filter-spaces>Find a space</filter-spaces>
+         <filter-spaces>Найти область</filter-spaces>
          <no-space>Область не найдена</no-space>
      </msg>
 

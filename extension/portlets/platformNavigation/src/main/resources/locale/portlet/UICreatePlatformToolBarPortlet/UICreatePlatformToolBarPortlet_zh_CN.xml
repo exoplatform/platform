@@ -2,20 +2,20 @@
 <bundle>
    <UIUserPlatformToolBarCreatePortlet>
       <label>
-         <topic>Discussion</topic>
+         <topic>主题</topic>
          <poll>投票</poll>
          <event>事件</event>
-         <upload>File</upload>
-         <wiki>Wiki Page</wiki>
+         <upload>上传文件</upload>
+         <wiki>wiki页面</wiki>
 
       </label>
    </UIUserPlatformToolBarCreatePortlet>
    <UICreateList>
       <label>
-         <topic>discussion</topic>
-         <poll>Poll</poll>
-         <CreateANew>New {1}:</CreateANew>
-         <NoForum>Sorry, no forum is available yet in which you can create the {1}. Start by creating a space first and then try again.</NoForum>
+         <topic>主题</topic>
+         <poll>投票</poll>
+         <CreateANew>创建新 {1}：</CreateANew>
+         <NoForum>对不起，没有论坛，还可创建 {1}。首先创建你自己的空间。</NoForum>
          <RequireSelectForum>请选择一个论坛。</RequireSelectForum>
       </label>
       <action>
@@ -41,8 +41,8 @@
    </UICreatePoll>
    <UICreateWiki>
       <label>
-         <title>New Wiki Page:</title>
-         <location>Location</location>
+         <title>创建一个新的 Wiki 页面：</title>
+         <location>中的位置</location>
       </label>
    </UICreateWiki>
    <UICreateEvent>
@@ -52,7 +52,7 @@
          <Choix>添加新地址:</Choix>
          <EndEvent>到</EndEvent>
          <StartEvent>从</StartEvent>
-         <Calendar>Calendar</Calendar>
+         <Calendar>选择日历</Calendar>
          <all-day>全天</all-day>
          <defaultCalendarId>默认</defaultCalendarId>
       </label>

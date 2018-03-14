@@ -4,24 +4,24 @@
 <label>
 <applications>Aplicaţii</applications>
 <content>Conţinut</content>
-<siteExplorer>Site Explorer</siteExplorer>
+<siteExplorer>Navigare site</siteExplorer>
 <wcmAdmin>Administrare conţinut</wcmAdmin>
 <users>Utilizatori</users>
 <newStaff>Adaugă utilizatori</newStaff>
-<org-management>Manage Users</org-management>
+<org-management>Editează Cont-uri</org-management>
 <portal>Portal</portal>
-<administration>Administration</administration>
+<administration>Administrare</administration>
 <system>Sistem</system>
 <groupnavigation>Site-uri de grup</groupnavigation>
 <pageManagement>Pagini</pageManagement>
 <portalnavigation>Site-uri</portalnavigation>
 <servicesManagement>Management</servicesManagement>
 <monitoring>Monitorizare</monitoring>
-<spaces>Spaces</spaces>
+<spaces>Spații</spaces>
 <Branding>Personalizare</Branding>
-      <Notification>Notifications</Notification>
+      <Notification>Notificări</Notification>
 <ide>IDE</ide>
-<search>Search Administration</search>
+<search>Căutare administrație</search>
 </label>
 </UISetupPlatformToolBarPortlet>
 </bundle>

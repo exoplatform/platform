@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bundle>
+   <UIAdminToolbarPortlet>
+      <action>
+         <AddPage>Add Page</AddPage>
+         <EditNavigation>Edit Navigation</EditNavigation>
+         <Content>Inline Edit</Content>
+         <Editor>Edit</Editor>
+         <Page>Page</Page>
+         <Site>Site</Site>
+         <Layout>Edit Layout</Layout>
+         <siteLayout>Edit Layout</siteLayout>
+         <ManagePages>Manage Pages</ManagePages>
+         <GroupSite>Group Site</GroupSite>
+         <Properties>#{UISEOToolbarForm.label.seo}</Properties>
+         <AddSite>Add Site</AddSite>
+      </action>
+<ManageSites>Manage Sites</ManageSites>
+<ManageGroupSites>Manage Group Sites</ManageGroupSites>
+   </UIAdminToolbarPortlet>
+
+  <UISEOForm>
+    <label>
+      <title>Title:</title>  
+      <description>Description:</description>
+      <keywords>Keywords:</keywords>
+      <language>Language:</language>
+      <robots>Robots:</robots>
+      <sitemap>Sitemap:</sitemap>
+      <sitemapvisible>Visible in sitemap</sitemapvisible>
+  <isInherited>Inherited from parent page</isInherited>
+      <priority>Priority:</priority>
+      <frequency>Frequency:</frequency>
+      <select-language>Select Language</select-language>
+      <option>
+        <Always>Always</Always>
+        <Hourly>Hourly</Hourly>
+        <Daily>Daily</Daily>
+        <Weekly>Weekly</Weekly>
+        <Monthly>Monthly</Monthly>
+        <Yearly>Yearly</Yearly>
+        <Never>Never</Never>
+      </option> 
+    </label>
+ 
+    <action>
+      <Save>#{word.save}</Save>
+      <Cancel>#{word.cancel}</Cancel>
+    </action>
+    <msg>
+      <repository-exception>An unexpected error occurred. Cannot save page metadata.</repository-exception>
+      <confirm-delete>Are you sure you want to delete these SEO data?</confirm-delete>
+    </msg>
+    <title>
+    <seo-delete>Delete</seo-delete>
+    </title>
+<help> 
+  <priority>Valid values range from 0.0 to 1.0.</priority>
+  <description>Help searchers: let them know that the following page has a link with what they are looking for.</description>
+  <keywords>Most important terms in the page must be separated by a comma.</keywords>  
+    </help>  
+  </UISEOForm>
+  <UISEOPopupWindow>
+  <title>
+      <UISEOForm>#{UISEOToolbarForm.title.seo}</UISEOForm>
+  </title>
+  </UISEOPopupWindow>    
+  <UISEOToolbarForm>
+  <title>
+      <seo>SEO Management</seo>
+  </title>
+  <label>
+    <seo>SEO</seo>
+  </label>
+  </UISEOToolbarForm>  
+  <FloatNumberValidator>
+    <msg>
+      <Invalid-number>Priority field has an invalid value. Please enter a number between 0.0 and 1.0.</Invalid-number>
+    </msg>
+  </FloatNumberValidator>
+  
+  <Locale>
+    <label>      
+      <it>Italian</it>      
+      <fr>French</fr>
+      <en>English</en>      
+    </label>
+  </Locale>
+  
+</bundle>

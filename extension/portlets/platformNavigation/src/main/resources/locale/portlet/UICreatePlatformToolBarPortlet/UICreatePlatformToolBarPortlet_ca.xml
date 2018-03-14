@@ -6,16 +6,16 @@
          <poll>Enquesta</poll>
          <event>Esdeveniment</event>
          <upload>Fitxer</upload>
-         <wiki>Wiki Page</wiki>
+         <wiki>Pàgina Wiki</wiki>
 
       </label>
    </UIUserPlatformToolBarCreatePortlet>
    <UICreateList>
       <label>
          <topic>debat</topic>
-         <poll>Poll</poll>
-         <CreateANew>New {1}:</CreateANew>
-         <NoForum>Sorry, no forum is available yet in which you can create the {1}. Start by creating a space first and then try again.</NoForum>
+         <poll>Enquesta</poll>
+         <CreateANew>Crear {1}:</CreateANew>
+         <NoForum>Ho sentim, encara no hi ha cap Fòrum disponible per crear una {1}. Comença per crear el teu propi espai.</NoForum>
          <RequireSelectForum>Si us plau, selecciona un fòrum.</RequireSelectForum>
       </label>
       <action>
@@ -41,13 +41,13 @@
    </UICreatePoll>
    <UICreateWiki>
       <label>
-         <title>New Wiki Page:</title>
-         <location>Location</location>
+         <title>Crea una nova pàgina Wiki:</title>
+         <location>Ubicació</location>
       </label>
    </UICreateWiki>
    <UICreateEvent>
       <label>
-         <Popup_title>Create a new Event</Popup_title>
+         <Popup_title>Crear un nou esdeveniment</Popup_title>
          <Title>#{word.title}</Title>
          <Choix>Afegeix un nou:</Choix>
          <EndEvent>A</EndEvent>

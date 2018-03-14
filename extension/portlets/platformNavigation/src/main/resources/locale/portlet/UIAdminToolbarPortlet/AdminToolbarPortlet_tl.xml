@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bundle>
+   <UIAdminToolbarPortlet>
+      <action>
+         <AddPage>Magdagdag ng Pahina</AddPage>
+         <EditNavigation>I-edit ang Nabigasyon</EditNavigation>
+         <Content>Nasa linya ang pag-edit</Content>
+         <Editor>I-edit</Editor>
+         <Page>Pahina</Page>
+         <Site>Ang lugar</Site>
+         <Layout>I-edit ang layout</Layout>
+         <siteLayout>I-edit ang layout</siteLayout>
+         <ManagePages>Pamahalaan ang mga Pahina</ManagePages>
+         <GroupSite>Lugar ng grupo</GroupSite>
+         <Properties>#{UISEOToolbarForm.label.seo}</Properties>
+         <AddSite>Magdagdag ng lugar</AddSite>
+      </action>
+<ManageSites>Pamahalaan ang mga Lugar</ManageSites>
+<ManageGroupSites>Pamahalaan ang Grupo ng mga Lugar</ManageGroupSites>
+   </UIAdminToolbarPortlet>
+
+  <UISEOForm>
+    <label>
+      <title>Pamagat:</title>  
+      <description>Deskripsyon:</description>
+      <keywords>Mga keyword:</keywords>
+      <language>Wika:</language>
+      <robots>Mga robot:</robots>
+      <sitemap>Ang Sitemap:</sitemap>
+      <sitemapvisible>Makikita sa sitemap</sitemapvisible>
+  <isInherited>Nagmamana mula sa pahina ng magulang</isInherited>
+      <priority>Prayoridad:</priority>
+      <frequency>Ang Dalas:</frequency>
+      <select-language>Pumili ng wika</select-language>
+      <option>
+        <Always>Palagi</Always>
+        <Hourly>Oras-oras</Hourly>
+        <Daily>Araw-araw</Daily>
+        <Weekly>Linggo-linggo</Weekly>
+        <Monthly>Buwan-buwan</Monthly>
+        <Yearly>Taon-taon</Yearly>
+        <Never>Never</Never>
+      </option> 
+    </label>
+ 
+    <action>
+      <Save>#{word.save}</Save>
+      <Cancel>#{word.cancel}</Cancel>
+    </action>
+    <msg>
+      <repository-exception>Isang hindi inaasahang pagkakamali ang naganap. Hindi mai-save ang metadata ng pahina.</repository-exception>
+      <confirm-delete>Ikaw ba ay sigurado na gusto mong burahin itong datos ng SEO?</confirm-delete>
+    </msg>
+    <title>
+    <seo-delete>Burahin</seo-delete>
+    </title>
+<help> 
+  <priority>Ang mga balidong halaga ay mula sa 0.0 hanggang 1.0.</priority>
+  <description>Tulungan ang mga nagsasaliksik: ipaalam sa kanila na ang sumusunod na pahina ay may isang link sa kung ano ang hinahanap nila.</description>
+  <keywords>Ang pinakamahahalagang mga termino sa pahina ay dapat na pinaghiwalay ng isang kuwit.</keywords>  
+    </help>  
+  </UISEOForm>
+  <UISEOPopupWindow>
+  <title>
+      <UISEOForm>#{UISEOToolbarForm.title.seo}</UISEOForm>
+  </title>
+  </UISEOPopupWindow>    
+  <UISEOToolbarForm>
+  <title>
+      <seo>Pamamahala ng SEO</seo>
+  </title>
+  <label>
+    <seo>Ang SEO</seo>
+  </label>
+  </UISEOToolbarForm>  
+  <FloatNumberValidator>
+    <msg>
+      <Invalid-number>Mayroong hindi wastong halaga ang field ng prayoridad. Mangyaring magpasok ng numero sa pagitan ng 0.0 at 1.0.</Invalid-number>
+    </msg>
+  </FloatNumberValidator>
+  
+  <Locale>
+    <label>      
+      <it>Italyano</it>      
+      <fr>Pranses</fr>
+      <en>Ingles</en>      
+    </label>
+  </Locale>
+  
+</bundle>

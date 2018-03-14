@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bundle>
+<UIUserPlatformToolBarPortlet>
+<label>
+<NotificationSettingsPortlet>میری اطلاعات</NotificationSettingsPortlet>
+<activities>میری سرگرمیاں</activities>
+<profile>میرا پروفائل</profile>
+<network>میرے کنکشن</network>
+<wiki>میری وکی</wiki>
+<account>اکاؤنٹ</account>
+<language>زبان تبدیل کریں</language>
+<logout>لاگ آؤٹ کریں</logout>
+        <dashboard>میرا ڈیش بورڈ</dashboard>
+</label>
+</UIUserPlatformToolBarPortlet>
+</bundle>

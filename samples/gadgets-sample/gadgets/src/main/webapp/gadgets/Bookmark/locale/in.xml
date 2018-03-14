@@ -30,6 +30,6 @@
   <msg name="delete">hapus</msg>
   <msg name="edit">merubah</msg>
   <msg name="cancel">membatalkan</msg>
-  <msg name="emptyBookmarkPre">Anda tidak memiliki bookmark. Menambahkan mereka dengan mengklik tombol "Add Bookmark".</msg>
+  <msg name="emptyBookmarkPre">Anda tidak memiliki tanda buku apapun. Tambahkan mereka dengan mengklik di tombol "tambahkan tanda buku".</msg>
   <msg name="addBookmark">Tambahkan bookmark</msg>
 </messagebundle>

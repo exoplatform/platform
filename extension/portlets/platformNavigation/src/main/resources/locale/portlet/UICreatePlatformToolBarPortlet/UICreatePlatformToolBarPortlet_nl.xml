@@ -2,20 +2,20 @@
 <bundle>
    <UIUserPlatformToolBarCreatePortlet>
       <label>
-         <topic>Discussion</topic>
+         <topic>Onderwerp</topic>
          <poll>eXo Poll</poll>
          <event>Evenement</event>
-         <upload>File</upload>
-         <wiki>Wiki Page</wiki>
+         <upload>Een bestand uploaden</upload>
+         <wiki>Wiki-pagina</wiki>
 
       </label>
    </UIUserPlatformToolBarCreatePortlet>
    <UICreateList>
       <label>
-         <topic>discussion</topic>
-         <poll>Poll</poll>
-         <CreateANew>New {1}:</CreateANew>
-         <NoForum>Sorry, no forum is available yet in which you can create the {1}. Start by creating a space first and then try again.</NoForum>
+         <topic>onderwerp</topic>
+         <poll>poll</poll>
+         <CreateANew>Maak een nieuwe {1}:</CreateANew>
+         <NoForum>Sorry, is geen forum beschikbaar nog voor het maken van een {1}. Begint met het maken van uw eigen ruimte.</NoForum>
          <RequireSelectForum>Selecteer een forum.</RequireSelectForum>
       </label>
       <action>
@@ -41,18 +41,18 @@
    </UICreatePoll>
    <UICreateWiki>
       <label>
-         <title>New Wiki Page:</title>
-         <location>Location</location>
+         <title>Maak een nieuwe Wiki Page:</title>
+         <location>Op locatie</location>
       </label>
    </UICreateWiki>
    <UICreateEvent>
       <label>
-         <Popup_title>Create a new Event</Popup_title>
+         <Popup_title>Een nieuwe activiteit aanmaken</Popup_title>
          <Title>#{word.title}</Title>
          <Choix>Nieuw toevoegen:</Choix>
          <EndEvent>Aan</EndEvent>
          <StartEvent>Van</StartEvent>
-         <Calendar>Calendar</Calendar>
+         <Calendar>Selecteer kalender</Calendar>
          <all-day>De hele dag</all-day>
          <defaultCalendarId>Standaard</defaultCalendarId>
       </label>

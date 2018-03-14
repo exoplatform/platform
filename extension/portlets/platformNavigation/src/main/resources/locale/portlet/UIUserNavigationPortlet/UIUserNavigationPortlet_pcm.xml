@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bundle>
+   <UIUserNavigationPortlet>
+      <label>
+         <activities>Activities</activities>
+         <profile>Profile</profile>
+         <connections>Connections</connections>
+         <wiki>Wiki</wiki>
+         <Myactivities>My Activities</Myactivities>
+         <Myprofile>My Profile</Myprofile>
+         <Myconnections>My Connections</Myconnections>
+         <Mywiki>My Wiki</Mywiki>
+         <Mydashboard>My Dashboard</Mydashboard>
+         <NotificationSettingsPortlet>My Notifications</NotificationSettingsPortlet>
+         <More>More</More>
+         <EditProfile>Edit</EditProfile>
+         <available>Available</available>
+         <offline>Offline</offline>
+         <away>Away</away>
+         <donotdisturb>No disturb</donotdisturb>
+         <invisible>No fit see</invisible>
+         <bannerSizeHint>Choose an image at least 130 pixels high.</bannerSizeHint>
+      </label>
+   </UIUserNavigationPortlet>
+   <UIAvatarUploaderPopup>
+      <title>
+         <UIAvatarUploader>Upload an Image</UIAvatarUploader>
+      </title>
+   </UIAvatarUploaderPopup>
+   <UIPopupBannerUploader>
+      <title>
+         <UIBannerUploader>Upload an Image</UIBannerUploader>
+      </title>
+   </UIPopupBannerUploader>
+</bundle>

@@ -31,7 +31,7 @@
   <msg name="value">Wartość</msg>
   <msg name="services_url">Usługi URL</msg>
   <msg name="failManage">Tymczasowo nie możesz zarządzać usługami z innego hosta do czasu wspierania go przez OAuth</msg>
-  <msg name="noServices">No service is available or you don't have enough permission</msg>
+  <msg name="noServices">Żadna usługa nie jest dostępna lub nie masz wystarczających uprawnień</msg>
   <msg name="noMethod">Brak metody</msg>
   <msg name="noProperty">Brak właściwości</msg>
   <msg name="badURL">Wystąpił błąd podczas pobierania danych, sprawdź swoje preferencje URL</msg>

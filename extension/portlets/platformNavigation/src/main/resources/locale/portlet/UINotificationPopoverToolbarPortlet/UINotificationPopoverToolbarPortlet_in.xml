@@ -2,11 +2,11 @@
 <bundle>
 <UINotificationPopoverToolbarPortlet>
 <label>
-<MarkAllAsRead>Mark all as read</MarkAllAsRead>
-<NoNotifications>No notifications</NoNotifications>
+<MarkAllAsRead>Tandai semua yang telah dibaca</MarkAllAsRead>
+<NoNotifications>Tidak ada pemberitahuan</NoNotifications>
 <InlineImage>Gambar Sejajar</InlineImage>
-<ViewAll>View All</ViewAll>
-<Loading>Loading</Loading>
+<ViewAll>Lihat Semua</ViewAll>
+<Loading>Sedang Memuat</Loading>
 </label>
 </UINotificationPopoverToolbarPortlet>
 </bundle>

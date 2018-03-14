@@ -17,9 +17,9 @@
          <available>K dispozici</available>
          <offline>Offline</offline>
          <away>Nepřítomný</away>
-         <donotdisturb>Do not disturb</donotdisturb>
-         <invisible>Invisible</invisible>
-         <bannerSizeHint>Choose an image at least 130 pixels high.</bannerSizeHint>
+         <donotdisturb>Nerušit</donotdisturb>
+         <invisible>Neviditelný</invisible>
+         <bannerSizeHint>Zvolte obrázek o výšce nejméně 130 pixelů.</bannerSizeHint>
       </label>
    </UIUserNavigationPortlet>
    <UIAvatarUploaderPopup>

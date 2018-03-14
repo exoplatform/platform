@@ -30,9 +30,9 @@
   <msg name="action">Tindakan</msg>
   <msg name="value">Nilai</msg>
   <msg name="services_url">Alamat Servis URL</msg>
-  <msg name="failManage">Sementara tidak dapat mengelola layanan dari host lain sampai kami mendukung OAuth</msg>
-  <msg name="noServices">Tidak ada layanan yang tersedia, atau anda tidak memiliki cukup izin</msg>
+  <msg name="failManage">Sementara tidak bisa mengelola layanan dari tuan rumah lain sampai kami mendukung OAuth</msg>
+  <msg name="noServices">Tidak ada layanan ialah yang tersedia, atau anda tidak memiliki cukup izin</msg>
   <msg name="noMethod">Tidak ada metode</msg>
   <msg name="noProperty">Tidak ada properti.</msg>
-  <msg name="badURL">Terjadi kesalahan saat menampilkan data, mohon periksa kembali URL yang anda masukkan</msg>
+  <msg name="badURL">Kesalahan saat mengambil data, silahkan periksa pilihan URL anda</msg>
 </messagebundle>

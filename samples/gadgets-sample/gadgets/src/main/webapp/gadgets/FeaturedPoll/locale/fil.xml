@@ -21,7 +21,7 @@
 -->
 <messagebundle>
   <msg name="title">Mga tampok na botohan</msg>
-  <msg name="setting">Ang Tignan</msg>
+  <msg name="setting">Ang Tanaw</msg>
   <msg name="vote">Ang Boto</msg>
   <msg name="voteAgain">Ang Muling bumoto</msg>
   <msg name="warning">Mangyaring piliin ang opsyon na hindi bababa sa isang</msg>
@@ -29,7 +29,7 @@
   <msg name="percent">Ang Porsiyento</msg>
   <msg name="voter">Ang Mga botante</msg>
   <msg name="total">Ang kabuuan</msg>
-  <msg name="discuss">Discuss in Forum</msg>
+  <msg name="discuss">Talakayin sa Forum</msg>
   <msg name="nopoll">Wala pang botohan</msg>  
   <msg name="createPoll">Gumawa ng iyong botohan</msg>    
 </messagebundle>

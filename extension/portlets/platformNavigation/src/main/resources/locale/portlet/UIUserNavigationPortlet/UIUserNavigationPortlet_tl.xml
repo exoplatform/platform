@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bundle>
+   <UIUserNavigationPortlet>
+      <label>
+         <activities>Ang mga aktibidad</activities>
+         <profile>Ang profile</profile>
+         <connections>Ang mga koneksyon</connections>
+         <wiki>Ang Wiki</wiki>
+         <Myactivities>Aking mga gawain</Myactivities>
+         <Myprofile>Aking Profile</Myprofile>
+         <Myconnections>Aking mga koneksyon</Myconnections>
+         <Mywiki>Aking Wiki</Mywiki>
+         <Mydashboard>Aking Dashboard</Mydashboard>
+         <NotificationSettingsPortlet>Aking mga abiso</NotificationSettingsPortlet>
+         <More>Higit pa</More>
+         <EditProfile>I-edit</EditProfile>
+         <available>Magagamit</available>
+         <offline>Offline</offline>
+         <away>Away</away>
+         <donotdisturb>Do not disturb</donotdisturb>
+         <invisible>Invisible</invisible>
+         <bannerSizeHint>Pumili ng isang imahe ng hindi bababa sa 130 pixels na taas.</bannerSizeHint>
+      </label>
+   </UIUserNavigationPortlet>
+   <UIAvatarUploaderPopup>
+      <title>
+         <UIAvatarUploader>Mag-upload ng isang Imahe</UIAvatarUploader>
+      </title>
+   </UIAvatarUploaderPopup>
+   <UIPopupBannerUploader>
+      <title>
+         <UIBannerUploader>Mag-upload ng isang Imahe</UIBannerUploader>
+      </title>
+   </UIPopupBannerUploader>
+</bundle>

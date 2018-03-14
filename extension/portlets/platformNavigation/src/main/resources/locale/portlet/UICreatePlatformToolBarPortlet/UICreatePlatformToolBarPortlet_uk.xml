@@ -2,20 +2,20 @@
 <bundle>
    <UIUserPlatformToolBarCreatePortlet>
       <label>
-         <topic>Discussion</topic>
+         <topic>Обговорення</topic>
          <poll>Опитування</poll>
          <event>Подія</event>
-         <upload>File</upload>
-         <wiki>Wiki Page</wiki>
+         <upload>Файл</upload>
+         <wiki>Вікі-сторінка</wiki>
 
       </label>
    </UIUserPlatformToolBarCreatePortlet>
    <UICreateList>
       <label>
-         <topic>discussion</topic>
-         <poll>Poll</poll>
-         <CreateANew>New {1}:</CreateANew>
-         <NoForum>Sorry, no forum is available yet in which you can create the {1}. Start by creating a space first and then try again.</NoForum>
+         <topic>обговорення</topic>
+         <poll>Опитування</poll>
+         <CreateANew>Новий {1}:</CreateANew>
+         <NoForum>На жаль, ще немає форуму, в якому ви можете створити {1}. Спочатку створіть область, а потім повторіть спробу.</NoForum>
          <RequireSelectForum>Будь ласка, виберіть форум.</RequireSelectForum>
       </label>
       <action>
@@ -41,18 +41,18 @@
    </UICreatePoll>
    <UICreateWiki>
       <label>
-         <title>New Wiki Page:</title>
-         <location>Location</location>
+         <title>Нова Вікі-сторінка:</title>
+         <location>Місцезнаходження</location>
       </label>
    </UICreateWiki>
    <UICreateEvent>
       <label>
-         <Popup_title>Create a new Event</Popup_title>
+         <Popup_title>Створити нову Подію</Popup_title>
          <Title>#{word.title}</Title>
          <Choix>Додати новий:</Choix>
          <EndEvent>До</EndEvent>
          <StartEvent>Від</StartEvent>
-         <Calendar>Calendar</Calendar>
+         <Calendar>Календар</Calendar>
          <all-day>Весь день</all-day>
          <defaultCalendarId>За замовчуванням</defaultCalendarId>
       </label>

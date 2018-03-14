@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bundle>
+ <UISpaceNavigationPortlet>
+     <label>
+         <Spaces>میری جگہیں</Spaces>
+         <Join>خالى جگھا جوڈیی</Join>
+         <see>مزید {o} جگھیں دکھائیں</see>
+     </label>
+     <msg>
+         <filter-spaces>ایک جگہ تلاش کریں</filter-spaces>
+         <no-space>کوئی جگہ نہیں ملی</no-space>
+     </msg>
+
+</UISpaceNavigationPortlet>
+</bundle>

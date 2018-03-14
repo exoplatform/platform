@@ -47,7 +47,7 @@
    </UICreateWiki>
    <UICreateEvent>
       <label>
-         <Popup_title>Create a new Event</Popup_title>
+         <Popup_title>Crear un nuevo Evento</Popup_title>
          <Title>#{word.title}</Title>
          <Choix>Añadir nuevo:</Choix>
          <EndEvent>A</EndEvent>

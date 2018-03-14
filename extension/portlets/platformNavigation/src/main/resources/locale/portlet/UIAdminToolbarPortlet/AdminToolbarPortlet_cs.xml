@@ -3,13 +3,13 @@
    <UIAdminToolbarPortlet>
       <action>
          <AddPage>Přidat stránku</AddPage>
-         <EditNavigation>Edit Navigation</EditNavigation>
-         <Content>Inline Edit</Content>
+         <EditNavigation>Navigace</EditNavigation>
+         <Content>Obsah</Content>
          <Editor>Upravit</Editor>
          <Page>Stránka</Page>
          <Site>Web</Site>
          <Layout>Upravit rozvržení</Layout>
-         <siteLayout>Edit Layout</siteLayout>
+         <siteLayout>Rozvržení</siteLayout>
          <ManagePages>Spravovat stránky</ManagePages>
          <GroupSite>Stránky skupiny</GroupSite>
          <Properties>#{UISEOToolbarForm.label.seo}</Properties>
@@ -21,16 +21,16 @@
 
   <UISEOForm>
     <label>
-      <title>Title:</title>  
-      <description>Description:</description>
-      <keywords>Keywords:</keywords>
-      <language>Language:</language>
-      <robots>Robots:</robots>
-      <sitemap>Sitemap:</sitemap>
+      <title>Nadpis:</title>  
+      <description>Popis:</description>
+      <keywords>Klíčová slova:</keywords>
+      <language>Jazyk:</language>
+      <robots>Roboti:</robots>
+      <sitemap>Mapa stránek:</sitemap>
       <sitemapvisible>Viditelné v mapě stránek</sitemapvisible>
   <isInherited>Zděděno z nadřazené stránky</isInherited>
-      <priority>Priority:</priority>
-      <frequency>Frequency:</frequency>
+      <priority>Priorita:</priority>
+      <frequency>Frekvence:</frequency>
       <select-language>Vybrat jazyk</select-language>
       <option>
         <Always>Vždy</Always>

@@ -2,26 +2,26 @@
 <bundle>
 <UISetupPlatformToolBarPortlet>
 <label>
-<applications>Applications</applications>
-<content>Content</content>
-<siteExplorer>Site Explorer</siteExplorer>
-<wcmAdmin>Content Administration</wcmAdmin>
-<users>Users</users>
-<newStaff>Add Users</newStaff>
-<org-management>Manage Users</org-management>
+<applications>Mga Aplikasyon</applications>
+<content>Nilalaman</content>
+<siteExplorer>Pang-explore ng site</siteExplorer>
+<wcmAdmin>Ang Pangangasiwa ng Nilalaman</wcmAdmin>
+<users>Ang mga Gumagamit</users>
+<newStaff>Magdagdag ng mga tagagamit</newStaff>
+<org-management>Pangasiwaan ang mga tagagamit</org-management>
 <portal>Portal</portal>
-<administration>Administration</administration>
+<administration>Pangangasiwa</administration>
 <system>Ang Sistema</system>
-<groupnavigation>Group Sites</groupnavigation>
-<pageManagement>Pages</pageManagement>
+<groupnavigation>Grupo nga mga sites</groupnavigation>
+<pageManagement>Mga pahina</pageManagement>
 <portalnavigation>Sites</portalnavigation>
-<servicesManagement>Management</servicesManagement>
-<monitoring>Monitoring</monitoring>
+<servicesManagement>Pamamahala</servicesManagement>
+<monitoring>Pagsubaybay</monitoring>
 <spaces>Spaces</spaces>
-<Branding>Branding</Branding>
-      <Notification>Notifications</Notification>
+<Branding>Pagba-brand</Branding>
+      <Notification>Mga Notipikasyon</Notification>
 <ide>IDE</ide>
-<search>Search Administration</search>
+<search>Saliksikin ang administrasyon</search>
 </label>
 </UISetupPlatformToolBarPortlet>
 </bundle>

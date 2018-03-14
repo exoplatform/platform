@@ -31,7 +31,7 @@
   <msg name="forums.statistic.at">la</msg>  
   <msg name="forums.weekly.statistic.title">Statistici săptămânale forumuri</msg>
   <msg name="forums.weekly.statistic.post.open">Postări create</msg>
-  <msg name="forums.weekly.statistic.next">Next</msg>
+  <msg name="forums.weekly.statistic.next">Înainte</msg>
   <msg name="forums.weekly.statistic.prev">Anterior</msg>
   <msg name="forums.weekly.statistic.view.chart">Vezi ca diagramă</msg>
   <msg name="forums.weekly.statistic.view.list">Vezi ca listă</msg>

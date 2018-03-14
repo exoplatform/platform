@@ -2,11 +2,11 @@
 <bundle>
 <UINotificationPopoverToolbarPortlet>
 <label>
-<MarkAllAsRead>Mark all as read</MarkAllAsRead>
-<NoNotifications>No notifications</NoNotifications>
-<InlineImage>Inline image</InlineImage>
-<ViewAll>View All</ViewAll>
-<Loading>Loading</Loading>
+<MarkAllAsRead>Označit vše jako přečtené</MarkAllAsRead>
+<NoNotifications>Žádná upozornění</NoNotifications>
+<InlineImage>Vkládaný obrázek</InlineImage>
+<ViewAll>Zobrazit vše</ViewAll>
+<Loading>Nahrávání</Loading>
 </label>
 </UINotificationPopoverToolbarPortlet>
 </bundle>

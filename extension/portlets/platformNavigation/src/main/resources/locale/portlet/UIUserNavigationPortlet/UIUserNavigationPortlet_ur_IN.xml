@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bundle>
+   <UIUserNavigationPortlet>
+      <label>
+         <activities>سرگرمیاں</activities>
+         <profile>پروفائل</profile>
+         <connections>کنکشنز</connections>
+         <wiki>ویکی</wiki>
+         <Myactivities>میری سرگرمیاں</Myactivities>
+         <Myprofile>میرا پروفائل</Myprofile>
+         <Myconnections>میرے کنکشن</Myconnections>
+         <Mywiki>میری وکی</Mywiki>
+         <Mydashboard>میرا ڈیش بورڈ</Mydashboard>
+         <NotificationSettingsPortlet>میری اطلاعات</NotificationSettingsPortlet>
+         <More>مزید</More>
+         <EditProfile>ترمیم</EditProfile>
+         <available>دستياب</available>
+         <offline>آف لائن</offline>
+         <away>دور</away>
+         <donotdisturb>پریشان نہ کريى</donotdisturb>
+         <invisible>پوشیدہ</invisible>
+         <bannerSizeHint>کم از کم 130 پکسلز کی تصویر منتخب کریں.</bannerSizeHint>
+      </label>
+   </UIUserNavigationPortlet>
+   <UIAvatarUploaderPopup>
+      <title>
+         <UIAvatarUploader>تصویر چھائیں</UIAvatarUploader>
+      </title>
+   </UIAvatarUploaderPopup>
+   <UIPopupBannerUploader>
+      <title>
+         <UIBannerUploader>تصویر چھائیں</UIBannerUploader>
+      </title>
+   </UIPopupBannerUploader>
+</bundle>
