@@ -20,7 +20,7 @@
 
 -->
 <messagebundle>  
-  <msg name="title">Service Management</msg>
+  <msg name="title">Gestione del servizio</msg>
   <msg name="services">Servizi</msg>
   <msg name="name">Nome</msg>
   <msg name="description">Descrizione</msg>
@@ -31,7 +31,7 @@
   <msg name="value">Valore</msg>
   <msg name="services_url">URL Servizi</msg>
   <msg name="failManage">Al momento è impossibile gestire i servizi da altri host finché non saremo in grado di suportare OAuth</msg>
-  <msg name="noServices">No service is available or you don't have enough permission</msg>
+  <msg name="noServices">Nessun servizio disponibile o non hai abbastanza permessi</msg>
   <msg name="noMethod">Nessun metodo</msg>
   <msg name="noProperty">Nessun proprietà</msg>
   <msg name="badURL">Errore durante la raccolta dei dati, prego controllare le impostazioni URL</msg>

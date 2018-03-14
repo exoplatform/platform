@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bundle>
+  <Signin>
+    <welcome>Maligayang pagdating</welcome>
+    <login>Mag-login</login>
+    <logout>Mag-logout</logout>
+    <language>
+      <en>Lumipat sa Ingles</en>
+      <fr>Lumipat sa Pranses</fr>
+    </language>
+    <register>Rehistro</register>
+  </Signin>
+  <Toolbar>
+    <SkipToContent>Lumaktaw sa nilalaman</SkipToContent>
+    <SiteMap>Mapa ng Site</SiteMap>
+    <Accessibility>Kakayahang magamit</Accessibility>
+    <NormalSize>Karaniwang sukat</NormalSize>
+    <MediumSize>Katamtamang Sukat</MediumSize>
+    <LargeSize>Malaking Sukat</LargeSize>
+    <NormalContrast>Karaniwang kaibahan</NormalContrast>
+    <HighContrast>Mataas na kaibahan</HighContrast>
+    <Search>Pagsasaliksik</Search>
+  </Toolbar>
+  <Logo>
+    <GoHome>Pumunta sa Tahanan</GoHome>
+  </Logo>
+  <acme>
+    <label>Ang template ng ACME</label>
+  </acme>  
+  <WAIPortal>
+    <label>Sample na Magagamit ng Website</label>
+  </WAIPortal>
+</bundle>

@@ -4,13 +4,13 @@
 <label>
 <applications>Aplikace</applications>
 <content>Obsah</content>
-<siteExplorer>Site Explorer</siteExplorer>
+<siteExplorer>Průzkumník webů</siteExplorer>
 <wcmAdmin>Správa obsahu</wcmAdmin>
-<users>Users</users>
+<users>Spravovat uživatele a skupiny</users>
 <newStaff>Přidat uživatele</newStaff>
-<org-management>Manage Users</org-management>
+<org-management>Skupiny a role</org-management>
 <portal>Portál</portal>
-<administration>Administration</administration>
+<administration>Administrace</administration>
 <system>Systém</system>
 <groupnavigation>Stránky skupiny</groupnavigation>
 <pageManagement>Stránky</pageManagement>
@@ -21,7 +21,7 @@
 <Branding>Logo</Branding>
       <Notification>E-mailová upozornění</Notification>
 <ide>IDE</ide>
-<search>Search Administration</search>
+<search>Hledat</search>
 </label>
 </UISetupPlatformToolBarPortlet>
 </bundle>

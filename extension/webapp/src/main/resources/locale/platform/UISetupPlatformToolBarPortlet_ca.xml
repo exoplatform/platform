@@ -4,13 +4,13 @@
 <label>
 <applications>Aplicacions</applications>
 <content>Contingut</content>
-<siteExplorer>Site Explorer</siteExplorer>
+<siteExplorer>Explorador de Continguts</siteExplorer>
 <wcmAdmin>Gestió de continguts</wcmAdmin>
-<users>Users</users>
+<users>Comunitat</users>
 <newStaff>Afegeix Usuaris/es</newStaff>
 <org-management>Gestió d'usuaris</org-management>
 <portal>Portal</portal>
-<administration>Administration</administration>
+<administration>Adminstració</administration>
 <system>Sistema</system>
 <groupnavigation>Llocs dels Grups</groupnavigation>
 <pageManagement>Pàgines</pageManagement>
@@ -21,7 +21,7 @@
 <Branding>Logotips</Branding>
       <Notification>Notificacions</Notification>
 <ide>IDE</ide>
-<search>Search Administration</search>
+<search>Cerca</search>
 </label>
 </UISetupPlatformToolBarPortlet>
 </bundle>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bundle>
+<UISetupPlatformToolBarPortlet>
+<label>
+<applications>Ang mga aplikasyon</applications>
+<content>Nilalaman</content>
+<siteExplorer>Ang eksplorer ng lugar</siteExplorer>
+<wcmAdmin>Pangangasiwa ng Nilalaman</wcmAdmin>
+<users>Mga gumagamit</users>
+<newStaff>Magdagdag ng mga gumagamit</newStaff>
+<org-management>Pamahalaan ang mga Gumagamit</org-management>
+<portal>Ang portal</portal>
+<administration>Pangangasiwa</administration>
+<system>Sistema</system>
+<groupnavigation>Ang mga lugar ng Grupo</groupnavigation>
+<pageManagement>Ang mga pahina</pageManagement>
+<portalnavigation>Ang mga lugar</portalnavigation>
+<servicesManagement>Pamamahala</servicesManagement>
+<monitoring>Pagsubaybay</monitoring>
+<spaces>Ang mga espasyo</spaces>
+<Branding>Pagba-brand</Branding>
+      <Notification>Notifications</Notification>
+<ide>Ang IDE</ide>
+<search>Pagsasaliksik ng Pangangasiwa</search>
+</label>
+</UISetupPlatformToolBarPortlet>
+</bundle>

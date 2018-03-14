@@ -4,22 +4,22 @@
       <label>
          <activities>Ang Mga aktibidad</activities>
          <profile>Profile</profile>
-         <connections>Connections</connections>
+         <connections>Mga Koneksyon</connections>
          <wiki>Wiki</wiki>
-         <Myactivities>My Activities</Myactivities>
+         <Myactivities>Aking mga Aktibidad</Myactivities>
          <Myprofile>Ang Aking profile</Myprofile>
-         <Myconnections>My Connections</Myconnections>
-         <Mywiki>My Wiki</Mywiki>
-         <Mydashboard>My Dashboard</Mydashboard>
-         <NotificationSettingsPortlet>My Notifications</NotificationSettingsPortlet>
-         <More>More</More>
+         <Myconnections>Aking mga Koneksyon</Myconnections>
+         <Mywiki>Ang Wiki ko</Mywiki>
+         <Mydashboard>Aking dashboard</Mydashboard>
+         <NotificationSettingsPortlet>Aking mga notipikasyon</NotificationSettingsPortlet>
+         <More>Higit pa</More>
          <EditProfile>I-edit</EditProfile>
          <available>Ang pwedeng magamit</available>
          <offline>Offline</offline>
          <away>Nasa Malayo</away>
          <donotdisturb>Huwag Gambalain</donotdisturb>
          <invisible>Hindi nakikita</invisible>
-         <bannerSizeHint>Choose an image at least 130 pixels high.</bannerSizeHint>
+         <bannerSizeHint>Pumili ng imahe kahit mga 130 pixel ang taas.</bannerSizeHint>
       </label>
    </UIUserNavigationPortlet>
    <UIAvatarUploaderPopup>

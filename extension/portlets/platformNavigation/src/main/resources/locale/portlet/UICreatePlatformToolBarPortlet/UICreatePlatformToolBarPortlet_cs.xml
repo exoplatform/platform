@@ -2,20 +2,20 @@
 <bundle>
    <UIUserPlatformToolBarCreatePortlet>
       <label>
-         <topic>Discussion</topic>
+         <topic>Téma</topic>
          <poll>Anketa</poll>
-         <event>Event</event>
-         <upload>File</upload>
-         <wiki>Wiki Page</wiki>
+         <event>Událost</event>
+         <upload>Nahrát soubor</upload>
+         <wiki>Wiki Stránka</wiki>
 
       </label>
    </UIUserPlatformToolBarCreatePortlet>
    <UICreateList>
       <label>
-         <topic>discussion</topic>
-         <poll>Poll</poll>
-         <CreateANew>New {1}:</CreateANew>
-         <NoForum>Sorry, no forum is available yet in which you can create the {1}. Start by creating a space first and then try again.</NoForum>
+         <topic>tématu</topic>
+         <poll>ankety</poll>
+         <CreateANew>Vytvořit nový {1}:</CreateANew>
+         <NoForum>Omlouváme se, ale zatím není k dispozici žádné fórum. K vytvoření {1} je fórum nutné. Začněte vytvořením vlastní skupiny.</NoForum>
          <RequireSelectForum>Vyberte prosím fórum.</RequireSelectForum>
       </label>
       <action>
@@ -41,18 +41,18 @@
    </UICreatePoll>
    <UICreateWiki>
       <label>
-         <title>New Wiki Page:</title>
-         <location>Location</location>
+         <title>Vytvořit novou Wiki stránku:</title>
+         <location>V umístění</location>
       </label>
    </UICreateWiki>
    <UICreateEvent>
       <label>
-         <Popup_title>Create a new Event</Popup_title>
+         <Popup_title>Vytvořit novou událost</Popup_title>
          <Title>#{word.title}</Title>
          <Choix>Přidat novou:</Choix>
          <EndEvent>Do</EndEvent>
          <StartEvent>Od</StartEvent>
-         <Calendar>Calendar</Calendar>
+         <Calendar>Vyberat kalendář</Calendar>
          <all-day>Celý den</all-day>
          <defaultCalendarId>Výchozí</defaultCalendarId>
       </label>

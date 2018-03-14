@@ -24,7 +24,7 @@
   <msg name="setting">Tampilkan</msg>
   <msg name="vote">Memilih</msg>
   <msg name="voteAgain">Memilih lagi</msg>
-  <msg name="warning">Mohon pilih setidaknya satu pilihan</msg>
+  <msg name="warning">Silahkan pilih setidaknya satu pilihan</msg>
   <msg name="option">Pilihan</msg>
   <msg name="percent">Persen</msg>
   <msg name="voter">Pemilih</msg>

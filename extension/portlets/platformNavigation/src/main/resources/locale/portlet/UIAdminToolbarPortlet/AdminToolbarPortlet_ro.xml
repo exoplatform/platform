@@ -3,13 +3,13 @@
    <UIAdminToolbarPortlet>
       <action>
          <AddPage>Adaugă pagină</AddPage>
-         <EditNavigation>Edit Navigation</EditNavigation>
-         <Content>Inline Edit</Content>
+         <EditNavigation>Navigare</EditNavigation>
+         <Content>Conţinut</Content>
          <Editor>Editare</Editor>
          <Page>Pagina</Page>
          <Site>Site-ul</Site>
          <Layout>Editare machetă</Layout>
-         <siteLayout>Edit Layout</siteLayout>
+         <siteLayout>Editare machetă</siteLayout>
          <ManagePages>Gestionați pagini</ManagePages>
          <GroupSite>Site-ul de grup</GroupSite>
          <Properties>#{UISEOToolbarForm.label.seo}</Properties>
@@ -21,16 +21,16 @@
 
   <UISEOForm>
     <label>
-      <title>Title:</title>  
-      <description>Description:</description>
-      <keywords>Keywords:</keywords>
-      <language>Language:</language>
-      <robots>Robots:</robots>
-      <sitemap>Sitemap:</sitemap>
+      <title>Titlu:</title>  
+      <description>Descriere:</description>
+      <keywords>Cuvinte cheie:</keywords>
+      <language>Limba:</language>
+      <robots>Roboţi:</robots>
+      <sitemap>Hartă site:</sitemap>
       <sitemapvisible>Vizibil în harta site-ului</sitemapvisible>
   <isInherited>Moştenit de la pagina părinte</isInherited>
-      <priority>Priority:</priority>
-      <frequency>Frequency:</frequency>
+      <priority>Prioritate:</priority>
+      <frequency>Frecvență:</frequency>
       <select-language>Selectează limba</select-language>
       <option>
         <Always>Întotdeauna</Always>
@@ -52,7 +52,7 @@
       <confirm-delete>Sigur ștergeți aceste date de SEO?</confirm-delete>
     </msg>
     <title>
-    <seo-delete>Delete</seo-delete>
+    <seo-delete>Şterge</seo-delete>
     </title>
 <help> 
   <priority>Valorile valide variază de la 0.0 la 1.0.</priority>

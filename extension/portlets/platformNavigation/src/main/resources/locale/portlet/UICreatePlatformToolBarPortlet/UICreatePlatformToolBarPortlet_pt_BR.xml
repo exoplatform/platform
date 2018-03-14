@@ -2,20 +2,20 @@
 <bundle>
    <UIUserPlatformToolBarCreatePortlet>
       <label>
-         <topic>Discussion</topic>
+         <topic>Tópico</topic>
          <poll>Enquete</poll>
          <event>Evento</event>
-         <upload>File</upload>
-         <wiki>Wiki Page</wiki>
+         <upload>Enviar arquivo</upload>
+         <wiki>Página Wiki</wiki>
 
       </label>
    </UIUserPlatformToolBarCreatePortlet>
    <UICreateList>
       <label>
-         <topic>discussion</topic>
-         <poll>Poll</poll>
-         <CreateANew>New {1}:</CreateANew>
-         <NoForum>Sorry, no forum is available yet in which you can create the {1}. Start by creating a space first and then try again.</NoForum>
+         <topic>tópico</topic>
+         <poll>enquete</poll>
+         <CreateANew>Crie uma nova {1}:</CreateANew>
+         <NoForum>Desculpa, nenhum fórum está disponível ainda para criar uma {1}. Comece criando o seu próprio espaço.</NoForum>
          <RequireSelectForum>Por favor, selecione um fórum.</RequireSelectForum>
       </label>
       <action>
@@ -41,18 +41,18 @@
    </UICreatePoll>
    <UICreateWiki>
       <label>
-         <title>New Wiki Page:</title>
-         <location>Location</location>
+         <title>Criar uma nova página Wiki:</title>
+         <location>Em</location>
       </label>
    </UICreateWiki>
    <UICreateEvent>
       <label>
-         <Popup_title>Create a new Event</Popup_title>
+         <Popup_title>Criar um novo evento</Popup_title>
          <Title>#{word.title}</Title>
          <Choix>Adicionar novo:</Choix>
          <EndEvent>a</EndEvent>
          <StartEvent>De</StartEvent>
-         <Calendar>Calendar</Calendar>
+         <Calendar>Selecionar calendário</Calendar>
          <all-day>O dia todo</all-day>
          <defaultCalendarId>Padrão</defaultCalendarId>
       </label>

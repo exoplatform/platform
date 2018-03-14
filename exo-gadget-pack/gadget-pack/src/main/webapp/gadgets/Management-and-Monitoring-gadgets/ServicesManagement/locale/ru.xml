@@ -31,7 +31,7 @@
   <msg name="value">Значение</msg>
   <msg name="services_url">URL-адрес служб</msg>
   <msg name="failManage">До того времени, пока мы не поддерживает OAuth невозможно управлять службами с другого компьютера</msg>
-  <msg name="noServices">No service is available or you don't have enough permission</msg>
+  <msg name="noServices">Служба недоступна, либо Вы не имеете достаточно прав</msg>
   <msg name="noMethod">Методы отсутствуют</msg>
   <msg name="noProperty">Свойства отсутствуют</msg>
   <msg name="badURL">Ошибка при извлечении данных, пожалуйста, проверьте настройки URL</msg>

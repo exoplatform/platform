@@ -15,7 +15,7 @@
          <topic>Pembahasan</topic>
          <poll>Pemilihan</poll>
          <CreateANew>Terbaru {1}:</CreateANew>
-         <NoForum>Maaf, tidak ada forum yang tersedia namun Anda bisa membuat {1}. Mulailah dengan membuat ruang pertama terlebih dahulu lalu coba lagi.</NoForum>
+         <NoForum>Maaf, tidak ada forum yang tersedia namun di mana anda bisa membuat {1}. Mulailah dengan membuat sebuah ruang pertama dan lalu coba lagi.</NoForum>
          <RequireSelectForum>Silahkan memilih sebuah forum.</RequireSelectForum>
       </label>
       <action>
@@ -47,9 +47,9 @@
    </UICreateWiki>
    <UICreateEvent>
       <label>
-         <Popup_title>Buat kegiatan baru</Popup_title>
+         <Popup_title>Buat sebuah peristiwa baru</Popup_title>
          <Title>#{word.title}</Title>
-         <Choix>Tambahan baru:</Choix>
+         <Choix>Tambah baru:</Choix>
          <EndEvent>Untuk</EndEvent>
          <StartEvent>Dari</StartEvent>
          <Calendar>Kalendar</Calendar>
@@ -57,16 +57,16 @@
          <defaultCalendarId>Standar</defaultCalendarId>
       </label>
       <msg>
-         <summary-field-required>Bidang "Judul" diperlukan.</summary-field-required>
+         <summary-field-required>Bidangnya "Judul" diperlukan.</summary-field-required>
          <fromDate-format>Format tanggal "Dari" salah.</fromDate-format>
          <toDate-format>Format tanggal "kepada" tidak benar.</toDate-format>
-         <logic-required>Maaf, Anda tidak dapat mengakhiri acara yang belum dimulai.</logic-required>
-         <cant-add-event-on-remote-calendar>Anda tidak dapat menambahkan acara yang masih jauh dari tanggalnya</cant-add-event-on-remote-calendar>
+         <logic-required>Maaf, anda tidak dapat membuat acara yang berakhir sebelum itu dimulai.</logic-required>
+         <cant-add-event-on-remote-calendar>Anda tidak bisa menambahkan acara ke kalender jarak jauh</cant-add-event-on-remote-calendar>
          <add-successfully>
-            <Event>Acara ditambahkan kedalam {1}</Event>
-            <Task>Tugas ditambahkan kedalam {1}</Task>
+            <Event>Acara itu ditambahkan ke dalam {1}</Event>
+            <Task>Tugas itu ditambahkan ke dalam {1}</Task>
          </add-successfully>
-         <add-unsuccessfully>{0} tidak ada penambahan.</add-unsuccessfully>
+         <add-unsuccessfully>{0} itu tidak ditambahkan.</add-unsuccessfully>
       </msg>
       <action>
          <Next>#{word.save}</Next>

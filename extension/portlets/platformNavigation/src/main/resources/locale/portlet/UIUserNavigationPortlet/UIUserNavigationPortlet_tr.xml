@@ -19,7 +19,7 @@
          <away>Uzakta</away>
          <donotdisturb>Rahatsız etmeyin</donotdisturb>
          <invisible>Görünmez</invisible>
-         <bannerSizeHint>Choose an image at least 130 pixels high.</bannerSizeHint>
+         <bannerSizeHint>En az 130 piksel yüksekliğinde bir resim seçin.</bannerSizeHint>
       </label>
    </UIUserNavigationPortlet>
    <UIAvatarUploaderPopup>

@@ -31,7 +31,7 @@
   <msg name="value">Hodnota</msg>
   <msg name="services_url">URL služby</msg>
   <msg name="failManage">Dočasně nelze spravovat služby od jiných hostitelů, dokud budeme podporovat OAuth</msg>
-  <msg name="noServices">No service is available or you don't have enough permission</msg>
+  <msg name="noServices">Není k dispozici žádná služba nebo nemáte dostatečné oprávnění</msg>
   <msg name="noMethod">Žádná metoda</msg>
   <msg name="noProperty">Žádná vlastnost</msg>
   <msg name="badURL">Při načítání dat došlo k chybě. Zkontrolujte prosím předvolby URL</msg>

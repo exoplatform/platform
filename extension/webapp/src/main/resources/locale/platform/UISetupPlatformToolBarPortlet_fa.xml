@@ -4,13 +4,13 @@
 <label>
 <applications>برنامه های کاربردی</applications>
 <content>محتوا</content>
-<siteExplorer>Site Explorer</siteExplorer>
+<siteExplorer>مرورگر سایت</siteExplorer>
 <wcmAdmin>مدیریت محتوا</wcmAdmin>
-<users>Users</users>
+<users>کاربران</users>
 <newStaff>افزودن کاربرها</newStaff>
-<org-management>Manage Users</org-management>
+<org-management>مدیریت کاربران و گروه ها</org-management>
 <portal>پرتال</portal>
-<administration>Administration</administration>
+<administration>مدیریت</administration>
 <system>سیستم</system>
 <groupnavigation>سایت گروه ها</groupnavigation>
 <pageManagement>صفحات</pageManagement>
@@ -21,7 +21,7 @@
 <Branding>علامت گذاری</Branding>
       <Notification>اطلاعیه ها</Notification>
 <ide>محیط نرم افزاری</ide>
-<search>Search Administration</search>
+<search>جستجو</search>
 </label>
 </UISetupPlatformToolBarPortlet>
 </bundle>

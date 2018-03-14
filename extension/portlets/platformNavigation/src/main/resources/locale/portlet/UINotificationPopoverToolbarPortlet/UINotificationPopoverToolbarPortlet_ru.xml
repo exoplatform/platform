@@ -4,7 +4,7 @@
 <label>
 <MarkAllAsRead>Отметить всё как прочитанное</MarkAllAsRead>
 <NoNotifications>Нет уведомлений</NoNotifications>
-<InlineImage>Inline image</InlineImage>
+<InlineImage>Интегрированное Изображение</InlineImage>
 <ViewAll>Показать все</ViewAll>
 <Loading>Загружается</Loading>
 </label>

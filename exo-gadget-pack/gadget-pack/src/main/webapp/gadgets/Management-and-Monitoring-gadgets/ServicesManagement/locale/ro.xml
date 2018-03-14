@@ -31,7 +31,7 @@
   <msg name="value">Valoare</msg>
   <msg name="services_url">URL servicii</msg>
   <msg name="failManage">Temporar nu pot gestiona serviciile de pe altă platformă,  vom introduce OAuth</msg>
-  <msg name="noServices">No service is available or you don't have enough permission</msg>
+  <msg name="noServices">Niciun serviciu nu este disponibil sau nu ai permisiunea necesară</msg>
   <msg name="noMethod">Nici o metodă</msg>
   <msg name="noProperty">Nici o proprietate</msg>
   <msg name="badURL">Eroare în timpul aducerii datelor, vă rugăm să verificaţi adresa URL</msg>

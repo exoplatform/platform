@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bundle>
+<UIUserPlatformToolBarPortlet>
+<label>
+<NotificationSettingsPortlet>Aking mga abiso</NotificationSettingsPortlet>
+<activities>Aking mga gawain</activities>
+<profile>Aking Profile</profile>
+<network>Aking mga koneksyon</network>
+<wiki>Aking wiki</wiki>
+<account>Ang account</account>
+<language>Palitan ang wika</language>
+<logout>Mag-logout</logout>
+        <dashboard>Aking dashboard</dashboard>
+</label>
+</UIUserPlatformToolBarPortlet>
+</bundle>

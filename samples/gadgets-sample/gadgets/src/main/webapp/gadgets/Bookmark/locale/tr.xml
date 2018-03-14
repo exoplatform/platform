@@ -30,6 +30,6 @@
   <msg name="delete">Sil</msg>
   <msg name="edit">Düzenle</msg>
   <msg name="cancel">İptal</msg>
-  <msg name="emptyBookmarkPre">Herhangi bir yer işareti yok. "Yer işareti Ekle" butonunu tıklayarak ekleyin.</msg>
+  <msg name="emptyBookmarkPre">Herhangi bir yer işareti yok. "Yer İşareti Ekle" butonunu tıklayarak ekleyin.</msg>
   <msg name="addBookmark">Yer işareti Ekle</msg>
 </messagebundle>

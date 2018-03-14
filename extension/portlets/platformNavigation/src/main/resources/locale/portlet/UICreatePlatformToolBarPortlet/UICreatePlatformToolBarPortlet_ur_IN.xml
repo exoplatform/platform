@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bundle>
+   <UIUserPlatformToolBarCreatePortlet>
+      <label>
+         <topic>مباحثہ</topic>
+         <poll>رائے شماری</poll>
+         <event>Event</event>
+         <upload>مسل</upload>
+         <wiki>وکی صفحہ</wiki>
+
+      </label>
+   </UIUserPlatformToolBarCreatePortlet>
+   <UICreateList>
+      <label>
+         <topic>مباحثہ</topic>
+         <poll>رائے شماری</poll>
+         <CreateANew>نیا {1}:</CreateANew>
+         <NoForum>معذرت، کوئی فورم دستیاب نہیں ہے جس میں آپ {1} بنا سکتے ہیں. سب سے پہلے ایک خالی جگے پیدا کرکے شروع کریں اور پھر دوبارہ کوشش کریں.</NoForum>
+         <RequireSelectForum>برائے مہربانی فورم منتخب کریں ۔.</RequireSelectForum>
+      </label>
+      <action>
+         <Next>#{word.next}</Next>
+         <Cancel>#{word.cancel}</Cancel>
+      </action>
+   </UICreateList>
+   <UICreateTopic>
+      <label>
+         <SelectAForum>فورم منتخب کریں</SelectAForum>
+         <location>مقام میں</location>
+         <forumId>اور فورم</forumId>
+         <FilterForums>فورمز کو فلٹر کریں</FilterForums>
+      </label>
+   </UICreateTopic>
+   <UICreatePoll>
+      <label>
+         <SelectAForum>فورم منتخب کریں</SelectAForum>
+         <location>مقام میں</location>
+         <forumId>اور فورم</forumId>
+         <FilterForums>فورمز کو فلٹر کریں</FilterForums>
+      </label>
+   </UICreatePoll>
+   <UICreateWiki>
+      <label>
+         <title>نیا ویکی صفحہ:</title>
+         <location>مقام</location>
+      </label>
+   </UICreateWiki>
+   <UICreateEvent>
+      <label>
+         <Popup_title>ایک نیا واقعہ بنائیں</Popup_title>
+         <Title>#{word.title}</Title>
+         <Choix>نیا شامل کریں:</Choix>
+         <EndEvent>کو</EndEvent>
+         <StartEvent>سے</StartEvent>
+         <Calendar>کیلنڈر</Calendar>
+         <all-day>تمام دن</all-day>
+         <defaultCalendarId>طے شدہ</defaultCalendarId>
+      </label>
+      <msg>
+         <summary-field-required>فیلڈ "عنوان" کی ضرورت ہے.</summary-field-required>
+         <fromDate-format>"; سے"; تاریخ شکل صحیح نہیں ہے ۔.</fromDate-format>
+         <toDate-format>"; جانب"; تاریخ شکل صحیح نہیں ہے ۔.</toDate-format>
+         <logic-required>افسوس، آپ اس تقریب کو نہیں بنا سکتے ہیں جو شروع ہونے سے پہلے ختم ہو جاتی ہے.</logic-required>
+         <cant-add-event-on-remote-calendar>آپ دور دراز کیلنڈر میں ایونٹ شامل نہیں کرسکتے ہیں</cant-add-event-on-remote-calendar>
+         <add-successfully>
+            <Event>واقعہ {1} میں شامل کیا گیا</Event>
+            <Task>ٹاسک {1} میں شامل کیا گیا تھا</Task>
+         </add-successfully>
+         <add-unsuccessfully>{0} اضافہ نہیں کیا گیا.</add-unsuccessfully>
+      </msg>
+      <action>
+         <Next>#{word.save}</Next>
+         <Cancel>#{word.cancel}</Cancel>
+      </action>
+   </UICreateEvent>
+    <UIUploadFile>
+        <Select>مسل منتخب کریں</Select>
+        <action>
+          <close>#{word.close}</close>
+        </action>
+    </UIUploadFile>
+   <Choix>
+      <label>
+         <Event>تقریب</Event>
+         <Task>کام</Task>
+      </label>
+   </Choix>
+</bundle>

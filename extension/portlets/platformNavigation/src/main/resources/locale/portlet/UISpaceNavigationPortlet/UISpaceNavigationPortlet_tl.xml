@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bundle>
+ <UISpaceNavigationPortlet>
+     <label>
+         <Spaces>Aking mga espasyo</Spaces>
+         <Join>Sumali sa isang espasyo</Join>
+         <see>Ipakita ang {0} Higit pang mga Espasyo</see>
+     </label>
+     <msg>
+         <filter-spaces>Maghanap ng isang espasyo</filter-spaces>
+         <no-space>Walang espasyo ang natagpuan</no-space>
+     </msg>
+
+</UISpaceNavigationPortlet>
+</bundle>

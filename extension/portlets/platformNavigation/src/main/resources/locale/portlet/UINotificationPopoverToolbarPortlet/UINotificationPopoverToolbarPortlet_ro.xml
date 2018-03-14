@@ -2,11 +2,11 @@
 <bundle>
 <UINotificationPopoverToolbarPortlet>
 <label>
-<MarkAllAsRead>Mark all as read</MarkAllAsRead>
-<NoNotifications>No notifications</NoNotifications>
-<InlineImage>Inline image</InlineImage>
-<ViewAll>View All</ViewAll>
-<Loading>Loading</Loading>
+<MarkAllAsRead>Marchează tot ca citit</MarkAllAsRead>
+<NoNotifications>Nicio notificație</NoNotifications>
+<InlineImage>Imagine în linie</InlineImage>
+<ViewAll>Vezi tot</ViewAll>
+<Loading>Se încarcă</Loading>
 </label>
 </UINotificationPopoverToolbarPortlet>
 </bundle>

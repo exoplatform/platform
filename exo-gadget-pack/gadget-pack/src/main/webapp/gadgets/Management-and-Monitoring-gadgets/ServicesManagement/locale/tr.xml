@@ -31,7 +31,7 @@
   <msg name="value">Değer</msg>
   <msg name="services_url">Hizmet URL'si</msg>
   <msg name="failManage">Geçici olarak diğer sunucularda bulunan servisleri yönetemezsiniz</msg>
-  <msg name="noServices">No service is available or you don't have enough permission</msg>
+  <msg name="noServices">Herhangi bir hizmet yok ya da yeterli izniniz yok</msg>
   <msg name="noMethod">Yöntem yok</msg>
   <msg name="noProperty">Özellik yok</msg>
   <msg name="badURL">Veri alınırken bir hata oluştu. Lütfen tercih ettiğiniz URL'yi kontrol edin</msg>

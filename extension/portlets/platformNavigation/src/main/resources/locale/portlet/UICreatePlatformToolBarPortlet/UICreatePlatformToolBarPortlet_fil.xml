@@ -61,12 +61,12 @@
          <fromDate-format>Ang format ng petsa ng "From" ay hindi tama.</fromDate-format>
          <toDate-format>Ang format ng petsa ng "To" ay hindi tama.</toDate-format>
          <logic-required>Paumanhin, hindi ka makakagawa ng pangyayari na nagtapos na bago nagsimula.</logic-required>
-         <cant-add-event-on-remote-calendar>You cannot add event to remote calendar</cant-add-event-on-remote-calendar>
+         <cant-add-event-on-remote-calendar>Hindi ka maaaring magdagdag ng pangyayari sa remote na kalendaryo</cant-add-event-on-remote-calendar>
          <add-successfully>
-            <Event>The Event was added to {1}</Event>
-            <Task>The Task was added to {1}</Task>
+            <Event>Ang pangyayari ay idinagdag sa {1}</Event>
+            <Task>Ang gawain ay idinagdag sa {1}</Task>
          </add-successfully>
-         <add-unsuccessfully>{0} was not added.</add-unsuccessfully>
+         <add-unsuccessfully>Hindi idinagdag ang {0}.</add-unsuccessfully>
       </msg>
       <action>
          <Next>#{word.save}</Next>
@@ -74,15 +74,15 @@
       </action>
    </UICreateEvent>
     <UIUploadFile>
-        <Select>Select File</Select>
+        <Select>Piliin ang file</Select>
         <action>
           <close>#{word.close}</close>
         </action>
     </UIUploadFile>
    <Choix>
       <label>
-         <Event>Event</Event>
-         <Task>Task</Task>
+         <Event>Kaganapan</Event>
+         <Task>Gawain</Task>
       </label>
    </Choix>
 </bundle>

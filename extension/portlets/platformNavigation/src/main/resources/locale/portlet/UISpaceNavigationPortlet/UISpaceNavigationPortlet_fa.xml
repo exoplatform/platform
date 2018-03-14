@@ -7,7 +7,7 @@
          <see>نمایش {0} فضای بیشتر</see>
      </label>
      <msg>
-         <filter-spaces>Find a space</filter-spaces>
+         <filter-spaces>جستجوی در فضاها</filter-spaces>
          <no-space>هیچ فضایی  یافت نشد</no-space>
      </msg>
 

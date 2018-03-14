@@ -31,7 +31,7 @@
   <msg name="value">Wert</msg>
   <msg name="services_url">Dienste URL</msg>
   <msg name="failManage">Temporär können Dienste nicht von einem anderen Host verwaltet werden, bis wir OAuth unterstützen</msg>
-  <msg name="noServices">No service is available or you don't have enough permission</msg>
+  <msg name="noServices">Es ist kein Service verfügbar oder Sie haben nicht genügend Berechtigungen.</msg>
   <msg name="noMethod">Keine Methode</msg>
   <msg name="noProperty">Keine Eigenschaft</msg>
   <msg name="badURL">Fehler beim Abrufen von Daten, bitte überprüfen Sie Ihre URL Einstellung</msg>

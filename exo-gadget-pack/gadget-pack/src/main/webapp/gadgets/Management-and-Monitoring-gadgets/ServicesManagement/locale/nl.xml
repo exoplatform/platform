@@ -31,7 +31,7 @@
   <msg name="value">Waarde</msg>
   <msg name="services_url">Diensten URL</msg>
   <msg name="failManage">Tijdelijke beheren diensten niet in andere host totdat we OAuth ondersteunen</msg>
-  <msg name="noServices">No service is available or you don't have enough permission</msg>
+  <msg name="noServices">Er is geen service beschikbaar of u hebt niet genoeg toestemming</msg>
   <msg name="noMethod">Geen methode</msg>
   <msg name="noProperty">Geen eigenschap</msg>
   <msg name="badURL">Fout bij het ophalen van gegevens, controleer uw URL</msg>

@@ -7,7 +7,7 @@
          <see>Zobrazit další skupiny {0}</see>
      </label>
      <msg>
-         <filter-spaces>Find a space</filter-spaces>
+         <filter-spaces>Hledat ve skupinách</filter-spaces>
          <no-space>Nenalezena žádná skupina</no-space>
      </msg>
 

@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bundle>
+   <UIUserPlatformToolBarCreatePortlet>
+      <label>
+         <topic>Ang Panaghisgutan</topic>
+         <poll>Ang Poll</poll>
+         <event>Ang Panghitabo</event>
+         <upload>Ang file</upload>
+         <wiki>Ang Wiki na page</wiki>
+
+      </label>
+   </UIUserPlatformToolBarCreatePortlet>
+   <UICreateList>
+      <label>
+         <topic>ang panaghisgutan</topic>
+         <poll>Ang Poll</poll>
+         <CreateANew>Bag-o {1}:</CreateANew>
+         <NoForum>Pasayloa, walay panagstoryaay ang naa diri karun nga makahimo kag {1}. Pagsugod og himo og luna paghuman sulayi na pud.</NoForum>
+         <RequireSelectForum>Palihog og pili og panagstoryaay.</RequireSelectForum>
+      </label>
+      <action>
+         <Next>#{word.next}</Next>
+         <Cancel>#{word.cancel}</Cancel>
+      </action>
+   </UICreateList>
+   <UICreateTopic>
+      <label>
+         <SelectAForum>Pagpili og panagstoryaay</SelectAForum>
+         <location>Naa sa Lokasyon</location>
+         <forumId>Og Panagstoryaay</forumId>
+         <FilterForums>Salaon ang mga Panagstoryaay</FilterForums>
+      </label>
+   </UICreateTopic>
+   <UICreatePoll>
+      <label>
+         <SelectAForum>Pili og Panagstoryaay</SelectAForum>
+         <location>Naa sa Lokasyon</location>
+         <forumId>Og ang Panagstoryaay</forumId>
+         <FilterForums>Salaon ang mga Panagstoryaay</FilterForums>
+      </label>
+   </UICreatePoll>
+   <UICreateWiki>
+      <label>
+         <title>Bag-ong Wiki na Page:</title>
+         <location>Location</location>
+      </label>
+   </UICreateWiki>
+   <UICreateEvent>
+      <label>
+         <Popup_title>Himo og bag-ong Panghitabo</Popup_title>
+         <Title>#{word.title}</Title>
+         <Choix>Dungag og Bag-o:</Choix>
+         <EndEvent>Para sa</EndEvent>
+         <StartEvent>Gikan ni</StartEvent>
+         <Calendar>Ang Kalendaryo</Calendar>
+         <all-day>Tibuok Adlaw</all-day>
+         <defaultCalendarId>Daan na nga ing-ana</defaultCalendarId>
+      </label>
+      <msg>
+         <summary-field-required>Ang field na "Titulo" kay kinahanglan.</summary-field-required>
+         <fromDate-format>Ang "Gikan" na porma sa petsa kay dili mao.</fromDate-format>
+         <toDate-format>Ang "Para ni" na porma sa petsa kay dili mao.</toDate-format>
+         <logic-required>Pasayloa, dili ka pwede makahimo og pangitabo nga nahuman na bag-o nag sugod.</logic-required>
+         <cant-add-event-on-remote-calendar>Dili ka makadungag og panghitabo sa madala dala na kalendaryo</cant-add-event-on-remote-calendar>
+         <add-successfully>
+            <Event>Ang panghitabo kay nadungag na sa {1}</Event>
+            <Task>Ang Buluhaton kay nadungag na sa {1}</Task>
+         </add-successfully>
+         <add-unsuccessfully>{0} wala nadungag.</add-unsuccessfully>
+      </msg>
+      <action>
+         <Next>#{word.save}</Next>
+         <Cancel>#{word.cancel}</Cancel>
+      </action>
+   </UICreateEvent>
+    <UIUploadFile>
+        <Select>Pili og file</Select>
+        <action>
+          <close>#{word.close}</close>
+        </action>
+    </UIUploadFile>
+   <Choix>
+      <label>
+         <Event>Panghitabo</Event>
+         <Task>Task</Task>
+      </label>
+   </Choix>
+</bundle>

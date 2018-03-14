@@ -19,7 +19,7 @@
          <away>Afwezig</away>
          <donotdisturb>Niet storen</donotdisturb>
          <invisible>Onzichtbaar</invisible>
-         <bannerSizeHint>Choose an image at least 130 pixels high.</bannerSizeHint>
+         <bannerSizeHint>Kies een afbeelding van minimaal 130 pixels hoog.</bannerSizeHint>
       </label>
    </UIUserNavigationPortlet>
    <UIAvatarUploaderPopup>

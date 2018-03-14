@@ -2,20 +2,20 @@
 <bundle>
    <UIUserPlatformToolBarCreatePortlet>
       <label>
-         <topic>Discussion</topic>
+         <topic>Subiect</topic>
          <poll>Sondaj</poll>
-         <event>Event</event>
-         <upload>File</upload>
-         <wiki>Wiki Page</wiki>
+         <event>Eveniment</event>
+         <upload>Fișier</upload>
+         <wiki>Pagina wiki</wiki>
 
       </label>
    </UIUserPlatformToolBarCreatePortlet>
    <UICreateList>
       <label>
-         <topic>discussion</topic>
-         <poll>Poll</poll>
-         <CreateANew>New {1}:</CreateANew>
-         <NoForum>Sorry, no forum is available yet in which you can create the {1}. Start by creating a space first and then try again.</NoForum>
+         <topic>subiect</topic>
+         <poll>Sondaj</poll>
+         <CreateANew>Creează un {1}:</CreateANew>
+         <NoForum>Ne pare rău, niciun forum nu este încă disponibil pentru a crea un {1}. Începe prin a crea propriul Spaţiu.</NoForum>
          <RequireSelectForum>Vă rugăm să selectaţi un forum.</RequireSelectForum>
       </label>
       <action>
@@ -41,20 +41,20 @@
    </UICreatePoll>
    <UICreateWiki>
       <label>
-         <title>New Wiki Page:</title>
-         <location>Location</location>
+         <title>Creați o nouă Pagină Wiki:</title>
+         <location>Locaţie</location>
       </label>
    </UICreateWiki>
    <UICreateEvent>
       <label>
-         <Popup_title>Create a new Event</Popup_title>
+         <Popup_title>Creează un nou Eveniment</Popup_title>
          <Title>#{word.title}</Title>
          <Choix>Adăugă:</Choix>
          <EndEvent>Până la</EndEvent>
          <StartEvent>De la</StartEvent>
-         <Calendar>Calendar</Calendar>
+         <Calendar>Selectează Calendarul</Calendar>
          <all-day>Toată ziua</all-day>
-         <defaultCalendarId>Default</defaultCalendarId>
+         <defaultCalendarId>Implicit</defaultCalendarId>
       </label>
       <msg>
          <summary-field-required>Câmpul "Titlul" este necesar.</summary-field-required>

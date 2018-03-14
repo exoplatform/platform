@@ -31,7 +31,7 @@
   <msg name="value">Значення</msg>
   <msg name="services_url">URL-адреса послуг</msg>
   <msg name="failManage">Поки ми не підтримуємо OAuth, не можна керувати послугами від іншого комп'ютера</msg>
-  <msg name="noServices">No service is available or you don't have enough permission</msg>
+  <msg name="noServices">Жодна послуга не доступна або у вас не достатньо прав доступу</msg>
   <msg name="noMethod">Немає методу</msg>
   <msg name="noProperty">Немає властивості</msg>
   <msg name="badURL">Помилка під час отримання даних, будь ласка, перевірте ваші налаштування URL-адреси</msg>

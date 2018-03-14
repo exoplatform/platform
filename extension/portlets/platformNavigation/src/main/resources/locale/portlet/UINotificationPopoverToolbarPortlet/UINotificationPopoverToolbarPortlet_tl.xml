@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bundle>
+<UINotificationPopoverToolbarPortlet>
+<label>
+<MarkAllAsRead>Markahan lahat bilang nabasa</MarkAllAsRead>
+<NoNotifications>Walang mga abiso</NoNotifications>
+<InlineImage>Nasa linya na imahe</InlineImage>
+<ViewAll>Tingnan lahat</ViewAll>
+<Loading>Naglo-load</Loading>
+</label>
+</UINotificationPopoverToolbarPortlet>
+</bundle>

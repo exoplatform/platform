@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bundle>
+<UINotificationPopoverToolbarPortlet>
+<label>
+<MarkAllAsRead>سب کو پڑھا ہوا شمار ذد کریں</MarkAllAsRead>
+<NoNotifications>کوئی اطلاعات نہیں</NoNotifications>
+<InlineImage>ترتیب وار تصویر</InlineImage>
+<ViewAll>سبھی دیکھیں</ViewAll>
+<Loading>لوڈ کر رہا ہے</Loading>
+</label>
+</UINotificationPopoverToolbarPortlet>
+</bundle>
