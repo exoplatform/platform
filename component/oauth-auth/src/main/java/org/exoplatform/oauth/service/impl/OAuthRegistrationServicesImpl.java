@@ -173,6 +173,7 @@ public class OAuthRegistrationServicesImpl implements OAuthRegistrationServices 
         String avatar = principal.getAvatar();
         if (avatar != null && !avatar.trim().isEmpty()) {
           int WIDTH = 200;
+          int HEIGHT = 200;
           String fileName = FilenameUtils.getBaseName(avatar);
           MimeTypeResolver mimeTypeResolver = new MimeTypeResolver();
           String mimeType = mimeTypeResolver.getMimeType(avatar);
@@ -184,7 +185,7 @@ public class OAuthRegistrationServicesImpl implements OAuthRegistrationServices 
             URL url = new URL(avatar);
             InputStream is = url.openStream();
             if (is != null) {
-              AvatarAttachment avatarAttachment = ImageUtils.createResizedAvatarAttachment(is, WIDTH, 0, null, fileName, mimeType, null);
+              AvatarAttachment avatarAttachment = ImageUtils.createResizedAvatarAttachment(is, WIDTH, HEIGHT, null, fileName, mimeType, null);
               if (avatarAttachment == null) {
                 avatarAttachment = new AvatarAttachment(null, fileName, mimeType, is, null, System.currentTimeMillis());
               }
