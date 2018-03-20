@@ -10,8 +10,12 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.security.Provider;
 import java.security.Security;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
+import java.sql.Date;
+import java.time.Instant;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.ZoneId;
+import java.time.format.DateTimeFormatter;
 import java.util.Calendar;
 import java.util.Properties;
 
@@ -31,7 +35,7 @@ public class Utils {
     public static final String USER_HOME = System.getProperty("user.home");
     public static final String EXO_HOME_FOLDER = USER_HOME + "/.eXo";
     public static final String PRODUCT_NAME = "Platform";
-    public static final DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+    public static final DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern("dd/MM/yyyy");
     public static final String PRODUCT_CODE = "ProductCode";
     public static String HOME_CONFIG_FILE_LOCATION;
     public static String HOME_CONFIG_LOCATION;
@@ -76,8 +80,8 @@ public class Utils {
         }
     }
 
-    public static String formatDate(Calendar date) {
-        return dateFormat.format(date.getTime());
+    public static String formatDate(Calendar calendar) {
+        return LocalDateTime.ofInstant(calendar.getTime().toInstant(), calendar.getTimeZone().toZoneId()).format(dateFormat);
     }
 
     public static void writeRemindDate(String remindDateStringBase64, String fileLocation) {
@@ -88,7 +92,8 @@ public class Utils {
         try {
             dateString = new String(Base64.decodeBase64(dateString.getBytes()));
             Calendar calendar = Calendar.getInstance();
-            calendar.setTime(dateFormat.parse(dateString));
+            Instant instant = LocalDate.parse(dateString, dateFormat).atStartOfDay().atZone(ZoneId.systemDefault()).toInstant();
+            calendar.setTime(Date.from(instant));
             return calendar;
         } catch (Exception exception) {
             throw new RuntimeException(exception);
