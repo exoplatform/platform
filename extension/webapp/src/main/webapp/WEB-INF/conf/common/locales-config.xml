@@ -48,12 +48,12 @@
     <input-encoding>UTF-8</input-encoding>
     <description>Default configuration for the spanish locale</description>
   </locale-config>
-  
+
   <locale-config>
-    <locale>vi</locale>
+    <locale>cs</locale>
     <output-encoding>UTF-8</output-encoding>
     <input-encoding>UTF-8</input-encoding>
-    <description>Default configuration for the vietnamese locale</description>
+    <description>Default configuration for the Czech locale</description>
   </locale-config>
 
   <locale-config>
