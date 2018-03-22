@@ -20,15 +20,16 @@
 
 -->
 <messagebundle>
-  <msg name="title_templates">Statistik template</msg>
-  <msg name="ten_slowest_templates">10 template paling lambat</msg>
-  <msg name="all_templates">Semua template</msg>
-  <msg name="title_apps">Statistik permohonan</msg>
-  <msg name="ten_slowest_apps">10 aplikasi paling lambat</msg>
-  <msg name="all_apps">Semua aplikasi</msg>
-  <msg name="avg_exec_time">Purata masa pelaksanaan (ms)</msg>
-  <msg name="min">min</msg>
-  <msg name="max">max</msg>
-  <msg name="exec">#exec</msg>
-  <msg name="loading">Memuatkan data ...</msg>
+  <msg name="title">Featured Poll</msg>
+  <msg name="setting">View</msg>
+  <msg name="vote">Vote</msg>
+  <msg name="voteAgain">Vote Again</msg>
+  <msg name="warning">Please choose at least one option</msg>
+  <msg name="option">Options</msg>
+  <msg name="percent">Percent</msg>
+  <msg name="voter">Voters</msg>
+  <msg name="total">Total</msg>
+  <msg name="discuss">Discuss in Forum</msg>
+  <msg name="nopoll">No Polls Yet</msg>  
+  <msg name="createPoll">Create Your Own Poll</msg>    
 </messagebundle>

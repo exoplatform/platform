@@ -19,16 +19,23 @@
     02110-1301 USA, or see the FSF site: http://www.fsf.org.
 
 -->
-<messagebundle>
-  <msg name="title_templates">Statistik template</msg>
-  <msg name="ten_slowest_templates">10 template paling lambat</msg>
-  <msg name="all_templates">Semua template</msg>
-  <msg name="title_apps">Statistik permohonan</msg>
-  <msg name="ten_slowest_apps">10 aplikasi paling lambat</msg>
-  <msg name="all_apps">Semua aplikasi</msg>
-  <msg name="avg_exec_time">Purata masa pelaksanaan (ms)</msg>
-  <msg name="min">min</msg>
-  <msg name="max">max</msg>
-  <msg name="exec">#exec</msg>
-  <msg name="loading">Memuatkan data ...</msg>
-</messagebundle>
+<bundle>
+  <UIPortalApplication>
+    <title>
+      <abort>Abort</abort>
+    </title>
+  </UIPortalApplication>
+  
+  <CategoryNavigationTemplate>
+  <label>
+  <home>Home</home>
+  <Accessibility>Accessibility</Accessibility>
+  </label>
+  </CategoryNavigationTemplate>
+  
+  <Breadcrumb>
+  <label>
+  <home>Home</home>
+  </label>  
+  </Breadcrumb>
+</bundle>

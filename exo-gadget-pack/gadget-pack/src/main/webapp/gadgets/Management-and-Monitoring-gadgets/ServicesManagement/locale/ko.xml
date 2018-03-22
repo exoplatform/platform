@@ -19,16 +19,20 @@
     02110-1301 USA, or see the FSF site: http://www.fsf.org.
 
 -->
-<messagebundle>
-  <msg name="title_templates">Statistik template</msg>
-  <msg name="ten_slowest_templates">10 template paling lambat</msg>
-  <msg name="all_templates">Semua template</msg>
-  <msg name="title_apps">Statistik permohonan</msg>
-  <msg name="ten_slowest_apps">10 aplikasi paling lambat</msg>
-  <msg name="all_apps">Semua aplikasi</msg>
-  <msg name="avg_exec_time">Purata masa pelaksanaan (ms)</msg>
-  <msg name="min">min</msg>
-  <msg name="max">max</msg>
-  <msg name="exec">#exec</msg>
-  <msg name="loading">Memuatkan data ...</msg>
+<messagebundle>  
+  <msg name="title">Service Management</msg>
+  <msg name="services">Services</msg>
+  <msg name="name">Name</msg>
+  <msg name="description">Description</msg>
+  <msg name="noDescription">No description</msg>
+  <msg name="method">Method</msg>
+  <msg name="parameters">Parameters</msg>
+  <msg name="action">Action</msg>
+  <msg name="value">Value</msg>
+  <msg name="services_url">Services URL</msg>
+  <msg name="failManage">Temporary can't manage services from other host until we support OAuth</msg>
+  <msg name="noServices">No service is available or you don't have enough permission</msg>
+  <msg name="noMethod">No method</msg>
+  <msg name="noProperty">No property</msg>
+  <msg name="badURL">Error while retrieving data, please check your URL preference</msg>
 </messagebundle>
