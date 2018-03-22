@@ -5,7 +5,7 @@
          <AddPage>Add Page</AddPage>
          <EditNavigation>Edit Navigation</EditNavigation>
          <Content>Inline Edit</Content>
-         <Editor>Sunting</Editor>
+         <Editor>Edit</Editor>
          <Page>Page</Page>
          <Site>Site</Site>
          <Layout>Edit Layout</Layout>
@@ -52,7 +52,7 @@
       <confirm-delete>Are you sure you want to delete these SEO data?</confirm-delete>
     </msg>
     <title>
-    <seo-delete>Padam</seo-delete>
+    <seo-delete>Delete</seo-delete>
     </title>
 <help> 
   <priority>Valid values range from 0.0 to 1.0.</priority>

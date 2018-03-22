@@ -20,15 +20,10 @@
 
 -->
 <messagebundle>
-  <msg name="title_templates">Statistik template</msg>
-  <msg name="ten_slowest_templates">10 template paling lambat</msg>
-  <msg name="all_templates">Semua template</msg>
-  <msg name="title_apps">Statistik permohonan</msg>
-  <msg name="ten_slowest_apps">10 aplikasi paling lambat</msg>
-  <msg name="all_apps">Semua aplikasi</msg>
-  <msg name="avg_exec_time">Purata masa pelaksanaan (ms)</msg>
-  <msg name="min">min</msg>
-  <msg name="max">max</msg>
-  <msg name="exec">#exec</msg>
-  <msg name="loading">Memuatkan data ...</msg>
+  <msg name="title">Favorite Documents</msg>
+  <msg name="titleFav">My Favorites</msg>
+  <msg name="titleDoc">My Documents</msg>  
+  <msg name="nofav">You have no favorite document</msg>
+  <msg name="nodoc">You have no document</msg>
+  <msg name="showall">Show All</msg>
 </messagebundle>

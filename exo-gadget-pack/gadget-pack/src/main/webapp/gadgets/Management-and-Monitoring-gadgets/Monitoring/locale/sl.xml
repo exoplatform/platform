@@ -31,9 +31,9 @@
   <msg name="consumption">Poraba</msg>
   <msg name="hit_ratio">Razmerje zadetkov</msg>
   <msg name="details">Podrobnosti</msg>
-  <msg name="hit">Zadetek</msg>
-  <msg name="miss">Zgrešeni</msg>
-  <msg name="full">polno</msg>
+  <msg name="hit">Zadetih</msg>
+  <msg name="miss">Zgrešenih</msg>
+  <msg name="full">zasedenost</msg>
   <msg name="max_size">Največja velikost</msg>
   <msg name="time_to_live">Življenjska doba</msg>
 </messagebundle>

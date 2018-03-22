@@ -4,16 +4,16 @@
       <label>
          <activities>Activities</activities>
          <profile>Profile</profile>
-         <connections>Sambungan</connections>
+         <connections>Connections</connections>
          <wiki>Wiki</wiki>
          <Myactivities>My Activities</Myactivities>
          <Myprofile>My Profile</Myprofile>
-         <Myconnections>Sambungan Saya</Myconnections>
+         <Myconnections>My Connections</Myconnections>
          <Mywiki>My Wiki</Mywiki>
          <Mydashboard>My Dashboard</Mydashboard>
          <NotificationSettingsPortlet>My Notifications</NotificationSettingsPortlet>
          <More>More</More>
-         <EditProfile>Sunting</EditProfile>
+         <EditProfile>Edit</EditProfile>
          <available>Available</available>
          <offline>Offline</offline>
          <away>Away</away>
