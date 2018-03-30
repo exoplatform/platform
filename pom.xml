@@ -738,7 +738,7 @@
       <!-- DON'T REMOVE : used for packaging -->
       <dependency>
         <groupId>org.exoplatform.gatein.wci</groupId>
-        <artifactId>wci-wildfly10</artifactId>
+        <artifactId>wci-wildfly11</artifactId>
         <version>${org.exoplatform.gatein.wci.version}</version>
       </dependency>
       <!-- To be replaced by an import of GateIn WCI parent POM -->
