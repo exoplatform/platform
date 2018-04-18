@@ -15,6 +15,12 @@
         <value>${webdav.def-folder-node-type:nt:folder}</value>
       </value-param>
 
+      <!-- define the allowed folder paths regex-->
+      <value-param>
+        <name>folder-listing-paths-allowed-regex</name>
+        <value>${exo.webdav.folder.listing.paths.allowed.regex:}</value>
+      </value-param>
+
       <!-- default node type which is used for the creation of files -->
       <value-param>
         <name>def-file-node-type</name>
