@@ -4,7 +4,7 @@
   <parent>
     <artifactId>platform-extension-portlets</artifactId>
     <groupId>org.exoplatform.platform</groupId>
-    <version>4.4.x-SNAPSHOT</version>
+    <version>4.4.5-RC01</version>
   </parent>
   <artifactId>platform-extension-portlets-homepage</artifactId>
   <packaging>jar</packaging>
