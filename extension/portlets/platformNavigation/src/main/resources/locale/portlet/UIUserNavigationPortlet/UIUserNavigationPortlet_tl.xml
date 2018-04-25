@@ -17,8 +17,8 @@
          <available>Magagamit</available>
          <offline>Hindi naka-online</offline>
          <away>Malayo</away>
-         <donotdisturb>Do not disturb</donotdisturb>
-         <invisible>Invisible</invisible>
+         <donotdisturb>Huwag abalahin</donotdisturb>
+         <invisible>Hindi nakikita</invisible>
          <bannerSizeHint>Pumili ng isang imahe ng hindi bababa sa 130 pixels na taas.</bannerSizeHint>
       </label>
    </UIUserNavigationPortlet>

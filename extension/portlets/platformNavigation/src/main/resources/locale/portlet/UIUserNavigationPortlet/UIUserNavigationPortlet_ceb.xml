@@ -15,8 +15,8 @@
          <More>More</More>
          <EditProfile>Edit</EditProfile>
          <available>Available</available>
-         <offline>Offline</offline>
-         <away>Away</away>
+         <offline>Wala naka-online</offline>
+         <away>Palayo</away>
          <donotdisturb>Do not disturb</donotdisturb>
          <invisible>Invisible</invisible>
          <bannerSizeHint>Choose an image at least 130 pixels high.</bannerSizeHint>

@@ -24,7 +24,7 @@
   <msg name="customize">カスタマイズ</msg>
   <msg name="save">#{word.save}</msg>
   <msg name="add">追加</msg>
-  <msg name="ok">Ok</msg>
+  <msg name="ok">OK</msg>
   <msg name="name">名前</msg>
   <msg name="url">URL</msg>
   <msg name="delete">削除</msg>
