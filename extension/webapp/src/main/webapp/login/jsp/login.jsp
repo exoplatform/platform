@@ -87,23 +87,25 @@
     <script type="text/javascript" src="/platform-extension/javascript/switch-button.js"></script>
     <script type="text/javascript">
         $(document).ready(function() {
-            var startlabelfooter = jQuery("#platformInfoDiv").data("labelfooter");
-            var htmlContent = startlabelfooter +" eXo Platform ";
-            var divContent = jQuery("#platformInfoDiv");
+            var divContent = jQuery("#platformInfoPoweredBy");
+            var divContent2 = jQuery("#platformInfoVersion");
+            var htmlContent = divContent.data("labelfooter") +" eXo Platform ";
+            var htmlContent2 = "";
             var requestJsonPlatformInfo = jQuery.ajax({ type: "GET", url: "/portal/rest/platform/info", async: false, dataType: 'json' });
             if(requestJsonPlatformInfo.readyState == 4 && requestJsonPlatformInfo.status == 200){
                 //readyState 4: request finished and response is ready
                 //status 200: "OK"
                 var myresponseText = requestJsonPlatformInfo.responseText;
                 var jsonPlatformInfo = jQuery.parseJSON(myresponseText);
-                htmlContent += "v"
-                htmlContent += jsonPlatformInfo.platformVersion;
-                htmlContent += " - build "
-                htmlContent += jsonPlatformInfo.platformBuildNumber;
+                htmlContent2 += "v";
+                htmlContent2 += jsonPlatformInfo.platformVersion;
+                htmlContent2 += " - build ";
+                htmlContent2 += jsonPlatformInfo.platformBuildNumber;
             }else{
-                htmlContent += "4.0"
+                htmlContent2 += "4.0";
             }
             divContent.text(htmlContent);
+            divContent2.text(htmlContent2);
         });
     </script>
   </head>
@@ -209,7 +211,10 @@
         </div>
       </div>
     	</div>
-    	<div id="platformInfoDiv" data-labelfooter="<%=res.getString("portal.login.Footer")%>" ></div>
+        <div id="loginFooter">
+            <a id="platformInfoPoweredBy" href="https://www.exoplatform.com/powered-by" data-labelfooter="<%=res.getString("portal.login.Footer")%>"></a>
+            <span id="platformInfoVersion"></span>
+        </div>
     </div>
     
   </body>
