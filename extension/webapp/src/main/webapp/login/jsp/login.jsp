@@ -87,23 +87,25 @@
     <script type="text/javascript" src="/platform-extension/javascript/switch-button.js"></script>
     <script type="text/javascript">
         $(document).ready(function() {
-            var startlabelfooter = jQuery("#platformInfoDiv").data("labelfooter");
-            var htmlContent = startlabelfooter +" eXo Platform ";
-            var divContent = jQuery("#platformInfoDiv");
+            var contentLink = jQuery("#platformInfoPoweredBy");
+            var contentVersion = jQuery("#platformInfoVersion");
+            var htmlLink = contentLink.data("labelfooter") +" eXo Platform ";
+            var htmlVersion = "";
             var requestJsonPlatformInfo = jQuery.ajax({ type: "GET", url: "/portal/rest/platform/info", async: false, dataType: 'json' });
             if(requestJsonPlatformInfo.readyState == 4 && requestJsonPlatformInfo.status == 200){
                 //readyState 4: request finished and response is ready
                 //status 200: "OK"
                 var myresponseText = requestJsonPlatformInfo.responseText;
                 var jsonPlatformInfo = jQuery.parseJSON(myresponseText);
-                htmlContent += "v"
-                htmlContent += jsonPlatformInfo.platformVersion;
-                htmlContent += " - build "
-                htmlContent += jsonPlatformInfo.platformBuildNumber;
+                htmlVersion += "v";
+                htmlVersion += jsonPlatformInfo.platformVersion;
+                htmlVersion += " - build ";
+                htmlVersion += jsonPlatformInfo.platformBuildNumber;
             }else{
-                htmlContent += "4.0"
+                htmlVersion += "4.0";
             }
-            divContent.text(htmlContent);
+            contentLink.text(htmlLink);
+            contentVersion.text(htmlVersion);
         });
     </script>
   </head>
@@ -209,7 +211,10 @@
         </div>
       </div>
     	</div>
-    	<div id="platformInfoDiv" data-labelfooter="<%=res.getString("portal.login.Footer")%>" ></div>
+        <div id="loginFooter">
+            <a id="platformInfoPoweredBy" href="https://www.exoplatform.com/powered-by" target="_blank" data-labelfooter="<%=res.getString("portal.login.Footer")%>"></a>
+            <span id="platformInfoVersion"></span>
+        </div>
     </div>
     
   </body>
