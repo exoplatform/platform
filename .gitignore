@@ -41,3 +41,4 @@ release.properties
 *.swp
 transaction.log
 rebel.xml
+.factorypath

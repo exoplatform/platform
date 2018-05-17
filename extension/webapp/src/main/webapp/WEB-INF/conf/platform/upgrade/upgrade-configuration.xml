@@ -71,6 +71,16 @@
                <description>The plugin execution order</description>
                <value>2</value>
             </value-param>
+            <value-param>
+              <name>plugin.upgrade.execute.once</name>
+              <description>Execute this upgrade pluginonly once</description>
+              <value>true</value>
+            </value-param>
+            <value-param>
+              <name>plugin.upgrade.target.version</name>
+              <description>Target version of the plugin</description>
+              <value>4.3.1</value>
+            </value-param>
          </init-params>
       </component-plugin>
       <component-plugin>
@@ -89,23 +99,15 @@
                <description>The plugin execution order</description>
                <value>2</value>
             </value-param>
-         </init-params>
-      </component-plugin>
-      <component-plugin>
-         <name>Upgrade-PortalData</name>
-         <set-method>addUpgradePlugin</set-method>
-         <type>org.exoplatform.platform.upgrade.plugins.UpgradePortalDataPlugin</type>
-         <description>Navigations Upgrade Plugin</description>
-         <init-params>
             <value-param>
-               <name>product.group.id</name>
-               <description>The groupId of the product</description>
-               <value>org.exoplatform.platform</value>
+              <name>plugin.upgrade.execute.once</name>
+              <description>Execute this upgrade pluginonly once</description>
+              <value>true</value>
             </value-param>
             <value-param>
-               <name>plugin.execution.order</name>
-               <description>The plugin execution order</description>
-               <value>2</value>
+              <name>plugin.upgrade.target.version</name>
+              <description>Target version of the plugin</description>
+              <value>4.3.1</value>
             </value-param>
          </init-params>
       </component-plugin>
@@ -119,6 +121,16 @@
                <name>product.group.id</name>
                <description>The groupId of the product</description>
                <value>org.exoplatform.platform</value>
+            </value-param>
+            <value-param>
+              <name>plugin.upgrade.execute.once</name>
+              <description>Execute this upgrade pluginonly once</description>
+              <value>true</value>
+            </value-param>
+            <value-param>
+              <name>plugin.upgrade.target.version</name>
+              <description>Target version of the plugin</description>
+              <value>4.0.0</value>
             </value-param>
          </init-params>
       </component-plugin>
@@ -137,6 +149,11 @@
                <name>plugin.execution.order</name>
                <description>The plugin execution order</description>
                <value>1</value>
+            </value-param>
+            <value-param>
+              <name>plugin.upgrade.target.version</name>
+              <description>Target version of the plugin</description>
+              <value>4.4.0</value>
             </value-param>
             <object-param>
                <name>IDE</name>
@@ -266,6 +283,16 @@
                <description>The plugin execution order</description>
                <value>2</value>
             </value-param>
+            <value-param>
+              <name>plugin.upgrade.execute.once</name>
+              <description>Execute this upgrade pluginonly once</description>
+              <value>true</value>
+            </value-param>
+            <value-param>
+              <name>plugin.upgrade.target.version</name>
+              <description>Target version of the plugin</description>
+              <value>4.0.0</value>
+            </value-param>
          </init-params>
       </component-plugin>
       <component-plugin profiles="all">
@@ -293,6 +320,16 @@
                <name>group.site.template.location</name>
                <description>Location of group site template</description>
                <value>war:/conf/office-extension/portal</value>
+            </value-param>
+            <value-param>
+              <name>plugin.upgrade.execute.once</name>
+              <description>Execute this upgrade pluginonly once</description>
+              <value>true</value>
+            </value-param>
+            <value-param>
+              <name>plugin.upgrade.target.version</name>
+              <description>Target version of the plugin</description>
+              <value>4.0.0</value>
             </value-param>
          </init-params>
       </component-plugin>
@@ -322,6 +359,16 @@
                <description>Location of group site template</description>
                <value>war:/conf/office-extension/portal</value>
             </value-param>
+            <value-param>
+              <name>plugin.upgrade.execute.once</name>
+              <description>Execute this upgrade pluginonly once</description>
+              <value>true</value>
+            </value-param>
+            <value-param>
+              <name>plugin.upgrade.target.version</name>
+              <description>Target version of the plugin</description>
+              <value>4.0.0</value>
+            </value-param>
          </init-params>
       </component-plugin>
       <component-plugin>
@@ -340,6 +387,16 @@
 	          <description>The plugin execution order</description>
 	          <value>2</value>
 	        </value-param>
+            <value-param>
+              <name>plugin.upgrade.execute.once</name>
+              <description>Execute this upgrade pluginonly once</description>
+              <value>true</value>
+            </value-param>
+            <value-param>
+              <name>plugin.upgrade.target.version</name>
+              <description>Target version of the plugin</description>
+              <value>4.1.0</value>
+            </value-param>
 	      </init-params>
       </component-plugin>
       
@@ -399,6 +456,16 @@
             <description>The plugin execution order</description>
             <value>2</value>
           </value-param>
+            <value-param>
+              <name>plugin.upgrade.execute.once</name>
+              <description>Execute this upgrade pluginonly once</description>
+              <value>true</value>
+            </value-param>
+            <value-param>
+              <name>plugin.upgrade.target.version</name>
+              <description>Target version of the plugin</description>
+              <value>4.2.0</value>
+            </value-param>
         </init-params>
       </component-plugin> 
       
@@ -418,6 +485,16 @@
             <description>The plugin execution order</description>
             <value>2</value>
           </value-param>
+            <value-param>
+              <name>plugin.upgrade.execute.once</name>
+              <description>Execute this upgrade pluginonly once</description>
+              <value>true</value>
+            </value-param>
+            <value-param>
+              <name>plugin.upgrade.target.version</name>
+              <description>Target version of the plugin</description>
+              <value>4.0.1</value>
+            </value-param>
         </init-params>
       </component-plugin>      
 
@@ -436,6 +513,16 @@
             <name>plugin.execution.order</name>
             <description>The plugin execution order</description>
             <value>2</value>
+          </value-param>
+          <value-param>
+            <name>plugin.upgrade.execute.once</name>
+            <description>Execute this upgrade pluginonly once</description>
+            <value>true</value>
+          </value-param>
+          <value-param>
+            <name>plugin.upgrade.target.version</name>
+            <description>Target version of the plugin</description>
+            <value>4.1.0</value>
           </value-param>
         </init-params>
       </component-plugin>      
@@ -456,6 +543,16 @@
 	          <description>The plugin execution order</description>
 	          <value>2</value>
 	        </value-param>
+            <value-param>
+              <name>plugin.upgrade.execute.once</name>
+              <description>Execute this upgrade pluginonly once</description>
+              <value>true</value>
+            </value-param>
+            <value-param>
+              <name>plugin.upgrade.target.version</name>
+              <description>Target version of the plugin</description>
+              <value>4.3.0</value>
+            </value-param>
 	      </init-params>
 	    </component-plugin>
       <component-plugin profiles="all">
@@ -474,6 +571,16 @@
 	          <description>The plugin execution order</description>
 	          <value>2</value>
 	        </value-param>
+            <value-param>
+              <name>plugin.upgrade.execute.once</name>
+              <description>Execute this upgrade pluginonly once</description>
+              <value>true</value>
+            </value-param>
+            <value-param>
+              <name>plugin.upgrade.target.version</name>
+              <description>Target version of the plugin</description>
+              <value>4.2.0</value>
+            </value-param>
 	      </init-params>
 	    </component-plugin>
    </external-component-plugins>

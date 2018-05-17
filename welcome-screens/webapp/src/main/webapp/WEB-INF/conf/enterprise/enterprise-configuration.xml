@@ -33,6 +33,16 @@
                     <description>The plugin execution order</description>
                     <value>1</value>
                 </value-param>
+                <value-param>
+                  <name>plugin.upgrade.execute.once</name>
+                  <description>Execute this upgrade pluginonly once</description>
+                  <value>true</value>
+                </value-param>
+                <value-param>
+                  <name>plugin.upgrade.target.version</name>
+                  <description>Target version of the plugin</description>
+                  <value>5.0.0</value>
+                </value-param>
             </init-params>
         </component-plugin>
     </external-component-plugins>
