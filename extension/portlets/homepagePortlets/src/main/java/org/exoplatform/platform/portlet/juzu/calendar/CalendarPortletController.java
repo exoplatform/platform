@@ -229,7 +229,7 @@ public class CalendarPortletController {
                             calendar = calendarService_.getGroupCalendar(event.getCalendarId());
                         }
                         if(calendar.getGroups()==null) {
-                            if (calendar.getId().equals(Utils.getDefaultCalendarId(username)) && calendar.getName().equals(NewUserListener.defaultCalendarName)) {
+                            if (calendar.getId().equals(Utils.getDefaultCalendarId(username)) && calendar.getName().equals(calendarService_.getDefaultCalendarName())) {
                                 calendar.setName(defaultCalendarLabel);
                             }
                         }
@@ -267,7 +267,7 @@ public class CalendarPortletController {
         while (itr1.hasNext()) {
             org.exoplatform.calendar.service.Calendar c = (org.exoplatform.calendar.service.Calendar) itr1.next();
             if(c.getGroups()==null) {
-                if (c.getId().equals(Utils.getDefaultCalendarId(username)) && c.getName().equals(NewUserListener.defaultCalendarName)) {
+                if (c.getId().equals(Utils.getDefaultCalendarId(username)) && c.getName().equals(calendarService_.getDefaultCalendarName())) {
                     c.setName(defaultCalendarLabel);
                 }
             }
