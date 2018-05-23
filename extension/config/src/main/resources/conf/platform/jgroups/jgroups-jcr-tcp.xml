@@ -33,7 +33,7 @@
       According to the JGroups XSD3.0.x, the property start_port is no longer supported, it's deprecated by bind_port
   -->
   <TCP
-      singleton_name="${exo.jcr.cluster.jgroups.tcp.singleton_name:exo-transport-tcp}"
+      singleton_name="${exo.jcr.cluster.jgroups.tcp.singleton_name:jcr-transport-tcp}"
       bind_port="${exo.jcr.cluster.jgroups.tcp.bind_port:7800}"
       bind_addr="${exo.jcr.cluster.jgroups.tcp.bind_addr:127.0.0.1}"
       recv_buf_size="${exo.jcr.cluster.jgroups.tcp.recv_buf_size:20M}"

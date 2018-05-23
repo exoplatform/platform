@@ -40,7 +40,7 @@
   <cache-container name="indexer"  default-cache="default" expiration-executor="infinispan-expiration"  listener-executor="infinispan-listener"
                    statistics="true">
     <jmx duplicate-domains="true" domain="jcr.ispn.cache" mbean-server-lookup="org.infinispan.jmx.PlatformMBeanServerLookup"/>
-    <transport cluster="${exo.cluster.partition.name}-jcr-indexer" stack="stack" lock-timeout="240000"/>
+    <transport cluster="${exo.cluster.partition.name}-jcr-indexer" node-name="${exo.cluster.node.name}"  stack="stack" lock-timeout="240000"/>
     <replicated-cache-configuration mode="SYNC" name="default" statistics="true" >
       <eviction strategy="NONE"/>
       <transaction mode="NON_XA" transaction-manager-lookup="org.exoplatform.services.transaction.infinispan.JBossStandaloneJTAManagerLookup"/>

@@ -23,6 +23,7 @@
         <property name="exo.jcr.cluster.jgroups.config" value="jar:/conf/platform/jgroups/jgroups-jcr-udp.xml" />
         <property name="exo.jcr.cluster.jgroups.config-url" value="jar:/conf/platform/jgroups/jgroups-jcr-udp.xml" />
         <property name="exo.idm.cluster.jgroups.config" value="conf/platform/jgroups/jgroups-idm-udp.xml" />
+        <property name="exo.service.cluster.jgroups.config" value="jar:/conf/platform/jgroups/jgroups-service-udp.xml" />
       </properties-param>
       <properties-param profiles="cluster-jgroups-tcp">
         <name>JGroupsProperties</name>
@@ -30,6 +31,7 @@
         <property name="exo.jcr.cluster.jgroups.config" value="jar:/conf/platform/jgroups/jgroups-jcr-tcp.xml" />
         <property name="exo.jcr.cluster.jgroups.config-url" value="jar:/conf/platform/jgroups/jgroups-jcr-tcp.xml" />
         <property name="exo.idm.cluster.jgroups.config" value="conf/platform/jgroups/jgroups-idm-tcp.xml" />
+        <property name="exo.service.cluster.jgroups.config" value="conf/platform/jgroups/jgroups-service-tcp.xml" />
       </properties-param>
       <properties-param>
         <name>CacheManagementProperties</name>

@@ -43,14 +43,14 @@
     </threads>
 
     <jgroups transport="org.infinispan.remoting.transport.jgroups.JGroupsTransport">
-        <stack-file name="stack" path="${exo.jcr.cluster.jgroups.config}"/>
+        <stack-file name="stack" path="${exo.service.cluster.jgroups.config}"/>
     </jgroups>
 
     <cache-container name="template-async" default-cache="default"  statistics="true"  async-executor="infinispan-async"
                      expiration-executor="infinispan-expiration" listener-executor="infinispan-listener"
                      replication-queue-executor="infinispan-repl-queue">
         <jmx duplicate-domains="true" domain="services.ispn.async.cache" mbean-server-lookup="org.infinispan.jmx.PlatformMBeanServerLookup"/>
-        <transport cluster="${exo.cluster.partition.name}-async-services" stack="stack"
+        <transport cluster="${exo.cluster.partition.name}-async-services" node-name="${exo.cluster.node.name}"  stack="stack"
                    executor="infinispan-transport" total-order-executor="infinispan-cached" remote-command-executor="infinispan-cached" />
         <replicated-cache-configuration  mode="ASYNC" name="default" statistics="true">
             <locking isolation="READ_COMMITTED" concurrency-level="500" striping="false" write-skew="false"/>

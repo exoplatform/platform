@@ -36,7 +36,7 @@
   <cache-container name="lock-manager"  default-cache="default"  listener-executor="infinispan-listener"
                    statistics="true">
     <jmx duplicate-domains="true" domain="jcr.ispn.cache" mbean-server-lookup="org.infinispan.jmx.PlatformMBeanServerLookup"/>
-    <transport cluster="${exo.cluster.partition.name}-jcr-lock" stack="stack" lock-timeout="240000"/>
+    <transport cluster="${exo.cluster.partition.name}-jcr-lock" stack="stack" node-name="${exo.cluster.node.name}"  lock-timeout="240000"/>
     <replicated-cache-configuration mode="SYNC" name="default" statistics="true" remote-timeout="${exo.jcr.cluster.lock.sync.repltimeout:240000}">
       <locking isolation="READ_COMMITTED" concurrency-level="500" striping="false" write-skew="false" acquire-timeout="${exo.jcr.lock.lockacquisitiontimeout:180000}"/>
       <transaction transaction-manager-lookup="org.exoplatform.services.transaction.infinispan.JBossStandaloneJTAManagerLookup" mode="NON_XA"/>

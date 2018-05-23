@@ -346,112 +346,62 @@
       <description>add Exo Cache Config</description>
       <init-params>
         <object-param>
-          <name>cache.config.UserImpl</name>
-          <description>Exo Cache configuration for IDM User entity</description>
-          <object type="org.exoplatform.services.cache.ExoCacheConfig">
-            <field name="name"><string>portal.User</string></field>
-            <field name="maxSize"><int>${gatein.cache.idm.user.maxsize:5000}</int></field>
-            <field name="liveTime"><long>${gatein.cache.idm.user.livetime:3600}</long></field>
-            <field name="implementation"><string>org.exoplatform.services.cache.concurrent.ConcurrentFIFOExoCache</string></field>
-          </object>
-        </object-param>
-        <object-param profiles="cluster">
-          <name>cache.config.UserImpl</name>
+          <name>portal.User</name>
           <description>Exo Cache cluster configuration for IDM User entity</description>
           <object type="org.exoplatform.services.cache.impl.infinispan.generic.GenericExoCacheConfig">
             <field name="name"><string>portal.User</string></field>
-            <field name="strategy"><string>LIRS</string></field>
-            <field name="maxEntries"><int>${gatein.cache.idm.user.maxnodes:5000}</int></field>
-            <field name="lifespan"><long>${gatein.cache.idm.user.expiration:3600000}</long></field>
-            <field name="cacheMode"><string>${exo.cache.portal.user.cacheMode:replication}</string></field>
+            <field name="strategy"  profiles="cluster"><string>${exo.cache.portal.user.strategy:LIRS}</string></field>
+            <field name="maxSize"><int>${exo.cache.portal.user.MaxNodes:5000}</int></field>
+            <field name="liveTime"><long>${exo.cache.portal.user.TimeToLive:3600}</long></field>
+            <field name="cacheMode"  profiles="cluster"><string>${exo.cache.portal.user.cacheMode:replication}</string></field>
           </object>
         </object-param>
         
         <object-param>
-          <name>cache.config.UserProfileImpl</name>
-          <description>Exo Cache configuration for IDM User Profile entity</description>
-          <object type="org.exoplatform.services.cache.ExoCacheConfig">
-            <field name="name"><string>portal.Profile</string></field>
-            <field name="maxSize"><int>${gatein.cache.idm.profile.maxsize:5000}</int></field>
-            <field name="liveTime"><long>${gatein.cache.idm.profile.livetime:3600}</long></field>
-            <field name="implementation"><string>org.exoplatform.services.cache.concurrent.ConcurrentFIFOExoCache</string></field>
-          </object>
-        </object-param>
-        <object-param profiles="cluster">
-          <name>cache.config.UserProfileImpl</name>
+          <name>portal.Profile</name>
           <description>Exo Cache cluster configuration for IDM User Profile entity</description>
           <object type="org.exoplatform.services.cache.impl.infinispan.generic.GenericExoCacheConfig">
             <field name="name"><string>portal.Profile</string></field>
-            <field name="strategy"><string>LIRS</string></field>
-            <field name="maxEntries"><int>${gatein.cache.idm.profile.maxnodes:5000}</int></field>
-            <field name="lifespan"><long>${gatein.cache.idm.profile.expiration:3600000}</long></field>
-            <field name="cacheMode"><string>${exo.cache.portal.profile.cacheMode:replication}</string></field>
+            <field name="strategy"  profiles="cluster"><string>${exo.cache.portal.profile.strategy:LIRS}</string></field>
+            <field name="maxSize"><int>${exo.cache.portal.profile.MaxNodes:5000}</int></field>
+            <field name="liveTime"><long>${exo.cache.portal.profile.TimeToLive:3600}</long></field>
+            <field name="cacheMode"  profiles="cluster"><string>${exo.cache.portal.profile.cacheMode:replication}</string></field>
           </object>
         </object-param>
         
         <object-param>
-          <name>cache.config.MembershipImpl</name>
-          <description>Exo Cache configuration for IDM Membership entity</description>
-          <object type="org.exoplatform.services.cache.ExoCacheConfig">
-            <field name="name"><string>portal.Membership</string></field>
-            <field name="maxSize"><int>${gatein.cache.idm.membership.maxsize:5000}</int></field>
-            <field name="liveTime"><long>${gatein.cache.idm.membership.livetime:3600}</long></field>
-            <field name="implementation"><string>org.exoplatform.services.cache.concurrent.ConcurrentFIFOExoCache</string></field>
-          </object>
-        </object-param>
-        <object-param profiles="cluster">
-          <name>cache.config.MembershipImpl</name>
+          <name>portal.Membership</name>
           <description>Exo Cache cluster configuration for IDM Membership entity</description>
           <object type="org.exoplatform.services.cache.impl.infinispan.generic.GenericExoCacheConfig">
             <field name="name"><string>portal.Membership</string></field>
-            <field name="strategy"><string>LIRS</string></field>
-            <field name="maxEntries"><int>${gatein.cache.idm.membership.maxnodes:5000}</int></field>
-            <field name="lifespan"><long>${gatein.cache.idm.membership.expiration:3600000}</long></field>
-            <field name="cacheMode"><string>${exo.cache.portal.membership.cacheMode:replication}</string></field>
+            <field name="strategy"  profiles="cluster"><string>${exo.cache.portal.membership:LIRS}</string></field>
+            <field name="maxSize"><int>${exo.cache.portal.membership.MaxNodes:5000}</int></field>
+            <field name="liveTime"><long>${exo.cache.portal.membership.TimeToLive:86400}</long></field>
+            <field name="cacheMode"  profiles="cluster"><string>${exo.cache.portal.membership.cacheMode:replication}</string></field>
           </object>
         </object-param>
         
         <object-param>
-          <name>cache.config.MembershipTypeImpl</name>
-          <description>Exo Cache configuration for IDM Membership Type entity</description>
-          <object type="org.exoplatform.services.cache.ExoCacheConfig">
-            <field name="name"><string>portal.Role</string></field>
-            <field name="maxSize"><int>${gatein.cache.idm.role.maxsize:5000}</int></field>
-            <field name="liveTime"><long>${gatein.cache.idm.role.livetime:3600}</long></field>
-            <field name="implementation"><string>org.exoplatform.services.cache.concurrent.ConcurrentFIFOExoCache</string></field>
-          </object>
-        </object-param>
-        <object-param profiles="cluster">
-          <name>cache.config.MembershipTypeImpl</name>
+          <name>portal.Role</name>
           <description>Exo Cache cluster configuration for IDM Membership Type entity</description>
           <object type="org.exoplatform.services.cache.impl.infinispan.generic.GenericExoCacheConfig">
             <field name="name"><string>portal.Role</string></field>
-            <field name="strategy"><string>LIRS</string></field>
-            <field name="maxEntries"><int>${gatein.cache.idm.role.maxnodes:5000}</int></field>
-            <field name="lifespan"><long>${gatein.cache.idm.role.expiration:3600000}</long></field>
-            <field name="cacheMode"><string>${exo.cache.portal.role.cacheMode:replication}</string></field>
+            <field name="strategy"  profiles="cluster"><string>${exo.cache.portal.role.strategy:LIRS}</string></field>
+            <field name="maxSize"><int>${exo.cache.portal.role.MaxNodes:5000}</int></field>
+            <field name="liveTime"><long>${exo.cache.portal.role.TimeToLive:3600}</long></field>
+            <field name="cacheMode"  profiles="cluster"><string>${exo.cache.portal.role.cacheMode:replication}</string></field>
           </object>
         </object-param>
         
         <object-param>
-          <name>cache.config.GroupImpl</name>
-          <description>Exo Cache configuration for IDM Group entity</description>
-          <object type="org.exoplatform.services.cache.ExoCacheConfig">
-            <field name="name"><string>portal.Group</string></field>
-            <field name="maxSize"><int>${gatein.cache.idm.group.maxsize:5000}</int></field>
-            <field name="liveTime"><long>${gatein.cache.idm.group.livetime:-1}</long></field>
-            <field name="implementation"><string>org.exoplatform.services.cache.concurrent.ConcurrentFIFOExoCache</string></field>
-          </object>
-        </object-param>
-        <object-param profiles="cluster">
-          <name>cache.config.GroupImpl</name>
+          <name>portal.Group</name>
           <description>Exo Cache cluster configuration for IDM Group entity</description>
           <object type="org.exoplatform.services.cache.impl.infinispan.generic.GenericExoCacheConfig">
             <field name="name"><string>portal.Group</string></field>
-            <field name="strategy"><string>LIRS</string></field>
-            <field name="maxEntries"><int>${gatein.cache.idm.group.maxnodes:5000}</int></field>
-            <field name="lifespan"><long>${gatein.cache.idm.group.expiration:-1}</long></field>
-            <field name="cacheMode"><string>${exo.cache.portal.group.cacheMode:replication}</string></field>
+            <field name="strategy"  profiles="cluster"><string>${exo.cache.portal.group.strategy:LIRS}</string></field>
+            <field name="maxSize"><int>${exo.cache.portal.group.MaxNodes:100}</int></field>
+            <field name="liveTime"><long>${exo.cache.portal.group.TimeToLive:-1}</long></field>
+            <field name="cacheMode"  profiles="cluster"><string>${exo.cache.portal.group.cacheMode:replication}</string></field>
           </object>
         </object-param>
       </init-params>

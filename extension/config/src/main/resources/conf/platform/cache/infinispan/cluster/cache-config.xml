@@ -36,13 +36,13 @@
   </threads>
 
   <jgroups transport="org.infinispan.remoting.transport.jgroups.JGroupsTransport">
-    <stack-file name="stack" path="${exo.jcr.cluster.jgroups.config}"/>
+    <stack-file name="stack" path="${exo.service.cluster.jgroups.config}"/>
   </jgroups>
 
   <cache-container name="template" default-cache="default" async-executor="infinispan-async" expiration-executor="infinispan-expiration"   listener-executor="infinispan-listener"
                    statistics="true">
     <jmx duplicate-domains="true" domain="services.ispn.cache" mbean-server-lookup="org.infinispan.jmx.PlatformMBeanServerLookup"/>
-    <transport cluster="${exo.cluster.partition.name}-services" stack="stack"/>
+    <transport cluster="${exo.cluster.partition.name}-services" node-name="${exo.cluster.node.name}"  stack="stack"/>
     <replicated-cache-configuration  mode="SYNC" name="default" statistics="true" remote-timeout="240000">
       <locking isolation="READ_COMMITTED" concurrency-level="500" striping="false" write-skew="false" acquire-timeout="${exo.cache.lockacquisitiontimeout:180000}"/>
       <transaction locking="PESSIMISTIC" mode="NON_XA" transaction-manager-lookup="org.exoplatform.services.transaction.infinispan.JBossStandaloneJTAManagerLookup" />
