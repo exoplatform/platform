@@ -1,6 +1,8 @@
 (function($) {
     var UISpaceNavigation = {
-        lastSearchKeyword : '',
+		lastSearchKeyword : '',
+        completeHTMLForEmptyField : null,
+        moreSpaceVisible : false,
         init : function(uicomponentId, mySpaceRestUrl, noSpace, selectSpaceAction) {
             var me = this;
             me.mySpaceRestUrl = mySpaceRestUrl;
@@ -10,6 +12,8 @@
             textField.on('keyup', function() {
                 me.onTextSearchChange(uicomponentId);
             });
+        	me.completeHTMLForEmptyField = $('#' + uicomponentId).find('ul.spaceNavigation').html();
+        	me.moreSpaceVisible = $('#' + uicomponentId).find(".moreSpace").is(":visible");
         },
         requestData : function(keyword, uicomponentId) {
             var me = this;
@@ -37,7 +41,7 @@
                 var name = spaces[i].displayName;
                 var imageUrl=spaces[i].avatarUrl;
                 if (imageUrl == null) {
-                    imageUrl = "/eXoSkin/skin/images/themes/default/social/skin/ShareImages/SpaceAvtDefault.png";
+                    imageUrl = "/eXoSkin/skin/images/system/SpaceAvtDefault.png";
                 }
                 var spaceDiv = "<li class='spaceItem'>"+"<a class='spaceIcon avatarMini'"
                     + "' href='" + spaceUrl + "' title='" + name + "'><img src='"+imageUrl+"'/>"
@@ -55,11 +59,19 @@
             clearTimeout(me.timeout);
             me.timeout = setTimeout(function(){
                 var textSearch = $('#' + uicomponentId).find("input.searchText").val();
-                
                 if (textSearch != me.lastSearchKeyword) {
                     me.lastSearchKeyword = textSearch;
-                    me.requestData(textSearch, uicomponentId);
-                    $('#' + uicomponentId).find(".moreSpace").hide();
+	                if (!textSearch || !textSearch.trim().length) {
+	                	$('#' + uicomponentId).find('ul.spaceNavigation').html(me.completeHTMLForEmptyField);
+	                	if (me.moreSpaceVisible) {
+	                		$('#' + uicomponentId).find(".moreSpace").show();
+	                	} else {
+	                		$('#' + uicomponentId).find(".moreSpace").hide();
+	                	}
+	                } else {
+	                    me.requestData(textSearch, uicomponentId);
+	                    $('#' + uicomponentId).find(".moreSpace").hide();
+	                }
                 }
             }, 300);
         },

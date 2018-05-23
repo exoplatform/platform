@@ -52,8 +52,6 @@ public class SpaceRestServiceImpl implements ResourceContainer {
     private final CacheControl cacheControl;
     private static final int MAX_LOADED_SPACES_BY_REQUEST = 20;
 
-    ListAccess<Space> listAccess;
-
     public SpaceRestServiceImpl(SpaceService spaceService) {
         this.spaceService = spaceService;
         cacheControl = new CacheControl();
@@ -65,7 +63,6 @@ public class SpaceRestServiceImpl implements ResourceContainer {
     @GET
     @Path("/user/searchSpace/")
     public Response searchSpaces(@QueryParam("keyword") String keyword, @QueryParam("fields") String fields, @Context SecurityContext sc) {
-        StringBuffer baseSpaceURL = null;
         List<Space> spaces = new ArrayList<Space>();
         try {
 
@@ -74,13 +71,14 @@ public class SpaceRestServiceImpl implements ResourceContainer {
             if (userId == null) {
                 return Response.status(500).cacheControl(cacheControl).build();
             }
+            ListAccess<Space> listAccess = null;
             if ((keyword == null) || (keyword.equals(""))) {
                 listAccess = spaceService.getMemberSpacesByFilter(userId, null);
             } else {
                 listAccess = spaceService.getMemberSpacesByFilter(userId, new SpaceFilter(keyword));
             }
             //--- List of searchedSpaces
-            List<Space> spacesSearched = Arrays.asList(listAccess.load(0, MAX_LOADED_SPACES_BY_REQUEST));
+            List<Space> spacesSearched = new ArrayList(Arrays.asList(listAccess.load(0, MAX_LOADED_SPACES_BY_REQUEST)));
             //--- List of spaces sorted by access/alphabet
             ListAccess<Space> allSpacesSorted = spaceService.getVisitedSpaces(userId, null);
             //--- Convert user spaces to List collection
@@ -89,31 +87,16 @@ public class SpaceRestServiceImpl implements ResourceContainer {
             List<Object> sortedSearchedSpaces = new ArrayList<Object>();
 
             for (Space space : spaces) {
-                baseSpaceURL = new StringBuffer();
-
-                baseSpaceURL.append(PortalContainer.getCurrentPortalContainerName()+ "/g/:spaces:") ;
-                String groupId = space.getGroupId();
-                String permanentSpaceName = groupId.split("/")[2];
-                if ((filterSpace(space.getId(), spacesSearched))) {
-                    if (permanentSpaceName.equals(space.getPrettyName())) {
-                        baseSpaceURL.append(permanentSpaceName) ;
-                        baseSpaceURL.append("/");
-                        baseSpaceURL.append(permanentSpaceName) ;
-                    } else {
-                        baseSpaceURL.append(space.getPrettyName()) ;
-                        baseSpaceURL.append("/");
-                        baseSpaceURL.append(space.getPrettyName()) ;
-                    }
-
-                    space.setUrl(baseSpaceURL.toString());
-
-                    sortedSearchedSpaces.add(extractObject(space, fields));
+                Space filteredSpace = filterSpace(space.getId(), spacesSearched);
+                if (filteredSpace != null) {
+                    spacesSearched.remove(filteredSpace);
+                    addSpaceWithFieldsToList(space, fields, sortedSearchedSpaces);
                 }
             }
-
-
+            for (Space space : spacesSearched) {
+                addSpaceWithFieldsToList(space, fields, sortedSearchedSpaces);
+            }
             return Response.ok(sortedSearchedSpaces, "application/json").cacheControl(cacheControl).build();
-
         } catch (Exception ex) {
             if (LOG.isWarnEnabled()) {
                 LOG.warn("An exception happens when searchSpaces", ex);
@@ -121,13 +104,34 @@ public class SpaceRestServiceImpl implements ResourceContainer {
         }
         return Response.status(500).cacheControl(cacheControl).build();
     }
-    private static boolean filterSpace(String spaceId, List<Space> spacesSearched) {
+
+    private void addSpaceWithFieldsToList(Space space, String fields, List<Object> sortedSearchedSpaces) {
+      String groupId = space.getGroupId();
+      String permanentSpaceName = groupId.split("/")[2];
+
+      StringBuffer baseSpaceURL = new StringBuffer();
+      baseSpaceURL.append(PortalContainer.getCurrentPortalContainerName()+ "/g/:spaces:") ;
+      if (permanentSpaceName.equals(space.getPrettyName())) {
+          baseSpaceURL.append(permanentSpaceName) ;
+          baseSpaceURL.append("/");
+          baseSpaceURL.append(permanentSpaceName) ;
+      } else {
+          baseSpaceURL.append(space.getPrettyName()) ;
+          baseSpaceURL.append("/");
+          baseSpaceURL.append(space.getPrettyName()) ;
+      }
+
+      space.setUrl(baseSpaceURL.toString());
+      sortedSearchedSpaces.add(extractObject(space, fields));
+    }
+
+    private static Space filterSpace(String spaceId, List<Space> spacesSearched) {
         for (Space space : spacesSearched) {
             if (space.getId().equalsIgnoreCase(spaceId)) {
-                return true;
+                return space;
             }
         }
-        return false;
+        return null;
     }
 
     private Object extractObject(Object from, String fields) {
