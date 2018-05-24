@@ -137,10 +137,16 @@
                         uri = EntityEncoder.FULL.encode(uri);
                 %>
           		<input type="hidden" name="initialURI" value="<%=uri%>"/>
-                <% } %>	
-					
-				<input class="username" tabindex="1" id="username" name="username" type="text" placeholder="<%=res.getString("portal.login.Username")%>" onblur="this.placeholder = '<%=res.getString("portal.login.Username.blur")%>'" onfocus="this.placeholder = ''"/>
-				<input class="password" tabindex="2" id="UIPortalLoginFormControl" type="password" id="password" name="password" placeholder="<%=res.getString("portal.login.Password")%>" onblur="this.placeholder = '<%=res.getString("portal.login.Password")%>'" onfocus="this.placeholder = ''"/>
+                <% } %>
+
+                <div class="userCredentials">
+                  <span class="iconUser"></span>
+                  <input  tabindex="1" id="username" name="username" type="text" placeholder="<%=res.getString("portal.login.Username")%>" onblur="this.placeholder = '<%=res.getString("portal.login.Username.blur")%>'" onfocus="this.placeholder = ''">
+                </div>
+                <div class="userCredentials">
+                  <span class="iconPswrd"></span>
+                  <input  tabindex="2"  type="password" id="password" name="password" placeholder="<%=res.getString("portal.login.Password")%>" onblur="this.placeholder = '<%=res.getString("portal.login.Password")%>'" onfocus="this.placeholder = ''">
+                </div>
                 <div class="spaceRole">
 					<input type="checkbox" tabindex="3" class="yesno" checked="checked" style="visibility: hidden;" id="rememberme" name="rememberme" value="true" data-yes="<%=res.getString("portal.login.Yes")%>" data-no="<%=res.getString("portal.login.No")%>"/>
 					<label class="rememberTxt" for="rememberme"><%=res.getString("portal.login.RememberOnComputer")%></label>
