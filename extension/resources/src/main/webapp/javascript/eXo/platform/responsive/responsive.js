@@ -303,15 +303,6 @@
 
       //end event touch on mobile
 
-     //change icon search in toolbar to icon close input search
-    $("#ToolBarSearch .uiIconPLF24x24Search").on('click', function(){
-      $(this).toggleClass('uiIconCloseSearchBox')
-             .parents('#ToolBarSearch').find('input[type="text"]').toggleClass("showInputSearch").removeClass('loadding').focus()
-             .parents('#ToolBarSearch').find('.uiQuickSearchResult').hide()
-             .parents('#PlatformAdminToolbarContainer').toggleClass('activeInputSearch')
-             .parents('body').toggleClass('quickSearchDisplay');
-    });
-
     //left accordion navigation
     $('#UISpaceNavigationPortlet').addClass('showAccordionBar');
     $('.LeftNavigationTDContainer').find('.navItemSelected, .active').parents('.accordionCont').parent().addClass('showAccordionBar').parents('.LeftNavigationTDContainer').find('#UISpaceNavigationPortlet').removeClass('showAccordionBar');
