@@ -26,6 +26,8 @@
   import org.exoplatform.services.wcm.utils.WCMCoreUtils;
   import org.exoplatform.wcm.webui.reader.ContentReader;
   import org.exoplatform.services.wcm.skin.WCMSkinVisitor;
+  import org.exoplatform.social.core.space.SpaceUtils;
+  import org.exoplatform.social.webui.Utils;
   
   def rcontext = _ctx.getRequestContext() ;
   String docBase =  rcontext.getRequestContextPath() ;  
@@ -196,6 +198,8 @@
      eXo.session.canKeepState = $canKeepState;
      eXo.session.isOpen = $isSessionOpen;
      eXo.session.itvTime = ${((PortalRequestContext)rcontext).getRequest().getSession().getMaxInactiveInterval()} ;
+     eXo.env.portal.spaceName = "<%=SpaceUtils.getSpaceByContext() == null ? "" : SpaceUtils.getSpaceByContext().getPrettyName()%>" ;
+     eXo.env.portal.profileOwner = "<%=Utils.getOwnerRemoteId()%>" ;
      </script>
      <%
     def headerElements = rcontext.getExtraMarkupHeadersAsStrings();
