@@ -1,0 +1,61 @@
+<%
+import org.exoplatform.social.webui.Utils;
+import org.exoplatform.social.core.relationship.model.Relationship.Type;
+
+def viewerIdentity = Utils.getViewerIdentity();// current login user
+def ownerIdentity = Utils.getOwnerIdentity();
+
+_ctx.getRequestContext().getJavascriptManager().require("SHARED/bts_modal");
+%>
+<div class="uiRelationshipAction" id="<%=uicomponent.getId();%>">
+  <div class="user-actions pull-right">
+<%
+  if (!ownerIdentity.equals(viewerIdentity)) {
+    def relationship = Utils.getRelationshipManager().get(viewerIdentity, ownerIdentity);
+    def status = (relationship != null) ? relationship.getStatus() : null;
+
+    if(status == null) {
+%>
+        <button type="button" class="btn btn-default" onclick="<%=uicomponent.event("Connect")%>">
+           <i class="uiIconSocConnectUser"></i>
+           <span><%=_ctx.appRes("UIRelationshipAction.label.Connect")%></span>
+        </button>
+<%
+    } else if(status == Type.PENDING) {//PENDING
+        if(relationship.getSender().equals(viewerIdentity)) {
+%>
+            <button type="button" class="btn" onclick="<%=uicomponent.event("Cancel")%>">
+              <i class="uiIconClose"></i>
+              <span><%=_ctx.appRes("UIRelationshipAction.action.CancelRequest")%></span>
+            </button>
+<%
+        } else {
+%>
+            <div class="btn-group btnStatusAnswer">
+                <button type="button" class="btn btn-default" onclick="<%=uicomponent.event("Accept")%>">
+                  <%=_ctx.appRes("UIRelationshipAction.action.AcceptRequest")%>
+                </button>
+                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                    <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu" role="menu">
+                  <li><a href="javascript: void(0)" onclick="<%=uicomponent.event("Deny")%>">
+                  <%=_ctx.appRes("UIRelationshipAction.action.Deny")%>
+                  </a></li>
+                </ul>
+            </div>
+            <div class="btn statusAnswer" data-toggle="modal" data-target="#popStatusAnswer">
+              <i class="uiIconClock"></i>
+              <div id="popStatusAnswer" class="popStatusAnswer modal" tabindex="-1" role="dialog">
+                <div onclick="<%=uicomponent.event("Accept")%>"><%=_ctx.appRes("UIRelationshipAction.action.AcceptRequest")%></div>
+                <hr/>
+                <div onclick="<%=uicomponent.event("Deny")%>"><%=_ctx.appRes("UIRelationshipAction.action.Deny")%></div>
+              </div>
+            </div>
+<%
+        }
+    }
+  }
+%>
+    </div>
+</div>
