@@ -106,6 +106,9 @@ public class UIUserNavigationPortlet extends UIPortletApplication {
         addChild(uiBanner);
         uiAvatarBanner = createUIComponent(UIBannerAvatarUploader.class, null, null);
         addChild(uiAvatarBanner);
+
+        UIRelationshipAction uiAction = createUIComponent(UIRelationshipAction.class, null, null);
+        addChild(uiAction);
     }
 
     @Override

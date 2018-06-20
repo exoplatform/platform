@@ -3,7 +3,19 @@
     MORE_LABEL : "",
     initNavigation : function(moreLabel) {
       UIUserNavigation.MORE_LABEL = moreLabel;
-      
+
+      var $popupStatus = $('.uiRelationshipAction .popStatusAnswer');
+      var $parent = $popupStatus.parent();
+      $popupStatus.on('show.bs.modal', function() {
+        $('body').append($popupStatus);
+      }).on('hide.bs.modal', function() {
+        $parent.append($popupStatus);
+      });
+      $popupStatus.find('div').click(function() {
+        $(this).parent().modal('hide');
+        return false;
+      });
+
       //
       function autoMoveApps(){
         var _w = $(window).outerWidth();
