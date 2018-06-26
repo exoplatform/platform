@@ -16,6 +16,7 @@
  */
 package org.exoplatform.platform.organization.integration;
 
+import org.exoplatform.commons.utils.CommonsUtils;
 import org.exoplatform.container.ExoContainer;
 import org.exoplatform.container.ExoContainerContext;
 import org.exoplatform.services.log.ExoLogger;
@@ -26,8 +27,10 @@ import org.exoplatform.services.scheduler.JobContext;
 /**
  * This is a scheduled job that invoke all OrganizationService listeners on Users and Groups.
  * 
+ * @deprecated OrganizationIntegrationService is replaced by External Store API
  * @author Boubaker KHANFIR
  */
+@Deprecated
 public class OrganizationIntegrationJob extends BaseJob {
   private static final Log LOG = ExoLogger.getLogger(OrganizationIntegrationJob.class);
   private OrganizationIntegrationService organizationIntegrationService;
@@ -38,6 +41,9 @@ public class OrganizationIntegrationJob extends BaseJob {
    * {@inheritDoc}
    */
   public void execute(JobContext context) throws Exception {
+    if (!getOrganizationIntegrationService().isEnabled()) {
+      return;
+    }
     LOG.info("Start all Organizational model synchronization.");
     getOrganizationIntegrationService().syncAll();
     LOG.info("Organizational model synchronization finished successfully.");
@@ -45,14 +51,7 @@ public class OrganizationIntegrationJob extends BaseJob {
 
   public OrganizationIntegrationService getOrganizationIntegrationService() {
     if (this.organizationIntegrationService == null) {
-      ExoContainer exoContainer = ExoContainerContext.getCurrentContainer();
-      this.organizationIntegrationService = (OrganizationIntegrationService) exoContainer
-          .getComponentInstanceOfType(OrganizationIntegrationService.class);
-      if (this.organizationIntegrationService == null) {
-        throw new IllegalStateException(
-            "Could not retrieve an instance of service 'OrganizationIntegrationService' from the selected container: "
-                + exoContainer);
-      }
+      organizationIntegrationService = CommonsUtils.getService(OrganizationIntegrationService.class);
     }
     return this.organizationIntegrationService;
   }

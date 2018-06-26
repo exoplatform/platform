@@ -42,6 +42,8 @@
   
   <import>war:/conf/platform/application-registry-configuration.xml</import>
 
+  <import>war:/conf/platform/idm-externalstore-configuration.xml</import>
+
   <!-- Redefine Authoring dashboard-->
   <import>war:/conf/authoring/authoring-configuration.xml</import>
 

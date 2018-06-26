@@ -32,6 +32,10 @@ import org.exoplatform.services.organization.Membership;
 import org.exoplatform.services.organization.impl.GroupImpl;
 import org.exoplatform.services.organization.impl.MembershipImpl;
 
+/**
+ * @deprecated OrganizationIntegrationService is replaced by External Store API
+ */
+@Deprecated
 public class Util {
 
   private static final Log LOG = ExoLogger.getLogger(Util.class);

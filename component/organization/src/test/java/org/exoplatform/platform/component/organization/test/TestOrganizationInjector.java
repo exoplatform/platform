@@ -2,23 +2,27 @@ package org.exoplatform.platform.component.organization.test;
 
 import java.io.File;
 
+import org.picocontainer.Startable;
+
+import org.exoplatform.component.test.*;
 import org.exoplatform.container.PortalContainer;
 import org.exoplatform.container.component.RequestLifeCycle;
 import org.exoplatform.platform.organization.injector.DataInjectorService;
 import org.exoplatform.platform.organization.injector.JMXDataInjector;
-import org.exoplatform.services.organization.Group;
-import org.exoplatform.services.organization.Membership;
-import org.exoplatform.services.organization.MembershipType;
-import org.exoplatform.services.organization.OrganizationService;
-import org.exoplatform.services.organization.User;
-import org.exoplatform.test.BasicTestCase;
-import org.picocontainer.Startable;
+import org.exoplatform.services.organization.*;
 
-public class TestOrganizationInjector extends BasicTestCase {
+@ConfiguredBy({ @ConfigurationUnit(scope = ContainerScope.PORTAL, path = "conf/portal/test-settings-configuration.xml"),
+  @ConfigurationUnit(scope = ContainerScope.PORTAL, path = "conf/portal/idm-queue-configuration.xml"),
+  @ConfigurationUnit(scope = ContainerScope.PORTAL, path = "conf/portal/test-configuration.xml") })
+public class TestOrganizationInjector extends AbstractKernelTest {
   PortalContainer container = null;
   OrganizationService organizationService = null;
   JMXDataInjector dataInjector = null;
   DataInjectorService dataInjectorService = null;
+
+  public TestOrganizationInjector() {
+    setForceContainerReload(true);
+  }
 
   @Override
   protected void setUp() throws Exception {

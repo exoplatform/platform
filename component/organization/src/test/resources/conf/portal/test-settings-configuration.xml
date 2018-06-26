@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!-- Copyright (C) 2009 eXo Platform SAS. This is free software; you can 
+	redistribute it and/or modify it under the terms of the GNU Lesser General 
+	Public License as published by the Free Software Foundation; either version 
+	2.1 of the License, or (at your option) any later version. This software 
+	is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; 
+	without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR 
+	PURPOSE. See the GNU Lesser General Public License for more details. You 
+	should have received a copy of the GNU Lesser General Public License along 
+	with this software; if not, write to the Free Software Foundation, Inc., 
+	51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA, or see the FSF site: 
+	http://www.fsf.org. -->
+<configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.exoplatform.org/xml/ns/kernel_1_2.xsd http://www.exoplatform.org/xml/ns/kernel_1_2.xsd"
+	xmlns="http://www.exoplatform.org/xml/ns/kernel_1_2.xsd">
+
+	<component>
+		<key>org.exoplatform.services.cache.CacheService</key>
+		<jmx-name>cache:type=CacheService</jmx-name>
+		<type>org.exoplatform.services.cache.impl.CacheServiceImpl</type>
+		<init-params>
+			<object-param>
+				<name>cache.config.default</name>
+				<object type="org.exoplatform.services.cache.ExoCacheConfig">
+					<field name="name">
+						<string>default</string>
+					</field>
+					<field name="maxSize">
+						<int>30000</int>
+					</field>
+					<field name="liveTime">
+						<long>60000</long>
+					</field>
+					<field name="distributed">
+						<boolean>false</boolean>
+					</field>
+					<field name="implementation">
+						<string>org.exoplatform.services.cache.concurrent.ConcurrentFIFOExoCache</string>
+					</field>
+				</object>
+			</object-param>
+		</init-params>
+	</component>
+
+	<component>
+		<key>org.exoplatform.services.naming.InitialContextInitializer</key>
+		<type>org.exoplatform.services.naming.InitialContextInitializer</type>
+		<init-params>
+			<properties-param>
+				<name>default-properties</name>
+				<description>Default initial context properties</description>
+				<property name="java.naming.factory.initial"
+					value="org.exoplatform.services.naming.SimpleContextFactory" />
+			</properties-param>
+		</init-params>
+	</component>
+
+	<component>
+		<type>org.exoplatform.commons.persistence.impl.EntityManagerService</type>
+	</component>
+
+	<component>
+		<type>org.exoplatform.settings.jpa.dao.SettingContextDAO</type>
+	</component>
+	<component>
+		<type>org.exoplatform.settings.jpa.dao.SettingScopeDAO</type>
+	</component>
+	<component>
+		<type>org.exoplatform.settings.jpa.dao.SettingsDAO</type>
+	</component>
+
+	<component>
+		<key>org.exoplatform.commons.api.event.EventManager</key>
+		<type>org.exoplatform.commons.event.impl.EventManagerImpl</type>
+	</component>
+
+	<component>
+		<key>org.exoplatform.commons.api.settings.SettingService</key>
+		<type>org.exoplatform.settings.cache.CacheSettingServiceImpl</type>
+	</component>
+
+	<component>
+		<type>org.exoplatform.settings.jpa.JPASettingServiceImpl</type>
+	</component>
+
+	<component>
+		<key>org.exoplatform.commons.api.persistence.DataInitializer</key>
+		<type>org.exoplatform.commons.persistence.impl.LiquibaseDataInitializer</type>
+		<init-params>
+			<value-param>
+				<name>liquibase.datasource</name>
+				<value>${exo.jpa.datasource.name:java:/comp/env/exo-jpa_portal}</value>
+			</value-param>
+			<value-param>
+				<name>liquibase.contexts</name>
+				<value>${exo.liquibase.contexts:production}</value>
+			</value-param>
+		</init-params>
+	</component>
+
+	<!-- Bind datasource -->
+	<external-component-plugins>
+		<target-component>org.exoplatform.services.naming.InitialContextInitializer</target-component>
+		<component-plugin>
+			<name>bind.datasource</name>
+			<set-method>addPlugin</set-method>
+			<type>org.exoplatform.services.naming.BindReferencePlugin</type>
+			<init-params>
+				<value-param>
+					<name>bind-name</name>
+					<value>java:/comp/env/exo-jpa_portal</value>
+				</value-param>
+				<value-param>
+					<name>class-name</name>
+					<value>javax.sql.DataSource</value>
+				</value-param>
+				<value-param>
+					<name>factory</name>
+					<value>org.apache.commons.dbcp.BasicDataSourceFactory</value>
+				</value-param>
+				<properties-param>
+					<name>ref-addresses</name>
+					<description>ref-addresses</description>
+					<property name="driverClassName" value="org.hsqldb.jdbcDriver" />
+					<property name="url" value="jdbc:hsqldb:mem:db1" />
+					<property name="username" value="sa" />
+					<property name="password" value="" />
+				</properties-param>
+			</init-params>
+		</component-plugin>
+	</external-component-plugins>
+</configuration>

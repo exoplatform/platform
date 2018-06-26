@@ -18,6 +18,9 @@ package org.exoplatform.platform.organization.integration;
 
 import javax.jcr.Session;
 
+import org.exoplatform.commons.utils.CommonsUtils;
+import org.exoplatform.container.ExoContainer;
+import org.exoplatform.container.ExoContainerContext;
 import org.exoplatform.services.jcr.RepositoryService;
 import org.exoplatform.services.organization.Group;
 import org.exoplatform.services.organization.GroupEventListener;
@@ -27,11 +30,15 @@ import org.exoplatform.services.organization.GroupEventListener;
  * to ensure that OrganizationServiceIntegration don't apply Organization
  * Model Data listeners twice.
  * 
+ * @deprecated OrganizationIntegrationService is replaced by External Store API
  * @author Boubaker KHANFIR
  */
+@Deprecated
 public class NewGroupListener extends GroupEventListener {
 
   private RepositoryService repositoryService;
+
+  private OrganizationIntegrationService organizationIntegrationService;
 
   public NewGroupListener(RepositoryService repositoryService) throws Exception {
     this.repositoryService = repositoryService;
@@ -41,6 +48,9 @@ public class NewGroupListener extends GroupEventListener {
    * {@inheritDoc}
    */
   public void postSave(Group group, boolean isNew) throws Exception {
+    if (!getOrganizationIntegrationService().isEnabled()) {
+      return;
+    }
     if (!isNew) {
       return;
     }
@@ -61,6 +71,9 @@ public class NewGroupListener extends GroupEventListener {
    * {@inheritDoc}
    */
   public void postDelete(Group group) throws Exception {
+    if (!getOrganizationIntegrationService().isEnabled()) {
+      return;
+    }
     Session session = null;
     try {
       session = repositoryService.getCurrentRepository().getSystemSession(Util.WORKSPACE);
@@ -72,5 +85,12 @@ public class NewGroupListener extends GroupEventListener {
         session.logout();
       }
     }
+  }
+
+  public OrganizationIntegrationService getOrganizationIntegrationService() {
+    if (this.organizationIntegrationService == null) {
+      organizationIntegrationService = CommonsUtils.getService(OrganizationIntegrationService.class);
+    }
+    return this.organizationIntegrationService;
   }
 }

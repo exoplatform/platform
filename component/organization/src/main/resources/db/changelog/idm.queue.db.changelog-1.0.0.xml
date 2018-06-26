@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.3.xsd">
+
+  <!-- Managing both DB that use sequences and db that use auto increment -->
+  <property name="autoIncrement" value="true" dbms="mysql,mssql,h2,hsqldb"/>
+  <property name="autoIncrement" value="false" dbms="oracle,postgresql"/>
+
+  <changeSet author="idmQueue" id="1.0.0-1">
+    <createTable tableName="IDM_QUEUE">
+      <column name="IDM_QUEUE_ID" type="BIGINT" autoIncrement="${autoIncrement}" startWith="1">
+        <constraints nullable="false" primaryKey="true" primaryKeyName="PK_IDM_QUEUE_ID"/>
+      </column>
+      <column name="ENTITY_ID" type="NVARCHAR(200)">
+        <constraints nullable="false"/>
+      </column>
+      <column name="ENTITY_TYPE" type="INT">
+        <constraints nullable="false"/>
+      </column>
+      <column name="NB_RETRIES" type="INT">
+        <constraints nullable="false"/>
+      </column>
+      <column name="PROCESSED" type="BOOLEAN">
+        <constraints nullable="false"/>
+      </column>
+      <column name="CREATE_DATE" type="TIMESTAMP">
+          <constraints nullable="false"/>
+      </column>
+      <column name="OPERATION_TYPE" type="INT">
+          <constraints nullable="false"/>
+      </column>
+    </createTable>
+    <modifySql dbms="mysql">
+      <append value=" ENGINE=INNODB CHARSET=UTF8 COLLATE utf8_general_ci"/>
+    </modifySql>
+  </changeSet>
+
+  <changeSet author="idmQueue" id="1.0.0-2" dbms="oracle,postgresql">
+    <createSequence sequenceName="SEQ_IDM_QUEUE_ID" startValue="1"/>
+  </changeSet>
+
+  <changeSet author="idmQueue" id="1.0.0-3">
+    <createIndex tableName="IDM_QUEUE" indexName="IDX_IDM_QUEUE_01">
+      <column name="PROCESSED"/>
+    </createIndex>
+    <createIndex tableName="IDM_QUEUE" indexName="IDX_IDM_QUEUE_02">
+      <column name="NB_RETRIES"/>
+    </createIndex>
+  </changeSet>
+
+</databaseChangeLog>

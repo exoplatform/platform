@@ -16,14 +16,18 @@
  */
 package org.exoplatform.platform.organization.integration;
 
+import java.util.*;
+
+import javax.jcr.Session;
+
+import org.picocontainer.Startable;
+
 import org.exoplatform.commons.utils.ListAccess;
 import org.exoplatform.container.PortalContainer;
 import org.exoplatform.container.component.ComponentPlugin;
 import org.exoplatform.container.component.ComponentRequestLifecycle;
 import org.exoplatform.container.configuration.ConfigurationManager;
-import org.exoplatform.container.xml.Component;
-import org.exoplatform.container.xml.ExternalComponentPlugins;
-import org.exoplatform.container.xml.InitParams;
+import org.exoplatform.container.xml.*;
 import org.exoplatform.management.annotations.*;
 import org.exoplatform.management.jmx.annotations.NameTemplate;
 import org.exoplatform.management.jmx.annotations.Property;
@@ -32,22 +36,18 @@ import org.exoplatform.services.jcr.RepositoryService;
 import org.exoplatform.services.log.ExoLogger;
 import org.exoplatform.services.log.Log;
 import org.exoplatform.services.organization.*;
+import org.exoplatform.services.organization.externalstore.IDMExternalStoreService;
 import org.exoplatform.services.organization.idm.PicketLinkIDMCacheService;
-import org.exoplatform.services.organization.impl.GroupImpl;
-import org.exoplatform.services.organization.impl.MembershipImpl;
-import org.exoplatform.services.organization.impl.UserImpl;
-import org.exoplatform.services.organization.impl.UserProfileImpl;
-import org.picocontainer.Startable;
-
-import javax.jcr.Session;
-import java.util.*;
+import org.exoplatform.services.organization.impl.*;
 
 /**
  * This Service create Organization Model profiles, for User and Groups not
  * created via eXo OrganizationService.
  * 
+ * @deprecated OrganizationIntegrationService is replaced by External Store API
  * @author Boubaker KHANFIR
  */
+@Deprecated
 @Managed
 @ManagedDescription("Platform Organization Model Integration Service")
 @NameTemplate({ @Property(key = "name", value = "OrganizationIntegrationService"),
@@ -55,39 +55,70 @@ import java.util.*;
 @RESTEndpoint(path = "orgsync")
 public class OrganizationIntegrationService implements Startable {
 
-  private static final Log LOG = ExoLogger.getLogger(OrganizationIntegrationService.class);
-  private static final Comparator<org.exoplatform.container.xml.ComponentPlugin> COMPONENT_PLUGIN_COMPARATOR = new Comparator<org.exoplatform.container.xml.ComponentPlugin>() {
-    public int compare(org.exoplatform.container.xml.ComponentPlugin o1, org.exoplatform.container.xml.ComponentPlugin o2) {
-      return o1.getPriority() - o2.getPriority();
-    }
-  };
-  public static final Comparator<Group> GROUP_COMPARATOR = new Comparator<Group>() {
-    public int compare(Group o1, Group o2) {
-      if (o1.getId().contains(o2.getId())) {
-        return 1;
-      }
-      if (o2.getId().contains(o1.getId())) {
-        return -1;
-      }
-      return o2.getId().compareTo(o1.getId());
-    }
-  };
-  private Map<String, UserEventListener> userDAOListeners_;
-  private Map<String, GroupEventListener> groupDAOListeners_;
-  private Map<String, MembershipEventListener> membershipDAOListeners_;
-  private Map<String, UserProfileEventListener> userProfileListeners_;
-  private OrganizationService organizationService;
-  private RepositoryService repositoryService;
-  private PortalContainer container;
-  private boolean synchronizeGroups = false;
-  private PicketLinkIDMCacheService picketLinkIDMCacheService;
+  private static final Log                                                       LOG                         =
+                                                                                     ExoLogger.getLogger(OrganizationIntegrationService.class);
 
-  public OrganizationIntegrationService(OrganizationService organizationService, RepositoryService repositoryService,
-      ConfigurationManager manager, PortalContainer container, InitParams initParams, PicketLinkIDMCacheService picketLinkIDMCacheService) {
+  private static final Comparator<org.exoplatform.container.xml.ComponentPlugin> COMPONENT_PLUGIN_COMPARATOR =
+                                                                                                             new Comparator<org.exoplatform.container.xml.ComponentPlugin>() {
+                                                                                                                                                                                                                          public int compare(org.exoplatform.container.xml.ComponentPlugin o1,
+                                                                                                                                                                                                                                             org.exoplatform.container.xml.ComponentPlugin o2) {
+                                                                                                                                                                                                                            return o1.getPriority()
+                                                                                                                                                                                                                                - o2.getPriority();
+                                                                                                                                                                                                                          }
+                                                                                                                                                                                                                        };
+
+  public static final Comparator<Group>                                          GROUP_COMPARATOR            =
+                                                                                                  new Comparator<Group>() {
+                                                                                                                                                                                                               public int compare(Group o1,
+                                                                                                                                                                                                                                  Group o2) {
+                                                                                                                                                                                                                 if (o1.getId()
+                                                                                                                                                                                                                       .contains(o2.getId())) {
+                                                                                                                                                                                                                   return 1;
+                                                                                                                                                                                                                 }
+                                                                                                                                                                                                                 if (o2.getId()
+                                                                                                                                                                                                                       .contains(o1.getId())) {
+                                                                                                                                                                                                                   return -1;
+                                                                                                                                                                                                                 }
+                                                                                                                                                                                                                 return o2.getId()
+                                                                                                                                                                                                                          .compareTo(o1.getId());
+                                                                                                                                                                                                               }
+                                                                                                                                                                                                             };
+
+  private Map<String, UserEventListener>                                         userDAOListeners_;
+
+  private Map<String, GroupEventListener>                                        groupDAOListeners_;
+
+  private Map<String, MembershipEventListener>                                   membershipDAOListeners_;
+
+  private Map<String, UserProfileEventListener>                                  userProfileListeners_;
+
+  private OrganizationService                                                    organizationService;
+
+  private RepositoryService                                                      repositoryService;
+
+  private PortalContainer                                                        container;
+
+  private boolean                                                                synchronizeGroups           = false;
+
+  private PicketLinkIDMCacheService                                              picketLinkIDMCacheService;
+
+  private IDMExternalStoreService                                                externalStoreService;
+
+  private boolean                                                                enabled                     = true;
+
+  public OrganizationIntegrationService(OrganizationService organizationService,
+                                        IDMExternalStoreService externalStoreService,
+                                        RepositoryService repositoryService,
+                                        ConfigurationManager manager,
+                                        PortalContainer container,
+                                        InitParams initParams,
+                                        PicketLinkIDMCacheService picketLinkIDMCacheService) {
+    LOG.warn("OrganizationIntegrationService is depricated. It was replaced by External Store API.");
     this.organizationService = organizationService;
     this.repositoryService = repositoryService;
     this.container = container;
     this.picketLinkIDMCacheService = picketLinkIDMCacheService;
+    this.externalStoreService = externalStoreService;
     userDAOListeners_ = new LinkedHashMap<String, UserEventListener>();
     groupDAOListeners_ = new LinkedHashMap<String, GroupEventListener>();
     membershipDAOListeners_ = new LinkedHashMap<String, MembershipEventListener>();
@@ -95,8 +126,9 @@ public class OrganizationIntegrationService implements Startable {
     boolean hasExternalComponentPlugins = false;
     int nbExternalComponentPlugins = 0;
     try {
-      ExternalComponentPlugins organizationServiceExternalComponentPlugins = manager.getConfiguration()
-          .getExternalComponentPlugins(OrganizationIntegrationService.class.getName());
+      ExternalComponentPlugins organizationServiceExternalComponentPlugins =
+                                                                           manager.getConfiguration()
+                                                                                  .getExternalComponentPlugins(OrganizationIntegrationService.class.getName());
 
       if (organizationServiceExternalComponentPlugins != null
           && organizationServiceExternalComponentPlugins.getComponentPlugins() != null) {
@@ -115,13 +147,14 @@ public class OrganizationIntegrationService implements Startable {
 
     if (!hasExternalComponentPlugins) {
       try {
-        ExternalComponentPlugins organizationServiceExternalComponentPlugins = manager.getConfiguration()
-            .getExternalComponentPlugins(OrganizationService.class.getName());
+        ExternalComponentPlugins organizationServiceExternalComponentPlugins =
+                                                                             manager.getConfiguration()
+                                                                                    .getExternalComponentPlugins(OrganizationService.class.getName());
         addComponentPlugin(organizationServiceExternalComponentPlugins.getComponentPlugins());
 
         Component organizationServiceComponent = manager.getComponent(OrganizationService.class);
-        List<org.exoplatform.container.xml.ComponentPlugin> organizationServicePlugins = organizationServiceComponent
-            .getComponentPlugins();
+        List<org.exoplatform.container.xml.ComponentPlugin> organizationServicePlugins =
+                                                                                       organizationServiceComponent.getComponentPlugins();
         if (organizationServicePlugins != null) {
           addComponentPlugin(organizationServicePlugins);
         }
@@ -150,12 +183,17 @@ public class OrganizationIntegrationService implements Startable {
         LOG.warn("'homePath' init param is empty, use default value: " + Util.HOME_PATH);
       }
     } else {
-      LOG.warn("init params not set, use default values for 'homePath'[=" + Util.HOME_PATH + "] and 'workspace[="
-          + Util.WORKSPACE + "]'");
+      LOG.warn("init params not set, use default values for 'homePath'[=" + Util.HOME_PATH + "] and 'workspace[=" + Util.WORKSPACE
+          + "]'");
     }
   }
 
   public void start() {
+    enabled = !externalStoreService.isEnabled();
+    if (!isEnabled()) {
+      LOG.warn("ExternalStoreService is enabled, thus OrganizationIntegrationService will be disabled. You can remove the configuration of OrganizationIntegrationService that is deprecated.");
+      return;
+    }
     Session session = null;
     try {
       session = repositoryService.getCurrentRepository().getSystemSession(Util.WORKSPACE);
@@ -169,7 +207,7 @@ public class OrganizationIntegrationService implements Startable {
         syncAllGroups(EventType.DELETED.toString());
       }
     } catch (Exception e) {
-      LOG.error(e.getMessage(),e);
+      LOG.error(e.getMessage(), e);
     } finally {
       if (session != null) {
         session.logout();
@@ -177,14 +215,23 @@ public class OrganizationIntegrationService implements Startable {
     }
   }
 
-  public void stop() {}
+  public void stop() {
+  }
+
+  /**
+   * Determines whether OrganizationIntegrationService is enabled or not
+   * 
+   * @return
+   */
+  public boolean isEnabled() {
+    return enabled;
+  }
 
   /**
    * Add a list of OrganizationService listeners into
    * OrganizationIntegrationService
    * 
-   * @param plugins
-   *          List of OrganizationService ComponentPlugins
+   * @param plugins List of OrganizationService ComponentPlugins
    */
   public void addComponentPlugin(List<org.exoplatform.container.xml.ComponentPlugin> plugins) {
     if (plugins == null)
@@ -207,8 +254,7 @@ public class OrganizationIntegrationService implements Startable {
   /**
    * Add a listener instance to dedicated list of one organization element.
    * 
-   * @param listener
-   *          have to extends UserEventListener, GroupEventListener,
+   * @param listener have to extends UserEventListener, GroupEventListener,
    *          MembershipEventListener or UserProfileEventListener.
    */
   public void addListenerPlugin(ComponentPlugin listener) {
@@ -236,6 +282,9 @@ public class OrganizationIntegrationService implements Startable {
   public void syncAll() {
     if (LOG.isDebugEnabled()) {
       LOG.debug("All groups, users, profiles and memberships listeners invocation.");
+    }
+    if (!isEnabled()) {
+      throw new IllegalStateException("OrganizationIntegrationService is disabled");
     }
 
     startRequest();
@@ -269,7 +318,7 @@ public class OrganizationIntegrationService implements Startable {
       }
       syncAllUsers(EventType.DELETED.toString());
     } catch (Exception e) {
-      LOG.error(e.getMessage(),e);
+      LOG.error(e.getMessage(), e);
     }
     LOG.info("The synchronization is finished for all LDAP users and groups, eventType: ADDED,DELETED");
     endRequest();
@@ -278,23 +327,22 @@ public class OrganizationIntegrationService implements Startable {
   /**
    * Invoke Groups listeners to all Organization Model Elements
    * 
-   * @param eventType
-   *          ADDED/DELETED/UPDATED
-   * @throws Exception
-   *           JCR or IDM operation failure
+   * @param eventType ADDED/DELETED/UPDATED
+   * @throws Exception JCR or IDM operation failure
    */
   @Managed
   @ManagedDescription("invoke all groups listeners")
   @Impact(ImpactType.READ)
-  public void syncAllGroups(@ManagedDescription("Scan for added or deleted groups") @ManagedName("eventType") String eventType)
-      throws Exception {
+  public void syncAllGroups(@ManagedDescription("Scan for added or deleted groups") @ManagedName("eventType") String eventType) throws Exception {
     if (LOG.isDebugEnabled()) {
       LOG.debug("All Groups listeners invocation, operation= " + eventType);
+    }
+    if (!isEnabled()) {
+      throw new IllegalStateException("OrganizationIntegrationService is disabled");
     }
 
     startRequest();
 
-    @SuppressWarnings("unchecked")
     List<Group> groups = new ArrayList<Group>(organizationService.getGroupHandler().getAllGroups());
     // Invoke listeners on groups, starting from parent groups to children
     Collections.sort(groups, GROUP_COMPARATOR);
@@ -302,69 +350,69 @@ public class OrganizationIntegrationService implements Startable {
     picketLinkIDMCacheService.invalidateAll();
     EventType event = EventType.valueOf(eventType);
     switch (event) {
-      case DELETED: {
-        LOG.info("The synchronization is started for all LDAP groups, eventType: DELETED");
-        // Invoke delete listeners on groups, starting from children groups
-        // to parent
-        Collections.reverse(groups);
-        // Search for deleted groups, and invoke
-        // GroupEventListener#preDelete and #postDelete
-        Session session = null;
-        try {
-          session = repositoryService.getCurrentRepository().getSystemSession(Util.WORKSPACE);
-          List<String> activatedGroups = Util.getActivatedGroups(session);
-          for (Group group : groups) {
-            activatedGroups.remove(group.getId());
-          }
-          for (String groupId : activatedGroups) {
-            syncGroup(groupId, eventType);
-          }
-        } finally {
-          if (session != null) {
-            session.logout();
+    case DELETED: {
+      LOG.info("The synchronization is started for all LDAP groups, eventType: DELETED");
+      // Invoke delete listeners on groups, starting from children groups
+      // to parent
+      Collections.reverse(groups);
+      // Search for deleted groups, and invoke
+      // GroupEventListener#preDelete and #postDelete
+      Session session = null;
+      try {
+        session = repositoryService.getCurrentRepository().getSystemSession(Util.WORKSPACE);
+        List<String> activatedGroups = Util.getActivatedGroups(session);
+        for (Group group : groups) {
+          activatedGroups.remove(group.getId());
+        }
+        for (String groupId : activatedGroups) {
+          syncGroup(groupId, eventType);
+        }
+      } finally {
+        if (session != null) {
+          session.logout();
+        }
+      }
+      LOG.info("The synchronization is finished for all LDAP groups, eventType: DELETED");
+      break;
+    }
+    case UPDATED: {
+      LOG.info("The synchronization is started for all LDAP groups, eventType: UPDATED");
+      // Search for added groups that aren't yet integrated
+      Session session = null;
+      try {
+        session = repositoryService.getCurrentRepository().getSystemSession(Util.WORKSPACE);
+        List<String> activatedGroups = Util.getActivatedGroups(session);
+        for (String groupId : activatedGroups) {
+          syncGroup(groupId, eventType);
+        }
+      } finally {
+        if (session != null) {
+          session.logout();
+        }
+      }
+      LOG.info("The synchronization is finished for all LDAP groups, eventType: UPDATED");
+      break;
+    }
+    case ADDED: {
+      LOG.info("The synchronization is started for all LDAP groups, eventType: ADDED");
+      // Search for added groups that aren't yet integrated
+      Session session = null;
+      try {
+        session = repositoryService.getCurrentRepository().getSystemSession(Util.WORKSPACE);
+        List<String> activatedGroups = Util.getActivatedGroups(session);
+        for (Group group : groups) {
+          if (!activatedGroups.contains(group.getId())) {
+            syncGroup(group.getId(), eventType);
           }
         }
-        LOG.info("The synchronization is finished for all LDAP groups, eventType: DELETED");
-        break;
-      }
-      case UPDATED: {
-        LOG.info("The synchronization is started for all LDAP groups, eventType: UPDATED");
-        // Search for added groups that aren't yet integrated
-        Session session = null;
-        try {
-          session = repositoryService.getCurrentRepository().getSystemSession(Util.WORKSPACE);
-          List<String> activatedGroups = Util.getActivatedGroups(session);
-          for (String groupId : activatedGroups) {
-            syncGroup(groupId, eventType);
-          }
-        } finally {
-          if (session != null) {
-            session.logout();
-          }
+      } finally {
+        if (session != null) {
+          session.logout();
         }
-        LOG.info("The synchronization is finished for all LDAP groups, eventType: UPDATED");
-        break;
       }
-      case ADDED: {
-        LOG.info("The synchronization is started for all LDAP groups, eventType: ADDED");
-        // Search for added groups that aren't yet integrated
-        Session session = null;
-        try {
-          session = repositoryService.getCurrentRepository().getSystemSession(Util.WORKSPACE);
-          List<String> activatedGroups = Util.getActivatedGroups(session);
-          for (Group group : groups) {
-            if (!activatedGroups.contains(group.getId())) {
-              syncGroup(group.getId(), eventType);
-            }
-          }
-        } finally {
-          if (session != null) {
-            session.logout();
-          }
-        }
-        LOG.info("The synchronization is finished for all LDAP groups, eventType: ADDED");
-        break;
-      }
+      LOG.info("The synchronization is finished for all LDAP groups, eventType: ADDED");
+      break;
+    }
     }
     endRequest();
   }
@@ -372,75 +420,76 @@ public class OrganizationIntegrationService implements Startable {
   /**
    * Apply OrganizationService listeners on a selected group.
    * 
-   * @param groupId
-   *          The group Identifier
-   * @param eventType
-   *          ADDED/UPDATED/DELETED
+   * @param groupId The group Identifier
+   * @param eventType ADDED/UPDATED/DELETED
    */
   @Managed
   @ManagedDescription("invoke a group listeners")
   @Impact(ImpactType.READ)
   public void syncGroup(@ManagedDescription("Group Id") @ManagedName("groupId") String groupId,
-      @ManagedDescription("Event type ADDED, UPDATED or DELETED") @ManagedName("eventType") String eventType) {
+                        @ManagedDescription("Event type ADDED, UPDATED or DELETED") @ManagedName("eventType") String eventType) {
 
     if (LOG.isDebugEnabled()) {
       LOG.debug("\tGroup listeners invocation, operation= " + eventType + ", for group= " + groupId);
     }
+    if (!isEnabled()) {
+      throw new IllegalStateException("OrganizationIntegrationService is disabled");
+    }
+
     EventType event = EventType.valueOf(eventType);
     // Invalidate plidmcache
     picketLinkIDMCacheService.invalidateAll();
     switch (event) {
-      case DELETED: {
-        {
-          Session session = null;
-          startRequest();
-          try {
-            session = repositoryService.getCurrentRepository().getSystemSession(Util.WORKSPACE);
-
-            List<Group> groups = Util.getActivatedChildrenGroup(session, groupId);
-
-            Collections.sort(groups, GROUP_COMPARATOR);
-            Collections.reverse(groups);
-            for (Group group : groups) {
-              invokeDeleteGroupListeners(group.getId());
-            }
-            invokeDeleteGroupListeners(groupId);
-          } catch (Exception e) {
-            LOG.error("Error during recovery of activated chidren group ", e);
-          } finally {
-            endRequest();
-            if (session != null) {
-              session.logout();
-            }
-          }
-        }
-        break;
-      }
-      case ADDED:
-      case UPDATED: {
+    case DELETED: {
+      {
+        Session session = null;
         startRequest();
         try {
-          Group group = organizationService.getGroupHandler().findGroupById(groupId);
-          if (group == null) {
-            LOG.warn("\t\t" + groupId + " group wasn't found.");
-            return;
+          session = repositoryService.getCurrentRepository().getSystemSession(Util.WORKSPACE);
+
+          List<Group> groups = Util.getActivatedChildrenGroup(session, groupId);
+
+          Collections.sort(groups, GROUP_COMPARATOR);
+          Collections.reverse(groups);
+          for (Group group : groups) {
+            invokeDeleteGroupListeners(group.getId());
           }
-          invokeListenersToSavedGroup(group, event.equals(EventType.ADDED));
+          invokeDeleteGroupListeners(groupId);
         } catch (Exception e) {
-          LOG.error("\t\t" + "Error occurred while invoking listeners of group: " + groupId, e);
+          LOG.error("Error during recovery of activated chidren group ", e);
         } finally {
           endRequest();
+          if (session != null) {
+            session.logout();
+          }
         }
-        break;
       }
+      break;
+    }
+    case ADDED:
+    case UPDATED: {
+      startRequest();
+      try {
+        Group group = organizationService.getGroupHandler().findGroupById(groupId);
+        if (group == null) {
+          LOG.warn("\t\t" + groupId + " group wasn't found.");
+          return;
+        }
+        invokeListenersToSavedGroup(group, event.equals(EventType.ADDED));
+      } catch (Exception e) {
+        LOG.error("\t\t" + "Error occurred while invoking listeners of group: " + groupId, e);
+      } finally {
+        endRequest();
+      }
+      break;
+    }
     }
   }
 
   /**
    * Apply all users OrganizationService listeners
    * 
-   * @param eventType
-   *          ADDED/UPDATED/DELETED
+   * @param eventType ADDED/UPDATED/DELETED
    */
   @Managed
   @ManagedDescription("invoke all users listeners")
@@ -450,264 +499,271 @@ public class OrganizationIntegrationService implements Startable {
     if (LOG.isDebugEnabled()) {
       LOG.debug("All users listeners invocation, eventType = " + eventType);
     }
+    if (!isEnabled()) {
+      throw new IllegalStateException("OrganizationIntegrationService is disabled");
+    }
 
     EventType event = EventType.valueOf(eventType);
     Session session = null;
     picketLinkIDMCacheService.invalidateAll();
     switch (event) {
-      case DELETED: {
-        LOG.info("The synchronization is started for all LDAP users, eventType: DELETED");
-        if (LOG.isDebugEnabled()) {
-          LOG.debug("\tSearch for deleted users and invoke related listeners.");
-        }
-        startRequest();
-        try {
-          session = repositoryService.getCurrentRepository().getSystemSession(Util.WORKSPACE);
-          List<String> activatedUsers = Util.getActivatedUsers(session);
+    case DELETED: {
+      LOG.info("The synchronization is started for all LDAP users, eventType: DELETED");
+      if (LOG.isDebugEnabled()) {
+        LOG.debug("\tSearch for deleted users and invoke related listeners.");
+      }
+      startRequest();
+      try {
+        session = repositoryService.getCurrentRepository().getSystemSession(Util.WORKSPACE);
+        List<String> activatedUsers = Util.getActivatedUsers(session);
 
-          ListAccess<User> usersListAccess = organizationService.getUserHandler().findAllUsers();
+        ListAccess<User> usersListAccess = organizationService.getUserHandler().findAllUsers();
 
-          int i = 0;
-          int k = 0;
-          while (i <= usersListAccess.getSize()) {
-            int length = i + 10 <= usersListAccess.getSize() ? 10 : usersListAccess.getSize() - i;
-            User[] users = usersListAccess.load(i, length);
-            for (User user : users) {
-              activatedUsers.remove(user.getUserName());
-              k++;
-              if(k%100==0){
-                LOG.info(k+" users are checked for deletion");
-              }
+        int i = 0;
+        int k = 0;
+        while (i <= usersListAccess.getSize()) {
+          int length = i + 10 <= usersListAccess.getSize() ? 10 : usersListAccess.getSize() - i;
+          User[] users = usersListAccess.load(i, length);
+          for (User user : users) {
+            activatedUsers.remove(user.getUserName());
+            k++;
+            if (k % 100 == 0) {
+              LOG.info(k + " users are checked for deletion");
             }
-            i += 10;
           }
-          if(k%100!=0){
-            LOG.info(k+" users are checked for deletion");
-          }
-          for (String username : activatedUsers) {
-            syncUser(username, eventType);
-          }
-        } catch (Exception e) {
-          LOG.error("\t\tUnknown error occurred while preparing to proceed users deletion", e);
-        } finally {
-          endRequest();
-          if (session != null) {
-            session.logout();
-          }
+          i += 10;
         }
-        LOG.info("The synchronization is finished for all LDAP users, eventType: DELETED");
-        break;
+        if (k % 100 != 0) {
+          LOG.info(k + " users are checked for deletion");
+        }
+        for (String username : activatedUsers) {
+          syncUser(username, eventType);
+        }
+      } catch (Exception e) {
+        LOG.error("\t\tUnknown error occurred while preparing to proceed users deletion", e);
+      } finally {
+        endRequest();
+        if (session != null) {
+          session.logout();
+        }
       }
-      case UPDATED: {
-        LOG.info("The synchronization is started for all LDAP users, eventType: UPDATED");
-        if (LOG.isDebugEnabled()) {
-          LOG.debug("\tAll users update invocation: Search for already existing users in Datasource and that are already integrated.");
-        }
-        startRequest();
-        try {
-          session = repositoryService.getCurrentRepository().getSystemSession(Util.WORKSPACE);
-          List<String> activatedUsers = Util.getActivatedUsers(session);
-          for (String username : activatedUsers) {
-            syncUser(username, eventType);
-          }
-        } catch (Exception e) {
-          LOG.error("\tUnknown error occurred while preparing to proceed user update", e);
-        } finally {
-          endRequest();
-          if (session != null) {
-            session.logout();
-          }
-        }
-        LOG.info("The synchronization is finished for all LDAP users, eventType: UPDATED");
-        break;
+      LOG.info("The synchronization is finished for all LDAP users, eventType: DELETED");
+      break;
+    }
+    case UPDATED: {
+      LOG.info("The synchronization is started for all LDAP users, eventType: UPDATED");
+      if (LOG.isDebugEnabled()) {
+        LOG.debug("\tAll users update invocation: Search for already existing users in Datasource and that are already integrated.");
       }
-      case ADDED: {
-        LOG.info("The synchronization is started for all LDAP users, eventType: ADDED");
-        startRequest();
-        try {
-          session = repositoryService.getCurrentRepository().getSystemSession(Util.WORKSPACE);
-          List<String> activatedUsers = Util.getActivatedUsers(session);
+      startRequest();
+      try {
+        session = repositoryService.getCurrentRepository().getSystemSession(Util.WORKSPACE);
+        List<String> activatedUsers = Util.getActivatedUsers(session);
+        for (String username : activatedUsers) {
+          syncUser(username, eventType);
+        }
+      } catch (Exception e) {
+        LOG.error("\tUnknown error occurred while preparing to proceed user update", e);
+      } finally {
+        endRequest();
+        if (session != null) {
+          session.logout();
+        }
+      }
+      LOG.info("The synchronization is finished for all LDAP users, eventType: UPDATED");
+      break;
+    }
+    case ADDED: {
+      LOG.info("The synchronization is started for all LDAP users, eventType: ADDED");
+      startRequest();
+      try {
+        session = repositoryService.getCurrentRepository().getSystemSession(Util.WORKSPACE);
+        List<String> activatedUsers = Util.getActivatedUsers(session);
 
-          if (LOG.isDebugEnabled()) {
-            LOG.debug("\tAll new users intagration: Search for already existing users in Datasource but not integrated yet.");
-          }
-          ListAccess<User> usersListAccess = organizationService.getUserHandler().findAllUsers();
-          int i = 0;
-          int k = 0 ;
-          while (i <= usersListAccess.getSize()) {
-            int length = i + 10 <= usersListAccess.getSize() ? 10 : usersListAccess.getSize() - i;
-            User[] users = usersListAccess.load(i, length);
-            for (User user : users) {
-              if (!activatedUsers.contains(user.getUserName())) {
-                syncUser(user.getUserName(), eventType);
-              }
-              k++;
-              if(k%100==0){
-                LOG.info(k+" users are checked for addition");
-              }
-            }
-            i += 10;
-          }
-          if(k%100!=0){
-            LOG.info(k+" users are checked for addition");
-          }
-        } catch (Exception e) {
-          LOG.error("\tUnknown error occurred while preparing to proceed user update", e);
-        } finally {
-          endRequest();
-          if (session != null) {
-            session.logout();
-          }
+        if (LOG.isDebugEnabled()) {
+          LOG.debug("\tAll new users intagration: Search for already existing users in Datasource but not integrated yet.");
         }
-        LOG.info("The synchronization is finished for all LDAP users, eventType: ADDED");
-        break;
+        ListAccess<User> usersListAccess = organizationService.getUserHandler().findAllUsers();
+        int i = 0;
+        int k = 0;
+        while (i <= usersListAccess.getSize()) {
+          int length = i + 10 <= usersListAccess.getSize() ? 10 : usersListAccess.getSize() - i;
+          User[] users = usersListAccess.load(i, length);
+          for (User user : users) {
+            if (!activatedUsers.contains(user.getUserName())) {
+              syncUser(user.getUserName(), eventType);
+            }
+            k++;
+            if (k % 100 == 0) {
+              LOG.info(k + " users are checked for addition");
+            }
+          }
+          i += 10;
+        }
+        if (k % 100 != 0) {
+          LOG.info(k + " users are checked for addition");
+        }
+      } catch (Exception e) {
+        LOG.error("\tUnknown error occurred while preparing to proceed user update", e);
+      } finally {
+        endRequest();
+        if (session != null) {
+          session.logout();
+        }
       }
+      LOG.info("The synchronization is finished for all LDAP users, eventType: ADDED");
+      break;
+    }
     }
   }
 
   /**
    * Apply OrganizationService listeners on selected User
    * 
-   * @param username
-   *          The user name
-   * @param eventType
-   *          ADDED/UPDATED/DELETED
+   * @param username The user name
+   * @param eventType ADDED/UPDATED/DELETED
    */
   @SuppressWarnings("deprecation")
   @Managed
   @ManagedDescription("invoke a user listeners")
   @Impact(ImpactType.READ)
   public void syncUser(@ManagedDescription("User name") @ManagedName("username") String username,
-      @ManagedDescription("Event type") @ManagedName("eventType") String eventType) {
+                       @ManagedDescription("Event type") @ManagedName("eventType") String eventType) {
     if (LOG.isDebugEnabled()) {
       LOG.debug("\tUser listeners invocation, operation= " + eventType + ", for user= " + username);
     }
+    if (!isEnabled()) {
+      throw new IllegalStateException("OrganizationIntegrationService is disabled");
+    }
+
     EventType event = EventType.valueOf(eventType);
     // Invalidate plidmcache
     picketLinkIDMCacheService.invalidateAll();
     switch (event) {
-      case DELETED: {
-        User user = null;
-        startRequest();
-        try {
-          user = organizationService.getUserHandler().findUserByName(username);
-        } catch (Exception e) {
-          LOG.warn("\t\tError occurred while verifying if user is present in Datasource. The operation will be interrupted.", e);
-          return;
-        } finally {
-          endRequest();
-        }
-        if (user != null) {
-          LOG.warn("\t\tUser exists: can't invoke delete listeners on the existant user : " + username);
-          return;
-        }
-        invokeUserMembershipsListeners(username, event);
-        invokeUserProfileListeners(username, event);
-        Session session = null;
-        startRequest();
-        try {
-          session = repositoryService.getCurrentRepository().getSystemSession(Util.WORKSPACE);
-          if (Util.hasUserFolder(session, username)) {
-            LOG.info("Invoke user deletion: " + username);
-            user = new UserImpl(username);
-            Collection<UserEventListener> userDAOListeners = userDAOListeners_.values();
-            for (UserEventListener userEventListener : userDAOListeners) {
-              startRequest();
-              try {
-                userEventListener.preDelete(user);
-              } catch (Exception e) {
-                LOG.error(
-                    "\t\tFailed to call preDelete on " + username + " User with listener : " + userEventListener.getClass(), e);
-              } finally {
-                endRequest();
-              }
-              startRequest();
-              try {
-                userEventListener.postDelete(user);
-              } catch (Exception e) {
-                LOG.error(
-                    "\t\tFailed to call postDelete on " + username + " User with listener : " + userEventListener.getClass(), e);
-              } finally {
-                endRequest();
-              }
-            }
-          }
-        } catch (Exception e) {
-          LOG.error("\t\tFailed to delete " + username + " User", e);
-        } finally {
-          endRequest();
-          if (session != null) {
-            session.logout();
-          }
-        }
-        break;
+    case DELETED: {
+      User user = null;
+      startRequest();
+      try {
+        user = organizationService.getUserHandler().findUserByName(username);
+      } catch (Exception e) {
+        LOG.warn("\t\tError occurred while verifying if user is present in Datasource. The operation will be interrupted.", e);
+        return;
+      } finally {
+        endRequest();
       }
-      case ADDED:
-      case UPDATED: {
-        Session session = null;
-        startRequest();
-        try {
-          boolean isNew = event.equals(EventType.ADDED);
-          session = repositoryService.getCurrentRepository().getSystemSession(Util.WORKSPACE);
-          if (!isNew || !Util.hasUserFolder(session, username)) {
-            User user = organizationService.getUserHandler().findUserByName(username);
-            if(user==null){
-              LOG.info("\t\tFailed to synchronize " + username + " : Doesn't exist " );
-              break;
+      if (user != null) {
+        LOG.warn("\t\tUser exists: can't invoke delete listeners on the existant user : " + username);
+        return;
+      }
+      invokeUserMembershipsListeners(username, event);
+      invokeUserProfileListeners(username, event);
+      Session session = null;
+      startRequest();
+      try {
+        session = repositoryService.getCurrentRepository().getSystemSession(Util.WORKSPACE);
+        if (Util.hasUserFolder(session, username)) {
+          LOG.info("Invoke user deletion: " + username);
+          user = new UserImpl(username);
+          Collection<UserEventListener> userDAOListeners = userDAOListeners_.values();
+          for (UserEventListener userEventListener : userDAOListeners) {
+            startRequest();
+            try {
+              userEventListener.preDelete(user);
+            } catch (Exception e) {
+              LOG.error("\t\tFailed to call preDelete on " + username + " User with listener : " + userEventListener.getClass(),
+                        e);
+            } finally {
+              endRequest();
             }
-            if (user.getCreatedDate() == null) {
-              user.setCreatedDate(new Date());
+            startRequest();
+            try {
+              userEventListener.postDelete(user);
+            } catch (Exception e) {
+              LOG.error("\t\tFailed to call postDelete on " + username + " User with listener : " + userEventListener.getClass(),
+                        e);
+            } finally {
+              endRequest();
             }
-            LOG.info("Invoke " + username + " user synchronization ");
-            Collection<UserEventListener> userDAOListeners = userDAOListeners_.values();
-            for (UserEventListener userEventListener : userDAOListeners) {
-              startRequest();
-              try {
-                userEventListener.preSave(user, isNew);
-              } catch (Exception e) {
-                LOG.warn("\t\tFailed to call preSave for " + username + " User with listener : " + userEventListener.getClass(),
-                    e);
-              } finally {
-                endRequest();
-              }
-            }
-            for (UserEventListener userEventListener : userDAOListeners) {
-              try {
-                startRequest();
-                userEventListener.postSave(user, isNew);
-              } catch (Exception e) {
-                LOG.warn("\t\tFailed to call postSave for " + username + " User with listener : " + userEventListener.getClass(),
-                    e);
-              } finally {
-                endRequest();
-              }
-            }
-          }
-        } catch (Exception e) {
-          LOG.warn("\t\tFailed to call listeners for " + username + " User", e);
-        } finally {
-          endRequest();
-          if (session != null) {
-            session.logout();
           }
         }
-        invokeUserProfileListeners(username, event);
-        invokeUserMembershipsListeners(username, event);
-        break;
+      } catch (Exception e) {
+        LOG.error("\t\tFailed to delete " + username + " User", e);
+      } finally {
+        endRequest();
+        if (session != null) {
+          session.logout();
+        }
       }
+      break;
+    }
+    case ADDED:
+    case UPDATED: {
+      Session session = null;
+      startRequest();
+      try {
+        boolean isNew = event.equals(EventType.ADDED);
+        session = repositoryService.getCurrentRepository().getSystemSession(Util.WORKSPACE);
+        if (!isNew || !Util.hasUserFolder(session, username)) {
+          User user = organizationService.getUserHandler().findUserByName(username);
+          if (user == null) {
+            LOG.info("\t\tFailed to synchronize " + username + " : Doesn't exist ");
+            break;
+          }
+          if (user.getCreatedDate() == null) {
+            user.setCreatedDate(new Date());
+          }
+          LOG.info("Invoke " + username + " user synchronization ");
+          Collection<UserEventListener> userDAOListeners = userDAOListeners_.values();
+          for (UserEventListener userEventListener : userDAOListeners) {
+            startRequest();
+            try {
+              userEventListener.preSave(user, isNew);
+            } catch (Exception e) {
+              LOG.warn("\t\tFailed to call preSave for " + username + " User with listener : " + userEventListener.getClass(), e);
+            } finally {
+              endRequest();
+            }
+          }
+          for (UserEventListener userEventListener : userDAOListeners) {
+            try {
+              startRequest();
+              userEventListener.postSave(user, isNew);
+            } catch (Exception e) {
+              LOG.warn("\t\tFailed to call postSave for " + username + " User with listener : " + userEventListener.getClass(),
+                       e);
+            } finally {
+              endRequest();
+            }
+          }
+        }
+      } catch (Exception e) {
+        LOG.warn("\t\tFailed to call listeners for " + username + " User", e);
+      } finally {
+        endRequest();
+        if (session != null) {
+          session.logout();
+        }
+      }
+      invokeUserProfileListeners(username, event);
+      invokeUserMembershipsListeners(username, event);
+      break;
+    }
     }
   }
 
   /**
    * Apply OrganizationService listeners on selected User
    * 
-   * @param username
-   *          The user name
+   * @param username The user name
    */
   @Managed
   @ManagedDescription("Test if User is synhronized")
   @Impact(ImpactType.READ)
   public String isUserSync(@ManagedDescription("User name") @ManagedName("username") String username) throws Exception {
+    if (!isEnabled()) {
+      throw new IllegalStateException("OrganizationIntegrationService is disabled");
+    }
+
     Session session = null;
     try {
       session = repositoryService.getCurrentRepository().getSystemSession(Util.WORKSPACE);
@@ -727,130 +783,132 @@ public class OrganizationIntegrationService implements Startable {
    * @param groupId
    * @param eventType
    */
-  @SuppressWarnings("unchecked")
   @Managed
   @ManagedDescription("invoke a membership listeners")
   @Impact(ImpactType.READ)
   public void syncMembership(@ManagedDescription("User name") @ManagedName("username") String username,
-      @ManagedDescription("group identifier") @ManagedName("groupId") String groupId,
-      @ManagedDescription("event type") @ManagedName("eventType") String eventType) {
+                             @ManagedDescription("group identifier") @ManagedName("groupId") String groupId,
+                             @ManagedDescription("event type") @ManagedName("eventType") String eventType) {
 
     if (LOG.isDebugEnabled()) {
       LOG.debug("Memberships listeners invocation, operation= " + eventType + ", for membership=" + username + ":" + groupId);
     }
+    if (!isEnabled()) {
+      throw new IllegalStateException("OrganizationIntegrationService is disabled");
+    }
 
     EventType event = EventType.valueOf(eventType);
     switch (event) {
-      case DELETED: {
-        Session session = null;
-        startRequest();
+    case DELETED: {
+      Session session = null;
+      startRequest();
+      try {
+        session = repositoryService.getCurrentRepository().getSystemSession(Util.WORKSPACE);
+        List<Membership> activatedMemberships = Util.getActivatedMembershipsRelatedToUser(session, username);
+        // Select memberships with given username and groupId
+        int i = 0;
+        while (i < activatedMemberships.size()) {
+          Membership membership = activatedMemberships.get(i);
+          if (membership.getGroupId().equals(groupId)) {
+            activatedMemberships.remove(i);
+          } else {
+            i++;
+          }
+        }
+        if (activatedMemberships.isEmpty()) {
+          if (LOG.isDebugEnabled()) {
+            LOG.debug("No integrated memberships was found for user: " + username + ", and group = " + groupId);
+          }
+          return;
+        }
+        List<Membership> memberships = null;
         try {
-          session = repositoryService.getCurrentRepository().getSystemSession(Util.WORKSPACE);
-          List<Membership> activatedMemberships = Util.getActivatedMembershipsRelatedToUser(session, username);
-          // Select memberships with given username and groupId
-          int i = 0;
-          while (i < activatedMemberships.size()) {
-            Membership membership = activatedMemberships.get(i);
-            if (membership.getGroupId().equals(groupId)) {
-              activatedMemberships.remove(i);
-            } else {
-              i++;
-            }
-          }
-          if (activatedMemberships.isEmpty()) {
-            if (LOG.isDebugEnabled()) {
-              LOG.debug("No integrated memberships was found for user: " + username + ", and group = " + groupId);
-            }
-            return;
-          }
-          List<Membership> memberships = null;
-          try {
-            memberships = (List<Membership>) organizationService.getMembershipHandler().findMembershipsByUserAndGroup(username,
-                groupId);
-          } catch (Exception e) {
-            LOG.error("\t\tError occurred while verifying if membership is present in Datasource or not. This may not cause a problem :"
-                + e.getMessage());
-          }
-          if (memberships == null) {
-            memberships = new ArrayList<Membership>();
-          }
+          memberships = (List<Membership>) organizationService.getMembershipHandler().findMembershipsByUserAndGroup(username,
+                                                                                                                    groupId);
+        } catch (Exception e) {
+          LOG.error("\t\tError occurred while verifying if membership is present in Datasource or not. This may not cause a problem :"
+              + e.getMessage());
+        }
+        if (memberships == null) {
+          memberships = new ArrayList<Membership>();
+        }
 
-          for (Membership membership : activatedMemberships) {
-            if (!contains(membership, memberships)) {
+        for (Membership membership : activatedMemberships) {
+          if (!contains(membership, memberships)) {
+            invokeMembershipListeners(username, groupId, membership.getMembershipType(), event);
+          }
+        }
+      } catch (Exception e) {
+        LOG.error("\t\tUnknown error occurred while preparing to proceed membership deletion", e);
+      } finally {
+        endRequest();
+        if (session != null) {
+          session.logout();
+        }
+      }
+      break;
+    }
+    case ADDED:
+    case UPDATED: {
+      boolean isNew = EventType.ADDED.equals(event);
+      Session session = null;
+      startRequest();
+      try {
+        List<Membership> memberships = null;
+        try {
+          memberships = (List<Membership>) organizationService.getMembershipHandler().findMembershipsByUserAndGroup(username,
+                                                                                                                    groupId);
+        } catch (Exception e) {
+          LOG.error("\t\tError occurred while verifying if membership is present in Datasource or not. This may not cause a problem :"
+              + e.getMessage());
+        }
+        if (memberships == null || memberships.isEmpty()) {
+          if (LOG.isDebugEnabled()) {
+            LOG.debug("No integrated memberships was found for user: " + username + ", and group = " + groupId);
+          }
+          return;
+        }
+
+        session = repositoryService.getCurrentRepository().getSystemSession(Util.WORKSPACE);
+        List<Membership> activatedMemberships = Util.getActivatedMembershipsRelatedToUser(session, username);
+        // Select memberships with given username and groupId
+        int i = 0;
+        while (i < activatedMemberships.size()) {
+          Membership membership = activatedMemberships.get(i);
+          if (membership.getGroupId().equals(groupId)) {
+            activatedMemberships.remove(i);
+          } else {
+            i++;
+          }
+        }
+        if (!isNew && activatedMemberships.isEmpty()) {
+          if (LOG.isDebugEnabled()) {
+            LOG.debug("No integrated memberships was found for user: " + username + ", abd group = " + groupId);
+          }
+          return;
+        }
+
+        for (Membership membership : memberships) {
+          if (isNew) {
+            if (!contains(membership, activatedMemberships)) {
+              invokeMembershipListeners(username, groupId, membership.getMembershipType(), event);
+            }
+          } else {
+            if (contains(membership, activatedMemberships)) {
               invokeMembershipListeners(username, groupId, membership.getMembershipType(), event);
             }
           }
-        } catch (Exception e) {
-          LOG.error("\t\tUnknown error occurred while preparing to proceed membership deletion", e);
-        } finally {
-          endRequest();
-          if (session != null) {
-            session.logout();
-          }
         }
-        break;
-      }
-      case ADDED:
-      case UPDATED: {
-        boolean isNew = EventType.ADDED.equals(event);
-        Session session = null;
-        startRequest();
-        try {
-          List<Membership> memberships = null;
-          try {
-            memberships = (List<Membership>) organizationService.getMembershipHandler().findMembershipsByUserAndGroup(username,
-                groupId);
-          } catch (Exception e) {
-            LOG.error("\t\tError occurred while verifying if membership is present in Datasource or not. This may not cause a problem :"
-                + e.getMessage());
-          }
-          if (memberships == null || memberships.isEmpty()) {
-            if (LOG.isDebugEnabled()) {
-              LOG.debug("No integrated memberships was found for user: " + username + ", and group = " + groupId);
-            }
-            return;
-          }
-
-          session = repositoryService.getCurrentRepository().getSystemSession(Util.WORKSPACE);
-          List<Membership> activatedMemberships = Util.getActivatedMembershipsRelatedToUser(session, username);
-          // Select memberships with given username and groupId
-          int i = 0;
-          while (i < activatedMemberships.size()) {
-            Membership membership = activatedMemberships.get(i);
-            if (membership.getGroupId().equals(groupId)) {
-              activatedMemberships.remove(i);
-            } else {
-              i++;
-            }
-          }
-          if (!isNew && activatedMemberships.isEmpty()) {
-            if (LOG.isDebugEnabled()) {
-              LOG.debug("No integrated memberships was found for user: " + username + ", abd group = " + groupId);
-            }
-            return;
-          }
-
-          for (Membership membership : memberships) {
-            if (isNew) {
-              if (!contains(membership, activatedMemberships)) {
-                invokeMembershipListeners(username, groupId, membership.getMembershipType(), event);
-              }
-            } else {
-              if (contains(membership, activatedMemberships)) {
-                invokeMembershipListeners(username, groupId, membership.getMembershipType(), event);
-              }
-            }
-          }
-        } catch (Exception e) {
-          LOG.error("\t\tUnknown error occurred while preparing to proceed membership deletion", e);
-        } finally {
-          endRequest();
-          if (session != null) {
-            session.logout();
-          }
+      } catch (Exception e) {
+        LOG.error("\t\tUnknown error occurred while preparing to proceed membership deletion", e);
+      } finally {
+        endRequest();
+        if (session != null) {
+          session.logout();
         }
-        break;
       }
+      break;
+    }
     }
   }
 
@@ -860,118 +918,122 @@ public class OrganizationIntegrationService implements Startable {
       LOG.debug("\tMembership listeners invocation, operation= " + eventType + ", for membership= " + membershipType + ":"
           + username + ":" + groupId);
     }
+    if (!isEnabled()) {
+      throw new IllegalStateException("OrganizationIntegrationService is disabled");
+    }
 
     switch (eventType) {
-      case DELETED: {
-        startRequest();
+    case DELETED: {
+      startRequest();
+      try {
+        Membership membership = null;
         try {
-          Membership membership = null;
-          try {
-            membership = organizationService.getMembershipHandler().findMembershipByUserGroupAndType(username, groupId,
-                membershipType);
-          } catch (Exception e) {
-            LOG.warn("\t\tError occurred while verifying if membership is present in Datasource or not. This may not cause a problem :"
-                + e.getMessage());
-          } finally {
-            endRequest();
+          membership = organizationService.getMembershipHandler().findMembershipByUserGroupAndType(username,
+                                                                                                   groupId,
+                                                                                                   membershipType);
+        } catch (Exception e) {
+          LOG.warn("\t\tError occurred while verifying if membership is present in Datasource or not. This may not cause a problem :"
+              + e.getMessage());
+        } finally {
+          endRequest();
+        }
+        if (membership != null) {
+          LOG.warn("\t\tMembership exists: can't invoke delete listeners on the existant membership : " + membership.getId());
+          return;
+        }
+        {
+          membership = new MembershipImpl();
+          ((MembershipImpl) membership).setGroupId(groupId);
+          ((MembershipImpl) membership).setUserName(username);
+          ((MembershipImpl) membership).setMembershipType(membershipType);
+          ((MembershipImpl) membership).setId(Util.computeId(membership));
+        }
+        try {
+          LOG.info("Invoke " + membership.getId() + " Membership deletion listeners.");
+          Collection<MembershipEventListener> membershipDAOListeners = membershipDAOListeners_.values();
+          for (MembershipEventListener membershipEventListener : membershipDAOListeners) {
+            startRequest();
+            try {
+              membershipEventListener.preDelete(membership);
+            } catch (Exception e) {
+              LOG.error("\t\tFailed to call preDelete on " + username + " Membership (" + membership.getId() + ") listener = "
+                  + membershipEventListener.getClass(), e);
+            } finally {
+              endRequest();
+            }
+            startRequest();
+            try {
+              membershipEventListener.postDelete(membership);
+            } catch (Exception e) {
+              LOG.error("\t\tFailed to call postDelete on " + username + " Membership (" + membership.getId() + ") listener = "
+                  + membershipEventListener.getClass(), e);
+            } finally {
+              endRequest();
+            }
           }
-          if (membership != null) {
-            LOG.warn("\t\tMembership exists: can't invoke delete listeners on the existant membership : " + membership.getId());
-            return;
+        } catch (Exception e) {
+          LOG.error("\t\tFailed to call listeners on Membership (" + membership.getId() + ")", e);
+        }
+      } catch (Exception e) {
+        LOG.error("\t\tUnknown error occurred while preparing to proceed membership deletion", e);
+      } finally {
+        endRequest();
+      }
+      break;
+    }
+    case ADDED:
+    case UPDATED: {
+      boolean isNew = EventType.ADDED.equals(eventType);
+      Session session = null;
+      startRequest();
+      try {
+        session = repositoryService.getCurrentRepository().getSystemSession(Util.WORKSPACE);
+        Membership membership = organizationService.getMembershipHandler()
+                                                   .findMembershipByUserGroupAndType(username, groupId, membershipType);
+        try {
+          if (!Util.hasGroupFolder(session, groupId)) {
+            syncGroup(groupId, EventType.ADDED.toString());
           }
-          {
-            membership = new MembershipImpl();
-            ((MembershipImpl) membership).setGroupId(groupId);
-            ((MembershipImpl) membership).setUserName(username);
-            ((MembershipImpl) membership).setMembershipType(membershipType);
-            ((MembershipImpl) membership).setId(Util.computeId(membership));
+          if (!Util.hasUserFolder(session, username)) {
+            syncUser(username, EventType.ADDED.toString());
           }
-          try {
-            LOG.info("Invoke " + membership.getId() + " Membership deletion listeners.");
+          if (membership != null && (!isNew || !Util.hasMembershipFolder(session, membership))) {
+            LOG.info("Invoke " + membership.getId() + " Membership synchronization.");
             Collection<MembershipEventListener> membershipDAOListeners = membershipDAOListeners_.values();
             for (MembershipEventListener membershipEventListener : membershipDAOListeners) {
               startRequest();
               try {
-                membershipEventListener.preDelete(membership);
+                membershipEventListener.preSave(membership, isNew);
               } catch (Exception e) {
-                LOG.error("\t\tFailed to call preDelete on " + username + " Membership (" + membership.getId() + ") listener = "
-                    + membershipEventListener.getClass(), e);
+                LOG.error("\t\tFailed to call preSave on Membership (" + membership.getId() + ",isNew = " + isNew
+                    + ") listener = " + membershipEventListener.getClass(), e);
               } finally {
                 endRequest();
               }
               startRequest();
               try {
-                membershipEventListener.postDelete(membership);
+                membershipEventListener.postSave(membership, isNew);
               } catch (Exception e) {
-                LOG.error("\t\tFailed to call postDelete on " + username + " Membership (" + membership.getId() + ") listener = "
+                LOG.error("\t\tFailed to call postSave on Membership (" + membership.getId() + ") listener = "
                     + membershipEventListener.getClass(), e);
               } finally {
                 endRequest();
               }
             }
-          } catch (Exception e) {
-            LOG.error("\t\tFailed to call listeners on Membership (" + membership.getId() + ")", e);
           }
         } catch (Exception e) {
-          LOG.error("\t\tUnknown error occurred while preparing to proceed membership deletion", e);
-        } finally {
-          endRequest();
+          LOG.error("\t\tFailed to call listeners on Membership (" + membership.getId() + ")", e);
         }
-        break;
-      }
-      case ADDED:
-      case UPDATED: {
-        boolean isNew = EventType.ADDED.equals(eventType);
-        Session session = null;
-        startRequest();
-        try {
-          session = repositoryService.getCurrentRepository().getSystemSession(Util.WORKSPACE);
-          Membership membership = organizationService.getMembershipHandler().findMembershipByUserGroupAndType(username, groupId,
-              membershipType);
-          try {
-            if (!Util.hasGroupFolder(session, groupId)) {
-              syncGroup(groupId, EventType.ADDED.toString());
-            }
-            if (!Util.hasUserFolder(session, username)) {
-              syncUser(username, EventType.ADDED.toString());
-            }
-            if (membership != null && (!isNew || !Util.hasMembershipFolder(session, membership))) {
-              LOG.info("Invoke " + membership.getId() + " Membership synchronization.");
-              Collection<MembershipEventListener> membershipDAOListeners = membershipDAOListeners_.values();
-              for (MembershipEventListener membershipEventListener : membershipDAOListeners) {
-                startRequest();
-                try {
-                  membershipEventListener.preSave(membership, isNew);
-                } catch (Exception e) {
-                  LOG.error("\t\tFailed to call preSave on Membership (" + membership.getId() + ",isNew = " + isNew
-                      + ") listener = " + membershipEventListener.getClass(), e);
-                } finally {
-                  endRequest();
-                }
-                startRequest();
-                try {
-                  membershipEventListener.postSave(membership, isNew);
-                } catch (Exception e) {
-                  LOG.error("\t\tFailed to call postSave on Membership (" + membership.getId() + ") listener = "
-                      + membershipEventListener.getClass(), e);
-                } finally {
-                  endRequest();
-                }
-              }
-            }
-          } catch (Exception e) {
-            LOG.error("\t\tFailed to call listeners on Membership (" + membership.getId() + ")", e);
-          }
-        } catch (Exception e) {
-          LOG.error("\t\tFailed to call listeners on " + username + " Memberships listeners", e);
-        } finally {
-          endRequest();
-          if (session != null) {
-            session.logout();
-          }
+      } catch (Exception e) {
+        LOG.error("\t\tFailed to call listeners on " + username + " Memberships listeners", e);
+      } finally {
+        endRequest();
+        if (session != null) {
+          session.logout();
         }
-        break;
       }
+      break;
+    }
     }
   }
 
@@ -1007,8 +1069,10 @@ public class OrganizationIntegrationService implements Startable {
                                      // deleted, and so listeners
                                      // aren't triggered, in this case
                                      // force the listeners execution
-          invokeMembershipListeners(membership.getUserName(), membership.getGroupId(), membership.getMembershipType(),
-              EventType.DELETED);
+          invokeMembershipListeners(membership.getUserName(),
+                                    membership.getGroupId(),
+                                    membership.getMembershipType(),
+                                    EventType.DELETED);
         }
       }
 
@@ -1044,80 +1108,80 @@ public class OrganizationIntegrationService implements Startable {
       LOG.debug("\t\tMemberships listeners invocation, operation= " + eventType + ", for user= " + username);
     }
     switch (eventType) {
-      case DELETED: {
-        Session session = null;
-        startRequest();
+    case DELETED: {
+      Session session = null;
+      startRequest();
+      try {
+        Collection<?> userMemberships = null;
         try {
-          Collection<?> userMemberships = null;
-          try {
-            userMemberships = organizationService.getMembershipHandler().removeMembershipByUser(username, true);
-          } catch (Exception exception) {
-            LOG.error("\t\t\tCouldn't process deletion of Memberships related to the user : " + username, exception);
-          }
-          if (userMemberships != null) {
-            session = repositoryService.getCurrentRepository().getSystemSession(Util.WORKSPACE);
-            List<Membership> memberships = Util.getActivatedMembershipsRelatedToUser(session, username);
-            for (Membership membership : memberships) {
-              invokeMembershipListeners(username, membership.getGroupId(), membership.getMembershipType(), eventType);
-            }
-          } else { // Delete all related Memberships
-            LOG.error("\t\t\tUser " + username + " was deleted, but some memberships are always existing : " + userMemberships);
-          }
-        } catch (Exception e) {
-          LOG.error("\t\t\tUnknown error occurred while preparing to proceed membership deletion", e);
-        } finally {
-          endRequest();
-          if (session != null) {
-            session.logout();
-          }
+          userMemberships = organizationService.getMembershipHandler().removeMembershipByUser(username, true);
+        } catch (Exception exception) {
+          LOG.error("\t\t\tCouldn't process deletion of Memberships related to the user : " + username, exception);
         }
-        break;
-      }
-      case ADDED:
-      case UPDATED: {
-        boolean isNew = EventType.ADDED.equals(eventType);
-        Session session = null;
-        Collection<?> memberships = null;
-        List<Membership> activatedMemberships = null;
-        startRequest();
-        try {
+        if (userMemberships != null) {
           session = repositoryService.getCurrentRepository().getSystemSession(Util.WORKSPACE);
-          memberships = organizationService.getMembershipHandler().findMembershipsByUser(username);
-          activatedMemberships = Util.getActivatedMembershipsRelatedToUser(session, username);
-          for (Object membershipObject : memberships) {
-            Membership membership = (Membership) membershipObject;
-            boolean isAlreadyIntegrated = contains(membership, activatedMemberships);
-            if (isNew) {
-              if (!isAlreadyIntegrated) {
-                invokeMembershipListeners(username, membership.getGroupId(), membership.getMembershipType(), eventType);
-              } else {
-                if (LOG.isDebugEnabled()) {
-                  LOG.debug("\t\t\t" + membership.getId() + " Membership is already integrated");
-                }
-              }
+          List<Membership> memberships = Util.getActivatedMembershipsRelatedToUser(session, username);
+          for (Membership membership : memberships) {
+            invokeMembershipListeners(username, membership.getGroupId(), membership.getMembershipType(), eventType);
+          }
+        } else { // Delete all related Memberships
+          LOG.error("\t\t\tUser " + username + " was deleted, but some memberships are always existing : " + userMemberships);
+        }
+      } catch (Exception e) {
+        LOG.error("\t\t\tUnknown error occurred while preparing to proceed membership deletion", e);
+      } finally {
+        endRequest();
+        if (session != null) {
+          session.logout();
+        }
+      }
+      break;
+    }
+    case ADDED:
+    case UPDATED: {
+      boolean isNew = EventType.ADDED.equals(eventType);
+      Session session = null;
+      Collection<?> memberships = null;
+      List<Membership> activatedMemberships = null;
+      startRequest();
+      try {
+        session = repositoryService.getCurrentRepository().getSystemSession(Util.WORKSPACE);
+        memberships = organizationService.getMembershipHandler().findMembershipsByUser(username);
+        activatedMemberships = Util.getActivatedMembershipsRelatedToUser(session, username);
+        for (Object membershipObject : memberships) {
+          Membership membership = (Membership) membershipObject;
+          boolean isAlreadyIntegrated = contains(membership, activatedMemberships);
+          if (isNew) {
+            if (!isAlreadyIntegrated) {
+              invokeMembershipListeners(username, membership.getGroupId(), membership.getMembershipType(), eventType);
             } else {
-              if (isAlreadyIntegrated) {
-                invokeMembershipListeners(username, membership.getGroupId(), membership.getMembershipType(), eventType);
-              } else {
-                if (LOG.isDebugEnabled()) {
-                  LOG.debug("\t\t\t" + membership.getId()
-                      + " Membership is not yet added, add invoke listeners with parameter isNew=true");
-                }
-                invokeMembershipListeners(username, membership.getGroupId(), membership.getMembershipType(), EventType.ADDED);
+              if (LOG.isDebugEnabled()) {
+                LOG.debug("\t\t\t" + membership.getId() + " Membership is already integrated");
               }
             }
-          }
-        } catch (Exception e) {
-          LOG.error("\t\t\tFailed to call Membership listeners for user : " + username, e);
-          throw new IllegalStateException(e);
-        } finally {
-          endRequest();
-          if (session != null) {
-            session.logout();
+          } else {
+            if (isAlreadyIntegrated) {
+              invokeMembershipListeners(username, membership.getGroupId(), membership.getMembershipType(), eventType);
+            } else {
+              if (LOG.isDebugEnabled()) {
+                LOG.debug("\t\t\t" + membership.getId()
+                    + " Membership is not yet added, add invoke listeners with parameter isNew=true");
+              }
+              invokeMembershipListeners(username, membership.getGroupId(), membership.getMembershipType(), EventType.ADDED);
+            }
           }
         }
-        break;
+      } catch (Exception e) {
+        LOG.error("\t\t\tFailed to call Membership listeners for user : " + username, e);
+        throw new IllegalStateException(e);
+      } finally {
+        endRequest();
+        if (session != null) {
+          session.logout();
+        }
       }
+      break;
+    }
     }
   }
 
@@ -1138,109 +1202,109 @@ public class OrganizationIntegrationService implements Startable {
       LOG.debug("\t\tProfile listeners invocation, operation= " + eventType + ", for user= " + username);
     }
     switch (eventType) {
-      case ADDED:
-      case UPDATED: {
-        Session session = null;
-        startRequest();
-        try {
-          session = repositoryService.getCurrentRepository().getSystemSession(Util.WORKSPACE);
-          boolean isNew = EventType.ADDED.equals(eventType);
-          UserProfile userProfile = organizationService.getUserProfileHandler().findUserProfileByName(username);
-          if (userProfile == null) {
-            userProfile = organizationService.getUserProfileHandler().createUserProfileInstance(username);
-            organizationService.getUserProfileHandler().saveUserProfile(userProfile, isNew);
-            userProfile = organizationService.getUserProfileHandler().findUserProfileByName(username);
-          }
-          if (!isNew || !Util.hasProfileFolder(session, username)) {
-            LOG.info("Invoke " + username + " user profile synchronization.");
-            Collection<UserProfileEventListener> userProfileListeners = userProfileListeners_.values();
-            for (UserProfileEventListener userProfileEventListener : userProfileListeners) {
-              if (userProfile.getUserInfoMap() == null) {
-                userProfile.setUserInfoMap(new HashMap<String, String>());
-              }
-              startRequest();
-              try {
-                userProfileEventListener.preSave(userProfile, isNew);
-              } catch (Exception e) {
-                LOG.warn("\t\t\tFailed to call preSave on " + username + " User profile with listener : "
-                    + userProfileEventListener.getClass(), e);
-              } finally {
-                endRequest();
-              }
-              startRequest();
-              try {
-                userProfileEventListener.postSave(userProfile, isNew);
-              } catch (Exception e) {
-                LOG.warn("\t\t\tFailed to call postSave on " + username + " User profile with listener : "
-                    + userProfileEventListener.getClass(), e);
-              } finally {
-                endRequest();
-              }
+    case ADDED:
+    case UPDATED: {
+      Session session = null;
+      startRequest();
+      try {
+        session = repositoryService.getCurrentRepository().getSystemSession(Util.WORKSPACE);
+        boolean isNew = EventType.ADDED.equals(eventType);
+        UserProfile userProfile = organizationService.getUserProfileHandler().findUserProfileByName(username);
+        if (userProfile == null) {
+          userProfile = organizationService.getUserProfileHandler().createUserProfileInstance(username);
+          organizationService.getUserProfileHandler().saveUserProfile(userProfile, isNew);
+          userProfile = organizationService.getUserProfileHandler().findUserProfileByName(username);
+        }
+        if (!isNew || !Util.hasProfileFolder(session, username)) {
+          LOG.info("Invoke " + username + " user profile synchronization.");
+          Collection<UserProfileEventListener> userProfileListeners = userProfileListeners_.values();
+          for (UserProfileEventListener userProfileEventListener : userProfileListeners) {
+            if (userProfile.getUserInfoMap() == null) {
+              userProfile.setUserInfoMap(new HashMap<String, String>());
+            }
+            startRequest();
+            try {
+              userProfileEventListener.preSave(userProfile, isNew);
+            } catch (Exception e) {
+              LOG.warn("\t\t\tFailed to call preSave on " + username + " User profile with listener : "
+                  + userProfileEventListener.getClass(), e);
+            } finally {
+              endRequest();
+            }
+            startRequest();
+            try {
+              userProfileEventListener.postSave(userProfile, isNew);
+            } catch (Exception e) {
+              LOG.warn("\t\t\tFailed to call postSave on " + username + " User profile with listener : "
+                  + userProfileEventListener.getClass(), e);
+            } finally {
+              endRequest();
             }
           }
+        }
+      } catch (Exception e) {
+        LOG.warn("\t\t\tFailed to call listeners on " + username + " User profile", e);
+      } finally {
+        endRequest();
+        if (session != null) {
+          session.logout();
+        }
+      }
+      break;
+    }
+    case DELETED: {
+      Session session = null;
+      startRequest();
+      try {
+        session = repositoryService.getCurrentRepository().getSystemSession(Util.WORKSPACE);
+        UserProfile userProfile = null;
+        try {
+          userProfile = organizationService.getUserProfileHandler().findUserProfileByName(username);
         } catch (Exception e) {
-          LOG.warn("\t\t\tFailed to call listeners on " + username + " User profile", e);
+          LOG.warn("\t\t\tError occurred while verifying if userProfile is present in Datasource or not. This may not cause a problem :"
+              + e.getMessage());
         } finally {
           endRequest();
-          if (session != null) {
-            session.logout();
-          }
         }
-        break;
-      }
-      case DELETED: {
-        Session session = null;
         startRequest();
-        try {
-          session = repositoryService.getCurrentRepository().getSystemSession(Util.WORKSPACE);
-          UserProfile userProfile = null;
-          try {
-            userProfile = organizationService.getUserProfileHandler().findUserProfileByName(username);
-          } catch (Exception e) {
-            LOG.warn("\t\t\tError occurred while verifying if userProfile is present in Datasource or not. This may not cause a problem :"
-                + e.getMessage());
-          } finally {
-            endRequest();
-          }
-          startRequest();
-          if (userProfile != null) {
-            organizationService.getUserProfileHandler().removeUserProfile(username, true);
-          } else if (Util.hasProfileFolder(session, username)) {
-            LOG.info("Invoke " + username + " user profile deletion listeners.");
-            userProfile = new UserProfileImpl(username);
-            userProfile.setUserInfoMap(new HashMap<String, String>());
-            Collection<UserProfileEventListener> userProfileListeners = userProfileListeners_.values();
-            for (UserProfileEventListener userProfileEventListener : userProfileListeners) {
-              startRequest();
-              try {
-                userProfileEventListener.preDelete(userProfile);
-              } catch (Exception e) {
-                LOG.warn("\t\t\tFailed to call preSave on " + username + " User profile with listener : "
-                    + userProfileEventListener.getClass(), e);
-              } finally {
-                endRequest();
-              }
-              startRequest();
-              try {
-                userProfileEventListener.postDelete(userProfile);
-              } catch (Exception e) {
-                LOG.warn("\t\t\tFailed to call postSave on " + username + " User profile with listener : "
-                    + userProfileEventListener.getClass(), e);
-              } finally {
-                endRequest();
-              }
+        if (userProfile != null) {
+          organizationService.getUserProfileHandler().removeUserProfile(username, true);
+        } else if (Util.hasProfileFolder(session, username)) {
+          LOG.info("Invoke " + username + " user profile deletion listeners.");
+          userProfile = new UserProfileImpl(username);
+          userProfile.setUserInfoMap(new HashMap<String, String>());
+          Collection<UserProfileEventListener> userProfileListeners = userProfileListeners_.values();
+          for (UserProfileEventListener userProfileEventListener : userProfileListeners) {
+            startRequest();
+            try {
+              userProfileEventListener.preDelete(userProfile);
+            } catch (Exception e) {
+              LOG.warn("\t\t\tFailed to call preSave on " + username + " User profile with listener : "
+                  + userProfileEventListener.getClass(), e);
+            } finally {
+              endRequest();
+            }
+            startRequest();
+            try {
+              userProfileEventListener.postDelete(userProfile);
+            } catch (Exception e) {
+              LOG.warn("\t\t\tFailed to call postSave on " + username + " User profile with listener : "
+                  + userProfileEventListener.getClass(), e);
+            } finally {
+              endRequest();
             }
           }
-        } catch (Exception e) {
-          LOG.warn("\t\t\tFailed to call listeners on " + username + " User profile", e);
-        } finally {
-          endRequest();
-          if (session != null) {
-            session.logout();
-          }
         }
-        break;
+      } catch (Exception e) {
+        LOG.warn("\t\t\tFailed to call listeners on " + username + " User profile", e);
+      } finally {
+        endRequest();
+        if (session != null) {
+          session.logout();
+        }
       }
+      break;
+    }
     }
   }
 
@@ -1265,13 +1329,13 @@ public class OrganizationIntegrationService implements Startable {
             groupEventListener.preSave(group, isNew);
           } catch (Exception e) {
             LOG.warn("\t\t\tFailed to call preSave on " + group.getId() + " Group, listener = " + groupEventListener.getClass(),
-                e);
+                     e);
           }
           try {
             groupEventListener.postSave(group, isNew);
           } catch (Exception e) {
             LOG.warn("\t\t\tFailed to call postSave on " + group.getId() + " Group, listener = " + groupEventListener.getClass(),
-                e);
+                     e);
           }
         }
       }

@@ -18,6 +18,9 @@ package org.exoplatform.platform.organization.integration;
 
 import javax.jcr.Session;
 
+import org.exoplatform.commons.utils.CommonsUtils;
+import org.exoplatform.container.ExoContainer;
+import org.exoplatform.container.ExoContainerContext;
 import org.exoplatform.services.jcr.RepositoryService;
 import org.exoplatform.services.log.ExoLogger;
 import org.exoplatform.services.log.Log;
@@ -29,13 +32,17 @@ import org.exoplatform.services.organization.MembershipEventListener;
  * is to ensure that OrganizationServiceIntegration don't apply
  * Organization Model Data listeners twice.
  * 
+ * @deprecated OrganizationIntegrationService is replaced by External Store API
  * @author Boubaker KHANFIR
  */
+@Deprecated
 public class NewMembershipListener extends MembershipEventListener {
 
   private static final Log LOG = ExoLogger.getLogger(NewMembershipListener.class);
 
   private RepositoryService repositoryService;
+
+  private OrganizationIntegrationService organizationIntegrationService;
 
   public NewMembershipListener(RepositoryService repositoryService) throws Exception {
     this.repositoryService = repositoryService;
@@ -45,6 +52,9 @@ public class NewMembershipListener extends MembershipEventListener {
    * {@inheritDoc}
    */
   public void postSave(Membership m, boolean isNew) throws Exception {
+    if (!getOrganizationIntegrationService().isEnabled()) {
+      return;
+    }
     if (!isNew) {
       return;
     }
@@ -69,6 +79,9 @@ public class NewMembershipListener extends MembershipEventListener {
    * {@inheritDoc}
    */
   public void postDelete(Membership m) throws Exception {
+    if (!getOrganizationIntegrationService().isEnabled()) {
+      return;
+    }
     Session session = null;
     try {
       session = repositoryService.getCurrentRepository().getSystemSession(Util.WORKSPACE);
@@ -80,5 +93,12 @@ public class NewMembershipListener extends MembershipEventListener {
         session.logout();
       }
     }
+  }
+
+  public OrganizationIntegrationService getOrganizationIntegrationService() {
+    if (this.organizationIntegrationService == null) {
+      organizationIntegrationService = CommonsUtils.getService(OrganizationIntegrationService.class);
+    }
+    return this.organizationIntegrationService;
   }
 }

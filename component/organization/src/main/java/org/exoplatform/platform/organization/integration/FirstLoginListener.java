@@ -26,8 +26,10 @@ import org.exoplatform.services.security.ConversationState;
 /**
  * After a user login first time, this listener gets his data initialized.
  * 
+ * @deprecated OrganizationIntegrationService is replaced by External Store API
  * @author Boubaker KHANFIR
  */
+@Deprecated
 public class FirstLoginListener extends Listener<ConversationRegistry, ConversationState> {
 
   private static final Log LOG = ExoLogger.getLogger(FirstLoginListener.class);
@@ -42,6 +44,9 @@ public class FirstLoginListener extends Listener<ConversationRegistry, Conversat
    * {@inheritDoc}
    */
   public void onEvent(Event<ConversationRegistry, ConversationState> event) throws Exception {
+    if (!organizationIntegrationService.isEnabled()) {
+      return;
+    }
     String userId = event.getData().getIdentity().getUserId();
     if (LOG.isDebugEnabled()) {
       LOG.debug("Apply listeners for user " + userId);

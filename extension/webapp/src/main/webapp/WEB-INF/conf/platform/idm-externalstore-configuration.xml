@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!--
+
+    Copyright (C) 2018 eXo Platform SAS.
+    
+    This is free software; you can redistribute it and/or modify it
+    under the terms of the GNU Lesser General Public License as
+    published by the Free Software Foundation; either version 2.1 of
+    the License, or (at your option) any later version.
+    
+    This software is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+    Lesser General Public License for more details.
+    
+    You should have received a copy of the GNU Lesser General Public
+    License along with this software; if not, write to the Free
+    Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
+    02110-1301 USA, or see the FSF site: http://www.fsf.org.
+
+-->
+
+<configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.exoplaform.org/xml/ns/kernel_1_2.xsd http://www.exoplaform.org/xml/ns/kernel_1_2.xsd"
+  xmlns="http://www.exoplaform.org/xml/ns/kernel_1_2.xsd">
+
+	<component>
+		<key>org.exoplatform.services.organization.externalstore.IDMExternalStoreService</key>
+		<type>org.exoplatform.services.organization.idm.externalstore.PicketLinkIDMExternalStoreService</type>
+		<init-params>
+			<value-param>
+				<name>update.user.onlogin</name>
+				<description>Whether update user on login when the information changes on external store or not</description>
+				<value>${exo.idm.externalStore.update.onlogin:false}</value>
+			</value-param>
+		</init-params>
+	</component>
+
+	<component>
+		<type>org.exoplatform.services.organization.externalstore.IDMExternalStoreImportService</type>
+		<init-params>
+			<value-param>
+				<name>exo.idm.externalStore.import.cronExpression</name>
+				<description>Cron expression used to schedule the job that will import periodically data from external store (Default value = every ten minutes)</description>
+				<value>${exo.idm.externalStore.import.cronExpression:0 */10 * ? * *}</value>
+			</value-param>
+			<value-param>
+				<name>exo.idm.externalStore.delete.cronExpression</name>
+				<description>Cron expression used to schedule the job that will delete periodically data from internal store that has been deleted from external store (Default value = every day at 23:59 PM)</description>
+				<value>${exo.idm.externalStore.delete.cronExpression:0 59 23 ? * *}</value>
+			</value-param>
+			<value-param>
+				<name>exo.idm.externalStore.queue.processing.cronExpression</name>
+				<description>Cron expression used to schedule the job that will process periodically data injected in queue (Default value = every minute)</description>
+				<value>${exo.idm.externalStore.queue.processing.cronExpression:0 */1 * ? * *}</value>
+			</value-param>
+		</init-params>
+	</component>
+
+	<component>
+		<type>org.exoplatform.platform.organization.externalstore.jpa.IDMQueueDAO</type>
+	</component>
+
+	<component>
+		<key>org.exoplatform.services.organization.externalstore.IDMQueueService</key>
+		<type>org.exoplatform.platform.organization.externalstore.jpa.IDMQueueServiceImpl</type>
+		<init-params>
+			<value-param>
+				<name>exo.idm.queue.processing.error.retries.max</name>
+				<description>Max retries for a queue entry processing when it throws an exception</description>
+				<value>${exo.idm.externalStore.queue.processing.error.retries.max:5}</value>
+			</value-param>
+		</init-params>
+	</component>
+
+	<component>
+		<type>org.exoplatform.services.organization.externalstore.IDMExternalStoreManagedBean</type>
+	</component>
+
+</configuration>

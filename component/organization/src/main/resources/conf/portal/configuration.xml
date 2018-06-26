@@ -38,5 +38,98 @@
                 </value-param>
             </init-params>
         </component-plugin>
+        <component-plugin>
+            <name>ExternalStoreUpgradePlugin</name>
+            <set-method>addUpgradePlugin</set-method>
+            <type>org.exoplatform.platform.migration.ExternalStoreUpgradePlugin</type>
+            <description>Upgrade plugin to update originating store information</description>
+            <init-params>
+                <value-param>
+                    <name>product.group.id</name>
+                    <description>The groupId of the product</description>
+                    <value>org.exoplatform.platform</value>
+                </value-param>
+                <value-param>
+                    <name>plugin.execution.order</name>
+                    <description>The plugin execution order</description>
+                    <value>1</value>
+                </value-param>
+                <value-param>
+                    <name>plugin.upgrade.async.execution</name>
+                    <description>Execute the upgrade plugin asynchronously</description>
+                    <value>true</value>
+                </value-param>
+                <value-param>
+                    <name>plugin.upgrade.target.version</name>
+                    <description>Target version of the plugin</description>
+                    <value>5.1.0</value>
+                </value-param>
+                <value-param>
+                    <name>plugin.upgrade.execute.once</name>
+                    <description>Execute this upgrade plugin only once</description>
+                    <value>true</value>
+                </value-param>
+            </init-params>
+        </component-plugin>
+        <component-plugin>
+            <name>CleanOrganizationIntegrationUpgradePlugin</name>
+            <set-method>addUpgradePlugin</set-method>
+            <type>org.exoplatform.platform.migration.DeleteOrganizationIntegrationFoldersUpgradePlugin</type>
+            <description>Upgrade plugin to delete OrganizationIntegrationService JCR folder structure</description>
+            <init-params>
+                <value-param>
+                    <name>product.group.id</name>
+                    <description>The groupId of the product</description>
+                    <value>org.exoplatform.platform</value>
+                </value-param>
+                <value-param>
+                    <name>plugin.execution.order</name>
+                    <description>The plugin execution order</description>
+                    <value>2</value>
+                </value-param>
+                <value-param>
+                    <name>plugin.upgrade.async.execution</name>
+                    <description>Execute the upgrade plugin asynchronously</description>
+                    <value>true</value>
+                </value-param>
+                <value-param>
+                    <name>plugin.upgrade.target.version</name>
+                    <description>Target version of the plugin</description>
+                    <value>5.1.0</value>
+                </value-param>
+                <value-param>
+                    <name>plugin.upgrade.execute.once</name>
+                    <description>Execute this upgrade plugin only once</description>
+                    <value>true</value>
+                </value-param>
+                <value-param>
+                    <name>workspace</name>
+                    <description>Workspace of parent folder to delete</description>
+                    <value>collaboration</value>
+                </value-param>
+                <value-param>
+                    <name>path</name>
+                    <description>Parent folder path to delete</description>
+                    <value>/OrganizationIntegrationService</value>
+                </value-param>
+            </init-params>
+        </component-plugin>
+    </external-component-plugins>
+
+    <!-- Data Initialization -->
+    <external-component-plugins>
+        <target-component>org.exoplatform.commons.api.persistence.DataInitializer</target-component>
+        <component-plugin>
+            <name>CommonsChangeLogsPlugin</name>
+            <set-method>addChangeLogsPlugin</set-method>
+            <type>org.exoplatform.commons.persistence.impl.ChangeLogsPlugin</type>
+            <init-params>
+                <values-param>
+                    <name>changelogs</name>
+                    <description>Change logs of idm queue</description>
+                    <value>db/changelog/idm.queue.db.changelog-1.0.0.xml</value>
+                </values-param>
+            </init-params>
+        </component-plugin>
     </external-component-plugins>
 </configuration>

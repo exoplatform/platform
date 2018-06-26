@@ -117,6 +117,7 @@
   </external-component-plugins>
   -->
 	
+	<import>jar:/conf/exo.portal.component.test.jcr-configuration.xml</import>
 	<import>classpath:/conf/portal/idm-configuration.xml</import>
 	<import>classpath:/conf/portal/organization-configuration.xml</import>
 	<import>classpath:/conf/jcr/test-jcr-configuration.xml</import>

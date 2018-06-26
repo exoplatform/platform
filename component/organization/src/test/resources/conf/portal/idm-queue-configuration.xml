@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!--
+
+    Copyright (C) 2018 eXo Platform SAS.
+    
+    This is free software; you can redistribute it and/or modify it
+    under the terms of the GNU Lesser General Public License as
+    published by the Free Software Foundation; either version 2.1 of
+    the License, or (at your option) any later version.
+    
+    This software is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+    Lesser General Public License for more details.
+    
+    You should have received a copy of the GNU Lesser General Public
+    License along with this software; if not, write to the Free
+    Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
+    02110-1301 USA, or see the FSF site: http://www.fsf.org.
+
+-->
+
+<configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.exoplaform.org/xml/ns/kernel_1_2.xsd http://www.exoplaform.org/xml/ns/kernel_1_2.xsd"
+	xmlns="http://www.exoplaform.org/xml/ns/kernel_1_2.xsd">
+	<component>
+		<type>org.exoplatform.platform.organization.externalstore.jpa.IDMQueueDAO</type>
+	</component>
+	<component>
+		<key>org.exoplatform.services.organization.externalstore.IDMQueueService</key>
+		<type>org.exoplatform.platform.organization.externalstore.jpa.IDMQueueServiceImpl</type>
+		<init-params>
+			<value-param>
+				<name>exo.idm.queue.processing.error.retries.max</name>
+				<description>Max retries for a queue entry processing when it throws
+					an exception
+				</description>
+				<value>${exo.idm.queue.processing.error.retries.max:5}</value>
+			</value-param>
+		</init-params>
+	</component>
+
+	<component>
+		<key>org.exoplatform.commons.api.persistence.DataInitializer</key>
+		<type>org.exoplatform.commons.persistence.impl.LiquibaseDataInitializer</type>
+		<init-params>
+			<value-param>
+				<name>liquibase.datasource</name>
+				<value>${exo.jpa.datasource.name:java:/comp/env/exo-jpa_portal}</value>
+			</value-param>
+			<value-param>
+				<name>liquibase.contexts</name>
+				<value>${exo.liquibase.contexts:production}</value>
+			</value-param>
+		</init-params>
+	</component>
+
+    <!-- Data Initialization -->
+    <external-component-plugins>
+        <target-component>org.exoplatform.commons.api.persistence.DataInitializer</target-component>
+        <component-plugin>
+            <name>CommonsChangeLogsPlugin</name>
+            <set-method>addChangeLogsPlugin</set-method>
+            <type>org.exoplatform.commons.persistence.impl.ChangeLogsPlugin</type>
+            <init-params>
+                <values-param>
+                    <name>changelogs</name>
+                    <description>Change logs of idm queue</description>
+                    <value>db/changelog/idm.queue.db.changelog-1.0.0.xml</value>
+                </values-param>
+            </init-params>
+        </component-plugin>
+    </external-component-plugins>
+</configuration>
