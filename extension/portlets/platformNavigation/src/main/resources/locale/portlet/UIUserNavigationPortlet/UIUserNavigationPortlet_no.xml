@@ -32,4 +32,17 @@
          <UIBannerUploader>Last opp et bilde</UIBannerUploader>
       </title>
    </UIPopupBannerUploader>
+   <UIRelationshipAction>
+      <action>
+         <AcceptRequest>Godta</AcceptRequest>
+         <Deny>Ikke bekreft</Deny>
+         <RemoveConnection>Koble fra</RemoveConnection>
+         <CancelRequest>Avbryt forespørsel</CancelRequest>
+      </action>
+      <label>
+         <Connect>Legg til i nettverk</Connect>
+         <ConnectNotExisting>Invitasjonen ble avbrutt av noen andre.</ConnectNotExisting>
+         <ConnectionExisted>Invitasjonen ble opprettet av noen andre.</ConnectionExisted>
+      </label>
+   </UIRelationshipAction>
 </bundle>

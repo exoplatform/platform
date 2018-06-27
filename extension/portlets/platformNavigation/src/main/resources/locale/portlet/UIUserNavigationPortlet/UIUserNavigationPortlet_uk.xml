@@ -32,4 +32,17 @@
          <UIBannerUploader>Завантажити зображення</UIBannerUploader>
       </title>
    </UIPopupBannerUploader>
+   <UIRelationshipAction>
+      <action>
+         <AcceptRequest>Прийняти</AcceptRequest>
+         <Deny>Відхилити</Deny>
+         <RemoveConnection>Відключити</RemoveConnection>
+         <CancelRequest>Скасувати запит</CancelRequest>
+      </action>
+      <label>
+         <Connect>Додати в контакти</Connect>
+         <ConnectNotExisting>Запрошення було скасовано іншим користувачем.</ConnectNotExisting>
+         <ConnectionExisted>Запрошення було створене кимось ще.</ConnectionExisted>
+      </label>
+   </UIRelationshipAction>
 </bundle>

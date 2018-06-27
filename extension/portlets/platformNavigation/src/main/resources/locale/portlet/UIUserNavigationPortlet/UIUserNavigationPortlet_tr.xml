@@ -32,4 +32,17 @@
          <UIBannerUploader>Bir Resim Yükleyin</UIBannerUploader>
       </title>
    </UIPopupBannerUploader>
+   <UIRelationshipAction>
+      <action>
+         <AcceptRequest>Kabul</AcceptRequest>
+         <Deny>Reddet</Deny>
+         <RemoveConnection>Bağlantıyı kes</RemoveConnection>
+         <CancelRequest>Cancel Request</CancelRequest>
+      </action>
+      <label>
+         <Connect>Bağlan</Connect>
+         <ConnectNotExisting>Davetiye başkası tarafından iptal edildi.</ConnectNotExisting>
+         <ConnectionExisted>Invitation was established by someone else.</ConnectionExisted>
+      </label>
+   </UIRelationshipAction>
 </bundle>

@@ -32,4 +32,17 @@
          <UIBannerUploader>Încărcă o imagine</UIBannerUploader>
       </title>
    </UIPopupBannerUploader>
+   <UIRelationshipAction>
+      <action>
+         <AcceptRequest>Accept</AcceptRequest>
+         <Deny>Refuză</Deny>
+         <RemoveConnection>Deconectează</RemoveConnection>
+         <CancelRequest>Revocă cererea</CancelRequest>
+      </action>
+      <label>
+         <Connect>Conectare</Connect>
+         <ConnectNotExisting>Invitaţia a fost anulată de altcineva.</ConnectNotExisting>
+         <ConnectionExisted>Invitaţia a fost trimisă de către altcineva.</ConnectionExisted>
+      </label>
+   </UIRelationshipAction>
 </bundle>

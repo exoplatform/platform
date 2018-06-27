@@ -32,4 +32,17 @@
          <UIBannerUploader>Unggah gambar</UIBannerUploader>
       </title>
    </UIPopupBannerUploader>
+   <UIRelationshipAction>
+      <action>
+         <AcceptRequest>Menerima</AcceptRequest>
+         <Deny>Menolak</Deny>
+         <RemoveConnection>Putuskan sambungan</RemoveConnection>
+         <CancelRequest>Batalkan Permintaan</CancelRequest>
+      </action>
+      <label>
+         <Connect>Hubungkan</Connect>
+         <ConnectNotExisting>Undangan dibatalkan oleh orang lain.</ConnectNotExisting>
+         <ConnectionExisted>Undangan telah disiapkan oleh orang lain.</ConnectionExisted>
+      </label>
+   </UIRelationshipAction>
 </bundle>

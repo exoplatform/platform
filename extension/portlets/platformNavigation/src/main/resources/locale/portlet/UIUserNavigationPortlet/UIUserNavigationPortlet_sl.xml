@@ -32,4 +32,17 @@
          <UIBannerUploader>Prenesi sliko</UIBannerUploader>
       </title>
    </UIPopupBannerUploader>
+   <UIRelationshipAction>
+      <action>
+         <AcceptRequest>Sprejmi</AcceptRequest>
+         <Deny>Zavrni</Deny>
+         <RemoveConnection>Prekini</RemoveConnection>
+         <CancelRequest>Prekliči prošnjo</CancelRequest>
+      </action>
+      <label>
+         <Connect>Poveži</Connect>
+         <ConnectNotExisting>Povabilo je preklical nekdo drug.</ConnectNotExisting>
+         <ConnectionExisted>Povabilo je vzpostavil nekdo drug.</ConnectionExisted>
+      </label>
+   </UIRelationshipAction>
 </bundle>

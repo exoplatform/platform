@@ -32,4 +32,17 @@
          <UIBannerUploader>Ang Mag-upload ng Larawan</UIBannerUploader>
       </title>
    </UIPopupBannerUploader>
+   <UIRelationshipAction>
+      <action>
+         <AcceptRequest>Ang Tanggapin</AcceptRequest>
+         <Deny>Ang Tanggihan</Deny>
+         <RemoveConnection>Ang I-diskonek</RemoveConnection>
+         <CancelRequest>Kanselahin ang kahilingan</CancelRequest>
+      </action>
+      <label>
+         <Connect>Kumonekta</Connect>
+         <ConnectNotExisting>Ang imbitasyon ay kinansela ng ibang tao.</ConnectNotExisting>
+         <ConnectionExisted>Ang imbitasyon ay sinimulan na ng ibang tao.</ConnectionExisted>
+      </label>
+   </UIRelationshipAction>
 </bundle>

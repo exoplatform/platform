@@ -32,4 +32,17 @@
          <UIBannerUploader>Fazer upload de uma imagem</UIBannerUploader>
       </title>
    </UIPopupBannerUploader>
+   <UIRelationshipAction>
+      <action>
+         <AcceptRequest>Aceitar</AcceptRequest>
+         <Deny>Negar</Deny>
+         <RemoveConnection>Desconectar</RemoveConnection>
+         <CancelRequest>Cancelar Requisição</CancelRequest>
+      </action>
+      <label>
+         <Connect>Conectar-se</Connect>
+         <ConnectNotExisting>O convite foi cancelado por outra pessoa.</ConnectNotExisting>
+         <ConnectionExisted>O convite já foi criado por outra pessoa.</ConnectionExisted>
+      </label>
+   </UIRelationshipAction>
 </bundle>

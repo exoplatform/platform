@@ -32,4 +32,17 @@
          <UIBannerUploader>画像のアップロード</UIBannerUploader>
       </title>
    </UIPopupBannerUploader>
+   <UIRelationshipAction>
+      <action>
+         <AcceptRequest>許可する</AcceptRequest>
+         <Deny>拒否</Deny>
+         <RemoveConnection>切断</RemoveConnection>
+         <CancelRequest>リクエストを取り消す</CancelRequest>
+      </action>
+      <label>
+         <Connect>つながり</Connect>
+         <ConnectNotExisting>招待状が、キャンセルされました。</ConnectNotExisting>
+         <ConnectionExisted>招待状が送られています。</ConnectionExisted>
+      </label>
+   </UIRelationshipAction>
 </bundle>

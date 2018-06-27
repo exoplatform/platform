@@ -32,4 +32,17 @@
          <UIBannerUploader>Puja una imatge</UIBannerUploader>
       </title>
    </UIPopupBannerUploader>
+   <UIRelationshipAction>
+      <action>
+         <AcceptRequest>Accepta</AcceptRequest>
+         <Deny>Denega</Deny>
+         <RemoveConnection>Desconnecta</RemoveConnection>
+         <CancelRequest>Cancel·la la petició</CancelRequest>
+      </action>
+      <label>
+         <Connect>Connecta</Connect>
+         <ConnectNotExisting>S'ha cancel·lat la invitació per una altra persona.</ConnectNotExisting>
+         <ConnectionExisted>La invitació ha sigut establer-ta per algú altre.</ConnectionExisted>
+      </label>
+   </UIRelationshipAction>
 </bundle>

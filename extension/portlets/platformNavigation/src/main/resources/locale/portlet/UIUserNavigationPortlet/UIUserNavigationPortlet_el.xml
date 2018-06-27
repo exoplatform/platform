@@ -32,4 +32,17 @@
          <UIBannerUploader>Ανέβασμα Εικόνας</UIBannerUploader>
       </title>
    </UIPopupBannerUploader>
+   <UIRelationshipAction>
+      <action>
+         <AcceptRequest>Αποδοχή</AcceptRequest>
+         <Deny>Άρνηση</Deny>
+         <RemoveConnection>Αποσύνδεση</RemoveConnection>
+         <CancelRequest>Ακύρωση αίτησης</CancelRequest>
+      </action>
+      <label>
+         <Connect>Συνδεθείτε</Connect>
+         <ConnectNotExisting>Η πρόσκληση ακυρώθηκε από κάποιον άλλο.</ConnectNotExisting>
+         <ConnectionExisted>Η πρόσκληση πραγματοποιήθηκε από κάποιον άλλο.</ConnectionExisted>
+      </label>
+   </UIRelationshipAction>
 </bundle>

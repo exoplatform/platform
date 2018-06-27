@@ -32,4 +32,17 @@
          <UIBannerUploader>Ladda upp en bild</UIBannerUploader>
       </title>
    </UIPopupBannerUploader>
+   <UIRelationshipAction>
+      <action>
+         <AcceptRequest>Godkänn</AcceptRequest>
+         <Deny>Neka</Deny>
+         <RemoveConnection>Koppla från</RemoveConnection>
+         <CancelRequest>Avbryt begäran</CancelRequest>
+      </action>
+      <label>
+         <Connect>Anslut</Connect>
+         <ConnectNotExisting>Inbjudan har avbrutits av någon annan.</ConnectNotExisting>
+         <ConnectionExisted>Inbjudan startades av någon annan.</ConnectionExisted>
+      </label>
+   </UIRelationshipAction>
 </bundle>

@@ -34,15 +34,15 @@
    </UIPopupBannerUploader>
    <UIRelationshipAction>
       <action>
-         <AcceptRequest>Accepter la demande</AcceptRequest>
+         <AcceptRequest>Accepter</AcceptRequest>
          <Deny>Refuser</Deny>
-         <RemoveConnection>D\u00E9connexion</RemoveConnection>
-         <CancelRequest>Annuler la demande</CancelRequest>
+         <RemoveConnection>Déconnexion</RemoveConnection>
+         <CancelRequest>Annuler la Requête</CancelRequest>
       </action>
       <label>
          <Connect>Se connecter</Connect>
-         <ConnectNotExisting>L'invitation a \u00E9t\u00E9 annul\u00E9e par une autre personne</ConnectNotExisting>
-         <ConnectionExisted>L'invitation a \u00E9t\u00E9 \u00E9tablie par quelqu'un d'autre.</ConnectionExisted>
+         <ConnectNotExisting>L'invitation a été annulée par une autre personne</ConnectNotExisting>
+         <ConnectionExisted>L'invitation a été établie par quelqu'un d'autre.</ConnectionExisted>
       </label>
    </UIRelationshipAction>
 </bundle>

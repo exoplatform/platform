@@ -32,4 +32,17 @@
          <UIBannerUploader>Een afbeelding uploaden</UIBannerUploader>
       </title>
    </UIPopupBannerUploader>
+   <UIRelationshipAction>
+      <action>
+         <AcceptRequest>Akkoord</AcceptRequest>
+         <Deny>Weigeren</Deny>
+         <RemoveConnection>Verbinding verbreken</RemoveConnection>
+         <CancelRequest>Aanvraag annuleren</CancelRequest>
+      </action>
+      <label>
+         <Connect>Verbinden</Connect>
+         <ConnectNotExisting>Uitnodiging is door iemand anders geannuleerd.</ConnectNotExisting>
+         <ConnectionExisted>Uitnodiging werd opgericht door iemand anders.</ConnectionExisted>
+      </label>
+   </UIRelationshipAction>
 </bundle>

@@ -32,4 +32,17 @@
          <UIBannerUploader>ارسال یک تصویر</UIBannerUploader>
       </title>
    </UIPopupBannerUploader>
+   <UIRelationshipAction>
+      <action>
+         <AcceptRequest>قبول</AcceptRequest>
+         <Deny>رد</Deny>
+         <RemoveConnection>قطع ارتباط</RemoveConnection>
+         <CancelRequest>لغو درخواست</CancelRequest>
+      </action>
+      <label>
+         <Connect>اتصال</Connect>
+         <ConnectNotExisting>دعوتنامه توسط شخص دیگری لغو شد.</ConnectNotExisting>
+         <ConnectionExisted>دعوتنامه توسط شخص دیگری ارسال شده است.</ConnectionExisted>
+      </label>
+   </UIRelationshipAction>
 </bundle>

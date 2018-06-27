@@ -32,4 +32,17 @@
          <UIBannerUploader>crwdns6858665:0crwdne6858665:0</UIBannerUploader>
       </title>
    </UIPopupBannerUploader>
+   <UIRelationshipAction>
+      <action>
+         <AcceptRequest>crwdns6868985:0crwdne6868985:0</AcceptRequest>
+         <Deny>crwdns6868986:0crwdne6868986:0</Deny>
+         <RemoveConnection>crwdns6868987:0crwdne6868987:0</RemoveConnection>
+         <CancelRequest>crwdns6868988:0crwdne6868988:0</CancelRequest>
+      </action>
+      <label>
+         <Connect>crwdns6868989:0crwdne6868989:0</Connect>
+         <ConnectNotExisting>crwdns6868990:0crwdne6868990:0</ConnectNotExisting>
+         <ConnectionExisted>crwdns6868991:0crwdne6868991:0</ConnectionExisted>
+      </label>
+   </UIRelationshipAction>
 </bundle>

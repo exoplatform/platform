@@ -32,4 +32,17 @@
          <UIBannerUploader>Nahrát obrázek</UIBannerUploader>
       </title>
    </UIPopupBannerUploader>
+   <UIRelationshipAction>
+      <action>
+         <AcceptRequest>Přijmout</AcceptRequest>
+         <Deny>Zakázat</Deny>
+         <RemoveConnection>Odpojit</RemoveConnection>
+         <CancelRequest>Zrušit žádost</CancelRequest>
+      </action>
+      <label>
+         <Connect>Přidat</Connect>
+         <ConnectNotExisting>Pozvání bylo zrušeno jiným uživatelem.</ConnectNotExisting>
+         <ConnectionExisted>Pozvánka byla založena někým jiným.</ConnectionExisted>
+      </label>
+   </UIRelationshipAction>
 </bundle>

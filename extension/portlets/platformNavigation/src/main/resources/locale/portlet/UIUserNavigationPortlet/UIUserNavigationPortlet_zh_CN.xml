@@ -32,4 +32,17 @@
          <UIBannerUploader>上传图像</UIBannerUploader>
       </title>
    </UIPopupBannerUploader>
+   <UIRelationshipAction>
+      <action>
+         <AcceptRequest>接受</AcceptRequest>
+         <Deny>拒绝</Deny>
+         <RemoveConnection>断开连接</RemoveConnection>
+         <CancelRequest>取消请求</CancelRequest>
+      </action>
+      <label>
+         <Connect>连接</Connect>
+         <ConnectNotExisting>邀请取消了别人。</ConnectNotExisting>
+         <ConnectionExisted>邀请设立了别人。</ConnectionExisted>
+      </label>
+   </UIRelationshipAction>
 </bundle>

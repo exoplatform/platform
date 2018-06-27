@@ -32,4 +32,17 @@
          <UIBannerUploader>تصویر چھائیں</UIBannerUploader>
       </title>
    </UIPopupBannerUploader>
+   <UIRelationshipAction>
+      <action>
+         <AcceptRequest>قبول کریں</AcceptRequest>
+         <Deny>انکار</Deny>
+         <RemoveConnection>منقطع</RemoveConnection>
+         <CancelRequest>درخواست منسوخ کریں</CancelRequest>
+      </action>
+      <label>
+         <Connect>رابطہ</Connect>
+         <ConnectNotExisting>دعوت نامہ منسوخ کر دیا گیا.</ConnectNotExisting>
+         <ConnectionExisted>مدعو کسی اور کی طرف سے قائم کیا گیا تھا.</ConnectionExisted>
+      </label>
+   </UIRelationshipAction>
 </bundle>

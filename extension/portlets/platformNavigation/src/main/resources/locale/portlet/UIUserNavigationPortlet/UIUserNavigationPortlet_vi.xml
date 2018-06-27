@@ -32,4 +32,17 @@
          <UIBannerUploader>Tải Ảnh lên</UIBannerUploader>
       </title>
    </UIPopupBannerUploader>
+   <UIRelationshipAction>
+      <action>
+         <AcceptRequest>Đồng ý</AcceptRequest>
+         <Deny>Từ chối</Deny>
+         <RemoveConnection>Ngừng kết nối</RemoveConnection>
+         <CancelRequest>Hủy bỏ Yêu cầu</CancelRequest>
+      </action>
+      <label>
+         <Connect>Kết nối</Connect>
+         <ConnectNotExisting>Lời mời đã bị hủy bỏ.</ConnectNotExisting>
+         <ConnectionExisted>Lời mời đã được thiết lập.</ConnectionExisted>
+      </label>
+   </UIRelationshipAction>
 </bundle>

@@ -32,4 +32,17 @@
          <UIBannerUploader>Įkelti paveiksliuką</UIBannerUploader>
       </title>
    </UIPopupBannerUploader>
+   <UIRelationshipAction>
+      <action>
+         <AcceptRequest>Sutikti</AcceptRequest>
+         <Deny>Atmesti</Deny>
+         <RemoveConnection>Atsijungti</RemoveConnection>
+         <CancelRequest>Atšaukti užklausą</CancelRequest>
+      </action>
+      <label>
+         <Connect>Prisijungti</Connect>
+         <ConnectNotExisting>Kvietimas buvo atšauktas kieno nors kito.</ConnectNotExisting>
+         <ConnectionExisted>Kvietimas buvo nustatytas kieno nors kito.</ConnectionExisted>
+      </label>
+   </UIRelationshipAction>
 </bundle>
