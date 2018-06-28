@@ -19,6 +19,7 @@ package org.exoplatform.platform.portlet.juzu.branding.models;
 import java.awt.image.BufferedImage;
 import java.io.InputStream;
 import java.util.Calendar;
+
 import org.exoplatform.services.cms.impl.ImageUtils;
 import javax.imageio.ImageIO;
 import javax.jcr.Node;
@@ -26,10 +27,13 @@ import javax.jcr.Session;
 import org.apache.commons.fileupload.FileItem;
 import org.exoplatform.container.ExoContainerContext;
 import org.exoplatform.services.jcr.RepositoryService;
+import org.exoplatform.services.jcr.access.PermissionType;
+import org.exoplatform.services.jcr.core.ExtendedNode;
 import org.exoplatform.services.jcr.ext.common.SessionProvider;
 import org.exoplatform.services.log.ExoLogger;
 import org.exoplatform.services.log.Log;
 import org.exoplatform.services.security.ConversationState;
+import org.exoplatform.services.security.IdentityConstants;
 
 /**
  * Created by The eXo Platform SAS Author : Nguyen Viet Bang
@@ -82,6 +86,11 @@ public class BrandingDataStorageService {
         session.save();
       }
       fileNode = logosNode.addNode(logo_preview_name, "nt:file");
+      if (fileNode.canAddMixin("exo:privilegeable")) {
+        fileNode.addMixin("exo:privilegeable");
+      }
+      ((ExtendedNode) fileNode).setPermission(IdentityConstants.ANY, PermissionType.DEFAULT_AC);
+
       Node jcrContent = fileNode.addNode("jcr:content", "nt:resource");
       jcrContent.setProperty("jcr:data", resizeImage(item.getInputStream()));
       jcrContent.setProperty("jcr:lastModified", Calendar.getInstance());
