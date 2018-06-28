@@ -79,6 +79,7 @@
           autoMoveApps();
       });
 
+      UIUserNavigation.initStickyBanner();
     },
   	reInitNavigation : function(index) {
   	  //
@@ -132,20 +133,7 @@
       }
 
       $(tabContainer).css({"visibility":"visible"});
-      $(window).off('scroll.uiProfileMenu').on('scroll.uiProfileMenu', function() {
-       var $container = $('#UIUserNavigationPortlet').closest('.UIRowContainer');
-       if ($(window).scrollTop() > 130) {
-         if (!$container.hasClass('sticky')) {
-            $container.addClass('sticky');
-            $(window).trigger('resize');
-         }
-       } else {
-         if ($container.hasClass('sticky')) {
-            $container.removeClass('sticky');
-            $(window).trigger('resize');
-         }
-       }
-     });
+      UIUserNavigation.initStickyBanner();
      var appScroll = null;
      var $menuApps = $('.uiProfileMenu .profileMenuApps');
      $menuApps.off('scroll').on('scroll', function() {
@@ -165,6 +153,23 @@
        console.log('left:' + left + " screenwidth/2: " + (screenWidth / 2));
        $tab.scrollLeft(left);
      }
+  	},
+
+  	initStickyBanner: function() {
+  	  $(window).off('scroll.uiProfileMenu').on('scroll.uiProfileMenu', function() {
+        var $container = $('#UIUserNavigationPortlet').closest('.UIRowContainer');
+        if ($(window).scrollTop() > 130) {
+         if (!$container.hasClass('sticky')) {
+            $container.addClass('sticky');
+            $(window).trigger('resize');
+         }
+        } else {
+         if ($container.hasClass('sticky')) {
+            $container.removeClass('sticky');
+            $(window).trigger('resize');
+         }
+        }
+      });
   	},
 
     initAvatar : function(uploaderId) {
