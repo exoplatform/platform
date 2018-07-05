@@ -55,7 +55,7 @@ public class UIRelationshipAction extends UIComponent {
         uiAction.getAncestorOfType(UIPortletApplication.class).addMessage(new ApplicationMessage(msgKey, new String[]{}, ApplicationMessage.WARNING));
       }
       //
-      event.getRequestContext().addUIComponentToUpdateByAjax(uiAction.getParent());
+      event.getRequestContext().addUIComponentToUpdateByAjax(uiAction);
     }
     protected boolean isValid(Event<UIRelationshipAction> event) {
       return (relationship != null);
