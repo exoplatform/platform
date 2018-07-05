@@ -1,10 +1,11 @@
 package org.exoplatform.platform.common.software.register.web;
 
 import org.apache.commons.lang.StringUtils;
+import org.exoplatform.commons.utils.CommonsUtils;
+import org.exoplatform.container.PortalContainer;
 import org.exoplatform.platform.common.software.register.service.SoftwareRegistrationService;
 import org.exoplatform.services.log.ExoLogger;
 import org.exoplatform.services.log.Log;
-import org.exoplatform.services.wcm.utils.WCMCoreUtils;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -28,7 +29,9 @@ public class SoftwareRegisterActionServlet extends HttpServlet {
   protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
     String redirectURI = "/portal/";
     String value = request.getParameter("value");
-    SoftwareRegistrationService softwareRegistrationService = WCMCoreUtils.getService(SoftwareRegistrationService.class);
+    // make sure PortalContainer is created
+    PortalContainer.getInstance();
+    SoftwareRegistrationService softwareRegistrationService = CommonsUtils.getService(SoftwareRegistrationService.class);
     if(StringUtils.equals("skip", value)) {
       softwareRegistrationService.setRequestSkip(true);
       softwareRegistrationService.updateSkippedNumber();
