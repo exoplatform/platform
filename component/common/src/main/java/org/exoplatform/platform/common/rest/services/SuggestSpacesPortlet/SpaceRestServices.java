@@ -133,6 +133,8 @@ public class SpaceRestServices implements ResourceContainer {
                   continue;
                 if (!spaceService.isIgnored(space, connector.getRemoteId()))
                   continue;
+                if (spaceService.isMember(space, identity.getRemoteId()))
+                      continue;
                 //
                 Integer value = spacesWithMemberNum.get(space);
                 
