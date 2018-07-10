@@ -1,40 +1,48 @@
 package org.exoplatform.platform.component.organization.test;
 
-import java.time.*;
+import org.exoplatform.container.PortalContainer;
+import org.exoplatform.container.component.RequestLifeCycle;
+import org.exoplatform.services.organization.externalstore.IDMQueueService;
+import org.exoplatform.services.organization.externalstore.model.IDMEntityType;
+import org.exoplatform.services.organization.externalstore.model.IDMOperationType;
+import org.exoplatform.services.organization.externalstore.model.IDMQueueEntry;
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
+
+import java.time.LocalDateTime;
+import java.time.ZoneId;
+import java.time.ZonedDateTime;
 import java.util.List;
 
-import org.exoplatform.component.test.*;
-import org.exoplatform.services.organization.externalstore.IDMQueueService;
-import org.exoplatform.services.organization.externalstore.model.*;
+import static org.junit.Assert.*;
 
-@ConfiguredBy({ @ConfigurationUnit(scope = ContainerScope.PORTAL, path = "conf/portal/test-settings-configuration.xml"),
-    @ConfigurationUnit(scope = ContainerScope.PORTAL, path = "conf/portal/idm-queue-configuration.xml") })
-public class TestIDMQueueServiceImpl extends AbstractKernelTest {
+public class TestIDMQueueServiceImpl {
+
+  PortalContainer container;
+
   IDMQueueService queueService = null;
 
-  public TestIDMQueueServiceImpl() {
-    setForceContainerReload(true);
-  }
-
+  @Before
   public void setUp() throws Exception {
-    super.setUp();
-    queueService = getContainer().getComponentInstanceOfType(IDMQueueService.class);
+    container = PortalContainer.getInstance();
+    queueService = container.getComponentInstanceOfType(IDMQueueService.class);
     assertNotNull(queueService);
-    begin();
+    RequestLifeCycle.begin(container);
   }
 
-  @Override
-  protected void tearDown() throws Exception {
+  @After
+  public void tearDown() throws Exception {
     if (queueService.countAll() > 0) {
       for (int i = queueService.getMaxRetries(); i >= 0; i--) {
         queueService.pop(100, i, false);
       }
     }
     assertEquals("Number of entries must be 0 before any test runs.", 0, queueService.countAll());
-    super.tearDown();
-    end();
+    RequestLifeCycle.end();
   }
 
+  @Test
   public void testPush() throws Exception {
     assertEquals("Queue must be initially empty", 0, queueService.countAll());
     queueService.push(new IDMQueueEntry(IDMEntityType.USER, "testuser", IDMOperationType.ADD_OR_UPDATE));
@@ -42,6 +50,7 @@ public class TestIDMQueueServiceImpl extends AbstractKernelTest {
     assertEquals("Two new pushed elements must be detected", 2, queueService.countAll());
   }
 
+  @Test
   public void testPop() throws Exception {
     assertEquals("Queue must be initially empty", 0, queueService.countAll());
     queueService.push(new IDMQueueEntry(IDMEntityType.USER, "testuser", IDMOperationType.ADD_OR_UPDATE));
@@ -92,6 +101,7 @@ public class TestIDMQueueServiceImpl extends AbstractKernelTest {
         + " Thus, only one entry should remaining that has't been processed and have nbRetries == 0.", 1, queueService.count(0));
   }
 
+  @Test
   public void testLastCheckedTime() throws Exception {
     assertNotNull(getLocalDateTime());
     assertNull(queueService.getLastCheckedTime(IDMEntityType.USER));
@@ -127,6 +137,7 @@ public class TestIDMQueueServiceImpl extends AbstractKernelTest {
     assertEquals(roleCheckedTime, queueService.getLastCheckedTime(IDMEntityType.ROLE));
   }
 
+  @Test
   public void testProcessed() throws Exception {
     assertEquals("Queue must be initially empty", 0, queueService.countAll());
     queueService.push(new IDMQueueEntry(IDMEntityType.USER, "testuser", IDMOperationType.ADD_OR_UPDATE));
@@ -172,6 +183,7 @@ public class TestIDMQueueServiceImpl extends AbstractKernelTest {
     assertEquals(0, entities.get(0).getRetryCount());
   }
 
+  @Test
   public void testIncrementRetry() throws Exception {
     assertEquals("Queue must be initially empty", 0, queueService.countAll());
     queueService.push(new IDMQueueEntry(IDMEntityType.USER, "testuser", IDMOperationType.ADD_OR_UPDATE));

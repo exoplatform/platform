@@ -11,22 +11,26 @@ import org.exoplatform.services.organization.UserHandler;
 import org.exoplatform.services.organization.UserStatus;
 import org.exoplatform.services.organization.idm.PicketLinkIDMCacheService;
 import org.exoplatform.services.organization.impl.UserImpl;
-import org.exoplatform.test.BasicTestCase;
+import org.junit.Before;
+import org.junit.Test;
 
-public class TestEnableUserUpgradePlugin extends BasicTestCase {
+import static org.junit.Assert.*;
+
+public class TestEnableUserUpgradePlugin {
     PortalContainer container ;
     HibernateService hibernateService;
     PicketLinkIDMCacheService picketLinkIDMCacheService;
     OrganizationService organizationService ;
 
-    @Override
-    protected void setUp() throws Exception {
+    @Before
+    public void setUp() throws Exception {
         container = PortalContainer.getInstance();
-        organizationService = (OrganizationService) container.getComponentInstanceOfType(OrganizationService.class);
-        hibernateService = (HibernateService) container.getComponentInstanceOfType(HibernateService.class);
-        picketLinkIDMCacheService = (PicketLinkIDMCacheService) container.getComponentInstanceOfType(PicketLinkIDMCacheService.class);
+        organizationService = container.getComponentInstanceOfType(OrganizationService.class);
+        hibernateService = container.getComponentInstanceOfType(HibernateService.class);
+        picketLinkIDMCacheService = container.getComponentInstanceOfType(PicketLinkIDMCacheService.class);
     }
 
+    @Test
     public void testProcessUpgrade() throws Exception {
         initData();
         InitParams initParams =  new InitParams();

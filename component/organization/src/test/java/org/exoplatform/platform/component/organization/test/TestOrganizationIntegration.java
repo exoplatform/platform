@@ -1,55 +1,54 @@
 package org.exoplatform.platform.component.organization.test;
 
-import static org.mockito.Matchers.any;
-import static org.mockito.Mockito.never;
-import static org.mockito.internal.verification.VerificationModeFactory.times;
-
-import javax.jcr.Node;
-import javax.jcr.Session;
-import javax.naming.ldap.LdapContext;
-
-import org.junit.Test;
-import org.mockito.Mockito;
-import org.picketlink.idm.api.*;
-import org.picketlink.idm.impl.api.session.IdentitySessionImpl;
-import org.picketlink.idm.impl.api.session.context.IdentitySessionContextImpl;
-import org.picketlink.idm.impl.repository.RepositoryIdentityStoreSessionImpl;
-import org.picketlink.idm.spi.store.IdentityStoreInvocationContext;
-import org.picketlink.idm.spi.store.IdentityStoreSession;
-
-import org.exoplatform.component.test.*;
 import org.exoplatform.container.PortalContainer;
 import org.exoplatform.container.configuration.ConfigurationManager;
 import org.exoplatform.container.xml.InitParams;
 import org.exoplatform.platform.organization.integration.*;
 import org.exoplatform.services.jcr.RepositoryService;
 import org.exoplatform.services.jcr.core.ManageableRepository;
-import org.exoplatform.services.organization.*;
+import org.exoplatform.services.organization.MembershipHandler;
+import org.exoplatform.services.organization.OrganizationService;
 import org.exoplatform.services.organization.User;
+import org.exoplatform.services.organization.UserHandler;
 import org.exoplatform.services.organization.externalstore.IDMExternalStoreService;
 import org.exoplatform.services.organization.idm.*;
+import org.junit.Before;
+import org.junit.Test;
+import org.mockito.Mockito;
+import org.picketlink.idm.api.AttributesManager;
+import org.picketlink.idm.api.IdentitySession;
+import org.picketlink.idm.api.PersistenceManager;
+import org.picketlink.idm.impl.api.session.IdentitySessionImpl;
+import org.picketlink.idm.impl.api.session.context.IdentitySessionContextImpl;
+import org.picketlink.idm.impl.repository.RepositoryIdentityStoreSessionImpl;
+import org.picketlink.idm.spi.store.IdentityStoreInvocationContext;
+import org.picketlink.idm.spi.store.IdentityStoreSession;
 
-@ConfiguredBy({ @ConfigurationUnit(scope = ContainerScope.PORTAL, path = "conf/portal/test-settings-configuration.xml"),
-    @ConfigurationUnit(scope = ContainerScope.PORTAL, path = "conf/portal/idm-queue-configuration.xml"),
-    @ConfigurationUnit(scope = ContainerScope.PORTAL, path = "conf/portal/test-configuration.xml") })
-public class TestOrganizationIntegration extends AbstractKernelTest {
+import javax.jcr.Node;
+import javax.jcr.Session;
+import javax.naming.ldap.LdapContext;
+
+import static junit.framework.TestCase.assertFalse;
+import static junit.framework.TestCase.assertNotNull;
+import static org.mockito.Matchers.any;
+import static org.mockito.Mockito.never;
+import static org.mockito.internal.verification.VerificationModeFactory.times;
+
+public class TestOrganizationIntegration {
   PortalContainer     container           = null;
 
   RepositoryService   repositoryService   = null;
 
   OrganizationService organizationService = null;
 
-  public TestOrganizationIntegration() {
-    setForceContainerReload(true);
-  }
-
-  @Override
-  protected void setUp() throws Exception {
+  @Before
+  public void setUp() throws Exception {
     container = PortalContainer.getInstance();
-    repositoryService = (RepositoryService) container.getComponentInstanceOfType(RepositoryService.class);
-    organizationService = (OrganizationService) container.getComponentInstanceOfType(OrganizationService.class);
+    repositoryService = container.getComponentInstanceOfType(RepositoryService.class);
+    organizationService = container.getComponentInstanceOfType(OrganizationService.class);
   }
 
+  @Test
   public void testIntegrationService() throws Exception {
     IDMExternalStoreService externalStoreService = Mockito.mock(IDMExternalStoreService.class);
     Mockito.when(externalStoreService.isEnabled()).thenReturn(false);

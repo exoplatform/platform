@@ -7,6 +7,8 @@ import static org.mockito.Mockito.when;
 
 import java.util.*;
 
+import org.junit.Before;
+import org.junit.Test;
 import org.mockito.invocation.InvocationOnMock;
 import org.mockito.stubbing.Answer;
 
@@ -24,9 +26,10 @@ import org.exoplatform.services.organization.idm.externalstore.IDMInMemoryQueueS
 import org.exoplatform.services.organization.impl.GroupImpl;
 import org.exoplatform.services.organization.impl.UserImpl;
 import org.exoplatform.services.scheduler.JobSchedulerService;
-import org.exoplatform.test.BasicTestCase;
 
-public class TestExternalStoreUpgradePlugin extends BasicTestCase {
+import static org.junit.Assert.*;
+
+public class TestExternalStoreUpgradePlugin {
 
   IDMExternalStoreService       externalStoreService;
 
@@ -34,9 +37,8 @@ public class TestExternalStoreUpgradePlugin extends BasicTestCase {
 
   OrganizationService           organizationService;
 
-  @Override
-  protected void setUp() throws Exception {
-    super.setUp();
+  @Before
+  public void setUp() throws Exception {
     externalStoreService = mock(IDMExternalStoreService.class);
     Set<IDMEntityType<?>> entityTypes = new HashSet<>();
     entityTypes.add(IDMEntityType.USER);
@@ -63,11 +65,13 @@ public class TestExternalStoreUpgradePlugin extends BasicTestCase {
                                                                    null);
   }
 
+  @Test
   public void testUpgradeEnabled() throws Exception {
     when(externalStoreService.isEnabled()).thenReturn(false);
     assertFalse(new ExternalStoreUpgradePlugin(externalStoreImportService, externalStoreService, createParams()).isEnabled());
   }
 
+  @Test
   public void testUpgradeUsers() throws Exception {
     Map<String, User> externalUsers = new HashMap<>();
     UserImpl testuser = new UserImpl("testuser");
@@ -113,6 +117,7 @@ public class TestExternalStoreUpgradePlugin extends BasicTestCase {
     assertFalse(testuser3.isInternalStore());
   }
 
+  @Test
   public void testUpgradeGroups() throws Exception {
     Map<String, Group> externalGroups = new HashMap<>();
     Group testGroup = new GroupImpl("group");

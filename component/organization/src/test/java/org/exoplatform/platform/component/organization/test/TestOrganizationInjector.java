@@ -1,39 +1,35 @@
 package org.exoplatform.platform.component.organization.test;
 
-import java.io.File;
-
-import org.picocontainer.Startable;
-
-import org.exoplatform.component.test.*;
 import org.exoplatform.container.PortalContainer;
 import org.exoplatform.container.component.RequestLifeCycle;
 import org.exoplatform.platform.organization.injector.DataInjectorService;
 import org.exoplatform.platform.organization.injector.JMXDataInjector;
 import org.exoplatform.services.organization.*;
+import org.junit.Before;
+import org.junit.Test;
+import org.picocontainer.Startable;
 
-@ConfiguredBy({ @ConfigurationUnit(scope = ContainerScope.PORTAL, path = "conf/portal/test-settings-configuration.xml"),
-  @ConfigurationUnit(scope = ContainerScope.PORTAL, path = "conf/portal/idm-queue-configuration.xml"),
-  @ConfigurationUnit(scope = ContainerScope.PORTAL, path = "conf/portal/test-configuration.xml") })
-public class TestOrganizationInjector extends AbstractKernelTest {
+import java.io.File;
+
+import static junit.framework.TestCase.assertNotNull;
+
+public class TestOrganizationInjector {
   PortalContainer container = null;
   OrganizationService organizationService = null;
   JMXDataInjector dataInjector = null;
   DataInjectorService dataInjectorService = null;
 
-  public TestOrganizationInjector() {
-    setForceContainerReload(true);
-  }
-
-  @Override
-  protected void setUp() throws Exception {
+  @Before
+  public void setUp() throws Exception {
     container = PortalContainer.getInstance();
-    organizationService = (OrganizationService) container.getComponentInstanceOfType(OrganizationService.class);
-    dataInjector = (JMXDataInjector) container.getComponentInstanceOfType(JMXDataInjector.class);
-    dataInjectorService = (DataInjectorService) container.getComponentInstanceOfType(DataInjectorService.class);
+    organizationService = container.getComponentInstanceOfType(OrganizationService.class);
+    dataInjector = container.getComponentInstanceOfType(JMXDataInjector.class);
+    dataInjectorService = container.getComponentInstanceOfType(DataInjectorService.class);
 
     ((Startable) organizationService).start();
   }
 
+  @Test
   public void testDataInjectorService() throws Exception {
     File file = new File("target/test.zip");
     dataInjector.extractData(file.getAbsolutePath());
