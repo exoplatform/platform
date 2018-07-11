@@ -39,6 +39,7 @@
         me.resetNumberOnBadgeLink = me.portlet.find('#ResetNumberOnBadge').text();
         me.clusterUpdateCachedLink = me.portlet.find('div#ClusterUpdateCachedLink:first').text();
         me.popoverServeResourceLink = me.portlet.find('div#PopoverServeResourceLink:first').text();
+        me.markAllReadLink = me.portlet.find('div#MarkAllAsReadLink:first').text();
         me.uiDropdownWithIcon = me.portlet.find('div.uiDropdownWithIcon:first');
         me.viewAllBtn = me.uiDropdownWithIcon.find('li.actionLink');
         //
@@ -57,9 +58,11 @@
           me.portlet.find('.actionMark:first').addClass('markAll');
         }
         // markAllRead
-        me.portlet.find('.actionMark:first').find('a').off('click').click(function (evt) {
+        me.portlet.find("#markAllReadLink").click(function(evt) {
           evt.stopPropagation();
-          webNotif.markAllRead();
+          webNotif.ajaxReq(me.markAllReadLink, function() {
+            webNotif.markAllRead();
+          });
         });
         //
         me.portlet.find('.dropdown-toggle:first').off('click').on('click', function() {

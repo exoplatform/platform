@@ -34,7 +34,6 @@ import org.exoplatform.ws.frameworks.cometd.ContinuationService;
     lifecycle = UIApplicationLifecycle.class,
     template = "app:/groovy/platformNavigation/portlet/UINotificationPopoverToolbarPortlet/UINotificationPopoverToolbarPortlet.gtmpl",
     events = {
-      @EventConfig(listeners = UINotificationPopoverToolbarPortlet.MarkAllReadActionListener.class),
       @EventConfig(listeners = UINotificationPopoverToolbarPortlet.MarkReadActionListener.class),
       @EventConfig(listeners = UINotificationPopoverToolbarPortlet.RemovePopoverActionListener.class),
       @EventConfig(listeners = UINotificationPopoverToolbarPortlet.ResetNumberOnBadgeActionListener.class)
@@ -42,6 +41,7 @@ import org.exoplatform.ws.frameworks.cometd.ContinuationService;
 )
 public class UINotificationPopoverToolbarPortlet extends UIPortletApplication {
   private static final Log LOG = ExoLogger.getLogger(UINotificationPopoverToolbarPortlet.class);
+  private static final String EXO_NOTIFICATION_MARK_ALL_READ = "exo.notification.all.markRead";
   private static final String EXO_NOTIFICATION_POPOVER_LIST = "exo.notification.popover.list";
   private static final String CLUSTER_NOTIFICATION_POPOVER_LIST = "cluster.notification.popover.list";
   private final WebNotificationService webNftService;
@@ -110,8 +110,7 @@ public class UINotificationPopoverToolbarPortlet extends UIPortletApplication {
         //
         res.getWriter().write(object.toString());
         return;
-      }
-      if (CLUSTER_NOTIFICATION_POPOVER_LIST.equals(resourceId)) {
+      } else if (CLUSTER_NOTIFICATION_POPOVER_LIST.equals(resourceId)) {
         int badge = webNftService.getNumberOnBadge(this.currentUser);
         if (badge > 0) {
           MimeResponse res = context.getResponse();
@@ -120,6 +119,8 @@ public class UINotificationPopoverToolbarPortlet extends UIPortletApplication {
           object.put("badge", String.valueOf(badge));
           res.getWriter().write(object.toString());
         }
+      } else if (EXO_NOTIFICATION_MARK_ALL_READ.equals(resourceId)) {
+        webNftService.markAllRead(currentUser);
       }
     } else {
       this.currentUser = "";
@@ -202,20 +203,10 @@ public class UINotificationPopoverToolbarPortlet extends UIPortletApplication {
     }
   }
 
-  public static class MarkAllReadActionListener extends EventListener<UINotificationPopoverToolbarPortlet> {
-    public void execute(Event<UINotificationPopoverToolbarPortlet> event) throws Exception {
-      UINotificationPopoverToolbarPortlet portlet = event.getSource();
-      portlet.webNftService.markAllRead(portlet.currentUser);
-      // Ignore reload portlet
-      ((PortalRequestContext) event.getRequestContext().getParentAppRequestContext()).ignoreAJAXUpdateOnPortlets(true);
-    }
-  }
-
   public static class ResetNumberOnBadgeActionListener extends EventListener<UINotificationPopoverToolbarPortlet> {
     public void execute(Event<UINotificationPopoverToolbarPortlet> event) throws Exception {
       UINotificationPopoverToolbarPortlet portlet = event.getSource();
       portlet.webNftService.resetNumberOnBadge(portlet.currentUser);
-      // Ignore reload portlet
       ((PortalRequestContext) event.getRequestContext().getParentAppRequestContext()).ignoreAJAXUpdateOnPortlets(true);
     }
   }

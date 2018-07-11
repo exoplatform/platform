@@ -1,7 +1,8 @@
 <div class="uiNotificationPopoverToolbarPortlet clearfix" style="<%=(uicomponent.isWebActive() ? "" : "display:none")%>" id="$uicomponent.id">
-	<div style="display:none" class="all-actions">
+	<div class="all-actions hidden">
 		<div id="ClusterUpdateCachedLink"><%=uicomponent.buildResourceURL(uicomponent.CLUSTER_NOTIFICATION_POPOVER_LIST)%></div>
 		<div id="PopoverServeResourceLink"><%=uicomponent.buildResourceURL(uicomponent.EXO_NOTIFICATION_POPOVER_LIST)%></div>
+		<div id="MarkAllAsReadLink"><%=uicomponent.buildResourceURL(uicomponent.EXO_NOTIFICATION_MARK_ALL_READ)%></div>
 		<%
 			List actions = uicomponent.getActions();
 			for(action in actions) {
@@ -22,7 +23,9 @@
 				<div class="loadingText"><%=_ctx.appRes("UINotificationPopoverToolbarPortlet.label.Loading") %>...</div>
 			</li>
 			<li class="no-items" style="display:none"><%=_ctx.appRes("UINotificationPopoverToolbarPortlet.label.NoNotifications") %></li>
-			<li class="actionMark right"><a href="javascript:void(0)" onclick="<%=uicomponent.event("MarkAllRead")%>"><%=_ctx.appRes("UINotificationPopoverToolbarPortlet.label.MarkAllAsRead") %></a></li>
+			<li class="actionMark right">
+        <a href="javascript:void(0)" id="markAllReadLink"><%=_ctx.appRes("UINotificationPopoverToolbarPortlet.label.MarkAllAsRead") %></a>
+      </li>
 			<li class="itemsContainer">
 				<ul class="displayItems">
 				</ul>
