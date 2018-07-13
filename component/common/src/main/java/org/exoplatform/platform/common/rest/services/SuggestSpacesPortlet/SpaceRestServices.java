@@ -174,9 +174,10 @@ public class SpaceRestServices implements ResourceContainer {
               // Propose the last spaces
               List<Space> lastSpaces = spaceService.getLastSpaces(10);
               for (Space space : lastSpaces) {
-                if (Space.HIDDEN.equals(space.getVisibility()))
+
+                  if ((space.getVisibility() == null) || (Space.HIDDEN.equals(space.getVisibility())))
                   continue;
-                if (Space.CLOSE.equals(space.getRegistration()))
+                if ((space.getRegistration() == null) || (Space.CLOSE.equals(space.getRegistration())))
                   continue;
                 if (spaceService.isMember(space, identity.getRemoteId())) 
                   continue;
