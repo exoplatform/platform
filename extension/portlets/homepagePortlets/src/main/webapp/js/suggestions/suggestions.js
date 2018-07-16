@@ -94,7 +94,7 @@
                     link += "<div class='peopleName'><a href='"+item.profile+"' target='_self'>"+XSSUtils.sanitizeString(item.suggestionName)+"</a></div>";
                     link += "<div class='peopleContainer clearfix'>";
 					link += "<div style='display:none;' class='peopleAction' ><a class='connect btn-primary btn btn-mini' href='#' onclick='return false'>"+connect+"</a><a class='ignore' href='#' onclick='return false'> <i class='uiIconClose'></i></a></div>";
-                    link +="<div class='peopleDisplay'><div class='peoplePosition'>"+item.title+"</div><div class='peopleConnection'>"+item.number+"&nbsp;"+connection+"</div></div>";
+                    link +="<div class='peopleDisplay'><div class='peoplePosition'>"+ XSSUtils.sanitizeString(item.title) +"</div><div class='peopleConnection'>"+item.number+"&nbsp;"+connection+"</div></div>";
 					link += "</div>";
 				    link += "</div></li>";
 

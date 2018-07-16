@@ -50,7 +50,7 @@
                         link += "<div class='peopleInviteName'><div class='name'><a href='"+item.profile_url+"'>"+XSSUtils.sanitizeString(item.senderName)+"</a></div>";
 						link += "<div class='inviteAction'><div class='peopleInviteAction'><a class='connect btn-primary btn btn-mini' href='#' onclick='return false'>"+acceptlabel+"</a> <a class='deny' href='#' onclick='return false'><i class='uiIconClose'></i></a></div>";
 						if (item.senderPosition != undefined)
-                            link += "<div class='peopleInvitePosition'>"+item.senderPosition+"</div>";
+                            link += "<div class='peopleInvitePosition'>"+ XSSUtils.sanitizeString(item.senderPosition) +"</div>";
 						link += "</div></div>";
                         
                         link += "</div></li>";
