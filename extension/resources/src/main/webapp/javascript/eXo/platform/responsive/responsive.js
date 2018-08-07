@@ -280,9 +280,10 @@
   $(document).ready(function(event) {
     tabManagerApp.init();
 
+     var $body = $('body');
      // add event touch on mobile
 
-      $('body').on('swipe', function (event) {
+      $body.on('swipe', function (event) {
           // if(event.direction === 'right') { // or right, down, left
           //   if($(this).hasClass('open-right-bar')) {
           //     tabManagerApp.hideRightPanel();
@@ -302,6 +303,15 @@
       });
 
       //end event touch on mobile
+
+      // Listen on portal mode change to add/remove class 'full-topNavigation'
+      $body.on('exo-portal-mode-updated', function(event, portalMode) {
+          if (portalMode.isPageMaxWindow) {
+              $body.addClass('full-topNavigation');
+          } else {
+              $body.removeClass('full-topNavigation');
+          }
+      });
 
     //left accordion navigation
     $('#UISpaceNavigationPortlet').addClass('showAccordionBar');
