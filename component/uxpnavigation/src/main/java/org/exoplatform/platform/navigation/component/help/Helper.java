@@ -61,7 +61,7 @@ public class Helper {
                 else if(url.contains("tasks")) {
                     return "space:tasks";
                 }
-                else if((url.contains("answer"))||(url.contains("faq")) || (url.contains("poll"))) {
+                else if((url.toLowerCase().contains("answer"))||(url.contains("faq")) || (url.contains("poll"))) {
                     return "space:faq_annswer";
                 }
                 else if(url.contains("calendar")) {
