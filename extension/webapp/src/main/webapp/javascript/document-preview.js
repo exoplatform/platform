@@ -466,7 +466,8 @@
       } else {
         // load document comments
         $.ajax({
-          url: '/rest/contents/comment/all?jcrPath=/' + this.settings.doc.repository + '/' + this.settings.doc.workspace + this.settings.doc.path,
+          url: '/rest/contents/comment/all',
+          data: {jcrPath: '/' + this.settings.doc.repository + '/' + this.settings.doc.workspace + this.settings.doc.path},
           dataType: 'xml',
           cache: false
         }).done(function(data) {
@@ -770,7 +771,10 @@
           return $.ajax({
             type: 'POST',
             url: '/rest/contents/comment/add',
-            data: 'jcrPath=/' + this.settings.doc.repository + '/' + this.settings.doc.workspace + this.settings.doc.path + '&comment=' + commentContent,
+            data: {
+              jcrPath: '/' + this.settings.doc.repository + '/' + this.settings.doc.workspace + this.settings.doc.path,
+              comment: commentContent
+            },
             contentType: 'application/x-www-form-urlencoded'
           }).done(function (data) {
             self.loadComments();
