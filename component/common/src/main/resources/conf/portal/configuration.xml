@@ -255,6 +255,9 @@
                          <value>
                             <string>platformNavigation/UISpaceNavigationPortlet</string>
                          </value>
+                          <value>
+                              <string>platformNavigation/NotificationPopoverToolbarPortlet</string>
+                          </value>
                       </collection>
                    </field>
                 </object>
