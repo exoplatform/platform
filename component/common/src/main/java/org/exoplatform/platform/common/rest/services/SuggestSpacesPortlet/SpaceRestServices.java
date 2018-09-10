@@ -123,6 +123,10 @@ public class SpaceRestServices implements ResourceContainer {
                suggestedSpaces = suggestedSpacesLA.load(0, size);
             }
             for (Space space : suggestedSpaces) {
+              // Skip space when the current user is already a member of
+              if(spaceService.isMember(space, identity.getRemoteId())) {
+                  continue;
+              }
               for (Identity connector : connections) {
                 //
                 if (Space.HIDDEN.equals(space.getVisibility()))
@@ -133,9 +137,6 @@ public class SpaceRestServices implements ResourceContainer {
                   continue;
                 if (!spaceService.isIgnored(space, connector.getRemoteId()))
                   continue;
-                // Skip space when the current user is already a member of
-                  if (spaceService.isMember(space, identity.getRemoteId()))
-                      continue;
                 Integer value = spacesWithMemberNum.get(space);
                 
                 if (value == null) {
