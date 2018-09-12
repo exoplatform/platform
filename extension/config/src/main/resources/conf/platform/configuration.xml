@@ -10,10 +10,10 @@
     <init-params>
       <values-param>
         <name>properties.urls</name>
+        <!-- Configuration file for default configuration of docker images -->
+        <value>file:${exo.conf.dir}/docker.properties</value>
         <!-- PLF-4469 : Load user configuration from ${exo.conf.dir}/exo.properties if it exists -->
         <value>file:${exo.conf.dir}/exo.properties</value>
-        <!-- PLF-4469 : Additional configuration file dedicated to upgrades -->
-        <value>file:${exo.conf.dir}/upgrade.properties</value>
         <!-- PLF-4469 : configuration.properties must be loaded from classpath to get default settings -->
         <value>jar:/conf/platform/configuration.properties</value>
       </values-param>
