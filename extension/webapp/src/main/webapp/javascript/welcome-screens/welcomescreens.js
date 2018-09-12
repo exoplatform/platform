@@ -30,8 +30,9 @@ WelcomeScreens.ACCOUNT_SETUP_ERROR = false;
 WelcomeScreens.USERNAME_EXIST = false;
 WelcomeScreens.EMAIL_REGEXP = new RegExp(/^(("[\w-+\s]+")|([\w-+]+(?:\.[\w-+]+)*)|("[\w-+\s]+")([\w-+]+(?:\.[\w-+]+)*))(@((?:[\w-+]+\.)*\w[\w-+]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$)|(@\[?((25[0-5]\.|2[0-4][\d]\.|1[\d]{2}\.|[\d]{1,2}\.))((25[0-5]|2[0-4][\d]|1[\d]{2}|[\d]{1,2})\.){2}(25[0-5]|2[0-4][\d]|1[\d]{2}|[\d]{1,2})\]?$)/i);
 WelcomeScreens.USERNAME_REGEXP = new RegExp(/^[0-9a-z_.]+$/);
-WelcomeScreens.FIRSTNAME_REGEXP = new RegExp(/^[a-zA-Z-' ���������������������������]+$/);
-WelcomeScreens.LASTNAME_REGEXP = new RegExp(/^[a-zA-Z-' ���������������������������]+$/);
+// Allow hyphen, single quote, spaces and all alpha characters (using unicode values for accented characters)
+WelcomeScreens.FIRSTNAME_REGEXP = new RegExp(/^[a-zA-Z-' \u00C0-\u00D6\u00D8-\u00F6\u00F8-\u00FF]+$/);
+WelcomeScreens.LASTNAME_REGEXP = new RegExp(/^[a-zA-Z-' \u00C0-\u00D6\u00D8-\u00F6\u00F8-\u00FF]+$/);
 WelcomeScreens.FormatError = 'Only lowercase letters, digits, dot and underscore characters are allowed for the field "User Name".';
 
 //Modify by SONDN PLF August 16, 2013
