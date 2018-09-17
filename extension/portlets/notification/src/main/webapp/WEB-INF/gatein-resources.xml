@@ -23,9 +23,6 @@
         <module>juzu-ajax</module>
       </depends>
       <depends>
-        <module>iphonePlugin</module>
-      </depends>
-      <depends>
         <module>jquery</module>
         <as>gj</as>
       </depends>
