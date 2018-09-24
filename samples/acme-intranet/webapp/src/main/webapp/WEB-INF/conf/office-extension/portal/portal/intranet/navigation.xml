@@ -200,7 +200,7 @@
         <node>
             <uri>all-spaces</uri>
             <name>all-spaces</name>
-            <label>#{portal.intranet.spaces}</label>
+            <label>#{portal.intranet.allSpaces}</label>
             <visibility>SYSTEM</visibility>
             <page-reference>portal::intranet::all-spaces</page-reference>
         </node>
