@@ -8,6 +8,9 @@
   </parent>
   <artifactId>platform-component-organization</artifactId>
   <name>eXo PLF:: Platform - Organization Model Integration</name>
+  <properties>
+    <exo.test.coverage.ratio>0.32</exo.test.coverage.ratio>
+  </properties>
   <dependencies>
     <!-- To replace the old xstream:xstream version from picocontainer -->
     <dependency>

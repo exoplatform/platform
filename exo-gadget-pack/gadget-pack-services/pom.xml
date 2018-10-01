@@ -10,6 +10,9 @@
   <packaging>jar</packaging>
   <name>eXo PLF:: Gadget Pack - Services</name>
   <description>Gadget pack services</description>
+  <properties>
+    <exo.test.coverage.ratio>0.52</exo.test.coverage.ratio>
+  </properties>
   <dependencies>
     <dependency>
       <groupId>javax.jcr</groupId>

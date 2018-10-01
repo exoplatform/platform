@@ -8,6 +8,9 @@
   </parent>
   <artifactId>platform-component-upgrade-sample</artifactId>
   <name>eXo PLF:: Platform - Upgrade Sample</name>
+  <properties>
+    <exo.test.coverage.ratio>0.00</exo.test.coverage.ratio>
+  </properties>
   <dependencies>
     <dependency>
       <groupId>javax.jcr</groupId>
