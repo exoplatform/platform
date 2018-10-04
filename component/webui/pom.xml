@@ -15,7 +15,7 @@
   <parent>
     <artifactId>platform-component</artifactId>
     <groupId>org.exoplatform.platform</groupId>
-    <version>5.2.x-SNAPSHOT</version>
+    <version>5.2.0-M01</version>
   </parent>
   <artifactId>platform-component-webui</artifactId>
   <packaging>jar</packaging>
