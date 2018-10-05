@@ -45,12 +45,6 @@
                             <field name="remove"><string>true</string></field>                
                           </object>  
                         </value>                        
-                        <value>                            
-                          <object type="org.exoplatform.services.jcr.ext.hierarchy.impl.HierarchyConfig$Permission">             
-                            <field name="identity"><string>any</string></field>
-                            <field name="read"><string>true</string></field>                
-                          </object>  
-                        </value>                        
                       </collection>
                     </field>
                   </object>
@@ -116,15 +110,6 @@
                             <field name="remove"><string>true</string></field>                
                           </object>  
                         </value>
-                        <value>                            
-                          <object type="org.exoplatform.services.jcr.ext.hierarchy.impl.HierarchyConfig$Permission">             
-                            <field name="identity"><string>any</string></field>
-                            <field name="read"><string>true</string></field>                
-                            <field name="addNode"><string>true</string></field>                
-                            <field name="setProperty"><string>false</string></field>                
-                            <field name="remove"><string>false</string></field>                
-                          </object>  
-                        </value>                                                
                       </collection>
                     </field>
                     
