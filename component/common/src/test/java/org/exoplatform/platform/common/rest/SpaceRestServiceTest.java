@@ -87,7 +87,7 @@ public class SpaceRestServiceTest extends BaseRestServicesTestCase {
         }
       }
     });
-    ssResults.put("getVisitedSpaces", new MockListAccess<Space>(new Space[] { space1 }));
+    ssResults.put("getLastAccessedSpace", new MockListAccess<Space>(new Space[] { space1 }));
 
     SpaceService ss = createProxy(SpaceService.class, ssResults);
     getContainer().registerComponentInstance("SpaceService", ss);
