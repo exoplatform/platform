@@ -142,7 +142,7 @@ public class UpgradeNodeTypesTemplatesService extends UpgradeProductPlugin {
   private void upgradePredefinedTemplates(String repositoryName, List<TemplateConfig> templatesConfig, String storedLocation)
       throws Exception {
     // Begin: Get system session on dms-system workspace
-    ManageableRepository repository = repositoryService.getRepository(repositoryName);
+    ManageableRepository repository = repositoryService.getRepository(repositoryName); //NOSONAR
     DMSRepositoryConfiguration dmsRepoConfig = dmsConfiguration.getConfig();
     String workspace = dmsRepoConfig.getSystemWorkspace();
     Session session = repository.getSystemSession(workspace);

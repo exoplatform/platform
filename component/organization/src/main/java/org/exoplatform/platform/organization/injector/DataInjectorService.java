@@ -238,8 +238,8 @@ public class DataInjectorService implements Startable {
         List<OrganizationConfig.User> orgConfigUsersInSigleFile = new ArrayList<OrganizationConfig.User>();
         int i = 0;
         while (i <= usersListAccess.getSize()) {
-          int length = i + SerializationUtils.MAX_USERS_IN_FILE_PARAM_NAME <= usersListAccess.getSize() ? SerializationUtils.MAX_USERS_IN_FILE_PARAM_NAME
-              : usersListAccess.getSize() - i;
+          int length = i + SerializationUtils.MAX_USERS_IN_FILE_PARAM_NAME <= usersListAccess.getSize() ?
+                  SerializationUtils.MAX_USERS_IN_FILE_PARAM_NAME : usersListAccess.getSize() - i;
           User[] users = usersListAccess.load(i, length);
           for (User user : users) {
             OrganizationConfig.User orgConfigUser = convertUserToSerializableObject(user);
@@ -268,8 +268,8 @@ public class DataInjectorService implements Startable {
       XStream xstream_ = new XStream(new XppDriver());
       int i = 0;
       while (i <= usersListAccess.getSize()) {
-        int length = i + SerializationUtils.MAX_USERS_IN_FILE_PARAM_NAME <= usersListAccess.getSize() ? SerializationUtils.MAX_USERS_IN_FILE_PARAM_NAME
-            : usersListAccess.getSize() - i;
+        int length = i + SerializationUtils.MAX_USERS_IN_FILE_PARAM_NAME <= usersListAccess.getSize() ?
+                SerializationUtils.MAX_USERS_IN_FILE_PARAM_NAME : usersListAccess.getSize() - i;
         User[] users = usersListAccess.load(i, length);
         for (User user : users) {
           UserProfile userProfile = organizationService.getUserProfileHandler().findUserProfileByName(user.getUserName());
@@ -302,8 +302,8 @@ public class DataInjectorService implements Startable {
       XStream xstream_ = new XStream(new XppDriver());
       int i = 0;
       while (i <= usersListAccess.getSize()) {
-        int length = i + SerializationUtils.MAX_USERS_IN_FILE_PARAM_NAME <= usersListAccess.getSize() ? SerializationUtils.MAX_USERS_IN_FILE_PARAM_NAME
-            : usersListAccess.getSize() - i;
+        int length = i + SerializationUtils.MAX_USERS_IN_FILE_PARAM_NAME <= usersListAccess.getSize() ?
+                SerializationUtils.MAX_USERS_IN_FILE_PARAM_NAME : usersListAccess.getSize() - i;
         User[] users = usersListAccess.load(i, length);
         for (User user : users) {
           if (user != null) {
@@ -340,7 +340,8 @@ public class DataInjectorService implements Startable {
     Collection<Membership> memberships = organizationService.getMembershipHandler().findMembershipsByUser(user.getUserName());
     String groups = "";
     for (Membership membership : memberships) {
-      groups = new StringBuffer().append(groups).append(membership.getMembershipType()).append(":").append(membership.getGroupId()).append(",").toString(); //NOSONAR
+      groups = new StringBuffer().append(groups).append(membership.getMembershipType()).append(":")
+              .append(membership.getGroupId()).append(",").toString();
       groups.substring(0, groups.lastIndexOf(","));
     }
     orgConfigUser.setGroups(groups);
