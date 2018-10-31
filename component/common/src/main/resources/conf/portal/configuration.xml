@@ -335,6 +335,20 @@
    </component>
 
     <component>
+        <type>org.exoplatform.platform.common.account.setup.web.AccountSetupService</type>
+    </component>
+
+    <component>
+        <type>org.exoplatform.platform.common.account.setup.web.PingBackService</type>
+        <init-params>
+            <value-param>
+                <name>pingBackUrl</name>
+                <value>http://www.exoplatform.com/company/en/products/e-01011000-01101111</value>
+            </value-param>
+        </init-params>
+    </component>
+
+    <component>
         <type>org.exoplatform.platform.common.software.register.UnlockService</type>
         <init-params>
             <value-param>

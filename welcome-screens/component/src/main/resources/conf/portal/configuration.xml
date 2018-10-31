@@ -42,7 +42,7 @@
                     <name>Unlock Filter</name>
                     <object type="org.exoplatform.web.filter.FilterDefinition">
                         <field name="filter">
-                            <object type="org.exoplatform.platform.common.software.register.UnlockService$UnlockFilter"/>
+                            <object type="org.exoplatform.platform.common.software.register.web.UnlockFilter"/>
                         </field>
                         <field name="patterns">
                             <collection type="java.util.ArrayList" item-type="java.lang.String">

@@ -54,37 +54,37 @@ import org.exoplatform.services.log.Log;
  */
 public class UserDashboardConfigurationService {
 
-  public static String DEFAULT_TAB_NAME;
-  public static String DEFAULT_TAB_LABEL;
-  private static String DASHBOARD_PAGE_TEMPLATE;
-  private static String INVOLVED_USERS;
+  private String defaultTabName;
+  private String defaultTabLabel;
+  private String dashboardPageTemplate;
+  private String involvedUsers;
   private static final String SEPARATE_INVOLVED_USERS = "separate-users";
   private static final String ALL_INVOLVED_USERS = "all-users";
-  private DataStorage dataStorageService = null;
-  private UserPortalConfigService userPortalConfigService = null;
-  private GadgetRegistryService gadgetRegistryService = null;
+  private DataStorage dataStorageService;
+  private UserPortalConfigService userPortalConfigService;
+  private GadgetRegistryService gadgetRegistryService;
   private List<UserDashboardConfiguration> separateUsersconfig;
   private List<Gadget> allUsersConfig;
   private static final Log LOG = ExoLogger.getExoLogger(UserDashboardConfigurationService.class);
 
   public UserDashboardConfigurationService(DataStorage dataStorageService, UserPortalConfigService userPortalConfigService,
       GadgetRegistryService gadgetRegistryService, InitParams initParams) {
-    DEFAULT_TAB_NAME = initParams.getValueParam("dashboardTabName").getValue();
-    DEFAULT_TAB_LABEL = initParams.getValueParam("dashboardTabLabel").getValue();
-    DASHBOARD_PAGE_TEMPLATE = initParams.getValueParam("dashboardPageTemplate").getValue();
-    INVOLVED_USERS = initParams.getValueParam("involvedUsers").getValue();
-    if (INVOLVED_USERS.equals(SEPARATE_INVOLVED_USERS)) {
+    defaultTabName = initParams.getValueParam("dashboardTabName").getValue();
+    defaultTabLabel = initParams.getValueParam("dashboardTabLabel").getValue();
+    dashboardPageTemplate = initParams.getValueParam("dashboardPageTemplate").getValue();
+    involvedUsers = initParams.getValueParam("involvedUsers").getValue();
+    if (involvedUsers.equals(SEPARATE_INVOLVED_USERS)) {
       separateUsersconfig = initParams.getObjectParamValues(UserDashboardConfiguration.class);
       // separateUsersconfig should not be null
       if (separateUsersconfig == null) {
-        throw new IllegalStateException(INVOLVED_USERS + " is used for " + initParams.getValueParam("involvedUsers").getName()
+        throw new IllegalStateException(involvedUsers + " is used for " + initParams.getValueParam("involvedUsers").getName()
             + " init param..\nObject param values can not be null..\nPlease check your configuration");
       }
-    } else if (INVOLVED_USERS.equals(ALL_INVOLVED_USERS)) {
+    } else if (involvedUsers.equals(ALL_INVOLVED_USERS)) {
       allUsersConfig = initParams.getObjectParamValues(Gadget.class);
       // allUsersConfig should not be null
       if (allUsersConfig == null) {
-        throw new IllegalStateException(INVOLVED_USERS + " is used for " + initParams.getValueParam("involvedUsers").getName()
+        throw new IllegalStateException(involvedUsers + " is used for " + initParams.getValueParam("involvedUsers").getName()
             + " init param..\nObject param values can not be null..\nPlease check your configuration");
       }
     } else {
@@ -108,7 +108,7 @@ public class UserDashboardConfigurationService {
   public void prepopulateUserDashboard(String userId) throws Exception {
     RequestLifeCycle.begin(PortalContainer.getInstance());
     try {
-      if (INVOLVED_USERS.equals(SEPARATE_INVOLVED_USERS)) {
+      if (involvedUsers.equals(SEPARATE_INVOLVED_USERS)) {
         // if separate users, check if userId exist in the list, then
         // prepopulate its dashboard
         for (UserDashboardConfiguration userDashboardConfig : separateUsersconfig) {
@@ -168,7 +168,7 @@ public class UserDashboardConfigurationService {
    * @throws Exception
    */
   private Page getUserDashboardPage(String userId) throws Exception {
-    return dataStorageService.getPage(SiteType.USER.getName() + "::" + userId + "::" + DEFAULT_TAB_NAME);
+    return dataStorageService.getPage(SiteType.USER.getName() + "::" + userId + "::" + defaultTabName);
   }
 
   /**
@@ -186,16 +186,16 @@ public class UserDashboardConfigurationService {
         return;
       }
       SiteKey siteKey = userNav.getKey();
-      Page page = userPortalConfigService.createPageTemplate(DASHBOARD_PAGE_TEMPLATE, siteKey.getTypeName(), siteKey.getName());
-      page.setTitle(DEFAULT_TAB_NAME);
-      page.setName(DEFAULT_TAB_NAME);
+      Page page = userPortalConfigService.createPageTemplate(dashboardPageTemplate, siteKey.getTypeName(), siteKey.getName());
+      page.setTitle(defaultTabName);
+      page.setName(defaultTabName);
       dataStorageService.create(page);
 
       UserNode rootNode = userPortal.getNode(userNav, Scope.ALL, null, null);
-      UserNode tabNode = rootNode.getChild(DEFAULT_TAB_NAME);
+      UserNode tabNode = rootNode.getChild(defaultTabName);
       if (tabNode == null) {
-        tabNode = rootNode.addChild(DEFAULT_TAB_NAME);
-        tabNode.setLabel(DEFAULT_TAB_NAME);
+        tabNode = rootNode.addChild(defaultTabName);
+        tabNode.setLabel(defaultTabName);
         tabNode.setPageRef(page.getPageKey());
         userPortal.saveNode(rootNode, null);
       }

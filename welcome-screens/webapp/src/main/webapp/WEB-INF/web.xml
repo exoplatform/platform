@@ -32,7 +32,7 @@
 
     <servlet>
         <servlet-name>UnlockServlet</servlet-name>
-        <servlet-class>org.exoplatform.platform.common.software.register.UnlockService$UnlockServlet</servlet-class>
+        <servlet-class>org.exoplatform.platform.common.software.register.web.UnlockServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>UnlockServlet</servlet-name>

@@ -84,10 +84,6 @@
   <servlet>
         <servlet-name>PingBackServlet</servlet-name>
         <servlet-class>org.exoplatform.platform.common.account.setup.web.PingBackServlet</servlet-class>
-        <init-param>
-            <param-name>pingBackUrl</param-name>
-            <param-value>http://www.exoplatform.com/company/en/products/e-01011000-01101111</param-value>
-        </init-param>
         <load-on-startup>0</load-on-startup>
     </servlet>
 

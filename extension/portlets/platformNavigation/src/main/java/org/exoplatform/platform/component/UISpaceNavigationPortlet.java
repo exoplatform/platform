@@ -51,8 +51,6 @@ public class UISpaceNavigationPortlet extends UIPortletApplication {
 
     private static final int MY_SPACES_MAX_NUMBER = 10;
 
-    private static String portalContainerName = "";
-
     private int offset = 0;
 
     private boolean reload = false;
@@ -68,8 +66,7 @@ public class UISpaceNavigationPortlet extends UIPortletApplication {
     public UISpaceNavigationPortlet() throws Exception {
 
         try {
-            spaceService = ((SpaceService)getApplicationComponent(SpaceService.class));
-            portalContainerName = PortalContainer.getCurrentPortalContainerName();
+            spaceService = getApplicationComponent(SpaceService.class);
             if (spaceService != null) {
                 this.spaceListAccess = spaceService.getLastAccessedSpace(getUserId(), null);
                 setReload(true);
@@ -190,6 +187,7 @@ public class UISpaceNavigationPortlet extends UIPortletApplication {
             //--- Get the space URL using reouter API
             String spaceURL = Utils.getSpaceHomeURL(space);
             //---- Get only the GROUP navigation
+            String portalContainerName = PortalContainer.getCurrentPortalContainerName();
             if (spaceURL.contains(portalContainerName)) {
                 spaceURL = spaceURL.substring(portalContainerName.length()+2);
             }

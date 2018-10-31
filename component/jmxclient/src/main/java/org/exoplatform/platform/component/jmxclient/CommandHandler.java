@@ -38,74 +38,70 @@ import  java.util.logging.Logger;
 
 public class CommandHandler {
 
-  public static final Logger logger = Logger.getAnonymousLogger();
-
-  public static Map<String, Object> environmentMap = null;
-  public static String hostname;
-  public static String hostport;
-  public static String beanName;
-  public static String command;
-  public static String[] mBeanArguments;
+  private static final Logger LOGGER = Logger.getAnonymousLogger();
 
   public static void main(String[] args) {
     try {
       if ((args.length < 4)) {
-
-        if (logger.isLoggable(Level.INFO)) {
-
-            logger.info("<HOST_NAME> <HOST_PORT> -u<USER>(Optionnal) -p<PASSWORD>(Optionnal) <BEAN_NAME> <OPERATION_NAME> <OPERATION_ARG_1> <OPERATION_ARG_2>...");
+        if (LOGGER.isLoggable(Level.INFO)) {
+            LOGGER.info("<HOST_NAME> <HOST_PORT> -u<USER>(Optionnal) -p<PASSWORD>(Optionnal) <BEAN_NAME> <OPERATION_NAME> <OPERATION_ARG_1> <OPERATION_ARG_2>...");
         }
-
         return;
       }
-      extractArguments(args);
-      JMXConnector jmxConnector = connectToJMXServer();
+
+      CommandArguments commandArguments = extractArguments(args);
+      JMXConnector jmxConnector = connectToJMXServer(commandArguments);
       MBeanServerConnection serverConnection = jmxConnector.getMBeanServerConnection();
+      String beanName = commandArguments.getBeanName();
       ObjectName objectName = (beanName != null) && (beanName.length() > 0) ? new ObjectName(beanName) : null;
       Set<?> beans = serverConnection.queryMBeans(objectName, null);
       if (beans.size() == 1) {
         ObjectInstance instance = (ObjectInstance) beans.iterator().next();
-        invokeOperation(serverConnection, instance, command, mBeanArguments);
+        invokeOperation(serverConnection, instance, commandArguments.getCommand(), commandArguments.getmBeanArguments());
       } else {
 
-        if (logger.isLoggable(Level.INFO)) {
+        if (LOGGER.isLoggable(Level.INFO)) {
 
-            logger.info("Cannot find bean: " + objectName.getCanonicalName());
+            LOGGER.info("Cannot find bean: " + objectName.getCanonicalName());
         }
       }
       jmxConnector.close();
     } catch (Exception exception) {
 
-        if (logger.isLoggable(Level.INFO)) {
-            logger.info(exception.getMessage());
+        if (LOGGER.isLoggable(Level.INFO)) {
+            LOGGER.info(exception.getMessage());
         }
     }
   }
 
-  public static void extractArguments(String[] args) {
-    hostname = args[0];
-    hostport = args[1];
+  public static CommandArguments extractArguments(String[] args) {
+    CommandArguments commandArguments = new CommandArguments();
+    commandArguments.setHostname(args[0]);
+    commandArguments.setHostport(args[1]);
     int argsIndex = 4;
     if (args[2].contains("-u")) {
-      environmentMap = new HashMap<String, Object>(1);
+      Map environmentMap = new HashMap<String, Object>(1);
       environmentMap.put("jmx.remote.credentials", new String[] { args[2].substring(2), args[3].substring(2) });
+      commandArguments.setEnvironmentMap(environmentMap);
       argsIndex = 6;
     }
-    beanName = args[argsIndex - 2];
-    command = args[argsIndex - 1];
-    mBeanArguments = null;
+    commandArguments.setBeanName(args[argsIndex - 2]);
+    commandArguments.setCommand(args[argsIndex - 1]);
     if (args.length > argsIndex) {
-      mBeanArguments = Arrays.copyOfRange(args, argsIndex, args.length);
+      commandArguments.setmBeanArguments(Arrays.copyOfRange(args, argsIndex, args.length));
     }
+
+    return commandArguments;
   }
 
-  private static JMXConnector connectToJMXServer() throws MalformedURLException, IOException {
+  private static JMXConnector connectToJMXServer(CommandArguments commandArguments) throws MalformedURLException, IOException {
     JMXConnector jmxConnector;
-    JMXServiceURL jmxServiceURL = new JMXServiceURL("service:jmx:rmi:///jndi/rmi://" + hostname + ":" + hostport + "/jmxrmi");
-    if (environmentMap == null) {
+    JMXServiceURL jmxServiceURL = new JMXServiceURL("service:jmx:rmi:///jndi/rmi://" + commandArguments.getHostname() +
+            ":" + commandArguments.getHostport() + "/jmxrmi");
+    if (commandArguments.getEnvironmentMap() == null) {
       jmxConnector = JMXConnectorFactory.connect(jmxServiceURL);
     } else {
-      jmxConnector = JMXConnectorFactory.connect(jmxServiceURL, environmentMap);
+      jmxConnector = JMXConnectorFactory.connect(jmxServiceURL, commandArguments.getEnvironmentMap());
     }
     return jmxConnector;
   }
@@ -121,16 +117,14 @@ public class CommandHandler {
     }
     if (beanOperationInfo == null) {
 
-        if (logger.isLoggable(Level.INFO)) {
-
-            logger.info("Operation (" + command + ") not found in bean(" + instance.getObjectName()+ ")\n list of available operations: ");
+        if (LOGGER.isLoggable(Level.INFO)) {
+            LOGGER.info("Operation (" + command + ") not found in bean(" + instance.getObjectName()
+                    + ")\n list of available operations: ");
         }
 
       for (MBeanOperationInfo beanOperationInfoTmp : beanOperationInfos) {
-
-          if (logger.isLoggable(Level.INFO)) {
-
-              logger.info(beanOperationInfoTmp.getName());
+          if (LOGGER.isLoggable(Level.INFO)) {
+              LOGGER.info(beanOperationInfoTmp.getName());
           }
       }
     } else {
@@ -147,16 +141,13 @@ public class CommandHandler {
           signature[i] = paraminfo.getType();
         }
 
-        if (logger.isLoggable(Level.INFO)) {
-
-            logger.info("Invocation response: " + mbsc.invoke(instance.getObjectName(), command, params, signature));
+        if (LOGGER.isLoggable(Level.INFO)) {
+            LOGGER.info("Invocation response: " + mbsc.invoke(instance.getObjectName(), command, params, signature));
         }
 
       } else {
-
-          if (logger.isLoggable(Level.INFO)) {
-
-              logger.info("Parameters does not match operation signature");
+          if (LOGGER.isLoggable(Level.INFO)) {
+              LOGGER.info("Parameters does not match operation signature");
           }
       }
     }

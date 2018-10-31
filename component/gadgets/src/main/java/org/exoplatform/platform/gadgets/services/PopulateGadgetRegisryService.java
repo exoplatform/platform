@@ -41,25 +41,27 @@ import org.picocontainer.Startable;
  */
 public class PopulateGadgetRegisryService implements Startable {
 
-  private static final String DEFAULT_GADGETS_CATEGORY_NAME = "Gadgets";
-  private static String CATEGORY_NAME;
-  private static String GADGETS_CATEGORY_ACCESS_PERMISSION;
   private static final Log LOG = ExoLogger.getExoLogger(PopulateGadgetRegisryService.class);
-  private GadgetRegistryService gadgetRegistryService = null;
-  private ApplicationRegistryService applicationRegistryService = null;
+
+  private static final String DEFAULT_GADGETS_CATEGORY_NAME = "Gadgets";
+
+  private String categoryName;
+  private String gadgetsCategoryAccessPermission;
+  private GadgetRegistryService gadgetRegistryService;
+  private ApplicationRegistryService applicationRegistryService;
   private List<Gadget> gadgets;
 
   public PopulateGadgetRegisryService(GadgetRegistryService gadgetRegistryService,
       ApplicationRegistryService applicationRegistryService, InitParams initParams) {
-    CATEGORY_NAME = initParams.getValueParam("gadgetsCategoryName").getValue();
-    if (CATEGORY_NAME == null) {
-      CATEGORY_NAME = DEFAULT_GADGETS_CATEGORY_NAME;
+    categoryName = initParams.getValueParam("gadgetsCategoryName").getValue();
+    if (categoryName == null) {
+      categoryName = DEFAULT_GADGETS_CATEGORY_NAME;
       LOG.warn("Failed to retrieve " + initParams.getValueParam("gadgetsCategoryName").getName()
           + " init param. Default category name will be used: " + DEFAULT_GADGETS_CATEGORY_NAME);
     }
-    GADGETS_CATEGORY_ACCESS_PERMISSION = initParams.getValueParam("gadgetsCategoryAccessPermission").getValue();
-    if (GADGETS_CATEGORY_ACCESS_PERMISSION == null) {
-      GADGETS_CATEGORY_ACCESS_PERMISSION = UserACL.EVERYONE;
+    gadgetsCategoryAccessPermission = initParams.getValueParam("gadgetsCategoryAccessPermission").getValue();
+    if (gadgetsCategoryAccessPermission == null) {
+      gadgetsCategoryAccessPermission = UserACL.EVERYONE;
       LOG.warn("Failed to retrieve " + initParams.getValueParam("gadgetsCategoryAccessPermission").getName()
           + " init param. Default access permission will be used: " + UserACL.EVERYONE);
     }
@@ -82,7 +84,7 @@ public class PopulateGadgetRegisryService implements Startable {
           gadgetRegistryService.saveGadget(gadget);
         }
         ArrayList<String> permissions = new ArrayList<String>();
-        String[] permissionEntry = GADGETS_CATEGORY_ACCESS_PERMISSION.split(",");
+        String[] permissionEntry = gadgetsCategoryAccessPermission.split(",");
         for (String entry : permissionEntry) {
           permissions.add(entry);
         }
@@ -96,20 +98,20 @@ public class PopulateGadgetRegisryService implements Startable {
             : gadget.getDescription();
         registryApplication.setDescription(description);
         registryApplication.setAccessPermissions(permissions);
-        registryApplication.setCategoryName(CATEGORY_NAME);
-        if (applicationRegistryService.getApplicationCategory(CATEGORY_NAME) == null) {
+        registryApplication.setCategoryName(categoryName);
+        if (applicationRegistryService.getApplicationCategory(categoryName) == null) {
           // creates the application category
           ApplicationCategory category = new ApplicationCategory();
-          category.setName(CATEGORY_NAME);
-          category.setDisplayName(CATEGORY_NAME);
-          category.setDescription(CATEGORY_NAME);
+          category.setName(categoryName);
+          category.setDisplayName(categoryName);
+          category.setDescription(categoryName);
           category.setAccessPermissions(permissions);
           applicationRegistryService.save(category, registryApplication);
         } else {
-          applicationRegistryService.save(applicationRegistryService.getApplicationCategory(CATEGORY_NAME), registryApplication);
+          applicationRegistryService.save(applicationRegistryService.getApplicationCategory(categoryName), registryApplication);
         }
       } catch (Exception e) {
-        LOG.error("Error while saving gadget: " + gadget.getName() + " with " + CATEGORY_NAME + " application category. ", e);
+        LOG.error("Error while saving gadget: " + gadget.getName() + " with " + categoryName + " application category. ", e);
         throw new RuntimeException(e);
       } finally {
         RequestLifeCycle.end();

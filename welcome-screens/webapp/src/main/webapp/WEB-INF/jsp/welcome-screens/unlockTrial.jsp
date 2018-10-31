@@ -5,12 +5,15 @@
 <%@ page import="org.exoplatform.portal.config.UserPortalConfigService" %>
 <%@ page import="org.exoplatform.portal.resource.SkinService"%>
 <%
-    int rday = UnlockService.getNbDaysBeforeExpiration();
-    boolean outdated = UnlockService.isOutdated();
-    String css="backNotOutdated";
-      
-   PortalContainer portalContainer = PortalContainer.getCurrentInstance(session.getServletContext());
-  ResourceBundleService service = (ResourceBundleService) portalContainer.getComponentInstanceOfType(ResourceBundleService.class);
+  PortalContainer portalContainer = PortalContainer.getCurrentInstance(session.getServletContext());
+
+  UnlockService unlockService = portalContainer.getComponentInstanceOfType(UnlockService.class);
+
+  int rday = unlockService.getNbDaysBeforeExpiration();
+  boolean outdated = unlockService.isOutdated();
+  String css = "backNotOutdated";
+
+  ResourceBundleService service = portalContainer.getComponentInstanceOfType(ResourceBundleService.class);
   ResourceBundle rb = service.getResourceBundle("locale.portal.webui", request.getLocale());
   UserPortalConfigService userPortalConfigService = portalContainer.getComponentInstanceOfType(UserPortalConfigService.class);
   String skinName = userPortalConfigService.getDefaultPortalSkinName();
@@ -18,17 +21,14 @@
   String trialCssPath = skinService.getSkin("trial/UnlockTrial", skinName).getCSSPath();
   String coreCssPath = skinService.getPortalSkin("CoreSkin", skinName).getCSSPath();
   String customCssPath = skinService.getPortalSkin("customModule", skinName).getCSSPath();
-   
-   
-    String label1 = rb.getString("UnlockTrial.label.day_left");
-    String productCode= UnlockService.getProductCode();
-    if (outdated)  {
-        css="backOutdated";
-        label1= rb.getString("UnlockTrial.label.expired");
-        rday = UnlockService.getNbDaysAfterExpiration();
-    }
-    String contextPath = request.getContextPath() ;
-    
+
+  String label1 = rb.getString("UnlockTrial.label.day_left");
+  if (outdated)  {
+    css = "backOutdated";
+    label1 = rb.getString("UnlockTrial.label.expired");
+    rday = unlockService.getNbDaysAfterExpiration();
+  }
+  String contextPath = request.getContextPath();
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
@@ -75,7 +75,7 @@
        <form action="<%=contextPath%>/trial" method="post" name="unlockForm" onsubmit="return formValidation();">
          <div class="product-label">
            <span>Product Code&#58;</span>
-           <input type="text" class="Text" name="pc" value="<%=UnlockService.getProductCode() %>">
+           <input type="text" class="Text" name="pc" value="<%=unlockService.getProductCode() %>">
            <a data-toggle="popover" data-placement="top" data-content="<%=rb.getString("UnlockTrial.label.identifies")%>." onmouseover="showPopover(this);" onmouseout="hidePopover(this);">
              <i class="uiIconQuestion uiIconLightGray"></i>
            </a>
@@ -86,7 +86,7 @@
          <div class="steps clearfix">
          	<div class="stepsNumber pull-left">1</div>
            <div class="rightCol firstItem"><strong><%=rb.getString("UnlockTrial.label.pickup")%></strong>
-            <div class="center"><a target="_blank" class="btn btn-large btn-buy btn-primary" href="<%=UnlockService.getRegistrationFormUrl()%>?pc=<%=UnlockService.getProductCode()%>"><%=rb.getString("UnlockTrial.label.buy")%></a></div>
+            <div class="center"><a target="_blank" class="btn btn-large btn-buy btn-primary" href="<%=unlockService.getRegistrationFormUrl()%>?pc=<%=unlockService.getProductCode()%>"><%=rb.getString("UnlockTrial.label.buy")%></a></div>
            </div>
            
          </div>

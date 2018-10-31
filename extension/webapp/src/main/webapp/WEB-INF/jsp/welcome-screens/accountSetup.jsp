@@ -4,6 +4,7 @@
 <%@ page import="org.exoplatform.services.resources.ResourceBundleService"%>
 <%@ page import="org.exoplatform.portal.config.UserPortalConfigService" %>
 <%@ page import="org.exoplatform.portal.resource.SkinService"%>
+<%@ page import="org.exoplatform.platform.common.account.setup.web.PingBackService" %>
 
 
 <%
@@ -54,6 +55,8 @@
   String skinName = userPortalConfigService.getDefaultPortalSkinName();
   SkinService skinService = portalContainer.getComponentInstanceOfType(SkinService.class);
   String cssPath = skinService.getSkin("portal/AccountSetup", skinName).getCSSPath();
+
+  PingBackService pingBackService = portalContainer.getComponentInstanceOfType(PingBackService.class);
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="<%=lang%>">
@@ -133,8 +136,8 @@
     </div>
 </div>
 </form>
-<% 	if(!PingBackServlet.isLandingPageDisplayed()){ %>
-<iframe src="<%=PingBackServlet.getPingBackUrl()%>" style="display:none;" id="pingBackUrlFrame" onload="setFormDisplayed()"></iframe>
+<% 	if(!pingBackService.isLandingPageDisplayed()){ %>
+<iframe src="<%=pingBackService.getPingBackUrl()%>" style="display:none;" id="pingBackUrlFrame" onload="setFormDisplayed()"></iframe>
 <iframe src="about:blank" style="display:none;" id="pingBackUrlActivation"></iframe>
 <script>
     function setFormDisplayed() {

@@ -19,19 +19,21 @@
      */
 %>
 <%
+    import org.exoplatform.container.PortalContainer;
     import org.exoplatform.platform.common.software.register.UnlockService;
     import org.exoplatform.platform.common.software.register.Utils;
     import org.exoplatform.commons.utils.PropertyManager;
     import org.exoplatform.portal.webui.util.Util;
 %>
 <%
-    boolean isUnlocked = UnlockService.isUnlocked();
+    UnlockService unlockService = PortalContainer.getInstance().getComponentInstanceOfType(UnlockService.class);
+    boolean isUnlocked = unlockService.isUnlocked();
     if(!isUnlocked){
         boolean isDevMode =  PropertyManager.isDevelopping();
         if(!isDevMode){
-            def rday= UnlockService.getNbDaysBeforeExpiration();
-            boolean outdated = UnlockService.isOutdated();
-            String error = UnlockService.ERROR;
+            def rday= unlockService.getNbDaysBeforeExpiration();
+            boolean outdated = unlockService.isOutdated();
+            String error = unlockService.ERROR;
 %>
 
 <div id="<%=uicomponent.id%>">
@@ -44,7 +46,7 @@
             if (outdated)  {
                 css="backOutdated";
                 label1= _ctx.appRes("UIWelcomeScreenFooter.label.expiration");
-                rday = UnlockService.getNbDaysAfterExpiration();
+                rday = unlockService.getNbDaysAfterExpiration();
             }
     %>
     <div class="footerWLC <%=css  %>">
