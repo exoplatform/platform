@@ -30,7 +30,7 @@
   <msg name="action">اجراء</msg>
   <msg name="value">القيمة</msg>
   <msg name="services_url">خدمات URL</msg>
-  <msg name="failManage">Temporary can't manage services from other host until we support OAuth</msg>
+  <msg name="failManage">مبدئيّا لا يمكن إدارة الخدمات من مُضيّف إلى آخر حتى يتمّ دعم الـ OAuth</msg>
   <msg name="noServices">لا توجد أيّ خدمة متوفرة أو ليس لديك الصلاحيّات الكافية لرؤيتها</msg>
   <msg name="noMethod">لا يوجد أسلوب</msg>
   <msg name="noProperty">لا توجد خاصيّة</msg>
