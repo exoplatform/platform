@@ -72,7 +72,7 @@ public class TestECMSUpgrade extends BasicTestCase {
       oldVersionsContentIS.read(binaries);
       String oldVersionsContent = new String(binaries);
 
-      session = repositoryService.getDefaultRepository().getSystemSession(COLLABORATION_WS);
+      session = repositoryService.getDefaultRepository().getSystemSession(COLLABORATION_WS); //NOSONAR
 
       Node plfVersionDeclarationNode = getProductVersionNode(session);
       Node plfVersionDeclarationContentNode = plfVersionDeclarationNode.getNode("jcr:content");
