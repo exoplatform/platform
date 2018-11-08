@@ -21,7 +21,7 @@
             'exoId': eXoUser, 'exoToken': eXoToken
             //logLevel: 'debug'
         });
-    
+
         if (me.currentUser !== eXoUser || me.currentUser === '') {
           me.currentUser = eXoUser;
           me.Cometd.subscribe('/eXo/Application/web/NotificationMessage', null, function(eventObj) {
@@ -52,6 +52,7 @@
         var badgeElm = me.portlet.find('span.badgeNotification:first');
         me.badgeElm = badgeElm;
         if (parseInt(badgeElm.text()) > 0) {
+          eXo.core.Browser.setTitlePrefix('(' + badgeElm.text() + ') ');
           badgeElm.show();
         }
         if(me.popupItem.find('li.unread').length > 0) {
@@ -82,6 +83,7 @@
           if (bagdeNumber > 0) {
             me.badgeElm.text('0').hide();
             webNotif.ajaxReq(me.resetNumberOnBadgeLink + 'reset');
+            eXo.core.Browser.setTitlePrefix('');
           }
         });
         $(document).ready(function() {
@@ -105,7 +107,7 @@
           me.popupItem.find('li').each(function(i) {
             me.applyAction($(this));
           });
-          
+
           // Long message of text will be truncated by CSS
           $.each(me.portlet.find('.displayItems').find('.content'), function(i, item) {
             if ($(item).html().trim().length > 120 && $(item).children(".confirm").length == 0) {
@@ -151,7 +153,7 @@
         var existItem = me.popupItem.find('li[data-id=' + id + ']');
         var isExisting = existItem.length > 0;
         if (isExisting) {
-          //this process only mentions case like or comment, 
+          //this process only mentions case like or comment,
           //the content must be updated and NotificationID still kept
           if (moveTop) {
             existItem.remove();
@@ -162,7 +164,7 @@
           }
         } else if (me.popupItem.find('li').length === me.maxItem){
           me.popupItem.find('li:last').remove();
-        } 
+        }
         if (moveTop) {
           me.popupItem.prepend(me.applyAction(newItem).hide());
           webNotif.showElm(newItem);
@@ -170,6 +172,7 @@
         //
         me.badgeElm.text(message.numberOnBadge);
         if(parseInt(message.numberOnBadge) > 0) {
+          eXo.core.Browser.setTitlePrefix('(' + message.numberOnBadge + ') ');
           me.badgeElm.show();
         } else {
           me.badgeElm.hide();
@@ -196,7 +199,7 @@
         //
         item.find('.remove-item').off('click')
             .on('click', function(evt) {
-                evt.stopPropagation(); 
+                evt.stopPropagation();
                 //1.call ajax to remove this notification, and do something in commons side
                 //2.remove this element on UI
                 var elm = $(this).parents('li:first');
@@ -206,10 +209,10 @@
         item.find('.action-item').off('click')
             .on('click', function(evt) { evt.stopPropagation(); webNotif.doAction($(this)); });
         item.find('.cancel-item').off('click')
-            .on('click', function(evt) { 
+            .on('click', function(evt) {
               evt.stopPropagation();
               var id = $(this).parents('li:first').data('id');
-              webNotif.doCancelAction(id, $(this).data('rest')); 
+              webNotif.doCancelAction(id, $(this).data('rest'));
             });
         //
         return item;
@@ -218,7 +221,7 @@
           //1. call rest on social side: for example accept/refuse relationship
           //2. redirect to the uri, for example: view activity detail
           //var id = elm.parents('li:first').data('id');
-          //3. trigger a custom event to update other applications concerned by this change 
+          //3. trigger a custom event to update other applications concerned by this change
         webNotif.ajaxReq($(elm).data('rest'),
             function() {
               $(document).trigger("exo-invitation-updated");
@@ -261,10 +264,11 @@
         }
         return this;
       }
+
   };
   //
   NotificationPopover.init();
   webNotif.register(NotificationPopover);
-  
+
   return NotificationPopover;
 })(jQuery, webNotifications, cCometD);
