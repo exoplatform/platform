@@ -173,13 +173,13 @@
   	},
 
     initAvatar : function(uploaderId) {
-      $(uploaderId + ' .uiIconCamera').on('click', function() {
+      $(uploaderId + ' .uiUploadFile').on('click', function() {
           bannerUploader.selectFile(uploaderId);
       });
     },
 
     initBanner : function(uploaderId) {
-      $('.bannerControls .uiIconCamera').on('click', function() {
+      $('.bannerControls .uiUploadFile').on('click', function() {
           bannerUploader.selectFile(uploaderId);
       });
       $('.bannerControls [data-toggle="popover"]').popover();

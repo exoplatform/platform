@@ -68,12 +68,17 @@ if (uicomponent.isProfileOwner()) {
     <div class="profileMenuNavHeader">
       <% if (uicomponent.isProfileOwner()) { %>
         <div class="bannerControls">
-            <a href="#" data-toggle="popover" data-trigger="hover" data-content="<%=_ctx.appRes("UIUserNavigationPortlet.label.bannerSizeHint")%>" data-placement="left">
-              <i class="uiIconCamera"></i>
-            </a>
-            <% if (banner != null) {%>
-              <a href="<%=uicomponent.event("DeleteBanner");%>"><i class="uiIconTrash"></i></a>
-            <%}%>        
+            <a  href="#" class="dropdown-toggle" data-toggle="dropdown" data-placement="left"><i class="uiIconCamera"></i></a>
+            <ul class="dropdown-menu">
+                <li>
+                    <a href="#" class="uiUploadFile"><%=_ctx.appRes("UIBannerUploader.label.Upload")%></a>
+                </li>
+                <%if (banner != null) {%>
+                <li>
+                    <a href="<%=uicomponent.event("RemoveBanner");%>"><%=_ctx.appRes("UIBannerUploader.label.Remove")%></a>
+                </li> 
+                <%}%>                    
+            </ul>         
         </div>
       <%}%>    
       <h3 data-userid="$profileUsername">

@@ -64,7 +64,7 @@ import org.exoplatform.webui.exception.MessageException;
 
         template = "app:/groovy/platformNavigation/portlet/UIUserNavigationPortlet/UIUserNavigationPortlet.gtmpl",
         events = {
-                @EventConfig(listeners = UIUserNavigationPortlet.DeleteBannerActionListener.class)
+                @EventConfig(listeners = UIUserNavigationPortlet.RemoveBannerActionListener.class)
         }
 )
 public class UIUserNavigationPortlet extends UIPortletApplication {
@@ -322,7 +322,7 @@ public class UIUserNavigationPortlet extends UIPortletApplication {
     }
 
 
-    public static class DeleteBannerActionListener extends EventListener<UIUserNavigationPortlet> {
+    public static class RemoveBannerActionListener extends EventListener<UIUserNavigationPortlet> {
 
         @Override
         public void execute(Event<UIUserNavigationPortlet> event) throws Exception {
