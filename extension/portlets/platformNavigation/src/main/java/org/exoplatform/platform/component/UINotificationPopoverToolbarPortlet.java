@@ -121,6 +121,7 @@ public class UINotificationPopoverToolbarPortlet extends UIPortletApplication {
         }
       } else if (EXO_NOTIFICATION_MARK_ALL_READ.equals(resourceId)) {
         webNftService.markAllRead(currentUser);
+        webNftService.resetNumberOnBadge(currentUser);
       }
     } else {
       this.currentUser = "";
