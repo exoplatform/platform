@@ -40,23 +40,23 @@
     <!-- Project Dependencies -->
     <!-- **************************************** -->
     <!-- Platform Project Dependencies -->
-    <org.exoplatform.depmgt.version>15-SNAPSHOT</org.exoplatform.depmgt.version>
-    <org.exoplatform.commons.version>5.2.x-SNAPSHOT</org.exoplatform.commons.version>
-    <org.exoplatform.ecms.version>5.2.x-SNAPSHOT</org.exoplatform.ecms.version>
-    <org.exoplatform.social.version>5.2.x-SNAPSHOT</org.exoplatform.social.version>
-    <org.exoplatform.forum.version>5.2.x-SNAPSHOT</org.exoplatform.forum.version>
-    <org.exoplatform.wiki.version>5.2.x-SNAPSHOT</org.exoplatform.wiki.version>
-    <org.exoplatform.calendar.version>5.2.x-SNAPSHOT</org.exoplatform.calendar.version>
-    <org.exoplatform.integ.version>5.2.x-SNAPSHOT</org.exoplatform.integ.version>
-    <org.exoplatform.platform-ui.version>5.2.x-SNAPSHOT</org.exoplatform.platform-ui.version>
-    <org.exoplatform.kernel.version>5.2.x-SNAPSHOT</org.exoplatform.kernel.version>
-    <org.exoplatform.core.version>5.2.x-SNAPSHOT</org.exoplatform.core.version>
-    <org.exoplatform.ws.version>5.2.x-SNAPSHOT</org.exoplatform.ws.version>
-    <org.exoplatform.jcr.version>5.2.x-SNAPSHOT</org.exoplatform.jcr.version>
-    <org.exoplatform.gatein.portal.version>5.2.x-SNAPSHOT</org.exoplatform.gatein.portal.version>
-    <org.exoplatform.gatein.wci.version>5.2.x-SNAPSHOT</org.exoplatform.gatein.wci.version>
-    <org.exoplatform.gatein.pc.version>5.2.x-SNAPSHOT</org.exoplatform.gatein.pc.version>
-    <org.exoplatform.gatein.sso.version>5.2.x-SNAPSHOT</org.exoplatform.gatein.sso.version>
+    <org.exoplatform.depmgt.version>15-M08</org.exoplatform.depmgt.version>
+    <org.exoplatform.commons.version>5.2.0-M08</org.exoplatform.commons.version>
+    <org.exoplatform.ecms.version>5.2.0-M08</org.exoplatform.ecms.version>
+    <org.exoplatform.social.version>5.2.0-M08</org.exoplatform.social.version>
+    <org.exoplatform.forum.version>5.2.0-M08</org.exoplatform.forum.version>
+    <org.exoplatform.wiki.version>5.2.0-M08</org.exoplatform.wiki.version>
+    <org.exoplatform.calendar.version>5.2.0-M08</org.exoplatform.calendar.version>
+    <org.exoplatform.integ.version>5.2.0-M08</org.exoplatform.integ.version>
+    <org.exoplatform.platform-ui.version>5.2.0-M08</org.exoplatform.platform-ui.version>
+    <org.exoplatform.kernel.version>5.2.0-M08</org.exoplatform.kernel.version>
+    <org.exoplatform.core.version>5.2.0-M08</org.exoplatform.core.version>
+    <org.exoplatform.ws.version>5.2.0-M08</org.exoplatform.ws.version>
+    <org.exoplatform.jcr.version>5.2.0-M08</org.exoplatform.jcr.version>
+    <org.exoplatform.gatein.portal.version>5.2.0-M08</org.exoplatform.gatein.portal.version>
+    <org.exoplatform.gatein.wci.version>5.2.0-M08</org.exoplatform.gatein.wci.version>
+    <org.exoplatform.gatein.pc.version>5.2.0-M08</org.exoplatform.gatein.pc.version>
+    <org.exoplatform.gatein.sso.version>5.2.0-M08</org.exoplatform.gatein.sso.version>
 
     <org.apache.shindig.version>2.5.2</org.apache.shindig.version>
     <org.gatein.common.version>2.2.2.Final</org.gatein.common.version>
