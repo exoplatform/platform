@@ -130,6 +130,16 @@
       <artifactId>slf4j-simple</artifactId>
       <scope>test</scope>
     </dependency>
+    <dependency>
+      <groupId>org.hibernate</groupId>
+      <artifactId>hibernate-entitymanager</artifactId>
+      <exclusions>
+        <exclusion>
+          <artifactId>jboss-transaction-api_1.1_spec</artifactId>
+          <groupId>org.jboss.spec.javax.transaction</groupId>
+        </exclusion>
+      </exclusions>
+    </dependency>
   </dependencies>
   <build>
     <finalName>gadget-pack-services</finalName>
