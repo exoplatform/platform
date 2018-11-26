@@ -15,12 +15,8 @@ public class LoginHistoryEntity {
     @Column(name = "ID")
     private long ID;
 
-    @OneToMany(fetch =FetchType.LAZY)
-    @JoinColumn(name = "SESSION_ID")
-    private long sessionID;
-
-    @Column(name = "ACTION")
-    private String action;
+    @Column(name = "USER_ID")
+    private String userID;
 
     @Column(name = "DATE")
     private Timestamp dateTime;
@@ -33,20 +29,12 @@ public class LoginHistoryEntity {
         this.ID = ID;
     }
 
-    public long getSessionID() {
-        return sessionID;
+    public String getUserID() {
+        return userID;
     }
 
-    public void setSessionID(long sessionID) {
-        this.sessionID = sessionID;
-    }
-
-    public String getAction() {
-        return action;
-    }
-
-    public void setAction(String action) {
-        this.action = action;
+    public void setUserID(String userID) {
+        this.userID = userID;
     }
 
     public Timestamp getDateTime() {
