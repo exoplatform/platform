@@ -21,6 +21,14 @@ public class LoginHistoryEntity {
     @Column(name = "DATE")
     private Timestamp dateTime;
 
+    public LoginHistoryEntity() {
+    }
+
+    public LoginHistoryEntity(String userID, Timestamp dateTime) {
+        this.userID = userID;
+        this.dateTime = dateTime;
+    }
+
     public long getID() {
         return ID;
     }
