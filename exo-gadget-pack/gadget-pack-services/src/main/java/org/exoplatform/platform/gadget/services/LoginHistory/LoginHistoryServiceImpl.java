@@ -20,10 +20,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-import javax.jcr.RepositoryException;
-
-import org.exoplatform.platform.gadget.services.LoginHistory.storage.JCRLoginHistoryStorageImpl;
-import org.exoplatform.services.jcr.RepositoryService;
+import org.exoplatform.platform.gadget.services.LoginHistory.storage.LoginHistoryStorage;
 import org.exoplatform.services.log.ExoLogger;
 import org.exoplatform.services.log.Log;
 import org.picocontainer.Startable;
@@ -34,23 +31,17 @@ import org.picocontainer.Startable;
  * Apr 21, 2011 6:19:21 PM
  */
 
-public class LoginHistoryServiceImpl extends JCRLoginHistoryStorageImpl implements Startable {
+public class LoginHistoryServiceImpl implements LoginHistoryService, Startable {
     private static final Log LOG = ExoLogger.getLogger(LoginHistoryServiceImpl.class);
-    private RepositoryService repositoryService;
+    private LoginHistoryStorage loginHistoryStorage;
 
-    public LoginHistoryServiceImpl(RepositoryService repositoryService) {
-        super(repositoryService);
+    public LoginHistoryServiceImpl(LoginHistoryStorage loginHistoryStorage) {
+        this.loginHistoryStorage = loginHistoryStorage;
     }
 
     @Override
     public void start() {
-        // Create login history node
-        try {
-            createHomeNode();
-        } catch (RepositoryException e) {
-            LOG.error("Error of LoginHistoryServiceImpl start: " + e.getMessage(), e);
-            throw new RuntimeException(e);
-        }
+        // do nothing
     }
 
 
@@ -59,13 +50,11 @@ public class LoginHistoryServiceImpl extends JCRLoginHistoryStorageImpl implemen
         // do nothing
     }
 
-    JCRLoginHistoryStorageImpl jcrLoginHistoryStorage = new LoginHistoryServiceImpl(repositoryService);
-
     /**
      * Get user's last login time
      */
     public long getLastLogin(String userId) throws Exception {
-        return jcrLoginHistoryStorage.getLastLogin(userId);
+        return loginHistoryStorage.getLastLogin(userId);
     }
 
     /**
@@ -76,7 +65,7 @@ public class LoginHistoryServiceImpl extends JCRLoginHistoryStorageImpl implemen
      * @throws Exception
      */
     public List<LastLoginBean> getLastLogins(int numItems, String userIdFilter) throws Exception {
-        return jcrLoginHistoryStorage.getLastLogins(numItems,userIdFilter);
+        return loginHistoryStorage.getLastLogins(numItems,userIdFilter);
     }
 
     /**
@@ -87,7 +76,7 @@ public class LoginHistoryServiceImpl extends JCRLoginHistoryStorageImpl implemen
      * @throws Exception
      */
     public void addLoginHistoryEntry(String userId, long loginTime) throws Exception {
-        jcrLoginHistoryStorage.addLoginHistoryEntry(userId,loginTime);
+        loginHistoryStorage.addLoginHistoryEntry(userId,loginTime);
     }
 
     /**
@@ -98,35 +87,35 @@ public class LoginHistoryServiceImpl extends JCRLoginHistoryStorageImpl implemen
      * @throws Exception
      */
     public List<LoginHistoryBean> getLoginHistory(String userId, long fromTime, long toTime) throws Exception {
-        return jcrLoginHistoryStorage.getLoginHistory(userId,fromTime,toTime);
+        return loginHistoryStorage.getLoginHistory(userId,fromTime,toTime);
     }
 
     /**
      * Get user's login count per days in range [fromDate..toDate]
      */
     public List<LoginCounterBean> getLoginCountPerDaysInRange(String userId, long fromDate, long toDate) throws Exception {
-        return jcrLoginHistoryStorage.getLoginCountPerDaysInRange(userId,fromDate,toDate);
+        return getLoginCountPerDaysInRange(userId,fromDate,toDate);
     }
 
     /**
      * Get user login count per days in given week
      */
     public List<LoginCounterBean> getLoginCountPerDaysInWeek(String userId, long week) throws Exception {
-        return jcrLoginHistoryStorage.getLoginCountPerDaysInWeek(userId,week);
+        return loginHistoryStorage.getLoginCountPerDaysInWeek(userId,week);
     }
 
     /**
      * Get user login count per weeks in given month
      */
     public List<LoginCounterBean> getLoginCountPerWeeksInMonths(String userId, long fromMonth, int numOfMonths) throws Exception {
-        return jcrLoginHistoryStorage.getLoginCountPerWeeksInMonths(userId,fromMonth,numOfMonths);
+        return loginHistoryStorage.getLoginCountPerWeeksInMonths(userId,fromMonth,numOfMonths);
     }
 
     /**
      * Get user login count per months in given year
      */
     public List<LoginCounterBean> getLoginCountPerMonthsInYear(String userId, long year) throws Exception {
-        return jcrLoginHistoryStorage.getLoginCountPerMonthsInYear(userId,year);
+        return loginHistoryStorage.getLoginCountPerMonthsInYear(userId,year);
     }
 
     /**
@@ -136,7 +125,7 @@ public class LoginHistoryServiceImpl extends JCRLoginHistoryStorageImpl implemen
      * @return the list of user's name 
      */
     public Set<String> getLastUsersLogin(long fromTime) throws Exception {
-        return jcrLoginHistoryStorage.getLastUsersLogin(fromTime);
+        return loginHistoryStorage.getLastUsersLogin(fromTime);
     }
     
     /**
@@ -147,15 +136,15 @@ public class LoginHistoryServiceImpl extends JCRLoginHistoryStorageImpl implemen
      * @return
      */
     public boolean isActiveUser(String userId, int days) {
-        return jcrLoginHistoryStorage.isActiveUser(userId,days);
+        return loginHistoryStorage.isActiveUser(userId,days);
     }
     
     public Map<String, Integer> getActiveUsers(long fromTime) {
-        return jcrLoginHistoryStorage.getActiveUsers(fromTime);
+        return loginHistoryStorage.getActiveUsers(fromTime);
     }
     
     public long getBeforeLastLogin(String userId) throws Exception {
-        return jcrLoginHistoryStorage.getBeforeLastLogin(userId);
+        return loginHistoryStorage.getBeforeLastLogin(userId);
     }
 }
 
