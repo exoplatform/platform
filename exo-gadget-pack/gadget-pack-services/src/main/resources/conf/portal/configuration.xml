@@ -29,7 +29,12 @@
   <component profiles="all">
     <key>org.exoplatform.platform.gadget.services.LoginHistory.LoginHistoryService</key>  
     <type>org.exoplatform.platform.gadget.services.LoginHistory.LoginHistoryServiceImpl</type>
-  </component> 
+  </component>
+
+  <component profiles="all">
+    <key>org.exoplatform.platform.gadget.services.LoginHistory.storage.LoginHistoryStorage</key>
+    <type>org.exoplatform.platform.gadget.services.LoginHistory.storage.JCRLoginHistoryStorageImpl</type>
+  </component>
   
   <component profiles="all">
     <type>org.exoplatform.platform.gadget.services.LoginHistory.LoginHistoryRestService</type>

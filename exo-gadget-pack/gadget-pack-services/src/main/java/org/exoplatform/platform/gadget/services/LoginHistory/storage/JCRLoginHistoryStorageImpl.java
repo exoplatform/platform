@@ -132,7 +132,7 @@ public class JCRLoginHistoryStorageImpl implements LoginHistoryStorage {
         return now.getTimeInMillis();
     }
 
-    public List<LoginCounterBean> getLoginCountPerDaysInRange(String userId, long fromDate, long toDate) throws Exception {
+        public List<LoginCounterBean> getLoginCountPerDaysInRange(String userId, long fromDate, long toDate) throws Exception {
         SessionProvider sProvider = SessionProvider.createSystemProvider();
         try {
             Session session = this.getSession(sProvider);
@@ -183,6 +183,14 @@ public class JCRLoginHistoryStorageImpl implements LoginHistoryStorage {
     @Override
     public long getLastLogin(String userId) throws Exception {
         SessionProvider sProvider = SessionProvider.createSystemProvider();
+        if (getSession(sProvider).getRootNode().hasNode(HOME)) {
+            try {
+                createHomeNode();
+            } catch (RepositoryException e) {
+                LOG.error("Error of LoginHistoryServiceImpl start: " + e.getMessage(), e);
+                throw new RuntimeException(e);
+            }
+        }
         try {
             Session session = this.getSession(sProvider);
             Node homeNode = session.getRootNode().getNode(HOME);
