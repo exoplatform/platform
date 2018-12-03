@@ -4,11 +4,18 @@ import org.exoplatform.commons.api.persistence.ExoEntity;
 import org.hibernate.annotations.Entity;
 
 import javax.persistence.*;
-import java.sql.Timestamp;
 
 @Entity
 @ExoEntity
 @Table(name = "login_history")
+@NamedQueries({
+        @NamedQuery(name = "loginHistory.count",query = "SELECT COUNT (*) FROM  LoginHistoryEntity"),
+        @NamedQuery(name = "loginHistory.findAll",query = "SELECT * FROM LoginHistoryEntity"),
+        @NamedQuery(name = "loginHistory.getUserLastLoginID",query = "SELECT MAX(l.ID) FROM LoginHistoryEntity l WHERE l.userID = :userId"),
+        @NamedQuery(name = "loginHistory.getBeforeLastLoginID",query = "SELECT MAX(l.ID) FROM LoginHistoryEntity l WHERE l.userID = :userId AND l.ID < :id"),
+        @NamedQuery(name = "loginHistory.getLoginByID",query = "SELECT * FROM LoginHistoryEntity l WHERE l.ID = :id"),
+        @NamedQuery(name = "loginHistory.getUserLoginHistory",query = "SELECT * FROM LoginHistoryEntity l WHERE l.userID = :userId AND l.loginDate BETWEEN :from AND :to")
+})
 public class LoginHistoryEntity {
     @Id
     @GeneratedValue
@@ -19,22 +26,18 @@ public class LoginHistoryEntity {
     private String userID;
 
     @Column(name = "DATE")
-    private Timestamp dateTime;
+    private Long loginDate;
 
     public LoginHistoryEntity() {
     }
 
-    public LoginHistoryEntity(String userID, Timestamp dateTime) {
+    public LoginHistoryEntity(String userID, Long loginDate) {
         this.userID = userID;
-        this.dateTime = dateTime;
+        this.loginDate = loginDate;
     }
 
     public long getID() {
         return ID;
-    }
-
-    public void setID(long ID) {
-        this.ID = ID;
     }
 
     public String getUserID() {
@@ -45,11 +48,11 @@ public class LoginHistoryEntity {
         this.userID = userID;
     }
 
-    public Timestamp getDateTime() {
-        return dateTime;
+    public Long getLoginDate() {
+        return loginDate;
     }
 
-    public void setDateTime(Timestamp dateTime) {
-        this.dateTime = dateTime;
+    public void setLoginDate(Long loginDate) {
+        this.loginDate = loginDate;
     }
 }

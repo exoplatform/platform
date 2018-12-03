@@ -37,6 +37,10 @@ public class JCRLoginHistoryStorageImpl implements LoginHistoryStorage {
     private RepositoryService repositoryService;
 
 
+    public JCRLoginHistoryStorageImpl(RepositoryService repositoryService) {
+        this.repositoryService = repositoryService;
+    }
+
     /**
      * Create exo:LoginHistoryHome node.
      *
@@ -93,10 +97,6 @@ public class JCRLoginHistoryStorageImpl implements LoginHistoryStorage {
         }
     }
 
-
-    public JCRLoginHistoryStorageImpl(RepositoryService repositoryService) {
-        this.repositoryService = repositoryService;
-    }
 
     /**
      * Utility function to get JCR session in current repository

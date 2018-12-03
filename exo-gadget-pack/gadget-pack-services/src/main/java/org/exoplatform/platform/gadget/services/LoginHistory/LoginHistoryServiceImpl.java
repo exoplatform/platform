@@ -23,7 +23,6 @@ import java.util.Set;
 import org.exoplatform.platform.gadget.services.LoginHistory.storage.LoginHistoryStorage;
 import org.exoplatform.services.log.ExoLogger;
 import org.exoplatform.services.log.Log;
-import org.picocontainer.Startable;
 
 
 /**
@@ -31,23 +30,12 @@ import org.picocontainer.Startable;
  * Apr 21, 2011 6:19:21 PM
  */
 
-public class LoginHistoryServiceImpl implements LoginHistoryService, Startable {
+public class LoginHistoryServiceImpl implements LoginHistoryService {
     private static final Log LOG = ExoLogger.getLogger(LoginHistoryServiceImpl.class);
     private LoginHistoryStorage loginHistoryStorage;
 
     public LoginHistoryServiceImpl(LoginHistoryStorage loginHistoryStorage) {
         this.loginHistoryStorage = loginHistoryStorage;
-    }
-
-    @Override
-    public void start() {
-        // do nothing
-    }
-
-
-    @Override
-    public void stop() {
-        // do nothing
     }
 
     /**
