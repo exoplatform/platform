@@ -17,10 +17,10 @@
     <!-- Login History -->
     <changeSet author="LoginHistory" id="1.0.0-1">
         <createTable tableName="login_history">
-            <column name="ID " type="BIGINT" autoIncrement="${autoIncrement}" startWith="1">
+            <column name="ID " type="BIGINT(20)" autoIncrement="${autoIncrement}" startWith="1">
                 <constraints nullable="false" primaryKey="true" primaryKeyName="PK_login_History"/>
             </column>
-            <column name="USER_ID" type="VARCHAR(200)"/>
+            <column name="USER_ID" type="VARCHAR(255)"/>
             <column name="DATE" type="TIMESTAMP" defaultValue="${now}"/>
         </createTable>
         <modifySql dbms="mysql">

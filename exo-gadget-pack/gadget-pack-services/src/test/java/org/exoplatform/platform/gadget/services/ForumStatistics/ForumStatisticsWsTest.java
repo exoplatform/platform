@@ -35,5 +35,5 @@ public class ForumStatisticsWsTest extends GadgetServiceTestcase {
 		} catch(Exception e) {
 			fail(e.getMessage());
 		}
-	}	  
+	}
 }
