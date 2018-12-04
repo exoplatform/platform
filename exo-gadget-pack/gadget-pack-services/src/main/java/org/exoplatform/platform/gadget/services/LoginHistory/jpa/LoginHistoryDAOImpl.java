@@ -1,5 +1,6 @@
 package org.exoplatform.platform.gadget.services.LoginHistory.jpa;
 
+import org.exoplatform.commons.api.persistence.ExoTransactional;
 import org.exoplatform.commons.persistence.impl.GenericDAOJPAImpl;
 import org.exoplatform.platform.gadget.services.LoginHistory.jpa.dao.LoginHistoryDAO;
 import org.exoplatform.platform.gadget.services.LoginHistory.jpa.entity.LoginHistoryEntity;
@@ -15,7 +16,7 @@ public class LoginHistoryDAOImpl extends GenericDAOJPAImpl implements LoginHisto
 
     @Override
     public Long countAll() {
-        return (Long) getEntityManager().createNamedQuery("loginHistory.count").getSingleResult();
+        return count();
     }
 
     @Override
@@ -41,7 +42,7 @@ public class LoginHistoryDAOImpl extends GenericDAOJPAImpl implements LoginHisto
             calendar.setTimeInMillis(today);
             return getEntityManager().createNamedQuery("loginHistory.getLastLogins")
                     .setParameter("userId",userId)
-                    .setParameter("today",today)
+                    .setParameter("today",calendar.getTimeInMillis())
                     .setParameter("limit",numLogins).getResultList();
         } catch (Exception e) {
             LOG.debug("Error while getting last logins of user '" + userId + "': " + e.getMessage(), e);
@@ -56,6 +57,7 @@ public class LoginHistoryDAOImpl extends GenericDAOJPAImpl implements LoginHisto
         return (LoginHistoryEntity) getEntityManager().createNamedQuery("loginHistory.getLoginByID").setParameter("id",beforeLastLoginID).getResultList();
     }
 
+    @ExoTransactional
     @Override
     public void addLoginHistoryEntry(String userId) throws  Exception {
         try {
@@ -99,7 +101,7 @@ public class LoginHistoryDAOImpl extends GenericDAOJPAImpl implements LoginHisto
 
     @Override
     public List<LoginHistoryEntity> findAll() {
-        return getEntityManager().createNamedQuery("loginHistory.findAll").getResultList();
+        return findAll();
     }
 
 }

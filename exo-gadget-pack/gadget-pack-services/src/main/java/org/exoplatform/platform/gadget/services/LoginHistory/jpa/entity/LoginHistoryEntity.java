@@ -9,8 +9,6 @@ import javax.persistence.*;
 @ExoEntity
 @Table(name = "login_history")
 @NamedQueries({
-        @NamedQuery(name = "loginHistory.count",query = "SELECT COUNT (*) FROM  LoginHistoryEntity"),
-        @NamedQuery(name = "loginHistory.findAll",query = "SELECT * FROM LoginHistoryEntity"),
         @NamedQuery(name = "loginHistory.getUserLastLoginID",query = "SELECT MAX(l.ID) FROM LoginHistoryEntity l WHERE l.userID = :userId"),
         @NamedQuery(name = "loginHistory.getBeforeLastLoginID",query = "SELECT MAX(l.ID) FROM LoginHistoryEntity l WHERE l.userID = :userId AND l.ID < :id"),
         @NamedQuery(name = "loginHistory.getLoginByID",query = "SELECT * FROM LoginHistoryEntity l WHERE l.ID = :id"),
