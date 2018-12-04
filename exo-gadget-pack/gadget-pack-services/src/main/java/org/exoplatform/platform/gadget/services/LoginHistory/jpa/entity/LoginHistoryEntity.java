@@ -14,7 +14,9 @@ import javax.persistence.*;
         @NamedQuery(name = "loginHistory.getUserLastLoginID",query = "SELECT MAX(l.ID) FROM LoginHistoryEntity l WHERE l.userID = :userId"),
         @NamedQuery(name = "loginHistory.getBeforeLastLoginID",query = "SELECT MAX(l.ID) FROM LoginHistoryEntity l WHERE l.userID = :userId AND l.ID < :id"),
         @NamedQuery(name = "loginHistory.getLoginByID",query = "SELECT * FROM LoginHistoryEntity l WHERE l.ID = :id"),
-        @NamedQuery(name = "loginHistory.getUserLoginHistory",query = "SELECT * FROM LoginHistoryEntity l WHERE l.userID = :userId AND l.loginDate BETWEEN :from AND :to")
+        @NamedQuery(name = "loginHistory.getUserLoginHistory",query = "SELECT * FROM LoginHistoryEntity l WHERE l.userID = :userId AND l.loginDate BETWEEN :from AND :to"),
+        @NamedQuery(name = "loginHistory.addLoginHistory",query = "INSERT INTO LoginHistoryEntity l (l.userID,l.loginDate) VALUES (':userId',':date')"),
+        @NamedQuery(name = "loginHistory.getLastLogins",query = "SELECT * FROM LoginHistoryEntity l WHERE l.userID = :userId AND l.loginDate < :today LIMIT :limit")
 })
 public class LoginHistoryEntity {
     @Id

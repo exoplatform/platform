@@ -23,11 +23,21 @@ import java.util.List;
 public interface LoginHistoryDAO {
     Long countAll();
 
-    LoginHistoryEntity getLastLogin(String userID);
+    LoginHistoryEntity getLastLogin(String userID) throws Exception;
 
-    LoginHistoryEntity getBeforeLastLogin(String userID);
+    LoginHistoryEntity getBeforeLastLogin(String userID) throws Exception;
+
+    List<LoginHistoryEntity> getLastLogins(int numLogins, String userId) throws Exception;
+
+    void addLoginHistoryEntry(String userID) throws Exception;
+
+    List<LoginHistoryEntity> getLoginHistory(String userId, long fromTime, long toTime) throws Exception;
+
+    List<LoginHistoryEntity> getLoginCountPerDaysInWeek(String userId, long week) throws Exception;
+
+    List<LoginHistoryEntity> getLoginCountPerWeeksInMonths(String userId, long fromMonth, int numOfMonths) throws Exception;
+
+    List<LoginHistoryEntity> getLoginCountPerMonthsInYear(String userId, long year) throws Exception;
 
     List<LoginHistoryEntity> findAll();
-
-    List<LoginHistoryEntity> getLoginHistory(String userId, long fromTime, long toTime);
 }
