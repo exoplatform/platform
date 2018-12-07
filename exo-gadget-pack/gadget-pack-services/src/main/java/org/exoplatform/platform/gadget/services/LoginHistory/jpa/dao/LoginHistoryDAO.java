@@ -5,6 +5,7 @@ import org.exoplatform.commons.persistence.impl.GenericDAOJPAImpl;
 import org.exoplatform.container.ExoContainerContext;
 import org.exoplatform.platform.gadget.services.LoginHistory.LastLoginBean;
 import org.exoplatform.platform.gadget.services.LoginHistory.LoginCounterBean;
+import org.exoplatform.platform.gadget.services.LoginHistory.LoginHistoryBean;
 import org.exoplatform.platform.gadget.services.LoginHistory.jpa.entity.LoginHistoryEntity;
 import org.exoplatform.services.log.ExoLogger;
 import org.exoplatform.services.log.Log;
@@ -144,14 +145,16 @@ public class LoginHistoryDAO extends GenericDAOJPAImpl {
                     .setParameter("userId",userId)
                     .setParameter("today",today)
                     .setParameter("limit",numLogins).getResultList();
+            LastLoginBean lastLoginBean = new LastLoginBean();
             List<LastLoginBean> lastLoginBeanList = new ArrayList<LastLoginBean>();
 
             LoginHistoryEntity loginHistoryEntity = new LoginHistoryEntity();
             for (int i=0; i<loginHistoryEntityList.size(); i++) {
-                lastLoginBeanList.get(i).setUserId(loginHistoryEntityList.get(i).getUserID());
-                lastLoginBeanList.get(i).setUserName(userName);
-                lastLoginBeanList.get(i).setLastLogin(getLastLogin(userId));
-                lastLoginBeanList.get(i).setBeforeLastLogin(getBeforeLastLogin(userId));
+                lastLoginBean.setUserId(loginHistoryEntityList.get(i).getUserID());
+                lastLoginBean.setUserName(userName);
+                lastLoginBean.setLastLogin(getLastLogin(userId));
+                lastLoginBean.setBeforeLastLogin(getBeforeLastLogin(userId));
+                lastLoginBeanList.add(lastLoginBean);
             }
 
             return lastLoginBeanList;
@@ -172,14 +175,25 @@ public class LoginHistoryDAO extends GenericDAOJPAImpl {
         }
     }
 
-    public List<LoginHistoryEntity> getLoginHistory(String userId, long fromTime, long toTime) throws Exception {
+    public List<LoginHistoryBean> getLoginHistory(String userId, long fromTime, long toTime) throws Exception {
         Timestamp from = new Timestamp(fromTime);
         Timestamp to = new Timestamp(toTime);
+        List<LoginHistoryEntity> loginHistoryEntityList = getEntityManager().createNamedQuery("loginHistory.getUserLoginHistory")
+                .setParameter("userId",userId)
+                .setParameter("from",from)
+                .setParameter("to",to).getResultList();
+        List<LoginHistoryBean> loginHistoryBeanList = new ArrayList<LoginHistoryBean>();
+        LoginHistoryBean loginHistoryBean = new LoginHistoryBean();
+        String userName = getUserFullName(userId);
+
         try {
-            return getEntityManager().createNamedQuery("loginHistory.getUserLoginHistory")
-                    .setParameter("userId",userId)
-                    .setParameter("from",from)
-                    .setParameter("to",to).getResultList();
+            for (int i=0; i<loginHistoryEntityList.size(); i++) {
+                loginHistoryBean.setUserId(loginHistoryEntityList.get(i).getUserID());
+                loginHistoryBean.setUserName(userName);
+                loginHistoryBean.setLoginTime(loginHistoryEntityList.get(i).getLoginDate().getTime());
+                loginHistoryBeanList.add(loginHistoryBean);
+            }
+            return loginHistoryBeanList;
         } catch (Exception e) {
             LOG.debug("Error while getting the login history of user '" + userId + "': " + e.getMessage(), e);
             throw e;
