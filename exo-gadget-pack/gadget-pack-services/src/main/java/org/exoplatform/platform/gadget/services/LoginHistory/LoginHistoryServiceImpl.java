@@ -21,8 +21,6 @@ import java.util.Map;
 import java.util.Set;
 
 import org.exoplatform.platform.gadget.services.LoginHistory.storage.LoginHistoryStorage;
-import org.exoplatform.services.log.ExoLogger;
-import org.exoplatform.services.log.Log;
 
 
 /**
@@ -31,7 +29,6 @@ import org.exoplatform.services.log.Log;
  */
 
 public class LoginHistoryServiceImpl implements LoginHistoryService {
-    private static final Log LOG = ExoLogger.getLogger(LoginHistoryServiceImpl.class);
     private LoginHistoryStorage loginHistoryStorage;
 
     public LoginHistoryServiceImpl(LoginHistoryStorage loginHistoryStorage) {
@@ -108,17 +105,17 @@ public class LoginHistoryServiceImpl implements LoginHistoryService {
 
     /**
      * Get the list of all users who are logged after fromTime
-     * 
+     *
      * @param fromTime
-     * @return the list of user's name 
+     * @return the list of user's name
      */
     public Set<String> getLastUsersLogin(long fromTime) throws Exception {
         return loginHistoryStorage.getLastUsersLogin(fromTime);
     }
-    
+
     /**
-     * An user is inactive if his last login is more than a number of days 
-     * 
+     * An user is inactive if his last login is more than a number of days
+     *
      * @param userId user's name
      * @param days the number of days to verify if user is active or not
      * @return
@@ -126,7 +123,7 @@ public class LoginHistoryServiceImpl implements LoginHistoryService {
     public boolean isActiveUser(String userId, int days) {
         return loginHistoryStorage.isActiveUser(userId,days);
     }
-    
+
     public Map<String, Integer> getActiveUsers(long fromTime) {
         return loginHistoryStorage.getActiveUsers(fromTime);
     }

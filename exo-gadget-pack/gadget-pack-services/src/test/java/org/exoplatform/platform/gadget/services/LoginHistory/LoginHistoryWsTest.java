@@ -24,7 +24,7 @@ public class LoginHistoryWsTest extends GadgetServiceTestcase{
 			fail("Failed to setup LoginHistoryWsTest: " + e.getMessage());
 		}
 	}
-	
+
 	public void testLastLogins(){
 		ContainerResponse cres;
 		try {
@@ -35,14 +35,14 @@ public class LoginHistoryWsTest extends GadgetServiceTestcase{
 			/*Object messageBean = cres.getEntity();
 			Object data = messageBean.getClass().getMethod("getData", null).invoke(messageBean, null);
 			Object bean = data.getClass().getMethod("get", new Class[]{Integer.TYPE}).invoke(data, new Integer[]{0});
-			
+
 			System.out.println(data);
 			System.out.println(bean);*/
-			
+
 		} catch (Exception e) {
 			fail(e.getMessage());
 		}
-	}	
+	}
 
 	public void testLoginHistory(){
 		ContainerResponse cres;
@@ -53,8 +53,8 @@ public class LoginHistoryWsTest extends GadgetServiceTestcase{
 		} catch (Exception e) {
 			fail(e.getMessage());
 		}
-	}	
-	
+	}
+
 	public void testWeekStats(){
 		ContainerResponse cres;
 		try {
@@ -65,7 +65,7 @@ public class LoginHistoryWsTest extends GadgetServiceTestcase{
 			fail(e.getMessage());
 		}
 	}
-	
+
 	public void testMonthStats(){
 		ContainerResponse cres;
 		try {
@@ -76,7 +76,7 @@ public class LoginHistoryWsTest extends GadgetServiceTestcase{
 			fail(e.getMessage());
 		}
 	}
-	
+
 	public void testYearStats(){
 		ContainerResponse cres;
 		try {
@@ -86,9 +86,9 @@ public class LoginHistoryWsTest extends GadgetServiceTestcase{
 		} catch (Exception e) {
 			fail(e.getMessage());
 		}
-	}		
-	
+	}
+
 	private long randDate(long fromDate, long toDate) {
 		return fromDate + (long)((toDate - fromDate + 1) * new Random().nextDouble());
-	}	
+	}
 }

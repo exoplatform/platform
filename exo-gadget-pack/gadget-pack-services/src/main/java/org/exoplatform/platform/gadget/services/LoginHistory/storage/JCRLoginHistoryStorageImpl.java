@@ -176,7 +176,6 @@ public class JCRLoginHistoryStorageImpl implements LoginHistoryStorage {
         while (iter.hasNext()) {
             sum += iter.next().getLoginCount();
         }
-
         return sum;
     }
 

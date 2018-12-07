@@ -4,6 +4,7 @@ import org.exoplatform.commons.api.persistence.ExoEntity;
 import org.hibernate.annotations.Entity;
 
 import javax.persistence.*;
+import java.sql.Timestamp;
 
 @Entity
 @ExoEntity
@@ -11,10 +12,10 @@ import javax.persistence.*;
 @NamedQueries({
         @NamedQuery(name = "loginHistory.getUserLastLoginID",query = "SELECT MAX(l.ID) FROM LoginHistoryEntity l WHERE l.userID = :userId"),
         @NamedQuery(name = "loginHistory.getBeforeLastLoginID",query = "SELECT MAX(l.ID) FROM LoginHistoryEntity l WHERE l.userID = :userId AND l.ID < :id"),
-        @NamedQuery(name = "loginHistory.getLoginByID",query = "SELECT * FROM LoginHistoryEntity l WHERE l.ID = :id"),
         @NamedQuery(name = "loginHistory.getUserLoginHistory",query = "SELECT * FROM LoginHistoryEntity l WHERE l.userID = :userId AND l.loginDate BETWEEN :from AND :to"),
-        @NamedQuery(name = "loginHistory.addLoginHistory",query = "INSERT INTO LoginHistoryEntity l (l.userID,l.loginDate) VALUES (':userId',':date')"),
-        @NamedQuery(name = "loginHistory.getLastLogins",query = "SELECT * FROM LoginHistoryEntity l WHERE l.userID = :userId AND l.loginDate < :today LIMIT :limit")
+        @NamedQuery(name = "loginHistory.getLastLogins",query = "SELECT * FROM LoginHistoryEntity l WHERE l.userID = :userId AND l.loginDate < :today LIMIT :limit"),
+        // @NamedQuery(name = "loginHistory.getLoginPerDayInRange",query = "SELECT * FROM LoginHistoryEntity l WHERE l.userID = :userId AND l.loginDate BETWEEN :from AND :to ORDERED BY l.loginDate ASC"),
+        @NamedQuery(name = "loginHistory.getLoginCountPerDay",query = "SELECT COUNT (*) FROM LoginHistoryEntity l WHERE l.userID = :userId AND l.loginDate BETWEEN :from AND :to")
 })
 public class LoginHistoryEntity {
     @Id
@@ -26,12 +27,16 @@ public class LoginHistoryEntity {
     private String userID;
 
     @Column(name = "DATE")
-    private Long loginDate;
+    private Timestamp loginDate;
 
     public LoginHistoryEntity() {
     }
 
-    public LoginHistoryEntity(String userID, Long loginDate) {
+    public LoginHistoryEntity(String userID) {
+        this.userID = userID;
+    }
+
+    public LoginHistoryEntity(String userID, Timestamp loginDate) {
         this.userID = userID;
         this.loginDate = loginDate;
     }
@@ -48,11 +53,11 @@ public class LoginHistoryEntity {
         this.userID = userID;
     }
 
-    public Long getLoginDate() {
+    public Timestamp getLoginDate() {
         return loginDate;
     }
 
-    public void setLoginDate(Long loginDate) {
+    public void setLoginDate(Timestamp loginDate) {
         this.loginDate = loginDate;
     }
 }

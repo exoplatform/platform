@@ -4,22 +4,22 @@ import org.exoplatform.commons.api.persistence.ExoTransactional;
 import org.exoplatform.platform.gadget.services.LoginHistory.LastLoginBean;
 import org.exoplatform.platform.gadget.services.LoginHistory.LoginCounterBean;
 import org.exoplatform.platform.gadget.services.LoginHistory.LoginHistoryBean;
-import org.exoplatform.platform.gadget.services.LoginHistory.jpa.LoginHistoryDAOImpl;
+import org.exoplatform.platform.gadget.services.LoginHistory.jpa.dao.LoginHistoryDAO;
 
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
 public class JPALoginHistoryStorageImpl implements LoginHistoryStorage {
-    private LoginHistoryDAOImpl loginHistoryDAO;
+    private LoginHistoryDAO loginHistoryDAO;
 
-    public JPALoginHistoryStorageImpl(LoginHistoryDAOImpl loginHistoryDAO) {
+    public JPALoginHistoryStorageImpl(LoginHistoryDAO loginHistoryDAO) {
         this.loginHistoryDAO = loginHistoryDAO;
     }
 
     @Override
     public long getLastLogin(String userId) throws Exception {
-        return 0;
+        return loginHistoryDAO.getLastLogin(userId);
     }
 
     @Override
@@ -30,7 +30,7 @@ public class JPALoginHistoryStorageImpl implements LoginHistoryStorage {
     @Override
     @ExoTransactional
     public void addLoginHistoryEntry(String userId, long loginTime) throws Exception {
-
+        loginHistoryDAO.addLoginHistoryEntry(userId,loginTime);
     }
 
     @Override
@@ -70,6 +70,6 @@ public class JPALoginHistoryStorageImpl implements LoginHistoryStorage {
 
     @Override
     public long getBeforeLastLogin(String userId) throws Exception {
-        return 0;
+        return loginHistoryDAO.getBeforeLastLogin(userId);
     }
 }
