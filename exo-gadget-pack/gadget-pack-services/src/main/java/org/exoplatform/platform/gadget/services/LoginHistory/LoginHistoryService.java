@@ -40,7 +40,7 @@ public interface LoginHistoryService {
 	
 	public Set<String> getLastUsersLogin(long fromTime) throws Exception;
 	
-	public boolean isActiveUser(String userId, int days);
+	public boolean isActiveUser(String userId, int days) throws Exception;
 	
 	public Map<String, Integer> getActiveUsers(long fromTime);
 	
