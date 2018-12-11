@@ -30,6 +30,7 @@ public class LoginHistoryEntity {
     private String userId;
 
     @Column(name = "LOGIN_DATE")
+    @Temporal(TemporalType.TIMESTAMP)
     private Timestamp loginDate;
 
     public LoginHistoryEntity() {
