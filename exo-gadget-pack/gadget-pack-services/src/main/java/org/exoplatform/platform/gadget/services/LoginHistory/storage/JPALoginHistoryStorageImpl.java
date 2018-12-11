@@ -1,7 +1,6 @@
 package org.exoplatform.platform.gadget.services.LoginHistory.storage;
 
 import org.exoplatform.commons.api.persistence.ExoTransactional;
-import org.exoplatform.commons.persistence.impl.GenericDAOJPAImpl;
 import org.exoplatform.container.ExoContainerContext;
 import org.exoplatform.platform.gadget.services.LoginHistory.LastLoginBean;
 import org.exoplatform.platform.gadget.services.LoginHistory.LoginCounterBean;
@@ -15,7 +14,7 @@ import org.exoplatform.services.organization.OrganizationService;
 import java.sql.Timestamp;
 import java.util.*;
 
-public class JPALoginHistoryStorageImpl extends GenericDAOJPAImpl implements LoginHistoryStorage {
+public class JPALoginHistoryStorageImpl implements LoginHistoryStorage {
     private static final Log LOG = ExoLogger.getLogger(LoginHistoryDAO.class);
     private static long DAY_IN_MILLISEC = 86400000;
     private LoginHistoryDAO loginHistoryDAO;
@@ -145,7 +144,7 @@ public class JPALoginHistoryStorageImpl extends GenericDAOJPAImpl implements Log
     public void addLoginHistoryEntry(String userId, long loginTime) throws  Exception {
         try {
             LoginHistoryEntity loginHistoryEntity = new LoginHistoryEntity(userId);
-            create(loginHistoryEntity); //the create method will return the entity which we'll ignore.
+            loginHistoryDAO.create(loginHistoryEntity); //the create method will return the entity which we'll ignore.
         } catch (Exception e) {
             throw e;
         }
@@ -153,12 +152,7 @@ public class JPALoginHistoryStorageImpl extends GenericDAOJPAImpl implements Log
 
     @Override
     public List<LoginHistoryBean> getLoginHistory(String userId, long fromTime, long toTime) throws Exception {
-        Timestamp from = new Timestamp(fromTime);
-        Timestamp to = new Timestamp(toTime);
-        List<LoginHistoryEntity> loginHistoryEntityList = getEntityManager().createNamedQuery("loginHistory.getUserLoginHistory")
-                .setParameter("userId",userId)
-                .setParameter("from",from)
-                .setParameter("to",to).getResultList();
+        List<LoginHistoryEntity> loginHistoryEntityList = loginHistoryDAO.getLoginHistory(userId,fromTime,toTime);
         List<LoginHistoryBean> loginHistoryBeanList = new ArrayList<LoginHistoryBean>();
         LoginHistoryBean loginHistoryBean = new LoginHistoryBean();
         String userName = getUserFullName(userId);
