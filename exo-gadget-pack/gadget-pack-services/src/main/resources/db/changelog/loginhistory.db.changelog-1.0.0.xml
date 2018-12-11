@@ -20,8 +20,12 @@
             <column name="ID " type="BIGINT(20)" autoIncrement="${autoIncrement}" startWith="1">
                 <constraints nullable="false" primaryKey="true" primaryKeyName="PK_login_History"/>
             </column>
-            <column name="USER_ID" type="VARCHAR(255)"/>
-            <column name="DATE" type="TIMESTAMP" defaultValue="${now}"/>
+            <column name="USER_ID" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="LOGIN_DATE" type="TIMESTAMP" defaultValue="${now}">
+                <constraints nullable="false"/>
+            </column>
         </createTable>
         <modifySql dbms="mysql">
             <append value=" ENGINE=INNODB CHARSET=UTF8 COLLATE utf8_general_ci"/>

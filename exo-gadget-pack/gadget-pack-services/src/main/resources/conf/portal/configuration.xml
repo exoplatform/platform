@@ -32,8 +32,7 @@
   </component>
 
   <component profiles="all">
-    <key>org.exoplatform.platform.gadget.services.LoginHistory.storage.LoginHistoryStorage</key>
-    <type>org.exoplatform.platform.gadget.services.LoginHistory.storage.JCRLoginHistoryStorageImpl</type>
+    <type>org.exoplatform.platform.gadget.services.LoginHistory.jpa.dao.LoginHistoryDAO</type>
   </component>
 
   <component profiles="all">

@@ -120,7 +120,7 @@ public class LoginHistoryServiceImpl implements LoginHistoryService {
      * @param days the number of days to verify if user is active or not
      * @return
      */
-    public boolean isActiveUser(String userId, int days) {
+    public boolean isActiveUser(String userId, int days) throws Exception {
         return loginHistoryStorage.isActiveUser(userId,days);
     }
 

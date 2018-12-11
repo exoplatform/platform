@@ -17,7 +17,6 @@
 package org.exoplatform.platform.gadget.services.LoginHistory;
 
 import org.exoplatform.common.http.HTTPStatus;
-import org.exoplatform.platform.gadget.services.LoginHistory.jpa.entity.LoginHistoryEntity;
 import org.exoplatform.services.log.ExoLogger;
 import org.exoplatform.services.log.Log;
 import org.exoplatform.services.rest.impl.RuntimeDelegateImpl;
