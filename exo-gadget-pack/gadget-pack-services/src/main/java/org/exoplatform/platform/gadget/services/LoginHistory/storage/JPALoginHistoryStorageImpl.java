@@ -112,7 +112,12 @@ public class JPALoginHistoryStorageImpl implements LoginHistoryStorage {
 
     @Override
     public long getLastLogin(String userId) throws Exception {
-        return loginHistoryDAO.getLastLogin(userId);
+        Long lastLogin = loginHistoryDAO.getLastLogin(userId);
+        if(lastLogin != null) {
+            return lastLogin;
+        } else {
+            return 0;
+        }
     }
 
     @Override

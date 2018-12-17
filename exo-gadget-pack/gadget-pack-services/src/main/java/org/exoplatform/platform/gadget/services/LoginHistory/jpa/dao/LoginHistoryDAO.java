@@ -22,21 +22,17 @@ public class LoginHistoryDAO extends GenericDAOJPAImpl<LoginHistoryEntity, Long>
         // returns the number of a user's login for a given period of time
         Timestamp from = new Timestamp(fromDay);
         Timestamp to = new Timestamp(toDay);
-        try {
-            return (Long) getEntityManager().createNamedQuery("loginHistory.getLoginCountPerDay")
-                                            .setParameter("userId",userId)
-                                            .setParameter("from", from)
-                                            .setParameter("to",to).getSingleResult();
-        } catch (NoResultException e) {
-            return null;
-        }
+        return (Long) getEntityManager().createNamedQuery("loginHistory.getLoginCountPerDay")
+                                        .setParameter("userId",userId)
+                                        .setParameter("from", from)
+                                        .setParameter("to",to).getSingleResult();
     }
 
     public Long getLastLogin(String userId) {
-        Long lastLogin;
-        LoginHistoryEntity loginHistoryEntity = getEntityManager().createNamedQuery("loginHistory.getLastLoginHistory",LoginHistoryEntity.class).setParameter("userId",userId).getSingleResult();
-        lastLogin = loginHistoryEntity.getLoginDate().getTime();
         try {
+            Long lastLogin;
+            LoginHistoryEntity loginHistoryEntity = getEntityManager().createNamedQuery("loginHistory.getLastLoginHistory",LoginHistoryEntity.class).setParameter("userId",userId).getSingleResult();
+            lastLogin = loginHistoryEntity.getLoginDate().getTime();
             return loginHistoryEntity == null ? 0 : lastLogin;
         } catch (NoResultException e) {
             return null;
