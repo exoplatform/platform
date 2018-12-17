@@ -25,56 +25,101 @@
    xsi:schemaLocation="http://www.exoplatform.org/xml/ns/kernel_1_2.xsd http://www.exoplatform.org/xml/ns/kernel_1_2.xsd"
    xmlns="http://www.exoplatform.org/xml/ns/kernel_1_2.xsd">
 
-  <!-- LOGIN HISTORY -->
-  <component profiles="all">
-    <key>org.exoplatform.platform.gadget.services.LoginHistory.LoginHistoryService</key>  
-    <type>org.exoplatform.platform.gadget.services.LoginHistory.LoginHistoryServiceImpl</type>
-  </component>
 
-  <component profiles="all">
-    <type>org.exoplatform.platform.gadget.services.LoginHistory.jpa.dao.LoginHistoryDAO</type>
-  </component>
+    <!-- LOGIN HISTORY -->
+    <component>
+        <type>org.exoplatform.commons.persistence.impl.EntityManagerService</type>
+    </component>
 
-  <component profiles="all">
-    <key>org.exoplatform.platform.gadget.services.LoginHistory.storage.LoginHistoryStorage</key>
-    <type>org.exoplatform.platform.gadget.services.LoginHistory.storage.JPALoginHistoryStorageImpl</type>
-  </component>
-  
-  <component profiles="all">
-    <type>org.exoplatform.platform.gadget.services.LoginHistory.LoginHistoryRestService</type>
-  </component>
+    <component profiles="all">
+        <type>org.exoplatform.platform.gadget.services.LoginHistory.jpa.dao.LoginHistoryDAO</type>
+    </component>
 
-  <!-- FORUM STATISTICS -->
-  <component profiles="all">
-    <key>org.exoplatform.platform.gadget.services.ForumStatistics.ForumsIntranetService</key>
-    <type>org.exoplatform.platform.gadget.services.ForumStatistics.ForumsIntranetServiceImp</type>
-  </component> 
+    <component profiles="all">
+        <key>org.exoplatform.platform.gadget.services.LoginHistory.storage.LoginHistoryStorage</key>
+        <type>org.exoplatform.platform.gadget.services.LoginHistory.storage.JPALoginHistoryStorageImpl</type>
+    </component>
 
-  <component profiles="all">
-    <key>org.exoplatform.platform.gadget.services.ForumStatistics.ForumsWeeklyStatisticService</key>
-    <type>org.exoplatform.platform.gadget.services.ForumStatistics.ForumsWeeklyStatisticServiceImp</type>
-  </component>
+    <component profiles="all">
+        <key>org.exoplatform.platform.gadget.services.LoginHistory.LoginHistoryService</key>
+        <type>org.exoplatform.platform.gadget.services.LoginHistory.LoginHistoryServiceImpl</type>
+    </component>
 
-  <component profiles="all">
-    <type>org.exoplatform.platform.gadget.services.ForumStatistics.ForumRestService</type>
-  </component> 
+    <component profiles="all">
+        <type>org.exoplatform.platform.gadget.services.LoginHistory.LoginHistoryRestService</type>
+    </component>
 
-  <!-- JCR NODE TYPES -->
-  <external-component-plugins>
-  <target-component>org.exoplatform.services.jcr.RepositoryService</target-component>
-  <component-plugin>
-    <name>add.gadget.services.nodeType</name>
-    <set-method>addPlugin</set-method>
-    <type>org.exoplatform.services.jcr.impl.AddNodeTypePlugin</type>
-    <init-params>
-      <values-param>
-        <name>autoCreatedInNewRepository</name>
-        <description>Node types configuration file</description>
-        <value>jar:/conf/portal/jcr/loginHistory-nodetypes.xml</value>
-        <value>jar:/conf/portal/jcr/forumStatistics-nodetypes.xml</value>
-      </values-param>
-    </init-params>
-  </component-plugin>
-  </external-component-plugins>
+    <component profiles="all">
+        <type>org.exoplatform.platform.gadget.services.LoginHistory.LoginHistoryListener</type>
+    </component>
 
+    <!-- FORUM STATISTICS -->
+    <component profiles="all">
+        <key>org.exoplatform.platform.gadget.services.ForumStatistics.ForumsIntranetService</key>
+        <type>org.exoplatform.platform.gadget.services.ForumStatistics.ForumsIntranetServiceImp</type>
+    </component>
+
+    <component profiles="all">
+        <key>org.exoplatform.platform.gadget.services.ForumStatistics.ForumsWeeklyStatisticService</key>
+        <type>org.exoplatform.platform.gadget.services.ForumStatistics.ForumsWeeklyStatisticServiceImp</type>
+    </component>
+
+    <component profiles="all">
+        <type>org.exoplatform.platform.gadget.services.ForumStatistics.ForumRestService</type>
+    </component>
+
+    <!-- JCR NODE TYPES -->
+    <external-component-plugins>
+    <target-component>org.exoplatform.services.jcr.RepositoryService</target-component>
+    <component-plugin>
+        <name>add.gadget.services.nodeType</name>
+        <set-method>addPlugin</set-method>
+        <type>org.exoplatform.services.jcr.impl.AddNodeTypePlugin</type>
+        <init-params>
+            <values-param>
+                <name>autoCreatedInNewRepository</name>
+                <description>Node types configuration file</description>
+                <value>jar:/conf/portal/jcr/loginHistory-nodetypes.xml</value>
+                <value>jar:/conf/portal/jcr/forumStatistics-nodetypes.xml</value>
+            </values-param>
+        </init-params>
+    </component-plugin>
+    </external-component-plugins>
+
+    <external-component-plugins>
+        <target-component>org.exoplatform.commons.upgrade.UpgradeProductService</target-component>
+        <component-plugin profiles="all">
+            <name>LoginHistoryUpgradePlugin</name>
+            <set-method>addUpgradePlugin</set-method>
+            <type>org.exoplatform.platform.gadget.services.LoginHistory.LoginHistoryUpgradePlugin</type>
+            <description>Upgrade plugin for login history data storage from jcr to jpa</description>
+            <init-params>
+                <value-param>
+                    <name>product.group.id</name>
+                    <description>The groupId of the product</description>
+                    <value>org.exoplatform.platform</value>
+                </value-param>
+                <value-param>
+                    <name>plugin.execution.order</name>
+                    <description>The plugin execution order</description>
+                    <value>1</value>
+                </value-param>
+                <value-param>
+                    <name>plugin.upgrade.target.version</name>
+                    <description>Target version of the plugin</description>
+                    <value>5.2.0</value>
+                </value-param>
+                <value-param>
+                    <name>plugin.upgrade.execute.once</name>
+                    <description>Execute this upgrade pluginonly once</description>
+                    <value>true</value>
+                </value-param>
+                <value-param>
+                    <name>plugin.upgrade.async.execution</name>
+                    <description>Execute the upgrade plugin asynchronously</description>
+                    <value>true</value>
+                </value-param>
+            </init-params>
+        </component-plugin>
+    </external-component-plugins>
 </configuration>

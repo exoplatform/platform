@@ -25,7 +25,7 @@ public class JPALoginHistoryStorageImpl implements LoginHistoryStorage {
 
     private String getUserFullName(String userId) {
         try {
-            OrganizationService service = (OrganizationService) ExoContainerContext.getCurrentContainer()
+            OrganizationService service = ExoContainerContext.getCurrentContainer()
                     .getComponentInstanceOfType(OrganizationService.class);
             return service.getUserHandler().findUserByName(userId).getFullName();
         } catch (Exception e) {
@@ -86,7 +86,7 @@ public class JPALoginHistoryStorageImpl implements LoginHistoryStorage {
                 cal2.set(Calendar.HOUR_OF_DAY,23);
                 Long endOfDay = cal2.getTimeInMillis();
 
-                Long count = (Long) loginHistoryDAO.getLoginCountPerDay(userId,firstDay,endOfDay);
+                Long count = loginHistoryDAO.getLoginCountPerDay(userId,firstDay,endOfDay);
                 loginCountPerDay.setLoginCount(count);
                 loginCountPerDay.setLoginDate(firstDay);
                 counterBeanList.add(loginCountPerDay);
@@ -143,7 +143,8 @@ public class JPALoginHistoryStorageImpl implements LoginHistoryStorage {
     @ExoTransactional
     public void addLoginHistoryEntry(String userId, long loginTime) throws  Exception {
         try {
-            LoginHistoryEntity loginHistoryEntity = new LoginHistoryEntity(userId);
+            Timestamp loginDate = new Timestamp(loginTime);
+            LoginHistoryEntity loginHistoryEntity = new LoginHistoryEntity(userId,loginDate);
             loginHistoryDAO.create(loginHistoryEntity); //the create method will return the entity which we'll ignore.
         } catch (Exception e) {
             throw e;
@@ -193,7 +194,8 @@ public class JPALoginHistoryStorageImpl implements LoginHistoryStorage {
         Timestamp timestamp = new Timestamp(System.currentTimeMillis());
         Long toTime = timestamp.getTime();
         for (int i=0; i<list.size(); i++) {
-            users.put(list.get(i), Math.toIntExact(loginHistoryDAO.getLoginCountPerDay(list.get(i), fromTime, toTime)));
+            Long numberOfLogin = loginHistoryDAO.getLoginCountPerDay(list.get(i), fromTime, toTime);
+            users.put(list.get(i), Math.toIntExact(numberOfLogin));
         }
         return users;
     }

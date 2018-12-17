@@ -5,6 +5,7 @@ import org.exoplatform.platform.gadget.services.LoginHistory.jpa.entity.LoginHis
 import org.exoplatform.services.log.ExoLogger;
 import org.exoplatform.services.log.Log;
 
+import javax.persistence.NoResultException;
 import java.sql.Timestamp;
 import java.util.*;
 
@@ -21,22 +22,28 @@ public class LoginHistoryDAO extends GenericDAOJPAImpl<LoginHistoryEntity, Long>
         // returns the number of a user's login for a given period of time
         Timestamp from = new Timestamp(fromDay);
         Timestamp to = new Timestamp(toDay);
-        return (Long) getEntityManager().createNamedQuery("loginHistory.getLoginCountPerDay")
-                .setParameter("userId",userId)
-                .setParameter("from", from)
-                .setParameter("to",to).getSingleResult();
-    }
-
-    public Long getLastLogin(String userId) throws Exception {
         try {
-            LoginHistoryEntity loginHistoryEntity = (LoginHistoryEntity) getEntityManager().createNamedQuery("loginHistory.getLastLoginHistory").setParameter("userId",userId).getSingleResult();
-            return loginHistoryEntity.getLoginDate().getTime();
-        } catch (Exception e) {
-            throw e;
+            return (Long) getEntityManager().createNamedQuery("loginHistory.getLoginCountPerDay")
+                                            .setParameter("userId",userId)
+                                            .setParameter("from", from)
+                                            .setParameter("to",to).getSingleResult();
+        } catch (NoResultException e) {
+            return null;
         }
     }
 
-    public List<LoginHistoryEntity> getLastLogins(int numLogins, String userId) throws Exception {
+    public Long getLastLogin(String userId) {
+        Long lastLogin;
+        LoginHistoryEntity loginHistoryEntity = getEntityManager().createNamedQuery("loginHistory.getLastLoginHistory",LoginHistoryEntity.class).setParameter("userId",userId).getSingleResult();
+        lastLogin = loginHistoryEntity.getLoginDate().getTime();
+        try {
+            return loginHistoryEntity == null ? 0 : lastLogin;
+        } catch (NoResultException e) {
+            return null;
+        }
+    }
+
+    public List<LoginHistoryEntity> getLastLogins(int numLogins, String userId) {
         Calendar calendar = Calendar.getInstance();
         calendar.set(Calendar.HOUR_OF_DAY,0);
         calendar.set(Calendar.MINUTE,0);
@@ -44,17 +51,17 @@ public class LoginHistoryDAO extends GenericDAOJPAImpl<LoginHistoryEntity, Long>
         calendar.set(Calendar.MILLISECOND,0);
         Timestamp today = new Timestamp(calendar.getTimeInMillis());
 
-        List<LoginHistoryEntity> loginHistoryEntityList = getEntityManager().createNamedQuery("loginHistory.getLastLogins")
+        List<LoginHistoryEntity> loginHistoryEntityList = getEntityManager().createNamedQuery("loginHistory.getLastLogins",LoginHistoryEntity.class)
                     .setParameter("userId",userId)
                     .setParameter("today",today)
                     .setParameter("limit",numLogins).getResultList();
         return loginHistoryEntityList;
     }
 
-    public List<LoginHistoryEntity> getLoginHistory(String userId, long fromTime, long toTime) throws Exception {
+    public List<LoginHistoryEntity> getLoginHistory(String userId, long fromTime, long toTime) {
         Timestamp from = new Timestamp(fromTime);
         Timestamp to = new Timestamp(toTime);
-        List<LoginHistoryEntity> loginHistoryEntityList = getEntityManager().createNamedQuery("loginHistory.getUserLoginHistory")
+        List<LoginHistoryEntity> loginHistoryEntityList = getEntityManager().createNamedQuery("loginHistory.getUserLoginHistory",LoginHistoryEntity.class)
                 .setParameter("userId",userId)
                 .setParameter("from",from)
                 .setParameter("to",to).getResultList();
@@ -68,15 +75,15 @@ public class LoginHistoryDAO extends GenericDAOJPAImpl<LoginHistoryEntity, Long>
             Set<String> users = new LinkedHashSet<String>(userIds);
             return users;
         } catch (Exception e) {
-            LOG.debug("Error while getting login history of users " + e.getMessage(), e);
+            LOG.error("Error while getting login history of users " + e.getMessage(), e);
         }
         return null;
     }
 
-    public long getBeforeLastLogin(String userId) throws Exception {
+    public long getBeforeLastLogin(String userId) {
         Long lastLoginID = (Long) getEntityManager().createNamedQuery("loginHistory.getUserLastLoginID").setParameter("userId",userId).getSingleResult();
         Long beforeLastLoginID = (Long) getEntityManager().createNamedQuery("loginHistory.getBeforeLastLoginID").setParameter("userId",userId).setParameter("id",lastLoginID).getSingleResult();
-        LoginHistoryEntity loginHistoryEntity = (LoginHistoryEntity) find(beforeLastLoginID);
+        LoginHistoryEntity loginHistoryEntity = find(beforeLastLoginID);
         return loginHistoryEntity.getLoginDate().getTime();
     }
 
