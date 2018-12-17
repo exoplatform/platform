@@ -7,7 +7,7 @@ import java.sql.Timestamp;
 
 @Entity
 @ExoEntity
-@Table(name = "login_history")
+@Table(name = "LOGIN_HISTORY")
 @NamedQueries({
         @NamedQuery(name = "loginHistory.getLastLoginHistory",query = "SELECT l FROM LoginHistoryEntity l WHERE l.userId = :userId ORDER BY l.id DESC"),
         @NamedQuery(name = "loginHistory.getUserLastLoginID",query = "SELECT MAX(l.id) FROM LoginHistoryEntity l WHERE l.userId = :userId"),
