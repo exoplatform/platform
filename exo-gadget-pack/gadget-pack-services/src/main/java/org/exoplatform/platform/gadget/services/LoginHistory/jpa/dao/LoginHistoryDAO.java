@@ -22,38 +22,37 @@ public class LoginHistoryDAO extends GenericDAOJPAImpl<LoginHistoryEntity, Long>
         // returns the number of a user's login for a given period of time
         Timestamp from = new Timestamp(fromDay);
         Timestamp to = new Timestamp(toDay);
-        try {
-            return (Long) getEntityManager().createNamedQuery("loginHistory.getLoginCountPerDay")
-                                            .setParameter("userId",userId)
-                                            .setParameter("from", from)
-                                            .setParameter("to",to).getSingleResult();
-        } catch (NoResultException e) {
-            return null;
-        }
+        return (Long) getEntityManager().createNamedQuery("loginHistory.getLoginCountPerDay")
+                                        .setParameter("userId",userId)
+                                        .setParameter("from", from)
+                                        .setParameter("to",to).getSingleResult();
     }
 
     public Long getLastLogin(String userId) {
-        Long lastLogin;
-        LoginHistoryEntity loginHistoryEntity = getEntityManager().createNamedQuery("loginHistory.getLastLoginHistory",LoginHistoryEntity.class).setParameter("userId",userId).getSingleResult();
-        lastLogin = loginHistoryEntity.getLoginDate().getTime();
         try {
+            Long lastLogin;
+            LoginHistoryEntity loginHistoryEntity = getEntityManager()
+                    .createNamedQuery("loginHistory.getLastLoginHistory", LoginHistoryEntity.class)
+                    .setParameter("userId", userId)
+                    .setMaxResults(1)
+                    .getSingleResult();
+            lastLogin = loginHistoryEntity.getLoginDate().getTime();
             return loginHistoryEntity == null ? 0 : lastLogin;
         } catch (NoResultException e) {
             return null;
         }
     }
 
-    public List<LoginHistoryEntity> getLastLogins(int numLogins, String userId) {
-        Calendar calendar = Calendar.getInstance();
-        calendar.set(Calendar.HOUR_OF_DAY,0);
-        calendar.set(Calendar.MINUTE,0);
-        calendar.set(Calendar.SECOND,0);
-        calendar.set(Calendar.MILLISECOND,0);
-        Timestamp today = new Timestamp(calendar.getTimeInMillis());
+    public List<LoginHistoryEntity> getLastLoginsOfUser(int numLogins, String userId) {
+        List<LoginHistoryEntity> loginHistoryEntityList = getEntityManager().createNamedQuery("loginHistory.getLastLoginsOfUser", LoginHistoryEntity.class)
+                .setParameter("userId", userId)
+                .setMaxResults(numLogins)
+                .getResultList();
+        return loginHistoryEntityList;
+    }
 
-        List<LoginHistoryEntity> loginHistoryEntityList = getEntityManager().createNamedQuery("loginHistory.getLastLogins",LoginHistoryEntity.class)
-                    .setParameter("userId",userId)
-                    .setParameter("today",today)
+    public List<LoginHistoryEntity> getLastLogins(int numLogins) {
+        List<LoginHistoryEntity> loginHistoryEntityList = getEntityManager().createNamedQuery("loginHistory.getLastLogins", LoginHistoryEntity.class)
                     .setMaxResults(numLogins)
                     .getResultList();
         return loginHistoryEntityList;

@@ -13,7 +13,8 @@ import java.sql.Timestamp;
         @NamedQuery(name = "loginHistory.getUserLastLoginID",query = "SELECT MAX(l.id) FROM LoginHistoryEntity l WHERE l.userId = :userId"),
         @NamedQuery(name = "loginHistory.getBeforeLastLoginID",query = "SELECT MAX(l.id) FROM LoginHistoryEntity l WHERE l.userId = :userId AND l.id < :id"),
         @NamedQuery(name = "loginHistory.getUserLoginHistory",query = "SELECT l FROM LoginHistoryEntity l WHERE l.userId = :userId AND l.loginDate BETWEEN :from AND :to"),
-        @NamedQuery(name = "loginHistory.getLastLogins",query = "SELECT l FROM LoginHistoryEntity l WHERE l.userId = :userId AND l.loginDate < :today"),
+        @NamedQuery(name = "loginHistory.getLastLogins",query = "SELECT l FROM LoginHistoryEntity l ORDER BY l.id DESC"),
+        @NamedQuery(name = "loginHistory.getLastLoginsOfUser",query = "SELECT l FROM LoginHistoryEntity l WHERE l.userId = :userId"),
         @NamedQuery(name = "loginHistory.getLoginCountPerDay",query = "SELECT COUNT (l) FROM LoginHistoryEntity l WHERE l.userId = :userId AND l.loginDate BETWEEN :from AND :to"),
         @NamedQuery(name = "loginHistory.getLastUsersLogin",query = "SELECT l.userId FROM LoginHistoryEntity l WHERE l.loginDate >= :from ORDER BY l.id DESC"),
         @NamedQuery(name = "loginHistory.getActiveUsersId",query = "SELECT DISTINCT l.userId FROM LoginHistoryEntity l where l.loginDate < :from")
