@@ -54,7 +54,8 @@ public class LoginHistoryDAO extends GenericDAOJPAImpl<LoginHistoryEntity, Long>
         List<LoginHistoryEntity> loginHistoryEntityList = getEntityManager().createNamedQuery("loginHistory.getLastLogins",LoginHistoryEntity.class)
                     .setParameter("userId",userId)
                     .setParameter("today",today)
-                    .setParameter("limit",numLogins).getResultList();
+                    .setMaxResults(numLogins)
+                    .getResultList();
         return loginHistoryEntityList;
     }
 
