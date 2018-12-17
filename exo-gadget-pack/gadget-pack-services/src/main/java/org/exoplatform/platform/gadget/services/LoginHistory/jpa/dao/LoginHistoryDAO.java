@@ -31,7 +31,11 @@ public class LoginHistoryDAO extends GenericDAOJPAImpl<LoginHistoryEntity, Long>
     public Long getLastLogin(String userId) {
         try {
             Long lastLogin;
-            LoginHistoryEntity loginHistoryEntity = getEntityManager().createNamedQuery("loginHistory.getLastLoginHistory",LoginHistoryEntity.class).setParameter("userId",userId).getSingleResult();
+            LoginHistoryEntity loginHistoryEntity = getEntityManager()
+                    .createNamedQuery("loginHistory.getLastLoginHistory", LoginHistoryEntity.class)
+                    .setParameter("userId", userId)
+                    .setMaxResults(1)
+                    .getSingleResult();
             lastLogin = loginHistoryEntity.getLoginDate().getTime();
             return loginHistoryEntity == null ? 0 : lastLogin;
         } catch (NoResultException e) {
@@ -39,17 +43,16 @@ public class LoginHistoryDAO extends GenericDAOJPAImpl<LoginHistoryEntity, Long>
         }
     }
 
-    public List<LoginHistoryEntity> getLastLogins(int numLogins, String userId) {
-        Calendar calendar = Calendar.getInstance();
-        calendar.set(Calendar.HOUR_OF_DAY,0);
-        calendar.set(Calendar.MINUTE,0);
-        calendar.set(Calendar.SECOND,0);
-        calendar.set(Calendar.MILLISECOND,0);
-        Timestamp today = new Timestamp(calendar.getTimeInMillis());
+    public List<LoginHistoryEntity> getLastLoginsOfUser(int numLogins, String userId) {
+        List<LoginHistoryEntity> loginHistoryEntityList = getEntityManager().createNamedQuery("loginHistory.getLastLoginsOfUser", LoginHistoryEntity.class)
+                .setParameter("userId", userId)
+                .setMaxResults(numLogins)
+                .getResultList();
+        return loginHistoryEntityList;
+    }
 
-        List<LoginHistoryEntity> loginHistoryEntityList = getEntityManager().createNamedQuery("loginHistory.getLastLogins",LoginHistoryEntity.class)
-                    .setParameter("userId",userId)
-                    .setParameter("today",today)
+    public List<LoginHistoryEntity> getLastLogins(int numLogins) {
+        List<LoginHistoryEntity> loginHistoryEntityList = getEntityManager().createNamedQuery("loginHistory.getLastLogins", LoginHistoryEntity.class)
                     .setMaxResults(numLogins)
                     .getResultList();
         return loginHistoryEntityList;

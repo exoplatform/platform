@@ -122,27 +122,28 @@ public class JPALoginHistoryStorageImpl implements LoginHistoryStorage {
 
     @Override
     public List<LastLoginBean> getLastLogins(int numLogins, String userIdFilter) throws Exception {
-            String userName = getUserFullName(userIdFilter);
-            Calendar calendar = Calendar.getInstance();
-            calendar.set(Calendar.HOUR_OF_DAY,0);
-            calendar.set(Calendar.MINUTE,0);
-            calendar.set(Calendar.SECOND,0);
-            calendar.set(Calendar.MILLISECOND,0);
-            Timestamp today = new Timestamp(calendar.getTimeInMillis());
+        String userId = userIdFilter;
+        List<LoginHistoryEntity> loginHistoryEntityList;
+        if(userId == null || userId.equals("%")) {
+            loginHistoryEntityList = loginHistoryDAO.getLastLogins(numLogins);
+        } else {
+            loginHistoryEntityList = loginHistoryDAO.getLastLoginsOfUser(numLogins, userId);
+        }
 
-            List<LoginHistoryEntity> loginHistoryEntityList = loginHistoryDAO.getLastLogins(numLogins,userIdFilter);
+        List<LastLoginBean> lastLoginBeanList = new ArrayList<>();
+
+        //String userName = getUserFullName(userIdFilter);
+
+        for (LoginHistoryEntity loginHistoryEntity : loginHistoryEntityList) {
             LastLoginBean lastLoginBean = new LastLoginBean();
-            List<LastLoginBean> lastLoginBeanList = new ArrayList<LastLoginBean>();
+            lastLoginBean.setUserId(loginHistoryEntity.getUserID());
+            lastLoginBean.setUserName(loginHistoryEntity.getUserID());
+            lastLoginBean.setLastLogin(loginHistoryEntity.getLoginDate().getTime());
+            //lastLoginBean.setBeforeLastLogin(getBeforeLastLogin(userIdFilter));
+            lastLoginBeanList.add(lastLoginBean);
+        }
 
-            for (int i=0; i<loginHistoryEntityList.size(); i++) {
-                lastLoginBean.setUserId(loginHistoryEntityList.get(i).getUserID());
-                lastLoginBean.setUserName(userName);
-                lastLoginBean.setLastLogin(getLastLogin(userIdFilter));
-                lastLoginBean.setBeforeLastLogin(getBeforeLastLogin(userIdFilter));
-                lastLoginBeanList.add(lastLoginBean);
-            }
-
-            return lastLoginBeanList;
+        return lastLoginBeanList;
     }
 
     @ExoTransactional
