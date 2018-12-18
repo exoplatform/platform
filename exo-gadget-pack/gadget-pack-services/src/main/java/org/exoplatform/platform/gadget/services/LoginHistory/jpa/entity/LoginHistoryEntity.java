@@ -3,7 +3,7 @@ package org.exoplatform.platform.gadget.services.LoginHistory.jpa.entity;
 import org.exoplatform.commons.api.persistence.ExoEntity;
 
 import javax.persistence.*;
-import java.sql.Timestamp;
+import java.sql.Date;
 
 @Entity
 @ExoEntity
@@ -27,7 +27,8 @@ public class LoginHistoryEntity {
     private String userId;
 
     @Column(name = "LOGIN_DATE")
-    private Timestamp loginDate;
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date loginDate;
 
     public LoginHistoryEntity() {
     }
@@ -36,7 +37,7 @@ public class LoginHistoryEntity {
         this.userId = userID;
     }
 
-    public LoginHistoryEntity(String userID, Timestamp loginDate) {
+    public LoginHistoryEntity(String userID, Date loginDate) {
         this.userId = userID;
         this.loginDate = loginDate;
     }
@@ -53,11 +54,11 @@ public class LoginHistoryEntity {
         this.userId = userID;
     }
 
-    public Timestamp getLoginDate() {
+    public Date getLoginDate() {
         return loginDate;
     }
 
-    public void setLoginDate(Timestamp loginDate) {
+    public void setLoginDate(Date loginDate) {
         this.loginDate = loginDate;
     }
 }

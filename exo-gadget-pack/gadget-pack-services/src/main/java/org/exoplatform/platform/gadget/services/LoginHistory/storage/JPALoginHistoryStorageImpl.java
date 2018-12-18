@@ -11,6 +11,7 @@ import org.exoplatform.services.log.ExoLogger;
 import org.exoplatform.services.log.Log;
 import org.exoplatform.services.organization.OrganizationService;
 
+import java.sql.Date;
 import java.sql.Timestamp;
 import java.util.*;
 
@@ -65,7 +66,7 @@ public class JPALoginHistoryStorageImpl implements LoginHistoryStorage {
 
             // instantiate first day, next day and lastDay variables
             long firstDay = from.getTimeInMillis();
-            Long nextDay = 0L;
+            Long nextDay;
             Long lastDay = to.getTimeInMillis();
 
             List<LoginCounterBean> counterBeanList = new ArrayList<LoginCounterBean>();
@@ -147,7 +148,7 @@ public class JPALoginHistoryStorageImpl implements LoginHistoryStorage {
     @ExoTransactional
     public void addLoginHistoryEntry(String userId, long loginTime) throws  Exception {
         try {
-            Timestamp loginDate = new Timestamp(loginTime);
+            Date loginDate = new Date(loginTime);
             LoginHistoryEntity loginHistoryEntity = new LoginHistoryEntity(userId,loginDate);
             loginHistoryDAO.create(loginHistoryEntity); //the create method will return the entity which we'll ignore.
         } catch (Exception e) {
