@@ -132,12 +132,10 @@ public class JPALoginHistoryStorageImpl implements LoginHistoryStorage {
 
         List<LastLoginBean> lastLoginBeanList = new ArrayList<>();
 
-        //String userName = getUserFullName(userIdFilter);
-
         for (LoginHistoryEntity loginHistoryEntity : loginHistoryEntityList) {
             LastLoginBean lastLoginBean = new LastLoginBean();
             lastLoginBean.setUserId(loginHistoryEntity.getUserID());
-            lastLoginBean.setUserName(loginHistoryEntity.getUserID());
+            lastLoginBean.setUserName(getUserFullName(loginHistoryEntity.getUserID()));
             lastLoginBean.setLastLogin(loginHistoryEntity.getLoginDate().getTime());
             //lastLoginBean.setBeforeLastLogin(getBeforeLastLogin(userIdFilter));
             lastLoginBeanList.add(lastLoginBean);
