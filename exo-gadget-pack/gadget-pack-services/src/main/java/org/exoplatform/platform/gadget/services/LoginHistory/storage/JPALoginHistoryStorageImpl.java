@@ -147,7 +147,7 @@ public class JPALoginHistoryStorageImpl implements LoginHistoryStorage {
     @ExoTransactional
     public void addLoginHistoryEntry(String userId, long loginTime) throws  Exception {
         try {
-            Timestamp loginDate = new Timestamp(loginTime);
+            Date loginDate = new Date(loginTime);
             LoginHistoryEntity loginHistoryEntity = new LoginHistoryEntity(userId,loginDate);
             loginHistoryDAO.create(loginHistoryEntity); //the create method will return the entity which we'll ignore.
         } catch (Exception e) {

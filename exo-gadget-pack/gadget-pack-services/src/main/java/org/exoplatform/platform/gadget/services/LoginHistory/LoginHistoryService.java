@@ -28,27 +28,27 @@ import java.util.Set;
  */
 
 public interface LoginHistoryService {
-	public static String ALL_USERS = "AllUsers";
+	static String ALL_USERS = "AllUsers";
 
-	public long getLastLogin(String userId) throws Exception;
+	long getLastLogin(String userId) throws Exception;
 	
-	public List<LastLoginBean> getLastLogins(int numLogins, String userIdFilter) throws Exception;
+	List<LastLoginBean> getLastLogins(int numLogins, String userIdFilter) throws Exception;
 	
-	public void addLoginHistoryEntry(String userId, long loginTime) throws Exception;
+	void addLoginHistoryEntry(String userId, long loginTime) throws Exception;
 
-	public List<LoginHistoryBean> getLoginHistory(String userId, long fromTime, long toTime) throws Exception;
+	List<LoginHistoryBean> getLoginHistory(String userId, long fromTime, long toTime) throws Exception;
 	
-	public Set<String> getLastUsersLogin(long fromTime) throws Exception;
+	Set<String> getLastUsersLogin(long fromTime) throws Exception;
 	
-	public boolean isActiveUser(String userId, int days) throws Exception;
+	boolean isActiveUser(String userId, int days) throws Exception;
 	
-	public Map<String, Integer> getActiveUsers(long fromTime);
+	Map<String, Integer> getActiveUsers(long fromTime);
 	
-	public List<LoginCounterBean> getLoginCountPerDaysInWeek(String userId, long week) throws Exception;
+	List<LoginCounterBean> getLoginCountPerDaysInWeek(String userId, long week) throws Exception;
 	
-	public List<LoginCounterBean> getLoginCountPerWeeksInMonths(String userId, long fromMonth, int numOfMonths) throws Exception;
+	List<LoginCounterBean> getLoginCountPerWeeksInMonths(String userId, long fromMonth, int numOfMonths) throws Exception;
 	
-	public List<LoginCounterBean> getLoginCountPerMonthsInYear(String userId, long year) throws Exception;
+	List<LoginCounterBean> getLoginCountPerMonthsInYear(String userId, long year) throws Exception;
 	
-	public long getBeforeLastLogin(String userId) throws Exception;
+	long getBeforeLastLogin(String userId) throws Exception;
 }
