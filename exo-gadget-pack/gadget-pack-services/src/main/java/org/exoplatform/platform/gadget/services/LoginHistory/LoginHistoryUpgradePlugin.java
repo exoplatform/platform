@@ -53,7 +53,7 @@ public class LoginHistoryUpgradePlugin extends UpgradeProductPlugin {
 
 
         try {
-            Set<String> allUsers = jcrLoginHistoryStorage.getLastUsersLogin(from);
+            Set<String> allUsers = jcrLoginHistoryStorage.getLastLoginsAfterDate(from);
             List<String> allUsersList = allUsers.stream().collect(Collectors.toList());
             LoginHistoryEntity loginHistoryEntity = new LoginHistoryEntity();
             List<LoginHistoryBean> loginHistoryBeanList = new ArrayList<LoginHistoryBean>();

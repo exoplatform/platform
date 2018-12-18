@@ -179,7 +179,7 @@ public class JPALoginHistoryStorageImpl implements LoginHistoryStorage {
 
     @Override
     public Set<String> getLastUsersLogin(long fromTime) throws Exception {
-        return loginHistoryDAO.getLastUsersLogin(fromTime);
+        return loginHistoryDAO.getLastLoginsAfterDate(fromTime);
     }
 
     public boolean isActiveUser(String userId, int days) throws Exception {
