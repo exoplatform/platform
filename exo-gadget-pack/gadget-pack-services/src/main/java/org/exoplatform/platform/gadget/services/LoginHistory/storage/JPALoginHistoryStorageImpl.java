@@ -11,7 +11,6 @@ import org.exoplatform.services.log.ExoLogger;
 import org.exoplatform.services.log.Log;
 import org.exoplatform.services.organization.OrganizationService;
 
-import java.sql.Date;
 import java.sql.Timestamp;
 import java.util.*;
 
@@ -66,7 +65,7 @@ public class JPALoginHistoryStorageImpl implements LoginHistoryStorage {
 
             // instantiate first day, next day and lastDay variables
             long firstDay = from.getTimeInMillis();
-            Long nextDay;
+            Long nextDay = 0L;
             Long lastDay = to.getTimeInMillis();
 
             List<LoginCounterBean> counterBeanList = new ArrayList<LoginCounterBean>();
