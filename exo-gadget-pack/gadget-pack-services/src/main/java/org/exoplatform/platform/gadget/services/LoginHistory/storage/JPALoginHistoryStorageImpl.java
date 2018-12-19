@@ -69,10 +69,10 @@ public class JPALoginHistoryStorageImpl implements LoginHistoryStorage {
             Long lastDay = to.getTimeInMillis();
 
             List<LoginCounterBean> counterBeanList = new ArrayList<>();
-            LoginCounterBean loginCountPerDay = new LoginCounterBean();
 
             // returns the user's login count for each day and add it to a list: loginCount/day
             while (firstDay <= lastDay) {
+                LoginCounterBean loginCountPerDay = new LoginCounterBean();
                 Calendar cal = Calendar.getInstance();
                 cal.setTimeInMillis(firstDay);
                 cal.set(Calendar.DAY_OF_YEAR, cal.get(Calendar.DAY_OF_YEAR) +1);
