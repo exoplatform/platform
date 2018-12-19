@@ -65,10 +65,10 @@ public class JPALoginHistoryStorageImpl implements LoginHistoryStorage {
 
             // instantiate first day, next day and lastDay variables
             long firstDay = from.getTimeInMillis();
-            Long nextDay = 0L;
+            Long nextDay;
             Long lastDay = to.getTimeInMillis();
 
-            List<LoginCounterBean> counterBeanList = new ArrayList<LoginCounterBean>();
+            List<LoginCounterBean> counterBeanList = new ArrayList<>();
             LoginCounterBean loginCountPerDay = new LoginCounterBean();
 
             // returns the user's login count for each day and add it to a list: loginCount/day
@@ -157,19 +157,34 @@ public class JPALoginHistoryStorageImpl implements LoginHistoryStorage {
 
     @Override
     public List<LoginHistoryBean> getLoginHistory(String userId, long fromTime, long toTime) throws Exception {
-        List<LoginHistoryEntity> loginHistoryEntityList = loginHistoryDAO.getLoginHistory(userId,fromTime,toTime);
-        List<LoginHistoryBean> loginHistoryBeanList = new ArrayList<LoginHistoryBean>();
-        LoginHistoryBean loginHistoryBean = new LoginHistoryBean();
-        String userName = getUserFullName(userId);
-
+        List<LoginHistoryBean> loginHistoryBeanList = new ArrayList<>();
         try {
-            for (int i=0; i<loginHistoryEntityList.size(); i++) {
-                loginHistoryBean.setUserId(loginHistoryEntityList.get(i).getUserID());
-                loginHistoryBean.setUserName(userName);
-                loginHistoryBean.setLoginTime(loginHistoryEntityList.get(i).getLoginDate().getTime());
-                loginHistoryBeanList.add(loginHistoryBean);
+            if (userId.equals("AllUsers") || userId == null) {
+                List<LoginHistoryEntity> loginHistoryEntityList1 = loginHistoryDAO.getAllLoginHistory(fromTime,toTime);
+
+                for (LoginHistoryEntity loginHistoryEntity1 : loginHistoryEntityList1) {
+                    LoginHistoryBean loginHistoryBean = new LoginHistoryBean();
+                    loginHistoryBean.setUserId(loginHistoryEntity1.getUserID());
+                    loginHistoryBean.setUserName(getUserFullName(loginHistoryEntity1.getUserID()));
+                    loginHistoryBean.setLoginTime(loginHistoryEntity1.getLoginDate().getTime());
+                    loginHistoryBeanList.add(loginHistoryBean);
+                }
+
+            } else {
+                List<LoginHistoryEntity> loginHistoryEntityList = loginHistoryDAO.getLoginHistory(userId,fromTime,toTime);
+                String userName = getUserFullName(userId);
+
+                for (LoginHistoryEntity loginHistoryEntity :loginHistoryEntityList) {
+                    LoginHistoryBean loginHistoryBean = new LoginHistoryBean();
+                    loginHistoryBean.setUserId(loginHistoryEntity.getUserID());
+                    loginHistoryBean.setUserName(userName);
+                    loginHistoryBean.setLoginTime(loginHistoryEntity.getLoginDate().getTime());
+                    loginHistoryBeanList.add(loginHistoryBean);
+                }
+
             }
             return loginHistoryBeanList;
+
         } catch (Exception e) {
             throw e;
         }
