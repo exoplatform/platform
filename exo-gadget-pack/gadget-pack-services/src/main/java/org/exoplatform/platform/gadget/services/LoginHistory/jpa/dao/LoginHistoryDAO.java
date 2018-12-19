@@ -54,6 +54,22 @@ public class LoginHistoryDAO extends GenericDAOJPAImpl<LoginHistoryEntity, Long>
         return loginHistoryEntityList;
     }
 
+    public List<String> getLastLoggedUsers(int numLogins) {
+        List<String> lastLoggedUsers = getEntityManager().createNamedQuery("loginHistory.getLastLoggedUsers")
+                .setMaxResults(numLogins)
+                .getResultList();
+        return lastLoggedUsers;
+    }
+
+    public LoginHistoryEntity getLastLoginOfUser(String userId) {
+        LoginHistoryEntity lastLogin = getEntityManager()
+                .createNamedQuery("loginHistory.getLastLoginsOfUser", LoginHistoryEntity.class)
+                .setParameter("userId", userId)
+                .setMaxResults(1)
+                .getSingleResult();
+        return lastLogin;
+    }
+
     public List<LoginHistoryEntity> getLastLogins(int numLogins) {
         List<LoginHistoryEntity> loginHistoryEntityList = getEntityManager()
                 .createNamedQuery("loginHistory.getLastLogins", LoginHistoryEntity.class)
@@ -100,11 +116,7 @@ public class LoginHistoryDAO extends GenericDAOJPAImpl<LoginHistoryEntity, Long>
 
     public long getBeforeLastLogin(String userId) throws Exception {
         try {
-            LoginHistoryEntity lastLogin = getEntityManager()
-                    .createNamedQuery("loginHistory.getLastLoginsOfUser", LoginHistoryEntity.class)
-                    .setParameter("userId", userId)
-                    .setMaxResults(1)
-                    .getSingleResult();
+            LoginHistoryEntity lastLogin = getLastLoginOfUser(userId);
             Long lastLoginID = lastLogin.getID();
             Long beforeLastLoginID = (Long) getEntityManager()
                     .createNamedQuery("loginHistory.getBeforeLastLoginID")
