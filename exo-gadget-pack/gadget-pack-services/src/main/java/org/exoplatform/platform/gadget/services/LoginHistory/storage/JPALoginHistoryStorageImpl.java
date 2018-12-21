@@ -23,6 +23,11 @@ public class JPALoginHistoryStorageImpl implements LoginHistoryStorage {
         this.loginHistoryDAO = loginHistoryDAO;
     }
 
+    /**
+     * returns the full name of a given user ID.
+     * @param userId
+     * @return
+     */
     private String getUserFullName(String userId) {
         try {
             OrganizationService service = ExoContainerContext.getCurrentContainer()
@@ -45,6 +50,15 @@ public class JPALoginHistoryStorageImpl implements LoginHistoryStorage {
         return now.getTimeInMillis();
     }
 
+    /**
+     * returns a list of login counter bean that contains for each day
+     * the number of logins between two given dates for a given user.
+     * @param userId
+     * @param fromDate
+     * @param toDate
+     * @return
+     * @throws Exception
+     */
     public List<LoginCounterBean> getLoginCountPerDaysInRange(String userId, long fromDate, long toDate) throws Exception {
         try {
             // set the fromDate to 00:00
@@ -120,12 +134,24 @@ public class JPALoginHistoryStorageImpl implements LoginHistoryStorage {
         }
     }
 
+    /**
+     * if the userIdFilter is set to all users (%),
+     * returns a list of n last login beans that contains for each user: the user id,
+     * the user's name, user's last and before last login.
+     * if set to a user's id it returns its last n login beans
+     * where n is the given limit number numLogins.
+     * but if the limit number isn't set it returns just the last login bean
+     * of the given user
+     * @param numLogins
+     * @param userIdFilter
+     * @return
+     * @throws Exception
+     */
     @Override
     public List<LastLoginBean> getLastLogins(int numLogins, String userIdFilter) throws Exception {
         String userId = userIdFilter;
         List<LoginHistoryEntity> loginHistoryEntityList = new ArrayList<>();
         if(userId == null || userId.equals("%")) {
-            //loginHistoryEntityList = loginHistoryDAO.getLastLogins(numLogins);
             List<String> users = loginHistoryDAO.getLastLoggedUsers(numLogins);
             List<LoginHistoryEntity> historyEntities = new ArrayList<>();
             for (String user : users) {
@@ -166,6 +192,17 @@ public class JPALoginHistoryStorageImpl implements LoginHistoryStorage {
         }
     }
 
+    /**
+     * if the user id is set to "AllUsers" it returns a list of login history beans
+     * between two given dates that contains for each user: the user id, the user's name
+     * and the login date.
+     * else it returns the list of login history beans for a given user between the two dates.
+     * @param userId
+     * @param fromTime
+     * @param toTime
+     * @return
+     * @throws Exception
+     */
     @Override
     public List<LoginHistoryBean> getLoginHistory(String userId, long fromTime, long toTime) throws Exception {
         List<LoginHistoryBean> loginHistoryBeanList = new ArrayList<>();
@@ -206,6 +243,14 @@ public class JPALoginHistoryStorageImpl implements LoginHistoryStorage {
         return loginHistoryDAO.getLastLoginsAfterDate(fromTime);
     }
 
+    /**
+     * returns if a given user is still logged in or not
+     * from a given date.
+     * @param userId
+     * @param days
+     * @return
+     * @throws Exception
+     */
     public boolean isActiveUser(String userId, int days) throws Exception {
         Long beforeLastLogin = getBeforeLastLogin(userId);
         // return true if it's the first login of user
@@ -219,7 +264,7 @@ public class JPALoginHistoryStorageImpl implements LoginHistoryStorage {
 
     @Override
     public Map<String, Integer> getActiveUsers(long fromTime) {
-        Map<String, Integer> users = new LinkedHashMap<String, Integer>();
+        Map<String, Integer> users = new LinkedHashMap<>();
         List<String> list = loginHistoryDAO.getActiveUsersId(fromTime);
         Timestamp timestamp = new Timestamp(System.currentTimeMillis());
         Long toTime = timestamp.getTime();
@@ -232,8 +277,8 @@ public class JPALoginHistoryStorageImpl implements LoginHistoryStorage {
 
     @Override
     public List<LoginCounterBean> getLoginCountPerDaysInWeek(String userId, long week) throws Exception {
-        List<LoginCounterBean> list = new ArrayList<LoginCounterBean>();
-        List<Long> days = new ArrayList<Long>();
+        List<LoginCounterBean> list = new ArrayList<>();
+        List<Long> days = new ArrayList<>();
 
         long now = System.currentTimeMillis();
         long nextWeek = nextMonday(week);
@@ -273,7 +318,7 @@ public class JPALoginHistoryStorageImpl implements LoginHistoryStorage {
         long toMonth = cal.getTimeInMillis();
 
         long fromDate, toDate = fromMonth;
-        List<LoginCounterBean> list = new ArrayList<LoginCounterBean>();
+        List<LoginCounterBean> list = new ArrayList<>();
 
         do {
             fromDate = toDate;
@@ -300,7 +345,7 @@ public class JPALoginHistoryStorageImpl implements LoginHistoryStorage {
         long nextYear = cal.getTimeInMillis();
 
         long fromDate, toDate = year;
-        List<LoginCounterBean> list = new ArrayList<LoginCounterBean>();
+        List<LoginCounterBean> list = new ArrayList<>();
 
         do {
             fromDate = toDate;
