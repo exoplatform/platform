@@ -1,4 +1,4 @@
-/*package org.exoplatform.platform.gadget.services.LoginHistory;
+package org.exoplatform.platform.gadget.services.LoginHistory;
 
 import org.exoplatform.commons.api.settings.SettingService;
 import org.exoplatform.commons.upgrade.UpgradeProductPlugin;
@@ -51,9 +51,8 @@ public class LoginHistoryUpgradePlugin extends UpgradeProductPlugin {
         long startTime = System.currentTimeMillis();
         Long from = 946681200000L;
 
-
         try {
-            Set<String> allUsers = jcrLoginHistoryStorage.getLastLoginsAfterDate(from);
+            Set<String> allUsers = jcrLoginHistoryStorage.getLastUsersLogin(from);
             List<String> allUsersList = allUsers.stream().collect(Collectors.toList());
             LoginHistoryEntity loginHistoryEntity = new LoginHistoryEntity();
             List<LoginHistoryBean> loginHistoryBeanList = new ArrayList<LoginHistoryBean>();
@@ -92,4 +91,3 @@ public class LoginHistoryUpgradePlugin extends UpgradeProductPlugin {
         return hasDataToMigrate;
     }
 }
-*/

@@ -209,26 +209,11 @@ public class JPALoginHistoryStorageImpl implements LoginHistoryStorage {
         try {
             if (userId.equals("AllUsers") || userId == null) {
                 List<LoginHistoryEntity> loginHistoryEntityList1 = loginHistoryDAO.getAllLoginHistory(fromTime,toTime);
-
-                for (LoginHistoryEntity loginHistoryEntity1 : loginHistoryEntityList1) {
-                    LoginHistoryBean loginHistoryBean = new LoginHistoryBean();
-                    loginHistoryBean.setUserId(loginHistoryEntity1.getUserID());
-                    loginHistoryBean.setUserName(getUserFullName(loginHistoryEntity1.getUserID()));
-                    loginHistoryBean.setLoginTime(loginHistoryEntity1.getLoginDate().getTime());
-                    loginHistoryBeanList.add(loginHistoryBean);
-                }
+                loginHistoryBeanList = convertToLoginHistoryBeanList(loginHistoryEntityList1);
 
             } else {
                 List<LoginHistoryEntity> loginHistoryEntityList = loginHistoryDAO.getLoginHistory(userId,fromTime,toTime);
-                String userName = getUserFullName(userId);
-
-                for (LoginHistoryEntity loginHistoryEntity :loginHistoryEntityList) {
-                    LoginHistoryBean loginHistoryBean = new LoginHistoryBean();
-                    loginHistoryBean.setUserId(loginHistoryEntity.getUserID());
-                    loginHistoryBean.setUserName(userName);
-                    loginHistoryBean.setLoginTime(loginHistoryEntity.getLoginDate().getTime());
-                    loginHistoryBeanList.add(loginHistoryBean);
-                }
+                loginHistoryBeanList = convertToLoginHistoryBeanList(loginHistoryEntityList);
 
             }
             return loginHistoryBeanList;
@@ -296,6 +281,7 @@ public class JPALoginHistoryStorageImpl implements LoginHistoryStorage {
 
             day += DAY_IN_MILLISEC;
         } while (day < nextWeek);
+
         long leftDays = 0;
         for (LoginCounterBean counterBean : list) {
             leftDays+=counterBean.getLoginCount();
@@ -371,5 +357,35 @@ public class JPALoginHistoryStorageImpl implements LoginHistoryStorage {
     @Override
     public long getBeforeLastLogin(String userId) throws Exception {
         return loginHistoryDAO.getBeforeLastLogin(userId);
+    }
+
+    /**
+     * returns a converted LoginHistoryBean from a given LoginHistoryEntity.
+     * @param loginHistoryEntity
+     * @return
+     */
+    public LoginHistoryBean convertToLoginHistoryBean(LoginHistoryEntity loginHistoryEntity) {
+        LoginHistoryBean loginHistoryBean = new LoginHistoryBean();
+        loginHistoryBean.setUserId(loginHistoryEntity.getUserID());
+        loginHistoryBean.setUserName(getUserFullName(loginHistoryEntity.getUserID()));
+        loginHistoryBean.setLoginTime(loginHistoryEntity.getLoginDate().getTime());
+        return loginHistoryBean;
+    }
+
+    /**
+     * returns a converted list of LoginHistoryBeans
+     * from a given list of LoginHistoryEntities.
+     * @param loginHistoryEntityList
+     * @return
+     */
+    public List<LoginHistoryBean> convertToLoginHistoryBeanList(List<LoginHistoryEntity> loginHistoryEntityList) {
+        List<LoginHistoryBean> loginHistoryBeanList = new ArrayList<>();
+        LoginHistoryBean loginHistoryBean;
+
+        for (LoginHistoryEntity loginHistoryEntity :loginHistoryEntityList) {
+            loginHistoryBean = convertToLoginHistoryBean(loginHistoryEntity);
+            loginHistoryBeanList.add(loginHistoryBean);
+        }
+        return loginHistoryBeanList;
     }
 }
