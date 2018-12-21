@@ -116,11 +116,7 @@ public class LoginHistoryDAO extends GenericDAOJPAImpl<LoginHistoryEntity, Long>
 
     public long getBeforeLastLogin(String userId) throws Exception {
         try {
-            LoginHistoryEntity lastLogin = getEntityManager()
-                    .createNamedQuery("loginHistory.getLastLoginsOfUser", LoginHistoryEntity.class)
-                    .setParameter("userId", userId)
-                    .setMaxResults(1)
-                    .getSingleResult();
+            LoginHistoryEntity lastLogin = getLastLoginOfUser(userId);
             Long lastLoginID = lastLogin.getID();
             Long beforeLastLoginID = (Long) getEntityManager()
                     .createNamedQuery("loginHistory.getBeforeLastLoginID")
