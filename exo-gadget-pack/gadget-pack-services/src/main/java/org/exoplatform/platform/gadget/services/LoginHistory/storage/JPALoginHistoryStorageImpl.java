@@ -296,8 +296,12 @@ public class JPALoginHistoryStorageImpl implements LoginHistoryStorage {
 
             day += DAY_IN_MILLISEC;
         } while (day < nextWeek);
+        long leftDays = 0;
+        for (LoginCounterBean counterBean : list) {
+            leftDays+=counterBean.getLoginCount();
+        }
 
-        List<LoginCounterBean> counters = getLoginCountPerDaysInRange(userId, week, nextMonday(week) - DAY_IN_MILLISEC);
+        List<LoginCounterBean> counters = getLoginCountPerDaysInRange(userId, week, nextMonday(week) - DAY_IN_MILLISEC + (leftDays*DAY_IN_MILLISEC));
 
         Iterator<LoginCounterBean> iter = counters.iterator();
         while (iter.hasNext()) {
