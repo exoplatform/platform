@@ -11,8 +11,12 @@ import java.util.*;
 public class LoginHistoryDAO extends GenericDAOJPAImpl<LoginHistoryEntity, Long> {
     private static final Log LOG = ExoLogger.getLogger(LoginHistoryDAO.class);
 
+    /**
+     * returns a list of users IDs that logged in from a given date.
+     * @param fromTime
+     * @return
+     */
     public List<String> getActiveUsersId(Long fromTime) {
-        // returns a list of active users from a given time
         Timestamp from = new Timestamp(fromTime);
         return getEntityManager()
                 .createNamedQuery("loginHistory.getActiveUsersId")
@@ -20,8 +24,16 @@ public class LoginHistoryDAO extends GenericDAOJPAImpl<LoginHistoryEntity, Long>
                 .getResultList();
     }
 
+    /**
+     * if the userId's set to "AllUsers" or is null,
+     * returns the count per day of all loggins,
+     * else it returns the the count per day for a given user.
+     * @param userId
+     * @param fromDay
+     * @param toDay
+     * @return
+     */
     public Long getLoginCountPerDay(String userId, Long fromDay, Long toDay) {
-        // returns the number of a user's login for a given period of time
         Timestamp from = new Timestamp(fromDay);
         Timestamp to = new Timestamp(toDay);
         if (userId.equals("AllUsers") || userId == null){
@@ -34,6 +46,11 @@ public class LoginHistoryDAO extends GenericDAOJPAImpl<LoginHistoryEntity, Long>
         }
     }
 
+    /**
+     * returns the last login entry date of a given user.
+     * @param userId
+     * @return
+     */
     public Long getLastLogin(String userId) {
         Long lastLogin;
         LoginHistoryEntity loginHistoryEntity = getEntityManager()
@@ -45,6 +62,13 @@ public class LoginHistoryDAO extends GenericDAOJPAImpl<LoginHistoryEntity, Long>
         return loginHistoryEntity == null ? 0 : lastLogin;
     }
 
+    /**
+     * returns the last n history logins of a user
+     * set by a given limit number numLogins.
+     * @param numLogins
+     * @param userId
+     * @return
+     */
     public List<LoginHistoryEntity> getLastLoginsOfUser(int numLogins, String userId) {
         List<LoginHistoryEntity> loginHistoryEntityList = getEntityManager()
                 .createNamedQuery("loginHistory.getLastLoginsOfUser", LoginHistoryEntity.class)
@@ -54,6 +78,12 @@ public class LoginHistoryDAO extends GenericDAOJPAImpl<LoginHistoryEntity, Long>
         return loginHistoryEntityList;
     }
 
+    /**
+     * returns the last n user IDs set by a given
+     * limit number numLogins.
+     * @param numLogins
+     * @return
+     */
     public List<String> getLastLoggedUsers(int numLogins) {
         List<String> lastLoggedUsers = getEntityManager().createNamedQuery("loginHistory.getLastLoggedUsers")
                 .setMaxResults(numLogins)
@@ -61,6 +91,11 @@ public class LoginHistoryDAO extends GenericDAOJPAImpl<LoginHistoryEntity, Long>
         return lastLoggedUsers;
     }
 
+    /**
+     * returns the last history login entry of a given user.
+     * @param userId
+     * @return
+     */
     public LoginHistoryEntity getLastLoginOfUser(String userId) {
         LoginHistoryEntity lastLogin = getEntityManager()
                 .createNamedQuery("loginHistory.getLastLoginsOfUser", LoginHistoryEntity.class)
@@ -70,6 +105,12 @@ public class LoginHistoryDAO extends GenericDAOJPAImpl<LoginHistoryEntity, Long>
         return lastLogin;
     }
 
+    /**
+     * returns a list of the last n login history entries
+     * set by a given limit number numLogins.
+     * @param numLogins
+     * @return
+     */
     public List<LoginHistoryEntity> getLastLogins(int numLogins) {
         List<LoginHistoryEntity> loginHistoryEntityList = getEntityManager()
                 .createNamedQuery("loginHistory.getLastLogins", LoginHistoryEntity.class)
@@ -78,6 +119,14 @@ public class LoginHistoryDAO extends GenericDAOJPAImpl<LoginHistoryEntity, Long>
         return loginHistoryEntityList;
     }
 
+    /**
+     * returns a list of login history entries of a given user
+     * between a given two dates, fromTime and toTime.
+     * @param userId
+     * @param fromTime
+     * @param toTime
+     * @return
+     */
     public List<LoginHistoryEntity> getLoginHistory(String userId, long fromTime, long toTime) {
         Timestamp from = new Timestamp(fromTime);
         Timestamp to = new Timestamp(toTime);
@@ -89,6 +138,13 @@ public class LoginHistoryDAO extends GenericDAOJPAImpl<LoginHistoryEntity, Long>
         return loginHistoryEntityList;
     }
 
+    /**
+     * returns a list of login history entries a given two dates,
+     * fromTime and toTime.
+     * @param fromTime
+     * @param toTime
+     * @return
+     */
     public List<LoginHistoryEntity> getAllLoginHistory(long fromTime, long toTime) {
         Timestamp from = new Timestamp(fromTime);
         Timestamp to = new Timestamp(toTime);
@@ -99,6 +155,13 @@ public class LoginHistoryDAO extends GenericDAOJPAImpl<LoginHistoryEntity, Long>
         return loginHistoryEntityList;
     }
 
+    /**
+     * returns a list of user IDs that did log in
+     * from a given date till now.
+     * @param fromTime
+     * @return
+     * @throws Exception
+     */
     public Set<String> getLastLoginsAfterDate(long fromTime) throws Exception {
         Timestamp from = new Timestamp(fromTime);
         try {
@@ -106,7 +169,7 @@ public class LoginHistoryDAO extends GenericDAOJPAImpl<LoginHistoryEntity, Long>
                     .createNamedQuery("loginHistory.getLastLoginsAfterDate")
                     .setParameter("from",from)
                     .getResultList();
-            Set<String> users = new LinkedHashSet<String>(userIds);
+            Set<String> users = new LinkedHashSet<>(userIds);
             return users;
         } catch (Exception e) {
             LOG.error("Error while getting login history of users " + e.getMessage(), e);
@@ -114,6 +177,12 @@ public class LoginHistoryDAO extends GenericDAOJPAImpl<LoginHistoryEntity, Long>
         return null;
     }
 
+    /**
+     *returns the just before last login entry date of a given user.
+     * @param userId
+     * @return
+     * @throws Exception
+     */
     public long getBeforeLastLogin(String userId) throws Exception {
         try {
             LoginHistoryEntity lastLogin = getLastLoginOfUser(userId);
@@ -126,7 +195,7 @@ public class LoginHistoryDAO extends GenericDAOJPAImpl<LoginHistoryEntity, Long>
             LoginHistoryEntity loginHistoryEntity = find(beforeLastLoginID);
             return loginHistoryEntity.getLoginDate().getTime();
         } catch (Exception e) {
-            LOG.debug("Error while retrieving " + userId + "'s last login: " + e.getMessage(), e);
+            LOG.debug("Error while retrieving " + userId + "'s before last login: " + e.getMessage(), e);
             throw e;
         }
     }
