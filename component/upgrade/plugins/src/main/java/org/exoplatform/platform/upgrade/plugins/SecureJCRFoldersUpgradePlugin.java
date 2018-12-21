@@ -30,18 +30,21 @@ public class SecureJCRFoldersUpgradePlugin extends UpgradeProductPlugin {
 
   @Override
   public void processUpgrade(String oldVersion, String newVersion) {
-    migrateCollaboration();
+    SessionProvider sessionProvider = SessionProvider.createSystemProvider();
 
-    migrateGadgets();
+    migrateCollaboration(sessionProvider);
 
-    migrateUsers();
+    migrateGadgets(sessionProvider);
 
-    migrateLoginHistory();
+    migrateUsers(sessionProvider);
+
+    migrateLoginHistory(sessionProvider);
+
+    sessionProvider.close();
   }
 
   // Remove public access permission from root node of collaboration workspace
-  private void migrateCollaboration() {
-    SessionProvider sessionProvider = getSessionProvider();
+  private void migrateCollaboration(SessionProvider sessionProvider) {
     try {
       String ws = repoService.getCurrentRepository().getConfiguration().getDefaultWorkspaceName();
       Session session = sessionProvider.getSession(ws, repoService.getCurrentRepository());
@@ -53,16 +56,11 @@ public class SecureJCRFoldersUpgradePlugin extends UpgradeProductPlugin {
       if (LOG.isErrorEnabled()) {
         LOG.error("An unexpected error occurs when migrate Collaboration workspace", e);
       }
-    } finally {
-      if (sessionProvider != null) {
-        sessionProvider.close();
-      }
     }
   }
 
   // Remove public access permission from gadgets node
-  private void migrateGadgets() {
-    SessionProvider sessionProvider = getSessionProvider();
+  private void migrateGadgets(SessionProvider sessionProvider) {
     try {
       Session session = sessionProvider.getSession("portal-system", repoService.getCurrentRepository());
 
@@ -73,16 +71,11 @@ public class SecureJCRFoldersUpgradePlugin extends UpgradeProductPlugin {
       if (LOG.isErrorEnabled()) {
         LOG.error("An unexpected error occurs when migrate /production/app:gadgets", e);
       }
-    } finally {
-      if (sessionProvider != null) {
-        sessionProvider.close();
-      }
     }
   }
 
   // Remove normal users access permission from /Users node
-  private void migrateUsers() {
-    SessionProvider sessionProvider = getSessionProvider();
+  private void migrateUsers(SessionProvider sessionProvider) {
     try {
       String ws = repoService.getCurrentRepository().getConfiguration().getDefaultWorkspaceName();
       Session session = sessionProvider.getSession(ws, repoService.getCurrentRepository());
@@ -94,16 +87,11 @@ public class SecureJCRFoldersUpgradePlugin extends UpgradeProductPlugin {
       if (LOG.isErrorEnabled()) {
         LOG.error("An unexpected error occurs when migrate /Users", e);
       }
-    } finally {
-      if (sessionProvider != null) {
-        sessionProvider.close();
-      }
     }
   }
 
   // Remove normal users access permission from login history home node
-  private void migrateLoginHistory() {
-    SessionProvider sessionProvider = getSessionProvider();
+  private void migrateLoginHistory(SessionProvider sessionProvider) {
     try {
       String ws = repoService.getCurrentRepository().getConfiguration().getDefaultWorkspaceName();
       Session session = sessionProvider.getSession(ws, repoService.getCurrentRepository());
@@ -118,23 +106,6 @@ public class SecureJCRFoldersUpgradePlugin extends UpgradeProductPlugin {
       if (LOG.isErrorEnabled()) {
         LOG.error("An unexpected error occurs when migrate /exo:LoginHistoryHome", e);
       }
-    } finally {
-      if (sessionProvider != null) {
-        sessionProvider.close();
-      }
     }
-  }
-
-  public SessionProvider getSessionProvider() {
-    if (sessionProvider == null) {
-      sessionProvider = SessionProvider.createSystemProvider();;
-    }
-
-    return sessionProvider;
-  }
-
-  // For test purpose only
-  public void setSessionProvider(SessionProvider sessionProvider) {
-    this.sessionProvider = sessionProvider;
   }
 }
