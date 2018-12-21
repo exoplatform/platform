@@ -11,6 +11,7 @@ import java.util.Date;
 @Table(name = "LOGIN_HISTORY")
 @NamedQueries({
         @NamedQuery(name = "loginHistory.getLastLogins",query = "SELECT l FROM LoginHistoryEntity l ORDER BY l.id DESC"),
+        @NamedQuery(name = "loginHistory.getLastLoggedUsers",query = "SELECT DISTINCT l.userId FROM LoginHistoryEntity l"),
         @NamedQuery(name = "loginHistory.getLastLoginsOfUser",query = "SELECT l FROM LoginHistoryEntity l WHERE l.userId = :userId ORDER BY l.id DESC"),
         @NamedQuery(name = "loginHistory.getBeforeLastLoginID",query = "SELECT MAX(l.id) FROM LoginHistoryEntity l WHERE l.userId = :userId AND l.id < :id"),
         @NamedQuery(name = "loginHistory.getLastLoginsInDateRange",query = "SELECT l FROM LoginHistoryEntity l WHERE l.loginDate BETWEEN :from AND :to"),

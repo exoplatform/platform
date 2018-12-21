@@ -123,11 +123,22 @@ public class JPALoginHistoryStorageImpl implements LoginHistoryStorage {
     @Override
     public List<LastLoginBean> getLastLogins(int numLogins, String userIdFilter) throws Exception {
         String userId = userIdFilter;
-        List<LoginHistoryEntity> loginHistoryEntityList;
+        List<LoginHistoryEntity> loginHistoryEntityList = new ArrayList<>();
         if(userId == null || userId.equals("%")) {
-            loginHistoryEntityList = loginHistoryDAO.getLastLogins(numLogins);
+            //loginHistoryEntityList = loginHistoryDAO.getLastLogins(numLogins);
+            List<String> users = loginHistoryDAO.getLastLoggedUsers(numLogins);
+            List<LoginHistoryEntity> historyEntities = new ArrayList<>();
+            for (String user : users) {
+                LoginHistoryEntity loginHistoryEntity = loginHistoryDAO.getLastLoginOfUser(user);
+                historyEntities.add(loginHistoryEntity);
+            }
+            loginHistoryEntityList.addAll(historyEntities);
         } else {
-            loginHistoryEntityList = loginHistoryDAO.getLastLoginsOfUser(numLogins, userId);
+            if (numLogins == 0) {
+                loginHistoryEntityList = loginHistoryDAO.getLastLoginsOfUser(1, userId);
+            } else {
+                loginHistoryEntityList = loginHistoryDAO.getLastLoginsOfUser(numLogins, userId);
+            }
         }
 
         List<LastLoginBean> lastLoginBeanList = new ArrayList<>();
