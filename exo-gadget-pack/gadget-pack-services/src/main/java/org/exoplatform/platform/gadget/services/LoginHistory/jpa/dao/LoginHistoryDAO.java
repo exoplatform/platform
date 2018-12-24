@@ -38,10 +38,10 @@ public class LoginHistoryDAO extends GenericDAOJPAImpl<LoginHistoryEntity, Long>
     Timestamp from = new Timestamp(fromDay);
     Timestamp to = new Timestamp(toDay);
     Long count = (Long) getEntityManager().createNamedQuery("loginHistory.getLoginsCountOfUserInDateRange")
-            .setParameter("userId", userId)
-            .setParameter("from", from)
-            .setParameter("to", to)
-            .getSingleResult();
+                                          .setParameter("userId", userId)
+                                          .setParameter("from", from)
+                                          .setParameter("to", to)
+                                          .getSingleResult();
     return count;
   }
 
@@ -55,9 +55,9 @@ public class LoginHistoryDAO extends GenericDAOJPAImpl<LoginHistoryEntity, Long>
     Timestamp from = new Timestamp(fromDay);
     Timestamp to = new Timestamp(toDay);
     Long count = (Long) getEntityManager().createNamedQuery("loginHistory.getLoginsCountInDateRange")
-                        .setParameter("from", from)
-                        .setParameter("to", to)
-                        .getSingleResult();
+                                          .setParameter("from", from)
+                                          .setParameter("to", to)
+                                          .getSingleResult();
     return count;
   }
 
@@ -70,9 +70,7 @@ public class LoginHistoryDAO extends GenericDAOJPAImpl<LoginHistoryEntity, Long>
   public Long getLastLogin(String userId) {
     Long lastLogin;
     try {
-      LoginHistoryEntity loginHistoryEntity = getEntityManager()
-                                                                .createNamedQuery("loginHistory.getLastLoginsOfUser",
-                                                                                  LoginHistoryEntity.class)
+      LoginHistoryEntity loginHistoryEntity = getEntityManager().createNamedQuery("loginHistory.getLastLoginsOfUser", LoginHistoryEntity.class)
                                                                 .setParameter("userId", userId)
                                                                 .setMaxResults(1)
                                                                 .getSingleResult();
@@ -92,9 +90,7 @@ public class LoginHistoryDAO extends GenericDAOJPAImpl<LoginHistoryEntity, Long>
    * @return
    */
   public List<LoginHistoryEntity> getLastLoginsOfUser(int numLogins, String userId) {
-    List<LoginHistoryEntity> loginHistoryEntityList = getEntityManager()
-                                                                        .createNamedQuery("loginHistory.getLastLoginsOfUser",
-                                                                                          LoginHistoryEntity.class)
+    List<LoginHistoryEntity> loginHistoryEntityList = getEntityManager().createNamedQuery("loginHistory.getLastLoginsOfUser", LoginHistoryEntity.class)
                                                                         .setParameter("userId", userId)
                                                                         .setMaxResults(numLogins)
                                                                         .getResultList();
@@ -121,8 +117,7 @@ public class LoginHistoryDAO extends GenericDAOJPAImpl<LoginHistoryEntity, Long>
    * @return
    */
   public LoginHistoryEntity getLastLoginOfUser(String userId) {
-    LoginHistoryEntity lastLogin =
-                                 getEntityManager().createNamedQuery("loginHistory.getLastLoginsOfUser", LoginHistoryEntity.class)
+    LoginHistoryEntity lastLogin = getEntityManager().createNamedQuery("loginHistory.getLastLoginsOfUser", LoginHistoryEntity.class)
                                                    .setParameter("userId", userId)
                                                    .setMaxResults(1)
                                                    .getSingleResult();
@@ -137,9 +132,7 @@ public class LoginHistoryDAO extends GenericDAOJPAImpl<LoginHistoryEntity, Long>
    * @return
    */
   public List<LoginHistoryEntity> getLastLogins(int numLogins) {
-    List<LoginHistoryEntity> loginHistoryEntityList = getEntityManager()
-                                                                        .createNamedQuery("loginHistory.getLastLogins",
-                                                                                          LoginHistoryEntity.class)
+    List<LoginHistoryEntity> loginHistoryEntityList = getEntityManager().createNamedQuery("loginHistory.getLastLogins", LoginHistoryEntity.class)
                                                                         .setMaxResults(numLogins)
                                                                         .getResultList();
     return loginHistoryEntityList;
@@ -157,9 +150,7 @@ public class LoginHistoryDAO extends GenericDAOJPAImpl<LoginHistoryEntity, Long>
   public List<LoginHistoryEntity> getLoginHistory(String userId, long fromTime, long toTime) {
     Timestamp from = new Timestamp(fromTime);
     Timestamp to = new Timestamp(toTime);
-    List<LoginHistoryEntity> loginHistoryEntityList =
-                                                    getEntityManager().createNamedQuery("loginHistory.getLastLoginsOfUserInDateRange",
-                                                                                        LoginHistoryEntity.class)
+    List<LoginHistoryEntity> loginHistoryEntityList = getEntityManager().createNamedQuery("loginHistory.getLastLoginsOfUserInDateRange", LoginHistoryEntity.class)
                                                                       .setParameter("userId", userId)
                                                                       .setParameter("from", from)
                                                                       .setParameter("to", to)
@@ -178,9 +169,7 @@ public class LoginHistoryDAO extends GenericDAOJPAImpl<LoginHistoryEntity, Long>
   public List<LoginHistoryEntity> getAllLoginHistory(long fromTime, long toTime) {
     Timestamp from = new Timestamp(fromTime);
     Timestamp to = new Timestamp(toTime);
-    List<LoginHistoryEntity> loginHistoryEntityList = getEntityManager()
-                                                                        .createNamedQuery("loginHistory.getLastLoginsInDateRange",
-                                                                                          LoginHistoryEntity.class)
+    List<LoginHistoryEntity> loginHistoryEntityList = getEntityManager().createNamedQuery("loginHistory.getLastLoginsInDateRange", LoginHistoryEntity.class)
                                                                         .setParameter("from", from)
                                                                         .setParameter("to", to)
                                                                         .getResultList();
