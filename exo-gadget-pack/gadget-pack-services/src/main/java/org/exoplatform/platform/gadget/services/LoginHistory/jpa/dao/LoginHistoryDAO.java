@@ -5,6 +5,7 @@ import org.exoplatform.platform.gadget.services.LoginHistory.jpa.entity.LoginHis
 import org.exoplatform.services.log.ExoLogger;
 import org.exoplatform.services.log.Log;
 
+import javax.persistence.NoResultException;
 import java.sql.Timestamp;
 import java.util.*;
 
@@ -53,13 +54,17 @@ public class LoginHistoryDAO extends GenericDAOJPAImpl<LoginHistoryEntity, Long>
      */
     public Long getLastLogin(String userId) {
         Long lastLogin;
-        LoginHistoryEntity loginHistoryEntity = getEntityManager()
+        try {
+            LoginHistoryEntity loginHistoryEntity = getEntityManager()
                     .createNamedQuery("loginHistory.getLastLoginsOfUser", LoginHistoryEntity.class)
                     .setParameter("userId", userId)
                     .setMaxResults(1)
                     .getSingleResult();
-        lastLogin = loginHistoryEntity.getLoginDate().getTime();
-        return loginHistoryEntity == null ? 0 : lastLogin;
+            lastLogin = loginHistoryEntity.getLoginDate().getTime();
+        } catch (NoResultException e) {
+            lastLogin = null;
+        }
+        return lastLogin;
     }
 
     /**
