@@ -1,5 +1,5 @@
 /***************************************************************************
- * Copyright (C) 2003-2007 eXo Platform SAS.
+ * Copyright (C) 2003-2019 eXo Platform SAS.
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Affero General Public License
@@ -26,7 +26,7 @@ import java.util.Map;
 import java.util.Set;
 
 public interface LoginHistoryStorage {
-    static String ALL_USERS = "AllUsers";
+    String ALL_USERS = "AllUsers";
 
     long getLastLogin(String userId) throws Exception;
 

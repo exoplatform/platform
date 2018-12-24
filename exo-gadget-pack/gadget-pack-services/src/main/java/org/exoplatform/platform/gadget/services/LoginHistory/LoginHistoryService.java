@@ -20,35 +20,33 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-
-
 /**
  * Created by The eXo Platform SARL Author : Tung Vu Minh tungvm@exoplatform.com
  * Apr 21, 2011 6:19:21 PM
  */
 
 public interface LoginHistoryService {
-	static String ALL_USERS = "AllUsers";
+  String ALL_USERS = "AllUsers";
 
-	long getLastLogin(String userId) throws Exception;
-	
-	List<LastLoginBean> getLastLogins(int numLogins, String userIdFilter) throws Exception;
-	
-	void addLoginHistoryEntry(String userId, long loginTime) throws Exception;
+  long getLastLogin(String userId) throws Exception;
 
-	List<LoginHistoryBean> getLoginHistory(String userId, long fromTime, long toTime) throws Exception;
-	
-	Set<String> getLastUsersLogin(long fromTime) throws Exception;
-	
-	boolean isActiveUser(String userId, int days) throws Exception;
-	
-	Map<String, Integer> getActiveUsers(long fromTime);
-	
-	List<LoginCounterBean> getLoginCountPerDaysInWeek(String userId, long week) throws Exception;
-	
-	List<LoginCounterBean> getLoginCountPerWeeksInMonths(String userId, long fromMonth, int numOfMonths) throws Exception;
-	
-	List<LoginCounterBean> getLoginCountPerMonthsInYear(String userId, long year) throws Exception;
-	
-	long getBeforeLastLogin(String userId) throws Exception;
+  List<LastLoginBean> getLastLogins(int numLogins, String userIdFilter) throws Exception;
+
+  void addLoginHistoryEntry(String userId, long loginTime) throws Exception;
+
+  List<LoginHistoryBean> getLoginHistory(String userId, long fromTime, long toTime) throws Exception;
+
+  Set<String> getLastUsersLogin(long fromTime) throws Exception;
+
+  boolean isActiveUser(String userId, int days) throws Exception;
+
+  Map<String, Integer> getActiveUsers(long fromTime);
+
+  List<LoginCounterBean> getLoginCountPerDaysInWeek(String userId, long week) throws Exception;
+
+  List<LoginCounterBean> getLoginCountPerWeeksInMonths(String userId, long fromMonth, int numOfMonths) throws Exception;
+
+  List<LoginCounterBean> getLoginCountPerMonthsInYear(String userId, long year) throws Exception;
+
+  long getBeforeLastLogin(String userId) throws Exception;
 }
