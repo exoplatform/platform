@@ -205,7 +205,7 @@ public class JPALoginHistoryStorageImpl implements LoginHistoryStorage {
      */
     @Override
     public List<LoginHistoryBean> getLoginHistory(String userId, long fromTime, long toTime) throws Exception {
-        List<LoginHistoryBean> loginHistoryBeanList = new ArrayList<>();
+        List<LoginHistoryBean> loginHistoryBeanList;
         try {
             if (userId.equals("AllUsers") || userId == null) {
                 List<LoginHistoryEntity> loginHistoryEntityList1 = loginHistoryDAO.getAllLoginHistory(fromTime,toTime);
@@ -238,7 +238,7 @@ public class JPALoginHistoryStorageImpl implements LoginHistoryStorage {
      */
     public boolean isActiveUser(String userId, int days) throws Exception {
         Long beforeLastLogin = getBeforeLastLogin(userId);
-        // return true if it's the first login of user
+        //return true [if it's the first login of user]
         if (beforeLastLogin == 0) return true;
         //
         Calendar calendar = Calendar.getInstance();
@@ -249,15 +249,15 @@ public class JPALoginHistoryStorageImpl implements LoginHistoryStorage {
 
     @Override
     public Map<String, Integer> getActiveUsers(long fromTime) {
-        Map<String, Integer> users = new LinkedHashMap<>();
+        Map<String, Integer> activeUsers = new LinkedHashMap<>();
         List<String> list = loginHistoryDAO.getActiveUsersId(fromTime);
         Timestamp timestamp = new Timestamp(System.currentTimeMillis());
         Long toTime = timestamp.getTime();
         for (int i=0; i<list.size(); i++) {
             Long numberOfLogin = loginHistoryDAO.getLoginCountPerDay(list.get(i), fromTime, toTime);
-            users.put(list.get(i), Math.toIntExact(numberOfLogin));
+            activeUsers.put(list.get(i), Math.toIntExact(numberOfLogin));
         }
-        return users;
+        return activeUsers;
     }
 
     @Override
