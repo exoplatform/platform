@@ -614,9 +614,9 @@
       </component-plugin>
 
       <component-plugin>
-         <name>SecureJCRFoldersUpgradePlugin</name>
+         <name>PLFSecureJCRFoldersUpgradePlugin</name>
          <set-method>addUpgradePlugin</set-method>
-         <type>org.exoplatform.platform.upgrade.plugins.SecureJCRFoldersUpgradePlugin</type>
+         <type>org.exoplatform.platform.upgrade.plugins.PLFSecureJCRFoldersUpgradePlugin</type>
          <description>Secure JCR folders</description>
          <init-params>
             <value-param>

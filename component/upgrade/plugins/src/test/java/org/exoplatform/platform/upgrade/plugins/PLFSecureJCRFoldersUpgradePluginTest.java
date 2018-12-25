@@ -12,7 +12,7 @@ import org.junit.Test;
 
 import static org.mockito.Mockito.*;
 
-public class SecureJCRFoldersUpgradePluginTest {
+public class PLFSecureJCRFoldersUpgradePluginTest {
 
   @Test
   public void testSecureJCRFoldersMigration() throws Exception {
@@ -45,7 +45,7 @@ public class SecureJCRFoldersUpgradePluginTest {
     when(session.getItem("/production/app:gadgets")).thenReturn(gadgetsNode);
 
     // When
-    SecureJCRFoldersUpgradePlugin plugin = new SecureJCRFoldersUpgradePlugin(repositoryService, nodeHierarchyCreator, new InitParams());
+    PLFSecureJCRFoldersUpgradePlugin plugin = new PLFSecureJCRFoldersUpgradePlugin(repositoryService, nodeHierarchyCreator, new InitParams());
     plugin.processUpgrade("5.1.0", "5.2.0");
 
     // Then

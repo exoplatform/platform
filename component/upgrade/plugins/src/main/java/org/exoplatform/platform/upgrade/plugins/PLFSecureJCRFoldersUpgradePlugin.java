@@ -13,16 +13,16 @@ import org.exoplatform.services.security.IdentityConstants;
 import javax.jcr.Node;
 import javax.jcr.Session;
 
-public class SecureJCRFoldersUpgradePlugin extends UpgradeProductPlugin {
+public class PLFSecureJCRFoldersUpgradePlugin extends UpgradeProductPlugin {
 
-  private static final Log LOG = ExoLogger.getLogger(SecureJCRFoldersUpgradePlugin.class.getName());
+  private static final Log LOG = ExoLogger.getLogger(PLFSecureJCRFoldersUpgradePlugin.class.getName());
   private static final String HOME = "exo:LoginHistoryHome";
 
   private RepositoryService repoService;
   private NodeHierarchyCreator nodeHierarchyCreator;
   private SessionProvider sessionProvider;
 
-  public SecureJCRFoldersUpgradePlugin(RepositoryService repoService, NodeHierarchyCreator nodeHierarchyCreator, InitParams initParams) {
+  public PLFSecureJCRFoldersUpgradePlugin(RepositoryService repoService, NodeHierarchyCreator nodeHierarchyCreator, InitParams initParams) {
     super(initParams);
     this.repoService = repoService;
     this.nodeHierarchyCreator = nodeHierarchyCreator;
