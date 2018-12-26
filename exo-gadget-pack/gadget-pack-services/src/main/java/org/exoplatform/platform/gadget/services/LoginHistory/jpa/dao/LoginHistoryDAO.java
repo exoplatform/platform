@@ -20,9 +20,15 @@ public class LoginHistoryDAO extends GenericDAOJPAImpl<LoginHistoryEntity, Long>
    */
   public List<String> getActiveUsersId(Long fromTime) {
     Timestamp from = new Timestamp(fromTime);
-    List<String> activeUsersId = getEntityManager().createNamedQuery("loginHistory.getActiveUsersId")
-                                                   .setParameter("from", from)
-                                                   .getResultList();
+    List<String> activeUsersId;
+    try {
+      activeUsersId = getEntityManager().createNamedQuery("loginHistory.getActiveUsersId")
+              .setParameter("from", from)
+              .getResultList();
+    } catch (NoResultException e) {
+      LOG.error("No active users found.");
+      activeUsersId = null;
+    }
     return activeUsersId;
   }
 
@@ -37,11 +43,17 @@ public class LoginHistoryDAO extends GenericDAOJPAImpl<LoginHistoryEntity, Long>
   public Long getLoginCountPerDay(String userId, Long fromDay, Long toDay) {
     Timestamp from = new Timestamp(fromDay);
     Timestamp to = new Timestamp(toDay);
-    Long count = (Long) getEntityManager().createNamedQuery("loginHistory.getLoginsCountOfUserInDateRange")
-                                          .setParameter("userId", userId)
-                                          .setParameter("from", from)
-                                          .setParameter("to", to)
-                                          .getSingleResult();
+    Long count;
+    try {
+      count = (Long) getEntityManager().createNamedQuery("loginHistory.getLoginsCountOfUserInDateRange")
+              .setParameter("userId", userId)
+              .setParameter("from", from)
+              .setParameter("to", to)
+              .getSingleResult();
+    } catch (NoResultException e) {
+      LOG.error("No login found for "+userId+".");
+      count = null;
+    }
     return count;
   }
 
@@ -54,10 +66,16 @@ public class LoginHistoryDAO extends GenericDAOJPAImpl<LoginHistoryEntity, Long>
   public Long getLoginsCountInDateRange(Long fromDay, Long toDay) {
     Timestamp from = new Timestamp(fromDay);
     Timestamp to = new Timestamp(toDay);
-    Long count = (Long) getEntityManager().createNamedQuery("loginHistory.getLoginsCountInDateRange")
-                                          .setParameter("from", from)
-                                          .setParameter("to", to)
-                                          .getSingleResult();
+    Long count;
+    try {
+      count = (Long) getEntityManager().createNamedQuery("loginHistory.getLoginsCountInDateRange")
+              .setParameter("from", from)
+              .setParameter("to", to)
+              .getSingleResult();
+    } catch (NoResultException e) {
+      LOG.error("No Login found.");
+      count = null;
+    }
     return count;
   }
 
@@ -76,6 +94,7 @@ public class LoginHistoryDAO extends GenericDAOJPAImpl<LoginHistoryEntity, Long>
                                                                 .getSingleResult();
       lastLogin = loginHistoryEntity.getLoginDate().getTime();
     } catch (NoResultException e) {
+      LOG.error("No last login found for "+userId+".");
       lastLogin = null;
     }
     return lastLogin;
@@ -90,10 +109,16 @@ public class LoginHistoryDAO extends GenericDAOJPAImpl<LoginHistoryEntity, Long>
    * @return
    */
   public List<LoginHistoryEntity> getLastLoginsOfUser(int numLogins, String userId) {
-    List<LoginHistoryEntity> loginHistoryEntityList = getEntityManager().createNamedQuery("loginHistory.getLastLoginsOfUser", LoginHistoryEntity.class)
-                                                                        .setParameter("userId", userId)
-                                                                        .setMaxResults(numLogins)
-                                                                        .getResultList();
+    List<LoginHistoryEntity> loginHistoryEntityList;
+    try {
+      loginHistoryEntityList = getEntityManager().createNamedQuery("loginHistory.getLastLoginsOfUser", LoginHistoryEntity.class)
+              .setParameter("userId", userId)
+              .setMaxResults(numLogins)
+              .getResultList();
+    } catch (NoResultException e) {
+      LOG.error("No login found for "+userId+".");
+      loginHistoryEntityList = null;
+    }
     return loginHistoryEntityList;
   }
 
@@ -104,9 +129,15 @@ public class LoginHistoryDAO extends GenericDAOJPAImpl<LoginHistoryEntity, Long>
    * @return
    */
   public List<String> getLastLoggedUsers(int numLogins) {
-    List<String> lastLoggedUsers = getEntityManager().createNamedQuery("loginHistory.getLastLoggedUsers")
-                                                     .setMaxResults(numLogins)
-                                                     .getResultList();
+    List<String> lastLoggedUsers;
+    try {
+      lastLoggedUsers = getEntityManager().createNamedQuery("loginHistory.getLastLoggedUsers")
+              .setMaxResults(numLogins)
+              .getResultList();
+    } catch (NoResultException e) {
+      LOG.error("No logged Users found");
+      lastLoggedUsers = null;
+    }
     return lastLoggedUsers;
   }
 
@@ -117,10 +148,16 @@ public class LoginHistoryDAO extends GenericDAOJPAImpl<LoginHistoryEntity, Long>
    * @return
    */
   public LoginHistoryEntity getLastLoginOfUser(String userId) {
-    LoginHistoryEntity lastLogin = getEntityManager().createNamedQuery("loginHistory.getLastLoginsOfUser", LoginHistoryEntity.class)
-                                                   .setParameter("userId", userId)
-                                                   .setMaxResults(1)
-                                                   .getSingleResult();
+    LoginHistoryEntity lastLogin;
+    try {
+      lastLogin = getEntityManager().createNamedQuery("loginHistory.getLastLoginsOfUser", LoginHistoryEntity.class)
+              .setParameter("userId", userId)
+              .setMaxResults(1)
+              .getSingleResult();
+    } catch (NoResultException e) {
+      LOG.error("No last login found for "+userId+".");
+      lastLogin = null;
+    }
     return lastLogin;
   }
 
@@ -132,9 +169,15 @@ public class LoginHistoryDAO extends GenericDAOJPAImpl<LoginHistoryEntity, Long>
    * @return
    */
   public List<LoginHistoryEntity> getLastLogins(int numLogins) {
-    List<LoginHistoryEntity> loginHistoryEntityList = getEntityManager().createNamedQuery("loginHistory.getLastLogins", LoginHistoryEntity.class)
-                                                                        .setMaxResults(numLogins)
-                                                                        .getResultList();
+    List<LoginHistoryEntity> loginHistoryEntityList;
+    try {
+      loginHistoryEntityList = getEntityManager().createNamedQuery("loginHistory.getLastLogins", LoginHistoryEntity.class)
+              .setMaxResults(numLogins)
+              .getResultList();
+    } catch (NoResultException e) {
+      LOG.error("No last logins found.");
+      loginHistoryEntityList = null;
+    }
     return loginHistoryEntityList;
   }
 
@@ -150,11 +193,17 @@ public class LoginHistoryDAO extends GenericDAOJPAImpl<LoginHistoryEntity, Long>
   public List<LoginHistoryEntity> getLoginHistory(String userId, long fromTime, long toTime) {
     Timestamp from = new Timestamp(fromTime);
     Timestamp to = new Timestamp(toTime);
-    List<LoginHistoryEntity> loginHistoryEntityList = getEntityManager().createNamedQuery("loginHistory.getLastLoginsOfUserInDateRange", LoginHistoryEntity.class)
-                                                                      .setParameter("userId", userId)
-                                                                      .setParameter("from", from)
-                                                                      .setParameter("to", to)
-                                                                      .getResultList();
+    List<LoginHistoryEntity> loginHistoryEntityList;
+    try {
+      loginHistoryEntityList = getEntityManager().createNamedQuery("loginHistory.getLastLoginsOfUserInDateRange", LoginHistoryEntity.class)
+              .setParameter("userId", userId)
+              .setParameter("from", from)
+              .setParameter("to", to)
+              .getResultList();
+    } catch (NoResultException e) {
+      LOG.error("No login found for "+userId+".");
+      loginHistoryEntityList = null;
+    }
     return loginHistoryEntityList;
   }
 
@@ -169,10 +218,16 @@ public class LoginHistoryDAO extends GenericDAOJPAImpl<LoginHistoryEntity, Long>
   public List<LoginHistoryEntity> getAllLoginHistory(long fromTime, long toTime) {
     Timestamp from = new Timestamp(fromTime);
     Timestamp to = new Timestamp(toTime);
-    List<LoginHistoryEntity> loginHistoryEntityList = getEntityManager().createNamedQuery("loginHistory.getLastLoginsInDateRange", LoginHistoryEntity.class)
-                                                                        .setParameter("from", from)
-                                                                        .setParameter("to", to)
-                                                                        .getResultList();
+    List<LoginHistoryEntity> loginHistoryEntityList;
+    try {
+      loginHistoryEntityList = getEntityManager().createNamedQuery("loginHistory.getLastLoginsInDateRange", LoginHistoryEntity.class)
+              .setParameter("from", from)
+              .setParameter("to", to)
+              .getResultList();
+    } catch (NoResultException e) {
+      LOG.error("No logins found.");
+      loginHistoryEntityList = null;
+    }
     return loginHistoryEntityList;
   }
 
@@ -185,16 +240,17 @@ public class LoginHistoryDAO extends GenericDAOJPAImpl<LoginHistoryEntity, Long>
    */
   public Set<String> getLastLoginsAfterDate(long fromTime) throws Exception {
     Timestamp from = new Timestamp(fromTime);
+    Set<String> users;
     try {
       List<String> userIds = getEntityManager().createNamedQuery("loginHistory.getLastLoginsAfterDate")
                                                .setParameter("from", from)
                                                .getResultList();
-      Set<String> users = new LinkedHashSet<>(userIds);
-      return users;
-    } catch (Exception e) {
-      LOG.error("Error while getting login history of users " + e.getMessage(), e);
+      users = new LinkedHashSet<>(userIds);
+    } catch (NoResultException e) {
+      LOG.error("No login found since "+from+".");
+      users = null;
     }
-    return null;
+    return users;
   }
 
   /**
@@ -205,19 +261,25 @@ public class LoginHistoryDAO extends GenericDAOJPAImpl<LoginHistoryEntity, Long>
    * @throws Exception
    */
   public long getBeforeLastLogin(String userId) throws Exception {
+    long beforeLastLogin;
     try {
       LoginHistoryEntity lastLogin = getLastLoginOfUser(userId);
-      Long lastLoginID = lastLogin.getID();
-      Long beforeLastLoginID = (Long) getEntityManager().createNamedQuery("loginHistory.getBeforeLastLoginID")
-                                                        .setParameter("userId", userId)
-                                                        .setParameter("id", lastLoginID)
-                                                        .getSingleResult();
-      LoginHistoryEntity loginHistoryEntity = find(beforeLastLoginID);
-      return loginHistoryEntity.getLoginDate().getTime();
-    } catch (Exception e) {
+      if (lastLogin == null) {
+        beforeLastLogin = 0;
+      } else {
+        Long lastLoginID = lastLogin.getID();
+        Long beforeLastLoginID = (Long) getEntityManager().createNamedQuery("loginHistory.getBeforeLastLoginID")
+                .setParameter("userId", userId)
+                .setParameter("id", lastLoginID)
+                .getSingleResult();
+        LoginHistoryEntity loginHistoryEntity = find(beforeLastLoginID);
+        beforeLastLogin = loginHistoryEntity.getLoginDate().getTime();
+      }
+    } catch (NoResultException e) {
       LOG.error("Error while retrieving " + userId + "'s before last login: " + e.getMessage(), e);
-      throw e;
+      beforeLastLogin = 0;
     }
+    return beforeLastLogin;
   }
 
 }
