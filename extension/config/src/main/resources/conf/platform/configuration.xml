@@ -223,6 +223,9 @@
                <value>
                   <string>platform-notification</string>
                </value>
+               <value>
+                  <string>social-vue-portlet</string>
+               </value>
             </collection>
           </field>
 
