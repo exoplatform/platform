@@ -163,28 +163,28 @@ public class JPALoginHistoryStorageImpl implements LoginHistoryStorage {
     List<LoginHistoryEntity> loginHistoryEntityList = new ArrayList<>();
     if (userId == null || userId.equals("%")) {
       List<String> users = loginHistoryDAO.getLastLoggedUsers(numLogins);
-      List<LoginHistoryEntity> historyEntities = new ArrayList<>();
       for (String user : users) {
         LoginHistoryEntity loginHistoryEntity = loginHistoryDAO.getLastLoginOfUser(user);
-        historyEntities.add(loginHistoryEntity);
+        loginHistoryEntityList.add(loginHistoryEntity);
       }
-      loginHistoryEntityList.addAll(historyEntities);
-    } else {
-      if (numLogins == 0) {
+    } else if (numLogins == 0){
         loginHistoryEntityList = loginHistoryDAO.getLastLoginsOfUser(1, userId);
       } else {
         loginHistoryEntityList = loginHistoryDAO.getLastLoginsOfUser(numLogins, userId);
-      }
     }
 
     List<LastLoginBean> lastLoginBeanList = new ArrayList<>();
 
     for (LoginHistoryEntity loginHistoryEntity : loginHistoryEntityList) {
       LastLoginBean lastLoginBean = new LastLoginBean();
+      String userName = getUserFullName(loginHistoryEntity.getUserID());
+      long lastLogin = loginHistoryEntity.getLoginDate().getTime();
+      long beforeLastLogin = getBeforeLastLogin(loginHistoryEntity.getUserID());
+
       lastLoginBean.setUserId(loginHistoryEntity.getUserID());
-      lastLoginBean.setUserName(getUserFullName(loginHistoryEntity.getUserID()));
-      lastLoginBean.setLastLogin(loginHistoryEntity.getLoginDate().getTime());
-      lastLoginBean.setBeforeLastLogin(getBeforeLastLogin(loginHistoryEntity.getUserID()));
+      lastLoginBean.setUserName(userName);
+      lastLoginBean.setLastLogin(lastLogin);
+      lastLoginBean.setBeforeLastLogin(beforeLastLogin);
       lastLoginBeanList.add(lastLoginBean);
     }
     return lastLoginBeanList;
