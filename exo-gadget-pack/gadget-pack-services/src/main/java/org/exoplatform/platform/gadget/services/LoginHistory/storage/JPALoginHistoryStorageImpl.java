@@ -160,32 +160,38 @@ public class JPALoginHistoryStorageImpl implements LoginHistoryStorage {
   @Override
   public List<LastLoginBean> getLastLogins(int numLogins, String userIdFilter) throws Exception {
     String userId = userIdFilter;
-    List<LoginHistoryEntity> loginHistoryEntityList = new ArrayList<>();
+    List<LoginHistoryEntity> loginHistoryEntityList = new LinkedList<>();
+    List<LastLoginBean> lastLoginBeanList = new LinkedList<>();
+    try {
+
     if (userId == null || userId.equals("%")) {
       List<String> users = loginHistoryDAO.getLastLoggedUsers(numLogins);
       for (String user : users) {
         LoginHistoryEntity loginHistoryEntity = loginHistoryDAO.getLastLoginOfUser(user);
         loginHistoryEntityList.add(loginHistoryEntity);
       }
-    } else if (numLogins == 0){
-        loginHistoryEntityList = loginHistoryDAO.getLastLoginsOfUser(1, userId);
-      } else {
-        loginHistoryEntityList = loginHistoryDAO.getLastLoginsOfUser(numLogins, userId);
+    } else if (numLogins == 0) {
+      loginHistoryEntityList = loginHistoryDAO.getLastLoginsOfUser(1, userId);
+    } else {
+      loginHistoryEntityList = loginHistoryDAO.getLastLoginsOfUser(numLogins, userId);
     }
-
-    List<LastLoginBean> lastLoginBeanList = new ArrayList<>();
 
     for (LoginHistoryEntity loginHistoryEntity : loginHistoryEntityList) {
       LastLoginBean lastLoginBean = new LastLoginBean();
-      String userName = getUserFullName(loginHistoryEntity.getUserID());
+      String userID = loginHistoryEntity.getUserID();
+      String userName = getUserFullName(userID);
       long lastLogin = loginHistoryEntity.getLoginDate().getTime();
-      long beforeLastLogin = getBeforeLastLogin(loginHistoryEntity.getUserID());
+      long beforeLastLogin = getBeforeLastLogin(userID);
 
-      lastLoginBean.setUserId(loginHistoryEntity.getUserID());
+      lastLoginBean.setUserId(userID);
       lastLoginBean.setUserName(userName);
       lastLoginBean.setLastLogin(lastLogin);
       lastLoginBean.setBeforeLastLogin(beforeLastLogin);
       lastLoginBeanList.add(lastLoginBean);
+    }
+  } catch (Exception e) {
+      LOG.debug("Error while retrieving last logins: " + e.getMessage(), e);
+      lastLoginBeanList = null;
     }
     return lastLoginBeanList;
   }

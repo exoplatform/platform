@@ -129,13 +129,21 @@ public class LoginHistoryDAO extends GenericDAOJPAImpl<LoginHistoryEntity, Long>
    * @return
    */
   public List<String> getLastLoggedUsers(int numLogins) {
-    List<String> lastLoggedUsers;
+    List<String> lastLoggedUsers = new LinkedList<>();
     try {
-      lastLoggedUsers = getEntityManager().createNamedQuery("loginHistory.getLastLoggedUsers")
-              .setMaxResults(numLogins)
+      List<String> resultList = getEntityManager().createNamedQuery("loginHistory.getAllLoggedUsers")
               .getResultList();
-    } catch (NoResultException e) {
-      LOG.error("No logged Users found");
+      if (resultList == null) {
+        lastLoggedUsers = null;
+      } else {
+        Set<String> setOfLastLoggedUsers = new LinkedHashSet<>(resultList);
+        List<String> lastLoggedUsersList = new LinkedList<>(setOfLastLoggedUsers);
+        for (int i=0; i<numLogins; i++) {
+          lastLoggedUsers.add(lastLoggedUsersList.get(i));
+        }
+      }
+    } catch (Exception e) {
+      LOG.error("No logged Users found"+e.getMessage(),e);
       lastLoggedUsers = null;
     }
     return lastLoggedUsers;
@@ -267,13 +275,17 @@ public class LoginHistoryDAO extends GenericDAOJPAImpl<LoginHistoryEntity, Long>
       if (lastLogin == null) {
         beforeLastLogin = 0;
       } else {
-        Long lastLoginID = lastLogin.getID();
-        Long beforeLastLoginID = (Long) getEntityManager().createNamedQuery("loginHistory.getBeforeLastLoginID")
+        Long lastLoginId = lastLogin.getID();
+        Long beforeLastLoginId = (Long) getEntityManager().createNamedQuery("loginHistory.getBeforeLastLoginID")
                 .setParameter("userId", userId)
-                .setParameter("id", lastLoginID)
+                .setParameter("id", lastLoginId)
                 .getSingleResult();
-        LoginHistoryEntity loginHistoryEntity = find(beforeLastLoginID);
-        beforeLastLogin = loginHistoryEntity.getLoginDate().getTime();
+        if (beforeLastLoginId == null) {
+          beforeLastLogin = 0;
+        } else {
+          LoginHistoryEntity loginHistoryEntity = find(beforeLastLoginId);
+          beforeLastLogin = loginHistoryEntity.getLoginDate().getTime();
+        }
       }
     } catch (Exception e) {
       LOG.error("Error while retrieving " + userId + "'s before last login: " + e.getMessage(), e);
