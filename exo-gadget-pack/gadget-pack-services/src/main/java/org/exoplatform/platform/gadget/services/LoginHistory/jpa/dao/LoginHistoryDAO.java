@@ -275,7 +275,7 @@ public class LoginHistoryDAO extends GenericDAOJPAImpl<LoginHistoryEntity, Long>
         LoginHistoryEntity loginHistoryEntity = find(beforeLastLoginID);
         beforeLastLogin = loginHistoryEntity.getLoginDate().getTime();
       }
-    } catch (NoResultException e) {
+    } catch (Exception e) {
       LOG.error("Error while retrieving " + userId + "'s before last login: " + e.getMessage(), e);
       beforeLastLogin = 0;
     }
