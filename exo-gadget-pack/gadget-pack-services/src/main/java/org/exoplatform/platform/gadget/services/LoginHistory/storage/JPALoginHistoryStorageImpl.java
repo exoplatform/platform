@@ -13,6 +13,8 @@ import org.exoplatform.services.organization.OrganizationService;
 import org.joda.time.DateTimeConstants;
 
 import java.sql.Timestamp;
+import java.time.*;
+import java.time.temporal.TemporalAdjusters;
 import java.util.*;
 
 public class JPALoginHistoryStorageImpl implements LoginHistoryStorage {
@@ -43,15 +45,12 @@ public class JPALoginHistoryStorageImpl implements LoginHistoryStorage {
   }
 
   private static long nextMonday(long date) {
-    Calendar now = Calendar.getInstance();
-    now.setTimeInMillis(date);
+    Instant instant = Instant.ofEpochMilli(date);
+    ZoneId zoneId = ZoneId.systemDefault();
+    ZonedDateTime zonedDateTime = ZonedDateTime.ofInstant(instant,zoneId);
+    ZonedDateTime nextMonday = zonedDateTime.with(TemporalAdjusters.next(DayOfWeek.MONDAY));
 
-    int weekday = now.get(Calendar.DAY_OF_WEEK);
-    // calculate how much to add
-    // the 2 is the difference between Saturday and Monday
-    int days = weekday == Calendar.SUNDAY ? 1 : Calendar.SATURDAY - weekday + 2;
-    now.add(Calendar.DAY_OF_YEAR, days);
-    return now.getTimeInMillis();
+    return nextMonday.toInstant().toEpochMilli();
   }
 
   /**
@@ -164,36 +163,36 @@ public class JPALoginHistoryStorageImpl implements LoginHistoryStorage {
     List<LastLoginBean> lastLoginBeanList = new LinkedList<>();
     try {
 
-    if (numLogins != 0 && (userId == null || userId.equals("%"))) {
-      List<String> users = loginHistoryDAO.getLastLoggedUsers(numLogins);
-      for (String user : users) {
-        LoginHistoryEntity loginHistoryEntity = loginHistoryDAO.getLastLoginOfUser(user);
-        loginHistoryEntityList.add(loginHistoryEntity);
-      }
-    } else if (userId != null && !userId.equals("%")) {
-      if (numLogins == 0) {
-        loginHistoryEntityList = loginHistoryDAO.getLastLoginsOfUser(1, userId);
+      if (numLogins != 0 && (userId == null || userId.equals("%"))) {
+        List<String> users = loginHistoryDAO.getLastLoggedUsers(numLogins);
+        for (String user : users) {
+          LoginHistoryEntity loginHistoryEntity = loginHistoryDAO.getLastLoginOfUser(user);
+          loginHistoryEntityList.add(loginHistoryEntity);
+        }
+      } else if (userId != null && !userId.equals("%")) {
+        if (numLogins == 0) {
+          loginHistoryEntityList = loginHistoryDAO.getLastLoginsOfUser(1, userId);
         } else {
           loginHistoryEntityList = loginHistoryDAO.getLastLoginsOfUser(numLogins, userId);
         }
-    } else {
-      loginHistoryEntityList.add(loginHistoryDAO.getLastLoginHistory());
-    }
+      } else {
+        loginHistoryEntityList.add(loginHistoryDAO.getLastLoginHistory());
+      }
 
-    for (LoginHistoryEntity loginHistoryEntity : loginHistoryEntityList) {
-      LastLoginBean lastLoginBean = new LastLoginBean();
-      String userID = loginHistoryEntity.getUserID();
-      String userName = getUserFullName(userID);
-      long lastLogin = loginHistoryEntity.getLoginDate().getTime();
-      long beforeLastLogin = getBeforeLastLogin(userID);
+      for (LoginHistoryEntity loginHistoryEntity : loginHistoryEntityList) {
+        LastLoginBean lastLoginBean = new LastLoginBean();
+        String userID = loginHistoryEntity.getUserID();
+        String userName = getUserFullName(userID);
+        long lastLogin = loginHistoryEntity.getLoginDate().getTime();
+        long beforeLastLogin = getBeforeLastLogin(userID);
 
-      lastLoginBean.setUserId(userID);
-      lastLoginBean.setUserName(userName);
-      lastLoginBean.setLastLogin(lastLogin);
-      lastLoginBean.setBeforeLastLogin(beforeLastLogin);
-      lastLoginBeanList.add(lastLoginBean);
-    }
-  } catch (Exception e) {
+        lastLoginBean.setUserId(userID);
+        lastLoginBean.setUserName(userName);
+        lastLoginBean.setLastLogin(lastLogin);
+        lastLoginBean.setBeforeLastLogin(beforeLastLogin);
+        lastLoginBeanList.add(lastLoginBean);
+      }
+    } catch (Exception e) {
       LOG.debug("Error while retrieving last logins: " + e.getMessage(), e);
       lastLoginBeanList = null;
     }
