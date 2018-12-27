@@ -170,23 +170,20 @@ public class LoginHistoryDAO extends GenericDAOJPAImpl<LoginHistoryEntity, Long>
   }
 
   /**
-   * returns a list of the last n login history entries set by a given limit
-   * number numLogins.
-   * 
-   * @param numLogins
+   * returns the last login history entry.
    * @return
    */
-  public List<LoginHistoryEntity> getLastLogins(int numLogins) {
-    List<LoginHistoryEntity> loginHistoryEntityList;
+  public LoginHistoryEntity getLastLoginHistory() {
+    LoginHistoryEntity lastHistoryEntity;
     try {
-      loginHistoryEntityList = getEntityManager().createNamedQuery("loginHistory.getLastLogins", LoginHistoryEntity.class)
-              .setMaxResults(numLogins)
-              .getResultList();
+      lastHistoryEntity = getEntityManager().createNamedQuery("loginHistory.getLastLoginHistory", LoginHistoryEntity.class)
+              .setMaxResults(1)
+              .getSingleResult();
     } catch (NoResultException e) {
-      LOG.error("No last logins found.");
-      loginHistoryEntityList = null;
+      LOG.error("No last login found.");
+      lastHistoryEntity = null;
     }
-    return loginHistoryEntityList;
+    return lastHistoryEntity;
   }
 
   /**

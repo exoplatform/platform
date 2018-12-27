@@ -170,10 +170,14 @@ public class JPALoginHistoryStorageImpl implements LoginHistoryStorage {
         LoginHistoryEntity loginHistoryEntity = loginHistoryDAO.getLastLoginOfUser(user);
         loginHistoryEntityList.add(loginHistoryEntity);
       }
-    } else if (numLogins == 0) {
-      loginHistoryEntityList = loginHistoryDAO.getLastLoginsOfUser(1, userId);
+    } else if (userId != null && !userId.equals("%")) {
+      if (numLogins == 0) {
+        loginHistoryEntityList = loginHistoryDAO.getLastLoginsOfUser(1, userId);
+        } else {
+          loginHistoryEntityList = loginHistoryDAO.getLastLoginsOfUser(numLogins, userId);
+        }
     } else {
-      loginHistoryEntityList = loginHistoryDAO.getLastLoginsOfUser(numLogins, userId);
+      loginHistoryEntityList.add(loginHistoryDAO.getLastLoginHistory());
     }
 
     for (LoginHistoryEntity loginHistoryEntity : loginHistoryEntityList) {
