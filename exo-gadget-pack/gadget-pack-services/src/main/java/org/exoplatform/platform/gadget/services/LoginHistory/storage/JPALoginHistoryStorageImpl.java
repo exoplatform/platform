@@ -361,21 +361,28 @@ public class JPALoginHistoryStorageImpl implements LoginHistoryStorage {
 
   @Override
   public List<LoginCounterBean> getLoginCountPerMonthsInYear(String userId, long year) throws Exception {
-    Calendar cal = Calendar.getInstance();
-    long now = cal.getTime().getTime();
+    Instant instant = Instant.now();
+    ZoneId zoneId = ZoneId.systemDefault();
+    ZonedDateTime zonedDateTime = ZonedDateTime.ofInstant(instant,zoneId);
+    long now = zonedDateTime.toInstant().toEpochMilli();
 
-    cal.setTimeInMillis(year);
-    cal.add(Calendar.YEAR, 1);
-    long nextYear = cal.getTimeInMillis();
+    Instant instant1 = Instant.ofEpochMilli(year);
+    ZoneId zoneId1 = ZoneId.systemDefault();
+    ZonedDateTime zonedDateTime1 = ZonedDateTime.ofInstant(instant1,zoneId1);
+    ZonedDateTime zonedDateTime2 = zonedDateTime1.withYear(1);
+    long nextYear = zonedDateTime2.toInstant().toEpochMilli();
 
     long fromDate, toDate = year;
     List<LoginCounterBean> list = new ArrayList<>();
 
     do {
       fromDate = toDate;
-      cal.setTimeInMillis(toDate);
-      cal.add(Calendar.MONTH, 1);
-      toDate = cal.getTimeInMillis();
+      Instant instant2 = Instant.ofEpochMilli(toDate);
+      ZoneId zoneId2 = ZoneId.systemDefault();
+      ZonedDateTime zonedDateTime3 = ZonedDateTime.ofInstant(instant2,zoneId2);
+      ZonedDateTime zonedDateTime4 = zonedDateTime3.withMonth(1);
+
+      toDate = zonedDateTime4.toInstant().toEpochMilli();
       if (toDate > nextYear)
         toDate = nextYear;
 
