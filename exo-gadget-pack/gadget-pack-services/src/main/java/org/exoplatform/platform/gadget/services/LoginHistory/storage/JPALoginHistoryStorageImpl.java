@@ -324,12 +324,18 @@ public class JPALoginHistoryStorageImpl implements LoginHistoryStorage {
 
   @Override
   public List<LoginCounterBean> getLoginCountPerWeeksInMonths(String userId, long fromMonth, int numOfMonths) throws Exception {
-    Calendar cal = Calendar.getInstance();
-    long now = cal.getTime().getTime();
+    Instant instant = Instant.now();
+    ZoneId zoneId = ZoneId.systemDefault();
+    ZonedDateTime zonedDateTime = ZonedDateTime.ofInstant(instant,zoneId);
 
-    cal.setTimeInMillis(fromMonth);
-    cal.add(Calendar.MONTH, numOfMonths);
-    long toMonth = cal.getTimeInMillis();
+    long now = zonedDateTime.toInstant().toEpochMilli();
+
+    Instant instant1 = Instant.ofEpochMilli(fromMonth);
+    ZoneId zoneId1 = ZoneId.systemDefault();
+    ZonedDateTime zonedDateTime1 = ZonedDateTime.ofInstant(instant1,zoneId1);
+
+    ZonedDateTime zonedDateTime2 = zonedDateTime1.withMonth(numOfMonths);
+    long toMonth = zonedDateTime2.toInstant().toEpochMilli();
 
     long fromDate, toDate = fromMonth;
     List<LoginCounterBean> list = new ArrayList<>();
