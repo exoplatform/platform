@@ -94,7 +94,7 @@ public class LoginHistoryDAO extends GenericDAOJPAImpl<LoginHistoryEntity, Long>
                                                                 .getSingleResult();
       lastLogin = loginHistoryEntity.getLoginDate().getTime();
     } catch (NoResultException e) {
-      LOG.error("No last login found for "+userId+".");
+      LOG.info("No last login found for "+userId+".");
       lastLogin = null;
     }
     return lastLogin;
@@ -138,7 +138,7 @@ public class LoginHistoryDAO extends GenericDAOJPAImpl<LoginHistoryEntity, Long>
       } else {
         Set<String> setOfLastLoggedUsers = new LinkedHashSet<>(resultList);
         List<String> lastLoggedUsersList = new LinkedList<>(setOfLastLoggedUsers);
-        for (int i=0; i<numLogins; i++) {
+        for (int i=0; i<numLogins && i<resultList.size(); i++) {
           lastLoggedUsers.add(lastLoggedUsersList.get(i));
         }
       }
@@ -163,7 +163,7 @@ public class LoginHistoryDAO extends GenericDAOJPAImpl<LoginHistoryEntity, Long>
               .setMaxResults(1)
               .getSingleResult();
     } catch (NoResultException e) {
-      LOG.error("No last login found for "+userId+".");
+      LOG.info("No last login found for "+userId+".");
       lastLogin = null;
     }
     return lastLogin;

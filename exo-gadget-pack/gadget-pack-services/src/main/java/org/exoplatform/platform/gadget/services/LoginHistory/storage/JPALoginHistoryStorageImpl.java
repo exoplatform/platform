@@ -164,7 +164,7 @@ public class JPALoginHistoryStorageImpl implements LoginHistoryStorage {
     List<LastLoginBean> lastLoginBeanList = new LinkedList<>();
     try {
 
-    if (userId == null || userId.equals("%")) {
+    if (numLogins != 0 && (userId == null || userId.equals("%"))) {
       List<String> users = loginHistoryDAO.getLastLoggedUsers(numLogins);
       for (String user : users) {
         LoginHistoryEntity loginHistoryEntity = loginHistoryDAO.getLastLoginOfUser(user);
