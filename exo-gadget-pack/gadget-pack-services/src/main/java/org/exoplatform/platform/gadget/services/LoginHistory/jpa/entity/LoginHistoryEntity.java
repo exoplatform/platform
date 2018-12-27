@@ -9,7 +9,8 @@ import java.util.Date;
 @Entity
 @ExoEntity
 @Table(name = "LOGIN_HISTORY")
-@NamedQueries({ @NamedQuery(name = "loginHistory.getLastLoginHistory", query = "SELECT l FROM LoginHistoryEntity l ORDER BY l.id DESC"),
+@NamedQueries({
+    @NamedQuery(name = "loginHistory.getLastLoginHistory", query = "SELECT l FROM LoginHistoryEntity l ORDER BY l.id DESC"),
     @NamedQuery(name = "loginHistory.getAllLoggedUsers", query = "SELECT l.userId FROM LoginHistoryEntity l ORDER BY l.id DESC"),
     @NamedQuery(name = "loginHistory.getLastLoginsOfUser", query = "SELECT l FROM LoginHistoryEntity l WHERE l.userId = :userId ORDER BY l.id DESC"),
     @NamedQuery(name = "loginHistory.getBeforeLastLoginID", query = "SELECT MAX(l.id) FROM LoginHistoryEntity l WHERE l.userId = :userId AND l.id < :id"),

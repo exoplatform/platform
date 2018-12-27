@@ -13,6 +13,8 @@ import org.exoplatform.services.organization.OrganizationService;
 import org.joda.time.DateTimeConstants;
 
 import java.sql.Timestamp;
+import java.time.*;
+import java.time.temporal.TemporalAdjusters;
 import java.util.*;
 
 public class JPALoginHistoryStorageImpl implements LoginHistoryStorage {
@@ -28,7 +30,7 @@ public class JPALoginHistoryStorageImpl implements LoginHistoryStorage {
 
   /**
    * returns the full name of a given user ID.
-   * 
+   *
    * @param userId
    * @return
    */
@@ -43,21 +45,18 @@ public class JPALoginHistoryStorageImpl implements LoginHistoryStorage {
   }
 
   private static long nextMonday(long date) {
-    Calendar now = Calendar.getInstance();
-    now.setTimeInMillis(date);
+    Instant instant = Instant.ofEpochMilli(date);
+    ZoneId zoneId = ZoneId.systemDefault();
+    ZonedDateTime zonedDateTime = ZonedDateTime.ofInstant(instant, zoneId);
+    ZonedDateTime nextMonday = zonedDateTime.with(TemporalAdjusters.next(DayOfWeek.MONDAY));
 
-    int weekday = now.get(Calendar.DAY_OF_WEEK);
-    // calculate how much to add
-    // the 2 is the difference between Saturday and Monday
-    int days = weekday == Calendar.SUNDAY ? 1 : Calendar.SATURDAY - weekday + 2;
-    now.add(Calendar.DAY_OF_YEAR, days);
-    return now.getTimeInMillis();
+    return nextMonday.toInstant().toEpochMilli();
   }
 
   /**
    * returns a list of login counter bean that contains for each day the number of
    * logins between two given dates for a given user.
-   * 
+   *
    * @param userId
    * @param fromDate
    * @param toDate
@@ -151,7 +150,7 @@ public class JPALoginHistoryStorageImpl implements LoginHistoryStorage {
    * and before last login. if set to a user's id it returns its last n login
    * beans where n is the given limit number numLogins. but if the limit number
    * isn't set it returns just the last login bean of the given user
-   * 
+   *
    * @param numLogins
    * @param userIdFilter
    * @return
@@ -164,36 +163,36 @@ public class JPALoginHistoryStorageImpl implements LoginHistoryStorage {
     List<LastLoginBean> lastLoginBeanList = new LinkedList<>();
     try {
 
-    if (numLogins != 0 && (userId == null || userId.equals("%"))) {
-      List<String> users = loginHistoryDAO.getLastLoggedUsers(numLogins);
-      for (String user : users) {
-        LoginHistoryEntity loginHistoryEntity = loginHistoryDAO.getLastLoginOfUser(user);
-        loginHistoryEntityList.add(loginHistoryEntity);
-      }
-    } else if (userId != null && !userId.equals("%")) {
-      if (numLogins == 0) {
-        loginHistoryEntityList = loginHistoryDAO.getLastLoginsOfUser(1, userId);
+      if (numLogins != 0 && (userId == null || userId.equals("%"))) {
+        List<String> users = loginHistoryDAO.getLastLoggedUsers(numLogins);
+        for (String user : users) {
+          LoginHistoryEntity loginHistoryEntity = loginHistoryDAO.getLastLoginOfUser(user);
+          loginHistoryEntityList.add(loginHistoryEntity);
+        }
+      } else if (userId != null && !userId.equals("%")) {
+        if (numLogins == 0) {
+          loginHistoryEntityList = loginHistoryDAO.getLastLoginsOfUser(1, userId);
         } else {
           loginHistoryEntityList = loginHistoryDAO.getLastLoginsOfUser(numLogins, userId);
         }
-    } else {
-      loginHistoryEntityList.add(loginHistoryDAO.getLastLoginHistory());
-    }
+      } else {
+        loginHistoryEntityList.add(loginHistoryDAO.getLastLoginHistory());
+      }
 
-    for (LoginHistoryEntity loginHistoryEntity : loginHistoryEntityList) {
-      LastLoginBean lastLoginBean = new LastLoginBean();
-      String userID = loginHistoryEntity.getUserID();
-      String userName = getUserFullName(userID);
-      long lastLogin = loginHistoryEntity.getLoginDate().getTime();
-      long beforeLastLogin = getBeforeLastLogin(userID);
+      for (LoginHistoryEntity loginHistoryEntity : loginHistoryEntityList) {
+        LastLoginBean lastLoginBean = new LastLoginBean();
+        String userID = loginHistoryEntity.getUserID();
+        String userName = getUserFullName(userID);
+        long lastLogin = loginHistoryEntity.getLoginDate().getTime();
+        long beforeLastLogin = getBeforeLastLogin(userID);
 
-      lastLoginBean.setUserId(userID);
-      lastLoginBean.setUserName(userName);
-      lastLoginBean.setLastLogin(lastLogin);
-      lastLoginBean.setBeforeLastLogin(beforeLastLogin);
-      lastLoginBeanList.add(lastLoginBean);
-    }
-  } catch (Exception e) {
+        lastLoginBean.setUserId(userID);
+        lastLoginBean.setUserName(userName);
+        lastLoginBean.setLastLogin(lastLogin);
+        lastLoginBean.setBeforeLastLogin(beforeLastLogin);
+        lastLoginBeanList.add(lastLoginBean);
+      }
+    } catch (Exception e) {
       LOG.debug("Error while retrieving last logins: " + e.getMessage(), e);
       lastLoginBeanList = null;
     }
@@ -216,7 +215,7 @@ public class JPALoginHistoryStorageImpl implements LoginHistoryStorage {
    * between two given dates that contains for each user: the user id, the user's
    * name and the login date. else it returns the list of login history beans for
    * a given user between the two dates.
-   * 
+   *
    * @param userId
    * @param fromTime
    * @param toTime
@@ -250,7 +249,7 @@ public class JPALoginHistoryStorageImpl implements LoginHistoryStorage {
 
   /**
    * returns if a given user is still logged in or not from a given date.
-   * 
+   *
    * @param userId
    * @param days
    * @return
@@ -325,12 +324,18 @@ public class JPALoginHistoryStorageImpl implements LoginHistoryStorage {
 
   @Override
   public List<LoginCounterBean> getLoginCountPerWeeksInMonths(String userId, long fromMonth, int numOfMonths) throws Exception {
-    Calendar cal = Calendar.getInstance();
-    long now = cal.getTime().getTime();
+    Instant instant = Instant.now();
+    ZoneId zoneId = ZoneId.systemDefault();
+    ZonedDateTime zonedDateTime = ZonedDateTime.ofInstant(instant, zoneId);
 
-    cal.setTimeInMillis(fromMonth);
-    cal.add(Calendar.MONTH, numOfMonths);
-    long toMonth = cal.getTimeInMillis();
+    long now = zonedDateTime.toInstant().toEpochMilli();
+
+    Instant instant1 = Instant.ofEpochMilli(fromMonth);
+    ZoneId zoneId1 = ZoneId.systemDefault();
+    ZonedDateTime zonedDateTime1 = ZonedDateTime.ofInstant(instant1, zoneId1);
+
+    ZonedDateTime zonedDateTime2 = zonedDateTime1.withMonth(numOfMonths);
+    long toMonth = zonedDateTime2.toInstant().toEpochMilli();
 
     long fromDate, toDate = fromMonth;
     List<LoginCounterBean> list = new ArrayList<>();
@@ -356,21 +361,28 @@ public class JPALoginHistoryStorageImpl implements LoginHistoryStorage {
 
   @Override
   public List<LoginCounterBean> getLoginCountPerMonthsInYear(String userId, long year) throws Exception {
-    Calendar cal = Calendar.getInstance();
-    long now = cal.getTime().getTime();
+    Instant instant = Instant.now();
+    ZoneId zoneId = ZoneId.systemDefault();
+    ZonedDateTime zonedDateTime = ZonedDateTime.ofInstant(instant, zoneId);
+    long now = zonedDateTime.toInstant().toEpochMilli();
 
-    cal.setTimeInMillis(year);
-    cal.add(Calendar.YEAR, 1);
-    long nextYear = cal.getTimeInMillis();
+    Instant instant1 = Instant.ofEpochMilli(year);
+    ZoneId zoneId1 = ZoneId.systemDefault();
+    ZonedDateTime zonedDateTime1 = ZonedDateTime.ofInstant(instant1, zoneId1);
+    ZonedDateTime zonedDateTime2 = zonedDateTime1.withYear(1);
+    long nextYear = zonedDateTime2.toInstant().toEpochMilli();
 
     long fromDate, toDate = year;
     List<LoginCounterBean> list = new ArrayList<>();
 
     do {
       fromDate = toDate;
-      cal.setTimeInMillis(toDate);
-      cal.add(Calendar.MONTH, 1);
-      toDate = cal.getTimeInMillis();
+      Instant instant2 = Instant.ofEpochMilli(toDate);
+      ZoneId zoneId2 = ZoneId.systemDefault();
+      ZonedDateTime zonedDateTime3 = ZonedDateTime.ofInstant(instant2, zoneId2);
+      ZonedDateTime zonedDateTime4 = zonedDateTime3.withMonth(1);
+
+      toDate = zonedDateTime4.toInstant().toEpochMilli();
       if (toDate > nextYear)
         toDate = nextYear;
 
@@ -394,7 +406,7 @@ public class JPALoginHistoryStorageImpl implements LoginHistoryStorage {
 
   /**
    * returns a converted LoginHistoryBean from a given LoginHistoryEntity.
-   * 
+   *
    * @param loginHistoryEntity
    * @return
    */
@@ -409,7 +421,7 @@ public class JPALoginHistoryStorageImpl implements LoginHistoryStorage {
   /**
    * returns a converted list of LoginHistoryBeans from a given list of
    * LoginHistoryEntities.
-   * 
+   *
    * @param loginHistoryEntityList
    * @return
    */

@@ -16,7 +16,6 @@
  ***************************************************************************/
 package org.exoplatform.platform.gadget.services.LoginHistory.storage;
 
-
 import org.exoplatform.platform.gadget.services.LoginHistory.LastLoginBean;
 import org.exoplatform.platform.gadget.services.LoginHistory.LoginCounterBean;
 import org.exoplatform.platform.gadget.services.LoginHistory.LoginHistoryBean;
@@ -26,27 +25,27 @@ import java.util.Map;
 import java.util.Set;
 
 public interface LoginHistoryStorage {
-    String ALL_USERS = "AllUsers";
+  String ALL_USERS = "AllUsers";
 
-    long getLastLogin(String userId) throws Exception;
+  long getLastLogin(String userId) throws Exception;
 
-    List<LastLoginBean> getLastLogins(int numLogins, String userIdFilter) throws Exception;
+  List<LastLoginBean> getLastLogins(int numLogins, String userIdFilter) throws Exception;
 
-    void addLoginHistoryEntry(String userId, long loginTime) throws Exception;
+  void addLoginHistoryEntry(String userId, long loginTime) throws Exception;
 
-    List<LoginHistoryBean> getLoginHistory(String userId, long fromTime, long toTime) throws Exception;
+  List<LoginHistoryBean> getLoginHistory(String userId, long fromTime, long toTime) throws Exception;
 
-    Set<String> getLastUsersLogin(long fromTime) throws Exception;
+  Set<String> getLastUsersLogin(long fromTime) throws Exception;
 
-    boolean isActiveUser(String userId, int days) throws Exception;
+  boolean isActiveUser(String userId, int days) throws Exception;
 
-    Map<String, Integer> getActiveUsers(long fromTime);
+  Map<String, Integer> getActiveUsers(long fromTime);
 
-    List<LoginCounterBean> getLoginCountPerDaysInWeek(String userId, long week) throws Exception;
+  List<LoginCounterBean> getLoginCountPerDaysInWeek(String userId, long week) throws Exception;
 
-    List<LoginCounterBean> getLoginCountPerWeeksInMonths(String userId, long fromMonth, int numOfMonths) throws Exception;
+  List<LoginCounterBean> getLoginCountPerWeeksInMonths(String userId, long fromMonth, int numOfMonths) throws Exception;
 
-    List<LoginCounterBean> getLoginCountPerMonthsInYear(String userId, long year) throws Exception;
+  List<LoginCounterBean> getLoginCountPerMonthsInYear(String userId, long year) throws Exception;
 
-    long getBeforeLastLogin(String userId) throws Exception;
+  long getBeforeLastLogin(String userId) throws Exception;
 }
