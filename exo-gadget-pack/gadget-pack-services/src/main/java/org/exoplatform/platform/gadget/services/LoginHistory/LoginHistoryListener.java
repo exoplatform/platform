@@ -24,36 +24,36 @@ import org.exoplatform.services.log.Log;
 import org.exoplatform.services.security.ConversationRegistry;
 import org.exoplatform.services.security.ConversationState;
 
-
 /**
  * Created by The eXo Platform SARL Author : Tung Vu Minh tungvm@exoplatform.com
  * Apr 21, 2011 6:19:21 PM
  */
 @Asynchronous
 public class LoginHistoryListener extends Listener<ConversationRegistry, ConversationState> {
-    private static final Log LOG = ExoLogger.getLogger(LoginHistoryListener.class);
-    private final LoginHistoryService loginHistoryService;
+  private static final Log          LOG = ExoLogger.getLogger(LoginHistoryListener.class);
 
-    public LoginHistoryListener(LoginHistoryService loginHistoryService) throws Exception {
-        this.loginHistoryService = loginHistoryService;
+  private final LoginHistoryService loginHistoryService;
+
+  public LoginHistoryListener(LoginHistoryService loginHistoryService) throws Exception {
+    this.loginHistoryService = loginHistoryService;
+  }
+
+  /**
+   * Log the time when user logging in
+   *
+   * @throws Exception
+   */
+  @Override
+  public void onEvent(Event<ConversationRegistry, ConversationState> event) throws Exception {
+    String userId = event.getData().getIdentity().getUserId();
+    try {
+      long now = System.currentTimeMillis();
+      if (now - loginHistoryService.getLastLogin(userId) > 180000) {
+        loginHistoryService.addLoginHistoryEntry(userId, now);
+        LOG.info("User " + userId + " logged in.");
+      }
+    } catch (Exception e) {
+      LOG.debug("Error while logging the login of user '" + userId + "': " + e.getMessage(), e);
     }
-
-	/**
-	 * Log the time when user logging in 
-	 * 
-	 * @throws Exception
-	 */	
-	@Override
-	public void onEvent(Event<ConversationRegistry, ConversationState> event) throws Exception {
-		String userId = event.getData().getIdentity().getUserId();
-		try {
-			long now = System.currentTimeMillis();
-			if(now - loginHistoryService.getLastLogin(userId) > 180000) {
-				loginHistoryService.addLoginHistoryEntry(userId, now);
-				LOG.info("User " + userId + " logged in.");
-			}
-		} catch (Exception e) {
-			LOG.debug("Error while logging the login of user '" + userId + "': " + e.getMessage(), e);
-		}
-	}
+  }
 }
