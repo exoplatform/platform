@@ -162,7 +162,6 @@ public class JPALoginHistoryStorageImpl implements LoginHistoryStorage {
     List<LoginHistoryEntity> loginHistoryEntityList = new LinkedList<>();
     List<LastLoginBean> lastLoginBeanList = new LinkedList<>();
     try {
-
       if (numLogins != 0 && (userId == null || userId.equals("%"))) {
         List<String> users = loginHistoryDAO.getLastLoggedUsers(numLogins);
         for (String user : users) {
@@ -179,19 +178,7 @@ public class JPALoginHistoryStorageImpl implements LoginHistoryStorage {
         loginHistoryEntityList.add(loginHistoryDAO.getLastLoginHistory());
       }
 
-      for (LoginHistoryEntity loginHistoryEntity : loginHistoryEntityList) {
-        LastLoginBean lastLoginBean = new LastLoginBean();
-        String userID = loginHistoryEntity.getUserID();
-        String userName = getUserFullName(userID);
-        long lastLogin = loginHistoryEntity.getLoginDate().getTime();
-        long beforeLastLogin = getBeforeLastLogin(userID);
-
-        lastLoginBean.setUserId(userID);
-        lastLoginBean.setUserName(userName);
-        lastLoginBean.setLastLogin(lastLogin);
-        lastLoginBean.setBeforeLastLogin(beforeLastLogin);
-        lastLoginBeanList.add(lastLoginBean);
-      }
+      lastLoginBeanList = convertToLastLoginBeanList(loginHistoryEntityList);
     } catch (Exception e) {
       LOG.debug("Error while retrieving last logins: " + e.getMessage(), e);
       lastLoginBeanList = null;
@@ -412,10 +399,34 @@ public class JPALoginHistoryStorageImpl implements LoginHistoryStorage {
    */
   public LoginHistoryBean convertToLoginHistoryBean(LoginHistoryEntity loginHistoryEntity) {
     LoginHistoryBean loginHistoryBean = new LoginHistoryBean();
-    loginHistoryBean.setUserId(loginHistoryEntity.getUserID());
-    loginHistoryBean.setUserName(getUserFullName(loginHistoryEntity.getUserID()));
-    loginHistoryBean.setLoginTime(loginHistoryEntity.getLoginDate().getTime());
+    String userID = loginHistoryEntity.getUserID();
+    String userName = getUserFullName(loginHistoryEntity.getUserID());
+    long LoginTime = loginHistoryEntity.getLoginDate().getTime();
+
+    loginHistoryBean.setUserId(userID);
+    loginHistoryBean.setUserName(userName);
+    loginHistoryBean.setLoginTime(LoginTime);
     return loginHistoryBean;
+  }
+
+  /**
+   * returns a converted LastLoginBean from a given LoginHistoryEntity.
+   * @param loginHistoryEntity
+   * @return
+   * @throws Exception
+   */
+  public LastLoginBean convertToLastLoginBean(LoginHistoryEntity loginHistoryEntity) throws Exception {
+    LastLoginBean lastLoginBean = new LastLoginBean();
+    String userID = loginHistoryEntity.getUserID();
+    String userName = getUserFullName(loginHistoryEntity.getUserID());
+    long lastLogin = loginHistoryEntity.getLoginDate().getTime();
+    long beforeLastLogin = getBeforeLastLogin(loginHistoryEntity.getUserID());
+
+    lastLoginBean.setUserId(userID);
+    lastLoginBean.setUserName(userName);
+    lastLoginBean.setLastLogin(lastLogin);
+    lastLoginBean.setBeforeLastLogin(beforeLastLogin);
+    return lastLoginBean;
   }
 
   /**
@@ -434,5 +445,23 @@ public class JPALoginHistoryStorageImpl implements LoginHistoryStorage {
       loginHistoryBeanList.add(loginHistoryBean);
     }
     return loginHistoryBeanList;
+  }
+
+  /**
+   * returns a converted list of LastLoginBeans from a given list of
+   * LoginHistoryEntities.
+   * @param loginHistoryEntityList
+   * @return
+   * @throws Exception
+   */
+  public List<LastLoginBean> convertToLastLoginBeanList(List<LoginHistoryEntity> loginHistoryEntityList) throws Exception {
+    List<LastLoginBean> lastLoginBeanList = new ArrayList<>();
+    LastLoginBean lastLoginBean;
+
+    for (LoginHistoryEntity loginHistoryEntity : loginHistoryEntityList) {
+      lastLoginBean = convertToLastLoginBean(loginHistoryEntity);
+      lastLoginBeanList.add(lastLoginBean);
+    }
+    return lastLoginBeanList;
   }
 }
