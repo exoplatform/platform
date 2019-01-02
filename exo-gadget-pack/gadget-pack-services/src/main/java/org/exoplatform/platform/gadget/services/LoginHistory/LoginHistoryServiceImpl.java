@@ -112,7 +112,6 @@ public class LoginHistoryServiceImpl implements LoginHistoryService, Startable {
                 homeNode.addMixin("exo:privilegeable");
                 Map<String, String[]> permissions = new HashMap<String, String[]>();
                 permissions.put("*:/platform/administrators", PermissionType.ALL);
-                permissions.put("*:/platform/users", new String[]{PermissionType.READ});
                 ((ExtendedNode)homeNode).setPermissions(permissions);
                                                        
                 homeNode.addMixin("exo:owneable");
