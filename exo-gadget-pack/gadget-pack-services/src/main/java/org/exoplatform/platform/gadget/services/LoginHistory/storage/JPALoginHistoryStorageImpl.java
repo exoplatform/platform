@@ -20,9 +20,11 @@ import java.util.*;
 public class JPALoginHistoryStorageImpl implements LoginHistoryStorage {
   private static final Log LOG       = ExoLogger.getLogger(JPALoginHistoryStorageImpl.class);
 
-  String                   ALL_USERS = "AllUsers";
+  private String           ALL_USERS = "AllUsers";
 
   private LoginHistoryDAO  loginHistoryDAO;
+
+  private ZoneId           ZONE_ID   = ZoneId.systemDefault();
 
   public JPALoginHistoryStorageImpl(LoginHistoryDAO loginHistoryDAO) {
     this.loginHistoryDAO = loginHistoryDAO;
@@ -66,25 +68,19 @@ public class JPALoginHistoryStorageImpl implements LoginHistoryStorage {
   public List<LoginCounterBean> getLoginCountPerDaysInRange(String userId, long fromDate, long toDate) throws Exception {
     try {
       // set the fromDate to 00:00
-      Calendar from = Calendar.getInstance();
-      Calendar to = Calendar.getInstance();
-      from.setTimeInMillis(fromDate);
-      to.setTimeInMillis(toDate);
-      from.set(Calendar.MILLISECOND, 0);
-      from.set(Calendar.SECOND, 0);
-      from.set(Calendar.MINUTE, 0);
-      from.set(Calendar.HOUR, 0);
+      Instant instant1 = Instant.ofEpochMilli(fromDate);
+      ZonedDateTime zonedDateTime1 = ZonedDateTime.ofInstant(instant1, ZONE_ID);
+      ZonedDateTime from = zonedDateTime1.with(LocalTime.MIDNIGHT);
 
       // set the toDate to 23:59
-      to.set(Calendar.MILLISECOND, 999);
-      to.set(Calendar.SECOND, 59);
-      to.set(Calendar.MINUTE, 59);
-      to.set(Calendar.HOUR, 23);
+      Instant instant2 = Instant.ofEpochMilli(toDate);
+      ZonedDateTime zonedDateTime2 = ZonedDateTime.ofInstant(instant2, ZONE_ID);
+      ZonedDateTime to = zonedDateTime2.with(LocalTime.MAX);
 
       // instantiate first day, next day and lastDay variables
-      long firstDay = from.getTimeInMillis();
+      long firstDay = from.toInstant().toEpochMilli();
       Long nextDay;
-      Long lastDay = to.getTimeInMillis();
+      Long lastDay = to.toInstant().toEpochMilli();
 
       List<LoginCounterBean> counterBeanList = new ArrayList<>();
 
@@ -92,18 +88,18 @@ public class JPALoginHistoryStorageImpl implements LoginHistoryStorage {
       // loginCount/day
       while (firstDay <= lastDay) {
         LoginCounterBean loginCountPerDay = new LoginCounterBean();
-        Calendar cal = Calendar.getInstance();
-        cal.setTimeInMillis(firstDay);
-        cal.set(Calendar.DAY_OF_YEAR, cal.get(Calendar.DAY_OF_YEAR) + 1);
-        nextDay = cal.getTimeInMillis();
 
-        Calendar cal2 = Calendar.getInstance();
-        cal2.setTimeInMillis(firstDay);
-        cal2.set(Calendar.MILLISECOND, 999);
-        cal2.set(Calendar.SECOND, 59);
-        cal2.set(Calendar.MINUTE, 59);
-        cal2.set(Calendar.HOUR_OF_DAY, 23);
-        Long endOfDay = cal2.getTimeInMillis();
+        // set next day
+        Instant instant3 = Instant.ofEpochMilli(firstDay);
+        ZonedDateTime zonedDateTime3 = ZonedDateTime.ofInstant(instant3, ZONE_ID);
+        ZonedDateTime next = zonedDateTime3.plusDays(1);
+        nextDay = next.toInstant().toEpochMilli();
+
+        // set end of day
+        Instant instant4 = Instant.ofEpochMilli(firstDay);
+        ZonedDateTime zonedDateTime4 = ZonedDateTime.ofInstant(instant4, ZONE_ID);
+        ZonedDateTime end = zonedDateTime4.with(LocalTime.MAX);
+        Long endOfDay = end.toInstant().toEpochMilli();
 
         Long count;
         if (userId.equals(ALL_USERS) || userId == null) {
@@ -249,9 +245,9 @@ public class JPALoginHistoryStorageImpl implements LoginHistoryStorage {
       return true;
     }
     //
-    Calendar calendar = Calendar.getInstance();
-    calendar.set(Calendar.DAY_OF_MONTH, calendar.get(Calendar.DAY_OF_MONTH) - days);
-    long limitTime = calendar.getTimeInMillis();
+    ZonedDateTime zonedDateTime = ZonedDateTime.ofInstant(Instant.now(), ZONE_ID);
+    ZonedDateTime limit = zonedDateTime.minusDays(days);
+    long limitTime = limit.toInstant().toEpochMilli();
     return beforeLastLogin >= limitTime;
   }
 
@@ -312,14 +308,12 @@ public class JPALoginHistoryStorageImpl implements LoginHistoryStorage {
   @Override
   public List<LoginCounterBean> getLoginCountPerWeeksInMonths(String userId, long fromMonth, int numOfMonths) throws Exception {
     Instant instant = Instant.now();
-    ZoneId zoneId = ZoneId.systemDefault();
-    ZonedDateTime zonedDateTime = ZonedDateTime.ofInstant(instant, zoneId);
+    ZonedDateTime zonedDateTime = ZonedDateTime.ofInstant(instant, ZONE_ID);
 
     long now = zonedDateTime.toInstant().toEpochMilli();
 
     Instant instant1 = Instant.ofEpochMilli(fromMonth);
-    ZoneId zoneId1 = ZoneId.systemDefault();
-    ZonedDateTime zonedDateTime1 = ZonedDateTime.ofInstant(instant1, zoneId1);
+    ZonedDateTime zonedDateTime1 = ZonedDateTime.ofInstant(instant1, ZONE_ID);
 
     ZonedDateTime zonedDateTime2 = zonedDateTime1.withMonth(numOfMonths);
     long toMonth = zonedDateTime2.toInstant().toEpochMilli();
@@ -349,13 +343,11 @@ public class JPALoginHistoryStorageImpl implements LoginHistoryStorage {
   @Override
   public List<LoginCounterBean> getLoginCountPerMonthsInYear(String userId, long year) throws Exception {
     Instant instant = Instant.now();
-    ZoneId zoneId = ZoneId.systemDefault();
-    ZonedDateTime zonedDateTime = ZonedDateTime.ofInstant(instant, zoneId);
+    ZonedDateTime zonedDateTime = ZonedDateTime.ofInstant(instant, ZONE_ID);
     long now = zonedDateTime.toInstant().toEpochMilli();
 
     Instant instant1 = Instant.ofEpochMilli(year);
-    ZoneId zoneId1 = ZoneId.systemDefault();
-    ZonedDateTime zonedDateTime1 = ZonedDateTime.ofInstant(instant1, zoneId1);
+    ZonedDateTime zonedDateTime1 = ZonedDateTime.ofInstant(instant1, ZONE_ID);
     ZonedDateTime zonedDateTime2 = zonedDateTime1.withYear(1);
     long nextYear = zonedDateTime2.toInstant().toEpochMilli();
 
@@ -365,8 +357,7 @@ public class JPALoginHistoryStorageImpl implements LoginHistoryStorage {
     do {
       fromDate = toDate;
       Instant instant2 = Instant.ofEpochMilli(toDate);
-      ZoneId zoneId2 = ZoneId.systemDefault();
-      ZonedDateTime zonedDateTime3 = ZonedDateTime.ofInstant(instant2, zoneId2);
+      ZonedDateTime zonedDateTime3 = ZonedDateTime.ofInstant(instant2, ZONE_ID);
       ZonedDateTime zonedDateTime4 = zonedDateTime3.withMonth(1);
 
       toDate = zonedDateTime4.toInstant().toEpochMilli();
@@ -411,6 +402,7 @@ public class JPALoginHistoryStorageImpl implements LoginHistoryStorage {
 
   /**
    * returns a converted LastLoginBean from a given LoginHistoryEntity.
+   * 
    * @param loginHistoryEntity
    * @return
    * @throws Exception
@@ -450,6 +442,7 @@ public class JPALoginHistoryStorageImpl implements LoginHistoryStorage {
   /**
    * returns a converted list of LastLoginBeans from a given list of
    * LoginHistoryEntities.
+   * 
    * @param loginHistoryEntityList
    * @return
    * @throws Exception
