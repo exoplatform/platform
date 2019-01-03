@@ -3,7 +3,6 @@ package org.exoplatform.platform.gadget.services.LoginHistory;
 import org.exoplatform.commons.api.settings.SettingService;
 import org.exoplatform.commons.upgrade.UpgradeProductPlugin;
 import org.exoplatform.container.xml.InitParams;
-import org.exoplatform.platform.gadget.services.LoginHistory.jpa.entity.LoginHistoryEntity;
 import org.exoplatform.platform.gadget.services.LoginHistory.storage.JCRLoginHistoryStorageImpl;
 import org.exoplatform.platform.gadget.services.LoginHistory.storage.JPALoginHistoryStorageImpl;
 import org.exoplatform.services.jcr.RepositoryService;
@@ -11,13 +10,8 @@ import org.exoplatform.services.jcr.core.ManageableRepository;
 import org.exoplatform.services.jcr.ext.common.SessionProvider;
 
 import javax.jcr.Session;
-import java.sql.Timestamp;
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 import java.util.concurrent.ExecutorService;
-import java.util.stream.Collectors;
 
 import static org.eclipse.jetty.http.HttpParser.LOG;
 
@@ -32,6 +26,8 @@ public class LoginHistoryUpgradePlugin extends UpgradeProductPlugin {
   private Set<String>                loginHistoryErrorsList = new HashSet<>();
 
   private RepositoryService          repositoryService;
+
+  private String ALL_USERS = "AllUsers";
 
   public LoginHistoryUpgradePlugin(SettingService settingService, InitParams initParams) {
     super(settingService, initParams);
@@ -53,24 +49,16 @@ public class LoginHistoryUpgradePlugin extends UpgradeProductPlugin {
     Long from = 946681200000L;
 
     try {
-      Set<String> allUsers = jcrLoginHistoryStorage.getLastUsersLogin(from);
-      List<String> allUsersList = allUsers.stream().collect(Collectors.toList());
-      LoginHistoryEntity loginHistoryEntity = new LoginHistoryEntity();
-      List<LoginHistoryBean> loginHistoryBeanList = new ArrayList<LoginHistoryBean>();
-      List<LoginHistoryEntity> loginHistoryEntityList = new ArrayList<>();
-      for (int i = 0; i < allUsersList.size(); i++) {
-        loginHistoryBeanList = jcrLoginHistoryStorage.getLoginHistory(allUsersList.get(i), from, startTime);
-        for (int j = 0; j < loginHistoryBeanList.size(); j++) {
-          Timestamp loginDate = new Timestamp(loginHistoryBeanList.get(j).getLoginTime());
-          loginHistoryEntity.setUserID(allUsersList.get(i));
-          loginHistoryEntity.setLoginDate(loginDate);
-          jpaLoginHistoryStorage.addLoginHistoryEntry(loginHistoryEntity.getUserID(), loginHistoryBeanList.get(j).getLoginTime());
-        }
+      List<LoginHistoryBean> loginHistoryBeanList = jcrLoginHistoryStorage.getLoginHistory(ALL_USERS,from,startTime);
+
+      for (LoginHistoryBean loginHistoryBean : loginHistoryBeanList) {
+        long loginDate = loginHistoryBean.getLoginTime();
+        String userId = loginHistoryBean.getUserId();
+        jpaLoginHistoryStorage.addLoginHistoryEntry(userId, loginDate);
       }
     } catch (Exception e) {
       e.printStackTrace();
     }
-
   }
 
   private Session getSession(SessionProvider sessionProvider) throws Exception {
