@@ -8,6 +8,7 @@ import org.exoplatform.services.log.Log;
 import javax.persistence.NoResultException;
 import java.sql.Timestamp;
 import java.util.*;
+import java.util.stream.Collectors;
 
 public class LoginHistoryDAO extends GenericDAOJPAImpl<LoginHistoryEntity, Long> {
   private static final Log LOG = ExoLogger.getLogger(LoginHistoryDAO.class);
@@ -138,9 +139,8 @@ public class LoginHistoryDAO extends GenericDAOJPAImpl<LoginHistoryEntity, Long>
       if (resultList == null) {
         lastLoggedUsers = null;
       } else {
-        Set<String> setOfLastLoggedUsers = new LinkedHashSet<>(resultList);
-        List<String> lastLoggedUsersList = new LinkedList<>(setOfLastLoggedUsers);
-        for (int i = 0; i < numLogins && i < resultList.size(); i++) {
+        List<String> lastLoggedUsersList = resultList.stream().distinct().collect(Collectors.toList());
+        for (int i = 0; i < numLogins && i < lastLoggedUsersList.size(); i++) {
           lastLoggedUsers.add(lastLoggedUsersList.get(i));
         }
       }
