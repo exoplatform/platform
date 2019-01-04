@@ -133,19 +133,17 @@ public class LoginHistoryDAO extends GenericDAOJPAImpl<LoginHistoryEntity, Long>
    * @return
    */
   public List<String> getLastLoggedUsers(int numLogins) {
-    List<String> lastLoggedUsers = new LinkedList<>();
+    List<String> lastLoggedUsers;
     try {
       List<String> resultList = getEntityManager().createNamedQuery("loginHistory.getAllLoggedUsers").getResultList();
       if (resultList == null) {
         lastLoggedUsers = null;
       } else {
-        List<String> lastLoggedUsersList = resultList.stream().distinct().collect(Collectors.toList());
-        for (int i = 0; i < numLogins && i < lastLoggedUsersList.size(); i++) {
-          lastLoggedUsers.add(lastLoggedUsersList.get(i));
-        }
+        List<String> users = resultList.stream().distinct().collect(Collectors.toList());
+        lastLoggedUsers = users.stream().limit(numLogins).collect(Collectors.toList());
       }
     } catch (Exception e) {
-      LOG.error("No logged Users found" + e.getMessage(), e);
+      LOG.error("No logged Users found: " + e.getMessage(), e);
       lastLoggedUsers = null;
     }
     return lastLoggedUsers;
@@ -279,10 +277,10 @@ public class LoginHistoryDAO extends GenericDAOJPAImpl<LoginHistoryEntity, Long>
       if (lastLogin == null) {
         beforeLastLogin = 0;
       } else {
-        Long lastLoginId = lastLogin.getID();
+        Date lastLoginDate = lastLogin.getLoginDate();
         Long beforeLastLoginId = (Long) getEntityManager().createNamedQuery("loginHistory.getBeforeLastLoginID")
                                                           .setParameter("userId", userId)
-                                                          .setParameter("id", lastLoginId)
+                                                          .setParameter("lastLoginDate", lastLoginDate)
                                                           .getSingleResult();
         if (beforeLastLoginId == null) {
           beforeLastLogin = 0;

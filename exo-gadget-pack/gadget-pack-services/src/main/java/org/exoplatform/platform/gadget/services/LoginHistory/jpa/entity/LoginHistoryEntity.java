@@ -9,15 +9,15 @@ import java.util.Date;
 @ExoEntity
 @Table(name = "LOGIN_HISTORY")
 @NamedQueries({
-    @NamedQuery(name = "loginHistory.getLastLoginHistory", query = "SELECT l FROM LoginHistoryEntity l ORDER BY l.id DESC"),
-    @NamedQuery(name = "loginHistory.getAllLoggedUsers", query = "SELECT l.userId FROM LoginHistoryEntity l ORDER BY l.id DESC"),
-    @NamedQuery(name = "loginHistory.getLastLoginsOfUser", query = "SELECT l FROM LoginHistoryEntity l WHERE l.userId = :userId ORDER BY l.id DESC"),
-    @NamedQuery(name = "loginHistory.getBeforeLastLoginID", query = "SELECT MAX(l.id) FROM LoginHistoryEntity l WHERE l.userId = :userId AND l.id < :id"),
+    @NamedQuery(name = "loginHistory.getLastLoginHistory", query = "SELECT l FROM LoginHistoryEntity l ORDER BY l.loginDate DESC"),
+    @NamedQuery(name = "loginHistory.getAllLoggedUsers", query = "SELECT l.userId FROM LoginHistoryEntity l ORDER BY l.loginDate DESC"),
+    @NamedQuery(name = "loginHistory.getLastLoginsOfUser", query = "SELECT l FROM LoginHistoryEntity l WHERE l.userId = :userId ORDER BY l.loginDate DESC"),
+    @NamedQuery(name = "loginHistory.getBeforeLastLoginID", query = "SELECT MAX(l.id) FROM LoginHistoryEntity l WHERE l.userId = :userId AND l.loginDate < :lastLoginDate"),
     @NamedQuery(name = "loginHistory.getLastLoginsInDateRange", query = "SELECT l FROM LoginHistoryEntity l WHERE l.loginDate BETWEEN :from AND :to"),
     @NamedQuery(name = "loginHistory.getLastLoginsOfUserInDateRange", query = "SELECT l FROM LoginHistoryEntity l WHERE l.userId = :userId AND l.loginDate BETWEEN :from AND :to"),
     @NamedQuery(name = "loginHistory.getLoginsCountInDateRange", query = "SELECT COUNT (l) FROM LoginHistoryEntity l WHERE l.loginDate BETWEEN :from AND :to"),
     @NamedQuery(name = "loginHistory.getLoginsCountOfUserInDateRange", query = "SELECT COUNT (l) FROM LoginHistoryEntity l WHERE l.userId = :userId AND l.loginDate BETWEEN :from AND :to"),
-    @NamedQuery(name = "loginHistory.getLastLoginsAfterDate", query = "SELECT l.userId FROM LoginHistoryEntity l WHERE l.loginDate >= :from ORDER BY l.id DESC"),
+    @NamedQuery(name = "loginHistory.getLastLoginsAfterDate", query = "SELECT l.userId FROM LoginHistoryEntity l WHERE l.loginDate >= :from ORDER BY l.loginDate DESC"),
     @NamedQuery(name = "loginHistory.getActiveUsersId", query = "SELECT DISTINCT l.userId FROM LoginHistoryEntity l WHERE l.loginDate >= :from") })
 public class LoginHistoryEntity {
   @Id
