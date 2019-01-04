@@ -107,7 +107,7 @@
                 <value-param>
                     <name>plugin.upgrade.target.version</name>
                     <description>Target version of the plugin</description>
-                    <value>5.2.0</value>
+                    <value>5.2.x</value>
                 </value-param>
                 <value-param>
                     <name>plugin.upgrade.execute.once</name>

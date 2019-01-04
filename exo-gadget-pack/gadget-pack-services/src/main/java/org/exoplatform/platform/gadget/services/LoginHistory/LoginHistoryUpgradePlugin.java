@@ -11,7 +11,6 @@ import org.exoplatform.services.jcr.ext.common.SessionProvider;
 
 import javax.jcr.Session;
 import java.util.*;
-import java.util.concurrent.ExecutorService;
 
 import static org.eclipse.jetty.http.HttpParser.LOG;
 
@@ -20,14 +19,12 @@ public class LoginHistoryUpgradePlugin extends UpgradeProductPlugin {
 
   private JPALoginHistoryStorageImpl jpaLoginHistoryStorage;
 
-  private ExecutorService            executorService;
-
   // List of migration error
   private Set<String>                loginHistoryErrorsList = new HashSet<>();
 
   private RepositoryService          repositoryService;
 
-  private String ALL_USERS = "AllUsers";
+  private String                     ALL_USERS              = "AllUsers";
 
   public LoginHistoryUpgradePlugin(SettingService settingService, InitParams initParams) {
     super(settingService, initParams);
@@ -44,20 +41,8 @@ public class LoginHistoryUpgradePlugin extends UpgradeProductPlugin {
     if (!hasDataToMigrate()) {
       LOG.info("No Login History data to migrate from JCR to RDBMS");
       return;
-    }
-    long startTime = System.currentTimeMillis();
-    Long from = 946681200000L;
-
-    try {
-      List<LoginHistoryBean> loginHistoryBeanList = jcrLoginHistoryStorage.getLoginHistory(ALL_USERS,from,startTime);
-
-      for (LoginHistoryBean loginHistoryBean : loginHistoryBeanList) {
-        long loginDate = loginHistoryBean.getLoginTime();
-        String userId = loginHistoryBean.getUserId();
-        jpaLoginHistoryStorage.addLoginHistoryEntry(userId, loginDate);
-      }
-    } catch (Exception e) {
-      e.printStackTrace();
+    } else {
+      migrateLoginHistory();
     }
   }
 
@@ -68,7 +53,6 @@ public class LoginHistoryUpgradePlugin extends UpgradeProductPlugin {
 
   private Boolean hasDataToMigrate() {
     boolean hasDataToMigrate = true;
-    JCRLoginHistoryStorageImpl jcrStorage = new JCRLoginHistoryStorageImpl(repositoryService);
     SessionProvider sProvider = SessionProvider.createSystemProvider();
     try {
       Session session = getSession(sProvider);
@@ -78,5 +62,23 @@ public class LoginHistoryUpgradePlugin extends UpgradeProductPlugin {
       e.printStackTrace();
     }
     return hasDataToMigrate;
+  }
+
+  private void migrateLoginHistory() {
+    long startTime = System.currentTimeMillis();
+    Long from = 946681200000L;
+
+    try {
+      List<LoginHistoryBean> loginHistoryBeanList = jcrLoginHistoryStorage.getLoginHistory(ALL_USERS, from, startTime);
+      Collections.reverse(loginHistoryBeanList);
+
+      for (LoginHistoryBean loginHistoryBean : loginHistoryBeanList) {
+        long loginDate = loginHistoryBean.getLoginTime();
+        String userId = loginHistoryBean.getUserId();
+        jpaLoginHistoryStorage.addLoginHistoryEntry(userId, loginDate);
+      }
+    } catch (Exception e) {
+      e.printStackTrace();
+    }
   }
 }
