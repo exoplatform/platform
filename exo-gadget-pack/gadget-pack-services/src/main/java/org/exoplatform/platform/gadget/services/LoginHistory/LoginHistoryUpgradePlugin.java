@@ -38,11 +38,23 @@ public class LoginHistoryUpgradePlugin extends UpgradeProductPlugin {
   public void processUpgrade(String s, String s1) {
     // First check to see if the JCR still contains wiki data. If not, migration is
     // skipped
+    int pageSize = 50;
+    int offset = 0;
+    List<LoginHistoryBean> loginHistoryBeanList = new LinkedList<>();
     if (!hasDataToMigrate()) {
       LOG.info("No Login History data to migrate from JCR to RDBMS");
       return;
     } else {
-      migrateLoginHistory();
+      do {
+        try {
+          loginHistoryBeanList = jcrLoginHistoryStorage.getLoginHistoryByNumber(pageSize, offset);
+          migrateLoginHistory(loginHistoryBeanList);
+          offset += pageSize;
+        } catch (Exception e) {
+          e.printStackTrace();
+        }
+      } while (loginHistoryBeanList != null);
+
     }
   }
 
@@ -64,21 +76,15 @@ public class LoginHistoryUpgradePlugin extends UpgradeProductPlugin {
     return hasDataToMigrate;
   }
 
-  private void migrateLoginHistory() {
-    long startTime = System.currentTimeMillis();
-    Long from = 946681200000L;
-
-    try {
-      List<LoginHistoryBean> loginHistoryBeanList = jcrLoginHistoryStorage.getLoginHistory(ALL_USERS, from, startTime);
-      Collections.reverse(loginHistoryBeanList);
-
-      for (LoginHistoryBean loginHistoryBean : loginHistoryBeanList) {
-        long loginDate = loginHistoryBean.getLoginTime();
+  private void migrateLoginHistory(List<LoginHistoryBean> historyBeans) throws Exception {
+    if (historyBeans == null) {
+      return;
+    } else {
+      for (LoginHistoryBean loginHistoryBean : historyBeans) {
         String userId = loginHistoryBean.getUserId();
-        jpaLoginHistoryStorage.addLoginHistoryEntry(userId, loginDate);
+        long loginTime = loginHistoryBean.getLoginTime();
+        jpaLoginHistoryStorage.addLoginHistoryEntry(userId, loginTime);
       }
-    } catch (Exception e) {
-      e.printStackTrace();
     }
   }
 }

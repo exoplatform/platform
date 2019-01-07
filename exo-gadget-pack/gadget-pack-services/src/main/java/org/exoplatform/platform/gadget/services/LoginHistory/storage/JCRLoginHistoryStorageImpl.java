@@ -633,4 +633,43 @@ public class JCRLoginHistoryStorageImpl implements LoginHistoryStorage {
     }
   }
 
+  public List<LoginHistoryBean> getLoginHistoryByNumber(int size, int offset) throws Exception {
+    SessionProvider sProvider = SessionProvider.createSystemProvider();
+
+    if (!getSession(sProvider).getRootNode().hasNode(HOME)) {
+      createHomeNode();
+    }
+
+    try {
+      Session session = this.getSession(sProvider);
+
+      QueryManager queryManager = session.getWorkspace().getQueryManager();
+      String sqlStatement = "SELECT * FROM exo:LoginHisSvc_loginHistoryItem "
+          + "ORDER BY exo:LoginHisSvc_loginHistoryItem_loginTime LIMIT " + size + " OFFSET "
+          + offset;
+      QueryImpl query = (QueryImpl) queryManager.createQuery(sqlStatement, Query.SQL);
+      QueryResult result = query.execute();
+      NodeIterator nodeIterator = result.getNodes();
+      List<LoginHistoryBean> list = new ArrayList<>();
+      Node node;
+      String uId, uName;
+      while (nodeIterator.hasNext()) {
+        node = nodeIterator.nextNode();
+        LoginHistoryBean loginHistory = new LoginHistoryBean();
+        uId = node.getProperty("exo:LoginHisSvc_loginHistoryItem_userId").getString();
+        uName = getUserFullName(uId);
+        loginHistory.setUserId(uId);
+        loginHistory.setUserName(uName.isEmpty() ? uId : uName);
+        loginHistory.setLoginTime(node.getProperty("exo:LoginHisSvc_loginHistoryItem_loginTime").getLong());
+        list.add(loginHistory);
+      }
+      return list;
+    } catch (Exception e) {
+      LOG.debug("Error while getting login history : " + e.getMessage(), e);
+      throw e;
+    } finally {
+      sProvider.close();
+    }
+  }
+
 }
