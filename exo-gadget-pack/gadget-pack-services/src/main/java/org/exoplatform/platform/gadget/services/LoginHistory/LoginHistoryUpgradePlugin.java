@@ -77,9 +77,7 @@ public class LoginHistoryUpgradePlugin extends UpgradeProductPlugin {
   }
 
   private void migrateLoginHistory(List<LoginHistoryBean> historyBeans) throws Exception {
-    if (historyBeans == null) {
-      return;
-    } else {
+    if (historyBeans != null) {
       for (LoginHistoryBean loginHistoryBean : historyBeans) {
         String userId = loginHistoryBean.getUserId();
         long loginTime = loginHistoryBean.getLoginTime();
@@ -87,4 +85,5 @@ public class LoginHistoryUpgradePlugin extends UpgradeProductPlugin {
       }
     }
   }
+
 }
