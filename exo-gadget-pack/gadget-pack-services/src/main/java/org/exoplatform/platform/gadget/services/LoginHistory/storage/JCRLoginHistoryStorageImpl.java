@@ -633,7 +633,7 @@ public class JCRLoginHistoryStorageImpl implements LoginHistoryStorage {
     }
   }
 
-  public List<LoginHistoryBean> getLoginHistoryByNumber(int size, int offset) throws Exception {
+  public List<LoginHistoryBean> getLoginHistoryByNumber(long size, long offset) throws Exception {
     SessionProvider sProvider = SessionProvider.createSystemProvider();
 
     if (!getSession(sProvider).getRootNode().hasNode(HOME)) {
@@ -645,9 +645,10 @@ public class JCRLoginHistoryStorageImpl implements LoginHistoryStorage {
 
       QueryManager queryManager = session.getWorkspace().getQueryManager();
       String sqlStatement = "SELECT * FROM exo:LoginHisSvc_loginHistoryItem "
-          + "ORDER BY exo:LoginHisSvc_loginHistoryItem_loginTime LIMIT " + size + " OFFSET "
-          + offset;
+          + "ORDER BY exo:LoginHisSvc_loginHistoryItem_loginTime ASC";
       QueryImpl query = (QueryImpl) queryManager.createQuery(sqlStatement, Query.SQL);
+      query.setLimit(size);
+      query.setOffset(offset);
       QueryResult result = query.execute();
       NodeIterator nodeIterator = result.getNodes();
       List<LoginHistoryBean> list = new ArrayList<>();

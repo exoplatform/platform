@@ -121,12 +121,7 @@ public class JPALoginHistoryStorageImpl implements LoginHistoryStorage {
 
   private int getLoginCountInDateRange(String userId, long fromDate, long toDate) throws Exception {
     List<LoginCounterBean> loginCounts = getLoginCountPerDaysInRange(userId, fromDate, toDate);
-
-    int sum = 0;
-    Iterator<LoginCounterBean> iter = loginCounts.iterator();
-    while (iter.hasNext()) {
-      sum += iter.next().getLoginCount();
-    }
+    int sum = (int) loginCounts.stream().mapToLong(LoginCounterBean::getLoginCount).sum();
     return sum;
   }
 
