@@ -66,6 +66,7 @@ public class JPALoginHistoryStorageImpl implements LoginHistoryStorage {
    * @throws Exception
    */
   public List<LoginCounterBean> getLoginCountPerDaysInRange(String userId, long fromDate, long toDate) throws Exception {
+    List<LoginCounterBean> counterBeanList = new ArrayList<>();
     try {
       // set the fromDate to 00:00
       Instant instant1 = Instant.ofEpochMilli(fromDate);
@@ -82,7 +83,7 @@ public class JPALoginHistoryStorageImpl implements LoginHistoryStorage {
       Long nextDay;
       Long lastDay = to.toInstant().toEpochMilli();
 
-      List<LoginCounterBean> counterBeanList = new ArrayList<>();
+
 
       // returns the user's login count for each day and add it to a list:
       // loginCount/day
@@ -113,10 +114,11 @@ public class JPALoginHistoryStorageImpl implements LoginHistoryStorage {
 
         firstDay = nextDay;
       }
-      return counterBeanList;
     } catch (Exception e) {
-      throw e;
+      LOG.error("Error while returning the Login Count Per Days In Range of " + userId + ":" + e.getMessage());
+      counterBeanList = null;
     }
+    return counterBeanList;
   }
 
   private int getLoginCountInDateRange(String userId, long fromDate, long toDate) throws Exception {
@@ -184,7 +186,7 @@ public class JPALoginHistoryStorageImpl implements LoginHistoryStorage {
       LoginHistoryEntity loginHistoryEntity = new LoginHistoryEntity(userId, loginDate);
       loginHistoryDAO.create(loginHistoryEntity); // the create method will return the entity which we'll ignore.
     } catch (Exception e) {
-      throw e;
+      LOG.error("Error while adding user " + userId + ":" + e.getMessage());
     }
   }
 
@@ -202,7 +204,7 @@ public class JPALoginHistoryStorageImpl implements LoginHistoryStorage {
    */
   @Override
   public List<LoginHistoryBean> getLoginHistory(String userId, long fromTime, long toTime) throws Exception {
-    List<LoginHistoryBean> loginHistoryBeanList;
+    List<LoginHistoryBean> loginHistoryBeanList = new LinkedList<>();
     try {
       if (userId.equals(ALL_USERS) || userId == null) {
         List<LoginHistoryEntity> loginHistoryEntityList1 = loginHistoryDAO.getAllLoginHistory(fromTime, toTime);
@@ -213,11 +215,11 @@ public class JPALoginHistoryStorageImpl implements LoginHistoryStorage {
         loginHistoryBeanList = convertToLoginHistoryBeanList(loginHistoryEntityList);
 
       }
-      return loginHistoryBeanList;
-
     } catch (Exception e) {
-      throw e;
+      LOG.error("Error while returning Login History of " + userId +":" +e.getMessage());
+      loginHistoryBeanList = null;
     }
+    return loginHistoryBeanList;
   }
 
   @Override
