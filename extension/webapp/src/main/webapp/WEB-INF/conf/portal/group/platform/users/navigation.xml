@@ -27,7 +27,11 @@
 	<priority>8</priority>
     
   <page-nodes>
-
-	  
+    <node>
+      <uri>spacesAdministration</uri>
+      <name>spacesAdministration</name>
+      <label>Spaces</label>
+      <page-reference>group::/platform/users::spacesAdministration</page-reference>
+    </node>
   </page-nodes>   
 </node-navigation>

@@ -7,7 +7,7 @@
             <uri>spacesAdministration</uri>
             <name>spacesAdministration</name>
             <label>Spaces</label>
-            <page-reference>group::/platform/administrators::spacesAdministration</page-reference>
+            <page-reference>group::/platform/users::spacesAdministration</page-reference>
         </node>
         <node>
             <uri>org</uri>

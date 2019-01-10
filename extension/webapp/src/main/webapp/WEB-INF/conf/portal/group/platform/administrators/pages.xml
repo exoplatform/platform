@@ -24,22 +24,7 @@
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:schemaLocation="http://www.gatein.org/xml/ns/gatein_objects_1_2 http://www.gatein.org/xml/ns/gatein_objects_1_2"
         xmlns="http://www.gatein.org/xml/ns/gatein_objects_1_2">
-    
-    <page>
-        <name>spacesAdministration</name>
-        <title>Spaces Administration</title>
-        <access-permissions>*:/platform/administrators</access-permissions>
-        <edit-permission>*:/platform/administrators</edit-permission>
-        <show-max-window>false</show-max-window>
-        <portlet-application>
-            <portlet>
-                <application-ref>social-vue-portlet</application-ref>
-                <portlet-ref>SpacesAdministration</portlet-ref>
-            </portlet>
-            <access-permissions>*:/platform/administrators</access-permissions>
-            <show-info-bar>false</show-info-bar>
-        </portlet-application>
-    </page>
+
     <page>
         <name>registry</name>
         <title>Registry</title>
