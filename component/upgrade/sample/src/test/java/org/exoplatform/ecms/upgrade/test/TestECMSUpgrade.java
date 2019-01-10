@@ -31,6 +31,7 @@ import org.exoplatform.container.PortalContainer;
 import org.exoplatform.container.configuration.ConfigurationManager;
 import org.exoplatform.services.cms.templates.TemplateService;
 import org.exoplatform.services.jcr.RepositoryService;
+import org.exoplatform.services.wcm.core.NodetypeConstant;
 import org.exoplatform.services.wcm.utils.WCMCoreUtils;
 import org.exoplatform.test.BasicTestCase;
 import org.junit.Ignore;
@@ -95,7 +96,7 @@ public class TestECMSUpgrade extends BasicTestCase {
       NodeIterator iter = templateService.getAllTemplatesOfNodeType(true, "nt:file", WCMCoreUtils.getSystemSessionProvider());
     while (iter.hasNext()) {
       Node node = (Node) iter.next();
-      assertTrue(node.isNodeType(ProductInformations.MIX_VERSIONABLE));
+      assertTrue(node.isNodeType(NodetypeConstant.MIX_VERSIONABLE));
 
       Version version = node.getBaseVersion();
       assertNotNull(version);

@@ -7,8 +7,12 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-import javax.jcr.Node;
-import javax.jcr.Session;
+import javax.jcr.*;
+import javax.jcr.lock.LockException;
+import javax.jcr.nodetype.ConstraintViolationException;
+import javax.jcr.nodetype.NoSuchNodeTypeException;
+import javax.jcr.version.Version;
+import javax.jcr.version.VersionException;
 
 import org.exoplatform.commons.upgrade.UpgradeProductPlugin;
 import org.exoplatform.container.configuration.ConfigurationManager;
@@ -30,6 +34,7 @@ import org.exoplatform.services.jcr.core.ManageableRepository;
 import org.exoplatform.services.jcr.ext.hierarchy.NodeHierarchyCreator;
 import org.exoplatform.services.log.ExoLogger;
 import org.exoplatform.services.log.Log;
+import org.exoplatform.services.wcm.core.NodetypeConstant;
 
 public class UpgradeNodeTypesTemplatesService extends UpgradeProductPlugin {
   private static final Log LOG = ExoLogger.getLogger(UpgradeNodeTypesTemplatesService.class);
@@ -198,7 +203,7 @@ public class UpgradeNodeTypesTemplatesService extends UpgradeProductPlugin {
         Node templateNode = specifiedTemplatesHome.getNode(templateNodeName);
 
         // Store the old Template content into a version
-        super.addNodeVersion(templateNode, oldVersion);
+        addNodeVersion(templateNode, oldVersion);
 
         // Update the template content by the new one
         templateService.addTemplate(templateType, nodeType.getNodetypeName(), nodeType.getLabel(),
@@ -214,6 +219,43 @@ public class UpgradeNodeTypesTemplatesService extends UpgradeProductPlugin {
    */
   public boolean shouldProceedToUpgrade(String previousVersion, String newVersion) {
     return true;
+  }
+
+
+  /**
+   *
+   * Add node's version with a label. The node's session have to still open, and this method don't handle
+   * the node's session closure.
+   *
+   * @param nodeToAddVersion
+   *          the node that will be versioned
+   * @param versionLabel
+   *          the label to apply to the new created version
+   *
+   * @throws NoSuchNodeTypeException
+   * @throws VersionException
+   * @throws ConstraintViolationException
+   * @throws LockException
+   * @throws AccessDeniedException
+   * @throws ItemExistsException
+   * @throws InvalidItemStateException
+   * @throws ReferentialIntegrityException
+   * @throws RepositoryException
+   */
+  public void addNodeVersion(Node nodeToAddVersion, String versionLabel) throws NoSuchNodeTypeException, VersionException,
+          ConstraintViolationException, LockException, AccessDeniedException, ItemExistsException, InvalidItemStateException,
+          ReferentialIntegrityException, RepositoryException {
+    if (!nodeToAddVersion.isNodeType(NodetypeConstant.MIX_VERSIONABLE)) {
+      nodeToAddVersion.addMixin(NodetypeConstant.MIX_VERSIONABLE);
+      nodeToAddVersion.save();
+      nodeToAddVersion.getSession().save();
+      nodeToAddVersion.getSession().refresh(true);
+    }
+    if (nodeToAddVersion.isCheckedOut()) {
+      Version version = nodeToAddVersion.checkin();
+      nodeToAddVersion.getVersionHistory().addVersionLabel(version.getName(), versionLabel, true);
+    }
+    nodeToAddVersion.checkout();
   }
 
 }

@@ -395,7 +395,7 @@ public class UnlockService implements Startable {
                 p.setProperty(ProductInformations.PRODUCT_CODE, productCode);
                 p.setProperty(ProductInformations.PRODUCT_KEY, key);
                 productInformations.setUnlockInformation(p);
-                productInformations.storeUnlockInformation();
+                productInformations.storeProductInformation(productInformations.getProductInformation());
             }
         } catch (MissingProductInformationException e) {
             LOG.error("Product Information not found", e);
