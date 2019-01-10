@@ -14,18 +14,13 @@ import javax.jcr.Session;
 import java.util.*;
 
 public class LoginHistoryUpgradePlugin extends UpgradeProductPlugin {
-  private static final Log           LOG                    = ExoLogger.getLogger(LoginHistoryUpgradePlugin.class);
+  private static final Log           LOG = ExoLogger.getLogger(LoginHistoryUpgradePlugin.class);
 
   private JCRLoginHistoryStorageImpl jcrLoginHistoryStorage;
 
   private LoginHistoryStorage        jpaLoginHistoryStorage;
 
-  // List of migration error
   private RepositoryService          repositoryService;
-
-  private Set<String>                loginHistoryErrorsList = new HashSet<>();
-
-  private String                     ALL_USERS              = "AllUsers";
 
   public LoginHistoryUpgradePlugin(InitParams initParams) {
     super(initParams);
@@ -48,21 +43,37 @@ public class LoginHistoryUpgradePlugin extends UpgradeProductPlugin {
     long pageSize = 50;
     long offset = 0;
     int count = 0;
+    Boolean removeLoginCount = true, removeLoginHistory = true, removeLoginHistoryHomeNode;
     List<LoginHistoryBean> loginHistoryBeanList;
     if (!hasDataToMigrate()) {
       LOG.info("No Login History data to migrate from JCR to RDBMS");
-      return;
     } else {
       do {
         try {
           loginHistoryBeanList = jcrLoginHistoryStorage.getLoginHistoryByNumber(pageSize, offset);
-          migrateLoginHistory(loginHistoryBeanList);
           count = loginHistoryBeanList.size();
+          if (count != 0) {
+            migrateLoginHistory(loginHistoryBeanList);
+            removeLoginHistory = removeLoginHistory && jcrLoginHistoryStorage.removeLoginHistoryByNumber(pageSize, offset);
+            removeLoginCount = removeLoginCount && jcrLoginHistoryStorage.removeLoginCountByNumber(pageSize, offset);
+          }
           offset += pageSize;
         } catch (Exception e) {
           e.printStackTrace();
         }
       } while (count != 0);
+      if (removeLoginHistory && removeLoginCount) {
+        LOG.info("Login History Entries and Counters nodes deleted successfully");
+        try {
+          removeLoginHistoryHomeNode = jcrLoginHistoryStorage.removeLoginHistoryHomeNode();
+        } catch (Exception e) {
+          LOG.error("Error while deleting Login History Home Node: " + e.getMessage());
+          removeLoginHistoryHomeNode = false;
+        }
+        if (removeLoginHistoryHomeNode) {
+          LOG.info("Login History Home Node deleted successfully !");
+        }
+      }
 
     }
   }

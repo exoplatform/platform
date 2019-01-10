@@ -666,11 +666,104 @@ public class JCRLoginHistoryStorageImpl implements LoginHistoryStorage {
       }
       return list;
     } catch (Exception e) {
-      LOG.debug("Error while getting login history : " + e.getMessage(), e);
+      LOG.error("Error while getting login history : " + e.getMessage(), e);
       throw e;
     } finally {
       sProvider.close();
     }
+  }
+
+  public Boolean removeLoginHistoryByNumber(long size, long offset) throws Exception {
+    SessionProvider sProvider = SessionProvider.createSystemProvider();
+    Boolean remove = false;
+
+    if (!getSession(sProvider).getRootNode().hasNode(HOME)) {
+      createHomeNode();
+    }
+
+    try {
+      Session session = this.getSession(sProvider);
+
+      QueryManager queryManager = session.getWorkspace().getQueryManager();
+      String sqlStatement = "SELECT * FROM exo:LoginHisSvc_loginHistoryItem "
+              + "ORDER BY exo:LoginHisSvc_loginHistoryItem_loginTime ASC";
+      QueryImpl query = (QueryImpl) queryManager.createQuery(sqlStatement, Query.SQL);
+      query.setLimit(size);
+      query.setOffset(offset);
+      QueryResult result = query.execute();
+      NodeIterator nodeIterator = result.getNodes();
+      Node node;
+      while (nodeIterator.hasNext()) {
+        node = nodeIterator.nextNode();
+        node.remove();
+      }
+      session.save();
+      remove = true;
+    } catch (Exception e) {
+      LOG.error("Error while deleting login history : " + e.getMessage(), e);
+      remove = false;
+    } finally {
+      sProvider.close();
+    }
+    return remove;
+  }
+
+  public Boolean removeLoginCountByNumber(long size, long offset) throws Exception {
+    SessionProvider sProvider = SessionProvider.createSystemProvider();
+    Boolean remove = false;
+
+    if (!getSession(sProvider).getRootNode().hasNode(HOME)) {
+      createHomeNode();
+    }
+
+    try {
+      Session session = this.getSession(sProvider);
+
+      QueryManager queryManager = session.getWorkspace().getQueryManager();
+      String sqlStatement = "SELECT * FROM exo:LoginHisSvc_loginCounterItem "
+              + "ORDER BY exo:LoginHisSvc_loginCounterItem_loginDate ASC";
+      QueryImpl query = (QueryImpl) queryManager.createQuery(sqlStatement, Query.SQL);
+      query.setLimit(size);
+      query.setOffset(offset);
+      QueryResult result = query.execute();
+      NodeIterator nodeIterator = result.getNodes();
+      Node node;
+      while (nodeIterator.hasNext()) {
+        node = nodeIterator.nextNode();
+        node.remove();
+      }
+      session.save();
+      remove = true;
+    } catch (Exception e) {
+      LOG.error("Error while deleting login history counter : " + e.getMessage(), e);
+      remove = false;
+    } finally {
+      sProvider.close();
+    }
+    return remove;
+  }
+
+  public Boolean removeLoginHistoryHomeNode() throws Exception {
+    SessionProvider sProvider = SessionProvider.createSystemProvider();
+    Boolean remove = false;
+
+    if (!getSession(sProvider).getRootNode().hasNode(HOME)) {
+      createHomeNode();
+    }
+
+    try {
+      Session session = this.getSession(sProvider);
+      Node homeNode = session.getRootNode().getNode(HOME);
+      homeNode.remove();
+      session.save();
+      remove = true;
+    } catch (Exception e) {
+      LOG.error("Error while deleting login history home node : " + e.getMessage(), e);
+      remove = false;
+    } finally {
+      sProvider.close();
+    }
+    return remove;
   }
 
 }
