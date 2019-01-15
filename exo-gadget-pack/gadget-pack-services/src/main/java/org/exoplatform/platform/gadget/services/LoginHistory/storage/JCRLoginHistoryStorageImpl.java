@@ -633,8 +633,9 @@ public class JCRLoginHistoryStorageImpl implements LoginHistoryStorage {
     }
   }
 
-  public List<LoginHistoryBean> getLoginHistoryByNumber(long size, long offset) throws Exception {
+  public NodeIterator getLoginHistoryNodes(long offset, long size) throws Exception {
     SessionProvider sProvider = SessionProvider.createSystemProvider();
+    NodeIterator nodeIterator;
 
     if (!getSession(sProvider).getRootNode().hasNode(HOME)) {
       createHomeNode();
@@ -650,32 +651,18 @@ public class JCRLoginHistoryStorageImpl implements LoginHistoryStorage {
       query.setLimit(size);
       query.setOffset(offset);
       QueryResult result = query.execute();
-      NodeIterator nodeIterator = result.getNodes();
-      List<LoginHistoryBean> list = new ArrayList<>();
-      Node node;
-      String uId, uName;
-      while (nodeIterator.hasNext()) {
-        node = nodeIterator.nextNode();
-        LoginHistoryBean loginHistory = new LoginHistoryBean();
-        uId = node.getProperty("exo:LoginHisSvc_loginHistoryItem_userId").getString();
-        uName = getUserFullName(uId);
-        loginHistory.setUserId(uId);
-        loginHistory.setUserName(uName.isEmpty() ? uId : uName);
-        loginHistory.setLoginTime(node.getProperty("exo:LoginHisSvc_loginHistoryItem_loginTime").getLong());
-        list.add(loginHistory);
-      }
-      return list;
+      nodeIterator = result.getNodes();
     } catch (Exception e) {
-      LOG.error("Error while getting login history : " + e.getMessage(), e);
-      throw e;
+      LOG.error("Error while getting the NodeIterator: " + e.getMessage(), e);
+      nodeIterator = null;
     } finally {
       sProvider.close();
     }
+    return nodeIterator;
   }
 
-  public Boolean removeLoginHistoryByNumber(long size, long offset) throws Exception {
+  public void removeLoginHistoryNode(Node loginHistoryNode) throws Exception {
     SessionProvider sProvider = SessionProvider.createSystemProvider();
-    Boolean remove = false;
 
     if (!getSession(sProvider).getRootNode().hasNode(HOME)) {
       createHomeNode();
@@ -683,34 +670,18 @@ public class JCRLoginHistoryStorageImpl implements LoginHistoryStorage {
 
     try {
       Session session = this.getSession(sProvider);
-
-      QueryManager queryManager = session.getWorkspace().getQueryManager();
-      String sqlStatement = "SELECT * FROM exo:LoginHisSvc_loginHistoryItem "
-              + "ORDER BY exo:LoginHisSvc_loginHistoryItem_loginTime ASC";
-      QueryImpl query = (QueryImpl) queryManager.createQuery(sqlStatement, Query.SQL);
-      query.setLimit(size);
-      query.setOffset(offset);
-      QueryResult result = query.execute();
-      NodeIterator nodeIterator = result.getNodes();
-      Node node;
-      while (nodeIterator.hasNext()) {
-        node = nodeIterator.nextNode();
-        node.remove();
-      }
+      loginHistoryNode.remove();
       session.save();
-      remove = true;
     } catch (Exception e) {
-      LOG.error("Error while deleting login history : " + e.getMessage(), e);
-      remove = false;
+      LOG.error("Error while deleting Login History Node: " + e.getMessage());
     } finally {
       sProvider.close();
     }
-    return remove;
   }
 
-  public Boolean removeLoginCountByNumber(long size, long offset) throws Exception {
+  public long removeLoginCounter(long offset, long size) throws Exception {
     SessionProvider sProvider = SessionProvider.createSystemProvider();
-    Boolean remove = false;
+    long count;
 
     if (!getSession(sProvider).getRootNode().hasNode(HOME)) {
       createHomeNode();
@@ -721,31 +692,30 @@ public class JCRLoginHistoryStorageImpl implements LoginHistoryStorage {
 
       QueryManager queryManager = session.getWorkspace().getQueryManager();
       String sqlStatement = "SELECT * FROM exo:LoginHisSvc_loginCounterItem "
-              + "ORDER BY exo:LoginHisSvc_loginCounterItem_loginDate ASC";
+          + "ORDER BY exo:LoginHisSvc_loginCounterItem_loginDate ASC";
       QueryImpl query = (QueryImpl) queryManager.createQuery(sqlStatement, Query.SQL);
       query.setLimit(size);
       query.setOffset(offset);
       QueryResult result = query.execute();
       NodeIterator nodeIterator = result.getNodes();
+      count = nodeIterator.getSize();
       Node node;
       while (nodeIterator.hasNext()) {
         node = nodeIterator.nextNode();
         node.remove();
       }
       session.save();
-      remove = true;
     } catch (Exception e) {
       LOG.error("Error while deleting login history counter : " + e.getMessage(), e);
-      remove = false;
+      count= 0;
     } finally {
       sProvider.close();
     }
-    return remove;
+    return count;
   }
 
-  public Boolean removeLoginHistoryHomeNode() throws Exception {
+  public void removeLoginHistoryHomeNode() throws Exception {
     SessionProvider sProvider = SessionProvider.createSystemProvider();
-    Boolean remove = false;
 
     if (!getSession(sProvider).getRootNode().hasNode(HOME)) {
       createHomeNode();
@@ -756,14 +726,11 @@ public class JCRLoginHistoryStorageImpl implements LoginHistoryStorage {
       Node homeNode = session.getRootNode().getNode(HOME);
       homeNode.remove();
       session.save();
-      remove = true;
     } catch (Exception e) {
       LOG.error("Error while deleting login history home node : " + e.getMessage(), e);
-      remove = false;
     } finally {
       sProvider.close();
     }
-    return remove;
   }
 
 }
