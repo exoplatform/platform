@@ -655,21 +655,13 @@ public class JCRLoginHistoryStorageImpl implements LoginHistoryStorage {
     return nodeIterator;
   }
 
-  public void removeLoginHistoryNode(Node loginHistoryNode) throws Exception {
-    SessionProvider sProvider = SessionProvider.createSystemProvider();
-
-    if (!getSession(sProvider).getRootNode().hasNode(HOME)) {
-      createHomeNode();
-    }
-
+  public void removeLoginHistoryNode(SessionProvider sProvider, Node loginHistoryNode) throws Exception {
     try {
       Session session = this.getSession(sProvider);
       loginHistoryNode.remove();
       session.save();
     } catch (Exception e) {
       LOG.error("Error while deleting Login History Node: " + e.getMessage());
-    } finally {
-      sProvider.close();
     }
   }
 
@@ -693,8 +685,8 @@ public class JCRLoginHistoryStorageImpl implements LoginHistoryStorage {
       while (nodeIterator.hasNext()) {
         node = nodeIterator.nextNode();
         node.remove();
+        session.save();
       }
-      session.save();
     } catch (Exception e) {
       LOG.error("Error while deleting login history counter : " + e.getMessage(), e);
       count= 0;
