@@ -17,6 +17,8 @@ import javax.jcr.Session;
 public class LoginHistoryUpgradePlugin extends UpgradeProductPlugin {
   private static final Log           LOG = ExoLogger.getLogger(LoginHistoryUpgradePlugin.class);
 
+  private static final int           LOGIN_HISTORY_NODE_PAGE_SIZE = 50;
+
   private JCRLoginHistoryStorageImpl jcrLoginHistoryStorage;
 
   private LoginHistoryStorage        jpaLoginHistoryStorage;
@@ -38,32 +40,30 @@ public class LoginHistoryUpgradePlugin extends UpgradeProductPlugin {
   }
 
   @Override
-  public void processUpgrade(String s, String s1) {
-    // First check to see if the JCR still contains Login History data. If not,
-    // migration is
-    // skipped
-    long offset = 0, pageSize = 50, migrated = 0;
+  public void processUpgrade(String newVersion, String previousVersion) {
+    // First check to see if the JCR still contains Login History data. If not, migration is skipped
+
     if (!hasDataToMigrate()) {
       LOG.info("No Login History data to migrate from JCR to RDBMS");
     } else {
-      do {
-        try {
-          migrated = migrateDeleteLoginHistory(offset, pageSize);
-          offset += migrated;
-        } catch (Exception e) {
-          LOG.error("Error during the migration process: " + e.getMessage());
-        }
-      } while (migrated == pageSize);
+      LOG.info("== Start migration of Login History data from JCR to RDBMS");
 
-      deleteLoginHistoryCounters(pageSize);
-      LOG.info("Login History Entries and Counters JCR Data deleted successfully");
+      try {
+        migrateAndDeleteLoginHistory();
+      } catch (Exception e) {
+        LOG.error("==    Error during the Login History migration process: ", e);
+      }
+
+      deleteLoginHistoryCounters();
+      LOG.info("==   Login History migration - Entries and Counters JCR Data deleted successfully");
 
       try {
         // jcrLoginHistoryStorage.removeLoginHistoryHomeNode();
       } catch (Exception e) {
         LOG.error("Error while deleting Login History Home Node: " + e.getMessage());
       }
-      LOG.info("Login History Home Node deleted successfully !");
+      LOG.info("==   Login History migration - Home Node deleted successfully !");
+      LOG.info("== Login History migration done");
     }
   }
 
@@ -79,35 +79,53 @@ public class LoginHistoryUpgradePlugin extends UpgradeProductPlugin {
       Session session = getSession(sProvider);
       hasDataToMigrate = session.getRootNode().hasNode("exo:LoginHistoryHome");
     } catch (Exception e) {
-      e.printStackTrace();
+      LOG.error("Error while checking the existence of login history home node", e);
     }
     return hasDataToMigrate;
   }
 
-  private long migrateDeleteLoginHistory(long offset, long size) throws Exception {
-    NodeIterator loginHistoryNodes = jcrLoginHistoryStorage.getLoginHistoryNodes(offset, size);
-    long count = loginHistoryNodes.getSize();
-    Node loginHistoryNode;
-    String userId;
-    long loginTime;
-    while (loginHistoryNodes.hasNext()) {
-      loginHistoryNode = loginHistoryNodes.nextNode();
-      userId = loginHistoryNode.getProperty("exo:LoginHisSvc_loginHistoryItem_userId").getString();
-      loginTime = loginHistoryNode.getProperty("exo:LoginHisSvc_loginHistoryItem_loginTime").getLong();
-      jpaLoginHistoryStorage.addLoginHistoryEntry(userId, loginTime);
-      jcrLoginHistoryStorage.removeLoginHistoryNode(loginHistoryNode);
+  private void migrateAndDeleteLoginHistory() throws Exception {
+    SessionProvider sProvider = SessionProvider.createSystemProvider();
+
+    long offset = 0, migrated = 0;
+
+    long count;
+    try {
+      do {
+        NodeIterator loginHistoryNodes = jcrLoginHistoryStorage.getLoginHistoryNodes(sProvider, offset, LOGIN_HISTORY_NODE_PAGE_SIZE);
+        count = loginHistoryNodes.getSize();
+        Node loginHistoryNode;
+        String userId = null;
+        long loginTime = 0;
+        while (loginHistoryNodes.hasNext()) {
+          try {
+            loginHistoryNode = loginHistoryNodes.nextNode();
+            userId = loginHistoryNode.getProperty("exo:LoginHisSvc_loginHistoryItem_userId").getString();
+            loginTime = loginHistoryNode.getProperty("exo:LoginHisSvc_loginHistoryItem_loginTime").getLong();
+            LOG.debug("==   Login History migration - Migrate entry of user {} at {}", userId, loginTime);
+            jpaLoginHistoryStorage.addLoginHistoryEntry(userId, loginTime);
+            jcrLoginHistoryStorage.removeLoginHistoryNode(loginHistoryNode);
+            migrated++;
+          } catch (Exception e) {
+            LOG.error("==   Login History migration - Error while migrating login of " + userId + " at " + loginTime, e);
+          }
+          offset += count;
+        }
+        LOG.info("==   Login History migration - Progress : {} logins migrated ({} errors)", migrated, count - migrated);
+      } while (count == LOGIN_HISTORY_NODE_PAGE_SIZE);
+    } finally {
+      sProvider.close();
     }
-    return count;
   }
 
-  private void deleteLoginHistoryCounters(long pageSize) {
+  private void deleteLoginHistoryCounters() {
     long removed, offset = 0;
     do {
       try {
-        removed = jcrLoginHistoryStorage.removeLoginCounter(offset, pageSize);
+        removed = jcrLoginHistoryStorage.removeLoginCounter(offset, LOGIN_HISTORY_NODE_PAGE_SIZE);
         offset += removed;
       } catch (Exception e) {
-        LOG.error("Error while deleting Login Counter" + e.getMessage());
+        LOG.error("==   Login History migration - Error while deleting Login Counter", e);
         break;
       }
     } while (removed > 0);

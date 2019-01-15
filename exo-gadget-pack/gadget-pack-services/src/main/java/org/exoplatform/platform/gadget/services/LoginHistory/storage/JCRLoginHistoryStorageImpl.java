@@ -633,13 +633,9 @@ public class JCRLoginHistoryStorageImpl implements LoginHistoryStorage {
     }
   }
 
-  public NodeIterator getLoginHistoryNodes(long offset, long size) throws Exception {
-    SessionProvider sProvider = SessionProvider.createSystemProvider();
-    NodeIterator nodeIterator;
+  public NodeIterator getLoginHistoryNodes(SessionProvider sProvider, long offset, long size) throws Exception {
 
-    if (!getSession(sProvider).getRootNode().hasNode(HOME)) {
-      createHomeNode();
-    }
+    NodeIterator nodeIterator = null;
 
     try {
       Session session = this.getSession(sProvider);
@@ -654,10 +650,8 @@ public class JCRLoginHistoryStorageImpl implements LoginHistoryStorage {
       nodeIterator = result.getNodes();
     } catch (Exception e) {
       LOG.error("Error while getting the NodeIterator: " + e.getMessage(), e);
-      nodeIterator = null;
-    } finally {
-      sProvider.close();
     }
+
     return nodeIterator;
   }
 
@@ -682,10 +676,6 @@ public class JCRLoginHistoryStorageImpl implements LoginHistoryStorage {
   public long removeLoginCounter(long offset, long size) throws Exception {
     SessionProvider sProvider = SessionProvider.createSystemProvider();
     long count;
-
-    if (!getSession(sProvider).getRootNode().hasNode(HOME)) {
-      createHomeNode();
-    }
 
     try {
       Session session = this.getSession(sProvider);
