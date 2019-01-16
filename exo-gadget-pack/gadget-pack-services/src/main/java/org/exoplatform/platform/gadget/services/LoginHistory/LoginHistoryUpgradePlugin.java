@@ -2,7 +2,6 @@ package org.exoplatform.platform.gadget.services.LoginHistory;
 
 import org.exoplatform.commons.persistence.impl.EntityManagerService;
 import org.exoplatform.commons.upgrade.UpgradeProductPlugin;
-import org.exoplatform.container.ExoContainer;
 import org.exoplatform.container.ExoContainerContext;
 import org.exoplatform.container.xml.InitParams;
 import org.exoplatform.platform.gadget.services.LoginHistory.storage.JCRLoginHistoryStorageImpl;
@@ -30,8 +29,6 @@ public class LoginHistoryUpgradePlugin extends UpgradeProductPlugin {
 
   private EntityManagerService       entityManagerService;
 
-  private ExoContainer               CURRENT_CONTAINER            = ExoContainerContext.getCurrentContainer();
-
   public LoginHistoryUpgradePlugin(InitParams initParams,
                                    JCRLoginHistoryStorageImpl jcrLoginHistoryStorage,
                                    LoginHistoryStorage jpaLoginHistoryStorage,
@@ -53,7 +50,6 @@ public class LoginHistoryUpgradePlugin extends UpgradeProductPlugin {
       LOG.info("No Login History data to migrate from JCR to RDBMS");
     } else {
       LOG.info("== Start migration of Login History data from JCR to RDBMS");
-      entityManagerService.startRequest(CURRENT_CONTAINER);
 
       try {
         migrateAndDeleteLoginHistory();
@@ -68,8 +64,6 @@ public class LoginHistoryUpgradePlugin extends UpgradeProductPlugin {
         jcrLoginHistoryStorage.removeLoginHistoryHomeNode();
       } catch (Exception e) {
         LOG.error("==    Error while deleting Login History Home Node: " + e.getMessage());
-      } finally {
-        entityManagerService.endRequest(CURRENT_CONTAINER);
       }
       LOG.info("==    Login History migration - Home Node deleted successfully !");
       LOG.info("== Login History migration done");
@@ -93,14 +87,22 @@ public class LoginHistoryUpgradePlugin extends UpgradeProductPlugin {
     return hasDataToMigrate;
   }
 
-  private void migrateAndDeleteLoginHistory() throws Exception {
+  /**
+   * iterates on all present Login History nodes by a given page size, for each
+   * returned page of Login History nodes it iterates on each node in order to add
+   * it to the JPAStorage and then removes it
+   */
+  private void migrateAndDeleteLoginHistory() {
     SessionProvider sProvider = SessionProvider.createSystemProvider();
+    entityManagerService.startRequest(ExoContainerContext.getCurrentContainer());
 
     long offset = 0, migrated = 0;
 
     long count;
     try {
       do {
+        entityManagerService.endRequest(ExoContainerContext.getCurrentContainer());
+        entityManagerService.startRequest(ExoContainerContext.getCurrentContainer());
         NodeIterator loginHistoryNodes = jcrLoginHistoryStorage.getLoginHistoryNodes(sProvider,
                                                                                      offset,
                                                                                      LOGIN_HISTORY_NODE_PAGE_SIZE);
@@ -110,9 +112,6 @@ public class LoginHistoryUpgradePlugin extends UpgradeProductPlugin {
         long loginTime = 0;
         while (loginHistoryNodes.hasNext()) {
           try {
-            entityManagerService.endRequest(CURRENT_CONTAINER);
-            entityManagerService.startRequest(CURRENT_CONTAINER);
-
             loginHistoryNode = loginHistoryNodes.nextNode();
             userId = loginHistoryNode.getProperty("exo:LoginHisSvc_loginHistoryItem_userId").getString();
             loginTime = loginHistoryNode.getProperty("exo:LoginHisSvc_loginHistoryItem_loginTime").getLong();
@@ -128,19 +127,23 @@ public class LoginHistoryUpgradePlugin extends UpgradeProductPlugin {
         LOG.info("==   Login History migration - Progress : {} logins migrated ({} errors)", migrated, count - migrated);
       } while (count == LOGIN_HISTORY_NODE_PAGE_SIZE);
     } finally {
+      entityManagerService.endRequest(ExoContainerContext.getCurrentContainer());
       sProvider.close();
     }
   }
 
+  /**
+   * iterates on Login History Counters by a given page size each time and removes
+   * them one by one
+   */
   private void deleteLoginHistoryCounters() {
-    long removed, offset = 0;
+    long removed = 0, offset = 0;
     do {
       try {
         removed = jcrLoginHistoryStorage.removeLoginCounter(offset, LOGIN_HISTORY_NODE_PAGE_SIZE);
         offset += removed;
       } catch (Exception e) {
         LOG.error("==   Login History migration - Error while deleting Login Counter", e);
-        break;
       }
     } while (removed == LOGIN_HISTORY_NODE_PAGE_SIZE);
   }

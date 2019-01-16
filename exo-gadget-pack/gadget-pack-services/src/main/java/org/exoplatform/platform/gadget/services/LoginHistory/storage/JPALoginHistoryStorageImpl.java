@@ -65,7 +65,7 @@ public class JPALoginHistoryStorageImpl implements LoginHistoryStorage {
    * @return
    * @throws Exception
    */
-  public List<LoginCounterBean> getLoginCountPerDaysInRange(String userId, long fromDate, long toDate) throws Exception {
+  public List<LoginCounterBean> getLoginCountPerDaysInRange(String userId, long fromDate, long toDate) {
     List<LoginCounterBean> counterBeanList = new ArrayList<>();
     try {
       // set the fromDate to 00:00
@@ -82,8 +82,6 @@ public class JPALoginHistoryStorageImpl implements LoginHistoryStorage {
       long firstDay = from.toInstant().toEpochMilli();
       Long nextDay;
       Long lastDay = to.toInstant().toEpochMilli();
-
-
 
       // returns the user's login count for each day and add it to a list:
       // loginCount/day
@@ -121,14 +119,14 @@ public class JPALoginHistoryStorageImpl implements LoginHistoryStorage {
     return counterBeanList;
   }
 
-  private int getLoginCountInDateRange(String userId, long fromDate, long toDate) throws Exception {
+  private int getLoginCountInDateRange(String userId, long fromDate, long toDate) {
     List<LoginCounterBean> loginCounts = getLoginCountPerDaysInRange(userId, fromDate, toDate);
     int sum = (int) loginCounts.stream().mapToLong(LoginCounterBean::getLoginCount).sum();
     return sum;
   }
 
   @Override
-  public long getLastLogin(String userId) throws Exception {
+  public long getLastLogin(String userId) {
     Long lastLogin = loginHistoryDAO.getLastLogin(userId);
     if (lastLogin != null) {
       return lastLogin;
@@ -150,10 +148,10 @@ public class JPALoginHistoryStorageImpl implements LoginHistoryStorage {
    * @throws Exception
    */
   @Override
-  public List<LastLoginBean> getLastLogins(int numLogins, String userIdFilter) throws Exception {
+  public List<LastLoginBean> getLastLogins(int numLogins, String userIdFilter) {
     String userId = userIdFilter;
     List<LoginHistoryEntity> loginHistoryEntityList = new LinkedList<>();
-    List<LastLoginBean> lastLoginBeanList = new LinkedList<>();
+    List<LastLoginBean> lastLoginBeanList;
     try {
       if (numLogins != 0 && (userId == null || userId.equals("%"))) {
         List<String> users = loginHistoryDAO.getLastLoggedUsers(numLogins);
@@ -180,7 +178,7 @@ public class JPALoginHistoryStorageImpl implements LoginHistoryStorage {
   }
 
   @ExoTransactional
-  public void addLoginHistoryEntry(String userId, long loginTime) throws Exception {
+  public void addLoginHistoryEntry(String userId, long loginTime) {
     try {
       Date loginDate = new Date(loginTime);
       LoginHistoryEntity loginHistoryEntity = new LoginHistoryEntity(userId, loginDate);
@@ -203,8 +201,8 @@ public class JPALoginHistoryStorageImpl implements LoginHistoryStorage {
    * @throws Exception
    */
   @Override
-  public List<LoginHistoryBean> getLoginHistory(String userId, long fromTime, long toTime) throws Exception {
-    List<LoginHistoryBean> loginHistoryBeanList = new LinkedList<>();
+  public List<LoginHistoryBean> getLoginHistory(String userId, long fromTime, long toTime) {
+    List<LoginHistoryBean> loginHistoryBeanList;
     try {
       if (userId.equals(ALL_USERS) || userId == null) {
         List<LoginHistoryEntity> loginHistoryEntityList1 = loginHistoryDAO.getAllLoginHistory(fromTime, toTime);
@@ -216,7 +214,7 @@ public class JPALoginHistoryStorageImpl implements LoginHistoryStorage {
 
       }
     } catch (Exception e) {
-      LOG.error("Error while returning Login History of " + userId +":" +e.getMessage());
+      LOG.error("Error while returning Login History of " + userId + ":" + e.getMessage());
       loginHistoryBeanList = null;
     }
     return loginHistoryBeanList;
@@ -262,7 +260,7 @@ public class JPALoginHistoryStorageImpl implements LoginHistoryStorage {
   }
 
   @Override
-  public List<LoginCounterBean> getLoginCountPerDaysInWeek(String userId, long week) throws Exception {
+  public List<LoginCounterBean> getLoginCountPerDaysInWeek(String userId, long week) {
     List<LoginCounterBean> list = new ArrayList<>();
     List<Long> days = new ArrayList<>();
 
@@ -303,7 +301,7 @@ public class JPALoginHistoryStorageImpl implements LoginHistoryStorage {
   }
 
   @Override
-  public List<LoginCounterBean> getLoginCountPerWeeksInMonths(String userId, long fromMonth, int numOfMonths) throws Exception {
+  public List<LoginCounterBean> getLoginCountPerWeeksInMonths(String userId, long fromMonth, int numOfMonths) {
     Instant instant = Instant.now();
     ZonedDateTime zonedDateTime = ZonedDateTime.ofInstant(instant, ZONE_ID);
 
@@ -338,7 +336,7 @@ public class JPALoginHistoryStorageImpl implements LoginHistoryStorage {
   }
 
   @Override
-  public List<LoginCounterBean> getLoginCountPerMonthsInYear(String userId, long year) throws Exception {
+  public List<LoginCounterBean> getLoginCountPerMonthsInYear(String userId, long year) {
     Instant instant = Instant.now();
     ZonedDateTime zonedDateTime = ZonedDateTime.ofInstant(instant, ZONE_ID);
     long now = zonedDateTime.toInstant().toEpochMilli();

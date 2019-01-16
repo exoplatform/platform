@@ -97,8 +97,8 @@ public class LoginHistoryDAO extends GenericDAOJPAImpl<LoginHistoryEntity, Long>
                                                                 .setMaxResults(1)
                                                                 .getSingleResult();
       lastLogin = loginHistoryEntity.getLoginDate().getTime();
-    } catch (NoResultException e) {
-      LOG.info("No last login found for " + userId + ".");
+    } catch (Exception e) {
+      LOG.error("Error while retrieving last login for user " + userId + ".");
       lastLogin = null;
     }
     return lastLogin;
@@ -163,7 +163,7 @@ public class LoginHistoryDAO extends GenericDAOJPAImpl<LoginHistoryEntity, Long>
                                     .setMaxResults(1)
                                     .getSingleResult();
     } catch (NoResultException e) {
-      LOG.info("No last login found for " + userId + ".");
+      LOG.info("Error while retrieving last login for user " + userId + ".");
       lastLogin = null;
     }
     return lastLogin;
@@ -248,7 +248,7 @@ public class LoginHistoryDAO extends GenericDAOJPAImpl<LoginHistoryEntity, Long>
    * @return
    * @throws Exception
    */
-  public Set<String> getLastLoginsAfterDate(long fromTime) throws Exception {
+  public Set<String> getLastLoginsAfterDate(long fromTime) {
     Timestamp from = new Timestamp(fromTime);
     Set<String> users;
     try {
@@ -270,7 +270,7 @@ public class LoginHistoryDAO extends GenericDAOJPAImpl<LoginHistoryEntity, Long>
    * @return
    * @throws Exception
    */
-  public long getBeforeLastLogin(String userId) throws Exception {
+  public long getBeforeLastLogin(String userId) {
     long beforeLastLogin;
     try {
       LoginHistoryEntity lastLogin = getLastLoginOfUser(userId);

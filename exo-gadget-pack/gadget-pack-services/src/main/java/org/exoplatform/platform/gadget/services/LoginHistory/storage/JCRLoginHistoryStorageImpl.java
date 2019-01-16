@@ -633,7 +633,17 @@ public class JCRLoginHistoryStorageImpl implements LoginHistoryStorage {
     }
   }
 
-  public NodeIterator getLoginHistoryNodes(SessionProvider sProvider, long offset, long size) throws Exception {
+  /**
+   * returns the node iterator which contains a given number of nodes after a
+   * given offset
+   * 
+   * @param sProvider
+   * @param offset
+   * @param size
+   * @return
+   * @throws Exception
+   */
+  public NodeIterator getLoginHistoryNodes(SessionProvider sProvider, long offset, long size) {
 
     NodeIterator nodeIterator = null;
 
@@ -655,7 +665,13 @@ public class JCRLoginHistoryStorageImpl implements LoginHistoryStorage {
     return nodeIterator;
   }
 
-  public void removeLoginHistoryNode(SessionProvider sProvider, Node loginHistoryNode) throws Exception {
+  /**
+   * removes the given node
+   * 
+   * @param sProvider
+   * @param loginHistoryNode
+   */
+  public void removeLoginHistoryNode(SessionProvider sProvider, Node loginHistoryNode) {
     try {
       Session session = this.getSession(sProvider);
       loginHistoryNode.remove();
@@ -665,7 +681,14 @@ public class JCRLoginHistoryStorageImpl implements LoginHistoryStorage {
     }
   }
 
-  public long removeLoginCounter(long offset, long size) throws Exception {
+  /**
+   * removes a gievn number of Login Counters nodes from a given offset
+   * 
+   * @param offset
+   * @param size
+   * @return
+   */
+  public long removeLoginCounter(long offset, long size) {
     SessionProvider sProvider = SessionProvider.createSystemProvider();
     long count;
 
@@ -689,13 +712,19 @@ public class JCRLoginHistoryStorageImpl implements LoginHistoryStorage {
       }
     } catch (Exception e) {
       LOG.error("Error while deleting login history counter : " + e.getMessage(), e);
-      count= 0;
+      count = 0;
     } finally {
       sProvider.close();
     }
     return count;
   }
 
+  /**
+   * used at the end of the migration process, it removes the root node for Login
+   * History service
+   * 
+   * @throws Exception
+   */
   public void removeLoginHistoryHomeNode() throws Exception {
     SessionProvider sProvider = SessionProvider.createSystemProvider();
 
