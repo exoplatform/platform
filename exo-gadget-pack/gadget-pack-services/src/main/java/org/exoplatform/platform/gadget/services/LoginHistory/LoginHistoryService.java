@@ -1,5 +1,5 @@
 /***************************************************************************
- * Copyright (C) 2003-2007 eXo Platform SAS.
+ * Copyright (C) 2003-2019 eXo Platform SAS.
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Affero General Public License
@@ -17,7 +17,6 @@
 package org.exoplatform.platform.gadget.services.LoginHistory;
 
 import java.util.List;
-import java.util.Map;
 import java.util.Set;
 
 /**
@@ -37,10 +36,6 @@ public interface LoginHistoryService {
   List<LoginHistoryBean> getLoginHistory(String userId, long fromTime, long toTime) throws Exception;
 
   Set<String> getLastUsersLogin(long fromTime) throws Exception;
-
-  boolean isActiveUser(String userId, int days) throws Exception;
-
-  Map<String, Integer> getActiveUsers(long fromTime);
 
   List<LoginCounterBean> getLoginCountPerDaysInWeek(String userId, long week) throws Exception;
 

@@ -12,7 +12,6 @@ import org.exoplatform.services.log.Log;
 import org.exoplatform.services.organization.OrganizationService;
 import org.joda.time.DateTimeConstants;
 
-import java.sql.Timestamp;
 import java.time.*;
 import java.time.temporal.TemporalAdjusters;
 import java.util.*;
@@ -33,8 +32,8 @@ public class JPALoginHistoryStorageImpl implements LoginHistoryStorage {
   /**
    * returns the full name of a given user ID.
    *
-   * @param userId
-   * @return
+   * @param userId {@link String}
+   * @return String
    */
   private String getUserFullName(String userId) {
     try {
@@ -59,11 +58,10 @@ public class JPALoginHistoryStorageImpl implements LoginHistoryStorage {
    * returns a list of login counter bean that contains for each day the number of
    * logins between two given dates for a given user.
    *
-   * @param userId
-   * @param fromDate
-   * @param toDate
-   * @return
-   * @throws Exception
+   * @param userId {@link String}
+   * @param fromDate long
+   * @param toDate long
+   * @return List<LoginCounterBean>
    */
   public List<LoginCounterBean> getLoginCountPerDaysInRange(String userId, long fromDate, long toDate) {
     List<LoginCounterBean> counterBeanList = new ArrayList<>();
@@ -142,10 +140,9 @@ public class JPALoginHistoryStorageImpl implements LoginHistoryStorage {
    * beans where n is the given limit number numLogins. but if the limit number
    * isn't set it returns just the last login bean of the given user
    *
-   * @param numLogins
-   * @param userIdFilter
-   * @return
-   * @throws Exception
+   * @param numLogins int
+   * @param userIdFilter {@link String}
+   * @return List<LastLoginBean>
    */
   @Override
   public List<LastLoginBean> getLastLogins(int numLogins, String userIdFilter) {
@@ -194,11 +191,10 @@ public class JPALoginHistoryStorageImpl implements LoginHistoryStorage {
    * name and the login date. else it returns the list of login history beans for
    * a given user between the two dates.
    *
-   * @param userId
-   * @param fromTime
-   * @param toTime
-   * @return
-   * @throws Exception
+   * @param userId {@link String}
+   * @param fromTime long
+   * @param toTime long
+   * @return List<LoginHistoryBean>
    */
   @Override
   public List<LoginHistoryBean> getLoginHistory(String userId, long fromTime, long toTime) {
@@ -223,40 +219,6 @@ public class JPALoginHistoryStorageImpl implements LoginHistoryStorage {
   @Override
   public Set<String> getLastUsersLogin(long fromTime) throws Exception {
     return loginHistoryDAO.getLastLoginsAfterDate(fromTime);
-  }
-
-  /**
-   * returns if a given user is still logged in or not from a given date.
-   *
-   * @param userId
-   * @param days
-   * @return
-   * @throws Exception
-   */
-  public boolean isActiveUser(String userId, int days) throws Exception {
-    Long beforeLastLogin = getBeforeLastLogin(userId);
-    // return true [if it's the first login of user]
-    if (beforeLastLogin == 0) {
-      return true;
-    }
-    //
-    ZonedDateTime zonedDateTime = ZonedDateTime.ofInstant(Instant.now(), ZONE_ID);
-    ZonedDateTime limit = zonedDateTime.minusDays(days);
-    long limitTime = limit.toInstant().toEpochMilli();
-    return beforeLastLogin >= limitTime;
-  }
-
-  @Override
-  public Map<String, Integer> getActiveUsers(long fromTime) {
-    Map<String, Integer> activeUsers = new LinkedHashMap<>();
-    List<String> list = loginHistoryDAO.getActiveUsersId(fromTime);
-    Timestamp timestamp = new Timestamp(System.currentTimeMillis());
-    Long toTime = timestamp.getTime();
-    for (String userId : list) {
-      Long numberOfLogin = loginHistoryDAO.getLoginCountPerDay(userId, fromTime, toTime);
-      activeUsers.put(userId, Math.toIntExact(numberOfLogin));
-    }
-    return activeUsers;
   }
 
   @Override
@@ -380,10 +342,10 @@ public class JPALoginHistoryStorageImpl implements LoginHistoryStorage {
   /**
    * returns a converted LoginHistoryBean from a given LoginHistoryEntity.
    *
-   * @param loginHistoryEntity
-   * @return
+   * @param loginHistoryEntity {@link LoginHistoryEntity}
+   * @return LoginHistoryBean
    */
-  public LoginHistoryBean convertToLoginHistoryBean(LoginHistoryEntity loginHistoryEntity) {
+  private LoginHistoryBean convertToLoginHistoryBean(LoginHistoryEntity loginHistoryEntity) {
     LoginHistoryBean loginHistoryBean = new LoginHistoryBean();
     String userID = loginHistoryEntity.getUserID();
     String userName = getUserFullName(loginHistoryEntity.getUserID());
@@ -398,11 +360,11 @@ public class JPALoginHistoryStorageImpl implements LoginHistoryStorage {
   /**
    * returns a converted LastLoginBean from a given LoginHistoryEntity.
    * 
-   * @param loginHistoryEntity
-   * @return
+   * @param loginHistoryEntity {@link LoginHistoryEntity}
+   * @return LastLoginBean
    * @throws Exception
    */
-  public LastLoginBean convertToLastLoginBean(LoginHistoryEntity loginHistoryEntity) throws Exception {
+  private LastLoginBean convertToLastLoginBean(LoginHistoryEntity loginHistoryEntity) throws Exception {
     LastLoginBean lastLoginBean = new LastLoginBean();
     String userID = loginHistoryEntity.getUserID();
     String userName = getUserFullName(loginHistoryEntity.getUserID());
@@ -420,10 +382,10 @@ public class JPALoginHistoryStorageImpl implements LoginHistoryStorage {
    * returns a converted list of LoginHistoryBeans from a given list of
    * LoginHistoryEntities.
    *
-   * @param loginHistoryEntityList
-   * @return
+   * @param loginHistoryEntityList List<{@link LoginHistoryEntity}>
+   * @return List<LoginHistoryBean>
    */
-  public List<LoginHistoryBean> convertToLoginHistoryBeanList(List<LoginHistoryEntity> loginHistoryEntityList) {
+  private List<LoginHistoryBean> convertToLoginHistoryBeanList(List<LoginHistoryEntity> loginHistoryEntityList) {
     List<LoginHistoryBean> loginHistoryBeanList = new ArrayList<>();
     LoginHistoryBean loginHistoryBean;
 
@@ -438,11 +400,11 @@ public class JPALoginHistoryStorageImpl implements LoginHistoryStorage {
    * returns a converted list of LastLoginBeans from a given list of
    * LoginHistoryEntities.
    * 
-   * @param loginHistoryEntityList
-   * @return
+   * @param loginHistoryEntityList List<{@link LoginHistoryEntity}>>
+   * @return List<LastLoginBean>
    * @throws Exception
    */
-  public List<LastLoginBean> convertToLastLoginBeanList(List<LoginHistoryEntity> loginHistoryEntityList) throws Exception {
+  private List<LastLoginBean> convertToLastLoginBeanList(List<LoginHistoryEntity> loginHistoryEntityList) throws Exception {
     List<LastLoginBean> lastLoginBeanList = new ArrayList<>();
     LastLoginBean lastLoginBean;
 

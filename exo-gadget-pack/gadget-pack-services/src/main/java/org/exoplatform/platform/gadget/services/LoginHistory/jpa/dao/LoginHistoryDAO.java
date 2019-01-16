@@ -14,32 +14,11 @@ public class LoginHistoryDAO extends GenericDAOJPAImpl<LoginHistoryEntity, Long>
   private static final Log LOG = ExoLogger.getLogger(LoginHistoryDAO.class);
 
   /**
-   * returns a list of users IDs that logged in from a given date.
-   * 
-   * @param fromTime
-   * @return
-   */
-  public List<String> getActiveUsersId(Long fromTime) {
-    Timestamp from = new Timestamp(fromTime);
-    List<String> activeUsersId;
-    try {
-      activeUsersId = getEntityManager().createNamedQuery("loginHistory.getActiveUsersId")
-                                        .setParameter("from", from)
-                                        .getResultList();
-    } catch (NoResultException e) {
-      LOG.error("No active users found.");
-      activeUsersId = null;
-    }
-    return activeUsersId;
-  }
-
-  /**
    * returns the count of logins per day for a given user.
-   *
-   * @param userId
-   * @param fromDay
-   * @param toDay
-   * @return
+   * @param userId {@link String}
+   * @param fromDay {@link Long}
+   * @param toDay {@link Long}
+   * @return Long
    */
   public Long getLoginCountPerDay(String userId, Long fromDay, Long toDay) {
     Timestamp from = new Timestamp(fromDay);
@@ -61,9 +40,9 @@ public class LoginHistoryDAO extends GenericDAOJPAImpl<LoginHistoryEntity, Long>
   /**
    * returns the count per day of all users logins.
    * 
-   * @param fromDay
-   * @param toDay
-   * @return
+   * @param fromDay {@link Long}
+   * @param toDay {@link Long}
+   * @return Long
    */
   public Long getLoginsCountInDateRange(Long fromDay, Long toDay) {
     Timestamp from = new Timestamp(fromDay);
@@ -84,8 +63,8 @@ public class LoginHistoryDAO extends GenericDAOJPAImpl<LoginHistoryEntity, Long>
   /**
    * returns the last login entry date of a given user.
    *
-   * @param userId
-   * @return
+   * @param userId {@link String}
+   * @return Long
    */
   public Long getLastLogin(String userId) {
     Long lastLogin;
@@ -98,7 +77,6 @@ public class LoginHistoryDAO extends GenericDAOJPAImpl<LoginHistoryEntity, Long>
                                                                 .getSingleResult();
       lastLogin = loginHistoryEntity.getLoginDate().getTime();
     } catch (Exception e) {
-      LOG.error("Error while retrieving last login for user " + userId + ".");
       lastLogin = null;
     }
     return lastLogin;
@@ -108,9 +86,9 @@ public class LoginHistoryDAO extends GenericDAOJPAImpl<LoginHistoryEntity, Long>
    * returns the last n history logins of a user set by a given limit number
    * numLogins.
    *
-   * @param numLogins
-   * @param userId
-   * @return
+   * @param numLogins int
+   * @param userId {@link String}
+   * @return List<LoginHistoryEntity>
    */
   public List<LoginHistoryEntity> getLastLoginsOfUser(int numLogins, String userId) {
     List<LoginHistoryEntity> loginHistoryEntityList;
@@ -129,8 +107,8 @@ public class LoginHistoryDAO extends GenericDAOJPAImpl<LoginHistoryEntity, Long>
   /**
    * returns the last n user IDs set by a given limit number numLogins.
    *
-   * @param numLogins
-   * @return
+   * @param numLogins int
+   * @return List<String>
    */
   public List<String> getLastLoggedUsers(int numLogins) {
     List<String> lastLoggedUsers;
@@ -152,8 +130,8 @@ public class LoginHistoryDAO extends GenericDAOJPAImpl<LoginHistoryEntity, Long>
   /**
    * returns the last history login entry of a given user.
    *
-   * @param userId
-   * @return
+   * @param userId {@link String}
+   * @return LoginHistoryEntity
    */
   public LoginHistoryEntity getLastLoginOfUser(String userId) {
     LoginHistoryEntity lastLogin;
@@ -163,7 +141,6 @@ public class LoginHistoryDAO extends GenericDAOJPAImpl<LoginHistoryEntity, Long>
                                     .setMaxResults(1)
                                     .getSingleResult();
     } catch (NoResultException e) {
-      LOG.info("Error while retrieving last login for user " + userId + ".");
       lastLogin = null;
     }
     return lastLogin;
@@ -172,7 +149,7 @@ public class LoginHistoryDAO extends GenericDAOJPAImpl<LoginHistoryEntity, Long>
   /**
    * returns the last login history entry.
    * 
-   * @return
+   * @return LoginHistoryEntity
    */
   public LoginHistoryEntity getLastLoginHistory() {
     LoginHistoryEntity lastHistoryEntity;
@@ -181,7 +158,6 @@ public class LoginHistoryDAO extends GenericDAOJPAImpl<LoginHistoryEntity, Long>
                                             .setMaxResults(1)
                                             .getSingleResult();
     } catch (NoResultException e) {
-      LOG.error("No last login found.");
       lastHistoryEntity = null;
     }
     return lastHistoryEntity;
@@ -191,10 +167,10 @@ public class LoginHistoryDAO extends GenericDAOJPAImpl<LoginHistoryEntity, Long>
    * returns a list of login history entries of a given user between a given two
    * dates, fromTime and toTime.
    *
-   * @param userId
-   * @param fromTime
-   * @param toTime
-   * @return
+   * @param userId {@link String}
+   * @param fromTime long
+   * @param toTime long
+   * @return List<LoginHistoryEntity>
    */
   public List<LoginHistoryEntity> getLoginHistory(String userId, long fromTime, long toTime) {
     Timestamp from = new Timestamp(fromTime);
@@ -219,9 +195,9 @@ public class LoginHistoryDAO extends GenericDAOJPAImpl<LoginHistoryEntity, Long>
    * returns a list of login history entries a given two dates, fromTime and
    * toTime.
    *
-   * @param fromTime
-   * @param toTime
-   * @return
+   * @param fromTime long
+   * @param toTime long
+   * @return List<LoginHistoryEntity>
    */
   public List<LoginHistoryEntity> getAllLoginHistory(long fromTime, long toTime) {
     Timestamp from = new Timestamp(fromTime);
@@ -244,9 +220,8 @@ public class LoginHistoryDAO extends GenericDAOJPAImpl<LoginHistoryEntity, Long>
   /**
    * returns a list of user IDs that did log in from a given date till now.
    *
-   * @param fromTime
-   * @return
-   * @throws Exception
+   * @param fromTime long
+   * @return Set<String>
    */
   public Set<String> getLastLoginsAfterDate(long fromTime) {
     Timestamp from = new Timestamp(fromTime);
@@ -266,9 +241,8 @@ public class LoginHistoryDAO extends GenericDAOJPAImpl<LoginHistoryEntity, Long>
   /**
    * returns the just before last login entry date of a given user.
    *
-   * @param userId
-   * @return
-   * @throws Exception
+   * @param userId {@link String}
+   * @return long
    */
   public long getBeforeLastLogin(String userId) {
     long beforeLastLogin;

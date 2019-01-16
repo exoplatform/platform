@@ -1,5 +1,5 @@
 /***************************************************************************
- * Copyright (C) 2003-2007 eXo Platform SAS.
+ * Copyright (C) 2003-2019 eXo Platform SAS.
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Affero General Public License
@@ -17,7 +17,6 @@
 package org.exoplatform.platform.gadget.services.LoginHistory;
 
 import java.util.List;
-import java.util.Map;
 import java.util.Set;
 
 import org.exoplatform.platform.gadget.services.LoginHistory.storage.LoginHistoryStorage;
@@ -111,21 +110,6 @@ public class LoginHistoryServiceImpl implements LoginHistoryService {
    */
   public Set<String> getLastUsersLogin(long fromTime) throws Exception {
     return loginHistoryStorage.getLastUsersLogin(fromTime);
-  }
-
-  /**
-   * An user is inactive if his last login is more than a number of days
-   *
-   * @param userId user's name
-   * @param days the number of days to verify if user is active or not
-   * @return
-   */
-  public boolean isActiveUser(String userId, int days) throws Exception {
-    return loginHistoryStorage.isActiveUser(userId, days);
-  }
-
-  public Map<String, Integer> getActiveUsers(long fromTime) {
-    return loginHistoryStorage.getActiveUsers(fromTime);
   }
 
   public long getBeforeLastLogin(String userId) throws Exception {

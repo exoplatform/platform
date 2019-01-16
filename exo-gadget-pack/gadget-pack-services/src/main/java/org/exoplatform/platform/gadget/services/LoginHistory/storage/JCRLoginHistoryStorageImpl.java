@@ -473,61 +473,6 @@ public class JCRLoginHistoryStorageImpl implements LoginHistoryStorage {
   }
 
   @Override
-  public boolean isActiveUser(String userId, int days) {
-    SessionProvider sProvider = SessionProvider.createSystemProvider();
-    try {
-      Session session = this.getSession(sProvider);
-      Node homeNode = session.getRootNode().getNode(HOME);
-      if (!homeNode.hasNode(userId)) {
-        return false;
-      }
-      Node userNode = homeNode.getNode(userId);
-      long beforeLastLogin = userNode.getProperty(BEFORE_LAST_LOGIN).getLong();
-      // return true if it's the first login of user
-      if (beforeLastLogin == 0)
-        return true;
-      //
-      Calendar cal = Calendar.getInstance();
-      cal.set(Calendar.DAY_OF_MONTH, cal.get(Calendar.DAY_OF_MONTH) - days);
-      long limitTime = cal.getTimeInMillis();
-      return beforeLastLogin >= limitTime;
-    } catch (Exception e) {
-      LOG.error("Error while get the last login of current user", e);
-    }
-    return false;
-  }
-
-  @Override
-  public Map<String, Integer> getActiveUsers(long fromTime) {
-    Map<String, Integer> users = new LinkedHashMap<String, Integer>();
-    SessionProvider sProvider = SessionProvider.createSystemProvider();
-    try {
-      Session session = this.getSession(sProvider);
-      QueryManager queryManager = session.getWorkspace().getQueryManager();
-      StringBuilder sb = new StringBuilder();
-      sb.append("SELECT * FROM exo:LoginHisSvc_userProfile WHERE")
-        .append(" exo:LoginHisSvc_lastLogin >= " + Long.toString(fromTime))
-        .append(" AND exo:LoginHisSvc_beforeLastLogin > 0")
-        .append(" ORDER BY exo:LoginHisSvc_lastLogin DESC");
-      QueryImpl query = (QueryImpl) queryManager.createQuery(sb.toString(), Query.SQL);
-      QueryResult result = query.execute();
-      NodeIterator nodeIterator = result.getNodes();
-      while (nodeIterator.hasNext()) {
-        Node node = nodeIterator.nextNode();
-        String userId = node.getProperty("exo:LoginHisSvc_userId").getString();
-        long numberOfLogin = node.getNode(LOGIN_HISTORY).getProperty("exo:LoginHisSvc_loginHistory_lastIndex").getLong();
-        users.put(userId, (int) numberOfLogin);
-      }
-      return users;
-    } catch (Exception e) {
-      LOG.debug("Error while getting login history of users " + e.getMessage(), e);
-    } finally {
-      sProvider.close();
-    }
-    return null;
-  }
-
-  @Override
   public List<LoginCounterBean> getLoginCountPerDaysInWeek(String userId, long week) throws Exception {
     List<LoginCounterBean> list = new ArrayList<LoginCounterBean>();
     List<Long> days = new ArrayList<Long>();
@@ -637,11 +582,10 @@ public class JCRLoginHistoryStorageImpl implements LoginHistoryStorage {
    * returns the node iterator which contains a given number of nodes after a
    * given offset
    * 
-   * @param sProvider
-   * @param offset
-   * @param size
-   * @return
-   * @throws Exception
+   * @param sProvider {@link SessionProvider}
+   * @param offset long
+   * @param size long
+   * @return NodeIterator
    */
   public NodeIterator getLoginHistoryNodes(SessionProvider sProvider, long offset, long size) {
 
@@ -668,8 +612,8 @@ public class JCRLoginHistoryStorageImpl implements LoginHistoryStorage {
   /**
    * removes the given node
    * 
-   * @param sProvider
-   * @param loginHistoryNode
+   * @param sProvider {@link SessionProvider}
+   * @param loginHistoryNode {@link Node}
    */
   public void removeLoginHistoryNode(SessionProvider sProvider, Node loginHistoryNode) {
     try {
@@ -684,9 +628,9 @@ public class JCRLoginHistoryStorageImpl implements LoginHistoryStorage {
   /**
    * removes a gievn number of Login Counters nodes from a given offset
    * 
-   * @param offset
-   * @param size
-   * @return
+   * @param offset long
+   * @param size long
+   * @return long
    */
   public long removeLoginCounter(long offset, long size) {
     SessionProvider sProvider = SessionProvider.createSystemProvider();
@@ -723,7 +667,7 @@ public class JCRLoginHistoryStorageImpl implements LoginHistoryStorage {
    * used at the end of the migration process, it removes the root node for Login
    * History service
    * 
-   * @throws Exception
+   * @throws Exception e
    */
   public void removeLoginHistoryHomeNode() throws Exception {
     SessionProvider sProvider = SessionProvider.createSystemProvider();

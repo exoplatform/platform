@@ -21,7 +21,6 @@ import org.exoplatform.platform.gadget.services.LoginHistory.LoginCounterBean;
 import org.exoplatform.platform.gadget.services.LoginHistory.LoginHistoryBean;
 
 import java.util.List;
-import java.util.Map;
 import java.util.Set;
 
 public interface LoginHistoryStorage {
@@ -36,10 +35,6 @@ public interface LoginHistoryStorage {
   List<LoginHistoryBean> getLoginHistory(String userId, long fromTime, long toTime) throws Exception;
 
   Set<String> getLastUsersLogin(long fromTime) throws Exception;
-
-  boolean isActiveUser(String userId, int days) throws Exception;
-
-  Map<String, Integer> getActiveUsers(long fromTime);
 
   List<LoginCounterBean> getLoginCountPerDaysInWeek(String userId, long week) throws Exception;
 
