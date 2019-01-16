@@ -1,6 +1,9 @@
 package org.exoplatform.platform.gadget.services.LoginHistory;
 
+import org.exoplatform.commons.persistence.impl.EntityManagerService;
 import org.exoplatform.commons.upgrade.UpgradeProductPlugin;
+import org.exoplatform.container.ExoContainer;
+import org.exoplatform.container.ExoContainerContext;
 import org.exoplatform.container.xml.InitParams;
 import org.exoplatform.platform.gadget.services.LoginHistory.storage.JCRLoginHistoryStorageImpl;
 import org.exoplatform.platform.gadget.services.LoginHistory.storage.LoginHistoryStorage;
@@ -25,18 +28,20 @@ public class LoginHistoryUpgradePlugin extends UpgradeProductPlugin {
 
   private RepositoryService          repositoryService;
 
-  public LoginHistoryUpgradePlugin(InitParams initParams) {
-    super(initParams);
-  }
+  private EntityManagerService       entityManagerService;
+
+  private ExoContainer               CURRENT_CONTAINER            = ExoContainerContext.getCurrentContainer();
 
   public LoginHistoryUpgradePlugin(InitParams initParams,
                                    JCRLoginHistoryStorageImpl jcrLoginHistoryStorage,
                                    LoginHistoryStorage jpaLoginHistoryStorage,
-                                   RepositoryService repositoryService) {
+                                   RepositoryService repositoryService,
+                                   EntityManagerService entityManagerService) {
     super(initParams);
     this.jcrLoginHistoryStorage = jcrLoginHistoryStorage;
     this.jpaLoginHistoryStorage = jpaLoginHistoryStorage;
     this.repositoryService = repositoryService;
+    this.entityManagerService = entityManagerService;
   }
 
   @Override
@@ -48,6 +53,7 @@ public class LoginHistoryUpgradePlugin extends UpgradeProductPlugin {
       LOG.info("No Login History data to migrate from JCR to RDBMS");
     } else {
       LOG.info("== Start migration of Login History data from JCR to RDBMS");
+      entityManagerService.startRequest(CURRENT_CONTAINER);
 
       try {
         migrateAndDeleteLoginHistory();
@@ -62,6 +68,8 @@ public class LoginHistoryUpgradePlugin extends UpgradeProductPlugin {
         jcrLoginHistoryStorage.removeLoginHistoryHomeNode();
       } catch (Exception e) {
         LOG.error("==    Error while deleting Login History Home Node: " + e.getMessage());
+      } finally {
+        entityManagerService.endRequest(CURRENT_CONTAINER);
       }
       LOG.info("==    Login History migration - Home Node deleted successfully !");
       LOG.info("== Login History migration done");
@@ -102,6 +110,9 @@ public class LoginHistoryUpgradePlugin extends UpgradeProductPlugin {
         long loginTime = 0;
         while (loginHistoryNodes.hasNext()) {
           try {
+            entityManagerService.endRequest(CURRENT_CONTAINER);
+            entityManagerService.startRequest(CURRENT_CONTAINER);
+
             loginHistoryNode = loginHistoryNodes.nextNode();
             userId = loginHistoryNode.getProperty("exo:LoginHisSvc_loginHistoryItem_userId").getString();
             loginTime = loginHistoryNode.getProperty("exo:LoginHisSvc_loginHistoryItem_loginTime").getLong();
