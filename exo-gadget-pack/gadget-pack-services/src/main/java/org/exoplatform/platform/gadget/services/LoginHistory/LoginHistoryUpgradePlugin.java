@@ -96,7 +96,7 @@ public class LoginHistoryUpgradePlugin extends UpgradeProductPlugin {
     SessionProvider sProvider = SessionProvider.createSystemProvider();
     entityManagerService.startRequest(ExoContainerContext.getCurrentContainer());
 
-    long offset = 0, migrated = 0;
+    long offset = 0, migrated = 0, errors = 0;
 
     long count;
     try {
@@ -121,10 +121,11 @@ public class LoginHistoryUpgradePlugin extends UpgradeProductPlugin {
             migrated++;
           } catch (Exception e) {
             LOG.error("==   Login History migration - Error while migrating login of " + userId + " at " + loginTime, e);
+            errors++;
           }
         }
         offset += count;
-        LOG.info("==   Login History migration - Progress : {} logins migrated ({} errors)", migrated, count - migrated);
+        LOG.info("==   Login History migration - Progress : {} logins migrated ({} errors)", migrated, errors);
       } while (count == LOGIN_HISTORY_NODE_PAGE_SIZE);
     } finally {
       entityManagerService.endRequest(ExoContainerContext.getCurrentContainer());
