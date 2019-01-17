@@ -88,7 +88,7 @@ public class LoginHistoryDAO extends GenericDAOJPAImpl<LoginHistoryEntity, Long>
    *
    * @param numLogins int
    * @param userId {@link String}
-   * @return List<LoginHistoryEntity>
+   * @return LoginHistoryEntity list
    */
   public List<LoginHistoryEntity> getLastLoginsOfUser(int numLogins, String userId) {
     List<LoginHistoryEntity> loginHistoryEntityList;
@@ -108,7 +108,7 @@ public class LoginHistoryDAO extends GenericDAOJPAImpl<LoginHistoryEntity, Long>
    * returns the last n user IDs set by a given limit number numLogins.
    *
    * @param numLogins int
-   * @return List<String>
+   * @return list of String
    */
   public List<String> getLastLoggedUsers(int numLogins) {
     List<String> lastLoggedUsers;
@@ -131,7 +131,7 @@ public class LoginHistoryDAO extends GenericDAOJPAImpl<LoginHistoryEntity, Long>
    * returns the last history login entry of a given user.
    *
    * @param userId {@link String}
-   * @return LoginHistoryEntity
+   * @return Login History Entity
    */
   public LoginHistoryEntity getLastLoginOfUser(String userId) {
     LoginHistoryEntity lastLogin;
@@ -149,7 +149,7 @@ public class LoginHistoryDAO extends GenericDAOJPAImpl<LoginHistoryEntity, Long>
   /**
    * returns the last login history entry.
    * 
-   * @return LoginHistoryEntity
+   * @return Login History Entity
    */
   public LoginHistoryEntity getLastLoginHistory() {
     LoginHistoryEntity lastHistoryEntity;
@@ -170,7 +170,7 @@ public class LoginHistoryDAO extends GenericDAOJPAImpl<LoginHistoryEntity, Long>
    * @param userId {@link String}
    * @param fromTime long
    * @param toTime long
-   * @return List<LoginHistoryEntity>
+   * @return LoginHistoryEntity list
    */
   public List<LoginHistoryEntity> getLoginHistory(String userId, long fromTime, long toTime) {
     Timestamp from = new Timestamp(fromTime);
@@ -197,7 +197,7 @@ public class LoginHistoryDAO extends GenericDAOJPAImpl<LoginHistoryEntity, Long>
    *
    * @param fromTime long
    * @param toTime long
-   * @return List<LoginHistoryEntity>
+   * @return LoginHistoryEntity list
    */
   public List<LoginHistoryEntity> getAllLoginHistory(long fromTime, long toTime) {
     Timestamp from = new Timestamp(fromTime);
@@ -221,7 +221,7 @@ public class LoginHistoryDAO extends GenericDAOJPAImpl<LoginHistoryEntity, Long>
    * returns a list of user IDs that did log in from a given date till now.
    *
    * @param fromTime long
-   * @return Set<String>
+   * @return a Set of String
    */
   public Set<String> getLastLoginsAfterDate(long fromTime) {
     Timestamp from = new Timestamp(fromTime);

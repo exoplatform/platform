@@ -87,6 +87,7 @@ public class JCRLoginHistoryStorageImpl implements LoginHistoryStorage {
 
   /**
    * Apply configurations from service's xml
+   * @param plugin {@link LoginHistoryPlugin}
    */
   public void addConfiguration(LoginHistoryPlugin plugin) {
     InitParams initParams = plugin.getInitParams();
@@ -585,7 +586,7 @@ public class JCRLoginHistoryStorageImpl implements LoginHistoryStorage {
    * @param sProvider {@link SessionProvider}
    * @param offset long
    * @param size long
-   * @return NodeIterator
+   * @return Node Iterator
    */
   public NodeIterator getLoginHistoryNodes(SessionProvider sProvider, long offset, long size) {
 
@@ -664,10 +665,10 @@ public class JCRLoginHistoryStorageImpl implements LoginHistoryStorage {
   }
 
   /**
-   * used at the end of the migration process, it removes the root node for Login
+   * used at the end of the migration process, it removes the JCR root node for Login
    * History service
    * 
-   * @throws Exception e
+   * @throws Exception
    */
   public void removeLoginHistoryHomeNode() throws Exception {
     SessionProvider sProvider = SessionProvider.createSystemProvider();

@@ -61,7 +61,7 @@ public class JPALoginHistoryStorageImpl implements LoginHistoryStorage {
    * @param userId {@link String}
    * @param fromDate long
    * @param toDate long
-   * @return List<LoginCounterBean>
+   * @return LoginCounterBean list
    */
   public List<LoginCounterBean> getLoginCountPerDaysInRange(String userId, long fromDate, long toDate) {
     List<LoginCounterBean> counterBeanList = new ArrayList<>();
@@ -142,7 +142,7 @@ public class JPALoginHistoryStorageImpl implements LoginHistoryStorage {
    *
    * @param numLogins int
    * @param userIdFilter {@link String}
-   * @return List<LastLoginBean>
+   * @return LastLoginBean list
    */
   @Override
   public List<LastLoginBean> getLastLogins(int numLogins, String userIdFilter) {
@@ -194,7 +194,7 @@ public class JPALoginHistoryStorageImpl implements LoginHistoryStorage {
    * @param userId {@link String}
    * @param fromTime long
    * @param toTime long
-   * @return List<LoginHistoryBean>
+   * @return LoginHistoryBean list
    */
   @Override
   public List<LoginHistoryBean> getLoginHistory(String userId, long fromTime, long toTime) {
@@ -343,7 +343,7 @@ public class JPALoginHistoryStorageImpl implements LoginHistoryStorage {
    * returns a converted LoginHistoryBean from a given LoginHistoryEntity.
    *
    * @param loginHistoryEntity {@link LoginHistoryEntity}
-   * @return LoginHistoryBean
+   * @return Login History Bean
    */
   private LoginHistoryBean convertToLoginHistoryBean(LoginHistoryEntity loginHistoryEntity) {
     LoginHistoryBean loginHistoryBean = new LoginHistoryBean();
@@ -361,7 +361,7 @@ public class JPALoginHistoryStorageImpl implements LoginHistoryStorage {
    * returns a converted LastLoginBean from a given LoginHistoryEntity.
    * 
    * @param loginHistoryEntity {@link LoginHistoryEntity}
-   * @return LastLoginBean
+   * @return Last Login Bean
    * @throws Exception
    */
   private LastLoginBean convertToLastLoginBean(LoginHistoryEntity loginHistoryEntity) throws Exception {
@@ -383,7 +383,7 @@ public class JPALoginHistoryStorageImpl implements LoginHistoryStorage {
    * LoginHistoryEntities.
    *
    * @param loginHistoryEntityList List<{@link LoginHistoryEntity}>
-   * @return List<LoginHistoryBean>
+   * @return LoginHistoryBean list
    */
   private List<LoginHistoryBean> convertToLoginHistoryBeanList(List<LoginHistoryEntity> loginHistoryEntityList) {
     List<LoginHistoryBean> loginHistoryBeanList = new ArrayList<>();
@@ -401,7 +401,7 @@ public class JPALoginHistoryStorageImpl implements LoginHistoryStorage {
    * LoginHistoryEntities.
    * 
    * @param loginHistoryEntityList List<{@link LoginHistoryEntity}>>
-   * @return List<LastLoginBean>
+   * @return LastLoginBean list
    * @throws Exception
    */
   private List<LastLoginBean> convertToLastLoginBeanList(List<LoginHistoryEntity> loginHistoryEntityList) throws Exception {
