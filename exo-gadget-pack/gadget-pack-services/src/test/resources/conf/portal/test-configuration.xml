@@ -218,7 +218,7 @@
         </value-param>
         <value-param>
           <name>plugin.upgrade.execute.once</name>
-          <description>Execute this upgrade pluginonly once</description>
+          <description>Execute this upgrade plugin only once</description>
           <value>true</value>
         </value-param>
         <value-param>

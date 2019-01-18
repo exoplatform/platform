@@ -86,27 +86,6 @@ public class JCRLoginHistoryStorageImpl implements LoginHistoryStorage {
   }
 
   /**
-   * Apply configurations from service's xml
-   * @param plugin {@link LoginHistoryPlugin}
-   */
-  public void addConfiguration(LoginHistoryPlugin plugin) {
-    InitParams initParams = plugin.getInitParams();
-    if (initParams != null) {
-      ValueParam MaxNumOfUserLoginHistoryEntries = initParams.getValueParam("MaxNumOfUserLoginHistoryEntries");
-      if (MaxNumOfUserLoginHistoryEntries != null)
-        MAX_NUM_OF_LOGIN_HISTORY_ENTRIES = Integer.parseInt(MaxNumOfUserLoginHistoryEntries.getValue());
-
-      ValueParam DaysForKeepingUserStatistic = initParams.getValueParam("DaysForKeepingUserStatistic");
-      if (DaysForKeepingUserStatistic != null)
-        DAYS_FOR_KEEPING_USER_STATISTIC = Integer.parseInt(DaysForKeepingUserStatistic.getValue());
-
-      ValueParam DaysForKeepingGlobalStatistic = initParams.getValueParam("DaysForKeepingGlobalStatistic");
-      if (DaysForKeepingGlobalStatistic != null)
-        DAYS_FOR_KEEPING_GLOBAL_STATISTIC = Integer.parseInt(DaysForKeepingGlobalStatistic.getValue());
-    }
-  }
-
-  /**
    * Utility function to get JCR session in current repository
    *
    * @param sessionProvider
@@ -665,8 +644,8 @@ public class JCRLoginHistoryStorageImpl implements LoginHistoryStorage {
   }
 
   /**
-   * used at the end of the migration process, it removes the JCR root node for Login
-   * History service
+   * used at the end of the migration process, it removes the JCR root node for
+   * Login History service
    * 
    * @throws Exception
    */
