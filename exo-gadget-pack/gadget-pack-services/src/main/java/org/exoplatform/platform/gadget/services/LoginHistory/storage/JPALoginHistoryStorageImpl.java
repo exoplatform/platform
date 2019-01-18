@@ -168,7 +168,7 @@ public class JPALoginHistoryStorageImpl implements LoginHistoryStorage {
 
       lastLoginBeanList = convertToLastLoginBeanList(loginHistoryEntityList);
     } catch (Exception e) {
-      LOG.debug("Error while retrieving last logins: " + e.getMessage(), e);
+      LOG.error("Error while retrieving last logins: " + e.getMessage(), e);
       lastLoginBeanList = null;
     }
     return lastLoginBeanList;
