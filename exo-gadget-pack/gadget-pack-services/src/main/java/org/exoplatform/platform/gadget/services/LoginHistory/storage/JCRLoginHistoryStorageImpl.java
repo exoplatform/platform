@@ -1,8 +1,6 @@
 package org.exoplatform.platform.gadget.services.LoginHistory.storage;
 
 import org.exoplatform.container.ExoContainerContext;
-import org.exoplatform.container.xml.InitParams;
-import org.exoplatform.container.xml.ValueParam;
 import org.exoplatform.platform.gadget.services.LoginHistory.*;
 import org.exoplatform.services.jcr.RepositoryService;
 import org.exoplatform.services.jcr.access.PermissionType;
@@ -31,16 +29,6 @@ public class JCRLoginHistoryStorageImpl implements LoginHistoryStorage {
   private static String     LOGIN_HISTORY                     = "loginHistory";
 
   private static String     LOGIN_COUNTER                     = "loginCounter";
-
-  private static String     BEFORE_LAST_LOGIN                 = "exo:LoginHisSvc_beforeLastLogin";
-
-  private static String     LAST_LOGIN_TIME                   = "exo:LoginHisSvc_lastLogin";
-
-  private static int        MAX_NUM_OF_LOGIN_HISTORY_ENTRIES  = 0;
-
-  private static int        DAYS_FOR_KEEPING_USER_STATISTIC   = 0;
-
-  private static int        DAYS_FOR_KEEPING_GLOBAL_STATISTIC = 0;
 
   private static long       DAY_IN_MILLISEC                   = 86400000;
 
@@ -279,20 +267,6 @@ public class JCRLoginHistoryStorageImpl implements LoginHistoryStorage {
       loginHistory_loginTimeNode.setProperty("exo:LoginHisSvc_loginHistoryItem_id", loginHistory_lastIndex);
       loginHistory_loginTimeNode.setProperty("exo:LoginHisSvc_loginHistoryItem_userId", userId);
       loginHistory_loginTimeNode.setProperty("exo:LoginHisSvc_loginHistoryItem_loginTime", loginTime);
-      // Keep only up to MAX_NUM_OF_LOGIN_HISTORY_ENTRIES last items
-      if (MAX_NUM_OF_LOGIN_HISTORY_ENTRIES > 0 && loginHistory_lastIndex > MAX_NUM_OF_LOGIN_HISTORY_ENTRIES) {
-        QueryManager queryManager = session.getWorkspace().getQueryManager();
-        String sqlStatement = "SELECT * FROM exo:LoginHisSvc_loginHistoryItem "
-            + "WHERE exo:LoginHisSvc_loginHistoryItem_userId = '" + userId + "' " + "AND exo:LoginHisSvc_loginHistoryItem_id <= "
-            + Long.toString(loginHistory_lastIndex - MAX_NUM_OF_LOGIN_HISTORY_ENTRIES);
-        QueryImpl query = (QueryImpl) queryManager.createQuery(sqlStatement, Query.SQL);
-        QueryResult result = query.execute();
-        NodeIterator nodeIterator = result.getNodes();
-        while (nodeIterator.hasNext()) {
-          Node node = nodeIterator.nextNode();
-          node.remove();
-        }
-      }
       loginHistoryNode.setProperty("exo:LoginHisSvc_loginHistory_lastIndex", loginHistory_lastIndex);
 
       Calendar cal = Calendar.getInstance();
@@ -320,21 +294,6 @@ public class JCRLoginHistoryStorageImpl implements LoginHistoryStorage {
         long loginCount = loginCounter_loginDateNode.getProperty("exo:LoginHisSvc_loginCounterItem_loginCount").getLong();
         loginCounter_loginDateNode.setProperty("exo:LoginHisSvc_loginCounterItem_loginCount", loginCount + 1);
       }
-      // Keep only up to DAYS_FOR_KEEPING_USER_STATISTIC last items
-      if (DAYS_FOR_KEEPING_USER_STATISTIC > 0 && loginCounter_lastIndex > DAYS_FOR_KEEPING_USER_STATISTIC) {
-        QueryManager queryManager = session.getWorkspace().getQueryManager();
-        String sqlStatement = "SELECT * FROM exo:LoginHisSvc_loginCounterItem "
-            + "WHERE exo:LoginHisSvc_loginCounterItem_userId = '" + userId + "' " + "AND exo:LoginHisSvc_loginCounterItem_id <= "
-            + Long.toString(loginCounter_lastIndex - DAYS_FOR_KEEPING_USER_STATISTIC);
-        QueryImpl query = (QueryImpl) queryManager.createQuery(sqlStatement, Query.SQL);
-        QueryResult result = query.execute();
-        NodeIterator nodeIterator = result.getNodes();
-        Node node;
-        while (nodeIterator.hasNext()) {
-          node = nodeIterator.nextNode();
-          node.remove();
-        }
-      }
       loginCounterNode.setProperty("exo:LoginHisSvc_loginCounter_lastIndex", loginCounter_lastIndex);
 
       // Update global login counter
@@ -353,22 +312,6 @@ public class JCRLoginHistoryStorageImpl implements LoginHistoryStorage {
         globalLoginCounter_loginDateNode = globalLoginCounterNode.getNode(loginDate);
         long loginCount = globalLoginCounter_loginDateNode.getProperty("exo:LoginHisSvc_loginCounterItem_loginCount").getLong();
         globalLoginCounter_loginDateNode.setProperty("exo:LoginHisSvc_loginCounterItem_loginCount", loginCount + 1);
-      }
-      // Keep only up to DAYS_FOR_KEEPING_GLOBAL_STATISTIC last items
-      if (DAYS_FOR_KEEPING_GLOBAL_STATISTIC > 0 && globalLoginCounter_lastIndex > DAYS_FOR_KEEPING_GLOBAL_STATISTIC) {
-        QueryManager queryManager = session.getWorkspace().getQueryManager();
-        String sqlStatement = "SELECT * FROM exo:LoginHisSvc_loginCounterItem "
-            + "WHERE exo:LoginHisSvc_loginCounterItem_userId = '" + ALL_USERS + "' "
-            + "AND exo:LoginHisSvc_loginCounterItem_id <= "
-            + Long.toString(globalLoginCounter_lastIndex - DAYS_FOR_KEEPING_GLOBAL_STATISTIC);
-        QueryImpl query = (QueryImpl) queryManager.createQuery(sqlStatement, Query.SQL);
-        QueryResult result = query.execute();
-        NodeIterator nodeIterator = result.getNodes();
-        Node node;
-        while (nodeIterator.hasNext()) {
-          node = nodeIterator.nextNode();
-          node.remove();
-        }
       }
       globalLoginCounterNode.setProperty("exo:LoginHisSvc_globalLoginCounter_lastIndex", globalLoginCounter_lastIndex);
 
@@ -561,7 +504,7 @@ public class JCRLoginHistoryStorageImpl implements LoginHistoryStorage {
   /**
    * returns the node iterator which contains a given number of nodes after a
    * given offset
-   * 
+   *
    * @param sProvider {@link SessionProvider}
    * @param offset long
    * @param size long
@@ -591,7 +534,7 @@ public class JCRLoginHistoryStorageImpl implements LoginHistoryStorage {
 
   /**
    * removes the given node
-   * 
+   *
    * @param sProvider {@link SessionProvider}
    * @param loginHistoryNode {@link Node}
    */
@@ -607,7 +550,7 @@ public class JCRLoginHistoryStorageImpl implements LoginHistoryStorage {
 
   /**
    * removes a gievn number of Login Counters nodes from a given offset
-   * 
+   *
    * @param offset long
    * @param size long
    * @return long
