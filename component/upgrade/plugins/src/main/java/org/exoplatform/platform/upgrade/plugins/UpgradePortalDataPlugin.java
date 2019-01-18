@@ -1,5 +1,5 @@
 /**
- * Copyright (C) 2013 eXo Platform SAS.
+ * Copyright (C) 2019 eXo Platform SAS.
  *
  * This is free software; you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as
@@ -19,7 +19,6 @@
 package org.exoplatform.platform.upgrade.plugins;
 
 import org.exoplatform.commons.upgrade.UpgradeProductPlugin;
-import org.exoplatform.commons.version.util.VersionComparator;
 import org.exoplatform.container.xml.InitParams;
 import org.exoplatform.container.PortalContainer;
 import org.exoplatform.container.component.RequestLifeCycle;
@@ -34,36 +33,29 @@ import java.util.Date;
 
 public class UpgradePortalDataPlugin extends UpgradeProductPlugin {
 
-    private UserPortalConfigService portalConfigService;
-    private final POMSessionManager pomMgr;
+  private UserPortalConfigService portalConfigService;
 
-    public UpgradePortalDataPlugin(UserPortalConfigService portalConfigService, POMSessionManager pomMgr, InitParams initParams) {
-        super(initParams);
-        this.portalConfigService = portalConfigService;
-        this.pomMgr = pomMgr;
+  private final POMSessionManager pomMgr;
+
+  public UpgradePortalDataPlugin(UserPortalConfigService portalConfigService, POMSessionManager pomMgr, InitParams initParams) {
+    super(initParams);
+    this.portalConfigService = portalConfigService;
+    this.pomMgr = pomMgr;
+  }
+
+  @Override
+  public void processUpgrade(String oldVersion, String newVersion) {
+    RequestLifeCycle.begin(PortalContainer.getInstance());
+    try {
+      POMSession session = pomMgr.getSession();
+      Workspace workspace = session.getWorkspace();
+      Imported imported = workspace.adapt(Imported.class);
+      imported.setLastModificationDate(new Date());
+      imported.setStatus(Status.WANT_REIMPORT.status());
+      session.save();
+    } finally {
+      RequestLifeCycle.end();
     }
-
-    @Override
-    public void processUpgrade(String oldVersion, String newVersion) {
-        RequestLifeCycle.begin(PortalContainer.getInstance());
-        try {
-            POMSession session = pomMgr.getSession();
-            Workspace workspace = session.getWorkspace();
-            Imported imported = workspace.adapt(Imported.class);
-            imported.setLastModificationDate(new Date());
-            imported.setStatus(Status.WANT_REIMPORT.status());
-            session.save();
-        } finally {
-            RequestLifeCycle.end();
-        }
-        portalConfigService.start();
-
-    }
-
-    @Override
-    public boolean shouldProceedToUpgrade(String newVersion, String previousVersion) {
-        // --- return true only for the first version of platform
-        return VersionComparator.isAfter(newVersion,previousVersion);
-    }
-
+    portalConfigService.start();
+  }
 }
