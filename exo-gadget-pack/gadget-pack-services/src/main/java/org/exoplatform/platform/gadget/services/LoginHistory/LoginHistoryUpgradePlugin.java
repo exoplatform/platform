@@ -46,27 +46,31 @@ public class LoginHistoryUpgradePlugin extends UpgradeProductPlugin {
     // First check to see if the JCR still contains Login History data. If not,
     // migration is skipped
 
+    int errors = 0;
+
     if (!hasDataToMigrate()) {
       LOG.info("No Login History data to migrate from JCR to RDBMS");
     } else {
       LOG.info("== Start migration of Login History data from JCR to RDBMS");
 
       try {
-        migrateAndDeleteLoginHistory();
+        errors = migrateAndDeleteLoginHistory();
       } catch (Exception e) {
         LOG.error("==    Error during the Login History migration process: ", e);
       }
 
-      deleteLoginHistoryCounters();
-      LOG.info("==   Login History migration - Entries and Counters JCR Data deleted successfully");
+      if (errors == 0) {
+        deleteLoginHistoryCounters();
+        LOG.info("==   Login History migration - Entries and Counters JCR Data deleted successfully");
 
-      try {
-        jcrLoginHistoryStorage.removeLoginHistoryHomeNode();
-      } catch (Exception e) {
-        LOG.error("==    Error while deleting Login History Home Node: " + e.getMessage());
+        try {
+          jcrLoginHistoryStorage.removeLoginHistoryHomeNode();
+        } catch (Exception e) {
+          LOG.error("==    Error while deleting Login History Home Node: " + e.getMessage());
+        }
+        LOG.info("==    Login History migration - Home Node deleted successfully !");
+        LOG.info("== Login History migration done");
       }
-      LOG.info("==    Login History migration - Home Node deleted successfully !");
-      LOG.info("== Login History migration done");
     }
   }
 
@@ -92,11 +96,12 @@ public class LoginHistoryUpgradePlugin extends UpgradeProductPlugin {
    * returned page of Login History nodes it iterates on each node in order to add
    * it to the JPAStorage and then removes it
    */
-  private void migrateAndDeleteLoginHistory() {
+  private int migrateAndDeleteLoginHistory() {
     SessionProvider sProvider = SessionProvider.createSystemProvider();
     entityManagerService.startRequest(ExoContainerContext.getCurrentContainer());
 
-    long offset = 0, migrated = 0, errors = 0;
+    long offset = 0, migrated = 0;
+    int errors = 0;
 
     long count;
     try {
@@ -131,6 +136,7 @@ public class LoginHistoryUpgradePlugin extends UpgradeProductPlugin {
       entityManagerService.endRequest(ExoContainerContext.getCurrentContainer());
       sProvider.close();
     }
+    return errors;
   }
 
   /**
