@@ -58,15 +58,16 @@ public class LoginHistoryUpgradePlugin extends UpgradeProductPlugin {
 
         if (errors == 0) {
           deleteLoginHistoryCounters();
-          jcrLoginHistoryStorage.removeLoginHistoryHomeNode();
           LOG.info("==    Login History migration - Entries and Counters JCR Data deleted successfully");
+
+          jcrLoginHistoryStorage.removeLoginHistoryHomeNode();
           LOG.info("==    Login History migration - Home Node deleted successfully !");
           LOG.info("==    Login History migration done");
         } else {
           LOG.error("==    Login History migration aborted, {} errors encountered", errors);
         }
       } catch (Exception e) {
-        LOG.error("==    {} Errors during the Login History migration process: ", errors, e.getMessage());
+        LOG.error("==    {} Errors during the Login History migration process: ", errors, e.getMessage(),e);
       }
     }
   }
@@ -77,13 +78,16 @@ public class LoginHistoryUpgradePlugin extends UpgradeProductPlugin {
   }
 
   private Boolean hasDataToMigrate() {
-    boolean hasDataToMigrate = true;
+    boolean hasDataToMigrate;
     SessionProvider sProvider = SessionProvider.createSystemProvider();
     try {
       Session session = getSession(sProvider);
       hasDataToMigrate = session.getRootNode().hasNode("exo:LoginHistoryHome");
     } catch (Exception e) {
       LOG.error("Error while checking the existence of login history home node", e);
+      hasDataToMigrate = false;
+    } finally {
+      sProvider.close();
     }
     return hasDataToMigrate;
   }

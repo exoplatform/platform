@@ -111,7 +111,7 @@ public class JPALoginHistoryStorageImpl implements LoginHistoryStorage {
         firstDay = nextDay;
       }
     } catch (Exception e) {
-      LOG.error("Error while returning the Login Count Per Days In Range of " + userId + ":" + e.getMessage());
+      LOG.error("Error while returning the Login Count Per Days In Range of {} : ",userId ,e.getMessage(), e);
       counterBeanList = null;
     }
     return counterBeanList;
@@ -168,7 +168,7 @@ public class JPALoginHistoryStorageImpl implements LoginHistoryStorage {
 
       lastLoginBeanList = convertToLastLoginBeanList(loginHistoryEntityList);
     } catch (Exception e) {
-      LOG.error("Error while retrieving last logins: " + e.getMessage(), e);
+      LOG.error("Error while retrieving last {} logins for {} : ", numLogins, userId, e.getMessage(), e);
       lastLoginBeanList = null;
     }
     return lastLoginBeanList;
@@ -181,7 +181,7 @@ public class JPALoginHistoryStorageImpl implements LoginHistoryStorage {
       LoginHistoryEntity loginHistoryEntity = new LoginHistoryEntity(userId, loginDate);
       loginHistoryDAO.create(loginHistoryEntity); // the create method will return the entity which we'll ignore.
     } catch (Exception e) {
-      LOG.error("Error while adding user " + userId + ":" + e.getMessage());
+      LOG.error("Error while adding login history for user {} : ", userId, e.getMessage(), e);
     }
   }
 
@@ -210,7 +210,7 @@ public class JPALoginHistoryStorageImpl implements LoginHistoryStorage {
 
       }
     } catch (Exception e) {
-      LOG.error("Error while returning Login History of " + userId + ":" + e.getMessage());
+      LOG.error("Error while returning Login History of " + userId + ":" + e.getMessage(), e);
       loginHistoryBeanList = null;
     }
     return loginHistoryBeanList;

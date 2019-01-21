@@ -528,7 +528,6 @@ public class JCRLoginHistoryStorageImpl implements LoginHistoryStorage {
     } catch (Exception e) {
       LOG.error("Error while getting the NodeIterator: " + e.getMessage(), e);
     }
-
     return nodeIterator;
   }
 
@@ -544,7 +543,7 @@ public class JCRLoginHistoryStorageImpl implements LoginHistoryStorage {
       loginHistoryNode.remove();
       session.save();
     } catch (Exception e) {
-      LOG.error("Error while deleting Login History Node: " + e.getMessage());
+      LOG.error("Error while deleting Login History Node {} : ", loginHistoryNode,e.getMessage(), e);
     }
   }
 
