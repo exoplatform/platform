@@ -55,21 +55,18 @@ public class LoginHistoryUpgradePlugin extends UpgradeProductPlugin {
 
       try {
         errors = migrateAndDeleteLoginHistory();
-      } catch (Exception e) {
-        LOG.error("==    Error during the Login History migration process: ", e);
-      }
 
-      if (errors == 0) {
-        deleteLoginHistoryCounters();
-        LOG.info("==   Login History migration - Entries and Counters JCR Data deleted successfully");
-
-        try {
+        if (errors == 0) {
+          deleteLoginHistoryCounters();
           jcrLoginHistoryStorage.removeLoginHistoryHomeNode();
-        } catch (Exception e) {
-          LOG.error("==    Error while deleting Login History Home Node: " + e.getMessage());
+          LOG.info("==    Login History migration - Entries and Counters JCR Data deleted successfully");
+          LOG.info("==    Login History migration - Home Node deleted successfully !");
+          LOG.info("==    Login History migration done");
+        } else {
+          LOG.error("==    Login History migration aborted, {} errors encountered", errors);
         }
-        LOG.info("==    Login History migration - Home Node deleted successfully !");
-        LOG.info("== Login History migration done");
+      } catch (Exception e) {
+        LOG.error("==    {} Errors during the Login History migration process: ", errors, e.getMessage());
       }
     }
   }
