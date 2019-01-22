@@ -30,7 +30,7 @@
     <node>
       <uri>spacesAdministration</uri>
       <name>spacesAdministration</name>
-      <label>Spaces</label>
+      <label>#{SpacesAdministrationPortlet.label.spaces}</label>
       <page-reference>group::/platform/users::spacesAdministration</page-reference>
     </node>
   </page-nodes>   
