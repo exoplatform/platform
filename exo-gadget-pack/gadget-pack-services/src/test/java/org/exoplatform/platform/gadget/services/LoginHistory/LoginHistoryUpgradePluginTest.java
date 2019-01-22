@@ -6,7 +6,6 @@ import java.util.List;
 import org.exoplatform.commons.persistence.impl.EntityManagerService;
 import org.exoplatform.container.PortalContainer;
 import org.exoplatform.container.xml.InitParams;
-import org.exoplatform.platform.gadget.services.LoginHistory.LoginHistoryService;
 import org.exoplatform.platform.gadget.services.LoginHistory.storage.JCRLoginHistoryStorageImpl;
 import org.exoplatform.platform.gadget.services.LoginHistory.storage.LoginHistoryStorage;
 import org.exoplatform.platform.gadget.services.test.GadgetServiceTestcase;
@@ -48,7 +47,7 @@ public class LoginHistoryUpgradePluginTest extends GadgetServiceTestcase {
     jcrLoginHistoryStorage.addLoginHistoryEntry("upgradeUser2", new Date("Aug 24 2011 17:45:15").getTime());
 
     // When
-    loginHistoryUpgradePlugin.processUpgrade("5.1.0", "5.2.0");
+    loginHistoryUpgradePlugin.processUpgrade("5.2.0", "5.1.0");
 
     // Then
     entityManagerService.startRequest(PortalContainer.getInstance());

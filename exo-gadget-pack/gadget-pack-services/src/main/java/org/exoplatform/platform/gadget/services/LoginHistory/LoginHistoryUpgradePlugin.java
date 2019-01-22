@@ -53,21 +53,22 @@ public class LoginHistoryUpgradePlugin extends UpgradeProductPlugin {
     } else {
       LOG.info("== Start migration of Login History data from JCR to RDBMS");
 
-      try {
-        errors = migrateAndDeleteLoginHistory();
+      errors = migrateAndDeleteLoginHistory();
 
-        if (errors == 0) {
-          deleteLoginHistoryCounters();
-          LOG.info("==    Login History migration - Entries and Counters JCR Data deleted successfully");
+      if (errors == 0) {
+        deleteLoginHistoryCounters();
+        LOG.info("==    Login History migration - Entries and Counters JCR Data deleted successfully");
 
+        try {
           jcrLoginHistoryStorage.removeLoginHistoryHomeNode();
-          LOG.info("==    Login History migration - Home Node deleted successfully !");
-          LOG.info("==    Login History migration done");
-        } else {
-          LOG.error("==    Login History migration aborted, {} errors encountered", errors);
+        } catch (Exception e) {
+          throw new RuntimeException("Error when deleting Login History home node");
         }
-      } catch (Exception e) {
-        LOG.error("==    {} Errors during the Login History migration process: ", errors, e.getMessage(),e);
+        LOG.info("==    Login History migration - Home Node deleted successfully !");
+        LOG.info("==    Login History migration done");
+      } else {
+        LOG.error("==    Login History migration aborted, {} errors encountered", errors);
+        throw new RuntimeException("Login History migration aborted because of migration failures");
       }
     }
   }

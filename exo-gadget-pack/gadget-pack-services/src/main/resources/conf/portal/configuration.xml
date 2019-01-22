@@ -114,11 +114,6 @@
           <value>5.2.0</value>
         </value-param>
         <value-param>
-          <name>plugin.upgrade.execute.once</name>
-          <description>Execute this upgrade pluginonly once</description>
-          <value>true</value>
-        </value-param>
-        <value-param>
           <name>plugin.upgrade.async.execution</name>
           <description>Execute the upgrade plugin asynchronously</description>
           <value>true</value>
