@@ -17,44 +17,6 @@
 
    <external-component-plugins>
       <target-component>org.exoplatform.commons.upgrade.UpgradeProductService</target-component>
-      <!-- This plugin is not used anymore since the Social data is migrated from JCR to RDBMS-->
-      <!--component-plugin>
-        <name>SocialMixinCleanerUpgradePlugin</name>
-        <set-method>addUpgradePlugin</set-method>
-        <type>org.exoplatform.platform.upgrade.plugins.MixinCleanerUpgradePlugin</type>
-        <description>eXo Social Nodes mixin cleaner</description>
-        <init-params>
-          <value-param>
-            <name>product.group.id</name>
-            <description>The groupId of the product</description>
-            <value>org.exoplatform.platform</value>
-          </value-param>
-          <value-param>
-            <name>workspace</name>
-            <description>The workspace name</description>
-            <value>social</value>
-          </value-param>
-          <value-param>
-            <name>path</name>
-            <description>Parent path of cleanup operation</description>
-            <value>/</value>
-          </value-param>
-          <values-param>
-            <name>mixinsCleanup.includes</name>
-            <description>The workspace name</description>
-            <value>exo:sortable</value>
-            <value>exo:modify</value>
-            <value>exo:owneable</value>
-            <value>exo:datetime</value>
-          </values-param>
-          <values-param>
-            <name>mixinsCleanup.excludes</name>
-            <description>The exceptional nodetypes that shouldn't be impacted by modification, format = MIXIN;NODETYPE </description>
-            <value>exo:datetime;soc:spaceref</value>
-            <value>exo:modify;soc:spaceref</value>
-          </values-param>
-        </init-params>
-      </component-plugin-->
       <component-plugin>
          <name>UpgradeProductInfoNodePlugin</name>
          <set-method>addUpgradePlugin</set-method>
@@ -646,130 +608,39 @@
            </value-param>
          </init-params>
       </component-plugin>
-   </external-component-plugins>
-   <!--
-  Not FOUND
-  TODO : FIX OR REMOVE
-	<external-component-plugins>
-		<target-component>org.exoplatform.commons.upgrade.UpgradeProductService</target-component>
-        <component-plugin>
-            <name>UpgradeNamespaceJosPlugin</name>
-            <set-method>addUpgradePlugin</set-method>
-            <type>org.exoplatform.platform.upgrade.plugins.UpgradeNamespaceJosPlugin</type>
-            <description>eXo Namespace Jos Upgrade Plugin</description>
-            <init-params>
-                <value-param>
-                    <name>product.group.id</name>
-                    <description>The groupId of the product</description>
-                    <value>org.exoplatform.platform</value>
-                </value-param>
-            </init-params>
-        </component-plugin>
-		<component-plugin>
-			<name>Upgrade-WCM-Contents</name>
-			<set-method>addUpgradePlugin</set-method>
-			<type>org.exoplatform.platform.upgrade.plugins.UpgradeContentPlugin</type>
-			<description>WCM Contents Upgrade Plugin</description>
-			<init-params>
-				<value-param>
-					<name>product.group.id</name>
-					<description>The groupId of the product</description>
-					<value>org.exoplatform.platform</value>
-				</value-param>
-				<value-param>
-					<name>plugin.execution.order</name>
-					<description>The plugin execution order</description>
-					<value>4</value>
-				</value-param>
-				<values-param>
-					<name>webapps-mames</name>
-					<description>webapps to upgrade</description>
-					<value>acme-intranet</value>
-					<value>acme-intranet-portlet</value>
-					<value>acme-website</value>
-					<value>acme-websiteResources</value>
-					<value>authoring-apps</value>
-					<value>calendar</value>
-					<value>chat</value>
-					<value>chatbar</value>
-					<value>cometd</value>
-					<value>commons-extension</value>
-					<value>contact</value>
-					<value>content</value>
-					<value>crash</value>
-					<value>cs-extension</value>
-					<value>csResources</value>
-					<value>dashboard</value>
-					<value>default-website</value>
-					<value>ecm-wcm-core</value>
-					<value>ecm-wcm-extension</value>
-					<value>ecmadmin</value>
-					<value>ecmbrowsecontent</value>
-					<value>ecmexplorer</value>
-					<value>ecmworkflow-extension</value>
-					<value>exo-gadget-resources</value>
-					<value>exoadmin</value>
-					<value>eXoDMSGadgets</value>
-					<value>eXoDMSResources</value>
-					<value>eXoGadgets</value>
-					<value>eXoGadgetServer</value>
-					<value>eXoPlatformResources</value>
-					<value>eXoResources</value>
-					<value>eXoStaticResources</value>
-					<value>eXoWCMResources</value>
-					<value>eXoWorkflowResources</value>
-					<value>faq</value>
-					<value>fck</value>
-					<value>formgenerator</value>
-					<value>forum</value>
-					<value>gadget-pack</value>
-					<value>IDE</value>
-					<value>intranet-gadget</value>
-					<value>ks-extension</value>
-					<value>ksResources</value>
-					<value>mail</value>
-					<value>newsletter</value>
-					<value>platform-extension</value>
-					<value>platformNavigation</value>
-					<value>poll</value>
-					<value>portal</value>
-					<value>presentation</value>
-					<value>rest</value>
-					<value>searches</value>
-					<value>seo</value>
-					<value>SmartGWT</value>
-					<value>social</value>
-					<value>social-extension</value>
-					<value>social-portlet</value>
-					<value>social-resources</value>
-					<value>web</value>
-					<value>webos-ext</value>
-					<value>webosadmin</value>
-					<value>webosResources</value>
-					<value>wiki</value>
-					<value>workflow</value>
-				</values-param>
-			</init-params>
-		</component-plugin>
-		<component-plugin>
-			<name>Upgrade-Navigations</name>
-			<set-method>addUpgradePlugin</set-method>
-			<type>org.exoplatform.platform.upgrade.plugins.UpgradeNavigationPlugin</type>
-			<description>Navigations Upgrade Plugin</description>
-			<init-params>
-				<value-param>
-					<name>product.group.id</name>
-					<description>The groupId of the product</description>
-					<value>org.exoplatform.platform</value>
-				</value-param>
-				<value-param>
-					<name>plugin.execution.order</name>
-					<description>The plugin execution order</description>
-					<value>2</value>
-				</value-param>
-			</init-params>
-		</component-plugin>
 
-	</external-component-plugins>
-	-->
+     <component-plugin>
+       <name>UpgradePortalDataPlugin</name>
+       <set-method>addUpgradePlugin</set-method>
+       <type>org.exoplatform.platform.upgrade.plugins.UpgradePortalDataPlugin</type>
+       <description>Upgrade Portal Data</description>
+       <init-params>
+         <value-param>
+           <name>product.group.id</name>
+           <description>The groupId of the product</description>
+           <value>org.exoplatform.platform</value>
+         </value-param>
+         <value-param>
+           <name>plugin.execution.order</name>
+           <description>The plugin execution order</description>
+           <value>2</value>
+         </value-param>
+         <value-param>
+           <name>plugin.upgrade.execute.once</name>
+           <description>Execute this upgrade pluginonly once</description>
+           <value>true</value>
+         </value-param>
+         <value-param>
+           <name>plugin.upgrade.async.execution</name>
+           <description>Execute the upgrade plugin asynchronously</description>
+           <value>false</value>
+         </value-param>
+         <value-param>
+           <name>plugin.upgrade.target.version</name>
+           <description>Target version of the plugin</description>
+           <value>5.2.0</value>
+         </value-param>
+       </init-params>
+     </component-plugin>
+   </external-component-plugins>
 </configuration>
