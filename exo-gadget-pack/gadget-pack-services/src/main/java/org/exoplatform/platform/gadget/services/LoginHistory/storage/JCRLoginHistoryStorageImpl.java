@@ -22,15 +22,15 @@ import javax.jcr.query.QueryResult;
 import java.util.*;
 
 public class JCRLoginHistoryStorageImpl implements LoginHistoryStorage {
-  private static final Log  LOG                               = ExoLogger.getLogger(LoginHistoryServiceImpl.class);
+  private static final Log  LOG             = ExoLogger.getLogger(LoginHistoryServiceImpl.class);
 
-  private static String     HOME                              = "exo:LoginHistoryHome";
+  private static String     HOME            = "exo:LoginHistoryHome";
 
-  private static String     LOGIN_HISTORY                     = "loginHistory";
+  private static String     LOGIN_HISTORY   = "loginHistory";
 
-  private static String     LOGIN_COUNTER                     = "loginCounter";
+  private static String     LOGIN_COUNTER   = "loginCounter";
 
-  private static long       DAY_IN_MILLISEC                   = 86400000;
+  private static long       DAY_IN_MILLISEC = 86400000;
 
   private RepositoryService repositoryService;
 
@@ -543,7 +543,7 @@ public class JCRLoginHistoryStorageImpl implements LoginHistoryStorage {
       loginHistoryNode.remove();
       session.save();
     } catch (Exception e) {
-      LOG.error("Error while deleting Login History Node {} : ", loginHistoryNode,e.getMessage(), e);
+      LOG.error("Error while deleting Login History Node {} : ", loginHistoryNode, e.getMessage(), e);
     }
   }
 
@@ -593,21 +593,15 @@ public class JCRLoginHistoryStorageImpl implements LoginHistoryStorage {
    */
   public void removeLoginHistoryHomeNode() throws Exception {
     SessionProvider sProvider = SessionProvider.createSystemProvider();
-
     if (!getSession(sProvider).getRootNode().hasNode(HOME)) {
-      createHomeNode();
+      return;
     }
 
-    try {
-      Session session = this.getSession(sProvider);
-      Node homeNode = session.getRootNode().getNode(HOME);
-      homeNode.remove();
-      session.save();
-    } catch (Exception e) {
-      LOG.error("Error while deleting login history home node : " + e.getMessage(), e);
-    } finally {
-      sProvider.close();
-    }
+    Session session = this.getSession(sProvider);
+    Node homeNode = session.getRootNode().getNode(HOME);
+    homeNode.remove();
+    session.save();
+    sProvider.close();
   }
 
 }
