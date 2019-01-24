@@ -46,7 +46,7 @@ public class LoginHistoryUpgradePlugin extends UpgradeProductPlugin {
     // First check to see if the JCR still contains Login History data. If not,
     // migration is skipped
 
-    int errors = 0;
+    int errors;
 
     if (!hasDataToMigrate()) {
       LOG.info("No Login History data to migrate from JCR to RDBMS");
@@ -58,6 +58,8 @@ public class LoginHistoryUpgradePlugin extends UpgradeProductPlugin {
       if (errors == 0) {
         deleteLoginHistoryCounters();
         LOG.info("==    Login History migration - Entries and Counters JCR Data deleted successfully");
+        deleteLoginHistoryProfiles();
+        LOG.info("==    Login History migration - Login History Users Profiles deleted successfully");
 
         try {
           jcrLoginHistoryStorage.removeLoginHistoryHomeNode();
@@ -153,6 +155,22 @@ public class LoginHistoryUpgradePlugin extends UpgradeProductPlugin {
         offset += removed;
       } catch (Exception e) {
         LOG.error("==   Login History migration - Error while deleting Login Counter", e);
+      }
+    } while (removed == LOGIN_HISTORY_NODE_PAGE_SIZE);
+  }
+
+  /**
+   * iterates on Login History Users Profiles right under the Login History Home
+   * Node by a given page size each time and removes them one by one
+   */
+  private void deleteLoginHistoryProfiles() {
+    long removed = 0, offset = 0;
+    do {
+      try {
+        removed = jcrLoginHistoryStorage.removeLoginHistoryUserProfile(offset, LOGIN_HISTORY_NODE_PAGE_SIZE);
+        offset += removed;
+      } catch (Exception e) {
+        LOG.error("==   Login History migration - Error while deleting Login History Users Profiles", e);
       }
     } while (removed == LOGIN_HISTORY_NODE_PAGE_SIZE);
   }

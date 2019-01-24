@@ -548,7 +548,7 @@ public class JCRLoginHistoryStorageImpl implements LoginHistoryStorage {
   }
 
   /**
-   * removes a gievn number of Login Counters nodes from a given offset
+   * removes a given number of Login Counters nodes from a given offset
    *
    * @param offset long
    * @param size long
@@ -556,7 +556,8 @@ public class JCRLoginHistoryStorageImpl implements LoginHistoryStorage {
    */
   public long removeLoginCounter(long offset, long size) {
     SessionProvider sProvider = SessionProvider.createSystemProvider();
-    long count;
+    long toRemove = 0;
+    int errors = 0;
 
     try {
       Session session = this.getSession(sProvider);
@@ -569,7 +570,48 @@ public class JCRLoginHistoryStorageImpl implements LoginHistoryStorage {
       query.setOffset(offset);
       QueryResult result = query.execute();
       NodeIterator nodeIterator = result.getNodes();
-      count = nodeIterator.getSize();
+      toRemove = nodeIterator.getSize();
+      Node node;
+      Node parent;
+      while (nodeIterator.hasNext()) {
+        node = nodeIterator.nextNode();
+        parent = node.getParent();
+        node.remove();
+        parent.remove();
+        session.save();
+      }
+    } catch (Exception e) {
+      errors++;
+      LOG.error("{} Error(s) while deleting login history counter : ", errors, e.getMessage(), e);
+    } finally {
+      sProvider.close();
+    }
+    return toRemove;
+  }
+
+  /**
+   * removes a given number of Users profiles nodes from a given offset
+   *
+   * @param offset long
+   * @param size long
+   * @return long
+   */
+  public long removeLoginHistoryUserProfile(long offset, long size) {
+    SessionProvider sProvider = SessionProvider.createSystemProvider();
+    long toRemove = 0;
+    int errors = 0;
+
+    try {
+      Session session = this.getSession(sProvider);
+
+      QueryManager queryManager = session.getWorkspace().getQueryManager();
+      String sqlStatement = "SELECT * FROM exo:LoginHisSvc_userProfile";
+      QueryImpl query = (QueryImpl) queryManager.createQuery(sqlStatement, Query.SQL);
+      query.setLimit(size);
+      query.setOffset(offset);
+      QueryResult result = query.execute();
+      NodeIterator nodeIterator = result.getNodes();
+      toRemove = nodeIterator.getSize();
       Node node;
       while (nodeIterator.hasNext()) {
         node = nodeIterator.nextNode();
@@ -577,12 +619,12 @@ public class JCRLoginHistoryStorageImpl implements LoginHistoryStorage {
         session.save();
       }
     } catch (Exception e) {
-      LOG.error("Error while deleting login history counter : " + e.getMessage(), e);
-      count = 0;
+      errors++;
+      LOG.error("{} Error(s) while deleting login history user profile : ", errors, e.getMessage(), e);
     } finally {
       sProvider.close();
     }
-    return count;
+    return toRemove;
   }
 
   /**
