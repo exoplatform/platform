@@ -46,7 +46,7 @@ public class LoginHistoryUpgradePlugin extends UpgradeProductPlugin {
     // First check to see if the JCR still contains Login History data. If not,
     // migration is skipped
 
-    int migrationErrors, deletionErrors1, deletionErrors2;
+    int migrationErrors, countersDeletionErrors, usersProfilesDeletionErrors;
 
     if (!hasDataToMigrate()) {
       LOG.info("No Login History data to migrate from JCR to RDBMS");
@@ -56,18 +56,24 @@ public class LoginHistoryUpgradePlugin extends UpgradeProductPlugin {
       migrationErrors = migrateAndDeleteLoginHistory();
 
       if (migrationErrors == 0) {
-        deletionErrors1 = deleteLoginHistoryCounters();
-        if (deletionErrors1 == 0) {
+        countersDeletionErrors = deleteLoginHistoryCounters();
+        if (countersDeletionErrors == 0) {
           LOG.info("==    Login History migration - Login History Counters JCR Data deleted successfully");
         } else {
-          LOG.warn("==    Login History migration - {} Errors during Login History Counters JCR Data deletion", deletionErrors1);
+          LOG.warn("==    Login History migration - {} Errors during Login History Counters JCR Data deletion",
+                   countersDeletionErrors);
         }
 
-        deletionErrors2 = deleteLoginHistoryProfiles();
-        if (deletionErrors2 == 0) {
+        usersProfilesDeletionErrors = deleteLoginHistoryProfiles();
+        if (usersProfilesDeletionErrors == 0) {
           LOG.info("==    Login History migration - Login History Users Profiles deleted successfully");
         } else {
-          LOG.warn("==    Login History migration - {} Errors during Login History Users Profiles JCR Data deletion", deletionErrors2);
+          LOG.warn("==    Login History migration - {} Errors during Login History Users Profiles JCR Data deletion",
+                   usersProfilesDeletionErrors);
+        }
+
+        if (countersDeletionErrors > 0 || usersProfilesDeletionErrors > 0) {
+          throw new RuntimeException("Errors during the deleting of Login History Counters and Users Profiles");
         }
 
         try {
