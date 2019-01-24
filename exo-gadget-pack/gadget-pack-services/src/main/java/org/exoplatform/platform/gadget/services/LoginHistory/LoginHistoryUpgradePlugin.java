@@ -46,20 +46,29 @@ public class LoginHistoryUpgradePlugin extends UpgradeProductPlugin {
     // First check to see if the JCR still contains Login History data. If not,
     // migration is skipped
 
-    int errors;
+    int migrationErrors, deletionErrors1, deletionErrors2;
 
     if (!hasDataToMigrate()) {
       LOG.info("No Login History data to migrate from JCR to RDBMS");
     } else {
       LOG.info("== Start migration of Login History data from JCR to RDBMS");
 
-      errors = migrateAndDeleteLoginHistory();
+      migrationErrors = migrateAndDeleteLoginHistory();
 
-      if (errors == 0) {
-        deleteLoginHistoryCounters();
-        LOG.info("==    Login History migration - Entries and Counters JCR Data deleted successfully");
-        deleteLoginHistoryProfiles();
-        LOG.info("==    Login History migration - Login History Users Profiles deleted successfully");
+      if (migrationErrors == 0) {
+        deletionErrors1 = deleteLoginHistoryCounters();
+        if (deletionErrors1 == 0) {
+          LOG.info("==    Login History migration - Login History Counters JCR Data deleted successfully");
+        } else {
+          LOG.warn("==    Login History migration - {} Errors during Login History Counters JCR Data deletion", deletionErrors1);
+        }
+
+        deletionErrors2 = deleteLoginHistoryProfiles();
+        if (deletionErrors2 == 0) {
+          LOG.info("==    Login History migration - Login History Users Profiles deleted successfully");
+        } else {
+          LOG.warn("==    Login History migration - {} Errors during Login History Users Profiles JCR Data deletion", deletionErrors2);
+        }
 
         try {
           jcrLoginHistoryStorage.removeLoginHistoryHomeNode();
@@ -69,7 +78,7 @@ public class LoginHistoryUpgradePlugin extends UpgradeProductPlugin {
         LOG.info("==    Login History migration - Home Node deleted successfully !");
         LOG.info("==    Login History migration done");
       } else {
-        LOG.error("==    Login History migration aborted, {} errors encountered", errors);
+        LOG.error("==    Login History migration aborted, {} errors encountered", migrationErrors);
         throw new RuntimeException("Login History migration aborted because of migration failures");
       }
     }
@@ -147,32 +156,75 @@ public class LoginHistoryUpgradePlugin extends UpgradeProductPlugin {
    * iterates on Login History Counters by a given page size each time and removes
    * them one by one
    */
-  private void deleteLoginHistoryCounters() {
-    long removed = 0, offset = 0;
-    do {
-      try {
-        removed = jcrLoginHistoryStorage.removeLoginCounter(offset, LOGIN_HISTORY_NODE_PAGE_SIZE);
-        offset += removed;
-      } catch (Exception e) {
-        LOG.error("==   Login History migration - Error while deleting Login Counter", e);
-      }
-    } while (removed == LOGIN_HISTORY_NODE_PAGE_SIZE);
+  private int deleteLoginHistoryCounters() {
+    SessionProvider sProvider = SessionProvider.createSystemProvider();
+
+    long offset = 0, removed = 0;
+    int errors = 0;
+
+    long count;
+    try {
+      do {
+        NodeIterator loginCountersNodes = jcrLoginHistoryStorage.getLoginCountersNodes(sProvider,
+                                                                                       offset,
+                                                                                       LOGIN_HISTORY_NODE_PAGE_SIZE);
+        count = loginCountersNodes.getSize();
+        Node loginCounterNode;
+        while (loginCountersNodes.hasNext()) {
+          try {
+            loginCounterNode = loginCountersNodes.nextNode();
+            jcrLoginHistoryStorage.removeLoginCounterNode(sProvider, loginCounterNode);
+            removed++;
+          } catch (Exception e) {
+            LOG.error("==   Login History migration - Error while removing login counter : ", e);
+            errors++;
+          }
+        }
+        offset += count;
+        LOG.info("==   Login History migration - Process : {} Login Counters removed ({} errors)", removed, errors);
+      } while (count == LOGIN_HISTORY_NODE_PAGE_SIZE);
+    } finally {
+      sProvider.close();
+    }
+    return errors;
   }
 
   /**
    * iterates on Login History Users Profiles right under the Login History Home
    * Node by a given page size each time and removes them one by one
    */
-  private void deleteLoginHistoryProfiles() {
-    long removed = 0, offset = 0;
-    do {
-      try {
-        removed = jcrLoginHistoryStorage.removeLoginHistoryUserProfile(offset, LOGIN_HISTORY_NODE_PAGE_SIZE);
-        offset += removed;
-      } catch (Exception e) {
-        LOG.error("==   Login History migration - Error while deleting Login History Users Profiles", e);
-      }
-    } while (removed == LOGIN_HISTORY_NODE_PAGE_SIZE);
+  private int deleteLoginHistoryProfiles() {
+    SessionProvider sProvider = SessionProvider.createSystemProvider();
+
+    long offset = 0, removed = 0;
+    int errors = 0;
+
+    long count;
+    try {
+      do {
+        NodeIterator loginHistoryProfilesNodes =
+                                               jcrLoginHistoryStorage.getLoginHistoryUsersProfilesNodes(sProvider,
+                                                                                                        offset,
+                                                                                                        LOGIN_HISTORY_NODE_PAGE_SIZE);
+        count = loginHistoryProfilesNodes.getSize();
+        Node loginHistoryProfileNode;
+        while (loginHistoryProfilesNodes.hasNext()) {
+          try {
+            loginHistoryProfileNode = loginHistoryProfilesNodes.nextNode();
+            jcrLoginHistoryStorage.removeLoginHistoryUserProfileNode(sProvider, loginHistoryProfileNode);
+            removed++;
+          } catch (Exception e) {
+            LOG.error("==   Login History migration - Error while removing login history profile : ", e);
+            errors++;
+          }
+        }
+        offset += count;
+        LOG.info("==   Login History migration - Process : {} Login History Profiles removed ({} errors)", removed, errors);
+      } while (count == LOGIN_HISTORY_NODE_PAGE_SIZE);
+    } finally {
+      sProvider.close();
+    }
+    return errors;
   }
 
 }

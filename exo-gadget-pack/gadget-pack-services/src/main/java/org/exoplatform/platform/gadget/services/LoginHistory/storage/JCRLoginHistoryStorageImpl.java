@@ -502,8 +502,8 @@ public class JCRLoginHistoryStorageImpl implements LoginHistoryStorage {
   }
 
   /**
-   * returns the node iterator which contains a given number of nodes after a
-   * given offset
+   * returns the node iterator which contains a given number of Login History
+   * nodes after a given offset
    *
    * @param sProvider {@link SessionProvider}
    * @param offset long
@@ -526,13 +526,72 @@ public class JCRLoginHistoryStorageImpl implements LoginHistoryStorage {
       QueryResult result = query.execute();
       nodeIterator = result.getNodes();
     } catch (Exception e) {
-      LOG.error("Error while getting the NodeIterator: " + e.getMessage(), e);
+      LOG.error("Error while getting the Login History Nodes NodeIterator: " + e.getMessage(), e);
     }
     return nodeIterator;
   }
 
   /**
-   * removes the given node
+   * returns the node iterator which contains a given number of Login Counter
+   * nodes after a given offset
+   *
+   * @param sProvider {@link SessionProvider}
+   * @param offset long
+   * @param size long
+   * @return Node Iterator
+   */
+  public NodeIterator getLoginCountersNodes(SessionProvider sProvider, long offset, long size) {
+
+    NodeIterator nodeIterator = null;
+
+    try {
+      Session session = this.getSession(sProvider);
+
+      QueryManager queryManager = session.getWorkspace().getQueryManager();
+      String sqlStatement = "SELECT * FROM exo:LoginHisSvc_loginCounterItem "
+          + "ORDER BY exo:LoginHisSvc_loginCounterItem_loginDate ASC";
+      QueryImpl query = (QueryImpl) queryManager.createQuery(sqlStatement, Query.SQL);
+      query.setLimit(size);
+      query.setOffset(offset);
+      QueryResult result = query.execute();
+      nodeIterator = result.getNodes();
+    } catch (Exception e) {
+      LOG.error("Error while getting the Login Counters Nodes NodeIterator: " + e.getMessage(), e);
+    }
+    return nodeIterator;
+  }
+
+  /**
+   * returns the node iterator which contains a given number of Login History
+   * Users Profiles nodes after a given offset
+   *
+   * @param sProvider {@link SessionProvider}
+   * @param offset long
+   * @param size long
+   * @return Node Iterator
+   */
+  public NodeIterator getLoginHistoryUsersProfilesNodes(SessionProvider sProvider, long offset, long size) {
+
+    NodeIterator nodeIterator = null;
+
+    try {
+      Session session = this.getSession(sProvider);
+
+      QueryManager queryManager = session.getWorkspace().getQueryManager();
+      String sqlStatement = "SELECT * FROM exo:LoginHisSvc_userProfile";
+      QueryImpl query = (QueryImpl) queryManager.createQuery(sqlStatement, Query.SQL);
+      query.setLimit(size);
+      query.setOffset(offset);
+      QueryResult result = query.execute();
+      nodeIterator = result.getNodes();
+    } catch (Exception e) {
+      LOG.error("Error while getting the Login History Users Profiles Nodes NodeIterator: " + e.getMessage(), e);
+    }
+    return nodeIterator;
+  }
+
+  /**
+   * removes the given Login History node
    *
    * @param sProvider {@link SessionProvider}
    * @param loginHistoryNode {@link Node}
@@ -548,83 +607,37 @@ public class JCRLoginHistoryStorageImpl implements LoginHistoryStorage {
   }
 
   /**
-   * removes a given number of Login Counters nodes from a given offset
+   * removes the given Login Counter node
    *
-   * @param offset long
-   * @param size long
-   * @return long
+   * @param sProvider {@link SessionProvider}
+   * @param loginCounterNode {@link Node}
    */
-  public long removeLoginCounter(long offset, long size) {
-    SessionProvider sProvider = SessionProvider.createSystemProvider();
-    long toRemove = 0;
-    int errors = 0;
-
+  public void removeLoginCounterNode(SessionProvider sProvider, Node loginCounterNode) {
     try {
       Session session = this.getSession(sProvider);
-
-      QueryManager queryManager = session.getWorkspace().getQueryManager();
-      String sqlStatement = "SELECT * FROM exo:LoginHisSvc_loginCounterItem "
-          + "ORDER BY exo:LoginHisSvc_loginCounterItem_loginDate ASC";
-      QueryImpl query = (QueryImpl) queryManager.createQuery(sqlStatement, Query.SQL);
-      query.setLimit(size);
-      query.setOffset(offset);
-      QueryResult result = query.execute();
-      NodeIterator nodeIterator = result.getNodes();
-      toRemove = nodeIterator.getSize();
-      Node node;
-      Node parent;
-      while (nodeIterator.hasNext()) {
-        node = nodeIterator.nextNode();
-        parent = node.getParent();
-        node.remove();
-        parent.remove();
-        session.save();
-      }
+      Node parent = loginCounterNode.getParent();
+      loginCounterNode.remove();
+      parent.remove();
+      session.save();
     } catch (Exception e) {
-      errors++;
-      LOG.error("{} Error(s) while deleting login history counter : ", errors, e.getMessage(), e);
-    } finally {
-      sProvider.close();
+      LOG.error("Error while deleting Login Counter Node {} : ", loginCounterNode, e.getMessage(), e);
     }
-    return toRemove;
   }
 
   /**
-   * removes a given number of Users profiles nodes from a given offset
+   * removes the given Login History User Profile node
    *
-   * @param offset long
-   * @param size long
-   * @return long
+   * @param sProvider {@link SessionProvider}
+   * @param loginHistoryUserProfileNode {@link Node}
    */
-  public long removeLoginHistoryUserProfile(long offset, long size) {
-    SessionProvider sProvider = SessionProvider.createSystemProvider();
-    long toRemove = 0;
-    int errors = 0;
-
+  public void removeLoginHistoryUserProfileNode(SessionProvider sProvider, Node loginHistoryUserProfileNode) {
     try {
       Session session = this.getSession(sProvider);
-
-      QueryManager queryManager = session.getWorkspace().getQueryManager();
-      String sqlStatement = "SELECT * FROM exo:LoginHisSvc_userProfile";
-      QueryImpl query = (QueryImpl) queryManager.createQuery(sqlStatement, Query.SQL);
-      query.setLimit(size);
-      query.setOffset(offset);
-      QueryResult result = query.execute();
-      NodeIterator nodeIterator = result.getNodes();
-      toRemove = nodeIterator.getSize();
-      Node node;
-      while (nodeIterator.hasNext()) {
-        node = nodeIterator.nextNode();
-        node.remove();
-        session.save();
-      }
+      loginHistoryUserProfileNode.remove();
+      session.save();
     } catch (Exception e) {
-      errors++;
-      LOG.error("{} Error(s) while deleting login history user profile : ", errors, e.getMessage(), e);
-    } finally {
-      sProvider.close();
+      LOG.error("Error while deleting Login History User Profile Node {} : ", loginHistoryUserProfileNode, e.getMessage(), e);
     }
-    return toRemove;
   }
 
   /**
