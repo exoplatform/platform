@@ -23,6 +23,9 @@ pom.xml.releaseBackup
 pom.xml.versionsBackup
 release.properties
 
+# Npm
+node_modules/
+
 # IntelliJ project files 
 *.iml
 *.iws

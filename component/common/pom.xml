@@ -135,6 +135,10 @@
       <artifactId>exo.portal.webui.portal</artifactId>
     </dependency>
     <dependency>
+      <groupId>org.exoplatform.social</groupId>
+      <artifactId>social-component-notification</artifactId>
+    </dependency>
+    <dependency>
       <groupId>org.apache.shindig</groupId>
       <artifactId>shindig-social-api</artifactId>
     </dependency>

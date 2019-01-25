@@ -7,7 +7,11 @@
   <portlet>
     <portlet-name>WhoIsOnLinPortlet</portlet-name>
     <display-name xml:lang="EN">Who is on Line</display-name>
-    <portlet-class>org.exoplatform.platform.portlet.juzu.whoisonline.WhoIsOnlinePortlet</portlet-class>
+    <portlet-class>org.exoplatform.commons.api.portlet.GenericDispatchedViewPortlet</portlet-class>
+    <init-param>
+      <name>portlet-view-dispatched-file-path</name>
+      <value>/who-is-online-app/index.html</value>
+    </init-param>
     <supports>
       <mime-type>text/html</mime-type>
     </supports>
