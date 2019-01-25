@@ -1,0 +1,94 @@
+{
+  "name": "homePagePortlets",
+  "version": "5.2.0",
+  "description": "eXo Homepage Portlets",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/exodev/platform"
+  },
+  "scripts": {
+    "start": "webpack --config webpack.dev.js --mode development",
+    "dev": "webpack-dev-server --config webpack.dev.js --mode development --hot",
+    "watch": "webpack --config webpack.dev.js --progress --colors --watch -d",
+    "test": "jest",
+    "test-coverage": "jest --coverage",
+    "build": "webpack --config webpack.prod.js --mode production"
+  },
+  "author": "eXo",
+  "license": "LGPL",
+  "devDependencies": {
+    "@vue/test-utils": "^1.0.0-beta.28",
+    "babel-core": "^6.26.3",
+    "babel-jest": "^22.4.4",
+    "babel-loader": "^7.1.4",
+    "babel-preset-es2015": "^6.24.1",
+    "connect-api-mocker": "^1.3.6",
+    "copy-webpack-plugin": "^4.5.2",
+    "css-loader": "^0.28.11",
+    "eslint": "^4.19.1",
+    "eslint-loader": "^2.0.0",
+    "eslint-plugin-jest": "^21.17.0",
+    "eslint-plugin-vue": "^4.5.0",
+    "extract-text-webpack-plugin": "^4.0.0-beta.0",
+    "har-validator": "^5.1.3",
+    "jest": "^23.6.0",
+    "jest-fetch-mock": "^1.6.6",
+    "jest-localstorage-mock": "^2.3.0",
+    "jest-runner-eslint": "^0.7.1",
+    "jest-vue-preprocessor": "^1.4.0",
+    "jquery": "^3.3.1",
+    "jsdom": "^13.0.0",
+    "less": "^3.0.4",
+    "less-loader": "^4.1.0",
+    "url-parse": "^1.4.3",
+    "vue": "^2.5.16",
+    "vue-loader": "^14.2.3",
+    "vue-template-compiler": "^2.5.16",
+    "webpack": "^4.20.2",
+    "webpack-cli": "^3.1.1",
+    "webpack-dev-server": "^3.1.4",
+    "webpack-merge": "^4.1.3"
+  },
+  "dependencies": {},
+  "jest": {
+    "projects": [
+      {
+        "displayName": "test",
+        "testMatch": [
+          "<rootDir>/src/test/specs/**/*.js"
+        ],
+        "moduleNameMapper": {
+          "^vue$": "vue/dist/vue.common.js"
+        },
+        "moduleFileExtensions": [
+          "js",
+          "vue"
+        ],
+        "modulePaths": [
+          "node_modules",
+          "src"
+        ],
+        "transform": {
+          "^.+\\.js$": "<rootDir>/node_modules/babel-jest",
+          ".*\\.(vue)$": "<rootDir>/node_modules/jest-vue-preprocessor"
+        },
+        "roots": [
+          "src"
+        ],
+        "setupFiles": [
+          "<rootDir>/src/test/globals.js",
+          "jest-localstorage-mock",
+          "jest-fetch-mock"
+        ]
+      },
+      {
+        "displayName": "lint",
+        "runner": "jest-runner-eslint",
+        "testMatch": [
+          "<rootDir>/src/test/**/*.js"
+        ]
+      }
+    ],
+    "coverageDirectory": "<rootDir>/target/jest/coverage"
+  }
+}

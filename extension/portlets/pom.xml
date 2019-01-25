@@ -14,5 +14,6 @@
     <module>homepagePortlets</module>
     <module>branding</module>
     <module>notification</module>
+    <module>vue-portlets</module>
   </modules>
 </project>
