@@ -4,12 +4,6 @@
     <priority>1</priority>
     <page-nodes>
         <node>
-            <uri>spacesAdministration</uri>
-            <name>spacesAdministration</name>
-            <label>#{SpacesAdministrationPortlet.label.spaces}</label>
-            <page-reference>group::/platform/users::spacesAdministration</page-reference>
-        </node>
-        <node>
             <uri>org</uri>
             <name>org</name>
             <label>#{UISetupPlatformToolBarPortlet.label.users}</label>
@@ -92,6 +86,12 @@
                 <label>#{UISetupPlatformToolBarPortlet.label.Notification}</label>
                 <page-reference>group::platform/administrators::notification</page-reference>
             </node>            
+        </node>
+        <node>
+            <uri>spacesAdministration</uri>
+            <name>spacesAdministration</name>
+            <label>#{SpacesAdministrationPortlet.label.spaces}</label>
+            <page-reference>group::/platform/users::spacesAdministration</page-reference>
         </node>
         <node>
             <uri>administration</uri>
