@@ -80,7 +80,7 @@ public class LoginHistoryUpgradePlugin extends UpgradeProductPlugin {
                    usersProfilesDeletionErrors);
         }
 
-        if (countersDeletionErrors > 0 || usersProfilesDeletionErrors > 0) {
+        if (countersDeletionErrors > 0 || usersProfilesDeletionErrors > 0 || allUsersCountersDeletionErrors > 0) {
           throw new RuntimeException("Errors during the deleting of Login History Counters and Users Profiles");
         }
 
