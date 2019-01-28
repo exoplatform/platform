@@ -190,12 +190,12 @@ public class LoginHistoryUpgradePlugin extends UpgradeProductPlugin {
             jcrLoginHistoryStorage.removeAllUsersLoginCounterNode(sProvider, loginCounterNode);
             removed++;
           } catch (Exception e) {
-            LOG.error("==   Login History migration - Error while removing login counter : ", e);
+            LOG.error("==   Login History migration - Error while removing All Users login counter : ", e);
             errors++;
           }
         }
         offset += count;
-        LOG.info("==   Login History migration - Process : {} Login Counters removed ({} errors)", removed, errors);
+        LOG.info("==   Login History migration - Process : {} All Users Login Counters removed ({} errors)", removed, errors);
       } while (count == LOGIN_HISTORY_NODE_PAGE_SIZE);
       LOG.info("Remove All Users Profile Node");
       try {
@@ -239,7 +239,7 @@ public class LoginHistoryUpgradePlugin extends UpgradeProductPlugin {
           }
         }
         offset += count;
-        LOG.info("==   Login History migration - Process : {} Login Counters removed ({} errors)", removed, errors);
+        LOG.info("==   Login History migration - Process : {} Each User Login Counters removed ({} errors)", removed, errors);
       } while (count == LOGIN_HISTORY_NODE_PAGE_SIZE);
     } finally {
       sProvider.close();

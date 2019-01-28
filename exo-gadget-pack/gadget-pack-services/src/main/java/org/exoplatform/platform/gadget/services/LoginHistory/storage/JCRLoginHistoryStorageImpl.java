@@ -649,7 +649,7 @@ public class JCRLoginHistoryStorageImpl implements LoginHistoryStorage {
       loginCounterNode.remove();
       session.save();
     } catch (Exception e) {
-      LOG.error("Error while deleting Login Counter Node {} : ", loginCounterNode, e.getMessage(), e);
+      LOG.error("Error while deleting All Users Login Counter Node {} : ", loginCounterNode, e.getMessage(), e);
     }
   }
 
