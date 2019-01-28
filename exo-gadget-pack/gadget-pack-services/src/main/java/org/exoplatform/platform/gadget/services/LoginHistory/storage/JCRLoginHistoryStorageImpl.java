@@ -518,7 +518,7 @@ public class JCRLoginHistoryStorageImpl implements LoginHistoryStorage {
       Session session = this.getSession(sProvider);
 
       QueryManager queryManager = session.getWorkspace().getQueryManager();
-      String sqlStatement = "SELECT * FROM exo:LoginHisSvc_loginHistoryItem "
+      String sqlStatement = "SELECT * FROM exo:LoginHisSvc_loginHistoryItem WHERE jcr:path LIKE '/exo:LoginHistoryHome/%' "
           + "ORDER BY exo:LoginHisSvc_loginHistoryItem_loginTime ASC";
       QueryImpl query = (QueryImpl) queryManager.createQuery(sqlStatement, Query.SQL);
       query.setLimit(size);
@@ -527,6 +527,37 @@ public class JCRLoginHistoryStorageImpl implements LoginHistoryStorage {
       nodeIterator = result.getNodes();
     } catch (Exception e) {
       LOG.error("Error while getting the Login History Nodes NodeIterator: " + e.getMessage(), e);
+    }
+    return nodeIterator;
+  }
+
+  /**
+   * returns the node iterator which contains a given number of All Users Login
+   * Counter nodes after a given offset
+   *
+   * @param sProvider {@link SessionProvider}
+   * @param offset long
+   * @param size long
+   * @return Node Iterator
+   */
+  public NodeIterator getAllUsersLoginCountersNodes(SessionProvider sProvider, long offset, long size) {
+
+    NodeIterator nodeIterator = null;
+
+    try {
+      Session session = this.getSession(sProvider);
+
+      QueryManager queryManager = session.getWorkspace().getQueryManager();
+      String sqlStatement = "SELECT * FROM exo:LoginHisSvc_loginCounterItem"
+          + " WHERE jcr:path LIKE '/exo:LoginHistoryHome/AllUsers/%' "
+          + "ORDER BY exo:LoginHisSvc_loginCounterItem_loginDate ASC";
+      QueryImpl query = (QueryImpl) queryManager.createQuery(sqlStatement, Query.SQL);
+      query.setLimit(size);
+      query.setOffset(offset);
+      QueryResult result = query.execute();
+      nodeIterator = result.getNodes();
+    } catch (Exception e) {
+      LOG.error("Error while getting the Login Counters Nodes NodeIterator: " + e.getMessage(), e);
     }
     return nodeIterator;
   }
@@ -548,7 +579,7 @@ public class JCRLoginHistoryStorageImpl implements LoginHistoryStorage {
       Session session = this.getSession(sProvider);
 
       QueryManager queryManager = session.getWorkspace().getQueryManager();
-      String sqlStatement = "SELECT * FROM exo:LoginHisSvc_loginCounterItem "
+      String sqlStatement = "SELECT * FROM exo:LoginHisSvc_loginCounterItem WHERE jcr:path LIKE '/exo:LoginHistoryHome/%' "
           + "ORDER BY exo:LoginHisSvc_loginCounterItem_loginDate ASC";
       QueryImpl query = (QueryImpl) queryManager.createQuery(sqlStatement, Query.SQL);
       query.setLimit(size);
@@ -578,7 +609,7 @@ public class JCRLoginHistoryStorageImpl implements LoginHistoryStorage {
       Session session = this.getSession(sProvider);
 
       QueryManager queryManager = session.getWorkspace().getQueryManager();
-      String sqlStatement = "SELECT * FROM exo:LoginHisSvc_userProfile";
+      String sqlStatement = "SELECT * FROM exo:LoginHisSvc_userProfile WHERE jcr:path LIKE '/exo:LoginHistoryHome/%'";
       QueryImpl query = (QueryImpl) queryManager.createQuery(sqlStatement, Query.SQL);
       query.setLimit(size);
       query.setOffset(offset);
@@ -612,12 +643,42 @@ public class JCRLoginHistoryStorageImpl implements LoginHistoryStorage {
    * @param sProvider {@link SessionProvider}
    * @param loginCounterNode {@link Node}
    */
+  public void removeAllUsersLoginCounterNode(SessionProvider sProvider, Node loginCounterNode) {
+    try {
+      Session session = this.getSession(sProvider);
+      loginCounterNode.remove();
+      session.save();
+    } catch (Exception e) {
+      LOG.error("Error while deleting Login Counter Node {} : ", loginCounterNode, e.getMessage(), e);
+    }
+  }
+
+  /**
+   * removes All Users Profile Node
+   *
+   * @param sProvider {@link SessionProvider}
+   */
+  public void removeAllUsersProfileNode(SessionProvider sProvider) {
+    try {
+      Session session = this.getSession(sProvider);
+      Node loginHistoryAllUsersProfileNode = session.getRootNode().getNode(HOME + "/AllUsers");
+      loginHistoryAllUsersProfileNode.remove();
+      session.save();
+    } catch (Exception e) {
+      LOG.error("Error while removing All Users Profile Node : ", e.getMessage(), e);
+    }
+  }
+
+  /**
+   * removes the given Login Counter node
+   *
+   * @param sProvider {@link SessionProvider}
+   * @param loginCounterNode {@link Node}
+   */
   public void removeLoginCounterNode(SessionProvider sProvider, Node loginCounterNode) {
     try {
       Session session = this.getSession(sProvider);
-      Node parent = loginCounterNode.getParent();
       loginCounterNode.remove();
-      parent.remove();
       session.save();
     } catch (Exception e) {
       LOG.error("Error while deleting Login Counter Node {} : ", loginCounterNode, e.getMessage(), e);
