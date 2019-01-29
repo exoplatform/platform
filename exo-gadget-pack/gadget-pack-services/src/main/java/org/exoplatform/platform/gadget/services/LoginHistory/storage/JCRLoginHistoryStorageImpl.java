@@ -640,14 +640,11 @@ public class JCRLoginHistoryStorageImpl implements LoginHistoryStorage {
   /**
    * removes the given Login Counter node
    *
-   * @param sProvider {@link SessionProvider}
    * @param loginCounterNode {@link Node}
    */
-  public void removeAllUsersLoginCounterNode(SessionProvider sProvider, Node loginCounterNode) {
+  public void removeAllUsersLoginCounterNode(Node loginCounterNode) {
     try {
-      Session session = this.getSession(sProvider);
       loginCounterNode.remove();
-      session.save();
     } catch (Exception e) {
       LOG.error("Error while deleting All Users Login Counter Node {} : ", loginCounterNode, e.getMessage(), e);
     }
@@ -672,14 +669,11 @@ public class JCRLoginHistoryStorageImpl implements LoginHistoryStorage {
   /**
    * removes the given Login Counter node
    *
-   * @param sProvider {@link SessionProvider}
    * @param loginCounterNode {@link Node}
    */
-  public void removeLoginCounterNode(SessionProvider sProvider, Node loginCounterNode) {
+  public void removeLoginCounterNode(Node loginCounterNode) {
     try {
-      Session session = this.getSession(sProvider);
       loginCounterNode.remove();
-      session.save();
     } catch (Exception e) {
       LOG.error("Error while deleting Login Counter Node {} : ", loginCounterNode, e.getMessage(), e);
     }
@@ -688,12 +682,11 @@ public class JCRLoginHistoryStorageImpl implements LoginHistoryStorage {
   /**
    * removes the given Login History User Profile node
    *
-   * @param sProvider {@link SessionProvider}
+   * @param session {@link Session}
    * @param userId {@link String}
    */
-  public void removeLoginHistoryUserProfileChildNodes(SessionProvider sProvider, String userId) {
+  public void removeLoginHistoryUserProfileChildNodes(Session session, String userId) {
     try {
-      Session session = this.getSession(sProvider);
       Node loginHistoryNode = session.getRootNode().getNode(HOME + "/" + userId + "/loginHistory");
       Node loginCounterNode = session.getRootNode().getNode(HOME + "/" + userId + "/loginCounter");
       loginHistoryNode.remove();
@@ -707,14 +700,11 @@ public class JCRLoginHistoryStorageImpl implements LoginHistoryStorage {
   /**
    * removes the given Login History User Profile node
    *
-   * @param sProvider {@link SessionProvider}
    * @param loginHistoryUserProfileNode {@link Node}
    */
-  public void removeLoginHistoryUserProfileNode(SessionProvider sProvider, Node loginHistoryUserProfileNode) {
+  public void removeLoginHistoryUserProfileNode(Node loginHistoryUserProfileNode) {
     try {
-      Session session = this.getSession(sProvider);
       loginHistoryUserProfileNode.remove();
-      session.save();
     } catch (Exception e) {
       LOG.error("Error while deleting Login History User Profile Node {} : ", loginHistoryUserProfileNode, e.getMessage(), e);
     }

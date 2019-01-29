@@ -90,7 +90,7 @@ public class LoginHistoryUpgradePlugin extends UpgradeProductPlugin {
           throw new RuntimeException("Error when deleting Login History home node");
         }
         LOG.info("==    Login History migration - Home Node deleted successfully !");
-        LOG.info("==    Login History migration done");
+        LOG.info("== Login History migration done");
       } else {
         LOG.error("==    Login History migration aborted, {} errors encountered", migrationErrors);
         throw new RuntimeException("Login History migration aborted because of migration failures");
@@ -147,17 +147,17 @@ public class LoginHistoryUpgradePlugin extends UpgradeProductPlugin {
             loginHistoryNode = loginHistoryNodes.nextNode();
             userId = loginHistoryNode.getProperty("exo:LoginHisSvc_loginHistoryItem_userId").getString();
             loginTime = loginHistoryNode.getProperty("exo:LoginHisSvc_loginHistoryItem_loginTime").getLong();
-            LOG.debug("==   Login History migration - Migrate entry of user {} at {}", userId, loginTime);
+            LOG.debug("==    Login History migration - Migrate entry of user {} at {}", userId, loginTime);
             jpaLoginHistoryStorage.addLoginHistoryEntry(userId, loginTime);
             jcrLoginHistoryStorage.removeLoginHistoryNode(sProvider, loginHistoryNode);
             migrated++;
           } catch (Exception e) {
-            LOG.error("==   Login History migration - Error while migrating login of " + userId + " at " + loginTime, e);
+            LOG.error("==    Login History migration - Error while migrating login of " + userId + " at " + loginTime, e);
             errors++;
           }
         }
         offset += count;
-        LOG.info("==   Login History migration - Progress : {} logins migrated ({} errors)", migrated, errors);
+        LOG.info("==    Login History migration - Progress : {} logins migrated ({} errors)", migrated, errors);
       } while (count == LOGIN_HISTORY_NODE_PAGE_SIZE);
     } finally {
       entityManagerService.endRequest(ExoContainerContext.getCurrentContainer());
@@ -172,6 +172,7 @@ public class LoginHistoryUpgradePlugin extends UpgradeProductPlugin {
    */
   private int deleteAllUsersLoginHistoryCounters() {
     SessionProvider sProvider = SessionProvider.createSystemProvider();
+    Session session = null;
 
     long offset = 0, removed = 0;
     int errors = 0;
@@ -179,6 +180,11 @@ public class LoginHistoryUpgradePlugin extends UpgradeProductPlugin {
     long count;
     try {
       do {
+        try {
+          session = this.getSession(sProvider);
+        } catch (Exception e) {
+          LOG.error("Error while getting JCR Session for delete All Users Login History Counters : ", e.getMessage(), e);
+        }
         NodeIterator loginCountersNodes = jcrLoginHistoryStorage.getAllUsersLoginCountersNodes(sProvider,
                                                                                                offset,
                                                                                                LOGIN_HISTORY_NODE_PAGE_SIZE);
@@ -187,21 +193,30 @@ public class LoginHistoryUpgradePlugin extends UpgradeProductPlugin {
         while (loginCountersNodes.hasNext()) {
           try {
             loginCounterNode = loginCountersNodes.nextNode();
-            jcrLoginHistoryStorage.removeAllUsersLoginCounterNode(sProvider, loginCounterNode);
+            jcrLoginHistoryStorage.removeAllUsersLoginCounterNode(loginCounterNode);
             removed++;
+            if (removed % 10 == 0) {
+              session.save();
+            }
           } catch (Exception e) {
-            LOG.error("==   Login History migration - Error while removing All Users login counter : ", e);
+            LOG.error("==    Login History migration - Error while removing All Users login counter : ", e);
             errors++;
           }
         }
+        try {
+          session.save();
+        } catch (Exception e) {
+          LOG.error("Error while saving JCR Session delete All Users Login History Counters : ", e.getMessage(), e);
+        }
         offset += count;
-        LOG.info("==   Login History migration - Process : {} All Users Login Counters removed ({} errors)", removed, errors);
+        LOG.info("==    Login History migration - Process : {} All Users Login Counters removed ({} errors)", removed, errors);
+        session.logout();
       } while (count == LOGIN_HISTORY_NODE_PAGE_SIZE);
-      LOG.info("==   Login History migration - Removing All Users Profile Node");
+      LOG.info("==    Login History migration - Removing All Users Profile Node");
       try {
         jcrLoginHistoryStorage.removeAllUsersProfileNode(sProvider);
       } catch (Exception e) {
-        LOG.error("==   Login History migration - Error while removing All Users Profile Node : ", e);
+        LOG.error("==    Login History migration - Error while removing All Users Profile Node : ", e);
         errors++;
       }
     } finally {
@@ -216,6 +231,7 @@ public class LoginHistoryUpgradePlugin extends UpgradeProductPlugin {
    */
   private int deleteLoginHistoryCounters() {
     SessionProvider sProvider = SessionProvider.createSystemProvider();
+    Session session = null;
 
     long offset = 0, removed = 0;
     int errors = 0;
@@ -223,6 +239,11 @@ public class LoginHistoryUpgradePlugin extends UpgradeProductPlugin {
     long count;
     try {
       do {
+        try {
+          session = this.getSession(sProvider);
+        } catch (Exception e) {
+          LOG.error("Error while getting JCR Session delete Login History Counters : ", e.getMessage(), e);
+        }
         NodeIterator loginCountersNodes = jcrLoginHistoryStorage.getLoginCountersNodes(sProvider,
                                                                                        offset,
                                                                                        LOGIN_HISTORY_NODE_PAGE_SIZE);
@@ -231,15 +252,24 @@ public class LoginHistoryUpgradePlugin extends UpgradeProductPlugin {
         while (loginCountersNodes.hasNext()) {
           try {
             loginCounterNode = loginCountersNodes.nextNode();
-            jcrLoginHistoryStorage.removeLoginCounterNode(sProvider, loginCounterNode);
+            jcrLoginHistoryStorage.removeLoginCounterNode(loginCounterNode);
             removed++;
+            if (removed % 10 == 0) {
+              session.save();
+            }
           } catch (Exception e) {
-            LOG.error("==   Login History migration - Error while removing login counter : ", e);
+            LOG.error("==    Login History migration - Error while removing login counter : ", e);
             errors++;
           }
         }
+        try {
+          session.save();
+        } catch (Exception e) {
+          LOG.error("Error while saving JCR Session delete Login History Counters : ", e.getMessage(), e);
+        }
         offset += count;
-        LOG.info("==   Login History migration - Process : {} Each User Login Counters removed ({} errors)", removed, errors);
+        LOG.info("==    Login History migration - Process : {} Each User Login Counters removed ({} errors)", removed, errors);
+        session.logout();
       } while (count == LOGIN_HISTORY_NODE_PAGE_SIZE);
     } finally {
       sProvider.close();
@@ -253,6 +283,7 @@ public class LoginHistoryUpgradePlugin extends UpgradeProductPlugin {
    */
   private int deleteLoginHistoryProfiles() {
     SessionProvider sProvider = SessionProvider.createSystemProvider();
+    Session session = null;
 
     long offset = 0, removed = 0;
     int errors = 0;
@@ -261,6 +292,11 @@ public class LoginHistoryUpgradePlugin extends UpgradeProductPlugin {
     long count;
     try {
       do {
+        try {
+          session = this.getSession(sProvider);
+        } catch (Exception e) {
+          LOG.error("Error while getting JCR Session delete Login History Profiles : ", e.getMessage(), e);
+        }
         NodeIterator loginHistoryProfilesNodes =
                                                jcrLoginHistoryStorage.getLoginHistoryUsersProfilesNodes(sProvider,
                                                                                                         offset,
@@ -271,18 +307,27 @@ public class LoginHistoryUpgradePlugin extends UpgradeProductPlugin {
           try {
             loginHistoryProfileNode = loginHistoryProfilesNodes.nextNode();
             userId = loginHistoryProfileNode.getProperty("exo:LoginHisSvc_userId").getString();
-            jcrLoginHistoryStorage.removeLoginHistoryUserProfileChildNodes(sProvider, userId);
-            LOG.info("==   Login History migration - User Profile child Nodes for User {} removed successfully !", userId);
-            jcrLoginHistoryStorage.removeLoginHistoryUserProfileNode(sProvider, loginHistoryProfileNode);
-            LOG.info("==   Login History migration - User Profile for user {} removed successfully !", userId);
+            jcrLoginHistoryStorage.removeLoginHistoryUserProfileChildNodes(session, userId);
+            LOG.info("==    Login History migration - User Profile child Nodes for User {} removed successfully !", userId);
+            jcrLoginHistoryStorage.removeLoginHistoryUserProfileNode(loginHistoryProfileNode);
+            LOG.info("==    Login History migration - User Profile for user {} removed successfully !", userId);
             removed++;
+            if (removed % 10 == 0) {
+              session.save();
+            }
           } catch (Exception e) {
-            LOG.error("==   Login History migration - Error while removing login history profile for user {} : ", userId, e);
+            LOG.error("==    Login History migration - Error while removing login history profile for user {} : ", userId, e);
             errors++;
           }
         }
+        try {
+          session.save();
+        } catch (Exception e) {
+          LOG.error("Error while saving JCR Session delete Login History Profiles : ", e.getMessage(), e);
+        }
         offset += count;
-        LOG.info("==   Login History migration - Process : {} Login History Profiles removed ({} errors)", removed, errors);
+        LOG.info("==    Login History migration - Process : {} Login History Profiles removed ({} errors)", removed, errors);
+        session.logout();
       } while (count == LOGIN_HISTORY_NODE_PAGE_SIZE);
     } finally {
       sProvider.close();
