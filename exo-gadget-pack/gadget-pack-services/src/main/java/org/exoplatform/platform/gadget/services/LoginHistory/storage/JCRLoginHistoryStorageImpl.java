@@ -689,6 +689,25 @@ public class JCRLoginHistoryStorageImpl implements LoginHistoryStorage {
    * removes the given Login History User Profile node
    *
    * @param sProvider {@link SessionProvider}
+   * @param userId {@link String}
+   */
+  public void removeLoginHistoryUserProfileChildNodes(SessionProvider sProvider, String userId) {
+    try {
+      Session session = this.getSession(sProvider);
+      Node loginHistoryNode = session.getRootNode().getNode(HOME + "/" + userId + "/loginHistory");
+      Node loginCounterNode = session.getRootNode().getNode(HOME + "/" + userId + "/loginCounter");
+      loginHistoryNode.remove();
+      loginCounterNode.remove();
+      session.save();
+    } catch (Exception e) {
+      LOG.error("Error while deleting Login History User Profile Child Nodes of User {} : ", userId, e.getMessage(), e);
+    }
+  }
+
+  /**
+   * removes the given Login History User Profile node
+   *
+   * @param sProvider {@link SessionProvider}
    * @param loginHistoryUserProfileNode {@link Node}
    */
   public void removeLoginHistoryUserProfileNode(SessionProvider sProvider, Node loginHistoryUserProfileNode) {
