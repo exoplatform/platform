@@ -502,6 +502,88 @@ public class JCRLoginHistoryStorageImpl implements LoginHistoryStorage {
   }
 
   /**
+   * returns the count of all Login History Entries
+   *
+   * @param sProvider {@link SessionProvider}
+   * @return long
+   */
+  public long countLoginHistoryNodes(SessionProvider sProvider) {
+
+    NodeIterator nodeIterator = null;
+    long count = 0;
+
+    try {
+      Session session = this.getSession(sProvider);
+
+      QueryManager queryManager = session.getWorkspace().getQueryManager();
+      String sqlStatement = "SELECT * FROM exo:LoginHisSvc_loginHistoryItem WHERE jcr:path LIKE '/exo:LoginHistoryHome/%' "
+          + "ORDER BY exo:LoginHisSvc_loginHistoryItem_loginTime ASC";
+      QueryImpl query = (QueryImpl) queryManager.createQuery(sqlStatement, Query.SQL);
+      QueryResult result = query.execute();
+      nodeIterator = result.getNodes();
+      count = nodeIterator.getSize();
+    } catch (Exception e) {
+      LOG.error("Error while getting the count of all Login History Entries : " + e.getMessage(), e);
+    }
+    return count;
+  }
+
+  /**
+   * returns the count of All Login History Counters Nodes
+   *
+   * @param sProvider {@link SessionProvider}
+   * @return long
+   */
+  public long countLoginHistoryCountersNodes(SessionProvider sProvider) {
+
+    NodeIterator nodeIterator = null;
+    long count = 0;
+
+    try {
+      Session session = this.getSession(sProvider);
+
+      QueryManager queryManager = session.getWorkspace().getQueryManager();
+      String sqlStatement = "SELECT * FROM exo:LoginHisSvc_loginCounterItem WHERE jcr:path LIKE '/exo:LoginHistoryHome/%' "
+          + "ORDER BY exo:LoginHisSvc_loginCounterItem_loginDate ASC";
+      QueryImpl query = (QueryImpl) queryManager.createQuery(sqlStatement, Query.SQL);
+      QueryResult result = query.execute();
+      nodeIterator = result.getNodes();
+      count = nodeIterator.getSize();
+    } catch (Exception e) {
+      LOG.error("Error while getting the count of All Login History Counters Nodes : " + e.getMessage(), e);
+    }
+    return count;
+  }
+
+  /**
+   * returns the count of all AllUsersLoginHistoryCounters Nodes
+   *
+   * @param sProvider {@link SessionProvider}
+   * @return long
+   */
+  public long countAllUsersLoginHistoryCountersNodes(SessionProvider sProvider) {
+
+    NodeIterator nodeIterator = null;
+    long count = 0;
+
+    try {
+      Session session = this.getSession(sProvider);
+
+      QueryManager queryManager = session.getWorkspace().getQueryManager();
+      String sqlStatement = "SELECT * FROM exo:LoginHisSvc_loginCounterItem"
+          + " WHERE jcr:path LIKE '/exo:LoginHistoryHome/AllUsers/%' "
+          + "ORDER BY exo:LoginHisSvc_loginCounterItem_loginDate ASC";
+      QueryImpl query = (QueryImpl) queryManager.createQuery(sqlStatement, Query.SQL);
+      QueryResult result = query.execute();
+      nodeIterator = result.getNodes();
+      count = nodeIterator.getSize();
+    } catch (Exception e) {
+      LOG.error("Error while getting the count of all AllUsersLoginHistoryCounters Nodes : " + e.getMessage(), e);
+    }
+    return count;
+  }
+
+  /**
    * returns the node iterator which contains a given number of Login History
    * nodes after a given offset
    *
@@ -638,6 +720,19 @@ public class JCRLoginHistoryStorageImpl implements LoginHistoryStorage {
   }
 
   /**
+   * removes the given Login History node
+   *
+   * @param loginHistoryNode {@link Node}
+   */
+  public void removeAllLoginHistoryNode(Node loginHistoryNode) {
+    try {
+      loginHistoryNode.remove();
+    } catch (Exception e) {
+      LOG.error("Error while deleting Login History Node {} : ", loginHistoryNode, e.getMessage(), e);
+    }
+  }
+
+  /**
    * removes the given Login Counter node
    *
    * @param loginCounterNode {@link Node}
@@ -659,6 +754,7 @@ public class JCRLoginHistoryStorageImpl implements LoginHistoryStorage {
     try {
       Session session = this.getSession(sProvider);
       Node loginHistoryAllUsersProfileNode = session.getRootNode().getNode(HOME + "/AllUsers");
+      LOG.info("Removing Login History All Users Profile Node :", loginHistoryAllUsersProfileNode.getPath());
       loginHistoryAllUsersProfileNode.remove();
       session.save();
     } catch (Exception e) {
