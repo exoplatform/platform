@@ -508,22 +508,47 @@ public class JCRLoginHistoryStorageImpl implements LoginHistoryStorage {
    * @return long
    */
   public long countLoginHistoryNodes(SessionProvider sProvider) {
-
-    NodeIterator nodeIterator = null;
+    NodeIterator nodeIterator;
     long count = 0;
 
     try {
       Session session = this.getSession(sProvider);
 
       QueryManager queryManager = session.getWorkspace().getQueryManager();
-      String sqlStatement = "SELECT * FROM exo:LoginHisSvc_loginHistoryItem WHERE jcr:path LIKE '/exo:LoginHistoryHome/%' "
-          + "ORDER BY exo:LoginHisSvc_loginHistoryItem_loginTime ASC";
+      String sqlStatement = "SELECT * FROM exo:LoginHisSvc_loginHistoryItem WHERE jcr:path LIKE '/exo:LoginHistoryHome/%'";
       QueryImpl query = (QueryImpl) queryManager.createQuery(sqlStatement, Query.SQL);
       QueryResult result = query.execute();
       nodeIterator = result.getNodes();
       count = nodeIterator.getSize();
     } catch (Exception e) {
-      LOG.error("Error while getting the count of all Login History Entries : " + e.getMessage(), e);
+      LOG.error("==    Login History migration - Error while getting the count of Login History Entries : " + e.getMessage(), e);
+    }
+    return count;
+  }
+
+  /**
+   * returns the count of all AllUsersLoginHistoryCounters Nodes
+   *
+   * @param sProvider {@link SessionProvider}
+   * @return long
+   */
+  public long countGlobalLoginHistoryCountersNodes(SessionProvider sProvider) {
+    NodeIterator nodeIterator;
+    long count = 0;
+
+    try {
+      Session session = this.getSession(sProvider);
+
+      QueryManager queryManager = session.getWorkspace().getQueryManager();
+      String sqlStatement = "SELECT * FROM exo:LoginHisSvc_loginCounterItem"
+          + " WHERE jcr:path LIKE '/exo:LoginHistoryHome/AllUsers/%'";
+      QueryImpl query = (QueryImpl) queryManager.createQuery(sqlStatement, Query.SQL);
+      QueryResult result = query.execute();
+      nodeIterator = result.getNodes();
+      count = nodeIterator.getSize();
+    } catch (Exception e) {
+      LOG.error("==    Login History migration - Error while getting the count of Global Login History Counters Nodes : "
+          + e.getMessage(), e);
     }
     return count;
   }
@@ -535,52 +560,54 @@ public class JCRLoginHistoryStorageImpl implements LoginHistoryStorage {
    * @return long
    */
   public long countLoginHistoryCountersNodes(SessionProvider sProvider) {
-
-    NodeIterator nodeIterator = null;
+    NodeIterator nodeIterator;
     long count = 0;
 
     try {
       Session session = this.getSession(sProvider);
 
       QueryManager queryManager = session.getWorkspace().getQueryManager();
-      String sqlStatement = "SELECT * FROM exo:LoginHisSvc_loginCounterItem WHERE jcr:path LIKE '/exo:LoginHistoryHome/%' "
-          + "ORDER BY exo:LoginHisSvc_loginCounterItem_loginDate ASC";
+      String sqlStatement = "SELECT * FROM exo:LoginHisSvc_loginCounterItem WHERE jcr:path LIKE '/exo:LoginHistoryHome/%'";
       QueryImpl query = (QueryImpl) queryManager.createQuery(sqlStatement, Query.SQL);
       QueryResult result = query.execute();
       nodeIterator = result.getNodes();
       count = nodeIterator.getSize();
     } catch (Exception e) {
-      LOG.error("Error while getting the count of All Login History Counters Nodes : " + e.getMessage(), e);
+      LOG.error("==    Login History migration - Error while getting the count of Login History Counters Nodes : "
+          + e.getMessage(), e);
     }
     return count;
   }
 
   /**
-   * returns the count of all AllUsersLoginHistoryCounters Nodes
+   * returns the node iterator which contains a given number of Login Counter
+   * nodes after a given offset
    *
    * @param sProvider {@link SessionProvider}
-   * @return long
+   * @param offset long
+   * @param size long
+   * @return Node Iterator
    */
-  public long countAllUsersLoginHistoryCountersNodes(SessionProvider sProvider) {
+  public NodeIterator getUsersProfilesNodes(SessionProvider sProvider, long offset, long size) {
 
     NodeIterator nodeIterator = null;
-    long count = 0;
 
     try {
       Session session = this.getSession(sProvider);
 
       QueryManager queryManager = session.getWorkspace().getQueryManager();
-      String sqlStatement = "SELECT * FROM exo:LoginHisSvc_loginCounterItem"
-          + " WHERE jcr:path LIKE '/exo:LoginHistoryHome/AllUsers/%' "
-          + "ORDER BY exo:LoginHisSvc_loginCounterItem_loginDate ASC";
+      String sqlStatement = "SELECT * FROM exo:LoginHisSvc_userProfile WHERE jcr:path LIKE '/exo:LoginHistoryHome/%' "
+          + "ORDER BY exo:dateCreated ASC";
       QueryImpl query = (QueryImpl) queryManager.createQuery(sqlStatement, Query.SQL);
+      query.setLimit(size);
+      query.setOffset(offset);
       QueryResult result = query.execute();
       nodeIterator = result.getNodes();
-      count = nodeIterator.getSize();
     } catch (Exception e) {
-      LOG.error("Error while getting the count of all AllUsersLoginHistoryCounters Nodes : " + e.getMessage(), e);
+      LOG.error("==    Login History migration - Error while getting the Users Profiles Nodes NodeIterator : " + e.getMessage(),
+                e);
     }
-    return count;
+    return nodeIterator;
   }
 
   /**
@@ -608,7 +635,7 @@ public class JCRLoginHistoryStorageImpl implements LoginHistoryStorage {
       QueryResult result = query.execute();
       nodeIterator = result.getNodes();
     } catch (Exception e) {
-      LOG.error("Error while getting the Login History Nodes NodeIterator: " + e.getMessage(), e);
+      LOG.error("==    Login History migration - Error while getting the Login History Nodes NodeIterator: " + e.getMessage(), e);
     }
     return nodeIterator;
   }
@@ -639,68 +666,76 @@ public class JCRLoginHistoryStorageImpl implements LoginHistoryStorage {
       QueryResult result = query.execute();
       nodeIterator = result.getNodes();
     } catch (Exception e) {
-      LOG.error("Error while getting the Login Counters Nodes NodeIterator: " + e.getMessage(), e);
+      LOG.error("==    Login History migration - Error while getting the Login Counters Nodes NodeIterator: " + e.getMessage(),
+                e);
     }
     return nodeIterator;
   }
 
   /**
-   * returns the node iterator which contains a given number of Login Counter
-   * nodes after a given offset
+   * returns the node iterator which contains All Users Profiles Nodes
    *
    * @param sProvider {@link SessionProvider}
-   * @param offset long
-   * @param size long
    * @return Node Iterator
    */
-  public NodeIterator getLoginCountersNodes(SessionProvider sProvider, long offset, long size) {
-
-    NodeIterator nodeIterator = null;
+  public NodeIterator getAllUsersProfilesNodes(SessionProvider sProvider) {
+    NodeIterator allUsersProfilesNodes = null;
 
     try {
       Session session = this.getSession(sProvider);
-
-      QueryManager queryManager = session.getWorkspace().getQueryManager();
-      String sqlStatement = "SELECT * FROM exo:LoginHisSvc_loginCounterItem WHERE jcr:path LIKE '/exo:LoginHistoryHome/%' "
-          + "ORDER BY exo:LoginHisSvc_loginCounterItem_loginDate ASC";
-      QueryImpl query = (QueryImpl) queryManager.createQuery(sqlStatement, Query.SQL);
-      query.setLimit(size);
-      query.setOffset(offset);
-      QueryResult result = query.execute();
-      nodeIterator = result.getNodes();
+      allUsersProfilesNodes = session.getRootNode().getNode(HOME).getNodes();
     } catch (Exception e) {
-      LOG.error("Error while getting the Login Counters Nodes NodeIterator: " + e.getMessage(), e);
+      LOG.error("==    Login History migration - Error while getting All Users Profiles Nodes : " + e.getMessage(), e);
     }
-    return nodeIterator;
+    return allUsersProfilesNodes;
   }
 
   /**
-   * returns the node iterator which contains a given number of Login History
-   * Users Profiles nodes after a given offset
+   * returns the node iterator which contains All User Login History Nodes
    *
-   * @param sProvider {@link SessionProvider}
-   * @param offset long
-   * @param size long
+   * @param userProfileNode {@link Node}
    * @return Node Iterator
    */
-  public NodeIterator getLoginHistoryUsersProfilesNodes(SessionProvider sProvider, long offset, long size) {
-
-    NodeIterator nodeIterator = null;
+  public NodeIterator getAllUserLoginHistoryNodes(Node userProfileNode) {
+    NodeIterator loginHistoryNodes = null;
+    String userId = null;
 
     try {
-      Session session = this.getSession(sProvider);
-
-      QueryManager queryManager = session.getWorkspace().getQueryManager();
-      String sqlStatement = "SELECT * FROM exo:LoginHisSvc_userProfile WHERE jcr:path LIKE '/exo:LoginHistoryHome/%'";
-      QueryImpl query = (QueryImpl) queryManager.createQuery(sqlStatement, Query.SQL);
-      query.setLimit(size);
-      query.setOffset(offset);
-      QueryResult result = query.execute();
-      nodeIterator = result.getNodes();
+      userId = userProfileNode.getProperty("exo:LoginHisSvc_userId").getString();
+      if (!userProfileNode.getProperty("jcr:primaryType").getString().equals("exo:LoginHisSvc_globalLoginCounter")) {
+        loginHistoryNodes = userProfileNode.getNode("loginHistory").getNodes();
+      }
     } catch (Exception e) {
-      LOG.error("Error while getting the Login History Users Profiles Nodes NodeIterator: " + e.getMessage(), e);
+      LOG.error("==    Login History migration - Error while getting All User ({}) Login History Nodes : ",
+                userId,
+                e.getMessage(),
+                e);
     }
-    return nodeIterator;
+    return loginHistoryNodes;
+  }
+
+  /**
+   * returns the node iterator which contains All User Login History Nodes
+   *
+   * @param userProfileNode {@link Node}
+   * @return Node Iterator
+   */
+  public NodeIterator getAllUserLoginCountersNodes(Node userProfileNode) {
+    NodeIterator loginCountersNodes = null;
+    String userId = null;
+
+    try {
+      userId = userProfileNode.getProperty("exo:LoginHisSvc_userId").getString();
+      if (!userProfileNode.getProperty("jcr:primaryType").getString().equals("exo:LoginHisSvc_globalLoginCounter")) {
+        loginCountersNodes = userProfileNode.getNode("loginCounter").getNodes();
+      }
+    } catch (Exception e) {
+      LOG.error("==    Login History migration - Error while getting User ({}) All Login Counters Nodes : ",
+                userId,
+                e.getMessage(),
+                e);
+    }
+    return loginCountersNodes;
   }
 
   /**
@@ -715,33 +750,10 @@ public class JCRLoginHistoryStorageImpl implements LoginHistoryStorage {
       loginHistoryNode.remove();
       session.save();
     } catch (Exception e) {
-      LOG.error("Error while deleting Login History Node {} : ", loginHistoryNode, e.getMessage(), e);
-    }
-  }
-
-  /**
-   * removes the given Login History node
-   *
-   * @param loginHistoryNode {@link Node}
-   */
-  public void removeAllLoginHistoryNode(Node loginHistoryNode) {
-    try {
-      loginHistoryNode.remove();
-    } catch (Exception e) {
-      LOG.error("Error while deleting Login History Node {} : ", loginHistoryNode, e.getMessage(), e);
-    }
-  }
-
-  /**
-   * removes the given Login Counter node
-   *
-   * @param loginCounterNode {@link Node}
-   */
-  public void removeAllUsersLoginCounterNode(Node loginCounterNode) {
-    try {
-      loginCounterNode.remove();
-    } catch (Exception e) {
-      LOG.error("Error while deleting All Users Login Counter Node {} : ", loginCounterNode, e.getMessage(), e);
+      LOG.error("==    Login History migration - Error while deleting Login History Node {} : ",
+                loginHistoryNode,
+                e.getMessage(),
+                e);
     }
   }
 
@@ -754,24 +766,10 @@ public class JCRLoginHistoryStorageImpl implements LoginHistoryStorage {
     try {
       Session session = this.getSession(sProvider);
       Node loginHistoryAllUsersProfileNode = session.getRootNode().getNode(HOME + "/AllUsers");
-      LOG.info("Removing Login History All Users Profile Node :", loginHistoryAllUsersProfileNode.getPath());
       loginHistoryAllUsersProfileNode.remove();
       session.save();
     } catch (Exception e) {
-      LOG.error("Error while removing All Users Profile Node : ", e.getMessage(), e);
-    }
-  }
-
-  /**
-   * removes the given Login Counter node
-   *
-   * @param loginCounterNode {@link Node}
-   */
-  public void removeLoginCounterNode(Node loginCounterNode) {
-    try {
-      loginCounterNode.remove();
-    } catch (Exception e) {
-      LOG.error("Error while deleting Login Counter Node {} : ", loginCounterNode, e.getMessage(), e);
+      LOG.error("==    Login History migration - Error while removing All Users Profile Node : ", e.getMessage(), e);
     }
   }
 
@@ -789,20 +787,10 @@ public class JCRLoginHistoryStorageImpl implements LoginHistoryStorage {
       loginCounterNode.remove();
       session.save();
     } catch (Exception e) {
-      LOG.error("Error while deleting Login History User Profile Child Nodes of User {} : ", userId, e.getMessage(), e);
-    }
-  }
-
-  /**
-   * removes the given Login History User Profile node
-   *
-   * @param loginHistoryUserProfileNode {@link Node}
-   */
-  public void removeLoginHistoryUserProfileNode(Node loginHistoryUserProfileNode) {
-    try {
-      loginHistoryUserProfileNode.remove();
-    } catch (Exception e) {
-      LOG.error("Error while deleting Login History User Profile Node {} : ", loginHistoryUserProfileNode, e.getMessage(), e);
+      LOG.error("==    Login History migration - Error while deleting Login History User Profile Child Nodes of User {} : ",
+                userId,
+                e.getMessage(),
+                e);
     }
   }
 
