@@ -502,7 +502,7 @@ public class JCRLoginHistoryStorageImpl implements LoginHistoryStorage {
   }
 
   /**
-   * returns the count of all Login History Entries
+   * returns the count of all Login History Entries nodes
    *
    * @param sProvider {@link SessionProvider}
    * @return long
@@ -527,7 +527,7 @@ public class JCRLoginHistoryStorageImpl implements LoginHistoryStorage {
   }
 
   /**
-   * returns the count of all AllUsersLoginHistoryCounters Nodes
+   * returns the count of all the All Users Login History Counters Nodes
    *
    * @param sProvider {@link SessionProvider}
    * @return long
@@ -573,14 +573,14 @@ public class JCRLoginHistoryStorageImpl implements LoginHistoryStorage {
       nodeIterator = result.getNodes();
       count = nodeIterator.getSize();
     } catch (Exception e) {
-      LOG.error("==    Login History migration - Error while getting the count of Login History Counters Nodes : "
+      LOG.error("==    Login History migration - Error while getting the count of All Login History Counters Nodes : "
           + e.getMessage(), e);
     }
     return count;
   }
 
   /**
-   * returns the node iterator which contains a given number of Login Counter
+   * returns the node iterator which contains a given number of Users Profiles
    * nodes after a given offset
    *
    * @param sProvider {@link SessionProvider}
@@ -642,7 +642,7 @@ public class JCRLoginHistoryStorageImpl implements LoginHistoryStorage {
 
   /**
    * returns the node iterator which contains a given number of All Users Login
-   * Counter nodes after a given offset
+   * Counters nodes after a given offset
    *
    * @param sProvider {@link SessionProvider}
    * @param offset long
@@ -715,7 +715,7 @@ public class JCRLoginHistoryStorageImpl implements LoginHistoryStorage {
   }
 
   /**
-   * returns the node iterator which contains All User Login History Nodes
+   * returns the node iterator which contains All User Login Counters Nodes
    *
    * @param userProfileNode {@link Node}
    * @return Node Iterator
@@ -750,7 +750,7 @@ public class JCRLoginHistoryStorageImpl implements LoginHistoryStorage {
       loginHistoryNode.remove();
       session.save();
     } catch (Exception e) {
-      LOG.error("==    Login History migration - Error while deleting Login History Node {} : ",
+      LOG.error("==    Login History migration - Error while removing Login History Node {} : ",
                 loginHistoryNode,
                 e.getMessage(),
                 e);
@@ -758,7 +758,7 @@ public class JCRLoginHistoryStorageImpl implements LoginHistoryStorage {
   }
 
   /**
-   * removes All Users Profile Node
+   * removes the All Users Profile Node
    *
    * @param sProvider {@link SessionProvider}
    */
@@ -774,7 +774,7 @@ public class JCRLoginHistoryStorageImpl implements LoginHistoryStorage {
   }
 
   /**
-   * removes the given Login History User Profile node
+   * removes the given Login History User Profile child nodes
    *
    * @param session {@link Session}
    * @param userId {@link String}
@@ -787,7 +787,7 @@ public class JCRLoginHistoryStorageImpl implements LoginHistoryStorage {
       loginCounterNode.remove();
       session.save();
     } catch (Exception e) {
-      LOG.error("==    Login History migration - Error while deleting Login History User Profile Child Nodes of User {} : ",
+      LOG.error("==    Login History migration - Error while removing Login History User Profile Child Nodes of User {} : ",
                 userId,
                 e.getMessage(),
                 e);
