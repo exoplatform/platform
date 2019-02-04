@@ -224,7 +224,7 @@
                   <string>platform-notification</string>
                </value>
                 <value>
-                  <string>platform-vue-portlets</string>
+                  <string>homepage-portlets</string>
                </value>
             </collection>
           </field>

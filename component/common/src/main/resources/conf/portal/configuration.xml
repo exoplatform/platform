@@ -35,10 +35,6 @@
     <component profiles="all">
         <type>org.exoplatform.platform.common.rest.services.InvitationsPortlet.PeopleAndSpacesRestService</type>
     </component>
-    <!-- WHO IS ONLINE -->
-    <component profiles="all">
-        <type>org.exoplatform.platform.common.rest.services.WhoIsOnLinePortlet.WhoIsOnLineRestService</type>
-    </component>
     <component>
         <type>org.exoplatform.platform.common.rest.services.FeatureToggles.FeatureTogglesRestService</type>
     </component>

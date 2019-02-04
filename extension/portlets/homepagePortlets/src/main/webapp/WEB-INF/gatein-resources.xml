@@ -55,8 +55,18 @@
    <portlet>
       <name>WhoIsOnLinPortlet</name>
       <module>
+         <script>
+            <minify>false</minify>
+            <path>/js/whoIsOnline.bundle.js</path>
+         </script>
          <depends>
-            <module>jQueryWhoIsOnLine</module>
+            <module>vue</module>
+         </depends>
+         <depends>
+            <module>eXoVueI18n</module>
+         </depends>
+         <depends>
+            <module>extensionRegistry</module>
          </depends>
       </module>
    </portlet>

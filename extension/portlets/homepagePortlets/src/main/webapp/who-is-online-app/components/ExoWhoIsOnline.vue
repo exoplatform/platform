@@ -1,10 +1,10 @@
 <template>
   <div id="OnlinePortlet" class="onlinePortlet">
     <div id="onlineContent" class="uiBox">
-      <h6 class="title center">{{ $t("platform.portlet.whoIsOnline.title") }}</h6>
+      <h6 class="title center">{{ $t("header.label") }}</h6>
       <ul id="onlineList" class="gallery uiContentBox">
         <li v-for="user in users" :key="user" :id="user.id">
-          <a :href="user.profileUrl" class="avatarXSmall"><img :src="user.avatar" alt="image" /></a>
+          <a :href="user.href" class="avatarXSmall"><img :src="user.avatar" alt="image" /></a>
         </li>
       </ul>
     </div>
@@ -21,13 +21,17 @@
       };
     },
     created() {
-      this.getUsers();
+      this.initOnlineUsers();
+      // And we should use setInterval with 60 seconds
+      setInterval(function () {
+        this.initOnlineUsers();
+      }.bind(this), 60000);
     },
     methods: {
-      getUsers() {
-        whoIsOnlineServices.getOnlineUsers(eXo.env.portal.userName, eXo.env.portal.spaceName).then(response => {
+      initOnlineUsers() {
+        whoIsOnlineServices.getOnlineUsers(eXo.env.portal.spaceName).then(response => {
           if (response) {
-            this.users = response;
+            this.users = response.users;
           }
         });
       }

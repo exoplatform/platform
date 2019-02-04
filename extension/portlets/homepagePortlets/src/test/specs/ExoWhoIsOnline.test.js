@@ -13,13 +13,13 @@ describe('ExoWhoIsOnline.test.js', () => {
     users: [
       {
         'id': '1',
-        'profileUrl': 'toto',
+        'href': 'toto',
         'avatar': 'titi'
       },
       {
         'id': '2',
-          'profileUrl': 'toto',
-          'avatar': 'titi'
+        'href': 'toto',
+        'avatar': 'titi'
       }
     ],
   };
