@@ -68,6 +68,13 @@
          <depends>
             <module>extensionRegistry</module>
          </depends>
+         <depends>
+            <module>jquery</module>
+            <as>$</as>
+         </depends>
+         <depends>
+            <module>userPopupPlugin</module>
+         </depends>
       </module>
    </portlet>
 

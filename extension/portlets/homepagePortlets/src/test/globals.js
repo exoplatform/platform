@@ -7,3 +7,6 @@ global.eXo = {
     }
   }
 };
+
+import $ from 'jquery'
+global.$ = $
