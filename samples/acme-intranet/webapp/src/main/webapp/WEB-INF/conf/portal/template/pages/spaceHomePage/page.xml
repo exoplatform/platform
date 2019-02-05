@@ -46,7 +46,7 @@
         <container id="SpaceInfos" template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
           <portlet-application>
             <portlet>
-              <application-ref>social-vue-portlet</application-ref>
+              <application-ref>social-portlet</application-ref>
               <portlet-ref>SpaceInfos</portlet-ref>
             </portlet>
             <show-info-bar>false</show-info-bar>

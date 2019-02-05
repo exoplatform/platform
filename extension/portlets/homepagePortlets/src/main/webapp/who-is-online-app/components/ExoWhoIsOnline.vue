@@ -29,7 +29,7 @@
     },
     methods: {
       initOnlineUsers() {
-        whoIsOnlineServices.getOnlineUsers(eXo.env.portal.spaceName).then(response => {
+        whoIsOnlineServices.getOnlineUsers(eXo.env.portal.spaceId).then(response => {
           if (response) {
             this.users = response.users;
           }

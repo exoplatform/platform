@@ -127,20 +127,4 @@
       </depends>
    </module>
 
-   <module>
-      <name>jQueryWhoIsOnLine</name>
-      <load-group>homepage-apps</load-group>
-      <script>
-         <path>/js/whoisonline/whoisonline.js</path>
-      </script>
-      <depends>
-         <module>juzu-ajax</module>
-      </depends>
-      <depends>
-         <module>jquery</module>
-      </depends>
-      <depends>
-         <module>userPopupPlugin</module>
-      </depends>
-   </module>
 </gatein-resources>
