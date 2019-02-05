@@ -199,6 +199,7 @@
      eXo.session.canKeepState = $canKeepState;
      eXo.session.isOpen = $isSessionOpen;
      eXo.session.itvTime = ${((PortalRequestContext)rcontext).getRequest().getSession().getMaxInactiveInterval()} ;
+     eXo.env.portal.spaceId = "<%=SpaceUtils.getSpaceByContext() == null ? "" : SpaceUtils.getSpaceByContext().getId()%>" ;
      eXo.env.portal.spaceName = "<%=SpaceUtils.getSpaceByContext() == null ? "" : SpaceUtils.getSpaceByContext().getPrettyName()%>" ;
      eXo.env.portal.spaceGroup = "<%=SpaceUtils.getSpaceByContext() == null ? "" : SpaceUtils.getSpaceByContext().getGroupId().replace("/spaces/", "")%>" ;
      eXo.env.portal.profileOwner = "<%=Utils.getOwnerRemoteId()%>" ;
