@@ -28,7 +28,7 @@
   <msg name="loginHistory.latest">リセット</msg>
   <msg name="loginHistory.lastLogin">最終ログイン</msg>
   <msg name="loginHistory.beforeThat">その前に</msg>
-  <msg name="loginHistory.more">もっと</msg>
+  <msg name="loginHistory.more">詳細</msg>
   <msg name="loginHistory.stats">統計情報</msg>
   <msg name="loginHistory.history">履歴</msg>
   <msg name="loginHistory.global">グローバル</msg>

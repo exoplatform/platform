@@ -6,13 +6,13 @@
          <profile>プロフィール</profile>
          <connections>つながり</connections>
          <wiki>Wiki</wiki>
-         <Myactivities>私のアクティビティ</Myactivities>
+         <Myactivities>アクティビティ</Myactivities>
          <Myprofile>マイプロフィール</Myprofile>
-         <Myconnections>私のつながり</Myconnections>
+         <Myconnections>マイコネクション</Myconnections>
          <Mywiki>Wiki</Mywiki>
          <Mydashboard>マイダッシュ ボード</Mydashboard>
-         <NotificationSettingsPortlet>自分への通知</NotificationSettingsPortlet>
-         <More>もっと</More>
+         <NotificationSettingsPortlet>My Notifications</NotificationSettingsPortlet>
+         <More>詳細</More>
          <EditProfile>編集</EditProfile>
          <available>利用可能</available>
          <offline>オフライン</offline>

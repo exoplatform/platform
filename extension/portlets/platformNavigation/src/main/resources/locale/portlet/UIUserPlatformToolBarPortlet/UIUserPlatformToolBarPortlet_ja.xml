@@ -2,15 +2,15 @@
 <bundle>
 <UIUserPlatformToolBarPortlet>
 <label>
-<NotificationSettingsPortlet>自分への通知</NotificationSettingsPortlet>
-<activities>私のアクティビティ</activities>
+<NotificationSettingsPortlet>My Notifications</NotificationSettingsPortlet>
+<activities>アクティビティ</activities>
 <profile>マイプロフィール</profile>
-<network>つながり</network>
+<network>マイコネクション</network>
 <wiki>Wiki</wiki>
 <account>アカウント</account>
 <language>言語を変更</language>
 <logout>ログアウト</logout>
-        <dashboard>マイダッシュ ボード</dashboard>
+        <dashboard>ダッシュボード</dashboard>
 </label>
 </UIUserPlatformToolBarPortlet>
 </bundle>
