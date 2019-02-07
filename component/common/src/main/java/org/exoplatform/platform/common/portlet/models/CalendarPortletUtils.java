@@ -1,4 +1,4 @@
-package org.exoplatform.platform.portlet.juzu.calendar.models;
+package org.exoplatform.platform.common.portlet.models;
 
 import org.exoplatform.calendar.service.CalendarService;
 import org.exoplatform.calendar.service.CalendarSetting;
@@ -64,11 +64,11 @@ public class CalendarPortletUtils {
 
     }
 
-    static public CalendarService getCalendarService() throws Exception {
+    static public CalendarService getCalendarService() {
         return (CalendarService) PortalContainer.getInstance().getComponentInstance(CalendarService.class);
     }
 
-    static public String getCurrentUser() throws Exception {
+    static public String getCurrentUser() {
         return ConversationState.getCurrent().getIdentity().getUserId();
     }
 

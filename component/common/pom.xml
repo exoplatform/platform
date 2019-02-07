@@ -139,6 +139,14 @@
       <artifactId>social-component-notification</artifactId>
     </dependency>
     <dependency>
+      <groupId>org.exoplatform.calendar</groupId>
+      <artifactId>calendar-service</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.exoplatform.calendar</groupId>
+      <artifactId>calendar-webservice</artifactId>
+    </dependency>
+    <dependency>
       <groupId>org.apache.shindig</groupId>
       <artifactId>shindig-social-api</artifactId>
     </dependency>

@@ -27,6 +27,10 @@
     <component profiles="all">
         <type>org.exoplatform.platform.common.rest.services.SuggestPeoplePortlet.PeopleRestServices</type>
     </component>
+    <!-- CALENDAR -->
+    <component profiles="all">
+        <type>org.exoplatform.platform.common.rest.services.CalendarPortlet.CalendarPortletRestService</type>
+    </component>
     <!-- SUGGEST SPACES -->
     <component profiles="all">
         <type>org.exoplatform.platform.common.rest.services.SuggestSpacesPortlet.SpaceRestServices</type>

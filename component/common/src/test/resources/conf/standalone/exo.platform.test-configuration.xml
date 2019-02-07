@@ -63,5 +63,17 @@
    <component>
       <type>org.exoplatform.services.rest.impl.ResourceBinder</type>
    </component>
+   <component>
+      <key>org.exoplatform.commons.api.settings.SettingService</key>
+      <type>org.exoplatform.platform.common.rest.services.CalendarPortlet.MockSettingService</type>
+   </component>
+   <component>
+      <key>org.exoplatform.calendar.service.CalendarService</key>
+      <type>org.exoplatform.platform.common.rest.services.CalendarPortlet.MockCalendarService</type>
+   </component>
+   <component>
+      <key>org.exoplatform.services.organization.OrganizationService</key>
+      <type>org.exoplatform.platform.common.rest.services.CalendarPortlet.MockOrganizationService</type>
+   </component>
 
 </configuration>

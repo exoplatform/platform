@@ -1,15 +1,18 @@
 import './components/initComponents.js';
 import { exoConstants } from '../js/eXoConstants.js';
+import * as calendarDirectives from './calendarDirectives.js';
 
 // getting language of the PLF
-const lang = `${exoConstants.LANG}`;
+const lang = typeof eXo !== 'undefined' ? eXo.env.portal.language : 'en';
 
 // should expose the locale ressources as REST API
-const url = `${exoConstants.PORTAL}/${exoConstants.PORTAL_REST}/i18n/bundle/locale.portlet.whoisonline.whoisonline-${lang}.json`;
+const url = `${exoConstants.PORTAL}/${exoConstants.PORTAL_REST}/i18n/bundle/locale.portlet.calendar.calendar-${lang}.json`;
+
+Vue.directive('exo-tooltip', calendarDirectives.tooltip);
 
 // get overrided components if exists
 if (extensionRegistry) {
-  const components = extensionRegistry.loadComponents('WhoIsOnLinPortlet');
+  const components = extensionRegistry.loadComponents('HomePageCalendarPortlet');
   if (components && components.length > 0) {
     components.forEach(cmp => {
       Vue.component(cmp.componentName, cmp.componentOptions);
@@ -22,8 +25,8 @@ export function init() {
   exoi18n.loadLanguageAsync(lang, url).then(i18n => {
     // init Vue app when locale ressources are ready
     new Vue({
-      el: '#whoIsOnline',
-      template: '<exo-who-is-online></exo-who-is-online>',
+      el: '#calendar',
+      template: '<exo-calendar></exo-calendar>',
       i18n
     });
   });
