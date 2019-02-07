@@ -14,17 +14,16 @@
  * You should have received a copy of the GNU General Public License
  * along with this program; if not, see<http://www.gnu.org/licenses/>.
  ***************************************************************************/
-package org.exoplatform.platform.gadget.services.LoginHistory;
+package org.exoplatform.platform.gadget.services.LoginHistory.storage;
+
+import org.exoplatform.platform.gadget.services.LoginHistory.LastLoginBean;
+import org.exoplatform.platform.gadget.services.LoginHistory.LoginCounterBean;
+import org.exoplatform.platform.gadget.services.LoginHistory.LoginHistoryBean;
 
 import java.util.List;
 import java.util.Set;
 
-/**
- * Created by The eXo Platform SARL Author : Tung Vu Minh tungvm@exoplatform.com
- * Apr 21, 2011 6:19:21 PM
- */
-
-public interface LoginHistoryService {
+public interface LoginHistoryStorage {
   String ALL_USERS = "AllUsers";
 
   long getLastLogin(String userId) throws Exception;

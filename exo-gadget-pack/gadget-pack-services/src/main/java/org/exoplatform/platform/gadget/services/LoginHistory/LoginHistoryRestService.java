@@ -34,7 +34,6 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
-
 /**
  * Created by The eXo Platform SARL Author : Tung Vu Minh tungvm@exoplatform.com
  * Apr 21, 2011 6:19:21 PM
@@ -42,173 +41,179 @@ import java.util.List;
 
 @Path("loginhistory")
 public class LoginHistoryRestService implements ResourceContainer {
-    private static final Log LOG = ExoLogger.getLogger(LoginHistoryRestService.class);
+  private static final Log          LOG = ExoLogger.getLogger(LoginHistoryRestService.class);
 
-    private static final CacheControl cacheControl;
+  private static final CacheControl cacheControl;
 
-    static {
-        RuntimeDelegate.setInstance(new RuntimeDelegateImpl());
-        cacheControl = new CacheControl();
-        cacheControl.setNoCache(true);
-        cacheControl.setNoStore(true);
+  static {
+    RuntimeDelegate.setInstance(new RuntimeDelegateImpl());
+    cacheControl = new CacheControl();
+    cacheControl.setNoCache(true);
+    cacheControl.setNoStore(true);
+  }
+
+  protected final LoginHistoryService loginHistoryService;
+
+  public LoginHistoryRestService(LoginHistoryService loginHistoryService) {
+    this.loginHistoryService = loginHistoryService;
+  }
+
+  /**
+   * Get user login history <br>
+   * REST service URL: /loginhistory/{userId}/{fromTime}/{toTime}
+   *
+   * @return: Login history entries from {fromTime} to {toTime} (in JSON data
+   *          format) of user {userId}
+   */
+  @GET
+  @Path("/loginhistory/{userId}/{fromTime}/{toTime}")
+  @Produces(MediaType.APPLICATION_JSON)
+  public Response loginhistory(@PathParam("userId") String userId,
+                               @PathParam("fromTime") Long fromTime,
+                               @PathParam("toTime") Long toTime) throws Exception {
+    try {
+      List<LoginHistoryBean> loginHis = loginHistoryService.getLoginHistory(userId, fromTime, toTime);
+
+      List<Object> loginHisData = new ArrayList<Object>();
+      loginHisData.add(loginHis.size());
+      loginHisData.add(loginHis);
+
+      MessageBean data = new MessageBean();
+      data.setData(loginHisData);
+      return Response.ok(data, MediaType.APPLICATION_JSON).cacheControl(cacheControl).build();
+    } catch (Exception e) {
+      LOG.debug("Error in get user login history REST service: " + e.getMessage(), e);
+      return Response.status(HTTPStatus.INTERNAL_ERROR).cacheControl(cacheControl).build();
+    }
+  }
+
+  /**
+   * Get login count statistic in a week <br>
+   * REST service URL: /loginhistory/weekstats/{userId}/{week}
+   *
+   * @return: List of login count per days in week {week} (in JSON data format) of
+   *          user {userId}
+   */
+  @GET
+  @Path("/weekstats/{userId}/{week}")
+  @Produces(MediaType.APPLICATION_JSON)
+  public Response weekstats(@PathParam("userId") String userId, @PathParam("week") String week) throws Exception {
+    try {
+
+      SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+      List<LoginCounterBean> loginCounts = loginHistoryService.getLoginCountPerDaysInWeek(userId, sdf.parse(week).getTime());
+
+      List<Object> loginCountsData = new ArrayList<Object>();
+
+      loginCountsData.add(loginCounts.size());
+      loginCountsData.add(loginCounts);
+
+      MessageBean data = new MessageBean();
+      data.setData(loginCountsData);
+      return Response.ok(data, MediaType.APPLICATION_JSON).cacheControl(cacheControl).build();
+    } catch (Exception e) {
+      LOG.debug("Error in weekstats REST service: " + e.getMessage(), e);
+      return Response.status(HTTPStatus.INTERNAL_ERROR).cacheControl(cacheControl).build();
+    }
+  }
+
+  /**
+   * Get login count statistic in months <br>
+   * REST service URL: /loginhistory/monthstats/{userId}/{fromMonth/{numOfMonth}}
+   *
+   * @return: List of login count per weeks in {numOfMonths} months start from
+   *          {fromMonth} (in JSON data format) of user {userId}
+   */
+  @GET
+  @Path("/monthstats/{userId}/{fromMonth}/{numOfMonths}")
+  @Produces(MediaType.APPLICATION_JSON)
+  public Response monthstats(@PathParam("userId") String userId,
+                             @PathParam("fromMonth") String fromMonth,
+                             @PathParam("numOfMonths") int numOfMonths) throws Exception {
+    try {
+
+      SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+      List<LoginCounterBean> loginCounts = loginHistoryService.getLoginCountPerWeeksInMonths(userId,
+                                                                                             sdf.parse(fromMonth).getTime(),
+                                                                                             numOfMonths);
+
+      List<Object> loginCountsData = new ArrayList<Object>();
+
+      loginCountsData.add(loginCounts.size());
+      loginCountsData.add(loginCounts);
+
+      MessageBean data = new MessageBean();
+      data.setData(loginCountsData);
+      return Response.ok(data, MediaType.APPLICATION_JSON).cacheControl(cacheControl).build();
+    } catch (Exception e) {
+      LOG.debug("Error in monthstats REST service: " + e.getMessage(), e);
+      return Response.status(HTTPStatus.INTERNAL_ERROR).cacheControl(cacheControl).build();
+    }
+  }
+
+  /**
+   * Get login count statistic in a year <br>
+   * REST service URL: /loginhistory/yearstats/{userId}/{year}
+   *
+   * @return: List of login count per months in year {year} (in JSON data format)
+   *          of user {userId}
+   */
+  @GET
+  @Path("/yearstats/{userId}/{year}")
+  @Produces(MediaType.APPLICATION_JSON)
+  public Response yearstats(@PathParam("userId") String userId, @PathParam("year") String year) throws Exception {
+    try {
+
+      SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+      List<LoginCounterBean> loginCounts = loginHistoryService.getLoginCountPerMonthsInYear(userId, sdf.parse(year).getTime());
+
+      List<Object> loginCountsData = new ArrayList<Object>();
+
+      loginCountsData.add(loginCounts.size());
+      loginCountsData.add(loginCounts);
+
+      MessageBean data = new MessageBean();
+      data.setData(loginCountsData);
+      return Response.ok(data, MediaType.APPLICATION_JSON).cacheControl(cacheControl).build();
+    } catch (Exception e) {
+      LOG.debug("Error in yearstats REST service: " + e.getMessage(), e);
+      return Response.status(HTTPStatus.INTERNAL_ERROR).cacheControl(cacheControl).build();
+    }
+  }
+
+  /**
+   * Get last {numItems} login history entries <br>
+   * REST service URL: /loginhistory/lastlogins/{numItems}/{userIdFilter}
+   *
+   * @return: The list of last {numItems} login history entries (filtered by
+   *          {userIdFilter}) in JSON data format
+   */
+  @GET
+  @Path("/lastlogins/{numItems}/{userIdFilter}")
+  @Produces(MediaType.APPLICATION_JSON)
+  public Response lastlogins(@PathParam("numItems") int numItems,
+                             @PathParam("userIdFilter") String userIdFilter) throws Exception {
+    try {
+      List lastLogins = loginHistoryService.getLastLogins(numItems, userIdFilter);
+
+      MessageBean data = new MessageBean();
+      data.setData(lastLogins);
+      return Response.ok(data, MediaType.APPLICATION_JSON).cacheControl(cacheControl).build();
+    } catch (Exception e) {
+      LOG.debug("Error in get last logins REST service: " + e.getMessage(), e);
+      return Response.status(HTTPStatus.INTERNAL_ERROR).cacheControl(cacheControl).build();
+    }
+  }
+
+  public class MessageBean {
+    private List<Object> data;
+
+    public void setData(List<Object> list) {
+      this.data = list;
     }
 
-    protected final LoginHistoryService loginHistoryService;
-
-    public LoginHistoryRestService(LoginHistoryService loginHistoryService) {
-        this.loginHistoryService = loginHistoryService;
+    public List<Object> getData() {
+      return data;
     }
-
-    /**
-     * Get user login history
-     * <br>
-     * REST service URL: /loginhistory/{userId}/{fromTime}/{toTime}
-     *
-     * @return: Login history entries from {fromTime} to {toTime} (in JSON data format) of user {userId}
-     */
-    @GET
-    @Path("/loginhistory/{userId}/{fromTime}/{toTime}")
-    @Produces(MediaType.APPLICATION_JSON)
-    public Response loginhistory(@PathParam("userId") String userId, @PathParam("fromTime") Long fromTime, @PathParam("toTime") Long toTime) throws Exception {
-        try {
-            List<LoginHistoryBean> loginHis = loginHistoryService.getLoginHistory(userId, fromTime, toTime);
-
-            List<Object> loginHisData = new ArrayList<Object>();
-            loginHisData.add(loginHis.size());
-            loginHisData.add(loginHis);
-
-            MessageBean data = new MessageBean();
-            data.setData(loginHisData);
-            return Response.ok(data, MediaType.APPLICATION_JSON).cacheControl(cacheControl).build();
-        } catch (Exception e) {
-            LOG.debug("Error in get user login history REST service: " + e.getMessage(), e);
-            return Response.status(HTTPStatus.INTERNAL_ERROR).cacheControl(cacheControl).build();
-        }
-    }
-
-    /**
-     * Get login count statistic in a week
-     * <br>
-     * REST service URL: /loginhistory/weekstats/{userId}/{week}
-     *
-     * @return: List of login count per days in week {week} (in JSON data format) of user {userId}
-     */
-    @GET
-    @Path("/weekstats/{userId}/{week}")
-    @Produces(MediaType.APPLICATION_JSON)
-    public Response weekstats(@PathParam("userId") String userId, @PathParam("week") String week) throws Exception {
-        try {
-
-            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-            List<LoginCounterBean> loginCounts = loginHistoryService.getLoginCountPerDaysInWeek(userId, sdf.parse(week).getTime());
-
-            List<Object> loginCountsData = new ArrayList<Object>();
-
-            loginCountsData.add(loginCounts.size());
-            loginCountsData.add(loginCounts);
-
-            MessageBean data = new MessageBean();
-            data.setData(loginCountsData);
-            return Response.ok(data, MediaType.APPLICATION_JSON).cacheControl(cacheControl).build();
-        } catch (Exception e) {
-            LOG.debug("Error in weekstats REST service: " + e.getMessage(), e);
-            return Response.status(HTTPStatus.INTERNAL_ERROR).cacheControl(cacheControl).build();
-        }
-    }
-
-    /**
-     * Get login count statistic in months
-     * <br>
-     * REST service URL: /loginhistory/monthstats/{userId}/{fromMonth/{numOfMonth}}
-     *
-     * @return: List of login count per weeks in {numOfMonths} months start from {fromMonth} (in JSON data format) of user {userId}
-     */
-    @GET
-    @Path("/monthstats/{userId}/{fromMonth}/{numOfMonths}")
-    @Produces(MediaType.APPLICATION_JSON)
-    public Response monthstats(@PathParam("userId") String userId, @PathParam("fromMonth") String fromMonth, @PathParam("numOfMonths") int numOfMonths) throws Exception {
-        try {
-
-            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-            List<LoginCounterBean> loginCounts = loginHistoryService.getLoginCountPerWeeksInMonths(userId, sdf.parse(fromMonth).getTime(), numOfMonths);
-
-            List<Object> loginCountsData = new ArrayList<Object>();
-
-            loginCountsData.add(loginCounts.size());
-            loginCountsData.add(loginCounts);
-
-            MessageBean data = new MessageBean();
-            data.setData(loginCountsData);
-            return Response.ok(data, MediaType.APPLICATION_JSON).cacheControl(cacheControl).build();
-        } catch (Exception e) {
-            LOG.debug("Error in monthstats REST service: " + e.getMessage(), e);
-            return Response.status(HTTPStatus.INTERNAL_ERROR).cacheControl(cacheControl).build();
-        }
-    }
-
-    /**
-     * Get login count statistic in a year
-     * <br>
-     * REST service URL: /loginhistory/yearstats/{userId}/{year}
-     *
-     * @return: List of login count per months in year {year} (in JSON data format) of user {userId}
-     */
-    @GET
-    @Path("/yearstats/{userId}/{year}")
-    @Produces(MediaType.APPLICATION_JSON)
-    public Response yearstats(@PathParam("userId") String userId, @PathParam("year") String year) throws Exception {
-        try {
-
-            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-            List<LoginCounterBean> loginCounts = loginHistoryService.getLoginCountPerMonthsInYear(userId, sdf.parse(year).getTime());
-
-            List<Object> loginCountsData = new ArrayList<Object>();
-
-            loginCountsData.add(loginCounts.size());
-            loginCountsData.add(loginCounts);
-
-            MessageBean data = new MessageBean();
-            data.setData(loginCountsData);
-            return Response.ok(data, MediaType.APPLICATION_JSON).cacheControl(cacheControl).build();
-        } catch (Exception e) {
-            LOG.debug("Error in yearstats REST service: " + e.getMessage(), e);
-            return Response.status(HTTPStatus.INTERNAL_ERROR).cacheControl(cacheControl).build();
-        }
-    }
-
-    /**
-     * Get last {numItems} login history entries
-     * <br>
-     * REST service URL: /loginhistory/lastlogins/{numItems}/{userIdFilter}
-     *
-     * @return: The list of last {numItems} login history entries (filtered by {userIdFilter}) in JSON data format
-     */
-    @GET
-    @Path("/lastlogins/{numItems}/{userIdFilter}")
-    @Produces(MediaType.APPLICATION_JSON)
-    public Response lastlogins(@PathParam("numItems") int numItems, @PathParam("userIdFilter") String userIdFilter) throws Exception {
-        try {
-            List lastLogins = loginHistoryService.getLastLogins(numItems, userIdFilter);
-
-            MessageBean data = new MessageBean();
-            data.setData(lastLogins);
-            return Response.ok(data, MediaType.APPLICATION_JSON).cacheControl(cacheControl).build();
-        } catch (Exception e) {
-            LOG.debug("Error in get last logins REST service: " + e.getMessage(), e);
-            return Response.status(HTTPStatus.INTERNAL_ERROR).cacheControl(cacheControl).build();
-        }
-    }
-
-
-    public class MessageBean {
-        private List<Object> data;
-
-        public void setData(List<Object> list) {
-            this.data = list;
-        }
-
-        public List<Object> getData() {
-            return data;
-        }
-    }
+  }
 }

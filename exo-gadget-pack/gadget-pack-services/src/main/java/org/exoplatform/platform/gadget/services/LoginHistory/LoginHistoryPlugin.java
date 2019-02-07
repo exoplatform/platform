@@ -4,13 +4,13 @@ import org.exoplatform.container.component.BaseComponentPlugin;
 import org.exoplatform.container.xml.InitParams;
 
 public class LoginHistoryPlugin extends BaseComponentPlugin {
-	private InitParams initParams;
+  private InitParams initParams;
 
-	public InitParams getInitParams() {
-		return initParams;
-	}
+  public InitParams getInitParams() {
+    return initParams;
+  }
 
-    public LoginHistoryPlugin(InitParams params) {
-    	this.initParams = params;
-    }
+  public LoginHistoryPlugin(InitParams params) {
+    this.initParams = params;
+  }
 }
