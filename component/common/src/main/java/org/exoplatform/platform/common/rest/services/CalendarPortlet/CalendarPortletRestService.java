@@ -1,0 +1,334 @@
+/*
+ * Copyright (C) 2019 eXo Platform SAS.
+ *
+ * This is free software; you can redistribute it and/or modify it
+ * under the terms of the GNU Lesser General Public License as
+ * published by the Free Software Foundation; either version 2.1 of
+ * the License, or (at your option) any later version.
+ *
+ * This software is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this software; if not, write to the Free
+ * Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
+ * 02110-1301 USA, or see the FSF site: http://www.fsf.org.
+ */
+package org.exoplatform.platform.common.rest.services.CalendarPortlet;
+
+import javax.annotation.security.RolesAllowed;
+import javax.ws.rs.GET;
+import javax.ws.rs.Path;
+import javax.ws.rs.Produces;
+import javax.ws.rs.QueryParam;
+import javax.ws.rs.core.Context;
+import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
+import javax.ws.rs.core.UriInfo;
+
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiParam;
+import io.swagger.annotations.ApiResponse;
+import io.swagger.annotations.ApiResponses;
+import org.apache.commons.lang3.StringUtils;
+import org.exoplatform.calendar.service.*;
+import org.exoplatform.calendar.ws.CalendarRestApi;
+import org.exoplatform.calendar.ws.bean.CalendarResource;
+import org.exoplatform.calendar.ws.bean.EventResource;
+import org.exoplatform.commons.api.settings.SettingService;
+import org.exoplatform.commons.api.settings.SettingValue;
+import org.exoplatform.commons.api.settings.data.Scope;
+import org.exoplatform.platform.common.portlet.models.CalendarPortletUtils;
+import org.exoplatform.portal.webui.util.Util;
+import org.exoplatform.services.log.ExoLogger;
+import org.exoplatform.services.log.Log;
+import org.exoplatform.services.organization.Group;
+import org.exoplatform.services.organization.OrganizationService;
+import org.exoplatform.services.rest.resource.ResourceContainer;
+import org.exoplatform.services.security.ConversationState;
+import org.exoplatform.social.rest.api.EntityBuilder;
+import org.exoplatform.social.rest.api.RestUtils;
+import org.exoplatform.web.application.RequestContext;
+import org.json.JSONObject;
+
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.*;
+import java.util.Calendar;
+import java.util.stream.Collectors;
+
+@Path("portlet/calendar")
+@Produces(MediaType.APPLICATION_JSON)
+public class CalendarPortletRestService implements ResourceContainer {
+
+    private Comparator<CalendarEvent> eventsComparator = new Comparator<CalendarEvent>() {
+        public int compare(CalendarEvent e1, CalendarEvent e2) {
+            Long d1 = e1.getToDateTime().getTime() - e1.getFromDateTime().getTime();
+            Long d2 = e2.getToDateTime().getTime() - e2.getFromDateTime().getTime();
+
+            if ((d1 > CalendarPortletUtils.JOUR_MS) && (d2 > CalendarPortletUtils.JOUR_MS))
+                return -(Math.round(e1.getFromDateTime().getTime() - e2.getToDateTime().getTime()));
+            else if ((d1 > CalendarPortletUtils.JOUR_MS) && (d2 < CalendarPortletUtils.JOUR_MS)) return 1;
+            else if ((d1 < CalendarPortletUtils.JOUR_MS) && (d2 > CalendarPortletUtils.JOUR_MS)) return -1;
+            else if ((d1 < CalendarPortletUtils.JOUR_MS) && (d2 == CalendarPortletUtils.JOUR_MS)) return -1;
+            else if ((d1 == CalendarPortletUtils.JOUR_MS) && (d2 < CalendarPortletUtils.JOUR_MS)) return 1;
+            else if ((d1 > CalendarPortletUtils.JOUR_MS) && (d2 == CalendarPortletUtils.JOUR_MS)) return 1;
+            else if ((d1 == CalendarPortletUtils.JOUR_MS) && (d2 > CalendarPortletUtils.JOUR_MS)) return -1;
+            else if ((d1 == CalendarPortletUtils.JOUR_MS) && (d2 == CalendarPortletUtils.JOUR_MS)) return 0;
+            else if ((d1 < CalendarPortletUtils.JOUR_MS) && (d2 < CalendarPortletUtils.JOUR_MS)) {
+                if (e1.getFromDateTime().getTime() == e2.getFromDateTime().getTime()) {
+                    if (d1 < d2) return 1;
+                    if (d1 > d2) return -1;
+                }
+                ;
+                return ((int) (e1.getFromDateTime().compareTo(e2.getFromDateTime())));
+
+            }
+            return 0;
+        }
+    };
+    private Comparator<CalendarEvent> tasksComparator = new Comparator<CalendarEvent>() {
+        public int compare(CalendarEvent e1, CalendarEvent e2) {
+            if (((e2.getEventState().equals(CalendarEvent.NEEDS_ACTION)) && (e2.getToDateTime().compareTo(new Date()) < 0)) &&
+                    ((e1.getEventState().equals(CalendarEvent.NEEDS_ACTION) && (e1.getToDateTime().compareTo(new Date()) >= 0)) || (!e1.getEventState().equals(CalendarEvent.NEEDS_ACTION)))) {
+                return 1;
+            } else if (((e1.getEventState().equals(CalendarEvent.NEEDS_ACTION)) && (e1.getToDateTime().compareTo(new Date()) < 0)) &&
+                    ((e2.getEventState().equals(CalendarEvent.NEEDS_ACTION) && (e2.getToDateTime().compareTo(new Date()) >= 0)) || (!e2.getEventState().equals(CalendarEvent.NEEDS_ACTION)))) {
+                return -1;
+            } else if (((e1.getEventState().equals(CalendarEvent.NEEDS_ACTION)) && (e1.getToDateTime().compareTo(new Date()) < 0)) &&
+                    (((e2.getEventState().equals(CalendarEvent.NEEDS_ACTION)) && (e2.getToDateTime().compareTo(new Date()) < 0)))) {
+                return (int) (e2.getFromDateTime().getTime() - e1.getFromDateTime().getTime());
+            } else return (int) (e2.getFromDateTime().getTime() - e1.getFromDateTime().getTime());
+        }
+    };
+
+    private static final Log LOG = ExoLogger.getLogger(CalendarPortletRestService.class);
+
+    private CalendarService calendarService;
+    private SettingService settingService;
+    private OrganizationService organizationService;
+
+    public CalendarPortletRestService(CalendarService calendarService, SettingService settingService, OrganizationService organizationService) {
+        this.calendarService = calendarService;
+        this.settingService = settingService;
+        this.organizationService = organizationService;
+    }
+
+    /**
+     * Get user's getting started status REST service URL: /getting-started/get
+     *
+     * @return: user's getting started status
+     */
+    @GET
+    @Path("init")
+    @RolesAllowed("users")
+    @ApiOperation(value = "Gets all portlet objects",
+            httpMethod = "GET",
+            response = Response.class,
+            notes = "This returns calendar portlet needed objects")
+    @ApiResponses(value = {@ApiResponse(code = 200, message = "Request fulfilled")})
+    public Response initCalendarObjects(@Context UriInfo uriInfo,
+                                        @ApiParam(value = "Portal language, ex: en", required = false) @QueryParam("lang") String lang) throws Exception {
+        List<CalendarEvent> eventsDisplayed = new ArrayList<CalendarEvent>();
+        List<CalendarResource> displayedCalendar = new ArrayList<CalendarResource>();
+        List<CalendarEvent> tasksDisplayed = new ArrayList<CalendarEvent>();
+        Map<String, CalendarResource> displayedCalendarMap = new HashMap<String, CalendarResource>();
+        String[] nonDisplayedCalendarList = null;
+        String username = CalendarPortletUtils.getCurrentUser();
+        Locale locale = new Locale("en");
+        if (StringUtils.isNotBlank(lang) && !"en".equals(lang)) {
+            locale = new Locale(lang);
+        }
+        String dp= formatDate(locale);
+        DateFormat d = new SimpleDateFormat(dp);
+        DateFormat dTimezone = DateFormat.getDateInstance(DateFormat.SHORT, locale);
+        dTimezone.setCalendar(CalendarPortletUtils.getCurrentCalendar());
+        Long date = new Date().getTime();
+        Date currentTime = new Date(date);
+        // get current date base on calendar setting
+        CalendarSetting calSetting = CalendarPortletUtils.getCurrentUserCalendarSetting();
+        String strTimeZone = calSetting.getTimeZone();
+        dTimezone.setTimeZone(TimeZone.getTimeZone(strTimeZone));
+        String date_act = dTimezone.format(currentTime);
+        // Get Calendar object set to the date and time of the given Date object
+        Calendar cal =CalendarPortletUtils.getCurrentCalendar();
+        cal.setTime(currentTime);
+
+        // Set time fields to zero
+        cal.set(Calendar.HOUR_OF_DAY, 0);
+        cal.set(Calendar.MINUTE, 0);
+        cal.set(Calendar.SECOND, 0);
+        cal.set(Calendar.MILLISECOND, 0);
+
+        // Put it back in the Date object
+        currentTime = cal.getTime();
+        Date comp = currentTime;
+        String defaultCalendarLabel = "Default";
+        SettingValue settingNode = settingService.get(org.exoplatform.commons.api.settings.data.Context.USER, Scope.APPLICATION, CalendarPortletUtils.HOME_PAGE_CALENDAR_SETTINGS);
+        if ((settingNode != null) && (settingNode.getValue().toString().split(":").length == 2)) {
+            nonDisplayedCalendarList = settingNode.getValue().toString().split(":")[1].split(",");
+        }
+        List<CalendarEvent> userEvents = getEvents(username,cal);
+        if ((userEvents != null) && (!userEvents.isEmpty())) {
+            Iterator itr = userEvents.iterator();
+            while (itr.hasNext()) {
+                CalendarEvent event = (CalendarEvent) itr.next();
+                Date from = d.parse(dTimezone.format(event.getFromDateTime()));
+                Date to = d.parse(dTimezone.format(event.getToDateTime()));
+                if ((event.getEventType().equals(CalendarEvent.TYPE_EVENT)) && (from.compareTo(d.parse(dTimezone.format(comp))) <= 0) && (to.compareTo(d.parse(dTimezone.format(comp))) >= 0)) {
+                    if (!CalendarPortletUtils.contains(nonDisplayedCalendarList, event.getCalendarId())) {
+                        org.exoplatform.calendar.service.Calendar calendar = calendarService.getUserCalendar(username, event.getCalendarId());
+                        if (calendar == null) {
+                            calendar = calendarService.getGroupCalendar(event.getCalendarId());
+                        }
+                        if(calendar.getGroups()==null) {
+                            if (calendar.getId().equals(Utils.getDefaultCalendarId(username)) && calendar.getName().equals(calendarService.getDefaultCalendarName())) {
+                                calendar.setName(defaultCalendarLabel);
+                            }
+                        }
+                        eventsDisplayed.add(event);
+                        if (!displayedCalendarMap.containsKey(calendar.getId())) {
+                            CalendarResource calendarResource = new CalendarResource(calendar, getBasePath(uriInfo));
+                            displayedCalendarMap.put(calendar.getId(), calendarResource);
+                            displayedCalendar.add(calendarResource);
+                        }
+                    }
+                } else if ((event.getEventType().equals(CalendarEvent.TYPE_TASK)) &&
+                        (((from.compareTo(comp) <= 0) && (to.compareTo(comp) >= 0)) ||
+                                ((event.getEventState().equals(CalendarEvent.NEEDS_ACTION)) && (to.compareTo(comp) < 0)))) {
+                    tasksDisplayed.add(event);
+                }
+            }
+            Collections.sort(eventsDisplayed, eventsComparator);
+            Collections.sort(tasksDisplayed, tasksComparator);
+        }
+        List<EventResource> eventsDisplayedList = eventsDisplayed.stream()
+                .map(i -> {
+                    try {
+                        return new EventResource(i, getBasePath(uriInfo));
+                    } catch (Exception e) {
+                        return new EventResource();
+                    }
+                })
+                .collect(Collectors.toList());
+        List<EventResource> tasksDisplayedList = tasksDisplayed.stream()
+                .map(i -> {
+                    try {
+                        return new EventResource(i, getBasePath(uriInfo));
+                    } catch (Exception e) {
+                        return new EventResource();
+                    }
+                })
+                .collect(Collectors.toList());
+        JSONObject jsonObject = new JSONObject();
+        jsonObject.put("displayedCalendars", displayedCalendar);
+        jsonObject.put("calendarDisplayedMap", displayedCalendarMap);
+        jsonObject.put("eventsDisplayedList", eventsDisplayedList);
+        jsonObject.put("tasksDisplayedList", tasksDisplayedList);
+        jsonObject.put("date_act", date_act);
+
+        return EntityBuilder.getResponse(jsonObject.toString(), uriInfo, RestUtils.getJsonMediaType(), Response.Status.OK);
+    }
+
+    private String getBasePath(UriInfo uriInfo) {
+        StringBuilder path = new StringBuilder(uriInfo.getBaseUri().toString());
+        path.append(CalendarRestApi.CAL_BASE_URI);
+        return path.toString();
+    }
+
+    List<CalendarEvent> getEvents(String username , Calendar cal) {
+
+        Map<String, Map<String, CalendarEvent>> recurrenceEventsMap   = new LinkedHashMap<String, Map<String, CalendarEvent>>();
+        String[] calList = getCalendarsIdList(username);
+        Calendar begin = CalendarPortletUtils.getBeginDay(cal);
+        Calendar end =CalendarPortletUtils.getEndDay(cal) ;
+        end.add(Calendar.MILLISECOND, -1);
+
+        EventQuery eventQuery = new EventQuery();
+        eventQuery.setFromDate(begin);
+        eventQuery.setToDate(end);
+        eventQuery.setOrderBy(new String[]{Utils.EXO_FROM_DATE_TIME});
+
+        eventQuery.setCalendarId(calList);
+        List<CalendarEvent> userEvents = null;
+        try {
+            userEvents = calendarService.getEvents(username, eventQuery, calList);
+            String timezone = CalendarPortletUtils.getCurrentUserCalendarSetting().getTimeZone();
+            List<CalendarEvent> originalRecurEvents = calendarService.getOriginalRecurrenceEvents(username, eventQuery.getFromDate(), eventQuery.getToDate(),calList);
+            if (originalRecurEvents != null && originalRecurEvents.size() > 0) {
+                Iterator<CalendarEvent> recurEventsIter = originalRecurEvents.iterator();
+                while (recurEventsIter.hasNext()) {
+                    CalendarEvent recurEvent = recurEventsIter.next();
+                    // don't build virtual event when the original RecurrenceEvents occurs on that day
+                    if (recurEvent.getFromDateTime().compareTo(begin.getTime()) >= 0) continue;
+                    Map<String,CalendarEvent> tempMap = calendarService.getOccurrenceEvents(recurEvent, eventQuery.getFromDate(), eventQuery.getToDate(), timezone);
+                    if (tempMap != null) {
+                        recurrenceEventsMap.put(recurEvent.getId(), tempMap);
+                        userEvents.addAll(tempMap.values());
+                    }
+                }
+            }
+
+        } catch (Exception e) {
+            LOG.error("Error while checking User Events:" + e.getMessage(), e);
+        }
+        return userEvents;
+    }
+
+    String[] getCalendarsIdList(String username) {
+
+
+        StringBuilder sb = new StringBuilder();
+        List<GroupCalendarData> listgroupCalendar = null;
+        List<org.exoplatform.calendar.service.Calendar> listUserCalendar = null;
+        try {
+            listgroupCalendar = calendarService.getGroupCalendars(getUserGroups(username), true, username);
+            listUserCalendar = calendarService.getUserCalendars(username, true);
+        } catch (Exception e) {
+            LOG.error("Error while checking User Calendar :" + e.getMessage(), e);
+        }
+        for (GroupCalendarData g : listgroupCalendar) {
+            for (org.exoplatform.calendar.service.Calendar c : g.getCalendars()) {
+                sb.append(c.getId()).append(",");
+            }
+        }
+        for (org.exoplatform.calendar.service.Calendar c : listUserCalendar) {
+            sb.append(c.getId()).append(",");
+        }
+        String[] list = sb.toString().split(",");
+        return list;
+    }
+
+    public String[] getUserGroups(String username) throws Exception {
+        String [] groupsList;
+        Object[] objs = organizationService.getGroupHandler().findGroupsOfUser(username).toArray();
+        groupsList = new String[objs.length];
+        for (int i = 0; i < objs.length; i++) {
+            groupsList[i] = ((Group) objs[i]).getId();
+        }
+        return groupsList;
+    }
+
+    private String formatDate(Locale locale) {
+        String datePattern = "";
+        DateFormat dateFormat = SimpleDateFormat.getDateInstance(DateFormat.SHORT, locale);
+        // convert to unique pattern
+        datePattern = ((SimpleDateFormat)dateFormat).toPattern();
+        if (!datePattern.contains("yy")) {
+            datePattern = datePattern.replaceAll("y", "yy");
+        }
+        if (!datePattern.contains("yyyy")) {
+            datePattern = datePattern.replaceAll("yy", "yyyy");
+        }
+        if (!datePattern.contains("dd")) {
+            datePattern = datePattern.replaceAll("d", "dd");
+        }
+        if (!datePattern.contains("MM")) {
+            datePattern= datePattern.replaceAll("M", "MM");
+        }
+        return datePattern;
+    }
+
+}

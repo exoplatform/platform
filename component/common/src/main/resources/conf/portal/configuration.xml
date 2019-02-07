@@ -12,6 +12,9 @@
     <component>
         <type>org.exoplatform.platform.common.rest.DashboardInformationRESTService</type>
     </component>
+    <component>
+        <type>org.exoplatform.platform.common.rest.services.CalendarPortlet.CalendarPortletRestService</type>
+    </component>
     <component profiles="all">
         <type>org.exoplatform.platform.common.space.rest.SpaceRestServiceImpl</type>
     </component>

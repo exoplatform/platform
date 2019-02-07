@@ -25,6 +25,26 @@
     </portlet-info>
   </portlet>
   <portlet>
+    <portlet-name>CalendarVuePortlet</portlet-name>
+    <display-name xml:lang="EN">Calendar Portlet</display-name>
+    <portlet-class>org.exoplatform.commons.api.portlet.GenericDispatchedViewPortlet</portlet-class>
+    <init-param>
+      <name>portlet-view-dispatched-file-path</name>
+      <value>/calendar-app/index.html</value>
+    </init-param>
+    <supports>
+      <mime-type>text/html</mime-type>
+    </supports>
+    <supported-locale>en</supported-locale>
+    <supported-locale>fr</supported-locale>
+    <resource-bundle>locale.portlet.calendar.calendar</resource-bundle>
+    <portlet-info>
+      <title>Calendar Portlet</title>
+      <short-title>Calendar Portlet</short-title>
+      <keywords>Juzu social intranet</keywords>
+    </portlet-info>
+  </portlet>
+  <portlet>
     <portlet-name>GettingStartedPortlet</portlet-name>
     <display-name xml:lang="EN">Getting Started</display-name>
     <portlet-class>org.exoplatform.platform.portlet.juzu.gettingstarted.GettingstartedPortlet</portlet-class>
