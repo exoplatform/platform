@@ -2,10 +2,10 @@
   <div class="calendarPortlet ">
     <div class="calendarPortletData uiBox">
       <h6 class="title clearfix">
-        <a v-exo-tooltip.bottom.body="$t('prev.day')" href="#" class="actionIcon prevDate pull-left">
+        <a v-exo-tooltip.bottom.body="$t('prev.day')" href="#" class="actionIcon prevDate pull-left" @click="nbclick--; initCalendar()">
           <i class="uiIconMiniArrowLeft uiIconLightGray"></i>
         </a>
-        <a v-exo-tooltip.bottom.body="$t('next.day')" href="#" class="actionIcon nextDate pull-right">
+        <a v-exo-tooltip.bottom.body="$t('next.day')" href="#" class="actionIcon nextDate pull-right" @click="nbclick++; initCalendar()">
           <i class="uiIconMiniArrowRight uiIconLightGray"></i>
         </a>
         <div class="currentDateContainer">
@@ -82,7 +82,8 @@
         dateLabel: this.$t("today.label") + ": ",
         date_act: '',
         isInSpace: false,
-        isSettings: false
+        isSettings: false,
+        nbclick: 0
       };
     },
     created() {
@@ -90,12 +91,21 @@
     },
     methods: {
       initCalendar() {
-        calendarServices.getDisplayedCalendars().then(response => {
+        calendarServices.getDisplayedCalendars(this.nbclick).then(response => {
           if (response) {
             this.displayedCalendars = this.parseArray(response.displayedCalendars);
             this.eventsDisplayedList = this.parseArray(response.eventsDisplayedList);
             this.calendarDisplayedMap = this.parseMap(response.calendarDisplayedMap);
             this.date_act = response.date_act;
+            if (nbclick === 0) {
+              this.dateLabel = this.$t("today.label") + ": ";
+            } else if (this.nbclick === 1) {
+              this.dateLabel = this.$t("tomorrow.label") + ": ";
+            } else if (this.nbclick === -1) {
+              this.dateLabel = this.$t("yesterday.label") + ": ";
+            } else {
+              this.dateLabel = '';
+            }
           }
         });
       },

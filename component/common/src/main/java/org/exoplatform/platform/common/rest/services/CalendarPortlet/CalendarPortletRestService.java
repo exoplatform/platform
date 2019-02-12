@@ -123,7 +123,8 @@ public class CalendarPortletRestService implements ResourceContainer {
             notes = "This returns calendar portlet needed objects")
     @ApiResponses(value = {@ApiResponse(code = 200, message = "Request fulfilled")})
     public Response initCalendarObjects(@Context UriInfo uriInfo,
-                                        @ApiParam(value = "Portal language, ex: en", required = false) @QueryParam("lang") String lang) throws Exception {
+                                        @ApiParam(value = "Portal language, ex: en", required = false) @QueryParam("lang") String lang,
+                                        @ApiParam(value = "Number of days to increment/decrement", required = false) @DefaultValue("0") @QueryParam("nbclick") String nbclick) throws Exception {
         List<CalendarEvent> eventsDisplayed = new ArrayList<CalendarEvent>();
         List<CalendarResource> displayedCalendar = new ArrayList<CalendarResource>();
         List<CalendarEvent> tasksDisplayed = new ArrayList<CalendarEvent>();
@@ -139,6 +140,8 @@ public class CalendarPortletRestService implements ResourceContainer {
         DateFormat dTimezone = DateFormat.getDateInstance(DateFormat.SHORT, locale);
         dTimezone.setCalendar(CalendarPortletUtils.getCurrentCalendar());
         Long date = new Date().getTime();
+        int clickNumber = Integer.parseInt(nbclick);
+        if (clickNumber != 0) date = incDecJour(date, clickNumber);
         Date currentTime = new Date(date);
         // get current date base on calendar setting
         CalendarSetting calSetting = CalendarPortletUtils.getCurrentUserCalendarSetting();
@@ -224,6 +227,14 @@ public class CalendarPortletRestService implements ResourceContainer {
         jsonObject.put("date_act", date_act);
 
         return EntityBuilder.getResponse(jsonObject.toString(), uriInfo, RestUtils.getJsonMediaType(), Response.Status.OK);
+    }
+
+    private Long incDecJour(Long date, int days) {
+        Calendar cal;
+        cal = Calendar.getInstance();
+        cal.setTimeInMillis(date);
+        cal.add(Calendar.DAY_OF_MONTH, days);
+        return cal.getTime().getTime();
     }
 
     private EventResource processFromToLabel(EventResource eventResource, Locale locale) throws Exception {
