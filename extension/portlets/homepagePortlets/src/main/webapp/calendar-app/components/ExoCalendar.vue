@@ -23,7 +23,7 @@
         </div>
         <ul class="eventsList ">
           <li v-for="event in eventsDisplayedList" :key="event" :class="getEventCssClass(event)" :id="event.id">
-            <div :class="calendarDisplayedMap[event.calendar.substring(event.calendar.lastIndexOf('/')+1)].calendarColor">
+            <div :class="calendarDisplayedMap[event.calendar.substring(event.calendar.lastIndexOf('/')+1)].color">
               <div class="clearfix itemColor" >
                 <div class="pull-left eventSummary">
                   <a :href="['/portal/intranet/calendar/details/' + event.id]" v-html="event.subject"></a>
@@ -43,8 +43,8 @@
                   if(dateSplit.length > 1) to=dateSplit[0]+"/"+dateSplit[1]+"/"+year;
                   %> -->
                   <div v-else-if="getEventDuration(event) > 86399999">
-                    <span>{{ event.fromDateTime }}</span> -
-                    <span>{{ event.toDateTime }}</span>
+                    <span>{{ event.from }}</span> -
+                    <span>{{ event.to }}</span>
                   </div>
                   <!-- <% } else if (event.toDateTime.getTime() - event.fromDateTime.getTime() < 86399999) {
                   from = sdf2.format(event.fromDateTime);
@@ -57,7 +57,7 @@
                   }
                   %> -->
                   <div v-else>
-                    <span> {{ event.fromDateTime }} - {{ event.toDateTime }} </span>
+                    <span> {{ event.from }} - {{ event.to }} </span>
                   </div>
                 </div>
               </div>

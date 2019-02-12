@@ -19,10 +19,7 @@
 package org.exoplatform.platform.common.rest.services.CalendarPortlet;
 
 import javax.annotation.security.RolesAllowed;
-import javax.ws.rs.GET;
-import javax.ws.rs.Path;
-import javax.ws.rs.Produces;
-import javax.ws.rs.QueryParam;
+import javax.ws.rs.*;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
@@ -41,16 +38,13 @@ import org.exoplatform.commons.api.settings.SettingService;
 import org.exoplatform.commons.api.settings.SettingValue;
 import org.exoplatform.commons.api.settings.data.Scope;
 import org.exoplatform.platform.common.portlet.models.CalendarPortletUtils;
-import org.exoplatform.portal.webui.util.Util;
 import org.exoplatform.services.log.ExoLogger;
 import org.exoplatform.services.log.Log;
 import org.exoplatform.services.organization.Group;
 import org.exoplatform.services.organization.OrganizationService;
 import org.exoplatform.services.rest.resource.ResourceContainer;
-import org.exoplatform.services.security.ConversationState;
 import org.exoplatform.social.rest.api.EntityBuilder;
 import org.exoplatform.social.rest.api.RestUtils;
-import org.exoplatform.web.application.RequestContext;
 import org.json.JSONObject;
 
 import java.text.DateFormat;
@@ -117,9 +111,8 @@ public class CalendarPortletRestService implements ResourceContainer {
     }
 
     /**
-     * Get user's getting started status REST service URL: /getting-started/get
+     * Get needed resources for calendar portlet
      *
-     * @return: user's getting started status
      */
     @GET
     @Path("init")
@@ -204,10 +197,11 @@ public class CalendarPortletRestService implements ResourceContainer {
             Collections.sort(eventsDisplayed, eventsComparator);
             Collections.sort(tasksDisplayed, tasksComparator);
         }
+        Locale finalLocale = locale;
         List<EventResource> eventsDisplayedList = eventsDisplayed.stream()
                 .map(i -> {
                     try {
-                        return new EventResource(i, getBasePath(uriInfo));
+                        return processFromToLabel(new EventResource(i, getBasePath(uriInfo)), finalLocale);
                     } catch (Exception e) {
                         return new EventResource();
                     }
@@ -216,7 +210,7 @@ public class CalendarPortletRestService implements ResourceContainer {
         List<EventResource> tasksDisplayedList = tasksDisplayed.stream()
                 .map(i -> {
                     try {
-                        return new EventResource(i, getBasePath(uriInfo));
+                        return processFromToLabel(new EventResource(i, getBasePath(uriInfo)), finalLocale);
                     } catch (Exception e) {
                         return new EventResource();
                     }
@@ -232,14 +226,52 @@ public class CalendarPortletRestService implements ResourceContainer {
         return EntityBuilder.getResponse(jsonObject.toString(), uriInfo, RestUtils.getJsonMediaType(), Response.Status.OK);
     }
 
+    private EventResource processFromToLabel(EventResource eventResource, Locale locale) throws Exception {
+        CalendarEvent event = calendarService.getEventById(eventResource.getId());
+        Date fromDateTime = event.getFromDateTime();
+        Date toDateTime = event.getToDateTime();
+        if (toDateTime.getTime() - fromDateTime.getTime() > 86399999) {
+            DateFormat sdf1= DateFormat.getDateInstance(DateFormat.SHORT,locale);
+            sdf1.setCalendar(CalendarPortletUtils.getInstanceOfCurrentCalendar());
+            String from = sdf1.format(fromDateTime);
+            SimpleDateFormat df = new SimpleDateFormat("yyyy");
+            String year = df.format(fromDateTime);
+            String[] dateSplit = from.split("/");
+            if(dateSplit.length > 1) {
+                from = dateSplit[0] + "/" + dateSplit[1] + "/" + year;
+            }
+            String to = sdf1.format(toDateTime);
+            year = df.format(toDateTime);
+            dateSplit = to.split("/");
+            if(dateSplit.length > 1) {
+                to = dateSplit[0] + "/" + dateSplit[1] + "/" + year;
+            }
+            eventResource.setFrom(from);
+            eventResource.setTo(to);
+        } else {
+            DateFormat sdf2= DateFormat.getTimeInstance(DateFormat.SHORT,locale);
+            sdf2.setCalendar(CalendarPortletUtils.getInstanceOfCurrentCalendar());
+            String from = sdf2.format(fromDateTime);
+            String to = sdf2.format(toDateTime);
+            if(locale.getLanguage().equals("en")){
+                if(from.indexOf("00")==2)   from=from.substring(0,1)+ from.substring(4);
+                if(from.indexOf("00")==3)   from=from.substring(0,2)+ from.substring(5);
+                if(to.indexOf("00")==2)   to=to.substring(0,1) + to.substring(4);
+                if(to.indexOf("00")==3)   to=to.substring(0,2) + to.substring(5);
+            }
+            eventResource.setFrom(from);
+            eventResource.setTo(to);
+        }
+        return eventResource;
+    }
+
     private String getBasePath(UriInfo uriInfo) {
         StringBuilder path = new StringBuilder(uriInfo.getBaseUri().toString());
         path.append(CalendarRestApi.CAL_BASE_URI);
         return path.toString();
     }
 
-    List<CalendarEvent> getEvents(String username , Calendar cal) {
-
+    private List<CalendarEvent> getEvents(String username , Calendar cal) {
         Map<String, Map<String, CalendarEvent>> recurrenceEventsMap   = new LinkedHashMap<String, Map<String, CalendarEvent>>();
         String[] calList = getCalendarsIdList(username);
         Calendar begin = CalendarPortletUtils.getBeginDay(cal);
@@ -277,9 +309,7 @@ public class CalendarPortletRestService implements ResourceContainer {
         return userEvents;
     }
 
-    String[] getCalendarsIdList(String username) {
-
-
+    private String[] getCalendarsIdList(String username) {
         StringBuilder sb = new StringBuilder();
         List<GroupCalendarData> listgroupCalendar = null;
         List<org.exoplatform.calendar.service.Calendar> listUserCalendar = null;
@@ -301,7 +331,7 @@ public class CalendarPortletRestService implements ResourceContainer {
         return list;
     }
 
-    public String[] getUserGroups(String username) throws Exception {
+    private String[] getUserGroups(String username) throws Exception {
         String [] groupsList;
         Object[] objs = organizationService.getGroupHandler().findGroupsOfUser(username).toArray();
         groupsList = new String[objs.length];
