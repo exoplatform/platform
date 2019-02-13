@@ -52,7 +52,6 @@ public class UIUserPlatformToolBarPortlet extends UIPortletApplication {
     private static final Log LOG = ExoLogger.getLogger(UIUserPlatformToolBarPortlet.class);
     private String currentPortalName = null;
     private boolean socialPortal = false;
-    private String userDashBoardURI = null;
     private static final String USER = "/user/";
     private static final String WIKI_HOME = "/WikiHome";
     private static final String WIKI_REF = "wiki";
@@ -68,10 +67,7 @@ public class UIUserPlatformToolBarPortlet extends UIPortletApplication {
     }
 
   public String getUserDashBoardURI() throws Exception {
-    if (userDashBoardURI == null) {
-      userDashBoardURI = DashboardUtils.getDashboardURL();
-    }
-    return userDashBoardURI;
+    return DashboardUtils.getDashboardURL();
   }
 
   private String getCurrentPortalName() {
