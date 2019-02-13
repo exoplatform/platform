@@ -44,8 +44,8 @@
     }
     String contextPath = request.getContextPath() ;
     String lang = request.getLocale().getLanguage();
-    response.setCharacterEncoding("iso-8859-1");
-    response.setContentType("text/html; charset=iso-8859-1");
+    response.setCharacterEncoding("UTF-8");
+    response.setContentType("text/html; charset=UTF-8");
 
   PortalContainer portalContainer = PortalContainer.getCurrentInstance(session.getServletContext());
   ResourceBundleService service = (ResourceBundleService) portalContainer.getComponentInstanceOfType(ResourceBundleService.class);
@@ -59,10 +59,10 @@
   PingBackService pingBackService = portalContainer.getComponentInstanceOfType(PingBackService.class);
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="<%=lang%>">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="<%=lang%>" lang="<%=lang%>">
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <link href="/platform-extension/css/welcome-screens/jquery.qtip.min.css" rel="stylesheet" type="text/css" />
     <link href="<%=cssPath%>" rel="stylesheet" type="text/css" />
 
@@ -70,7 +70,7 @@
     <script type="text/javascript" src="/platform-extension/javascript/ie-placeholder.js"></script>
     <script type="text/javascript" src="/platform-extension/javascript/welcome-screens/welcomescreens.js"></script>
 
-<head>
+</head>
 <div class="backLight"></div>
 <div class="uiWelcomeBox" id="AccountSetup1"  >
     <div class="header"><%=rb.getString("AccountSetupViewServlet.label.header1")%></div>
