@@ -12,7 +12,7 @@ Vue.directive('exo-tooltip', calendarDirectives.tooltip);
 
 // get overrided components if exists
 if (extensionRegistry) {
-  const components = extensionRegistry.loadComponents('CalendarVuePortlet');
+  const components = extensionRegistry.loadComponents('HomePageCalendarPortlet');
   if (components && components.length > 0) {
     components.forEach(cmp => {
       Vue.component(cmp.componentName, cmp.componentOptions);

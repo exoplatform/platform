@@ -61,6 +61,15 @@
             <show-info-bar>false</show-info-bar>
           </portlet-application>
         </container>
+        <container id="HomeCalendar" template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
+          <portlet-application>
+            <portlet>
+              <application-ref>homepage-portlets</application-ref>
+              <portlet-ref>HomePageCalendarPortlet</portlet-ref>
+            </portlet>
+            <show-info-bar>false</show-info-bar>
+          </portlet-application>
+        </container>
       </container>
     </container>
   </container>

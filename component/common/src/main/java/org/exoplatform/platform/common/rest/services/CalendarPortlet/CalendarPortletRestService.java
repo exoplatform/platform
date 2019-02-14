@@ -229,6 +229,87 @@ public class CalendarPortletRestService implements ResourceContainer {
         return EntityBuilder.getResponse(jsonObject.toString(), uriInfo, RestUtils.getJsonMediaType(), Response.Status.OK);
     }
 
+    /**
+     * Get calendar portlet settings
+     *
+     */
+    @GET
+    @Path("settings")
+    @RolesAllowed("users")
+    @ApiOperation(value = "Gets calendar portlet settings",
+            httpMethod = "GET",
+            response = Response.class,
+            notes = "This returns calendar portlet settings")
+    @ApiResponses(value = {@ApiResponse(code = 200, message = "Request fulfilled")})
+    public Response getSettings(@Context UriInfo uriInfo) throws Exception {
+        String username = CalendarPortletUtils.getCurrentUser();
+        String defaultCalendarLabel = "Default";
+        Iterator itr1 = getAllCal(username).iterator();
+        String[] nonDisplayedCalendarList = getNonDisplayedCalendarIds();
+        List<CalendarResource> calendarDisplayedList = new ArrayList<>();
+        List<CalendarResource> calendarNonDisplayedList = new ArrayList<>();
+        while (itr1.hasNext()) {
+            org.exoplatform.calendar.service.Calendar c = (org.exoplatform.calendar.service.Calendar) itr1.next();
+            if(c.getGroups()==null) {
+                if (c.getId().equals(Utils.getDefaultCalendarId(username)) && c.getName().equals(calendarService.getDefaultCalendarName())) {
+                    c.setName(defaultCalendarLabel);
+                }
+            }
+            if (CalendarPortletUtils.contains(nonDisplayedCalendarList, c.getId())) {
+                calendarNonDisplayedList.add(new CalendarResource(c, getBasePath(uriInfo)));
+            } else {
+                calendarDisplayedList.add(new CalendarResource(c, getBasePath(uriInfo)));
+            }
+        }
+        JSONObject jsonObject = new JSONObject();
+        jsonObject.put("allDisplayedCals", calendarDisplayedList);
+        jsonObject.put("nonDisplayedCals", calendarNonDisplayedList);
+
+        return EntityBuilder.getResponse(jsonObject.toString(), uriInfo, RestUtils.getJsonMediaType(), Response.Status.OK);
+    }
+
+    /**
+     * Posts calendar portlet settings
+     *
+     */
+    @POST
+    @Path("settings")
+    @RolesAllowed("users")
+    @ApiOperation(value = "sets calendar portlet settings",
+            httpMethod = "POST",
+            response = Response.class,
+            notes = "This sets calendar portlet settings")
+    @ApiResponses(value = {@ApiResponse(code = 200, message = "Request fulfilled")})
+    public Response saveSettings(@Context UriInfo uriInfo, String calIds) throws Exception {
+        settingService.remove(org.exoplatform.commons.api.settings.data.Context.USER, Scope.APPLICATION, CalendarPortletUtils.HOME_PAGE_CALENDAR_SETTINGS);
+        settingService.set(org.exoplatform.commons.api.settings.data.Context.USER, Scope.APPLICATION, CalendarPortletUtils.HOME_PAGE_CALENDAR_SETTINGS, SettingValue.create("NonDisplayedCalendar:" + calIds));
+
+        return EntityBuilder.getResponse("", uriInfo, RestUtils.getJsonMediaType(), Response.Status.OK);
+    }
+
+    private List getAllCal(String username) throws Exception {
+        List<org.exoplatform.calendar.service.Calendar> calList = calendarService.getUserCalendars(username, true);
+        List<GroupCalendarData> lgcd = calendarService.getGroupCalendars(getUserGroups(username), true, username);
+        List<String> calIds = new ArrayList<String>();
+        for (GroupCalendarData g : lgcd) {
+            for (org.exoplatform.calendar.service.Calendar c : g.getCalendars()) {
+                if (!calIds.contains(c.getId())) {
+                    calIds.add(c.getId());
+                    calList.add(c);
+                }
+            }
+        }
+        return calList;
+    }
+
+    private String[] getNonDisplayedCalendarIds() {
+        SettingValue settingNode = settingService.get(org.exoplatform.commons.api.settings.data.Context.USER, Scope.APPLICATION, CalendarPortletUtils.HOME_PAGE_CALENDAR_SETTINGS);
+        if ((settingNode != null) && (settingNode.getValue().toString().split(":").length == 2)) {
+            return settingNode.getValue().toString().split(":")[1].split(",");
+        }
+        return new String[]{};
+    }
+
     private Long incDecJour(Long date, int days) {
         Calendar cal;
         cal = Calendar.getInstance();

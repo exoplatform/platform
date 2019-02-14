@@ -46,8 +46,22 @@
    <portlet>
       <name>HomePageCalendarPortlet</name>
       <module>
+         <script>
+            <minify>false</minify>
+            <path>/js/calendar.bundle.js</path>
+         </script>
          <depends>
-            <module>jQueryCalendar</module>
+            <module>vue</module>
+         </depends>
+         <depends>
+            <module>eXoVueI18n</module>
+         </depends>
+         <depends>
+            <module>jquery</module>
+            <as>$</as>
+         </depends>
+         <depends>
+            <module>extensionRegistry</module>
          </depends>
       </module>
    </portlet>
@@ -74,29 +88,6 @@
          </depends>
          <depends>
             <module>userPopupPlugin</module>
-         </depends>
-      </module>
-   </portlet>
-
-   <portlet>
-      <name>CalendarVuePortlet</name>
-      <module>
-         <script>
-            <minify>false</minify>
-            <path>/js/calendar.bundle.js</path>
-         </script>
-         <depends>
-            <module>vue</module>
-         </depends>
-         <depends>
-            <module>eXoVueI18n</module>
-         </depends>
-         <depends>
-            <module>jquery</module>
-            <as>$</as>
-         </depends>
-         <depends>
-            <module>extensionRegistry</module>
          </depends>
       </module>
    </portlet>

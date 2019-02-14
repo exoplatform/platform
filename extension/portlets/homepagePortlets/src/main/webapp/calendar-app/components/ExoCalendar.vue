@@ -1,7 +1,7 @@
 <template>
   <div class="calendarPortlet ">
     <div class="calendarPortletData uiBox">
-      <h6 class="title clearfix">
+      <h6 v-show="!isSettings" class="title clearfix">
         <a v-exo-tooltip.bottom.body="$t('prev.day')" href="#" class="actionIcon prevDate pull-left" @click="nbclick--; initCalendar()">
           <i class="uiIconMiniArrowLeft uiIconLightGray"></i>
         </a>
@@ -12,16 +12,16 @@
           <center><a href="#">{{ dateLabel }}{{ date_act }}</a></center>
         </div>
       </h6>
-      <a v-exo-tooltip.bottom.body="$t('settings.label')" v-show="!isInSpace" class="settingsLink actionIcon pull-right" @click="isSettings = true"><i class="uiIconSetting uiIconLightGray"></i> </a>
-      <div v-if="isSettings" id="manage" class="tab-pane fade in active">
-        <exo-calendar-settings @savedCalendar="eventSavedCalendar"></exo-calendar-settings>
+      <a v-exo-tooltip.bottom.body="$t('settings.label')" v-show="spaceId === '' && !isSettings" class="settingsLink actionIcon pull-right" @click="renderSettings()"><i class="uiIconSetting uiIconLightGray"></i> </a>
+      <div v-if="isSettings && spaceId === ''" id="manage" class="tab-pane fade in active">
+        <exo-calendar-settings :displayed="allDisplayedCals" :nondisplayed="nonDisplayedCals" @savedCalendar="eventSavedCalendar"></exo-calendar-settings>
       </div>
       <!-- events -->
-      <div id="CalendarContainer" class="events uiContentBox">
+      <div v-show="displayedCalendars.length > 0 && eventsDisplayedList.length > 0 && !isSettings" id="CalendarContainer" class="events uiContentBox">
         <div class="eventTitle">
-          <span v-for="cal in displayedCalendars" :key="cal" :class="['calendarName ' + cal.calendarColor]" :id="cal.id" :title="cal.name">{{ cal.name }}</span>
+          <span v-for="cal in displayedCalendars" :key="cal" :class="['calendarName ' + cal.color]" :id="cal.id" :title="cal.name">{{ cal.name }}</span>
         </div>
-        <ul class="eventsList ">
+        <ul class="eventsList">
           <li v-for="event in eventsDisplayedList" :key="event" :class="getEventCssClass(event)" :id="event.id">
             <div :class="calendarDisplayedMap[event.calendar.substring(event.calendar.lastIndexOf('/')+1)].color">
               <div class="clearfix itemColor" >
@@ -32,30 +32,10 @@
                   <div v-if="getEventDuration(event) === 86399999">
                     <span>{{ $t('all.day.label') }}</span>
                   </div>
-                  <!-- <% } else if (event.toDateTime.getTime() - event.fromDateTime.getTime() > 86399999) {
-                  from = sdf1.format(event.fromDateTime);
-                  String year=event.fromDateTime.format("yyyy");
-                  String[] dateSplit = from.split("/");
-                  if(dateSplit.length > 1) from=dateSplit[0]+"/"+dateSplit[1]+"/"+year;
-                  to = sdf1.format(event.toDateTime);
-                  year=event.toDateTime.format("yyyy");
-                  dateSplit =to.split("/");
-                  if(dateSplit.length > 1) to=dateSplit[0]+"/"+dateSplit[1]+"/"+year;
-                  %> -->
                   <div v-else-if="getEventDuration(event) > 86399999">
                     <span>{{ event.from }}</span> -
                     <span>{{ event.to }}</span>
                   </div>
-                  <!-- <% } else if (event.toDateTime.getTime() - event.fromDateTime.getTime() < 86399999) {
-                  from = sdf2.format(event.fromDateTime);
-                  to = sdf2.format(event.toDateTime);
-                  if(locale.getLanguage().equals("en")){
-                  if(from.indexOf("00")==2)   from=from.substring(0,1)+ from.substring(4);
-                  if(from.indexOf("00")==3)   from=from.substring(0,2)+ from.substring(5);
-                  if(to.indexOf("00")==2)   to=to.substring(0,1) + to.substring(4);
-                  if(to.indexOf("00")==3)   to=to.substring(0,2) + to.substring(5);
-                  }
-                  %> -->
                   <div v-else>
                     <span> {{ event.from }} - {{ event.to }} </span>
                   </div>
@@ -66,38 +46,56 @@
         </ul>
       </div>
       <!--end events-->
+      <!-- tasks -->
+      <h6 v-show="tasksDisplayedList.length > 0 && !isSettings" class="title taskTitle">{{ $t('tasks.calendar.label') }}</h6>
+      <div v-show="tasksDisplayedList.length > 0 && !isSettings" class="tasks uiContentBox">
+        <ul class="tasksList">
+          <li v-for="task in tasksDisplayedList" :key="task" :class="getTaskCssClass(task)">
+            <a :href="['/portal/intranet/calendar/details/' + task.id]" class="eventSummary" v-html="task.name">
+            </a>
+          </li>
+        </ul>
+      </div>
+      <!-- end tasks -->
     </div>
   </div>
 </template>
 
 <script>
   import * as calendarServices from '../calendarServices';
+  import { exoConstants } from '../../js/eXoConstants.js';
 
   export default {
     data() {
       return {
         displayedCalendars: [],
+        allDisplayedCals: [],
+        nonDisplayedCals: [],
         eventsDisplayedList: [],
+        tasksDisplayedList: [],
         calendarDisplayedMap: [],
         dateLabel: this.$t("today.label") + ": ",
         date_act: '',
-        isInSpace: false,
+        spaceId: `${exoConstants.SPACE_ID}`,
         isSettings: false,
         nbclick: 0
       };
     },
     created() {
       this.initCalendar();
+      setTimeout(function () {
+        this.initCalendar();
+      }, 100);
     },
     methods: {
       initCalendar() {
-        calendarServices.getDisplayedCalendars(this.nbclick).then(response => {
+        calendarServices.getDisplayedCalendars(this.nbclick, this.spaceId).then(response => {
           if (response) {
             this.displayedCalendars = this.parseArray(response.displayedCalendars);
             this.eventsDisplayedList = this.parseArray(response.eventsDisplayedList);
             this.calendarDisplayedMap = this.parseMap(response.calendarDisplayedMap);
             this.date_act = response.date_act;
-            if (nbclick === 0) {
+            if (this.nbclick === 0) {
               this.dateLabel = this.$t("today.label") + ": ";
             } else if (this.nbclick === 1) {
               this.dateLabel = this.$t("tomorrow.label") + ": ";
@@ -108,18 +106,28 @@
             }
           }
         });
-      },
-      eventSavedCalendar(calendars) {
-        console.log("Hello the child event is catched from parent " + calendars);
         this.isSettings = false;
+      },
+      eventSavedCalendar() {
+        this.initCalendar();
       },
       getEventCssClass(event) {
         if (new Date() > Date.parse(event.toDateTime)) {
-          return "pastEvent";
+          return 'pastEvent';
         }
         else {
-          return "eventItems";
+          return 'eventItems';
         }
+      },
+      getTaskCssClass(task) {
+        if ('completed' === task.status) {
+          return "taskCompleted";
+        } else if (('needs-action' === task.status) && (new Date() < Date.parse(task.to))) {
+          return "taskNotCompleted";
+        } else if (('needs-action' === task.status) && (new Date() > Date.parse(task.to))) {
+          return "taskLateNotCompleted"  ;
+        }
+        return "";
       },
       getEventDuration(event) {
         return (new Date(event.to) - new Date(event.from));
@@ -138,6 +146,15 @@
           parsed[key] = JSON.parse(map[key]);
         });
         return parsed;
+      },
+      renderSettings() {
+        calendarServices.getSettings().then(response => {
+          if (response) {
+            this.allDisplayedCals = this.parseArray(response.allDisplayedCals);
+            this.nonDisplayedCals = this.parseArray(response.nonDisplayedCals);
+          }
+        });
+        this.isSettings = true;
       }
     }
   };
