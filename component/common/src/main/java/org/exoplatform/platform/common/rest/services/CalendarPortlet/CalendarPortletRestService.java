@@ -43,6 +43,8 @@ import org.exoplatform.services.log.Log;
 import org.exoplatform.services.organization.Group;
 import org.exoplatform.services.organization.OrganizationService;
 import org.exoplatform.services.rest.resource.ResourceContainer;
+import org.exoplatform.social.core.space.model.Space;
+import org.exoplatform.social.core.space.spi.SpaceService;
 import org.exoplatform.social.rest.api.EntityBuilder;
 import org.exoplatform.social.rest.api.RestUtils;
 import org.json.JSONObject;
@@ -103,11 +105,14 @@ public class CalendarPortletRestService implements ResourceContainer {
     private CalendarService calendarService;
     private SettingService settingService;
     private OrganizationService organizationService;
+    private SpaceService spaceService;
 
-    public CalendarPortletRestService(CalendarService calendarService, SettingService settingService, OrganizationService organizationService) {
+    public CalendarPortletRestService(CalendarService calendarService, SettingService settingService,
+                                      OrganizationService organizationService, SpaceService spaceService) {
         this.calendarService = calendarService;
         this.settingService = settingService;
         this.organizationService = organizationService;
+        this.spaceService = spaceService;
     }
 
     /**
@@ -124,7 +129,8 @@ public class CalendarPortletRestService implements ResourceContainer {
     @ApiResponses(value = {@ApiResponse(code = 200, message = "Request fulfilled")})
     public Response initCalendarObjects(@Context UriInfo uriInfo,
                                         @ApiParam(value = "Portal language, ex: en", required = false) @QueryParam("lang") String lang,
-                                        @ApiParam(value = "Number of days to increment/decrement", required = false) @DefaultValue("0") @QueryParam("nbclick") String nbclick) throws Exception {
+                                        @ApiParam(value = "Number of days to increment/decrement", required = false) @DefaultValue("0") @QueryParam("nbclick") String nbclick,
+                                        @ApiParam(value = "Space id", required = false) @QueryParam("spaceId") String spaceId) throws Exception {
         List<CalendarEvent> eventsDisplayed = new ArrayList<CalendarEvent>();
         List<CalendarResource> displayedCalendar = new ArrayList<CalendarResource>();
         List<CalendarEvent> tasksDisplayed = new ArrayList<CalendarEvent>();
@@ -166,7 +172,16 @@ public class CalendarPortletRestService implements ResourceContainer {
         if ((settingNode != null) && (settingNode.getValue().toString().split(":").length == 2)) {
             nonDisplayedCalendarList = settingNode.getValue().toString().split(":")[1].split(",");
         }
-        List<CalendarEvent> userEvents = getEvents(username,cal);
+        String groupId = null;
+        if (StringUtils.isNotBlank(spaceId)) {
+            Space space = spaceService.getSpaceById(spaceId);
+            if (space != null) {
+                groupId = space.getGroupId();
+            } else {
+                return EntityBuilder.getResponse("", uriInfo, RestUtils.getJsonMediaType(), Response.Status.NOT_FOUND);
+            }
+        }
+        List<CalendarEvent> userEvents = getEvents(username,cal, groupId);
         if ((userEvents != null) && (!userEvents.isEmpty())) {
             Iterator itr = userEvents.iterator();
             while (itr.hasNext()) {
@@ -363,9 +378,9 @@ public class CalendarPortletRestService implements ResourceContainer {
         return path.toString();
     }
 
-    private List<CalendarEvent> getEvents(String username , Calendar cal) {
+    private List<CalendarEvent> getEvents(String username , Calendar cal, String groupId) {
         Map<String, Map<String, CalendarEvent>> recurrenceEventsMap   = new LinkedHashMap<String, Map<String, CalendarEvent>>();
-        String[] calList = getCalendarsIdList(username);
+        String[] calList = getCalendarsIdList(username, groupId);
         Calendar begin = CalendarPortletUtils.getBeginDay(cal);
         Calendar end =CalendarPortletUtils.getEndDay(cal) ;
         end.add(Calendar.MILLISECOND, -1);
@@ -401,13 +416,17 @@ public class CalendarPortletRestService implements ResourceContainer {
         return userEvents;
     }
 
-    private String[] getCalendarsIdList(String username) {
+    private String[] getCalendarsIdList(String username, String groupId) {
         StringBuilder sb = new StringBuilder();
         List<GroupCalendarData> listgroupCalendar = null;
         List<org.exoplatform.calendar.service.Calendar> listUserCalendar = null;
         try {
-            listgroupCalendar = calendarService.getGroupCalendars(getUserGroups(username), true, username);
-            listUserCalendar = calendarService.getUserCalendars(username, true);
+            if (StringUtils.isNotBlank(groupId)) {
+                listgroupCalendar = calendarService.getGroupCalendars(new String[]{groupId}, true, username);
+            } else {
+                listgroupCalendar = calendarService.getGroupCalendars(getUserGroups(username), true, username);
+                listUserCalendar = calendarService.getUserCalendars(username, true);
+            }
         } catch (Exception e) {
             LOG.error("Error while checking User Calendar :" + e.getMessage(), e);
         }
@@ -416,8 +435,10 @@ public class CalendarPortletRestService implements ResourceContainer {
                 sb.append(c.getId()).append(",");
             }
         }
-        for (org.exoplatform.calendar.service.Calendar c : listUserCalendar) {
-            sb.append(c.getId()).append(",");
+        if (listUserCalendar != null) {
+            for (org.exoplatform.calendar.service.Calendar c : listUserCalendar) {
+                sb.append(c.getId()).append(",");
+            }
         }
         String[] list = sb.toString().split(",");
         return list;

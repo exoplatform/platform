@@ -48,7 +48,7 @@
       <module>
          <script>
             <minify>false</minify>
-            <path>/js/calendar.bundle.js</path>
+            <path>/js/calendarApp.bundle.js</path>
          </script>
          <depends>
             <module>vue</module>
@@ -117,20 +117,6 @@
       </depends>
       <depends>
          <module>xss-utils</module>
-      </depends>
-   </module>
-
-   <module>
-      <name>jQueryCalendar</name>
-      <load-group>homepage-apps</load-group>
-      <script>
-         <path>/js/calendar/calendar.js</path>
-      </script>
-      <depends>
-         <module>juzu-ajax</module>
-      </depends>
-      <depends>
-         <module>jquery</module>
       </depends>
    </module>
 

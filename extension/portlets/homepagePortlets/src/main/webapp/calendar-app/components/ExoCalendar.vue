@@ -83,9 +83,9 @@
     },
     created() {
       this.initCalendar();
-      setTimeout(function () {
+      setInterval(function () {
         this.initCalendar();
-      }, 100);
+      }.bind(this), 100);
     },
     methods: {
       initCalendar() {
