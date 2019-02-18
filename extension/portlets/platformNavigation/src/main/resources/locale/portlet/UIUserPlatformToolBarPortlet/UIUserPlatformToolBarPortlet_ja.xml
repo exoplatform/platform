@@ -2,10 +2,10 @@
 <bundle>
 <UIUserPlatformToolBarPortlet>
 <label>
-<NotificationSettingsPortlet>My Notifications</NotificationSettingsPortlet>
+<NotificationSettingsPortlet>通知</NotificationSettingsPortlet>
 <activities>アクティビティ</activities>
 <profile>マイプロフィール</profile>
-<network>マイコネクション</network>
+<network>マイ コネクション</network>
 <wiki>Wiki</wiki>
 <account>アカウント</account>
 <language>言語を変更</language>

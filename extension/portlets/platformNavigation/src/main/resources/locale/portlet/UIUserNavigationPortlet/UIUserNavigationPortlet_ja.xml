@@ -4,14 +4,14 @@
       <label>
          <activities>アクテビティ</activities>
          <profile>プロフィール</profile>
-         <connections>つながり</connections>
+         <connections>コネクション</connections>
          <wiki>Wiki</wiki>
          <Myactivities>アクティビティ</Myactivities>
          <Myprofile>マイプロフィール</Myprofile>
-         <Myconnections>マイコネクション</Myconnections>
+         <Myconnections>マイ コネクション</Myconnections>
          <Mywiki>Wiki</Mywiki>
          <Mydashboard>マイダッシュ ボード</Mydashboard>
-         <NotificationSettingsPortlet>My Notifications</NotificationSettingsPortlet>
+         <NotificationSettingsPortlet>通知</NotificationSettingsPortlet>
          <More>詳細</More>
          <EditProfile>編集</EditProfile>
          <available>利用可能</available>
@@ -36,13 +36,13 @@
       <action>
          <AcceptRequest>許可する</AcceptRequest>
          <Deny>拒否</Deny>
-         <RemoveConnection>切断</RemoveConnection>
+         <RemoveConnection>コネクション解除</RemoveConnection>
          <CancelRequest>リクエストを取り消す</CancelRequest>
       </action>
       <label>
-         <Connect>つながり</Connect>
-         <ConnectNotExisting>招待状が、キャンセルされました。</ConnectNotExisting>
-         <ConnectionExisted>招待状が送られています。</ConnectionExisted>
+         <Connect>コネクト</Connect>
+         <ConnectNotExisting>他のユーザーによって、招待がキャンセルされました。</ConnectNotExisting>
+         <ConnectionExisted>他のユーザーによって招待が成立しました。</ConnectionExisted>
       </label>
    </UIRelationshipAction>
 </bundle>
