@@ -32,6 +32,11 @@ public class MockSettingService implements SettingService {
 
     @Override
     public SettingValue<?> get(Context context, Scope scope, String s) {
+        if (Context.USER.getName().equals(context.getName())
+            && Scope.APPLICATION.getName().equals(scope.getName())
+            && "IntranetHomePageCalendarSettings".equals(s)) {
+            return SettingValue.create("NonDisplayedCalendar:idUser");
+        }
         return null;
     }
 

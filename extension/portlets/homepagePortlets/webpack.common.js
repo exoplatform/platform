@@ -7,7 +7,7 @@ let config = {
   // can use multiple entry
   entry: {
     whoIsOnline: './src/main/webapp/who-is-online-app/main.js',
-    calendar: './src/main/webapp/calendar-app/main.js'
+    calendarHomeApp: './src/main/webapp/calendar-home-app/main.js'
   },
   module: {
     rules: [

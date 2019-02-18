@@ -4,9 +4,12 @@ global.eXo = {
       context: 'portal',
       rest: 'rest',
       language: 'fr'
+    },
+    server: {
+      portalBaseURL: '/portal/intranet'
     }
   }
 };
 
-import $ from 'jquery'
-global.$ = $
+import $ from 'jquery';
+global.$ = $;

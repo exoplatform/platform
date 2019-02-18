@@ -1,5 +1,6 @@
 package org.exoplatform.platform.common.rest.services.CalendarPortlet;
 
+import org.exoplatform.commons.utils.ListAccess;
 import org.exoplatform.container.component.ComponentPlugin;
 import org.exoplatform.services.organization.*;
 import org.exoplatform.services.organization.impl.GroupImpl;
@@ -92,6 +93,11 @@ public class MockOrganizationService implements OrganizationService {
             group.setGroupName("users");
             group.setLabel("Users");
             return Collections.singleton(group);
+        }
+
+        @Override
+        public ListAccess<Group> findGroupsByKeyword(String s) throws Exception {
+            return null;
         }
 
         @Override

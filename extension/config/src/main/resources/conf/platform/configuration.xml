@@ -226,9 +226,6 @@
                <value>
                   <string>social-vue-portlet</string>
                </value>
-                <value>
-                  <string>homepage-portlets</string>
-               </value>
             </collection>
           </field>
 
