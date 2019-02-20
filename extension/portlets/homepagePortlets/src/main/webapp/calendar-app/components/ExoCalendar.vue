@@ -106,9 +106,9 @@
             }
           }
         });
-        this.isSettings = false;
       },
       eventSavedCalendar() {
+        this.isSettings = false;
         this.initCalendar();
       },
       getEventCssClass(event) {
@@ -148,13 +148,14 @@
         return parsed;
       },
       renderSettings() {
+        this.isSettings = true;
+        this.spaceId = `${exoConstants.SPACE_ID}`;
         calendarServices.getSettings().then(response => {
           if (response) {
             this.allDisplayedCals = this.parseArray(response.allDisplayedCals);
             this.nonDisplayedCals = this.parseArray(response.nonDisplayedCals);
           }
         });
-        this.isSettings = true;
       }
     }
   };
