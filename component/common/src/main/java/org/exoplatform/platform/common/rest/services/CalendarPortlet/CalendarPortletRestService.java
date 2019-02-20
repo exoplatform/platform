@@ -189,7 +189,7 @@ public class CalendarPortletRestService implements ResourceContainer {
                 Date from = d.parse(dTimezone.format(event.getFromDateTime()));
                 Date to = d.parse(dTimezone.format(event.getToDateTime()));
                 if ((event.getEventType().equals(CalendarEvent.TYPE_EVENT)) && (from.compareTo(d.parse(dTimezone.format(comp))) <= 0) && (to.compareTo(d.parse(dTimezone.format(comp))) >= 0)) {
-                    if (!CalendarPortletUtils.contains(nonDisplayedCalendarList, event.getCalendarId())) {
+                    if (groupId != null || !CalendarPortletUtils.contains(nonDisplayedCalendarList, event.getCalendarId())) {
                         org.exoplatform.calendar.service.Calendar calendar = calendarService.getUserCalendar(username, event.getCalendarId());
                         if (calendar == null) {
                             calendar = calendarService.getGroupCalendar(event.getCalendarId());
