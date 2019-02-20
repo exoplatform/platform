@@ -48,7 +48,7 @@
       <module>
          <script>
             <minify>false</minify>
-            <path>/js/calendarApp.bundle.js</path>
+            <path>/js/calendarHomeApp.bundle.js</path>
          </script>
          <depends>
             <module>vue</module>

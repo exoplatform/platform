@@ -25,8 +25,8 @@ export function init() {
   exoi18n.loadLanguageAsync(lang, url).then(i18n => {
     // init Vue app when locale ressources are ready
     new Vue({
-      el: '#calendarApp',
-      template: '<exo-calendar></exo-calendar>',
+      el: '#calendarHomeApp',
+      template: '<exo-home-calendar></exo-home-calendar>',
       i18n
     });
   });

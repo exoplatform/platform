@@ -223,8 +223,8 @@
                <value>
                   <string>platform-notification</string>
                </value>
-                <value>
-                  <string>homepage-portlets</string>
+               <value>
+                  <string>social-vue-portlet</string>
                </value>
             </collection>
           </field>

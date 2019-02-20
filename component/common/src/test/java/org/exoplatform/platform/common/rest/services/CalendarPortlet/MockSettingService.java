@@ -4,7 +4,6 @@ import org.exoplatform.commons.api.settings.SettingService;
 import org.exoplatform.commons.api.settings.SettingValue;
 import org.exoplatform.commons.api.settings.data.Context;
 import org.exoplatform.commons.api.settings.data.Scope;
-import org.exoplatform.platform.common.portlet.models.CalendarPortletUtils;
 
 import java.util.List;
 import java.util.Map;
@@ -35,7 +34,7 @@ public class MockSettingService implements SettingService {
     public SettingValue<?> get(Context context, Scope scope, String s) {
         if (Context.USER.getName().equals(context.getName())
             && Scope.APPLICATION.getName().equals(scope.getName())
-            && CalendarPortletUtils.HOME_PAGE_CALENDAR_SETTINGS.equals(s)) {
+            && "IntranetHomePageCalendarSettings".equals(s)) {
             return SettingValue.create("NonDisplayedCalendar:idUser");
         }
         return null;

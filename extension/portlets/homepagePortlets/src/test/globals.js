@@ -8,5 +8,5 @@ global.eXo = {
   }
 };
 
-import $ from 'jquery'
-global.$ = $
+import $ from 'jquery';
+global.$ = $;
