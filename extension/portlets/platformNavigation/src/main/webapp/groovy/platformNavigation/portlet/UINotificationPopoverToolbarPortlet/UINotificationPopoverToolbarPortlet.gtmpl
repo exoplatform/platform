@@ -1,12 +1,12 @@
 <div class="uiNotificationPopoverToolbarPortlet clearfix" style="<%=(uicomponent.isWebActive() ? "" : "display:none")%>" id="$uicomponent.id">
 	<div class="all-actions hidden">
-		<div id="ClusterUpdateCachedLink"><%=uicomponent.buildResourceURL(uicomponent.CLUSTER_NOTIFICATION_POPOVER_LIST)%></div>
-		<div id="PopoverServeResourceLink"><%=uicomponent.buildResourceURL(uicomponent.EXO_NOTIFICATION_POPOVER_LIST)%></div>
-		<div id="MarkAllAsReadLink"><%=uicomponent.buildResourceURL(uicomponent.EXO_NOTIFICATION_MARK_ALL_READ)%></div>
+		<div id="ClusterUpdateCachedLink" data-link="<%=uicomponent.buildResourceURL(uicomponent.CLUSTER_NOTIFICATION_POPOVER_LIST)%>"></div>
+		<div id="PopoverServeResourceLink" data-link="<%=uicomponent.buildResourceURL(uicomponent.EXO_NOTIFICATION_POPOVER_LIST)%>"></div>
+		<div id="MarkAllAsReadLink" data-link="<%=uicomponent.buildResourceURL(uicomponent.EXO_NOTIFICATION_MARK_ALL_READ)%>"></div>
 		<%
 			List actions = uicomponent.getActions();
 			for(action in actions) {
-				print("<div id=\"" + action + "\">" + uicomponent.getActionUrl(action) + "</div>");
+				print("<div id=\"" + action + "\" data-link=\"" + uicomponent.getActionUrl(action) + "\"></div>");
 			}
 		%>
 		<div id="maxItemsInPopover"><%=uicomponent.maxItemsInPopover%></div>

@@ -34,12 +34,12 @@
         //
         var me = NotificationPopover;
         me.portlet = $('#' + me.portletId);
-        me.markReadLink = me.portlet.find('#MarkRead').text();
-        me.removePopoverLink = me.portlet.find('#RemovePopover').text();
-        me.resetNumberOnBadgeLink = me.portlet.find('#ResetNumberOnBadge').text();
-        me.clusterUpdateCachedLink = me.portlet.find('div#ClusterUpdateCachedLink:first').text();
-        me.popoverServeResourceLink = me.portlet.find('div#PopoverServeResourceLink:first').text();
-        me.markAllReadLink = me.portlet.find('div#MarkAllAsReadLink:first').text();
+        me.markReadLink = me.portlet.find('#MarkRead').data('link');
+        me.removePopoverLink = me.portlet.find('#RemovePopover').data('link');
+        me.resetNumberOnBadgeLink = me.portlet.find('#ResetNumberOnBadge').data('link');
+        me.clusterUpdateCachedLink = me.portlet.find('div#ClusterUpdateCachedLink:first').data('link');
+        me.popoverServeResourceLink = me.portlet.find('div#PopoverServeResourceLink:first').data('link');
+        me.markAllReadLink = me.portlet.find('div#MarkAllAsReadLink:first').data('link');
         me.uiDropdownWithIcon = me.portlet.find('div.uiDropdownWithIcon:first');
         me.viewAllBtn = me.uiDropdownWithIcon.find('li.actionLink');
         //
