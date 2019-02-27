@@ -28,6 +28,7 @@
   import org.exoplatform.services.wcm.skin.WCMSkinVisitor;
   import org.exoplatform.social.core.space.SpaceUtils;
   import org.exoplatform.social.webui.Utils;
+  import org.exoplatform.web.security.csrf.CSRFTokenUtil;
   
   def rcontext = _ctx.getRequestContext() ;
   String docBase =  rcontext.getRequestContextPath() ;  
@@ -201,6 +202,8 @@
      eXo.env.portal.spaceName = "<%=SpaceUtils.getSpaceByContext() == null ? "" : SpaceUtils.getSpaceByContext().getPrettyName()%>" ;
      eXo.env.portal.spaceGroup = "<%=SpaceUtils.getSpaceByContext() == null ? "" : SpaceUtils.getSpaceByContext().getGroupId().replace("/spaces/", "")%>" ;
      eXo.env.portal.profileOwner = "<%=Utils.getOwnerRemoteId()%>" ;
+
+     eXo.env.portal.csrfToken = "<%=CSRFTokenUtil.getToken()%>";
      </script>
      <%
     def headerElements = rcontext.getExtraMarkupHeadersAsStrings();
