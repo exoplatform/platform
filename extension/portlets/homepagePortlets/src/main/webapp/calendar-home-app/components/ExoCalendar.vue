@@ -12,9 +12,9 @@
           <center><a href="#">{{ dateLabel }}</a></center>
         </div>
       </h6>
-      <a v-exo-tooltip.bottom.body="$t('settings.label')" v-show="spaceGroup === '' && !isSettings" class="settingsLink actionIcon pull-right" @click="renderSettings()"><i class="uiIconSetting uiIconLightGray"></i> </a>
-      <div v-if="isSettings && spaceGroup === ''" id="manage" class="tab-pane fade in active">
-        <exo-home-calendar-settings displayed-calendars="allDisplayedCals" non-displayed-calendars="nonDisplayedCals" @savedCalendar="eventSavedCalendar"></exo-home-calendar-settings>
+      <a v-exo-tooltip.bottom.body="$t('settings.label')" v-show="spaceId === '' && !isSettings" class="settingsLink actionIcon pull-right" @click="renderSettings()"><i class="uiIconSetting uiIconLightGray"></i> </a>
+      <div v-if="isSettings && spaceId === ''" id="manage" class="tab-pane fade in active">
+        <exo-home-calendar-settings :displayed-calendars="allDisplayedCals" :non-displayed-calendars="nonDisplayedCals" @savedCalendar="eventSavedCalendar"></exo-home-calendar-settings>
       </div>
       <!-- events -->
       <div v-show="displayedCalendars.length > 0 && displayedEvents.length > 0 && !isSettings" id="CalendarContainer" class="events uiContentBox">
@@ -23,10 +23,10 @@
         </div>
         <ul class="eventsList">
           <li v-for="event in displayedEvents" :key="event" :class="getEventCssClass(event)" :id="event.id">
-            <div :class="findObjectById(allDisplayedCals, event.calendarId).color">
+            <div :class="findObjectById(displayedCalendars, event.calendarId).color">
               <div class="clearfix itemColor" >
                 <div class="pull-left eventSummary">
-                  <a :href="getEventLink(event.id)" v-html="event.subject"></a>
+                  <a :href="getEventLink(event.id)">{{ event.subject }}</a>
                 </div>
                 <div class="pull-right time">
                   <div v-if="getEventDuration(event) === ONE_DAY_MS">
@@ -64,9 +64,8 @@ export default {
       displayedEvents: [],
       date_act: moment().startOf('day'),
       dateLabel: `${this.$t('today.label')}: ${new Date().toLocaleDateString(exoConstants.LANG)}`,
-      spaceGroup: `${exoConstants.SPACE_GROUP}`,
+      spaceId: `${exoConstants.SPACE_ID}`,
       isSettings: false,
-      nbclick: 0,
       ONE_DAY_MS: 86399999,
       SECOND_INDEX: 2,
       THIRD_INDEX: 3,
@@ -76,32 +75,36 @@ export default {
   },
   created() {
     this.initCalendar();
-    const delay = 100;
-    setInterval(function () {
-      this.initCalendar();
-    }.bind(this), delay);
   },
   methods: {
     initCalendar() {
-      let start = this.date_act.startOf('day');
-      start = start.format(moment.HTML5_FMT.DATETIME_LOCAL_MS);
-      const end = this.date_act.endOf('day').format(moment.HTML5_FMT.DATETIME_LOCAL_MS);
-      calendarServices.getEvents(start, end).then(response => {
-        this.allEvents = response.data;
-      });
-      calendarServices.getDisplayedCalendars().then(response => {
+      if (!this.isSettings) {
+        let start = this.date_act.startOf('day');
+        start = start.format(moment.HTML5_FMT.DATETIME_LOCAL_MS);
+        const end = this.date_act.endOf('day').format(moment.HTML5_FMT.DATETIME_LOCAL_MS);
+        calendarServices.getEvents(start, end).then(response => {
+          this.allEvents = response.data;
+          this.getDisplayedEvents();
+        });
+      }
+    },
+    getDisplayedEvents() {
+      calendarServices.getDisplayedCalendars(this.spaceId).then(response => {
         if (response) {
-          this.allDisplayedCals = this.parseArray(response.allDisplayedCals);
-          this.nonDisplayedCals = this.parseArray(response.nonDisplayedCals);
-          if (this.spaceGroup !== '') {
-            this.filterSpaceEvents();
-          } else {
+          if (this.spaceId === '') {
+            this.allDisplayedCals = this.parseArray(response.allDisplayedCals);
+            this.nonDisplayedCals = this.parseArray(response.nonDisplayedCals);
             this.filterEvents();
+          } else {
+            this.displayedCalendars = this.parseArray(response.allDisplayedCals);
+            this.filterSpaceEvents();
           }
         }
       });
     },
     incDecDate(days) {
+      this.displayedCalendars = [];
+      this.displayedEvents = [];
       this.date_act.startOf('day').add(days, 'day');
       const diffDays = this.date_act.diff(moment().startOf('day'), 'days');
       if (diffDays === 0) {
@@ -116,7 +119,7 @@ export default {
       this.initCalendar();
     },
     getEventLink(eventId) {
-      return `${exoConstants.PORTAL}/${exoConstants.PORTAL_NAME}/calendar/details/${eventId}`;
+      return `${exoConstants.BASE_URL}/calendar/details/${eventId}`;
     },
     eventSavedCalendar() {
       this.isSettings = false;
@@ -131,8 +134,6 @@ export default {
       }
     },
     filterEvents() {
-      this.displayedCalendars = [];
-      this.displayedEvents = [];
       for (const evt of this.allEvents) {
         const notDisplayedFound = this.findObjectById(this.nonDisplayedCals, evt.calendarId);
         if (!notDisplayedFound) {
@@ -140,6 +141,8 @@ export default {
           if (displayedFound) {
             if (!this.findObjectById(this.displayedCalendars, displayedFound.id)) {
               this.displayedCalendars.push(displayedFound);
+            }
+            if (!this.findObjectById(this.displayedEvents, evt.id)) {
               this.displayedEvents.push(evt);
             }
           }
@@ -147,18 +150,10 @@ export default {
       }
     },
     filterSpaceEvents() {
-      this.displayedCalendars = [];
-      this.displayedEvents = [];
-      const calendarSpaceId = `${this.spaceGroup}_space_calendar`;
       for (const evt of this.allEvents) {
-        if (evt.calendarId === calendarSpaceId) {
+        const displayedFound = this.findObjectById(this.displayedCalendars, evt.calendarId);
+        if (displayedFound && !this.findObjectById(this.displayedEvents, evt.id)) {
           this.displayedEvents.push(evt);
-          const displayedFound = this.findObjectById(this.allDisplayedCals, evt.calendarId);
-          if (displayedFound) {
-            if (!this.findObjectById(this.displayedCalendars, displayedFound.id)) {
-              this.displayedCalendars.push(displayedFound);
-            }
-          }
         }
       }
     },
@@ -207,7 +202,7 @@ export default {
     },
     renderSettings() {
       this.isSettings = true;
-      this.spaceGroup = `${exoConstants.SPACE_GROUP}`;
+      this.spaceId = `${exoConstants.SPACE_ID}`;
     }
   }
 };

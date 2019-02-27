@@ -5,11 +5,11 @@ export function getEvents(startDate, endDate) {
 }
 
 export function getDisplayedCalendars(spaceId) {
-  return fetch(`${exoConstants.PORTAL}/${exoConstants.PORTAL_REST}/portlet/homePage/calendar/settings?spaceId=${spaceId}`, {credentials: 'include'}).then(resp => resp.json());
+  return fetch(`${exoConstants.PORTAL}/${exoConstants.PORTAL_REST}/portlet/HomePageCalendarPortlet/settings?spaceId=${spaceId}`, {credentials: 'include'}).then(resp => resp.json());
 }
 
 export function updateSettings(ids) {
-  return fetch(`${exoConstants.PORTAL}/${exoConstants.PORTAL_REST}/portlet/homePage/calendar/settings`, {
+  return fetch(`${exoConstants.PORTAL}/${exoConstants.PORTAL_REST}/portlet/HomePageCalendarPortlet/settings`, {
     headers: {
       'Content-Type': 'application/json'
     },

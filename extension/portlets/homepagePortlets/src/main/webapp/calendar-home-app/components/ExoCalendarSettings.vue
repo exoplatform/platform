@@ -6,7 +6,7 @@
         <p>{{ $t('displayed.calendar.label') }}</p>
         <div class="DisplayedCalendarContainer">
           <span v-for="(cal, index) in displayedCalendars" v-show="displayedCalendars.length > 0" :key="cal" :class="['calendarName ' + cal.color]" :id="cal.id">
-            <span v-exo-tooltip.bottom.body="cal.name">{{ cal.name }}></span>
+            <span v-exo-tooltip.bottom.body="cal.name">{{ cal.name }}</span>
             <i v-exo-tooltip.bottom.body="$t('calendar.remove')" class="uiIconDel" @click="removeCalendar(cal, index)"></i>
           </span>
         </div>
@@ -77,6 +77,7 @@ export default {
       }
     },
     removeCalendar(item, i) {
+      $('.tooltip.fade.bottom.in').remove();
       this.nonDisplayedCalendars.push(item);
       this.displayedCalendars.splice(i, 1);
     },
