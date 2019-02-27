@@ -71,7 +71,7 @@
             <object type="org.exoplatform.services.cms.drives.DriveData">
               <field  name="name"><string>Collaboration</string></field>
               <field  name="workspace"><string>collaboration</string></field>
-              <field  name="permissions"><string>*:/platform/web-contributors,*:/platform/administrators</string></field>
+              <field  name="permissions"><string>*:/platform/administrators</string></field>
               <field  name="homePath"><string>/</string></field>
               <field  name="icon"><string></string></field>
               <field  name="views"><string>Admin, Web</string></field>
