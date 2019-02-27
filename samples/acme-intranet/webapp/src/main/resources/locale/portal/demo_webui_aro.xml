@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bundle>
+  <Signin>
+    <welcome>أهلا وسهلا بكم</welcome>
+    <login>دخول</login>
+    <logout>خروج</logout>
+    <language>تغيير اللغة</language>
+    <register>تسجيل</register>
+  </Signin>
+
+  <ACMEPortal>
+    <label>نموذج ACME</label>
+  </ACMEPortal>
+</bundle>

@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bundle>
+   <UIAdminToolbarPortlet>
+      <action>
+         <AddPage>إضافة صفحة</AddPage>
+         <EditNavigation>تغيير التصفّح</EditNavigation>
+         <Content>تغيير المحتوى</Content>
+         <Editor>تغيير</Editor>
+         <Page>الصفحة</Page>
+         <Site>موقع</Site>
+         <Layout>تغير التخطيط</Layout>
+         <siteLayout>تغير التخطيط</siteLayout>
+         <ManagePages>إدارة الصفحات</ManagePages>
+         <GroupSite>موقع المجموعة</GroupSite>
+         <Properties>#{UISEOToolbarForm.label.seo}</Properties>
+         <AddSite>إضافة موقع</AddSite>
+      </action>
+<ManageSites>إدارة المواقع</ManageSites>
+<ManageGroupSites>إدارة مواقع المجموعة</ManageGroupSites>
+   </UIAdminToolbarPortlet>
+
+  <UISEOForm>
+    <label>
+      <title>العنوان:</title>  
+      <description>الوصف:</description>
+      <keywords>الكلمات المفاتيح:</keywords>
+      <language>اللغة:</language>
+      <robots>الروبوتات:</robots>
+      <sitemap>خريطة الموقع:</sitemap>
+      <sitemapvisible>مرئية في خريطة الموقع</sitemapvisible>
+  <isInherited>الموروثة من الصفحة الأم</isInherited>
+      <priority>الأولوية:</priority>
+      <frequency>التردد:</frequency>
+      <select-language>اختيار اللغة</select-language>
+      <option>
+        <Always>دائما</Always>
+        <Hourly>كل ساعة</Hourly>
+        <Daily>يوميا</Daily>
+        <Weekly>أسبوعي</Weekly>
+        <Monthly>كل شهر</Monthly>
+        <Yearly>سنويا</Yearly>
+        <Never>أبدا</Never>
+      </option> 
+    </label>
+ 
+    <action>
+      <Save>#{word.save}</Save>
+      <Cancel>#{word.cancel}</Cancel>
+    </action>
+    <msg>
+      <repository-exception>حدث خطأ غير متوقع. لا يمكن حفظ البيانات الوصفية للصفحة.</repository-exception>
+      <confirm-delete>هل أنت متأكد من أنك تريد حذف هذه البيانات من تحسين محرك البحث (SEO)؟</confirm-delete>
+    </msg>
+    <title>
+    <seo-delete>حذف</seo-delete>
+    </title>
+<help> 
+  <priority>نطاق القيم الصالحة من 0.0 إلى 1.0.</priority>
+  <description>مساعدة الباحثين: فليعلموا أن الصفحة التالية لديها الرابط الذي يبحثون عنه.</description>
+  <keywords>أهم المصطلحات في الصفحة يجب أن تكون مفصولة بفاصلة.</keywords>  
+    </help>  
+  </UISEOForm>
+  <UISEOPopupWindow>
+  <title>
+      <UISEOForm>#{UISEOToolbarForm.title.seo}</UISEOForm>
+  </title>
+  </UISEOPopupWindow>    
+  <UISEOToolbarForm>
+  <title>
+      <seo>إدارة تحسين محرك البحث (SEO)</seo>
+  </title>
+  <label>
+    <seo>إدارة تحسين محرك البحث (SEO)</seo>
+  </label>
+  </UISEOToolbarForm>  
+  <FloatNumberValidator>
+    <msg>
+      <Invalid-number>صيغة المجال "أولوية" غير صحيحة. الرجاء إدخال رقم بين 0.0 و 1.0.</Invalid-number>
+    </msg>
+  </FloatNumberValidator>
+  
+  <Locale>
+    <label>      
+      <it>الإيطالية</it>      
+      <fr>فرنسية</fr>
+      <en>انقليزية</en>      
+    </label>
+  </Locale>
+  
+</bundle>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bundle>
+<UINotificationPopoverToolbarPortlet>
+<label>
+<MarkAllAsRead>اعتبرها جميعاً رسائل مقروءة</MarkAllAsRead>
+<NoNotifications>لا توجد إشعارات</NoNotifications>
+<InlineImage>صورة مضمنة</InlineImage>
+<ViewAll>عرض الكل</ViewAll>
+<Loading>جاري التحميل</Loading>
+</label>
+</UINotificationPopoverToolbarPortlet>
+</bundle>
