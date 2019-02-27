@@ -191,6 +191,7 @@
         });
       },
       applyAction : function(item) {
+        var me = NotificationPopover;
         item.find('.contentSmall:first').on('click', function(evt) {
           evt.stopPropagation();
           // mark read
@@ -214,17 +215,18 @@
             .on('click', function(evt) {
               evt.stopPropagation();
               var id = $(this).parents('li:first').data('id');
-              webNotif.doCancelAction(id, $(this).data('rest'));
+              webNotif.doCancelAction(id, me.appendCSRFToken($(this).data('rest')));
             });
         //
         return item;
       },
       doAction : function(elm) {
+        var me = NotificationPopover;
           //1. call rest on social side: for example accept/refuse relationship
           //2. redirect to the uri, for example: view activity detail
           //var id = elm.parents('li:first').data('id');
           //3. trigger a custom event to update other applications concerned by this change
-        webNotif.ajaxReq($(elm).data('rest'),
+        webNotif.ajaxReq(me.appendCSRFToken($(elm).data('rest')),
             function() {
               $(document).trigger("exo-invitation-updated");
             }
@@ -238,6 +240,11 @@
         }
         me.removeItem(me.portlet.find('li[data-id=' + object.id + ']'));
         $(document).trigger("exo-invitation-updated");
+      },
+      appendCSRFToken : function(url) {
+        url.indexOf('?') >= 0 ? url += '&' : url += '?';
+        url += 'gtn:csrf=' + eXo.env.portal.csrfToken;
+        return url;
       },
       markAllRead : function() {
         NotificationPopover.portlet.find('ul.displayItems:first').find('li.unread').removeClass('unread');
