@@ -9,6 +9,9 @@
   <artifactId>platform-component-common</artifactId>
   <packaging>jar</packaging>
   <name>eXo PLF:: Platform - Common</name>
+  <properties>
+    <exo.test.coverage.ratio>0.10</exo.test.coverage.ratio>
+  </properties>
   <dependencies>
     <dependency>
       <groupId>commons-lang</groupId>

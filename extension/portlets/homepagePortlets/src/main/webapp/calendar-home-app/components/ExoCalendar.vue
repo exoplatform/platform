@@ -2,10 +2,10 @@
   <div class="calendarPortlet">
     <div class="calendarPortletData uiBox">
       <h6 v-show="!isSettings" class="title clearfix">
-        <a v-exo-tooltip.bottom.body="$t('prev.day')" href="#" class="actionIcon prevDate pull-left" @click="incDecDate(-1)">
+        <a v-exo-tooltip.bottom.body="$t('prev.day')" class="actionIcon prevDate pull-left" @click="incDecDate(-1)">
           <i class="uiIconMiniArrowLeft uiIconLightGray"></i>
         </a>
-        <a v-exo-tooltip.bottom.body="$t('next.day')" href="#" class="actionIcon nextDate pull-right" @click="incDecDate(1)">
+        <a v-exo-tooltip.bottom.body="$t('next.day')" class="actionIcon nextDate pull-right" @click="incDecDate(1)">
           <i class="uiIconMiniArrowRight uiIconLightGray"></i>
         </a>
         <div class="currentDateContainer">
@@ -74,36 +74,43 @@ export default {
     };
   },
   created() {
-    this.initCalendar();
+    this.initCalendar(true);
   },
   methods: {
-    initCalendar() {
+    initCalendar(isSettingsUpdated) {
       if (!this.isSettings) {
         let start = this.date_act.startOf('day');
         start = start.format(moment.HTML5_FMT.DATETIME_LOCAL_MS);
         const end = this.date_act.endOf('day').format(moment.HTML5_FMT.DATETIME_LOCAL_MS);
         calendarServices.getEvents(start, end).then(response => {
           this.allEvents = response.data;
-          this.getDisplayedEvents();
+          this.getDisplayedEvents(isSettingsUpdated);
         });
       }
     },
-    getDisplayedEvents() {
-      calendarServices.getDisplayedCalendars(this.spaceId).then(response => {
-        if (response) {
-          if (this.spaceId === '') {
-            this.allDisplayedCals = this.parseArray(response.allDisplayedCals);
-            this.nonDisplayedCals = this.parseArray(response.nonDisplayedCals);
-            this.filterEvents();
-          } else {
-            this.displayedCalendars = this.parseArray(response.allDisplayedCals);
-            this.filterSpaceEvents();
+    getDisplayedEvents(isSettingsUpdated) {
+      if (isSettingsUpdated) {
+        calendarServices.getDisplayedCalendars(this.spaceId).then(response => {
+          if (response) {
+            if (this.spaceId === '') {
+              this.allDisplayedCals = this.parseArray(response.allDisplayedCals);
+              this.nonDisplayedCals = this.parseArray(response.nonDisplayedCals);
+              this.filterEvents();
+            } else {
+              this.displayedCalendars = this.parseArray(response.allDisplayedCals);
+              this.filterSpaceEvents();
+            }
           }
+        });
+      } else {
+        if (this.spaceId === '') {
+          this.filterEvents();
+        } else {
+          this.filterSpaceEvents();
         }
-      });
+      }
     },
     incDecDate(days) {
-      this.displayedCalendars = [];
       this.displayedEvents = [];
       this.date_act.startOf('day').add(days, 'day');
       const diffDays = this.date_act.diff(moment().startOf('day'), 'days');
@@ -116,14 +123,14 @@ export default {
       } else {
         this.dateLabel = this.date_act.toDate().toLocaleDateString(exoConstants.LANG);
       }
-      this.initCalendar();
+      this.initCalendar(false);
     },
     getEventLink(eventId) {
       return `${exoConstants.BASE_URL}/calendar/details/${eventId}`;
     },
     eventSavedCalendar() {
       this.isSettings = false;
-      this.initCalendar();
+      this.initCalendar(true);
     },
     getEventCssClass(event) {
       if (new Date() > Date.parse(event.to)) {
@@ -134,6 +141,8 @@ export default {
       }
     },
     filterEvents() {
+      this.displayedCalendars = [];
+      this.displayedEvents = [];
       for (const evt of this.allEvents) {
         const notDisplayedFound = this.findObjectById(this.nonDisplayedCals, evt.calendarId);
         if (!notDisplayedFound) {

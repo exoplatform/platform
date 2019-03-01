@@ -197,33 +197,6 @@
              </execution>
           </executions>
        </plugin>
-      <plugin>
-        <artifactId>maven-assembly-plugin</artifactId>
-        <executions>
-          <execution>
-            <phase>clean</phase>
-            <goals>
-              <goal>single</goal>
-            </goals>
-            <configuration>
-              <appendAssemblyId>false</appendAssemblyId>
-              <descriptorRefs>
-                <descriptorRef>platform-juzu</descriptorRef>
-              </descriptorRefs>
-            </configuration>
-          </execution>
-        </executions>
-        <dependencies>
-          <dependency>
-            <groupId>org.exoplatform.commons</groupId>
-            <artifactId>commons-juzu</artifactId>
-            <version>${org.exoplatform.commons.version}</version>
-          </dependency>
-        </dependencies>
-        <configuration>
-          <attach>true</attach>
-        </configuration>
-      </plugin>
         <plugin>
           <groupId>com.github.eirslett</groupId>
           <artifactId>frontend-maven-plugin</artifactId>
