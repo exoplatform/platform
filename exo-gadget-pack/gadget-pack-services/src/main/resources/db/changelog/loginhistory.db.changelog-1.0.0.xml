@@ -16,6 +16,7 @@
 
     <!-- Login History -->
     <changeSet author="LoginHistory" id="1.0.0-1">
+        <validCheckSum>7:4c808ad5a6480360e8736ca97d589ff2</validCheckSum>
         <createTable tableName="LOGIN_HISTORY">
             <column name="ID" type="BIGINT" autoIncrement="${autoIncrement}" startWith="1">
                 <constraints nullable="false" primaryKey="true" primaryKeyName="PK_LOGIN_HISTORY"/>
