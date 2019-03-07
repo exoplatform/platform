@@ -975,6 +975,7 @@
 
         // TODO this line is mandatory when a custom skin is defined, it should not be mandatory
         CKEDITOR.basePath = '/commons-extension/ckeditor/';
+        var toolbarHeight = 39;
         commentInput.ckeditor({
           customConfig: '/commons-extension/ckeditorCustom/config.js',
           extraPlugins: extraPlugins,
@@ -996,12 +997,16 @@
                 var contentHeight = $content.height();
                 var $ckeBottom = $('#' + evt.editor.id + '_bottom');
                 $ckeBottom[0].style.display = "block";
+                var originalHeight = $ckeBottom.css('height', 'auto').outerHeight();
+                toolbarHeight = $ckeBottom.addClass('cke_bottom_visible').outerHeight();
+                var heightToAddVisibleClass = toolbarHeight - originalHeight;
+                $ckeBottom.removeClass('cke_bottom_visible').css('height', '0px');
                 $ckeBottom.animate({
-                  height: "39"
+                  height: "" + toolbarHeight
                 }, {
                   step: function(number, tween) {
                     $content.height(contentHeight - number);
-                    if (number >= 9) {
+                    if (number >= heightToAddVisibleClass) {
                       $ckeBottom.addClass('cke_bottom_visible');
                     }
                   }
@@ -1014,7 +1019,7 @@
             blur : function ( evt ) {
               // Hide the editor toolbar
               if ($(window).width() > 767 || $(window).width() < $(window).height()) {
-                $('#' + evt.editor.id + '_contents').css('height', $('#' + evt.editor.id + '_contents').height() + 39);
+                $('#' + evt.editor.id + '_contents').css('height', $('#' + evt.editor.id + '_contents').height() + toolbarHeight);
                 $('#' + evt.editor.id + '_bottom').css('height', '0px');
                 $('#' + evt.editor.id + '_bottom').removeClass('cke_bottom_visible');
               }
