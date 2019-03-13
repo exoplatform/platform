@@ -42,7 +42,7 @@
    <UICreateWiki>
       <label>
          <title>Créer une Page Wiki:</title>
-         <location>Emplacement</location>
+         <location>Lieu</location>
       </label>
    </UICreateWiki>
    <UICreateEvent>

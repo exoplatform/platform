@@ -2,13 +2,13 @@
 <bundle>
  <UISpaceNavigationPortlet>
      <label>
-         <Spaces>فضاءاتي</Spaces>
-         <Join>الانضمام إلى فضاء</Join>
-         <see>عرض {0} فضاءات أكثر</see>
+         <Spaces>مساحاتي</Spaces>
+         <Join>الانضمام إلى مساحة</Join>
+         <see>عرض {0} مساحات أكثر</see>
      </label>
      <msg>
-         <filter-spaces>البحث عن فضاء</filter-spaces>
-         <no-space>لا يوجد أيّ فضاء</no-space>
+         <filter-spaces>البحث عن مساحة</filter-spaces>
+         <no-space>لا توجد أيّ مساحة</no-space>
      </msg>
 
 </UISpaceNavigationPortlet>
