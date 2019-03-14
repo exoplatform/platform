@@ -67,8 +67,15 @@
     <locale>ar</locale>
     <output-encoding>UTF-8</output-encoding>
     <input-encoding>UTF-8</input-encoding>
-    <description>Default configuration for the arabe locale</description>
-  </locale-config> 
+    <description>Default configuration for the arabic locale</description>
+  </locale-config>
+
+  <locale-config>
+    <locale>ar_OM</locale>
+    <output-encoding>UTF-8</output-encoding>
+    <input-encoding>UTF-8</input-encoding>
+    <description>Default configuration for the arabic Oman locale</description>
+  </locale-config>
 
   <locale-config>
     <locale>de</locale>
