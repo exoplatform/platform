@@ -18,9 +18,7 @@
  */
 package org.exoplatform.platform.component;
 
-import java.util.Arrays;
-import java.util.List;
-import java.util.ResourceBundle;
+import java.util.*;
 
 import org.apache.commons.lang.ArrayUtils;
 
@@ -95,6 +93,8 @@ public class UIUserNavigationPortlet extends UIPortletApplication {
 
     private UIBannerAvatarUploader uiAvatarBanner = null;
 
+    private Map<String, String> userNodes;
+
     public UIUserNavigationPortlet() throws Exception {
         userService = getApplicationComponent(UserNavigationHandlerService.class);
 
@@ -128,11 +128,17 @@ public class UIUserNavigationPortlet extends UIPortletApplication {
     public boolean isSelectedUserNavigation(String nav) throws Exception {
         UIPortal uiPortal = Util.getUIPortal();
         UserNode selectedNode = uiPortal.getSelectedUserNode();
-        if (selectedNode.getURI().contains(nav)) return true;
-        if (NOTIFICATION_SETTINGS.equals(nav) && "notifications".equals(selectedNode.getURI())) return true;
-        //case dashbord
+        if (selectedNode.getURI().contains(nav)) {
+            return true;
+        }
+        if (NOTIFICATION_SETTINGS.equals(nav) && "notifications".equals(selectedNode.getURI())) {
+            return true;
+        }
+        //case dashboard : user navigation nodes are used for dashboard
         String requestUrl = Util.getPortalRequestContext().getRequest().getRequestURL().toString();
-        if(DASHBOARD_URI.equals(nav) && requestUrl.contains(DashboardUtils.getDashboardURL())) return true;
+        if(DASHBOARD_URI.equals(nav) && requestUrl.contains("/u/")) {
+            return true;
+        }
         //
         return false;
     }
@@ -196,34 +202,19 @@ public class UIUserNavigationPortlet extends UIPortletApplication {
         return false;
     }
 
-    //////////////////////////////////////////////////////////
-    /**/                                                  /**/
-    /**/         //utils METHOD//                         /**/
-    /**/                                                  /**/
-    //////////////////////////////////////////////////////////
-
-    public String[] getUserNodesAsList() {
-        String[] userNodeList=(String[])ArrayUtils.add(null, PROFILE_URI);
-        userNodeList=(String[])ArrayUtils.add(userNodeList, ACTIVITIES_URI);
-        userNodeList=(String[])ArrayUtils.add(userNodeList, CONNEXIONS_URI);
-        userNodeList=(String[])ArrayUtils.add(userNodeList, WIKI_URI);
-        userNodeList=(String[])ArrayUtils.add(userNodeList, DASHBOARD_URI);
-        if (CommonsUtils.isFeatureActive(NotificationUtils.FEATURE_NAME)) {
-          userNodeList=(String[])ArrayUtils.add(userNodeList, NOTIFICATION_SETTINGS);
+    public Map<String, String> getUserNodes() throws Exception {
+        if(userNodes == null) {
+            userNodes = new LinkedHashMap<>();
+            userNodes.put(PROFILE_URI, getProfileLink());
+            userNodes.put(ACTIVITIES_URI, getactivitesURL());
+            userNodes.put(CONNEXIONS_URI, getrelationURL());
+            userNodes.put(WIKI_URI, getWikiURL());
+            userNodes.put(DASHBOARD_URI, DashboardUtils.getDashboardURL());
+            if (CommonsUtils.isFeatureActive(NotificationUtils.FEATURE_NAME)) {
+                userNodes.put(NOTIFICATION_SETTINGS, getNotificationsURL());
+            }
         }
-        return userNodeList;
-    }
-
-    public String[] getURLAsList() throws Exception {
-        String[] urlList=(String[])ArrayUtils.add(null, getProfileLink());
-        urlList=(String[])ArrayUtils.add(urlList, getactivitesURL());
-        urlList=(String[])ArrayUtils.add(urlList, getrelationURL());
-        urlList=(String[])ArrayUtils.add(urlList, getWikiURL());
-        urlList=(String[])ArrayUtils.add(urlList, DashboardUtils.getDashboardURL());
-        if (CommonsUtils.isFeatureActive(NotificationUtils.FEATURE_NAME)) {
-          urlList=(String[])ArrayUtils.add(urlList, getNotificationsURL());
-        }
-        return urlList;
+        return userNodes;
     }
     
     //////////////////////////////////////////////////////////

@@ -100,34 +100,33 @@ if (uicomponent.isProfileOwner()) {
 
 <ul class="nav nav-tabs userNavigation" style="">
 <%
-String[] urlList = uicomponent.getURLAsList();
-def i = 0;
-def pageURL;
 boolean isOwner=  uicomponent.isProfileOwner();
-for (node in uicomponent.getUserNodesAsList()) {
+for (node in uicomponent.getUserNodes()) {
+    def nodeName = node.key;
+    def pageURL = node.value;
     def nodeLabel;
-    def str="UIUserNavigationPortlet.label."+node;
-    if (isOwner && ! node.equals(uicomponent.NOTIFICATION_SETTINGS)) str="UIUserNavigationPortlet.label.My"+node;
-    pageURL = urlList[i];
+    def str = "UIUserNavigationPortlet.label." + nodeName;
+    if (isOwner && !nodeName.equals(uicomponent.NOTIFICATION_SETTINGS)) {
+        str = "UIUserNavigationPortlet.label.My" + nodeName;
+    }
     def navigationTabClass = "";
-    if ((uicomponent.isSelectedUserNavigation(node))||((node.equals(uicomponent.DASHBOARD_URI))&&(uicomponent.isSelectedUserNavigation("/u/")))) {
+    if (uicomponent.isSelectedUserNavigation(nodeName)) {
         navigationTabClass = "active";
     }
     %>
 
-    <% if  ((node.equals(uicomponent.DASHBOARD_URI) || node.equals(uicomponent.NOTIFICATION_SETTINGS))&&(!isOwner))  continue;
+    <% if  ((nodeName.equals(uicomponent.DASHBOARD_URI) || nodeName.equals(uicomponent.NOTIFICATION_SETTINGS))&&(!isOwner))  continue;
     nodeLabel = _ctx.appRes(str);
     %>
 
     <li class="<%=navigationTabClass%>">
-    <a href="$pageURL">
-    <div class="uiIconApp<%=node%> uiIconDefaultApp"></div>
-                    <span class="tabName"><%=nodeLabel%></span>
-    </a>
-            </li>
+        <a href="$pageURL">
+            <div class="uiIconApp<%=nodeName%> uiIconDefaultApp"></div>
+            <span class="tabName"><%=nodeLabel%></span>
+        </a>
+    </li>
 
     <%
-    i++;
 }
 %>
 </ul>
