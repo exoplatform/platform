@@ -21,9 +21,9 @@
 -->
 <messagebundle>
   <msg name="title">استطلاع</msg>
-  <msg name="setting">الاعدادات</msg>
+  <msg name="setting">عرض</msg>
   <msg name="vote">تصويت</msg>
-  <msg name="voteAgain">التصويت من جديد</msg>
+  <msg name="voteAgain">إعادة التصويت</msg>
   <msg name="warning">يرجى إختيار خيار واحد على الأقل</msg>
   <msg name="option">خيارات</msg>
   <msg name="percent">بالمائة</msg>

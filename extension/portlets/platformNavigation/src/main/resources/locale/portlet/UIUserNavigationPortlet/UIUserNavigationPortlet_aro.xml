@@ -6,9 +6,9 @@
          <profile>الملفّ الشخصي</profile>
          <connections>اتصالات</connections>
          <wiki>ويكي</wiki>
-         <Myactivities>آخر أخباري</Myactivities>
+         <Myactivities>أنشطتي</Myactivities>
          <Myprofile>ملفي الشخصي</Myprofile>
-         <Myconnections>علاقاتي</Myconnections>
+         <Myconnections>جهات الاتصال</Myconnections>
          <Mywiki>ويكي خاصة</Mywiki>
          <Mydashboard>لوحة المعلومات الخاصّة بي</Mydashboard>
          <NotificationSettingsPortlet>الإشعارات الخاصّة بي</NotificationSettingsPortlet>

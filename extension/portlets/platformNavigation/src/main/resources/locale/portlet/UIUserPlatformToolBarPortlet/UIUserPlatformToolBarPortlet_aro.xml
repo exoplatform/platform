@@ -3,9 +3,9 @@
 <UIUserPlatformToolBarPortlet>
 <label>
 <NotificationSettingsPortlet>الإشعارات الخاصّة بي</NotificationSettingsPortlet>
-<activities>آخر أخباري</activities>
+<activities>أنشطتي</activities>
 <profile>ملفي الشخصي</profile>
-<network>علاقاتي</network>
+<network>جهات الاتصال</network>
 <wiki>ويكي خاصة</wiki>
 <account>الحساب</account>
 <language>تغيير اللغة</language>

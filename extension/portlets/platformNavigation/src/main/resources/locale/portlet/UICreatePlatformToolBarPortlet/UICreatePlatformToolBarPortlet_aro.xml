@@ -52,7 +52,7 @@
          <Choix>إضافة:</Choix>
          <EndEvent>إلى</EndEvent>
          <StartEvent>من</StartEvent>
-         <Calendar>الرزنامة</Calendar>
+         <Calendar>التقويم</Calendar>
          <all-day>طيلة اليوم</all-day>
          <defaultCalendarId>الافتراضي</defaultCalendarId>
       </label>
@@ -61,7 +61,7 @@
          <fromDate-format>صيغة التاريخ "من" غير صحيحة.</fromDate-format>
          <toDate-format>صيغة التاريخ "إلى" غير صحيحة.</toDate-format>
          <logic-required>آسف، لا يمكنك إنشاء حدث ينتهي قبل أن يبدأ.</logic-required>
-         <cant-add-event-on-remote-calendar>لا يمكنك إضافة حدث إلى الزرنامة التي عن بعد</cant-add-event-on-remote-calendar>
+         <cant-add-event-on-remote-calendar>لا يمكنك إضافة حدث إلى التقويم عن بعد</cant-add-event-on-remote-calendar>
          <add-successfully>
             <Event>تمّت إضافة الحدث إلى {1}</Event>
             <Task>تمت إضافة المهمّة إلى {1}</Task>

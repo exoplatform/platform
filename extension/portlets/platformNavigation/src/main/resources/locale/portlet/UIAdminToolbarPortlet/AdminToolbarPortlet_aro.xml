@@ -37,7 +37,7 @@
         <Hourly>كل ساعة</Hourly>
         <Daily>يوميا</Daily>
         <Weekly>أسبوعي</Weekly>
-        <Monthly>كل شهر</Monthly>
+        <Monthly>شهريّا</Monthly>
         <Yearly>سنويا</Yearly>
         <Never>أبدا</Never>
       </option> 
@@ -83,7 +83,7 @@
     <label>      
       <it>الإيطالية</it>      
       <fr>فرنسية</fr>
-      <en>انقليزية</en>      
+      <en>انجليزية</en>      
     </label>
   </Locale>
   

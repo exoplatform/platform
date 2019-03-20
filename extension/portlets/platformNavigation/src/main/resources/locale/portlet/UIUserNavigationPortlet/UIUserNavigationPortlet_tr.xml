@@ -37,12 +37,12 @@
          <AcceptRequest>Kabul</AcceptRequest>
          <Deny>Reddet</Deny>
          <RemoveConnection>Bağlantıyı kes</RemoveConnection>
-         <CancelRequest>Cancel Request</CancelRequest>
+         <CancelRequest>İsteği İptal Et</CancelRequest>
       </action>
       <label>
          <Connect>Bağlan</Connect>
          <ConnectNotExisting>Davetiye başkası tarafından iptal edildi.</ConnectNotExisting>
-         <ConnectionExisted>Invitation was established by someone else.</ConnectionExisted>
+         <ConnectionExisted>Davet başkası tarafından oluşturuldu.</ConnectionExisted>
       </label>
    </UIRelationshipAction>
 </bundle>

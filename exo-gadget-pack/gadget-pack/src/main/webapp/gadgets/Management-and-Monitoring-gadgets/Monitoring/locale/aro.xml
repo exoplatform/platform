@@ -32,8 +32,8 @@
   <msg name="hit_ratio">نسبة التخزين المؤقت</msg>
   <msg name="details">تفاصيل</msg>
   <msg name="hit">النسبة</msg>
-  <msg name="miss">Miss</msg>
+  <msg name="miss">فقدان</msg>
   <msg name="full">جملي</msg>
   <msg name="max_size">الحجم الأقصى</msg>
-  <msg name="time_to_live">مدّة حياة التخزين المؤقت</msg>
+  <msg name="time_to_live">المدة المتبقية</msg>
 </messagebundle>
