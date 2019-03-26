@@ -59,9 +59,4 @@ public class MockSettingService implements SettingService {
     public void save(Context context) {
 
     }
-
-    @Override
-    public Map<String, SettingValue> getSettingsByContextAndScope(String s, String s1, String s2, String s3) {
-        return null;
-    }
 }
