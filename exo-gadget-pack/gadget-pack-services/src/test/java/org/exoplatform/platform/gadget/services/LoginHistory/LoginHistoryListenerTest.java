@@ -4,7 +4,9 @@ import java.util.Set;
 
 import org.exoplatform.commons.persistence.impl.EntityManagerService;
 import org.exoplatform.container.PortalContainer;
-import org.exoplatform.platform.gadget.services.LoginHistory.LoginHistoryService;
+import org.exoplatform.container.xml.InitParams;
+import org.exoplatform.container.xml.ValueParam;
+import org.exoplatform.platform.gadget.services.LoginHistory.storage.LoginHistoryStorage;
 import org.exoplatform.services.listener.Event;
 import org.exoplatform.services.security.ConversationRegistry;
 import org.exoplatform.services.security.ConversationState;
@@ -14,22 +16,23 @@ import junit.framework.TestCase;
 
 public class LoginHistoryListenerTest extends TestCase {
 
+  private static final String USER = "userLogin1";
   private EntityManagerService entityManagerService;
 
-  private LoginHistoryService loginHistoryService;
+  private LoginHistoryStorage loginHistoryStorage;
 
   public void setUp() {
     PortalContainer container = PortalContainer.getInstance();
     entityManagerService = container.getComponentInstanceOfType(EntityManagerService.class);
-    loginHistoryService = container.getComponentInstanceOfType(LoginHistoryService.class);
+    loginHistoryStorage = container.getComponentInstanceOfType(LoginHistoryStorage.class);
   }
 
-  public void testShouldAddLoginEntryWhenUserListenerIsCalled() throws Exception {
+  public void testShouldAddLoginEntryWhenUserListenerIsCalledOnNullInitParams() throws Exception {
     // Given
+    LoginHistoryService loginHistoryService = new LoginHistoryServiceImpl(loginHistoryStorage, null);
     LoginHistoryListener loginHistoryListener = new LoginHistoryListener(loginHistoryService);
     long beforeLoginTime = System.currentTimeMillis();
-    ConversationState conversationState = new ConversationState(new Identity("userLogin1"));
-    Event<ConversationRegistry, ConversationState> event = new Event("login", new Object(), conversationState);
+    Event<ConversationRegistry, ConversationState> event = LoginWithUser(USER);
 
     // When
     loginHistoryListener.onEvent(event);
@@ -39,10 +42,70 @@ public class LoginHistoryListenerTest extends TestCase {
     try {
       Set<String> lastUsersLogins = loginHistoryService.getLastUsersLogin(beforeLoginTime);
       assertNotNull(lastUsersLogins);
+      assertTrue(loginHistoryService.isEnabled());
       assertEquals(1, lastUsersLogins.size());
-      assertEquals("userLogin1", lastUsersLogins.iterator().next());
+      assertEquals(USER, lastUsersLogins.iterator().next());
     } finally {
       entityManagerService.endRequest(PortalContainer.getInstance());
     }
+  }
+
+  public void testShouldAddLoginEntryWhenUserListenerIsCalled() throws Exception {
+    // Given
+    LoginHistoryService loginHistoryService = new LoginHistoryServiceImpl(loginHistoryStorage, createParams(true));
+    LoginHistoryListener loginHistoryListener = new LoginHistoryListener(loginHistoryService);
+    long beforeLoginTime = System.currentTimeMillis();
+    Event<ConversationRegistry, ConversationState> event = LoginWithUser(USER);
+
+    // When
+    loginHistoryListener.onEvent(event);
+
+    // Then
+    entityManagerService.startRequest(PortalContainer.getInstance());
+    try {
+      Set<String> lastUsersLogins = loginHistoryService.getLastUsersLogin(beforeLoginTime);
+      assertNotNull(lastUsersLogins);
+      assertTrue(loginHistoryService.isEnabled());
+      assertEquals(1, lastUsersLogins.size());
+      assertEquals(USER, lastUsersLogins.iterator().next());
+    } finally {
+      entityManagerService.endRequest(PortalContainer.getInstance());
+    }
+  }
+
+  public void testShouldNotAddLoginEntryWhenItisDisabled() throws Exception {
+    // Given
+    LoginHistoryService loginHistoryService = new LoginHistoryServiceImpl(loginHistoryStorage, createParams(false));
+    LoginHistoryListener loginHistoryListener = new LoginHistoryListener(loginHistoryService);
+    long beforeLoginTime = System.currentTimeMillis();
+    Event<ConversationRegistry, ConversationState> event = LoginWithUser(USER);
+
+    // When
+    loginHistoryListener.onEvent(event);
+
+    // Then
+    entityManagerService.startRequest(PortalContainer.getInstance());
+    try {
+      Set<String> lastUsersLogins = loginHistoryService.getLastUsersLogin(beforeLoginTime);
+      assertNotNull(lastUsersLogins);
+      assertFalse(loginHistoryService.isEnabled());
+      assertEquals(0, lastUsersLogins.size());
+    } finally {
+      entityManagerService.endRequest(PortalContainer.getInstance());
+    }
+  }
+
+  private Event<ConversationRegistry, ConversationState> LoginWithUser(String user) {
+    ConversationState conversationState = new ConversationState(new Identity(user));
+    return (Event<ConversationRegistry, ConversationState>) new Event("login", new Object(), conversationState);
+  }
+
+  private InitParams createParams(boolean isEnabled) {
+    ValueParam valueParam = new ValueParam();
+    valueParam.setName(LoginHistoryService.EXO_AUDIT_LOGIN_ENABLED);
+    valueParam.setValue(String.valueOf(isEnabled));
+    InitParams initParams = new InitParams();
+    initParams.addParam(valueParam);
+    return initParams;
   }
 }

@@ -45,15 +45,17 @@ public class LoginHistoryListener extends Listener<ConversationRegistry, Convers
    */
   @Override
   public void onEvent(Event<ConversationRegistry, ConversationState> event) throws Exception {
-    String userId = event.getData().getIdentity().getUserId();
-    try {
-      long now = System.currentTimeMillis();
-      if (now - loginHistoryService.getLastLogin(userId) > 180000) {
-        loginHistoryService.addLoginHistoryEntry(userId, now);
-        LOG.info("User " + userId + " logged in.");
+    if(loginHistoryService.isEnabled()) {
+      String userId = event.getData().getIdentity().getUserId();
+      try {
+        long now = System.currentTimeMillis();
+        if (now - loginHistoryService.getLastLogin(userId) > 180000) {
+          loginHistoryService.addLoginHistoryEntry(userId, now);
+          LOG.info("User " + userId + " logged in.");
+        }
+      } catch (Exception e) {
+        LOG.debug("Error while logging the login of user '" + userId + "': " + e.getMessage(), e);
       }
-    } catch (Exception e) {
-      LOG.debug("Error while logging the login of user '" + userId + "': " + e.getMessage(), e);
     }
   }
 }

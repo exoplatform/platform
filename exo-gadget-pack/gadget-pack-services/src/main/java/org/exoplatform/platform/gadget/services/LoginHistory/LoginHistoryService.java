@@ -26,6 +26,7 @@ import java.util.Set;
 
 public interface LoginHistoryService {
   String ALL_USERS = "AllUsers";
+  String EXO_AUDIT_LOGIN_ENABLED = "exo.audit.login.enabled";
 
   long getLastLogin(String userId) throws Exception;
 
@@ -44,4 +45,6 @@ public interface LoginHistoryService {
   List<LoginCounterBean> getLoginCountPerMonthsInYear(String userId, long year) throws Exception;
 
   long getBeforeLastLogin(String userId) throws Exception;
+
+  boolean isEnabled();
 }

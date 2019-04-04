@@ -19,6 +19,7 @@ package org.exoplatform.platform.gadget.services.LoginHistory;
 import java.util.List;
 import java.util.Set;
 
+import org.exoplatform.container.xml.InitParams;
 import org.exoplatform.platform.gadget.services.LoginHistory.storage.LoginHistoryStorage;
 
 /**
@@ -27,10 +28,16 @@ import org.exoplatform.platform.gadget.services.LoginHistory.storage.LoginHistor
  */
 
 public class LoginHistoryServiceImpl implements LoginHistoryService {
+  private boolean enableLoginHistory = true;
+
   private LoginHistoryStorage loginHistoryStorage;
 
-  public LoginHistoryServiceImpl(LoginHistoryStorage loginHistoryStorage) {
+  public LoginHistoryServiceImpl(LoginHistoryStorage loginHistoryStorage, InitParams params) {
     this.loginHistoryStorage = loginHistoryStorage;
+    if (params != null && params.containsKey(EXO_AUDIT_LOGIN_ENABLED)) {
+      String enableLoginHistoryString = params.getValueParam(EXO_AUDIT_LOGIN_ENABLED).getValue();
+      enableLoginHistory = enableLoginHistoryString.equalsIgnoreCase("true");
+    }
   }
 
   /**
@@ -115,4 +122,8 @@ public class LoginHistoryServiceImpl implements LoginHistoryService {
   public long getBeforeLastLogin(String userId) throws Exception {
     return loginHistoryStorage.getBeforeLastLogin(userId);
   }
+
+  public boolean isEnabled() {
+    return enableLoginHistory;
+  };
 }

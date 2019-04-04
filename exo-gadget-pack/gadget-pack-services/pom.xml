@@ -11,7 +11,7 @@
   <name>eXo PLF:: Gadget Pack - Services</name>
   <description>Gadget pack services</description>
   <properties>
-    <exo.test.coverage.ratio>0.52</exo.test.coverage.ratio>
+    <exo.test.coverage.ratio>0.54</exo.test.coverage.ratio>
   </properties>
   <dependencies>
     <dependency>

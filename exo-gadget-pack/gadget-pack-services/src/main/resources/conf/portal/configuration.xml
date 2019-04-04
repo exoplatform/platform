@@ -47,6 +47,13 @@
   <component profiles="all">
     <key>org.exoplatform.platform.gadget.services.LoginHistory.LoginHistoryService</key>
     <type>org.exoplatform.platform.gadget.services.LoginHistory.LoginHistoryServiceImpl</type>
+    <init-params>
+      <value-param>
+        <name>exo.audit.login.enabled</name>
+        <description>Enable/Disable login history data storage</description>
+        <value>${exo.audit.login.enabled:true}</value>
+      </value-param>
+    </init-params>
   </component>
 
   <component profiles="all">
