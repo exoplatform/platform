@@ -1,22 +1,16 @@
 package org.exoplatform.platform.component;
 
-import org.apache.commons.lang.StringUtils;
 import org.exoplatform.commons.utils.ListAccess;
 import org.exoplatform.container.PortalContainer;
-import org.exoplatform.portal.application.PortalRequestContext;
 import org.exoplatform.portal.application.RequestNavigationData;
-import org.exoplatform.portal.mop.user.UserNavigation;
-import org.exoplatform.portal.mop.user.UserNode;
 import org.exoplatform.portal.webui.util.Util;
 import org.exoplatform.services.log.ExoLogger;
 import org.exoplatform.services.log.Log;
-import org.exoplatform.social.core.space.SpaceUtils;
 import org.exoplatform.social.core.space.model.Space;
 import org.exoplatform.social.core.space.spi.SpaceService;
 import org.exoplatform.social.webui.Utils;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.config.annotation.EventConfig;
-import org.exoplatform.webui.core.UIComponent;
 import org.exoplatform.webui.core.UIPortletApplication;
 import org.exoplatform.webui.core.lifecycle.UIApplicationLifecycle;
 import org.exoplatform.webui.event.Event;
@@ -32,7 +26,6 @@ import java.util.List;
 @ComponentConfig(lifecycle = UIApplicationLifecycle.class, template = "app:/groovy/platformNavigation/portlet/UISpaceNavigationPortlet/UISpaceNavigationPortlet.gtmpl",
         events = {
                 @EventConfig(listeners = UISpaceNavigationPortlet.IncrementActionListener.class),
-                @EventConfig(listeners = UISpaceNavigationPortlet.SelectSpaceActionListener.class)
         }
 )
 public class UISpaceNavigationPortlet extends UIPortletApplication {
@@ -40,8 +33,6 @@ public class UISpaceNavigationPortlet extends UIPortletApplication {
     private static final Log LOG = ExoLogger.getLogger(UISpaceNavigationPortlet.class);
 
     private static final String MY_SPACE_REST_URL = "/space/user/searchSpace/";
-
-    private static final String SPACE_URL_PATTERN = ":spaces";
 
     private SpaceService spaceService = null;
 
@@ -125,12 +116,6 @@ public class UISpaceNavigationPortlet extends UIPortletApplication {
         }
     }
 
-    public Space putTop(String spaceId) {
-        selectedSpaceId = spaceId;
-        Space space = new Space();
-        space.setId(spaceId);
-        return putTop(space);
-    }
 
     private Space putTop(Space space) {
         int idx = this.spaceList.indexOf(space);
@@ -176,43 +161,6 @@ public class UISpaceNavigationPortlet extends UIPortletApplication {
         return space.getGroupId().equalsIgnoreCase(groupId);
     }
 
-
-    public static class SelectSpaceActionListener extends EventListener<UISpaceNavigationPortlet>
-    {
-        public void execute(Event<UISpaceNavigationPortlet> event) throws Exception {
-            PortalRequestContext pContext = Util.getPortalRequestContext();
-            UISpaceNavigationPortlet uisource = (UISpaceNavigationPortlet) event.getSource();
-            String spaceId = event.getRequestContext().getRequestParameter(UIComponent.OBJECTID);
-            Space space = uisource.putTop(spaceId);
-            //--- Get the space URL using reouter API
-            String spaceURL = Utils.getSpaceHomeURL(space);
-            //---- Get only the GROUP navigation
-            String portalContainerName = PortalContainer.getCurrentPortalContainerName();
-            if (spaceURL.contains(portalContainerName)) {
-                spaceURL = spaceURL.substring(portalContainerName.length()+2);
-            }
-            
-            String fullUrl = ((HttpServletRequest) pContext.getRequest()).getRequestURL().toString();
-            String subUrl = StringUtils.substringBefore(fullUrl,Util.getPortalRequestContext().getRequest().getRequestURI());
-            subUrl +="/"+ portalContainerName;
-            String applicationDisplayed = "";
-            String constructURL = fullUrl.substring(subUrl.length()+1);
-            subUrl =new StringBuffer(subUrl).append("/").append(spaceURL).toString();
-            if (fullUrl.contains(SPACE_URL_PATTERN)) {
-                int count = StringUtils.countMatches(constructURL, "/");
-                
-                if(count != 2){
-                  applicationDisplayed = constructURL.substring(constructURL.lastIndexOf("/") + 1);
-                  String selectedAppNodeName = uisource.checkAndGetExistingAppNodeName(space, applicationDisplayed); 
-                  if (selectedAppNodeName != null)
-                    subUrl =new StringBuffer(subUrl).append("/").append(selectedAppNodeName).toString();
-                }
-            }
-
-            uisource.setReload(true);
-            event.getRequestContext().getJavascriptManager().getRequireJS().require("SHARED/navigation-spaces-search", "spaceSearchNavigationPortlet").addScripts("spaceSearchNavigationPortlet.ajaxRedirect('"+subUrl+"');");
-        }
-    }
 
     public static class IncrementActionListener extends EventListener<UISpaceNavigationPortlet>
     {
@@ -268,36 +216,5 @@ public class UISpaceNavigationPortlet extends UIPortletApplication {
     public void setOldNavigation(String oldNavigation) {
         this.oldNavigation = oldNavigation;
     }
-    
-    private String checkAndGetExistingAppNodeName(Space space, String appId) throws Exception {
-      if (appId == null) return null;
-      String groupId = space.getGroupId();
-      UserNavigation userNav = SpaceUtils.getGroupNavigation(groupId);
-      UserNode homeNode = SpaceUtils.getHomeNodeWithChildren(userNav, space.getUrl());
-      for (UserNode node : homeNode.getChildren()) {
-        if (appId.equals(node.getName())) return appId;
-      }
-      
-      // in case application name has been changed
-      String leftSpaceGroupId = Util.getPortalRequestContext()
-          .getControllerContext().getParameter(RequestNavigationData.REQUEST_SITE_NAME);
-      Space leftSpace = spaceService.getSpaceByGroupId(leftSpaceGroupId);
-      String[] leftSpaceApps = leftSpace.getApp().split(",");
-      String selectedAppId = ""; 
-      for (String app : leftSpaceApps) {
-        if (app.contains(appId.replace("_", " "))) {
-          selectedAppId = app.split(":")[0];
-          break;
-        }
-      }
-      
-      if (selectedAppId.isEmpty()) return null;
-      
-      String[] spaceApps = space.getApp().split(",");
-      for (String spaceApp : spaceApps) {
-        if (spaceApp.contains(selectedAppId)) return spaceApp.split(":")[1].replace(" ", "_");
-      }
-      
-      return null;
-    }
+
 }
