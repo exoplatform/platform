@@ -1128,7 +1128,7 @@
                 breadCrumbContentTooltip += " > ";
               }
               breadCrumbContent += '<a href="' + folderPath + '" onclick="event.stopPropagation();window.location.href=this.href"> \
-                                      ' + folderName + ' \
+                                      ' + XSSUtils.escapeHtml(folderName) + ' \
                                     </a>';
               breadCrumbContentTooltip += folderName;
               folderIndex++;
