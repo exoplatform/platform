@@ -11,6 +11,5 @@
   <name>eXo PLF:: Platform - Acme Intranet</name>
   <modules>
     <module>webapp</module>
-    <module>portlet</module>
   </modules>
 </project>

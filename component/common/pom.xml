@@ -10,7 +10,7 @@
   <packaging>jar</packaging>
   <name>eXo PLF:: Platform - Common</name>
   <properties>
-    <exo.test.coverage.ratio>0.07</exo.test.coverage.ratio>
+    <exo.test.coverage.ratio>0.10</exo.test.coverage.ratio>
   </properties>
   <dependencies>
     <dependency>
@@ -133,6 +133,18 @@
     <dependency>
       <groupId>org.exoplatform.gatein.portal</groupId>
       <artifactId>exo.portal.webui.portal</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.exoplatform.social</groupId>
+      <artifactId>social-component-notification</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.exoplatform.calendar</groupId>
+      <artifactId>calendar-service</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.exoplatform.calendar</groupId>
+      <artifactId>calendar-webservice</artifactId>
     </dependency>
     <dependency>
       <groupId>org.apache.shindig</groupId>

@@ -46,8 +46,22 @@
    <portlet>
       <name>HomePageCalendarPortlet</name>
       <module>
+         <script>
+            <minify>false</minify>
+            <path>/js/calendarHomeApp.bundle.js</path>
+         </script>
          <depends>
-            <module>jQueryCalendar</module>
+            <module>vue</module>
+         </depends>
+         <depends>
+            <module>eXoVueI18n</module>
+         </depends>
+         <depends>
+            <module>jquery</module>
+            <as>$</as>
+         </depends>
+         <depends>
+            <module>extensionRegistry</module>
          </depends>
       </module>
    </portlet>
@@ -55,8 +69,25 @@
    <portlet>
       <name>WhoIsOnLinPortlet</name>
       <module>
+         <script>
+            <minify>false</minify>
+            <path>/js/whoIsOnline.bundle.js</path>
+         </script>
          <depends>
-            <module>jQueryWhoIsOnLine</module>
+            <module>vue</module>
+         </depends>
+         <depends>
+            <module>eXoVueI18n</module>
+         </depends>
+         <depends>
+            <module>extensionRegistry</module>
+         </depends>
+         <depends>
+            <module>jquery</module>
+            <as>$</as>
+         </depends>
+         <depends>
+            <module>userPopupPlugin</module>
          </depends>
       </module>
    </portlet>
@@ -90,20 +121,6 @@
    </module>
 
    <module>
-      <name>jQueryCalendar</name>
-      <load-group>homepage-apps</load-group>
-      <script>
-         <path>/js/calendar/calendar.js</path>
-      </script>
-      <depends>
-         <module>juzu-ajax</module>
-      </depends>
-      <depends>
-         <module>jquery</module>
-      </depends>
-   </module>
-
-   <module>
       <name>jQueryGettingStarted</name>
       <load-group>homepage-apps</load-group>
       <script>
@@ -117,20 +134,4 @@
       </depends>
    </module>
 
-   <module>
-      <name>jQueryWhoIsOnLine</name>
-      <load-group>homepage-apps</load-group>
-      <script>
-         <path>/js/whoisonline/whoisonline.js</path>
-      </script>
-      <depends>
-         <module>juzu-ajax</module>
-      </depends>
-      <depends>
-         <module>jquery</module>
-      </depends>
-      <depends>
-         <module>userPopupPlugin</module>
-      </depends>
-   </module>
 </gatein-resources>
