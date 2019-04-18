@@ -416,6 +416,11 @@
       </dependency>
       <dependency>
         <groupId>org.exoplatform.gatein.portal</groupId>
+        <artifactId>exo.portal.component.jdbc</artifactId>
+        <version>${org.exoplatform.gatein.portal.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.exoplatform.gatein.portal</groupId>
         <artifactId>exo.portal.component.identity</artifactId>
         <version>${org.exoplatform.gatein.portal.version}</version>
       </dependency>
