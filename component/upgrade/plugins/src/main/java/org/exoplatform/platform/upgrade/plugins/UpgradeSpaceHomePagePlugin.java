@@ -19,6 +19,7 @@
 package org.exoplatform.platform.upgrade.plugins;
 
 import org.exoplatform.commons.upgrade.UpgradeProductPlugin;
+import org.exoplatform.commons.utils.CommonsUtils;
 import org.exoplatform.commons.version.util.VersionComparator;
 import org.exoplatform.container.PortalContainer;
 import org.exoplatform.container.component.RequestLifeCycle;
@@ -40,9 +41,12 @@ import org.exoplatform.services.log.Log;
 import org.exoplatform.services.organization.Group;
 import org.exoplatform.services.organization.GroupHandler;
 import org.exoplatform.services.organization.OrganizationService;
+import org.exoplatform.social.core.space.SpaceApplication;
+import org.exoplatform.social.core.space.SpaceTemplate;
 import org.exoplatform.social.core.space.SpaceUtils;
 import org.exoplatform.social.core.space.model.Space;
 import org.exoplatform.social.core.space.spi.SpaceService;
+import org.exoplatform.social.core.space.spi.SpaceTemplateService;
 import org.exoplatform.social.core.storage.api.SpaceStorage;
 
 import java.util.Arrays;
@@ -63,6 +67,8 @@ public class UpgradeSpaceHomePagePlugin extends UpgradeProductPlugin {
     private DataStorage dataStorageService = null;
 
     private SpaceService spaceService = null;
+
+    private SpaceTemplateService spaceTemplateService = null;
 
     private PageService pageService = null;
 
@@ -125,7 +131,25 @@ public class UpgradeSpaceHomePagePlugin extends UpgradeProductPlugin {
             LOG.info("Updating '" + spaceGroupId + "' Space Home Page");
 
             // creates the new home page
-            Page oldSpaceHomePage = dataStorageService.getPage(PortalConfig.GROUP_TYPE + "::" + spaceGroupId + "::" + getSpaceService().getSpaceApplicationConfigPlugin().getHomeApplication().getPortletName());
+            Space space = getSpaceService().getSpaceByGroupId(spaceGroupId);
+            if (space == null) {
+                throw new IllegalStateException("Can't find space with group id " + spaceGroupId);
+            }
+            String spaceType = space.getType();
+            SpaceTemplateService spaceTemplateService = getSpaceTemplateService();
+            SpaceTemplate spaceTemplate = spaceTemplateService.getSpaceTemplateByName(spaceType);
+            if (spaceTemplate == null) {
+                LOG.warn("Could not find space template:{}. Space home page will not be updated for space:{}.", spaceType, spacePrettyName);
+                return;
+            }
+            SpaceApplication homeApplication = spaceTemplate.getSpaceHomeApplication();
+            if (homeApplication == null) {
+                LOG.warn("Could not find home application for template:{}. Space home page will not be updated for space:{}.", spaceType, spacePrettyName);
+                return;
+            }
+            String portletName = homeApplication.getPortletName();
+            String pageName = PortalConfig.GROUP_TYPE + "::" + spaceGroupId + "::" + portletName;
+            Page oldSpaceHomePage = dataStorageService.getPage(pageName);
             PageContext pageContext = pageService.loadPage(PageKey.parse(oldSpaceHomePage.getPageId()));
             pageContext.update(oldSpaceHomePage);
 
@@ -224,5 +248,12 @@ public class UpgradeSpaceHomePagePlugin extends UpgradeProductPlugin {
             this.spaceService = (SpaceService) PortalContainer.getInstance().getComponentInstanceOfType(SpaceService.class);
         }
         return this.spaceService;
+    }
+
+    private SpaceTemplateService getSpaceTemplateService() {
+        if (this.spaceTemplateService == null) {
+            this.spaceTemplateService = CommonsUtils.getService(SpaceTemplateService.class);
+        }
+        return this.spaceTemplateService;
     }
 }
