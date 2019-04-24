@@ -11,6 +11,7 @@ import javax.jcr.NodeIterator;
 import javax.jcr.RepositoryException;
 import javax.jcr.Session;
 
+import org.exoplatform.commons.utils.CommonsUtils;
 import org.exoplatform.commons.utils.ExoProperties;
 import org.exoplatform.container.PortalContainer;
 import org.exoplatform.container.component.RequestLifeCycle;
@@ -47,8 +48,12 @@ import org.exoplatform.services.log.ExoLogger;
 import org.exoplatform.services.log.Log;
 import org.exoplatform.services.security.IdentityConstants;
 import org.exoplatform.services.wcm.core.NodetypeConstant;
+import org.exoplatform.social.core.space.SpaceApplication;
+import org.exoplatform.social.core.space.SpaceTemplate;
 import org.exoplatform.social.core.space.SpaceUtils;
+import org.exoplatform.social.core.space.model.Space;
 import org.exoplatform.social.core.space.spi.SpaceService;
+import org.exoplatform.social.core.space.spi.SpaceTemplateService;
 
 public class SpaceCustomizationService {
   final static private Log LOG = ExoLogger.getExoLogger(SpaceCustomizationService.class);
@@ -65,6 +70,7 @@ public class SpaceCustomizationService {
   PageService pageService = null;
   private UserPortalConfigService userPortalConfigService = null;
   private SpaceService spaceService = null;
+  private SpaceTemplateService spaceTemplateService = null;
   private UserACL userACL = null;
   private String groupsPath;
 
@@ -221,8 +227,25 @@ public class SpaceCustomizationService {
       LOG.info("Updating '" + spaceGroupId + "' Space Home Page");
       
       // creates the new home page
-      Page oldSpaceHomePage = dataStorageService.getPage(PortalConfig.GROUP_TYPE + "::" + spaceGroupId + "::"
-          + getSpaceService().getSpaceApplicationConfigPlugin().getHomeApplication().getPortletName());
+      Space space = getSpaceService().getSpaceByGroupId(spaceGroupId);
+      if (space == null) {
+        throw new IllegalStateException("Can't find space with group id " + spaceGroupId);
+      }
+      String spaceType = space.getType();
+      SpaceTemplateService spaceTemplateService = getSpaceTemplateService();
+      SpaceTemplate spaceTemplate = spaceTemplateService.getSpaceTemplateByName(spaceType);
+      if (spaceTemplate == null) {
+        LOG.warn("Could not find space template:{}. Space home page will not be created for space:{}.", spaceType, spacePrettyName);
+        return;
+      }
+      SpaceApplication homeApplication = spaceTemplate.getSpaceHomeApplication();
+      if (homeApplication == null) {
+        LOG.warn("Could not find home application for template:{}. Space home page will not be created for space:{}.", spaceType, spacePrettyName);
+        return;
+      }
+      String portletName = homeApplication.getPortletName();
+      String pageName = PortalConfig.GROUP_TYPE + "::" + spaceGroupId + "::" + portletName;
+      Page oldSpaceHomePage = dataStorageService.getPage(pageName);
       PageContext pageContext = pageService.loadPage(PageKey.parse(oldSpaceHomePage.getPageId()));
       pageContext.update(oldSpaceHomePage);
       
@@ -281,6 +304,13 @@ public class SpaceCustomizationService {
       this.spaceService = (SpaceService) PortalContainer.getInstance().getComponentInstanceOfType(SpaceService.class);
     }
     return this.spaceService;
+  }
+
+  public SpaceTemplateService getSpaceTemplateService() {
+    if (this.spaceTemplateService == null) {
+      this.spaceTemplateService = CommonsUtils.getService(SpaceTemplateService.class);
+    }
+    return this.spaceTemplateService;
   }
 
   private void editSCVPreference(Application<Portlet> selectedPortlet, String prefValue, ExoProperties welcomeSCVCustomPreferences)
