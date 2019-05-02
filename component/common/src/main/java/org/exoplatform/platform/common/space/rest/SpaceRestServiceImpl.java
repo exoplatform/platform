@@ -106,23 +106,15 @@ public class SpaceRestServiceImpl implements ResourceContainer {
     }
 
     private void addSpaceWithFieldsToList(Space space, String fields, List<Object> sortedSearchedSpaces) {
-      String groupId = space.getGroupId();
-      String permanentSpaceName = groupId.split("/")[2];
-
-      StringBuffer baseSpaceURL = new StringBuffer();
-      baseSpaceURL.append(PortalContainer.getCurrentPortalContainerName()+ "/g/:spaces:") ;
-      if (permanentSpaceName.equals(space.getPrettyName())) {
-          baseSpaceURL.append(permanentSpaceName) ;
-          baseSpaceURL.append("/");
-          baseSpaceURL.append(permanentSpaceName) ;
-      } else {
-          baseSpaceURL.append(space.getPrettyName()) ;
-          baseSpaceURL.append("/");
-          baseSpaceURL.append(space.getPrettyName()) ;
-      }
-
-      space.setUrl(baseSpaceURL.toString());
-      sortedSearchedSpaces.add(extractObject(space, fields));
+        String groupId = space.getGroupId();
+        String permanentSpaceName = groupId.split("/")[2];
+        StringBuffer baseSpaceURL = new StringBuffer();
+        baseSpaceURL.append(PortalContainer.getCurrentPortalContainerName() + "/g/:spaces:");
+        baseSpaceURL.append(permanentSpaceName);
+        baseSpaceURL.append("/");
+        baseSpaceURL.append(space.getPrettyName());
+        space.setUrl(baseSpaceURL.toString());
+        sortedSearchedSpaces.add(extractObject(space, fields));
     }
 
     private static Space filterSpace(String spaceId, List<Space> spacesSearched) {
