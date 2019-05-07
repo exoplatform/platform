@@ -47,9 +47,9 @@
 
     init: function (docPreviewSettings) {
       if($('.commentsLoaded').length) {
-        $("#documentPreviewContent").html('<div class="loading"> \
-            <i class="uiLoadingIconMedium uiIconLightGray"></i> \
-          </div>');
+        $("#documentPreviewContent").html('<div class="loading">' +
+            '<i class="uiLoadingIconMedium uiIconLightGray"></i>' +
+          '</div>');
       }
 
       this.settings = $.extend(this.defaultSettings, docPreviewSettings);
@@ -298,127 +298,127 @@
       }
 
       if($('.commentsLoaded').length) {
-        docPreviewContainer.find(".previewBtn").html(' \
-            <div class="showComments"> \
-            <a><i class="uiIconComment uiIconWhite"></i>&nbsp;${UIActivity.comment.showComment}</a> \
-          </div> \
-          <div class="openBtn"> \
-            <a href="' + this.settings.doc.openUrl + '"><i class="uiIconGotoFolder uiIconWhite"></i>&nbsp;${UIActivity.comment.openInDocuments}</a> \
-          </div> \
-          <div class="downloadBtn"> \
-            <a href="' + this.settings.doc.downloadUrl + '"><i class="uiIconDownload uiIconWhite"></i>&nbsp;${UIActivity.comment.download}</a> \
-          </div>');
+        docPreviewContainer.find(".previewBtn").html(
+          '<div class="showComments">' +
+            '<a><i class="uiIconComment uiIconWhite"></i>&nbsp;${UIActivity.comment.showComment}</a>' +
+          '</div>' +
+          '<div class="openBtn">' +
+            '<a href="' + this.settings.doc.openUrl + '"><i class="uiIconGotoFolder uiIconWhite"></i>&nbsp;${UIActivity.comment.openInDocuments}</a>' +
+          '</div>' +
+          '<div class="downloadBtn">' +
+            '<a href="' + this.settings.doc.downloadUrl + '"><i class="uiIconDownload uiIconWhite"></i>&nbsp;${UIActivity.comment.download}</a>' +
+          '</div>');
       } else {
         var authorFullName = XSSUtils.sanitizeString(this.settings.author.fullname != null ? this.settings.author.fullname : '');
-        docPreviewContainer.html(' \
-          <div class="uiDocumentPreview" id="uiDocumentPreview"> \
-            <div class="exitWindow"> \
-              <a class="uiIconClose uiIconWhite" title="${UIActivity.comment.close}" onclick="documentPreview.hide()"></a> \
-            </div> \
-            <div class="uiDocumentPreviewMainWindow clearfix"> \
-              <!-- doc comments --> \
-              <div class="uiBox commentArea pull-right" id="commentArea"> \
-                <div class="title">\
-                  <i class="' + cssClasses + '"></i>&nbsp;' + this.settings.doc.title + ' \
-                </div> \
-                <div class="uiContentBox"> \
-                  <div class="highlightBox"> \
-                    <div class="profile clearfix"> \
-                      <a title="' + authorFullName + '" href="' + this.settings.author.profileUrl + '" class="avatarMedium pull-left"><img alt="' + authorFullName + '" src="' + this.settings.author.avatarUrl + '"></a> \
-                      <div class="rightBlock"> \
-                        <a href="' + this.settings.author.profileUrl + '">' + authorFullName + '</a> \
-                        <p class="dateTime">' + this.settings.activity.postTime + '</p> \
-                        <p class="descript" title="activityStatus">' + (this.settings.activity.status != null ? this.settings.activity.status : '') + '</p> \
-                      </div> \
-                    </div> \
-                  </div> \
-                  <div class="actionBar clearfix "> \
-                    <ul class="pull-right"> \
-                      <li> \
-                        <a href="#" id="previewCommentLink"> \
-                          <i class="uiIconComment uiIconLightGray"></i>&nbsp;<span class="nbOfComments"></span> \
-                        </a> \
-                      </li> \
-                      <li> \
-                        <a href="javascript:void(0);" id="previewLikeLink" onclick="documentPreview.like(!documentPreview.settings.activity.liked)" rel="tooltip" data-placement="bottom" title="${UIActivity.label.Like}"> \
-                          <i class="uiIconThumbUp uiIconLightGray"></i>&nbsp;<span class="nbOfLikes"></span> \
-                        </a> \
-                      </li> \
-                    </ul> \
-                  </div> \
-                  <div class="alert alert-error" id="uiPreviewErrorMessage">\
-                    <i class="uiIconError" id="uiPreviewErrorMessageIcon"></i>\
-                    <span id="uiPreviewErrorMessageContent">Your email address is incorrect. Please try again!</span>\
-                  </div>\
-                  <div class="comments">\
-                    <ul class="commentList"> \
-                    </ul> \
-                  </div> \
-                  <div class="commentInputBox"> \
-                    <a class="avatarXSmall pull-left" href="' + this.settings.user.profileUrl + '" title="' + XSSUtils.sanitizeString(this.settings.user.fullname) + '"> \
-                      <img src="' + this.settings.user.avatarUrl + '" alt="' + XSSUtils.sanitizeString(this.settings.user.fullname) + '" /></a> \
-                      <div class="commentBox"> \
-                        <div class="commentTextInput"> \
-                          <textarea id="commentInput" placeholder="${UIActivity.comment.placeholder}" cols="30" rows="10" id="commentTextAreaPreview" activityId="activityId" class="textarea"></textarea> \
-                        </div>\
-                        <button class="btn pull-left btn-primary" rel="tooltip" data-placement="bottom" title="comment" id="CommentButton" disabled>${UIActivity.label.Comment}</button> \
-                        <button class="btn pull-left" rel="tooltip" data-placement="bottom" title="cancel" id="CancelButton">${UIActivity.label.Cancel}</button> \
-                      </div> \
-                    </div> \
-                    <div class="parentCommentBlock hidden" onclick="documentPreview.showCommentBlockForActivity()"> \
-                      <a href="javascript:void(0)" class="ParentCommentLink">${UIActivity.label.Comment}</a> \
-                    </div> \
-                </div> \
-              </div> \
-              <div class="resizeButton " id="ShowHideAll"> \
-                <i class="uiIconMiniArrowLeft uiIconWhite"></i> \
-                <i class="uiIconMiniArrowRight uiIconWhite"></i> \
-              </div> \
-              <div id="documentPreviewContent" ' + (this.settings.doc.isWebContent == true ? ' class="uiPreviewWebContent"' : '') + '> \
-                  <div class="loading"> \
-                    <i class="uiLoadingIconMedium uiIconLightGray"></i> \
-                  </div>\
-              </div>\
-                <div id = "previewPopup" class="UIPopupWindow uiPopup UIDragObject NormalStyle" style="width: 560px; position: absolute; top: 30%; left: 30%; margin: 0 auto 20px; z-index: 1; max-width: 100%;display:none">\
-                <div class="popupHeader ClearFix">\
-                    <a id="previewPopupCloseIcon" class="uiIconClose pull-right" aria-hidden="true" ></a>\
-                    <span class="PopupTitle popupTitle">Popup header</span>\
-                </div>\
-                <div class="PopupContent popupContent">\
-                    <div class="form-horizontal resizable">\
-                        <div class="popupContent">\
-                        <span class="confirmationIcon contentMessage">Are you sure you want to delete this comment?</span>\
-                     </div>\
-                    </div>\
-                    <div class="uiAction uiActionBorder">\
-                        <button id="previewPopupDeleteButton" class="btn" onclick="" type="button">Delete</button>\
-                        <button id="previewPopupCloseButton" class="btn" onclick="" type="button">Cancel</button>\
-                    </div>\
-                </div>\
-                <span class="uiIconResize pull-right uiIconLightGray"></span>\
-              </div>\
-              \
-              <!-- put vote area here --> \
-              <div class="previewBtn"> \
-                <div class="showComments"> \
-                  <a><i class="uiIconComment uiIconWhite"></i>&nbsp;${UIActivity.comment.showComment}</a> \
-                </div> \
-                <div class="openBtn"> \
-                  <a href="' + this.settings.doc.openUrl + '"><i class="uiIconGotoFolder uiIconWhite"></i>&nbsp;${UIActivity.comment.openInDocuments}</a> \
-                </div> \
-                <div class="downloadBtn"> \
-                  <a href="' + this.settings.doc.downloadUrl + '"><i class="uiIconDownload uiIconWhite"></i>&nbsp;${UIActivity.comment.download}</a> \
-                </div> \
-              </div> \
-            </div> \
-          </div>');
+        docPreviewContainer.html(
+          '<div class="uiDocumentPreview" id="uiDocumentPreview">' +
+            '<div class="exitWindow">' +
+              '<a class="uiIconClose uiIconWhite" title="${UIActivity.comment.close}" onclick="documentPreview.hide()"></a>' +
+            '</div>' +
+            '<div class="uiDocumentPreviewMainWindow clearfix">' +
+              '<!-- doc comments -->' +
+              '<div class="uiBox commentArea pull-right" id="commentArea">' +
+                '<div class="title">' +
+                  '<i class="' + cssClasses + '"></i>&nbsp;' + this.settings.doc.title +
+                '</div>' +
+                '<div class="uiContentBox">' +
+                  '<div class="highlightBox">' +
+                    '<div class="profile clearfix">' +
+                      '<a title="' + authorFullName + '" href="' + this.settings.author.profileUrl + '" class="avatarMedium pull-left"><img alt="' + authorFullName + '" src="' + this.settings.author.avatarUrl + '"></a>' +
+                      '<div class="rightBlock">' +
+                        '<a href="' + this.settings.author.profileUrl + '">' + authorFullName + '</a>' +
+                        '<p class="dateTime">' + this.settings.activity.postTime + '</p>' +
+                        '<p class="descript" title="activityStatus">' + (this.settings.activity.status != null ? this.settings.activity.status : '') + '</p>' +
+                      '</div>' +
+                    '</div>' +
+                  '</div>' +
+                  '<div class="actionBar clearfix ">' +
+                    '<ul class="pull-right">' +
+                      '<li>' +
+                        '<a href="#" id="previewCommentLink">' +
+                          '<i class="uiIconComment uiIconLightGray"></i>&nbsp;<span class="nbOfComments"></span>' +
+                        '</a>' +
+                      '</li>' +
+                      '<li>' +
+                        '<a href="javascript:void(0);" id="previewLikeLink" onclick="documentPreview.like(!documentPreview.settings.activity.liked)" rel="tooltip" data-placement="bottom" title="${UIActivity.label.Like}">' +
+                          '<i class="uiIconThumbUp uiIconLightGray"></i>&nbsp;<span class="nbOfLikes"></span>' +
+                        '</a>' +
+                      '</li>' +
+                    '</ul>' +
+                  '</div>' +
+                  '<div class="alert alert-error" id="uiPreviewErrorMessage">' +
+                    '<i class="uiIconError" id="uiPreviewErrorMessageIcon"></i>' +
+                    '<span id="uiPreviewErrorMessageContent">Your email address is incorrect. Please try again!</span>' +
+                  '</div>' +
+                  '<div class="comments">' +
+                    '<ul class="commentList">' +
+                    '</ul>' +
+                  '</div>' +
+                  '<div class="commentInputBox">' +
+                    '<a class="avatarXSmall pull-left" href="' + this.settings.user.profileUrl + '" title="' + XSSUtils.sanitizeString(this.settings.user.fullname) + '">' +
+                      '<img src="' + this.settings.user.avatarUrl + '" alt="' + XSSUtils.sanitizeString(this.settings.user.fullname) + '" /></a>' +
+                      '<div class="commentBox">' +
+                        '<div class="commentTextInput">' +
+                          '<textarea id="commentInput" placeholder="${UIActivity.comment.placeholder}" cols="30" rows="10" id="commentTextAreaPreview" activityId="activityId" class="textarea"></textarea>' +
+                        '</div>' +
+                        '<button class="btn pull-left btn-primary" rel="tooltip" data-placement="bottom" title="comment" id="CommentButton" disabled>${UIActivity.label.Comment}</button>' +
+                        '<button class="btn pull-left" rel="tooltip" data-placement="bottom" title="cancel" id="CancelButton">${UIActivity.label.Cancel}</button>' +
+                      '</div>' +
+                    '</div>' +
+                    '<div class="parentCommentBlock hidden" onclick="documentPreview.showCommentBlockForActivity()">' +
+                      '<a href="javascript:void(0)" class="ParentCommentLink">${UIActivity.label.Comment}</a>' +
+                    '</div>' +
+                '</div>' +
+              '</div>' +
+              '<div class="resizeButton " id="ShowHideAll">' +
+                '<i class="uiIconMiniArrowLeft uiIconWhite"></i>' +
+                '<i class="uiIconMiniArrowRight uiIconWhite"></i>' +
+              '</div>' +
+              '<div id="documentPreviewContent" ' + (this.settings.doc.isWebContent == true ? ' class="uiPreviewWebContent"' : '') + '>' +
+                  '<div class="loading">' +
+                    '<i class="uiLoadingIconMedium uiIconLightGray"></i>' +
+                  '</div>' +
+              '</div>' +
+                '<div id = "previewPopup" class="UIPopupWindow uiPopup UIDragObject NormalStyle" style="width: 560px; position: absolute; top: 30%; left: 30%; margin: 0 auto 20px; z-index: 1; max-width: 100%;display:none">' +
+                '<div class="popupHeader ClearFix">' +
+                    '<a id="previewPopupCloseIcon" class="uiIconClose pull-right" aria-hidden="true" ></a>' +
+                    '<span class="PopupTitle popupTitle">Popup header</span>' +
+                '</div>' +
+                '<div class="PopupContent popupContent">' +
+                    '<div class="form-horizontal resizable">' +
+                        '<div class="popupContent">' +
+                        '<span class="confirmationIcon contentMessage">Are you sure you want to delete this comment?</span>' +
+                     '</div>' +
+                    '</div>' +
+                    '<div class="uiAction uiActionBorder">' +
+                        '<button id="previewPopupDeleteButton" class="btn" onclick="" type="button">Delete</button>' +
+                        '<button id="previewPopupCloseButton" class="btn" onclick="" type="button">Cancel</button>' +
+                    '</div>' +
+                '</div>' +
+                '<span class="uiIconResize pull-right uiIconLightGray"></span>' +
+              '</div>' +
+
+              '<!-- put vote area here -->' +
+              '<div class="previewBtn">' +
+                '<div class="showComments">' +
+                  '<a><i class="uiIconComment uiIconWhite"></i>&nbsp;${UIActivity.comment.showComment}</a>' +
+                '</div>' +
+                '<div class="openBtn">' +
+                  '<a href="' + this.settings.doc.openUrl + '"><i class="uiIconGotoFolder uiIconWhite"></i>&nbsp;${UIActivity.comment.openInDocuments}</a>' +
+                '</div>' +
+                '<div class="downloadBtn">' +
+                  '<a href="' + this.settings.doc.downloadUrl + '"><i class="uiIconDownload uiIconWhite"></i>&nbsp;${UIActivity.comment.download}</a>' +
+                '</div>' +
+              '</div>' +
+            '</div>' +
+          '</div>');
       }
 
       if(this.settings.doc.remoteEditURL) {
         $(".previewBtn").append(
-            '<div class="remoteEditBtn hidden-tabletL"> \
-               <a  href="' + this.settings.doc.remoteEditURL + '"><i  style="display:none;" class="uiIcon16x16FileDefault uiIconEcmsOpenDocument_' + this.settings.activity.id + ' uiIconWhite ' + this.settings.doc.remoteEditClass + '"></i>&nbsp;' + this.settings.doc.remoteEditTitle + '</a> \
-            </div>'
+            '<div class="remoteEditBtn hidden-tabletL">' +
+               '<a  href="' + this.settings.doc.remoteEditURL + '"><i  style="display:none;" class="uiIcon16x16FileDefault uiIconEcmsOpenDocument_' + this.settings.activity.id + ' uiIconWhite ' + this.settings.doc.remoteEditClass + '"></i>&nbsp;' + this.settings.doc.remoteEditTitle + '</a>' +
+            '</div>'
         );
       }
       
@@ -552,13 +552,13 @@
                 commentClass += " hidden";
                 if(subCommentIndex == subCommentSize) {
                   commentsHtml += 
-                  '<li class="clearfix commentItem subCommentBlock subCommentShowAll" id="SubCommentShowAll_' + comment.parentCommentId + '"> \
-                      <p class="cont"> \
-                        <a href="javascript:void(0)" class="subCommentShowAllLink" data-parent-comment="' + comment.parentCommentId + '">' +
-                          "${UIActivity.label.ViewAllReplies}".replace("{0}", subCommentSize) + '\
-                        </a> \
-                      </p>\
-                  </li>';
+                  '<li class="clearfix commentItem subCommentBlock subCommentShowAll" id="SubCommentShowAll_' + comment.parentCommentId + '">' +
+                      '<p class="cont">' +
+                        '<a href="javascript:void(0)" class="subCommentShowAllLink" data-parent-comment="' + comment.parentCommentId + '">' +
+                          "${UIActivity.label.ViewAllReplies}".replace("{0}", subCommentSize) +
+                        '</a>' +
+                      '</p>' +
+                  '</li>';
                 }
             }
           } else {
@@ -567,14 +567,14 @@
             hideSubComments = subCommentSize > 2 & comment.id !== commentActivityParentId;
           }
 
-          commentsHtml += '<li class="clearfix commentItem ' + commentClass + '" data-comment="' + comment.id + '" data-parent-comment="' + parentCommentIdString + '"> \
-            <a class="avatarXSmall pull-left" href="' + commenterProfileUrl + '" title="' + XSSUtils.sanitizeString(comment.identity.profile.fullname) + '"><img src="' + commenterAvatar + '" alt="" /></a> \
-            <div class="rightBlock"> \
-              <div class="tit"> \
-                <a href="' + commenterProfileUrl + '" >' + XSSUtils.sanitizeString(comment.identity.profile.fullname) + '</a> \
-                <span class="pull-right dateTime">' + self.convertDate(comment.updateDate) + '</span> \
-              </div> \
-              <p class="cont">' + comment.body + '</p>';
+          commentsHtml += '<li class="clearfix commentItem ' + commentClass + '" data-comment="' + comment.id + '" data-parent-comment="' + parentCommentIdString + '">' +
+            '<a class="avatarXSmall pull-left" href="' + commenterProfileUrl + '" title="' + XSSUtils.sanitizeString(comment.identity.profile.fullname) + '"><img src="' + commenterAvatar + '" alt="" /></a>' +
+            '<div class="rightBlock">' +
+              '<div class="tit">' +
+                '<a href="' + commenterProfileUrl + '" >' + XSSUtils.sanitizeString(comment.identity.profile.fullname) + '</a>' +
+                '<span class="pull-right dateTime">' + self.convertDate(comment.updateDate) + '</span>' +
+              '</div>' +
+              '<p class="cont">' + comment.body + '</p>';
 
           // add like comment if the document is linked to an activity
           if(self.settings.activity.id != null) {
@@ -592,31 +592,31 @@
 
             var likeTooltip = comment.liked ? "${UIActivity.msg.UnlikeComment}" : "${UIActivity.msg.LikeComment}";
 
-            commentsHtml += '<ul class="pull-left statusAction"> \
-                <li> \
-                  <a onclick="documentPreview.toggleLikeComment(\'' + comment.id + '\')" class="likeCommentLink" data-placement="bottom" rel="tooltip" title="' + likeTooltip + '" id="likeCommentLink_' + comment.id + '" href="javascript:void(0);"> \
-                    <i class="uiIconThumbUp ' + (comment.liked ? 'commentLiked' : '') + '"></i> \
-                  </a> \
-                  <a onclick="documentPreview.showLikersPopup(\'' + comment.id + '\');" data-placement="bottom" class="likeCommentCount ' + (comment.liked ? 'commentLiked' : '') + '" style="display: ' + (comment.likes.length > 0 ? 'inline' : 'none') +'" data-html="true" rel="tooltip" title="' + commentLikers + '" id="likeCommentCount_' + comment.id + '" href="javascript:void(0);">' + (comment.likes.length > 0 ? '(' + comment.likes.length + ')' : '') + '</a> \
-                </li> \
-                <li class="separator">-</li> \
-                <li> \
-                  <a class="replyCommentLink" data-placement="bottom" href="javascript:void(0);" data-comment="' + comment.id + '" data-parent-comment="' + parentCommentIdString + '"> \
-                  ${UIActivity.label.Reply}\
-                  </a> \
-                </li> \
-              </ul>';
+            commentsHtml += '<ul class="pull-left statusAction">' +
+                '<li>' +
+                  '<a onclick="documentPreview.toggleLikeComment(\'' + comment.id + '\')" class="likeCommentLink" data-placement="bottom" rel="tooltip" title="' + likeTooltip + '" id="likeCommentLink_' + comment.id + '" href="javascript:void(0);">' +
+                    '<i class="uiIconThumbUp ' + (comment.liked ? 'commentLiked' : '') + '"></i>' +
+                  '</a>' +
+                  '<a onclick="documentPreview.showLikersPopup(\'' + comment.id + '\');" data-placement="bottom" class="likeCommentCount ' + (comment.liked ? 'commentLiked' : '') + '" style="display: ' + (comment.likes.length > 0 ? 'inline' : 'none') +'" data-html="true" rel="tooltip" title="' + commentLikers + '" id="likeCommentCount_' + comment.id + '" href="javascript:void(0);">' + (comment.likes.length > 0 ? '(' + comment.likes.length + ')' : '') + '</a>' +
+                '</li>' +
+                '<li class="separator">-</li>' +
+                '<li>' +
+                  '<a class="replyCommentLink" data-placement="bottom" href="javascript:void(0);" data-comment="' + comment.id + '" data-parent-comment="' + parentCommentIdString + '">' +
+                  '${UIActivity.label.Reply}' +
+                  '</a>' +
+                '</li>' +
+              '</ul>';
           }
 
-          commentsHtml += '  </div> \
-          </li>';
+          commentsHtml += '  </div>' +
+          '</li>';
         })
         commentsHtml += '</ul>';
       } else {
         $('#documentPreviewContainer .nbOfComments').html('0');
-        commentsHtml = '<div class="commentList noComment"> \
-            <div class="info">${UIActivity.comment.noComment}</div> \
-          </div>';
+        commentsHtml = '<div class="commentList noComment">' +
+            '<div class="info">${UIActivity.comment.noComment}</div>' +
+          '</div>';
       }
       var commentsContainer = $('#documentPreviewContainer .commentArea .comments');
       commentsContainer.html(commentsHtml);
@@ -1132,20 +1132,20 @@
                 breadCrumbContent += '&nbsp;<i class="uiIconArrowRight"></i>&nbsp;';
                 breadCrumbContentTooltip += " > ";
               }
-              breadCrumbContent += '<a href="' + folderPath + '" onclick="event.stopPropagation();window.location.href=this.href"> \
-                                      ' + XSSUtils.escapeHtml(folderName) + ' \
-                                    </a>';
+              breadCrumbContent += '<a href="' + folderPath + '" onclick="event.stopPropagation();window.location.href=this.href">' +
+                                       + XSSUtils.escapeHtml(folderName) +
+                                    '</a>';
               breadCrumbContentTooltip += folderName;
               folderIndex++;
           }
         }
         breadCrumbContent += '</div></div>';
       }
-      var fileTitleBlock = '<div class="fileTitle"> \
-          <h4 class="fileName" data-container="body" rel="tooltip" data-placement="top" title="' + documentPreview.settings.doc.title + '"> \
-            <div class="ellipsis">' + documentPreview.settings.doc.title + '</div> \
-            ' + ((documentPreview.settings.version  && documentPreview.settings.version.number) ? ('<div class="label primary fileVersion"' + (documentPreview.settings.doc.openUrl ? 'onclick="window.location.href=\'' + documentPreview.settings.doc.openUrl +'&versions=true\'"' : "") + '>V' + documentPreview.settings.version.number + '</div>') : '') + '\
-          </h4>';
+      var fileTitleBlock = '<div class="fileTitle">' +
+          '<h4 class="fileName" data-container="body" rel="tooltip" data-placement="top" title="' + documentPreview.settings.doc.title + '">' +
+            '<div class="ellipsis">' + documentPreview.settings.doc.title + '</div>' +
+                ((documentPreview.settings.version  && documentPreview.settings.version.number) ? ('<div class="label primary fileVersion"' + (documentPreview.settings.doc.openUrl ? 'onclick="window.location.href=\'' + documentPreview.settings.doc.openUrl +'&versions=true\'"' : "") + '>V' + documentPreview.settings.version.number + '</div>') : '') +
+          '</h4>';
       if(breadCrumbContent) {
         fileTitleBlock += '<div class="breadCrumb ellipsis-reverse" data-container="body" rel="tooltip" data-placement="top" title="' + breadCrumbContentTooltip + '">' + breadCrumbContent + '</div>';
       }
@@ -1154,11 +1154,11 @@
       }
       fileTitleBlock += '</div>';
       if(documentPreview.settings.activity.next || documentPreview.settings.activity.previous) {
-        $blockToAppendTo.append('<div id="NavCommands"> \
-             <div class="arrowPrevious ' + (documentPreview.settings.activity.previous ? '' : 'disabled') + '" onclick="documentPreview.goToPrevious()"  rel="tooltip" data-placement="top" title="${UIActivity.label.Previous}"><span></span></div>'
-             + fileTitleBlock +
-             '<div class="arrowNext ' + (documentPreview.settings.activity.next ? '' : 'disabled') + '" onclick="documentPreview.goToNext()" rel="tooltip" data-placement="top" title="${UIActivity.label.Next}"><span></span></div> \
-          </div>'
+        $blockToAppendTo.append('<div id="NavCommands">' +
+             '<div class="arrowPrevious ' + (documentPreview.settings.activity.previous ? '' : 'disabled') + '" onclick="documentPreview.goToPrevious()"  rel="tooltip" data-placement="top" title="${UIActivity.label.Previous}"><span></span></div>'
+               + fileTitleBlock +
+             '<div class="arrowNext ' + (documentPreview.settings.activity.next ? '' : 'disabled') + '" onclick="documentPreview.goToNext()" rel="tooltip" data-placement="top" title="${UIActivity.label.Next}"><span></span></div>' +
+          '</div>'
         );
       } else {
         $blockToAppendTo.append('<div id="NavCommands">'

@@ -397,10 +397,10 @@ eXoEventGadget.prototype.unavailableService = function(){
                         while (content.hasChildNodes()) {
                                 content.removeChild(content.lastChild);
                         }
-                        content.innerHTML = '<div><div id="required_profiles" class="ContentDisabled"><b>My Agenda Gadget</b> requires the <b>[default, collaboration, all]</b> profile. \
-                                                <a id="fixThisLink" href="#" onclick="eXoEventGadget.click_fixthisLink()">[Fix this]</a>.</div> \
-                                                <div class="FixThis" style="display:none;" id="fix_this"> \
-                                                </div></div>';
+                        content.innerHTML = '<div><div id="required_profiles" class="ContentDisabled"><b>My Agenda Gadget</b> requires the <b>[default, collaboration, all]</b> profile.' +
+                                                '<a id="fixThisLink" href="#" onclick="eXoEventGadget.click_fixthisLink()">[Fix this]</a>.</div>' +
+                                                '<div class="FixThis" style="display:none;" id="fix_this">' +
+                                                '</div></div>';
        			gadgets.window.adjustHeight($("#agenda-gadget").get(0).offsetHeight);
 }
 
@@ -420,10 +420,10 @@ eXoEventGadget.prototype.click_fixthisLink = function() {
                                 required_profiles_form.style.display = "none";
                                 var fix_this_form = document.getElementById("fix_this");
                                 fix_this_form.style.display = "block";                                  
-                                fix_this_form.innerHTML = '<p><b>Your system is currently running: [' + data.runningProfile + ']</b></p> \
-                                                        <p>You can enable <b>[default, collaboration, all]</b> profile with:<br/> \
-                                                        <b>-Dexo.profiles=[default, collaboration, all]</b></p>\
-                                                        <a onclick="eXoEventGadget.displayProfileInfo(\'fix_this\',\'required_profiles\')" href="#">[OK]</a>';
+                                fix_this_form.innerHTML = '<p><b>Your system is currently running: [' + data.runningProfile + ']</b></p>' +
+                                                        '<p>You can enable <b>[default, collaboration, all]</b> profile with:<br/>' +
+                                                        '<b>-Dexo.profiles=[default, collaboration, all]</b></p>' +
+                                                        '<a onclick="eXoEventGadget.displayProfileInfo(\'fix_this\',\'required_profiles\')" href="#">[OK]</a>';
                                 gadgets.window.adjustHeight($("#agenda-gadget").get(0).offsetHeight);                                                                            
                           });
                         }
