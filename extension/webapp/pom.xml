@@ -261,6 +261,11 @@
       <scope>runtime</scope>
     </dependency>
     <dependency>
+      <groupId>org.exoplatform.integration</groupId>
+      <artifactId>integ-gatein-commons</artifactId>
+      <scope>runtime</scope>
+    </dependency>
+    <dependency>
       <groupId>org.exoplatform.jcr</groupId>
       <artifactId>exo.jcr.component.core</artifactId>
       <scope>runtime</scope>
