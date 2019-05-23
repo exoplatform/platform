@@ -28,7 +28,7 @@
     
   <page-nodes>
     <node>
-      <uri>spacesAdministration</uri>
+      <uri>spaces/administration</uri>
       <name>spacesAdministration</name>
       <label>#{SpacesAdministrationPortlet.label.spaces}</label>
       <page-reference>group::/platform/users::spacesAdministration</page-reference>

@@ -59,6 +59,12 @@
             </node>
         </node>
         <node>
+            <uri>spaces/spacesTemplates</uri>
+            <name>spacesTemplates</name>
+            <label>#{administration.spacesTemplates}</label>
+            <page-reference>group::/platform/administrators::spacesTemplates</page-reference>
+        </node>
+        <node>
             <uri>administration/servicesManagement</uri>
             <name>servicesManagement</name>
             <label>#{administration.servicesManagement}</label>

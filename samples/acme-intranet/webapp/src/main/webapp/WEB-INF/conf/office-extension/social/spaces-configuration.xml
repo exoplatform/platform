@@ -31,7 +31,7 @@
       <init-params>
         <value-param>
           <name>templateName</name>
-          <value>community</value>
+          <value>${exo.social.template.default:community}</value>
         </value-param>
       </init-params>
     </component-plugin>
@@ -73,7 +73,7 @@
                       <boolean>true</boolean>
                     </field>
                     <field name="order">
-                      <int>4</int>
+                      <int>400</int>
                     </field>
                     <field name="uri">
                       <string>forum</string>
@@ -107,7 +107,7 @@
                       <boolean>true</boolean>
                     </field>
                     <field name="order">
-                      <int>5</int>
+                      <int>500</int>
                     </field>
                     <field name="uri">
                       <string>wiki</string>
@@ -129,7 +129,7 @@
                       <boolean>true</boolean>
                     </field>
                     <field name="order">
-                      <int>2</int>
+                      <int>200</int>
                     </field>
                     <field name="uri">
                       <string>documents</string>
@@ -227,7 +227,7 @@
                       <boolean>true</boolean>
                     </field>
                     <field name="order">
-                      <int>6</int>
+                      <int>600</int>
                     </field>
                     <field name="uri">
                       <string>calendar</string>
@@ -249,7 +249,7 @@
                       <boolean>false</boolean>
                     </field>
                     <field name="order">
-                      <int>10</int>
+                      <int>1000</int>
                     </field>
                     <field name="uri">
                       <string>settings</string>
@@ -271,7 +271,7 @@
                       <boolean>true</boolean>
                     </field>
                     <field name="order">
-                      <int>7</int>
+                      <int>700</int>
                     </field>
                     <field name="uri">
                       <string>members</string>
@@ -329,7 +329,7 @@
                       <boolean>true</boolean>
                     </field>
                     <field name="order">
-                      <int>2</int>
+                      <int>200</int>
                     </field>
                     <field name="uri">
                       <string>documents</string>
@@ -427,7 +427,7 @@
                       <boolean>true</boolean>
                     </field>
                     <field name="order">
-                      <int>4</int>
+                      <int>400</int>
                     </field>
                     <field name="uri">
                       <string>forum</string>
@@ -461,7 +461,7 @@
                       <boolean>true</boolean>
                     </field>
                     <field name="order">
-                      <int>5</int>
+                      <int>500</int>
                     </field>
                     <field name="uri">
                       <string>wiki</string>
@@ -483,7 +483,7 @@
                       <boolean>true</boolean>
                     </field>
                     <field name="order">
-                      <int>6</int>
+                      <int>600</int>
                     </field>
                     <field name="uri">
                       <string>calendar</string>
@@ -505,7 +505,7 @@
                       <boolean>true</boolean>
                     </field>
                     <field name="order">
-                      <int>7</int>
+                      <int>700</int>
                     </field>
                     <field name="uri">
                       <string>members</string>
@@ -527,7 +527,7 @@
                       <boolean>false</boolean>
                     </field>
                     <field name="order">
-                      <int>10</int>
+                      <int>1000</int>
                     </field>
                     <field name="uri">
                       <string>settings</string>
@@ -586,7 +586,7 @@
                       <boolean>true</boolean>
                     </field>
                     <field name="order">
-                      <int>3</int>
+                      <int>300</int>
                     </field>
                     <field name="uri">
                       <string>documents</string>
@@ -684,7 +684,7 @@
                       <boolean>true</boolean>
                     </field>
                     <field name="order">
-                      <int>4</int>
+                      <int>400</int>
                     </field>
                     <field name="uri">
                       <string>calendar</string>
@@ -706,7 +706,7 @@
                       <boolean>true</boolean>
                     </field>
                     <field name="order">
-                      <int>5</int>
+                      <int>500</int>
                     </field>
                     <field name="uri">
                       <string>wiki</string>
@@ -728,7 +728,7 @@
                       <boolean>true</boolean>
                     </field>
                     <field name="order">
-                      <int>6</int>
+                      <int>600</int>
                     </field>
                     <field name="uri">
                       <string>forum</string>
@@ -762,7 +762,7 @@
                       <boolean>true</boolean>
                     </field>
                     <field name="order">
-                      <int>7</int>
+                      <int>700</int>
                     </field>
                     <field name="uri">
                       <string>members</string>
@@ -784,7 +784,7 @@
                       <boolean>false</boolean>
                     </field>
                     <field name="order">
-                      <int>10</int>
+                      <int>1000</int>
                     </field>
                     <field name="uri">
                       <string>settings</string>
@@ -843,7 +843,7 @@
                       <boolean>true</boolean>
                     </field>
                     <field name="order">
-                      <int>2</int>
+                      <int>200</int>
                     </field>
                     <field name="uri">
                       <string>calendar</string>
@@ -865,7 +865,7 @@
                       <boolean>true</boolean>
                     </field>
                     <field name="order">
-                      <int>3</int>
+                      <int>300</int>
                     </field>
                     <field name="uri">
                       <string>documents</string>
@@ -963,7 +963,7 @@
                       <boolean>true</boolean>
                     </field>
                     <field name="order">
-                      <int>4</int>
+                      <int>400</int>
                     </field>
                     <field name="uri">
                       <string>wiki</string>
@@ -985,7 +985,7 @@
                       <boolean>true</boolean>
                     </field>
                     <field name="order">
-                      <int>6</int>
+                      <int>600</int>
                     </field>
                     <field name="uri">
                       <string>members</string>
@@ -1007,7 +1007,7 @@
                       <boolean>false</boolean>
                     </field>
                     <field name="order">
-                      <int>9</int>
+                      <int>900</int>
                     </field>
                     <field name="uri">
                       <string>settings</string>
