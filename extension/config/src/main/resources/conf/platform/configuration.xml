@@ -206,6 +206,9 @@
                   <string>platform-extension</string>
                </value>
                <value>
+                  <string>portlets</string>
+               </value>
+               <value>
                   <string>platformNavigation</string>
                </value>
                <value>

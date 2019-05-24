@@ -398,8 +398,8 @@
                       <field name="categoryName"><string>tools</string></field>
                       <field name="displayName"><string>Bookmarks</string></field>
                       <field name="description"><string>Bookmarks list.</string></field>
-                      <field name="type"><string>gadget</string></field>
-                      <field name="contentId"><string>Bookmark</string></field>
+                      <field name="type"><string>portlet</string></field>
+                      <field name="contentId"><string>portlets/Bookmark</string></field>
                       <field name="accessPermissions">
                         <collection type="java.util.ArrayList" item-type="java.lang.String">
                           <value><string>*:/platform/users</string></value>
