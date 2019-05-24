@@ -106,24 +106,6 @@
             </node>
         </node>
         <node>
-            <uri>administration</uri>
-            <name>administration</name>
-            <label>#{UISetupPlatformToolBarPortlet.label.system}</label>
-            <page-reference>group::platform/administrators::servicesManagement</page-reference>
-            <node>
-                <uri>administration/management</uri>
-                <name>management</name>
-                <label>#{UISetupPlatformToolBarPortlet.label.servicesManagement}</label>
-                <page-reference>group::platform/administrators::servicesManagement</page-reference>
-            </node>
-            <node>
-                <uri>administration/monitoring</uri>
-                <name>monitoring</name>
-                <label>#{UISetupPlatformToolBarPortlet.label.monitoring}</label>
-                <page-reference>group::platform/administrators::monitoring</page-reference>
-            </node>  
-        </node>
-        <node>
             <uri>searchIndexing</uri>
             <name>searchIndexing</name>
             <label>Search Indexing</label>

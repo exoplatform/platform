@@ -65,18 +65,6 @@
             <page-reference>group::/platform/administrators::spacesTemplates</page-reference>
         </node>
         <node>
-            <uri>administration/servicesManagement</uri>
-            <name>servicesManagement</name>
-            <label>#{administration.servicesManagement}</label>
-            <page-reference>group::/platform/administrators::servicesManagement</page-reference>
-        </node>
-        <node>
-            <uri>administration/monitoring</uri>
-            <name>monitoring</name>
-            <label>#{administration.monitoring}</label>
-            <page-reference>group::/platform/administrators::monitoring</page-reference>
-        </node>
-        <node>
             <uri>groupnavigation</uri>
             <name>groupnavigation</name>
             <label>#{administration.groupnavigation}</label>
