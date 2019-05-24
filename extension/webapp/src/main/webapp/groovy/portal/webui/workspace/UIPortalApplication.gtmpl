@@ -204,7 +204,7 @@
      eXo.env.portal.spaceGroup = "<%=SpaceUtils.getSpaceByContext() == null ? "" : SpaceUtils.getSpaceByContext().getGroupId().replace("/spaces/", "")%>" ;
      eXo.env.portal.profileOwner = "<%=Utils.getOwnerRemoteId()%>" ;
 
-     eXo.env.portal.csrfToken = "<%=CSRFTokenUtil.getToken()%>";
+     eXo.env.portal.csrfToken = "<%=CSRFTokenUtil.getToken(((PortalRequestContext)rcontext).getRequest())%>";
      </script>
      <%
     def headerElements = rcontext.getExtraMarkupHeadersAsStrings();
